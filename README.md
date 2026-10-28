@@ -37,7 +37,7 @@ data/sources.json     källregister
 data/land.json        grundkarta (Natural Earth)
 data/empires.json     riken med utbredning per period (Cliopatria)
 data/borders.json     dagens landsgränser (Natural Earth)
-data/religions.json   riken med kristendom som statsreligion (Cliopatria + Wikipedia)
+data/religions.json   religioner över tid: varje rikes religion (Cliopatria + Wikipedia)
 ```
 
 ## Principer
@@ -73,7 +73,7 @@ Hittar du ett faktafel, öppna ett issue och ange vilken uppgift det gäller och
 - **Datan** i `data/` (händelser, fun facts och källregister) är licensierad under [CC BY 4.0](data/LICENSE). Ange "Historia-globen" som källa vid användning.
 - **Grundkartan** i `data/land.json` och **dagens landsgränser** i `data/borders.json` bygger på [Natural Earth](https://www.naturalearthdata.com/) (public domain) via world-atlas.
 - **Rikenas utbredning** i `data/empires.json` är ett förenklat utdrag ur [Cliopatria](https://github.com/Seshat-Global-History-Databank/cliopatria) från Seshat Global History Databank, licensierat under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ändringar: bara Romarriket är med, geometrin är förenklad och perioder med nästan samma gräns är sammanslagna.
-- **Kristendomens spridning** i `data/religions.json` använder gränser från samma Cliopatria-data, förenklade på samma sätt. Årtalen för när varje rike blev kristet kommer från Wikipedia (CC BY-SA), som länkas från källregistret.
+- **Religionerna** i `data/religions.json` använder gränser från samma Cliopatria-data, sammanslagna per religion och förenklade. Varje rikes religion kommer från faktarutan på rikets Wikipedia-sida (CC BY-SA), och sidorna listas i filen. Årtalen för när en del riken blev kristna kommer från Wikipedia och länkas från källregistret.
 - **three.js** laddas från jsDelivr och har MIT-licens. Typsnitten kommer från Google Fonts (SIL Open Font License).
 - Händelsetexterna är egna sammanfattningar. Källorna, ofta Wikipedia (CC BY-SA), länkas från varje uppgift.
 

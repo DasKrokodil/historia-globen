@@ -1,6 +1,6 @@
 // Startar allt och kopplar ihop delarna:
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
-import { loadAll, CAT, t, yearParts } from './model.js';
+import { loadAll, loadReligions, CAT, t, yearParts } from './model.js';
 import { Globe } from './globe.js';
 import { Timeline, yearsAcross, segmentName } from './timeline.js';
 import { EventsLayer } from './layers/events.js';
@@ -22,7 +22,7 @@ async function start() {
   const layer = new EventsLayer(globe, data.events);
   const areas = new AreasLayer(data.polities);
   const borders = new BordersLayer(data.borders);
-  const religions = new ReligionsLayer(data.religions);
+  const religions = new ReligionsLayer();
   const panel = new Panel({
     root: $('panel'), list: $('event-list'), filters: $('filters'), detail: $('detail'),
     sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'),
@@ -49,11 +49,29 @@ async function start() {
     $('religion-list').hidden = !layers.on.religions;
     ff.enabled = layers.on.funfacts;
   };
-  layers.sublist($('religion-list'), data.religions.map(r => ({ id: r.id, name: t(r.name), color: r.color })), (id, on) => {
-    on ? religions.hidden.delete(id) : religions.hidden.add(id);
-    refresh();
-  });
   applyLayers();
+  // Religionerna laddas första gången lagret slås på, och då byggs undermenyn
+  let religionsLoading = false;
+  async function ensureReligions() {
+    if (religionsLoading || !layers.on.religions) return;
+    religionsLoading = true;
+    $('religion-list').textContent = 'Laddar religioner…';
+    try {
+      const doc = await loadReligions();
+      religions.setData(doc.religions);
+      $('religion-list').textContent = '';
+      layers.sublist($('religion-list'), doc.religions.map(r => ({ id: r.id, name: t(r.name), color: r.color })), (id, on) => {
+        on ? religions.hidden.delete(id) : religions.hidden.add(id);
+        refresh();
+      });
+      data.religionsDoc = doc;
+      refresh();
+    } catch (err) {
+      console.error(err);
+      $('religion-list').textContent = 'Religionerna kunde inte laddas.';
+      religionsLoading = false;
+    }
+  }
   const noEvents = new Set();
 
   let selectedId = null;
@@ -120,7 +138,7 @@ async function start() {
     if (show) globe.composeFlat($('flat-canvas'));
   });
 
-  layers.onChange = () => { applyLayers(); refresh(); };
+  layers.onChange = () => { applyLayers(); ensureReligions(); refresh(); };
 
   // Rikenas namn ritas med IM Fell English, rita om när typsnittet har laddats
   document.fonts?.ready.then(refresh);

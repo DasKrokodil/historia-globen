@@ -146,6 +146,8 @@ body {
   border: 1px solid var(--line);
   border-radius: var(--r);
   backdrop-filter: blur(6px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 .layer-row {
   display: flex; align-items: center; flex-wrap: wrap; gap: 4px 10px;

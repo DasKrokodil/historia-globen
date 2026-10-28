@@ -14,12 +14,15 @@ export class SourcesDialog {
   }
 
   open(highlightIds = null) {
-    const { sources, events, funfacts, polities, land, borders, religions } = this.data;
-    const states = religions.flatMap(r => r.states);
+    const { sources, events, funfacts, polities, land, borders, religionsDoc } = this.data;
+    // Religionslagrets riken: med kontrollerat år för kristnandet har de en egen källa
+    const states = (religionsDoc?.polities ?? []).filter(p => p.source).map(p => ({ name: p.name, sources: [p.source], review: 'source-checked' }));
     const usedBy = id => [
       ...events.filter(e => e.sources?.includes(id)).map(e => t(e.title)),
       ...polities.filter(p => p.sources?.includes(id)).map(p => t(p.name)),
-      ...states.filter(s => s.sources?.includes(id)).map(s => `${t(s.name)} (kristendom)`),
+      ...states.filter(s => s.sources?.includes(id)).map(s => `${s.name} (kristendom)`),
+      ...(id === 'wikipedia-religion' ? ['Religioner (faktarutan för varje rike)'] : []),
+      ...(id === 'wp-religion-by-country' ? ['Religioner (nutida länder från 1900)'] : []),
       ...(land.source === id ? ['Grundkartan'] : []),
       ...(borders.source === id ? ['Dagens gränser'] : []),
     ];

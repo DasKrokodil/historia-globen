@@ -41,6 +41,7 @@ export class LayerMenu {
     // Menyn läggs under knappen, som kan hamna på olika rader i smal skärm
     const r = this.button.getBoundingClientRect();
     this.menu.style.top = `${r.bottom + 8}px`;
+    this.menu.style.maxHeight = `calc(100dvh - ${r.bottom + 24}px)`; // lång meny rullar i stället
     this.menu.hidden = false;
     this.button.setAttribute('aria-expanded', 'true');
   }
