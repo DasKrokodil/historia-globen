@@ -19,6 +19,7 @@ Alla issues och etiketter finns redan. När milstolparna finns kan Claude koppla
 | 11 | Version 13: Skolläge | Quiz och lektioner | #65, #66 |
 | 12 | Riken | Parallellt spår efter version 2, paket R1–R6 | #67–#78 |
 | 13 | Hårdvara | Parallellt spår efter version 3, H1–H3 | #79–#81 |
+| 14 | Version 14: Vetenskap och medicin | Vetenskapliga genombrott och medicinska framsteg | #85, #86 |
 
 ## Issues utan milstolpe
 
@@ -26,5 +27,4 @@ Dessa fanns redan och hör inte till någon av milstolparna ovan:
 
 - #5 En religions spridning över tid och #6 Lagerväljare (version 2, etikett `version-2`)
 - #17 Rikard granskar de nio fun facts (källkontroll)
-- #85 Medicinska framsteg som händelser (Rikard bestämmer milstolpe)
 - #21 Lagren blir suddiga när man zoomar in (pull request #23 är öppen)
