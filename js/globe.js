@@ -38,13 +38,14 @@ export class Globe {
     this.baseCanvas = document.createElement('canvas');
     this.baseCanvas.width = 4096; this.baseCanvas.height = 2048;
     this.overlayCanvas = document.createElement('canvas');
-    this.overlayCanvas.width = 2048; this.overlayCanvas.height = 1024;
+    this.overlayCanvas.width = 4096; this.overlayCanvas.height = 2048;
 
     this.baseTex = new THREE.CanvasTexture(this.baseCanvas);
     this.baseTex.colorSpace = THREE.SRGBColorSpace;
     this.baseTex.anisotropy = this.renderer.capabilities.getMaxAnisotropy();
     this.overlayTex = new THREE.CanvasTexture(this.overlayCanvas);
     this.overlayTex.colorSpace = THREE.SRGBColorSpace;
+    this.overlayTex.anisotropy = this.baseTex.anisotropy;
 
     const sphere = new THREE.SphereGeometry(R, 128, 64);
     this.baseMesh = new THREE.Mesh(sphere, new THREE.MeshLambertMaterial({ map: this.baseTex }));
@@ -126,10 +127,10 @@ export class Globe {
 
   /** Lägger ihop grundkarta och lager till den platta bild en fysisk glob skulle få. */
   composeFlat(target) {
-    target.width = 2048; target.height = 1024;
+    target.width = 4096; target.height = 2048;
     const ctx = target.getContext('2d');
-    ctx.drawImage(this.baseCanvas, 0, 0, 2048, 1024);
-    ctx.drawImage(this.overlayCanvas, 0, 0, 2048, 1024);
+    ctx.drawImage(this.baseCanvas, 0, 0, 4096, 2048);
+    ctx.drawImage(this.overlayCanvas, 0, 0, 4096, 2048);
   }
 
   // ---------- Bågar mellan samtidiga platser ----------
