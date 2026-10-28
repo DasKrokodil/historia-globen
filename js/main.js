@@ -71,7 +71,8 @@ async function start() {
   ff.onSelect = select;
   ff.onArcs = pairs => globe.setArcs(pairs);
   ff.onSources = ids => sources.open(ids);
-  ff.onNew = () => timeline.hold(3500);
+  // Uppspelningen stannar vid en ny fun fact, så att man hinner läsa. Play fortsätter.
+  ff.onNew = () => { if (timeline.playing) timeline.pause(); };
   sources.onSettings = refresh;
 
   globe.onClick = (x, y) => {
