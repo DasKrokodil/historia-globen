@@ -40,7 +40,7 @@ async function start() {
     dots: $('track-dots'), ffMarks: $('track-ff'), playBtn: $('btn-play'), playIcon: $('play-icon'),
     stepBtns: document.querySelectorAll('.step'),
   });
-  timeline.setMarks(data.events, data.funfacts, e => CAT[e.category]?.color ?? '#fff');
+  timeline.setMarks(data.events.filter(e => !e.partOf || e.major), data.funfacts, e => CAT[e.category]?.color ?? '#fff');
 
   // Lagerväljaren: vilka lager som syns. Startläget står i index.html.
   const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu') });
