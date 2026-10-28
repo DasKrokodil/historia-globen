@@ -34,7 +34,13 @@ export class Panel {
     });
   }
 
-  render(visible, year, window) {
+  render(visible, year, window, eventsOn = true) {
+    if (!eventsOn) {
+      this.count.textContent = '0';
+      this.sub.textContent = 'Händelselagret är avstängt.';
+      this.list.innerHTML = `<li class="empty-note">Slå på Händelser under Lager för att se vad som hände.</li>`;
+      return;
+    }
     const inside = visible.filter(v => v.inside).length;
     this.count.textContent = String(visible.length);
     const w = Math.round(window), near = visible.length - inside;
