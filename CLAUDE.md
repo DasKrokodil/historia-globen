@@ -107,6 +107,27 @@ Mål: visa att lagertypen **område** fungerar, med utbredning som förändras �
 
 Stanna efter version 2 och låt Rikard utvärdera innan mer data läggs in.
 
+## Versionsplan
+
+Hela planen finns som milstolpar och issues i GitHub. Efter version 2 kommer fyra faser och två parallella spår:
+
+| Fas | Versioner | Innehåll |
+|---|---|---|
+| A: fler lagertyper | 3–5 | 3 Krig och slag, 4 Handelsvägar och upptäcktsresor, 5 Guidade turer |
+| B: tidens djup | 6–7 | 6 Människoarter, 7 Djup tid |
+| C: världen som karta | 8–10 | 8 Skolatlasen, 9 Flöden i nutid, 10 Rymden |
+| D: bredd och användare | 11–14 | 11 Hela världen, 12 Språk och sök, 13 Skolläge, 14 Vetenskap och medicin |
+
+Parallella spår:
+- **Riken** (paket R1–R6) börjar efter version 2.
+- **Hårdvara** (H1–H3) börjar efter version 3. Det är anteckningar, och planeringen sker i Rikards Claude-projekt.
+
+Regler:
+- **Varje version slutar med att Rikard utvärderar** innan nästa börjar.
+- **Stora datamängder fylls på först när tekniken för dem fungerar.**
+- **Varje paket och varje version ska ha innehåll från flera världsdelar**, eftersom öppna data har slagsida mot Europa.
+- Nya datakällor läggs in i README:ns licensavsnitt när de faktiskt används, inte innan.
+
 ## Öppna frågor (Rikard bestämmer)
 
 - Ska projektet få en egen .se-domän, och behålls namnet Historia-globen eller blir det ett internationellt namn?
@@ -122,3 +143,6 @@ Nya beslut läggs till sist, med datum, beslut och kort motivering.
 | 2026-10-28 | GitHub Issues används som idélista och backlog, med issue-mallar och etiketter. Varje ändring görs i en pull request som stänger sitt issue. | Ett fast arbetssätt gör att idéer inte tappas bort och att det syns vad som är gjort och varför. |
 | 2026-10-28 | Cliopatria används som den är: årtal, gränser, namn och Wikidata-id räknas som korrekta och får status `source-checked` utan egen granskning. Östromerska riket slutar 632 där Cliopatria går över till Bysantinska riket. Årtal före vår tideräkning tas oförändrade från Cliopatria. | Rikard vill inte granska källor i dagsläget. Cliopatria är en forskningsdatabas (Seshat) som räknas som tillförlitlig. |
 | 2026-10-28 | Lagerbilden (`overlayCanvas`) och den platta bilden höjs från 2048×1024 till 4096×2048, samma som grundkartan. Lager ritar linjer, text och sken i storlek relativt bildens bredd. | Lagren blev suddiga vid inzoomning (#21). Beslut 1 behålls: allt ritas fortfarande på en platt bild. |
+| 2026-10-28 | Versionsplan med fyra faser (A–D, version 3–13) och två parallella spår (Riken, Hårdvara) läggs in som milstolpar och issues. Varje version avslutas med Rikards utvärdering, och varje version ska ha innehåll från flera världsdelar. | Ger en överblick över hela projektet och motverkar slagsidan mot Europa i öppna data. |
+| 2026-10-28 | Ny Version 14: Vetenskap och medicin (vetenskapliga genombrott och medicinska framsteg), sist i fas D. | Rikard vill ha med stora framsteg inom vetenskap och medicin som egen version. |
+| 2026-10-28 | Fun facts blir ett eget lager i lagerväljaren, inte en kategori. När lagret är av visas inga fun facts och uppspelningen pausar inte vid dem. | Att visa fun facts samtidigt som riken och andra lager blir lätt rörigt. En fun fact kopplar ihop olika kategorier, så den passar inte som en kategori bland de andra. |
