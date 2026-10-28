@@ -1,6 +1,6 @@
 {
   "schema": "historia-globen/events@1",
-  "notes": "start/end = astronomiska år (ISO 8601): 0 = 1 f.Kr., -1 = 2 f.Kr. precision = Wikidatas skala (7 = århundrade, 8 = decennium, 9 = år, 11 = dag). location = GeoJSON [lon, lat]. review: draft | source-checked | human-reviewed.",
+  "notes": "start/end = astronomiska år (ISO 8601): 0 = 1 f.Kr., -1 = 2 f.Kr. precision = Wikidatas skala (7 = århundrade, 8 = decennium, 9 = år, 11 = dag). location = GeoJSON [lon, lat]. review: draft | source-checked | human-reviewed. kind = \"war\" för krig (spann); partOf = krigets id för slag och händelser i ett krig.",
   "events": [
     { "id": "cheopspyramiden", "category": "kultur", "start": -2599, "end": -2599, "precision": 7, "edtf": "-2599~",
       "location": { "type": "Point", "coordinates": [31.134, 29.979] }, "place": { "sv": "Giza, Egypten" },
@@ -228,6 +228,66 @@
       "location": { "type": "Point", "coordinates": [-98.583,  39.833] }, "locationPrecision": "country", "place": { "sv": "USA" },
       "title": { "sv": "Star Wars har premiär" },
       "summary": { "sv": "Filmen Star Wars har premiär på ett fåtal biografer i USA den 25 maj 1977 och blir snabbt en oväntad publiksuccé." },
-      "sources": ["wp-star-wars",  "wp-us-center"], "review": "source-checked" }
+      "sources": ["wp-star-wars",  "wp-us-center"], "review": "source-checked" },
+
+    { "id": "trettioariga-kriget", "category": "krig", "kind": "war", "start": 1618, "end": 1648, "precision": 11, "edtf": "1618-05-23/1648-10-24",
+      "location": { "type": "Point", "coordinates": [14.421,  50.088] }, "locationPrecision": "region", "place": { "sv": "Centraleuropa (började i Prag)" },
+      "title": { "sv": "Trettioåriga kriget" },
+      "summary": { "sv": "Ett av de mest förödande krigen i Europas historia, främst utkämpat i Centraleuropa. Uppskattningsvis 4,5–8 miljoner soldater och civila dog av strider, svält eller sjukdom." },
+      "sources": ["wp-thirty-years-war",  "wp-prague"], "review": "source-checked" },
+
+    { "id": "defenestrationen-1618", "category": "krig", "partOf": "trettioariga-kriget", "start": 1618, "end": 1618, "precision": 11, "edtf": "1618-05-23",
+      "location": { "type": "Point", "coordinates": [14.421,  50.088] }, "place": { "sv": "Prag, Böhmen" },
+      "title": { "sv": "Defenestrationen i Prag" },
+      "summary": { "sv": "Den 23 maj 1618 kastas ombud för kejsaren ut genom ett fönster i Prag. Händelsen markerar krigets början." },
+      "sources": ["wp-defenestrations-prague",  "wp-thirty-years-war",  "wp-prague"], "review": "source-checked" },
+
+    { "id": "slaget-vid-vita-berget", "category": "krig", "partOf": "trettioariga-kriget", "start": 1620, "end": 1620, "precision": 11, "edtf": "1620-11-08",
+      "location": { "type": "Point", "coordinates": [14.421,  50.088] }, "locationPrecision": "region", "place": { "sv": "Vita berget nära Prag, Böhmen" },
+      "title": { "sv": "Slaget vid Vita berget" },
+      "summary": { "sv": "Slaget den 8 november 1620 nära Prag hör till det böhmiska upproret, krigets första fas." },
+      "sources": ["wp-white-mountain",  "wp-prague"], "review": "source-checked" },
+
+    { "id": "slaget-vid-breitenfeld-1631", "category": "krig", "partOf": "trettioariga-kriget", "start": 1631, "end": 1631, "precision": 11, "edtf": "1631-09-17",
+      "location": { "type": "Point", "coordinates": [12.378,  51.418] }, "place": { "sv": "Breitenfeld vid Leipzig, Sachsen" },
+      "title": { "sv": "Slaget vid Breitenfeld" },
+      "summary": { "sv": "Den 17 september 1631 leder Gustav II Adolf svenska och sachsiska trupper till seger över kejsarens och Katolska ligans arméer." },
+      "sources": ["wp-breitenfeld-1631"], "review": "source-checked" },
+
+    { "id": "slaget-vid-lutzen-1632", "category": "krig", "partOf": "trettioariga-kriget", "start": 1632, "end": 1632, "precision": 11, "edtf": "1632-11-16",
+      "location": { "type": "Point", "coordinates": [12.142,  51.26] }, "place": { "sv": "Lützen, Sachsen" },
+      "title": { "sv": "Slaget vid Lützen" },
+      "summary": { "sv": "Den 16 november 1632 möts svenska och kejserliga arméer vid Lützen. Gustav II Adolf stupar under slaget." },
+      "sources": ["wp-lutzen-1632",  "wp-lutzen"], "review": "source-checked" },
+
+    { "id": "slaget-vid-nordlingen-1634", "category": "krig", "partOf": "trettioariga-kriget", "start": 1634, "end": 1634, "precision": 11, "edtf": "1634-09-05/1634-09-06",
+      "location": { "type": "Point", "coordinates": [10.486,  48.806] }, "place": { "sv": "Nördlingen, Bayern" },
+      "title": { "sv": "Slaget vid Nördlingen" },
+      "summary": { "sv": "Den 5–6 september 1634 besegrar kejserliga och spanska trupper svenskarna och deras tyska förbundna." },
+      "sources": ["wp-nordlingen-1634"], "review": "source-checked" },
+
+    { "id": "slaget-vid-wittstock", "category": "krig", "partOf": "trettioariga-kriget", "start": 1636, "end": 1636, "precision": 11, "edtf": "1636-10-04",
+      "location": { "type": "Point", "coordinates": [12.486,  53.164] }, "place": { "sv": "Wittstock, Brandenburg" },
+      "title": { "sv": "Slaget vid Wittstock" },
+      "summary": { "sv": "Den 4 oktober 1636 vinner en svensk armé under Johan Banér ett slag vid Wittstock." },
+      "sources": ["wp-wittstock-battle",  "wp-wittstock"], "review": "source-checked" },
+
+    { "id": "slaget-vid-rocroi", "category": "krig", "partOf": "trettioariga-kriget", "start": 1643, "end": 1643, "precision": 11, "edtf": "1643-05-19",
+      "location": { "type": "Point", "coordinates": [4.528,  49.919] }, "place": { "sv": "Rocroi, Frankrike" },
+      "title": { "sv": "Slaget vid Rocroi" },
+      "summary": { "sv": "Den 19 maj 1643 besegrar franska trupper en spansk armé vid Rocroi." },
+      "sources": ["wp-rocroi"], "review": "source-checked" },
+
+    { "id": "slaget-vid-jankau", "category": "krig", "partOf": "trettioariga-kriget", "start": 1645, "end": 1645, "precision": 11, "edtf": "1645-03-06",
+      "location": { "type": "Point", "coordinates": [14.729,  49.65] }, "place": { "sv": "Jankov, Böhmen" },
+      "title": { "sv": "Slaget vid Jankau" },
+      "summary": { "sv": "Den 6 mars 1645 vinner Sverige ett slag vid Jankov i Böhmen." },
+      "sources": ["wp-jankau"], "review": "source-checked" },
+
+    { "id": "westfaliska-freden", "category": "krig", "partOf": "trettioariga-kriget", "start": 1648, "end": 1648, "precision": 11, "edtf": "1648-10-24",
+      "location": { "type": "Point", "coordinates": [7.626,  51.963] }, "locationPrecision": "region", "place": { "sv": "Osnabrück och Münster, Westfalen" },
+      "title": { "sv": "Westfaliska freden" },
+      "summary": { "sv": "Fredsavtalen i Osnabrück och Münster undertecknas den 24 oktober 1648 och avslutar kriget." },
+      "sources": ["wp-peace-westphalia",  "wp-munster"], "review": "source-checked" }
   ]
 }

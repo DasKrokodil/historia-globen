@@ -409,6 +409,11 @@ body {
   pointer-events: none;
 }
 
+.war-link { margin: 6px 0; font-size: 13px; color: var(--parchment-dim); }
+.war-list h4 { margin: 10px 0 4px; font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+.war-list ol { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.6; }
+.war-list .meta { font: 400 11px/1 var(--f-mono); color: var(--parchment-dim); }
+
 /* ---------- smal skärm ---------- */
 @media (max-width: 760px) {
   .panel-toggle { display: inline-block; }

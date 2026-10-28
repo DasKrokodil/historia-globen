@@ -92,6 +92,13 @@ export async function loadAll() {
     getJSON('data/borders.json'),
   ]);
   const byId = Object.fromEntries(events.events.map(e => [e.id, e]));
+  // Krig och slag (#27): slagen pekar på sitt krig med partOf
+  for (const e of events.events) if (e.kind === 'war') e._battles = [];
+  for (const e of events.events) {
+    const war = e.partOf && byId[e.partOf];
+    if (war?._battles) { e._war = war; war._battles.push(e); }
+  }
+  for (const e of events.events) e._battles?.sort((a, b) => a.start - b.start || (a.edtf < b.edtf ? -1 : 1));
   const srcById = Object.fromEntries(sources.sources.map(s => [s.id, s]));
   // Fun facts ärver källorna från sina händelser (källa krävs för båda leden).
   for (const f of funfacts.funfacts) {

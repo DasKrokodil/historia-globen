@@ -26,7 +26,8 @@ js/timeline.js        tidsreglage, segmenterad tidsskala, nuvarande år
 js/layers/events.js   lager: händelser som punkter
 js/layers/areas.js    lager: riken som områden som ändras över tid
 js/layers/borders.js  lager: dagens landsgränser (av som standard)
-js/layers/religions.js lager: religioner som områden (kristendom)
+js/layers/religions.js lager: religioner som områden
+js/layers/wars.js     lager: krigsområden runt krigets slag
 js/ui/panel.js        "Samtidigt i världen" och detaljvy
 js/ui/funfact.js      fun facts-kort och bågar på globen
 js/ui/sources.js      sidan Om källorna

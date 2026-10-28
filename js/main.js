@@ -7,6 +7,7 @@ import { EventsLayer } from './layers/events.js';
 import { AreasLayer } from './layers/areas.js';
 import { BordersLayer } from './layers/borders.js';
 import { ReligionsLayer } from './layers/religions.js';
+import { WarsLayer } from './layers/wars.js';
 import { Panel } from './ui/panel.js';
 import { FunFacts } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
@@ -23,6 +24,7 @@ async function start() {
   const areas = new AreasLayer(data.polities);
   const borders = new BordersLayer(data.borders);
   const religions = new ReligionsLayer();
+  const wars = new WarsLayer(data.events);
   const panel = new Panel({
     root: $('panel'), list: $('event-list'), filters: $('filters'), detail: $('detail'),
     sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'),
@@ -87,12 +89,15 @@ async function start() {
     areas.update({ year });
     borders.update({ year });
     religions.update({ year });
+    wars.enabled = eventsOn;
+    wars.update({ year, filters: panel.filters });
     const ctx = globe.overlayContext();
     const W = globe.overlayCanvas.width, H = globe.overlayCanvas.height;
-    // Ordning nedifrån och upp: riken, religioner, dagens gränser, händelsernas sken
+    // Ordning nedifrån och upp: riken, religioner, dagens gränser, krigsområden, händelsernas sken
     areas.drawOverlay(ctx, W, H);
     religions.drawOverlay(ctx, W, H);
     borders.drawOverlay(ctx, W, H);
+    wars.drawOverlay(ctx, W, H);
     layer.drawOverlay(ctx, W, H);
     globe.commitOverlay();
     if (!$('flat-view').hidden) globe.composeFlat($('flat-canvas'));
