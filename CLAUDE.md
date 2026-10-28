@@ -49,7 +49,7 @@ Nya lager läggs i `js/layers/`, ny UI i `js/ui/`, ny data i `data/`. Uppdatera 
 - **Plats** = GeoJSON i WGS 84, `[longitud, latitud]`. Områden blir `Polygon`/`MultiPolygon`. Valfritt `locationPrecision`: `region` eller `country` när platsen är ungefärlig.
 - **Texter** lagras per språk: `{ "sv": "...", "en": "...", "fr", "de", "es" }`. Svenska först. Saknas ett språk visas engelska, sedan svenska (`t()` i `model.js`).
 - **Kategorier** (fast lista, `CATEGORIES` i `model.js`): natur, manniskan, civilisationer, religion, vetenskap, upptackter, krig, kultur, sport, ekonomi, halsa, klimat, rymden. Nya kategorier kräver Rikards ok.
-- **Händelse**, obligatoriska fält: `id` (läsbart, unikt), `category`, `start`, `end`, `precision`, `edtf`, `location`, `place`, `title`, `summary`, `sources` (lista med id från sources.json), `review`. Valfritt: `wikidata` (Q-id, bara om du har verifierat det).
+- **Händelse**, obligatoriska fält: `id` (läsbart, unikt), `category`, `start`, `end`, `precision`, `edtf`, `location`, `place`, `title`, `summary`, `sources` (lista med id från sources.json), `review`. Valfritt: `wikidata` (Q-id, bara om du har verifierat det eller om det kommer från en datakälla vi litar på, se Beslutslogg).
 
 ## Källpolicy – viktigast av allt
 
@@ -120,3 +120,4 @@ Nya beslut läggs till sist, med datum, beslut och kort motivering.
 | Datum | Beslut | Motivering |
 |---|---|---|
 | 2026-10-28 | GitHub Issues används som idélista och backlog, med issue-mallar och etiketter. Varje ändring görs i en pull request som stänger sitt issue. | Ett fast arbetssätt gör att idéer inte tappas bort och att det syns vad som är gjort och varför. |
+| 2026-10-28 | Cliopatria används som den är: årtal, gränser, namn och Wikidata-id räknas som korrekta och får status `source-checked` utan egen granskning. Östromerska riket slutar 632 där Cliopatria går över till Bysantinska riket. Årtal före vår tideräkning tas oförändrade från Cliopatria. | Rikard vill inte granska källor i dagsläget. Cliopatria är en forskningsdatabas (Seshat) som räknas som tillförlitlig. |
