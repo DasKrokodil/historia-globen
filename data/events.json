@@ -156,6 +156,78 @@
       "location": { "type": "Point", "coordinates": [6.055, 46.234] }, "place": { "sv": "CERN, Genève" },
       "title": { "sv": "Webben uppfinns" },
       "summary": { "sv": "Tim Berners-Lee lämnar in sitt förslag om World Wide Web på CERN i mars 1989. I slutet av 1990 fungerar systemet." },
-      "sources": ["wp-www"], "review": "source-checked" }
+      "sources": ["wp-www"], "review": "source-checked" },
+
+    { "id": "nintendo", "category": "ekonomi", "start": 1889, "end": 1889, "precision": 11, "edtf": "1889-09-23",
+      "location": { "type": "Point", "coordinates": [135.768,  35.012] }, "place": { "sv": "Kyoto, Japan" },
+      "title": { "sv": "Nintendo grundas" },
+      "summary": { "sv": "Fusajiro Yamauchi grundar Nintendo i Kyoto den 23 september 1889. Från början tillverkar företaget handgjorda hanafuda-spelkort." },
+      "sources": ["wp-nintendo",  "wp-kyoto"], "review": "source-checked" },
+
+    { "id": "eiffeltornet", "category": "kultur", "start": 1889, "end": 1889, "precision": 10, "edtf": "1889-03",
+      "location": { "type": "Point", "coordinates": [2.2945,  48.8582] }, "place": { "sv": "Paris, Frankrike" },
+      "title": { "sv": "Eiffeltornet står klart" },
+      "summary": { "sv": "Eiffeltornet byggs som mittpunkt för världsutställningen 1889 i Paris. Själva konstruktionen blir klar i slutet av mars 1889." },
+      "sources": ["wp-eiffel-tower"], "review": "source-checked" },
+
+    { "id": "cervantes-dor", "category": "kultur", "start": 1616, "end": 1616, "precision": 11, "edtf": "1616-04-22",
+      "location": { "type": "Point", "coordinates": [-3.703,  40.417] }, "place": { "sv": "Madrid, Spanien" },
+      "title": { "sv": "Cervantes dör" },
+      "summary": { "sv": "Miguel de Cervantes, författaren till Don Quijote och en av de största författarna på spanska, dör i Madrid den 22 april 1616." },
+      "sources": ["wp-cervantes",  "wp-madrid"], "review": "source-checked" },
+
+    { "id": "shakespeare-dor", "category": "kultur", "start": 1616, "end": 1616, "precision": 11, "edtf": "1616-04-23",
+      "location": { "type": "Point", "coordinates": [-1.706,  52.193] }, "place": { "sv": "Stratford-upon-Avon, England" },
+      "title": { "sv": "Shakespeare dör" },
+      "summary": { "sv": "William Shakespeare dör den 23 april 1616 i Stratford-upon-Avon, där han också föddes. Han räknas som den största författaren på engelska." },
+      "sources": ["wp-shakespeare",  "wp-stratford"], "review": "source-checked" },
+
+    { "id": "ieyasu-dor", "category": "civilisationer", "start": 1616, "end": 1616, "precision": 11, "edtf": "1616-06-01",
+      "location": { "type": "Point", "coordinates": [138.384,  34.979] }, "place": { "sv": "Sunpu, Japan" },
+      "title": { "sv": "Tokugawa Ieyasu dör" },
+      "summary": { "sv": "Tokugawa Ieyasu, som grundade Tokugawa-shogunatet i Japan, dör på slottet Sunpu den 1 juni 1616." },
+      "sources": ["wp-tokugawa-ieyasu",  "wp-sunpu-castle"], "review": "source-checked" },
+
+    { "id": "lincoln-fods", "category": "civilisationer", "start": 1809, "end": 1809, "precision": 11, "edtf": "1809-02-12",
+      "location": { "type": "Point", "coordinates": [-85.739,  37.571] }, "locationPrecision": "region", "place": { "sv": "LaRue County, Kentucky, USA" },
+      "title": { "sv": "Abraham Lincoln föds" },
+      "summary": { "sv": "Abraham Lincoln, senare USA:s president, föds den 12 februari 1809 i LaRue County i Kentucky." },
+      "sources": ["wp-lincoln",  "wp-hodgenville"], "review": "source-checked" },
+
+    { "id": "darwin-fods", "category": "vetenskap", "start": 1809, "end": 1809, "precision": 11, "edtf": "1809-02-12",
+      "location": { "type": "Point", "coordinates": [-2.754,  52.708] }, "place": { "sv": "Shrewsbury, England" },
+      "title": { "sv": "Charles Darwin föds" },
+      "summary": { "sv": "Charles Darwin, som senare formulerar teorin om evolution genom naturligt urval, föds i Shrewsbury den 12 februari 1809." },
+      "sources": ["wp-darwin",  "wp-shrewsbury"], "review": "source-checked" },
+
+    { "id": "mansa-musa-kairo", "category": "religion", "start": 1324, "end": 1324, "precision": 10, "edtf": "1324-07",
+      "location": { "type": "Point", "coordinates": [31.236,  30.044] }, "place": { "sv": "Kairo, Egypten" },
+      "title": { "sv": "Mansa Musa i Kairo" },
+      "summary": { "sv": "Mali-kungen Mansa Musa når Kairo i juli 1324 på sin pilgrimsfärd till Mecka. Följet väcker uppseende med sin storlek och rikedom." },
+      "sources": ["wp-mansa-musa",  "wp-cairo"], "review": "source-checked" },
+
+    { "id": "ibn-battuta-resa", "category": "upptackter", "start": 1325, "end": 1325, "precision": 11, "edtf": "1325-06-14",
+      "location": { "type": "Point", "coordinates": [-5.804,  35.777] }, "place": { "sv": "Tanger, Marocko" },
+      "title": { "sv": "Ibn Battuta ger sig av" },
+      "summary": { "sv": "Den 14 juni 1325 lämnar 21-årige Ibn Battuta sin hemstad Tanger för att pilgrimsvandra till Mecka. Det blir början på resor som varar i många år." },
+      "sources": ["wp-ibn-battuta",  "wp-tangier"], "review": "source-checked" },
+
+    { "id": "taj-mahal", "category": "kultur", "start": 1632, "end": 1653, "precision": 9, "edtf": "1632/1653",
+      "location": { "type": "Point", "coordinates": [78.042,  27.175] }, "place": { "sv": "Agra, Indien" },
+      "title": { "sv": "Taj Mahal byggs" },
+      "summary": { "sv": "Bygget av Taj Mahal i Agra, ett gravmonument över Mumtaz Mahal, börjar 1632. Hela anläggningen tros vara klar 1653." },
+      "sources": ["wp-taj-mahal"], "review": "source-checked" },
+
+    { "id": "sista-giljotinen", "category": "civilisationer", "start": 1977, "end": 1977, "precision": 11, "edtf": "1977-09-10",
+      "location": { "type": "Point", "coordinates": [5.414,  43.233] }, "place": { "sv": "Baumettesfängelset, Marseille, Frankrike" },
+      "title": { "sv": "Sista avrättningen med giljotin" },
+      "summary": { "sv": "Hamida Djandoubi avrättas med giljotin i Marseille den 10 september 1977. Han blir den siste som avrättas i Frankrike innan dödsstraffet avskaffas 1981." },
+      "sources": ["wp-hamida-djandoubi",  "wp-baumettes"], "review": "source-checked" },
+
+    { "id": "star-wars", "category": "kultur", "start": 1977, "end": 1977, "precision": 11, "edtf": "1977-05-25",
+      "location": { "type": "Point", "coordinates": [-98.583,  39.833] }, "locationPrecision": "country", "place": { "sv": "USA" },
+      "title": { "sv": "Star Wars har premiär" },
+      "summary": { "sv": "Filmen Star Wars har premiär på ett fåtal biografer i USA den 25 maj 1977 och blir snabbt en oväntad publiksuccé." },
+      "sources": ["wp-star-wars",  "wp-us-center"], "review": "source-checked" }
   ]
 }

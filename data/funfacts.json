@@ -27,6 +27,24 @@
       "text": { "sv": "En föregångare till faxen patenteras 1843, hela 33 år innan Bell får patent på telefonen." } },
 
     { "id": "osmaner-flyg", "events": ["osmanska-riket", "wright"], "show": [1900, 1910], "review": "source-checked",
-      "text": { "sv": "När bröderna Wright flyger för första gången 1903 finns Osmanska riket fortfarande. Det upphör först 1922." } }
+      "text": { "sv": "När bröderna Wright flyger för första gången 1903 finns Osmanska riket fortfarande. Det upphör först 1922." } },
+
+    { "id": "nintendo-eiffel", "events": ["eiffeltornet",  "nintendo"], "show": [1885,  1895], "review": "source-checked",
+      "text": { "sv": "Samma år som Eiffeltornet står klart i Paris, 1889, grundas Nintendo i Kyoto. Då gör företaget spelkort." } },
+
+    { "id": "dodsfall-1616", "events": ["cervantes-dor",  "shakespeare-dor",  "ieyasu-dor"], "show": [1612,  1620], "review": "source-checked",
+      "text": { "sv": "Under några veckor 1616 dör Cervantes i Madrid, Shakespeare i Stratford och Tokugawa Ieyasu i Japan." } },
+
+    { "id": "lincoln-darwin", "events": ["lincoln-fods",  "darwin-fods"], "show": [1805,  1813], "review": "source-checked",
+      "text": { "sv": "Abraham Lincoln och Charles Darwin föds samma dag, den 12 februari 1809, på var sin sida av Atlanten." } },
+
+    { "id": "musa-battuta-tenochtitlan", "events": ["mansa-musa-kairo",  "ibn-battuta-resa",  "tenochtitlan"], "show": [1322,  1328], "review": "source-checked",
+      "text": { "sv": "1324 når Mansa Musa Kairo på väg till Mecka. 1325 ger sig Ibn Battuta av från Tanger åt samma håll. Samma år grundas Tenochtitlan." } },
+
+    { "id": "taj-harvard", "events": ["taj-mahal",  "harvard"], "show": [1632,  1640], "review": "source-checked",
+      "text": { "sv": "Taj Mahal har byggts i fyra år när Harvard grundas i Massachusetts 1636." } },
+
+    { "id": "giljotin-starwars", "events": ["sista-giljotinen",  "star-wars"], "show": [1975,  1980], "review": "source-checked",
+      "text": { "sv": "Frankrike avrättar sista gången med giljotin i september 1977, ungefär tre och en halv månad efter att Star Wars har haft premiär." } }
   ]
 }
