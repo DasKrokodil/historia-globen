@@ -26,9 +26,10 @@ export class SourcesDialog {
       ...(land.source === id ? ['Grundkartan'] : []),
       ...(borders.source === id ? ['Dagens gränser'] : []),
     ];
-    const counts = { checked: 0, human: 0, draft: 0 };
+    const counts = { checked: 0, two: 0, human: 0, draft: 0 };
     for (const x of [...events, ...funfacts, ...polities, ...states]) {
       if (x.review === 'human-reviewed') counts.human++;
+      else if (x.review === 'two-sources') counts.two++;
       else if (x.review === 'source-checked') counts.checked++;
       else counts.draft++;
     }
@@ -48,13 +49,14 @@ export class SourcesDialog {
       <h3>Källpolicy</h3>
       <ol>
         <li>Varje uppgift har minst en källa, med länk och datum då den kontrollerades.</li>
-        <li>Varje uppgift har en granskningsstatus: utkast, källa kontrollerad eller granskad av människa. Utkast visas inte.</li>
+        <li>Varje uppgift har en granskningsstatus: utkast, källa kontrollerad, två källor stämmer eller granskad av människa. Utkast visas inte.</li>
+        <li>"Två källor stämmer" betyder att årtal och plats har jämförts med en andra, oberoende källa, till exempel Wikidata, och att de stämmer.</li>
         <li>Uppgifter som Claude föreslår är utkast tills källan är öppnad och stämmer.</li>
         <li>Osäkerhet visas öppet, till exempel "cirka" eller ett spann.</li>
         <li>En fun fact som jämför två saker har källa för båda leden.</li>
       </ol>
       <h3>Läget just nu</h3>
-      <p>${counts.checked} uppgifter har kontrollerad källa men väntar på granskning av människa. ${counts.human} är granskade. ${counts.draft} är utkast.</p>
+      <p>${counts.checked} uppgifter har kontrollerad källa. ${counts.two} har dessutom en andra källa som stämmer. Båda grupperna väntar på granskning av människa. ${counts.human} är granskade. ${counts.draft} är utkast.</p>
       <h3>Källregister</h3>
       <div class="src-table-wrap"><table class="src-table">
         <thead><tr><th>Källa</th><th>Licens</th><th>Kontrollerad</th></tr></thead>
