@@ -246,6 +246,7 @@ body {
 }
 .review-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--brass); }
 .review-badge.human::before { background: var(--ok); }
+.review-badge.two::before { background: var(--ok); box-shadow: 4px 0 0 var(--brass); margin-right: 4px; }
 .review-badge.draft::before { background: var(--danger); }
 
 .link-btn {

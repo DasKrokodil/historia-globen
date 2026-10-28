@@ -35,10 +35,11 @@ export const CAT = Object.fromEntries(CATEGORIES.map(c => [c.id, c]));
 export const REVIEW = {
   'draft':          { sv: 'Utkast',                          cls: 'draft' },
   'source-checked': { sv: 'Källa kontrollerad, ej granskad av människa', cls: 'checked' },
+  'two-sources':    { sv: 'Två källor stämmer, ej granskad av människa', cls: 'two' },
   'human-reviewed': { sv: 'Granskad av människa',            cls: 'human' },
 };
 export const settings = { showDrafts: false };
-export const isVisibleReview = r => settings.showDrafts || r === 'source-checked' || r === 'human-reviewed';
+export const isVisibleReview = r => settings.showDrafts || r === 'source-checked' || r === 'two-sources' || r === 'human-reviewed';
 
 // ---------- Tid ----------
 // År lagras astronomiskt (ISO 8601): 0 = 1 f.Kr., -1 = 2 f.Kr.
