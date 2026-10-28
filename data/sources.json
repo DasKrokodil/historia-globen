@@ -4,6 +4,7 @@
     { "id": "natural-earth", "title": "Natural Earth 1:50m land (via world-atlas 2.0.2)", "url": "https://www.naturalearthdata.com/", "license": "Public domain", "checked": "2026-10-28" },
     { "id": "natural-earth-countries", "title": "Natural Earth 1:50m Admin 0, dagens landsgränser (via world-atlas 2.0.2)", "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/", "license": "Public domain", "checked": "2026-10-28" },
     { "id": "cliopatria", "title": "Cliopatria – Seshat Global History Databank (datafil cliopatria_polities_only_v021)", "url": "https://github.com/Seshat-Global-History-Databank/cliopatria", "license": "CC BY 4.0", "checked": "2026-10-28" },
+    { "id": "wikipedia-religion", "title": "Wikipedia – faktarutans rad Religion för varje rike i Cliopatria (sidorna listas i data/religions.json)", "url": "https://en.wikipedia.org/", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
     { "id": "wp-great-pyramid", "title": "Great Pyramid of Giza – Wikipedia", "url": "https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
     { "id": "wp-wrangel", "title": "Wrangel Island – Wikipedia", "url": "https://en.wikipedia.org/wiki/Wrangel_Island", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
     { "id": "wp-oxford", "title": "University of Oxford – Wikipedia", "url": "https://en.wikipedia.org/wiki/University_of_Oxford", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
