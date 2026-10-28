@@ -1,0 +1,150 @@
+// Tidsreglaget äger det nuvarande året (arkitekturprincip 3).
+// Beslut 4: segmenterad skala där nutiden får mer plats än forntiden.
+import { formatYear } from './model.js';
+
+export const MIN_YEAR = -2999;   // 3000 f.Kr.
+export const MAX_YEAR = 2026;
+
+export const SEGMENTS = [
+  { from: -2999, to: -500, a: 0.00, b: 0.25, name: 'Bronsålder och tidig järnålder' },
+  { from:  -500, to: 1000, a: 0.25, b: 0.50, name: 'Antiken och tidig medeltid' },
+  { from:  1000, to: 1800, a: 0.50, b: 0.75, name: 'Medeltid och tidigmodern tid' },
+  { from:  1800, to: 2026, a: 0.75, b: 1.00, name: 'Modern tid' },
+];
+
+// [år, nivå]: 1 = alltid, 2 = från 600 px, 3 = från 900 px
+const TICKS = [
+  [-2999, 1], [-1999, 2], [-999, 3], [-499, 2], [1, 1], [500, 2], [1000, 1],
+  [1200, 3], [1400, 2], [1600, 3], [1800, 1], [1900, 2], [1950, 3], [2000, 1],
+];
+
+const clampY = y => Math.max(MIN_YEAR, Math.min(MAX_YEAR, y));
+const segFor = y => SEGMENTS.find(s => y <= s.to) ?? SEGMENTS.at(-1);
+const segForPos = p => SEGMENTS.find(s => p <= s.b) ?? SEGMENTS.at(-1);
+
+export function yearToPos(y) {
+  y = clampY(y);
+  const s = segFor(y);
+  return s.a + (y - s.from) / (s.to - s.from) * (s.b - s.a);
+}
+export function posToYear(p) {
+  p = Math.max(0, Math.min(1, p));
+  const s = segForPos(p);
+  return Math.round(s.from + (p - s.a) / (s.b - s.a) * (s.to - s.from));
+}
+/** Hur många år som ryms i en viss andel av reglaget vid ett givet år. */
+export function yearsAcross(y, fraction) {
+  const s = segFor(clampY(y));
+  return (s.to - s.from) / (s.b - s.a) * fraction;
+}
+export const segmentName = y => segFor(clampY(y)).name;
+
+export class Timeline extends EventTarget {
+  constructor({ track, thumb, segs, ticks, dots, ffMarks, playBtn, playIcon, stepBtns }) {
+    super();
+    Object.assign(this, { track, thumb, playBtn, playIcon });
+    this._year = 1325;
+    this.playing = false;
+    this.holdUntil = 0;
+
+    for (const s of SEGMENTS) {
+      const d = document.createElement('div');
+      d.className = 'seg'; d.style.width = `${(s.b - s.a) * 100}%`; d.title = s.name;
+      segs.append(d);
+    }
+    for (const [y, level] of TICKS) {
+      const d = document.createElement('div');
+      d.className = `tick lvl${level}` + (y === MIN_YEAR ? ' first' : '');
+      d.style.left = `${yearToPos(y) * 100}%`;
+      d.textContent = y === 1 ? '0' : formatYear(y);
+      ticks.append(d);
+    }
+    this.dotsEl = dots; this.ffEl = ffMarks;
+
+    // Dra i reglaget
+    const setFromX = x => {
+      const r = track.getBoundingClientRect();
+      this.year = posToYear((x - r.left) / r.width);
+    };
+    track.addEventListener('pointerdown', e => { track.setPointerCapture(e.pointerId); this.pause(); setFromX(e.clientX); });
+    track.addEventListener('pointermove', e => { if (track.hasPointerCapture(e.pointerId)) setFromX(e.clientX); });
+    track.addEventListener('keydown', e => {
+      const big = e.shiftKey ? 10 : 1;
+      const map = { ArrowLeft: -big, ArrowRight: big, ArrowDown: -big, ArrowUp: big, PageDown: -100, PageUp: 100 };
+      if (e.key in map) { this.year += map[e.key]; e.preventDefault(); }
+      if (e.key === 'Home') { this.year = MIN_YEAR; e.preventDefault(); }
+      if (e.key === 'End') { this.year = MAX_YEAR; e.preventDefault(); }
+    });
+    for (const b of stepBtns) b.addEventListener('click', () => { this.pause(); this.year += Number(b.dataset.step); });
+    playBtn.addEventListener('click', () => (this.playing ? this.pause() : this.play()));
+  }
+
+  get year() { return this._year; }
+  set year(y) {
+    y = clampY(Math.round(y));
+    if (y === this._year) return;
+    this._year = y;
+    this._render();
+    this.dispatchEvent(new CustomEvent('change', { detail: { year: y } }));
+  }
+
+  /** Markeringar på reglaget: en prick per händelse, ett streck för spann, en romb per fun fact. */
+  setMarks(events, funfacts, colorOf) {
+    this.dotsEl.replaceChildren();
+    for (const e of events) {
+      const a = yearToPos(e.start), b = yearToPos(e.end);
+      const d = document.createElement('div');
+      if (b - a > 0.004) {
+        d.className = 'tspan';
+        d.style.left = `${a * 100}%`; d.style.width = `${(b - a) * 100}%`;
+      } else {
+        d.className = 'tdot';
+        d.style.left = `${a * 100}%`;
+      }
+      d.style.background = colorOf(e);
+      this.dotsEl.append(d);
+    }
+    this.ffEl.replaceChildren();
+    for (const f of funfacts) {
+      const d = document.createElement('div');
+      d.className = 'tff';
+      d.style.left = `${yearToPos((f.show[0] + f.show[1]) / 2) * 100}%`;
+      this.ffEl.append(d);
+    }
+  }
+
+  play() {
+    if (this._year >= MAX_YEAR) this.year = MIN_YEAR;
+    this.playing = true;
+    this.playIcon.setAttribute('d', 'M4 2.5h3v11H4zM9 2.5h3v11H9z');
+    this.playBtn.setAttribute('aria-label', 'Pausa');
+    let last = performance.now();
+    let pos = yearToPos(this._year);
+    const step = now => {
+      if (!this.playing) return;
+      const dt = Math.min(0.1, (now - last) / 1000); last = now;
+      if (now > this.holdUntil) {
+        pos = Math.max(pos, yearToPos(this._year)) + dt * 0.016; // hela tidslinjen på cirka en minut
+        this.year = posToYear(pos);
+        if (this._year >= MAX_YEAR) { this.pause(); return; }
+      }
+      requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  pause() {
+    this.playing = false;
+    this.playIcon.setAttribute('d', 'M4 2.5v11l9-5.5z');
+    this.playBtn.setAttribute('aria-label', 'Spela upp tiden');
+  }
+  /** Stanna en stund vid uppspelning, till exempel när en fun fact dyker upp. */
+  hold(ms) { if (this.playing) this.holdUntil = performance.now() + ms; }
+
+  _render() {
+    const p = yearToPos(this._year);
+    this.thumb.style.left = `${p * 100}%`;
+    this.track.setAttribute('aria-valuenow', String(this._year));
+    this.track.setAttribute('aria-valuetext', formatYear(this._year));
+  }
+  init(y) { this._year = clampY(y); this._render(); this.dispatchEvent(new CustomEvent('change', { detail: { year: this._year } })); }
+}

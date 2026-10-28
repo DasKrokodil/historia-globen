@@ -1,0 +1,32 @@
+{
+  "schema": "historia-globen/sources@1",
+  "sources": [
+    { "id": "natural-earth", "title": "Natural Earth 1:50m land (via world-atlas 2.0.2)", "url": "https://www.naturalearthdata.com/", "license": "Public domain", "checked": "2026-10-28" },
+    { "id": "wp-great-pyramid", "title": "Great Pyramid of Giza – Wikipedia", "url": "https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-wrangel", "title": "Wrangel Island – Wikipedia", "url": "https://en.wikipedia.org/wiki/Wrangel_Island", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-oxford", "title": "University of Oxford – Wikipedia", "url": "https://en.wikipedia.org/wiki/University_of_Oxford", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-tenochtitlan", "title": "Tenochtitlan – Wikipedia", "url": "https://en.wikipedia.org/wiki/Tenochtitlan", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-ming", "title": "Ming dynasty – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ming_dynasty", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-machu-picchu", "title": "Machu Picchu – Wikipedia", "url": "https://en.wikipedia.org/wiki/Machu_Picchu", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-printing-press", "title": "Printing press – Wikipedia", "url": "https://en.wikipedia.org/wiki/Printing_press", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-harvard", "title": "Harvard University – Wikipedia", "url": "https://en.wikipedia.org/wiki/Harvard_University", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-calculus", "title": "History of calculus – Wikipedia", "url": "https://en.wikipedia.org/wiki/History_of_calculus", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-fax", "title": "Fax – Wikipedia", "url": "https://en.wikipedia.org/wiki/Fax", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-telephone", "title": "Invention of the telephone – Wikipedia", "url": "https://en.wikipedia.org/wiki/Invention_of_the_telephone", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-wright", "title": "Wright brothers – Wikipedia", "url": "https://en.wikipedia.org/wiki/Wright_brothers", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-ottoman", "title": "Ottoman Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ottoman_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-cleopatra", "title": "Cleopatra – Wikipedia", "url": "https://en.wikipedia.org/wiki/Cleopatra", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-apollo-11", "title": "Apollo 11 – Wikipedia", "url": "https://en.wikipedia.org/wiki/Apollo_11", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-sputnik", "title": "Sputnik 1 – Wikipedia", "url": "https://en.wikipedia.org/wiki/Sputnik_1", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-confucius", "title": "Confucius – Wikipedia", "url": "https://en.wikipedia.org/wiki/Confucius", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-socrates", "title": "Socrates – Wikipedia", "url": "https://en.wikipedia.org/wiki/Socrates", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-olympics", "title": "Ancient Olympic Games – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ancient_Olympic_Games", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-hijrah", "title": "Hijrah – Wikipedia", "url": "https://en.wikipedia.org/wiki/Hijrah", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-lindisfarne", "title": "Lindisfarne – Wikipedia", "url": "https://en.wikipedia.org/wiki/Lindisfarne", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-black-death", "title": "Black Death – Wikipedia", "url": "https://en.wikipedia.org/wiki/Black_Death", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-columbus", "title": "Voyages of Christopher Columbus – Wikipedia", "url": "https://en.wikipedia.org/wiki/Voyages_of_Christopher_Columbus", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-gustav-vasa", "title": "Gustav I of Sweden – Wikipedia", "url": "https://en.wikipedia.org/wiki/Gustav_I_of_Sweden", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-spanish-flu", "title": "Spanish flu – Wikipedia", "url": "https://en.wikipedia.org/wiki/Spanish_flu", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-www", "title": "World Wide Web – Wikipedia", "url": "https://en.wikipedia.org/wiki/World_Wide_Web", "license": "CC BY-SA 4.0", "checked": "2026-10-28" }
+  ]
+}

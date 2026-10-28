@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
+<title>Historia-globen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app" id="app">
+  <canvas id="globe-canvas" class="globe-canvas" aria-label="Snurrbar jordglob. Dra för att snurra, scrolla eller nyp för att zooma."></canvas>
+  <div id="labels" class="labels" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <h1 class="brand">Historia-globen</h1>
+    <div class="year-readout" aria-live="polite">
+      <span id="year-big" class="year-big">1325</span>
+      <span id="year-era" class="year-era"></span>
+    </div>
+    <p id="year-segment" class="segment-note"></p>
+  </header>
+
+  <div class="top-actions">
+    <button id="btn-flat" class="chip-btn" type="button" aria-pressed="false" title="Visa bilden som en fysisk glob skulle få">Platt vy</button>
+    <button id="btn-sources" class="chip-btn" type="button">Om källorna</button>
+    <button id="btn-panel" class="chip-btn panel-toggle" type="button" aria-expanded="false" aria-controls="panel">Samtidigt <span id="panel-count" class="count">0</span></button>
+  </div>
+
+  <aside id="panel" class="panel" aria-label="Samtidigt i världen">
+    <div class="panel-head">
+      <h2>Samtidigt i världen</h2>
+      <p id="panel-sub" class="panel-sub"></p>
+    </div>
+    <div id="filters" class="filters" role="group" aria-label="Kategorier"></div>
+    <ol id="event-list" class="event-list"></ol>
+    <div id="detail" class="detail" hidden></div>
+  </aside>
+
+  <section id="funfact" class="funfact" hidden aria-live="polite">
+    <div class="ff-eyebrow"><span>Samtidigt!</span><span id="ff-pager" class="ff-pager"></span></div>
+    <p id="ff-text" class="ff-text"></p>
+    <div id="ff-events" class="ff-events"></div>
+    <div class="ff-foot">
+      <span id="ff-review" class="review-badge"></span>
+      <button id="ff-sources" class="link-btn" type="button">Källor</button>
+      <button id="ff-next" class="link-btn" type="button" hidden>Nästa</button>
+    </div>
+  </section>
+
+  <div id="flat-view" class="flat-view" hidden>
+    <div class="flat-inner">
+      <p class="flat-cap">Så här ser bilden ut innan den läggs på klotet. Samma ekvirektangulära bild kan skickas till en fysisk globskärm.</p>
+      <canvas id="flat-canvas" class="flat-canvas"></canvas>
+    </div>
+  </div>
+
+  <footer class="timebar">
+    <div class="controls">
+      <button class="step" type="button" data-step="-100" aria-label="100 år bakåt">−100</button>
+      <button class="step" type="button" data-step="-10" aria-label="10 år bakåt">−10</button>
+      <button class="step" type="button" data-step="-1" aria-label="1 år bakåt">−1</button>
+      <button id="btn-play" class="play" type="button" aria-label="Spela upp tiden">
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path id="play-icon" d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>
+      </button>
+      <button class="step" type="button" data-step="1" aria-label="1 år framåt">+1</button>
+      <button class="step" type="button" data-step="10" aria-label="10 år framåt">+10</button>
+      <button class="step" type="button" data-step="100" aria-label="100 år framåt">+100</button>
+    </div>
+    <div id="track" class="track" role="slider" tabindex="0" aria-label="År" aria-valuemin="-2999" aria-valuemax="2026">
+      <div class="track-segments" id="track-segments"></div>
+      <div class="track-dots" id="track-dots"></div>
+      <div class="track-ff" id="track-ff"></div>
+      <div class="thumb" id="thumb"><span class="thumb-line"></span></div>
+      <div class="ticks" id="ticks"></div>
+    </div>
+  </footer>
+
+  <div id="sources-dialog" class="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="sources-title">
+    <div class="sheet-inner">
+      <div class="sheet-head">
+        <h2 id="sources-title">Om källorna</h2>
+        <button id="sources-close" class="chip-btn" type="button">Stäng</button>
+      </div>
+      <div id="sources-body" class="sheet-body"></div>
+    </div>
+  </div>
+
+  <div id="loading" class="loading">Laddar globen…</div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

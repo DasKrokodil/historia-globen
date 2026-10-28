@@ -1,0 +1,32 @@
+{
+  "schema": "historia-globen/funfacts@1",
+  "notes": "Varje fun fact kopplar två händelser. Källorna är de båda händelsernas källor. show = intervall (astronomiska år) då kortet visas. Siffror i texten är beräknade från händelsernas årtal.",
+  "funfacts": [
+    { "id": "mammut-pyramid", "events": ["mammutar-wrangel", "cheopspyramiden"], "show": [-2650, -2450], "review": "source-checked",
+      "text": { "sv": "Medan Cheopspyramiden byggs lever det fortfarande ullhårsmammutar på Wrangelön. De försvinner först runt 2000 f.Kr." } },
+
+    { "id": "konfucius-sokrates", "events": ["konfucius", "sokrates"], "show": [-490, -460], "review": "source-checked",
+      "text": { "sv": "Konfucius dör runt 479 f.Kr. i Kina. Bara omkring nio år senare föds Sokrates i Aten." } },
+
+    { "id": "kleopatra-manen", "events": ["kleopatra", "cheopspyramiden", "apollo-11"], "show": [-68, -29], "review": "source-checked",
+      "text": { "sv": "Kleopatra lever närmare månlandningen än bygget av Cheopspyramiden: drygt 2 000 år fram till Apollo 11, men cirka 2 500 år tillbaka till pyramiden." } },
+
+    { "id": "oxford-tenochtitlan", "events": ["oxford", "tenochtitlan"], "show": [1320, 1345], "review": "source-checked",
+      "text": { "sv": "När Tenochtitlan grundas 1325 har det redan undervisats i Oxford i minst 229 år." } },
+
+    { "id": "ming-tenochtitlan", "events": ["ming", "tenochtitlan"], "show": [1365, 1380], "review": "source-checked",
+      "text": { "sv": "När Mingdynastin grundas 1368 är aztekernas Tenochtitlan bara 43 år gammalt." } },
+
+    { "id": "gutenberg-machupicchu", "events": ["gutenberg", "machu-picchu"], "show": [1436, 1470], "review": "source-checked",
+      "text": { "sv": "Gutenberg tar fram tryckpressen i Mainz runt 1440. Inom ett par decennier bygger inkafolket Machu Picchu i Anderna." } },
+
+    { "id": "harvard-kalkyl", "events": ["harvard", "newton-kalkyl"], "show": [1636, 1666], "review": "source-checked",
+      "text": { "sv": "Harvard grundas 1636, nästan 30 år innan Newton tar fram infinitesimalkalkylen." } },
+
+    { "id": "fax-telefon", "events": ["bain-fax", "telefonen"], "show": [1843, 1876], "review": "source-checked",
+      "text": { "sv": "En föregångare till faxen patenteras 1843, hela 33 år innan Bell får patent på telefonen." } },
+
+    { "id": "osmaner-flyg", "events": ["osmanska-riket", "wright"], "show": [1900, 1910], "review": "source-checked",
+      "text": { "sv": "När bröderna Wright flyger för första gången 1903 finns Osmanska riket fortfarande. Det upphör först 1922." } }
+  ]
+}
