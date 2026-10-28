@@ -83,11 +83,13 @@ async function getJSON(path) {
 }
 
 export async function loadAll() {
-  const [events, funfacts, sources, land] = await Promise.all([
+  const [events, funfacts, sources, land, empires, borders] = await Promise.all([
     getJSON('data/events.json'),
     getJSON('data/funfacts.json'),
     getJSON('data/sources.json'),
     getJSON('data/land.json'),
+    getJSON('data/empires.json'),
+    getJSON('data/borders.json'),
   ]);
   const byId = Object.fromEntries(events.events.map(e => [e.id, e]));
   const srcById = Object.fromEntries(sources.sources.map(s => [s.id, s]));
@@ -95,5 +97,8 @@ export async function loadAll() {
   for (const f of funfacts.funfacts) {
     f.sources = [...new Set(f.events.flatMap(id => byId[id]?.sources ?? []))];
   }
-  return { events: events.events, byId, funfacts: funfacts.funfacts, sources: sources.sources, srcById, land };
+  return {
+    events: events.events, byId, funfacts: funfacts.funfacts, sources: sources.sources, srcById, land,
+    polities: empires.polities, borders,
+  };
 }
