@@ -13,7 +13,7 @@ Alla issues och etiketter finns redan. När milstolparna finns kan Claude koppla
 | 5 | Version 7: Djup tid | Kontinentaldrift, miljontals år | #12, #51–#53 |
 | 6 | Version 8: Skolatlasen | Lagertypen bildlager | #8, #9, #54, #55 |
 | 7 | Version 9: Flöden i nutid | Animerade flöden | #10, #56–#58 |
-| 8 | Version 10: Rymden | Ett andra klot och banor | #14, #59, #60 |
+| 8 | Version 10: Rymden | Ett andra klot och banor | #14, #59, #60, #83, #84 |
 | 9 | Version 11: Hela världen | Massimport, granskning, balans mellan världsdelar | #61, #62 |
 | 10 | Version 12: Språk och sök | Fem språk, sök, delbara länkar | #15, #63, #64 |
 | 11 | Version 13: Skolläge | Quiz och lektioner | #65, #66 |
@@ -26,4 +26,5 @@ Dessa fanns redan och hör inte till någon av milstolparna ovan:
 
 - #5 En religions spridning över tid och #6 Lagerväljare (version 2, etikett `version-2`)
 - #17 Rikard granskar de nio fun facts (källkontroll)
+- #85 Medicinska framsteg som händelser (Rikard bestämmer milstolpe)
 - #21 Lagren blir suddiga när man zoomar in (pull request #23 är öppen)
