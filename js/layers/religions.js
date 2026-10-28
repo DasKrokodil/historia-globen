@@ -1,12 +1,13 @@
 // Lagertyp "område" (beslut 2): religioner. En religion visas som de riken där
-// den var statsreligion, med rikets gränser från Cliopatria (data/religions.json).
-// Områdena ritas randiga, så att de syns tydligt även ovanpå rikenas färger.
+// den var officiell religion, med rikets gränser från Cliopatria (data/religions.json).
+// Varje religion har en egen färg. Enskilda religioner kan döljas i undermenyn.
 import { isVisibleReview } from '../model.js';
 
 export class ReligionsLayer {
   constructor(religions) {
     this.religions = religions;
     this.enabled = false;
+    this.hidden = new Set(); // religioner som är avbockade i undermenyn
     this.active = []; // [{ religion, state, period }]
   }
 
@@ -14,6 +15,7 @@ export class ReligionsLayer {
     this.active = [];
     if (!this.enabled) return this.active;
     for (const religion of this.religions) {
+      if (this.hidden.has(religion.id)) continue;
       for (const state of religion.states) {
         if (!isVisibleReview(state.review)) continue;
         const period = state.periods.find(p => year >= p.start && year <= p.end);
@@ -42,28 +44,14 @@ export class ReligionsLayer {
           }
         }
       }
-      ctx.fillStyle = stripes(ctx, religion.color, k);
+      ctx.globalAlpha = 0.5;
+      ctx.fillStyle = religion.color;
       ctx.fill('evenodd');
-      ctx.strokeStyle = religion.color;
-      ctx.globalAlpha = 0.9;
-      ctx.lineWidth = 1.2 * k;
-      ctx.setLineDash([5 * k, 3 * k]);
-      ctx.stroke();
-      ctx.setLineDash([]);
       ctx.globalAlpha = 1;
+      ctx.strokeStyle = religion.color;
+      ctx.lineWidth = 1.4 * k;
+      ctx.stroke();
     }
     ctx.restore();
   }
-}
-
-/** Diagonala ränder i religionens färg, som mönster att fylla områden med. */
-function stripes(ctx, color, k) {
-  const s = Math.round(10 * k);
-  const c = document.createElement('canvas'); c.width = c.height = s;
-  const g = c.getContext('2d');
-  g.strokeStyle = color; g.globalAlpha = 0.9; g.lineWidth = 3 * k;
-  g.beginPath();
-  for (const o of [-s, 0, s]) { g.moveTo(o, s); g.lineTo(o + s, 0); }
-  g.stroke();
-  return ctx.createPattern(c, 'repeat');
 }
