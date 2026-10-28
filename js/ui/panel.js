@@ -69,7 +69,10 @@ export class Panel {
     this.selectedId = e?.id ?? null;
     if (!e) { this.detail.hidden = true; return; }
     const rv = REVIEW[e.review] ?? REVIEW.draft;
-    const srcs = (e.sources ?? []).map(id => this.srcById[id]).filter(Boolean);
+    // Wikidata länkas till händelsens egen post
+    const srcs = (e.sources ?? []).map(id => id === 'wikidata' && e.wikidata
+      ? { title: `Wikidata ${e.wikidata}`, url: `https://www.wikidata.org/wiki/${e.wikidata}` }
+      : this.srcById[id]).filter(Boolean);
     this.detail.innerHTML = `
       <h3>${esc(t(e.title))}</h3>
       <div class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))} · ${esc(t(CAT[e.category]?.name))}</div>
