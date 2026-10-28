@@ -9,6 +9,7 @@ import { BordersLayer } from './layers/borders.js';
 import { Panel } from './ui/panel.js';
 import { FunFacts } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
+import { LayerMenu } from './ui/layers.js';
 
 const $ = id => document.getElementById(id);
 
@@ -37,6 +38,16 @@ async function start() {
   });
   timeline.setMarks(data.events, data.funfacts, e => CAT[e.category]?.color ?? '#fff');
 
+  // Lagerväljaren: vilka lager som syns. Startläget står i index.html.
+  const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu') });
+  const applyLayers = () => {
+    areas.enabled = layers.on.areas;
+    borders.enabled = layers.on.borders;
+    ff.enabled = layers.on.funfacts;
+  };
+  applyLayers();
+  const noEvents = new Set();
+
   let selectedId = null;
   let visible = [];
 
@@ -44,8 +55,9 @@ async function start() {
     const year = timeline.year;
     const window = yearsAcross(year, 0.012);
     ff.update(year, panel.filters);
-    visible = layer.update({ year, window, filters: panel.filters, selectedId, highlight: ff.highlightIds() });
-    panel.render(visible, year, window);
+    const eventsOn = layers.on.events;
+    visible = layer.update({ year, window, filters: eventsOn ? panel.filters : noEvents, selectedId, highlight: ff.highlightIds() });
+    panel.render(visible, year, window, eventsOn);
     areas.update({ year });
     borders.update({ year });
     const ctx = globe.overlayContext();
@@ -98,12 +110,7 @@ async function start() {
     if (show) globe.composeFlat($('flat-canvas'));
   });
 
-  // Dagens landsgränser: ett filter som är av från början
-  $('btn-borders').addEventListener('click', () => {
-    borders.enabled = !borders.enabled;
-    $('btn-borders').setAttribute('aria-pressed', String(borders.enabled));
-    refresh();
-  });
+  layers.onChange = () => { applyLayers(); refresh(); };
 
   // Rikenas namn ritas med IM Fell English, rita om när typsnittet har laddats
   document.fonts?.ready.then(refresh);

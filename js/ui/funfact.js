@@ -9,6 +9,7 @@ export class FunFacts {
     Object.assign(this, els);
     this.all = funfacts; this.byId = byId;
     this.active = []; this.index = 0; this.shownKey = '';
+    this.enabled = true; // fun facts är ett eget lager som kan slås av
     this.onArcs = () => {};
     this.onSelect = () => {};
     this.onSources = () => {};
@@ -18,7 +19,7 @@ export class FunFacts {
   }
 
   update(year, filters) {
-    const active = this.all.filter(f =>
+    const active = !this.enabled ? [] : this.all.filter(f =>
       year >= f.show[0] && year <= f.show[1] &&
       isVisibleReview(f.review) &&
       f.events.every(id => this.byId[id] && filters.has(this.byId[id].category)));
