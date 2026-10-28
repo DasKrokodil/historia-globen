@@ -1,5 +1,5 @@
 // Lagerväljaren: en meny där man slår av och på lager (händelser, fun facts,
-// riken, dagens gränser). Vilka lager som finns och startläget står i index.html.
+// riken, religioner, dagens gränser). Vilka lager som finns och startläget står i index.html.
 export class LayerMenu {
   constructor({ button, menu }) {
     Object.assign(this, { button, menu });

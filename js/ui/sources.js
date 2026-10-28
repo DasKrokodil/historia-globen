@@ -14,15 +14,17 @@ export class SourcesDialog {
   }
 
   open(highlightIds = null) {
-    const { sources, events, funfacts, polities, land, borders } = this.data;
+    const { sources, events, funfacts, polities, land, borders, religions } = this.data;
+    const states = religions.flatMap(r => r.states);
     const usedBy = id => [
       ...events.filter(e => e.sources?.includes(id)).map(e => t(e.title)),
       ...polities.filter(p => p.sources?.includes(id)).map(p => t(p.name)),
+      ...states.filter(s => s.sources?.includes(id)).map(s => `${t(s.name)} (kristendom)`),
       ...(land.source === id ? ['Grundkartan'] : []),
       ...(borders.source === id ? ['Dagens gränser'] : []),
     ];
     const counts = { checked: 0, human: 0, draft: 0 };
-    for (const x of [...events, ...funfacts, ...polities]) {
+    for (const x of [...events, ...funfacts, ...polities, ...states]) {
       if (x.review === 'human-reviewed') counts.human++;
       else if (x.review === 'source-checked') counts.checked++;
       else counts.draft++;

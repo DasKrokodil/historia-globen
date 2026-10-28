@@ -6,6 +6,7 @@ import { Timeline, yearsAcross, segmentName } from './timeline.js';
 import { EventsLayer } from './layers/events.js';
 import { AreasLayer } from './layers/areas.js';
 import { BordersLayer } from './layers/borders.js';
+import { ReligionsLayer } from './layers/religions.js';
 import { Panel } from './ui/panel.js';
 import { FunFacts } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
@@ -21,6 +22,7 @@ async function start() {
   const layer = new EventsLayer(globe, data.events);
   const areas = new AreasLayer(data.polities);
   const borders = new BordersLayer(data.borders);
+  const religions = new ReligionsLayer(data.religions);
   const panel = new Panel({
     root: $('panel'), list: $('event-list'), filters: $('filters'), detail: $('detail'),
     sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'),
@@ -43,6 +45,7 @@ async function start() {
   const applyLayers = () => {
     areas.enabled = layers.on.areas;
     borders.enabled = layers.on.borders;
+    religions.enabled = layers.on.religions;
     ff.enabled = layers.on.funfacts;
   };
   applyLayers();
@@ -60,10 +63,12 @@ async function start() {
     panel.render(visible, year, window, eventsOn);
     areas.update({ year });
     borders.update({ year });
+    religions.update({ year });
     const ctx = globe.overlayContext();
     const W = globe.overlayCanvas.width, H = globe.overlayCanvas.height;
-    // Ordning nedifrån och upp: riken, dagens gränser, händelsernas sken
+    // Ordning nedifrån och upp: riken, religioner, dagens gränser, händelsernas sken
     areas.drawOverlay(ctx, W, H);
+    religions.drawOverlay(ctx, W, H);
     borders.drawOverlay(ctx, W, H);
     layer.drawOverlay(ctx, W, H);
     globe.commitOverlay();
