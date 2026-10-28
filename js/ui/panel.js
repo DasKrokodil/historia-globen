@@ -9,6 +9,7 @@ export class Panel {
     this.onSelect = () => {};
     this.onFilter = () => {};
     this.onSources = () => {};
+    this.onFocus = () => {};
     this.selectedId = null;
 
     // Visa bara kategorier som har händelser, i den fasta ordningen.
@@ -65,7 +66,7 @@ export class Panel {
     }
   }
 
-  showDetail(e) {
+  showDetail(e, open = true) {
     this.selectedId = e?.id ?? null;
     if (!e) { this.detail.hidden = true; return; }
     const rv = REVIEW[e.review] ?? REVIEW.draft;
@@ -78,6 +79,7 @@ export class Panel {
       <div class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))} · ${esc(t(CAT[e.category]?.name))}</div>
       <p>${esc(t(e.summary))}</p>
       ${e._war ? `<p class="war-link">Del av: <button type="button" class="link-btn" data-goto="${esc(e._war.id)}">${esc(t(e._war.title))}</button></p>` : ''}
+      ${e.kind === 'war' ? `<button type="button" class="chip-btn focus-btn" data-focus="${esc(e.id)}">▶ Följ kriget långsamt</button>` : ''}
       ${e._battles?.length ? `<div class="war-list"><h4>Slag och händelser i kriget</h4><ol>${e._battles.map(b =>
         `<li><button type="button" class="link-btn" data-goto="${esc(b.id)}">${esc(t(b.title))}</button> <span class="meta">${esc(formatEventTime(b))}</span></li>`).join('')}</ol></div>` : ''}
       <div class="src">Källa: ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || 'saknas'}</div>
@@ -88,6 +90,7 @@ export class Panel {
     this.detail.hidden = false;
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
-    this.root.classList.add('open');
+    this.detail.querySelector('[data-focus]')?.addEventListener('click', ev => this.onFocus(ev.currentTarget.dataset.focus));
+    if (open) this.root.classList.add('open');
   }
 }

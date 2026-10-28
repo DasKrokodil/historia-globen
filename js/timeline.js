@@ -40,30 +40,34 @@ export function yearsAcross(y, fraction) {
 export const segmentName = y => segFor(clampY(y)).name;
 
 export class Timeline extends EventTarget {
-  constructor({ track, thumb, segs, ticks, dots, ffMarks, playBtn, playIcon, stepBtns }) {
+  constructor({ track, thumb, segs, ticks, dots, ffMarks, playBtn, playIcon, stepBtns, speedBtn }) {
     super();
-    Object.assign(this, { track, thumb, playBtn, playIcon });
+    Object.assign(this, { track, thumb, playBtn, playIcon, speedBtn, segsEl: segs, ticksEl: ticks });
     this._year = 1325;
     this.playing = false;
-
-    for (const s of SEGMENTS) {
-      const d = document.createElement('div');
-      d.className = 'seg'; d.style.width = `${(s.b - s.a) * 100}%`; d.title = s.name;
-      segs.append(d);
-    }
-    for (const [y, level] of TICKS) {
-      const d = document.createElement('div');
-      d.className = `tick lvl${level}` + (y === MIN_YEAR ? ' first' : '');
-      d.style.left = `${yearToPos(y) * 100}%`;
-      d.textContent = y === 1 ? '0' : formatYear(y);
-      ticks.append(d);
-    }
+    this.focus = null; // { from, to }: tidslinjen inzoomad på ett spann (fokusläge, #109)
+    this.speed = 1;
+    try { this.speed = Number(localStorage.getItem('hg-speed')) || 1; } catch { /* utan lagring */ }
     this.dotsEl = dots; this.ffEl = ffMarks;
+    this._drawScale();
+
+    // Hastighet: 1× → ½× → ¼× → 2× → 1×
+    const SPEEDS = [1, 0.5, 0.25, 2];
+    const label = () => {
+      speedBtn.textContent = { 1: '1×', 0.5: '½×', 0.25: '¼×', 2: '2×' }[this.speed] ?? '1×';
+      speedBtn.setAttribute('aria-label', `Uppspelningshastighet ${speedBtn.textContent}`);
+    };
+    speedBtn.addEventListener('click', () => {
+      this.speed = SPEEDS[(SPEEDS.indexOf(this.speed) + 1) % SPEEDS.length];
+      try { localStorage.setItem('hg-speed', String(this.speed)); } catch { /* utan lagring */ }
+      label();
+    });
+    label();
 
     // Dra i reglaget
     const setFromX = x => {
       const r = track.getBoundingClientRect();
-      this.year = posToYear((x - r.left) / r.width);
+      this.year = this.toYear((x - r.left) / r.width);
     };
     track.addEventListener('pointerdown', e => { track.setPointerCapture(e.pointerId); this.pause(); setFromX(e.clientX); });
     track.addEventListener('pointermove', e => { if (track.hasPointerCapture(e.pointerId)) setFromX(e.clientX); });
@@ -78,9 +82,67 @@ export class Timeline extends EventTarget {
     playBtn.addEventListener('click', () => (this.playing ? this.pause() : this.play()));
   }
 
+  /** Position (0–1) på reglaget för ett år, och tvärtom. I fokusläge är skalan linjär över spannet. */
+  toPos(y) {
+    if (!this.focus) return yearToPos(y);
+    const { from, to } = this.focus;
+    return Math.max(0, Math.min(1, (y - from) / (to - from)));
+  }
+  toYear(p) {
+    if (!this.focus) return posToYear(p);
+    const { from, to } = this.focus;
+    return Math.round(from + Math.max(0, Math.min(1, p)) * (to - from));
+  }
+  /** Hur många år före och efter som räknas som "samtidigt". */
+  windowYears(y) {
+    return this.focus ? Math.max(1, (this.focus.to - this.focus.from) * 0.03) : yearsAcross(y, 0.012);
+  }
+
+  /** Fokusläge: zooma in tidslinjen på ett spann, eller null för hela tiden. */
+  setFocus(range) {
+    this.pause();
+    this.focus = range;
+    this._drawScale();
+    if (this._marks) this.setMarks(...this._marks);
+    if (range && (this._year < range.from || this._year > range.to)) this.year = range.from;
+    else this._render();
+  }
+
+  _drawScale() {
+    this.segsEl.replaceChildren(); this.ticksEl.replaceChildren();
+    if (this.focus) {
+      const { from, to } = this.focus, span = to - from;
+      const step = span <= 15 ? 1 : span <= 40 ? 5 : span <= 120 ? 10 : 50;
+      for (let y = Math.ceil(from / step) * step; y <= to; y += step) {
+        const d = document.createElement('div');
+        d.className = 'tick lvl1' + (y === from ? ' first' : '');
+        d.style.left = `${this.toPos(y) * 100}%`;
+        d.textContent = formatYear(y);
+        this.ticksEl.append(d);
+      }
+      const d = document.createElement('div');
+      d.className = 'seg'; d.style.width = '100%';
+      this.segsEl.append(d);
+      return;
+    }
+    for (const s of SEGMENTS) {
+      const d = document.createElement('div');
+      d.className = 'seg'; d.style.width = `${(s.b - s.a) * 100}%`; d.title = s.name;
+      this.segsEl.append(d);
+    }
+    for (const [y, level] of TICKS) {
+      const d = document.createElement('div');
+      d.className = `tick lvl${level}` + (y === MIN_YEAR ? ' first' : '');
+      d.style.left = `${yearToPos(y) * 100}%`;
+      d.textContent = y === 1 ? '0' : formatYear(y);
+      this.ticksEl.append(d);
+    }
+  }
+
   get year() { return this._year; }
   set year(y) {
     y = clampY(Math.round(y));
+    if (this.focus) y = Math.max(this.focus.from, Math.min(this.focus.to, y)); // stanna inom fokusspannet
     if (y === this._year) return;
     this._year = y;
     this._render();
@@ -89,9 +151,12 @@ export class Timeline extends EventTarget {
 
   /** Markeringar på reglaget: en prick per händelse, ett streck för spann, en romb per fun fact. */
   setMarks(events, funfacts, colorOf) {
+    this._marks = [events, funfacts, colorOf];
+    const inView = y => !this.focus || (y >= this.focus.from && y <= this.focus.to);
     this.dotsEl.replaceChildren();
     for (const e of events) {
-      const a = yearToPos(e.start), b = yearToPos(e.end);
+      if (this.focus && (e.end < this.focus.from || e.start > this.focus.to)) continue;
+      const a = this.toPos(e.start), b = this.toPos(e.end);
       const d = document.createElement('div');
       if (b - a > 0.004) {
         d.className = 'tspan';
@@ -105,26 +170,32 @@ export class Timeline extends EventTarget {
     }
     this.ffEl.replaceChildren();
     for (const f of funfacts) {
+      const mid = (f.show[0] + f.show[1]) / 2;
+      if (!inView(mid)) continue;
       const d = document.createElement('div');
       d.className = 'tff';
-      d.style.left = `${yearToPos((f.show[0] + f.show[1]) / 2) * 100}%`;
+      d.style.left = `${this.toPos(mid) * 100}%`;
       this.ffEl.append(d);
     }
   }
 
   play() {
-    if (this._year >= MAX_YEAR) this.year = MIN_YEAR;
+    const end = this.focus ? this.focus.to : MAX_YEAR;
+    if (this._year >= end) this.year = this.focus ? this.focus.from : MIN_YEAR;
     this.playing = true;
+    const run = this._run = (this._run ?? 0) + 1; // bara en uppspelning åt gången
     this.playIcon.setAttribute('d', 'M4 2.5h3v11H4zM9 2.5h3v11H9z');
     this.playBtn.setAttribute('aria-label', 'Pausa');
     let last = performance.now();
-    let pos = yearToPos(this._year);
+    let pos = this.toPos(this._year);
     const step = now => {
-      if (!this.playing) return;
+      if (!this.playing || run !== this._run) return;
       const dt = Math.min(0.1, (now - last) / 1000); last = now;
-      pos = Math.max(pos, yearToPos(this._year)) + dt * 0.016; // hela tidslinjen på cirka en minut
-      this.year = posToYear(pos);
-      if (this._year >= MAX_YEAR) { this.pause(); return; }
+      // Hela tidslinjen på cirka en minut, i fokusläge ungefär ett år per sekund
+      const rate = this.focus ? 1 / (this.focus.to - this.focus.from) : 0.016;
+      pos = Math.max(pos, this.toPos(this._year)) + dt * rate * this.speed;
+      this.year = this.toYear(pos);
+      if (this._year >= end) { this.pause(); return; }
       requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
@@ -136,7 +207,7 @@ export class Timeline extends EventTarget {
   }
 
   _render() {
-    const p = yearToPos(this._year);
+    const p = this.toPos(this._year);
     this.thumb.style.left = `${p * 100}%`;
     this.track.setAttribute('aria-valuenow', String(this._year));
     this.track.setAttribute('aria-valuetext', formatYear(this._year));

@@ -68,6 +68,11 @@
     </div>
   </div>
 
+  <div id="focus-bar" class="focus-bar" hidden>
+    <span class="focus-label">Fokus</span> <span id="focus-title" class="focus-title"></span>
+    <button id="focus-exit" class="chip-btn" type="button">Tillbaka till hela tiden</button>
+  </div>
+
   <footer class="timebar">
     <div class="controls">
       <button class="step" type="button" data-step="-100" aria-label="100 år bakåt">−100</button>
@@ -79,6 +84,7 @@
       <button class="step" type="button" data-step="1" aria-label="1 år framåt">+1</button>
       <button class="step" type="button" data-step="10" aria-label="10 år framåt">+10</button>
       <button class="step" type="button" data-step="100" aria-label="100 år framåt">+100</button>
+      <button id="btn-speed" class="step speed" type="button" title="Uppspelningshastighet">1×</button>
     </div>
     <div id="track" class="track" role="slider" tabindex="0" aria-label="År" aria-valuemin="-2999" aria-valuemax="2026">
       <div class="track-segments" id="track-segments"></div>
