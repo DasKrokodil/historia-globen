@@ -46,8 +46,13 @@ async function start() {
     areas.enabled = layers.on.areas;
     borders.enabled = layers.on.borders;
     religions.enabled = layers.on.religions;
+    $('religion-list').hidden = !layers.on.religions;
     ff.enabled = layers.on.funfacts;
   };
+  layers.sublist($('religion-list'), data.religions.map(r => ({ id: r.id, name: t(r.name), color: r.color })), (id, on) => {
+    on ? religions.hidden.delete(id) : religions.hidden.add(id);
+    refresh();
+  });
   applyLayers();
   const noEvents = new Set();
 

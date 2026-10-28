@@ -19,6 +19,24 @@ export class LayerMenu {
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) { this.close(); button.focus(); } });
   }
 
+  /**
+   * Undermeny med en rad per religion, byggd från datan. Raden visar religionens
+   * färg, så att undermenyn också fungerar som förklaring. onToggle(id, på).
+   */
+  sublist(container, items, onToggle) {
+    for (const it of items) {
+      const label = document.createElement('label');
+      label.className = 'layer-row layer-subrow';
+      const input = document.createElement('input');
+      input.type = 'checkbox'; input.checked = true;
+      input.addEventListener('change', () => onToggle(it.id, input.checked));
+      const sw = document.createElement('span');
+      sw.className = 'swatch'; sw.style.background = it.color;
+      label.append(input, sw, document.createTextNode(it.name));
+      container.append(label);
+    }
+  }
+
   open() {
     // Menyn läggs under knappen, som kan hamna på olika rader i smal skärm
     const r = this.button.getBoundingClientRect();
