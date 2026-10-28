@@ -45,7 +45,6 @@ export class Timeline extends EventTarget {
     Object.assign(this, { track, thumb, playBtn, playIcon });
     this._year = 1325;
     this.playing = false;
-    this.holdUntil = 0;
 
     for (const s of SEGMENTS) {
       const d = document.createElement('div');
@@ -123,11 +122,9 @@ export class Timeline extends EventTarget {
     const step = now => {
       if (!this.playing) return;
       const dt = Math.min(0.1, (now - last) / 1000); last = now;
-      if (now > this.holdUntil) {
-        pos = Math.max(pos, yearToPos(this._year)) + dt * 0.016; // hela tidslinjen på cirka en minut
-        this.year = posToYear(pos);
-        if (this._year >= MAX_YEAR) { this.pause(); return; }
-      }
+      pos = Math.max(pos, yearToPos(this._year)) + dt * 0.016; // hela tidslinjen på cirka en minut
+      this.year = posToYear(pos);
+      if (this._year >= MAX_YEAR) { this.pause(); return; }
       requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
@@ -137,8 +134,6 @@ export class Timeline extends EventTarget {
     this.playIcon.setAttribute('d', 'M4 2.5v11l9-5.5z');
     this.playBtn.setAttribute('aria-label', 'Spela upp tiden');
   }
-  /** Stanna en stund vid uppspelning, till exempel när en fun fact dyker upp. */
-  hold(ms) { if (this.playing) this.holdUntil = performance.now() + ms; }
 
   _render() {
     const p = yearToPos(this._year);
