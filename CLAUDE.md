@@ -86,11 +86,15 @@ Rikard gillar stilen. Behåll den:
 3. Kontrollera all JSON (`python3 -m json.tool data/*.json`) och att varje `sources`-id finns i `sources.json` och varje händelse-id i `funfacts.json` finns i `events.json`.
 4. Testa både desktop och mobilbredd.
 
-## Arbetssätt
+## Arbetssätt för idéer, beslut och ändringar
 
-- Gör ändringar på en gren och öppna en pull request med en kort beskrivning **på svenska** av vad som ändrats och hur Rikard kan testa det.
-- Små, avgränsade PR:er hellre än en stor.
-- Fråga innan du ändrar arkitekturen, lägger till beroenden, kategorier eller datakällor med ny licens.
+- **GitHub Issues är projektets idélista och backlog.** Varje idé, önskemål eller fel blir ett eget issue. Använd mallarna i `.github/ISSUE_TEMPLATE/` och etiketterna (version-2, idé, data, faktafel, källkontroll, utseende, utanför-kod).
+- **Ny idé i chatten:** föreslå att skapa ett issue för den i stället för att bygga direkt, om det inte är en liten ändring. Ber Rikard om det, skapa issuet direkt.
+- **"Ta issue #N":** läs issuet, ställ frågor om något är oklart, bygg på en egen gren och öppna en pull request som skriver `Closes #N`.
+- **Pull requests** beskrivs på svenska: vad som ändrats, varför, och hur Rikard testar det. Små, avgränsade PR:er hellre än en stor.
+- **Beslut:** när vi bestämmer något som påverkar arkitektur, datamodell, källor, licenser, kategorier eller utseende, lägg till det i "Beslutslogg" längst ner i den här filen (datum, beslut, kort motivering) i samma pull request.
+- **Fråga först** innan du ändrar arkitekturen, lägger till beroenden, kategorier eller datakällor med ny licens.
+- **Sådant som inte är kod** (namn, domän, fysisk glob, hårdvara, affärsfrågor) planeras i Rikards Claude-projekt "Historia-globen", inte här. Om sådant kommer upp: påminn Rikard om det och skapa högst ett issue med etiketten `utanför-kod` som anteckning.
 
 ## Nästa steg: version 2
 
@@ -108,3 +112,11 @@ Stanna efter version 2 och låt Rikard utvärdera innan mer data läggs in.
 - Ska projektet få en egen .se-domän, och behålls namnet Historia-globen eller blir det ett internationellt namn?
 - Hur granskningen ska gå till framåt. Förslag: Rikard granskar fun facts, och händelser kontrolleras mot en andra oberoende källa.
 - Vilket fördjupningsläge kommer först (till exempel andra världskriget)?
+
+## Beslutslogg
+
+Nya beslut läggs till sist, med datum, beslut och kort motivering.
+
+| Datum | Beslut | Motivering |
+|---|---|---|
+| 2026-10-28 | GitHub Issues används som idélista och backlog, med issue-mallar och etiketter. Varje ändring görs i en pull request som stänger sitt issue. | Ett fast arbetssätt gör att idéer inte tappas bort och att det syns vad som är gjort och varför. |

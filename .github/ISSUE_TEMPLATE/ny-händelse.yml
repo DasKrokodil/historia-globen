@@ -1,0 +1,70 @@
+name: Ny händelse
+description: Föreslå en händelse som ska finnas på globen.
+title: "[händelse] "
+labels: ["data"]
+body:
+  - type: input
+    id: titel
+    attributes:
+      label: Titel
+      description: Kort, till exempel "Cheopspyramiden byggs".
+    validations:
+      required: true
+  - type: input
+    id: artal
+    attributes:
+      label: Årtal
+      description: Ett år eller ett spann. Skriv "f.Kr." för år före vår tideräkning, till exempel "2600 f.Kr." eller "1347–1351".
+    validations:
+      required: true
+  - type: dropdown
+    id: ungefar
+    attributes:
+      label: Är årtalet ungefärligt?
+      options:
+        - Nej, exakt
+        - Ja, ungefär (cirka)
+        - Osäkert, källor är oense
+    validations:
+      required: true
+  - type: input
+    id: plats
+    attributes:
+      label: Plats
+      description: Stad, region eller land. Koordinater går också bra.
+    validations:
+      required: true
+  - type: dropdown
+    id: kategori
+    attributes:
+      label: Kategori
+      options:
+        - Natur och djur
+        - Människans ursprung
+        - Civilisationer och riken
+        - Religion
+        - Vetenskap och uppfinningar
+        - Upptäcktsresor
+        - Krig och konflikter
+        - Kultur och arkitektur
+        - Sport
+        - Ekonomi och handel
+        - Hälsa och epidemier
+        - Klimat och naturkatastrofer
+        - Rymden
+    validations:
+      required: true
+  - type: textarea
+    id: beskrivning
+    attributes:
+      label: Kort beskrivning
+      description: Ett par meningar med egna ord. Kopiera inte text från Wikipedia eller andra källor.
+    validations:
+      required: true
+  - type: textarea
+    id: kalla
+    attributes:
+      label: Källa
+      description: Länk till minst en källa som visar årtal och plats.
+    validations:
+      required: true

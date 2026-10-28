@@ -1,0 +1,41 @@
+name: Idé
+description: Föreslå något nytt som kan visas på globen.
+title: "[idé] "
+labels: ["idé"]
+body:
+  - type: textarea
+    id: ide
+    attributes:
+      label: Vad är idén?
+      description: Beskriv kort vad man ska kunna se eller göra.
+    validations:
+      required: true
+  - type: textarea
+    id: varfor
+    attributes:
+      label: Varför är den kul eller viktig?
+      description: Vad blir man förvånad över eller lär sig?
+    validations:
+      required: true
+  - type: dropdown
+    id: lagertyp
+    attributes:
+      label: Vilken lagertyp blir det troligen?
+      description: Välj en eller flera. Osäker? Välj "Vet inte".
+      multiple: true
+      options:
+        - Punkt (händelser på en plats)
+        - Linje (vägar, flöden, fronter)
+        - Område (riken, utbredning)
+        - Bildlager (nattljus, klimat)
+        - Tur (guidad fördjupning)
+        - Vet inte
+    validations:
+      required: true
+  - type: textarea
+    id: kallor
+    attributes:
+      label: Möjliga datakällor
+      description: Länkar till data eller källor du känner till, gärna med licens (till exempel CC BY eller public domain).
+    validations:
+      required: false
