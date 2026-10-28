@@ -49,7 +49,7 @@ Nya lager läggs i `js/layers/`, ny UI i `js/ui/`, ny data i `data/`. Uppdatera 
 - **Plats** = GeoJSON i WGS 84, `[longitud, latitud]`. Områden blir `Polygon`/`MultiPolygon`. Valfritt `locationPrecision`: `region` eller `country` när platsen är ungefärlig.
 - **Texter** lagras per språk: `{ "sv": "...", "en": "...", "fr", "de", "es" }`. Svenska först. Saknas ett språk visas engelska, sedan svenska (`t()` i `model.js`).
 - **Kategorier** (fast lista, `CATEGORIES` i `model.js`): natur, manniskan, civilisationer, religion, vetenskap, upptackter, krig, kultur, sport, ekonomi, halsa, klimat, rymden. Nya kategorier kräver Rikards ok.
-- **Händelse**, obligatoriska fält: `id` (läsbart, unikt), `category`, `start`, `end`, `precision`, `edtf`, `location`, `place`, `title`, `summary`, `sources` (lista med id från sources.json), `review`. Valfritt: `wikidata` (Q-id, bara om du har verifierat det).
+- **Händelse**, obligatoriska fält: `id` (läsbart, unikt), `category`, `start`, `end`, `precision`, `edtf`, `location`, `place`, `title`, `summary`, `sources` (lista med id från sources.json), `review`. Valfritt: `wikidata` (Q-id, bara om du har verifierat det eller om det kommer från en datakälla vi litar på, se Beslutslogg).
 
 ## Källpolicy – viktigast av allt
 
@@ -86,11 +86,15 @@ Rikard gillar stilen. Behåll den:
 3. Kontrollera all JSON (`python3 -m json.tool data/*.json`) och att varje `sources`-id finns i `sources.json` och varje händelse-id i `funfacts.json` finns i `events.json`.
 4. Testa både desktop och mobilbredd.
 
-## Arbetssätt
+## Arbetssätt för idéer, beslut och ändringar
 
-- Gör ändringar på en gren och öppna en pull request med en kort beskrivning **på svenska** av vad som ändrats och hur Rikard kan testa det.
-- Små, avgränsade PR:er hellre än en stor.
-- Fråga innan du ändrar arkitekturen, lägger till beroenden, kategorier eller datakällor med ny licens.
+- **GitHub Issues är projektets idélista och backlog.** Varje idé, önskemål eller fel blir ett eget issue. Använd mallarna i `.github/ISSUE_TEMPLATE/` och etiketterna (version-2, idé, data, faktafel, källkontroll, utseende, utanför-kod).
+- **Ny idé i chatten:** föreslå att skapa ett issue för den i stället för att bygga direkt, om det inte är en liten ändring. Ber Rikard om det, skapa issuet direkt.
+- **"Ta issue #N":** läs issuet, ställ frågor om något är oklart, bygg på en egen gren och öppna en pull request som skriver `Closes #N`.
+- **Pull requests** beskrivs på svenska: vad som ändrats, varför, och hur Rikard testar det. Små, avgränsade PR:er hellre än en stor.
+- **Beslut:** när vi bestämmer något som påverkar arkitektur, datamodell, källor, licenser, kategorier eller utseende, lägg till det i "Beslutslogg" längst ner i den här filen (datum, beslut, kort motivering) i samma pull request.
+- **Fråga först** innan du ändrar arkitekturen, lägger till beroenden, kategorier eller datakällor med ny licens.
+- **Sådant som inte är kod** (namn, domän, fysisk glob, hårdvara, affärsfrågor) planeras i Rikards Claude-projekt "Historia-globen", inte här. Om sådant kommer upp: påminn Rikard om det och skapa högst ett issue med etiketten `utanför-kod` som anteckning.
 
 ## Nästa steg: version 2
 
@@ -108,3 +112,12 @@ Stanna efter version 2 och låt Rikard utvärdera innan mer data läggs in.
 - Ska projektet få en egen .se-domän, och behålls namnet Historia-globen eller blir det ett internationellt namn?
 - Hur granskningen ska gå till framåt. Förslag: Rikard granskar fun facts, och händelser kontrolleras mot en andra oberoende källa.
 - Vilket fördjupningsläge kommer först (till exempel andra världskriget)?
+
+## Beslutslogg
+
+Nya beslut läggs till sist, med datum, beslut och kort motivering.
+
+| Datum | Beslut | Motivering |
+|---|---|---|
+| 2026-10-28 | GitHub Issues används som idélista och backlog, med issue-mallar och etiketter. Varje ändring görs i en pull request som stänger sitt issue. | Ett fast arbetssätt gör att idéer inte tappas bort och att det syns vad som är gjort och varför. |
+| 2026-10-28 | Cliopatria används som den är: årtal, gränser, namn och Wikidata-id räknas som korrekta och får status `source-checked` utan egen granskning. Östromerska riket slutar 632 där Cliopatria går över till Bysantinska riket. Årtal före vår tideräkning tas oförändrade från Cliopatria. | Rikard vill inte granska källor i dagsläget. Cliopatria är en forskningsdatabas (Seshat) som räknas som tillförlitlig. |

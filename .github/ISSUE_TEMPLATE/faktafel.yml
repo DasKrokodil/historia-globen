@@ -1,0 +1,31 @@
+name: Faktafel
+description: Rapportera ett fel i en händelse eller fun fact.
+title: "[faktafel] "
+labels: ["faktafel"]
+body:
+  - type: input
+    id: uppgift
+    attributes:
+      label: Vilken händelse eller fun fact gäller det?
+      description: Titeln som den visas på globen, eller id om du vet det.
+    validations:
+      required: true
+  - type: textarea
+    id: fel
+    attributes:
+      label: Vad är fel?
+    validations:
+      required: true
+  - type: textarea
+    id: ratt
+    attributes:
+      label: Vad är rätt?
+    validations:
+      required: true
+  - type: textarea
+    id: kalla
+    attributes:
+      label: Källa
+      description: Länk till en källa som visar det rätta. Utan källa kan felet inte rättas.
+    validations:
+      required: true
