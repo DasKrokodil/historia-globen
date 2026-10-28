@@ -65,11 +65,12 @@ export class EventsLayer {
 
   /** Ritar ett mjukt sken per synlig händelse på den platta lagerbilden. */
   drawOverlay(ctx, W, H) {
+    const k = W / 2048; // skenet blir lika stort oavsett bildens upplösning
     for (const e of this.events) {
       const st = this.state.get(e.id);
       if (!st || st.activity <= 0) continue;
       const x = (e._lon + 180) / 360 * W, y = (90 - e._lat) / 180 * H;
-      const r = 26 + 18 * st.activity;
+      const r = (26 + 18 * st.activity) * k;
       const col = CAT[e.category]?.color ?? '#ffffff';
       const g = ctx.createRadialGradient(x, y, 0, x, y, r);
       g.addColorStop(0, hexA(col, 0.55 * st.activity));
