@@ -4,6 +4,8 @@ import { loadAll, CAT, t, yearParts } from './model.js';
 import { Globe } from './globe.js';
 import { Timeline, yearsAcross, segmentName } from './timeline.js';
 import { EventsLayer } from './layers/events.js';
+import { AreasLayer } from './layers/areas.js';
+import { BordersLayer } from './layers/borders.js';
 import { Panel } from './ui/panel.js';
 import { FunFacts } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
@@ -16,6 +18,8 @@ async function start() {
   globe.drawBase(data.land);
 
   const layer = new EventsLayer(globe, data.events);
+  const areas = new AreasLayer(data.polities);
+  const borders = new BordersLayer(data.borders);
   const panel = new Panel({
     root: $('panel'), list: $('event-list'), filters: $('filters'), detail: $('detail'),
     sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'),
@@ -42,8 +46,14 @@ async function start() {
     ff.update(year, panel.filters);
     visible = layer.update({ year, window, filters: panel.filters, selectedId, highlight: ff.highlightIds() });
     panel.render(visible, year, window);
+    areas.update({ year });
+    borders.update({ year });
     const ctx = globe.overlayContext();
-    layer.drawOverlay(ctx, globe.overlayCanvas.width, globe.overlayCanvas.height);
+    const W = globe.overlayCanvas.width, H = globe.overlayCanvas.height;
+    // Ordning nedifrån och upp: riken, dagens gränser, händelsernas sken
+    areas.drawOverlay(ctx, W, H);
+    borders.drawOverlay(ctx, W, H);
+    layer.drawOverlay(ctx, W, H);
     globe.commitOverlay();
     if (!$('flat-view').hidden) globe.composeFlat($('flat-canvas'));
 
@@ -87,6 +97,16 @@ async function start() {
     $('btn-flat').setAttribute('aria-pressed', String(show));
     if (show) globe.composeFlat($('flat-canvas'));
   });
+
+  // Dagens landsgränser: ett filter som är av från början
+  $('btn-borders').addEventListener('click', () => {
+    borders.enabled = !borders.enabled;
+    $('btn-borders').setAttribute('aria-pressed', String(borders.enabled));
+    refresh();
+  });
+
+  // Rikenas namn ritas med IM Fell English, rita om när typsnittet har laddats
+  document.fonts?.ready.then(refresh);
 
   // Flytta globen åt vänster när panelen ligger till höger
   const mq = matchMedia('(min-width: 761px)');

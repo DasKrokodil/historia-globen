@@ -24,6 +24,8 @@ js/model.js           språk, kategorier, tidsformat, laddning av data
 js/globe.js           3D-globen (three.js), ekvirektangulär rendering
 js/timeline.js        tidsreglage, segmenterad tidsskala, nuvarande år
 js/layers/events.js   lager: händelser som punkter
+js/layers/areas.js    lager: riken som områden som ändras över tid
+js/layers/borders.js  lager: dagens landsgränser (av som standard)
 js/ui/panel.js        "Samtidigt i världen" och detaljvy
 js/ui/funfact.js      fun facts-kort och bågar på globen
 js/ui/sources.js      sidan Om källorna
@@ -31,6 +33,8 @@ data/events.json      händelser
 data/funfacts.json    fun facts, kopplade till händelser
 data/sources.json     källregister
 data/land.json        grundkarta (Natural Earth)
+data/empires.json     riken med utbredning per period (Cliopatria)
+data/borders.json     dagens landsgränser (Natural Earth)
 ```
 
 ## Principer
@@ -64,7 +68,8 @@ Hittar du ett faktafel, öppna ett issue och ange vilken uppgift det gäller och
 
 - **Koden** är licensierad under [GNU GPL v3.0](LICENSE). Du får använda, ändra och sprida den, men det du sprider vidare måste också vara öppet under GPL.
 - **Datan** i `data/` (händelser, fun facts och källregister) är licensierad under [CC BY 4.0](data/LICENSE). Ange "Historia-globen" som källa vid användning.
-- **Grundkartan** i `data/land.json` bygger på [Natural Earth](https://www.naturalearthdata.com/) (public domain) via world-atlas.
+- **Grundkartan** i `data/land.json` och **dagens landsgränser** i `data/borders.json` bygger på [Natural Earth](https://www.naturalearthdata.com/) (public domain) via world-atlas.
+- **Rikenas utbredning** i `data/empires.json` är ett förenklat utdrag ur [Cliopatria](https://github.com/Seshat-Global-History-Databank/cliopatria) från Seshat Global History Databank, licensierat under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ändringar: bara Romarriket är med, geometrin är förenklad och perioder med nästan samma gräns är sammanslagna.
 - **three.js** laddas från jsDelivr och har MIT-licens. Typsnitten kommer från Google Fonts (SIL Open Font License).
 - Händelsetexterna är egna sammanfattningar. Källorna, ofta Wikipedia (CC BY-SA), länkas från varje uppgift.
 
