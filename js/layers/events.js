@@ -46,7 +46,9 @@ export class EventsLayer {
     const visible = [];
     for (const s of this.sprites) {
       const e = s.userData.event;
-      const okFilter = filters.has(e.category) && isVisibleReview(e.review);
+      // Mindre händelser i ett krig syns bara i krigets lista, eller när de är valda
+      const onMap = !e.partOf || e.major || e.id === selectedId;
+      const okFilter = onMap && filters.has(e.category) && isVisibleReview(e.review);
       const inside = year >= e.start && year <= e.end;
       const dist = inside ? 0 : Math.min(Math.abs(year - e.start), Math.abs(year - e.end));
       const near = dist <= window;

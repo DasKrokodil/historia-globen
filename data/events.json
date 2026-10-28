@@ -1,6 +1,6 @@
 {
   "schema": "historia-globen/events@1",
-  "notes": "start/end = astronomiska år (ISO 8601): 0 = 1 f.Kr., -1 = 2 f.Kr. precision = Wikidatas skala (7 = århundrade, 8 = decennium, 9 = år, 11 = dag). location = GeoJSON [lon, lat]. review: draft | source-checked | human-reviewed. kind = \"war\" för krig (spann); partOf = krigets id för slag och händelser i ett krig.",
+  "notes": "start/end = astronomiska år (ISO 8601): 0 = 1 f.Kr., -1 = 2 f.Kr. precision = Wikidatas skala (7 = århundrade, 8 = decennium, 9 = år, 11 = dag). location = GeoJSON [lon, lat]. review: draft | source-checked | human-reviewed. kind = \"war\" för krig (spann); partOf = krigets id för slag och händelser i ett krig. major = true för de viktigaste händelserna i ett krig, som visas på kartan; övriga visas bara i krigets lista.",
   "events": [
     { "id": "cheopspyramiden", "category": "kultur", "start": -2599, "end": -2599, "precision": 7, "edtf": "-2599~",
       "location": { "type": "Point", "coordinates": [31.134, 29.979] }, "place": { "sv": "Giza, Egypten" },
@@ -236,7 +236,7 @@
       "summary": { "sv": "Ett av de mest förödande krigen i Europas historia, främst utkämpat i Centraleuropa. Uppskattningsvis 4,5–8 miljoner soldater och civila dog av strider, svält eller sjukdom." },
       "sources": ["wp-thirty-years-war",  "wp-prague"], "review": "source-checked" },
 
-    { "id": "defenestrationen-1618", "category": "krig", "partOf": "trettioariga-kriget", "start": 1618, "end": 1618, "precision": 11, "edtf": "1618-05-23",
+    { "id": "defenestrationen-1618", "category": "krig", "partOf": "trettioariga-kriget", "major": true, "start": 1618, "end": 1618, "precision": 11, "edtf": "1618-05-23",
       "location": { "type": "Point", "coordinates": [14.421,  50.088] }, "place": { "sv": "Prag, Böhmen" },
       "title": { "sv": "Defenestrationen i Prag" },
       "summary": { "sv": "Den 23 maj 1618 kastas ombud för kejsaren ut genom ett fönster i Prag. Händelsen markerar krigets början." },
@@ -254,9 +254,9 @@
       "summary": { "sv": "Den 17 september 1631 leder Gustav II Adolf svenska och sachsiska trupper till seger över kejsarens och Katolska ligans arméer." },
       "sources": ["wp-breitenfeld-1631"], "review": "source-checked" },
 
-    { "id": "slaget-vid-lutzen-1632", "category": "krig", "partOf": "trettioariga-kriget", "start": 1632, "end": 1632, "precision": 11, "edtf": "1632-11-16",
+    { "id": "slaget-vid-lutzen-1632", "category": "krig", "partOf": "trettioariga-kriget", "major": true, "start": 1632, "end": 1632, "precision": 11, "edtf": "1632-11-16",
       "location": { "type": "Point", "coordinates": [12.142,  51.26] }, "place": { "sv": "Lützen, Sachsen" },
-      "title": { "sv": "Slaget vid Lützen" },
+      "title": { "sv": "Gustav II Adolf stupar vid Lützen" },
       "summary": { "sv": "Den 16 november 1632 möts svenska och kejserliga arméer vid Lützen. Gustav II Adolf stupar under slaget." },
       "sources": ["wp-lutzen-1632",  "wp-lutzen"], "review": "source-checked" },
 
@@ -284,7 +284,7 @@
       "summary": { "sv": "Den 6 mars 1645 vinner Sverige ett slag vid Jankov i Böhmen." },
       "sources": ["wp-jankau"], "review": "source-checked" },
 
-    { "id": "westfaliska-freden", "category": "krig", "partOf": "trettioariga-kriget", "start": 1648, "end": 1648, "precision": 11, "edtf": "1648-10-24",
+    { "id": "westfaliska-freden", "category": "krig", "partOf": "trettioariga-kriget", "major": true, "start": 1648, "end": 1648, "precision": 11, "edtf": "1648-10-24",
       "location": { "type": "Point", "coordinates": [7.626,  51.963] }, "locationPrecision": "region", "place": { "sv": "Osnabrück och Münster, Westfalen" },
       "title": { "sv": "Westfaliska freden" },
       "summary": { "sv": "Fredsavtalen i Osnabrück och Münster undertecknas den 24 oktober 1648 och avslutar kriget." },
