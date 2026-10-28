@@ -22,6 +22,7 @@ export class SourcesDialog {
       ...polities.filter(p => p.sources?.includes(id)).map(p => t(p.name)),
       ...states.filter(s => s.sources?.includes(id)).map(s => `${s.name} (kristendom)`),
       ...(id === 'wikipedia-religion' ? ['Religioner (faktarutan för varje rike)'] : []),
+      ...(id === 'wp-religion-by-country' ? ['Religioner (nutida länder från 1900)'] : []),
       ...(land.source === id ? ['Grundkartan'] : []),
       ...(borders.source === id ? ['Dagens gränser'] : []),
     ];

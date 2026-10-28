@@ -17,8 +17,10 @@ export class ReligionsLayer {
     if (!this.enabled) return this.active;
     for (const religion of this.religions) {
       if (this.hidden.has(religion.id)) continue;
-      const snapshot = religion.snapshots.find(s => year >= s.start && year <= s.end);
-      if (snapshot) this.active.push({ religion, snapshot });
+      // Upp till två områden per år: säkra uppgifter och osäkra (först nämnda)
+      for (const snapshot of religion.snapshots) {
+        if (year >= snapshot.start && year <= snapshot.end) this.active.push({ religion, snapshot });
+      }
     }
     return this.active;
   }
@@ -38,13 +40,18 @@ export class ReligionsLayer {
           ctx.closePath();
         }
       }
-      ctx.globalAlpha = 0.5;
+      // Osäkra områden ritas ljusare och med streckad kant (visa osäkerhet öppet)
+      const sure = snapshot.sure !== false;
+      ctx.globalAlpha = sure ? 0.5 : 0.25;
       ctx.fillStyle = religion.color;
       ctx.fill('evenodd');
-      ctx.globalAlpha = 1;
+      ctx.globalAlpha = sure ? 1 : 0.8;
       ctx.strokeStyle = religion.color;
       ctx.lineWidth = 1.4 * k;
+      ctx.setLineDash(sure ? [] : [6 * k, 4 * k]);
       ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.globalAlpha = 1;
     }
     ctx.restore();
   }
