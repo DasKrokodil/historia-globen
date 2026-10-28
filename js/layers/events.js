@@ -14,6 +14,26 @@ function dotTexture() {
   return t;
 }
 
+// Ikoner (#95): enkla linjeteckningar i img/icons/, på mörk botten med en ring i
+// kategorins färg. Händelser utan ikon får en prick som tidigare.
+const iconCache = new Map();
+function iconTexture(name, color) {
+  const key = name + color;
+  if (iconCache.has(key)) return iconCache.get(key);
+  const c = document.createElement('canvas'); c.width = c.height = 128;
+  const g = c.getContext('2d');
+  g.fillStyle = 'rgba(14,20,28,0.92)';
+  g.beginPath(); g.arc(64, 64, 54, 0, Math.PI * 2); g.fill();
+  g.lineWidth = 9; g.strokeStyle = color;
+  g.beginPath(); g.arc(64, 64, 54, 0, Math.PI * 2); g.stroke();
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+  const img = new Image();
+  img.onload = () => { g.drawImage(img, 26, 26, 76, 76); t.needsUpdate = true; };
+  img.src = `img/icons/${name}.svg`;
+  iconCache.set(key, t);
+  return t;
+}
+
 export class EventsLayer {
   constructor(globe, events) {
     this.globe = globe;
@@ -25,10 +45,11 @@ export class EventsLayer {
       const [lon, lat] = e.location.coordinates;
       e._lat = lat; e._lon = lon;
       e._pos = latLonToVec3(lat, lon, R * 1.012);
-      const s = new THREE.Sprite(new THREE.SpriteMaterial({
-        map: tex, color: new THREE.Color(CAT[e.category]?.color ?? '#ffffff'),
-        transparent: true, depthWrite: false,
-      }));
+      const color = CAT[e.category]?.color ?? '#ffffff';
+      const s = new THREE.Sprite(new THREE.SpriteMaterial(e.icon
+        ? { map: iconTexture(e.icon, color), transparent: true, depthWrite: false }
+        : { map: tex, color: new THREE.Color(color), transparent: true, depthWrite: false }));
+      s.userData.iconScale = e.icon ? 1.5 : 1; // ikoner behöver lite mer plats än prickar
       s.position.copy(e._pos);
       s.scale.setScalar(0.034);
       s.userData.event = e;
@@ -55,9 +76,10 @@ export class EventsLayer {
       const activity = !okFilter ? 0 : inside ? 1 : near ? 1 - 0.6 * dist / Math.max(1, window) : 0;
       this.state.set(e.id, { activity, inside, dist });
       s.visible = activity > 0;
+      s.userData.active = activity > 0; // klustringen döljer markörer som ingår i ett kluster
       const big = e.id === selectedId || highlight.has(e.id);
       s.material.opacity = 0.45 + 0.55 * activity;
-      s.userData.baseScale = big ? 0.052 : 0.03 + 0.012 * activity;
+      s.userData.baseScale = (big ? 0.052 : 0.03 + 0.012 * activity) * s.userData.iconScale;
       s.scale.setScalar(s.userData.baseScale);
       if (activity > 0) visible.push({ e, activity, inside, dist });
     }

@@ -32,6 +32,8 @@ js/ui/panel.js        "Samtidigt i världen" och detaljvy
 js/ui/funfact.js      fun facts-kort och bågar på globen
 js/ui/sources.js      sidan Om källorna
 js/ui/layers.js       lagerväljaren: slå av och på lager
+js/ui/clusters.js     klustring av händelser som ligger nära varandra
+img/icons/            ikoner för händelser (egna SVG-teckningar)
 data/events.json      händelser
 data/funfacts.json    fun facts, kopplade till händelser
 data/sources.json     källregister
