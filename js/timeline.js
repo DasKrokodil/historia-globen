@@ -50,6 +50,7 @@ export class Timeline extends EventTarget {
     try { this.speed = Number(localStorage.getItem('hg-speed')) || 1; } catch { /* utan lagring */ }
     this.dotsEl = dots; this.ffEl = ffMarks;
     this._drawScale();
+    addEventListener('resize', () => { if (this.focus) this._drawScale(); }); // antal årtal beror på bredden
 
     // Hastighet: 1× → ½× → ¼× → 2× → 1×
     const SPEEDS = [1, 0.5, 0.25, 2];
@@ -112,8 +113,13 @@ export class Timeline extends EventTarget {
     this.segsEl.replaceChildren(); this.ticksEl.replaceChildren();
     if (this.focus) {
       const { from, to } = this.focus, span = to - from;
-      const step = span <= 15 ? 1 : span <= 40 ? 5 : span <= 120 ? 10 : 50;
-      for (let y = Math.ceil(from / step) * step; y <= to; y += step) {
+      // Så många årtal som får plats utan att överlappa, på jämna år. Före vår
+      // tideräkning räknas jämnheten på det visade året (700 f.Kr. = -699).
+      const fit = Math.max(3, Math.floor(this.track.clientWidth / 90));
+      const step = [1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000].find(s => span / s <= fit) ?? 2000;
+      for (let v = Math.ceil(from / step) * step; v <= to + step; v += step) {
+        const y = v < 0 ? v + 1 : v;
+        if (v === 0 || y < from || y > to) continue;
         const d = document.createElement('div');
         d.className = 'tick lvl1' + (y === from ? ' first' : '');
         d.style.left = `${this.toPos(y) * 100}%`;
@@ -191,8 +197,9 @@ export class Timeline extends EventTarget {
     const step = now => {
       if (!this.playing || run !== this._run) return;
       const dt = Math.min(0.1, (now - last) / 1000); last = now;
-      // Hela tidslinjen på cirka en minut, i fokusläge ungefär ett år per sekund
-      const rate = this.focus ? 1 / (this.focus.to - this.focus.from) : 0.016;
+      // Hela tidslinjen på cirka en minut. I fokusläge ungefär ett år per sekund,
+      // men längre spann (till exempel en religion) högst cirka en och en halv minut.
+      const rate = this.focus ? 1 / Math.min(this.focus.to - this.focus.from, 90) : 0.016;
       pos = Math.max(pos, this.toPos(this._year)) + dt * rate * this.speed;
       this.year = this.toYear(pos);
       if (this._year >= end) { this.pause(); return; }

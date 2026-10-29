@@ -16,7 +16,8 @@ export class ReligionsLayer {
     this.active = [];
     if (!this.enabled) return this.active;
     for (const religion of this.religions) {
-      if (this.hidden.has(religion.id)) continue;
+      if (this.hidden.has(religion.id) && religion.id !== this.onlyId) continue;
+      if (this.onlyId && religion.id !== this.onlyId) continue; // fokusläge för en religion
       // Upp till två områden per år: säkra uppgifter och osäkra (först nämnda)
       for (const snapshot of religion.snapshots) {
         if (year >= snapshot.start && year <= snapshot.end) this.active.push({ religion, snapshot });
