@@ -38,6 +38,19 @@ export const REVIEW = {
   'two-sources':    { sv: 'Två källor stämmer, ej granskad av människa', cls: 'two' },
   'human-reviewed': { sv: 'Granskad av människa',            cls: 'human' },
 };
+// Statusraden säger vad statusen gäller (#196): "Fun facten: granskad av människa".
+// subject = Fun facten, Kriget, Riket, Händelsen, Religionen. Förklaringen visas som tooltip.
+export const REVIEW_SUBJECT_HELP = {
+  'Fun facten': 'Statusen gäller själva jämförelsen i kortet. Varje händelse har en egen status i sin faktaruta.',
+  'Kriget': 'Statusen gäller krigets berättelse i kortet. Varje händelse har en egen status i sin faktaruta.',
+  'Riket': 'Statusen gäller rikets faktaruta och berättelse. Varje händelse har en egen status i sin faktaruta.',
+  'Religionen': 'Statusen gäller religionens faktaruta. Varje händelse har en egen status i sin faktaruta.',
+  'Händelsen': 'Statusen gäller just den här händelsen. Samtidigt-kortet och fun facten har en egen status.',
+};
+export function reviewLabel(status, subject) {
+  const rv = REVIEW[status] ?? REVIEW.draft;
+  return `${subject}: ${rv.sv.charAt(0).toLowerCase()}${rv.sv.slice(1)}`;
+}
 export const settings = { showDrafts: false };
 export const isVisibleReview = r => settings.showDrafts || r === 'source-checked' || r === 'two-sources' || r === 'human-reviewed';
 

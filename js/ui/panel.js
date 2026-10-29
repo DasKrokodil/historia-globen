@@ -1,6 +1,6 @@
 // "Samtidigt i världen": lista över synliga händelser per världsdel, kategorifilter
 // (som ligger i lagermenyn, #120) och faktarutan.
-import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear } from '../model.js';
+import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear, reviewLabel, REVIEW_SUBJECT_HELP } from '../model.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -157,6 +157,7 @@ export class Panel {
    */
   showFacts({ kind, name, color, facts: f, origin = null, place = origin, milestonesTitle = 'Nyckelår', mapNote = '' }) {
     const rv = REVIEW[f.review] ?? REVIEW.draft;
+    const subj = kind === 'Rike' ? 'Riket' : 'Religionen';
     const srcs = [...new Set([...(f.sources ?? []), ...(f.milestones ?? []).flatMap(m => m.sources ?? [])])]
       .map(id => this.srcById[id]).filter(Boolean);
     this.selectedId = origin?.id ?? null;
@@ -174,7 +175,7 @@ export class Panel {
       ${mapNote ? `<aside class="detail-note"><h4>Om kartan</h4><p>${esc(mapNote)}</p></aside>` : ''}
       <div class="src">Källa: ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || 'saknas'}</div>
       <div class="detail-actions">
-        <span class="review-badge ${rv.cls}">${esc(rv.sv)}</span>
+        <span class="review-badge ${rv.cls}" title="${esc(REVIEW_SUBJECT_HELP[subj])}">${esc(reviewLabel(f.review, subj))}</span>
       </div>`;
     this.detail.hidden = false;
     this.detail.scrollTop = 0; // efter hidden, annars behåller kortet förra läget
@@ -209,7 +210,7 @@ export class Panel {
         `<li><button type="button" class="link-btn" data-goto="${esc(b.id)}">${esc(t(b.title))}</button> <span class="meta">${esc(formatEventTime(b))}</span></li>`).join('')}</ol></div>` : ''}
       <div class="src">Källa: ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || 'saknas'}</div>
       <div class="detail-actions">
-        <span class="review-badge ${rv.cls}">${esc(rv.sv)}</span>
+        <span class="review-badge ${rv.cls}" title="${esc(REVIEW_SUBJECT_HELP['Händelsen'])}">${esc(reviewLabel(e.review, 'Händelsen'))}</span>
       </div>`;
     this.detail.scrollTop = 0;
     this.detail.hidden = false;

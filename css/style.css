@@ -355,8 +355,9 @@ body {
 
 .review-badge {
   display: inline-flex; align-items: center; gap: 6px;
-  font: 500 11px/1 var(--f-mono);
+  font: 500 11px/1.35 var(--f-mono);
   letter-spacing: .03em;
+  min-width: 0;
   color: var(--parchment-dim);
 }
 .review-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--brass); }
