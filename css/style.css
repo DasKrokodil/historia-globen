@@ -641,6 +641,11 @@ details.used-by summary:hover { color: var(--parchment); }
 .focus-label { font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
 .focus-title { font: 400 16px/1.2 var(--f-display); }
 
+.focus-moved { flex-basis: 100%; text-align: center; font: 400 12px/1.4 var(--f-mono); color: var(--parchment-dim); }
+.focus-moved .link-btn { font: inherit; white-space: nowrap; }
+.app.focus-moved-on .focus-bar { border-radius: var(--r); }
+.app.focus-moved-on .detail-card { bottom: 216px; } /* faktarutan ovanför den högre fokusraden */
+
 /* ---------- smal skärm ---------- */
 @media (max-width: 760px) {
   .panel { left: var(--gut); right: var(--gut-r); width: auto; max-height: 55vh; }
@@ -692,6 +697,8 @@ details.used-by summary:hover { color: var(--parchment); }
     flex-wrap: nowrap; justify-content: space-between; gap: 8px;
     border-radius: var(--r); padding: 6px 6px 6px 12px;
   }
+  .app.focus-moved-on .focus-bar { flex-wrap: wrap; }
+  .app.focus-moved-on .detail-card { bottom: 256px; max-height: 36vh; }
   .focus-label { display: none; }
   .focus-title { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
   .focus-bar .chip-btn { white-space: nowrap; padding: 7px 10px; font-size: 12px; }
