@@ -38,6 +38,7 @@ export function yearsAcross(y, fraction) {
   return (s.to - s.from) / (s.b - s.a) * fraction;
 }
 export const segmentName = y => segFor(clampY(y)).name;
+export const segmentFor = y => segFor(clampY(y));
 
 export class Timeline extends EventTarget {
   constructor({ track, thumb, segs, ticks, dots, ffMarks, playBtn, playIcon, stepBtns, speedBtn }) {

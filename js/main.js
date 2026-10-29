@@ -2,7 +2,7 @@
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
 import { loadAll, loadReligions, CAT, t, yearParts, formatYear, formatEventTime, isVisibleReview } from './model.js';
 import { Globe } from './globe.js';
-import { Timeline, segmentName } from './timeline.js';
+import { Timeline, segmentName, segmentFor } from './timeline.js';
 import { EventsLayer } from './layers/events.js';
 import { AreasLayer } from './layers/areas.js';
 import { BordersLayer } from './layers/borders.js';
@@ -170,16 +170,27 @@ async function start() {
 
   // Fokusmenyn listar krig, riken och religioner. Religionerna hämtas när menyn öppnas.
   const focusMenu = new FocusMenu({ button: $('btn-focus'), menu: $('focus-menu') });
-  const religionItems = doc => doc.religions.map(r => ({ key: `religion:${r.id}`, label: t(r.name), color: r.color }));
+  // Varje post har sitt tidsspann (from–to), så att menyn kan visa det som hör till tiden man står i (#121)
+  const religionItems = doc => doc.religions.map(r => {
+    const from = r.snapshots[0].start, to = r.snapshots.at(-1).end;
+    return { key: `religion:${r.id}`, label: t(r.name), sub: formatYearSpan(from, to), color: r.color, from, to };
+  });
+  const empireItems = () => data.empireGroups.map(g => {
+    const periods = data.polities.filter(p => p.group === g.id).flatMap(p => p.periods);
+    const from = Math.min(...periods.map(p => p.start)), to = Math.max(...periods.map(p => p.end));
+    return { key: `empire:${g.id}`, label: t(g.name), sub: formatYearSpan(from, to), color: data.polities.find(p => p.group === g.id)?.color, from, to };
+  });
   const focusGroups = (doc = null) => [
-    { title: 'Krig', items: data.events.filter(e => e.kind === 'war').map(e => ({ key: `war:${e.id}`, label: t(e.title), sub: formatEventTime(e), color: CAT[e.category]?.color })) },
-    { title: 'Riken', items: data.empireGroups.map(g => ({ key: `empire:${g.id}`, label: t(g.name), color: data.polities.find(p => p.group === g.id)?.color })) },
-    { title: 'Religioner', items: doc ? religionItems(doc) : [] },
+    { title: 'Krig', items: data.events.filter(e => e.kind === 'war').map(e => ({ key: `war:${e.id}`, label: t(e.title), sub: formatEventTime(e), color: CAT[e.category]?.color, from: e.start, to: e.end })) },
+    { title: 'Riken', items: empireItems() },
+    { title: 'Religioner', items: doc ? religionItems(doc) : [], loading: !doc },
   ];
   focusMenu.setGroups(focusGroups());
   focusMenu.onOpen = async () => {
     panel.setOpen(false); layers.close();
-    if (!focusMenu.groups[2].items.length) focusMenu.setGroups(focusGroups(await loadReligions()));
+    const year = timeline.year, seg = segmentFor(year);
+    focusMenu.setTime({ year, from: seg.from, to: seg.to, name: seg.name });
+    if (focusMenu.groups[2].loading) focusMenu.setGroups(focusGroups(await loadReligions()));
   };
   focusMenu.onPick = key => startFocus(key);
 
