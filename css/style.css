@@ -418,6 +418,7 @@ body {
 .ff-story-map { display: block; margin-top: 6px; font: 400 12.5px/1.4 var(--f-body); color: #6b5a3a; }
 .ff-story .ff-events:empty { display: none; }
 .ff-events { display: flex; flex-wrap: wrap; gap: 6px; }
+.ff-has-pics .ff-events { display: none; } /* bildrutorna har namn och Läs mer, så knapparna behövs inte (#190) */
 .ff-chip {
   display: inline-flex; align-items: center; gap: 6px;
   font: 500 12px/1 var(--f-body);
@@ -669,7 +670,6 @@ details.used-by summary:hover { color: var(--parchment); }
   .ff-cap { padding: 12px 5px 4px; gap: 3px; }
   .ff-more { padding: 3px 6px; font-size: 10.5px; }
   /* Bilderna har egna Läs mer-knappar: knapparna under texten behövs inte i smal skärm, så kortet blir inte högre än förut (#190) */
-  .ff-has-pics .ff-events { display: none; }
   .ff-has-pics .ff-text { -webkit-line-clamp: 2; }
   .ff-tab { bottom: 136px; min-height: 44px; padding-top: 0; padding-bottom: 0; }
   .app.has-detail .ff-tab { display: none; }
