@@ -191,7 +191,7 @@ export class Timeline extends EventTarget {
     this.playing = true;
     const run = this._run = (this._run ?? 0) + 1; // bara en uppspelning åt gången
     this.playIcon.setAttribute('d', 'M4 2.5h3v11H4zM9 2.5h3v11H9z');
-    this.playBtn.setAttribute('aria-label', 'Pausa');
+    this.playBtn.setAttribute('aria-pressed', 'true'); // namnet är konstant, tillståndet säger om den spelar
     let last = performance.now();
     let pos = this.toPos(this._year);
     const step = now => {
@@ -210,7 +210,7 @@ export class Timeline extends EventTarget {
   pause() {
     this.playing = false;
     this.playIcon.setAttribute('d', 'M4 2.5v11l9-5.5z');
-    this.playBtn.setAttribute('aria-label', 'Spela upp tiden');
+    this.playBtn.setAttribute('aria-pressed', 'false');
   }
 
   _render() {

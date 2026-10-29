@@ -92,6 +92,9 @@ body {
   cursor: zoom-in;
 }
 .gcluster:hover { background: var(--night-3); }
+.glabel { font-family: inherit; }
+.glabel:focus-visible, .gcluster:focus-visible, .globe-canvas:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+.globe-canvas:focus-visible { outline-offset: -3px; }
 .glabel .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
 
 /* ---------- huvud ---------- */
