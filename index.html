@@ -65,6 +65,7 @@
     <label class="layer-row"><input type="checkbox" data-pause="funfacts" checked aria-label="Pausa vid Samtidigt-kortet"> Samtidigt-kortet <span class="layer-note">fun facts och annat som hände samtidigt</span></label>
     <label class="layer-row"><input type="checkbox" data-pause="wars"> När ett krig bryter ut</label>
     <label class="layer-row"><input type="checkbox" data-pause="major" checked> Stora händelser när man följer ett krig</label>
+    <label class="layer-row"><input type="checkbox" data-pause="empire" checked> Nyckelår när man följer ett rike <span class="layer-note">varför riket växer eller krymper</span></label>
   </div>
 
   <aside id="panel" class="panel" aria-label="Samtidigt i världen">
@@ -82,7 +83,7 @@
   <section id="funfact" class="funfact" hidden aria-live="polite">
     <div id="ff-detail" class="ff-detail detail" hidden aria-label="Om händelsen"></div>
     <div class="ff-eyebrow">
-      <span>Samtidigt <span class="ff-sep">·</span> <span id="ff-kind" class="ff-kind">Fun fact</span></span>
+      <span><span class="ff-pre">Samtidigt <span class="ff-sep">·</span> </span><span id="ff-kind" class="ff-kind">Fun fact</span></span>
       <span class="ff-right"><span id="ff-pager" class="ff-pager"></span>
         <button id="ff-min" class="ff-min" type="button" aria-label="Fäll ihop Samtidigt-kortet" title="Fäll ihop">–</button></span>
     </div>

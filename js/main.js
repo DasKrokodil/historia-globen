@@ -9,7 +9,7 @@ import { BordersLayer } from './layers/borders.js';
 import { ReligionsLayer } from './layers/religions.js';
 import { WarsLayer } from './layers/wars.js';
 import { Panel } from './ui/panel.js';
-import { FunFacts } from './ui/funfact.js';
+import { FunFacts, empireStory } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
 import { LayerMenu } from './ui/layers.js';
 import { ReligionLegend } from './ui/legend.js';
@@ -336,6 +336,7 @@ async function start() {
     const year = timeline.year;
     ensureEmpires(year);
     const window = timeline.windowYears(year);
+    ff.story = focus?.type === 'empire' ? storyFor(focus.id) : [];
     ff.update(year, panel.filters);
     const eventsOn = layers.on.events;
     visible = layer.update({ year, window, filters: eventsOn ? panel.filters : noEvents, selectedId, highlight: ff.highlightIds(), focusId: focusWar?.id });
@@ -376,6 +377,12 @@ async function start() {
       const hit = founding(focus.id).find(e => e.start > lastYear && e.start <= year);
       if (hit) { timeline.pause('Pausad vid religionens grundande'); selectedId = hit.id; panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }
     }
+    // I fokus på ett rike stannar uppspelningen vid rikets nyckelår, och kortet säger varför
+    // riket växer eller krymper (#171). Valet finns i Lager.
+    if (focus?.type === 'empire' && timeline.playing && layers.pause.empire) {
+      const hit = storyFor(focus.id).find(c => c.year > lastYear && c.year <= year);
+      if (hit) { timeline.pause(`Pausad vid ${hit.label}: ${hit.title || 'rikets nyckelår'}`); timeline.year = hit.year; }
+    }
     // Pausa när ett krig bryter ut, om det är valt i lagermenyn (#114)
     if (!focus && timeline.playing && layers.pause.wars && eventsOn) {
       const war = data.events.find(e => e.kind === 'war' && e.start > lastYear && e.start <= year
@@ -384,6 +391,13 @@ async function start() {
     }
     lastYear = year;
     $('app').classList.toggle('has-detail', !$('detail').hidden);
+  }
+
+  // Rikets berättelse (#171): korten byggs en gång per rike ur facts.milestones
+  const stories = new Map();
+  function storyFor(id) {
+    if (!stories.has(id)) stories.set(id, empireStory(data.empireGroups.find(g => g.id === id), data.byId));
+    return stories.get(id);
   }
 
   // Efter "Hoppa till år" (#165): globen vänder sig mot årets viktigaste händelse, alltså den första
