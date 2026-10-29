@@ -1,0 +1,124 @@
+# Datamodell
+
+Alla datafiler i `data/` och deras fält. Standarderna (årtal, osäkerhet, precision, plats och språk) står också i [CLAUDE.md](../CLAUDE.md#datamodell-och-standarder-beslut-3-6-8). Den här filen uppdateras när ett fält läggs till eller ändras.
+
+## Gemensamma standarder
+
+| Vad | Standard | Exempel |
+|---|---|---|
+| År | Heltal, astronomisk årsräkning (ISO 8601): `0` = 1 f.Kr., `-1` = 2 f.Kr. *N f.Kr.* blir `1 - N`. | 2600 f.Kr. = `-2599` |
+| Osäkerhet | EDTF-sträng i `edtf`: `~` ungefär, `?` osäker, `/` spann, `../` öppen start, `/..` pågår | `"-0005~/-0003~"` |
+| Precision | Wikidatas skala i `precision`: 6 årtusende, 7 århundrade, 8 decennium, 9 år, 10 månad, 11 dag | `9` |
+| Plats | GeoJSON i WGS 84, `[longitud, latitud]` | `{ "type": "Point", "coordinates": [35.226, 31.779] }` |
+| Text | Per språk, svenska först. Saknas ett språk visas engelska, sedan svenska. | `{ "sv": "Jerusalem" }` |
+| Källor | Lista med id ur `sources.json` | `["wp-crucifixion"]` |
+| Granskning | `review`: `draft`, `source-checked`, `two-sources` eller `human-reviewed`. Se [kallor.md](kallor.md). | `"source-checked"` |
+
+## `events.json`: händelser
+
+```json
+{ "id": "korsfastelsen", "category": "religion", "icon": "star", "religion": "kristendom", "founding": true,
+  "start": 30, "end": 33, "precision": 9, "edtf": "0030/0033",
+  "location": { "type": "Point", "coordinates": [35.226, 31.779] }, "place": { "sv": "Jerusalem" },
+  "title": { "sv": "Jesus korsfästs" },
+  "summary": { "sv": "Jesus korsfästs i Jerusalem, troligen år 30 eller 33. …" },
+  "sources": ["wp-crucifixion", "wp-jerusalem"], "review": "source-checked" }
+```
+
+**Obligatoriska fält:** `id` (läsbart och unikt), `category` (en av de tretton kategorierna i `model.js`), `start`, `end`, `precision`, `edtf`, `location`, `place`, `title`, `summary`, `sources` och `review`.
+
+**Valfria fält:**
+
+| Fält | Betydelse |
+|---|---|
+| `locationPrecision` | `region` eller `country` när platsen är ungefärlig |
+| `wikidata` | Q-id, bara om det är kontrollerat eller kommer från en källa vi litar på |
+| `icon` | Ikonens namn i `img/icons/`, till exempel `swords`, `crown`, `star` |
+| `kind` | `"war"` för ett krig, med start och slut som spann |
+| `partOf` | Krigets id, för slag och andra händelser i ett krig |
+| `top` | `true` för krigets enda viktigaste händelse, som syns utzoomat |
+| `major` | `true` för krigets stora händelser, där uppspelningen pausar i fokusläget |
+| `story` | Krigets berättelse i fokusläget: `intro`, `parties` (lista med `name` och `members`), `outcome`, `casualties` och `sources` |
+| `religion` och `founding` | Religionens id i `religions.json` och `true` för händelser där religionen grundades. Fokus på religionen börjar där. |
+| `note` | Extra ruta i faktarutan: `title` och `text`, till exempel "Om år 0" |
+| `image` | Bild i faktarutan, se nedan |
+
+### `image`: bild i faktarutan
+
+```json
+"image": { "file": "images/events/columbus.webp", "kind": "illustration", "style": "renassans", "variant": "portolan",
+  "caption": { "sv": "Illustration i stil med en portolankarta, inte en historisk bild" },
+  "credit": "AI-genererad med <verktyg>, 2026-10-29", "license": "CC BY 4.0", "prompt": "<den exakta prompten>" }
+```
+
+| Fält | Betydelse |
+|---|---|
+| `file` | `images/events/<händelse-id>.webp`, 800 × 600 |
+| `kind` | `historisk` (riktig bild) eller `illustration` |
+| `source` | Filsidans id i `sources.json`, krävs för historiska bilder |
+| `style`, `variant` | Bildstil och variant ur `styles.json` |
+| `caption`, `credit`, `license` | Bildtext, upphov och licens, som visas under bilden |
+| `prompt` | Exakt prompt för illustrationer |
+| `placeholder` | `true` för platshållare, som märks "Platshållare" |
+
+Reglerna för bilder står i [CLAUDE.md](../CLAUDE.md#bilder-129).
+
+## `funfacts.json`: fun facts
+
+```json
+{ "id": "mammut-pyramid", "events": ["mammutar-wrangel", "cheopspyramiden"], "show": [-2650, -2450],
+  "review": "source-checked", "text": { "sv": "Medan Cheopspyramiden byggs lever det fortfarande ullhårsmammutar …" } }
+```
+
+`events` pekar på händelserna som jämförs, och fun facten ärver deras källor. `show` är spannet då kortet visas. Siffror i texten ska gå att räkna fram ur händelsernas årtal.
+
+Korten "När ett krig bröt ut" lagras inte här. De byggs i koden ur händelserna, inom 5 år från krigets start.
+
+## `sources.json`: källregister
+
+```json
+{ "id": "wp-crucifixion", "title": "Crucifixion of Jesus – Wikipedia", "url": "https://en.wikipedia.org/wiki/Crucifixion_of_Jesus",
+  "license": "CC BY-SA 4.0", "checked": "2026-10-29" }
+```
+
+`checked` är datumet då källan senast öppnades och kontrollerades. Id:t `wikidata` är reserverat och länkar till händelsens egen Wikidata-post.
+
+## `empires/`: riken
+
+`empires/index.json` laddas vid start och listar varje rike (grupp):
+
+```json
+{ "id": "hanriket", "name": { "sv": "Hanriket", "en": "Han dynasty" }, "color": "#d0703a", "from": -202, "to": 237,
+  "file": "data/empires/hanriket.json", "polities": [{ "id": "hanriket", "name": { … }, "sources": ["cliopatria"], "review": "source-checked" }] }
+```
+
+`empires/<rike>.json` innehåller gränserna och laddas när riket behövs:
+
+```json
+{ "schema": "historia-globen/areas@1", "group": "hanriket",
+  "polities": [{ "id": "hanriket", "group": "hanriket", "name": { … }, "wikidata": "Q1068371", "color": "#d0703a",
+    "sources": ["cliopatria"], "review": "source-checked",
+    "periods": [{ "start": -202, "end": -127, "areaKm2": 2042615, "label": [111.5, 33.4], "geometry": { "type": "MultiPolygon", … } }] }] }
+```
+
+Ett rike kan bestå av flera delar, till exempel Romarriket med kungadömet, republiken, kejsardömet och Bysans. Varje period har en egen gräns. `label` är platsen där namnet skrivs ut. Filerna byggs med `tools/riken.py` ur Cliopatria.
+
+## `religions.json`: religioner
+
+```json
+{ "religions": [{ "id": "kristendom", "name": { "sv": "Kristendom" }, "color": "#6f3fb8",
+    "snapshots": [{ "start": 200, "end": 249, "sure": true, "polities": ["Kingdom of Osroene"], "geometry": { … } }] }],
+  "polities": [{ "name": "(Anglo-Saxon England)", "wikipedia": "…", "text": "Christianity (from 6th century)",
+    "religion": "kristendom", "rule": "enda", "since": 501 }] }
+```
+
+- `snapshots` är religionens utbredning som statsreligion eller huvudreligion, sammanslagen per tidsperiod. `sure: false` betyder att flera religioner nämns och att den först nämnda valts. Den visas ljusare med streckad kant.
+- `polities` listar varje rike i Cliopatria med faktarutans text, vald religion och regeln som användes. `since` är ett årtal ur faktarutan, och religionen visas först därifrån.
+
+## `styles.json`: bildstilar
+
+Tio grundstilar efter tid (`regions` tom) och regionala varianter (`regions` med rutor i grader). Varje stil har `from`, `to`, `frame` (faktarutans ram) och `prompt` (engelsk stilbeskrivning). `variants` väljs efter händelsens kategori, till exempel portolankarta för resor under renässansen. Se `notes` i filen.
+
+## `land.json` och `borders.json`: kartor
+
+Färdigprojicerade SVG-banor i 4096 × 2048 (`path`, `width`, `height`) från Natural Earth: grundkartan (1:50m) och dagens landsgränser.
