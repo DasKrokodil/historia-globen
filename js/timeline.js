@@ -41,7 +41,8 @@ export const segmentName = y => segFor(clampY(y)).name;
 
 /** Uppspelningens nivåer i år per sekund. */
 const SPEEDS = [1, 5, 25, 100];
-const fmtRate = r => `${String(Math.round(r * 100) / 100).replace('.', ',')} år/s`;
+// Under 10 år/s visas en decimal, annars heltal, så att knappen blir kort (till exempel "17 år/s" i stället för "17,17 år/s")
+const fmtRate = r => `${String(r < 10 ? Math.round(r * 10) / 10 : Math.round(r)).replace('.', ',')} år/s`;
 
 export class Timeline extends EventTarget {
   constructor({ track, thumb, segs, ticks, dots, ffMarks, playBtn, playIcon, stepBtns, speedBtn, pauseNote, pauseText, pauseGo }) {
