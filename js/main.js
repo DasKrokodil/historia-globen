@@ -139,9 +139,11 @@ async function start() {
     } else {
       const doc = await loadReligions();
       const r = doc.religions.find(x => x.id === id);
-      const from = r.snapshots[0].start, to = 2024;
+      // Fokus börjar när religionen grundades, om det finns en sådan händelse (#123)
+      const first = founding(id)[0];
+      const from = Math.min(first?.start ?? Infinity, r.snapshots[0].start), to = 2024;
       f = { type, id, title: `${t(r.name)} ${formatYearSpan(from, to)}`, short: t(r.name), from, to,
-        center: geoCenter([r.snapshots[0].geometry]), zoom: 1.3 };
+        center: first ? [first._lat, first._lon] : geoCenter([r.snapshots[0].geometry]), zoom: 1.3 };
       if (!religions.religions.length) religions.setData(doc.religions);
     }
     if (focus) endFocus(false);
@@ -159,7 +161,12 @@ async function start() {
     lastYear = f.from;
     timeline.year = f.from;
     refresh();
+    // Religionens grundande visas först, i faktarutan
+    const first = type === 'religion' && founding(id)[0];
+    if (first) select(first.id, false);
   }
+  /** Händelser där en religion grundades (founding: true), i tidsordning. */
+  const founding = id => data.events.filter(e => e.founding && e.religion === id).sort((a, b) => a.start - b.start);
   function endFocus(redraw = true) {
     focus = null; focusWar = null;
     areas.onlyGroup = null; religions.onlyId = null;
@@ -175,7 +182,7 @@ async function start() {
   const focusMenu = new FocusMenu({ button: $('btn-focus'), menu: $('focus-menu') });
   // Varje post har sitt tidsspann (from–to), så att menyn kan visa det som hör till tiden man står i (#121)
   const religionItems = doc => doc.religions.map(r => {
-    const from = r.snapshots[0].start, to = r.snapshots.at(-1).end;
+    const from = Math.min(founding(r.id)[0]?.start ?? Infinity, r.snapshots[0].start), to = r.snapshots.at(-1).end;
     return { key: `religion:${r.id}`, label: t(r.name), sub: formatYearSpan(from, to), color: r.color, from, to };
   });
   const empireItems = () => data.empireGroups.map(g =>
@@ -241,6 +248,11 @@ async function start() {
       // I smal skärm öppnas inte panelen, så att kartan syns; händelsen markeras på globen
       if (hit) { timeline.pause(); selectedId = hit.id; panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }
     }
+    // I fokus på en religion stannar uppspelningen vid händelserna när den grundades (#123)
+    if (focus?.type === 'religion' && timeline.playing) {
+      const hit = founding(focus.id).find(e => e.start > lastYear && e.start <= year);
+      if (hit) { timeline.pause(); selectedId = hit.id; panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }
+    }
     // Pausa när ett krig bryter ut, om det är valt i lagermenyn (#114)
     if (!focus && timeline.playing && layers.pause.wars && eventsOn) {
       const war = data.events.find(e => e.kind === 'war' && e.start > lastYear && e.start <= year
@@ -252,7 +264,7 @@ async function start() {
   }
 
   const narrow = matchMedia('(max-width: 760px)');
-  function select(id) {
+  function select(id, jump = true) {
     selectedId = id;
     const e = id ? data.byId[id] : null;
     panel.showDetail(e);
@@ -261,7 +273,7 @@ async function start() {
     if (e) {
       globe.flyTo(e._lat, e._lon);
       // Hoppa i tiden om händelsen ligger långt bort
-      if (timeline.year < e.start - 400 || timeline.year > e.end + 400) timeline.year = e.start;
+      if (jump && (timeline.year < e.start - 400 || timeline.year > e.end + 400)) timeline.year = e.start;
     }
     refresh();
   }

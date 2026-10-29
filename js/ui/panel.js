@@ -127,6 +127,7 @@ export class Panel {
       <h3>${esc(t(e.title))}</h3>
       <div class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))} · ${esc(t(CAT[e.category]?.name))}</div>
       <p>${esc(t(e.summary))}</p>
+      ${e.note ? `<aside class="detail-note"><h4>${esc(t(e.note.title))}</h4><p>${esc(t(e.note.text))}</p></aside>` : ''}
       ${e._war ? `<p class="war-link">Del av: <button type="button" class="link-btn" data-goto="${esc(e._war.id)}">${esc(t(e._war.title))}</button></p>` : ''}
       ${e.kind === 'war' ? `<button type="button" class="chip-btn focus-btn" data-focus="${esc(e.id)}">▶ Följ kriget långsamt</button>` : ''}
       ${e._battles?.length ? `<div class="war-list"><h4>Slag och händelser i kriget</h4><ol>${e._battles.map(b =>
