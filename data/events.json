@@ -372,7 +372,7 @@
     { "id": "haitis-sjalvstandighet", "category": "krig", "icon": "scroll", "partOf": "haitiska-revolutionen", "major": true, "top": true, "start": 1804, "end": 1804, "precision": 11, "edtf": "1804-01-01",
       "location": { "type": "Point", "coordinates": [-72.688, 19.446] }, "place": { "sv": "Gonaïves, Haiti" },
       "title": { "sv": "Haiti förklarar sig självständigt" },
-      "summary": { "sv": "Den 1 januari 1804 utropar Jean-Jacques Dessalines i Gonaïves den tidigare kolonin Saint-Domingue till den självständiga staten Haiti. Det blir den första självständiga staten i Latinamerika och Karibien, och den enda som har grundats efter ett lyckat slavuppror." },
+      "summary": { "sv": "Den 1 januari 1804 utropar Jean-Jacques Dessalines i Gonaïves den tidigare kolonin Saint-Domingue till den självständiga staten Haiti. Det blir den första självständiga staten i Latinamerika, och den enda som har grundats efter ett lyckat slavuppror." },
       "wikidata": "Q17502440", "sources": ["wp-haitian-declaration-independence", "wp-gonaives", "wp-haitian-revolution", "wikidata"], "review": "two-sources" },
 
     { "id": "jesu-fodelse", "category": "religion", "icon": "star", "religion": "kristendom", "founding": true, "start": -5, "end": -3, "precision": 9, "edtf": "-0005~/-0003~",
