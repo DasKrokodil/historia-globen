@@ -47,6 +47,12 @@ function collect({ sources, events, funfacts, polities, land, borders }, religio
     if (rp.length) whole('cliopatria', 'Religioner: områdena följer rikenas gränser i Cliopatria');
     if (rp.some(p => p.wikipedia)) whole('wikipedia-religion', 'Religioner: varje rikes religion (faktarutan på Wikipedia)');
     if (rp.some(p => p.modern)) whole('wp-religion-by-country', 'Religioner: nutida länder från 1900');
+    // Faktarutan om religionen (#90) och dess nyckelår
+    for (const r of religionsDoc.religions ?? []) {
+      if (!r.facts) continue;
+      add('religions', r.facts.sources ?? [], `${t(r.name)}: faktarutan`, r.facts.review);
+      for (const m of r.facts.milestones ?? []) add('religions', m.sources ?? [], `${t(r.name)}: ${t(m.label)}`, r.facts.review);
+    }
   }
   if (land?.source) add('maps', [land.source], 'Grundkartan', null);
   if (borders?.source) add('maps', [borders.source], 'Dagens gränser', null);
