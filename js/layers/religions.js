@@ -39,25 +39,46 @@ export class ReligionsLayer {
 
   /**
    * Vilket område ligger punkten (lon, lat) i? Säkra områden prövas före osäkra.
-   * Returnerar { religion, snapshot, polities } eller null. Rikena är bara kända per
-   * område (ögonblicksbilden), inte per punkt, eftersom områdena är sammanslagna.
+   * Returnerar { religion, snapshot, polities } eller null. Områdena är sammanslagna, så
+   * vilket rike som ligger just där tas fram med polityAt() när rikenas gränser har laddats.
    */
   hitTest(lon, lat) {
     const sorted = [...this.active].sort((a, b) => (b.snapshot.sure !== false) - (a.snapshot.sure !== false));
     for (const { religion, snapshot } of sorted) {
-      const g = snapshot.geometry;
-      let inside = false; // evenodd, som ritningen
-      for (const rings of g.type === 'Polygon' ? [g.coordinates] : g.coordinates) {
-        for (const ring of rings) {
-          for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
-            const [xi, yi] = ring[i], [xj, yj] = ring[j];
-            if ((yi > lat) !== (yj > lat) && lon < (xj - xi) * (lat - yi) / (yj - yi) + xi) inside = !inside;
-          }
-        }
+      if (contains(snapshot.geometry, lon, lat)) {
+        return { religion, snapshot, polities: snapshot.polities.map(n => this.polities.get(n) ?? { name: n }) };
       }
-      if (inside) return { religion, snapshot, polities: snapshot.polities.map(n => this.polities.get(n) ?? { name: n }) };
     }
     return null;
+  }
+
+  /**
+   * Vilket rike i området ligger på punkten (#194)? shapes = polities ur
+   * data/religions-polities.json (rikets namn → perioder). Bara rikena i ögonblicksbilden
+   * prövas, med den period som gällde när ögonblicksbilden börjar (samma urval som ritas).
+   * Ligger flera riken över varandra kommer enskilda skeden före sammanslagningar och
+   * sedan det minsta riket först. Hamnar klicket precis utanför
+   * alla (förenklade kanter) tas det närmaste riket inom en halv grad. Returnerar en lista
+   * med uppgifter om rikena, tom om inget hittas.
+   */
+  polityAt(hit, lon, lat, shapes) {
+    const y = hit.snapshot.start;
+    const cands = [];
+    for (const p of hit.polities) {
+      const period = (shapes?.[p.name] ?? []).find(q => q.start <= y && y <= q.end);
+      if (period) cands.push({ p, g: period.geometry });
+    }
+    // Namn inom parentes, till exempel (Kingdom of France), är Cliopatrias sammanslagning av ett
+    // rikes alla skeden. De kommer efter det enskilda skedet, till exempel Kingdom of France.
+    const agg = c => /^\(.*\)$/.test(c.p.name);
+    const inside = cands.filter(c => contains(c.g, lon, lat)).map(c => ({ ...c, area: bboxArea(c.g) }));
+    if (inside.length) return inside.sort((a, b) => agg(a) - agg(b) || a.area - b.area).map(c => c.p);
+    let best = null, bestD = 0.5;
+    for (const c of cands) {
+      const d = distance(c.g, lon, lat);
+      if (d < bestD) { best = c.p; bestD = d; }
+    }
+    return best ? [best] : [];
   }
 
   update({ year }) {
@@ -123,4 +144,39 @@ export class ReligionsLayer {
     }
     ctx.restore();
   }
+}
+
+const ringsOf = g => (g.type === 'Polygon' ? [g.coordinates] : g.coordinates).flat();
+
+/** Punkt i polygon (evenodd, som ritningen), i lon/lat. */
+function contains(g, lon, lat) {
+  let inside = false;
+  for (const ring of ringsOf(g)) {
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const [xi, yi] = ring[i], [xj, yj] = ring[j];
+      if ((yi > lat) !== (yj > lat) && lon < (xj - xi) * (lat - yi) / (yj - yi) + xi) inside = !inside;
+    }
+  }
+  return inside;
+}
+
+/** Ytan av områdets omskrivna rektangel (kvadratgrader), för att välja det minsta riket. */
+function bboxArea(g) {
+  let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+  for (const ring of ringsOf(g)) for (const [x, y] of ring) { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
+  return (x1 - x0) * (y1 - y0);
+}
+
+/** Kortaste avståndet (grader) från punkten till områdets kant. */
+function distance(g, lon, lat) {
+  let best = Infinity;
+  for (const ring of ringsOf(g)) {
+    for (let i = 1; i < ring.length; i++) {
+      const [ax, ay] = ring[i - 1], [bx, by] = ring[i];
+      const dx = bx - ax, dy = by - ay, l = dx * dx + dy * dy;
+      const t = l ? Math.max(0, Math.min(1, ((lon - ax) * dx + (lat - ay) * dy) / l)) : 0;
+      best = Math.min(best, Math.hypot(lon - ax - t * dx, lat - ay - t * dy));
+    }
+  }
+  return best;
 }

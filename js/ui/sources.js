@@ -22,6 +22,11 @@ const LEVELS = [
   { key: 'human', review: 'human-reviewed', label: 'granskade' },
   { key: 'draft', review: 'draft', label: 'utkast' },
 ];
+const KINDS = {
+  illustration: { one: 'illustration', many: 'illustrationer', label: 'Illustration' },
+  historisk: { one: 'historisk bild', many: 'historiska bilder', label: 'Historisk bild' },
+};
+const kindOf = k => KINDS[k] ?? { one: String(k ?? 'bild'), many: String(k ?? 'bilder'), label: String(k ?? 'Bild') };
 const MAX_USES = 8;   // fler användningar än så fälls ihop
 
 /** Räknar fram vilka uppgifter som pekar på varje källa, grupp för grupp. */
@@ -62,7 +67,11 @@ function collect({ sources, events, funfacts, polities, empireGroups = [], land,
   }
   if (land?.source) add('maps', [land.source], 'Grundkartan', null);
   if (borders?.source) add('maps', [borders.source], 'Dagens gränser', null);
-  for (const e of events) if (e.image?.source) add('images', [e.image.source], `Bild: ${t(e.title)}`, null);
+  // Bilder (#195): varje bild på globen listas med ursprung och licens, även illustrationer utan extern källa.
+  // De räknas inte som uppgifter med granskningsnivå; bara historiska bilder med image.source får en post i källtabellen.
+  const shownEvents = events.filter(e => e.image && (settings.showDrafts || e.review !== 'draft'));
+  groups.images.images = shownEvents.map(e => ({ event: e, image: e.image }));
+  for (const e of shownEvents) if (e.image.source) add('images', [e.image.source], `Bild: ${t(e.title)}`, null, false);
   // Källor som ingen uppgift pekar på just nu (räknas först när religionerna har laddats)
   if (religionsDoc) {
     const used = new Set(GROUPS.flatMap(g => [...groups[g.id].uses.keys()]));
@@ -180,7 +189,12 @@ export class SourcesDialog {
         ? `<span class="src-bar" aria-hidden="true">${LEVELS.filter(l => g.counts[l.key]).map(l =>
             `<span class="lv-${l.key}" style="flex:${g.counts[l.key]}"></span>`).join('')}</span>`
         : '';
-      const note = g.id === 'religions' && loadingReligions ? 'Laddar…'
+      const nImg = this.highlight ? 0 : (g.images?.length ?? 0);
+      const imgKinds = nImg ? Object.entries(g.images.reduce((m, x) => ({ ...m, [x.image.kind]: (m[x.image.kind] ?? 0) + 1 }), {}))
+        .map(([k, c]) => plural(c, kindOf(k).one, kindOf(k).many)).join(', ') : '';
+      const note = g.id === 'images' && nImg ? imgKinds
+        : g.id === 'images' ? (this.highlight ? 'Inga för den här fun facten' : 'Inga bilder ännu')
+        : g.id === 'religions' && loadingReligions ? 'Laddar…'
         : g.id === 'other' ? 'Används inte av någon uppgift just nu'
         : g.items.length ? 'Ingen granskningsnivå per uppgift' : 'Inga uppgifter ännu';
       const status = g.reviewed
@@ -188,7 +202,7 @@ export class SourcesDialog {
         : `<span class="lv-txt">${note}</span>`;
       return `<button type="button" class="src-group" data-group="${g.id}" aria-pressed="${this.group === g.id}">
         <span class="src-group-name">${esc(g.label)}</span>
-        <span class="src-group-meta">${plural(n, 'källa', 'källor')}${g.items.length ? ` · ${plural(g.items.length, 'uppgift', 'uppgifter')}` : ''}</span>
+        <span class="src-group-meta">${g.id === 'images' ? `${plural(nImg, 'bild', 'bilder')}${n ? ` · ${plural(n, 'källa', 'källor')}` : ''}` : `${plural(n, 'källa', 'källor')}${g.items.length ? ` · ${plural(g.items.length, 'uppgift', 'uppgifter')}` : ''}`}</span>
         ${bar}
         <span class="src-group-status">${status}</span>
       </button>`;
@@ -197,6 +211,7 @@ export class SourcesDialog {
     // Listan: källorna i varje grupp, filtrerade på vald grupp och sökord
     const q = norm(this.query.trim());
     const shown = new Set();
+    let imgShown = 0;
     const sections = groups.filter(g => !this.group || g.id === this.group).map(g => {
       const groupHit = q && norm(g.label).includes(q);
       const rows = sources.filter(s => g.uses.has(s.id) && pick(s)).map(s => {
@@ -211,20 +226,29 @@ export class SourcesDialog {
           <td class="num">${esc(s.checked)}</td>
         </tr>`;
       }).filter(Boolean);
-      if (!rows.length) return '';
-      return `<section class="src-section" data-group="${g.id}">
-        <h4>${esc(g.label)} <span class="src-n">${rows.length}</span></h4>
+      const imgRows = this.highlight ? [] : (g.images ?? []).map(x => imageRow(x, sources, q, groupHit)).filter(Boolean);
+      imgShown += imgRows.length;
+      if (!rows.length && !imgRows.length) return '';
+      const imgTable = imgRows.length ? `<h5 class="src-sub">Bilder på globen <span class="src-n">${imgRows.length}</span></h5>
+        <div class="src-table-wrap"><table class="src-table src-images">
+          <thead><tr><th>Händelse</th><th>Sort</th><th>Kredit</th><th>Licens</th></tr></thead>
+          <tbody>${imgRows.join('')}</tbody>
+        </table></div>` : '';
+      const srcTable = rows.length ? `${imgRows.length ? '<h5 class="src-sub">Källor för historiska bilder</h5>' : ''}
         <div class="src-table-wrap"><table class="src-table">
           <thead><tr><th>Källa</th><th>Licens</th><th>Kontrollerad</th></tr></thead>
           <tbody>${rows.join('')}</tbody>
-        </table></div>
+        </table></div>` : '';
+      return `<section class="src-section" data-group="${g.id}">
+        <h4>${esc(g.label)} <span class="src-n">${g.images ? imgRows.length + rows.length : rows.length}</span></h4>
+        ${imgTable}${srcTable}
       </section>`;
     }).filter(Boolean);
 
     const all = sources.filter(pick).length;
     const where = this.group ? ` i ${this.groups[this.group].label}` : '';
     this.body.querySelector('.src-hits').textContent = q || this.group
-      ? (shown.size ? `Visar ${shown.size} av ${all} källor${where}.` : `Ingen källa matchar${q ? ` "${this.query.trim()}"` : ''}${where}.`)
+      ? (shown.size || imgShown ? `Visar ${[shown.size || !imgShown ? `${shown.size} av ${all} källor` : '', imgShown ? `${imgShown} ${imgShown === 1 ? 'bild' : 'bilder'}` : ''].filter(Boolean).join(' och ')}${where}.` : `Ingen källa matchar${q ? ` "${this.query.trim()}"` : ''}${where}.`)
       : `${all} källor.`;
     this.body.querySelector('.src-list').innerHTML = sections.join('');
   }
@@ -241,4 +265,20 @@ function usedBy(uses, hits) {
   }
   if (uses.length <= MAX_USES) return `<div class="used-by">Används för: ${uses.map(esc).join(', ')}</div>`;
   return `<details class="used-by"><summary>Används för ${uses.length} uppgifter: ${uses.slice(0, 3).map(esc).join(', ')} …</summary>${uses.map(esc).join(', ')}</details>`;
+}
+
+/** En rad i bildlistan: händelse, sort, kredit och licens. Prompten är hopfälld. Null om sökningen inte matchar. */
+function imageRow({ event: e, image: im }, sources, q, groupHit) {
+  const kind = kindOf(im.kind);
+  const src = im.source ? sources.find(s => s.id === im.source) : null;
+  const hay = [t(e.title), kind.label, kind.one, im.style, im.credit, im.license, im.caption ? t(im.caption) : '', im.prompt, src?.title, im.placeholder ? 'platshållare' : '', e.id];
+  if (q && !groupHit && !hay.some(x => norm(x).includes(q))) return '';
+  const creditHtml = src ? `<a href="${esc(src.url)}" target="_blank" rel="noopener">${esc(im.credit || src.title)}</a>` : esc(im.credit || 'Okänt ursprung');
+  const prompt = im.prompt ? `<details class="used-by"><summary>Prompt</summary>${esc(im.prompt)}</details>` : '';
+  return `<tr>
+    <td>${esc(t(e.title))}${im.placeholder ? ' <span class="src-ph">Platshållare</span>' : ''}${prompt}</td>
+    <td>${esc(kind.label)}${im.kind === 'illustration' ? '<div class="used-by">Inte en historisk bild</div>' : ''}</td>
+    <td>${creditHtml}</td>
+    <td>${esc(im.license || '–')}</td>
+  </tr>`;
 }

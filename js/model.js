@@ -185,3 +185,13 @@ export function loadReligions() {
   religionsPromise ??= getJSON('data/religions.json');
   return religionsPromise;
 }
+
+/**
+ * Varje rikes gräns i religionslagret (#194), för klickrutan. Filen laddas först vid det
+ * första klicket på ett religionsområde, så att startladdningen inte blir tyngre.
+ */
+let religionPolitiesPromise = null;
+export function loadReligionPolities() {
+  religionPolitiesPromise ??= getJSON('data/religions-polities.json').catch(err => { religionPolitiesPromise = null; throw err; });
+  return religionPolitiesPromise;
+}

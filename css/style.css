@@ -606,6 +606,9 @@ body {
 .src-search input:focus { outline: none; border-color: var(--brass); }
 .sheet-body .src-hits { font: 500 11.5px/1.4 var(--f-mono); color: var(--parchment-dim); margin: 8px 0 4px; }
 .src-section h4 { font: 400 18px/1.2 var(--f-display); color: var(--parchment); margin: 16px 0 4px; }
+.src-sub { font: 500 11px/1.2 var(--f-mono); color: var(--parchment-dim); text-transform: uppercase; letter-spacing: .05em; margin: 12px 0 2px; }
+.src-ph { font: 500 10px/1 var(--f-mono); color: var(--brass); border: 1px solid var(--brass-deep); border-radius: 3px; padding: 1px 4px; text-transform: uppercase; }
+.src-images td:first-child { overflow-wrap: anywhere; }
 .src-n { font: 500 11px/1 var(--f-mono); color: var(--parchment-dim); margin-left: 4px; }
 .src-table td:first-child { overflow-wrap: anywhere; }
 .used-by mark { background: color-mix(in srgb, var(--brass) 30%, transparent); color: var(--parchment); border-radius: 2px; }
