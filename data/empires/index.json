@@ -79,7 +79,172 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Rom växte från en stad i mellersta Italien till ett rike runt hela Medelhavet. Gruppen på kartan omfattar kungadömet, republiken, kejsardömet och dess östra fortsättning, Bysantinska riket, som tillsammans spänner över mer än två årtusenden."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Enligt traditionen grundades Rom cirka 753 f.Kr. vid floden Tibern i mellersta Italien. Kungadömet (cirka 753–509 f.Kr.) följdes av republiken (cirka 509–27 f.Kr.) och av kejsardömet från 27 f.Kr. Om kungatiden vet man lite säkert, eftersom berättelserna till stor del bygger på muntlig tradition."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Riket delades flera gånger. Västromerska riket föll 476, när Romulus Augustus avsattes av Odoaker. Östromerska riket, som i efterhand kallats Bysantinska riket, fanns kvar tills osmanerna erövrade Konstantinopel 1453. Invånarna kallade själva sitt rike romerskt."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Rom. Konstantin den store flyttade kejsarsätet till Bysantion år 330 och döpte om staden till Konstantinopel, som sedan var huvudstad i öster fram till 1453."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Romulus (den förste kungen enligt traditionen), Augustus (den förste kejsaren, från 27 f.Kr.), Trajanus (98–117), Konstantin den store (306–337, den förste kristne kejsaren) och Justinianus I (527–565) i Bysans."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Kejsardömet var som störst under Trajanus, cirka 5 miljoner km² år 117 enligt uppskattningen i Wikipedias faktaruta. Bysantinska riket var som störst under Justinianus I, som en kort tid återtog stora delar av Italien och västra Medelhavets kuster."
+      }
+     },
+     {
+      "label": {
+       "sv": "Språk och religion"
+      },
+      "text": {
+       "sv": "Latin, och med tiden allt mer grekiska. I Bysans ersatte grekiskan latinet som officiellt språk. Romersk polyteism med kejsarkult, och från 380 nicensk kristendom som officiell religion."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": -508,
+      "label": {
+       "sv": "cirka 509 f.Kr."
+      },
+      "text": {
+       "sv": "Kungarna störtas och republiken införs, enligt den traditionella dateringen."
+      },
+      "sources": [
+       "wp-roman-kingdom",
+       "wp-roman-republic"
+      ]
+     },
+     {
+      "year": -201,
+      "label": {
+       "sv": "202 f.Kr."
+      },
+      "text": {
+       "sv": "Rom besegrar Karthago vid Zama och blir under årtiondena efter den ledande makten i Medelhavet."
+      },
+      "sources": [
+       "wp-roman-republic"
+      ]
+     },
+     {
+      "year": -26,
+      "label": {
+       "sv": "27 f.Kr."
+      },
+      "text": {
+       "sv": "Senaten ger Octavianus titeln Augustus. Han räknas som den förste romerske kejsaren."
+      },
+      "sources": [
+       "wp-roman-empire"
+      ]
+     },
+     {
+      "year": 117,
+      "label": {
+       "sv": "117"
+      },
+      "text": {
+       "sv": "Kejsardömet är som störst under Trajanus, cirka 5 miljoner km²."
+      },
+      "sources": [
+       "wp-roman-empire"
+      ]
+     },
+     {
+      "year": 330,
+      "label": {
+       "sv": "330"
+      },
+      "text": {
+       "sv": "Konstantin den store flyttar kejsarsätet till Bysantion, som får namnet Konstantinopel."
+      },
+      "sources": [
+       "wp-roman-empire"
+      ]
+     },
+     {
+      "year": 476,
+      "label": {
+       "sv": "476"
+      },
+      "text": {
+       "sv": "Västromerska riket faller när Odoaker avsätter Romulus Augustus. Östromerska riket lever vidare."
+      },
+      "sources": [
+       "wp-roman-empire"
+      ]
+     },
+     {
+      "year": 1204,
+      "label": {
+       "sv": "1204"
+      },
+      "text": {
+       "sv": "Fjärde korståget plundrar Konstantinopel och riket splittras. Staden återtas 1261, men riket blir efter det bara en regional makt."
+      },
+      "sources": [
+       "wp-byzantine-empire"
+      ]
+     },
+     {
+      "year": 1453,
+      "label": {
+       "sv": "1453"
+      },
+      "text": {
+       "sv": "Osmanerna erövrar Konstantinopel, och Bysantinska riket upphör."
+      },
+      "sources": [
+       "wp-byzantine-empire",
+       "wp-ottoman"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger cirka 753 f.Kr. till 1453. Kartans sista år fram till 1474 visar bara en liten rest av Bysans."
+    },
+    "sources": [
+     "wp-roman-empire",
+     "wp-roman-kingdom",
+     "wp-roman-republic",
+     "wp-byzantine-empire"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "persiska-riket",
@@ -103,7 +268,131 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Det akemenidiska riket var ett forntida iranskt rike som grundades av Kyros den store. Det var sin tids största rike och sträckte sig från Balkan och Kyrenaika i väster till Indusdalen i öster."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "År 550 f.Kr., med utgångspunkt i Persis i sydvästra delen av Iranska platån. Kyros den store besegrade Medien, Lydien och Nybabyloniska riket."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Alexander den store erövrade hela riket i ett fälttåg som började 336 f.Kr. och var klart 330 f.Kr. Efter Alexanders död 323 f.Kr. hamnade det mesta av det gamla riket under Seleukidriket och Ptolemaiska riket."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Flera: Babylon, Pasargadae (under Kyros den store) och Susa (under Dareios den store). Ekbatana och Persepolis var ceremoniella huvudstäder."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Kyros den store (559–530 f.Kr.), Kambyses II (530–522 f.Kr.), Dareios den store (522–486 f.Kr.), Xerxes I (486–465 f.Kr.) och den siste, Dareios III (336–330 f.Kr.)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Cirka 5,5 miljoner km² omkring 500 f.Kr., enligt Wikipedias faktaruta."
+      }
+     },
+     {
+      "label": {
+       "sv": "Språk och religion"
+      },
+      "text": {
+       "sv": "Fornpersiska var dynastins språk och arameiska det officiella språket i förvaltningen. Zoroastrism var statsreligion, men många andra religioner fanns i riket. Riket är känt för sin förvaltning, Kungsvägen, ett ordnat postväsende och religiös tolerans, särskilt under Kyros."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": -549,
+      "label": {
+       "sv": "550 f.Kr."
+      },
+      "text": {
+       "sv": "Kyros den store grundar riket."
+      },
+      "sources": [
+       "wp-achaemenid-empire"
+      ]
+     },
+     {
+      "year": -538,
+      "label": {
+       "sv": "539 f.Kr."
+      },
+      "text": {
+       "sv": "Babylonien erövras."
+      },
+      "sources": [
+       "wp-achaemenid-empire"
+      ]
+     },
+     {
+      "year": -524,
+      "label": {
+       "sv": "525 f.Kr."
+      },
+      "text": {
+       "sv": "Egypten erövras."
+      },
+      "sources": [
+       "wp-achaemenid-empire"
+      ]
+     },
+     {
+      "year": -491,
+      "label": {
+       "sv": "492–479 f.Kr."
+      },
+      "text": {
+       "sv": "Fälttågen mot Grekland slås tillbaka 492–490 och 480–479 f.Kr. Redan 513 f.Kr. hade riket drivits tillbaka från Skytien."
+      },
+      "sources": [
+       "wp-achaemenid-empire"
+      ]
+     },
+     {
+      "year": -329,
+      "label": {
+       "sv": "330 f.Kr."
+      },
+      "text": {
+       "sv": "Alexander den store har erövrat hela riket och lägger det under Makedoniska riket."
+      },
+      "sources": [
+       "wp-achaemenid-empire"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan anger 550–330 f.Kr."
+    },
+    "sources": [
+     "wp-achaemenid-empire"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "alexanders-rike",
@@ -127,7 +416,131 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Makedonien var ett forntida kungadöme i nordöstra delen av den grekiska halvön. Under Filip II blev det den ledande makten i Grekland, och hans son Alexander den store erövrade Persiska riket ända till floden Indus."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Troligen under 600-talet f.Kr., enligt sagan grundat av Karanos eller Perdikkas I. Före 300-talet f.Kr. var det ett litet kungadöme, och en tid var det underställt Persiska riket, först som vasall och sedan som en del av riket fram till 479 f.Kr."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Alexanders rike delades efter hans död 323 f.Kr., men Makedonien fanns kvar som kungadöme. Rom avskaffade monarkin efter tredje makedoniska kriget 168 f.Kr. Ett kort återupplivande 150–148 f.Kr. slutade med att Makedonien blev romersk provins."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Aigai fram till 399 f.Kr., därefter Pella."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Filip II (359–336 f.Kr.), Alexander den store (336–323 f.Kr.), Kassandros (305–297 f.Kr.), Filip V (221–179 f.Kr.) och den siste kungen, Perseus (179–168 f.Kr.)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Cirka 5,2 miljoner km² år 323 f.Kr., när Alexander dog, enligt Wikipedias faktaruta."
+      }
+     },
+     {
+      "label": {
+       "sv": "Språk och religion"
+      },
+      "text": {
+       "sv": "Fornmakedoniska, attisk grekiska och koine-grekiska. Grekisk polyteism och hellenistisk religion. Alexanders lärare Aristoteles fick stort inflytande på västerländsk filosofi."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": -358,
+      "label": {
+       "sv": "359 f.Kr."
+      },
+      "text": {
+       "sv": "Filip II blir kung och lägger under sig det grekiska fastlandet genom krig och diplomati."
+      },
+      "sources": [
+       "wp-macedonia-ancient"
+      ]
+     },
+     {
+      "year": -337,
+      "label": {
+       "sv": "338 f.Kr."
+      },
+      "text": {
+       "sv": "Filip II besegrar Aten och Thebe vid Chaironeia."
+      },
+      "sources": [
+       "wp-macedonia-ancient"
+      ]
+     },
+     {
+      "year": -335,
+      "label": {
+       "sv": "336 f.Kr."
+      },
+      "text": {
+       "sv": "Alexander den store blir kung. Hans fälttåg störtar Persiska riket."
+      },
+      "sources": [
+       "wp-macedonia-ancient"
+      ]
+     },
+     {
+      "year": -322,
+      "label": {
+       "sv": "323 f.Kr."
+      },
+      "text": {
+       "sv": "Alexander dör. Under de följande krigen mellan hans efterträdare delas riket upp."
+      },
+      "sources": [
+       "wp-macedonia-ancient"
+      ]
+     },
+     {
+      "year": -167,
+      "label": {
+       "sv": "168 f.Kr."
+      },
+      "text": {
+       "sv": "Rom avskaffar den makedoniska monarkin efter tredje makedoniska kriget."
+      },
+      "sources": [
+       "wp-macedonia-ancient"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartdatan slutar 293 f.Kr., men enligt källan fanns kungadömet kvar till 168 f.Kr."
+    },
+    "sources": [
+     "wp-macedonia-ancient"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "hanriket",
@@ -151,7 +564,131 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Handynastin var en kejsardynasti i Kina, grundad av Liu Bang. Den räknas som en guldålder i Kinas historia, och majoritetsfolket i dagens Kina kallar sig fortfarande han."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Liu Bang utropades till kejsare 202 f.Kr., efter slaget vid Gaixia. Dynastin följde på den kortlivade Qindynastin. Den delas i Västra Han (202 f.Kr.–9 e.Kr.) och Östra Han (25–220), med Xindynastin (9–23), som regenten Wang Mang grundade, emellan."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Efter år 92 fick hovets eunucker allt mer makt, och stora daoistiska rörelser startade uppror, bland annat de gula turbanernas uppror. Riket delades mellan krigsherrar, och dynastin tog slut 220, när Cao Pi av Wei tog tronen från kejsar Xian. Därefter följde De tre rikenas tid."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Chang'an (206 f.Kr.–9 e.Kr. och 190–195), Luoyang (23–190 och 196) och Xuchang (196–220)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Kejsar Gaozu, det vill säga Liu Bang (202–195 f.Kr.), kejsar Wu (141–87 f.Kr.), kejsar Xuan (74–48 f.Kr.), kejsar Guangwu (25–57) och den siste, kejsar Xian (189–220)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Uppskattningsvis cirka 6 miljoner km² omkring 50 f.Kr. (Västra Han) och cirka 6,5 miljoner km² omkring år 100 (Östra Han), enligt Wikipedias faktaruta. Folkräkningen år 2 e.Kr. gav cirka 57,7 miljoner invånare."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Språk: fornkinesiska. Från kejsar Wu stödde hovet officiellt konfucianismen i utbildning och politik. Under Han uppfanns papperstillverkning och seismometrar. Fälttågen mot xiongnu gav Han kontroll över Hexikorridoren och Tarimbäckenet, vilket hjälpte Sidenvägen att växa fram."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": -201,
+      "label": {
+       "sv": "202 f.Kr."
+      },
+      "text": {
+       "sv": "Liu Bang utropas till kejsare. Handynastin börjar."
+      },
+      "sources": [
+       "wp-han-dynasty"
+      ]
+     },
+     {
+      "year": -132,
+      "label": {
+       "sv": "133 f.Kr."
+      },
+      "text": {
+       "sv": "Kejsar Wu börjar en rad fälttåg mot xiongnu."
+      },
+      "sources": [
+       "wp-han-dynasty"
+      ]
+     },
+     {
+      "year": -107,
+      "label": {
+       "sv": "108 f.Kr."
+      },
+      "text": {
+       "sv": "Han erövrar Gojoseon på Koreahalvön, efter att ha tagit Nanyue (111 f.Kr.) och Dian (109 f.Kr.) i söder."
+      },
+      "sources": [
+       "wp-han-dynasty"
+      ]
+     },
+     {
+      "year": 9,
+      "label": {
+       "sv": "9–23"
+      },
+      "text": {
+       "sv": "Regenten Wang Mang tar makten och grundar Xindynastin. Han återupprättas 25 som Östra Han."
+      },
+      "sources": [
+       "wp-han-dynasty"
+      ]
+     },
+     {
+      "year": 220,
+      "label": {
+       "sv": "220"
+      },
+      "text": {
+       "sv": "Cao Pi tar tronen från kejsar Xian, och Handynastin tar slut."
+      },
+      "sources": [
+       "wp-han-dynasty"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan anger 202 f.Kr.–220 e.Kr."
+    },
+    "sources": [
+     "wp-han-dynasty"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "mauryariket",
@@ -175,7 +712,119 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Mauryariket var en stormakt i Sydasien med maktbas i Magadha i Gangesslätten. Mycket av det vi vet kommer från Ashokas påbud, inskrifter spridda över Sydasien, och från bevarade delar av Megasthenes förlorade historieverk."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Chandragupta Maurya grundade riket omkring 320 f.Kr. (faktarutan säger cirka 321 f.Kr.) sedan han besegrat Nandadynastin. Han utsträckte sitt välde västerut till Afghanistan söder om Hindukush och söderut till norra Deckan."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Riket hölls löst samman fram till 185 f.Kr., då den siste kejsaren, Brihadratha, mördades av Pushyamitra Shunga."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad"
+      },
+      "text": {
+       "sv": "Pataliputra, nära dagens Patna."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Chandragupta (cirka 321–298 f.Kr.), Bindusara (298–272 f.Kr.) och Ashoka (cirka 268–232 f.Kr.)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Under Ashoka, när riket en kort tid styrde de stora städerna och huvudvägarna på hela subkontinenten utom längst i söder. Källan anger ingen yta. Utanför kärnområdena berodde rikets utsträckning på hur lojala de lokala befälhavarna var."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Ashoka blev buddhist efter det våldsamma Kalingakriget och sände missionärer bland annat till Sri Lanka och Centralasien, vilket bidrog till att buddhismen blev en världsreligion. Sydasiens befolkning under perioden uppskattas till 15–30 miljoner. Språk: magadhi-prakrit, och troligen sanskrit i litteraturen. Ashokas lejonkapitäl i Sarnath blev Indiens statsvapen 1947."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": -319,
+      "label": {
+       "sv": "cirka 320 f.Kr."
+      },
+      "text": {
+       "sv": "Chandragupta Maurya besegrar Nandadynastin och grundar riket."
+      },
+      "sources": [
+       "wp-maurya-empire"
+      ]
+     },
+     {
+      "year": -267,
+      "label": {
+       "sv": "cirka 268 f.Kr."
+      },
+      "text": {
+       "sv": "Ashoka blir kejsare. Under honom når riket sin största utbredning."
+      },
+      "sources": [
+       "wp-maurya-empire"
+      ]
+     },
+     {
+      "year": -260,
+      "label": {
+       "sv": "261 f.Kr."
+      },
+      "text": {
+       "sv": "Kalingakriget. Efter våldet i Kalinga vänder sig Ashoka till buddhismen."
+      },
+      "sources": [
+       "wp-maurya-empire"
+      ]
+     },
+     {
+      "year": -184,
+      "label": {
+       "sv": "185 f.Kr."
+      },
+      "text": {
+       "sv": "Den siste kejsaren mördas, och riket upphör."
+      },
+      "sources": [
+       "wp-maurya-empire"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan anger cirka 320 till 185 f.Kr."
+    },
+    "sources": [
+     "wp-maurya-empire"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "osmanska-riket",
@@ -199,7 +848,143 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Osmanska riket hade sitt centrum i dagens Turkiet och styrde från 1300-talet till början av 1900-talet stora delar av Sydösteuropa, Västasien och Nordafrika. I sex århundraden stod det i centrum för kontakterna mellan Mellanöstern och Europa."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Ur ett litet furstendöme (beylik) i nordvästra Anatolien, grundat omkring 1299 av turkmenhövdingen Osman I. Hans efterträdare erövrade större delen av Anatolien och nådde Balkan i mitten av 1300-talet."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Riket gick in i första världskriget på centralmakternas sida, och under kriget begick regimen folkmord på armenier, assyrier och greker. Efter kriget ockuperades och delades riket av de allierade. Efter det turkiska befrielsekriget under Mustafa Kemal Atatürk avskaffades sultanatet 1922, och republiken Turkiet utropades 29 oktober 1923."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Söğüt (från cirka 1299), Nicaea/İznik (1331–1335), Bursa (1335–1360-talet), Edirne (1360-talet–1453) och Konstantinopel/Istanbul (1453–1922). När Edirne erövrades är omstritt, mellan 1361 och 1369."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Osman I (cirka 1299–1323/24), Mehmed II, som erövrade Konstantinopel 1453, Selim I, vars erövringar ledde till att sultanerna tog titeln kalif, Suleiman den store på 1500-talet och den siste sultanen, Mehmed VI (1918–1922)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Cirka 5,2 miljoner km² år 1683 enligt Wikipedias faktaruta (3,4 miljoner km² år 1521 och 2,55 miljoner år 1913). Samma år, 1683, förlorade riket vid andra belägringen av Wien, och forskare brukar se det som början på nedgången."
+      }
+     },
+     {
+      "label": {
+       "sv": "Språk och religion"
+      },
+      "text": {
+       "sv": "Osmansk turkiska var officiellt språk. Arabiska, persiska, grekiska och många andra språk användes också. Sunniislam var statsreligion. Rikets trossamfund (millet) fick i olika grad sköta sina egna angelägenheter."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1299,
+      "label": {
+       "sv": "cirka 1299"
+      },
+      "text": {
+       "sv": "Osman I grundar ett furstendöme i nordvästra Anatolien."
+      },
+      "sources": [
+       "wp-ottoman"
+      ]
+     },
+     {
+      "year": 1453,
+      "label": {
+       "sv": "1453"
+      },
+      "text": {
+       "sv": "Mehmed II erövrar Konstantinopel, som blir huvudstad. Bysantinska riket upphör."
+      },
+      "sources": [
+       "wp-ottoman"
+      ]
+     },
+     {
+      "year": 1517,
+      "label": {
+       "sv": "1517"
+      },
+      "text": {
+       "sv": "Efter Selim I:s erövringar tar sultanerna titeln kalif."
+      },
+      "sources": [
+       "wp-ottoman"
+      ]
+     },
+     {
+      "year": 1683,
+      "label": {
+       "sv": "1683"
+      },
+      "text": {
+       "sv": "Riket är som störst men förlorar vid andra belägringen av Wien."
+      },
+      "sources": [
+       "wp-ottoman"
+      ]
+     },
+     {
+      "year": 1908,
+      "label": {
+       "sv": "1908"
+      },
+      "text": {
+       "sv": "Ungturkiska revolutionen återinför konstitutionell monarki."
+      },
+      "sources": [
+       "wp-ottoman"
+      ]
+     },
+     {
+      "year": 1922,
+      "label": {
+       "sv": "1922"
+      },
+      "text": {
+       "sv": "Sultanatet avskaffas. Republiken Turkiet utropas året efter."
+      },
+      "sources": [
+       "wp-ottoman"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan anger cirka 1299 som start. Kartan slutar 1923, året då republiken utropades, men sultanatet avskaffades redan 1922."
+    },
+    "sources": [
+     "wp-ottoman"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "mongolriket",
@@ -267,7 +1052,131 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Mongolriket var det största sammanhängande riket i historien. Det uppstod i dagens Mongoliet och sträckte sig som störst från Japanska havet till Östeuropa. Gruppen på kartan omfattar också de fyra khanat som riket delades i."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Temüjin enade nomadstammarna i Mongoliet, och ett rådsmöte utropade honom 1206 till härskare över alla mongoler, med titeln Djingis khan. Riket växte snabbt under honom och hans ättlingar."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Strider om tronföljden splittrade riket. När Khubilai khan dog 1294 hade det delats i fyra khanat: Gyllene horden, Chagatai-khanatet, Ilkhanatet och Yuandynastin i Kina. Ilkhanatet föll sönder 1335–1353, och Yuan förlorade Kina 1368. Gyllene hordens välde över Östeuropa brukar räknas som slut 1480, och Chagatai-khanatet fanns kvar till 1687."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Avarga (1206–1235) och Karakorum (1235–1271). Yuandynastin styrde från Dadu, dagens Peking."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Djingis khan (1206–1227), Ögedei (1229–1241), Güyük (1246–1248), Möngke (1251–1259) och Khubilai (1260–1294, då storkhan över hela riket bara till namnet)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Cirka 23,5 miljoner km² år 1294 enligt Wikipedias faktaruta, jämfört med cirka 4 miljoner km² år 1206 och 13,5 miljoner km² år 1227."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Språk: mellanmongoliska, turkspråk, kinesiska, persiska med flera. Riket förband öst och väst, och den påtvingade freden, Pax Mongolica, gjorde handel och utbyte av teknik och idéer möjligt över Eurasien."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1206,
+      "label": {
+       "sv": "1206"
+      },
+      "text": {
+       "sv": "Temüjin utropas till Djingis khan, härskare över alla mongoler."
+      },
+      "sources": [
+       "wp-mongol-empire"
+      ]
+     },
+     {
+      "year": 1227,
+      "label": {
+       "sv": "1227"
+      },
+      "text": {
+       "sv": "Djingis khan dör. Riket är då cirka 13,5 miljoner km²."
+      },
+      "sources": [
+       "wp-mongol-empire"
+      ]
+     },
+     {
+      "year": 1260,
+      "label": {
+       "sv": "1260–1264"
+      },
+      "text": {
+       "sv": "Efter Möngke khans död strider bröderna Khubilai och Ariq Böke om makten."
+      },
+      "sources": [
+       "wp-mongol-empire"
+      ]
+     },
+     {
+      "year": 1294,
+      "label": {
+       "sv": "1294"
+      },
+      "text": {
+       "sv": "Khubilai khan dör. Riket har delats i fyra khanat."
+      },
+      "sources": [
+       "wp-mongol-empire"
+      ]
+     },
+     {
+      "year": 1368,
+      "label": {
+       "sv": "1368"
+      },
+      "text": {
+       "sv": "Yuandynastin förlorar Kina till Mingdynastin."
+      },
+      "sources": [
+       "wp-mongol-empire"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar även khanaten och går därför längre. Källan anger 1206–1368 för själva Mongolriket."
+    },
+    "sources": [
+     "wp-mongol-empire"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "brittiska-imperiet",
@@ -291,7 +1200,131 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Brittiska imperiet bestod av dominions, kolonier, protektorat, mandat och andra områden som styrdes av Storbritannien och dess föregångare. Det växte genom handel, kolonisation och erövring, och som störst var det det största riket i historien."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Med Englands besittningar och handelsstationer utomlands i slutet av 1500-talet och början av 1600-talet, och Skottlands försök att grunda kolonier på 1600-talet. Krig mot Nederländerna och Frankrike gjorde Storbritannien till den ledande kolonialmakten i Nordamerika."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Efter andra världskriget fick de flesta områdena sin självständighet. Indien, den värdefullaste och folkrikaste besittningen, blev självständigt 1947. Suezkrisen 1956 bekräftade nedgången, och för många markerar överlämnandet av Hongkong till Kina 1 juli 1997 imperiets slut. Fjorton brittiska utomeuropeiska territorier finns kvar."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad"
+      },
+      "text": {
+       "sv": "London. Brittiska parlamentet var högsta lagstiftande makt för alla besittningar."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kolonialt styre"
+      },
+      "text": {
+       "sv": "Indien erövrades steg för steg, från Ostindiska kompaniets seger vid Plassey 1757 till segern över Marathariket 1818. Genom sin dominans över världshandeln och haven styrde Storbritannien i praktiken också ekonomin i områden som Asien och Latinamerika. Vita nybyggarkolonier fick allt mer självstyre och blev dominions."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Strax efter första världskriget: cirka 35,5 miljoner km² år 1920, ungefär 24 procent av jordens landyta. År 1913 levde cirka 412 miljoner människor i imperiet, ungefär 23 procent av jordens befolkning."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Kallades \"imperiet där solen aldrig går ned\". Arvet i styrelseskick, rätt och språk finns kvar i stora delar av världen, och många tidigare kolonier gick med i Samväldet (Commonwealth of Nations)."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1757,
+      "label": {
+       "sv": "1757"
+      },
+      "text": {
+       "sv": "Ostindiska kompaniet erövrar Bengalen efter slaget vid Plassey."
+      },
+      "sources": [
+       "wp-british-empire"
+      ]
+     },
+     {
+      "year": 1783,
+      "label": {
+       "sv": "1783"
+      },
+      "text": {
+       "sv": "Efter amerikanska revolutionen har Storbritannien förlorat flera av sina äldsta kolonier i Nordamerika."
+      },
+      "sources": [
+       "wp-british-empire"
+      ]
+     },
+     {
+      "year": 1920,
+      "label": {
+       "sv": "1920"
+      },
+      "text": {
+       "sv": "Imperiet är som störst, cirka 35,5 miljoner km²."
+      },
+      "sources": [
+       "wp-british-empire"
+      ]
+     },
+     {
+      "year": 1947,
+      "label": {
+       "sv": "1947"
+      },
+      "text": {
+       "sv": "Indien blir självständigt, som en del av en större avkolonisering."
+      },
+      "sources": [
+       "wp-british-empire"
+      ]
+     },
+     {
+      "year": 1997,
+      "label": {
+       "sv": "1997"
+      },
+      "text": {
+       "sv": "Hongkong lämnas över till Kina, för många slutet på imperiet."
+      },
+      "sources": [
+       "wp-british-empire"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan låter imperiet börja i slutet av 1500-talet och nämner 1997 som slutet för många."
+    },
+    "sources": [
+     "wp-british-empire"
+    ],
+    "review": "source-checked"
+   }
   }
  ]
 }

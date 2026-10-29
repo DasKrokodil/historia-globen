@@ -55,7 +55,7 @@ Klickbara markörer, etiketter och bågar ligger ovanpå klotet som 3D-objekt oc
 | `js/layers/religions.js` | Områdeslager: rikenas religion, och en stjärna där religionen uppstod (`facts.origin`) |
 | `js/layers/wars.js` | Krigsområden runt krigets och slagens platser |
 | `js/layers/borders.js` | Dagens landsgränser (av som standard) |
-| `js/ui/panel.js` | Samtidigt i världen per världsdel, kategorifilter, faktarutan med bild och ram, krigets berättelse, faktarutan om en religion |
+| `js/ui/panel.js` | Samtidigt i världen per världsdel, kategorifilter, faktarutan med bild och ram, krigets berättelse, faktarutan om en religion eller ett rike (`showFacts`) |
 | `js/ui/funfact.js` | Samtidigt-kortet: fun facts och "När ett krig bröt ut", kan fällas ihop |
 | `js/ui/layers.js` | Lagermenyn och valen för pauser |
 | `js/ui/focusmenu.js` | Fokusmenyn: följ ett krig, ett rike eller en religion |
@@ -85,12 +85,18 @@ Etiketterna och klustren på globen är `<button>` och nås med Tab; Enter öppn
 Fokus-knappen följer ett krig, ett rike eller en religion. Tidslinjen visar bara det spannet, globen riktas mot platsen och uppspelningen går långsamt.
 
 - **Krig:** ett kort med orsak och parter före start, paus vid krigets stora händelser (valbart) och ett kort med utgång och döda i slutet.
-- **Rike:** bara rikets områden syns, och globen riktas mot riket när det var som störst.
+- **Rike:** bara rikets områden syns, och globen riktas mot riket när det var som störst. Har riket en faktaruta (`facts`) visas den när man börjar följa det.
 - **Religion:** börjar vid religionens grundande, stannar vid grundhändelserna och visar sedan religionens spridning som statsreligion. Har religionen en faktaruta (`facts`) visas den först.
+
+Har det man följer en faktaruta (riken och religioner med `facts`) finns knappen Fakta i fokusraden, som öppnar rutan igen.
 
 ## Faktarutan om en religion (#90)
 
 När religionslagret slås på visas faktarutan för den första synliga religionen som har `facts` i `religions.json`, i samma kort som händelsernas faktaruta, och menyn stängs så att kortet och punkten syns. Rutan visas också när en sådan religion bockas i igen, med knappen Fakta i undermenyn och när man följer religionen i Fokus. Kortets ram följer tidsåldern för händelsen där religionen uppstod. Nyckelåren i rutan hoppar i tiden. Punkten där religionen uppstod ritas som en stjärna på lagerbilden (beslut 1), så att den också syns i Platt vy.
+
+## Faktarutan om ett rike (#170)
+
+Riken och religioner använder samma ruta (`Panel.showFacts` i `js/ui/panel.js`) och samma format för `facts`. Rikets ruta visas när man börjar följa riket i Fokus och med knappen Fakta i fokusraden. Kortets ram följer rikets tidsålder och platsen globen riktas mot. Rutan har alltid rutan "Om kartan": gränserna kommer från Cliopatria (med kartdatans spann), fakta kommer från rutans källor, och `facts.mapNote` säger hur källornas årtal skiljer sig från kartdatan (#138). Rutans källor räknas in under Riken i Om källorna.
 
 Menyn visar det som pågår nära året man står på. Resten finns bakom "Visa alla".
 

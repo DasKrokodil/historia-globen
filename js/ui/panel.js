@@ -145,22 +145,33 @@ export class Panel {
    * som också är punkten på globen.
    */
   showReligion(r, origin) {
-    const f = r.facts;
+    this.showFacts({ kind: 'Religion', name: t(r.name), color: r.color, facts: r.facts, origin, milestonesTitle: 'Statsreligion i riken' });
+  }
+
+  /**
+   * Faktaruta med samma format för religioner (#90) och riken (#170): sammanfattning,
+   * rader med rubrik och text, nyckelår som hoppar i tiden, källor och granskningsstatus.
+   * origin = händelsen där religionen uppstod (länkas i rutan). place = { start, _lat, _lon }
+   * som bestämmer rutans ram efter tidsålder, om det inte finns någon origin.
+   * mapNote = förklaring om var kartans gränser kommer ifrån (riken: Cliopatria).
+   */
+  showFacts({ kind, name, color, facts: f, origin = null, place = origin, milestonesTitle = 'Nyckelår', mapNote = '' }) {
     const rv = REVIEW[f.review] ?? REVIEW.draft;
     const srcs = [...new Set([...(f.sources ?? []), ...(f.milestones ?? []).flatMap(m => m.sources ?? [])])]
       .map(id => this.srcById[id]).filter(Boolean);
     this.selectedId = origin?.id ?? null;
-    this.detail.className = `detail detail-card${origin ? ` frame-${styleFor(origin, this.styles).frame}` : ''}`;
+    this.detail.className = `detail detail-card${place ? ` frame-${styleFor(place, this.styles).frame}` : ''}`;
     delete this.detail.dataset.style;
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
-      <div class="story-label"><span class="swatch" style="background:${esc(r.color)}"></span>Religion</div>
-      <h3>${esc(t(r.name))}</h3>
+      <div class="story-label"><span class="swatch" style="background:${esc(color)}"></span>${esc(kind)}</div>
+      <h3>${esc(name)}</h3>
       <p>${esc(t(f.summary))}</p>
       <dl class="religion-facts">${(f.items ?? []).map(it => `<dt>${esc(t(it.label))}</dt><dd>${esc(t(it.text))}</dd>`).join('')}</dl>
       ${origin ? `<p class="war-link">Punkten ★ på globen: <button type="button" class="link-btn" data-goto="${esc(origin.id)}">${esc(t(origin.title))}</button> <span class="meta">${esc(formatEventTime(origin))} · ${esc(t(origin.place))}</span></p>` : ''}
-      ${f.milestones?.length ? `<div class="war-list"><h4>Statsreligion i riken</h4><ol>${f.milestones.map(m =>
+      ${f.milestones?.length ? `<div class="war-list"><h4>${esc(milestonesTitle)}</h4><ol>${f.milestones.map(m =>
         `<li><button type="button" class="link-btn" data-year="${Number(m.year)}">${esc(t(m.label) || formatYear(m.year))}</button> ${esc(t(m.text))}</li>`).join('')}</ol></div>` : ''}
+      ${mapNote ? `<aside class="detail-note"><h4>Om kartan</h4><p>${esc(mapNote)}</p></aside>` : ''}
       <div class="src">Källa: ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || 'saknas'}</div>
       <div class="detail-actions">
         <span class="review-badge ${rv.cls}">${esc(rv.sv)}</span>
