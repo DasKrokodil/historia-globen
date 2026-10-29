@@ -41,7 +41,7 @@ async function start() {
     dots: $('track-dots'), ffMarks: $('track-ff'), playBtn: $('btn-play'), playIcon: $('play-icon'),
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
-  timeline.setMarks(data.events.filter(e => !e.partOf || e.major), data.funfacts, e => CAT[e.category]?.color ?? '#fff');
+  timeline.setMarks(data.events.filter(e => !e.partOf || e.top || e.major), data.funfacts, e => CAT[e.category]?.color ?? '#fff');
 
   // Lagerväljaren: vilka lager som syns. Startläget står i index.html.
   const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu') });
@@ -109,7 +109,7 @@ async function start() {
     const window = timeline.windowYears(year);
     ff.update(year, panel.filters);
     const eventsOn = layers.on.events;
-    visible = layer.update({ year, window, filters: eventsOn ? panel.filters : noEvents, selectedId, highlight: ff.highlightIds() });
+    visible = layer.update({ year, window, filters: eventsOn ? panel.filters : noEvents, selectedId, highlight: ff.highlightIds(), focusId: focusWar?.id });
     panel.render(visible, year, window, eventsOn);
     areas.update({ year });
     borders.update({ year });
@@ -225,7 +225,9 @@ async function start() {
     const seen = new Set();
     for (const { e, p } of singles.slice(0, 14)) {
       if (p.facing < 0.2) continue;
-      const w = t(e.title).length * 6.6 + 30, h = 22;
+      // Händelser i ett krig får årtalet framför namnet
+      const text = e.partOf ? `${e.start} · ${t(e.title)}` : t(e.title);
+      const w = text.length * 6.6 + 30, h = 22;
       const box = { x0: p.x - w / 2, x1: p.x + w / 2, y0: p.y - 14 - h, y1: p.y - 14 };
       if (placed.some(b => box.x0 < b.x1 && box.x1 > b.x0 && box.y0 < b.y1 && box.y1 > b.y0)) continue;
       placed.push(box);
@@ -233,7 +235,7 @@ async function start() {
       if (!el) {
         el = document.createElement('div');
         el.className = 'glabel';
-        el.innerHTML = `<span class="dot" style="background:${CAT[e.category]?.color}"></span>${t(e.title).replace(/</g, '&lt;')}`;
+        el.innerHTML = `<span class="dot" style="background:${CAT[e.category]?.color}"></span>${text.replace(/</g, '&lt;')}`;
         el.addEventListener('click', () => select(e.id));
         labelsEl.append(el); pool.set(e.id, el);
       }

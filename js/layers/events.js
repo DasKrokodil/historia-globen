@@ -63,17 +63,20 @@ export class EventsLayer {
    * year: nuvarande år. window: hur många år före/efter som räknas som "samtidigt".
    * Returnerar händelserna som syns, de pågående först.
    */
-  update({ year, window, filters, selectedId, highlight }) {
+  update({ year, window, filters, selectedId, highlight, focusId = null }) {
     const visible = [];
     for (const s of this.sprites) {
       const e = s.userData.event;
-      // Mindre händelser i ett krig syns bara i krigets lista, eller när de är valda
-      const onMap = !e.partOf || e.major || e.id === selectedId;
+      // Händelser i ett krig: utzoomat syns bara den viktigaste (top). I fokusläge
+      // syns krigets alla händelser. Valda händelser syns alltid.
+      const onMap = !e.partOf || e.top || e.partOf === focusId || e.id === selectedId;
       const okFilter = onMap && filters.has(e.category) && isVisibleReview(e.review);
       const inside = year >= e.start && year <= e.end;
       const dist = inside ? 0 : Math.min(Math.abs(year - e.start), Math.abs(year - e.end));
       const near = dist <= window;
-      const activity = !okFilter ? 0 : inside ? 1 : near ? 1 - 0.6 * dist / Math.max(1, window) : 0;
+      // I fokusläge ligger krigets redan utkämpade slag kvar, lite svagare
+      const fought = e.partOf === focusId && e.end < year;
+      const activity = !okFilter ? 0 : inside ? 1 : near ? 1 - 0.6 * dist / Math.max(1, window) : fought ? 0.45 : 0;
       this.state.set(e.id, { activity, inside, dist });
       s.visible = activity > 0;
       s.userData.active = activity > 0; // klustringen döljer markörer som ingår i ett kluster
