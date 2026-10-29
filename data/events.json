@@ -209,12 +209,14 @@
       "location": { "type": "Point", "coordinates": [-1.706, 52.193] }, "place": { "sv": "Stratford-upon-Avon, England" },
       "title": { "sv": "Shakespeare dör" },
       "summary": { "sv": "William Shakespeare dör den 23 april 1616 i Stratford-upon-Avon, där han också föddes. Han räknas som den största författaren på engelska." },
+      "note": { "title": { "sv": "Om kalendern" }, "text": { "sv": "Shakespeare dog den 23 april 1616 enligt den julianska kalender som England använde då. Enligt den gregorianska kalendern, som katolska länder hade infört 1582, var det den 3 maj." } },
       "wikidata": "Q692", "sources": ["wp-shakespeare", "wp-stratford", "wikidata"], "review": "two-sources" },
 
     { "id": "ieyasu-dor", "category": "civilisationer", "start": 1616, "end": 1616, "precision": 11, "edtf": "1616-06-01",
       "location": { "type": "Point", "coordinates": [138.384, 34.979] }, "place": { "sv": "Sunpu, Japan" },
       "title": { "sv": "Tokugawa Ieyasu dör" },
       "summary": { "sv": "Tokugawa Ieyasu, som grundade Tokugawa-shogunatet i Japan, dör på slottet Sunpu den 1 juni 1616." },
+      "note": { "title": { "sv": "Om kalendern" }, "text": { "sv": "Ieyasu dog den 17:e dagen i fjärde månaden år Genna 2 enligt den japanska kalendern. Det motsvarar den 1 juni 1616 i västerländsk kalender." } },
       "wikidata": "Q171977", "sources": ["wp-tokugawa-ieyasu", "wp-sunpu-castle", "wikidata"], "review": "two-sources" },
 
     { "id": "lincoln-fods", "category": "civilisationer", "start": 1809, "end": 1809, "precision": 11, "edtf": "1809-02-12",
