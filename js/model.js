@@ -151,6 +151,11 @@ function yearToDate(yf) {
   return new Date(a + (yf - y) * (b - a) + 1000); // en sekunds marginal mot avrundningsfel vid dygnsgränsen
 }
 const dateToYear = (y, m = 1, d = 1) => msToYear(utcMs(y, m - 1, d));
+/** Avrundar ett decimalår till närmaste dagsgräns (midnatt UTC), som tidslinjen avrundar till hela år annars. */
+export function roundDay(yf) {
+  const y = Math.floor(yf), [a, b] = yearMs(y);
+  return msToYear(Math.round((a + (yf - y) * (b - a)) / 86400000) * 86400000);
+}
 
 // En del av en EDTF-sträng: "1879-01-22", "1879-01" eller "1879", som [början, slut] i decimalår.
 // Slutet är början av nästa dag, månad eller år, så att en dag täcker hela dygnet.

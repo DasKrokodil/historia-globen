@@ -373,6 +373,7 @@ async function start() {
     const [num, era] = timeline.formatParts(year);
     $('year-big').textContent = num;
     $('year-era').textContent = era;
+    $('year-jump').classList.toggle('fine', fine);
     $('year-segment').textContent = `${focus ? `Fokus: ${focus.short}` : segmentName(year)} · visar ${within}`;
     // Passerades tiden t sedan förra ritningen? I ett kort krig räknas också krigets första dag,
     // när uppspelningen startar där, så att den pausar vid händelsen som inledde kriget (#204)
@@ -385,7 +386,10 @@ async function start() {
     } else if (focusWar && timeline.playing && layers.pause.major) {
       const hit = focusWar._battles.find(b => b.major && passed(span(b)[0]));
       // I smal skärm öppnas inte panelen, så att kartan syns; händelsen markeras på globen
-      if (hit) { timeline.pause('Pausad vid en stor händelse i kriget'); selectedId = hit.id; panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }
+      if (hit) {
+        timeline.pause('Pausad vid en stor händelse i kriget'); selectedId = hit.id; panel.showDetail(hit, matchMedia('(min-width: 761px)').matches);
+        if (fine) timeline.year = span(hit)[0]; // i ett kort krig stannar tiden på händelsens dag
+      }
     }
     // I fokus på en religion stannar uppspelningen vid händelserna när den grundades (#123)
     if (focus?.type === 'religion' && timeline.playing) {

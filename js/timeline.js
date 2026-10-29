@@ -1,6 +1,6 @@
 // Tidsreglaget äger det nuvarande året (arkitekturprincip 3).
 // Beslut 4: segmenterad skala där nutiden får mer plats än forntiden.
-import { formatYear, parseYear, yearParts, edtfSpan, dayParts, formatDay, monthStarts, MONTHS_SHORT } from './model.js';
+import { formatYear, parseYear, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT } from './model.js';
 
 export const MIN_YEAR = -2999;   // 3000 f.Kr.
 export const MAX_YEAR = 2026;
@@ -46,7 +46,8 @@ const fmtNum = r => String(r < 10 ? Math.round(r * 10) / 10 : Math.round(r)).rep
 const fmtRate = r => `${fmtNum(r)} år/s`;
 // I fokusläget för korta krig (#204) räknas farten och stegen i dagar
 const DAYS_PER_YEAR = 365.25;
-const fmtDays = r => { const n = fmtNum(r * DAYS_PER_YEAR); return `${n} ${n === '1' ? 'dag' : 'dagar'}/s`; };
+const dayUnit = n => (n === '1' ? 'dag' : 'dagar');
+const fmtDays = r => { const n = fmtNum(r * DAYS_PER_YEAR); return `${n} ${dayUnit(n)}/s`; };
 
 export class Timeline extends EventTarget {
   constructor({ track, thumb, segs, ticks, dots, ffMarks, playBtn, playIcon, stepBtns, speedBtn, pauseNote, pauseText, pauseGo }) {
@@ -55,7 +56,8 @@ export class Timeline extends EventTarget {
     this._year = 1325;
     this.playing = false;
     this.focus = null; // { from, to, fine }: tidslinjen inzoomad på ett spann (fokusläge, #109)
-    // fine: ett kort krig (#204). Då är året ett decimaltal, och skalan, stegen och farten räknas i dagar och månader.
+    // fine: ett kort krig (#204). Då är året ett decimaltal avrundat till hela dagar, och skalan,
+    // stegen och farten räknas i dagar och månader.
     // Hastighet i år per sekund (#164). Det gamla sparade värdet ('hg-speed', ×-faktor) ignoreras.
     this.speed = 25;
     try { const v = Number(localStorage.getItem('hg-speed-ars')); if (SPEEDS.includes(v)) this.speed = v; } catch { /* utan lagring */ }
@@ -193,7 +195,8 @@ export class Timeline extends EventTarget {
 
   get year() { return this._year; }
   set year(y) {
-    y = clampY(this.focus?.fine ? y : Math.round(y));
+    // Hela år, eller hela dagar i fokusläget för korta krig, så att allt ritas om en gång per dag (#204)
+    y = clampY(this.focus?.fine ? roundDay(y) : Math.round(y));
     if (this.focus) y = Math.max(this.focus.from, Math.min(this.focus.to, y)); // stanna inom fokusspannet
     if (y === this._year) return;
     this._year = y;
@@ -245,6 +248,11 @@ export class Timeline extends EventTarget {
   _labelSpeed() {
     const r = this.yearsPerSecond, fine = this.focus?.fine, t = fine ? fmtDays(r) : fmtRate(r);
     this.speedBtn.textContent = t;
+    // Dagar: i smal skärm står bara "d/s" (CSS), så att knappen får plats
+    if (fine) {
+      const n = fmtNum(r * DAYS_PER_YEAR);
+      this.speedBtn.innerHTML = `${n} <span class="unit-long">${dayUnit(n)}</span><span class="unit-short">d</span>/s`;
+    }
     this.speedBtn.setAttribute('aria-label', `Uppspelningshastighet: ${t}. Tryck för att byta.`);
     this.speedBtn.title = `Uppspelningshastighet: ${t} (så många ${fine ? 'dagar' : 'år'} av historien går varje sekund). Tryck för att byta.`;
   }
@@ -281,6 +289,7 @@ export class Timeline extends EventTarget {
       if (this._year !== shown) yf = this._year; // året flyttades utifrån (till exempel hopp vid krig)
       yf += dt * this.yearsPerSecond;
       this.year = yf;
+      if (!this.playing) return; // pausad av den som lyssnar på change (till exempel vid krigets slut), med sin paustext
       shown = this._year;
       if (this._year >= end) { this.pause(); return; }
       requestAnimationFrame(step);
