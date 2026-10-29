@@ -28,7 +28,7 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08)}
 
 # grupp: (svenskt namn, engelskt namn, [(Cliopatria-namn, id, svenskt namn, färg)])
 GROUPS = {
-    'romarriket': ('Romarriket', 'Roman Empire', [
+    'romarriket': ('Rom: kungadöme, republik, kejsardöme och Bysans', 'Rome: kingdom, republic, empire and Byzantium', [
         ('Roman Kingdom', 'romerska-kungadomet', 'Romerska kungadömet', '#b8433a'),
         ('Roman Republic', 'romerska-republiken', 'Romerska republiken', '#b8433a'),
         ('Roman Empire', 'romerska-kejsardomet', 'Romerska kejsardömet', '#b8433a'),
@@ -39,7 +39,7 @@ GROUPS = {
     'persiska-riket': ('Persiska riket (akemeniderna)', 'Achaemenid Empire', [
         ('Achaemenid Empire', 'akemenidiska-riket', 'Persiska riket', '#c08a2e'),
     ]),
-    'alexanders-rike': ('Makedoniska riket (Alexander den store)', 'Macedonian Empire', [
+    'alexanders-rike': ('Makedoniska riket', 'Macedonian Empire', [
         ('Macedonian Empire', 'makedoniska-riket', 'Makedoniska riket', '#3f7fb5'),
     ]),
     'hanriket': ('Hanriket', 'Han dynasty', [
