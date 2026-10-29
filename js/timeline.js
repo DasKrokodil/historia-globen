@@ -254,7 +254,8 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs }) {
     b.addEventListener('click', () => jump(y));
     epochs.append(b);
   };
-  for (const s of SEGMENTS) chip(s.name, s.from);
+  // gränsåret hör till segmentet före, så varje tidsålder utom den första börjar året efter
+  SEGMENTS.forEach((s, i) => chip(s.name, i ? s.from + 1 : s.from));
   chip('Idag', MAX_YEAR);
 
   button.addEventListener('click', () => (pop.hidden ? open() : close()));
