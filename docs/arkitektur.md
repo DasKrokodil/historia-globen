@@ -79,7 +79,7 @@ Fokus-knappen följer ett krig, ett rike eller en religion. Tidslinjen visar bar
 - **Rike:** bara rikets områden syns, och globen riktas mot riket när det var som störst.
 - **Religion:** börjar vid religionens grundande, stannar vid grundhändelserna och visar sedan religionens spridning som statsreligion.
 
-Menyn visar det som pågår nära året man står på. Resten finns bakom "Visa alla".
+Menyn visar det som pågår nära året man står på. Resten finns bakom "Visa alla". Riken visar sina årtal som "kartdata" (Cliopatrias spann), och religioner visar grundandet där det går att belägga och annars "statsreligion på kartan", så att spannen inte läses som rikets eller religionens livslängd.
 
 ## Hjälpskript
 
