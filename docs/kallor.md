@@ -31,6 +31,12 @@ Nivån syns i faktarutan och under Om källorna, inte som eget märke på globen
 | Natural Earth | Grundkarta och dagens gränser | Public domain | |
 | Wikimedia Commons | Historiska bilder | Public domain, CC0, CC BY eller CC BY-SA | Licensen kontrolleras på filsidan, och filsidan läggs i källregistret |
 
+## Sidan Om källorna
+
+Under Om källorna finns källpolicyn, läget för hela granskningen och källregistret. Källregistret är grupperat efter vad källorna används till: händelser och fun facts, riken, religioner, kartdata och bilder. Grupperna räknas fram ur datan (vilka uppgifter i `events.json`, `funfacts.json`, `empires/index.json`, `religions.json`, `land.json`, `borders.json` och fältet `image.source` som pekar på varje källa), så en ny källa hamnar rätt av sig själv. En källa kan höra till flera grupper, till exempel Cliopatria (riken och religioner). En källa som ingen uppgift pekar på visas under Övriga källor.
+
+Varje grupp visar hur många källor och uppgifter den har och hur många uppgifter som har nivån källa kontrollerad, två källor och granskad av människa. Kartdata och bilder har ingen granskningsnivå per uppgift. Tryck på en grupp för att bara visa den. Sökrutan filtrerar på källans namn, licens och vad den används till (till exempel en händelses titel eller "kartdata"), och visar vilka uppgifter som matchar.
+
 ## Licenser
 
 - Data får bara komma från källor med licensen CC0, CC BY, public domain eller GPL (för gränsdata). Inte CC BY-NC, inte "alla rättigheter förbehållna" och inte data med oklara villkor.
