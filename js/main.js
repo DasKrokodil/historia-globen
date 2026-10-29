@@ -1,8 +1,8 @@
 // Startar allt och kopplar ihop delarna:
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
-import { loadAll, loadReligions, CAT, t, yearParts } from './model.js';
+import { loadAll, loadReligions, CAT, t, yearParts, formatEventTime } from './model.js';
 import { Globe } from './globe.js';
-import { Timeline, yearsAcross, segmentName } from './timeline.js';
+import { Timeline, segmentName } from './timeline.js';
 import { EventsLayer } from './layers/events.js';
 import { AreasLayer } from './layers/areas.js';
 import { BordersLayer } from './layers/borders.js';
@@ -39,7 +39,7 @@ async function start() {
   const timeline = new Timeline({
     track: $('track'), thumb: $('thumb'), segs: $('track-segments'), ticks: $('ticks'),
     dots: $('track-dots'), ffMarks: $('track-ff'), playBtn: $('btn-play'), playIcon: $('play-icon'),
-    stepBtns: document.querySelectorAll('.step'),
+    stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
   timeline.setMarks(data.events.filter(e => !e.partOf || e.major), data.funfacts, e => CAT[e.category]?.color ?? '#fff');
 
@@ -79,10 +79,34 @@ async function start() {
 
   let selectedId = null;
   let visible = [];
+  let focusWar = null, lastYear = 0;
+
+  // Fokusläge (#109): tidslinjen och globen zoomar in på ett krig, och uppspelningen går långsamt
+  function startFocus(war) {
+    focusWar = war;
+    const pts = [war, ...war._battles];
+    globe.flyTo(pts.reduce((s, e) => s + e._lat, 0) / pts.length, pts.reduce((s, e) => s + e._lon, 0) / pts.length, 900);
+    globe.setZoom(2.2);
+    $('focus-title').textContent = `${t(war.title)} ${formatEventTime(war)}`;
+    $('focus-bar').hidden = false;
+    // I smal skärm stängs panelen så att kriget syns
+    if (!matchMedia('(min-width: 761px)').matches) { $('panel').classList.remove('open'); $('btn-panel').setAttribute('aria-expanded', 'false'); }
+    timeline.setFocus({ from: war.start, to: war.end });
+    lastYear = timeline.year;
+    timeline.year = war.start;
+    refresh();
+  }
+  function endFocus() {
+    focusWar = null;
+    $('focus-bar').hidden = true;
+    timeline.setFocus(null);
+    globe.setZoom(1);
+    refresh();
+  }
 
   function refresh() {
     const year = timeline.year;
-    const window = yearsAcross(year, 0.012);
+    const window = timeline.windowYears(year);
     ff.update(year, panel.filters);
     const eventsOn = layers.on.events;
     visible = layer.update({ year, window, filters: eventsOn ? panel.filters : noEvents, selectedId, highlight: ff.highlightIds() });
@@ -106,7 +130,14 @@ async function start() {
     const [num, era] = yearParts(year);
     $('year-big').textContent = num;
     $('year-era').textContent = era;
-    $('year-segment').textContent = `${segmentName(year)} · visar ±${Math.round(window)} år`;
+    $('year-segment').textContent = `${focusWar ? `Fokus: ${t(focusWar.title)}` : segmentName(year)} · visar ±${Math.round(window)} år`;
+    // I fokusläge stannar uppspelningen vid krigets viktigaste händelser
+    if (focusWar && timeline.playing) {
+      const hit = focusWar._battles.find(b => b.major && b.start > lastYear && b.start <= year);
+      // I smal skärm öppnas inte panelen, så att kartan syns; händelsen markeras på globen
+      if (hit) { timeline.pause(); selectedId = hit.id; panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }
+    }
+    lastYear = year;
   }
 
   function select(id) {
@@ -123,6 +154,8 @@ async function start() {
 
   timeline.addEventListener('change', refresh);
   panel.onSelect = select;
+  panel.onFocus = id => startFocus(data.byId[id]);
+  $('focus-exit').addEventListener('click', endFocus);
   panel.onFilter = refresh;
   ff.onSelect = select;
   ff.onArcs = pairs => globe.setArcs(pairs);

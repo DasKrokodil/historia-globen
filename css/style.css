@@ -428,6 +428,22 @@ body {
 .war-list ol { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.6; }
 .war-list .meta { font: 400 11px/1 var(--f-mono); color: var(--parchment-dim); }
 
+.focus-btn { margin: 8px 0 2px; }
+.speed { min-width: 44px; font-family: var(--f-mono); }
+.focus-bar {
+  position: absolute; z-index: 14;
+  left: 50%; transform: translateX(-50%);
+  bottom: 118px;
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center;
+  max-width: calc(100vw - 32px);
+  padding: 8px 10px 8px 14px;
+  background: color-mix(in srgb, var(--night-2) 94%, transparent);
+  border: 1px solid var(--brass-deep);
+  border-radius: 999px;
+}
+.focus-label { font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+.focus-title { font: 400 16px/1.2 var(--f-display); }
+
 /* ---------- smal skärm ---------- */
 @media (max-width: 760px) {
   .panel-toggle { display: inline-block; }
@@ -444,6 +460,14 @@ body {
   .funfact { bottom: 136px; padding: 12px 14px 10px; }
   .ff-text { font-size: 16.5px; margin: 6px 0 8px; }
   .step[data-step="100"], .step[data-step="-100"] { display: none; }
+  .focus-bar {
+    left: var(--gut); right: var(--gut-r); transform: none; max-width: none;
+    flex-wrap: nowrap; justify-content: space-between; gap: 8px;
+    border-radius: var(--r); padding: 6px 6px 6px 12px;
+  }
+  .focus-label { display: none; }
+  .focus-title { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .focus-bar .chip-btn { white-space: nowrap; padding: 7px 10px; font-size: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
