@@ -5,8 +5,8 @@
   {
    "id": "romarriket",
    "name": {
-    "sv": "Romarriket",
-    "en": "Roman Empire"
+    "sv": "Rom: kungadöme, republik, kejsardöme och Bysans",
+    "en": "Rome: kingdom, republic, empire and Byzantium"
    },
    "color": "#b8433a",
    "from": -750,
@@ -108,7 +108,7 @@
   {
    "id": "alexanders-rike",
    "name": {
-    "sv": "Makedoniska riket (Alexander den store)",
+    "sv": "Makedoniska riket",
     "en": "Macedonian Empire"
    },
    "color": "#3f7fb5",

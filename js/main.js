@@ -134,15 +134,16 @@ async function start() {
       const periods = ps.flatMap(p => p.periods);
       const biggest = periods.reduce((a, b) => (b.areaKm2 > a.areaKm2 ? b : a));
       const [lat, lon, span] = geoCenter([biggest.geometry]);
-      f = { type, id, title: `${t(g.name)} ${formatYearSpan(g.from, g.to)}`, short: t(g.name), from: g.from, to: g.to,
+      // Årtalen är kartdatans spann i Cliopatria, inte nödvändigtvis rikets historiska årtal (#138)
+      f = { type, id, title: `${t(g.name)} · kartdata ${formatYearSpan(g.from, g.to)}`, short: t(g.name), from: g.from, to: g.to,
         center: [lat, lon], zoom: span > 150 ? 1 : span > 60 ? 1.3 : 1.8 };
     } else {
       const doc = await loadReligions();
       const r = doc.religions.find(x => x.id === id);
       // Fokus börjar när religionen grundades, om det finns en sådan händelse (#123)
       const first = founding(id)[0];
-      const from = Math.min(first?.start ?? Infinity, r.snapshots[0].start), to = 2024;
-      f = { type, id, title: `${t(r.name)} ${formatYearSpan(from, to)}`, short: t(r.name), from, to,
+      const from = Math.min(first?.start ?? Infinity, r.snapshots[0].start), to = Math.max(r.snapshots.at(-1).end, first?.end ?? -Infinity);
+      f = { type, id, title: `${t(r.name)} · ${religionSpan(r, first)}`, short: t(r.name), from, to,
         center: first ? [first._lat, first._lon] : geoCenter([r.snapshots[0].geometry]), zoom: 1.3 };
       if (!religions.religions.length) religions.setData(doc.religions);
     }
@@ -185,16 +186,22 @@ async function start() {
   // Fokusmenyn listar krig, riken och religioner. Religionerna hämtas när menyn öppnas.
   const focusMenu = new FocusMenu({ button: $('btn-focus'), menu: $('focus-menu') });
   // Varje post har sitt tidsspann (from–to), så att menyn kan visa det som hör till tiden man står i (#121)
+  // Religionens årtal i Fokus: grundandet där det går att belägga, annars bara kartdatans spann (#138)
+  const religionSpan = (r, first) => {
+    const map = `statsreligion på kartan ${formatYearSpan(r.snapshots[0].start, r.snapshots.at(-1).end)}`;
+    return first ? `grundad ${formatEventTime(first)} · ${map}` : map;
+  };
   const religionItems = doc => doc.religions.map(r => {
-    const from = Math.min(founding(r.id)[0]?.start ?? Infinity, r.snapshots[0].start), to = r.snapshots.at(-1).end;
-    return { key: `religion:${r.id}`, label: t(r.name), sub: formatYearSpan(from, to), color: r.color, from, to };
+    const first = founding(r.id)[0];
+    const from = Math.min(first?.start ?? Infinity, r.snapshots[0].start), to = r.snapshots.at(-1).end;
+    return { key: `religion:${r.id}`, label: t(r.name), sub: religionSpan(r, first), color: r.color, from, to };
   });
   const empireItems = () => data.empireGroups.map(g =>
-    ({ key: `empire:${g.id}`, label: t(g.name), sub: formatYearSpan(g.from, g.to), color: g.color, from: g.from, to: g.to }));
+    ({ key: `empire:${g.id}`, label: t(g.name), sub: `kartdata ${formatYearSpan(g.from, g.to)}`, color: g.color, from: g.from, to: g.to }));
   const focusGroups = (doc = null) => [
     { title: 'Krig', items: data.events.filter(e => e.kind === 'war').map(e => ({ key: `war:${e.id}`, label: t(e.title), sub: formatEventTime(e), color: CAT[e.category]?.color, from: e.start, to: e.end })) },
-    { title: 'Riken', items: empireItems() },
-    { title: 'Religioner', items: doc ? religionItems(doc) : [], loading: !doc },
+    { title: 'Riken', note: 'Gränser ur Cliopatria. Årtalen visar när kartdata finns och kan skilja sig från rikets historiska årtal.', items: empireItems() },
+    { title: 'Religioner', note: 'Visar var religionen var officiell religion eller huvudreligion i en statsbildning, inte religionens ålder eller var alla troende bodde.', items: doc ? religionItems(doc) : [], loading: !doc },
   ];
   focusMenu.setGroups(focusGroups());
   focusMenu.onOpen = async () => {

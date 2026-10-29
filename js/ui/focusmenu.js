@@ -19,7 +19,7 @@ export class FocusMenu {
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) { this.close(); button.focus(); } });
   }
 
-  /** groups: [{ title, loading, items: [{ key, label, sub, color, from, to }] }] */
+  /** groups: [{ title, note, loading, items: [{ key, label, sub, color, from, to }] }] */
   setGroups(groups) {
     this.groups = groups;
     this.render();
@@ -46,6 +46,7 @@ export class FocusMenu {
     const intro = tm && !this.showAll ? `<div class="layer-note pad">Det som pågår ${esc(tm.label)}, närmast först.</div>` : '';
     this.menu.innerHTML = `<div class="layer-heading first">Följ i fokusläge</div>${intro}` + (groups.map(g => `
       <div class="layer-heading">${esc(g.title)}</div>
+      ${g.note ? `<div class="layer-note pad focus-note">${esc(g.note)}</div>` : ''}
       ${g.items.length ? g.items.map(it => `<button type="button" class="layer-row focus-item" data-key="${esc(it.key)}">
         <span class="swatch" style="background:${esc(it.color)}"></span><span>${esc(it.label)}</span>
         ${it.sub ? `<span class="layer-note">${esc(it.sub)}</span>` : ''}</button>`).join('') : '<div class="layer-note pad">Laddas …</div>'}`).join('')
