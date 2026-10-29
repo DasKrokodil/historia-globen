@@ -35,8 +35,9 @@ export class LayerMenu {
   /**
    * Undermeny med en rad per religion, byggd från datan. Raden visar religionens
    * färg, så att undermenyn också fungerar som förklaring. onToggle(id, på).
+   * Rader med info (religioner med faktaruta, #90) får en knapp som anropar onInfo(id).
    */
-  sublist(container, items, onToggle) {
+  sublist(container, items, onToggle, onInfo = () => {}) {
     for (const it of items) {
       const label = document.createElement('label');
       label.className = 'layer-row layer-subrow';
@@ -46,6 +47,14 @@ export class LayerMenu {
       const sw = document.createElement('span');
       sw.className = 'swatch'; sw.style.background = it.color;
       label.append(input, sw, document.createTextNode(it.name));
+      if (it.info) {
+        const btn = document.createElement('button');
+        btn.type = 'button'; btn.className = 'info-btn';
+        btn.textContent = 'Fakta';
+        btn.setAttribute('aria-label', `Fakta om ${it.name}`);
+        btn.addEventListener('click', ev => { ev.preventDefault(); this.close(); onInfo(it.id); });
+        label.append(btn);
+      }
       container.append(label);
     }
   }
