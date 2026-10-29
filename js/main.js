@@ -1,6 +1,6 @@
 // Startar allt och kopplar ihop delarna:
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
-import { loadAll, loadReligions, CAT, t, yearParts, formatEventTime } from './model.js';
+import { loadAll, loadReligions, CAT, t, yearParts, formatEventTime, isVisibleReview } from './model.js';
 import { Globe } from './globe.js';
 import { Timeline, segmentName } from './timeline.js';
 import { EventsLayer } from './layers/events.js';
@@ -89,8 +89,7 @@ async function start() {
     globe.setZoom(2.2);
     $('focus-title').textContent = `${t(war.title)} ${formatEventTime(war)}`;
     $('focus-bar').hidden = false;
-    // I smal skärm stängs panelen så att kriget syns
-    if (!matchMedia('(min-width: 761px)').matches) { $('panel').classList.remove('open'); $('btn-panel').setAttribute('aria-expanded', 'false'); }
+    panel.setOpen(false); // listan stängs så att kriget syns
     timeline.setFocus({ from: war.start, to: war.end });
     lastYear = timeline.year;
     timeline.year = war.start;
@@ -137,13 +136,23 @@ async function start() {
       // I smal skärm öppnas inte panelen, så att kartan syns; händelsen markeras på globen
       if (hit) { timeline.pause(); selectedId = hit.id; panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }
     }
+    // Pausa när ett krig bryter ut, om det är valt i lagermenyn (#114)
+    if (!focusWar && timeline.playing && layers.pause.wars && eventsOn) {
+      const war = data.events.find(e => e.kind === 'war' && e.start > lastYear && e.start <= year
+        && panel.filters.has(e.category) && isVisibleReview(e.review));
+      if (war) { timeline.pause(); timeline.year = war.start; selectedId = war.id; panel.showDetail(war); }
+    }
     lastYear = year;
+    $('app').classList.toggle('has-detail', !$('detail').hidden);
   }
 
+  const narrow = matchMedia('(max-width: 760px)');
   function select(id) {
     selectedId = id;
     const e = id ? data.byId[id] : null;
     panel.showDetail(e);
+    // I smal skärm stängs listan när en händelse väljs, så att faktarutan syns
+    if (e && narrow.matches) panel.setOpen(false);
     if (e) {
       globe.flyTo(e._lat, e._lon);
       // Hoppa i tiden om händelsen ligger långt bort
@@ -161,7 +170,7 @@ async function start() {
   ff.onArcs = pairs => globe.setArcs(pairs);
   ff.onSources = ids => sources.open(ids);
   // Uppspelningen stannar vid en ny fun fact, så att man hinner läsa. Play fortsätter.
-  ff.onNew = () => { if (timeline.playing) timeline.pause(); };
+  ff.onNew = () => { if (timeline.playing && layers.pause.funfacts) timeline.pause(); };
   sources.onSettings = refresh;
 
   globe.onClick = (x, y) => {
@@ -182,10 +191,9 @@ async function start() {
   // Rikenas namn ritas med IM Fell English, rita om när typsnittet har laddats
   document.fonts?.ready.then(refresh);
 
-  // Flytta globen åt vänster när panelen ligger till höger
-  const mq = matchMedia('(min-width: 761px)');
-  const shift = () => globe.setViewShift(mq.matches ? 170 : 0);
-  mq.addEventListener('change', shift); shift();
+  // Menyerna uppe till höger: bara en åt gången
+  panel.onOpen = () => layers.close();
+  layers.onOpen = () => panel.setOpen(false);
 
   // Etiketter för synliga händelser, utan överlapp
   const labelsEl = $('labels');

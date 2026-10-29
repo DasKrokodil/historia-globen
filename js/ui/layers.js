@@ -12,6 +12,19 @@ export class LayerMenu {
         this.onChange(input.dataset.layer, input.checked);
       });
     }
+    // Vad uppspelningen ska pausa vid (#114). Valen sparas till nästa besök.
+    this.pause = {};
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem('hg-pause') || '{}'); } catch { /* utan lagring */ }
+    for (const input of menu.querySelectorAll('input[data-pause]')) {
+      if (input.dataset.pause in saved) input.checked = saved[input.dataset.pause];
+      this.pause[input.dataset.pause] = input.checked;
+      input.addEventListener('change', () => {
+        this.pause[input.dataset.pause] = input.checked;
+        try { localStorage.setItem('hg-pause', JSON.stringify(this.pause)); } catch { /* utan lagring */ }
+      });
+    }
+    this.onOpen = () => {};
     button.addEventListener('click', () => (menu.hidden ? this.open() : this.close()));
     document.addEventListener('pointerdown', e => {
       if (!menu.hidden && !menu.contains(e.target) && !button.contains(e.target)) this.close();
@@ -39,11 +52,12 @@ export class LayerMenu {
 
   open() {
     // Menyn läggs under knappen, som kan hamna på olika rader i smal skärm
-    const r = this.button.getBoundingClientRect();
+    const r = (this.button.closest('.top-actions') ?? this.button).getBoundingClientRect();
     this.menu.style.top = `${r.bottom + 8}px`;
     this.menu.style.maxHeight = `calc(100dvh - ${r.bottom + 24}px)`; // lång meny rullar i stället
     this.menu.hidden = false;
     this.button.setAttribute('aria-expanded', 'true');
+    this.onOpen();
   }
   close() {
     this.menu.hidden = true;
