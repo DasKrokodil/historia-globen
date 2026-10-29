@@ -25,7 +25,7 @@ const LEVELS = [
 const MAX_USES = 8;   // fler användningar än så fälls ihop
 
 /** Räknar fram vilka uppgifter som pekar på varje källa, grupp för grupp. */
-function collect({ sources, events, funfacts, polities, land, borders }, religionsDoc) {
+function collect({ sources, events, funfacts, polities, empireGroups = [], land, borders }, religionsDoc) {
   const groups = Object.fromEntries(GROUPS.map(g => [g.id, { ...g, uses: new Map(), items: [] }]));
   const add = (gid, ids, label, review, item = true) => {
     const g = groups[gid];
@@ -38,6 +38,12 @@ function collect({ sources, events, funfacts, polities, land, borders }, religio
   for (const e of events) add('events', [...(e.sources ?? []), ...(e.story?.sources ?? [])], t(e.title), e.review);
   for (const f of funfacts) add('events', f.sources ?? [], `Fun fact: ${short(t(f.text))}`, f.review);
   for (const p of polities) add('empires', p.sources ?? [], t(p.name), p.review);
+  // Faktarutan om riket (#170) och dess nyckelår
+  for (const g of empireGroups) {
+    if (!g.facts) continue;
+    add('empires', g.facts.sources ?? [], `${t(g.name)}: faktarutan`, g.facts.review);
+    for (const m of g.facts.milestones ?? []) add('empires', m.sources ?? [], `${t(g.name)}: ${t(m.label)}`, g.facts.review);
+  }
   if (religionsDoc) {
     const rp = religionsDoc.polities ?? [];
     // Riken med kontrollerat år för kristnandet har en egen källa
@@ -90,13 +96,14 @@ export class SourcesDialog {
     this.highlight = highlightIds;
     this.query = '';
     this.group = null;
-    const { events, funfacts, polities } = this.data;
+    const { events, funfacts, polities, empireGroups = [] } = this.data;
+    const empireFacts = empireGroups.filter(g => g.facts).map(g => g.facts);
     const religionsDoc = this.data.religionsDoc;
     const total = doc => {
       // Religionslagrets riken: med kontrollerat år för kristnandet har de en egen källa
       const states = (doc?.polities ?? []).filter(p => p.source).map(() => ({ review: 'source-checked' }));
       const counts = { checked: 0, two: 0, human: 0, draft: 0 };
-      for (const x of [...events, ...funfacts, ...polities, ...states]) {
+      for (const x of [...events, ...funfacts, ...polities, ...empireFacts, ...states]) {
         if (x.review === 'human-reviewed') counts.human++;
         else if (x.review === 'two-sources') counts.two++;
         else if (x.review === 'source-checked') counts.checked++;

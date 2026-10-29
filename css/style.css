@@ -799,6 +799,12 @@ details.used-by summary:hover { color: var(--parchment); }
 .info-btn { margin-left: auto; padding: 2px 8px; border: 1px solid var(--line); border-radius: 999px; background: none; color: var(--brass); font: 500 11px/1.4 var(--f-mono); cursor: pointer; }
 .info-btn:hover { background: var(--night-3); }
 
+/* ---------- fokusraden med knappen Fakta (#170) ---------- */
+@media (min-width: 761px) {
+  .focus-bar { width: max-content; }            /* en rad även med lång rubrik och knappen Fakta */
+  .app.focusing .detail-card { bottom: 176px; } /* faktarutan ligger ovanför fokusraden */
+}
+
 /* ---------- teckenförklaring och klickruta för religionslagret (#166) ---------- */
 .religion-legend {
   position: absolute; left: var(--gut); bottom: 150px; z-index: 5; max-width: 230px;
