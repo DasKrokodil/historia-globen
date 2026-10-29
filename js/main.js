@@ -12,6 +12,7 @@ import { Panel } from './ui/panel.js';
 import { FunFacts } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
 import { LayerMenu } from './ui/layers.js';
+import { ReligionLegend } from './ui/legend.js';
 import { cluster } from './ui/clusters.js';
 import { FocusMenu } from './ui/focusmenu.js';
 
@@ -72,6 +73,9 @@ async function start() {
 
   // Lagerväljaren: vilka lager som syns. Startläget står i index.html.
   const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu') });
+  // Teckenförklaring och klickruta för religionslagret (#166)
+  const relLegend = new ReligionLegend({ legend: $('religion-legend'), pop: $('religion-pop') });
+  relLegend.onFacts = id => showReligionFacts(id);
   // I fokusläge syns det man följer även om lagret är avslaget i menyn
   const applyLayers = () => {
   // och det andra av riken och religioner göms, så att områdena inte täcker varandra
@@ -112,6 +116,7 @@ async function start() {
   // religionens facts i religions.json, och punkten är händelsen som facts.origin pekar på.
   function setReligions(doc) {
     if (!religions.religions.length) religions.setData(doc.religions);
+    religions.setPolities(doc.polities);
     religions.setOrigins(new Map(doc.religions.filter(r => data.byId[r.facts?.origin]).map(r => [r.id, data.byId[r.facts.origin]])));
   }
   function showReligionFacts(id, fly = true) {
@@ -289,6 +294,8 @@ async function start() {
     areas.update({ year });
     borders.update({ year });
     religions.update({ year });
+    relLegend.update(religions.legendItems());
+    if (!religions.enabled) relLegend.hidePop();
     wars.enabled = eventsOn;
     wars.update({ year, filters: panel.filters });
     const ctx = globe.overlayContext();
@@ -374,7 +381,14 @@ async function start() {
 
   globe.onClick = (x, y) => {
     const hit = globe.pick(x, y, layer.sprites.filter(s => s.visible));
+    relLegend.hidePop();
     select(hit ? hit.userData.event.id : null);
+    // Händelsemarkörer har företräde. Annars: vilken religion ligger under klicket? (#166)
+    if (!hit && religions.enabled && religions.active.length) {
+      const ll = globe.pickLatLon(x, y);
+      const rh = ll && religions.hitTest(ll.lon, ll.lat);
+      if (rh) relLegend.showPop(rh, x, y);
+    }
   };
 
   // Platt vy: det en fysisk glob skulle få
