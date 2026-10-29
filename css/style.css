@@ -657,7 +657,7 @@ details.used-by summary:hover { color: var(--parchment); }
   .ff-min::after { content: ""; position: absolute; inset: -10px; }
   .ff-chip::after { content: ""; position: absolute; inset: -9px -3px; }
   .funfact .ff-foot .link-btn::after { content: ""; position: absolute; inset: -12px -10px; }
-  .ff-detail .detail-close::after { content: ""; position: absolute; inset: -7px; }
+  .ff-detail .detail-close::after { content: ""; position: absolute; inset: -8px; }
   .ff-detail .link-btn::after { content: ""; position: absolute; inset: -12px -10px; }
   .ff-detail-body { padding-bottom: 16px; }
   /* Med bilden framme (#169) täckte kortet hela globen: bara bild, fakta och chips visas, bilden är lägre
