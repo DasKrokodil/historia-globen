@@ -89,12 +89,14 @@ async function start() {
     $('religion-list').textContent = 'Laddar religioner…';
     try {
       const doc = await loadReligions();
-      religions.setData(doc.religions);
+      setReligions(doc);
       $('religion-list').textContent = '';
-      layers.sublist($('religion-list'), doc.religions.map(r => ({ id: r.id, name: t(r.name), color: r.color })), (id, on) => {
+      layers.sublist($('religion-list'), doc.religions.map(r => ({ id: r.id, name: t(r.name), color: r.color, info: !!r.facts })), (id, on) => {
         on ? religions.hidden.delete(id) : religions.hidden.add(id);
         refresh();
-      });
+        // Slås en religion med faktaruta på igen visas rutan (#90)
+        if (on) showReligionFacts(id);
+      }, id => showReligionFacts(id));
       data.religionsDoc = doc;
       refresh();
     } catch (err) {
@@ -104,6 +106,31 @@ async function start() {
     }
   }
   const noEvents = new Set();
+
+  // Faktarutan om en religion och punkten där den uppstod (#90). Uppgifterna står i
+  // religionens facts i religions.json, och punkten är händelsen som facts.origin pekar på.
+  function setReligions(doc) {
+    if (!religions.religions.length) religions.setData(doc.religions);
+    religions.setOrigins(new Map(doc.religions.filter(r => data.byId[r.facts?.origin]).map(r => [r.id, data.byId[r.facts.origin]])));
+  }
+  function showReligionFacts(id, fly = true) {
+    const r = data.religionsDoc?.religions.find(x => x.id === id);
+    if (!r?.facts) return false;
+    const origin = data.byId[r.facts.origin];
+    selectedId = origin?.id ?? null;
+    panel.showReligion(r, origin);
+    // Menyerna stängs så att faktarutan och punkten syns
+    layers.close(); focusMenu.close();
+    if (narrow.matches) panel.setOpen(false);
+    if (origin && fly) globe.flyTo(origin._lat, origin._lon);
+    refresh();
+    return true;
+  }
+  /** När religionslagret slås på: faktarutan för den första synliga religionen som har en. */
+  function showFirstReligionFacts() {
+    const r = data.religionsDoc?.religions.find(x => x.facts && !religions.hidden.has(x.id));
+    if (r) showReligionFacts(r.id);
+  }
 
   let selectedId = null;
   let visible = [];
@@ -140,13 +167,14 @@ async function start() {
         center: [lat, lon], zoom: span > 150 ? 1 : span > 60 ? 1.3 : 1.8 };
     } else {
       const doc = await loadReligions();
+      data.religionsDoc ??= doc;
+      setReligions(doc);
       const r = doc.religions.find(x => x.id === id);
       // Fokus börjar när religionen grundades, om det finns en sådan händelse (#123)
       const first = founding(id)[0];
       const from = Math.min(first?.start ?? Infinity, r.snapshots[0].start), to = Math.max(r.snapshots.at(-1).end, first?.end ?? -Infinity);
       f = { type, id, title: `${t(r.name)} · ${religionSpan(r, first)}`, short: t(r.name), from, to,
         center: first ? [first._lat, first._lon] : geoCenter([r.snapshots[0].geometry]), zoom: 1.3 };
-      if (!religions.religions.length) religions.setData(doc.religions);
     }
     if (focus) endFocus(false);
     focus = f;
@@ -166,9 +194,9 @@ async function start() {
     refresh();
     // Före start: varför kriget började och vilka som stred (#122)
     if (focusWar?.story) { selectedId = focusWar.id; panel.showStory(focusWar, 'intro'); $('app').classList.add('has-detail'); }
-    // Religionens grundande visas först, i faktarutan
+    // Religionens faktaruta visas först (#90), annars grundandet i faktarutan
     const first = type === 'religion' && founding(id)[0];
-    if (first) select(first.id, false);
+    if (type === 'religion' && !showReligionFacts(id, false) && first) select(first.id, false);
   }
   /** Händelser där en religion grundades (founding: true), i tidsordning. */
   const founding = id => data.events.filter(e => e.founding && e.religion === id).sort((a, b) => a.start - b.start);
@@ -343,7 +371,14 @@ async function start() {
     syncNameScale();
   });
 
-  layers.onChange = () => { applyLayers(); ensureReligions(); refresh(); };
+  layers.onChange = async (name, on) => {
+    applyLayers(); refresh();
+    await ensureReligions();
+    // Faktarutan om religionen visas när lagret slås på (#90)
+    if (name === 'religions' && on && data.religionsDoc) showFirstReligionFacts();
+  };
+  // Nyckelår i religionens faktaruta hoppar dit i tiden
+  panel.onYear = year => { timeline.year = year; };
 
   // Rikenas namn ritas med IM Fell English, rita om när typsnittet har laddats
   document.fonts?.ready.then(refresh);
