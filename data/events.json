@@ -208,10 +208,10 @@
       "summary": { "sv": "Den 9 december 1824 besegrar peruanska och colombianska patrioter under Antonio José de Sucre vicekungens armé, och vicekungen tas till fånga. Slaget avgör Perus och i praktiken Sydamerikas självständighet, även om några spanska fästen höll ut till 1826." },
       "wikidata": "Q934157", "sources": ["wp-ayacucho", "wp-spanish-american-wars-independence", "wikidata"], "review": "two-sources" },
 
-    { "id": "callaos-fall-1826", "category": "krig", "icon": "swords", "partOf": "spanskamerikanska-sjalvstandighetskrigen", "major": true, "start": 1824, "end": 1826, "precision": 11, "edtf": "1824-12-05/1826-01-23",
+    { "id": "callaos-fall-1826", "category": "krig", "icon": "swords", "partOf": "spanskamerikanska-sjalvstandighetskrigen", "major": true, "start": 1826, "end": 1826, "precision": 11, "edtf": "1826-01-23",
       "location": { "type": "Point", "coordinates": [-77.149, -12.063] }, "place": { "sv": "Fästningen Real Felipe, Callao, Peru" },
       "title": { "sv": "Callao faller" },
-      "summary": { "sv": "Rojalisterna i fästningen Real Felipe vägrar godta kapitulationen efter Ayacucho och belägras i över ett år. Tusentals soldater och civila flyktingar dör av svält och sjukdom innan fästningen lämnas över den 23 januari 1826. Därmed är Spaniens välde i Sydamerika slut." },
+      "summary": { "sv": "Den 23 januari 1826 lämnar rojalisterna över fästningen Real Felipe. De hade vägrat godta kapitulationen efter Ayacucho och varit belägrade sedan den 5 december 1824, och tusentals soldater och civila flyktingar hade dött av svält och sjukdom. Därmed är Spaniens välde i Sydamerika slut." },
       "wikidata": "Q6123901", "sources": ["wp-second-siege-callao", "wp-real-felipe", "wikidata"], "review": "two-sources" },
 
     { "id": "wright", "category": "vetenskap", "icon": "plane", "start": 1903, "end": 1903, "precision": 11, "edtf": "1903-12-17",
