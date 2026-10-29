@@ -86,7 +86,7 @@
     { "id": "wp-baumettes", "title": "Baumettes Prison – Wikipedia", "url": "https://en.wikipedia.org/wiki/Baumettes_Prison", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
     { "id": "wp-star-wars", "title": "Star Wars (film) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Star_Wars_(film)", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
     { "id": "wp-us-center", "title": "Geographic center of the United States – Wikipedia", "url": "https://en.wikipedia.org/wiki/Geographic_center_of_the_United_States", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
-    { "id": "wp-thirty-years-war", "title": "Thirty Years' War – Wikipedia", "url": "https://en.wikipedia.org/wiki/Thirty_Years'_War", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-thirty-years-war", "title": "Thirty Years' War – Wikipedia", "url": "https://en.wikipedia.org/wiki/Thirty_Years'_War", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
     { "id": "wp-defenestrations-prague", "title": "Defenestrations of Prague – Wikipedia", "url": "https://en.wikipedia.org/wiki/Defenestrations_of_Prague", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
     { "id": "wp-prague", "title": "Prague – Wikipedia", "url": "https://en.wikipedia.org/wiki/Prague", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
     { "id": "wp-white-mountain", "title": "Battle of White Mountain – Wikipedia", "url": "https://en.wikipedia.org/wiki/Battle_of_White_Mountain", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
@@ -99,6 +99,18 @@
     { "id": "wp-rocroi", "title": "Battle of Rocroi – Wikipedia", "url": "https://en.wikipedia.org/wiki/Battle_of_Rocroi", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
     { "id": "wp-jankau", "title": "Battle of Jankau – Wikipedia", "url": "https://en.wikipedia.org/wiki/Battle_of_Jankau", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
     { "id": "wp-peace-westphalia", "title": "Peace of Westphalia – Wikipedia", "url": "https://en.wikipedia.org/wiki/Peace_of_Westphalia", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
-    { "id": "wp-munster", "title": "Münster – Wikipedia", "url": "https://en.wikipedia.org/wiki/Münster", "license": "CC BY-SA 4.0", "checked": "2026-10-28" }
+    { "id": "wp-munster", "title": "Münster – Wikipedia", "url": "https://en.wikipedia.org/wiki/Münster", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-nativity", "title": "Nativity of Jesus – Wikipedia", "url": "https://en.wikipedia.org/wiki/Nativity_of_Jesus", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-anno-domini", "title": "Anno Domini – Wikipedia", "url": "https://en.wikipedia.org/wiki/Anno_Domini", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-bethlehem", "title": "Bethlehem – Wikipedia", "url": "https://en.wikipedia.org/wiki/Bethlehem", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-crucifixion", "title": "Crucifixion of Jesus – Wikipedia", "url": "https://en.wikipedia.org/wiki/Crucifixion_of_Jesus", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-jerusalem", "title": "Jerusalem – Wikipedia", "url": "https://en.wikipedia.org/wiki/Jerusalem", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-first-revelation", "title": "Muhammad's first revelation – Wikipedia", "url": "https://en.wikipedia.org/wiki/Muhammad%27s_first_revelation", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-jabal-al-nour", "title": "Jabal al-Nour – Wikipedia", "url": "https://en.wikipedia.org/wiki/Jabal_al-Nour", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-gautama-buddha", "title": "The Buddha – Wikipedia", "url": "https://en.wikipedia.org/wiki/Gautama_Buddha", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-bodh-gaya", "title": "Bodh Gaya – Wikipedia", "url": "https://en.wikipedia.org/wiki/Bodh_Gaya", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-guru-nanak", "title": "Guru Nanak – Wikipedia", "url": "https://en.wikipedia.org/wiki/Guru_Nanak", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-sikhism", "title": "Sikhism – Wikipedia", "url": "https://en.wikipedia.org/wiki/Sikhism", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-nankana-sahib", "title": "Nankana Sahib – Wikipedia", "url": "https://en.wikipedia.org/wiki/Nankana_Sahib", "license": "CC BY-SA 4.0", "checked": "2026-10-29" }
   ]
 }
