@@ -14,6 +14,9 @@
     { "id": "oxford-tenochtitlan", "events": ["oxford", "tenochtitlan"], "show": [1320, 1345], "review": "source-checked",
       "text": { "sv": "När Tenochtitlan grundas 1325 har det redan undervisats i Oxford i minst 229 år." } },
 
+    { "id": "mansa-musa-guldpris", "events": ["mansa-musa-kairo"], "show": [1324, 1337], "review": "source-checked",
+      "text": { "sv": "Mansa Musas gåvor sägs ha sänkt guldets värde i Kairo. Enligt al-Umari, som skrev omkring 1337, var en mithqal guld värd 25 silverdirham före besöket men under 22 efteråt, och värdet steg inte igen på minst tolv år. Historikern Warren Schultz menar att det låg inom guldkursens vanliga svängningar i Egypten." } },
+
     { "id": "ming-tenochtitlan", "events": ["ming", "tenochtitlan"], "show": [1365, 1380], "review": "source-checked",
       "text": { "sv": "När Mingdynastin grundas 1368 är aztekernas Tenochtitlan bara 43 år gammalt." } },
 
