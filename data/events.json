@@ -401,6 +401,7 @@
       "location": { "type": "Point", "coordinates": [30.537, -28.358] }, "place": { "sv": "Rorke's Drift vid floden Buffalo (Mzinyathi), gränsen mellan Natal och Zuluriket" },
       "title": { "sv": "Britterna går in i Zululand" },
       "summary": { "sv": "Ultimatumet till kung Cetshwayo har gått ut utan svar. Den 11 januari 1879 går Lord Chelmsfords huvudkolonn över floden vid Rorke's Drift, och två kolonner till går in vid kusten och i norr. Målet är kungens huvudstad Ulundi (oNdini)." },
+      "note": { "title": { "sv": "Bara en källa" }, "text": { "sv": "Händelsen har ingen egen post i Wikidata, så årtal och plats har inte kunnat jämföras med en andra, oberoende källa. Uppgifterna kommer från Wikipedia." } },
       "sources": ["wp-anglo-zulu-war", "wp-rorkes-drift"], "review": "source-checked" },
 
     { "id": "slaget-vid-isandlwana", "category": "krig", "icon": "swords", "partOf": "anglo-zuluiska-kriget", "major": true, "top": true, "start": 1879, "end": 1879, "precision": 11, "edtf": "1879-01-22",
@@ -512,6 +513,7 @@
       "location": { "type": "Point", "coordinates": [-72.2, 19.76] }, "place": { "sv": "Cap-Français (i dag Cap-Haïtien)" },
       "title": { "sv": "Toussaint Louverture ger upp och grips" },
       "summary": { "sv": "Den 6 maj 1802 rider Toussaint Louverture, revolutionens mest kände ledare och själv född i slaveri, in i Cap-Français och erkänner Leclercs makt mot löfte om amnesti. Den 7 juni grips han ändå och förs till Frankrike. Han hålls fången i Fort de Joux i Jurabergen utan ordentlig vård och dör där den 7 april 1803. Kriget fortsätter under Jean-Jacques Dessalines." },
+      "note": { "title": { "sv": "Bara en källa" }, "text": { "sv": "Händelsen har ingen egen post i Wikidata, så årtal och plats har inte kunnat jämföras med en andra, oberoende källa. Uppgifterna kommer från Wikipedia." } },
       "sources": ["wp-toussaint-louverture", "wp-haitian-revolution", "wp-cap-haitien"], "review": "source-checked" },
 
     { "id": "slaget-vid-vertieres", "category": "krig", "icon": "swords", "partOf": "haitiska-revolutionen", "major": true, "start": 1803, "end": 1803, "precision": 11, "edtf": "1803-11-18",
