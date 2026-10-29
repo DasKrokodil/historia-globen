@@ -39,31 +39,32 @@ export function yearsAcross(y, fraction) {
 }
 export const segmentName = y => segFor(clampY(y)).name;
 
+/** Uppspelningens nivåer i år per sekund. */
+const SPEEDS = [1, 5, 25, 100];
+const fmtRate = r => `${String(Math.round(r * 100) / 100).replace('.', ',')} år/s`;
+
 export class Timeline extends EventTarget {
-  constructor({ track, thumb, segs, ticks, dots, ffMarks, playBtn, playIcon, stepBtns, speedBtn }) {
+  constructor({ track, thumb, segs, ticks, dots, ffMarks, playBtn, playIcon, stepBtns, speedBtn, pauseNote, pauseText, pauseGo }) {
     super();
-    Object.assign(this, { track, thumb, playBtn, playIcon, speedBtn, segsEl: segs, ticksEl: ticks });
+    Object.assign(this, { track, thumb, playBtn, playIcon, speedBtn, pauseNote, pauseText, segsEl: segs, ticksEl: ticks });
     this._year = 1325;
     this.playing = false;
     this.focus = null; // { from, to }: tidslinjen inzoomad på ett spann (fokusläge, #109)
-    this.speed = 1;
-    try { this.speed = Number(localStorage.getItem('hg-speed')) || 1; } catch { /* utan lagring */ }
+    // Hastighet i år per sekund (#164). Det gamla sparade värdet ('hg-speed', ×-faktor) ignoreras.
+    this.speed = 25;
+    try { const v = Number(localStorage.getItem('hg-speed-ars')); if (SPEEDS.includes(v)) this.speed = v; } catch { /* utan lagring */ }
     this.dotsEl = dots; this.ffEl = ffMarks;
     this._drawScale();
     addEventListener('resize', () => { if (this.focus) this._drawScale(); }); // antal årtal beror på bredden
 
-    // Hastighet: 1× → ½× → ¼× → 2× → 1×
-    const SPEEDS = [1, 0.5, 0.25, 2];
-    const label = () => {
-      speedBtn.textContent = { 1: '1×', 0.5: '½×', 0.25: '¼×', 2: '2×' }[this.speed] ?? '1×';
-      speedBtn.setAttribute('aria-label', `Uppspelningshastighet ${speedBtn.textContent}`);
-    };
     speedBtn.addEventListener('click', () => {
       this.speed = SPEEDS[(SPEEDS.indexOf(this.speed) + 1) % SPEEDS.length];
-      try { localStorage.setItem('hg-speed', String(this.speed)); } catch { /* utan lagring */ }
-      label();
+      try { localStorage.setItem('hg-speed-ars', String(this.speed)); } catch { /* utan lagring */ }
+      this._labelSpeed();
     });
-    label();
+    pauseGo?.addEventListener('click', () => this.play());
+    this._labelPlay(false);
+    this._labelSpeed();
 
     // Dra i reglaget
     const setFromX = x => {
@@ -103,6 +104,7 @@ export class Timeline extends EventTarget {
   setFocus(range) {
     this.pause();
     this.focus = range;
+    this._labelSpeed();
     this._drawScale();
     if (this._marks) this.setMarks(...this._marks);
     if (range && (this._year < range.from || this._year > range.to)) this.year = range.from;
@@ -185,32 +187,63 @@ export class Timeline extends EventTarget {
     }
   }
 
+  /** År per sekund just nu. I fokusläge ungefär en tiondel av nivån, och längre spann
+   *  (till exempel en religion) skalas upp så att de tar högst cirka en och en halv minut (#164). */
+  get yearsPerSecond() {
+    if (!this.focus) return this.speed;
+    const span = this.focus.to - this.focus.from;
+    return (this.speed / 10) * Math.max(1, span / 90);
+  }
+  _labelSpeed() {
+    const r = this.yearsPerSecond, t = fmtRate(r);
+    this.speedBtn.textContent = t;
+    this.speedBtn.setAttribute('aria-label', `Uppspelningshastighet: ${t}. Tryck för att byta.`);
+    this.speedBtn.title = `Uppspelningshastighet: ${t} (så många år av historien går varje sekund). Tryck för att byta.`;
+  }
+  _labelPlay(playing, resume = false) {
+    const t = playing ? 'Pausa' : resume ? 'Fortsätt' : 'Spela upp tiden';
+    this.playBtn.setAttribute('aria-label', t);
+    this.playBtn.title = t;
+  }
+
   play() {
     const end = this.focus ? this.focus.to : MAX_YEAR;
     if (this._year >= end) this.year = this.focus ? this.focus.from : MIN_YEAR;
     this.playing = true;
+    this._showNote(null);
     const run = this._run = (this._run ?? 0) + 1; // bara en uppspelning åt gången
     this.playIcon.setAttribute('d', 'M4 2.5h3v11H4zM9 2.5h3v11H9z');
-    this.playBtn.setAttribute('aria-pressed', 'true'); // namnet är konstant, tillståndet säger om den spelar
+    this.playBtn.setAttribute('aria-pressed', 'true');
+    this._labelPlay(true);
     let last = performance.now();
-    let pos = this.toPos(this._year);
+    let yf = this._year; // året som decimaltal, så att långsamma nivåer räknas upp jämnt
+    let shown = this._year;
     const step = now => {
       if (!this.playing || run !== this._run) return;
       const dt = Math.min(0.1, (now - last) / 1000); last = now;
-      // Hela tidslinjen på cirka en minut. I fokusläge ungefär ett år per sekund,
-      // men längre spann (till exempel en religion) högst cirka en och en halv minut.
-      const rate = this.focus ? 1 / Math.min(this.focus.to - this.focus.from, 90) : 0.016;
-      pos = Math.max(pos, this.toPos(this._year)) + dt * rate * this.speed;
-      this.year = this.toYear(pos);
+      if (this._year !== shown) yf = this._year; // året flyttades utifrån (till exempel hopp vid krig)
+      yf += dt * this.yearsPerSecond;
+      this.year = yf;
+      shown = this._year;
       if (this._year >= end) { this.pause(); return; }
       requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
   }
-  pause() {
+  /** Pausar. Med `reason` (text) är det en automatisk paus: knappen blir "Fortsätt" och raden vid knappen visar varför. */
+  pause(reason) {
+    const wasPlaying = this.playing;
     this.playing = false;
     this.playIcon.setAttribute('d', 'M4 2.5v11l9-5.5z');
     this.playBtn.setAttribute('aria-pressed', 'false');
+    const auto = !!reason && wasPlaying;
+    this._labelPlay(false, auto);
+    this._showNote(auto ? reason : null);
+  }
+  _showNote(text) {
+    if (!this.pauseNote) return;
+    this.pauseNote.hidden = !text;
+    if (text) this.pauseText.textContent = text;
   }
 
   _render() {

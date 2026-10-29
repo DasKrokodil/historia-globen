@@ -57,6 +57,7 @@ Klickbara markörer, etiketter och bågar ligger ovanpå klotet som 3D-objekt oc
 | `js/layers/borders.js` | Dagens landsgränser (av som standard) |
 | `js/ui/panel.js` | Samtidigt i världen per världsdel, kategorifilter, faktarutan med bild och ram, krigets berättelse, faktarutan om en religion |
 | `js/ui/funfact.js` | Samtidigt-kortet: fun facts och "När ett krig bröt ut", kan fällas ihop. Tryck på en händelseknapp visar händelsens bild, ram, bildtext och sammanfattning överst i kortet (#169), med bilden från `figure()` i `panel.js` och ramen från `styleFor()`. Globen flyger dit via `ff.onPick`, men faktarutan öppnas bara via "Mer om händelsen" (`ff.onSelect`). Kortet rullar inuti och går aldrig utanför skärmen. I smal skärm (≤760 px, #168) är kortet kompakt: texten klipps efter tre rader (tryck för hela), händelseknapparna ligger i en rad som sidscrollas, och alla kontroller har minst 44 × 44 px tryckyta (osynlig yta i `::after`, utseendet oförändrat). Med bilden framme visas bara bild, fakta och händelseknappar, och ett tryck eller drag på globen utanför kortet stänger bilden |
+| `js/ui/legend.js` | Teckenförklaring och klickruta för religionslagret (#166): HTML över globen, inte i kartbilden. Teckenförklaringen listar religionerna som syns året (`ReligionsLayer.legendItems()`); ett klick på ett område (`Globe.pickLatLon` + `ReligionsLayer.hitTest`, punkt-i-polygon i lon/lat) visar religion och rike. Händelsemarkörer har företräde |
 | `js/ui/layers.js` | Lagermenyn och valen för pauser |
 | `js/ui/focusmenu.js` | Fokusmenyn: följ ett krig, ett rike eller en religion |
 | `js/ui/sources.js` | Sidan Om källorna: källregistret grupperat efter användning, granskningsläge per grupp och sökning |
@@ -78,7 +79,7 @@ Stegknapparna −100, −10, −1, +1, +10 och +100 syns på alla skärmbredder 
 
 ## Tangentbord och skärmläsare (#139)
 
-Etiketterna och klustren på globen är `<button>` och nås med Tab; Enter öppnar händelsen (kluster zoomar in). Globens canvas har `tabindex="0"` och tar emot tangenter i `_initControls()` i `globe.js`: piltangenter snurrar (Skift = större steg), `+` och `−` zoomar. Tangenterna fångas bara när canvasen själv har fokus, så de stör inte inputfält. Fokus visas med mässingsring (`:focus-visible`). Play-knappen har ett konstant namn ("Spela upp tiden") och `aria-pressed` som visar om tiden spelar. De två kryssrutorna Samtidigt-kortet har egna namn ("Visa …", "Pausa vid …"). Listan Samtidigt i världen är det tangentbordsvänliga alternativet till globen.
+Etiketterna och klustren på globen är `<button>` och nås med Tab; Enter öppnar händelsen (kluster zoomar in). Globens canvas har `tabindex="0"` och tar emot tangenter i `_initControls()` i `globe.js`: piltangenter snurrar (Skift = större steg), `+` och `−` zoomar. Tangenterna fångas bara när canvasen själv har fokus, så de stör inte inputfält. Fokus visas med mässingsring (`:focus-visible`). Play-knappen har `aria-pressed` och ett namn som växlar: "Spela upp tiden", "Pausa" och "Fortsätt" (efter automatisk paus, #163). De två kryssrutorna Samtidigt-kortet har egna namn ("Visa …", "Pausa vid …"). Listan Samtidigt i världen är det tangentbordsvänliga alternativet till globen.
 
 ## Fokusläget
 
@@ -107,3 +108,7 @@ Skripten i `tools/` körs för hand, inte av sidan, så principen om inget byggs
 ## Testa
 
 Se [CLAUDE.md](../CLAUDE.md#testa-innan-du-är-klar): starta `python3 -m http.server 8000`, kontrollera att konsolen är fri från fel, testa dator- och mobilbredd och kontrollera all JSON.
+
+## Uppspelning (#163, #164)
+
+Hastigheten är i år per sekund: 1, 5, 25 (standard) och 100, så att den långsammaste går att följa år för år. `Timeline.yearsPerSecond` ger farten; i fokusläge är den en tiondel av nivån (och skalas upp för spann längre än 90 år), och knappens text visar den faktiska farten. Sparat värde ligger under `hg-speed-ars`; den gamla nyckeln `hg-speed` (×-faktor) ignoreras. `timeline.pause(orsak)` med en text är en automatisk paus: knappen heter "Fortsätt" och raden `#pause-note` vid knappen visar varför, tills man spelar igen eller flyttar tiden (`pause()` utan orsak döljer raden).
