@@ -39,7 +39,7 @@ Varje gång året ändras körs `refresh()` i `main.js`:
 5. Lagerbilden läggs på klotet, och på platta vyn om den är öppen.
 6. Pauser kontrolleras: fun facts, när ett krig bryter ut, krigets stora händelser och religionens grundande.
 
-Klickbara markörer, etiketter och bågar ligger ovanpå klotet som 3D-objekt och HTML, inte på den platta bilden. Etiketter som ligger nära varandra slås ihop till kluster (`ui/clusters.js`).
+Klickbara markörer, etiketter och bågar ligger ovanpå klotet som 3D-objekt och HTML, inte på den platta bilden. Etiketter som ligger nära varandra slås ihop till kluster (`ui/clusters.js`). Etiketterna hålls inom skärmen och läggs aldrig ovanpå andra markörer eller klusterbrickor (#142).
 
 ## Moduler
 

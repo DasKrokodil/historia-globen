@@ -454,10 +454,12 @@ body {
   position: absolute; inset: 0;
   z-index: 12;
   display: grid; place-items: center;
-  background: rgba(8,12,17,.86);
-  padding: 90px var(--gut-r) 140px var(--gut);
+  background: rgba(8,12,17,.95);
+  /* Överkant under årtal, rubrik och tidsperiod uppe till vänster (#142) */
+  padding: 150px var(--gut-r) 140px var(--gut);
 }
-.flat-inner { width: min(1100px, 100%); }
+.flat-inner { width: min(1100px, 100%, calc((100vh - 290px - 70px) * 2)); }
+@media (max-width: 760px) { .flat-view { padding-top: 175px; } .flat-inner { width: min(1100px, 100%, calc((100vh - 315px - 70px) * 2)); } }
 .flat-cap { margin: 0 0 10px; color: var(--parchment-dim); max-width: 65ch; line-height: 1.45; }
 .flat-canvas { width: 100%; height: auto; aspect-ratio: 2 / 1; max-width: 100%; border: 1px solid var(--line); border-radius: 6px; display: block; }
 

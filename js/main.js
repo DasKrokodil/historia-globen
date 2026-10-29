@@ -361,6 +361,12 @@ async function start() {
       el.hidden = false;
     });
     for (let i = clusters.length; i < clusterPool.length; i++) clusterPool[i].hidden = true;
+    // Etiketterna får inte hamna utanför skärmen eller ovanpå andra markörer och klusterbrickor (#142)
+    const W = globe.canvas.clientWidth, H = globe.canvas.clientHeight;
+    const dotBox = (x, y, r) => ({ x0: x - r, x1: x + r, y0: y - r, y1: y + r });
+    const hit = (a, b) => a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b.y0;
+    const markers = items.filter(it => it.p.facing > 0.05 && !clustered.has(it.e.id)).map(it => ({ id: it.e.id, box: dotBox(it.p.x, it.p.y, 9) }));
+    const badges = clusters.map(c => dotBox(c.x, c.y, 16));
     const placed = [];
     const seen = new Set();
     for (const { e, p } of singles.slice(0, 14)) {
@@ -368,8 +374,13 @@ async function start() {
       // Händelser i ett krig får årtalet framför namnet
       const text = e.partOf ? `${e.start} · ${t(e.title)}` : t(e.title);
       const w = text.length * 6.6 + 30, h = 22;
-      const box = { x0: p.x - w / 2, x1: p.x + w / 2, y0: p.y - 14 - h, y1: p.y - 14 };
-      if (placed.some(b => box.x0 < b.x1 && box.x1 > b.x0 && box.y0 < b.y1 && box.y1 > b.y0)) continue;
+      if (p.x < 0 || p.x > W || p.y < 0 || p.y > H) continue; // markören syns inte, då visas ingen etikett
+      // Skjut etiketten inåt så att hela rutan syns
+      const cx = Math.min(Math.max(p.x, w / 2 + 4), Math.max(w / 2 + 4, W - w / 2 - 4));
+      const box = { x0: cx - w / 2, x1: cx + w / 2, y0: p.y - 14 - h, y1: p.y - 14 };
+      if (box.y0 < 4) continue;
+      if (placed.some(b => hit(box, b)) || badges.some(b => hit(box, b)) ||
+          markers.some(m => m.id !== e.id && hit(box, m.box))) continue;
       placed.push(box);
       let el = pool.get(e.id);
       if (!el) {
@@ -379,7 +390,7 @@ async function start() {
         el.addEventListener('click', () => select(e.id));
         labelsEl.append(el); pool.set(e.id, el);
       }
-      el.style.transform = `translate(${p.x}px, ${p.y - 12}px) translate(-50%, -100%)`;
+      el.style.transform = `translate(${cx}px, ${p.y - 12}px) translate(-50%, -100%)`;
       el.style.opacity = String(Math.min(1, (p.facing - 0.2) * 4));
       el.hidden = false;
       seen.add(e.id);
