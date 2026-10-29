@@ -57,6 +57,7 @@ Klickbara markörer, etiketter och bågar ligger ovanpå klotet som 3D-objekt oc
 | `js/layers/borders.js` | Dagens landsgränser (av som standard) |
 | `js/ui/panel.js` | Samtidigt i världen per världsdel, kategorifilter, faktarutan med bild och ram, krigets berättelse, faktarutan om en religion |
 | `js/ui/funfact.js` | Samtidigt-kortet: fun facts och "När ett krig bröt ut", kan fällas ihop |
+| `js/ui/legend.js` | Teckenförklaring och klickruta för religionslagret (#166): HTML över globen, inte i kartbilden. Teckenförklaringen listar religionerna som syns året (`ReligionsLayer.legendItems()`); ett klick på ett område (`Globe.pickLatLon` + `ReligionsLayer.hitTest`, punkt-i-polygon i lon/lat) visar religion och rike. Händelsemarkörer har företräde |
 | `js/ui/layers.js` | Lagermenyn och valen för pauser |
 | `js/ui/focusmenu.js` | Fokusmenyn: följ ett krig, ett rike eller en religion |
 | `js/ui/sources.js` | Sidan Om källorna: källregistret grupperat efter användning, granskningsläge per grupp och sökning |
