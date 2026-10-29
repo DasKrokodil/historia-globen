@@ -24,6 +24,18 @@
   --gut: max(16px, env(safe-area-inset-left, 0px));
   --gut-r: max(16px, env(safe-area-inset-right, 0px));
   --panel-w: 400px;          /* listan "Samtidigt i världen" */
+
+  /* Ramar efter tidsålder i faktarutan (#129) */
+  --stone: #2b2620; --stone-edge: #6e5c48; --ochre: #b5651d;
+  --papyrus: #e8d6a4; --papyrus-fiber: rgba(140, 105, 50, .13); --papyrus-ink: #3a2a12; --papyrus-edge: #a88a4c;
+  --tile-red: #a9432f; --tile-cream: #e6d8b4; --tile-blue: #2f5f7a; --tile-black: #1b1a17;
+  --gold: #c9a24a; --gold-light: #f1d98a; --gold-deep: #7d5b1c; --icon-ground: #1d1a24;
+  --vellum: #efe3c6; --vellum-ink: #2e2416; --rubric: #9c2a1e;
+  --engraving-paper: #eee6d3; --engraving-ink: #1f1b16;
+  --oil-dark: #1c1712;
+  --newsprint: #e9e3d3; --newsprint-ink: #1b1b1b;
+  --deco-navy: #16213a; --deco-gold: #d4a94e;
+  --space-ink: #10202e; --space-orange: #e46a2e; --space-teal: #2aa198; --space-cream: #f3e6c8;
 }
 
 html, body { height: 100%; }
@@ -266,8 +278,11 @@ body {
   max-height: 38vh;
   overflow-y: auto;
   padding: 14px 16px 14px;
-  background: color-mix(in srgb, var(--night-2) 96%, transparent);
-  border: 1px solid var(--line);
+  --card-bg: color-mix(in srgb, var(--night-2) 96%, transparent);
+  --card-ink: var(--parchment); --card-dim: var(--parchment-dim); --card-accent: var(--brass); --card-line: var(--line);
+  background: var(--card-bg);
+  color: var(--card-ink);
+  border: 1px solid var(--card-line);
   border-radius: var(--r);
   backdrop-filter: blur(6px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
@@ -283,10 +298,12 @@ body {
   cursor: pointer;
 }
 .detail h3 { margin: 0 0 2px; font: 400 19px/1.2 var(--f-display); text-wrap: balance; }
-.detail .meta { font: 400 11.5px/1.4 var(--f-mono); color: var(--brass); }
+.detail .meta { font: 400 11.5px/1.4 var(--f-mono); color: var(--card-accent, var(--brass)); }
 .detail p { margin: 8px 0; line-height: 1.5; max-width: 65ch; }
-.detail .src { font-size: 12.5px; color: var(--parchment-dim); }
-.detail a { color: var(--brass); }
+.detail .src { font-size: 12.5px; color: var(--card-dim, var(--parchment-dim)); }
+.detail a, .detail .link-btn { color: var(--card-accent, var(--brass)); }
+.detail .review-badge, .detail .war-link, .detail .war-list .meta { color: var(--card-dim); }
+.detail .war-list h4 { color: var(--card-accent); }
 .detail-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 6px; }
 
 .review-badge {
@@ -361,6 +378,7 @@ body {
   cursor: pointer;
 }
 .ff-chip .dot { width: 8px; height: 8px; border-radius: 50%; }
+.ff-thumb { width: 28px; height: 21px; margin: -3px 0 -3px -5px; border-radius: 3px; object-fit: cover; } /* händelsens bild (#129) */
 .ff-foot { display: flex; align-items: center; gap: 14px; margin-top: 10px; }
 .funfact .review-badge { color: #6b5a3a; }
 .funfact .link-btn { color: #7a5a1f; }
@@ -529,3 +547,77 @@ body {
   .funfact { animation: none; }
   .glabel { transition: none; }
 }
+
+/* ---------- bild i faktarutan (#129) ---------- */
+.detail-fig { position: relative; margin: -14px -16px 10px; }
+.detail-fig img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r) var(--r) 0 0; background: var(--night-3); }
+.detail-fig figcaption { padding: 5px 12px 0; font: 400 11px/1.35 var(--f-mono); color: var(--card-dim); }
+.fig-caption { display: block; color: var(--card-ink); font-style: italic; }
+.fig-credit a { color: var(--card-accent); }
+.fig-badge {
+  position: absolute; left: 10px; top: 10px; z-index: 1;
+  padding: 4px 8px; border-radius: 4px;
+  font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase;
+  color: #fff; background: var(--danger);
+}
+/* Krysset ligger ovanpå bilden: det tar ingen plats, så att bilden går ända upp */
+.detail-card .detail-close { position: sticky; z-index: 2; float: none; display: block; margin: -4px -6px -26px auto; }
+.detail-card .detail-close + h3 { padding-right: 30px; }
+@media (max-width: 760px) { .detail-fig img { aspect-ratio: 16 / 9; } }
+
+/* ---------- ramar efter tidsålder (#129) ----------
+   Ramen följer händelsens tid och fungerar även utan bild. */
+.frame-grotta {
+  --card-bg: radial-gradient(circle at 20% 15%, rgba(255,255,255,.05), transparent 40%), radial-gradient(circle at 80% 70%, rgba(0,0,0,.25), transparent 50%), var(--stone);
+  --card-line: var(--stone-edge); --card-accent: var(--ochre);
+  border-width: 3px; border-radius: 18px 8px 22px 10px;
+}
+.frame-egypten {
+  --card-bg: repeating-linear-gradient(0deg, var(--papyrus-fiber) 0 2px, transparent 2px 7px), repeating-linear-gradient(90deg, var(--papyrus-fiber) 0 1px, transparent 1px 9px), var(--papyrus);
+  --card-ink: var(--papyrus-ink); --card-dim: #6b5530; --card-accent: #7a3f12; --card-line: var(--papyrus-edge);
+  border-width: 1px 6px; border-style: solid; border-radius: 3px;
+}
+.frame-antik {
+  --card-line: transparent; --card-accent: var(--tile-cream);
+  border: 9px solid transparent;
+  border-image: repeating-linear-gradient(45deg, var(--tile-red) 0 6px, var(--tile-cream) 6px 12px, var(--tile-blue) 12px 18px, var(--tile-black) 18px 24px) 9;
+  border-radius: 0;
+}
+.frame-tidig-medeltid {
+  --card-bg: linear-gradient(var(--icon-ground), var(--icon-ground)) padding-box;
+  --card-accent: var(--gold-light);
+  border: 5px solid transparent; border-radius: 4px;
+  background: linear-gradient(var(--icon-ground), var(--icon-ground)) padding-box, linear-gradient(135deg, var(--gold-deep), var(--gold-light) 40%, var(--gold) 60%, var(--gold-deep)) border-box;
+}
+.frame-medeltid {
+  --card-bg: var(--vellum); --card-ink: var(--vellum-ink); --card-dim: #6a5838; --card-accent: var(--rubric); --card-line: var(--gold);
+  border-width: 2px; box-shadow: inset 0 0 0 4px var(--vellum), inset 0 0 0 5px var(--rubric), 0 10px 30px rgba(0,0,0,.35);
+}
+.frame-medeltid h3::first-letter { float: left; margin: 2px 6px 0 0; font-size: 2.3em; line-height: .8; color: var(--rubric); }
+.frame-renassans {
+  --card-bg: var(--engraving-paper); --card-ink: var(--engraving-ink); --card-dim: #55493a; --card-accent: #5a3d1a; --card-line: var(--engraving-ink);
+  border: 1px solid var(--engraving-ink); border-radius: 0;
+  box-shadow: inset 0 0 0 5px var(--engraving-paper), inset 0 0 0 6px var(--engraving-ink), 0 10px 30px rgba(0,0,0,.35);
+}
+.frame-barock {
+  --card-bg: var(--oil-dark); --card-accent: var(--gold-light);
+  border: 7px solid transparent; border-radius: 2px;
+  background: linear-gradient(var(--oil-dark), var(--oil-dark)) padding-box, linear-gradient(160deg, var(--gold-deep), var(--gold-light) 25%, var(--gold) 50%, var(--gold-deep) 75%, var(--gold-light)) border-box;
+}
+.frame-1800-tal {
+  --card-bg: var(--newsprint); --card-ink: var(--newsprint-ink); --card-dim: #4f4a40; --card-accent: #3a2f22; --card-line: var(--newsprint-ink);
+  border: 0; border-top: 4px double var(--newsprint-ink); border-bottom: 1px solid var(--newsprint-ink); border-radius: 0;
+}
+.frame-1800-tal h3 { font-family: var(--f-display); letter-spacing: .01em; }
+.frame-affisch {
+  --card-bg: var(--deco-navy); --card-accent: var(--deco-gold); --card-line: var(--deco-gold);
+  border: 2px solid var(--deco-gold); border-radius: 0;
+  box-shadow: inset 0 0 0 4px var(--deco-navy), inset 0 0 0 5px var(--deco-gold), 0 10px 30px rgba(0,0,0,.35);
+}
+.frame-rymdalder {
+  --card-bg: var(--space-ink); --card-accent: var(--space-orange); --card-line: var(--space-teal);
+  border: 3px solid var(--space-teal); border-radius: 16px;
+  box-shadow: 0 0 0 3px var(--space-orange), 0 10px 30px rgba(0,0,0,.35);
+}
+/* Ramar med ljus botten: bilden får en mörk kant så att den inte flyter ut */
+.frame-egypten .detail-fig img, .frame-medeltid .detail-fig img, .frame-renassans .detail-fig img, .frame-1800-tal .detail-fig img { border-bottom: 1px solid var(--card-line); }

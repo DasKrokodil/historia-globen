@@ -36,6 +36,11 @@ data/events.json      händelser
 data/funfacts.json    fun facts (kopplade till händelse-id)
 data/sources.json     källregister
 data/land.json        grundkarta: Natural Earth 1:50m, färdigprojicerad SVG-path i 4096×2048
+data/styles.json      bildstilar efter tidsålder och plats (ramar och promptar)
+images/events/        bilder till händelser, <händelse-id>.webp, 800 × 600
+images/incoming/      Rikards nya bilder, innan de konverteras
+tools/                hjälpskript som körs för hand (bildpromptar, bildkonvertering)
+docs/bildpromptar.md  färdiga promptar för illustrationer
 ```
 
 Nya lager läggs i `js/layers/`, ny UI i `js/ui/`, ny data i `data/`. Uppdatera filstrukturen i README.md när den ändras.
@@ -70,6 +75,18 @@ Rikard är mycket mån om att inget påhittat hamnar på globen. Följ detta str
 - Använd bara data vars licens är förenlig med detta: CC0, CC BY, public domain, eller GPL för gränsdata. **Inte** CC BY-NC, inte "all rights reserved", inte data med oklara villkor.
 - Kopiera aldrig text från Wikipedia eller andra källor. Skriv egna korta sammanfattningar och länka källan.
 - Ange varje ny datakälla i `data/sources.json` och i README:ns licensavsnitt.
+
+## Bilder (#129)
+
+Varje händelse kan få en bild i fältet `image` (fil, `kind`, stil, bildtext, kredit, licens, och för illustrationer prompten). Stilen följer tidsåldern och platsen enligt `data/styles.json`, och faktarutans ram följer stilen även när bild saknas.
+
+1. **Riktig bild först.** Sök på Wikimedia Commons efter en historisk bild innan en illustration görs. Kontrollera licensen på filsidan och lägg filsidan som källa i `sources.json`. Tillåtet för historiska bilder: public domain, CC0, CC BY och CC BY-SA. Bilden behåller sin egen licens, som står i bildtexten.
+2. **Illustrationer märks alltid** med en synlig bildtext, till exempel "Illustration i stil med …, inte en historisk bild". De får aldrig se ut som fotografier eller äkta dokument.
+3. **Bilden förmedlar stämning, inte fakta.** Lägg inte in detaljer i bilden som inte stöds av händelsens källa.
+4. **Respekt.** Profeten Muhammed avbildas aldrig; Hijra visas med landskap, karavan och arkitektur. Inga karikatyrer av folk, inga blodiga krigsbilder och inga riktiga personers ansikten i närbild.
+5. **Spårbarhet.** Spara stil, verktyg, datum och exakt prompt för varje illustration i `image`.
+6. **Filer.** `images/events/<händelse-id>.webp`, 800 × 600 pixlar, helst under 150 kB. `python3 tools/bilder_in.py` konverterar bilder från `images/incoming/`. `python3 tools/bildpromptar.py` skriver promptar till `docs/bildpromptar.md`. Lägg aldrig API-nycklar för bildverktyg i repot.
+7. **Platshållare** har `"placeholder": true` och märks "Platshållare" i kortet tills den riktiga bilden finns.
 
 ## Utseende
 
@@ -159,3 +176,4 @@ Nya beslut läggs till sist, med datum, beslut och kort motivering.
 | 2026-10-29 | "Samtidigt" i tre nivåer: kategorifiltren ligger i Lager-menyn, listan "Samtidigt i världen" är en bredare låda grupperad per världsdel (grov indelning efter koordinater i `model.js`), och fun fact-kortet blir Samtidigt-kortet med typ (Fun fact, När ett krig bröt ut). Kortet kan fällas ihop till en flik, och då pausar uppspelningen inte vid det. Korten om krig byggs ur händelserna (inom 5 år från krigets start), inte som egen data. | Listan var för kompakt att läsa och kortet syntes alltid (Rikards feedback, #120). |
 | 2026-10-29 | Fokusmenyn visar bara det som överlappar tidsepoken man står i (tidslinjens fyra avsnitt), närmast först. Resten finns bakom "Visa alla". | Med många krig, riken och senare djup tid blir menyn annars lång och full av sådant som inte hör till tiden (Rikards feedback, #121). |
 | 2026-10-29 | Bysantinska riket (633–1474 i Cliopatria) läggs till i Romarrikets grupp, som fortsättningen på Östromerska riket. Romarriket i fokus går därmed 751 f.Kr.–1474. Fokusmenyn visar det som pågår inom fyra gånger tidslinjens fönster runt året (vid 1325 cirka ±150 år), i stället för hela tidsepoken. | Romarriket slutade för tidigt, och trettioåriga kriget syntes i menyn 1325 (Rikards feedback). |
+| 2026-10-29 | Bilder med stil efter tidsålder (#129): riktig historisk bild först (public domain, CC0, CC BY eller CC BY-SA, med filsidan som källa), annars en illustration i tidens bildtradition som alltid märks "inte en historisk bild" och sparas med verktyg, datum och prompt. Faktarutans ram följer tidsåldern (`data/styles.json`, tio grundstilar och regionala varianter). Undantag från beslut 10: bildfiler får vara CC BY-SA och behåller sin egen licens. Ersätter vinjetterna i #127. | Rikards instruktion: bilderna gör kortet levande, och stilen visar tiden. Märkning och respektregler skyddar mot att illustrationer tas för fakta. |

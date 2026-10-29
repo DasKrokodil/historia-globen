@@ -60,6 +60,20 @@ export function region(lat, lon) {
   return 'Asien';
 }
 
+// ---------- Bildstilar (#129) ----------
+// Varje händelse får en bildstil efter år och plats (data/styles.json): en regional
+// variant om året och platsen matchar, annars grundstilen för året. Ramen följer
+// grundstilen, och en variant kan väljas efter kategori (till exempel portolankarta för resor).
+export function styleFor(e, doc) {
+  const year = e.start, lat = e._lat ?? e.location.coordinates[1], lon = e._lon ?? e.location.coordinates[0];
+  const inTime = s => year >= s.from && year <= s.to;
+  const inRegion = id => (doc.regions[id]?.bbox ?? []).some(([w, so, ea, n]) => lon >= w && lon <= ea && lat >= so && lat <= n);
+  const base = doc.styles.find(s => !s.regions.length && inTime(s)) ?? doc.styles.at(0);
+  const regional = doc.styles.find(s => s.regions.length && inTime(s) && s.regions.some(inRegion));
+  const style = regional ?? base;
+  return { style, base, frame: base.frame, variant: style.variants?.[e.category] ?? null };
+}
+
 // ---------- Tid ----------
 // År lagras astronomiskt (ISO 8601): 0 = 1 f.Kr., -1 = 2 f.Kr.
 export const isBCE = y => y <= 0;
@@ -103,13 +117,14 @@ async function getJSON(path) {
 }
 
 export async function loadAll() {
-  const [events, funfacts, sources, land, empires, borders] = await Promise.all([
+  const [events, funfacts, sources, land, empires, borders, styles] = await Promise.all([
     getJSON('data/events.json'),
     getJSON('data/funfacts.json'),
     getJSON('data/sources.json'),
     getJSON('data/land.json'),
     getJSON('data/empires.json'),
     getJSON('data/borders.json'),
+    getJSON('data/styles.json'),
   ]);
   const byId = Object.fromEntries(events.events.map(e => [e.id, e]));
   // Krig och slag (#27): slagen pekar på sitt krig med partOf
@@ -126,7 +141,7 @@ export async function loadAll() {
   }
   return {
     events: events.events, byId, funfacts: funfacts.funfacts, sources: sources.sources, srcById, land,
-    polities: empires.polities, empireGroups: empires.groups ?? [], borders,
+    polities: empires.polities, empireGroups: empires.groups ?? [], borders, styles,
   };
 }
 

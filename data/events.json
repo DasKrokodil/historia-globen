@@ -6,6 +6,7 @@
       "location": { "type": "Point", "coordinates": [31.134, 29.979] }, "place": { "sv": "Giza, Egypten" },
       "title": { "sv": "Cheopspyramiden byggs" },
       "summary": { "sv": "Den stora pyramiden i Giza byggs under cirka 26 år. Den blir färdig runt 2600 f.Kr., enligt dateringar av murbruket mellan 2620 och 2484 f.Kr." },
+      "image": {"file": "images/events/cheopspyramiden.webp", "kind": "illustration", "placeholder": true, "style": "egypten", "caption": {"sv": "Platshållare för en illustration i stil med egyptisk väggmålning och papyrus, inte en historisk bild"}, "credit": "Platshållare, ingen riktig bild än", "prompt": "Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Cheopspyramiden byggs — Giza, Egypten, 2600 BCE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, no gore, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no bloody war scenes; no close-up faces of real people; convey mood and setting rather than invented details."},
       "sources": ["wp-great-pyramid"], "review": "source-checked" },
 
     { "id": "mammutar-wrangel", "category": "natur", "start": -2999, "end": -1999, "precision": 7, "edtf": "../-1999~",
@@ -48,6 +49,7 @@
       "location": { "type": "Point", "coordinates": [-1.80, 55.67] }, "place": { "sv": "Lindisfarne, England" },
       "title": { "sv": "Vikingar plundrar Lindisfarne" },
       "summary": { "sv": "Den 8 juni 793 anfaller vikingar klostret på Lindisfarne. Räden räknas ofta som vikingatidens början." },
+      "image": {"file": "images/events/lindisfarne.webp", "kind": "illustration", "placeholder": true, "style": "tidig-medeltid", "caption": {"sv": "Platshållare för en illustration i stil med bysantinsk ikon och insulär bokmålning, inte en historisk bild"}, "credit": "Platshållare, ingen riktig bild än", "prompt": "Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: Vikingar plundrar Lindisfarne — Lindisfarne, England, 793 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, no gore, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no bloody war scenes; no close-up faces of real people; convey mood and setting rather than invented details."},
       "sources": ["wp-lindisfarne"], "review": "source-checked" },
 
     { "id": "oxford", "category": "kultur", "icon": "columns", "start": 1096, "end": 2026, "precision": 9, "edtf": "1096/..",
@@ -66,6 +68,7 @@
       "location": { "type": "Point", "coordinates": [-99.133, 19.433] }, "place": { "sv": "Mexikodalen" },
       "title": { "sv": "Tenochtitlan" },
       "summary": { "sv": "Aztekernas huvudstad grundas 1325 på en ö i Texcocosjön. Den faller 1521 till spanjorerna och deras allierade." },
+      "image": {"file": "images/events/tenochtitlan.webp", "kind": "illustration", "placeholder": true, "style": "aztekisk-kodex", "caption": {"sv": "Platshållare för en illustration i stil med aztekisk kodex, inte en historisk bild"}, "credit": "Platshållare, ingen riktig bild än", "prompt": "Style: Aztec (Mexica) codex painting on bark paper or deerskin, bold black outlines, flat red, blue, yellow and green, glyph-like stylised figures and temples. Subject: Tenochtitlan — Mexikodalen, 1325 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, no gore, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no bloody war scenes; no close-up faces of real people; convey mood and setting rather than invented details."},
       "sources": ["wp-tenochtitlan"], "review": "source-checked" },
 
     { "id": "digerdoden", "category": "halsa", "start": 1346, "end": 1353, "precision": 9, "edtf": "1346/1353",
@@ -96,6 +99,7 @@
       "location": { "type": "Point", "coordinates": [-74.5, 24.05] }, "place": { "sv": "San Salvador, Bahamas (troligast)" },
       "title": { "sv": "Columbus når Amerika" },
       "summary": { "sv": "Den 12 oktober 1492 går Columbus expedition i land på en ö som ursprungsbefolkningen kallade Guanahani." },
+      "image": {"file": "images/events/columbus.webp", "kind": "illustration", "placeholder": true, "style": "renassans", "variant": "portolan", "caption": {"sv": "Platshållare för en illustration i stil med portolankarta, inte en historisk bild"}, "credit": "Platshållare, ingen riktig bild än", "prompt": "Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour. Subject: Columbus når Amerika — San Salvador, Bahamas (troligast), 1492 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, no gore, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no bloody war scenes; no close-up faces of real people; convey mood and setting rather than invented details."},
       "sources": ["wp-columbus"], "review": "source-checked" },
 
     { "id": "gustav-vasa", "category": "civilisationer", "start": 1523, "end": 1523, "precision": 11, "edtf": "1523-06-06",
@@ -144,6 +148,7 @@
       "location": { "type": "Point", "coordinates": [63.34, 45.92] }, "place": { "sv": "Bajkonur, Kazakstan" },
       "title": { "sv": "Sputnik 1, första satelliten" },
       "summary": { "sv": "Den 4 oktober 1957 skjuts Sputnik 1 upp från det som i dag är Bajkonur. Det är den första konstgjorda satelliten i omloppsbana." },
+      "image": {"file": "images/events/sputnik.webp", "kind": "illustration", "placeholder": true, "style": "rymdalder", "caption": {"sv": "Platshållare för en illustration i stil med rymdålderns affischkonst, inte en historisk bild"}, "credit": "Platshållare, ingen riktig bild än", "prompt": "Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Sputnik 1, första satelliten — Bajkonur, Kazakstan, 1957 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, no gore, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no bloody war scenes; no close-up faces of real people; convey mood and setting rather than invented details."},
       "sources": ["wp-sputnik"], "review": "source-checked" },
 
     { "id": "apollo-11", "category": "rymden", "icon": "rocket", "start": 1969, "end": 1969, "precision": 11, "edtf": "1969-07-20",

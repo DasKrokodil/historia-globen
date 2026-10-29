@@ -1,12 +1,32 @@
 // "Samtidigt i världen": lista över synliga händelser per världsdel, kategorifilter
 // (som ligger i lagermenyn, #120) och faktarutan.
-import { CATEGORIES, CAT, REVIEW, REGIONS, region, t, formatEventTime, formatYear } from '../model.js';
+import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear } from '../model.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
+/**
+ * Bild överst i faktarutan (#129): en riktig historisk bild med källa och licens, eller
+ * en illustration i tidens bildtradition som alltid märks med en synlig bildtext.
+ * Bilden finns bara i kortet, så den laddas först när kortet öppnas.
+ */
+function figure(e, srcById) {
+  const img = e.image;
+  if (!img) return '';
+  // Historiska bilder länkar licensen till filsidan i källregistret
+  const src = img.source && srcById[img.source];
+  const license = src ? `<a href="${esc(src.url)}" target="_blank" rel="noopener">${esc(img.license ?? src.license)}</a>` : esc(img.license ?? '');
+  const credit = [img.credit && esc(img.credit), license].filter(Boolean).join(' · ');
+  return `<figure class="detail-fig${img.placeholder ? ' is-placeholder' : ''}">
+    ${img.placeholder ? '<span class="fig-badge">Platshållare</span>' : ''}
+    <img src="${esc(img.file)}" alt="${esc(t(img.caption))}" loading="lazy" width="800" height="600">
+    <figcaption><span class="fig-caption">${esc(t(img.caption))}</span>
+      <span class="fig-credit">${credit}</span></figcaption>
+  </figure>`;
+}
+
 export class Panel {
-  constructor({ root, list, filters, detail, sub, count, toggle, close }, { events, srcById }) {
-    Object.assign(this, { root, list, filtersEl: filters, detail, sub, count, toggle, srcById });
+  constructor({ root, list, filters, detail, sub, count, toggle, close }, { events, srcById, styles }) {
+    Object.assign(this, { root, list, filtersEl: filters, detail, sub, count, toggle, srcById, styles });
     this.onSelect = () => {};
     this.onFilter = () => {};
     this.onSources = () => {};
@@ -97,8 +117,13 @@ export class Panel {
     const srcs = (e.sources ?? []).map(id => id === 'wikidata' && e.wikidata
       ? { title: `Wikidata ${e.wikidata}`, url: `https://www.wikidata.org/wiki/${e.wikidata}` }
       : this.srcById[id]).filter(Boolean);
+    // Kortets ram följer händelsens tidsålder, med eller utan bild (#129)
+    const st = styleFor(e, this.styles);
+    this.detail.className = `detail detail-card frame-${st.frame}`;
+    this.detail.dataset.style = st.variant?.id ?? st.style.id;
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
+      ${figure(e, this.srcById)}
       <h3>${esc(t(e.title))}</h3>
       <div class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))} · ${esc(t(CAT[e.category]?.name))}</div>
       <p>${esc(t(e.summary))}</p>
