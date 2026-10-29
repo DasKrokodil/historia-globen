@@ -39,6 +39,8 @@
 }
 
 html, body { height: 100%; }
+/* Webbläsarens egen zoom av hela sidan är avstängd: globen har en egen zoom, och en inzoomad sida gick inte att zooma ut på iPad (#191) */
+html { touch-action: manipulation; }
 body {
   background: var(--night);
   color: var(--parchment);
