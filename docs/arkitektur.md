@@ -93,7 +93,7 @@ Skripten i `tools/` körs för hand, inte av sidan, så principen om inget byggs
 |---|---|
 | `tools/riken.py` | Bygger rikesfilerna ur Cliopatria |
 | `tools/bildpromptar.py` | Skriver promptar för illustrationer till `docs/bildpromptar.md` |
-| `tools/bilder_in.py` | Konverterar bilder från `images/incoming/` till `images/events/` |
+| `tools/bilder_in.py` | Konverterar bilder från `images/incoming/` till `images/events/` och fyller i `image` i `events.json` från bildloggen `images/incoming/bildlogg.json`. Undermappar, till exempel `images/incoming/vantar/` för bilder som ska göras om, hoppas över |
 
 ## Testa
 
