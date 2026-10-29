@@ -576,6 +576,22 @@ async function start() {
   globe.autoRotate = false;
 }
 
+/** Korten ovanför fokusraden (#183): fokusraden växer när raden "Tiden flyttades" syns och flyttas upp när pausraden
+ *  syns, så CSS får höjden som --focus-top (avstånd från sidans underkant till fokusradens ovankant). */
+function trackFocusBar() {
+  const app = $('app'), bar = $('focus-bar');
+  const update = () => {
+    const on = !bar.hidden && bar.offsetHeight > 0;
+    app.classList.toggle('focus-var', on);
+    if (on) app.style.setProperty('--focus-top', `${Math.round(window.innerHeight - bar.getBoundingClientRect().top)}px`);
+  };
+  new ResizeObserver(update).observe(bar);
+  new MutationObserver(update).observe(app, { attributes: true, attributeFilter: ['class'], subtree: true });
+  window.addEventListener('resize', update);
+  update();
+}
+trackFocusBar();
+
 start().catch(err => {
   console.error(err);
   $('loading').textContent = `Globen kunde inte starta: ${err.message}`;
