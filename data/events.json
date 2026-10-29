@@ -158,7 +158,7 @@
     { "id": "sjalvstandighetsforklaringen", "category": "krig", "icon": "scroll", "partOf": "amerikanska-frihetskriget", "major": true, "top": true, "start": 1776, "end": 1776, "precision": 11, "edtf": "1776-07-04",
       "location": { "type": "Point", "coordinates": [-75.15, 39.949] }, "place": { "sv": "Pennsylvania State House (Independence Hall), Philadelphia" },
       "title": { "sv": "USA:s självständighetsförklaring" },
-      "summary": { "sv": "Den 4 juli 1776 antar den andra kontinentalkongressen i Philadelphia självständighetsförklaringen, som nästan helt skrevs av Thomas Jefferson. De tretton kolonierna förklarar sig fria från Storbritannien Det är en av de första gångerna som kolonierna kallas ”United States”. Kongressen hade röstat för självständighet den 2 juli." },
+      "summary": { "sv": "Den 4 juli 1776 antar den andra kontinentalkongressen i Philadelphia självständighetsförklaringen, som nästan helt skrevs av Thomas Jefferson. De tretton kolonierna förklarar sig fria från Storbritannien. Det är en av de första gångerna som kolonierna kallas ”United States”. Kongressen hade röstat för självständighet den 2 juli." },
       "wikidata": "Q127912", "sources": ["wp-us-declaration-independence", "wp-american-revolutionary-war", "wikidata"], "review": "two-sources" },
 
     { "id": "slaget-vid-oriskany", "category": "krig", "icon": "swords", "partOf": "amerikanska-frihetskriget", "start": 1777, "end": 1777, "precision": 11, "edtf": "1777-08-06",
