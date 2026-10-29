@@ -525,6 +525,7 @@ body {
 @media (max-width: 760px) {
   .panel { left: var(--gut); right: var(--gut-r); width: auto; max-height: 55vh; }
   .detail-card { left: var(--gut); right: var(--gut-r); width: auto; bottom: 128px; max-height: 45vh; }
+  .app.focusing .detail-card { bottom: 176px; max-height: 40vh; } /* ovanför fokusraden */
   .app.has-detail .funfact { display: none; } /* faktarutan och fun fact-kortet delar plats */
   .masthead { max-width: 55vw; }
   .top-actions { max-width: 44vw; }
@@ -621,6 +622,15 @@ body {
 }
 /* Ramar med ljus botten: bilden får en mörk kant så att den inte flyter ut */
 .frame-egypten .detail-fig img, .frame-medeltid .detail-fig img, .frame-renassans .detail-fig img, .frame-1800-tal .detail-fig img { border-bottom: 1px solid var(--card-line); }
+/* ---------- krigets berättelse i fokusläget (#122) ---------- */
+.story-label { font: 600 10.5px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--card-accent); margin-bottom: 6px; }
+.story h4 { margin: 12px 0 2px; font: 600 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--card-accent); }
+.story p { margin: 4px 0 6px; }
+.parties { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.parties strong { font-size: 13px; }
+.parties p { font-size: 13px; line-height: 1.45; }
+.story-hint { font-style: italic; color: var(--card-dim); }
+@media (max-width: 760px) { .parties { grid-template-columns: 1fr; gap: 2px; } }
 
 /* Faktaruta i faktarutan, till exempel "Om år 0" (#123) */
 .detail-note { margin: 10px 0; padding: 8px 10px; border-left: 3px solid var(--card-accent); background: color-mix(in srgb, var(--card-accent) 10%, transparent); border-radius: 0 6px 6px 0; }
