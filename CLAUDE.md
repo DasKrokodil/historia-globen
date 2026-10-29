@@ -37,6 +37,8 @@ data/funfacts.json    fun facts (kopplade till händelse-id)
 data/sources.json     källregister
 data/land.json        grundkarta: Natural Earth 1:50m, färdigprojicerad SVG-path i 4096×2048
 data/empires/         riken: index.json och en fil per rike, byggs med tools/riken.py ur Cliopatria
+data/religions.json   religioner som områden (statsreligion per rike ur Cliopatria) och faktarutor
+data/religions-polities.json  rikenas områden per religion och period, laddas vid klick (tools/religioner_riken.py)
 data/styles.json      bildstilar efter tidsålder och plats (ramar och promptar)
 images/events/        bilder till händelser, <händelse-id>.webp, 800 × 600
 images/incoming/      Rikards nya bilder, innan de konverteras
