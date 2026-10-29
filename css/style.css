@@ -411,6 +411,12 @@ body {
 }
 .ff-tab .count { background: #7a5a1f; color: var(--parchment); }
 .ff-text { margin: 8px 0 10px; font: 400 19px/1.32 var(--f-display); text-wrap: pretty; }
+/* Rikets berättelse (#171): rubrik med årtal, kort text och ibland en rad om kartan */
+.ff-story-head { display: block; }
+.ff-story-head .ff-year { margin-right: 4px; font-size: 12px; vertical-align: 2px; }
+.ff-story-text { display: block; margin-top: 6px; font: 400 14.5px/1.45 var(--f-body); }
+.ff-story-map { display: block; margin-top: 6px; font: 400 12.5px/1.4 var(--f-body); color: #6b5a3a; }
+.ff-story .ff-events:empty { display: none; }
 .ff-events { display: flex; flex-wrap: wrap; gap: 6px; }
 .ff-chip {
   display: inline-flex; align-items: center; gap: 6px;
@@ -780,3 +786,17 @@ details.used-by summary:hover { color: var(--parchment); }
   .focus-bar { width: max-content; }            /* en rad även med lång rubrik och knappen Fakta */
   .app.focusing .detail-card { bottom: 176px; } /* faktarutan ligger ovanför fokusraden */
 }
+
+/* ---------- rikets berättelse i fokus (#171) ---------- */
+/* Samtidigt-kortet ligger ovanför fokusraden, och när pausraden syns flyttas fokusraden upp ovanför den */
+@media (min-width: 761px) {
+  .app.focusing .funfact, .app.focusing .ff-tab { bottom: 176px; max-height: calc(100dvh - 176px - 150px); }
+  .app.focusing:has(.pause-note:not([hidden])) .focus-bar { bottom: 160px; }
+  .app.focusing:has(.pause-note:not([hidden])) :is(.funfact, .ff-tab, .detail-card) { bottom: 218px; max-height: calc(100dvh - 218px - 150px); }
+}
+@media (max-width: 760px) {
+  .app.focusing .funfact, .app.focusing .ff-tab { bottom: 170px; max-height: calc(100dvh - 170px - 176px); }
+  .app.focusing:has(.pause-note:not([hidden])) .focus-bar { bottom: 188px; }
+  .app.focusing:has(.pause-note:not([hidden])) :is(.funfact, .ff-tab, .detail-card) { bottom: 238px; max-height: calc(100dvh - 238px - 176px); }
+}
+.detail .war-list .ms-map { display: block; font-size: 12.5px; opacity: .8; } /* kartans avvikelse från källans årtal */

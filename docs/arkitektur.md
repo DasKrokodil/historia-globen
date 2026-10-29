@@ -56,7 +56,7 @@ Klickbara markörer, etiketter och bågar ligger ovanpå klotet som 3D-objekt oc
 | `js/layers/wars.js` | Krigsområden runt krigets och slagens platser |
 | `js/layers/borders.js` | Dagens landsgränser (av som standard) |
 | `js/ui/panel.js` | Samtidigt i världen per världsdel, kategorifilter, faktarutan med bild och ram, krigets berättelse, faktarutan om en religion eller ett rike (`showFacts`) |
-| `js/ui/funfact.js` | Samtidigt-kortet: fun facts och "När ett krig bröt ut", kan fällas ihop. Tryck på en händelseknapp visar händelsens bild, ram, bildtext och sammanfattning överst i kortet (#169), med bilden från `figure()` i `panel.js` och ramen från `styleFor()`. Globen flyger dit via `ff.onPick`, men faktarutan öppnas bara via "Mer om händelsen" (`ff.onSelect`). Kortet rullar inuti och går aldrig utanför skärmen |
+| `js/ui/funfact.js` | Samtidigt-kortet: fun facts, "När ett krig bröt ut" och rikets berättelse i fokus (`empireStory`, #171), kan fällas ihop. Tryck på en händelseknapp visar händelsens bild, ram, bildtext och sammanfattning överst i kortet (#169), med bilden från `figure()` i `panel.js` och ramen från `styleFor()`. Globen flyger dit via `ff.onPick`, men faktarutan öppnas bara via "Mer om händelsen" (`ff.onSelect`). Kortet rullar inuti och går aldrig utanför skärmen |
 | `js/ui/layers.js` | Lagermenyn och valen för pauser |
 | `js/ui/focusmenu.js` | Fokusmenyn: följ ett krig, ett rike eller en religion |
 | `js/ui/sources.js` | Sidan Om källorna: källregistret grupperat efter användning, granskningsläge per grupp och sökning |
@@ -85,7 +85,7 @@ Etiketterna och klustren på globen är `<button>` och nås med Tab; Enter öppn
 Fokus-knappen följer ett krig, ett rike eller en religion. Tidslinjen visar bara det spannet, globen riktas mot platsen och uppspelningen går långsamt.
 
 - **Krig:** ett kort med orsak och parter före start, paus vid krigets stora händelser (valbart) och ett kort med utgång och döda i slutet.
-- **Rike:** bara rikets områden syns, och globen riktas mot riket när det var som störst. Har riket en faktaruta (`facts`) visas den när man börjar följa det.
+- **Rike:** bara rikets områden syns, och globen riktas mot riket när det var som störst. Har riket en faktaruta (`facts`) visas den när man börjar följa det. Rikets nyckelår visas som kort och pausar uppspelningen (valbart), se Rikets berättelse nedan.
 - **Religion:** börjar vid religionens grundande, stannar vid grundhändelserna och visar sedan religionens spridning som statsreligion. Har religionen en faktaruta (`facts`) visas den först.
 
 Har det man följer en faktaruta (riken och religioner med `facts`) finns knappen Fakta i fokusraden, som öppnar rutan igen.
@@ -97,6 +97,10 @@ När religionslagret slås på visas faktarutan för den första synliga religio
 ## Faktarutan om ett rike (#170)
 
 Riken och religioner använder samma ruta (`Panel.showFacts` i `js/ui/panel.js`) och samma format för `facts`. Rikets ruta visas när man börjar följa riket i Fokus och med knappen Fakta i fokusraden. Kortets ram följer rikets tidsålder och platsen globen riktas mot. Rutan har alltid rutan "Om kartan": gränserna kommer från Cliopatria (med kartdatans spann), fakta kommer från rutans källor, och `facts.mapNote` säger hur källornas årtal skiljer sig från kartdatan (#138). Rutans källor räknas in under Riken i Om källorna.
+
+## Rikets berättelse (#171)
+
+När man följer ett rike i Fokus blir rikets nyckelår (`facts.milestones`) kort i Samtidigt-kortet med typen "Rikets berättelse". `empireStory()` i `js/ui/funfact.js` bygger korten: varje kort visas från nyckelåret till året före nästa nyckelår (högst 25 år), med rubrik, text, raden "Om kartan" när kartdatan avviker från källan och knappar för länkade händelser (`events`). Korten visas först i kortet och även när Samtidigt-lagret är avslaget, eftersom de hör till fokusläget. När uppspelningen passerar ett nyckelår pausar `refresh()` i `main.js` med `timeline.pause('Pausad vid <år>: <rubrik>')`, om valet "Nyckelår när man följer ett rike" är på i Lager (på som standard, sparas som de andra pausvalen). Korten själva pausar inte via `onNew`, så Samtidigt-valet och rikets val styr var för sig. När pausraden syns flyttas fokusraden upp ovanför den, och korten ligger ovanför fokusraden.
 
 Menyn visar det som pågår nära året man står på. Resten finns bakom "Visa alla".
 

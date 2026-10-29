@@ -4,7 +4,23 @@
 import { CAT, REVIEW, t, formatYear, formatEventTime, styleFor, isVisibleReview } from '../model.js';
 import { figure } from './panel.js';
 
-const KIND = { funfact: 'Fun fact', war: 'När ett krig bröt ut' };
+const KIND = { funfact: 'Fun fact', war: 'När ett krig bröt ut', empire: 'Rikets berättelse' };
+
+/**
+ * Rikets berättelse (#171): rikets nyckelår (facts.milestones i empires/index.json) som kort
+ * i Samtidigt-kortet när man följer riket i Fokus. Kortet visas från nyckelåret till året före
+ * nästa nyckelår, högst 25 år. Länkade händelser (events) visas som knappar, inte som text.
+ */
+export function empireStory(group, byId) {
+  const ms = [...(group?.facts?.milestones ?? [])].sort((a, b) => a.year - b.year);
+  return ms.map((m, i) => ({
+    id: `empire-${group.id}-${m.year}`, kind: 'empire', year: m.year, empire: t(group.name),
+    show: [m.year, Math.min((ms[i + 1]?.year ?? Infinity) - 1, m.year + 25)],
+    events: (m.events ?? []).filter(id => byId[id]),
+    label: t(m.label) || formatYear(m.year), title: t(m.title), body: t(m.text), mapNote: t(m.mapNote),
+    sources: m.sources ?? [], review: group.facts.review,
+  }));
+}
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 export class FunFacts {
@@ -13,6 +29,8 @@ export class FunFacts {
     this.all = funfacts; this.byId = byId; this.srcById = srcById; this.styles = styles;
     this.openId = null; // händelsen vars bild visas överst i kortet (#169)
     this.active = []; this.index = 0; this.shownKey = '';
+    this.story = []; // rikets berättelse i fokus (#171), sätts av main.js
+    this.pre = this.root.querySelector('.ff-pre');
     this.enabled = true; // fun facts är ett eget lager som kan slås av
     this.onArcs = () => {};
     this.onSelect = () => {}; // öppnar hela faktarutan (Mer om händelsen)
@@ -29,15 +47,18 @@ export class FunFacts {
   }
 
   update(year, filters) {
-    const active = !this.enabled ? [] : this.all.filter(f =>
+    // Rikets berättelse hör till fokusläget och visas även när Samtidigt-lagret är av, först i kortet
+    const story = this.story.filter(f => year >= f.show[0] && year <= f.show[1] && isVisibleReview(f.review));
+    const active = [...story, ...(!this.enabled ? [] : this.all.filter(f =>
       year >= f.show[0] && year <= f.show[1] &&
       isVisibleReview(f.review) &&
       f.events.every(id => this.byId[id] && filters.has(this.byId[id].category)))
       // Kort som jämför flera händelser (samtidighet) först, sedan det som började senast, så att det nya syns
-      .sort((a, b) => (b.events.length > 1) - (a.events.length > 1) || b.show[0] - a.show[0]);
+      .sort((a, b) => (b.events.length > 1) - (a.events.length > 1) || b.show[0] - a.show[0]))];
     const key = active.map(f => f.id).join('|');
     if (key === this.shownKey) return;
-    const fresh = active.some(f => !this.active.includes(f));
+    // Rikets berättelse pausar uppspelningen själv (main.js), med egen orsak och eget val i Lager
+    const fresh = active.some(f => f.kind !== 'empire' && !this.active.includes(f));
     this.shownKey = key; this.active = active; this.index = 0;
     this._show();
     if (fresh) this.onNew();
@@ -105,9 +126,16 @@ export class FunFacts {
     this.tab.hidden = !f || !this.minimized;
     this.tabCount.textContent = String(this.active.length);
     if (!f || this.minimized) { this.root.hidden = true; this.onArcs([]); return; }
-    this.kind.textContent = KIND[f.kind ?? 'funfact'];
+    const story = f.kind === 'empire';
+    this.root.classList.toggle('ff-story', story);
+    if (this.pre) this.pre.hidden = story;
+    this.kind.textContent = story ? `${KIND.empire} · ${f.empire}` : KIND[f.kind ?? 'funfact'];
     const evs = f.events.map(id => this.byId[id]);
-    this.text.textContent = t(f.text);
+    if (story) {
+      this.text.innerHTML = `<span class="ff-story-head"><span class="ff-year">${esc(f.label)}</span> ${esc(f.title)}</span>`
+        + `<span class="ff-story-text">${esc(f.body)}</span>`
+        + (f.mapNote ? `<span class="ff-story-map"><b>Om kartan:</b> ${esc(f.mapNote)}</span>` : '');
+    } else this.text.textContent = t(f.text);
     this.events.innerHTML = evs.map(e => `<button type="button" class="ff-chip" data-id="${esc(e.id)}" aria-pressed="false">${e.image ? `<img class="ff-thumb" src="${esc(e.image.file)}" alt="" loading="lazy">` : `<span class="dot" style="background:${CAT[e.category]?.color}"></span>`}${f.kind === 'war' ? `<span class="ff-year">${esc(formatYear(e.start))}</span>` : ''}${esc(t(e.title))}</button>`).join('');
     for (const b of this.events.querySelectorAll('.ff-chip')) b.addEventListener('click', () => this.toggleEvent(b.dataset.id));
     const rv = REVIEW[f.review] ?? REVIEW.draft;
@@ -118,6 +146,6 @@ export class FunFacts {
     this.root.hidden = false;
     // Bågar från första händelsen till de övriga
     const [a, ...rest] = evs;
-    this.onArcs(rest.map(b => [[a._lat, a._lon], [b._lat, b._lon]]));
+    this.onArcs(story ? [] : rest.map(b => [[a._lat, a._lon], [b._lat, b._lon]]));
   }
 }

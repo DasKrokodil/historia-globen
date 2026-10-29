@@ -625,6 +625,9 @@
       "label": {
        "sv": "202 f.Kr."
       },
+      "title": {
+       "sv": "Handynastin grundas"
+      },
       "text": {
        "sv": "Liu Bang utropas till kejsare. Handynastin börjar."
       },
@@ -637,6 +640,9 @@
       "label": {
        "sv": "133 f.Kr."
       },
+      "title": {
+       "sv": "Krig mot xiongnu"
+      },
       "text": {
        "sv": "Kejsar Wu börjar en rad fälttåg mot xiongnu."
       },
@@ -645,9 +651,31 @@
       ]
      },
      {
+      "year": -120,
+      "label": {
+       "sv": "121 f.Kr."
+      },
+      "title": {
+       "sv": "Hexikorridoren"
+      },
+      "text": {
+       "sv": "Han driver ut xiongnu från ett stort område från Hexikorridoren till Lop Nur. År 111 f.Kr. inrättas fyra nya gränsprefekturer där, som befolkas med soldatbosättare."
+      },
+      "sources": [
+       "wp-han-dynasty",
+       "wp-han-xiongnu-wars"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar tillväxten först från 110 f.Kr."
+      }
+     },
+     {
       "year": -107,
       "label": {
        "sv": "108 f.Kr."
+      },
+      "title": {
+       "sv": "Erövringar i söder och i Korea"
       },
       "text": {
        "sv": "Han erövrar Gojoseon på Koreahalvön, efter att ha tagit Nanyue (111 f.Kr.) och Dian (109 f.Kr.) i söder."
@@ -657,15 +685,90 @@
       ]
      },
      {
+      "year": -59,
+      "label": {
+       "sv": "60 eller 59 f.Kr."
+      },
+      "title": {
+       "sv": "Västra regionerna"
+      },
+      "text": {
+       "sv": "Efter strider med xiongnu om oasstäderna i Tarimbäckenen från cirka 115 f.Kr. inrättar Han ett protektorat över Västra regionerna. Det är första gången en kinesisk regering styr området direkt."
+      },
+      "sources": [
+       "wp-han-dynasty",
+       "wp-western-regions"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar tillväxten i perioden från 50 f.Kr."
+      }
+     },
+     {
       "year": 9,
       "label": {
        "sv": "9–23"
+      },
+      "title": {
+       "sv": "Wang Mang tar makten"
       },
       "text": {
        "sv": "Regenten Wang Mang tar makten och grundar Xindynastin. Han återupprättas 25 som Östra Han."
       },
       "sources": [
        "wp-han-dynasty"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar nästan ingen yta för Hanriket 6–13 och ingen alls 14–29. Östra Han syns från år 30."
+      }
+     },
+     {
+      "year": 89,
+      "label": {
+       "sv": "89–91"
+      },
+      "title": {
+       "sv": "Seger över norra xiongnu"
+      },
+      "text": {
+       "sv": "Han besegrar norra xiongnu vid Ikh Bayan år 89, och 91 flyr de till Ilidalen. Samma år inrättas ämbetet som protektor över Västra regionerna igen, med Ban Chao på posten."
+      },
+      "sources": [
+       "wp-han-dynasty"
+      ]
+     },
+     {
+      "year": 184,
+      "label": {
+       "sv": "184"
+      },
+      "title": {
+       "sv": "Gula turbanernas uppror"
+      },
+      "text": {
+       "sv": "Ett stort uppror slås ned inom ett år, men generalerna som kämpade mot det behåller sina arméer och bygger upp egen makt när kejsarmakten faller sönder."
+      },
+      "sources": [
+       "wp-han-dynasty",
+       "wp-yellow-turban"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar minskningen först från 197 och kraftigare från 207."
+      }
+     },
+     {
+      "year": 208,
+      "label": {
+       "sv": "208"
+      },
+      "title": {
+       "sv": "Slaget vid Röda klipporna"
+      },
+      "text": {
+       "sv": "Krigsherren Cao Cao förlorar sjöslaget vid Röda klipporna och kan inte ta landet söder om Yangtze. Kina delas i tre maktsfärer: Cao Cao i norr, Sun Quan i söder och Liu Bei i väster."
+      },
+      "sources": [
+       "wp-han-dynasty",
+       "wp-red-cliffs"
       ]
      },
      {
@@ -673,8 +776,11 @@
       "label": {
        "sv": "220"
       },
+      "title": {
+       "sv": "Handynastin tar slut"
+      },
       "text": {
-       "sv": "Cao Pi tar tronen från kejsar Xian, och Handynastin tar slut."
+       "sv": "Cao Pi tar tronen från kejsar Xian, och Handynastin tar slut. De tre kungarikenas tid börjar."
       },
       "sources": [
        "wp-han-dynasty"
@@ -909,6 +1015,9 @@
       "label": {
        "sv": "cirka 1299"
       },
+      "title": {
+       "sv": "Ett litet furstendöme"
+      },
       "text": {
        "sv": "Osman I grundar ett furstendöme i nordvästra Anatolien."
       },
@@ -917,38 +1026,111 @@
       ]
      },
      {
+      "year": 1402,
+      "label": {
+       "sv": "1402"
+      },
+      "title": {
+       "sv": "Nederlaget mot Timur"
+      },
+      "text": {
+       "sv": "Timur besegrar osmanerna vid Ankara och tar sultan Bayezid I till fånga. Riket faller ihop i ett inbördeskrig mellan sultanens söner som varar till 1413, och områden på Balkan, bland annat Thessaloniki, går förlorade. De återtas av Murad II mellan 1430- och 1450-talet."
+      },
+      "sources": [
+       "wp-ottoman",
+       "wp-battle-ankara"
+      ],
+      "mapNote": {
+       "sv": "Kartan (Cliopatria) visar nästan ingen minskning 1402, bara cirka 4 procent. Inbördeskriget syns inte som förlorat land."
+      }
+     },
+     {
       "year": 1453,
       "label": {
        "sv": "1453"
       },
+      "title": {
+       "sv": "Konstantinopel erövras"
+      },
       "text": {
-       "sv": "Mehmed II erövrar Konstantinopel, som blir huvudstad. Bysantinska riket upphör."
+       "sv": "Mehmed II erövrar Konstantinopel, som blir huvudstad. Bysantinska riket upphör. Osmanerna styrde redan nästan allt land runt staden."
       },
       "sources": [
        "wp-ottoman"
-      ]
+      ],
+      "mapNote": {
+       "sv": "Ytan på kartan ändras knappt 1453, eftersom staden redan var omringad av osmanskt land. Kartan visar den stora tillväxten först 1459–1474."
+      }
      },
      {
       "year": 1517,
       "label": {
-       "sv": "1517"
+       "sv": "1516–1517"
+      },
+      "title": {
+       "sv": "Mamlukriket erövras"
       },
       "text": {
-       "sv": "Efter Selim I:s erövringar tar sultanerna titeln kalif."
+       "sv": "Selim I besegrar mamlukerna och tar Syrien, Egypten och Hejaz. Riket når nu Röda havet, och efter erövringarna tar sultanerna titeln kalif."
       },
       "sources": [
-       "wp-ottoman"
-      ]
+       "wp-ottoman",
+       "wp-ottoman-mamluk-war"
+      ],
+      "mapNote": {
+       "sv": "På kartan syns erövringen först 1519, då ytan mer än fördubblas."
+      }
      },
      {
       "year": 1683,
       "label": {
        "sv": "1683"
       },
+      "title": {
+       "sv": "Nederlaget vid Wien"
+      },
       "text": {
-       "sv": "Riket är som störst men förlorar vid andra belägringen av Wien."
+       "sv": "Riket är som störst men förlorar vid andra belägringen av Wien. Ett förbund av europeiska stater går till motangrepp i ett krig som varar till 1699."
       },
       "sources": [
+       "wp-ottoman"
+      ],
+      "mapNote": {
+       "sv": "Enligt källan är riket som störst 1683, cirka 5,2 miljoner km². Kartan visar störst yta 1588–1608, cirka 4,3 miljoner km², och cirka 3,6 miljoner km² 1683."
+      }
+     },
+     {
+      "year": 1699,
+      "label": {
+       "sv": "1699"
+      },
+      "title": {
+       "sv": "Freden i Karlowitz"
+      },
+      "text": {
+       "sv": "Kriget som började vid Wien slutar med förlust. Riket lämnar större delen av Ungern, Kroatien och Slavonien till Habsburgarna, Podolien till Polen-Litauen och Morea och Dalmatien till Venedig. Det är rikets första stora landförluster i Europa."
+      },
+      "sources": [
+       "wp-ottoman",
+       "wp-karlowitz"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar bara en liten minskning 1687–1705, några procent."
+      }
+     },
+     {
+      "year": 1878,
+      "label": {
+       "sv": "1878"
+      },
+      "title": {
+       "sv": "Berlinkongressen"
+      },
+      "text": {
+       "sv": "Efter rysk-turkiska kriget 1877–1878 erkänns Rumänien, Serbien och Montenegro som självständiga. Österrike-Ungern ockuperar Bosnien och Hercegovina, Storbritannien tar över Cypern och Bulgarien blir ett nästan självständigt furstendöme."
+      },
+      "sources": [
+       "wp-congress-berlin",
        "wp-ottoman"
       ]
      },
@@ -956,6 +1138,9 @@
       "year": 1908,
       "label": {
        "sv": "1908"
+      },
+      "title": {
+       "sv": "Ungturkiska revolutionen"
       },
       "text": {
        "sv": "Ungturkiska revolutionen återinför konstitutionell monarki."
@@ -965,9 +1150,31 @@
       ]
      },
      {
+      "year": 1918,
+      "label": {
+       "sv": "1918"
+      },
+      "title": {
+       "sv": "Nederlag i första världskriget"
+      },
+      "text": {
+       "sv": "Riket har förlorat stora delar av Mellanöstern under kriget, bland annat genom arabiska revolten, som drev ut osmanerna ur större delen av Hejaz och tog Damaskus. I vapenstilleståndet i Mudros lämnar osmanerna sina garnisoner utanför Anatolien, och Istanbul ockuperas."
+      },
+      "sources": [
+       "wp-ottoman",
+       "wp-mudros"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar de stora förlusterna 1917 och 1919."
+      }
+     },
+     {
       "year": 1922,
       "label": {
        "sv": "1922"
+      },
+      "title": {
+       "sv": "Sultanatet avskaffas"
       },
       "text": {
        "sv": "Sultanatet avskaffas. Republiken Turkiet utropas året efter."
@@ -1113,6 +1320,9 @@
       "label": {
        "sv": "1206"
       },
+      "title": {
+       "sv": "Djingis khan enar mongolerna"
+      },
       "text": {
        "sv": "Temüjin utropas till Djingis khan, härskare över alla mongoler."
       },
@@ -1121,15 +1331,82 @@
       ]
      },
      {
+      "year": 1219,
+      "label": {
+       "sv": "1219–1221"
+      },
+      "title": {
+       "sv": "Fälttåget mot Khwarazm"
+      },
+      "text": {
+       "sv": "Efter att ha lagt under sig Qara Khitai anfaller mongolerna Khwarazmriket i Centralasien, med svår förödelse. Erövringen fullbordar mongolernas erövring av Centralasien och inleder erövringen av Persien."
+      },
+      "sources": [
+       "wp-mongol-khwarazm"
+      ]
+     },
+     {
       "year": 1227,
       "label": {
        "sv": "1227"
       },
+      "title": {
+       "sv": "Djingis khan dör"
+      },
       "text": {
-       "sv": "Djingis khan dör. Riket är då cirka 13,5 miljoner km²."
+       "sv": "Djingis khan dör. Riket är då cirka 13,5 miljoner km² och sträcker sig från Stilla havet till Kaspiska havet."
       },
       "sources": [
        "wp-mongol-empire"
+      ]
+     },
+     {
+      "year": 1234,
+      "label": {
+       "sv": "1234"
+      },
+      "title": {
+       "sv": "Jindynastin faller"
+      },
+      "text": {
+       "sv": "Ögedeis arméer intar Jinrikets huvudstad Kaifeng 1232, och Jindynastin i norra Kina faller 1234, med hjälp från Songdynastin."
+      },
+      "sources": [
+       "wp-mongol-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar tillväxten först i perioden från 1236."
+      }
+     },
+     {
+      "year": 1241,
+      "label": {
+       "sv": "1241–1242"
+      },
+      "title": {
+       "sv": "Reträtten från Europa"
+      },
+      "text": {
+       "sv": "Mongolerna har erövrat nästan hela Kievrus 1237–1240 och besegrar ungrarna vid floden Sajó i april 1241. När nyheten om storkhanen Ögedeis död kommer drar armén sig tillbaka året efter. Forskare tvivlar på att dödsfallet var enda skälet: klimat och Europas borgar spelade också in."
+      },
+      "sources": [
+       "wp-mongol-empire"
+      ]
+     },
+     {
+      "year": 1258,
+      "label": {
+       "sv": "1258"
+      },
+      "title": {
+       "sv": "Bagdad intas"
+      },
+      "text": {
+       "sv": "När kalifen vägrar underkasta sig belägrar och erövrar Hulagus armé Bagdad och plundrar staden. Abbasidkalifatet går under, och vägen mot Syrien ligger öppen."
+      },
+      "sources": [
+       "wp-mongol-empire",
+       "wp-siege-baghdad-1258"
       ]
      },
      {
@@ -1137,17 +1414,39 @@
       "label": {
        "sv": "1260–1264"
       },
+      "title": {
+       "sv": "Strid om makten"
+      },
       "text": {
-       "sv": "Efter Möngke khans död strider bröderna Khubilai och Ariq Böke om makten."
+       "sv": "Efter Möngke khans död strider bröderna Khubilai och Ariq Böke om makten. Samma år besegras en mongolisk här av mamlukerna vid Ain Jalut, och mongolerna kommer aldrig längre än Syrien i Mellanöstern."
       },
       "sources": [
        "wp-mongol-empire"
       ]
      },
      {
+      "year": 1279,
+      "label": {
+       "sv": "1279"
+      },
+      "title": {
+       "sv": "Songdynastin besegras"
+      },
+      "text": {
+       "sv": "Songs kejsarfamilj kapitulerar 1276, och de sista lojalisterna besegras i sjöslaget vid Yamen 1279. Yuandynastin under Khubilai khan styr nu hela Kina."
+      },
+      "sources": [
+       "wp-mongol-empire",
+       "wp-mongol-song"
+      ]
+     },
+     {
       "year": 1294,
       "label": {
        "sv": "1294"
+      },
+      "title": {
+       "sv": "Fyra khanat"
       },
       "text": {
        "sv": "Khubilai khan dör. Riket har delats i fyra khanat."
@@ -1161,11 +1460,17 @@
       "label": {
        "sv": "1368"
       },
+      "title": {
+       "sv": "Mingdynastin tar Kina"
+      },
       "text": {
        "sv": "Yuandynastin förlorar Kina till Mingdynastin."
       },
       "sources": [
        "wp-mongol-empire"
+      ],
+      "events": [
+       "ming"
       ]
      }
     ],
@@ -1257,60 +1562,150 @@
     ],
     "milestones": [
      {
-      "year": 1757,
+      "year": 1707,
       "label": {
-       "sv": "1757"
+       "sv": "1707"
+      },
+      "title": {
+       "sv": "Storbritannien och de första kolonierna"
       },
       "text": {
-       "sv": "Ostindiska kompaniet erövrar Bengalen efter slaget vid Plassey."
+       "sv": "England och Skottland förenas till Storbritannien. Imperiet hade börjat ta form under tidigt 1600-tal, med engelska bosättningar i Nordamerika och Karibien och handelskompanier som Ostindiska kompaniet, som skötte kolonier och handel."
+      },
+      "sources": [
+       "wp-british-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar nästan ingen yta 1706–1708. Koloniernas land syns först från 1709."
+      }
+     },
+     {
+      "year": 1713,
+      "label": {
+       "sv": "1713"
+      },
+      "title": {
+       "sv": "Freden i Utrecht"
+      },
+      "text": {
+       "sv": "Freden i Utrecht avslutar spanska tronföljdskriget. Storbritannien får Newfoundland och Acadia från Frankrike och Gibraltar och Menorca från Spanien, och dessutom rätten att sälja förslavade afrikaner i Spanska Amerika."
       },
       "sources": [
        "wp-british-empire"
       ]
+     },
+     {
+      "year": 1757,
+      "label": {
+       "sv": "1757"
+      },
+      "title": {
+       "sv": "Slaget vid Plassey"
+      },
+      "text": {
+       "sv": "Ostindiska kompaniet besegrar nawaben av Bengalen och hans franska allierade. Kompaniet tar kontroll över Bengalen och blir en stor militär och politisk makt i Indien, och utökar sedan sitt område steg för steg."
+      },
+      "sources": [
+       "wp-british-empire"
+      ]
+     },
+     {
+      "year": 1763,
+      "label": {
+       "sv": "1763"
+      },
+      "title": {
+       "sv": "Freden i Paris"
+      },
+      "text": {
+       "sv": "Efter sjuårskriget får Storbritannien Nya Frankrike (Kanada) och Florida. Frankrikes tid som kolonialmakt i Nordamerika är i stort sett slut, och Storbritannien är världens mäktigaste sjömakt."
+      },
+      "sources": [
+       "wp-british-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar tillväxten från 1762."
+      }
      },
      {
       "year": 1783,
       "label": {
        "sv": "1783"
       },
+      "title": {
+       "sv": "De amerikanska kolonierna förloras"
+      },
       "text": {
-       "sv": "Efter amerikanska revolutionen har Storbritannien förlorat flera av sina äldsta kolonier i Nordamerika."
+       "sv": "Kolonisterna motsatte sig att parlamentet i London styrde och beskattade dem utan deras samtycke, och kriget bröt ut 1775. Vid freden i Paris 1783 erkänns USA:s självständighet. Imperiet vänder sig efter det mer mot Asien, Stilla havet och senare Afrika."
       },
       "sources": [
        "wp-british-empire"
-      ]
+      ],
+      "mapNote": {
+       "sv": "Kartan visar minskningen redan från 1775, då kriget började."
+      }
      },
      {
       "year": 1920,
       "label": {
-       "sv": "1920"
+       "sv": "1919–1920"
+      },
+      "title": {
+       "sv": "Störst efter första världskriget"
       },
       "text": {
-       "sv": "Imperiet är som störst, cirka 35,5 miljoner km²."
+       "sv": "Genom Versaillesfreden får Storbritannien mandat över bland annat Palestina, Transjordanien, Irak och Tanganyika, tidigare tyska och osmanska områden. Imperiet är som störst, cirka 35,5 miljoner km²."
       },
       "sources": [
        "wp-british-empire"
-      ]
+      ],
+      "mapNote": {
+       "sv": "Kartan visar störst yta 1918–1931, cirka 29 miljoner km², och nästan en halvering från 1932."
+      }
      },
      {
       "year": 1947,
       "label": {
        "sv": "1947"
       },
+      "title": {
+       "sv": "Indien blir självständigt"
+      },
       "text": {
-       "sv": "Indien blir självständigt, som en del av en större avkolonisering."
+       "sv": "Efter andra världskriget är Storbritannien nästan bankrutt, och antikoloniala rörelser växer. Indien delas, och Indien och Pakistan blir självständiga 15 augusti 1947, som en del av en större avkolonisering."
       },
       "sources": [
        "wp-british-empire"
       ]
      },
      {
+      "year": 1960,
+      "label": {
+       "sv": "1960-talet"
+      },
+      "title": {
+       "sv": "Förändringens vindar"
+      },
+      "text": {
+       "sv": "Premiärminister Macmillan talar 1960 om förändringens vindar i Afrika och vill undvika kolonialkrig. Avkoloniseringen går snabbt: på 1960-talet blir nästan tio gånger så många kolonier självständiga som på 1950-talet."
+      },
+      "sources": [
+       "wp-british-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar de stora minskningarna 1956–1968."
+      }
+     },
+     {
       "year": 1997,
       "label": {
        "sv": "1997"
       },
+      "title": {
+       "sv": "Hongkong lämnas över"
+      },
       "text": {
-       "sv": "Hongkong lämnas över till Kina, för många slutet på imperiet."
+       "sv": "Hongkong lämnas över till Kina, för många slutet på imperiet. Större delen av kolonin hade arrenderats på 99 år från 1898."
       },
       "sources": [
        "wp-british-empire"

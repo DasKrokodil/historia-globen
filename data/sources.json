@@ -122,6 +122,18 @@
     { "id": "wp-han-dynasty", "title": "Han dynasty – Wikipedia", "url": "https://en.wikipedia.org/wiki/Han_dynasty", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
     { "id": "wp-maurya-empire", "title": "Maurya Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Maurya_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
     { "id": "wp-mongol-empire", "title": "Mongol Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Mongol_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
-    { "id": "wp-british-empire", "title": "British Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/British_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-29" }
+    { "id": "wp-british-empire", "title": "British Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/British_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-battle-ankara", "title": "Battle of Ankara – Wikipedia", "url": "https://en.wikipedia.org/wiki/Battle_of_Ankara", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-ottoman-mamluk-war", "title": "Ottoman–Mamluk War (1516–1517) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ottoman–Mamluk_War_(1516–1517)", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-karlowitz", "title": "Treaty of Karlowitz – Wikipedia", "url": "https://en.wikipedia.org/wiki/Treaty_of_Karlowitz", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-congress-berlin", "title": "Congress of Berlin – Wikipedia", "url": "https://en.wikipedia.org/wiki/Congress_of_Berlin", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-mudros", "title": "Armistice of Mudros – Wikipedia", "url": "https://en.wikipedia.org/wiki/Armistice_of_Mudros", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-mongol-khwarazm", "title": "Mongol invasion of the Khwarazmian Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Mongol_invasion_of_the_Khwarazmian_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-siege-baghdad-1258", "title": "Siege of Baghdad (1258) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Siege_of_Baghdad", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-mongol-song", "title": "Mongol conquest of the Song dynasty – Wikipedia", "url": "https://en.wikipedia.org/wiki/Mongol_conquest_of_the_Song_dynasty", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-han-xiongnu-wars", "title": "Han–Xiongnu wars – Wikipedia", "url": "https://en.wikipedia.org/wiki/Han–Xiongnu_wars", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-western-regions", "title": "Protectorate of the Western Regions – Wikipedia", "url": "https://en.wikipedia.org/wiki/Protectorate_of_the_Western_Regions", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-yellow-turban", "title": "Yellow Turban Rebellion – Wikipedia", "url": "https://en.wikipedia.org/wiki/Yellow_Turban_Rebellion", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-red-cliffs", "title": "Battle of Red Cliffs – Wikipedia", "url": "https://en.wikipedia.org/wiki/Battle_of_Red_Cliffs", "license": "CC BY-SA 4.0", "checked": "2026-10-29" }
   ]
 }
