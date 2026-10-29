@@ -1,0 +1,288 @@
+[
+  {
+    "id": "cheopspyramiden",
+    "file": "cheopspyramiden.png",
+    "kind": "illustration",
+    "style": "egypten",
+    "caption": {
+      "sv": "Illustration i stil med egyptisk gravmålning på puts, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Historical illustration of the construction of the Great Pyramid at Giza, circa 2600 BCE, in the visual tradition of an ancient Egyptian tomb painting on plaster. Flat profile figures, hierarchical and rhythmic composition, mineral pigments in ochre, malachite green, lapis blue, black and warm earth tones. Workers pull large limestone blocks on wooden sledges toward a clearly unfinished pyramid; the Nile appears in the background with simple period-appropriate boats and vegetation. High detail, rich plaster texture, subtle cracks, pigment wear and natural aging. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical document. No readable text, no invented letters, no logos, no blood, no dead bodies. Avoid precise numerical, cartographic or other unsupported factual details. Historical figures, if any, only at a distance and never as close-up portraits."
+  },
+  {
+    "id": "mammutar-wrangel",
+    "file": "mammutar-wrangel.png",
+    "kind": "illustration",
+    "style": "grotta",
+    "caption": {
+      "sv": "Illustration i stil med förhistorisk hällmålning i ockra och kol, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Historical illustration of the last woolly mammoths surviving on Wrangel Island in the Arctic, around 2000 BCE, rendered as prehistoric cave painting or rock art in ochre and charcoal on rough stone. A small herd of woolly mammoths moves across a sparse, windswept Arctic island landscape suggested with simple ground lines, low vegetation and distant rocky forms. Primitive but expressive animal silhouettes and contour marks, earthy red ochre, brown, black and natural stone colors. High detail in the stone surface, mineral pigment, scratches, weathering and natural aging. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving prehistoric document. No readable text, no invented letters, no logos, no blood, no dead bodies, no humans. Avoid precise numerical, cartographic or other unsupported factual details."
+  },
+  {
+    "id": "olympiska-spelen",
+    "file": "olympiska-spelen.png",
+    "kind": "illustration",
+    "style": "antik",
+    "caption": {
+      "sv": "Illustration i stil med antik grekisk svartfigurig vasmålning, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Historical illustration of the ancient Olympic Games at Olympia, Greece, beginning in the 8th century BCE, rendered as an ancient Greek black-figure vase painting on warm terracotta ceramic. Several athletic runners compete in a footrace, shown in rhythmic side profile with stylized anatomy and energetic poses; restrained ornamental bands frame the scene. Black slip figures with incised interior details and small red and cream accents, authentic ceramic surface, subtle firing variation, scratches, chips and natural aging. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical artifact. No readable text, no invented letters, no logos, no blood, no dead bodies. No close-up portrait of any historical person. Avoid precise numerical, cartographic or other unsupported factual details."
+  },
+  {
+    "id": "konfucius",
+    "file": "konfucius.png",
+    "kind": "illustration",
+    "style": "kina",
+    "caption": {
+      "sv": "Illustration i stil med kinesisk tuschmålning på siden, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Historical illustration evoking Confucius teaching in ancient Qufu, China, circa 551–479 BCE, rendered in the tradition of a Chinese ink painting on a silk handscroll with restrained mineral colors. A respected teacher, understood symbolically as Confucius but not portrayed as a recognizable portrait, sits or stands at a distance beneath an old tree with a small group of students listening nearby. Layered mountain landscape, mist, rocks and sparse vegetation surround the scene; human figures remain small within the landscape. Expressive black ink brushwork, delicate washes, muted mineral green, blue and warm earth pigments, visible silk fibers, subtle stains, creases and natural aging. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical document. No readable calligraphy, no seals, no invented letters, no logos, no close-up portraits, no blood, no dead bodies. Avoid precise architectural, numerical, cartographic or other unsupported factual details."
+  },
+  {
+    "id": "sokrates",
+    "file": "sokrates.png",
+    "kind": "illustration",
+    "style": "antik",
+    "caption": {
+      "sv": "Illustration i stil med antik grekisk rödfigurig vasmålning, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Historical illustration evoking Socrates in philosophical conversation on the agora of Athens, circa 470–399 BCE, rendered as an ancient Greek red-figure vase painting on black-glazed terracotta. A small group of adult men converse and gesture beneath simple colonnades suggesting the Athenian agora; Socrates is only implied as one figure within the group, shown at a distance and not as a recognizable portrait. Red-orange figures against a deep black ground, fine dark contour lines and interior details, restrained ornamental borders, authentic ceramic texture with subtle firing variation, scratches, chips and natural aging. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical artifact. No readable text, no invented letters, no logos, no close-up portraits, no blood, no dead bodies. Avoid precise numerical, cartographic or other unsupported factual details."
+  },
+  {
+    "id": "kleopatra",
+    "file": "kleopatra.png",
+    "kind": "illustration",
+    "style": "antik",
+    "caption": {
+      "sv": "Illustration i stil med antik romersk freskomålning, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Historical illustration evoking Cleopatra’s Alexandria in the 1st century BCE, rendered as a Roman-style fresco on aged plaster. A broad view of Alexandria’s busy harbor with Mediterranean sailing vessels and the monumental lighthouse rising in the distance; quays, warehouses and small human figures establish the port atmosphere. Cleopatra herself is not portrayed. Warm fresco pigments, muted red, ochre, blue-green, cream and black, simplified classical perspective and forms, rich plaster texture, cracks, abrasions and natural pigment loss. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical document. No readable text, no invented letters, no logos, no close-up portraits, no blood, no dead bodies. Avoid precise numerical, cartographic or unsupported architectural details."
+  },
+  {
+    "id": "hijra",
+    "file": "hijra.png",
+    "kind": "illustration",
+    "style": "islamisk",
+    "caption": {
+      "sv": "Illustration i stil med islamisk landskapskonst med geometriska ornament, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Historical illustration evoking the Hijra from Mecca toward Medina in 622 CE, in an Islamic artistic tradition centered on landscape, architecture and geometric ornament rather than human figures. A distant caravan crosses a broad desert landscape toward a green oasis with date palms and low, non-specific buildings on the horizon; camels and travelers are tiny secondary silhouettes, with no individual person emphasized or identifiable. The Prophet Muhammad is not depicted in any form: no figure, veil, silhouette, glow, light, empty portrait device or symbolic human substitute representing him. Decorative geometric framing, restrained mineral colors, sand, ochre, deep blue and green, finely worked surface with natural aging. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical document. No readable Arabic or other text, no invented letters, no logos, no blood, no dead bodies. Avoid exact routes, maps, numerical or other unsupported factual details."
+  },
+  {
+    "id": "lindisfarne",
+    "file": "lindisfarne.png",
+    "kind": "illustration",
+    "style": "tidig-medeltid",
+    "caption": {
+      "sv": "Illustration i stil med tidigmedeltida illuminerad handskrift med flätornament och bladguld, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Historical illustration of Viking ships approaching the monastic island of Lindisfarne in 793 CE, rendered as an Insular illuminated manuscript in the visual tradition of the Book of Kells. Longships with striped sails approach a small monastery on a green island; several monks stand on the shore watching from a distance. The scene conveys apprehension and uncertainty but shows no attack, violence, weapons in use, blood or bodies. Intricate interlace, animal ornament, knotwork and restrained gold leaf details frame the scene; pigments in deep blue, green, red, ochre and purple on aged vellum, with visible fibers, stains, worn gilding and natural aging. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical document. No readable Latin or other text, no invented letters, no logos, no close-up portraits. Avoid precise numerical, cartographic or unsupported architectural details."
+  },
+  {
+    "id": "oxford",
+    "file": "oxford.png",
+    "kind": "illustration",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Illustration i stil med gotisk illuminerad handskrift på pergament, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Historical illustration of teaching at Oxford, England, from the late 11th century, rendered as a Gothic illuminated manuscript on aged parchment. A group of medieval scholars and students sit and stand with closed or non-legibly marked books in a simple Gothic hall, listening to a teacher at the front; pointed arches, wooden benches and restrained architectural details establish the setting without claiming an exact historical room. Small stylized figures, decorative marginal creatures and foliage, illuminated initials replaced by purely ornamental non-letter forms, restrained gold leaf, deep blue, red, green and ochre pigments. Rich parchment texture, visible fibers, stains, worn gilding and natural aging. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical document. No readable text, no invented letters, no logos, no close-up portraits, no blood, no dead bodies. Avoid precise numerical, cartographic or unsupported architectural details."
+  },
+  {
+    "id": "osmanska-riket",
+    "file": "osmanska-riket.png",
+    "kind": "illustration",
+    "style": "osmansk",
+    "caption": {
+      "sv": "Illustration i stil med osmansk miniatyrmålning med klara färger och guld, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Historical illustration evoking Constantinople during the Ottoman Empire, rendered as an Ottoman miniature painting with brilliant mineral colors and gold accents on aged paper. A panoramic cityscape across the Bosporus: dense waterfront buildings, prominent domes and slender minarets rising above the city, fortified shores and numerous small sailing and rowing vessels moving across the water. Human figures, where present, are tiny and secondary to the city and landscape. Flattened perspective, intricate architectural rhythms, clear turquoise and deep blue water, vermilion, green, cream and gold, delicate outlines, rich paper texture, subtle stains, worn pigment and natural aging. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical document. No readable Ottoman, Arabic or other text, no invented letters, no logos, no close-up portraits, no blood, no dead bodies. Avoid exact maps, precise numerical claims or unsupported architectural details."
+  },
+  {
+    "id": "tenochtitlan",
+    "file": "tenochtitlan.png",
+    "kind": "illustration",
+    "style": "aztekisk",
+    "caption": {
+      "sv": "Illustration i stil med aztekisk bildhandskrift på barkpapper, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Historical illustration of Tenochtitlan in the Valley of Mexico during the Aztec period, rendered in the visual tradition of an Aztec codex painted on aged amate bark paper. A broad symbolic view of the island city surrounded by lake water, with causeways connecting it to the shore, straight canals crossed by canoes, clustered buildings and a prominent stepped temple pyramid. Include an eagle perched on a cactus as a small emblematic element within the composition, not as a modern national symbol. Flat areas of mineral color, thick black outlines, codex-like pictorial forms and simplified spatial relationships; turquoise blue, ochre, red, green and cream. Rich fibrous bark-paper texture, pigment wear, stains, creases and natural aging. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical document. No readable text, no invented letters, no logos, no close-up portraits, no blood, no dead bodies. Avoid exact maps, precise dimensions, population figures or other unsupported factual details."
+  },
+  {
+    "id": "digerdoden",
+    "file": "digerdoden.png",
+    "kind": "illustration",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Illustration i stil med gotisk medeltida handskrift på pergament, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Historical illustration evoking the Black Death in Europe, 1346–1353, rendered as a Gothic illuminated manuscript on aged parchment. A quiet medieval town street with closed wooden doors and shuttered windows; a small solemn procession of townspeople and clergy moves through the street at a distance, conveying grief, uncertainty and absence without depicting illness graphically. Gothic buildings, restrained marginal foliage and small decorative figures, touches of worn gold leaf, deep blue, muted red, green, ochre and brown pigments. Rich parchment fibers, stains, creases, rubbed pigment and natural aging. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical document. No readable text, no invented letters, no logos, no close-up portraits, no blood, no corpses or dead bodies, no graphic suffering. Avoid precise numerical, cartographic or other unsupported factual details."
+  },
+  {
+    "id": "ming",
+    "file": "ming.png",
+    "kind": "illustration",
+    "style": "kina",
+    "caption": {
+      "sv": "Illustration i stil med traditionell kinesisk tuschmålning med mineralfärger, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Historical illustration evoking Nanjing during the Ming dynasty, 1368–1644, rendered in the tradition of a Chinese ink painting on a silk handscroll with restrained mineral colors. A broad landscape view of imposing city walls and gates, palace roofs within the city, and the Yangtze River flowing nearby with a few small traditional boats. Layered distant hills, mist, trees and riverbanks frame the city; any human figures are tiny and secondary to the landscape and architecture. Expressive black ink brushwork, delicate washes, muted mineral green, blue, ochre and warm earth pigments, visible silk fibers, subtle stains, creases, pigment wear and natural aging. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical document. No readable calligraphy, no seals, no invented letters, no logos, no close-up portraits, no blood, no dead bodies. Avoid exact maps, precise dimensions or unsupported architectural details."
+  },
+  {
+    "id": "gutenberg",
+    "file": "gutenberg.png",
+    "kind": "illustration",
+    "style": "renassans",
+    "caption": {
+      "sv": "Illustration i stil med renässansträsnitt eller kopparstick med fin skraffering, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Historical illustration of a printing workshop in Mainz, Germany, around 1440, evoking Gutenberg’s early movable-type printing, rendered as a Renaissance woodcut or copper engraving in dense black linework with restrained hand coloring. Inside a compact workshop, several craftspeople operate a sturdy wooden screw press, arrange small pieces of movable type in type cases, prepare paper and work at benches. Gutenberg himself is not singled out or portrayed; all people are seen at a moderate distance. Fine cross-hatching, carved-line texture, strong light and shadow, muted hand-applied ochre, red, blue and green accents, aged rag-paper texture, slight stains, worn edges and natural printing imperfections. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical document. Any sheets, books or type must contain no readable text or invented letters; use only indistinct abstract marks where necessary. No logos, no close-up portraits, no blood, no dead bodies. Avoid precise technical dimensions, named printed works or other unsupported factual details."
+  },
+  {
+    "id": "machu-picchu",
+    "file": "machu-picchu.png",
+    "kind": "illustration",
+    "style": "anderna",
+    "caption": {
+      "sv": "Illustration i stil med andinsk textil- och keramikkonst med geometriska inkamönster, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "A richly textured, hand-painted Andean manuscript panorama portrays Machu Picchu as a cinematic citadel of terraces, stone buildings, grazing llamas, tiny inhabitants, misty clouds, and towering blue-gray peaks, including a Huayna Picchu–like summit. In the foreground, solemnly dressed Inca-inspired figures in patterned ponchos and headdresses observe the ruins, led by a noble holding a sun-emblazoned staff, all enclosed by an ornate, weathered parchment border of geometric motifs, solar glyphs, birds, llamas, mountains, and stylized human panels in earthy reds, ochres, golds, teal, and cream."
+  },
+  {
+    "id": "columbus",
+    "file": "columbus.png",
+    "kind": "illustration",
+    "style": "portolan",
+    "caption": {
+      "sv": "Illustration i stil med portolankarta från 1400-talet, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Historical illustration evoking Columbus reaching the Caribbean islands in October 1492, in the style of a late 15th-century portolan chart on aged parchment. Three caravels approach tropical islands across the Atlantic, with a small distant landing scene. Ornamental compass roses, rhumb lines, decorative maritime borders, stylized waves, ships and sea creatures. Muted mineral pigments, ink outlines, rich parchment fibers, stains and natural aging. Landscape orientation, 4:3. Clearly an artistic historical illustration, not a photograph or authentic historical chart. No readable text, invented letters, logos, blood or dead bodies. No exact geographical claims or close-up portraits."
+  },
+  {
+    "id": "gustav-vasa",
+    "file": "gustav-vasa.png",
+    "kind": "illustration",
+    "style": "renassans",
+    "caption": {
+      "sv": "Illustration i stil med svartvitt träsnitt från 1500-talet, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "A richly detailed black-and-white woodcut-style scene shows a dense 16th-century crowd gathered outdoors before a raised platform, where a formally dressed man presents a document or addresses the attentive townspeople. Framed by trees and a distant river, the composition features a grand Gothic church rising on the right, all rendered in heavy linework, crosshatching, stippling, and a thick antique-print border on aged paper."
+  },
+  {
+    "id": "harvard",
+    "file": "harvard.png",
+    "kind": "illustration",
+    "style": "renassans",
+    "caption": {
+      "sv": "Illustration i stil med svartvitt historiskt kopparstick, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "A panoramic, text-free black-and-white copperplate engraving depicts a tranquil early-colonial riverside settlement surrounded by dense wilderness, rendered with meticulous hatching, crosshatching, and a thin antique-print border. A wooded, rocky foreground frames a small rowboat with period-clad figures, while across the calm inlet sit a pitched-roof house, outbuildings, fencing, dock, workers, and scattered tools; distant islands, forested hills, a sailboat, reflective water, and expansive etched clouds complete the historic New England atmosphere."
+  },
+  {
+    "id": "newton-kalkyl",
+    "file": "newton-kalkyl.png",
+    "kind": "illustration",
+    "style": "barock",
+    "caption": {
+      "sv": "Illustration i stil med akvarellerad kopparsticksgravyr från 1600-talet, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Render a sunlit scholar’s study as a hand-colored antique engraving, rich with crosshatching, warm browns, and soft watercolor washes: a cluttered wooden desk holds aged books, mathematical sketches, drafting tools, an inkpot and quill, brass instruments, and a prism casting a vivid rainbow, while an open mullioned window reveals an apple tree and peaceful countryside beyond. No people appear; the Newtonian atmosphere is emphasized by geometric diagrams, scientific apparatus, dramatic chiaroscuro, and the balanced contrast between the rustic interior and the luminous pastoral landscape."
+  },
+  {
+    "id": "bain-fax",
+    "file": "bain-fax.png",
+    "kind": "illustration",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Illustration i stil med svartvit tidningsgravyr från 1800-talet, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "A highly detailed monochrome Victorian engraving depicts a 19th-century inventor’s telegraph workshop, where a bearded engineer in a dark suit studies a cathedral sketch emerging from an elaborate brass-and-wood image-transmission machine. Across the richly furnished room, a second operator works at a matching device amid papers, tools, wires, maps, instruments, tall windows, and a riverfront cityscape of bridges, boats, domes, and church spires."
+  },
+  {
+    "id": "telefonen",
+    "file": "telefonen.png",
+    "kind": "illustration",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Illustration i stil med svartvit tidningsgravyr från 1800-talet, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "A monochrome, richly crosshatched 19th-century engraving depicts an early telephone demonstration in a cluttered Victorian laboratory: at left, a bearded inventor in a dark suit leans over a workbench to speak into a horn-shaped transmitter, while a wire crosses the room to a seated, mustached man on the right listening through a round receiver. Surrounding them are schematics, telegraph apparatus, bottles, tools, books, gauges, wooden tables, tall windows, and period furnishings, all rendered with crisp linework, stippling, and an aged newspaper-print texture."
+  },
+  {
+    "id": "wright",
+    "file": "wright.png",
+    "kind": "illustration",
+    "style": "affisch",
+    "caption": {
+      "sv": "Illustration i stil med art deco-affisch med platta färgfält och tryckraster, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "An Art Deco–inspired vintage poster depicts the Wright brothers’ first flight, using muted cream, ochre, rust, navy, tan, and brown in bold geometric blocks, thick borders, sunburst rays, halftone grain, and no readable text. A wood-and-cloth biplane with a low-seated pilot soars above windswept dunes and distant water, watched by two silhouetted men in period clothing, while a small shed or hangar, scattered equipment, grasses, and stylized clouds complete the heroic retro lithograph scene."
+  },
+  {
+    "id": "spanska-sjukan",
+    "file": "spanska-sjukan.png",
+    "kind": "illustration",
+    "style": "affisch",
+    "caption": {
+      "sv": "Illustration i stil med folkhälsoaffisch från tidigt 1900-tal, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Vintage public-health poster illustration in a muted cream, blue-gray, black, and deep red palette, using flat lithographic shapes, crisp outlines, aged paper grain, and framed panels with no legible text. A central city-and-bridge scene shows silhouetted pedestrians, a tram, lamps, skyline, church spire, radiant cross, and a calm nurse in a white head covering and red-cross armband, while side panels depict handwashing, masking, cough etiquette, staying home, ventilation, avoiding crowds, and hospital care through simple circular icons."
+  },
+  {
+    "id": "sputnik",
+    "file": "sputnik.png",
+    "kind": "illustration",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Illustration i stil med rymdålderns affischkonst från 1950-talet, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Vintage Soviet space-propaganda poster style: a grainy, mid-century graphic scene in bold navy, cream, blue, red, and orange, with no readable text. A Sputnik-like metallic sphere with long antennae and motion trails crosses the starry upper-right sky, while awed silhouetted adults, a child, and a small crowd gaze upward from the foreground beside a spired city skyline, river, radiant sunrise beams, and a sweeping stylized Earth beneath."
+  },
+  {
+    "id": "apollo-11",
+    "file": "apollo-11.png",
+    "kind": "illustration",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Illustration i stil med rymdålderns affischkonst från 1960-talet, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "Retro mid-century space poster depicting the Moon landing in a grainy, lithographic style with muted creams, navy, ochre, gold, blue, and rust-red tones, framed by bold graphic arcs and a clean beige border. A faceted Apollo-style lunar module anchors the rocky foreground beside two opaque-helmeted astronauts, long shadows, footprints, and scattered boulders, while a large Earthrise glows on the right against a stark, star-speckled black sky."
+  },
+  {
+    "id": "www",
+    "file": "www.png",
+    "kind": "illustration",
+    "style": "modern",
+    "caption": {
+      "sv": "Illustration i stil med redaktionell tidskriftsillustration från 1980–90-talet, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-29",
+    "prompt": "A vintage late-’80s/’90s poster-style illustration shows a curly-haired man in glasses and a pale collared shirt typing at a beige CRT computer in a tidy office, surrounded by books, papers, a plant, desk supplies, and a telephone. Behind him, a large blue-and-green Earth connects to floating browser-like panels featuring generic scenes—mountains, a city, a temple, pyramids, plants, people, a sailboat, and more—through glowing red-orange arcs and node points, all rendered with bold flat colors, halftone grain, worn paper edges, and no readable text."
+  }
+]

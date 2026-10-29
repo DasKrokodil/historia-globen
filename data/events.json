@@ -106,6 +106,7 @@
       "location": { "type": "Point", "coordinates": [17.03, 59.377] }, "place": { "sv": "Strängnäs, Sverige" },
       "title": { "sv": "Gustav Vasa väljs till kung" },
       "summary": { "sv": "Gustav Vasa väljs till kung i Strängnäs den 6 juni 1523. Datumet blir senare Sveriges nationaldag." },
+      "image": {"file": "images/events/gustav-vasa.webp", "kind": "illustration", "style": "renassans", "caption": {"sv": "Illustration i stil med svartvitt träsnitt från 1500-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "A richly detailed black-and-white woodcut-style scene shows a dense 16th-century crowd gathered outdoors before a raised platform, where a formally dressed man presents a document or addresses the attentive townspeople. Framed by trees and a distant river, the composition features a grand Gothic church rising on the right, all rendered in heavy linework, crosshatching, stippling, and a thick antique-print border on aged paper."},
       "sources": ["wp-gustav-vasa"], "review": "source-checked" },
 
     { "id": "harvard", "category": "kultur", "icon": "columns", "start": 1636, "end": 1636, "precision": 9, "edtf": "1636",
@@ -118,12 +119,14 @@
       "location": { "type": "Point", "coordinates": [-0.63, 52.81] }, "locationPrecision": "region", "place": { "sv": "England" },
       "title": { "sv": "Newton tar fram infinitesimalkalkylen" },
       "summary": { "sv": "Isaac Newton formulerar sin infinitesimalkalkyl 1664–1666, under isoleringen när pesten härjade. Leibniz kommer fram till den på egen hand runt 1675." },
+      "image": {"file": "images/events/newton-kalkyl.webp", "kind": "illustration", "style": "barock", "caption": {"sv": "Illustration i stil med akvarellerad kopparsticksgravyr från 1600-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "Render a sunlit scholar’s study as a hand-colored antique engraving, rich with crosshatching, warm browns, and soft watercolor washes: a cluttered wooden desk holds aged books, mathematical sketches, drafting tools, an inkpot and quill, brass instruments, and a prism casting a vivid rainbow, while an open mullioned window reveals an apple tree and peaceful countryside beyond. No people appear; the Newtonian atmosphere is emphasized by geometric diagrams, scientific apparatus, dramatic chiaroscuro, and the balanced contrast between the rustic interior and the luminous pastoral landscape."},
       "sources": ["wp-calculus"], "review": "source-checked" },
 
     { "id": "bain-fax", "category": "vetenskap", "start": 1843, "end": 1843, "precision": 11, "edtf": "1843-05-27",
       "location": { "type": "Point", "coordinates": [-0.13, 51.5] }, "locationPrecision": "country", "place": { "sv": "Storbritannien" },
       "title": { "sv": "Faxens föregångare patenteras" },
       "summary": { "sv": "Skotten Alexander Bain får brittiskt patent den 27 maj 1843 på en elektrisk skrivtelegraf, en apparat av faxtyp." },
+      "image": {"file": "images/events/bain-fax.webp", "kind": "illustration", "style": "1800-tal", "caption": {"sv": "Illustration i stil med svartvit tidningsgravyr från 1800-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "A highly detailed monochrome Victorian engraving depicts a 19th-century inventor’s telegraph workshop, where a bearded engineer in a dark suit studies a cathedral sketch emerging from an elaborate brass-and-wood image-transmission machine. Across the richly furnished room, a second operator works at a matching device amid papers, tools, wires, maps, instruments, tall windows, and a riverfront cityscape of bridges, boats, domes, and church spires."},
       "sources": ["wp-fax"], "review": "source-checked" },
 
     { "id": "telefonen", "category": "vetenskap", "icon": "phone", "start": 1876, "end": 1876, "precision": 11, "edtf": "1876-03-07",
@@ -155,12 +158,14 @@
       "location": { "type": "Point", "coordinates": [-80.649, 28.573] }, "place": { "sv": "Kennedy Space Center, Florida (uppskjutning)" },
       "title": { "sv": "Apollo 11 landar på månen" },
       "summary": { "sv": "Apollo 11 skjuts upp den 16 juli 1969 och landar i Stillhetens hav på månen den 20 juli 1969." },
+      "image": {"file": "images/events/apollo-11.webp", "kind": "illustration", "style": "rymdalder", "caption": {"sv": "Illustration i stil med rymdålderns affischkonst från 1960-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "Retro mid-century space poster depicting the Moon landing in a grainy, lithographic style with muted creams, navy, ochre, gold, blue, and rust-red tones, framed by bold graphic arcs and a clean beige border. A faceted Apollo-style lunar module anchors the rocky foreground beside two opaque-helmeted astronauts, long shadows, footprints, and scattered boulders, while a large Earthrise glows on the right against a stark, star-speckled black sky."},
       "sources": ["wp-apollo-11"], "review": "source-checked" },
 
     { "id": "www", "category": "vetenskap", "start": 1989, "end": 1989, "precision": 10, "edtf": "1989-03",
       "location": { "type": "Point", "coordinates": [6.055, 46.234] }, "place": { "sv": "CERN, Genève" },
       "title": { "sv": "Webben uppfinns" },
       "summary": { "sv": "Tim Berners-Lee lämnar in sitt förslag om World Wide Web på CERN i mars 1989. I slutet av 1990 fungerar systemet." },
+      "image": {"file": "images/events/www.webp", "kind": "illustration", "style": "rymdalder", "caption": {"sv": "Illustration i stil med redaktionell tidskriftsillustration från 1980–90-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "A vintage late-’80s/’90s poster-style illustration shows a curly-haired man in glasses and a pale collared shirt typing at a beige CRT computer in a tidy office, surrounded by books, papers, a plant, desk supplies, and a telephone. Behind him, a large blue-and-green Earth connects to floating browser-like panels featuring generic scenes—mountains, a city, a temple, pyramids, plants, people, a sailboat, and more—through glowing red-orange arcs and node points, all rendered with bold flat colors, halftone grain, worn paper edges, and no readable text."},
       "sources": ["wp-www"], "review": "source-checked" },
 
     { "id": "nintendo", "category": "ekonomi", "icon": "cards", "start": 1889, "end": 1889, "precision": 11, "edtf": "1889-09-23",
