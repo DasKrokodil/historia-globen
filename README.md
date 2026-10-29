@@ -28,8 +28,8 @@ js/layers/areas.js    lager: riken som områden som ändras över tid
 js/layers/borders.js  lager: dagens landsgränser (av som standard)
 js/layers/religions.js lager: religioner som områden
 js/layers/wars.js     lager: krigsområden runt krigets slag
-js/ui/panel.js        "Samtidigt i världen" och detaljvy
-js/ui/funfact.js      fun facts-kort och bågar på globen
+js/ui/panel.js        "Samtidigt i världen" per världsdel, kategorifilter och detaljvy
+js/ui/funfact.js      Samtidigt-kortet (fun facts, när ett krig bröt ut) och bågar på globen
 js/ui/sources.js      sidan Om källorna
 js/ui/layers.js       lagerväljaren: slå av och på lager
 js/ui/clusters.js     klustring av händelser som ligger nära varandra

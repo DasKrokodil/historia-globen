@@ -36,29 +36,36 @@
 
   <div id="layer-menu" class="layer-menu" hidden role="group" aria-label="Lager">
     <label class="layer-row"><input type="checkbox" data-layer="events" checked> Händelser</label>
-    <label class="layer-row"><input type="checkbox" data-layer="funfacts" checked> Fun facts</label>
+    <label class="layer-row"><input type="checkbox" data-layer="funfacts" checked> Samtidigt-kortet <span class="layer-note">fun facts och annat som hände samtidigt</span></label>
     <label class="layer-row"><input type="checkbox" data-layer="areas" checked> Riken</label>
     <label class="layer-row"><input type="checkbox" data-layer="religions"> Religioner <span class="layer-note">rikenas officiella religion · ljus med streckad kant = osäker uppgift</span></label>
     <div id="religion-list" class="layer-sub" role="group" aria-label="Religioner" hidden></div>
     <label class="layer-row"><input type="checkbox" data-layer="borders"> Dagens gränser <span class="layer-note">stämmer inte historiskt</span></label>
+    <div class="layer-heading">Kategorier</div>
+    <div id="filters" class="filters" role="group" aria-label="Kategorier"></div>
     <div class="layer-heading">Pausa uppspelningen vid</div>
-    <label class="layer-row"><input type="checkbox" data-pause="funfacts" checked> Fun facts</label>
+    <label class="layer-row"><input type="checkbox" data-pause="funfacts" checked> Samtidigt-kortet <span class="layer-note">fun facts och annat som hände samtidigt</span></label>
     <label class="layer-row"><input type="checkbox" data-pause="wars"> När ett krig bryter ut</label>
   </div>
 
   <aside id="panel" class="panel" aria-label="Samtidigt i världen">
     <div class="panel-head">
+      <button id="panel-close" type="button" class="panel-x" aria-label="Stäng">×</button>
       <h2>Samtidigt i världen</h2>
       <p id="panel-sub" class="panel-sub"></p>
+      <p class="panel-hint">Välj kategorier under Lager.</p>
     </div>
-    <div id="filters" class="filters" role="group" aria-label="Kategorier"></div>
-    <ol id="event-list" class="event-list"></ol>
+    <div id="event-list" class="event-list"></div>
   </aside>
 
   <section id="detail" class="detail detail-card" hidden aria-live="polite" aria-label="Om händelsen"></section>
 
   <section id="funfact" class="funfact" hidden aria-live="polite">
-    <div class="ff-eyebrow"><span>Samtidigt!</span><span id="ff-pager" class="ff-pager"></span></div>
+    <div class="ff-eyebrow">
+      <span>Samtidigt <span class="ff-sep">·</span> <span id="ff-kind" class="ff-kind">Fun fact</span></span>
+      <span class="ff-right"><span id="ff-pager" class="ff-pager"></span>
+        <button id="ff-min" class="ff-min" type="button" aria-label="Fäll ihop Samtidigt-kortet" title="Fäll ihop">–</button></span>
+    </div>
     <p id="ff-text" class="ff-text"></p>
     <div id="ff-events" class="ff-events"></div>
     <div class="ff-foot">
@@ -67,6 +74,8 @@
       <button id="ff-next" class="link-btn" type="button" hidden>Nästa</button>
     </div>
   </section>
+
+  <button id="ff-tab" class="ff-tab" type="button" hidden aria-label="Visa Samtidigt-kortet">Samtidigt <span id="ff-tab-count" class="count">1</span></button>
 
   <div id="flat-view" class="flat-view" hidden>
     <div class="flat-inner">
