@@ -37,13 +37,14 @@ js/ui/focusmenu.js    fokusmenyn: välj ett krig, rike eller en religion att fö
 img/icons/            ikoner för händelser (egna SVG-teckningar)
 images/events/        bilder till händelser (historiska bilder och märkta illustrationer)
 images/incoming/      nya bilder innan de konverteras
-tools/                hjälpskript: bildpromptar och bildkonvertering (Python, körs för hand)
+tools/                hjälpskript som körs för hand (Python): riken, bildpromptar och bildkonvertering
 docs/bildpromptar.md  färdiga promptar för illustrationer
 data/events.json      händelser
 data/funfacts.json    fun facts, kopplade till händelser
 data/sources.json     källregister
 data/land.json        grundkarta (Natural Earth)
-data/empires.json     riken med utbredning per period (Cliopatria)
+tools/riken.py        bygger rikesfilerna ur Cliopatria
+data/empires/         riken med utbredning per period, en fil per rike och index.json (Cliopatria)
 data/borders.json     dagens landsgränser (Natural Earth)
 data/religions.json   religioner över tid: varje rikes religion (Cliopatria + Wikipedia)
 data/styles.json      bildstilar efter tidsålder och plats
@@ -81,7 +82,7 @@ Hittar du ett faktafel, öppna ett issue och ange vilken uppgift det gäller och
 - **Koden** är licensierad under [GNU GPL v3.0](LICENSE). Du får använda, ändra och sprida den, men det du sprider vidare måste också vara öppet under GPL.
 - **Datan** i `data/` (händelser, fun facts och källregister) är licensierad under [CC BY 4.0](data/LICENSE). Ange "Historia-globen" som källa vid användning.
 - **Grundkartan** i `data/land.json` och **dagens landsgränser** i `data/borders.json` bygger på [Natural Earth](https://www.naturalearthdata.com/) (public domain) via world-atlas.
-- **Rikenas utbredning** i `data/empires.json` är ett förenklat utdrag ur [Cliopatria](https://github.com/Seshat-Global-History-Databank/cliopatria) från Seshat Global History Databank, licensierat under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ändringar: bara Romarriket är med, geometrin är förenklad och perioder med nästan samma gräns är sammanslagna.
+- **Rikenas utbredning** i `data/empires/` är ett förenklat utdrag ur [Cliopatria](https://github.com/Seshat-Global-History-Databank/cliopatria) från Seshat Global History Databank, licensierat under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ändringar: bara de riken som listas i `data/empires/index.json` är med, geometrin är förenklad och perioder med nästan samma gräns är sammanslagna (`tools/riken.py`).
 - **Religionerna** i `data/religions.json` använder gränser från samma Cliopatria-data, sammanslagna per religion och förenklade. Varje rikes religion kommer från faktarutan på rikets Wikipedia-sida (CC BY-SA), och sidorna listas i filen. Årtalen för när en del riken blev kristna kommer från Wikipedia och länkas från källregistret.
 - **Ikonerna** i `img/icons/` är egna teckningar för projektet och licensieras som koden (GPL v3.0).
 - **Bilder i faktarutan** (`images/events/`):

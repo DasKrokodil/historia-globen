@@ -1,6 +1,6 @@
 // Startar allt och kopplar ihop delarna:
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
-import { loadAll, loadReligions, CAT, t, yearParts, formatYear, formatEventTime, isVisibleReview } from './model.js';
+import { loadAll, loadReligions, loadEmpire, CAT, t, yearParts, formatYear, formatEventTime, isVisibleReview } from './model.js';
 import { Globe } from './globe.js';
 import { Timeline, segmentName } from './timeline.js';
 import { EventsLayer } from './layers/events.js';
@@ -44,7 +44,7 @@ async function start() {
   globe.drawBase(data.land);
 
   const layer = new EventsLayer(globe, data.events);
-  const areas = new AreasLayer(data.polities);
+  const areas = new AreasLayer();
   const borders = new BordersLayer(data.borders);
   const religions = new ReligionsLayer();
   const wars = new WarsLayer(data.events);
@@ -113,7 +113,7 @@ async function start() {
     for (const g of geoms) for (const poly of g.type === 'Polygon' ? [g.coordinates] : g.coordinates) {
       for (const [lon, lat] of poly[0]) { a = Math.min(a, lon); b = Math.max(b, lon); c = Math.min(c, lat); d = Math.max(d, lat); }
     }
-    return [(c + d) / 2, (a + b) / 2];
+    return [(c + d) / 2, (a + b) / 2, b - a]; // [lat, lon, bredd i grader]
   }
 
   // Fokusläge (#109, #113): följ ett krig, ett rike eller en religion. Tidslinjen och
@@ -127,12 +127,15 @@ async function start() {
       f = { type, id, title: `${t(war.title)} ${formatEventTime(war)}`, short: t(war.title), from: war.start, to: war.end,
         center: [pts.reduce((s, e) => s + e._lat, 0) / pts.length, pts.reduce((s, e) => s + e._lon, 0) / pts.length], zoom: 2.2 };
     } else if (type === 'empire') {
-      const ps = data.polities.filter(p => p.group === id);
-      const periods = ps.flatMap(p => p.periods);
       const g = data.empireGroups.find(x => x.id === id);
-      const from = Math.min(...periods.map(p => p.start)), to = Math.max(...periods.map(p => p.end));
-      f = { type, id, title: `${t(g?.name ?? id)} ${formatYearSpan(from, to)}`, short: t(g?.name ?? id), from, to,
-        center: geoCenter(periods.map(p => p.geometry)), zoom: 1.8 };
+      const ps = await loadEmpire(g);
+      areas.add(ps);
+      // Globen riktas mot riket när det var som störst, och zoomar mindre för vidsträckta riken
+      const periods = ps.flatMap(p => p.periods);
+      const biggest = periods.reduce((a, b) => (b.areaKm2 > a.areaKm2 ? b : a));
+      const [lat, lon, span] = geoCenter([biggest.geometry]);
+      f = { type, id, title: `${t(g.name)} ${formatYearSpan(g.from, g.to)}`, short: t(g.name), from: g.from, to: g.to,
+        center: [lat, lon], zoom: span > 150 ? 1 : span > 60 ? 1.3 : 1.8 };
     } else {
       const doc = await loadReligions();
       const r = doc.religions.find(x => x.id === id);
@@ -175,11 +178,8 @@ async function start() {
     const from = r.snapshots[0].start, to = r.snapshots.at(-1).end;
     return { key: `religion:${r.id}`, label: t(r.name), sub: formatYearSpan(from, to), color: r.color, from, to };
   });
-  const empireItems = () => data.empireGroups.map(g => {
-    const periods = data.polities.filter(p => p.group === g.id).flatMap(p => p.periods);
-    const from = Math.min(...periods.map(p => p.start)), to = Math.max(...periods.map(p => p.end));
-    return { key: `empire:${g.id}`, label: t(g.name), sub: formatYearSpan(from, to), color: data.polities.find(p => p.group === g.id)?.color, from, to };
-  });
+  const empireItems = () => data.empireGroups.map(g =>
+    ({ key: `empire:${g.id}`, label: t(g.name), sub: formatYearSpan(g.from, g.to), color: g.color, from: g.from, to: g.to }));
   const focusGroups = (doc = null) => [
     { title: 'Krig', items: data.events.filter(e => e.kind === 'war').map(e => ({ key: `war:${e.id}`, label: t(e.title), sub: formatEventTime(e), color: CAT[e.category]?.color, from: e.start, to: e.end })) },
     { title: 'Riken', items: empireItems() },
@@ -195,8 +195,21 @@ async function start() {
   };
   focusMenu.onPick = key => startFocus(key);
 
+  // Rikena laddas när året närmar sig deras tid (en fil per rike, R1). När filen har kommit ritas allt om.
+  const empireLoads = new Set();
+  function ensureEmpires(year) {
+    if (!areas.enabled) return;
+    const pad = 100;
+    for (const g of data.empireGroups) {
+      if (empireLoads.has(g.id) || year < g.from - pad || year > g.to + pad) continue;
+      empireLoads.add(g.id);
+      loadEmpire(g).then(ps => { areas.add(ps); refresh(); }).catch(err => { console.error(err); empireLoads.delete(g.id); });
+    }
+  }
+
   function refresh() {
     const year = timeline.year;
+    ensureEmpires(year);
     const window = timeline.windowYears(year);
     ff.update(year, panel.filters);
     const eventsOn = layers.on.events;

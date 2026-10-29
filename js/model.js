@@ -122,7 +122,7 @@ export async function loadAll() {
     getJSON('data/funfacts.json'),
     getJSON('data/sources.json'),
     getJSON('data/land.json'),
-    getJSON('data/empires.json'),
+    getJSON('data/empires/index.json'),
     getJSON('data/borders.json'),
     getJSON('data/styles.json'),
   ]);
@@ -141,8 +141,16 @@ export async function loadAll() {
   }
   return {
     events: events.events, byId, funfacts: funfacts.funfacts, sources: sources.sources, srcById, land,
-    polities: empires.polities, empireGroups: empires.groups ?? [], borders, styles,
+    // Rikena ligger i en fil per rike (R1): index.json vid start, själva gränserna med loadEmpire()
+    empireGroups: empires.groups, polities: empires.groups.flatMap(g => g.polities.map(p => ({ ...p, group: g.id }))), borders, styles,
   };
+}
+
+/** Ett rikes gränser (data/empires/<grupp>.json), laddas första gången riket behövs. */
+const empireFiles = new Map();
+export function loadEmpire(group) {
+  if (!empireFiles.has(group.id)) empireFiles.set(group.id, getJSON(group.file).then(d => d.polities));
+  return empireFiles.get(group.id);
 }
 
 /** Religionsdatan är stor och laddas först när religionslagret slås på. */

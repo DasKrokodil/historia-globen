@@ -4,10 +4,15 @@
 import { t, isVisibleReview } from '../model.js';
 
 export class AreasLayer {
-  constructor(polities) {
+  constructor(polities = []) {
     this.polities = polities;
     this.enabled = true;
     this.active = []; // [{ polity, period }]
+  }
+
+  /** Rikena laddas ett i taget (en fil per rike) och läggs till när de har kommit. */
+  add(polities) {
+    for (const p of polities) if (!this.polities.includes(p)) this.polities.push(p);
   }
 
   /** Returnerar de riken som finns just det här året. */

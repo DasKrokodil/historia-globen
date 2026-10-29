@@ -36,10 +36,11 @@ data/events.json      händelser
 data/funfacts.json    fun facts (kopplade till händelse-id)
 data/sources.json     källregister
 data/land.json        grundkarta: Natural Earth 1:50m, färdigprojicerad SVG-path i 4096×2048
+data/empires/         riken: index.json och en fil per rike, byggs med tools/riken.py ur Cliopatria
 data/styles.json      bildstilar efter tidsålder och plats (ramar och promptar)
 images/events/        bilder till händelser, <händelse-id>.webp, 800 × 600
 images/incoming/      Rikards nya bilder, innan de konverteras
-tools/                hjälpskript som körs för hand (bildpromptar, bildkonvertering)
+tools/                hjälpskript som körs för hand (riken, bildpromptar, bildkonvertering)
 docs/bildpromptar.md  färdiga promptar för illustrationer
 ```
 
@@ -134,7 +135,7 @@ Hela planen finns som milstolpar och issues i GitHub. Efter version 2 kommer fyr
 | A: fler lagertyper | 3–5 | 3 Krig och slag, 4 Handelsvägar och upptäcktsresor, 5 Guidade turer |
 | B: tidens djup | 6–7 | 6 Människoarter, 7 Djup tid |
 | C: världen som karta | 8–10 | 8 Skolatlasen, 9 Flöden i nutid, 10 Rymden |
-| D: bredd och användare | 11–14 | 11 Hela världen, 12 Språk och sök, 13 Skolläge, 14 Vetenskap och medicin |
+| D: bredd och användare | 11–15 | 11 Hela världen, 12 Språk och sök, 13 Skolläge, 14 Vetenskap och medicin, 15 Temavyer (musik, litteratur, filosofi, ekonomi, Sverige) |
 
 Parallella spår:
 - **Riken** (paket R1–R6) börjar efter version 2.
@@ -176,4 +177,6 @@ Nya beslut läggs till sist, med datum, beslut och kort motivering.
 | 2026-10-29 | "Samtidigt" i tre nivåer: kategorifiltren ligger i Lager-menyn, listan "Samtidigt i världen" är en bredare låda grupperad per världsdel (grov indelning efter koordinater i `model.js`), och fun fact-kortet blir Samtidigt-kortet med typ (Fun fact, När ett krig bröt ut). Kortet kan fällas ihop till en flik, och då pausar uppspelningen inte vid det. Korten om krig byggs ur händelserna (inom 5 år från krigets start), inte som egen data. | Listan var för kompakt att läsa och kortet syntes alltid (Rikards feedback, #120). |
 | 2026-10-29 | Fokusmenyn visar bara det som överlappar tidsepoken man står i (tidslinjens fyra avsnitt), närmast först. Resten finns bakom "Visa alla". | Med många krig, riken och senare djup tid blir menyn annars lång och full av sådant som inte hör till tiden (Rikards feedback, #121). |
 | 2026-10-29 | Bysantinska riket (633–1474 i Cliopatria) läggs till i Romarrikets grupp, som fortsättningen på Östromerska riket. Romarriket i fokus går därmed 751 f.Kr.–1474. Fokusmenyn visar det som pågår inom fyra gånger tidslinjens fönster runt året (vid 1325 cirka ±150 år), i stället för hela tidsepoken. | Romarriket slutade för tidigt, och trettioåriga kriget syntes i menyn 1325 (Rikards feedback). |
+| 2026-10-29 | Ny Version 15: Temavyer (musik, litteratur, filosofi, ekonomi och företag, Sverigevyn), så att Version 13 bara blir skolläget. | Temavyerna byggs likadant och hör ihop (Rikards beslut). |
+| 2026-10-29 | Riken ligger i en fil per rike, `data/empires/<rike>.json`, med `data/empires/index.json` (namn, färg, tidsspann) som laddas vid start. Ett rike laddas när året närmar sig dess tid eller när man väljer det i Fokus. Filerna byggs med `tools/riken.py` ur Cliopatria. Första paketet R1: Persiska riket, Makedoniska riket, Hanriket, Mauryariket, Osmanska riket, Mongolriket med khanat och Brittiska imperiet. | Med fler riken blir en enda fil för stor att ladda vid start (#67). |
 | 2026-10-29 | Bilder med stil efter tidsålder (#129): riktig historisk bild först (public domain, CC0, CC BY eller CC BY-SA, med filsidan som källa), annars en illustration i tidens bildtradition som alltid märks "inte en historisk bild" och sparas med verktyg, datum och prompt. Faktarutans ram följer tidsåldern (`data/styles.json`, tio grundstilar och regionala varianter). Undantag från beslut 10: bildfiler får vara CC BY-SA och behåller sin egen licens. Ersätter vinjetterna i #127. | Rikards instruktion: bilderna gör kortet levande, och stilen visar tiden. Märkning och respektregler skyddar mot att illustrationer tas för fakta. |
