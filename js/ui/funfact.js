@@ -2,7 +2,6 @@
 // bryter ut). Kortet visas när året ligger inom postens intervall, med bågar på globen
 // mellan de platser som hör ihop. Det kan fällas ihop till en flik (#120).
 import { CAT, REVIEW, t, formatYear, formatEventTime, styleFor, isVisibleReview } from '../model.js';
-import { figure } from './panel.js';
 
 const KIND = { funfact: 'Fun fact', war: 'När ett krig bröt ut', empire: 'Rikets berättelse' };
 
@@ -27,14 +26,12 @@ export class FunFacts {
   constructor(els, { funfacts, byId, srcById, styles }) {
     Object.assign(this, els);
     this.all = funfacts; this.byId = byId; this.srcById = srcById; this.styles = styles;
-    this.openId = null; // händelsen vars bild visas överst i kortet (#169)
     this.active = []; this.index = 0; this.shownKey = '';
     this.story = []; // rikets berättelse i fokus (#171), sätts av main.js
     this.pre = this.root.querySelector('.ff-pre');
     this.enabled = true; // fun facts är ett eget lager som kan slås av
     this.onArcs = () => {};
-    this.onSelect = () => {}; // öppnar hela faktarutan (Mer om händelsen)
-    this.onPick = () => {};   // väljer händelsen på globen utan att öppna faktarutan (null = avmarkera)
+    this.onSelect = () => {}; // öppnar hela faktarutan ("Läs mer")
     this.onSources = () => {};
     this.onNew = () => {};
     this.minimized = false;
@@ -44,11 +41,6 @@ export class FunFacts {
     this.tab.addEventListener('click', () => this.setMinimized(false));
     // I smal skärm klipps texten efter tre rader; ett tryck på den visar hela (#168)
     this.text.addEventListener('click', () => this.root.classList.toggle('ff-open'));
-    // I smal skärm täcker bilden globen: ett tryck eller drag på globen utanför kortet stänger bilden (#168)
-    document.addEventListener('pointerdown', ev => {
-      if (this.openId && ev.target.closest?.('.globe-canvas') && matchMedia('(max-width: 760px)').matches) this.toggleEvent(null);
-    }, true);
-    document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && this.openId) this.toggleEvent(null); });
     this.srcBtn.addEventListener('click', () => { const f = this.active[this.index]; if (f) this.onSources(f.sources); });
   }
 
@@ -78,45 +70,30 @@ export class FunFacts {
     (on ? this.tab : this.min).focus?.();
   }
 
-  /** Visa händelsens bild och fakta överst i kortet, eller stäng den (id = null eller samma id igen). */
-  toggleEvent(id) {
-    const next = id && id !== this.openId ? id : null;
-    this.closeEvent();
-    this.openId = next;
-    if (next) this._renderEvent(this.byId[next]);
-    this._markChips();
-    this.onPick(next);
-  }
-
-  /** Stäng bildytan utan att berätta det för globen. */
-  closeEvent() {
-    this.openId = null;
-    this.detailEl.hidden = true; this.detailEl.innerHTML = '';
-    this._markChips();
-  }
-
-  _markChips() {
-    for (const b of this.events.querySelectorAll('.ff-chip')) b.setAttribute('aria-pressed', String(b.dataset.id === this.openId));
-  }
-
-  _renderEvent(e) {
-    // Samma ram efter tidsålder och samma märkta bild som i faktarutan (#129)
-    const st = styleFor(e, this.styles);
-    this.detailEl.className = `ff-detail detail frame-${st.frame}`;
-    this.detailEl.dataset.style = st.variant?.id ?? st.style.id;
-    this.detailEl.innerHTML = `
-      <button type="button" class="detail-close" data-close aria-label="Stäng bilden">×</button>
-      ${figure(e, this.srcById)}
-      <div class="ff-detail-body">
-        <h3>${esc(t(e.title))}</h3>
-        <div class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))}</div>
-        <p>${esc(t(e.summary))}</p>
-        <button type="button" class="link-btn" data-more>Mer om händelsen</button>
-      </div>`;
-    this.detailEl.hidden = false;
-    this.detailEl.querySelector('[data-close]').addEventListener('click', () => this.toggleEvent(null));
-    this.detailEl.querySelector('[data-more]').addEventListener('click', () => this.onSelect(e.id));
-    this.root.scrollTop = 0;
+  /**
+   * Bilderna överst i kortet (#190): händelsernas bilder visas alltid, högst tre sida vid sida, utan text
+   * under dem utom händelsens namn (när det är flera) och "Läs mer", som öppnar hela faktarutan med
+   * bildtext, kredit och licens. Illustrationer får etiketten "Illustration" i hörnet (bildregel 2:
+   * den fulla märkningen står i faktarutan). Händelser utan bild får en ruta med tidsålderns ram.
+   * Inga bilder i kortet alls: ingen bildrad.
+   */
+  _renderPics(evs) {
+    const withImg = evs.filter(e => e.image), rest = evs.filter(e => !e.image);
+    const shown = [...withImg, ...rest].slice(0, 3);
+    this.pics.hidden = !withImg.length;
+    this.root.classList.toggle('ff-has-pics', !!withImg.length);
+    if (!withImg.length) { this.pics.innerHTML = ''; return; }
+    this.pics.style.setProperty('--n', shown.length);
+    this.pics.innerHTML = shown.map(e => {
+      const st = styleFor(e, this.styles), img = e.image;
+      const label = !img ? '' : img.placeholder ? 'Platshållare' : img.kind === 'illustration' ? 'Illustration' : '';
+      return `<button type="button" class="ff-pic frame-${st.frame}${img ? '' : ' no-img'}" data-id="${esc(e.id)}" aria-label="Läs mer: ${esc(t(e.title))}">
+        ${img ? `<img src="${esc(img.file)}" alt="" width="800" height="600">` : ''}
+        ${label ? `<span class="ff-badge">${label}</span>` : ''}
+        <span class="ff-cap">${shown.length > 1 || !img ? `<span class="ff-name">${esc(t(e.title))}</span>` : ''}<span class="ff-more">Läs mer ›</span></span>
+      </button>`;
+    }).join('');
+    for (const b of this.pics.querySelectorAll('.ff-pic')) b.addEventListener('click', () => this.onSelect(b.dataset.id));
   }
 
   highlightIds() {
@@ -126,9 +103,6 @@ export class FunFacts {
 
   _show() {
     const f = this.active[this.index];
-    const hadOpen = this.openId;
-    this.closeEvent(); // nästa fun fact, ihopfällning eller ny lista stänger bildytan
-    if (hadOpen) queueMicrotask(() => { if (!this.openId) this.onPick(null); }); // efter pågående ritning
     this.tab.hidden = !f || !this.minimized;
     this.tabCount.textContent = String(this.active.length);
     if (!f || this.minimized) { this.root.hidden = true; this.onArcs([]); return; }
@@ -138,13 +112,14 @@ export class FunFacts {
     if (this.pre) this.pre.hidden = story;
     this.kind.textContent = story ? `${KIND.empire} · ${f.empire}` : KIND[f.kind ?? 'funfact'];
     const evs = f.events.map(id => this.byId[id]);
+    this._renderPics(evs);
     if (story) {
       this.text.innerHTML = `<span class="ff-story-head"><span class="ff-year">${esc(f.label)}</span> ${esc(f.title)}</span>`
         + `<span class="ff-story-text">${esc(f.body)}</span>`
         + (f.mapNote ? `<span class="ff-story-map"><b>Om kartan:</b> ${esc(f.mapNote)}</span>` : '');
     } else this.text.textContent = t(f.text);
-    this.events.innerHTML = evs.map(e => `<button type="button" class="ff-chip" data-id="${esc(e.id)}" aria-pressed="false">${e.image ? `<img class="ff-thumb" src="${esc(e.image.file)}" alt="" loading="lazy">` : `<span class="dot" style="background:${CAT[e.category]?.color}"></span>`}${f.kind === 'war' ? `<span class="ff-year">${esc(formatYear(e.start))}</span>` : ''}${esc(t(e.title))}</button>`).join('');
-    for (const b of this.events.querySelectorAll('.ff-chip')) b.addEventListener('click', () => this.toggleEvent(b.dataset.id));
+    this.events.innerHTML = evs.map(e => `<button type="button" class="ff-chip" data-id="${esc(e.id)}">${e.image ? `<img class="ff-thumb" src="${esc(e.image.file)}" alt="" loading="lazy">` : `<span class="dot" style="background:${CAT[e.category]?.color}"></span>`}${f.kind === 'war' ? `<span class="ff-year">${esc(formatYear(e.start))}</span>` : ''}${esc(t(e.title))}</button>`).join('');
+    for (const b of this.events.querySelectorAll('.ff-chip')) b.addEventListener('click', () => this.onSelect(b.dataset.id));
     const rv = REVIEW[f.review] ?? REVIEW.draft;
     this.review.className = `review-badge ${rv.cls}`;
     this.review.textContent = rv.sv;
