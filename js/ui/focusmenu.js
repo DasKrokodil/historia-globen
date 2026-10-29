@@ -1,6 +1,6 @@
 // Fokusmenyn (#113): välj vad du vill följa i fokusläget – ett krig, ett rike
 // eller en religion. Menyn fylls från datan och öppnas under knappgruppen.
-// Den visar det som överlappar tidsepoken man står i, närmast först, och
+// Den visar det som pågår nära året man står på, närmast först, och
 // resten bakom "Visa alla" (#121).
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -25,7 +25,7 @@ export class FocusMenu {
     this.render();
   }
 
-  /** Året man står på och tidsepoken runt det: { year, from, to, name }. Visa alla nollställs. */
+  /** Året man står på och fönstret runt det: { year, from, to, label }. Visa alla nollställs. */
   setTime(time) {
     this.time = time;
     this.showAll = false;
@@ -43,7 +43,7 @@ export class FocusMenu {
       hidden += sorted.length - items.length;
       return { ...g, items };
     }).filter(g => g.items.length || g.loading);
-    const intro = tm && !this.showAll ? `<div class="layer-note pad">Det som hör till ${esc(tm.name.toLowerCase())}, närmast först.</div>` : '';
+    const intro = tm && !this.showAll ? `<div class="layer-note pad">Det som pågår ${esc(tm.label)}, närmast först.</div>` : '';
     this.menu.innerHTML = `<div class="layer-heading first">Följ i fokusläge</div>${intro}` + (groups.map(g => `
       <div class="layer-heading">${esc(g.title)}</div>
       ${g.items.length ? g.items.map(it => `<button type="button" class="layer-row focus-item" data-key="${esc(it.key)}">
@@ -51,7 +51,7 @@ export class FocusMenu {
         ${it.sub ? `<span class="layer-note">${esc(it.sub)}</span>` : ''}</button>`).join('') : '<div class="layer-note pad">Laddas …</div>'}`).join('')
       || '<div class="layer-note pad">Inget att följa i den här tiden ännu.</div>')
       + (hidden ? `<button type="button" class="layer-row focus-more" data-all>Visa alla (${hidden} till)</button>` : '')
-      + (this.showAll && tm ? `<button type="button" class="layer-row focus-more" data-near>Visa bara ${esc(tm.name.toLowerCase())}</button>` : '');
+      + (this.showAll && tm ? `<button type="button" class="layer-row focus-more" data-near>Visa bara det som pågår ${esc(tm.label)}</button>` : '');
     for (const b of this.menu.querySelectorAll('[data-key]')) {
       b.addEventListener('click', () => { this.close(); this.onPick(b.dataset.key); });
     }

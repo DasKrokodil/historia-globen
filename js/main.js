@@ -2,7 +2,7 @@
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
 import { loadAll, loadReligions, CAT, t, yearParts, formatYear, formatEventTime, isVisibleReview } from './model.js';
 import { Globe } from './globe.js';
-import { Timeline, segmentName, segmentFor } from './timeline.js';
+import { Timeline, segmentName } from './timeline.js';
 import { EventsLayer } from './layers/events.js';
 import { AreasLayer } from './layers/areas.js';
 import { BordersLayer } from './layers/borders.js';
@@ -188,8 +188,9 @@ async function start() {
   focusMenu.setGroups(focusGroups());
   focusMenu.onOpen = async () => {
     panel.setOpen(false); layers.close();
-    const year = timeline.year, seg = segmentFor(year);
-    focusMenu.setTime({ year, from: seg.from, to: seg.to, name: seg.name });
+    // Nära = inom fyra gånger det tidslinjen visar runt året (vid 1325 cirka ±150 år)
+    const year = timeline.year, r = Math.round(timeline.windowYears(year) * 4 / 10) * 10;
+    focusMenu.setTime({ year, from: year - r, to: year + r, label: `inom ±${r} år från ${formatYear(year)}` });
     if (focusMenu.groups[2].loading) focusMenu.setGroups(focusGroups(await loadReligions()));
   };
   focusMenu.onPick = key => startFocus(key);
