@@ -12,6 +12,7 @@ import { Panel } from './ui/panel.js';
 import { FunFacts, empireStory } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
 import { LayerMenu } from './ui/layers.js';
+import { ReligionLegend } from './ui/legend.js';
 import { cluster } from './ui/clusters.js';
 import { FocusMenu } from './ui/focusmenu.js';
 
@@ -65,13 +66,16 @@ async function start() {
     pauseGo: $('pause-go'),
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
-  setupYearJump(timeline, { button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs') });
+  setupYearJump(timeline, { button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'), onJump: () => flyToYearHighlight() });
   timeline.setMarks(data.events.filter(e => !e.partOf || e.top || e.major), data.funfacts, e => CAT[e.category]?.color ?? '#fff');
 
   let focusWar = null, focus = null, lastYear = 0;
 
   // Lagerväljaren: vilka lager som syns. Startläget står i index.html.
   const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu') });
+  // Teckenförklaring och klickruta för religionslagret (#166)
+  const relLegend = new ReligionLegend({ legend: $('religion-legend'), pop: $('religion-pop') });
+  relLegend.onFacts = id => showReligionFacts(id);
   // I fokusläge syns det man följer även om lagret är avslaget i menyn
   const applyLayers = () => {
   // och det andra av riken och religioner göms, så att områdena inte täcker varandra
@@ -112,6 +116,7 @@ async function start() {
   // religionens facts i religions.json, och punkten är händelsen som facts.origin pekar på.
   function setReligions(doc) {
     if (!religions.religions.length) religions.setData(doc.religions);
+    religions.setPolities(doc.polities);
     religions.setOrigins(new Map(doc.religions.filter(r => data.byId[r.facts?.origin]).map(r => [r.id, data.byId[r.facts.origin]])));
   }
   function showReligionFacts(id, fly = true) {
@@ -201,6 +206,8 @@ async function start() {
       f = { type, id, title: `${t(r.name)} · ${religionSpan(r, first)}`, short: t(r.name), from, to,
         center: first ? [first._lat, first._lon] : geoCenter([r.snapshots[0].geometry]), zoom: 1.3 };
     }
+    // Året stannar om det ligger inom spannet; annars flyttas det till starten och flytten visas (#167)
+    const prevYear = timeline.year, keepYear = prevYear >= f.from && prevYear <= f.to;
     if (focus) endFocus(false);
     focus = f;
     focusWar = type === 'war' ? data.byId[id] : null;
@@ -215,8 +222,10 @@ async function start() {
     $('app').classList.add('focusing');
     panel.setOpen(false); // listan stängs så att det man följer syns
     timeline.setFocus({ from: f.from, to: f.to });
-    lastYear = f.from;
-    timeline.year = f.from;
+    const startYear = keepYear ? prevYear : f.from;
+    lastYear = startYear;
+    timeline.year = startYear;
+    showMoved(keepYear ? null : { prevYear, startYear, short: f.short, type });
     refresh();
     // Före start: varför kriget började och vilka som stred (#122)
     if (focusWar?.story) { selectedId = focusWar.id; panel.showStory(focusWar, 'intro'); $('app').classList.add('has-detail'); }
@@ -226,10 +235,28 @@ async function start() {
     // Rikets faktaruta visas när man börjar följa det (#170)
     if (type === 'empire') showEmpireFacts(id);
   }
+  /** Raden i fokusraden när tiden flyttades till fokusets start (#167), med en väg tillbaka. */
+  let movedBack = null;
+  function showMoved(m) {
+    $('focus-moved').hidden = !m;
+    $('app').classList.toggle('focus-moved-on', !!m);
+    movedBack = m;
+    if (!m) return;
+    const why = m.type === 'war' ? 'då kriget börjar' : m.type === 'religion' ? `då ${m.short} börjar` : `då ${m.short} börjar`;
+    $('focus-moved-text').textContent = `Tiden flyttades till ${formatYear(m.startYear)}, ${why} · `;
+    $('focus-moved-back').textContent = `Tillbaka till ${formatYear(m.prevYear)}`;
+  }
+  // Tillbaka lämnar fokus och går till året man stod på, eftersom det ligger utanför spannet
+  $('focus-moved-back').addEventListener('click', () => {
+    const y = movedBack?.prevYear;
+    endFocus(false);
+    if (y != null) timeline.year = y;
+    refresh();
+  });
   /** Händelser där en religion grundades (founding: true), i tidsordning. */
   const founding = id => data.events.filter(e => e.founding && e.religion === id).sort((a, b) => a.start - b.start);
   function endFocus(redraw = true) {
-    focus = null; focusWar = null;
+    focus = null; focusWar = null; showMoved(null);
     areas.onlyGroup = null; religions.onlyId = null;
     applyLayers();
     $('focus-bar').hidden = true;
@@ -317,6 +344,8 @@ async function start() {
     areas.update({ year });
     borders.update({ year });
     religions.update({ year });
+    relLegend.update(religions.legendItems());
+    if (!religions.enabled) relLegend.hidePop();
     wars.enabled = eventsOn;
     wars.update({ year, filters: panel.filters });
     const ctx = globe.overlayContext();
@@ -371,6 +400,20 @@ async function start() {
     return stories.get(id);
   }
 
+  // Efter "Hoppa till år" (#165): globen vänder sig mot årets viktigaste händelse, alltså den första
+  // händelsen i det första Samtidigt-kortet, annars den första i listan. Hoppas över i fokusläge och
+  // om användaren nyss vridit globen själv. Uppspelning och stegknappar anropar inte denna.
+  const RECENT_TURN_MS = 3000;
+  function flyToYearHighlight() {
+    if (focus || performance.now() - globe.lastUserInput < RECENT_TURN_MS) return;
+    // Närmast i tid först, och bland jämnbördiga den mest avgränsade (ett datum före ett spann som Oxford 1096–2026)
+    const rank = e => [Math.max(0, e.start - timeline.year, timeline.year - e.end), e.end - e.start];
+    const byRank = (a, b) => { const [x, y] = [rank(a), rank(b)]; return x[0] - y[0] || x[1] - y[1]; };
+    const card = (ff.active[0]?.events ?? []).map(id => data.byId[id]).filter(Boolean);
+    const e = card.sort(byRank)[0] ?? visible.map(v => v.e).sort(byRank)[0];
+    if (e) globe.flyTo(e._lat, e._lon);
+  }
+
   const narrow = matchMedia('(max-width: 760px)');
   /** Val i Samtidigt-kortet (#169): globen flyger dit och händelsen markeras, men bilden visas i kortet och inte i faktarutan. */
   function pick(id) {
@@ -420,7 +463,14 @@ async function start() {
 
   globe.onClick = (x, y) => {
     const hit = globe.pick(x, y, layer.sprites.filter(s => s.visible));
+    relLegend.hidePop();
     select(hit ? hit.userData.event.id : null);
+    // Händelsemarkörer har företräde. Annars: vilken religion ligger under klicket? (#166)
+    if (!hit && religions.enabled && religions.active.length) {
+      const ll = globe.pickLatLon(x, y);
+      const rh = ll && religions.hitTest(ll.lon, ll.lat);
+      if (rh) relLegend.showPop(rh, x, y);
+    }
   };
 
   // Platt vy: det en fysisk glob skulle få

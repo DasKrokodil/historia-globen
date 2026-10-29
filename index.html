@@ -47,6 +47,9 @@
     <button id="btn-sources" class="chip-btn" type="button">Om källorna</button>
   </div>
 
+  <aside id="religion-legend" class="religion-legend" aria-label="Teckenförklaring för religioner" hidden></aside>
+  <div id="religion-pop" class="religion-pop" role="dialog" aria-label="Religion i området" hidden></div>
+
   <div id="focus-menu" class="layer-menu" hidden role="group" aria-label="Fokus"></div>
 
   <div id="layer-menu" class="layer-menu" hidden role="group" aria-label="Lager">
@@ -106,6 +109,10 @@
     <span class="focus-label">Fokus</span> <span id="focus-title" class="focus-title"></span>
     <button id="focus-facts" class="chip-btn" type="button" hidden aria-controls="detail">Fakta</button>
     <button id="focus-exit" class="chip-btn" type="button">Tillbaka till hela tiden</button>
+    <div id="focus-moved" class="focus-moved" hidden role="status">
+      <span id="focus-moved-text"></span>
+      <button id="focus-moved-back" class="link-btn" type="button"></button>
+    </div>
   </div>
 
   <footer class="timebar">

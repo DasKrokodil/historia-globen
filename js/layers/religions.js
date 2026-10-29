@@ -12,12 +12,53 @@ export class ReligionsLayer {
     this.active = []; // [{ religion, snapshot }]
     this.origins = new Map(); // religionens id → händelsen där den uppstod
     this.stars = []; // [{ religion, event }] som syns det här året
+    this.polities = new Map(); // rikets namn → uppgifter ur religions.json
   }
 
   /** Händelserna där religionerna uppstod, som Map från religionens id. */
   setOrigins(origins) { this.origins = origins; }
 
   setData(religions) { this.religions = religions; }
+
+  /** Rikena med religion (polities i religions.json), som Map från rikets namn. */
+  setPolities(list) { this.polities = new Map((list ?? []).map(p => [p.name, p])); }
+
+  /**
+   * Teckenförklaringen (#166): religionerna som syns just det här året, i datans ordning,
+   * med om något av områdena är osäkra. [{ religion, sure, unsure }]
+   */
+  legendItems() {
+    const items = new Map();
+    for (const { religion, snapshot } of this.active) {
+      const it = items.get(religion.id) ?? { religion, sure: false, unsure: false };
+      snapshot.sure !== false ? (it.sure = true) : (it.unsure = true);
+      items.set(religion.id, it);
+    }
+    return [...items.values()];
+  }
+
+  /**
+   * Vilket område ligger punkten (lon, lat) i? Säkra områden prövas före osäkra.
+   * Returnerar { religion, snapshot, polities } eller null. Rikena är bara kända per
+   * område (ögonblicksbilden), inte per punkt, eftersom områdena är sammanslagna.
+   */
+  hitTest(lon, lat) {
+    const sorted = [...this.active].sort((a, b) => (b.snapshot.sure !== false) - (a.snapshot.sure !== false));
+    for (const { religion, snapshot } of sorted) {
+      const g = snapshot.geometry;
+      let inside = false; // evenodd, som ritningen
+      for (const rings of g.type === 'Polygon' ? [g.coordinates] : g.coordinates) {
+        for (const ring of rings) {
+          for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+            const [xi, yi] = ring[i], [xj, yj] = ring[j];
+            if ((yi > lat) !== (yj > lat) && lon < (xj - xi) * (lat - yi) / (yj - yi) + xi) inside = !inside;
+          }
+        }
+      }
+      if (inside) return { religion, snapshot, polities: snapshot.polities.map(n => this.polities.get(n) ?? { name: n }) };
+    }
+    return null;
+  }
 
   update({ year }) {
     this.active = [];
