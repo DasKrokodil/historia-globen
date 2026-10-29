@@ -59,7 +59,7 @@ Klickbara markörer, etiketter och bågar ligger ovanpå klotet som 3D-objekt oc
 | `js/ui/funfact.js` | Samtidigt-kortet: fun facts och "När ett krig bröt ut", kan fällas ihop |
 | `js/ui/layers.js` | Lagermenyn och valen för pauser |
 | `js/ui/focusmenu.js` | Fokusmenyn: följ ett krig, ett rike eller en religion |
-| `js/ui/sources.js` | Sidan Om källorna |
+| `js/ui/sources.js` | Sidan Om källorna: källregistret grupperat efter användning, granskningsläge per grupp och sökning |
 | `js/ui/clusters.js` | Klustring av etiketter |
 
 ## Laddning av data
