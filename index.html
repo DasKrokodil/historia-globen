@@ -107,6 +107,10 @@
   </div>
 
   <footer class="timebar">
+    <div id="pause-note" class="pause-note" role="status" hidden>
+      <span id="pause-text"></span>
+      <button id="pause-go" class="pause-go" type="button">&#9654; Fortsätt</button>
+    </div>
     <div class="controls">
       <button class="step" type="button" data-step="-100" aria-label="100 år bakåt">−100</button>
       <button class="step" type="button" data-step="-10" aria-label="10 år bakåt">−10</button>
@@ -117,7 +121,7 @@
       <button class="step" type="button" data-step="1" aria-label="1 år framåt">+1</button>
       <button class="step" type="button" data-step="10" aria-label="10 år framåt">+10</button>
       <button class="step" type="button" data-step="100" aria-label="100 år framåt">+100</button>
-      <button id="btn-speed" class="step speed" type="button" title="Uppspelningshastighet">1×</button>
+      <button id="btn-speed" class="step speed" type="button" title="Uppspelningshastighet: 25 år/s">25 år/s</button>
     </div>
     <div id="track" class="track" role="slider" tabindex="0" aria-label="År" aria-valuemin="-2999" aria-valuemax="2026">
       <div class="track-segments" id="track-segments"></div>

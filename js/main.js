@@ -61,7 +61,8 @@ async function start() {
 
   const timeline = new Timeline({
     track: $('track'), thumb: $('thumb'), segs: $('track-segments'), ticks: $('ticks'),
-    dots: $('track-dots'), ffMarks: $('track-ff'), playBtn: $('btn-play'), playIcon: $('play-icon'),
+    dots: $('track-dots'), ffMarks: $('track-ff'), playBtn: $('btn-play'), playIcon: $('play-icon'), pauseNote: $('pause-note'), pauseText: $('pause-text'),
+    pauseGo: $('pause-go'),
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
   setupYearJump(timeline, { button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs') });
@@ -308,22 +309,22 @@ async function start() {
     // I fokusläge stannar uppspelningen vid krigets viktigaste händelser
     // I slutet: hur kriget slutade och hur många som dog (#122)
     if (focusWar?.story && timeline.playing && lastYear < focusWar.end && year >= focusWar.end) {
-      timeline.pause(); selectedId = focusWar.id; panel.showStory(focusWar, 'summary');
+      timeline.pause('Pausad: kriget är slut'); selectedId = focusWar.id; panel.showStory(focusWar, 'summary');
     } else if (focusWar && timeline.playing && layers.pause.major) {
       const hit = focusWar._battles.find(b => b.major && b.start > lastYear && b.start <= year);
       // I smal skärm öppnas inte panelen, så att kartan syns; händelsen markeras på globen
-      if (hit) { timeline.pause(); selectedId = hit.id; panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }
+      if (hit) { timeline.pause('Pausad vid en stor händelse i kriget'); selectedId = hit.id; panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }
     }
     // I fokus på en religion stannar uppspelningen vid händelserna när den grundades (#123)
     if (focus?.type === 'religion' && timeline.playing) {
       const hit = founding(focus.id).find(e => e.start > lastYear && e.start <= year);
-      if (hit) { timeline.pause(); selectedId = hit.id; panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }
+      if (hit) { timeline.pause('Pausad vid religionens grundande'); selectedId = hit.id; panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }
     }
     // Pausa när ett krig bryter ut, om det är valt i lagermenyn (#114)
     if (!focus && timeline.playing && layers.pause.wars && eventsOn) {
       const war = data.events.find(e => e.kind === 'war' && e.start > lastYear && e.start <= year
         && panel.filters.has(e.category) && isVisibleReview(e.review));
-      if (war) { timeline.pause(); timeline.year = war.start; selectedId = war.id; panel.showDetail(war); }
+      if (war) { timeline.pause('Pausad: ett krig bryter ut'); timeline.year = war.start; selectedId = war.id; panel.showDetail(war); }
     }
     lastYear = year;
     $('app').classList.toggle('has-detail', !$('detail').hidden);
@@ -368,7 +369,7 @@ async function start() {
   ff.onSources = ids => sources.open(ids);
   // Uppspelningen stannar vid en ny fun fact, så att man hinner läsa. Play fortsätter.
   // Ihopfällt kort: ingen paus, eftersom kortet inte syns
-  ff.onNew = () => { if (timeline.playing && layers.pause.funfacts && !ff.minimized) timeline.pause(); };
+  ff.onNew = () => { if (timeline.playing && layers.pause.funfacts && !ff.minimized) timeline.pause('Pausad vid ett nytt Samtidigt-kort'); };
   sources.onSettings = refresh;
 
   globe.onClick = (x, y) => {
