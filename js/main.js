@@ -578,6 +578,10 @@ function trackFocusBar() {
 }
 trackFocusBar();
 
+// Safari på iPad och iPhone: stoppa nypgesten som zoomar hela sidan. Globen zoomar själv med pekhändelser,
+// som inte påverkas. En inzoomad sida gick annars inte att zooma ut, eftersom globen fångar fingrarna (#191).
+for (const type of ['gesturestart', 'gesturechange']) document.addEventListener(type, e => e.preventDefault(), { passive: false });
+
 start().catch(err => {
   console.error(err);
   $('loading').textContent = `Globen kunde inte starta: ${err.message}`;
