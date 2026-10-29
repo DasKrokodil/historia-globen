@@ -267,6 +267,15 @@ export class Globe {
     return first && first.object !== this.baseMesh ? first.object : null;
   }
 
+  /** Longitud och latitud under en klickpunkt på globen (via sfärens texturkoordinat), annars null. */
+  pickLatLon(clientX, clientY) {
+    const r = this.canvas.getBoundingClientRect();
+    const v = new THREE.Vector2((clientX - r.left) / r.width * 2 - 1, -((clientY - r.top) / r.height) * 2 + 1);
+    this.raycaster.setFromCamera(v, this.camera);
+    const hit = this.raycaster.intersectObject(this.baseMesh, false)[0];
+    return hit?.uv ? { lon: hit.uv.x * 360 - 180, lat: hit.uv.y * 180 - 90 } : null;
+  }
+
   onFrame(cb) { this.frameCallbacks.push(cb); }
 
   _tick(t) {

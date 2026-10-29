@@ -19,7 +19,7 @@
     { "id": "wp-fax", "title": "Fax – Wikipedia", "url": "https://en.wikipedia.org/wiki/Fax", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
     { "id": "wp-telephone", "title": "Invention of the telephone – Wikipedia", "url": "https://en.wikipedia.org/wiki/Invention_of_the_telephone", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
     { "id": "wp-wright", "title": "Wright brothers – Wikipedia", "url": "https://en.wikipedia.org/wiki/Wright_brothers", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
-    { "id": "wp-ottoman", "title": "Ottoman Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ottoman_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-ottoman", "title": "Ottoman Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ottoman_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
     { "id": "wp-cleopatra", "title": "Cleopatra – Wikipedia", "url": "https://en.wikipedia.org/wiki/Cleopatra", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
     { "id": "wp-apollo-11", "title": "Apollo 11 – Wikipedia", "url": "https://en.wikipedia.org/wiki/Apollo_11", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
     { "id": "wp-sputnik", "title": "Sputnik 1 – Wikipedia", "url": "https://en.wikipedia.org/wiki/Sputnik_1", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
@@ -39,7 +39,7 @@
     { "id": "wp-christianity", "title": "Christianity – Wikipedia (antal troende enligt Pew Research Center 2025, uppgift för 2020)", "url": "https://en.wikipedia.org/wiki/Christianity", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
     { "id": "wp-christianization-armenia", "title": "Christianization of Armenia – Wikipedia", "url": "https://en.wikipedia.org/wiki/Christianization_of_Armenia", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
     { "id": "wp-edict-thessalonica", "title": "Edict of Thessalonica – Wikipedia", "url": "https://en.wikipedia.org/wiki/Edict_of_Thessalonica", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
-    { "id": "wp-byzantine-empire", "title": "Byzantine Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Byzantine_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
+    { "id": "wp-byzantine-empire", "title": "Byzantine Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Byzantine_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
     { "id": "wp-clovis", "title": "Clovis I – Wikipedia", "url": "https://en.wikipedia.org/wiki/Clovis_I", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
     { "id": "wp-nobatia", "title": "Nobatia – Wikipedia", "url": "https://en.wikipedia.org/wiki/Nobatia", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
     { "id": "wp-makuria", "title": "Makuria – Wikipedia", "url": "https://en.wikipedia.org/wiki/Makuria", "license": "CC BY-SA 4.0", "checked": "2026-10-28" },
@@ -113,6 +113,15 @@
     { "id": "wp-bodh-gaya", "title": "Bodh Gaya – Wikipedia", "url": "https://en.wikipedia.org/wiki/Bodh_Gaya", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
     { "id": "wp-guru-nanak", "title": "Guru Nanak – Wikipedia", "url": "https://en.wikipedia.org/wiki/Guru_Nanak", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
     { "id": "wp-sikhism", "title": "Sikhism – Wikipedia", "url": "https://en.wikipedia.org/wiki/Sikhism", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
-    { "id": "wp-nankana-sahib", "title": "Nankana Sahib – Wikipedia", "url": "https://en.wikipedia.org/wiki/Nankana_Sahib", "license": "CC BY-SA 4.0", "checked": "2026-10-29" }
+    { "id": "wp-nankana-sahib", "title": "Nankana Sahib – Wikipedia", "url": "https://en.wikipedia.org/wiki/Nankana_Sahib", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-roman-empire", "title": "Roman Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Roman_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-roman-kingdom", "title": "Roman Kingdom – Wikipedia", "url": "https://en.wikipedia.org/wiki/Roman_Kingdom", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-roman-republic", "title": "Roman Republic – Wikipedia", "url": "https://en.wikipedia.org/wiki/Roman_Republic", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-achaemenid-empire", "title": "Achaemenid Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Achaemenid_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-macedonia-ancient", "title": "Macedonia (ancient kingdom) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Macedonia_(ancient_kingdom)", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-han-dynasty", "title": "Han dynasty – Wikipedia", "url": "https://en.wikipedia.org/wiki/Han_dynasty", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-maurya-empire", "title": "Maurya Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Maurya_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-mongol-empire", "title": "Mongol Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Mongol_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-british-empire", "title": "British Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/British_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-29" }
   ]
 }

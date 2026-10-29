@@ -12,6 +12,7 @@ import { Panel } from './ui/panel.js';
 import { FunFacts } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
 import { LayerMenu } from './ui/layers.js';
+import { ReligionLegend } from './ui/legend.js';
 import { cluster } from './ui/clusters.js';
 import { FocusMenu } from './ui/focusmenu.js';
 
@@ -72,6 +73,9 @@ async function start() {
 
   // Lagerväljaren: vilka lager som syns. Startläget står i index.html.
   const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu') });
+  // Teckenförklaring och klickruta för religionslagret (#166)
+  const relLegend = new ReligionLegend({ legend: $('religion-legend'), pop: $('religion-pop') });
+  relLegend.onFacts = id => showReligionFacts(id);
   // I fokusläge syns det man följer även om lagret är avslaget i menyn
   const applyLayers = () => {
   // och det andra av riken och religioner göms, så att områdena inte täcker varandra
@@ -112,6 +116,7 @@ async function start() {
   // religionens facts i religions.json, och punkten är händelsen som facts.origin pekar på.
   function setReligions(doc) {
     if (!religions.religions.length) religions.setData(doc.religions);
+    religions.setPolities(doc.polities);
     religions.setOrigins(new Map(doc.religions.filter(r => data.byId[r.facts?.origin]).map(r => [r.id, data.byId[r.facts.origin]])));
   }
   function showReligionFacts(id, fly = true) {
@@ -127,6 +132,30 @@ async function start() {
     refresh();
     return true;
   }
+  // Faktarutan om ett rike (#170): samma ruta som för religioner, med rikets facts i
+  // empires/index.json. Kartans gränser kommer från Cliopatria och kan ha andra årtal
+  // än rutans källor (#138), så rutan säger det.
+  function showEmpireFacts(id) {
+    const g = data.empireGroups.find(x => x.id === id);
+    if (!g?.facts) return false;
+    selectedId = null;
+    // Ramen följer rikets tidsålder och platsen globen riktas mot i fokus
+    const place = focus?.type === 'empire' && focus.id === id ? { start: g.from, _lat: focus.center[0], _lon: focus.center[1] } : null;
+    const note = t(g.facts.mapNote);
+    panel.showFacts({ kind: 'Rike', name: t(g.name), color: g.color, facts: g.facts, place,
+      mapNote: `Gränserna på kartan kommer från Cliopatria (kartdata ${formatYearSpan(g.from, g.to)}). Fakta i rutan kommer från rutans källor.${note ? ` ${note}` : ''}` });
+    layers.close(); focusMenu.close();
+    if (narrow.matches) panel.setOpen(false);
+    refresh();
+    return true;
+  }
+  /** Har det man följer en faktaruta? (riken och religioner med facts) */
+  function focusFacts(f) {
+    if (f?.type === 'empire') return !!data.empireGroups.find(x => x.id === f.id)?.facts;
+    if (f?.type === 'religion') return !!data.religionsDoc?.religions.find(x => x.id === f.id)?.facts;
+    return false;
+  }
+
   /** När religionslagret slås på: faktarutan för den första synliga religionen som har en. */
   function showFirstReligionFacts() {
     const r = data.religionsDoc?.religions.find(x => x.facts && !religions.hidden.has(x.id));
@@ -186,6 +215,7 @@ async function start() {
     globe.flyTo(f.center[0], f.center[1], 900);
     globe.setZoom(f.zoom);
     $('focus-title').textContent = f.title;
+    $('focus-facts').hidden = !focusFacts(f);
     $('focus-bar').hidden = false;
     $('app').classList.add('focusing');
     panel.setOpen(false); // listan stängs så att det man följer syns
@@ -198,6 +228,8 @@ async function start() {
     // Religionens faktaruta visas först (#90), annars grundandet i faktarutan
     const first = type === 'religion' && founding(id)[0];
     if (type === 'religion' && !showReligionFacts(id, false) && first) select(first.id, false);
+    // Rikets faktaruta visas när man börjar följa det (#170)
+    if (type === 'empire') showEmpireFacts(id);
   }
   /** Händelser där en religion grundades (founding: true), i tidsordning. */
   const founding = id => data.events.filter(e => e.founding && e.religion === id).sort((a, b) => a.start - b.start);
@@ -289,6 +321,8 @@ async function start() {
     areas.update({ year });
     borders.update({ year });
     religions.update({ year });
+    relLegend.update(religions.legendItems());
+    if (!religions.enabled) relLegend.hidePop();
     wars.enabled = eventsOn;
     wars.update({ year, filters: panel.filters });
     const ctx = globe.overlayContext();
@@ -376,6 +410,11 @@ async function start() {
   panel.onSelect = select;
   panel.onFocus = id => startFocus(`war:${id}`);
   $('focus-exit').addEventListener('click', endFocus);
+  // Knappen Fakta i fokusraden öppnar rikets eller religionens faktaruta igen (#170)
+  $('focus-facts').addEventListener('click', () => {
+    if (focus?.type === 'empire') showEmpireFacts(focus.id);
+    else if (focus?.type === 'religion') showReligionFacts(focus.id, false);
+  });
   panel.onFilter = refresh;
   ff.onSelect = select;
   ff.onPick = pick;
@@ -388,7 +427,14 @@ async function start() {
 
   globe.onClick = (x, y) => {
     const hit = globe.pick(x, y, layer.sprites.filter(s => s.visible));
+    relLegend.hidePop();
     select(hit ? hit.userData.event.id : null);
+    // Händelsemarkörer har företräde. Annars: vilken religion ligger under klicket? (#166)
+    if (!hit && religions.enabled && religions.active.length) {
+      const ll = globe.pickLatLon(x, y);
+      const rh = ll && religions.hitTest(ll.lon, ll.lat);
+      if (rh) relLegend.showPop(rh, x, y);
+    }
   };
 
   // Platt vy: det en fysisk glob skulle få
@@ -406,7 +452,7 @@ async function start() {
     // Faktarutan om religionen visas när lagret slås på (#90)
     if (name === 'religions' && on && data.religionsDoc) showFirstReligionFacts();
   };
-  // Nyckelår i religionens faktaruta hoppar dit i tiden
+  // Nyckelår i rikets och religionens faktaruta hoppar dit i tiden
   panel.onYear = year => { timeline.year = year; };
 
   // Rikenas namn ritas med IM Fell English, rita om när typsnittet har laddats
