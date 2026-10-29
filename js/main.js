@@ -1,6 +1,6 @@
 // Startar allt och kopplar ihop delarna:
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
-import { loadAll, loadReligions, loadEmpire, CAT, t, yearParts, formatYear, formatEventTime, isVisibleReview } from './model.js';
+import { loadAll, loadReligions, loadReligionPolities, loadEmpire, CAT, t, yearParts, formatYear, formatEventTime, isVisibleReview } from './model.js';
 import { Globe } from './globe.js';
 import { Timeline, segmentName, setupYearJump } from './timeline.js';
 import { EventsLayer } from './layers/events.js';
@@ -76,6 +76,7 @@ async function start() {
   // Teckenförklaring och klickruta för religionslagret (#166)
   const relLegend = new ReligionLegend({ legend: $('religion-legend'), pop: $('religion-pop') });
   relLegend.onFacts = id => showReligionFacts(id);
+  relLegend.names = new Map(data.polities.map(p => [p.name.en, p.name.sv]));
   // I fokusläge syns det man följer även om lagret är avslaget i menyn
   const applyLayers = () => {
   // och det andra av riken och religioner göms, så att områdena inte täcker varandra
@@ -447,17 +448,34 @@ async function start() {
   ff.onNew = () => { if (timeline.playing && layers.pause.funfacts && !ff.minimized) timeline.pause('Pausad vid ett nytt Samtidigt-kort'); };
   sources.onSettings = refresh;
 
+  let popClick = 0; // räknar klick, så att en sen klickruta inte visas efter ett nytt klick
   globe.onClick = (x, y) => {
     const hit = globe.pick(x, y, layer.sprites.filter(s => s.visible));
-    relLegend.hidePop();
+    relLegend.hidePop(); popClick++;
     select(hit ? hit.userData.event.id : null);
     // Händelsemarkörer har företräde. Annars: vilken religion ligger under klicket? (#166)
     if (!hit && religions.enabled && religions.active.length) {
       const ll = globe.pickLatLon(x, y);
       const rh = ll && religions.hitTest(ll.lon, ll.lat);
-      if (rh) relLegend.showPop(rh, x, y);
+      if (rh) showReligionPop(rh, ll, x, y);
     }
   };
+  // Riket på just den platsen (#194): rikenas gränser laddas vid det första klicket.
+  // Ett senare klick vinner om laddningen hinner bli klar efter det.
+  let religionPolitiesReady = false;
+  async function showReligionPop(rh, ll, x, y) {
+    const n = popClick;
+    // Första gången tar laddningen en stund: rutan visas direkt och fylls i när riket är känt
+    const waiting = !religionPolitiesReady;
+    if (waiting) relLegend.showPop({ ...rh, loading: true }, x, y);
+    try {
+      rh.here = religions.polityAt(rh, ll.lon, ll.lat, (await loadReligionPolities()).polities);
+      religionPolitiesReady = true;
+    } catch (err) {
+      console.warn(err); // utan rikenas gränser visas rikena i området, som förut
+    }
+    if (n === popClick && !(waiting && relLegend.pop.hidden)) relLegend.showPop(rh, x, y); // inte om rutan stängdes under tiden
+  }
 
   // Platt vy: det en fysisk glob skulle få
   $('btn-flat').addEventListener('click', () => {
