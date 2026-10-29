@@ -204,7 +204,7 @@
     { "id": "operation-barbarossa", "category": "krig", "icon": "swords", "partOf": "andra-varldskriget", "start": 1941, "end": 1941, "precision": 11, "edtf": "1941-06-22/1941-12-05",
       "location": { "type": "Point", "coordinates": [23.658, 52.082] }, "locationPrecision": "region", "place": { "sv": "Västra Sovjetunionen (ett av de första slagen stod vid Brest)" },
       "title": { "sv": "Operation Barbarossa" },
-      "summary": { "sv": "Den 22 juni 1941 anfaller Tyskland och flera av dess europeiska förbundna Sovjetunionen med mer än 3,8 miljoner soldater. Det är den största militära offensiven i historien och öppnar östfronten. Operationen pågår till den 5 december 1941 men når inte sina mål, och Sovjetunionen går över till de allierade." },
+      "summary": { "sv": "Den 22 juni 1941 anfaller Tyskland och flera av dess europeiska förbundna Sovjetunionen med mer än 3,8 miljoner soldater. Det är den största militära offensiven i historien och öppnar östfronten. Operationen pågår till den 5 december 1941 men når inte sina mål, och Sovjetunionen ansluter sig till de allierade." },
       "wikidata": "Q83055", "sources": ["wp-barbarossa", "wp-defense-brest-fortress", "wp-brest-fortress", "wikidata"], "review": "two-sources" },
 
     { "id": "attacken-mot-pearl-harbor", "category": "krig", "icon": "swords", "partOf": "andra-varldskriget", "major": true, "start": 1941, "end": 1941, "precision": 11, "edtf": "1941-12-07",
