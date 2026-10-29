@@ -75,7 +75,7 @@ Rikard är mycket mån om att inget påhittat hamnar på globen. Följ detta str
 ## Licenser (beslut 10)
 
 - Kod: **GPL-3.0** (`LICENSE`). Data i `data/`: **CC BY 4.0** (`data/LICENSE`). Namnet "Historia-globen" omfattas inte.
-- Använd bara data vars licens är förenlig med detta: CC0, CC BY, public domain, eller GPL för gränsdata. **Inte** CC BY-NC, inte "all rights reserved", inte data med oklara villkor.
+- Använd bara data vars licens är förenlig med detta: CC0, CC BY, public domain, eller GPL för gränsdata. **Inte** CC BY-NC, inte "all rights reserved", inte data med oklara villkor. Undantag: källor med NC-licens får användas som länkade källor för att kontrollera årtal och plats, så länge ingen text eller data kopieras (beslut 2026-10-29).
 - Kopiera aldrig text från Wikipedia eller andra källor. Skriv egna korta sammanfattningar och länka källan.
 - Ange varje ny datakälla i `data/sources.json` och i README:ns licensavsnitt.
 
