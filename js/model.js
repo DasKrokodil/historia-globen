@@ -41,6 +41,25 @@ export const REVIEW = {
 export const settings = { showDrafts: false };
 export const isVisibleReview = r => settings.showDrafts || r === 'source-checked' || r === 'two-sources' || r === 'human-reviewed';
 
+// ---------- Världsdelar ----------
+// Grov indelning efter koordinater, för att gruppera listan "Samtidigt i världen" (#120).
+// Gränserna är ungefärliga: Gibraltar, Medelhavet, Suez och Röda havet, Bosporen, Kaukasus och Ural.
+export const REGIONS = ['Europa', 'Asien', 'Afrika', 'Amerika', 'Oceanien'];
+export function region(lat, lon) {
+  if (lat > 50 && (lon < -168 || lon > 160)) return 'Asien'; // Sibiriens östspets och Wrangelön vid datumlinjen
+  if (lon < -120 && lat < 30) return 'Oceanien'; // Hawaii och Stilla havet
+  if (lon < -25) return 'Amerika';
+  if ((lat < -10 && lon > 110) || (lat < 0 && lon > 130) || lon > 160) return 'Oceanien';
+  const africa = lon >= -20 && lon < 52 && lat > -36 && (
+    lon < -1.5 ? lat < 36 :
+    lon <= 11.5 ? lat < 37.5 :
+    lon <= 32.5 ? lat < 33.5 :
+    lat < 31.5 && lon < 32.5 + (30 - lat) * 0.62); // väster om Röda havet
+  if (africa) return 'Afrika';
+  if (lat >= 35 && (lon < 28.9 || (lat >= 41 && lon < 60 && !(lon > 40 && lat < 44.5)))) return 'Europa';
+  return 'Asien';
+}
+
 // ---------- Tid ----------
 // År lagras astronomiskt (ISO 8601): 0 = 1 f.Kr., -1 = 2 f.Kr.
 export const isBCE = y => y <= 0;

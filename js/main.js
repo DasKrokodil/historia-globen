@@ -1,6 +1,6 @@
 // Startar allt och kopplar ihop delarna:
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
-import { loadAll, loadReligions, CAT, t, yearParts, formatEventTime, isVisibleReview } from './model.js';
+import { loadAll, loadReligions, CAT, t, yearParts, formatYear, formatEventTime, isVisibleReview } from './model.js';
 import { Globe } from './globe.js';
 import { Timeline, segmentName } from './timeline.js';
 import { EventsLayer } from './layers/events.js';
@@ -17,6 +17,27 @@ import { FocusMenu } from './ui/focusmenu.js';
 
 const $ = id => document.getElementById(id);
 
+// Samtidigt-kortet (#120): när ett krig bryter ut visas vad mer som hände i världen
+// inom några år. Allt hämtas ur händelserna, som var och en har källa.
+const NEAR_YEARS = 5;
+const RANK = ['draft', 'source-checked', 'two-sources', 'human-reviewed'];
+function warCards(events) {
+  const shown = e => !e.partOf || e.top || e.major;
+  return events.filter(e => e.kind === 'war').flatMap(war => {
+    const near = events
+      .filter(e => e !== war && e.kind !== 'war' && e.partOf !== war.id && shown(e) && Math.abs(e.start - war.start) <= NEAR_YEARS)
+      .sort((a, b) => Math.abs(a.start - war.start) - Math.abs(b.start - war.start)).slice(0, 3);
+    if (!near.length) return [];
+    const evs = [war, ...near];
+    return [{
+      id: `war-${war.id}`, kind: 'war', events: evs.map(e => e.id), show: [war.start, war.start + 4],
+      review: RANK[Math.min(...evs.map(e => Math.max(0, RANK.indexOf(e.review))))],
+      sources: [...new Set(evs.flatMap(e => e.sources ?? []))],
+      text: { sv: `${t(war.title)} bryter ut ${formatYear(war.start)}. Samtidigt i världen:` },
+    }];
+  });
+}
+
 async function start() {
   const data = await loadAll();
   const globe = new Globe($('globe-canvas'));
@@ -29,12 +50,13 @@ async function start() {
   const wars = new WarsLayer(data.events);
   const panel = new Panel({
     root: $('panel'), list: $('event-list'), filters: $('filters'), detail: $('detail'),
-    sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'),
+    sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'), close: $('panel-close'),
   }, data);
   const ff = new FunFacts({
     root: $('funfact'), text: $('ff-text'), events: $('ff-events'), review: $('ff-review'),
     pager: $('ff-pager'), next: $('ff-next'), srcBtn: $('ff-sources'),
-  }, data);
+    kind: $('ff-kind'), min: $('ff-min'), tab: $('ff-tab'), tabCount: $('ff-tab-count'),
+  }, { funfacts: [...data.funfacts, ...warCards(data.events)], byId: data.byId });
   const sources = new SourcesDialog({ root: $('sources-dialog'), body: $('sources-body'), close: $('sources-close'), openBtn: $('btn-sources') }, data);
 
   const timeline = new Timeline({
@@ -228,7 +250,8 @@ async function start() {
   ff.onArcs = pairs => globe.setArcs(pairs);
   ff.onSources = ids => sources.open(ids);
   // Uppspelningen stannar vid en ny fun fact, så att man hinner läsa. Play fortsätter.
-  ff.onNew = () => { if (timeline.playing && layers.pause.funfacts) timeline.pause(); };
+  // Ihopfällt kort: ingen paus, eftersom kortet inte syns
+  ff.onNew = () => { if (timeline.playing && layers.pause.funfacts && !ff.minimized) timeline.pause(); };
   sources.onSettings = refresh;
 
   globe.onClick = (x, y) => {

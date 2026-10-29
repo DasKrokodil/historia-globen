@@ -29,8 +29,8 @@ js/model.js           språk, kategorier, granskningsstatus, tidsformat, laddnin
 js/globe.js           3D-globen, kamera, styrning, ekvirektangulära canvasar, bågar
 js/timeline.js        tidsreglage, segmenterad skala, uppspelning
 js/layers/events.js   punktlager: händelser
-js/ui/panel.js        "Samtidigt i världen", filter, detaljvy
-js/ui/funfact.js      fun facts-kort och bågar
+js/ui/panel.js        "Samtidigt i världen" per världsdel, filter, detaljvy
+js/ui/funfact.js      Samtidigt-kortet (fun facts m.m.) och bågar
 js/ui/sources.js      sidan Om källorna
 data/events.json      händelser
 data/funfacts.json    fun facts (kopplade till händelse-id)
@@ -156,3 +156,4 @@ Nya beslut läggs till sist, med datum, beslut och kort motivering.
 | 2026-10-29 | Ny layout: globen får hela skärmen. "Samtidigt i världen" är en utfällbar meny bakom en knapp uppe till höger, och faktarutan om en händelse är ett eget kort som stängs med ett kryss. I lagermenyn väljer man vad uppspelningen ska pausa vid (fun facts, när ett krig bryter ut), och valet sparas. | Panelen tog för mycket av skärmen, och olika användare vill pausa vid olika saker (Rikards feedback, #112 och #114). |
 | 2026-10-29 | Fokusläget blir en egen funktion bakom knappen Fokus, där man väljer vad man följer: ett krig, ett rike eller en religion (senare även epidemier). Riken som hör ihop (Romarriket i flera skeden) grupperas med `groups` i `empires.json`. I fokus visas det man följer även om lagret är avslaget, och riken och religioner göms för varandra så att områdena inte täcker varandra. | Fokusläget ska inte bara gälla krig (Rikards feedback, #113). |
 | 2026-10-29 | Religionslagret: anger rikets faktaruta ett årtal för religionen ("c. 200 AD", "from 6th century") visas religionen först från det året. Ord som "Pre-Islamic" räknas inte som islam, och "Arian" måste vara ett eget ord (inte "variant", "Hungarian"). | Kristendomen visades 401 f.Kr. och islam 301 f.Kr. på grund av feltolkad text (#118). |
+| 2026-10-29 | "Samtidigt" i tre nivåer: kategorifiltren ligger i Lager-menyn, listan "Samtidigt i världen" är en bredare låda grupperad per världsdel (grov indelning efter koordinater i `model.js`), och fun fact-kortet blir Samtidigt-kortet med typ (Fun fact, När ett krig bröt ut). Kortet kan fällas ihop till en flik, och då pausar uppspelningen inte vid det. Korten om krig byggs ur händelserna (inom 5 år från krigets start), inte som egen data. | Listan var för kompakt att läsa och kortet syntes alltid (Rikards feedback, #120). |

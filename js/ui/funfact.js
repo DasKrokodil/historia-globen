@@ -1,7 +1,9 @@
-// Fun facts: ett kort som visas när året ligger inom faktans intervall,
-// med bågar på globen mellan de platser som hör ihop.
-import { CAT, REVIEW, t, isVisibleReview } from '../model.js';
+// Samtidigt-kortet: fun facts och annat som hände samtidigt (till exempel när ett krig
+// bryter ut). Kortet visas när året ligger inom postens intervall, med bågar på globen
+// mellan de platser som hör ihop. Det kan fällas ihop till en flik (#120).
+import { CAT, REVIEW, t, formatYear, isVisibleReview } from '../model.js';
 
+const KIND = { funfact: 'Fun fact', war: 'När ett krig bröt ut' };
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 export class FunFacts {
@@ -14,7 +16,11 @@ export class FunFacts {
     this.onSelect = () => {};
     this.onSources = () => {};
     this.onNew = () => {};
+    this.minimized = false;
+    try { this.minimized = localStorage.getItem('hg-ff-min') === '1'; } catch { /* utan lagring */ }
     this.next.addEventListener('click', () => { this.index = (this.index + 1) % this.active.length; this._show(); });
+    this.min.addEventListener('click', () => this.setMinimized(true));
+    this.tab.addEventListener('click', () => this.setMinimized(false));
     this.srcBtn.addEventListener('click', () => { const f = this.active[this.index]; if (f) this.onSources(f.sources); });
   }
 
@@ -22,7 +28,8 @@ export class FunFacts {
     const active = !this.enabled ? [] : this.all.filter(f =>
       year >= f.show[0] && year <= f.show[1] &&
       isVisibleReview(f.review) &&
-      f.events.every(id => this.byId[id] && filters.has(this.byId[id].category)));
+      f.events.every(id => this.byId[id] && filters.has(this.byId[id].category)))
+      .sort((a, b) => b.show[0] - a.show[0]); // det som började senast först, så att det nya syns
     const key = active.map(f => f.id).join('|');
     if (key === this.shownKey) return;
     const fresh = active.some(f => !this.active.includes(f));
@@ -31,17 +38,28 @@ export class FunFacts {
     if (fresh) this.onNew();
   }
 
+  /** Fäll ihop kortet till en flik, eller öppna det igen. Valet sparas. */
+  setMinimized(on) {
+    this.minimized = on;
+    try { localStorage.setItem('hg-ff-min', on ? '1' : '0'); } catch { /* utan lagring */ }
+    this._show();
+    (on ? this.tab : this.min).focus?.();
+  }
+
   highlightIds() {
     const f = this.active[this.index];
-    return new Set(f ? f.events : []);
+    return new Set(f && !this.minimized ? f.events : []);
   }
 
   _show() {
     const f = this.active[this.index];
-    if (!f) { this.root.hidden = true; this.onArcs([]); return; }
+    this.tab.hidden = !f || !this.minimized;
+    this.tabCount.textContent = String(this.active.length);
+    if (!f || this.minimized) { this.root.hidden = true; this.onArcs([]); return; }
+    this.kind.textContent = KIND[f.kind ?? 'funfact'];
     const evs = f.events.map(id => this.byId[id]);
     this.text.textContent = t(f.text);
-    this.events.innerHTML = evs.map(e => `<button type="button" class="ff-chip" data-id="${esc(e.id)}"><span class="dot" style="background:${CAT[e.category]?.color}"></span>${esc(t(e.title))}</button>`).join('');
+    this.events.innerHTML = evs.map(e => `<button type="button" class="ff-chip" data-id="${esc(e.id)}"><span class="dot" style="background:${CAT[e.category]?.color}"></span>${f.kind === 'war' ? `<span class="ff-year">${esc(formatYear(e.start))}</span>` : ''}${esc(t(e.title))}</button>`).join('');
     for (const b of this.events.querySelectorAll('.ff-chip')) b.addEventListener('click', () => this.onSelect(b.dataset.id));
     const rv = REVIEW[f.review] ?? REVIEW.draft;
     this.review.className = `review-badge ${rv.cls}`;
