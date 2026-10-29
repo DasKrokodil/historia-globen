@@ -198,6 +198,7 @@
       "location": { "type": "Point", "coordinates": [2.2945, 48.8582] }, "place": { "sv": "Paris, Frankrike" },
       "title": { "sv": "Eiffeltornet står klart" },
       "summary": { "sv": "Eiffeltornet byggs som mittpunkt för världsutställningen 1889 i Paris. Själva konstruktionen blir klar i slutet av mars 1889." },
+      "image": {"file": "images/events/eiffeltornet.webp", "kind": "historisk", "style": "1800-tal", "caption": {"sv": "Eiffeltornet när toppen monteras, 15 mars 1889 enligt bildtexten på fotot. Fotografi, okänd fotograf, ur Gustave Eiffels bok La tour de trois cents mètres (1900). Utsnitt. Library of Congress anger inga kända restriktioner för publicering."}, "credit": "Okänd fotograf / Library of Congress, Prints & Photographs Division (LC-USZ62-21583)", "license": "Inga kända restriktioner (Library of Congress)", "source": "loc-eiffel-campanile-1889"},
       "wikidata": "Q243", "sources": ["wp-eiffel-tower", "wikidata"], "review": "two-sources" },
 
     { "id": "cervantes-dor", "category": "kultur", "icon": "book", "start": 1616, "end": 1616, "precision": 11, "edtf": "1616-04-22",
@@ -236,6 +237,7 @@
       "location": { "type": "Point", "coordinates": [31.236, 30.044] }, "place": { "sv": "Kairo, Egypten" },
       "title": { "sv": "Mansa Musa i Kairo" },
       "summary": { "sv": "Mali-kungen Mansa Musa når Kairo i juli 1324 på sin pilgrimsfärd till Mecka. Följet väcker uppseende med sin storlek och rikedom." },
+      "image": {"file": "images/events/mansa-musa-kairo.webp", "kind": "historisk", "style": "islamisk", "caption": {"sv": "Mansa Musa på tronen med en guldklimp i handen, som han ritades på Katalanska atlasen 1375, ett halvsekel efter resan. Karta med pennteckning i färgade bläck på pergament, tillskriven Abraham Cresques. Utsnitt. Public domain."}, "credit": "Tillskriven Abraham Cresques / Bibliothèque nationale de France (Gallica) via Wikimedia Commons", "license": "Public domain", "source": "commons-catalan-atlas-mansa-musa"},
       "sources": ["wp-mansa-musa", "wp-cairo", "whe-mansa-musa"], "review": "two-sources" },
 
     { "id": "ibn-battuta-resa", "category": "upptackter", "start": 1325, "end": 1325, "precision": 11, "edtf": "1325-06-14",
@@ -249,6 +251,7 @@
       "title": { "sv": "Taj Mahal byggs" },
       "summary": { "sv": "Bygget av Taj Mahal i Agra, ett gravmonument över Mumtaz Mahal, börjar 1632. Hela anläggningen tros vara klar 1653." },
       "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Wikipedia anger att bygget började 1632 och att hela anläggningen var klar 1653. World History Encyclopedia anger också 1632 som start, men 1649 som året då Taj Mahal blev klar." } },
+      "image": {"file": "images/events/taj-mahal.webp", "kind": "historisk", "style": "miniatyr", "caption": {"sv": "Taj Mahal i Agra med trädgården framför. Fotokrom (färglagt tryck efter fotografi) från Photoglob Co. i Zürich, cirka 1890–1910. Library of Congress anger inga kända restriktioner för publicering."}, "credit": "Photoglob Co., Zürich / Library of Congress, Prints & Photographs Division (LC-DIG-ppmsca-41418)", "license": "Inga kända restriktioner (Library of Congress)", "source": "loc-taj-mahal-photochrom"},
       "sources": ["wp-taj-mahal", "whe-taj-mahal"], "review": "source-checked" },
 
     { "id": "sista-giljotinen", "category": "civilisationer", "start": 1977, "end": 1977, "precision": 11, "edtf": "1977-09-10",
@@ -268,6 +271,7 @@
       "title": { "sv": "Trettioåriga kriget" },
       "summary": { "sv": "Ett av de mest förödande krigen i Europas historia, främst utkämpat i Centraleuropa. Uppskattningsvis 4,5–8 miljoner soldater och civila dog av strider, svält eller sjukdom." },
       "story": {"intro": {"sv": "Reformationen hade delat det tysk-romerska riket mellan katoliker och protestanter. Freden i Augsburg 1555 skulle hålla isär dem, men den höll inte när protestantismen spreds. Kriget bröt ut 1618, när den protestantiske Fredrik V av Pfalz blev kung av Böhmen i stället för den katolske Ferdinand II. Det som började som en strid inom riket blev ett europeiskt krig: Danmark och Sverige gick in för att vinna land och skydda protestanterna, och från 1635 stred Frankrike mot sina rivaler habsburgarna."}, "parties": [{"name": {"sv": "Mot habsburgarna"}, "members": {"sv": "Böhmen, Pfalz, Danmark–Norge, Sverige, Nederländerna, Hessen-Kassel med flera, och från 1635 Frankrike. Sachsen och Brandenburg stod på denna sida till freden i Prag 1635."}}, {"name": {"sv": "För habsburgarna"}, "members": {"sv": "Kejsaren och den habsburgska monarkin, Spanien, Bayern och Katolska ligan."}}], "outcome": {"sv": "Westfaliska freden 1648. Staterna i riket, som Bayern och Sachsen, fick större självständighet. Sverige fick land i norra Tyskland, bland annat Vorpommern, Wismar och Bremen-Verden. Frankrike fick Dekapolis och Sundgau, och Spanien erkände Nederländernas självständighet."}, "casualties": {"sv": "Cirka 4,5–8 miljoner soldater och civila dog av strider, svält och sjukdomar, varav 1,3–1,8 miljoner soldater. På sina håll i Tyskland minskade befolkningen med mer än hälften. Siffrorna är uppskattningar och anges som spann."}, "sources": ["wp-thirty-years-war"]},
+      "image": {"file": "images/events/trettioariga-kriget.webp", "kind": "historisk", "style": "renassans", "caption": {"sv": "Defenestrationen i Prag 1618, då kriget började. Kopparstick av Matthäus Merian i krönikan Theatrum Europaeum (band 1, upplagan från 1662). Public domain."}, "credit": "Matthäus Merian, Theatrum Europaeum / Universitätsbibliothek Augsburg via Wikimedia Commons", "license": "Public domain", "source": "commons-prager-fenstersturz-1618"},
       "wikidata": "Q2487", "sources": ["wp-thirty-years-war", "wp-prague", "wikidata"], "review": "two-sources" },
 
     { "id": "defenestrationen-1618", "category": "krig", "partOf": "trettioariga-kriget", "major": true, "start": 1618, "end": 1618, "precision": 11, "edtf": "1618-05-23",
@@ -329,6 +333,7 @@
       "title": { "sv": "Jesus föds" },
       "summary": { "sv": "Enligt evangelierna föds Jesus i Betlehem under kung Herodes tid. Årtalet står inte i någon källa från tiden. Räknat från Herodes död blir det mellan 6 och 4 f.Kr." },
       "note": { "title": { "sv": "Om år 0" }, "text": { "sv": "Vår tideräkning räknar från det år man förr trodde att Jesus föddes. Munken Dionysius Exiguus tog fram den år 525 i Rom, men den blev vanlig först på 800-talet. Det finns inget år 0: efter 1 f.Kr. kommer direkt 1 e.Kr. I dag tror forskare att Jesus föddes några år tidigare, kanske runt 5 f.Kr. Källorna räcker inte för ett säkert årtal." }},
+      "image": {"file": "images/events/jesu-fodelse.webp", "kind": "historisk", "style": "antik", "caption": {"sv": "Jesu födelse som Giotto målade den på 1300-talet: fresk i Scrovegnikapellet i Padua, 1306 enligt filsidan. En konstnärs bild över tusen år senare, inte en skildring från händelsens tid. Utsnitt. Public domain."}, "credit": "Giotto di Bondone / Wikimedia Commons", "license": "Public domain", "source": "commons-giotto-nativity"},
       "sources": ["wp-nativity", "wp-anno-domini", "wp-bethlehem"], "review": "source-checked" },
 
     { "id": "korsfastelsen", "category": "religion", "icon": "star", "religion": "kristendom", "founding": true, "start": 30, "end": 33, "precision": 9, "edtf": "0030/0033",
@@ -347,6 +352,7 @@
       "location": { "type": "Point", "coordinates": [84.993, 24.695] }, "locationPrecision": "region", "place": { "sv": "Bodh Gaya i dagens Bihar, Indien" },
       "title": { "sv": "Buddha grundar buddhismen" },
       "summary": { "sv": "Buddha, en vandrande lärare på Gangesslätten, grundar buddhismen. Han levde under 500- eller 400-talet f.Kr., och forskarna är oense om exakta årtal. Enligt traditionen nådde han upplysningen i Bodh Gaya." },
+      "image": {"file": "images/events/buddha.webp", "kind": "historisk", "style": "egypten", "caption": {"sv": "Ett litet tempel under Bodhiträdet i Bodh Gaya, platsen där Buddha enligt traditionen nådde upplysningen. Målning av okänd konstnär, cirka 1810, över 2 000 år efter Buddhas tid. Utsnitt. Public domain."}, "credit": "Okänd konstnär / British Library via Wikimedia Commons", "license": "Public domain", "source": "commons-bodh-gaya-1810"},
       "sources": ["wp-gautama-buddha", "wp-bodh-gaya", "whe-buddha"], "review": "two-sources" },
 
     { "id": "guru-nanak", "category": "religion", "icon": "star", "religion": "sikhism", "founding": true, "start": 1469, "end": 1539, "precision": 9, "edtf": "1469/1539",

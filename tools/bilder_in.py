@@ -18,7 +18,7 @@ import json
 import re
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageFilter
 
 ROOT = Path(__file__).resolve().parent.parent
 W, H, MAX_BYTES = 800, 600, 150_000
@@ -43,6 +43,12 @@ def convert(src: Path, dst: Path):
     img = img.resize((W, H), Image.LANCZOS)
     for q in (82, 75, 68, 60, 52):
         img.save(dst, 'WEBP', quality=q, method=6)
+        if dst.stat().st_size <= MAX_BYTES:
+            return dst.stat().st_size
+    # Fina linjer (till exempel kopparstick) blir stora: mjuka upp bilden lite och försök igen
+    soft = img.filter(ImageFilter.GaussianBlur(0.5))
+    for q in (60, 52, 45, 40):
+        soft.save(dst, 'WEBP', quality=q, method=6)
         if dst.stat().st_size <= MAX_BYTES:
             break
     return dst.stat().st_size
