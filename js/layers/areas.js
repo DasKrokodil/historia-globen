@@ -8,6 +8,8 @@ export class AreasLayer {
     this.polities = polities;
     this.enabled = true;
     this.active = []; // [{ polity, period }]
+    this.labelAlpha = 1; // och hur synliga de är (tonas ut vid kraftig zoom)
+    this.labelScale = 1; // namnens storlek relativt grundstorleken (1 = som på platta bilden)
   }
 
   /** Rikena laddas ett i taget (en fil per rike) och läggs till när de har kommit. */
@@ -49,10 +51,11 @@ export class AreasLayer {
     }
     // Namnen sist, så att de hamnar ovanpå alla områden. Ryms namnet inte i
     // området skrivs det ovanför, med ett streck ner, så att området syns.
-    const size = 16 * k;
+    const size = 16 * k * this.labelScale;
     ctx.font = `italic ${size}px "IM Fell English", Georgia, serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
+    ctx.globalAlpha = this.labelAlpha;
     for (const { polity, period } of this.active) {
       const name = t(polity.name);
       const b = bbox(period);
@@ -62,10 +65,10 @@ export class AreasLayer {
         const top = Y(b.maxLat);
         y = top - size * 1.6;
         ctx.strokeStyle = 'rgba(246,231,196,0.8)';
-        ctx.lineWidth = 1.2 * k;
+        ctx.lineWidth = 1.2 * k * this.labelScale;
         ctx.beginPath(); ctx.moveTo(x, top - 2 * k); ctx.lineTo(x, y + size * 0.6); ctx.stroke();
       }
-      ctx.lineWidth = 3.5 * k;
+      ctx.lineWidth = 3.5 * k * this.labelScale;
       ctx.strokeStyle = 'rgba(16,22,30,0.8)';
       ctx.strokeText(name, x, y);
       ctx.fillStyle = '#f6e7c4';
