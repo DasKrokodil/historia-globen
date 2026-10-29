@@ -144,7 +144,7 @@ body {
   background: var(--brass); color: var(--night);
   font: 600 11px/1 var(--f-mono);
 }
-.panel-toggle { display: none; }
+
 :focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
 
 /* ---------- lagerväljare ---------- */
@@ -174,22 +174,25 @@ body {
 .layer-sub { margin: -2px 0 4px 26px; border-left: 1px solid var(--line); }
 .layer-subrow { padding: 6px 10px; font-size: 13px; }
 .layer-subrow .swatch { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.layer-heading { margin: 8px 10px 2px; padding-top: 8px; border-top: 1px solid var(--line); font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
 .layer-note { flex-basis: 100%; padding-left: 26px; font: 400 11px/1.3 var(--f-mono); color: var(--parchment-dim); }
 
-/* ---------- panel ---------- */
+/* ---------- panel: "Samtidigt i världen" som utfällbar meny (#112) ---------- */
 .panel {
   position: absolute;
+  z-index: 15;
   top: calc(env(safe-area-inset-top, 0px) + 64px);
   right: var(--gut-r);
-  bottom: 132px;
-  width: 330px;
-  display: flex; flex-direction: column;
-  background: color-mix(in srgb, var(--night-2) 92%, transparent);
+  width: 340px;
+  max-height: 42vh;
+  display: none; flex-direction: column;
+  background: color-mix(in srgb, var(--night-2) 96%, transparent);
   border: 1px solid var(--line);
   border-radius: var(--r);
   backdrop-filter: blur(6px);
   overflow: hidden;
 }
+.panel.open { display: flex; }
 .panel-head { padding: 14px 16px 8px; }
 .panel-head h2 {
   margin: 0;
@@ -238,11 +241,29 @@ body {
 .event-item.is-near .ttl { color: var(--parchment-dim); font-weight: 500; }
 .empty-note { padding: 12px 10px; color: var(--parchment-dim); font-size: 13px; line-height: 1.45; }
 
-.detail {
-  border-top: 1px solid var(--line);
-  padding: 12px 16px 14px;
-  max-height: 46%;
+/* Faktarutan: ett eget kort som öppnas när man klickar på en händelse */
+.detail-card {
+  position: absolute;
+  z-index: 13;
+  right: var(--gut-r);
+  bottom: 132px;
+  width: min(360px, calc(100vw - 32px));
+  max-height: 38vh;
   overflow-y: auto;
+  padding: 14px 16px 14px;
+  background: color-mix(in srgb, var(--night-2) 96%, transparent);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+}
+.detail-close {
+  position: sticky; top: 0; float: right;
+  margin: -4px -6px 0 8px;
+  width: 30px; height: 30px; border-radius: 50%;
+  font: 400 18px/1 var(--f-body);
+  color: var(--parchment); background: var(--night-3); border: 1px solid var(--line);
+  cursor: pointer;
 }
 .detail h3 { margin: 0 0 2px; font: 400 19px/1.2 var(--f-display); text-wrap: balance; }
 .detail .meta { font: 400 11.5px/1.4 var(--f-mono); color: var(--brass); }
@@ -446,15 +467,9 @@ body {
 
 /* ---------- smal skärm ---------- */
 @media (max-width: 760px) {
-  .panel-toggle { display: inline-block; }
-  .panel {
-    top: auto; left: var(--gut); right: var(--gut-r);
-    bottom: 128px;
-    width: auto;
-    max-height: 55vh;
-    display: none;
-  }
-  .panel.open { display: flex; }
+  .panel { left: var(--gut); right: var(--gut-r); width: auto; max-height: 55vh; }
+  .detail-card { left: var(--gut); right: var(--gut-r); width: auto; bottom: 128px; max-height: 45vh; }
+  .app.has-detail .funfact { display: none; } /* faktarutan och fun fact-kortet delar plats */
   .masthead { max-width: 55vw; }
   .top-actions { max-width: 44vw; }
   .funfact { bottom: 136px; padding: 12px 14px 10px; }

@@ -25,10 +25,10 @@
   </header>
 
   <div class="top-actions">
+    <button id="btn-panel" class="chip-btn panel-toggle" type="button" aria-expanded="false" aria-controls="panel">Samtidigt <span id="panel-count" class="count">0</span></button>
     <button id="btn-layers" class="chip-btn" type="button" aria-expanded="false" aria-controls="layer-menu">Lager</button>
     <button id="btn-flat" class="chip-btn" type="button" aria-pressed="false" title="Visa bilden som en fysisk glob skulle få">Platt vy</button>
     <button id="btn-sources" class="chip-btn" type="button">Om källorna</button>
-    <button id="btn-panel" class="chip-btn panel-toggle" type="button" aria-expanded="false" aria-controls="panel">Samtidigt <span id="panel-count" class="count">0</span></button>
   </div>
 
   <div id="layer-menu" class="layer-menu" hidden role="group" aria-label="Lager">
@@ -38,6 +38,9 @@
     <label class="layer-row"><input type="checkbox" data-layer="religions"> Religioner <span class="layer-note">rikenas officiella religion · ljus med streckad kant = osäker uppgift</span></label>
     <div id="religion-list" class="layer-sub" role="group" aria-label="Religioner" hidden></div>
     <label class="layer-row"><input type="checkbox" data-layer="borders"> Dagens gränser <span class="layer-note">stämmer inte historiskt</span></label>
+    <div class="layer-heading">Pausa uppspelningen vid</div>
+    <label class="layer-row"><input type="checkbox" data-pause="funfacts" checked> Fun facts</label>
+    <label class="layer-row"><input type="checkbox" data-pause="wars"> När ett krig bryter ut</label>
   </div>
 
   <aside id="panel" class="panel" aria-label="Samtidigt i världen">
@@ -47,8 +50,9 @@
     </div>
     <div id="filters" class="filters" role="group" aria-label="Kategorier"></div>
     <ol id="event-list" class="event-list"></ol>
-    <div id="detail" class="detail" hidden></div>
   </aside>
+
+  <section id="detail" class="detail detail-card" hidden aria-live="polite" aria-label="Om händelsen"></section>
 
   <section id="funfact" class="funfact" hidden aria-live="polite">
     <div class="ff-eyebrow"><span>Samtidigt!</span><span id="ff-pager" class="ff-pager"></span></div>

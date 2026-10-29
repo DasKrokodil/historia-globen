@@ -10,6 +10,7 @@ export class Panel {
     this.onFilter = () => {};
     this.onSources = () => {};
     this.onFocus = () => {};
+    this.onOpen = () => {};
     this.selectedId = null;
 
     // Visa bara kategorier som har händelser, i den fasta ordningen.
@@ -28,11 +29,21 @@ export class Panel {
       filters.append(b);
     }
 
-    toggle.addEventListener('click', () => {
-      const open = !root.classList.contains('open');
-      root.classList.toggle('open', open);
-      toggle.setAttribute('aria-expanded', String(open));
-    });
+    toggle.addEventListener('click', () => this.setOpen(!root.classList.contains('open')));
+    document.addEventListener('keydown', ev => { if (ev.key === 'Escape') { this.setOpen(false); if (!detail.hidden) this.onSelect(null); } });
+  }
+
+  /** Öppna eller stäng listan "Samtidigt i världen". */
+  setOpen(open) {
+    if (open) {
+      // Under knappgruppen uppe till höger, som i smal skärm kan ligga på flera rader
+      const r = (this.toggle.closest('.top-actions') ?? this.toggle).getBoundingClientRect();
+      this.root.style.top = `${r.bottom + 8}px`;
+      this.root.style.maxHeight = `min(${innerWidth > 760 ? '42vh' : '55vh'}, calc(100dvh - ${r.bottom + 150}px))`;
+    }
+    this.root.classList.toggle('open', open);
+    this.toggle.setAttribute('aria-expanded', String(open));
+    if (open) this.onOpen();
   }
 
   render(visible, year, window, eventsOn = true) {
@@ -66,15 +77,17 @@ export class Panel {
     }
   }
 
-  showDetail(e, open = true) {
+  /** Faktarutan är ett eget kort (#112). show = false markerar händelsen utan att visa kortet. */
+  showDetail(e, show = true) {
     this.selectedId = e?.id ?? null;
-    if (!e) { this.detail.hidden = true; return; }
+    if (!e || !show) { this.detail.hidden = true; return; }
     const rv = REVIEW[e.review] ?? REVIEW.draft;
     // Wikidata länkas till händelsens egen post
     const srcs = (e.sources ?? []).map(id => id === 'wikidata' && e.wikidata
       ? { title: `Wikidata ${e.wikidata}`, url: `https://www.wikidata.org/wiki/${e.wikidata}` }
       : this.srcById[id]).filter(Boolean);
     this.detail.innerHTML = `
+      <button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
       <h3>${esc(t(e.title))}</h3>
       <div class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))} · ${esc(t(CAT[e.category]?.name))}</div>
       <p>${esc(t(e.summary))}</p>
@@ -85,12 +98,11 @@ export class Panel {
       <div class="src">Källa: ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || 'saknas'}</div>
       <div class="detail-actions">
         <span class="review-badge ${rv.cls}">${esc(rv.sv)}</span>
-        <button type="button" class="link-btn" data-close>Stäng</button>
       </div>`;
+    this.detail.scrollTop = 0;
     this.detail.hidden = false;
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
     this.detail.querySelector('[data-focus]')?.addEventListener('click', ev => this.onFocus(ev.currentTarget.dataset.focus));
-    if (open) this.root.classList.add('open');
   }
 }
