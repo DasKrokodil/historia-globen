@@ -146,6 +146,17 @@
     { "id": "wp-han-xiongnu-wars", "title": "Han–Xiongnu wars – Wikipedia", "url": "https://en.wikipedia.org/wiki/Han–Xiongnu_wars", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
     { "id": "wp-western-regions", "title": "Protectorate of the Western Regions – Wikipedia", "url": "https://en.wikipedia.org/wiki/Protectorate_of_the_Western_Regions", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
     { "id": "wp-yellow-turban", "title": "Yellow Turban Rebellion – Wikipedia", "url": "https://en.wikipedia.org/wiki/Yellow_Turban_Rebellion", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
-    { "id": "wp-red-cliffs", "title": "Battle of Red Cliffs – Wikipedia", "url": "https://en.wikipedia.org/wiki/Battle_of_Red_Cliffs", "license": "CC BY-SA 4.0", "checked": "2026-10-29" }
+    { "id": "wp-red-cliffs", "title": "Battle of Red Cliffs – Wikipedia", "url": "https://en.wikipedia.org/wiki/Battle_of_Red_Cliffs", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-punic-wars", "title": "Punic Wars – Wikipedia", "url": "https://en.wikipedia.org/wiki/Punic_Wars", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-gallic-wars", "title": "Gallic Wars – Wikipedia", "url": "https://en.wikipedia.org/wiki/Gallic_Wars", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-battle-actium", "title": "Battle of Actium – Wikipedia", "url": "https://en.wikipedia.org/wiki/Battle_of_Actium", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-crisis-third-century", "title": "Crisis of the Third Century – Wikipedia", "url": "https://en.wikipedia.org/wiki/Crisis_of_the_Third_Century", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-fall-western-roman-empire", "title": "Fall of the Western Roman Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Fall_of_the_Western_Roman_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-muslim-conquest-syria", "title": "Muslim conquest of Syria – Wikipedia", "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_Syria", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-greco-persian-wars", "title": "Greco-Persian Wars – Wikipedia", "url": "https://en.wikipedia.org/wiki/Greco-Persian_Wars", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-wars-diadochi", "title": "Wars of the Diadochi – Wikipedia", "url": "https://en.wikipedia.org/wiki/Wars_of_the_Diadochi", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-battle-ipsus", "title": "Battle of Ipsus – Wikipedia", "url": "https://en.wikipedia.org/wiki/Battle_of_Ipsus", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-kalinga-war", "title": "Kalinga War – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kalinga_War", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-seleucid-mauryan-war", "title": "Seleucid–Mauryan War – Wikipedia", "url": "https://en.wikipedia.org/wiki/Seleucid–Mauryan_War", "license": "CC BY-SA 4.0", "checked": "2026-10-29" }
   ]
 }
