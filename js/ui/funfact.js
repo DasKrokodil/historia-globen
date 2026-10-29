@@ -1,7 +1,7 @@
 // Samtidigt-kortet: fun facts och annat som hände samtidigt (till exempel när ett krig
 // bryter ut). Kortet visas när året ligger inom postens intervall, med bågar på globen
 // mellan de platser som hör ihop. Det kan fällas ihop till en flik (#120).
-import { CAT, REVIEW, t, formatYear, formatEventTime, styleFor, isVisibleReview } from '../model.js';
+import { CAT, REVIEW, t, formatYear, formatEventTime, styleFor, isVisibleReview, reviewLabel, REVIEW_SUBJECT_HELP } from '../model.js';
 
 const KIND = { funfact: 'Fun fact', war: 'När ett krig bröt ut', empire: 'Rikets berättelse' };
 
@@ -122,7 +122,9 @@ export class FunFacts {
     for (const b of this.events.querySelectorAll('.ff-chip')) b.addEventListener('click', () => this.onSelect(b.dataset.id));
     const rv = REVIEW[f.review] ?? REVIEW.draft;
     this.review.className = `review-badge ${rv.cls}`;
-    this.review.textContent = rv.sv;
+    const subject = story ? 'Riket' : f.kind === 'war' ? 'Kriget' : 'Fun facten';
+    this.review.textContent = reviewLabel(f.review, subject);
+    this.review.title = REVIEW_SUBJECT_HELP[subject];
     this.pager.textContent = this.active.length > 1 ? `${this.index + 1} av ${this.active.length}` : '';
     this.next.hidden = this.active.length < 2;
     this.root.hidden = false;
