@@ -9,7 +9,7 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;'
  * en illustration i tidens bildtradition som alltid märks med en synlig bildtext.
  * Bilden finns bara i kortet, så den laddas först när kortet öppnas.
  */
-function figure(e, srcById) {
+export function figure(e, srcById) {
   const img = e.image;
   if (!img) return '';
   // Historiska bilder länkar licensen till filsidan i källregistret

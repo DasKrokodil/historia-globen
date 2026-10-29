@@ -56,7 +56,7 @@ Klickbara markörer, etiketter och bågar ligger ovanpå klotet som 3D-objekt oc
 | `js/layers/wars.js` | Krigsområden runt krigets och slagens platser |
 | `js/layers/borders.js` | Dagens landsgränser (av som standard) |
 | `js/ui/panel.js` | Samtidigt i världen per världsdel, kategorifilter, faktarutan med bild och ram, krigets berättelse, faktarutan om en religion |
-| `js/ui/funfact.js` | Samtidigt-kortet: fun facts och "När ett krig bröt ut", kan fällas ihop |
+| `js/ui/funfact.js` | Samtidigt-kortet: fun facts och "När ett krig bröt ut", kan fällas ihop. Tryck på en händelseknapp visar händelsens bild, ram, bildtext och sammanfattning överst i kortet (#169), med bilden från `figure()` i `panel.js` och ramen från `styleFor()`. Globen flyger dit via `ff.onPick`, men faktarutan öppnas bara via "Mer om händelsen" (`ff.onSelect`). Kortet rullar inuti och går aldrig utanför skärmen |
 | `js/ui/legend.js` | Teckenförklaring och klickruta för religionslagret (#166): HTML över globen, inte i kartbilden. Teckenförklaringen listar religionerna som syns året (`ReligionsLayer.legendItems()`); ett klick på ett område (`Globe.pickLatLon` + `ReligionsLayer.hitTest`, punkt-i-polygon i lon/lat) visar religion och rike. Händelsemarkörer har företräde |
 | `js/ui/layers.js` | Lagermenyn och valen för pauser |
 | `js/ui/focusmenu.js` | Fokusmenyn: följ ett krig, ett rike eller en religion |
