@@ -124,6 +124,47 @@ body {
   font-size: clamp(18px, 2.4vw, 26px);
   color: var(--brass);
 }
+/* Årtalet är en knapp som öppnar "Hoppa till år" (#140) */
+.year-jump {
+  all: unset; box-sizing: border-box; pointer-events: auto; cursor: pointer;
+  display: inline-flex; align-items: baseline; gap: 10px;
+  border-bottom: 1px dashed transparent;
+}
+.year-jump:hover { border-bottom-color: var(--brass-deep); }
+.year-jump:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; border-radius: 4px; }
+.jump-pop {
+  position: absolute; top: 100%; left: 0; z-index: 20; margin-top: 10px; pointer-events: auto;
+  width: min(360px, calc(100vw - 2 * var(--gut)));
+  padding: 12px; border-radius: var(--r);
+  background: color-mix(in srgb, var(--night-2) 96%, transparent);
+  border: 1px solid var(--line); box-shadow: 0 8px 28px rgba(0,0,0,.5);
+}
+.jump-pop[hidden] { display: none; }
+.jump-label { display: block; margin-bottom: 8px; font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+.jump-row { display: flex; gap: 6px; align-items: stretch; }
+.jump-input {
+  flex: 1 1 0; min-width: 0; height: 38px; padding: 0 10px;
+  font: 500 16px/1 var(--f-mono); color: var(--parchment);
+  background: var(--night); border: 1px solid var(--line); border-radius: 8px;
+}
+.jump-input:focus { border-color: var(--brass); outline: none; }
+.jump-era { display: flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.jump-era-btn, .jump-go, .jump-epoch {
+  font: 500 12px/1 var(--f-mono); color: var(--parchment); background: var(--night); border: 0; cursor: pointer;
+}
+.jump-era-btn { padding: 0 9px; }
+.jump-era-btn[aria-pressed="true"] { background: var(--brass); color: var(--night); }
+.jump-go { padding: 0 12px; border-radius: 8px; background: var(--brass); color: var(--night); font-weight: 600; }
+.jump-msg { min-height: 0; margin: 0; font: 400 12px/1.4 var(--f-body); color: var(--danger); }
+.jump-msg:not(:empty) { margin-top: 8px; }
+.jump-epochs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; }
+.jump-epoch {
+  display: flex; flex-direction: column; gap: 4px; align-items: flex-start; text-align: left;
+  padding: 8px 10px; min-height: 44px; border: 1px solid var(--line); border-radius: 8px;
+}
+.jump-epoch:hover { border-color: var(--brass-deep); }
+.jump-epoch-name { font: 400 12px/1.25 var(--f-body); }
+.jump-epoch-year { font: 500 11px/1 var(--f-mono); color: var(--brass); }
 .segment-note {
   margin: 6px 0 0;
   font-family: var(--f-mono);
@@ -534,7 +575,10 @@ body {
   .ff-tab { bottom: 136px; }
   .app.has-detail .ff-tab { display: none; }
   .ff-text { font-size: 16.5px; margin: 6px 0 8px; }
-  .step[data-step="100"], .step[data-step="-100"] { display: none; }
+  /* åtta knappar ska rymmas i 400 px: ±100 syns, knapparna krymper något (#140) */
+  .controls { gap: 4px; }
+  .controls .step { min-width: 0; flex: 1 1 0; max-width: 44px; padding: 0; }
+  .controls .play { min-width: 0; flex: 1.2 1 0; max-width: 52px; }
   .focus-bar {
     left: var(--gut); right: var(--gut-r); transform: none; max-width: none;
     flex-wrap: nowrap; justify-content: space-between; gap: 8px;
