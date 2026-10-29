@@ -140,30 +140,118 @@
       "label": {
        "sv": "cirka 509 f.Kr."
       },
+      "title": {
+       "sv": "Republiken införs"
+      },
       "text": {
-       "sv": "Kungarna störtas och republiken införs, enligt den traditionella dateringen."
+       "sv": "Kungarna störtas och republiken införs, enligt den traditionella dateringen. Rom styr då bara området närmast staden."
       },
       "sources": [
        "wp-roman-kingdom",
        "wp-roman-republic"
-      ]
+      ],
+      "mapNote": {
+       "sv": "På kartan börjar republiken 501 f.Kr., och kungadömet visas parallellt till 482 f.Kr."
+      }
+     },
+     {
+      "year": -263,
+      "label": {
+       "sv": "264–241 f.Kr."
+      },
+      "title": {
+       "sv": "Första puniska kriget"
+      },
+      "text": {
+       "sv": "Under århundradet efter galliernas plundring av Rom har staden erövrat större delen av Italien. Nu börjar ett krig mot Karthago om Sicilien, som varar i 23 år. När Karthago besegras 241 f.Kr. blir Sicilien Roms första provins, och strax efter tar Rom även Sardinien från Karthago."
+      },
+      "sources": [
+       "wp-roman-republic",
+       "wp-punic-wars"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar en jämn tillväxt under krigets första år och inget tydligt steg 241 f.Kr."
+      }
      },
      {
       "year": -201,
       "label": {
        "sv": "202 f.Kr."
       },
+      "title": {
+       "sv": "Seger över Hannibal"
+      },
       "text": {
-       "sv": "Rom besegrar Karthago vid Zama och blir under årtiondena efter den ledande makten i Medelhavet."
+       "sv": "Rom besegrar Hannibal och Karthago vid Zama i andra puniska kriget. I freden året efter förlorar Karthago sina områden utanför Afrika, och Rom blir under årtiondena efter den ledande makten i Medelhavet."
       },
       "sources": [
+       "wp-roman-republic",
+       "wp-punic-wars"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar en stor tillväxt 203–199 f.Kr. och sedan en minskning med cirka en tredjedel från 198 f.Kr."
+      }
+     },
+     {
+      "year": -145,
+      "label": {
+       "sv": "146 f.Kr."
+      },
+      "title": {
+       "sv": "Karthago och Korinth förstörs"
+      },
+      "text": {
+       "sv": "I tredje puniska kriget förstör Rom staden Karthago, och Karthagos land blir provinsen Africa. Samma år förstörs Korinth, och Grekland och Makedonien blir provinser som styrs direkt från Rom."
+      },
+      "sources": [
+       "wp-punic-wars",
        "wp-roman-republic"
+      ]
+     },
+     {
+      "year": -51,
+      "label": {
+       "sv": "58–50 f.Kr."
+      },
+      "title": {
+       "sv": "Caesar erövrar Gallien"
+      },
+      "text": {
+       "sv": "Julius Caesar erövrar Gallien, ungefär dagens Frankrike, Belgien och Schweiz. Det avgörande slaget står vid Alesia 52 f.Kr. Krigen ger Caesar rikedom och anseende, och de leder fram till inbördeskriget som gör slut på republiken."
+      },
+      "sources": [
+       "wp-gallic-wars"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar hela Gallien som romerskt från 51 f.Kr. Enligt källan blev Gallien en provins först 27 f.Kr."
+      }
+     },
+     {
+      "year": -30,
+      "label": {
+       "sv": "31–30 f.Kr."
+      },
+      "title": {
+       "sv": "Actium och Egypten"
+      },
+      "text": {
+       "sv": "Octavianus flotta besegrar Marcus Antonius och Kleopatra vid Actium 31 f.Kr. Året efter erövras det ptolemaiska Egypten, och Antonius och Kleopatra tar sina liv. Därmed slutar en lång rad inbördeskrig."
+      },
+      "sources": [
+       "wp-battle-actium",
+       "wp-roman-empire"
+      ],
+      "events": [
+       "kleopatra"
       ]
      },
      {
       "year": -26,
       "label": {
        "sv": "27 f.Kr."
+      },
+      "title": {
+       "sv": "Augustus blir kejsare"
       },
       "text": {
        "sv": "Senaten ger Octavianus titeln Augustus. Han räknas som den förste romerske kejsaren."
@@ -177,6 +265,9 @@
       "label": {
        "sv": "117"
       },
+      "title": {
+       "sv": "Som störst under Trajanus"
+      },
       "text": {
        "sv": "Kejsardömet är som störst under Trajanus, cirka 5 miljoner km²."
       },
@@ -185,9 +276,31 @@
       ]
      },
      {
+      "year": 260,
+      "label": {
+       "sv": "260–274"
+      },
+      "title": {
+       "sv": "Riket delas i tre"
+      },
+      "text": {
+       "sv": "Under 200-talets kris, med inbördeskrig, invasioner och pest, tas kejsar Valerianus till fånga av sasaniderna år 260. Samma år bryter Gallien, Britannien och Hispania loss som Galliska riket, och 267 blir de östra provinserna Palmyrenska riket. Aurelianus besegrar båda och har enat riket igen 274."
+      },
+      "sources": [
+       "wp-crisis-third-century",
+       "wp-roman-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar delningen från 261, då ytan minskar med cirka 40 procent, och återföreningen i två steg, 270 och 283."
+      }
+     },
+     {
       "year": 330,
       "label": {
        "sv": "330"
+      },
+      "title": {
+       "sv": "Konstantinopel blir huvudstad"
       },
       "text": {
        "sv": "Konstantin den store flyttar kejsarsätet till Bysantion, som får namnet Konstantinopel."
@@ -201,29 +314,97 @@
       "label": {
        "sv": "476"
       },
+      "title": {
+       "sv": "Västromerska riket faller"
+      },
       "text": {
-       "sv": "Västromerska riket faller när Odoaker avsätter Romulus Augustus. Östromerska riket lever vidare."
+       "sv": "Riket har sedan 395 varit delat i en västlig och en östlig halva, och i stora delar av väst har nya kungadömen tagit makten. Västromerska riket faller när Odoaker avsätter Romulus Augustus. Östromerska riket lever vidare."
       },
       "sources": [
-       "wp-roman-empire"
-      ]
+       "wp-roman-empire",
+       "wp-fall-western-roman-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Västromerska riket till och med 475."
+      }
      },
      {
-      "year": 1204,
+      "year": 533,
       "label": {
-       "sv": "1204"
+       "sv": "533–554"
+      },
+      "title": {
+       "sv": "Justinianus återerövringar"
       },
       "text": {
-       "sv": "Fjärde korståget plundrar Konstantinopel och riket splittras. Staden återtas 1261, men riket blir efter det bara en regional makt."
+       "sv": "Justinianus I försöker ta tillbaka väst. Generalen Belisarius besegrar vandalernas rike i Nordafrika 533 och anfaller sedan Italien, där östgoternas rike i stort sett är slut 554. Under Justinianus är riket som störst under bysantinsk tid."
       },
       "sources": [
        "wp-byzantine-empire"
       ]
      },
      {
+      "year": 636,
+      "label": {
+       "sv": "634–641"
+      },
+      "title": {
+       "sv": "Arabiska erövringar"
+      },
+      "text": {
+       "sv": "Efter ett långt krig mot Persien (602–628) är riket utmattat. Rashidunkalifatet erövrar Syrien 634–638, och vid floden Yarmuk förintas den bysantinska armén där. Även Egypten går förlorat för gott. När Herakleios dör 641 har riket mist sina rika östra provinser och upp till tre fjärdedelar av sina inkomster."
+      },
+      "sources": [
+       "wp-byzantine-empire",
+       "wp-muslim-conquest-syria"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar förlusterna i steg från 638 till 647."
+      }
+     },
+     {
+      "year": 1071,
+      "label": {
+       "sv": "1071"
+      },
+      "title": {
+       "sv": "Nederlaget vid Manzikert"
+      },
+      "text": {
+       "sv": "Seldjukerna vinner en avgörande seger vid Manzikert och tar kejsar Romanos IV till fånga. Samma år faller Bari, rikets sista stad i Italien, till normanderna. Under ett årtionde av inbördesstrider tar turkiska styrkor stora delar av Anatolien, ända fram till Marmarasjön. Med hjälp av första korståget återtar Alexios I senare delar av västra Anatolien."
+      },
+      "sources": [
+       "wp-byzantine-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar förlusten i Anatolien från 1085, då ytan halveras, och en del återtaget land från 1099."
+      }
+     },
+     {
+      "year": 1204,
+      "label": {
+       "sv": "1204"
+      },
+      "title": {
+       "sv": "Konstantinopel plundras"
+      },
+      "text": {
+       "sv": "Fjärde korståget plundrar Konstantinopel och riket splittras. Staden återtas 1261, men riket blir efter det bara en regional makt."
+      },
+      "sources": [
+       "wp-byzantine-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar nästan ingen yta för riket 1206–1226 och ingen alls 1227–1278. Nikaia, där riket levde vidare och som återtog Konstantinopel 1261, ingår inte i kartdatan för riket. Från 1279 syns riket igen."
+      }
+     },
+     {
       "year": 1453,
       "label": {
        "sv": "1453"
+      },
+      "title": {
+       "sv": "Konstantinopel faller"
       },
       "text": {
        "sv": "Osmanerna erövrar Konstantinopel, och Bysantinska riket upphör."
@@ -231,7 +412,10 @@
       "sources": [
        "wp-byzantine-empire",
        "wp-ottoman"
-      ]
+      ],
+      "mapNote": {
+       "sv": "Kartan visar en mycket liten rest av riket till och med 1474."
+      }
      }
     ],
     "mapNote": {
@@ -329,47 +513,139 @@
       "label": {
        "sv": "550 f.Kr."
       },
+      "title": {
+       "sv": "Kyros grundar riket"
+      },
       "text": {
-       "sv": "Kyros den store grundar riket."
+       "sv": "Kyros den store av akemenidernas ätt grundar riket, med bas på iranska platån. År 547 f.Kr. erövrar han Lydien i Anatolien."
       },
       "sources": [
        "wp-achaemenid-empire"
-      ]
+      ],
+      "mapNote": {
+       "sv": "Kartan börjar 551 f.Kr. och visar riket redan då med cirka 3,3 miljoner km²."
+      }
      },
      {
       "year": -538,
       "label": {
        "sv": "539 f.Kr."
       },
+      "title": {
+       "sv": "Babylonien erövras"
+      },
       "text": {
-       "sv": "Babylonien erövras."
+       "sv": "Kyros erövrar Babylonien."
       },
       "sources": [
        "wp-achaemenid-empire"
-      ]
+      ],
+      "mapNote": {
+       "sv": "Kartan visar tillväxten från 541 f.Kr."
+      }
      },
      {
       "year": -524,
       "label": {
        "sv": "525 f.Kr."
       },
+      "title": {
+       "sv": "Egypten erövras"
+      },
       "text": {
-       "sv": "Egypten erövras."
+       "sv": "Kambyses II, Kyros son, besegrar farao Psammetikos III vid Pelusion och erövrar Egypten. Libyerna och grekerna i Kyrene underkastar sig utan strid."
       },
       "sources": [
        "wp-achaemenid-empire"
-      ]
+      ],
+      "mapNote": {
+       "sv": "Kartan visar tillväxten i en period som börjar 531 f.Kr."
+      }
+     },
+     {
+      "year": -521,
+      "label": {
+       "sv": "522 eller 521 f.Kr."
+      },
+      "title": {
+       "sv": "Darius I: riket som störst"
+      },
+      "text": {
+       "sv": "Darius I tar makten efter strider om tronen. Under honom når riket sin största utbredning, cirka 5,5 miljoner km², från Balkan och Kyrenaika i väster till Indusdalen i öster. Från 513 f.Kr. lägger perserna under sig Thrakien, och Makedonien blir lydrike."
+      },
+      "sources": [
+       "wp-achaemenid-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket som störst, cirka 5,6 miljoner km², från 501 f.Kr."
+      }
      },
      {
       "year": -491,
       "label": {
        "sv": "492–479 f.Kr."
       },
+      "title": {
+       "sv": "Krigen mot grekerna"
+      },
       "text": {
-       "sv": "Fälttågen mot Grekland slås tillbaka 492–490 och 480–479 f.Kr. Redan 513 f.Kr. hade riket drivits tillbaka från Skytien."
+       "sv": "Perserna försöker erövra det grekiska fastlandet. De besegras vid Marathon 490 f.Kr. och efter Salamis och Plataiai 480–479 f.Kr. Efter förlusterna drar sig perserna ur Europa, och Makedonien och de joniska städerna blir självständiga igen."
+      },
+      "sources": [
+       "wp-achaemenid-empire",
+       "wp-greco-persian-wars"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar ingen minskning efter krigen: ytan är densamma 501–406 f.Kr."
+      }
+     },
+     {
+      "year": -403,
+      "label": {
+       "sv": "404 f.Kr."
+      },
+      "title": {
+       "sv": "Egypten gör sig fritt"
+      },
+      "text": {
+       "sv": "När Darius II dör tar den egyptiske upprorsledaren Amyrtaios tillfället att kasta av sig det persiska styret. Ett försök att återta Egypten 373 f.Kr. misslyckas."
       },
       "sources": [
        "wp-achaemenid-empire"
+      ]
+     },
+     {
+      "year": -342,
+      "label": {
+       "sv": "343 f.Kr."
+      },
+      "title": {
+       "sv": "Egypten återerövras"
+      },
+      "text": {
+       "sv": "Artaxerxes III erövrar Egypten igen, efter att farao Nektanebo II har besegrats och flytt söderut."
+      },
+      "sources": [
+       "wp-achaemenid-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar återerövringen först från 338 f.Kr."
+      }
+     },
+     {
+      "year": -333,
+      "label": {
+       "sv": "334–331 f.Kr."
+      },
+      "title": {
+       "sv": "Alexander anfaller"
+      },
+      "text": {
+       "sv": "Alexander den store går över till Asien och besegrar perserna vid Granikos 334, Issos 333 och Gaugamela 331 f.Kr. Från de två senare slagen flyr kung Darius III."
+      },
+      "sources": [
+       "wp-achaemenid-empire",
+       "wp-macedonia-ancient"
       ]
      },
      {
@@ -377,12 +653,19 @@
       "label": {
        "sv": "330 f.Kr."
       },
+      "title": {
+       "sv": "Riket faller"
+      },
       "text": {
-       "sv": "Alexander den store har erövrat hela riket och lägger det under Makedoniska riket."
+       "sv": "Persepolis bränns, och Darius III dödas av sin egen satrap Bessos. Alexander har erövrat hela riket och lägger det under Makedoniska riket."
       },
       "sources": [
-       "wp-achaemenid-empire"
-      ]
+       "wp-achaemenid-empire",
+       "wp-macedonia-ancient"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket, med minskande yta, till och med 328 f.Kr."
+      }
      }
     ],
     "mapNote": {
@@ -477,8 +760,11 @@
       "label": {
        "sv": "359 f.Kr."
       },
+      "title": {
+       "sv": "Filip II blir kung"
+      },
       "text": {
-       "sv": "Filip II blir kung och lägger under sig det grekiska fastlandet genom krig och diplomati."
+       "sv": "Filip II blir kung. Med en ombildad armé, där falangerna bär långa pikar, lägger han under sig det grekiska fastlandet, Paionien och det thrakiska odrysiska riket genom krig och diplomati."
       },
       "sources": [
        "wp-macedonia-ancient"
@@ -489,8 +775,11 @@
       "label": {
        "sv": "338 f.Kr."
       },
+      "title": {
+       "sv": "Slaget vid Chaironeia"
+      },
       "text": {
-       "sv": "Filip II besegrar Aten och Thebe vid Chaironeia."
+       "sv": "Filip II besegrar Aten och Thebe vid Chaironeia. Han grundar sedan Korintiska förbundet av grekiska stater, som Makedonien leder."
       },
       "sources": [
        "wp-macedonia-ancient"
@@ -501,8 +790,45 @@
       "label": {
        "sv": "336 f.Kr."
       },
+      "title": {
+       "sv": "Alexander blir kung"
+      },
       "text": {
-       "sv": "Alexander den store blir kung. Hans fälttåg störtar Persiska riket."
+       "sv": "Filip II mördas, och armén utropar hans son Alexander till kung. Alexander slår ned grekernas uppror, förstör Thebe 335 f.Kr. och väljs till ledare för det planerade anfallet mot Persiska riket."
+      },
+      "sources": [
+       "wp-macedonia-ancient"
+      ]
+     },
+     {
+      "year": -333,
+      "label": {
+       "sv": "334–330 f.Kr."
+      },
+      "title": {
+       "sv": "Persiska riket erövras"
+      },
+      "text": {
+       "sv": "Alexander besegrar perserna vid Granikos 334, Issos 333 och Gaugamela 331 f.Kr. År 330 f.Kr. dödas Darius III av sin satrap Bessos, och Alexander tar över Persiska riket."
+      },
+      "sources": [
+       "wp-macedonia-ancient",
+       "wp-achaemenid-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Alexanders erövringar först från 324 f.Kr. Åren 332–325 f.Kr. visar den bara ett litet område, cirka 0,2 miljoner km²."
+      }
+     },
+     {
+      "year": -325,
+      "label": {
+       "sv": "326 f.Kr."
+      },
+      "title": {
+       "sv": "Slaget vid Hydaspes"
+      },
+      "text": {
+       "sv": "Alexander besegrar kung Poros vid floden Hydaspes i dagens Punjab. Riket sträcker sig nu från Grekland och Egypten över Mesopotamien och Persien till Centralasien och dagens Pakistan."
       },
       "sources": [
        "wp-macedonia-ancient"
@@ -513,24 +839,57 @@
       "label": {
        "sv": "323 f.Kr."
       },
+      "title": {
+       "sv": "Alexander dör"
+      },
       "text": {
-       "sv": "Alexander dör. Under de följande krigen mellan hans efterträdare delas riket upp."
+       "sv": "Alexander dör i Babylon utan någon utsedd arvinge. Under krigen mellan hans generaler, diadokerna, delas riket upp."
       },
       "sources": [
-       "wp-macedonia-ancient"
-      ]
+       "wp-macedonia-ancient",
+       "wp-wars-diadochi"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket med cirka 4,7–4,8 miljoner km² från 324 till 309 f.Kr., alltså även åren efter Alexanders död."
+      }
+     },
+     {
+      "year": -305,
+      "label": {
+       "sv": "306–301 f.Kr."
+      },
+      "title": {
+       "sv": "Riket delas"
+      },
+      "text": {
+       "sv": "Alexanders son Alexander IV har dödats 311 eller 310 f.Kr. Åren 306–305 f.Kr. utropar sig generalerna till kungar i sina områden. Vid Ipsos 301 f.Kr. stupar Antigonos, som försökt bygga upp ett stort rike, och segrarna delar hans land mellan sig. Därmed är Alexanders rike slutgiltigt uppdelat."
+      },
+      "sources": [
+       "wp-macedonia-ancient",
+       "wp-battle-ipsus",
+       "wp-wars-diadochi"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar minskningen i två steg, från 308 och från 302 f.Kr., då riket är nere i cirka 0,15 miljoner km²."
+      }
      },
      {
       "year": -167,
       "label": {
        "sv": "168 f.Kr."
       },
+      "title": {
+       "sv": "Rom avskaffar monarkin"
+      },
       "text": {
-       "sv": "Rom avskaffar den makedoniska monarkin efter tredje makedoniska kriget."
+       "sv": "Rom besegrar kung Perseus vid Pydna i tredje makedoniska kriget. Monarkin avskaffas, och Makedonien delas i fyra republiker under Rom."
       },
       "sources": [
        "wp-macedonia-ancient"
-      ]
+      ],
+      "mapNote": {
+       "sv": "Kartdatan för riket slutar 293 f.Kr."
+      }
      }
     ],
     "mapNote": {
@@ -879,20 +1238,63 @@
       "label": {
        "sv": "cirka 320 f.Kr."
       },
+      "title": {
+       "sv": "Chandragupta grundar riket"
+      },
       "text": {
-       "sv": "Chandragupta Maurya besegrar Nandadynastin och grundar riket."
+       "sv": "Chandragupta Maurya besegrar Nandadynastin och grundar riket, med sin maktbas i Magadha. Hans välde når västerut till Afghanistan söder om Hindukush och söderut till norra Deckan."
       },
       "sources": [
        "wp-maurya-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket från 319 f.Kr."
+      }
+     },
+     {
+      "year": -302,
+      "label": {
+       "sv": "305–302 f.Kr."
+      },
+      "title": {
+       "sv": "Fred med Seleukos"
+      },
+      "text": {
+       "sv": "Seleukos I, som styr den asiatiska delen av Alexanders forna rike, går över Indus och möter Chandragupta. De sluter ett förbund med giftermål: Seleukos lämnar över sina östligaste provinser, bland annat Gandhara, och får 500 krigselefanter. Källorna daterar konflikten olika, till 305–303 eller 303–302 f.Kr."
+      },
+      "sources": [
+       "wp-maurya-empire",
+       "wp-seleucid-mauryan-war"
       ]
+     },
+     {
+      "year": -296,
+      "label": {
+       "sv": "cirka 297 f.Kr."
+      },
+      "title": {
+       "sv": "Bindusara erövrar söderut"
+      },
+      "text": {
+       "sv": "Chandraguptas son Bindusara blir kejsare och utvidgar riket söderut, till dagens Karnataka. Nästan hela den indiska halvön lyder under honom, utom tamilrikena längst i söder och Kalinga på östkusten."
+      },
+      "sources": [
+       "wp-maurya-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar en stor tillväxt, närmare 50 procent, från 292 f.Kr."
+      }
      },
      {
       "year": -267,
       "label": {
        "sv": "cirka 268 f.Kr."
       },
+      "title": {
+       "sv": "Ashoka blir kejsare"
+      },
       "text": {
-       "sv": "Ashoka blir kejsare. Under honom når riket sin största utbredning."
+       "sv": "Ashoka, Chandraguptas sonson, blir kejsare. Under honom kontrollerar riket en kort tid de viktigaste städerna och vägarna på hela subkontinenten utom längst i söder. Källan anger på ett annat ställe 272 f.Kr. som början på hans regering."
       },
       "sources": [
        "wp-maurya-empire"
@@ -901,26 +1303,57 @@
      {
       "year": -260,
       "label": {
-       "sv": "261 f.Kr."
+       "sv": "cirka 261 f.Kr."
+      },
+      "title": {
+       "sv": "Kalingakriget"
       },
       "text": {
-       "sv": "Kalingakriget. Efter våldet i Kalinga vänder sig Ashoka till buddhismen."
+       "sv": "Ashoka erövrar Kalinga på östkusten, i dagens Odisha. Uppskattningsvis 100 000 soldater och civila dödas. Efter förödelsen vänder sig Ashoka till buddhismen och tar avstånd från krig, men Kalinga förblir en del av riket."
+      },
+      "sources": [
+       "wp-maurya-empire",
+       "wp-kalinga-war"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar bara en liten ökning, cirka 3 procent, från 257 f.Kr."
+      }
+     },
+     {
+      "year": -231,
+      "label": {
+       "sv": "232 f.Kr."
+      },
+      "title": {
+       "sv": "Ashoka dör"
+      },
+      "text": {
+       "sv": "Efter Ashokas död följer en rad svagare kejsare. Riket förlorar många områden under hans sonson Dasharatha. En del återtas av Samprati, men därefter krymper riket steg för steg."
       },
       "sources": [
        "wp-maurya-empire"
-      ]
+      ],
+      "mapNote": {
+       "sv": "Kartan visar en minskning med cirka 70 procent från 226 f.Kr."
+      }
      },
      {
       "year": -184,
       "label": {
        "sv": "185 f.Kr."
       },
+      "title": {
+       "sv": "Riket upphör"
+      },
       "text": {
-       "sv": "Den siste kejsaren mördas, och riket upphör."
+       "sv": "Den siste kejsaren, Brihadratha, mördas av sin general Pushyamitra Shunga, som grundar Shungariket. Källan anger 185 f.Kr., men på ett ställe 180 f.Kr."
       },
       "sources": [
        "wp-maurya-empire"
-      ]
+      ],
+      "mapNote": {
+       "sv": "Kartan visar ett kraftigt minskat rike till och med 172 f.Kr."
+      }
      }
     ],
     "mapNote": {
