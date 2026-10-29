@@ -12,6 +12,7 @@ import { Panel } from './ui/panel.js';
 import { FunFacts } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
 import { LayerMenu } from './ui/layers.js';
+import { cluster } from './ui/clusters.js';
 
 const $ = id => document.getElementById(id);
 
@@ -156,15 +157,40 @@ async function start() {
   // Etiketter för synliga händelser, utan överlapp
   const labelsEl = $('labels');
   const pool = new Map();
+  const clusterPool = [];
   globe.onFrame(now => {
     layer.pulse(now, selectedId);
     const hl = ff.highlightIds();
     const order = [...visible].sort((a, b) =>
       ((b.e.id === selectedId) - (a.e.id === selectedId)) || (hl.has(b.e.id) - hl.has(a.e.id)) || (b.activity - a.activity));
+    // Klustra händelser som ligger nära varandra på skärmen (#26)
+    const items = order.map(v => ({ e: v.e, p: globe.project(v.e._pos), keep: v.e.id === selectedId || hl.has(v.e.id) }));
+    const { singles, clusters } = cluster(items.filter(it => it.p.facing > 0.05));
+    const clustered = new Set(clusters.flatMap(c => c.members.map(m => m.e.id)));
+    for (const s of layer.sprites) s.visible = s.userData.active && !clustered.has(s.userData.event.id);
+    clusters.forEach((c, i) => {
+      let el = clusterPool[i];
+      if (!el) {
+        el = document.createElement('button');
+        el.type = 'button'; el.className = 'gcluster';
+        el.addEventListener('click', () => {
+          // Zooma in mot klustret så att det delas upp
+          const ms = el._members;
+          globe.flyTo(ms.reduce((s, m) => s + m.e._lat, 0) / ms.length, ms.reduce((s, m) => s + m.e._lon, 0) / ms.length, 700);
+          globe.setZoom(globe.zoom * 1.8);
+        });
+        labelsEl.append(el); clusterPool[i] = el;
+      }
+      el._members = c.members;
+      el.textContent = String(c.members.length);
+      el.title = c.members.slice(0, 8).map(m => t(m.e.title)).join(', ') + (c.members.length > 8 ? ' …' : '');
+      el.style.transform = `translate(${c.x}px, ${c.y}px) translate(-50%, -50%)`;
+      el.hidden = false;
+    });
+    for (let i = clusters.length; i < clusterPool.length; i++) clusterPool[i].hidden = true;
     const placed = [];
     const seen = new Set();
-    for (const { e } of order.slice(0, 14)) {
-      const p = globe.project(e._pos);
+    for (const { e, p } of singles.slice(0, 14)) {
       if (p.facing < 0.2) continue;
       const w = t(e.title).length * 6.6 + 30, h = 22;
       const box = { x0: p.x - w / 2, x1: p.x + w / 2, y0: p.y - 14 - h, y1: p.y - 14 };

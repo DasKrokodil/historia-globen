@@ -66,6 +66,19 @@ body {
   pointer-events: auto;
   cursor: pointer;
 }
+.gcluster {
+  position: absolute; left: 0; top: 0;
+  min-width: 28px; height: 28px; padding: 0 7px;
+  border-radius: 999px;
+  font: 600 12px/26px var(--f-mono);
+  color: var(--parchment);
+  background: color-mix(in srgb, var(--night) 85%, transparent);
+  border: 1.5px solid var(--brass);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brass) 25%, transparent);
+  pointer-events: auto;
+  cursor: zoom-in;
+}
+.gcluster:hover { background: var(--night-3); }
 .glabel .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
 
 /* ---------- huvud ---------- */
