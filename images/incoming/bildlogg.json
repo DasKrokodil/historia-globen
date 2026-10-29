@@ -308,5 +308,17 @@
     "credit": "Okänd fotograf / Library of Congress, Prints & Photographs Division (LC-USZ62-21583)",
     "license": "Inga kända restriktioner (Library of Congress)",
     "source": "loc-eiffel-campanile-1889"
+  },
+  {
+    "id": "jesu-fodelse",
+    "file": "jesu-fodelse.jpg",
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Jesu födelse som Giotto målade den på 1300-talet: fresk i Scrovegnikapellet i Padua, 1306 enligt filsidan. En konstnärs bild över tusen år senare, inte en skildring från händelsens tid. Utsnitt. Public domain."
+    },
+    "credit": "Giotto di Bondone / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-giotto-nativity"
   }
 ]

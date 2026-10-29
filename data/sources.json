@@ -159,6 +159,7 @@
     { "id": "wp-kalinga-war", "title": "Kalinga War – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kalinga_War", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
     { "id": "wp-seleucid-mauryan-war", "title": "Seleucid–Mauryan War – Wikipedia", "url": "https://en.wikipedia.org/wiki/Seleucid–Mauryan_War", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
     { "id": "loc-taj-mahal-photochrom", "title": "Agra. Taj Mahal – fotokrom, Photoglob Co., ca 1890–1910 (Library of Congress, Photochrom Print Collection, LC-DIG-ppmsca-41418)", "url": "https://www.loc.gov/pictures/item/2017658158/", "license": "No known restrictions on publication", "checked": "2026-10-29" },
-    { "id": "loc-eiffel-campanile-1889", "title": "[Eiffel tower] Montage du campanile – fotografi 15 mars 1889 (Library of Congress, LC-USZ62-21583)", "url": "https://www.loc.gov/pictures/item/2022635976/", "license": "No known restrictions on publication", "checked": "2026-10-29" }
+    { "id": "loc-eiffel-campanile-1889", "title": "[Eiffel tower] Montage du campanile – fotografi 15 mars 1889 (Library of Congress, LC-USZ62-21583)", "url": "https://www.loc.gov/pictures/item/2022635976/", "license": "No known restrictions on publication", "checked": "2026-10-29" },
+    { "id": "commons-giotto-nativity", "title": "Giotto – Scrovegni – Nativity, Birth of Jesus, fresk 1306 (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:Giotto_-_Scrovegni_-_-17-_-_Nativity,_Birth_of_Jesus.jpg", "license": "Public domain", "checked": "2026-10-29" }
   ]
 }

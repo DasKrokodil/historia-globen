@@ -331,6 +331,7 @@
       "title": { "sv": "Jesus föds" },
       "summary": { "sv": "Enligt evangelierna föds Jesus i Betlehem under kung Herodes tid. Årtalet står inte i någon källa från tiden. Räknat från Herodes död blir det mellan 6 och 4 f.Kr." },
       "note": { "title": { "sv": "Om år 0" }, "text": { "sv": "Vår tideräkning räknar från det år man förr trodde att Jesus föddes. Munken Dionysius Exiguus tog fram den år 525 i Rom, men den blev vanlig först på 800-talet. Det finns inget år 0: efter 1 f.Kr. kommer direkt 1 e.Kr. I dag tror forskare att Jesus föddes några år tidigare, kanske runt 5 f.Kr. Källorna räcker inte för ett säkert årtal." }},
+      "image": {"file": "images/events/jesu-fodelse.webp", "kind": "historisk", "style": "antik", "caption": {"sv": "Jesu födelse som Giotto målade den på 1300-talet: fresk i Scrovegnikapellet i Padua, 1306 enligt filsidan. En konstnärs bild över tusen år senare, inte en skildring från händelsens tid. Utsnitt. Public domain."}, "credit": "Giotto di Bondone / Wikimedia Commons", "license": "Public domain", "source": "commons-giotto-nativity"},
       "sources": ["wp-nativity", "wp-anno-domini", "wp-bethlehem"], "review": "source-checked" },
 
     { "id": "korsfastelsen", "category": "religion", "icon": "star", "religion": "kristendom", "founding": true, "start": 30, "end": 33, "precision": 9, "edtf": "0030/0033",
