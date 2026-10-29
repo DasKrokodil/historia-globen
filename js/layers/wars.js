@@ -38,19 +38,27 @@ export class WarsLayer {
       // Ett område per krigsskådeplats, så att ett världskrig inte täcker halva jorden (#211)
       const r = 14 * k;
       for (const group of theatres(points)) {
-        const ring = [];
+        // Longituderna räknas nära gruppens första plats, så att en skådeplats över
+        // datumlinjen (till exempel Midway och Guadalcanal) inte blir ett band runt jorden
+        const ref = group[0][0], ring = [];
         for (const [lon, lat] of group) {
-          const x = (lon + 180) / 360 * W, y = (90 - lat) / 180 * H;
+          const x = (lon - 360 * Math.round((lon - ref) / 360) + 180) / 360 * W, y = (90 - lat) / 180 * H;
           for (let a = 0; a < 12; a++) ring.push([x + r * Math.cos(a * Math.PI / 6), y + r * Math.sin(a * Math.PI / 6)]);
         }
         const hull = convexHull(ring);
-        ctx.beginPath();
-        hull.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
-        ctx.closePath();
-        ctx.globalAlpha = 0.12; ctx.fillStyle = col; ctx.fill();
-        ctx.globalAlpha = 1; ctx.fillStyle = hatch(ctx, col, k); ctx.fill();
-        ctx.strokeStyle = '#7a1f17'; ctx.lineWidth = 4 * k; ctx.globalAlpha = 0.5; ctx.stroke();
-        ctx.strokeStyle = col; ctx.lineWidth = 2.2 * k; ctx.globalAlpha = 1; ctx.stroke();
+        // Går området över bildens kant ritas det också en bildbredd åt andra hållet
+        const xs = hull.map(([x]) => x), shifts = [0];
+        if (Math.min(...xs) < 0) shifts.push(W);
+        if (Math.max(...xs) > W) shifts.push(-W);
+        for (const dx of shifts) {
+          ctx.beginPath();
+          hull.forEach(([x, y], i) => i ? ctx.lineTo(x + dx, y) : ctx.moveTo(x + dx, y));
+          ctx.closePath();
+          ctx.globalAlpha = 0.12; ctx.fillStyle = col; ctx.fill();
+          ctx.globalAlpha = 1; ctx.fillStyle = hatch(ctx, col, k); ctx.fill();
+          ctx.strokeStyle = '#7a1f17'; ctx.lineWidth = 4 * k; ctx.globalAlpha = 0.5; ctx.stroke();
+          ctx.strokeStyle = col; ctx.lineWidth = 2.2 * k; ctx.globalAlpha = 1; ctx.stroke();
+        }
       }
     }
     ctx.restore();
