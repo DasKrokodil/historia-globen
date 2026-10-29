@@ -153,6 +153,7 @@
       "location": { "type": "Point", "coordinates": [-76.285, 36.847] }, "locationPrecision": "region", "place": { "sv": "Ombord på skeppet William utanför Norfolk, Virginia" },
       "title": { "sv": "Dunmores proklamation" },
       "summary": { "sv": "Den 7 november 1775 lovar Virginias brittiske guvernör, lord Dunmore, frihet åt förslavade och tjänare hos patrioterna som tar värvning för kronan. Mellan 800 och 2 000 förslavade flyr till honom. Löftet gällde inte lojalisternas förslavade. År 1779 utvidgade britterna erbjudandet till alla kolonier, och minst 20 000 förslavade flydde till brittisk tjänst under kriget." },
+      "note": { "title": { "sv": "Bara en källa" }, "text": { "sv": "Wikidatas post om proklamationen har inget datum eller någon plats, så årtal och plats har inte kunnat jämföras med en andra, oberoende källa. Uppgifterna kommer från Wikipedia." } },
       "wikidata": "Q5315497", "sources": ["wp-dunmores-proclamation", "wp-american-revolutionary-war", "wp-norfolk-virginia"], "review": "source-checked" },
 
     { "id": "sjalvstandighetsforklaringen", "category": "krig", "icon": "scroll", "partOf": "amerikanska-frihetskriget", "major": true, "top": true, "start": 1776, "end": 1776, "precision": 11, "edtf": "1776-07-04",
