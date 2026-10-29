@@ -38,7 +38,7 @@ img/icons/            ikoner för händelser (egna SVG-teckningar)
 images/events/        bilder till händelser (historiska bilder och märkta illustrationer)
 images/incoming/      nya bilder innan de konverteras
 tools/                hjälpskript som körs för hand (Python): riken, bildpromptar och bildkonvertering
-docs/bildpromptar.md  färdiga promptar för illustrationer
+docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar
 data/events.json      händelser
 data/funfacts.json    fun facts, kopplade till händelser
 data/sources.json     källregister
@@ -57,6 +57,8 @@ data/styles.json      bildstilar efter tidsålder och plats
 - **Ekvirektangulär rendering.** Lagren ritas på en platt världsbild som läggs på klotet. Samma bild kan skickas till en fysisk globskärm (knappen "Platt vy").
 - **Lager som moduler.** Lagertyperna är punkt, linje, område, bildlager och tur.
 
+Mer i [docs/arkitektur.md](docs/arkitektur.md). Besluten bakom finns i [docs/beslut.md](docs/beslut.md).
+
 ## Datamodell i korthet
 
 - **År** lagras som heltal med astronomisk årsräkning (ISO 8601): `0` = 1 f.Kr., `-1` = 2 f.Kr.
@@ -65,13 +67,17 @@ data/styles.json      bildstilar efter tidsålder och plats
 - **Plats** anges som GeoJSON `[longitud, latitud]` i WGS 84.
 - **Texter** lagras per språk (`sv`, `en`, `fr`, `de`, `es`). Saknas ett språk visas engelska, sedan svenska.
 
+Alla fält och filer beskrivs i [docs/datamodell.md](docs/datamodell.md).
+
 ## Källpolicy
 
 1. Varje uppgift har minst en källa i `data/sources.json`, med länk och datum då den kontrollerades.
-2. Varje uppgift har en granskningsstatus: `draft`, `source-checked` eller `human-reviewed`. Utkast visas inte.
+2. Varje uppgift har en granskningsstatus: `draft`, `source-checked`, `two-sources` eller `human-reviewed`. Utkast visas inte.
 3. Uppgifter som föreslås av AI är utkast tills källan är öppnad och stämmer.
 4. Osäkerhet visas öppet, till exempel "cirka" eller ett spann.
 5. En fun fact som jämför två saker har källa för båda leden.
+
+Hur kontrollen går till står i [docs/kallor.md](docs/kallor.md).
 
 ## Bidra
 
