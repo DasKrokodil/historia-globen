@@ -27,26 +27,40 @@ export class WarsLayer {
   drawOverlay(ctx, W, H) {
     const k = W / 2048;
     ctx.save();
-    ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
     for (const { war, points } of this.active) {
-      const px = points.map(([lon, lat]) => [(lon + 180) / 360 * W, (90 - lat) / 180 * H]);
-      const hull = convexHull(px);
       const col = CAT[war.category]?.color ?? '#e5675a';
-      // Ett fält runt punkterna: fyll höljet och rita en bred, rundad kant
+      // Krigsskådeplatsen som i en historisk kartbok: ett avrundat område runt
+      // krigets plats och slagen, med hel kantlinje och diagonal skraffering
+      const r = 14 * k;
+      const ring = [];
+      for (const [lon, lat] of points) {
+        const x = (lon + 180) / 360 * W, y = (90 - lat) / 180 * H;
+        for (let a = 0; a < 12; a++) ring.push([x + r * Math.cos(a * Math.PI / 6), y + r * Math.sin(a * Math.PI / 6)]);
+      }
+      const hull = convexHull(ring);
       ctx.beginPath();
       hull.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
       ctx.closePath();
-      ctx.globalAlpha = 0.16;
-      ctx.fillStyle = col; ctx.fill();
-      ctx.strokeStyle = col; ctx.lineWidth = 34 * k; ctx.stroke();
-      ctx.globalAlpha = 0.6;
-      ctx.setLineDash([6 * k, 5 * k]); ctx.lineWidth = 1.4 * k;
-      ctx.stroke();
-      ctx.setLineDash([]);
-      ctx.globalAlpha = 1;
+      ctx.globalAlpha = 0.12; ctx.fillStyle = col; ctx.fill();
+      ctx.globalAlpha = 1; ctx.fillStyle = hatch(ctx, col, k); ctx.fill();
+      ctx.strokeStyle = '#7a1f17'; ctx.lineWidth = 4 * k; ctx.globalAlpha = 0.5; ctx.stroke();
+      ctx.strokeStyle = col; ctx.lineWidth = 2.2 * k; ctx.globalAlpha = 1; ctx.stroke();
     }
     ctx.restore();
   }
+}
+
+/** Diagonal skraffering i krigets färg. */
+function hatch(ctx, color, k) {
+  const s = Math.max(6, Math.round(9 * k));
+  const c = document.createElement('canvas'); c.width = c.height = s;
+  const g = c.getContext('2d');
+  g.strokeStyle = color; g.globalAlpha = 0.75; g.lineWidth = Math.max(1, 1.6 * k);
+  g.beginPath();
+  for (const o of [-s, 0, s]) { g.moveTo(o, s); g.lineTo(o + s, 0); }
+  g.stroke();
+  return ctx.createPattern(c, 'repeat');
 }
 
 /** Konvext hölje (monotone chain) av punkter i bildkoordinater. */
