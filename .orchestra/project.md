@@ -1,0 +1,61 @@
+# Orkesterns projektpolicy: Historia-globen
+
+Inställningar för [dirigenten och orkestern](shared/README.md) i det här projektet (#145). Gemensamma regler står i
+[shared/ORCHESTRA.md](shared/ORCHESTRA.md). Projektets regler här och i [CLAUDE.md](../CLAUDE.md) går före de
+gemensamma standardvärdena. Det här är försöksinstallationen: Rikard utvärderar efter första testet.
+
+- **Regler att läsa först:** [CLAUDE.md](../CLAUDE.md) (arkitektur, datamodell, källpolicy, licenser, bilder,
+  utseende, test och arbetssätt), [docs/beslut.md](../docs/beslut.md), [docs/kallor.md](../docs/kallor.md),
+  [docs/datamodell.md](../docs/datamodell.md) och [docs/arkitektur.md](../docs/arkitektur.md).
+- **Språk:** svenska i chatt, issues, kommentarer och pull requests, kort och tydligt, enligt CLAUDE.md. Rikard är
+  projektledare: förklara vad som ändrats och varför. Användarens område: argumentet till `/orkester`.
+- **Läge:** `/orkester` med ett område (issuenummer eller ämne) kör ett avgränsat pass över just det området.
+  `/orkester` utan område kör ett avgränsat pass över hela kön. Inget av dem startar timer, köavläsning eller
+  bevakning. En obevakad kösession körs bara när Rikard uttryckligen ber om den.
+- **Repo och samordning:** `DasKrokodil/historia-globen`. Ingen statusissue; status rapporteras i chatten och i
+  varje issue.
+- **Issues:** GitHub, enligt shared/ISSUE-WORKFLOW.md. Projektets etiketter: `idé`, `data`, `faktafel`,
+  `källkontroll`, `utseende`, `utanför-kod`, `version-2`. Prioritetsetiketter används inte. Ordningen är då
+  milstolpens versionsnummer (lägst först), sedan skapandetid. Issues med etiketten `utanför-kod` tas aldrig.
+- **Krav per issue:** milstolpar som Rikard ännu inte har öppnat för arbete (versioner efter den pågående) tas inte
+  utan att han ber om det, enligt CLAUDE.md: varje version slutar med hans utvärdering.
+- **Anspråk:** en kommentar på issuet ("Orkestern tar det här, session <id>") och etiketten `orkester: pågår` medan
+  arbetet pågår. Etiketten tas bort när pull requesten är öppnad eller arbetet pausas.
+- **Kapacitet:** högst tre arbetare samtidigt, inklusive hjälpare. Dirigenten får göra ett arbete själv, och det
+  räknas då som en plats. Webbläsartester (Playwright) körs av en arbetare i taget, var och en med egen port.
+- **Isolering:** varje arbetare har en egen arbetskopia (git worktree) och en egen port för
+  `python3 -m http.server`: 8001, 8002 och 8003. Kontrollera att servern visar arbetarens egen kopia.
+- **Modeller:** arbetare får en billigare modell för rutinändringar i kod och utseende. **Undantag (källpolicyn):**
+  issues med etiketten `data`, `faktafel` eller `källkontroll`, och allt som lägger in eller ändrar fakta, årtal,
+  platser eller källor, görs av dirigenten själv eller av en arbetare med samma modell som dirigenten. Källsidan
+  öppnas alltid. Ingen uppgift skrivs ur minnet, och nivån `human-reviewed` sätts aldrig.
+- **Tider:** ingen köavläsning eller bevakning under försöket. Hjärtslag från arbetare var 15:e minut, och arbete
+  utan framsteg i 45 minuter diagnostiseras.
+- **Frågor:** frågor som bara Rikard kan svara på postas som kommentar på issuet, med alternativ och en
+  rekommendation, och etiketten `user question`. Ett avgränsat pass frågar aldrig i chatten. Ändringar av
+  arkitektur, nya beroenden, kategorier eller datakällor med ny licens är alltid sådana frågor (CLAUDE.md).
+- **Inflöde:** inga automatiska inflödessteg.
+- **Granskning när kön är tom:** standard. Fynd blir nya issues, men byggs inte utan att de ingår i passets område.
+- **Test och bevis före pull request:** enligt CLAUDE.md, "Testa innan du är klar": inga fel i konsolen, giltig JSON
+  och att varje `sources`-id finns i `sources.json`. Testa dator- och mobilbredd (cirka 400 px), med skärmbilder
+  vid ändringar i utseendet.
+- **Leverans (PR-läge):** pusha aldrig till `main`. Varje issue levereras på en egen gren `claude/issue-<N>-<namn>`
+  som en pull request på svenska, med `Closes #N`, vad som ändrats, varför och hur Rikard testar. Ingen force push.
+  Rikard slår ihop. Issuet stängs när pull requesten slås ihop, inte av orkestern. Uppdatera `docs/` och
+  beslutsloggen i `docs/beslut.md` i samma pull request när något sådant ändras.
+- **Gränser och licenser:** kod GPL-3.0, data CC BY 4.0, källor och licenser enligt CLAUDE.md. Orkesterns filer i
+  `.orchestra/shared` har MIT-licens och redigeras inte här. Ändringar i dem föreslås till upstream.
+- **Installerad version:** v0.6.0, commit `aecd631907c3374800e562c98125d905863ff925`, via git subtree med squash.
+  Uppdatera enligt [shared/INSTALL.md](shared/INSTALL.md).
+- **Uppströmsversioner:** https://github.com/solwation/dirigenten-och-orkestern, kontrolleras när dirigenten startar
+  och återanvänds i 24 timmar. Relevanta buggfixar föreslås som ett issue här. Andra uppgraderingar är frivilliga.
+  Uppgraderingar importeras bara när Rikard godkänner. Verktyget `gh` finns inte i molnmiljön; använd GitHubs
+  MCP-verktyg eller vanliga git-kommandon.
+
+## Projektets fashakar
+
+| Hake | Fas och utlösare | Procedur | Ägare | Krav och bevis |
+| --- | --- | --- | --- | --- |
+| Källkontroll | `implementation`: ändringar i `data/` eller fakta i text | Öppna källsidan, jämför årtal, plats och påståenden, uppdatera `checked` i `sources.json` (docs/kallor.md) | Dirigenten eller arbetare med samma modell som dirigenten | Krävs: källor och kontrolldatum i diffen |
+| Skärmbilder | `verification`: ändringar i utseendet | Playwright i dator- (1400 × 900) och mobilbredd (400 × 800) mot arbetarens egen server | Arbetaren | Krävs: skärmbilder och kontroll att horisontell scroll saknas och konsolen är felfri |
+| Granska bilder | `review`: ändringar i utseendet | Jämför skärmbilderna med issuets mål och stilen i CLAUDE.md | Dirigenten | Krävs: granskningen beskriven i pull requesten |

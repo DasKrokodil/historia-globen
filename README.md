@@ -39,6 +39,7 @@ images/events/        bilder till händelser (historiska bilder och märkta illu
 images/incoming/      nya bilder innan de konverteras
 tools/                hjälpskript som körs för hand (Python): riken, bildpromptar och bildkonvertering
 docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar
+.orchestra/           arbetsflödet dirigenten och orkestern (försök, MIT-licens)
 data/events.json      händelser
 data/funfacts.json    fun facts, kopplade till händelser
 data/sources.json     källregister
@@ -95,6 +96,7 @@ Hittar du ett faktafel, öppna ett issue och ange vilken uppgift det gäller och
   - **Historiska bilder** kommer från Wikimedia Commons och är public domain, CC0, CC BY eller CC BY-SA. Varje bild behåller sin egen licens, som står i bildtexten tillsammans med upphov och länk till filsidan. Filsidan finns i källregistret.
   - **Illustrationer** i en tidsålders bildtradition är tydligt märkta "inte en historisk bild" i bildtexten. Verktyg, datum och prompt sparas i `data/events.json`. De licensieras under CC BY 4.0 som övrig data, i den mån de alls omfattas av upphovsrätt.
   - **Platshållare** märks "Platshållare" tills den riktiga bilden finns.
+- **Dirigenten och orkestern** i `.orchestra/shared/` kommer från [solwation/dirigenten-och-orkestern](https://github.com/solwation/dirigenten-och-orkestern) och har MIT-licens. Det är instruktioner för AI-agenter, inte en del av sidan.
 - **three.js** laddas från jsDelivr och har MIT-licens. Typsnitten kommer från Google Fonts (SIL Open Font License).
 - Händelsetexterna är egna sammanfattningar. Källorna, ofta Wikipedia (CC BY-SA), länkas från varje uppgift.
 

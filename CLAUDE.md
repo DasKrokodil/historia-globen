@@ -42,6 +42,7 @@ images/events/        bilder till händelser, <händelse-id>.webp, 800 × 600
 images/incoming/      Rikards nya bilder, innan de konverteras
 tools/                hjälpskript som körs för hand (riken, bildpromptar, bildkonvertering)
 docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar
+.orchestra/           dirigenten och orkestern: project.md (projektets policy) och shared/ (fäst version, redigeras inte)
 ```
 
 Nya lager läggs i `js/layers/`, ny UI i `js/ui/`, ny data i `data/`. Uppdatera filstrukturen i README.md när den ändras.
@@ -115,6 +116,7 @@ Rikard gillar stilen. Behåll den:
 - **Beslut:** när vi bestämmer något som påverkar arkitektur, datamodell, källor, licenser, kategorier eller utseende, lägg till det sist i [docs/beslut.md](docs/beslut.md) (datum, beslut, kort motivering) i samma pull request.
 - **Dokumentation** ligger i `docs/`: [arkitektur.md](docs/arkitektur.md), [datamodell.md](docs/datamodell.md), [beslut.md](docs/beslut.md) och [kallor.md](docs/kallor.md). Uppdatera dem i samma pull request när koden, ett datafält eller ett arbetssätt ändras.
 - **Fråga först** innan du ändrar arkitekturen, lägger till beroenden, kategorier eller datakällor med ny licens.
+- **Orkestern (försök, #145):** `/orkester [issue eller område]` kör dirigenten och orkestern enligt [.orchestra/project.md](.orchestra/project.md): ett avgränsat pass i PR-läge, där issues med fakta och data görs med samma modell som dirigenten. Filerna i `.orchestra/shared/` redigeras inte här.
 - **Sådant som inte är kod** (namn, domän, fysisk glob, hårdvara, affärsfrågor) planeras i Rikards Claude-projekt "Historia-globen", inte här. Om sådant kommer upp: påminn Rikard om det och skapa högst ett issue med etiketten `utanför-kod` som anteckning.
 
 ## Nästa steg: version 2
