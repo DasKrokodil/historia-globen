@@ -37,6 +37,9 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   issues med etiketten `data`, `faktafel` eller `källkontroll`, och allt som lägger in eller ändrar fakta, årtal,
   platser eller källor, görs av dirigenten själv eller av en arbetare med samma modell som dirigenten. Källsidan
   öppnas alltid. Ingen uppgift skrivs ur minnet, och nivån `human-reviewed` sätts aldrig.
+- **Personuppgifter:** arbetare och dirigent skickar aldrig Rikards namn, e-postadress eller andra personuppgifter till
+  externa tjänster, till exempel i en User-Agent, en URL eller en förfrågan. Behöver en tjänst en kontaktuppgift används
+  projektets namn och repots adress (`Historia-globen (https://github.com/DasKrokodil/historia-globen)`).
 - **Spärrade källor:** molnmiljöns nätverk kan stoppa källsajter. Går en källa inte att öppna används den inte, inte
   ens via en sökträff. Uppgiften behåller sin nivå, och pull requesten säger vilka domäner som behöver släppas på.
   Är källorna oense skrivs det öppet i händelsens `note` ("Källorna skiljer sig") och nivån höjs inte.
