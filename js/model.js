@@ -107,7 +107,7 @@ export async function loadAll() {
   }
   return {
     events: events.events, byId, funfacts: funfacts.funfacts, sources: sources.sources, srcById, land,
-    polities: empires.polities, borders,
+    polities: empires.polities, empireGroups: empires.groups ?? [], borders,
   };
 }
 

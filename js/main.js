@@ -13,6 +13,7 @@ import { FunFacts } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
 import { LayerMenu } from './ui/layers.js';
 import { cluster } from './ui/clusters.js';
+import { FocusMenu } from './ui/focusmenu.js';
 
 const $ = id => document.getElementById(id);
 
@@ -43,12 +44,16 @@ async function start() {
   });
   timeline.setMarks(data.events.filter(e => !e.partOf || e.top || e.major), data.funfacts, e => CAT[e.category]?.color ?? '#fff');
 
+  let focusWar = null, focus = null, lastYear = 0;
+
   // Lagerväljaren: vilka lager som syns. Startläget står i index.html.
   const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu') });
+  // I fokusläge syns det man följer även om lagret är avslaget i menyn
   const applyLayers = () => {
-    areas.enabled = layers.on.areas;
+  // och det andra av riken och religioner göms, så att områdena inte täcker varandra
+    areas.enabled = focus?.type === 'empire' || (layers.on.areas && focus?.type !== 'religion');
     borders.enabled = layers.on.borders;
-    religions.enabled = layers.on.religions;
+    religions.enabled = focus?.type === 'religion' || (layers.on.religions && focus?.type !== 'empire');
     $('religion-list').hidden = !layers.on.religions;
     ff.enabled = layers.on.funfacts;
   };
@@ -79,29 +84,82 @@ async function start() {
 
   let selectedId = null;
   let visible = [];
-  let focusWar = null, lastYear = 0;
 
-  // Fokusläge (#109): tidslinjen och globen zoomar in på ett krig, och uppspelningen går långsamt
-  function startFocus(war) {
-    focusWar = war;
-    const pts = [war, ...war._battles];
-    globe.flyTo(pts.reduce((s, e) => s + e._lat, 0) / pts.length, pts.reduce((s, e) => s + e._lon, 0) / pts.length, 900);
-    globe.setZoom(2.2);
-    $('focus-title').textContent = `${t(war.title)} ${formatEventTime(war)}`;
+  /** Mittpunkt för en GeoJSON-geometri (mitten av dess yttre gränser), som [lat, lon]. */
+  function geoCenter(geoms) {
+    let a = 180, b = -180, c = 90, d = -90;
+    for (const g of geoms) for (const poly of g.type === 'Polygon' ? [g.coordinates] : g.coordinates) {
+      for (const [lon, lat] of poly[0]) { a = Math.min(a, lon); b = Math.max(b, lon); c = Math.min(c, lat); d = Math.max(d, lat); }
+    }
+    return [(c + d) / 2, (a + b) / 2];
+  }
+
+  // Fokusläge (#109, #113): följ ett krig, ett rike eller en religion. Tidslinjen och
+  // globen zoomar in, och uppspelningen går långsamt.
+  async function startFocus(key) {
+    const [type, id] = key.split(':');
+    let f;
+    if (type === 'war') {
+      const war = data.byId[id];
+      const pts = [war, ...war._battles];
+      f = { type, id, title: `${t(war.title)} ${formatEventTime(war)}`, short: t(war.title), from: war.start, to: war.end,
+        center: [pts.reduce((s, e) => s + e._lat, 0) / pts.length, pts.reduce((s, e) => s + e._lon, 0) / pts.length], zoom: 2.2 };
+    } else if (type === 'empire') {
+      const ps = data.polities.filter(p => p.group === id);
+      const periods = ps.flatMap(p => p.periods);
+      const g = data.empireGroups.find(x => x.id === id);
+      const from = Math.min(...periods.map(p => p.start)), to = Math.max(...periods.map(p => p.end));
+      f = { type, id, title: `${t(g?.name ?? id)} ${formatYearSpan(from, to)}`, short: t(g?.name ?? id), from, to,
+        center: geoCenter(periods.map(p => p.geometry)), zoom: 1.8 };
+    } else {
+      const doc = await loadReligions();
+      const r = doc.religions.find(x => x.id === id);
+      const from = r.snapshots[0].start, to = 2024;
+      f = { type, id, title: `${t(r.name)} ${formatYearSpan(from, to)}`, short: t(r.name), from, to,
+        center: geoCenter([r.snapshots[0].geometry]), zoom: 1.3 };
+      if (!religions.religions.length) religions.setData(doc.religions);
+    }
+    if (focus) endFocus(false);
+    focus = f;
+    focusWar = type === 'war' ? data.byId[id] : null;
+    areas.onlyGroup = type === 'empire' ? id : null;
+    religions.onlyId = type === 'religion' ? id : null;
+    applyLayers();
+    globe.flyTo(f.center[0], f.center[1], 900);
+    globe.setZoom(f.zoom);
+    $('focus-title').textContent = f.title;
     $('focus-bar').hidden = false;
-    panel.setOpen(false); // listan stängs så att kriget syns
-    timeline.setFocus({ from: war.start, to: war.end });
-    lastYear = timeline.year;
-    timeline.year = war.start;
+    panel.setOpen(false); // listan stängs så att det man följer syns
+    timeline.setFocus({ from: f.from, to: f.to });
+    lastYear = f.from;
+    timeline.year = f.from;
     refresh();
   }
-  function endFocus() {
-    focusWar = null;
+  function endFocus(redraw = true) {
+    focus = null; focusWar = null;
+    areas.onlyGroup = null; religions.onlyId = null;
+    applyLayers();
     $('focus-bar').hidden = true;
     timeline.setFocus(null);
     globe.setZoom(1);
-    refresh();
+    if (redraw) refresh();
   }
+  const formatYearSpan = (a, b) => formatEventTime({ start: a, end: b, edtf: '' });
+
+  // Fokusmenyn listar krig, riken och religioner. Religionerna hämtas när menyn öppnas.
+  const focusMenu = new FocusMenu({ button: $('btn-focus'), menu: $('focus-menu') });
+  const religionItems = doc => doc.religions.map(r => ({ key: `religion:${r.id}`, label: t(r.name), color: r.color }));
+  const focusGroups = (doc = null) => [
+    { title: 'Krig', items: data.events.filter(e => e.kind === 'war').map(e => ({ key: `war:${e.id}`, label: t(e.title), sub: formatEventTime(e), color: CAT[e.category]?.color })) },
+    { title: 'Riken', items: data.empireGroups.map(g => ({ key: `empire:${g.id}`, label: t(g.name), color: data.polities.find(p => p.group === g.id)?.color })) },
+    { title: 'Religioner', items: doc ? religionItems(doc) : [] },
+  ];
+  focusMenu.setGroups(focusGroups());
+  focusMenu.onOpen = async () => {
+    panel.setOpen(false); layers.close();
+    if (!focusMenu.groups[2].items.length) focusMenu.setGroups(focusGroups(await loadReligions()));
+  };
+  focusMenu.onPick = key => startFocus(key);
 
   function refresh() {
     const year = timeline.year;
@@ -129,7 +187,7 @@ async function start() {
     const [num, era] = yearParts(year);
     $('year-big').textContent = num;
     $('year-era').textContent = era;
-    $('year-segment').textContent = `${focusWar ? `Fokus: ${t(focusWar.title)}` : segmentName(year)} · visar ±${Math.round(window)} år`;
+    $('year-segment').textContent = `${focus ? `Fokus: ${focus.short}` : segmentName(year)} · visar ±${Math.round(window)} år`;
     // I fokusläge stannar uppspelningen vid krigets viktigaste händelser
     if (focusWar && timeline.playing) {
       const hit = focusWar._battles.find(b => b.major && b.start > lastYear && b.start <= year);
@@ -137,7 +195,7 @@ async function start() {
       if (hit) { timeline.pause(); selectedId = hit.id; panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }
     }
     // Pausa när ett krig bryter ut, om det är valt i lagermenyn (#114)
-    if (!focusWar && timeline.playing && layers.pause.wars && eventsOn) {
+    if (!focus && timeline.playing && layers.pause.wars && eventsOn) {
       const war = data.events.find(e => e.kind === 'war' && e.start > lastYear && e.start <= year
         && panel.filters.has(e.category) && isVisibleReview(e.review));
       if (war) { timeline.pause(); timeline.year = war.start; selectedId = war.id; panel.showDetail(war); }
@@ -163,7 +221,7 @@ async function start() {
 
   timeline.addEventListener('change', refresh);
   panel.onSelect = select;
-  panel.onFocus = id => startFocus(data.byId[id]);
+  panel.onFocus = id => startFocus(`war:${id}`);
   $('focus-exit').addEventListener('click', endFocus);
   panel.onFilter = refresh;
   ff.onSelect = select;
@@ -192,8 +250,8 @@ async function start() {
   document.fonts?.ready.then(refresh);
 
   // Menyerna uppe till höger: bara en åt gången
-  panel.onOpen = () => layers.close();
-  layers.onOpen = () => panel.setOpen(false);
+  panel.onOpen = () => { layers.close(); focusMenu.close(); };
+  layers.onOpen = () => { panel.setOpen(false); focusMenu.close(); };
 
   // Etiketter för synliga händelser, utan överlapp
   const labelsEl = $('labels');

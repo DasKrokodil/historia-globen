@@ -16,6 +16,7 @@ export class AreasLayer {
     if (!this.enabled) return this.active;
     for (const polity of this.polities) {
       if (!isVisibleReview(polity.review)) continue;
+      if (this.onlyGroup && polity.group !== this.onlyGroup) continue; // fokusläge för ett rike
       const period = polity.periods.find(p => year >= p.start && year <= p.end);
       if (period) this.active.push({ polity, period });
     }
