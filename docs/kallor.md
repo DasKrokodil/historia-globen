@@ -50,7 +50,7 @@ Varje grupp visar hur många källor och uppgifter den har och hur många uppgif
 
 ## Licenser
 
-- Data får bara komma från källor med licensen CC0, CC BY, public domain eller GPL (för gränsdata). Inte CC BY-NC, inte "alla rättigheter förbehållna" och inte data med oklara villkor.
+- Data får bara komma från källor med licensen CC0, CC BY, public domain eller GPL (för gränsdata). Inte CC BY-NC, inte "alla rättigheter förbehållna" och inte data med oklara villkor. Källor med NC-licens får däremot användas som länkade källor för fakta (årtal och plats), utan att text eller data kopieras (beslut 2026-10-29).
 - Undantag: historiska bildfiler får vara CC BY-SA och behåller sin egen licens.
 - Nya datakällor läggs i `data/sources.json` och i README:ns licensavsnitt när de används.
 
