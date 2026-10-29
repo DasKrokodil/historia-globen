@@ -362,7 +362,7 @@
     { "id": "slaget-vid-kambula", "category": "krig", "icon": "swords", "partOf": "anglo-zuluiska-kriget", "major": true, "start": 1879, "end": 1879, "precision": 11, "edtf": "1879-03-29",
       "location": { "type": "Point", "coordinates": [30.673, -27.693] }, "place": { "sv": "Kambula, nordvästra Zululand (KwaZulu-Natal)" },
       "title": { "sv": "Slaget vid Kambula vänder kriget" },
-      "summary": { "sv": "Dagen efter Hlobane, den 29 mars 1879, anfaller omkring 20 000 zulukrigare Evelyn Woods befästa läger vid Kambula, trots att Cetshwayo hade sagt åt armén att inte anfalla befästa läger. Efter fem timmar drar de sig tillbaka. Britterna förlorar 28 döda och zulufolket upp till 2 000. Många krigare går sedan hem, och britterna får övertaget i kriget." },
+      "summary": { "sv": "Dagen efter Hlobane, den 29 mars 1879, anfaller omkring 20 000 zulukrigare Evelyn Woods befästa läger vid Kambula, trots att Cetshwayo hade sagt åt armén att inte anfalla befästa läger. Efter fem timmar drar de sig tillbaka. Britterna förlorar 29 döda och zulufolket 758–2 000. Många krigare går sedan hem, och britterna får övertaget i kriget." },
       "wikidata": "Q949635", "sources": ["wp-kambula", "wp-anglo-zulu-war", "wikidata"], "review": "two-sources" },
 
     { "id": "slaget-vid-gingindlovu", "category": "krig", "icon": "swords", "partOf": "anglo-zuluiska-kriget", "start": 1879, "end": 1879, "precision": 11, "edtf": "1879-04-02",
