@@ -154,17 +154,21 @@ async function start() {
     globe.setZoom(f.zoom);
     $('focus-title').textContent = f.title;
     $('focus-bar').hidden = false;
+    $('app').classList.add('focusing');
     panel.setOpen(false); // listan stängs så att det man följer syns
     timeline.setFocus({ from: f.from, to: f.to });
     lastYear = f.from;
     timeline.year = f.from;
     refresh();
+    // Före start: varför kriget började och vilka som stred (#122)
+    if (focusWar?.story) { selectedId = focusWar.id; panel.showStory(focusWar, 'intro'); $('app').classList.add('has-detail'); }
   }
   function endFocus(redraw = true) {
     focus = null; focusWar = null;
     areas.onlyGroup = null; religions.onlyId = null;
     applyLayers();
     $('focus-bar').hidden = true;
+    $('app').classList.remove('focusing');
     timeline.setFocus(null);
     globe.setZoom(1);
     if (redraw) refresh();
@@ -236,7 +240,10 @@ async function start() {
     $('year-era').textContent = era;
     $('year-segment').textContent = `${focus ? `Fokus: ${focus.short}` : segmentName(year)} · visar ±${Math.round(window)} år`;
     // I fokusläge stannar uppspelningen vid krigets viktigaste händelser
-    if (focusWar && timeline.playing) {
+    // I slutet: hur kriget slutade och hur många som dog (#122)
+    if (focusWar?.story && timeline.playing && lastYear < focusWar.end && year >= focusWar.end) {
+      timeline.pause(); selectedId = focusWar.id; panel.showStory(focusWar, 'summary');
+    } else if (focusWar && timeline.playing && layers.pause.major) {
       const hit = focusWar._battles.find(b => b.major && b.start > lastYear && b.start <= year);
       // I smal skärm öppnas inte panelen, så att kartan syns; händelsen markeras på globen
       if (hit) { timeline.pause(); selectedId = hit.id; panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }

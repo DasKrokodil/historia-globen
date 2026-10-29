@@ -88,6 +88,33 @@ export class Panel {
     }
   }
 
+  /**
+   * Krigets berättelse i fokusläget (#122): före start orsak och parter, i slutet
+   * hur kriget slutade och hur många som dog. Uppgifterna finns i krigets story.
+   */
+  showStory(war, mode) {
+    const s = war.story;
+    this.selectedId = war.id;
+    const srcs = (s.sources ?? []).map(id => this.srcById[id]).filter(Boolean);
+    const body = mode === 'intro' ? `
+      <h4>Varför kriget började</h4><p>${esc(t(s.intro))}</p>
+      <h4>Parterna</h4>
+      <div class="parties">${s.parties.map(p => `<div><strong>${esc(t(p.name))}</strong><p>${esc(t(p.members))}</p></div>`).join('')}</div>
+      <p class="story-hint">Tryck på ▶ för att följa kriget.</p>` : `
+      <h4>Hur kriget slutade</h4><p>${esc(t(s.outcome))}</p>
+      <h4>Döda</h4><p>${esc(t(s.casualties))}</p>`;
+    this.detail.innerHTML = `
+      <button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
+      <div class="story-label">${mode === 'intro' ? 'Innan kriget börjar' : 'När kriget är slut'}</div>
+      <h3>${esc(t(war.title))}</h3>
+      <div class="meta">${esc(formatEventTime(war))} · ${esc(t(war.place))}</div>
+      <div class="story">${body}</div>
+      <div class="src">Källa: ${srcs.map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>`).join(', ') || 'saknas'}</div>`;
+    this.detail.scrollTop = 0;
+    this.detail.hidden = false;
+    this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
+  }
+
   /** Faktarutan är ett eget kort (#112). show = false markerar händelsen utan att visa kortet. */
   showDetail(e, show = true) {
     this.selectedId = e?.id ?? null;

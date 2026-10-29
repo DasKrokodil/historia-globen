@@ -507,6 +507,7 @@ body {
 @media (max-width: 760px) {
   .panel { left: var(--gut); right: var(--gut-r); width: auto; max-height: 55vh; }
   .detail-card { left: var(--gut); right: var(--gut-r); width: auto; bottom: 128px; max-height: 45vh; }
+  .app.focusing .detail-card { bottom: 176px; max-height: 40vh; } /* ovanför fokusraden */
   .app.has-detail .funfact { display: none; } /* faktarutan och fun fact-kortet delar plats */
   .masthead { max-width: 55vw; }
   .top-actions { max-width: 44vw; }
@@ -529,3 +530,13 @@ body {
   .funfact { animation: none; }
   .glabel { transition: none; }
 }
+
+/* ---------- krigets berättelse i fokusläget (#122) ---------- */
+.story-label { font: 600 10.5px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--card-accent); margin-bottom: 6px; }
+.story h4 { margin: 12px 0 2px; font: 600 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--card-accent); }
+.story p { margin: 4px 0 6px; }
+.parties { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.parties strong { font-size: 13px; }
+.parties p { font-size: 13px; line-height: 1.45; }
+.story-hint { font-style: italic; color: var(--card-dim); }
+@media (max-width: 760px) { .parties { grid-template-columns: 1fr; gap: 2px; } }
