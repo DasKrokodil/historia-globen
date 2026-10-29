@@ -30,6 +30,17 @@ Nivån syns i faktarutan och under Om källorna, inte som eget märke på globen
 | Cliopatria (Seshat) | Rikenas gränser | CC BY 4.0 | Används som den är, utan egen granskning (se [beslut.md](beslut.md)) |
 | Natural Earth | Grundkarta och dagens gränser | Public domain | |
 | Wikimedia Commons | Historiska bilder | Public domain, CC0, CC BY eller CC BY-SA | Licensen kontrolleras på filsidan, och filsidan läggs i källregistret |
+| Wikisource: Encyclopædia Britannica 1911, Dictionary of National Biography (1885–1900) och andra äldre verk | Andra källa för årtal och plats | Public domain | Äldre uppslagsverk kan vara föråldrade, så de används som jämförelse, inte ensamma |
+| World History Encyclopedia (worldhistory.org) | Andra källa för årtal och plats | CC BY-NC-SA (artikeltexten) | Bara länkad källa för fakta som årtal och plats. Text kopieras aldrig. |
+| Forskningsartiklar i PubMed Central (PMC) | Andra källa, till exempel för förhistoriska dateringar | Oftast CC BY (kontrolleras per artikel) | Licensen står i artikeln |
+
+### Källor som går att nå från molnmiljön
+
+Molnmiljöns nätverk släpper bara fram vissa sajter. Läget 2026-10-29 (#143):
+
+- **Går att nå:** Wikipedia, Wikidata, Wikimedia Commons, en.wikisource.org, www.worldhistory.org, pmc.ncbi.nlm.nih.gov (ibland en robotkontroll; då fungerar PMC:s OAI-gränssnitt `pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/`), www.bl.uk, www.nasa.gov, home.cern, www.nobelprize.org, www.raa.se, www.pewresearch.org och seshat-db.com.
+- **Svarar men stoppar oss:** www.loc.gov (robotkontroll, 403), Britannica, whc.unesco.org och Smithsonian (403), Met Museum (429). Wikisources API och sökning kan svara 429 om man frågar för ofta; vänta då en stund.
+- **Spärrade:** bland annat mathshistory.st-andrews.ac.uk, cudl.lib.cam.ac.uk, english-heritage.org.uk, riksarkivet.se, kungahuset.se, regeringen.se, runeberg.org, gutenberg.org, journals.plos.org, ebi.ac.uk (Europe PMC) och patents.google.com.
 
 ## Sidan Om källorna
 
