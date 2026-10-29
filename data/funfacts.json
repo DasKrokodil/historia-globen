@@ -2,52 +2,52 @@
   "schema": "historia-globen/funfacts@1",
   "notes": "Varje fun fact kopplar två händelser. Källorna är de båda händelsernas källor. show = intervall (astronomiska år) då kortet visas. Siffror i texten är beräknade från händelsernas årtal.",
   "funfacts": [
-    { "id": "mammut-pyramid", "events": ["mammutar-wrangel", "cheopspyramiden"], "show": [-2650, -2450], "review": "source-checked",
+    { "id": "mammut-pyramid", "events": ["mammutar-wrangel", "cheopspyramiden"], "show": [-2650, -2450], "review": "human-reviewed",
       "text": { "sv": "Medan Cheopspyramiden byggs lever det fortfarande ullhårsmammutar på Wrangelön. De försvinner först runt 2000 f.Kr." } },
 
-    { "id": "konfucius-sokrates", "events": ["konfucius", "sokrates"], "show": [-490, -460], "review": "source-checked",
+    { "id": "konfucius-sokrates", "events": ["konfucius", "sokrates"], "show": [-490, -460], "review": "human-reviewed",
       "text": { "sv": "Konfucius dör omkring 479 f.Kr. i Kina. Ungefär ett decennium senare föds Sokrates i Aten." } },
 
-    { "id": "kleopatra-manen", "events": ["kleopatra", "cheopspyramiden", "apollo-11"], "show": [-68, -29], "review": "source-checked",
+    { "id": "kleopatra-manen", "events": ["kleopatra", "cheopspyramiden", "apollo-11"], "show": [-68, -29], "review": "human-reviewed",
       "text": { "sv": "Kleopatra levde närmare månlandningen 1969 än byggandet av Cheopspyramiden. Det skiljer omkring 2 000 år till Apollo 11, men ungefär 2 500 år tillbaka till pyramiden." } },
 
-    { "id": "oxford-tenochtitlan", "events": ["oxford", "tenochtitlan"], "show": [1320, 1345], "review": "source-checked",
+    { "id": "oxford-tenochtitlan", "events": ["oxford", "tenochtitlan"], "show": [1320, 1345], "review": "human-reviewed",
       "text": { "sv": "När Tenochtitlan grundas 1325 har det redan undervisats i Oxford i minst 229 år." } },
 
-    { "id": "mansa-musa-guldpris", "events": ["mansa-musa-kairo"], "show": [1324, 1337], "review": "source-checked",
+    { "id": "mansa-musa-guldpris", "events": ["mansa-musa-kairo"], "show": [1324, 1337], "review": "human-reviewed",
       "text": { "sv": "När Mansa Musa besöker Kairo 1324 delar han ut så mycket guld att dess värde enligt historikern al-Umari sjunker. Al-Umari uppger att priset förblir lägre i minst tolv år, men moderna historiker har ifrågasatt hur stor och långvarig effekten egentligen var." } },
 
-    { "id": "ming-tenochtitlan", "events": ["ming", "tenochtitlan"], "show": [1365, 1380], "review": "source-checked",
+    { "id": "ming-tenochtitlan", "events": ["ming", "tenochtitlan"], "show": [1365, 1380], "review": "human-reviewed",
       "text": { "sv": "När Mingdynastin grundas 1368 är aztekernas Tenochtitlan bara 43 år gammalt." } },
 
-    { "id": "gutenberg-machupicchu", "events": ["gutenberg", "machu-picchu"], "show": [1436, 1470], "review": "source-checked",
+    { "id": "gutenberg-machupicchu", "events": ["gutenberg", "machu-picchu"], "show": [1436, 1470], "review": "human-reviewed",
       "text": { "sv": "Omkring 1440 utvecklar Johannes Gutenberg sin revolutionerande tryckteknik i Europa. Ungefär ett decennium senare uppför inkafolket Machu Picchu högt uppe i Anderna." } },
 
-    { "id": "harvard-kalkyl", "events": ["harvard", "newton-kalkyl"], "show": [1636, 1666], "review": "source-checked",
+    { "id": "harvard-kalkyl", "events": ["harvard", "newton-kalkyl"], "show": [1636, 1666], "review": "human-reviewed",
       "text": { "sv": "Harvard grundas 1636, nästan 30 år innan Newton tar fram infinitesimalkalkylen." } },
 
-    { "id": "fax-telefon", "events": ["bain-fax", "telefonen"], "show": [1843, 1876], "review": "source-checked",
+    { "id": "fax-telefon", "events": ["bain-fax", "telefonen"], "show": [1843, 1876], "review": "human-reviewed",
       "text": { "sv": "En föregångare till faxen patenteras 1843, hela 33 år innan Bell får patent på telefonen." } },
 
-    { "id": "osmaner-flyg", "events": ["osmanska-riket", "wright"], "show": [1900, 1910], "review": "source-checked",
+    { "id": "osmaner-flyg", "events": ["osmanska-riket", "wright"], "show": [1900, 1910], "review": "human-reviewed",
       "text": { "sv": "När bröderna Wright flyger för första gången 1903 finns Osmanska riket fortfarande. Det upphör först 1922." } },
 
-    { "id": "nintendo-eiffel", "events": ["eiffeltornet",  "nintendo"], "show": [1885,  1895], "review": "source-checked",
+    { "id": "nintendo-eiffel", "events": ["eiffeltornet",  "nintendo"], "show": [1885,  1895], "review": "human-reviewed",
       "text": { "sv": "Samma år som Eiffeltornet står klart i Paris, 1889, grundas Nintendo i Kyoto. Då gör företaget spelkort." } },
 
-    { "id": "dodsfall-1616", "events": ["cervantes-dor",  "shakespeare-dor",  "ieyasu-dor"], "show": [1612,  1620], "review": "source-checked",
+    { "id": "dodsfall-1616", "events": ["cervantes-dor",  "shakespeare-dor",  "ieyasu-dor"], "show": [1612,  1620], "review": "human-reviewed",
       "text": { "sv": "Under några veckor 1616 dör Cervantes i Madrid, Shakespeare i Stratford och Tokugawa Ieyasu i Japan." } },
 
-    { "id": "lincoln-darwin", "events": ["lincoln-fods",  "darwin-fods"], "show": [1805,  1813], "review": "source-checked",
+    { "id": "lincoln-darwin", "events": ["lincoln-fods",  "darwin-fods"], "show": [1805,  1813], "review": "human-reviewed",
       "text": { "sv": "Abraham Lincoln och Charles Darwin föds samma dag, den 12 februari 1809, på var sin sida av Atlanten." } },
 
-    { "id": "musa-battuta-tenochtitlan", "events": ["mansa-musa-kairo",  "ibn-battuta-resa",  "tenochtitlan"], "show": [1322,  1328], "review": "source-checked",
+    { "id": "musa-battuta-tenochtitlan", "events": ["mansa-musa-kairo",  "ibn-battuta-resa",  "tenochtitlan"], "show": [1322,  1328], "review": "human-reviewed",
       "text": { "sv": "1324 når Mansa Musa Kairo på väg till Mecka. 1325 ger sig Ibn Battuta av från Tanger åt samma håll. Samma år grundas Tenochtitlan." } },
 
-    { "id": "taj-harvard", "events": ["taj-mahal",  "harvard"], "show": [1632,  1640], "review": "source-checked",
+    { "id": "taj-harvard", "events": ["taj-mahal",  "harvard"], "show": [1632,  1640], "review": "human-reviewed",
       "text": { "sv": "När Harvard grundas 1636 har bygget av Taj Mahal i Indien redan pågått i omkring fyra år." } },
 
-    { "id": "giljotin-starwars", "events": ["sista-giljotinen",  "star-wars"], "show": [1975,  1980], "review": "source-checked",
+    { "id": "giljotin-starwars", "events": ["sista-giljotinen",  "star-wars"], "show": [1975,  1980], "review": "human-reviewed",
       "text": { "sv": "Frankrike avrättar sista gången med giljotin i september 1977, ungefär tre och en halv månad efter att Star Wars har haft premiär." } }
   ]
 }
