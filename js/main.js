@@ -55,8 +55,8 @@ async function start() {
   const ff = new FunFacts({
     root: $('funfact'), text: $('ff-text'), events: $('ff-events'), review: $('ff-review'),
     pager: $('ff-pager'), next: $('ff-next'), srcBtn: $('ff-sources'),
-    kind: $('ff-kind'), min: $('ff-min'), tab: $('ff-tab'), tabCount: $('ff-tab-count'),
-  }, { funfacts: [...data.funfacts, ...warCards(data.events)], byId: data.byId });
+    detailEl: $('ff-detail'), kind: $('ff-kind'), min: $('ff-min'), tab: $('ff-tab'), tabCount: $('ff-tab-count'),
+  }, { funfacts: [...data.funfacts, ...warCards(data.events)], byId: data.byId, srcById: data.srcById, styles: data.styles });
   const sources = new SourcesDialog({ root: $('sources-dialog'), body: $('sources-body'), close: $('sources-close'), openBtn: $('btn-sources') }, data);
 
   const timeline = new Timeline({
@@ -330,7 +330,20 @@ async function start() {
   }
 
   const narrow = matchMedia('(max-width: 760px)');
+  /** Val i Samtidigt-kortet (#169): globen flyger dit och händelsen markeras, men bilden visas i kortet och inte i faktarutan. */
+  function pick(id) {
+    selectedId = id;
+    const e = id ? data.byId[id] : null;
+    panel.showDetail(e, false);
+    if (e) {
+      globe.flyTo(e._lat, e._lon);
+      if (timeline.year < e.start - 400 || timeline.year > e.end + 400) timeline.year = e.start;
+    }
+    refresh();
+  }
+
   function select(id, jump = true) {
+    ff.closeEvent(); // faktarutan tar över, så att samma händelse inte visas två gånger
     selectedId = id;
     const e = id ? data.byId[id] : null;
     panel.showDetail(e);
@@ -350,6 +363,7 @@ async function start() {
   $('focus-exit').addEventListener('click', endFocus);
   panel.onFilter = refresh;
   ff.onSelect = select;
+  ff.onPick = pick;
   ff.onArcs = pairs => globe.setArcs(pairs);
   ff.onSources = ids => sources.open(ids);
   // Uppspelningen stannar vid en ny fun fact, så att man hinner läsa. Play fortsätter.

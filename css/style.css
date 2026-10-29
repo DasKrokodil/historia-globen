@@ -427,6 +427,31 @@ body {
 .ff-foot { display: flex; align-items: center; gap: 14px; margin-top: 10px; }
 .funfact .review-badge { color: #6b5a3a; }
 .funfact .link-btn { color: #7a5a1f; }
+.ff-chip[aria-pressed="true"] { background: #7a5a1f; color: var(--parchment); border-color: #7a5a1f; }
+.ff-chip[aria-pressed="true"] .ff-year { color: var(--parchment); }
+
+/* Kortet växer uppåt men aldrig utanför skärmen: det rullar inuti (#169) */
+.funfact { max-height: calc(100dvh - 140px - 150px); overflow-y: auto; } /* ovanför årtalet uppe till vänster */
+
+/* Händelsens bild och fakta överst i Samtidigt-kortet (#169). Samma ram och bild som faktarutan,
+   ramens färger kommer från .frame-* längre ner. */
+.ff-detail {
+  --card-bg: color-mix(in srgb, var(--night-2) 96%, transparent);
+  --card-ink: var(--parchment); --card-dim: var(--parchment-dim); --card-accent: var(--brass); --card-line: var(--line);
+  position: relative;
+  margin: -14px -16px 12px; /* bilden går ända upp i kortets ovankant */
+  background: var(--card-bg); color: var(--card-ink);
+  border: 1px solid var(--card-line); border-radius: var(--r) var(--r) 6px 6px;
+  overflow: hidden;
+}
+.ff-detail-body { padding: 8px 14px 12px; }
+.ff-detail .detail-fig { margin: 0 0 4px; }
+.ff-detail .detail-fig img { aspect-ratio: 2 / 1; } /* lägre bild än i faktarutan, så att kortet rymmer mer */
+.ff-detail .detail-close { position: absolute; z-index: 2; top: 8px; right: 8px; margin: 0; }
+.ff-detail h3 { padding-right: 30px; }
+.ff-detail:not(:has(.detail-fig)) h3 { padding-right: 34px; }
+.funfact .ff-detail .link-btn { color: var(--card-accent); }
+.ff-detail p { margin: 6px 0 8px; font-size: 14px; line-height: 1.45; }
 
 /* ---------- tidslinjen ---------- */
 .timebar {
@@ -612,7 +637,8 @@ details.used-by summary:hover { color: var(--parchment); }
   .app.has-detail .funfact { display: none; } /* faktarutan och fun fact-kortet delar plats */
   .masthead { max-width: 55vw; }
   .top-actions { max-width: 44vw; }
-  .funfact { bottom: 136px; padding: 12px 14px 10px; }
+  .funfact { bottom: 136px; padding: 12px 14px 10px; max-height: calc(100dvh - 136px - 176px); } /* under knapparna uppe till höger */
+  .ff-detail { margin: -12px -14px 10px; }
   .ff-tab { bottom: 136px; }
   .app.has-detail .ff-tab { display: none; }
   .ff-text { font-size: 16.5px; margin: 6px 0 8px; }
@@ -650,7 +676,7 @@ details.used-by summary:hover { color: var(--parchment); }
 /* Krysset ligger ovanpå bilden: det tar ingen plats, så att bilden går ända upp */
 .detail-card .detail-close { position: sticky; z-index: 2; float: none; display: block; margin: -4px -6px -26px auto; }
 .detail-card .detail-close + h3 { padding-right: 30px; }
-@media (max-width: 760px) { .detail-fig img { aspect-ratio: 16 / 9; } }
+@media (max-width: 760px) { .detail-fig img { aspect-ratio: 16 / 9; } .ff-detail .detail-fig img { aspect-ratio: 2 / 1; } }
 
 /* ---------- ramar efter tidsålder (#129) ----------
    Ramen följer händelsens tid och fungerar även utan bild. */
