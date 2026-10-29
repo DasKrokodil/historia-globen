@@ -29,7 +29,8 @@ export class FunFacts {
       year >= f.show[0] && year <= f.show[1] &&
       isVisibleReview(f.review) &&
       f.events.every(id => this.byId[id] && filters.has(this.byId[id].category)))
-      .sort((a, b) => b.show[0] - a.show[0]); // det som började senast först, så att det nya syns
+      // Kort som jämför flera händelser (samtidighet) först, sedan det som började senast, så att det nya syns
+      .sort((a, b) => (b.events.length > 1) - (a.events.length > 1) || b.show[0] - a.show[0]);
     const key = active.map(f => f.id).join('|');
     if (key === this.shownKey) return;
     const fresh = active.some(f => !this.active.includes(f));

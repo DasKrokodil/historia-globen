@@ -32,7 +32,7 @@ flowchart LR
 
 Varje gång året ändras körs `refresh()` i `main.js`:
 
-1. Samtidigt-kortet väljer vilka fun facts och krigskort som gäller.
+1. Samtidigt-kortet väljer vilka fun facts och krigskort som gäller. Kort som jämför flera händelser visas först, sedan det som började senast.
 2. Händelselagret väljer synliga händelser, och listan Samtidigt i världen ritas om.
 3. Riken, religioner, dagens gränser och krigsområden väljer vad som finns det året.
 4. Lagren ritas i ordning nedifrån och upp på den platta lagerbilden: riken, religioner, dagens gränser, krigsområden och händelsernas sken.
