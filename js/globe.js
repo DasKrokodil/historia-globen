@@ -174,6 +174,7 @@ export class Globe {
   setZoom(z) {
     this.zoom = Math.min(3.2, Math.max(0.8, z));
     this.camera.position.z = this.baseDist / this.zoom;
+    this.onZoom?.(this.zoom);
   }
 
   flyTo(lat, lon, ms = 1100) {

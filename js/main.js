@@ -226,7 +226,30 @@ async function start() {
     }
   }
 
+  // Rikesnamnen ritas i kartbilden (beslut 1) och växer därför med globen: vid max zoom ser
+  // kartbilden ca 10 gånger större ut på skärmen. Därför görs namnen mindre i bilden när man
+  // zoomar in (men inte under 0,25, då blir texten för oskarp) och tonas sedan ut, så att de
+  // inte täcker markörerna (#154). Värdena ändras i steg och bilden ritas om först 150 ms efter
+  // att zoomandet stannat. Platt vy och en fysisk glob får grundstorleken.
+  function nameStyle() {
+    if (!$('flat-view').hidden) return [1, 1];
+    const d = globe.baseDist, mag = Math.max(1, (d - 1) / (d / globe.zoom - 1)); // förstoring i mitten av klotet
+    const scale = Math.max(0.25, Math.pow(mag, -0.7));
+    const fade = Math.min(1, Math.max(0, (mag - 5) / 5)); // 0 vid mag 5 (zoom ca 2,3), 1 vid max
+    return [Math.round(scale * 20) / 20, Math.round((1 - 0.5 * fade) * 20) / 20];
+  }
+  let nameTimer = 0;
+  const syncNameScale = () => {
+    clearTimeout(nameTimer);
+    nameTimer = setTimeout(() => {
+      const [sc, al] = nameStyle();
+      if (areas.labelScale !== sc || areas.labelAlpha !== al) refresh();
+    }, 150);
+  };
+  globe.onZoom = syncNameScale;
+
   function refresh() {
+    [areas.labelScale, areas.labelAlpha] = nameStyle();
     const year = timeline.year;
     ensureEmpires(year);
     const window = timeline.windowYears(year);
@@ -317,6 +340,7 @@ async function start() {
     fv.hidden = !show;
     $('btn-flat').setAttribute('aria-pressed', String(show));
     if (show) globe.composeFlat($('flat-canvas'));
+    syncNameScale();
   });
 
   layers.onChange = () => { applyLayers(); ensureReligions(); refresh(); };
