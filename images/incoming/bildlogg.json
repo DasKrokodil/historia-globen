@@ -284,5 +284,29 @@
     },
     "credit": "AI-genererad med ChatGPT, 2026-10-29",
     "prompt": "A vintage late-’80s/’90s poster-style illustration shows a curly-haired man in glasses and a pale collared shirt typing at a beige CRT computer in a tidy office, surrounded by books, papers, a plant, desk supplies, and a telephone. Behind him, a large blue-and-green Earth connects to floating browser-like panels featuring generic scenes—mountains, a city, a temple, pyramids, plants, people, a sailboat, and more—through glowing red-orange arcs and node points, all rendered with bold flat colors, halftone grain, worn paper edges, and no readable text."
+  },
+  {
+    "id": "taj-mahal",
+    "file": "taj-mahal.jpg",
+    "kind": "historisk",
+    "style": "miniatyr",
+    "caption": {
+      "sv": "Taj Mahal i Agra med trädgården framför. Fotokrom (färglagt tryck efter fotografi) från Photoglob Co. i Zürich, cirka 1890–1910. Library of Congress anger inga kända restriktioner för publicering."
+    },
+    "credit": "Photoglob Co., Zürich / Library of Congress, Prints & Photographs Division (LC-DIG-ppmsca-41418)",
+    "license": "Inga kända restriktioner (Library of Congress)",
+    "source": "loc-taj-mahal-photochrom"
+  },
+  {
+    "id": "eiffeltornet",
+    "file": "eiffeltornet.jpg",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Eiffeltornet när toppen monteras, 15 mars 1889 enligt bildtexten på fotot. Fotografi, okänd fotograf, ur Gustave Eiffels bok La tour de trois cents mètres (1900). Utsnitt. Library of Congress anger inga kända restriktioner för publicering."
+    },
+    "credit": "Okänd fotograf / Library of Congress, Prints & Photographs Division (LC-USZ62-21583)",
+    "license": "Inga kända restriktioner (Library of Congress)",
+    "source": "loc-eiffel-campanile-1889"
   }
 ]

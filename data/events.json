@@ -198,6 +198,7 @@
       "location": { "type": "Point", "coordinates": [2.2945, 48.8582] }, "place": { "sv": "Paris, Frankrike" },
       "title": { "sv": "Eiffeltornet står klart" },
       "summary": { "sv": "Eiffeltornet byggs som mittpunkt för världsutställningen 1889 i Paris. Själva konstruktionen blir klar i slutet av mars 1889." },
+      "image": {"file": "images/events/eiffeltornet.webp", "kind": "historisk", "style": "1800-tal", "caption": {"sv": "Eiffeltornet när toppen monteras, 15 mars 1889 enligt bildtexten på fotot. Fotografi, okänd fotograf, ur Gustave Eiffels bok La tour de trois cents mètres (1900). Utsnitt. Library of Congress anger inga kända restriktioner för publicering."}, "credit": "Okänd fotograf / Library of Congress, Prints & Photographs Division (LC-USZ62-21583)", "license": "Inga kända restriktioner (Library of Congress)", "source": "loc-eiffel-campanile-1889"},
       "wikidata": "Q243", "sources": ["wp-eiffel-tower", "wikidata"], "review": "two-sources" },
 
     { "id": "cervantes-dor", "category": "kultur", "icon": "book", "start": 1616, "end": 1616, "precision": 11, "edtf": "1616-04-22",
@@ -249,6 +250,7 @@
       "title": { "sv": "Taj Mahal byggs" },
       "summary": { "sv": "Bygget av Taj Mahal i Agra, ett gravmonument över Mumtaz Mahal, börjar 1632. Hela anläggningen tros vara klar 1653." },
       "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Wikipedia anger att bygget började 1632 och att hela anläggningen var klar 1653. World History Encyclopedia anger också 1632 som start, men 1649 som året då Taj Mahal blev klar." } },
+      "image": {"file": "images/events/taj-mahal.webp", "kind": "historisk", "style": "miniatyr", "caption": {"sv": "Taj Mahal i Agra med trädgården framför. Fotokrom (färglagt tryck efter fotografi) från Photoglob Co. i Zürich, cirka 1890–1910. Library of Congress anger inga kända restriktioner för publicering."}, "credit": "Photoglob Co., Zürich / Library of Congress, Prints & Photographs Division (LC-DIG-ppmsca-41418)", "license": "Inga kända restriktioner (Library of Congress)", "source": "loc-taj-mahal-photochrom"},
       "sources": ["wp-taj-mahal", "whe-taj-mahal"], "review": "source-checked" },
 
     { "id": "sista-giljotinen", "category": "civilisationer", "start": 1977, "end": 1977, "precision": 11, "edtf": "1977-09-10",
