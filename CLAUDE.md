@@ -85,7 +85,7 @@ Rikard är mycket mån om att inget påhittat hamnar på globen. Följ detta str
 
 Varje händelse kan få en bild i fältet `image` (fil, `kind`, stil, bildtext, kredit, licens, och för illustrationer prompten). Stilen följer tidsåldern och platsen enligt `data/styles.json`, och faktarutans ram följer stilen även när bild saknas.
 
-1. **Riktig bild först.** Sök på Wikimedia Commons efter en historisk bild innan en illustration görs. Kontrollera licensen på filsidan och lägg filsidan som källa i `sources.json`. Tillåtet för historiska bilder: public domain, CC0, CC BY och CC BY-SA. Bilden behåller sin egen licens, som står i bildtexten.
+1. **Riktig bild först.** Sök på Wikimedia Commons efter en historisk bild innan en illustration görs. Kontrollera licensen på filsidan och lägg filsidan som källa i `sources.json`. Tillåtet för historiska bilder: public domain, CC0, CC BY, CC BY-SA och Library of Congress-bilder märkta "No known restrictions on publication" (beslut 2026-10-29). Även Library of Congress (loc.gov) går att söka i. Bilden behåller sin egen licens, som står i bildtexten.
 2. **Illustrationer märks alltid** med en synlig bildtext, till exempel "Illustration i stil med …, inte en historisk bild". De får aldrig se ut som fotografier eller äkta dokument.
 3. **Bilden förmedlar stämning, inte fakta.** Lägg inte in detaljer i bilden som inte stöds av händelsens källa.
 4. **Respekt.** Profeten Muhammed avbildas aldrig; Hijra visas med landskap, karavan och arkitektur. Inga karikatyrer av folk och inga riktiga personers ansikten i närbild. Krig, sjukdom och död får visas när händelsen handlar om det (beslut 2026-10-29; kan anpassas för olika åldrar senare).
