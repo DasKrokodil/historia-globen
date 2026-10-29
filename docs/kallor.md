@@ -33,6 +33,7 @@ Nivån syns i faktarutan och under Om källorna, inte som eget märke på globen
 | Library of Congress, Prints & Photographs (loc.gov/pictures) | Historiska bilder, till exempel fotografier och fotokromer från 1800-talet och tidigt 1900-tal | "No known restrictions on publication" | Bara poster med den rättighetstexten i fältet Rights Advisory, inte "Rights status not evaluated". Arkivposten läggs i källregistret. |
 | Wikisource: Encyclopædia Britannica 1911, Dictionary of National Biography (1885–1900) och andra äldre verk | Andra källa för årtal och plats | Public domain | Äldre uppslagsverk kan vara föråldrade, så de används som jämförelse, inte ensamma |
 | World History Encyclopedia (worldhistory.org) | Andra källa för årtal och plats | CC BY-NC-SA (artikeltexten) | Bara länkad källa för fakta som årtal och plats. Text kopieras aldrig. |
+| Historical Conflict Event Dataset (HCED, Charles Miller 2022) via World Historical Gazetteer | Utkast om slag och andra stridshändelser (#24) | CC0 1.0 (WHG:s tillägg CC BY 4.0) | Massimport till `data/utkast/hced.json`, alltid `draft`. Varje utkast källkontrolleras mot en annan källa innan det flyttas till `events.json` (se nedan). |
 | Forskningsartiklar i PubMed Central (PMC) | Andra källa, till exempel för förhistoriska dateringar | Oftast CC BY (kontrolleras per artikel) | Licensen står i artikeln |
 
 ### Källor som går att nå från molnmiljön
@@ -42,7 +43,21 @@ Molnmiljöns nätverk släpper bara fram vissa sajter. Läget 2026-10-29 (#143):
 - **Går att nå:** Wikipedia, Wikidata, Wikimedia Commons, en.wikisource.org, www.worldhistory.org, pmc.ncbi.nlm.nih.gov (ibland en robotkontroll; då fungerar PMC:s OAI-gränssnitt `pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/`), www.bl.uk, www.nasa.gov, home.cern, www.nobelprize.org, www.raa.se, www.pewresearch.org och seshat-db.com.
 - **Library of Congress i JSON:** arkivposter går att läsa som `https://www.loc.gov/pictures/item/<id>/?fo=json` (fältet `item.rights_information` är rättighetstexten), och bilderna hämtas från länkarna i `resources` (cdn.loc.gov och tile.loc.gov) (#127).
 - **Svarar men stoppar oss:** www.loc.gov:s vanliga sidor (robotkontroll, 403), Britannica, whc.unesco.org och Smithsonian (403), Met Museum (429). Wikisources API och sökning kan svara 429 om man frågar för ofta; vänta då en stund.
-- **Spärrade:** bland annat mathshistory.st-andrews.ac.uk, cudl.lib.cam.ac.uk, english-heritage.org.uk, riksarkivet.se, kungahuset.se, regeringen.se, runeberg.org, gutenberg.org, journals.plos.org, ebi.ac.uk (Europe PMC) och patents.google.com.
+- **World Historical Gazetteer:** whgazetteer.org svarar. Platslistan (`/mapdata/datasets/<id>/`) och enskilda platser (`/api/db/?id=<plats>`) går att läsa utan inloggning; den fullständiga nedladdningen kräver inloggning (#24).
+- **Spärrade:** bland annat dataverse.harvard.edu (#24), mathshistory.st-andrews.ac.uk, cudl.lib.cam.ac.uk, english-heritage.org.uk, riksarkivet.se, kungahuset.se, regeringen.se, runeberg.org, gutenberg.org, journals.plos.org, ebi.ac.uk (Europe PMC) och patents.google.com.
+
+## Utkast från massimport
+
+Stora öppna dataset kan ge tusentals händelser på en gång. De läggs inte direkt i `events.json`, eftersom ingen har kontrollerat dem och appen läser filen vid start. I stället sparas de som utkast i `data/utkast/`, i samma format som `events.json` och alltid med `review: "draft"`. Appen läser inte katalogen (beslut 2026-10-29).
+
+Första källan är Historical Conflict Event Dataset (#24). `python3 tools/hced.py` hämtar platserna från World Historical Gazetteer och skriver ett urval på cirka 150 utkast, spridda över världsdelar och tidsåldrar, till `data/utkast/hced.json` (`--alla` gör om hela datasetet, `--lpf` läser en nedladdad fil). Datasetet har en post per plats, och varje beskrivning av platsen ("Trojan War (-1184)") blir ett utkast. Negativa år i datasetet är år f.Kr. utan år 0 (`-0605` är slaget vid Karkemish 605 f.Kr.), så de räknas om till `1 - N`. Skriptet listar också utkast som troligen redan finns i `events.json` (samma år ±1 och inom 25 km eller samma namn) i fältet `duplicates`, och varnar i `hced.check` när datasetets punkt verkar fel.
+
+Så lyfts ett utkast till `events.json`:
+
+1. Kontrollera i `duplicates` att slaget inte redan finns.
+2. Öppna en källa om slaget (till exempel Wikipedia eller Wikidata) och jämför år, plats och konflikt. Datasetet har fel ibland, till exempel en plats som fått fel koordinat eller fel konflikt.
+3. Skriv svensk titel (till exempel "Slaget vid …") och en egen sammanfattning ur källan, med `precision` och `edtf` som visar osäkerheten. Koppla slaget till sitt krig med `partOf` om kriget finns.
+4. Lägg källan i `sources.json`, behåll `whg-hced` i `sources` och sätt `review` till `source-checked` (eller `two-sources`). Ta bort fältet `hced` och flytta posten till `events.json`. Ta bort utkastet ur `data/utkast/hced.json` så att det inte finns två gånger.
 
 ## Sidan Om källorna
 

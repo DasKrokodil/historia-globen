@@ -63,6 +63,18 @@ Alla datafiler i `data/` och deras fält. Standarderna (årtal, osäkerhet, prec
 
 Reglerna för bilder står i [CLAUDE.md](../CLAUDE.md#bilder-129).
 
+## `utkast/`: utkast från massimport
+
+Filerna i `data/utkast/` har samma format som `events.json` (`schema`, `notes`, `events`), men alla händelser har `review: "draft"` och appen läser inte filerna. Ett utkast flyttas till `events.json` när det är källkontrollerat (se [kallor.md](kallor.md#utkast-från-massimport)).
+
+`utkast/hced.json` byggs med `tools/hced.py` ur Historical Conflict Event Dataset (#24). Titel och plats är på engelska, som i datasetet, och sammanfattningen är byggd ur fälten. Extra fält:
+
+| Fält | Betydelse |
+|---|---|
+| `generated` | När och hur filen byggdes: urval eller allt, antal platser, utkast, överhoppade och fördelning per världsdel och tidsålder |
+| `duplicates` | Utkast (eller platser utanför urvalet, `utkast: null`) som troligen redan finns i `events.json`: `finns` är händelsens id och `skäl` avståndet och/eller att namnet stämmer |
+| `hced` (per utkast) | Spårbarhet: `whg` (platsens id i World Historical Gazetteer), `srcId` (id i datasetet), `conflict` och `year` som det står i datasetet (historiskt år, `-1184` = 1184 f.Kr.), och `check` när punkten verkar fel. Tas bort när utkastet flyttas till `events.json`. |
+
 ## `funfacts.json`: fun facts
 
 ```json
