@@ -163,6 +163,20 @@
     { "id": "commons-giotto-nativity", "title": "Giotto – Scrovegni – Nativity, Birth of Jesus, fresk 1306 (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:Giotto_-_Scrovegni_-_-17-_-_Nativity,_Birth_of_Jesus.jpg", "license": "Public domain", "checked": "2026-10-29" },
     { "id": "commons-prager-fenstersturz-1618", "title": "Prager Fenstersturz 1618 – kopparstick av Matthäus Merian i Theatrum Europaeum (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:Prager.Fenstersturz.1618.jpg", "license": "Public domain", "checked": "2026-10-29" },
     { "id": "commons-bodh-gaya-1810", "title": "A small temple beneath the Bodhi tree, Bodh Gaya, c. 1810 – British Library (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:A_small_temple_beneath_the_Bodhi_tree,_Bodh_Gaya,_c._1810.jpg", "license": "Public domain", "checked": "2026-10-29" },
-    { "id": "commons-catalan-atlas-mansa-musa", "title": "Catalan Atlas, BnF, blad 6: Mansa Musa, 1375 (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:Catalan_Atlas_BNF_Sheet_6_Mansa_Musa.jpg", "license": "Public domain", "checked": "2026-10-29" }
+    { "id": "commons-catalan-atlas-mansa-musa", "title": "Catalan Atlas, BnF, blad 6: Mansa Musa, 1375 (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:Catalan_Atlas_BNF_Sheet_6_Mansa_Musa.jpg", "license": "Public domain", "checked": "2026-10-29" },
+    { "id": "wp-taiping-rebellion", "title": "Taiping Rebellion – Wikipedia", "url": "https://en.wikipedia.org/wiki/Taiping_Rebellion", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-jintian-uprising", "title": "Jintian Uprising – Wikipedia", "url": "https://en.wikipedia.org/wiki/Jintian_Uprising", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-hong-xiuquan", "title": "Hong Xiuquan – Wikipedia", "url": "https://en.wikipedia.org/wiki/Hong_Xiuquan", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-guiping", "title": "Guiping – Wikipedia", "url": "https://en.wikipedia.org/wiki/Guiping", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-nanjing-1853", "title": "Battle of Nanjing (1853) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Battle_of_Nanjing_(1853)", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-nanjing", "title": "Nanjing – Wikipedia", "url": "https://en.wikipedia.org/wiki/Nanjing", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-northern-expedition-taiping", "title": "Northern Expedition (Taiping Rebellion) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Northern_Expedition_(Taiping_Rebellion)", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-tianjin", "title": "Tianjin – Wikipedia", "url": "https://en.wikipedia.org/wiki/Tianjin", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-tianjing-incident", "title": "Tianjing Incident – Wikipedia", "url": "https://en.wikipedia.org/wiki/Tianjing_Incident", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-anqing-battle", "title": "Battle of Anqing – Wikipedia", "url": "https://en.wikipedia.org/wiki/Battle_of_Anqing", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-anqing", "title": "Anqing – Wikipedia", "url": "https://en.wikipedia.org/wiki/Anqing", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-shanghai-1861", "title": "Battle of Shanghai (1861–1862) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Battle_of_Shanghai_(1861–1862)", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-shanghai", "title": "Shanghai – Wikipedia", "url": "https://en.wikipedia.org/wiki/Shanghai", "license": "CC BY-SA 4.0", "checked": "2026-10-29" },
+    { "id": "wp-nanjing-1864", "title": "Third Battle of Nanjing – Wikipedia", "url": "https://en.wikipedia.org/wiki/Third_Battle_of_Nanjing", "license": "CC BY-SA 4.0", "checked": "2026-10-29" }
   ]
 }
