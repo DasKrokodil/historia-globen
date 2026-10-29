@@ -83,7 +83,8 @@
       "location": { "type": "Point", "coordinates": [14.0, 37.6] }, "place": { "sv": "Sicilien, ett av de första målen i Europa" },
       "title": { "sv": "Digerdöden" },
       "summary": { "sv": "Pesten sprids över Europa 1346–1353 och når Sicilien med genuesiska skepp i oktober 1347. Uppskattningsvis 30–60 procent av Europas befolkning dör." },
-      "sources": ["wp-black-death"], "review": "source-checked" },
+      "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Wikipedia anger 1346–1353. Wikidata anger 1346–1352." } },
+      "wikidata": "Q42005", "sources": ["wp-black-death", "wikidata"], "review": "source-checked" },
 
     { "id": "ming", "category": "civilisationer", "icon": "crown", "start": 1368, "end": 1644, "precision": 11, "edtf": "1368-01-23/1644",
       "location": { "type": "Point", "coordinates": [118.80, 32.06] }, "place": { "sv": "Nanjing, Kina" },
@@ -95,7 +96,8 @@
       "location": { "type": "Point", "coordinates": [8.27, 49.99] }, "place": { "sv": "Mainz, Tyskland" },
       "title": { "sv": "Gutenbergs tryckpress" },
       "summary": { "sv": "Gutenberg börjar arbeta på tryckpressen runt 1436 och den räknas som uppfunnen runt 1440. Hans tryckeri i Mainz var länge det enda i Europa." },
-      "sources": ["wp-printing-press"], "review": "source-checked" },
+      "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Wikipedia anger Mainz omkring 1440. Wikidata anger i stället Strasbourg omkring 1439." } },
+      "wikidata": "Q144334", "sources": ["wp-printing-press", "wikidata"], "review": "source-checked" },
 
     { "id": "machu-picchu", "category": "kultur", "icon": "mountain-city", "start": 1450, "end": 1470, "precision": 8, "edtf": "1450~/1470~",
       "location": { "type": "Point", "coordinates": [-72.546, -13.163] }, "place": { "sv": "Anderna, Peru" },
@@ -157,7 +159,8 @@
       "title": { "sv": "Spanska sjukan" },
       "summary": { "sv": "Pandemin pågår från februari 1918 till april 1920. Omkring en tredjedel av jordens befolkning smittas och vanliga uppskattningar ligger på 25–50 miljoner döda." },
       "image": {"file": "images/events/spanska-sjukan.webp", "kind": "illustration", "style": "affisch", "caption": {"sv": "Illustration i stil med folkhälsoaffisch från tidigt 1900-tal, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "Vintage public-health poster illustration in a muted cream, blue-gray, black, and deep red palette, using flat lithographic shapes, crisp outlines, aged paper grain, and framed panels with no legible text. A central city-and-bridge scene shows silhouetted pedestrians, a tram, lamps, skyline, church spire, radiant cross, and a calm nurse in a white head covering and red-cross armband, while side panels depict handwashing, masking, cough etiquette, staying home, ventilation, avoiding crowds, and hospital care through simple circular icons."},
-      "sources": ["wp-spanish-flu"], "review": "source-checked" },
+      "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Wikipedia anger februari 1918 till april 1920. Wikidata anger januari 1918 till december 1920." } },
+      "wikidata": "Q178275", "sources": ["wp-spanish-flu", "wikidata"], "review": "source-checked" },
 
     { "id": "sputnik", "category": "rymden", "icon": "satellite", "start": 1957, "end": 1957, "precision": 11, "edtf": "1957-10-04",
       "location": { "type": "Point", "coordinates": [63.34, 45.92] }, "place": { "sv": "Bajkonur, Kazakstan" },
