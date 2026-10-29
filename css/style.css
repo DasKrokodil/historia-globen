@@ -631,3 +631,8 @@ body {
 .parties p { font-size: 13px; line-height: 1.45; }
 .story-hint { font-style: italic; color: var(--card-dim); }
 @media (max-width: 760px) { .parties { grid-template-columns: 1fr; gap: 2px; } }
+
+/* Faktaruta i faktarutan, till exempel "Om år 0" (#123) */
+.detail-note { margin: 10px 0; padding: 8px 10px; border-left: 3px solid var(--card-accent); background: color-mix(in srgb, var(--card-accent) 10%, transparent); border-radius: 0 6px 6px 0; }
+.detail-note h4 { margin: 0 0 2px; font: 600 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--card-accent); }
+.detail-note p { margin: 0; font-size: 13.5px; line-height: 1.45; }

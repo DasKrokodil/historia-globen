@@ -294,6 +294,37 @@
       "location": { "type": "Point", "coordinates": [7.626, 51.963] }, "locationPrecision": "region", "place": { "sv": "Osnabrück och Münster, Westfalen" },
       "title": { "sv": "Westfaliska freden" },
       "summary": { "sv": "Fredsavtalen i Osnabrück och Münster undertecknas den 24 oktober 1648 och avslutar kriget." },
-      "wikidata": "Q150995", "sources": ["wp-peace-westphalia", "wp-munster", "wikidata"], "review": "two-sources" }
+      "wikidata": "Q150995", "sources": ["wp-peace-westphalia", "wp-munster", "wikidata"], "review": "two-sources" },
+
+    { "id": "jesu-fodelse", "category": "religion", "icon": "star", "religion": "kristendom", "founding": true, "start": -5, "end": -3, "precision": 9, "edtf": "-0005~/-0003~",
+      "location": { "type": "Point", "coordinates": [35.206, 31.704] }, "place": { "sv": "Betlehem enligt evangelierna" },
+      "title": { "sv": "Jesus föds" },
+      "summary": { "sv": "Enligt evangelierna föds Jesus i Betlehem under kung Herodes tid. Årtalet står inte i någon källa från tiden. Räknat från Herodes död blir det mellan 6 och 4 f.Kr." },
+      "note": { "title": { "sv": "Om år 0" }, "text": { "sv": "Vår tideräkning räknar från det år man förr trodde att Jesus föddes. Munken Dionysius Exiguus tog fram den år 525 i Rom, men den blev vanlig först på 800-talet. Det finns inget år 0: efter 1 f.Kr. kommer direkt 1 e.Kr. I dag tror forskare att Jesus föddes några år tidigare, kanske runt 5 f.Kr. Källorna räcker inte för ett säkert årtal." }},
+      "sources": ["wp-nativity", "wp-anno-domini", "wp-bethlehem"], "review": "source-checked" },
+
+    { "id": "korsfastelsen", "category": "religion", "icon": "star", "religion": "kristendom", "founding": true, "start": 30, "end": 33, "precision": 9, "edtf": "0030/0033",
+      "location": { "type": "Point", "coordinates": [35.226, 31.779] }, "place": { "sv": "Jerusalem" },
+      "title": { "sv": "Jesus korsfästs" },
+      "summary": { "sv": "Jesus korsfästs i Jerusalem, troligen år 30 eller 33. Händelsen beskrivs i evangelierna och i andra källor från antiken, och nästan alla forskare räknar den som historisk." },
+      "sources": ["wp-crucifixion", "wp-jerusalem"], "review": "source-checked" },
+
+    { "id": "muhammeds-forsta-uppenbarelse", "category": "religion", "icon": "star", "religion": "islam", "founding": true, "start": 610, "end": 610, "precision": 9, "edtf": "0610?",
+      "location": { "type": "Point", "coordinates": [39.861, 21.458] }, "place": { "sv": "Grottan Hira på berget Jabal al-Nour, nära Mecka" },
+      "title": { "sv": "Islams början: Muhammeds första uppenbarelse" },
+      "summary": { "sv": "Enligt islam får Muhammed sin första uppenbarelse i grottan Hira nära Mecka, början på det som blir Koranen. Det exakta datumet är omstritt, men de flesta muslimer räknar med år 610." },
+      "sources": ["wp-first-revelation", "wp-jabal-al-nour"], "review": "source-checked" },
+
+    { "id": "buddha", "category": "religion", "icon": "star", "religion": "buddhism", "founding": true, "start": -599, "end": -400, "precision": 7, "edtf": "-0599/-0400",
+      "location": { "type": "Point", "coordinates": [84.993, 24.695] }, "locationPrecision": "region", "place": { "sv": "Bodh Gaya i dagens Bihar, Indien" },
+      "title": { "sv": "Buddha grundar buddhismen" },
+      "summary": { "sv": "Buddha, en vandrande lärare på Gangesslätten, grundar buddhismen. Han levde under 500- eller 400-talet f.Kr., och forskarna är oense om exakta årtal. Enligt traditionen nådde han upplysningen i Bodh Gaya." },
+      "sources": ["wp-gautama-buddha", "wp-bodh-gaya"], "review": "source-checked" },
+
+    { "id": "guru-nanak", "category": "religion", "icon": "star", "religion": "sikhism", "founding": true, "start": 1469, "end": 1539, "precision": 9, "edtf": "1469/1539",
+      "location": { "type": "Point", "coordinates": [73.707, 31.45] }, "locationPrecision": "region", "place": { "sv": "Punjab (född i dagens Nankana Sahib, Pakistan)" },
+      "title": { "sv": "Guru Nanak grundar sikhismen" },
+      "summary": { "sv": "Sikhismen växer fram i Punjab runt slutet av 1400-talet, ur Guru Nanaks lära. Han lever 1469–1539 och är den förste av sikhismens guruer." },
+      "sources": ["wp-guru-nanak", "wp-sikhism", "wp-nankana-sahib"], "review": "source-checked" }
   ]
 }
