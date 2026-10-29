@@ -834,12 +834,22 @@ details.used-by summary:hover { color: var(--parchment); }
 .detail .war-list .ms-map { display: block; font-size: 12.5px; opacity: .8; } /* kartans avvikelse från källans årtal */
 
 /* ---------- teckenförklaring och klickruta för religionslagret (#166) ---------- */
+/* Uppe till vänster under rubriken (legend.js lägger top och begränsar listans höjd), så att den aldrig hamnar
+   på Samtidigt-kortet nere till vänster eller faktarutan till höger (#193). */
 .religion-legend {
-  position: absolute; left: var(--gut); bottom: 150px; z-index: 5; max-width: 230px;
+  position: absolute; left: var(--gut); top: 140px; z-index: 5; max-width: 230px; box-sizing: border-box;
   background: color-mix(in srgb, var(--night-2) 88%, transparent); border: 1px solid var(--line);
-  border-radius: var(--r); padding: 8px 10px; font: 400 12px/1.35 var(--f-body); pointer-events: none;
+  border-radius: var(--r); padding: 4px 10px 6px; font: 400 12px/1.35 var(--f-body);
 }
-.religion-legend .rl-title { font: 400 11px/1.3 var(--f-mono); color: var(--brass); margin-bottom: 4px; }
+.religion-legend .rl-toggle {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 28px;
+  margin: 0; padding: 0; background: none; border: 0; cursor: pointer; text-align: left;
+}
+.religion-legend .rl-title { font: 400 11px/1.3 var(--f-mono); color: var(--brass); }
+.religion-legend .rl-chev { width: 6px; height: 6px; border: solid var(--brass); border-width: 0 1.5px 1.5px 0; transform: rotate(45deg) translateY(-2px); }
+.religion-legend .rl-toggle[aria-expanded="true"] .rl-chev { transform: rotate(-135deg) translateY(-1px); }
+.religion-legend .rl-body { overflow-y: auto; overscroll-behavior: contain; padding-top: 2px; }
+.religion-legend .rl-body[hidden] { display: none; }
 .religion-legend ul { list-style: none; margin: 0; padding: 0; }
 .religion-legend li { display: flex; align-items: center; gap: 7px; padding: 1px 0; }
 .religion-legend em { font-style: normal; color: var(--parchment-dim); }
@@ -857,11 +867,12 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-pop .rp-note { color: var(--parchment-dim); font: 400 11px/1.3 var(--f-mono); }
 .religion-pop .info-btn { margin-top: 8px; }
 @media (max-width: 760px) {
-  .religion-legend { bottom: 128px; right: var(--gut-r); max-width: none; font-size: 11px; padding: 6px 8px; }
-  .religion-legend ul { display: flex; flex-wrap: wrap; gap: 1px 12px; }
-  .religion-legend li { gap: 5px; }
+  /* smalare än rubrikens högra grannar (knapparna uppe till höger), 44 px hög tryckyta, borta när panelen är öppen */
+  .religion-legend { max-width: 172px; font-size: 11px; padding-top: 0; padding-bottom: 0; }
+  .religion-legend .rl-body { padding-bottom: 6px; }
+  .religion-legend .rl-toggle { min-height: 40px; }
   .religion-legend .swatch { width: 10px; height: 10px; }
-  .app.has-detail .religion-legend { display: none; }
+  .app.panel-open .religion-legend { display: none; }
 }
 
 /* ---------- korten ovanför fokusraden (#183) ---------- */
