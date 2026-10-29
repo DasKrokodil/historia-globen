@@ -48,7 +48,7 @@ Klickbara markörer, etiketter och bågar ligger ovanpå klotet som 3D-objekt oc
 | `js/main.js` | Startar allt, kopplar ihop delarna, fokusläget, pauser och etiketter |
 | `js/model.js` | Språk (`t()`), kategorier, granskningsnivåer, tidsformat, världsdelar, bildstilar (`styleFor()`), laddning av data |
 | `js/globe.js` | Klotet (three.js), kamera, styrning, de platta bilderna, bågar |
-| `js/timeline.js` | Tidsreglaget med segmenterad skala, fokusspann, uppspelning och hastighet |
+| `js/timeline.js` | Tidsreglaget med segmenterad skala, fokusspann, uppspelning, hastighet och "Hoppa till år" |
 | `js/layers/events.js` | Punktlager: händelser med ikon och sken |
 | `js/layers/areas.js` | Områdeslager: riken som ändras över tid |
 | `js/layers/religions.js` | Områdeslager: rikenas religion |
@@ -71,6 +71,10 @@ Stora filer laddas först när de behövs:
 - **Religionerna** (`data/religions.json`) laddas när religionslagret slås på eller när Fokus-menyn öppnas.
 - **Bilder** i faktarutan laddas när kortet öppnas.
 
+## Hoppa i tiden (#140)
+
+Stegknapparna −100, −10, −1, +1, +10 och +100 syns på alla skärmbredder (i mobil är de smalare). Årtalet uppe till vänster är en knapp: den öppnar en ruta där man skriver ett år, med knapparna f.Kr./e.Kr. eller direkt i texten ("2600 f.Kr.", "44 fkr", "1969"), eller väljer en tidsålder (skalans fyra segment och "Idag"). Utan angiven tideräkning räknas året som e.Kr. Tolkningen görs av `parseYear()` i `model.js`; rutan hör till `setupYearJump()` i `timeline.js`. I fokusläge hålls året inom spannet och rutan säger till om man hamnar utanför.
+
 ## Fokusläget
 
 Fokus-knappen följer ett krig, ett rike eller en religion. Tidslinjen visar bara det spannet, globen riktas mot platsen och uppspelningen går långsamt.
@@ -89,7 +93,7 @@ Skripten i `tools/` körs för hand, inte av sidan, så principen om inget byggs
 |---|---|
 | `tools/riken.py` | Bygger rikesfilerna ur Cliopatria |
 | `tools/bildpromptar.py` | Skriver promptar för illustrationer till `docs/bildpromptar.md` |
-| `tools/bilder_in.py` | Konverterar bilder från `images/incoming/` till `images/events/` |
+| `tools/bilder_in.py` | Konverterar bilder från `images/incoming/` till `images/events/` och fyller i `image` i `events.json` från bildloggen `images/incoming/bildlogg.json`. Undermappar, till exempel `images/incoming/vantar/` för bilder som ska göras om, hoppas över |
 
 ## Testa
 

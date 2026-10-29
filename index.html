@@ -18,10 +18,25 @@
   <header class="masthead">
     <h1 class="brand">Historia-globen</h1>
     <div class="year-readout" aria-live="polite">
-      <span id="year-big" class="year-big">1325</span>
-      <span id="year-era" class="year-era"></span>
+      <button id="year-jump" class="year-jump" type="button" aria-expanded="false" aria-controls="jump-pop" title="Hoppa till ett år">
+        <span id="year-big" class="year-big">1325</span>
+        <span id="year-era" class="year-era"></span>
+      </button>
     </div>
     <p id="year-segment" class="segment-note"></p>
+    <form id="jump-pop" class="jump-pop" hidden autocomplete="off" aria-label="Hoppa till år">
+      <label class="jump-label" for="jump-input">Hoppa till år</label>
+      <div class="jump-row">
+        <input id="jump-input" class="jump-input" type="text" inputmode="numeric" enterkeyhint="go" placeholder="till exempel 1969" aria-describedby="jump-msg">
+        <div class="jump-era" role="group" aria-label="Tideräkning">
+          <button type="button" class="jump-era-btn" data-era="bce" aria-pressed="false">f.Kr.</button>
+          <button type="button" class="jump-era-btn" data-era="ce" aria-pressed="true">e.Kr.</button>
+        </div>
+        <button type="submit" class="jump-go">Gå</button>
+      </div>
+      <p id="jump-msg" class="jump-msg" role="alert"></p>
+      <div id="jump-epochs" class="jump-epochs"></div>
+    </form>
   </header>
 
   <div class="top-actions">
