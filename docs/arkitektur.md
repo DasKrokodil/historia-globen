@@ -75,7 +75,7 @@ Stora filer laddas först när de behövs:
 
 ## Hoppa i tiden (#140)
 
-Stegknapparna −100, −10, −1, +1, +10 och +100 syns på alla skärmbredder (i mobil är de smalare). Årtalet uppe till vänster är en knapp: den öppnar en ruta där man skriver ett år, med knapparna f.Kr./e.Kr. eller direkt i texten ("2600 f.Kr.", "44 fkr", "1969"), eller väljer en tidsålder (skalans fyra segment och "Idag"). Utan angiven tideräkning räknas året som e.Kr. Tolkningen görs av `parseYear()` i `model.js`; rutan hör till `setupYearJump()` i `timeline.js`. I fokusläge hålls året inom spannet och rutan säger till om man hamnar utanför.
+Stegknapparna −100, −10, −1, +1, +10 och +100 syns på alla skärmbredder (i mobil är de smalare). Årtalet uppe till vänster är en knapp: den öppnar en ruta där man skriver ett år, med knapparna f.Kr./e.Kr. eller direkt i texten ("2600 f.Kr.", "44 fkr", "1969"), eller väljer en tidsålder (skalans fyra segment och "Idag"). Utan angiven tideräkning räknas året som e.Kr. Tolkningen görs av `parseYear()` i `model.js`; rutan hör till `setupYearJump()` i `timeline.js`. I fokusläge hålls året inom spannet och rutan säger till om man hamnar utanför. Efter ett hopp (inte vid uppspelning eller stegknappar) flyger globen till årets viktigaste händelse (#165): händelsen i det första Samtidigt-kortet som ligger närmast i tid, annars i listan; vid lika vinner den med kortast spann (ett datum före ett spann som Oxford 1096–2026). `setupYearJump()` anropar `onJump`, och `flyToYearHighlight()` i `main.js` sköter flygningen. Den hoppas över i fokusläge och om användaren vridit globen de senaste tre sekunderna (`globe.lastUserInput`).
 
 ## Tangentbord och skärmläsare (#139)
 

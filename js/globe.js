@@ -177,6 +177,9 @@ export class Globe {
     this.onZoom?.(this.zoom);
   }
 
+  /** Tid (performance.now) då användaren senast vred, zoomade eller tryckte på globen (#165). */
+  lastUserInput = -Infinity;
+
   flyTo(lat, lon, ms = 1100) {
     const theta = (lon + 180) * DEG;
     let ty = Math.PI / 2 - theta;
@@ -197,7 +200,7 @@ export class Globe {
       pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
       last = { x: e.clientX, y: e.clientY, t: performance.now() };
       moved = 0;
-      this.autoRotate = false; this._fly = null;
+      this.autoRotate = false; this._fly = null; this.lastUserInput = performance.now();
       if (pts.size === 2) { const [a, b] = [...pts.values()]; pinch0 = Math.hypot(a.x - b.x, a.y - b.y); zoom0 = this.zoom; }
       el.classList.add('dragging');
     });
@@ -240,9 +243,9 @@ export class Globe {
       else handled = false;
       if (!handled) return;
       e.preventDefault();
-      this.autoRotate = false; this._fly = null; this._vel = { x: 0, y: 0 };
+      this.autoRotate = false; this._fly = null; this._vel = { x: 0, y: 0 }; this.lastUserInput = performance.now();
     });
-    el.addEventListener('wheel', e => { e.preventDefault(); this.setZoom(this.zoom * Math.exp(-e.deltaY * 0.0012)); }, { passive: false });
+    el.addEventListener('wheel', e => { this.lastUserInput = performance.now(); e.preventDefault(); this.setZoom(this.zoom * Math.exp(-e.deltaY * 0.0012)); }, { passive: false });
   }
 
   /** Skärmposition för en punkt i klotets koordinater, och om den syns (vänd mot kameran). */
