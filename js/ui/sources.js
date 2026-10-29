@@ -86,15 +86,18 @@ export class SourcesDialog {
     this.group = null;
     const { events, funfacts, polities } = this.data;
     const religionsDoc = this.data.religionsDoc;
-    // Religionslagrets riken: med kontrollerat år för kristnandet har de en egen källa
-    const states = (religionsDoc?.polities ?? []).filter(p => p.source).map(() => ({ review: 'source-checked' }));
-    const counts = { checked: 0, two: 0, human: 0, draft: 0 };
-    for (const x of [...events, ...funfacts, ...polities, ...states]) {
-      if (x.review === 'human-reviewed') counts.human++;
-      else if (x.review === 'two-sources') counts.two++;
-      else if (x.review === 'source-checked') counts.checked++;
-      else counts.draft++;
-    }
+    const total = doc => {
+      // Religionslagrets riken: med kontrollerat år för kristnandet har de en egen källa
+      const states = (doc?.polities ?? []).filter(p => p.source).map(() => ({ review: 'source-checked' }));
+      const counts = { checked: 0, two: 0, human: 0, draft: 0 };
+      for (const x of [...events, ...funfacts, ...polities, ...states]) {
+        if (x.review === 'human-reviewed') counts.human++;
+        else if (x.review === 'two-sources') counts.two++;
+        else if (x.review === 'source-checked') counts.checked++;
+        else counts.draft++;
+      }
+      return `${counts.checked} uppgifter har kontrollerad källa. ${counts.two} har dessutom en andra källa som stämmer. Båda grupperna väntar på granskning av människa. ${counts.human} är granskade. ${counts.draft} är utkast.`;
+    };
 
     this.body.innerHTML = `
       ${highlightIds ? '<p><strong>Källor för den här fun facten.</strong> <button type="button" class="link-btn" data-all>Visa alla källor</button></p>' : ''}
@@ -108,7 +111,7 @@ export class SourcesDialog {
         <li>En fun fact som jämför två saker har källa för båda leden.</li>
       </ol>
       <h3>Läget just nu</h3>
-      <p class="src-total">${counts.checked} uppgifter har kontrollerad källa. ${counts.two} har dessutom en andra källa som stämmer. Båda grupperna väntar på granskning av människa. ${counts.human} är granskade. ${counts.draft} är utkast.</p>
+      <p class="src-total">${total(religionsDoc)}</p>
       <h3>Källregister</h3>
       <p class="src-intro">Källorna är grupperade efter vad de används till, och en källa kan höra till flera grupper. Tryck på en grupp för att bara visa den, eller sök.</p>
       <div class="src-groups" role="group" aria-label="Grupper"></div>
@@ -143,6 +146,7 @@ export class SourcesDialog {
       loadReligions().then(doc => {
         this.data.religionsDoc ??= doc;
         if (this.root.hidden || this.highlight !== highlightIds) return;
+        this.body.querySelector('.src-total').textContent = total(doc);
         this.groups = collect(this.data, doc);
         this.render();
       }).catch(err => console.error(err));
