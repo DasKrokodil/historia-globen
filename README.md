@@ -39,7 +39,7 @@ images/events/        bilder till händelser (historiska bilder och märkta illu
 images/incoming/      nya bilder innan de konverteras
 tools/                hjälpskript som körs för hand (Python): riken, bildpromptar och bildkonvertering
 docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar
-.orchestra/           arbetsflödet dirigenten och orkestern (försök, MIT-licens)
+.orchestra/           arbetsflödet dirigenten och orkestern (MIT-licens)
 data/events.json      händelser
 data/funfacts.json    fun facts, kopplade till händelser
 data/sources.json     källregister

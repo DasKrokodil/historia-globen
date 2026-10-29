@@ -2,7 +2,7 @@
 
 Inställningar för [dirigenten och orkestern](shared/README.md) i det här projektet (#145). Gemensamma regler står i
 [shared/ORCHESTRA.md](shared/ORCHESTRA.md). Projektets regler här och i [CLAUDE.md](../CLAUDE.md) går före de
-gemensamma standardvärdena. Det här är försöksinstallationen: Rikard utvärderar efter första testet.
+gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159), efter Rikards utvärdering av första passet.
 
 - **Regler att läsa först:** [CLAUDE.md](../CLAUDE.md) (arkitektur, datamodell, källpolicy, licenser, bilder,
   utseende, test och arbetssätt), [docs/beslut.md](../docs/beslut.md), [docs/kallor.md](../docs/kallor.md),
@@ -12,33 +12,52 @@ gemensamma standardvärdena. Det här är försöksinstallationen: Rikard utvär
 - **Läge:** `/orkester` med ett område (issuenummer eller ämne) kör ett avgränsat pass över just det området.
   `/orkester` utan område kör ett avgränsat pass över hela kön. Inget av dem startar timer, köavläsning eller
   bevakning. En obevakad kösession körs bara när Rikard uttryckligen ber om den.
+- **Passets storlek:** ett pass levererar högst fyra pull requests, så att Rikard hinner granska dem. Därefter
+  rapporterar dirigenten och stannar. Nästa pass startar när Rikard ber om det, till exempel "fortsätt med fler
+  issues". Ett angivet område med fler issues får ändå tas i sin helhet.
 - **Repo och samordning:** `DasKrokodil/historia-globen`. Ingen statusissue; status rapporteras i chatten och i
   varje issue.
 - **Issues:** GitHub, enligt shared/ISSUE-WORKFLOW.md. Projektets etiketter: `idé`, `data`, `faktafel`,
   `källkontroll`, `utseende`, `utanför-kod`, `version-2`. Prioritetsetiketter används inte. Ordningen är då
   milstolpens versionsnummer (lägst först), sedan skapandetid. Issues med etiketten `utanför-kod` tas aldrig.
 - **Krav per issue:** milstolpar som Rikard ännu inte har öppnat för arbete (versioner efter den pågående) tas inte
-  utan att han ber om det, enligt CLAUDE.md: varje version slutar med hans utvärdering.
+  utan att han ber om det, enligt CLAUDE.md: varje version slutar med hans utvärdering. Undantag: säger issuet
+  självt att en del kan göras när som helst, får den delen tas, och pull requesten skriver "Del av #N".
 - **Anspråk:** en kommentar på issuet ("Orkestern tar det här, session <id>") och etiketten `orkester: pågår` medan
   arbetet pågår. Etiketten tas bort när pull requesten är öppnad eller arbetet pausas.
 - **Kapacitet:** högst tre arbetare samtidigt, inklusive hjälpare. Dirigenten får göra ett arbete själv, och det
-  räknas då som en plats. Webbläsartester (Playwright) körs av en arbetare i taget, var och en med egen port.
+  räknas då som en plats. Webbläsartester (Playwright) körs av en arbetare i taget, var och en med egen port. Kön
+  hålls med en gemensam låsfil: `flock <scratchpad>/pw.lock node skript.cjs`. I molnmiljön når webbläsaren inte
+  jsdelivr, så three.js routas till en lokal kopia (`three@0.160.0`) och Google Fonts avbryts.
 - **Isolering:** varje arbetare har en egen arbetskopia (git worktree) och en egen port för
-  `python3 -m http.server`: 8001, 8002 och 8003. Kontrollera att servern visar arbetarens egen kopia.
+  `python3 -m http.server`: 8001, 8002 och 8003 (dirigenten använder 8000). Kontrollera att servern visar
+  arbetarens egen kopia. Arbetskopiorna läggs utanför repot, till exempel `/home/user/orkester/<N>-<namn>`, och tas
+  bort när pull requesten är ihopslagen.
 - **Modeller:** arbetare får en billigare modell för rutinändringar i kod och utseende. **Undantag (källpolicyn):**
   issues med etiketten `data`, `faktafel` eller `källkontroll`, och allt som lägger in eller ändrar fakta, årtal,
   platser eller källor, görs av dirigenten själv eller av en arbetare med samma modell som dirigenten. Källsidan
   öppnas alltid. Ingen uppgift skrivs ur minnet, och nivån `human-reviewed` sätts aldrig.
-- **Tider:** ingen köavläsning eller bevakning under försöket. Hjärtslag från arbetare var 15:e minut, och arbete
+- **Spärrade källor:** molnmiljöns nätverk kan stoppa källsajter. Går en källa inte att öppna används den inte, inte
+  ens via en sökträff. Uppgiften behåller sin nivå, och pull requesten säger vilka domäner som behöver släppas på.
+  Är källorna oense skrivs det öppet i händelsens `note` ("Källorna skiljer sig") och nivån höjs inte.
+- **Tider:** ingen köavläsning eller bevakning. Hjärtslag från arbetare var 15:e minut, och arbete
   utan framsteg i 45 minuter diagnostiseras.
 - **Frågor:** frågor som bara Rikard kan svara på postas som kommentar på issuet, med alternativ och en
   rekommendation, och etiketten `user question`. Ett avgränsat pass frågar aldrig i chatten. Ändringar av
   arkitektur, nya beroenden, kategorier eller datakällor med ny licens är alltid sådana frågor (CLAUDE.md).
 - **Inflöde:** inga automatiska inflödessteg.
-- **Granskning när kön är tom:** standard. Fynd blir nya issues, men byggs inte utan att de ingår i passets område.
+- **Granskning av varje leverans (obligatorisk):** dirigenten läser diffen och tittar på skärmbilderna innan pull
+  requesten öppnas. I faktaarbete stickprovskontrollerar dirigenten källorna själv. Fel rättas i en extra commit, och
+  pull requesten säger vad granskningen hittade. I första passet hittade granskningen något i hälften av leveranserna,
+  så steget hoppas aldrig över.
+- **Granskning när kön är tom:** standard, och dessutom slås alla öppna orkester-pull-requests ihop på prov i en
+  separat kopia. JSON och källor kontrolleras, och sidan provkörs med allt ihopslaget. Fynd blir nya issues, men
+  byggs inte utan att de ingår i passets område.
 - **Test och bevis före pull request:** enligt CLAUDE.md, "Testa innan du är klar": inga fel i konsolen, giltig JSON
   och att varje `sources`-id finns i `sources.json`. Testa dator- och mobilbredd (cirka 400 px), med skärmbilder
-  vid ändringar i utseendet.
+  vid ändringar i utseendet. Molnmiljön kan inte ladda upp bilder till GitHub. Pull requesten beskriver därför vad
+  skärmbilderna visar, med mått där det hjälper (till exempel "etiketten ligger på x 17–167"), och dirigenten
+  skickar de viktigaste bilderna till Rikard i chatten.
 - **Leverans (PR-läge):** pusha aldrig till `main`. Varje issue levereras på en egen gren `claude/issue-<N>-<namn>`
   som en pull request på svenska, med `Closes #N`, vad som ändrats, varför och hur Rikard testar. Ingen force push.
   Rikard slår ihop. Issuet stängs när pull requesten slås ihop, inte av orkestern. Uppdatera `docs/` och
