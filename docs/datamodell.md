@@ -114,6 +114,20 @@ Ett rike kan bestå av flera delar, till exempel Romarriket med kungadömet, rep
 
 - `snapshots` är religionens utbredning som statsreligion eller huvudreligion, sammanslagen per tidsperiod. `sure: false` betyder att flera religioner nämns och att den först nämnda valts. Den visas ljusare med streckad kant.
 - `polities` listar varje rike i Cliopatria med faktarutans text, vald religion och regeln som användes. `since` är ett årtal ur faktarutan, och religionen visas först därifrån.
+- `facts` (valfritt, #90) är faktarutan om religionen. Den visas när religionslagret slås på, när religionen bockas i igen i undermenyn, med knappen Fakta i undermenyn och när man börjar följa religionen i Fokus. Än så länge har bara kristendomen en.
+
+```json
+"facts": { "origin": "korsfastelsen",
+  "summary": { "sv": "Kristendomen är en monoteistisk religion …" },
+  "items": [{ "label": { "sv": "När och var" }, "text": { "sv": "Under första århundradet e.Kr. …" } }],
+  "milestones": [{ "year": 301, "label": { "sv": "301 eller 314" }, "text": { "sv": "Armenien blir först …" }, "sources": ["wp-christianization-armenia"] }],
+  "sources": ["wp-christianity", "wp-crucifixion"], "review": "source-checked" }
+```
+
+  - `origin` är id för händelsen i `events.json` där religionen uppstod. Där ritas en stjärna i religionens färg på lagerbilden, från händelsens startår, så länge religionen syns i lagret. Platsen står bara i händelsen, inte en gång till här.
+  - `items` är rader med rubrik och text (till exempel när och var, grundare, helig skrift, antal troende med årtal). Osäkerhet skrivs ut i texten.
+  - `milestones` är nyckelår, till exempel när ett rike gjorde religionen till statsreligion. `year` är astronomiskt år och knappen hoppar dit i tiden; `label` är det som står på knappen och kan visa osäkerhet ("301 eller 314"). Varje nyckelår har egna `sources`.
+  - `sources` och `review` fungerar som för händelser. Rutan listar både rutans och nyckelårens källor.
 
 ## `styles.json`: bildstilar
 

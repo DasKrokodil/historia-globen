@@ -32,6 +32,7 @@ export class Panel {
     this.onSources = () => {};
     this.onFocus = () => {};
     this.onOpen = () => {};
+    this.onYear = () => {};
     this.selectedId = null;
 
     // Visa bara kategorier som har händelser, i den fasta ordningen.
@@ -135,6 +136,40 @@ export class Panel {
     this.detail.scrollTop = 0;
     this.detail.hidden = false;
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
+  }
+
+  /**
+   * Faktaruta om en religion (#90): vad det är, när och var den uppstod, grundare,
+   * helig skrift och antal troende, med nyckelår som hoppar i tiden. Allt står i
+   * religionens facts i religions.json. origin är händelsen där religionen uppstod,
+   * som också är punkten på globen.
+   */
+  showReligion(r, origin) {
+    const f = r.facts;
+    const rv = REVIEW[f.review] ?? REVIEW.draft;
+    const srcs = [...new Set([...(f.sources ?? []), ...(f.milestones ?? []).flatMap(m => m.sources ?? [])])]
+      .map(id => this.srcById[id]).filter(Boolean);
+    this.selectedId = origin?.id ?? null;
+    this.detail.className = `detail detail-card${origin ? ` frame-${styleFor(origin, this.styles).frame}` : ''}`;
+    delete this.detail.dataset.style;
+    this.detail.innerHTML = `
+      <button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
+      <div class="story-label"><span class="swatch" style="background:${esc(r.color)}"></span>Religion</div>
+      <h3>${esc(t(r.name))}</h3>
+      <p>${esc(t(f.summary))}</p>
+      <dl class="religion-facts">${(f.items ?? []).map(it => `<dt>${esc(t(it.label))}</dt><dd>${esc(t(it.text))}</dd>`).join('')}</dl>
+      ${origin ? `<p class="war-link">Punkten ★ på globen: <button type="button" class="link-btn" data-goto="${esc(origin.id)}">${esc(t(origin.title))}</button> <span class="meta">${esc(formatEventTime(origin))} · ${esc(t(origin.place))}</span></p>` : ''}
+      ${f.milestones?.length ? `<div class="war-list"><h4>Statsreligion i riken</h4><ol>${f.milestones.map(m =>
+        `<li><button type="button" class="link-btn" data-year="${Number(m.year)}">${esc(t(m.label) || formatYear(m.year))}</button> ${esc(t(m.text))}</li>`).join('')}</ol></div>` : ''}
+      <div class="src">Källa: ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || 'saknas'}</div>
+      <div class="detail-actions">
+        <span class="review-badge ${rv.cls}">${esc(rv.sv)}</span>
+      </div>`;
+    this.detail.hidden = false;
+    this.detail.scrollTop = 0; // efter hidden, annars behåller kortet förra läget
+    this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
+    for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
+    for (const b of this.detail.querySelectorAll('[data-year]')) b.addEventListener('click', () => this.onYear(Number(b.dataset.year)));
   }
 
   /** Faktarutan är ett eget kort (#112). show = false markerar händelsen utan att visa kortet. */
