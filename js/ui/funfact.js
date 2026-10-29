@@ -59,7 +59,7 @@ export class FunFacts {
     this.kind.textContent = KIND[f.kind ?? 'funfact'];
     const evs = f.events.map(id => this.byId[id]);
     this.text.textContent = t(f.text);
-    this.events.innerHTML = evs.map(e => `<button type="button" class="ff-chip" data-id="${esc(e.id)}"><span class="dot" style="background:${CAT[e.category]?.color}"></span>${f.kind === 'war' ? `<span class="ff-year">${esc(formatYear(e.start))}</span>` : ''}${esc(t(e.title))}</button>`).join('');
+    this.events.innerHTML = evs.map(e => `<button type="button" class="ff-chip" data-id="${esc(e.id)}">${e.image ? `<img class="ff-thumb" src="${esc(e.image.file)}" alt="" loading="lazy">` : `<span class="dot" style="background:${CAT[e.category]?.color}"></span>`}${f.kind === 'war' ? `<span class="ff-year">${esc(formatYear(e.start))}</span>` : ''}${esc(t(e.title))}</button>`).join('');
     for (const b of this.events.querySelectorAll('.ff-chip')) b.addEventListener('click', () => this.onSelect(b.dataset.id));
     const rv = REVIEW[f.review] ?? REVIEW.draft;
     this.review.className = `review-badge ${rv.cls}`;
