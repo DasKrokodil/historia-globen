@@ -1,6 +1,6 @@
 // Startar allt och kopplar ihop delarna:
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
-import { loadAll, loadReligions, loadReligionPolities, loadEmpire, CAT, t, yearParts, formatYear, formatEventTime, isVisibleReview } from './model.js';
+import { loadAll, loadReligions, loadReligionPolities, loadEmpire, CAT, t, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays, dayParts } from './model.js';
 import { Globe } from './globe.js';
 import { Timeline, segmentName, setupYearJump } from './timeline.js';
 import { EventsLayer } from './layers/events.js';
@@ -21,6 +21,8 @@ const $ = id => document.getElementById(id);
 // Samtidigt-kortet (#120): när ett krig bryter ut visas vad mer som hände i världen
 // inom några år. Allt hämtas ur händelserna, som var och en har källa.
 const NEAR_YEARS = 5;
+// Krig som ryms inom så här många år, med datum i edtf, följs dag för dag i fokusläget (#204)
+const SHORT_WAR_YEARS = 2;
 const RANK = ['draft', 'source-checked', 'two-sources', 'human-reviewed'];
 function warCards(events) {
   const shown = e => !e.partOf || e.top || e.major;
@@ -183,7 +185,10 @@ async function start() {
     if (type === 'war') {
       const war = data.byId[id];
       const pts = [war, ...war._battles];
-      f = { type, id, title: `${t(war.title)} ${formatEventTime(war)}`, short: t(war.title), from: war.start, to: war.end,
+      // Ett kort krig följs från dess första till sista dag, och året blir ett decimaltal (#204)
+      const fine = war.end - war.start <= SHORT_WAR_YEARS && edtfHasDays(war.edtf);
+      const [from, to] = fine ? edtfSpan(war) : [war.start, war.end];
+      f = { type, id, title: `${t(war.title)} ${formatEventTime(war)}`, short: t(war.title), from, to, fine,
         center: [pts.reduce((s, e) => s + e._lat, 0) / pts.length, pts.reduce((s, e) => s + e._lon, 0) / pts.length], zoom: 2.2 };
     } else if (type === 'empire') {
       const g = data.empireGroups.find(x => x.id === id);
@@ -208,7 +213,7 @@ async function start() {
         center: first ? [first._lat, first._lon] : geoCenter([r.snapshots[0].geometry]), zoom: 1.3 };
     }
     // Året stannar om det ligger inom spannet; annars flyttas det till starten och flytten visas (#167)
-    const prevYear = timeline.year, keepYear = prevYear >= f.from && prevYear <= f.to;
+    const prevYear = timeline.year, prevText = timeline.format(prevYear), keepYear = prevYear >= f.from && prevYear <= f.to;
     if (focus) endFocus(false);
     focus = f;
     focusWar = type === 'war' ? data.byId[id] : null;
@@ -222,11 +227,11 @@ async function start() {
     $('focus-bar').hidden = false;
     $('app').classList.add('focusing');
     panel.setOpen(false); // listan stängs så att det man följer syns
-    timeline.setFocus({ from: f.from, to: f.to });
+    timeline.setFocus({ from: f.from, to: f.to, fine: !!f.fine });
     const startYear = keepYear ? prevYear : f.from;
     lastYear = startYear;
     timeline.year = startYear;
-    showMoved(keepYear ? null : { prevYear, startYear, short: f.short, type });
+    showMoved(keepYear ? null : { prevYear, prevText, startYear, short: f.short, type });
     refresh();
     // Före start: varför kriget började och vilka som stred (#122)
     if (focusWar?.story) { selectedId = focusWar.id; panel.showStory(focusWar, 'intro'); $('app').classList.add('has-detail'); }
@@ -244,8 +249,8 @@ async function start() {
     movedBack = m;
     if (!m) return;
     const why = m.type === 'war' ? 'då kriget börjar' : m.type === 'religion' ? `då ${m.short} börjar` : `då ${m.short} börjar`;
-    $('focus-moved-text').textContent = `Tiden flyttades till ${formatYear(m.startYear)}, ${why} · `;
-    $('focus-moved-back').textContent = `Tillbaka till ${formatYear(m.prevYear)}`;
+    $('focus-moved-text').textContent = `Tiden flyttades till ${timeline.format(m.startYear)}, ${why} · `;
+    $('focus-moved-back').textContent = `Tillbaka till ${m.prevText}`;
   }
   // Tillbaka lämnar fokus och går till året man stod på, eftersom det ligger utanför spannet
   $('focus-moved-back').addEventListener('click', () => {
@@ -292,7 +297,7 @@ async function start() {
   focusMenu.onOpen = async () => {
     panel.setOpen(false); layers.close();
     // Nära = inom fyra gånger det tidslinjen visar runt året (vid 1325 cirka ±150 år)
-    const year = timeline.year, r = Math.round(timeline.windowYears(year) * 4 / 10) * 10;
+    const year = Math.floor(timeline.year), r = Math.round(timeline.windowYears(year) * 4 / 10) * 10;
     focusMenu.setTime({ year, from: year - r, to: year + r, label: `inom ±${r} år från ${formatYear(year)}` });
     if (focusMenu.groups[2].loading) focusMenu.setGroups(focusGroups(await loadReligions()));
   };
@@ -334,21 +339,25 @@ async function start() {
 
   function refresh() {
     [areas.labelScale, areas.labelAlpha] = nameStyle();
-    const year = timeline.year;
-    ensureEmpires(year);
+    // I fokusläget för korta krig är året ett decimaltal (#204). Händelser och krig får då sina
+    // datum ur edtf (span), medan riken, religioner och fun facts får det hela året som förut.
+    const year = timeline.year, wholeYear = Math.floor(year), fine = !!focus?.fine;
+    const span = e => timeline.spanOf(e);
+    ensureEmpires(wholeYear);
     const window = timeline.windowYears(year);
+    const within = fine ? `±${Math.round(window * 365.25)} dagar` : `±${Math.round(window)} år`;
     ff.story = focus?.type === 'empire' ? storyFor(focus.id) : [];
-    ff.update(year, panel.filters);
+    ff.update(wholeYear, panel.filters);
     const eventsOn = layers.on.events;
-    visible = layer.update({ year, window, filters: eventsOn ? panel.filters : noEvents, selectedId, highlight: ff.highlightIds(), focusId: focusWar?.id });
-    panel.render(visible, year, window, eventsOn);
-    areas.update({ year });
-    borders.update({ year });
-    religions.update({ year });
+    visible = layer.update({ year, window, filters: eventsOn ? panel.filters : noEvents, selectedId, highlight: ff.highlightIds(), focusId: focusWar?.id, span });
+    panel.render(visible, wholeYear, window, eventsOn, fine ? { at: `den ${timeline.format(year)}`, within } : null);
+    areas.update({ year: wholeYear });
+    borders.update({ year: wholeYear });
+    religions.update({ year: wholeYear });
     relLegend.update(religions.legendItems());
     if (!religions.enabled) relLegend.hidePop();
     wars.enabled = eventsOn;
-    wars.update({ year, filters: panel.filters });
+    wars.update({ year, filters: panel.filters, span });
     const ctx = globe.overlayContext();
     const W = globe.overlayCanvas.width, H = globe.overlayCanvas.height;
     // Ordning nedifrån och upp: riken, religioner, dagens gränser, krigsområden, händelsernas sken
@@ -360,16 +369,21 @@ async function start() {
     globe.commitOverlay();
     if (!$('flat-view').hidden) globe.composeFlat($('flat-canvas'));
 
-    const [num, era] = yearParts(year);
+    // Korta krig: "22 jan" stort och året där tideräkningen annars står (#204)
+    const [num, era] = timeline.formatParts(year);
     $('year-big').textContent = num;
     $('year-era').textContent = era;
-    $('year-segment').textContent = `${focus ? `Fokus: ${focus.short}` : segmentName(year)} · visar ±${Math.round(window)} år`;
+    $('year-segment').textContent = `${focus ? `Fokus: ${focus.short}` : segmentName(year)} · visar ${within}`;
+    // Passerades tiden t sedan förra ritningen? I ett kort krig räknas också krigets första dag,
+    // när uppspelningen startar där, så att den pausar vid händelsen som inledde kriget (#204)
+    const passed = tt => (tt > lastYear && tt <= year) || (fine && tt === focus.from && lastYear === tt && year > tt);
     // I fokusläge stannar uppspelningen vid krigets viktigaste händelser
     // I slutet: hur kriget slutade och hur många som dog (#122)
-    if (focusWar?.story && timeline.playing && lastYear < focusWar.end && year >= focusWar.end) {
+    const warEnd = focusWar && span(focusWar)[1];
+    if (focusWar?.story && timeline.playing && lastYear < warEnd && year >= warEnd) {
       timeline.pause('Pausad: kriget är slut'); selectedId = focusWar.id; panel.showStory(focusWar, 'summary');
     } else if (focusWar && timeline.playing && layers.pause.major) {
-      const hit = focusWar._battles.find(b => b.major && b.start > lastYear && b.start <= year);
+      const hit = focusWar._battles.find(b => b.major && passed(span(b)[0]));
       // I smal skärm öppnas inte panelen, så att kartan syns; händelsen markeras på globen
       if (hit) { timeline.pause('Pausad vid en stor händelse i kriget'); selectedId = hit.id; panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }
     }
@@ -547,8 +561,8 @@ async function start() {
     const seen = new Set();
     for (const { e, p } of singles.slice(0, 14)) {
       if (p.facing < 0.2) continue;
-      // Händelser i ett krig får årtalet framför namnet
-      const text = e.partOf ? `${e.start} · ${t(e.title)}` : t(e.title);
+      // Händelser i ett krig får årtalet framför namnet, i ett kort krig datumet (#204)
+      const text = !e.partOf ? t(e.title) : `${focus?.fine ? dayParts(edtfSpan(e)[0])[0] : e.start} · ${t(e.title)}`;
       const w = text.length * 6.6 + 30, h = 22;
       if (p.x < 0 || p.x > W || p.y < 0 || p.y > H) continue; // markören syns inte, då visas ingen etikett
       // Skjut etiketten inåt så att hela rutan syns
@@ -562,9 +576,12 @@ async function start() {
       if (!el) {
         el = document.createElement('button');
         el.type = 'button'; el.className = 'glabel';
-        el.innerHTML = `<span class="dot" style="background:${CAT[e.category]?.color}"></span>${text.replace(/</g, '&lt;')}`;
         el.addEventListener('click', () => select(e.id));
         labelsEl.append(el); pool.set(e.id, el);
+      }
+      if (el._text !== text) { // texten byts när fokusläget för ett kort krig börjar eller slutar
+        el._text = text;
+        el.innerHTML = `<span class="dot" style="background:${CAT[e.category]?.color}"></span>${text.replace(/</g, '&lt;')}`;
       }
       el.style.transform = `translate(${cx}px, ${p.y - 12}px) translate(-50%, -100%)`;
       el.style.opacity = String(Math.min(1, (p.facing - 0.2) * 4));

@@ -71,7 +71,8 @@ export class Panel {
     if (open) this.onOpen();
   }
 
-  render(visible, year, window, eventsOn = true) {
+  /** labels (valfritt): { at, within } i stället för "år 1879" och "±10 år", till exempel i fokusläget för korta krig (#204). */
+  render(visible, year, window, eventsOn = true, labels = null) {
     if (!eventsOn) {
       this.count.textContent = '0';
       this.sub.textContent = 'Händelselagret är avstängt.';
@@ -80,11 +81,12 @@ export class Panel {
     }
     const inside = visible.filter(v => v.inside).length;
     this.count.textContent = String(visible.length);
-    const w = Math.round(window), near = visible.length - inside;
+    const near = visible.length - inside;
+    const at = labels?.at ?? `år ${formatYear(year)}`, within = labels?.within ?? `±${Math.round(window)} år`;
     const parts = [];
-    parts.push(inside ? `${inside} ${inside === 1 ? 'händelse pågår' : 'händelser pågår'} år ${formatYear(year)}` : `Inget pågår exakt år ${formatYear(year)}`);
-    if (near) parts.push(`${near} till inom ±${w} år`);
-    this.sub.textContent = visible.length ? parts.join(', ') + '.' : `Inget i datan inom ±${w} år från ${formatYear(year)}.`;
+    parts.push(inside ? `${inside} ${inside === 1 ? 'händelse pågår' : 'händelser pågår'} ${at}` : `Inget pågår exakt ${at}`);
+    if (near) parts.push(`${near} till inom ${within}`);
+    this.sub.textContent = visible.length ? parts.join(', ') + '.' : `Inget i datan inom ${within} från ${at.replace(/^(år|den) /, '')}.`;
     if (!visible.length) {
       this.list.innerHTML = `<p class="empty-note">Dra i tidslinjen eller tryck på uppspelning för att hitta nästa händelse. Prickarna under tidslinjen visar var det finns data.</p>`;
       return;

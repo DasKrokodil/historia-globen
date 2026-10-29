@@ -61,9 +61,10 @@ export class EventsLayer {
 
   /**
    * year: nuvarande år. window: hur många år före/efter som räknas som "samtidigt".
+   * span (valfritt): händelsens tid som [början, slut]. I fokusläget för korta krig är det datum ur edtf (#204).
    * Returnerar händelserna som syns, de pågående först.
    */
-  update({ year, window, filters, selectedId, highlight, focusId = null }) {
+  update({ year, window, filters, selectedId, highlight, focusId = null, span = e => [e.start, e.end] }) {
     const visible = [];
     for (const s of this.sprites) {
       const e = s.userData.event;
@@ -71,11 +72,12 @@ export class EventsLayer {
       // syns krigets alla händelser. Valda händelser syns alltid.
       const onMap = !e.partOf || e.top || e.partOf === focusId || e.id === selectedId;
       const okFilter = onMap && filters.has(e.category) && isVisibleReview(e.review);
-      const inside = year >= e.start && year <= e.end;
-      const dist = inside ? 0 : Math.min(Math.abs(year - e.start), Math.abs(year - e.end));
+      const [s0, s1] = span(e);
+      const inside = year >= s0 && year <= s1;
+      const dist = inside ? 0 : Math.min(Math.abs(year - s0), Math.abs(year - s1));
       const near = dist <= window;
       // I fokusläge ligger krigets redan utkämpade slag kvar, lite svagare
-      const fought = e.partOf === focusId && e.end < year;
+      const fought = e.partOf === focusId && s1 < year;
       const activity = !okFilter ? 0 : inside ? 1 : near ? 1 - 0.6 * dist / Math.max(1, window) : fought ? 0.45 : 0;
       this.state.set(e.id, { activity, inside, dist });
       s.visible = activity > 0;
