@@ -35,6 +35,10 @@ js/ui/layers.js       lagerväljaren: slå av och på lager
 js/ui/clusters.js     klustring av händelser som ligger nära varandra
 js/ui/focusmenu.js    fokusmenyn: välj ett krig, rike eller en religion att följa
 img/icons/            ikoner för händelser (egna SVG-teckningar)
+images/events/        bilder till händelser (historiska bilder och märkta illustrationer)
+images/incoming/      nya bilder innan de konverteras
+tools/                hjälpskript som körs för hand (Python): riken, bildpromptar och bildkonvertering
+docs/bildpromptar.md  färdiga promptar för illustrationer
 data/events.json      händelser
 data/funfacts.json    fun facts, kopplade till händelser
 data/sources.json     källregister
@@ -43,6 +47,7 @@ tools/riken.py        bygger rikesfilerna ur Cliopatria
 data/empires/         riken med utbredning per period, en fil per rike och index.json (Cliopatria)
 data/borders.json     dagens landsgränser (Natural Earth)
 data/religions.json   religioner över tid: varje rikes religion (Cliopatria + Wikipedia)
+data/styles.json      bildstilar efter tidsålder och plats
 ```
 
 ## Principer
@@ -80,6 +85,10 @@ Hittar du ett faktafel, öppna ett issue och ange vilken uppgift det gäller och
 - **Rikenas utbredning** i `data/empires/` är ett förenklat utdrag ur [Cliopatria](https://github.com/Seshat-Global-History-Databank/cliopatria) från Seshat Global History Databank, licensierat under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ändringar: bara de riken som listas i `data/empires/index.json` är med, geometrin är förenklad och perioder med nästan samma gräns är sammanslagna (`tools/riken.py`).
 - **Religionerna** i `data/religions.json` använder gränser från samma Cliopatria-data, sammanslagna per religion och förenklade. Varje rikes religion kommer från faktarutan på rikets Wikipedia-sida (CC BY-SA), och sidorna listas i filen. Årtalen för när en del riken blev kristna kommer från Wikipedia och länkas från källregistret.
 - **Ikonerna** i `img/icons/` är egna teckningar för projektet och licensieras som koden (GPL v3.0).
+- **Bilder i faktarutan** (`images/events/`):
+  - **Historiska bilder** kommer från Wikimedia Commons och är public domain, CC0, CC BY eller CC BY-SA. Varje bild behåller sin egen licens, som står i bildtexten tillsammans med upphov och länk till filsidan. Filsidan finns i källregistret.
+  - **Illustrationer** i en tidsålders bildtradition är tydligt märkta "inte en historisk bild" i bildtexten. Verktyg, datum och prompt sparas i `data/events.json`. De licensieras under CC BY 4.0 som övrig data, i den mån de alls omfattas av upphovsrätt.
+  - **Platshållare** märks "Platshållare" tills den riktiga bilden finns.
 - **three.js** laddas från jsDelivr och har MIT-licens. Typsnitten kommer från Google Fonts (SIL Open Font License).
 - Händelsetexterna är egna sammanfattningar. Källorna, ofta Wikipedia (CC BY-SA), länkas från varje uppgift.
 

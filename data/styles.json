@@ -1,0 +1,369 @@
+{
+ "schema": "historia-globen/styles@1",
+ "notes": "Bildstilar efter tidsålder och plats (#129). Grundstilar har tom regions och gäller hela världen för sitt tidsspann (from–to, astronomiska år). Regionala varianter går före grundstilen när händelsens år och plats matchar; de har frame = null och använder grundstilens ram för året. regions anger grova rutor i grader: bbox = [västligaste longitud, sydligaste latitud, östligaste longitud, nordligaste latitud]. variants väljs efter händelsens kategori. prompt är en stilbeskrivning på engelska som används när en illustration tas fram (tools/bildpromptar.py).",
+ "regions": {
+  "kina": {
+   "name": {
+    "sv": "Kina"
+   },
+   "bbox": [
+    [
+     97,
+     18,
+     125,
+     45
+    ]
+   ]
+  },
+  "japan": {
+   "name": {
+    "sv": "Japan"
+   },
+   "bbox": [
+    [
+     129,
+     30,
+     146,
+     46
+    ]
+   ]
+  },
+  "islamiska-varlden": {
+   "name": {
+    "sv": "Islamiska världen (Arabiska halvön, Levanten, Nordafrika)"
+   },
+   "bbox": [
+    [
+     -18,
+     10,
+     11,
+     36
+    ],
+    [
+     11,
+     10,
+     32,
+     33.5
+    ],
+    [
+     32,
+     10,
+     34,
+     31.5
+    ],
+    [
+     34,
+     10,
+     45,
+     37
+    ]
+   ]
+  },
+  "persien-indien-osmanska": {
+   "name": {
+    "sv": "Persien, Indien och Osmanska riket"
+   },
+   "bbox": [
+    [
+     26,
+     5,
+     92,
+     42
+    ]
+   ]
+  },
+  "mexiko": {
+   "name": {
+    "sv": "Mexiko och Mesoamerika"
+   },
+   "bbox": [
+    [
+     -118,
+     14,
+     -86,
+     33
+    ]
+   ]
+  },
+  "anderna": {
+   "name": {
+    "sv": "Anderna"
+   },
+   "bbox": [
+    [
+     -82,
+     -35,
+     -62,
+     5
+    ]
+   ]
+  },
+  "vastafrika": {
+   "name": {
+    "sv": "Västafrika"
+   },
+   "bbox": [
+    [
+     -18,
+     0,
+     15,
+     20
+    ]
+   ]
+  }
+ },
+ "styles": [
+  {
+   "id": "grotta",
+   "name": {
+    "sv": "Grottmålning",
+    "en": "Cave painting"
+   },
+   "from": -999999,
+   "to": -3000,
+   "regions": [],
+   "frame": "grotta",
+   "prompt": "prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture"
+  },
+  {
+   "id": "egypten",
+   "name": {
+    "sv": "Egyptisk väggmålning och papyrus",
+    "en": "Egyptian wall painting and papyrus"
+   },
+   "from": -2999,
+   "to": -500,
+   "regions": [],
+   "frame": "egypten",
+   "prompt": "ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative"
+  },
+  {
+   "id": "antik",
+   "name": {
+    "sv": "Grekisk vasmålning och romersk mosaik",
+    "en": "Greek vase painting and Roman mosaic"
+   },
+   "from": -499,
+   "to": 500,
+   "regions": [],
+   "frame": "antik",
+   "prompt": "ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border"
+  },
+  {
+   "id": "tidig-medeltid",
+   "name": {
+    "sv": "Bysantinsk ikon och insulär bokmålning",
+    "en": "Byzantine icon and Insular manuscript"
+   },
+   "from": 501,
+   "to": 1000,
+   "regions": [],
+   "frame": "tidig-medeltid",
+   "prompt": "early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders"
+  },
+  {
+   "id": "medeltid",
+   "name": {
+    "sv": "Illuminerad handskrift",
+    "en": "Illuminated manuscript"
+   },
+   "from": 1001,
+   "to": 1450,
+   "regions": [],
+   "frame": "medeltid",
+   "prompt": "high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective",
+   "variants": {
+    "krig": {
+     "id": "bayeux",
+     "name": {
+      "sv": "Broderi i stil med Bayeuxtapeten"
+     },
+     "prompt": "embroidered linen panel in the style of the Bayeux Tapestry, wool thread in terracotta, ochre, green and blue, continuous frieze with border bands"
+    }
+   }
+  },
+  {
+   "id": "renassans",
+   "name": {
+    "sv": "Träsnitt och kopparstick",
+    "en": "Woodcut and copper engraving"
+   },
+   "from": 1451,
+   "to": 1650,
+   "regions": [],
+   "frame": "renassans",
+   "prompt": "Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche",
+   "variants": {
+    "upptackter": {
+     "id": "portolan",
+     "name": {
+      "sv": "Portolankarta"
+     },
+     "prompt": "Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour"
+    }
+   }
+  },
+  {
+   "id": "barock",
+   "name": {
+    "sv": "Barock oljemålning och gravyr",
+    "en": "Baroque oil painting and engraving"
+   },
+   "from": 1651,
+   "to": 1800,
+   "regions": [],
+   "frame": "barock",
+   "prompt": "Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash",
+   "variants": {
+    "natur": {
+     "id": "plansch",
+     "name": {
+      "sv": "Naturhistorisk plansch"
+     },
+     "prompt": "natural history plate, hand-coloured copper engraving of the subject with neat labels removed, scientific illustration style"
+    },
+    "vetenskap": {
+     "id": "plansch",
+     "name": {
+      "sv": "Naturhistorisk plansch"
+     },
+     "prompt": "scientific plate, hand-coloured copper engraving of instruments and diagrams, Enlightenment encyclopedia style"
+    }
+   }
+  },
+  {
+   "id": "1800-tal",
+   "name": {
+    "sv": "Litografi och tidningsgravyr",
+    "en": "Lithograph and newspaper engraving"
+   },
+   "from": 1801,
+   "to": 1900,
+   "regions": [],
+   "frame": "1800-tal",
+   "prompt": "19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour"
+  },
+  {
+   "id": "affisch",
+   "name": {
+    "sv": "Affisch i art deco och tidig modernism",
+    "en": "Art deco and early modernist poster"
+   },
+   "from": 1901,
+   "to": 1950,
+   "regions": [],
+   "frame": "affisch",
+   "prompt": "early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture"
+  },
+  {
+   "id": "rymdalder",
+   "name": {
+    "sv": "Rymdålderns affischkonst",
+    "en": "Space age poster art"
+   },
+   "from": 1951,
+   "to": 9999,
+   "regions": [],
+   "frame": "rymdalder",
+   "prompt": "mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style"
+  },
+  {
+   "id": "kina-tusch",
+   "name": {
+    "sv": "Tuschmålning på silkesrulle",
+    "en": "Ink painting on silk scroll"
+   },
+   "from": -1000,
+   "to": 1912,
+   "regions": [
+    "kina"
+   ],
+   "frame": null,
+   "prompt": "Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours"
+  },
+  {
+   "id": "japan-ukiyoe",
+   "name": {
+    "sv": "Ukiyo-e-träsnitt",
+    "en": "Ukiyo-e woodblock print"
+   },
+   "from": 1600,
+   "to": 1900,
+   "regions": [
+    "japan"
+   ],
+   "frame": null,
+   "prompt": "Japanese ukiyo-e woodblock print, bold outlines, flat colour areas, Prussian blue and vermilion, wave and cloud patterns"
+  },
+  {
+   "id": "islamisk",
+   "name": {
+    "sv": "Geometriska mönster, kalligrafi och arkitektur",
+    "en": "Islamic geometric pattern and architecture"
+   },
+   "from": 622,
+   "to": 1900,
+   "regions": [
+    "islamiska-varlden"
+   ],
+   "frame": null,
+   "prompt": "Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures"
+  },
+  {
+   "id": "miniatyr",
+   "name": {
+    "sv": "Miniatyrmålning",
+    "en": "Persian, Mughal and Ottoman miniature"
+   },
+   "from": 1200,
+   "to": 1850,
+   "regions": [
+    "persien-indien-osmanska"
+   ],
+   "frame": null,
+   "prompt": "Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold borders, elevated viewpoint, intricate patterns"
+  },
+  {
+   "id": "aztekisk-kodex",
+   "name": {
+    "sv": "Aztekisk kodex",
+    "en": "Aztec codex"
+   },
+   "from": 1200,
+   "to": 1550,
+   "regions": [
+    "mexiko"
+   ],
+   "frame": null,
+   "prompt": "Aztec (Mexica) codex painting on bark paper or deerskin, bold black outlines, flat red, blue, yellow and green, glyph-like stylised figures and temples"
+  },
+  {
+   "id": "inka",
+   "name": {
+    "sv": "Inkans textil- och keramikmönster",
+    "en": "Inca textile and ceramic patterns"
+   },
+   "from": 1000,
+   "to": 1550,
+   "regions": [
+    "anderna"
+   ],
+   "frame": null,
+   "prompt": "Andean and Inca textile (tocapu) and ceramic patterns, stepped geometric motifs, terracotta, cream and black, mountains and terraces"
+  },
+  {
+   "id": "benin",
+   "name": {
+    "sv": "Textilmönster och bronsrelief",
+    "en": "West African textile and Benin bronze relief"
+   },
+   "from": 1200,
+   "to": 1900,
+   "regions": [
+    "vastafrika"
+   ],
+   "frame": null,
+   "prompt": "West African textile patterns and cast bronze relief plaques in the style of the Benin Bronzes, rich patina, decorative background rosettes"
+  }
+ ]
+}
