@@ -91,6 +91,19 @@ export function yearParts(y) {
   return [String(y), ''];
 }
 
+/** Tolkar ett inskrivet år till astronomiskt år, eller null. "2600 f.Kr.", "44 fkr", "300 BC" och
+ *  "-500" blir före vår tideräkning; "1969", "800 e.Kr." och "AD 800" efter. Utan tideräkning i texten
+ *  används `defaultEra` ('ce' eller 'bce'). Det finns inget år 0 i visningen: 1 f.Kr. är 0. */
+export function parseYear(text, defaultEra = 'ce') {
+  const m = /^\s*(?:(ad|a\.d\.)\s*)?([-−–]?)\s*(\d{1,4})\s*(?:(f\.?\s*kr\.?|fkr|bc|b\.c\.|bce|e\.?\s*kr\.?|ekr|ad|a\.d\.|ce)\s*)?$/i.exec(text);
+  if (!m) return null;
+  const n = Number(m[3]);
+  if (n === 0) return null;
+  const tag = (m[4] || '').toLowerCase().replace(/[.\s]/g, '');
+  const isBc = m[2] ? true : tag ? /^(fkr|bc|bce)$/.test(tag) : m[1] ? false : defaultEra === 'bce';
+  return isBc ? 1 - n : n;
+}
+
 const MONTHS = ['januari','februari','mars','april','maj','juni','juli','augusti','september','oktober','november','december'];
 
 /** Tid för en händelse enligt dess precision och EDTF-markering. */

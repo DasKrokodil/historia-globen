@@ -1,6 +1,6 @@
 // Tidsreglaget äger det nuvarande året (arkitekturprincip 3).
 // Beslut 4: segmenterad skala där nutiden får mer plats än forntiden.
-import { formatYear } from './model.js';
+import { formatYear, parseYear, yearParts } from './model.js';
 
 export const MIN_YEAR = -2999;   // 3000 f.Kr.
 export const MAX_YEAR = 2026;
@@ -220,4 +220,53 @@ export class Timeline extends EventTarget {
     this.track.setAttribute('aria-valuetext', formatYear(this._year));
   }
   init(y) { this._year = clampY(y); this._render(); this.dispatchEvent(new CustomEvent('change', { detail: { year: this._year } })); }
+}
+
+
+/** "Hoppa till år": tryck på årtalet, skriv ett år (med f.Kr./e.Kr.) eller välj en tidsålder (#140). */
+export function setupYearJump(timeline, { button, pop, input, msg, epochs }) {
+  let era = 'ce';
+  const setEra = e => {
+    era = e;
+    for (const b of pop.querySelectorAll('.jump-era-btn')) b.setAttribute('aria-pressed', String(b.dataset.era === era));
+  };
+  const close = () => { pop.hidden = true; button.setAttribute('aria-expanded', 'false'); };
+  const open = () => {
+    setEra('ce'); input.value = ''; msg.textContent = '';
+    pop.hidden = false; button.setAttribute('aria-expanded', 'true');
+    input.focus();
+  };
+  const jump = y => {
+    timeline.pause();
+    timeline.year = y;
+    if (timeline.year !== y) { // fokusläget håller året inom spannet
+      msg.textContent = `Året ligger utanför det du följer nu (${formatYear(timeline.focus.from)}–${formatYear(timeline.focus.to)}).`;
+      return;
+    }
+    close(); button.focus();
+  };
+  const chip = (label, y) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'jump-epoch';
+    const [num, e] = yearParts(y);
+    b.innerHTML = `<span class="jump-epoch-name"></span><span class="jump-epoch-year"></span>`;
+    b.firstChild.textContent = label; b.lastChild.textContent = `${num} ${e || 'e.Kr.'}`.trim();
+    b.addEventListener('click', () => jump(y));
+    epochs.append(b);
+  };
+  for (const s of SEGMENTS) chip(s.name, s.from);
+  chip('Idag', MAX_YEAR);
+
+  button.addEventListener('click', () => (pop.hidden ? open() : close()));
+  for (const b of pop.querySelectorAll('.jump-era-btn')) b.addEventListener('click', () => { setEra(b.dataset.era); input.focus(); });
+  pop.addEventListener('submit', ev => {
+    ev.preventDefault();
+    const y = parseYear(input.value, era);
+    if (y === null) { msg.textContent = 'Skriv ett år, till exempel 1969 eller 2600 f.Kr.'; return; }
+    if (y < MIN_YEAR || y > MAX_YEAR) { msg.textContent = `Välj ett år mellan ${formatYear(MIN_YEAR)} och ${formatYear(MAX_YEAR)}.`; return; }
+    jump(y);
+  });
+  input.addEventListener('input', () => { msg.textContent = ''; });
+  pop.addEventListener('keydown', ev => { if (ev.key === 'Escape') { close(); button.focus(); } });
+  document.addEventListener('pointerdown', ev => { if (!pop.hidden && !pop.contains(ev.target) && !button.contains(ev.target)) close(); });
 }
