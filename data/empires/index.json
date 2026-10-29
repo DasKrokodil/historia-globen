@@ -1,0 +1,297 @@
+{
+ "schema": "historia-globen/empires-index@1",
+ "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska imperiet är förenklat hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut.",
+ "groups": [
+  {
+   "id": "romarriket",
+   "name": {
+    "sv": "Romarriket",
+    "en": "Roman Empire"
+   },
+   "color": "#b8433a",
+   "from": -750,
+   "to": 1474,
+   "file": "data/empires/romarriket.json",
+   "polities": [
+    {
+     "id": "romerska-kungadomet",
+     "name": {
+      "sv": "Romerska kungadömet",
+      "en": "Roman Kingdom"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "romerska-republiken",
+     "name": {
+      "sv": "Romerska republiken",
+      "en": "Roman Republic"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "romerska-kejsardomet",
+     "name": {
+      "sv": "Romerska kejsardömet",
+      "en": "Roman Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "vastromerska-riket",
+     "name": {
+      "sv": "Västromerska riket",
+      "en": "Western Roman Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "ostromerska-riket",
+     "name": {
+      "sv": "Östromerska riket",
+      "en": "Eastern Roman Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "bysantinska-riket",
+     "name": {
+      "sv": "Bysantinska riket",
+      "en": "Byzantine Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "persiska-riket",
+   "name": {
+    "sv": "Persiska riket (akemeniderna)",
+    "en": "Achaemenid Empire"
+   },
+   "color": "#c08a2e",
+   "from": -550,
+   "to": -327,
+   "file": "data/empires/persiska-riket.json",
+   "polities": [
+    {
+     "id": "akemenidiska-riket",
+     "name": {
+      "sv": "Persiska riket",
+      "en": "Achaemenid Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "alexanders-rike",
+   "name": {
+    "sv": "Makedoniska riket (Alexander den store)",
+    "en": "Macedonian Empire"
+   },
+   "color": "#3f7fb5",
+   "from": -675,
+   "to": -292,
+   "file": "data/empires/alexanders-rike.json",
+   "polities": [
+    {
+     "id": "makedoniska-riket",
+     "name": {
+      "sv": "Makedoniska riket",
+      "en": "Macedonian Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "hanriket",
+   "name": {
+    "sv": "Hanriket",
+    "en": "Han dynasty"
+   },
+   "color": "#d0703a",
+   "from": -202,
+   "to": 237,
+   "file": "data/empires/hanriket.json",
+   "polities": [
+    {
+     "id": "hanriket",
+     "name": {
+      "sv": "Hanriket",
+      "en": "Han Dynasty"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "mauryariket",
+   "name": {
+    "sv": "Mauryariket",
+    "en": "Maurya Empire"
+   },
+   "color": "#5f9e4a",
+   "from": -318,
+   "to": -171,
+   "file": "data/empires/mauryariket.json",
+   "polities": [
+    {
+     "id": "mauryariket",
+     "name": {
+      "sv": "Mauryariket",
+      "en": "Maurya Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "osmanska-riket",
+   "name": {
+    "sv": "Osmanska riket",
+    "en": "Ottoman Empire"
+   },
+   "color": "#2f8f7f",
+   "from": 1305,
+   "to": 1923,
+   "file": "data/empires/osmanska-riket.json",
+   "polities": [
+    {
+     "id": "osmanska-riket",
+     "name": {
+      "sv": "Osmanska riket",
+      "en": "Ottoman Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "mongolriket",
+   "name": {
+    "sv": "Mongolriket och dess khanat",
+    "en": "Mongol Empire and successor khanates"
+   },
+   "color": "#8a6d3b",
+   "from": 1206,
+   "to": 1695,
+   "file": "data/empires/mongolriket.json",
+   "polities": [
+    {
+     "id": "mongolriket",
+     "name": {
+      "sv": "Mongolriket",
+      "en": "Mongol Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "yuandynastin",
+     "name": {
+      "sv": "Yuandynastin",
+      "en": "Yuan Dynasty"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "ilkhanatet",
+     "name": {
+      "sv": "Ilkhanatet",
+      "en": "Ilkhanate"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "chagatai-khanatet",
+     "name": {
+      "sv": "Chagatai-khanatet",
+      "en": "Chagatai Khanate"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "gyllene-horden",
+     "name": {
+      "sv": "Gyllene horden",
+      "en": "Golden Horde"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "brittiska-imperiet",
+   "name": {
+    "sv": "Brittiska imperiet",
+    "en": "British Empire"
+   },
+   "color": "#c2557a",
+   "from": 1706,
+   "to": 1999,
+   "file": "data/empires/brittiska-imperiet.json",
+   "polities": [
+    {
+     "id": "brittiska-imperiet",
+     "name": {
+      "sv": "Brittiska imperiet",
+      "en": "British Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  }
+ ]
+}
