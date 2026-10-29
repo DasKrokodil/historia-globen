@@ -65,7 +65,7 @@ async function start() {
     pauseGo: $('pause-go'),
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
-  setupYearJump(timeline, { button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs') });
+  setupYearJump(timeline, { button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'), onJump: () => flyToYearHighlight() });
   timeline.setMarks(data.events.filter(e => !e.partOf || e.top || e.major), data.funfacts, e => CAT[e.category]?.color ?? '#fff');
 
   let focusWar = null, focus = null, lastYear = 0;
@@ -328,6 +328,20 @@ async function start() {
     }
     lastYear = year;
     $('app').classList.toggle('has-detail', !$('detail').hidden);
+  }
+
+  // Efter "Hoppa till år" (#165): globen vänder sig mot årets viktigaste händelse, alltså den första
+  // händelsen i det första Samtidigt-kortet, annars den första i listan. Hoppas över i fokusläge och
+  // om användaren nyss vridit globen själv. Uppspelning och stegknappar anropar inte denna.
+  const RECENT_TURN_MS = 3000;
+  function flyToYearHighlight() {
+    if (focus || performance.now() - globe.lastUserInput < RECENT_TURN_MS) return;
+    // Närmast i tid först, och bland jämnbördiga den mest avgränsade (ett datum före ett spann som Oxford 1096–2026)
+    const rank = e => [Math.max(0, e.start - timeline.year, timeline.year - e.end), e.end - e.start];
+    const byRank = (a, b) => { const [x, y] = [rank(a), rank(b)]; return x[0] - y[0] || x[1] - y[1]; };
+    const card = (ff.active[0]?.events ?? []).map(id => data.byId[id]).filter(Boolean);
+    const e = card.sort(byRank)[0] ?? visible.map(v => v.e).sort(byRank)[0];
+    if (e) globe.flyTo(e._lat, e._lon);
   }
 
   const narrow = matchMedia('(max-width: 760px)');

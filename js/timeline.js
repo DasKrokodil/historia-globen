@@ -257,7 +257,7 @@ export class Timeline extends EventTarget {
 
 
 /** "Hoppa till år": tryck på årtalet, skriv ett år (med f.Kr./e.Kr.) eller välj en tidsålder (#140). */
-export function setupYearJump(timeline, { button, pop, input, msg, epochs }) {
+export function setupYearJump(timeline, { button, pop, input, msg, epochs, onJump }) {
   let era = 'ce';
   const setEra = e => {
     era = e;
@@ -277,6 +277,7 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs }) {
       return;
     }
     close(); button.focus();
+    onJump?.(y); // bara hopp, inte uppspelning eller stegknappar (#165)
   };
   const chip = (label, y) => {
     const b = document.createElement('button');
