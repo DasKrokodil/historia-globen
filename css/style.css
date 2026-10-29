@@ -420,6 +420,7 @@ body {
 .ff-story-map { display: block; margin-top: 6px; font: 400 12.5px/1.4 var(--f-body); color: #6b5a3a; }
 .ff-story .ff-events:empty { display: none; }
 .ff-events { display: flex; flex-wrap: wrap; gap: 6px; }
+.ff-has-pics .ff-events { display: none; } /* bildrutorna har namn och Läs mer, så knapparna behövs inte (#190) */
 .ff-chip {
   display: inline-flex; align-items: center; gap: 6px;
   font: 500 12px/1 var(--f-body);
@@ -435,31 +436,33 @@ body {
 .ff-foot { display: flex; align-items: center; gap: 14px; margin-top: 10px; }
 .funfact .review-badge { color: #6b5a3a; }
 .funfact .link-btn { color: #7a5a1f; }
-.ff-chip[aria-pressed="true"] { background: #7a5a1f; color: var(--parchment); border-color: #7a5a1f; }
-.ff-chip[aria-pressed="true"] .ff-year { color: var(--parchment); }
 
 /* Kortet växer uppåt men aldrig utanför skärmen: det rullar inuti (#169) */
 .funfact { max-height: calc(100dvh - 140px - 150px); overflow-y: auto; } /* ovanför årtalet uppe till vänster */
 
-/* Händelsens bild och fakta överst i Samtidigt-kortet (#169). Samma ram och bild som faktarutan,
-   ramens färger kommer från .frame-* längre ner. */
-.ff-detail {
+/* Händelsernas bilder överst i Samtidigt-kortet (#190), högst tre sida vid sida. Hela rutan är en Läs mer-knapp
+   som öppnar faktarutan. Ramens färger kommer från .frame-* längre ner (som linje och bakgrund när bild saknas). */
+.ff-pics { display: grid; grid-template-columns: repeat(var(--n, 1), minmax(0, 1fr)); gap: 2px; margin: -14px -16px 10px; }
+.ff-pic {
   --card-bg: color-mix(in srgb, var(--night-2) 96%, transparent);
   --card-ink: var(--parchment); --card-dim: var(--parchment-dim); --card-accent: var(--brass); --card-line: var(--line);
-  position: relative;
-  margin: -14px -16px 12px; /* bilden går ända upp i kortets ovankant */
-  background: var(--card-bg); color: var(--card-ink);
-  border: 1px solid var(--card-line); border-radius: var(--r) var(--r) 6px 6px;
-  overflow: hidden;
 }
-.ff-detail-body { padding: 8px 14px 12px; }
-.ff-detail .detail-fig { margin: 0 0 4px; }
-.ff-detail .detail-fig img { aspect-ratio: 2 / 1; } /* lägre bild än i faktarutan, så att kortet rymmer mer */
-.ff-detail .detail-close { position: absolute; z-index: 2; top: 8px; right: 8px; margin: 0; }
-.ff-detail h3 { padding-right: 30px; }
-.ff-detail:not(:has(.detail-fig)) h3 { padding-right: 34px; }
-.funfact .ff-detail .link-btn { color: var(--card-accent); }
-.ff-detail p { margin: 6px 0 8px; font-size: 14px; line-height: 1.45; }
+.ff-pic.ff-pic {
+  position: relative; display: block; box-sizing: border-box; height: 132px; margin: 0; padding: 0; overflow: hidden;
+  border: 0; border-image: none; border-radius: 0; background: var(--card-bg); color: var(--card-ink); cursor: pointer; text-align: left;
+}
+.ff-pic img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; background: var(--night-3); }
+.ff-pic:focus-visible { outline: 2px solid var(--brass); outline-offset: -3px; }
+.ff-badge {
+  position: absolute; left: 6px; top: 6px; padding: 3px 6px; border-radius: 3px;
+  font: 600 9.5px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase;
+  color: var(--parchment); background: rgba(10,15,28,.72);
+}
+.ff-cap { position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; padding: 22px 7px 6px; background: linear-gradient(transparent, rgba(8,12,24,.82)); }
+.ff-pic.no-img .ff-cap { top: 0; justify-content: center; align-items: center; padding: 8px; background: none; }
+.ff-name { align-self: stretch; font: 500 12.5px/1.2 var(--f-body); color: var(--parchment); text-shadow: 0 1px 2px rgba(0,0,0,.6); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+.ff-pic.no-img .ff-name { align-self: center; text-align: center; color: var(--card-ink); text-shadow: none; font-family: var(--f-display); font-size: 14px; }
+.ff-more { padding: 4px 8px; border-radius: 999px; font: 600 11px/1 var(--f-body); color: #22190c; background: var(--brass); white-space: nowrap; }
 
 /* ---------- tidslinjen ---------- */
 .timebar {
@@ -666,7 +669,13 @@ details.used-by summary:hover { color: var(--parchment); }
   .masthead { max-width: 55vw; }
   .top-actions { max-width: 44vw; }
   .funfact { bottom: 136px; padding: 12px 14px 10px; max-height: calc(100dvh - 136px - 176px); } /* under knapparna uppe till höger */
-  .ff-detail { margin: -12px -14px 10px; }
+  .ff-pics { margin: -12px -14px 8px; }
+  .ff-pic.ff-pic { height: 74px; }
+  .ff-name { -webkit-line-clamp: 2; font-size: 11px; line-height: 1.15; } /* alla namn ska vara läsbara */
+  .ff-cap { padding: 12px 5px 4px; gap: 3px; }
+  .ff-more { padding: 3px 6px; font-size: 10.5px; }
+  /* Bilderna har egna Läs mer-knappar: knapparna under texten behövs inte i smal skärm, så kortet blir inte högre än förut (#190) */
+  .ff-has-pics .ff-text { -webkit-line-clamp: 2; }
   .ff-tab { bottom: 136px; min-height: 44px; padding-top: 0; padding-bottom: 0; }
   .app.has-detail .ff-tab { display: none; }
   .ff-text { font-size: 16.5px; margin: 6px 0 4px; }
@@ -674,26 +683,16 @@ details.used-by summary:hover { color: var(--parchment); }
      som sidscrollas inuti kortet, så att globen syns mer. */
   .ff-text { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; cursor: pointer; }
   .funfact.ff-open .ff-text { display: block; -webkit-line-clamp: unset; }
-  .ff-events { flex-wrap: nowrap; overflow-x: auto; padding: 9px 0; scrollbar-width: none; overscroll-behavior-x: contain; }
-  .ff-events::-webkit-scrollbar { display: none; }
-  .ff-chip { flex: none; white-space: nowrap; max-width: 78%; overflow: visible; }
+  .ff-events { flex-wrap: wrap; gap: 6px; padding: 6px 0; } /* radbrytning i stället för sidscroll, så att inget namn klipps (#190) */
+  .ff-chip { white-space: normal; text-align: left; line-height: 1.15; max-width: 100%; }
   .ff-foot { margin-top: 12px; gap: 24px; padding-bottom: 2px; }
   .funfact { padding-bottom: 12px; }
   /* Tryckytor på minst 44 × 44 px: det synliga utseendet är oförändrat, den osynliga ytan ligger i ::after */
-  .ff-min, .ff-chip, .funfact .ff-foot .link-btn, .ff-detail .link-btn { position: relative; }
+  .ff-min, .ff-chip, .funfact .ff-foot .link-btn { position: relative; }
   .ff-min { margin: -2px 0 -8px; z-index: 1; } /* ligger helt inom kortets utfyllnad, så att den utökade ytan inte klipps */
   .ff-min::after { content: ""; position: absolute; inset: -10px; }
   .ff-chip::after { content: ""; position: absolute; inset: -9px -3px; }
   .funfact .ff-foot .link-btn::after { content: ""; position: absolute; inset: -12px -10px; }
-  .ff-detail .detail-close::after { content: ""; position: absolute; inset: -8px; }
-  .ff-detail .link-btn::after { content: ""; position: absolute; inset: -12px -10px; }
-  .ff-detail-body { padding-bottom: 16px; }
-  /* Med bilden framme (#169) täckte kortet hela globen: bara bild, fakta och chips visas, bilden är lägre
-     och sammanfattningen klipps efter två rader ("Mer om händelsen" har resten) */
-  .funfact:has(.ff-detail:not([hidden])) :is(.ff-text, .ff-foot) { display: none; }
-  .funfact .ff-detail .detail-fig img { aspect-ratio: 3 / 1; }
-  .ff-detail p { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin: 4px 0 6px; }
-  .ff-detail-body { padding-top: 6px; }
   /* åtta knappar ska rymmas i 400 px: ±100 syns, knapparna krymper något (#140) */
   .controls { gap: 4px; }
   .controls .step { min-width: 0; flex: 1 1 0; max-width: 44px; padding: 0; }
@@ -735,7 +734,7 @@ details.used-by summary:hover { color: var(--parchment); }
 /* Krysset ligger ovanpå bilden: det tar ingen plats, så att bilden går ända upp */
 .detail-card .detail-close { position: sticky; z-index: 2; float: none; display: block; margin: -4px -6px -26px auto; }
 .detail-card .detail-close + h3 { padding-right: 30px; }
-@media (max-width: 760px) { .detail-fig img { aspect-ratio: 16 / 9; } .ff-detail .detail-fig img { aspect-ratio: 2 / 1; } }
+@media (max-width: 760px) { .detail-fig img { aspect-ratio: 16 / 9; } }
 
 /* ---------- ramar efter tidsålder (#129) ----------
    Ramen följer händelsens tid och fungerar även utan bild. */
