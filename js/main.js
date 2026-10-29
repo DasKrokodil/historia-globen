@@ -200,6 +200,8 @@ async function start() {
       f = { type, id, title: `${t(r.name)} · ${religionSpan(r, first)}`, short: t(r.name), from, to,
         center: first ? [first._lat, first._lon] : geoCenter([r.snapshots[0].geometry]), zoom: 1.3 };
     }
+    // Året stannar om det ligger inom spannet; annars flyttas det till starten och flytten visas (#167)
+    const prevYear = timeline.year, keepYear = prevYear >= f.from && prevYear <= f.to;
     if (focus) endFocus(false);
     focus = f;
     focusWar = type === 'war' ? data.byId[id] : null;
@@ -214,8 +216,10 @@ async function start() {
     $('app').classList.add('focusing');
     panel.setOpen(false); // listan stängs så att det man följer syns
     timeline.setFocus({ from: f.from, to: f.to });
-    lastYear = f.from;
-    timeline.year = f.from;
+    const startYear = keepYear ? prevYear : f.from;
+    lastYear = startYear;
+    timeline.year = startYear;
+    showMoved(keepYear ? null : { prevYear, startYear, short: f.short, type });
     refresh();
     // Före start: varför kriget började och vilka som stred (#122)
     if (focusWar?.story) { selectedId = focusWar.id; panel.showStory(focusWar, 'intro'); $('app').classList.add('has-detail'); }
@@ -225,10 +229,28 @@ async function start() {
     // Rikets faktaruta visas när man börjar följa det (#170)
     if (type === 'empire') showEmpireFacts(id);
   }
+  /** Raden i fokusraden när tiden flyttades till fokusets start (#167), med en väg tillbaka. */
+  let movedBack = null;
+  function showMoved(m) {
+    $('focus-moved').hidden = !m;
+    $('app').classList.toggle('focus-moved-on', !!m);
+    movedBack = m;
+    if (!m) return;
+    const why = m.type === 'war' ? 'då kriget börjar' : m.type === 'religion' ? `då ${m.short} börjar` : `då ${m.short} börjar`;
+    $('focus-moved-text').textContent = `Tiden flyttades till ${formatYear(m.startYear)}, ${why} · `;
+    $('focus-moved-back').textContent = `Tillbaka till ${formatYear(m.prevYear)}`;
+  }
+  // Tillbaka lämnar fokus och går till året man stod på, eftersom det ligger utanför spannet
+  $('focus-moved-back').addEventListener('click', () => {
+    const y = movedBack?.prevYear;
+    endFocus(false);
+    if (y != null) timeline.year = y;
+    refresh();
+  });
   /** Händelser där en religion grundades (founding: true), i tidsordning. */
   const founding = id => data.events.filter(e => e.founding && e.religion === id).sort((a, b) => a.start - b.start);
   function endFocus(redraw = true) {
-    focus = null; focusWar = null;
+    focus = null; focusWar = null; showMoved(null);
     areas.onlyGroup = null; religions.onlyId = null;
     applyLayers();
     $('focus-bar').hidden = true;

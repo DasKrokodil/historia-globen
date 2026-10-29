@@ -88,6 +88,8 @@ Fokus-knappen följer ett krig, ett rike eller en religion. Tidslinjen visar bar
 - **Rike:** bara rikets områden syns, och globen riktas mot riket när det var som störst. Har riket en faktaruta (`facts`) visas den när man börjar följa det.
 - **Religion:** börjar vid religionens grundande, stannar vid grundhändelserna och visar sedan religionens spridning som statsreligion. Har religionen en faktaruta (`facts`) visas den först.
 
+Året styr: ligger nuvarande år inom det man följer stannar tiden där (`startFocus` i `main.js`). Annars flyttas den till starten, och en rad i fokusraden säger "Tiden flyttades till …" med knappen "Tillbaka till <året>", som lämnar fokus och går till det året (det ligger ju utanför spannet). Krigets berättelse och faktarutorna visas som förut.
+
 Har det man följer en faktaruta (riken och religioner med `facts`) finns knappen Fakta i fokusraden, som öppnar rutan igen.
 
 ## Faktarutan om en religion (#90)
