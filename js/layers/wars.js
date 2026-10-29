@@ -12,13 +12,15 @@ export class WarsLayer {
     this.active = []; // [{ war, points }]
   }
 
-  update({ year, filters }) {
+  // span (valfritt): tiden som [början, slut], i fokusläget för korta krig datum ur edtf (#204)
+  update({ year, filters, span = e => [e.start, e.end] }) {
     this.active = [];
     if (!this.enabled) return this.active;
     for (const war of this.wars) {
       if (!filters.has(war.category) || !isVisibleReview(war.review)) continue;
-      if (year < war.start || year > war.end) continue;
-      const fought = war._battles.filter(b => b.start <= year && isVisibleReview(b.review));
+      const [s0, s1] = span(war);
+      if (year < s0 || year > s1) continue;
+      const fought = war._battles.filter(b => span(b)[0] <= year && isVisibleReview(b.review));
       const points = [[war._lon, war._lat], ...fought.map(b => [b._lon, b._lat])];
       this.active.push({ war, points });
     }

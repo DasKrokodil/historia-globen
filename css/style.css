@@ -136,6 +136,10 @@ body {
   border-bottom: 1px dashed transparent;
 }
 .year-jump:hover { border-bottom-color: var(--brass-deep); }
+/* Fokusläget för korta krig (#204): datum stort och året bredvid. Globen är inzoomad och landet
+   ligger ofta bakom, så året får pergamentfärg och båda en mörk skugga. */
+.year-jump.fine .year-big, .year-jump.fine .year-era { text-shadow: 0 1px 6px var(--night), 0 0 2px var(--night); }
+.year-jump.fine .year-era { color: var(--parchment); }
 .year-jump:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; border-radius: 4px; }
 .jump-pop {
   position: absolute; top: 100%; left: 0; z-index: 20; margin-top: 10px; pointer-events: auto;
@@ -630,6 +634,7 @@ details.used-by summary:hover { color: var(--parchment); }
 
 .focus-btn { margin: 8px 0 2px; }
 .speed { min-width: 64px; font-family: var(--f-mono); white-space: nowrap; }
+.speed .unit-short { display: none; } /* fokusläget för korta krig (#204): "dagar/s", i smal skärm "d/s" */
 .pause-note {
   display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
   margin: 0 auto 8px; width: fit-content; max-width: 100%;
@@ -702,6 +707,8 @@ details.used-by summary:hover { color: var(--parchment); }
   .app:has(.pause-note:not([hidden])) .funfact, .app:has(.pause-note:not([hidden])) .ff-tab { bottom: 196px; }
   .app:has(.pause-note:not([hidden])) .detail-card { bottom: 192px; }
   .controls .speed { max-width: 62px; font-size: 11px; }
+  .speed .unit-long { display: none; }
+  .speed .unit-short { display: inline; }
   .pause-note { border-radius: var(--r); justify-content: space-between; width: auto; }
   .focus-bar {
     left: var(--gut); right: var(--gut-r); transform: none; max-width: none;

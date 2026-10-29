@@ -135,6 +135,68 @@ export function formatEventTime(e) {
   return `${approx}${e.start}–${e.end}`;
 }
 
+// ---------- Delar av år (#204) ----------
+// I fokusläget för korta krig räknar tidslinjen i dagar. Året är då ett decimaltal: året plus den
+// andel av året som har gått, så att 1 januari 1879 är 1879,0 och 2 juli 1879 ungefär 1879,5.
+// Datumen läses ur händelsernas edtf (proleptisk gregoriansk kalender, astronomiska år som i datan).
+export const MONTHS_SHORT = ['jan','feb','mar','apr','maj','jun','jul','aug','sep','okt','nov','dec'];
+function utcMs(y, m, d) { const t = new Date(0); t.setUTCFullYear(y, m, d); return t.getTime(); } // fungerar även före år 100
+const yearMs = y => [utcMs(y, 0, 1), utcMs(y + 1, 0, 1)];
+function msToYear(ms) {
+  const y = new Date(ms).getUTCFullYear(), [a, b] = yearMs(y);
+  return y + (ms - a) / (b - a);
+}
+function yearToDate(yf) {
+  const y = Math.floor(yf), [a, b] = yearMs(y);
+  return new Date(a + (yf - y) * (b - a) + 1000); // en sekunds marginal mot avrundningsfel vid dygnsgränsen
+}
+const dateToYear = (y, m = 1, d = 1) => msToYear(utcMs(y, m - 1, d));
+/** Avrundar ett decimalår till närmaste dagsgräns (midnatt UTC), som tidslinjen avrundar till hela år annars. */
+export function roundDay(yf) {
+  const y = Math.floor(yf), [a, b] = yearMs(y);
+  return msToYear(Math.round((a + (yf - y) * (b - a)) / 86400000) * 86400000);
+}
+
+// En del av en EDTF-sträng: "1879-01-22", "1879-01" eller "1879", som [början, slut] i decimalår.
+// Slutet är början av nästa dag, månad eller år, så att en dag täcker hela dygnet.
+const EDTF_PART = /^(-?\d{4})(?:-(\d{2})(?:-(\d{2}))?)?$/;
+function edtfPart(s) {
+  const m = EDTF_PART.exec(s.replace(/[~?%]/g, ''));
+  if (!m) return null;
+  const y = Number(m[1]), mo = m[2] && Number(m[2]), d = m[3] && Number(m[3]);
+  if (d) return [dateToYear(y, mo, d), dateToYear(y, mo, d + 1)];
+  if (mo) return [dateToYear(y, mo), dateToYear(y, mo + 1)];
+  return [y, y + 1];
+}
+/** Händelsens tid som [början, slut] i decimalår, ur edtf. Går edtf inte att läsa (öppna spann,
+ *  år med fler än fyra siffror) används start och slut som hela år. Används bara i fokusläget för korta krig. */
+export function edtfSpan(e) {
+  if (e._span) return e._span;
+  const parts = (e.edtf || '').split('/').map(edtfPart);
+  const ok = parts.length <= 2 && parts.every(Boolean);
+  return (e._span = ok ? [parts[0][0], parts.at(-1)[1]] : [e.start, e.end + 1]);
+}
+/** Har edtf datum med dag i både början och slut? (till exempel "1879-01-11/1879-07-04") */
+export const edtfHasDays = edtf => (edtf || '').replace(/[~?%]/g, '').split('/').every(s => /^-?\d{4}-\d{2}-\d{2}$/.test(s));
+
+/** Datum för ett decimalår, för det stora årtalet: ["22 jan", "1879"]. */
+export function dayParts(yf) {
+  const d = yearToDate(yf);
+  return [`${d.getUTCDate()} ${MONTHS_SHORT[d.getUTCMonth()]}`, formatYear(d.getUTCFullYear())];
+}
+export const formatDay = yf => dayParts(yf).join(' ');
+
+/** Månadernas början mellan två decimalår: [{ t, y, m }], m = 0 för januari. För tidslinjens skala. */
+export function monthStarts(a, b) {
+  const d = yearToDate(a), out = [];
+  for (let y = d.getUTCFullYear(), m = d.getUTCMonth(); ; m++) {
+    if (m === 12) { m = 0; y++; }
+    const t = dateToYear(y, m + 1);
+    if (t > b) return out;
+    if (t >= a) out.push({ t, y, m });
+  }
+}
+
 // ---------- Laddning ----------
 async function getJSON(path) {
   const res = await fetch(path);
