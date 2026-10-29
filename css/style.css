@@ -862,3 +862,13 @@ details.used-by summary:hover { color: var(--parchment); }
   .religion-legend .swatch { width: 10px; height: 10px; }
   .app.has-detail .religion-legend { display: none; }
 }
+
+/* ---------- korten ovanför fokusraden (#183) ---------- */
+/* main.js mäter fokusraden (--focus-top) så att Samtidigt-kortet och faktarutan alltid ligger ovanför den,
+   oavsett om raden "Tiden flyttades" eller pausraden (eller båda) syns. */
+.app.app.focusing.focus-var :is(.funfact, .ff-tab, .detail-card) { bottom: calc(var(--focus-top) + 8px); }
+.app.app.focusing.focus-var :is(.funfact, .ff-tab) { max-height: calc(100dvh - var(--focus-top) - 8px - 150px); }
+@media (max-width: 760px) {
+  .app.app.focusing.focus-var :is(.funfact, .ff-tab) { max-height: calc(100dvh - var(--focus-top) - 8px - 176px); }
+  .app.app.focusing.focus-var .detail-card { max-height: min(40vh, calc(100dvh - var(--focus-top) - 8px - 176px)); }
+}
