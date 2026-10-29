@@ -357,6 +357,7 @@ async function start() {
       }
       el._members = c.members;
       el.textContent = String(c.members.length);
+      el.setAttribute('aria-label', `${c.members.length} händelser nära varandra: ${c.members.slice(0, 5).map(m => t(m.e.title)).join(', ')}. Zooma in.`);
       el.title = c.members.slice(0, 8).map(m => t(m.e.title)).join(', ') + (c.members.length > 8 ? ' …' : '');
       el.style.transform = `translate(${c.x}px, ${c.y}px) translate(-50%, -50%)`;
       el.hidden = false;
@@ -374,8 +375,8 @@ async function start() {
       placed.push(box);
       let el = pool.get(e.id);
       if (!el) {
-        el = document.createElement('div');
-        el.className = 'glabel';
+        el = document.createElement('button');
+        el.type = 'button'; el.className = 'glabel';
         el.innerHTML = `<span class="dot" style="background:${CAT[e.category]?.color}"></span>${text.replace(/</g, '&lt;')}`;
         el.addEventListener('click', () => select(e.id));
         labelsEl.append(el); pool.set(e.id, el);

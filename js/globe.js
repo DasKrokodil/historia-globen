@@ -225,6 +225,22 @@ export class Globe {
     };
     el.addEventListener('pointerup', end);
     el.addEventListener('pointercancel', end);
+    // Tangentbord (#139): piltangenter snurrar, + och − zoomar. Rör inte tangenter med modifierare.
+    el.addEventListener('keydown', e => {
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      const step = (e.shiftKey ? 0.24 : 0.1) / this.zoom;
+      let handled = true;
+      if (e.key === 'ArrowLeft') this.group.rotation.y += step;
+      else if (e.key === 'ArrowRight') this.group.rotation.y -= step;
+      else if (e.key === 'ArrowUp') this.group.rotation.x = Math.max(-1.25, Math.min(1.25, this.group.rotation.x + step));
+      else if (e.key === 'ArrowDown') this.group.rotation.x = Math.max(-1.25, Math.min(1.25, this.group.rotation.x - step));
+      else if (e.key === '+' || e.key === '=') this.setZoom(this.zoom * 1.2);
+      else if (e.key === '-' || e.key === '_') this.setZoom(this.zoom / 1.2);
+      else handled = false;
+      if (!handled) return;
+      e.preventDefault();
+      this.autoRotate = false; this._fly = null; this._vel = { x: 0, y: 0 };
+    });
     el.addEventListener('wheel', e => { e.preventDefault(); this.setZoom(this.zoom * Math.exp(-e.deltaY * 0.0012)); }, { passive: false });
   }
 
