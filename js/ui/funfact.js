@@ -24,6 +24,12 @@ export class FunFacts {
     this.next.addEventListener('click', () => { this.index = (this.index + 1) % this.active.length; this._show(); });
     this.min.addEventListener('click', () => this.setMinimized(true));
     this.tab.addEventListener('click', () => this.setMinimized(false));
+    // I smal skärm klipps texten efter tre rader; ett tryck på den visar hela (#168)
+    this.text.addEventListener('click', () => this.root.classList.toggle('ff-open'));
+    // I smal skärm täcker bilden globen: ett tryck eller drag på globen utanför kortet stänger bilden (#168)
+    document.addEventListener('pointerdown', ev => {
+      if (this.openId && ev.target.closest?.('.globe-canvas') && matchMedia('(max-width: 760px)').matches) this.toggleEvent(null);
+    }, true);
     document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && this.openId) this.toggleEvent(null); });
     this.srcBtn.addEventListener('click', () => { const f = this.active[this.index]; if (f) this.onSources(f.sources); });
   }
@@ -105,6 +111,7 @@ export class FunFacts {
     this.tab.hidden = !f || !this.minimized;
     this.tabCount.textContent = String(this.active.length);
     if (!f || this.minimized) { this.root.hidden = true; this.onArcs([]); return; }
+    this.root.classList.remove('ff-open');
     this.kind.textContent = KIND[f.kind ?? 'funfact'];
     const evs = f.events.map(id => this.byId[id]);
     this.text.textContent = t(f.text);
