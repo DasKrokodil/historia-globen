@@ -2,7 +2,7 @@
 
 Historia-globen ska publiceras i två miljöer. Det här dokumentet beskriver grenarna, vad som publiceras, kontrollerna och hur en release och en rollback går till.
 
-> **Läget i dag (2026-10-30):** grenen `production` finns (skapad från `main` på commit `e2774dd`), och båda grenarna är skyddade med rulesets (se [Inställningar i GitHub](#inställningar-i-github)). Webbplatsen publiceras med Cloudflare Pages: historiagloben.se visar `production`, och `main` är den enda grenen som får förhandsversioner (se [Cloudflare Pages](#cloudflare-pages)). **GitHub Pages publicerar fortfarande `main`** och behöver stängas av (se [GitHub Pages](#github-pages-stängs-av)).
+> **Läget i dag (2026-10-30):** grenen `production` finns (skapad från `main` på commit `e2774dd`), och båda grenarna är skyddade med rulesets (se [Inställningar i GitHub](#inställningar-i-github)). Webbplatsen publiceras med Cloudflare Pages: historiagloben.se visar `production`, och `main` är den enda grenen som får förhandsversioner (se [Cloudflare Pages](#cloudflare-pages)). Förhandsversionerna på pages.dev är skyddade med Cloudflare Access. GitHub Pages är avpublicerad, men källan står kvar på `main` och bör sättas till None (se [GitHub Pages](#github-pages-stängs-av)).
 
 ## Miljöer och grenar
 
@@ -95,7 +95,7 @@ Läget enligt Rikard 2026-10-30. Inställningarna görs i Cloudflares kontrollpa
 - `main` byggs som förhandsversion: varje bygge får en unik adress (till exempel `3102776a.historia-globen.pages.dev`) och grenadressen **main.historia-globen.pages.dev**. En sammanslagning till `main` ändrar alltså inte produktionen.
 - Arbetsgrenar får ingen Cloudflare-kontroll längre (till exempel #285 och #286), så automatiska förhandsversioner för andra grenar är avstängda. En gren som byggdes innan dess (#282, 12:15) fick ett misslyckat bygge.
 
-**Förhandsadresserna på pages.dev är inte skyddade av sig själva.** Cloudflare Access på dev.historiagloben.se skyddar bara den domänen. Grenadressen `main.historia-globen.pages.dev` och de unika adresserna `<id>.historia-globen.pages.dev` når man också direkt, om inte Access är påslaget för projektets förhandsversioner (Workers & Pages → historia-globen → Settings → General → Access policy, "Enable access policy", som skapar en Access-applikation för `*.historia-globen.pages.dev`). Om det är påslaget går inte att se härifrån.
+**Förhandsadresserna på pages.dev är skyddade med Cloudflare Access** (Rikard slog på det 2026-10-30: Workers & Pages → historia-globen → Settings → General → Preview access, "Restrict previews"). Cloudflare visar nu "Preview deployments are restricted by a Cloudflare Access policy". Det gäller grenadressen `main.historia-globen.pages.dev` och de unika adresserna `<id>.historia-globen.pages.dev`. Produktionens pages.dev-adress och de egna domänerna hanteras separat i Zero Trust, så historiagloben.se förblir publik. Vem som får logga in ställs in under Manage (Zero Trust).
 
 ## Automatiska kontroller (GitHub Actions)
 
@@ -180,15 +180,15 @@ Taggarna ändras eller flyttas aldrig. En rollback ger en ny version.
 
 ## GitHub Pages (stängs av)
 
-GitHub Pages har varit påslaget för repot sedan 28 oktober 2026. **Det är fortfarande påslaget:** GitHub har gjort en Pages-publicering (miljön `github-pages`) vid varje push till `main`, senast för `3345871` kl. 13:03 den 30 oktober 2026, med kontrollerna `build`, `deploy` och `report-build-status` från jobbet pages-build-deployment.
+GitHub Pages har varit påslaget för repot sedan 28 oktober 2026. GitHub har gjort en Pages-publicering (miljön `github-pages`) vid varje push till `main`, senast för `3345871` kl. 13:03 den 30 oktober 2026, med kontrollerna `build`, `deploy` och `report-build-status` från jobbet pages-build-deployment. **Rikard avpublicerade sidan 2026-10-30** ("GitHub Pages unpublished"), men källan stod då kvar på *Deploy from a branch → main / (root)*.
 
-Det betyder att `main` publiceras **publikt och utan Cloudflare Access**, troligen på daskrokodil.github.io/historia-globen, med hela repot inklusive interna filer. Det kringgår skyddet av dev.historiagloben.se.
+Så länge källan är `main` kan `main` publiceras **publikt och utan Cloudflare Access**, troligen på daskrokodil.github.io/historia-globen, med hela repot inklusive interna filer. Det kringgår skyddet av dev.historiagloben.se.
 
-**Stäng av:** Settings → Pages → Build and deployment → Source → **None**, eller "Unpublish site" högst upp på sidan. Kontrollera efteråt att nästa push till `main` inte ger någon ny publicering i miljön `github-pages` (fliken Deployments i repot) och att kontrollerna `build`, `deploy` och `report-build-status` inte dyker upp.
+**Stäng av helt:** Settings → Pages → Build and deployment → Branch → välj **None** och tryck Save (utöver "Unpublish site"). Kontrollera efteråt att nästa push till `main` inte ger någon ny publicering i miljön `github-pages` (fliken Deployments i repot) och att kontrollerna `build`, `deploy` och `report-build-status` inte dyker upp.
 
 ## Öppna frågor
 
-- **dev.historiagloben.se och Cloudflare Access:** inte verifierat härifrån om domänen pekar på `main.historia-globen.pages.dev` och om Access skyddar både den och förhandsadresserna på pages.dev. Det ställs in i Cloudflare, inte i repot.
+- **dev.historiagloben.se och Cloudflare Access:** inte verifierat härifrån om domänen pekar på `main.historia-globen.pages.dev` och om Access skyddar den (förhandsadresserna på pages.dev är skyddade). Det ställs in i Cloudflare, inte i repot.
 - **DNS:** historiagloben.se och dev.historiagloben.se går inte att slå upp eller nå från arbetsmiljön, så DNS-posterna är inte kontrollerade härifrån.
 - **Bygginställningar i Cloudflare:** byggkommando och utdatakatalog står inte i repot; se [Cloudflare Pages](#cloudflare-pages).
 - **Externa resurser:** jsDelivr och Google Fonts måste vara tillåtna om en Content-Security-Policy införs.
