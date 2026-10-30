@@ -592,7 +592,7 @@ async function start() {
     for (const { e, p } of singles.slice(0, 14)) {
       if (p.facing < 0.2) continue;
       // Händelser i ett krig får årtalet framför namnet, i ett kort krig datumet (#204)
-      const text = !e.partOf ? t(e.title) : `${focus?.fine ? dayParts(edtfSpan(e)[0])[0] : e.start} · ${t(e.title)}`;
+      const text = !e.partOf ? t(e.title) : `${focus?.fine ? dayParts(edtfSpan(e)[0])[0] : formatYear(e.start)} · ${t(e.title)}`;
       const w = text.length * 6.6 + 30, h = 22;
       if (p.x < 0 || p.x > W || p.y < 0 || p.y > H) continue; // markören syns inte, då visas ingen etikett
       // Skjut etiketten inåt så att hela rutan syns
