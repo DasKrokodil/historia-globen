@@ -346,9 +346,9 @@ async function start() {
     } else {
       // I smal skärm öppnas inte panelen, så att kartan syns; händelsen markeras på globen
       timeline.pause('Pausad vid en stor händelse i kriget', true); selectedId = stop.id; panel.showDetail(stop, matchMedia('(min-width: 761px)').matches);
-      // Tiden stannar på händelsens år, i ett kort krig på dess dag (#204, #224). Har tiden redan
-      // hunnit förbi, till exempel för en händelse under krigets första år, flyttas den tillbaka.
-      if (fine || timeline.spanOf(stop)[0] < timeline.year) timeline.year = timeline.spanOf(stop)[0];
+      // Tiden står på händelsens år, i ett kort krig på dess dag (#204, #224), också när flera
+      // stopp kom i samma steg eller tiden redan hade hunnit förbi händelsen.
+      timeline.year = timeline.spanOf(stop)[0];
     }
     stopping = false;
     $('app').classList.toggle('has-detail', !$('detail').hidden);
