@@ -85,7 +85,10 @@ async function start() {
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
   setupYearJump(timeline, { button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'), onJump: () => flyToYearHighlight() });
-  timeline.setMarks(data.events.filter(e => !e.partOf || e.top || e.major), data.funfacts, e => CAT[e.category]?.color ?? '#fff');
+  // Översikten visar varje krig som en prick vid dess viktigaste händelse (top); krigets streck och slagen
+  // märkta major syns först i fokusläget (#298)
+  timeline.setMarks(data.events.filter(e => !e.partOf || e.top || e.major), data.funfacts, e => CAT[e.category]?.color ?? '#fff',
+    e => e.kind === 'war' || (e.partOf && !e.top));
 
   let focusWar = null, focus = null, lastYear = 0;
   let warStops = [], stopping = false; // kö med stopp när man följer ett krig (#217)
