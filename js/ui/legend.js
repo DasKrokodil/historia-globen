@@ -1,7 +1,8 @@
 // Teckenförklaring och klickruta för religionslagret (#166). Båda är vanliga
 // HTML-element över globen (inte en del av kartbilden), och all text kommer ur
-// religions.json via t().
-import { t } from '../model.js';
+// religions.json via t(). I fokusläget förklarar samma ruta också krigsområdena (#236)
+// och säger vilka lager som är dämpade, med en knapp för att visa dem som vanligt (#235).
+import { t, CAT } from '../model.js';
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const cleanName = n => String(n).replace(/^\((.*)\)$/, '$1'); // "(Kingdom of France)" → "Kingdom of France"
@@ -13,9 +14,12 @@ export class ReligionLegend {
   constructor({ legend, pop }) {
     Object.assign(this, { legend, pop });
     this.onFacts = () => {};
+    this.onKeep = () => {};
     // Öppen som standard i dator, hopfälld till en knapp i mobil (#193). Valet ligger kvar när året ändras.
     this.open = matchMedia('(min-width: 761px)').matches;
     legend.addEventListener('click', e => {
+      const keep = e.target.closest('[data-keep]');
+      if (keep) { this.onKeep(keep.dataset.keep === '1'); return; }
       if (!e.target.closest('.rl-toggle')) return;
       this.open = !this.open; this.render(); this.fit();
     });
@@ -35,20 +39,35 @@ export class ReligionLegend {
     });
   }
 
-  /** items från ReligionsLayer.legendItems(); tom lista döljer rutan. */
-  update(items) {
+  /**
+   * items från ReligionsLayer.legendItems(). focus (valfritt, fokusläget): war = ett följt krigs områden syns,
+   * fadable = namnen på lager som dämpas (eller skulle dämpas) och keep = om de visas som vanligt (#235).
+   * Finns inget att förklara döljs rutan.
+   */
+  update(items, focus = {}) {
     this.items = items;
+    this.focus = focus;
     this.render(); this.fit();
   }
 
   render() {
-    const items = this.items ?? [];
-    if (!items.length) { this.legend.hidden = true; this.legend.textContent = ''; return; }
+    const items = this.items ?? [], { war = false, fadable = [], keep = false } = this.focus ?? {};
+    if (!items.length && !war && !fadable.length) { this.legend.hidden = true; this.legend.textContent = ''; return; }
     const unsure = items.some(i => i.unsure);
-    this.legend.innerHTML = `<button type="button" class="rl-toggle" aria-expanded="${this.open}" aria-controls="rl-body"><span class="rl-title">Religioner</span><span class="rl-chev" aria-hidden="true"></span></button>
-      <div id="rl-body" class="rl-body" ${this.open ? '' : 'hidden'}><ul>${items.map(({ religion: r, sure, unsure: u }) =>
+    const title = items.length && war ? 'Teckenförklaring' : items.length ? 'Religioner' : war ? 'Krigsområden' : 'Lager i fokus';
+    const religionsHtml = !items.length ? '' : `<ul>${items.map(({ religion: r, sure, unsure: u }) =>
       `<li><span class="swatch" style="background:${esc(r.color)}"></span>${esc(t(r.name))}${u && !sure ? ' <em>(osäkert)</em>' : ''}</li>`).join('')}</ul>${
-      unsure ? '<p class="rl-note"><span class="swatch rl-unsure"></span>Ljus med streckad kant: osäker uppgift</p>' : ''}</div>`;
+      unsure ? '<p class="rl-note"><span class="swatch rl-unsure"></span>Ljus med streckad kant: osäker uppgift</p>' : ''}`;
+    // Krigsskådeplatsen: skraffering i krigets färg med hel kantlinje, som på kartan (wars.js)
+    const warHtml = !war ? '' : `<div class="rl-war"><p class="rl-note rl-row"><span class="swatch rl-hatch" style="--war:${esc(CAT.krig.color)}"></span>Krigsskådeplats: område runt kriget och slagen hittills</p>
+      <p class="rl-note">Namnet säger vilken världsdel området ligger i.</p></div>`;
+    const names = fadable.join(' och ').toLowerCase().replace(/^./, c => c.toUpperCase());
+    const fadeHtml = !fadable.length ? '' : `<p class="rl-note rl-fade">${keep
+      ? `${esc(names)} visas som vanligt. <button type="button" class="link-btn" data-keep="0">Dämpa</button>`
+      : `${esc(names)} är dämpade medan du följer det här. <button type="button" class="link-btn" data-keep="1">Visa som vanligt</button>`}</p>`;
+    this.legend.setAttribute('aria-label', `Teckenförklaring: ${title.toLowerCase()}`);
+    this.legend.innerHTML = `<button type="button" class="rl-toggle" aria-expanded="${this.open}" aria-controls="rl-body"><span class="rl-title">${title}</span><span class="rl-chev" aria-hidden="true"></span></button>
+      <div id="rl-body" class="rl-body" ${this.open ? '' : 'hidden'}>${religionsHtml}${warHtml}${fadeHtml}</div>`;
     this.legend.hidden = false;
   }
 

@@ -17,9 +17,10 @@ Inget påhittat ska hamna på globen. Den här sidan beskriver hur uppgifter kon
 | `draft` (utkast) | Inlagd men inte kontrollerad | Nej |
 | `source-checked` (källa kontrollerad) | Källsidan är öppnad, och årtal, plats och påståenden stämmer | Ja |
 | `two-sources` (två källor stämmer) | Årtal och plats stämmer också med en andra, oberoende källa, till exempel Wikidata. Båda står i `sources`. | Ja |
-| `human-reviewed` (granskad av människa) | Rikard har granskat uppgiften. Bara Rikard sätter den nivån. | Ja |
 
-Nivån syns i faktarutan och under Om källorna, inte som eget märke på globen.
+Det är källkontrollen som gäller. Ingen människa granskar uppgifterna i efterhand; vi litar på det källorna säger (beslut 2026-10-30, #252). Är källorna oense skrivs det öppet, till exempel i händelsens `note` ("Källorna skiljer sig"), och nivån höjs inte till `two-sources`.
+
+Nivån syns i faktarutan och under Om källorna, inte som eget märke på globen. Statusraden säger bara källnivån, till exempel "Händelsen: två källor stämmer" eller "Fun facten: källkontrollerad".
 
 ## Källor vi använder
 
@@ -75,7 +76,7 @@ Ett pågående krig (`ongoing: true`) har uppgifter som åldras: läget i dag (`
 
 Under Om källorna finns källpolicyn, läget för hela granskningen och källregistret. Källregistret är grupperat efter vad källorna används till: händelser och fun facts, riken, religioner, kartdata och bilder. Grupperna räknas fram ur datan (vilka uppgifter i `events.json`, `funfacts.json`, `empires/index.json`, `religions.json`, `land.json`, `borders.json` och fältet `image.source` som pekar på varje källa), så en ny källa hamnar rätt av sig själv. En källa kan höra till flera grupper, till exempel Cliopatria (riken och religioner). En källa som ingen uppgift pekar på visas under Övriga källor.
 
-Varje grupp visar hur många källor och uppgifter den har och hur många uppgifter som har nivån källa kontrollerad, två källor och granskad av människa. Kartdata och bilder har ingen granskningsnivå per uppgift.
+Varje grupp visar hur många källor och uppgifter den har och hur många uppgifter som har nivån källkontrollerad och två källor (och utkast, om det finns). Kartdata och bilder har ingen granskningsnivå per uppgift.
 
 Gruppen Bilder (#195) listar varje bild på globen, inte bara de med `image.source`: en rad per bild med händelse, sort (illustration eller historisk bild), kredit, licens och märket Platshållare, och en hopfälld Prompt för illustrationer. Gruppkortet visar antal per sort, till exempel "26 illustrationer". Illustrationer har ingen extern källa och finns därför inte i källtabellen. Historiska bilder får dessutom sin filsida som källa där. Sökrutan hittar bilder på händelse, kredit, licens och stil. Tryck på en grupp för att bara visa den. Sökrutan filtrerar på källans namn, licens och vad den används till (till exempel en händelses titel eller "kartdata"), och visar vilka uppgifter som matchar.
 

@@ -47,6 +47,13 @@ export class LayerMenu {
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) { this.close(); button.focus(); } });
   }
 
+  /** Sätter ett lager av eller på utifrån, till exempel "keep" från teckenförklaringen (#235). */
+  set(name, on) {
+    const input = this.menu.querySelector(`input[data-layer="${name}"]`);
+    if (input) input.checked = on;
+    this.on[name] = on;
+  }
+
   /**
    * Undermeny med en rad per religion, byggd från datan. Raden visar religionens
    * färg, så att undermenyn också fungerar som förklaring. onToggle(id, på).

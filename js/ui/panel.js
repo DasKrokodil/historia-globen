@@ -102,17 +102,16 @@ export class Panel {
       <section class="region-group">
         <h3 class="region-head">${esc(name)} <span class="region-count">${vs.length}</span></h3>
         <ol>${vs.map(({ e, inside }) => `
-          <li class="event-item${inside ? '' : ' is-near'}${e.id === this.selectedId ? ' is-selected' : ''}" data-id="${esc(e.id)}" tabindex="0">
-            <span class="dot" style="background:${CAT[e.category]?.color}"></span>
-            <span class="ttl">${esc(t(e.title))}</span>
-            <span class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))}</span>
+          <li class="event-item${inside ? '' : ' is-near'}${e.id === this.selectedId ? ' is-selected' : ''}">
+            <button type="button" class="event-btn" data-id="${esc(e.id)}" aria-label="${esc(`${formatEventTime(e)}, ${t(e.title)}, ${name}, ${reviewLabel(e.review, 'Händelsen')}`)}"${e.id === this.selectedId ? ' aria-current="true"' : ''}>
+              <span class="dot" style="background:${CAT[e.category]?.color}"></span>
+              <span class="ttl">${esc(t(e.title))}</span>
+              <span class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))}</span>
+            </button>
           </li>`).join('')}</ol>
       </section>`).join('');
-    for (const li of this.list.querySelectorAll('.event-item')) {
-      const go = () => this.onSelect(li.dataset.id);
-      li.addEventListener('click', go);
-      li.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); go(); } });
-    }
+    // Riktiga knappar: Enter och mellanslag fungerar av sig själva
+    for (const b of this.list.querySelectorAll('.event-btn')) b.addEventListener('click', () => this.onSelect(b.dataset.id));
   }
 
   /**
