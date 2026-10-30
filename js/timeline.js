@@ -55,7 +55,7 @@ const ICON_AGAIN = 'M8 2.5V0L4.2 3.6 8 7.2V4.5a3.5 3.5 0 1 1-3.5 3.5h-2A5.5 5.5 
 const fmtDays = r => { const n = fmtNum(r * DAYS_PER_YEAR); return `${n} ${dayUnit(n)}/s`; };
 
 export class Timeline extends EventTarget {
-  constructor({ track, thumb, segs, ticks, dots, ffMarks, playBtn, playIcon, stepBtns, speedBtn, pauseNote, pauseText, pauseGo }) {
+  constructor({ track, thumb, segs, ticks, dots, ffMarks, chapters, warMarks, playBtn, playIcon, stepBtns, speedBtn, pauseNote, pauseText, pauseGo }) {
     super();
     Object.assign(this, { track, thumb, playBtn, playIcon, speedBtn, pauseNote, pauseText, pauseGo, stepBtns, segsEl: segs, ticksEl: ticks });
     this._year = 1325;
@@ -70,9 +70,10 @@ export class Timeline extends EventTarget {
     // Hastighet i år per sekund (#164). Det gamla sparade värdet ('hg-speed', ×-faktor) ignoreras.
     this.speed = 25;
     try { const v = Number(localStorage.getItem('hg-speed-ars')); if (SPEEDS.includes(v)) this.speed = v; } catch { /* utan lagring */ }
-    this.dotsEl = dots; this.ffEl = ffMarks;
+    this.dotsEl = dots; this.ffEl = ffMarks; this.chaptersEl = chapters; this.warEl = warMarks;
+    this._story = null; // kapitel och markeringar när man följer ett krig (#244)
     this._drawScale();
-    addEventListener('resize', () => { if (this.focus) this._drawScale(); }); // antal årtal beror på bredden
+    addEventListener('resize', () => { if (this.focus) { this._drawScale(); this._drawStory(); } }); // antal årtal beror på bredden
 
     speedBtn.addEventListener('click', () => {
       this.speed = SPEEDS[(SPEEDS.indexOf(this.speed) + 1) % SPEEDS.length];
@@ -132,11 +133,13 @@ export class Timeline extends EventTarget {
   setFocus(range) {
     this.pause();
     this.focus = range;
+    if (!range) this._story = null; // kapitel och markeringar hör till det man följer
     if (!range?.fine) this._year = Math.floor(this._year); // utanför korta krig är året ett heltal
     this._labelSpeed();
     this._labelSteps();
     this._drawScale();
     if (this._marks) this.setMarks(...this._marks);
+    this._drawStory();
     if (range && (this._year < range.from || this._year > range.to)) this.year = range.from;
     else this._render();
   }
@@ -242,6 +245,57 @@ export class Timeline extends EventTarget {
       d.className = 'tff';
       d.style.left = `${this.toPos(mid) * 100}%`;
       this.ffEl.append(d);
+    }
+  }
+
+  /**
+   * Kapitel och markeringar när man följer ett krig (#244). bands: [{ from, to, label, title, data }]
+   * ritas som band över reglaget, med namnet ovanför (data: kapitel ur story.chapters, annars neutrala
+   * band mellan krigets stora händelser). marks: [{ at, until, major, unsure, end, label }] ritas på
+   * linjen: större för stora händelser, ett kryss för osäkert datum och en ring för slutkortet.
+   * Texterna kommer ur datan; den här klassen placerar dem bara. null tar bort allt.
+   */
+  setStory(story) { this._story = story; this._drawStory(); }
+  _drawStory() {
+    if (!this.chaptersEl) return;
+    this.chaptersEl.replaceChildren(); this.warEl.replaceChildren();
+    const st = this.focus && this._story;
+    this.track.classList.toggle('storied', !!st?.bands.length);
+    this.track.classList.toggle('war-marked', !!st);
+    if (!st) return;
+    const pct = v => `${v * 100}%`;
+    let n = 0; // banden växlar färg i den ordning de ritas
+    for (const c of st.bands) {
+      const a = this.toPos(c.from), b = this.toPos(c.to);
+      if (b - a < 0.01) continue; // för smalt för att synas
+      const band = document.createElement('div');
+      band.className = `chap ${c.data ? `chap-data chap-${n % 4}` : `chap-auto chap-${n % 2}`}`;
+      n++;
+      band.style.left = pct(a); band.style.width = pct(b - a);
+      band.title = c.title;
+      const label = document.createElement('span');
+      label.className = 'chap-label';
+      label.textContent = c.label;
+      // Namnet visas bara när bandet är brett nog för några tecken
+      if ((b - a) * this.track.clientWidth < 44) label.hidden = true;
+      band.append(label);
+      this.chaptersEl.append(band);
+    }
+    for (const m of st.marks) {
+      const d = document.createElement('div');
+      d.className = 'wmark' + (m.major ? ' major' : '') + (m.unsure ? ' unsure' : '') + (m.end ? ' end' : '');
+      d.style.left = pct(this.toPos(m.at));
+      d.setAttribute('role', 'img');
+      d.setAttribute('aria-label', m.label);
+      d.title = m.label;
+      // Ett slag som pågick länge får ett streck till sitt slut
+      if (m.until != null && this.toPos(m.until) - this.toPos(m.at) > 0.004) {
+        const line = document.createElement('div');
+        line.className = 'wspan';
+        line.style.left = pct(this.toPos(m.at)); line.style.width = pct(this.toPos(m.until) - this.toPos(m.at));
+        this.warEl.append(line);
+      }
+      this.warEl.append(d);
     }
   }
 

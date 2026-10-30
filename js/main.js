@@ -72,7 +72,7 @@ async function start() {
 
   const timeline = new Timeline({
     track: $('track'), thumb: $('thumb'), segs: $('track-segments'), ticks: $('ticks'),
-    dots: $('track-dots'), ffMarks: $('track-ff'), playBtn: $('btn-play'), playIcon: $('play-icon'), pauseNote: $('pause-note'), pauseText: $('pause-text'),
+    dots: $('track-dots'), ffMarks: $('track-ff'), chapters: $('track-chapters'), warMarks: $('track-war'), playBtn: $('btn-play'), playIcon: $('play-icon'), pauseNote: $('pause-note'), pauseText: $('pause-text'),
     pauseGo: $('pause-go'),
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
@@ -84,6 +84,9 @@ async function start() {
   // Stopp som redan har visats i den här genomspelningen, och om slutkortet har visats (#232).
   // Båda glöms när tiden flyttas för hand eller man följer något annat.
   let shownStops = new Set(), endShown = false;
+  // "Spela klart" (#244): uppspelningen går till krigets slut utan att pausa vid stora händelser eller
+  // Samtidigt-kort, men slutkortet visas. Gäller tills uppspelningen stannar eller tiden flyttas för hand.
+  let finishing = false, finishNext = false;
 
   // Lagerväljaren: vilka lager som syns. Startläget står i index.html.
   const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu') });
@@ -268,6 +271,7 @@ async function start() {
     $('app').classList.add('focusing');
     panel.setOpen(false); // listan stängs så att det man följer syns
     timeline.setFocus({ from: f.from, to: f.to, fine: !!f.fine });
+    if (focusWar) timeline.setStory(warStory(focusWar));
     const startYear = keepYear ? prevYear : f.from;
     lastYear = startYear;
     timeline.year = startYear;
@@ -302,7 +306,7 @@ async function start() {
   /** Händelser där en religion grundades (founding: true), i tidsordning. */
   const founding = id => data.events.filter(e => e.founding && e.religion === id).sort((a, b) => a.start - b.start);
   function endFocus(redraw = true) {
-    focus = null; focusWar = null; warStops = []; shownStops = new Set(); endShown = false; showMoved(null);
+    focus = null; focusWar = null; warStops = []; shownStops = new Set(); endShown = false; finishing = false; showMoved(null);
     areas.onlyGroup = null; religions.onlyId = null;
     applyLayers();
     $('focus-bar').hidden = true;
@@ -385,11 +389,66 @@ async function start() {
   };
   globe.onZoom = syncNameScale;
 
+  /**
+   * Kapitel och markeringar på tidslinjen när man följer ett krig (#244). Allt kommer ur datan:
+   * - Kapitel ur krigets story.chapters (namn, from, to och egna källor), om fältet finns.
+   * - Annars neutrala band mellan krigets stora händelser (major eller top), märkta bara med händelsens
+   *   namn ("Fram till …", och "Efter …" för det sista), så att inget kapitelnamn hittas på.
+   * - En markering per händelse i kriget (större för stora, kryss för osäkert datum, samma regel som
+   *   medaljerna på globen, markerInfo) och en slutpunkt där slutkortet visas.
+   */
+  function warStory(war) {
+    const at = e => timeline.spanOf(e)[0];
+    const end = warEndOf();
+    const events = war._battles.filter(e => isVisibleReview(e.review));
+    let bands;
+    if (war.story?.chapters?.length) {
+      bands = war.story.chapters.map(c => {
+        // Samma tidsformat som händelserna: år, och datum i edtf för korta krig
+        const [a, b] = timeline.focus?.fine && c.edtf ? edtfSpan({ start: c.from, end: c.to, edtf: c.edtf }) : [c.from, c.to];
+        // I korta krig slutar spannet vid början av dagen efter, så den sista dagen visas
+        const last = timeline.focus?.fine && c.edtf ? b - 0.5 / 365.25 : b;
+        return { from: Math.max(a, focus.from), to: Math.min(b, end), label: t(c.title), title: `${t(c.title)} (${timeline.format(a)}–${timeline.format(last)})`, data: true };
+      });
+    } else {
+      const majors = events.filter(e => e.major || e.top).sort((a, b) => at(a) - at(b));
+      let from = focus.from;
+      bands = [];
+      for (const e of majors) {
+        if (at(e) > from) bands.push({ from, to: at(e), label: `Fram till ${t(e.title)}`, title: `Fram till ${t(e.title)} (${timeline.format(at(e))})` });
+        from = Math.max(from, at(e));
+      }
+      const last = majors.at(-1);
+      if (last && end > from) bands.push({ from, to: end, label: `Efter ${t(last.title)}`, title: `Efter ${t(last.title)} (${timeline.format(at(last))}) till krigets slut` });
+    }
+    // Händelser på samma ställe (samma år, i korta krig samma dag) blir en markering med alla namn
+    const groups = new Map();
+    for (const e of events) {
+      const k = at(e);
+      if (!groups.has(k)) groups.set(k, []);
+      groups.get(k).push(e);
+    }
+    const marks = [...groups].map(([k, es]) => {
+      const infos = es.map(e => markerInfo(e));
+      const label = es.map((e, i) => `${t(e.title)}, ${timeline.format(at(e))}${infos[i].major ? ', stor händelse' : ''}${infos[i].unsure ? ', osäkert datum' : ''}`).join(' · ');
+      const until = es.length === 1 ? timeline.spanOf(es[0])[1] : null;
+      return { at: k, until: until != null && timeline.focus?.fine ? until : null, major: infos.some(i => i.major), unsure: infos.some(i => i.unsure), label };
+    });
+    // Slutpunkten: ligger en händelse där (till exempel freden) blir den en del av slutpunkten
+    if (war.story) {
+      const label = `${war.ongoing ? 'Läget i dag' : 'Slutkort: hur kriget slutade'}, ${timeline.format(end)}`;
+      const same = marks.find(m => m.at >= end);
+      if (same) Object.assign(same, { end: true, label: `${same.label} · ${label}` });
+      else marks.push({ at: end, end: true, label });
+    }
+    return { bands, marks };
+  }
+
   // Stopp i uppspelningen när man följer ett krig: en stor händelse eller 'end' för slutkortet (#122, #217)
   function showWarStop(stop, fine) {
     stopping = true;
     if (stop === 'end') {
-      endShown = true; // knappen blir "Spela igen" (#232)
+      endShown = true; finishing = false; // knappen blir "Spela igen" (#232)
       timeline.pause(focusWar.ongoing ? 'Pausad: läget i dag' : 'Pausad: kriget är slut', true); selectedId = focusWar.id; panel.showStory(focusWar, 'summary');
     } else {
       // I smal skärm öppnas inte panelen, så att kartan syns; händelsen markeras på globen
@@ -420,7 +479,7 @@ async function start() {
     const y = timeline.year, at = e => timeline.spanOf(e)[0];
     // Händelser på fokusets första dag eller år räknas när uppspelningen startar där (#224)
     const ahead = e => !shownStops.has(e.id) && (at(e) > y || (at(e) === y && y === focus.from));
-    const next = layers.pause.major ? focusWar._battles.filter(b => b.major && ahead(b)).sort((a, b) => at(a) - at(b))[0] : null;
+    const next = layers.pause.major && !finishing ? focusWar._battles.filter(b => b.major && ahead(b)).sort((a, b) => at(a) - at(b))[0] : null;
     return next ?? (focusWar.story && !endShown ? 'end' : null);
   }
   /** Raden "Nästa paus: …" vid spelknappen (#244). I smal skärm står den i pausraden. */
@@ -433,8 +492,44 @@ async function start() {
       el.textContent = text ? pre + text : '';
       el.title = text ? `Nästa paus: ${text}` : '';
     }
+    showWarPlay(n);
     timeline.refreshPlayLabel();
   }
+  /** Raden vid spelknappen när man följer ett krig (#244): vilka pauser som är på (valen i Lager) och
+   *  "Spela klart", som syns så länge det finns något att hoppa över före slutet. I smal skärm står
+   *  knappen i pausraden och pauserna i knappens namn. */
+  function showWarPlay(n) {
+    $('war-play').hidden = !focusWar;
+    const skip = !!focusWar && !!n && n !== 'end' && !finishing;
+    $('wp-finish').hidden = !skip;
+    $('pause-finish').hidden = !skip;
+    if (!focusWar) return;
+    const item = (el, on, long, short, what) => {
+      el.classList.toggle('on', on);
+      el.replaceChildren(`${on ? '\u25CF' : '\u25CB'} `);
+      for (const [cls, txt] of [['wp-long', long], ['wp-short', short]]) {
+        const sp = document.createElement('span'); sp.className = cls; sp.textContent = txt; el.append(sp);
+      }
+      if (!on) el.append(' (av)');
+      el.title = `Pausar ${what}: ${on ? 'på' : 'av'}. Ändras under Lager.`;
+    };
+    item($('wp-major'), layers.pause.major, 'Krigets händelser', 'Krig', 'vid krigets stora händelser');
+    item($('wp-ff'), layers.pause.focusFunfacts, 'Samtidigt', 'Samtidigt', 'vid Samtidigt-kortet');
+    const pauses = `Pauser: krigets händelser ${layers.pause.major ? 'på' : 'av'}, Samtidigt ${layers.pause.focusFunfacts ? 'på' : 'av'}.`;
+    for (const b of [$('wp-finish'), $('pause-finish')]) {
+      b.title = `Spela klart: till krigets slut utan pauser vid stora händelser. Slutkortet visas. ${pauses}`;
+      b.setAttribute('aria-label', b.title);
+    }
+  }
+  /** Spela klart: hoppar över stoppen som väntar (utom slutkortet) och spelar till krigets slut. */
+  function playToEnd() {
+    for (const s of warStops) if (s !== 'end') shownStops.add(s.id);
+    warStops = warStops.filter(s => s === 'end');
+    finishNext = true;
+    timeline.play();
+  }
+  $('wp-finish').addEventListener('click', playToEnd);
+  $('pause-finish').addEventListener('click', playToEnd);
 
   // I fokusläget dämpas påslagna lager som inte hör till det man följer (#235): riken och religioner när man
   // följer ett krig, religioner för ett rike och riken för en religion. "Behåll mina lager" i Lager visar dem som vanligt.
@@ -502,7 +597,7 @@ async function start() {
     // Kön töms bara när tiden flyttas för hand (i lyssnaren på change), inte vid varje omritning, till exempel
     // när man klickar i faktarutan eller på globen under en paus (#232)
     if (focusWar && playing) {
-      const hits = layers.pause.major ? focusWar._battles.filter(b => b.major && !shownStops.has(b.id) && passed(span(b)[0])).sort((a, b) => span(a)[0] - span(b)[0]) : [];
+      const hits = layers.pause.major && !finishing ? focusWar._battles.filter(b => b.major && !shownStops.has(b.id) && passed(span(b)[0])).sort((a, b) => span(a)[0] - span(b)[0]) : [];
       const ended = focusWar.story && lastYear < warEnd && year >= warEnd;
       warStops = [...hits, ...(ended ? ['end'] : [])];
       if (warStops.length) showWarStop(warStops.shift(), fine);
@@ -569,7 +664,7 @@ async function start() {
     // Tiden flyttades för hand (året ändrades utan uppspelning och inte av ett stopp): kön med krigets
     // stopp glöms, och stoppen visas igen när man spelar på nytt (#232). Också "Spela igen" går hit.
     if (!timeline.playing && !stopping) {
-      warStops = []; shownStops = new Set();
+      warStops = []; shownStops = new Set(); finishing = false;
       if (focusWar && timeline.year < warEndOf()) endShown = false;
     }
     refresh();
@@ -578,6 +673,8 @@ async function start() {
   // i stället för att uppspelningen börjar om från krigets början (#217, #232)
   timeline.hasMore = () => !!queuedStop();
   timeline.addEventListener('beforeplay', e => {
+    // Vanlig uppspelning pausar som valt i Lager; Spela klart sätter finishNext precis innan
+    finishing = finishNext && !!focusWar; finishNext = false;
     const stop = queuedStop();
     if (!stop) return;
     e.preventDefault();
@@ -601,7 +698,7 @@ async function start() {
   // I fokusläget pausar uppspelningen som standard bara vid det man följer; Samtidigt-pausen är där ett eget val (#234)
   ff.onNew = () => {
     const on = focus ? layers.pause.focusFunfacts : layers.pause.funfacts;
-    if (timeline.playing && on && !ff.minimized) timeline.pause('Pausad vid ett nytt Samtidigt-kort');
+    if (timeline.playing && on && !ff.minimized && !finishing) timeline.pause('Pausad vid ett nytt Samtidigt-kort');
   };
   // Raden "Nästa paus" följer pausvalen i Lager
   $('layer-menu').addEventListener('change', e => { if (e.target.dataset.pause) showNextPause(); });
