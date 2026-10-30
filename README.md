@@ -18,7 +18,7 @@ Pyramiderna byggs medan de sista mammutarna lever på Wrangelön. Oxford undervi
 - **Krig och slag att följa.** Över 50 krig från alla världsdelar, från Kadesh och perserkrigen till Ukraina i dag. Varje krig har en berättelse: varför det började, vilka som stred, hur det slutade och hur många som dog, som spann och med vem som har räknat.
 - **Riken som växer och krymper,** från Romarriket och Handynastin till Mongolriket och Brittiska imperiet.
 - **Religioner över tid,** med egna symboler och faktarutor, och med en symbol där varje religion uppstod.
-- **Platt vy.** Samma bild som läggs på klotet, tänkt att en dag visas på en fysisk glob.
+- **Platt vy.** Världen som en platt karta som fyller skärmen, med zoom och panorering, medan tiden spelas upp.
 - **Fungerar i mobilen,** utan installation.
 
 | Följ ett krig | Religioner år 1000 | I mobilen |
@@ -68,6 +68,7 @@ js/ui/panel.js        "Samtidigt i världen" per världsdel, kategorifilter och 
 js/ui/funfact.js      Samtidigt-kortet (fun facts, när ett krig bröt ut) och bågar på globen
 js/ui/sources.js      sidan Om källorna (knappen Källor)
 js/ui/help.js         kort hjälp i tre steg för nya besökare (knappen Hjälp)
+js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering (knappen Platt vy)
 js/ui/feedback.js     formuläret Lämna förslag / Rapportera faktafel (avstängt som standard, docs/feedback.md)
 js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med serverfunktionen)
 js/ui/layers.js       lagerväljaren: slå av och på lager
@@ -105,7 +106,7 @@ tests/                tester för serverfunktionen (node --test 'tests/*.test.mj
 
 - **Data skild från kod.** All data ligger i `data/`.
 - **Ett år styr allt.** Tidsreglaget äger nuvarande år, lager och paneler lyssnar.
-- **Ekvirektangulär rendering.** Lagren ritas på en platt världsbild som läggs på klotet. Samma bild kan skickas till en fysisk globskärm (knappen "Platt vy").
+- **Ekvirektangulär rendering.** Lagren ritas på en platt världsbild som läggs på klotet. Knappen "Platt vy" visar samma bild som en platt karta, och bilden kan också skickas till en fysisk globskärm.
 - **Lager som moduler.** Lagertyperna är punkt, linje, område, bildlager och tur.
 
 Mer i [docs/arkitektur.md](docs/arkitektur.md). Besluten bakom finns i [docs/beslut.md](docs/beslut.md).
