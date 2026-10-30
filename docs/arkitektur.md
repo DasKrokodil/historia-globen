@@ -4,7 +4,7 @@ Hur Historia-globen är uppbyggd och varför. Den här filen uppdateras i samma 
 
 ## Principer
 
-1. **Inget byggsteg.** Vanliga ES-moduler som webbläsaren läser direkt. Inga ramverk, ingen bundler och ingen server. Det räcker med `python3 -m http.server`.
+1. **Inget byggsteg.** Vanliga ES-moduler som webbläsaren läser direkt. Inga ramverk, ingen bundler och ingen server. Det räcker med `python3 -m http.server`. Enda undantaget är serverfunktionen för besökarnas förslag, `functions/api/feedback.js` (beslut 2026-10-30, se [Besökarnas förslag](#besökarnas-förslag-2026-10-30)).
 2. **Data skild från kod.** Allt innehåll (händelser, fun facts, källor, riken, religioner, bildstilar) ligger i `data/`. Koden innehåller inga händelser, texter eller årtal.
 3. **Ett år styr allt.** Tidslinjen äger det nuvarande året och skickar `change`. Allt annat lyssnar och ritar om.
 4. **Allt ritas på en platt bild först.** Grundkartan och lagren ritas på ekvirektangulära bilder (4096 × 2048) som läggs på klotet. Samma platta bild kan skickas till en fysisk globskärm, och "Platt vy" visar den.
@@ -62,6 +62,8 @@ Klickbara markörer, etiketter och bågar ligger ovanpå klotet som 3D-objekt oc
 | `js/ui/layers.js` | Lagermenyn och valen för pauser |
 | `js/ui/focusmenu.js` | Fokusmenyn: följ ett krig, ett rike eller en religion. Sökfält (filtrerar på namn bland alla poster, inte bara de nära året) och flikarna Alla, Krig, Riken och Religioner; senaste fliken sparas i localStorage (`hg-focus-tab`, #240) |
 | `js/ui/help.js` | Kort hjälp för nya besökare (#245): tre steg ("Dra globen", "Byt år", "Följ en berättelse"; texterna står i `index.html`). Visas första gången (`hg-help-seen` i localStorage, med try/catch; utan lagring vid varje besök) under knapparna uppe till höger, försvinner vid första interaktionen någon annanstans (tryck, klick, hjul eller tangent utom Tab), med Stäng eller Escape, och öppnas igen med knappen Hjälp (`aria-expanded`, fokus till Stäng). Under stegen finns en hopfälld del "Markörer och klungor" (#242, #243) med små exempel på medaljen, tidsbågen, punkten, den streckade bågen och klungan. Sist står en kort rad om frivilligt stöd med länken "Stöd Historia Globen" till Ko-fi (vanlig länk i `index.html`, ny flik med `rel="noopener noreferrer"`, ingen widget, ingen JavaScript och ingen spårning) |
+| `js/ui/feedback.js` | Formuläret för besökarnas förslag ([feedback.md](feedback.md)): panelen `#feedback` i `index.html` med Hjälp-kortets stil, öppnas från Hjälp ("Lämna förslag") och från faktarutan och krigets berättelse ("Rapportera faktafel", `panel.onReport`). Från faktarutan är faktafel förvalt och händelsens titel och tid visas skrivskyddat; bara `eventId` skickas. Avstängt så länge `data-sitekey` är tom eller `data-privacy` inte är `approved`: då visas länkar till issue-mallarna och inget externt skript laddas. Påslaget laddas Turnstile när formuläret öppnas. Escape stänger (utan att stänga faktarutan) och fokus går tillbaka till knappen som öppnade |
+| `js/feedback-rules.js` | Förslagens kategorier, gränser och `validateFeedback()`, gemensamma för formuläret och `functions/api/feedback.js` |
 | `js/ui/sources.js` | Sidan Om källorna (knappen Källor, #245): källregistret grupperat efter användning, granskningsläge per grupp och sökning |
 | `js/ui/clusters.js` | Klustring av etiketter. `clusterContents()` (#243) räknar klungans händelser per kategori: ringen runt siffran blir en `conic-gradient` (CSS-variabeln `--ring`) med ett segment per kategori i kategorins färg och en smal springa mellan, och texten ("3 krigshändelser, 1 kulturhändelse", ord ur `count` i `CATEGORIES` i `model.js`) står i klungans `aria-label` och syns i en liten ruta under klungan vid hovring och tangentbordsfokus (`data-contents`, CSS `::after`); `title` listar händelsernas namn. Siffran står kvar i mitten |
 
@@ -142,9 +144,13 @@ Skripten i `tools/` körs för hand, inte av sidan, så principen om inget byggs
 
 `scripts/build-site.sh` kopierar de filer som sidan läser när den körs till `dist/` och kör `scripts/validate-site.py`. Inget skrivs om, så sidan fungerar fortfarande direkt från repots rot. GitHub Actions kör samma kontroll vid push till `main` och vid pull requests mot `main` och `production`. Se [DEPLOYMENT.md](DEPLOYMENT.md).
 
+## Besökarnas förslag (2026-10-30)
+
+`functions/api/feedback.js` är en Cloudflare Pages Function som tar emot formulärets `POST /api/feedback`, kontrollerar Turnstile och skapar ett issue i ett privat GitHub-repo. Den är det enda som körs på serversidan, och den är avstängd tills miljövariablerna finns i Cloudflare. Sidan i övrigt fungerar som förut utan den (formuläret visar då länkar till GitHub). Cloudflare Pages publicerar `functions/` från repots rot; den kopieras inte till `dist/`. Allt om flödet, säkerheten och hur den slås på står i [feedback.md](feedback.md).
+
 ## Testa
 
-Se [CLAUDE.md](../CLAUDE.md#testa-innan-du-är-klar): starta `python3 -m http.server 8000`, kontrollera att konsolen är fri från fel, testa dator- och mobilbredd och kontrollera all JSON.
+Se [CLAUDE.md](../CLAUDE.md#testa-innan-du-är-klar): starta `python3 -m http.server 8000`, kontrollera att konsolen är fri från fel, testa dator- och mobilbredd och kontrollera all JSON. Serverfunktionen för förslagen testas med `node --test 'tests/*.test.mjs'` (inga beroenden, alla externa anrop mockade), som också körs i GitHub Actions.
 
 ## Uppspelning (#163, #164)
 

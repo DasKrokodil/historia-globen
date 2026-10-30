@@ -26,7 +26,7 @@ Listan bygger på referenserna i koden:
 |---|---|---|
 | `index.html` | startsidan | – |
 | `css/style.css` | stilmallen (inga `url()` till lokala filer) | `index.html` |
-| `js/**/*.js` (17 moduler) | ES-modulerna | `index.html` → `js/main.js` → `import` |
+| `js/**/*.js` (20 moduler) | ES-modulerna | `index.html` → `js/main.js` → `import` |
 | `img/favicon.svg`, `img/favicon-32.png`, `img/apple-touch-icon.png` | sidans ikoner | `index.html` |
 | `img/icons/*.svg` | markörernas och korten symboler, hämtas med `fetch` efter namn | `icon` i `data/events.json`, `symbol` i `data/religions.json` (#271), `CAT_ICON` och standardikonen `star` i `js/ui/funfact.js`, `index.html` |
 | `data/events.json`, `funfacts.json`, `sources.json`, `land.json`, `borders.json`, `styles.json`, `empires/index.json` | laddas vid start | `loadAll()` i `js/model.js` |
@@ -37,7 +37,7 @@ Listan bygger på referenserna i koden:
 
 Alla ikoner i `img/icons/` publiceras, eftersom namnen kommer ur data och JS. I dag används alla 38. Bilderna i `images/events/` publiceras bara om en händelse pekar på dem.
 
-**Publiceras aldrig:** `.claude/`, `.orchestra/`, `.github/`, `docs/`, `tools/`, `scripts/`, `data/utkast/`, `images/incoming/`, `CLAUDE.md`, `README.md`, Python- och skalskript, Markdown-filer och cachefiler.
+**Publiceras aldrig via `dist/`:** `.claude/`, `.orchestra/`, `.github/`, `docs/`, `tools/`, `scripts/`, `functions/`, `tests/`, `data/utkast/`, `images/incoming/`, `CLAUDE.md`, `README.md`, Python- och skalskript, Markdown-filer och cachefiler. (`functions/` publiceras i stället av Cloudflare Pages direkt från repots rot, se [Besökarnas förslag](#besökarnas-förslag-pages-function).)
 
 **Externa resurser** som sidan hämtar vid körning och som inte finns i `dist/`:
 - three.js 0.160.0 från `cdn.jsdelivr.net` (`js/globe.js`)
@@ -97,12 +97,23 @@ Läget enligt Rikard 2026-10-30. Inställningarna görs i Cloudflares kontrollpa
 
 **Förhandsadresserna på pages.dev är skyddade med Cloudflare Access** (Rikard slog på det 2026-10-30: Workers & Pages → historia-globen → Settings → General → Preview access, "Restrict previews"). Cloudflare visar nu "Preview deployments are restricted by a Cloudflare Access policy". Det gäller grenadressen `main.historia-globen.pages.dev` och de unika adresserna `<id>.historia-globen.pages.dev`. Produktionens pages.dev-adress och de egna domänerna hanteras separat i Zero Trust, så historiagloben.se förblir publik. Vem som får logga in ställs in under Manage (Zero Trust).
 
+### Besökarnas förslag (Pages Function)
+
+Formulärets serverfunktion `functions/api/feedback.js` (beslut 2026-10-30, [feedback.md](feedback.md)) publiceras av Cloudflare Pages **från mappen `functions/` i repots rot**, inte via `dist/`. Cloudflare letar efter `functions/` i projektets rotkatalog (Root directory i bygginställningarna, som ska vara repots rot) och packar ihop funktionen och de filer i `js/` som den importerar. `scripts/build-site.sh` kopierar den inte, och `scripts/validate-site.py` underkänner bygget om `functions/` eller `tests/` hamnar i `dist/`.
+
+- Funktionen svarar bara på `/api/feedback`. Alla andra adresser serveras som förut från `dist/`.
+- **Hemligheter och inställningar per miljö** (Settings → Variables and secrets): `GITHUB_TOKEN` och `TURNSTILE_SECRET` som Secret, `GITHUB_REPO` och `FEEDBACK_ENABLED` som Text. Preview (`main`, dev) och Production (`production`, historiagloben.se) har var sin uppsättning, så funktionen kan vara påslagen på dev och avstängd i produktionen. Utan dem svarar funktionen 503 och skapar inget.
+- I dag finns inga variabler, så funktionen är avstängd i båda miljöerna. Checklistan för att slå på den står i [feedback.md](feedback.md#slå-på-formuläret-checklista).
+- Riktiga hemligheter läggs aldrig i repot.
+
 ## Automatiska kontroller (GitHub Actions)
 
 `.github/workflows/validate-site.yml` kör bygget och valideringen:
 - vid varje **push till `main`**
 - vid varje **pull request mot `main`**
 - vid varje **pull request mot `production`**
+
+Jobbet **"Bygg och validera dist/"** kör också testerna för förslagens serverfunktion (`node --test 'tests/*.test.mjs'`, Node 22, inga beroenden).
 
 Bara pull requests mot `production` får dessutom kontrollen **"Release kommer från main"**. Den underkänner pull requesten om
 - den inte kommer från grenen `main` i samma repo, eller
