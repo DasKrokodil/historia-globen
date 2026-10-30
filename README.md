@@ -1,8 +1,43 @@
-# Historia-globen
+<p align="center">
+  <img src="img/favicon.svg" width="96" height="96" alt="Historia-globens ikon, en vindros i mässing">
+</p>
 
-En snurrbar jordglob där man drar i tiden och ser vad som hände **samtidigt** på olika håll i världen. Pyramiderna byggs medan de sista mammutarna lever på Wrangelön. Oxford undervisar redan när Tenochtitlan grundas.
+<h1 align="center">Historia-globen</h1>
 
-Projektet är en hobbyidé och ett öppet projekt. På sikt kan samma innehåll visas på en fysisk glob.
+<p align="center"><strong>Dra i tiden och se vad som hände samtidigt i hela världen.</strong><br>
+Pyramiderna byggs medan de sista mammutarna lever på Wrangelön. Oxford undervisar redan när Tenochtitlan grundas.</p>
+
+<p align="center"><a href="https://historiagloben.se"><strong>Prova globen på historiagloben.se →</strong></a></p>
+
+![Globen år 1325 med Samtidigt-kortet: Mansa Musa når Kairo, Ibn Battuta ger sig av från Tanger och Tenochtitlan grundas](docs/bilder/readme-1-samtidigt.webp)
+
+## Det här får du
+
+- **En snurrbar jordglob genom 5 000 år.** Dra i tidslinjen från 3000 f.Kr. till i dag, eller tryck ▶ och se världen förändras.
+- **Samtidigt-kortet.** Oväntade samband dyker upp av sig själva, till exempel att Mansa Musa och Ibn Battuta var på väg mot Mecka med ett års mellanrum.
+- **Krig och slag att följa.** Över 50 krig från alla världsdelar, från Kadesh och perserkrigen till Ukraina i dag. Varje krig har en berättelse: varför det började, vilka som stred, hur det slutade och hur många som dog, som spann och med vem som har räknat.
+- **Riken som växer och krymper,** från Romarriket och Handynastin till Mongolriket och Brittiska imperiet.
+- **Religioner över tid,** med egna symboler och faktarutor, och med en symbol där varje religion uppstod.
+- **Platt vy.** Samma bild som läggs på klotet, tänkt att en dag visas på en fysisk glob.
+- **Fungerar i mobilen,** utan installation.
+
+| Följ ett krig | Religioner år 1000 | I mobilen |
+|---|---|---|
+| ![Fokus på Napoleonkrigen med krigsområdet och kortet om varför kriget började](docs/bilder/readme-2-krig.webp) | ![Religionslagret år 1000 med kors, moské och dharmahjul i områdena och medaljer där religionerna uppstod](docs/bilder/readme-3-religioner.webp) | ![Globen år 1500 i mobilbredd](docs/bilder/readme-4-mobil.webp) |
+
+## Varje uppgift har en källa
+
+Inget på globen är skrivet ur minnet. Varje händelse pekar på minst en källa, och de flesta är jämförda med en andra, oberoende källa. När källorna är oense står det öppet, i stället för att en siffra väljs i tysthet. Under **Källor** på sidan går det att se varifrån allt kommer.
+
+Just nu finns 469 händelser, 655 källor, 8 riken och 22 religioner. Allt är öppen källkod och öppna data.
+
+## Om projektet
+
+Historia-globen är ett hobbyprojekt med öppen källkod. På sikt kan samma innehåll visas på en fysisk glob. historiagloben.se visar den senaste releasen; bilderna ovan är tagna från utvecklingsversionen i `main` den 30 oktober 2026.
+
+---
+
+**För utvecklare:** resten av den här sidan beskriver hur projektet körs och är uppbyggt.
 
 ## Kör lokalt
 
@@ -41,7 +76,7 @@ img/favicon.svg       sidans ikon i webbläsarfliken (och PNG-versioner för äl
 images/events/        bilder till händelser (historiska bilder och märkta illustrationer)
 images/incoming/      nya bilder innan de konverteras
 tools/                hjälpskript som körs för hand (Python): riken, religioner, bildpromptar och bildkonvertering
-docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar
+docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar; docs/bilder/ har skärmbilderna i README
 .orchestra/           arbetsflödet dirigenten och orkestern (MIT-licens)
 data/events.json      händelser
 data/funfacts.json    fun facts, kopplade till händelser
