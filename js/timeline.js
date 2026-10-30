@@ -272,6 +272,8 @@ export class Timeline extends EventTarget {
   }
 
   play() {
+    // Den som lyssnar kan ta över (preventDefault), till exempel för att visa nästa stopp i ett krig (#217)
+    if (!this.dispatchEvent(new CustomEvent('beforeplay', { cancelable: true }))) return;
     const end = this.focus ? this.focus.to : MAX_YEAR;
     if (this._year >= end) this.year = this.focus ? this.focus.from : MIN_YEAR;
     this.playing = true;
@@ -296,13 +298,14 @@ export class Timeline extends EventTarget {
     };
     requestAnimationFrame(step);
   }
-  /** Pausar. Med `reason` (text) är det en automatisk paus: knappen blir "Fortsätt" och raden vid knappen visar varför. */
-  pause(reason) {
+  /** Pausar. Med `reason` (text) är det en automatisk paus: knappen blir "Fortsätt" och raden vid knappen visar varför.
+   *  `always` visar raden även om uppspelningen redan stod still (nästa stopp i ett krig, #217). */
+  pause(reason, always = false) {
     const wasPlaying = this.playing;
     this.playing = false;
     this.playIcon.setAttribute('d', 'M4 2.5v11l9-5.5z');
     this.playBtn.setAttribute('aria-pressed', 'false');
-    const auto = !!reason && wasPlaying;
+    const auto = !!reason && (wasPlaying || always);
     this._labelPlay(false, auto);
     this._showNote(auto ? reason : null);
   }

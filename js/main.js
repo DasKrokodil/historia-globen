@@ -72,6 +72,7 @@ async function start() {
   timeline.setMarks(data.events.filter(e => !e.partOf || e.top || e.major), data.funfacts, e => CAT[e.category]?.color ?? '#fff');
 
   let focusWar = null, focus = null, lastYear = 0;
+  let warStops = [], stopping = false; // kö med stopp när man följer ett krig (#217)
 
   // Lagerväljaren: vilka lager som syns. Startläget står i index.html.
   const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu') });
@@ -262,7 +263,7 @@ async function start() {
   /** Händelser där en religion grundades (founding: true), i tidsordning. */
   const founding = id => data.events.filter(e => e.founding && e.religion === id).sort((a, b) => a.start - b.start);
   function endFocus(redraw = true) {
-    focus = null; focusWar = null; showMoved(null);
+    focus = null; focusWar = null; warStops = []; showMoved(null);
     areas.onlyGroup = null; religions.onlyId = null;
     applyLayers();
     $('focus-bar').hidden = true;
@@ -337,6 +338,20 @@ async function start() {
   };
   globe.onZoom = syncNameScale;
 
+  // Stopp i uppspelningen när man följer ett krig: en stor händelse eller 'end' för slutkortet (#122, #217)
+  function showWarStop(stop, fine) {
+    stopping = true;
+    if (stop === 'end') {
+      timeline.pause('Pausad: kriget är slut', true); selectedId = focusWar.id; panel.showStory(focusWar, 'summary');
+    } else {
+      // I smal skärm öppnas inte panelen, så att kartan syns; händelsen markeras på globen
+      timeline.pause('Pausad vid en stor händelse i kriget', true); selectedId = stop.id; panel.showDetail(stop, matchMedia('(min-width: 761px)').matches);
+      if (fine) timeline.year = timeline.spanOf(stop)[0]; // i ett kort krig stannar tiden på händelsens dag
+    }
+    stopping = false;
+    $('app').classList.toggle('has-detail', !$('detail').hidden);
+  }
+
   function refresh() {
     [areas.labelScale, areas.labelAlpha] = nameStyle();
     // I fokusläget för korta krig är året ett decimaltal (#204). Händelser och krig får då sina
@@ -380,16 +395,15 @@ async function start() {
     const passed = tt => (tt > lastYear && tt <= year) || (fine && tt === focus.from && lastYear === tt && year > tt);
     // I fokusläge stannar uppspelningen vid krigets viktigaste händelser
     // I slutet: hur kriget slutade och hur många som dog (#122)
+    // Alla stora händelser som passerades stoppar i tur och ordning, och slutkortet kommer sist (#217).
+    // Det som inte hinns med nu ligger i warStops och visas när man trycker Fortsätt.
     const warEnd = focusWar && span(focusWar)[1];
-    if (focusWar?.story && timeline.playing && lastYear < warEnd && year >= warEnd) {
-      timeline.pause('Pausad: kriget är slut'); selectedId = focusWar.id; panel.showStory(focusWar, 'summary');
-    } else if (focusWar && timeline.playing && layers.pause.major) {
-      const hit = focusWar._battles.find(b => b.major && passed(span(b)[0]));
-      // I smal skärm öppnas inte panelen, så att kartan syns; händelsen markeras på globen
-      if (hit) {
-        timeline.pause('Pausad vid en stor händelse i kriget'); selectedId = hit.id; panel.showDetail(hit, matchMedia('(min-width: 761px)').matches);
-        if (fine) timeline.year = span(hit)[0]; // i ett kort krig stannar tiden på händelsens dag
-      }
+    if (!timeline.playing && !stopping) warStops = []; // tiden flyttades för hand
+    if (focusWar && timeline.playing) {
+      const hits = layers.pause.major ? focusWar._battles.filter(b => b.major && passed(span(b)[0])).sort((a, b) => span(a)[0] - span(b)[0]) : [];
+      const ended = focusWar.story && lastYear < warEnd && year >= warEnd;
+      warStops = [...hits, ...(ended ? ['end'] : [])];
+      if (warStops.length) showWarStop(warStops.shift(), fine);
     }
     // I fokus på en religion stannar uppspelningen vid händelserna när den grundades (#123)
     if (focus?.type === 'religion' && timeline.playing) {
@@ -449,6 +463,13 @@ async function start() {
   }
 
   timeline.addEventListener('change', refresh);
+  // Fortsätt efter ett stopp i ett krig: nästa stora händelse samma år, eller slutkortet,
+  // i stället för att uppspelningen börjar om från krigets början (#217)
+  timeline.addEventListener('beforeplay', e => {
+    if (!focusWar || !warStops.length) return;
+    e.preventDefault();
+    showWarStop(warStops.shift(), !!focus?.fine);
+  });
   panel.onSelect = select;
   panel.onFocus = id => startFocus(`war:${id}`);
   $('focus-exit').addEventListener('click', endFocus);
