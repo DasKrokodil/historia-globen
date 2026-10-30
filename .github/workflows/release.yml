@@ -1,0 +1,78 @@
+# Skapar en versionstagg och en GitHub Release för det som redan ligger i production (docs/DEPLOYMENT.md).
+# Körs för hand: Actions → Skapa release → Run workflow, med versionsnumret (vX.Y.Z).
+# Flödet ändrar inget innehåll i production; det sätter bara en tagg på production som den är
+# och skriver release-anteckningar. Publiceringen till historiagloben.se sker redan när release-PR:en
+# slås ihop till production.
+name: Skapa release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Versionsnummer, till exempel v3.0.0'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Tagga production och skapa release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kontrollera att flödet körs från production
+        if: github.ref != 'refs/heads/production'
+        run: |
+          echo "::error::Välj grenen production under \"Use workflow from\" (nu: $GITHUB_REF)."
+          exit 1
+
+      - name: Kontrollera versionsnumret
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          if ! printf '%s' "$VERSION" | grep -Eq '^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$'; then
+            echo "::error::Versionsnumret ska skrivas vX.Y.Z, till exempel v3.0.0 (nu: $VERSION)."
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+        with:
+          ref: production
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Bygg och validera production
+        run: bash scripts/build-site.sh
+
+      - name: Kontrollera att taggen inte redan finns och att production finns i main
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          if git rev-parse -q --verify "refs/tags/$VERSION" >/dev/null; then
+            echo "::error::Taggen $VERSION finns redan. Taggar flyttas aldrig; välj nästa nummer."
+            exit 1
+          fi
+          if ! git merge-base --is-ancestor HEAD origin/main; then
+            echo "::error::production har commits som inte finns i main. För in dem i main först (se Rollback i docs/DEPLOYMENT.md)."
+            exit 1
+          fi
+
+      - name: Skapa tagg och GitHub Release
+        env:
+          VERSION: ${{ inputs.version }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "$VERSION" -m "Release $VERSION" HEAD
+          git push origin "refs/tags/$VERSION"
+          gh release create "$VERSION" --verify-tag --title "$VERSION" --generate-notes
+          echo "Release $VERSION skapad för production $(git rev-parse --short HEAD)."
