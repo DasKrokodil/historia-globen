@@ -34,8 +34,8 @@ Nivån syns i faktarutan och under Om källorna, inte som eget märke på globen
 | Wikisource: Encyclopædia Britannica 1911, Dictionary of National Biography (1885–1900) och andra äldre verk | Andra källa för årtal och plats | Public domain | Äldre uppslagsverk kan vara föråldrade, så de används som jämförelse, inte ensamma |
 | World History Encyclopedia (worldhistory.org) | Andra källa för årtal och plats | CC BY-NC-SA (artikeltexten) | Bara länkad källa för fakta som årtal och plats. Text kopieras aldrig. |
 | Historical Conflict Event Dataset (HCED, Charles Miller 2022) via World Historical Gazetteer | Utkast om slag och andra stridshändelser (#24) | CC0 1.0 (WHG:s tillägg CC BY 4.0) | Massimport till `data/utkast/hced.json`, alltid `draft`. Varje utkast källkontrolleras mot en annan källa innan det flyttas till `events.json` (se nedan). |
-| Uppsala Conflict Data Program (UCDP), Battle-Related Deaths Dataset | Stridsrelaterade dödsfall i krig från 1989, till exempel Rysslands invasion av Ukraina (#223) | CC BY 4.0 | Forskningsdata. Bästa skattning och spann (låg–hög) per konflikt och år anges med datasetets version. |
 | FN:s digitala bibliotek (digitallibrary.un.org) | FN-resolutioner och rapporter, till exempel generalförsamlingens resolution ES-11/1 (#223) | FN-dokument | Primärkälla som länkas. Text kopieras inte. |
+| Uppsala Conflict Data Program (UCDP, ucdp.uu.se) | Dödssiffror i krigens berättelse för krig från 1989, till exempel Gulfkriget och Rysslands invasion av Ukraina (#222, #223) | CC BY 4.0 (alla dataset, enligt nedladdningssidan) | Citera datasetets publikation och version. Siffrorna gäller stridsrelaterade dödsfall, inte våld mot civila utanför strid eller indirekta dödsfall, så det skrivs ut i texten. |
 | Forskningsartiklar i PubMed Central (PMC) | Andra källa, till exempel för förhistoriska dateringar | Oftast CC BY (kontrolleras per artikel) | Licensen står i artikeln |
 
 ### Källor som går att nå från molnmiljön
