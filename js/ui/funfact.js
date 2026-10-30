@@ -1,6 +1,8 @@
 // Samtidigt-kortet: fun facts och annat som hände samtidigt (till exempel när ett krig
 // bryter ut). Kortet visas när året ligger inom postens intervall, med bågar på globen
 // mellan de platser som hör ihop. Det kan fällas ihop till en flik (#120).
+// I smal skärm (högst 760 px) är kortet en panel underifrån med tre lägen (#239): stängd (handtag och
+// rubrikraden), halv och hel. Man drar i handtaget eller trycker på det, och kortet stängs när man drar i globen.
 import { CAT, REVIEW, t, formatYear, formatEventTime, styleFor, isVisibleReview, reviewLabel, REVIEW_SUBJECT_HELP } from '../model.js';
 
 const KIND = { funfact: 'Fun fact', war: 'När ett krig bröt ut', empire: 'Rikets berättelse' };
@@ -22,6 +24,10 @@ export function empireStory(group, byId) {
 }
 // Grafisk symbol när ett krigskort saknar bilder (#237): händelsens egen ikon, annars kategorins.
 const CAT_ICON = { krig: 'swords', civilisationer: 'crown', religion: 'dome', vetenskap: 'scroll', upptackter: 'ship', kultur: 'columns', rymden: 'rocket', ekonomi: 'ship', klimat: 'mountain-city' };
+// Panelens lägen i smal skärm (#239), från minst till störst
+const SHEET = ['closed', 'half', 'full'];
+const SHEET_LABEL = { closed: 'stängt', half: 'halvt', full: 'helt' };
+const narrow = matchMedia('(max-width: 760px)');
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 export class FunFacts {
@@ -38,6 +44,11 @@ export class FunFacts {
     this.onNew = () => {};
     this.minimized = false;
     try { this.minimized = localStorage.getItem('hg-ff-min') === '1'; } catch { /* utan lagring */ }
+    // Panelen i smal skärm (#239): ihopfällt kort (minimized) visas som stängd panel i stället för en flik.
+    // autoClosed: stängd av att man drar i globen. Det sparas inte, och nästa nya kort öppnar panelen igen.
+    this.sheet = 'half'; this.autoClosed = false;
+    this._initSheet();
+    narrow.addEventListener('change', () => this._show());
     this.next.addEventListener('click', () => { this.index = (this.index + 1) % this.active.length; this._show(); });
     this.min.addEventListener('click', () => this.setMinimized(true));
     this.tab.addEventListener('click', () => this.setMinimized(false));
@@ -60,16 +71,103 @@ export class FunFacts {
     // Rikets berättelse pausar uppspelningen själv (main.js), med egen orsak och eget val i Lager
     const fresh = active.some(f => f.kind !== 'empire' && !this.active.includes(f));
     this.shownKey = key; this.active = active; this.index = 0;
+    if (fresh && this.autoClosed) { this.autoClosed = false; this.sheet = 'half'; }
     this._show();
     if (fresh) this.onNew();
   }
 
   /** Fäll ihop kortet till en flik, eller öppna det igen. Valet sparas. */
   setMinimized(on) {
-    this.minimized = on;
+    this.minimized = on; this.autoClosed = false;
     try { localStorage.setItem('hg-ff-min', on ? '1' : '0'); } catch { /* utan lagring */ }
     this._show();
-    (on ? this.tab : this.min).focus?.();
+    if (!narrow.matches) (on ? this.tab : this.min).focus?.();
+  }
+
+  /** Panelens läge i smal skärm: stängd, halv eller hel (#239). */
+  get sheetState() { return this.minimized || this.autoClosed ? 'closed' : this.sheet; }
+
+  /** Byt panelens läge. Att stänga med handtaget är samma val som att fälla ihop kortet (sparas, ingen paus). */
+  setSheet(state) {
+    if (state === 'closed') return this.setMinimized(true);
+    this.sheet = state;
+    if (this.minimized) this.setMinimized(false);
+    else { this.autoClosed = false; this._show(); }
+  }
+
+  /** Stäng panelen när man drar i globen (bara smal skärm). Valet sparas inte. */
+  autoClose() {
+    if (!narrow.matches || this.sheetState === 'closed' || this.root.hidden) return;
+    this.autoClosed = true;
+    this._show();
+  }
+
+  /**
+   * Handtaget (#239): ett tryck stegar stängd → halv → hel → stängd, piltangenterna upp och ner byter läge, och
+   * man kan dra. Medan man drar följer kortets höjd fingret, och när man släpper väljs det läge vars höjd ligger
+   * närmast. Rubrikraden öppnar också en stängd panel, så att tryckytan blir större.
+   */
+  _initSheet() {
+    const h = this.handle;
+    if (!h) return;
+    const step = d => this.setSheet(SHEET[Math.max(0, Math.min(2, SHEET.indexOf(this.sheetState) + d))]);
+    let drag = null;
+    h.addEventListener('keydown', e => {
+      if (e.key === 'ArrowUp' || e.key === 'ArrowDown') { e.preventDefault(); step(e.key === 'ArrowUp' ? 1 : -1); }
+    });
+    h.addEventListener('pointerdown', e => {
+      if (!narrow.matches) return;
+      h.setPointerCapture(e.pointerId);
+      drag = { id: e.pointerId, y: e.clientY, moved: false, heights: this._measureSheet() };
+      drag.h0 = drag.heights[this.sheetState];
+    });
+    h.addEventListener('pointermove', e => {
+      if (!drag || e.pointerId !== drag.id) return;
+      const dy = e.clientY - drag.y;
+      if (!drag.moved && Math.abs(dy) < 8) return;
+      drag.moved = true;
+      const { closed, full } = drag.heights;
+      this.root.classList.add('ff-dragging');
+      this.root.style.height = `${Math.max(closed, Math.min(full, drag.h0 - dy))}px`;
+    });
+    const end = e => {
+      if (!drag || e.pointerId !== drag.id) return;
+      const d = drag; drag = null;
+      if (!d.moved) return; // ett tryck hanteras av click
+      const now = this.root.getBoundingClientRect().height;
+      this.root.classList.remove('ff-dragging');
+      this.root.style.height = '';
+      const near = SHEET.reduce((a, b) => Math.abs(d.heights[b] - now) < Math.abs(d.heights[a] - now) ? b : a);
+      this._dragged = true; // klicket som följer på ett drag ska inte också stega
+      this.setSheet(near);
+    };
+    h.addEventListener('pointerup', end);
+    h.addEventListener('pointercancel', end);
+    h.addEventListener('click', () => {
+      if (this._dragged) { this._dragged = false; return; }
+      this.setSheet(SHEET[(SHEET.indexOf(this.sheetState) + 1) % 3]);
+    });
+    this.root.querySelector('.ff-eyebrow')?.addEventListener('click', e => {
+      if (narrow.matches && this.sheetState === 'closed' && !e.target.closest('button')) this.setSheet('half');
+    });
+  }
+
+  /** Kortets höjd i de tre lägena, mätt utan att något ritas (klassen byts och återställs i samma steg). */
+  _measureSheet() {
+    const cls = this.root.classList, cur = `ff-s-${this.sheetState}`, out = {};
+    cls.remove(cur);
+    for (const s of SHEET) { cls.add(`ff-s-${s}`); out[s] = this.root.getBoundingClientRect().height; cls.remove(`ff-s-${s}`); }
+    cls.add(cur);
+    return out;
+  }
+
+  /** Handtagets läge för skärmläsare och tangentbord. */
+  _syncSheet() {
+    const st = this.sheetState;
+    for (const s of SHEET) this.root.classList.toggle(`ff-s-${s}`, narrow.matches && s === st);
+    if (!this.handle) return;
+    this.handle.setAttribute('aria-expanded', String(st !== 'closed'));
+    this.handle.setAttribute('aria-label', `Samtidigt-kortet, ${SHEET_LABEL[st]}. ${st === 'full' ? 'Tryck för att stänga' : 'Tryck för att visa mer'}, eller använd pil upp och ner.`);
   }
 
   /**
@@ -120,14 +218,17 @@ export class FunFacts {
 
   highlightIds() {
     const f = this.active[this.index];
-    return new Set(f && !this.minimized ? f.events : []);
+    return new Set(f && !this.minimized && !this.autoClosed ? f.events : []);
   }
 
   _show() {
     const f = this.active[this.index];
-    this.tab.hidden = !f || !this.minimized;
+    // I smal skärm är det ihopfällda kortet en stängd panel, inte en flik (#239)
+    const asSheet = narrow.matches;
+    this.tab.hidden = !f || !this.minimized || asSheet;
     this.tabCount.textContent = String(this.active.length);
-    if (!f || this.minimized) { this.root.hidden = true; this.onArcs([]); return; }
+    this._syncSheet();
+    if (!f || (this.minimized && !asSheet)) { this.root.hidden = true; this.onArcs([]); return; }
     const story = f.kind === 'empire';
     this.root.classList.toggle('ff-story', story);
     this.root.classList.remove('ff-open');
@@ -150,8 +251,8 @@ export class FunFacts {
     this.pager.textContent = this.active.length > 1 ? `${this.index + 1} av ${this.active.length}` : '';
     this.next.hidden = this.active.length < 2;
     this.root.hidden = false;
-    // Bågar från första händelsen till de övriga
+    // Bågar från första händelsen till de övriga (inte när panelen är stängd)
     const [a, ...rest] = evs;
-    this.onArcs(story ? [] : rest.map(b => [[a._lat, a._lon], [b._lat, b._lon]]));
+    this.onArcs(story || (asSheet && this.sheetState === 'closed') ? [] : rest.map(b => [[a._lat, a._lon], [b._lat, b._lon]]));
   }
 }

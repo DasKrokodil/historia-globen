@@ -186,9 +186,25 @@ body {
 .top-actions {
   position: absolute;
   z-index: 15;
-  top: calc(env(safe-area-inset-top, 0px) + 14px);
+  top: calc(env(safe-area-inset-top, 0px) + 18px);
   right: var(--gut-r);
-  display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end;
+  display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end;
+}
+/* Knapparna i två grupper (#245): Utforska (Samtidigt, Lager, Fokus) och Visa (Platt vy, Källor, Hjälp).
+   Varje grupp har en tunn mässingsram med gruppens namn ingraverat i ramens överkant. */
+.action-group {
+  position: relative;
+  display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end;
+  padding: 5px;
+  border: 1px solid color-mix(in srgb, var(--brass-deep) 60%, transparent);
+  border-radius: 999px;
+}
+.action-label {
+  position: absolute; top: -6px; left: 16px;
+  padding: 0 5px;
+  font: 500 9.5px/12px var(--f-mono); letter-spacing: .14em; text-transform: uppercase;
+  color: var(--brass); background: var(--night);
+  pointer-events: none;
 }
 .chip-btn {
   font: 500 13px/1 var(--f-body);
@@ -413,6 +429,7 @@ body {
   cursor: pointer;
 }
 .ff-year { font: 500 11px/1 var(--f-mono); color: #6b5a3a; }
+.ff-handle { display: none; } /* handtaget finns bara i smal skärm (#239) */
 .ff-tab {
   position: absolute; z-index: 12;
   left: var(--gut); bottom: 140px;
@@ -477,6 +494,31 @@ body {
 .ff-symbol .ff-sym-icon { position: absolute; left: 50%; top: 44%; width: 56px; height: 56px; transform: translate(-50%, -50%); object-fit: contain; opacity: .8; background: none; }
 .ff-symbol.no-img .ff-cap { top: auto; justify-content: flex-end; align-items: flex-end; padding: 14px 7px 6px; }
 .ff-more { padding: 4px 8px; border-radius: 999px; font: 600 11px/1 var(--f-body); color: #22190c; background: var(--brass); white-space: nowrap; }
+
+/* ---------- hjälp för nya besökare (#245) ---------- */
+.help-card {
+  position: absolute; z-index: 14;
+  top: 84px; right: var(--gut-r); /* help.js lägger den under knapparna */
+  box-sizing: border-box; width: min(340px, calc(100vw - 32px));
+  padding: 12px 14px 12px 16px;
+  background: color-mix(in srgb, var(--night-2) 96%, transparent);
+  border: 1px solid var(--brass-deep); border-radius: var(--r);
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  animation: ff-in .35s ease-out;
+}
+.help-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.help-title { margin: 0; font: 400 19px/1.2 var(--f-display); color: var(--parchment); }
+.help-card .panel-x { flex: none; margin: -4px -6px -4px 0; }
+.help-steps { list-style: none; counter-reset: step; margin: 8px 0 0; padding: 0; }
+.help-steps li { counter-increment: step; position: relative; padding: 6px 0 6px 32px; font: 400 13px/1.4 var(--f-body); color: var(--parchment-dim); }
+.help-steps li + li { border-top: 1px solid var(--line); }
+.help-steps li::before {
+  content: counter(step); position: absolute; left: 0; top: 7px;
+  width: 21px; height: 21px; border-radius: 50%; border: 1px solid var(--brass-deep);
+  display: grid; place-items: center;
+  font: 400 14px/1 var(--f-display); color: var(--brass);
+}
+.help-steps b { display: block; font: 600 13.5px/1.3 var(--f-body); color: var(--parchment); }
 
 /* ---------- tidslinjen ---------- */
 .timebar {
@@ -698,7 +740,16 @@ details.used-by summary:hover { color: var(--parchment); }
   .app.focusing .detail-card { bottom: 176px; max-height: 40vh; } /* ovanför fokusraden */
   .app.has-detail .funfact { display: none; } /* faktarutan och fun fact-kortet delar plats */
   .masthead { max-width: 55vw; }
-  .top-actions { max-width: 44vw; }
+  /* Grupperna (#245) ligger under varandra till höger och radbryts inuti, så att inget sidscrollas */
+  /* Utforska får plats i en rad ovanför rubrikens undertext, och Visa radbryts smalt under den (#245) */
+  .top-actions { flex-direction: column; align-items: flex-end; gap: 12px; top: calc(env(safe-area-inset-top, 0px) + 16px); }
+  .action-group { gap: 3px; padding: 3px; border-radius: 19px; }
+  .action-group:first-child { flex-wrap: nowrap; }
+  .action-group:last-child { max-width: 128px; } /* Platt vy överst, Källor och Hjälp under */
+  .action-group .chip-btn { padding: 8px 9px; font-size: 12.5px; }
+  .action-group .count { margin-left: 2px; }
+  .action-label { left: 12px; }
+  .help-card { left: var(--gut); right: var(--gut-r); width: auto; }
   .funfact { bottom: 136px; padding: 12px 14px 10px; max-height: calc(100dvh - 136px - 176px); } /* under knapparna uppe till höger */
   .ff-pics { margin: -12px -14px 8px; }
   .ff-pic.ff-pic { height: 74px; }
@@ -934,4 +985,49 @@ details.used-by summary:hover { color: var(--parchment); }
 @media (max-width: 760px) {
   .app.app.focusing.focus-var :is(.funfact, .ff-tab) { max-height: calc(100dvh - var(--focus-top) - 8px - 176px); }
   .app.app.focusing.focus-var .detail-card { max-height: min(40vh, calc(100dvh - var(--focus-top) - 8px - 176px)); }
+}
+
+/* ---------- Samtidigt-kortet som panel underifrån i smal skärm (#239) ---------- */
+/* Tre lägen: stängd (handtag och rubrikraden), halv (kompakt, som förut men lägre) och hel (rullar inuti).
+   Var panelen börjar räknas ut i --ff-b, ovanför tidslinjen, pausraden och fokusraden (#183). Reglerna
+   använder id:t så att de går före de äldre reglerna för kortets plats. */
+@media (max-width: 760px) {
+  .app { --ff-b: 128px; }
+  .app:has(.pause-note:not([hidden])) { --ff-b: 196px; }
+  .app.focusing { --ff-b: 170px; }
+  .app.focusing:has(.pause-note:not([hidden])) { --ff-b: 238px; }
+  .app.app.focusing.focus-var { --ff-b: calc(var(--focus-top) + 8px); }
+  #funfact {
+    left: var(--gut); right: var(--gut-r); width: auto;
+    bottom: var(--ff-b);
+    padding-top: 0;
+    border-radius: 16px 16px var(--r) var(--r);
+    overflow-x: hidden;
+  }
+  .ff-handle {
+    display: block; position: relative; width: calc(100% + 28px); height: 22px; margin: 0 -14px;
+    padding: 0; border: 0; background: none; cursor: grab; touch-action: none;
+  }
+  .ff-handle::after { content: ""; position: absolute; inset: -6px 0 -10px; } /* tryckytan blir minst 38 px hög */
+  .ff-grip { display: block; width: 44px; height: 4px; margin: 9px auto 0; border-radius: 2px; background: rgba(34,25,12,.32); }
+  .ff-handle:focus-visible { outline: 2px solid var(--brass-deep); outline-offset: -2px; border-radius: 16px 16px 0 0; }
+  .ff-pics { margin: 0 -14px 8px; }
+  .ff-min { display: none; } /* panelen stängs med handtaget */
+  /* halv: lägre än förut, texten klipps som tidigare */
+  #funfact.ff-s-half { max-height: min(34dvh, calc(100dvh - var(--ff-b) - 176px)); overflow-y: auto; }
+  #funfact.ff-s-half .ff-pic.ff-pic { height: 52px; }
+  #funfact.ff-s-half .ff-pics { margin-bottom: 6px; }
+  #funfact.ff-s-half .ff-foot { margin-top: 6px; }
+  /* hel: allt syns, kortet går upp till rubriken och rullar inuti */
+  #funfact.ff-s-full, #funfact.ff-dragging { max-height: calc(100dvh - var(--ff-b) - 104px); overflow-y: auto; z-index: 16; }
+  #funfact.ff-s-full .ff-text { display: block; -webkit-line-clamp: unset; }
+  #funfact.ff-s-full .ff-pic.ff-pic { height: 120px; }
+  #funfact.ff-s-full .ff-events { display: flex; }
+  /* stängd: bara handtaget och rubrikraden */
+  #funfact.ff-s-closed { padding-bottom: 10px; animation: none; }
+  #funfact.ff-s-closed :is(.ff-pics, .ff-text, .ff-events, .ff-foot) { display: none; }
+  #funfact.ff-s-closed .ff-eyebrow { cursor: pointer; min-height: 22px; }
+  #funfact.ff-dragging { overflow: hidden; transition: none; }
+  #funfact.ff-dragging :is(.ff-pics, .ff-text, .ff-foot) { display: revert; }
+  #funfact.ff-dragging .ff-pics:not([hidden]) { display: grid; }
 }

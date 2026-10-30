@@ -30,7 +30,8 @@ js/layers/religions.js lager: religioner som områden
 js/layers/wars.js     lager: krigsområden runt krigets slag
 js/ui/panel.js        "Samtidigt i världen" per världsdel, kategorifilter och detaljvy
 js/ui/funfact.js      Samtidigt-kortet (fun facts, när ett krig bröt ut) och bågar på globen
-js/ui/sources.js      sidan Om källorna
+js/ui/sources.js      sidan Om källorna (knappen Källor)
+js/ui/help.js         kort hjälp i tre steg för nya besökare (knappen Hjälp)
 js/ui/layers.js       lagerväljaren: slå av och på lager
 js/ui/clusters.js     klustring av händelser som ligger nära varandra
 js/ui/focusmenu.js    fokusmenyn: välj ett krig, rike eller en religion att följa
