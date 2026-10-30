@@ -106,7 +106,7 @@ Rikard gillar stilen. Behåll den:
 ## Testa innan du är klar
 
 1. `python3 -m http.server 8000` och öppna http://localhost:8000.
-2. Inga fel i konsolen. Globen snurrar, tidslinjen går att dra, uppspelning fungerar, fun facts dyker upp, "Platt vy" och "Om källorna" öppnas.
+2. Inga fel i konsolen. Globen snurrar, tidslinjen går att dra, uppspelning fungerar, fun facts dyker upp, "Platt vy" och "Källor" (sidan Om källorna) öppnas.
 3. Kontrollera all JSON (`python3 -m json.tool data/*.json`) och att varje `sources`-id finns i `sources.json` och varje händelse-id i `funfacts.json` finns i `events.json`.
 4. Testa både desktop och mobilbredd.
 
