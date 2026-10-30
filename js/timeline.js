@@ -3,13 +3,14 @@
 import { formatYear, parseYear, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT } from './model.js';
 
 export const MIN_YEAR = -2999;   // 3000 f.Kr.
-export const MAX_YEAR = 2026;
+// Tidslinjen slutar i dag enligt datorns klocka, men aldrig före 2026 då datan senast kontrollerades (#229)
+export const MAX_YEAR = Math.max(2026, new Date().getFullYear());
 
 export const SEGMENTS = [
   { from: -2999, to: -500, a: 0.00, b: 0.25, name: 'Bronsålder och tidig järnålder' },
   { from:  -500, to: 1000, a: 0.25, b: 0.50, name: 'Antiken och tidig medeltid' },
   { from:  1000, to: 1800, a: 0.50, b: 0.75, name: 'Medeltid och tidigmodern tid' },
-  { from:  1800, to: 2026, a: 0.75, b: 1.00, name: 'Modern tid' },
+  { from:  1800, to: MAX_YEAR, a: 0.75, b: 1.00, name: 'Modern tid' },
 ];
 
 // [år, nivå]: 1 = alltid, 2 = från 600 px, 3 = från 900 px
