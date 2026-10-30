@@ -11,9 +11,10 @@ Skapade med `python3 tools/bildpromptar.py --out docs/bildpromptar-299.md <id> .
 
 Prompten innehåller händelsens sammanfattning, som har källa, så att bilden bara visar det som har hänt.
 
-**Obs, stilen passar inte alltid platsen.** `data/styles.json` saknar stilar för Korea, det forntida Indien, Stilla havet och nutida dokumentära händelser, så tre promptar har fått en stil som inte passar:
+**Obs, stilen passar inte alltid platsen.** `data/styles.json` saknar stilar för Korea, det forntida Indien, Stilla havet och nutida dokumentära händelser, så några promptar har fått en stil som inte passar:
 - **Noryang** (Korea 1598): fick europeiskt kopparstick. Byt gärna första meningen mot *"Style: Korean Joseon-era ink and colour painting on silk, fine brushwork, muted mineral colours."*
 - **Kalinga** (Indien 262 f.Kr.): fick grekisk vasmålning. Byt gärna mot *"Style: ancient Indian stone relief in the manner of early Buddhist stupa carvings, sandstone, carved figures in shallow relief."*
+- **Éviansavtalen, Bougainville, sista giljotinen och Goma** (1962–1998): fick rymdålderns affischkonst, som passar dåligt för en avrättning och ett krigsutbrott. Byt gärna mot *"Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine."*
 - **Nuʻuanu** (Hawaii 1795): fick barock oljemålning. Den går an, men *"Style: late 18th-century engraving from a Pacific voyage account, fine line work, sepia."* ligger närmare tiden.
 
 Om stilarna ska läggas in i `styles.json` för framtida bilder är ett eget beslut om utseendet.
