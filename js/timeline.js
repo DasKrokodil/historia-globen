@@ -216,12 +216,14 @@ export class Timeline extends EventTarget {
     this.dispatchEvent(new CustomEvent('change', { detail: { year: y } }));
   }
 
-  /** Markeringar på reglaget: en prick per händelse, ett streck för spann, en romb per fun fact. */
-  setMarks(events, funfacts, colorOf) {
-    this._marks = [events, funfacts, colorOf];
+  /** Markeringar på reglaget: en prick per händelse, ett streck för spann, en romb per fun fact.
+   *  focusOnly(e): sant för händelser som bara markeras i fokusläget, inte i översikten (#298). */
+  setMarks(events, funfacts, colorOf, focusOnly = () => false) {
+    this._marks = [events, funfacts, colorOf, focusOnly];
     const inView = y => !this.focus || (y >= this.focus.from && y <= this.focus.to);
     this.dotsEl.replaceChildren();
     for (const e of events) {
+      if (!this.focus && focusOnly(e)) continue;
       const [s0, s1] = this.spanOf(e);
       if (this.focus && (s1 < this.focus.from || s0 > this.focus.to)) continue;
       // I fokusläget för korta krig är ett datum en dag lång, och det ritas som en prick

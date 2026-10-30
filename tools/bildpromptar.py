@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parent.parent
 FIXED = ('historical illustration, not a photograph, does not look like a real historical document, '
          'no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format')
 RESPECT = ('Respect: never depict the Prophet Muhammad; no caricatures of peoples; '
-           'no close-up faces of real people; convey mood and setting rather than invented details.')
+           'convey mood and setting rather than invented details.')
 # Extra regler för enskilda händelser, utöver de allmänna
 EXTRA = {
     'hijra': 'Show only landscape, a caravan seen from a distance and architecture. No depiction of the Prophet Muhammad or other identifiable people.',
