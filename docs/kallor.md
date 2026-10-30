@@ -35,6 +35,7 @@ Nivån syns i faktarutan och under Om källorna, inte som eget märke på globen
 | World History Encyclopedia (worldhistory.org) | Andra källa för årtal och plats | CC BY-NC-SA (artikeltexten) | Bara länkad källa för fakta som årtal och plats. Text kopieras aldrig. |
 | Historical Conflict Event Dataset (HCED, Charles Miller 2022) via World Historical Gazetteer | Utkast om slag och andra stridshändelser (#24) | CC0 1.0 (WHG:s tillägg CC BY 4.0) | Massimport till `data/utkast/hced.json`, alltid `draft`. Varje utkast källkontrolleras mot en annan källa innan det flyttas till `events.json` (se nedan). |
 | Uppsala Conflict Data Program (UCDP), Battle-Related Deaths Dataset | Stridsrelaterade dödsfall i krig från 1989, till exempel Rysslands invasion av Ukraina (#223) | CC BY 4.0 | Forskningsdata. Bästa skattning och spann (låg–hög) per konflikt och år anges med datasetets version. |
+| FN:s digitala bibliotek (digitallibrary.un.org) | FN-resolutioner och rapporter, till exempel generalförsamlingens resolution ES-11/1 (#223) | FN-dokument | Primärkälla som länkas. Text kopieras inte. |
 | Forskningsartiklar i PubMed Central (PMC) | Andra källa, till exempel för förhistoriska dateringar | Oftast CC BY (kontrolleras per artikel) | Licensen står i artikeln |
 
 ### Källor som går att nå från molnmiljön
@@ -45,8 +46,8 @@ Molnmiljöns nätverk släpper bara fram vissa sajter. Läget 2026-10-29 (#143):
 - **Library of Congress i JSON:** arkivposter går att läsa som `https://www.loc.gov/pictures/item/<id>/?fo=json` (fältet `item.rights_information` är rättighetstexten), och bilderna hämtas från länkarna i `resources` (cdn.loc.gov och tile.loc.gov) (#127).
 - **Svarar men stoppar oss:** www.loc.gov:s vanliga sidor (robotkontroll, 403), Britannica, whc.unesco.org och Smithsonian (403), Met Museum (429). Wikisources API och sökning kan svara 429 om man frågar för ofta; vänta då en stund.
 - **World Historical Gazetteer:** whgazetteer.org svarar. Platslistan (`/mapdata/datasets/<id>/`) och enskilda platser (`/api/db/?id=<plats>`) går att läsa utan inloggning; den fullständiga nedladdningen kräver inloggning (#24).
-- **Går att nå sedan 2026-10-30:** ucdp.uu.se (nedladdningar) (#223).
-- **Spärrade:** bland annat un.org (alla underdomäner, till exempel press.un.org, news.un.org och digitallibrary.un.org), ohchr.org (#223), acleddata.com, dataverse.harvard.edu (#24), mathshistory.st-andrews.ac.uk, cudl.lib.cam.ac.uk, english-heritage.org.uk, riksarkivet.se, kungahuset.se, regeringen.se, runeberg.org, gutenberg.org, journals.plos.org, ebi.ac.uk (Europe PMC) och patents.google.com.
+- **Går att nå sedan 2026-10-30:** ucdp.uu.se (nedladdningar) och digitallibrary.un.org (#223). FN:s digitala bibliotek visar en robotkontroll på vanliga sidor, men sökningen går att läsa som MARCXML (`https://digitallibrary.un.org/search?p=<dokumentnummer>&of=xm`) och PDF:erna via länken `nanna/record/…` som filsidan skickar vidare till.
+- **Spärrade:** bland annat www.un.org, press.un.org, news.un.org och www.ohchr.org (#223), acleddata.com, dataverse.harvard.edu (#24), mathshistory.st-andrews.ac.uk, cudl.lib.cam.ac.uk, english-heritage.org.uk, riksarkivet.se, kungahuset.se, regeringen.se, runeberg.org, gutenberg.org, journals.plos.org, ebi.ac.uk (Europe PMC) och patents.google.com.
 
 ## Utkast från massimport
 
