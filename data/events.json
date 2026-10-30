@@ -1530,6 +1530,13 @@
       "note": { "title": { "sv": "Bara en källa" }, "text": { "sv": "Händelsen bygger bara på Wikipedia. Artikeln om Kamehameha I anger april 1810, artikeln om Kaumualiʻi bara året." } },
       "sources": ["wp-kaumualii", "wp-kamehameha-i", "wp-honolulu"], "review": "source-checked" },
 
+    { "id": "emukriget", "category": "krig", "start": 1932, "end": 1932, "precision": 11, "edtf": "1932-11-02/1932-12-10",
+      "location": { "type": "Point", "coordinates": [118.486, -31.027] }, "place": { "sv": "Campion i vetebältet, Västaustralien" },
+      "title": { "sv": "Emukriget" },
+      "summary": { "sv": "Under den stora depressionen klagar nybyggare i Västaustralien, många av dem veteraner från första världskriget, på att omkring 20 000 emuer förstör deras vete. Försvarsministern skickar tre soldater med två kulsprutor. Mellan den 2 november och 10 december 1932 gör armén två försök att skjuta emuerna, men fåglarna sprider sig i små, snabba grupper och operationen blir dyr och ger dåligt resultat. Pressen döper den till \"Emukriget\". Regeringen sa nej till fler militära insatser, och i stället användes skottpengar och stängsel." },
+      "note": { "title": { "sv": "Hur många emuer dog?" }, "text": { "sv": "Uppgifterna skiljer sig. Efter första försöket uppskattades 50 till 500 döda emuer. Befälet, major Meredith, rapporterade till slut 986 säkra träffar med 9 860 skott och ytterligare 2 500 skadade fåglar som dog, men historikern Greg Beyer bedömer att siffrorna troligen är kraftigt överdrivna." } },
+      "wikidata": "Q14665", "sources": ["wp-emu-war", "wp-campion-wa", "wikidata"], "review": "two-sources" },
+
     { "id": "sista-giljotinen", "category": "civilisationer", "start": 1977, "end": 1977, "precision": 11, "edtf": "1977-09-10",
       "location": { "type": "Point", "coordinates": [5.414, 43.233] }, "place": { "sv": "Baumettesfängelset, Marseille, Frankrike" },
       "title": { "sv": "Sista avrättningen med giljotin" },
