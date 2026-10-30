@@ -44,7 +44,8 @@ data/utkast/          utkast från massimport (draft), läses inte av appen; hce
 images/events/        bilder till händelser, <händelse-id>.webp, 800 × 600
 images/incoming/      Rikards nya bilder, innan de konverteras
 tools/                hjälpskript som körs för hand (riken, bildpromptar, bildkonvertering)
-docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar
+docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar, publicering (DEPLOYMENT.md)
+scripts/              build-site.sh kopierar webbplatsens filer till dist/ och kör validate-site.py (publicering, ingen kodändring)
 .orchestra/           dirigenten och orkestern: project.md (projektets policy) och shared/ (fäst version, redigeras inte)
 ```
 

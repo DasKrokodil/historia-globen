@@ -137,6 +137,10 @@ Skripten i `tools/` körs för hand, inte av sidan, så principen om inget byggs
 | `tools/bildpromptar.py` | Skriver promptar för illustrationer till `docs/bildpromptar.md` |
 | `tools/bilder_in.py` | Konverterar bilder från `images/incoming/` till `images/events/` och fyller i `image` i `events.json` från bildloggen `images/incoming/bildlogg.json`. Undermappar, till exempel `images/incoming/vantar/` för bilder som ska göras om, hoppas över |
 
+## Publicering
+
+`scripts/build-site.sh` kopierar de filer som sidan läser när den körs till `dist/` och kör `scripts/validate-site.py`. Inget skrivs om, så sidan fungerar fortfarande direkt från repots rot. GitHub Actions kör samma kontroll vid push till `main` och vid pull requests mot `main` och `production`. Se [DEPLOYMENT.md](DEPLOYMENT.md).
+
 ## Testa
 
 Se [CLAUDE.md](../CLAUDE.md#testa-innan-du-är-klar): starta `python3 -m http.server 8000`, kontrollera att konsolen är fri från fel, testa dator- och mobilbredd och kontrollera all JSON.
