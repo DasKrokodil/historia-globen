@@ -2,18 +2,21 @@
 // och slagen är händelser som pekar på kriget med partOf. Medan kriget pågår
 // ritas krigsområdet som ett mjukt fält runt krigets plats och de slag som
 // redan har utkämpats, så att man ser hur kriget sprids. Ligger slagen långt
-// isär får varje krigsskådeplats ett eget område (#211).
-import { CAT, isVisibleReview } from '../model.js';
+// isär får varje krigsskådeplats ett eget område (#211). När man följer kriget
+// får varje skådeplats en kort etikett med världsdelen den ligger i (#236).
+import { CAT, isVisibleReview, region, REGIONS } from '../model.js';
 
 export class WarsLayer {
   constructor(events) {
     this.wars = events.filter(e => e.kind === 'war');
     this.enabled = true;
-    this.active = []; // [{ war, points }]
+    this.active = []; // [{ war, points, labels }]
+    this.labelScale = 1; // etiketternas storlek, som rikenas namn (main.js nameStyle)
   }
 
   // span (valfritt): tiden som [början, slut], i fokusläget för korta krig datum ur edtf (#204)
-  update({ year, filters, span = e => [e.start, e.end] }) {
+  // focusId (valfritt): kriget man följer, vars skådeplatser får etiketter (#236)
+  update({ year, filters, span = e => [e.start, e.end], focusId = null }) {
     this.active = [];
     if (!this.enabled) return this.active;
     for (const war of this.wars) {
@@ -22,7 +25,7 @@ export class WarsLayer {
       if (year < s0 || year > s1) continue;
       const fought = war._battles.filter(b => span(b)[0] <= year && isVisibleReview(b.review));
       const points = [[war._lon, war._lat], ...fought.map(b => [b._lon, b._lat])];
-      this.active.push({ war, points });
+      this.active.push({ war, points, labels: war.id === focusId });
     }
     return this.active;
   }
@@ -31,7 +34,8 @@ export class WarsLayer {
     const k = W / 2048;
     ctx.save();
     ctx.lineJoin = 'round';
-    for (const { war, points } of this.active) {
+    const names = [];
+    for (const { war, points, labels } of this.active) {
       const col = CAT[war.category]?.color ?? '#e5675a';
       // Krigsskådeplatsen som i en historisk kartbok: ett avrundat område runt
       // krigets plats och slagen, med hel kantlinje och diagonal skraffering.
@@ -46,6 +50,7 @@ export class WarsLayer {
           for (let a = 0; a < 12; a++) ring.push([x + r * Math.cos(a * Math.PI / 6), y + r * Math.sin(a * Math.PI / 6)]);
         }
         const hull = convexHull(ring);
+        if (labels) names.push({ hull, text: theatreName(group) });
         // Går området över bildens kant ritas det också en bildbredd åt andra hållet
         const xs = hull.map(([x]) => x), shifts = [0];
         if (Math.min(...xs) < 0) shifts.push(W);
@@ -59,6 +64,23 @@ export class WarsLayer {
           ctx.strokeStyle = '#7a1f17'; ctx.lineWidth = 4 * k; ctx.globalAlpha = 0.5; ctx.stroke();
           ctx.strokeStyle = col; ctx.lineWidth = 2.2 * k; ctx.globalAlpha = 1; ctx.stroke();
         }
+      }
+    }
+    // Etiketterna sist, ovanför varje skådeplats (inte i den, där händelsernas markörer och namn står),
+    // i kartbokens versaler. Mitt över området och strax ovanför dess översta kant.
+    const size = 13 * k * this.labelScale;
+    ctx.font = `${size}px "IM Fell English", Georgia, serif`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+    if ('letterSpacing' in ctx) ctx.letterSpacing = `${(1.5 * k * this.labelScale).toFixed(1)}px`;
+    for (const { hull, text } of names) {
+      const xs = hull.map(([x]) => x), top = Math.min(...hull.map(([, y]) => y));
+      let x = (Math.min(...xs) + Math.max(...xs)) / 2;
+      x = ((x % W) + W) % W; // skådeplatser över bildens kant
+      const y = Math.max(size, top - 5 * k);
+      for (const dx of x < W / 8 ? [0, W] : x > W * 7 / 8 ? [0, -W] : [0]) {
+        ctx.lineWidth = 3.5 * k * this.labelScale; ctx.strokeStyle = 'rgba(16,22,30,0.85)';
+        ctx.strokeText(text, x + dx, y);
+        ctx.fillStyle = '#f3c2b4'; ctx.fillText(text, x + dx, y);
       }
     }
     ctx.restore();
@@ -83,6 +105,18 @@ function theatres(points) {
     groups.push(merged);
   }
   return groups;
+}
+
+/**
+ * Skådeplatsens etikett (#236): världsdelen eller världsdelarna där platserna ligger, enligt den grova indelningen
+ * efter koordinater i model.js (region), den med flest platser först. Inget namn hittas på, och ingen gräns ur källorna.
+ */
+function theatreName(group) {
+  const count = new Map();
+  for (const [lon, lat] of group) { const r = region(lat, lon); count.set(r, (count.get(r) ?? 0) + 1); }
+  const names = [...count].sort((a, b) => b[1] - a[1] || REGIONS.indexOf(a[0]) - REGIONS.indexOf(b[0])).map(([r]) => r);
+  const up = names.map(r => r.toUpperCase());
+  return up.length > 1 ? `${up.slice(0, -1).join(', ')} och ${up.at(-1)}` : up[0];
 }
 
 /** Diagonal skraffering i krigets färg. */

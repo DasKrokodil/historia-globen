@@ -124,6 +124,17 @@ export class Globe {
     return ctx;
   }
   commitOverlay() { this.overlayTex.needsUpdate = true; }
+  /** Ritar ett lager dämpat på lagerbilden (#235): först på en egen bild i samma storlek, som sedan
+   *  läggs på med genomskinlighet alpha. Lagren sätter själva globalAlpha, så det går inte att dämpa direkt. */
+  drawFaded(draw, alpha) {
+    const W = this.overlayCanvas.width, H = this.overlayCanvas.height;
+    if (!this.fadeCanvas) { this.fadeCanvas = document.createElement('canvas'); this.fadeCanvas.width = W; this.fadeCanvas.height = H; }
+    const f = this.fadeCanvas.getContext('2d');
+    f.clearRect(0, 0, W, H);
+    draw(f, W, H);
+    const ctx = this.overlayCanvas.getContext('2d');
+    ctx.save(); ctx.globalAlpha = alpha; ctx.drawImage(this.fadeCanvas, 0, 0); ctx.restore();
+  }
 
   /** Lägger ihop grundkarta och lager till den platta bild en fysisk glob skulle få. */
   composeFlat(target) {

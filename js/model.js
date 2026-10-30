@@ -60,7 +60,7 @@ export const isVisibleReview = r => settings.showDrafts || r === 'source-checked
 export const REGIONS = ['Europa', 'Asien', 'Afrika', 'Amerika', 'Oceanien'];
 export function region(lat, lon) {
   if (lat > 50 && (lon < -168 || lon > 160)) return 'Asien'; // Sibiriens östspets och Wrangelön vid datumlinjen
-  if (lon < -120 && lat < 30) return 'Oceanien'; // Hawaii och Stilla havet
+  if (lon < -125 && lat < 35) return 'Oceanien'; // Hawaii, Midway och Stilla havet (Kalifornien ligger öster om -125)
   if (lon < -25) return 'Amerika';
   if ((lat < -10 && lon > 110) || (lat < 0 && lon > 130) || lon > 160) return 'Oceanien';
   const africa = lon >= -20 && lon < 52 && lat > -36 && (
