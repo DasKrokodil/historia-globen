@@ -17,6 +17,7 @@ import { ReligionLegend } from './ui/legend.js';
 import { cluster, clusterContents } from './ui/clusters.js';
 import { FocusMenu } from './ui/focusmenu.js';
 import { Help } from './ui/help.js';
+import { FlatMap } from './ui/flatmap.js';
 
 const $ = id => document.getElementById(id);
 
@@ -47,6 +48,12 @@ async function start() {
   const data = await loadAll();
   const globe = new Globe($('globe-canvas'));
   globe.drawBase(data.land);
+  const flatMap = new FlatMap({
+    root: $('flat-view'), box: $('flat-box'), canvas: $('flat-canvas'),
+    zoomIn: $('flat-in'), zoomOut: $('flat-out'), reset: $('flat-reset'),
+    sources: () => [globe.baseCanvas, globe.overlayCanvas],
+    onToggle: open => { $('btn-flat').setAttribute('aria-pressed', String(open)); syncNameScale(); },
+  });
 
   const layer = new EventsLayer(globe, data.events);
   const areas = new AreasLayer();
@@ -367,7 +374,7 @@ async function start() {
   // kartbilden ca 10 gånger större ut på skärmen. Därför görs namnen mindre i bilden när man
   // zoomar in (men inte under 0,25, då blir texten för oskarp) och tonas sedan ut, så att de
   // inte täcker markörerna (#154). Värdena ändras i steg och bilden ritas om först 150 ms efter
-  // att zoomandet stannat. Platt vy och en fysisk glob får grundstorleken.
+  // att zoomandet stannat. Platt vy (och en fysisk glob) får grundstorleken.
   const zoomMag = () => { const d = globe.baseDist; return Math.max(1, (d - 1) / (d / globe.zoom - 1)); }; // förstoring i mitten av klotet
   // Religionernas namn i områdena syns bara vid nära zoom på globen, utzoomat och i Platt vy bara symbolen (#271)
   const NAMES_MAG = 2.4;
@@ -578,7 +585,7 @@ async function start() {
     wars.drawOverlay(ctx, W, H);
     layer.drawOverlay(ctx, W, H);
     globe.commitOverlay();
-    if (!$('flat-view').hidden) globe.composeFlat($('flat-canvas'));
+    flatMap.draw(); // Platt vy ritas om med samma bilder (gör inget när den är stängd)
 
     // Korta krig: "22 jan" stort och året där tideräkningen annars står (#204)
     const [num, era] = timeline.formatParts(year);
@@ -744,14 +751,17 @@ async function start() {
     if (n === popClick && !(waiting && relLegend.pop.hidden)) relLegend.showPop(rh, x, y); // inte om rutan stängdes under tiden
   }
 
-  // Platt vy: det en fysisk glob skulle få
-  $('btn-flat').addEventListener('click', () => {
-    const fv = $('flat-view'), show = fv.hidden;
-    fv.hidden = !show;
-    $('btn-flat').setAttribute('aria-pressed', String(show));
-    if (show) globe.composeFlat($('flat-canvas'));
-    syncNameScale();
-  });
+  // Platt vy (#292): världen som en platt karta för skärmar, med zoom och panorering.
+  // Tidslinjen, Samtidigt, Lager och Fokus fungerar som vanligt medan den är öppen.
+  $('btn-flat').addEventListener('click', () => flatMap.setOpen(flatMap.hidden));
+  // Escape stänger Platt vy, men först det som ligger ovanpå (menyer, Hjälp, panelen, faktarutan)
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape' || flatMap.hidden) return;
+    const open = ['help', 'layer-menu', 'focus-menu', 'sources-dialog', 'jump-pop', 'detail', 'religion-pop'].some(id => !$(id).hidden);
+    if (open || $('app').classList.contains('panel-open')) return;
+    flatMap.setOpen(false);
+    $('btn-flat').focus({ preventScroll: true });
+  }, { capture: true });
 
   layers.onChange = async (name, on) => {
     applyLayers(); refresh();
