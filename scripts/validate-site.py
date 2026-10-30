@@ -146,6 +146,11 @@ if funfact_js.is_file():
         for name in re.findall(r''':\s*['"]([\w-]+)['"]''', m.group(1)):
             icons.setdefault(name, 'CAT_ICON i js/ui/funfact.js')
     icons.setdefault('star', 'standardikonen i js/ui/funfact.js')
+# Religionernas symboler (#271): fältet symbol i religions.json är en ikonfil i img/icons/
+religions = load('data/religions.json') if (DIST / 'data/religions.json').is_file() else None
+for r in (religions or {}).get('religions', []):
+    if r.get('symbol'):
+        icons.setdefault(r['symbol'], f"data/religions.json ({r['id']}, symbol)")
 for name, by in sorted(icons.items()):
     exists(f'img/icons/{name}.svg', f'ikonen {name} ({by})')
 

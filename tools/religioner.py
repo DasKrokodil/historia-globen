@@ -6,7 +6,7 @@ Religion). De texterna hämtades 2026-10-28 och står i religions.json under "po
 "text", och "variants" där delar av samma rike i Cliopatria pekar på olika Wikipedia-sidor).
 Skriptet läser alltså registret ur den befintliga religions.json, sorterar texten till en religion
 (classify), räknar fram rikenas religion år för år och slår ihop områdena per religion i
-ögonblicksbilder. Faktarutor ("facts") och religionernas namn och färger behålls som de är.
+ögonblicksbilder. Faktarutor ("facts"), symboler ("symbol", #271) och religionernas namn och färger behålls som de är.
 
 Regler för ett rikes religion ett visst år (religion_at):
 - En religion markerad som statlig eller officiell väljs först; annars en över 50 procent eller
@@ -339,8 +339,10 @@ def main():
         if not snaps:
             continue
         r = {'id': i, 'name': old_rel.get(i, {}).get('name', {'sv': name}), 'color': old_rel.get(i, {}).get('color', color)}
-        if 'facts' in old_rel.get(i, {}):
-            r['facts'] = old_rel[i]['facts']
+        # Symbolen (#271, ikonfil i img/icons/) och faktarutan skrivs för hand och behålls
+        for key in ('symbol', 'facts'):
+            if key in old_rel.get(i, {}):
+                r[key] = old_rel[i][key]
         r['snapshots'] = snaps
         rels.append(r)
 
