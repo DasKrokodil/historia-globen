@@ -92,6 +92,86 @@
     </details>
     <p class="help-support">Historia Globen är gratis att använda. Vill du bidra till drift och vidareutveckling kan du lämna ett frivilligt stöd.
       <a href="https://ko-fi.com/historiagloben" target="_blank" rel="noopener noreferrer" aria-label="Stöd Historia Globen på Ko-fi (öppnas i en ny flik)">Stöd Historia Globen<span aria-hidden="true"> ↗</span></a></p>
+    <p class="help-feedback">Saknar du något eller har du hittat ett fel? <button id="help-feedback" class="link-btn" type="button" aria-haspopup="dialog" aria-controls="feedback">Lämna förslag</button></p>
+  </aside>
+
+  <!-- Besökarnas förslag (docs/feedback.md). Avstängt så länge data-sitekey är tom eller integritetstexten inte är
+       godkänd (data-privacy="approved"). Då skickas inget och inget externt skript laddas. Servern har en egen spärr. -->
+  <aside id="feedback" class="help-card feedback-card" role="dialog" aria-modal="false" aria-labelledby="fb-title" hidden
+         data-endpoint="/api/feedback" data-sitekey="" data-privacy="draft">
+    <div class="help-head">
+      <h2 id="fb-title" class="help-title">Lämna förslag</h2>
+      <button id="fb-close" class="panel-x" type="button" aria-label="Stäng formuläret">×</button>
+    </div>
+    <form id="fb-form" class="fb-form" novalidate autocomplete="on">
+      <p id="fb-privacy" class="fb-privacy">Vi sparar bara det du skriver här, för att kunna granska förslaget. Förslaget lagras privat och publiceras aldrig automatiskt. E-post är frivillig och används bara om vi behöver fråga något.</p>
+      <div id="fb-closed" class="fb-closed" hidden>
+        <p>Formuläret öppnas snart. Tills dess kan du lämna förslag via GitHub:</p>
+        <ul>
+          <li><a href="https://github.com/DasKrokodil/historia-globen/issues/new?template=faktafel.yml" target="_blank" rel="noopener noreferrer">Rapportera ett faktafel<span class="sr-only"> (öppnas i en ny flik)</span><span aria-hidden="true"> ↗</span></a></li>
+          <li><a href="https://github.com/DasKrokodil/historia-globen/issues/new?template=ny-h%C3%A4ndelse.yml" target="_blank" rel="noopener noreferrer">Föreslå en historisk händelse<span class="sr-only"> (öppnas i en ny flik)</span><span aria-hidden="true"> ↗</span></a></li>
+          <li><a href="https://github.com/DasKrokodil/historia-globen/issues/new?template=id%C3%A9.yml" target="_blank" rel="noopener noreferrer">Föreslå en idé eller förbättring<span class="sr-only"> (öppnas i en ny flik)</span><span aria-hidden="true"> ↗</span></a></li>
+        </ul>
+        <p class="fb-hint">GitHub kräver ett konto, och det du skriver där är offentligt.</p>
+      </div>
+      <div id="fb-errors" class="fb-errors" role="alert" tabindex="-1" hidden></div>
+      <div class="fb-field">
+        <label for="fb-category">Vad gäller det? <span class="fb-req">(obligatoriskt)</span></label>
+        <select id="fb-category" name="category" required aria-describedby="fb-category-err">
+          <option value="">Välj …</option>
+        </select>
+        <p id="fb-category-err" class="fb-err" hidden></p>
+      </div>
+      <div id="fb-event" class="fb-event" hidden>
+        <span class="fb-event-label" id="fb-event-label">Gäller händelsen</span>
+        <p aria-labelledby="fb-event-label"><b id="fb-event-title"></b> <span id="fb-event-time" class="fb-event-time"></span></p>
+      </div>
+      <div class="fb-field">
+        <label for="fb-description">Beskrivning <span class="fb-req">(obligatoriskt)</span></label>
+        <textarea id="fb-description" name="description" rows="5" required minlength="10" maxlength="4000" aria-describedby="fb-description-hint fb-description-err"></textarea>
+        <p id="fb-description-hint" class="fb-hint">Skriv vad som är fel eller vad du föreslår, 10–4000 tecken. <span id="fb-count" class="fb-count"></span></p>
+        <p id="fb-description-err" class="fb-err" hidden></p>
+      </div>
+      <div class="fb-field">
+        <label for="fb-source">Källa eller referens <span class="fb-opt">(frivilligt)</span></label>
+        <input id="fb-source" name="source" type="text" maxlength="500" aria-describedby="fb-source-hint fb-source-err">
+        <p id="fb-source-hint" class="fb-hint">Till exempel en länk, en bok eller ett museum. Högst 500 tecken.</p>
+        <p id="fb-source-err" class="fb-err" hidden></p>
+      </div>
+      <div class="fb-field">
+        <label for="fb-email">E-post <span class="fb-opt">(frivilligt)</span></label>
+        <input id="fb-email" name="email" type="email" maxlength="254" autocomplete="email" inputmode="email" aria-describedby="fb-email-hint fb-email-err">
+        <p id="fb-email-hint" class="fb-hint">Bara om du vill att vi kan svara dig. Den visas aldrig offentligt.</p>
+        <p id="fb-email-err" class="fb-err" hidden></p>
+      </div>
+      <div class="fb-hp" aria-hidden="true">
+        <label for="fb-website">Lämna det här fältet tomt</label>
+        <input id="fb-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <div id="fb-turnstile" class="fb-turnstile"></div>
+      <details class="help-marks fb-about">
+        <summary>Om dina uppgifter</summary>
+        <div class="fb-about-body">
+          <p><b>Varför:</b> för att kunna granska ditt förslag och rätta eller förbättra globen.</p>
+          <p><b>Hur de används:</b> förslaget läses av den som sköter Historia-globen. Historiska uppgifter kontrolleras mot tillförlitliga källor innan något ändras. Inget publiceras automatiskt.</p>
+          <p><b>Var de lagras:</b> Cloudflare tar emot förfrågan. Förslaget sparas som ett ärende i ett privat GitHub-repo som bara projektet kan läsa. Cloudflare Turnstile kontrollerar att det är en människa som skickar.</p>
+          <p><b>E-post:</b> frivillig och används bara för att svara dig. Den sparas bara i det privata ärendet.</p>
+          <p><b>Hur länge:</b> ärendet och din e-post raderas när förslaget är färdigbehandlat, senast efter 12 månader.</p>
+          <p><b>Radering:</b> vill du att vi raderar dina uppgifter tidigare, skicka ett nytt förslag med kategorin Övrig feedback och skriv vad som ska raderas.</p>
+        </div>
+      </details>
+      <p id="fb-status" class="fb-status" role="status" aria-live="polite"></p>
+      <div class="fb-actions">
+        <button id="fb-submit" class="chip-btn fb-submit" type="submit">Skicka förslag</button>
+      </div>
+    </form>
+    <div id="fb-done" class="fb-done" hidden tabindex="-1">
+      <p>Tack för ditt förslag! Det har tagits emot för granskning. Historiska uppgifter kontrolleras mot tillförlitliga källor innan de publiceras.</p>
+      <div class="fb-actions">
+        <button id="fb-again" class="link-btn" type="button">Skicka ett förslag till</button>
+        <button id="fb-done-close" class="chip-btn" type="button">Stäng</button>
+      </div>
+    </div>
   </aside>
 
   <aside id="religion-legend" class="religion-legend" aria-label="Teckenförklaring för religioner" hidden></aside>

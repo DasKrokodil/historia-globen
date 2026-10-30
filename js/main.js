@@ -18,6 +18,7 @@ import { cluster, clusterContents } from './ui/clusters.js';
 import { FocusMenu } from './ui/focusmenu.js';
 import { Help } from './ui/help.js';
 import { FlatMap } from './ui/flatmap.js';
+import { Feedback } from './ui/feedback.js';
 
 const $ = id => document.getElementById(id);
 
@@ -754,10 +755,10 @@ async function start() {
   // Platt vy (#292): världen som en platt karta för skärmar, med zoom och panorering.
   // Tidslinjen, Samtidigt, Lager och Fokus fungerar som vanligt medan den är öppen.
   $('btn-flat').addEventListener('click', () => flatMap.setOpen(flatMap.hidden));
-  // Escape stänger Platt vy, men först det som ligger ovanpå (menyer, Hjälp, panelen, faktarutan)
+  // Escape stänger Platt vy, men först det som ligger ovanpå (menyer, Hjälp, förslagsformuläret, panelen, faktarutan)
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape' || flatMap.hidden) return;
-    const open = ['help', 'layer-menu', 'focus-menu', 'sources-dialog', 'jump-pop', 'detail', 'religion-pop'].some(id => !$(id).hidden);
+    const open = ['help', 'feedback', 'layer-menu', 'focus-menu', 'sources-dialog', 'jump-pop', 'detail', 'religion-pop'].some(id => !$(id).hidden);
     if (open || $('app').classList.contains('panel-open')) return;
     flatMap.setOpen(false);
     $('btn-flat').focus({ preventScroll: true });
@@ -899,7 +900,12 @@ async function start() {
 
   $('loading').hidden = true;
   // Kort hjälp för nya besökare (#245), när globen har laddats
-  new Help({ root: $('help'), button: $('btn-help'), close: $('help-close') }).showFirstTime();
+  const help = new Help({ root: $('help'), button: $('btn-help'), close: $('help-close') });
+  help.showFirstTime();
+  // Besökarnas förslag (docs/feedback.md): från Hjälp och från faktarutans "Rapportera faktafel"
+  const feedback = new Feedback($('feedback'));
+  $('help-feedback').addEventListener('click', () => { help.close(false); feedback.open({ opener: $('btn-help') }); });
+  panel.onReport = (e, btn) => feedback.open({ opener: btn, event: e });
   timeline.init(1325);
   globe.flyTo(34, -50, 1600);
   globe.autoRotate = false;
