@@ -44,7 +44,8 @@ data/utkast/          utkast från massimport (draft), läses inte av appen; hce
 images/events/        bilder till händelser, <händelse-id>.webp, 800 × 600
 images/incoming/      Rikards nya bilder, innan de konverteras
 tools/                hjälpskript som körs för hand (riken, bildpromptar, bildkonvertering)
-docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar
+docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar, publicering (DEPLOYMENT.md)
+scripts/              build-site.sh kopierar webbplatsens filer till dist/ och kör validate-site.py (publicering, ingen kodändring)
 .orchestra/           dirigenten och orkestern: project.md (projektets policy) och shared/ (fäst version, redigeras inte)
 ```
 
@@ -60,7 +61,7 @@ Nya lager läggs i `js/layers/`, ny UI i `js/ui/`, ny data i `data/`. Uppdatera 
 - **Texter** lagras per språk: `{ "sv": "...", "en": "...", "fr", "de", "es" }`. Svenska först. Saknas ett språk visas engelska, sedan svenska (`t()` i `model.js`).
 - **Kategorier** (fast lista, `CATEGORIES` i `model.js`): natur, manniskan, civilisationer, religion, vetenskap, upptackter, krig, kultur, sport, ekonomi, halsa, klimat, rymden. Nya kategorier kräver Rikards ok.
 - **Händelse**, obligatoriska fält: `id` (läsbart, unikt), `category`, `start`, `end`, `precision`, `edtf`, `location`, `place`, `title`, `summary`, `sources` (lista med id från sources.json), `review`. Valfritt: `wikidata` (Q-id, bara om du har verifierat det eller om det kommer från en datakälla vi litar på, se Beslutslogg). Valfritt `note` (`title`, `text`): en extra ruta i faktarutan, till exempel "Om år 0".
-- **Religioners grundande:** en händelse med `"founding": true` och `"religion": "<religionens id i religions.json>"`. Fokus på religionen börjar vid den första sådana händelsen och stannar vid de följande. Ikonen är `star`. Religioner som växte fram gradvis (judendom, hinduism, shinto, kinesisk religion) får ingen grundhändelse.
+- **Religioners grundande:** en händelse med `"founding": true` och `"religion": "<religionens id i religions.json>"`. Fokus på religionen börjar vid den första sådana händelsen och stannar vid de följande. Ikonen (`icon`) är religionens symbol (`symbol` i religions.json, till exempel `cross`, #271). Religioner som växte fram gradvis (judendom, hinduism, shinto, kinesisk religion) får ingen grundhändelse.
 - **Krig och slag:** ett krig är en händelse med `"kind": "war"` och start och slut (spann). Slag och andra händelser i kriget pekar på kriget med `partOf` (krigets id). Krigets `location` är platsen där det började, med `locationPrecision: "region"`. Krigsområdet ritas runt krigets plats och de slag som har utkämpats, med ett område per krigsskådeplats när slagen ligger långt isär (#211). Utzoomat syns bara krigets enda viktigaste händelse (`"top": true`) och krigsområdet. I fokusläget syns krigets alla händelser med årtal, och uppspelningen pausar vid dem som har `"major": true` (går att stänga av i Lager). Valfritt fält `story` på kriget: `intro` (varför kriget började), `parties` (sidor med namn och deltagare), `outcome` (hur det slutade), `casualties` (döda, som spann) och `sources`. Det visas som ett kort när man börjar följa kriget och när uppspelningen når krigets slut. Ett pågående krig har `"ongoing": true` och `edtf` med öppet slut (`2022-02-24/..`); `end` är året då läget kontrollerades och räknas till i år vid laddning, `outcome` är då läget i dag med datum i `story.asOf`, och slutkortet heter "Läget i dag".
 
 ## Källpolicy – viktigast av allt

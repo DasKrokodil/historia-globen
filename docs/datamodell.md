@@ -17,7 +17,7 @@ Alla datafiler i `data/` och deras fält. Standarderna (årtal, osäkerhet, prec
 ## `events.json`: händelser
 
 ```json
-{ "id": "korsfastelsen", "category": "religion", "icon": "star", "religion": "kristendom", "founding": true,
+{ "id": "korsfastelsen", "category": "religion", "icon": "cross", "religion": "kristendom", "founding": true,
   "start": 30, "end": 33, "precision": 9, "edtf": "0030/0033",
   "location": { "type": "Point", "coordinates": [35.226, 31.779] }, "place": { "sv": "Jerusalem" },
   "title": { "sv": "Jesus korsfästs" },
@@ -41,7 +41,7 @@ Alla datafiler i `data/` och deras fält. Standarderna (årtal, osäkerhet, prec
 | `story` | Krigets berättelse i fokusläget: `intro`, `parties` (lista med `name` och `members`), `outcome`, `casualties` och `sources` |
 | `ongoing` | `true` för ett krig som pågår (#223). `edtf` har öppet slut (`"2022-02-24/.."`), och `end` är året då läget senast kontrollerades. Vid laddning flyttar `model.js` fram `end` till innevarande år enligt datorns klocka, så kriget räcker till i dag utan att något årtal står i koden. Tiden visas "2022–pågår". |
 | `story.asOf` | För ett pågående krig: datumet (`"2026-10-30"`) då läget i dag och dödssiffrorna senast kontrollerades. `outcome` är då läget i dag, inte hur kriget slutade, och `casualties` skrivs som "hittills, enligt uppskattningar" med datum och vem som har uppskattat. |
-| `religion` och `founding` | Religionens id i `religions.json` och `true` för händelser där religionen grundades. Fokus på religionen börjar där. |
+| `religion` och `founding` | Religionens id i `religions.json` och `true` för händelser där religionen grundades. Fokus på religionen börjar där. Ikonen (`icon`) är religionens symbol (`symbol` i `religions.json`, #271), till exempel `cross` för kristendomen. |
 | `note` | Extra ruta i faktarutan: `title` och `text`, till exempel "Om år 0" |
 | `image` | Bild i faktarutan, se nedan |
 
@@ -143,15 +143,26 @@ Rikets nyckelår är också rikets berättelse (#171): när man följer riket i 
 ## `religions.json`: religioner
 
 ```json
-{ "religions": [{ "id": "kristendom", "name": { "sv": "Kristendom" }, "color": "#6f3fb8",
-    "snapshots": [{ "start": 200, "end": 249, "sure": true, "polities": ["Kingdom of Osroene"], "geometry": { … } }] }],
+{ "schema": "historia-globen/religions@3",
+  "religions": [{ "id": "kristendom", "name": { "sv": "Kristendom" }, "color": "#6f3fb8", "symbol": "cross",
+    "snapshots": [{ "start": 200, "end": 249, "sure": true, "polities": ["Kingdom of Osroene"], "geometry": { … } },
+      { "start": 1450, "end": 1499, "sure": false, "inherited": { "until": 1449, "from": ["Kingdom of Sweden"] },
+        "polities": ["(Kalmar Union)", "Kalmar Union"], "geometry": { … } }] }],
   "polities": [{ "name": "(Anglo-Saxon England)", "wikipedia": "…", "text": "Christianity (from 6th century)",
     "religion": "kristendom", "rule": "enda", "since": 501 }] }
 ```
 
-- `snapshots` är religionens utbredning som statsreligion eller huvudreligion, sammanslagen per tidsperiod. `sure: false` betyder att flera religioner nämns och att den först nämnda valts. Den visas ljusare med streckad kant.
-- `polities` listar varje rike i Cliopatria med faktarutans text, vald religion och regeln som användes. `since` är ett årtal ur faktarutan, och religionen visas först därifrån.
-- `facts` (valfritt, #90) är faktarutan om religionen. Den visas när religionslagret slås på, när religionen bockas i igen i undermenyn, med knappen Fakta i undermenyn och när man börjar följa religionen i Fokus. Än så länge har bara kristendomen en.
+- Filen byggs med `python3 tools/religioner.py <cliopatria.geojson>` (#269). Skriptet läser registret `polities` i den befintliga filen, räknar fram ögonblicksbilderna och skriver filen igen. `facts`, `symbol`, religionernas namn och färger och texterna i registret ändras inte. Därefter byggs `religions-polities.json` med `tools/religioner_riken.py`.
+- `symbol` (valfritt, #271) är namnet på religionens symbol, en egen teckning i `img/icons/<symbol>.svg`. Den står bredvid färgen i undermenyn i Lager, i Fokus, i teckenförklaringen, i klickrutan och i faktarutans rubrik, mitt i varje sammanhängande område som är stort nog, och i medaljen där religionen uppstod (`facts.origin`). Religioner utan vedertagen symbol (manikeism, traditionell afrikansk religion och annan traditionell religion) har ingen; de visas bara med färgen. `scripts/validate-site.py` kontrollerar att filen finns. Valen: kristendom `cross` (kors), islam `mosque` (moské med minaret, ingen halvmåne), judendom `star-of-david`, zoroastrism `fire-altar` (eldaltare), buddhism `dharma-wheel` (dharmahjul), hinduism `om`, jainism `jain-hand` (handen med hjulet), sikhism `khanda`, kinesisk religion `yin-yang`, shinto `torii`, tengrism `shanyrak` (jurtans takkrona), fornegyptisk `ankh`, mesopotamisk `eight-star` (åttauddig stjärna), grekisk och romersk `temple` (tempel), fenicisk och punisk `tanit` (Tanits tecken), germansk och nordisk `world-tree` (världsträdet), slavisk `hexafoil` (sexbladig rosett, åsktecken), mesoamerikansk `temple-pyramid` (tempelpyramid) och andinsk `chakana` (andinskt trappkors).
+- `snapshots` är religionens utbredning som statsreligion eller huvudreligion, sammanslagen per tidsperiod. Ögonblicksbilder som är likadana i följd är sammanslagna. `sure: false` betyder att flera religioner nämns och att den först nämnda valts. Den visas ljusare med streckad kant.
+- `inherited` (#269) betyder ett ärvt område: rikena på platsen (`polities`) anger ingen religion som gäller det året, så området visas med religionen det hade tidigare. `until` är sista året religionen stod i en faktaruta där (slutet av den ögonblicksbilden) och `from` de riken som angav den. Arvet gäller alla religioner och varar tills ett rike med en annan angiven religion täcker platsen. Det kräver att ett rike i Cliopatria täcker platsen; utan rike glöms religionen efter 100 år. Ärvda områden har `sure: false`, ritas ljusast med prickad kant och förenklas lite mer (0,3 grader, ytor under 0,3 kvadratgrader borttagna).
+- `polities` listar varje rike i Cliopatria med faktarutans text (hämtad 2026-10-28), vald religion och regeln som användes (`officiell`, `majoritet`, `enda`, `först nämnd`, `okänd` eller `saknas`). Det är registret som skriptet bygger från.
+  - `since` är ett årtal ur faktarutan för den valda religionen ("c. 200 AD", "from 6th century", #118), och religionen visas först därifrån.
+  - `christianSince` och `source` är ett kontrollerat år för när riket blev kristet, med källa i `sources.json` (från den första versionen av lagret, 36 riken). Riket visas som kristet från det året. Källan listas under Religioner i Om källorna.
+  - `modern` (`country`, `religion`, `majority`) är den största religionen i Wikipedias tabell Religion by country för länder vars faktaruta saknar religion. Den används från 1900 och räknas som säker över 50 procent.
+  - `variants` finns för de få riken vars perioder i Cliopatria pekar på olika Wikipedia-sidor: faktarutans text (och `modern`) per sida, nyckel = sidans namn i Cliopatria.
+  - Procentsiffror i faktarutan kommer ofta från en nutida folkräkning och används bara från 1900, utom när religionen anges som officiell utan årtal (till exempel Ryska imperiet).
+- `facts` (valfritt, #90) är faktarutan om religionen. Den visas när religionslagret slås på, när religionen bockas i igen i undermenyn, med knappen Fakta i undermenyn, med knappen "Läs mer om <religion>" i klickrutan för ett religionsområde (#270) och när man börjar följa religionen i Fokus. Kristendom, islam, buddhism, hinduism, judendom och sikhism har en (#90, #270); övriga religioner saknar ännu faktaruta och får då ingen Läs mer-knapp.
 
 ```json
 "facts": { "origin": "korsfastelsen",
@@ -161,8 +172,9 @@ Rikets nyckelår är också rikets berättelse (#171): när man följer riket i 
   "sources": ["wp-christianity", "wp-crucifixion"], "review": "source-checked" }
 ```
 
-  - `origin` är id för händelsen i `events.json` där religionen uppstod. Där ritas en stjärna i religionens färg på lagerbilden, från händelsens startår, så länge religionen syns i lagret. Platsen står bara i händelsen, inte en gång till här.
+  - `origin` är id för händelsen i `events.json` där religionen uppstod (kristendom `korsfastelsen`, islam `muhammeds-forsta-uppenbarelse`, buddhism `buddha`, sikhism `guru-nanak`). Religioner som växte fram gradvis (judendom, hinduism) har ingen `origin`. Där står religionens symbol i en mässingsmedalj (#271, tidigare en stjärna): en klickbar markör ovanpå klotet som öppnar religionens faktaruta, och samma medalj på lagerbilden (Platt vy). Den syns från händelsens startår och står kvar så länge religionen syns i lagret. Platsen står bara i händelsen, inte en gång till här.
   - `items` är rader med rubrik och text (till exempel när och var, grundare, helig skrift, antal troende med årtal). Osäkerhet skrivs ut i texten.
+  - `milestonesTitle` (valfritt, #270) är rubriken över nyckelåren. Utan den heter rubriken "Statsreligion i riken"; religioner vars nyckelår handlar om annat (till exempel heliga skrifter eller tempel) har "Nyckelår" (islam, buddhism, hinduism, judendom och sikhism).
   - `milestones` är nyckelår, till exempel när ett rike gjorde religionen till statsreligion. `year` är astronomiskt år och knappen hoppar dit i tiden; `label` är det som står på knappen och kan visa osäkerhet ("301 eller 314"). Varje nyckelår har egna `sources`.
   - `sources` och `review` fungerar som för händelser. Rutan listar både rutans och nyckelårens källor.
 
@@ -174,8 +186,8 @@ Rikets nyckelår är också rikets berättelse (#171): när man följer riket i 
 ```
 
 - Gränsen för varje enskilt rike som ingår i en ögonblicksbild i `religions.json`, så att klickrutan kan säga vilket rike som låg på platsen. Nyckeln är rikets namn i Cliopatria, samma som i `snapshots[].polities` och `polities[].name` i `religions.json`. Religionen står bara i `religions.json`.
-- Varje period är en period i Cliopatria (`start`/`end` oförändrade, astronomiska år). Bara perioder som gällde det år någon ögonblicksbild med riket börjar finns med, det vill säga samma urval som de sammanslagna områdena byggdes av.
-- Geometrin är förenklad som i `religions.json` (0,25 grader, avrundad till 0,1 grad, öar under 0,05 kvadratgrader borttagna). Filen är cirka 1,9 MB och laddas först vid det första klicket på ett religionsområde, inte vid start.
+- Varje period är en period i Cliopatria (astronomiska år). Bara perioder som gällde det år någon ögonblicksbild med riket börjar finns med, det vill säga samma urval som de sammanslagna områdena byggdes av. I ärvda områden är det rikena utan religion. Perioder av samma rike där gränsen ändras mindre än 5 procent av ytan är sammanslagna och har den första periodens gräns (#269).
+- Geometrin är förenklad som i `religions.json` (0,25 grader, avrundad till 0,1 grad, öar under 0,05 kvadratgrader borttagna). Filen är cirka 2,0 MB och laddas först vid det första klicket på ett religionsområde, inte vid start.
 - Byggs med `python3 tools/religioner_riken.py <cliopatria.geojson>` efter att `religions.json` är byggd.
 
 ## `styles.json`: bildstilar

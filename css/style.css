@@ -973,6 +973,7 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-legend .swatch { width: 12px; height: 12px; border-radius: 3px; flex: none; }
 .religion-legend .rl-note { display: flex; align-items: center; gap: 7px; margin: 5px 0 0; font: 400 11px/1.3 var(--f-mono); color: var(--parchment-dim); }
 .religion-legend .rl-unsure { background: rgba(236, 223, 194, .25); border: 1px dashed var(--parchment-dim); box-sizing: border-box; }
+.religion-legend .rl-inherited { background: rgba(236, 223, 194, .15); border: 1px dotted var(--parchment-dim); box-sizing: border-box; }
 /* krigsskådeplatsen i fokusläget (#236): skraffering och hel kantlinje som på kartan, och dämpade lager (#235) */
 .religion-legend .rl-war { margin-top: 2px; }
 .religion-legend ul + .rl-war, .religion-legend .rl-note + .rl-war { margin-top: 6px; padding-top: 4px; border-top: 1px solid var(--line); }
@@ -995,6 +996,8 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-pop p { margin: 6px 0 0; }
 .religion-pop .rp-note { color: var(--parchment-dim); font: 400 11px/1.3 var(--f-mono); }
 .religion-pop .info-btn { margin-top: 8px; }
+/* "Läs mer om <religion>" (#270): tydligare än små Fakta-knappar, öppnar religionens faktaruta */
+.religion-pop .rp-more { display: block; margin: 10px 0 0; padding: 5px 12px; border-color: var(--brass-deep); font-size: 12px; text-align: left; }
 @media (max-width: 760px) {
   /* smalare än rubrikens högra grannar (knapparna uppe till höger), 44 px hög tryckyta, borta när panelen är öppen */
   .religion-legend { max-width: 172px; font-size: 11px; padding-top: 0; padding-bottom: 0; }
@@ -1058,3 +1061,33 @@ details.used-by summary:hover { color: var(--parchment); }
   #funfact.ff-dragging :is(.ff-pics, .ff-text, .ff-foot) { display: revert; }
   #funfact.ff-dragging .ff-pics:not([hidden]) { display: grid; }
 }
+
+/* ---------- religionernas symboler bredvid färgen (#271) ---------- */
+/* Egna teckningar i pergamentfärg (img/icons/); samma storlek i Lager, Fokus, teckenförklaringen och klickrutan */
+.rel-sym { width: 16px; height: 16px; flex: none; display: inline-block; vertical-align: -3px; }
+.layer-subrow .rel-sym, .focus-item .rel-sym { margin-left: -4px; }
+.religion-legend .rel-sym { width: 15px; height: 15px; margin-left: -3px; }
+.detail h3 .rel-sym-h { width: 22px; height: 22px; margin-right: 8px; vertical-align: -3px; }
+@media (max-width: 760px) { .religion-legend .rel-sym { width: 13px; height: 13px; } }
+.detail .war-link .rel-sym-in { width: 18px; height: 18px; vertical-align: -4px; }
+/* Knappen över symbolen där religionen uppstod (#271): osynlig, men går att nå med Tab och syns med fokusring */
+.gorigin {
+  position: absolute; left: 0; top: 0; padding: 0; border: 0; border-radius: 50%; background: transparent;
+  cursor: pointer; pointer-events: auto;
+}
+.gorigin:hover { box-shadow: 0 0 0 2px color-mix(in srgb, var(--brass) 70%, transparent); }
+.gorigin:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+/* Markering när man pekar (#271): raden i teckenförklaringen som lyfts fram, och rutan vid muspekaren */
+.religion-legend li[data-religion] { cursor: pointer; border-radius: 4px; margin: 0 -4px; padding: 1px 4px; }
+.religion-legend li[data-religion]:hover, .religion-legend li.on { background: var(--night-3); }
+.religion-legend li[aria-pressed="true"] { box-shadow: inset 2px 0 0 var(--brass); }
+.religion-legend li[data-religion]:focus-visible { outline: 2px solid var(--brass); outline-offset: 0; }
+.religion-legend .rl-sym-note { display: block; }
+.religion-tip {
+  position: absolute; z-index: 11; display: flex; align-items: center; gap: 6px; max-width: 240px; pointer-events: none;
+  background: color-mix(in srgb, var(--night-2) 94%, transparent); border: 1px solid var(--brass-deep); border-radius: 8px;
+  padding: 4px 9px; font: 400 13px/1.25 var(--f-body); box-shadow: 0 4px 14px rgba(0, 0, 0, .45);
+}
+.religion-tip[hidden] { display: none; }
+.religion-tip .swatch { width: 10px; height: 10px; border-radius: 2px; flex: none; }
+.religion-tip em { font-style: normal; color: var(--parchment-dim); }

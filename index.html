@@ -68,19 +68,21 @@
       <li><b>Följ en berättelse</b> <span>Välj ett krig, ett rike eller en religion under Fokus.</span></li>
     </ol>
     <details class="help-marks">
-      <summary>Markörer och klungor</summary>
+      <summary>Markörer, klungor och religioner</summary>
       <ul>
         <li><svg class="hm" viewBox="0 0 32 32" aria-hidden="true"><circle class="hm-ring" cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="7.6" fill="none" stroke="#e5675a" stroke-width="1"/><image href="img/icons/swords.svg" x="10.5" y="10.5" width="11" height="11"/></svg><span>Alla händelser har samma mässingsmedalj. Symbolen och den inre färgen visar kategorin.</span></li>
         <li><svg class="hm" viewBox="0 0 32 32" aria-hidden="true"><path class="hm-track" d="M2.5 17 A13.5 13.5 0 0 0 29.5 17"/><path d="M2.5 17 A13.5 13.5 0 0 0 29.5 17" fill="none" stroke="#e5675a" stroke-width="2.6"/><circle class="hm-ring" cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="7.6" fill="none" stroke="#e5675a" stroke-width="1"/><image href="img/icons/swords.svg" x="10.5" y="10.5" width="11" height="11"/></svg><svg class="hm" viewBox="0 0 32 32" aria-hidden="true"><path class="hm-track" d="M2.5 17 A13.5 13.5 0 0 0 29.5 17"/><path d="M2.5 17 A13.5 13.5 0 0 0 9 27.8" fill="none" stroke="#e5675a" stroke-width="2.6"/><circle class="hm-ring" cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="7.6" fill="none" stroke="#e5675a" stroke-width="1"/><image href="img/icons/swords.svg" x="10.5" y="10.5" width="11" height="11"/></svg><span>Bågen under medaljen är en liten tidslinje. Hela bågen: pågår vid året du står på. Vänster del: har redan hänt. Höger del: kommer senare. Bågen syns när du zoomar in.</span></li>
         <li><svg class="hm" viewBox="0 0 32 32" aria-hidden="true"><circle cx="23.4" cy="8.6" r="3.6" style="fill:var(--gold-dot);stroke:var(--night)" stroke-width="1.6"/><circle class="hm-ring" cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="7.6" fill="none" stroke="#e5675a" stroke-width="1"/><image href="img/icons/treaty.svg" x="10.5" y="10.5" width="11" height="11"/></svg><span>Punkt: viktig händelse.</span></li>
         <li><svg class="hm" viewBox="0 0 32 32" aria-hidden="true"><path class="hm-track" d="M2.5 17 A13.5 13.5 0 0 0 29.5 17"/><path d="M2.5 17 A13.5 13.5 0 0 0 29.5 17" fill="none" stroke="#b892dc" stroke-width="2.6" stroke-dasharray="3 2.2"/><circle class="hm-ring" cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="7.6" fill="none" stroke="#b892dc" stroke-width="1"/><image href="img/icons/star.svg" x="10.5" y="10.5" width="11" height="11"/></svg><span>Streckad båge: osäker uppgift (ungefärligt årtal eller källor som skiljer sig).</span></li>
         <li><svg class="hm" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="#e5675a" stroke-width="3" stroke-dasharray="32.4 100" transform="rotate(-90 16 16)"/><circle cx="16" cy="16" r="11" fill="none" stroke="#e3a33f" stroke-width="3" stroke-dasharray="0 34.5 20.9 100" transform="rotate(-90 16 16)"/><circle cx="16" cy="16" r="11" fill="none" stroke="#b892dc" stroke-width="3" stroke-dasharray="0 57.5 9.4 100" transform="rotate(-90 16 16)"/><circle cx="16" cy="16" r="9.4" fill="#0b1219"/><text x="16" y="19.6" text-anchor="middle" class="hm-num">6</text></svg><span>Klunga: siffran är antalet händelser, och ringens färger visar kategorierna. Med muspekaren över klungan, eller när du går till den med Tab, ser du vad den innehåller, till exempel ”3 krigshändelser, 2 riken och civilisationer”.</span></li>
+        <li><svg class="hm" viewBox="0 0 32 32" aria-hidden="true"><circle class="hm-ring" cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="7.6" fill="none" stroke="#8d63d6" stroke-width="1"/><image href="img/icons/cross.svg" x="10.5" y="10.5" width="11" height="11"/></svg><span>Religioner (i Lager): symbolen i ett område och bredvid färgen visar religionen, till exempel ett kors för kristendomen. En medalj med symbolen står där religionen uppstod. Den dyker upp det år religionen uppstod och står kvar så länge religionslagret är på. Klicka på den för att läsa om religionen. Peka på en religion i listorna eller i teckenförklaringen för att lyfta fram den på kartan.</span></li>
       </ul>
     </details>
   </aside>
 
   <aside id="religion-legend" class="religion-legend" aria-label="Teckenförklaring för religioner" hidden></aside>
   <div id="religion-pop" class="religion-pop" role="dialog" aria-label="Religion i området" hidden></div>
+  <div id="religion-tip" class="religion-tip" aria-hidden="true" hidden></div>
 
   <div id="focus-menu" class="layer-menu" hidden role="group" aria-label="Fokus"></div>
 
@@ -88,7 +90,7 @@
     <label class="layer-row"><input type="checkbox" data-layer="events" checked> Händelser</label>
     <label class="layer-row"><input type="checkbox" data-layer="funfacts" checked aria-label="Visa Samtidigt-kortet"> Samtidigt-kortet <span class="layer-note">fun facts och annat som hände samtidigt</span></label>
     <label class="layer-row"><input type="checkbox" data-layer="areas" checked> Riken</label>
-    <label class="layer-row"><input type="checkbox" data-layer="religions"> Religioner <span class="layer-note">rikenas officiella religion · ljus med streckad kant = osäker uppgift</span></label>
+    <label class="layer-row"><input type="checkbox" data-layer="religions"> Religioner <span class="layer-note">rikenas officiella religion · streckad kant = osäker uppgift · prickad = ärvd, rikets faktaruta saknar religion</span></label>
     <div id="religion-list" class="layer-sub" role="group" aria-label="Religioner" hidden></div>
     <label class="layer-row"><input type="checkbox" data-layer="borders"> Dagens gränser <span class="layer-note">stämmer inte historiskt</span></label>
     <label class="layer-row"><input type="checkbox" data-layer="keep"> Behåll mina lager i fokus <span class="layer-note">annars dämpas riken och religioner som inte hör till det man följer</span></label>
