@@ -17,6 +17,10 @@
   --ok: #8fc48e;
   --medal: #10202c;        /* markörernas botten (#242), samma som GROUND i layers/events.js */
   --gold-dot: #f1d98a;     /* markörernas punkt för betydelse */
+  /* Kapitel över tidslinjen i fokusläget (#244): ur story.chapters, och neutrala band mellan stora händelser */
+  --chap-0: #2d4655; --chap-1: #633f3e; --chap-2: #5b5138; --chap-3: #36594e;
+  --chap-auto-0: color-mix(in srgb, var(--brass) 22%, var(--night-2));
+  --chap-auto-1: color-mix(in srgb, var(--brass) 48%, var(--night-2));
 
   --f-display: "IM Fell English", "Iowan Old Style", Georgia, serif;
   --f-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -617,6 +621,45 @@ body {
 @media (min-width: 600px) { .tick.lvl2 { display: block; } }
 @media (min-width: 900px) { .tick.lvl3 { display: block; } }
 
+/* Kapitel och krigets händelser på tidslinjen i fokusläget (#244). Namnen står ovanför bandet (0–12 px),
+   banden täcker linjen (14–22 px) och övriga händelsers prickar, och krigets markeringar sitter på den. Rombernas plats för Samtidigt flyttas
+   då under linjen. */
+.track-chapters, .track-war { position: absolute; left: 0; right: 0; top: 0; height: 30px; pointer-events: none; }
+.chap { position: absolute; top: 0; height: 22px; pointer-events: auto; }
+.chap::after { content: ""; position: absolute; left: 0; right: 0; top: 14px; height: 8px; border-left: 1px solid var(--night); }
+.chap-auto.chap-0::after { background: var(--chap-auto-0); }
+.chap-auto.chap-1::after { background: var(--chap-auto-1); }
+.chap-data.chap-0::after { background: var(--chap-0); }
+.chap-data.chap-1::after { background: var(--chap-1); }
+.chap-data.chap-2::after { background: var(--chap-2); }
+.chap-data.chap-3::after { background: var(--chap-3); }
+.chap-label {
+  display: block; padding: 0 2px 0 4px;
+  font: 400 9.5px/12px var(--f-mono); color: var(--parchment-dim);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.chap-label[hidden] { display: none; }
+.chap-data .chap-label { color: var(--parchment); }
+.track.storied .tff { top: 23px; width: 6px; height: 6px; margin-left: -3px; }
+.track.war-marked .track-dots { opacity: .35; } /* krigets egna markeringar går före resten av världen */
+.wmark {
+  position: absolute; top: 18px; width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; box-sizing: border-box;
+  border-radius: 50%; background: var(--medal); border: 1.5px solid var(--brass); pointer-events: auto;
+}
+.wmark.major { width: 12px; height: 12px; margin: -6px 0 0 -6px; border: 2px solid var(--gold-dot); }
+/* Osäkert datum: ett kryss över markeringen (samma regel som den streckade bågen på globen) */
+.wmark.unsure::before, .wmark.unsure::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 2px; height: 15px; margin: -7.5px 0 0 -1px;
+  background: var(--danger); border-radius: 1px; transform: rotate(45deg);
+}
+.wmark.unsure::after { transform: rotate(-45deg); }
+/* Slutpunkten där slutkortet visas */
+.wmark.end {
+  width: 15px; height: 15px; margin: -7.5px 0 0 -7.5px; border: 2px solid var(--gold-dot);
+  background: radial-gradient(circle, var(--gold-dot) 0 28%, var(--medal) 32%);
+}
+.wspan { position: absolute; top: 16.5px; height: 3px; border-radius: 2px; background: var(--brass); opacity: .6; }
+
 /* ---------- platt vy ---------- */
 .flat-view {
   position: absolute; inset: 0;
@@ -737,6 +780,25 @@ details.used-by summary:hover { color: var(--parchment); }
   font: 400 11px/32px var(--f-mono); color: var(--parchment-dim);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; pointer-events: none;
 }
+/* Pauserna och "Spela klart" när man följer ett krig (#244): till vänster om knapparna i bred skärm,
+   i pausraden när skärmen är smalare (pauserna står då i knappens namn) */
+.war-play {
+  position: absolute; top: 0; right: calc(50% + 250px); max-width: calc(50% - 260px); height: 32px;
+  display: flex; align-items: center; gap: 8px; overflow: hidden;
+  font: 400 11px/1 var(--f-mono); color: var(--parchment-dim); white-space: nowrap;
+}
+.war-play[hidden], .wp-finish[hidden], .pause-finish[hidden] { display: none; }
+.wp-item.on { color: var(--parchment); }
+.wp-short { display: none; }
+.wp-finish, .pause-finish {
+  font: 600 11px/1 var(--f-mono); color: var(--brass); background: none; white-space: nowrap; cursor: pointer;
+  border: 1px solid var(--brass-deep); border-radius: 999px; padding: 6px 10px;
+}
+.wp-finish:hover, .pause-finish:hover { background: var(--night-3); }
+@media (max-width: 1399px) { .wp-label, .wp-long { display: none; } .wp-short { display: inline; } }
+@media (max-width: 1099px) { .war-play { display: none; } }
+@media (min-width: 1100px) { .pause-finish { display: none; } }
+@media (max-width: 760px) { .pause-finish { padding: 6px 8px; } }
 .next-pause[hidden], .pause-next { display: none; }
 .pause-next { color: var(--parchment-dim); }
 @media (max-width: 1099px) {
