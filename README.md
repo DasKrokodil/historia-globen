@@ -94,7 +94,7 @@ data/utkast/          utkast från massimport som inte är källkontrollerade; a
 tools/hced.py         gör om Historical Conflict Event Dataset till utkast i data/utkast/hced.json
 scripts/build-site.sh kopierar webbplatsens filer till dist/ för publicering och kör kontrollerna (docs/DEPLOYMENT.md)
 scripts/validate-site.py  kontrollerar dist/: JSON, filreferenser och att inga interna filer följer med
-.github/workflows/    GitHub Actions: bygger och kontrollerar dist/ vid push till main och PR mot main och production
+.github/workflows/    GitHub Actions: bygger och kontrollerar dist/ vid push till main och PR mot main och production; release.yml skapar tagg och GitHub Release
 ```
 
 ## Principer
