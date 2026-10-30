@@ -60,10 +60,7 @@ jobs:
             echo "::error::Taggen $VERSION finns redan. Taggar flyttas aldrig; välj nästa nummer."
             exit 1
           fi
-          if ! git merge-base --is-ancestor HEAD origin/main; then
-            echo "::error::production har commits som inte finns i main. För in dem i main först (se Rollback i docs/DEPLOYMENT.md)."
-            exit 1
-          fi
+          bash scripts/production-i-main.sh HEAD origin/main
 
       - name: Skapa tagg och GitHub Release
         env:
