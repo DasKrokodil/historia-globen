@@ -24,6 +24,9 @@ export function figure(e, srcById) {
   </figure>`;
 }
 
+/** Diskret knapp "Rapportera faktafel" nedtill i faktarutan, bredvid granskningsstatusen. */
+const reportBtn = e => `<button type="button" class="link-btn report-btn" data-report="${esc(e.id)}" aria-haspopup="dialog" aria-controls="feedback">Rapportera faktafel</button>`;
+
 export class Panel {
   constructor({ root, list, filters, detail, sub, count, toggle, close }, { events, srcById, styles }) {
     Object.assign(this, { root, list, filtersEl: filters, detail, sub, count, toggle, srcById, styles });
@@ -33,6 +36,7 @@ export class Panel {
     this.onFocus = () => {};
     this.onOpen = () => {};
     this.onYear = () => {};
+    this.onReport = null; // (händelse, knapp) => öppnar formuläret "Rapportera faktafel" (js/ui/feedback.js)
     this.selectedId = null;
 
     // Visa bara kategorier som har händelser, i den fasta ordningen.
@@ -141,10 +145,17 @@ export class Panel {
       <h3>${esc(t(war.title))}</h3>
       <div class="meta">${esc(formatEventTime(war))} · ${esc(t(war.place))}</div>
       <div class="story">${body}</div>
-      <div class="src">Källa: ${srcs.map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>`).join(', ') || 'saknas'}</div>`;
+      <div class="src">Källa: ${srcs.map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>`).join(', ') || 'saknas'}</div>
+      ${this.onReport ? `<div class="detail-actions">${reportBtn(war)}</div>` : ''}`;
     this.detail.scrollTop = 0;
     this.detail.hidden = false;
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
+    this.bindReport(war);
+  }
+
+  /** Knappen "Rapportera faktafel" öppnar formuläret med händelsen förvald. */
+  bindReport(e) {
+    this.detail.querySelector('[data-report]')?.addEventListener('click', ev => this.onReport?.(e, ev.currentTarget));
   }
 
   /**
@@ -221,11 +232,13 @@ export class Panel {
       <div class="src">Källa: ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || 'saknas'}</div>
       <div class="detail-actions">
         <span class="review-badge ${rv.cls}" title="${esc(REVIEW_SUBJECT_HELP['Händelsen'])}">${esc(reviewLabel(e.review, 'Händelsen'))}</span>
+        ${this.onReport ? reportBtn(e) : ''}
       </div>`;
     this.detail.scrollTop = 0;
     this.detail.hidden = false;
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
     this.detail.querySelector('[data-focus]')?.addEventListener('click', ev => this.onFocus(ev.currentTarget.dataset.focus));
+    this.bindReport(e);
   }
 }

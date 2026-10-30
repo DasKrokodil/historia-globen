@@ -17,6 +17,7 @@ import { ReligionLegend } from './ui/legend.js';
 import { cluster, clusterContents } from './ui/clusters.js';
 import { FocusMenu } from './ui/focusmenu.js';
 import { Help } from './ui/help.js';
+import { Feedback } from './ui/feedback.js';
 
 const $ = id => document.getElementById(id);
 
@@ -889,7 +890,12 @@ async function start() {
 
   $('loading').hidden = true;
   // Kort hjälp för nya besökare (#245), när globen har laddats
-  new Help({ root: $('help'), button: $('btn-help'), close: $('help-close') }).showFirstTime();
+  const help = new Help({ root: $('help'), button: $('btn-help'), close: $('help-close') });
+  help.showFirstTime();
+  // Besökarnas förslag (docs/feedback.md): från Hjälp och från faktarutans "Rapportera faktafel"
+  const feedback = new Feedback($('feedback'));
+  $('help-feedback').addEventListener('click', () => { help.close(false); feedback.open({ opener: $('btn-help') }); });
+  panel.onReport = (e, btn) => feedback.open({ opener: btn, event: e });
   timeline.init(1325);
   globe.flyTo(34, -50, 1600);
   globe.autoRotate = false;
