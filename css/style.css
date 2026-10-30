@@ -17,6 +17,7 @@
   --ok: #8fc48e;
   --medal: #10202c;        /* markörernas botten (#242), samma som GROUND i layers/events.js */
   --gold-dot: #f1d98a;     /* markörernas punkt för betydelse */
+  --ff-ink-soft: #7a5a1f;  /* Samtidigt-kortets dämpade bläck på pergament: pilen och "Dra upp för mer" (#310) */
   /* Kapitel över tidslinjen i fokusläget (#244): ur story.chapters, och neutrala band mellan stora händelser */
   --chap-0: #2d4655; --chap-1: #633f3e; --chap-2: #5b5138; --chap-3: #36594e;
   --chap-auto-0: color-mix(in srgb, var(--brass) 22%, var(--night-2));
@@ -162,6 +163,14 @@ body {
 .year-jump.fine .year-big, .year-jump.fine .year-era { text-shadow: 0 1px 6px var(--night), 0 0 2px var(--night); }
 .year-jump.fine .year-era { color: var(--parchment); }
 .year-jump:focus-visible { outline: 2px solid var(--brass); outline-offset: 4px; border-radius: 4px; }
+/* En diskret penna till höger om årtalet vid hovring och fokus (#310). Den ligger utanför flödet, så inget flyttar sig. */
+.year-jump { position: relative; }
+.year-pen {
+  position: absolute; left: 100%; top: 50%; margin: -8px 0 0 8px;
+  color: var(--brass); opacity: 0; transition: opacity .15s ease-out; pointer-events: none;
+}
+.year-jump:hover .year-pen, .year-jump:focus-visible .year-pen, .year-jump[aria-expanded="true"] .year-pen { opacity: .85; }
+@media (prefers-reduced-motion: reduce) { .year-pen { transition: none; } }
 .jump-pop {
   position: absolute; top: 100%; left: 0; z-index: 20; margin-top: 10px; pointer-events: auto;
   width: min(360px, calc(100vw - 2 * var(--gut)));
@@ -411,6 +420,25 @@ body {
 .review-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--brass); }
 .review-badge.two::before { background: var(--ok); box-shadow: 4px 0 0 var(--brass); margin-right: 4px; }
 .review-badge.draft::before { background: var(--danger); }
+/* (i) vid granskningsstatusen i faktarutan (#310): fäller ut vad statusarna betyder */
+.review-info {
+  position: relative; flex: none; width: 18px; height: 18px; margin-left: -4px; padding: 0; border-radius: 50%;
+  display: inline-grid; place-items: center;
+  font: italic 600 11px/1 var(--f-display); color: var(--card-dim, var(--parchment-dim));
+  background: none; border: 1px solid currentColor; cursor: pointer;
+}
+.review-info::after { content: ""; position: absolute; inset: -9px; } /* större tryckyta i mobil */
+.review-info:hover, .review-info[aria-expanded="true"] { color: var(--card-accent, var(--brass)); }
+.review-info:focus-visible { outline: 2px solid var(--card-accent, var(--brass)); outline-offset: 2px; }
+.review-help {
+  flex: 1 0 100%; order: 9; box-sizing: border-box; margin: 2px 0 0; padding: 6px 10px 4px;
+  border-left: 2px solid var(--card-accent, var(--brass)); border-radius: 0 6px 6px 0;
+  font: 400 12.5px/1.45 var(--f-body); color: var(--card-ink, var(--parchment));
+}
+.review-help[hidden] { display: none; }
+.review-help ul { margin: 0; padding: 0; list-style: none; }
+.review-help li + li { margin-top: 3px; }
+.review-help b { font-weight: 600; }
 
 .link-btn {
   font: 500 12.5px/1 var(--f-body);
@@ -1143,6 +1171,20 @@ details.used-by summary:hover { color: var(--parchment); }
   .ff-handle::after { content: ""; position: absolute; inset: -6px 0 -10px; } /* tryckytan blir minst 38 px hög */
   .ff-grip { display: block; width: 44px; height: 4px; margin: 9px auto 0; border-radius: 2px; background: rgba(34,25,12,.32); }
   .ff-handle:focus-visible { outline: 2px solid var(--brass-deep); outline-offset: -2px; border-radius: 16px 16px 0 0; }
+  /* Liten pil bredvid greppet (#310): uppåt när kortet kan dras upp, nedåt när det är helt öppet */
+  .ff-chev {
+    position: absolute; left: calc(50% + 30px); top: 8px; width: 6px; height: 6px;
+    border: solid var(--ff-ink-soft); border-width: 1.5px 0 0 1.5px; transform: rotate(45deg); opacity: .8;
+  }
+  #funfact.ff-s-full .ff-chev { top: 5px; transform: rotate(225deg); }
+  /* "Dra upp för mer" första gången (funfact.js), försvinner efter första dragningen eller efter några sekunder */
+  .ff-drag-hint {
+    position: absolute; left: calc(50% + 44px); top: 5px; white-space: nowrap;
+    font: 500 10.5px/1 var(--f-mono); letter-spacing: .04em; color: var(--ff-ink-soft);
+    animation: ff-hint-in .3s ease-out;
+  }
+  .ff-drag-hint[hidden] { display: none; }
+  @keyframes ff-hint-in { from { opacity: 0; } to { opacity: 1; } }
   .ff-pics { margin: 0 -14px 8px; }
   .ff-min { display: none; } /* panelen stängs med handtaget */
   /* halv: lägre än förut, texten klipps som tidigare */
@@ -1207,6 +1249,7 @@ details.used-by summary:hover { color: var(--parchment); }
 @media (max-width: 760px) { .feedback-card { left: var(--gut); right: var(--gut-r); width: auto; } }
 .fb-form, .fb-done { margin-top: 8px; }
 .fb-privacy { margin: 0 0 10px; font-size: 12.5px; color: var(--parchment-dim); }
+.fb-expect { margin: -4px 0 10px; font-size: 12px; color: var(--parchment-dim); } /* förväntan på svar (#310) */
 .fb-closed { margin: 0 0 12px; padding: 8px 10px; border: 1px solid var(--brass-deep); border-radius: 8px; background: var(--night); }
 .fb-closed p { margin: 0; }
 .fb-closed ul { margin: 6px 0; padding-left: 18px; }
@@ -1245,6 +1288,14 @@ details.used-by summary:hover { color: var(--parchment); }
 .fb-status:empty { display: none; }
 .fb-status.is-error { color: var(--danger); }
 .fb-actions { display: flex; gap: 12px; align-items: center; justify-content: flex-end; flex-wrap: wrap; margin-top: 10px; }
+/* Knapparna ligger fast nedtill medan fälten rullar (#310), så att Skicka alltid syns. Kortet har därför ingen egen
+   luft nedtill; raden har den i stället och täcker fälten under sig med panelens färg. */
+.feedback-card { padding-bottom: 0; }
+.feedback-card .fb-actions {
+  position: sticky; bottom: 0; z-index: 1;
+  margin: 10px -14px 0 -16px; padding: 10px 14px 12px 16px;
+  background: var(--night-2); border-top: 1px solid var(--line);
+}
 .fb-submit { background: var(--brass); color: var(--night); border-color: var(--brass); font-weight: 600; }
 .fb-submit:disabled { background: var(--night-3); color: var(--parchment-dim); border-color: var(--line); cursor: not-allowed; }
 .fb-done p { margin: 0; font-size: 14px; line-height: 1.5; }

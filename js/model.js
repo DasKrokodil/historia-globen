@@ -48,6 +48,11 @@ export const REVIEW_SUBJECT_HELP = {
   'Religionen': 'Statusen gäller religionens faktaruta. Varje händelse har en egen status i sin faktaruta.',
   'Händelsen': 'Statusen gäller just den här händelsen. Samtidigt-kortet och fun facten har en egen status.',
 };
+// Vad statusarna betyder (#310), samma betydelse som källpolicyn i CLAUDE.md. Visas bakom (i)-knappen i faktarutan.
+export const REVIEW_HELP = [
+  { status: 'source-checked', text: 'årtal, plats och påståenden är kontrollerade mot källan.' },
+  { status: 'two-sources', text: 'dessutom jämförda med en andra, oberoende källa.' },
+];
 export function reviewLabel(status, subject) {
   const rv = REVIEW[status] ?? REVIEW.draft;
   return `${subject}: ${rv.sv.charAt(0).toLowerCase()}${rv.sv.slice(1)}`;
