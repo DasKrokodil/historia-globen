@@ -80,12 +80,13 @@ async function start() {
   const relLegend = new ReligionLegend({ legend: $('religion-legend'), pop: $('religion-pop') });
   relLegend.onFacts = id => showReligionFacts(id);
   relLegend.names = new Map(data.polities.map(p => [p.name.en, p.name.sv]));
+  // Visa som vanligt / Dämpa i teckenförklaringen ändrar valet "Behåll mina lager" i Lager (#235)
+  relLegend.onKeep = on => { layers.set('keep', on); refresh(); };
   // I fokusläge syns det man följer även om lagret är avslaget i menyn
   const applyLayers = () => {
-  // och det andra av riken och religioner göms, så att områdena inte täcker varandra
-    areas.enabled = focus?.type === 'empire' || (layers.on.areas && focus?.type !== 'religion');
+    areas.enabled = focus?.type === 'empire' || layers.on.areas;
     borders.enabled = layers.on.borders;
-    religions.enabled = focus?.type === 'religion' || (layers.on.religions && focus?.type !== 'empire');
+    religions.enabled = focus?.type === 'religion' || layers.on.religions;
     $('religion-list').hidden = !layers.on.religions;
     ff.enabled = layers.on.funfacts;
   };
@@ -354,6 +355,15 @@ async function start() {
     $('app').classList.toggle('has-detail', !$('detail').hidden);
   }
 
+  // I fokusläget dämpas påslagna lager som inte hör till det man följer (#235): riken och religioner när man
+  // följer ett krig, religioner för ett rike och riken för en religion. "Behåll mina lager" i Lager visar dem som vanligt.
+  const FADE = 0.35; // religionernas fyllning blir då cirka 18 procent, rikenas cirka 11
+  let faded = [];
+  const fadableLayers = () => !focus ? [] : [
+    { layer: areas, name: 'Riken', own: focus.type === 'empire' },
+    { layer: religions, name: 'Religioner', own: focus.type === 'religion' },
+  ].filter(f => f.layer.enabled && !f.own);
+
   function refresh() {
     [areas.labelScale, areas.labelAlpha] = nameStyle();
     // I fokusläget för korta krig är året ett decimaltal (#204). Händelser och krig får då sina
@@ -374,15 +384,18 @@ async function start() {
     areas.update({ year: wholeYear });
     borders.update({ year: wholeYear });
     religions.update({ year: wholeYear });
-    relLegend.update(religions.legendItems());
-    if (!religions.enabled) relLegend.hidePop();
     wars.enabled = eventsOn;
-    wars.update({ year, filters: panel.filters, span });
+    wars.update({ year, filters: panel.filters, span, focusId: focusWar?.id });
+    wars.labelScale = areas.labelScale;
+    const fadable = fadableLayers();
+    faded = layers.on.keep ? [] : fadable.map(f => f.layer);
+    relLegend.update(faded.includes(religions) ? [] : religions.legendItems(),
+      { war: wars.active.some(a => a.war === focusWar), fadable: fadable.map(f => f.name), keep: !!layers.on.keep });
+    if (!religions.enabled || faded.includes(religions)) relLegend.hidePop();
     const ctx = globe.overlayContext();
     const W = globe.overlayCanvas.width, H = globe.overlayCanvas.height;
     // Ordning nedifrån och upp: riken, religioner, dagens gränser, krigsområden, händelsernas sken
-    areas.drawOverlay(ctx, W, H);
-    religions.drawOverlay(ctx, W, H);
+    for (const l of [areas, religions]) faded.includes(l) ? globe.drawFaded((c, w, h) => l.drawOverlay(c, w, h), FADE) : l.drawOverlay(ctx, W, H);
     borders.drawOverlay(ctx, W, H);
     wars.drawOverlay(ctx, W, H);
     layer.drawOverlay(ctx, W, H);
@@ -498,7 +511,7 @@ async function start() {
     relLegend.hidePop(); popClick++;
     select(hit ? hit.userData.event.id : null);
     // Händelsemarkörer har företräde. Annars: vilken religion ligger under klicket? (#166)
-    if (!hit && religions.enabled && religions.active.length) {
+    if (!hit && religions.enabled && !faded.includes(religions) && religions.active.length) {
       const ll = globe.pickLatLon(x, y);
       const rh = ll && religions.hitTest(ll.lon, ll.lat);
       if (rh) showReligionPop(rh, ll, x, y);
