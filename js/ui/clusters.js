@@ -68,8 +68,9 @@ const overlaps = (a, b) => a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b
  * Markören under muspekaren (hoverId) får alltid sin etikett. pxOf(e) är markörens storlek på skärmen.
  * Returnerar [{ e, p, text, x, y }] där (x, y) är etikettens nedre mittpunkt.
  */
-export function placeLabels(singles, { W, H, hoverId, markers, badges, text, pxOf }) {
-  const placed = [], out = [];
+export function placeLabels(singles, { W, H, hoverId, markers, badges, blocked = [], text, pxOf }) {
+  // blocked: rutor där etiketter inte får hamna, till exempel knappar över globen i smal skärm (#289)
+  const placed = [...blocked], out = [];
   for (const { e, p } of singles.slice(0, 14)) {
     if ((p.facing ?? 1) < 0.2) continue;
     const label = text(e);

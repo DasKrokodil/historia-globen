@@ -19,7 +19,10 @@ export class ReligionLegend {
     this.onAbout = () => {}; // knappen "Läs om religionerna" (#308)
     this.hint = false;       // tipsraden visas (#308)
     // Öppen som standard i dator, hopfälld till en knapp i mobil (#193). Valet ligger kvar när året ändras.
-    this.open = matchMedia('(min-width: 761px)').matches;
+    // Byter man fönsterbredd över gränsen gäller standardläget för den nya bredden.
+    const wide = matchMedia('(min-width: 761px)');
+    this.open = wide.matches;
+    wide.addEventListener('change', () => { this.open = wide.matches; this.render(); this.fit(); });
     legend.addEventListener('click', e => {
       if (e.target.closest('[data-hint-close]')) { this.closeHint(); return; }
       if (e.target.closest('[data-about]')) { this.onAbout(); return; }
@@ -108,7 +111,14 @@ export class ReligionLegend {
       ? `${esc(names)} visas som vanligt. <button type="button" class="link-btn" data-keep="0">Dämpa</button>`
       : `${esc(names)} är dämpade medan du följer det här. <button type="button" class="link-btn" data-keep="1">Visa som vanligt</button>`}</p>`;
     this.legend.setAttribute('aria-label', `Teckenförklaring: ${title.toLowerCase()}`);
-    const html = `<button type="button" class="rl-toggle" aria-expanded="${this.open}" aria-controls="rl-body"><span class="rl-title">${title}</span><span class="rl-chev" aria-hidden="true"></span></button>${hintHtml}
+    // Hopfälld i smal skärm (#309): religionerna som syns just nu som färgprickar på en rad under rubriken,
+    // så att man ser vad som finns utan att förklaringen täcker globen. CSS visar raden bara i smal skärm.
+    const DOTS = 9, shown = items.slice(0, items.length > DOTS + 1 ? DOTS : DOTS + 1);
+    const dotsHtml = this.open || (!items.length && !war) ? '' : `<span class="rl-dots" aria-hidden="true">${
+      shown.map(({ religion: r, sure }) => `<span class="rl-dot${sure ? '' : ' rl-dot-pale'}" style="background:${esc(r.color)}" title="${esc(t(r.name))}"></span>`).join('')}${
+      items.length > shown.length ? `<span class="rl-more">+${items.length - shown.length}</span>` : ''}${
+      war ? `<span class="rl-dot rl-hatch" style="--war:${esc(CAT.krig.color)}" title="Krigsskådeplats"></span>` : ''}</span>`;
+    const html = `<button type="button" class="rl-toggle" aria-expanded="${this.open}" aria-controls="rl-body"><span class="rl-title">${title}</span><span class="rl-chev" aria-hidden="true"></span>${dotsHtml}</button>${hintHtml}
       <div id="rl-body" class="rl-body" ${this.open ? '' : 'hidden'}>${aboutHtml}${religionsHtml}${symbolsHtml}${warHtml}${fadeHtml}</div>`;
     // Samma innehåll ritas inte om, så att musen och tangentbordets fokus ligger kvar på raden (#271)
     if (html !== this._html) {
