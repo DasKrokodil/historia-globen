@@ -24,6 +24,21 @@ export class LayerMenu {
         try { localStorage.setItem('hg-pause', JSON.stringify(this.pause)); } catch { /* utan lagring */ }
       });
     }
+    // Lugn rörelse (#246): följer webbläsarens prefers-reduced-motion tills man själv väljer. Valet sparas.
+    this.onCalm = () => {};
+    const calmInput = menu.querySelector('input[data-calm]');
+    this.calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    try { const s = localStorage.getItem('hg-calm'); if (s !== null) this.calm = s === '1'; } catch { /* utan lagring */ }
+    const applyCalm = () => { document.documentElement.classList.toggle('calm', this.calm); this.onCalm(this.calm); };
+    if (calmInput) {
+      calmInput.checked = this.calm;
+      calmInput.addEventListener('change', () => {
+        this.calm = calmInput.checked;
+        try { localStorage.setItem('hg-calm', this.calm ? '1' : '0'); } catch { /* utan lagring */ }
+        applyCalm();
+      });
+    }
+    document.documentElement.classList.toggle('calm', this.calm);
     this.onOpen = () => {};
     button.addEventListener('click', () => (menu.hidden ? this.open() : this.close()));
     document.addEventListener('pointerdown', e => {
@@ -67,9 +82,12 @@ export class LayerMenu {
     this.menu.hidden = false;
     this.button.setAttribute('aria-expanded', 'true');
     this.onOpen();
+    this.menu.querySelector('input,button')?.focus({ preventScroll: true }); // fokus in i menyn (#246)
   }
   close() {
+    const had = this.menu.contains(document.activeElement);
     this.menu.hidden = true;
+    if (had) this.button.focus(); // tillbaka till knappen (#246)
     this.button.setAttribute('aria-expanded', 'false');
   }
 }

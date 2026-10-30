@@ -67,9 +67,15 @@ export class FocusMenu {
     this.menu.hidden = false;
     this.button.setAttribute('aria-expanded', 'true');
     this.onOpen();
+    // Fokus in i menyn (#246): första knappen, annars menyn själv
+    const first = this.menu.querySelector('button,input');
+    if (first) first.focus({ preventScroll: true });
+    else { this.menu.tabIndex = -1; this.menu.focus({ preventScroll: true }); }
   }
   close() {
+    const had = this.menu.contains(document.activeElement);
     this.menu.hidden = true;
+    if (had) this.button.focus(); // tillbaka till knappen (#246)
     this.button.setAttribute('aria-expanded', 'false');
   }
 }

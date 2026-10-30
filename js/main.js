@@ -76,6 +76,7 @@ async function start() {
 
   // Lagerväljaren: vilka lager som syns. Startläget står i index.html.
   const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu') });
+  globe.calm = layers.calm; layers.onCalm = on => { globe.calm = on; }; // Lugn rörelse (#246)
   // Teckenförklaring och klickruta för religionslagret (#166)
   const relLegend = new ReligionLegend({ legend: $('religion-legend'), pop: $('religion-pop') });
   relLegend.onFacts = id => showReligionFacts(id);

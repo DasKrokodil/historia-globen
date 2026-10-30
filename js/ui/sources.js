@@ -91,7 +91,7 @@ function collect({ sources, events, funfacts, polities, empireGroups = [], land,
 
 export class SourcesDialog {
   constructor({ root, body, close, openBtn }, data) {
-    Object.assign(this, { root, body, data });
+    Object.assign(this, { root, body, data, openBtn });
     this.onSettings = () => {};
     this.query = '';
     this.group = null;
@@ -161,8 +161,10 @@ export class SourcesDialog {
     });
     this.groups = collect(this.data, religionsDoc);
     this.render();
+    this.returnTo = this.root.hidden ? document.activeElement : this.returnTo;
     this.root.hidden = false;
     this.body.scrollTop = 0;
+    this.root.querySelector('#sources-close')?.focus({ preventScroll: true }); // fokus in i dialogen (#246)
     // Religionsdatan laddas först när den behövs; religionernas källor fylls i när den har kommit
     if (!religionsDoc) {
       loadReligions().then(doc => {
@@ -253,7 +255,13 @@ export class SourcesDialog {
     this.body.querySelector('.src-list').innerHTML = sections.join('');
   }
 
-  hide() { this.root.hidden = true; }
+  hide() {
+    this.root.hidden = true;
+    // Fokus tillbaka dit den var, normalt knappen Om källorna (#246)
+    const to = this.returnTo?.isConnected ? this.returnTo : this.openBtn;
+    this.returnTo = null;
+    to?.focus?.({ preventScroll: true });
+  }
 }
 
 /** "Används för": alla användningar, eller bara de som matchar sökningen. Långa listor fälls ihop. */
