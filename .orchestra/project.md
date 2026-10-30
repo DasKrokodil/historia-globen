@@ -67,7 +67,7 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   beslutsloggen i `docs/beslut.md` i samma pull request när något sådant ändras.
 - **Gränser och licenser:** kod GPL-3.0, data CC BY 4.0, källor och licenser enligt CLAUDE.md. Orkesterns filer i
   `.orchestra/shared` har MIT-licens och redigeras inte här. Ändringar i dem föreslås till upstream.
-- **Installerad version:** v0.6.0, commit `aecd631907c3374800e562c98125d905863ff925`, via git subtree med squash.
+- **Installerad version:** uppströms commit `84fc833611b4b69e290f3e7a829613bb72a74aa5` (efter v0.6.0, ännu utan release-tagg; innehåller reglerna från fältrapporten från Historia-globen), via git subtree med squash. Godkänd av Rikard 2026-10-30.
   Uppdatera enligt [shared/INSTALL.md](shared/INSTALL.md).
 - **Uppströmsversioner:** https://github.com/solwation/dirigenten-och-orkestern, kontrolleras när dirigenten startar
   och återanvänds i 24 timmar. Relevanta buggfixar föreslås som ett issue här. Andra uppgraderingar är frivilliga.
