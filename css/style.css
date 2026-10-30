@@ -546,6 +546,11 @@ body {
 .help-marks ul { list-style: none; margin: 4px 0 0; padding: 0; max-height: min(48vh, 360px); overflow-y: auto; }
 .help-marks li { display: flex; align-items: center; gap: 6px; padding: 4px 0; font: 400 12.5px/1.35 var(--f-body); color: var(--parchment-dim); }
 .help-marks li span { flex: 1; min-width: 0; }
+/* Frivilligt stöd via Ko-fi: en vanlig länk sist i hjälpen, ingen widget */
+.help-support { margin: 8px 0 0; border-top: 1px solid var(--line); padding-top: 8px; font: 400 12px/1.4 var(--f-body); color: var(--parchment-dim); }
+.help-support a { display: block; width: fit-content; margin-top: 4px; padding: 2px 0; font: 600 13px/1.4 var(--f-body); color: var(--brass); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, var(--brass) 45%, transparent); }
+.help-support a:hover { color: var(--parchment); text-decoration-color: currentColor; }
+.help-support a:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; border-radius: 2px; }
 .hm { flex: none; width: 32px; height: 32px; }
 .hm-ring { fill: var(--medal); stroke: var(--brass); stroke-width: 2.4; }
 .hm-track { fill: none; stroke: color-mix(in srgb, var(--brass) 28%, transparent); stroke-width: 2.2; }
