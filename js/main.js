@@ -14,7 +14,7 @@ import { FunFacts, empireStory } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
 import { LayerMenu } from './ui/layers.js';
 import { ReligionLegend } from './ui/legend.js';
-import { cluster, clusterContents } from './ui/clusters.js';
+import { cluster, clusterContents, placeLabels, dotBox } from './ui/clusters.js';
 import { FocusMenu } from './ui/focusmenu.js';
 import { Help } from './ui/help.js';
 import { FlatMap } from './ui/flatmap.js';
@@ -54,6 +54,8 @@ async function start() {
     zoomIn: $('flat-in'), zoomOut: $('flat-out'), reset: $('flat-reset'),
     sources: () => [globe.baseCanvas, globe.overlayCanvas],
     onToggle: open => { $('btn-flat').setAttribute('aria-pressed', String(open)); syncNameScale(); },
+    // Markörerna i Platt vy (#313): klick öppnar faktarutan som på globen, etiketterna som på globen
+    labels: $('flat-labels'), onSelect: id => select(id), labelText, fillLabel,
   });
 
   const layer = new EventsLayer(globe, data.events);
@@ -569,6 +571,9 @@ async function start() {
     const eventsOn = layers.on.events;
     visible = layer.update({ year, window, filters: eventsOn ? panel.filters : noEvents, selectedId, highlight: ff.highlightIds(), focusId: focusWar?.id, span });
     panel.render(visible, wholeYear, window, eventsOn, fine ? { at: `den ${timeline.format(year)}`, within } : null);
+    // Samma markörer i Platt vy (#313): de som syns på klotet, de i listan får klustras och etikett
+    flatMap.setMarkers({ list: layer.sprites.filter(sp => sp.userData.active).map(sp => sp.userData),
+      labeled: new Set(visible.map(v => v.e.id)), keep: ff.highlightIds(), selectedId });
     areas.update({ year: wholeYear });
     borders.update({ year: wholeYear });
     religions.update({ year: wholeYear });
@@ -665,6 +670,7 @@ async function start() {
     if (e && narrow.matches) panel.setOpen(false);
     if (e) {
       globe.flyTo(e._lat, e._lon);
+      flatMap.reveal(e._lat, e._lon); // i Platt vy flyttas kartan dit om platsen inte syns
       // Hoppa i tiden om händelsen ligger långt bort
       if (jump && (timeline.year < e.start - 400 || timeline.year > e.end + 400)) timeline.year = e.start;
     }
@@ -702,7 +708,7 @@ async function start() {
   });
   panel.onFilter = refresh;
   ff.onSelect = select;
-  ff.onArcs = pairs => globe.setArcs(pairs);
+  ff.onArcs = pairs => { globe.setArcs(pairs); flatMap.setArcs(pairs); };
   ff.onSources = ids => sources.open(ids);
   // Uppspelningen stannar vid en ny fun fact, så att man hinner läsa. Play fortsätter.
   // Ihopfällt kort: ingen paus, eftersom kortet inte syns
@@ -783,6 +789,21 @@ async function start() {
   panel.onOpen = () => { layers.close(); focusMenu.close(); };
   layers.onOpen = () => { panel.setOpen(false); focusMenu.close(); };
 
+  // Etikettens text och beskrivning, samma på globen och i Platt vy (#313).
+  // Händelser i ett krig får årtalet framför namnet, i ett kort krig datumet (#204)
+  function labelText(e) {
+    return !e.partOf ? t(e.title) : `${focus?.fine ? dayParts(edtfSpan(e)[0])[0] : formatYear(e.start)} · ${t(e.title)}`;
+  }
+  function fillLabel(el, e, text) {
+    if (el._text !== text) { // texten byts när fokusläget för ett kort krig börjar eller slutar
+      el._text = text;
+      el.innerHTML = `<span class="dot" style="background:${CAT[e.category]?.color}"></span>${text.replace(/</g, '&lt;')}`;
+    }
+    // Samma betydelse som medaljen, i ord (#242): tidsläge, betydelse och osäkerhet
+    const desc = `${t(e.title)}, ${formatEventTime(e)}: ${describeMarker(markerInfo(e, layer.state.get(e.id)?.when))}`;
+    if (el._desc !== desc) { el._desc = desc; el.setAttribute('aria-label', desc); el.title = desc; }
+  }
+
   // Etiketter för synliga händelser, utan överlapp
   const labelsEl = $('labels');
   const pool = new Map();
@@ -856,28 +877,14 @@ async function start() {
       el.hidden = false;
     });
     for (let i = clusters.length; i < clusterPool.length; i++) clusterPool[i].hidden = true;
-    // Etiketterna får inte hamna utanför skärmen eller ovanpå andra markörer och klusterbrickor (#142)
+    // Etiketterna får inte hamna utanför skärmen eller ovanpå andra markörer och klusterbrickor (#142).
+    // Samma regel i Platt vy (placeLabels i ui/clusters.js, #313).
     const W = globe.canvas.clientWidth, H = globe.canvas.clientHeight;
-    const dotBox = (x, y, r) => ({ x0: x - r, x1: x + r, y0: y - r, y1: y + r });
-    const hit = (a, b) => a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b.y0;
-    const markers = items.filter(it => it.p.facing > 0.05 && !clustered.has(it.e.id)).map(it => ({ id: it.e.id, box: dotBox(it.p.x, it.p.y, Math.max(9, (layer.byId.get(it.e.id)?.userData.px ?? 18) / 2)) }));
+    const pxOf = e => layer.byId.get(e.id)?.userData.px;
+    const markers = items.filter(it => it.p.facing > 0.05 && !clustered.has(it.e.id)).map(it => ({ id: it.e.id, box: dotBox(it.p.x, it.p.y, Math.max(9, (pxOf(it.e) ?? 18) / 2)) }));
     const badges = clusters.map(c => dotBox(c.x, c.y, 16));
-    const placed = [];
     const seen = new Set();
-    for (const { e, p } of singles.slice(0, 14)) {
-      if (p.facing < 0.2) continue;
-      // Händelser i ett krig får årtalet framför namnet, i ett kort krig datumet (#204)
-      const text = !e.partOf ? t(e.title) : `${focus?.fine ? dayParts(edtfSpan(e)[0])[0] : formatYear(e.start)} · ${t(e.title)}`;
-      const w = text.length * 6.6 + 30, h = 22;
-      if (p.x < 0 || p.x > W || p.y < 0 || p.y > H) continue; // markören syns inte, då visas ingen etikett
-      // Skjut etiketten inåt så att hela rutan syns
-      const cx = Math.min(Math.max(p.x, w / 2 + 4), Math.max(w / 2 + 4, W - w / 2 - 4));
-      const off = Math.max(14, (layer.byId.get(e.id)?.userData.px ?? 0) / 2 + 3); // ovanför markören, som växer med zoomen (#242)
-      const box = { x0: cx - w / 2, x1: cx + w / 2, y0: p.y - off - h, y1: p.y - off };
-      if (box.y0 < 4) continue;
-      if (e.id !== hoverId && (placed.some(b => hit(box, b)) || badges.some(b => hit(box, b)) ||
-          markers.some(m => m.id !== e.id && hit(box, m.box)))) continue;
-      placed.push(box);
+    for (const { e, p, text, x, y } of placeLabels(singles, { W, H, hoverId, markers, badges, text: labelText, pxOf })) {
       let el = pool.get(e.id);
       if (!el) {
         el = document.createElement('button');
@@ -885,15 +892,9 @@ async function start() {
         el.addEventListener('click', () => select(e.id));
         labelsEl.append(el); pool.set(e.id, el);
       }
-      if (el._text !== text) { // texten byts när fokusläget för ett kort krig börjar eller slutar
-        el._text = text;
-        el.innerHTML = `<span class="dot" style="background:${CAT[e.category]?.color}"></span>${text.replace(/</g, '&lt;')}`;
-      }
-      // Samma betydelse som medaljen, i ord (#242): tidsläge, betydelse och osäkerhet
-      const desc = `${t(e.title)}, ${formatEventTime(e)}: ${describeMarker(markerInfo(e, layer.state.get(e.id)?.when))}`;
-      if (el._desc !== desc) { el._desc = desc; el.setAttribute('aria-label', desc); el.title = desc; }
+      fillLabel(el, e, text);
       el.classList.toggle('glabel-hover', e.id === hoverId);
-      el.style.transform = `translate(${cx}px, ${p.y - off + 2}px) translate(-50%, -100%)`;
+      el.style.transform = `translate(${x}px, ${y}px) translate(-50%, -100%)`;
       el.style.opacity = String(Math.min(1, (p.facing - 0.2) * 4));
       el.hidden = false;
       seen.add(e.id);

@@ -56,3 +56,34 @@ export function clusterContents(members, CAT, t) {
   });
   return { text, ring: `conic-gradient(${stops.join(', ')})` };
 }
+
+/** Ruta runt en markör eller klunga på skärmen. */
+export const dotBox = (x, y, r) => ({ x0: x - r, x1: x + r, y0: y - r, y1: y + r });
+const overlaps = (a, b) => a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b.y0;
+
+/**
+ * Etiketter utan överlapp (#142), samma regel på globen och i Platt vy (#313): högst 14 av de viktigaste
+ * markörerna (singles i ordning, viktigast först) får etikett ovanför markören. En etikett får inte hamna
+ * utanför ytan eller ovanpå andra etiketter, markörer (markers: [{ id, box }]) eller klungor (badges: [box]).
+ * Markören under muspekaren (hoverId) får alltid sin etikett. pxOf(e) är markörens storlek på skärmen.
+ * Returnerar [{ e, p, text, x, y }] där (x, y) är etikettens nedre mittpunkt.
+ */
+export function placeLabels(singles, { W, H, hoverId, markers, badges, text, pxOf }) {
+  const placed = [], out = [];
+  for (const { e, p } of singles.slice(0, 14)) {
+    if ((p.facing ?? 1) < 0.2) continue;
+    const label = text(e);
+    const w = label.length * 6.6 + 30, h = 22;
+    if (p.x < 0 || p.x > W || p.y < 0 || p.y > H) continue; // markören syns inte, då visas ingen etikett
+    // Skjut etiketten inåt så att hela rutan syns
+    const cx = Math.min(Math.max(p.x, w / 2 + 4), Math.max(w / 2 + 4, W - w / 2 - 4));
+    const off = Math.max(14, (pxOf(e) ?? 0) / 2 + 3); // ovanför markören, som växer med zoomen (#242)
+    const box = { x0: cx - w / 2, x1: cx + w / 2, y0: p.y - off - h, y1: p.y - off };
+    if (box.y0 < 4) continue;
+    if (e.id !== hoverId && (placed.some(b => overlaps(box, b)) || badges.some(b => overlaps(box, b)) ||
+        markers.some(m => m.id !== e.id && overlaps(box, m.box)))) continue;
+    placed.push(box);
+    out.push({ e, p, text: label, x: cx, y: p.y - off + 2 });
+  }
+  return out;
+}
