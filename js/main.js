@@ -896,12 +896,13 @@ async function start() {
     const pxOf = e => layer.byId.get(e.id)?.userData.px;
     const markers = items.filter(it => it.p.facing > 0.05 && !clustered.has(it.e.id)).map(it => ({ id: it.e.id, box: dotBox(it.p.x, it.p.y, Math.max(9, (pxOf(it.e) ?? 18) / 2)) }));
     const badges = clusters.map(c => dotBox(c.x, c.y, 16));
-    // I smal skärm ligger rubriken, årtalet, knappgrupperna och teckenförklaringen över globen: etiketter som skulle
-    // hamna under dem visas inte (#289). Rutorna räknas om i canvasens koordinater.
+    // Knapparna och raderna längst ner ligger alltid över globen (#318), och i smal skärm också rubriken, årtalet,
+    // knappgrupperna och teckenförklaringen (#289): etiketter som skulle hamna under dem visas inte.
+    // Rutorna räknas om i canvasens koordinater.
     const blocked = [];
-    if (narrowView.matches) {
+    {
       const c = globe.canvas.getBoundingClientRect();
-      for (const el of document.querySelectorAll(UI_OVER_GLOBE)) {
+      for (const el of document.querySelectorAll(narrowView.matches ? `${UI_OVER_GLOBE}, ${UI_BOTTOM}` : UI_BOTTOM)) {
         if (el.hidden || !el.offsetParent) continue;
         const r = el.getBoundingClientRect();
         if (r.width) blocked.push({ x0: r.left - c.left - 4, x1: r.right - c.left + 4, y0: r.top - c.top - 4, y1: r.bottom - c.top + 4 });
@@ -941,6 +942,7 @@ async function start() {
 
 const narrowView = matchMedia('(max-width: 760px)');
 const UI_OVER_GLOBE = '.brand, #year-jump, #year-segment, .action-group, #religion-legend';
+const UI_BOTTOM = '.timebar .controls > *, #war-play, #pause-note, #focus-bar';
 
 /** Korten ovanför fokusraden (#183): fokusraden växer när raden "Tiden flyttades" syns och flyttas upp när pausraden
  *  syns, så CSS får höjden som --focus-top (avstånd från sidans underkant till fokusradens ovankant). */
