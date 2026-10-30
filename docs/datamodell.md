@@ -12,7 +12,7 @@ Alla datafiler i `data/` och deras fält. Standarderna (årtal, osäkerhet, prec
 | Plats | GeoJSON i WGS 84, `[longitud, latitud]` | `{ "type": "Point", "coordinates": [35.226, 31.779] }` |
 | Text | Per språk, svenska först. Saknas ett språk visas engelska, sedan svenska. | `{ "sv": "Jerusalem" }` |
 | Källor | Lista med id ur `sources.json` | `["wp-crucifixion"]` |
-| Granskning | `review`: `draft`, `source-checked`, `two-sources` eller `human-reviewed`. Se [kallor.md](kallor.md). | `"source-checked"` |
+| Granskning | `review`: `draft`, `source-checked` eller `two-sources`. Se [kallor.md](kallor.md). | `"source-checked"` |
 
 ## `events.json`: händelser
 

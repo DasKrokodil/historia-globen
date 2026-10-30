@@ -20,6 +20,8 @@ export function empireStory(group, byId) {
     sources: m.sources ?? [], review: group.facts.review,
   }));
 }
+// Grafisk symbol när ett krigskort saknar bilder (#237): händelsens egen ikon, annars kategorins.
+const CAT_ICON = { krig: 'swords', civilisationer: 'crown', religion: 'dome', vetenskap: 'scroll', upptackter: 'ship', kultur: 'columns', rymden: 'rocket', ekonomi: 'ship', klimat: 'mountain-city' };
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 export class FunFacts {
@@ -77,11 +79,13 @@ export class FunFacts {
    * den fulla märkningen står i faktarutan). Händelser utan bild får en ruta med tidsålderns ram.
    * Inga bilder i kortet alls: ingen bildrad.
    */
-  _renderPics(evs) {
+  _renderPics(evs, kind) {
     const withImg = evs.filter(e => e.image), rest = evs.filter(e => !e.image);
     const shown = [...withImg, ...rest].slice(0, 3);
     this.pics.hidden = !withImg.length;
     this.root.classList.toggle('ff-has-pics', !!withImg.length);
+    this.root.classList.remove('ff-sym');
+    if (!withImg.length && kind === 'war' && evs.length) return this._renderSymbol(evs[0]);
     if (!withImg.length) { this.pics.innerHTML = ''; return; }
     this.pics.style.setProperty('--n', shown.length);
     this.pics.innerHTML = shown.map(e => {
@@ -94,6 +98,24 @@ export class FunFacts {
       </button>`;
     }).join('');
     for (const b of this.pics.querySelectorAll('.ff-pic')) b.addEventListener('click', () => this.onSelect(b.dataset.id));
+  }
+
+  /**
+   * Krigskort utan bild (#237): en egenritad grafisk symbol (ikon i stor storlek på tidsålderns ram), märkt
+   * "Grafisk symbol" och aldrig "Illustration", eftersom det varken är en bild eller en historisk bild.
+   * Knapparna med händelserna under finns kvar, och symbolen öppnar faktarutan för krigets händelse.
+   */
+  _renderSymbol(e) {
+    const st = styleFor(e, this.styles), icon = e.icon || CAT_ICON[e.category] || 'star';
+    this.pics.hidden = false;
+    this.root.classList.add('ff-sym');
+    this.pics.style.setProperty('--n', 1);
+    this.pics.innerHTML = `<button type="button" class="ff-pic ff-symbol frame-${st.frame} no-img" data-id="${esc(e.id)}" aria-label="Läs mer: ${esc(t(e.title))}">
+      <img class="ff-sym-icon" src="img/icons/${esc(icon)}.svg" alt="" width="64" height="64">
+      <span class="ff-badge">Grafisk symbol</span>
+      <span class="ff-cap"><span class="ff-more">Läs mer ›</span></span>
+    </button>`;
+    this.pics.querySelector('.ff-pic').addEventListener('click', ev => this.onSelect(ev.currentTarget.dataset.id));
   }
 
   highlightIds() {
@@ -112,7 +134,7 @@ export class FunFacts {
     if (this.pre) this.pre.hidden = story;
     this.kind.textContent = story ? `${KIND.empire} · ${f.empire}` : KIND[f.kind ?? 'funfact'];
     const evs = f.events.map(id => this.byId[id]);
-    this._renderPics(evs);
+    this._renderPics(evs, f.kind);
     if (story) {
       this.text.innerHTML = `<span class="ff-story-head"><span class="ff-year">${esc(f.label)}</span> ${esc(f.title)}</span>`
         + `<span class="ff-story-text">${esc(f.body)}</span>`

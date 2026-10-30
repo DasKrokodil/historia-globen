@@ -68,9 +68,9 @@ Nya lager läggs i `js/layers/`, ny UI i `js/ui/`, ny data i `data/`. Uppdatera 
 Rikard är mycket mån om att inget påhittat hamnar på globen. Följ detta strikt:
 
 1. **Ingen uppgift utan källa.** Varje händelse och fun fact pekar på minst en post i `data/sources.json` (id, titel, url, licens, datum då den kontrollerades).
-2. **Granskningsstatus** i fältet `review`: `draft` → `source-checked` → `two-sources` → `human-reviewed`. Alla utom `draft` visas på globen. `two-sources` betyder att årtal och plats har jämförts med en andra, oberoende källa (till exempel Wikidata) och stämmer; båda källorna står i `sources`. Statusen syns i detaljvyn och under Om källorna, inte som eget märke på globen.
+2. **Granskningsstatus** i fältet `review`: `draft` → `source-checked` → `two-sources`. Alla utom `draft` visas på globen. Det är källkontrollen som gäller: vi litar på det källorna säger, och ingen människa granskar uppgifterna i efterhand (beslut 2026-10-30, #252). `two-sources` betyder att årtal och plats har jämförts med en andra, oberoende källa (till exempel Wikidata) och stämmer; båda källorna står i `sources`. Statusen syns i detaljvyn och under Om källorna, inte som eget märke på globen.
 3. **Du får aldrig skriva fakta ur minnet.** Allt du lägger till är `draft` tills du har öppnat källsidan och sett att årtal, plats och påståenden stämmer. Då får du sätta `source-checked`.
-4. **Du får aldrig sätta `human-reviewed`.** Det gör bara Rikard.
+4. **Är källorna oense, skriv det öppet** i uppgiften (till exempel i händelsens `note`, "Källorna skiljer sig") i stället för att välja en av dem i tysthet. Nivån höjs inte till `two-sources` när källorna inte stämmer.
 5. **Fun facts** som jämför saker behöver källa för alla led. Siffror i texten (till exempel "229 år") ska gå att räkna fram ur händelsernas årtal.
 6. **Visa osäkerhet öppet** ("cirka", spann) i stället för falsk exakthet. Om källor är oense, skriv det.
 7. Wikipedia räknas som sekundärkälla. Den duger för prototypen, men hellre den källa Wikipedia själv hänvisar till, eller forskningsdata.
@@ -157,7 +157,6 @@ Regler:
 ## Öppna frågor (Rikard bestämmer)
 
 - Ska projektet få en egen .se-domän, och behålls namnet Historia-globen eller blir det ett internationellt namn?
-- Hur granskningen ska gå till framåt. Förslag: Rikard granskar fun facts, och händelser kontrolleras mot en andra oberoende källa.
 - Vilket fördjupningsläge kommer först (till exempel andra världskriget)?
 
 ## Beslutslogg

@@ -372,7 +372,6 @@ body {
   color: var(--parchment-dim);
 }
 .review-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--brass); }
-.review-badge.human::before { background: var(--ok); }
 .review-badge.two::before { background: var(--ok); box-shadow: 4px 0 0 var(--brass); margin-right: 4px; }
 .review-badge.draft::before { background: var(--danger); }
 
@@ -474,6 +473,9 @@ body {
 .ff-pic.no-img .ff-cap { top: 0; justify-content: center; align-items: center; padding: 8px; background: none; }
 .ff-name { align-self: stretch; font: 500 12.5px/1.2 var(--f-body); color: var(--parchment); text-shadow: 0 1px 2px rgba(0,0,0,.6); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
 .ff-pic.no-img .ff-name { align-self: center; text-align: center; color: var(--card-ink); text-shadow: none; font-family: var(--f-display); font-size: 14px; }
+.ff-symbol.ff-pic { height: 96px; }
+.ff-symbol .ff-sym-icon { position: absolute; left: 50%; top: 44%; width: 56px; height: 56px; transform: translate(-50%, -50%); object-fit: contain; opacity: .8; background: none; }
+.ff-symbol.no-img .ff-cap { top: auto; justify-content: flex-end; align-items: flex-end; padding: 14px 7px 6px; }
 .ff-more { padding: 4px 8px; border-radius: 999px; font: 600 11px/1 var(--f-body); color: #22190c; background: var(--brass); white-space: nowrap; }
 
 /* ---------- tidslinjen ---------- */
@@ -605,7 +607,6 @@ body {
 .lv-txt i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
 .lv-checked { background: var(--brass-deep); }
 .lv-two { background: var(--brass); }
-.lv-human { background: var(--ok); }
 .lv-draft { background: var(--parchment-dim); }
 .src-search { display: flex; align-items: center; gap: 8px; }
 .src-search label { font: 500 11px/1 var(--f-mono); text-transform: uppercase; letter-spacing: .05em; color: var(--parchment-dim); }
@@ -653,6 +654,23 @@ details.used-by summary:hover { color: var(--parchment); }
 .pause-go {
   font: 600 12px/1 var(--f-mono); color: var(--night); background: var(--brass);
   border: 1px solid var(--brass); border-radius: 999px; padding: 6px 12px; cursor: pointer; white-space: nowrap;
+}
+/* "Nästa paus: …" när man följer ett krig (#244): diskret till höger om knapparna i bred skärm,
+   i pausraden när skärmen är smalare, så att tidsraden inte blir högre */
+.controls { position: relative; }
+.next-pause {
+  position: absolute; top: 0; left: calc(50% + 250px); max-width: calc(50% - 260px);
+  font: 400 11px/32px var(--f-mono); color: var(--parchment-dim);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; pointer-events: none;
+}
+.next-pause[hidden], .pause-next { display: none; }
+.pause-next { color: var(--parchment-dim); }
+@media (max-width: 1099px) {
+  .next-pause { display: none; }
+  /* Pausraden får två rader: orsaken överst, "Nästa: …" och knappen under, så att den inte blir högre än förut i mobilen */
+  .pause-note:has(.pause-next:not([hidden])) { border-radius: var(--r); }
+  .pause-note:has(.pause-next:not([hidden])) #pause-text { flex-basis: 100%; }
+  .pause-next:not([hidden]) { display: block; flex: 1 1 0; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 }
 .focus-bar {
   position: absolute; z-index: 14;
@@ -732,7 +750,10 @@ details.used-by summary:hover { color: var(--parchment); }
 @media (prefers-reduced-motion: reduce) {
   .funfact { animation: none; }
   .glabel { transition: none; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
 }
+/* Lugn rörelse (#246): samma sak som reducerad rörelse, men som val i Lager (klassen sätts på html) */
+.calm *, .calm *::before, .calm *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
 
 /* ---------- bild i faktarutan (#129) ---------- */
 .detail-fig { position: relative; margin: -14px -16px 10px; }

@@ -51,7 +51,10 @@ export class Panel {
       filters.append(b);
     }
 
-    toggle.addEventListener('click', () => this.setOpen(!root.classList.contains('open')));
+    toggle.addEventListener('click', () => {
+      this.setOpen(!root.classList.contains('open'));
+      if (root.classList.contains('open')) close?.focus({ preventScroll: true }); // fokus in i panelen (#246)
+    });
     close?.addEventListener('click', () => this.setOpen(false));
     document.addEventListener('keydown', ev => { if (ev.key === 'Escape') { this.setOpen(false); if (!detail.hidden) this.onSelect(null); } });
   }
@@ -65,6 +68,7 @@ export class Panel {
       // I dator går lådan ner till tidslinjen, i mobil täcker den högst 60 procent
       this.root.style.maxHeight = innerWidth > 760 ? `calc(100dvh - ${r.bottom + 150}px)` : `min(60vh, calc(100dvh - ${r.bottom + 150}px))`;
     }
+    if (!open && this.root.contains(document.activeElement)) this.toggle.focus({ preventScroll: true }); // tillbaka till knappen (#246)
     this.root.classList.toggle('open', open);
     this.root.parentElement.classList.toggle('panel-open', open);
     this.toggle.setAttribute('aria-expanded', String(open));

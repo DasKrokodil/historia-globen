@@ -79,6 +79,7 @@ export class Globe {
     this.raycaster = new THREE.Raycaster();
     this.frameCallbacks = [];
     this.autoRotate = true;
+    this.calm = false; // Lugn rörelse (#246): ingen automatisk snurr, ingen flygning, ingen utrullning
     this._vel = { x: 0, y: 0 };
     this._fly = null;
 
@@ -199,13 +200,14 @@ export class Globe {
     const tx = Math.max(-1.25, Math.min(1.25, lat * DEG));
     this.autoRotate = false;
     this._vel = { x: 0, y: 0 };
+    if (this.calm) ms = 1; // hoppar i stället för att flyga
     this._fly = { t0: performance.now(), ms, fx: this.group.rotation.x, fy: cy, tx, ty };
   }
 
   _initControls() {
     const el = this.canvas;
     const pts = new Map();
-    let last = null, moved = 0, pinch0 = 0, zoom0 = 1;
+    let last = null, moved = 0, pinch0 = 0, zoom0 = 1, lastTap = null;
     el.addEventListener('pointerdown', e => {
       el.setPointerCapture(e.pointerId);
       pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
@@ -236,7 +238,19 @@ export class Globe {
       if (!pts.has(e.pointerId)) return;
       pts.delete(e.pointerId);
       el.classList.remove('dragging');
-      if (moved < 6 && e.type === 'pointerup' && this.onClick) this.onClick(e.clientX, e.clientY);
+      if (moved < 6 && e.type === 'pointerup') {
+        // Dubbeltryck med finger eller penna (#233): zooma in ett steg mot punkten. Sidan zoomas inte (touch-action och gesturestart-skyddet finns kvar).
+        const now = performance.now();
+        if (e.pointerType !== 'mouse' && lastTap && now - lastTap.t < 350 && Math.hypot(e.clientX - lastTap.x, e.clientY - lastTap.y) < 30) {
+          lastTap = null;
+          const at = this.pickLatLon(e.clientX, e.clientY);
+          if (at) this.flyTo(at.lat, at.lon, 500);
+          this.setZoom(this.zoom * 1.6);
+          return;
+        }
+        lastTap = { x: e.clientX, y: e.clientY, t: now };
+        this.onClick?.(e.clientX, e.clientY);
+      }
     };
     el.addEventListener('pointerup', end);
     el.addEventListener('pointercancel', end);
@@ -296,9 +310,9 @@ export class Globe {
       this.group.rotation.x = f.fx + (f.tx - f.fx) * e;
       this.group.rotation.y = f.fy + (f.ty - f.fy) * e;
       if (s >= 1) this._fly = null;
-    } else if (this.autoRotate) {
+    } else if (this.autoRotate && !this.calm) {
       this.group.rotation.y += 0.0009;
-    } else if (Math.abs(this._vel.x) + Math.abs(this._vel.y) > 1e-5) {
+    } else if (!this.calm && Math.abs(this._vel.x) + Math.abs(this._vel.y) > 1e-5) {
       this.group.rotation.y += this._vel.y;
       this.group.rotation.x = Math.max(-1.25, Math.min(1.25, this.group.rotation.x + this._vel.x));
       this._vel.x *= 0.92; this._vel.y *= 0.92;

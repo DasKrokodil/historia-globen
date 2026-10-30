@@ -65,8 +65,11 @@
     <label class="layer-row"><input type="checkbox" data-layer="keep"> Behåll mina lager i fokus <span class="layer-note">annars dämpas riken och religioner som inte hör till det man följer</span></label>
     <div class="layer-heading">Kategorier</div>
     <div id="filters" class="filters" role="group" aria-label="Kategorier"></div>
+    <div class="layer-heading">Rörelse</div>
+    <label class="layer-row"><input type="checkbox" data-calm> Lugn rörelse <span class="layer-note">ingen automatisk snurr, globen hoppar i stället för att flyga, inga övergångar · följer webbläsarens inställning för reducerad rörelse</span></label>
     <div class="layer-heading">Pausa uppspelningen vid</div>
     <label class="layer-row"><input type="checkbox" data-pause="funfacts" checked aria-label="Pausa vid Samtidigt-kortet"> Samtidigt-kortet <span class="layer-note">fun facts och annat som hände samtidigt</span></label>
+    <label class="layer-row"><input type="checkbox" data-pause="focusFunfacts" aria-label="Pausa vid Samtidigt-kortet även i fokusläget"> Samtidigt-kortet även i fokusläget <span class="layer-note">annars pausar Fokus bara vid det man följer</span></label>
     <label class="layer-row"><input type="checkbox" data-pause="wars"> När ett krig bryter ut</label>
     <label class="layer-row"><input type="checkbox" data-pause="major" checked> Stora händelser när man följer ett krig</label>
     <label class="layer-row"><input type="checkbox" data-pause="empire" checked> Nyckelår när man följer ett rike <span class="layer-note">varför riket växer eller krymper</span></label>
@@ -122,6 +125,7 @@
   <footer class="timebar">
     <div id="pause-note" class="pause-note" role="status" hidden>
       <span id="pause-text"></span>
+      <span id="pause-next" class="pause-next" hidden></span>
       <button id="pause-go" class="pause-go" type="button">&#9654; Fortsätt</button>
     </div>
     <div class="controls">
@@ -135,6 +139,7 @@
       <button class="step" type="button" data-step="10" aria-label="10 år framåt">+10</button>
       <button class="step" type="button" data-step="100" aria-label="100 år framåt">+100</button>
       <button id="btn-speed" class="step speed" type="button" title="Uppspelningshastighet: 25 år/s">25 år/s</button>
+      <span id="next-pause" class="next-pause" hidden></span>
     </div>
     <div id="track" class="track" role="slider" tabindex="0" aria-label="År" aria-valuemin="-2999" aria-valuemax="2026">
       <div class="track-segments" id="track-segments"></div>

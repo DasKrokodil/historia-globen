@@ -17,9 +17,8 @@ const GROUPS = [
   { id: 'other', label: 'Övriga källor' },
 ];
 const LEVELS = [
-  { key: 'checked', review: 'source-checked', label: 'källa kontrollerad' },
+  { key: 'checked', review: 'source-checked', label: 'källkontrollerade' },
   { key: 'two', review: 'two-sources', label: 'två källor' },
-  { key: 'human', review: 'human-reviewed', label: 'granskade' },
   { key: 'draft', review: 'draft', label: 'utkast' },
 ];
 const KINDS = {
@@ -81,7 +80,7 @@ function collect({ sources, events, funfacts, polities, empireGroups = [], land,
     g.counts = Object.fromEntries(LEVELS.map(l => [l.key, 0]));
     for (const it of g.items) {
       if (!it.review) continue;
-      const l = LEVELS.find(l => l.review === it.review) ?? LEVELS[3];
+      const l = LEVELS.find(l => l.review === it.review) ?? LEVELS.find(l => l.key === 'draft');
       g.counts[l.key]++;
     }
     g.reviewed = g.items.filter(it => it.review).length;
@@ -91,7 +90,7 @@ function collect({ sources, events, funfacts, polities, empireGroups = [], land,
 
 export class SourcesDialog {
   constructor({ root, body, close, openBtn }, data) {
-    Object.assign(this, { root, body, data });
+    Object.assign(this, { root, body, data, openBtn });
     this.onSettings = () => {};
     this.query = '';
     this.group = null;
@@ -111,14 +110,13 @@ export class SourcesDialog {
     const total = doc => {
       // Religionslagrets riken: med kontrollerat år för kristnandet har de en egen källa
       const states = (doc?.polities ?? []).filter(p => p.source).map(() => ({ review: 'source-checked' }));
-      const counts = { checked: 0, two: 0, human: 0, draft: 0 };
+      const counts = { checked: 0, two: 0, draft: 0 };
       for (const x of [...events, ...funfacts, ...polities, ...empireFacts, ...states]) {
-        if (x.review === 'human-reviewed') counts.human++;
-        else if (x.review === 'two-sources') counts.two++;
+        if (x.review === 'two-sources') counts.two++;
         else if (x.review === 'source-checked') counts.checked++;
         else counts.draft++;
       }
-      return `${counts.checked} uppgifter har kontrollerad källa. ${counts.two} har dessutom en andra källa som stämmer. Båda grupperna väntar på granskning av människa. ${counts.human} är granskade. ${counts.draft} är utkast.`;
+      return `${counts.checked + counts.two} uppgifter har kontrollerad källa, och för ${counts.two} av dem stämmer också en andra källa. ${counts.draft} är utkast.`;
     };
 
     this.body.innerHTML = `
@@ -126,10 +124,10 @@ export class SourcesDialog {
       <h3>Källpolicy</h3>
       <ol>
         <li>Varje uppgift har minst en källa, med länk och datum då den kontrollerades.</li>
-        <li>Varje uppgift har en granskningsstatus: utkast, källa kontrollerad, två källor stämmer eller granskad av människa. Utkast visas inte.</li>
+        <li>Varje uppgift har en granskningsstatus: utkast, källkontrollerad eller två källor stämmer. Utkast visas inte.</li>
         <li>"Två källor stämmer" betyder att årtal och plats har jämförts med en andra, oberoende källa, till exempel Wikidata, och att de stämmer.</li>
         <li>Uppgifter som Claude föreslår är utkast tills källan är öppnad och stämmer.</li>
-        <li>Osäkerhet visas öppet, till exempel "cirka" eller ett spann.</li>
+        <li>Osäkerhet visas öppet, till exempel "cirka" eller ett spann. Om källorna är oense står det i faktarutan.</li>
         <li>En fun fact som jämför två saker har källa för båda leden.</li>
       </ol>
       <h3>Läget just nu</h3>
@@ -145,7 +143,7 @@ export class SourcesDialog {
       <div class="src-list"></div>
       <div class="check-row">
         <input type="checkbox" id="show-drafts" ${settings.showDrafts ? 'checked' : ''}>
-        <label for="show-drafts">Visa även utkast (för den som granskar)</label>
+        <label for="show-drafts">Visa även utkast (för den som kontrollerar källor)</label>
       </div>`;
     this.body.querySelector('[data-all]')?.addEventListener('click', () => this.open());
     this.body.querySelector('#show-drafts').addEventListener('change', e => {
@@ -161,8 +159,10 @@ export class SourcesDialog {
     });
     this.groups = collect(this.data, religionsDoc);
     this.render();
+    this.returnTo = this.root.hidden ? document.activeElement : this.returnTo;
     this.root.hidden = false;
     this.body.scrollTop = 0;
+    this.root.querySelector('#sources-close')?.focus({ preventScroll: true }); // fokus in i dialogen (#246)
     // Religionsdatan laddas först när den behövs; religionernas källor fylls i när den har kommit
     if (!religionsDoc) {
       loadReligions().then(doc => {
@@ -253,7 +253,13 @@ export class SourcesDialog {
     this.body.querySelector('.src-list').innerHTML = sections.join('');
   }
 
-  hide() { this.root.hidden = true; }
+  hide() {
+    this.root.hidden = true;
+    // Fokus tillbaka dit den var, normalt knappen Om källorna (#246)
+    const to = this.returnTo?.isConnected ? this.returnTo : this.openBtn;
+    this.returnTo = null;
+    to?.focus?.({ preventScroll: true });
+  }
 }
 
 /** "Används för": alla användningar, eller bara de som matchar sökningen. Långa listor fälls ihop. */
