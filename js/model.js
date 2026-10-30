@@ -257,6 +257,27 @@ export function loadEmpire(group) {
   return empireFiles.get(group.id);
 }
 
+/**
+ * Vägar och resor (#38): data/routes/index.json listar filerna (files), och varje fil har { routes: [...] }.
+ * Filerna laddas efter starten, så att sidan inte väntar på dem. En fil som saknas eller inte går att läsa
+ * hoppas över med en varning, och saknas index.json blir det inga vägar; sidan fungerar ändå.
+ * En post i files är en sökväg från repots rot ("data/routes/columbus.json") eller ett filnamn i data/routes/.
+ */
+let routesPromise = null;
+export function loadRoutes() {
+  routesPromise ??= getJSON('data/routes/index.json').then(async index => {
+    const paths = (index.files ?? []).map(f => typeof f === 'string' ? f : f?.file).filter(Boolean)
+      .map(f => f.includes('/') ? f : `data/routes/${f}`);
+    const files = await Promise.allSettled(paths.map(getJSON));
+    return files.flatMap((r, i) => {
+      if (r.status === 'fulfilled' && Array.isArray(r.value?.routes)) return r.value.routes;
+      console.warn(`Vägarna i ${paths[i]} kunde inte läsas`, r.reason ?? '');
+      return [];
+    });
+  }).catch(err => { console.warn('Vägar och resor kunde inte laddas', err); return []; });
+  return routesPromise;
+}
+
 /** Religionsdatan är stor och laddas först när religionslagret slås på. */
 let religionsPromise = null;
 export function loadReligions() {

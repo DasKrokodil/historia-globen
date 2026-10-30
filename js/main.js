@@ -1,6 +1,6 @@
 // Startar allt och kopplar ihop delarna:
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
-import { loadAll, loadReligions, loadReligionPolities, loadEmpire, CAT, t, symbolUrl, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays, dayParts } from './model.js';
+import { loadAll, loadRoutes, loadReligions, loadReligionPolities, loadEmpire, CAT, t, symbolUrl, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays, dayParts } from './model.js';
 import { Globe } from './globe.js';
 import { Timeline, segmentName, setupYearJump, MAX_YEAR } from './timeline.js';
 import { EventsLayer, markerInfo, describeMarker } from './layers/events.js';
@@ -9,11 +9,13 @@ import { BordersLayer } from './layers/borders.js';
 import { ReligionsLayer } from './layers/religions.js';
 import { OriginMarkers } from './layers/origins.js';
 import { WarsLayer } from './layers/wars.js';
+import { LinesLayer } from './layers/lines.js';
 import { Panel } from './ui/panel.js';
 import { FunFacts, empireStory } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
 import { LayerMenu } from './ui/layers.js';
 import { ReligionLegend } from './ui/legend.js';
+import { RoutePop } from './ui/routepop.js';
 import { cluster, clusterContents, placeLabels, dotBox } from './ui/clusters.js';
 import { FocusMenu } from './ui/focusmenu.js';
 import { Help } from './ui/help.js';
@@ -69,6 +71,9 @@ async function start() {
   let glyphRaf = 0;
   religions.onGlyph = () => { cancelAnimationFrame(glyphRaf); glyphRaf = requestAnimationFrame(() => refresh()); };
   const wars = new WarsLayer(data.events);
+  // Vägar och resor (#38): filerna laddas efter starten, och lagret ritas om när de har kommit
+  const routes = new LinesLayer();
+  loadRoutes().then(list => { routes.setRoutes(list); refresh(); });
   const panel = new Panel({
     root: $('panel'), list: $('event-list'), filters: $('filters'), detail: $('detail'),
     sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'), close: $('panel-close'),
@@ -106,6 +111,9 @@ async function start() {
   globe.calm = layers.calm; layers.onCalm = on => { globe.calm = on; }; // Lugn rörelse (#246)
   // Teckenförklaring och klickruta för religionslagret (#166)
   const relLegend = new ReligionLegend({ legend: $('religion-legend'), pop: $('religion-pop') });
+  // Klickrutan för vägar och resor (#38); "Läs mer" öppnar den kopplade händelsen
+  const routePop = new RoutePop($('route-pop'), data);
+  routePop.onEvent = id => select(id);
   relLegend.onFacts = id => showReligionFacts(id);
   relLegend.onAbout = () => showAboutReligions(); // "Läs om religionerna" (#308)
   relLegend.names = new Map(data.polities.map(p => [p.name.en, p.name.sv]));
@@ -140,6 +148,7 @@ async function start() {
   const applyLayers = () => {
     areas.enabled = focus?.type === 'empire' || layers.on.areas;
     borders.enabled = layers.on.borders;
+    routes.enabled = !!layers.on.routes;
     religions.enabled = focus?.type === 'religion' || layers.on.religions;
     $('religion-list').hidden = !layers.on.religions;
     ff.enabled = layers.on.funfacts;
@@ -591,6 +600,8 @@ async function start() {
     wars.enabled = eventsOn;
     wars.update({ year, filters: panel.filters, span, focusId: focusWar?.id });
     wars.labelScale = areas.labelScale;
+    routes.update({ year, fine, window, filters: panel.filters });
+    if (routePop.route && !routes.active.some(a => a.route === routePop.route)) routePop.hide(); // vägen syns inte längre
     const fadable = fadableLayers();
     faded = layers.on.keep ? [] : fadable.map(f => f.layer);
     relLegend.update(faded.includes(religions) ? [] : religions.legendItems(),
@@ -599,9 +610,10 @@ async function start() {
     origins.update(religions.stars, religions.enabled && !faded.includes(religions));
     const ctx = globe.overlayContext();
     const W = globe.overlayCanvas.width, H = globe.overlayCanvas.height;
-    // Ordning nedifrån och upp: riken, religioner, dagens gränser, krigsområden, händelsernas sken
+    // Ordning nedifrån och upp: riken, religioner, dagens gränser, vägar och resor, krigsområden, händelsernas sken
     for (const l of [areas, religions]) faded.includes(l) ? globe.drawFaded((c, w, h) => l.drawOverlay(c, w, h), FADE) : l.drawOverlay(ctx, W, H);
     borders.drawOverlay(ctx, W, H);
+    routes.drawOverlay(ctx, W, H);
     wars.drawOverlay(ctx, W, H);
     layer.drawOverlay(ctx, W, H);
     globe.commitOverlay();
@@ -745,11 +757,24 @@ async function start() {
   }
 
   let popClick = 0; // räknar klick, så att en sen klickruta inte visas efter ett nytt klick
+  // Klick nära en väg eller resa som syns (#38) visar klickrutan. Sant om en väg träffades.
+  const routeClick = (ll, x, y) => {
+    const rh = ll && routes.enabled && routes.hitTest(ll.lon, ll.lat);
+    if (rh) routePop.show(rh, x, y);
+    return !!rh;
+  };
+  // I Platt vy: klick bredvid markörerna (#38)
+  flatMap.onMapClick = (ll, x, y) => {
+    relLegend.hidePop(); routePop.hide(); popClick++;
+    routeClick(ll, x, y);
+  };
   globe.onClick = (x, y) => {
     const hit = globe.pick(x, y, layer.sprites.filter(s => s.visible));
-    relLegend.hidePop(); popClick++;
+    relLegend.hidePop(); routePop.hide(); popClick++;
     select(hit ? hit.userData.event.id : null);
-    // Händelsemarkörer har företräde. Annars: vilken religion ligger under klicket? (#166)
+    // Händelsemarkörer har företräde, sedan vägar och resor (de ritas ovanpå områdena)
+    if (!hit && routes.active.length && routeClick(globe.pickLatLon(x, y), x, y)) return;
+    // Annars: vilken religion ligger under klicket? (#166)
     if (!hit && religions.enabled && !faded.includes(religions) && religions.active.length) {
       const ll = globe.pickLatLon(x, y);
       const rh = ll && religions.hitTest(ll.lon, ll.lat);
@@ -779,7 +804,7 @@ async function start() {
   // Escape stänger Platt vy, men först det som ligger ovanpå (menyer, Hjälp, förslagsformuläret, panelen, faktarutan)
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape' || flatMap.hidden) return;
-    const open = ['help', 'feedback', 'layer-menu', 'focus-menu', 'sources-dialog', 'jump-pop', 'detail', 'religion-pop'].some(id => !$(id).hidden);
+    const open = ['help', 'feedback', 'layer-menu', 'focus-menu', 'sources-dialog', 'jump-pop', 'detail', 'religion-pop', 'route-pop'].some(id => !$(id).hidden);
     if (open || $('app').classList.contains('panel-open')) return;
     flatMap.setOpen(false);
     $('btn-flat').focus({ preventScroll: true });
