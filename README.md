@@ -35,7 +35,7 @@ js/ui/help.js         kort hjälp i tre steg för nya besökare (knappen Hjälp)
 js/ui/layers.js       lagerväljaren: slå av och på lager
 js/ui/clusters.js     klustring av händelser som ligger nära varandra
 js/ui/focusmenu.js    fokusmenyn: välj ett krig, rike eller en religion att följa
-img/icons/            ikoner för händelser (egna SVG-teckningar)
+img/icons/            ikoner för händelser (egna SVG-teckningar, till exempel treaty.svg för fredsavtal)
 img/favicon.svg       sidans ikon i webbläsarfliken (och PNG-versioner för äldre webbläsare och hemskärm)
 images/events/        bilder till händelser (historiska bilder och märkta illustrationer)
 images/incoming/      nya bilder innan de konverteras

@@ -3,7 +3,7 @@
 import { loadAll, loadReligions, loadReligionPolities, loadEmpire, CAT, t, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays, dayParts } from './model.js';
 import { Globe } from './globe.js';
 import { Timeline, segmentName, setupYearJump, MAX_YEAR } from './timeline.js';
-import { EventsLayer } from './layers/events.js';
+import { EventsLayer, markerInfo, describeMarker } from './layers/events.js';
 import { AreasLayer } from './layers/areas.js';
 import { BordersLayer } from './layers/borders.js';
 import { ReligionsLayer } from './layers/religions.js';
@@ -13,7 +13,7 @@ import { FunFacts, empireStory } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
 import { LayerMenu } from './ui/layers.js';
 import { ReligionLegend } from './ui/legend.js';
-import { cluster } from './ui/clusters.js';
+import { cluster, clusterContents } from './ui/clusters.js';
 import { FocusMenu } from './ui/focusmenu.js';
 import { Help } from './ui/help.js';
 
@@ -638,11 +638,24 @@ async function start() {
   const labelsEl = $('labels');
   const pool = new Map();
   const clusterPool = [];
+  // Hovring (#242): markören under musen får alltid sin etikett, även när den annars skulle krocka med en annan
+  let hoverId = null;
+  {
+    const canvas = $('globe-canvas');
+    canvas.addEventListener('pointermove', e => {
+      if (e.pointerType !== 'mouse' || e.buttons) { hoverId = null; canvas.classList.remove('on-marker'); return; }
+      const hit = globe.pick(e.clientX, e.clientY, layer.sprites.filter(s => s.visible));
+      hoverId = hit ? hit.userData.event.id : null;
+      canvas.classList.toggle('on-marker', !!hit);
+    });
+    canvas.addEventListener('pointerleave', () => { hoverId = null; canvas.classList.remove('on-marker'); });
+  }
   globe.onFrame(now => {
-    layer.pulse(now, selectedId);
+    layer.frame(now, selectedId);
     const hl = ff.highlightIds();
     const order = [...visible].sort((a, b) =>
-      ((b.e.id === selectedId) - (a.e.id === selectedId)) || (hl.has(b.e.id) - hl.has(a.e.id)) || (b.activity - a.activity));
+      ((b.e.id === selectedId) - (a.e.id === selectedId)) || ((b.e.id === hoverId) - (a.e.id === hoverId)) ||
+      (hl.has(b.e.id) - hl.has(a.e.id)) || (b.activity - a.activity));
     // Klustra händelser som ligger nära varandra på skärmen (#26)
     const items = order.map(v => ({ e: v.e, p: globe.project(v.e._pos), keep: v.e.id === selectedId || hl.has(v.e.id) }));
     const { singles, clusters } = cluster(items.filter(it => it.p.facing > 0.05));
@@ -661,10 +674,18 @@ async function start() {
         });
         labelsEl.append(el); clusterPool[i] = el;
       }
-      el._members = c.members;
-      el.textContent = String(c.members.length);
-      el.setAttribute('aria-label', `${c.members.length} händelser nära varandra: ${c.members.slice(0, 5).map(m => t(m.e.title)).join(', ')}. Zooma in.`);
-      el.title = c.members.slice(0, 8).map(m => t(m.e.title)).join(', ') + (c.members.length > 8 ? ' …' : '');
+      // Ringen visar kategorierna i klungan, och texten säger vad den innehåller (#243). Siffran står kvar i mitten.
+      const key = c.members.map(m => m.e.id).join();
+      if (el._key !== key) {
+        el._key = key;
+        el._members = c.members;
+        const { text, ring } = clusterContents(c.members, CAT, t);
+        el.textContent = String(c.members.length);
+        el.style.setProperty('--ring', ring);
+        el.setAttribute('aria-label', `${c.members.length} händelser nära varandra: ${text}. Zooma in.`);
+        el.dataset.contents = text; // syns under klungan vid hovring och fokus (CSS)
+        el.title = `${c.members.slice(0, 8).map(m => t(m.e.title)).join(', ')}${c.members.length > 8 ? ' …' : ''}`;
+      }
       el.style.transform = `translate(${c.x}px, ${c.y}px) translate(-50%, -50%)`;
       el.hidden = false;
     });
@@ -673,7 +694,7 @@ async function start() {
     const W = globe.canvas.clientWidth, H = globe.canvas.clientHeight;
     const dotBox = (x, y, r) => ({ x0: x - r, x1: x + r, y0: y - r, y1: y + r });
     const hit = (a, b) => a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b.y0;
-    const markers = items.filter(it => it.p.facing > 0.05 && !clustered.has(it.e.id)).map(it => ({ id: it.e.id, box: dotBox(it.p.x, it.p.y, 9) }));
+    const markers = items.filter(it => it.p.facing > 0.05 && !clustered.has(it.e.id)).map(it => ({ id: it.e.id, box: dotBox(it.p.x, it.p.y, Math.max(9, (layer.byId.get(it.e.id)?.userData.px ?? 18) / 2)) }));
     const badges = clusters.map(c => dotBox(c.x, c.y, 16));
     const placed = [];
     const seen = new Set();
@@ -685,10 +706,11 @@ async function start() {
       if (p.x < 0 || p.x > W || p.y < 0 || p.y > H) continue; // markören syns inte, då visas ingen etikett
       // Skjut etiketten inåt så att hela rutan syns
       const cx = Math.min(Math.max(p.x, w / 2 + 4), Math.max(w / 2 + 4, W - w / 2 - 4));
-      const box = { x0: cx - w / 2, x1: cx + w / 2, y0: p.y - 14 - h, y1: p.y - 14 };
+      const off = Math.max(14, (layer.byId.get(e.id)?.userData.px ?? 0) / 2 + 3); // ovanför markören, som växer med zoomen (#242)
+      const box = { x0: cx - w / 2, x1: cx + w / 2, y0: p.y - off - h, y1: p.y - off };
       if (box.y0 < 4) continue;
-      if (placed.some(b => hit(box, b)) || badges.some(b => hit(box, b)) ||
-          markers.some(m => m.id !== e.id && hit(box, m.box))) continue;
+      if (e.id !== hoverId && (placed.some(b => hit(box, b)) || badges.some(b => hit(box, b)) ||
+          markers.some(m => m.id !== e.id && hit(box, m.box)))) continue;
       placed.push(box);
       let el = pool.get(e.id);
       if (!el) {
@@ -701,7 +723,11 @@ async function start() {
         el._text = text;
         el.innerHTML = `<span class="dot" style="background:${CAT[e.category]?.color}"></span>${text.replace(/</g, '&lt;')}`;
       }
-      el.style.transform = `translate(${cx}px, ${p.y - 12}px) translate(-50%, -100%)`;
+      // Samma betydelse som medaljen, i ord (#242): tidsläge, betydelse och osäkerhet
+      const desc = `${t(e.title)}, ${formatEventTime(e)}: ${describeMarker(markerInfo(e, layer.state.get(e.id)?.when))}`;
+      if (el._desc !== desc) { el._desc = desc; el.setAttribute('aria-label', desc); el.title = desc; }
+      el.classList.toggle('glabel-hover', e.id === hoverId);
+      el.style.transform = `translate(${cx}px, ${p.y - off + 2}px) translate(-50%, -100%)`;
       el.style.opacity = String(Math.min(1, (p.facing - 0.2) * 4));
       el.hidden = false;
       seen.add(e.id);
