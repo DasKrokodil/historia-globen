@@ -2,7 +2,7 @@
 // HTML-element över globen (inte en del av kartbilden), och all text kommer ur
 // religions.json via t(). I fokusläget förklarar samma ruta också krigsområdena (#236)
 // och säger vilka lager som är dämpade, med en knapp för att visa dem som vanligt (#235).
-import { t, CAT } from '../model.js';
+import { t, CAT, formatYear } from '../model.js';
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const cleanName = n => String(n).replace(/^\((.*)\)$/, '$1'); // "(Kingdom of France)" → "Kingdom of France"
@@ -53,11 +53,13 @@ export class ReligionLegend {
   render() {
     const items = this.items ?? [], { war = false, fadable = [], keep = false } = this.focus ?? {};
     if (!items.length && !war && !fadable.length) { this.legend.hidden = true; this.legend.textContent = ''; return; }
-    const unsure = items.some(i => i.unsure);
+    const unsure = items.some(i => i.unsure), inherited = items.some(i => i.inherited);
     const title = items.length && war ? 'Teckenförklaring' : items.length ? 'Religioner' : war ? 'Krigsområden' : 'Lager i fokus';
-    const religionsHtml = !items.length ? '' : `<ul>${items.map(({ religion: r, sure, unsure: u }) =>
-      `<li><span class="swatch" style="background:${esc(r.color)}"></span>${esc(t(r.name))}${u && !sure ? ' <em>(osäkert)</em>' : ''}</li>`).join('')}</ul>${
-      unsure ? '<p class="rl-note"><span class="swatch rl-unsure"></span>Ljus med streckad kant: osäker uppgift</p>' : ''}`;
+    const religionsHtml = !items.length ? '' : `<ul>${items.map(({ religion: r, sure, unsure: u, inherited: i }) =>
+      `<li><span class="swatch" style="background:${esc(r.color)}"></span>${esc(t(r.name))}${
+        sure ? '' : u ? ' <em>(osäkert)</em>' : i ? ' <em>(ärvt)</em>' : ''}</li>`).join('')}</ul>${
+      unsure ? '<p class="rl-note"><span class="swatch rl-unsure"></span>Ljus med streckad kant: osäker uppgift</p>' : ''}${
+      inherited ? '<p class="rl-note"><span class="swatch rl-inherited"></span>Ljusast med prickad kant: ärvt, rikets faktaruta saknar religion</p>' : ''}`;
     // Krigsskådeplatsen: skraffering i krigets färg med hel kantlinje, som på kartan (wars.js)
     const warHtml = !war ? '' : `<div class="rl-war"><p class="rl-note rl-row"><span class="swatch rl-hatch" style="--war:${esc(CAT.krig.color)}"></span>Krigsskådeplats: område runt kriget och slagen hittills</p>
       <p class="rl-note">Namnet säger vilken världsdel området ligger i.</p></div>`;
@@ -104,7 +106,7 @@ export class ReligionLegend {
   showPop(hit, x, y) {
     const { religion: r, snapshot, polities, here, loading } = hit;
     const name = p => { const n = cleanName(p.name); return this.names.get(n) ?? n; };
-    let head = esc(t(r.name)), where;
+    let head = esc(t(r.name)) + (snapshot.inherited ? ' (ärvt)' : ''), where;
     if (loading) {
       where = '<p class="rp-note">Söker riket på platsen…</p>';
     } else if (here?.length) {
@@ -120,7 +122,7 @@ export class ReligionLegend {
     this.pop.innerHTML = `<button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
       <div class="rp-head"><span class="swatch" style="background:${esc(r.color)}"></span><strong>${head}</strong></div>
       ${where}
-      ${snapshot.sure === false ? '<p class="rp-note">Osäker uppgift</p>' : ''}
+      ${snapshot.inherited ? this.inheritedNote(hit, name) : snapshot.sure === false ? '<p class="rp-note">Osäker uppgift</p>' : ''}
       ${r.facts ? `<button type="button" class="info-btn" data-facts="${esc(r.id)}">Fakta</button>` : ''}`;
     this.pop.hidden = false;
     const host = this.pop.offsetParent?.getBoundingClientRect() ?? { left: 0, top: 0, width: innerWidth, height: innerHeight };
@@ -128,6 +130,26 @@ export class ReligionLegend {
     const left = Math.min(Math.max(8, x - host.left - w / 2), host.width - w - 8);
     const top = Math.min(Math.max(8, y - host.top + 14), host.height - h - 8);
     this.pop.style.left = `${left}px`; this.pop.style.top = `${top}px`;
+  }
+
+  /**
+   * Förklaringen för ett ärvt område (#269): varför riket på platsen inte har någon religion i lagret, och
+   * att området visas med religionen det hade tidigare, med året och rikena där den senast stod i faktarutan.
+   */
+  inheritedNote(hit, name) {
+    const { religion: r, snapshot: s, polities, here } = hit;
+    const p = here?.[0] ?? (polities.length === 1 ? polities[0] : null);
+    const who = p ? `faktarutan för ${esc(name(p))}` : 'rikenas faktarutor här';
+    const Who = who[0].toUpperCase() + who.slice(1);
+    const later = p && [p.since, p.christianSince].find(y => y > s.start);
+    const why = !p || p.rule === 'saknas' ? `${Who} saknar religion.`
+      : later ? `Religionen i ${who} gäller först från ${esc(formatYear(later))}.`
+      : /%/.test(p.text ?? '') ? `${Who} anger bara andelar ur en senare folkräkning, som inte används för den här tiden.`
+      : `${Who} anger ingen religion som finns i lagret.`;
+    const from = [...new Set(s.inherited.from.map(n => name({ name: n })))];
+    const fromText = from.length <= 3 ? from.map(esc).join(', ') : `${from.slice(0, 2).map(esc).join(', ')} med flera`;
+    return `<p class="rp-note">Ärvt område. ${why} Området visas med ${esc(t(r.name).toLowerCase())}, som det hade på kartan fram till ${
+      esc(formatYear(s.inherited.until))} (${fromText}).</p>`;
   }
 
   hidePop() { this.pop.hidden = true; }

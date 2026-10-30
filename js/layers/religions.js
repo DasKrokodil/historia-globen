@@ -3,7 +3,9 @@
 // sammanslagna per religion i ögonblicksbilder över tiden (data/religions.json).
 // Varje religion har en egen färg. Enskilda religioner kan döljas i undermenyn.
 // Religioner med faktaruta (facts.origin, #90) får en stjärna där de uppstod, på
-// platsen för händelsen som origin pekar på.
+// platsen för händelsen som origin pekar på. Ärvda områden (snapshot.inherited, #269) ligger
+// under riken vars faktaruta saknar religion och visar religionen området hade tidigare; de
+// ritas ljusare med prickad kant.
 export class ReligionsLayer {
   constructor() {
     this.religions = []; // fylls när datan har laddats, första gången lagret slås på
@@ -25,25 +27,27 @@ export class ReligionsLayer {
 
   /**
    * Teckenförklaringen (#166): religionerna som syns just det här året, i datans ordning,
-   * med om något av områdena är osäkra. [{ religion, sure, unsure }]
+   * med om något av områdena är osäkra eller ärvda (#269). [{ religion, sure, unsure, inherited }]
    */
   legendItems() {
     const items = new Map();
     for (const { religion, snapshot } of this.active) {
-      const it = items.get(religion.id) ?? { religion, sure: false, unsure: false };
-      snapshot.sure !== false ? (it.sure = true) : (it.unsure = true);
+      const it = items.get(religion.id) ?? { religion, sure: false, unsure: false, inherited: false };
+      if (snapshot.inherited) it.inherited = true;
+      else snapshot.sure !== false ? (it.sure = true) : (it.unsure = true);
       items.set(religion.id, it);
     }
     return [...items.values()];
   }
 
   /**
-   * Vilket område ligger punkten (lon, lat) i? Säkra områden prövas före osäkra.
+   * Vilket område ligger punkten (lon, lat) i? Säkra områden prövas före osäkra och osäkra före ärvda.
    * Returnerar { religion, snapshot, polities } eller null. Områdena är sammanslagna, så
    * vilket rike som ligger just där tas fram med polityAt() när rikenas gränser har laddats.
    */
   hitTest(lon, lat) {
-    const sorted = [...this.active].sort((a, b) => (b.snapshot.sure !== false) - (a.snapshot.sure !== false));
+    const rank = s => s.inherited ? 2 : s.sure !== false ? 0 : 1;
+    const sorted = [...this.active].sort((a, b) => rank(a.snapshot) - rank(b.snapshot));
     for (const { religion, snapshot } of sorted) {
       if (contains(snapshot.geometry, lon, lat)) {
         return { religion, snapshot, polities: snapshot.polities.map(n => this.polities.get(n) ?? { name: n }) };
@@ -114,15 +118,16 @@ export class ReligionsLayer {
           ctx.closePath();
         }
       }
-      // Osäkra områden ritas ljusare och med streckad kant (visa osäkerhet öppet)
-      const sure = snapshot.sure !== false;
-      ctx.globalAlpha = sure ? 0.5 : 0.25;
+      // Osäkra områden ritas ljusare och med streckad kant, ärvda (#269) ännu ljusare med prickad kant
+      // (visa osäkerhet öppet)
+      const inherited = !!snapshot.inherited, sure = !inherited && snapshot.sure !== false;
+      ctx.globalAlpha = sure ? 0.5 : inherited ? 0.2 : 0.25;
       ctx.fillStyle = religion.color;
       ctx.fill('evenodd');
       ctx.globalAlpha = sure ? 1 : 0.8;
       ctx.strokeStyle = religion.color;
       ctx.lineWidth = 1.4 * k;
-      ctx.setLineDash(sure ? [] : [6 * k, 4 * k]);
+      ctx.setLineDash(sure ? [] : inherited ? [1.5 * k, 3.5 * k] : [6 * k, 4 * k]);
       ctx.stroke();
       ctx.setLineDash([]);
       ctx.globalAlpha = 1;
