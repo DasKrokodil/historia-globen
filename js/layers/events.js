@@ -19,7 +19,7 @@ const MAX_PX = 48;   // största storlek: vid stark zoom växer markörerna inte
 
 // Symbolerna laddas en gång per ikon, med lite kraftigare linjer än i Samtidigt-kortet så att de syns i 16 px
 const glyphs = new Map(); // namn -> { img, ready, waiting: [textur] }
-function glyph(name) {
+export function glyph(name) {
   if (glyphs.has(name)) return glyphs.get(name);
   const gl = { img: new Image(), ready: false, waiting: [] };
   glyphs.set(name, gl);
@@ -45,7 +45,7 @@ export function describeMarker(info) {
 }
 
 const medalCache = new Map();
-function medalTexture(icon, color, { when, major, unsure }, full) {
+export function medalTexture(icon, color, { when, major, unsure }, full) {
   const key = [icon, color, full ? when : '', major, full && unsure, full].join('|');
   if (medalCache.has(key)) return medalCache.get(key);
   const c = document.createElement('canvas'); c.width = c.height = 128;

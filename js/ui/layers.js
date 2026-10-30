@@ -63,12 +63,20 @@ export class LayerMenu {
     for (const it of items) {
       const label = document.createElement('label');
       label.className = 'layer-row layer-subrow';
+      label.dataset.religion = it.id; // pekar man på raden lyser religionens områden upp (#271)
       const input = document.createElement('input');
       input.type = 'checkbox'; input.checked = true;
       input.addEventListener('change', () => onToggle(it.id, input.checked));
       const sw = document.createElement('span');
       sw.className = 'swatch'; sw.style.background = it.color;
-      label.append(input, sw, document.createTextNode(it.name));
+      label.append(input, sw);
+      // Religionens symbol bredvid färgen (#271)
+      if (it.symbol) {
+        const img = document.createElement('img');
+        img.className = 'rel-sym'; img.src = it.symbol; img.alt = ''; img.width = img.height = 16;
+        label.append(img);
+      }
+      label.append(document.createTextNode(it.name));
       if (it.info) {
         const btn = document.createElement('button');
         btn.type = 'button'; btn.className = 'info-btn';

@@ -1061,3 +1061,33 @@ details.used-by summary:hover { color: var(--parchment); }
   #funfact.ff-dragging :is(.ff-pics, .ff-text, .ff-foot) { display: revert; }
   #funfact.ff-dragging .ff-pics:not([hidden]) { display: grid; }
 }
+
+/* ---------- religionernas symboler bredvid färgen (#271) ---------- */
+/* Egna teckningar i pergamentfärg (img/icons/); samma storlek i Lager, Fokus, teckenförklaringen och klickrutan */
+.rel-sym { width: 16px; height: 16px; flex: none; display: inline-block; vertical-align: -3px; }
+.layer-subrow .rel-sym, .focus-item .rel-sym { margin-left: -4px; }
+.religion-legend .rel-sym { width: 15px; height: 15px; margin-left: -3px; }
+.detail h3 .rel-sym-h { width: 22px; height: 22px; margin-right: 8px; vertical-align: -3px; }
+@media (max-width: 760px) { .religion-legend .rel-sym { width: 13px; height: 13px; } }
+.detail .war-link .rel-sym-in { width: 18px; height: 18px; vertical-align: -4px; }
+/* Knappen över symbolen där religionen uppstod (#271): osynlig, men går att nå med Tab och syns med fokusring */
+.gorigin {
+  position: absolute; left: 0; top: 0; padding: 0; border: 0; border-radius: 50%; background: transparent;
+  cursor: pointer; pointer-events: auto;
+}
+.gorigin:hover { box-shadow: 0 0 0 2px color-mix(in srgb, var(--brass) 70%, transparent); }
+.gorigin:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+/* Markering när man pekar (#271): raden i teckenförklaringen som lyfts fram, och rutan vid muspekaren */
+.religion-legend li[data-religion] { cursor: pointer; border-radius: 4px; margin: 0 -4px; padding: 1px 4px; }
+.religion-legend li[data-religion]:hover, .religion-legend li.on { background: var(--night-3); }
+.religion-legend li[aria-pressed="true"] { box-shadow: inset 2px 0 0 var(--brass); }
+.religion-legend li[data-religion]:focus-visible { outline: 2px solid var(--brass); outline-offset: 0; }
+.religion-legend .rl-sym-note { display: block; }
+.religion-tip {
+  position: absolute; z-index: 11; display: flex; align-items: center; gap: 6px; max-width: 240px; pointer-events: none;
+  background: color-mix(in srgb, var(--night-2) 94%, transparent); border: 1px solid var(--brass-deep); border-radius: 8px;
+  padding: 4px 9px; font: 400 13px/1.25 var(--f-body); box-shadow: 0 4px 14px rgba(0, 0, 0, .45);
+}
+.religion-tip[hidden] { display: none; }
+.religion-tip .swatch { width: 10px; height: 10px; border-radius: 2px; flex: none; }
+.religion-tip em { font-style: normal; color: var(--parchment-dim); }

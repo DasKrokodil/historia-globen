@@ -1,12 +1,13 @@
 // Startar allt och kopplar ihop delarna:
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
-import { loadAll, loadReligions, loadReligionPolities, loadEmpire, CAT, t, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays, dayParts } from './model.js';
+import { loadAll, loadReligions, loadReligionPolities, loadEmpire, CAT, t, symbolUrl, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays, dayParts } from './model.js';
 import { Globe } from './globe.js';
 import { Timeline, segmentName, setupYearJump, MAX_YEAR } from './timeline.js';
 import { EventsLayer, markerInfo, describeMarker } from './layers/events.js';
 import { AreasLayer } from './layers/areas.js';
 import { BordersLayer } from './layers/borders.js';
 import { ReligionsLayer } from './layers/religions.js';
+import { OriginMarkers } from './layers/origins.js';
 import { WarsLayer } from './layers/wars.js';
 import { Panel } from './ui/panel.js';
 import { FunFacts, empireStory } from './ui/funfact.js';
@@ -51,6 +52,12 @@ async function start() {
   const areas = new AreasLayer();
   const borders = new BordersLayer(data.borders);
   const religions = new ReligionsLayer();
+  // Symbolen där religionen uppstod (#271): klickbar medalj ovanpå klotet, öppnar religionens faktaruta
+  const origins = new OriginMarkers(globe, $('labels'));
+  origins.onPick = id => showReligionFacts(id);
+  // En symbol som laddas klart ritas in på lagerbilden (en omritning per bildruta räcker)
+  let glyphRaf = 0;
+  religions.onGlyph = () => { cancelAnimationFrame(glyphRaf); glyphRaf = requestAnimationFrame(() => refresh()); };
   const wars = new WarsLayer(data.events);
   const panel = new Panel({
     root: $('panel'), list: $('event-list'), filters: $('filters'), detail: $('detail'),
@@ -87,6 +94,31 @@ async function start() {
   relLegend.names = new Map(data.polities.map(p => [p.name.en, p.name.sv]));
   // Visa som vanligt / Dämpa i teckenförklaringen ändrar valet "Behåll mina lager" i Lager (#235)
   relLegend.onKeep = on => { layers.set('keep', on); refresh(); };
+  // Markering när man pekar (#271): musen eller tangentbordets fokus på en religion i undermenyn, i Fokus eller i
+  // teckenförklaringen lyser upp religionens områden och tonar ner de andra. I mobilen trycker man på religionen i
+  // teckenförklaringen (tryck i Lager och Fokus gör redan något annat); markeringen ligger kvar tills man trycker igen.
+  // Ändringen ritas en gång per bildruta, så att flera händelser i rad bara ger en omritning.
+  let pinnedReligion = null, wantHighlight = null, hlRaf = 0;
+  const setHighlight = id => {
+    wantHighlight = id ?? null;
+    cancelAnimationFrame(hlRaf);
+    hlRaf = requestAnimationFrame(() => {
+      if (religions.highlight === wantHighlight && relLegend.pinned === pinnedReligion) return;
+      religions.highlight = relLegend.highlight = wantHighlight; relLegend.pinned = pinnedReligion;
+      refresh();
+    });
+  };
+  relLegend.onPin = id => { pinnedReligion = pinnedReligion === id ? null : id; setHighlight(pinnedReligion); };
+  document.addEventListener('pointerover', e => {
+    if (e.pointerType === 'touch') return;
+    const el = e.target.closest?.('[data-religion]');
+    setHighlight(el ? el.dataset.religion : pinnedReligion);
+  });
+  document.addEventListener('focusin', e => {
+    const el = e.target.closest?.('[data-religion]');
+    if (el) setHighlight(el.dataset.religion);
+  });
+  document.addEventListener('focusout', e => { if (e.target.closest?.('[data-religion]')) setHighlight(pinnedReligion); });
   // I fokusläge syns det man följer även om lagret är avslaget i menyn
   const applyLayers = () => {
     areas.enabled = focus?.type === 'empire' || layers.on.areas;
@@ -106,7 +138,7 @@ async function start() {
       const doc = await loadReligions();
       setReligions(doc);
       $('religion-list').textContent = '';
-      layers.sublist($('religion-list'), doc.religions.map(r => ({ id: r.id, name: t(r.name), color: r.color, info: !!r.facts })), (id, on) => {
+      layers.sublist($('religion-list'), doc.religions.map(r => ({ id: r.id, name: t(r.name), color: r.color, symbol: symbolUrl(r), info: !!r.facts })), (id, on) => {
         on ? religions.hidden.delete(id) : religions.hidden.add(id);
         refresh();
         // Slås en religion med faktaruta på igen visas rutan (#90)
@@ -296,7 +328,7 @@ async function start() {
     const first = founding(r.id)[0];
     const st = stated(r);
     const from = Math.min(first?.start ?? Infinity, st[0].start), to = st.at(-1).end;
-    return { key: `religion:${r.id}`, label: t(r.name), sub: religionSpan(r, first), color: r.color, from, to };
+    return { key: `religion:${r.id}`, label: t(r.name), sub: religionSpan(r, first), color: r.color, symbol: symbolUrl(r), from, to };
   });
   const empireItems = () => data.empireGroups.map(g =>
     ({ key: `empire:${g.id}`, label: t(g.name), sub: `kartdata ${formatYearSpan(g.from, g.to)}`, color: g.color, from: g.from, to: g.to }));
@@ -332,9 +364,13 @@ async function start() {
   // zoomar in (men inte under 0,25, då blir texten för oskarp) och tonas sedan ut, så att de
   // inte täcker markörerna (#154). Värdena ändras i steg och bilden ritas om först 150 ms efter
   // att zoomandet stannat. Platt vy och en fysisk glob får grundstorleken.
+  const zoomMag = () => { const d = globe.baseDist; return Math.max(1, (d - 1) / (d / globe.zoom - 1)); }; // förstoring i mitten av klotet
+  // Religionernas namn i områdena syns bara vid nära zoom på globen, utzoomat och i Platt vy bara symbolen (#271)
+  const NAMES_MAG = 2.4;
+  const religionNames = () => $('flat-view').hidden && zoomMag() >= NAMES_MAG;
   function nameStyle() {
     if (!$('flat-view').hidden) return [1, 1];
-    const d = globe.baseDist, mag = Math.max(1, (d - 1) / (d / globe.zoom - 1)); // förstoring i mitten av klotet
+    const mag = zoomMag();
     const scale = Math.max(0.25, Math.pow(mag, -0.7));
     const fade = Math.min(1, Math.max(0, (mag - 5) / 5)); // 0 vid mag 5 (zoom ca 2,3), 1 vid max
     return [Math.round(scale * 20) / 20, Math.round((1 - 0.5 * fade) * 20) / 20];
@@ -344,7 +380,7 @@ async function start() {
     clearTimeout(nameTimer);
     nameTimer = setTimeout(() => {
       const [sc, al] = nameStyle();
-      if (areas.labelScale !== sc || areas.labelAlpha !== al) refresh();
+      if (areas.labelScale !== sc || areas.labelAlpha !== al || religions.showNames !== religionNames()) refresh();
     }, 150);
   };
   globe.onZoom = syncNameScale;
@@ -411,6 +447,7 @@ async function start() {
 
   function refresh() {
     [areas.labelScale, areas.labelAlpha] = nameStyle();
+    religions.labelScale = origins.scale = areas.labelScale; religions.showNames = religionNames();
     // I fokusläget för korta krig är året ett decimaltal (#204). Händelser och krig får då sina
     // datum ur edtf (span), medan riken, religioner och fun facts får det hela året som förut.
     const year = timeline.year, wholeYear = Math.floor(year), fine = !!focus?.fine;
@@ -437,6 +474,7 @@ async function start() {
     relLegend.update(faded.includes(religions) ? [] : religions.legendItems(),
       { war: wars.active.some(a => a.war === focusWar), fadable: fadable.map(f => f.name), keep: !!layers.on.keep });
     if (!religions.enabled || faded.includes(religions)) relLegend.hidePop();
+    origins.update(religions.stars, religions.enabled && !faded.includes(religions));
     const ctx = globe.overlayContext();
     const W = globe.overlayCanvas.width, H = globe.overlayCanvas.height;
     // Ordning nedifrån och upp: riken, religioner, dagens gränser, krigsområden, händelsernas sken
@@ -642,13 +680,27 @@ async function start() {
   let hoverId = null;
   {
     const canvas = $('globe-canvas');
+    // Pekar man på ett religionsområde visas religionens symbol och namn i en liten ruta före klick (#271)
+    const tip = $('religion-tip');
+    let tipRaf = 0;
+    const religionTip = (x, y) => {
+      cancelAnimationFrame(tipRaf);
+      tipRaf = requestAnimationFrame(() => {
+        const on = religions.enabled && !faded.includes(religions) && religions.active.length && relLegend.pop.hidden;
+        const ll = on && globe.pickLatLon(x, y);
+        relLegend.showTip(tip, ll ? religions.hitTest(ll.lon, ll.lat) : null, x, y);
+      });
+    };
+    const hideTip = () => { cancelAnimationFrame(tipRaf); tip.hidden = true; };
     canvas.addEventListener('pointermove', e => {
-      if (e.pointerType !== 'mouse' || e.buttons) { hoverId = null; canvas.classList.remove('on-marker'); return; }
+      if (e.pointerType !== 'mouse' || e.buttons) { hoverId = null; canvas.classList.remove('on-marker'); hideTip(); return; }
       const hit = globe.pick(e.clientX, e.clientY, layer.sprites.filter(s => s.visible));
       hoverId = hit ? hit.userData.event.id : null;
       canvas.classList.toggle('on-marker', !!hit);
+      if (hit) hideTip(); else religionTip(e.clientX, e.clientY);
     });
-    canvas.addEventListener('pointerleave', () => { hoverId = null; canvas.classList.remove('on-marker'); });
+    canvas.addEventListener('pointerleave', () => { hoverId = null; canvas.classList.remove('on-marker'); hideTip(); });
+    canvas.addEventListener('pointerdown', hideTip);
   }
   globe.onFrame(now => {
     layer.frame(now, selectedId);
@@ -660,7 +712,10 @@ async function start() {
     const items = order.map(v => ({ e: v.e, p: globe.project(v.e._pos), keep: v.e.id === selectedId || hl.has(v.e.id) }));
     const { singles, clusters } = cluster(items.filter(it => it.p.facing > 0.05));
     const clustered = new Set(clusters.flatMap(c => c.members.map(m => m.e.id)));
-    for (const s of layer.sprites) s.visible = s.userData.active && !clustered.has(s.userData.event.id);
+    // Händelsen där en religion uppstod ligger under religionens symbol (#271): bara symbolen och etiketten syns
+    origins.frame();
+    const underOrigin = origins.eventIds;
+    for (const s of layer.sprites) s.visible = s.userData.active && !clustered.has(s.userData.event.id) && !underOrigin.has(s.userData.event.id);
     clusters.forEach((c, i) => {
       let el = clusterPool[i];
       if (!el) {

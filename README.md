@@ -26,7 +26,8 @@ js/timeline.js        tidsreglage, segmenterad tidsskala, nuvarande år
 js/layers/events.js   lager: händelser som punkter
 js/layers/areas.js    lager: riken som områden som ändras över tid
 js/layers/borders.js  lager: dagens landsgränser (av som standard)
-js/layers/religions.js lager: religioner som områden
+js/layers/religions.js lager: religioner som områden, med symboler i områdena (#271)
+js/layers/origins.js  religionens symbol där den uppstod, som klickbar markör (#271)
 js/layers/wars.js     lager: krigsområden runt krigets slag
 js/ui/panel.js        "Samtidigt i världen" per världsdel, kategorifilter och detaljvy
 js/ui/funfact.js      Samtidigt-kortet (fun facts, när ett krig bröt ut) och bågar på globen
@@ -35,7 +36,7 @@ js/ui/help.js         kort hjälp i tre steg för nya besökare (knappen Hjälp)
 js/ui/layers.js       lagerväljaren: slå av och på lager
 js/ui/clusters.js     klustring av händelser som ligger nära varandra
 js/ui/focusmenu.js    fokusmenyn: välj ett krig, rike eller en religion att följa
-img/icons/            ikoner för händelser (egna SVG-teckningar, till exempel treaty.svg för fredsavtal)
+img/icons/            ikoner för händelser och religionernas symboler (egna SVG-teckningar, till exempel treaty.svg för fredsavtal, cross.svg och dharma-wheel.svg, #271)
 img/favicon.svg       sidans ikon i webbläsarfliken (och PNG-versioner för äldre webbläsare och hemskärm)
 images/events/        bilder till händelser (historiska bilder och märkta illustrationer)
 images/incoming/      nya bilder innan de konverteras
