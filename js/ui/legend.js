@@ -9,18 +9,23 @@ const cleanName = n => String(n).replace(/^\((.*)\)$/, '$1'); // "(Kingdom of Fr
 
 const OBSTACLES = '.funfact, .ff-tab, .detail-card, .panel, .focus-bar, .pause-note';
 const GAP = 10; // luft mellan förklaringen och det som ligger under
+const HINT_KEY = 'hg-rel-tip'; // tipsraden har visats (#308)
 
 export class ReligionLegend {
   constructor({ legend, pop }) {
     Object.assign(this, { legend, pop });
     this.onFacts = () => {};
     this.onKeep = () => {};
+    this.onAbout = () => {}; // knappen "Läs om religionerna" (#308)
+    this.hint = false;       // tipsraden visas (#308)
     // Öppen som standard i dator, hopfälld till en knapp i mobil (#193). Valet ligger kvar när året ändras.
     // Byter man fönsterbredd över gränsen gäller standardläget för den nya bredden.
     const wide = matchMedia('(min-width: 761px)');
     this.open = wide.matches;
     wide.addEventListener('change', () => { this.open = wide.matches; this.render(); this.fit(); });
     legend.addEventListener('click', e => {
+      if (e.target.closest('[data-hint-close]')) { this.closeHint(); return; }
+      if (e.target.closest('[data-about]')) { this.onAbout(); return; }
       const keep = e.target.closest('[data-keep]');
       if (keep) { this.onKeep(keep.dataset.keep === '1'); return; }
       const li = e.target.closest('li[data-religion]');
@@ -40,6 +45,7 @@ export class ReligionLegend {
     this.pinned = null;    // religionen som är vald med tryck eller Enter, så att markeringen ligger kvar
     this.onPin = () => {};
     legend.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && this.hint && e.target.closest('.rl-hint')) { e.stopPropagation(); this.closeHint(); return; }
       const li = e.target.closest('li[data-religion]');
       if (li && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); this.onPin(li.dataset.religion); }
     });
@@ -49,6 +55,25 @@ export class ReligionLegend {
       const f = e.target.closest('[data-facts]');
       if (f) { this.hidePop(); this.onFacts(f.dataset.facts); }
     });
+  }
+
+  /**
+   * Tipsraden (#308): visas första gången religionslagret slås på (sparas i localStorage som hg-rel-tip, så
+   * att den inte kommer igen) och försvinner när man stänger den eller slår av lagret.
+   */
+  setHint(on) {
+    if (!on) { if (this.hint) { this.hint = false; this.render(); this.fit(); } return; }
+    let seen = false;
+    try { seen = localStorage.getItem(HINT_KEY) === '1'; } catch { /* utan lagring */ }
+    if (seen) return;
+    try { localStorage.setItem(HINT_KEY, '1'); } catch { /* utan lagring */ }
+    this.hint = true;
+    if (this.items) { this.render(); this.fit(); }
+  }
+  closeHint() {
+    const had = this.legend.contains(document.activeElement);
+    this.hint = false; this.render(); this.fit();
+    if (had) this.legend.querySelector('.rl-toggle')?.focus({ preventScroll: true });
   }
 
   /**
@@ -77,6 +102,10 @@ export class ReligionLegend {
       <p class="rl-note">Namnet säger vilken världsdel området ligger i.</p></div>`;
     // Vad symbolerna betyder (#271)
     const symbolsHtml = !items.length ? '' : `<p class="rl-note rl-sym-note">Symbolen visar religionen. En mässingsmedalj med symbolen står där religionen uppstod: den dyker upp det året och står kvar så länge lagret är på. Peka på en religion här för att lyfta fram den.</p>`;
+    // Faktarutan på begäran (#308), när någon religion som syns har en
+    const aboutHtml = !items.some(i => i.religion.facts) ? '' : '<button type="button" class="info-btn rl-about" data-about>Läs om religionerna</button>';
+    // Tipsraden första gången lagret slås på (#308). Den står utanför den hopfällbara listan, så att den syns även i mobil.
+    const hintHtml = !this.hint || !items.length ? '' : `<p class="rl-hint" role="note"><span>Klicka på ett färgat område för att se religion och rike.</span><button type="button" class="rl-hint-close" data-hint-close aria-label="Stäng tipset">×</button></p>`;
     const names = fadable.join(' och ').toLowerCase().replace(/^./, c => c.toUpperCase());
     const fadeHtml = !fadable.length ? '' : `<p class="rl-note rl-fade">${keep
       ? `${esc(names)} visas som vanligt. <button type="button" class="link-btn" data-keep="0">Dämpa</button>`
@@ -89,8 +118,8 @@ export class ReligionLegend {
       shown.map(({ religion: r, sure }) => `<span class="rl-dot${sure ? '' : ' rl-dot-pale'}" style="background:${esc(r.color)}" title="${esc(t(r.name))}"></span>`).join('')}${
       items.length > shown.length ? `<span class="rl-more">+${items.length - shown.length}</span>` : ''}${
       war ? `<span class="rl-dot rl-hatch" style="--war:${esc(CAT.krig.color)}" title="Krigsskådeplats"></span>` : ''}</span>`;
-    const html = `<button type="button" class="rl-toggle" aria-expanded="${this.open}" aria-controls="rl-body"><span class="rl-title">${title}</span><span class="rl-chev" aria-hidden="true"></span>${dotsHtml}</button>
-      <div id="rl-body" class="rl-body" ${this.open ? '' : 'hidden'}>${religionsHtml}${symbolsHtml}${warHtml}${fadeHtml}</div>`;
+    const html = `<button type="button" class="rl-toggle" aria-expanded="${this.open}" aria-controls="rl-body"><span class="rl-title">${title}</span><span class="rl-chev" aria-hidden="true"></span>${dotsHtml}</button>${hintHtml}
+      <div id="rl-body" class="rl-body" ${this.open ? '' : 'hidden'}>${aboutHtml}${religionsHtml}${symbolsHtml}${warHtml}${fadeHtml}</div>`;
     // Samma innehåll ritas inte om, så att musen och tangentbordets fokus ligger kvar på raden (#271)
     if (html !== this._html) {
       const focused = this.legend.contains(document.activeElement) && document.activeElement.dataset.religion;
@@ -121,7 +150,7 @@ export class ReligionLegend {
       const r = el.getBoundingClientRect();
       if (r.width && r.left < me.right && r.right > me.left && r.bottom > top) limit = Math.min(limit, r.top);
     }
-    const head = lg.querySelector('.rl-toggle').offsetHeight;
+    const head = lg.querySelector('.rl-toggle').offsetHeight + (lg.querySelector('.rl-hint')?.offsetHeight ?? 0);
     const room = limit - GAP - top - head - 14; // 14 = rutans utfyllnad
     if (room < 56) body.hidden = true; // för lite plats: bara knappen syns
     else body.style.maxHeight = `${Math.floor(room)}px`;

@@ -25,7 +25,7 @@ Besökare kan föreslå nya händelser, rapportera faktafel och föreslå förb�
 
 ## Dataflöde
 
-1. Besökaren öppnar formuläret från **Hjälp → "Lämna förslag"** eller från en händelses faktaruta (**"Rapportera faktafel"**, även i krigets berättelse). Året, fokus och globens vy ändras inte, och Stäng eller Escape lämnar allt som det var.
+1. Besökaren öppnar formuläret från **Hjälp → "Lämna förslag"** eller från en händelses faktaruta (**"Rapportera faktafel"**, även i krigets berättelse). Året, fokus och globens vy ändras inte, och Stäng, Avbryt eller Escape lämnar allt som det var. Knapparna Avbryt och Skicka förslag ligger fast nedtill i panelen medan fälten rullar, så att Skicka alltid syns (#310).
 2. Från en faktaruta är kategorin "Rapportera ett faktafel" förvald, och händelsens titel och tid visas som skrivskyddad text (ur `data/events.json`, med `formatEventTime()`).
 3. När formuläret är påslaget laddas Turnstiles skript (`https://challenges.cloudflare.com/turnstile/v0/api.js`) först när formuläret öppnas.
 4. Webbläsaren kontrollerar fälten och skickar `POST /api/feedback` med JSON: `category`, `description`, `source` (frivillig), `email` (frivillig), `eventId` (bara vid faktafel från en faktaruta), `turnstileToken` och honungsfältet `website`. **Bara händelsens id** skickas, aldrig titel eller tid.
@@ -71,6 +71,12 @@ Texterna nedan står i formuläret i `index.html`. Rikard godkände dem 2026-10-
 **Kort text, synlig i formuläret:**
 
 > Vi sparar bara det du skriver här, för att kunna granska förslaget. Förslaget lagras privat och publiceras aldrig automatiskt. E-post är frivillig och används bara om vi behöver fråga något.
+
+**Rad om förväntan, direkt under den korta texten (#310, ska godkännas av Rikard i PR:en):**
+
+> Historia-globen är ett ideellt projekt. Alla förslag läses, men vi kan inte lova att svara.
+
+Raden är inte en del av integritetstexten ovan, som är oförändrad.
 
 **Hopfällbar ruta "Om dina uppgifter":**
 
