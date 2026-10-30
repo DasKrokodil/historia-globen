@@ -15,6 +15,8 @@
   --land: #c8b48a;
   --danger: #e0675a;
   --ok: #8fc48e;
+  --medal: #10202c;        /* markörernas botten (#242), samma som GROUND i layers/events.js */
+  --gold-dot: #f1d98a;     /* markörernas punkt för betydelse */
 
   --f-display: "IM Fell English", "Iowan Old Style", Georgia, serif;
   --f-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -87,16 +89,31 @@ body {
   border-radius: 999px;
   font: 600 12px/26px var(--f-mono);
   color: var(--parchment);
-  background: color-mix(in srgb, var(--night) 85%, transparent);
-  border: 1.5px solid var(--brass);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brass) 25%, transparent);
+  /* Ringen är delad i färgsegment per kategori (#243): --ring sätts i main.js (clusterContents) */
+  border: 3px solid transparent;
+  background: linear-gradient(var(--night), var(--night)) padding-box, var(--ring, var(--brass)) border-box;
+  box-shadow: 0 0 0 1.5px var(--brass-deep), 0 0 0 4px color-mix(in srgb, var(--brass) 18%, transparent);
+  line-height: 22px;
   pointer-events: auto;
   cursor: zoom-in;
 }
-.gcluster:hover { background: var(--night-3); }
+.gcluster:hover { background: linear-gradient(var(--night-3), var(--night-3)) padding-box, var(--ring, var(--brass)) border-box; }
+/* Vad klungan innehåller, vid hovring och tangentbordsfokus (#243): texten står i data-contents */
+.gcluster::after {
+  content: attr(data-contents);
+  display: none;
+  position: absolute; left: 50%; top: calc(100% + 6px); transform: translateX(-50%);
+  white-space: nowrap; padding: 2px 7px; border-radius: 4px;
+  font: 500 11.5px/1.5 var(--f-body); color: var(--parchment);
+  background: color-mix(in srgb, var(--night) 92%, transparent); border: 1px solid var(--brass-deep);
+  pointer-events: none;
+}
+.gcluster:hover::after, .gcluster:focus-visible::after { display: block; }
 .glabel { font-family: inherit; }
 .glabel:focus-visible, .gcluster:focus-visible, .globe-canvas:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
 .globe-canvas:focus-visible { outline-offset: -3px; }
+.glabel-hover { z-index: 1; border-color: var(--brass-deep); }
+.globe-canvas.on-marker { cursor: pointer; }
 .glabel .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
 
 /* ---------- huvud ---------- */
@@ -519,6 +536,16 @@ body {
   font: 400 14px/1 var(--f-display); color: var(--brass);
 }
 .help-steps b { display: block; font: 600 13.5px/1.3 var(--f-body); color: var(--parchment); }
+/* Markörer och klungor (#242, #243): små exempel på medaljen och klungan */
+.help-marks { margin-top: 6px; border-top: 1px solid var(--line); padding-top: 6px; }
+.help-marks summary { cursor: pointer; font: 600 13px/1.4 var(--f-body); color: var(--brass); padding: 4px 0; }
+.help-marks ul { list-style: none; margin: 4px 0 0; padding: 0; max-height: min(48vh, 360px); overflow-y: auto; }
+.help-marks li { display: flex; align-items: center; gap: 6px; padding: 4px 0; font: 400 12.5px/1.35 var(--f-body); color: var(--parchment-dim); }
+.help-marks li span { flex: 1; min-width: 0; }
+.hm { flex: none; width: 32px; height: 32px; }
+.hm-ring { fill: var(--medal); stroke: var(--brass); stroke-width: 2.4; }
+.hm-track { fill: none; stroke: color-mix(in srgb, var(--brass) 28%, transparent); stroke-width: 2.2; }
+.hm-num { font: 600 9.5px var(--f-mono); fill: var(--parchment); }
 
 /* ---------- tidslinjen ---------- */
 .timebar {

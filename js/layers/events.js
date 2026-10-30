@@ -1,62 +1,131 @@
 // Lagertyp "punkt" (beslut 2): händelser som punkter på globen.
 // Varje lager har samma gränssnitt: update(state) och drawOverlay(ctx, W, H).
 import { THREE, latLonToVec3, R } from '../globe.js';
-import { CAT, isVisibleReview } from '../model.js';
+import { CAT, isVisibleReview, t } from '../model.js';
 
-function dotTexture() {
-  const c = document.createElement('canvas'); c.width = c.height = 64;
-  const g = c.getContext('2d');
-  g.fillStyle = '#fff';
-  g.beginPath(); g.arc(32, 32, 20, 0, Math.PI * 2); g.fill();
-  g.lineWidth = 6; g.strokeStyle = 'rgba(15,20,26,0.9)';
-  g.beginPath(); g.arc(32, 32, 23, 0, Math.PI * 2); g.stroke();
-  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
-  return t;
+// Ikonfamiljen (#242): alla markörer är samma mässingsmedalj. Mörk botten, mässingsring och en inre
+// cirkel i kategorins färg; bara symbolen i mitten (img/icons/, egna teckningar) skiljer. Händelser
+// utan ikon får en prick i kategorins färg i mitten. Medaljen kodar också tre saker:
+//   tid        – nedre bågen utanför ringen är en liten tidslinje: hela bågen lyser när händelsen pågår vid
+//                året man står på, vänstra delen när den redan har hänt, högra delen när den kommer senare
+//   betydelse  – en mässingspunkt uppe till höger för top och major
+//   osäkerhet  – bågen är streckad när årtalet är osäkert (edtf med ~ eller ?, eller rutan "Källorna skiljer sig")
+// Progressiv detalj: liten på skärmen (under cirka 30 px) ritas bara medaljen med symbol och punkt, större
+// ritas hela medaljen med tidsbågen. Samma betydelse står i etikettens aria-label och title (describeMarker).
+const BRASS = '#d6b06a', GROUND = '#10202c', INK = '#0b1219', GOLD = '#f1d98a', TRACK = 'rgba(214,176,106,0.35)';
+const FULL_PX = 30;  // från den här storleken på skärmen ritas hela medaljen (ungefär från zoom 1,4 i datorn)
+const MIN_PX = 16;   // minsta storlek på skärmen, även i mobilen (16–26 px beroende på hur aktuell händelsen är)
+const MAX_PX = 48;   // största storlek: vid stark zoom växer markörerna inte längre (texturen är 128 px)
+
+// Symbolerna laddas en gång per ikon, med lite kraftigare linjer än i Samtidigt-kortet så att de syns i 16 px
+const glyphs = new Map(); // namn -> { img, ready, waiting: [textur] }
+function glyph(name) {
+  if (glyphs.has(name)) return glyphs.get(name);
+  const gl = { img: new Image(), ready: false, waiting: [] };
+  glyphs.set(name, gl);
+  fetch(`img/icons/${name}.svg`).then(r => r.text()).then(svg => {
+    gl.img.onload = () => { gl.ready = true; for (const w of gl.waiting) w(); gl.waiting = []; };
+    gl.img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg.replace(/stroke-width="[\d.]+"/, 'stroke-width="2.1"'));
+  }).catch(err => console.warn(`Ikonen ${name} kunde inte laddas`, err));
+  return gl;
 }
 
-// Ikoner (#95): enkla linjeteckningar i img/icons/, på mörk botten med en ring i
-// kategorins färg. Händelser utan ikon får en prick som tidigare.
-const iconCache = new Map();
-function iconTexture(name, color) {
-  const key = name + color;
-  if (iconCache.has(key)) return iconCache.get(key);
+/** Hur markören ska se ut: tidsläge (now, past, future), betydelse och osäkerhet. */
+export function markerInfo(e, when = 'now') {
+  const unsure = /[~?]/.test(e.edtf ?? '') || t(e.note?.title) === 'Källorna skiljer sig';
+  return { when, major: !!(e.top || e.major), unsure };
+}
+
+/** Samma betydelse som medaljen, i ord (för aria-label och title). */
+export function describeMarker(info) {
+  const parts = [{ now: 'pågår vid året du står på', past: 'har redan hänt', future: 'kommer senare' }[info.when]];
+  if (info.major) parts.push('viktig händelse');
+  if (info.unsure) parts.push('osäker uppgift');
+  return parts.join(', ');
+}
+
+const medalCache = new Map();
+function medalTexture(icon, color, { when, major, unsure }, full) {
+  const key = [icon, color, full ? when : '', major, full && unsure, full].join('|');
+  if (medalCache.has(key)) return medalCache.get(key);
   const c = document.createElement('canvas'); c.width = c.height = 128;
   const g = c.getContext('2d');
-  g.fillStyle = 'rgba(14,20,28,0.92)';
-  g.beginPath(); g.arc(64, 64, 54, 0, Math.PI * 2); g.fill();
-  g.lineWidth = 9; g.strokeStyle = color;
-  g.beginPath(); g.arc(64, 64, 54, 0, Math.PI * 2); g.stroke();
-  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
-  const img = new Image();
-  img.onload = () => { g.drawImage(img, 26, 26, 76, 76); t.needsUpdate = true; };
-  img.src = `img/icons/${name}.svg`;
-  iconCache.set(key, t);
-  return t;
+  const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
+  // Liten: medaljen fyller nästan hela bilden. Hel: plats för tidsbågen utanför ringen.
+  const ring = full ? 46 : 55, ringW = full ? 7 : 9, inner = full ? 38 : 45, glyphSize = full ? 50 : 62;
+  const draw = () => {
+    g.clearRect(0, 0, 128, 128);
+    if (full) {
+      // Tidsbågen: nedre halvan (0 = höger, π = vänster). Spåret syns svagt, delen som gäller lyser.
+      const AR = 58; // tidsbågens radie
+      // Mörk kant under bågen, så att den syns mot både hav, land och krigsområden i samma färg
+      g.lineCap = 'butt'; g.setLineDash([]);
+      g.lineWidth = 12; g.strokeStyle = 'rgba(11,18,25,0.75)';
+      g.beginPath(); g.arc(64, 64, AR, 0.06, Math.PI - 0.06); g.stroke();
+      g.lineWidth = 7; g.strokeStyle = TRACK;
+      g.beginPath(); g.arc(64, 64, AR, 0.1, Math.PI - 0.1); g.stroke();
+      const [a0, a1] = when === 'now' ? [0.1, Math.PI - 0.1] : when === 'future' ? [0.1, 1.15] : [Math.PI - 1.15, Math.PI - 0.1];
+      g.strokeStyle = color; g.lineWidth = 8;
+      g.setLineDash(unsure ? [9, 6] : []);
+      g.beginPath(); g.arc(64, 64, AR, a0, a1); g.stroke();
+      g.setLineDash([]);
+    }
+    g.fillStyle = GROUND;
+    g.beginPath(); g.arc(64, 64, ring, 0, Math.PI * 2); g.fill();
+    g.lineWidth = ringW; g.strokeStyle = BRASS;
+    g.beginPath(); g.arc(64, 64, ring, 0, Math.PI * 2); g.stroke();
+    g.lineWidth = full ? 2.5 : 3.5; g.strokeStyle = color;
+    g.beginPath(); g.arc(64, 64, inner, 0, Math.PI * 2); g.stroke();
+    if (!icon) {
+      g.fillStyle = color;
+      g.beginPath(); g.arc(64, 64, full ? 13 : 17, 0, Math.PI * 2); g.fill();
+    } else {
+      const gl = glyph(icon);
+      if (gl.ready) g.drawImage(gl.img, 64 - glyphSize / 2, 64 - glyphSize / 2, glyphSize, glyphSize);
+    }
+    if (major) {
+      const d = full ? 44 : 46, r = full ? 11 : 15;
+      const x = 64 + d * Math.SQRT1_2, y = 64 - d * Math.SQRT1_2;
+      g.fillStyle = GOLD; g.lineWidth = 5; g.strokeStyle = INK;
+      g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill(); g.stroke();
+    }
+    tex.needsUpdate = true;
+  };
+  draw();
+  if (icon && !glyph(icon).ready) glyph(icon).waiting.push(draw);
+  medalCache.set(key, tex);
+  return tex;
 }
 
 export class EventsLayer {
   constructor(globe, events) {
     this.globe = globe;
     this.events = events;
-    this.state = new Map(); // id -> { activity, inside }
-    const tex = dotTexture();
+    this.state = new Map(); // id -> { activity, inside, dist, when }
     this.sprites = [];
+    this.byId = new Map(); // händelse-id -> sprite
     for (const e of events) {
       const [lon, lat] = e.location.coordinates;
       e._lat = lat; e._lon = lon;
       e._pos = latLonToVec3(lat, lon, R * 1.012);
-      const color = CAT[e.category]?.color ?? '#ffffff';
-      const s = new THREE.Sprite(new THREE.SpriteMaterial(e.icon
-        ? { map: iconTexture(e.icon, color), transparent: true, depthWrite: false }
-        : { map: tex, color: new THREE.Color(color), transparent: true, depthWrite: false }));
-      s.userData.iconScale = e.icon ? 1.5 : 1; // ikoner behöver lite mer plats än prickar
+      const s = new THREE.Sprite(new THREE.SpriteMaterial({ transparent: true, depthWrite: false }));
       s.position.copy(e._pos);
       s.scale.setScalar(0.034);
       s.userData.event = e;
+      s.userData.color = CAT[e.category]?.color ?? '#ffffff';
+      s.userData.full = false;
       s.visible = false;
       this.globe.markerGroup.add(s);
       this.sprites.push(s);
+      this.byId.set(e.id, s);
     }
+  }
+
+  /** Byter medaljens bild när tidsläget eller detaljnivån ändras (texturerna återanvänds ur medalCache). */
+  _paint(s) {
+    const { event: e, color, info, full } = s.userData;
+    const map = medalTexture(e.icon, color, info, full);
+    if (s.material.map !== map) { s.material.map = map; s.material.needsUpdate = true; }
   }
 
   /**
@@ -79,13 +148,16 @@ export class EventsLayer {
       // I fokusläge ligger krigets redan utkämpade slag kvar, lite svagare
       const fought = e.partOf === focusId && s1 < year;
       const activity = !okFilter ? 0 : inside ? 1 : near ? 1 - 0.6 * dist / Math.max(1, window) : fought ? 0.45 : 0;
-      this.state.set(e.id, { activity, inside, dist });
+      const when = inside ? 'now' : s1 < year ? 'past' : 'future';
+      this.state.set(e.id, { activity, inside, dist, when });
+      s.userData.info = markerInfo(e, when);
+      s.userData.big = e.id === selectedId || highlight.has(e.id);
+      s.userData.activity = activity;
       s.visible = activity > 0;
       s.userData.active = activity > 0; // klustringen döljer markörer som ingår i ett kluster
-      const big = e.id === selectedId || highlight.has(e.id);
       s.material.opacity = 0.45 + 0.55 * activity;
-      s.userData.baseScale = (big ? 0.052 : 0.03 + 0.012 * activity) * s.userData.iconScale;
-      s.scale.setScalar(s.userData.baseScale);
+      s.userData.baseScale = (s.userData.big ? 0.078 : 0.045 + 0.018 * activity);
+      if (activity > 0) this._paint(s);
       if (activity > 0) visible.push({ e, activity, inside, dist });
     }
     visible.sort((a, b) => (b.inside - a.inside) || (a.dist - b.dist) || (a.e.start - b.e.start));
@@ -109,10 +181,25 @@ export class EventsLayer {
     }
   }
 
-  pulse(t, selectedId) {
+  /**
+   * Varje bildruta: storlek på skärmen och detaljnivå (#242). Markören är minst MIN_PX–MIN_PX + 6 px stor (mer
+   * för aktuella händelser), växer med zoomen upp till MAX_PX och ritas som hel medalj från FULL_PX. Vald händelse pulserar.
+   */
+  frame(t, selectedId) {
+    const cam = this.globe.camera, h = this.globe.canvas.clientHeight || 1;
+    // Världsenheter per pixel vid klotets framsida
+    const perPx = 2 * Math.max(0.2, cam.position.z - R) * Math.tan(cam.fov / 2 * Math.PI / 180) / h;
     for (const s of this.sprites) {
       if (!s.visible) continue;
-      if (s.userData.event.id === selectedId) s.scale.setScalar(s.userData.baseScale * (1 + 0.12 * Math.sin(t / 240)));
+      const u = s.userData;
+      const minPx = u.big ? MIN_PX + 10 : MIN_PX + 6 * u.activity;
+      let px = Math.min(Math.max(u.baseScale / perPx, minPx), u.big ? MAX_PX + 8 : MAX_PX);
+      const full = px >= FULL_PX;
+      if (full) px *= 55 / 46; // den hela medaljen har tidsbågen utanför ringen: ringen ska inte krympa
+      if (full !== u.full) { u.full = full; this._paint(s); }
+      const pulse = u.event.id === selectedId ? 1 + 0.12 * Math.sin(t / 240) : 1;
+      u.px = px; // storleken på skärmen, för etiketterna i main.js
+      s.scale.setScalar(px * perPx * pulse);
     }
   }
 }

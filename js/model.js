@@ -14,20 +14,21 @@ export function t(obj) {
 }
 
 // Fast kategorilista (beslut 7). Färgerna är valda för att synas mot mörk bakgrund.
+// count = ord i ental och flertal när en klunga säger vad den innehåller (#243), till exempel "3 krigshändelser".
 export const CATEGORIES = [
-  { id: 'natur',          name: { sv: 'Natur och djur' },                 color: '#8cc084' },
-  { id: 'manniskan',      name: { sv: 'Människans ursprung' },            color: '#c99263' },
-  { id: 'civilisationer', name: { sv: 'Civilisationer och riken' },       color: '#e3a33f' },
-  { id: 'religion',       name: { sv: 'Religion' },                       color: '#b892dc' },
-  { id: 'vetenskap',      name: { sv: 'Vetenskap och uppfinningar' },     color: '#5fb6dd' },
-  { id: 'upptackter',     name: { sv: 'Upptäcktsresor' },                 color: '#4fc6b2' },
-  { id: 'krig',           name: { sv: 'Krig och konflikter' },            color: '#e5675a' },
-  { id: 'kultur',         name: { sv: 'Kultur och arkitektur' },          color: '#ec98bd' },
-  { id: 'sport',          name: { sv: 'Sport' },                          color: '#f28c45' },
-  { id: 'ekonomi',        name: { sv: 'Ekonomi och handel' },             color: '#a9bd5e' },
-  { id: 'halsa',          name: { sv: 'Hälsa och epidemier' },            color: '#d8d46e' },
-  { id: 'klimat',         name: { sv: 'Klimat och naturkatastrofer' },    color: '#7aa4e6' },
-  { id: 'rymden',         name: { sv: 'Rymden' },                         color: '#cfcbff' },
+  { id: 'natur',          name: { sv: 'Natur och djur' },                 color: '#8cc084', count: { sv: ['naturhändelse', 'naturhändelser'] } },
+  { id: 'manniskan',      name: { sv: 'Människans ursprung' },            color: '#c99263', count: { sv: ['händelse om människans ursprung', 'händelser om människans ursprung'] } },
+  { id: 'civilisationer', name: { sv: 'Civilisationer och riken' },       color: '#e3a33f', count: { sv: ['rike eller civilisation', 'riken och civilisationer'] } },
+  { id: 'religion',       name: { sv: 'Religion' },                       color: '#b892dc', count: { sv: ['religiös händelse', 'religiösa händelser'] } },
+  { id: 'vetenskap',      name: { sv: 'Vetenskap och uppfinningar' },     color: '#5fb6dd', count: { sv: ['vetenskaplig händelse', 'vetenskapliga händelser'] } },
+  { id: 'upptackter',     name: { sv: 'Upptäcktsresor' },                 color: '#4fc6b2', count: { sv: ['upptäcktsresa', 'upptäcktsresor'] } },
+  { id: 'krig',           name: { sv: 'Krig och konflikter' },            color: '#e5675a', count: { sv: ['krigshändelse', 'krigshändelser'] } },
+  { id: 'kultur',         name: { sv: 'Kultur och arkitektur' },          color: '#ec98bd', count: { sv: ['kulturhändelse', 'kulturhändelser'] } },
+  { id: 'sport',          name: { sv: 'Sport' },                          color: '#f28c45', count: { sv: ['sporthändelse', 'sporthändelser'] } },
+  { id: 'ekonomi',        name: { sv: 'Ekonomi och handel' },             color: '#a9bd5e', count: { sv: ['händelse i ekonomin', 'händelser i ekonomin'] } },
+  { id: 'halsa',          name: { sv: 'Hälsa och epidemier' },            color: '#d8d46e', count: { sv: ['hälsohändelse', 'hälsohändelser'] } },
+  { id: 'klimat',         name: { sv: 'Klimat och naturkatastrofer' },    color: '#7aa4e6', count: { sv: ['klimathändelse', 'klimathändelser'] } },
+  { id: 'rymden',         name: { sv: 'Rymden' },                         color: '#cfcbff', count: { sv: ['rymdhändelse', 'rymdhändelser'] } },
 ];
 export const CAT = Object.fromEntries(CATEGORIES.map(c => [c.id, c]));
 
