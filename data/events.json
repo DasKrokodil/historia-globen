@@ -2177,26 +2177,6 @@
       "note": { "title": { "sv": "Om platsen" }, "text": { "sv": "Wikipedia och Wikidata anger samma datum men ingen koordinat. Punkten kommer från Historical Conflict Event Dataset och ligger vid Bucaramanga, där Wikipedia placerar slaget." } },
       "wikidata": "Q4871978", "sources": ["wp-battle-palonegro", "wikidata", "whg-hced"], "review": "source-checked" },
 
-    { "id": "slaget-vid-kepaniwai", "category": "krig", "icon": "swords", "start": 1790, "end": 1790, "precision": 9, "edtf": "1790",
-      "location": { "type": "Point", "coordinates": [-156.545, 20.8808] }, "place": { "sv": "ʻĪaodalen på Maui, Hawaii" },
-      "title": { "sv": "Slaget vid Kepaniwai" },
-      "summary": { "sv": "År 1790 landstiger Kamehameha I från ön Hawaiʻi med omkring 1 200 krigare på Maui och möter Mauis styrkor under Kalanikūpule i ʻĪaodalen. Efter två dagars jämn strid avgör två kanoner, som skötts av Kamehamehas rådgivare John Young och Isaac Davis, på den tredje dagen. Slaget räknas som ett av de bittraste i Hawaiis historia och är ett steg mot öarnas enande." },
-      "wikidata": "Q4871415", "sources": ["wp-battle-kepaniwai", "wikidata", "whg-hced"], "review": "two-sources" },
-
-    { "id": "slaget-vid-nuuanu", "category": "krig", "icon": "swords", "start": 1795, "end": 1795, "precision": 10, "edtf": "1795-05",
-      "location": { "type": "Point", "coordinates": [-157.7931, 21.3671] }, "place": { "sv": "Nuʻuanu på Oʻahu, Hawaii" },
-      "title": { "sv": "Slaget vid Nuʻuanu" },
-      "summary": { "sv": "I maj 1795 besegrar Kamehameha I Oʻahus styrkor på öns södra del. Slaget kallas på hawaiiska Kalelekaʻanae, ”den hoppande multen”, efter de krigare som drevs utför klippan i slutskedet. Det är ett av de sista och viktigaste slagen i Kamehamehas krig för att ena Hawaiiöarna. Berättelserna om slaget skiljer sig ibland åt." },
-      "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Wikipedia, Wikidata och Historical Conflict Event Dataset anger samma år. Wikipedias koordinat ligger omkring 15 km söder om Wikidatas punkt vid Nuʻuanu. Vi visar Wikidatas punkt, som ligger nära datasetets." } },
-      "wikidata": "Q4871927", "sources": ["wp-battle-nuuanu", "wikidata", "whg-hced"], "review": "source-checked" },
-
-    { "id": "slaget-vid-gate-pa", "category": "krig", "icon": "swords", "start": 1864, "end": 1864, "precision": 11, "edtf": "1864-04-29",
-      "location": { "type": "Point", "coordinates": [176.139, -37.716] }, "place": { "sv": "Gate Pā (Pukehinahina) i Tauranga, Nya Zeeland" },
-      "title": { "sv": "Slaget vid Gate Pā" },
-      "summary": { "sv": "Under Taurangafälttåget i Nyazeeländska krigen bygger omkring 230 maorikrigare, mest ngāi te rangi, en befäst kulle vid Pukehinahina. Den 29 april 1864 beskjuter omkring 1 650 brittiska soldater fästet i över åtta timmar och stormar det sedan, men slås tillbaka med 31 döda och 80 sårade. Nederlaget blir förödmjukande för britterna." },
-      "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Historical Conflict Event Dataset placerar slaget nära Wellington, omkring 500 km bort. Wikipedia beskriver slaget i Tauranga, och punkten är förorten Gate Pa i Tauranga enligt Wikipedia. Slaget har ingen egen post i Wikidata som gick att hitta." } },
-      "sources": ["wp-tauranga-campaign", "wp-gate-pa", "whg-hced"], "review": "source-checked" },
-
     { "id": "slaget-vid-milne-bay", "category": "krig", "icon": "swords", "partOf": "andra-varldskriget", "start": 1942, "end": 1942, "precision": 11, "edtf": "1942-08-25/1942-09-07",
       "location": { "type": "Point", "coordinates": [150.48, -10.32] }, "place": { "sv": "Milne Bay på Nya Guineas östspets, Papua Nya Guinea" },
       "title": { "sv": "Slaget vid Milne Bay" },

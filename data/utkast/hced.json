@@ -960,6 +960,33 @@
       "whg": 7689543,
       "finns": "vapenstillestandet-1918",
       "skäl": "17 km"
+    },
+    {
+      "utkast": null,
+      "plats": "Kepaniwai",
+      "konflikt": "Hawaiian Wars",
+      "år": 1790,
+      "whg": 7688180,
+      "finns": "slaget-vid-kepaniwai",
+      "skäl": "samma slag; inlagt med källkontroll i #259 (PR #282)"
+    },
+    {
+      "utkast": null,
+      "plats": "Nuuanu",
+      "konflikt": "Hawaiian Wars",
+      "år": 1795,
+      "whg": 7689551,
+      "finns": "slaget-vid-nuuanu",
+      "skäl": "samma slag; inlagt med källkontroll i #259 (PR #282)"
+    },
+    {
+      "utkast": null,
+      "plats": "Gate Pa",
+      "konflikt": "2nd New Zealand War",
+      "år": 1864,
+      "whg": 7687331,
+      "finns": "slaget-vid-gate-pa",
+      "skäl": "samma slag; inlagt med källkontroll i #259 (PR #282)"
     }
   ],
   "events": [
