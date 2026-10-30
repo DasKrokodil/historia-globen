@@ -154,7 +154,8 @@ export class Panel {
    * som också är punkten på globen.
    */
   showReligion(r, origin) {
-    this.showFacts({ kind: 'Religion', name: t(r.name), color: r.color, facts: r.facts, origin, milestonesTitle: 'Statsreligion i riken' });
+    this.showFacts({ kind: 'Religion', name: t(r.name), color: r.color, facts: r.facts, origin,
+      milestonesTitle: t(r.facts.milestonesTitle) || 'Statsreligion i riken' });
   }
 
   /**
