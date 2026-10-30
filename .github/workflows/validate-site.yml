@@ -55,10 +55,6 @@ jobs:
         run: |
           # production ska bara innehålla det som redan finns i main (docs/DEPLOYMENT.md).
           # Har någon ändrat production direkt (nödläge) måste ändringen först in i main.
-          if ! git merge-base --is-ancestor "origin/$BASE_REF" "$HEAD_SHA"; then
-            echo "::error::production har commits som inte finns i main. För in dem i main först (se Rollback i docs/DEPLOYMENT.md)."
-            git log --oneline "$HEAD_SHA..origin/$BASE_REF"
-            exit 1
-          fi
+          bash scripts/production-i-main.sh "origin/$BASE_REF" "$HEAD_SHA"
           echo "Ändringar som släpps:"
           git log --oneline --first-parent "origin/$BASE_REF..$HEAD_SHA"

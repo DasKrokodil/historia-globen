@@ -1083,6 +1083,8 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-pop .info-btn { margin-top: 8px; }
 /* "Läs mer om <religion>" (#270): tydligare än små Fakta-knappar, öppnar religionens faktaruta */
 .religion-pop .rp-more { display: block; margin: 10px 0 0; padding: 5px 12px; border-color: var(--brass-deep); font-size: 12px; text-align: left; }
+.religion-pop .rp-wiki { display: block; width: fit-content; margin: 8px 0 0; color: var(--brass); font-size: 12px; }
+.religion-pop .rp-wiki:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
 @media (max-width: 760px) {
   /* smalare än rubrikens högra grannar (knapparna uppe till höger), 44 px hög tryckyta, borta när panelen är öppen */
   .religion-legend { max-width: 172px; font-size: 11px; padding-top: 0; padding-bottom: 0; }

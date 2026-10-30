@@ -110,6 +110,51 @@
      20
     ]
    ]
+  },
+  "korea": {
+   "name": {
+    "sv": "Korea"
+   },
+   "bbox": [
+    [
+     124.5,
+     33,
+     131,
+     43.5
+    ]
+   ]
+  },
+  "indien": {
+   "name": {
+    "sv": "Indien"
+   },
+   "bbox": [
+    [
+     67,
+     6,
+     92,
+     36
+    ]
+   ]
+  },
+  "stilla-havet": {
+   "name": {
+    "sv": "Stilla havets öar"
+   },
+   "bbox": [
+    [
+     -180,
+     -50,
+     -130,
+     30
+    ],
+    [
+     165,
+     -48,
+     180,
+     -33
+    ]
+   ]
   }
  },
  "styles": [
@@ -265,7 +310,25 @@
    "to": 9999,
    "regions": [],
    "frame": "rymdalder",
-   "prompt": "mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style"
+   "prompt": "mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style",
+   "variants": {
+    "krig": {
+     "id": "dokumentar",
+     "name": {
+      "sv": "Dokumentär illustration",
+      "en": "Documentary illustration"
+     },
+     "prompt": "muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine"
+    },
+    "civilisationer": {
+     "id": "dokumentar",
+     "name": {
+      "sv": "Dokumentär illustration",
+      "en": "Documentary illustration"
+     },
+     "prompt": "muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine"
+    }
+   }
   },
   {
    "id": "kina-tusch",
@@ -364,6 +427,48 @@
    ],
    "frame": null,
    "prompt": "West African textile patterns and cast bronze relief plaques in the style of the Benin Bronzes, rich patina, decorative background rosettes"
+  },
+  {
+   "id": "korea-joseon",
+   "name": {
+    "sv": "Koreansk tusch- och färgmålning",
+    "en": "Korean ink and colour painting"
+   },
+   "from": 1392,
+   "to": 1910,
+   "regions": [
+    "korea"
+   ],
+   "frame": null,
+   "prompt": "Korean Joseon-era ink and colour painting on silk, fine brushwork, muted mineral colours"
+  },
+  {
+   "id": "indien-relief",
+   "name": {
+    "sv": "Fornindisk stenrelief",
+    "en": "Ancient Indian stone relief"
+   },
+   "from": -600,
+   "to": 600,
+   "regions": [
+    "indien"
+   ],
+   "frame": null,
+   "prompt": "ancient Indian stone relief in the manner of early Buddhist stupa carvings, sandstone, carved figures in shallow relief"
+  },
+  {
+   "id": "stilla-havet-gravyr",
+   "name": {
+    "sv": "Gravyr från en resa i Stilla havet",
+    "en": "Engraving from a Pacific voyage account"
+   },
+   "from": 1760,
+   "to": 1900,
+   "regions": [
+    "stilla-havet"
+   ],
+   "frame": null,
+   "prompt": "late 18th- or 19th-century engraving from a Pacific voyage account, fine line work, sepia"
   }
  ]
 }

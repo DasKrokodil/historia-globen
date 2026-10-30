@@ -27,6 +27,7 @@ W, H, MAX_BYTES = 800, 600, 150_000
 STYLE_ALIAS = {
     'kina': ('kina-tusch', None), 'osmansk': ('miniatyr', None), 'aztekisk': ('aztekisk-kodex', None),
     'anderna': ('inka', None), 'portolan': ('renassans', 'portolan'), 'modern': ('rymdalder', None),
+    'dokumentar': ('rymdalder', 'dokumentar'),
 }
 
 

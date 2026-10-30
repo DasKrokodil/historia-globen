@@ -141,13 +141,16 @@ export class EventsLayer {
       // syns krigets alla händelser. Valda händelser syns alltid.
       const onMap = !e.partOf || e.top || e.partOf === focusId || e.id === selectedId;
       const okFilter = onMap && filters.has(e.category) && isVisibleReview(e.review);
+      // Händelserna i Samtidigt-kortet syns alltid, så att kortets bågar har markörer i båda ändar,
+      // också när lagret Händelser är avslaget eller kategorin filtrerad bort. De räknas inte i listan.
+      const shown = okFilter || (highlight.has(e.id) && isVisibleReview(e.review));
       const [s0, s1] = span(e);
       const inside = year >= s0 && year <= s1;
       const dist = inside ? 0 : Math.min(Math.abs(year - s0), Math.abs(year - s1));
       const near = dist <= window;
       // I fokusläge ligger krigets redan utkämpade slag kvar, lite svagare
       const fought = e.partOf === focusId && s1 < year;
-      const activity = !okFilter ? 0 : inside ? 1 : near ? 1 - 0.6 * dist / Math.max(1, window) : fought ? 0.45 : 0;
+      const activity = !shown ? 0 : inside ? 1 : near ? 1 - 0.6 * dist / Math.max(1, window) : fought ? 0.45 : 0;
       const when = inside ? 'now' : s1 < year ? 'past' : 'future';
       this.state.set(e.id, { activity, inside, dist, when });
       s.userData.info = markerInfo(e, when);
@@ -158,7 +161,7 @@ export class EventsLayer {
       s.material.opacity = 0.45 + 0.55 * activity;
       s.userData.baseScale = (s.userData.big ? 0.078 : 0.045 + 0.018 * activity);
       if (activity > 0) this._paint(s);
-      if (activity > 0) visible.push({ e, activity, inside, dist });
+      if (activity > 0 && okFilter) visible.push({ e, activity, inside, dist });
     }
     visible.sort((a, b) => (b.inside - a.inside) || (a.dist - b.dist) || (a.e.start - b.e.start));
     return visible;
