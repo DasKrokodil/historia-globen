@@ -2,7 +2,7 @@
 
 Historia-globen ska publiceras i två miljöer. Det här dokumentet beskriver grenarna, vad som publiceras, kontrollerna och hur en release och en rollback går till.
 
-> **Läget i dag (2026-10-30):** grenen `production` finns (skapad från `main` på commit `e2774dd`), och båda grenarna är skyddade med rulesets (se [Inställningar i GitHub](#inställningar-i-github)). Ingen publicering till dev.historiagloben.se eller historiagloben.se är uppsatt ännu, men GitHub Pages publicerar `main` (se [GitHub Pages](#github-pages-stängs-av-när-cloudflare-pages-är-uppsatt)). Webbhotell och publiceringssteg är inte valda; se [Öppna frågor](#öppna-frågor).
+> **Läget i dag (2026-10-30):** grenen `production` finns (skapad från `main` på commit `e2774dd`), och båda grenarna är skyddade med rulesets (se [Inställningar i GitHub](#inställningar-i-github)). Webbplatsen publiceras med Cloudflare Pages: historiagloben.se visar `production`, och `main` är den enda grenen som får förhandsversioner (se [Cloudflare Pages](#cloudflare-pages)). GitHub Pages är avpublicerad.
 
 ## Miljöer och grenar
 
@@ -73,6 +73,23 @@ python3 -m http.server 8000 --directory dist
 
 `dist/` committas inte (`.gitignore`).
 
+## Cloudflare Pages
+
+Läget enligt Rikard 2026-10-30. Inställningarna görs i Cloudflares kontrollpanel, inte i repot, och har inte kunnat kontrolleras härifrån.
+
+| Inställning | Värde |
+|---|---|
+| Projekt | `historia-globen` |
+| Produktionsgren | `production` |
+| Egen domän för produktionen | historiagloben.se, kopplad och aktiv med SSL |
+| Förhandsversioner (preview) | bara grenen `main` |
+| Andra grenar | automatiska förhandsversioner avstängda för framtida pushar |
+
+- En sammanslagning till `production` publicerar historiagloben.se. En sammanslagning till `main` ger en ny förhandsversion av `main`.
+- Arbetsgrenar (`claude/...` m.fl.) får inga egna förhandsversioner längre. Förhandsversioner som redan har skapats ligger kvar i Cloudflare tills de tas bort där.
+- Rekommenderat byggkommando är `bash scripts/build-site.sh` och utdatakatalog `dist` (se [Bygga och kontrollera lokalt](#bygga-och-kontrollera-lokalt)). Vilka värden projektet faktiskt har står inte i repot.
+- Ännu inte dokumenterat: om dev.historiagloben.se är kopplad till förhandsversionen av `main`, och om Cloudflare Access skyddar den (se [Öppna frågor](#öppna-frågor)).
+
 ## Automatiska kontroller (GitHub Actions)
 
 `.github/workflows/validate-site.yml` kör bygget och valideringen:
@@ -123,11 +140,11 @@ Tidigare releaser har taggarna `V2` och `V2.1`. De ligger kvar som de är. Från
 
 Visar historiagloben.se något trasigt finns tre sätt att gå tillbaka, i den här ordningen:
 
-1. **Rulla tillbaka i webbhotellet.**
-   - **När:** det snabbaste sättet, när webbhotellet sparar tidigare publiceringar. Cloudflare Pages har till exempel en knapp för det.
+1. **Rulla tillbaka i Cloudflare Pages.**
+   - **När:** det snabbaste sättet, eftersom Cloudflare Pages sparar tidigare publiceringar.
    - **Hur:** välj publiceringen från den förra taggen.
    - **Efteråt:** ändrar ingen kod, så rätta sedan enligt punkt 2.
-   - **Förbehåll:** gäller först när ett webbhotell är valt.
+   - **Var:** Cloudflare → Workers & Pages → `historia-globen` → Deployments, välj en tidigare produktionspublicering och "Rollback to this deployment".
 2. **Ångra ändringen via main** (det normala sättet, följer regeln om pull request från `main`):
    ```bash
    git checkout -b rollback-v3.1.0 origin/main
@@ -149,18 +166,12 @@ Visar historiagloben.se något trasigt finns tre sätt att gå tillbaka, i den h
 
 Taggarna ändras eller flyttas aldrig. En rollback ger en ny version.
 
-## GitHub Pages (stängs av när Cloudflare Pages är uppsatt)
+## GitHub Pages (avpublicerad)
 
-GitHub Pages är påslaget för repot sedan 28 oktober 2026. Vid varje push till `main` kör GitHub sitt eget jobb **pages-build-deployment** (det syns som kontrollerna `build`, `deploy` och `report-build-status`) och publicerar **hela repot** från `main`, troligen på daskrokodil.github.io/historia-globen.
-
-Det betyder att:
-- även interna filer som `CLAUDE.md`, `docs/`, `tools/` och `data/utkast/` publiceras där, eftersom GitHub Pages inte använder `scripts/build-site.sh`. Repot är öppet, så inget hemligt läcker, men det är inte den publicering som beskrivs här;
-- det finns en tredje adress bredvid dev och production, som visar `main` utan Cloudflare Access.
-
-**När Cloudflare Pages publicerar dev och production:** stäng av GitHub Pages under Settings → Pages → Build and deployment → Source → **None** (eller "Unpublish site"). Kontrollera efteråt att `pages-build-deployment` inte körs vid nästa push till `main`. Fram till dess kan GitHub Pages vara kvar, så att det finns en fungerande adress att visa.
+GitHub Pages var påslaget för repot från 28 oktober 2026 och publicerade hela repot från `main`, även interna filer, med GitHubs eget jobb **pages-build-deployment**. Enligt Rikard är det avpublicerat 2026-10-30, eftersom Cloudflare Pages nu publicerar webbplatsen. Kontroll: vid nästa push till `main` ska kontrollerna `build`, `deploy` och `report-build-status` från pages-build-deployment inte längre dyka upp.
 
 ## Öppna frågor
 
-- **Webbhotell och publicering** är inte valda. Det kan till exempel bli Cloudflare Pages, som publicerar `dist/` från `main` och `production`. Ett publiceringsjobb läggs till i workflowen när valet är gjort.
-- **Cloudflare Access** för dev.historiagloben.se ställs in i Cloudflare, inte i repot.
+- **dev.historiagloben.se och Cloudflare Access:** inte dokumenterat ännu om domänen är kopplad till förhandsversionen av `main` och skyddad med Cloudflare Access. Det ställs in i Cloudflare, inte i repot.
+- **Bygginställningar i Cloudflare:** byggkommando och utdatakatalog står inte i repot; se [Cloudflare Pages](#cloudflare-pages).
 - **Externa resurser:** jsDelivr och Google Fonts måste vara tillåtna om en Content-Security-Policy införs.
