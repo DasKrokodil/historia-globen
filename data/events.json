@@ -497,7 +497,7 @@
       "summary": { "sv": "Den 1 mars 1896 anfaller general Baratieris italienska armé, omkring 14 500–17 800 man, den etiopiska armén vid Adwa. De italienska brigaderna kommer ifrån varandra i den svåra terrängen, och Meneliks och Taytus armé på 73 000–100 000 man, beväpnad med moderna gevär och snabbskjutande kanoner, besegrar dem en efter en. Segern säkrar Etiopiens självständighet och blir en symbol för afrikanskt motstånd mot kolonialismen." },
       "wikidata": "Q302519", "sources": ["wp-adwa", "wp-first-italo-ethiopian-war", "wikidata"], "review": "two-sources" },
 
-    { "id": "freden-i-addis-abeba-1896", "category": "krig", "partOf": "forsta-italiensk-etiopiska-kriget", "major": true, "start": 1896, "end": 1896, "precision": 11, "edtf": "1896-10-26",
+    { "id": "freden-i-addis-abeba-1896", "category": "krig", "icon": "treaty", "partOf": "forsta-italiensk-etiopiska-kriget", "major": true, "start": 1896, "end": 1896, "precision": 11, "edtf": "1896-10-26",
       "location": { "type": "Point", "coordinates": [38.7525, 9.0358] }, "place": { "sv": "Addis Abeba, Etiopien" },
       "title": { "sv": "Freden i Addis Abeba" },
       "summary": { "sv": "Fredsfördraget i Addis Abeba avslutar kriget på villkor som till största delen gynnar Etiopien. Italien upphäver Wuchalefördraget och erkänner Etiopien som ett självständigt land, och de italienska krigsfångarna får återvända hem mot att Italien betalar 10 miljoner lire för deras uppehälle. Italien får ändå behålla de flesta områden som det hade tagit bortom floderna Mareb och Belessa." },
@@ -539,7 +539,7 @@
       "summary": { "sv": "Den 8 september 1925 landsätter en spansk-fransk flotta 13 000 spanska soldater vid Alhucemasbukten, där Abd el-Krims egen stam bodde. Landstigningen, ledd av Primo de Rivera och general Sanjurjo, räknas som den första i historien med stridsvagnar och omfattande flygstöd från havet. Den vänder kriget, samtidigt som franska trupper anfaller söderifrån." },
       "wikidata": "Q3026815", "sources": ["wp-alhucemas-landing", "wp-rif-war", "wikidata"], "review": "two-sources" },
 
-    { "id": "abd-el-krim-ger-upp", "category": "krig", "partOf": "rifkriget", "start": 1926, "end": 1926, "precision": 11, "edtf": "1926-05-27",
+    { "id": "abd-el-krim-ger-upp", "category": "krig", "icon": "treaty", "partOf": "rifkriget", "start": 1926, "end": 1926, "precision": 11, "edtf": "1926-05-27",
       "location": { "type": "Point", "coordinates": [-3.9167, 35.2] }, "locationPrecision": "region", "place": { "sv": "Rif, norra Marocko (platsen anges inte i källorna)" },
       "title": { "sv": "Abd el-Krim ger upp" },
       "summary": { "sv": "Efter ett års hårt motstånd mot den spansk-franska övermakten ger Abd el-Krim upp till de franska myndigheterna i maj 1926. Rifrepubliken upplöses, och Abd el-Krim förvisas till Réunion. Enstaka grupper i Rif fortsätter striden till juli 1927." },
@@ -587,7 +587,7 @@
       "note": { "title": { "sv": "Om datumet" }, "text": { "sv": "Wikipedias artikel om kuppen och Wikidata anger att den började den 21 april 1961. Artikeln om kriget anger den 22 april." } },
       "wikidata": "Q2605231", "sources": ["wp-algiers-putsch-1961", "wp-algerian-war", "wikidata"], "review": "source-checked" },
 
-    { "id": "eviansavtalen", "category": "krig", "partOf": "algeriska-frihetskriget", "major": true, "top": true, "start": 1962, "end": 1962, "precision": 11, "edtf": "1962-03-18",
+    { "id": "eviansavtalen", "category": "krig", "icon": "treaty", "partOf": "algeriska-frihetskriget", "major": true, "top": true, "start": 1962, "end": 1962, "precision": 11, "edtf": "1962-03-18",
       "location": { "type": "Point", "coordinates": [6.59, 46.4006] }, "place": { "sv": "Évian-les-Bains, Frankrike" },
       "title": { "sv": "Éviansavtalen: Algeriet blir fritt" },
       "summary": { "sv": "Den 18 mars 1962 kommer Frankrike och FLN:s exilregering överens i Évian, där Krim Belkacem undertecknar för den algeriska sidan. Avtalen ger eldupphör från den 19 mars, frigivning av fångar och full självständighet för Algeriet efter en folkomröstning. Den 1 juli röstar nästan alla algerier för självständighet, och Algeriet blir självständigt den 3 juli 1962; den 5 juli firas som självständighetsdag. Under tiden fortsätter OAS med hundratals bombdåd i Algeriet." },
