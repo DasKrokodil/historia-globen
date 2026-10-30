@@ -68,7 +68,14 @@ export class LayerMenu {
       input.addEventListener('change', () => onToggle(it.id, input.checked));
       const sw = document.createElement('span');
       sw.className = 'swatch'; sw.style.background = it.color;
-      label.append(input, sw, document.createTextNode(it.name));
+      label.append(input, sw);
+      // Religionens symbol bredvid färgen (#271)
+      if (it.symbol) {
+        const img = document.createElement('img');
+        img.className = 'rel-sym'; img.src = it.symbol; img.alt = ''; img.width = img.height = 16;
+        label.append(img);
+      }
+      label.append(document.createTextNode(it.name));
       if (it.info) {
         const btn = document.createElement('button');
         btn.type = 'button'; btn.className = 'info-btn';

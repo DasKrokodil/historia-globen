@@ -1061,3 +1061,19 @@ details.used-by summary:hover { color: var(--parchment); }
   #funfact.ff-dragging :is(.ff-pics, .ff-text, .ff-foot) { display: revert; }
   #funfact.ff-dragging .ff-pics:not([hidden]) { display: grid; }
 }
+
+/* ---------- religionernas symboler bredvid färgen (#271) ---------- */
+/* Egna teckningar i pergamentfärg (img/icons/); samma storlek i Lager, Fokus, teckenförklaringen och klickrutan */
+.rel-sym { width: 16px; height: 16px; flex: none; display: inline-block; vertical-align: -3px; }
+.layer-subrow .rel-sym, .focus-item .rel-sym { margin-left: -4px; }
+.religion-legend .rel-sym { width: 15px; height: 15px; margin-left: -3px; }
+.detail h3 .rel-sym-h { width: 22px; height: 22px; margin-right: 8px; vertical-align: -3px; }
+@media (max-width: 760px) { .religion-legend .rel-sym { width: 13px; height: 13px; } }
+.detail .war-link .rel-sym-in { width: 18px; height: 18px; vertical-align: -4px; }
+/* Knappen över symbolen där religionen uppstod (#271): osynlig, men går att nå med Tab och syns med fokusring */
+.gorigin {
+  position: absolute; left: 0; top: 0; padding: 0; border: 0; border-radius: 50%; background: transparent;
+  cursor: pointer; pointer-events: auto;
+}
+.gorigin:hover { box-shadow: 0 0 0 2px color-mix(in srgb, var(--brass) 70%, transparent); }
+.gorigin:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }

@@ -2,7 +2,7 @@
 // HTML-element över globen (inte en del av kartbilden), och all text kommer ur
 // religions.json via t(). I fokusläget förklarar samma ruta också krigsområdena (#236)
 // och säger vilka lager som är dämpade, med en knapp för att visa dem som vanligt (#235).
-import { t, CAT, formatYear } from '../model.js';
+import { t, CAT, formatYear, symbolImg } from '../model.js';
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const cleanName = n => String(n).replace(/^\((.*)\)$/, '$1'); // "(Kingdom of France)" → "Kingdom of France"
@@ -56,8 +56,8 @@ export class ReligionLegend {
     const unsure = items.some(i => i.unsure), inherited = items.some(i => i.inherited);
     const title = items.length && war ? 'Teckenförklaring' : items.length ? 'Religioner' : war ? 'Krigsområden' : 'Lager i fokus';
     const religionsHtml = !items.length ? '' : `<ul>${items.map(({ religion: r, sure, unsure: u, inherited: i }) =>
-      `<li><span class="swatch" style="background:${esc(r.color)}"></span>${esc(t(r.name))}${
-        sure ? '' : u ? ' <em>(osäkert)</em>' : i ? ' <em>(ärvt)</em>' : ''}</li>`).join('')}</ul>${
+      `<li data-religion="${esc(r.id)}" tabindex="0"><span class="swatch" style="background:${esc(r.color)}"></span>${symbolImg(r)}<span class="rl-name">${esc(t(r.name))}${
+        sure ? '' : u ? ' <em>(osäkert)</em>' : i ? ' <em>(ärvt)</em>' : ''}</span></li>`).join('')}</ul>${
       unsure ? '<p class="rl-note"><span class="swatch rl-unsure"></span>Ljus med streckad kant: osäker uppgift</p>' : ''}${
       inherited ? '<p class="rl-note"><span class="swatch rl-inherited"></span>Ljusast med prickad kant: ärvt, rikets faktaruta saknar religion</p>' : ''}`;
     // Krigsskådeplatsen: skraffering i krigets färg med hel kantlinje, som på kartan (wars.js)
@@ -120,7 +120,7 @@ export class ReligionLegend {
         : `Ett av ${names.length} riken i det här området med ${esc(t(r.name).toLowerCase())}`}</p>`;
     }
     this.pop.innerHTML = `<button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
-      <div class="rp-head"><span class="swatch" style="background:${esc(r.color)}"></span><strong>${head}</strong></div>
+      <div class="rp-head"><span class="swatch" style="background:${esc(r.color)}"></span>${symbolImg(r)}<strong>${head}</strong></div>
       ${where}
       ${snapshot.inherited ? this.inheritedNote(hit, name) : snapshot.sure === false ? '<p class="rp-note">Osäker uppgift</p>' : ''}
       ${r.facts ? `<button type="button" class="info-btn rp-more" data-facts="${esc(r.id)}">Läs mer om ${esc(t(r.name).toLowerCase())}</button>` : ''}`;

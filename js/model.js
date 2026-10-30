@@ -267,3 +267,11 @@ export function loadReligionPolities() {
   religionPolitiesPromise ??= getJSON('data/religions-polities.json').catch(err => { religionPolitiesPromise = null; throw err; });
   return religionPolitiesPromise;
 }
+
+/**
+ * Religionens symbol (#271): fältet symbol i religions.json är namnet på en egen teckning i img/icons/.
+ * symbolUrl ger sökvägen (null om symbol saknas), symbolImg en <img> som står bredvid färgen i menyer och rutor.
+ * Symbolen är dekor bredvid namnet, så alt är tomt.
+ */
+export const symbolUrl = r => /^[\w-]+$/.test(r?.symbol ?? '') ? `img/icons/${r.symbol}.svg` : null;
+export const symbolImg = (r, cls = 'rel-sym') => symbolUrl(r) ? `<img class="${cls}" src="${symbolUrl(r)}" alt="" width="16" height="16">` : '';
