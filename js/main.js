@@ -215,9 +215,10 @@ async function start() {
       const r = doc.religions.find(x => x.id === id);
       // Fokus börjar när religionen grundades, om det finns en sådan händelse (#123)
       const first = founding(id)[0];
-      const from = Math.min(first?.start ?? Infinity, r.snapshots[0].start), to = Math.max(r.snapshots.at(-1).end, first?.end ?? -Infinity);
+      const st = stated(r);
+      const from = Math.min(first?.start ?? Infinity, st[0].start), to = Math.max(st.at(-1).end, first?.end ?? -Infinity);
       f = { type, id, title: `${t(r.name)} · ${religionSpan(r, first)}`, short: t(r.name), from, to,
-        center: first ? [first._lat, first._lon] : geoCenter([r.snapshots[0].geometry]), zoom: 1.3 };
+        center: first ? [first._lat, first._lon] : geoCenter([st[0].geometry]), zoom: 1.3 };
     }
     // Året stannar om det ligger inom spannet; annars flyttas det till starten och flytten visas (#167)
     const prevYear = timeline.year, prevText = timeline.format(prevYear), keepYear = prevYear >= f.from && prevYear <= f.to;
@@ -284,13 +285,17 @@ async function start() {
   const focusMenu = new FocusMenu({ button: $('btn-focus'), menu: $('focus-menu') });
   // Varje post har sitt tidsspann (from–to), så att menyn kan visa det som hör till tiden man står i (#121)
   // Religionens årtal i Fokus: grundandet där det går att belägga, annars bara kartdatans spann (#138)
+  // Ärvda områden (#269) räknas inte: spannet är där en faktaruta anger religionen
+  const stated = r => r.snapshots.filter(s => !s.inherited);
   const religionSpan = (r, first) => {
-    const map = `statsreligion på kartan ${formatYearSpan(r.snapshots[0].start, r.snapshots.at(-1).end)}`;
+    const st = stated(r);
+    const map = `statsreligion på kartan ${formatYearSpan(st[0].start, st.at(-1).end)}`;
     return first ? `grundad ${formatEventTime(first)} · ${map}` : map;
   };
   const religionItems = doc => doc.religions.map(r => {
     const first = founding(r.id)[0];
-    const from = Math.min(first?.start ?? Infinity, r.snapshots[0].start), to = r.snapshots.at(-1).end;
+    const st = stated(r);
+    const from = Math.min(first?.start ?? Infinity, st[0].start), to = st.at(-1).end;
     return { key: `religion:${r.id}`, label: t(r.name), sub: religionSpan(r, first), color: r.color, from, to };
   });
   const empireItems = () => data.empireGroups.map(g =>
