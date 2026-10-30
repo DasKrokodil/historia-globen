@@ -47,14 +47,22 @@ const fmtRate = r => `${fmtNum(r)} år/s`;
 // I fokusläget för korta krig (#204) räknas farten och stegen i dagar
 const DAYS_PER_YEAR = 365.25;
 const dayUnit = n => (n === '1' ? 'dag' : 'dagar');
+// Spelknappens ikoner: spela, pausa och spela igen (pil runt, #232)
+const ICON_PLAY = 'M4 2.5v11l9-5.5z';
+const ICON_PAUSE = 'M4 2.5h3v11H4zM9 2.5h3v11H9z';
+const ICON_AGAIN = 'M8 2.5V0L4.2 3.6 8 7.2V4.5a3.5 3.5 0 1 1-3.5 3.5h-2A5.5 5.5 0 1 0 8 2.5z';
 const fmtDays = r => { const n = fmtNum(r * DAYS_PER_YEAR); return `${n} ${dayUnit(n)}/s`; };
 
 export class Timeline extends EventTarget {
   constructor({ track, thumb, segs, ticks, dots, ffMarks, playBtn, playIcon, stepBtns, speedBtn, pauseNote, pauseText, pauseGo }) {
     super();
-    Object.assign(this, { track, thumb, playBtn, playIcon, speedBtn, pauseNote, pauseText, stepBtns, segsEl: segs, ticksEl: ticks });
+    Object.assign(this, { track, thumb, playBtn, playIcon, speedBtn, pauseNote, pauseText, pauseGo, stepBtns, segsEl: segs, ticksEl: ticks });
     this._year = 1325;
     this.playing = false;
+    this._resume = false; // automatisk paus: knappen heter "Fortsätt"
+    // Finns det mer att visa när tiden står i slutet? Den som lyssnar sätter den, till exempel
+    // när ett krigs slutkort ännu inte har visats (#232). Annars blir knappen "Spela igen".
+    this.hasMore = () => false;
     this.focus = null; // { from, to, fine }: tidslinjen inzoomad på ett spann (fokusläge, #109)
     // fine: ett kort krig (#204). Då är året ett decimaltal avrundat till hela dagar, och skalan,
     // stegen och farten räknas i dagar och månader.
@@ -71,7 +79,7 @@ export class Timeline extends EventTarget {
       this._labelSpeed();
     });
     pauseGo?.addEventListener('click', () => this.play());
-    this._labelPlay(false);
+    this._labelPlay();
     this._labelSpeed();
 
     // Dra i reglaget
@@ -265,23 +273,33 @@ export class Timeline extends EventTarget {
       b.title = b.getAttribute('aria-label');
     }
   }
-  _labelPlay(playing, resume = false) {
-    const t = playing ? 'Pausa' : resume ? 'Fortsätt' : 'Spela upp tiden';
+  /** I slutet (fokusets slut eller sista året) och utan något kvar att visa börjar nästa uppspelning om. */
+  get atEnd() { return !this.playing && this._year >= (this.focus ? this.focus.to : MAX_YEAR) && !this.hasMore(); }
+  /** Spelknappens ikon och namn: "Pausa", "Fortsätt" (efter automatisk paus), "Spela igen" (i slutet, #232)
+   *  eller "Spela upp tiden". Knappen i pausraden byter text på samma sätt. */
+  _labelPlay() {
+    const again = this.atEnd;
+    const t = this.playing ? 'Pausa' : again ? 'Spela igen' : this._resume ? 'Fortsätt' : 'Spela upp tiden';
+    this.playIcon.setAttribute('d', this.playing ? ICON_PAUSE : again ? ICON_AGAIN : ICON_PLAY);
     this.playBtn.setAttribute('aria-label', t);
     this.playBtn.title = t;
+    if (this.pauseGo) this.pauseGo.textContent = again ? '\u21BB Spela igen' : '\u25B6 Fortsätt';
   }
+  /** Läs om knappens läge, till exempel när slutkortet har visats utan att året ändrades. */
+  refreshPlayLabel() { this._labelPlay(); }
 
   play() {
     // Den som lyssnar kan ta över (preventDefault), till exempel för att visa nästa stopp i ett krig (#217)
     if (!this.dispatchEvent(new CustomEvent('beforeplay', { cancelable: true }))) return;
     const end = this.focus ? this.focus.to : MAX_YEAR;
+    // Börja om bara från slutet, och då har knappen hetat "Spela igen" (#232)
     if (this._year >= end) this.year = this.focus ? this.focus.from : MIN_YEAR;
     this.playing = true;
+    this._resume = false;
     this._showNote(null);
     const run = this._run = (this._run ?? 0) + 1; // bara en uppspelning åt gången
-    this.playIcon.setAttribute('d', 'M4 2.5h3v11H4zM9 2.5h3v11H9z');
     this.playBtn.setAttribute('aria-pressed', 'true');
-    this._labelPlay(true);
+    this._labelPlay();
     let last = performance.now();
     let yf = this._year; // året som decimaltal, så att långsamma nivåer räknas upp jämnt
     let shown = this._year;
@@ -303,10 +321,10 @@ export class Timeline extends EventTarget {
   pause(reason, always = false) {
     const wasPlaying = this.playing;
     this.playing = false;
-    this.playIcon.setAttribute('d', 'M4 2.5v11l9-5.5z');
     this.playBtn.setAttribute('aria-pressed', 'false');
     const auto = !!reason && (wasPlaying || always);
-    this._labelPlay(false, auto);
+    this._resume = auto;
+    this._labelPlay();
     this._showNote(auto ? reason : null);
   }
   _showNote(text) {
@@ -320,6 +338,7 @@ export class Timeline extends EventTarget {
     this.thumb.style.left = `${p * 100}%`;
     this.track.setAttribute('aria-valuenow', String(this._year));
     this.track.setAttribute('aria-valuetext', this.format(this._year));
+    this._labelPlay(); // i slutet heter knappen "Spela igen"
   }
   init(y) { this._year = clampY(y); this._render(); this.dispatchEvent(new CustomEvent('change', { detail: { year: this._year } })); }
 }

@@ -647,6 +647,23 @@ details.used-by summary:hover { color: var(--parchment); }
   font: 600 12px/1 var(--f-mono); color: var(--night); background: var(--brass);
   border: 1px solid var(--brass); border-radius: 999px; padding: 6px 12px; cursor: pointer; white-space: nowrap;
 }
+/* "Nästa paus: …" när man följer ett krig (#244): diskret till höger om knapparna i bred skärm,
+   i pausraden när skärmen är smalare, så att tidsraden inte blir högre */
+.controls { position: relative; }
+.next-pause {
+  position: absolute; top: 0; left: calc(50% + 250px); max-width: calc(50% - 260px);
+  font: 400 11px/32px var(--f-mono); color: var(--parchment-dim);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; pointer-events: none;
+}
+.next-pause[hidden], .pause-next { display: none; }
+.pause-next { color: var(--parchment-dim); }
+@media (max-width: 1099px) {
+  .next-pause { display: none; }
+  /* Pausraden får två rader: orsaken överst, "Nästa: …" och knappen under, så att den inte blir högre än förut i mobilen */
+  .pause-note:has(.pause-next:not([hidden])) { border-radius: var(--r); }
+  .pause-note:has(.pause-next:not([hidden])) #pause-text { flex-basis: 100%; }
+  .pause-next:not([hidden]) { display: block; flex: 1 1 0; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+}
 .focus-bar {
   position: absolute; z-index: 14;
   left: 50%; transform: translateX(-50%);
