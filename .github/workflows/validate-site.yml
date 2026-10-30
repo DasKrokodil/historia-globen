@@ -1,0 +1,40 @@
+# Bygger webbplatsen i dist/ och kontrollerar den (docs/DEPLOYMENT.md).
+# Körs vid push till main (development) och vid pull requests mot production (release).
+name: Validera webbplatsen
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [production]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Bygg och validera dist/
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Bygg dist/ och kör valideringen
+        run: bash scripts/build-site.sh
+
+  from-main:
+    name: Release kommer från main
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kontrollera att pull requesten mot production kommer från main
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          BASE_REPO: ${{ github.repository }}
+        run: |
+          if [ "$HEAD_REF" != "main" ] || [ "$HEAD_REPO" != "$BASE_REPO" ]; then
+            echo "::error::production uppdateras bara med en pull request från main i samma repo (nu: $HEAD_REPO:$HEAD_REF)."
+            exit 1
+          fi
