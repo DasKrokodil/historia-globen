@@ -62,6 +62,7 @@
       "title": { "sv": "Slaget vid Salamis" },
       "summary": { "sv": "I september 480 f.Kr. lockar atenaren Themistokles den större persiska flottan in i det trånga sundet vid Salamis. Där kan perserna inte utnyttja att de är fler, och grekerna vinner. Det var kanske antikens största sjöslag, och det vände kriget. Xerxes drar sig tillbaka till Asien med en stor del av armén." },
       "note": { "title": { "sv": "Om datumet" }, "text": { "sv": "Wikipedia anger 26 eller 27 september 480 f.Kr., och Wikidata anger 27 och 29 september. Enligt källan förlorade grekerna 40 skepp och perserna 300." } },
+      "image": {"file": "images/events/slaget-vid-salamis.webp", "kind": "historisk", "style": "antik", "caption": {"sv": "Slaget vid Salamis som Wilhelm von Kaulbach målade det på 1800-talet. Fotografi av ett tryck i originalstorlek av målningen, som finns i Bayerns lantdag. En konstnärs bild över 2 000 år senare, inte en skildring från händelsens tid. Licens: CC BY-SA 4.0."}, "credit": "Wilhelm von Kaulbach (målning), Burkhard Mücke (foto) / Wikimedia Commons", "license": "CC BY-SA 4.0", "source": "commons-bild-slaget-vid-salamis"},
       "wikidata": "Q178850", "sources": ["wp-battle-of-salamis", "wikidata"], "review": "two-sources" },
 
     { "id": "slaget-vid-plataiai", "category": "krig", "icon": "swords", "partOf": "perserkrigen", "major": true, "start": -478, "end": -478, "precision": 10, "edtf": "-0478-08",
@@ -122,6 +123,7 @@
       "title": { "sv": "Slaget vid Gaugamela" },
       "summary": { "sv": "Den 1 oktober 331 f.Kr. möts Alexander och Dareios III för andra och sista gången. Makedonierna är mycket färre men vinner med bättre taktik. Slaget räknas som det avgörande slaget mot Akemenidriket, och Alexander tar sedan Babylon och Susa." },
       "note": { "title": { "sv": "Om platsen och siffrorna" }, "text": { "sv": "Slagfältet låg troligen vid Tel Gomel, men det är inte helt säkert. De antika siffrorna över persiska döda skiljer sig: 40 000 enligt Curtius Rufus och 90 000 enligt Diodoros. Wikidata anger samma dag och ungefär samma plats." } },
+      "image": {"file": "images/events/slaget-vid-gaugamela.webp", "kind": "historisk", "style": "antik", "caption": {"sv": "Slaget vid Arbela (Gaugamela) i Charles Le Bruns målning från 1669, fotograferad i Louvren. En konstnärs bild nästan 2 000 år senare, inte en skildring från händelsens tid. Utsnitt. Licens: Public domain."}, "credit": "Charles Le Brun / Musée du Louvre via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-slaget-vid-gaugamela"},
       "wikidata": "Q179670", "sources": ["wp-battle-of-gaugamela", "wp-wars-of-alexander", "wikidata"], "review": "two-sources" },
 
     { "id": "slaget-vid-hydaspes", "category": "krig", "icon": "swords", "partOf": "alexanders-faltag", "major": true, "start": -325, "end": -325, "precision": 10, "edtf": "-0325-05",
@@ -182,6 +184,7 @@
       "title": { "sv": "Slaget vid Zama" },
       "summary": { "sv": "År 202 f.Kr. besegrar romaren Scipio Africanus Hannibal vid Zama i Nordafrika. Karthago hade 80 krigselefanter, men romarna var starkare med ryttare. Nederlaget är så svårt att Karthago ger upp, och Hannibal tvingas så småningom i exil. Freden året därpå gör slut på Karthago som stormakt." },
       "note": { "title": { "sv": "Om datumet" }, "text": { "sv": "Wikipedia anger bara året 202 f.Kr. Wikidata anger 19 oktober 202 f.Kr. i den julianska kalendern." } },
+      "image": {"file": "images/events/slaget-vid-zama.webp", "kind": "historisk", "style": "antik", "caption": {"sv": "Slaget vid Zama i en bild av Cornelis Cort från 1567, i Hunterian Museum and Art Gallery i Glasgow. En konstnärs bild över 1 700 år senare, inte en skildring från händelsens tid. Licens: Public domain."}, "credit": "Cornelis Cort / Hunterian Museum and Art Gallery via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-slaget-vid-zama"},
       "wikidata": "Q200056", "sources": ["wp-battle-of-zama", "wp-punic-wars", "wikidata"], "review": "two-sources" },
 
     { "id": "karthago-forstors", "category": "krig", "icon": "swords", "partOf": "puniska-krigen", "major": true, "start": -145, "end": -145, "precision": 9, "edtf": "-0145",
@@ -318,6 +321,7 @@
       "location": { "type": "Point", "coordinates": [130.957, 33.965] }, "place": { "sv": "Dan-no-ura i Kanmonsundet vid Shimonoseki" },
       "title": { "sv": "Sjöslaget vid Dan-no-ura" },
       "summary": { "sv": "Den 25 april 1185 möts flottorna i sundet mellan Honshu och Kyushu. Tidvattnet gynnar först Taira och sedan Minamoto, och en av Tairas befälhavare går över till fienden mitt i slaget. Taira besegras, och den unge kejsaren Antoku dör tillsammans med många av klanens ledare. Kriget är slut." },
+      "image": {"file": "images/events/sjoslaget-vid-dan-no-ura.webp", "kind": "historisk", "style": "medeltid", "caption": {"sv": "Sjöslaget vid Dan-no-ura, två av åtta paneler i målningen om kejsar Antoku, på guldpapper. Tillskriven Tosa Mitsunobu, före cirka 1525. Utsnitt. Licens: Public domain."}, "credit": "Tosa Mitsunobu / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-sjoslaget-vid-dan-no-ura"},
       "wikidata": "Q968676", "sources": ["wp-dan-no-ura", "wp-genpei-war", "wikidata"], "review": "two-sources" },
 
     { "id": "mongolernas-invasioner-av-japan", "category": "krig", "icon": "swords", "kind": "war", "start": 1274, "end": 1281, "precision": 10, "edtf": "1274-11/1281-08",
@@ -352,6 +356,7 @@
       "title": { "sv": "Tyfonen kamikaze förstör flottan" },
       "summary": { "sv": "Den 15 augusti 1281 slår en stor tyfon till mot Yuanflottan, som ligger för ankar. Många skepp går under, bland annat i Imaribukten, och tusentals soldater blir strandsatta. Japanerna anfaller de strandsatta och tar tiotusentals till fånga, och invasionen är över. Stormen kallades kamikaze, ”gudomlig vind”." },
       "note": { "title": { "sv": "Bara en källa för platsen" }, "text": { "sv": "Wikidata anger augusti 1281, vilket stämmer, men ingen plats. Platsen kommer bara från Wikipedia." } },
+      "image": {"file": "images/events/tyfonen-kamikaze-1281.webp", "kind": "historisk", "style": "medeltid", "caption": {"sv": "Den mongoliska flottan förstörs i en tyfon. Tusch och vattenfärg på papper av Kikuchi Yōsai, 1847, i Tokyos nationalmuseum. En konstnärs bild över 500 år senare. Licens: Public domain."}, "credit": "Kikuchi Yōsai / Tokyos nationalmuseum via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-tyfonen-kamikaze-1281"},
       "wikidata": "Q1565008", "sources": ["wp-mongol-invasions-japan", "wp-koan", "wp-kamikaze-typhoon", "wikidata"], "review": "source-checked" },
 
     { "id": "imjinkriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1592, "end": 1598, "precision": 11, "edtf": "1592-05-23/1598-12-16",
@@ -441,6 +446,7 @@
       "location": { "type": "Point", "coordinates": [118.779, 32.061] }, "place": { "sv": "Nanjing, ombord på HMS Cornwallis på Yangtze" },
       "title": { "sv": "Nanjingfördraget" },
       "summary": { "sv": "Med brittiska krigsfartyg redo att anfalla Nanjing undertecknas fredsfördraget den 29 augusti 1842 ombord på HMS Cornwallis. Kina ska betala skadestånd, öppna fem hamnar för brittisk handel och avträda Hongkongön till Storbritannien. Kriget är slut." },
+      "image": {"file": "images/events/nanjingfordraget.webp", "kind": "historisk", "style": "kina-tusch", "caption": {"sv": "Nanjingfördraget undertecknas och förseglas. Gravyr av John Burnet efter en målning av kapten John Platt, utgiven 1846. Licens: Public domain."}, "credit": "John Platt (målning), John Burnet (gravyr) / Anne S. K. Brown Military Collection via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-nanjingfordraget"},
       "wikidata": "Q238262", "sources": ["wp-treaty-nanking", "wp-first-opium-war", "wikidata"], "review": "two-sources" },
 
     { "id": "sokrates", "category": "kultur", "start": -469, "end": -398, "precision": 9, "edtf": "-0469~/-0398",
@@ -524,6 +530,7 @@
       "location": { "type": "Point", "coordinates": [76.97, 29.39] }, "place": { "sv": "Panipat, cirka 97 km norr om Delhi (i dag Haryana, Indien)" },
       "title": { "sv": "Tredje slaget vid Panipat" },
       "summary": { "sv": "Den 14 januari 1761 möts Marathas armé under Sadashivrao Bhau och Ahmad Shah Durranis afghanska armé med allierade från Rohilkhand och Awadh. Över 125 000 soldater deltar. Afghanerna vinner, och slaget räknas som ett av 1700-talets största och blodigaste." },
+      "image": {"file": "images/events/tredje-slaget-vid-panipat.webp", "kind": "historisk", "style": "miniatyr", "caption": {"sv": "Tredje slaget vid Panipat: kanonlinjerna som skjuter mot varandra syns i mitten. Teckning i Faizabadstil, cirka 1770, i British Library. Licens: Public domain."}, "credit": "Okänd konstnär / British Library via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-tredje-slaget-vid-panipat"},
       "wikidata": "Q1259218", "sources": ["wp-third-panipat", "wikidata"], "review": "two-sources" },
 
     { "id": "indiska-upproret-1857", "category": "krig", "icon": "swords", "kind": "war", "start": 1857, "end": 1858, "precision": 11, "edtf": "1857-05-10/1858-11-01",
@@ -545,6 +552,7 @@
       "title": { "sv": "Belägringen av Delhi" },
       "summary": { "sv": "Upprorsmännen gör Delhi till sitt centrum och utropar den 81-årige mogulkejsaren Bahadur Shah Zafar till kejsare av Hindustan. Kompaniets trupper belägrar staden från juni och stormar den den 14 september. Efter en veckas gatustrider är Delhi intaget den 21 september 1857. Staden plundras och många invånare dödas." },
       "note": { "title": { "sv": "Om tiden" }, "text": { "sv": "Wikipedias artikel om belägringen och Wikidata anger 8 juni–21 september 1857. Wikipedias artikel om upproret skriver att belägringen varade ungefär från 1 juli till 21 september." } },
+      "image": {"file": "images/events/belagringen-av-delhi-1857.webp", "kind": "historisk", "style": "1800-tal", "caption": {"sv": "Kashmiriporten i Delhi med skadorna efter striderna. Fotografi av Samuel Bourne på 1860-talet, några år efter belägringen. Licens: Public domain."}, "credit": "Samuel Bourne / British Library via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-belagringen-av-delhi-1857"},
       "wikidata": "Q2343263", "sources": ["wp-siege-delhi-1857", "wp-indian-rebellion-1857", "wikidata"], "review": "two-sources" },
 
     { "id": "belagringen-av-cawnpore", "category": "krig", "icon": "swords", "partOf": "indiska-upproret-1857", "start": 1857, "end": 1857, "precision": 11, "edtf": "1857-06-05/1857-06-25",
@@ -614,6 +622,7 @@
       "title": { "sv": "Pakistan kapitulerar i Dhaka" },
       "summary": { "sv": "Den 16 december 1971 undertecknar general A. A. K. Niazi Pakistans kapitulation inför den indiske generalen Jagjit Singh Aurora, befälhavare för de indiska och bangladeshiska styrkorna i öster. A. K. Khandker företräder Bangladeshs provisoriska regering. Omkring 93 000 pakistanier tas till fånga, och dagen firas som segerdagen i Bangladesh." },
       "note": { "title": { "sv": "Bara en källa för datumet" }, "text": { "sv": "Wikidatas post om kapitulationsdokumentet anger platsen, Suhrawardy Udyan, men inget datum. Wikidata anger samma slutdatum för hela kriget, 16 december 1971." } },
+      "image": {"file": "images/events/pakistan-kapitulerar-i-dhaka.webp", "kind": "historisk", "style": "rymdalder", "caption": {"sv": "General Niazi (till höger) undertecknar kapitulationen inför generallöjtnant Jagjit Singh Aurora på Ramna Race Course i Dhaka den 16 december 1971. Fotografi från Bangladeshs Press Information Department. Licens: Public domain."}, "credit": "Press Information Department (Bangladesh) / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-pakistan-kapitulerar-i-dhaka"},
       "wikidata": "Q3351237", "sources": ["wp-instrument-surrender-1971", "wp-suhrawardy-udyan", "wikidata"], "review": "source-checked" },
 
     { "id": "kleopatra", "category": "civilisationer", "start": -68, "end": -29, "precision": 9, "edtf": "-0068~/-0029",
@@ -670,6 +679,7 @@
       "title": { "sv": "Etiopien segrar vid Wayna Daga" },
       "summary": { "sv": "Den 21 februari 1543 besegrar kejsar Gelawdewos etiopisk-portugisiska armé imam Ahmads styrkor vid Tanasjön. Ahmad såras av ett muskötskott och halshuggs, och när hans soldater får veta det flyr de. Segern avgör kriget, och adalerna drar sig tillbaka från Etiopien." },
       "note": { "title": { "sv": "Om datum och plats" }, "text": { "sv": "Wikipedia skriver att de gamla källorna anger olika datum för slaget, men både Wikipedia och Wikidata anger 21 februari 1543 (juliansk kalender). Den exakta platsen är okänd; Wikipedia anger öster om Tanasjön, och historikern Whiteway placerade slaget nordost om sjön. Punkten visar Tanasjön." } },
+      "image": {"file": "images/events/slaget-vid-wayna-daga.webp", "kind": "historisk", "style": "islamisk", "caption": {"sv": "Imam Ahmads fall och död, skjuten av en portugisisk musketerare. Etiopisk folkteckning av Kegneketa Jemlieri Hailu från Gondar, cirka 1900, i Horniman Museum i London. Licens: CC0."}, "credit": "Kegneketa Jemlieri Hailu / Horniman Museum via Wikimedia Commons", "license": "CC0", "source": "commons-bild-slaget-vid-wayna-daga"},
       "wikidata": "Q957263", "sources": ["wp-wayna-daga", "wp-ethiopian-adal-war", "wikidata"], "review": "two-sources" },
 
     { "id": "forsta-italiensk-etiopiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1895, "end": 1896, "precision": 11, "edtf": "1895-01-13/1896-10-23",
@@ -703,6 +713,7 @@
       "location": { "type": "Point", "coordinates": [38.9733, 14.0189] }, "place": { "sv": "Bergen norr om Adwa, Tigray, Etiopien" },
       "title": { "sv": "Etiopien besegrar Italien vid Adwa" },
       "summary": { "sv": "Den 1 mars 1896 anfaller general Baratieris italienska armé, omkring 14 500–17 800 man, den etiopiska armén vid Adwa. De italienska brigaderna kommer ifrån varandra i den svåra terrängen, och Meneliks och Taytus armé på 73 000–100 000 man, beväpnad med moderna gevär och snabbskjutande kanoner, besegrar dem en efter en. Segern säkrar Etiopiens självständighet och blir en symbol för afrikanskt motstånd mot kolonialismen." },
+      "image": {"file": "images/events/slaget-vid-adwa.webp", "kind": "historisk", "style": "islamisk", "caption": {"sv": "Slaget vid Adwa i en etiopisk målning, enligt museet gjord mellan 1965 och 1975, med bland andra Sankt Göran, kejsar Menelik, kejsarinnan Taytu och general Baratieri. Tropenmuseums samling. Licens: CC BY-SA 3.0."}, "credit": "Okänd etiopisk konstnär / Nationaal Museum van Wereldculturen (Tropenmuseum) via Wikimedia Commons", "license": "CC BY-SA 3.0", "source": "commons-bild-slaget-vid-adwa"},
       "wikidata": "Q302519", "sources": ["wp-adwa", "wp-first-italo-ethiopian-war", "wikidata"], "review": "two-sources" },
 
     { "id": "freden-i-addis-abeba-1896", "category": "krig", "icon": "treaty", "partOf": "forsta-italiensk-etiopiska-kriget", "major": true, "start": 1896, "end": 1896, "precision": 11, "edtf": "1896-10-26",
@@ -725,6 +736,7 @@
       "title": { "sv": "Rifkrigarna besegrar Spanien vid Annual" },
       "summary": { "sv": "Den 22 juli 1921 anfaller omkring 3 000 rifkrigare under Abd el-Krim det spanska lägret vid Annual. General Silvestres reträtt blir en flykt, och Silvestre försvinner. Rifkrigarna intar sedan över 130 spanska utposter, och i slutet av augusti har Spanien förlorat allt land det hade erövrat i området sedan 1909. Nederlaget, som spanjorerna kallar katastrofen vid Annual, räknas som det värsta i den moderna spanska arméns historia." },
       "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Wikipedias artikel om slaget och Wikidata anger 22 juli–9 augusti 1921, från slaget till kapitulationen vid Monte Arruit. Wikipedias artikel om kriget anger i stället att armén kollapsade den 1 juli 1921." } },
+      "image": {"file": "images/events/slaget-vid-annual.webp", "kind": "historisk", "style": "affisch", "caption": {"sv": "Det spanska militärlägret vid Annual i början av 1921, före slaget. Fotograf okänd. Licens: Public domain."}, "credit": "Okänd fotograf / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-slaget-vid-annual"},
       "wikidata": "Q1138460", "sources": ["wp-annual", "wp-rif-war", "wikidata"], "review": "source-checked" },
 
     { "id": "massakern-vid-monte-arruit", "category": "krig", "partOf": "rifkriget", "start": 1921, "end": 1921, "precision": 11, "edtf": "1921-08-09",
@@ -833,6 +845,7 @@
       "title": { "sv": "Blockaden och svälten i Biafra" },
       "summary": { "sv": "Nigeria stänger Biafras hamnar, flygfält, post och handel, och blockaden hålls i två och ett halvt år. Den viktigaste proteinkällan, torkad fisk från Norge, försvinner, och barnen drabbas av svält och bristsjukdomen kwashiorkor. Från mitten av 1968 ser människor i hela världen bilderna av svältande barn, och hjälporganisationer flyger in mat i luftbron till Biafra. Minst en halv miljon civila dör, enligt flera uppskattningar betydligt fler." },
       "note": { "title": { "sv": "Bara Wikipedia" }, "text": { "sv": "Wikidata har en post om blockaden men anger ingen tid. Uppgifterna kommer från Wikipedias artiklar om kriget och om blockaden, som anger mycket olika antal döda (från 500 000 till 4 miljoner)." } },
+      "image": {"file": "images/events/blockaden-av-biafra.webp", "kind": "historisk", "style": "rymdalder", "caption": {"sv": "Hjälparbetare lastar av lådor med torkad fisk som flugits in från Calabar eller Port Harcourt, för flyktingläger utanför krigszonen under inbördeskriget i Nigeria och Biafra. Fotografi av Lyle Conrad, CDC, 1968. Licens: Public domain."}, "credit": "CDC / Dr. Lyle Conrad via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-blockaden-av-biafra"},
       "wikidata": "Q123481844", "sources": ["wp-blockade-of-biafra", "wp-nigerian-civil-war"], "review": "source-checked" },
 
     { "id": "port-harcourt-1968", "category": "krig", "icon": "swords", "partOf": "biafrakriget", "start": 1968, "end": 1968, "precision": 11, "edtf": "1968-05-19",
@@ -936,6 +949,7 @@
       "location": { "type": "Point", "coordinates": [44.335, 33.348] }, "place": { "sv": "Bagdad, Abbasidkalifatets huvudstad (dagens Irak)" },
       "title": { "sv": "Bagdads fall" },
       "summary": { "sv": "En mongolisk här under Hülegü anfaller Bagdad i slutet av januari 1258. Kalifen al-Musta'sim ger upp staden den 10 februari, staden plundras och kalifen avrättas. Hur många som dog är okänt; Hülegü angav själv omkring 200 000. Fallet har traditionellt setts som slutet på islams guldålder, men följderna är omdiskuterade." },
+      "image": {"file": "images/events/bagdads-fall-1258.webp", "kind": "historisk", "style": "islamisk", "caption": {"sv": "Mongolerna belägrar Bagdad 1258. Miniatyr i en handskrift av Rashid al-Dins världshistoria, målad cirka 1430–1434, i Bibliothèque nationale de France. Licens: Public domain."}, "credit": "Sayf al-Vahidi m.fl. / Bibliothèque nationale de France via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-bagdads-fall-1258"},
       "wikidata": "Q369560", "sources": ["wp-siege-baghdad-1258", "wikidata"], "review": "two-sources" },
 
     { "id": "slaget-vid-ain-jalut", "category": "krig", "icon": "swords", "partOf": "mongolernas-erovringar", "start": 1260, "end": 1260, "precision": 11, "edtf": "1260-09-03",
@@ -1033,6 +1047,7 @@
       "location": { "type": "Point", "coordinates": [4.412, 50.678] }, "place": { "sv": "Waterloo, Förenade Nederländerna (i dag Belgien)" },
       "title": { "sv": "Slaget vid Waterloo" },
       "summary": { "sv": "Den 18 juni 1815, efter Napoleons återkomst från Elba, besegras han av en brittiskledd armé under Wellington och en preussisk armé under Blücher. Det är Napoleons sista slag. Han abdikerar den 22 juni och förvisas till Sankta Helena." },
+      "image": {"file": "images/events/slaget-vid-waterloo.webp", "kind": "historisk", "style": "1800-tal", "caption": {"sv": "Slaget vid Waterloo i en målning av William Sadler. Licens: Public domain."}, "credit": "William Sadler / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-slaget-vid-waterloo"},
       "wikidata": "Q48314", "sources": ["wp-waterloo", "wp-napoleonic-wars", "wikidata"], "review": "two-sources" },
 
     { "id": "andra-parisfreden", "category": "krig", "icon": "treaty", "partOf": "napoleonkrigen", "start": 1815, "end": 1815, "precision": 11, "edtf": "1815-11-20",
@@ -1109,6 +1124,7 @@
       "title": { "sv": "Tenochtitlan faller" },
       "summary": { "sv": "Efter en belägring från maj 1521, med tretton spanskbyggda brigantiner på sjön och tiotusentals förbundna krigare, ger Tenochtitlans och Tlatelolcos försvarare upp den 13 augusti. Cuauhtémoc tas till fånga när han försöker fly i en kanot. Staden plundras, och de överlevande utsätts för våld." },
       "note": { "title": { "sv": "Om datumen" }, "text": { "sv": "Alla källor anger 13 augusti 1521 som slutet. Belägringen började 26 maj enligt artikeln om Tenochtitlans fall och 10 maj enligt tidslinjen i översiktsartikeln; Wikidata har båda datumen." } },
+      "image": {"file": "images/events/tenochtitlans-fall.webp", "kind": "historisk", "style": "aztekisk-kodex", "caption": {"sv": "Tenochtitlans fall, ur en målningsserie om erövringen av Mexiko från andra hälften av 1600-talet. Okänd konstnär. Utsnitt. Licens: Public domain."}, "credit": "Okänd konstnär / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-tenochtitlans-fall"},
       "wikidata": "Q593267", "sources": ["wp-fall-tenochtitlan", "wp-conquest-aztec", "wikidata"], "review": "two-sources" },
 
     { "id": "spanska-erovringen-av-inkariket", "category": "krig", "icon": "swords", "kind": "war", "start": 1532, "end": 1572, "precision": 9, "edtf": "1532/1572",
@@ -1124,6 +1140,7 @@
       "title": { "sv": "Atahualpa tillfångatas i Cajamarca" },
       "summary": { "sv": "Den 16 november 1532 överfaller Pizarros 168 män inkan Atahualpa och hans till stor del obeväpnade följe på torget i Cajamarca. Tusentals dödas, och därför kallar många forskare händelsen massakern i Cajamarca. Atahualpa tas till fånga." },
       "note": { "title": { "sv": "Om kalendern" }, "text": { "sv": "Wikipedia anger 16 november 1532 (juliansk kalender, som användes då). Wikidata anger samma datum men märker det som gregoriansk kalender." } },
+      "image": {"file": "images/events/slaget-vid-cajamarca.webp", "kind": "historisk", "style": "inka", "caption": {"sv": "Atahualpa tillfångatas i Cajamarca. Oljemålning av Juan Lepiani, cirka 1920–1927, nästan 400 år efter händelsen. Utsnitt. Licens: Public domain."}, "credit": "Juan Lepiani / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-slaget-vid-cajamarca"},
       "wikidata": "Q1425362", "sources": ["wp-cajamarca-1532", "wp-conquest-inca", "wikidata"], "review": "two-sources" },
 
     { "id": "atahualpa-avrattas", "category": "krig", "icon": "crown", "partOf": "spanska-erovringen-av-inkariket", "start": 1533, "end": 1533, "precision": 11, "edtf": "1533-07-26",
@@ -1198,6 +1215,7 @@
       "location": { "type": "Point", "coordinates": [-77.226, 39.811] }, "place": { "sv": "Gettysburg, Pennsylvania" },
       "title": { "sv": "Slaget vid Gettysburg" },
       "summary": { "sv": "Den 1–3 juli 1863 slår unionsarmén under George Meade tillbaka Lees anfall mot norr vid Gettysburg. Med över 50 000 döda, sårade och saknade är det krigets blodigaste slag, och det brukar räknas som krigets vändpunkt." },
+      "image": {"file": "images/events/slaget-vid-gettysburg.webp", "kind": "historisk", "style": "1800-tal", "caption": {"sv": "Picketts anfall vid Gettysburg. Tryck från L. Prang & Co. efter Thure de Thulstrups målning, 1887, digitalt restaurerat av Adam Cuerden. Utsnitt. Licens: Public domain."}, "credit": "Thure de Thulstrup / L. Prang & Co. / Library of Congress, restaurering Adam Cuerden, via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-slaget-vid-gettysburg"},
       "wikidata": "Q33132", "sources": ["wp-gettysburg", "wikidata"], "review": "two-sources" },
 
     { "id": "belagringen-av-vicksburg", "category": "krig", "icon": "swords", "partOf": "amerikanska-inbordeskriget", "start": 1863, "end": 1863, "precision": 11, "edtf": "1863-05-18/1863-07-04",
@@ -1257,6 +1275,7 @@
       "location": { "type": "Point", "coordinates": [-58.548, -27.204] }, "place": { "sv": "Tuyutí i södra Paraguay" },
       "title": { "sv": "Slaget vid Tuyutí" },
       "summary": { "sv": "Den 24 maj 1866 anfaller omkring 25 000 paraguayer de allierades läger vid Tuyutí, sedan de allierade har gått in i Paraguay. Anfallet slås tillbaka. Det räknas som det blodigaste slaget i Sydamerikas historia: Paraguay förlorar omkring 13 000 döda och sårade, de allierade drygt 4 000." },
+      "image": {"file": "images/events/slaget-vid-tuyuti.webp", "kind": "historisk", "style": "1800-tal", "caption": {"sv": "Uruguayanska soldater i en skyttegrav vid Tuyutí. Albuminkopia från fotoateljén Bate y Cía., 1866. Licens: Public domain."}, "credit": "Bate y Cía. / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-slaget-vid-tuyuti"},
       "wikidata": "Q3307845", "sources": ["wp-tuyuti", "wp-paraguayan-war", "wikidata"], "review": "two-sources" },
 
     { "id": "slaget-vid-curupayty", "category": "krig", "icon": "swords", "partOf": "paraguaykriget", "start": 1866, "end": 1866, "precision": 11, "edtf": "1866-09-22",
@@ -1332,6 +1351,7 @@
       "title": { "sv": "Mexikos grundlag antas" },
       "summary": { "sv": "Den 5 februari 1917 antar en grundlagsförsamling i Querétaro den grundlag som Mexiko har än i dag. Den ger allmän rösträtt för män och stärker staten, och artikel 27 lägger grunden för en jordreform medan artikel 123 ger arbetare rättigheter." },
       "note": { "title": { "sv": "Om källorna" }, "text": { "sv": "Wikidata anger samma datum men ingen plats; platsen kommer från Wikipedia." } },
+      "image": {"file": "images/events/mexikos-grundlag-1917.webp", "kind": "historisk", "style": "affisch", "caption": {"sv": "Originalomslaget till Mexikos grundlag från 1917, fotograferat i Mexikos nationalarkiv (Archivo General de la Nación). Licens: Public domain."}, "credit": "Hpav7 (foto) / Archivo General de la Nación via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-mexikos-grundlag-1917"},
       "wikidata": "Q2170072", "sources": ["wp-constitution-mexico", "wp-mexican-revolution", "wikidata"], "review": "source-checked" },
 
     { "id": "zapata-mordas-1919", "category": "krig", "icon": "swords", "partOf": "mexikanska-revolutionen", "start": 1919, "end": 1919, "precision": 11, "edtf": "1919-04-10",
@@ -1366,6 +1386,7 @@
       "title": { "sv": "Slaget vid Kadesh" },
       "summary": { "sv": "I maj 1274 f.Kr. möter Ramses II hettiterkungen Muwatalli II vid Kadesh. Egyptierna lurades in i ett bakhåll men lyckades vända striden. Det är det äldsta slaget där taktik och uppställning är kända i detalj, och troligen det största slag med stridsvagnar som någonsin utkämpats, med 5 000–6 000 vagnar. Utgången räknas som oavgjord." },
       "note": { "title": { "sv": "Om dateringen" }, "text": { "sv": "Egyptiska inskrifter anger dagen som år 5, tredje shemu-månaden, dag 9 av Ramses II:s regering. Med den vanliga låga kronologin blir det maj 1274 f.Kr., med den höga cirka 20 år tidigare. Nästan alla källor till slaget är egyptiska, och Ramses version anses överdriven; hettiternas texter beskriver i stället att Ramses fick dra sig tillbaka." } },
+      "image": {"file": "images/events/slaget-vid-kadesh.webp", "kind": "historisk", "style": "egypten", "caption": {"sv": "Staden Kadesh omgiven av floden Orontes, som den visas i en relief från Ramses II:s tid i Abu Simbel. Teckning ur James Henry Breasteds verk. Licens: Public domain."}, "credit": "James Henry Breasted / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-slaget-vid-kadesh"},
       "wikidata": "Q203729", "sources": ["wp-battle-of-kadesh", "wp-kadesh-syria", "wikidata"], "review": "two-sources" },
 
     { "id": "belagringen-av-dapur", "category": "krig", "icon": "swords", "partOf": "ramses-krig-mot-hettiterna", "start": -1268, "end": -1268, "precision": 9, "edtf": "-1268?",
@@ -1394,6 +1415,7 @@
       "title": { "sv": "Slaget vid Yarmuk" },
       "summary": { "sv": "Under sex dagar i augusti 636 besegrar Rashidunkalifatets arméer en stor bysantinsk armé som kejsar Herakleios hade skickat för att ta tillbaka Syrien. Segern gjorde i praktiken slut på det bysantinska styret i Syrien." },
       "note": { "title": { "sv": "Om platsen" }, "text": { "sv": "Wikipedia och Wikidata anger samma koordinater, men Wikipedia markerar dem som tveksamma. Punkten visar området vid Yarmukfloden, inte en exakt slagfältsplats." } },
+      "image": {"file": "images/events/slaget-vid-yarmuk.webp", "kind": "historisk", "style": "islamisk", "caption": {"sv": "Slaget vid Yarmuk i en liten bild nederst på en sida i en handskrift från cirka 1310–1325, av en okänd katalansk illustratör, i Bibliothèque nationale de France. Rustningarna är från bildens egen tid, inte från 600-talet. Licens: Public domain."}, "credit": "Okänd illustratör / Bibliothèque nationale de France via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-slaget-vid-yarmuk"},
       "wikidata": "Q194226", "sources": ["wp-battle-of-yarmuk", "wikidata"], "review": "two-sources" },
 
     { "id": "slaget-vid-qadisiyya", "category": "krig", "icon": "swords", "partOf": "arabiska-erovringarna", "major": true, "start": 636, "end": 636, "precision": 11, "edtf": "0636-11-16/0636-11-19",
@@ -1461,6 +1483,7 @@
       "location": { "type": "Point", "coordinates": [35.226, 31.779] }, "place": { "sv": "Jerusalem" },
       "title": { "sv": "Korsfararna intar Jerusalem" },
       "summary": { "sv": "Det första korståget belägrar Jerusalem, som då styrdes av fatimiderna i Egypten, från den 7 juni 1099. Med belägringstorn tar sig korsfararna in i staden den 15 juli och massakrerar tusentals muslimer och judar. Kort därefter grundas kungariket Jerusalem." },
+      "image": {"file": "images/events/belagringen-av-jerusalem-1099.webp", "kind": "historisk", "style": "islamisk", "caption": {"sv": "Korsfararna intar Jerusalem 1099. Senmedeltida bokmålning, troligen ur Sébastien Mamerots Les Passages d'oultre mer; konstnär och år är okända. Licens: Public domain."}, "credit": "Okänd konstnär / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-belagringen-av-jerusalem-1099"},
       "wikidata": "Q456993", "sources": ["wp-siege-jerusalem-1099", "wp-jerusalem", "wikidata"], "review": "two-sources" },
 
     { "id": "belagringen-av-edessa-1144", "category": "krig", "icon": "swords", "partOf": "korstagen", "start": 1144, "end": 1144, "precision": 11, "edtf": "1144-11-28/1144-12-24",
@@ -1507,6 +1530,7 @@
       "title": { "sv": "Israel utropas, och arabstaterna går in i kriget" },
       "summary": { "sv": "Den 14 maj 1948, samma dag som det brittiska mandatet upphör, utropar David Ben-Gurion staten Israel på Tel Avivs museum. Nästa morgon går arméer från Egypten, Transjordanien, Syrien och Irak in i Palestina. I Israel firas dagen som självständighetsdagen, medan palestinierna ser den som början på Nakba." },
       "note": { "title": { "sv": "Om platsen" }, "text": { "sv": "Wikipedia och Wikidata anger samma datum, 14 maj 1948, för självständighetsförklaringen. Wikidatas koordinater för förklaringen ligger dock inte i Tel Aviv, så punkten är Tel Aviv enligt Wikidata." } },
+      "image": {"file": "images/events/israel-utropas-1948.webp", "kind": "historisk", "style": "affisch", "caption": {"sv": "David Ben-Gurion läser upp självständighetsförklaringen i Tel Aviv den 14 maj 1948, under ett porträtt av Theodor Herzl. Fotografi av Rudi Weissenstein. Licens: Public domain."}, "credit": "Rudi Weissenstein / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-israel-utropas-1948"},
       "wikidata": "Q223732", "sources": ["wp-israeli-declaration-independence", "wp-1948-arab-israeli-war", "wikidata"], "review": "two-sources" },
 
     { "id": "striderna-vid-latrun-1948", "category": "krig", "icon": "swords", "partOf": "arabisk-israeliska-kriget-1948", "start": 1948, "end": 1948, "precision": 11, "edtf": "1948-05-24/1948-07-18",
@@ -1553,6 +1577,7 @@
       "location": { "type": "Point", "coordinates": [34.0, 29.5] }, "locationPrecision": "region", "place": { "sv": "Egyptens flygbaser, i Sinai och Egypten" },
       "title": { "sv": "Israels flyganfall mot Egypten (Operation Focus)" },
       "summary": { "sv": "Klockan 07.45 den 5 juni 1967 anfaller Israels flygvapen Egyptens flygbaser och förstör det mesta av Egyptens flygvapen på marken. Efter syriska och jordanska motanfall bombas även deras flygbaser. Vid middagstid var omkring 450 egyptiska, jordanska och syriska flygplan förstörda, och Israel hade herraväldet i luften under resten av kriget." },
+      "image": {"file": "images/events/operation-focus.webp", "kind": "historisk", "style": "rymdalder", "caption": {"sv": "Egyptiska flygplan förstörda på marken på en flygbas, juni 1967. Fotograf okänd. Licens: CC BY-SA 4.0."}, "credit": "Okänd fotograf / Wikimedia Commons", "license": "CC BY-SA 4.0", "source": "commons-bild-operation-focus"},
       "wikidata": "Q63863", "sources": ["wp-operation-focus", "wp-six-day-war", "wikidata"], "review": "two-sources" },
 
     { "id": "slaget-vid-abu-ageila-1967", "category": "krig", "icon": "swords", "partOf": "sexdagarskriget", "start": 1967, "end": 1967, "precision": 11, "edtf": "1967-06-05/1967-06-06",
@@ -1588,6 +1613,7 @@
       "location": { "type": "Point", "coordinates": [32.344, 30.705] }, "locationPrecision": "region", "place": { "sv": "Suezkanalen och Barlevlinjen i Sinai" },
       "title": { "sv": "Egypten går över Suezkanalen (Operation Badr)" },
       "summary": { "sv": "Den 6 oktober 1973 går egyptiska styrkor över Suezkanalen och slår ut Barlevlinjen, Israels befästningar längs kanalen i det ockuperade Sinai. Samtidigt anfaller Syrien på Golanhöjderna. Egypten hade förberett anfallet sedan 1968, bland annat med en vilseledningsoperation." },
+      "image": {"file": "images/events/operation-badr-1973.webp", "kind": "historisk", "style": "rymdalder", "caption": {"sv": "Egyptiska fordon går över Suezkanalen den 7 oktober 1973. Fotografi ur Gammal Hammads bok om striderna vid den egyptiska fronten. Licens: Public domain."}, "credit": "Wikimedia Commons (ur Gammal Hammad, Dār al-Shurūq)", "license": "Public domain", "source": "commons-bild-operation-badr-1973"},
       "wikidata": "Q2704666", "sources": ["wp-operation-badr-1973", "wp-yom-kippur-war", "wikidata"], "review": "two-sources" },
 
     { "id": "tararnas-dal-1973", "category": "krig", "icon": "swords", "partOf": "jom-kippurkriget", "major": true, "start": 1973, "end": 1973, "precision": 11, "edtf": "1973-10-06/1973-10-09",
@@ -1653,6 +1679,7 @@
       "location": { "type": "Point", "coordinates": [-75.15, 39.949] }, "place": { "sv": "Pennsylvania State House (Independence Hall), Philadelphia" },
       "title": { "sv": "USA:s självständighetsförklaring" },
       "summary": { "sv": "Den 4 juli 1776 antar den andra kontinentalkongressen i Philadelphia självständighetsförklaringen, som nästan helt skrevs av Thomas Jefferson. De tretton kolonierna förklarar sig fria från Storbritannien. Det är en av de första gångerna som kolonierna kallas ”United States”. Kongressen hade röstat för självständighet den 2 juli." },
+      "image": {"file": "images/events/sjalvstandighetsforklaringen.webp", "kind": "historisk", "style": "barock", "caption": {"sv": "USA:s självständighetsförklaring i William Stones faksimil från 1823 av originaldokumentet från 1776. Licens: Public domain."}, "credit": "Andra kontinentalkongressen (original), William Stone (faksimil) / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-sjalvstandighetsforklaringen"},
       "wikidata": "Q127912", "sources": ["wp-us-declaration-independence", "wp-american-revolutionary-war", "wikidata"], "review": "two-sources" },
 
     { "id": "slaget-vid-oriskany", "category": "krig", "icon": "swords", "partOf": "amerikanska-frihetskriget", "start": 1777, "end": 1777, "precision": 11, "edtf": "1777-08-06",
@@ -1763,6 +1790,7 @@
       "location": { "type": "Point", "coordinates": [-74.132, -13.043] }, "place": { "sv": "Pampa de Ayacucho vid Quinua, Peru" },
       "title": { "sv": "Slaget vid Ayacucho" },
       "summary": { "sv": "Den 9 december 1824 besegrar peruanska och colombianska patrioter under Antonio José de Sucre vicekungens armé, och vicekungen tas till fånga. Slaget avgör Perus och i praktiken Sydamerikas självständighet, även om några spanska fästen höll ut till 1826." },
+      "image": {"file": "images/events/slaget-vid-ayacucho.webp", "kind": "historisk", "style": "1800-tal", "caption": {"sv": "Slaget vid Ayacucho i en målning av Martín Tovar y Tovar (1827–1902). Utsnitt. Licens: Public domain."}, "credit": "Martín Tovar y Tovar / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-slaget-vid-ayacucho"},
       "wikidata": "Q934157", "sources": ["wp-ayacucho", "wp-spanish-american-wars-independence", "wikidata"], "review": "two-sources" },
 
     { "id": "callaos-fall-1826", "category": "krig", "icon": "swords", "partOf": "spanskamerikanska-sjalvstandighetskrigen", "major": true, "start": 1826, "end": 1826, "precision": 11, "edtf": "1826-01-23",
@@ -1834,6 +1862,7 @@
       "location": { "type": "Point", "coordinates": [5.422, 49.208] }, "place": { "sv": "Höjderna norr om Verdun, Frankrike" },
       "title": { "sv": "Slaget vid Verdun" },
       "summary": { "sv": "Från den 21 februari till den 18 december 1916 anfaller tyska trupper de franska försvarsverken kring Verdun. Det blir krigets längsta slag och slutar med fransk seger." },
+      "image": {"file": "images/events/slaget-vid-verdun.webp", "kind": "historisk", "style": "affisch", "caption": {"sv": "En fransk soldat i full vinterutrustning, fotograferad vid Verdunfronten. Ur tidningen The Madison Journal, 30 december 1916. Licens: Public domain."}, "credit": "The Madison Journal / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-slaget-vid-verdun"},
       "wikidata": "Q130847", "sources": ["wp-verdun-1916", "wikidata"], "review": "two-sources" },
 
     { "id": "slaget-vid-jylland", "category": "krig", "icon": "ship", "partOf": "forsta-varldskriget", "start": 1916, "end": 1916, "precision": 11, "edtf": "1916-05-31/1916-06-01",
@@ -1945,6 +1974,7 @@
       "title": { "sv": "Slaget vid Stalingrad" },
       "summary": { "sv": "Tyskland och dess förbundna strider mot Sovjetunionen om staden vid Volga. Slaget räknas som det dödligaste i kriget. I november 1942 omringar Röda armén den tyska sjätte armén, och när striderna tar slut den 2 februari 1943 är den utplånad. Segern ses allmänt som vändpunkten i kriget i Europa." },
       "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Wikipedia anger 17 juli 1942–2 februari 1943, då de första striderna stod långt utanför staden. Andra historiker räknar från den tyska offensiven mot staden den 23 augusti 1942, och det datumet anger Wikidata. Slutdatumet 2 februari 1943 är detsamma." } },
+      "image": {"file": "images/events/slaget-vid-stalingrad.webp", "kind": "historisk", "style": "affisch", "caption": {"sv": "Fontänen \"Barnens ringdans\" på stationstorget i Stalingrad efter slaget. Fotografi av Sergej Strunnikov, 1943. Licens: Public domain."}, "credit": "Sergej Strunnikov / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-slaget-vid-stalingrad"},
       "wikidata": "Q38789", "sources": ["wp-stalingrad", "wikidata"], "review": "source-checked" },
 
     { "id": "d-dagen", "category": "krig", "icon": "swords", "partOf": "andra-varldskriget", "start": 1944, "end": 1944, "precision": 11, "edtf": "1944-06-06",
@@ -2003,6 +2033,7 @@
       "location": { "type": "Point", "coordinates": [30.653, -28.356] }, "place": { "sv": "Isandlwana, Zuluriket (KwaZulu-Natal)" },
       "title": { "sv": "Zulufolket segrar vid Isandlwana" },
       "summary": { "sv": "Den 22 januari 1879 anfaller en zuluarmé på omkring 20 000 man under Ntshingwayo Khoza det brittiska lägret vid Isandlwana, medan Chelmsford är borta med en del av kolonnen. Med sin klassiska formation, buffelns horn och bröst, omringar zulukrigarna lägret. Över 1 300 på den brittiska sidan dödas, och zulufolket förlorar 1 000–3 000 man. Det var zulurikets största seger i kriget och stoppade den första invasionen." },
+      "image": {"file": "images/events/slaget-vid-isandlwana.webp", "kind": "historisk", "style": "1800-tal", "caption": {"sv": "Löjtnanterna Melvill och Coghill försöker rädda regementets fanor vid Isandlwana. Illustration efter John Charles Dollman i tidningen The Graphic, 15 mars 1879. Licens: Public domain."}, "credit": "Efter John Charles Dollman / The Graphic via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-slaget-vid-isandlwana"},
       "wikidata": "Q747589", "sources": ["wp-isandlwana", "wp-anglo-zulu-war", "wikidata"], "review": "two-sources" },
 
     { "id": "slaget-vid-rorkes-drift", "category": "krig", "icon": "swords", "partOf": "anglo-zuluiska-kriget", "start": 1879, "end": 1879, "precision": 11, "edtf": "1879-01-22/1879-01-23",
@@ -2054,6 +2085,7 @@
       "title": { "sv": "Slaget om Kyiv" },
       "summary": { "sv": "Ryska styrkor försöker inta huvudstaden Kyiv från norr, bland annat från Belarus, men möter hårt motstånd. Efter ukrainska motanfall börjar Ryssland dra sig tillbaka den 29 mars, och den 2 april 2022 är Kyiv och Kyiv oblast åter under ukrainsk kontroll." },
       "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Wikipedia anger 24 februari–2 april 2022 och Wikidata 25 februari–31 mars 2022. Året och platsen stämmer." } },
+      "image": {"file": "images/events/slaget-om-kyiv-2022.webp", "kind": "historisk", "style": "rymdalder", "caption": {"sv": "Kvinnor, barn och äldre tar sig över floden Irpin när bron till Kyiv har sprängts, 8 mars 2022. Fotografi av Yan Boechat för Voice of America. Licens: Public domain."}, "credit": "Yan Boechat / VOA via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-slaget-om-kyiv-2022"},
       "wikidata": "Q111015252", "sources": ["wp-battle-of-kyiv-2022", "wp-russian-invasion-ukraine", "wp-kyiv", "wikidata"], "review": "source-checked" },
 
     { "id": "fn-resolution-es-11-1", "category": "krig", "icon": "scroll", "partOf": "rysslands-invasion-av-ukraina", "start": 2022, "end": 2022, "precision": 11, "edtf": "2022-03-02",
@@ -2111,6 +2143,7 @@
       "location": { "type": "Point", "coordinates": [135.768, 35.012] }, "place": { "sv": "Kyoto, Japan" },
       "title": { "sv": "Nintendo grundas" },
       "summary": { "sv": "Fusajiro Yamauchi grundar Nintendo i Kyoto den 23 september 1889. Från början tillverkar företaget handgjorda hanafuda-spelkort." },
+      "image": {"file": "images/events/nintendo.webp", "kind": "historisk", "style": "japan-ukiyoe", "caption": {"sv": "Hanafuda-kort av typen mushibana från Nintendo, tidig Shōwa-tid (1926–1945), flera decennier efter grundandet. Licens: Public domain."}, "credit": "Nintendo / Japan Playing Card Museum via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-nintendo"},
       "wikidata": "Q8093", "sources": ["wp-nintendo", "wp-kyoto", "wikidata"], "review": "two-sources" },
 
     { "id": "koreakriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1950, "end": 1953, "precision": 11, "edtf": "1950-06-25/1953-07-27",
@@ -2136,6 +2169,7 @@
       "location": { "type": "Point", "coordinates": [126.603, 37.476] }, "place": { "sv": "Inchon (Incheon) nära Seoul, Sydkorea" },
       "title": { "sv": "Landstigningen vid Inchon" },
       "summary": { "sv": "Den 15 september 1950 landstiger FN-styrkor under general Douglas MacArthur vid Inchon, långt bakom fronten vid Pusan. Omkring 75 000 soldater och 261 fartyg deltar. Landstigningen skär av de nordkoreanska styrkornas förbindelser, och två veckor senare har FN-styrkorna tagit tillbaka Seoul. Kriget vänder." },
+      "image": {"file": "images/events/landstigningen-vid-inchon.webp", "kind": "historisk", "style": "affisch", "caption": {"sv": "Löjtnant Baldomero Lopez leder sin pluton över kajmuren vid Red Beach i Inchon den 15 september 1950. Fotografi av en okänd marinkårssoldat, Naval History and Heritage Command. Licens: Public domain."}, "credit": "Okänd fotograf, USMC / Naval History and Heritage Command (NH-96876) via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-landstigningen-vid-inchon"},
       "wikidata": "Q483039", "sources": ["wp-battle-inchon", "wikidata"], "review": "two-sources" },
 
     { "id": "slaget-vid-onjong", "category": "krig", "icon": "swords", "partOf": "koreakriget", "start": 1950, "end": 1950, "precision": 11, "edtf": "1950-10-25/1950-10-29",
@@ -2192,6 +2226,7 @@
       "location": { "type": "Point", "coordinates": [107, 11] }, "locationPrecision": "region", "place": { "sv": "Hela Sydvietnam, bland annat Saigon och Huế" },
       "title": { "sv": "Tetoffensiven" },
       "summary": { "sv": "Under det vietnamesiska nyåret, den 30–31 januari 1968, anfaller Nordvietnams armé och FNL överraskande fler än 100 städer i Sydvietnam, bland dem huvudstaden Saigon. Den väntade folkresningen uteblir, och anfallen slås tillbaka. Offensiven, som pågår i tre faser till september, blir ett militärt nederlag för Nordvietnam men får stödet för kriget i USA att minska." },
+      "image": {"file": "images/events/tetoffensiven.webp", "kind": "historisk", "style": "rymdalder", "caption": {"sv": "Gamla och unga flyr undan striderna i Hue under Tetoffensiven och tar sig till Parfymflodens södra strand trots en sprängd bro. Fotografi från USIA, 1968, i amerikanska nationalarkivet. Licens: Public domain."}, "credit": "USIA / National Archives and Records Administration via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-tetoffensiven"},
       "wikidata": "Q82542", "sources": ["wp-tet-offensive", "wikidata"], "review": "two-sources" },
 
     { "id": "faltaget-i-kambodja-1970", "category": "krig", "icon": "swords", "partOf": "vietnamkriget", "start": 1970, "end": 1970, "precision": 11, "edtf": "1970-04-29/1970-07-22",
@@ -2231,6 +2266,7 @@
       "location": { "type": "Point", "coordinates": [48.178, 30.434] }, "place": { "sv": "Khorramshahr vid Shatt al-Arab, provinsen Khuzestan, Iran" },
       "title": { "sv": "Iran tar tillbaka Khorramshahr" },
       "summary": { "sv": "Den 24 april 1982 inleder Iran en offensiv för att ta tillbaka de ockuperade delarna av Khuzestan. Efter två dagars hårda strider återtar iranska styrkor Khorramshahr den 24 maj 1982. Det ses som en vändpunkt i kriget, och dagen firas varje år i Iran." },
+      "image": {"file": "images/events/khorramshahr-aterorovras-1982.webp", "kind": "historisk", "style": "rymdalder", "caption": {"sv": "Iranska soldater firar vid Jamehmoskén i Khorramshahr sedan staden har tagits tillbaka, 24 maj 1982. Fotografi av Amir Ali Javadian. Licens: Public domain."}, "credit": "Amir Ali Javadian / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-khorramshahr-aterorovras-1982"},
       "wikidata": "Q814223", "sources": ["wp-khorramshahr-1982", "wikidata"], "review": "two-sources" },
 
     { "id": "operation-ramadan", "category": "krig", "icon": "swords", "partOf": "iran-irak-kriget", "start": 1982, "end": 1982, "precision": 11, "edtf": "1982-07-13/1982-08-03",
@@ -2415,6 +2451,7 @@
       "location": { "type": "Point", "coordinates": [-3.703, 40.417] }, "place": { "sv": "Madrid, Spanien" },
       "title": { "sv": "Cervantes dör" },
       "summary": { "sv": "Miguel de Cervantes, författaren till Don Quijote och en av de största författarna på spanska, dör i Madrid den 22 april 1616." },
+      "image": {"file": "images/events/cervantes-dor.webp", "kind": "historisk", "style": "renassans", "caption": {"sv": "Porträtt av Miguel de Cervantes, tillskrivet Juan de Jáuregui, cirka 1600. Enligt filsidan anser dagens forskning inte att något porträtt av Cervantes är äkta. Licens: Public domain."}, "credit": "Tillskriven Juan de Jáuregui / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-cervantes-dor"},
       "wikidata": "Q5682", "sources": ["wp-cervantes", "wp-madrid", "wikidata"], "review": "two-sources" },
 
     { "id": "shakespeare-dor", "category": "kultur", "icon": "book", "start": 1616, "end": 1616, "precision": 11, "edtf": "1616-04-23",
@@ -2422,6 +2459,7 @@
       "title": { "sv": "Shakespeare dör" },
       "summary": { "sv": "William Shakespeare dör den 23 april 1616 i Stratford-upon-Avon, där han också föddes. Han räknas som den största författaren på engelska." },
       "note": { "title": { "sv": "Om kalendern" }, "text": { "sv": "Shakespeare dog den 23 april 1616 enligt den julianska kalender som England använde då. Enligt den gregorianska kalendern, som katolska länder hade infört 1582, var det den 3 maj." } },
+      "image": {"file": "images/events/shakespeare-dor.webp", "kind": "historisk", "style": "renassans", "caption": {"sv": "William Shakespeare i Chandosporträttet, tillskrivet John Taylor, i National Portrait Gallery i London. Det är ett av få porträtt som kan ha målats medan han levde. Licens: Public domain."}, "credit": "Tillskriven John Taylor / National Portrait Gallery, London, via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-shakespeare-dor"},
       "wikidata": "Q692", "sources": ["wp-shakespeare", "wp-stratford", "wikidata"], "review": "two-sources" },
 
     { "id": "ieyasu-dor", "category": "civilisationer", "start": 1616, "end": 1616, "precision": 11, "edtf": "1616-06-01",
@@ -2429,6 +2467,7 @@
       "title": { "sv": "Tokugawa Ieyasu dör" },
       "summary": { "sv": "Tokugawa Ieyasu, som grundade Tokugawa-shogunatet i Japan, dör på slottet Sunpu den 1 juni 1616." },
       "note": { "title": { "sv": "Om kalendern" }, "text": { "sv": "Ieyasu dog den 17:e dagen i fjärde månaden år Genna 2 enligt den japanska kalendern. Det motsvarar den 1 juni 1616 i västerländsk kalender." } },
+      "image": {"file": "images/events/ieyasu-dor.webp", "kind": "historisk", "style": "japan-ukiyoe", "caption": {"sv": "Porträtt av Tokugawa Ieyasu, målat av Kanō Tan'yū under tidig Edo-tid. Licens: Public domain."}, "credit": "Kanō Tan'yū / Osaka slott via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-ieyasu-dor"},
       "wikidata": "Q171977", "sources": ["wp-tokugawa-ieyasu", "wp-sunpu-castle", "wikidata"], "review": "two-sources" },
 
     { "id": "haitiska-revolutionen", "category": "krig", "icon": "swords", "kind": "war", "start": 1791, "end": 1804, "precision": 11, "edtf": "1791-08-21/1804-01-01",
@@ -2477,18 +2516,21 @@
       "location": { "type": "Point", "coordinates": [-72.688, 19.446] }, "place": { "sv": "Gonaïves, Haiti" },
       "title": { "sv": "Haiti förklarar sig självständigt" },
       "summary": { "sv": "Den 1 januari 1804 utropar Jean-Jacques Dessalines i Gonaïves den tidigare kolonin Saint-Domingue till den självständiga staten Haiti. Det blir den första självständiga staten i Latinamerika, och den enda som har grundats efter ett lyckat slavuppror." },
+      "image": {"file": "images/events/haitis-sjalvstandighet.webp", "kind": "historisk", "style": "1800-tal", "caption": {"sv": "Haitis självständighetsförklaring, tryckt 1804. Exemplaret finns i brittiska nationalarkivet (MFQ 1/184). Licens: Public domain."}, "credit": "The National Archives (UK), MFQ 1/184, via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-haitis-sjalvstandighet"},
       "wikidata": "Q17502440", "sources": ["wp-haitian-declaration-independence", "wp-gonaives", "wp-haitian-revolution", "wikidata"], "review": "two-sources" },
 
     { "id": "lincoln-fods", "category": "civilisationer", "start": 1809, "end": 1809, "precision": 11, "edtf": "1809-02-12",
       "location": { "type": "Point", "coordinates": [-85.739, 37.571] }, "locationPrecision": "region", "place": { "sv": "LaRue County, Kentucky, USA" },
       "title": { "sv": "Abraham Lincoln föds" },
       "summary": { "sv": "Abraham Lincoln, senare USA:s president, föds den 12 februari 1809 i LaRue County i Kentucky." },
+      "image": {"file": "images/events/lincoln-fods.webp", "kind": "historisk", "style": "1800-tal", "caption": {"sv": "Abraham Lincoln fotograferad av Alexander Gardner den 8 november 1863, 54 år efter födelsen. Licens: Public domain."}, "credit": "Alexander Gardner / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-lincoln-fods"},
       "wikidata": "Q91", "sources": ["wp-lincoln", "wp-hodgenville", "wikidata"], "review": "two-sources" },
 
     { "id": "darwin-fods", "category": "vetenskap", "start": 1809, "end": 1809, "precision": 11, "edtf": "1809-02-12",
       "location": { "type": "Point", "coordinates": [-2.754, 52.708] }, "place": { "sv": "Shrewsbury, England" },
       "title": { "sv": "Charles Darwin föds" },
       "summary": { "sv": "Charles Darwin, som senare formulerar teorin om evolution genom naturligt urval, föds i Shrewsbury den 12 februari 1809." },
+      "image": {"file": "images/events/darwin-fods.webp", "kind": "historisk", "style": "1800-tal", "caption": {"sv": "Charles Darwin fotograferad av Herbert Rose Barraud 1881, långt efter födelsen 1809. Licens: Public domain."}, "credit": "Herbert Rose Barraud / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-darwin-fods"},
       "wikidata": "Q1035", "sources": ["wp-darwin", "wp-shrewsbury", "wikidata"], "review": "two-sources" },
 
     { "id": "mansa-musa-kairo", "category": "religion", "icon": "crown", "start": 1324, "end": 1324, "precision": 10, "edtf": "1324-07",
@@ -2502,6 +2544,7 @@
       "location": { "type": "Point", "coordinates": [-5.804, 35.777] }, "place": { "sv": "Tanger, Marocko" },
       "title": { "sv": "Ibn Battuta ger sig av" },
       "summary": { "sv": "Den 14 juni 1325 lämnar 21-årige Ibn Battuta sin hemstad Tanger för att pilgrimsvandra till Mecka. Det blir början på resor som varar i många år." },
+      "image": {"file": "images/events/ibn-battuta-resa.webp", "kind": "historisk", "style": "islamisk", "caption": {"sv": "En fantasiteckning av Ibn Battuta ur en bok utgiven i Egypten 1961. Ingen bild av honom från hans egen tid är känd, så teckningen visar inte hur han såg ut. Licens: Public domain."}, "credit": "Okänd tecknare / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-ibn-battuta-resa"},
       "sources": ["wp-ibn-battuta", "wp-tangier", "whe-ibn-battuta"], "review": "two-sources" },
 
     { "id": "taj-mahal", "category": "kultur", "icon": "dome", "start": 1632, "end": 1653, "precision": 9, "edtf": "1632/1653",
@@ -2550,6 +2593,7 @@
       "title": { "sv": "Slaget vid Ōrākau" },
       "summary": { "sv": "Cirka 200–250 krigare, främst Tūhoe och Ngāti Raukawa, och omkring 50 kvinnor och barn försvarar en nybyggd pā mot upp till 1 800 brittiska och koloniala soldater i tre dagar. Rewi Maniapoto ska ha svarat på uppmaningen att ge upp: \"Ka whawhai tonu ahau ki a koe, ake, ake\" (\"Jag kämpar mot dig för evigt\"). Den 2 april bryter de belägrade ut; många dödas under flykten, även kvinnor och barn. Ōrākau blev det mest kända slaget i krigen." },
       "note": { "title": { "sv": "Bara en källa" }, "text": { "sv": "Datumen bygger bara på Wikipedia; Wikidata har ingen post för slaget. Platsen är orten Ōrākau enligt Wikidata. Uppskattningarna av maoriernas döda varierar mellan 80 och 160." } },
+      "image": {"file": "images/events/slaget-vid-orakau.webp", "kind": "historisk", "style": "1800-tal", "caption": {"sv": "Överlevande från Ngāti Maniapoto vid femtioårsminnet på slagfältet vid Ōrākau den 1 april 1914. Alla utom en av dem var med och försvarade pā:n. Fotografi ur James Cowans The New Zealand Wars (1922). Licens: Public domain."}, "credit": "James Cowan, The New Zealand Wars (1922) / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-slaget-vid-orakau"},
       "sources": ["wp-invasion-waikato", "wp-new-zealand-wars", "wikidata"], "review": "source-checked" },
 
     { "id": "slaget-vid-gate-pa", "category": "krig", "icon": "swords", "partOf": "nya-zeelandkrigen", "start": 1864, "end": 1864, "precision": 11, "edtf": "1864-04-29",
@@ -2598,6 +2642,7 @@
       "location": { "type": "Point", "coordinates": [150.713, -29.781] }, "place": { "sv": "Myall Creek, New South Wales, Australien" },
       "title": { "sv": "Myall Creek-massakern" },
       "summary": { "sv": "Den 10 juni 1838 dödar en grupp beväpnade boskapsskötare minst 28 obeväpnade Wirraayaraay, en del av Kamilaroi-folket, som hade sökt skydd vid gården Myall Creek. Det blev en av få massakrer på aboriginer som prövades i domstol: efter två rättegångar dömdes sju av gärningsmännen för mord och hängdes, medan ledaren aldrig ställdes inför rätta." },
+      "image": {"file": "images/events/myall-creek-massakern.webp", "kind": "historisk", "style": "1800-tal", "caption": {"sv": "\"Australian Aborigines slaughtered by convicts\", illustration av Hablot Knight Browne (Phiz) i The Book of Remarkable Trials, 1840, två år efter massakern. Bildtiteln nämner inte platsen, men en senare bearbetning av bilden på Wikimedia Commons beskriver den som scenen vid Myall Creek. Licens: Public domain."}, "credit": "Hablot Knight Browne (Phiz) / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-myall-creek-massakern"},
       "wikidata": "Q1785309", "sources": ["wp-myall-creek-massacre", "wikidata"], "review": "two-sources" },
 
     { "id": "coniston-massakern", "category": "krig", "partOf": "australiska-granskrigen", "start": 1928, "end": 1928, "precision": 11, "edtf": "1928-08-15/1928-09-13",
@@ -2773,6 +2818,7 @@
       "location": { "type": "Point", "coordinates": [-98.583, 39.833] }, "locationPrecision": "country", "place": { "sv": "USA" },
       "title": { "sv": "Star Wars har premiär" },
       "summary": { "sv": "Filmen Star Wars har premiär på ett fåtal biografer i USA den 25 maj 1977 och blir snabbt en oväntad publiksuccé." },
+      "image": {"file": "images/events/star-wars.webp", "kind": "historisk", "style": "rymdalder", "caption": {"sv": "En biograf i Kalifornien gör reklam för Star Wars, 1977. Fotografi av Michael Dorausch. Licens: CC BY-SA 2.0."}, "credit": "Michael Dorausch / Wikimedia Commons", "license": "CC BY-SA 2.0", "source": "commons-bild-star-wars"},
       "wikidata": "Q17738", "sources": ["wp-star-wars", "wp-us-center", "wikidata"], "review": "two-sources" },
 
     { "id": "gulfkriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1990, "end": 1991, "precision": 11, "edtf": "1990-08-02/1991-02-28",
@@ -2807,6 +2853,7 @@
       "title": { "sv": "Markoffensiven befriar Kuwait" },
       "summary": { "sv": "Klockan fyra på morgonen den 24 februari 1991 går koalitionens marktrupper in i Kuwait, och samtidigt anfaller andra förband in i södra Irak. De flesta irakiska soldater ger upp efter kort strid, men vid Kuwaits internationella flygplats strider ett förband i flera timmar. Den 27 februari beordrar Saddam Hussein reträtt, och de retirerande trupperna sätter eld på hundratals oljekällor. Kuwait förklaras befriat." },
       "note": { "title": { "sv": "Om datumet" }, "text": { "sv": "Artiklarna om Gulfkriget och om befrielsen av Kuwait anger, liksom Wikidata, att markoffensiven började den 24 februari 1991. Wikipedias artikel om invasionen av Kuwait skriver 23 februari, och enligt artikeln om Gulfkriget förekom strider redan den dagen." } },
+      "image": {"file": "images/events/befrielsen-av-kuwait.webp", "kind": "historisk", "style": "rymdalder", "caption": {"sv": "Övergivna irakiska stridsvagnar längs vägen mellan Basra och Kuwait nära Kuwait City, 26 februari 1991. Fotografi av PHC Holmes, amerikanska flottan. Licens: Public domain."}, "credit": "PHC Holmes, US Navy / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-befrielsen-av-kuwait"},
       "wikidata": "Q6541036", "sources": ["wp-liberation-of-kuwait", "wp-gulf-war", "wikidata"], "review": "two-sources" },
 
     { "id": "slaget-vid-73-easting", "category": "krig", "icon": "swords", "partOf": "gulfkriget", "start": 1991, "end": 1991, "precision": 11, "edtf": "1991-02-26/1991-02-27",
@@ -2834,6 +2881,7 @@
       "location": { "type": "Point", "coordinates": [69.166, 34.533] }, "place": { "sv": "Afghanistan; markören i Kabul, som intogs den 13 november" },
       "title": { "sv": "USA och Storbritannien invaderar Afghanistan" },
       "summary": { "sv": "Den 7 oktober 2001 inleder USA och Storbritannien flyganfall mot 31 mål i Afghanistan, under namnet Operation Enduring Freedom. Amerikanska specialstyrkor och CIA stödjer Norra alliansen, som tar den ena staden efter den andra från talibanerna. Kabul intas den 13 november, och den 17 december är talibanernas regering störtad. De flesta ledarna för talibanerna och al-Qaida kommer undan till Pakistan eller till avlägsna bergsområden." },
+      "image": {"file": "images/events/invasionen-av-afghanistan-2001.webp", "kind": "historisk", "style": "rymdalder", "caption": {"sv": "Amerikanska specialstyrkor med soldater från Nordalliansen väster om Kunduz i november 2001. Fotografi från USA:s armé. Licens: Public domain."}, "credit": "United States Army / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-invasionen-av-afghanistan-2001"},
       "wikidata": "Q19646470", "sources": ["wp-us-invasion-afghanistan", "wp-war-in-afghanistan-2001", "wikidata"], "review": "two-sources" },
 
     { "id": "slaget-vid-tora-bora", "category": "krig", "icon": "swords", "partOf": "kriget-i-afghanistan-2001", "start": 2001, "end": 2001, "precision": 11, "edtf": "2001-11-30/2001-12-17",
@@ -2881,6 +2929,7 @@
       "location": { "type": "Point", "coordinates": [44.366, 33.315] }, "place": { "sv": "Irak; markören i Bagdad" },
       "title": { "sv": "USA-ledd koalition invaderar Irak" },
       "summary": { "sv": "Klockan 05.34 Bagdadtid den 20 mars 2003 börjar invasionen av Irak, utan krigsförklaring. Omkring 250 000 amerikanska, 45 000 brittiska, 2 000 australiska och knappt 200 polska soldater har samlats i Kuwait, och i norr strider kurdiska peshmerga. Bagdad faller den 9 april och Tikrit den 15 april. Den 1 maj håller president Bush sitt tal \"Mission Accomplished\"." },
+      "image": {"file": "images/events/invasionen-av-irak-2003.webp", "kind": "historisk", "style": "rymdalder", "caption": {"sv": "Amerikanska marinkårssoldater för irakiska krigsfångar till ett uppsamlingsområde i öknen den 21 mars 2003. Fotografi av Brian L. Wickliffe, USMC. Licens: Public domain."}, "credit": "Lance Cpl. Brian L. Wickliffe, U.S. Marine Corps / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-invasionen-av-irak-2003"},
       "wikidata": "Q107802", "sources": ["wp-2003-invasion-iraq", "wp-iraq-war", "wp-battle-of-baghdad-2003", "wikidata"], "review": "two-sources" },
 
     { "id": "bagdad-faller-2003", "category": "krig", "icon": "swords", "partOf": "irakkriget", "start": 2003, "end": 2003, "precision": 11, "edtf": "2003-04-03/2003-04-09",
@@ -2984,6 +3033,7 @@
       "location": { "type": "Point", "coordinates": [12.142, 51.26] }, "place": { "sv": "Lützen, Sachsen" },
       "title": { "sv": "Gustav II Adolf stupar vid Lützen" },
       "summary": { "sv": "Den 16 november 1632 möts svenska och kejserliga arméer vid Lützen. Gustav II Adolf stupar under slaget." },
+      "image": {"file": "images/events/slaget-vid-lutzen-1632.webp", "kind": "historisk", "style": "renassans", "caption": {"sv": "Gustav II Adolfs död vid Lützen. Målning av Carl Wahlbom, 1855. Utsnitt. Licens: Public domain."}, "credit": "Carl Wahlbom / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-slaget-vid-lutzen-1632"},
       "wikidata": "Q167259", "sources": ["wp-lutzen-1632", "wp-lutzen", "wikidata"], "review": "two-sources" },
 
     { "id": "slaget-vid-nordlingen-1634", "category": "krig", "icon": "swords", "partOf": "trettioariga-kriget", "start": 1634, "end": 1634, "precision": 11, "edtf": "1634-09-05/1634-09-06",
@@ -3043,6 +3093,7 @@
       "title": { "sv": "Slaget vid Poltava" },
       "summary": { "sv": "Den 8 juli 1709 besegrar en rysk armé under tsar Peter I den svenska armén vid Poltava. Det är krigets största och mest avgörande slag, och det blir början på slutet för Sverige som stormakt." },
       "note": { "title": { "sv": "Om kalendern" }, "text": { "sv": "Wikipedia anger 27 juni (juliansk kalender), 28 juni (svensk kalender) och 8 juli 1709 (gregoriansk). Wikidata anger samma datum i juliansk och gregoriansk kalender." } },
+      "image": {"file": "images/events/slaget-vid-poltava.webp", "kind": "historisk", "style": "barock", "caption": {"sv": "Slaget vid Poltava i en målning av Pierre-Denis Martin, 1726, i Katarinapalatset. Utsnitt. Licens: Public domain."}, "credit": "Pierre-Denis Martin / Katarinapalatset via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-slaget-vid-poltava"},
       "wikidata": "Q152486", "sources": ["wp-poltava-1709", "wikidata"], "review": "two-sources" },
 
     { "id": "kapitulationen-vid-perevolotjna", "category": "krig", "icon": "swords", "partOf": "stora-nordiska-kriget", "start": 1709, "end": 1709, "precision": 11, "edtf": "1709-07-11",
@@ -3099,12 +3150,14 @@
       "location": { "type": "Point", "coordinates": [35.226, 31.779] }, "place": { "sv": "Jerusalem" },
       "title": { "sv": "Jesus korsfästs" },
       "summary": { "sv": "Jesus korsfästs i Jerusalem, troligen år 30 eller 33. Händelsen beskrivs i evangelierna och i andra källor från antiken, och nästan alla forskare räknar den som historisk." },
+      "image": {"file": "images/events/korsfastelsen.webp", "kind": "historisk", "style": "antik", "caption": {"sv": "Den korsfäste Kristus som Diego Velázquez målade honom cirka 1632, i Pradomuseet i Madrid. En konstnärs bild 1 600 år senare, inte en skildring från händelsens tid. Licens: Public domain."}, "credit": "Diego Velázquez / Museo del Prado via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-korsfastelsen"},
       "wikidata": "Q51636", "sources": ["wp-crucifixion", "wp-jerusalem", "wikidata"], "review": "two-sources" },
 
     { "id": "muhammeds-forsta-uppenbarelse", "category": "religion", "icon": "mosque", "religion": "islam", "founding": true, "start": 610, "end": 610, "precision": 9, "edtf": "0610?",
       "location": { "type": "Point", "coordinates": [39.861, 21.458] }, "place": { "sv": "Grottan Hira på berget Jabal al-Nour, nära Mecka" },
       "title": { "sv": "Islams början: Muhammeds första uppenbarelse" },
       "summary": { "sv": "Enligt islam får Muhammed sin första uppenbarelse i grottan Hira nära Mecka, början på det som blir Koranen. Det exakta datumet är omstritt, men de flesta muslimer räknar med år 610." },
+      "image": {"file": "images/events/muhammeds-forsta-uppenbarelse.webp", "kind": "historisk", "style": "tidig-medeltid", "caption": {"sv": "Berget Jabal an-Nur vid Mecka, där grottan Hira ligger. Nutida fotografi av Wal N., 2007. Profeten avbildas inte. Licens: CC BY 2.0."}, "credit": "Wal N. / Wikimedia Commons", "license": "CC BY 2.0", "source": "commons-bild-muhammeds-forsta-uppenbarelse"},
       "wikidata": "Q4115424", "sources": ["wp-first-revelation", "wp-jabal-al-nour", "wikidata"], "review": "two-sources" },
 
     { "id": "buddha", "category": "religion", "icon": "dharma-wheel", "religion": "buddhism", "founding": true, "start": -599, "end": -400, "precision": 7, "edtf": "-0599/-0400",
@@ -3118,6 +3171,7 @@
       "location": { "type": "Point", "coordinates": [73.707, 31.45] }, "locationPrecision": "region", "place": { "sv": "Punjab (född i dagens Nankana Sahib, Pakistan)" },
       "title": { "sv": "Guru Nanak grundar sikhismen" },
       "summary": { "sv": "Sikhismen växer fram i Punjab runt slutet av 1400-talet, ur Guru Nanaks lära. Han lever 1469–1539 och är den förste av sikhismens guruer." },
+      "image": {"file": "images/events/guru-nanak.webp", "kind": "historisk", "style": "miniatyr", "caption": {"sv": "Guru Nanak i en väggmålning i Gurdwara Baba Atal, 1800-talet, målad av bland andra Jaimal Singh Naqqash. Fotografi av Amritpal Singh Mann. Licens: CC BY-SA 4.0."}, "credit": "Jaimal Singh Naqqash m.fl. (målning), Amritpal Singh Mann (foto) / Wikimedia Commons", "license": "CC BY-SA 4.0", "source": "commons-bild-guru-nanak"},
       "wikidata": "Q83322", "sources": ["wp-guru-nanak", "wp-sikhism", "wp-nankana-sahib", "wikidata"], "review": "two-sources" }
   ]
 }
