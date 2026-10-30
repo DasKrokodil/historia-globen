@@ -1,19 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Historia-globens ikon: djupblått klot med pergamentland och en mässingsring, på natthimmel -->
-  <defs>
-    <clipPath id="klot"><circle cx="32" cy="32" r="19"/></clipPath>
-    <!-- Ringens främre halva: nedanför klotets mittlinje, vriden som ringen -->
-    <clipPath id="fram"><rect x="-10" y="32" width="84" height="40" transform="rotate(-24 32 32)"/></clipPath>
-  </defs>
-  <rect width="64" height="64" rx="14" fill="#0b1219"/>
-  <ellipse cx="32" cy="32" rx="26" ry="9" fill="none" stroke="#9c7a3c" stroke-width="3.2" transform="rotate(-24 32 32)"/>
-  <circle cx="32" cy="32" r="19" fill="#13324a"/>
-  <g clip-path="url(#klot)" fill="#c8b48a">
-    <path d="M14 22c4-5 10-7 15-6 3 1 4 4 2 6-2 2-6 1-7 4-1 3 3 5 2 8-1 3-5 3-7 1-3-3-7-7-5-13z"/>
-    <path d="M35 14c5-1 11 1 15 5 2 3 1 6-2 7-3 1-4-2-7-1-2 1-1 5-4 6-3 1-5-2-5-6 0-4 0-10 3-11z"/>
-    <path d="M37 36c3-2 7-1 9 2 2 3 1 8-2 11-2 2-5 1-6-2-1-3-3-4-3-7 0-2 0-3 2-4z"/>
-  </g>
-  <g clip-path="url(#fram)">
-    <ellipse cx="32" cy="32" rx="26" ry="9" fill="none" stroke="#d6b06a" stroke-width="3.2" transform="rotate(-24 32 32)"/>
-  </g>
+  <!-- Historia-globens ikon: vindros som på portolankartor, mässing och djupblått på pergament -->
+  <rect width="64" height="64" rx="14" fill="#e6d3a3"/>
+  <circle cx="32" cy="32" r="23" fill="none" stroke="#7d5b1c" stroke-width="1.5"/>
+  <circle cx="32" cy="32" r="19" fill="none" stroke="#7d5b1c" stroke-width=".8"/>
+  <g fill="#9c7a3c"><path d="M32 32l-4-4 4-18 4 18z" transform="rotate(45 32 32)"/><path d="M32 32l-4-4 4-18 4 18z" transform="rotate(135 32 32)"/><path d="M32 32l-4-4 4-18 4 18z" transform="rotate(225 32 32)"/><path d="M32 32l-4-4 4-18 4 18z" transform="rotate(315 32 32)"/></g>
+  <g fill="#13324a"><path d="M32 5l5 23-5 4-5-4z"/><path d="M59 32l-23 5-4-5 4-5z"/><path d="M32 59l-5-23 5-4 5 4z"/><path d="M5 32l23-5 4 5-4 5z"/></g>
+  <g fill="#d6b06a"><path d="M32 5l5 23-5 4z"/><path d="M59 32l-23 5-4-5z"/><path d="M32 59l-5-23 5-4z"/><path d="M5 32l23-5 4 5z"/></g>
+  <circle cx="32" cy="32" r="3" fill="#7d5b1c"/>
+  <path d="M32 2l3 4h-6z" fill="#c0392b"/>
 </svg>
