@@ -1,5 +1,6 @@
 # Bygger webbplatsen i dist/ och kontrollerar den (docs/DEPLOYMENT.md).
 # Körs vid push till main (development) och vid pull requests mot main och production (release).
+# Releasekontrollen (from-main) gäller bara pull requests mot production.
 name: Validera webbplatsen
 
 on:
@@ -38,3 +39,21 @@ jobs:
             echo "::error::production uppdateras bara med en pull request från main i samma repo (nu: $HEAD_REPO:$HEAD_REF)."
             exit 1
           fi
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Kontrollera att production inte har egna ändringar som saknas i main
+        env:
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          # production ska bara innehålla det som redan finns i main (docs/DEPLOYMENT.md).
+          # Har någon ändrat production direkt (nödläge) måste ändringen först in i main.
+          if ! git merge-base --is-ancestor "origin/$BASE_REF" "$HEAD_SHA"; then
+            echo "::error::production har commits som inte finns i main. För in dem i main först (se Rollback i docs/DEPLOYMENT.md)."
+            git log --oneline "$HEAD_SHA..origin/$BASE_REF"
+            exit 1
+          fi
+          echo "Ändringar som släpps:"
+          git log --oneline --first-parent "origin/$BASE_REF..$HEAD_SHA"
