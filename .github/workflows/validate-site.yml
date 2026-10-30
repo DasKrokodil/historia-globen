@@ -1,12 +1,12 @@
 # Bygger webbplatsen i dist/ och kontrollerar den (docs/DEPLOYMENT.md).
-# Körs vid push till main (development) och vid pull requests mot production (release).
+# Körs vid push till main (development) och vid pull requests mot main och production (release).
 name: Validera webbplatsen
 
 on:
   push:
     branches: [main]
   pull_request:
-    branches: [production]
+    branches: [main, production]
 
 permissions:
   contents: read
@@ -25,7 +25,7 @@ jobs:
 
   from-main:
     name: Release kommer från main
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && github.base_ref == 'production'
     runs-on: ubuntu-latest
     steps:
       - name: Kontrollera att pull requesten mot production kommer från main
