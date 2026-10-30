@@ -356,5 +356,60 @@
     "credit": "Tillskriven Abraham Cresques / Bibliothèque nationale de France (Gallica) via Wikimedia Commons",
     "license": "Public domain",
     "source": "commons-catalan-atlas-mansa-musa"
+  },
+  {
+    "id": "slaget-vid-gaixia",
+    "file": "slaget-vid-gaixia.webp",
+    "kind": "illustration",
+    "style": "kina-tusch",
+    "caption": {
+      "sv": "Illustration i stil med kinesisk tuschmålning på silkesrulle, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-30",
+    "prompt": "Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: Slaget vid Gaixia — Gaixia i provinsen Anhui (troligen i dagens Guzhen eller sydost om Lingbi), 203 BCE. What happened (show only this, do not add details): Liu Bang, Han Xin och Peng Yue omringar Xiang Yu vid Gaixia. Han Xin låter sina soldater sjunga sånger från Chu, så att Xiang Yus män tror att deras hemland har gett upp, och många deserterar. Xiang Yu bryter sig ut med en liten skara men tar sitt liv vid floden Wujiang. Det var krigets sista stora slag. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details."
+  },
+  {
+    "id": "qi-ger-upp-221-fkr",
+    "file": "qi-ger-upp-221-fkr.webp",
+    "kind": "illustration",
+    "style": "kina-tusch",
+    "caption": {
+      "sv": "Illustration i stil med kinesisk tuschmålning på silkesrulle, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-30",
+    "prompt": "Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: Qi ger upp och Kina enas — Linzi, staten Qi, 221 BCE. What happened (show only this, do not add details): Qins armé tar en omväg genom det erövrade Yan och står plötsligt utanför Qis huvudstad Linzi. Kung Tian Jian ger upp utan strid 221 f.Kr. Ying Zheng utropar sig till Shi Huangdi, Kinas förste kejsare. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details."
+  },
+  {
+    "id": "sjoslaget-vid-noryang",
+    "file": "sjoslaget-vid-noryang.webp",
+    "kind": "illustration",
+    "style": "korea-joseon",
+    "caption": {
+      "sv": "Illustration i stil med koreansk tusch- och färgmålning från Joseontiden, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-30",
+    "prompt": "Style: Korean Joseon-era ink and colour painting on silk, fine brushwork, muted mineral colours. Subject: Sjöslaget vid Noryang — Noryangsundet vid ön Namhae, Korea, 1598 CE. What happened (show only this, do not add details): Tidigt på morgonen den 16 december 1598 anfaller koreanska och kinesiska skepp under Yi Sun-sin och Chen Lin den japanska flottan i Noryangsundet, när japanerna försöker ta sig hem. Mer än hälften av de japanska skeppen förstörs eller erövras. Yi Sun-sin träffas av en kula och dör. Det är krigets sista stora slag. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details."
+  },
+  {
+    "id": "kalinga-erovras",
+    "file": "kalinga-erovras.webp",
+    "kind": "illustration",
+    "style": "indien-relief",
+    "caption": {
+      "sv": "Illustration i stil med fornindisk stenrelief, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-30",
+    "prompt": "Style: ancient Indian stone relief in the manner of early Buddhist stupa carvings, sandstone, carved figures in shallow relief. Subject: Ashoka erövrar Kalinga — Dhauli vid floden Daya, söder om Bhubaneswar i Odisha (antagen plats), 261 BCE. What happened (show only this, do not add details): Mauryarikets armé besegrar Kalinga, troligen omkring 261 f.Kr. Det avgörande slaget antas ha stått vid kullen Dhauli vid floden Daya. Kriget räknas som ett av de största och blodigaste i Indiens historia. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details."
+  },
+  {
+    "id": "eviansavtalen",
+    "file": "eviansavtalen.webp",
+    "kind": "illustration",
+    "style": "dokumentar",
+    "caption": {
+      "sv": "Illustration i stil med dokumentär tidningsillustration från 1970-talet, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-30",
+    "prompt": "Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: Éviansavtalen: Algeriet blir fritt — Évian-les-Bains, Frankrike, 1962 CE. What happened (show only this, do not add details): Den 18 mars 1962 kommer Frankrike och FLN:s exilregering överens i Évian, där Krim Belkacem undertecknar för den algeriska sidan. Avtalen ger eldupphör från den 19 mars, frigivning av fångar och full självständighet för Algeriet efter en folkomröstning. Den 1 juli röstar nästan alla algerier för självständighet, och Algeriet blir självständigt den 3 juli 1962; den 5 juli firas som självständighetsdag. Under tiden fortsätter OAS med hundratals bombdåd i Algeriet. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details."
   }
 ]
