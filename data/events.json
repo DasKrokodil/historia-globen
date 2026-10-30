@@ -810,7 +810,7 @@
     { "id": "operation-ramadan", "category": "krig", "icon": "swords", "partOf": "iran-irak-kriget", "start": 1982, "end": 1982, "precision": 11, "edtf": "1982-07-13/1982-08-03",
       "location": { "type": "Point", "coordinates": [47.81, 30.515] }, "locationPrecision": "region", "place": { "sv": "Nordost om Basra, södra Irak" },
       "title": { "sv": "Iran går in i Irak: Operation Ramadan" },
-      "summary": { "sv": "Irak har drivits ut ur nästan hela Iran, och Khomeini avvisar Iraks fredsanbud. Den 13 juli 1982 anfaller Iran nära Basra i Irak, med tre anfall och stora infanterivågor. Det är det största slaget på land sedan andra världskriget. Irak håller stånd, och kriget blir ett låst ställningskrig." },
+      "summary": { "sv": "Irak har drivits ut ur nästan hela Iran, och Khomeini avvisar Iraks fredsanbud. Den 13 juli 1982 anfaller Iran nära Basra i Irak, med tre anfall och stora infanterivågor. Det räknas som ett av de största slagen på land sedan andra världskriget. Irak håller stånd, och kriget blir ett låst ställningskrig." },
       "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Wikipedia anger både att offensiven pågick 13 juli–3 augusti 1982 och att den varade i sex veckor. Wikidata anger bara den 3 augusti 1982 och ingen plats, så platsen har inte kunnat jämföras med en andra källa." } },
       "wikidata": "Q919834", "sources": ["wp-operation-ramadan", "wp-basra"], "review": "source-checked" },
 
