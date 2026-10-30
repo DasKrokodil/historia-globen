@@ -173,7 +173,7 @@ Rikets nyckelår är också rikets berättelse (#171): när man följer riket i 
 
   - `origin` är id för händelsen i `events.json` där religionen uppstod (kristendom `korsfastelsen`, islam `muhammeds-forsta-uppenbarelse`, buddhism `buddha`, sikhism `guru-nanak`). Religioner som växte fram gradvis (judendom, hinduism) har ingen `origin`. Där ritas en stjärna i religionens färg på lagerbilden, från händelsens startår, så länge religionen syns i lagret. Platsen står bara i händelsen, inte en gång till här.
   - `items` är rader med rubrik och text (till exempel när och var, grundare, helig skrift, antal troende med årtal). Osäkerhet skrivs ut i texten.
-  - `milestonesTitle` (valfritt, #270) är rubriken över nyckelåren. Utan den heter rubriken "Statsreligion i riken"; religioner vars nyckelår handlar om annat (till exempel heliga skrifter eller tempel) har "Nyckelår".
+  - `milestonesTitle` (valfritt, #270) är rubriken över nyckelåren. Utan den heter rubriken "Statsreligion i riken"; religioner vars nyckelår handlar om annat (till exempel heliga skrifter eller tempel) har "Nyckelår" (islam, buddhism, hinduism, judendom och sikhism).
   - `milestones` är nyckelår, till exempel när ett rike gjorde religionen till statsreligion. `year` är astronomiskt år och knappen hoppar dit i tiden; `label` är det som står på knappen och kan visa osäkerhet ("301 eller 314"). Varje nyckelår har egna `sources`.
   - `sources` och `review` fungerar som för händelser. Rutan listar både rutans och nyckelårens källor.
 
