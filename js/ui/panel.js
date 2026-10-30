@@ -1,6 +1,6 @@
 // "Samtidigt i världen": lista över synliga händelser per världsdel, kategorifilter
 // (som ligger i lagermenyn, #120) och faktarutan.
-import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP } from '../model.js';
+import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, symbolImg } from '../model.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -24,6 +24,9 @@ export function figure(e, srcById) {
   </figure>`;
 }
 
+/** Diskret knapp "Rapportera faktafel" nedtill i faktarutan, bredvid granskningsstatusen. */
+const reportBtn = e => `<button type="button" class="link-btn report-btn" data-report="${esc(e.id)}" aria-haspopup="dialog" aria-controls="feedback">Rapportera faktafel</button>`;
+
 export class Panel {
   constructor({ root, list, filters, detail, sub, count, toggle, close }, { events, srcById, styles }) {
     Object.assign(this, { root, list, filtersEl: filters, detail, sub, count, toggle, srcById, styles });
@@ -33,6 +36,7 @@ export class Panel {
     this.onFocus = () => {};
     this.onOpen = () => {};
     this.onYear = () => {};
+    this.onReport = null; // (händelse, knapp) => öppnar formuläret "Rapportera faktafel" (js/ui/feedback.js)
     this.selectedId = null;
 
     // Visa bara kategorier som har händelser, i den fasta ordningen.
@@ -141,10 +145,17 @@ export class Panel {
       <h3>${esc(t(war.title))}</h3>
       <div class="meta">${esc(formatEventTime(war))} · ${esc(t(war.place))}</div>
       <div class="story">${body}</div>
-      <div class="src">Källa: ${srcs.map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>`).join(', ') || 'saknas'}</div>`;
+      <div class="src">Källa: ${srcs.map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.title)}</a>`).join(', ') || 'saknas'}</div>
+      ${this.onReport ? `<div class="detail-actions">${reportBtn(war)}</div>` : ''}`;
     this.detail.scrollTop = 0;
     this.detail.hidden = false;
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
+    this.bindReport(war);
+  }
+
+  /** Knappen "Rapportera faktafel" öppnar formuläret med händelsen förvald. */
+  bindReport(e) {
+    this.detail.querySelector('[data-report]')?.addEventListener('click', ev => this.onReport?.(e, ev.currentTarget));
   }
 
   /**
@@ -154,7 +165,8 @@ export class Panel {
    * som också är punkten på globen.
    */
   showReligion(r, origin) {
-    this.showFacts({ kind: 'Religion', name: t(r.name), color: r.color, facts: r.facts, origin, milestonesTitle: 'Statsreligion i riken' });
+    this.showFacts({ kind: 'Religion', name: t(r.name), color: r.color, symbol: symbolImg(r, 'rel-sym rel-sym-h'), facts: r.facts, origin,
+      milestonesTitle: t(r.facts.milestonesTitle) || 'Statsreligion i riken' });
   }
 
   /**
@@ -164,7 +176,7 @@ export class Panel {
    * som bestämmer rutans ram efter tidsålder, om det inte finns någon origin.
    * mapNote = förklaring om var kartans gränser kommer ifrån (riken: Cliopatria).
    */
-  showFacts({ kind, name, color, facts: f, origin = null, place = origin, milestonesTitle = 'Nyckelår', mapNote = '' }) {
+  showFacts({ kind, name, color, symbol = '', facts: f, origin = null, place = origin, milestonesTitle = 'Nyckelår', mapNote = '' }) {
     const rv = REVIEW[f.review] ?? REVIEW.draft;
     const subj = kind === 'Rike' ? 'Riket' : 'Religionen';
     const srcs = [...new Set([...(f.sources ?? []), ...(f.milestones ?? []).flatMap(m => m.sources ?? [])])]
@@ -175,10 +187,10 @@ export class Panel {
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
       <div class="story-label"><span class="swatch" style="background:${esc(color)}"></span>${esc(kind)}</div>
-      <h3>${esc(name)}</h3>
+      <h3>${symbol}${esc(name)}</h3>
       <p>${esc(t(f.summary))}</p>
       <dl class="religion-facts">${(f.items ?? []).map(it => `<dt>${esc(t(it.label))}</dt><dd>${esc(t(it.text))}</dd>`).join('')}</dl>
-      ${origin ? `<p class="war-link">Punkten ★ på globen: <button type="button" class="link-btn" data-goto="${esc(origin.id)}">${esc(t(origin.title))}</button> <span class="meta">${esc(formatEventTime(origin))} · ${esc(t(origin.place))}</span></p>` : ''}
+      ${origin ? `<p class="war-link">${symbol ? `Symbolen ${symbol.replace('rel-sym-h', 'rel-sym-in')} på globen visar var religionen uppstod:` : 'Där religionen uppstod:'} <button type="button" class="link-btn" data-goto="${esc(origin.id)}">${esc(t(origin.title))}</button> <span class="meta">${esc(formatEventTime(origin))} · ${esc(t(origin.place))}</span></p>` : ''}
       ${f.milestones?.length ? `<div class="war-list"><h4>${esc(milestonesTitle)}</h4><ol>${f.milestones.map(m =>
         `<li><button type="button" class="link-btn" data-year="${Number(m.year)}">${esc(t(m.label) || formatYear(m.year))}</button> ${m.title ? `<b>${esc(t(m.title))}.</b> ` : ''}${esc(t(m.text))}${m.mapNote ? ` <span class="ms-map">Om kartan: ${esc(t(m.mapNote))}</span>` : ''}</li>`).join('')}</ol></div>` : ''}
       ${mapNote ? `<aside class="detail-note"><h4>Om kartan</h4><p>${esc(mapNote)}</p></aside>` : ''}
@@ -220,11 +232,13 @@ export class Panel {
       <div class="src">Källa: ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || 'saknas'}</div>
       <div class="detail-actions">
         <span class="review-badge ${rv.cls}" title="${esc(REVIEW_SUBJECT_HELP['Händelsen'])}">${esc(reviewLabel(e.review, 'Händelsen'))}</span>
+        ${this.onReport ? reportBtn(e) : ''}
       </div>`;
     this.detail.scrollTop = 0;
     this.detail.hidden = false;
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
     this.detail.querySelector('[data-focus]')?.addEventListener('click', ev => this.onFocus(ev.currentTarget.dataset.focus));
+    this.bindReport(e);
   }
 }

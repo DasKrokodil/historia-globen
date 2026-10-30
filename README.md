@@ -1,8 +1,43 @@
-# Historia-globen
+<p align="center">
+  <img src="img/favicon.svg" width="96" height="96" alt="Historia-globens ikon, en vindros i mässing">
+</p>
 
-En snurrbar jordglob där man drar i tiden och ser vad som hände **samtidigt** på olika håll i världen. Pyramiderna byggs medan de sista mammutarna lever på Wrangelön. Oxford undervisar redan när Tenochtitlan grundas.
+<h1 align="center">Historia-globen</h1>
 
-Projektet är en hobbyidé och ett öppet projekt. På sikt kan samma innehåll visas på en fysisk glob.
+<p align="center"><strong>Dra i tiden och se vad som hände samtidigt i hela världen.</strong><br>
+Pyramiderna byggs medan de sista mammutarna lever på Wrangelön. Oxford undervisar redan när Tenochtitlan grundas.</p>
+
+<p align="center"><a href="https://historiagloben.se"><strong>Prova globen på historiagloben.se →</strong></a></p>
+
+![Globen år 1325 med Samtidigt-kortet: Mansa Musa når Kairo, Ibn Battuta ger sig av från Tanger och Tenochtitlan grundas](docs/bilder/readme-1-samtidigt.webp)
+
+## Det här får du
+
+- **En snurrbar jordglob genom 5 000 år.** Dra i tidslinjen från 3000 f.Kr. till i dag, eller tryck ▶ och se världen förändras.
+- **Samtidigt-kortet.** Oväntade samband dyker upp av sig själva, till exempel att Mansa Musa och Ibn Battuta var på väg mot Mecka med ett års mellanrum.
+- **Krig och slag att följa.** Över 50 krig från alla världsdelar, från Kadesh och perserkrigen till Ukraina i dag. Varje krig har en berättelse: varför det började, vilka som stred, hur det slutade och hur många som dog, som spann och med vem som har räknat.
+- **Riken som växer och krymper,** från Romarriket och Handynastin till Mongolriket och Brittiska imperiet.
+- **Religioner över tid,** med egna symboler och faktarutor, och med en symbol där varje religion uppstod.
+- **Platt vy.** Världen som en platt karta som fyller skärmen, med zoom och panorering, medan tiden spelas upp.
+- **Fungerar i mobilen,** utan installation.
+
+| Följ ett krig | Religioner år 1000 | I mobilen |
+|---|---|---|
+| ![Fokus på Napoleonkrigen med krigsområdet och kortet om varför kriget började](docs/bilder/readme-2-krig.webp) | ![Religionslagret år 1000 med kors, moské och dharmahjul i områdena och medaljer där religionerna uppstod](docs/bilder/readme-3-religioner.webp) | ![Globen år 1500 i mobilbredd](docs/bilder/readme-4-mobil.webp) |
+
+## Varje uppgift har en källa
+
+Inget på globen är skrivet ur minnet. Varje händelse pekar på minst en källa, och de flesta är jämförda med en andra, oberoende källa. När källorna är oense står det öppet, i stället för att en siffra väljs i tysthet. Under **Källor** på sidan går det att se varifrån allt kommer.
+
+Just nu finns 469 händelser, 655 källor, 8 riken och 22 religioner. Allt är öppen källkod och öppna data.
+
+## Om projektet
+
+Historia-globen är ett hobbyprojekt med öppen källkod. På sikt kan samma innehåll visas på en fysisk glob. historiagloben.se visar den senaste releasen; bilderna ovan är tagna från utvecklingsversionen i `main` den 30 oktober 2026.
+
+---
+
+**För utvecklare:** resten av den här sidan beskriver hur projektet körs och är uppbyggt.
 
 ## Kör lokalt
 
@@ -26,21 +61,25 @@ js/timeline.js        tidsreglage, segmenterad tidsskala, nuvarande år
 js/layers/events.js   lager: händelser som punkter
 js/layers/areas.js    lager: riken som områden som ändras över tid
 js/layers/borders.js  lager: dagens landsgränser (av som standard)
-js/layers/religions.js lager: religioner som områden
+js/layers/religions.js lager: religioner som områden, med symboler i områdena (#271)
+js/layers/origins.js  religionens symbol där den uppstod, som klickbar markör (#271)
 js/layers/wars.js     lager: krigsområden runt krigets slag
 js/ui/panel.js        "Samtidigt i världen" per världsdel, kategorifilter och detaljvy
 js/ui/funfact.js      Samtidigt-kortet (fun facts, när ett krig bröt ut) och bågar på globen
 js/ui/sources.js      sidan Om källorna (knappen Källor)
 js/ui/help.js         kort hjälp i tre steg för nya besökare (knappen Hjälp)
+js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering (knappen Platt vy)
+js/ui/feedback.js     formuläret Lämna förslag / Rapportera faktafel (avstängt som standard, docs/feedback.md)
+js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med serverfunktionen)
 js/ui/layers.js       lagerväljaren: slå av och på lager
 js/ui/clusters.js     klustring av händelser som ligger nära varandra
 js/ui/focusmenu.js    fokusmenyn: välj ett krig, rike eller en religion att följa
-img/icons/            ikoner för händelser (egna SVG-teckningar, till exempel treaty.svg för fredsavtal)
+img/icons/            ikoner för händelser och religionernas symboler (egna SVG-teckningar, till exempel treaty.svg för fredsavtal, cross.svg och dharma-wheel.svg, #271)
 img/favicon.svg       sidans ikon i webbläsarfliken (och PNG-versioner för äldre webbläsare och hemskärm)
 images/events/        bilder till händelser (historiska bilder och märkta illustrationer)
 images/incoming/      nya bilder innan de konverteras
 tools/                hjälpskript som körs för hand (Python): riken, religioner, bildpromptar och bildkonvertering
-docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar
+docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar; docs/bilder/ har skärmbilderna i README
 .orchestra/           arbetsflödet dirigenten och orkestern (MIT-licens)
 data/events.json      händelser
 data/funfacts.json    fun facts, kopplade till händelser
@@ -58,14 +97,16 @@ data/utkast/          utkast från massimport som inte är källkontrollerade; a
 tools/hced.py         gör om Historical Conflict Event Dataset till utkast i data/utkast/hced.json
 scripts/build-site.sh kopierar webbplatsens filer till dist/ för publicering och kör kontrollerna (docs/DEPLOYMENT.md)
 scripts/validate-site.py  kontrollerar dist/: JSON, filreferenser och att inga interna filer följer med
-.github/workflows/    GitHub Actions: bygger och kontrollerar dist/ vid push till main och PR mot main och production
+functions/api/feedback.js  Cloudflare Pages Function för besökarnas förslag (publiceras från repots rot, inte via dist/)
+tests/                tester för serverfunktionen (node --test 'tests/*.test.mjs')
+.github/workflows/    GitHub Actions: bygger och kontrollerar dist/ vid push till main och PR mot main och production; release.yml skapar tagg och GitHub Release
 ```
 
 ## Principer
 
 - **Data skild från kod.** All data ligger i `data/`.
 - **Ett år styr allt.** Tidsreglaget äger nuvarande år, lager och paneler lyssnar.
-- **Ekvirektangulär rendering.** Lagren ritas på en platt världsbild som läggs på klotet. Samma bild kan skickas till en fysisk globskärm (knappen "Platt vy").
+- **Ekvirektangulär rendering.** Lagren ritas på en platt världsbild som läggs på klotet. Knappen "Platt vy" visar samma bild som en platt karta, och bilden kan också skickas till en fysisk globskärm.
 - **Lager som moduler.** Lagertyperna är punkt, linje, område, bildlager och tur.
 
 Mer i [docs/arkitektur.md](docs/arkitektur.md). Besluten bakom finns i [docs/beslut.md](docs/beslut.md).

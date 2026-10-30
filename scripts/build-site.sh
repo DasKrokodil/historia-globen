@@ -12,8 +12,9 @@
 #   images/events/        bilderna som events.json pekar på (image.file)
 #   LICENSE, data/LICENSE licenserna för kod (GPL-3.0) och data (CC BY 4.0) följer med de publicerade filerna
 #
-# Interna filer (.claude/, .orchestra/, .github/, docs/, tools/, scripts/, data/utkast/, images/incoming/,
-# CLAUDE.md, README.md) kopieras aldrig. Skriptet avslutas med fel om en obligatorisk fil saknas, och
+# Interna filer (.claude/, .orchestra/, .github/, docs/, tools/, scripts/, tests/, data/utkast/, images/incoming/,
+# CLAUDE.md, README.md) kopieras aldrig. functions/ (formulärets Pages Function, docs/feedback.md) kopieras inte
+# heller: Cloudflare Pages publicerar den direkt från repots rot. Skriptet avslutas med fel om en obligatorisk fil saknas, och
 # kör sedan scripts/validate-site.py på resultatet.
 #
 # Kör från var som helst: scripts/build-site.sh

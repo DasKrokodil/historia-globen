@@ -224,7 +224,8 @@ export async function loadAll() {
   ]);
   const byId = Object.fromEntries(events.events.map(e => [e.id, e]));
   // Pågående (#223): end i datan är året då läget senast kontrollerades; det räknas till i år enligt datorns klocka
-  for (const e of events.events) if (e.ongoing) e.end = Math.max(e.end, new Date().getFullYear());
+  // Det gäller också andra händelser som pågår, med öppet slut i edtf ("1096/..", till exempel Oxford, #229)
+  for (const e of events.events) if (e.ongoing || /\/\.\.$/.test(e.edtf ?? '')) e.end = Math.max(e.end, new Date().getFullYear());
   // Krig och slag (#27): slagen pekar på sitt krig med partOf
   for (const e of events.events) if (e.kind === 'war') e._battles = [];
   for (const e of events.events) {
@@ -267,3 +268,11 @@ export function loadReligionPolities() {
   religionPolitiesPromise ??= getJSON('data/religions-polities.json').catch(err => { religionPolitiesPromise = null; throw err; });
   return religionPolitiesPromise;
 }
+
+/**
+ * Religionens symbol (#271): fältet symbol i religions.json är namnet på en egen teckning i img/icons/.
+ * symbolUrl ger sökvägen (null om symbol saknas), symbolImg en <img> som står bredvid färgen i menyer och rutor.
+ * Symbolen är dekor bredvid namnet, så alt är tomt.
+ */
+export const symbolUrl = r => /^[\w-]+$/.test(r?.symbol ?? '') ? `img/icons/${r.symbol}.svg` : null;
+export const symbolImg = (r, cls = 'rel-sym') => symbolUrl(r) ? `<img class="${cls}" src="${symbolUrl(r)}" alt="" width="16" height="16">` : '';

@@ -2,7 +2,7 @@
 // HTML-element över globen (inte en del av kartbilden), och all text kommer ur
 // religions.json via t(). I fokusläget förklarar samma ruta också krigsområdena (#236)
 // och säger vilka lager som är dämpade, med en knapp för att visa dem som vanligt (#235).
-import { t, CAT, formatYear } from '../model.js';
+import { t, CAT, formatYear, symbolImg } from '../model.js';
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const cleanName = n => String(n).replace(/^\((.*)\)$/, '$1'); // "(Kingdom of France)" → "Kingdom of France"
@@ -20,6 +20,8 @@ export class ReligionLegend {
     legend.addEventListener('click', e => {
       const keep = e.target.closest('[data-keep]');
       if (keep) { this.onKeep(keep.dataset.keep === '1'); return; }
+      const li = e.target.closest('li[data-religion]');
+      if (li) { this.onPin(li.dataset.religion); return; }
       if (!e.target.closest('.rl-toggle')) return;
       this.open = !this.open; this.render(); this.fit();
     });
@@ -31,6 +33,13 @@ export class ReligionLegend {
     for (const el of document.querySelectorAll(OBSTACLES + ', .masthead')) ro.observe(el);
     new MutationObserver(this.fitSoon).observe(document.body, { subtree: true, attributes: true, attributeFilter: ['class', 'hidden'] });
     document.addEventListener('animationend', this.fitSoon, true);
+    this.highlight = null; // religionen som lyses upp på kartan (#271)
+    this.pinned = null;    // religionen som är vald med tryck eller Enter, så att markeringen ligger kvar
+    this.onPin = () => {};
+    legend.addEventListener('keydown', e => {
+      const li = e.target.closest('li[data-religion]');
+      if (li && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); this.onPin(li.dataset.religion); }
+    });
     this.names = new Map(); // rikets namn i Cliopatria → svenskt namn, där det finns (data/empires/index.json)
     pop.addEventListener('click', e => {
       if (e.target.closest('[data-close]')) this.hidePop();
@@ -52,24 +61,34 @@ export class ReligionLegend {
 
   render() {
     const items = this.items ?? [], { war = false, fadable = [], keep = false } = this.focus ?? {};
-    if (!items.length && !war && !fadable.length) { this.legend.hidden = true; this.legend.textContent = ''; return; }
+    if (!items.length && !war && !fadable.length) { this.legend.hidden = true; this.legend.textContent = ''; this._html = ''; return; }
     const unsure = items.some(i => i.unsure), inherited = items.some(i => i.inherited);
     const title = items.length && war ? 'Teckenförklaring' : items.length ? 'Religioner' : war ? 'Krigsområden' : 'Lager i fokus';
     const religionsHtml = !items.length ? '' : `<ul>${items.map(({ religion: r, sure, unsure: u, inherited: i }) =>
-      `<li><span class="swatch" style="background:${esc(r.color)}"></span>${esc(t(r.name))}${
-        sure ? '' : u ? ' <em>(osäkert)</em>' : i ? ' <em>(ärvt)</em>' : ''}</li>`).join('')}</ul>${
+      `<li data-religion="${esc(r.id)}" tabindex="0" role="button" aria-pressed="${this.pinned === r.id}" class="${this.highlight === r.id ? 'on' : ''}" title="Peka eller tryck för att lyfta fram ${esc(t(r.name).toLowerCase())} på kartan"><span class="swatch" style="background:${esc(r.color)}"></span>${symbolImg(r)}<span class="rl-name">${esc(t(r.name))}${
+        sure ? '' : u ? ' <em>(osäkert)</em>' : i ? ' <em>(ärvt)</em>' : ''}</span></li>`).join('')}</ul>${
       unsure ? '<p class="rl-note"><span class="swatch rl-unsure"></span>Ljus med streckad kant: osäker uppgift</p>' : ''}${
       inherited ? '<p class="rl-note"><span class="swatch rl-inherited"></span>Ljusast med prickad kant: ärvt, rikets faktaruta saknar religion</p>' : ''}`;
     // Krigsskådeplatsen: skraffering i krigets färg med hel kantlinje, som på kartan (wars.js)
     const warHtml = !war ? '' : `<div class="rl-war"><p class="rl-note rl-row"><span class="swatch rl-hatch" style="--war:${esc(CAT.krig.color)}"></span>Krigsskådeplats: område runt kriget och slagen hittills</p>
       <p class="rl-note">Namnet säger vilken världsdel området ligger i.</p></div>`;
+    // Vad symbolerna betyder (#271)
+    const symbolsHtml = !items.length ? '' : `<p class="rl-note rl-sym-note">Symbolen visar religionen. En mässingsmedalj med symbolen står där religionen uppstod: den dyker upp det året och står kvar så länge lagret är på. Peka på en religion här för att lyfta fram den.</p>`;
     const names = fadable.join(' och ').toLowerCase().replace(/^./, c => c.toUpperCase());
     const fadeHtml = !fadable.length ? '' : `<p class="rl-note rl-fade">${keep
       ? `${esc(names)} visas som vanligt. <button type="button" class="link-btn" data-keep="0">Dämpa</button>`
       : `${esc(names)} är dämpade medan du följer det här. <button type="button" class="link-btn" data-keep="1">Visa som vanligt</button>`}</p>`;
     this.legend.setAttribute('aria-label', `Teckenförklaring: ${title.toLowerCase()}`);
-    this.legend.innerHTML = `<button type="button" class="rl-toggle" aria-expanded="${this.open}" aria-controls="rl-body"><span class="rl-title">${title}</span><span class="rl-chev" aria-hidden="true"></span></button>
-      <div id="rl-body" class="rl-body" ${this.open ? '' : 'hidden'}>${religionsHtml}${warHtml}${fadeHtml}</div>`;
+    const html = `<button type="button" class="rl-toggle" aria-expanded="${this.open}" aria-controls="rl-body"><span class="rl-title">${title}</span><span class="rl-chev" aria-hidden="true"></span></button>
+      <div id="rl-body" class="rl-body" ${this.open ? '' : 'hidden'}>${religionsHtml}${symbolsHtml}${warHtml}${fadeHtml}</div>`;
+    // Samma innehåll ritas inte om, så att musen och tangentbordets fokus ligger kvar på raden (#271)
+    if (html !== this._html) {
+      const focused = this.legend.contains(document.activeElement) && document.activeElement.dataset.religion;
+      const scroll = this.legend.querySelector('.rl-body')?.scrollTop ?? 0;
+      this.legend.innerHTML = this._html = html;
+      const body = this.legend.querySelector('.rl-body'); if (body) body.scrollTop = scroll;
+      if (focused) this.legend.querySelector(`[data-religion="${focused}"]`)?.focus({ preventScroll: true });
+    }
     this.legend.hidden = false;
   }
 
@@ -120,10 +139,10 @@ export class ReligionLegend {
         : `Ett av ${names.length} riken i det här området med ${esc(t(r.name).toLowerCase())}`}</p>`;
     }
     this.pop.innerHTML = `<button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
-      <div class="rp-head"><span class="swatch" style="background:${esc(r.color)}"></span><strong>${head}</strong></div>
+      <div class="rp-head"><span class="swatch" style="background:${esc(r.color)}"></span>${symbolImg(r)}<strong>${head}</strong></div>
       ${where}
       ${snapshot.inherited ? this.inheritedNote(hit, name) : snapshot.sure === false ? '<p class="rp-note">Osäker uppgift</p>' : ''}
-      ${r.facts ? `<button type="button" class="info-btn" data-facts="${esc(r.id)}">Fakta</button>` : ''}`;
+      ${r.facts ? `<button type="button" class="info-btn rp-more" data-facts="${esc(r.id)}">Läs mer om ${esc(t(r.name).toLowerCase())}</button>` : ''}`;
     this.pop.hidden = false;
     const host = this.pop.offsetParent?.getBoundingClientRect() ?? { left: 0, top: 0, width: innerWidth, height: innerHeight };
     const w = this.pop.offsetWidth, h = this.pop.offsetHeight;
@@ -153,4 +172,21 @@ export class ReligionLegend {
   }
 
   hidePop() { this.pop.hidden = true; }
+
+  /**
+   * Liten ruta med religionens symbol och namn där muspekaren är (#271), innan man klickar. tip = elementet
+   * #religion-tip. hit = ReligionsLayer.hitTest(), eller null för att dölja rutan.
+   */
+  showTip(tip, hit, x, y) {
+    if (!hit) { tip.hidden = true; return; }
+    const { religion: r, snapshot: s } = hit;
+    const html = `<span class="swatch" style="background:${esc(r.color)}"></span>${symbolImg(r)}<span>${esc(t(r.name))}${
+      s.inherited ? ' <em>(ärvt)</em>' : s.sure === false ? ' <em>(osäkert)</em>' : ''}</span>`;
+    if (tip._html !== html) tip.innerHTML = tip._html = html;
+    tip.hidden = false;
+    const host = tip.offsetParent?.getBoundingClientRect() ?? { left: 0, top: 0, width: innerWidth, height: innerHeight };
+    const w = tip.offsetWidth;
+    tip.style.left = `${Math.min(Math.max(8, x - host.left + 14), host.width - w - 8)}px`;
+    tip.style.top = `${Math.max(8, y - host.top + 16)}px`;
+  }
 }

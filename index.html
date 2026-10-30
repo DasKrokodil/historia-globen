@@ -18,6 +18,18 @@
   <canvas id="globe-canvas" class="globe-canvas" tabindex="0" role="application" aria-label="Snurrbar jordglob. Dra för att snurra, scrolla eller nyp för att zooma. Med tangentbord: piltangenter snurrar, plus och minus zoomar. Händelserna finns också i listan Samtidigt i världen."></canvas>
   <div id="labels" class="labels"></div>
 
+  <!-- Platt vy (#292) ligger direkt efter globen, så att årtalet, korten och panelerna hamnar ovanpå kartan -->
+  <div id="flat-view" class="flat-view" hidden>
+    <div id="flat-box" class="flat-box">
+      <canvas id="flat-canvas" class="flat-canvas" tabindex="0" role="img" aria-roledescription="karta" aria-label="Världen som en platt karta. Dra för att panorera, scrolla eller nyp för att zooma. Med tangentbord: piltangenter panorerar, plus och minus zoomar, 0 återställer."></canvas>
+      <div class="flat-zoom" role="group" aria-label="Zooma kartan">
+        <button id="flat-in" class="flat-zbtn" type="button" aria-label="Zooma in" title="Zooma in">+</button>
+        <button id="flat-out" class="flat-zbtn" type="button" aria-label="Zooma ut" title="Zooma ut">−</button>
+        <button id="flat-reset" class="flat-zbtn" type="button" aria-label="Återställ kartan" title="Återställ kartan"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </div>
+  </div>
+
   <header class="masthead">
     <h1 class="brand">Historia-globen</h1>
     <div class="year-readout" aria-live="polite">
@@ -51,7 +63,7 @@
     </div>
     <div class="action-group" role="group" aria-labelledby="ag-view">
       <span id="ag-view" class="action-label">Visa</span>
-      <button id="btn-flat" class="chip-btn" type="button" aria-pressed="false" title="Visa bilden som en fysisk glob skulle få">Platt vy</button>
+      <button id="btn-flat" class="chip-btn" type="button" aria-pressed="false" title="Visa världen som en platt karta">Platt vy</button>
       <button id="btn-sources" class="chip-btn" type="button" title="Om källorna: källpolicy och källregister">Källor</button>
       <button id="btn-help" class="chip-btn" type="button" aria-expanded="false" aria-controls="help">Hjälp</button>
     </div>
@@ -68,19 +80,103 @@
       <li><b>Följ en berättelse</b> <span>Välj ett krig, ett rike eller en religion under Fokus.</span></li>
     </ol>
     <details class="help-marks">
-      <summary>Markörer och klungor</summary>
+      <summary>Markörer, klungor och religioner</summary>
       <ul>
         <li><svg class="hm" viewBox="0 0 32 32" aria-hidden="true"><circle class="hm-ring" cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="7.6" fill="none" stroke="#e5675a" stroke-width="1"/><image href="img/icons/swords.svg" x="10.5" y="10.5" width="11" height="11"/></svg><span>Alla händelser har samma mässingsmedalj. Symbolen och den inre färgen visar kategorin.</span></li>
         <li><svg class="hm" viewBox="0 0 32 32" aria-hidden="true"><path class="hm-track" d="M2.5 17 A13.5 13.5 0 0 0 29.5 17"/><path d="M2.5 17 A13.5 13.5 0 0 0 29.5 17" fill="none" stroke="#e5675a" stroke-width="2.6"/><circle class="hm-ring" cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="7.6" fill="none" stroke="#e5675a" stroke-width="1"/><image href="img/icons/swords.svg" x="10.5" y="10.5" width="11" height="11"/></svg><svg class="hm" viewBox="0 0 32 32" aria-hidden="true"><path class="hm-track" d="M2.5 17 A13.5 13.5 0 0 0 29.5 17"/><path d="M2.5 17 A13.5 13.5 0 0 0 9 27.8" fill="none" stroke="#e5675a" stroke-width="2.6"/><circle class="hm-ring" cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="7.6" fill="none" stroke="#e5675a" stroke-width="1"/><image href="img/icons/swords.svg" x="10.5" y="10.5" width="11" height="11"/></svg><span>Bågen under medaljen är en liten tidslinje. Hela bågen: pågår vid året du står på. Vänster del: har redan hänt. Höger del: kommer senare. Bågen syns när du zoomar in.</span></li>
         <li><svg class="hm" viewBox="0 0 32 32" aria-hidden="true"><circle cx="23.4" cy="8.6" r="3.6" style="fill:var(--gold-dot);stroke:var(--night)" stroke-width="1.6"/><circle class="hm-ring" cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="7.6" fill="none" stroke="#e5675a" stroke-width="1"/><image href="img/icons/treaty.svg" x="10.5" y="10.5" width="11" height="11"/></svg><span>Punkt: viktig händelse.</span></li>
         <li><svg class="hm" viewBox="0 0 32 32" aria-hidden="true"><path class="hm-track" d="M2.5 17 A13.5 13.5 0 0 0 29.5 17"/><path d="M2.5 17 A13.5 13.5 0 0 0 29.5 17" fill="none" stroke="#b892dc" stroke-width="2.6" stroke-dasharray="3 2.2"/><circle class="hm-ring" cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="7.6" fill="none" stroke="#b892dc" stroke-width="1"/><image href="img/icons/star.svg" x="10.5" y="10.5" width="11" height="11"/></svg><span>Streckad båge: osäker uppgift (ungefärligt årtal eller källor som skiljer sig).</span></li>
         <li><svg class="hm" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="#e5675a" stroke-width="3" stroke-dasharray="32.4 100" transform="rotate(-90 16 16)"/><circle cx="16" cy="16" r="11" fill="none" stroke="#e3a33f" stroke-width="3" stroke-dasharray="0 34.5 20.9 100" transform="rotate(-90 16 16)"/><circle cx="16" cy="16" r="11" fill="none" stroke="#b892dc" stroke-width="3" stroke-dasharray="0 57.5 9.4 100" transform="rotate(-90 16 16)"/><circle cx="16" cy="16" r="9.4" fill="#0b1219"/><text x="16" y="19.6" text-anchor="middle" class="hm-num">6</text></svg><span>Klunga: siffran är antalet händelser, och ringens färger visar kategorierna. Med muspekaren över klungan, eller när du går till den med Tab, ser du vad den innehåller, till exempel ”3 krigshändelser, 2 riken och civilisationer”.</span></li>
+        <li><svg class="hm" viewBox="0 0 32 32" aria-hidden="true"><circle class="hm-ring" cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="7.6" fill="none" stroke="#8d63d6" stroke-width="1"/><image href="img/icons/cross.svg" x="10.5" y="10.5" width="11" height="11"/></svg><span>Religioner (i Lager): symbolen i ett område och bredvid färgen visar religionen, till exempel ett kors för kristendomen. En medalj med symbolen står där religionen uppstod. Den dyker upp det år religionen uppstod och står kvar så länge religionslagret är på. Klicka på den för att läsa om religionen. Peka på en religion i listorna eller i teckenförklaringen för att lyfta fram den på kartan.</span></li>
       </ul>
     </details>
+    <p class="help-support">Historia Globen är gratis att använda. Vill du bidra till drift och vidareutveckling kan du lämna ett frivilligt stöd.
+      <a href="https://ko-fi.com/historiagloben" target="_blank" rel="noopener noreferrer" aria-label="Stöd Historia Globen på Ko-fi (öppnas i en ny flik)">Stöd Historia Globen<span aria-hidden="true"> ↗</span></a></p>
+    <p class="help-feedback">Saknar du något eller har du hittat ett fel? <button id="help-feedback" class="link-btn" type="button" aria-haspopup="dialog" aria-controls="feedback">Lämna förslag</button></p>
+  </aside>
+
+  <!-- Besökarnas förslag (docs/feedback.md). Avstängt så länge data-sitekey är tom eller integritetstexten inte är
+       godkänd (data-privacy="approved"). Då skickas inget och inget externt skript laddas. Servern har en egen spärr. -->
+  <aside id="feedback" class="help-card feedback-card" role="dialog" aria-modal="false" aria-labelledby="fb-title" hidden
+         data-endpoint="/api/feedback" data-sitekey="0x4AAAAAAFs0Q2EHn4NZMjJ5" data-privacy="approved">
+    <div class="help-head">
+      <h2 id="fb-title" class="help-title">Lämna förslag</h2>
+      <button id="fb-close" class="panel-x" type="button" aria-label="Stäng formuläret">×</button>
+    </div>
+    <form id="fb-form" class="fb-form" novalidate autocomplete="on">
+      <p id="fb-privacy" class="fb-privacy">Vi sparar bara det du skriver här, för att kunna granska förslaget. Förslaget lagras privat och publiceras aldrig automatiskt. E-post är frivillig och används bara om vi behöver fråga något.</p>
+      <div id="fb-closed" class="fb-closed" hidden>
+        <p>Formuläret öppnas snart. Tills dess kan du lämna förslag via GitHub:</p>
+        <ul>
+          <li><a href="https://github.com/DasKrokodil/historia-globen/issues/new?template=faktafel.yml" target="_blank" rel="noopener noreferrer">Rapportera ett faktafel<span class="sr-only"> (öppnas i en ny flik)</span><span aria-hidden="true"> ↗</span></a></li>
+          <li><a href="https://github.com/DasKrokodil/historia-globen/issues/new?template=ny-h%C3%A4ndelse.yml" target="_blank" rel="noopener noreferrer">Föreslå en historisk händelse<span class="sr-only"> (öppnas i en ny flik)</span><span aria-hidden="true"> ↗</span></a></li>
+          <li><a href="https://github.com/DasKrokodil/historia-globen/issues/new?template=id%C3%A9.yml" target="_blank" rel="noopener noreferrer">Föreslå en idé eller förbättring<span class="sr-only"> (öppnas i en ny flik)</span><span aria-hidden="true"> ↗</span></a></li>
+        </ul>
+        <p class="fb-hint">GitHub kräver ett konto, och det du skriver där är offentligt.</p>
+      </div>
+      <div id="fb-errors" class="fb-errors" role="alert" tabindex="-1" hidden></div>
+      <div class="fb-field">
+        <label for="fb-category">Vad gäller det? <span class="fb-req">(obligatoriskt)</span></label>
+        <select id="fb-category" name="category" required aria-describedby="fb-category-err">
+          <option value="">Välj …</option>
+        </select>
+        <p id="fb-category-err" class="fb-err" hidden></p>
+      </div>
+      <div id="fb-event" class="fb-event" hidden>
+        <span class="fb-event-label" id="fb-event-label">Gäller händelsen</span>
+        <p aria-labelledby="fb-event-label"><b id="fb-event-title"></b> <span id="fb-event-time" class="fb-event-time"></span></p>
+      </div>
+      <div class="fb-field">
+        <label for="fb-description">Beskrivning <span class="fb-req">(obligatoriskt)</span></label>
+        <textarea id="fb-description" name="description" rows="5" required minlength="10" maxlength="4000" aria-describedby="fb-description-hint fb-description-err"></textarea>
+        <p id="fb-description-hint" class="fb-hint">Skriv vad som är fel eller vad du föreslår, 10–4000 tecken. <span id="fb-count" class="fb-count"></span></p>
+        <p id="fb-description-err" class="fb-err" hidden></p>
+      </div>
+      <div class="fb-field">
+        <label for="fb-source">Källa eller referens <span class="fb-opt">(frivilligt)</span></label>
+        <input id="fb-source" name="source" type="text" maxlength="500" aria-describedby="fb-source-hint fb-source-err">
+        <p id="fb-source-hint" class="fb-hint">Till exempel en länk, en bok eller ett museum. Högst 500 tecken.</p>
+        <p id="fb-source-err" class="fb-err" hidden></p>
+      </div>
+      <div class="fb-field">
+        <label for="fb-email">E-post <span class="fb-opt">(frivilligt)</span></label>
+        <input id="fb-email" name="email" type="email" maxlength="254" autocomplete="email" inputmode="email" aria-describedby="fb-email-hint fb-email-err">
+        <p id="fb-email-hint" class="fb-hint">Bara om du vill att vi kan svara dig. Den visas aldrig offentligt.</p>
+        <p id="fb-email-err" class="fb-err" hidden></p>
+      </div>
+      <div class="fb-hp" aria-hidden="true">
+        <label for="fb-website">Lämna det här fältet tomt</label>
+        <input id="fb-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </div>
+      <div id="fb-turnstile" class="fb-turnstile"></div>
+      <details class="help-marks fb-about">
+        <summary>Om dina uppgifter</summary>
+        <div class="fb-about-body">
+          <p><b>Varför:</b> för att kunna granska ditt förslag och rätta eller förbättra globen.</p>
+          <p><b>Hur de används:</b> förslaget läses av den som sköter Historia-globen. Historiska uppgifter kontrolleras mot tillförlitliga källor innan något ändras. Inget publiceras automatiskt.</p>
+          <p><b>Var de lagras:</b> Cloudflare tar emot förfrågan. Förslaget sparas som ett ärende i ett privat GitHub-repo som bara projektet kan läsa. Cloudflare Turnstile kontrollerar att det är en människa som skickar, och Cloudflare behandlar då din IP-adress för att stoppa spam.</p>
+          <p><b>E-post:</b> frivillig och används bara för att svara dig. Den sparas bara i det privata ärendet.</p>
+          <p><b>Hur länge:</b> ärendet och din e-post raderas när förslaget är färdigbehandlat, senast efter 12 månader.</p>
+          <p><b>Radering:</b> vill du att vi raderar dina uppgifter tidigare, skicka ett nytt förslag med kategorin Övrig feedback och skriv vad som ska raderas.</p>
+        </div>
+      </details>
+      <p id="fb-status" class="fb-status" role="status" aria-live="polite"></p>
+      <div class="fb-actions">
+        <button id="fb-submit" class="chip-btn fb-submit" type="submit">Skicka förslag</button>
+      </div>
+    </form>
+    <div id="fb-done" class="fb-done" hidden tabindex="-1">
+      <p>Tack för ditt förslag! Det har tagits emot för granskning. Historiska uppgifter kontrolleras mot tillförlitliga källor innan de publiceras.</p>
+      <div class="fb-actions">
+        <button id="fb-again" class="link-btn" type="button">Skicka ett förslag till</button>
+        <button id="fb-done-close" class="chip-btn" type="button">Stäng</button>
+      </div>
+    </div>
   </aside>
 
   <aside id="religion-legend" class="religion-legend" aria-label="Teckenförklaring för religioner" hidden></aside>
   <div id="religion-pop" class="religion-pop" role="dialog" aria-label="Religion i området" hidden></div>
+  <div id="religion-tip" class="religion-tip" aria-hidden="true" hidden></div>
 
   <div id="focus-menu" class="layer-menu" hidden role="group" aria-label="Fokus"></div>
 
@@ -135,13 +231,6 @@
 
   <button id="ff-tab" class="ff-tab" type="button" hidden aria-label="Visa Samtidigt-kortet">Samtidigt <span id="ff-tab-count" class="count">1</span></button>
 
-  <div id="flat-view" class="flat-view" hidden>
-    <div class="flat-inner">
-      <p class="flat-cap">Så här ser bilden ut innan den läggs på klotet. Samma ekvirektangulära bild kan skickas till en fysisk globskärm.</p>
-      <canvas id="flat-canvas" class="flat-canvas"></canvas>
-    </div>
-  </div>
-
   <div id="focus-bar" class="focus-bar" hidden>
     <span class="focus-label">Fokus</span> <span id="focus-title" class="focus-title"></span>
     <button id="focus-facts" class="chip-btn" type="button" hidden aria-controls="detail">Fakta</button>
@@ -156,9 +245,16 @@
     <div id="pause-note" class="pause-note" role="status" hidden>
       <span id="pause-text"></span>
       <span id="pause-next" class="pause-next" hidden></span>
+      <button id="pause-finish" class="pause-finish" type="button" hidden>Spela klart &#9654;</button>
       <button id="pause-go" class="pause-go" type="button">&#9654; Fortsätt</button>
     </div>
     <div class="controls">
+      <div id="war-play" class="war-play" hidden>
+        <span class="wp-label">Pauser:</span>
+        <span id="wp-major" class="wp-item"></span>
+        <span id="wp-ff" class="wp-item"></span>
+        <button id="wp-finish" class="wp-finish" type="button">Spela klart &#9654;</button>
+      </div>
       <button class="step" type="button" data-step="-100" aria-label="100 år bakåt">−100</button>
       <button class="step" type="button" data-step="-10" aria-label="10 år bakåt">−10</button>
       <button class="step" type="button" data-step="-1" aria-label="1 år bakåt">−1</button>
@@ -174,7 +270,9 @@
     <div id="track" class="track" role="slider" tabindex="0" aria-label="År" aria-valuemin="-2999" aria-valuemax="2026">
       <div class="track-segments" id="track-segments"></div>
       <div class="track-dots" id="track-dots"></div>
+      <div class="track-chapters" id="track-chapters"></div>
       <div class="track-ff" id="track-ff"></div>
+      <div class="track-war" id="track-war"></div>
       <div class="thumb" id="thumb"><span class="thumb-line"></span></div>
       <div class="ticks" id="ticks"></div>
     </div>

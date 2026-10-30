@@ -5,7 +5,7 @@ Körs av scripts/build-site.sh och av GitHub Actions. Avslutas med kod 1 om någ
 
 Kontroller:
   1. dist/index.html finns.
-  2. Inga interna filer eller mappar finns i dist/ (.claude/, docs/, tools/, data/utkast/ m.fl.).
+  2. Inga interna filer eller mappar finns i dist/ (.claude/, docs/, tools/, data/utkast/, functions/, tests/ m.fl.).
   3. All JSON i dist/ går att läsa.
   4. Alla lokala filer som index.html pekar på (src och href) finns.
   5. Alla relativa importer i JS-modulerna finns, och varje JS-fil nås från js/main.js.
@@ -27,7 +27,8 @@ DIST = Path(sys.argv[1] if len(sys.argv) > 1 else 'dist').resolve()
 
 # Får aldrig publiceras. Mappar anges med / på slutet.
 FORBIDDEN = ['.git/', '.github/', '.claude/', '.orchestra/', 'docs/', 'tools/', 'scripts/',
-             'data/utkast/', 'images/incoming/', 'node_modules/', 'dist/']
+             'data/utkast/', 'images/incoming/', 'node_modules/', 'dist/',
+             'functions/', 'tests/']  # functions/ publiceras av Cloudflare Pages från repots rot, inte via dist/
 FORBIDDEN_NAMES = {'CLAUDE.md', 'README.md', '.DS_Store', '__pycache__', '.gitignore'}
 FORBIDDEN_SUFFIXES = {'.py', '.pyc', '.sh', '.md'}
 
@@ -146,6 +147,11 @@ if funfact_js.is_file():
         for name in re.findall(r''':\s*['"]([\w-]+)['"]''', m.group(1)):
             icons.setdefault(name, 'CAT_ICON i js/ui/funfact.js')
     icons.setdefault('star', 'standardikonen i js/ui/funfact.js')
+# Religionernas symboler (#271): fältet symbol i religions.json är en ikonfil i img/icons/
+religions = load('data/religions.json') if (DIST / 'data/religions.json').is_file() else None
+for r in (religions or {}).get('religions', []):
+    if r.get('symbol'):
+        icons.setdefault(r['symbol'], f"data/religions.json ({r['id']}, symbol)")
 for name, by in sorted(icons.items()):
     exists(f'img/icons/{name}.svg', f'ikonen {name} ({by})')
 

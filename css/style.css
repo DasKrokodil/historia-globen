@@ -17,6 +17,10 @@
   --ok: #8fc48e;
   --medal: #10202c;        /* markörernas botten (#242), samma som GROUND i layers/events.js */
   --gold-dot: #f1d98a;     /* markörernas punkt för betydelse */
+  /* Kapitel över tidslinjen i fokusläget (#244): ur story.chapters, och neutrala band mellan stora händelser */
+  --chap-0: #2d4655; --chap-1: #633f3e; --chap-2: #5b5138; --chap-3: #36594e;
+  --chap-auto-0: color-mix(in srgb, var(--brass) 22%, var(--night-2));
+  --chap-auto-1: color-mix(in srgb, var(--brass) 48%, var(--night-2));
 
   --f-display: "IM Fell English", "Iowan Old Style", Georgia, serif;
   --f-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -542,6 +546,11 @@ body {
 .help-marks ul { list-style: none; margin: 4px 0 0; padding: 0; max-height: min(48vh, 360px); overflow-y: auto; }
 .help-marks li { display: flex; align-items: center; gap: 6px; padding: 4px 0; font: 400 12.5px/1.35 var(--f-body); color: var(--parchment-dim); }
 .help-marks li span { flex: 1; min-width: 0; }
+/* Frivilligt stöd via Ko-fi: en vanlig länk sist i hjälpen, ingen widget */
+.help-support { margin: 8px 0 0; border-top: 1px solid var(--line); padding-top: 8px; font: 400 12px/1.4 var(--f-body); color: var(--parchment-dim); }
+.help-support a { display: block; width: fit-content; margin-top: 4px; padding: 2px 0; font: 600 13px/1.4 var(--f-body); color: var(--brass); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, var(--brass) 45%, transparent); }
+.help-support a:hover { color: var(--parchment); text-decoration-color: currentColor; }
+.help-support a:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; border-radius: 2px; }
 .hm { flex: none; width: 32px; height: 32px; }
 .hm-ring { fill: var(--medal); stroke: var(--brass); stroke-width: 2.4; }
 .hm-track { fill: none; stroke: color-mix(in srgb, var(--brass) 28%, transparent); stroke-width: 2.2; }
@@ -612,19 +621,76 @@ body {
 @media (min-width: 600px) { .tick.lvl2 { display: block; } }
 @media (min-width: 900px) { .tick.lvl3 { display: block; } }
 
-/* ---------- platt vy ---------- */
-.flat-view {
-  position: absolute; inset: 0;
-  z-index: 12;
-  display: grid; place-items: center;
-  background: rgba(8,12,17,.95);
-  /* Överkant under årtal, rubrik och tidsperiod uppe till vänster (#142) */
-  padding: 150px var(--gut-r) 140px var(--gut);
+/* Kapitel och krigets händelser på tidslinjen i fokusläget (#244). Namnen står ovanför bandet (0–12 px),
+   banden täcker linjen (14–22 px) och övriga händelsers prickar, och krigets markeringar sitter på den. Rombernas plats för Samtidigt flyttas
+   då under linjen. */
+.track-chapters, .track-war { position: absolute; left: 0; right: 0; top: 0; height: 30px; pointer-events: none; }
+.chap { position: absolute; top: 0; height: 22px; pointer-events: auto; }
+.chap::after { content: ""; position: absolute; left: 0; right: 0; top: 14px; height: 8px; border-left: 1px solid var(--night); }
+.chap-auto.chap-0::after { background: var(--chap-auto-0); }
+.chap-auto.chap-1::after { background: var(--chap-auto-1); }
+.chap-data.chap-0::after { background: var(--chap-0); }
+.chap-data.chap-1::after { background: var(--chap-1); }
+.chap-data.chap-2::after { background: var(--chap-2); }
+.chap-data.chap-3::after { background: var(--chap-3); }
+.chap-label {
+  display: block; padding: 0 2px 0 4px;
+  font: 400 9.5px/12px var(--f-mono); color: var(--parchment-dim);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.flat-inner { width: min(1100px, 100%, calc((100vh - 290px - 70px) * 2)); }
-@media (max-width: 760px) { .flat-view { padding-top: 175px; } .flat-inner { width: min(1100px, 100%, calc((100vh - 315px - 70px) * 2)); } }
-.flat-cap { margin: 0 0 10px; color: var(--parchment-dim); max-width: 65ch; line-height: 1.45; }
-.flat-canvas { width: 100%; height: auto; aspect-ratio: 2 / 1; max-width: 100%; border: 1px solid var(--line); border-radius: 6px; display: block; }
+.chap-label[hidden] { display: none; }
+.chap-data .chap-label { color: var(--parchment); }
+.track.storied .tff { top: 23px; width: 6px; height: 6px; margin-left: -3px; }
+.track.war-marked .track-dots { opacity: .35; } /* krigets egna markeringar går före resten av världen */
+.wmark {
+  position: absolute; top: 18px; width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; box-sizing: border-box;
+  border-radius: 50%; background: var(--medal); border: 1.5px solid var(--brass); pointer-events: auto;
+}
+.wmark.major { width: 12px; height: 12px; margin: -6px 0 0 -6px; border: 2px solid var(--gold-dot); }
+/* Osäkert datum: ett kryss över markeringen (samma regel som den streckade bågen på globen) */
+.wmark.unsure::before, .wmark.unsure::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 2px; height: 15px; margin: -7.5px 0 0 -1px;
+  background: var(--danger); border-radius: 1px; transform: rotate(45deg);
+}
+.wmark.unsure::after { transform: rotate(-45deg); }
+/* Slutpunkten där slutkortet visas */
+.wmark.end {
+  width: 15px; height: 15px; margin: -7.5px 0 0 -7.5px; border: 2px solid var(--gold-dot);
+  background: radial-gradient(circle, var(--gold-dot) 0 28%, var(--medal) 32%);
+}
+.wspan { position: absolute; top: 16.5px; height: 3px; border-radius: 2px; background: var(--brass); opacity: .6; }
+
+/* ---------- platt vy ---------- */
+/* Kartvy för skärmar (#292): täcker globen och fyller ytan mellan knapparna uppe och tidslinjens
+   knappar nere (top och height sätts av js/ui/flatmap.js). Elementet ligger direkt efter globen i
+   index.html, så årtalet, korten, panelerna och tidslinjen ligger ovanpå kartan som på globen. */
+.flat-view { position: absolute; inset: 0; background: var(--night); }
+.flat-box { position: absolute; left: 0; right: 0; top: 70px; height: calc(100% - 200px); overflow: hidden; }
+.flat-canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+.flat-canvas.dragging { cursor: grabbing; }
+.flat-canvas:focus-visible { outline: 2px solid var(--brass); outline-offset: -3px; }
+.app:has(.flat-view:not([hidden])) .labels { visibility: hidden; } /* globens etiketter hör inte till kartan */
+/* Årtalet uppe till vänster får en mörk platta, så att det syns mot pergamentfärgat land */
+.app:has(.flat-view:not([hidden])) .masthead {
+  background: color-mix(in srgb, var(--night) 82%, transparent);
+  border-radius: var(--r); padding: 2px 10px 6px; margin: -2px 0 0 -10px;
+}
+.flat-zoom {
+  position: absolute; right: var(--gut-r); top: 12px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.flat-zbtn {
+  display: grid; place-items: center;
+  width: 40px; height: 40px; padding: 0;
+  font: 500 20px/1 var(--f-body);
+  color: var(--parchment);
+  background: color-mix(in srgb, var(--night-2) 92%, transparent);
+  border: 1px solid var(--brass-deep);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.flat-zbtn:hover { border-color: var(--brass); color: var(--brass); }
+@media (max-width: 760px) { .flat-zbtn { width: 44px; height: 44px; } }
 
 /* ---------- källor ---------- */
 .sheet {
@@ -732,6 +798,25 @@ details.used-by summary:hover { color: var(--parchment); }
   font: 400 11px/32px var(--f-mono); color: var(--parchment-dim);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; pointer-events: none;
 }
+/* Pauserna och "Spela klart" när man följer ett krig (#244): till vänster om knapparna i bred skärm,
+   i pausraden när skärmen är smalare (pauserna står då i knappens namn) */
+.war-play {
+  position: absolute; top: 0; right: calc(50% + 250px); max-width: calc(50% - 260px); height: 32px;
+  display: flex; align-items: center; gap: 8px; overflow: hidden;
+  font: 400 11px/1 var(--f-mono); color: var(--parchment-dim); white-space: nowrap;
+}
+.war-play[hidden], .wp-finish[hidden], .pause-finish[hidden] { display: none; }
+.wp-item.on { color: var(--parchment); }
+.wp-short { display: none; }
+.wp-finish, .pause-finish {
+  font: 600 11px/1 var(--f-mono); color: var(--brass); background: none; white-space: nowrap; cursor: pointer;
+  border: 1px solid var(--brass-deep); border-radius: 999px; padding: 6px 10px;
+}
+.wp-finish:hover, .pause-finish:hover { background: var(--night-3); }
+@media (max-width: 1399px) { .wp-label, .wp-long { display: none; } .wp-short { display: inline; } }
+@media (max-width: 1099px) { .war-play { display: none; } }
+@media (min-width: 1100px) { .pause-finish { display: none; } }
+@media (max-width: 760px) { .pause-finish { padding: 6px 8px; } }
 .next-pause[hidden], .pause-next { display: none; }
 .pause-next { color: var(--parchment-dim); }
 @media (max-width: 1099px) {
@@ -996,6 +1081,8 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-pop p { margin: 6px 0 0; }
 .religion-pop .rp-note { color: var(--parchment-dim); font: 400 11px/1.3 var(--f-mono); }
 .religion-pop .info-btn { margin-top: 8px; }
+/* "Läs mer om <religion>" (#270): tydligare än små Fakta-knappar, öppnar religionens faktaruta */
+.religion-pop .rp-more { display: block; margin: 10px 0 0; padding: 5px 12px; border-color: var(--brass-deep); font-size: 12px; text-align: left; }
 @media (max-width: 760px) {
   /* smalare än rubrikens högra grannar (knapparna uppe till höger), 44 px hög tryckyta, borta när panelen är öppen */
   .religion-legend { max-width: 172px; font-size: 11px; padding-top: 0; padding-bottom: 0; }
@@ -1059,3 +1146,94 @@ details.used-by summary:hover { color: var(--parchment); }
   #funfact.ff-dragging :is(.ff-pics, .ff-text, .ff-foot) { display: revert; }
   #funfact.ff-dragging .ff-pics:not([hidden]) { display: grid; }
 }
+
+/* ---------- religionernas symboler bredvid färgen (#271) ---------- */
+/* Egna teckningar i pergamentfärg (img/icons/); samma storlek i Lager, Fokus, teckenförklaringen och klickrutan */
+.rel-sym { width: 16px; height: 16px; flex: none; display: inline-block; vertical-align: -3px; }
+.layer-subrow .rel-sym, .focus-item .rel-sym { margin-left: -4px; }
+.religion-legend .rel-sym { width: 15px; height: 15px; margin-left: -3px; }
+.detail h3 .rel-sym-h { width: 22px; height: 22px; margin-right: 8px; vertical-align: -3px; }
+@media (max-width: 760px) { .religion-legend .rel-sym { width: 13px; height: 13px; } }
+.detail .war-link .rel-sym-in { width: 18px; height: 18px; vertical-align: -4px; }
+/* Knappen över symbolen där religionen uppstod (#271): osynlig, men går att nå med Tab och syns med fokusring */
+.gorigin {
+  position: absolute; left: 0; top: 0; padding: 0; border: 0; border-radius: 50%; background: transparent;
+  cursor: pointer; pointer-events: auto;
+}
+.gorigin:hover { box-shadow: 0 0 0 2px color-mix(in srgb, var(--brass) 70%, transparent); }
+.gorigin:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+/* Markering när man pekar (#271): raden i teckenförklaringen som lyfts fram, och rutan vid muspekaren */
+.religion-legend li[data-religion] { cursor: pointer; border-radius: 4px; margin: 0 -4px; padding: 1px 4px; }
+.religion-legend li[data-religion]:hover, .religion-legend li.on { background: var(--night-3); }
+.religion-legend li[aria-pressed="true"] { box-shadow: inset 2px 0 0 var(--brass); }
+.religion-legend li[data-religion]:focus-visible { outline: 2px solid var(--brass); outline-offset: 0; }
+.religion-legend .rl-sym-note { display: block; }
+.religion-tip {
+  position: absolute; z-index: 11; display: flex; align-items: center; gap: 6px; max-width: 240px; pointer-events: none;
+  background: color-mix(in srgb, var(--night-2) 94%, transparent); border: 1px solid var(--brass-deep); border-radius: 8px;
+  padding: 4px 9px; font: 400 13px/1.25 var(--f-body); box-shadow: 0 4px 14px rgba(0, 0, 0, .45);
+}
+.religion-tip[hidden] { display: none; }
+.religion-tip .swatch { width: 10px; height: 10px; border-radius: 2px; flex: none; }
+.religion-tip em { font-style: normal; color: var(--parchment-dim); }
+
+/* ---------- besökarnas förslag (docs/feedback.md) ---------- */
+.help-feedback { margin: 8px 0 0; border-top: 1px solid var(--line); padding-top: 6px; font: 400 12px/1.4 var(--f-body); color: var(--parchment-dim); }
+.help-feedback .link-btn { font-size: 12.5px; padding: 2px 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.feedback-card {
+  z-index: 18; width: min(380px, calc(100vw - var(--gut) - var(--gut-r)));
+  overflow-y: auto; overscroll-behavior: contain;
+  font: 400 13px/1.45 var(--f-body); color: var(--parchment);
+}
+.feedback-card.fb-left { right: auto; left: var(--gut); }
+@media (max-width: 760px) { .feedback-card { left: var(--gut); right: var(--gut-r); width: auto; } }
+.fb-form, .fb-done { margin-top: 8px; }
+.fb-privacy { margin: 0 0 10px; font-size: 12.5px; color: var(--parchment-dim); }
+.fb-closed { margin: 0 0 12px; padding: 8px 10px; border: 1px solid var(--brass-deep); border-radius: 8px; background: var(--night); }
+.fb-closed p { margin: 0; }
+.fb-closed ul { margin: 6px 0; padding-left: 18px; }
+.fb-closed li { padding: 2px 0; }
+.fb-closed a, .fb-errors a, .fb-about a { color: var(--brass); text-underline-offset: 3px; }
+.fb-closed a:focus-visible, .fb-errors a:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; border-radius: 2px; }
+.fb-field { margin: 0 0 10px; }
+.fb-field label { display: block; margin-bottom: 4px; font: 600 12.5px/1.3 var(--f-body); color: var(--parchment); }
+.fb-req, .fb-opt { font-weight: 400; color: var(--parchment-dim); }
+.fb-field select, .fb-field input, .fb-field textarea {
+  box-sizing: border-box; width: 100%; max-width: 100%;
+  padding: 8px 10px; border-radius: 8px;
+  font: 400 16px/1.35 var(--f-body); /* 16 px: mobilens webbläsare zoomar inte in vid fokus */
+  color: var(--parchment); background: var(--night); border: 1px solid var(--line);
+}
+.fb-field textarea { resize: vertical; min-height: 96px; }
+.fb-field select:focus, .fb-field input:focus, .fb-field textarea:focus { outline: 2px solid var(--brass); outline-offset: 1px; border-color: var(--brass); }
+.fb-field [aria-invalid="true"] { border-color: var(--danger); }
+.fb-hint { margin: 4px 0 0; font-size: 12px; color: var(--parchment-dim); }
+.fb-count { font-family: var(--f-mono); font-size: 11px; }
+.fb-err { margin: 4px 0 0; font-size: 12.5px; color: var(--danger); }
+.fb-errors { margin: 0 0 10px; padding: 8px 10px; border: 1px solid var(--danger); border-radius: 8px; background: color-mix(in srgb, var(--danger) 10%, var(--night)); }
+.fb-errors p { margin: 0; font-weight: 600; }
+.fb-errors ul { margin: 4px 0 0; padding-left: 18px; }
+.fb-errors:focus { outline: none; }
+.fb-event { margin: 0 0 10px; padding: 6px 10px; border-left: 2px solid var(--brass); background: var(--night); border-radius: 0 8px 8px 0; }
+.fb-event-label { display: block; font: 500 11px/1.3 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--brass); }
+.fb-event p { margin: 2px 0 0; }
+.fb-event-time { font: 400 11.5px/1.4 var(--f-mono); color: var(--parchment-dim); white-space: nowrap; }
+.fb-hp { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.fb-turnstile:not(:empty) { margin: 4px 0 10px; min-height: 65px; }
+.fb-about { margin-top: 4px; }
+.fb-about-body p { margin: 4px 0; font-size: 12.5px; color: var(--parchment-dim); }
+.fb-about-body b { color: var(--parchment); font-weight: 600; }
+.fb-status { min-height: 0; margin: 6px 0 0; font-size: 12.5px; color: var(--parchment-dim); }
+.fb-status:empty { display: none; }
+.fb-status.is-error { color: var(--danger); }
+.fb-actions { display: flex; gap: 12px; align-items: center; justify-content: flex-end; flex-wrap: wrap; margin-top: 10px; }
+.fb-submit { background: var(--brass); color: var(--night); border-color: var(--brass); font-weight: 600; }
+.fb-submit:disabled { background: var(--night-3); color: var(--parchment-dim); border-color: var(--line); cursor: not-allowed; }
+.fb-done p { margin: 0; font-size: 14px; line-height: 1.5; }
+.fb-done:focus { outline: none; }
+.report-btn { margin-left: auto; font-size: 11.5px; color: var(--card-dim, var(--parchment-dim)); }
+.detail .report-btn { color: var(--card-dim, var(--parchment-dim)); }
+.report-btn:hover, .detail .report-btn:hover { color: var(--card-accent, var(--brass)); }
+.feedback-card { padding-top: 0; }
+.feedback-card > .help-head { position: sticky; top: 0; z-index: 1; padding: 12px 0 6px; background: var(--night-2); }

@@ -1,5 +1,5 @@
 // 3D-globen. Beslut 1: allt ritas först på ekvirektangulära bilder (canvas)
-// som sedan läggs på klotet. Samma bilder kan skickas till en fysisk glob.
+// som sedan läggs på klotet. Samma bilder visas i Platt vy (ui/flatmap.js) och kan skickas till en fysisk glob.
 //   baseCanvas    – grundkartan (hav, gradnät, land), ritas en gång
 //   overlayCanvas – lagrens bild, ritas om när året ändras
 // Klickbara markörer och bågar ligger som 3D-objekt ovanpå.
@@ -135,14 +135,6 @@ export class Globe {
     draw(f, W, H);
     const ctx = this.overlayCanvas.getContext('2d');
     ctx.save(); ctx.globalAlpha = alpha; ctx.drawImage(this.fadeCanvas, 0, 0); ctx.restore();
-  }
-
-  /** Lägger ihop grundkarta och lager till den platta bild en fysisk glob skulle få. */
-  composeFlat(target) {
-    target.width = 4096; target.height = 2048;
-    const ctx = target.getContext('2d');
-    ctx.drawImage(this.baseCanvas, 0, 0, 4096, 2048);
-    ctx.drawImage(this.overlayCanvas, 0, 0, 4096, 2048);
   }
 
   // ---------- Bågar mellan samtidiga platser ----------
