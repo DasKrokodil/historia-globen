@@ -9,6 +9,10 @@ docs/bildpromptar.md, med en rubrik per händelse.
 Kör från projektets rot:
     python3 tools/bildpromptar.py                      alla händelser utan riktig bild
     python3 tools/bildpromptar.py cheopspyramiden ...  bara de angivna händelserna
+    python3 tools/bildpromptar.py --out docs/x.md id ... skriv till en annan fil
+
+Prompten innehåller också händelsens sammanfattning (fältet summary, som har källa) som
+beskrivning av vad bilden ska visa, så att bildverktyget inte hittar på motivet.
 """
 import json
 import sys
@@ -47,6 +51,7 @@ def prompt_for(e, doc):
     parts = [
         f"Style: {variant['prompt'] if variant else style['prompt']}.",
         f"Subject: {title} — {place}, {year_text(e['start'])}.",
+        f"What happened (show only this, do not add details): {e['summary'].get('en') or e['summary']['sv']}",
         FIXED + '.',
         RESPECT,
     ]
@@ -58,7 +63,11 @@ def prompt_for(e, doc):
 def main():
     events = json.loads((ROOT / 'data/events.json').read_text())['events']
     doc = json.loads((ROOT / 'data/styles.json').read_text())
-    only = set(sys.argv[1:])
+    args = sys.argv[1:]
+    out_path = ROOT / 'docs/bildpromptar.md'
+    if args[:1] == ['--out']:
+        out_path, args = ROOT / args[1], args[2:]
+    only = set(args)
     rows = []
     for e in events:
         if only and e['id'] not in only:
@@ -72,7 +81,7 @@ def main():
         rows.append((e, style, variant, prompt))
     out = ['# Bildpromptar', '',
            'Skapade av `tools/bildpromptar.py` (#129). Kopiera prompten till ett bildverktyg och lägg bilden i',
-           '`images/incoming/<händelse-id>.png` (eller .jpg/.webp). Spara verktyg och datum, så fyller Claude i `image` i events.json.',
+           '`images/incoming/<händelse-id>.jpg` (eller .png/.webp). Spara verktyg och datum, så fyller Claude i `image` i events.json.',
            'Sök alltid efter en riktig public domain-bild på Wikimedia Commons först.', '']
     for e, style, variant, prompt in rows:
         title = e['title']['sv']
@@ -80,10 +89,10 @@ def main():
         out += [f"## {title} (`{e['id']}`)", '',
                 f"- År: {year_text(e['start'])} · plats: {e['place']['sv']}",
                 f"- Stil: {name} (`{variant['id'] if variant else style['id']}`)",
-                f"- Fil: `images/events/{e['id']}.webp`", '',
+                f"- Spara som: `images/incoming/{e['id']}.jpg`", '',
                 '```text', prompt, '```', '']
-    (ROOT / 'docs/bildpromptar.md').write_text('\n'.join(out))
-    print(f'{len(rows)} promptar skrivna till docs/bildpromptar.md')
+    out_path.write_text('\n'.join(out))
+    print(f'{len(rows)} promptar skrivna till {out_path.relative_to(ROOT)}')
 
 
 if __name__ == '__main__':
