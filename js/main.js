@@ -94,6 +94,31 @@ async function start() {
   relLegend.names = new Map(data.polities.map(p => [p.name.en, p.name.sv]));
   // Visa som vanligt / Dämpa i teckenförklaringen ändrar valet "Behåll mina lager" i Lager (#235)
   relLegend.onKeep = on => { layers.set('keep', on); refresh(); };
+  // Markering när man pekar (#271): musen eller tangentbordets fokus på en religion i undermenyn, i Fokus eller i
+  // teckenförklaringen lyser upp religionens områden och tonar ner de andra. I mobilen trycker man på religionen i
+  // teckenförklaringen (tryck i Lager och Fokus gör redan något annat); markeringen ligger kvar tills man trycker igen.
+  // Ändringen ritas en gång per bildruta, så att flera händelser i rad bara ger en omritning.
+  let pinnedReligion = null, wantHighlight = null, hlRaf = 0;
+  const setHighlight = id => {
+    wantHighlight = id ?? null;
+    cancelAnimationFrame(hlRaf);
+    hlRaf = requestAnimationFrame(() => {
+      if (religions.highlight === wantHighlight && relLegend.pinned === pinnedReligion) return;
+      religions.highlight = relLegend.highlight = wantHighlight; relLegend.pinned = pinnedReligion;
+      refresh();
+    });
+  };
+  relLegend.onPin = id => { pinnedReligion = pinnedReligion === id ? null : id; setHighlight(pinnedReligion); };
+  document.addEventListener('pointerover', e => {
+    if (e.pointerType === 'touch') return;
+    const el = e.target.closest?.('[data-religion]');
+    setHighlight(el ? el.dataset.religion : pinnedReligion);
+  });
+  document.addEventListener('focusin', e => {
+    const el = e.target.closest?.('[data-religion]');
+    if (el) setHighlight(el.dataset.religion);
+  });
+  document.addEventListener('focusout', e => { if (e.target.closest?.('[data-religion]')) setHighlight(pinnedReligion); });
   // I fokusläge syns det man följer även om lagret är avslaget i menyn
   const applyLayers = () => {
     areas.enabled = focus?.type === 'empire' || layers.on.areas;
@@ -655,13 +680,27 @@ async function start() {
   let hoverId = null;
   {
     const canvas = $('globe-canvas');
+    // Pekar man på ett religionsområde visas religionens symbol och namn i en liten ruta före klick (#271)
+    const tip = $('religion-tip');
+    let tipRaf = 0;
+    const religionTip = (x, y) => {
+      cancelAnimationFrame(tipRaf);
+      tipRaf = requestAnimationFrame(() => {
+        const on = religions.enabled && !faded.includes(religions) && religions.active.length && relLegend.pop.hidden;
+        const ll = on && globe.pickLatLon(x, y);
+        relLegend.showTip(tip, ll ? religions.hitTest(ll.lon, ll.lat) : null, x, y);
+      });
+    };
+    const hideTip = () => { cancelAnimationFrame(tipRaf); tip.hidden = true; };
     canvas.addEventListener('pointermove', e => {
-      if (e.pointerType !== 'mouse' || e.buttons) { hoverId = null; canvas.classList.remove('on-marker'); return; }
+      if (e.pointerType !== 'mouse' || e.buttons) { hoverId = null; canvas.classList.remove('on-marker'); hideTip(); return; }
       const hit = globe.pick(e.clientX, e.clientY, layer.sprites.filter(s => s.visible));
       hoverId = hit ? hit.userData.event.id : null;
       canvas.classList.toggle('on-marker', !!hit);
+      if (hit) hideTip(); else religionTip(e.clientX, e.clientY);
     });
-    canvas.addEventListener('pointerleave', () => { hoverId = null; canvas.classList.remove('on-marker'); });
+    canvas.addEventListener('pointerleave', () => { hoverId = null; canvas.classList.remove('on-marker'); hideTip(); });
+    canvas.addEventListener('pointerdown', hideTip);
   }
   globe.onFrame(now => {
     layer.frame(now, selectedId);

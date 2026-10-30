@@ -63,6 +63,7 @@ export class LayerMenu {
     for (const it of items) {
       const label = document.createElement('label');
       label.className = 'layer-row layer-subrow';
+      label.dataset.religion = it.id; // pekar man på raden lyser religionens områden upp (#271)
       const input = document.createElement('input');
       input.type = 'checkbox'; input.checked = true;
       input.addEventListener('change', () => onToggle(it.id, input.checked));

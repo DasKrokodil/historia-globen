@@ -199,9 +199,13 @@ export class ReligionsLayer {
         ctx.globalAlpha = (sure ? 0.95 : 0.5) * dim;
         if (img) {
           // En mörk, genomskinlig skiva under symbolen, så att den syns mot både ljusa och mörka färger
+          // Bredare mot polerna (1 / cos latitud, högst dubbelt), så att symbolen blir rund på klotet
+          const sx = Math.min(2, 1 / Math.cos(c.lat * Math.PI / 180));
+          ctx.save(); ctx.translate(x, y); ctx.scale(sx, 1);
           ctx.fillStyle = DISC;
-          ctx.beginPath(); ctx.arc(x, y, size * 0.66, 0, Math.PI * 2); ctx.fill();
-          ctx.drawImage(img, x - size / 2, y - size / 2, size, size);
+          ctx.beginPath(); ctx.arc(0, 0, size * 0.66, 0, Math.PI * 2); ctx.fill();
+          ctx.drawImage(img, -size / 2, -size / 2, size, size);
+          ctx.restore();
         }
         if (!this.showNames || room < size * 1.6) continue;
         const w = ctx.measureText(name).width;

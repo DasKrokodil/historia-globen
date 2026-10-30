@@ -70,7 +70,7 @@ export class FocusMenu {
     this.body.innerHTML = intro + (groups.map(g => `
       <div class="layer-heading">${esc(g.title)}</div>
       ${g.note ? `<div class="layer-note pad focus-note">${esc(g.note)}</div>` : ''}
-      ${g.items.length ? g.items.map(it => `<button type="button" class="layer-row focus-item" data-key="${esc(it.key)}">
+      ${g.items.length ? g.items.map(it => `<button type="button" class="layer-row focus-item" data-key="${esc(it.key)}"${it.key.startsWith('religion:') ? ` data-religion="${esc(it.key.slice(9))}"` : ''}>
         <span class="swatch" style="background:${esc(it.color)}"></span>${it.symbol ? `<img class="rel-sym" src="${esc(it.symbol)}" alt="" width="16" height="16">` : ''}<span>${esc(it.label)}</span>
         ${it.sub ? `<span class="layer-note">${esc(it.sub)}</span>` : ''}</button>`).join('') : '<div class="layer-note pad">Laddas …</div>'}`).join('')
       || `<div class="layer-note pad">${empty}</div>`)

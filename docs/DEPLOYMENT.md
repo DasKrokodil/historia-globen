@@ -28,14 +28,14 @@ Listan bygger på referenserna i koden:
 | `css/style.css` | stilmallen (inga `url()` till lokala filer) | `index.html` |
 | `js/**/*.js` (17 moduler) | ES-modulerna | `index.html` → `js/main.js` → `import` |
 | `img/favicon.svg`, `img/favicon-32.png`, `img/apple-touch-icon.png` | sidans ikoner | `index.html` |
-| `img/icons/*.svg` | markörernas och korten symboler, hämtas med `fetch` efter namn | `icon` i `data/events.json`, `CAT_ICON` och standardikonen `star` i `js/ui/funfact.js`, `index.html` |
+| `img/icons/*.svg` | markörernas och korten symboler, hämtas med `fetch` efter namn | `icon` i `data/events.json`, `symbol` i `data/religions.json` (#271), `CAT_ICON` och standardikonen `star` i `js/ui/funfact.js`, `index.html` |
 | `data/events.json`, `funfacts.json`, `sources.json`, `land.json`, `borders.json`, `styles.json`, `empires/index.json` | laddas vid start | `loadAll()` i `js/model.js` |
 | `data/religions.json`, `data/religions-polities.json` | laddas när religionslagret slås på eller vid klick | `loadReligions()`, `loadReligionPolities()` i `js/model.js` |
 | `data/empires/<rike>.json` | laddas när riket behövs | fältet `file` i `data/empires/index.json` |
 | `images/events/*.webp` | händelsernas bilder | `image.file` i `data/events.json` |
 | `LICENSE`, `data/LICENSE` | licenserna för kod (GPL-3.0) och data (CC BY 4.0) | Inte läst av sidan; följer med eftersom licenserna gäller de publicerade filerna. |
 
-Alla ikoner i `img/icons/` publiceras, eftersom namnen kommer ur data och JS. I dag används alla 19. Bilderna i `images/events/` publiceras bara om en händelse pekar på dem.
+Alla ikoner i `img/icons/` publiceras, eftersom namnen kommer ur data och JS. I dag används alla 38. Bilderna i `images/events/` publiceras bara om en händelse pekar på dem.
 
 **Publiceras aldrig:** `.claude/`, `.orchestra/`, `.github/`, `docs/`, `tools/`, `scripts/`, `data/utkast/`, `images/incoming/`, `CLAUDE.md`, `README.md`, Python- och skalskript, Markdown-filer och cachefiler.
 
