@@ -116,7 +116,7 @@ export class SourcesDialog {
         else if (x.review === 'source-checked') counts.checked++;
         else counts.draft++;
       }
-      return `${counts.checked} uppgifter har kontrollerad källa. ${counts.two} har dessutom en andra källa som stämmer. ${counts.draft} är utkast.`;
+      return `${counts.checked + counts.two} uppgifter har kontrollerad källa, och för ${counts.two} av dem stämmer också en andra källa. ${counts.draft} är utkast.`;
     };
 
     this.body.innerHTML = `
