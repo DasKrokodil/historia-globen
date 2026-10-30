@@ -661,18 +661,36 @@ body {
 .wspan { position: absolute; top: 16.5px; height: 3px; border-radius: 2px; background: var(--brass); opacity: .6; }
 
 /* ---------- platt vy ---------- */
-.flat-view {
-  position: absolute; inset: 0;
-  z-index: 12;
-  display: grid; place-items: center;
-  background: rgba(8,12,17,.95);
-  /* Överkant under årtal, rubrik och tidsperiod uppe till vänster (#142) */
-  padding: 150px var(--gut-r) 140px var(--gut);
+/* Kartvy för skärmar (#292): täcker globen och fyller ytan mellan knapparna uppe och tidslinjens
+   knappar nere (top och height sätts av js/ui/flatmap.js). Elementet ligger direkt efter globen i
+   index.html, så årtalet, korten, panelerna och tidslinjen ligger ovanpå kartan som på globen. */
+.flat-view { position: absolute; inset: 0; background: var(--night); }
+.flat-box { position: absolute; left: 0; right: 0; top: 70px; height: calc(100% - 200px); overflow: hidden; }
+.flat-canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+.flat-canvas.dragging { cursor: grabbing; }
+.flat-canvas:focus-visible { outline: 2px solid var(--brass); outline-offset: -3px; }
+.app:has(.flat-view:not([hidden])) .labels { visibility: hidden; } /* globens etiketter hör inte till kartan */
+/* Årtalet uppe till vänster får en mörk platta, så att det syns mot pergamentfärgat land */
+.app:has(.flat-view:not([hidden])) .masthead {
+  background: color-mix(in srgb, var(--night) 82%, transparent);
+  border-radius: var(--r); padding: 2px 10px 6px; margin: -2px 0 0 -10px;
 }
-.flat-inner { width: min(1100px, 100%, calc((100vh - 290px - 70px) * 2)); }
-@media (max-width: 760px) { .flat-view { padding-top: 175px; } .flat-inner { width: min(1100px, 100%, calc((100vh - 315px - 70px) * 2)); } }
-.flat-cap { margin: 0 0 10px; color: var(--parchment-dim); max-width: 65ch; line-height: 1.45; }
-.flat-canvas { width: 100%; height: auto; aspect-ratio: 2 / 1; max-width: 100%; border: 1px solid var(--line); border-radius: 6px; display: block; }
+.flat-zoom {
+  position: absolute; right: var(--gut-r); top: 12px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.flat-zbtn {
+  display: grid; place-items: center;
+  width: 40px; height: 40px; padding: 0;
+  font: 500 20px/1 var(--f-body);
+  color: var(--parchment);
+  background: color-mix(in srgb, var(--night-2) 92%, transparent);
+  border: 1px solid var(--brass-deep);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.flat-zbtn:hover { border-color: var(--brass); color: var(--brass); }
+@media (max-width: 760px) { .flat-zbtn { width: 44px; height: 44px; } }
 
 /* ---------- källor ---------- */
 .sheet {

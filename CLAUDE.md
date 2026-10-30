@@ -15,7 +15,7 @@ Historia-globen är en snurrbar jordglob i webbläsaren. Man drar i tiden och se
 1. **Inget byggsteg.** Vanliga ES-moduler som webbläsaren läser direkt. Inga ramverk (React m.fl.), ingen bundler, ingen server-backend. Det ska gå att köra med `python3 -m http.server`.
 2. **Data skild från kod.** All innehållsdata ligger i `data/*.json`. Hårdkoda aldrig händelser, texter eller årtal i JS.
 3. **Ett år styr allt.** `Timeline` äger nuvarande år och skickar `change`, och i fokusläget för korta krig räknas året i delar av år (månader och dagar, #204). Lager och paneler lyssnar och ritar om.
-4. **Ekvirektangulär rendering (beslut 1).** Allt som ritas på klotet ritas först på en ekvirektangulär canvas (`baseCanvas` 4096×2048 för grundkartan, `overlayCanvas` 4096×2048 för lager) som läggs på sfären. Klickbara markörer och bågar ligger som 3D-objekt ovanpå. Skälet: samma platta bild ska kunna skickas till en fysisk globskärm ("Platt vy" visar den). Bryt inte detta.
+4. **Ekvirektangulär rendering (beslut 1).** Allt som ritas på klotet ritas först på en ekvirektangulär canvas (`baseCanvas` 4096×2048 för grundkartan, `overlayCanvas` 4096×2048 för lager) som läggs på sfären. Klickbara markörer och bågar ligger som 3D-objekt ovanpå. Skälet: samma platta bild visas som karta i "Platt vy" och ska kunna skickas till en fysisk globskärm. Bryt inte detta.
 5. **Lager som moduler (beslut 2).** Fem lagertyper: punkt (händelser), linje (handelsvägar, migration, fronter), område (riken, utbredning), bildlager (nattljus, klimat) och tur (guidade fördjupningar som data). Varje lager har samma gränssnitt: `update(state)` som returnerar det som syns, och `drawOverlay(ctx, W, H)`.
 6. **three.js** laddas som ES-modul från `https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js`. Exakt version, ändra bara medvetet. Inga andra externa beroenden utan att fråga.
 
@@ -32,6 +32,7 @@ js/layers/events.js   punktlager: händelser
 js/ui/panel.js        "Samtidigt i världen" per världsdel, filter, detaljvy
 js/ui/funfact.js      Samtidigt-kortet (fun facts m.m.) och bågar
 js/ui/sources.js      sidan Om källorna
+js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering
 data/events.json      händelser
 data/funfacts.json    fun facts (kopplade till händelse-id)
 data/sources.json     källregister
