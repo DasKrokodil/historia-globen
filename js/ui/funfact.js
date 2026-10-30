@@ -28,6 +28,8 @@ const CAT_ICON = { krig: 'swords', civilisationer: 'crown', religion: 'dome', ve
 const SHEET = ['closed', 'half', 'full'];
 const SHEET_LABEL = { closed: 'stängt', half: 'halvt', full: 'helt' };
 const narrow = matchMedia('(max-width: 760px)');
+const HINT_KEY = 'hg-ff-drag-hint'; // "Dra upp för mer" har visats (#310)
+const HINT_MS = 6000;
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 export class FunFacts {
@@ -47,6 +49,10 @@ export class FunFacts {
     // Panelen i smal skärm (#239): ihopfällt kort (minimized) visas som stängd panel i stället för en flik.
     // autoClosed: stängd av att man drar i globen. Det sparas inte, och nästa nya kort öppnar panelen igen.
     this.sheet = 'half'; this.autoClosed = false;
+    // "Dra upp för mer" vid handtaget första gången panelen visas (#310). Utan lagring visas den varje gång.
+    this.hint = this.root.querySelector('#ff-drag-hint');
+    this.hintDone = false; this.hintTimer = 0;
+    try { this.hintDone = localStorage.getItem(HINT_KEY) === '1'; } catch { /* utan lagring */ }
     this._initSheet();
     narrow.addEventListener('change', () => this._show());
     this.next.addEventListener('click', () => { this.index = (this.index + 1) % this.active.length; this._show(); });
@@ -113,7 +119,7 @@ export class FunFacts {
     const step = d => this.setSheet(SHEET[Math.max(0, Math.min(2, SHEET.indexOf(this.sheetState) + d))]);
     let drag = null;
     h.addEventListener('keydown', e => {
-      if (e.key === 'ArrowUp' || e.key === 'ArrowDown') { e.preventDefault(); step(e.key === 'ArrowUp' ? 1 : -1); }
+      if (e.key === 'ArrowUp' || e.key === 'ArrowDown') { e.preventDefault(); this._hideHint(); step(e.key === 'ArrowUp' ? 1 : -1); }
     });
     h.addEventListener('pointerdown', e => {
       if (!narrow.matches) return;
@@ -126,6 +132,7 @@ export class FunFacts {
       const dy = e.clientY - drag.y;
       if (!drag.moved && Math.abs(dy) < 8) return;
       drag.moved = true;
+      this._hideHint();
       const { closed, full } = drag.heights;
       this.root.classList.add('ff-dragging');
       this.root.style.height = `${Math.max(closed, Math.min(full, drag.h0 - dy))}px`;
@@ -145,6 +152,7 @@ export class FunFacts {
     h.addEventListener('pointercancel', end);
     h.addEventListener('click', () => {
       if (this._dragged) { this._dragged = false; return; }
+      this._hideHint();
       this.setSheet(SHEET[(SHEET.indexOf(this.sheetState) + 1) % 3]);
     });
     this.root.querySelector('.ff-eyebrow')?.addEventListener('click', e => {
@@ -159,6 +167,23 @@ export class FunFacts {
     for (const s of SHEET) { cls.add(`ff-s-${s}`); out[s] = this.root.getBoundingClientRect().height; cls.remove(`ff-s-${s}`); }
     cls.add(cur);
     return out;
+  }
+
+  /** Visa "Dra upp för mer" en gång, när panelen syns i smal skärm och kan dras upp. Försvinner av sig själv. */
+  _maybeHint() {
+    if (!this.hint || this.hintDone) return;
+    if (!this.hint.hidden) { if (this.sheetState === 'full' || !narrow.matches) this._hideHint(); return; }
+    if (!narrow.matches || this.root.hidden || this.sheetState === 'full') return;
+    this.hint.hidden = false;
+    try { localStorage.setItem(HINT_KEY, '1'); } catch { /* utan lagring */ }
+    this.hintTimer = setTimeout(() => this._hideHint(), HINT_MS);
+  }
+
+  _hideHint() {
+    if (!this.hint || this.hintDone) return;
+    this.hintDone = true;
+    this.hint.hidden = true;
+    clearTimeout(this.hintTimer);
   }
 
   /** Handtagets läge för skärmläsare och tangentbord. */
@@ -251,6 +276,7 @@ export class FunFacts {
     this.pager.textContent = this.active.length > 1 ? `${this.index + 1} av ${this.active.length}` : '';
     this.next.hidden = this.active.length < 2;
     this.root.hidden = false;
+    this._maybeHint();
     // Bågar från första händelsen till de övriga (inte när panelen är stängd)
     const [a, ...rest] = evs;
     this.onArcs(story || (asSheet && this.sheetState === 'closed') ? [] : rest.map(b => [[a._lat, a._lon], [b._lat, b._lon]]));
