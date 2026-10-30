@@ -98,7 +98,7 @@
   <!-- Besökarnas förslag (docs/feedback.md). Avstängt så länge data-sitekey är tom eller integritetstexten inte är
        godkänd (data-privacy="approved"). Då skickas inget och inget externt skript laddas. Servern har en egen spärr. -->
   <aside id="feedback" class="help-card feedback-card" role="dialog" aria-modal="false" aria-labelledby="fb-title" hidden
-         data-endpoint="/api/feedback" data-sitekey="" data-privacy="draft">
+         data-endpoint="/api/feedback" data-sitekey="0x4AAAAAAFs0Q2EHn4NZMjJ5" data-privacy="approved">
     <div class="help-head">
       <h2 id="fb-title" class="help-title">Lämna förslag</h2>
       <button id="fb-close" class="panel-x" type="button" aria-label="Stäng formuläret">×</button>
@@ -154,7 +154,7 @@
         <div class="fb-about-body">
           <p><b>Varför:</b> för att kunna granska ditt förslag och rätta eller förbättra globen.</p>
           <p><b>Hur de används:</b> förslaget läses av den som sköter Historia-globen. Historiska uppgifter kontrolleras mot tillförlitliga källor innan något ändras. Inget publiceras automatiskt.</p>
-          <p><b>Var de lagras:</b> Cloudflare tar emot förfrågan. Förslaget sparas som ett ärende i ett privat GitHub-repo som bara projektet kan läsa. Cloudflare Turnstile kontrollerar att det är en människa som skickar.</p>
+          <p><b>Var de lagras:</b> Cloudflare tar emot förfrågan. Förslaget sparas som ett ärende i ett privat GitHub-repo som bara projektet kan läsa. Cloudflare Turnstile kontrollerar att det är en människa som skickar, och Cloudflare behandlar då din IP-adress för att stoppa spam.</p>
           <p><b>E-post:</b> frivillig och används bara för att svara dig. Den sparas bara i det privata ärendet.</p>
           <p><b>Hur länge:</b> ärendet och din e-post raderas när förslaget är färdigbehandlat, senast efter 12 månader.</p>
           <p><b>Radering:</b> vill du att vi raderar dina uppgifter tidigare, skicka ett nytt förslag med kategorin Övrig feedback och skriv vad som ska raderas.</p>

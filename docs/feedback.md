@@ -2,7 +2,7 @@
 
 Besökare kan föreslå nya händelser, rapportera faktafel och föreslå förbättringar direkt på webbplatsen. Förslagen hamnar som issues i ett **privat** GitHub-repo, där Rikard (med hjälp av Claude Code) granskar dem. Inget publiceras automatiskt.
 
-> **Läget i dag (2026-10-30): avstängt.** Formuläret visar bara länkar till repots issue-mallar på GitHub. Inget skickas, inget externt skript laddas och serverfunktionen svarar 503. Systemet slås på först när checklistan i [Slå på formuläret](#slå-på-formuläret-checklista) är klar, och först på dev.
+> **Läget i dag (2026-10-30): påslaget på dev, avstängt i production.** Integritetstexten är godkänd och `index.html` har Turnstiles site key. Variablerna finns i Cloudflare Pages för Preview (dev), men inte `FEEDBACK_ENABLED` i Production. Steg 1–4 i [checklistan](#slå-på-formuläret-checklista) är gjorda; kvar är testet på dev (steg 5) och stegen före production (steg 6). Når ändringen production innan steg 6 är gjort visar formuläret där att det inte är öppet ännu.
 
 ## Arkitektur och varför
 
@@ -20,7 +20,7 @@ Besökare kan föreslå nya händelser, rapportera faktafel och föreslå förb�
 ### Tre spärrar, alla måste lossas
 
 1. **Formuläret** (`index.html`): `data-sitekey` måste ha Turnstiles site key **och** `data-privacy` måste vara `approved`. Annars är skicka-knappen avstängd, länkarna till GitHub visas och Turnstiles skript laddas inte.
-2. **Integritetstexten** är ett utkast tills Rikard godkänner den (se [nedan](#integritetstext-utkast-ej-godkänd)). Godkännandet görs genom att ändra `data-privacy="draft"` till `data-privacy="approved"` i en pull request.
+2. **Integritetstexten** måste vara godkänd (se [nedan](#integritetstext-godkänd-2026-10-30)), vilket markeras med `data-privacy="approved"`. Rikard godkände den 2026-10-30.
 3. **Serverfunktionen** svarar 503 `{ ok: false, error: "disabled" }` utan att anropa något, om inte `FEEDBACK_ENABLED` är exakt `1` och `GITHUB_TOKEN`, `GITHUB_REPO` och `TURNSTILE_SECRET` finns.
 
 ## Dataflöde
@@ -64,9 +64,9 @@ Frekvensbegränsningen i minnet är bara en extra spärr. Cloudflare kör funkti
 
 Vid alla fel ligger texten kvar i formuläret. Svaren innehåller aldrig token, secret, e-post, beskrivning eller IP-adress. Funktionen loggar bara statuskoder, aldrig innehåll.
 
-## Integritetstext (utkast, ej godkänd)
+## Integritetstext (godkänd 2026-10-30)
 
-Texterna nedan står i formuläret i `index.html`. **De är ett utkast som Rikard ska godkänna innan formuläret slås på.** Ändras texten här, ändra den också i `index.html` (och tvärtom).
+Texterna nedan står i formuläret i `index.html`. Rikard godkände dem 2026-10-30, med tillägget om IP-adressen. Ingen personuppgiftsansvarig med namn eller kontaktadress anges (Rikards beslut); kontakt sker via formuläret. Ändras texten här, ändra den också i `index.html` (och tvärtom), och låt Rikard godkänna ändringen.
 
 **Kort text, synlig i formuläret:**
 
@@ -78,15 +78,13 @@ Texterna nedan står i formuläret i `index.html`. **De är ett utkast som Rikar
 >
 > **Hur de används:** förslaget läses av den som sköter Historia-globen. Historiska uppgifter kontrolleras mot tillförlitliga källor innan något ändras. Inget publiceras automatiskt.
 >
-> **Var de lagras:** Cloudflare tar emot förfrågan. Förslaget sparas som ett ärende i ett privat GitHub-repo som bara projektet kan läsa. Cloudflare Turnstile kontrollerar att det är en människa som skickar.
+> **Var de lagras:** Cloudflare tar emot förfrågan. Förslaget sparas som ett ärende i ett privat GitHub-repo som bara projektet kan läsa. Cloudflare Turnstile kontrollerar att det är en människa som skickar, och Cloudflare behandlar då din IP-adress för att stoppa spam.
 >
 > **E-post:** frivillig och används bara för att svara dig. Den sparas bara i det privata ärendet.
 >
 > **Hur länge:** ärendet och din e-post raderas när förslaget är färdigbehandlat, senast efter 12 månader.
 >
 > **Radering:** vill du att vi raderar dina uppgifter tidigare, skicka ett nytt förslag med kategorin Övrig feedback och skriv vad som ska raderas.
-
-Frågor för Rikard innan godkännandet: ska en personuppgiftsansvarig (namn eller kontaktadress) stå med, och räcker "senast efter 12 månader"?
 
 ## Lagring och radering
 
@@ -112,8 +110,8 @@ Platshållarna `<GITHUB_TOKEN>`, `<TURNSTILE_SITE_KEY>` och `<TURNSTILE_SECRET>`
 ### 2. Turnstile
 
 1. Cloudflare → Turnstile → Add widget.
-2. Namn: `Historia-globen förslag`. Hostnames: `historiagloben.se`, `dev.historiagloben.se` och, om Cloudflare tillåter det, `historia-globen.pages.dev`.
-3. Widget mode: **Managed**.
+2. Namn: `Historia-globen förslag`. Hostnames: `historiagloben.se`, `dev.historiagloben.se`, `historia-globen.pages.dev` och `main.historia-globen.pages.dev`. 
+3. Widget Mode: **Managed**. Pre-clearance ("Skip future security rule challenges"): **av**.
 4. Spara. Du får en **site key** (`<TURNSTILE_SITE_KEY>`, publik) och en **secret key** (`<TURNSTILE_SECRET>`, hemlig).
 
 ### 3. Cloudflare Pages: variabler per miljö
@@ -133,22 +131,24 @@ Variablerna gäller från nästa publicering. Gör en ny publicering (till exemp
 
 ### 4. Cloudflare WAF: rate limiting
 
-Cloudflare → historiagloben.se → Security → WAF → Rate limiting rules → Create rule:
+Cloudflare → historiagloben.se → Security → Security rules → Create rule → Rate limiting rules (i äldre vyer: Security → WAF → Rate limiting rules). Gratisplanen har en sådan regel, och den används till detta:
 
-- Namn: `Förslag, högst 5 per 10 minuter`
-- If incoming requests match: URI Path **equals** `/api/feedback` **and** Request Method **equals** `POST`
+- Namn: `Förslag, begränsning`
+- When incoming requests match: URI Path **equals** `/api/feedback`. Gratisplanen har inte fältet Request Method, men det behövs inte: adressen tar bara emot förslag, och andra metoder får 405 av funktionen.
 - Characteristics: IP
-- Rate: 5 requests per 10 minutes (gratisplanen erbjuder kortare perioder; välj den längsta som finns, till exempel 10 per minut)
-- Action: Block, duration den längsta som finns
+- Rate: 3 requests per 10 seconds (gratisplanens enda period)
+- Action: Block, duration 10 seconds (gratisplanens enda längd)
+
+Regeln stoppar maskinella skurar. Den egentliga gränsen per besökare är Turnstile och spärren i minnet (5 per 10 minuter).
 
 Gäller regeln bara zonen historiagloben.se, skyddar den inte `*.pages.dev`; där skyddar Turnstile och spärren i minnet.
 
 ### 5. Aktivera på dev (bara Preview-miljön först)
 
-1. Rikard godkänner integritetstexten (eventuellt med ändringar) i [Integritetstext](#integritetstext-utkast-ej-godkänd).
+1. Rikard godkänner integritetstexten (eventuellt med ändringar) i [Integritetstext](#integritetstext-godkänd-2026-10-30). *Gjort 2026-10-30.*
 2. Steg 1–4 är gjorda, och variablerna finns **bara i Preview** (inte `FEEDBACK_ENABLED` i Production).
-3. En pull request mot `main` som i `index.html` sätter `data-sitekey="<TURNSTILE_SITE_KEY>"` och `data-privacy="approved"` på `#feedback` (och tar bort ordet "utkast" i rubriken ovan). Eftersom `production` inte har ändringen syns formuläret fortfarande avstängt på historiagloben.se.
-4. Testa på dev.historiagloben.se: skicka ett förslag i varje kategori och ett faktafel från en faktaruta. Kontrollera att issuena kommer in i det privata repot med rätt titel, etiketter och text, och att e-post bara står under "Kontakt (personuppgift)". Radera testissuena.
+3. En pull request mot `main` som i `index.html` sätter `data-sitekey="<TURNSTILE_SITE_KEY>"` och `data-privacy="approved"` på `#feedback` (och tar bort ordet "utkast" i rubriken ovan). Eftersom `production` inte har ändringen syns formuläret fortfarande avstängt på historiagloben.se. *Gjort 2026-10-30.*
+4. Testa på dev (i dag `main.historia-globen.pages.dev`, bakom Cloudflare Access): skicka ett förslag i varje kategori och ett faktafel från en faktaruta. Kontrollera att issuena kommer in i det privata repot med rätt titel, etiketter och text, och att e-post bara står under "Kontakt (personuppgift)". Radera testissuena.
 5. Testa ett fel: ta tillfälligt bort `FEEDBACK_ENABLED` i Preview, publicera om och kontrollera att formuläret säger att det inte är öppet och att texten ligger kvar. Lägg tillbaka variabeln.
 
 ### 6. Före production
