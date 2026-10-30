@@ -1,7 +1,8 @@
 // Krig som spann (#27): ett krig är en händelse med start och slut (kind "war"),
 // och slagen är händelser som pekar på kriget med partOf. Medan kriget pågår
 // ritas krigsområdet som ett mjukt fält runt krigets plats och de slag som
-// redan har utkämpats, så att man ser hur kriget sprids.
+// redan har utkämpats, så att man ser hur kriget sprids. Ligger slagen långt
+// isär får varje krigsskådeplats ett eget område (#211).
 import { CAT, isVisibleReview } from '../model.js';
 
 export class WarsLayer {
@@ -33,24 +34,55 @@ export class WarsLayer {
     for (const { war, points } of this.active) {
       const col = CAT[war.category]?.color ?? '#e5675a';
       // Krigsskådeplatsen som i en historisk kartbok: ett avrundat område runt
-      // krigets plats och slagen, med hel kantlinje och diagonal skraffering
+      // krigets plats och slagen, med hel kantlinje och diagonal skraffering.
+      // Ett område per krigsskådeplats, så att ett världskrig inte täcker halva jorden (#211)
       const r = 14 * k;
-      const ring = [];
-      for (const [lon, lat] of points) {
-        const x = (lon + 180) / 360 * W, y = (90 - lat) / 180 * H;
-        for (let a = 0; a < 12; a++) ring.push([x + r * Math.cos(a * Math.PI / 6), y + r * Math.sin(a * Math.PI / 6)]);
+      for (const group of theatres(points)) {
+        // Longituderna räknas nära gruppens första plats, så att en skådeplats över
+        // datumlinjen (till exempel Midway och Guadalcanal) inte blir ett band runt jorden
+        const ref = group[0][0], ring = [];
+        for (const [lon, lat] of group) {
+          const x = (lon - 360 * Math.round((lon - ref) / 360) + 180) / 360 * W, y = (90 - lat) / 180 * H;
+          for (let a = 0; a < 12; a++) ring.push([x + r * Math.cos(a * Math.PI / 6), y + r * Math.sin(a * Math.PI / 6)]);
+        }
+        const hull = convexHull(ring);
+        // Går området över bildens kant ritas det också en bildbredd åt andra hållet
+        const xs = hull.map(([x]) => x), shifts = [0];
+        if (Math.min(...xs) < 0) shifts.push(W);
+        if (Math.max(...xs) > W) shifts.push(-W);
+        for (const dx of shifts) {
+          ctx.beginPath();
+          hull.forEach(([x, y], i) => i ? ctx.lineTo(x + dx, y) : ctx.moveTo(x + dx, y));
+          ctx.closePath();
+          ctx.globalAlpha = 0.12; ctx.fillStyle = col; ctx.fill();
+          ctx.globalAlpha = 1; ctx.fillStyle = hatch(ctx, col, k); ctx.fill();
+          ctx.strokeStyle = '#7a1f17'; ctx.lineWidth = 4 * k; ctx.globalAlpha = 0.5; ctx.stroke();
+          ctx.strokeStyle = col; ctx.lineWidth = 2.2 * k; ctx.globalAlpha = 1; ctx.stroke();
+        }
       }
-      const hull = convexHull(ring);
-      ctx.beginPath();
-      hull.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
-      ctx.closePath();
-      ctx.globalAlpha = 0.12; ctx.fillStyle = col; ctx.fill();
-      ctx.globalAlpha = 1; ctx.fillStyle = hatch(ctx, col, k); ctx.fill();
-      ctx.strokeStyle = '#7a1f17'; ctx.lineWidth = 4 * k; ctx.globalAlpha = 0.5; ctx.stroke();
-      ctx.strokeStyle = col; ctx.lineWidth = 2.2 * k; ctx.globalAlpha = 1; ctx.stroke();
     }
     ctx.restore();
   }
+}
+
+// Platser som ligger närmare än så här (till närmaste plats i gruppen) hör till samma krigsskådeplats (#211)
+const THEATRE_KM = 2000;
+/** Avstånd i km längs jordytan mellan två [lon, lat]. */
+function km([lon1, lat1], [lon2, lat2]) {
+  const rad = Math.PI / 180, dLat = (lat2 - lat1) * rad, dLon = (lon2 - lon1) * rad;
+  const a = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * rad) * Math.cos(lat2 * rad) * Math.sin(dLon / 2) ** 2;
+  return 12742 * Math.asin(Math.min(1, Math.sqrt(a)));
+}
+/** Delar upp platserna i krigsskådeplatser: grupper där varje plats ligger inom THEATRE_KM från någon annan i gruppen. */
+function theatres(points) {
+  const groups = [];
+  for (const p of points) {
+    const near = groups.filter(g => g.some(q => km(p, q) <= THEATRE_KM));
+    const merged = [p, ...near.flat()];
+    for (const g of near) groups.splice(groups.indexOf(g), 1);
+    groups.push(merged);
+  }
+  return groups;
 }
 
 /** Diagonal skraffering i krigets färg. */
