@@ -15,7 +15,7 @@ Omgång 1 gav historiska bilder från Wikimedia Commons till krigens viktigaste 
 | `sista-giljotinen` | Ingen fri bild av händelsen. |
 | `upproret-i-goma-1998` | Bara kartor och foton från Goma 2013. |
 
-**AI-omgången (2026-10-30):** `slaget-vid-gaixia`, `qi-ger-upp-221-fkr`, `sjoslaget-vid-noryang`, `kalinga-erovras` och `eviansavtalen` har fått illustrationer gjorda med promptarna i [bildpromptar-299.md](bildpromptar-299.md). `slaget-vid-nuuanu`, `sista-giljotinen` och `nanjing-blir-tianjing-1853` väntar på bildfilerna. `bougainville-utropar-sjalvstandighet` och `upproret-i-goma-1998` görs om utan flaggor: de första bilderna hade flaggor som inte stämmer (en påhittad flagga för Bougainville och Rwandas flagga från 2001 i Goma 1998).
+**AI-omgången (2026-10-30):** `slaget-vid-gaixia`, `qi-ger-upp-221-fkr`, `sjoslaget-vid-noryang`, `kalinga-erovras`, `eviansavtalen`, `slaget-vid-nuuanu`, `sista-giljotinen` och `nanjing-blir-tianjing-1853` har fått illustrationer gjorda med promptarna i [bildpromptar-299.md](bildpromptar-299.md). `bougainville-utropar-sjalvstandighet` och `upproret-i-goma-1998` görs om utan flaggor: de första bilderna hade flaggor som inte stämmer (en påhittad flagga för Bougainville och Rwandas flagga från 2001 i Goma 1998).
 
 ## Bilder att se över
 

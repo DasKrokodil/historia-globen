@@ -411,5 +411,38 @@
     },
     "credit": "AI-genererad med ChatGPT, 2026-10-30",
     "prompt": "Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: Éviansavtalen: Algeriet blir fritt — Évian-les-Bains, Frankrike, 1962 CE. What happened (show only this, do not add details): Den 18 mars 1962 kommer Frankrike och FLN:s exilregering överens i Évian, där Krim Belkacem undertecknar för den algeriska sidan. Avtalen ger eldupphör från den 19 mars, frigivning av fångar och full självständighet för Algeriet efter en folkomröstning. Den 1 juli röstar nästan alla algerier för självständighet, och Algeriet blir självständigt den 3 juli 1962; den 5 juli firas som självständighetsdag. Under tiden fortsätter OAS med hundratals bombdåd i Algeriet. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details."
+  },
+  {
+    "id": "sista-giljotinen",
+    "file": "sista-giljotinen.webp",
+    "kind": "illustration",
+    "style": "dokumentar",
+    "caption": {
+      "sv": "Illustration i stil med dokumentär tidningsillustration från 1970-talet, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-30",
+    "prompt": "Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: Sista avrättningen med giljotin — Baumettesfängelset, Marseille, Frankrike, 1977 CE. What happened (show only this, do not add details): Hamida Djandoubi avrättas med giljotin i Marseille den 10 september 1977. Han blir den siste som avrättas i Frankrike innan dödsstraffet avskaffas 1981. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details."
+  },
+  {
+    "id": "nanjing-blir-tianjing-1853",
+    "file": "nanjing-blir-tianjing-1853.webp",
+    "kind": "illustration",
+    "style": "kina-tusch",
+    "caption": {
+      "sv": "Illustration i stil med kinesisk tuschmålning på silkesrulle, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-30",
+    "prompt": "Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: Taiping intar Nanjing — Nanjing, Kina, 1853 CE. What happened (show only this, do not add details): Den 19 mars 1853 erövrar taipingarmén Nanjing efter knappt två veckors belägring. Hong Xiuquan gör staden till sin huvudstad och kallar den Tianjing, \"den himmelska huvudstaden\". Den manchuiska garnisonen och dess familjer dödas. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details."
+  },
+  {
+    "id": "slaget-vid-nuuanu",
+    "file": "slaget-vid-nuuanu.webp",
+    "kind": "illustration",
+    "style": "stilla-havet-gravyr",
+    "caption": {
+      "sv": "Illustration i stil med en gravyr från en resa i Stilla havet, inte en historisk bild."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-10-30",
+    "prompt": "Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine line work, sepia. Subject: Slaget vid Nuʻuanu — Nuʻuanudalen och Nuʻuanu Pali, Oʻahu, 1795 CE. What happened (show only this, do not add details): I maj 1795 landstiger Kamehamehas armé vid Waikīkī och driver Kalanikūpules styrkor uppför Nuʻuanudalen. Vid klippan Nuʻuanu Pali faller eller knuffas över 700 krigare från Oʻahu utför stupet. På hawaiiska kallas slaget Kalelekaʻanae, \"den hoppande multen\". Efter segern kallas Kamehamehas rike för första gången kungariket Hawaiʻi. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details."
   }
 ]
