@@ -21,7 +21,8 @@
   <!-- Platt vy (#292) ligger direkt efter globen, så att årtalet, korten och panelerna hamnar ovanpå kartan -->
   <div id="flat-view" class="flat-view" hidden>
     <div id="flat-box" class="flat-box">
-      <canvas id="flat-canvas" class="flat-canvas" tabindex="0" role="img" aria-roledescription="karta" aria-label="Världen som en platt karta. Dra för att panorera, scrolla eller nyp för att zooma. Med tangentbord: piltangenter panorerar, plus och minus zoomar, 0 återställer."></canvas>
+      <canvas id="flat-canvas" class="flat-canvas" tabindex="0" role="img" aria-roledescription="karta" aria-label="Världen som en platt karta. Dra för att panorera, scrolla eller nyp för att zooma. Med tangentbord: piltangenter panorerar, plus och minus zoomar, 0 återställer. Händelsernas etiketter nås med Tab, och händelserna finns också i listan Samtidigt i världen."></canvas>
+      <div id="flat-labels" class="flat-labels"></div>
       <div class="flat-zoom" role="group" aria-label="Zooma kartan">
         <button id="flat-in" class="flat-zbtn" type="button" aria-label="Zooma in" title="Zooma in">+</button>
         <button id="flat-out" class="flat-zbtn" type="button" aria-label="Zooma ut" title="Zooma ut">−</button>

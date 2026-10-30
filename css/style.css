@@ -696,6 +696,9 @@ body {
 .flat-box { position: absolute; left: 0; right: 0; top: 70px; height: calc(100% - 200px); overflow: hidden; }
 .flat-canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
 .flat-canvas.dragging { cursor: grabbing; }
+.flat-canvas.on-marker:not(.dragging) { cursor: pointer; }
+/* Händelsernas klungor och etiketter i Platt vy (#313): samma knappar som på globen, ovanpå kartan */
+.flat-labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 .flat-canvas:focus-visible { outline: 2px solid var(--brass); outline-offset: -3px; }
 .app:has(.flat-view:not([hidden])) .labels { visibility: hidden; } /* globens etiketter hör inte till kartan */
 /* Årtalet uppe till vänster får en mörk platta, så att det syns mot pergamentfärgat land */

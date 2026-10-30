@@ -44,6 +44,19 @@ export function describeMarker(info) {
   return parts.join(', ');
 }
 
+/**
+ * Markörens storlek på skärmen och detaljnivå (#242), på globen och i Platt vy (#313). want är storleken
+ * zoomen ger (px); markören är minst MIN_PX–MIN_PX + 6 px (mer för aktuella händelser och mer för vald eller
+ * framhävd, big), högst MAX_PX, och ritas som hel medalj från FULL_PX.
+ */
+export function medalSize({ big, activity }, want) {
+  const minPx = big ? MIN_PX + 10 : MIN_PX + 6 * activity;
+  let px = Math.min(Math.max(want, minPx), big ? MAX_PX + 8 : MAX_PX);
+  const full = px >= FULL_PX;
+  if (full) px *= 55 / 46; // den hela medaljen har tidsbågen utanför ringen: ringen ska inte krympa
+  return { px, full };
+}
+
 const medalCache = new Map();
 export function medalTexture(icon, color, { when, major, unsure }, full) {
   const key = [icon, color, full ? when : '', major, full && unsure, full].join('|');
@@ -195,10 +208,7 @@ export class EventsLayer {
     for (const s of this.sprites) {
       if (!s.visible) continue;
       const u = s.userData;
-      const minPx = u.big ? MIN_PX + 10 : MIN_PX + 6 * u.activity;
-      let px = Math.min(Math.max(u.baseScale / perPx, minPx), u.big ? MAX_PX + 8 : MAX_PX);
-      const full = px >= FULL_PX;
-      if (full) px *= 55 / 46; // den hela medaljen har tidsbågen utanför ringen: ringen ska inte krympa
+      const { px, full } = medalSize(u, u.baseScale / perPx);
       if (full !== u.full) { u.full = full; this._paint(s); }
       const pulse = u.event.id === selectedId ? 1 + 0.12 * Math.sin(t / 240) : 1;
       u.px = px; // storleken på skärmen, för etiketterna i main.js
