@@ -57,10 +57,15 @@ export class RoutePop {
       ${ev ? `<button type="button" class="info-btn rp-more" data-event="${esc(ev.id)}">Läs mer om ${esc(t(ev.title))}</button>` : ''}`;
     this.pop.setAttribute('aria-label', t(route.title));
     this.pop.hidden = false;
+    this.pop.scrollTop = 0;
     const host = this.pop.offsetParent?.getBoundingClientRect() ?? { left: 0, top: 0, width: innerWidth, height: innerHeight };
+    // Rutan hålls mellan knapparna uppe och tidslinjen nere, och rullar inuti när texten är lång
+    const minTop = Math.max(8, (document.querySelector('.top-actions')?.getBoundingClientRect().bottom ?? 0) - host.top + 8);
+    const maxBottom = Math.min(host.height, (document.querySelector('.timebar')?.getBoundingClientRect().top ?? innerHeight) - host.top) - 8;
+    this.pop.style.maxHeight = `${Math.max(120, maxBottom - minTop)}px`;
     const w = this.pop.offsetWidth, h = this.pop.offsetHeight;
     const left = Math.min(Math.max(8, x - host.left - w / 2), host.width - w - 8);
-    const top = Math.min(Math.max(8, y - host.top + 14), host.height - h - 8);
+    const top = Math.max(minTop, Math.min(y - host.top + 14, maxBottom - h));
     this.pop.style.left = `${left}px`; this.pop.style.top = `${top}px`;
   }
 
