@@ -47,6 +47,8 @@ ROOT = Path(__file__).resolve().parent.parent
 TOL = 0.25       # förenkling i grader (Douglas-Peucker); rikena förenklas först med hälften
 MIN_AREA = 0.05  # öar mindre än så här (kvadratgrader) tas bort
 DEC = 1          # koordinater avrundas till 0.1 grad
+INH_TOL = 0.3    # ärvda områden förenklas lite mer (de visas ändå som osäkra)
+INH_MIN_AREA = 0.3  # och ärvda öar och rester mindre än så här (kvadratgrader) tas bort
 SLIVER = 0.05    # ärvda områden "öppnas" med så här många grader, så att smala remsor längs gränser försvinner
 GAP = 100        # ett område utan rike i Cliopatria minns sin religion så här många år
 CENSUS_FROM = 1900  # procentsiffror (folkräkningar) och tabellen Religion by country används från detta år
@@ -164,19 +166,33 @@ def polys(g):
     return list(g.geoms) if hasattr(g, 'geoms') else [g]
 
 
-def clean(u):
+def clean(u, tol=TOL, min_area=MIN_AREA):
     """Förenklar ett område för utdata och tar bort små öar."""
-    u = u.simplify(TOL, preserve_topology=True)
+    u = u.simplify(tol, preserve_topology=True)
     if u.is_empty:
         return None
     if u.geom_type == 'MultiPolygon':
-        u = unary_union([q for q in u.geoms if q.area > MIN_AREA] or [max(u.geoms, key=lambda q: q.area)])
+        u = unary_union([q for q in u.geoms if q.area > min_area] or [max(u.geoms, key=lambda q: q.area)])
     if u.geom_type == 'GeometryCollection':
-        u = unary_union([q for q in u.geoms if q.geom_type in ('Polygon', 'MultiPolygon') and q.area > MIN_AREA])
-    if u.is_empty or u.area < MIN_AREA or u.geom_type not in ('Polygon', 'MultiPolygon'):
+        u = unary_union([q for q in u.geoms if q.geom_type in ('Polygon', 'MultiPolygon') and q.area > min_area])
+    if u.is_empty or u.area < min_area or u.geom_type not in ('Polygon', 'MultiPolygon'):
         return None
     gm = mapping(u)
     return {'type': gm['type'], 'coordinates': rnd(gm['coordinates'])}
+
+
+def merge(snaps):
+    """Slår ihop en ögonblicksbild med föregående när allt utom tiden är likadant och de följer direkt på varandra."""
+    out, last = [], {}
+    for s in snaps:
+        key = json.dumps({k: v for k, v in s.items() if k not in ('start', 'end')}, sort_keys=True)
+        prev = last.get(key)
+        if prev is not None and prev['end'] + 1 == s['start']:
+            prev['end'] = s['end']
+            continue
+        out.append(s)
+        last[key] = s
+    return out
 
 
 class Row:
@@ -302,7 +318,7 @@ def main():
                     new_memory[rel].append((until, name, rest, seen))
             for until, parts in sorted(kept.items()):
                 shown = unary_union([h for _, h in parts]).buffer(-SLIVER).buffer(SLIVER)
-                g = clean(shown)
+                g = clean(shown, INH_TOL, INH_MIN_AREA)
                 if not g:
                     continue
                 frm = sorted({n for n, h in parts if h.intersection(shown).area > MIN_AREA / 5} or {n for n, _ in parts})
@@ -319,7 +335,7 @@ def main():
 
     rels = []
     for i, name, color, _ in RELIGIONS:
-        snaps = sorted(out[i], key=lambda s: (s['start'], 'inherited' in s, not s['sure'], s.get('inherited', {}).get('until', 0)))
+        snaps = merge(sorted(out[i], key=lambda s: (s['start'], 'inherited' in s, not s['sure'], s.get('inherited', {}).get('until', 0))))
         if not snaps:
             continue
         r = {'id': i, 'name': old_rel.get(i, {}).get('name', {'sv': name}), 'color': old_rel.get(i, {}).get('color', color)}
