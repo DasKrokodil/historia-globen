@@ -346,7 +346,9 @@ async function start() {
     } else {
       // I smal skärm öppnas inte panelen, så att kartan syns; händelsen markeras på globen
       timeline.pause('Pausad vid en stor händelse i kriget', true); selectedId = stop.id; panel.showDetail(stop, matchMedia('(min-width: 761px)').matches);
-      if (fine) timeline.year = timeline.spanOf(stop)[0]; // i ett kort krig stannar tiden på händelsens dag
+      // Tiden stannar på händelsens år, i ett kort krig på dess dag (#204, #224). Har tiden redan
+      // hunnit förbi, till exempel för en händelse under krigets första år, flyttas den tillbaka.
+      if (fine || timeline.spanOf(stop)[0] < timeline.year) timeline.year = timeline.spanOf(stop)[0];
     }
     stopping = false;
     $('app').classList.toggle('has-detail', !$('detail').hidden);
@@ -358,6 +360,9 @@ async function start() {
     // datum ur edtf (span), medan riken, religioner och fun facts får det hela året som förut.
     const year = timeline.year, wholeYear = Math.floor(year), fine = !!focus?.fine;
     const span = e => timeline.spanOf(e);
+    // Spelade det när ritningen började? Ett nytt Samtidigt-kort kan pausa nedan, men krigets
+    // stopp ska ändå visas, annars börjar Fortsätt om från krigets början (#224)
+    const playing = timeline.playing;
     ensureEmpires(wholeYear);
     const window = timeline.windowYears(year);
     const within = fine ? `±${Math.round(window * 365.25)} dagar` : `±${Math.round(window)} år`;
@@ -390,16 +395,16 @@ async function start() {
     $('year-era').textContent = era;
     $('year-jump').classList.toggle('fine', fine);
     $('year-segment').textContent = `${focus ? `Fokus: ${focus.short}` : segmentName(year)} · visar ${within}`;
-    // Passerades tiden t sedan förra ritningen? I ett kort krig räknas också krigets första dag,
-    // när uppspelningen startar där, så att den pausar vid händelsen som inledde kriget (#204)
-    const passed = tt => (tt > lastYear && tt <= year) || (fine && tt === focus.from && lastYear === tt && year > tt);
+    // Passerades tiden t sedan förra ritningen? Också fokusets första dag eller år räknas,
+    // när uppspelningen startar där, så att den pausar vid händelsen som inledde kriget (#204, #224)
+    const passed = tt => (tt > lastYear && tt <= year) || (tt === focus?.from && lastYear === tt && year > tt);
     // I fokusläge stannar uppspelningen vid krigets viktigaste händelser
     // I slutet: hur kriget slutade och hur många som dog (#122)
     // Alla stora händelser som passerades stoppar i tur och ordning, och slutkortet kommer sist (#217).
     // Det som inte hinns med nu ligger i warStops och visas när man trycker Fortsätt.
     const warEnd = focusWar && Math.min(span(focusWar)[1], MAX_YEAR); // ett pågående krig når "i dag" (#223)
-    if (!timeline.playing && !stopping) warStops = []; // tiden flyttades för hand
-    if (focusWar && timeline.playing) {
+    if (!playing && !stopping) warStops = []; // tiden flyttades för hand
+    if (focusWar && playing) {
       const hits = layers.pause.major ? focusWar._battles.filter(b => b.major && passed(span(b)[0])).sort((a, b) => span(a)[0] - span(b)[0]) : [];
       const ended = focusWar.story && lastYear < warEnd && year >= warEnd;
       warStops = [...hits, ...(ended ? ['end'] : [])];
