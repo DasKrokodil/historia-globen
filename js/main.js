@@ -105,6 +105,7 @@ async function start() {
   // Teckenförklaring och klickruta för religionslagret (#166)
   const relLegend = new ReligionLegend({ legend: $('religion-legend'), pop: $('religion-pop') });
   relLegend.onFacts = id => showReligionFacts(id);
+  relLegend.onAbout = () => showAboutReligions(); // "Läs om religionerna" (#308)
   relLegend.names = new Map(data.polities.map(p => [p.name.en, p.name.sv]));
   // Visa som vanligt / Dämpa i teckenförklaringen ändrar valet "Behåll mina lager" i Lager (#235)
   relLegend.onKeep = on => { layers.set('keep', on); refresh(); };
@@ -152,11 +153,18 @@ async function start() {
       const doc = await loadReligions();
       setReligions(doc);
       $('religion-list').textContent = '';
+      // Knappen "Läs om religionerna" överst i undermenyn öppnar faktarutan på begäran (#308)
+      if (doc.religions.some(r => r.facts)) {
+        const about = document.createElement('button');
+        about.type = 'button'; about.className = 'info-btn rel-about';
+        about.textContent = 'Läs om religionerna';
+        about.addEventListener('click', () => showAboutReligions());
+        $('religion-list').append(about);
+      }
+      // Att bocka i eller ur en religion ändrar bara lagret; menyn står kvar öppen (#308)
       layers.sublist($('religion-list'), doc.religions.map(r => ({ id: r.id, name: t(r.name), color: r.color, symbol: symbolUrl(r), info: !!r.facts })), (id, on) => {
         on ? religions.hidden.delete(id) : religions.hidden.add(id);
         refresh();
-        // Slås en religion med faktaruta på igen visas rutan (#90)
-        if (on) showReligionFacts(id);
       }, id => showReligionFacts(id));
       data.religionsDoc = doc;
       refresh();
@@ -212,9 +220,12 @@ async function start() {
     return false;
   }
 
-  /** När religionslagret slås på: faktarutan för den första synliga religionen som har en. */
-  function showFirstReligionFacts() {
-    const r = data.religionsDoc?.religions.find(x => x.facts && !religions.hidden.has(x.id));
+  /** Knappen "Läs om religionerna" (#308): faktarutan för religionen man följer i Fokus, annars för den
+   *  första synliga religionen som har en (tidigare visades den automatiskt när lagret slogs på, #90). */
+  function showAboutReligions() {
+    if (focus?.type === 'religion' && showReligionFacts(focus.id, false)) return;
+    const r = data.religionsDoc?.religions.find(x => x.facts && !religions.hidden.has(x.id))
+      ?? data.religionsDoc?.religions.find(x => x.facts);
     if (r) showReligionFacts(r.id);
   }
 
@@ -769,9 +780,10 @@ async function start() {
 
   layers.onChange = async (name, on) => {
     applyLayers(); refresh();
+    // Lagret slås bara på: menyn står kvar öppen och ingen faktaruta öppnas (#308). Första gången
+    // visar teckenförklaringen en tipsrad; faktarutan finns bakom knappen "Läs om religionerna".
+    if (name === 'religions') relLegend.setHint(on);
     await ensureReligions();
-    // Faktarutan om religionen visas när lagret slås på (#90)
-    if (name === 'religions' && on && data.religionsDoc) showFirstReligionFacts();
   };
   // Nyckelår i rikets och religionens faktaruta hoppar dit i tiden
   panel.onYear = year => { timeline.year = year; };

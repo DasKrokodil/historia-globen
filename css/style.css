@@ -1071,6 +1071,20 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-legend .rl-fade { display: block; margin-top: 6px; padding-top: 4px; border-top: 1px solid var(--line); }
 .religion-legend .rl-fade .link-btn { font: inherit; padding: 0; }
 .religion-legend .rl-body > .rl-fade:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+/* "Läs om religionerna" och tipsraden första gången lagret slås på (#308) */
+.religion-legend .rl-about { display: block; margin: 2px 0 6px; padding: 4px 10px; border-color: var(--brass-deep); }
+.religion-legend .rl-hint {
+  display: flex; align-items: flex-start; gap: 6px; margin: 2px 0 4px; padding: 5px 4px 5px 8px;
+  border: 1px solid var(--brass-deep); border-radius: var(--r); background: var(--night-3);
+  font: 400 11.5px/1.35 var(--f-body); color: var(--parchment);
+}
+.religion-legend .rl-hint-close {
+  flex: none; min-width: 24px; min-height: 24px; margin: -3px 0 -3px auto; padding: 0; border: 0; border-radius: 4px;
+  background: none; color: var(--brass); font: 400 16px/1 var(--f-body); cursor: pointer;
+}
+.religion-legend .rl-hint-close:hover { background: var(--night-2); }
+.religion-legend :is(.rl-hint-close, .rl-about):focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.layer-sub .rel-about { display: block; margin: 6px 10px 2px; padding: 4px 10px; border-color: var(--brass-deep); }
 .religion-pop {
   position: absolute; z-index: 12; width: min(260px, calc(100% - 16px)); box-sizing: border-box;
   background: var(--night-2); border: 1px solid var(--brass-deep); border-radius: var(--r);
@@ -1091,6 +1105,7 @@ details.used-by summary:hover { color: var(--parchment); }
   .religion-legend .rl-body { padding-bottom: 6px; }
   .religion-legend .rl-toggle { min-height: 40px; }
   .religion-legend .swatch { width: 10px; height: 10px; }
+  .religion-legend .rl-hint-close { min-width: 36px; min-height: 36px; }
   .app.panel-open .religion-legend { display: none; }
 }
 
