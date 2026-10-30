@@ -32,13 +32,13 @@ export const CATEGORIES = [
 export const CAT = Object.fromEntries(CATEGORIES.map(c => [c.id, c]));
 
 // Granskningsstatus (källpolicy). Bara kontrollerade uppgifter visas som standard.
+// Nivån säger hur väl källorna är kontrollerade; ingen människogranskning (#252).
 export const REVIEW = {
-  'draft':          { sv: 'Utkast',                          cls: 'draft' },
-  'source-checked': { sv: 'Källa kontrollerad, ej granskad av människa', cls: 'checked' },
-  'two-sources':    { sv: 'Två källor stämmer, ej granskad av människa', cls: 'two' },
-  'human-reviewed': { sv: 'Granskad av människa',            cls: 'human' },
+  'draft':          { sv: 'Utkast',             cls: 'draft' },
+  'source-checked': { sv: 'Källkontrollerad',   cls: 'checked' },
+  'two-sources':    { sv: 'Två källor stämmer', cls: 'two' },
 };
-// Statusraden säger vad statusen gäller (#196): "Fun facten: granskad av människa".
+// Statusraden säger vad statusen gäller (#196): "Fun facten: källkontrollerad".
 // subject = Fun facten, Kriget, Riket, Händelsen, Religionen. Förklaringen visas som tooltip.
 export const REVIEW_SUBJECT_HELP = {
   'Fun facten': 'Statusen gäller själva jämförelsen i kortet. Varje händelse har en egen status i sin faktaruta.',
@@ -52,7 +52,7 @@ export function reviewLabel(status, subject) {
   return `${subject}: ${rv.sv.charAt(0).toLowerCase()}${rv.sv.slice(1)}`;
 }
 export const settings = { showDrafts: false };
-export const isVisibleReview = r => settings.showDrafts || r === 'source-checked' || r === 'two-sources' || r === 'human-reviewed';
+export const isVisibleReview = r => settings.showDrafts || r === 'source-checked' || r === 'two-sources';
 
 // ---------- Världsdelar ----------
 // Grov indelning efter koordinater, för att gruppera listan "Samtidigt i världen" (#120).
@@ -60,7 +60,7 @@ export const isVisibleReview = r => settings.showDrafts || r === 'source-checked
 export const REGIONS = ['Europa', 'Asien', 'Afrika', 'Amerika', 'Oceanien'];
 export function region(lat, lon) {
   if (lat > 50 && (lon < -168 || lon > 160)) return 'Asien'; // Sibiriens östspets och Wrangelön vid datumlinjen
-  if (lon < -120 && lat < 30) return 'Oceanien'; // Hawaii och Stilla havet
+  if (lon < -125 && lat < 35) return 'Oceanien'; // Hawaii, Midway och Stilla havet (Kalifornien ligger öster om -125)
   if (lon < -25) return 'Amerika';
   if ((lat < -10 && lon > 110) || (lat < 0 && lon > 130) || lon > 160) return 'Oceanien';
   const africa = lon >= -20 && lon < 52 && lat > -36 && (
