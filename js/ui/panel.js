@@ -1,6 +1,6 @@
 // "Samtidigt i världen": lista över synliga händelser per världsdel, kategorifilter
 // (som ligger i lagermenyn, #120) och faktarutan.
-import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, symbolImg } from '../model.js';
+import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg } from '../model.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -26,6 +26,20 @@ export function figure(e, srcById) {
 
 /** Diskret knapp "Rapportera faktafel" nedtill i faktarutan, bredvid granskningsstatusen. */
 const reportBtn = e => `<button type="button" class="link-btn report-btn" data-report="${esc(e.id)}" aria-haspopup="dialog" aria-controls="feedback">Rapportera faktafel</button>`;
+
+/**
+ * Granskningsstatusen nedtill i faktarutan, med en liten (i)-knapp (#310) som fäller ut vad statusarna betyder
+ * och en knapp till Om källorna. Förklaringen ligger sist i raden och tar en egen rad.
+ */
+const reviewRow = (status, subj) => {
+  const rv = REVIEW[status] ?? REVIEW.draft;
+  return `<span class="review-badge ${rv.cls}" title="${esc(REVIEW_SUBJECT_HELP[subj])}">${esc(reviewLabel(status, subj))}</span>
+    <button type="button" class="review-info" data-review-info aria-expanded="false" aria-controls="review-help" aria-label="Vad betyder granskningsstatusen?" title="Vad betyder granskningsstatusen?">i</button>
+    <div id="review-help" class="review-help" hidden>
+      <ul>${REVIEW_HELP.map(h => `<li><b>${esc(REVIEW[h.status].sv)}:</b> ${esc(h.text)}</li>`).join('')}</ul>
+      <button type="button" class="link-btn" data-review-sources>Om källorna</button>
+    </div>`;
+};
 
 export class Panel {
   constructor({ root, list, filters, detail, sub, count, toggle, close }, { events, srcById, styles }) {
@@ -177,7 +191,6 @@ export class Panel {
    * mapNote = förklaring om var kartans gränser kommer ifrån (riken: Cliopatria).
    */
   showFacts({ kind, name, color, symbol = '', facts: f, origin = null, place = origin, milestonesTitle = 'Nyckelår', mapNote = '' }) {
-    const rv = REVIEW[f.review] ?? REVIEW.draft;
     const subj = kind === 'Rike' ? 'Riket' : 'Religionen';
     const srcs = [...new Set([...(f.sources ?? []), ...(f.milestones ?? []).flatMap(m => m.sources ?? [])])]
       .map(id => this.srcById[id]).filter(Boolean);
@@ -196,20 +209,37 @@ export class Panel {
       ${mapNote ? `<aside class="detail-note"><h4>Om kartan</h4><p>${esc(mapNote)}</p></aside>` : ''}
       <div class="src">Källa: ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || 'saknas'}</div>
       <div class="detail-actions">
-        <span class="review-badge ${rv.cls}" title="${esc(REVIEW_SUBJECT_HELP[subj])}">${esc(reviewLabel(f.review, subj))}</span>
+        ${reviewRow(f.review, subj)}
       </div>`;
     this.detail.hidden = false;
     this.detail.scrollTop = 0; // efter hidden, annars behåller kortet förra läget
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
     for (const b of this.detail.querySelectorAll('[data-year]')) b.addEventListener('click', () => this.onYear(Number(b.dataset.year)));
+    this.bindReviewInfo();
+  }
+
+  /**
+   * (i)-knappen vid granskningsstatusen (#310): fäller ut och in förklaringen. Escape stänger först förklaringen
+   * och lämnar fokus på knappen; faktarutan stängs först vid nästa Escape.
+   */
+  bindReviewInfo() {
+    const btn = this.detail.querySelector('[data-review-info]'), box = this.detail.querySelector('#review-help');
+    if (!btn || !box) return;
+    const set = open => { box.hidden = !open; btn.setAttribute('aria-expanded', String(open)); };
+    btn.addEventListener('click', () => set(box.hidden));
+    box.querySelector('[data-review-sources]').addEventListener('click', () => { set(false); this.onSources(); });
+    this.detail.querySelector('.detail-actions').addEventListener('keydown', ev => {
+      if (ev.key !== 'Escape' || box.hidden) return;
+      ev.preventDefault(); ev.stopPropagation();
+      set(false); btn.focus({ preventScroll: true });
+    });
   }
 
   /** Faktarutan är ett eget kort (#112). show = false markerar händelsen utan att visa kortet. */
   showDetail(e, show = true) {
     this.selectedId = e?.id ?? null;
     if (!e || !show) { this.detail.hidden = true; return; }
-    const rv = REVIEW[e.review] ?? REVIEW.draft;
     // Wikidata länkas till händelsens egen post
     const srcs = (e.sources ?? []).map(id => id === 'wikidata' && e.wikidata
       ? { title: `Wikidata ${e.wikidata}`, url: `https://www.wikidata.org/wiki/${e.wikidata}` }
@@ -231,7 +261,7 @@ export class Panel {
         `<li><button type="button" class="link-btn" data-goto="${esc(b.id)}">${esc(t(b.title))}</button> <span class="meta">${esc(formatEventTime(b))}</span></li>`).join('')}</ol></div>` : ''}
       <div class="src">Källa: ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || 'saknas'}</div>
       <div class="detail-actions">
-        <span class="review-badge ${rv.cls}" title="${esc(REVIEW_SUBJECT_HELP['Händelsen'])}">${esc(reviewLabel(e.review, 'Händelsen'))}</span>
+        ${reviewRow(e.review, 'Händelsen')}
         ${this.onReport ? reportBtn(e) : ''}
       </div>`;
     this.detail.scrollTop = 0;
@@ -240,5 +270,6 @@ export class Panel {
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
     this.detail.querySelector('[data-focus]')?.addEventListener('click', ev => this.onFocus(ev.currentTarget.dataset.focus));
     this.bindReport(e);
+    this.bindReviewInfo();
   }
 }

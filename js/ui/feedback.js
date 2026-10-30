@@ -67,6 +67,7 @@ export class Feedback {
     for (const c of FEEDBACK_CATEGORIES) this.category.add(new Option(c.label, c.id));
 
     this.closeBtn.addEventListener('click', () => this.close());
+    $('fb-cancel').addEventListener('click', () => this.close()); // Avbryt i den fasta raden nedtill (#310), samma som Stäng
     $('fb-done-close').addEventListener('click', () => this.close());
     $('fb-again').addEventListener('click', () => { this.done.hidden = true; this.form.hidden = false; this.category.focus(); });
     this.category.addEventListener('change', () => { this.renderEvent(); this.clearError('category'); });
