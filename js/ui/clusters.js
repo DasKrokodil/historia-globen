@@ -32,3 +32,27 @@ export function cluster(items) {
   for (const gr of groups) (gr.members.length > 1 ? clusters : singles).push(gr.members.length > 1 ? gr : gr.members[0]);
   return { singles, clusters };
 }
+
+/**
+ * Vad klungan innehåller (#243): antal per kategori, flest först. Returnerar texten ("3 krigshändelser,
+ * 2 riken och civilisationer, 1 religiös händelse") och en conic-gradient för ringen, med ett färgsegment per
+ * kategori i proportion till antalet och en smal mörk springa mellan segmenten.
+ */
+export function clusterContents(members, CAT, t) {
+  const counts = new Map();
+  for (const m of members) counts.set(m.e.category, (counts.get(m.e.category) ?? 0) + 1);
+  const rows = [...counts].sort((a, b) => b[1] - a[1]);
+  const text = rows.map(([c, n]) => {
+    const [one, many] = t(CAT[c]?.count) || ['händelse', 'händelser'];
+    return `${n} ${n === 1 ? one : many}`;
+  }).join(', ');
+  const gap = rows.length > 1 ? 4 : 0; // grader
+  let at = 0;
+  const stops = rows.map(([c, n]) => {
+    const deg = n / members.length * 360, col = CAT[c]?.color ?? '#d6b06a';
+    const s = `${col} ${at.toFixed(1)}deg ${(at + deg - gap).toFixed(1)}deg${gap ? `, var(--night) ${(at + deg - gap).toFixed(1)}deg ${(at + deg).toFixed(1)}deg` : ''}`;
+    at += deg;
+    return s;
+  });
+  return { text, ring: `conic-gradient(${stops.join(', ')})` };
+}

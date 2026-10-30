@@ -33,7 +33,7 @@ Alla datafiler i `data/` och deras fält. Standarderna (årtal, osäkerhet, prec
 |---|---|
 | `locationPrecision` | `region` eller `country` när platsen är ungefärlig |
 | `wikidata` | Q-id, bara om det är kontrollerat eller kommer från en källa vi litar på |
-| `icon` | Ikonens namn i `img/icons/`, till exempel `swords`, `crown`, `star` |
+| `icon` | Ikonens namn i `img/icons/`, till exempel `swords`, `crown`, `star`, `treaty` (fredsavtal, vapenstillestånd och kapitulationer: dokument med sigill, #242) |
 | `kind` | `"war"` för ett krig, med start och slut som spann |
 | `partOf` | Krigets id, för slag och andra händelser i ett krig |
 | `top` | `true` för krigets enda viktigaste händelse, som syns utzoomat |
