@@ -117,9 +117,9 @@ Jobbet **"Bygg och validera dist/"** kör också testerna för förslagens serve
 
 Bara pull requests mot `production` får dessutom kontrollen **"Release kommer från main"**. Den underkänner pull requesten om
 - den inte kommer från grenen `main` i samma repo, eller
-- `production` har commits som saknas i `main`, till exempel efter ett nödläge (se [Rollback](#rollback-till-en-tidigare-release)). Kontrollen skriver också ut vilka ändringar som släpps.
+- `production` har ändringar som saknas i `main`, till exempel efter ett nödläge (se [Rollback](#rollback-till-en-tidigare-release)). Merge-commitarna som varje release ger i `production` är tillåtna, så länge de bara för in det som finns i `main` (`scripts/production-i-main.sh`). Kontrollen skriver också ut vilka ändringar som släpps.
 
-`.github/workflows/release.yml`, **Skapa release**, körs för hand från grenen `production` (Actions → Skapa release → Run workflow, "Use workflow from: production", versionsnummer `vX.Y.Z`). Den bygger och validerar `production`, kontrollerar att numret har rätt form och inte redan finns, och skapar sedan taggen och en GitHub Release med automatiska anteckningar. Den ändrar inget innehåll i `production` och publicerar inget; publiceringen har redan skett när release-PR:en slogs ihop.
+`.github/workflows/release.yml`, **Skapa release**, körs för hand från grenen `production` (Actions → Skapa release → Run workflow, "Use workflow from: production", versionsnummer `vX.Y.Z`). Den bygger och validerar `production`, kontrollerar att numret har rätt form och inte redan finns, kontrollerar med `scripts/production-i-main.sh` att `production` bara innehåller det som finns i `main`, och skapar sedan taggen och en GitHub Release med automatiska anteckningar. Den ändrar inget innehåll i `production` och publicerar inget; publiceringen har redan skett när release-PR:en slogs ihop.
 
 Mallen `.github/PULL_REQUEST_TEMPLATE/release.md` är releasechecklistan. Den används när release-PR:en öppnas med `?template=release.md` (se nedan).
 
