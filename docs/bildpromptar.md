@@ -11,7 +11,7 @@ Sök alltid efter en riktig public domain-bild på Wikimedia Commons först.
 - Fil: `images/events/nintendo.webp`
 
 ```text
-Style: Japanese ukiyo-e woodblock print, bold outlines, flat colour areas, Prussian blue and vermilion, wave and cloud patterns. Subject: Nintendo grundas — Kyoto, Japan, 1889 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: Japanese ukiyo-e woodblock print, bold outlines, flat colour areas, Prussian blue and vermilion, wave and cloud patterns. Subject: Nintendo grundas — Kyoto, Japan, 1889 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Eiffeltornet står klart (`eiffeltornet`)
@@ -21,7 +21,7 @@ Style: Japanese ukiyo-e woodblock print, bold outlines, flat colour areas, Pruss
 - Fil: `images/events/eiffeltornet.webp`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Eiffeltornet står klart — Paris, Frankrike, 1889 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Eiffeltornet står klart — Paris, Frankrike, 1889 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Cervantes dör (`cervantes-dor`)
@@ -31,7 +31,7 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 - Fil: `images/events/cervantes-dor.webp`
 
 ```text
-Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Cervantes dör — Madrid, Spanien, 1616 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Cervantes dör — Madrid, Spanien, 1616 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Shakespeare dör (`shakespeare-dor`)
@@ -41,7 +41,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Fil: `images/events/shakespeare-dor.webp`
 
 ```text
-Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Shakespeare dör — Stratford-upon-Avon, England, 1616 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Shakespeare dör — Stratford-upon-Avon, England, 1616 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Tokugawa Ieyasu dör (`ieyasu-dor`)
@@ -51,7 +51,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Fil: `images/events/ieyasu-dor.webp`
 
 ```text
-Style: Japanese ukiyo-e woodblock print, bold outlines, flat colour areas, Prussian blue and vermilion, wave and cloud patterns. Subject: Tokugawa Ieyasu dör — Sunpu, Japan, 1616 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: Japanese ukiyo-e woodblock print, bold outlines, flat colour areas, Prussian blue and vermilion, wave and cloud patterns. Subject: Tokugawa Ieyasu dör — Sunpu, Japan, 1616 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Abraham Lincoln föds (`lincoln-fods`)
@@ -61,7 +61,7 @@ Style: Japanese ukiyo-e woodblock print, bold outlines, flat colour areas, Pruss
 - Fil: `images/events/lincoln-fods.webp`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Abraham Lincoln föds — LaRue County, Kentucky, USA, 1809 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Abraham Lincoln föds — LaRue County, Kentucky, USA, 1809 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Charles Darwin föds (`darwin-fods`)
@@ -71,7 +71,7 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 - Fil: `images/events/darwin-fods.webp`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Charles Darwin föds — Shrewsbury, England, 1809 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Charles Darwin föds — Shrewsbury, England, 1809 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Mansa Musa i Kairo (`mansa-musa-kairo`)
@@ -81,7 +81,7 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 - Fil: `images/events/mansa-musa-kairo.webp`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Mansa Musa i Kairo — Kairo, Egypten, 1324 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Mansa Musa i Kairo — Kairo, Egypten, 1324 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Ibn Battuta ger sig av (`ibn-battuta-resa`)
@@ -91,7 +91,7 @@ Style: Islamic art: intricate geometric tile patterns, arabesques and decorative
 - Fil: `images/events/ibn-battuta-resa.webp`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Ibn Battuta ger sig av — Tanger, Marocko, 1325 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Ibn Battuta ger sig av — Tanger, Marocko, 1325 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Taj Mahal byggs (`taj-mahal`)
@@ -101,7 +101,7 @@ Style: Islamic art: intricate geometric tile patterns, arabesques and decorative
 - Fil: `images/events/taj-mahal.webp`
 
 ```text
-Style: Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold borders, elevated viewpoint, intricate patterns. Subject: Taj Mahal byggs — Agra, Indien, 1632 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold borders, elevated viewpoint, intricate patterns. Subject: Taj Mahal byggs — Agra, Indien, 1632 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Sista avrättningen med giljotin (`sista-giljotinen`)
@@ -111,7 +111,7 @@ Style: Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold b
 - Fil: `images/events/sista-giljotinen.webp`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Sista avrättningen med giljotin — Baumettesfängelset, Marseille, Frankrike, 1977 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Sista avrättningen med giljotin — Baumettesfängelset, Marseille, Frankrike, 1977 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Star Wars har premiär (`star-wars`)
@@ -121,7 +121,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Fil: `images/events/star-wars.webp`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Star Wars har premiär — USA, 1977 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Star Wars har premiär — USA, 1977 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Trettioåriga kriget (`trettioariga-kriget`)
@@ -131,7 +131,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Fil: `images/events/trettioariga-kriget.webp`
 
 ```text
-Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Trettioåriga kriget — Centraleuropa (började i Prag), 1618 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Trettioåriga kriget — Centraleuropa (började i Prag), 1618 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Defenestrationen i Prag (`defenestrationen-1618`)
@@ -141,7 +141,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Fil: `images/events/defenestrationen-1618.webp`
 
 ```text
-Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Defenestrationen i Prag — Prag, Böhmen, 1618 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Defenestrationen i Prag — Prag, Böhmen, 1618 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Slaget vid Vita berget (`slaget-vid-vita-berget`)
@@ -151,7 +151,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Fil: `images/events/slaget-vid-vita-berget.webp`
 
 ```text
-Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Slaget vid Vita berget — Vita berget nära Prag, Böhmen, 1620 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Slaget vid Vita berget — Vita berget nära Prag, Böhmen, 1620 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Slaget vid Breitenfeld (`slaget-vid-breitenfeld-1631`)
@@ -161,7 +161,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Fil: `images/events/slaget-vid-breitenfeld-1631.webp`
 
 ```text
-Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Slaget vid Breitenfeld — Breitenfeld vid Leipzig, Sachsen, 1631 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Slaget vid Breitenfeld — Breitenfeld vid Leipzig, Sachsen, 1631 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Gustav II Adolf stupar vid Lützen (`slaget-vid-lutzen-1632`)
@@ -171,7 +171,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Fil: `images/events/slaget-vid-lutzen-1632.webp`
 
 ```text
-Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Gustav II Adolf stupar vid Lützen — Lützen, Sachsen, 1632 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Gustav II Adolf stupar vid Lützen — Lützen, Sachsen, 1632 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Slaget vid Nördlingen (`slaget-vid-nordlingen-1634`)
@@ -181,7 +181,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Fil: `images/events/slaget-vid-nordlingen-1634.webp`
 
 ```text
-Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Slaget vid Nördlingen — Nördlingen, Bayern, 1634 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Slaget vid Nördlingen — Nördlingen, Bayern, 1634 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Slaget vid Wittstock (`slaget-vid-wittstock`)
@@ -191,7 +191,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Fil: `images/events/slaget-vid-wittstock.webp`
 
 ```text
-Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Slaget vid Wittstock — Wittstock, Brandenburg, 1636 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Slaget vid Wittstock — Wittstock, Brandenburg, 1636 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Slaget vid Rocroi (`slaget-vid-rocroi`)
@@ -201,7 +201,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Fil: `images/events/slaget-vid-rocroi.webp`
 
 ```text
-Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Slaget vid Rocroi — Rocroi, Frankrike, 1643 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Slaget vid Rocroi — Rocroi, Frankrike, 1643 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Slaget vid Jankau (`slaget-vid-jankau`)
@@ -211,7 +211,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Fil: `images/events/slaget-vid-jankau.webp`
 
 ```text
-Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Slaget vid Jankau — Jankov, Böhmen, 1645 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Slaget vid Jankau — Jankov, Böhmen, 1645 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Westfaliska freden (`westfaliska-freden`)
@@ -221,7 +221,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Fil: `images/events/westfaliska-freden.webp`
 
 ```text
-Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Westfaliska freden — Osnabrück och Münster, Westfalen, 1648 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Westfaliska freden — Osnabrück och Münster, Westfalen, 1648 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Jesus föds (`jesu-fodelse`)
@@ -231,7 +231,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Fil: `images/events/jesu-fodelse.webp`
 
 ```text
-Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Jesus föds — Betlehem enligt evangelierna, 6 BCE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Jesus föds — Betlehem enligt evangelierna, 6 BCE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Jesus korsfästs (`korsfastelsen`)
@@ -241,7 +241,7 @@ Style: ancient Greek red-figure and black-figure vase painting, or Roman floor m
 - Fil: `images/events/korsfastelsen.webp`
 
 ```text
-Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Jesus korsfästs — Jerusalem, 30 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Jesus korsfästs — Jerusalem, 30 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Islams början: Muhammeds första uppenbarelse (`muhammeds-forsta-uppenbarelse`)
@@ -251,7 +251,7 @@ Style: ancient Greek red-figure and black-figure vase painting, or Roman floor m
 - Fil: `images/events/muhammeds-forsta-uppenbarelse.webp`
 
 ```text
-Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: Islams början: Muhammeds första uppenbarelse — Grottan Hira på berget Jabal al-Nour, nära Mecka, 610 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: Islams början: Muhammeds första uppenbarelse — Grottan Hira på berget Jabal al-Nour, nära Mecka, 610 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Buddha grundar buddhismen (`buddha`)
@@ -261,7 +261,7 @@ Style: early medieval art: Byzantine icon with gold leaf background, or Insular 
 - Fil: `images/events/buddha.webp`
 
 ```text
-Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Buddha grundar buddhismen — Bodh Gaya i dagens Bihar, Indien, 600 BCE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Buddha grundar buddhismen — Bodh Gaya i dagens Bihar, Indien, 600 BCE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Guru Nanak grundar sikhismen (`guru-nanak`)
@@ -271,5 +271,5 @@ Style: ancient Egyptian wall painting and papyrus illustration, flat profile fig
 - Fil: `images/events/guru-nanak.webp`
 
 ```text
-Style: Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold borders, elevated viewpoint, intricate patterns. Subject: Guru Nanak grundar sikhismen — Punjab (född i dagens Nankana Sahib, Pakistan), 1469 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; no close-up faces of real people; convey mood and setting rather than invented details.
+Style: Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold borders, elevated viewpoint, intricate patterns. Subject: Guru Nanak grundar sikhismen — Punjab (född i dagens Nankana Sahib, Pakistan), 1469 CE. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
