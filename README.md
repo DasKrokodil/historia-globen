@@ -55,6 +55,9 @@ data/religions-polities.json  varje rikes gräns i religionslagret, för klickru
 data/styles.json      bildstilar efter tidsålder och plats
 data/utkast/          utkast från massimport som inte är källkontrollerade; appen läser dem inte
 tools/hced.py         gör om Historical Conflict Event Dataset till utkast i data/utkast/hced.json
+scripts/build-site.sh kopierar webbplatsens filer till dist/ för publicering och kör kontrollerna (docs/DEPLOYMENT.md)
+scripts/validate-site.py  kontrollerar dist/: JSON, filreferenser och att inga interna filer följer med
+.github/workflows/    GitHub Actions: bygger och kontrollerar dist/ vid push till main och PR mot main och production
 ```
 
 ## Principer

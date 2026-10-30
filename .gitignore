@@ -1,0 +1,6 @@
+# Den byggda webbplatsen (scripts/build-site.sh). Byggs i GitHub Actions och vid publicering, committas inte.
+dist/
+
+# Pythons cachefiler från tools/ och scripts/
+__pycache__/
+*.pyc
