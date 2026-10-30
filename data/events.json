@@ -2132,7 +2132,7 @@
       "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Wikipedia anger den 13 mars 1591 och Wikidata den 12 mars 1591. Ingen av dem har en koordinat, så punkten kommer från Historical Conflict Event Dataset och är ungefärlig." } },
       "wikidata": "Q589285", "sources": ["wp-battle-tondibi", "wikidata", "whg-hced"], "review": "source-checked" },
 
-    { "id": "katamansokriget", "category": "krig", "icon": "swords", "start": 1826, "end": 1826, "precision": 11, "edtf": "1826-08-07",
+    { "id": "slaget-vid-dodowa", "category": "krig", "icon": "swords", "start": 1826, "end": 1826, "precision": 11, "edtf": "1826-08-07",
       "location": { "type": "Point", "coordinates": [-0.0917, 5.8833] }, "locationPrecision": "region", "place": { "sv": "Katamanso vid Dodowa, nära Accra, Ghana" },
       "title": { "sv": "Slaget vid Dodowa (Katamanso)" },
       "summary": { "sv": "Den 7 augusti 1826 möter ashantirikets armé under kung Osei Yaw Akoto en allians av folk från Guldkusten, bland dem fante, ga, akyem och ada, med stöd av britter, danskar och nederländare. Ashanti förlorar, och segern hindrar riket från att ta makten över kusten." },
@@ -2196,6 +2196,32 @@
       "summary": { "sv": "Under Taurangafälttåget i Nyazeeländska krigen bygger omkring 230 maorikrigare, mest ngāi te rangi, en befäst kulle vid Pukehinahina. Den 29 april 1864 beskjuter omkring 1 650 brittiska soldater fästet i över åtta timmar och stormar det sedan, men slås tillbaka med 31 döda och 80 sårade. Nederlaget blir förödmjukande för britterna." },
       "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Historical Conflict Event Dataset placerar slaget nära Wellington, omkring 500 km bort. Wikipedia beskriver slaget i Tauranga, och punkten är förorten Gate Pa i Tauranga enligt Wikipedia. Slaget har ingen egen post i Wikidata som gick att hitta." } },
       "sources": ["wp-tauranga-campaign", "wp-gate-pa", "whg-hced"], "review": "source-checked" },
+
+    { "id": "slaget-vid-milne-bay", "category": "krig", "icon": "swords", "partOf": "andra-varldskriget", "start": 1942, "end": 1942, "precision": 11, "edtf": "1942-08-25/1942-09-07",
+      "location": { "type": "Point", "coordinates": [150.48, -10.32] }, "place": { "sv": "Milne Bay på Nya Guineas östspets, Papua Nya Guinea" },
+      "title": { "sv": "Slaget vid Milne Bay" },
+      "summary": { "sv": "Den 25 augusti 1942 landstiger japanska marininfanterister vid Milne Bay för att ta de allierades flygfält där. Japanerna har underskattat den mest australiska garnisonen, och efter hårda strider och stora förluster drar de sig tillbaka den 7 september. Slaget beskrivs ofta som det första stora slaget i Stillahavskriget där allierade trupper slog japanska landstyrkor avgörande." },
+      "wikidata": "Q113621", "sources": ["wp-milne-bay", "wikidata", "whg-hced"], "review": "two-sources" },
+
+    { "id": "kokodafalttaget", "category": "krig", "icon": "swords", "partOf": "andra-varldskriget", "start": 1942, "end": 1942, "precision": 11, "edtf": "1942-07-21/1942-11-16",
+      "location": { "type": "Point", "coordinates": [147.7375, -8.8778] }, "place": { "sv": "Kokodaleden över Owen Stanley-bergen, Papua Nya Guinea" },
+      "title": { "sv": "Kokodafälttåget" },
+      "summary": { "sv": "Från den 21 juli till den 16 november 1942 strider japanska trupper mot australiska och papuanska styrkor längs Kokodaleden över Owen Stanley-bergen. Japanerna vill nå Port Moresby landvägen från nordkusten och kommer inom synhåll för staden, men drar sig tillbaka i slutet av september. Australierna förföljer dem, och fälttåget slutar med allierad seger." },
+      "wikidata": "Q2299343", "sources": ["wp-kokoda-campaign", "wikidata", "whg-hced"], "review": "two-sources" },
+
+    { "id": "slaget-vid-allia", "category": "krig", "icon": "swords", "start": -386, "end": -386, "precision": 9, "edtf": "-0386?",
+      "location": { "type": "Point", "coordinates": [12.52, 42.0175] }, "place": { "sv": "Floden Allia norr om Rom, Italien" },
+      "title": { "sv": "Slaget vid Allia" },
+      "summary": { "sv": "Senonerna, ett galliskt folk under Brennus som har gått in i norra Italien, besegrar den romerska republikens armé vid floden Allia nära Rom. Slaget brukar dateras till 390 f.Kr. enligt traditionen, men troligen stod det 387 f.Kr." },
+      "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Wikipedia anger 387 f.Kr. som troligt år och 390 f.Kr. som det traditionella. Wikidata har båda åren, och Historical Conflict Event Dataset anger 390 f.Kr. Vi visar 387 f.Kr. med osäkerhet." } },
+      "wikidata": "Q655777", "sources": ["wp-battle-allia", "wikidata", "whg-hced"], "review": "source-checked" },
+
+    { "id": "slaget-vid-landskrona", "category": "krig", "icon": "swords", "start": 1677, "end": 1677, "precision": 11, "edtf": "1677-07-14",
+      "location": { "type": "Point", "coordinates": [12.9833, 55.9] }, "place": { "sv": "Ylleshed utanför Landskrona, Skåne" },
+      "title": { "sv": "Slaget vid Landskrona" },
+      "summary": { "sv": "Under skånska kriget möts Sveriges och Danmarks arméer på Yllesheds hed utanför Landskrona den 14 juli 1677. Den svenska armén, förstärkt med 4 000 bönder från Småland, hade marscherat söderut för att anfalla danskarna innan förstärkningar hann fram. Sverige vinner." },
+      "note": { "title": { "sv": "Om kalendern" }, "text": { "sv": "Wikipedia anger den 14 juli 1677. Wikidata anger två datum, 14 och 24 juli 1677. Skillnaden på tio dagar beror troligen på att datumet räknats i olika kalendrar (juliansk och gregoriansk). Vi visar datumet som Wikipedia skriver det." } },
+      "wikidata": "Q2889107", "sources": ["wp-battle-landskrona", "wikidata", "whg-hced"], "review": "two-sources" },
 
     { "id": "cervantes-dor", "category": "kultur", "icon": "book", "start": 1616, "end": 1616, "precision": 11, "edtf": "1616-04-22",
       "location": { "type": "Point", "coordinates": [-3.703, 40.417] }, "place": { "sv": "Madrid, Spanien" },
