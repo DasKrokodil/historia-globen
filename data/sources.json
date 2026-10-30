@@ -505,6 +505,16 @@
     { "id": "commons-giotto-nativity", "title": "Giotto – Scrovegni – Nativity, Birth of Jesus, fresk 1306 (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:Giotto_-_Scrovegni_-_-17-_-_Nativity,_Birth_of_Jesus.jpg", "license": "Public domain", "checked": "2026-10-29" },
     { "id": "commons-prager-fenstersturz-1618", "title": "Prager Fenstersturz 1618 – kopparstick av Matthäus Merian i Theatrum Europaeum (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:Prager.Fenstersturz.1618.jpg", "license": "Public domain", "checked": "2026-10-29" },
     { "id": "commons-bodh-gaya-1810", "title": "A small temple beneath the Bodhi tree, Bodh Gaya, c. 1810 – British Library (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:A_small_temple_beneath_the_Bodhi_tree,_Bodh_Gaya,_c._1810.jpg", "license": "Public domain", "checked": "2026-10-29" },
-    { "id": "commons-catalan-atlas-mansa-musa", "title": "Catalan Atlas, BnF, blad 6: Mansa Musa, 1375 (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:Catalan_Atlas_BNF_Sheet_6_Mansa_Musa.jpg", "license": "Public domain", "checked": "2026-10-29" }
+    { "id": "commons-catalan-atlas-mansa-musa", "title": "Catalan Atlas, BnF, blad 6: Mansa Musa, 1375 (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:Catalan_Atlas_BNF_Sheet_6_Mansa_Musa.jpg", "license": "Public domain", "checked": "2026-10-29" },
+    { "id": "wp-islam", "title": "Islam – Wikipedia (antal troende och andel för 2020)", "url": "https://en.wikipedia.org/wiki/Islam", "license": "CC BY-SA 4.0", "checked": "2026-10-30" },
+    { "id": "wp-buddhism", "title": "Buddhism – Wikipedia (antal troende enligt Pew Research Center, uppgift för 2020)", "url": "https://en.wikipedia.org/wiki/Buddhism", "license": "CC BY-SA 4.0", "checked": "2026-10-30" },
+    { "id": "wp-hinduism", "title": "Hinduism – Wikipedia (antal troende enligt Pew Research Center, uppgift för 2020)", "url": "https://en.wikipedia.org/wiki/Hinduism", "license": "CC BY-SA 4.0", "checked": "2026-10-30" },
+    { "id": "wp-judaism", "title": "Judaism – Wikipedia (antal judar enligt Pew Research Center, uppgift för 2020)", "url": "https://en.wikipedia.org/wiki/Judaism", "license": "CC BY-SA 4.0", "checked": "2026-10-30" },
+    { "id": "wp-origins-judaism", "title": "Origins of Judaism – Wikipedia", "url": "https://en.wikipedia.org/wiki/Origins_of_Judaism", "license": "CC BY-SA 4.0", "checked": "2026-10-30" },
+    { "id": "wp-himyarite-kingdom", "title": "Himyarite Kingdom – Wikipedia", "url": "https://en.wikipedia.org/wiki/Himyarite_Kingdom", "license": "CC BY-SA 4.0", "checked": "2026-10-30" },
+    { "id": "wp-ashoka", "title": "Ashoka – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ashoka", "license": "CC BY-SA 4.0", "checked": "2026-10-30" },
+    { "id": "wp-safavid-shia", "title": "Safavid conversion of Iran to Shia Islam – Wikipedia", "url": "https://en.wikipedia.org/wiki/Safavid_conversion_of_Iran_to_Shia_Islam", "license": "CC BY-SA 4.0", "checked": "2026-10-30" },
+    { "id": "wp-hinduism-nepal", "title": "Hinduism in Nepal – Wikipedia", "url": "https://en.wikipedia.org/wiki/Hinduism_in_Nepal", "license": "CC BY-SA 4.0", "checked": "2026-10-30" },
+    { "id": "wp-sikh-empire", "title": "Sikh Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Sikh_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-30" }
   ]
 }
