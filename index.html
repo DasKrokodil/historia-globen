@@ -158,9 +158,16 @@
     <div id="pause-note" class="pause-note" role="status" hidden>
       <span id="pause-text"></span>
       <span id="pause-next" class="pause-next" hidden></span>
+      <button id="pause-finish" class="pause-finish" type="button" hidden>Spela klart &#9654;</button>
       <button id="pause-go" class="pause-go" type="button">&#9654; Fortsätt</button>
     </div>
     <div class="controls">
+      <div id="war-play" class="war-play" hidden>
+        <span class="wp-label">Pauser:</span>
+        <span id="wp-major" class="wp-item"></span>
+        <span id="wp-ff" class="wp-item"></span>
+        <button id="wp-finish" class="wp-finish" type="button">Spela klart &#9654;</button>
+      </div>
       <button class="step" type="button" data-step="-100" aria-label="100 år bakåt">−100</button>
       <button class="step" type="button" data-step="-10" aria-label="10 år bakåt">−10</button>
       <button class="step" type="button" data-step="-1" aria-label="1 år bakåt">−1</button>
@@ -176,7 +183,9 @@
     <div id="track" class="track" role="slider" tabindex="0" aria-label="År" aria-valuemin="-2999" aria-valuemax="2026">
       <div class="track-segments" id="track-segments"></div>
       <div class="track-dots" id="track-dots"></div>
+      <div class="track-chapters" id="track-chapters"></div>
       <div class="track-ff" id="track-ff"></div>
+      <div class="track-war" id="track-war"></div>
       <div class="thumb" id="thumb"><span class="thumb-line"></span></div>
       <div class="ticks" id="ticks"></div>
     </div>
