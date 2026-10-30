@@ -36,7 +36,7 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
 - **Modeller:** arbetare får en billigare modell för rutinändringar i kod och utseende. **Undantag (källpolicyn):**
   issues med etiketten `data`, `faktafel` eller `källkontroll`, och allt som lägger in eller ändrar fakta, årtal,
   platser eller källor, görs av dirigenten själv eller av en arbetare med samma modell som dirigenten. Källsidan
-  öppnas alltid. Ingen uppgift skrivs ur minnet, och nivån `human-reviewed` sätts aldrig.
+  öppnas alltid. Ingen uppgift skrivs ur minnet. Nivåerna är `draft`, `source-checked` och `two-sources`; det finns ingen människogranskning (#252).
 - **Personuppgifter:** arbetare och dirigent skickar aldrig Rikards namn, e-postadress eller andra personuppgifter till
   externa tjänster, till exempel i en User-Agent, en URL eller en förfrågan. Behöver en tjänst en kontaktuppgift används
   projektets namn och repots adress (`Historia-globen (https://github.com/DasKrokodil/historia-globen)`).

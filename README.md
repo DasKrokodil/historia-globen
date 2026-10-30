@@ -78,7 +78,7 @@ Alla fält och filer beskrivs i [docs/datamodell.md](docs/datamodell.md).
 ## Källpolicy
 
 1. Varje uppgift har minst en källa i `data/sources.json`, med länk och datum då den kontrollerades.
-2. Varje uppgift har en granskningsstatus: `draft`, `source-checked`, `two-sources` eller `human-reviewed`. Utkast visas inte.
+2. Varje uppgift har en granskningsstatus: `draft`, `source-checked` eller `two-sources`. Utkast visas inte. Är källorna oense står det öppet.
 3. Uppgifter som föreslås av AI är utkast tills källan är öppnad och stämmer.
 4. Osäkerhet visas öppet, till exempel "cirka" eller ett spann.
 5. En fun fact som jämför två saker har källa för båda leden.

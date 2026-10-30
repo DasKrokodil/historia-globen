@@ -365,7 +365,6 @@ body {
   color: var(--parchment-dim);
 }
 .review-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--brass); }
-.review-badge.human::before { background: var(--ok); }
 .review-badge.two::before { background: var(--ok); box-shadow: 4px 0 0 var(--brass); margin-right: 4px; }
 .review-badge.draft::before { background: var(--danger); }
 
@@ -598,7 +597,6 @@ body {
 .lv-txt i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
 .lv-checked { background: var(--brass-deep); }
 .lv-two { background: var(--brass); }
-.lv-human { background: var(--ok); }
 .lv-draft { background: var(--parchment-dim); }
 .src-search { display: flex; align-items: center; gap: 8px; }
 .src-search label { font: 500 11px/1 var(--f-mono); text-transform: uppercase; letter-spacing: .05em; color: var(--parchment-dim); }

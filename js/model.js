@@ -32,13 +32,13 @@ export const CATEGORIES = [
 export const CAT = Object.fromEntries(CATEGORIES.map(c => [c.id, c]));
 
 // Granskningsstatus (källpolicy). Bara kontrollerade uppgifter visas som standard.
+// Nivån säger hur väl källorna är kontrollerade; ingen människogranskning (#252).
 export const REVIEW = {
-  'draft':          { sv: 'Utkast',                          cls: 'draft' },
-  'source-checked': { sv: 'Källa kontrollerad, ej granskad av människa', cls: 'checked' },
-  'two-sources':    { sv: 'Två källor stämmer, ej granskad av människa', cls: 'two' },
-  'human-reviewed': { sv: 'Granskad av människa',            cls: 'human' },
+  'draft':          { sv: 'Utkast',             cls: 'draft' },
+  'source-checked': { sv: 'Källkontrollerad',   cls: 'checked' },
+  'two-sources':    { sv: 'Två källor stämmer', cls: 'two' },
 };
-// Statusraden säger vad statusen gäller (#196): "Fun facten: granskad av människa".
+// Statusraden säger vad statusen gäller (#196): "Fun facten: källkontrollerad".
 // subject = Fun facten, Kriget, Riket, Händelsen, Religionen. Förklaringen visas som tooltip.
 export const REVIEW_SUBJECT_HELP = {
   'Fun facten': 'Statusen gäller själva jämförelsen i kortet. Varje händelse har en egen status i sin faktaruta.',
@@ -52,7 +52,7 @@ export function reviewLabel(status, subject) {
   return `${subject}: ${rv.sv.charAt(0).toLowerCase()}${rv.sv.slice(1)}`;
 }
 export const settings = { showDrafts: false };
-export const isVisibleReview = r => settings.showDrafts || r === 'source-checked' || r === 'two-sources' || r === 'human-reviewed';
+export const isVisibleReview = r => settings.showDrafts || r === 'source-checked' || r === 'two-sources';
 
 // ---------- Världsdelar ----------
 // Grov indelning efter koordinater, för att gruppera listan "Samtidigt i världen" (#120).

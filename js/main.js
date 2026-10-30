@@ -23,7 +23,7 @@ const $ = id => document.getElementById(id);
 const NEAR_YEARS = 5;
 // Krig som ryms inom så här många år, med datum i edtf, följs dag för dag i fokusläget (#204)
 const SHORT_WAR_YEARS = 2;
-const RANK = ['draft', 'source-checked', 'two-sources', 'human-reviewed'];
+const RANK = ['draft', 'source-checked', 'two-sources'];
 function warCards(events) {
   const shown = e => !e.partOf || e.top || e.major;
   return events.filter(e => e.kind === 'war').flatMap(war => {
