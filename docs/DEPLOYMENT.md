@@ -77,9 +77,10 @@ python3 -m http.server 8000 --directory dist
 
 `.github/workflows/validate-site.yml` kör bygget och valideringen:
 - vid varje **push till `main`**
+- vid varje **pull request mot `main`**
 - vid varje **pull request mot `production`**
 
-Pull requests mot `production` får dessutom kontrollen **"Release kommer från main"**. Den underkänner pull requesten om den inte kommer från grenen `main` i samma repo.
+Bara pull requests mot `production` får dessutom kontrollen **"Release kommer från main"**. Den underkänner pull requesten om den inte kommer från grenen `main` i samma repo.
 
 Workflowen underkänns om något steg misslyckas.
 
@@ -91,7 +92,7 @@ Det här går inte att lägga i repot, så Rikard eller en administratör gör d
    - Kräv att kontrollerna **"Bygg och validera dist/"** och **"Release kommer från main"** är gröna.
    - Tillåt inte direkt push eller force-push.
    - Tillåt inte att grenen raderas.
-2. **Skydda gärna `main` på samma sätt**, med krav på pull request och grön **"Bygg och validera dist/"**. Valideringen körs bara vid push till `main` och inte vid pull requests mot `main`. Ska kontrollen krävas före sammanslagning till `main` måste workflowen också köras på pull requests mot `main`; det är inte gjort, eftersom uppdraget var push till `main`.
+2. **Skydda gärna `main` på samma sätt**, med krav på pull request och grön **"Bygg och validera dist/"**. Kontrollen körs på varje pull request mot `main`, så den kan krävas före sammanslagning. "Release kommer från main" körs inte på pull requests mot `main` och ska inte krävas där.
 
 ## Release: från main till production
 
@@ -152,4 +153,3 @@ Taggarna ändras eller flyttas aldrig. En rollback ger en ny version.
 - **Webbhotell och publicering** är inte valda. Det kan till exempel bli Cloudflare Pages, som publicerar `dist/` från `main` och `production`. Ett publiceringsjobb läggs till i workflowen när valet är gjort.
 - **Cloudflare Access** för dev.historiagloben.se ställs in i Cloudflare, inte i repot.
 - **Externa resurser:** jsDelivr och Google Fonts måste vara tillåtna om en Content-Security-Policy införs.
-- **Validering vid pull requests mot `main`** finns inte, eftersom uppdraget var push till `main`. Den kan läggas till med en rad i workflowen om Rikard vill.

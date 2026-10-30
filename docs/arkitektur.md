@@ -137,7 +137,7 @@ Skripten i `tools/` körs för hand, inte av sidan, så principen om inget byggs
 
 ## Publicering
 
-`scripts/build-site.sh` kopierar de filer som sidan läser när den körs till `dist/` och kör `scripts/validate-site.py`. Inget skrivs om, så sidan fungerar fortfarande direkt från repots rot. GitHub Actions kör samma kontroll vid push till `main` och vid pull requests mot `production`. Se [DEPLOYMENT.md](DEPLOYMENT.md).
+`scripts/build-site.sh` kopierar de filer som sidan läser när den körs till `dist/` och kör `scripts/validate-site.py`. Inget skrivs om, så sidan fungerar fortfarande direkt från repots rot. GitHub Actions kör samma kontroll vid push till `main` och vid pull requests mot `main` och `production`. Se [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ## Testa
 
