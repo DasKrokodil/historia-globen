@@ -721,6 +721,7 @@ async function start() {
   ff.onSelect = select;
   ff.onArcs = pairs => { globe.setArcs(pairs); flatMap.setArcs(pairs); };
   ff.onSources = ids => sources.open(ids);
+  panel.onSources = () => sources.open(); // knappen Om källorna under (i) vid granskningsstatusen (#310)
   // Uppspelningen stannar vid en ny fun fact, så att man hinner läsa. Play fortsätter.
   // Ihopfällt kort: ingen paus, eftersom kortet inte syns
   // I fokusläget pausar uppspelningen som standard bara vid det man följer; Samtidigt-pausen är där ett eget val (#234)

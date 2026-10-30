@@ -37,6 +37,7 @@
       <button id="year-jump" class="year-jump" type="button" aria-expanded="false" aria-controls="jump-pop" title="Hoppa till ett år">
         <span id="year-big" class="year-big">1325</span>
         <span id="year-era" class="year-era"></span>
+        <svg class="year-pen" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="M11.2 2.3l2.5 2.5-8 8L2.5 13.5l.7-3.2z M9.8 3.7l2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
       </button>
     </div>
     <p id="year-segment" class="segment-note"></p>
@@ -106,6 +107,7 @@
     </div>
     <form id="fb-form" class="fb-form" novalidate autocomplete="on">
       <p id="fb-privacy" class="fb-privacy">Vi sparar bara det du skriver här, för att kunna granska förslaget. Förslaget lagras privat och publiceras aldrig automatiskt. E-post är frivillig och används bara om vi behöver fråga något.</p>
+      <p id="fb-expect" class="fb-expect">Historia-globen är ett ideellt projekt. Alla förslag läses, men vi kan inte lova att svara.</p>
       <div id="fb-closed" class="fb-closed" hidden>
         <p>Formuläret öppnas snart. Tills dess kan du lämna förslag via GitHub:</p>
         <ul>
@@ -163,6 +165,7 @@
       </details>
       <p id="fb-status" class="fb-status" role="status" aria-live="polite"></p>
       <div class="fb-actions">
+        <button id="fb-cancel" class="link-btn" type="button">Avbryt</button>
         <button id="fb-submit" class="chip-btn fb-submit" type="submit">Skicka förslag</button>
       </div>
     </form>
@@ -214,7 +217,7 @@
   <section id="detail" class="detail detail-card" hidden aria-live="polite" aria-label="Om händelsen"></section>
 
   <section id="funfact" class="funfact" hidden aria-live="polite" aria-label="Samtidigt-kortet">
-    <button id="ff-handle" class="ff-handle" type="button" aria-expanded="true" aria-label="Samtidigt-kortet: visa mer"><span class="ff-grip" aria-hidden="true"></span></button>
+    <button id="ff-handle" class="ff-handle" type="button" aria-expanded="true" aria-label="Samtidigt-kortet: visa mer"><span class="ff-grip" aria-hidden="true"></span><span class="ff-chev" aria-hidden="true"></span><span id="ff-drag-hint" class="ff-drag-hint" aria-hidden="true" hidden>Dra upp för mer</span></button>
     <div id="ff-pics" class="ff-pics" hidden></div>
     <div class="ff-eyebrow">
       <span><span class="ff-pre">Samtidigt <span class="ff-sep">·</span> </span><span id="ff-kind" class="ff-kind">Fun fact</span></span>
