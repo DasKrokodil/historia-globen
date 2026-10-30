@@ -1,0 +1,1 @@
+{ "schema": "historia-globen/routes@1", "notes": "Vägar och resor (lagertypen linje, #38).", "files": ["data/routes/columbus.json"] }
