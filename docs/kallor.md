@@ -74,7 +74,7 @@ Ett pågående krig (`ongoing: true`) har uppgifter som åldras: läget i dag (`
 
 ## Sidan Om källorna
 
-Under Om källorna finns källpolicyn, läget för hela granskningen och källregistret. Källregistret är grupperat efter vad källorna används till: händelser och fun facts, riken, religioner, kartdata och bilder. Grupperna räknas fram ur datan (vilka uppgifter i `events.json`, `funfacts.json`, `empires/index.json`, `religions.json`, `land.json`, `borders.json` och fältet `image.source` som pekar på varje källa), så en ny källa hamnar rätt av sig själv. En källa kan höra till flera grupper, till exempel Cliopatria (riken och religioner). En källa som ingen uppgift pekar på visas under Övriga källor.
+Under Om källorna (knappen Källor uppe till höger, i gruppen Visa) finns källpolicyn, läget för hela granskningen och källregistret. Källregistret är grupperat efter vad källorna används till: händelser och fun facts, riken, religioner, kartdata och bilder. Grupperna räknas fram ur datan (vilka uppgifter i `events.json`, `funfacts.json`, `empires/index.json`, `religions.json`, `land.json`, `borders.json` och fältet `image.source` som pekar på varje källa), så en ny källa hamnar rätt av sig själv. En källa kan höra till flera grupper, till exempel Cliopatria (riken och religioner). En källa som ingen uppgift pekar på visas under Övriga källor.
 
 Varje grupp visar hur många källor och uppgifter den har och hur många uppgifter som har nivån källkontrollerad och två källor (och utkast, om det finns). Kartdata och bilder har ingen granskningsnivå per uppgift.
 

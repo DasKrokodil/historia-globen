@@ -43,12 +43,31 @@
   </header>
 
   <div class="top-actions">
-    <button id="btn-panel" class="chip-btn panel-toggle" type="button" aria-expanded="false" aria-controls="panel">Samtidigt <span id="panel-count" class="count">0</span></button>
-    <button id="btn-layers" class="chip-btn" type="button" aria-expanded="false" aria-controls="layer-menu">Lager</button>
-    <button id="btn-focus" class="chip-btn" type="button" aria-expanded="false" aria-controls="focus-menu">Fokus</button>
-    <button id="btn-flat" class="chip-btn" type="button" aria-pressed="false" title="Visa bilden som en fysisk glob skulle få">Platt vy</button>
-    <button id="btn-sources" class="chip-btn" type="button">Om källorna</button>
+    <div class="action-group" role="group" aria-labelledby="ag-explore">
+      <span id="ag-explore" class="action-label">Utforska</span>
+      <button id="btn-panel" class="chip-btn panel-toggle" type="button" aria-expanded="false" aria-controls="panel">Samtidigt <span id="panel-count" class="count">0</span></button>
+      <button id="btn-layers" class="chip-btn" type="button" aria-expanded="false" aria-controls="layer-menu">Lager</button>
+      <button id="btn-focus" class="chip-btn" type="button" aria-expanded="false" aria-controls="focus-menu">Fokus</button>
+    </div>
+    <div class="action-group" role="group" aria-labelledby="ag-view">
+      <span id="ag-view" class="action-label">Visa</span>
+      <button id="btn-flat" class="chip-btn" type="button" aria-pressed="false" title="Visa bilden som en fysisk glob skulle få">Platt vy</button>
+      <button id="btn-sources" class="chip-btn" type="button" title="Om källorna: källpolicy och källregister">Källor</button>
+      <button id="btn-help" class="chip-btn" type="button" aria-expanded="false" aria-controls="help">Hjälp</button>
+    </div>
   </div>
+
+  <aside id="help" class="help-card" aria-labelledby="help-title" hidden>
+    <div class="help-head">
+      <h2 id="help-title" class="help-title">Så använder du globen</h2>
+      <button id="help-close" class="panel-x" type="button" aria-label="Stäng hjälpen">×</button>
+    </div>
+    <ol class="help-steps">
+      <li><b>Dra globen</b> <span>Snurra med fingret eller musen. Nyp eller scrolla för att zooma.</span></li>
+      <li><b>Byt år</b> <span>Tryck på årtalet eller dra i tidslinjen.</span></li>
+      <li><b>Följ en berättelse</b> <span>Välj ett krig, ett rike eller en religion under Fokus.</span></li>
+    </ol>
+  </aside>
 
   <aside id="religion-legend" class="religion-legend" aria-label="Teckenförklaring för religioner" hidden></aside>
   <div id="religion-pop" class="religion-pop" role="dialog" aria-label="Religion i området" hidden></div>
@@ -87,7 +106,8 @@
 
   <section id="detail" class="detail detail-card" hidden aria-live="polite" aria-label="Om händelsen"></section>
 
-  <section id="funfact" class="funfact" hidden aria-live="polite">
+  <section id="funfact" class="funfact" hidden aria-live="polite" aria-label="Samtidigt-kortet">
+    <button id="ff-handle" class="ff-handle" type="button" aria-expanded="true" aria-label="Samtidigt-kortet: visa mer"><span class="ff-grip" aria-hidden="true"></span></button>
     <div id="ff-pics" class="ff-pics" hidden></div>
     <div class="ff-eyebrow">
       <span><span class="ff-pre">Samtidigt <span class="ff-sep">·</span> </span><span id="ff-kind" class="ff-kind">Fun fact</span></span>

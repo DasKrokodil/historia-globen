@@ -15,6 +15,7 @@ import { LayerMenu } from './ui/layers.js';
 import { ReligionLegend } from './ui/legend.js';
 import { cluster } from './ui/clusters.js';
 import { FocusMenu } from './ui/focusmenu.js';
+import { Help } from './ui/help.js';
 
 const $ = id => document.getElementById(id);
 
@@ -58,7 +59,7 @@ async function start() {
   const ff = new FunFacts({
     root: $('funfact'), text: $('ff-text'), events: $('ff-events'), review: $('ff-review'),
     pager: $('ff-pager'), next: $('ff-next'), srcBtn: $('ff-sources'),
-    pics: $('ff-pics'), kind: $('ff-kind'), min: $('ff-min'), tab: $('ff-tab'), tabCount: $('ff-tab-count'),
+    pics: $('ff-pics'), kind: $('ff-kind'), min: $('ff-min'), tab: $('ff-tab'), tabCount: $('ff-tab-count'), handle: $('ff-handle'),
   }, { funfacts: [...data.funfacts, ...warCards(data.events)], byId: data.byId, srcById: data.srcById, styles: data.styles });
   const sources = new SourcesDialog({ root: $('sources-dialog'), body: $('sources-body'), close: $('sources-close'), openBtn: $('btn-sources') }, data);
 
@@ -563,6 +564,17 @@ async function start() {
   $('layer-menu').addEventListener('change', e => { if (e.target.dataset.pause) showNextPause(); });
   sources.onSettings = refresh;
 
+  // Mobilpanelen (#239): när man drar i globen stängs Samtidigt-kortet, så att globen syns. Ett tryck räknas inte.
+  {
+    const canvas = $('globe-canvas');
+    let down = null;
+    canvas.addEventListener('pointerdown', e => { down = { x: e.clientX, y: e.clientY }; });
+    canvas.addEventListener('pointermove', e => {
+      if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > 12) { down = null; ff.autoClose(); }
+    });
+    for (const type of ['pointerup', 'pointercancel']) canvas.addEventListener(type, () => { down = null; });
+  }
+
   let popClick = 0; // räknar klick, så att en sen klickruta inte visas efter ett nytt klick
   globe.onClick = (x, y) => {
     const hit = globe.pick(x, y, layer.sprites.filter(s => s.visible));
@@ -693,6 +705,8 @@ async function start() {
   });
 
   $('loading').hidden = true;
+  // Kort hjälp för nya besökare (#245), när globen har laddats
+  new Help({ root: $('help'), button: $('btn-help'), close: $('help-close') }).showFirstTime();
   timeline.init(1325);
   globe.flyTo(34, -50, 1600);
   globe.autoRotate = false;
