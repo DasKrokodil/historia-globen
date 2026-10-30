@@ -161,7 +161,7 @@ Rikets nyckelår är också rikets berättelse (#171): när man följer riket i 
   - `modern` (`country`, `religion`, `majority`) är den största religionen i Wikipedias tabell Religion by country för länder vars faktaruta saknar religion. Den används från 1900 och räknas som säker över 50 procent.
   - `variants` finns för de få riken vars perioder i Cliopatria pekar på olika Wikipedia-sidor: faktarutans text (och `modern`) per sida, nyckel = sidans namn i Cliopatria.
   - Procentsiffror i faktarutan kommer ofta från en nutida folkräkning och används bara från 1900, utom när religionen anges som officiell utan årtal (till exempel Ryska imperiet).
-- `facts` (valfritt, #90) är faktarutan om religionen. Den visas när religionslagret slås på, när religionen bockas i igen i undermenyn, med knappen Fakta i undermenyn och när man börjar följa religionen i Fokus. Än så länge har bara kristendomen en.
+- `facts` (valfritt, #90) är faktarutan om religionen. Den visas när religionslagret slås på, när religionen bockas i igen i undermenyn, med knappen Fakta i undermenyn, med knappen "Läs mer om <religion>" i klickrutan för ett religionsområde (#270) och när man börjar följa religionen i Fokus. Kristendom, islam, buddhism, hinduism, judendom och sikhism har en (#90, #270); övriga religioner saknar ännu faktaruta och får då ingen Läs mer-knapp.
 
 ```json
 "facts": { "origin": "korsfastelsen",
@@ -171,8 +171,9 @@ Rikets nyckelår är också rikets berättelse (#171): när man följer riket i 
   "sources": ["wp-christianity", "wp-crucifixion"], "review": "source-checked" }
 ```
 
-  - `origin` är id för händelsen i `events.json` där religionen uppstod. Där ritas en stjärna i religionens färg på lagerbilden, från händelsens startår, så länge religionen syns i lagret. Platsen står bara i händelsen, inte en gång till här.
+  - `origin` är id för händelsen i `events.json` där religionen uppstod (kristendom `korsfastelsen`, islam `muhammeds-forsta-uppenbarelse`, buddhism `buddha`, sikhism `guru-nanak`). Religioner som växte fram gradvis (judendom, hinduism) har ingen `origin`. Där ritas en stjärna i religionens färg på lagerbilden, från händelsens startår, så länge religionen syns i lagret. Platsen står bara i händelsen, inte en gång till här.
   - `items` är rader med rubrik och text (till exempel när och var, grundare, helig skrift, antal troende med årtal). Osäkerhet skrivs ut i texten.
+  - `milestonesTitle` (valfritt, #270) är rubriken över nyckelåren. Utan den heter rubriken "Statsreligion i riken"; religioner vars nyckelår handlar om annat (till exempel heliga skrifter eller tempel) har "Nyckelår".
   - `milestones` är nyckelår, till exempel när ett rike gjorde religionen till statsreligion. `year` är astronomiskt år och knappen hoppar dit i tiden; `label` är det som står på knappen och kan visa osäkerhet ("301 eller 314"). Varje nyckelår har egna `sources`.
   - `sources` och `review` fungerar som för händelser. Rutan listar både rutans och nyckelårens källor.
 

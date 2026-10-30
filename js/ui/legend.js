@@ -123,7 +123,7 @@ export class ReligionLegend {
       <div class="rp-head"><span class="swatch" style="background:${esc(r.color)}"></span><strong>${head}</strong></div>
       ${where}
       ${snapshot.inherited ? this.inheritedNote(hit, name) : snapshot.sure === false ? '<p class="rp-note">Osäker uppgift</p>' : ''}
-      ${r.facts ? `<button type="button" class="info-btn" data-facts="${esc(r.id)}">Fakta</button>` : ''}`;
+      ${r.facts ? `<button type="button" class="info-btn rp-more" data-facts="${esc(r.id)}">Läs mer om ${esc(t(r.name).toLowerCase())}</button>` : ''}`;
     this.pop.hidden = false;
     const host = this.pop.offsetParent?.getBoundingClientRect() ?? { left: 0, top: 0, width: innerWidth, height: innerHeight };
     const w = this.pop.offsetWidth, h = this.pop.offsetHeight;
