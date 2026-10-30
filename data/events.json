@@ -607,6 +607,13 @@
       "summary": { "sv": "Den 30 maj 1967, tre dagar efter att Gowon har delat upp Östra regionen i tre delstater, förklarar militärguvernören Chukwuemeka Odumegwu Ojukwu regionen självständig som republiken Biafra. Bakom beslutet ligger pogromerna mot igbo i norr 1966 och tron att den federala regeringen inte ville eller kunde skydda dem. Nigeria inför genast en blockad mot all sjöfart till Biafra utom oljetankfartyg, och snart också mot dem." },
       "wikidata": "Q178469", "sources": ["wp-nigerian-civil-war", "wp-operation-tail-wind", "wikidata"], "review": "two-sources" },
 
+    { "id": "enugu-faller-1967", "category": "krig", "icon": "swords", "partOf": "biafrakriget", "start": 1967, "end": 1967, "precision": 11, "edtf": "1967-10-04",
+      "location": { "type": "Point", "coordinates": [7.4942, 6.4403] }, "place": { "sv": "Enugu, Biafras första huvudstad, i dag delstaten Enugu, Nigeria" },
+      "title": { "sv": "Nigeria intar Enugu" },
+      "summary": { "sv": "Den 4 oktober 1967 intar Nigerias första division Biafras huvudstad Enugu. Ojukwu, som sover i regeringsbyggnaden när anfallet kommer, kommer undan förklädd till tjänare. Nigeria hoppas att igbofolkets ledare nu ska ge upp kampen för självständighet, men så blir det inte: Ojukwu flyttar regeringen till Umuahia, djupt inne i igboområdet, och kriget fortsätter." },
+      "note": { "title": { "sv": "Bara Wikipedia" }, "text": { "sv": "Händelsen har ingen egen post i Wikidata som har kunnat jämföras. Datumet kommer från Wikipedias artikel om kriget, och artikeln om Operation Tail-Wind anger oktober 1967. Punkten visar staden Enugu enligt Wikidata." } },
+      "sources": ["wp-nigerian-civil-war", "wp-operation-tail-wind"], "review": "source-checked" },
+
     { "id": "massakern-i-asaba", "category": "krig", "partOf": "biafrakriget", "start": 1967, "end": 1967, "precision": 11, "edtf": "1967-10-05/1967-10-07",
       "location": { "type": "Point", "coordinates": [6.7285, 6.1978] }, "place": { "sv": "Asaba vid floden Niger, i dag delstaten Delta, Nigeria" },
       "title": { "sv": "Massakern i Asaba" },
