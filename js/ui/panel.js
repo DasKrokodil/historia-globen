@@ -1,6 +1,6 @@
 // "Samtidigt i världen": lista över synliga händelser per världsdel, kategorifilter
 // (som ligger i lagermenyn, #120) och faktarutan.
-import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear, reviewLabel, REVIEW_SUBJECT_HELP } from '../model.js';
+import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP } from '../model.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -114,6 +114,7 @@ export class Panel {
   /**
    * Krigets berättelse i fokusläget (#122): före start orsak och parter, i slutet
    * hur kriget slutade och hur många som dog. Uppgifterna finns i krigets story.
+   * Ett pågående krig (#223) visar i stället läget i dag, kontrollerat story.asOf.
    */
   showStory(war, mode) {
     const s = war.story;
@@ -125,12 +126,15 @@ export class Panel {
       <h4>Varför kriget började</h4><p>${esc(t(s.intro))}</p>
       <h4>Parterna</h4>
       <div class="parties">${s.parties.map(p => `<div><strong>${esc(t(p.name))}</strong><p>${esc(t(p.members))}</p></div>`).join('')}</div>
-      <p class="story-hint">Tryck på ▶ för att följa kriget.</p>` : `
+      <p class="story-hint">Tryck på ▶ för att följa kriget.</p>` : war.ongoing ? `
+      <h4>Läget i dag</h4><p>${esc(t(s.outcome))}</p>
+      <h4>Döda hittills, enligt uppskattningar</h4><p>${esc(t(s.casualties))}</p>` : `
       <h4>Hur kriget slutade</h4><p>${esc(t(s.outcome))}</p>
       <h4>Döda</h4><p>${esc(t(s.casualties))}</p>`;
+    const label = mode === 'intro' ? 'Innan kriget börjar' : war.ongoing ? `Läget i dag (kontrollerat ${formatDate(s.asOf)})` : 'När kriget är slut';
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
-      <div class="story-label">${mode === 'intro' ? 'Innan kriget börjar' : 'När kriget är slut'}</div>
+      <div class="story-label">${esc(label)}</div>
       <h3>${esc(t(war.title))}</h3>
       <div class="meta">${esc(formatEventTime(war))} · ${esc(t(war.place))}</div>
       <div class="story">${body}</div>

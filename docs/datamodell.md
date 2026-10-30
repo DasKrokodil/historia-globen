@@ -39,6 +39,8 @@ Alla datafiler i `data/` och deras fält. Standarderna (årtal, osäkerhet, prec
 | `top` | `true` för krigets enda viktigaste händelse, som syns utzoomat |
 | `major` | `true` för krigets stora händelser, där uppspelningen pausar i fokusläget |
 | `story` | Krigets berättelse i fokusläget: `intro`, `parties` (lista med `name` och `members`), `outcome`, `casualties` och `sources` |
+| `ongoing` | `true` för ett krig som pågår (#223). `edtf` har öppet slut (`"2022-02-24/.."`), och `end` är året då läget senast kontrollerades. Vid laddning flyttar `model.js` fram `end` till innevarande år enligt datorns klocka, så kriget räcker till i dag utan att något årtal står i koden. Tiden visas "2022–pågår". |
+| `story.asOf` | För ett pågående krig: datumet (`"2026-10-30"`) då läget i dag och dödssiffrorna senast kontrollerades. `outcome` är då läget i dag, inte hur kriget slutade, och `casualties` skrivs som "hittills, enligt uppskattningar" med datum och vem som har uppskattat. |
 | `religion` och `founding` | Religionens id i `religions.json` och `true` för händelser där religionen grundades. Fokus på religionen börjar där. |
 | `note` | Extra ruta i faktarutan: `title` och `text`, till exempel "Om år 0" |
 | `image` | Bild i faktarutan, se nedan |

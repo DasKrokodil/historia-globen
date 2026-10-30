@@ -59,6 +59,15 @@ Så lyfts ett utkast till `events.json`:
 3. Skriv svensk titel (till exempel "Slaget vid …") och en egen sammanfattning ur källan, med `precision` och `edtf` som visar osäkerheten. Koppla slaget till sitt krig med `partOf` om kriget finns.
 4. Lägg källan i `sources.json`, behåll `whg-hced` i `sources` och sätt `review` till `source-checked` (eller `two-sources`). Ta bort fältet `hced` och flytta posten till `events.json`. Ta bort utkastet ur `data/utkast/hced.json` så att det inte finns två gånger.
 
+## Pågående krig: hålla uppgifterna aktuella (#223)
+
+Ett pågående krig (`ongoing: true`) har uppgifter som åldras: läget i dag (`story.outcome`), dödssiffrorna (`story.casualties`) och nya händelser. Därför står kontrolldatumet i `story.asOf` och syns i kortet "Läget i dag (kontrollerat …)".
+
+1. Gå igenom kriget ungefär en gång i kvartalet, och när något stort händer (till exempel vapenvila eller fred).
+2. Öppna källorna igen. För civila offer är FN:s människorättskontor (OHCHR och dess övervakningsmission i Ukraina, HRMMU) bäst; siffran skrivs med datum och "enligt FN". Soldatförluster skrivs som spann med vem som uppskattat dem, eftersom parterna överdriver motpartens förluster.
+3. Uppdatera texten, `story.asOf`, `end` (året för kontrollen) och `checked` i `sources.json`.
+4. Är kriget slut: ta bort `ongoing`, sätt slutdatum i `edtf` och `end`, skriv `outcome` som hur kriget slutade och ta bort `asOf`.
+
 ## Sidan Om källorna
 
 Under Om källorna finns källpolicyn, läget för hela granskningen och källregistret. Källregistret är grupperat efter vad källorna används till: händelser och fun facts, riken, religioner, kartdata och bilder. Grupperna räknas fram ur datan (vilka uppgifter i `events.json`, `funfacts.json`, `empires/index.json`, `religions.json`, `land.json`, `borders.json` och fältet `image.source` som pekar på varje källa), så en ny källa hamnar rätt av sig själv. En källa kan höra till flera grupper, till exempel Cliopatria (riken och religioner). En källa som ingen uppgift pekar på visas under Övriga källor.

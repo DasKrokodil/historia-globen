@@ -2,7 +2,7 @@
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
 import { loadAll, loadReligions, loadReligionPolities, loadEmpire, CAT, t, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays, dayParts } from './model.js';
 import { Globe } from './globe.js';
-import { Timeline, segmentName, setupYearJump } from './timeline.js';
+import { Timeline, segmentName, setupYearJump, MAX_YEAR } from './timeline.js';
 import { EventsLayer } from './layers/events.js';
 import { AreasLayer } from './layers/areas.js';
 import { BordersLayer } from './layers/borders.js';
@@ -188,7 +188,7 @@ async function start() {
       const pts = [war, ...war._battles];
       // Ett kort krig följs från dess första till sista dag, och året blir ett decimaltal (#204)
       const fine = war.end - war.start <= SHORT_WAR_YEARS && edtfHasDays(war.edtf);
-      const [from, to] = fine ? edtfSpan(war) : [war.start, war.end];
+      const [from, to] = fine ? edtfSpan(war) : [war.start, Math.min(war.end, MAX_YEAR)]; // pågående krig slutar i dag (#223)
       f = { type, id, title: `${t(war.title)} ${formatEventTime(war)}`, short: t(war.title), from, to, fine,
         center: [pts.reduce((s, e) => s + e._lat, 0) / pts.length, pts.reduce((s, e) => s + e._lon, 0) / pts.length], zoom: 2.2 };
     } else if (type === 'empire') {
@@ -342,7 +342,7 @@ async function start() {
   function showWarStop(stop, fine) {
     stopping = true;
     if (stop === 'end') {
-      timeline.pause('Pausad: kriget är slut', true); selectedId = focusWar.id; panel.showStory(focusWar, 'summary');
+      timeline.pause(focusWar.ongoing ? 'Pausad: läget i dag' : 'Pausad: kriget är slut', true); selectedId = focusWar.id; panel.showStory(focusWar, 'summary');
     } else {
       // I smal skärm öppnas inte panelen, så att kartan syns; händelsen markeras på globen
       timeline.pause('Pausad vid en stor händelse i kriget', true); selectedId = stop.id; panel.showDetail(stop, matchMedia('(min-width: 761px)').matches);
@@ -397,7 +397,7 @@ async function start() {
     // I slutet: hur kriget slutade och hur många som dog (#122)
     // Alla stora händelser som passerades stoppar i tur och ordning, och slutkortet kommer sist (#217).
     // Det som inte hinns med nu ligger i warStops och visas när man trycker Fortsätt.
-    const warEnd = focusWar && span(focusWar)[1];
+    const warEnd = focusWar && Math.min(span(focusWar)[1], MAX_YEAR); // ett pågående krig når "i dag" (#223)
     if (!timeline.playing && !stopping) warStops = []; // tiden flyttades för hand
     if (focusWar && timeline.playing) {
       const hits = layers.pause.major ? focusWar._battles.filter(b => b.major && passed(span(b)[0])).sort((a, b) => span(a)[0] - span(b)[0]) : [];
