@@ -908,6 +908,14 @@ details.used-by summary:hover { color: var(--parchment); }
   .focus-label { display: none; }
   .focus-title { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
   .focus-bar .chip-btn { white-space: nowrap; padding: 7px 10px; font-size: 12px; }
+  /* Datumet i fokusläget för korta krig (#289) är bredare och har nedstaplar (j i "jun"): mindre och med luft,
+     så att det inte når fokusraden under. Året får bryta till en egen rad om det inte ryms. */
+  .year-jump.fine { flex-wrap: wrap; column-gap: 8px; row-gap: 0; }
+  .year-jump.fine .year-big { font-size: 32px; line-height: 1.1; }
+  .year-jump.fine .year-era { font-size: 17px; }
+  .year-readout:has(.year-jump.fine) + .segment-note {
+    margin-top: 10px; color: var(--parchment); text-shadow: 0 1px 4px var(--night), 0 0 2px var(--night); /* läsbar mot landet */
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1052,6 +1060,7 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-legend .rl-toggle[aria-expanded="true"] .rl-chev { transform: rotate(-135deg) translateY(-1px); }
 .religion-legend .rl-body { overflow-y: auto; overscroll-behavior: contain; padding-top: 2px; }
 .religion-legend .rl-body[hidden] { display: none; }
+.religion-legend .rl-dots { display: none; } /* bara i smal skärm (#309) */
 .religion-legend ul { list-style: none; margin: 0; padding: 0; }
 .religion-legend li { display: flex; align-items: center; gap: 7px; padding: 1px 0; }
 .religion-legend em { font-style: normal; color: var(--parchment-dim); }
@@ -1092,6 +1101,13 @@ details.used-by summary:hover { color: var(--parchment); }
   .religion-legend .rl-toggle { min-height: 40px; }
   .religion-legend .swatch { width: 10px; height: 10px; }
   .app.panel-open .religion-legend { display: none; }
+  /* Hopfälld (#309): rubriken och en rad färgprickar för religionerna som syns, ett tryck fäller ut hela förklaringen */
+  .religion-legend .rl-toggle { flex-wrap: wrap; row-gap: 0; }
+  .religion-legend .rl-dots { display: flex; flex-wrap: nowrap; align-items: center; gap: 4px; flex-basis: 100%; margin: -6px 0 0; padding-bottom: 9px; overflow: hidden; }
+  .religion-legend .rl-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+  .religion-legend .rl-dot-pale { opacity: .55; }
+  .religion-legend .rl-dot.rl-hatch { border-radius: 2px; margin-left: 3px; }
+  .religion-legend .rl-more { font: 400 10px/1 var(--f-mono); color: var(--parchment-dim); }
 }
 
 /* ---------- korten ovanför fokusraden (#183) ---------- */
