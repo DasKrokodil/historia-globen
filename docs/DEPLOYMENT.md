@@ -2,7 +2,7 @@
 
 Historia-globen ska publiceras i två miljöer. Det här dokumentet beskriver grenarna, vad som publiceras, kontrollerna och hur en release och en rollback går till.
 
-> **Läget i dag (2026-10-30):** repot är förberett. Grenen `production` finns inte ännu, och ingen publicering till dev.historiagloben.se eller historiagloben.se är uppsatt. Webbhotell och publiceringssteg är inte valda; se [Öppna frågor](#öppna-frågor).
+> **Läget i dag (2026-10-30):** grenen `production` finns (skapad från `main` på commit `e2774dd`), och båda grenarna är skyddade med rulesets (se [Inställningar i GitHub](#inställningar-i-github)). Ingen publicering till dev.historiagloben.se eller historiagloben.se är uppsatt ännu, men GitHub Pages publicerar `main` (se [GitHub Pages](#github-pages-stängs-av-när-cloudflare-pages-är-uppsatt)). Webbhotell och publiceringssteg är inte valda; se [Öppna frågor](#öppna-frågor).
 
 ## Miljöer och grenar
 
@@ -84,15 +84,16 @@ Bara pull requests mot `production` får dessutom kontrollen **"Release kommer f
 
 Workflowen underkänns om något steg misslyckas.
 
-### Inställningar som görs för hand i GitHub
+### Inställningar i GitHub
 
-Det här går inte att lägga i repot, så Rikard eller en administratör gör det under Settings → Branches (eller Rules) när `production` finns:
-1. **Skydda `production`:**
-   - Kräv en pull request före sammanslagning.
-   - Kräv att kontrollerna **"Bygg och validera dist/"** och **"Release kommer från main"** är gröna.
-   - Tillåt inte direkt push eller force-push.
-   - Tillåt inte att grenen raderas.
-2. **Skydda gärna `main` på samma sätt**, med krav på pull request och grön **"Bygg och validera dist/"**. Kontrollen körs på varje pull request mot `main`, så den kan krävas före sammanslagning. "Release kommer från main" körs inte på pull requests mot `main` och ska inte krävas där.
+Det här går inte att lägga i repot. Rikard gjorde det under Settings → Rules den 30 oktober 2026, med två rulesets:
+
+| Ruleset | Gäller | Regler | Får gå förbi |
+|---|---|---|---|
+| `main` | standardgrenen (`main`) | ingen radering, ingen force-push, pull request krävs (0 godkännanden), **"Bygg och validera dist/"** måste vara grön | ingen |
+| `production` | `refs/heads/production` | ingen radering, ingen force-push, pull request krävs (0 godkännanden, bara merge commit), **"Bygg och validera dist/"** och **"Release kommer från main"** måste vara gröna | Repository admin (alltid), för nödläget i [Rollback](#rollback-till-en-tidigare-release) |
+
+Godkännanden är satta till 0 eftersom projektet har en ägare, och GitHub låter ingen godkänna sin egen pull request. "Release kommer från main" går bara att lägga till som krävd kontroll när den har körts en gång mot `production`; det gjordes med pull request #277.
 
 ## Release: från main till production
 
@@ -147,6 +148,16 @@ Visar historiagloben.se något trasigt finns tre sätt att gå tillbaka, i den h
    - **Efteråt:** gör samma revert på `main` (punkt 2), så att grenarna inte glider isär.
 
 Taggarna ändras eller flyttas aldrig. En rollback ger en ny version.
+
+## GitHub Pages (stängs av när Cloudflare Pages är uppsatt)
+
+GitHub Pages är påslaget för repot sedan 28 oktober 2026. Vid varje push till `main` kör GitHub sitt eget jobb **pages-build-deployment** (det syns som kontrollerna `build`, `deploy` och `report-build-status`) och publicerar **hela repot** från `main`, troligen på daskrokodil.github.io/historia-globen.
+
+Det betyder att:
+- även interna filer som `CLAUDE.md`, `docs/`, `tools/` och `data/utkast/` publiceras där, eftersom GitHub Pages inte använder `scripts/build-site.sh`. Repot är öppet, så inget hemligt läcker, men det är inte den publicering som beskrivs här;
+- det finns en tredje adress bredvid dev och production, som visar `main` utan Cloudflare Access.
+
+**När Cloudflare Pages publicerar dev och production:** stäng av GitHub Pages under Settings → Pages → Build and deployment → Source → **None** (eller "Unpublish site"). Kontrollera efteråt att `pages-build-deployment` inte körs vid nästa push till `main`. Fram till dess kan GitHub Pages vara kvar, så att det finns en fungerande adress att visa.
 
 ## Öppna frågor
 
