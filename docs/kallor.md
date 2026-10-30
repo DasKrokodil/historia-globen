@@ -34,7 +34,8 @@ Nivån syns i faktarutan och under Om källorna, inte som eget märke på globen
 | Wikisource: Encyclopædia Britannica 1911, Dictionary of National Biography (1885–1900) och andra äldre verk | Andra källa för årtal och plats | Public domain | Äldre uppslagsverk kan vara föråldrade, så de används som jämförelse, inte ensamma |
 | World History Encyclopedia (worldhistory.org) | Andra källa för årtal och plats | CC BY-NC-SA (artikeltexten) | Bara länkad källa för fakta som årtal och plats. Text kopieras aldrig. |
 | Historical Conflict Event Dataset (HCED, Charles Miller 2022) via World Historical Gazetteer | Utkast om slag och andra stridshändelser (#24) | CC0 1.0 (WHG:s tillägg CC BY 4.0) | Massimport till `data/utkast/hced.json`, alltid `draft`. Varje utkast källkontrolleras mot en annan källa innan det flyttas till `events.json` (se nedan). |
-| Uppsala Conflict Data Program (UCDP, ucdp.uu.se) | Dödssiffror i krigens berättelse för krig från 1989 (#222) | CC BY 4.0 (alla dataset, enligt nedladdningssidan) | Citera datasetets publikation och version. Siffrorna gäller stridsrelaterade dödsfall, inte våld mot civila utanför strid eller indirekta dödsfall, så det skrivs ut i texten. |
+| FN:s digitala bibliotek (digitallibrary.un.org) | FN-resolutioner och rapporter, till exempel generalförsamlingens resolution ES-11/1 (#223) | FN-dokument | Primärkälla som länkas. Text kopieras inte. |
+| Uppsala Conflict Data Program (UCDP, ucdp.uu.se) | Dödssiffror i krigens berättelse för krig från 1989, till exempel Gulfkriget och Rysslands invasion av Ukraina (#222, #223) | CC BY 4.0 (alla dataset, enligt nedladdningssidan) | Citera datasetets publikation och version. Siffrorna gäller stridsrelaterade dödsfall, inte våld mot civila utanför strid eller indirekta dödsfall, så det skrivs ut i texten. |
 | Forskningsartiklar i PubMed Central (PMC) | Andra källa, till exempel för förhistoriska dateringar | Oftast CC BY (kontrolleras per artikel) | Licensen står i artikeln |
 
 ### Källor som går att nå från molnmiljön
@@ -45,7 +46,8 @@ Molnmiljöns nätverk släpper bara fram vissa sajter. Läget 2026-10-29 (#143):
 - **Library of Congress i JSON:** arkivposter går att läsa som `https://www.loc.gov/pictures/item/<id>/?fo=json` (fältet `item.rights_information` är rättighetstexten), och bilderna hämtas från länkarna i `resources` (cdn.loc.gov och tile.loc.gov) (#127).
 - **Svarar men stoppar oss:** www.loc.gov:s vanliga sidor (robotkontroll, 403), Britannica, whc.unesco.org och Smithsonian (403), Met Museum (429). Wikisources API och sökning kan svara 429 om man frågar för ofta; vänta då en stund.
 - **World Historical Gazetteer:** whgazetteer.org svarar. Platslistan (`/mapdata/datasets/<id>/`) och enskilda platser (`/api/db/?id=<plats>`) går att läsa utan inloggning; den fullständiga nedladdningen kräver inloggning (#24).
-- **Spärrade:** bland annat dataverse.harvard.edu (#24), mathshistory.st-andrews.ac.uk, cudl.lib.cam.ac.uk, english-heritage.org.uk, riksarkivet.se, kungahuset.se, regeringen.se, runeberg.org, gutenberg.org, journals.plos.org, ebi.ac.uk (Europe PMC) och patents.google.com.
+- **Går att nå sedan 2026-10-30:** ucdp.uu.se (nedladdningar) och digitallibrary.un.org (#223). FN:s digitala bibliotek visar en robotkontroll på vanliga sidor, men sökningen går att läsa som MARCXML (`https://digitallibrary.un.org/search?p=<dokumentnummer>&of=xm`) och PDF:erna via länken `nanna/record/…` som filsidan skickar vidare till.
+- **Spärrade:** bland annat www.un.org, press.un.org, news.un.org och www.ohchr.org (#223), acleddata.com, dataverse.harvard.edu (#24), mathshistory.st-andrews.ac.uk, cudl.lib.cam.ac.uk, english-heritage.org.uk, riksarkivet.se, kungahuset.se, regeringen.se, runeberg.org, gutenberg.org, journals.plos.org, ebi.ac.uk (Europe PMC) och patents.google.com.
 
 ## Utkast från massimport
 
@@ -59,6 +61,15 @@ Så lyfts ett utkast till `events.json`:
 2. Öppna en källa om slaget (till exempel Wikipedia eller Wikidata) och jämför år, plats och konflikt. Datasetet har fel ibland, till exempel en plats som fått fel koordinat eller fel konflikt.
 3. Skriv svensk titel (till exempel "Slaget vid …") och en egen sammanfattning ur källan, med `precision` och `edtf` som visar osäkerheten. Koppla slaget till sitt krig med `partOf` om kriget finns.
 4. Lägg källan i `sources.json`, behåll `whg-hced` i `sources` och sätt `review` till `source-checked` (eller `two-sources`). Ta bort fältet `hced` och flytta posten till `events.json`. Ta bort utkastet ur `data/utkast/hced.json` så att det inte finns två gånger.
+
+## Pågående krig: hålla uppgifterna aktuella (#223)
+
+Ett pågående krig (`ongoing: true`) har uppgifter som åldras: läget i dag (`story.outcome`), dödssiffrorna (`story.casualties`) och nya händelser. Därför står kontrolldatumet i `story.asOf` och syns i kortet "Läget i dag (kontrollerat …)".
+
+1. Gå igenom kriget ungefär en gång i kvartalet, och när något stort händer (till exempel vapenvila eller fred).
+2. Öppna källorna igen. För civila offer är FN:s människorättskontor (OHCHR och dess övervakningsmission i Ukraina, HRMMU) bäst; siffran skrivs med datum och "enligt FN". Soldatförluster skrivs som spann med vem som uppskattat dem, eftersom parterna överdriver motpartens förluster.
+3. Uppdatera texten, `story.asOf`, `end` (året för kontrollen) och `checked` i `sources.json`.
+4. Är kriget slut: ta bort `ongoing`, sätt slutdatum i `edtf` och `end`, skriv `outcome` som hur kriget slutade och ta bort `asOf`.
 
 ## Sidan Om källorna
 

@@ -119,9 +119,16 @@ export function parseYear(text, defaultEra = 'ce') {
 
 const MONTHS = ['januari','februari','mars','april','maj','juni','juli','augusti','september','oktober','november','december'];
 
+/** Datum ur data ("2026-10-30") som text: "30 oktober 2026". */
+export function formatDate(iso) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+  return m ? `${Number(m[3])} ${MONTHS[Number(m[2]) - 1]} ${m[1]}` : (iso || '');
+}
+
 /** Tid för en händelse enligt dess precision och EDTF-markering. */
 export function formatEventTime(e) {
   const edtf = e.edtf || '';
+  if (e.ongoing) return `${formatYear(e.start)}–pågår`; // pågående krig (#223)
   const approx = edtf.includes('~') ? 'cirka ' : '';
   const day = /^(-?\d{4})-(\d{2})-(\d{2})$/.exec(edtf);
   if (day && e.start === e.end) {
@@ -215,6 +222,8 @@ export async function loadAll() {
     getJSON('data/styles.json'),
   ]);
   const byId = Object.fromEntries(events.events.map(e => [e.id, e]));
+  // Pågående (#223): end i datan är året då läget senast kontrollerades; det räknas till i år enligt datorns klocka
+  for (const e of events.events) if (e.ongoing) e.end = Math.max(e.end, new Date().getFullYear());
   // Krig och slag (#27): slagen pekar på sitt krig med partOf
   for (const e of events.events) if (e.kind === 'war') e._battles = [];
   for (const e of events.events) {
