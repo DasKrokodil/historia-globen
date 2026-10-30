@@ -141,7 +141,6 @@ export class ReligionLegend {
     this.pop.innerHTML = `<button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
       <div class="rp-head"><span class="swatch" style="background:${esc(r.color)}"></span>${symbolImg(r)}<strong>${head}</strong></div>
       ${where}
-      ${here?.length ? '<p class="rp-note">Riket fanns här det här året. Färgen visar rikets religion.</p>' : ''}
       ${snapshot.inherited ? this.inheritedNote(hit, name) : snapshot.sure === false ? '<p class="rp-note">Osäker uppgift: rikets faktaruta på Wikipedia pekar inte ut en officiell eller tydligt största religion, så området visas med den som nämns först. Därför är det ljusare med streckad kant.</p>' : ''}
       ${r.facts ? `<button type="button" class="info-btn rp-more" data-facts="${esc(r.id)}">Läs mer om ${esc(t(r.name).toLowerCase())}</button>` : ''}
       ${here?.[0]?.wikipedia && /^https:\/\/[a-z]+\.wikipedia\.org\//.test(here[0].wikipedia) ? `<a class="rp-wiki" href="${esc(here[0].wikipedia)}" target="_blank" rel="noopener noreferrer">Läs om ${esc(name(here[0]))} på Wikipedia<span class="sr-only"> (öppnas i en ny flik)</span><span aria-hidden="true"> ↗</span></a>` : ''}`;
