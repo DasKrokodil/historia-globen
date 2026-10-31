@@ -726,6 +726,20 @@
     { "id": "wp-cities-silk-road", "title": "Cities along the Silk Road – Wikipedia (märkt som otillräckligt belagd)", "url": "https://en.wikipedia.org/wiki/Cities_along_the_Silk_Road", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
     { "id": "wp-ctesiphon", "title": "Ctesiphon – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ctesiphon", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
     { "id": "wp-hamadan", "title": "Hamadan – Wikipedia", "url": "https://en.wikipedia.org/wiki/Hamadan", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
-    { "id": "whe-silk-road", "title": "Silk Road – World History Encyclopedia (Joshua J. Mark, 2018)", "url": "https://www.worldhistory.org/Silk_Road/", "license": "CC BY-NC-SA (bara länkad, ingen text kopierad)", "checked": "2026-10-31" }
+    { "id": "whe-silk-road", "title": "Silk Road – World History Encyclopedia (Joshua J. Mark, 2018)", "url": "https://www.worldhistory.org/Silk_Road/", "license": "CC BY-NC-SA (bara länkad, ingen text kopierad)", "checked": "2026-10-31" },
+    { "id": "wp-ingolfr-arnarson", "title": "Ingólfr Arnarson – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ing%C3%B3lfr_Arnarson", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "wp-settlement-of-iceland", "title": "Settlement of Iceland – Wikipedia", "url": "https://en.wikipedia.org/wiki/Settlement_of_Iceland", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "whe-legendary-settlement-iceland", "title": "The Legendary Settlement of Iceland – World History Encyclopedia (Joshua J. Mark, 2019)", "url": "https://www.worldhistory.org/article/1317/the-legendary-settlement-of-iceland/", "license": "CC BY-NC-SA (bara länkad, ingen text kopierad)", "checked": "2026-10-31" },
+    { "id": "whe-vikings-in-iceland", "title": "The Vikings in Iceland – World History Encyclopedia (Joshua J. Mark, 2019)", "url": "https://www.worldhistory.org/article/1310/the-vikings-in-iceland/", "license": "CC BY-NC-SA (bara länkad, ingen text kopierad)", "checked": "2026-10-31" },
+    { "id": "wp-erik-the-red", "title": "Erik the Red – Wikipedia", "url": "https://en.wikipedia.org/wiki/Erik_the_Red", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "wp-brattahlid", "title": "Brattahlíð – Wikipedia", "url": "https://en.wikipedia.org/wiki/Brattahl%C3%AD%C3%B0", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "wp-leif-erikson", "title": "Leif Erikson – Wikipedia", "url": "https://en.wikipedia.org/wiki/Leif_Erikson", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "whe-leif-erikson", "title": "Leif Erikson – World History Encyclopedia (Emma Groeneveld, 2018)", "url": "https://www.worldhistory.org/Leif_Erikson/", "license": "CC BY-NC-SA (bara länkad, ingen text kopierad)", "checked": "2026-10-31" },
+    { "id": "wp-norse-settlement-north-america", "title": "Norse settlement of North America – Wikipedia", "url": "https://en.wikipedia.org/wiki/Norse_settlement_of_North_America", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "wp-lanse-aux-meadows", "title": "L'Anse aux Meadows – Wikipedia", "url": "https://en.wikipedia.org/wiki/L%27Anse_aux_Meadows", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "unesco-lanse-aux-meadows", "title": "L'Anse aux Meadows National Historic Site – UNESCO World Heritage Centre", "url": "https://whc.unesco.org/en/list/4/", "license": "© UNESCO (bara länkad, ingen text kopierad)", "checked": "2026-10-31" },
+    { "id": "wp-varangians", "title": "Varangians – Wikipedia", "url": "https://en.wikipedia.org/wiki/Varangians", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "wp-route-varangians-greeks", "title": "Trade route from the Varangians to the Greeks – Wikipedia", "url": "https://en.wikipedia.org/wiki/Trade_route_from_the_Varangians_to_the_Greeks", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "whe-kievan-rus", "title": "Kievan Rus – World History Encyclopedia (Joshua J. Mark, 2018)", "url": "https://www.worldhistory.org/Kievan_Rus/", "license": "CC BY-NC-SA (bara länkad, ingen text kopierad)", "checked": "2026-10-31" }
   ]
 }
