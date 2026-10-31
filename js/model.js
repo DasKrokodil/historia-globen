@@ -46,6 +46,7 @@ export const REVIEW_SUBJECT_HELP = {
   'Kriget': 'Statusen gäller krigets berättelse i kortet. Varje händelse har en egen status i sin faktaruta.',
   'Riket': 'Statusen gäller rikets faktaruta och berättelse. Varje händelse har en egen status i sin faktaruta.',
   'Religionen': 'Statusen gäller religionens faktaruta. Varje händelse har en egen status i sin faktaruta.',
+  'Landet': 'Statusen gäller landets faktaruta och berättelse. Årtal, föregångare och efterträdare har en egen status, som står vid dem.',
   'Händelsen': 'Statusen gäller just den här händelsen. Samtidigt-kortet och fun facten har en egen status.',
 };
 // Vad statusarna betyder (#310), samma betydelse som källpolicyn i CLAUDE.md. Visas bakom (i)-knappen i faktarutan.
@@ -240,6 +241,16 @@ export async function loadAll() {
     if (war?._battles) { e._war = war; war._battles.push(e); }
   }
   for (const e of events.events) e._battles?.sort((a, b) => a.start - b.start || (a.edtf < b.edtf ? -1 : 1));
+  // Krig och riken (#76): kriget anger rikena i empires (grupp-id i empires/index.json). Slagen ärver dem via
+  // partOf (e._war._empires). Varje rike får sina krig i tidsordning i g._wars.
+  const groupById = Object.fromEntries(empires.groups.map(g => [g.id, g]));
+  for (const g of empires.groups) g._wars = [];
+  for (const e of events.events) {
+    if (e.kind !== 'war' || !Array.isArray(e.empires)) continue;
+    e._empires = e.empires.map(id => groupById[id]).filter(Boolean);
+    for (const g of e._empires) g._wars.push(e);
+  }
+  for (const g of empires.groups) g._wars.sort((a, b) => a.start - b.start || a.end - b.end);
   const srcById = Object.fromEntries(sources.sources.map(s => [s.id, s]));
   // Fun facts ärver källorna från sina händelser (källa krävs för båda leden).
   for (const f of funfacts.funfacts) {
@@ -252,10 +263,11 @@ export async function loadAll() {
   };
 }
 
-/** Ett rikes gränser (data/empires/<grupp>.json), laddas första gången riket behövs. */
+/** Ett rikes gränser (data/empires/<grupp>.json), laddas första gången riket behövs.
+ *  Ett försvunnet land utan gräns i Cliopatria har ingen fil, bara en punkt (vanished.point, #72). */
 const empireFiles = new Map();
 export function loadEmpire(group) {
-  if (!empireFiles.has(group.id)) empireFiles.set(group.id, getJSON(group.file).then(d => d.polities));
+  if (!empireFiles.has(group.id)) empireFiles.set(group.id, group.file ? getJSON(group.file).then(d => d.polities) : Promise.resolve([]));
   return empireFiles.get(group.id);
 }
 
