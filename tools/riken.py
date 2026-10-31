@@ -8,7 +8,9 @@ slås ihop, så att filerna blir små.
 
 Faktarutorna (fältet facts i index.json, #170), rikenas symboler (symbol, #301) och egna faktarutor
 för enskilda riken i en grupp (polityFacts, #301) skrivs för hand och behålls: skriptet läser den
-befintliga index.json och för över de fälten i varje grupp när filen skrivs igen.
+befintliga index.json och för över de fälten i varje grupp när filen skrivs igen. Detsamma gäller
+fältet vanished för försvunna länder (#72): årtal, föregångare, efterträdare och, för länder
+utan gräns i Cliopatria, en punkt, och uncertainBorder för osäkra gränser (#73).
 
 Kör från projektets rot, med Cliopatria-filen (cliopatria_polities_only_v021.geojson
 från https://zenodo.org/records/13363121, CC BY 4.0):
@@ -16,6 +18,7 @@ från https://zenodo.org/records/13363121, CC BY 4.0):
 Kräver shapely (pip install shapely).
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -222,6 +225,37 @@ GROUPS = {
     'sovjetunionen': ('Sovjetunionen', 'Soviet Union', [
         ('Union of Soviet Socialist Republics', 'sovjetunionen', 'Sovjetunionen', '#9a2a3a'),
     ]),
+    # R6 Försvunna länder (#72). Österrike-Ungern och Sovjetunionen ovan hör också dit. Årtal, föregångare
+    # och efterträdare (vanished) skrivs för hand i index.json och behålls, som facts.
+    'kalmarunionen': ('Kalmarunionen', 'Kalmar Union', [
+        ('(Kalmar Union)', 'kalmarunionen', 'Kalmarunionen', '#c84b4b'),
+    ]),
+    'preussen': ('Preussen', 'Prussia', [
+        ('Duchy of Prussia', 'hertigdomet-preussen', 'Hertigdömet Preussen', '#4a6fa0'),
+        ('Brandenburg-Prussia', 'brandenburg-preussen', 'Brandenburg-Preussen', '#4a6fa0', {'years': (1619, 1701)}),
+        # Från 1807 räknar Cliopatria Preussens land till andra riken; bara små rester har egen gräns
+        ('Kingdom of Prussia', 'kungariket-preussen', 'Kungariket Preussen', '#4a6fa0', {'years': (1702, 1806)}),
+    ]),
+    'jugoslavien': ('Jugoslavien', 'Yugoslavia', [
+        # Cliopatria anger Q83286 (den socialistiska förbundsrepubliken) också för kungariket
+        ('Yugoslavia', 'kungariket-jugoslavien', 'Jugoslavien', '#2d8fa8', {'wikidata': 'Q36704'}),
+        ('Socialist Federal Republic of Yugoslavia', 'sfr-jugoslavien', 'Jugoslavien', '#2d8fa8'),
+    ]),
+    'tjeckoslovakien': ('Tjeckoslovakien', 'Czechoslovakia', [
+        ('Czechoslovakia', 'tjeckoslovakien', 'Tjeckoslovakien', '#c06a3a'),
+    ]),
+    'storcolombia': ('Storcolombia', 'Gran Colombia', [
+        ('Gran Colombia', 'storcolombia', 'Storcolombia', '#d4b13a'),
+    ]),
+    'republiken-texas': ('Republiken Texas', 'Republic of Texas', [
+        ('Republic of Texas', 'republiken-texas', 'Republiken Texas', '#8f5fbf'),
+    ]),
+    'kungariket-hawaii': ('Kungariket Hawaii', 'Hawaiian Kingdom', [
+        ("Kingdom of Hawaï'i", 'kungariket-hawaii', 'Kungariket Hawaii', '#3fae7a', {'en': 'Hawaiian Kingdom'}),
+    ]),
+    # Saknas i Cliopatria (räknas till Tyska förbundet och Tyska riket). Utan gräns: en punkt (vanished.point i
+    # index.json), och from/to är källornas årtal (vanished.founded/dissolved). Färgen står i inställningarna.
+    'neutrala-moresnet': ('Neutrala Moresnet', 'Neutral Moresnet', [], {'color': '#e0a0c0'}),
 }
 
 # Huvudlandet i utspridda välden (#74): moderlandet ritas med kraftigare kant och en stjärna och får
@@ -385,6 +419,71 @@ def same_homeland(a, b, merge):
     return ha.symmetric_difference(hb).area < merge * ha.area
 
 
+# Svenska namn på lydriken som inte är egna riken i GROUPS (#75); engelska namnet är Cliopatrias
+INFLUENCE_NAMES = {
+    'Ziyadid dynasty': 'Ziyadiderna', 'Ayyubid Sultanate': 'Ayyubidernas sultanat', 'Sultanate of Rum': 'Rumsultanatet',
+    'Delhi Sultanate': 'Delhisultanatet', 'Ostrogothic Kingdom': 'Östgoternas rike', 'Papal States': 'Kyrkostaten',
+    'East Franks': 'Östfrankiska riket', 'Kidarites': 'Kidariterna', 'Jalayirid Sultanate': 'Jalayiridernas sultanat',
+    'Kingdom of Georgia': 'Kungariket Georgien', 'Qara Qoyunlu': 'Qara Qoyunlu', 'Joseon': 'Joseon (Korea)',
+}
+# Relationer i Cliopatria som källorna motsäger och därför inte visas (#75): (lydrike, överhuvud) med motivering.
+INFLUENCE_SKIP = {
+    # Cliopatria anger att Seleukidriket lydde under Romerska republiken 204–190 f.Kr. Enligt wp-roman-seleucid-war
+    # krigade de 192–188 f.Kr., och först freden i Apameia 188 f.Kr. tvingade Antiochos III att lämna Mindre Asien.
+    ('Seleucid Empire', 'Roman Republic'): 'motsägs av källorna (Roman–Seleucid War, Wikipedia)',
+}
+INFLUENCE_MIN = 0.3  # inflytande mindre än så här (kvadratgrader, cirka 3 000 km2) tas bort, ofta bara glipor mellan gränserna
+
+
+def relations(src):
+    """Cliopatrias relationer där ett rike lydde under ett annat (#75): poster av typen RELATION med namnet
+    '(Allegiance of A to B)' eller '(Vassalage of A to B)'. Geometrin är A:s och B:s områden tillsammans.
+    Returnerar {B: [(A, relation, från, till, geometri)]}. Allianser och personalunioner räknas inte."""
+    out = {}
+    for f in src['features']:
+        p = f['properties']
+        if p['Type'] != 'RELATION':
+            continue
+        m = re.match(r'\((Allegiance|Vassalage) of (.+) to (.+)\)$', p['Name'])
+        if m:
+            kind, a, b = m.groups()
+            out.setdefault(b, []).append((a, kind.lower(), p['FromYear'], p['ToYear'], shape(f['geometry']).buffer(0)))
+    return out
+
+
+def influence_periods(rels, cname, core, own, names, tol, merge, min_area):
+    """Inflytandet för en del av ett rike (#75): områden som enligt Cliopatria lydde under delen (lojalitet eller
+    vasallskap), men inte hörde till den. Det är relationens område minus delens eget område samma år (core =
+    [(start, slut, geometri)] ur member_periods). Lydriken som själva är delar av samma grupp (own, till exempel
+    khanaten under Yuan) ritas redan som egna riken och hoppas över. names = {Cliopatria-namn: namn} för riken
+    som har ett eget namn i GROUPS."""
+    targets = [n.strip('()') for n in (cname if isinstance(cname, list) else [cname])]
+    out = []
+    for a, kind, fy, ty, rg in sorted((r for t in targets for r in rels.get(t, [])), key=lambda r: (r[0], r[2])):
+        if a.strip('()') in own or any((a, t) in INFLUENCE_SKIP for t in targets):
+            continue
+        cuts = sorted({fy, ty + 1} | {s for s, e, g in core if fy < s <= ty} | {e + 1 for s, e, g in core if fy <= e < ty})
+        for s, e in zip(cuts, cuts[1:]):
+            here = [g for cs, ce, g in core if cs <= s <= ce]
+            if not here:
+                continue  # delen finns inte på kartan det året
+            g = rg.difference(here[0]).simplify(tol, preserve_topology=True)
+            parts = [q for q in getattr(g, 'geoms', [g]) if q.geom_type == 'Polygon' and q.area > max(min_area, 0.05)]
+            g = unary_union(parts) if parts else None
+            if g is None or g.area < INFLUENCE_MIN:
+                continue
+            last = out[-1] if out else None
+            if (last and last['_a'] == a and last['end'] + 1 >= s
+                    and last['_shape'].symmetric_difference(g).area < merge * last['_shape'].area):
+                last['end'] = e - 1
+                continue
+            out.append({'start': s, 'end': e - 1, 'relation': kind, 'name': names.get(a, {'en': a}), '_a': a, '_shape': g,
+                        'geometry': {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'])}})
+    for q in out:
+        del q['_a'], q['_shape']
+    return sorted(out, key=lambda q: q['start'])
+
+
 def main():
     src = json.loads(Path(sys.argv[1]).read_text())
     by_name = {}
@@ -392,23 +491,52 @@ def main():
         p = f['properties']
         if p['Type'] == 'POLITY':
             by_name.setdefault(p['Name'], []).append(f)
+    rels = relations(src)
+    # Riken med eget namn i GROUPS, så att ett lydrike som också är ett eget rike på kartan får samma namn (#75)
+    known = {}
+    for _gid, (_sv, _en, _members, *_o) in GROUPS.items():
+        for cname, _pid, psv, _color, *rest in _members:
+            first = cname[0] if isinstance(cname, list) else cname
+            known[first] = {'sv': psv, 'en': (rest[0] if rest else {}).get('en', first.strip('()'))}
+    for en_name, sv_name in INFLUENCE_NAMES.items():
+        known.setdefault(en_name, {'sv': sv_name, 'en': en_name})
     out = ROOT / 'data/empires'
     out.mkdir(exist_ok=True)
     # Faktarutorna skrivs för hand och ska inte försvinna när filerna byggs om
     old = out / 'index.json'
-    kept = {g['id']: {k: g[k] for k in KEEP if k in g} for g in json.loads(old.read_text())['groups']} if old.exists() else {}
+    groups_old = {g['id']: g for g in json.loads(old.read_text())['groups']} if old.exists() else {}
+    # Faktarutor, symboler och polityFacts (KEEP) skrivs för hand och läggs sist i gruppen
+    kept = {k: {f: g[f] for f in KEEP if f in g} for k, g in groups_old.items()}
+    # Försvunna länder (#72): årtal, föregångare och efterträdare skrivs också för hand
+    vanished = {k: g['vanished'] for k, g in groups_old.items() if 'vanished' in g}
+    # Osäkra gränser (#73): skrivs för hand, med källa som säger att gränsen var osäker eller flytande
+    uncertain = {k: g['uncertainBorder'] for k, g in groups_old.items() if 'uncertainBorder' in g}
     index = []
-    for gid, (sv, en, members) in GROUPS.items():
+    for gid, (sv, en, members, *gopts) in GROUPS.items():
         tol, merge, min_area = OVERRIDES.get(gid, (TOL, MERGE, MIN_AREA))
+        if not members:
+            # Ett land utan gräns i Cliopatria (#72): bara en post i index.json, med källornas årtal och en punkt
+            v = vanished.get(gid)
+            if not v or 'point' not in v:
+                print(f'{gid}: saknar vanished.point i index.json, hoppas över')
+                continue
+            index.append({'id': gid, 'name': {'sv': sv, 'en': en}, 'color': gopts[0]['color'],
+                          'from': v['founded'], 'to': v['dissolved'], 'polities': [], 'vanished': v})
+            index[-1].update(kept.get(gid, {}))
+            print(f'{gid}: ingen gräns, punkt {v["point"]["coordinates"]}')
+            continue
         home = HOMELANDS.get(gid)
         polities = []
+        own = {n.strip('()') for m in members for n in (m[0] if isinstance(m[0], list) else [m[0]])}
         for cname, pid, psv, color, *rest in members:
             opts = rest[0] if rest else {}
             periods = []
+            core = []  # delens ogenomskurna gräns per period, för inflytandet (#75)
             feats = None
             if gid in EXTEND and EXTEND[gid]['polity'] == cname:
                 feats = extend(by_name, EXTEND[gid])
             for start, end, raw, area in member_periods(by_name, cname, opts.get('years'), feats):
+                core.append((start, end, raw))
                 g = raw.simplify(tol, preserve_topology=True)
                 if g.geom_type == 'MultiPolygon':
                     g = unary_union([q for q in g.geoms if q.area > min_area] or [max(g.geoms, key=lambda q: q.area)])
@@ -443,13 +571,18 @@ def main():
                 print('saknas i Cliopatria:', cname)
                 continue
             first = cname[0] if isinstance(cname, list) else cname
-            wd = by_name[first][0]['properties'].get('Wikidata')
+            wd = opts.get('wikidata') or by_name[first][0]['properties'].get('Wikidata')
             polity = {'id': pid, 'group': gid, 'name': {'sv': psv, 'en': opts.get('en', first.strip('()'))}, 'wikidata': wd,
                       'color': color, 'sources': ['cliopatria'], 'review': 'source-checked', 'periods': merged}
             if isinstance(cname, list):
                 polity['parts'] = cname  # Cliopatria-namnen som slogs ihop
             if home and 'homeland' in opts:
                 polity['homeland'] = opts['homeland']  # Cliopatria-namnen för moderlandet
+            if gid in uncertain:
+                polity['uncertainBorder'] = True  # osäker gräns (#73): ritas med mjuk kant
+            infl = influence_periods(rels, cname, core, own, known, tol, merge, min_area)
+            if infl:
+                polity['influence'] = infl  # lydriken och vasaller enligt Cliopatria (#75)
             polities.append(polity)
         doc = {'schema': 'historia-globen/areas@1', 'group': gid, 'polities': polities}
         (out / f'{gid}.json').write_text(json.dumps(doc, ensure_ascii=False, separators=(',', ':')))
@@ -460,6 +593,19 @@ def main():
                       'polities': [{'id': p['id'], 'name': p['name'], 'sources': p['sources'], 'review': p['review']} for p in polities]})
         if home:
             index[-1]['homeland'] = {'name': home['name']}
+        if gid in vanished:
+            index[-1]['vanished'] = vanished[gid]
+        if gid in uncertain:
+            index[-1]['uncertainBorder'] = uncertain[gid]
+        # Inflytandet i korthet (#75), så att faktarutan kan nämna det utan att rikets fil har laddats
+        infl = {}
+        for p in polities:
+            for q in p.get('influence', []):
+                key = (p['id'], q['name']['en'], q['relation'])
+                a = infl.setdefault(key, {'polity': p['id'], 'name': q['name'], 'relation': q['relation'], 'from': q['start'], 'to': q['end']})
+                a['from'], a['to'] = min(a['from'], q['start']), max(a['to'], q['end'])
+        if infl:
+            index[-1]['influence'] = sorted(infl.values(), key=lambda a: a['from'])
         index[-1].update(kept.get(gid, {}))
         size = (out / f'{gid}.json').stat().st_size
         print(f'{gid}: {len(polities)} riken, {sum(len(p["periods"]) for p in polities)} perioder, {size // 1000} kB')
@@ -481,7 +627,17 @@ def main():
              'utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period '
              'dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, '
              'är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då '
-             'homeland.name, moderlandets namn.')
+             'homeland.name, moderlandets namn. '
+             'Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och '
+             'efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). '
+             'Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i '
+             'Cliopatria och har ingen fil, bara en punkt (vanished.point). '
+             'Inflytande (#75): polity.influence är områden som enligt Cliopatrias relationsposter (typ RELATION, '
+             '"Allegiance of A to B" och "Vassalage of A to B") lydde under riket utan att höra till det: relationens område '
+             'minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva '
+             'är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. '
+             'Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) '
+             'och ger polity.uncertainBorder i rikets fil.')
     (out / 'index.json').write_text(json.dumps({'schema': 'historia-globen/empires-index@1', 'notes': notes, 'groups': index},
                                                ensure_ascii=False, indent=1))
 

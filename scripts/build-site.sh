@@ -68,7 +68,8 @@ copy data/empires/index.json
 while IFS= read -r f; do copy "$f"; done < <(python3 -I - <<'PY'
 import json
 for g in json.load(open('data/empires/index.json'))['groups']:
-    print(g['file'])
+    if 'file' in g:  # ett försvunnet land utan gräns har ingen fil, bara en punkt (#72)
+        print(g['file'])
 PY
 )
 

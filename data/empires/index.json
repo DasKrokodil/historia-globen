@@ -1,6 +1,6 @@
 {
  "schema": "historia-globen/empires-index@1",
- "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen. Kolonialvälden och moderna imperier (R5, #71): parts listar Cliopatria-poster som är ihopslagna år för år till ett rike (Tyska riket med German Africa, Etiopiska kejsardömet med Ethiopia till 1974); då är areaKm2 summan av posternas ytor. homeland (#74) är moderlandet i ett utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då homeland.name, moderlandets namn.",
+ "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen. Kolonialvälden och moderna imperier (R5, #71): parts listar Cliopatria-poster som är ihopslagna år för år till ett rike (Tyska riket med German Africa, Etiopiska kejsardömet med Ethiopia till 1974); då är areaKm2 summan av posternas ytor. homeland (#74) är moderlandet i ett utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då homeland.name, moderlandets namn. Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i Cliopatria och har ingen fil, bara en punkt (vanished.point). Inflytande (#75): polity.influence är områden som enligt Cliopatrias relationsposter (typ RELATION, \"Allegiance of A to B\" och \"Vassalage of A to B\") lydde under riket utan att höra till det: relationens område minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) och ger polity.uncertainBorder i rikets fil.",
  "groups": [
   {
    "id": "romarriket",
@@ -78,6 +78,28 @@
       "cliopatria"
      ],
      "review": "source-checked"
+    }
+   ],
+   "influence": [
+    {
+     "polity": "ostromerska-riket",
+     "name": {
+      "sv": "Östgoternas rike",
+      "en": "Ostrogothic Kingdom"
+     },
+     "relation": "allegiance",
+     "from": 500,
+     "to": 554
+    },
+    {
+     "polity": "bysantinska-riket",
+     "name": {
+      "sv": "Kyrkostaten",
+      "en": "Papal States"
+     },
+     "relation": "allegiance",
+     "from": 757,
+     "to": 869
     }
    ],
    "facts": {
@@ -428,13 +450,14 @@
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger cirka 753 f.Kr. till 1453. Kartans sista år fram till 1474 visar bara en liten rest av Bysans."
+     "sv": "Källorna anger cirka 753 f.Kr. till 1453. Kartans sista år fram till 1474 visar bara en liten rest av Bysans. Cliopatria anger att Seleukidriket lydde under Romerska republiken 204–190 f.Kr., men det motsägs av källorna: Rom och Seleukidriket krigade 192–188 f.Kr. och slöt fred i Apameia 188 f.Kr. Därför visas det inte som inflytande."
     },
     "sources": [
      "wp-roman-empire",
      "wp-roman-kingdom",
      "wp-roman-republic",
      "wp-byzantine-empire",
+     "wp-roman-seleucid-war",
      "wp-aquila"
     ],
     "review": "source-checked"
@@ -2074,6 +2097,18 @@
      "en": "Great Britain"
     }
    },
+   "influence": [
+    {
+     "polity": "brittiska-imperiet",
+     "name": {
+      "sv": "Kungariket Hawaii",
+      "en": "Hawaiian Kingdom"
+     },
+     "relation": "allegiance",
+     "from": 1811,
+     "to": 1819
+    }
+   ],
    "facts": {
     "summary": {
      "sv": "Brittiska imperiet bestod av dominions, kolonier, protektorat, mandat och andra områden som styrdes av Storbritannien och dess föregångare. Det växte genom handel, kolonisation och erövring, och som störst var det det största riket i historien."
@@ -3596,6 +3631,18 @@
      "review": "source-checked"
     }
    ],
+   "influence": [
+    {
+     "polity": "sasanidriket",
+     "name": {
+      "sv": "Kidariterna",
+      "en": "Kidarites"
+     },
+     "relation": "allegiance",
+     "from": 390,
+     "to": 450
+    }
+   ],
    "facts": {
     "summary": {
      "sv": "Sasanidriket var det sista iranska riket före islam, styrt av den sasanidiska ätten 224–651. Det var Roms och Bysans stora rival och en höjdpunkt i den iranska kulturen."
@@ -4599,6 +4646,48 @@
      "review": "source-checked"
     }
    ],
+   "influence": [
+    {
+     "polity": "abbasidkalifatet",
+     "name": {
+      "sv": "Ziyadiderna",
+      "en": "Ziyadid dynasty"
+     },
+     "relation": "allegiance",
+     "from": 866,
+     "to": 946
+    },
+    {
+     "polity": "abbasidkalifatet",
+     "name": {
+      "sv": "Ayyubidernas sultanat",
+      "en": "Ayyubid Sultanate"
+     },
+     "relation": "allegiance",
+     "from": 1202,
+     "to": 1249
+    },
+    {
+     "polity": "abbasidkalifatet",
+     "name": {
+      "sv": "Rumsultanatet",
+      "en": "Sultanate of Rum"
+     },
+     "relation": "allegiance",
+     "from": 1202,
+     "to": 1249
+    },
+    {
+     "polity": "abbasidkalifatet",
+     "name": {
+      "sv": "Delhisultanatet",
+      "en": "Delhi Sultanate"
+     },
+     "relation": "allegiance",
+     "from": 1210,
+     "to": 1259
+    }
+   ],
    "facts": {
     "summary": {
      "sv": "Abbasidkalifatet var det tredje islamiska kalifatet, styrt av en dynasti som härstammade från Muhammeds farbror Abbas. Huvudstaden Bagdad blev ett centrum för vetenskap och kultur under det som kallas islams guldålder."
@@ -4820,6 +4909,18 @@
       "cliopatria"
      ],
      "review": "source-checked"
+    }
+   ],
+   "influence": [
+    {
+     "polity": "karolingiska-riket",
+     "name": {
+      "sv": "Östfrankiska riket",
+      "en": "East Franks"
+     },
+     "relation": "allegiance",
+     "from": 911,
+     "to": 921
     }
    ],
    "facts": {
@@ -5810,6 +5911,15 @@
      "review": "source-checked"
     }
    ],
+   "uncertainBorder": {
+    "note": {
+     "sv": "Kanten är mjuk eftersom rikets gräns är osäker. Enligt Wikipedia är de skriftliga källorna vaga om hur stort riket var som mest, och riket kan ha varit ett förbund av mindre stater med olika band till kärnan, från direkt styre till en tribut som mest var till namnet."
+    },
+    "sources": [
+     "wp-ghana-empire"
+    ],
+    "review": "source-checked"
+   },
    "facts": {
     "summary": {
      "sv": "Ghanariket, även kallat Wagadu, var ett rike i västra Sahel, i dagens sydöstra Mauretanien och västra Mali. Det blev rikt på handeln med guld norrut och salt söderut. Det har inget geografiskt samband med dagens Ghana, som tog namnet 1957."
@@ -6324,6 +6434,38 @@
       "cliopatria"
      ],
      "review": "source-checked"
+    }
+   ],
+   "influence": [
+    {
+     "polity": "timuridriket",
+     "name": {
+      "sv": "Jalayiridernas sultanat",
+      "en": "Jalayirid Sultanate"
+     },
+     "relation": "allegiance",
+     "from": 1375,
+     "to": 1394
+    },
+    {
+     "polity": "timuridriket",
+     "name": {
+      "sv": "Kungariket Georgien",
+      "en": "Kingdom of Georgia"
+     },
+     "relation": "vassalage",
+     "from": 1395,
+     "to": 1406
+    },
+    {
+     "polity": "timuridriket",
+     "name": {
+      "sv": "Qara Qoyunlu",
+      "en": "Qara Qoyunlu"
+     },
+     "relation": "vassalage",
+     "from": 1407,
+     "to": 1467
     }
    ],
    "facts": {
@@ -7548,6 +7690,18 @@
       "cliopatria"
      ],
      "review": "source-checked"
+    }
+   ],
+   "influence": [
+    {
+     "polity": "mingdynastin",
+     "name": {
+      "sv": "Joseon (Korea)",
+      "en": "Joseon"
+     },
+     "relation": "allegiance",
+     "from": 1395,
+     "to": 1571
     }
    ],
    "facts": {
@@ -10111,6 +10265,82 @@
      "review": "source-checked"
     }
    ],
+   "vanished": {
+    "wikidata": "Q28513",
+    "founded": 1867,
+    "dissolved": 1918,
+    "edtf": "1867/1918",
+    "predecessors": [
+     {
+      "name": {
+       "sv": "Kejsardömet Österrike"
+      },
+      "wikidata": "Q131964"
+     },
+     {
+      "name": {
+       "sv": "Kungariket Ungern"
+      },
+      "wikidata": "Q253094"
+     }
+    ],
+    "successors": [
+     {
+      "name": {
+       "sv": "Republiken Tysk-Österrike"
+      },
+      "wikidata": "Q268970"
+     },
+     {
+      "name": {
+       "sv": "Ungern"
+      }
+     },
+     {
+      "name": {
+       "sv": "Tjeckoslovakien"
+      },
+      "group": "tjeckoslovakien",
+      "wikidata": "Q33946"
+     },
+     {
+      "name": {
+       "sv": "Sloveners, kroaters och serbers stat (sedan Jugoslavien)"
+      },
+      "group": "jugoslavien",
+      "wikidata": "Q718374"
+     },
+     {
+      "name": {
+       "sv": "Polen"
+      }
+     },
+     {
+      "name": {
+       "sv": "Kungariket Rumänien"
+      },
+      "wikidata": "Q203493"
+     },
+     {
+      "name": {
+       "sv": "Kungariket Italien"
+      }
+     },
+     {
+      "name": {
+       "sv": "Västukrainska folkrepubliken"
+      }
+     }
+    ],
+    "note": {
+     "sv": "Källorna räknar upp efterträdarna olika. Wikipedia nämner också Italien och Västukrainska folkrepubliken, Wikidata också Rumänien. Båda anger 1867–1918."
+    },
+    "sources": [
+     "wp-austria-hungary",
+     "wd-austria-hungary"
+    ],
+    "review": "two-sources"
+   },
    "facts": {
     "summary": {
      "sv": "Österrike-Ungern var en dubbelmonarki i Centraleuropa 1867–1918: två i stort sett självstyrande stater, Österrike och Ungern, med samma monark och gemensam utrikes-, försvars- och penningpolitik. Till ytan var det Europas näst största land, efter Ryssland."
@@ -10780,6 +11010,138 @@
      "review": "source-checked"
     }
    ],
+   "vanished": {
+    "wikidata": "Q15180",
+    "founded": 1922,
+    "dissolved": 1991,
+    "edtf": "1922-12-30/1991-12-26",
+    "predecessors": [
+     {
+      "name": {
+       "sv": "Ryska SFSR"
+      },
+      "wikidata": "Q2305208"
+     },
+     {
+      "name": {
+       "sv": "Ukrainska SSR"
+      },
+      "wikidata": "Q133356"
+     },
+     {
+      "name": {
+       "sv": "Vitryska SSR"
+      },
+      "wikidata": "Q2895"
+     },
+     {
+      "name": {
+       "sv": "Transkaukasiska SFSR"
+      },
+      "wikidata": "Q545205"
+     }
+    ],
+    "successors": [
+     {
+      "name": {
+       "sv": "Ryssland"
+      },
+      "wikidata": "Q159"
+     },
+     {
+      "name": {
+       "sv": "Ukraina"
+      },
+      "wikidata": "Q212"
+     },
+     {
+      "name": {
+       "sv": "Belarus"
+      },
+      "wikidata": "Q184"
+     },
+     {
+      "name": {
+       "sv": "Moldavien"
+      },
+      "wikidata": "Q217"
+     },
+     {
+      "name": {
+       "sv": "Georgien"
+      },
+      "wikidata": "Q230"
+     },
+     {
+      "name": {
+       "sv": "Armenien"
+      },
+      "wikidata": "Q399"
+     },
+     {
+      "name": {
+       "sv": "Azerbajdzjan"
+      },
+      "wikidata": "Q227"
+     },
+     {
+      "name": {
+       "sv": "Kazakstan"
+      },
+      "wikidata": "Q232"
+     },
+     {
+      "name": {
+       "sv": "Uzbekistan"
+      },
+      "wikidata": "Q265"
+     },
+     {
+      "name": {
+       "sv": "Turkmenistan"
+      },
+      "wikidata": "Q874"
+     },
+     {
+      "name": {
+       "sv": "Kirgizistan"
+      },
+      "wikidata": "Q813"
+     },
+     {
+      "name": {
+       "sv": "Tadzjikistan"
+      },
+      "wikidata": "Q863"
+     },
+     {
+      "name": {
+       "sv": "Estland"
+      },
+      "wikidata": "Q191"
+     },
+     {
+      "name": {
+       "sv": "Lettland"
+      },
+      "wikidata": "Q211"
+     },
+     {
+      "name": {
+       "sv": "Litauen"
+      },
+      "wikidata": "Q37"
+     }
+    ],
+    "note": {
+     "sv": "Föregångarna är de fyra republiker som bildade unionen enligt Wikipedia. Efterträdarna är de femton staterna enligt Wikidata; Wikipedia nämner Ryssland och de andra postsovjetiska staterna."
+    },
+    "sources": [
+     "wp-soviet-union",
+     "wd-soviet-union"
+    ],
+    "review": "two-sources"
+   },
    "facts": {
     "summary": {
      "sv": "Sovjetunionen var en kommunistisk förbundsstat i Europa och Asien 1922–1991, styrd av kommunistpartiet. Det var världens största land till ytan och en av de två supermakterna under kalla kriget."
@@ -10979,6 +11341,1698 @@
     "review": "source-checked"
    },
    "symbol": "hammer-sickle"
+  },
+  {
+   "id": "kalmarunionen",
+   "name": {
+    "sv": "Kalmarunionen",
+    "en": "Kalmar Union"
+   },
+   "color": "#c84b4b",
+   "from": 1402,
+   "to": 1525,
+   "file": "data/empires/kalmarunionen.json",
+   "polities": [
+    {
+     "id": "kalmarunionen",
+     "name": {
+      "sv": "Kalmarunionen",
+      "en": "Kalmar Union"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "vanished": {
+    "wikidata": "Q62623",
+    "founded": 1397,
+    "dissolved": 1523,
+    "edtf": "1397-06-17/1523-06-06",
+    "predecessors": [
+     {
+      "name": {
+       "sv": "Kungariket Danmark"
+      }
+     },
+     {
+      "name": {
+       "sv": "Kungariket Norge"
+      }
+     },
+     {
+      "name": {
+       "sv": "Kungariket Sverige"
+      }
+     }
+    ],
+    "successors": [
+     {
+      "name": {
+       "sv": "Danmark-Norge"
+      },
+      "wikidata": "Q62651"
+     },
+     {
+      "name": {
+       "sv": "Kungariket Sverige"
+      }
+     }
+    ],
+    "note": {
+     "sv": "Föregångare och efterträdare enligt Wikipedia; Wikidata anger dem inte. Båda anger 1397–1523."
+    },
+    "sources": [
+     "wp-kalmar-union",
+     "wd-kalmar-union"
+    ],
+    "review": "two-sources"
+   },
+   "facts": {
+    "summary": {
+     "sv": "Kalmarunionen var en personalunion i Norden 1397–1523. Danmark, Sverige (med stora delar av dagens Finland) och Norge med öarna i Nordatlanten hade samma kung, men behöll egna lagar och eget styre. Unionen hölls inte ihop hela tiden, och i Sverige var den från mitten av 1400-talet ofta bara ett namn."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Drottning Margareta av Danmark låg bakom unionen. Hennes adoptivson Erik av Pommern valdes till kung i Danmark och Sverige 1396 och kröntes i Kalmar 17 juni 1397. Ett viktigt skäl var att hålla emot den nordtyska Hansans makt kring Östersjön."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Gustav Vasa valdes till kung av Sverige 6 juni 1523 och tågade in i Stockholm elva dagar senare. Då lämnade Sverige unionen för gott. Fredrik I avsade sig sina anspråk på Sverige i Malmö 1524. Danmark och Norge fortsatte tillsammans som Danmark-Norge."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad"
+      },
+      "text": {
+       "sv": "Ingen enligt lag. Wikipedia anger Köpenhamn som huvudstad i praktiken, men utan källa."
+      }
+     },
+     {
+      "label": {
+       "sv": "Strider inom unionen"
+      },
+      "text": {
+       "sv": "Den svenska adeln var missnöjd med att Danmark och Holstein dominerade. Engelbrektsupproret, som började 1434, ledde till att kung Erik avsattes. Efter 1448 hade länderna ofta olika kungar, och Sverige styrdes länge av riksföreståndare."
+      }
+     },
+     {
+      "label": {
+       "sv": "Språk"
+      },
+      "text": {
+       "sv": "Medeltida danska, svenska och norska samt latin användes officiellt. Dessutom talades bland annat isländska, färöiska, finska, samiska och lågtyska."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1397,
+      "label": {
+       "sv": "1397"
+      },
+      "title": {
+       "sv": "Kröningen i Kalmar"
+      },
+      "text": {
+       "sv": "Erik av Pommern kröns i Kalmar 17 juni 1397. De tre rikena har nu samma kung."
+      },
+      "sources": [
+       "wp-kalmar-union"
+      ],
+      "mapNote": {
+       "sv": "Kartan börjar 1402."
+      }
+     },
+     {
+      "year": 1434,
+      "label": {
+       "sv": "1434"
+      },
+      "title": {
+       "sv": "Engelbrektsupproret"
+      },
+      "text": {
+       "sv": "Ett uppror i Sverige börjar 1434. Det leder till att kung Erik avsätts i Danmark och Sverige 1439 och i Norge 1442."
+      },
+      "sources": [
+       "wp-kalmar-union"
+      ]
+     },
+     {
+      "year": 1520,
+      "label": {
+       "sv": "1520"
+      },
+      "title": {
+       "sv": "Stockholms blodbad"
+      },
+      "text": {
+       "sv": "Kristian II går in i Sverige med en stor här. Sten Sture den yngre dödas i slaget vid Bogesund, Kristian kröns till kung av Sverige, och Stures anhängare avrättas i stort antal i Stockholms blodbad i november."
+      },
+      "sources": [
+       "wp-kalmar-union"
+      ],
+      "mapNote": {
+       "sv": "Kartan räknar inte Sverige till unionen 1502–1520, när riksföreståndare styrde, och visar det igen 1521–1525."
+      }
+     },
+     {
+      "year": 1523,
+      "label": {
+       "sv": "1523"
+      },
+      "title": {
+       "sv": "Sverige lämnar unionen"
+      },
+      "text": {
+       "sv": "Gustav Vasa, som har lett upproret mot Kristian II från Dalarna med stöd av Lübeck, väljs till kung av Sverige 6 juni 1523."
+      },
+      "sources": [
+       "wp-kalmar-union"
+      ],
+      "events": [
+       "gustav-vasa"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar unionen till och med 1525."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 1397–1523. Kartan visar unionen 1402–1525."
+    },
+    "sources": [
+     "wp-kalmar-union"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "preussen",
+   "name": {
+    "sv": "Preussen",
+    "en": "Prussia"
+   },
+   "color": "#4a6fa0",
+   "from": 1526,
+   "to": 1806,
+   "file": "data/empires/preussen.json",
+   "polities": [
+    {
+     "id": "hertigdomet-preussen",
+     "name": {
+      "sv": "Hertigdömet Preussen",
+      "en": "Duchy of Prussia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "brandenburg-preussen",
+     "name": {
+      "sv": "Brandenburg-Preussen",
+      "en": "Brandenburg-Prussia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "kungariket-preussen",
+     "name": {
+      "sv": "Kungariket Preussen",
+      "en": "Kingdom of Prussia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "vanished": {
+    "wikidata": "Q38872",
+    "founded": 1525,
+    "dissolved": 1947,
+    "edtf": "1525-04-10/1947-02-25",
+    "predecessors": [
+     {
+      "name": {
+       "sv": "Tyska ordensstaten"
+      },
+      "wikidata": "Q156020"
+     }
+    ],
+    "successors": [
+     {
+      "name": {
+       "sv": "Polen"
+      },
+      "wikidata": "Q36"
+     },
+     {
+      "name": {
+       "sv": "Sovjetunionen"
+      },
+      "group": "sovjetunionen",
+      "wikidata": "Q15180"
+     },
+     {
+      "name": {
+       "sv": "Tyska delstater (bland dem Brandenburg, Sachsen-Anhalt, Mecklenburg-Vorpommern, Nordrhein-Westfalen, Niedersachsen, Hessen, Rheinland-Pfalz och Schleswig-Holstein)"
+      }
+     }
+    ],
+    "note": {
+     "sv": "Källorna skiljer sig om efterträdarna. Wikipedia beskriver hur landet delades 1945–1947: öster om Oder–Neisse till Polen och Sovjetunionen, resten till tyska delstater. Wikidata anger Nazityskland och Tyskland. Båda anger 1525–1947, men Wikidata har också 1933 som slutår, och Wikipedia skriver att Preussen i praktiken upplöstes 1932–1934."
+    },
+    "sources": [
+     "wp-prussia",
+     "wd-prussia"
+    ],
+    "review": "two-sources"
+   },
+   "facts": {
+    "summary": {
+     "sv": "Preussen var en tysk stat på den nordeuropeiska slätten från 1525 till 1947. Det började som ett hertigdöme kring Königsberg, förenades med Brandenburg och blev 1701 ett kungarike med Berlin som huvudstad. Huset Hohenzollern styrde i århundraden, och 1871 enade Preussen de tyska staterna till Tyska riket."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "1525 gjordes Tyska ordens del av Preussen till ett världsligt hertigdöme, som lydde under Polens krona till 1657. Hertigdömet förenades med Brandenburg 1618, och 18 januari 1701 blev Preussen ett kungarike."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Monarkin föll i den tyska revolutionen 1918, och Preussen blev en fristat i Weimarrepubliken. Statskuppen 1932 och nazisternas lagar 1934–1935 tömde den på makt. De allierade upplöste Preussen formellt 25 februari 1947. Landet öster om Oder–Neisse hade då gått till Polen och Sovjetunionen, och resten delades mellan tyska delstater."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Königsberg (1525–1701), sedan Berlin."
+      }
+     },
+     {
+      "label": {
+       "sv": "Befolkning"
+      },
+      "text": {
+       "sv": "10,3 miljoner invånare 1816 och 24,7 miljoner 1871, då 60 procent av Tyska rikets befolkning. I Tyska riket hade Preussen tre femtedelar av ytan och två tredjedelar av invånarna."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1525,
+      "label": {
+       "sv": "1525"
+      },
+      "title": {
+       "sv": "Hertigdömet Preussen"
+      },
+      "text": {
+       "sv": "Tyska ordens land i Preussen blir ett världsligt hertigdöme under polsk överhöghet."
+      },
+      "sources": [
+       "wp-prussia"
+      ],
+      "mapNote": {
+       "sv": "Kartan börjar 1526."
+      }
+     },
+     {
+      "year": 1618,
+      "label": {
+       "sv": "1618"
+      },
+      "title": {
+       "sv": "Förenat med Brandenburg"
+      },
+      "text": {
+       "sv": "Hertigdömet och Brandenburg får samma furste 27 augusti 1618. Länderna ligger ännu inte ihop."
+      },
+      "sources": [
+       "wp-prussia"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Brandenburg-Preussen från 1619."
+      }
+     },
+     {
+      "year": 1701,
+      "label": {
+       "sv": "1701"
+      },
+      "title": {
+       "sv": "Kungariket"
+      },
+      "text": {
+       "sv": "Preussen blir ett kungarike 18 januari 1701, med Berlin som huvudstad. Kort därefter räknas landet till Europas stormakter."
+      },
+      "sources": [
+       "wp-prussia"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar kungariket från 1702."
+      }
+     },
+     {
+      "year": 1772,
+      "label": {
+       "sv": "1772"
+      },
+      "title": {
+       "sv": "Polens första delning"
+      },
+      "text": {
+       "sv": "Fredrik den store tar del i Polens första delning tillsammans med Österrike och Ryssland. Brandenburg och Preussen hänger nu ihop."
+      },
+      "sources": [
+       "wp-prussia"
+      ]
+     },
+     {
+      "year": 1871,
+      "label": {
+       "sv": "1871"
+      },
+      "title": {
+       "sv": "Tyska riket"
+      },
+      "text": {
+       "sv": "Preussen enar de tyska staterna till Tyska riket. Preussen finns kvar som delstat och dominerar riket."
+      },
+      "sources": [
+       "wp-prussia"
+      ],
+      "mapNote": {
+       "sv": "Kartan har ingen egen gräns för Preussen efter 1806; landet ingår i Tyska riket."
+      }
+     },
+     {
+      "year": 1947,
+      "label": {
+       "sv": "1947"
+      },
+      "title": {
+       "sv": "Upplösningen"
+      },
+      "text": {
+       "sv": "De allierades kontrollråd upplöser Preussen genom lag nr 46, 25 februari 1947."
+      },
+      "sources": [
+       "wp-prussia"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 1525–1947. Kartan visar Preussen 1526–1806: hertigdömet (1526–1618), Brandenburg-Preussen (1619–1701) och kungariket (1702–1806). Från 1807 har Cliopatria ingen egen gräns för Preussen: landet räknas till Franska kejsardömet och Rhenförbundet, sedan till Tyska förbundet (1815–1867), Nordtyska förbundet (1868–1870) och Tyska riket. Några mycket små preussiska områden som Cliopatria visar 1807–1863 är inte med."
+    },
+    "sources": [
+     "wp-prussia"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "jugoslavien",
+   "name": {
+    "sv": "Jugoslavien",
+    "en": "Yugoslavia"
+   },
+   "color": "#2d8fa8",
+   "from": 1919,
+   "to": 1991,
+   "file": "data/empires/jugoslavien.json",
+   "polities": [
+    {
+     "id": "kungariket-jugoslavien",
+     "name": {
+      "sv": "Jugoslavien",
+      "en": "Yugoslavia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "sfr-jugoslavien",
+     "name": {
+      "sv": "Jugoslavien",
+      "en": "Socialist Federal Republic of Yugoslavia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "vanished": {
+    "wikidata": "Q36704",
+    "founded": 1918,
+    "dissolved": 1992,
+    "edtf": "1918-12-01/1992-04-27",
+    "predecessors": [
+     {
+      "name": {
+       "sv": "Kungariket Serbien"
+      },
+      "wikidata": "Q241748"
+     },
+     {
+      "name": {
+       "sv": "Kungariket Montenegro"
+      },
+      "wikidata": "Q386496"
+     },
+     {
+      "name": {
+       "sv": "Sloveners, kroaters och serbers stat"
+      },
+      "wikidata": "Q718374"
+     },
+     {
+      "name": {
+       "sv": "Österrike-Ungern"
+      },
+      "group": "osterrike-ungern",
+      "wikidata": "Q28513"
+     }
+    ],
+    "successors": [
+     {
+      "name": {
+       "sv": "Kroatien"
+      },
+      "wikidata": "Q224"
+     },
+     {
+      "name": {
+       "sv": "Slovenien"
+      },
+      "wikidata": "Q215"
+     },
+     {
+      "name": {
+       "sv": "Nordmakedonien"
+      },
+      "wikidata": "Q221"
+     },
+     {
+      "name": {
+       "sv": "Bosnien och Hercegovina"
+      },
+      "wikidata": "Q225"
+     },
+     {
+      "name": {
+       "sv": "Förbundsrepubliken Jugoslavien (Serbien och Montenegro)"
+      },
+      "wikidata": "Q838261"
+     }
+    ],
+    "note": {
+     "sv": "Föregångare och efterträdare enligt Wikipedia. Wikidatas post för hela Jugoslavien anger bara Förbundsrepubliken Jugoslavien och de postjugoslaviska staterna; posten för den socialistiska förbundsrepubliken anger samma fem stater som Wikipedia. Båda anger 1 december 1918 och 27 april 1992."
+    },
+    "sources": [
+     "wp-yugoslavia",
+     "wd-yugoslavia"
+    ],
+    "review": "two-sources"
+   },
+   "facts": {
+    "summary": {
+     "sv": "Jugoslavien, \"sydslavernas land\", var ett land på Balkan 1918–1992 och den första egna staten för de sydslaviska folken. Det började som ett kungarike och blev efter andra världskriget en kommunistisk förbundsrepublik med sex delrepubliker."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Landet bildades 1 december 1918, när kungariket Serbien gick samman med Sloveners, kroaters och serbers stat, som hade bildats på Österrike-Ungerns sydslaviska områden. Det hette först Serbernas, kroaternas och slovenernas kungarike och från 3 oktober 1929 Kungariket Jugoslavien."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Efter Titos död 1980 och kriser under 1980-talet förklarade Slovenien och Kroatien sig självständiga 25 juni 1991. Fram till april 1992 lämnade fyra av de sex republikerna landet. 27 april 1992 antogs grundlagen för Förbundsrepubliken Jugoslavien (Serbien och Montenegro), och uppbrottet var formellt klart. De jugoslaviska krigen följde, 1991–2001."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad"
+      },
+      "text": {
+       "sv": "Belgrad."
+      }
+     },
+     {
+      "label": {
+       "sv": "Andra världskriget och Tito"
+      },
+      "text": {
+       "sv": "Axelmakterna invaderade landet 6 april 1941. Partisanerna under Josip Broz Tito fick de allierades stöd, och 29 november 1945 blev Jugoslavien en förbundsrepublik utan kung. Tito styrde från 1944 till sin död 1980."
+      }
+     },
+     {
+      "label": {
+       "sv": "Delrepubliker"
+      },
+      "text": {
+       "sv": "Bosnien och Hercegovina, Kroatien, Makedonien, Montenegro, Serbien och Slovenien. I Serbien fanns dessutom de självstyrande provinserna Vojvodina och Kosovo."
+      }
+     },
+     {
+      "label": {
+       "sv": "Befolkning"
+      },
+      "text": {
+       "sv": "17,5 miljoner invånare 1955 och 23,5 miljoner 1991, enligt Jugoslaviens statistiska årsböcker."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1918,
+      "label": {
+       "sv": "1918"
+      },
+      "title": {
+       "sv": "Ett nytt kungarike"
+      },
+      "text": {
+       "sv": "Serbien går samman med Sloveners, kroaters och serbers stat 1 december 1918. Kungariket får internationellt erkännande 1922."
+      },
+      "sources": [
+       "wp-yugoslavia"
+      ],
+      "mapNote": {
+       "sv": "Kartan börjar 1919."
+      }
+     },
+     {
+      "year": 1929,
+      "label": {
+       "sv": "1929"
+      },
+      "title": {
+       "sv": "Kungariket Jugoslavien"
+      },
+      "text": {
+       "sv": "Landet byter namn till Kungariket Jugoslavien 3 oktober 1929, under kung Alexander I:s diktatur."
+      },
+      "sources": [
+       "wp-yugoslavia"
+      ]
+     },
+     {
+      "year": 1941,
+      "label": {
+       "sv": "1941"
+      },
+      "title": {
+       "sv": "Invasionen"
+      },
+      "text": {
+       "sv": "Axelmakterna invaderar och ockuperar landet i april 1941. Andra världskriget i Jugoslavien börjar."
+      },
+      "sources": [
+       "wp-yugoslavia"
+      ],
+      "events": [
+       "andra-varldskriget"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar inget Jugoslavien 1941–1944."
+      }
+     },
+     {
+      "year": 1945,
+      "label": {
+       "sv": "1945"
+      },
+      "title": {
+       "sv": "Förbundsrepubliken"
+      },
+      "text": {
+       "sv": "Den konstituerande församlingen avskaffar monarkin 29 november 1945. Landet får Istrien, Rijeka och Zadar från Italien."
+      },
+      "sources": [
+       "wp-yugoslavia"
+      ]
+     },
+     {
+      "year": 1991,
+      "label": {
+       "sv": "1991"
+      },
+      "title": {
+       "sv": "Slovenien och Kroatien lämnar"
+      },
+      "text": {
+       "sv": "Slovenien och Kroatien förklarar sig självständiga 25 juni 1991. Krigen börjar."
+      },
+      "sources": [
+       "wp-breakup-of-yugoslavia"
+      ],
+      "mapNote": {
+       "sv": "Kartan slutar 1991."
+      }
+     },
+     {
+      "year": 1992,
+      "label": {
+       "sv": "1992"
+      },
+      "title": {
+       "sv": "Slutet"
+      },
+      "text": {
+       "sv": "27 april 1992 antas grundlagen för Förbundsrepubliken Jugoslavien, som bara består av Serbien och Montenegro."
+      },
+      "sources": [
+       "wp-breakup-of-yugoslavia"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 1918–1992. Kartan visar kungariket 1919–1940 och 1945 och förbundsrepubliken 1946–1991. Under ockupationen 1941–1944 räknar Cliopatria landet till Nazityskland."
+    },
+    "sources": [
+     "wp-yugoslavia",
+     "wp-breakup-of-yugoslavia"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "tjeckoslovakien",
+   "name": {
+    "sv": "Tjeckoslovakien",
+    "en": "Czechoslovakia"
+   },
+   "color": "#c06a3a",
+   "from": 1919,
+   "to": 1991,
+   "file": "data/empires/tjeckoslovakien.json",
+   "polities": [
+    {
+     "id": "tjeckoslovakien",
+     "name": {
+      "sv": "Tjeckoslovakien",
+      "en": "Czechoslovakia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "vanished": {
+    "wikidata": "Q33946",
+    "founded": 1918,
+    "dissolved": 1992,
+    "edtf": "1918-10-28/1992-12-31",
+    "predecessors": [
+     {
+      "name": {
+       "sv": "Österrike-Ungern"
+      },
+      "group": "osterrike-ungern",
+      "wikidata": "Q28513"
+     }
+    ],
+    "successors": [
+     {
+      "name": {
+       "sv": "Tjeckien"
+      },
+      "wikidata": "Q213"
+     },
+     {
+      "name": {
+       "sv": "Slovakien"
+      },
+      "wikidata": "Q214"
+     }
+    ],
+    "note": {
+     "sv": "Wikipedia anger 1 januari 1993 som slutdatum i faktarutan och 31 december 1992 i artikeln om delningen; Wikidata anger 31 december 1992. Landet upphörde alltså vid nyåret. Wikidata anger inga efterträdare; de kommer från Wikipedia. Wikidata räknar också Kungariket Böhmen som föregångare."
+    },
+    "sources": [
+     "wp-czechoslovakia",
+     "wp-dissolution-of-czechoslovakia",
+     "wd-czechoslovakia"
+    ],
+    "review": "two-sources"
+   },
+   "facts": {
+    "summary": {
+     "sv": "Tjeckoslovakien var ett land i Centraleuropa 1918–1992, med Prag som huvudstad. Det bildades när Österrike-Ungern föll sönder och delades fredligt i Tjeckien och Slovakien vid nyåret 1993."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Landet förklarade sig självständigt 28 oktober 1918, när Österrike-Ungern föll sönder. Tomáš Masaryk och Edvard Beneš ledde arbetet och blev de första presidenterna. Freden i Saint-Germain-en-Laye bekräftade självständigheten."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Efter sammetsrevolutionen 1989 delades landet i Tjeckien och Slovakien, utan våld. Delningen gällde från 31 december 1992 och kallas sammetsskilsmässan. Ingen folkomröstning hölls, och delningen var impopulär när den gjordes."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och yta"
+      },
+      "text": {
+       "sv": "Prag. Ytan var 127 906 km²."
+      }
+     },
+     {
+      "label": {
+       "sv": "Andra världskriget"
+      },
+      "text": {
+       "sv": "Efter Münchenöverenskommelsen 1938 tog Nazityskland Sudetenland, och i mars 1939 styckades resten: Böhmen-Mähren blev ett tyskt protektorat, Slovakien en egen stat och Karpato-Ukraina gick till Ungern. Landet återupprättades 1945, men Karpato-Ukraina blev en del av Sovjetunionen."
+      }
+     },
+     {
+      "label": {
+       "sv": "Under kommunismen"
+      },
+      "text": {
+       "sv": "Kommunistpartiet tog makten i en kupp 25 februari 1948. Pragvåren 1968 slogs ned när Sovjetunionen och andra länder i Warszawapakten invaderade landet 21 augusti 1968."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1918,
+      "label": {
+       "sv": "1918"
+      },
+      "title": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Tjeckoslovakien utropas 28 oktober 1918."
+      },
+      "sources": [
+       "wp-czechoslovakia"
+      ],
+      "mapNote": {
+       "sv": "Kartan börjar 1919."
+      }
+     },
+     {
+      "year": 1938,
+      "label": {
+       "sv": "1938"
+      },
+      "title": {
+       "sv": "München"
+      },
+      "text": {
+       "sv": "Münchenöverenskommelsen 30 september 1938 ger Sudetenland till Nazityskland."
+      },
+      "sources": [
+       "wp-czechoslovakia"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar ytan minska från cirka 145 000 till 86 000 km² 1938."
+      }
+     },
+     {
+      "year": 1939,
+      "label": {
+       "sv": "1939"
+      },
+      "title": {
+       "sv": "Landet styckas"
+      },
+      "text": {
+       "sv": "14 mars 1939 delas landet. Exilregeringen under Beneš erkänns av de allierade."
+      },
+      "sources": [
+       "wp-czechoslovakia"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar inget Tjeckoslovakien 1939–1946; Cliopatria räknar landet till Nazityskland och 1945–1946 till Sovjetunionen."
+      }
+     },
+     {
+      "year": 1948,
+      "label": {
+       "sv": "1948"
+      },
+      "title": {
+       "sv": "Kuppen"
+      },
+      "text": {
+       "sv": "Kommunisterna tar makten 25 februari 1948, och landet blir en del av östblocket."
+      },
+      "sources": [
+       "wp-czechoslovakia"
+      ]
+     },
+     {
+      "year": 1968,
+      "label": {
+       "sv": "1968"
+      },
+      "title": {
+       "sv": "Invasionen"
+      },
+      "text": {
+       "sv": "Warszawapakten invaderar landet 21 augusti 1968 och gör slut på Pragvåren."
+      },
+      "sources": [
+       "wp-czechoslovakia"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar inget Tjeckoslovakien 1969–1990: Cliopatria räknar landet till Sovjetunionen, fast det enligt källorna fanns kvar som egen stat."
+      }
+     },
+     {
+      "year": 1989,
+      "label": {
+       "sv": "1989"
+      },
+      "title": {
+       "sv": "Sammetsrevolutionen"
+      },
+      "text": {
+       "sv": "Fredliga protester 17–28 november 1989 tvingar bort kommunistledarna."
+      },
+      "sources": [
+       "wp-czechoslovakia"
+      ]
+     },
+     {
+      "year": 1992,
+      "label": {
+       "sv": "1992"
+      },
+      "title": {
+       "sv": "Sammetsskilsmässan"
+      },
+      "text": {
+       "sv": "Landet delas i Tjeckien och Slovakien. Delningen gäller från 31 december 1992."
+      },
+      "sources": [
+       "wp-dissolution-of-czechoslovakia"
+      ],
+      "mapNote": {
+       "sv": "Kartan slutar 1991."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 1918–1992. Kartan visar landet bara 1919–1938, 1947–1968 och 1991. Cliopatria räknar landet till Nazityskland 1939–1944 och till Sovjetunionen 1945–1946 och 1969–1990."
+    },
+    "sources": [
+     "wp-czechoslovakia",
+     "wp-dissolution-of-czechoslovakia"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "storcolombia",
+   "name": {
+    "sv": "Storcolombia",
+    "en": "Gran Colombia"
+   },
+   "color": "#d4b13a",
+   "from": 1822,
+   "to": 1833,
+   "file": "data/empires/storcolombia.json",
+   "polities": [
+    {
+     "id": "storcolombia",
+     "name": {
+      "sv": "Storcolombia",
+      "en": "Gran Colombia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "vanished": {
+    "wikidata": "Q199821",
+    "founded": 1819,
+    "dissolved": 1831,
+    "edtf": "1819/1831",
+    "predecessors": [
+     {
+      "name": {
+       "sv": "Vicekungadömet Nya Granada"
+      },
+      "wikidata": "Q8965"
+     },
+     {
+      "name": {
+       "sv": "Generalkaptenskapet Venezuela"
+      }
+     }
+    ],
+    "successors": [
+     {
+      "name": {
+       "sv": "Republiken Nya Granada (senare Colombia, som Panama skildes från 1903)"
+      },
+      "wikidata": "Q630882"
+     },
+     {
+      "name": {
+       "sv": "Venezuela"
+      },
+      "wikidata": "Q717"
+     },
+     {
+      "name": {
+       "sv": "Ecuador"
+      },
+      "wikidata": "Q736"
+     }
+    ],
+    "note": {
+     "sv": "Wikipedia och Wikidata anger båda 1819–1831 och Nya Granada, Venezuela och Ecuador som efterträdare. Båda räknar också Brittiska Guyana (det omstridda Essequibo), och Wikidata dessutom Centralamerikanska federationen."
+    },
+    "sources": [
+     "wp-gran-colombia",
+     "wd-gran-colombia"
+    ],
+    "review": "two-sources"
+   },
+   "facts": {
+    "summary": {
+     "sv": "Storcolombia, officiellt Republiken Colombia, var en stat i norra Sydamerika 1819–1831. Den omfattade dagens Colombia, Ecuadors fastland, Panama och Venezuela samt delar av norra Peru och nordvästra Brasilien."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Staten utropades i en grundlag vid kongressen i Angostura 1819, under kriget mot Spanien, men kom till på riktigt först när kongressen i Cúcuta antog en författning 1821."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Striden mellan anhängare av en stark centralmakt kring Simón Bolívar och anhängare av en federation kring Francisco de Paula Santander, och motsättningar mellan regionerna, splittrade staten. Bolívar avgick 1830, förbundet löstes upp i slutet av året och avskaffades formellt 1831. Venezuela, Ecuador och Nya Granada blev egna stater."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad"
+      },
+      "text": {
+       "sv": "Bogotá."
+      }
+     },
+     {
+      "label": {
+       "sv": "Storlek"
+      },
+      "text": {
+       "sv": "Cirka 3 064 800 km² och 2,58 miljoner invånare 1825."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1819,
+      "label": {
+       "sv": "1819"
+      },
+      "title": {
+       "sv": "Angostura"
+      },
+      "text": {
+       "sv": "Kongressen i Angostura antar grundlagen för Republiken Colombia."
+      },
+      "sources": [
+       "wp-gran-colombia"
+      ],
+      "events": [
+       "slaget-vid-boyaca"
+      ],
+      "mapNote": {
+       "sv": "Kartan börjar 1822."
+      }
+     },
+     {
+      "year": 1821,
+      "label": {
+       "sv": "1821"
+      },
+      "title": {
+       "sv": "Författningen i Cúcuta"
+      },
+      "text": {
+       "sv": "Kongressen i Cúcuta antar en författning 30 augusti 1821. Staten blir en centralstyrd enhetsstat."
+      },
+      "sources": [
+       "wp-gran-colombia"
+      ]
+     },
+     {
+      "year": 1826,
+      "label": {
+       "sv": "1826"
+      },
+      "title": {
+       "sv": "Venezuela gör uppror"
+      },
+      "text": {
+       "sv": "José Antonio Páez trotsar regeringen, och Venezuela är nära att bryta sig loss. Bolívar lugnar läget med amnesti i januari 1827."
+      },
+      "sources": [
+       "wp-gran-colombia"
+      ]
+     },
+     {
+      "year": 1828,
+      "label": {
+       "sv": "1828"
+      },
+      "title": {
+       "sv": "Krig mot Peru"
+      },
+      "text": {
+       "sv": "Bolívar förklarar krig mot Peru 3 juni 1828 om områdena Jaén och Maynas. Kriget slutar med fördraget i Guayaquil 1829."
+      },
+      "sources": [
+       "wp-gran-colombia"
+      ]
+     },
+     {
+      "year": 1830,
+      "label": {
+       "sv": "1830"
+      },
+      "title": {
+       "sv": "Upplösningen"
+      },
+      "text": {
+       "sv": "Bolívar avgår, och förbundet löses upp under årets sista månader. Det avskaffas formellt 1831."
+      },
+      "sources": [
+       "wp-gran-colombia"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Storcolombia till och med 1833."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 1819–1831. Kartan visar staten 1822–1833."
+    },
+    "sources": [
+     "wp-gran-colombia"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "republiken-texas",
+   "name": {
+    "sv": "Republiken Texas",
+    "en": "Republic of Texas"
+   },
+   "color": "#8f5fbf",
+   "from": 1836,
+   "to": 1845,
+   "file": "data/empires/republiken-texas.json",
+   "polities": [
+    {
+     "id": "republiken-texas",
+     "name": {
+      "sv": "Republiken Texas",
+      "en": "Republic of Texas"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "vanished": {
+    "wikidata": "Q170588",
+    "founded": 1836,
+    "dissolved": 1846,
+    "edtf": "1836-03-02/1846-02-19",
+    "predecessors": [
+     {
+      "name": {
+       "sv": "Mexiko (delstaten Coahuila y Tejas)"
+      }
+     }
+    ],
+    "successors": [
+     {
+      "name": {
+       "sv": "Delstaten Texas i USA"
+      },
+      "wikidata": "Q1439"
+     },
+     {
+      "name": {
+       "sv": "Delar av amerikanska territorier (New Mexico, Utah, Kansas och Nebraska, där republiken gjorde anspråk på land)"
+      }
+     }
+    ],
+    "note": {
+     "sv": "Wikipedia och Wikidata anger båda 2 mars 1836 till 19 februari 1846 och delstaten Texas som efterträdare. Wikipedia nämner också territorierna."
+    },
+    "sources": [
+     "wp-republic-of-texas",
+     "wd-republic-of-texas"
+    ],
+    "review": "two-sources"
+   },
+   "facts": {
+    "summary": {
+     "sv": "Republiken Texas var ett självständigt land i Nordamerika från 2 mars 1836 till 19 februari 1846, mellan Mexiko och USA. Mexiko erkände aldrig självständigheten och såg Texas som en upprorisk provins."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Texasrevolutionen bröt ut 2 oktober 1835, sedan Mexikos president Santa Anna hade avskaffat delstaternas självstyre. 2 mars 1836 antog ett konvent i Washington-on-the-Brazos en självständighetsförklaring. De stora striderna slutade 21 april 1836, och i fördragen i Velasco erkände den tillfångatagne Santa Anna självständigheten. Mexikos kongress godkände aldrig fördragen."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "USA tog upp Texas som den 28:e delstaten 29 december 1845, och makten lämnades över 19 februari 1846. USA ärvde gränstvisten med Mexiko, och annekteringen ledde till mexikansk-amerikanska kriget."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Fem tillfälliga huvudstäder 1836, bland dem Washington-on-the-Brazos, sedan Houston (1837–1839) och Austin (1839–1846)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Folk"
+      },
+      "text": {
+       "sv": "Omkring 135 000 invånare 1845 (uppskattning). Mexiko eller komancherna kontrollerade eller gjorde anspråk på stora delar av det område som republiken räknade som sitt."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1836,
+      "label": {
+       "sv": "1836"
+      },
+      "title": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Konventet i Washington-on-the-Brazos förklarar Texas självständigt 2 mars 1836."
+      },
+      "sources": [
+       "wp-republic-of-texas",
+       "wp-texas-declaration"
+      ],
+      "events": [
+       "texas-sjalvstandighet"
+      ]
+     },
+     {
+      "year": 1837,
+      "label": {
+       "sv": "1837"
+      },
+      "title": {
+       "sv": "Houston blir huvudstad"
+      },
+      "text": {
+       "sv": "President Sam Houston flyttar huvudstaden till staden Houston."
+      },
+      "sources": [
+       "wp-republic-of-texas"
+      ]
+     },
+     {
+      "year": 1839,
+      "label": {
+       "sv": "1839"
+      },
+      "title": {
+       "sv": "Austin"
+      },
+      "text": {
+       "sv": "Nästa president, Mirabeau B. Lamar, flyttar huvudstaden till den nya staden Austin."
+      },
+      "sources": [
+       "wp-republic-of-texas"
+      ]
+     },
+     {
+      "year": 1845,
+      "label": {
+       "sv": "1845"
+      },
+      "title": {
+       "sv": "Annekteringen"
+      },
+      "text": {
+       "sv": "Texas blir USA:s 28:e delstat 29 december 1845. Makten lämnas över 19 februari 1846."
+      },
+      "sources": [
+       "wp-republic-of-texas"
+      ],
+      "mapNote": {
+       "sv": "Kartan slutar 1845."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 1836–1846. Kartan visar republiken 1836–1845, med samma område hela tiden."
+    },
+    "sources": [
+     "wp-republic-of-texas",
+     "wp-texas-declaration"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "kungariket-hawaii",
+   "name": {
+    "sv": "Kungariket Hawaii",
+    "en": "Hawaiian Kingdom"
+   },
+   "color": "#3fae7a",
+   "from": 1791,
+   "to": 1894,
+   "file": "data/empires/kungariket-hawaii.json",
+   "polities": [
+    {
+     "id": "kungariket-hawaii",
+     "name": {
+      "sv": "Kungariket Hawaii",
+      "en": "Hawaiian Kingdom"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "vanished": {
+    "wikidata": "Q156418",
+    "founded": 1795,
+    "dissolved": 1893,
+    "edtf": "1795/1893-01-17",
+    "predecessors": [
+     {
+      "name": {
+       "sv": "Det forna Hawaii, med hövdingar på de olika öarna"
+      }
+     }
+    ],
+    "successors": [
+     {
+      "name": {
+       "sv": "Hawaiis provisoriska regering (1893–1894), sedan Republiken Hawaii (1894–1898) och Hawaiiterritoriet i USA"
+      },
+      "wikidata": "Q2593459"
+     }
+    ],
+    "note": {
+     "sv": "Källorna skiljer sig. Wikipedia anger 1795–1893, med monarkins fall 17 januari 1893 som slut. Wikidata anger 24 januari 1895, dagen då Liliʻuokalani i husarrest tvingades skriva under en abdikation."
+    },
+    "sources": [
+     "wp-hawaiian-kingdom",
+     "wd-hawaiian-kingdom"
+    ],
+    "review": "source-checked"
+   },
+   "facts": {
+    "summary": {
+     "sv": "Kungariket Hawaii var en östat i Stilla havet 1795–1893 som till slut omfattade alla bebodda Hawaiiöar. Det styrdes av huset Kamehameha och från 1874 av Kalākaua-dynastin, tills monarkin störtades 1893."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Kamehameha I erövrade Oʻahu, Maui, Molokaʻi och Lānaʻi 1795 och enade dem under ett styre. 1810 gick Kauaʻi och Niʻihau frivilligt med, och då var alla öarna enade."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "1887 tvingades kung Kalākaua godta en ny grundlag under hot från en beväpnad milis. När drottning Liliʻuokalani ville ersätta den störtades hon 17 januari 1893 av Säkerhetskommittén, med stöd av amerikanska marinsoldater. Republiken Hawaii utropades 4 juli 1894, och USA annekterade öarna 1898."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Waikīkī, Honolulu och Kailua-Kona, efter hur Kamehameha I flyttade (1795–1820), sedan Lāhainā (1820–1845) och Honolulu (1845–1893)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Befolkning"
+      },
+      "text": {
+       "sv": "Cirka 250 000 invånare år 1800, 130 313 år 1832 och 89 990 år 1890. Sjukdomar som européer och amerikaner förde med sig fick den infödda befolkningen att minska snabbt."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1795,
+      "label": {
+       "sv": "1795"
+      },
+      "title": {
+       "sv": "Kungariket grundas"
+      },
+      "text": {
+       "sv": "Kamehameha I erövrar Oʻahu och enar de flesta öarna."
+      },
+      "sources": [
+       "wp-hawaiian-kingdom"
+      ],
+      "events": [
+       "slaget-vid-nuuanu"
+      ]
+     },
+     {
+      "year": 1810,
+      "label": {
+       "sv": "1810"
+      },
+      "title": {
+       "sv": "Alla öar enade"
+      },
+      "text": {
+       "sv": "Kauaʻi och Niʻihau går med i kungariket."
+      },
+      "sources": [
+       "wp-hawaiian-kingdom"
+      ],
+      "events": [
+       "kauai-underkastar-sig"
+      ]
+     },
+     {
+      "year": 1840,
+      "label": {
+       "sv": "1840"
+      },
+      "title": {
+       "sv": "Grundlagen"
+      },
+      "text": {
+       "sv": "Hawaii blir en konstitutionell monarki 8 oktober 1840."
+      },
+      "sources": [
+       "wp-hawaiian-kingdom"
+      ]
+     },
+     {
+      "year": 1887,
+      "label": {
+       "sv": "1887"
+      },
+      "title": {
+       "sv": "Bajonettgrundlagen"
+      },
+      "text": {
+       "sv": "Kalākaua tvingas godta en grundlag som minskar kungens makt."
+      },
+      "sources": [
+       "wp-hawaiian-kingdom"
+      ]
+     },
+     {
+      "year": 1893,
+      "label": {
+       "sv": "1893"
+      },
+      "title": {
+       "sv": "Monarkin störtas"
+      },
+      "text": {
+       "sv": "Säkerhetskommittén avsätter Liliʻuokalani 17 januari 1893 och tillsätter en provisorisk regering."
+      },
+      "sources": [
+       "wp-overthrow-hawaiian-kingdom"
+      ],
+      "events": [
+       "hawaiis-monarki-stortas"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar kungariket till och med 1894."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Wikipedia anger 1795–1893, Wikidata 1795–1895. Kartan visar kungariket 1791–1894; de första åren är Kamehamehas rike innan alla öar var enade."
+    },
+    "sources": [
+     "wp-hawaiian-kingdom",
+     "wp-overthrow-hawaiian-kingdom",
+     "wp-republic-of-hawaii"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "neutrala-moresnet",
+   "name": {
+    "sv": "Neutrala Moresnet",
+    "en": "Neutral Moresnet"
+   },
+   "color": "#e0a0c0",
+   "from": 1816,
+   "to": 1920,
+   "polities": [],
+   "vanished": {
+    "wikidata": "Q151938",
+    "founded": 1816,
+    "dissolved": 1920,
+    "edtf": "1816-06-26/1920-01-10",
+    "point": {
+     "type": "Point",
+     "coordinates": [
+      6.013,
+      50.73
+     ]
+    },
+    "predecessors": [
+     {
+      "name": {
+       "sv": "Distriktet Moresnet, som hade hört till Första franska kejsardömet"
+      },
+      "wikidata": "Q71084"
+     }
+    ],
+    "successors": [
+     {
+      "name": {
+       "sv": "Belgien (kommunen Kelmis)"
+      },
+      "wikidata": "Q31"
+     }
+    ],
+    "note": {
+     "sv": "Båda källorna anger 26 juni 1816 och 10 januari 1920 och samma plats. Föregångaren skiljer sig något: Wikidata anger Första franska kejsardömet, Wikipedia kungariket Frankrike. Wikipedia nämner också Weimarrepubliken bland efterträdarna, Wikidata bara Kelmis."
+    },
+    "sources": [
+     "wp-neutral-moresnet",
+     "wd-neutral-moresnet"
+    ],
+    "review": "two-sources"
+   },
+   "facts": {
+    "summary": {
+     "sv": "Neutrala Moresnet var ett litet område på 3,5 km² mellan dagens Belgien och Tyskland, som grannländerna styrde gemensamt 1816–1920. Det var 1,5 km brett och 2,5 km långt."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Efter Wienkongressen kunde Nederländerna och Preussen inte enas om vem som skulle få zinkgruvan Altenberg (Vieille Montagne). I Aachen 26 juni 1816 delades distriktet Moresnet i tre delar. Gruvan och byn intill blev neutrala tills vidare och styrdes gemensamt, och ingen av arméerna fick gå in där. Belgien tog över Nederländernas roll 1830."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Tyskland annekterade området under första världskriget. Versaillesfreden gav det till Belgien, och från januari 1920 blev det kommunen Kelmis."
+      }
+     },
+     {
+      "label": {
+       "sv": "Styre"
+      },
+      "text": {
+       "sv": "Två kungliga kommissarier, en från varje granne, och en borgmästare som de utsåg. Ett kommunalråd tillkom 1859, men invånarna hade ingen rösträtt."
+      }
+     },
+     {
+      "label": {
+       "sv": "Gruvan och invånarna"
+      },
+      "text": {
+       "sv": "Gruvbolaget Vieille Montagne var största arbetsgivare och drev bostäder, affärer, sjukhus och bank. Invånarna ökade från 256 år 1815 till 4 668 år 1914. Gruvan tog slut 1885. Ett försök med egna frimärken 1886 och ett kasino 1903 stoppades, och 1908 föreslogs att området skulle bli en esperantostat, Amikejo."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1816,
+      "label": {
+       "sv": "1816"
+      },
+      "title": {
+       "sv": "Kompromissen i Aachen"
+      },
+      "text": {
+       "sv": "Nederländerna och Preussen delar Moresnet 26 juni 1816 och gör området kring zinkgruvan neutralt."
+      },
+      "sources": [
+       "wp-neutral-moresnet"
+      ]
+     },
+     {
+      "year": 1885,
+      "label": {
+       "sv": "1885"
+      },
+      "title": {
+       "sv": "Gruvan tar slut"
+      },
+      "text": {
+       "sv": "När zinkgruvan är uttömd blir det osäkert om området kan finnas kvar."
+      },
+      "sources": [
+       "wp-neutral-moresnet"
+      ]
+     },
+     {
+      "year": 1908,
+      "label": {
+       "sv": "1908"
+      },
+      "title": {
+       "sv": "Amikejo"
+      },
+      "text": {
+       "sv": "Gruvläkaren Wilhelm Molly föreslår att Neutrala Moresnet ska bli världens första stat där man talar esperanto."
+      },
+      "sources": [
+       "wp-neutral-moresnet"
+      ]
+     },
+     {
+      "year": 1915,
+      "label": {
+       "sv": "1915"
+      },
+      "title": {
+       "sv": "Tyskland annekterar"
+      },
+      "text": {
+       "sv": "Tyskland annekterar området 27 juni 1915, under första världskriget."
+      },
+      "sources": [
+       "wp-neutral-moresnet"
+      ],
+      "events": [
+       "forsta-varldskriget"
+      ]
+     },
+     {
+      "year": 1920,
+      "label": {
+       "sv": "1920"
+      },
+      "title": {
+       "sv": "Belgiskt"
+      },
+      "text": {
+       "sv": "Versaillesfreden ger området till Belgien, och 10 januari 1920 blir det kommunen Kelmis."
+      },
+      "sources": [
+       "wp-neutral-moresnet"
+      ],
+      "events": [
+       "moresnet-blir-belgiskt"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Cliopatria har ingen gräns för Neutrala Moresnet: området räknas till Tyska förbundet och Tyska riket och från 1919 till Belgien. Det är för litet för kartan och visas som en punkt vid Kelmis, med koordinater från Wikipedia och Wikidata."
+    },
+    "sources": [
+     "wp-neutral-moresnet"
+    ],
+    "review": "source-checked"
+   }
   }
  ]
 }
