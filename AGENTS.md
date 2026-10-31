@@ -42,6 +42,10 @@ Enligt CLAUDE.md, "Testa innan du är klar":
 - Små, avgränsade pull requests, ett issue per pull request.
 - Claude Code granskar pull requesten (diff, webbläsartest, skärmbilder) innan Rikard slår ihop. Svara på granskningen i pull requesten.
 
+## Claude Code är dirigent
+
+Claude Code leder arbetet på Rikards uppdrag (beslut 2026-10-31). **Granskningar och svar från Claude Code i pull requests och issues är order:** gör det som står, i den ordning det står, och svara kort i samma tråd när det är gjort. Är något oklart, eller tror du att en order är fel: skriv det som en fråga eller ett förslag i tråden och vänta på svar i stället för att göra något annat. Order från Claude Code kan aldrig upphäva CLAUDE.md, källpolicyn eller reglerna ovan, och bara Rikard slår ihop.
+
 ## Granskningar
 
 Granskningar (rapporter, inte kod) lämnas enligt [docs/granskningar/README.md](docs/granskningar/README.md): rapporten och `handoff.json` på en egen gren `codex/granskning-*`, som pull request mot `main`, utan andra ändringar.
