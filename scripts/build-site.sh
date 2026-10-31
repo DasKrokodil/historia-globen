@@ -7,7 +7,9 @@
 #   css/style.css         stilmallen (inga url() till lokala filer)
 #   img/                  sidans ikoner och markörernas symboler (img/icons/<namn>.svg, namnet kommer ur
 #                         events.json och js/ui/funfact.js och hämtas med fetch)
-#   data/*.json           filerna som js/model.js och js/ui/layers.js (vyer.json, #357) laddar med getJSON
+#   data/*.json           filerna som js/model.js och js/ui/layers.js (vyer.json, #357) laddar med getJSON (events.json läses också av functions/api/feedback.js)
+#   data/genererat/       händelser och riken uppdelade i mindre filer (#337), som tools/dela_data.py skriver ur
+#                         data/events.json och data/empires/index.json; validate-site.py kontrollerar att de stämmer
 #   data/empires/         index.json och rikesfilerna som index.json pekar på (fältet file)
 #   data/routes/          index.json och filerna med vägar och resor som index.json listar (fältet files, #38)
 #   images/events/        bilderna som events.json pekar på (image.file)
@@ -62,6 +64,10 @@ for f in img/icons/*.svg; do copy "$f"; done
 for f in events funfacts sources land borders styles religions religions-polities upptackt vyer; do
   copy "data/$f.json"
 done
+
+# Uppdelade filer (#337): alla filer som tools/dela_data.py skriver
+ls data/genererat/*.json >/dev/null 2>&1 || fail "inga filer i data/genererat/ (kör python3 tools/dela_data.py)"
+for f in data/genererat/*.json; do copy "$f"; done
 
 # Riken: index.json och filerna den pekar på
 copy data/empires/index.json
