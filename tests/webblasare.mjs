@@ -162,6 +162,23 @@ async function run(browser, vp) {
     return `år ${await year()}`;
   });
 
+  await check('sidzoom är tillåten utanför globen', async () => {
+    const z = await page.evaluate(() => {
+      const viewport = document.querySelector('meta[name="viewport"]')?.content ?? '';
+      const bodyGesture = new Event('gesturestart', { bubbles: true, cancelable: true });
+      document.body.dispatchEvent(bodyGesture);
+      const globeGesture = new Event('gesturestart', { bubbles: true, cancelable: true });
+      document.getElementById('globe-canvas').dispatchEvent(globeGesture);
+      return { viewport, bodyPrevented: bodyGesture.defaultPrevented, globePrevented: globeGesture.defaultPrevented,
+        pageTouchAction: getComputedStyle(document.documentElement).touchAction };
+    });
+    if (/maximum-scale|user-scalable\s*=\s*no/i.test(z.viewport)) throw new Error(`viewport blockerar zoom: ${z.viewport}`);
+    if (z.bodyPrevented) throw new Error('en nypgest utanför globen stoppades');
+    if (!z.globePrevented) throw new Error('globens egen nypgest skyddades inte');
+    if (z.pageTouchAction === 'none') throw new Error('hela sidan har touch-action: none');
+    return `sidan kan zoomas (${z.pageTouchAction}); bara globens egen nypgest fångas`;
+  });
+
   await check('tangentbordet lämnar globen', async () => {
     const globe = page.locator('#globe-canvas');
     const role = await globe.getAttribute('role');
@@ -333,6 +350,86 @@ async function run(browser, vp) {
   return results;
 }
 
+// WCAG 1.4.4/1.4.10 (#404): 200 och 400 procents sidzoom motsvarar att en 1400 × 900-yta
+// omflödar till 700 × 450 respektive 350 × 225 CSS-pixlar. Kontrollera de viktigaste vägarna i båda.
+async function runReflow(browser) {
+  const results = [];
+  const context = await browser.newContext({ viewport: { width: 700, height: 450 }, deviceScaleFactor: 1 });
+  const page = await context.newPage();
+  const errors = [];
+  page.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url || '')) errors.push(`konsol: ${m.text()}`); });
+  page.on('pageerror', e => errors.push(`sidfel: ${e.message}`));
+  if (THREE_LOCAL) {
+    const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+    await page.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+    await page.route(u => isFont(u.href), r => r.abort());
+  }
+  try {
+    await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: T.load });
+    await page.waitForFunction(() => document.getElementById('loading')?.hidden, null, { timeout: T.load });
+    if (await page.isVisible('#help')) await page.click('#help-close');
+
+    for (const z of [{ percent: 200, width: 700, height: 450 }, { percent: 400, width: 350, height: 225 }]) {
+      const t0 = Date.now();
+      try {
+        await page.setViewportSize({ width: z.width, height: z.height });
+        await page.waitForFunction(([w, h]) => innerWidth === w && innerHeight === h, [z.width, z.height]);
+        const frame = await page.evaluate(() => {
+          const ids = ['year-jump', 'btn-panel', 'btn-layers', 'btn-focus', 'more-toggle', 'btn-play', 'btn-speed', 'track'];
+          const outside = ids.filter(id => {
+            const r = document.getElementById(id)?.getBoundingClientRect();
+            return !r || r.width < 1 || r.height < 1 || r.left < 0 || r.top < 0 || r.right > innerWidth || r.bottom > innerHeight;
+          });
+          return { outside, scroll: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth), width: innerWidth };
+        });
+        if (frame.outside.length) throw new Error(`kontroller utanför skärmen: ${frame.outside.join(', ')}`);
+        if (frame.scroll > frame.width) throw new Error(`sidan är ${frame.scroll}px bred i en yta på ${frame.width}px`);
+
+        await page.click('#btn-panel');
+        const panelRoom = await page.locator('#event-list').evaluate(el => el.clientHeight);
+        if (panelRoom < 1) throw new Error('Samtidigt-listan saknar rullbar yta');
+        await page.keyboard.press('Escape');
+
+        await page.click('#btn-layers');
+        const layerRoom = await page.locator('#layer-menu').evaluate(el => ({ client: el.clientHeight, scroll: el.scrollHeight }));
+        if (layerRoom.client < 1) throw new Error('Lager-menyn saknar rullbar yta');
+        await page.keyboard.press('Escape');
+
+        await page.click('#btn-focus');
+        const focusRoom = await page.locator('#focus-menu .focus-body').evaluate(el => el.clientHeight);
+        if (focusRoom < 1) throw new Error('Fokus-listan saknar rullbar yta');
+        await page.keyboard.press('Escape');
+
+        await page.click('#more-toggle');
+        await page.click('#btn-help');
+        const help = page.locator('#help');
+        const helpRoom = await help.evaluate(el => ({ client: el.clientHeight, scroll: el.scrollHeight, overflow: getComputedStyle(el).overflowY }));
+        if (helpRoom.client < 1 || (helpRoom.scroll > helpRoom.client && helpRoom.overflow !== 'auto')) throw new Error('Hjälpen kan inte rullas');
+        await page.locator('#help-feedback').scrollIntoViewIfNeeded();
+        await page.click('#help-close');
+
+        await page.click('#more-toggle');
+        await page.click('#btn-sources');
+        const sourceRoom = await page.locator('#sources-body').evaluate(el => el.clientHeight);
+        if (sourceRoom < 1) throw new Error('Källsidan saknar rullbar yta');
+        await page.screenshot({ path: path.join(OUT, `zoom-${z.percent}.png`) });
+        await page.click('#sources-close');
+
+        results.push({ name: `omflöde vid ${z.percent} %`, ok: true, ms: Date.now() - t0,
+          note: `${z.width} × ${z.height}, menyer och sidor går att nå` });
+      } catch (e) {
+        results.push({ name: `omflöde vid ${z.percent} %`, ok: false, ms: Date.now() - t0, note: String(e.message).split('\n')[0] });
+        await page.screenshot({ path: path.join(OUT, `FEL-zoom-${z.percent}.png`) }).catch(() => {});
+        await page.keyboard.press('Escape').catch(() => {});
+      }
+    }
+    results.push({ name: 'inga fel vid zoomprov', ok: errors.length === 0, ms: 0, note: errors.slice(0, 10).join(' | ') || undefined });
+  } finally {
+    await context.close();
+  }
+  return results;
+}
+
 const t0 = Date.now();
 const browser = await browserType.launch(BROWSER === 'chromium'
   ? { args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader'] }
@@ -345,6 +442,11 @@ try {
       if (!r.ok) failed++;
       console.log(`  ${r.ok ? 'OK  ' : 'FEL '} ${r.name}${r.note ? `: ${r.note}` : ''}${r.ms ? ` (${(r.ms / 1000).toFixed(1)} s)` : ''}`);
     }
+  }
+  console.log('\nzoom och omflödning');
+  for (const r of await runReflow(browser)) {
+    if (!r.ok) failed++;
+    console.log(`  ${r.ok ? 'OK  ' : 'FEL '} ${r.name}${r.note ? `: ${r.note}` : ''}${r.ms ? ` (${(r.ms / 1000).toFixed(1)} s)` : ''}`);
   }
 } finally {
   await browser.close();

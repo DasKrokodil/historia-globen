@@ -120,8 +120,14 @@ export class Panel {
       // Under knappgruppen uppe till höger, som i smal skärm kan ligga på flera rader
       const r = (this.toggle.closest('.top-actions') ?? this.toggle).getBoundingClientRect();
       this.root.style.top = `${r.bottom + 8}px`;
-      // I dator går lådan ner till tidslinjen, i mobil täcker den högst 60 procent
-      this.root.style.maxHeight = innerWidth > 760 ? `calc(100dvh - ${r.bottom + 150}px)` : `min(60vh, calc(100dvh - ${r.bottom + 150}px))`;
+      // Vid stor textzoom blir den effektiva höjden liten. Låt då listan använda nästan hela höjden och
+      // rulla ovanpå tidslinjen, i stället för att dess innehåll försvinner bakom det reserverade utrymmet.
+      if (innerWidth <= 760 && innerHeight < 500) {
+        this.root.style.maxHeight = `calc(100dvh - ${r.bottom + 16}px)`;
+      } else {
+        // I dator går lådan ner till tidslinjen, i mobil täcker den högst 60 procent.
+        this.root.style.maxHeight = innerWidth > 760 ? `calc(100dvh - ${r.bottom + 150}px)` : `min(60vh, calc(100dvh - ${r.bottom + 150}px))`;
+      }
     }
     if (!open && this.root.contains(document.activeElement)) this.toggle.focus({ preventScroll: true }); // tillbaka till knappen (#246)
     this.root.classList.toggle('open', open);
