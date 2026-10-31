@@ -179,6 +179,25 @@ async function run(browser, vp) {
     return `sidan kan zoomas (${z.pageTouchAction}); bara globens egen nypgest fångas`;
   });
 
+  await check('kontroller har tillräckliga träffytor', async () => {
+    const targets = await page.evaluate(mobile => {
+      const visible = el => { const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && getComputedStyle(el).display !== 'none'; };
+      const size = el => {
+        const r = el.getBoundingClientRect();
+        if (!mobile) return { width: r.width, height: r.height };
+        const p = getComputedStyle(el, '::after');
+        const n = x => Number.parseFloat(x) || 0;
+        return { width: r.width - n(p.left) - n(p.right), height: r.height - n(p.top) - n(p.bottom) };
+      };
+      const wanted = [...document.querySelectorAll('.glabel, .funfact .link-btn, .review-info, .info-btn')].filter(visible);
+      return wanted.map(el => ({ name: el.id || el.className, ...size(el) }));
+    }, vp.width <= 760);
+    const min = vp.width <= 760 ? 44 : 24;
+    const tooSmall = targets.filter(t => t.width < min || t.height < min);
+    if (tooSmall.length) throw new Error(`${tooSmall.map(t => `${t.name} (${Math.round(t.width)} × ${Math.round(t.height)})`).join(', ')} är mindre än ${min} px`);
+    return `${targets.length} små kontroller är minst ${min} × ${min} px`;
+  });
+
   await check('tangentbordet lämnar globen', async () => {
     const globe = page.locator('#globe-canvas');
     const role = await globe.getAttribute('role');
@@ -430,6 +449,36 @@ async function runReflow(browser) {
   return results;
 }
 
+// Lugn rörelse (#246, #406) ska slås på automatiskt för besökare som valt reducerad rörelse i systemet.
+async function runReducedMotion(browser) {
+  const context = await browser.newContext({ viewport: { width: 400, height: 800 }, reducedMotion: 'reduce' });
+  const page = await context.newPage();
+  if (THREE_LOCAL) {
+    const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+    await page.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+    await page.route(u => isFont(u.href), r => r.abort());
+  }
+  try {
+    await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: T.load });
+    await page.waitForFunction(() => document.getElementById('loading')?.hidden, null, { timeout: T.load });
+    const calm = await page.evaluate(() => ({
+      html: document.documentElement.classList.contains('calm'),
+      checkbox: document.querySelector('input[data-calm]')?.checked,
+      animation: getComputedStyle(document.querySelector('.funfact')).animationDuration,
+      transition: getComputedStyle(document.querySelector('.glabel')).transitionDuration,
+    }));
+    if (!calm.html || !calm.checkbox) throw new Error('Lugn rörelse aktiverades inte från systeminställningen');
+    if (Number.parseFloat(calm.animation) > 0.01 || Number.parseFloat(calm.transition) > 0.01) {
+      throw new Error(`rörelse är inte avstängd (${calm.animation}, ${calm.transition})`);
+    }
+    return [{ name: 'reducerad rörelse', ok: true, ms: 0, note: 'Lugn rörelse aktiveras automatiskt och CSS-rörelser stoppas' }];
+  } catch (e) {
+    return [{ name: 'reducerad rörelse', ok: false, ms: 0, note: String(e.message).split('\n')[0] }];
+  } finally {
+    await context.close();
+  }
+}
+
 const t0 = Date.now();
 const browser = await browserType.launch(BROWSER === 'chromium'
   ? { args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader'] }
@@ -447,6 +496,11 @@ try {
   for (const r of await runReflow(browser)) {
     if (!r.ok) failed++;
     console.log(`  ${r.ok ? 'OK  ' : 'FEL '} ${r.name}${r.note ? `: ${r.note}` : ''}${r.ms ? ` (${(r.ms / 1000).toFixed(1)} s)` : ''}`);
+  }
+  console.log('\nreducerad rörelse');
+  for (const r of await runReducedMotion(browser)) {
+    if (!r.ok) failed++;
+    console.log(`  ${r.ok ? 'OK  ' : 'FEL '} ${r.name}${r.note ? `: ${r.note}` : ''}`);
   }
 } finally {
   await browser.close();
