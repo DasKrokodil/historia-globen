@@ -3,13 +3,8 @@
 import { loadAll, loadReligions, loadReligionPolities, loadEmpire, CAT, t, symbolUrl, symbolImg, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays, dayParts } from './model.js';
 import { Globe } from './globe.js';
 import { Timeline, segmentName, setupYearJump, MAX_YEAR } from './timeline.js';
-import { entry as eventsEntry, markerInfo, describeMarker } from './layers/events.js';
-import { entry as areasEntry } from './layers/areas.js';
-import { entry as bordersEntry } from './layers/borders.js';
-import { entry as religionsEntry } from './layers/religions.js';
-import { entry as warsEntry } from './layers/wars.js';
-import { entry as routesEntry } from './layers/lines.js';
-import { entry as discoveryEntry } from './layers/discovery.js';
+import { markerInfo, describeMarker } from './layers/events.js';
+import { LAYERS } from './layers/index.js';
 import { Panel } from './ui/panel.js';
 import { FunFacts, empireStory } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
@@ -75,18 +70,11 @@ async function start() {
     showReligionFacts: id => showReligionFacts(id),
     showEmpireFacts: (id, polity) => showEmpireFacts(id, polity),
   };
-  // Lagren anmäler sig i registret, i radernas ordning i Lager (#338). Händelserna först: deras markörer läggs på klotet.
-  const layer = registry.add(eventsEntry(env));
-  // Riken (R1–R6), med rikenas symboler (#301)
-  const areas = registry.add(areasEntry(env));
-  // Religioner (#166), med symbolen där religionen uppstod (#271)
-  const religions = registry.add(religionsEntry(env));
-  // Vägar och resor (#38)
-  const routes = registry.add(routesEntry(env));
-  // Upptäcktsvyn (#101): gammal kartstil, segelskepp och dimma som resorna lyfter
-  registry.add(discoveryEntry(env));
-  registry.add(bordersEntry(env));
-  registry.add(warsEntry(env));
+  // Lagren anmäler sig i registret (layers/index.js), och raderna i Lager byggs ur det (före LayerMenu nedan)
+  for (const make of LAYERS) registry.add(make(env));
+  registry.buildMenu($('layer-menu'));
+  // Lagren som main.js gör mer med än att rita: klick, fokus, listan och etiketterna
+  const layer = registry.get('events'), areas = registry.get('areas'), religions = registry.get('religions'), routes = registry.get('routes');
   const panel = new Panel({
     root: $('panel'), list: $('event-list'), filters: $('filters'), detail: $('detail'),
     sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'), close: $('panel-close'),
@@ -119,7 +107,7 @@ async function start() {
   // Samtidigt-kort, men slutkortet visas. Gäller tills uppspelningen stannar eller tiden flyttas för hand.
   let finishing = false, finishNext = false;
 
-  // Lagerväljaren: vilka lager som syns. Startläget står i index.html.
+  // Lagerväljaren: vilka lager som syns. Raderna och startläget kommer från registret.
   const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu') });
   Object.assign(state, { layers: layers.on, pause: layers.pause, calm: layers.calm });
   // Lugn rörelse (#246): också rikenas övergångar (#78) stängs av (i lagrets apply)
