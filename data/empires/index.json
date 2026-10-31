@@ -2153,6 +2153,303 @@
     ],
     "review": "source-checked"
    }
+  },
+  {
+   "id": "umayyadkalifatet",
+   "name": {
+    "sv": "Umayyadkalifatet",
+    "en": "Umayyad Caliphate"
+   },
+   "color": "#4e9a2e",
+   "from": 656,
+   "to": 756,
+   "file": "data/empires/umayyadkalifatet.json",
+   "polities": [
+    {
+     "id": "umayyadkalifatet",
+     "name": {
+      "sv": "Umayyadkalifatet",
+      "en": "Umayyad Caliphate"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "abbasidkalifatet",
+   "name": {
+    "sv": "Abbasidkalifatet",
+    "en": "Abbasid Caliphate"
+   },
+   "color": "#2a6f97",
+   "from": 750,
+   "to": 1259,
+   "file": "data/empires/abbasidkalifatet.json",
+   "polities": [
+    {
+     "id": "abbasidkalifatet",
+     "name": {
+      "sv": "Abbasidkalifatet",
+      "en": "Abbasid Caliphate"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "abbasidkalifatet-buyiderna",
+     "name": {
+      "sv": "Abbasidkalifatet under buyiderna",
+      "en": "Abbasid Caliphate/Buyid Dynasty"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "frankerriket",
+   "name": {
+    "sv": "Frankerriket",
+    "en": "Francia (Kingdom of the Franks)"
+   },
+   "color": "#3b62b0",
+   "from": 462,
+   "to": 989,
+   "file": "data/empires/frankerriket.json",
+   "polities": [
+    {
+     "id": "merovingiska-riket",
+     "name": {
+      "sv": "Frankerriket under merovingerna",
+      "en": "Merovingian Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "karolingiska-riket",
+     "name": {
+      "sv": "Frankerriket under karolingerna",
+      "en": "Carolingian Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "tysk-romerska-riket",
+   "name": {
+    "sv": "Tysk-romerska riket",
+    "en": "Holy Roman Empire"
+   },
+   "color": "#d4a017",
+   "from": 922,
+   "to": 1806,
+   "file": "data/empires/tysk-romerska-riket.json",
+   "polities": [
+    {
+     "id": "tysk-romerska-riket",
+     "name": {
+      "sv": "Tysk-romerska riket",
+      "en": "Holy Roman Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "tangdynastin",
+   "name": {
+    "sv": "Tangdynastin",
+    "en": "Tang dynasty"
+   },
+   "color": "#a8323e",
+   "from": 623,
+   "to": 910,
+   "file": "data/empires/tangdynastin.json",
+   "polities": [
+    {
+     "id": "tangdynastin",
+     "name": {
+      "sv": "Tangdynastin",
+      "en": "Tang Dynasty"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "songdynastin",
+   "name": {
+    "sv": "Songdynastin",
+    "en": "Song dynasty"
+   },
+   "color": "#3fa38c",
+   "from": 961,
+   "to": 1278,
+   "file": "data/empires/songdynastin.json",
+   "polities": [
+    {
+     "id": "norra-song",
+     "name": {
+      "sv": "Norra Song",
+      "en": "Northern Song"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "sodra-song",
+     "name": {
+      "sv": "Södra Song",
+      "en": "Southern Song"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "khmerriket",
+   "name": {
+    "sv": "Khmerriket",
+    "en": "Khmer Empire"
+   },
+   "color": "#c46fb0",
+   "from": 800,
+   "to": 1867,
+   "file": "data/empires/khmerriket.json",
+   "polities": [
+    {
+     "id": "khmerriket",
+     "name": {
+      "sv": "Khmerriket",
+      "en": "Khmer Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "ghanariket",
+   "name": {
+    "sv": "Ghanariket",
+    "en": "Ghana Empire"
+   },
+   "color": "#e08a2e",
+   "from": 793,
+   "to": 1201,
+   "file": "data/empires/ghanariket.json",
+   "polities": [
+    {
+     "id": "ghanariket",
+     "name": {
+      "sv": "Ghanariket",
+      "en": "Ghana Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "maliriket",
+   "name": {
+    "sv": "Maliriket",
+    "en": "Mali Empire"
+   },
+   "color": "#9c4a2e",
+   "from": 1236,
+   "to": 1611,
+   "file": "data/empires/maliriket.json",
+   "polities": [
+    {
+     "id": "maliriket",
+     "name": {
+      "sv": "Maliriket",
+      "en": "Mali Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kievriket",
+   "name": {
+    "sv": "Kievriket",
+    "en": "Kievan Rus'"
+   },
+   "color": "#7fb0e0",
+   "from": 882,
+   "to": 1240,
+   "file": "data/empires/kievriket.json",
+   "polities": [
+    {
+     "id": "kievriket",
+     "name": {
+      "sv": "Kievriket",
+      "en": "Kievan Rus'"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "timuridriket",
+   "name": {
+    "sv": "Timuridriket",
+    "en": "Timurid Empire"
+   },
+   "color": "#4a5fc4",
+   "from": 1375,
+   "to": 1528,
+   "file": "data/empires/timuridriket.json",
+   "polities": [
+    {
+     "id": "timuridriket",
+     "name": {
+      "sv": "Timuridriket",
+      "en": "Timurid Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
   }
  ]
 }
