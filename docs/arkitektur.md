@@ -201,7 +201,7 @@ Etiketterna och klustren på globen är `<button>` och nås med Tab; Enter öppn
 
 Knapparna uppe till höger ligger i två grupper (#245), var och en en `div.action-group` med `role="group"` och gruppens namn som `aria-labelledby`: **Utforska** (Samtidigt, Lager, Fokus) och **Visa** (Platt vy, Källor, Hjälp). Grupperna har en tunn mässingsram med namnet i ramens överkant. I smal skärm (#361) står de i en rad bredvid årtalet utan ramar och gruppnamn: Samtidigt, Lager och Fokus, och knappen Visa som öppnar en meny med Platt vy, Källor och Hjälp (se [Mobilen](#mobilen-361)). Menyerna Lager och Fokus, listan och hjälpen läggs under hela knappytan (`closest('.top-actions')`).
 
-Dubbeltryck (#233): med finger eller penna zoomar två tryck inom 350 ms och 30 px globen ett steg (×1,6, samma `setZoom()` som hjul, nyp och `+`) mot den tryckta punkten (`pickLatLon` + `flyTo`) i `_initControls()`. Sidan zoomas inte: `touch-action` och `gesturestart`-skyddet (#191) är kvar.
+Dubbeltryck (#233): med finger eller penna zoomar två tryck inom 350 ms och 30 px globen ett steg (×1,6, samma `setZoom()` som hjul, nyp och `+`) mot den tryckta punkten (`pickLatLon` + `flyTo`) i `_initControls()`. På själva globytan zoomas inte sidan: `touch-action` och `gesturestart`-skyddet (#191, #404) är kvar där.
 
 **Rikenas övergångar (#78).** När ett rikes område byter period, eller riket delas eller slås ihop (till exempel Romarriket som 395 blir Väst- och Östrom), tonas den gamla gränsen ut och den nya in under 450 ms (`DURATION_MS`, mjuk kurva). `AreaTransition` jämför vilka (rike, period) som syns före och efter `AreasLayer.update` och ger varje område en genomskinlighet: de som försvinner ritas med 1 − p, de nya med p och oförändrade som vanligt. Fyllning, kant och namn multipliceras med den, och allt ritas som förut direkt på lagerbilden (beslut 1), utan extra bilder i 4096×2048. Övergången startar bara när året har flyttats: under uppspelning, eller med högst 10 år (`MAX_JUMP_YEARS`) när man drar eller stegar. Ett längre hopp, Lugn rörelse, att lagret slås på eller att fokus byts visar nya läget direkt. Under en övergång ritar `drawOverlay()` i `main.js` om bara lagerbilden (och Platt vy) en gång per bildruta tills den är klar (`registry.animating()`, som frågar rikenas `animating`); därefter ritas inget förrän nästa `refresh`. Under uppspelning ritas lagerbilden ändå om varje bildruta, så övergången kostar då nästan inget extra. Kommer en ny ändring innan övergången är klar börjar en ny från det senaste läget.
 
@@ -222,7 +222,7 @@ I smal skärm (högst 760 px) konkurrerade globen, knapparna, tidslinjen och kor
 
 ## Pekskärmar och zoom (#191)
 
-Webbläsarens egen zoom av hela sidan är avstängd: `touch-action: manipulation` på sidan, `maximum-scale=1` i viewport och ett stopp för Safaris nypgest (`gesturestart`). Globen har en egen zoom med nyp, scroll och +/−. Utan stoppet kunde en iPad zooma in hela sidan av misstag, och då gick den inte att zooma ut, eftersom globen fångar fingrarna.
+Webbläsarens egen sidzoom är tillåten (#404): viewport begränsar inte skalan och sidan har ingen global `touch-action`. Globen har en egen zoom med nyp, scroll och +/−, så bara globytan har `touch-action: none` och ett lokalt stopp för Safaris nypgest (`gesturestart`). Därmed kan besökaren zooma och omflöda gränssnittet från övriga delar av sidan utan att en nypning på globen samtidigt zoomar både glob och sida.
 
 ## Fokusläget
 
