@@ -277,6 +277,7 @@ async function run(browser, vp) {
   });
 
   await check('Fokus öppnas och följer ett rike', async () => {
+    if (!(await page.locator('#religion-legend').isHidden())) throw new Error('rikesförklaringen syns på startskärmen');
     await page.click('#btn-focus');
     await visible('#focus-menu');
     await page.fill('#focus-menu .focus-search', 'rom');
@@ -312,6 +313,11 @@ async function run(browser, vp) {
     await visible('#focus-bar');
     await page.waitForFunction(() => document.getElementById('focus-title').textContent.trim() !== '', null, { timeout: T.step });
     const title = (await page.textContent('#focus-title')).trim();
+    await visible('#religion-legend');
+    const legendText = (await page.textContent('#religion-legend')).replace(/\s+/g, ' ').trim();
+    if (!legendText.includes('Mjuk kant') || !legendText.includes('Glesa prickar')) {
+      throw new Error(`rikesförklaringen saknar kartnycklar: ${legendText}`);
+    }
     if (vp.width <= 760) {
       await visible('#detail .facts-section');
       const sections = page.locator('#detail .facts-section');

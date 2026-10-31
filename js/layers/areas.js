@@ -52,7 +52,8 @@ export function entry({ globe, data, labelsEl, refresh, refreshSoon, showEmpireF
   return {
     id: 'areas', name: 'Riken', group: 'power', menu: { on: true }, layer, z: Z.areas,
     fade: { own: focus => focus.type === 'empire' },
-    legend: s => ({ areas: !!s.on.areas }),
+    // Rikenas kartnyckel behövs när man följer ett rike, inte på startsidan där Riken är på som standard (#427).
+    legend: s => ({ areas: s.focus?.type === 'empire' }),
     enabled: s => s.focus?.type === 'empire' || s.layers.areas,
     apply: s => {
       layer.onlyGroup = s.focus?.type === 'empire' ? s.focus.id : null;
