@@ -2,6 +2,38 @@
 
 Hur Historia-globen är uppbyggd och varför. Den här filen uppdateras i samma pull request som koden när något av det här ändras. De bindande principerna står också i [CLAUDE.md](../CLAUDE.md#arkitektur-beslutad-ändra-inte-utan-att-fråga), och besluten bakom dem i [beslut.md](beslut.md).
 
+## Kort sammanfattning
+
+Läs detta först och sök sedan upp det avsnitt du behöver.
+
+- **Inget byggsteg:** ES-moduler direkt i webbläsaren, inga ramverk, ingen server. Enda undantaget är `functions/api/feedback.js`.
+- **Data skild från kod:** allt innehåll ligger i `data/`.
+- **Ett år styr allt:** tidslinjen äger året och skickar `change`; allt annat lyssnar och ritar om.
+- **Platt bild först:** grundkartan och lagren ritas på ekvirektangulära bilder (4096 × 2048) som läggs på klotet och visas i Platt vy.
+- **Lager som moduler:** `update(state)` och `drawOverlay(ctx, W, H)`, anmälda i lagerregistret.
+- **Ett externt beroende:** three.js 0.160.0.
+
+**Avsnitt**
+- Principer – de sex principerna ovan, utförligare.
+- Hur delarna hänger ihop – flödesbild från tidslinjen via lagren till klotet och Platt vy.
+- Moduler – tabell över filerna och deras ansvar.
+- Mindre trängsel på kartan (#358) – zoomnivån styr vad som får namn och medalj.
+- Lagerregistret (#338) – hur lager anmäler sig, ritordning, grupper och förinställda vyer.
+- Laddning av data – vad som laddas vid start och vad som laddas senare (#337).
+- Hoppa i tiden (#140) – stegknappar och att skriva in ett år.
+- Tangentbord och skärmläsare (#139) – Tab, Enter och tangenter på globen.
+- Mobilen (#361) – layouten i smal skärm.
+- Pekskärmar och zoom (#191) – webbläsarens zoom avstängd, globens egen zoom.
+- Fokusläget – följa ett krig, ett rike eller en religion, och dämpning av andra lager.
+- Faktarutan om en religion (#90) – när och hur religionens ruta visas.
+- Faktarutan om ett rike (#170) – samma ruta för riken.
+- Rikets berättelse (#171) – nyckelår som kort under uppspelningen.
+- Hjälpskript – skripten i `tools/` som körs för hand.
+- Publicering – `scripts/build-site.sh`, `dist/` och kontrollerna.
+- Besökarnas förslag (2026-10-30) – serverfunktionen för formuläret.
+- Testa – hänvisning till testerna i CLAUDE.md.
+- Uppspelning (#163, #164) – hastigheter och pauser.
+
 ## Principer
 
 1. **Inget byggsteg.** Vanliga ES-moduler som webbläsaren läser direkt. Inga ramverk, ingen bundler och ingen server. Det räcker med `python3 -m http.server`. Enda undantaget är serverfunktionen för besökarnas förslag, `functions/api/feedback.js` (beslut 2026-10-30, se [Besökarnas förslag](#besökarnas-förslag-2026-10-30)).
