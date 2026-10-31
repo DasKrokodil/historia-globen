@@ -3,6 +3,10 @@
   "title": { "sv": "Vy", "en": "View" },
   "custom": { "sv": "Anpassad", "en": "Custom" },
   "customize": { "sv": "Anpassa själv", "en": "Customize" },
+  "empireLegend": {
+    "softEdge": { "sv": "Mjuk kant: källorna säger att gränsen är osäker.", "en": "Soft edge: the sources say the boundary is uncertain." },
+    "influence": { "sv": "Glesa prickar med streckad kant: lydriken och vasaller enligt Cliopatria, inte rikets kärnområde.", "en": "Sparse dots with a dashed border: tributaries and vassals according to Cliopatria, not the empire's core area." }
+  },
   "groups": [
     { "id": "people", "name": { "sv": "Människor och händelser", "en": "People and events" } },
     { "id": "power", "name": { "sv": "Makt, tro och gränser", "en": "Power, faith and borders" } },

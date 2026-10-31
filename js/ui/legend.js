@@ -90,11 +90,11 @@ export class ReligionLegend {
   }
 
   render() {
-    const items = this.items ?? [], { war = false, fadable = [], keep = false, discovery = null } = this.focus ?? {};
-    if (!items.length && !war && !fadable.length && !discovery) { this.legend.hidden = true; this.legend.textContent = ''; this._html = ''; return; }
+    const items = this.items ?? [], { areas = false, war = false, fadable = [], keep = false, discovery = null } = this.focus ?? {};
+    if (!items.length && !areas && !war && !fadable.length && !discovery) { this.legend.hidden = true; this.legend.textContent = ''; this._html = ''; return; }
     const unsure = items.some(i => i.unsure), inherited = items.some(i => i.inherited);
-    const title = (items.length ? 1 : 0) + (war ? 1 : 0) + (discovery ? 1 : 0) > 1 ? 'Teckenförklaring'
-      : items.length ? 'Religioner' : war ? 'Krigsområden' : discovery ? 'Upptäcktsvy' : 'Lager i fokus';
+    const title = (items.length ? 1 : 0) + (areas ? 1 : 0) + (war ? 1 : 0) + (discovery ? 1 : 0) > 1 ? 'Teckenförklaring'
+      : items.length ? 'Religioner' : areas ? 'Riken' : war ? 'Krigsområden' : discovery ? 'Upptäcktsvy' : 'Lager i fokus';
     const religionsHtml = !items.length ? '' : `<ul>${items.map(({ religion: r, sure, unsure: u, inherited: i }) =>
       `<li data-religion="${esc(r.id)}" tabindex="0" role="button" aria-pressed="${this.pinned === r.id}" class="${this.highlight === r.id ? 'on' : ''}" title="Peka eller tryck för att lyfta fram ${esc(t(r.name).toLowerCase())} på kartan"><span class="swatch" style="background:${esc(r.color)}"></span>${symbolImg(r)}<span class="rl-name">${esc(t(r.name))}${
         sure ? '' : u ? ' <em>(osäkert)</em>' : i ? ' <em>(ärvt)</em>' : ''}</span></li>`).join('')}</ul>${
@@ -103,6 +103,8 @@ export class ReligionLegend {
     // Krigsskådeplatsen: skraffering i krigets färg med hel kantlinje, som på kartan (wars.js)
     const warHtml = !war ? '' : `<div class="rl-war"><p class="rl-note rl-row"><span class="swatch rl-hatch" style="--war:${esc(CAT.krig.color)}"></span>Krigsskådeplats: område runt kriget och slagen hittills</p>
       <p class="rl-note">Namnet säger vilken världsdel området ligger i.</p></div>`;
+    const areasHtml = !areas ? '' : `<div class="rl-areas">${this.empireLegend?.softEdge ? `<p class="rl-note"><span class="swatch rl-soft"></span>${esc(this.empireLegend.softEdge)}</p>` : ''}
+      ${this.empireLegend?.influence ? `<p class="rl-note"><span class="swatch rl-influence"></span>${esc(this.empireLegend.influence)}</p>` : ''}</div>`;
     // Vad symbolerna betyder (#271)
     const symbolsHtml = !items.length ? '' : `<p class="rl-note rl-sym-note">Symbolen visar religionen. En mässingsmedalj med symbolen står där religionen uppstod: den dyker upp det året och står kvar så länge lagret är på. Peka på en religion här för att lyfta fram den.</p>`;
     // Faktarutan på begäran (#308), när någon religion som syns har en
@@ -122,12 +124,12 @@ export class ReligionLegend {
     // Hopfälld i smal skärm (#309): religionerna som syns just nu som färgprickar på en rad under rubriken,
     // så att man ser vad som finns utan att förklaringen täcker globen. CSS visar raden bara i smal skärm.
     const DOTS = 9, shown = items.slice(0, items.length > DOTS + 1 ? DOTS : DOTS + 1);
-    const dotsHtml = this.open || (!items.length && !war) ? '' : `<span class="rl-dots" aria-hidden="true">${
+    const dotsHtml = this.open || (!items.length && !war && !areas) ? '' : `<span class="rl-dots" aria-hidden="true">${
       shown.map(({ religion: r, sure }) => `<span class="rl-dot${sure ? '' : ' rl-dot-pale'}" style="background:${esc(r.color)}" title="${esc(t(r.name))}"></span>`).join('')}${
       items.length > shown.length ? `<span class="rl-more">+${items.length - shown.length}</span>` : ''}${
       war ? `<span class="rl-dot rl-hatch" style="--war:${esc(CAT.krig.color)}" title="Krigsskådeplats"></span>` : ''}</span>`;
     const html = `<button type="button" class="rl-toggle" aria-expanded="${this.open}" aria-controls="rl-body"><span class="rl-title">${title}</span><span class="rl-chev" aria-hidden="true"></span>${dotsHtml}</button>${hintHtml}${discHtml}
-      <div id="rl-body" class="rl-body" ${this.open ? '' : 'hidden'}>${aboutHtml}${religionsHtml}${symbolsHtml}${warHtml}${creditHtml}${fadeHtml}</div>`;
+      <div id="rl-body" class="rl-body" ${this.open ? '' : 'hidden'}>${aboutHtml}${religionsHtml}${symbolsHtml}${areasHtml}${warHtml}${creditHtml}${fadeHtml}</div>`;
     // Samma innehåll ritas inte om, så att musen och tangentbordets fokus ligger kvar på raden (#271)
     if (html !== this._html) {
       const focused = this.legend.contains(document.activeElement) && document.activeElement.dataset.religion;

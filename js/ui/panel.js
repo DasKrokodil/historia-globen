@@ -72,8 +72,8 @@ function lineageHtml(v) {
 }
 
 export class Panel {
-  constructor({ root, list, filters, chips, detail, sub, count, toggle, close }, { events, srcById, styles }) {
-    Object.assign(this, { root, list, filtersEl: filters, detail, sub, count, toggle, srcById, styles });
+  constructor({ root, list, filters, chips, detail, sub, count, toggle, close }, { events, srcById, styles }, { empireLegend = {} } = {}) {
+    Object.assign(this, { root, list, filtersEl: filters, detail, sub, count, toggle, srcById, styles, empireLegend });
     this.onSelect = () => {};
     this.onFilter = () => {};
     this.onSources = () => {};
@@ -267,7 +267,7 @@ export class Panel {
    * föregångare och vad det blev. Efterträdare som finns som riken är knappar som börjar följa det riket.
    */
   showFacts(opts) {
-    const { kind, name, color, symbol = '', facts: f, origin = null, place = origin, milestonesTitle = 'Nyckelår', mapNote = '', curveId = '', wars = [], lineage = null } = opts;
+    const { kind, name, color, symbol = '', facts: f, origin = null, place = origin, milestonesTitle = 'Nyckelår', mapNote = '', curveId = '', wars = [], lineage = null, empireMap = false } = opts;
     // Rikets krig (#76): krig som anger riket i empires, i tidsordning; bara de som syns enligt granskningsstatusen
     const shownWars = wars.filter(w => isVisibleReview(w.review));
     // Ritas rutan om när källorna har kommit, ritas ytkurvan (#77) in igen om den hann komma före
@@ -290,7 +290,8 @@ export class Panel {
         `<li><button type="button" class="link-btn" data-year="${Number(m.year)}">${esc(t(m.label) || formatYear(m.year))}</button> ${m.title ? `<b>${esc(t(m.title))}.</b> ` : ''}${esc(t(m.text))}${m.mapNote ? ` <span class="ms-map">Om kartan: ${esc(t(m.mapNote))}</span>` : ''}</li>`).join('')}</ol></div>` : ''}
       ${shownWars.length ? `<div class="war-list empire-wars"><h4>Krig</h4><ol>${shownWars.map(w =>
         `<li><span class="meta">${esc(formatEventTime(w))}</span> <button type="button" class="link-btn" data-follow-war="${esc(w.id)}" title="Följ kriget">▶ ${esc(t(w.title))}</button></li>`).join('')}</ol></div>` : ''}`;
-    const sourcesAndMap = `${mapNote ? `<aside class="detail-note"><h4>Så byggdes kartan</h4><p>${esc(mapNote)}</p></aside>` : ''}
+    const empireMapKey = empireMap ? [this.empireLegend.softEdge, this.empireLegend.influence].filter(Boolean).map(text => `<p class="map-key">${esc(text)}</p>`).join('') : '';
+    const sourcesAndMap = `${mapNote ? `<aside class="detail-note"><h4>Om kartan</h4><p>${esc(mapNote)}</p>${empireMapKey}</aside>` : ''}
       ${srcLine(srcs, pending)}
       <div class="detail-actions">${reviewRow(f.review, subj)}</div>`;
     const body = isEmpire ? `
