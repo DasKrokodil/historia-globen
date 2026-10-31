@@ -23,6 +23,7 @@ Historia-globen är en snurrbar jordglob i webbläsaren. Man drar i tiden och se
 
 ```
 index.html
+_headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
 css/style.css
 js/main.js            startar allt och kopplar ihop delarna
 js/model.js           språk, kategorier, granskningsstatus, tidsformat, laddning
