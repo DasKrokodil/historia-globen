@@ -6,7 +6,7 @@
   --night: #0b1219;        /* bakgrund, natthimmel */
   --night-2: #121c26;      /* paneler */
   --night-3: #1b2833;      /* kort, hover */
-  --line: #2b3a46;         /* linjer */
+  --line: #5e7485;         /* linjer och kontrollramar: minst 3:1 mot panelernas mörka bakgrund (#406) */
   --parchment: #ecdfc2;    /* text, som pergament */
   --parchment-dim: #a9a08c;/* sekundär text */
   --brass: #d6b06a;        /* accent: mässing */
@@ -86,6 +86,8 @@ body {
 .glabel {
   position: absolute; left: 0; top: 0;
   transform: translate(-50%, -100%);
+  box-sizing: border-box; min-height: 24px;
+  display: inline-flex; align-items: center;
   font-size: 12px; font-weight: 500;
   color: var(--parchment);
   background: color-mix(in srgb, var(--night) 78%, transparent);
@@ -129,6 +131,10 @@ body {
 .glabel-hover { z-index: 1; border-color: var(--brass-deep); }
 .globe-canvas.on-marker { cursor: pointer; }
 .glabel .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
+@media (max-width: 760px) {
+  /* Etiketten får samma 44 px träffyta som övriga mobilkontroller utan att täcka kartan visuellt. */
+  .glabel::after { content: ""; position: absolute; inset: -10px -4px; }
+}
 
 /* ---------- huvud ---------- */
 .masthead {
@@ -491,7 +497,7 @@ body {
 .review-badge.draft::before { background: var(--danger); }
 /* (i) vid granskningsstatusen i faktarutan (#310): fäller ut vad statusarna betyder */
 .review-info {
-  position: relative; flex: none; width: 18px; height: 18px; margin-left: -4px; padding: 0; border-radius: 50%;
+  position: relative; flex: none; width: 24px; height: 24px; margin-left: -4px; padding: 0; border-radius: 50%;
   display: inline-grid; place-items: center;
   font: italic 600 11px/1 var(--f-display); color: var(--card-dim, var(--parchment-dim));
   background: none; border: 1px solid currentColor; cursor: pointer;
@@ -510,6 +516,7 @@ body {
 .review-help b { font-weight: 600; }
 
 .link-btn {
+  display: inline-flex; align-items: center; min-height: 24px;
   font: 500 12.5px/1 var(--f-body);
   color: var(--brass);
   background: none; border: 0; padding: 4px 0;
@@ -1130,7 +1137,7 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-facts.lineage dd .link-btn { font-size: inherit; }
 .lineage-note { margin: 4px 0 8px; font-size: 12.5px; line-height: 1.4; color: var(--card-dim); }
 .detail .war-list li .link-btn[data-year] { font-family: var(--f-mono); }
-.info-btn { margin-left: auto; padding: 2px 8px; border: 1px solid var(--line); border-radius: 999px; background: none; color: var(--brass); font: 500 11px/1.4 var(--f-mono); cursor: pointer; }
+.info-btn { min-width: 24px; min-height: 24px; margin-left: auto; padding: 2px 8px; border: 1px solid var(--line); border-radius: 999px; background: none; color: var(--brass); font: 500 11px/1.4 var(--f-mono); cursor: pointer; }
 .info-btn:hover { background: var(--night-3); }
 
 /* ---------- fokusraden med knappen Fakta (#170) ---------- */
