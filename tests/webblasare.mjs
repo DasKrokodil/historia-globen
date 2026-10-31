@@ -199,16 +199,40 @@ async function run(browser, vp) {
   await check('Fokus öppnas och följer ett rike', async () => {
     await page.click('#btn-focus');
     await visible('#focus-menu');
+    await page.fill('#focus-menu .focus-search', 'rom');
+    await page.click('#focus-menu [data-tab="Riken"]');
+    await page.click('#focus-menu [data-sort="alfabetiskt"]');
+    await visible('#focus-menu .focus-active');
+    const active = (await page.textContent('#focus-menu .focus-active')).replace(/\s+/g, ' ').trim();
+    if (!/Sök: “rom”/.test(active) || !/Filter: Riken/.test(active) || !/Sortering: Alfabetiskt/.test(active)) {
+      throw new Error(`aktiva val saknas: ${active}`);
+    }
+    await page.fill('#focus-menu .focus-search', 'rom & "');
+    const liveText = await page.textContent('#focus-menu .focus-live');
+    if (!liveText.includes('Sök: “rom & "”') || liveText.includes('&amp;') || liveText.includes('&quot;')) {
+      throw new Error(`live-regionen läser HTML-entiteter: ${liveText}`);
+    }
+    await page.fill('#focus-menu .focus-search', 'rom');
+    await shot('4-fokus-filter');
+    await page.keyboard.press('Escape');
+    await hidden('#focus-menu');
+    await page.click('#btn-focus');
+    await visible('#focus-menu .focus-active');
+    await page.click('#focus-menu [data-clear]');
+    await hidden('#focus-menu .focus-active');
+    if (await page.inputValue('#focus-menu .focus-search')) throw new Error('sökordet rensades inte');
+    if (await page.getAttribute('#focus-menu [data-tab="Alla"]', 'aria-pressed') !== 'true') throw new Error('typfiltret återställdes inte');
+    if (await page.getAttribute('#focus-menu [data-sort="relevans"]', 'aria-pressed') !== 'true') throw new Error('sorteringen återställdes inte');
     await page.click('#focus-menu [data-tab="Riken"]');
     const item = page.locator('#focus-menu .focus-item[data-key^="empire:"]').first();
     await item.waitFor({ state: 'visible', timeout: T.step });
     const label = (await item.locator('span').nth(1).textContent())?.trim();
-    await shot('4-fokus-meny');
+    await shot('5-fokus-meny');
     await item.click();
     await visible('#focus-bar');
     await page.waitForFunction(() => document.getElementById('focus-title').textContent.trim() !== '', null, { timeout: T.step });
     const title = (await page.textContent('#focus-title')).trim();
-    await shot('5-fokus-rike');
+    await shot('6-fokus-rike');
     await page.click('#focus-exit');
     await hidden('#focus-bar');
     return `${label} → "${title}"`;

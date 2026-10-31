@@ -64,6 +64,25 @@ export class FocusMenu {
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) { this.close(); button.focus(); } });
   }
 
+  /** Tömmer sökningen och återställer flik och sortering till standard (#381). */
+  clearFilters() {
+    this.query = '';
+    this.input.value = '';
+    this.tab = 'Alla';
+    this.sort = 'relevans';
+    this.showAll = false;
+    for (const b of this.menu.querySelectorAll('[data-tab]')) b.setAttribute('aria-pressed', String(b.dataset.tab === this.tab));
+    for (const b of this.menu.querySelectorAll('[data-sort]')) b.setAttribute('aria-pressed', String(b.dataset.sort === this.sort));
+    try {
+      localStorage.removeItem('hg-focus-tab');
+      localStorage.removeItem('hg-focus-sort');
+    } catch { /* utan lagring */ }
+    this.body.scrollTop = 0;
+    this.render();
+    this.live.textContent = 'Sökning, filter och sortering rensade';
+    this.input.focus({ preventScroll: true });
+  }
+
   /** groups: [{ title, note, loading, all, items: [{ key, label, terms, sub, color, symbol, from, to }] }].
    *  terms = alla namn posten kan sökas på (label ingår alltid). symbol = sökväg till symbolen (#271).
    *  all = gruppen visas alltid hel och i tidsordning när sorteringen är Relevans (Försvunna länder, #72). */
@@ -107,13 +126,31 @@ export class FocusMenu {
       return { ...g, items };
     }).filter(g => g.items.length || (g.loading && !words.length));
     const q = words.length > 0;
+    const activeHtml = [], activeText = [];
+    if (q) {
+      activeHtml.push(`Sök: “${esc(this.query.trim())}”`);
+      activeText.push(`Sök: “${this.query.trim()}”`);
+    }
+    if (this.tab !== 'Alla') {
+      activeHtml.push(`Filter: ${esc(this.tab)}`);
+      activeText.push(`Filter: ${this.tab}`);
+    }
+    if (this.sort !== 'relevans') {
+      const sortLabel = SORTS.find(([id]) => id === this.sort)?.[1] ?? this.sort;
+      activeHtml.push(`Sortering: ${esc(sortLabel)}`);
+      activeText.push(`Sortering: ${sortLabel}`);
+    }
+    const activeRow = activeHtml.length ? `<div class="focus-active">
+      <span class="focus-active-text"><strong>${found} resultat</strong> · ${activeHtml.join(' · ')}</span>
+      <button type="button" class="focus-clear" data-clear>Rensa allt</button>
+    </div>` : '';
     // Raden om året gäller bara Relevans, och inte grupper som alltid visas hela (Försvunna länder, #72)
-    const intro = q ? `<div class="layer-note pad">${found} ${found === 1 ? 'träff' : 'träffar'}.</div>`
-      : relevance && tm && !this.showAll && groups.some(g => !g.all) ? `<div class="layer-note pad">Det som pågår ${esc(tm.label)}, närmast först.</div>` : '';
+    const intro = !q && relevance && tm && !this.showAll && groups.some(g => !g.all)
+      ? `<div class="layer-note pad">Det som pågår ${esc(tm.label)}, närmast först.</div>` : '';
     const empty = q ? `Inget namn innehåller "${esc(this.query.trim())}".` : 'Inget att följa i den här tiden ännu.';
     // Förklaringen under en rubrik visas på gruppens egen flik, inte i Alla eller vid sökning, så att listan blir kort
     const own = this.tab !== 'Alla' && !q;
-    this.body.innerHTML = intro + (groups.map(g => `
+    this.body.innerHTML = activeRow + intro + (groups.map(g => `
       <div class="layer-heading">${esc(g.title)}</div>
       ${g.note && own ? `<div class="layer-note pad focus-note">${esc(g.note)}</div>` : ''}
       ${g.items.length ? g.items.map(it => `<button type="button" class="layer-row focus-item" data-key="${esc(it.key)}"${it.key.startsWith('religion:') ? ` data-religion="${esc(it.key.slice(9))}"` : ''}>
@@ -123,7 +160,8 @@ export class FocusMenu {
       || `<div class="layer-note pad">${empty}</div>`)
       + (relevance && hidden && !q ? `<button type="button" class="layer-row focus-more" data-all>Visa alla (${hidden} till)</button>` : '')
       + (relevance && this.showAll && tm && !q ? `<button type="button" class="layer-row focus-more" data-near>Visa bara det som pågår ${esc(tm.label)}</button>` : '');
-    this.live.textContent = q ? `${found} ${found === 1 ? 'träff' : 'träffar'}` : '';
+    this.live.textContent = activeText.length ? `${found} resultat. ${activeText.join('. ')}` : '';
+    this.body.querySelector('[data-clear]')?.addEventListener('click', () => this.clearFilters());
     for (const b of this.body.querySelectorAll('[data-key]')) {
       b.addEventListener('click', () => { this.close(); this.onPick(b.dataset.key); });
     }
