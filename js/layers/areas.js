@@ -7,12 +7,72 @@
 // Mindre trängsel (#358): vilka riken som får namn och medalj beror på zoomnivån (ui/zoomlevels.js) och rikets yta
 // det året (areaKm2), och namn och medaljer som skulle täcka varandra eller de viktigaste händelserna flyttas undan
 // eller döljs (_layout). Riket man följer i Fokus visas alltid.
-import { t, isVisibleReview } from '../model.js';
+import { t, isVisibleReview, loadEmpire } from '../model.js';
 import { glyph } from './events.js';
 import { drawMedal, ORIGIN_R } from './religions.js';
 import { softEdge, influenceAt, drawInfluence } from './area-style.js';
-import { AreaTransition } from './area-transition.js';
+import { AreaTransition, MAX_JUMP_YEARS } from './area-transition.js';
+import { EmpireMarkers } from './empiremarks.js';
+import { Z } from './registry.js';
 import { ZOOM_LEVELS } from '../ui/zoomlevels.js';
+
+/**
+ * Lagrets post i registret (#338): på som standard. I fokusläget syns riket man följer även om lagret är av, bara
+ * det riket visas, och lagret dämpas när man följer ett krig eller en religion (#235). Rikena laddas när året närmar
+ * sig deras tid (en fil per rike, R1). Rikenas symboler (#301) är klickbara 3D-medaljer (empiremarks.js) som öppnar
+ * faktarutan. Med Lugn rörelse (#246) stängs övergångarna (#78) av.
+ */
+export function entry({ globe, data, labelsEl, refresh, refreshSoon, showEmpireFacts }) {
+  const layer = new AreasLayer();
+  layer.setPoints(data.empireGroups); // försvunna länder utan gräns, som en punkt (#72)
+  // Symbol i gruppen i empires/index.json, eller polityFacts.<rike>.symbol för ett rike i gruppen med egen
+  // faktaruta (Bysantinska riket). Medaljen står på rikets label-punkt och öppnar faktarutan.
+  const empireById = new Map(data.empireGroups.map(g => [g.id, g]));
+  layer.symbolOf = polity => {
+    const g = empireById.get(polity.group);
+    const own = g?.polityFacts?.[polity.id];
+    const symbol = own?.symbol ?? g?.symbol;
+    return symbol ? { symbol, color: polity.color, name: t(polity.name), group: g.id, own: !!own?.facts } : null;
+  };
+  layer.onGlyph = refreshSoon;
+  const marks = new EmpireMarkers(globe, labelsEl);
+  marks.onPick = m => showEmpireFacts(m.group, m.own ? m.polity : null);
+  // Rikena laddas när året närmar sig deras tid. När filen har kommit ritas allt om.
+  const loads = new Set();
+  const ensure = year => {
+    if (!layer.enabled) return;
+    const pad = 100;
+    for (const g of data.empireGroups) {
+      if (loads.has(g.id) || year < g.from - pad || year > g.to + pad) continue;
+      loads.add(g.id);
+      loadEmpire(g).then(ps => { layer.add(ps); refresh(); }).catch(err => { console.error(err); loads.delete(g.id); });
+    }
+  };
+  let lastYear = 0;
+  return {
+    id: 'areas', name: 'Riken', menu: { on: true }, layer, z: Z.areas,
+    fade: { own: focus => focus.type === 'empire' },
+    enabled: s => s.focus?.type === 'empire' || s.layers.areas,
+    apply: s => {
+      layer.onlyGroup = s.focus?.type === 'empire' ? s.focus.id : null;
+      layer.transition.calm = s.calm;
+    },
+    update: s => {
+      layer.labelScale = marks.scale = s.labels.scale;
+      layer.labelAlpha = s.labels.alpha;
+      layer.showNames = s.labels.empireNames;
+      ensure(s.wholeYear);
+      // Övergången (#78) är mjuk när tiden spelas upp eller flyttas lite, annars visas nya läget direkt
+      const out = layer.update({ year: s.wholeYear, smooth: s.playing || Math.abs(s.wholeYear - lastYear) <= MAX_JUMP_YEARS });
+      lastYear = s.wholeYear;
+      return out;
+    },
+    markers: s => marks.update(layer.marks(), layer.enabled && !s.faded.has('areas')),
+    frame: () => marks.frame(),
+    animating: () => layer.animating,
+    drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
+  };
+}
 
 export class AreasLayer {
   constructor(polities = []) {
