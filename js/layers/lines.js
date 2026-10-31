@@ -8,6 +8,10 @@
 // försvinner den. En handelsväg (kind "trade") syns som en dämpad linje medan året ligger inom etappens
 // from–to, plus samma fönster. Osäkra etapper (uncertain) ritas streckade.
 //
+// I upptäcktsvyn (#101, shipStyle = 'ship') ritas skeppen som små segelskepp i stället för prickar, vända
+// åt det håll (väst eller öst) som etappen går just där. reached() ger de delar av alla vägar som har ritats
+// fram till ett år, för dimman i upptäcktsvyn (layers/discovery.js).
+//
 // Allt ritas på den platta lagerbilden (beslut 1), så Platt vy visar samma sak. Långa sträckor följer
 // storcirklar (punkter läggs in längs vägen), och linjer över datumlinjen ritas en bildbredd åt andra
 // hållet också, så att de fortsätter på andra sidan bilden.
@@ -71,8 +75,62 @@ function unwrap(pts) {
   return out;
 }
 
+/** Väst (-1) eller öst (1): hållet från punkten a till b, räknat den kortaste vägen runt jorden. */
+function dirOf(a, b) {
+  const d = b[0] - a[0];
+  return d - 360 * Math.round(d / 360) < 0 ? -1 : 1;
+}
+
+/**
+ * Ritar en linje (punkter i [lon, lat]) på en platt bild W × H med draw(ctx) för varje kopia: linjer över
+ * datumlinjen ritas en bildbredd åt andra hållet också, så att de fortsätter på andra sidan bilden.
+ */
+export function traceWrapped(ctx, pts, W, H, draw) {
+  const xy = ([lon, lat]) => [(lon + 180) / 360 * W, (90 - lat) / 180 * H];
+  const line = unwrap(pts).map(xy);
+  const xs = line.map(([x]) => x), shifts = [0];
+  if (Math.min(...xs) < 0) shifts.push(W);
+  if (Math.max(...xs) > W) shifts.push(-W);
+  for (const dx of shifts) {
+    ctx.beginPath();
+    line.forEach(([x, y], i) => i ? ctx.lineTo(x + dx, y) : ctx.moveTo(x + dx, y));
+    draw(ctx);
+  }
+}
+
+/**
+ * Ett litet segelskepp sett från sidan (#101), en egen enkel siluett: skrov i kategorins färg, två master
+ * med råsegel i pergament och en vimpel. s = skalan (cirka 1 = 24 px brett), dir = -1 vänd mot väst.
+ */
+function drawShip(ctx, x, y, s, dir, col, ink, sail) {
+  ctx.save();
+  ctx.translate(x, y); ctx.scale(dir * s, s);
+  ctx.lineJoin = 'round'; ctx.lineWidth = 1.6; ctx.strokeStyle = ink;
+  // Skrovet: hög akter till vänster, för till höger (vänds med dir)
+  ctx.beginPath();
+  ctx.moveTo(-12, -3); ctx.lineTo(-9, 5); ctx.quadraticCurveTo(0, 8, 9, 5); ctx.lineTo(13, -1); ctx.lineTo(4, 0); ctx.lineTo(-6, 0); ctx.lineTo(-7, -3);
+  ctx.closePath();
+  ctx.fillStyle = col; ctx.fill(); ctx.stroke();
+  // Master
+  ctx.beginPath(); ctx.moveTo(-2, 0); ctx.lineTo(-2, -19); ctx.moveTo(6, 0); ctx.lineTo(6, -14); ctx.stroke();
+  // Råsegel, lätt bukiga
+  ctx.fillStyle = sail;
+  for (const [mx, top, h, w] of [[-2, -18, 14, 6.5], [6, -13, 10, 5]]) {
+    ctx.beginPath();
+    ctx.moveTo(mx - w, top); ctx.lineTo(mx + w, top);
+    ctx.quadraticCurveTo(mx + w + 2, top + h / 2, mx + w, top + h);
+    ctx.lineTo(mx - w, top + h);
+    ctx.quadraticCurveTo(mx - w + 2, top + h / 2, mx - w, top);
+    ctx.closePath(); ctx.fill(); ctx.stroke();
+  }
+  // Vimpel i kategorins färg
+  ctx.beginPath(); ctx.moveTo(-2, -19); ctx.lineTo(5, -21); ctx.lineTo(-2, -23); ctx.closePath();
+  ctx.fillStyle = col; ctx.fill(); ctx.lineWidth = 1; ctx.stroke();
+  ctx.restore();
+}
+
 /** Avstånd i grader (longitud skalad med cos(lat)) från punkten p till sträckan a–b, nära p. */
-function segDist(p, a, b) {
+export function segDist(p, a, b) {
   const near = q => [q[0] - 360 * Math.round((q[0] - p[0]) / 360), q[1]];
   const k = Math.cos(p[1] * RAD);
   const [ax, ay] = near(a), bx0 = near(b);
@@ -86,7 +144,8 @@ function segDist(p, a, b) {
 export class LinesLayer {
   constructor(routes = []) {
     this.enabled = true;
-    this.active = []; // [{ route, alpha, legs: [{ leg, pts, dashed }], ships: [[lon, lat], ...] }]
+    this.shipStyle = 'dot'; // 'ship' i upptäcktsvyn (#101)
+    this.active = []; // [{ route, alpha, legs: [{ leg, pts, dashed }], ships: [[lon, lat, dir], ...] }]
     this.setRoutes(routes);
   }
 
@@ -129,17 +188,34 @@ export class LinesLayer {
         if (leg.to <= now) {
           shown.push({ leg, pts: prep.pts, dashed: !!leg.uncertain });
           if (leg.to > latest) { latest = leg.to; docked = []; }
-          if (leg.to === latest) docked.push(prep.pts.at(-1));
+          if (leg.to === latest) docked.push([...prep.pts.at(-1), dirOf(prep.pts.at(-2), prep.pts.at(-1))]);
           continue;
         }
         const p = partial(prep, (now - leg.from) / (leg.to - leg.from));
         shown.push({ leg, pts: p.pts, dashed: !!leg.uncertain, current: true });
-        moving.push(p.at);
+        moving.push([...p.at, dirOf(p.pts.at(-2) ?? p.at, p.at)]);
       }
       const ended = now >= last;
       this.active.push({ route, alpha: ended ? FADED : 1, legs: shown, ships: ended ? [] : moving.length ? moving : docked });
     }
     return this.active;
+  }
+
+  /**
+   * De delar av alla vägar (resor och handelsvägar som visas, oavsett kategorifilter och om lagret är på)
+   * som har ritats fram till året: listor med punkter [lon, lat]. Det som en gång har ritats ingår även när
+   * resan har bleknat bort. Används av dimman i upptäcktsvyn (#101).
+   */
+  reached({ year, fine = false }) {
+    const now = fine ? year : Math.floor(year) + 0.999, out = [];
+    for (const { route, legs } of this.routes) {
+      if (!isVisibleReview(route.review)) continue;
+      for (const { leg, prep } of legs) {
+        if (leg.from > now) continue;
+        out.push(route.kind === 'trade' || leg.to <= now ? prep.pts : partial(prep, (now - leg.from) / (leg.to - leg.from)).pts);
+      }
+    }
+    return out;
   }
 
   drawOverlay(ctx, W, H) {
@@ -164,10 +240,15 @@ export class LinesLayer {
           ctx.globalAlpha = alpha; ctx.strokeStyle = col; ctx.lineWidth = (trade ? 2 : 3) * k; ctx.stroke();
         }
       }
-      // Skeppet: en prick i kategorins färg med mässingsring där resan är just nu
+      // Skeppet: en prick i kategorins färg med mässingsring där resan är just nu, eller ett segelskepp i upptäcktsvyn
       for (const ship of ships) {
         const [x, y] = xy(ship);
         ctx.setLineDash([]); ctx.globalAlpha = 1;
+        if (this.shipStyle === 'ship') {
+          const r = 16 * k;
+          for (const dx of x < r ? [0, W] : x > W - r ? [0, -W] : [0]) drawShip(ctx, x + dx, y - 2 * k, 1.15 * k, ship[2] ?? 1, col, '#0b1219', '#f1dfb4');
+          continue;
+        }
         for (const dx of x < 8 * k ? [0, W] : x > W - 8 * k ? [0, -W] : [0]) {
           ctx.beginPath(); ctx.arc(x + dx, y, 6 * k, 0, Math.PI * 2);
           ctx.fillStyle = col; ctx.fill();

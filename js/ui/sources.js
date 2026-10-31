@@ -29,7 +29,7 @@ const kindOf = k => KINDS[k] ?? { one: String(k ?? 'bild'), many: String(k ?? 'b
 const MAX_USES = 8;   // fler användningar än så fälls ihop
 
 /** Räknar fram vilka uppgifter som pekar på varje källa, grupp för grupp. */
-function collect({ sources, events, funfacts, polities, empireGroups = [], land, borders }, religionsDoc) {
+function collect({ sources, events, funfacts, polities, empireGroups = [], land, borders, discovery }, religionsDoc) {
   const groups = Object.fromEntries(GROUPS.map(g => [g.id, { ...g, uses: new Map(), items: [] }]));
   const add = (gid, ids, label, review, item = true) => {
     const g = groups[gid];
@@ -66,6 +66,8 @@ function collect({ sources, events, funfacts, polities, empireGroups = [], land,
   }
   if (land?.source) add('maps', [land.source], 'Grundkartan', null);
   if (borders?.source) add('maps', [borders.source], 'Dagens gränser', null);
+  // Upptäcktsvyns kartbilder (#101): havsmonster och kompassrosor ur gamla kartor, public domain
+  for (const d of new Map((discovery?.decorations ?? []).map(d => [d.source, d])).values()) if (d.source) add('maps', [d.source], `Upptäcktsvyn: ${t(d.title)}`, null, false);
   // Bilder (#195): varje bild på globen listas med ursprung och licens, även illustrationer utan extern källa.
   // De räknas inte som uppgifter med granskningsnivå; bara historiska bilder med image.source får en post i källtabellen.
   const shownEvents = events.filter(e => e.image && (settings.showDrafts || e.review !== 'draft'));
