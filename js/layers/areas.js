@@ -1,7 +1,12 @@
 // Lagertyp "område" (beslut 2): riken vars utbredning ändras över tid.
 // Varje rike har perioder (start–end) med en GeoJSON-polygon. Lagret väljer
 // den period som gäller för nuvarande år och ritar den på den platta lagerbilden.
+// Riken med symbol (#301) får en mässingsmedalj med symbolen på label-punkten, som religionernas ursprung (#271).
+// Utzoomat på globen syns bara medaljen; vid nära zoom och i Platt vy står namnet under den. Medaljen på lagerbilden
+// täcks på globen av en klickbar 3D-markör (empiremarks.js).
 import { t, isVisibleReview } from '../model.js';
+import { glyph } from './events.js';
+import { drawMedal, ORIGIN_R } from './religions.js';
 import { softEdge, influenceAt, drawInfluence } from './area-style.js';
 
 export class AreasLayer {
@@ -11,6 +16,30 @@ export class AreasLayer {
     this.active = []; // [{ polity, period }]
     this.labelAlpha = 1; // och hur synliga de är (tonas ut vid kraftig zoom)
     this.labelScale = 1; // namnens storlek relativt grundstorleken (1 = som på platta bilden)
+    this.symbolOf = () => null; // rikets symbol: (polity) → { symbol, color, name, group } eller null (sätts i main.js)
+    this.showNames = true; // namnen under symbolerna (false utzoomat på globen, #301)
+    this.onGlyph = () => {}; // anropas när en symbol har laddats, så att lagerbilden ritas om
+  }
+
+  /** Symbolens bild (img/icons/<symbol>.svg) när den har laddats, annars null. */
+  _glyph(name) {
+    if (!/^[\w-]+$/.test(name ?? '')) return null;
+    const gl = glyph(name);
+    if (!gl.ready && !gl._areas) { gl._areas = true; gl.waiting.push(() => this.onGlyph()); }
+    return gl.ready ? gl.img : null;
+  }
+
+  /**
+   * Symbolerna som syns det här året (#301), en per rike med symbol, på rikets label-punkt:
+   * [{ key, symbol, color, name, lon, lat, group, polity }] (för 3D-markörerna).
+   */
+  marks() {
+    const out = [];
+    for (const { polity, period } of this.active) {
+      const s = this.symbolOf(polity);
+      if (s) out.push({ key: polity.id, ...s, polity, lon: period.label[0], lat: period.label[1] });
+    }
+    return out;
   }
 
   /** Rikena laddas ett i taget (en fil per rike) och läggs till när de har kommit. */
@@ -91,6 +120,7 @@ export class AreasLayer {
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.globalAlpha = this.labelAlpha;
+    const R = ORIGIN_R * k * this.labelScale;
     const placed = []; // namnens rutor, så att huvudländernas namn inte hamnar på varandra (#74)
     const lead = (x1, y1, x2, y2) => {
       ctx.strokeStyle = 'rgba(246,231,196,0.8)';
@@ -104,9 +134,22 @@ export class AreasLayer {
       ctx.fillStyle = '#f6e7c4';
       ctx.fillText(name, x, y);
     };
+    // Rike med symbol (#301): medaljen på label-punkten, och namnet under den bara när namnen visas
+    const medal = (polity, period, sym) => {
+      const x = X(period.label[0]), y = Y(period.label[1]);
+      ctx.globalAlpha = 1;
+      drawMedal(ctx, x, y, R, polity.color, this._glyph(sym.symbol));
+      ctx.globalAlpha = this.labelAlpha;
+      if (!this.showNames) return;
+      const name = t(polity.name), ny = y + R * 1.25 + size * 0.6;
+      placed.push(box(x, ny, ctx.measureText(name).width, size));
+      write(name, x, ny);
+    };
     // Först de vanliga namnen, som de alltid har stått
     for (const { polity, period } of this.active) {
       if (period.homeland) continue;
+      const sym = this.symbolOf(polity);
+      if (sym) { medal(polity, period, sym); continue; }
       const name = t(polity.name);
       const b = bbox(period);
       const bw = X(b.maxLon) - X(b.minLon), bh = Y(b.minLat) - Y(b.maxLat);
@@ -124,6 +167,8 @@ export class AreasLayer {
     // i den största kolonin). Ligger platsen på ett annat namn flyttas namnet upp eller ner, med ett streck till stjärnan.
     for (const { polity, period } of this.active) {
       if (!period.homeland) continue;
+      const sym = this.symbolOf(polity); // med symbol står medaljen i moderlandet i stället för stjärnan
+      if (sym) { medal(polity, period, sym); continue; }
       const name = t(polity.name), w = ctx.measureText(name).width;
       const x = X(period.label[0]), y0 = Y(period.label[1]);
       star(ctx, x, y0, 7 * k * this.labelScale);

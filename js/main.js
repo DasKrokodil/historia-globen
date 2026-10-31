@@ -1,6 +1,6 @@
 // Startar allt och kopplar ihop delarna:
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
-import { loadAll, loadRoutes, loadReligions, loadReligionPolities, loadEmpire, CAT, t, symbolUrl, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays, dayParts } from './model.js';
+import { loadAll, loadRoutes, loadReligions, loadReligionPolities, loadEmpire, CAT, t, symbolUrl, symbolImg, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays, dayParts } from './model.js';
 import { Globe } from './globe.js';
 import { Timeline, segmentName, setupYearJump, MAX_YEAR } from './timeline.js';
 import { EventsLayer, markerInfo, describeMarker } from './layers/events.js';
@@ -8,6 +8,7 @@ import { AreasLayer } from './layers/areas.js';
 import { BordersLayer } from './layers/borders.js';
 import { ReligionsLayer } from './layers/religions.js';
 import { OriginMarkers } from './layers/origins.js';
+import { EmpireMarkers } from './layers/empiremarks.js';
 import { WarsLayer } from './layers/wars.js';
 import { LinesLayer } from './layers/lines.js';
 import { DiscoveryLayer } from './layers/discovery.js';
@@ -72,6 +73,18 @@ async function start() {
   // En symbol som laddas klart ritas in på lagerbilden (en omritning per bildruta räcker)
   let glyphRaf = 0;
   religions.onGlyph = () => { cancelAnimationFrame(glyphRaf); glyphRaf = requestAnimationFrame(() => refresh()); };
+  // Rikenas symboler (#301): symbol i gruppen i empires/index.json, eller polityFacts.<rike>.symbol för ett rike i
+  // gruppen med egen faktaruta (Bysantinska riket). Medaljen står på rikets label-punkt och öppnar faktarutan.
+  const empireById = new Map(data.empireGroups.map(g => [g.id, g]));
+  areas.symbolOf = polity => {
+    const g = empireById.get(polity.group);
+    const own = g?.polityFacts?.[polity.id];
+    const symbol = own?.symbol ?? g?.symbol;
+    return symbol ? { symbol, color: polity.color, name: t(polity.name), group: g.id, own: !!own?.facts } : null;
+  };
+  areas.onGlyph = religions.onGlyph;
+  const empireMarks = new EmpireMarkers(globe, $('labels'));
+  empireMarks.onPick = m => showEmpireFacts(m.group, m.own ? m.polity : null);
   const wars = new WarsLayer(data.events);
   // Vägar och resor (#38): filerna laddas efter starten, och lagret ritas om när de har kommit
   const routes = new LinesLayer();
@@ -223,19 +236,34 @@ async function start() {
   // Faktarutan om ett rike (#170): samma ruta som för religioner, med rikets facts i
   // empires/index.json. Kartans gränser kommer från Cliopatria och kan ha andra årtal
   // än rutans källor (#138), så rutan säger det.
-  function showEmpireFacts(id) {
+  // polity = ett rike i gruppen med egen faktaruta (polityFacts, #301), till exempel Bysantinska riket; då visas
+  // rikets egen ruta med dess symbol och kartdata för just det riket.
+  function showEmpireFacts(id, polity = null) {
     const g = data.empireGroups.find(x => x.id === id);
-    if (!g?.facts) return false;
+    const own = polity && g?.polityFacts?.[polity.id];
+    const facts = own?.facts ?? g?.facts;
+    if (!facts) return false;
     selectedId = null;
     // Ramen följer rikets tidsålder och platsen globen riktas mot i fokus
     const place = focus?.type === 'empire' && focus.id === id ? { start: g.from, _lat: focus.center[0], _lon: focus.center[1] } : null;
-    const note = [t(g.facts.mapNote), t(g.uncertainBorder?.note), influenceNote(g)].filter(Boolean).join(' ');
+    const from = own ? Math.min(...polity.periods.map(p => p.start)) : g.from;
+    const to = own ? Math.max(...polity.periods.map(p => p.end)) : g.to;
+    // Osäker gräns (#73) gäller gruppen; inflytandet (#75) står per rike, så ett rike med egen ruta (#301) visar bara sitt
+    const note = [t(facts.mapNote), own ? '' : t(g.uncertainBorder?.note),
+      influenceNote(own ? { influence: g.influence?.filter(a => a.polity === polity.id) } : g)].filter(Boolean).join(' ');
+    const sym = own?.symbol ? { symbol: own.symbol } : g;
+    const curveId = own ? `${g.id}:${polity.id}` : g.file ? g.id : '';
+    // Rikets krig (#76); ett rike med egen ruta visar krigen under sin egen tid
+    const wars = own ? (g._wars ?? []).filter(w => w.end >= from && w.start <= to) : g._wars;
     // Ett försvunnet land (#72) har årtal, föregångare och efterträdare; ett land utan gräns visas som en punkt
-    panel.showFacts({ kind: g.vanished ? 'Försvunnet land' : 'Rike', name: t(g.name), color: g.color, facts: g.facts, place,
-      curveId: g.file ? g.id : '', lineage: g.vanished ? { ...g.vanished, groups: data.empireGroups } : null,
-      mapNote: g.file ? `Gränserna på kartan kommer från Cliopatria (kartdata ${formatYearSpan(g.from, g.to)}). Fakta i rutan kommer från rutans källor.${note ? ` ${note}` : ''}` : note });
-    // Ytkurvan (#77) ritas när rikets fil har laddats (den laddas ändå för kartan)
-    if (g.file) loadEmpire(g).then(ps => panel.setCurve(g.id, ps, g, timeline.year)).catch(err => console.error(err));
+    const lineage = g.vanished && !own ? { ...g.vanished, groups: data.empireGroups } : null;
+    panel.showFacts({ kind: lineage ? 'Försvunnet land' : 'Rike', name: t(own ? polity.name : g.name), color: g.color, facts, place, curveId,
+      symbol: symbolImg(sym, 'rel-sym rel-sym-h'), wars, lineage,
+      mapNote: g.file ? `Gränserna på kartan kommer från Cliopatria (kartdata ${formatYearSpan(from, to)}). Fakta i rutan kommer från rutans källor.${note ? ` ${note}` : ''}` : note });
+    // Ytkurvan (#77) ritas när rikets fil har laddats (den laddas ändå för kartan); för ett rike med egen
+    // faktaruta (#301) visar kurvan bara det riket
+    if (own) panel.setCurve(curveId, [polity], { from, to, color: g.color }, timeline.year);
+    else if (g.file) loadEmpire(g).then(ps => panel.setCurve(g.id, ps, g, timeline.year)).catch(err => console.error(err));
     layers.close(); focusMenu.close();
     if (narrow.matches) panel.setOpen(false);
     refresh();
@@ -401,13 +429,13 @@ async function start() {
     return { key: `religion:${r.id}`, label: t(r.name), sub: religionSpan(r, first), color: r.color, symbol: symbolUrl(r), from, to };
   });
   const empireItems = () => data.empireGroups.filter(g => !g.vanished).map(g =>
-    ({ key: `empire:${g.id}`, label: t(g.name), sub: `kartdata ${formatYearSpan(g.from, g.to)}`, color: g.color, from: g.from, to: g.to }));
+    ({ key: `empire:${g.id}`, label: t(g.name), sub: `kartdata ${formatYearSpan(g.from, g.to)}`, color: g.color, symbol: symbolUrl(g), from: g.from, to: g.to }));
   // Försvunna länder (#72): listas alla, i tidsordning, med när de bildades och upplöstes och vad de blev
   const vanishedItems = () => data.empireGroups.filter(g => g.vanished).map(g => {
     const [from, to] = empireSpan(g);
     const names = g.vanished.successors.map(s => t(s.name).split(' (')[0]);
     const blev = names.length > 4 ? `${names.slice(0, 3).join(', ')} och ${names.length - 3} till` : names.join(', ');
-    return { key: `empire:${g.id}`, label: t(g.name), sub: `${empireYears(g)} · blev ${blev}`, color: g.color, from, to };
+    return { key: `empire:${g.id}`, label: t(g.name), sub: `${empireYears(g)} · blev ${blev}`, color: g.color, symbol: symbolUrl(g), from, to };
   });
   const focusGroups = (doc = null) => [
     { title: 'Krig', items: data.events.filter(e => e.kind === 'war').map(e => ({ key: `war:${e.id}`, label: t(e.title), sub: formatEventTime(e), color: CAT[e.category]?.color, from: e.start, to: e.end })) },
@@ -446,6 +474,8 @@ async function start() {
   // Religionernas namn i områdena syns bara vid nära zoom på globen, utzoomat och i Platt vy bara symbolen (#271)
   const NAMES_MAG = 2.4;
   const religionNames = () => $('flat-view').hidden && zoomMag() >= NAMES_MAG;
+  // Riken med symbol (#301): utzoomat på globen bara symbolen, vid nära zoom och i Platt vy även namnet
+  const empireNames = () => !$('flat-view').hidden || zoomMag() >= NAMES_MAG;
   function nameStyle() {
     if (!$('flat-view').hidden) return [1, 1];
     const mag = zoomMag();
@@ -458,7 +488,7 @@ async function start() {
     clearTimeout(nameTimer);
     nameTimer = setTimeout(() => {
       const [sc, al] = nameStyle();
-      if (areas.labelScale !== sc || areas.labelAlpha !== al || religions.showNames !== religionNames()) refresh();
+      if (areas.labelScale !== sc || areas.labelAlpha !== al || religions.showNames !== religionNames() || areas.showNames !== empireNames()) refresh();
     }, 150);
   };
   globe.onZoom = syncNameScale;
@@ -616,7 +646,8 @@ async function start() {
 
   function refresh() {
     [areas.labelScale, areas.labelAlpha] = nameStyle();
-    religions.labelScale = origins.scale = areas.labelScale; religions.showNames = religionNames();
+    religions.labelScale = origins.scale = empireMarks.scale = areas.labelScale; religions.showNames = religionNames();
+    areas.showNames = empireNames();
     // I fokusläget för korta krig är året ett decimaltal (#204). Händelser och krig får då sina
     // datum ur edtf (span), medan riken, religioner och fun facts får det hela året som förut.
     const year = timeline.year, wholeYear = Math.floor(year), fine = !!focus?.fine;
@@ -652,6 +683,7 @@ async function start() {
         discovery: discovery.enabled ? discoveryNote : null });
     if (!religions.enabled || faded.includes(religions)) relLegend.hidePop();
     origins.update(religions.stars, religions.enabled && !faded.includes(religions));
+    empireMarks.update(areas.marks(), areas.enabled && !faded.includes(areas));
     const ctx = globe.overlayContext();
     const W = globe.overlayCanvas.width, H = globe.overlayCanvas.height;
     // Ordning nedifrån och upp: upptäcktsvyns papperskarta, riken, religioner, dagens gränser, upptäcktsvyns dimma,
@@ -770,6 +802,9 @@ async function start() {
   });
   panel.onSelect = select;
   panel.onFocus = id => startFocus(`war:${id}`);
+  // Riken i kriget (#76) öppnar rikets faktaruta (utan faktaruta följs riket). Ett försvunnet lands
+  // efterträdare eller föregångare som finns som rike (#72, follow) börjar följas direkt.
+  panel.onEmpire = (id, follow = false) => (!follow && showEmpireFacts(id)) || startFocus(`empire:${id}`);
   $('focus-exit').addEventListener('click', endFocus);
   // Knappen Fakta i fokusraden öppnar rikets eller religionens faktaruta igen (#170)
   $('focus-facts').addEventListener('click', () => {
@@ -866,8 +901,6 @@ async function start() {
   };
   // Nyckelår i rikets och religionens faktaruta hoppar dit i tiden
   panel.onYear = year => { timeline.year = year; };
-  // Ett försvunnet lands efterträdare eller föregångare som finns som rike (#72): börja följa det
-  panel.onEmpire = id => startFocus(`empire:${id}`);
 
   // Rikenas namn ritas med IM Fell English, rita om när typsnittet har laddats
   document.fonts?.ready.then(refresh);
@@ -933,6 +966,7 @@ async function start() {
     const clustered = new Set(clusters.flatMap(c => c.members.map(m => m.e.id)));
     // Händelsen där en religion uppstod ligger under religionens symbol (#271): bara symbolen och etiketten syns
     origins.frame();
+    empireMarks.frame();
     const underOrigin = origins.eventIds;
     for (const s of layer.sprites) s.visible = s.userData.active && !clustered.has(s.userData.event.id) && !underOrigin.has(s.userData.event.id);
     clusters.forEach((c, i) => {

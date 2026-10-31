@@ -814,6 +814,11 @@ details.used-by summary:hover { color: var(--parchment); }
 .war-list h4 { margin: 10px 0 4px; font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
 .war-list ol { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.6; }
 .war-list .meta { font: 400 11px/1 var(--f-mono); color: var(--parchment-dim); }
+/* Krig och riken (#76): rikena i kriget som knappar med rikets färg, rikets krig med årtal */
+.empire-list ul { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0; padding: 0; list-style: none; font-size: 13px; line-height: 1.6; }
+.empire-list .link-btn { text-align: left; }
+.empire-list .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.empire-wars .link-btn { text-align: left; overflow-wrap: anywhere; }
 
 .focus-btn { margin: 8px 0 2px; }
 .speed { min-width: 64px; font-family: var(--f-mono); white-space: nowrap; }

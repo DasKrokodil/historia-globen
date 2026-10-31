@@ -154,6 +154,15 @@
       "text": {
        "sv": "Latin, och med tiden allt mer grekiska. I Bysans ersatte grekiskan latinet som officiellt språk. Romersk polyteism med kejsarkult, och från 380 nicensk kristendom som officiell religion."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Örnen, aquila, var ett av Roms mest framträdande tecken, framför allt som legionernas fältstandar. Varje legion hade en örn, och att förlora den räknades som en stor skam. Enligt Plinius den äldre behölls örnen som enda standar efter 104 f.Kr., men andra källor visar att legionerna fortfarande använde andra djur en tid efter det. Kartan visar örnen för hela gruppen utom Bysantinska riket, som har en egen symbol."
+      }
      }
     ],
     "milestones": [
@@ -448,9 +457,74 @@
      "wp-roman-kingdom",
      "wp-roman-republic",
      "wp-byzantine-empire",
-     "wp-roman-seleucid-war"
+     "wp-roman-seleucid-war",
+     "wp-aquila"
     ],
     "review": "source-checked"
+   },
+   "symbol": "aquila",
+   "polityFacts": {
+    "bysantinska-riket": {
+     "symbol": "double-eagle",
+     "facts": {
+      "summary": {
+       "sv": "Bysantinska riket var den östra fortsättningen på Romarriket, med Konstantinopel som huvudstad. Det överlevde Västroms fall på 400-talet och bestod till 1453. Namnet Bysans kom först efter rikets slut; invånarna kallade själva sitt rike romerskt och sig själva romare."
+      },
+      "items": [
+       {
+        "label": {
+         "sv": "När och var det uppstod"
+        },
+        "text": {
+         "sv": "Det finns ingen enighet om när Bysantinska riket började. Ofta anges 330, då Konstantin den store invigde Konstantinopel som ny huvudstad i öster. Andra räknar från 395, då riket delades efter Theodosius I:s död, och vissa forskare sätter början först på 600- eller 700-talet."
+        }
+       },
+       {
+        "label": {
+         "sv": "Hur det slutade"
+        },
+        "text": {
+         "sv": "Den 29 maj 1453 erövrade osmanerna Konstantinopel. Den siste kejsaren, Konstantin XI, stupade i striderna, och riket upphörde."
+        }
+       },
+       {
+        "label": {
+         "sv": "Huvudstad"
+        },
+        "text": {
+         "sv": "Konstantinopel, dagens Istanbul, under hela rikets tid. Staden plundrades av fjärde korståget 1204 och återtogs 1261."
+        }
+       },
+       {
+        "label": {
+         "sv": "Kända härskare"
+        },
+        "text": {
+         "sv": "Justinianus I (527–565), då riket var som störst, Herakleios (610–641), Basileios II (976–1025), Alexios I Komnenos (1081–1118), Mikael VIII (1261–1282), som återtog Konstantinopel, och Konstantin XI (1449–1453)."
+        }
+       },
+       {
+        "label": {
+         "sv": "Symbolen på kartan",
+         "en": "The symbol on the map"
+        },
+        "text": {
+         "sv": "Dubbelörnen är det tecken som oftast förknippas med Bysans. Som prydnad finns den i bysantinsk konst från 900- och 1000-talet, men tillsammans med kejsaren är den säkert belagd först 1301, under Andronikos II Palaiologos. Under rikets sista århundraden bar kejsarfamiljen den på kläder och utrustning. Kartan visar den ändå för hela rikets tid, som en symbol för riket."
+        }
+       }
+      ],
+      "mapNote": {
+       "sv": "I kartdatan heter riket Bysantinska riket från 633. Åren 395–632 visas som Östromerska riket, med Roms symbol."
+      },
+      "sources": [
+       "wp-byzantine-empire",
+       "whe-byzantine-empire",
+       "wd-byzantine-empire",
+       "wp-byzantine-insignia"
+      ],
+      "review": "two-sources"
+     }
+    }
    }
   },
   {
@@ -527,6 +601,15 @@
       },
       "text": {
        "sv": "Fornpersiska var dynastins språk och arameiska det officiella språket i förvaltningen. Zoroastrism var statsreligion, men många andra religioner fanns i riket. Riket är känt för sin förvaltning, Kungsvägen, ett ordnat postväsende och religiös tolerans, särskilt under Kyros."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Akemenidernas kungliga fältstandar. Xenofon beskriver standaret som Artaxerxes II förde vid Kunaxa som en gyllene örn med utbredda vingar på ett långt spjutskaft, och samma standar sägs ha använts av Kyros den store. Hur det såg ut i detalj vet man inte; teckningen är en förenkling av beskrivningen."
       }
      }
     ],
@@ -695,10 +778,12 @@
      "sv": "Källan anger 550–330 f.Kr."
     },
     "sources": [
-     "wp-achaemenid-empire"
+     "wp-achaemenid-empire",
+     "wp-flag-of-iran"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "eagle-standard"
   },
   {
    "id": "alexanders-rike",
@@ -774,6 +859,15 @@
       },
       "text": {
        "sv": "Fornmakedoniska, attisk grekiska och koine-grekiska. Grekisk polyteism och hellenistisk religion. Alexanders lärare Aristoteles fick stort inflytande på västerländsk filosofi."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Verginasolen, en sol med sexton strålar. Den finns på den gyllene kistan i en kunglig grav från 300-talet f.Kr. i Aigai (Vergina), som tillhörde antingen Filip II, Alexanders far, eller Filip III. Forskarna är oense om den var den makedoniska kungaättens eget tecken eller bara ett vanligt grekiskt prydnadsmotiv."
       }
      }
     ],
@@ -919,10 +1013,12 @@
      "sv": "Kartdatan slutar 293 f.Kr., men enligt källan fanns kungadömet kvar till 168 f.Kr."
     },
     "sources": [
-     "wp-macedonia-ancient"
+     "wp-macedonia-ancient",
+     "wp-vergina-sun"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "vergina-sun"
   },
   {
    "id": "hanriket",
@@ -1253,6 +1349,15 @@
       "text": {
        "sv": "Ashoka blev buddhist efter det våldsamma Kalingakriget och sände missionärer bland annat till Sri Lanka och Centralasien, vilket bidrog till att buddhismen blev en världsreligion. Sydasiens befolkning under perioden uppskattas till 15–30 miljoner. Språk: magadhi-prakrit, och troligen sanskrit i litteraturen. Ashokas lejonkapitäl i Sarnath blev Indiens statsvapen 1947."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Lejonkapitälet från Sarnath, toppen på en pelare som kejsar Ashoka lät resa cirka 250 f.Kr.: fyra lejon rygg mot rygg på en rund platta. Lejonen tolkas bland annat som ett tecken för Ashokas makt. Kapitälet är förebild för dagens indiska statsvapen. Teckningen visar lejonen och plattan, inte hjulet som en gång satt ovanpå."
+      }
      }
     ],
     "milestones": [
@@ -1383,10 +1488,12 @@
      "sv": "Källan anger cirka 320 till 185 f.Kr."
     },
     "sources": [
-     "wp-maurya-empire"
+     "wp-maurya-empire",
+     "wp-lion-capital-ashoka"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "lion-capital"
   },
   {
    "id": "osmanska-riket",
@@ -1462,6 +1569,15 @@
       },
       "text": {
        "sv": "Osmansk turkiska var officiellt språk. Arabiska, persiska, grekiska och många andra språk användes också. Sunniislam var statsreligion. Rikets trossamfund (millet) fick i olika grad sköta sina egna angelägenheter."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Tughran, sultanens kalligrafiska namnteckning. Den sattes på alla officiella dokument och präglades på mynt. Varje sultan hade sin egen tughra, och de första är från 1300-talet (den första osmanska tughran är Orhans, 1326). Formen känns igen på två öglor till vänster, tre lodräta streck i mitten och två utsträckta linjer åt höger."
       }
      }
     ],
@@ -1644,10 +1760,12 @@
      "sv": "Källan anger cirka 1299 som start. Kartan slutar 1923, året då republiken utropades, men sultanatet avskaffades redan 1922."
     },
     "sources": [
-     "wp-ottoman"
+     "wp-ottoman",
+     "wp-tughra"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "tughra"
   },
   {
    "id": "mongolriket",
@@ -1767,6 +1885,15 @@
       },
       "text": {
        "sv": "Språk: mellanmongoliska, turkspråk, kinesiska, persiska med flera. Riket förband öst och väst, och den påtvingade freden, Pax Mongolica, gjorde handel och utbyte av teknik och idéer möjligt över Eurasien."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Tug eller sülde, en stång med hästtagel i en krans överst. Den fördes under Mongolriket: vita fanor användes i fred och svarta i krig. Hästtaglet anspelar på hur viktiga hästarna var för mongolerna."
       }
      }
     ],
@@ -1934,10 +2061,12 @@
      "sv": "Kartan visar även khanaten och går därför längre. Källan anger 1206–1368 för själva Mongolriket."
     },
     "sources": [
-     "wp-mongol-empire"
+     "wp-mongol-empire",
+     "wp-tug-banner"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "sulde"
   },
   {
    "id": "brittiska-imperiet",
@@ -2031,6 +2160,15 @@
       },
       "text": {
        "sv": "Kallades \"imperiet där solen aldrig går ned\". Arvet i styrelseskick, rätt och språk finns kvar i stora delar av världen, och många tidigare kolonier gick med i Samväldet (Commonwealth of Nations)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Kronan står för monarken som den yttersta källan till statens makt. Den heraldiska kronan i Tudorstil från 1901 gjordes enhetlig i hela Brittiska imperiet och finns på många officiella emblem, i Storbritannien och i det forna imperiet. Redan 1880 fick den heraldiska kronan rundare bågar, efter att Viktoria blivit kejsarinna av Indien."
       }
      }
     ],
@@ -2190,10 +2328,12 @@
      "sv": "Källan låter imperiet börja i slutet av 1500-talet och nämner 1997 som slutet för många."
     },
     "sources": [
-     "wp-british-empire"
+     "wp-british-empire",
+     "wp-tudor-crown"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "imperial-crown"
   },
   {
    "id": "egypten",
@@ -2288,6 +2428,15 @@
       },
       "text": {
        "sv": "Gamla riket kallas pyramidernas tid: Cheops lät bygga den stora pyramiden i Giza. Begreppen gamla och nya riket myntades 1845 av den tyske forskaren Christian von Bunsen."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Den dubbla kronan, pschent, som faraonerna bar. Den förenade Övre Egyptens vita krona med Nedre Egyptens röda och stod för faraos makt över hela det enade landet. Den förste farao som visas med den är Djet under första dynastin. Ingen krona har bevarats; den är känd från statyer, bilder och inskrifter. Kronan bar också en kobra och en gam som stod för två gudinnor; de är inte med på kartans teckning."
       }
      }
     ],
@@ -2430,10 +2579,12 @@
      "wp-old-kingdom-egypt",
      "wp-new-kingdom-egypt",
      "whe-old-kingdom-egypt",
-     "whe-new-kingdom-egypt"
+     "whe-new-kingdom-egypt",
+     "wp-pschent"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "pschent"
   },
   {
    "id": "assyriska-riket",
@@ -2901,6 +3052,15 @@
       "text": {
        "sv": "Kartagos flotta var en av antikens största, och armén bestod till stor del av legosoldater från bland annat Iberiska halvön, Gallien, Grekland och Nordafrika. Nästan alla kartagiska texter förstördes, så det mesta vi vet kommer från grekiska och romerska författare."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Dadelpalmen från Kartagos mynt. Hästen och palmen fanns på mynten från de första präglingarna omkring 410 f.Kr. och sedan genom hela myntningens historia. Vad de betydde är omstritt. Den vanligaste tolkningen av palmen är en ordlek: det grekiska ordet phoinix betyder både palm och fenicisk, och palmen visade alltså vem som präglade myntet. Hästen tolkas av en del forskare som en guds tecken, och därför valdes palmen."
+      }
      }
     ],
     "milestones": [
@@ -3026,10 +3186,12 @@
     },
     "sources": [
      "wp-ancient-carthage",
-     "whe-carthage"
+     "whe-carthage",
+     "wp-carthaginian-coinage"
     ],
     "review": "two-sources"
-   }
+   },
+   "symbol": "palm"
   },
   {
    "id": "seleukidriket",
@@ -3113,6 +3275,15 @@
       },
       "text": {
        "sv": "Grekiska seder och grekiska språket gynnades, och en grekisk stadselit styrde. Riket stred upprepade gånger med det ptolemaiska Egypten om sina västra områden. I öster slöt Seleukos förbund med Chandragupta i Mauryariket och lämnade över områden vid Indus."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Ankaret var ett av den seleukidiska kungaättens vanligaste tecken, tillsammans med den behornade hästen, elefanten och gudinnorna Nike och Tyche. Det finns på mynt redan från Seleukos I, rikets grundare."
       }
      }
     ],
@@ -3237,7 +3408,8 @@
      "whe-seleucid-empire"
     ],
     "review": "two-sources"
-   }
+   },
+   "symbol": "anchor"
   },
   {
    "id": "partherriket",
@@ -3321,6 +3493,15 @@
       },
       "text": {
        "sv": "Partherna förintade Crassus armé vid Carrhae 53 f.Kr., ett av Roms värsta nederlag. Riket blev rikt på att beskatta karavanhandeln, bland annat med siden, och Hanriket sände en delegation till Mithridates II:s hov 121 f.Kr."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Den sittande bågskytten med bågen i handen finns på baksidan av de parthiska kungarnas mynt, redan från rikets grundare Arsakes I. Han ersatte guden Apollon som satt med en båge på seleukidernas mynt. Forskarna är oense om vem bågskytten är: kungen själv eller en upphöjd anfader till kungaätten."
       }
      }
     ],
@@ -3420,10 +3601,12 @@
     },
     "sources": [
      "wp-parthian-empire",
-     "whe-parthia"
+     "whe-parthia",
+     "wp-arsaces-i"
     ],
     "review": "two-sources"
-   }
+   },
+   "symbol": "archer"
   },
   {
    "id": "sasanidriket",
@@ -3519,6 +3702,15 @@
       },
       "text": {
        "sv": "Shapur I tog den romerske kejsaren Valerianus till fånga vid Edessa 260 och firade segern med klippreliefer vid Naqsh-e Rostam. Khosrov I är känd för sina reformer av skatterna och förvaltningen."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Derafsh Kaviani, den kungliga fanan, var Sasanidrikets officiella standar och ett tecken för kungamakten. Under sasaniderna hade den en stjärna som emblem och tofsar i rött, guld och purpur. Enligt legenden var den smeden Kavehs läderförkläde. När araberna erövrade fanan i slaget vid al-Qadisiyya blev det en symbol för rikets fall."
       }
      }
     ],
@@ -3621,10 +3813,12 @@
     },
     "sources": [
      "wp-sasanian-empire",
-     "whe-sasanian-empire"
+     "whe-sasanian-empire",
+     "wp-derafsh-kaviani"
     ],
     "review": "two-sources"
-   }
+   },
+   "symbol": "derafsh"
   },
   {
    "id": "qinriket",
@@ -3914,6 +4108,15 @@
       "text": {
        "sv": "Mahabharata och Ramayana fick sin fastställda form under perioden, och här verkade lärda som diktaren Kalidasa och astronomerna Aryabhata och Varahamihira."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Garuda, en mytisk fågel, var guptakungarnas emblem och fanns på rikets sigill och mynt (Garudadhvaja). Garuda är guden Vishnus riddjur, och emblemet visar att guptakungarna dyrkade Vishnu. Det används här eftersom källorna uttryckligen kallar det rikets kungliga emblem."
+      }
      }
     ],
     "milestones": [
@@ -4014,10 +4217,12 @@
     },
     "sources": [
      "wp-gupta-empire",
-     "whe-gupta-empire"
+     "whe-gupta-empire",
+     "wp-garuda"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "garuda"
   },
   {
    "id": "aksumriket",
@@ -4281,6 +4486,15 @@
       "text": {
        "sv": "Språk: arabiska (officiellt). Religion: islam som statsreligion. Kristna, som fortfarande var en majoritet av befolkningen, och judar fick utöva sin religion mot att de betalade skatten jizya. Umayyadernas mest kända byggnader är Klippdomen i Jerusalem, färdig 691/692, och den stora moskén i Damaskus."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Den vita fanan. Umayyadernas fanor var vita, efter Muawiyas fana, och vitt var dynastins färg. Fanan visas utan text."
+      }
      }
     ],
     "milestones": [
@@ -4391,10 +4605,12 @@
     },
     "sources": [
      "wp-umayyad-caliphate",
-     "whe-umayyad-dynasty"
+     "whe-umayyad-dynasty",
+     "wp-black-standard"
     ],
     "review": "two-sources"
-   }
+   },
+   "symbol": "white-banner"
   },
   {
    "id": "abbasidkalifatet",
@@ -4524,6 +4740,15 @@
       "text": {
        "sv": "Språk: arabiska (officiellt). Religion: islam som statsreligion, med kristna, judar och zoroastrier som minoriteter. I Bagdad fanns lärdomscentret Visdomens hus. Efter ett inbördeskrig på 800-talet byggde kaliferna upp en yrkesarmé av främst turkiska slavsoldater."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Den svarta fanan. Abbasidernas uppror mot umayyaderna 747 gick under svarta fanor, och efter segern 750 behöll abbasiderna svart som dynastins färg, på fanor och på kalifernas kläder, som en kontrast mot umayyadernas vita. Fanan visas här utan text."
+      }
      }
     ],
     "milestones": [
@@ -4645,10 +4870,12 @@
     },
     "sources": [
      "wp-abbasid-caliphate",
-     "whe-abbasid-dynasty"
+     "whe-abbasid-dynasty",
+     "wp-black-standard"
     ],
     "review": "two-sources"
-   }
+   },
+   "symbol": "black-banner"
   },
   {
    "id": "frankerriket",
@@ -4969,6 +5196,15 @@
       "text": {
        "sv": "Språk: tyska och medeltida latin (förvaltning, kyrka och ceremonier), och många andra. Religion: latinsk kristendom, och efter reformationen flera officiella religioner. Kejsaren valdes av kurfurstar, både världsliga furstar och ärkebiskopar. Från 1512 kallades riket också Tysk-romerska riket av tysk nation."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Riksörnen, en svart örn på guldbotten, var kejsarnas och rikets vapen. Under medeltiden hade örnen oftast ett huvud, som på kartan. Från kejsar Sigismund 1433 blev dubbelörnen rikets vapen fram till slutet 1806."
+      }
      }
     ],
     "milestones": [
@@ -5073,10 +5309,12 @@
      "wp-holy-roman-empire",
      "whe-holy-roman-empire",
      "wp-peace-westphalia",
-     "wp-electorate-saxony"
+     "wp-electorate-saxony",
+     "wp-coat-of-arms-germany"
     ],
     "review": "two-sources"
-   }
+   },
+   "symbol": "heraldic-eagle"
   },
   {
    "id": "tangdynastin",
@@ -6060,6 +6298,15 @@
       "text": {
        "sv": "Språk: fornöstslaviska, kyrkslaviska (skriftspråk), fornnordiska och finska språk. Religion: slavisk hedendom och sedan ortodox kristendom. Jaroslavs söner gav ut den första skrivna lagen, Russkaja Pravda, strax efter hans död."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Treudden finns på guld- och silvermynten som storfursten Vladimir präglade (980–1015) och användes av hans söner, som ett tecken för Rurikätten. Liknande tecken finns på Svjatoslav I:s sigill. Det är alltså belagt för en del av rikets tid. Forskarna är oense om var tecknet kom ifrån; enligt Omeljan Pritsak har det khazariskt ursprung."
+      }
      }
     ],
     "milestones": [
@@ -6159,10 +6406,12 @@
     },
     "sources": [
      "wp-kievan-rus",
-     "whe-kievan-rus"
+     "whe-kievan-rus",
+     "wp-coat-of-arms-ukraine"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "tryzub"
   },
   {
    "id": "timuridriket",
@@ -6270,6 +6519,15 @@
       },
       "text": {
        "sv": "Språk: persiska (officiellt, hov och förvaltning), tjagataiturkiska och arabiska. Religion: sunniislam. Under Shah Rukh och Ulugh Beg blomstrade den timuridiska renässansen. Timur tvångsflyttade lärda, konstnärer och hantverkare till Samarkand, som blev en stor kulturstad."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Tre ringar i en triangel, Timurs tecken. Den kastiliske sändebudet Ruy de Clavijo, som besökte Timur 1403, och historikern Ibn Arabshah beskrev det på Timurs sigill och mynt. Enligt Clavijo stod ringarna för de tre delar av världen som Timur var herre över, men vad tecknet betydde är inte säkert känt."
       }
      }
     ],
@@ -6395,7 +6653,8 @@
      "whe-timur"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "three-rings"
   },
   {
    "id": "aztekriket",
@@ -6490,6 +6749,15 @@
       },
       "text": {
        "sv": "Aztekerna styrde indirekt: erövrade städer behöll sina härskare om de betalade tribut två gånger om året och ställde upp med soldater."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Örnen på kaktusen är Tenochtitlans tecken, och så står huvudstaden i Codex Mendoza. Enligt berättelsen om stadens grundande slog sig mexica ned på en ö i Texcocosjön där en örn hade sitt bo på en kaktus, och de tolkade det som ett tecken från sina gudar. I källorna äter örnen ibland en orm, ibland något annat, och i Codex Mendoza står den ensam."
       }
      }
     ],
@@ -6598,10 +6866,12 @@
     },
     "sources": [
      "wp-aztec-empire",
-     "whe-aztec-civilization"
+     "whe-aztec-civilization",
+     "wp-coat-of-arms-mexico"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "eagle-cactus"
   },
   {
    "id": "inkariket",
@@ -6685,6 +6955,15 @@
       },
       "text": {
        "sv": "Inkafolket byggde ett väldigt vägnät och höll räkning med knutna snören, khipu, men hade varken skrift, hjul eller järn. Skatten betalades med arbete i stället för pengar."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Mascapaicha, kungabandet med röd frans och fjädrar, var rikets kejserliga symbol. Bara Sapa Inka, kungen i Cusco och kejsare över Tawantinsuyu, fick bära det, och det var det synliga tecknet för den högsta makten i riket."
       }
      }
     ],
@@ -6777,10 +7056,12 @@
     },
     "sources": [
      "wp-inca-empire",
-     "whe-inca-civilization"
+     "whe-inca-civilization",
+     "wp-mascapaicha"
     ],
     "review": "two-sources"
-   }
+   },
+   "symbol": "mascapaicha"
   },
   {
    "id": "songhairiket",
@@ -7037,6 +7318,15 @@
       "text": {
        "sv": "Rikedomen byggde på skatter på jordbruket, betalade i silvermynt. Mogulernas byggnader, som Taj Mahal, Röda fortet och Humayuns grav, är i dag världsarv."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Lejonet och solen. Mogulkejsarnas viktigaste fana, alam, var grön med lejonet och solen. Den engelske prästen Edward Terry såg den under Jahangir: ett hukande lejon framför solen, buret på en elefant när kejsaren reste. Mogulerna sade att fanan gick tillbaka till Timur. Wikipedias artikel om fanorna har få källhänvisningar."
+      }
      }
     ],
     "milestones": [
@@ -7181,10 +7471,13 @@
     },
     "sources": [
      "wp-mughal-empire",
-     "wd-mughal-empire"
+     "wd-mughal-empire",
+     "wp-flags-mughal-empire",
+     "wp-lion-and-sun"
     ],
     "review": "two-sources"
-   }
+   },
+   "symbol": "lion-sun"
   },
   {
    "id": "safavidriket",
@@ -7269,6 +7562,15 @@
       "text": {
        "sv": "I Isfahan byggdes efter 1598 några av safavidtidens mest kända byggnader, bland dem Shahens moské, som stod klar 1630."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Lejonet och solen fanns på safavidernas kopparmynt, fanor och konstverk. Safaviderna använde flera fanor, men under Abbas I (1588–1629) hade lejonet och solen blivit ett av de vanligaste emblemen, så det är belagt säkrast för rikets senare del. Safaviderna tolkade det som statens och religionens två pelare."
+      }
      }
     ],
     "milestones": [
@@ -7349,10 +7651,12 @@
     },
     "sources": [
      "wp-safavid-iran",
-     "wd-safavid-dynasty"
+     "wd-safavid-dynasty",
+     "wp-lion-and-sun"
     ],
     "review": "two-sources"
-   }
+   },
+   "symbol": "lion-sun"
   },
   {
    "id": "mingdynastin",
@@ -7652,6 +7956,15 @@
       "text": {
        "sv": "År 1645 tvingades alla vuxna hankinesiska män att bära manchuernas frisyr med rakad panna och fläta, annars väntade dödsstraff."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Drakflaggan, en blå drake på gul botten med en röd pärla. Den första formen, en trekantig flagga, togs i bruk 1862 och den rektangulära 1889, och den blev Kinas första nationsflagga. Den är alltså belagd bara för rikets sista femtio år."
+      }
      }
     ],
     "milestones": [
@@ -7775,10 +8088,12 @@
     },
     "sources": [
      "wp-qing-dynasty",
-     "wd-qing-dynasty"
+     "wd-qing-dynasty",
+     "wp-flag-qing"
     ],
     "review": "two-sources"
-   }
+   },
+   "symbol": "dragon-flag"
   },
   {
    "id": "spanska-imperiet",
@@ -7868,6 +8183,15 @@
       },
       "text": {
        "sv": "Spanska och katolicism, som var statsreligion. Många ursprungsspråk försvann när spanskan spreds."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Herkules stoder med bandet Plus Ultra, \"ännu längre\". Karl I (kejsar Karl V) tog dem som sitt personliga emblem 1516, när han blev kung av Spanien, och de blev en del av Spaniens vapen, med syftning på upptäckten av Amerika. De användes i spansk och habsburgsk propaganda. Spaniens militärflagga, Burgundkorset, valdes bort eftersom det är ett kors."
       }
      }
     ],
@@ -8016,10 +8340,13 @@
     },
     "sources": [
      "wp-spanish-empire",
-     "wd-spanish-empire"
+     "wd-spanish-empire",
+     "wp-pillars-of-hercules",
+     "wp-plus-ultra"
     ],
     "review": "two-sources"
-   }
+   },
+   "symbol": "pillars"
   },
   {
    "id": "portugisiska-imperiet",
@@ -8109,6 +8436,15 @@
       },
       "text": {
        "sv": "År 1571 förband en kedja av hamnar Lissabon med Nagasaki i Japan. Guld, elfenben, siden, porslin och kryddor fraktades runt världen."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Armillarsfären, en modell av himlens cirklar. Den var Manuel I:s personliga tecken i slutet av 1400-talet, och när han använde den på dokument, byggnader och flaggor blev den ett tecken för Portugal och dess välde över haven. Den förknippas med de portugisiska upptäcktsresorna och fanns kvar efter Manuels död. Den finns i dag på Portugals flagga."
       }
      }
     ],
@@ -8240,10 +8576,13 @@
     "sources": [
      "wp-portuguese-empire",
      "whe-portuguese-empire",
-     "wd-portuguese-empire"
+     "wd-portuguese-empire",
+     "wp-armillary-sphere",
+     "wp-flag-of-portugal"
     ],
     "review": "two-sources"
-   }
+   },
+   "symbol": "armillary"
   },
   {
    "id": "ryska-imperiet",
@@ -8338,6 +8677,15 @@
       },
       "text": {
        "sv": "Ryska var officiellt språk. Rysk-ortodox kristendom var statsreligion; 1897 var också 11 procent muslimer och 4 procent judar."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Dubbelörnen har varit Rysslands vapen sedan 1400-talet, under Ivan III (1462–1505). Efter Konstantinopels fall 1453 såg storfurstarna i Moskva sig som Bysans arvtagare, och örnen har bysantinska förebilder. Den var vapen för både tsardömet och kejsardömet."
       }
      }
     ],
@@ -8495,10 +8843,12 @@
      "wp-tsardom-of-russia",
      "wd-tsardom-of-russia",
      "wp-russian-empire",
-     "wd-russian-empire"
+     "wd-russian-empire",
+     "wp-coat-of-arms-russia"
     ],
     "review": "two-sources"
-   }
+   },
+   "symbol": "double-eagle"
   },
   {
    "id": "svenska-stormaktsvaldet",
@@ -8582,6 +8932,15 @@
       },
       "text": {
        "sv": "Sverige hade också kolonier, som Nya Sverige vid Delawarefloden i Nordamerika, grundat 1638."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Tre kronor, två över och en under, är Sveriges riksvapen. Det äldsta kända vapnet med tre kronor som tecken för Sverige är en målad fris i Avignon från 1330-talet, under Magnus Eriksson, och följande kungar behöll det. Under stormaktstiden var det sedan länge rikets tecken."
       }
      }
     ],
@@ -8726,10 +9085,12 @@
     },
     "sources": [
      "wp-swedish-empire",
-     "wd-swedish-empire"
+     "wd-swedish-empire",
+     "wp-three-crowns"
     ],
     "review": "two-sources"
-   }
+   },
+   "symbol": "three-crowns"
   },
   {
    "id": "habsburgska-riket",
@@ -8805,6 +9166,15 @@
       },
       "text": {
        "sv": "Romersk-katolsk kristendom var officiell religion."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Dubbelörnen var den tysk-romerske kejsarens vapen från 1433, och från Fredrik III var habsburgarna kejsare. Österrike tog dubbelörnen som eget vapen 1804, strax innan det tysk-romerska riket upplöstes. Kartans dubbelörn står alltså för habsburgarnas kejsarvapen."
       }
      }
     ],
@@ -8900,10 +9270,13 @@
     },
     "sources": [
      "wp-habsburg-monarchy",
-     "wd-habsburg-monarchy"
+     "wd-habsburg-monarchy",
+     "wp-coat-of-arms-austria",
+     "wp-coat-of-arms-germany"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "double-eagle"
   },
   {
    "id": "tokugawa-japan",
@@ -8987,6 +9360,15 @@
       },
       "text": {
        "sv": "Under den långa freden växte ekonomin och städerna, och köpmännen och ukiyo-kulturen fick större plats."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Tre malvablad (aoi) i en cirkel, Tokugawaättens vapen (mon). Under Edoperioden var det förbjudet för andra att använda shogunatets malvavapen, liksom kejsarhusets krysantemum."
       }
      }
     ],
@@ -9085,10 +9467,13 @@
     },
     "sources": [
      "wp-tokugawa-shogunate",
-     "whe-edo-period"
+     "whe-edo-period",
+     "wp-mon-emblem",
+     "wp-tokugawa-clan"
     ],
     "review": "two-sources"
-   }
+   },
+   "symbol": "aoi"
   },
   {
    "id": "franska-kolonialvaldet",
@@ -9225,6 +9610,15 @@
       },
       "text": {
        "sv": "År 1870 omfattade de franska områdena utanför Europa cirka 1 miljon km² med över 5 miljoner invånare. Enligt folkräkningen 1936 bodde 69,1 miljoner människor i imperiet utanför Frankrike, varav 25,5 miljoner i Afrika söder om Sahara, 23,2 miljoner i Öst- och Sydostasien och 16,1 miljoner i Nordafrika."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Trikoloren, Frankrikes blå, vita och röda flagga. Den infördes 1794 och var flagga för kejsardömena och republikerna. Under bourbonernas restauration 1815–1830 användes i stället den vita kungaflaggan, så för de första femton åren på kartan stämmer inte symbolen."
       }
      }
     ],
@@ -9374,10 +9768,12 @@
     "sources": [
      "wp-french-colonial-empire",
      "wp-algerian-war",
-     "whe-scramble-for-africa"
+     "whe-scramble-for-africa",
+     "wp-flag-of-france"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "tricolour"
   },
   {
    "id": "nederlandska-kolonialvaldet",
@@ -9481,6 +9877,15 @@
       },
       "text": {
        "sv": "Kring 1652 hade väldet kolonier eller handelsstationer i Nordamerika, Karibien, Sydamerika, Väst- och Sydafrika, Indien, Sri Lanka, Indonesien, Japan och Taiwan. Nederländska Ostindien var störst i början av 1900-talet, när västra Nya Guinea ockuperades."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Pilknippet med sju pilar ur Nederländernas vapen. Generalstaterna i Förenade Nederländerna (1581–1795) hade ett lejon med krona, svärd och pilknippe; pilarna står för de sju provinserna i Utrechtunionen. Kungariket tog lejonet med pilarna i sitt vapen 1815. Kartan visar bara pilknippet. För åren 1795–1815 (Bataviska republiken) är emblemet inte belagt i källan."
       }
      }
     ],
@@ -9619,10 +10024,12 @@
     "sources": [
      "wp-dutch-colonial-empire",
      "wp-dutch-east-indies",
-     "whe-dutch-east-india-company"
+     "whe-dutch-east-india-company",
+     "wp-coat-of-arms-netherlands"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "arrow-bundle"
   },
   {
    "id": "tyska-riket",
@@ -9704,6 +10111,15 @@
       },
       "text": {
        "sv": "Cirka 41 miljoner invånare 1871 och 68 miljoner 1913. Riket i Europa var 540 858 km² år 1910."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Riksörnen, en svart örn med ett huvud och kejsarkrona. Den infördes vid kejsarutropet i Versailles 1871 och knöt an till de tysk-romerska kejsarnas medeltida vapen, innan de tog dubbelörnen. Att den bara har ett huvud skiljer den från Tyska förbundets örn."
       }
      }
     ],
@@ -9819,10 +10235,12 @@
     "sources": [
      "wp-german-empire",
      "wp-german-colonial-empire",
-     "whe-scramble-for-africa"
+     "whe-scramble-for-africa",
+     "wp-coat-of-arms-germany"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "heraldic-eagle"
   },
   {
    "id": "osterrike-ungern",
@@ -9967,6 +10385,15 @@
       "text": {
        "sv": "Cirka 622 000 km² år 1905 (239 977 engelska kvadratmil) och 51,4 miljoner invånare 1910."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Dubbelörnen, habsburgarnas vapen, användes av dubbelmonarkins gemensamma institutioner från 1867. Eftersom den påminde om det tysk-romerska riket och också var den österrikiska rikshalvans tecken drev den ungerska regeringen fram ett nytt gemensamt vapen, som infördes 1915 och förenade de båda rikshalvornas vapen. Dubbelörnen är alltså det gemensamma tecknet 1867–1915."
+      }
      }
     ],
     "milestones": [
@@ -10063,10 +10490,12 @@
      "sv": "Källan anger 1867–1918. Kartan visar riket 1868–1918."
     },
     "sources": [
-     "wp-austria-hungary"
+     "wp-austria-hungary",
+     "wp-coat-of-arms-austria-hungary"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "double-eagle"
   },
   {
    "id": "japanska-imperiet",
@@ -10140,6 +10569,15 @@
       },
       "text": {
        "sv": "Cirka 7,4 miljoner km² år 1942. År 1940 hade imperiet 105,2 miljoner invånare, varav 73,1 miljoner i själva Japan (naichi)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Krysantemumvapnet med sexton blad, kejsarens vapen (kikumon). Under Meijiperioden (1868–1912) fick ingen utom kejsaren använda det. Det används som ett riksvapen, till exempel på japanska pass."
       }
      }
     ],
@@ -10296,10 +10734,12 @@
     "sources": [
      "wp-empire-of-japan",
      "whe-meiji-restoration",
-     "wp-second-sino-japanese-war"
+     "wp-second-sino-japanese-war",
+     "wp-imperial-crest-japan"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "chrysanthemum"
   },
   {
    "id": "etiopiska-kejsardomet",
@@ -10375,6 +10815,15 @@
       },
       "text": {
        "sv": "Haile Selassie avskaffade slaveriets lagliga grund 1942. Etiopien var med och grundade FN, och Afrikanska enhetsorganisationen bildades 1963 med huvudkontor i Addis Abeba. Ytan var 1 221 900 km² år 1954."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Juda lejon. Det var en titel för kejsarna av den salomoniska ätten, som räknade sin härkomst från kung Salomo, och en karta från 1683 av Hiob Ludolf beskriver lejonet som det etiopiska kejsardömets kungliga tecken. Det fanns på Etiopiens flagga 1897–1974. Det är alltså belagt bara för en del av rikets tid. På Haile Selassies kejsarfana bär lejonet en stav med kors; korset är inte med på kartans teckning."
       }
      }
     ],
@@ -10530,10 +10979,13 @@
     "sources": [
      "wp-ethiopian-empire",
      "wp-adwa",
-     "whe-scramble-for-africa"
+     "whe-scramble-for-africa",
+     "wp-lion-of-judah",
+     "wp-flag-of-ethiopia"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "judah-lion"
   },
   {
    "id": "sovjetunionen",
@@ -10742,6 +11194,15 @@
       "text": {
        "sv": "22 402 200 km², en sjättedel av jordens landyta."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Hammaren och skäran, en symbol för arbetet och arbetarnas enhet, kom till 1918 under revolutionen. Det var mitten av Sovjetunionens statsvapen, som antogs 1923 och användes tills staten upplöstes 1991, och fanns också på flaggan."
+      }
      }
     ],
     "milestones": [
@@ -10873,10 +11334,13 @@
      "sv": "Källan och kartan anger samma år, 1922–1991."
     },
     "sources": [
-     "wp-soviet-union"
+     "wp-soviet-union",
+     "wp-state-emblem-ussr",
+     "wp-hammer-and-sickle"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "hammer-sickle"
   },
   {
    "id": "kalmarunionen",

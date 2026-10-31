@@ -241,6 +241,16 @@ export async function loadAll() {
     if (war?._battles) { e._war = war; war._battles.push(e); }
   }
   for (const e of events.events) e._battles?.sort((a, b) => a.start - b.start || (a.edtf < b.edtf ? -1 : 1));
+  // Krig och riken (#76): kriget anger rikena i empires (grupp-id i empires/index.json). Slagen ärver dem via
+  // partOf (e._war._empires). Varje rike får sina krig i tidsordning i g._wars.
+  const groupById = Object.fromEntries(empires.groups.map(g => [g.id, g]));
+  for (const g of empires.groups) g._wars = [];
+  for (const e of events.events) {
+    if (e.kind !== 'war' || !Array.isArray(e.empires)) continue;
+    e._empires = e.empires.map(id => groupById[id]).filter(Boolean);
+    for (const g of e._empires) g._wars.push(e);
+  }
+  for (const g of empires.groups) g._wars.sort((a, b) => a.start - b.start || a.end - b.end);
   const srcById = Object.fromEntries(sources.sources.map(s => [s.id, s]));
   // Fun facts ärver källorna från sina händelser (källa krävs för båda leden).
   for (const f of funfacts.funfacts) {
