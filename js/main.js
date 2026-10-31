@@ -81,7 +81,7 @@ async function start() {
   const panel = new Panel({
     root: $('panel'), list: $('event-list'), filters: $('filters'), chips: $('panel-filters'), detail: $('detail'),
     sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'), close: $('panel-close'),
-  }, data);
+  }, data, { empireLegend: views?.empireLegend });
   const ff = new FunFacts({
     root: $('funfact'), text: $('ff-text'), events: $('ff-events'), review: $('ff-review'),
     pager: $('ff-pager'), next: $('ff-next'), srcBtn: $('ff-sources'),
@@ -121,6 +121,7 @@ async function start() {
   globe.calm = layers.calm; layers.onCalm = on => { state.calm = globe.calm = on; registry.apply(state); };
   // Teckenförklaring och klickruta för religionslagret (#166)
   const relLegend = new ReligionLegend({ legend: $('religion-legend'), pop: $('religion-pop') });
+  relLegend.empireLegend = views?.empireLegend ?? {};
   // Klickrutan för vägar och resor (#38); "Läs mer" öppnar den kopplade händelsen
   const routePop = new RoutePop($('route-pop'), data);
   routePop.onEvent = id => select(id);
