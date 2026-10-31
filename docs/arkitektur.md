@@ -222,7 +222,7 @@ I smal skärm (högst 760 px) konkurrerade globen, knapparna, tidslinjen och kor
 
 ## Pekskärmar och zoom (#191)
 
-Webbläsarens egen sidzoom är tillåten (#404): viewport begränsar inte skalan och sidan har ingen global `touch-action`. Globen har en egen zoom med nyp, scroll och +/−, så bara globytan har `touch-action: none` och ett lokalt stopp för Safaris nypgest (`gesturestart`). Därmed kan besökaren zooma och omflöda gränssnittet från övriga delar av sidan utan att en nypning på globen samtidigt zoomar både glob och sida.
+Webbläsarens egen sidzoom är tillåten (#404): viewport begränsar inte skalan och sidans `touch-action: manipulation` tillåter nypzoom och panorering, men hindrar dubbeltryckszoom och tillhörande tryckfördröjning. Globen har en egen zoom med nyp, scroll och +/−, så globytan har `touch-action: none` och ett lokalt stopp för Safaris nypgest (`gesturestart`). Därmed kan besökaren zooma och omflöda gränssnittet från övriga delar av sidan utan att en nypning på globen samtidigt zoomar både glob och sida.
 
 ## Fokusläget
 
