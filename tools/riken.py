@@ -98,6 +98,43 @@ GROUPS = {
     'aksumriket': ('Aksumriket', 'Kingdom of Aksum', [
         ('Kingdom of Axum', 'aksumriket', 'Aksumriket', '#c06a9a'),
     ]),
+    # R3 Medeltiden (#69)
+    'umayyadkalifatet': ('Umayyadkalifatet', 'Umayyad Caliphate', [
+        ('Umayyad Caliphate', 'umayyadkalifatet', 'Umayyadkalifatet', '#4e9a2e'),
+    ]),
+    'abbasidkalifatet': ('Abbasidkalifatet', 'Abbasid Caliphate', [
+        ('Abbasid Caliphate', 'abbasidkalifatet', 'Abbasidkalifatet', '#2a6f97'),
+        ('Abbasid Caliphate/Buyid Dynasty', 'abbasidkalifatet-buyiderna', 'Abbasidkalifatet under buyiderna', '#5b9bbd'),
+    ]),
+    'frankerriket': ('Frankerriket', 'Francia (Kingdom of the Franks)', [
+        ('(Merovingian Empire)', 'merovingiska-riket', 'Frankerriket under merovingerna', '#3b62b0'),
+        ('(Carolingian Empire)', 'karolingiska-riket', 'Frankerriket under karolingerna', '#3b62b0'),
+    ]),
+    'tysk-romerska-riket': ('Tysk-romerska riket', 'Holy Roman Empire', [
+        ('(Holy Roman Empire)', 'tysk-romerska-riket', 'Tysk-romerska riket', '#d4a017'),
+    ]),
+    'tangdynastin': ('Tangdynastin', 'Tang dynasty', [
+        ('Tang Dynasty', 'tangdynastin', 'Tangdynastin', '#a8323e'),
+    ]),
+    'songdynastin': ('Songdynastin', 'Song dynasty', [
+        ('Northern Song', 'norra-song', 'Norra Song', '#3fa38c'),
+        ('Southern Song', 'sodra-song', 'Södra Song', '#3fa38c'),
+    ]),
+    'khmerriket': ('Khmerriket', 'Khmer Empire', [
+        ('Khmer Empire', 'khmerriket', 'Khmerriket', '#c46fb0'),
+    ]),
+    'ghanariket': ('Ghanariket', 'Ghana Empire', [
+        ('Ghana Empire', 'ghanariket', 'Ghanariket', '#e08a2e'),
+    ]),
+    'maliriket': ('Maliriket', 'Mali Empire', [
+        ('Mali Empire', 'maliriket', 'Maliriket', '#9c4a2e'),
+    ]),
+    'kievriket': ('Kievriket', "Kievan Rus'", [
+        ("Kievan Rus'", 'kievriket', 'Kievriket', '#7fb0e0'),
+    ]),
+    'timuridriket': ('Timuridriket', 'Timurid Empire', [
+        ('Timurid Empire', 'timuridriket', 'Timuridriket', '#4a5fc4'),
+    ]),
 }
 
 
