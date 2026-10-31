@@ -274,8 +274,10 @@ export class Globe {
     };
     el.addEventListener('pointerup', end);
     el.addEventListener('pointercancel', end);
-    // Tangentbord (#139): piltangenter snurrar, + och − zoomar. Rör inte tangenter med modifierare.
+    // Tangentbord (#139, #386): piltangenter snurrar, + och − zoomar, Escape lämnar globen.
+    // Canvasen fångar aldrig Tab, så att man alltid kan gå vidare eller tillbaka i sidan.
     el.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { e.preventDefault(); el.blur(); return; }
       if (e.ctrlKey || e.metaKey || e.altKey) return;
       const step = (e.shiftKey ? 0.24 : 0.1) / this.zoom;
       let handled = true;
