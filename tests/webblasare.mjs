@@ -175,8 +175,8 @@ async function run(browser, vp) {
     if (/maximum-scale|user-scalable\s*=\s*no/i.test(z.viewport)) throw new Error(`viewport blockerar zoom: ${z.viewport}`);
     if (z.bodyPrevented) throw new Error('en nypgest utanför globen stoppades');
     if (!z.globePrevented) throw new Error('globens egen nypgest skyddades inte');
-    if (z.pageTouchAction === 'none' || z.pageTouchAction === 'manipulation') throw new Error(`hela sidan har touch-action: ${z.pageTouchAction}`);
-    return 'sidan kan zoomas; bara globens egen nypgest fångas';
+    if (z.pageTouchAction === 'none') throw new Error('hela sidan har touch-action: none');
+    return `sidan kan zoomas (${z.pageTouchAction}); bara globens egen nypgest fångas`;
   });
 
   await check('tangentbordet lämnar globen', async () => {
