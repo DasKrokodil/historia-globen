@@ -306,7 +306,7 @@ body {
 .focus-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 0 6px 6px; }
 .focus-menu:focus { outline: none; }
 /* Flikarna i en rad; blir de för breda rullar raden i sidled inuti menyn i stället för att bryta */
-.focus-tabs, .focus-sort { display: flex; gap: 4px; margin: 0 6px 4px; overflow-x: auto; scrollbar-width: none; padding: 4px; }
+.focus-tabs, .focus-sort { display: flex; gap: 4px; margin: 0 4px 4px; overflow-x: auto; scrollbar-width: none; padding: 4px; }
 .focus-tabs::-webkit-scrollbar, .focus-sort::-webkit-scrollbar { display: none; }
 .focus-tabs .chip-btn, .focus-sort .chip-btn { flex: none; white-space: nowrap; padding: 6px 7px; font-size: 12.5px; }
 .focus-sort { align-items: center; margin-bottom: 0; }
