@@ -158,7 +158,8 @@ async function run(browser, vp) {
 
   await check('tangentbordet lämnar globen', async () => {
     const globe = page.locator('#globe-canvas');
-    if (await globe.getAttribute('role') === 'application') throw new Error('globen använder fortfarande role="application"');
+    const role = await globe.getAttribute('role');
+    if (role !== 'region') throw new Error(`globens roll är "${role}" i stället för "region"`);
 
     await globe.focus();
     await page.keyboard.press('ArrowRight');
@@ -176,7 +177,7 @@ async function run(browser, vp) {
     await globe.focus();
     await page.keyboard.press('Escape');
     const afterEscape = await page.evaluate(() => document.activeElement?.id || document.activeElement?.tagName);
-    if (afterEscape === 'globe-canvas') throw new Error('Escape lämnade inte globen');
+    if (afterEscape !== 'year-jump') throw new Error(`Escape gick till ${afterEscape} i stället för årskontrollen`);
     return `Tab → ${afterTab}, Shift+Tab → ${afterBack}, Escape → ${afterEscape}`;
   });
 
