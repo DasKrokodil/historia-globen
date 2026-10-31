@@ -103,8 +103,8 @@ export class ReligionLegend {
     // Krigsskådeplatsen: skraffering i krigets färg med hel kantlinje, som på kartan (wars.js)
     const warHtml = !war ? '' : `<div class="rl-war"><p class="rl-note rl-row"><span class="swatch rl-hatch" style="--war:${esc(CAT.krig.color)}"></span>Krigsskådeplats: område runt kriget och slagen hittills</p>
       <p class="rl-note">Namnet säger vilken världsdel området ligger i.</p></div>`;
-    const areasHtml = !areas ? '' : `<div class="rl-areas"><p class="rl-note"><span class="swatch rl-soft"></span>Mjuk kant: källorna säger att gränsen är osäker.</p>
-      <p class="rl-note"><span class="swatch rl-influence"></span>Glesa prickar med streckad kant: lydriken och vasaller enligt Cliopatria, inte rikets kärnområde.</p></div>`;
+    const areasHtml = !areas ? '' : `<div class="rl-areas">${this.empireLegend?.softEdge ? `<p class="rl-note"><span class="swatch rl-soft"></span>${esc(this.empireLegend.softEdge)}</p>` : ''}
+      ${this.empireLegend?.influence ? `<p class="rl-note"><span class="swatch rl-influence"></span>${esc(this.empireLegend.influence)}</p>` : ''}</div>`;
     // Vad symbolerna betyder (#271)
     const symbolsHtml = !items.length ? '' : `<p class="rl-note rl-sym-note">Symbolen visar religionen. En mässingsmedalj med symbolen står där religionen uppstod: den dyker upp det året och står kvar så länge lagret är på. Peka på en religion här för att lyfta fram den.</p>`;
     // Faktarutan på begäran (#308), när någon religion som syns har en
