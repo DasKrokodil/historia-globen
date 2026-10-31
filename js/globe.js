@@ -21,8 +21,9 @@ export function latLonToVec3(lat, lon, r = R) {
 }
 
 export class Globe {
-  constructor(canvas) {
+  constructor(canvas, exitTarget = null) {
     this.canvas = canvas;
+    this.exitTarget = exitTarget;
     this.renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     this.scene = new THREE.Scene();
@@ -277,7 +278,12 @@ export class Globe {
     // Tangentbord (#139, #386): piltangenter snurrar, + och − zoomar, Escape lämnar globen.
     // Canvasen fångar aldrig Tab, så att man alltid kan gå vidare eller tillbaka i sidan.
     el.addEventListener('keydown', e => {
-      if (e.key === 'Escape') { e.preventDefault(); el.blur(); return; }
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        if (this.exitTarget) this.exitTarget.focus({ preventScroll: true });
+        else el.blur();
+        return;
+      }
       if (e.ctrlKey || e.metaKey || e.altKey) return;
       const step = (e.shiftKey ? 0.24 : 0.1) / this.zoom;
       let handled = true;
