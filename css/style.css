@@ -55,8 +55,6 @@
 }
 
 html, body { height: 100%; }
-/* Webbläsarens egen zoom av hela sidan är avstängd: globen har en egen zoom, och en inzoomad sida gick inte att zooma ut på iPad (#191) */
-html { touch-action: manipulation; }
 body {
   background: var(--night);
   color: var(--parchment);
@@ -618,6 +616,7 @@ body {
   position: absolute; z-index: 14;
   top: 84px; right: var(--gut-r); /* help.js lägger den under knapparna */
   box-sizing: border-box; width: min(340px, calc(100vw - 32px));
+  overflow-y: auto; overscroll-behavior: contain;
   padding: 12px 14px 12px 16px;
   background: color-mix(in srgb, var(--night-2) 96%, transparent);
   border: 1px solid var(--brass-deep); border-radius: var(--r);
