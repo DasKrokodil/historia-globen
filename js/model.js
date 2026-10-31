@@ -46,6 +46,7 @@ export const REVIEW_SUBJECT_HELP = {
   'Kriget': 'Statusen gäller krigets berättelse i kortet. Varje händelse har en egen status i sin faktaruta.',
   'Riket': 'Statusen gäller rikets faktaruta och berättelse. Varje händelse har en egen status i sin faktaruta.',
   'Religionen': 'Statusen gäller religionens faktaruta. Varje händelse har en egen status i sin faktaruta.',
+  'Landet': 'Statusen gäller landets faktaruta och berättelse. Årtal, föregångare och efterträdare har en egen status, som står vid dem.',
   'Händelsen': 'Statusen gäller just den här händelsen. Samtidigt-kortet och fun facten har en egen status.',
 };
 // Vad statusarna betyder (#310), samma betydelse som källpolicyn i CLAUDE.md. Visas bakom (i)-knappen i faktarutan.
@@ -262,10 +263,11 @@ export async function loadAll() {
   };
 }
 
-/** Ett rikes gränser (data/empires/<grupp>.json), laddas första gången riket behövs. */
+/** Ett rikes gränser (data/empires/<grupp>.json), laddas första gången riket behövs.
+ *  Ett försvunnet land utan gräns i Cliopatria har ingen fil, bara en punkt (vanished.point, #72). */
 const empireFiles = new Map();
 export function loadEmpire(group) {
-  if (!empireFiles.has(group.id)) empireFiles.set(group.id, getJSON(group.file).then(d => d.polities));
+  if (!empireFiles.has(group.id)) empireFiles.set(group.id, group.file ? getJSON(group.file).then(d => d.polities) : Promise.resolve([]));
   return empireFiles.get(group.id);
 }
 

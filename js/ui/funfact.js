@@ -5,7 +5,7 @@
 // rubrikraden), halv och hel. Man drar i handtaget eller trycker på det, och kortet stängs när man drar i globen.
 import { CAT, REVIEW, t, formatYear, formatEventTime, styleFor, isVisibleReview, reviewLabel, REVIEW_SUBJECT_HELP } from '../model.js';
 
-const KIND = { funfact: 'Fun fact', war: 'När ett krig bröt ut', empire: 'Rikets berättelse' };
+const KIND = { funfact: 'Fun fact', war: 'När ett krig bröt ut', empire: 'Rikets berättelse', vanished: 'Landets berättelse' };
 
 /**
  * Rikets berättelse (#171): rikets nyckelår (facts.milestones i empires/index.json) som kort
@@ -15,7 +15,7 @@ const KIND = { funfact: 'Fun fact', war: 'När ett krig bröt ut', empire: 'Rike
 export function empireStory(group, byId) {
   const ms = [...(group?.facts?.milestones ?? [])].sort((a, b) => a.year - b.year);
   return ms.map((m, i) => ({
-    id: `empire-${group.id}-${m.year}`, kind: 'empire', year: m.year, empire: t(group.name),
+    id: `empire-${group.id}-${m.year}`, kind: 'empire', year: m.year, empire: t(group.name), vanished: !!group.vanished, // försvunnet land (#72)
     show: [m.year, Math.min((ms[i + 1]?.year ?? Infinity) - 1, m.year + 25)],
     events: (m.events ?? []).filter(id => byId[id]),
     label: t(m.label) || formatYear(m.year), title: t(m.title), body: t(m.text), mapNote: t(m.mapNote),
@@ -258,7 +258,7 @@ export class FunFacts {
     this.root.classList.toggle('ff-story', story);
     this.root.classList.remove('ff-open');
     if (this.pre) this.pre.hidden = story;
-    this.kind.textContent = story ? `${KIND.empire} · ${f.empire}` : KIND[f.kind ?? 'funfact'];
+    this.kind.textContent = story ? `${f.vanished ? KIND.vanished : KIND.empire} · ${f.empire}` : KIND[f.kind ?? 'funfact'];
     const evs = f.events.map(id => this.byId[id]);
     this._renderPics(evs, f.kind);
     if (story) {
@@ -270,7 +270,7 @@ export class FunFacts {
     for (const b of this.events.querySelectorAll('.ff-chip')) b.addEventListener('click', () => this.onSelect(b.dataset.id));
     const rv = REVIEW[f.review] ?? REVIEW.draft;
     this.review.className = `review-badge ${rv.cls}`;
-    const subject = story ? 'Riket' : f.kind === 'war' ? 'Kriget' : 'Fun facten';
+    const subject = story ? (f.vanished ? 'Landet' : 'Riket') : f.kind === 'war' ? 'Kriget' : 'Fun facten';
     this.review.textContent = reviewLabel(f.review, subject);
     this.review.title = REVIEW_SUBJECT_HELP[subject];
     this.pager.textContent = this.active.length > 1 ? `${this.index + 1} av ${this.active.length}` : '';
