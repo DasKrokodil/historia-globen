@@ -10,6 +10,7 @@ import { ReligionsLayer } from './layers/religions.js';
 import { OriginMarkers } from './layers/origins.js';
 import { WarsLayer } from './layers/wars.js';
 import { LinesLayer } from './layers/lines.js';
+import { DiscoveryLayer } from './layers/discovery.js';
 import { Panel } from './ui/panel.js';
 import { FunFacts, empireStory } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
@@ -74,6 +75,10 @@ async function start() {
   // Vägar och resor (#38): filerna laddas efter starten, och lagret ritas om när de har kommit
   const routes = new LinesLayer();
   loadRoutes().then(list => { routes.setRoutes(list); refresh(); });
+  // Upptäcktsvyn (#101): gammal kartstil, segelskepp och dimma som resorna lyfter. Bilderna laddas när den slås på.
+  const discovery = new DiscoveryLayer(data.discovery, data.land);
+  let discoveryRaf = 0;
+  discovery.onImage = () => { cancelAnimationFrame(discoveryRaf); discoveryRaf = requestAnimationFrame(() => refresh()); };
   const panel = new Panel({
     root: $('panel'), list: $('event-list'), filters: $('filters'), detail: $('detail'),
     sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'), close: $('panel-close'),
@@ -111,6 +116,11 @@ async function start() {
   globe.calm = layers.calm; layers.onCalm = on => { globe.calm = on; }; // Lugn rörelse (#246)
   // Teckenförklaring och klickruta för religionslagret (#166)
   const relLegend = new ReligionLegend({ legend: $('religion-legend'), pop: $('religion-pop') });
+  // Upptäcktsvyns rad i teckenförklaringen (#101): perspektivet och krediten för kartbilderna, med länk till filsidorna
+  const discoveryNote = data.discovery && {
+    perspective: t(data.discovery.perspective), credit: t(data.discovery.credit),
+    sources: [...new Set((data.discovery.decorations ?? []).map(d => d.source))].map(id => data.srcById[id]).filter(Boolean),
+  };
   // Klickrutan för vägar och resor (#38); "Läs mer" öppnar den kopplade händelsen
   const routePop = new RoutePop($('route-pop'), data);
   routePop.onEvent = id => select(id);
@@ -149,6 +159,8 @@ async function start() {
     areas.enabled = focus?.type === 'empire' || layers.on.areas;
     borders.enabled = layers.on.borders;
     routes.enabled = !!layers.on.routes;
+    discovery.enabled = !!layers.on.discovery && !!data.discovery;
+    routes.shipStyle = discovery.enabled ? 'ship' : 'dot';
     religions.enabled = focus?.type === 'religion' || layers.on.religions;
     $('religion-list').hidden = !layers.on.religions;
     ff.enabled = layers.on.funfacts;
@@ -601,18 +613,23 @@ async function start() {
     wars.update({ year, filters: panel.filters, span, focusId: focusWar?.id });
     wars.labelScale = areas.labelScale;
     routes.update({ year, fine, window, filters: panel.filters });
+    discovery.update({ year, fine, lines: routes });
     if (routePop.route && !routes.active.some(a => a.route === routePop.route)) routePop.hide(); // vägen syns inte längre
     const fadable = fadableLayers();
     faded = layers.on.keep ? [] : fadable.map(f => f.layer);
     relLegend.update(faded.includes(religions) ? [] : religions.legendItems(),
-      { war: wars.active.some(a => a.war === focusWar), fadable: fadable.map(f => f.name), keep: !!layers.on.keep });
+      { war: wars.active.some(a => a.war === focusWar), fadable: fadable.map(f => f.name), keep: !!layers.on.keep,
+        discovery: discovery.enabled ? discoveryNote : null });
     if (!religions.enabled || faded.includes(religions)) relLegend.hidePop();
     origins.update(religions.stars, religions.enabled && !faded.includes(religions));
     const ctx = globe.overlayContext();
     const W = globe.overlayCanvas.width, H = globe.overlayCanvas.height;
-    // Ordning nedifrån och upp: riken, religioner, dagens gränser, vägar och resor, krigsområden, händelsernas sken
+    // Ordning nedifrån och upp: upptäcktsvyns papperskarta, riken, religioner, dagens gränser, upptäcktsvyns dimma,
+    // portolanlinjer och havsmonster, vägar och resor, krigsområden, händelsernas sken
+    discovery.drawPaper(ctx, W, H);
     for (const l of [areas, religions]) faded.includes(l) ? globe.drawFaded((c, w, h) => l.drawOverlay(c, w, h), FADE) : l.drawOverlay(ctx, W, H);
     borders.drawOverlay(ctx, W, H);
+    discovery.drawOverlay(ctx, W, H);
     routes.drawOverlay(ctx, W, H);
     wars.drawOverlay(ctx, W, H);
     layer.drawOverlay(ctx, W, H);

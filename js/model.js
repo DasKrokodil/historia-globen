@@ -218,7 +218,7 @@ async function getJSON(path) {
 }
 
 export async function loadAll() {
-  const [events, funfacts, sources, land, empires, borders, styles] = await Promise.all([
+  const [events, funfacts, sources, land, empires, borders, styles, discovery] = await Promise.all([
     getJSON('data/events.json'),
     getJSON('data/funfacts.json'),
     getJSON('data/sources.json'),
@@ -226,6 +226,8 @@ export async function loadAll() {
     getJSON('data/empires/index.json'),
     getJSON('data/borders.json'),
     getJSON('data/styles.json'),
+    // Upptäcktsvyn (#101): liten fil; saknas den fungerar sidan ändå, utan upptäcktsvyn
+    getJSON('data/upptackt.json').catch(err => { console.warn('Upptäcktsvyn kunde inte laddas', err); return null; }),
   ]);
   const byId = Object.fromEntries(events.events.map(e => [e.id, e]));
   // Pågående (#223): end i datan är året då läget senast kontrollerades; det räknas till i år enligt datorns klocka
@@ -246,7 +248,7 @@ export async function loadAll() {
   return {
     events: events.events, byId, funfacts: funfacts.funfacts, sources: sources.sources, srcById, land,
     // Rikena ligger i en fil per rike (R1): index.json vid start, själva gränserna med loadEmpire()
-    empireGroups: empires.groups, polities: empires.groups.flatMap(g => g.polities.map(p => ({ ...p, group: g.id }))), borders, styles,
+    empireGroups: empires.groups, polities: empires.groups.flatMap(g => g.polities.map(p => ({ ...p, group: g.id }))), borders, styles, discovery,
   };
 }
 
