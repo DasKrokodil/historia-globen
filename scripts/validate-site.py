@@ -11,9 +11,11 @@ Kontroller:
   5. Alla relativa importer i JS-modulerna finns, och varje JS-fil nås från js/main.js.
   6. Alla datafiler som js/model.js laddar med getJSON('…') finns.
   7. Filer som data pekar på finns: rikesfilerna i data/empires/index.json (file), filerna med vägar
-     och resor i data/routes/index.json (files), händelsernas bilder (image.file) och ikonerna (icon i
+     och resor i data/routes/index.json (files), händelsernas bilder (image.file), upptäcktsvyns bilder
+     (decorations[].file i data/upptackt.json) och ikonerna (icon i
      events.json och CAT_ICON i js/ui/funfact.js).
-  8. Varje källa som en händelse, ett krigs berättelse, en väg eller en etapp anger finns i sources.json,
+  8. Varje källa som en händelse, ett krigs berättelse, en väg, en etapp eller en dekoration i
+     upptäcktsvyn anger finns i sources.json,
      och varje händelse som en fun fact eller en väg (event) pekar på finns i events.json (CLAUDE.md,
      Testa innan du är klar).
 
@@ -171,6 +173,10 @@ for r in (religions or {}).get('religions', []):
         icons.setdefault(r['symbol'], f"data/religions.json ({r['id']}, symbol)")
 for name, by in sorted(icons.items()):
     exists(f'img/icons/{name}.svg', f'ikonen {name} ({by})')
+# Upptäcktsvyns bilder (#101)
+discovery = load('data/upptackt.json') if (DIST / 'data/upptackt.json').is_file() else None
+for d in (discovery or {}).get('decorations', []):
+    exists(d.get('file', ''), f"data/upptackt.json ({d.get('id')}, file)")
 
 # 8. Källor och fun facts
 sources = load('data/sources.json') or {'sources': []}
@@ -191,6 +197,9 @@ for path, r in routes:
                 err(f'{path} ({rid}, etapp {i + 1}): källan {s} finns inte i sources.json')
     if r.get('event') and r['event'] not in ev_ids:
         err(f"{path} ({rid}): händelsen {r['event']} finns inte i events.json")
+for d in (discovery or {}).get('decorations', []):
+    if d.get('source') and d['source'] not in src_ids:
+        err(f"data/upptackt.json ({d.get('id')}): källan {d['source']} finns inte i sources.json")
 funfacts = load('data/funfacts.json') or {'funfacts': []}
 for f in funfacts['funfacts']:
     for i in f.get('events', []):
