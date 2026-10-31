@@ -29,10 +29,12 @@ js/model.js           språk, kategorier, granskningsstatus, tidsformat, laddnin
 js/globe.js           3D-globen, kamera, styrning, ekvirektangulära canvasar, bågar
 js/timeline.js        tidsreglage, segmenterad skala, uppspelning
 js/layers/events.js   punktlager: händelser
+js/layers/lines.js    linjelager: vägar och resor som ritas fram över tiden (#38)
 js/ui/panel.js        "Samtidigt i världen" per världsdel, filter, detaljvy
 js/ui/funfact.js      Samtidigt-kortet (fun facts m.m.) och bågar
 js/ui/sources.js      sidan Om källorna
 js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering
+js/ui/routepop.js     klickrutan för vägar och resor
 js/ui/feedback.js     formuläret för besökarnas förslag (avstängt som standard, docs/feedback.md)
 js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med functions/)
 functions/api/feedback.js  Cloudflare Pages Function som skapar issues i ett privat repo (enda undantaget från punkt 1)
@@ -42,6 +44,7 @@ data/funfacts.json    fun facts (kopplade till händelse-id)
 data/sources.json     källregister
 data/land.json        grundkarta: Natural Earth 1:50m, färdigprojicerad SVG-path i 4096×2048
 data/empires/         riken: index.json och en fil per rike, byggs med tools/riken.py ur Cliopatria
+data/routes/          vägar och resor: index.json listar filerna, en fil per resa eller väg (#38)
 data/religions.json   religioner som områden (statsreligion per rike ur Cliopatria) och faktarutor
 data/religions-polities.json  rikenas områden per religion och period, laddas vid klick (tools/religioner_riken.py)
 data/styles.json      bildstilar efter tidsålder och plats (ramar och promptar)

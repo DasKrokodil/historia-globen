@@ -87,8 +87,10 @@ export class FlatMap {
       // Klick på en medalj öppnar faktarutan, som på globen
       const d = this._down; this._down = null;
       if (e.type === 'pointerup' && d && d.moved < CLICK_PX && !this._pointers.size) {
-        const hit = this._hitTest(this._local(e), e.pointerType);
+        const at = this._local(e), hit = this._hitTest(at, e.pointerType);
         if (hit) this.onSelect?.(hit.id);
+        // Annars: platsen som klickades, till exempel för vägar och resor på lagerbilden (#38)
+        else this.onMapClick?.(this._lonLat(at), e.clientX, e.clientY);
       }
     };
     canvas.addEventListener('pointerup', up);
@@ -208,6 +210,14 @@ export class FlatMap {
     let x = (((lon + 180) / 360 * IMG_W - x0) % IMG_W + IMG_W) % IMG_W * s;
     if (x > this.w + margin && x - IMG_W * s > -margin) x -= IMG_W * s;
     return { x, y: ((90 - lat) / 180 * IMG_H - y0) * s };
+  }
+
+  /** Platsen { lon, lat } under en punkt i kartans skärmkoordinater (omvändningen av _toScreen). */
+  _lonLat(at) {
+    const s = this.scale;
+    const ix = this.cx + (at.x - this.w / 2) / s, iy = this.cy + (at.y - this.h / 2) / s;
+    const lon = ((ix / IMG_W * 360) % 360 + 360) % 360 - 180;
+    return { lon, lat: 90 - iy / IMG_H * 180 };
   }
 
   /** Medaljen under en punkt, de viktigaste först. Med finger räcker det att träffa nära (44 px tryckyta). */

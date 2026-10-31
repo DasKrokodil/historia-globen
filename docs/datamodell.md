@@ -141,6 +141,42 @@ Rikets nyckelår är också rikets berättelse (#171): när man följer riket i 
   "mapNote": { "sv": "Kartan visar bara en liten minskning 1687–1705, några procent." } }
 ```
 
+## `routes/`: vägar och resor (#38)
+
+Lagertypen linje (beslut 2). `routes/index.json` listar filerna:
+
+```json
+{ "schema": "historia-globen/routes@1", "notes": "…", "files": ["data/routes/zheng-he.json", "data/routes/columbus.json"] }
+```
+
+En post i `files` är en sökväg från repots rot eller ett filnamn i `data/routes/`. Varje fil har `{ "routes": [ … ] }`:
+
+```json
+{ "id": "zheng-he-resa-1", "kind": "voyage", "category": "upptackter",
+  "title": { "sv": "Zheng Hes första resa" }, "summary": { "sv": "…" },
+  "start": 1405, "end": 1407, "edtf": "1405/1407", "precision": 9,
+  "event": "zheng-he", "sources": ["…"], "review": "source-checked",
+  "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "…" } },
+  "legs": [{ "from": 1405.7, "to": 1405.95, "edtf": "1405-09/1405-12", "uncertain": true,
+    "path": [[118.8, 32.1], [119.3, 26.1], [108.2, 16.1]],
+    "places": [{ "at": [108.2, 16.1], "name": { "sv": "Champa" }, "date": "1405-12", "edtf": "1405-12" }],
+    "sources": ["…"] }] }
+```
+
+| Fält | Betydelse |
+|---|---|
+| `id` | Läsbart och unikt |
+| `kind` | `voyage` (resa, ritas fram över tiden) eller `trade` (handelsväg, syns som en dämpad linje medan den användes) |
+| `category` | `upptackter` eller `ekonomi`; linjen får kategorins färg och följer kategorifiltret |
+| `title`, `summary` | Text per språk, som för händelser |
+| `start`, `end`, `edtf`, `precision` | Hela vägens tid, som för händelser (astronomiska år) |
+| `event` (valfritt) | Id för en händelse i `events.json`; klickrutan får "Läs mer" dit |
+| `sources`, `review` | Som för händelser. Bara `source-checked` och `two-sources` visas |
+| `note` (valfritt) | En extra ruta i klickrutan (`title`, `text`), till exempel "Källorna skiljer sig", samma format som på händelser |
+| `legs` | Etapperna. `from` och `to` är år och får ha decimaler för delar av år (1405,7 ≈ september 1405). `path` är vägen i `[longitud, latitud]` (WGS 84); långa sträckor ritas som storcirklar. `edtf` (valfritt) är etappens tid som text i klickrutan. `uncertain: true` ritas streckat. `places` (valfritt) är platser längs etappen med `at`, `name` och valfria `date` och `edtf` (text, till exempel `"1431-01-19"`, inte ett tal); de ritas inte ännu. `sources` är etappens källor |
+
+Etapper får överlappa i tid (till exempel när en flotta delas); varje pågående etapp får då ett skepp. `scripts/validate-site.py` kontrollerar att filerna i `files` finns och går att läsa, att vägarnas och etappernas källor finns i `sources.json` och att `event` finns i `events.json`.
+
 ## `religions.json`: religioner
 
 ```json
