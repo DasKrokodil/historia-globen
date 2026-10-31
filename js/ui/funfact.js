@@ -3,7 +3,7 @@
 // mellan de platser som hör ihop. Det kan fällas ihop till en flik (#120).
 // I smal skärm (högst 760 px) är kortet en panel underifrån med tre lägen (#239): stängd (handtag och
 // rubrikraden), halv och hel. Man drar i handtaget eller trycker på det, och kortet stängs när man drar i globen.
-import { CAT, REVIEW, t, formatYear, formatEventTime, styleFor, isVisibleReview, reviewLabel, REVIEW_SUBJECT_HELP } from '../model.js';
+import { CAT, REVIEW, t, formatYear, formatEventTime, styleFor, isVisibleReview, reviewLabel, REVIEW_SUBJECT_HELP, needDetails } from '../model.js';
 
 const KIND = { funfact: 'Fun fact', war: 'När ett krig bröt ut', empire: 'Rikets berättelse', vanished: 'Landets berättelse' };
 
@@ -60,7 +60,8 @@ export class FunFacts {
     this.tab.addEventListener('click', () => this.setMinimized(false));
     // I smal skärm klipps texten efter tre rader; ett tryck på den visar hela (#168)
     this.text.addEventListener('click', () => this.root.classList.toggle('ff-open'));
-    this.srcBtn.addEventListener('click', () => { const f = this.active[this.index]; if (f) this.onSources(f.sources); });
+    // Kortets källor räknas fram i main.js (händelsernas källor laddas först när de behövs, #337)
+    this.srcBtn.addEventListener('click', () => { const f = this.active[this.index]; if (f) this.onSources(f); });
   }
 
   update(year, filters) {
@@ -260,6 +261,8 @@ export class FunFacts {
     if (this.pre) this.pre.hidden = story;
     this.kind.textContent = story ? `${f.vanished ? KIND.vanished : KIND.empire} · ${f.empire}` : KIND[f.kind ?? 'funfact'];
     const evs = f.events.map(id => this.byId[id]);
+    // Bilderna står i händelsernas långa fält, som laddas per period (#337): kortet ritas om när de har kommit
+    needDetails(evs, { sources: false })?.then(() => { if (this.active[this.index] === f) this._show(); }).catch(err => console.error(err));
     this._renderPics(evs, f.kind);
     if (story) {
       this.text.innerHTML = `<span class="ff-story-head"><span class="ff-year">${esc(f.label)}</span> ${esc(f.title)}</span>`

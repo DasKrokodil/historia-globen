@@ -19,7 +19,7 @@
 // CSS-variablerna --discovery-*. Allt ritas på den platta lagerbilden (beslut 1), så att Platt vy visar samma sak.
 // Papperskartan ritas en gång. Dimman ritas på en egen bild i halv upplösning som bara görs om när året (eller
 // vägarna) ändras; att lyfta den görs med destination-out.
-import { t } from '../model.js';
+import { t, loadSources, sourcesReady } from '../model.js';
 import { traceWrapped, segDist } from './lines.js';
 import { Z } from './registry.js';
 
@@ -32,14 +32,17 @@ export function entry({ data, refresh, registry }) {
   const layer = new DiscoveryLayer(data.discovery, data.land);
   let raf = 0;
   layer.onImage = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => refresh()); };
+  // Kartbildernas källor kommer ur källregistret, som laddas när vyn slås på (#337)
+  const sourceIds = [...new Set((data.discovery?.decorations ?? []).map(d => d.source))];
   const note = data.discovery && {
     perspective: t(data.discovery.perspective), credit: t(data.discovery.credit),
-    sources: [...new Set((data.discovery.decorations ?? []).map(d => d.source))].map(id => data.srcById[id]).filter(Boolean),
+    get sources() { return sourceIds.map(id => data.srcById[id]).filter(Boolean); },
   };
   return {
     id: 'discovery', name: 'Upptäcktsvy', layer,
     menu: { on: false, note: 'gammal kartstil med segelskepp, havsmonster och dimma som resorna lyfter' },
     enabled: s => s.layers.discovery && !!data.discovery,
+    apply: s => { if (s.on.discovery && !sourcesReady()) loadSources().then(() => refresh()).catch(err => console.error(err)); },
     update: s => layer.update({ year: s.year, fine: s.fine, lines: registry.get('routes') }),
     legend: () => ({ discovery: layer.enabled ? note : null }),
     passes: [

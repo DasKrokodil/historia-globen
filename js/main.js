@@ -1,6 +1,6 @@
 // Startar allt och kopplar ihop delarna:
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
-import { loadAll, loadReligions, loadReligionPolities, loadEmpire, CAT, t, symbolUrl, symbolImg, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays, dayParts } from './model.js';
+import { loadAll, loadReligions, loadReligionPolities, loadEmpire, loadEmpireFacts, loadEventDetails, CAT, t, symbolUrl, symbolImg, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays, dayParts } from './model.js';
 import { Globe } from './globe.js';
 import { Timeline, segmentName, setupYearJump, MAX_YEAR } from './timeline.js';
 import { markerInfo, describeMarker } from './layers/events.js';
@@ -38,7 +38,6 @@ function warCards(events) {
     return [{
       id: `war-${war.id}`, kind: 'war', events: evs.map(e => e.id), show: [war.start, war.start + 4],
       review: RANK[Math.min(...evs.map(e => Math.max(0, RANK.indexOf(e.review))))],
-      sources: [...new Set(evs.flatMap(e => e.sources ?? []))],
       text: { sv: `${t(war.title)} bryter ut ${formatYear(war.start)}. Samtidigt i världen:` },
     }];
   });
@@ -213,6 +212,11 @@ async function start() {
   function showEmpireFacts(id, polity = null) {
     const g = data.empireGroups.find(x => x.id === id);
     const own = polity && g?.polityFacts?.[polity.id];
+    // Rikenas faktarutor laddas vid första klicket (#337); hasFacts säger att riket har en
+    if (!own?.facts && g?.hasFacts && !g.facts) {
+      loadEmpireFacts().then(() => showEmpireFacts(id, polity)).catch(err => console.error(err));
+      return true;
+    }
     const facts = own?.facts ?? g?.facts;
     if (!facts) return false;
     state.selectedId = null;
@@ -250,7 +254,7 @@ async function start() {
   }
   /** Har det man följer en faktaruta? (riken och religioner med facts) */
   function focusFacts(f) {
-    if (f?.type === 'empire') return !!data.empireGroups.find(x => x.id === f.id)?.facts;
+    if (f?.type === 'empire') return !!data.empireGroups.find(x => x.id === f.id)?.hasFacts;
     if (f?.type === 'religion') return !!data.religionsDoc?.religions.find(x => x.id === f.id)?.facts;
     return false;
   }
@@ -283,6 +287,8 @@ async function start() {
     if (type === 'war') {
       const war = data.byId[id];
       const pts = [war, ...war._battles];
+      // Krigets berättelse och slagens texter ligger i händelsernas långa fält (#337)
+      await loadEventDetails(pts);
       // Ett kort krig följs från dess första till sista dag, och året blir ett decimaltal (#204)
       const fine = war.end - war.start <= SHORT_WAR_YEARS && edtfHasDays(war.edtf);
       const [from, to] = fine ? edtfSpan(war) : [war.start, Math.min(war.end, MAX_YEAR)]; // pågående krig slutar i dag (#223)
@@ -290,7 +296,8 @@ async function start() {
         center: [pts.reduce((s, e) => s + e._lat, 0) / pts.length, pts.reduce((s, e) => s + e._lon, 0) / pts.length], zoom: 2.2 };
     } else if (type === 'empire') {
       const g = data.empireGroups.find(x => x.id === id);
-      const ps = await loadEmpire(g);
+      // Rikets berättelse (#171) står i faktarutan, som laddas med gränserna (#337)
+      const [ps] = await Promise.all([loadEmpire(g), g.hasFacts ? loadEmpireFacts() : null]);
       areas.add(ps);
       // Globen riktas mot riket när det var som störst, och zoomar mindre för vidsträckta riken
       const periods = ps.flatMap(p => p.periods);
@@ -607,6 +614,17 @@ async function start() {
     if (registry.animating()) overlayRaf = requestAnimationFrame(drawOverlay);
   }
 
+  // Händelsernas långa fält (sammanfattning, bild, källor) för det som syns laddas strax efter att man har dragit
+  // dit (#337), så att faktarutan och Samtidigt-kortets bilder oftast redan finns när man klickar
+  let prefetchTimer = 0;
+  function prefetchDetails() {
+    clearTimeout(prefetchTimer);
+    prefetchTimer = setTimeout(() => {
+      const evs = [...visible.map(v => v.e), ...ff.active.flatMap(f => f.events.map(id => data.byId[id]))];
+      if (evs.some(e => e && !e._full)) loadEventDetails(evs).catch(err => console.warn('Händelsernas texter kunde inte laddas', err));
+    }, 400);
+  }
+
   function refresh() {
     // Namn och symboler på lagerbilden efter zoom och vy (#154, #271, #301)
     const [scale, alpha] = nameStyle();
@@ -627,6 +645,7 @@ async function start() {
     const eventsOn = layers.on.events;
     // Alla lager väljer vad som syns (beslut 2), i registrets ordning
     visible = registry.update(state).events;
+    prefetchDetails();
     panel.render(visible, wholeYear, window, eventsOn, fine ? { at: `den ${timeline.format(year)}`, within } : null);
     // Samma markörer i Platt vy (#313): de som syns på klotet, de i listan får klustras och etikett
     flatMap.setMarkers({ list: layer.sprites.filter(sp => sp.userData.active).map(sp => sp.userData),
@@ -756,7 +775,10 @@ async function start() {
   panel.onFilter = refresh;
   ff.onSelect = select;
   ff.onArcs = pairs => { globe.setArcs(pairs); flatMap.setArcs(pairs); };
-  ff.onSources = ids => sources.open(ids);
+  // Kortets källor (#337): rikets berättelse har egna, fun facts och krigskort ärver händelsernas, som har laddats
+  // när dialogen visar dem (Om källorna laddar alla händelsers källor först)
+  ff.onSources = f => sources.open(() => f.kind === 'empire' ? f.sources
+    : [...new Set(f.events.flatMap(id => data.byId[id]?.sources ?? []))]);
   panel.onSources = () => sources.open(); // knappen Om källorna under (i) vid granskningsstatusen (#310)
   // Uppspelningen stannar vid en ny fun fact, så att man hinner läsa. Play fortsätter.
   // Ihopfällt kort: ingen paus, eftersom kortet inte syns
