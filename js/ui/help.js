@@ -32,6 +32,7 @@ export class Help {
     // Under knapparna uppe till höger, som kan ligga i flera rader (som menyerna Lager och Fokus)
     const r = (this.button.closest('.top-actions') ?? this.button).getBoundingClientRect();
     this.root.style.top = `${Math.round(r.bottom + 10)}px`;
+    this.root.style.maxHeight = `calc(100dvh - ${Math.round(r.bottom + 18)}px)`;
     this.root.hidden = false;
     this.button.setAttribute('aria-expanded', 'true');
     if (fromButton) this.closeBtn.focus({ preventScroll: true });
