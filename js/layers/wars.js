@@ -5,6 +5,25 @@
 // isär får varje krigsskådeplats ett eget område (#211). När man följer kriget
 // får varje skådeplats en kort etikett med världsdelen den ligger i (#236).
 import { CAT, isVisibleReview, region, REGIONS } from '../model.js';
+import { Z } from './registry.js';
+
+/**
+ * Lagrets post i registret (#338). Krigsområdena har ingen egen rad i Lager: de följer Händelser. I fokusläget
+ * förklarar teckenförklaringen området för kriget man följer (#236).
+ */
+export function entry({ data }) {
+  const layer = new WarsLayer(data.events);
+  return {
+    id: 'wars', name: 'Krigsområden', layer, z: Z.wars,
+    enabled: s => s.layers.events,
+    update: s => {
+      layer.labelScale = s.labels.scale;
+      return layer.update({ year: s.year, filters: s.filters, span: s.span, focusId: s.focusWar?.id });
+    },
+    legend: s => ({ war: layer.active.some(a => a.war === s.focusWar) }),
+    drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
+  };
+}
 
 export class WarsLayer {
   constructor(events) {

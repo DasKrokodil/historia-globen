@@ -21,6 +21,33 @@
 // vägarna) ändras; att lyfta den görs med destination-out.
 import { t } from '../model.js';
 import { traceWrapped, segDist } from './lines.js';
+import { Z } from './registry.js';
+
+/**
+ * Lagrets post i registret (#338): av som standard. Papperskartan ritas underst och dimman, portolanlinjerna och
+ * havsmonstren över gränserna (två platser i ritordningen). Vägarnas lager (routes) lyfter dimman. Teckenförklaringen
+ * får perspektivet och krediten för kartbilderna, med länk till filsidorna. Bilderna laddas när vyn slås på.
+ */
+export function entry({ data, refresh, registry }) {
+  const layer = new DiscoveryLayer(data.discovery, data.land);
+  let raf = 0;
+  layer.onImage = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => refresh()); };
+  const note = data.discovery && {
+    perspective: t(data.discovery.perspective), credit: t(data.discovery.credit),
+    sources: [...new Set((data.discovery.decorations ?? []).map(d => d.source))].map(id => data.srcById[id]).filter(Boolean),
+  };
+  return {
+    id: 'discovery', name: 'Upptäcktsvy', layer,
+    menu: { on: false, note: 'gammal kartstil med segelskepp, havsmonster och dimma som resorna lyfter' },
+    enabled: s => s.layers.discovery && !!data.discovery,
+    update: s => layer.update({ year: s.year, fine: s.fine, lines: registry.get('routes') }),
+    legend: () => ({ discovery: layer.enabled ? note : null }),
+    passes: [
+      { z: Z.paper, draw: (ctx, W, H) => layer.drawPaper(ctx, W, H) },
+      { z: Z.discovery, draw: (ctx, W, H) => layer.drawOverlay(ctx, W, H) },
+    ],
+  };
+}
 
 const SCALE = 0.5;           // dimbildens upplösning i förhållande till lagerbilden
 const FINE_STEP = 0.01;      // i fokusläget för korta krig görs dimman om högst var hundradels år
