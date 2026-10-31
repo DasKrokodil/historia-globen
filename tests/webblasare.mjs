@@ -156,6 +156,31 @@ async function run(browser, vp) {
     return `år ${await year()}`;
   });
 
+  await check('tangentbordet lämnar globen', async () => {
+    const globe = page.locator('#globe-canvas');
+    const role = await globe.getAttribute('role');
+    if (role !== 'region') throw new Error(`globens roll är "${role}" i stället för "region"`);
+
+    await globe.focus();
+    await page.keyboard.press('ArrowRight');
+    if (!(await globe.evaluate(el => el === document.activeElement))) throw new Error('piltangenten flyttade fokus från globen');
+
+    await page.keyboard.press('Tab');
+    const afterTab = await page.evaluate(() => document.activeElement?.id || document.activeElement?.tagName);
+    if (afterTab === 'globe-canvas') throw new Error('Tab fastnade i globen');
+
+    await globe.focus();
+    await page.keyboard.press('Shift+Tab');
+    const afterBack = await page.evaluate(() => document.activeElement?.id || document.activeElement?.tagName);
+    if (afterBack === 'globe-canvas') throw new Error('Shift+Tab fastnade i globen');
+
+    await globe.focus();
+    await page.keyboard.press('Escape');
+    const afterEscape = await page.evaluate(() => document.activeElement?.id || document.activeElement?.tagName);
+    if (afterEscape !== 'year-jump') throw new Error(`Escape gick till ${afterEscape} i stället för årskontrollen`);
+    return `Tab → ${afterTab}, Shift+Tab → ${afterBack}, Escape → ${afterEscape}`;
+  });
+
   await check('ingen horisontell scroll', async () => {
     const w = await page.evaluate(() => ({ doc: document.documentElement.scrollWidth, body: document.body.scrollWidth, win: window.innerWidth }));
     if (Math.max(w.doc, w.body) > w.win) throw new Error(`sidan är ${Math.max(w.doc, w.body)} px bred i ett ${w.win} px fönster`);
@@ -242,6 +267,10 @@ async function run(browser, vp) {
     await clickView('#btn-flat');
     await visible('#flat-view');
     await page.waitForFunction(() => document.getElementById('btn-flat').getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+    const map = page.locator('#flat-canvas');
+    await map.focus();
+    await page.keyboard.press('Tab');
+    if (await map.evaluate(el => el === document.activeElement)) throw new Error('Tab fastnade i Platt vy');
     await jumpTo(ROUTE_YEAR);
     await hidden('#jump-pop');
   });
