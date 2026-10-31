@@ -126,12 +126,22 @@ export class FocusMenu {
       return { ...g, items };
     }).filter(g => g.items.length || (g.loading && !words.length));
     const q = words.length > 0;
-    const active = [];
-    if (q) active.push(`Sök: “${esc(this.query.trim())}”`);
-    if (this.tab !== 'Alla') active.push(`Filter: ${esc(this.tab)}`);
-    if (this.sort !== 'relevans') active.push(`Sortering: ${esc(SORTS.find(([id]) => id === this.sort)?.[1] ?? this.sort)}`);
-    const activeRow = active.length ? `<div class="focus-active">
-      <span class="focus-active-text"><strong>${found} resultat</strong> · ${active.join(' · ')}</span>
+    const activeHtml = [], activeText = [];
+    if (q) {
+      activeHtml.push(`Sök: “${esc(this.query.trim())}”`);
+      activeText.push(`Sök: “${this.query.trim()}”`);
+    }
+    if (this.tab !== 'Alla') {
+      activeHtml.push(`Filter: ${esc(this.tab)}`);
+      activeText.push(`Filter: ${this.tab}`);
+    }
+    if (this.sort !== 'relevans') {
+      const sortLabel = SORTS.find(([id]) => id === this.sort)?.[1] ?? this.sort;
+      activeHtml.push(`Sortering: ${esc(sortLabel)}`);
+      activeText.push(`Sortering: ${sortLabel}`);
+    }
+    const activeRow = activeHtml.length ? `<div class="focus-active">
+      <span class="focus-active-text"><strong>${found} resultat</strong> · ${activeHtml.join(' · ')}</span>
       <button type="button" class="focus-clear" data-clear>Rensa allt</button>
     </div>` : '';
     // Raden om året gäller bara Relevans, och inte grupper som alltid visas hela (Försvunna länder, #72)
@@ -150,7 +160,7 @@ export class FocusMenu {
       || `<div class="layer-note pad">${empty}</div>`)
       + (relevance && hidden && !q ? `<button type="button" class="layer-row focus-more" data-all>Visa alla (${hidden} till)</button>` : '')
       + (relevance && this.showAll && tm && !q ? `<button type="button" class="layer-row focus-more" data-near>Visa bara det som pågår ${esc(tm.label)}</button>` : '');
-    this.live.textContent = active.length ? `${found} resultat. ${active.join('. ')}` : '';
+    this.live.textContent = activeText.length ? `${found} resultat. ${activeText.join('. ')}` : '';
     this.body.querySelector('[data-clear]')?.addEventListener('click', () => this.clearFilters());
     for (const b of this.body.querySelectorAll('[data-key]')) {
       b.addEventListener('click', () => { this.close(); this.onPick(b.dataset.key); });
