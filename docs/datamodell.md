@@ -2,6 +2,32 @@
 
 Alla datafiler i `data/` och deras fält. Standarderna (årtal, osäkerhet, precision, plats och språk) står också i [CLAUDE.md](../CLAUDE.md#datamodell-och-standarder-beslut-3-6-8). Den här filen uppdateras när ett fält läggs till eller ändras.
 
+## Kort sammanfattning
+
+Läs detta först och sök sedan upp det avsnitt du behöver.
+
+- **År** är heltal med astronomisk årsräkning (`0` = 1 f.Kr.); osäkerhet skrivs som EDTF i `edtf` och precision med Wikidatas skala i `precision`.
+- **Plats** är GeoJSON i WGS 84, `[longitud, latitud]`.
+- **Texter** lagras per språk, svenska först.
+- **Källor och granskning:** posterna pekar på id i `sources.json` och har `review` (`draft`, `source-checked` eller `two-sources`).
+- **Redigera källfilerna,** inte `data/genererat/`; kör `python3 tools/dela_data.py` efter ändringar i `events.json` och `empires/index.json`.
+
+**Avsnitt**
+- Gemensamma standarder – år, osäkerhet, precision, plats, text, källor och granskning.
+- `events.json` – händelsernas fält, inklusive bilder (`image`).
+- `utkast/` – utkast från massimport som appen inte läser.
+- `funfacts.json` – fun facts kopplade till händelser.
+- `sources.json` – källregistret.
+- `empires/` – riken: registret, faktarutor och rikenas fält.
+- `routes/` (#38) – vägar och resor med etapper.
+- `upptackt.json` (#101) – det som upptäcktsvyn visar.
+- `religions.json` – religioner, områden och faktarutor.
+- `religions-polities.json` (#194) – rikenas gränser i religionslagret.
+- `styles.json` – bildstilar efter tid och plats.
+- `genererat/` (#337) – de uppdelade filer som sidan laddar.
+- `land.json` och `borders.json` – grundkartan och dagens gränser.
+- `vyer.json` (#357) – grupper och förinställda vyer i Lager.
+
 ## Gemensamma standarder
 
 | Vad | Standard | Exempel |
