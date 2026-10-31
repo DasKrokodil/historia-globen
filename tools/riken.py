@@ -181,8 +181,11 @@ GROUPS = {
         ('Tsardom of Russia', 'ryska-tsardomet', 'Ryska tsardömet', '#7a5fa6'),
         ('Russian Empire', 'ryska-imperiet', 'Ryska imperiet', '#7a5fa6'),
     ]),
-    'svenska-stormaktsvaldet': ('Svenska stormaktsväldet', 'Swedish Empire', [
-        ('Swedish Empire', 'svenska-stormaktsvaldet', 'Svenska stormaktsväldet', '#3d8fd1'),
+    # Cliopatria kallar Sverige "Swedish Empire" ända till 1814, men stormaktstiden slutade med freden i Nystad 1721
+    # (wp-swedish-empire). Samma Cliopatria-post delas därför i två delar med olika namn (Rikards val A i #70).
+    'svenska-stormaktsvaldet': ('Sverige: stormaktsväldet och efter', 'Sweden: the Swedish Empire and after', [
+        ('Swedish Empire', 'svenska-stormaktsvaldet', 'Svenska stormaktsväldet', '#3d8fd1', {'years': (1612, 1721)}),
+        ('Swedish Empire', 'sverige-1722', 'Sverige', '#3d8fd1', {'years': (1722, 1814), 'en': 'Sweden', 'wikidata': 'Q34'}),
     ]),
     'habsburgska-riket': ('Habsburgska riket', 'Habsburg Monarchy', [
         ('(Habsburg Monarchy)', 'habsburgska-riket', 'Habsburgska riket', '#a8475a'),
@@ -497,7 +500,8 @@ def main():
     for _gid, (_sv, _en, _members, *_o) in GROUPS.items():
         for cname, _pid, psv, _color, *rest in _members:
             first = cname[0] if isinstance(cname, list) else cname
-            known[first] = {'sv': psv, 'en': (rest[0] if rest else {}).get('en', first.strip('()'))}
+            # En Cliopatria-post i flera delar (Sverige före och efter 1721, #70): den första delens namn gäller
+            known.setdefault(first, {'sv': psv, 'en': (rest[0] if rest else {}).get('en', first.strip('()'))})
     for en_name, sv_name in INFLUENCE_NAMES.items():
         known.setdefault(en_name, {'sv': sv_name, 'en': en_name})
     out = ROOT / 'data/empires'
@@ -632,6 +636,8 @@ def main():
              'efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). '
              'Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i '
              'Cliopatria och har ingen fil, bara en punkt (vanished.point). '
+             'Sverige (#70): Cliopatrias "Swedish Empire" 1612–1814 är delad i två delar med samma gränser, Svenska stormaktsväldet '
+             'till och med 1721 (freden i Nystad) och Sverige 1722–1814. '
              'Inflytande (#75): polity.influence är områden som enligt Cliopatrias relationsposter (typ RELATION, '
              '"Allegiance of A to B" och "Vassalage of A to B") lydde under riket utan att höra till det: relationens område '
              'minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva '
