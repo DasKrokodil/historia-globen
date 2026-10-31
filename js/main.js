@@ -785,6 +785,9 @@ async function start() {
     }
     refresh();
   });
+  // Uppspelningen kan också ändras av ett stopp eller av att tidslinjen når slutet.
+  // Huvudknappen i Fokus ska alltid följa tidslinjens faktiska läge (#360).
+  timeline.addEventListener('playstate', () => updateFocusAction());
   // Fortsätt efter ett stopp i ett krig: nästa stora händelse samma år, eller slutkortet,
   // i stället för att uppspelningen börjar om från krigets början (#217, #232)
   timeline.hasMore = () => !!queuedStop();
