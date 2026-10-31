@@ -73,7 +73,7 @@ export function buildAreaCurve(polities, { from, to, color, multi = polities.len
     <text class="ac-peak-t" x="${fmt(peakX)}" y="9" text-anchor="${peakAnchor}">${esc(peakText)}</text>
     <line class="ac-now" y1="${TOP - 2}" y2="${BASE}" hidden/><circle class="ac-dot" r="3.5" hidden/></svg>`;
   return {
-    html: `<div class="ac-head"><span${multi ? ' title="Ytan för alla delar av riket på kartan, ihoplagd per år"' : ''}>${multi ? 'Total yta över tid' : 'Yta över tid'}</span><b class="ac-read"></b></div>${svg}`,
+    html: `<div class="ac-head"><span${multi ? ' title="Ytan för alla delar av riket på kartan, ihoplagd per år"' : ''}>${multi ? 'Total yta över tid' : 'Yta över tid'}</span><b class="ac-read"></b></div>${svg}<figcaption class="ac-note">Ytan enligt kartdatan (Cliopatria). Källornas siffror kan skilja sig, se faktarutan.</figcaption>`,
     /** Flyttar markören till året (decimaltal går bra) och skriver ytan det året. */
     setYear(root, year) {
       const y = Math.floor(year), now = root.querySelector('.ac-now'), dot = root.querySelector('.ac-dot'), read = root.querySelector('.ac-read');
