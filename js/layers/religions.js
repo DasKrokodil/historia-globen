@@ -17,6 +17,21 @@ const BRASS = '#d6b06a', GROUND = '#10202c', INK = 'rgba(11,18,25,0.85)', NAME =
 const SYM = 22;      // symbolens storlek i områdena, bildpunkter per 2048 i bredd
 const NAME_SIZE = 13; // namnets storlek vid nära zoom
 
+/**
+ * Mässingsmedaljen med en symbol på lagerbilden: mörk botten, mässingsring, en tunn ring i färgen och symbolen
+ * i mitten (img = laddad symbol, annars en prick i färgen). Används för religionernas ursprung (#271) och
+ * rikenas symboler (#301); 3D-markörerna (origins.js, empiremarks.js) täcker den på globen.
+ */
+export function drawMedal(ctx, cx, cy, R, color, img) {
+  ctx.fillStyle = GROUND;
+  ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.fill();
+  ctx.lineWidth = R * 0.16; ctx.strokeStyle = BRASS; ctx.stroke();
+  ctx.lineWidth = R * 0.07; ctx.strokeStyle = color;
+  ctx.beginPath(); ctx.arc(cx, cy, R * 0.76, 0, Math.PI * 2); ctx.stroke();
+  if (img) ctx.drawImage(img, cx - R * 0.56, cy - R * 0.56, R * 1.12, R * 1.12);
+  else { ctx.fillStyle = color; ctx.beginPath(); ctx.arc(cx, cy, R * 0.3, 0, Math.PI * 2); ctx.fill(); }
+}
+
 export class ReligionsLayer {
   constructor() {
     this.religions = []; // fylls när datan har laddats, första gången lagret slås på
@@ -161,16 +176,8 @@ export class ReligionsLayer {
     // Punkten där religionen uppstod (#271): mässingsmedaljen med religionens symbol, som 3D-markören (origins.js)
     const R = ORIGIN_R * k * this.labelScale;
     for (const { religion, event } of this.stars) {
-      const cx = X(event._lon), cy = Y(event._lat);
       ctx.globalAlpha = hi && hi !== religion.id ? 0.5 : 1;
-      ctx.fillStyle = GROUND;
-      ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.fill();
-      ctx.lineWidth = R * 0.16; ctx.strokeStyle = BRASS; ctx.stroke();
-      ctx.lineWidth = R * 0.07; ctx.strokeStyle = religion.color;
-      ctx.beginPath(); ctx.arc(cx, cy, R * 0.76, 0, Math.PI * 2); ctx.stroke();
-      const img = this._glyph(religion);
-      if (img) ctx.drawImage(img, cx - R * 0.56, cy - R * 0.56, R * 1.12, R * 1.12);
-      else { ctx.fillStyle = religion.color; ctx.beginPath(); ctx.arc(cx, cy, R * 0.3, 0, Math.PI * 2); ctx.fill(); }
+      drawMedal(ctx, X(event._lon), Y(event._lat), R, religion.color, this._glyph(religion));
     }
     ctx.restore();
   }

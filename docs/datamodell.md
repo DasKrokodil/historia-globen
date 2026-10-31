@@ -39,6 +39,7 @@ Alla datafiler i `data/` och deras fält. Standarderna (årtal, osäkerhet, prec
 | `top` | `true` för krigets enda viktigaste händelse, som syns utzoomat |
 | `major` | `true` för krigets stora händelser, där uppspelningen pausar i fokusläget |
 | `story` | Krigets berättelse i fokusläget: `intro`, `parties` (lista med `name` och `members`), `outcome`, `casualties` och `sources` |
+| `empires` | Valfritt, bara på krig (#76): lista med grupp-id ur `data/empires/index.json` (till exempel `["romarriket", "kartago"]`) för riken i kartdatan som var krigförande part. En koppling läggs bara in när krigets `story.parties` (eller källan bakom dem) nämner riket som part, och när rikets kartspann (`from`–`to`) överlappar krigets år. Ett rike som bara skickade vapen eller stöd räknas inte. Slag och händelser i kriget ärver kopplingen via `partOf` och anger inte fältet själva. Rikets faktaruta listar rikets krig under "Krig", och krigets kort och faktaruta visar "Riken i kriget". `scripts/validate-site.py` kontrollerar att varje id finns. |
 | `ongoing` | `true` för ett krig som pågår (#223). `edtf` har öppet slut (`"2022-02-24/.."`), och `end` är året då läget senast kontrollerades. Vid laddning flyttar `model.js` fram `end` till innevarande år enligt datorns klocka, så kriget räcker till i dag utan att något årtal står i koden. Tiden visas "2022–pågår". |
 | `story.asOf` | För ett pågående krig: datumet (`"2026-10-30"`) då läget i dag och dödssiffrorna senast kontrollerades. `outcome` är då läget i dag, inte hur kriget slutade, och `casualties` skrivs som "hittills, enligt uppskattningar" med datum och vem som har uppskattat. |
 | `story.chapters` | Valfritt (#244): krigets kapitel som band över tidslinjen i fokusläget. Lista med `title` (per språk), `from` och `to` (år, som `start` och `end` i händelserna), valfritt `edtf` med datum för korta krig (`"1967-06-05/1967-06-06"`) och `sources` (minst ett id i sources.json). Kapitlen och deras namn ska komma ur källorna, till exempel en indelning i faser som källan själv gör; hitta aldrig på namn. Saknas fältet visas neutrala band mellan krigets stora händelser i stället. Inga krig har fältet än. |
@@ -116,13 +117,73 @@ Korten "När ett krig bröt ut" lagras inte här. De byggs i koden ur händelser
     "periods": [{ "start": -202, "end": -127, "areaKm2": 2042615, "label": [111.5, 33.4], "geometry": { "type": "MultiPolygon", … } }] }] }
 ```
 
-Ett rike kan bestå av flera delar, till exempel Romarriket med kungadömet, republiken, kejsardömet och Bysans. Varje period har en egen gräns. `label` är platsen där namnet skrivs ut. Filerna byggs med `tools/riken.py` ur Cliopatria. Faktarutorna (`facts`, se nedan) skrivs för hand; skriptet läser den befintliga `index.json` och behåller varje rikes `facts` när filen skrivs om (#68).
+Ett rike kan bestå av flera delar, till exempel Romarriket med kungadömet, republiken, kejsardömet och Bysans. Varje period har en egen gräns. `label` är platsen där namnet skrivs ut. Filerna byggs med `tools/riken.py` ur Cliopatria. Faktarutorna (`facts`, se nedan), symbolerna (`symbol`) och de egna faktarutorna för enskilda riken (`polityFacts`) skrivs för hand; skriptet läser den befintliga `index.json` och behåller de fälten i varje rike när filen skrivs om (#68, #301).
 
 Medeltidens riken (R3, #69): Umayyad- och abbasidkalifaten, Frankerriket (merovinger och karoliner, Cliopatrias sammanslagna `(Merovingian Empire)` och `(Carolingian Empire)`), Tysk-romerska riket (`(Holy Roman Empire)`), Tang- och Songdynastierna, Khmerriket, Ghanariket, Maliriket, Kievriket och Timuridriket, var och en en egen grupp med faktaruta. Källor: Wikipedia och World History Encyclopedia (NC, bara länkad). Kartdatans avvikelser står i varje rikes `mapNote`, till exempel att Cliopatria saknar abbasidkalifatet 970–1201 och från 1459 bara räknar Tysk-romerska rikets småstater till riket.
 
 Tysk-romerska riket efter 1458 (#336, Rikards val A i #69): Cliopatria räknar från 1459 bara småstaterna till `(Holy Roman Empire)`. Därför bygger `tools/riken.py` ihop riket efter 1458 enligt tabellen `EXTEND` (en post per rike som ska byggas ihop): `polity` (rikets namn i Cliopatria), `after` (sista året med Cliopatrias egen gräns), `border` (rikets gräns ett visst år, här 1458), `outside` (länder som ligger i den gränsen men inte hörde till riket, här Ungern och Tyska ordens Preussen), `add` (Cliopatria-riken med första och sista år som räknas in, till exempel Habsburgarnas länder, Böhmen, Brandenburg och Preussen, Sachsen, Bayern och Hannover) och `remove` (riken som klipps bort från ett visst år, här Schweiz och Förenade Nederländerna från 1648). För varje år där något av rikena ändras läggs rikets egen post och de angivna rikena ihop och klipps mot gränsen; resten (förenkling och sammanslagning av perioder) är som för andra riken. `areaKm2` räknas då ur den byggda gränsen (ytriktig projektion på en sfär). Områden som ett rike utanför listan tar över, till exempel Frankrike, faller bort. Hur kartan är byggd står i rikets `mapNote`.
 
 Tidigmoderna riken (R4, #70): Aztekriket (staden Tenochtitlan och trippelalliansen), Inkariket, Songhairiket, Mogulriket, Safavidriket, Mingdynastin (med Södra Ming), Qingdynastin, Spanska och Portugisiska imperiet (Cliopatrias sammanslagna `(Spanish Empire)` och `(Portuguese Empire)`, moderland och kolonier), Ryssland (tsardömet och kejsardömet), Svenska stormaktsväldet (`Swedish Empire`), Habsburgska riket (`(Habsburg Monarchy)`) och Tokugawa-Japan, var och en en egen grupp med faktaruta. Spanska och portugisiska imperiet och Ryssland förenklas hårdare (`OVERRIDES` i `tools/riken.py`). Källor: Wikipedia, World History Encyclopedia (NC, bara länkad) och Wikidata (start- och slutår). Kartdatans avvikelser står i varje rikes `mapNote`, till exempel att Cliopatria räknar Portugal och dess kolonier till Spanska imperiet 1582–1639 och visar `Swedish Empire` ända till 1814, fast stormaktstiden slutade 1721.
+
+Kolonialvälden och moderna imperier (R5, #71): franska kolonialväldet (Cliopatrias sammanslagna Frankrike med kolonier i sex skeden, `(Bourbon Kingdom of France)` 1815–1847 till `(French Fourth Republic)` 1945–1957), nederländska kolonialväldet (`(Dutch Republic)`, `(Batavian Republic)` och `(Netherlands)` till 1949), Tyska riket (`German Empire` och `German Africa`), Österrike-Ungern, Japanska imperiet (`Empire of Japan`), Etiopiska kejsardömet (`Ethiopian Empire` och `Ethiopia` till 1974) och Sovjetunionen, var och en en egen grupp med faktaruta. Två valfria inställningar per del i `GROUPS` (ett femte element, en ordbok): `years` (från, till) klipper delens spann, och en lista med Cliopatria-namn i stället för ett namn slår ihop posterna år för år till en del (`parts` i rikesfilen; `areaKm2` är då summan av posternas ytor). Kartdatans avvikelser står i varje rikes `mapNote`, till exempel att Cliopatria saknar Frankrike och Nederländerna med kolonier 1943–1944.
+
+**Försvunna länder (R6, #72).** Länder som inte finns längre har fältet `vanished` på gruppen i `empires/index.json`. Det är fältet som gör gruppen till ett försvunnet land: den listas under fliken Försvunna länder i Fokus (alla länder, i tidsordning, oavsett året man står på) i stället för under Riken, och faktarutan får en ram med årtal, föregångare och vad landet blev. Grupperna är Kalmarunionen (`(Kalmar Union)`), Preussen (`Duchy of Prussia`, `Brandenburg-Prussia` 1619–1701 och `Kingdom of Prussia` 1702–1806), Österrike-Ungern och Sovjetunionen (från R5), Jugoslavien (`Yugoslavia` och `Socialist Federal Republic of Yugoslavia`), Tjeckoslovakien, Storcolombia (`Gran Colombia`), Republiken Texas, Kungariket Hawaii (`Kingdom of Hawaï'i`) och Neutrala Moresnet, som saknas i Cliopatria.
+
+```json
+"vanished": { "wikidata": "Q36704", "founded": 1918, "dissolved": 1992, "edtf": "1918-12-01/1992-04-27",
+  "predecessors": [{ "name": { "sv": "Österrike-Ungern" }, "group": "osterrike-ungern", "wikidata": "Q28513" }],
+  "successors": [{ "name": { "sv": "Kroatien" }, "wikidata": "Q224" }],
+  "note": { "sv": "Källorna skiljer sig …" }, "sources": ["wp-yugoslavia", "wd-yugoslavia"], "review": "two-sources" }
+```
+
+- `founded` och `dissolved` är landets årtal enligt källorna (astronomiska år), `edtf` med datum där källorna har det. De kan skilja sig från kartdatans `from`/`to`. Ett land följs i Fokus från det tidigaste till det senaste av de två spannen.
+- `predecessors` och `successors` hämtas från Wikidata (P1365 "ersätter", P1366 "ersattes av", P571 bildande, P576 upplösning; CC0) och jämförs med Wikipedia. `name` är landets namn, `group` (valfritt) en grupp i `index.json` (då blir namnet en knapp som börjar följa det riket), `wikidata` (valfritt) ett Q-id som har kontrollerats mot Wikidatas etikett.
+- `note` säger öppet var källorna skiljer sig. `sources` och `review` gäller årtalen och efterträdarna; `two-sources` bara när Wikipedia och Wikidata anger samma år för bildande och upplösning.
+- `point` (valfritt): ett land utan gräns i Cliopatria (Neutrala Moresnet) har ingen fil, och `polities` är tom. Det ritas som en ring med prick och namn på `point` (GeoJSON `Point`) under åren `founded`–`dissolved`, och `from`/`to` är då källornas årtal. `tools/riken.py` skapar posten ur en grupp utan delar i `GROUPS` och hämtar `vanished` ur den befintliga `index.json`.
+
+`tools/riken.py` behåller `vanished`, som `facts`, när filen skrivs om. En ny inställning per del i `GROUPS`, `wikidata`, ersätter Cliopatrias Q-id när det är fel (Cliopatria anger den socialistiska förbundsrepubliken, Q83286, också för kungariket Jugoslavien). Kartdatans avvikelser står i varje lands `mapNote`, till exempel att Cliopatria saknar Preussen efter 1806 och räknar Tjeckoslovakien till Sovjetunionen 1969–1990.
+
+**Huvudlandet i utspridda välden (#74).** Ett kolonialvälde har samma färg i alla delar. Moderlandet ritas med tätare fyllning, en kraftig kant med mörk kontur och en mässingsstjärna, och rikets namn står strax ovanför stjärnan i stället för mitt i den största kolonin. Det styrs av datan:
+
+- `homeland` på gruppen i `empires/index.json`: `{ "name": { "sv": "Storbritannien", "en": "Great Britain" } }`, moderlandets namn.
+- `homeland` på delen (polity) i rikesfilen: de Cliopatria-poster som är moderlandet, till exempel `["Kingdom of Great Britain"]`. En tom lista betyder att moderlandet tas ur rikets eget område (Japan, där Cliopatria inte skiljer på Japan och kolonierna).
+- `homeland` på perioden: moderlandets gräns det året (GeoJSON, förenklad som riket). `label` står då i moderlandet. Perioder slås bara ihop om moderlandet också är nästan detsamma.
+
+`tools/riken.py` räknar fram moderlandet ur tabellen `HOMELANDS` (namn och ett fönster, bbox eller polygon, runt moderlandet, eftersom moderlandets post i Cliopatria ibland också innehåller handelsstationer långt bort) och `homeland` i delens inställningar i `GROUPS`. Moderland finns för Brittiska imperiet, Spanska och Portugisiska imperiet (#70), franska och nederländska kolonialväldet, Tyska riket och Japanska imperiet. Perioder där Cliopatria saknar moderlandet (till exempel Nederländerna 1811–1814 och Portugal under den iberiska unionen) ritas som vanligt, utan stjärna.
+
+**Osäkra gränser (#73).** Ett rike vars gräns källan uttryckligen kallar osäker, vag eller flytande får fältet `uncertainBorder` på gruppen i `empires/index.json`. Det skrivs för hand, som `facts`, och `tools/riken.py` behåller det när filen skrivs om:
+
+```json
+"uncertainBorder": { "note": { "sv": "Kanten är mjuk eftersom …" }, "sources": ["wp-ghana-empire"], "review": "source-checked" }
+```
+
+- `note`: varför kanten är mjuk, med källan i texten. Den läggs till i rutan Om kartan.
+- `sources` och `review`: källan som säger att gränsen var osäker. Den räknas under Riken i Om källorna.
+
+Skriptet sätter då `"uncertainBorder": true` på varje del (polity) i rikets fil, och riket ritas med mjuk, utsuddad kant i stället för skarp linje. Markera bara när källan säger det om just det riket. Hittills har bara Ghanariket fältet (Wikipedia: de skriftliga källorna är vaga om rikets största utbredning, och riket kan ha varit ett förbund med olika band till kärnan). Cliopatrias artikel säger att gränser utan fördrag är ungefärliga och att datan inte anger osäkerhet, men det gäller alla riken och räcker inte för att markera ett visst.
+
+**Kärnområde och inflytande (#75).** Cliopatria har relationsposter (`Type` = `RELATION`) med namn som `(Allegiance of Ayyubid Sultanate to Abbasid Caliphate)` och `(Vassalage of Kingdom of Georgia to Timurid Empire)`, där geometrin är båda rikenas områden tillsammans. `tools/riken.py` gör om dem till fältet `influence` på den del (polity) som det andra riket lydde under:
+
+```json
+"influence": [{ "start": 1202, "end": 1235, "relation": "allegiance", "name": { "sv": "Ayyubidernas sultanat", "en": "Ayyubid Sultanate" },
+               "geometry": { "type": "MultiPolygon", … } }]
+```
+
+- Området är relationens område minus delens eget område samma år (ur Cliopatria, före förenklingen), förenklat som riket. Ytor under cirka 3 000 km² tas bort, och perioder som knappt ändras slås ihop.
+- `relation`: `allegiance` (lojalitet) eller `vassalage` (vasall). Allianser och personalunioner räknas inte.
+- `name`: lydrikets namn. Är lydriket ett eget rike på kartan används det namnet, annars `INFLUENCE_NAMES` i skriptet (engelska = Cliopatrias namn).
+- Lydriken som själva är delar av samma grupp hoppas över, eftersom de redan ritas: Gyllene horden, Ilkhanatet och Chagatai-khanatet under Yuandynastin 1294–1374.
+- Inflytandet ritas bara när delen själv syns det året.
+- `index.json` sammanfattar det per grupp i `influence` (`polity`, `name`, `relation`, `from`, `to`), så att rutan Om kartan kan räkna upp det.
+
+Relationer som källorna motsäger står i `INFLUENCE_SKIP` i skriptet, med motivering och källa, och visas inte. Hittills gäller det bara Seleukidriket under Romerska republiken 204–190 f.Kr.: enligt källorna (`wp-roman-seleucid-war`) krigade de 192–188 f.Kr. och slöt fred i Apameia 188 f.Kr. Det står i Romarrikets `mapNote`.
+
+Inflytande finns för Östromerska riket (östgoterna 500–554), Bysantinska riket (Kyrkostaten 757–869), Sasanidriket (kidariterna 390–450), Karolingiska riket (Östfrankiska riket 911–921), Abbasidkalifatet (ziyadiderna, ayyubiderna, Rumsultanatet och Delhisultanatet), Timuridriket (jalayiriderna, Georgien och Qara Qoyunlu), Mingdynastin (Joseon 1395–1571) och Brittiska imperiet (Hawaii 1811–1819). Cliopatrias vasaller under Tysk-romerska riket (Böhmen, Brandenburg, Schweiz, Tyska orden) ligger redan inom rikets område och ger inget inflytande. Andra riken har inga sådana relationer i Cliopatria och ritas som förut.
+
+```json
+{ "start": 1919, "end": 1939, "areaKm2": 12702704, "label": [2.3, 47.0],
+  "geometry": { "type": "MultiPolygon", … }, "homeland": { "type": "Polygon", … } }
+```
 
 `facts` (valfritt, #170) i `empires/index.json` är faktarutan om riket (gruppen). Formatet är detsamma som för religionernas `facts` (se nedan): `summary`, `items` (när och var det uppstod, hur det slutade, huvudstäder, kända härskare, största utbredning med år, språk och religion), `milestones` (nyckelår med `year`, `label`, `text` på en till tre meningar och egna `sources`; för riken även `title`, `events` och `mapNote`, se nedan), `sources` och `review`. Dessutom `mapNote`, som säger hur källornas årtal skiljer sig från kartdatans spann (`from`/`to` kommer från Cliopatria, #138). `origin` används inte för riken. Rutan visas när man följer riket i Fokus. Alla riken har en, också antikens tio riken från R2 (#68) och medeltidens elva från R3 (#69).
 
@@ -139,12 +200,22 @@ Rikets nyckelår är också rikets berättelse (#171): när man följer riket i 
 - `events` (valfritt): id för händelser i `events.json` som hör till nyckelåret, till exempel ett krig. De visas som knappar i kortet och berättas inte om i texten.
 - `mapNote` (valfritt): hur kartan (Cliopatria) skiljer sig från källans årtal vid just det nyckelåret, till exempel att förändringen syns först några år senare.
 
-`text` säger vad som hände och varför det påverkade utbredningen. Nyckelåren läggs helst där kartan visar en stor förändring av ytan. Osmanska riket, Mongolriket, Hanriket och Brittiska imperiet har 9–10 nyckelår var (#171), Rom 16 och Persiska riket, Makedoniska riket och Mauryariket 7–9 var (#180). Antikens riken (R2, #68) har 5–7 nyckelår var.
+`text` säger vad som hände och varför det påverkade utbredningen. Nyckelåren läggs helst där kartan visar en stor förändring av ytan. Osmanska riket, Mongolriket, Hanriket och Brittiska imperiet har 9–10 nyckelår var (#171), Rom 16 och Persiska riket, Makedoniska riket och Mauryariket 7–9 var (#180). Antikens riken (R2, #68) har 5–7 nyckelår var, och kolonialvälden och moderna imperier (R5, #71) 5–8.
 
 ```json
 { "year": 1699, "label": { "sv": "1699" }, "title": { "sv": "Freden i Karlowitz" },
   "text": { "sv": "Kriget som började vid Wien slutar med förlust. …" }, "sources": ["wp-ottoman", "wp-karlowitz"],
   "mapNote": { "sv": "Kartan visar bara en liten minskning 1687–1705, några procent." } }
+```
+
+`symbol` (valfritt, #301) i en grupp i `empires/index.json` är namnet på rikets symbol, en egen teckning i `img/icons/<symbol>.svg`, som för religionerna (#271). Symbolen ska vara ett emblem som rikets egen tid använde eller som forskningen förknippar med riket, och valet förklaras med källa i faktarutan: en rad `items` med rubriken "Symbolen på kartan", och källan i `facts.sources`. Symbolen står i en mässingsmedalj på rikets `label`-punkt det år man tittar på (ett rike i gruppen i taget, så att till exempel Mongolrikets fyra khanat får var sin), som klickbar 3D-markör ovanpå klotet (`js/layers/empiremarks.js`) och på lagerbilden. Utzoomat på globen syns bara medaljen; vid nära zoom och i Platt vy står rikets namn under den. Pekar man på medaljen visas namnet, och klick öppnar rikets faktaruta. Symbolen står också bredvid färgen i Fokus → Riken och i faktarutans rubrik. Riken utan symbol visas som förut, med namnet på `label`-punkten. `scripts/validate-site.py` kontrollerar att filen finns. Valen: Rom `aquila` (legionsörnen), Akemenidiska riket `eagle-standard` (kungens fältstandar, en gyllene örn med utbredda vingar), Makedoniska riket `vergina-sun` (Verginasolen), Mauryariket `lion-capital` (Ashokas lejonkapitäl, utan hjulet), Mongolriket `sulde` (tug, stången med hästtagel), Osmanska riket `tughra` (sultanens namnteckning), Brittiska imperiet `imperial-crown` (den heraldiska kronan) och Bysantinska riket `double-eagle` (dubbelörnen, i `polityFacts`). Hanriket har ingen symbol, eftersom källorna inte nämner något statsemblem. Rikena från R2–R5 (#345): Egypten `pschent` (dubbla kronan, utan kobran och gamen), Kartago `palm` (dadelpalmen på mynten), Seleukidriket `anchor`, Partherriket `archer` (bågskytten på mynten), Sasanidriket `derafsh` (Derafsh Kaviani), Guptariket `garuda` (rikets sigill), Umayyadkalifatet `white-banner` och Abbasidkalifatet `black-banner` (dynastins färg, utan text), Tysk-romerska riket och Tyska riket `heraldic-eagle` (riksörnen med ett huvud), Kievriket `tryzub`, Timuridriket `three-rings`, Aztekriket `eagle-cactus` (Tenochtitlans tecken), Inkariket `mascapaicha`, Mogulriket och Safavidriket `lion-sun`, Qingdynastin `dragon-flag` (från 1862), Spanska imperiet `pillars` (Herkules stoder), Portugisiska imperiet `armillary`, Ryska imperiet, Habsburgska riket och Österrike-Ungern `double-eagle`, Svenska stormaktsväldet `three-crowns`, Tokugawa-Japan `aoi`, Franska kolonialväldet `tricolour` (från 1830), Nederländska kolonialväldet `arrow-bundle` (pilknippet ur vapnet), Japanska imperiet `chrysanthemum`, Etiopiska kejsardömet `judah-lion` (utan korsstaven) och Sovjetunionen `hammer-sickle`. Ingen symbol, eftersom källorna inte visar något statsemblem eller bara religiösa tecken: Assyrien (lamassu är en skyddsgud), Nybabyloniska riket (lejonen och drakarna på Ishtarporten är gudarnas tecken), Frankerriket (monogrammet var Karl den stores eget), Qin, Tang, Song, Ming, Aksum, Ghana, Mali, Songhai och Khmerriket. Har ett välde ett moderland (`homeland`, #74) står medaljen där i stället för mässingsstjärnan.
+
+`polityFacts` (valfritt, #301) i en grupp är egna faktarutor och symboler för enskilda riken i gruppen, med rikets id (polity) som nyckel: `{ "<polity-id>": { "symbol": "…", "facts": { … } } }`. `facts` har samma format som gruppens. När kartan visar det riket står dess egen symbol i medaljen, och klick öppnar dess egen faktaruta, med kartdata och ytkurva för just det riket. I dag har bara Bysantinska riket (`bysantinska-riket` i gruppen `romarriket`) en egen ruta; åren 395–632 heter riket Östromerska riket i kartdatan och visas med Roms symbol och ruta.
+
+```json
+"symbol": "aquila",
+"polityFacts": { "bysantinska-riket": { "symbol": "double-eagle",
+  "facts": { "summary": { "sv": "…" }, "items": [ … ], "sources": ["wp-byzantine-empire", "whe-byzantine-empire"], "review": "two-sources" } } }
 ```
 
 ## `routes/`: vägar och resor (#38)

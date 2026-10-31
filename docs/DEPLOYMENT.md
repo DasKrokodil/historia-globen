@@ -64,6 +64,7 @@ Skriptet gör så här:
   6. Alla filer som laddas med `getJSON('…')` finns.
   7. Filer som data pekar på finns: rikesfiler (`file`), bilder (`image.file`) och ikoner (`icon` och `CAT_ICON`).
   8. Varje `sources`-id i händelserna finns i `sources.json`, och varje händelse som en fun fact pekar på finns i `events.json`.
+  9. Varje rike som ett krig anger i `empires` (#76) finns i `data/empires/index.json`, och bara krig har fältet.
 
 Provkör den byggda sidan:
 

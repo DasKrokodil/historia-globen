@@ -54,25 +54,30 @@ export class OriginMarkers {
     return it;
   }
 
-  /** Varje bildruta: storlek på skärmen (minst lika stor som medaljen på lagerbilden) och knappens plats. */
-  frame() {
-    const cam = this.globe.camera, h = this.globe.canvas.clientHeight || 1;
-    const perPx = 2 * Math.max(0.2, cam.position.z - R) * Math.tan(cam.fov / 2 * Math.PI / 180) / h;
-    // Medaljen på lagerbilden har radien ORIGIN_R · k · scale (k = 2 på bilden 4096 × 2048, där 2048 bildpunkter är
-    // 180 grader, alltså π · R på klotet). 3D-medaljen görs lite större, så att den täcker den helt.
-    const cover = 2 * ORIGIN_R * 2 * this.scale * Math.PI * R / 2048 * 1.15;
-    for (const it of this.items.values()) {
-      const { sprite, button } = it;
-      if (!sprite.visible) continue;
-      const px = Math.max(MIN_PX, Math.min(MAX_PX, cover / perPx));
-      sprite.scale.setScalar(Math.max(px * perPx, cover));
-      const p = this.globe.project(sprite.position);
-      const size = Math.max(px, cover / perPx);
-      button.hidden = p.facing < 0.1;
-      if (!button.hidden) {
-        button.style.width = button.style.height = `${Math.round(size)}px`;
-        button.style.transform = `translate(${p.x}px, ${p.y}px) translate(-50%, -50%)`;
-      }
+  /** Varje bildruta: storlek på skärmen och knappens plats (frameMedals). */
+  frame() { frameMedals(this.globe, this.items.values(), this.scale); }
+}
+
+/**
+ * Varje bildruta, för medaljer som 3D-markörer ({ sprite, button }): storlek på skärmen (minst lika stor som
+ * medaljen på lagerbilden) och den osynliga knappens plats. Delas av religionernas ursprung och rikenas symboler (#301).
+ */
+export function frameMedals(globe, items, scale) {
+  const cam = globe.camera, h = globe.canvas.clientHeight || 1;
+  const perPx = 2 * Math.max(0.2, cam.position.z - R) * Math.tan(cam.fov / 2 * Math.PI / 180) / h;
+  // Medaljen på lagerbilden har radien ORIGIN_R · k · scale (k = 2 på bilden 4096 × 2048, där 2048 bildpunkter är
+  // 180 grader, alltså π · R på klotet). 3D-medaljen görs lite större, så att den täcker den helt.
+  const cover = 2 * ORIGIN_R * 2 * scale * Math.PI * R / 2048 * 1.15;
+  for (const { sprite, button } of items) {
+    if (!sprite.visible) continue;
+    const px = Math.max(MIN_PX, Math.min(MAX_PX, cover / perPx));
+    sprite.scale.setScalar(Math.max(px * perPx, cover));
+    const p = globe.project(sprite.position);
+    const size = Math.max(px, cover / perPx);
+    button.hidden = p.facing < 0.1;
+    if (!button.hidden) {
+      button.style.width = button.style.height = `${Math.round(size)}px`;
+      button.style.transform = `translate(${p.x}px, ${p.y}px) translate(-50%, -50%)`;
     }
   }
 }
