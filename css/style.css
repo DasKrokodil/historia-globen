@@ -1059,6 +1059,10 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-facts { margin: 8px 0; }
 .religion-facts dt { margin: 10px 0 2px; font: 600 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--card-accent); }
 .religion-facts dd { margin: 0; font-size: 13.5px; line-height: 1.45; }
+/* Försvunna länder (#72): årtal, föregångare och vad landet blev, i en ram överst i faktarutan */
+.religion-facts.lineage { padding: 2px 10px 8px; border: 1px solid color-mix(in srgb, var(--card-accent) 45%, transparent); border-radius: 6px; }
+.religion-facts.lineage dd .link-btn { font-size: inherit; }
+.lineage-note { margin: 4px 0 8px; font-size: 12.5px; line-height: 1.4; color: var(--card-dim); }
 .detail .war-list li .link-btn[data-year] { font-family: var(--f-mono); }
 .info-btn { margin-left: auto; padding: 2px 8px; border: 1px solid var(--line); border-radius: 999px; background: none; color: var(--brass); font: 500 11px/1.4 var(--f-mono); cursor: pointer; }
 .info-btn:hover { background: var(--night-3); }

@@ -3,7 +3,8 @@
 // Den visar det som pågår nära året man står på, närmast först, och
 // resten bakom "Visa alla" (#121). Ett sökfält och flikar (Alla, Krig, Riken,
 // Religioner) gör listan hanterbar (#240); fliken sparas i localStorage.
-const TABS = ['Alla', 'Krig', 'Riken', 'Religioner'];
+// Fliken Försvunna länder (#72) visar alla länder som inte finns längre, i tidsordning, oavsett året.
+const TABS = ['Alla', 'Krig', 'Riken', 'Försvunna länder', 'Religioner'];
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 export class FocusMenu {
@@ -38,7 +39,8 @@ export class FocusMenu {
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) { this.close(); button.focus(); } });
   }
 
-  /** groups: [{ title, note, loading, items: [{ key, label, sub, color, symbol, from, to }] }]. symbol = sökväg till religionens symbol (#271). */
+  /** groups: [{ title, note, loading, all, items: [{ key, label, sub, color, symbol, from, to }] }]. symbol = sökväg till religionens symbol (#271).
+   *  all = gruppen visas alltid hel och i tidsordning, inte bara det som är nära året (Försvunna länder, #72). */
   setGroups(groups) {
     this.groups = groups;
     this.render();
@@ -59,13 +61,15 @@ export class FocusMenu {
     const q = this.query.trim().toLocaleLowerCase('sv');
     let hidden = 0;
     const groups = this.groups.filter(g => this.tab === 'Alla' || g.title === this.tab).map(g => {
-      const sorted = [...g.items].sort((a, b) => dist(a) - dist(b) || a.label.localeCompare(b.label, 'sv'));
+      const sorted = g.all ? [...g.items].sort((a, b) => a.from - b.from || a.label.localeCompare(b.label, 'sv'))
+        : [...g.items].sort((a, b) => dist(a) - dist(b) || a.label.localeCompare(b.label, 'sv'));
       const items = q ? sorted.filter(it => it.label.toLocaleLowerCase('sv').includes(q))
-        : this.showAll ? sorted : sorted.filter(near);
+        : this.showAll || g.all ? sorted : sorted.filter(near);
       hidden += sorted.length - items.length;
       return { ...g, items };
     }).filter(g => g.items.length || g.loading);
-    const intro = tm && !this.showAll && !q ? `<div class="layer-note pad">Det som pågår ${esc(tm.label)}, närmast först.</div>` : '';
+    // Raden om året gäller inte grupper som alltid visas hela (Försvunna länder, #72)
+    const intro = tm && !this.showAll && !q && groups.some(g => !g.all) ?`<div class="layer-note pad">Det som pågår ${esc(tm.label)}, närmast först.</div>` : '';
     const empty = q ? `Inget namn innehåller "${esc(this.query.trim())}".` : 'Inget att följa i den här tiden ännu.';
     this.body.innerHTML = intro + (groups.map(g => `
       <div class="layer-heading">${esc(g.title)}</div>
