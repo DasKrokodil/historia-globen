@@ -636,7 +636,7 @@
       "image": {"file": "images/events/kleopatra.webp", "kind": "illustration", "style": "antik", "caption": {"sv": "Illustration i stil med antik romersk freskomålning, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "Historical illustration evoking Cleopatra’s Alexandria in the 1st century BCE, rendered as a Roman-style fresco on aged plaster. A broad view of Alexandria’s busy harbor with Mediterranean sailing vessels and the monumental lighthouse rising in the distance; quays, warehouses and small human figures establish the port atmosphere. Cleopatra herself is not portrayed. Warm fresco pigments, muted red, ochre, blue-green, cream and black, simplified classical perspective and forms, rich plaster texture, cracks, abrasions and natural pigment loss. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical document. No readable text, no invented letters, no logos, no close-up portraits, no blood, no dead bodies. Avoid precise numerical, cartographic or unsupported architectural details."},
       "wikidata": "Q635", "sources": ["wp-cleopatra", "wikidata"], "review": "two-sources" },
 
-    { "id": "etiopisk-adalska-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["portugisiska-imperiet", "osmanska-riket"], "start": 1529, "end": 1543, "precision": 11, "edtf": "1529-03-09/1543-02-21",
+    { "id": "etiopisk-adalska-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["portugisiska-imperiet", "osmanska-riket", "etiopiska-kejsardomet"], "start": 1529, "end": 1543, "precision": 11, "edtf": "1529-03-09/1543-02-21",
       "location": { "type": "Point", "coordinates": [42.128, 9.311] }, "locationPrecision": "region", "place": { "sv": "Etiopiska kejsardömet, i dag Etiopien och Eritrea (började i Dawaro)" },
       "title": { "sv": "Etiopisk-adalska kriget" },
       "summary": { "sv": "Ett krig mellan det kristna Etiopiska kejsardömet och det muslimska Adalsultanatet på Afrikas horn, 1529–1543. Adals imam Ahmad ibn Ibrahim al-Ghazi erövrade större delen av kejsardömet, men med hjälp av portugisiska musketörer vann Etiopien till slut, och Ahmad stupade vid Wayna Daga." },
@@ -686,7 +686,7 @@
       "image": {"file": "images/events/slaget-vid-wayna-daga.webp", "kind": "historisk", "style": "islamisk", "caption": {"sv": "Imam Ahmads fall och död, skjuten av en portugisisk musketerare. Etiopisk folkteckning av Kegneketa Jemlieri Hailu från Gondar, cirka 1900, i Horniman Museum i London. Licens: CC0."}, "credit": "Kegneketa Jemlieri Hailu / Horniman Museum via Wikimedia Commons", "license": "CC0", "source": "commons-bild-slaget-vid-wayna-daga"},
       "wikidata": "Q957263", "sources": ["wp-wayna-daga", "wp-ethiopian-adal-war", "wikidata"], "review": "two-sources" },
 
-    { "id": "forsta-italiensk-etiopiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1895, "end": 1896, "precision": 11, "edtf": "1895-01-13/1896-10-23",
+    { "id": "forsta-italiensk-etiopiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["etiopiska-kejsardomet"], "start": 1895, "end": 1896, "precision": 11, "edtf": "1895-01-13/1896-10-23",
       "location": { "type": "Point", "coordinates": [39.2206, 14.8139] }, "locationPrecision": "region", "place": { "sv": "Italienska Eritrea och Etiopien (började vid Coatit i dagens Eritrea)" },
       "title": { "sv": "Första italiensk-etiopiska kriget" },
       "summary": { "sv": "Ett krig mellan Italien och Etiopien 1895–1896. Italien ville göra Etiopien till protektorat, men kejsar Menelik II samlade hela landet bakom sig, och vid Adwa 1896 besegrade den etiopiska armén italienarna. Etiopien förblev självständigt, och segern blev en symbol för hela Afrika." },
@@ -727,7 +727,7 @@
       "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Wikipedias artikel om fördraget och Wikidata anger att det undertecknades den 26 oktober 1896, men faktarutan i samma artikel och artikeln om kriget anger den 23 oktober." } },
       "wikidata": "Q2399119", "sources": ["wp-treaty-addis-ababa", "wp-first-italo-ethiopian-war", "wikidata"], "review": "source-checked" },
 
-    { "id": "rifkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet"], "start": 1921, "end": 1926, "precision": 9, "edtf": "1921/1926",
+    { "id": "rifkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "franska-kolonialvaldet"], "start": 1921, "end": 1926, "precision": 9, "edtf": "1921/1926",
       "location": { "type": "Point", "coordinates": [-3.5805, 35.1276] }, "locationPrecision": "region", "place": { "sv": "Rif i norra Marocko, då spanskt protektorat (började kring Annual)" },
       "title": { "sv": "Rifkriget" },
       "summary": { "sv": "Ett antikolonialt krig 1921–1926 mellan berberstammarna i Rifbergen i norra Marocko och Spanien, som fick hjälp av Frankrike från 1924–1925. Under Abd el-Krim besegrade rifberberna den spanska armén vid Annual och grundade Rifrepubliken, men övermakten och den spanska giftgasen avgjorde till slut kriget." },
@@ -770,7 +770,7 @@
       "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Wikipedias artikel om kriget anger 27 maj 1926, och Wikidata anger samma dag för republikens upplösning. Artikeln om Rifrepubliken anger att han gav upp till marskalk Pétain den 26 maj 1926." } },
       "sources": ["wp-rif-war", "wp-republic-of-the-rif", "wikidata"], "review": "source-checked" },
 
-    { "id": "algeriska-frihetskriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1954, "end": 1962, "precision": 11, "edtf": "1954-11-01/1962-03-19",
+    { "id": "algeriska-frihetskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["franska-kolonialvaldet"], "start": 1954, "end": 1962, "precision": 11, "edtf": "1954-11-01/1962-03-19",
       "location": { "type": "Point", "coordinates": [3.05, 36.7667] }, "locationPrecision": "region", "place": { "sv": "Franska Algeriet (började med samordnade anfall över hela landet)" },
       "title": { "sv": "Algeriska frihetskriget" },
       "summary": { "sv": "Ett krig mellan Frankrike och den algeriska befrielsefronten FLN 1954–1962, som slutade med att Algeriet blev självständigt. Det var ett gerillakrig med svåra övergrepp och tortyr, som också blev ett inbördeskrig mellan och inom folkgrupperna och fällde den franska fjärde republiken." },
@@ -984,7 +984,7 @@
       "image": {"file": "images/events/gutenberg.webp", "kind": "illustration", "style": "renassans", "caption": {"sv": "Illustration i stil med renässansträsnitt eller kopparstick med fin skraffering, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "Historical illustration of a printing workshop in Mainz, Germany, around 1440, evoking Gutenberg’s early movable-type printing, rendered as a Renaissance woodcut or copper engraving in dense black linework with restrained hand coloring. Inside a compact workshop, several craftspeople operate a sturdy wooden screw press, arrange small pieces of movable type in type cases, prepare paper and work at benches. Gutenberg himself is not singled out or portrayed; all people are seen at a moderate distance. Fine cross-hatching, carved-line texture, strong light and shadow, muted hand-applied ochre, red, blue and green accents, aged rag-paper texture, slight stains, worn edges and natural printing imperfections. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical document. Any sheets, books or type must contain no readable text or invented letters; use only indistinct abstract marks where necessary. No logos, no close-up portraits, no blood, no dead bodies. Avoid precise technical dimensions, named printed works or other unsupported factual details."},
       "wikidata": "Q144334", "sources": ["wp-printing-press", "wikidata"], "review": "source-checked" },
 
-    { "id": "napoleonkrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "habsburgska-riket", "ryska-imperiet", "spanska-imperiet", "portugisiska-imperiet", "svenska-stormaktsvaldet"], "start": 1803, "end": 1815, "precision": 11, "edtf": "1803-05-18/1815-11-20",
+    { "id": "napoleonkrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "habsburgska-riket", "ryska-imperiet", "spanska-imperiet", "portugisiska-imperiet", "svenska-stormaktsvaldet", "preussen", "nederlandska-kolonialvaldet"], "start": 1803, "end": 1815, "precision": 11, "edtf": "1803-05-18/1815-11-20",
       "location": { "type": "Point", "coordinates": [-0.128, 51.507] }, "locationPrecision": "region", "place": { "sv": "Europa och haven runt den (började med Storbritanniens krigsförklaring mot Frankrike)" },
       "title": { "sv": "Napoleonkrigen" },
       "summary": { "sv": "En rad krig 1803–1815 där skiftande koalitioner av europeiska stater stred mot Frankrike under Napoleon. Frankrike dominerade en tid stora delar av Europa men besegrades till slut. Enligt uppskattningar dog från knappt 3 upp till 5 miljoner soldater, många av sjukdomar." },
@@ -1654,7 +1654,7 @@
       "image": {"file": "images/events/harvard.webp", "kind": "illustration", "style": "renassans", "caption": {"sv": "Illustration i stil med svartvitt historiskt kopparstick, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "A panoramic, text-free black-and-white copperplate engraving depicts a tranquil early-colonial riverside settlement surrounded by dense wilderness, rendered with meticulous hatching, crosshatching, and a thin antique-print border. A wooded, rocky foreground frames a small rowboat with period-clad figures, while across the calm inlet sit a pitched-roof house, outbuildings, fencing, dock, workers, and scattered tools; distant islands, forested hills, a sailboat, reflective water, and expansive etched clouds complete the historic New England atmosphere."},
       "wikidata": "Q13371", "sources": ["wp-harvard", "wikidata"], "review": "two-sources" },
 
-    { "id": "amerikanska-frihetskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "brittiska-imperiet"], "start": 1775, "end": 1783, "precision": 11, "edtf": "1775-04-19/1783-09-03",
+    { "id": "amerikanska-frihetskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "brittiska-imperiet", "nederlandska-kolonialvaldet"], "start": 1775, "end": 1783, "precision": 11, "edtf": "1775-04-19/1783-09-03",
       "location": { "type": "Point", "coordinates": [-71.231, 42.449] }, "locationPrecision": "region", "place": { "sv": "Östra Nordamerika, Karibien och Atlanten (började vid Lexington och Concord i Massachusetts)" },
       "title": { "sv": "Amerikanska frihetskriget" },
       "summary": { "sv": "Kriget 1775–1783 där tretton brittiska kolonier i Nordamerika, med stöd av Frankrike, Spanien och Nederländerna, vann sin självständighet från Storbritannien och blev USA. Det var också ett inbördeskrig mellan patrioter och lojalister, och ursprungsfolk och förslavade fanns på båda sidor." },
@@ -1741,7 +1741,7 @@
       "image": {"file": "images/events/telefonen.webp", "kind": "illustration", "style": "1800-tal", "caption": {"sv": "Illustration i stil med svartvit tidningsgravyr från 1800-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "A monochrome, richly crosshatched 19th-century engraving depicts an early telephone demonstration in a cluttered Victorian laboratory: at left, a bearded inventor in a dark suit leans over a workbench to speak into a horn-shaped transmitter, while a wire crosses the room to a seated, mustached man on the right listening through a round receiver. Surrounding them are schematics, telegraph apparatus, bottles, tools, books, gauges, wooden tables, tall windows, and period furnishings, all rendered with crisp linework, stippling, and an aged newspaper-print texture."},
       "sources": ["wp-telephone", "eb1911-telephone", "wilber-1886"], "review": "two-sources" },
 
-    { "id": "spanskamerikanska-sjalvstandighetskrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet"], "start": 1808, "end": 1833, "precision": 11, "edtf": "1808-09-25/1833-09-29",
+    { "id": "spanskamerikanska-sjalvstandighetskrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "storcolombia"], "start": 1808, "end": 1833, "precision": 11, "edtf": "1808-09-25/1833-09-29",
       "location": { "type": "Point", "coordinates": [-100.937, 21.152] }, "locationPrecision": "region", "place": { "sv": "Spanska Amerika, från Mexiko till Río de la Plata (punkten: Dolores i Mexiko, där upproret 1810 började)" },
       "title": { "sv": "De spanskamerikanska självständighetskrigen" },
       "summary": { "sv": "En rad krig i Spaniens amerikanska kolonier, från Mexiko i norr till Chile och Río de la Plata i söder. De började när Spaniens kungamakt bröt samman efter Napoleons invasion 1808 och slutade med att nya självständiga stater bildades. Spanien behöll bara Kuba och Puerto Rico." },
@@ -1811,7 +1811,7 @@
       "image": {"file": "images/events/wright.webp", "kind": "illustration", "style": "affisch", "caption": {"sv": "Illustration i stil med art deco-affisch med platta färgfält och tryckraster, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "An Art Deco–inspired vintage poster depicts the Wright brothers’ first flight, using muted cream, ochre, rust, navy, tan, and brown in bold geometric blocks, thick borders, sunburst rays, halftone grain, and no readable text. A wood-and-cloth biplane with a low-seated pilot soars above windswept dunes and distant water, watched by two silhouetted men in period clothing, while a small shed or hangar, scattered equipment, grasses, and stylized clouds complete the heroic retro lithograph scene."},
       "wikidata": "Q46047837", "sources": ["wp-wright", "wikidata"], "review": "two-sources" },
 
-    { "id": "forsta-varldskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "ryska-imperiet", "osmanska-riket"], "start": 1914, "end": 1918, "precision": 11, "edtf": "1914-07-28/1918-11-11",
+    { "id": "forsta-varldskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "ryska-imperiet", "osmanska-riket", "franska-kolonialvaldet", "japanska-imperiet", "tyska-riket", "osterrike-ungern"], "start": 1914, "end": 1918, "precision": 11, "edtf": "1914-07-28/1918-11-11",
       "location": { "type": "Point", "coordinates": [20.457, 44.818] }, "locationPrecision": "region", "place": { "sv": "Europa, Mellanöstern, Afrika, Stilla havet och Atlanten (började vid Belgrad, Serbien)" },
       "title": { "sv": "Första världskriget" },
       "summary": { "sv": "Ett världsomspännande krig 1914–1918 mellan de allierade (ententen) och centralmakterna. Det hör till de dödligaste krigen i historien: uppskattningsvis 15–22 miljoner soldater och civila dog." },
@@ -1916,7 +1916,7 @@
       "image": {"file": "images/events/sputnik.webp", "kind": "illustration", "style": "rymdalder", "caption": {"sv": "Illustration i stil med rymdålderns affischkonst från 1950-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "Vintage Soviet space-propaganda poster style: a grainy, mid-century graphic scene in bold navy, cream, blue, red, and orange, with no readable text. A Sputnik-like metallic sphere with long antennae and motion trails crosses the starry upper-right sky, while awed silhouetted adults, a child, and a small crowd gaze upward from the foreground beside a spired city skyline, river, radiant sunrise beams, and a sweeping stylized Earth beneath."},
       "wikidata": "Q80811", "sources": ["wp-sputnik", "wikidata"], "review": "two-sources" },
 
-    { "id": "andra-varldskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet"], "start": 1939, "end": 1945, "precision": 11, "edtf": "1939-09-01/1945-09-02",
+    { "id": "andra-varldskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "franska-kolonialvaldet", "sovjetunionen", "japanska-imperiet"], "start": 1939, "end": 1945, "precision": 11, "edtf": "1939-09-01/1945-09-02",
       "location": { "type": "Point", "coordinates": [18.671, 54.408] }, "locationPrecision": "region", "place": { "sv": "Hela världen: Europa, Asien, Afrika, Stilla havet och Atlanten (började med anfallet på Polen)" },
       "title": { "sv": "Andra världskriget" },
       "summary": { "sv": "Det dödligaste kriget i historien, mellan de allierade och axelmakterna. Nästan alla världens länder deltog, och striderna gick i Europa, Asien, Nordafrika och på världshaven. Uppskattningsvis 60–75 miljoner människor dog, de flesta civila." },
@@ -2151,7 +2151,7 @@
       "image": {"file": "images/events/nintendo.webp", "kind": "historisk", "style": "japan-ukiyoe", "caption": {"sv": "Hanafuda-kort av typen mushibana från Nintendo, tidig Shōwa-tid (1926–1945), flera decennier efter grundandet. Licens: Public domain."}, "credit": "Nintendo / Japan Playing Card Museum via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-nintendo"},
       "wikidata": "Q8093", "sources": ["wp-nintendo", "wp-kyoto", "wikidata"], "review": "two-sources" },
 
-    { "id": "koreakriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1950, "end": 1953, "precision": 11, "edtf": "1950-06-25/1953-07-27",
+    { "id": "koreakriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["sovjetunionen"], "start": 1950, "end": 1953, "precision": 11, "edtf": "1950-06-25/1953-07-27",
       "location": { "type": "Point", "coordinates": [127.0, 38.0] }, "locationPrecision": "region", "place": { "sv": "Koreahalvön och haven runt den (började vid 38:e breddgraden)" },
       "title": { "sv": "Koreakriget" },
       "summary": { "sv": "Krig på Koreahalvön mellan Nordkorea och Sydkorea och deras allierade. Kina och Sovjetunionen stödde Nordkorea, och FN-styrkor under amerikansk ledning stödde Sydkorea. Omkring en miljon soldater och uppskattningsvis 1,5–3 miljoner civila dog. Striderna upphörde med ett vapenstillestånd 1953, men något fredsavtal har aldrig skrivits." },
@@ -3013,7 +3013,7 @@
       "note": { "title": { "sv": "Bara en källa" }, "text": { "sv": "Händelsen har ingen post med datum i Wikidata, så den har inte kunnat jämföras med en andra källa. Wikidata anger ett annat slutdatum för hela kriget, 30 juni 2003." } },
       "sources": ["wp-second-congo-war"], "review": "source-checked" },
 
-    { "id": "trettioariga-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["svenska-stormaktsvaldet", "tysk-romerska-riket", "habsburgska-riket", "spanska-imperiet"], "start": 1618, "end": 1648, "precision": 11, "edtf": "1618-05-23/1648-10-24",
+    { "id": "trettioariga-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["svenska-stormaktsvaldet", "tysk-romerska-riket", "habsburgska-riket", "spanska-imperiet", "nederlandska-kolonialvaldet", "preussen"], "start": 1618, "end": 1648, "precision": 11, "edtf": "1618-05-23/1648-10-24",
       "location": { "type": "Point", "coordinates": [14.421, 50.088] }, "locationPrecision": "region", "place": { "sv": "Centraleuropa (började i Prag)" },
       "title": { "sv": "Trettioåriga kriget" },
       "summary": { "sv": "Ett av de mest förödande krigen i Europas historia, främst utkämpat i Centraleuropa. Uppskattningsvis 4,5–8 miljoner soldater och civila dog av strider, svält eller sjukdom." },
@@ -3076,7 +3076,7 @@
       "summary": { "sv": "Fredsavtalen i Osnabrück och Münster undertecknas den 24 oktober 1648 och avslutar kriget." },
       "wikidata": "Q150995", "sources": ["wp-peace-westphalia", "wp-munster", "wikidata"], "review": "two-sources" },
 
-    { "id": "stora-nordiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["svenska-stormaktsvaldet", "osmanska-riket", "ryska-imperiet"], "start": 1700, "end": 1721, "precision": 11, "edtf": "1700-02-22/1721-09-10",
+    { "id": "stora-nordiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["svenska-stormaktsvaldet", "osmanska-riket", "ryska-imperiet", "preussen"], "start": 1700, "end": 1721, "precision": 11, "edtf": "1700-02-22/1721-09-10",
       "location": { "type": "Point", "coordinates": [24.107, 56.948] }, "locationPrecision": "region", "place": { "sv": "Norra, mellersta och östra Europa (började vid Riga i svenska Livland)" },
       "title": { "sv": "Stora nordiska kriget" },
       "summary": { "sv": "Ett krig om makten kring Östersjön 1700–1721. En koalition ledd av Ryssland bröt Sveriges ställning som stormakt, och Ryssland blev den ledande makten i regionen. Troligen dog mer än en miljon människor." },
