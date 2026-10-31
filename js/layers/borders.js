@@ -6,7 +6,7 @@ import { Z } from './registry.js';
 export function entry({ data }) {
   const layer = new BordersLayer(data.borders);
   return {
-    id: 'borders', name: 'Dagens gränser', menu: { on: false, note: 'stämmer inte historiskt' }, layer, z: Z.borders,
+    id: 'borders', name: 'Dagens gränser', group: 'power', menu: { on: false, note: 'stämmer inte historiskt' }, layer, z: Z.borders,
     enabled: s => s.layers.borders,
     update: s => layer.update({ year: s.wholeYear }),
     drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),

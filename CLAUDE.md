@@ -51,6 +51,7 @@ data/land.json        grundkarta: Natural Earth 1:50m, färdigprojicerad SVG-pat
 data/empires/         riken: index.json och en fil per rike, byggs med tools/riken.py ur Cliopatria
 data/routes/          vägar och resor: index.json listar filerna, en fil per resa eller väg (#38)
 data/upptackt.json    upptäcktsvyn: perspektivrad, dimma och kartbilder (#101)
+data/vyer.json        grupperna och de förinställda vyerna i Lager (#357)
 data/religions.json   religioner som områden (statsreligion per rike ur Cliopatria) och faktarutor
 data/religions-polities.json  rikenas områden per religion och period, laddas vid klick (tools/religioner_riken.py)
 data/styles.json      bildstilar efter tidsålder och plats (ramar och promptar)

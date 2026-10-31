@@ -304,6 +304,18 @@ body {
 .focus-note { max-width: 320px; } /* förklaring under rubrikerna i Fokus (#138) */
 .layer-heading { margin: 8px 10px 2px; padding-top: 8px; border-top: 1px solid var(--line); font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
 .layer-note { flex-basis: 100%; padding-left: 26px; font: 400 11px/1.3 var(--f-mono); color: var(--parchment-dim); }
+/* Grupper och förinställda vyer i Lager (#357) */
+.layer-subheading { margin: 8px 10px 2px; font: 500 10.5px/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--parchment-dim); }
+.view-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px 10px 8px; }
+.view-chip {
+  display: inline-flex; align-items: center; min-height: 32px; padding: 6px 12px;
+  font: 500 12.5px/1 var(--f-body); color: var(--parchment);
+  background: transparent; border: 1px solid var(--line); border-radius: 999px; cursor: pointer;
+}
+.view-chip:hover { background: var(--night-3); border-color: var(--brass-deep); }
+.view-chip[aria-pressed="true"] { background: var(--brass); border-color: var(--brass); color: var(--night); }
+.view-custom { cursor: default; border-style: dashed; border-color: var(--brass-deep); color: var(--brass); font-style: italic; }
+.view-custom[hidden] { display: none; }
 
 /* ---------- panel: "Samtidigt i världen" som utfällbar meny (#112) ---------- */
 .panel {

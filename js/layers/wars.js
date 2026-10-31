@@ -8,14 +8,16 @@ import { CAT, isVisibleReview, region, REGIONS } from '../model.js';
 import { Z } from './registry.js';
 
 /**
- * Lagrets post i registret (#338). Krigsområdena har ingen egen rad i Lager: de följer Händelser. I fokusläget
- * förklarar teckenförklaringen området för kriget man följer (#236).
+ * Lagrets post i registret (#338). Krigsområdena har en egen rad i gruppen Makt, tro och gränser (#357), men
+ * syns bara när Händelser är på, som förut. Kriget man följer får sitt område även när raden är av.
+ * I fokusläget förklarar teckenförklaringen området för kriget man följer (#236).
  */
 export function entry({ data }) {
   const layer = new WarsLayer(data.events);
   return {
-    id: 'wars', name: 'Krigsområden', layer, z: Z.wars,
-    enabled: s => s.layers.events,
+    id: 'wars', name: 'Krigsområden', group: 'power', layer, z: Z.wars,
+    menu: { on: true, note: 'området där ett krig pågår · syns när Händelser är på' },
+    enabled: s => s.layers.events && (s.layers.wars || s.focus?.type === 'war'),
     update: s => {
       layer.labelScale = s.labels.scale;
       return layer.update({ year: s.year, filters: s.filters, span: s.span, focusId: s.focusWar?.id });
