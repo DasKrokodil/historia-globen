@@ -207,6 +207,12 @@ async function run(browser, vp) {
     if (!/Sök: “rom”/.test(active) || !/Filter: Riken/.test(active) || !/Sortering: Alfabetiskt/.test(active)) {
       throw new Error(`aktiva val saknas: ${active}`);
     }
+    await page.fill('#focus-menu .focus-search', 'rom & "');
+    const liveText = await page.textContent('#focus-menu .focus-live');
+    if (!liveText.includes('Sök: “rom & "”') || liveText.includes('&amp;') || liveText.includes('&quot;')) {
+      throw new Error(`live-regionen läser HTML-entiteter: ${liveText}`);
+    }
+    await page.fill('#focus-menu .focus-search', 'rom');
     await shot('4-fokus-filter');
     await page.keyboard.press('Escape');
     await hidden('#focus-menu');
