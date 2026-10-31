@@ -1,7 +1,12 @@
 // Lagertyp "område" (beslut 2): riken vars utbredning ändras över tid.
 // Varje rike har perioder (start–end) med en GeoJSON-polygon. Lagret väljer
 // den period som gäller för nuvarande år och ritar den på den platta lagerbilden.
+// Riken med symbol (#301) får en mässingsmedalj med symbolen på label-punkten, som religionernas ursprung (#271).
+// Utzoomat på globen syns bara medaljen; vid nära zoom och i Platt vy står namnet under den. Medaljen på lagerbilden
+// täcks på globen av en klickbar 3D-markör (empiremarks.js).
 import { t, isVisibleReview } from '../model.js';
+import { glyph } from './events.js';
+import { drawMedal, ORIGIN_R } from './religions.js';
 
 export class AreasLayer {
   constructor(polities = []) {
@@ -10,6 +15,30 @@ export class AreasLayer {
     this.active = []; // [{ polity, period }]
     this.labelAlpha = 1; // och hur synliga de är (tonas ut vid kraftig zoom)
     this.labelScale = 1; // namnens storlek relativt grundstorleken (1 = som på platta bilden)
+    this.symbolOf = () => null; // rikets symbol: (polity) → { symbol, color, name, group } eller null (sätts i main.js)
+    this.showNames = true; // namnen under symbolerna (false utzoomat på globen, #301)
+    this.onGlyph = () => {}; // anropas när en symbol har laddats, så att lagerbilden ritas om
+  }
+
+  /** Symbolens bild (img/icons/<symbol>.svg) när den har laddats, annars null. */
+  _glyph(name) {
+    if (!/^[\w-]+$/.test(name ?? '')) return null;
+    const gl = glyph(name);
+    if (!gl.ready && !gl._areas) { gl._areas = true; gl.waiting.push(() => this.onGlyph()); }
+    return gl.ready ? gl.img : null;
+  }
+
+  /**
+   * Symbolerna som syns det här året (#301), en per rike med symbol, på rikets label-punkt:
+   * [{ key, symbol, color, name, lon, lat, group, polity }] (för 3D-markörerna).
+   */
+  marks() {
+    const out = [];
+    for (const { polity, period } of this.active) {
+      const s = this.symbolOf(polity);
+      if (s) out.push({ key: polity.id, ...s, polity, lon: period.label[0], lat: period.label[1] });
+    }
+    return out;
   }
 
   /** Rikena laddas ett i taget (en fil per rike) och läggs till när de har kommit. */
@@ -56,8 +85,25 @@ export class AreasLayer {
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.globalAlpha = this.labelAlpha;
+    const R = ORIGIN_R * k * this.labelScale;
     for (const { polity, period } of this.active) {
       const name = t(polity.name);
+      // Rike med symbol (#301): medaljen på label-punkten, och namnet under den bara när namnen visas
+      const sym = this.symbolOf(polity);
+      if (sym) {
+        const x = X(period.label[0]), y = Y(period.label[1]);
+        ctx.globalAlpha = 1;
+        drawMedal(ctx, x, y, R, polity.color, this._glyph(sym.symbol));
+        ctx.globalAlpha = this.labelAlpha;
+        if (!this.showNames) continue;
+        const ny = y + R * 1.25 + size * 0.6;
+        ctx.lineWidth = 3.5 * k * this.labelScale;
+        ctx.strokeStyle = 'rgba(16,22,30,0.8)';
+        ctx.strokeText(name, x, ny);
+        ctx.fillStyle = '#f6e7c4';
+        ctx.fillText(name, x, ny);
+        continue;
+      }
       const b = bbox(period);
       const bw = X(b.maxLon) - X(b.minLon), bh = Y(b.minLat) - Y(b.maxLat);
       let x = X(period.label[0]), y = Y(period.label[1]);
