@@ -1,0 +1,19 @@
+{
+  "about": "Grupperna och de förinställda vyerna i Lager (#357). Varje lager anger sin grupp i lagerregistret (fältet group). En vy slår på lagren i layers och slår av de andra lagren i grupper som inte är inställningar. Stämmer valen inte med någon vy visas custom.",
+  "title": { "sv": "Vy", "en": "View" },
+  "custom": { "sv": "Anpassad", "en": "Custom" },
+  "groups": [
+    { "id": "people", "name": { "sv": "Människor och händelser", "en": "People and events" } },
+    { "id": "power", "name": { "sv": "Makt, tro och gränser", "en": "Power, faith and borders" } },
+    { "id": "movement", "name": { "sv": "Rörelser och handel", "en": "Movement and trade" } },
+    { "id": "perspective", "name": { "sv": "Historiskt perspektiv", "en": "Historical perspective" } },
+    { "id": "settings", "name": { "sv": "Inställningar", "en": "Settings" }, "settings": true }
+  ],
+  "views": [
+    { "id": "standard", "name": { "sv": "Standard", "en": "Default" }, "layers": ["events", "funfacts", "areas", "routes", "wars"] },
+    { "id": "utforska", "name": { "sv": "Utforska", "en": "Explore" }, "layers": ["events", "funfacts", "areas"] },
+    { "id": "makt", "name": { "sv": "Makt och gränser", "en": "Power and borders" }, "layers": ["events", "areas", "religions", "borders", "wars"] },
+    { "id": "resor", "name": { "sv": "Resor och handel", "en": "Journeys and trade" }, "layers": ["events", "routes"] },
+    { "id": "perspektiv", "name": { "sv": "Perspektiv", "en": "Perspective" }, "layers": ["discovery", "routes"] }
+  ]
+}

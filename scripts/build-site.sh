@@ -7,7 +7,7 @@
 #   css/style.css         stilmallen (inga url() till lokala filer)
 #   img/                  sidans ikoner och markörernas symboler (img/icons/<namn>.svg, namnet kommer ur
 #                         events.json och js/ui/funfact.js och hämtas med fetch)
-#   data/*.json           filerna som js/model.js laddar med getJSON
+#   data/*.json           filerna som js/model.js och js/ui/layers.js (vyer.json, #357) laddar med getJSON
 #   data/empires/         index.json och rikesfilerna som index.json pekar på (fältet file)
 #   data/routes/          index.json och filerna med vägar och resor som index.json listar (fältet files, #38)
 #   images/events/        bilderna som events.json pekar på (image.file)
@@ -58,8 +58,8 @@ while IFS= read -r f; do copy "$f"; done < <(find js -type f -name '*.js' | sort
 ls img/icons/*.svg >/dev/null 2>&1 || fail "inga ikoner i img/icons/"
 for f in img/icons/*.svg; do copy "$f"; done
 
-# Datafiler som js/model.js laddar
-for f in events funfacts sources land borders styles religions religions-polities upptackt; do
+# Datafiler som js/model.js laddar, och lagrens grupper och vyer (vyer.json, js/ui/layers.js, #357)
+for f in events funfacts sources land borders styles religions religions-polities upptackt vyer; do
   copy "data/$f.json"
 done
 

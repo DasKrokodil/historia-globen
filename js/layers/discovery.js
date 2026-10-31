@@ -37,7 +37,7 @@ export function entry({ data, refresh, registry }) {
     sources: [...new Set((data.discovery.decorations ?? []).map(d => d.source))].map(id => data.srcById[id]).filter(Boolean),
   };
   return {
-    id: 'discovery', name: 'Upptäcktsvy', layer,
+    id: 'discovery', name: 'Upptäcktsvy', group: 'perspective', layer,
     menu: { on: false, note: 'gammal kartstil med segelskepp, havsmonster och dimma som resorna lyfter' },
     enabled: s => s.layers.discovery && !!data.discovery,
     update: s => layer.update({ year: s.year, fine: s.fine, lines: registry.get('routes') }),

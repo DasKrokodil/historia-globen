@@ -102,6 +102,7 @@ data/empires/         riken med utbredning per period, en fil per rike och index
 data/borders.json     dagens landsgränser (Natural Earth)
 data/routes/          vägar och resor (lagertyp linje): index.json och en fil per resa eller väg
 data/upptackt.json    upptäcktsvyn: perspektivraden, den åldrade kartstilen, dimmans täckning och korridorens bredd, dekorationernas platser
+data/vyer.json        grupperna och de förinställda vyerna i Lager (#357)
 data/religions.json   religioner över tid: varje rikes religion (Cliopatria + Wikipedia)
 data/religions-polities.json  varje rikes gräns i religionslagret, för klickrutan (Cliopatria)
 data/styles.json      bildstilar efter tidsålder och plats
@@ -110,8 +111,8 @@ tools/hced.py         gör om Historical Conflict Event Dataset till utkast i da
 scripts/build-site.sh kopierar webbplatsens filer till dist/ för publicering och kör kontrollerna (docs/DEPLOYMENT.md)
 scripts/validate-site.py  kontrollerar dist/: JSON, filreferenser och att inga interna filer följer med
 functions/api/feedback.js  Cloudflare Pages Function för besökarnas förslag (publiceras från repots rot, inte via dist/)
-tests/                tester för serverfunktionen (node --test 'tests/*.test.mjs')
-.github/workflows/    GitHub Actions: bygger och kontrollerar dist/ vid push till main och PR mot main och production; release.yml skapar tagg och GitHub Release
+tests/                tester för serverfunktionen (node --test 'tests/*.test.mjs') och webbläsartestet tests/webblasare.mjs (Playwright, #339)
+.github/workflows/    GitHub Actions: bygger och kontrollerar dist/ vid push till main och PR mot main och production; browser-test.yml öppnar sidan i Chromium; release.yml skapar tagg och GitHub Release
 ```
 
 ## Principer
