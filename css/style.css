@@ -17,9 +17,16 @@
   --ok: #8fc48e;
   --medal: #10202c;        /* markörernas botten (#242), samma som GROUND i layers/events.js */
   --gold-dot: #f1d98a;     /* markörernas punkt för betydelse */
-  --ff-ink-soft: #7a5a1f;
-  --discovery-fog: #d4cfbd;  /* upptäcktsvyns dimma över det okända (#101), ritas på lagerbilden */
-  --discovery-ink: #5b4626;  /* "Terra incognita" i dimman */  /* Samtidigt-kortets dämpade bläck på pergament: pilen och "Dra upp för mer" (#310) */
+  --ff-ink-soft: #7a5a1f;   /* Samtidigt-kortets dämpade bläck på pergament: pilen och "Dra upp för mer" (#310) */
+  /* Upptäcktsvyn (#101), ritas på lagerbilden: åldrad papperskarta, dimma över det okända och portolanlinjer */
+  --discovery-fog: #ddd3b7;          /* dimman över det okända */
+  --discovery-ink: #4a3519;          /* bläck: kust, vattenlinjer, "Terra incognita", skraffering, huvudvindar */
+  --discovery-sea: #c8c49c;          /* haven i blekt pergament med dragning åt grönt */
+  --discovery-land: #c39f62;         /* landet i mörkare, varmare pergament */
+  --discovery-stain: #a57b45;        /* fläckar i pappret */
+  --discovery-edge: #6b4a22;         /* mörkare kanter mot polerna och datumlinjen */
+  --discovery-rhumb-half: #4d6b3c;   /* portolanlinjer: halvvindar i grönt */
+  --discovery-rhumb-quarter: #9a3b2b;/* portolanlinjer: kvartsvindar i rött */
   /* Kapitel över tidslinjen i fokusläget (#244): ur story.chapters, och neutrala band mellan stora händelser */
   --chap-0: #2d4655; --chap-1: #633f3e; --chap-2: #5b5138; --chap-3: #36594e;
   --chap-auto-0: color-mix(in srgb, var(--brass) 22%, var(--night-2));

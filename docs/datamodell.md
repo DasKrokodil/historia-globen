@@ -183,9 +183,14 @@ Upptäcktsvyn slås på i Lager. Filen styr allt den visar (ritas av `js/layers/
 
 ```json
 { "schema": "historia-globen/upptackt@1", "notes": "…",
-  "perspective": { "sv": "Dimman visar bara vad resorna och vägarna i datan har nått …" },
+  "perspective": { "sv": "Dimman döljer det som resorna och vägarna i datan ännu inte har nått …" },
   "credit": { "sv": "Kartbilder: havsmonster ur Olaus Magnus Carta marina (1539) …" },
-  "fog": { "opacity": 0.62, "corridorDeg": 5, "soften": 0.6,
+  "paper": { "grain": 0.22, "stains": 18, "stainStrength": 0.16, "seed": 1539,
+    "waterLines": { "count": 3, "widthDeg": 1.3, "opacity": 0.14 }, "coastPx": 2.4,
+    "vignette": 0.45, "vignetteSides": 0.5,
+    "rhumb": { "directions": 32, "lengthDeg": 70, "opacity": 0.42, "widthPx": 1.6 } },
+  "fog": { "opacity": 0.97, "corridorDeg": 7, "soften": 0.7, "grain": 0.2,
+    "hatch": 0.45, "hatchDeg": 1.2, "hatchSpacingDeg": 0.6,
     "labels": [{ "text": { "sv": "Terra incognita" }, "at": [-100, 47], "size": 4.2 }] },
   "decorations": [{ "id": "sjoorm-stilla-havet", "file": "images/karta/sjoorm.webp", "at": [-152, 32],
     "width": 26, "fade": true, "title": { "sv": "Sjöorm" }, "source": "commons-karta-carta-marina-sjoorm" }] }
@@ -195,11 +200,21 @@ Upptäcktsvyn slås på i Lager. Filen styr allt den visar (ritas av `js/layers/
 |---|---|
 | `perspective` | Raden i teckenförklaringen: vad dimman och ordet "upptäckt" betyder här. Text per språk |
 | `credit` | Krediten för kartbilderna i teckenförklaringen. Länkar till filsidorna läggs till ur `source` |
-| `fog.opacity` | Dimmans täckning, 0–1. Färgerna är CSS-variablerna `--discovery-fog` och `--discovery-ink` |
+| `paper` | Den åldrade papperskartan som täcker grundkartan medan vyn är på (grundkartan själv ändras inte). Den ritas en gång. Färgerna är CSS-variablerna `--discovery-sea` (haven), `--discovery-land` (landet), `--discovery-ink` (bläcket), `--discovery-stain` (fläckarna) och `--discovery-edge` (kanterna) |
+| `paper.grain` | Papperskornens styrka, 0–1 |
+| `paper.stains`, `paper.stainStrength` | Antal fläckar i pappret och hur starka de är (0–1) |
+| `paper.seed` | Fröet som bestämmer var korn och fläckar hamnar, så att kartan ser likadan ut varje gång |
+| `paper.waterLines` | Vattenlinjer längs kusten: `count` band, `widthDeg` = det bredaste bandets bredd i grader och `opacity` |
+| `paper.coastPx` | Bläckkustens bredd i bildpunkter på lagerbilden (4096 × 2048) |
+| `paper.vignette`, `paper.vignetteSides` | Mörkare kanter mot polerna (0–1), och hur stor del av det som gäller mot datumlinjen |
+| `paper.rhumb` | Portolanlinjer ut från varje dekoration med `rhumb: true`, ovanpå dimman: `directions` = antal riktningar (avrundas till en multipel av 8; huvudvindar i bläck, halvvindar i grönt `--discovery-rhumb-half`, kvartsvindar i rött `--discovery-rhumb-quarter`), `lengthDeg` = längd i grader, `opacity` och `widthPx` |
+| `fog.opacity` | Dimmans täckning, 0–1. Nära 1 döljer allt som inte har nåtts; händelsernas markörer syns ändå, eftersom de ligger ovanpå klotet. Färgerna är CSS-variablerna `--discovery-fog` och `--discovery-ink` |
 | `fog.corridorDeg` | Bredden i grader på korridoren som lyfts längs varje etapp i `data/routes` som har börjat |
-| `fog.soften` | Hur mycket bredare korridorens mjuka kant är (0,6 = 60 % bredare) |
+| `fog.soften` | Hur mycket bredare korridorens mjuka kant är (0,7 = 70 % bredare) |
+| `fog.grain` | Papperskornen i dimman, 0–1 |
+| `fog.hatch`, `fog.hatchDeg`, `fog.hatchSpacingDeg` | Bläckskraffering längs dimmans kant: styrka (0 = ingen), bandets bredd i grader och avståndet mellan strecken i grader |
 | `fog.labels` | Texter i dimman: `text`, `at` = `[longitud, latitud]` för mitten och `size` = höjd i grader |
-| `decorations` | Bilder ur gamla kartor: `file`, `at` = `[longitud, latitud]` för bildens mitt (mitt i öppna hav), `width` = bredd i grader, `fade` = tonas bort när en lyft korridor kommer nära, `title` och `source` (id i `sources.json`, filsidan på Wikimedia Commons) |
+| `decorations` | Bilder ur gamla kartor: `file`, `at` = `[longitud, latitud]` för bildens mitt (mitt i öppna hav), `width` = bredd i grader, `fade` = tonas bort när en lyft korridor kommer nära, `rhumb` = portolanlinjer ut från bildens mitt (kompassrosor), `title` och `source` (id i `sources.json`, filsidan på Wikimedia Commons) |
 
 ## `religions.json`: religioner
 

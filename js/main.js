@@ -76,7 +76,7 @@ async function start() {
   const routes = new LinesLayer();
   loadRoutes().then(list => { routes.setRoutes(list); refresh(); });
   // Upptäcktsvyn (#101): gammal kartstil, segelskepp och dimma som resorna lyfter. Bilderna laddas när den slås på.
-  const discovery = new DiscoveryLayer(data.discovery);
+  const discovery = new DiscoveryLayer(data.discovery, data.land);
   let discoveryRaf = 0;
   discovery.onImage = () => { cancelAnimationFrame(discoveryRaf); discoveryRaf = requestAnimationFrame(() => refresh()); };
   const panel = new Panel({
@@ -624,8 +624,9 @@ async function start() {
     origins.update(religions.stars, religions.enabled && !faded.includes(religions));
     const ctx = globe.overlayContext();
     const W = globe.overlayCanvas.width, H = globe.overlayCanvas.height;
-    // Ordning nedifrån och upp: riken, religioner, dagens gränser, upptäcktsvyns dimma och havsmonster,
-    // vägar och resor, krigsområden, händelsernas sken
+    // Ordning nedifrån och upp: upptäcktsvyns papperskarta, riken, religioner, dagens gränser, upptäcktsvyns dimma,
+    // portolanlinjer och havsmonster, vägar och resor, krigsområden, händelsernas sken
+    discovery.drawPaper(ctx, W, H);
     for (const l of [areas, religions]) faded.includes(l) ? globe.drawFaded((c, w, h) => l.drawOverlay(c, w, h), FADE) : l.drawOverlay(ctx, W, H);
     borders.drawOverlay(ctx, W, H);
     discovery.drawOverlay(ctx, W, H);
