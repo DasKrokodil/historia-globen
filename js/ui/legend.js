@@ -2,6 +2,7 @@
 // HTML-element över globen (inte en del av kartbilden), och all text kommer ur
 // religions.json via t(). I fokusläget förklarar samma ruta också krigsområdena (#236)
 // och säger vilka lager som är dämpade, med en knapp för att visa dem som vanligt (#235).
+// I upptäcktsvyn (#101) står där vad "upptäckt" och dimman betyder, och krediten för kartbilderna.
 import { t, CAT, formatYear, symbolImg } from '../model.js';
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -79,6 +80,7 @@ export class ReligionLegend {
   /**
    * items från ReligionsLayer.legendItems(). focus (valfritt, fokusläget): war = ett följt krigs områden syns,
    * fadable = namnen på lager som dämpas (eller skulle dämpas) och keep = om de visas som vanligt (#235).
+   * discovery (upptäcktsvyn, #101) = { perspective, credit, sources: [{ title, url }] } eller null.
    * Finns inget att förklara döljs rutan.
    */
   update(items, focus = {}) {
@@ -88,10 +90,11 @@ export class ReligionLegend {
   }
 
   render() {
-    const items = this.items ?? [], { war = false, fadable = [], keep = false } = this.focus ?? {};
-    if (!items.length && !war && !fadable.length) { this.legend.hidden = true; this.legend.textContent = ''; this._html = ''; return; }
+    const items = this.items ?? [], { war = false, fadable = [], keep = false, discovery = null } = this.focus ?? {};
+    if (!items.length && !war && !fadable.length && !discovery) { this.legend.hidden = true; this.legend.textContent = ''; this._html = ''; return; }
     const unsure = items.some(i => i.unsure), inherited = items.some(i => i.inherited);
-    const title = items.length && war ? 'Teckenförklaring' : items.length ? 'Religioner' : war ? 'Krigsområden' : 'Lager i fokus';
+    const title = (items.length ? 1 : 0) + (war ? 1 : 0) + (discovery ? 1 : 0) > 1 ? 'Teckenförklaring'
+      : items.length ? 'Religioner' : war ? 'Krigsområden' : discovery ? 'Upptäcktsvy' : 'Lager i fokus';
     const religionsHtml = !items.length ? '' : `<ul>${items.map(({ religion: r, sure, unsure: u, inherited: i }) =>
       `<li data-religion="${esc(r.id)}" tabindex="0" role="button" aria-pressed="${this.pinned === r.id}" class="${this.highlight === r.id ? 'on' : ''}" title="Peka eller tryck för att lyfta fram ${esc(t(r.name).toLowerCase())} på kartan"><span class="swatch" style="background:${esc(r.color)}"></span>${symbolImg(r)}<span class="rl-name">${esc(t(r.name))}${
         sure ? '' : u ? ' <em>(osäkert)</em>' : i ? ' <em>(ärvt)</em>' : ''}</span></li>`).join('')}</ul>${
@@ -106,6 +109,11 @@ export class ReligionLegend {
     const aboutHtml = !items.some(i => i.religion.facts) ? '' : '<button type="button" class="info-btn rl-about" data-about>Läs om religionerna</button>';
     // Tipsraden första gången lagret slås på (#308). Den står utanför den hopfällbara listan, så att den syns även i mobil.
     const hintHtml = !this.hint || !items.length ? '' : `<p class="rl-hint" role="note"><span>Klicka på ett färgat område för att se religion och rike.</span><button type="button" class="rl-hint-close" data-hint-close aria-label="Stäng tipset">×</button></p>`;
+    // Upptäcktsvyn (#101): perspektivraden står utanför den hopfällbara delen, så att den syns även i mobil.
+    // Krediten för kartbilderna, med länkar till filsidorna, ligger i den hopfällbara delen.
+    const discHtml = !discovery ? '' : `<p class="rl-disc" role="note">${esc(discovery.perspective)}</p>`;
+    const creditHtml = !discovery ? '' : `<p class="rl-note rl-credit">${esc(discovery.credit)}${discovery.sources?.length ? ` Filsidor: ${
+      discovery.sources.map((s, i) => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${i + 1}<span class="sr-only"> ${esc(s.title)} (öppnas i en ny flik)</span></a>`).join(', ')}.` : ''}</p>`;
     const names = fadable.join(' och ').toLowerCase().replace(/^./, c => c.toUpperCase());
     const fadeHtml = !fadable.length ? '' : `<p class="rl-note rl-fade">${keep
       ? `${esc(names)} visas som vanligt. <button type="button" class="link-btn" data-keep="0">Dämpa</button>`
@@ -118,8 +126,8 @@ export class ReligionLegend {
       shown.map(({ religion: r, sure }) => `<span class="rl-dot${sure ? '' : ' rl-dot-pale'}" style="background:${esc(r.color)}" title="${esc(t(r.name))}"></span>`).join('')}${
       items.length > shown.length ? `<span class="rl-more">+${items.length - shown.length}</span>` : ''}${
       war ? `<span class="rl-dot rl-hatch" style="--war:${esc(CAT.krig.color)}" title="Krigsskådeplats"></span>` : ''}</span>`;
-    const html = `<button type="button" class="rl-toggle" aria-expanded="${this.open}" aria-controls="rl-body"><span class="rl-title">${title}</span><span class="rl-chev" aria-hidden="true"></span>${dotsHtml}</button>${hintHtml}
-      <div id="rl-body" class="rl-body" ${this.open ? '' : 'hidden'}>${aboutHtml}${religionsHtml}${symbolsHtml}${warHtml}${fadeHtml}</div>`;
+    const html = `<button type="button" class="rl-toggle" aria-expanded="${this.open}" aria-controls="rl-body"><span class="rl-title">${title}</span><span class="rl-chev" aria-hidden="true"></span>${dotsHtml}</button>${hintHtml}${discHtml}
+      <div id="rl-body" class="rl-body" ${this.open ? '' : 'hidden'}>${aboutHtml}${religionsHtml}${symbolsHtml}${warHtml}${creditHtml}${fadeHtml}</div>`;
     // Samma innehåll ritas inte om, så att musen och tangentbordets fokus ligger kvar på raden (#271)
     if (html !== this._html) {
       const focused = this.legend.contains(document.activeElement) && document.activeElement.dataset.religion;
@@ -150,7 +158,7 @@ export class ReligionLegend {
       const r = el.getBoundingClientRect();
       if (r.width && r.left < me.right && r.right > me.left && r.bottom > top) limit = Math.min(limit, r.top);
     }
-    const head = lg.querySelector('.rl-toggle').offsetHeight + (lg.querySelector('.rl-hint')?.offsetHeight ?? 0);
+    const head = lg.querySelector('.rl-toggle').offsetHeight + (lg.querySelector('.rl-hint')?.offsetHeight ?? 0) + (lg.querySelector('.rl-disc')?.offsetHeight ?? 0);
     const room = limit - GAP - top - head - 14; // 14 = rutans utfyllnad
     if (room < 56) body.hidden = true; // för lite plats: bara knappen syns
     else body.style.maxHeight = `${Math.floor(room)}px`;

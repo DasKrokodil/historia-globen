@@ -11,6 +11,7 @@
 #   data/empires/         index.json och rikesfilerna som index.json pekar på (fältet file)
 #   data/routes/          index.json och filerna med vägar och resor som index.json listar (fältet files, #38)
 #   images/events/        bilderna som events.json pekar på (image.file)
+#   images/karta/         upptäcktsvyns bilder som data/upptackt.json pekar på (decorations[].file, #101)
 #   LICENSE, data/LICENSE licenserna för kod (GPL-3.0) och data (CC BY 4.0) följer med de publicerade filerna
 #
 # Interna filer (.claude/, .orchestra/, .github/, docs/, tools/, scripts/, tests/, data/utkast/, images/incoming/,
@@ -58,7 +59,7 @@ ls img/icons/*.svg >/dev/null 2>&1 || fail "inga ikoner i img/icons/"
 for f in img/icons/*.svg; do copy "$f"; done
 
 # Datafiler som js/model.js laddar
-for f in events funfacts sources land borders styles religions religions-polities; do
+for f in events funfacts sources land borders styles religions religions-polities upptackt; do
   copy "data/$f.json"
 done
 
@@ -87,6 +88,15 @@ import json
 for e in json.load(open('data/events.json'))['events']:
     if e.get('image', {}).get('file'):
         print(e['image']['file'])
+PY
+)
+
+# Upptäcktsvyns bilder (#101)
+while IFS= read -r f; do copy "$f"; done < <(python3 -I - <<'PY'
+import json
+for d in json.load(open('data/upptackt.json')).get('decorations', []):
+    if d.get('file'):
+        print(d['file'])
 PY
 )
 
