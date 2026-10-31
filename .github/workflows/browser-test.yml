@@ -1,5 +1,6 @@
-# Webbläsartest (#339, docs/DEPLOYMENT.md): bygger dist/, startar en lokal webbserver och öppnar sidan i Chromium
-# med Playwright i datorbredd (1400 × 900) och mobilbredd (400 × 800). Testskriptet är tests/webblasare.mjs.
+# Webbläsartest (#339, #401, docs/DEPLOYMENT.md): bygger dist/, startar en lokal webbserver och öppnar sidan
+# med Playwright i datorbredd (1400 × 900) och mobilbredd (400 × 800). Vanliga körningar använder Chromium;
+# release-PR mot production använder dessutom Firefox och WebKit. Testskriptet är tests/webblasare.mjs.
 # Playwright används bara här i testerna (Rikards godkännande 2026-10-31); sidan själv får inga nya beroenden.
 # Körs vid push till main och vid pull requests mot main och production, som validate-site.yml.
 name: Webbläsartest
@@ -23,9 +24,13 @@ env:
 
 jobs:
   browser:
-    name: Öppna sidan i Chromium
+    name: Öppna sidan i ${{ matrix.browser.name }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: ${{ fromJSON(github.event_name == 'pull_request' && github.base_ref == 'production' && '[{"id":"chromium","name":"Chromium"},{"id":"firefox","name":"Firefox"},{"id":"webkit","name":"WebKit"}]' || '[{"id":"chromium","name":"Chromium"}]') }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -38,11 +43,17 @@ jobs:
       - name: Bygg dist/
         run: bash scripts/build-site.sh
 
-      - name: Installera Playwright och Chromium (utanför repot)
+      - name: Installera Playwright och ${{ matrix.browser.name }} (utanför repot)
+        env:
+          BROWSER: ${{ matrix.browser.id }}
         run: |
           # Installeras i en tillfällig mapp, så att repot inte får någon package.json och dist/ inte påverkas
           npm install --prefix "$RUNNER_TEMP/pw" --no-save --no-audit --no-fund "playwright@$PLAYWRIGHT_VERSION"
-          "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps --only-shell chromium
+          if [ "$BROWSER" = chromium ]; then
+            "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps --only-shell chromium
+          else
+            "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps "$BROWSER"
+          fi
 
       - name: Starta webbservern för dist/
         run: |
@@ -52,6 +63,7 @@ jobs:
 
       - name: Kör webbläsartestet (tests/webblasare.mjs)
         env:
+          BROWSER: ${{ matrix.browser.id }}
           SKARMBILDER: skarmbilder
         run: NODE_PATH="$RUNNER_TEMP/pw/node_modules" node tests/webblasare.mjs "$PORT"
 
@@ -59,7 +71,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: skarmbilder
+          name: skarmbilder-${{ matrix.browser.id }}
           path: skarmbilder/
           if-no-files-found: warn
           retention-days: 14
