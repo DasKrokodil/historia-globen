@@ -1,9 +1,9 @@
 // Startar allt och kopplar ihop delarna:
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
-import { loadAll, loadRoutes, loadReligions, loadReligionPolities, loadEmpire, CAT, t, symbolUrl, symbolImg, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays, dayParts } from './model.js';
+import { loadAll, loadReligions, loadReligionPolities, loadEmpire, CAT, t, symbolUrl, symbolImg, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays, dayParts } from './model.js';
 import { Globe } from './globe.js';
 import { Timeline, segmentName, setupYearJump, MAX_YEAR } from './timeline.js';
-import { EventsLayer, markerInfo, describeMarker } from './layers/events.js';
+import { entry as eventsEntry, markerInfo, describeMarker } from './layers/events.js';
 import { entry as areasEntry } from './layers/areas.js';
 import { entry as bordersEntry } from './layers/borders.js';
 import { entry as religionsEntry } from './layers/religions.js';
@@ -22,7 +22,7 @@ import { Help } from './ui/help.js';
 import { FlatMap } from './ui/flatmap.js';
 import { Feedback } from './ui/feedback.js';
 import { createState } from './state.js';
-import { LayerRegistry, Z } from './layers/registry.js';
+import { LayerRegistry } from './layers/registry.js';
 
 const $ = id => document.getElementById(id);
 
@@ -75,12 +75,8 @@ async function start() {
     showReligionFacts: id => showReligionFacts(id),
     showEmpireFacts: (id, polity) => showEmpireFacts(id, polity),
   };
-  const layer = new EventsLayer(globe, data.events);
-  const noEvents = new Set();
-  registry.add({ id: 'events', name: 'Händelser', layer, z: Z.events,
-    update: s => layer.update({ year: s.year, window: s.window, filters: s.layers.events ? s.filters : noEvents, selectedId: s.selectedId,
-      highlight: s.highlight, focusId: s.focusWar?.id, span: s.span }),
-    drawOverlay: (c, w, h) => layer.drawOverlay(c, w, h) });
+  // Lagren anmäler sig i registret, i radernas ordning i Lager (#338). Händelserna först: deras markörer läggs på klotet.
+  const layer = registry.add(eventsEntry(env));
   // Riken (R1–R6), med rikenas symboler (#301)
   const areas = registry.add(areasEntry(env));
   // Religioner (#166), med symbolen där religionen uppstod (#271)
@@ -913,7 +909,8 @@ async function start() {
     canvas.addEventListener('pointerdown', hideTip);
   }
   globe.onFrame(now => {
-    layer.frame(now, state.selectedId);
+    // Lagrens 3D-markörer: storlek på skärmen och plats (händelsernas medaljer, religionernas och rikenas symboler)
+    registry.frame(now, state);
     const hl = ff.highlightIds();
     const order = [...visible].sort((a, b) =>
       ((b.e.id === state.selectedId) - (a.e.id === state.selectedId)) || ((b.e.id === hoverId) - (a.e.id === hoverId)) ||
@@ -923,7 +920,6 @@ async function start() {
     const { singles, clusters } = cluster(items.filter(it => it.p.facing > 0.05));
     const clustered = new Set(clusters.flatMap(c => c.members.map(m => m.e.id)));
     // Händelsen där en religion uppstod ligger under religionens symbol (#271): bara symbolen och etiketten syns
-    registry.frame(now, state);
     const underOrigin = registry.coveredEvents();
     for (const s of layer.sprites) s.visible = s.userData.active && !clustered.has(s.userData.event.id) && !underOrigin.has(s.userData.event.id);
     clusters.forEach((c, i) => {
