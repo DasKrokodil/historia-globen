@@ -656,6 +656,7 @@
     { "id": "whe-carthage", "title": "Carthage – World History Encyclopedia (Joshua J. Mark, 2020)", "url": "https://www.worldhistory.org/carthage/", "license": "CC BY-NC-SA (bara länkad, ingen text kopierad)", "checked": "2026-10-31" },
     { "id": "wp-seleucid-empire", "title": "Seleucid Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Seleucid_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
     { "id": "whe-seleucid-empire", "title": "Seleucid Empire – World History Encyclopedia (Joshua J. Mark, 2019)", "url": "https://www.worldhistory.org/Seleucid_Empire/", "license": "CC BY-NC-SA (bara länkad, ingen text kopierad)", "checked": "2026-10-31" },
+    { "id": "wp-roman-seleucid-war", "title": "Roman–Seleucid war – Wikipedia", "url": "https://en.wikipedia.org/wiki/Roman%E2%80%93Seleucid_war", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
     { "id": "wp-parthian-empire", "title": "Parthian Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Parthian_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
     { "id": "whe-parthia", "title": "Parthia (Empire) – World History Encyclopedia (Patrick Scott Smith, 2019)", "url": "https://www.worldhistory.org/Parthia_(Empire)/", "license": "CC BY-NC-SA (bara länkad, ingen text kopierad)", "checked": "2026-10-31" },
     { "id": "wp-sasanian-empire", "title": "Sasanian Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Sasanian_Empire", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },

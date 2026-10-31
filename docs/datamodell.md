@@ -175,7 +175,9 @@ Skriptet sätter då `"uncertainBorder": true` på varje del (polity) i rikets f
 - Inflytandet ritas bara när delen själv syns det året.
 - `index.json` sammanfattar det per grupp i `influence` (`polity`, `name`, `relation`, `from`, `to`), så att rutan Om kartan kan räkna upp det.
 
-Inflytande finns för Romerska republiken (Seleukidriket 204–190 f.Kr.), Östromerska riket (östgoterna 500–554), Bysantinska riket (Kyrkostaten 757–869), Sasanidriket (kidariterna 390–450), Karolingiska riket (Östfrankiska riket 911–921), Abbasidkalifatet (ziyadiderna, ayyubiderna, Rumsultanatet och Delhisultanatet), Timuridriket (jalayiriderna, Georgien och Qara Qoyunlu), Mingdynastin (Joseon 1395–1571) och Brittiska imperiet (Hawaii 1811–1819). Cliopatrias vasaller under Tysk-romerska riket (Böhmen, Brandenburg, Schweiz, Tyska orden) ligger redan inom rikets område och ger inget inflytande. Andra riken har inga sådana relationer i Cliopatria och ritas som förut.
+Relationer som källorna motsäger står i `INFLUENCE_SKIP` i skriptet, med motivering och källa, och visas inte. Hittills gäller det bara Seleukidriket under Romerska republiken 204–190 f.Kr.: enligt källorna (`wp-roman-seleucid-war`) krigade de 192–188 f.Kr. och slöt fred i Apameia 188 f.Kr. Det står i Romarrikets `mapNote`.
+
+Inflytande finns för Östromerska riket (östgoterna 500–554), Bysantinska riket (Kyrkostaten 757–869), Sasanidriket (kidariterna 390–450), Karolingiska riket (Östfrankiska riket 911–921), Abbasidkalifatet (ziyadiderna, ayyubiderna, Rumsultanatet och Delhisultanatet), Timuridriket (jalayiriderna, Georgien och Qara Qoyunlu), Mingdynastin (Joseon 1395–1571) och Brittiska imperiet (Hawaii 1811–1819). Cliopatrias vasaller under Tysk-romerska riket (Böhmen, Brandenburg, Schweiz, Tyska orden) ligger redan inom rikets område och ger inget inflytande. Andra riken har inga sådana relationer i Cliopatria och ritas som förut.
 
 ```json
 { "start": 1919, "end": 1939, "areaKm2": 12702704, "label": [2.3, 47.0],

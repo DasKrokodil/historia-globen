@@ -82,16 +82,6 @@
    ],
    "influence": [
     {
-     "polity": "romerska-republiken",
-     "name": {
-      "sv": "Seleukidriket",
-      "en": "Seleucid Empire"
-     },
-     "relation": "allegiance",
-     "from": -203,
-     "to": -189
-    },
-    {
      "polity": "ostromerska-riket",
      "name": {
       "sv": "Östgoternas rike",
@@ -451,13 +441,14 @@
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger cirka 753 f.Kr. till 1453. Kartans sista år fram till 1474 visar bara en liten rest av Bysans."
+     "sv": "Källorna anger cirka 753 f.Kr. till 1453. Kartans sista år fram till 1474 visar bara en liten rest av Bysans. Cliopatria anger att Seleukidriket lydde under Romerska republiken 204–190 f.Kr., men det motsägs av källorna: Rom och Seleukidriket krigade 192–188 f.Kr. och slöt fred i Apameia 188 f.Kr. Därför visas det inte som inflytande."
     },
     "sources": [
      "wp-roman-empire",
      "wp-roman-kingdom",
      "wp-roman-republic",
-     "wp-byzantine-empire"
+     "wp-byzantine-empire",
+     "wp-roman-seleucid-war"
     ],
     "review": "source-checked"
    }

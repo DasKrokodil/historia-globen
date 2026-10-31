@@ -424,6 +424,12 @@ INFLUENCE_NAMES = {
     'East Franks': 'Östfrankiska riket', 'Kidarites': 'Kidariterna', 'Jalayirid Sultanate': 'Jalayiridernas sultanat',
     'Kingdom of Georgia': 'Kungariket Georgien', 'Qara Qoyunlu': 'Qara Qoyunlu', 'Joseon': 'Joseon (Korea)',
 }
+# Relationer i Cliopatria som källorna motsäger och därför inte visas (#75): (lydrike, överhuvud) med motivering.
+INFLUENCE_SKIP = {
+    # Cliopatria anger att Seleukidriket lydde under Romerska republiken 204–190 f.Kr. Enligt wp-roman-seleucid-war
+    # krigade de 192–188 f.Kr., och först freden i Apameia 188 f.Kr. tvingade Antiochos III att lämna Mindre Asien.
+    ('Seleucid Empire', 'Roman Republic'): 'motsägs av källorna (Roman–Seleucid War, Wikipedia)',
+}
 INFLUENCE_MIN = 0.3  # inflytande mindre än så här (kvadratgrader, cirka 3 000 km2) tas bort, ofta bara glipor mellan gränserna
 
 
@@ -452,7 +458,7 @@ def influence_periods(rels, cname, core, own, names, tol, merge, min_area):
     targets = [n.strip('()') for n in (cname if isinstance(cname, list) else [cname])]
     out = []
     for a, kind, fy, ty, rg in sorted((r for t in targets for r in rels.get(t, [])), key=lambda r: (r[0], r[2])):
-        if a.strip('()') in own:
+        if a.strip('()') in own or any((a, t) in INFLUENCE_SKIP for t in targets):
             continue
         cuts = sorted({fy, ty + 1} | {s for s, e, g in core if fy < s <= ty} | {e + 1 for s, e, g in core if fy <= e < ty})
         for s, e in zip(cuts, cuts[1:]):
