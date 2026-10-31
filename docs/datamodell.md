@@ -126,6 +126,22 @@ Tidigmoderna riken (R4, #70): Aztekriket (staden Tenochtitlan och trippelallians
 
 Kolonialvälden och moderna imperier (R5, #71): franska kolonialväldet (Cliopatrias sammanslagna Frankrike med kolonier i sex skeden, `(Bourbon Kingdom of France)` 1815–1847 till `(French Fourth Republic)` 1945–1957), nederländska kolonialväldet (`(Dutch Republic)`, `(Batavian Republic)` och `(Netherlands)` till 1949), Tyska riket (`German Empire` och `German Africa`), Österrike-Ungern, Japanska imperiet (`Empire of Japan`), Etiopiska kejsardömet (`Ethiopian Empire` och `Ethiopia` till 1974) och Sovjetunionen, var och en en egen grupp med faktaruta. Två valfria inställningar per del i `GROUPS` (ett femte element, en ordbok): `years` (från, till) klipper delens spann, och en lista med Cliopatria-namn i stället för ett namn slår ihop posterna år för år till en del (`parts` i rikesfilen; `areaKm2` är då summan av posternas ytor). Kartdatans avvikelser står i varje rikes `mapNote`, till exempel att Cliopatria saknar Frankrike och Nederländerna med kolonier 1943–1944.
 
+**Försvunna länder (R6, #72).** Länder som inte finns längre har fältet `vanished` på gruppen i `empires/index.json`. Det är fältet som gör gruppen till ett försvunnet land: den listas under fliken Försvunna länder i Fokus (alla länder, i tidsordning, oavsett året man står på) i stället för under Riken, och faktarutan får en ram med årtal, föregångare och vad landet blev. Grupperna är Kalmarunionen (`(Kalmar Union)`), Preussen (`Duchy of Prussia`, `Brandenburg-Prussia` 1619–1701 och `Kingdom of Prussia` 1702–1806), Österrike-Ungern och Sovjetunionen (från R5), Jugoslavien (`Yugoslavia` och `Socialist Federal Republic of Yugoslavia`), Tjeckoslovakien, Storcolombia (`Gran Colombia`), Republiken Texas, Kungariket Hawaii (`Kingdom of Hawaï'i`) och Neutrala Moresnet, som saknas i Cliopatria.
+
+```json
+"vanished": { "wikidata": "Q36704", "founded": 1918, "dissolved": 1992, "edtf": "1918-12-01/1992-04-27",
+  "predecessors": [{ "name": { "sv": "Österrike-Ungern" }, "group": "osterrike-ungern", "wikidata": "Q28513" }],
+  "successors": [{ "name": { "sv": "Kroatien" }, "wikidata": "Q224" }],
+  "note": { "sv": "Källorna skiljer sig …" }, "sources": ["wp-yugoslavia", "wd-yugoslavia"], "review": "two-sources" }
+```
+
+- `founded` och `dissolved` är landets årtal enligt källorna (astronomiska år), `edtf` med datum där källorna har det. De kan skilja sig från kartdatans `from`/`to`. Ett land följs i Fokus från det tidigaste till det senaste av de två spannen.
+- `predecessors` och `successors` hämtas från Wikidata (P1365 "ersätter", P1366 "ersattes av", P571 bildande, P576 upplösning; CC0) och jämförs med Wikipedia. `name` är landets namn, `group` (valfritt) en grupp i `index.json` (då blir namnet en knapp som börjar följa det riket), `wikidata` (valfritt) ett Q-id som har kontrollerats mot Wikidatas etikett.
+- `note` säger öppet var källorna skiljer sig. `sources` och `review` gäller årtalen och efterträdarna; `two-sources` bara när Wikipedia och Wikidata anger samma år för bildande och upplösning.
+- `point` (valfritt): ett land utan gräns i Cliopatria (Neutrala Moresnet) har ingen fil, och `polities` är tom. Det ritas som en ring med prick och namn på `point` (GeoJSON `Point`) under åren `founded`–`dissolved`, och `from`/`to` är då källornas årtal. `tools/riken.py` skapar posten ur en grupp utan delar i `GROUPS` och hämtar `vanished` ur den befintliga `index.json`.
+
+`tools/riken.py` behåller `vanished`, som `facts`, när filen skrivs om. En ny inställning per del i `GROUPS`, `wikidata`, ersätter Cliopatrias Q-id när det är fel (Cliopatria anger den socialistiska förbundsrepubliken, Q83286, också för kungariket Jugoslavien). Kartdatans avvikelser står i varje lands `mapNote`, till exempel att Cliopatria saknar Preussen efter 1806 och räknar Tjeckoslovakien till Sovjetunionen 1969–1990.
+
 **Huvudlandet i utspridda välden (#74).** Ett kolonialvälde har samma färg i alla delar. Moderlandet ritas med tätare fyllning, en kraftig kant med mörk kontur och en mässingsstjärna, och rikets namn står strax ovanför stjärnan i stället för mitt i den största kolonin. Det styrs av datan:
 
 - `homeland` på gruppen i `empires/index.json`: `{ "name": { "sv": "Storbritannien", "en": "Great Britain" } }`, moderlandets namn.

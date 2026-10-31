@@ -235,8 +235,8 @@ GROUPS = {
     ]),
     'jugoslavien': ('Jugoslavien', 'Yugoslavia', [
         # Cliopatria anger Q83286 (den socialistiska förbundsrepubliken) också för kungariket
-        ('Yugoslavia', 'kungariket-jugoslavien', 'Jugoslavien (kungariket)', '#2d8fa8', {'wikidata': 'Q36704'}),
-        ('Socialist Federal Republic of Yugoslavia', 'sfr-jugoslavien', 'Jugoslavien (förbundsrepubliken)', '#2d8fa8'),
+        ('Yugoslavia', 'kungariket-jugoslavien', 'Jugoslavien', '#2d8fa8', {'wikidata': 'Q36704'}),
+        ('Socialist Federal Republic of Yugoslavia', 'sfr-jugoslavien', 'Jugoslavien', '#2d8fa8'),
     ]),
     'tjeckoslovakien': ('Tjeckoslovakien', 'Czechoslovakia', [
         ('Czechoslovakia', 'tjeckoslovakien', 'Tjeckoslovakien', '#c06a3a'),

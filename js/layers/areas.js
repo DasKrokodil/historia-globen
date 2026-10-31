@@ -17,10 +17,19 @@ export class AreasLayer {
     for (const p of polities) if (!this.polities.includes(p)) this.polities.push(p);
   }
 
+  /** Försvunna länder utan gräns i Cliopatria (#72), till exempel Neutrala Moresnet: grupper med vanished.point.
+   *  De ritas som en punkt med namn under de år landet fanns enligt källorna (vanished.founded–dissolved). */
+  setPoints(groups) {
+    this.points = groups.filter(g => g.vanished?.point);
+  }
+
   /** Returnerar de riken som finns just det här året. */
   update({ year }) {
     this.active = [];
+    this.activePoints = [];
     if (!this.enabled) return this.active;
+    this.activePoints = (this.points ?? []).filter(g => (!this.onlyGroup || g.id === this.onlyGroup)
+      && isVisibleReview(g.vanished.review) && year >= g.vanished.founded && year <= g.vanished.dissolved);
     for (const polity of this.polities) {
       if (!isVisibleReview(polity.review)) continue;
       if (this.onlyGroup && polity.group !== this.onlyGroup) continue; // fokusläge för ett rike
@@ -118,6 +127,21 @@ export class AreasLayer {
       if (Math.abs(dy) > 1.2) lead(x, y0 + Math.sign(dy) * 8 * k * this.labelScale, x, y - Math.sign(dy) * size * 0.55);
       placed.push(box(x, y, w, size));
       write(name, x, y);
+    }
+    // Försvunna länder utan gräns (#72): en ring med prick i landets färg och namnet till höger. Området är för
+    // litet för kartan (Neutrala Moresnet var 3,5 km²), så punkten visar bara var det låg.
+    for (const g of this.activePoints ?? []) {
+      const [lon, lat] = g.vanished.point.coordinates;
+      const x = X(lon), y = Y(lat), r = 5 * k * this.labelScale;
+      ctx.beginPath(); ctx.arc(x, y, r * 1.9, 0, Math.PI * 2);
+      ctx.lineWidth = 3 * k * this.labelScale; ctx.strokeStyle = 'rgba(16,22,30,0.85)'; ctx.stroke();
+      ctx.lineWidth = 1.6 * k * this.labelScale; ctx.strokeStyle = g.color; ctx.stroke();
+      ctx.beginPath(); ctx.arc(x, y, r * 0.8, 0, Math.PI * 2);
+      ctx.fillStyle = g.color; ctx.fill();
+      ctx.lineWidth = 1.2 * k * this.labelScale; ctx.strokeStyle = 'rgba(16,22,30,0.85)'; ctx.stroke();
+      ctx.textAlign = 'left';
+      write(t(g.name), x + r * 2.8, y);
+      ctx.textAlign = 'center';
     }
     ctx.restore();
   }
