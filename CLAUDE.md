@@ -30,6 +30,7 @@ js/globe.js           3D-globen, kamera, styrning, ekvirektangulära canvasar, b
 js/timeline.js        tidsreglage, segmenterad skala, uppspelning
 js/layers/events.js   punktlager: händelser
 js/layers/lines.js    linjelager: vägar och resor som ritas fram över tiden (#38)
+js/layers/discovery.js upptäcktsvyn: gammal kartstil, havsmonster och dimma som resorna lyfter (#101)
 js/ui/panel.js        "Samtidigt i världen" per världsdel, filter, detaljvy
 js/ui/funfact.js      Samtidigt-kortet (fun facts m.m.) och bågar
 js/ui/sources.js      sidan Om källorna
@@ -45,11 +46,13 @@ data/sources.json     källregister
 data/land.json        grundkarta: Natural Earth 1:50m, färdigprojicerad SVG-path i 4096×2048
 data/empires/         riken: index.json och en fil per rike, byggs med tools/riken.py ur Cliopatria
 data/routes/          vägar och resor: index.json listar filerna, en fil per resa eller väg (#38)
+data/upptackt.json    upptäcktsvyn: perspektivrad, dimma och kartbilder (#101)
 data/religions.json   religioner som områden (statsreligion per rike ur Cliopatria) och faktarutor
 data/religions-polities.json  rikenas områden per religion och period, laddas vid klick (tools/religioner_riken.py)
 data/styles.json      bildstilar efter tidsålder och plats (ramar och promptar)
 data/utkast/          utkast från massimport (draft), läses inte av appen; hced.json byggs med tools/hced.py
 images/events/        bilder till händelser, <händelse-id>.webp, 800 × 600
+images/karta/         kartbilder till upptäcktsvyn (public domain, ur gamla kartor)
 images/incoming/      Rikards nya bilder, innan de konverteras
 tools/                hjälpskript som körs för hand (riken, bildpromptar, bildkonvertering)
 docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar, publicering (DEPLOYMENT.md), besökarnas förslag (feedback.md)
