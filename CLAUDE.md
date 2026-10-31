@@ -142,31 +142,27 @@ Rikard gillar stilen. Behåll den:
 - **Orkestern (#145, permanent sedan #159):** `/orkester [issue eller område]` kör dirigenten och orkestern enligt [.orchestra/project.md](.orchestra/project.md): ett avgränsat pass i PR-läge med högst fyra pull requests, där issues med fakta och data görs med samma modell som dirigenten och dirigenten granskar varje leverans. "Fortsätt med fler issues" startar nästa pass. Filerna i `.orchestra/shared/` redigeras inte här.
 - **Sådant som inte är kod** (namn, domän, fysisk glob, hårdvara, affärsfrågor) planeras i Rikards Claude-projekt "Historia-globen", inte här. Om sådant kommer upp: påminn Rikard om det och skapa högst ett issue med etiketten `utanför-kod` som anteckning.
 
-## Nästa steg: version 2
-
-Mål: visa att lagertypen **område** fungerar, med utbredning som förändras över tid.
-
-1. **Ett rike som växer och krymper**, till exempel Romarriket eller Osmanska riket (fråga Rikard vilket). Datakälla: **Cliopatria** (Seshat), polity-gränser 3400 f.Kr.–2024 e.Kr., CC BY 4.0: https://zenodo.org/records/13363121 (artikel: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11822181/). Extrahera bara det rike som behövs, förenkla geometrin och spara i `data/` (håll filen liten). Rita områdena på `overlayCanvas` (beslut 1).
-2. **Dagens landsgränser** som ett filter att slå av och på (Natural Earth, public domain). De ska vara av som standard, eftersom de inte stämmer historiskt.
-3. **En religion som spreds**, som provexempel. Det finns ingen färdig global databas, så det blir några nyckelår med områden, var och en med källa.
-4. **Lagerväljare** i UI:t, så att man kan slå av och på lager (händelser, riken, gränser, religioner).
-
-Stanna efter version 2 och låt Rikard utvärdera innan mer data läggs in.
-
 ## Versionsplan
 
-Hela planen finns som milstolpar och issues i GitHub. Efter version 2 kommer fyra faser och två parallella spår:
+**GitHub-milstolparna är huvudkällan** för vad som ingår och vad som pågår. Versionsnumren nedan beskriver ordningen och upprepas inte i andra dokument. Version 2–4 och rikena R1–R6 är klara och släppta (senast v4.1.1). Ordningen ändrades 2026-10-31 (docs/beslut.md): först det som gör sidan stabil och användbar i skolan, sedan de dyra specialfunktionerna. Tekniska förutsättningar byggs före de funktioner som behöver dem.
 
-| Fas | Versioner | Innehåll |
-|---|---|---|
-| A: fler lagertyper | 3–5 | 3 Krig och slag, 4 Handelsvägar och upptäcktsresor, 5 Guidade turer |
-| B: tidens djup | 6–7 | 6 Människoarter, 7 Djup tid |
-| C: världen som karta | 8–10 | 8 Skolatlasen, 9 Flöden i nutid, 10 Rymden |
-| D: bredd och användare | 11–15 | 11 Hela världen, 12 Språk och sök, 13 Skolläge, 14 Vetenskap och medicin, 15 Temavyer (musik, litteratur, filosofi, ekonomi, Sverige) |
+| Version | Innehåll |
+|---|---|
+| 4.2 Stabilitet och tillgänglighet | Upptäcktsvyn (#375–#378), tangentbord och zoom (#386, #362), kontroll efter publicering (#388), läsbar tidslinje (#298), faktarutor och introduktion (#359, #363, #364) och små förenklingar |
+| 4.3 Teknisk grund | main.js delas upp och tillståndet blir centralt (#389), lättare mobilrendering (#390), JSON Schema (#391), lagertypen bildlager (#54) |
+| 5.0 Guidade berättelser | Turformat som data (#47) och en första tur (#13, andra världskriget); fler turer och berättelselägen därefter |
+| 5.1 Global täckning | Granskningsvy, mindre redigeringsfiler, täckningsrapport och innehåll i små batcher per region (#61, #62, #394) |
+| 5.2 Sök, delning och introduktion | "Vad hände här?" (#15), delbara länkar (#64), sök |
+| 6 Skolpilot | Lektionsturer, quiz och elevuppdrag (#66, #65, #250), läroplansreferenser, pilot med en lärare eller klass |
+| 7 Människans långa historia | Tidsmodell för ungefärliga datum, tidslinje i nivåer (#49), människoarter (#11) |
+| 8 Jordens historia | Eget läge med geologisk tidslinje och forntida kartor (#12, #51–#53) |
+| 9 Atlas och jämförelse | Jämför två tider (#248), historiska kartor (#249), skolatlasens bildlager (#8, #9, #55) |
 
-Parallella spår:
-- **Riken** (paket R1–R6) börjar efter version 2.
-- **Hårdvara** (H1–H3) börjar efter version 3. Det är anteckningar, och planeringen sker i Rikards Claude-projekt.
+Parallella spår (milstolpar utan versionsnummer, görs bredvid huvudversionerna):
+- **Innehållspaket:** vetenskap, medicin, teknik, rymdfärdens milstolpar (#84) och temavyer (musik, litteratur, filosofi, ekonomi, personer, byggnadsverk, perspektiv). Paketen blockerar inte varandra eller huvudversionerna.
+- **Riken:** R1–R6 är klara; kvar är småfrågor.
+- **Hårdvara** (H1–H3): anteckningar, planeringen sker i Rikards Claude-projekt.
+- **Experiment senare:** flöden i nutid (flyg, sjöfart), rymden (månen, satelliter, Mars) och översättning till fler språk.
 
 Regler:
 - **Varje version slutar med att Rikard utvärderar** innan nästa börjar.
