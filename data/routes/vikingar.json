@@ -1,0 +1,779 @@
+{
+  "routes": [
+    {
+      "id": "vikingar-ingolfr",
+      "kind": "voyage",
+      "category": "upptackter",
+      "title": {
+        "sv": "Ingólfr Arnarson bosätter sig på Island",
+        "en": "Ingólfr Arnarson settles in Iceland"
+      },
+      "summary": {
+        "sv": "Enligt Landnámabók lämnar Ingólfr Arnarson västra Norge efter en blodsfejd, tillsammans med sin fosterbror Hjörleifr. När Island syns kastar Ingólfr sina högsätesstolpar i havet och lovar att bosätta sig där gudarna låter dem flyta i land. Hjörleifr slår sig ner vid Hjörleifshöfði men dödas av sina trälar, som Ingólfr sedan jagar ner på Västmannaöarna. När stolparna till slut hittas i en vik grundar Ingólfr sin gård där, i det som blev Reykjavík, enligt traditionen år 874. Han räknas som Islands förste nordiske nybyggare.",
+        "en": "According to the Book of Settlements, Ingólfr Arnarson leaves western Norway after a blood feud, together with his foster brother Hjörleifr. When Iceland comes into sight, Ingólfr throws his high-seat pillars into the sea and vows to settle wherever the gods bring them ashore. Hjörleifr settles at Hjörleifshöfði but is killed by his slaves, whom Ingólfr later hunts down in the Westman Islands. When the pillars are finally found in a bay, Ingólfr builds his farm there, in what became Reykjavík, by tradition in 874. He is counted as the first Norse settler of Iceland."
+      },
+      "start": 874,
+      "end": 874,
+      "precision": 9,
+      "edtf": "0874~",
+      "note": {
+        "title": {
+          "sv": "Om årtalet",
+          "en": "About the date"
+        },
+        "text": {
+          "sv": "Årtalet 874 kommer från Landnámabók och Íslendingabók, som skrevs två till tre hundra år senare. Enligt berättelsen letade trälarna i tre år efter stolparna, så själva överfarten kan ha skett några år tidigare. Arkeologiska fynd tyder på att Island började befolkas något före 874. Linjen ritas därför år 874 och är streckad. Att Ingólfr kom från Rivedal i Sunnfjord står bara i den ena källan (Wikipedia).",
+          "en": "The year 874 comes from the Book of Settlements and the Book of Icelanders, written two to three centuries later. According to the story the slaves searched for the pillars for three years, so the crossing itself may have taken place a few years earlier. Archaeological finds suggest that settlement of Iceland began somewhat before 874. The line is therefore drawn in 874 and dashed. That Ingólfr came from Rivedal in Sunnfjord is stated in only one of the sources (Wikipedia)."
+        }
+      },
+      "sources": [
+        "wp-ingolfr-arnarson",
+        "whe-legendary-settlement-iceland",
+        "whe-vikings-in-iceland",
+        "wp-settlement-of-iceland",
+        "wikidata"
+      ],
+      "review": "two-sources",
+      "legs": [
+        {
+          "from": 874.3,
+          "to": 874.5,
+          "edtf": "0874~",
+          "uncertain": true,
+          "path": [
+            [
+              5.3,
+              61.4
+            ],
+            [
+              -1.0,
+              61.3
+            ],
+            [
+              -9.0,
+              61.6
+            ],
+            [
+              -15.0,
+              62.9
+            ],
+            [
+              -18.8,
+              63.4
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                5.3,
+                61.4
+              ],
+              "name": {
+                "sv": "Rivedal i Sunnfjord",
+                "en": "Rivedal in Sunnfjord"
+              }
+            },
+            {
+              "at": [
+                -18.8,
+                63.4
+              ],
+              "name": {
+                "sv": "Hjörleifshöfði",
+                "en": "Hjörleifshöfði"
+              }
+            }
+          ],
+          "sources": [
+            "wp-ingolfr-arnarson",
+            "whe-legendary-settlement-iceland",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 874.5,
+          "to": 874.7,
+          "edtf": "0874~",
+          "uncertain": true,
+          "path": [
+            [
+              -18.8,
+              63.4
+            ],
+            [
+              -20.3,
+              63.3
+            ],
+            [
+              -22.9,
+              63.8
+            ],
+            [
+              -22.4,
+              64.1
+            ],
+            [
+              -21.9,
+              64.1
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                -20.3,
+                63.4
+              ],
+              "name": {
+                "sv": "Västmannaöarna",
+                "en": "Westman Islands"
+              }
+            },
+            {
+              "at": [
+                -21.9,
+                64.1
+              ],
+              "name": {
+                "sv": "Reykjavík",
+                "en": "Reykjavík"
+              },
+              "edtf": "0874~"
+            }
+          ],
+          "sources": [
+            "wp-ingolfr-arnarson",
+            "whe-legendary-settlement-iceland",
+            "whe-vikings-in-iceland",
+            "wikidata"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vikingar-erik-rode",
+      "kind": "voyage",
+      "category": "upptackter",
+      "title": {
+        "sv": "Erik Röde till Grönland",
+        "en": "Erik the Red to Greenland"
+      },
+      "summary": {
+        "sv": "Omkring 982 döms Erik Röde fredlös från Island i tre år efter dråp. Från Breiðafjörður, där han bor, seglar han västerut mot ett land som andra nordbor sett men inte lyckats bosätta, rundar Grönlands sydspets och utforskar västkusten under exilåren. Han kallar landet Grönland för att locka nybyggare. Tillbaka på Island samlar han kolonister, och sommaren 985 eller 986 seglar 25 skepp mot Grönland, varav 14 kommer fram. Erik bygger gården Brattahlíð i Österbygden, där han blir hövding.",
+        "en": "Around 982 Erik the Red is outlawed from Iceland for three years after killings. From Breiðafjörður, where he lives, he sails west towards a land other Norsemen had seen but failed to settle, rounds the southern tip of Greenland and explores the west coast during his exile. He names the land Greenland to attract settlers. Back in Iceland he gathers colonists, and in the summer of 985 or 986 a fleet of 25 ships sails for Greenland, of which 14 arrive. Erik builds the farm of Brattahlíð in the Eastern Settlement, where he becomes chieftain."
+      },
+      "start": 982,
+      "end": 986,
+      "precision": 9,
+      "edtf": "0982~/0986~",
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig",
+          "en": "The sources differ"
+        },
+        "text": {
+          "sv": "Allt bygger på sagorna (främst Erik Rödes saga), som skrevs ned långt senare. Wikipedias artikel om Erik Röde och World History Encyclopedia anger att kolonisterna kom 985, medan Wikipedias artikel om Leif Eriksson anger 986. Siffran 25 skepp, varav 14 kom fram, står bara i Wikipedia. Att resorna började i Breiðafjörður är en slutsats av att Erik bodde där (på Brokey och Öxney) när han dömdes; källorna säger inte exakt var han lade ut.",
+          "en": "Everything rests on the sagas (mainly the Saga of Erik the Red), written down much later. Wikipedia's article on Erik the Red and World History Encyclopedia say the colonists came in 985, while Wikipedia's article on Leif Erikson says 986. The figure of 25 ships, 14 of which arrived, appears only in Wikipedia. That the voyages started in Breiðafjörður is inferred from Erik living there (on Brokey and Öxney) when he was outlawed; the sources do not say exactly where he set sail."
+        }
+      },
+      "sources": [
+        "wp-erik-the-red",
+        "whe-leif-erikson",
+        "wp-norse-settlement-north-america",
+        "wp-brattahlid",
+        "wikidata"
+      ],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 982.4,
+          "to": 982.7,
+          "edtf": "0982~",
+          "uncertain": true,
+          "path": [
+            [
+              -22.5,
+              65.1
+            ],
+            [
+              -23.6,
+              65.0
+            ],
+            [
+              -33.0,
+              63.0
+            ],
+            [
+              -41.5,
+              59.4
+            ],
+            [
+              -44.3,
+              59.5
+            ],
+            [
+              -46.5,
+              60.5
+            ],
+            [
+              -45.5,
+              61.2
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                -22.5,
+                65.1
+              ],
+              "name": {
+                "sv": "Brokey i Breiðafjörður",
+                "en": "Brokey in Breiðafjörður"
+              }
+            },
+            {
+              "at": [
+                -43.9,
+                59.8
+              ],
+              "name": {
+                "sv": "Grönlands sydspets (Kap Farvel)",
+                "en": "Southern tip of Greenland (Cape Farewell)"
+              }
+            }
+          ],
+          "sources": [
+            "wp-erik-the-red",
+            "whe-leif-erikson",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 985.4,
+          "to": 985.7,
+          "edtf": "0985~",
+          "uncertain": true,
+          "path": [
+            [
+              -23.3,
+              65.2
+            ],
+            [
+              -23.9,
+              65.0
+            ],
+            [
+              -33.0,
+              63.0
+            ],
+            [
+              -41.5,
+              59.4
+            ],
+            [
+              -44.3,
+              59.5
+            ],
+            [
+              -46.5,
+              60.5
+            ],
+            [
+              -45.5,
+              61.2
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                -23.3,
+                65.2
+              ],
+              "name": {
+                "sv": "Breiðafjörður",
+                "en": "Breiðafjörður"
+              }
+            },
+            {
+              "at": [
+                -45.5,
+                61.2
+              ],
+              "name": {
+                "sv": "Brattahlíð (Qassiarsuk)",
+                "en": "Brattahlíð (Qassiarsuk)"
+              },
+              "edtf": "0985~"
+            }
+          ],
+          "sources": [
+            "wp-erik-the-red",
+            "whe-leif-erikson",
+            "wp-brattahlid",
+            "wikidata"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vikingar-leif-eriksson",
+      "kind": "voyage",
+      "category": "upptackter",
+      "title": {
+        "sv": "Leif Eriksson till Vinland",
+        "en": "Leif Erikson to Vinland"
+      },
+      "summary": {
+        "sv": "Omkring år 1000 seglar Leif Eriksson, son till Erik Röde, från Grönland västerut mot ett land som enligt Grönlänningasagan hade setts av Bjarni Herjólfsson. Han passerar ett stenigt land, Helluland (troligen Baffinön eller norra Labrador), och ett skogsland, Markland (troligen Labrador), och övervintrar i ett frodigt land som han kallar Vinland. Där bygger besättningen hus, Leifsbúðir. På våren seglar Leif hem till Grönland med timmer och druvor. Lämningarna vid L'Anse aux Meadows på Newfoundland är de enda säkra spåren av nordbor i Nordamerika utanför Grönland, och det är omstritt om just de är Leifs läger.",
+        "en": "Around the year 1000 Leif Erikson, son of Erik the Red, sails west from Greenland towards a land that, according to the Saga of the Greenlanders, had been sighted by Bjarni Herjólfsson. He passes a rocky land, Helluland (probably Baffin Island or northern Labrador), and a forested land, Markland (probably Labrador), and winters in a fertile land he names Vinland. There the crew builds houses, Leifsbúðir. In spring Leif sails home to Greenland with timber and grapes. The remains at L'Anse aux Meadows in Newfoundland are the only certain traces of the Norse in North America outside Greenland, and whether they are Leif's camp is debated."
+      },
+      "start": 1000,
+      "end": 1001,
+      "precision": 8,
+      "edtf": "1000~/1001~",
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig",
+          "en": "The sources differ"
+        },
+        "text": {
+          "sv": "Resan är bara känd från de två Vinlandssagorna, som skrevs ned på 1200-talet och inte stämmer med varandra. Enligt Erik Rödes saga hittade Leif Vinland när han blåste ur kurs på väg från Norge till Grönland; enligt Grönlänningasagan, som linjen följer, var det Bjarni Herjólfsson som först såg landet. Om L'Anse aux Meadows är Leifsbúðir är omstritt: World History Encyclopedia ser ingen tvekan, medan Wikipedia skriver att platsen kan vara Leifsbúðir. Dateringarna skiljer sig också: 980–1020 enligt World History Encyclopedia, 990–1050 med kol-14 och träd som fälldes 1021 enligt Wikipedia. Året 1021 visar att nordbor var där då, inte när Leif kom.",
+          "en": "The voyage is known only from the two Vinland sagas, written down in the 13th century, which do not agree. According to the Saga of Erik the Red, Leif found Vinland when he was blown off course on his way from Norway to Greenland; according to the Saga of the Greenlanders, which the line follows, Bjarni Herjólfsson saw the land first. Whether L'Anse aux Meadows is Leifsbúðir is debated: World History Encyclopedia has no doubt, while Wikipedia says the site could be Leifsbúðir. The datings differ too: 980–1020 according to World History Encyclopedia, 990–1050 by radiocarbon and trees felled in 1021 according to Wikipedia. The year 1021 shows that the Norse were there then, not when Leif arrived."
+        }
+      },
+      "sources": [
+        "wp-leif-erikson",
+        "whe-leif-erikson",
+        "wp-norse-settlement-north-america",
+        "wp-lanse-aux-meadows",
+        "unesco-lanse-aux-meadows",
+        "wikidata"
+      ],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 1000.4,
+          "to": 1000.7,
+          "edtf": "1000~",
+          "uncertain": true,
+          "path": [
+            [
+              -45.5,
+              61.2
+            ],
+            [
+              -46.5,
+              60.6
+            ],
+            [
+              -53.0,
+              61.5
+            ],
+            [
+              -63.0,
+              61.0
+            ],
+            [
+              -62.0,
+              57.5
+            ],
+            [
+              -58.5,
+              54.5
+            ],
+            [
+              -55.6,
+              52.2
+            ],
+            [
+              -55.5,
+              51.6
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                -45.5,
+                61.2
+              ],
+              "name": {
+                "sv": "Brattahlíð",
+                "en": "Brattahlíð"
+              }
+            },
+            {
+              "at": [
+                -55.5,
+                51.6
+              ],
+              "name": {
+                "sv": "Vinland (kanske L'Anse aux Meadows)",
+                "en": "Vinland (perhaps L'Anse aux Meadows)"
+              }
+            }
+          ],
+          "sources": [
+            "wp-leif-erikson",
+            "whe-leif-erikson",
+            "wp-lanse-aux-meadows",
+            "unesco-lanse-aux-meadows",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1001.3,
+          "to": 1001.5,
+          "edtf": "1001~",
+          "uncertain": true,
+          "path": [
+            [
+              -55.5,
+              51.6
+            ],
+            [
+              -53.0,
+              54.0
+            ],
+            [
+              -48.0,
+              59.0
+            ],
+            [
+              -46.5,
+              60.6
+            ],
+            [
+              -45.5,
+              61.2
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                -45.5,
+                61.2
+              ],
+              "name": {
+                "sv": "Brattahlíð",
+                "en": "Brattahlíð"
+              }
+            }
+          ],
+          "sources": [
+            "wp-leif-erikson",
+            "whe-leif-erikson",
+            "wikidata"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vikingar-vagen-till-grekerna",
+      "kind": "trade",
+      "category": "ekonomi",
+      "title": {
+        "sv": "Vägen från varjagerna till grekerna",
+        "en": "The route from the Varangians to the Greeks"
+      },
+      "summary": {
+        "sv": "En handelsväg mellan Skandinavien, Kievriket och Bysans. Från handelsplatser som Birka och Gotland gick färden över Östersjön, in i Finska viken och via Neva och Ladoga upp längs Volchov förbi Staraja Ladoga och Novgorod. Över sjön Ilmen och längs Lovat nådde man vattendelaren, där båtarna drogs över land till Dnepr. Nedför Dnepr passerade man Kiev och de farliga forsarna, där nomader ofta anföll, och följde sedan Svarta havets västkust till Konstantinopel. Vägen kom troligen till kring år 800 och var viktigast från 900-talet till början av 1000-talet. Längs vägarna österut kom det mesta av det silver som fanns i Västeuropa.",
+        "en": "A trade route between Scandinavia, Kievan Rus' and Byzantium. From trading places such as Birka and Gotland it crossed the Baltic, entered the Gulf of Finland and went by the Neva and Lake Ladoga up the Volkhov past Staraya Ladoga and Novgorod. Across Lake Ilmen and up the Lovat it reached the watershed, where boats were hauled overland to the Dnieper. Down the Dnieper it passed Kiev and the dangerous rapids, where nomads often attacked, and then followed the western shore of the Black Sea to Constantinople. The route probably arose around 800 and was most important from the 10th to the early 11th century. Most of the silver coinage in Western Europe arrived from the East along such routes."
+      },
+      "start": 800,
+      "end": 1033,
+      "precision": 7,
+      "edtf": "0800~/1033~",
+      "note": {
+        "title": {
+          "sv": "Om tiden och vägen",
+          "en": "About the dates and the route"
+        },
+        "text": {
+          "sv": "Vägen nämns först i Nestorskrönikan från början av 1100-talet och beskrivs av kejsar Konstantin VII på 900-talet. Att den kom till i slutet av 700-talet eller början av 800-talet är en uppskattning, och slutåret 1033 motsvarar Wikipedias \"första tredjedelen av 1000-talet\", då vägen var som viktigast; handel fortsatte även senare. Sträckan mellan Lovat och Dnepr, med flera båtdrag, är osäker och ritas streckad.",
+          "en": "The route is first named in the Primary Chronicle of the early 12th century and described by Emperor Constantine VII in the 10th century. That it arose in the late 8th or early 9th century is an estimate, and the end year 1033 stands for Wikipedia's \"first third of the 11th century\", when the route was most important; trade continued later too. The stretch between the Lovat and the Dnieper, with several portages, is uncertain and drawn dashed."
+        }
+      },
+      "sources": [
+        "wp-route-varangians-greeks",
+        "wp-varangians",
+        "whe-kievan-rus",
+        "wikidata"
+      ],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 800,
+          "to": 1033,
+          "edtf": "0800~/1033~",
+          "path": [
+            [
+              17.5,
+              59.3
+            ],
+            [
+              19.2,
+              59.4
+            ],
+            [
+              22.5,
+              59.6
+            ],
+            [
+              26.0,
+              59.8
+            ],
+            [
+              30.3,
+              59.9
+            ],
+            [
+              31.0,
+              60.0
+            ],
+            [
+              32.3,
+              60.1
+            ],
+            [
+              32.3,
+              60.0
+            ],
+            [
+              31.3,
+              58.5
+            ],
+            [
+              31.3,
+              58.3
+            ],
+            [
+              31.4,
+              58.2
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                17.5,
+                59.3
+              ],
+              "name": {
+                "sv": "Birka",
+                "en": "Birka"
+              }
+            },
+            {
+              "at": [
+                31.5,
+                60.8
+              ],
+              "name": {
+                "sv": "Ladoga",
+                "en": "Lake Ladoga"
+              }
+            },
+            {
+              "at": [
+                32.3,
+                60.0
+              ],
+              "name": {
+                "sv": "Staraja Ladoga",
+                "en": "Staraya Ladoga"
+              }
+            },
+            {
+              "at": [
+                31.3,
+                58.5
+              ],
+              "name": {
+                "sv": "Novgorod",
+                "en": "Novgorod"
+              }
+            }
+          ],
+          "sources": [
+            "wp-route-varangians-greeks",
+            "wp-varangians",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 800,
+          "to": 1033,
+          "edtf": "0800~/1033~",
+          "uncertain": true,
+          "path": [
+            [
+              31.4,
+              58.2
+            ],
+            [
+              30.3,
+              55.8
+            ],
+            [
+              31.9,
+              54.8
+            ],
+            [
+              32.0,
+              54.8
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                30.3,
+                55.8
+              ],
+              "name": {
+                "sv": "Lovat",
+                "en": "Lovat river"
+              }
+            },
+            {
+              "at": [
+                32.0,
+                54.8
+              ],
+              "name": {
+                "sv": "Smolensk",
+                "en": "Smolensk"
+              }
+            }
+          ],
+          "sources": [
+            "wp-route-varangians-greeks",
+            "wp-varangians",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 800,
+          "to": 1033,
+          "edtf": "0800~/1033~",
+          "path": [
+            [
+              32.0,
+              54.8
+            ],
+            [
+              30.6,
+              52.0
+            ],
+            [
+              30.5,
+              50.5
+            ],
+            [
+              32.0,
+              49.5
+            ],
+            [
+              35.0,
+              48.4
+            ],
+            [
+              35.2,
+              48.2
+            ],
+            [
+              35.1,
+              47.8
+            ],
+            [
+              33.5,
+              46.8
+            ],
+            [
+              32.0,
+              46.6
+            ],
+            [
+              31.0,
+              46.4
+            ],
+            [
+              29.7,
+              45.2
+            ],
+            [
+              28.7,
+              44.2
+            ],
+            [
+              28.6,
+              42.5
+            ],
+            [
+              29.1,
+              41.1
+            ],
+            [
+              29.0,
+              41.0
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                30.5,
+                50.5
+              ],
+              "name": {
+                "sv": "Kiev (Kyiv)",
+                "en": "Kiev (Kyiv)"
+              }
+            },
+            {
+              "at": [
+                35.2,
+                48.2
+              ],
+              "name": {
+                "sv": "Dneprforsarna",
+                "en": "Dnieper rapids"
+              }
+            },
+            {
+              "at": [
+                29.7,
+                45.2
+              ],
+              "name": {
+                "sv": "Sulina (Donaudeltat)",
+                "en": "Sulina (Danube Delta)"
+              }
+            },
+            {
+              "at": [
+                28.6,
+                44.2
+              ],
+              "name": {
+                "sv": "Constantia (Constanța)",
+                "en": "Constantia (Constanța)"
+              }
+            },
+            {
+              "at": [
+                29.0,
+                41.0
+              ],
+              "name": {
+                "sv": "Konstantinopel (Miklagård)",
+                "en": "Constantinople (Miklagarðr)"
+              }
+            }
+          ],
+          "sources": [
+            "wp-route-varangians-greeks",
+            "wp-varangians",
+            "wikidata"
+          ]
+        }
+      ]
+    }
+  ]
+}

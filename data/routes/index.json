@@ -4,6 +4,9 @@
  "files": [
   "data/routes/zheng-he.json",
   "data/routes/columbus.json",
-  "data/routes/magellan.json"
+  "data/routes/magellan.json",
+  "data/routes/sidenvagen.json",
+  "data/routes/vikingar.json",
+  "data/routes/kryddvagarna.json"
  ]
 }

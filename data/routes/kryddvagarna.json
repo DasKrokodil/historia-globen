@@ -1,0 +1,282 @@
+{
+  "routes": [
+    {
+      "id": "kryddvag-egypten-indien",
+      "kind": "trade",
+      "category": "ekonomi",
+      "title": {
+        "sv": "Monsunvägen mellan Egypten och Indien",
+        "en": "The monsoon route between Egypt and India"
+      },
+      "summary": {
+        "sv": "Grekiska köpmän i det ptolemaiska Egypten börjar segla direkt till Indien med monsunvindarna; enligt källorna inleder Eudoxos från Kyzikos handeln omkring 130 f.Kr. När Rom tar Egypten 30 f.Kr. växer handeln kraftigt, och geografen Strabon skriver att upp till 120 fartyg om året avgår från Myos Hormos mot Indien. Varor från Indien lastas av i Röda havets hamnar Myos Hormos och Berenike, förs över öknen till Nilen vid Koptos och med båt till Alexandria. I Indien är Muziris på Malabarkusten och Barygaza i Gujarat viktiga hamnar, och peppar är en av de stora varorna. Handeln är som störst under de två första århundradena e.Kr. och upphör när Egypten går förlorat för det romerska riket på 600-talet.",
+        "en": "Greek merchants in Ptolemaic Egypt begin to sail directly to India using the monsoon winds; according to the sources, Eudoxus of Cyzicus starts the trade around 130 BC. When Rome takes Egypt in 30 BC the trade grows strongly, and the geographer Strabo writes that up to 120 ships a year leave Myos Hormos for India. Goods from India are landed at the Red Sea ports of Myos Hormos and Berenice, carried across the desert to the Nile at Coptos and by boat to Alexandria. In India, Muziris on the Malabar Coast and Barygaza in Gujarat are important ports, and pepper is one of the main goods. The trade peaks in the first two centuries AD and ends when the Roman Empire loses Egypt in the 7th century."
+      },
+      "start": -129,
+      "end": 640,
+      "edtf": "-0129~/0640~",
+      "precision": 7,
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig"
+        },
+        "text": {
+          "sv": "Om början: Wikipedias artikel om handeln i Indiska oceanen låter Eudoxos från Kyzikos inleda den direkta handeln 130 f.Kr., artikeln om kryddhandeln säger att grekerna i Egypten lärde sig monsunseglingen i slutet av 100-talet f.Kr., medan artikeln om handeln mellan Rom och Indien skriver att den södra vägen över Röda havet kom i gång först omkring år 1, efter att Rom erövrat Egypten. Om slutet: Wikipedia sätter slutet vid den arabiska erövringen av Egypten 639–640, medan World History Encyclopedia skriver att den bysantinska sjövägen tog slut redan när Bysans förlorade Egypten till sasaniderna. Linjen visas därför från 130 f.Kr. till 640, med osäkra ändar. Var Myos Hormos låg är omstritt; här används Quseir al-Qadim, som Wikipedia håller för troligast."
+        }
+      },
+      "sources": ["wp-indian-ocean-trade", "wp-indo-roman-trade", "wp-spice-trade", "whe-pepper-trade-power-shifts", "wikidata"],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": -129,
+          "to": 640,
+          "path": [[29.9, 31.2],[30.4, 31.0],[31.2, 30.1],[31.3, 29.0],[30.8, 28.1],[31.2, 27.2],[31.9, 26.3],[32.4, 26.1],[32.8, 26.0],[33.5, 26.1],[34.2, 26.2]],
+          "uncertain": true,
+          "places": [
+            { "at": [29.9, 31.2], "name": { "sv": "Alexandria", "en": "Alexandria" } },
+            { "at": [32.8, 26.0], "name": { "sv": "Koptos (nuvarande Qift) vid Nilen", "en": "Coptos (modern Qift) on the Nile" } },
+            { "at": [34.2, 26.2], "name": { "sv": "Myos Hormos (troligen Quseir al-Qadim)", "en": "Myos Hormos (probably Quseir al-Qadim)" } }
+          ],
+          "sources": ["wp-indo-roman-trade", "wp-spice-trade", "wikidata"]
+        },
+        {
+          "from": -129,
+          "to": 640,
+          "path": [[34.2, 26.2],[34.6, 25.9],[35.2, 25.0],[35.7, 23.9],[36.8, 22.5],[38.3, 20.5],[39.5, 17.5],[41.0, 15.5],[42.4, 13.6],[43.4, 12.6],[44.2, 12.4],[45.0, 12.7],[50.0, 13.0],[55.0, 13.2],[65.0, 12.0],[72.0, 10.8],[76.1, 10.2]],
+          "uncertain": true,
+          "places": [
+            { "at": [35.5, 23.9], "name": { "sv": "Berenike", "en": "Berenice" } },
+            { "at": [45.0, 12.8], "name": { "sv": "Aden (Eudaimon Arabia)", "en": "Aden (Eudaimon Arabia)" } },
+            { "at": [76.2, 10.2], "name": { "sv": "Muziris (troligen vid Pattanam nära Kodungallur)", "en": "Muziris (probably near Pattanam by Kodungallur)" } }
+          ],
+          "sources": ["wp-indo-roman-trade", "wp-indian-ocean-trade", "wp-spice-trade", "wikidata"]
+        },
+        {
+          "from": -129,
+          "to": 640,
+          "path": [[45.0, 12.7],[50.0, 14.0],[60.0, 18.0],[68.0, 20.5],[71.0, 20.4],[72.4, 21.0],[72.6, 21.6],[73.0, 21.7]],
+          "uncertain": true,
+          "places": [
+            { "at": [73.0, 21.7], "name": { "sv": "Barygaza (nuvarande Bharuch)", "en": "Barygaza (modern Bharuch)" } }
+          ],
+          "sources": ["wp-indo-roman-trade", "wikidata"]
+        }
+      ]
+    },
+    {
+      "id": "kryddvag-malacka",
+      "kind": "trade",
+      "category": "ekonomi",
+      "title": {
+        "sv": "Kryddvägen från Molucker via Malacka till Venedig",
+        "en": "The spice route from the Moluccas via Malacca to Venice"
+      },
+      "summary": {
+        "sv": "Kryddnejlika, muskotnöt och muskotblomma växer bara på Moluckerna och Bandaöarna i östra Indonesien. På 1400-talet fraktas de till Malacka på Malackahalvön, som blir den stora omlastningshamnen mellan Indiska oceanen och Sydkinesiska havet. Fartygen kommer till Malacka med nordostmonsunen och seglar vidare västerut med sydvästmonsunen, ofta via Ceylon, till Calicut på Malabarkusten, världens främsta källa till peppar. Därifrån går kryddorna till Hormuz vid Persiska viken och via Aden och Jidda i Röda havet till Egypten, där venetianska köpmän köper dem i Alexandria och för dem vidare till Europa. Kedjan bryts när portugiserna erövrar Malacka 1511.",
+        "en": "Cloves, nutmeg and mace grow only in the Moluccas and the Banda Islands in eastern Indonesia. In the 15th century they are shipped to Malacca on the Malay Peninsula, which becomes the great transshipment port between the Indian Ocean and the South China Sea. Ships reach Malacca with the northeast monsoon and sail on westwards with the southwest monsoon, often via Ceylon, to Calicut on the Malabar Coast, the world's leading source of pepper. From there the spices go to Hormuz on the Persian Gulf and via Aden and Jeddah on the Red Sea to Egypt, where Venetian merchants buy them in Alexandria and carry them on to Europe. The chain is broken when the Portuguese conquer Malacca in 1511."
+      },
+      "start": 1400,
+      "end": 1511,
+      "edtf": "1400~/1511-08-15",
+      "precision": 8,
+      "note": {
+        "title": {
+          "sv": "Om vägen"
+        },
+        "text": {
+          "sv": "Malackas grundande sätts traditionellt till omkring 1400, men även tidigare år har föreslagits. Källorna säger att varorna gick från Röda havet till Egypten men inte vilken väg genom Egypten, så linjen har ett avbrott mellan Jidda och Alexandria."
+        }
+      },
+      "sources": ["wp-malacca-sultanate", "wp-spice-trade", "wp-indian-ocean-trade", "wp-kozhikode", "whe-indian-ocean-trade-before-conquest", "whe-pepper-trade-power-shifts", "wikidata"],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 1400,
+          "to": 1511,
+          "path": [[129.9, -4.6],[127.0, -5.5],[123.0, -6.5],[121.0, -6.8],[119.0, -6.5],[115.0, -5.5],[111.0, -5.0],[109.0, -3.5],[108.9, -1.5],[107.0, 0.5],[104.8, 1.3],[104.2, 1.3],[103.9, 1.15],[103.6, 1.2],[102.6, 1.8],[102.3, 2.2]],
+          "uncertain": true,
+          "places": [
+            { "at": [129.9, -4.6], "name": { "sv": "Bandaöarna", "en": "Banda Islands" } },
+            { "at": [102.3, 2.2], "name": { "sv": "Malacka", "en": "Malacca" } }
+          ],
+          "sources": ["wp-malacca-sultanate", "whe-indian-ocean-trade-before-conquest", "wikidata"]
+        },
+        {
+          "from": 1400,
+          "to": 1511,
+          "path": [[102.3, 2.2],[102.1, 2.1],[101.5, 2.5],[100.9, 2.9],[99.5, 4.3],[98.0, 5.8],[95.5, 6.2],[90.0, 6.0],[84.0, 5.8],[81.0, 5.6],[80.0, 5.8],[79.6, 6.5],[79.8, 6.9],[79.5, 7.0],[77.5, 7.6],[76.5, 8.6],[75.9, 10.3],[75.6, 11.0],[75.7, 11.2]],
+          "uncertain": true,
+          "places": [
+            { "at": [79.9, 6.9], "name": { "sv": "Colombo på Ceylon", "en": "Colombo, Ceylon" } },
+            { "at": [75.8, 11.2], "name": { "sv": "Calicut (Kozhikode)", "en": "Calicut (Kozhikode)" } }
+          ],
+          "sources": ["wp-malacca-sultanate", "wp-spice-trade", "whe-indian-ocean-trade-before-conquest", "wikidata"]
+        },
+        {
+          "from": 1400,
+          "to": 1511,
+          "path": [[75.7, 11.2],[72.0, 12.0],[65.0, 13.0],[55.0, 13.2],[50.0, 13.0],[45.0, 12.7],[44.2, 12.4],[43.4, 12.6],[42.4, 13.6],[41.0, 15.5],[40.0, 17.5],[39.0, 21.0],[39.2, 21.5]],
+          "uncertain": true,
+          "places": [
+            { "at": [45.0, 12.8], "name": { "sv": "Aden", "en": "Aden" } },
+            { "at": [39.2, 21.5], "name": { "sv": "Jidda", "en": "Jeddah" } }
+          ],
+          "sources": ["wp-spice-trade", "wp-indian-ocean-trade", "whe-indian-ocean-trade-before-conquest", "wikidata"]
+        },
+        {
+          "from": 1400,
+          "to": 1511,
+          "path": [[75.7, 11.2],[72.0, 15.0],[67.0, 21.0],[62.0, 24.5],[60.0, 24.8],[58.0, 25.3],[57.0, 25.9],[56.6, 26.5],[56.5, 27.0]],
+          "uncertain": true,
+          "places": [
+            { "at": [56.5, 27.1], "name": { "sv": "Hormuz", "en": "Hormuz" } }
+          ],
+          "sources": ["wp-spice-trade", "whe-indian-ocean-trade-before-conquest", "wikidata"]
+        },
+        {
+          "from": 1400,
+          "to": 1511,
+          "path": [[29.9, 31.2],[28.0, 32.5],[25.0, 34.5],[23.0, 34.6],[22.0, 36.0],[20.5, 37.5],[19.5, 39.5],[19.0, 40.3],[17.0, 42.0],[14.5, 44.0],[12.5, 45.3],[12.3, 45.4]],
+          "uncertain": true,
+          "places": [
+            { "at": [29.9, 31.2], "name": { "sv": "Alexandria", "en": "Alexandria" } },
+            { "at": [12.3, 45.4], "name": { "sv": "Venedig", "en": "Venice" } }
+          ],
+          "sources": ["wp-malacca-sultanate", "whe-pepper-trade-power-shifts", "wikidata"]
+        }
+      ]
+    },
+    {
+      "id": "kryddvag-swahilikusten",
+      "kind": "trade",
+      "category": "ekonomi",
+      "title": {
+        "sv": "Swahilikusten och Arabien",
+        "en": "The Swahili coast and Arabia"
+      },
+      "summary": {
+        "sv": "Handelsstäderna på Östafrikas kust, från Sofala i söder till Mogadishu i norr, lever på handeln över Indiska oceanen. På 1180-talet tar Kilwa kontrollen över Sofala, hamnen för guldet från Stora Zimbabwes guldfält, och blir en av de mäktigaste städerna längs kusten. Kilwas köpmän köper tyger och kryddor från Arabien, Persien och Indien och betalar med guld och elfenben från inlandet. Fartygen följer monsunvindarna: över havet mot Indien på sommaren och tillbaka till Afrika på vintern. Den marockanske resenären Ibn Battuta seglar omkring 1330 från Aden via Zeila, Mogadishu och Mombasa till Kilwa och tillbaka till Oman och Hormuz. Handeln bryts när portugiserna erövrar Kilwa och bygger ett fort i Sofala 1505.",
+        "en": "The trading towns of the East African coast, from Sofala in the south to Mogadishu in the north, live off trade across the Indian Ocean. In the 1180s Kilwa takes control of Sofala, the port for gold from the gold fields of Great Zimbabwe, and becomes one of the most powerful towns on the coast. Kilwa's merchants buy cloth and spices from Arabia, Persia and India and pay with gold and ivory from the interior. Ships follow the monsoon winds: across the sea towards India in summer and back to Africa in winter. Around 1330 the Moroccan traveller Ibn Battuta sails from Aden via Zeila, Mogadishu and Mombasa to Kilwa and back to Oman and Hormuz. The trade is broken when the Portuguese conquer Kilwa and build a fort at Sofala in 1505."
+      },
+      "start": 1180,
+      "end": 1505,
+      "edtf": "1180~/1505",
+      "precision": 7,
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig"
+        },
+        "text": {
+          "sv": "Wikipedias artikel om Sofala säger att Kilwas sultan Suleiman Hassan tog Sofala på 1180-talet, och artikeln om Kilwasultanatet sätter hans regering till omkring 1178–1195 (enligt krönikan från 1170 och i 18 år). Artikeln om Swahilikusten skriver i stället att Kilwa tog över guldhandeln från Banadir först på 1200-talet. Även Ibn Battutas resa är osäkert daterad: källan anger 1330 eller 1332. Kilwas fartyg seglade också till Indien, men källorna nämner ingen bestämd hamn där, så den sträckan är inte ritad."
+        }
+      },
+      "sources": ["wp-kilwa-sultanate", "wp-sofala", "wp-swahili-coast", "wp-ibn-battuta", "whe-indian-ocean-trade-before-conquest", "wikidata"],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 1180,
+          "to": 1505,
+          "path": [[34.7, -20.2],[35.3, -20.5],[36.5, -19.5],[38.0, -18.2],[40.0, -16.8],[41.2, -15.0],[41.0, -11.0],[40.0, -9.0],[39.6, -9.0],[40.2, -7.5],[40.2, -5.0],[39.7, -4.1],[40.0, -3.8],[40.1, -3.2],[40.6, -2.9],[41.7, -2.2],[43.0, -1.0],[44.8, 1.0],[45.3, 2.0]],
+          "uncertain": true,
+          "places": [
+            { "at": [34.7, -20.2], "name": { "sv": "Sofala", "en": "Sofala" } },
+            { "at": [39.5, -9.0], "name": { "sv": "Kilwa", "en": "Kilwa" } },
+            { "at": [39.7, -4.1], "name": { "sv": "Mombasa", "en": "Mombasa" } },
+            { "at": [40.1, -3.2], "name": { "sv": "Malindi", "en": "Malindi" } },
+            { "at": [45.3, 2.0], "name": { "sv": "Mogadishu", "en": "Mogadishu" } }
+          ],
+          "sources": ["wp-kilwa-sultanate", "wp-sofala", "wp-swahili-coast", "whe-indian-ocean-trade-before-conquest", "wikidata"]
+        },
+        {
+          "from": 1180,
+          "to": 1505,
+          "path": [[45.3, 2.0],[45.6, 1.9],[47.0, 2.8],[49.0, 5.5],[51.0, 9.0],[51.7, 10.5],[52.0, 11.9],[51.0, 12.2],[49.0, 12.4],[46.5, 12.5],[45.0, 12.7]],
+          "uncertain": true,
+          "places": [
+            { "at": [45.0, 12.8], "name": { "sv": "Aden", "en": "Aden" } }
+          ],
+          "sources": ["wp-ibn-battuta", "wikidata"]
+        },
+        {
+          "from": 1180,
+          "to": 1505,
+          "path": [[39.6, -9.0],[41.5, -7.0],[47.0, 0.0],[52.0, 8.0],[55.0, 11.5],[56.0, 15.0],[60.5, 22.5],[60.0, 24.8],[58.0, 25.3],[57.0, 25.9],[56.6, 26.5],[56.5, 27.0]],
+          "uncertain": true,
+          "places": [
+            { "at": [56.5, 27.1], "name": { "sv": "Hormuz", "en": "Hormuz" } }
+          ],
+          "sources": ["wp-ibn-battuta", "wp-kilwa-sultanate", "wikidata"]
+        }
+      ]
+    },
+    {
+      "id": "kryddvag-kaprutten",
+      "kind": "trade",
+      "category": "ekonomi",
+      "title": {
+        "sv": "Portugisernas väg runt Godahoppsudden",
+        "en": "The Portuguese route around the Cape of Good Hope"
+      },
+      "summary": {
+        "sv": "År 1498 når Vasco da Gama Calicut i Indien runt Afrikas sydspets, och därefter skickar Portugal en flotta till Indien varje år, Carreira da Índia. Flottan lämnar Lisabon på våren, stannar vid Kap Verdeöarna, svänger ut mot Brasilien för att få medvind och korsar södra Atlanten till Godahoppsudden. Efter Moçambiqueön och ibland Malindi tar den sydvästmonsunen över Indiska oceanen och kommer fram i september. Målet är först Cochin, där portugiserna har sin första handelsstation, och efter 1510 Goa. Hemresan börjar i december eller januari med nordostmonsunen. Under 1500-talet är flottan den viktigaste bäraren av kryddor mellan Asien och Europa, och efter erövringen av Malacka 1511 når portugiserna också kryddorna i Sydostasien. Monopolet bryts när holländare och engelsmän kommer in i början av 1600-talet.",
+        "en": "In 1498 Vasco da Gama reaches Calicut in India around the southern tip of Africa, and from then on Portugal sends a fleet to India every year, the Carreira da Índia. The fleet leaves Lisbon in spring, stops at the Cape Verde Islands, swings out towards Brazil to find favourable winds and crosses the South Atlantic to the Cape of Good Hope. After Mozambique Island and sometimes Malindi it takes the southwest monsoon across the Indian Ocean and arrives in September. The destination is first Cochin, where the Portuguese have their first trading post, and after 1510 Goa. The voyage home begins in December or January with the northeast monsoon. During the 16th century the fleet is the main carrier of spices between Asia and Europe, and after the conquest of Malacca in 1511 the Portuguese also reach the spices of Southeast Asia. The monopoly is broken when the Dutch and English arrive in the early 17th century."
+      },
+      "start": 1498,
+      "end": 1650,
+      "edtf": "1498/1650",
+      "precision": 9,
+      "note": {
+        "title": {
+          "sv": "Om vägen"
+        },
+        "text": {
+          "sv": "Linjen visar den vanliga utresan, den inre vägen genom Moçambiquekanalen, och den yttre hemvägen öster om Madagaskar som alla hemvändande flottor skulle ta 1525–1579. Slutåret 1650 är slutet på den period för vilken källan räknar avresorna (1 033 fartyg från Lisabon 1497–1650); vägen runt Godahoppsudden användes sedan av holländare och engelsmän fram till Suezkanalen 1869. Portugiserna förlorade Malacka till holländarna 1641."
+        }
+      },
+      "sources": ["wp-portuguese-india-armadas", "wp-cape-route", "wp-spice-trade", "wp-malacca-sultanate", "wikidata"],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 1498,
+          "to": 1650,
+          "path": [[-9.1, 38.7],[-9.6, 38.5],[-12.0, 35.0],[-19.5, 28.0],[-20.0, 22.0],[-22.5, 18.5],[-24.0, 16.5],[-23.4, 15.0],[-20.0, 10.0],[-18.0, 6.0],[-25.0, 0.0],[-32.0, -6.0],[-34.6, -8.3],[-35.0, -12.0],[-33.0, -18.0],[-29.3, -20.5],[-20.0, -27.0],[-5.0, -33.0],[10.0, -36.0],[18.5, -35.0],[21.0, -36.0],[26.0, -35.5],[32.0, -31.5],[37.0, -27.0],[40.0, -23.0],[41.2, -20.0],[40.8, -17.0],[40.9, -15.0],[41.2, -13.0],[40.9, -10.5],[40.5, -8.0],[40.3, -5.0],[40.4, -3.2],[45.0, 0.0],[55.0, 6.0],[65.0, 11.0],[72.0, 14.0],[74.0, 14.8],[73.6, 15.4],[73.5, 15.0],[74.2, 13.0],[74.9, 11.5],[75.8, 10.3],[76.2, 10.0]],
+          "uncertain": true,
+          "places": [
+            { "at": [-9.1, 38.7], "name": { "sv": "Lissabon", "en": "Lisbon" } },
+            { "at": [-23.6, 15.1], "name": { "sv": "Santiago, Kap Verdeöarna", "en": "Santiago, Cape Verde Islands" } },
+            { "at": [-35.0, -8.3], "name": { "sv": "Kap Santo Agostinho, Brasilien (sällan uppehåll)", "en": "Cape Santo Agostinho, Brazil (rarely a stop)" } },
+            { "at": [-29.1, -20.5], "name": { "sv": "Trindade", "en": "Trindade" } },
+            { "at": [18.5, -34.4], "name": { "sv": "Godahoppsudden", "en": "Cape of Good Hope" } },
+            { "at": [40.7, -15.0], "name": { "sv": "Moçambiqueön", "en": "Mozambique Island" } },
+            { "at": [40.1, -3.2], "name": { "sv": "Malindi", "en": "Malindi" } },
+            { "at": [74.1, 14.8], "name": { "sv": "Anjediva", "en": "Anjediva" } },
+            { "at": [73.9, 15.5], "name": { "sv": "Goa (från 1510)", "en": "Goa (from 1510)" }, "edtf": "1510/.." },
+            { "at": [76.3, 10.0], "name": { "sv": "Cochin", "en": "Cochin" } }
+          ],
+          "sources": ["wp-portuguese-india-armadas", "wp-cape-route", "wikidata"]
+        },
+        {
+          "from": 1498,
+          "to": 1650,
+          "path": [[76.2, 10.0],[72.0, 4.0],[63.0, -8.0],[60.0, -20.0],[51.0, -27.0],[40.0, -32.0],[30.0, -35.5],[20.0, -36.0],[12.0, -30.0],[0.0, -20.0],[-8.0, -16.0],[-16.0, -8.0],[-25.0, 5.0],[-30.0, 20.0],[-30.0, 34.0],[-27.0, 36.5],[-20.0, 39.0],[-12.0, 39.0],[-9.6, 38.6],[-9.1, 38.7]],
+          "uncertain": true,
+          "places": [
+            { "at": [-5.7, -16.0], "name": { "sv": "S:t Helena", "en": "Saint Helena" } },
+            { "at": [-28.0, 38.6], "name": { "sv": "Azorerna", "en": "Azores" } }
+          ],
+          "sources": ["wp-portuguese-india-armadas", "wikidata"]
+        },
+        {
+          "from": 1511,
+          "to": 1641,
+          "path": [[76.2, 10.0],[75.9, 9.0],[77.0, 7.6],[80.5, 5.6],[86.0, 5.8],[94.5, 6.3],[96.0, 6.2],[97.5, 5.8],[99.5, 4.3],[101.0, 3.0],[101.5, 2.5],[102.1, 2.1],[102.3, 2.2]],
+          "uncertain": true,
+          "places": [
+            { "at": [102.3, 2.2], "name": { "sv": "Malacka (portugisisk 1511–1641)", "en": "Malacca (Portuguese 1511–1641)" }, "edtf": "1511-08-15/1641" }
+          ],
+          "sources": ["wp-spice-trade", "wp-malacca-sultanate", "wikidata"]
+        }
+      ]
+    }
+  ]
+}
