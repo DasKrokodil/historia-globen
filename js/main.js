@@ -12,7 +12,7 @@ import { OriginMarkers } from './layers/origins.js';
 import { EmpireMarkers } from './layers/empiremarks.js';
 import { entry as warsEntry } from './layers/wars.js';
 import { entry as routesEntry } from './layers/lines.js';
-import { DiscoveryLayer } from './layers/discovery.js';
+import { entry as discoveryEntry } from './layers/discovery.js';
 import { Panel } from './ui/panel.js';
 import { FunFacts, empireStory } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
@@ -88,10 +88,6 @@ async function start() {
   const empireMarks = new EmpireMarkers(globe, $('labels'));
   empireMarks.onPick = m => showEmpireFacts(m.group, m.own ? m.polity : null);
 
-  // Upptäcktsvyn (#101): gammal kartstil, segelskepp och dimma som resorna lyfter. Bilderna laddas när den slås på.
-  const discovery = new DiscoveryLayer(data.discovery, data.land);
-  let discoveryRaf = 0;
-  discovery.onImage = () => { cancelAnimationFrame(discoveryRaf); discoveryRaf = requestAnimationFrame(() => refresh()); };
   // Det gemensamma tillståndet och lagerregistret (#338)
   const state = createState();
   const registry = new LayerRegistry();
@@ -134,16 +130,8 @@ async function start() {
     drawOverlay: (c, w, h) => religions.drawOverlay(c, w, h) });
   // Vägar och resor (#38)
   const routes = registry.add(routesEntry(env));
-  // Upptäcktsvyns rad i teckenförklaringen (#101): perspektivet och krediten för kartbilderna, med länk till filsidorna
-  const discoveryNote = data.discovery && {
-    perspective: t(data.discovery.perspective), credit: t(data.discovery.credit),
-    sources: [...new Set((data.discovery.decorations ?? []).map(d => d.source))].map(id => data.srcById[id]).filter(Boolean),
-  };
-  registry.add({ id: 'discovery', name: 'Upptäcktsvy', layer: discovery,
-    enabled: s => s.layers.discovery && !!data.discovery,
-    update: s => discovery.update({ year: s.year, fine: s.fine, lines: routes }),
-    legend: () => ({ discovery: discovery.enabled ? discoveryNote : null }),
-    passes: [{ z: Z.paper, draw: (c, w, h) => discovery.drawPaper(c, w, h) }, { z: Z.discovery, draw: (c, w, h) => discovery.drawOverlay(c, w, h) }] });
+  // Upptäcktsvyn (#101): gammal kartstil, segelskepp och dimma som resorna lyfter
+  registry.add(discoveryEntry(env));
   registry.add(bordersEntry(env));
   registry.add(warsEntry(env));
   const panel = new Panel({
