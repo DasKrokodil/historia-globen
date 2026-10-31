@@ -1,7 +1,8 @@
 {
-  "about": "Grupperna och de förinställda vyerna i Lager (#357). Varje lager anger sin grupp i lagerregistret (fältet group). En vy slår på lagren i layers och slår av de andra lagren i grupper som inte är inställningar. Stämmer valen inte med någon vy visas custom.",
+  "about": "Grupperna och de förinställda vyerna i Lager (#357, #380). Varje lager anger sin grupp i lagerregistret (fältet group). En vy slår på lagren i layers och slår av de andra lagren i grupper som inte är inställningar. Stämmer valen inte med någon vy visas custom. De enskilda valen ligger bakom customize.",
   "title": { "sv": "Vy", "en": "View" },
   "custom": { "sv": "Anpassad", "en": "Custom" },
+  "customize": { "sv": "Anpassa själv", "en": "Customize" },
   "groups": [
     { "id": "people", "name": { "sv": "Människor och händelser", "en": "People and events" } },
     { "id": "power", "name": { "sv": "Makt, tro och gränser", "en": "Power, faith and borders" } },

@@ -17,7 +17,7 @@ export async function loadViews() {
   try {
     const doc = await getJSON('data/vyer.json');
     return {
-      title: t(doc.title), custom: t(doc.custom),
+      title: t(doc.title), custom: t(doc.custom), customize: t(doc.customize),
       groups: doc.groups.map(g => ({ ...g, name: t(g.name) })),
       views: doc.views.map(v => ({ ...v, name: t(v.name) })),
     };
@@ -89,8 +89,9 @@ export class LayerMenu {
   }
 
   /**
-   * De förinställda vyerna överst i menyn (#357): en knapp per vy, och märket "Anpassad" när valen inte
-   * stämmer med någon vy. Knapparna nås med Tab och väljs med Enter eller mellanslag.
+   * De förinställda vyerna överst i menyn (#357, #380): en knapp per vy, och märket "Anpassad" när valen
+   * inte stämmer med någon vy. Alla enskilda val ligger på nivå två bakom "Anpassa själv".
+   * Knapparna nås med Tab och väljs med Enter eller mellanslag.
    */
   buildViews(views) {
     this.views = views?.views?.length ? views : null;
@@ -117,9 +118,33 @@ export class LayerMenu {
     this.customChip.className = 'view-chip view-custom';
     this.customChip.textContent = views.custom;
     row.append(this.customChip);
-    box.append(head, row);
-    this.menu.insertBefore(box, this.menu.firstChild);
+    this.customBtn = document.createElement('button');
+    this.customBtn.type = 'button'; this.customBtn.className = 'layer-customize';
+    this.customBtn.id = 'layer-customize'; this.customBtn.setAttribute('aria-controls', 'layer-custom');
+    this.customBtn.append(document.createTextNode(views.customize));
+    const chev = document.createElement('span');
+    chev.className = 'layer-customize-chev'; chev.setAttribute('aria-hidden', 'true');
+    this.customBtn.append(chev);
+    this.customBox = document.createElement('div');
+    this.customBox.className = 'layer-custom'; this.customBox.id = 'layer-custom';
+    while (this.menu.firstChild) this.customBox.append(this.menu.firstChild);
+    let customOpen = false;
+    try { customOpen = sessionStorage.getItem('hg-layer-customize') === '1'; } catch { /* utan lagring */ }
+    this.customBtn.addEventListener('click', () => this.setCustomOpen(this.customBox.hidden));
+    box.append(head, row, this.customBtn);
+    this.menu.append(box, this.customBox);
+    this.setCustomOpen(customOpen, false);
     this.syncView();
+  }
+
+  /** Visar eller döljer de enskilda lagren och minns nivån under den här flikens besök (#380). */
+  setCustomOpen(open, save = true) {
+    if (!this.customBox) return;
+    this.customBox.hidden = !open;
+    this.customBtn.setAttribute('aria-expanded', String(open));
+    if (save) {
+      try { sessionStorage.setItem('hg-layer-customize', open ? '1' : '0'); } catch { /* utan lagring */ }
+    }
   }
 
   /** Vyn som stämmer med valen just nu, eller null (Anpassad). */

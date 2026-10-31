@@ -124,6 +124,7 @@ async function run(browser, vp) {
   const setLayer = async (name, on) => {
     if (await page.isHidden('#layer-menu')) { await page.click('#btn-layers'); await visible('#layer-menu'); }
     const box = page.locator(layerRow(name));
+    if (await box.isHidden()) { await page.click('#layer-customize'); await box.waitFor({ state: 'visible', timeout: T.step }); }
     if ((await box.isChecked()) !== on) await box.click();
   };
   // Slår av ett lager, väntar på att kartan står still, slår på det och väntar på att minst min pixlar ändras.
@@ -174,12 +175,25 @@ async function run(browser, vp) {
   await check('Lager öppnas', async () => {
     await page.click('#btn-layers');
     await visible('#layer-menu');
+    if (!(await page.locator('#layer-custom').isHidden())) throw new Error('de enskilda lagren är öppna på första nivån');
+    const views = await page.locator('#layer-menu .view-chip[data-view]').count();
+    if (views < 3) throw new Error(`bara ${views} färdiga vyer i menyn`);
     const n = await page.locator('#layer-menu input[data-layer]').count();
     if (n < 3) throw new Error(`bara ${n} lager i menyn`);
     await shot('3-lager');
+    await page.click('#layer-customize');
+    await visible('#layer-custom');
+    const menuWidth = await page.locator('#layer-menu').evaluate(el => ({ scroll: el.scrollWidth, client: el.clientWidth }));
+    if (menuWidth.scroll > menuWidth.client) throw new Error(`Lager-menyn är ${menuWidth.scroll}px bred i en yta på ${menuWidth.client}px`);
+    await shot('3-lager-anpassa');
     await page.keyboard.press('Escape');
     await hidden('#layer-menu');
-    return `${n} lager`;
+    await page.click('#btn-layers');
+    await visible('#layer-menu');
+    await visible('#layer-custom');
+    await page.keyboard.press('Escape');
+    await hidden('#layer-menu');
+    return `${views} vyer, ${n} lager; Anpassa själv minns öppet läge`;
   });
 
   await check('Fokus öppnas och följer ett rike', async () => {

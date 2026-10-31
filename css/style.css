@@ -330,6 +330,20 @@ body {
 .view-chip[aria-pressed="true"] { background: var(--brass); border-color: var(--brass); color: var(--night); }
 .view-custom { cursor: default; border-style: dashed; border-color: var(--brass-deep); color: var(--brass); font-style: italic; }
 .view-custom[hidden] { display: none; }
+.layer-customize {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: calc(100% - 20px); min-height: 36px; margin: 0 10px 6px; padding: 7px 12px;
+  font: 500 12.5px/1 var(--f-body); color: var(--brass); background: var(--night-3);
+  border: 1px solid var(--line); border-radius: 8px; cursor: pointer;
+}
+.layer-customize:hover { border-color: var(--brass-deep); }
+.layer-customize-chev {
+  width: 6px; height: 6px; border: solid currentColor; border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg) translateY(-2px); transition: transform .16s ease;
+}
+.layer-customize[aria-expanded="true"] .layer-customize-chev { transform: rotate(225deg) translate(-1px, -1px); }
+.layer-custom[hidden] { display: none; }
+@media (max-width: 760px) { .layer-customize { min-height: 44px; } }
 
 /* ---------- panel: "Samtidigt i världen" som utfällbar meny (#112) ---------- */
 .panel {
