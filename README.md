@@ -54,7 +54,10 @@ python3 -m http.server 8000
 ```
 index.html
 css/style.css
-js/main.js            startar allt och kopplar ihop delarna
+js/main.js            startar allt och kopplar ihop registret, tidslinjen och panelerna
+js/state.js           det gemensamma tillståndet som lagren läser (år, fokus, filter, valda lager, #338)
+js/layers/registry.js lagerregistret: rader i Lager, ritordning, dämpning i fokus, teckenförklaring (#338)
+js/layers/index.js    lagerlistan: alla lager som anmäler sig i registret (#338)
 js/model.js           språk, kategorier, tidsformat, laddning av data
 js/globe.js           3D-globen (three.js), ekvirektangulär rendering
 js/timeline.js        tidsreglage, segmenterad tidsskala, nuvarande år
