@@ -15,6 +15,7 @@
 // Allt ritas bara om när något ändras: året, lagren, zoom, panorering, hovring eller bågarna.
 import { medalTexture, medalSize, glyph } from '../layers/events.js';
 import { cluster, clusterContents, placeLabels, dotBox } from './clusters.js';
+import { empireBlocks } from './zoomlevels.js';
 import { CAT, t } from '../model.js';
 
 const IMG_W = 4096, IMG_H = 2048;
@@ -39,10 +40,12 @@ export class FlatMap {
     this._labelPool = new Map();
     this._clusterPool = [];
     this._waitGlyph = new Set();
+    this.obstacles = []; // rikesnamn och medaljer på kartbilden (AreasLayer.placedBoxes, #358): etiketterna hamnar inte på dem
 
     zoomIn.addEventListener('click', () => this.zoomBy(STEP));
     zoomOut.addEventListener('click', () => this.zoomBy(1 / STEP));
-    reset.addEventListener('click', () => { this.zoom = 1; this.cx = IMG_W / 2; this.cy = IMG_H / 2; this.draw(); });
+    reset.addEventListener('click', () => { this.zoom = 1; this.cx = IMG_W / 2; this.cy = IMG_H / 2; this.draw(); this.onZoom?.(); });
+    this.onZoom = null; // anropas när zoomen eller ytans storlek ändras: rikesnamnen beror på zoomnivån (#358, ui/zoomlevels.js)
 
     // Mushjul: zooma kring muspekaren
     canvas.addEventListener('wheel', e => {
@@ -169,6 +172,7 @@ export class FlatMap {
     this.canvas.width = Math.round(this.w * this.dpr);
     this.canvas.height = Math.round(this.h * this.dpr);
     this.draw();
+    this.onZoom?.();
   }
 
   /** Skärmpixlar per bildpixel. Zoom 1 täcker ytan. */
@@ -194,6 +198,7 @@ export class FlatMap {
     this.cx = ix - (at.x - this.w / 2) / s1; this.cy = iy - (at.y - this.h / 2) / s1;
     this._clamp();
     if (redraw) this.draw();
+    this.onZoom?.();
   }
 
   _clamp() {
@@ -371,7 +376,8 @@ export class FlatMap {
     const badges = clusters.map(c => dotBox(c.x, c.y, 16));
     const named = singles.filter(it => labeled?.has(it.e.id));
     const seen = new Set();
-    const placed = placeLabels(named, { W: this.w, H: this.h, hoverId, markers, badges, text: this.labelText, pxOf: e => pxOf.get(e.id) });
+    const blocked = empireBlocks(this.obstacles, (lat, lon) => this._toScreen(lat, lon, this.w), 2 * s);
+    const placed = placeLabels(named, { W: this.w, H: this.h, hoverId, markers, badges, blocked, text: this.labelText, pxOf: e => pxOf.get(e.id) });
     for (const { e, text, x, y } of placed) {
       let el = this._labelPool.get(e.id);
       if (!el) {

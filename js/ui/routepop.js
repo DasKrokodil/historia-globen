@@ -1,6 +1,6 @@
 // Klickrutan för vägar och resor (#38): en liten ruta i samma stil som religionernas klickruta, med vägens
 // namn, tid, sammanfattning, källor och "Läs mer" till den kopplade händelsen (fältet event).
-import { CAT, MONTHS_SHORT, t, formatYear, formatEventTime, reviewLabel } from '../model.js';
+import { CAT, MONTHS_SHORT, t, formatYear, formatEventTime, reviewLabel, needDetails } from '../model.js';
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const KIND = { voyage: 'Resa', trade: 'Handelsväg' };
@@ -37,7 +37,10 @@ export class RoutePop {
 
   /** Visar rutan vid klickpunkten (x, y i fönstret). hit = LinesLayer.hitTest(): { route, leg }. */
   show({ route, leg }, x, y) {
-    this.route = route;
+    this.route = route; this.leg = leg;
+    // Källregistret laddas vid första klicket (#337); rutan ritas om med källorna när det har kommit
+    needDetails([])?.then(() => { if (this.route === route && this.leg === leg && !this.pop.hidden) this.show({ route, leg }, x, y); })
+      .catch(err => console.error(err));
     const col = CAT[route.category]?.color ?? '#f1dfb4';
     const ids = [...new Set([...(route.sources ?? []), ...(leg?.sources ?? [])])];
     const links = ids.map(id => this.srcById[id]).filter(Boolean).map(s => /^https:\/\//.test(s.url ?? '')

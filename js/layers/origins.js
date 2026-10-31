@@ -9,7 +9,7 @@ import { medalTexture } from './events.js';
 import { t, formatEventTime } from '../model.js';
 import { ORIGIN_R } from './religions.js';
 
-const MIN_PX = 26, MAX_PX = 46; // lite större än händelsernas medaljer (16–48 px), så att symbolen syns
+export const MIN_PX = 26; const MAX_PX = 46; // lite större än händelsernas medaljer (16–48 px), så att symbolen syns
 const INFO = { when: 'now', major: false, unsure: false };
 
 export class OriginMarkers {

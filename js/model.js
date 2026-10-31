@@ -212,20 +212,37 @@ export function monthStarts(a, b) {
 }
 
 // ---------- Laddning ----------
+// Det som syns direkt laddas vid start; det som bara behövs vid klick laddas när det behövs (#337).
+// Händelserna och rikena kommer från de uppdelade filerna i data/genererat/, som tools/dela_data.py skriver ur
+// data/events.json och data/empires/index.json (källfilerna är det man redigerar, docs/datamodell.md).
 async function getJSON(path) {
   const res = await fetch(path);
   if (!res.ok) throw new Error(`Kunde inte läsa ${path} (${res.status})`);
   return res.json();
 }
 
+const isPlain = v => v != null && typeof v === 'object' && !Array.isArray(v);
+/**
+ * Lägger fälten i src på target, och slår ihop objekt på djupet (texter per språk, #337). En fil med bara
+ * engelska texter ({ title: { en } }) kan då läggas ovanpå en med svenska utan att de svenska försvinner,
+ * och t() väljer språk som förut. Listor (källor, berättelsens parter) ersätts i stället för att slås ihop.
+ */
+export function mergeTexts(target, src) {
+  for (const [k, v] of Object.entries(src)) {
+    if (isPlain(v) && isPlain(target[k])) mergeTexts(target[k], v);
+    else target[k] = v;
+  }
+  return target;
+}
+
+let DATA = null; // det loadAll() returnerade; de senare laddningarna fyller i samma objekt
+
 export async function loadAll() {
-  const [events, funfacts, sources, land, empires, borders, styles, discovery] = await Promise.all([
-    getJSON('data/events.json'),
+  const [events, funfacts, land, empires, styles, discovery] = await Promise.all([
+    getJSON('data/genererat/handelser.json'),
     getJSON('data/funfacts.json'),
-    getJSON('data/sources.json'),
     getJSON('data/land.json'),
-    getJSON('data/empires/index.json'),
-    getJSON('data/borders.json'),
+    getJSON('data/genererat/riken.json'),
     getJSON('data/styles.json'),
     // Upptäcktsvyn (#101): liten fil; saknas den fungerar sidan ändå, utan upptäcktsvyn
     getJSON('data/upptackt.json').catch(err => { console.warn('Upptäcktsvyn kunde inte laddas', err); return null; }),
@@ -251,16 +268,95 @@ export async function loadAll() {
     for (const g of e._empires) g._wars.push(e);
   }
   for (const g of empires.groups) g._wars.sort((a, b) => a.start - b.start || a.end - b.end);
-  const srcById = Object.fromEntries(sources.sources.map(s => [s.id, s]));
-  // Fun facts ärver källorna från sina händelser (källa krävs för båda leden).
-  for (const f of funfacts.funfacts) {
-    f.sources = [...new Set(f.events.flatMap(id => byId[id]?.sources ?? []))];
-  }
-  return {
-    events: events.events, byId, funfacts: funfacts.funfacts, sources: sources.sources, srcById, land,
-    // Rikena ligger i en fil per rike (R1): index.json vid start, själva gränserna med loadEmpire()
-    empireGroups: empires.groups, polities: empires.groups.flatMap(g => g.polities.map(p => ({ ...p, group: g.id }))), borders, styles, discovery,
+  DATA = {
+    events: events.events, byId, funfacts: funfacts.funfacts, land,
+    // Källregistret laddas vid första klick (loadSources); sources och srcById fylls i då, i samma objekt och lista
+    sources: [], srcById: {},
+    // Händelsernas långa fält (sammanfattning, källor, bild, berättelse) ligger per period (loadEventDetails)
+    periods: events.periods.map(p => ({ ...p, from: p.from ?? -Infinity })).sort((a, b) => a.from - b.from),
+    // Rikena ligger i en fil per rike (R1): indexet vid start, själva gränserna med loadEmpire(), faktarutorna med loadEmpireFacts()
+    empireGroups: empires.groups, polities: empires.groups.flatMap(g => g.polities.map(p => ({ ...p, group: g.id }))),
+    // Dagens gränser laddas när lagret slås på (loadBorders)
+    borders: null, styles, discovery,
   };
+  return DATA;
+}
+
+/** Källregistret (data/sources.json), första gången en faktaruta, Om källorna eller en källrad behöver det. */
+let sourcesPromise = null;
+export const sourcesReady = () => !!DATA?.sourcesLoaded;
+export function loadSources() {
+  sourcesPromise ??= getJSON('data/sources.json').then(doc => {
+    DATA.sources.push(...doc.sources);
+    Object.assign(DATA.srcById, Object.fromEntries(doc.sources.map(s => [s.id, s])));
+    DATA.sourcesLoaded = true;
+    return DATA.srcById;
+  }).catch(err => { sourcesPromise = null; throw err; });
+  return sourcesPromise;
+}
+
+/** Perioden en händelse hör till efter sitt startår (samma regel som period_of i tools/dela_data.py). */
+function periodOf(e) {
+  let p = DATA.periods[0];
+  for (const q of DATA.periods) if (e.start >= q.from) p = q;
+  return p;
+}
+const periodFiles = new Map();
+function loadPeriod(p) {
+  if (!periodFiles.has(p.id)) {
+    periodFiles.set(p.id, getJSON(p.file).then(doc => {
+      for (const [id, fields] of Object.entries(doc.events)) if (DATA.byId[id]) mergeTexts(DATA.byId[id], fields);
+      // Alla händelser i perioden räknas som klara, också en som saknas i filen, så att ingen väntar i en evig loop
+      for (const e of DATA.events) if (periodOf(e) === p) e._full = true;
+    }).catch(err => { periodFiles.delete(p.id); throw err; }));
+  }
+  return periodFiles.get(p.id);
+}
+/**
+ * Händelsernas långa fält (summary, note, story, image, sources, wikidata) för de här händelserna. Filerna per
+ * period laddas en gång; händelserna får fälten i samma objekt och _full = true. Ger ett löfte.
+ */
+export function loadEventDetails(events) {
+  const ps = new Set(events.filter(e => e && !e._full).map(periodOf));
+  return Promise.all([...ps].map(loadPeriod));
+}
+/** Alla perioder (Om källorna räknar källor för alla händelser). Fun facts ärver då källorna från sina händelser. */
+export function loadAllEventDetails() {
+  return Promise.all(DATA.periods.map(loadPeriod)).then(() => {
+    // Fun facts ärver källorna från sina händelser (källa krävs för båda leden).
+    for (const f of DATA.funfacts) f.sources = [...new Set(f.events.flatMap(id => DATA.byId[id]?.sources ?? []))];
+  });
+}
+/**
+ * Det som saknas för att visa de här händelserna i en faktaruta: deras långa fält och källregistret.
+ * Ger null om allt redan finns (då kan anroparen rita klart direkt), annars ett löfte.
+ */
+export function needDetails(events = [], { sources = true } = {}) {
+  const missing = events.some(e => e && !e._full);
+  if (!missing && (!sources || sourcesReady())) return null;
+  return Promise.all([missing ? loadEventDetails(events) : null, sources ? loadSources() : null]);
+}
+
+/** Rikenas faktarutor (data/genererat/riken-fakta.json): fyller i facts i varje grupp som har hasFacts. */
+let empireFactsPromise = null;
+export function loadEmpireFacts() {
+  empireFactsPromise ??= getJSON('data/genererat/riken-fakta.json').then(doc => {
+    for (const g of DATA.empireGroups) if (doc.facts[g.id]) g.facts = doc.facts[g.id];
+  }).catch(err => { empireFactsPromise = null; throw err; });
+  return empireFactsPromise;
+}
+
+/** Dagens gränser (data/borders.json), när lagret slås på eller Om källorna öppnas. */
+let bordersPromise = null;
+export function loadBorders() {
+  bordersPromise ??= getJSON('data/borders.json').then(doc => (DATA.borders = doc))
+    .catch(err => { bordersPromise = null; throw err; });
+  return bordersPromise;
+}
+
+/** Allt som Om källorna räknar med: källregistret, alla händelsers källor och bilder, rikenas faktarutor och gränserna. */
+export function loadForSources() {
+  return Promise.all([loadSources(), loadAllEventDetails(), loadEmpireFacts(), loadBorders()]);
 }
 
 /** Ett rikes gränser (data/empires/<grupp>.json), laddas första gången riket behövs.

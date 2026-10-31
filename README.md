@@ -81,6 +81,7 @@ js/ui/feedback.js     formuläret Lämna förslag / Rapportera faktafel (avstän
 js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med serverfunktionen)
 js/ui/layers.js       lagerväljaren: slå av och på lager
 js/ui/clusters.js     klustring av händelser som ligger nära varandra
+js/ui/zoomlevels.js   vad som syns på vilken zoomnivå: tre nivåer och tröskelvärden (#358)
 js/ui/focusmenu.js    fokusmenyn: välj ett krig, rike eller en religion att följa
 js/ui/routepop.js     klickrutan för vägar och resor
 js/ui/sheet.js        faktarutan som ark nedifrån i mobilen (litet, halvt, helt)
@@ -98,11 +99,13 @@ data/funfacts.json    fun facts, kopplade till händelser
 data/sources.json     källregister
 data/land.json        grundkarta (Natural Earth)
 tools/riken.py        bygger rikesfilerna ur Cliopatria
+tools/dela_data.py    delar upp events.json och empires/index.json i data/genererat/ (körs efter varje ändring i dem)
 tools/religioner.py   bygger religionslagret (data/religions.json) ur Cliopatria och faktarutornas texter, med arv av religion
 tools/religioner_riken.py  bygger rikenas gränser för religionslagrets klickruta ur Cliopatria
 data/empires/         riken med utbredning per period, en fil per rike och index.json (Cliopatria)
 data/borders.json     dagens landsgränser (Natural Earth)
 data/routes/          vägar och resor (lagertyp linje): index.json och en fil per resa eller väg
+data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar (genereras, redigeras inte)
 data/upptackt.json    upptäcktsvyn: perspektivraden, den åldrade kartstilen, dimmans täckning och korridorens bredd, dekorationernas platser
 data/vyer.json        grupperna och de förinställda vyerna i Lager (#357)
 data/religions.json   religioner över tid: varje rikes religion (Cliopatria + Wikipedia)
