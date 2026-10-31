@@ -78,6 +78,7 @@ js/ui/feedback.js     formuläret Lämna förslag / Rapportera faktafel (avstän
 js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med serverfunktionen)
 js/ui/layers.js       lagerväljaren: slå av och på lager
 js/ui/clusters.js     klustring av händelser som ligger nära varandra
+js/ui/zoomlevels.js   vad som syns på vilken zoomnivå: tre nivåer och tröskelvärden (#358)
 js/ui/focusmenu.js    fokusmenyn: välj ett krig, rike eller en religion att följa
 js/ui/routepop.js     klickrutan för vägar och resor
 img/icons/            ikoner för händelser och religionernas symboler (egna SVG-teckningar, till exempel treaty.svg för fredsavtal, cross.svg och dharma-wheel.svg, #271)
