@@ -859,6 +859,20 @@
     { "id": "wp-round-table-conference-1949", "title": "Dutch–Indonesian Round Table Conference – Wikipedia", "url": "https://en.wikipedia.org/wiki/Dutch%E2%80%93Indonesian_Round_Table_Conference", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
     { "id": "wp-gold-coast-colony", "title": "Gold Coast (British colony) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Gold_Coast_(British_colony)", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
     { "id": "wp-independence-day-ghana", "title": "Independence Day (Ghana) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Independence_Day_(Ghana)", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
-    { "id": "wp-year-of-africa", "title": "Year of Africa – Wikipedia", "url": "https://en.wikipedia.org/wiki/Year_of_Africa", "license": "CC BY-SA 4.0", "checked": "2026-10-31" }
+    { "id": "wp-year-of-africa", "title": "Year of Africa – Wikipedia", "url": "https://en.wikipedia.org/wiki/Year_of_Africa", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    {"id": "wp-cocoliztli", "title": "Cocoliztli epidemics – Wikipedia", "url": "https://en.wikipedia.org/wiki/Cocoliztli_epidemics", "license": "CC BY-SA 4.0", "checked": "2026-10-31"},
+    {"id": "wp-new-laws", "title": "New Laws – Wikipedia", "url": "https://en.wikipedia.org/wiki/New_Laws", "license": "CC BY-SA 4.0", "checked": "2026-10-31"},
+    {"id": "wp-laws-of-burgos", "title": "Laws of Burgos – Wikipedia", "url": "https://en.wikipedia.org/wiki/Laws_of_Burgos", "license": "CC BY-SA 4.0", "checked": "2026-10-31"},
+    {"id": "wp-encomienda", "title": "Encomienda – Wikipedia", "url": "https://en.wikipedia.org/wiki/Encomienda", "license": "CC BY-SA 4.0", "checked": "2026-10-31"},
+    {"id": "wp-mita", "title": "Mit'a – Wikipedia", "url": "https://en.wikipedia.org/wiki/Mit%27a", "license": "CC BY-SA 4.0", "checked": "2026-10-31"},
+    {"id": "wp-potosi", "title": "Potosí – Wikipedia", "url": "https://en.wikipedia.org/wiki/Potos%C3%AD", "license": "CC BY-SA 4.0", "checked": "2026-10-31"},
+    {"id": "wp-cerro-rico", "title": "Cerro Rico – Wikipedia", "url": "https://en.wikipedia.org/wiki/Cerro_Rico", "license": "CC BY-SA 4.0", "checked": "2026-10-31"},
+    {"id": "wp-congo-free-state", "title": "Congo Free State – Wikipedia", "url": "https://en.wikipedia.org/wiki/Congo_Free_State", "license": "CC BY-SA 4.0", "checked": "2026-10-31"},
+    {"id": "wp-congo-free-state-atrocities", "title": "Atrocities in the Congo Free State – Wikipedia", "url": "https://en.wikipedia.org/wiki/Atrocities_in_the_Congo_Free_State", "license": "CC BY-SA 4.0", "checked": "2026-10-31"},
+    {"id": "wp-herero-nama-genocide", "title": "Herero and Nama genocide – Wikipedia", "url": "https://en.wikipedia.org/wiki/Herero_and_Nama_genocide", "license": "CC BY-SA 4.0", "checked": "2026-10-31"},
+    {"id": "wp-smallpox-australia", "title": "Smallpox in Australia – Wikipedia", "url": "https://en.wikipedia.org/wiki/Smallpox_in_Australia", "license": "CC BY-SA 4.0", "checked": "2026-10-31"},
+    {"id": "wp-1789-sydney-smallpox", "title": "1789 Sydney smallpox outbreak – Wikipedia", "url": "https://en.wikipedia.org/wiki/1789_Sydney_smallpox_outbreak", "license": "CC BY-SA 4.0", "checked": "2026-10-31"},
+    {"id": "wp-trail-of-tears", "title": "Trail of Tears – Wikipedia", "url": "https://en.wikipedia.org/wiki/Trail_of_Tears", "license": "CC BY-SA 4.0", "checked": "2026-10-31"},
+    {"id": "wp-indian-removal-act", "title": "Indian Removal Act – Wikipedia", "url": "https://en.wikipedia.org/wiki/Indian_Removal_Act", "license": "CC BY-SA 4.0", "checked": "2026-10-31"}
   ]
 }
