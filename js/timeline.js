@@ -343,6 +343,7 @@ export class Timeline extends EventTarget {
     this.playBtn.setAttribute('aria-label', t);
     this.playBtn.title = t;
     if (this.pauseGo) this.pauseGo.textContent = again ? '\u21BB Spela igen' : '\u25B6 Fortsätt';
+    this.dispatchEvent(new CustomEvent('playstate'));
   }
   /** Läs om knappens läge, till exempel när slutkortet har visats utan att året ändrades. */
   refreshPlayLabel() { this._labelPlay(); }
