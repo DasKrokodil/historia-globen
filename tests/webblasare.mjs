@@ -101,6 +101,11 @@ async function run(browser, vp) {
     }
   };
   const year = () => page.textContent('#year-big').then(s => s.trim());
+  // Platt vy, Källor och Hjälp ligger i mobilen i menyn Visa (#361): öppna den först när knappen inte syns
+  const clickView = async sel => {
+    if (await page.isHidden(sel) && await page.isVisible('#more-toggle')) await page.click('#more-toggle');
+    await page.click(sel);
+  };
   const jumpTo = async y => {
     await page.click('#year-jump');
     await visible('#jump-input');
@@ -196,7 +201,7 @@ async function run(browser, vp) {
   });
 
   await check('Platt vy öppnas', async () => {
-    await page.click('#btn-flat');
+    await clickView('#btn-flat');
     await visible('#flat-view');
     await page.waitForFunction(() => document.getElementById('btn-flat').getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
     await jumpTo(ROUTE_YEAR);
@@ -218,12 +223,12 @@ async function run(browser, vp) {
   });
 
   await check('Platt vy stängs', async () => {
-    await page.click('#btn-flat');
+    await clickView('#btn-flat');
     await hidden('#flat-view');
   });
 
   await check('Källor öppnas', async () => {
-    await page.click('#btn-sources');
+    await clickView('#btn-sources');
     await visible('#sources-dialog');
     await page.waitForFunction(() => document.getElementById('sources-body').textContent.trim().length > 100, null, { timeout: T.step });
     await shot('7-kallor');

@@ -82,6 +82,7 @@ export class Panel {
     this.onOpen = () => {};
     this.onYear = () => {};
     this.onReport = null; // (händelse, knapp) => öppnar formuläret "Rapportera faktafel" (js/ui/feedback.js)
+    this.onShowPlace = null; // (händelse) => platsraden i mobil (#312): fäller ihop rutan och visar markören på globen
     this.selectedId = null;
     this.shown = null; // det faktarutan visar just nu; en rad som laddas klart ritar bara om samma ruta (#337)
 
@@ -353,6 +354,7 @@ export class Panel {
     this.detail.dataset.style = st.variant?.id ?? st.style.id;
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
+      ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(t(e.place))}: visa på globen"><span class="place-pin" aria-hidden="true"></span><span class="place-name">${esc(t(e.place))}</span><span class="place-go" aria-hidden="true">· visa på globen</span></button>` : ''}
       ${figure(e, this.srcById)}
       <h3>${esc(t(e.title))}</h3>
       <div class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))} · ${esc(t(CAT[e.category]?.name))}</div>
@@ -373,6 +375,7 @@ export class Panel {
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
     this.detail.querySelector('[data-focus]')?.addEventListener('click', ev => this.onFocus(ev.currentTarget.dataset.focus));
+    this.detail.querySelector('[data-show-place]')?.addEventListener('click', () => this.onShowPlace(e));
     this.bindReport(e);
     this.bindLinks();
     this.bindReviewInfo();

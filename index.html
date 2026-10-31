@@ -65,9 +65,14 @@
     </div>
     <div class="action-group" role="group" aria-labelledby="ag-view">
       <span id="ag-view" class="action-label">Visa</span>
-      <button id="btn-flat" class="chip-btn" type="button" aria-pressed="false" title="Visa världen som en platt karta">Platt vy</button>
-      <button id="btn-sources" class="chip-btn" type="button" title="Om källorna: källpolicy och källregister">Källor</button>
-      <button id="btn-help" class="chip-btn" type="button" aria-expanded="false" aria-controls="help">Hjälp</button>
+      <!-- I smal skärm (#361) samlas gruppen Visa i en meny bakom knappen Visa, så att knapparna ryms i en rad
+           med årtalet. I datorn syns knappen inte och menyn är osynlig (display: contents). -->
+      <button id="more-toggle" class="chip-btn more-toggle" type="button" aria-expanded="false" aria-controls="more-menu" aria-label="Visa: Platt vy, Källor och Hjälp">Visa<span class="more-chev" aria-hidden="true"></span></button>
+      <div id="more-menu" class="more-menu">
+        <button id="btn-flat" class="chip-btn" type="button" aria-pressed="false" title="Visa världen som en platt karta">Platt vy</button>
+        <button id="btn-sources" class="chip-btn" type="button" title="Om källorna: källpolicy och källregister">Källor</button>
+        <button id="btn-help" class="chip-btn" type="button" aria-expanded="false" aria-controls="help">Hjälp</button>
+      </div>
     </div>
   </div>
 

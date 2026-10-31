@@ -84,6 +84,8 @@ js/ui/clusters.js     klustring av händelser som ligger nära varandra
 js/ui/zoomlevels.js   vad som syns på vilken zoomnivå: tre nivåer och tröskelvärden (#358)
 js/ui/focusmenu.js    fokusmenyn: välj ett krig, rike eller en religion att följa
 js/ui/routepop.js     klickrutan för vägar och resor
+js/ui/sheet.js        faktarutan som ark nedifrån i mobilen (litet, halvt, helt)
+js/ui/viewmenu.js     menyn Visa i mobilen (Platt vy, Källor, Hjälp)
 img/icons/            ikoner för händelser och religionernas symboler (egna SVG-teckningar, till exempel treaty.svg för fredsavtal, cross.svg och dharma-wheel.svg, #271)
 img/favicon.svg       sidans ikon i webbläsarfliken (och PNG-versioner för äldre webbläsare och hemskärm)
 images/events/        bilder till händelser (historiska bilder och märkta illustrationer)

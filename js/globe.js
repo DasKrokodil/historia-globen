@@ -29,6 +29,7 @@ export class Globe {
     this.camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
     this.zoom = 1;
     this.viewShiftPx = 0;
+    this.viewLiftPx = 0; // lyft uppåt i pixlar när faktarutan står som ark nedtill (#361)
 
     this.group = new THREE.Group();
     this.group.rotation.order = 'XYZ';
@@ -161,13 +162,40 @@ export class Globe {
   // ---------- Kamera och styrning ----------
   setViewShift(px) { this.viewShiftPx = px; this._resize(); }
 
+  /**
+   * Lyft bilden av klotet uppåt med py pixlar (#361): i smal skärm, när faktarutan står som ark nedtill,
+   * flyttas klotet upp så att mitten (och den valda markören) hamnar i den fria ytan ovanför arket.
+   * Glider över ms millisekunder (Lugn rörelse: direkt). 0 = som vanligt.
+   */
+  setViewLift(py, ms = 350) {
+    py = Math.round(py);
+    if (py === (this._lift?.to ?? this.viewLiftPx)) return;
+    if (this.calm) ms = 1;
+    this._lift = { t0: performance.now(), ms, from: this.viewLiftPx, to: py };
+  }
+
+  /** Klotets mitt på skärmen (y i pixlar från canvasens överkant), utan lyftet. */
+  centerY() {
+    const v = new THREE.Vector3(0, 0, 0).project(this.camera);
+    return (1 - v.y) / 2 * (this.canvas.clientHeight || 1) + this.viewLiftPx;
+  }
+
+  _applyView() {
+    const w = this.canvas.clientWidth || 1, h = this.canvas.clientHeight || 1;
+    if (this.viewShiftPx || this.viewLiftPx) this.camera.setViewOffset(w, h, this.viewShiftPx, this.viewLiftPx, w, h);
+    else this.camera.clearViewOffset();
+    this.camera.updateProjectionMatrix();
+  }
+
   _resize() {
     const w = this.canvas.clientWidth || 1, h = this.canvas.clientHeight || 1;
     this.renderer.setSize(w, h, false);
     this.camera.aspect = w / h;
-    if (this.viewShiftPx) this.camera.setViewOffset(w, h, this.viewShiftPx, 0, w, h);
-    else this.camera.clearViewOffset();
-    const fit = R * 1.32 / Math.tan(this.camera.fov / 2 * DEG);
+    this._applyView();
+    // I smal, stående skärm (#361) får klotet nästan hela bredden (marginal cirka 5 procent i stället för 32),
+    // eftersom bredden är det som begränsar. Datorn och liggande skärmar är som förut.
+    const k = w <= 760 && this.camera.aspect < 1 ? 1.1 : 1.32;
+    const fit = R * k / Math.tan(this.camera.fov / 2 * DEG);
     this.baseDist = this.camera.aspect < 1 ? fit / this.camera.aspect : fit;
     // Lämna plats för tidslinjen nedtill
     this.camera.position.set(0, -0.06, this.baseDist / this.zoom);
@@ -296,6 +324,13 @@ export class Globe {
   onFrame(cb) { this.frameCallbacks.push(cb); }
 
   _tick(t) {
+    if (this._lift) {
+      const l = this._lift, s = Math.min(1, (performance.now() - l.t0) / l.ms);
+      const e = 1 - Math.pow(1 - s, 3);
+      this.viewLiftPx = Math.round(l.from + (l.to - l.from) * e);
+      if (s >= 1) this._lift = null;
+      this._applyView();
+    }
     if (this._fly) {
       const f = this._fly, s = Math.min(1, (performance.now() - f.t0) / f.ms);
       const e = s < 0.5 ? 4 * s * s * s : 1 - Math.pow(-2 * s + 2, 3) / 2;
