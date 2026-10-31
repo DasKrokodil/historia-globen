@@ -6,7 +6,7 @@ import { Timeline, segmentName, setupYearJump, MAX_YEAR } from './timeline.js';
 import { EventsLayer, markerInfo, describeMarker } from './layers/events.js';
 import { AreasLayer } from './layers/areas.js';
 import { MAX_JUMP_YEARS } from './layers/area-transition.js';
-import { BordersLayer } from './layers/borders.js';
+import { entry as bordersEntry } from './layers/borders.js';
 import { ReligionsLayer } from './layers/religions.js';
 import { OriginMarkers } from './layers/origins.js';
 import { EmpireMarkers } from './layers/empiremarks.js';
@@ -68,7 +68,6 @@ async function start() {
   const layer = new EventsLayer(globe, data.events);
   const areas = new AreasLayer();
   areas.setPoints(data.empireGroups); // försvunna länder utan gräns, som en punkt (#72)
-  const borders = new BordersLayer(data.borders);
   const religions = new ReligionsLayer();
   // Symbolen där religionen uppstod (#271): klickbar medalj ovanpå klotet, öppnar religionens faktaruta
   const origins = new OriginMarkers(globe, $('labels'));
@@ -99,6 +98,13 @@ async function start() {
   // Det gemensamma tillståndet och lagerregistret (#338)
   const state = createState();
   const registry = new LayerRegistry();
+  // Det lagren får när de skapas: klotet, datan och vägar tillbaka till main.js (omritning, faktarutor)
+  const env = {
+    globe, data, labelsEl: $('labels'), registry,
+    refresh: () => refresh(),
+    showReligionFacts: id => showReligionFacts(id),
+    showEmpireFacts: (id, polity) => showEmpireFacts(id, polity),
+  };
   const noEvents = new Set();
   registry.add({ id: 'events', name: 'Händelser', layer, z: Z.events,
     update: s => layer.update({ year: s.year, window: s.window, filters: s.layers.events ? s.filters : noEvents, selectedId: s.selectedId,
@@ -144,10 +150,7 @@ async function start() {
     update: s => discovery.update({ year: s.year, fine: s.fine, lines: routes }),
     legend: () => ({ discovery: discovery.enabled ? discoveryNote : null }),
     passes: [{ z: Z.paper, draw: (c, w, h) => discovery.drawPaper(c, w, h) }, { z: Z.discovery, draw: (c, w, h) => discovery.drawOverlay(c, w, h) }] });
-  registry.add({ id: 'borders', name: 'Dagens gränser', layer: borders, z: Z.borders,
-    enabled: s => s.layers.borders,
-    update: s => borders.update({ year: s.wholeYear }),
-    drawOverlay: (c, w, h) => borders.drawOverlay(c, w, h) });
+  registry.add(bordersEntry(env));
   registry.add({ id: 'wars', name: 'Krigsområden', layer: wars, z: Z.wars,
     enabled: s => s.layers.events,
     update: s => { wars.labelScale = s.labels.scale; return wars.update({ year: s.year, filters: s.filters, span: s.span, focusId: s.focusWar?.id }); },

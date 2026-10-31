@@ -1,5 +1,18 @@
 // Lagertyp "linje" (beslut 2): dagens landsgränser som ett filter.
 // Av som standard, eftersom dagens gränser inte stämmer historiskt.
+import { Z } from './registry.js';
+
+/** Lagrets post i registret (#338): raden i Lager (av som standard), ritordningen och uppdateringen. */
+export function entry({ data }) {
+  const layer = new BordersLayer(data.borders);
+  return {
+    id: 'borders', name: 'Dagens gränser', menu: { on: false, note: 'stämmer inte historiskt' }, layer, z: Z.borders,
+    enabled: s => s.layers.borders,
+    update: s => layer.update({ year: s.wholeYear }),
+    drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
+  };
+}
+
 export class BordersLayer {
   constructor(borders) {
     this.data = borders; // färdigprojicerad path, samma format som land.json
