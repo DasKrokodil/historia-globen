@@ -243,6 +243,7 @@ async function start() {
     const lineage = g.vanished && !own ? { ...g.vanished, groups: data.empireGroups } : null;
     panel.showFacts({ kind: lineage ? 'Försvunnet land' : 'Rike', name: t(own ? polity.name : g.name), color: g.color, facts, place, curveId,
       symbol: symbolImg(sym, 'rel-sym rel-sym-h'), wars, lineage,
+      empireMap: !!g.file,
       mapNote: g.file ? `Gränserna på kartan kommer från Cliopatria (kartdata ${formatYearSpan(from, to)}). Fakta i rutan kommer från rutans källor.${note ? ` ${note}` : ''}` : note });
     // Ytkurvan (#77) ritas när rikets fil har laddats (den laddas ändå för kartan); för ett rike med egen
     // faktaruta (#301) visar kurvan bara det riket
@@ -672,7 +673,7 @@ async function start() {
     panel.setCurveYear(wholeYear);
     if (routePop.route && !routes.active.some(a => a.route === routePop.route)) routePop.hide(); // vägen syns inte längre
     const legend = registry.legend(state);
-    relLegend.update(legend.items ?? [], { war: !!legend.war, fadable: registry.fadable(state).map(e => e.name), keep: !!layers.on.keep,
+    relLegend.update(legend.items ?? [], { areas: !!legend.areas, war: !!legend.war, fadable: registry.fadable(state).map(e => e.name), keep: !!layers.on.keep,
       discovery: legend.discovery ?? null });
     if (!religions.enabled || state.faded.has('religions')) relLegend.hidePop();
     registry.markers(state);
