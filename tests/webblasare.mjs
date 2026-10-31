@@ -332,23 +332,31 @@ async function run(browser, vp) {
   });
 
   await check('Fokus har en huvudknapp för uppspelning', async () => {
-    await page.click('#btn-focus');
-    await visible('#focus-menu');
-    await page.click('#focus-menu [data-tab="Krig"]');
-    const war = page.locator('#focus-menu .focus-item[data-key^="war:"]').first();
-    await war.waitFor({ state: 'visible', timeout: T.step });
-    await war.click();
-    await visible('#focus-bar');
-    const action = page.locator('#focus-action');
-    if (!/Spela/.test((await action.textContent()).trim())) throw new Error(`huvudknappen börjar inte med Spela: ${await action.textContent()}`);
-    if (await page.locator('#btn-play').isVisible()) throw new Error('tidslinjens spelknapp syns också i fokusläget');
-    await action.click();
-    await page.waitForFunction(() => document.getElementById('focus-action').textContent.includes('Pausa'), null, { timeout: T.step });
-    await action.click();
-    await page.waitForFunction(() => /Spela|Fortsätt/.test(document.getElementById('focus-action').textContent), null, { timeout: T.step });
-    await page.click('#focus-exit');
-    await hidden('#focus-bar');
-    return 'Spela → Pausa → Spela/Fortsätt; tidslinjens spelknapp dold';
+    try {
+      await page.click('#btn-focus');
+      await visible('#focus-menu');
+      await page.click('#focus-menu [data-tab="Krig"]');
+      const war = page.locator('#focus-menu .focus-item[data-key^="war:"]').first();
+      await war.waitFor({ state: 'visible', timeout: T.step });
+      await war.click();
+      await visible('#focus-bar');
+      const action = page.locator('#focus-action');
+      if (!/Spela/.test((await action.textContent()).trim())) throw new Error(`huvudknappen börjar inte med Spela: ${await action.textContent()}`);
+      if (await page.locator('#btn-play').isVisible()) throw new Error('tidslinjens spelknapp syns också i fokusläget');
+      await action.click();
+      const playing = (await action.textContent()).trim();
+      if (!playing.includes('Pausa')) throw new Error(`huvudknappen växlade inte till Pausa: ${playing}`);
+      await action.click();
+      const paused = (await action.textContent()).trim();
+      if (!/Spela|Fortsätt/.test(paused)) throw new Error(`huvudknappen växlade inte tillbaka: ${paused}`);
+      return 'Spela → Pausa → Spela/Fortsätt; tidslinjens spelknapp dold';
+    } finally {
+      // Ett misslyckat kontrollsteg får inte lämna följande tester i fokusläge eller med tiden spelande.
+      const action = page.locator('#focus-action');
+      if (await action.isVisible().catch(() => false) && (await action.textContent()).includes('Pausa')) await action.click();
+      if (await page.locator('#focus-bar').isVisible().catch(() => false)) await page.click('#focus-exit');
+      await hidden('#focus-bar');
+    }
   });
 
   await check('Platt vy öppnas', async () => {
