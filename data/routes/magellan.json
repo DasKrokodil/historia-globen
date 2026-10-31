@@ -1,0 +1,833 @@
+{
+  "routes": [
+    {
+      "id": "magellan-elcano",
+      "kind": "voyage",
+      "category": "upptackter",
+      "title": {
+        "sv": "Magellans och Elcanos världsomsegling",
+        "en": "Magellan and Elcano's circumnavigation"
+      },
+      "summary": {
+        "sv": "Fem skepp med omkring 270 man lämnar Spanien i september 1519 för att nå Kryddöarna västerut. Flottan följer Sydamerikas kust, övervintrar i Patagonien och hittar i oktober–november 1520 sundet som i dag heter Magellans sund. Överfarten av Stilla havet tar 98 dagar, med svält och skörbjugg. I april 1521 dödas Magellan i en strid på Mactan i Filippinerna. Två skepp når Moluckerna i november, och Victoria seglar under Juan Sebastián Elcano hem runt Godahoppsudden. Hon når Spanien i september 1522 som det första skepp som har seglat runt jorden. När de stannade på Kap Verdeöarna upptäckte besättningen att deras loggbok låg en dag efter, eftersom de hade seglat västerut runt jorden.",
+        "en": "Five ships with about 270 men leave Spain in September 1519 to reach the Spice Islands by sailing west. The fleet follows the coast of South America, winters in Patagonia and in October–November 1520 finds the passage now called the Strait of Magellan. Crossing the Pacific takes 98 days, with starvation and scurvy. In April 1521 Magellan is killed in a fight on Mactan in the Philippines. Two ships reach the Moluccas in November, and the Victoria, under Juan Sebastián Elcano, sails home around the Cape of Good Hope. She reaches Spain in September 1522 as the first ship to have sailed around the world. At the Cape Verde Islands the crew found that their log was one day behind, because they had sailed westward around the globe."
+      },
+      "start": 1519,
+      "end": 1522,
+      "precision": 11,
+      "edtf": "1519-08-10/1522-09-06",
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig",
+          "en": "The sources differ"
+        },
+        "text": {
+          "sv": "Hur många som kom hem med Victoria anges olika: 18 man enligt Wikipedia (efter Kelsey), 31 enligt Encyclopædia Britannica (1911). Enligt Wikipedia kom ytterligare 12, som portugiserna hade gripit på Kap Verdeöarna, hem året efter, och några överlevande från Trinidad först 1525–1526. Ankomsten till Moluckerna (Tidore) anges till den 8 november 1521 (Wikipedia) eller den 6 november (Britannica). Wikipedia säger att Victoria hade rundat Godahoppsudden den 6 maj 1522, Britannica att hon kämpade söder om udden den 7–16 april. Flottan lämnade Río de la Plata den 3 februari 1520 (Wikipedia) eller den 6 februari (Britannica), och Wikipedia nämner också den 10 januari som dag för ankomsten. Den andra obebodda ön, Tiburones, siktades den 21 februari 1521 enligt Wikipedia men den 3 februari enligt Britannica, och den har tolkats som Flint Island eller Caroline Island. Wikidata anger den 8 september 1522 som slutdatum; Wikipedia säger att Victoria kom till Sanlúcar den 6 september och sedan seglade upp till Sevilla. Linjen över haven är ungefärlig: källorna anger hamnar och datum, inte kurs.",
+          "en": "The number who came home on the Victoria differs: 18 men according to Wikipedia (after Kelsey), 31 according to the Encyclopædia Britannica (1911). Wikipedia says another 12, seized by the Portuguese in the Cape Verde Islands, returned the following year, and a few survivors of the Trinidad only in 1525–1526. Arrival in the Moluccas (Tidore) is given as 8 November 1521 (Wikipedia) or 6 November (Britannica). Wikipedia says the Victoria had rounded the Cape of Good Hope by 6 May 1522; Britannica that she was struggling south of the Cape on 7–16 April. The fleet left the Río de la Plata on 3 February 1520 (Wikipedia) or 6 February (Britannica), and Wikipedia also gives 10 January as an arrival date. The second uninhabited island, Tiburones, was sighted on 21 February 1521 according to Wikipedia but on 3 February according to Britannica, and has been identified as Flint Island or Caroline Island. Wikidata gives 8 September 1522 as the end date; Wikipedia says the Victoria reached Sanlúcar on 6 September and then sailed upriver to Seville. The line across the oceans is approximate: the sources give ports and dates, not courses."
+        }
+      },
+      "sources": [
+        "wp-magellan-expedition",
+        "eb1911-magellan",
+        "wikidata"
+      ],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 1519.605,
+          "to": 1519.718,
+          "edtf": "1519-08-10/1519-09-20",
+          "path": [
+            [
+              -6.0,
+              37.4
+            ],
+            [
+              -6.2,
+              37.1
+            ],
+            [
+              -6.4,
+              36.8
+            ]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [
+                -6.0,
+                37.4
+              ],
+              "name": {
+                "sv": "Sevilla",
+                "en": "Seville"
+              },
+              "date": "1519-08-10"
+            },
+            {
+              "at": [
+                -6.4,
+                36.8
+              ],
+              "name": {
+                "sv": "Sanlúcar de Barrameda",
+                "en": "Sanlúcar de Barrameda"
+              },
+              "edtf": "1519-08/1519-09-20"
+            }
+          ],
+          "sources": [
+            "wp-magellan-expedition",
+            "eb1911-magellan",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1519.718,
+          "to": 1519.734,
+          "edtf": "1519-09-20/1519-09-26",
+          "path": [
+            [
+              -6.4,
+              36.8
+            ],
+            [
+              -9.0,
+              34.0
+            ],
+            [
+              -13.5,
+              30.0
+            ],
+            [
+              -16.6,
+              28.3
+            ]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [
+                -16.6,
+                28.3
+              ],
+              "name": {
+                "sv": "Teneriffa (Kanarieöarna)",
+                "en": "Tenerife (Canary Islands)"
+              },
+              "edtf": "1519-09-26/1519-10-03"
+            }
+          ],
+          "sources": [
+            "wp-magellan-expedition",
+            "eb1911-magellan",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1519.753,
+          "to": 1519.948,
+          "edtf": "1519-10-03/1519-12-13",
+          "path": [
+            [
+              -16.6,
+              28.3
+            ],
+            [
+              -17.5,
+              20.0
+            ],
+            [
+              -16.5,
+              10.0
+            ],
+            [
+              -20.0,
+              3.0
+            ],
+            [
+              -30.0,
+              -4.0
+            ],
+            [
+              -35.0,
+              -8.3
+            ],
+            [
+              -38.5,
+              -16.0
+            ],
+            [
+              -43.2,
+              -22.9
+            ]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [
+                -35.0,
+                -8.3
+              ],
+              "name": {
+                "sv": "Trakten av Kap Santo Agostinho (Brasilien)",
+                "en": "Near Cape Saint Augustine (Brazil)"
+              },
+              "date": "1519-11-29"
+            },
+            {
+              "at": [
+                -43.2,
+                -22.9
+              ],
+              "name": {
+                "sv": "Rio de Janeiro",
+                "en": "Rio de Janeiro"
+              },
+              "edtf": "1519-12-13/1519-12-27"
+            }
+          ],
+          "sources": [
+            "wp-magellan-expedition",
+            "eb1911-magellan",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1519.986,
+          "to": 1520.027,
+          "edtf": "1519-12-27/1520-01-11",
+          "path": [
+            [
+              -43.2,
+              -22.9
+            ],
+            [
+              -48.0,
+              -27.0
+            ],
+            [
+              -52.5,
+              -33.5
+            ],
+            [
+              -56.7,
+              -34.9
+            ]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [
+                -56.7,
+                -34.9
+              ],
+              "name": {
+                "sv": "Río de la Plata",
+                "en": "Río de la Plata"
+              },
+              "edtf": "1520-01-11/1520-02-03"
+            }
+          ],
+          "sources": [
+            "wp-magellan-expedition",
+            "eb1911-magellan",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1520.09,
+          "to": 1520.246,
+          "edtf": "1520-02-03/1520-03-31",
+          "path": [
+            [
+              -56.7,
+              -34.9
+            ],
+            [
+              -57.5,
+              -38.5
+            ],
+            [
+              -62.0,
+              -41.5
+            ],
+            [
+              -65.0,
+              -45.5
+            ],
+            [
+              -67.7,
+              -49.3
+            ]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [
+                -67.7,
+                -49.3
+              ],
+              "name": {
+                "sv": "Puerto San Julián (övervintring)",
+                "en": "Puerto San Julián (wintering)"
+              },
+              "edtf": "1520-03-31/1520-08-24"
+            }
+          ],
+          "sources": [
+            "wp-magellan-expedition",
+            "eb1911-magellan",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1520.645,
+          "to": 1520.795,
+          "edtf": "1520-08-24/1520-10-18",
+          "path": [
+            [
+              -67.7,
+              -49.3
+            ],
+            [
+              -68.4,
+              -50.1
+            ]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [
+                -68.4,
+                -50.1
+              ],
+              "name": {
+                "sv": "Río Santa Cruz",
+                "en": "Santa Cruz River"
+              },
+              "edtf": "../1520-10-18"
+            }
+          ],
+          "sources": [
+            "wp-magellan-expedition",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1520.795,
+          "to": 1520.907,
+          "edtf": "1520-10-18/1520-11-28",
+          "path": [
+            [
+              -68.4,
+              -50.1
+            ],
+            [
+              -68.4,
+              -52.3
+            ],
+            [
+              -69.5,
+              -52.6
+            ],
+            [
+              -70.7,
+              -52.9
+            ],
+            [
+              -70.9,
+              -53.4
+            ],
+            [
+              -71.3,
+              -53.9
+            ],
+            [
+              -72.5,
+              -53.6
+            ],
+            [
+              -74.0,
+              -53.0
+            ],
+            [
+              -74.7,
+              -52.7
+            ]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [
+                -68.4,
+                -52.3
+              ],
+              "name": {
+                "sv": "Kap Vírgenes, sundets östra inlopp",
+                "en": "Cape Vírgenes, eastern entrance of the strait"
+              },
+              "date": "1520-10-21"
+            },
+            {
+              "at": [
+                -70.7,
+                -52.9
+              ],
+              "name": {
+                "sv": "Ö i sundet (troligen Isabel eller Dawson)",
+                "en": "Island in the strait (likely Isabel or Dawson)"
+              },
+              "date": "1520-10-28"
+            }
+          ],
+          "sources": [
+            "wp-magellan-expedition",
+            "eb1911-magellan",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1520.907,
+          "to": 1521.175,
+          "edtf": "1520-11-28/1521-03-06",
+          "path": [
+            [
+              -74.7,
+              -52.7
+            ],
+            [
+              -76.0,
+              -45.0
+            ],
+            [
+              -78.0,
+              -38.0
+            ],
+            [
+              -95.0,
+              -30.0
+            ],
+            [
+              -118.0,
+              -21.0
+            ],
+            [
+              -138.8,
+              -14.8
+            ],
+            [
+              -151.8,
+              -11.4
+            ],
+            [
+              -163.0,
+              0.0
+            ],
+            [
+              -175.0,
+              6.0
+            ],
+            [
+              170.0,
+              10.5
+            ],
+            [
+              157.0,
+              12.5
+            ],
+            [
+              144.8,
+              13.5
+            ]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [
+                -138.8,
+                -14.8
+              ],
+              "name": {
+                "sv": "San Pablo (troligen Puka-Puka)",
+                "en": "San Pablo (likely Puka-Puka)"
+              },
+              "date": "1521-01-24"
+            },
+            {
+              "at": [
+                -151.8,
+                -11.4
+              ],
+              "name": {
+                "sv": "Tiburones (Flint Island eller Caroline Island)",
+                "en": "Tiburones (Flint Island or Caroline Island)"
+              }
+            },
+            {
+              "at": [
+                144.8,
+                13.5
+              ],
+              "name": {
+                "sv": "Guam",
+                "en": "Guam"
+              },
+              "edtf": "1521-03-06/1521-03-09"
+            }
+          ],
+          "sources": [
+            "wp-magellan-expedition",
+            "eb1911-magellan",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1521.184,
+          "to": 1521.263,
+          "edtf": "1521-03-09/1521-04-07",
+          "path": [
+            [
+              144.8,
+              13.5
+            ],
+            [
+              135.0,
+              12.5
+            ],
+            [
+              125.1,
+              12.1
+            ],
+            [
+              125.7,
+              10.7
+            ],
+            [
+              125.1,
+              9.9
+            ],
+            [
+              123.8,
+              10.3
+            ]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [
+                125.1,
+                12.1
+              ],
+              "name": {
+                "sv": "Samar (siktas)",
+                "en": "Samar (sighted)"
+              },
+              "date": "1521-03-16"
+            },
+            {
+              "at": [
+                125.7,
+                10.7
+              ],
+              "name": {
+                "sv": "Homonhon",
+                "en": "Homonhon"
+              },
+              "edtf": "1521-03-16/1521-03-27"
+            },
+            {
+              "at": [
+                125.1,
+                9.9
+              ],
+              "name": {
+                "sv": "Limasawa",
+                "en": "Limasawa"
+              },
+              "edtf": "1521-03-28/1521-04-03"
+            },
+            {
+              "at": [
+                123.8,
+                10.3
+              ],
+              "name": {
+                "sv": "Cebu",
+                "en": "Cebu"
+              },
+              "edtf": "1521-04-07/1521-05-01"
+            },
+            {
+              "at": [
+                124.0,
+                10.3
+              ],
+              "name": {
+                "sv": "Mactan: Magellan dödas",
+                "en": "Mactan: Magellan is killed"
+              },
+              "date": "1521-04-27"
+            }
+          ],
+          "sources": [
+            "wp-magellan-expedition",
+            "eb1911-magellan",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1521.329,
+          "to": 1521.518,
+          "edtf": "1521-05-01/1521-07-09",
+          "path": [
+            [
+              123.8,
+              10.3
+            ],
+            [
+              122.0,
+              9.0
+            ],
+            [
+              118.5,
+              9.5
+            ],
+            [
+              116.5,
+              6.5
+            ],
+            [
+              114.6,
+              4.4
+            ]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [
+                118.5,
+                9.5
+              ],
+              "name": {
+                "sv": "Palawan",
+                "en": "Palawan"
+              }
+            },
+            {
+              "at": [
+                114.6,
+                4.4
+              ],
+              "name": {
+                "sv": "Brunei (Borneo)",
+                "en": "Brunei (Borneo)"
+              },
+              "edtf": "1521-07-09/1521-09-27"
+            }
+          ],
+          "sources": [
+            "wp-magellan-expedition",
+            "eb1911-magellan",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1521.737,
+          "to": 1521.852,
+          "edtf": "1521-09-27/1521-11-08",
+          "path": [
+            [
+              114.6,
+              4.4
+            ],
+            [
+              118.0,
+              6.0
+            ],
+            [
+              121.0,
+              5.5
+            ],
+            [
+              124.5,
+              3.0
+            ],
+            [
+              127.4,
+              0.7
+            ]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [
+                127.4,
+                0.7
+              ],
+              "name": {
+                "sv": "Tidore (Moluckerna)",
+                "en": "Tidore (Moluccas)"
+              },
+              "edtf": "1521-11-08/1521-12-21"
+            }
+          ],
+          "sources": [
+            "wp-magellan-expedition",
+            "eb1911-magellan",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1521.97,
+          "to": 1522.342,
+          "edtf": "1521-12-21/1522-05-06",
+          "path": [
+            [
+              127.4,
+              0.7
+            ],
+            [
+              126.5,
+              -4.5
+            ],
+            [
+              123.5,
+              -11.0
+            ],
+            [
+              110.0,
+              -25.0
+            ],
+            [
+              80.0,
+              -36.0
+            ],
+            [
+              45.0,
+              -40.5
+            ],
+            [
+              25.0,
+              -37.0
+            ],
+            [
+              18.5,
+              -34.4
+            ]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [
+                18.5,
+                -34.4
+              ],
+              "name": {
+                "sv": "Godahoppsudden",
+                "en": "Cape of Good Hope"
+              },
+              "date": "1522-05-06"
+            }
+          ],
+          "sources": [
+            "wp-magellan-expedition",
+            "eb1911-magellan",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1522.342,
+          "to": 1522.518,
+          "edtf": "1522-05-06/1522-07-09",
+          "path": [
+            [
+              18.5,
+              -34.4
+            ],
+            [
+              8.0,
+              -20.0
+            ],
+            [
+              -8.0,
+              -5.0
+            ],
+            [
+              -18.0,
+              8.0
+            ],
+            [
+              -23.7,
+              15.3
+            ]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [
+                -23.7,
+                15.3
+              ],
+              "name": {
+                "sv": "Kap Verdeöarna",
+                "en": "Cape Verde Islands"
+              },
+              "edtf": "1522-07-09/1522-07-15"
+            }
+          ],
+          "sources": [
+            "wp-magellan-expedition",
+            "eb1911-magellan",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1522.534,
+          "to": 1522.679,
+          "edtf": "1522-07-15/1522-09-06",
+          "path": [
+            [
+              -23.7,
+              15.3
+            ],
+            [
+              -28.0,
+              25.0
+            ],
+            [
+              -22.0,
+              36.0
+            ],
+            [
+              -12.0,
+              37.0
+            ],
+            [
+              -6.4,
+              36.8
+            ]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [
+                -6.4,
+                36.8
+              ],
+              "name": {
+                "sv": "Sanlúcar de Barrameda: Victoria är tillbaka",
+                "en": "Sanlúcar de Barrameda: Victoria is back"
+              },
+              "date": "1522-09-06"
+            }
+          ],
+          "sources": [
+            "wp-magellan-expedition",
+            "wikidata"
+          ]
+        }
+      ]
+    }
+  ]
+}
