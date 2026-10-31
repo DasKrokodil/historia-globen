@@ -8,6 +8,7 @@
 //
 // Argument: porten (standard 8000). Sidan hämtas från http://localhost:<port>/.
 // Miljövariabler (alla valfria):
+//   BASE_URL=<adress>    testa en redan publicerad sida i stället, till exempel https://historiagloben.se/
 //   SKARMBILDER=<mapp>   var skärmbilderna sparas (standard: <tmp>/historia-globen-webblasartest)
 //   THREE_LOCAL=<fil>    lokal kopia av three.module.js (three@0.160.0) som ersätter jsdelivr. För miljöer utan
 //                        nät till jsdelivr, till exempel molnmiljön. Google Fonts avbryts då också.
@@ -28,7 +29,8 @@ const require = createRequire(import.meta.url);
 const { chromium } = require('playwright');
 
 const PORT = Number(process.argv[2] || 8000);
-const BASE = `http://localhost:${PORT}/`;
+const target = process.env.BASE_URL || `http://localhost:${PORT}/`;
+const BASE = target.endsWith('/') ? target : `${target}/`;
 const OUT = path.resolve(process.env.SKARMBILDER || path.join(os.tmpdir(), 'historia-globen-webblasartest'));
 const THREE_URL = 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 const THREE_LOCAL = process.env.THREE_LOCAL || '';

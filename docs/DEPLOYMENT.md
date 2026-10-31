@@ -140,6 +140,17 @@ Bara pull requests mot `production` får dessutom kontrollen **"Release kommer f
 
 `.github/workflows/release.yml`, **Skapa release**, körs för hand från grenen `production` (Actions → Skapa release → Run workflow, "Use workflow from: production", versionsnummer `vX.Y.Z`). Den bygger och validerar `production`, kontrollerar att numret har rätt form och inte redan finns, kontrollerar med `scripts/production-i-main.sh` att `production` bara innehåller det som finns i `main`, och skapar sedan taggen och en GitHub Release med automatiska anteckningar. Den ändrar inget innehåll i `production` och publicerar inget; publiceringen har redan skett när release-PR:en slogs ihop.
 
+### Kontroll efter publicering (#400)
+
+`.github/workflows/production-check.yml`, **Kontrollera produktionen**, anropas automatiskt när **Skapa release** är klar och kan även köras för hand under Actions. Jobbet läser bara `https://historiagloben.se` och ändrar ingenting. Det
+
+1. väntar i högst fem minuter på att `js/main.js` på webbplatsen är exakt samma fil som på grenen `production`
+2. kontrollerar att HTML, CSS, JavaScript och JSON svarar med `Cache-Control: no-cache`
+3. kör samma grundfunktioner i `tests/webblasare.mjs` mot den skarpa adressen, i dator- och mobilbredd
+4. sparar skärmbilderna som artefakten `skarmbilder-produktion` i 14 dagar.
+
+Webbläsartestet väljer den publicerade sidan med `BASE_URL=https://historiagloben.se/`; utan den variabeln fungerar det som förut mot en lokal port. Om cachekontrollen misslyckas trots `_headers` ska Cloudflares **Browser Cache TTL** stå på **Respect Existing Headers**.
+
 ### Webbläsartest (#339)
 
 `.github/workflows/browser-test.yml`, **Webbläsartest**, körs vid samma tillfällen som valideringen (push till `main`, pull requests mot `main` och `production`). Jobbet **"Öppna sidan i Chromium"**:
@@ -188,7 +199,7 @@ Godkännanden är satta till 0 eftersom projektet har en ägare, och GitHub låt
 4. Vänta tills **"Bygg och validera dist/"** och **"Release kommer från main"** är gröna, och bocka av checklistan.
 5. Slå ihop med **Create a merge commit** (det enda sättet som är tillåtet mot `production`). Då bygger Cloudflare Pages `production` och publicerar historiagloben.se, oftast inom någon minut.
 6. Kontrollera i Cloudflare → Deployments att produktionsbygget blev klart, och öppna historiagloben.se.
-7. Kör Actions → **Skapa release** från grenen `production` med versionsnumret. Det skapar taggen `vX.Y.Z` och en GitHub Release.
+7. Kör Actions → **Skapa release** från grenen `production` med versionsnumret. Det skapar taggen `vX.Y.Z` och en GitHub Release och kör därefter **Kontrollera produktionen** automatiskt.
 
 Inget annat än en sammanslagen release-PR uppdaterar historiagloben.se: `production` går inte att pusha till direkt, och sammanslagningar till `main` bygger bara förhandsversionen.
 
