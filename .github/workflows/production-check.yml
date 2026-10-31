@@ -1,0 +1,89 @@
+# Läser bara den publicerade webbplatsen (#400). Körs efter Skapa release och kan även startas för hand.
+name: Kontrollera produktionen
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  BASE_URL: https://historiagloben.se/
+  PLAYWRIGHT_VERSION: '1.63.0' # samma exakta version som det vanliga webbläsartestet
+
+jobs:
+  production:
+    name: Kontrollera historiagloben.se
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: production
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Vänta tills rätt main.js är publicerad
+        run: |
+          for i in $(seq 1 30); do
+            if curl --fail --silent --show-error --location \
+              "$BASE_URL/js/main.js" --output "$RUNNER_TEMP/publicerad-main.js" \
+              && cmp --silent js/main.js "$RUNNER_TEMP/publicerad-main.js"; then
+              echo "Publicerad js/main.js stämmer med production."
+              exit 0
+            fi
+            echo "Väntar på publiceringen ($i/30)…"
+            sleep 10
+          done
+          echo "::error::js/main.js på historiagloben.se stämmer inte med grenen production."
+          diff --unified js/main.js "$RUNNER_TEMP/publicerad-main.js" || true
+          exit 1
+
+      - name: Kontrollera Cache-Control
+        shell: bash
+        run: |
+          check_no_cache() {
+            local path="$1" kind="$2" headers cache
+            headers="$(curl --fail --silent --show-error --location --head "$BASE_URL$path")"
+            cache="$(printf '%s\n' "$headers" | awk '
+              tolower($1) == "cache-control:" {
+                sub(/^[^:]+:[[:space:]]*/, "")
+                value = $0
+              }
+              END { print value }
+            ' | tr -d '\r')"
+            if [[ ",${cache,,}," != *",no-cache,"* ]]; then
+              echo "::error::$kind ($path) ska ha Cache-Control: no-cache, fick: ${cache:-saknas}"
+              return 1
+            fi
+            echo "$kind ($path): Cache-Control: $cache"
+          }
+
+          failed=0
+          check_no_cache "" "HTML" || failed=1
+          check_no_cache "css/style.css" "CSS" || failed=1
+          check_no_cache "js/main.js" "JavaScript" || failed=1
+          check_no_cache "data/genererat/handelser.json" "JSON" || failed=1
+          exit "$failed"
+
+      - name: Installera Playwright och Chromium (utanför repot)
+        run: |
+          npm install --prefix "$RUNNER_TEMP/pw" --no-save --no-audit --no-fund "playwright@$PLAYWRIGHT_VERSION"
+          "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps --only-shell chromium
+
+      - name: Kör grundfunktionerna mot produktionen
+        env:
+          SKARMBILDER: skarmbilder-produktion
+        run: NODE_PATH="$RUNNER_TEMP/pw/node_modules" node tests/webblasare.mjs
+
+      - name: Spara skärmbilderna
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: skarmbilder-produktion
+          path: skarmbilder-produktion/
+          if-no-files-found: warn
+          retention-days: 14
