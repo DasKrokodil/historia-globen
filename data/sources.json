@@ -2,6 +2,7 @@
   "schema": "historia-globen/sources@1",
   "sources": [
     { "id": "natural-earth", "title": "Natural Earth 1:50m land (via world-atlas 2.0.2)", "url": "https://www.naturalearthdata.com/", "license": "Public domain", "checked": "2026-10-28" },
+    { "id": "nasa-black-marble-2016", "title": "NASA Earth Observatory: Black Marble 2016, global nattljusbild (3600 × 1800)", "url": "https://science.nasa.gov/earth/earth-observatory/earth-at-night/maps/", "license": "Public domain", "checked": "2026-10-31" },
     { "id": "natural-earth-countries", "title": "Natural Earth 1:50m Admin 0, dagens landsgränser (via world-atlas 2.0.2)", "url": "https://www.naturalearthdata.com/downloads/50m-cultural-vectors/", "license": "Public domain", "checked": "2026-10-28" },
     { "id": "cliopatria", "title": "Cliopatria – Seshat Global History Databank (datafil cliopatria_polities_only_v021)", "url": "https://github.com/Seshat-Global-History-Databank/cliopatria", "license": "CC BY 4.0", "checked": "2026-10-28" },
     { "id": "whg-hced", "title": "Historical Conflict Event Dataset (Miller 2022, Harvard Dataverse V3) i World Historical Gazetteer, dataset 1415 – utkast i data/utkast/hced.json", "url": "https://whgazetteer.org/datasets/1415/places", "license": "CC0 1.0 (WHG:s tillägg CC BY 4.0)", "checked": "2026-10-29" },
