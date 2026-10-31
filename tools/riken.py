@@ -100,10 +100,47 @@ GROUPS = {
     'aksumriket': ('Aksumriket', 'Kingdom of Aksum', [
         ('Kingdom of Axum', 'aksumriket', 'Aksumriket', '#c06a9a'),
     ]),
+    # R3 Medeltiden (#69)
+    'umayyadkalifatet': ('Umayyadkalifatet', 'Umayyad Caliphate', [
+        ('Umayyad Caliphate', 'umayyadkalifatet', 'Umayyadkalifatet', '#4e9a2e'),
+    ]),
+    'abbasidkalifatet': ('Abbasidkalifatet', 'Abbasid Caliphate', [
+        ('Abbasid Caliphate', 'abbasidkalifatet', 'Abbasidkalifatet', '#2a6f97'),
+        ('Abbasid Caliphate/Buyid Dynasty', 'abbasidkalifatet-buyiderna', 'Abbasidkalifatet under buyiderna', '#5b9bbd'),
+    ]),
+    'frankerriket': ('Frankerriket', 'Francia (Kingdom of the Franks)', [
+        ('(Merovingian Empire)', 'merovingiska-riket', 'Frankerriket under merovingerna', '#3b62b0'),
+        ('(Carolingian Empire)', 'karolingiska-riket', 'Frankerriket under karolingerna', '#3b62b0'),
+    ]),
+    'tysk-romerska-riket': ('Tysk-romerska riket', 'Holy Roman Empire', [
+        ('(Holy Roman Empire)', 'tysk-romerska-riket', 'Tysk-romerska riket', '#d4a017'),
+    ]),
+    'tangdynastin': ('Tangdynastin', 'Tang dynasty', [
+        ('Tang Dynasty', 'tangdynastin', 'Tangdynastin', '#a8323e'),
+    ]),
+    'songdynastin': ('Songdynastin', 'Song dynasty', [
+        ('Northern Song', 'norra-song', 'Norra Song', '#3fa38c'),
+        ('Southern Song', 'sodra-song', 'Södra Song', '#3fa38c'),
+    ]),
+    'khmerriket': ('Khmerriket', 'Khmer Empire', [
+        ('Khmer Empire', 'khmerriket', 'Khmerriket', '#c46fb0'),
+    ]),
+    'ghanariket': ('Ghanariket', 'Ghana Empire', [
+        ('Ghana Empire', 'ghanariket', 'Ghanariket', '#e08a2e'),
+    ]),
+    'maliriket': ('Maliriket', 'Mali Empire', [
+        ('Mali Empire', 'maliriket', 'Maliriket', '#9c4a2e'),
+    ]),
+    'kievriket': ('Kievriket', "Kievan Rus'", [
+        ("Kievan Rus'", 'kievriket', 'Kievriket', '#7fb0e0'),
+    ]),
+    'timuridriket': ('Timuridriket', 'Timurid Empire', [
+        ('Timurid Empire', 'timuridriket', 'Timuridriket', '#4a5fc4'),
+    ]),
     # R4 Tidigmodern tid (#70)
     'aztekriket': ('Aztekriket', 'Aztec Empire', [
-        ('Tenochtitlan', 'tenochtitlan', 'Tenochtitlan', '#b84a3a'),
-        ('Aztec Triple Alliance', 'aztekiska-trippelalliansen', 'Aztekiska trippelalliansen', '#b84a3a'),
+        ('Tenochtitlan', 'tenochtitlan', 'Tenochtitlan', '#8f4a2a'),
+        ('Aztec Triple Alliance', 'aztekiska-trippelalliansen', 'Aztekiska trippelalliansen', '#8f4a2a'),
     ]),
     'inkariket': ('Inkariket', 'Inca Empire', [
         ('Inca Empire', 'inkariket', 'Inkariket', '#8a5a9e'),
@@ -125,17 +162,17 @@ GROUPS = {
         ('Qing Dynasty', 'qingdynastin', 'Qingdynastin', '#d6a433'),
     ]),
     'spanska-imperiet': ('Spanska imperiet', 'Spanish Empire', [
-        ('(Spanish Empire)', 'spanska-imperiet', 'Spanska imperiet', '#d9832b'),
+        ('(Spanish Empire)', 'spanska-imperiet', 'Spanska imperiet', '#d2602e'),
     ]),
     'portugisiska-imperiet': ('Portugisiska imperiet', 'Portuguese Empire', [
         ('(Portuguese Empire)', 'portugisiska-imperiet', 'Portugisiska imperiet', '#2e7d5b'),
     ]),
     'ryska-imperiet': ('Ryssland: tsardömet och kejsardömet', 'Russia: Tsardom and Empire', [
-        ('Tsardom of Russia', 'ryska-tsardomet', 'Ryska tsardömet', '#5f6fae'),
-        ('Russian Empire', 'ryska-imperiet', 'Ryska imperiet', '#5f6fae'),
+        ('Tsardom of Russia', 'ryska-tsardomet', 'Ryska tsardömet', '#7a5fa6'),
+        ('Russian Empire', 'ryska-imperiet', 'Ryska imperiet', '#7a5fa6'),
     ]),
     'svenska-stormaktsvaldet': ('Svenska stormaktsväldet', 'Swedish Empire', [
-        ('Swedish Empire', 'svenska-stormaktsvaldet', 'Svenska stormaktsväldet', '#e0c040'),
+        ('Swedish Empire', 'svenska-stormaktsvaldet', 'Svenska stormaktsväldet', '#3d8fd1'),
     ]),
     'habsburgska-riket': ('Habsburgska riket', 'Habsburg Monarchy', [
         ('(Habsburg Monarchy)', 'habsburgska-riket', 'Habsburgska riket', '#a8475a'),
