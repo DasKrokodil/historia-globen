@@ -64,6 +64,40 @@ GROUPS = {
     'brittiska-imperiet': ('Brittiska imperiet', 'British Empire', [
         ('(British Empire)', 'brittiska-imperiet', 'Brittiska imperiet', '#c2557a'),
     ]),
+    # R2 Antiken (#68)
+    'egypten': ('Egypten: gamla och nya riket', 'Egypt: Old and New Kingdom', [
+        ('Old Kingdom of Egypt', 'egyptens-gamla-rike', 'Egyptens gamla rike', '#3aa0a8'),
+        ('New Kingdom of Egypt', 'egyptens-nya-rike', 'Egyptens nya rike', '#3aa0a8'),
+    ]),
+    'assyriska-riket': ('Assyriska riket', 'Assyria', [
+        ('Assyria', 'assyrien', 'Assyrien', '#6170bd'),
+        ('Neo-Assyrian Empire', 'nyassyriska-riket', 'Nyassyriska riket', '#6170bd'),
+    ]),
+    'nybabyloniska-riket': ('Nybabyloniska riket', 'Neo-Babylonian Empire', [
+        ('Neo-Babylonian Empire', 'nybabyloniska-riket', 'Nybabyloniska riket', '#c7568a'),
+    ]),
+    'kartago': ('Kartago', 'Carthage', [
+        ('Carthage', 'kartago', 'Kartago', '#7b5fc0'),
+    ]),
+    'seleukidriket': ('Seleukidriket', 'Seleucid Empire', [
+        ('Seleucid Empire', 'seleukidriket', 'Seleukidriket', '#4aa8c8'),
+    ]),
+    'partherriket': ('Partherriket', 'Parthian Empire', [
+        ('Parthian Empire', 'partherriket', 'Partherriket', '#9a9433'),
+    ]),
+    'sasanidriket': ('Sasanidriket', 'Sasanian Empire', [
+        ('Sasanian Empire', 'sasanidriket', 'Sasanidriket', '#3f9a5f'),
+    ]),
+    'qinriket': ('Qin: staten och Qindynastin', 'Qin: the state and the Qin dynasty', [
+        ('Qin', 'qin-staten', 'Staten Qin', '#5a7fc0'),
+        ('Qin Dynasty', 'qindynastin', 'Qindynastin', '#5a7fc0'),
+    ]),
+    'guptariket': ('Guptariket', 'Gupta Empire', [
+        ('Gupta Empire', 'guptariket', 'Guptariket', '#d9a03a'),
+    ]),
+    'aksumriket': ('Aksumriket', 'Kingdom of Aksum', [
+        ('Kingdom of Axum', 'aksumriket', 'Aksumriket', '#c06a9a'),
+    ]),
     # R3 Medeltiden (#69)
     'umayyadkalifatet': ('Umayyadkalifatet', 'Umayyad Caliphate', [
         ('Umayyad Caliphate', 'umayyadkalifatet', 'Umayyadkalifatet', '#4e9a2e'),

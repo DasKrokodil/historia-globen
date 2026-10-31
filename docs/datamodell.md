@@ -116,11 +116,11 @@ Korten "När ett krig bröt ut" lagras inte här. De byggs i koden ur händelser
     "periods": [{ "start": -202, "end": -127, "areaKm2": 2042615, "label": [111.5, 33.4], "geometry": { "type": "MultiPolygon", … } }] }] }
 ```
 
-Ett rike kan bestå av flera delar, till exempel Romarriket med kungadömet, republiken, kejsardömet och Bysans. Varje period har en egen gräns. `label` är platsen där namnet skrivs ut. Filerna byggs med `tools/riken.py` ur Cliopatria. Skriptet behåller gruppernas `facts` i `index.json` när det körs om.
+Ett rike kan bestå av flera delar, till exempel Romarriket med kungadömet, republiken, kejsardömet och Bysans. Varje period har en egen gräns. `label` är platsen där namnet skrivs ut. Filerna byggs med `tools/riken.py` ur Cliopatria. Faktarutorna (`facts`, se nedan) skrivs för hand; skriptet läser den befintliga `index.json` och behåller varje rikes `facts` när filen skrivs om (#68).
 
 Medeltidens riken (R3, #69): Umayyad- och abbasidkalifaten, Frankerriket (merovinger och karoliner, Cliopatrias sammanslagna `(Merovingian Empire)` och `(Carolingian Empire)`), Tysk-romerska riket (`(Holy Roman Empire)`), Tang- och Songdynastierna, Khmerriket, Ghanariket, Maliriket, Kievriket och Timuridriket, var och en en egen grupp med faktaruta. Källor: Wikipedia och World History Encyclopedia (NC, bara länkad). Kartdatans avvikelser står i varje rikes `mapNote`, till exempel att Cliopatria saknar abbasidkalifatet 970–1201 och från 1459 bara räknar Tysk-romerska rikets småstater till riket.
 
-`facts` (valfritt, #170) i `empires/index.json` är faktarutan om riket (gruppen). Formatet är detsamma som för religionernas `facts` (se nedan): `summary`, `items` (när och var det uppstod, hur det slutade, huvudstäder, kända härskare, största utbredning med år, språk och religion), `milestones` (nyckelår med `year`, `label`, `text` på en till tre meningar och egna `sources`; för riken även `title`, `events` och `mapNote`, se nedan), `sources` och `review`. Dessutom `mapNote`, som säger hur källornas årtal skiljer sig från kartdatans spann (`from`/`to` kommer från Cliopatria, #138). `origin` används inte för riken. Rutan visas när man följer riket i Fokus. Alla riken har en.
+`facts` (valfritt, #170) i `empires/index.json` är faktarutan om riket (gruppen). Formatet är detsamma som för religionernas `facts` (se nedan): `summary`, `items` (när och var det uppstod, hur det slutade, huvudstäder, kända härskare, största utbredning med år, språk och religion), `milestones` (nyckelår med `year`, `label`, `text` på en till tre meningar och egna `sources`; för riken även `title`, `events` och `mapNote`, se nedan), `sources` och `review`. Dessutom `mapNote`, som säger hur källornas årtal skiljer sig från kartdatans spann (`from`/`to` kommer från Cliopatria, #138). `origin` används inte för riken. Rutan visas när man följer riket i Fokus. Alla riken har en, också antikens tio riken från R2 (#68) och medeltidens elva från R3 (#69).
 
 ```json
 "facts": { "summary": { "sv": "Osmanska riket hade sitt centrum i dagens Turkiet …" },
@@ -135,7 +135,7 @@ Rikets nyckelår är också rikets berättelse (#171): när man följer riket i 
 - `events` (valfritt): id för händelser i `events.json` som hör till nyckelåret, till exempel ett krig. De visas som knappar i kortet och berättas inte om i texten.
 - `mapNote` (valfritt): hur kartan (Cliopatria) skiljer sig från källans årtal vid just det nyckelåret, till exempel att förändringen syns först några år senare.
 
-`text` säger vad som hände och varför det påverkade utbredningen. Nyckelåren läggs helst där kartan visar en stor förändring av ytan. Osmanska riket, Mongolriket, Hanriket och Brittiska imperiet har 9–10 nyckelår var (#171), Rom 16 och Persiska riket, Makedoniska riket och Mauryariket 7–9 var (#180).
+`text` säger vad som hände och varför det påverkade utbredningen. Nyckelåren läggs helst där kartan visar en stor förändring av ytan. Osmanska riket, Mongolriket, Hanriket och Brittiska imperiet har 9–10 nyckelår var (#171), Rom 16 och Persiska riket, Makedoniska riket och Mauryariket 7–9 var (#180). Antikens riken (R2, #68) har 5–7 nyckelår var.
 
 ```json
 { "year": 1699, "label": { "sv": "1699" }, "title": { "sv": "Freden i Karlowitz" },
@@ -178,6 +178,45 @@ En post i `files` är en sökväg från repots rot eller ett filnamn i `data/rou
 | `legs` | Etapperna. `from` och `to` är år och får ha decimaler för delar av år (1405,7 ≈ september 1405). `path` är vägen i `[longitud, latitud]` (WGS 84); långa sträckor ritas som storcirklar. `edtf` (valfritt) är etappens tid som text i klickrutan. `uncertain: true` ritas streckat. `places` (valfritt) är platser längs etappen med `at`, `name` och valfria `date` och `edtf` (text, till exempel `"1431-01-19"`, inte ett tal); de ritas inte ännu. `sources` är etappens källor |
 
 Etapper får överlappa i tid (till exempel när en flotta delas); varje pågående etapp får då ett skepp. `scripts/validate-site.py` kontrollerar att filerna i `files` finns och går att läsa, att vägarnas och etappernas källor finns i `sources.json` och att `event` finns i `events.json`.
+
+## `upptackt.json`: upptäcktsvyn (#101)
+
+Upptäcktsvyn slås på i Lager. Filen styr allt den visar (ritas av `js/layers/discovery.js`):
+
+```json
+{ "schema": "historia-globen/upptackt@1", "notes": "…",
+  "perspective": { "sv": "Dimman döljer det som resorna och vägarna i datan ännu inte har nått …" },
+  "credit": { "sv": "Kartbilder: havsmonster ur Olaus Magnus Carta marina (1539) …" },
+  "paper": { "grain": 0.22, "stains": 18, "stainStrength": 0.16, "seed": 1539,
+    "waterLines": { "count": 3, "widthDeg": 1.3, "opacity": 0.14 }, "coastPx": 2.4,
+    "vignette": 0.45, "vignetteSides": 0.5,
+    "rhumb": { "directions": 32, "lengthDeg": 70, "opacity": 0.42, "widthPx": 1.6 } },
+  "fog": { "opacity": 0.97, "corridorDeg": 7, "soften": 0.7, "grain": 0.2,
+    "hatch": 0.45, "hatchDeg": 1.2, "hatchSpacingDeg": 0.6,
+    "labels": [{ "text": { "sv": "Terra incognita" }, "at": [-100, 47], "size": 4.2 }] },
+  "decorations": [{ "id": "sjoorm-stilla-havet", "file": "images/karta/sjoorm.webp", "at": [-152, 32],
+    "width": 26, "fade": true, "title": { "sv": "Sjöorm" }, "source": "commons-karta-carta-marina-sjoorm" }] }
+```
+
+| Fält | Betydelse |
+|---|---|
+| `perspective` | Raden i teckenförklaringen: vad dimman och ordet "upptäckt" betyder här. Text per språk |
+| `credit` | Krediten för kartbilderna i teckenförklaringen. Länkar till filsidorna läggs till ur `source` |
+| `paper` | Den åldrade papperskartan som täcker grundkartan medan vyn är på (grundkartan själv ändras inte). Den ritas en gång. Färgerna är CSS-variablerna `--discovery-sea` (haven), `--discovery-land` (landet), `--discovery-ink` (bläcket), `--discovery-stain` (fläckarna) och `--discovery-edge` (kanterna) |
+| `paper.grain` | Papperskornens styrka, 0–1 |
+| `paper.stains`, `paper.stainStrength` | Antal fläckar i pappret och hur starka de är (0–1) |
+| `paper.seed` | Fröet som bestämmer var korn och fläckar hamnar, så att kartan ser likadan ut varje gång |
+| `paper.waterLines` | Vattenlinjer längs kusten: `count` band, `widthDeg` = det bredaste bandets bredd i grader och `opacity` |
+| `paper.coastPx` | Bläckkustens bredd i bildpunkter på lagerbilden (4096 × 2048) |
+| `paper.vignette`, `paper.vignetteSides` | Mörkare kanter mot polerna (0–1), och hur stor del av det som gäller mot datumlinjen |
+| `paper.rhumb` | Portolanlinjer ut från varje dekoration med `rhumb: true`, ovanpå dimman: `directions` = antal riktningar (avrundas till en multipel av 8; huvudvindar i bläck, halvvindar i grönt `--discovery-rhumb-half`, kvartsvindar i rött `--discovery-rhumb-quarter`), `lengthDeg` = längd i grader, `opacity` och `widthPx` |
+| `fog.opacity` | Dimmans täckning, 0–1. Nära 1 döljer allt som inte har nåtts; händelsernas markörer syns ändå, eftersom de ligger ovanpå klotet. Färgerna är CSS-variablerna `--discovery-fog` och `--discovery-ink` |
+| `fog.corridorDeg` | Bredden i grader på korridoren som lyfts längs varje etapp i `data/routes` som har börjat |
+| `fog.soften` | Hur mycket bredare korridorens mjuka kant är (0,7 = 70 % bredare) |
+| `fog.grain` | Papperskornen i dimman, 0–1 |
+| `fog.hatch`, `fog.hatchDeg`, `fog.hatchSpacingDeg` | Bläckskraffering längs dimmans kant: styrka (0 = ingen), bandets bredd i grader och avståndet mellan strecken i grader |
+| `fog.labels` | Texter i dimman: `text`, `at` = `[longitud, latitud]` för mitten och `size` = höjd i grader |
+| `decorations` | Bilder ur gamla kartor: `file`, `at` = `[longitud, latitud]` för bildens mitt (mitt i öppna hav), `width` = bredd i grader, `fade` = tonas bort när en lyft korridor kommer nära, `rhumb` = portolanlinjer ut från bildens mitt (kompassrosor), `title` och `source` (id i `sources.json`, filsidan på Wikimedia Commons) |
 
 ## `religions.json`: religioner
 
