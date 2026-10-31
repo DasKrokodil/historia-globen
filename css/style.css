@@ -55,6 +55,8 @@
 }
 
 html, body { height: 100%; }
+/* Hindra dubbeltryckszoom och tryckfördröjning utan att blockera nypzoom eller panorering (#404). */
+html { touch-action: manipulation; }
 body {
   background: var(--night);
   color: var(--parchment);
