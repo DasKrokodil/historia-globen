@@ -249,9 +249,14 @@ async function start() {
     const from = own ? Math.min(...polity.periods.map(p => p.start)) : g.from;
     const to = own ? Math.max(...polity.periods.map(p => p.end)) : g.to;
     const sym = own?.symbol ? { symbol: own.symbol } : g;
-    panel.showFacts({ kind: 'Rike', name: t(own ? polity.name : g.name), color: g.color, facts, place,
+    const curveId = own ? `${g.id}:${polity.id}` : g.id;
+    panel.showFacts({ kind: 'Rike', name: t(own ? polity.name : g.name), color: g.color, facts, place, curveId,
       symbol: symbolImg(sym, 'rel-sym rel-sym-h'),
       mapNote: `Gränserna på kartan kommer från Cliopatria (kartdata ${formatYearSpan(from, to)}). Fakta i rutan kommer från rutans källor.${note ? ` ${note}` : ''}` });
+    // Ytkurvan (#77) ritas när rikets fil har laddats (den laddas ändå för kartan); för ett rike med egen
+    // faktaruta (#301) visar kurvan bara det riket
+    if (own) panel.setCurve(curveId, [polity], { from, to, color: g.color }, timeline.year);
+    else loadEmpire(g).then(ps => panel.setCurve(g.id, ps, g, timeline.year)).catch(err => console.error(err));
     layers.close(); focusMenu.close();
     if (narrow.matches) panel.setOpen(false);
     refresh();
@@ -631,6 +636,7 @@ async function start() {
     flatMap.setMarkers({ list: layer.sprites.filter(sp => sp.userData.active).map(sp => sp.userData),
       labeled: new Set(visible.map(v => v.e.id)), keep: ff.highlightIds(), selectedId });
     areas.update({ year: wholeYear });
+    panel.setCurveYear(wholeYear);
     borders.update({ year: wholeYear });
     religions.update({ year: wholeYear });
     wars.enabled = eventsOn;
