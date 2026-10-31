@@ -10,7 +10,7 @@ import { entry as bordersEntry } from './layers/borders.js';
 import { ReligionsLayer } from './layers/religions.js';
 import { OriginMarkers } from './layers/origins.js';
 import { EmpireMarkers } from './layers/empiremarks.js';
-import { WarsLayer } from './layers/wars.js';
+import { entry as warsEntry } from './layers/wars.js';
 import { LinesLayer } from './layers/lines.js';
 import { DiscoveryLayer } from './layers/discovery.js';
 import { Panel } from './ui/panel.js';
@@ -87,7 +87,6 @@ async function start() {
   areas.onGlyph = religions.onGlyph;
   const empireMarks = new EmpireMarkers(globe, $('labels'));
   empireMarks.onPick = m => showEmpireFacts(m.group, m.own ? m.polity : null);
-  const wars = new WarsLayer(data.events);
   // Vägar och resor (#38): filerna laddas efter starten, och lagret ritas om när de har kommit
   const routes = new LinesLayer();
   loadRoutes().then(list => { routes.setRoutes(list); refresh(); });
@@ -151,11 +150,7 @@ async function start() {
     legend: () => ({ discovery: discovery.enabled ? discoveryNote : null }),
     passes: [{ z: Z.paper, draw: (c, w, h) => discovery.drawPaper(c, w, h) }, { z: Z.discovery, draw: (c, w, h) => discovery.drawOverlay(c, w, h) }] });
   registry.add(bordersEntry(env));
-  registry.add({ id: 'wars', name: 'Krigsområden', layer: wars, z: Z.wars,
-    enabled: s => s.layers.events,
-    update: s => { wars.labelScale = s.labels.scale; return wars.update({ year: s.year, filters: s.filters, span: s.span, focusId: s.focusWar?.id }); },
-    legend: s => ({ war: wars.active.some(a => a.war === s.focusWar) }),
-    drawOverlay: (c, w, h) => wars.drawOverlay(c, w, h) });
+  registry.add(warsEntry(env));
   const panel = new Panel({
     root: $('panel'), list: $('event-list'), filters: $('filters'), detail: $('detail'),
     sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'), close: $('panel-close'),
