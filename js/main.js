@@ -7,8 +7,7 @@ import { EventsLayer, markerInfo, describeMarker } from './layers/events.js';
 import { AreasLayer } from './layers/areas.js';
 import { MAX_JUMP_YEARS } from './layers/area-transition.js';
 import { entry as bordersEntry } from './layers/borders.js';
-import { ReligionsLayer } from './layers/religions.js';
-import { OriginMarkers } from './layers/origins.js';
+import { entry as religionsEntry } from './layers/religions.js';
 import { EmpireMarkers } from './layers/empiremarks.js';
 import { entry as warsEntry } from './layers/wars.js';
 import { entry as routesEntry } from './layers/lines.js';
@@ -65,16 +64,22 @@ async function start() {
     labels: $('flat-labels'), onSelect: id => select(id), labelText, fillLabel,
   });
 
+  // Det gemensamma tillståndet och lagerregistret (#338)
+  const state = createState();
+  const registry = new LayerRegistry();
+  // Det lagren får när de skapas: klotet, datan och vägar tillbaka till main.js (omritning, faktarutor)
+  let glyphRaf = 0;
+  const env = {
+    globe, data, labelsEl: $('labels'), registry,
+    refresh: () => refresh(),
+    // En symbol som laddas klart ritas in på lagerbilden (en omritning per bildruta räcker)
+    refreshSoon: () => { cancelAnimationFrame(glyphRaf); glyphRaf = requestAnimationFrame(() => refresh()); },
+    showReligionFacts: id => showReligionFacts(id),
+    showEmpireFacts: (id, polity) => showEmpireFacts(id, polity),
+  };
   const layer = new EventsLayer(globe, data.events);
   const areas = new AreasLayer();
   areas.setPoints(data.empireGroups); // försvunna länder utan gräns, som en punkt (#72)
-  const religions = new ReligionsLayer();
-  // Symbolen där religionen uppstod (#271): klickbar medalj ovanpå klotet, öppnar religionens faktaruta
-  const origins = new OriginMarkers(globe, $('labels'));
-  origins.onPick = id => showReligionFacts(id);
-  // En symbol som laddas klart ritas in på lagerbilden (en omritning per bildruta räcker)
-  let glyphRaf = 0;
-  religions.onGlyph = () => { cancelAnimationFrame(glyphRaf); glyphRaf = requestAnimationFrame(() => refresh()); };
   // Rikenas symboler (#301): symbol i gruppen i empires/index.json, eller polityFacts.<rike>.symbol för ett rike i
   // gruppen med egen faktaruta (Bysantinska riket). Medaljen står på rikets label-punkt och öppnar faktarutan.
   const empireById = new Map(data.empireGroups.map(g => [g.id, g]));
@@ -84,20 +89,10 @@ async function start() {
     const symbol = own?.symbol ?? g?.symbol;
     return symbol ? { symbol, color: polity.color, name: t(polity.name), group: g.id, own: !!own?.facts } : null;
   };
-  areas.onGlyph = religions.onGlyph;
+  areas.onGlyph = env.refreshSoon;
   const empireMarks = new EmpireMarkers(globe, $('labels'));
   empireMarks.onPick = m => showEmpireFacts(m.group, m.own ? m.polity : null);
 
-  // Det gemensamma tillståndet och lagerregistret (#338)
-  const state = createState();
-  const registry = new LayerRegistry();
-  // Det lagren får när de skapas: klotet, datan och vägar tillbaka till main.js (omritning, faktarutor)
-  const env = {
-    globe, data, labelsEl: $('labels'), registry,
-    refresh: () => refresh(),
-    showReligionFacts: id => showReligionFacts(id),
-    showEmpireFacts: (id, polity) => showEmpireFacts(id, polity),
-  };
   const noEvents = new Set();
   registry.add({ id: 'events', name: 'Händelser', layer, z: Z.events,
     update: s => layer.update({ year: s.year, window: s.window, filters: s.layers.events ? s.filters : noEvents, selectedId: s.selectedId,
@@ -118,16 +113,8 @@ async function start() {
     markers: s => empireMarks.update(areas.marks(), areas.enabled && !s.faded.has('areas')),
     animating: () => areas.animating,
     drawOverlay: (c, w, h) => areas.drawOverlay(c, w, h) });
-  registry.add({ id: 'religions', name: 'Religioner', layer: religions, z: Z.religions, fade: { own: f => f.type === 'religion' },
-    enabled: s => s.focus?.type === 'religion' || s.layers.religions,
-    apply: s => { $('religion-list').hidden = !s.layers.religions; },
-    update: s => {
-      religions.labelScale = origins.scale = s.labels.scale; religions.showNames = s.labels.religionNames;
-      return religions.update({ year: s.wholeYear });
-    },
-    legend: s => ({ items: s.faded.has('religions') ? [] : religions.legendItems() }),
-    markers: s => origins.update(religions.stars, religions.enabled && !s.faded.has('religions')),
-    drawOverlay: (c, w, h) => religions.drawOverlay(c, w, h) });
+  // Religioner (#166), med symbolen där religionen uppstod (#271)
+  const religions = registry.add(religionsEntry(env));
   // Vägar och resor (#38)
   const routes = registry.add(routesEntry(env));
   // Upptäcktsvyn (#101): gammal kartstil, segelskepp och dimma som resorna lyfter
@@ -380,7 +367,6 @@ async function start() {
     focus = state.focus = f;
     focusWar = state.focusWar = type === 'war' ? data.byId[id] : null;
     areas.onlyGroup = type === 'empire' ? id : null;
-    religions.onlyId = type === 'religion' ? id : null;
     applyLayers();
     globe.flyTo(f.center[0], f.center[1], 900);
     globe.setZoom(f.zoom);
@@ -426,7 +412,7 @@ async function start() {
   const founding = id => data.events.filter(e => e.founding && e.religion === id).sort((a, b) => a.start - b.start);
   function endFocus(redraw = true) {
     focus = state.focus = null; focusWar = state.focusWar = null; warStops = []; shownStops = new Set(); endShown = false; finishing = false; showMoved(null);
-    areas.onlyGroup = null; religions.onlyId = null;
+    areas.onlyGroup = null;
     applyLayers();
     $('focus-bar').hidden = true;
     $('app').classList.remove('focusing');
@@ -980,9 +966,9 @@ async function start() {
     const { singles, clusters } = cluster(items.filter(it => it.p.facing > 0.05));
     const clustered = new Set(clusters.flatMap(c => c.members.map(m => m.e.id)));
     // Händelsen där en religion uppstod ligger under religionens symbol (#271): bara symbolen och etiketten syns
-    origins.frame();
+    registry.frame(now, state);
     empireMarks.frame();
-    const underOrigin = origins.eventIds;
+    const underOrigin = registry.coveredEvents();
     for (const s of layer.sprites) s.visible = s.userData.active && !clustered.has(s.userData.event.id) && !underOrigin.has(s.userData.event.id);
     clusters.forEach((c, i) => {
       let el = clusterPool[i];

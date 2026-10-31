@@ -17,7 +17,8 @@
 //   fade        { name, own(focus) }: lagret dämpas i fokusläget när det inte hör till det man följer (#235)
 //   legend(s)   del av teckenförklaringen, till exempel { items } eller { war }; delarna slås ihop
 //   markers(s)  uppdaterar lagrets 3D-markörer när det är känt vilka lager som är dämpade
-//   frame(now)  varje bildruta (3D-markörernas storlek och plats)
+//   frame(now, s) varje bildruta (3D-markörernas storlek och plats)
+//   covers()    id för händelser vars medalj lagrets egen 3D-markör täcker; händelsens medalj döljs då
 //   animating() sant så länge lagerbilden behöver ritas om varje bildruta (rikenas övergångar, #78)
 // En post utan layer och update är bara en rad i Lager (till exempel Samtidigt-kortet och "Behåll mina lager").
 
@@ -124,6 +125,13 @@ export class LayerRegistry {
 
   /** Varje bildruta. */
   frame(now, state) { for (const e of this.entries) e.frame?.(now, state); }
+
+  /** Händelser vars medalj täcks av ett lagers egen 3D-markör (religionens symbol där den uppstod, #271). */
+  coveredEvents() {
+    const ids = new Set();
+    for (const e of this.entries) for (const id of e.covers?.() ?? []) ids.add(id);
+    return ids;
+  }
 
   /** Behöver lagerbilden ritas om nästa bildruta? */
   animating() { return this.entries.some(e => e.animating?.()); }
