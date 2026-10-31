@@ -4,6 +4,9 @@
 // Riken med symbol (#301) får en mässingsmedalj med symbolen på label-punkten, som religionernas ursprung (#271).
 // Utzoomat på globen syns bara medaljen; vid nära zoom och i Platt vy står namnet under den. Medaljen på lagerbilden
 // täcks på globen av en klickbar 3D-markör (empiremarks.js).
+// Mindre trängsel (#358): vilka riken som får namn och medalj beror på zoomnivån (ui/zoomlevels.js) och rikets yta
+// det året (areaKm2), och namn och medaljer som skulle täcka varandra eller de viktigaste händelserna flyttas undan
+// eller döljs (_layout). Riket man följer i Fokus visas alltid.
 import { t, isVisibleReview, loadEmpire } from '../model.js';
 import { glyph } from './events.js';
 import { drawMedal, ORIGIN_R } from './religions.js';
@@ -11,6 +14,7 @@ import { softEdge, influenceAt, drawInfluence } from './area-style.js';
 import { AreaTransition, MAX_JUMP_YEARS } from './area-transition.js';
 import { EmpireMarkers } from './empiremarks.js';
 import { Z } from './registry.js';
+import { ZOOM_LEVELS } from '../ui/zoomlevels.js';
 
 /**
  * Lagrets post i registret (#338): på som standard. I fokusläget syns riket man följer även om lagret är av, bara
@@ -81,6 +85,20 @@ export class AreasLayer {
     this.showNames = true; // namnen under symbolerna (false utzoomat på globen, #301)
     this.onGlyph = () => {}; // anropas när en symbol har laddats, så att lagerbilden ritas om
     this.transition = new AreaTransition(); // mjuk övergång när ett område byter period (#78)
+    // Zoomnivån och platserna som ska hållas fria (#358), sätts med setView(). Utan setView gäller nivån
+    // "hela världen", till exempel för en fysisk glob.
+    this.view = { level: 0, pxPerImg: 0.3, minMedalPx: 0, keepouts: [] };
+    this._rev = 0; this._lay = null;
+  }
+
+  /**
+   * Zoomnivån och det som ska hållas fritt (#358): level = nivå i ZOOM_LEVELS, pxPerImg = skärmpixlar per bildpunkt
+   * (4096 i bredd), minMedalPx = 3D-medaljens minsta storlek på skärmen (på globen, 0 i Platt vy) och
+   * keepouts = händelser som alltid har företräde, med plats för etiketten (eventKeepouts i ui/zoomlevels.js).
+   */
+  setView(view) {
+    this.view = { ...this.view, ...view };
+    this._rev++;
   }
 
   /** Pågår en övergång? Då behöver lagerbilden ritas om varje bildruta tills den är klar. */
@@ -99,12 +117,128 @@ export class AreasLayer {
    * [{ key, symbol, color, name, lon, lat, group, polity }] (för 3D-markörerna).
    */
   marks() {
-    const out = [];
+    const out = [], L = this._layout();
     for (const { polity, period } of this.active) {
-      const s = this.symbolOf(polity);
-      if (s) out.push({ key: polity.id, ...s, polity, lon: period.label[0], lat: period.label[1] });
+      const d = L.get(akey(polity, period));
+      // På label-punkten, eller strax bredvid om den platsen var upptagen (_layout)
+      if (d?.medal) out.push({ key: polity.id, ...d.medal, polity, lon: d.px / 2048 * 360 - 180, lat: 90 - d.py / 1024 * 180 });
     }
     return out;
+  }
+
+  /** Rikesnamnen och medaljerna som syns, som { lon, lat, hw, hh } (mitt och halv storlek i grundmått, 2048 i
+   *  bredd), så att händelseetiketterna kan hålla sig borta från dem (empireBlocks i ui/zoomlevels.js, #358). */
+  placedBoxes() {
+    this._layout();
+    return this._lay.placed.map(b => ({ lon: (b.x0 + b.x1) / 2 / 2048 * 360 - 180, lat: 90 - (b.y0 + b.y1) / 2 / 1024 * 180,
+      hw: (b.x1 - b.x0) / 2, hh: (b.y1 - b.y0) / 2 }));
+  }
+
+  /**
+   * Var namn, medaljer och stjärnor står det här året (#358), i bildens grundmått (2048 × 1024, k = 1).
+   * Rikena går i tur och ordning efter prioritet: riket man följer i Fokus först, sedan efter yta (areaKm2, störst
+   * först). Nivån bestämmer hur många som får plats (ZOOM_LEVELS[level].names). Ett namn eller en medalj som
+   * skulle täcka något som redan står där (ett större rike, de viktigaste händelsernas markörer, eller den valda
+   * händelsen och Samtidigt-kortets händelser med sina etiketter, view.keepouts) flyttas uppåt eller nedåt med ett streck, eller döljs. Övriga händelseetiketter
+   * viker i stället för rikena (placedBoxes). Samma princip som etiketterna (placeLabels i ui/clusters.js):
+   * en gemensam lista med upptagna rutor. Returnerar Map från akey (och 'pt:' + grupp för försvunna länder) till
+   * { px, py, medal, star, name, x, y, lead }. Räknas om bara när året, nivån eller storleken har ändrats.
+   */
+  _layout() {
+    const v = this.view;
+    const key = `${this._rev}|${this.labelScale}|${this.showNames}`;
+    if (this._lay?.key === key) return this._lay.map;
+    const map = new Map();
+    const X = lon => (lon + 180) / 360 * 2048, Y = lat => (90 - lat) / 180 * 1024;
+    const unit = Math.max(0.05, 2 * v.pxPerImg); // skärmpixlar per grundmåttsenhet
+    const sc = this.labelScale, size = 16 * sc, R = ORIGIN_R * sc;
+    const Rm = Math.max(R * 1.15, (v.minMedalPx || 0) / 2 / unit); // medaljen som den syns (3D-medaljen kan vara större)
+    const font = `italic ${size}px "IM Fell English", Georgia, serif`;
+    const used = [], placed = [];
+    const free = b => !used.some(u => overlaps(u, b));
+    const take = b => { used.push(b); placed.push(b); };
+    // Händelserna som har företräde, med etikett när w > 0 (skärmpixlar räknas om till grundmått)
+    for (const o of v.keepouts ?? []) {
+      const x = X(o.lon), y = Y(o.lat), r = o.r / unit, off = Math.max(14, o.r + 3) / unit;
+      used.push(sq(x, y, r));
+      if (o.w) used.push({ x0: x - o.w / 2 / unit, x1: x + o.w / 2 / unit, y0: y - off - o.h / unit, y1: y - off });
+    }
+    const keep = !!this.onlyGroup; // fokusläge för ett rike: allt som syns hör till riket och visas alltid
+    const cands = this.active.map(a => ({ ...a, area: a.period.areaKm2 ?? 0 }))
+      .sort((a, b) => b.area - a.area);
+    const limit = keep ? Infinity : (ZOOM_LEVELS[v.level] ?? ZOOM_LEVELS[0]).names;
+    const offsets = [-1.05, 1.15, -2.2, 2.3, -3.35, 3.45];
+    cands.forEach(({ polity, period }, rank) => {
+      if (rank >= limit) return; // för litet för den här zoomnivån: bara området syns
+      const px = X(period.label[0]), py = Y(period.label[1]);
+      const name = t(polity.name), w = measure(name, font);
+      const sym = this.symbolOf(polity);
+      const d = { px, py, medal: null, star: false, name: null, x: px, y: py, lead: null };
+      if (sym) {
+        // Medaljen står på label-punkten. Är platsen upptagen flyttas den lite inom området (rutan runt det); ryms den
+        // inte alls syns bara området. Namnet står under medaljen (eller ovanför); ryms det inte syns bara medaljen.
+        // På globen har 3D-medaljen samma storlek överallt, men bilden pressas ihop mot polerna: rutan blir bredare där.
+        const rx = v.minMedalPx ? Rm / Math.max(0.3, Math.cos(period.label[1] * Math.PI / 180)) : Rm;
+        const b = bbox(period);
+        const spot = [[0, 0], [0, -2.2], [0, 2.2], [-2.2, 0], [2.2, 0], [-2.2, -2.2], [2.2, -2.2], [-2.2, 2.2], [2.2, 2.2]]
+          .map(([dx, dy]) => [px + dx * rx, py + dy * Rm])
+          .find(([x, y], i) => (keep && i === 0) || (free({ x0: x - rx, x1: x + rx, y0: y - Rm, y1: y + Rm }) &&
+            (i === 0 || (x > X(b.minLon) + rx && x < X(b.maxLon) - rx && y > Y(b.maxLat) + Rm && y < Y(b.minLat) - Rm))));
+        if (!spot) return;
+        const [mx, my] = spot;
+        take({ x0: mx - rx, x1: mx + rx, y0: my - Rm, y1: my + Rm });
+        Object.assign(d, { px: mx, py: my, x: mx, medal: sym });
+        if (this.showNames) {
+          // Namnet under medaljen, eller ovanför om det är upptaget under
+          const gap = Math.max(R * 1.25, Rm) + size * 0.6;
+          const ny = [my + gap, my - gap].find((y, i) => (keep && i === 0) || free(box(mx, y, w, size)));
+          if (ny != null) { take(box(mx, ny, w, size)); Object.assign(d, { name, y: ny }); }
+        }
+        map.set(akey(polity, period), d);
+        return;
+      }
+      let y0 = py;
+      if (period.homeland) {
+        // Huvudland (#74): stjärnan i moderlandet och namnet strax ovanför eller under
+        const sb = sq(px, py, 7 * sc);
+        if (!keep && !free(sb)) return;
+        take(sb); d.star = true;
+      } else {
+        // Ryms namnet inte i området skrivs det ovanför, med ett streck ner, så att området syns
+        const b = bbox(period);
+        const bw = X(b.maxLon) - X(b.minLon), bh = Y(b.minLat) - Y(b.maxLat);
+        if (w > bw * 0.9 || bh < size * 2.5) {
+          const top = Y(b.maxLat);
+          y0 = top - size * 1.6;
+          d.lead = [px, top - 2, px, y0 + size * 0.6];
+        }
+        const nb = box(px, y0, w, size);
+        if (keep || free(nb)) {
+          take(nb); Object.assign(d, { name, y: y0 });
+          map.set(akey(polity, period), d);
+          return;
+        }
+        d.lead = null;
+      }
+      // Platsen är upptagen: namnet flyttas uppåt eller nedåt, med ett streck till label-punkten
+      const dy = offsets.find(o => free(box(px, y0 + o * size, w, size)));
+      if (dy == null) { if (d.star) map.set(akey(polity, period), d); return; }
+      const y = y0 + dy * size;
+      take(box(px, y, w, size));
+      if (Math.abs(dy) > 1.2 || !d.star) d.lead = [px, py + Math.sign(dy) * (d.star ? 8 * sc : 2), px, y - Math.sign(dy) * size * 0.55];
+      Object.assign(d, { name, y });
+      map.set(akey(polity, period), d);
+    });
+    // Försvunna länder utan gräns (#72) sist: de har ingen yta och syns när det finns plats
+    for (const g of this.activePoints ?? []) {
+      const [lon, lat] = g.vanished.point.coordinates;
+      const x = X(lon), y = Y(lat), r = 5 * sc, w = measure(t(g.name), font);
+      const b = { x0: x - r * 1.9, x1: x + r * 2.8 + w, y0: y - size * 0.55, y1: y + size * 0.55 };
+      if (!keep && (v.level < ZOOM_LEVELS.length - 1 || !free(b))) continue;
+      take(b); map.set('pt:' + g.id, true);
+    }
+    this._lay = { key, map, placed };
+    return map;
   }
 
   /** Rikena laddas ett i taget (en fil per rike) och läggs till när de har kommit. */
@@ -124,6 +258,7 @@ export class AreasLayer {
     this.active = [];
     this.activePoints = [];
     this.influence = [];
+    this._rev++;
     if (!this.enabled) { this.transition.track(prev, this.active, year, false); return this.active; }
     this.activePoints = (this.points ?? []).filter(g => (!this.onlyGroup || g.id === this.onlyGroup)
       && isVisibleReview(g.vanished.review) && year >= g.vanished.founded && year <= g.vanished.dissolved);
@@ -134,6 +269,7 @@ export class AreasLayer {
       if (period) this.active.push({ polity, period });
     }
     this.influence = influenceAt(this.active, year); // lydriken och vasaller (#75)
+    this._rev++; // namnens platser räknas om (#358)
     this.transition.track(prev, this.active, year, smooth);
     return this.active;
   }
@@ -186,78 +322,45 @@ export class AreasLayer {
       ctx.stroke();
     }
     ctx.globalAlpha = 1;
-    // Namnen sist, så att de hamnar ovanpå alla områden. Ryms namnet inte i
-    // området skrivs det ovanför, med ett streck ner, så att området syns.
+    // Namnen och medaljerna sist, så att de hamnar ovanpå alla områden. Vilka som syns och var namnen står
+    // bestäms av _layout() (#358) i bildens grundmått (2048 i bredd) och skalas här med k.
+    const L = this._layout();
     const size = 16 * k * this.labelScale;
     ctx.font = `italic ${size}px "IM Fell English", Georgia, serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.globalAlpha = this.labelAlpha;
     const R = ORIGIN_R * k * this.labelScale;
-    const placed = []; // namnens rutor, så att huvudländernas namn inte hamnar på varandra (#74)
-    const lead = (x1, y1, x2, y2) => {
+    const lead = ([x1, y1, x2, y2]) => {
       ctx.strokeStyle = 'rgba(246,231,196,0.8)';
       ctx.lineWidth = 1.2 * k * this.labelScale;
-      ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x1 * k, y1 * k); ctx.lineTo(x2 * k, y2 * k); ctx.stroke();
     };
     const write = (name, x, y) => {
       ctx.lineWidth = 3.5 * k * this.labelScale;
       ctx.strokeStyle = 'rgba(16,22,30,0.8)';
-      ctx.strokeText(name, x, y);
+      ctx.strokeText(name, x * k, y * k);
       ctx.fillStyle = '#f6e7c4';
-      ctx.fillText(name, x, y);
+      ctx.fillText(name, x * k, y * k);
     };
-    // Rike med symbol (#301): medaljen på label-punkten, och namnet under den bara när namnen visas
-    const medal = (polity, period, sym, alpha) => {
-      const x = X(period.label[0]), y = Y(period.label[1]);
+    // Bara det läge (period) som gäller nu får namn; ett område som tonas ut (#78) visar bara gränsen
+    for (const { polity, period, alpha } of items) {
+      const d = L.get(akey(polity, period));
+      if (!d) continue;
       ctx.globalAlpha = alpha;
-      drawMedal(ctx, x, y, R, polity.color, this._glyph(sym.symbol));
+      // Rike med symbol (#301): medaljen på label-punkten
+      if (d.medal) drawMedal(ctx, d.px * k, d.py * k, R, polity.color, this._glyph(d.medal.symbol));
+      // Huvudland (#74) utan symbol: mässingsstjärnan i moderlandet
+      if (d.star) star(ctx, d.px * k, d.py * k, 7 * k * this.labelScale);
       ctx.globalAlpha = this.labelAlpha * alpha;
-      if (!this.showNames) return;
-      const name = t(polity.name), ny = y + R * 1.25 + size * 0.6;
-      placed.push(box(x, ny, ctx.measureText(name).width, size));
-      write(name, x, ny);
-    };
-    // Först de vanliga namnen, som de alltid har stått
-    for (const { polity, period, alpha } of items) {
-      if (period.homeland) continue;
-      ctx.globalAlpha = this.labelAlpha * alpha;
-      const sym = this.symbolOf(polity);
-      if (sym) { medal(polity, period, sym, alpha); continue; }
-      const name = t(polity.name);
-      const b = bbox(period);
-      const bw = X(b.maxLon) - X(b.minLon), bh = Y(b.minLat) - Y(b.maxLat);
-      let x = X(period.label[0]), y = Y(period.label[1]);
-      const w = ctx.measureText(name).width;
-      if (w > bw * 0.9 || bh < size * 2.5) {
-        const top = Y(b.maxLat);
-        y = top - size * 1.6;
-        lead(x, top - 2 * k, x, y + size * 0.6);
-      }
-      placed.push(box(x, y, w, size));
-      write(name, x, y);
-    }
-    // Sedan huvudländerna: en mässingsstjärna i moderlandet och rikets namn strax ovanför (i stället för mitt
-    // i den största kolonin). Ligger platsen på ett annat namn flyttas namnet upp eller ner, med ett streck till stjärnan.
-    for (const { polity, period, alpha } of items) {
-      if (!period.homeland) continue;
-      ctx.globalAlpha = this.labelAlpha * alpha;
-      const sym = this.symbolOf(polity); // med symbol står medaljen i moderlandet i stället för stjärnan
-      if (sym) { medal(polity, period, sym, alpha); continue; }
-      const name = t(polity.name), w = ctx.measureText(name).width;
-      const x = X(period.label[0]), y0 = Y(period.label[1]);
-      star(ctx, x, y0, 7 * k * this.labelScale);
-      const offsets = [-1.05, 1.15, -2.2, 2.3, -3.35, 3.45, -4.5, 4.6];
-      const dy = offsets.find(o => !placed.some(p => overlaps(p, box(x, y0 + o * size, w, size)))) ?? offsets[0];
-      const y = y0 + dy * size;
-      if (Math.abs(dy) > 1.2) lead(x, y0 + Math.sign(dy) * 8 * k * this.labelScale, x, y - Math.sign(dy) * size * 0.55);
-      placed.push(box(x, y, w, size));
-      write(name, x, y);
+      if (!d.name) continue;
+      if (d.lead) lead(d.lead);
+      write(d.name, d.x, d.y);
     }
     ctx.globalAlpha = this.labelAlpha;
     // Försvunna länder utan gräns (#72): en ring med prick i landets färg och namnet till höger. Området är för
     // litet för kartan (Neutrala Moresnet var 3,5 km²), så punkten visar bara var det låg.
     for (const g of this.activePoints ?? []) {
+      if (!L.get('pt:' + g.id)) continue;
       const [lon, lat] = g.vanished.point.coordinates;
       const x = X(lon), y = Y(lat), r = 5 * k * this.labelScale;
       ctx.beginPath(); ctx.arc(x, y, r * 1.9, 0, Math.PI * 2);
@@ -267,7 +370,7 @@ export class AreasLayer {
       ctx.fillStyle = g.color; ctx.fill();
       ctx.lineWidth = 1.2 * k * this.labelScale; ctx.strokeStyle = 'rgba(16,22,30,0.85)'; ctx.stroke();
       ctx.textAlign = 'left';
-      write(t(g.name), x + r * 2.8, y);
+      write(t(g.name), (x + r * 2.8) / k, y / k);
       ctx.textAlign = 'center';
     }
     ctx.restore();
@@ -276,6 +379,16 @@ export class AreasLayer {
 
 const box = (x, y, w, h) => ({ x0: x - w / 2, x1: x + w / 2, y0: y - h * 0.55, y1: y + h * 0.55 });
 const overlaps = (a, b) => a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a.y1;
+const sq = (x, y, r) => ({ x0: x - r, x1: x + r, y0: y - r, y1: y + r });
+const akey = (polity, period) => polity.id + '|' + period.start;
+
+// Textens bredd utan att rita (en liten canvas för mätningen, #358)
+let measureCtx = null;
+function measure(text, font) {
+  measureCtx ??= document.createElement('canvas').getContext('2d');
+  measureCtx.font = font;
+  return measureCtx.measureText(text).width;
+}
 
 const polygons = g => g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
 

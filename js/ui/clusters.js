@@ -63,7 +63,7 @@ const overlaps = (a, b) => a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b
 
 /**
  * Etiketter utan överlapp (#142), samma regel på globen och i Platt vy (#313): högst 14 av de viktigaste
- * markörerna (singles i ordning, viktigast först) får etikett ovanför markören. En etikett får inte hamna
+ * markörerna (singles i ordning, viktigast först) får etikett ovanför markören, eller under den om det är upptaget ovanför. En etikett får inte hamna
  * utanför ytan eller ovanpå andra etiketter, markörer (markers: [{ id, box }]) eller klungor (badges: [box]).
  * Markören under muspekaren (hoverId) får alltid sin etikett. pxOf(e) är markörens storlek på skärmen.
  * Returnerar [{ e, p, text, x, y }] där (x, y) är etikettens nedre mittpunkt.
@@ -79,12 +79,15 @@ export function placeLabels(singles, { W, H, hoverId, markers, badges, blocked =
     // Skjut etiketten inåt så att hela rutan syns
     const cx = Math.min(Math.max(p.x, w / 2 + 4), Math.max(w / 2 + 4, W - w / 2 - 4));
     const off = Math.max(14, (pxOf(e) ?? 0) / 2 + 3); // ovanför markören, som växer med zoomen (#242)
-    const box = { x0: cx - w / 2, x1: cx + w / 2, y0: p.y - off - h, y1: p.y - off };
-    if (box.y0 < 4) continue;
-    if (e.id !== hoverId && (placed.some(b => overlaps(box, b)) || badges.some(b => overlaps(box, b)) ||
-        markers.some(m => m.id !== e.id && overlaps(box, m.box)))) continue;
+    const free = box => box.y0 >= 4 && box.y1 <= H - 4 && (e.id === hoverId || !(placed.some(b => overlaps(box, b)) ||
+      badges.some(b => overlaps(box, b)) || markers.some(m => m.id !== e.id && overlaps(box, m.box))));
+    // Ovanför markören, eller under den om platsen ovanför är upptagen (#358, till exempel av ett rikes namn)
+    const above = { x0: cx - w / 2, x1: cx + w / 2, y0: p.y - off - h, y1: p.y - off };
+    const below = { x0: cx - w / 2, x1: cx + w / 2, y0: p.y + off, y1: p.y + off + h };
+    const box = [above, below].find(free);
+    if (!box) continue;
     placed.push(box);
-    out.push({ e, p, text: label, x: cx, y: p.y - off + 2 });
+    out.push({ e, p, text: label, x: cx, y: box.y1 + 2 });
   }
   return out;
 }

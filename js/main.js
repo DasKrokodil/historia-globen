@@ -12,6 +12,7 @@ import { LayerMenu, loadViews } from './ui/layers.js';
 import { ReligionLegend } from './ui/legend.js';
 import { RoutePop } from './ui/routepop.js';
 import { cluster, clusterContents, placeLabels, dotBox } from './ui/clusters.js';
+import { ZOOM_LEVELS, zoomLevel, pxPerImg, zoomView, eventKeepouts, globeEmpireBlocks } from './ui/zoomlevels.js';
 import { FocusMenu } from './ui/focusmenu.js';
 import { Help } from './ui/help.js';
 import { FlatMap } from './ui/flatmap.js';
@@ -447,7 +448,7 @@ async function start() {
   // Riken med symbol (#301): utzoomat på globen bara symbolen, vid nära zoom och i Platt vy även namnet
   const empireNames = () => !$('flat-view').hidden || zoomMag() >= NAMES_MAG;
   function nameStyle() {
-    if (!$('flat-view').hidden) return [1, 1];
+    if (!$('flat-view').hidden) return [ZOOM_LEVELS[zoomLevel(flatMap.scale)].flatScale, 1]; // efter zoomnivån (#358)
     const mag = zoomMag();
     const scale = Math.max(0.25, Math.pow(mag, -0.7));
     const fade = Math.min(1, Math.max(0, (mag - 5) / 5)); // 0 vid mag 5 (zoom ca 2,3), 1 vid max
@@ -459,10 +460,12 @@ async function start() {
     nameTimer = setTimeout(() => {
       const [sc, al] = nameStyle();
       const l = state.labels;
-      if (l.scale !== sc || l.alpha !== al || l.religionNames !== religionNames() || l.empireNames !== empireNames()) refresh();
+      // Ny zoomnivå (#358) ändrar vilka rikesnamn och medaljer som får plats
+      if (l.scale !== sc || l.alpha !== al || l.religionNames !== religionNames() || l.empireNames !== empireNames()
+        || areas.view.level !== zoomLevel(pxPerImg(globe, flatMap))) refresh();
     }, 150);
   };
-  globe.onZoom = syncNameScale;
+  globe.onZoom = flatMap.onZoom = syncNameScale; // ny zoomnivå (#358) ritar om lagerbilden
 
   /**
    * Kapitel och markeringar på tidslinjen när man följer ett krig (#244). Allt kommer ur datan:
@@ -656,6 +659,11 @@ async function start() {
     // Samma markörer i Platt vy (#313): de som syns på klotet, de i listan får klustras och etikett
     flatMap.setMarkers({ list: layer.sprites.filter(sp => sp.userData.active).map(sp => sp.userData),
       labeled: new Set(visible.map(v => v.e.id)), keep: ff.highlightIds(), selectedId: state.selectedId });
+    // Zoomnivån (#358): vilka rikesnamn och medaljer som får plats, och de viktigaste händelserna som ska hållas fria.
+    // Rikena har redan valt sina områden i registry.update; namnens platser räknas när de ritas (AreasLayer._layout),
+    // så det räcker att sätta vyn här, när händelserna (visible) är kända och innan lagerbilden och markörerna ritas.
+    areas.setView({ ...zoomView(globe, flatMap), keepouts: eventKeepouts(visible, { selectedId: state.selectedId, highlight: state.highlight, text: labelText }) });
+    flatMap.obstacles = areas.placedBoxes(); // händelseetiketterna i Platt vy hamnar inte på rikesnamnen
     panel.setCurveYear(wholeYear);
     if (routePop.route && !routes.active.some(a => a.route === routePop.route)) routePop.hide(); // vägen syns inte längre
     const legend = registry.legend(state);
@@ -985,6 +993,7 @@ async function start() {
         if (r.width) blocked.push({ x0: r.left - c.left - 4, x1: r.right - c.left + 4, y0: r.top - c.top - 4, y1: r.bottom - c.top + 4 });
       }
     }
+    blocked.push(...globeEmpireBlocks(areas, globe)); // rikesnamn och medaljer (#358)
     const seen = new Set();
     for (const { e, p, text, x, y } of placeLabels(singles, { W, H, hoverId, markers, badges, blocked, text: labelText, pxOf })) {
       let el = pool.get(e.id);
