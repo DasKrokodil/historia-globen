@@ -2176,7 +2176,173 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Umayyadkalifatet var det andra islamiska kalifatet, styrt av umayyadsläkten från Damaskus. Under umayyaderna fortsatte de tidiga muslimska erövringarna, och riket blev ett av de största i historien."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Mu'awiya, som länge varit guvernör i Syrien, blev kalif 661 efter att ha vunnit det första inbördeskriget (första fitna). Han efterträdde Rashidunkalifatet och gjorde styret ärftligt i den egna släkten. Syrien blev rikets kärnland."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "De ständiga krigen tömde rikets resurser, och uppror och rivalitet mellan stammar försvagade det inifrån. År 750 störtade abbasiderna den siste kalifen, Marwan II, och de flesta i umayyadfamiljen dödades. En sonson till kalifen Hisham, Abd al-Rahman I, kom undan och grundade 756 ett eget rike i al-Andalus med Córdoba som huvudstad."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Damaskus (661–744) och Harran (744–750)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Mu'awiya I (661–680), den förste; Abd al-Malik, som vann det andra inbördeskriget 692 och gjorde förvaltningen mer centraliserad; och Marwan II (744–750), den siste."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Cirka 11–15 miljoner km² omkring år 720, enligt Wikipedia. Riket sträckte sig då från Maghreb och Iberiska halvön till Centralasien och Sindh. Kartdatan (Cliopatria) ger som mest cirka 9,9 miljoner km² på 730- och 740-talen."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Språk: arabiska (officiellt). Religion: islam som statsreligion. Kristna, som fortfarande var en majoritet av befolkningen, och judar fick utöva sin religion mot att de betalade skatten jizya. Umayyadernas mest kända byggnader är Klippdomen i Jerusalem, färdig 691/692, och den stora moskén i Damaskus."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 661,
+      "label": {
+       "sv": "661"
+      },
+      "title": {
+       "sv": "Mu'awiya blir kalif"
+      },
+      "text": {
+       "sv": "Mu'awiya vinner det första inbördeskriget och blir kalif. Damaskus blir huvudstad, och umayyadernas ärftliga styre börjar."
+      },
+      "sources": [
+       "wp-umayyad-caliphate",
+       "whe-umayyad-dynasty"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar kalifatet som ett stort rike först från 666. Före dess räknar Cliopatria det mesta till Rashidunkalifatet, som inte finns med här."
+      }
+     },
+     {
+      "year": 692,
+      "label": {
+       "sv": "692"
+      },
+      "title": {
+       "sv": "Andra inbördeskriget slutar"
+      },
+      "text": {
+       "sv": "Abd al-Malik besegrar zubayriderna och får åter kontroll över hela kalifatet. Han gör förvaltningen mer centraliserad och inför arabiska och islam i byråkratin. Klippdomen i Jerusalem blir färdig 691/692."
+      },
+      "sources": [
+       "wp-umayyad-caliphate",
+       "whe-umayyad-dynasty"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar en mindre yta 682–691 och växer igen 692."
+      }
+     },
+     {
+      "year": 711,
+      "label": {
+       "sv": "711"
+      },
+      "title": {
+       "sv": "Iberiska halvön, Sindh och Centralasien"
+      },
+      "text": {
+       "sv": "Tariq ibn Ziyad går in i Västgoternas rike 711, och inom fem år är större delen av Iberiska halvön erövrad. Från 708/709 erövras Sindh i Indien, och 711–712 tar Qutayba Khwarazm och Samarkand i Centralasien."
+      },
+      "sources": [
+       "wp-umayyad-caliphate",
+       "whe-umayyad-dynasty"
+      ],
+      "events": [
+       "slaget-vid-guadalete"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Iberiska halvön först från 718. Kartdatan räknar inte Buchara och Samarkand till kalifatet."
+      }
+     },
+     {
+      "year": 732,
+      "label": {
+       "sv": "732"
+      },
+      "title": {
+       "sv": "Slaget vid Tours"
+      },
+      "text": {
+       "sv": "Frankerna under Karl Martell besegrar en umayyadarmé vid Tours, och expansionen i väst stannar av. Den sista fästningen norr om Pyrenéerna, Narbonne, förloras 759."
+      },
+      "sources": [
+       "wp-umayyad-caliphate",
+       "whe-umayyad-dynasty"
+      ],
+      "events": [
+       "slaget-vid-tours"
+      ]
+     },
+     {
+      "year": 750,
+      "label": {
+       "sv": "750"
+      },
+      "title": {
+       "sv": "Abbasiderna tar makten"
+      },
+      "text": {
+       "sv": "Abbasiderna besegrar kalifen Marwan II vid floden Zab och störtar umayyaderna. De flesta i umayyadfamiljen dödas."
+      },
+      "sources": [
+       "wp-umayyad-caliphate",
+       "whe-umayyad-dynasty"
+      ],
+      "events": [
+       "slaget-vid-zab"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan visar Iberiska halvön som umayyadisk 751–756, innan Abd al-Rahman I grundar sitt rike i Córdoba 756."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 661–750. Kartdatan (Cliopatria) går 656–756: Mu'awiyas Syrien redan under inbördeskriget 656–661 och Iberiska halvön 751–756."
+    },
+    "sources": [
+     "wp-umayyad-caliphate",
+     "whe-umayyad-dynasty"
+    ],
+    "review": "two-sources"
+   }
   },
   {
    "id": "abbasidkalifatet",
@@ -2211,7 +2377,184 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Abbasidkalifatet var det tredje islamiska kalifatet, styrt av en dynasti som härstammade från Muhammeds farbror Abbas. Huvudstaden Bagdad blev ett centrum för vetenskap och kultur under det som kallas islams guldålder."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Abbasidernas revolution började i Khurasan, långt från umayyadernas Syrien, och störtade umayyaderna 750. Kalifen styrde först från Kufa i Irak."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Under 800-talet blev många provinser självstyrande under egna dynastier, och på 900-talet blev kalifen en galjonsfigur. Den verkliga makten låg hos buyiderna, som tog Bagdad 945, och seldjukerna, som tog staden 1055. Abbasiderna tog tillbaka Irak under 1100-talet, men 1258 plundrade mongolerna under Hulagu Bagdad och avrättade kalifen al-Musta'sim. En gren av släkten var kalifer utan politisk makt i Kairo under mamlukerna 1261–1517."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Kufa (750–762), Bagdad (762–836 och 892–1258) och Samarra (836–892). Skuggkaliferna 1261–1517 satt i Kairo."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "al-Saffah (750–754), den förste; al-Mansur, som grundade Bagdad 762; Harun al-Rashid (786–809), vars tid räknas som abbasidernas höjdpunkt; och al-Musta'sim (1242–1258), den siste kalifen i Bagdad."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Kartdatan (Cliopatria) ger som mest cirka 8,1 miljoner km² under andra hälften av 700-talet. Därefter krymper riket, kraftigast 875 och 899."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Språk: arabiska (officiellt). Religion: islam som statsreligion, med kristna, judar och zoroastrier som minoriteter. I Bagdad fanns lärdomscentret Visdomens hus. Efter ett inbördeskrig på 800-talet byggde kaliferna upp en yrkesarmé av främst turkiska slavsoldater."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 750,
+      "label": {
+       "sv": "750"
+      },
+      "title": {
+       "sv": "Abbasidernas revolution"
+      },
+      "text": {
+       "sv": "Abbasiderna besegrar den siste umayyadkalifen, Marwan II, vid floden Zab. al-Saffah utropas till kalif i Kufa."
+      },
+      "sources": [
+       "wp-abbasid-caliphate",
+       "whe-abbasid-dynasty"
+      ],
+      "events": [
+       "slaget-vid-zab"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar en mindre yta 750 och hela riket från 751."
+      }
+     },
+     {
+      "year": 762,
+      "label": {
+       "sv": "762"
+      },
+      "title": {
+       "sv": "Bagdad grundas"
+      },
+      "text": {
+       "sv": "Kalifen al-Mansur grundar Bagdad vid Tigris och gör staden till huvudstad. Den blir ett centrum för vetenskap, kultur och konst."
+      },
+      "sources": [
+       "wp-abbasid-caliphate",
+       "whe-abbasid-dynasty"
+      ]
+     },
+     {
+      "year": 836,
+      "label": {
+       "sv": "836"
+      },
+      "title": {
+       "sv": "Huvudstaden flyttas till Samarra"
+      },
+      "text": {
+       "sv": "Efter inbördeskriget och med den nya armén av turkiska slavsoldater bygger kalifen en ny huvudstad, Samarra. Kalifens säte flyttas tillbaka till Bagdad 892."
+      },
+      "sources": [
+       "wp-abbasid-caliphate"
+      ]
+     },
+     {
+      "year": 875,
+      "label": {
+       "sv": "800-talet"
+      },
+      "title": {
+       "sv": "Provinserna blir självstyrande"
+      },
+      "text": {
+       "sv": "Under 800-talet tar lokala dynastier över i provinserna, bland annat aghlabider, tahirider, samanider, saffarider och tuluniderna."
+      },
+      "sources": [
+       "wp-abbasid-caliphate"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar stora minskningar 875 och 899."
+      }
+     },
+     {
+      "year": 945,
+      "label": {
+       "sv": "945"
+      },
+      "title": {
+       "sv": "Buyiderna tar Bagdad"
+      },
+      "text": {
+       "sv": "Den iranska buyiddynastin tar Bagdad. Kalifen blir en galjonsfigur, och den verkliga makten ligger hos buyiderna och från 1055 hos seldjukerna."
+      },
+      "sources": [
+       "wp-abbasid-caliphate",
+       "whe-abbasid-dynasty"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan visar buyidernas styre i Bagdad som en egen del, Abbasidkalifatet under buyiderna, 947–969. Mellan 970 och 1201 saknar Cliopatria abbasidkalifatet helt."
+      }
+     },
+     {
+      "year": 1258,
+      "label": {
+       "sv": "1258"
+      },
+      "title": {
+       "sv": "Bagdads fall"
+      },
+      "text": {
+       "sv": "Mongolerna under Hulagu plundrar Bagdad och avrättar kalifen al-Musta'sim. Det blir i praktiken slutet på kalifatet."
+      },
+      "sources": [
+       "wp-abbasid-caliphate",
+       "whe-abbasid-dynasty"
+      ],
+      "events": [
+       "bagdads-fall-1258"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan visar abbasiderna i Irak 1202–1259."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 750–1258, och därefter skuggkalifer i Kairo till 1517. Kartdatan (Cliopatria) går 750–969, saknar kalifatet 970–1201 och visar det igen i Irak 1202–1259."
+    },
+    "sources": [
+     "wp-abbasid-caliphate",
+     "whe-abbasid-dynasty"
+    ],
+    "review": "two-sources"
+   }
   },
   {
    "id": "frankerriket",
@@ -2246,7 +2589,204 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Frankerriket var det största riket i Västeuropa efter Västroms fall. Det grundades av Klodvig I och styrdes av merovingerna och sedan karolingerna. Under Karl den store blev det ett kejsardöme över stora delar av Väst- och Centraleuropa."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Frankiska stammar vid Rhen och Maas bredde ut sig i det romerska Gallien. Klodvig I blev kung omkring 481 och enade frankerna, men exakt när han blev kung över alla franker är okänt. Han tog Soissons 486 och Akvitanien 507 och gjorde Paris till huvudstad 508."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Riket delades ofta mellan kungens söner. Efter Ludvig den frommes död 840 delades det 843 i fördraget i Verdun i Västfrankiska, Mellanfrankiska och Östfrankiska riket. Västfrankiska riket blev Frankrike under kapetingerna; den siste frankiske kungen där, Ludvig V, dog 987. Östfrankiska riket blev kungariket Tyskland, kärnan i Tysk-romerska riket."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Paris under Klodvig I (från 508). Hans söner hade sina huvudstäder i Reims, Orléans, Paris och Soissons. Karl den store byggde ett stort palats i Aachen, som WHE kallar hans huvudstad."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Klodvig I (cirka 481–511), Pippin den lille, den förste karolingiske kungen (751–768), Karl den store (768–814, kejsare från 800) och Ludvig den fromme (död 840)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Cirka 1,2 miljoner km² år 814, enligt Wikipedias faktaruta. Kartdatan (Cliopatria) ger som mest cirka 1,3 miljoner km² 806–813."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Religion: katolsk kristendom. Klodvig I gick över till katolicismen; dopet dateras traditionellt till 496 men anses nu ha skett 508. Påven Leo III krönte Karl den store till kejsare i Rom på juldagen år 800."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 486,
+      "label": {
+       "sv": "486"
+      },
+      "title": {
+       "sv": "Soissons"
+      },
+      "text": {
+       "sv": "Klodvig I besegrar Syagrius, den siste romerske makthavaren i Gallien, och tar Soissons. Därmed styr han hela norra Gallien."
+      },
+      "sources": [
+       "wp-francia",
+       "whe-merovingian-dynasty"
+      ]
+     },
+     {
+      "year": 507,
+      "label": {
+       "sv": "507"
+      },
+      "title": {
+       "sv": "Slaget vid Vouillé"
+      },
+      "text": {
+       "sv": "Klodvig besegrar västgoterna vid Vouillé och tar deras land norr om Pyrenéerna, utom Septimanien."
+      },
+      "sources": [
+       "wp-francia"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar den stora ökningen från 510."
+      }
+     },
+     {
+      "year": 732,
+      "label": {
+       "sv": "732"
+      },
+      "title": {
+       "sv": "Slaget vid Tours"
+      },
+      "text": {
+       "sv": "Frankerna under Karl Martell besegrar en umayyadarmé vid Tours, och umayyadernas framryckning i Europa stannar av."
+      },
+      "sources": [
+       "whe-umayyad-dynasty"
+      ],
+      "events": [
+       "slaget-vid-tours"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket växa kraftigt 732."
+      }
+     },
+     {
+      "year": 751,
+      "label": {
+       "sv": "751"
+      },
+      "title": {
+       "sv": "Karolingerna tar tronen"
+      },
+      "text": {
+       "sv": "Pippin den lille avsätter den siste merovingiske kungen, Childerik III, och blir kung. Karolingernas tid börjar."
+      },
+      "sources": [
+       "wp-francia",
+       "whe-carolingian-dynasty"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan går över från merovingerna till karolingerna redan 718."
+      }
+     },
+     {
+      "year": 800,
+      "label": {
+       "sv": "800"
+      },
+      "title": {
+       "sv": "Karl den store kröns till kejsare"
+      },
+      "text": {
+       "sv": "Påven Leo III kröner Karl den store till kejsare i Rom på juldagen. Riket blir det karolingiska kejsardömet."
+      },
+      "sources": [
+       "wp-francia",
+       "wp-holy-roman-empire",
+       "whe-charlemagne"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Karl den stores erövringar som ökningar 775 och 788."
+      }
+     },
+     {
+      "year": 843,
+      "label": {
+       "sv": "843"
+      },
+      "title": {
+       "sv": "Fördraget i Verdun"
+      },
+      "text": {
+       "sv": "Ludvig den frommes tre söner delar riket i Västfrankiska, Mellanfrankiska och Östfrankiska riket."
+      },
+      "sources": [
+       "wp-francia",
+       "whe-carolingian-dynasty"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan räknar alla delarna till riket fram till 910 och därefter främst Västfrankiska riket."
+      }
+     },
+     {
+      "year": 987,
+      "label": {
+       "sv": "987"
+      },
+      "title": {
+       "sv": "Den siste karolingen i väst"
+      },
+      "text": {
+       "sv": "Ludvig V, den siste frankiske kungen i Västfrankiska riket, dör. Riket går över till kapetingerna och blir Frankrike."
+      },
+      "sources": [
+       "wp-francia"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan slutar 989."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Wikipedia anger cirka 481–843 för Frankerriket som helhet. WHE anger merovingerna till cirka 481–751 och karolingerna till 751–887. Kartdatan (Cliopatria) går 462–989 och byter från merovingerna till karolingerna redan 718."
+    },
+    "sources": [
+     "wp-francia",
+     "whe-merovingian-dynasty",
+     "whe-carolingian-dynasty"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "tysk-romerska-riket",
@@ -2270,7 +2810,160 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Tysk-romerska riket var ett löst sammanhållet rike i Central- och Västeuropa, lett av en vald kejsare. Det bestod länge av kungarikena Tyskland, Italien och Burgund och fanns i nästan tusen år, fram till 1806."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Påven Leo III krönte Karl den store till kejsare år 800, men titeln hade fallit bort igen 924. Den återupplivades 962, när påven Johannes XII krönte Otto I, kung av Tyskland, till kejsare. Vissa historiker räknar riket från 800, andra från 962."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Napoleon skapade Rhenförbundet av tyska stater som stod på Frankrikes sida. Den 6 augusti 1806 abdikerade kejsar Frans II och upplöste riket."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Ingen fast huvudstad. Kungarna valdes och kröntes ofta i Frankfurt och Aachen, och Karl IV gjorde Prag till kejsarens säte. Wien blev huvudstad i Habsburgarnas ärvda länder, men inte i riket."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Otto I (962–973), Fredrik III (1452–1493), Karl V (1519–1556) och den siste, Frans II (1792–1806)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Riket hade sin största utbredning och makt i mitten av 1200-talet, under huset Hohenstaufen. Wikipedias faktaruta anger cirka 1,1 miljoner km² år 1150. Kartdatan (Cliopatria) ger som mest cirka 1,2 miljoner km² 1450–1458."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Språk: tyska och medeltida latin (förvaltning, kyrka och ceremonier), och många andra. Religion: latinsk kristendom, och efter reformationen flera officiella religioner. Kejsaren valdes av kurfurstar, både världsliga furstar och ärkebiskopar. Från 1512 kallades riket också Tysk-romerska riket av tysk nation."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 962,
+      "label": {
+       "sv": "962"
+      },
+      "title": {
+       "sv": "Otto I kröns till kejsare"
+      },
+      "text": {
+       "sv": "Påven Johannes XII kröner Otto I, kung av Tyskland och Italien, till kejsare i Rom. Det räknas oftast som rikets början."
+      },
+      "sources": [
+       "wp-holy-roman-empire",
+       "whe-holy-roman-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan visar riket redan från 922, med kungariket Tyskland före 962."
+      }
+     },
+     {
+      "year": 1033,
+      "label": {
+       "sv": "1033"
+      },
+      "title": {
+       "sv": "Burgund blir en del av riket"
+      },
+      "text": {
+       "sv": "Konrad II införlivar kungariket Burgund. Riket består nu av tre kungariken: Tyskland, Italien och Burgund. Wikipedia anger både 1032 och 1033."
+      },
+      "sources": [
+       "wp-holy-roman-empire",
+       "whe-holy-roman-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan räknar Burgund (Kingdom of Arles) till riket redan från 1010."
+      }
+     },
+     {
+      "year": 1356,
+      "label": {
+       "sv": "1356"
+      },
+      "title": {
+       "sv": "Gyllene bullan"
+      },
+      "text": {
+       "sv": "Kejsar Karl IV utfärdar Gyllene bullan. Den bestämmer att sju kurfurstar väljer kejsaren och gäller fram till 1806."
+      },
+      "sources": [
+       "wp-holy-roman-empire",
+       "whe-holy-roman-empire"
+      ]
+     },
+     {
+      "year": 1648,
+      "label": {
+       "sv": "1648"
+      },
+      "title": {
+       "sv": "Westfaliska freden"
+      },
+      "text": {
+       "sv": "Freden avslutar trettioåriga kriget. Habsburgarna blir kvar som kejsare, men deras makt begränsas allt mer till deras egna österrikiska, böhmiska och ungerska länder."
+      },
+      "sources": [
+       "whe-holy-roman-empire"
+      ],
+      "events": [
+       "westfaliska-freden"
+      ]
+     },
+     {
+      "year": 1806,
+      "label": {
+       "sv": "1806"
+      },
+      "title": {
+       "sv": "Riket upplöses"
+      },
+      "text": {
+       "sv": "Kejsar Frans II abdikerar och upplöser riket, sedan Napoleon har skapat Rhenförbundet."
+      },
+      "sources": [
+       "wp-holy-roman-empire",
+       "whe-holy-roman-empire"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 962–1806, och vissa historiker räknar från 800. Kartdatan (Cliopatria) börjar 922 med kungariket Tyskland. Från 1459 räknar Cliopatria bara småstaterna till riket: stora delar som Habsburgarnas länder, Böhmen, Brandenburg och Sachsen ligger som egna riken i kartdatan och syns inte här. Därför ser riket mycket mindre ut på kartan efter 1459 än det var."
+    },
+    "sources": [
+     "wp-holy-roman-empire",
+     "whe-holy-roman-empire"
+    ],
+    "review": "two-sources"
+   }
   },
   {
    "id": "tangdynastin",
@@ -2294,7 +2987,166 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Tangdynastin styrde Kina 618–907, med ett avbrott 690–705. Den räknas ofta som en höjdpunkt i Kinas historia, med en kosmopolitisk kultur och den största blomstringen för kinesisk poesi."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Släkten Li grundade dynastin 618, när Suidynastin föll samman. De tidiga kejsarnas fälttåg gav ett större rike än Hanrikets."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "An Lushans uppror (755–763) ödelade landet och försvagade centralmakten. Under 800-talet fick regionala militärguvernörer (jiedushi) allt mer makt, och bondeuppror ledde till stora befolkningsförluster. År 907 avsatte Zhu den siste kejsaren, Ai, och tog tronen själv. Därefter följde De fem dynastierna och tio kungarikena."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Chang'an, dagens Xi'an (618–690 och 705–904), och Luoyang (904–907). Chang'an var under stora delar av perioden världens folkrikaste stad."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Kejsar Gaozu (618–626), kejsar Taizong (626–649), kejsar Xuanzong (712–756) och den siste, kejsar Ai (904–907). Wu Zetian tog tronen 690 och utropade en egen dynasti, Wu Zhou; hon är den enda erkända kvinnliga kejsaren i Kinas historia."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Cirka 5,4 miljoner km² år 715, enligt Wikipedias faktaruta. Kartdatan (Cliopatria) ger som mest cirka 8,7 miljoner km² 661–665. Källorna skiljer sig alltså mycket."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Folkräkningar på 600- och 700-talen gav cirka 50 miljoner invånare, och mot slutet uppskattas befolkningen till 80 miljoner. Ämbetsmän rekryterades genom statliga examina. Poeterna Li Bai och Du Fu levde under Tang, och boktryck med träblock utvecklades. Buddhismen fick stort inflytande men trycktes tillbaka av kejsar Wuzong på 840-talet."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 618,
+      "label": {
+       "sv": "618"
+      },
+      "title": {
+       "sv": "Tangdynastin grundas"
+      },
+      "text": {
+       "sv": "Släkten Li tar makten när Suidynastin faller, och Gaozu blir den förste kejsaren."
+      },
+      "sources": [
+       "wp-tang-dynasty",
+       "whe-tang-dynasty"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan börjar 623."
+      }
+     },
+     {
+      "year": 657,
+      "label": {
+       "sv": "657"
+      },
+      "title": {
+       "sv": "Västturkarna besegras"
+      },
+      "text": {
+       "sv": "Generalen Su Dingfang besegrar västturkarnas khagan, och Västturkiska khaganatet annekteras. Kejsar Gaozong inrättar protektorat som sträcker Kinas inflytande ända till Herat i dagens Afghanistan."
+      },
+      "sources": [
+       "wp-tang-dynasty"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket växa i steg från 633 och vara som störst 661–665."
+      }
+     },
+     {
+      "year": 690,
+      "label": {
+       "sv": "690–705"
+      },
+      "title": {
+       "sv": "Wu Zetian blir kejsare"
+      },
+      "text": {
+       "sv": "Wu Zetian tar tronen och utropar Wu Zhou-dynastin. Tangdynastin återupprättas 705."
+      },
+      "sources": [
+       "wp-tang-dynasty",
+       "whe-tang-dynasty"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan visar inget avbrott 690–705."
+      }
+     },
+     {
+      "year": 755,
+      "label": {
+       "sv": "755–763"
+      },
+      "title": {
+       "sv": "An Lushans uppror"
+      },
+      "text": {
+       "sv": "Generalen An Lushan gör uppror, och kriget varar till 763. Det förstör Tangs välstånd. Tibetanerna utnyttjar läget, och efter 763 kan Tang inte ta tillbaka Centralasien."
+      },
+      "sources": [
+       "wp-tang-dynasty",
+       "whe-tang-dynasty"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar minskningen från 757."
+      }
+     },
+     {
+      "year": 907,
+      "label": {
+       "sv": "907"
+      },
+      "title": {
+       "sv": "Tangdynastin tar slut"
+      },
+      "text": {
+       "sv": "Zhu avsätter kejsar Ai och tar tronen. De fem dynastierna och tio kungarikena följer."
+      },
+      "sources": [
+       "wp-tang-dynasty",
+       "whe-tang-dynasty"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan slutar 910."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 618–907. Kartdatan (Cliopatria) går 623–910 och visar inget avbrott för Wu Zhou 690–705."
+    },
+    "sources": [
+     "wp-tang-dynasty",
+     "whe-tang-dynasty"
+    ],
+    "review": "two-sources"
+   }
   },
   {
    "id": "songdynastin",
@@ -2329,7 +3181,165 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Songdynastin styrde Kina 960–1279. Den delas i Norra Song, med huvudstad i Kaifeng, och Södra Song, med huvudstad i Hangzhou. Perioden är känd för sin ekonomi och sina uppfinningar, bland annat de första sedlarna, krutvapen och kompassen."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Generalen Zhao Kuangyin, kejsar Taizu, tog tronen från Senare Zhou 960 och erövrade sedan resten av De tio kungarikena."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Jurchenfolkets Jindynasti tog norra Kina 1127, och hovet flydde söder om Yangtze. Mongolerna erövrade Jin 1234. Kublai khan grundade Yuandynastin 1271, och efter två decennier av krig besegrades Södra Song vid Yamen 1279."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Bianjing, dagens Kaifeng (960–1127), och under Södra Song Lin'an, dagens Hangzhou. Däremellan låg hovet bland annat i Yingtian och Yangzhou; WHE anger att Hangzhou blev huvudstad 1138."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Kejsar Taizu (960–976), som grundade Norra Song, kejsar Gaozong (1127–1162), som grundade Södra Song, och den siste, Zhao Bing (1278–1279)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Enligt Wikipedias faktaruta cirka 3,1 miljoner km² år 980, 2,1 miljoner år 1127 och 1,8 miljoner år 1204. Kartdatan (Cliopatria) ger cirka 2,8 miljoner km² för Norra Song och 2,1 miljoner för Södra Song."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Norra Song beräknas ha haft cirka 90 miljoner invånare. Song var först i världen med riktiga sedlar och den första kinesiska staten med en stående flotta. Från den här tiden kommer de äldsta bevarade recepten på krut, och kompassen användes för att hitta norr. Boktrycket spreds, och rörliga typer uppfanns på 1000-talet."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 960,
+      "label": {
+       "sv": "960"
+      },
+      "title": {
+       "sv": "Songdynastin grundas"
+      },
+      "text": {
+       "sv": "Armén utropar generalen Zhao Kuangyin till kejsare. Han grundar Songdynastin och erövrar sedan De tio kungarikena."
+      },
+      "sources": [
+       "wp-song-dynasty",
+       "whe-song-dynasty"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket växa 970 och 980."
+      }
+     },
+     {
+      "year": 1127,
+      "label": {
+       "sv": "1127"
+      },
+      "title": {
+       "sv": "Jingkang-händelsen"
+      },
+      "text": {
+       "sv": "Jurchenfolket tar huvudstaden och tillfångatar den förre kejsaren Huizong, kejsar Qinzong och större delen av hovet. Hovet flyr söderut, och Södra Song börjar."
+      },
+      "sources": [
+       "wp-song-dynasty",
+       "whe-song-dynasty"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan går över till Södra Song först 1139. WHE anger 1125 som gränsen mellan Norra och Södra Song."
+      }
+     },
+     {
+      "year": 1235,
+      "label": {
+       "sv": "1235"
+      },
+      "title": {
+       "sv": "Mongolerna anfaller"
+      },
+      "text": {
+       "sv": "Mongolerna har erövrat Jin och tagit norra Kina 1234. Året därpå börjar deras anfall mot Song."
+      },
+      "sources": [
+       "wp-song-dynasty"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar minskningar från 1241."
+      }
+     },
+     {
+      "year": 1276,
+      "label": {
+       "sv": "1276"
+      },
+      "title": {
+       "sv": "Lin'an faller"
+      },
+      "text": {
+       "sv": "Mongolerna tar huvudstaden Lin'an."
+      },
+      "sources": [
+       "wp-song-dynasty"
+      ]
+     },
+     {
+      "year": 1279,
+      "label": {
+       "sv": "1279"
+      },
+      "title": {
+       "sv": "Slaget vid Yamen"
+      },
+      "text": {
+       "sv": "Kublai khans armé besegrar Södra Song vid Yamen. Kina enas under Yuandynastin."
+      },
+      "sources": [
+       "wp-song-dynasty",
+       "whe-song-dynasty"
+      ],
+      "events": [
+       "slaget-vid-yamen"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan slutar 1278."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 960–1279. Kartdatan (Cliopatria) går 961–1278 och byter från Norra till Södra Song 1139. Wikipedia anger 1127 och WHE 1125 för bytet; källorna skiljer sig."
+    },
+    "sources": [
+     "wp-song-dynasty",
+     "whe-song-dynasty"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "khmerriket",
@@ -2353,7 +3363,179 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Khmerriket var ett rike i Sydostasien med centrum i dagens norra Kambodja. Perioden kallas Angkortiden efter den mest kända huvudstaden, Angkor, med templen Angkor Wat och Bayon."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Riket växte fram ur den tidigare Chenla-kulturen. Starten räknas till 802, när prinsen Jayavarman II utropade sig till universell härskare (chakravartin) i Phnom Kulen-bergen."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Slutet räknas traditionellt till 1431, när Angkor föll för det siamesiska riket Ayutthaya och kungen lämnade staden för trakten kring Phnom Penh. Varför riket föll är omstritt. Forskare pekar bland annat på kraftiga monsunregn följda av svår torka, som skadade vattensystemen."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Mahendraparvata (tidigt 800-tal), Hariharalaya (mitten av 800-talet), Yasodharapura, alltså Angkor (sent 800-tal–928 och 944–1431), och Lingapura, dagens Koh Ker (928–944)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Jayavarman II (från 802), Suryavarman II (1113–1150), som lät bygga Angkor Wat, och Jayavarman VII (från 1181), som räknas som rikets störste kung. Källorna anger olika år för hans död: 1218 eller 1219 i Wikipedia och 1215 i WHE."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Cirka 1 miljon km² år 1290, enligt Wikipedias faktaruta. Riket omfattade stora delar av dagens Kambodja, Thailand, Laos och södra Vietnam. Kartdatan (Cliopatria) ger som mest cirka 950 000 km² 1206–1219."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Språk: fornkhmer, och sanskrit i religionen. Religion: hinduism och buddhism. Angkor Wat byggdes på 1100-talet och var från början tillägnat Vishnu. Satellitbilder visar att Angkor med sitt vattensystem var världens största förindustriella stadskomplex på 1000–1200-talen."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 802,
+      "label": {
+       "sv": "802"
+      },
+      "title": {
+       "sv": "Jayavarman II"
+      },
+      "text": {
+       "sv": "Jayavarman II utropar sig till universell härskare i Phnom Kulen-bergen. Det räknas som khmerrikets början."
+      },
+      "sources": [
+       "wp-khmer-empire",
+       "whe-khmer-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan visar bara en liten yta 800–805 och riket från 806."
+      }
+     },
+     {
+      "year": 1113,
+      "label": {
+       "sv": "1113–1150"
+      },
+      "title": {
+       "sv": "Angkor Wat byggs"
+      },
+      "text": {
+       "sv": "Under Suryavarman II byggs templet Angkor Wat; WHE anger att bygget började 1122. Hans fälttåg mot Champa och Dai Viet misslyckas, men 1145 plundrar han Champas huvudstad Vijaya."
+      },
+      "sources": [
+       "wp-khmer-empire",
+       "whe-khmer-empire"
+      ]
+     },
+     {
+      "year": 1177,
+      "label": {
+       "sv": "1177"
+      },
+      "title": {
+       "sv": "Champa plundrar Angkor"
+      },
+      "text": {
+       "sv": "En flotta från Champa plundrar Angkor, och khmerkungen dödas."
+      },
+      "sources": [
+       "wp-khmer-empire",
+       "whe-khmer-empire"
+      ]
+     },
+     {
+      "year": 1203,
+      "label": {
+       "sv": "1181–1203"
+      },
+      "title": {
+       "sv": "Jayavarman VII"
+      },
+      "text": {
+       "sv": "Jayavarman VII tar tillbaka Angkor och blir kung 1181. Efter 22 år av krig besegrar khmererna Champa 1203 och erövrar stora delar av landet. Han låter bygga Bayon som rikstempel."
+      },
+      "sources": [
+       "wp-khmer-empire",
+       "whe-khmer-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket växa 1188 och vara som störst 1206–1219."
+      }
+     },
+     {
+      "year": 1220,
+      "label": {
+       "sv": "1220"
+      },
+      "title": {
+       "sv": "Reträtt från Champa"
+      },
+      "text": {
+       "sv": "Under tryck från Dai Viet och dess bundsförvant Champa drar sig khmererna tillbaka från många av de erövrade provinserna."
+      },
+      "sources": [
+       "wp-khmer-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar minskningen 1220."
+      }
+     },
+     {
+      "year": 1431,
+      "label": {
+       "sv": "1431"
+      },
+      "title": {
+       "sv": "Angkor överges"
+      },
+      "text": {
+       "sv": "Ayutthaya tar Angkor, och kungen Ponhea Yat flyttar till trakten kring Phnom Penh. Det räknas som slutet på khmerriket."
+      },
+      "sources": [
+       "wp-khmer-empire",
+       "whe-khmer-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan fortsätter med det mindre khmerriket fram till 1867."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 802–1431. Kartdatan (Cliopatria) går 800–1867 och tar med det mindre kambodjanska riket efter Angkors fall."
+    },
+    "sources": [
+     "wp-khmer-empire",
+     "whe-khmer-empire"
+    ],
+    "review": "two-sources"
+   }
   },
   {
    "id": "ghanariket",
@@ -2377,7 +3559,141 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Ghanariket, även kallat Wagadu, var ett rike i västra Sahel, i dagens sydöstra Mauretanien och västra Mali. Det blev rikt på handeln med guld norrut och salt söderut. Det har inget geografiskt samband med dagens Ghana, som tog namnet 1957."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Det är osäkert när riket uppstod. Wikipedia anger cirka år 300 och WHE åtminstone 500-talet. Den första kända skriftliga uppgiften om kungadynastin kommer från al-Khwarizmi år 830."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Riket gick tillbaka från 1100-talet och blev under 1200-talet vasall under Maliriket; Malis kung Sundiata tog den gamla huvudstaden 1240, enligt WHE. Enligt en gammal uppfattning erövrades riket av almoraviderna 1076–1077. WHE skriver att huvudstaden plundrades av almoraviderna omkring 1076, medan Wikipedia skriver att moderna forskare starkt ifrågasätter att någon erövring skedde. Källorna skiljer sig."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Troligen Koumbi Saleh, enligt Wikipedia möjligen en senare huvudstad. Historikern Dierk Lange menar att rikets kärna i stället låg vid Faguibinesjön vid Nigerkröken."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Namnen på de tidiga kungarna är okända. Tunka Manin brevväxlade med almoraviderna på 1000-talet. Kungarna kallades också kaya maghan, guldets kung."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Cirka 650 000 km² år 1000, enligt Wikipedias faktaruta. Kartdatan (Cliopatria) visar ett oförändrat område på cirka 200 000 km² hela tiden."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Språk: soninke, malinke och andra mandespråk. Religion: traditionell afrikansk religion, senare islam (från 1000-talet). Riket tjänade på monopol på guldet som gick norrut och saltet som gick söderut. Enligt Wikipedia styrde riket inte själva guldfälten, medan WHE nämner guld från fälten i Bambuk bland rikets egna tillgångar."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 830,
+      "label": {
+       "sv": "830"
+      },
+      "title": {
+       "sv": "Första skriftliga uppgiften"
+      },
+      "text": {
+       "sv": "Al-Khwarizmi nämner Ghanas kungadynasti. Det är den första kända skriftliga uppgiften om den."
+      },
+      "sources": [
+       "wp-ghana-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan börjar 793."
+      }
+     },
+     {
+      "year": 1054,
+      "label": {
+       "sv": "1054"
+      },
+      "title": {
+       "sv": "Awdaghost faller"
+      },
+      "text": {
+       "sv": "Almoraviderna tar Awdaghost, som då var ett av kungens säten."
+      },
+      "sources": [
+       "wp-ghana-empire"
+      ]
+     },
+     {
+      "year": 1076,
+      "label": {
+       "sv": "cirka 1076"
+      },
+      "title": {
+       "sv": "Almoraviderna"
+      },
+      "text": {
+       "sv": "Enligt WHE plundrar almoraviderna huvudstaden Koumbi Saleh omkring 1076. Wikipedia skriver att berättelsen om en almoravidisk erövring 1076–1077 starkt ifrågasätts av moderna forskare."
+      },
+      "sources": [
+       "wp-ghana-empire",
+       "whe-ghana-empire"
+      ]
+     },
+     {
+      "year": 1240,
+      "label": {
+       "sv": "1240"
+      },
+      "title": {
+       "sv": "Mali tar över"
+      },
+      "text": {
+       "sv": "Sundiata Keita, Malirikets grundare, tar den gamla huvudstaden. Ghana blir en del av Malis maktområde."
+      },
+      "sources": [
+       "whe-ghana-empire",
+       "whe-mali-empire",
+       "wp-ghana-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan slutar 1201."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Wikipedia anger cirka år 300 till mitten av 1200-talet, WHE åtminstone 500-talet till 1200-talet. Kartdatan (Cliopatria) går 793–1201 med samma gräns hela tiden."
+    },
+    "sources": [
+     "wp-ghana-empire",
+     "whe-ghana-empire"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "maliriket",
@@ -2401,7 +3717,151 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Maliriket var ett rike i Västafrika, grundat av Sundiata Keita omkring 1235. Det blev känt för sina rika kungar, särskilt Mansa Musa, och var på sin höjdpunkt det största riket i Västafrika."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Riket började som ett litet mandinkakungarike vid Nigerflodens övre lopp, i Manding-området. Sundiata Keita besegrade Sossoriket i slaget vid Kirina omkring 1235, och Mali blev en stormakt."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Efter kung Suleymans död, efter 19 år på tronen från 1341, började en långsam nedgång. Enligt WHE erövrade Songhai det mesta av riket omkring 1468. Enligt Wikipedia var Mali fortfarande stort på 1400-talet och förlorade land till Songhai och andra grannar från 1507. Efter ett svårt nederlag vid Djenne 1599 föll riket sönder, och Keita-släkten drog sig tillbaka till Kangaba."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Omstritt. WHE anger Niani, en stad som inte finns kvar, troligen nära floden Sankarani. Enligt Wikipedia är platsen omtvistad."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Sundiata Keita (cirka 1235–1255; WHE anger 1230–1255), Mansa Musa (cirka 1312–1337) och Suleyman (från 1341)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Cirka 1,3 miljoner km² år 1350, enligt Wikipedias faktaruta. Kartdatan (Cliopatria) ger som mest cirka 1,1 miljoner km² 1415–1462."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Språk: manding. Religion: traditionell afrikansk religion och islam. Mansa Musas pilgrimsfärd till Mecka 1324–1326 blev berömd: hans gåvor och hans guld orsakade inflation i Egypten. Timbuktu blev ett känt lärdomscentrum, och Ibn Battuta besökte Mali under Suleymans tid."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1235,
+      "label": {
+       "sv": "cirka 1235"
+      },
+      "title": {
+       "sv": "Slaget vid Kirina"
+      },
+      "text": {
+       "sv": "Sundiata Keita besegrar Sossoriket vid Kirina. Mali blir en stormakt, och 1240 tar Sundiata Ghanarikets gamla huvudstad."
+      },
+      "sources": [
+       "wp-mali-empire",
+       "whe-mali-empire"
+      ],
+      "events": [
+       "slaget-vid-kirina"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan börjar 1236."
+      }
+     },
+     {
+      "year": 1324,
+      "label": {
+       "sv": "1324–1326"
+      },
+      "title": {
+       "sv": "Mansa Musas pilgrimsfärd"
+      },
+      "text": {
+       "sv": "Mansa Musa reser till Mecka via Kairo. Hans gåvor och utgifter i guld gör att guldet sjunker i värde i Egypten."
+      },
+      "sources": [
+       "wp-mali-empire",
+       "wp-mansa-musa",
+       "whe-mali-empire"
+      ],
+      "events": [
+       "mansa-musa-kairo"
+      ]
+     },
+     {
+      "year": 1468,
+      "label": {
+       "sv": "cirka 1468"
+      },
+      "title": {
+       "sv": "Songhai växer"
+      },
+      "text": {
+       "sv": "Enligt WHE erövrar Songhais kung Sunni Ali det mesta av Maliriket omkring 1468. Enligt Wikipedia förlorar Mali land till Songhai och andra grannar först från 1507. Källorna skiljer sig."
+      },
+      "sources": [
+       "whe-mali-empire",
+       "wp-mali-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar minskningar 1463 och 1468 och den största 1475."
+      }
+     },
+     {
+      "year": 1599,
+      "label": {
+       "sv": "1599"
+      },
+      "title": {
+       "sv": "Nederlaget vid Djenne"
+      },
+      "text": {
+       "sv": "Mali försöker utnyttja Songhais fall efter Marockos invasion 1593, men ett svårt nederlag utanför Djenne 1599 gör slut på försöket. Riket faller sönder i självständiga hövdingadömen."
+      },
+      "sources": [
+       "wp-mali-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan slutar 1611."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Wikipedia anger cirka 1235–1610, WHE 1240–1645. Kartdatan (Cliopatria) går 1236–1611."
+    },
+    "sources": [
+     "wp-mali-empire",
+     "whe-mali-empire"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "kievriket",
@@ -2425,7 +3885,162 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Kievriket (Kievrus) var den första östslaviska staten, senare ett förbund av furstendömen, i Östeuropa från slutet av 800-talet till mitten av 1200-talet. Det styrdes av Rurikdynastin. Belarus, Ryssland och Ukraina räknar alla Kievriket som sitt kulturella ursprung."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Enligt Nestorskrönikan var den varjagiske fursten Oleg den förste som enade de östslaviska länderna. Han utgick från Novgorod, tog kontroll längs Dnepr och tog Kiev, enligt Wikipedia omkring 882. WHE räknar riket från 862, när Rurik grundade dynastin."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Riket började gå tillbaka i slutet av 1000-talet och föll under 1100-talet sönder i rivaliserande furstendömen. Handeln minskade när Bysans försvagades. Mongolernas invasion 1237–1241 och belägringen av Kiev 1240 gjorde slut på riket. WHE anger 1242 som slutår."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Kiev (882–1240)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Oleg den vise (cirka 882–912), Svjatoslav I (943–972), Vladimir den store (980–1015) och Jaroslav den vise (1019–1054)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Riket var som störst i mitten av 1000-talet, under Jaroslav den vise, och sträckte sig från Vita havet till Svarta havet och från Karpaterna till Tamanhalvön. Wikipedias faktaruta anger cirka 1,33 miljoner km² och 5,4 miljoner invånare år 1000. Kartdatan (Cliopatria) ger som mest cirka 1,2 miljoner km² 1034–1235."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Språk: fornöstslaviska, kyrkslaviska (skriftspråk), fornnordiska och finska språk. Religion: slavisk hedendom och sedan ortodox kristendom. Jaroslavs söner gav ut den första skrivna lagen, Russkaja Pravda, strax efter hans död."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 882,
+      "label": {
+       "sv": "cirka 882"
+      },
+      "title": {
+       "sv": "Oleg tar Kiev"
+      },
+      "text": {
+       "sv": "Oleg den vise drar söderut från Novgorod längs Dnepr och tar Kiev, som blir rikets huvudstad."
+      },
+      "sources": [
+       "wp-kievan-rus",
+       "whe-kievan-rus"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan börjar 882."
+      }
+     },
+     {
+      "year": 965,
+      "label": {
+       "sv": "965–969"
+      },
+      "title": {
+       "sv": "Khazarriket erövras"
+      },
+      "text": {
+       "sv": "Svjatoslav I gör den första stora erövringen och besegrar Khazarriket i öster."
+      },
+      "sources": [
+       "wp-kievan-rus"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar en ökning 970–979."
+      }
+     },
+     {
+      "year": 988,
+      "label": {
+       "sv": "cirka 988"
+      },
+      "title": {
+       "sv": "Vladimir döps"
+      },
+      "text": {
+       "sv": "Vladimir den store döps och inför kristendomen i Kiev och resten av riket."
+      },
+      "sources": [
+       "wp-kievan-rus"
+      ]
+     },
+     {
+      "year": 1019,
+      "label": {
+       "sv": "1019–1054"
+      },
+      "title": {
+       "sv": "Jaroslav den vise"
+      },
+      "text": {
+       "sv": "Under Jaroslav den vise når riket sin största utbredning. Hans söner ger ut lagboken Russkaja Pravda på 1050-talet."
+      },
+      "sources": [
+       "wp-kievan-rus",
+       "whe-kievan-rus"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket som störst från 1034."
+      }
+     },
+     {
+      "year": 1240,
+      "label": {
+       "sv": "1240"
+      },
+      "title": {
+       "sv": "Kiev faller"
+      },
+      "text": {
+       "sv": "Mongolernas invasion 1237–1241 når Kiev, som faller efter en belägring 1240."
+      },
+      "sources": [
+       "wp-kievan-rus",
+       "whe-kievan-rus"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan visar bara en mycket liten yta 1236–1240."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Wikipedia anger cirka 880–1240, WHE 862–1242. Kartdatan (Cliopatria) går 882–1240, med nästan ingen yta de sista åren 1236–1240."
+    },
+    "sources": [
+     "wp-kievan-rus",
+     "whe-kievan-rus"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "timuridriket",
@@ -2449,7 +4064,184 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Timuridriket var ett turkisk-mongoliskt, persiskt präglat muslimskt rike som dominerade Stor-Iran i början av 1400-talet. Det grundades av Timur (Tamerlan) och omfattade dagens Iran, Irak och Afghanistan, stora delar av Centralasien och delar av Kaukasus, Pakistan, Nordindien och Turkiet."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Timur kom från Barlas-stammen, av mongoliskt ursprung men turkiserad i Centralasien. Han började sina erövringar 1363 och grundade riket 1370. Han såg sig som arvtagare till Djingis khans mongolrike."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Timur dog 1405 på väg mot Mingkina. Hans ättlingar förlorade större delen av Persien till Aq Qoyunlu, när Abu Sa'id Mirza besegrades och dog 1469. År 1507 hade uzbekerna under Shaybani khan tagit nästan alla återstående timuridiska furstendömen, däribland Samarkand och Herat. Timuridprinsen Babur grundade 1526 Mogulriket i Indien."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Samarkand (1370–1405 och 1447–1459) och Herat (1405–1447 och 1459–1507)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Timur (1370–1405), Shah Rukh (1405–1447), hans son astronomen och matematikern Ulugh Beg (1447–1449), Husayn Bayqara (1469–1506) och den siste, Badi al-Zaman (1506–1507)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Cirka 4,4 miljoner km² år 1405, enligt en uppskattning i Wikipedias faktaruta. Kartdatan (Cliopatria) ger som mest cirka 5,1 miljoner km² 1402–1406."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Språk: persiska (officiellt, hov och förvaltning), tjagataiturkiska och arabiska. Religion: sunniislam. Under Shah Rukh och Ulugh Beg blomstrade den timuridiska renässansen. Timur tvångsflyttade lärda, konstnärer och hantverkare till Samarkand, som blev en stor kulturstad."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1370,
+      "label": {
+       "sv": "1370"
+      },
+      "title": {
+       "sv": "Timur grundar riket"
+      },
+      "text": {
+       "sv": "Timur tar ensam makten i Transoxanien och gör Samarkand till huvudstad."
+      },
+      "sources": [
+       "wp-timurid-empire",
+       "whe-timur"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan börjar 1375."
+      }
+     },
+     {
+      "year": 1387,
+      "label": {
+       "sv": "1380-talet"
+      },
+      "title": {
+       "sv": "Fälttåg västerut"
+      },
+      "text": {
+       "sv": "Timur börjar sina fälttåg västerut 1380. Han tar Isfahan 1387, besegrar muzaffariderna vid Shiraz 1393 och driver ut jalayiriderna ur Bagdad."
+      },
+      "sources": [
+       "wp-timurid-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket växa i steg 1385, 1395 och 1402."
+      }
+     },
+     {
+      "year": 1398,
+      "label": {
+       "sv": "1398–1399"
+      },
+      "title": {
+       "sv": "Delhi plundras"
+      },
+      "text": {
+       "sv": "Timur invaderar Delhisultanatet, besegrar sultanens armé och plundrar Delhi."
+      },
+      "sources": [
+       "wp-timurid-empire",
+       "whe-timur"
+      ]
+     },
+     {
+      "year": 1402,
+      "label": {
+       "sv": "1402"
+      },
+      "title": {
+       "sv": "Slaget vid Ankara"
+      },
+      "text": {
+       "sv": "Efter att ha plundrat Bagdad 1401 besegrar Timur osmanerna under sultan Bayezid I vid Ankara."
+      },
+      "sources": [
+       "wp-timurid-empire",
+       "whe-timur"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket som störst 1402–1406."
+      }
+     },
+     {
+      "year": 1405,
+      "label": {
+       "sv": "1405"
+      },
+      "title": {
+       "sv": "Timur dör"
+      },
+      "text": {
+       "sv": "Timur dör på väg mot Mingkina. Shah Rukh styr därefter från Herat, och under honom och Ulugh Beg blomstrar den timuridiska renässansen."
+      },
+      "sources": [
+       "wp-timurid-empire",
+       "whe-timur"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar en minskning från 1407."
+      }
+     },
+     {
+      "year": 1507,
+      "label": {
+       "sv": "1507"
+      },
+      "title": {
+       "sv": "Uzbekerna tar Herat"
+      },
+      "text": {
+       "sv": "Uzbekerna under Shaybani khan har tagit nästan alla timuridiska furstendömen, däribland Samarkand och Herat. Timuridprinsen Babur fortsätter från Kabul och grundar 1526 Mogulriket i Indien."
+      },
+      "sources": [
+       "wp-timurid-empire"
+      ],
+      "events": [
+       "forsta-slaget-vid-panipat"
+      ],
+      "mapNote": {
+       "sv": "Kartdatan fortsätter till 1528 med timuridiska områden kring Kabul."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Wikipedia anger 1370–1507. Kartdatan (Cliopatria) går 1375–1528 och tar med de timuridiska områdena kring Kabul efter 1507."
+    },
+    "sources": [
+     "wp-timurid-empire",
+     "whe-timur"
+    ],
+    "review": "source-checked"
+   }
   }
  ]
 }
