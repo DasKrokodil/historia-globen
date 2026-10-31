@@ -280,6 +280,27 @@ export class Panel {
     const subj = kind === 'Rike' ? 'Riket' : kind === 'Försvunnet land' ? 'Landet' : 'Religionen';
     const srcs = [...new Set([...(f.sources ?? []), ...(f.milestones ?? []).flatMap(m => m.sources ?? []), ...(lineage?.sources ?? [])])]
       .map(id => this.srcById[id]).filter(Boolean);
+    // Riken har ofta mer fördjupning än ryms i det mobila arket. Sammanfattningen
+    // står därför alltid först, medan utveckling och kartans underlag öppnas vid behov (#359).
+    const isEmpire = kind === 'Rike' || kind === 'Försvunnet land';
+    const overview = `${lineage ? lineageHtml(lineage) : ''}
+      <dl class="religion-facts">${(f.items ?? []).map(it => `<dt>${esc(t(it.label))}</dt><dd>${esc(t(it.text))}</dd>`).join('')}</dl>`;
+    const development = `${curveId ? `<figure class="area-curve" data-curve="${esc(curveId)}" hidden></figure>` : ''}
+      ${f.milestones?.length ? `<div class="war-list"><h4>${esc(milestonesTitle)}</h4><ol>${f.milestones.map(m =>
+        `<li><button type="button" class="link-btn" data-year="${Number(m.year)}">${esc(t(m.label) || formatYear(m.year))}</button> ${m.title ? `<b>${esc(t(m.title))}.</b> ` : ''}${esc(t(m.text))}${m.mapNote ? ` <span class="ms-map">Om kartan: ${esc(t(m.mapNote))}</span>` : ''}</li>`).join('')}</ol></div>` : ''}
+      ${shownWars.length ? `<div class="war-list empire-wars"><h4>Krig</h4><ol>${shownWars.map(w =>
+        `<li><span class="meta">${esc(formatEventTime(w))}</span> <button type="button" class="link-btn" data-follow-war="${esc(w.id)}" title="Följ kriget">▶ ${esc(t(w.title))}</button></li>`).join('')}</ol></div>` : ''}`;
+    const sourcesAndMap = `${mapNote ? `<aside class="detail-note"><h4>Så byggdes kartan</h4><p>${esc(mapNote)}</p></aside>` : ''}
+      ${srcLine(srcs, pending)}
+      <div class="detail-actions">${reviewRow(f.review, subj)}</div>`;
+    const body = isEmpire ? `
+      <details class="facts-section" open><summary>Kortfattat</summary>${overview}</details>
+      ${development ? `<details class="facts-section"><summary>Hur riket förändrades</summary>${development}</details>` : ''}
+      <details class="facts-section"><summary>Källor och karta</summary>${sourcesAndMap}</details>` : `
+      ${overview}
+      ${origin ? `<p class="war-link">${symbol ? `Symbolen ${symbol.replace('rel-sym-h', 'rel-sym-in')} på globen visar var religionen uppstod:` : 'Där religionen uppstod:'} <button type="button" class="link-btn" data-goto="${esc(origin.id)}">${esc(t(origin.title))}</button> <span class="meta">${esc(formatEventTime(origin))} · ${esc(t(origin.place))}</span></p>` : ''}
+      ${development}
+      ${sourcesAndMap}`;
     this.selectedId = origin?.id ?? null;
     this.curve = null;
     this.detail.className = `detail detail-card${place ? ` frame-${styleFor(place, this.styles).frame}` : ''}`;
@@ -289,19 +310,7 @@ export class Panel {
       <div class="story-label"><span class="swatch" style="background:${esc(color)}"></span>${esc(kind)}</div>
       <h3>${symbol}${esc(name)}</h3>
       <p>${esc(t(f.summary))}</p>
-      ${lineage ? lineageHtml(lineage) : ''}
-      ${curveId ? `<figure class="area-curve" data-curve="${esc(curveId)}" hidden></figure>` : ''}
-      <dl class="religion-facts">${(f.items ?? []).map(it => `<dt>${esc(t(it.label))}</dt><dd>${esc(t(it.text))}</dd>`).join('')}</dl>
-      ${origin ? `<p class="war-link">${symbol ? `Symbolen ${symbol.replace('rel-sym-h', 'rel-sym-in')} på globen visar var religionen uppstod:` : 'Där religionen uppstod:'} <button type="button" class="link-btn" data-goto="${esc(origin.id)}">${esc(t(origin.title))}</button> <span class="meta">${esc(formatEventTime(origin))} · ${esc(t(origin.place))}</span></p>` : ''}
-      ${f.milestones?.length ? `<div class="war-list"><h4>${esc(milestonesTitle)}</h4><ol>${f.milestones.map(m =>
-        `<li><button type="button" class="link-btn" data-year="${Number(m.year)}">${esc(t(m.label) || formatYear(m.year))}</button> ${m.title ? `<b>${esc(t(m.title))}.</b> ` : ''}${esc(t(m.text))}${m.mapNote ? ` <span class="ms-map">Om kartan: ${esc(t(m.mapNote))}</span>` : ''}</li>`).join('')}</ol></div>` : ''}
-      ${shownWars.length ? `<div class="war-list empire-wars"><h4>Krig</h4><ol>${shownWars.map(w =>
-        `<li><span class="meta">${esc(formatEventTime(w))}</span> <button type="button" class="link-btn" data-follow-war="${esc(w.id)}" title="Följ kriget">▶ ${esc(t(w.title))}</button></li>`).join('')}</ol></div>` : ''}
-      ${mapNote ? `<aside class="detail-note"><h4>Om kartan</h4><p>${esc(mapNote)}</p></aside>` : ''}
-      ${srcLine(srcs, pending)}
-      <div class="detail-actions">
-        ${reviewRow(f.review, subj)}
-      </div>`;
+      ${body}`;
     this.detail.hidden = false;
     this.detail.scrollTop = 0; // efter hidden, annars behåller kortet förra läget
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
