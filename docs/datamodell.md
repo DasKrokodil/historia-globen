@@ -406,6 +406,10 @@ Det görs när det finns texter på fler språk än svenska (version 12, Språk 
 
 Färdigprojicerade SVG-banor i 4096 × 2048 (`path`, `width`, `height`) från Natural Earth: grundkartan (1:50m) och dagens landsgränser. Grundkartan laddas vid start; dagens gränser först när lagret slås på (#337).
 
+## `bildlager.json`: tidsstyrda rasterbilder (#54)
+
+`layers` är en lista av ekvirektangulära bilder. Varje post har `id`, översatt `name` och `title`, `file`, `from`, valfritt `to`, `opacity`, `source` (id i `sources.json`) och `license`. Bilden väljs när året ligger inom perioden och ritas på lagerbilden; den syns därför lika på klotet och i Platt vy. Första posten är NASA Black Marble 2016, från 2016 och framåt.
+
 ## `vyer.json`: grupper och förinställda vyer i Lager (#357)
 
 Ingen fakta, bara hur Lager är ordnat. Namnen står per språk som andra texter (`t()`).
