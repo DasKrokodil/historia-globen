@@ -31,6 +31,8 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   `Closes #N`. Dirigenten granskar Codex pull requests på samma sätt som arbetarnas leveranser innan Rikard slår ihop.
   Dirigenten sätter etiketten `codex: redo` på issues som Codex får ta: tydligt avgränsade, utan historiska fakta, utan
   `beslut-krävs` och utan krock med orkesterns pågående eller planerade arbete. Etiketten tas bort när issuet tas.
+  Varje pass och varje planering går igenom den pågående milstolpen efter nya sådana issues, och rapporten till Rikard
+  har raden "Nya för Codex: #…" (eller ingen rad när inget är nytt).
 - **Kapacitet:** en arbetare är standard (resurspolicyn nedan). Högst tre arbetare samtidigt, inklusive hjälpare. Dirigenten får göra ett arbete själv, och det
   räknas då som en plats. Webbläsartester (Playwright) körs av en arbetare i taget, var och en med egen port. Kön
   hålls med en gemensam låsfil: `flock <scratchpad>/pw.lock node skript.cjs`. I molnmiljön når webbläsaren inte
