@@ -716,6 +716,11 @@
     { "id": "commons-bild-sjalvstandighetsforklaringen", "title": "United States Declaration of Independence – William Stones faksimil, 1823 (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:United_States_Declaration_of_Independence.jpg", "license": "Public domain", "checked": "2026-10-30" },
     { "id": "wp-ming-treasure-voyages", "title": "Ming treasure voyages – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ming_treasure_voyages", "license": "CC BY-SA 4.0", "checked": "2026-10-30" },
     { "id": "wp-zheng-he", "title": "Zheng He – Wikipedia", "url": "https://en.wikipedia.org/wiki/Zheng_He", "license": "CC BY-SA 4.0", "checked": "2026-10-30" },
-    { "id": "whe-seven-voyages-zheng-he", "title": "The Seven Voyages of Zheng He – World History Encyclopedia (Mark Cartwright, 2019)", "url": "https://www.worldhistory.org/article/1334/the-seven-voyages-of-zheng-he/", "license": "CC BY-NC-SA (bara länkad, ingen text kopierad)", "checked": "2026-10-30" }
+    { "id": "whe-seven-voyages-zheng-he", "title": "The Seven Voyages of Zheng He – World History Encyclopedia (Mark Cartwright, 2019)", "url": "https://www.worldhistory.org/article/1334/the-seven-voyages-of-zheng-he/", "license": "CC BY-NC-SA (bara länkad, ingen text kopierad)", "checked": "2026-10-30" },
+    { "id": "wp-cook-resa-1", "title": "First voyage of James Cook – Wikipedia", "url": "https://en.wikipedia.org/wiki/First_voyage_of_James_Cook", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "wp-cook-resa-2", "title": "Second voyage of James Cook – Wikipedia", "url": "https://en.wikipedia.org/wiki/Second_voyage_of_James_Cook", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "wp-cook-resa-3", "title": "Third voyage of James Cook – Wikipedia", "url": "https://en.wikipedia.org/wiki/Third_voyage_of_James_Cook", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "dnb-cook", "title": "Cook, James (1728–1779) – Dictionary of National Biography, band 12, 1887 (Wikisource)", "url": "https://en.wikisource.org/wiki/Dictionary_of_National_Biography,_1885-1900/Cook,_James_(1728-1779)", "license": "Public domain", "checked": "2026-10-31" },
+    { "id": "eb1911-cook", "title": "Cook, James – Encyclopædia Britannica, 11:e upplagan 1911 (Wikisource)", "url": "https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Cook,_James", "license": "Public domain", "checked": "2026-10-31" }
   ]
 }
