@@ -485,6 +485,11 @@ body {
 .detail .review-badge, .detail .war-link, .detail .war-list .meta { color: var(--card-dim); }
 .detail .war-list h4 { color: var(--card-accent); }
 .detail-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 6px; }
+/* Rikets fördjupning är hopfällbar, så att den korta orienteringen ryms i mobilens första läge (#359). */
+.facts-section { margin: 10px 0; border-top: 1px solid var(--line); padding-top: 8px; }
+.facts-section > summary { cursor: pointer; color: var(--card-accent, var(--brass)); font: 600 12px/1.2 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; }
+.facts-section > summary:focus-visible { outline: 2px solid var(--card-accent, var(--brass)); outline-offset: 3px; border-radius: 3px; }
+.facts-section > :last-child { margin-bottom: 0; }
 
 .review-badge {
   display: inline-flex; align-items: center; gap: 6px;
