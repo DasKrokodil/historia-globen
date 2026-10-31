@@ -18,6 +18,8 @@ Kontroller:
      upptäcktsvyn anger finns i sources.json,
      och varje händelse som en fun fact eller en väg (event) pekar på finns i events.json (CLAUDE.md,
      Testa innan du är klar).
+  9. Varje rike som ett krig anger i empires (#76) finns som grupp i data/empires/index.json,
+     och bara krig (kind: "war") har fältet.
 
 Användning: python3 scripts/validate-site.py [dist]
 """
@@ -205,6 +207,20 @@ for f in funfacts['funfacts']:
     for i in f.get('events', []):
         if i not in ev_ids:
             err(f"data/funfacts.json ({f.get('id')}): händelsen {i} finns inte i events.json")
+
+# 9. Krigets riken (#76): empires är grupp-id i data/empires/index.json
+group_ids = {g.get('id') for g in (empires or {}).get('groups', [])}
+for e in events['events']:
+    if 'empires' not in e:
+        continue
+    if e.get('kind') != 'war':
+        err(f"data/events.json ({e['id']}): empires får bara finnas på krig (kind: war)")
+    if not isinstance(e['empires'], list):
+        err(f"data/events.json ({e['id']}): empires ska vara en lista")
+        continue
+    for g in e['empires']:
+        if g not in group_ids:
+            err(f"data/events.json ({e['id']}): riket {g} finns inte i data/empires/index.json")
 
 if errors:
     print(f'validate-site: {len(errors)} fel', file=sys.stderr)

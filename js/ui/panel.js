@@ -1,7 +1,7 @@
 // "Samtidigt i världen": lista över synliga händelser per världsdel, kategorifilter
 // (som ligger i lagermenyn, #120) och faktarutan.
 import { buildAreaCurve } from './areacurve.js';
-import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg } from '../model.js';
+import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, isVisibleReview } from '../model.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -42,6 +42,13 @@ const reviewRow = (status, subj) => {
     </div>`;
 };
 
+/**
+ * Riken i kriget (#76): rikena i krigets empires, som knappar med rikets färg. Ett klick öppnar rikets faktaruta.
+ * Slag och händelser i kriget visar sitt krigs riken (de ärver kopplingen via partOf).
+ */
+const empireList = groups => groups?.length ? `<div class="war-list empire-list"><h4>Riken i kriget</h4><ul>${groups.map(g =>
+  `<li><button type="button" class="link-btn" data-empire="${esc(g.id)}"><span class="swatch" style="background:${esc(g.color)}"></span>${esc(t(g.name))}</button></li>`).join('')}</ul></div>` : '';
+
 export class Panel {
   constructor({ root, list, filters, detail, sub, count, toggle, close }, { events, srcById, styles }) {
     Object.assign(this, { root, list, filtersEl: filters, detail, sub, count, toggle, srcById, styles });
@@ -49,6 +56,7 @@ export class Panel {
     this.onFilter = () => {};
     this.onSources = () => {};
     this.onFocus = () => {};
+    this.onEmpire = () => {}; // (rikets id) => rikets faktaruta (#76)
     this.onOpen = () => {};
     this.onYear = () => {};
     this.onReport = null; // (händelse, knapp) => öppnar formuläret "Rapportera faktafel" (js/ui/feedback.js)
@@ -148,11 +156,13 @@ export class Panel {
       <h4>Varför kriget började</h4><p>${esc(t(s.intro))}</p>
       <h4>Parterna</h4>
       <div class="parties">${s.parties.map(p => `<div><strong>${esc(t(p.name))}</strong><p>${esc(t(p.members))}</p></div>`).join('')}</div>
+      ${empireList(war._empires)}
       <p class="story-hint">Tryck på ▶ för att följa kriget.</p>` : war.ongoing ? `
       <h4>Läget i dag</h4><p>${esc(t(s.outcome))}</p>
       <h4>Döda hittills, enligt uppskattningar</h4><p>${esc(t(s.casualties))}</p>` : `
       <h4>Hur kriget slutade</h4><p>${esc(t(s.outcome))}</p>
-      <h4>Döda</h4><p>${esc(t(s.casualties))}</p>`;
+      <h4>Döda</h4><p>${esc(t(s.casualties))}</p>
+      ${empireList(war._empires)}`;
     const label = mode === 'intro' ? 'Innan kriget börjar' : war.ongoing ? `Läget i dag (kontrollerat ${formatDate(s.asOf)})` : 'När kriget är slut';
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
@@ -166,11 +176,18 @@ export class Panel {
     this.detail.hidden = false;
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
     this.bindReport(war);
+    this.bindLinks();
   }
 
   /** Knappen "Rapportera faktafel" öppnar formuläret med händelsen förvald. */
   bindReport(e) {
     this.detail.querySelector('[data-report]')?.addEventListener('click', ev => this.onReport?.(e, ev.currentTarget));
+  }
+
+  /** Länkarna mellan krig och riken (#76): ett rike öppnar rikets faktaruta, ett krig följs i fokusläget. */
+  bindLinks() {
+    for (const b of this.detail.querySelectorAll('[data-empire]')) b.addEventListener('click', () => this.onEmpire(b.dataset.empire));
+    for (const b of this.detail.querySelectorAll('[data-follow-war]')) b.addEventListener('click', () => this.onFocus(b.dataset.followWar));
   }
 
   /**
@@ -191,7 +208,9 @@ export class Panel {
    * som bestämmer rutans ram efter tidsålder, om det inte finns någon origin.
    * mapNote = förklaring om var kartans gränser kommer ifrån (riken: Cliopatria).
    */
-  showFacts({ kind, name, color, symbol = '', facts: f, origin = null, place = origin, milestonesTitle = 'Nyckelår', mapNote = '', curveId = '' }) {
+  showFacts({ kind, name, color, symbol = '', facts: f, origin = null, place = origin, milestonesTitle = 'Nyckelår', mapNote = '', curveId = '', wars = [] }) {
+    // Rikets krig (#76): krig som anger riket i empires, i tidsordning; bara de som syns enligt granskningsstatusen
+    const shownWars = wars.filter(w => isVisibleReview(w.review));
     const subj = kind === 'Rike' ? 'Riket' : 'Religionen';
     const srcs = [...new Set([...(f.sources ?? []), ...(f.milestones ?? []).flatMap(m => m.sources ?? [])])]
       .map(id => this.srcById[id]).filter(Boolean);
@@ -209,6 +228,8 @@ export class Panel {
       ${origin ? `<p class="war-link">${symbol ? `Symbolen ${symbol.replace('rel-sym-h', 'rel-sym-in')} på globen visar var religionen uppstod:` : 'Där religionen uppstod:'} <button type="button" class="link-btn" data-goto="${esc(origin.id)}">${esc(t(origin.title))}</button> <span class="meta">${esc(formatEventTime(origin))} · ${esc(t(origin.place))}</span></p>` : ''}
       ${f.milestones?.length ? `<div class="war-list"><h4>${esc(milestonesTitle)}</h4><ol>${f.milestones.map(m =>
         `<li><button type="button" class="link-btn" data-year="${Number(m.year)}">${esc(t(m.label) || formatYear(m.year))}</button> ${m.title ? `<b>${esc(t(m.title))}.</b> ` : ''}${esc(t(m.text))}${m.mapNote ? ` <span class="ms-map">Om kartan: ${esc(t(m.mapNote))}</span>` : ''}</li>`).join('')}</ol></div>` : ''}
+      ${shownWars.length ? `<div class="war-list empire-wars"><h4>Krig</h4><ol>${shownWars.map(w =>
+        `<li><span class="meta">${esc(formatEventTime(w))}</span> <button type="button" class="link-btn" data-follow-war="${esc(w.id)}" title="Följ kriget">▶ ${esc(t(w.title))}</button></li>`).join('')}</ol></div>` : ''}
       ${mapNote ? `<aside class="detail-note"><h4>Om kartan</h4><p>${esc(mapNote)}</p></aside>` : ''}
       <div class="src">Källa: ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || 'saknas'}</div>
       <div class="detail-actions">
@@ -219,6 +240,7 @@ export class Panel {
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
     for (const b of this.detail.querySelectorAll('[data-year]')) b.addEventListener('click', () => this.onYear(Number(b.dataset.year)));
+    this.bindLinks();
     this.bindReviewInfo();
   }
 
@@ -278,6 +300,7 @@ export class Panel {
       ${e.kind === 'war' ? `<button type="button" class="chip-btn focus-btn" data-focus="${esc(e.id)}">▶ Följ kriget långsamt</button>` : ''}
       ${e._battles?.length ? `<div class="war-list"><h4>Slag och händelser i kriget</h4><ol>${e._battles.map(b =>
         `<li><button type="button" class="link-btn" data-goto="${esc(b.id)}">${esc(t(b.title))}</button> <span class="meta">${esc(formatEventTime(b))}</span></li>`).join('')}</ol></div>` : ''}
+      ${empireList(e._empires ?? e._war?._empires)}
       <div class="src">Källa: ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || 'saknas'}</div>
       <div class="detail-actions">
         ${reviewRow(e.review, 'Händelsen')}
@@ -289,6 +312,7 @@ export class Panel {
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
     this.detail.querySelector('[data-focus]')?.addEventListener('click', ev => this.onFocus(ev.currentTarget.dataset.focus));
     this.bindReport(e);
+    this.bindLinks();
     this.bindReviewInfo();
   }
 }
