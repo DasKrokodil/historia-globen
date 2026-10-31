@@ -2187,7 +2187,212 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Det forntida Egypten hade sitt centrum i Nildalen. Gruppen på kartan visar två av de tre perioder som kallas riken: gamla riket, pyramidbyggarnas tid, och nya riket, då Egypten var som mäktigast och styrde långt in i Levanten och Nubien. Mellan dem låg tider av splittring och mellersta riket, som inte ingår här."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Gamla riket räknas oftast från tredje dynastin, cirka 2686 f.Kr., då kung Djoser började bygga i sten i Saqqara. Nya riket började cirka 1570 f.Kr. med Ahmose I, som drev ut hyksos, ett folk som hade styrt norra Egypten. Källorna skiljer sig om gamla rikets början: World History Encyclopedia räknar från fjärde dynastin, cirka 2613 f.Kr."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Under sjätte dynastin blev de regionala guvernörerna allt mer självständiga. Efter Pepi II:s mycket långa regering följde inbördeskrig, och en torka omkring 2200–2150 f.Kr. hindrade Nilens översvämningar. Gamla riket upphörde cirka 2181 f.Kr. Nya riket försvagades av anfall från libyer och sjöfolken och av Amonprästernas växande makt, och upphörde cirka 1069 f.Kr."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Gamla riket: Memfis. Nya riket: Thebe, under Akhenaton Amarna (cirka 1352–1336 f.Kr.), under Ramses II Pi-Ramesses och därefter Memfis."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Gamla riket: Djoser, Snofru, Cheops (2589–2566 f.Kr.), Chefren och Mykerinos. Nya riket: Ahmose I, Hatshepsut, Thutmosis III (cirka 1479–1425 f.Kr.), Akhenaton, Tutankhamon och Ramses II."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Nya riket var som störst efter Thutmosis III:s fälttåg, som nådde från Eufrat till Nubien. Källan anger ingen yta. Under gamla riket omfattade Egypten Nildalen upp till Elefantine, Sinai och oaserna i västra öknen, och styrde Nubien upp till trakten norr om tredje katarakten."
+      }
+     },
+     {
+      "label": {
+       "sv": "Språk och religion"
+      },
+      "text": {
+       "sv": "Egyptiska och fornegyptisk religion. Under Amarnatiden dyrkade Akhenaton solskivan Aton som sin gud, något som ofta tolkas som historiens första exempel på monoteism."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Gamla riket kallas pyramidernas tid: Cheops lät bygga den stora pyramiden i Giza. Begreppen gamla och nya riket myntades 1845 av den tyske forskaren Christian von Bunsen."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": -2685,
+      "label": {
+       "sv": "cirka 2686 f.Kr."
+      },
+      "title": {
+       "sv": "Gamla riket börjar"
+      },
+      "text": {
+       "sv": "Djoser blir kung och inleder tredje dynastin. Hans arkitekt Imhotep räknas som skaparen av stegpyramiden i Saqqara och av byggandet i sten."
+      },
+      "sources": [
+       "wp-old-kingdom-egypt"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar gamla riket från 2501 f.Kr., med samma gräns hela tiden."
+      }
+     },
+     {
+      "year": -2588,
+      "label": {
+       "sv": "2589 f.Kr."
+      },
+      "title": {
+       "sv": "Cheops blir kung"
+      },
+      "text": {
+       "sv": "Under fjärde dynastin når gamla riket sin höjdpunkt. Redan Snofru styr från Libyen till Sinai och Nubien, och hans son Cheops låter bygga den stora pyramiden i Giza."
+      },
+      "sources": [
+       "wp-old-kingdom-egypt"
+      ],
+      "events": [
+       "cheopspyramiden"
+      ]
+     },
+     {
+      "year": -2180,
+      "label": {
+       "sv": "cirka 2181 f.Kr."
+      },
+      "title": {
+       "sv": "Gamla riket upphör"
+      },
+      "text": {
+       "sv": "Guvernörerna i landskapen har tagit allt mer makt, och efter Pepi II:s död följer inbördeskrig. En torka hindrar Nilens översvämningar, och landet drabbas av svält."
+      },
+      "sources": [
+       "wp-old-kingdom-egypt"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar gamla riket till och med 2202 f.Kr."
+      }
+     },
+     {
+      "year": -1569,
+      "label": {
+       "sv": "cirka 1570 f.Kr."
+      },
+      "title": {
+       "sv": "Nya riket börjar"
+      },
+      "text": {
+       "sv": "Ahmose I driver ut hyksos och grundar artonde dynastin. Egypten växer sedan in i Levanten och långt söderut i Nubien."
+      },
+      "sources": [
+       "wp-new-kingdom-egypt",
+       "whe-new-kingdom-egypt"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar nya riket från 1501 f.Kr."
+      }
+     },
+     {
+      "year": -1478,
+      "label": {
+       "sv": "cirka 1479 f.Kr."
+      },
+      "title": {
+       "sv": "Thutmosis III"
+      },
+      "text": {
+       "sv": "Thutmosis III styr först tillsammans med Hatshepsut och sedan ensam. Han gör minst 16 fälttåg på 20 år och erövrar stora delar av Främre Orienten, från Eufrat till Nubien."
+      },
+      "sources": [
+       "wp-new-kingdom-egypt"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar en ökning med cirka 11 procent från 1401 f.Kr."
+      }
+     },
+     {
+      "year": -1273,
+      "label": {
+       "sv": "maj 1274 f.Kr."
+      },
+      "title": {
+       "sv": "Slaget vid Kadesh"
+      },
+      "text": {
+       "sv": "Ramses II försöker återta områden i Levanten från hettiterna. Slaget vid Kadesh slutar oavgjort, båda sidor gör anspråk på seger, och till sist sluter rikena fred."
+      },
+      "sources": [
+       "wp-new-kingdom-egypt",
+       "wp-battle-of-kadesh"
+      ],
+      "events": [
+       "ramses-krig-mot-hettiterna",
+       "slaget-vid-kadesh"
+      ]
+     },
+     {
+      "year": -1068,
+      "label": {
+       "sv": "cirka 1069 f.Kr."
+      },
+      "title": {
+       "sv": "Nya riket upphör"
+      },
+      "text": {
+       "sv": "Anfall från libyer och sjöfolken har försvagat riket, och Amonprästerna tar till sist kontroll över tronen."
+      },
+      "sources": [
+       "wp-new-kingdom-egypt",
+       "whe-new-kingdom-egypt"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar nya riket till och med 802 f.Kr., från 1001 f.Kr. med ungefär halva ytan."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger gamla riket till cirka 2686–2181 f.Kr. (World History Encyclopedia cirka 2613–2181) och nya riket till cirka 1570–1069 f.Kr. Kartan visar gamla riket 2501–2202 f.Kr. och nya riket 1501–802 f.Kr."
+    },
+    "sources": [
+     "wp-old-kingdom-egypt",
+     "wp-new-kingdom-egypt",
+     "whe-old-kingdom-egypt",
+     "whe-new-kingdom-egypt"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "assyriska-riket",
@@ -2222,7 +2427,173 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Assyrien var en stormakt med centrum kring staden Assur i norra Mesopotamien, i dagens Irak. Under den nyassyriska tiden (911–609 f.Kr.) blev det det största rike världen dittills hade sett. Kartan visar både det äldre Assyrien och det nyassyriska riket."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Staden Assur grundades cirka 2600 f.Kr. men blev självständig först omkring 2025 f.Kr. Under Ashur-uballit I på 1300-talet f.Kr. växte det mellanassyriska riket fram. Den nyassyriska tiden räknas från Adad-nirari II:s trontillträde 911 f.Kr.; World History Encyclopedia anger 912 f.Kr."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Försvagat av inbördeskrig erövrades riket av babylonier och meder: Assur föll 614, Nineve 612 och Harran 609 f.Kr. Varför ett så mäktigt rike föll så snabbt diskuteras fortfarande."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Assur, Nimrud (från 879 f.Kr.), Dur-Sharrukin (706–705 f.Kr.), Nineve (705–612 f.Kr.) och till sist Harran (612–609 f.Kr.)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Shamshi-Adad I (cirka 1808–1776 f.Kr.), Tukulti-Ninurta I (cirka 1243–1207 f.Kr.), Ashurnasirpal II (883–859), Tiglath-Pileser III (745–727), Sargon II (722–705), Sanherib (705–681), Asarhaddon (681–669) och Assurbanipal (669–631 f.Kr.)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Under Asarhaddon, som erövrade Egypten 671 f.Kr. Wikipedias faktaruta anger cirka 1,4 miljoner km² år 670 f.Kr. Riket styrde då hela Mesopotamien, Levanten och Egypten och delar av Anatolien, Arabien och dagens Iran och Armenien."
+      }
+     },
+     {
+      "label": {
+       "sv": "Språk och religion"
+      },
+      "text": {
+       "sv": "Akkadiska och rikssarameiska. Arameiskan blev regionens gemensamma språk, bland annat för att riket flyttade delar av erövrade folk till andra provinser. Mesopotamisk religion."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Riket hade ett system av vägar och reläposter för budbärare, och officiella meddelanden gick inte fortare i Mellanöstern förrän på 1800-talet. Assurbanipals bibliotek, det största i Mesopotamiens historia, hade mer än 30 000 dokument."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": -1362,
+      "label": {
+       "sv": "cirka 1363 f.Kr."
+      },
+      "title": {
+       "sv": "Mellanassyriska riket"
+      },
+      "text": {
+       "sv": "Under Ashur-uballit I växer Assyrien från stadsstat till stormakt, ett av de två stora rikena i Mesopotamien vid sidan av Babylonien."
+      },
+      "sources": [
+       "wp-assyria"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar den stora tillväxten först från 1301 f.Kr."
+      }
+     },
+     {
+      "year": -910,
+      "label": {
+       "sv": "911 f.Kr."
+      },
+      "title": {
+       "sv": "Nyassyriska tiden börjar"
+      },
+      "text": {
+       "sv": "Adad-nirari II blir kung. Han och hans efterträdare återtar de områden i norra Mesopotamien, östra Anatolien och Levanten som gått förlorade på 1000-talet f.Kr."
+      },
+      "sources": [
+       "wp-neo-assyrian-empire",
+       "whe-neo-assyrian-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Assyrien mycket litet 1001–902 f.Kr. och det nyassyriska riket från 901 f.Kr."
+      }
+     },
+     {
+      "year": -744,
+      "label": {
+       "sv": "745 f.Kr."
+      },
+      "title": {
+       "sv": "Tiglath-Pileser III"
+      },
+      "text": {
+       "sv": "Efter en tid då generaler och ämbetsmän styrt återställer Tiglath-Pileser III kungamakten och mer än fördubblar riket. Han erövrar Babylonien och stora delar av Levanten."
+      },
+      "sources": [
+       "wp-neo-assyrian-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar tillväxten först från 701 f.Kr., då ytan nästan fördubblas."
+      }
+     },
+     {
+      "year": -670,
+      "label": {
+       "sv": "671 f.Kr."
+      },
+      "title": {
+       "sv": "Egypten erövras"
+      },
+      "text": {
+       "sv": "Asarhaddon erövrar Egypten, och riket når sin största utbredning. Under Sanherib har huvudstaden flyttats till Nineve."
+      },
+      "sources": [
+       "wp-neo-assyrian-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket som störst 676–617 f.Kr., men utan Egypten. Cliopatria visar det assyriska Egypten som ett eget område 651–617 f.Kr., som inte ingår här."
+      }
+     },
+     {
+      "year": -611,
+      "label": {
+       "sv": "612 f.Kr."
+      },
+      "title": {
+       "sv": "Nineve faller"
+      },
+      "text": {
+       "sv": "Babylonier och meder intar Nineve. Den siste kungen, Ashur-uballit II, håller ut i Harran till 609 f.Kr."
+      },
+      "sources": [
+       "wp-neo-assyrian-empire",
+       "whe-neo-assyrian-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar ett kraftigt minskat rike 616–602 f.Kr."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger Assyrien som självständig stat från omkring 2025 till 609 f.Kr. Kartan visar Assyrien från 1801 f.Kr. och det nyassyriska riket till och med 602 f.Kr., några år efter källornas slutår."
+    },
+    "sources": [
+     "wp-assyria",
+     "wp-neo-assyrian-empire",
+     "whe-neo-assyrian-empire"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "nybabyloniska-riket",
@@ -2246,7 +2617,165 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Nybabyloniska riket, även kallat kaldeiska riket, var det sista riket som styrdes av kungar från det forntida Mesopotamien. Det hade sitt centrum i Babylon och tog över stora delar av det assyriska riket."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Nabopolassar kröntes till kung i Babylon 626 f.Kr. Riket blev en stormakt när det tillsammans med mederna störtade Assyrien 612–609 f.Kr."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Perserkungen Kyros den store erövrade riket 539 f.Kr., efter slaget vid Opis. Den siste kungen, Nabonidus, hade gynnat månguden Sin framför Babylons skyddsgud Marduk, och Kyros framställde sig som Marduks beskyddare."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad"
+      },
+      "text": {
+       "sv": "Babylon."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Nabopolassar (626–605 f.Kr.), Nebukadnessar II (605–562 f.Kr.) och Nabonidus (556–539 f.Kr.)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Under Nebukadnessar II. Wikipedias faktaruta anger cirka 500 000 km² år 562 f.Kr."
+      }
+     },
+     {
+      "label": {
+       "sv": "Språk och religion"
+      },
+      "text": {
+       "sv": "Akkadiska och rikssarameiska. Babylonisk religion, med Marduk som Babylons skyddsgud."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Nebukadnessar II byggde om Babylon med bland annat Ishtarporten och Processionsgatan. Han belägrade Jerusalem 587 f.Kr., då Salomos tempel förstördes och den babyloniska fångenskapen började. Enligt vissa källor lät han anlägga Babylons hängande trädgårdar, men om de alls fanns är omdiskuterat."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": -625,
+      "label": {
+       "sv": "626 f.Kr."
+      },
+      "title": {
+       "sv": "Nabopolassar blir kung"
+      },
+      "text": {
+       "sv": "Nabopolassar kröns till kung i Babylon, som länge har stått under assyriskt styre."
+      },
+      "sources": [
+       "wp-neo-babylonian-empire",
+       "whe-nebuchadnezzar-ii"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket först från 601 f.Kr. Före dess visar Cliopatria Babylonien som ett eget rike, som inte ingår här."
+      }
+     },
+     {
+      "year": -611,
+      "label": {
+       "sv": "612 f.Kr."
+      },
+      "title": {
+       "sv": "Nineve faller"
+      },
+      "text": {
+       "sv": "Babylonier och meder intar den assyriska huvudstaden Nineve. Assyriens sista fäste, Harran, faller 609 f.Kr."
+      },
+      "sources": [
+       "wp-neo-babylonian-empire"
+      ]
+     },
+     {
+      "year": -604,
+      "label": {
+       "sv": "605 f.Kr."
+      },
+      "title": {
+       "sv": "Nebukadnessar II blir kung"
+      },
+      "text": {
+       "sv": "Nebukadnessar besegrar farao Necho II vid Karkemish. Kort därefter dör hans far, och Nebukadnessar blir kung. Under hans 43 år som kung blir Babylon Mellanösterns mäktigaste rike."
+      },
+      "sources": [
+       "wp-neo-babylonian-empire",
+       "whe-nebuchadnezzar-ii"
+      ]
+     },
+     {
+      "year": -586,
+      "label": {
+       "sv": "587 f.Kr."
+      },
+      "title": {
+       "sv": "Jerusalem belägras"
+      },
+      "text": {
+       "sv": "Babylonierna belägrar Jerusalem, och Salomos tempel förstörs. Händelsen inleder den babyloniska fångenskapen."
+      },
+      "sources": [
+       "wp-neo-babylonian-empire"
+      ]
+     },
+     {
+      "year": -538,
+      "label": {
+       "sv": "539 f.Kr."
+      },
+      "title": {
+       "sv": "Persien erövrar riket"
+      },
+      "text": {
+       "sv": "Kyros den store besegrar babylonierna vid Opis, och riket faller. Riket har funnits i mindre än hundra år."
+      },
+      "sources": [
+       "wp-neo-babylonian-empire",
+       "whe-babylon"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket till och med 532 f.Kr."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 626–539 f.Kr. Kartan visar riket 601–532 f.Kr. Kartans yta, cirka 700 000 km² 601–552 f.Kr., är större än faktarutans uppskattning."
+    },
+    "sources": [
+     "wp-neo-babylonian-empire",
+     "whe-babylon",
+     "whe-nebuchadnezzar-ii"
+    ],
+    "review": "two-sources"
+   }
   },
   {
    "id": "kartago",
@@ -2270,7 +2799,196 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Kartago var en stad i dagens Tunisien som grundades av fenicier från Tyros. Den växte till ett handelsimperium som dominerade västra Medelhavet, tills Rom förstörde staden 146 f.Kr."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Köpmän från Tyros, i dagens Libanon, grundade Kartago omkring 814 f.Kr. Enligt Wikipedias text blev staden självständig på 600-talet f.Kr., efter att Assyrien erövrat Fenicien; samma artikels faktaruta anger mitten av 500-talet f.Kr."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Konflikten med Rom ledde till de puniska krigen 264–146 f.Kr. Efter det andra kriget förlorade Kartago sin flotta och allt utom sitt område i Nordafrika. Efter det tredje kriget förstörde romarna staden 146 f.Kr."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad"
+      },
+      "text": {
+       "sv": "Kartago."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända ledare"
+      },
+      "text": {
+       "sv": "Kartago var först en monarki och blev sedan en republik som leddes av sufeter. Hamilkar Barkas erövrade delar av Iberiska halvön 237–228 f.Kr., och hans son Hannibal gick över Alperna under andra puniska kriget."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "År 300 f.Kr. styrde Kartago Nordafrikas nordvästra kust, södra och östra Iberiska halvön och öarna Sicilien (på ett annat ställe säger källan västra halvan), Sardinien, Korsika, Malta och Balearerna. Källan anger ingen yta."
+      }
+     },
+     {
+      "label": {
+       "sv": "Språk och religion"
+      },
+      "text": {
+       "sv": "Puniska och punisk religion."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Kartagos flotta var en av antikens största, och armén bestod till stor del av legosoldater från bland annat Iberiska halvön, Gallien, Grekland och Nordafrika. Nästan alla kartagiska texter förstördes, så det mesta vi vet kommer från grekiska och romerska författare."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": -813,
+      "label": {
+       "sv": "cirka 814 f.Kr."
+      },
+      "title": {
+       "sv": "Kartago grundas"
+      },
+      "text": {
+       "sv": "Köpmän från den feniciska staden Tyros grundar Kartago på Nordafrikas kust."
+      },
+      "sources": [
+       "wp-ancient-carthage",
+       "whe-carthage"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Kartago från 651 f.Kr., först bara staden och dess närmaste omgivning."
+      }
+     },
+     {
+      "year": -479,
+      "label": {
+       "sv": "480 f.Kr."
+      },
+      "title": {
+       "sv": "Nederlaget vid Himera"
+      },
+      "text": {
+       "sv": "Kartago försöker hindra Syrakusa från att ena Sicilien men förlorar vid Himera, där kung Hamilkar dör. Kartago växer sedan i Nordafrika och på Iberiska halvön i stället för på Sicilien."
+      },
+      "sources": [
+       "wp-ancient-carthage"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Kartago tio gånger större redan från 501 f.Kr."
+      }
+     },
+     {
+      "year": -263,
+      "label": {
+       "sv": "264 f.Kr."
+      },
+      "title": {
+       "sv": "Första puniska kriget"
+      },
+      "text": {
+       "sv": "Kriget mot Rom börjar. Kartago förlorar och måste be om fred, och strax efter tar Rom också Sardinien och Korsika."
+      },
+      "sources": [
+       "wp-ancient-carthage"
+      ],
+      "events": [
+       "puniska-krigen"
+      ]
+     },
+     {
+      "year": -236,
+      "label": {
+       "sv": "237–228 f.Kr."
+      },
+      "title": {
+       "sv": "Hamilkar Barkas i Iberien"
+      },
+      "text": {
+       "sv": "Efter förlusten mot Rom erövrar Hamilkar Barkas stora delar av Iberiska halvön, som är rik på ädla metaller."
+      },
+      "sources": [
+       "wp-ancient-carthage"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar tillväxten från 231 f.Kr."
+      }
+     },
+     {
+      "year": -217,
+      "label": {
+       "sv": "218–201 f.Kr."
+      },
+      "title": {
+       "sv": "Andra puniska kriget"
+      },
+      "text": {
+       "sv": "Hannibal går över Alperna och vinner stora segrar i Italien. Romarna under Scipio Africanus tvingar honom till sist tillbaka till Afrika, där Kartago förlorar vid Zama och bara får behålla sitt område i Nordafrika."
+      },
+      "sources": [
+       "wp-ancient-carthage"
+      ],
+      "events": [
+       "hannibal-over-alperna"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Kartago som störst 219–218 f.Kr. och kraftigt minskat från 203 f.Kr."
+      }
+     },
+     {
+      "year": -145,
+      "label": {
+       "sv": "146 f.Kr."
+      },
+      "title": {
+       "sv": "Kartago förstörs"
+      },
+      "text": {
+       "sv": "Efter det tredje puniska kriget förstör romarna Kartago. Senare grundar de en ny stad på platsen."
+      },
+      "sources": [
+       "wp-ancient-carthage",
+       "whe-carthage"
+      ],
+      "events": [
+       "karthago-forstors"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Kartago till och med 146 f.Kr."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger cirka 814–146 f.Kr. Kartan visar Kartago 651–146 f.Kr."
+    },
+    "sources": [
+     "wp-ancient-carthage",
+     "whe-carthage"
+    ],
+    "review": "two-sources"
+   }
   },
   {
    "id": "seleukidriket",
@@ -2294,7 +3012,191 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Seleukidriket var en grekisk stat i Västasien, grundad av Alexander den stores general Seleukos I efter att Alexanders rike delats. Det var ett centrum för hellenistisk kultur."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Seleukos I fick Babylonien 321 f.Kr. och grundade riket 312 f.Kr., under krigen mellan Alexanders generaler. Han utvidgade det till dagens Irak, Iran, Afghanistan, Syrien och Libanon."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Efter nederlaget mot Rom vid Magnesia förlorade riket områdena väster om Taurusbergen, och partherna erövrade de östra delarna med Mesopotamien. Efter ett inbördeskrig återstod en stat i Syrien, som Tigranes den store av Armenien erövrade 83 f.Kr. Romarna under Pompejus gjorde slut på riket 63 f.Kr."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Babylon (312–305 f.Kr.), Seleukia (305–240 f.Kr.) och Antiochia (240–63 f.Kr.)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Seleukos I (305–281 f.Kr.), Antiochos III den store och, som den siste, Filip II (65–63 f.Kr.)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Wikipedias faktaruta anger cirka 3,9 miljoner km² år 301 f.Kr., och sedan 2,6 miljoner år 240, 800 000 år 175 och 100 000 km² år 100 f.Kr. Som störst omfattade riket Anatolien, Persien, Levanten, Mesopotamien och delar av Centralasien."
+      }
+     },
+     {
+      "label": {
+       "sv": "Språk och religion"
+      },
+      "text": {
+       "sv": "Grekiska var officiellt språk; också fornpersiska och arameiska talades. Grekisk och babylonisk religion, judendom och zoroastrism."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Grekiska seder och grekiska språket gynnades, och en grekisk stadselit styrde. Riket stred upprepade gånger med det ptolemaiska Egypten om sina västra områden. I öster slöt Seleukos förbund med Chandragupta i Mauryariket och lämnade över områden vid Indus."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": -311,
+      "label": {
+       "sv": "312 f.Kr."
+      },
+      "title": {
+       "sv": "Seleukos grundar riket"
+      },
+      "text": {
+       "sv": "Seleukos I grundar riket med Babylonien som bas, under krigen mellan Alexanders generaler."
+      },
+      "sources": [
+       "wp-seleucid-empire",
+       "whe-seleucid-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar ett litet område redan 319–317 f.Kr. och sedan riket från 308 f.Kr."
+      }
+     },
+     {
+      "year": -300,
+      "label": {
+       "sv": "301 f.Kr."
+      },
+      "title": {
+       "sv": "Slaget vid Ipsos"
+      },
+      "text": {
+       "sv": "Efter slaget vid Ipsos är riket som störst enligt Wikipedias faktaruta, cirka 3,9 miljoner km²."
+      },
+      "sources": [
+       "wp-seleucid-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket som störst 302–293 f.Kr., cirka 3,0 miljoner km²."
+      }
+     },
+     {
+      "year": -191,
+      "label": {
+       "sv": "192–188 f.Kr."
+      },
+      "title": {
+       "sv": "Kriget mot Rom"
+      },
+      "text": {
+       "sv": "Antiochos III den store för kriget in i Grekland men besegras av Rom och dess grekiska allierade vid Magnesia. Riket måste betala krigsskadestånd och ge upp sina områden väster om Taurusbergen."
+      },
+      "sources": [
+       "wp-seleucid-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar en minskning med cirka 19 procent från 189 f.Kr."
+      }
+     },
+     {
+      "year": -140,
+      "label": {
+       "sv": "148–141 f.Kr."
+      },
+      "title": {
+       "sv": "Partherna tar Mesopotamien"
+      },
+      "text": {
+       "sv": "Partherkungen Mithridates I intar Medien och sedan Babylonien, där han präglar mynt i Seleukia 141 f.Kr."
+      },
+      "sources": [
+       "wp-seleucid-empire",
+       "wp-parthian-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar förlusten redan från 165 f.Kr., då riket krymper med cirka 73 procent."
+      }
+     },
+     {
+      "year": -82,
+      "label": {
+       "sv": "83 f.Kr."
+      },
+      "title": {
+       "sv": "Tigranes erövrar Syrien"
+      },
+      "text": {
+       "sv": "Tigranes den store av Armenien erövrar det som är kvar av riket i Syrien."
+      },
+      "sources": [
+       "wp-seleucid-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket till och med 79 f.Kr. och sedan igen 67–65 f.Kr."
+      }
+     },
+     {
+      "year": -62,
+      "label": {
+       "sv": "63 f.Kr."
+      },
+      "title": {
+       "sv": "Rom tar över"
+      },
+      "text": {
+       "sv": "Den romerske fältherren Pompejus gör slut på riket, och Syrien blir romersk provins."
+      },
+      "sources": [
+       "wp-seleucid-empire",
+       "whe-seleucid-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket till och med 65 f.Kr."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 312–63 f.Kr. Kartan visar riket 319–65 f.Kr., med uppehåll 316–309 och 78–68 f.Kr."
+    },
+    "sources": [
+     "wp-seleucid-empire",
+     "whe-seleucid-empire"
+    ],
+    "review": "two-sources"
+   }
   },
   {
    "id": "partherriket",
@@ -2318,7 +3220,169 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Partherriket, eller arsakidernas rike, var en iransk stormakt från 247 f.Kr. till 224 e.Kr. Det låg på Sidenvägen mellan Romarriket och Hanriket och var Roms stora rival i öster."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Arsakes I ledde parnerstammen när de erövrade Parthien i nordöstra Iran, en provins vars guvernör hade gjort uppror mot Seleukidriket. Riket räknas från 247 f.Kr."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Inbördeskrig om tronen var farligare för riket än anfall utifrån. Ardashir I från Persis gjorde uppror och dödade den siste kungen, Artabanos IV, 224 e.Kr., och grundade Sasanidriket."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Riket hade flera huvudstäder. Maktens centrum flyttade från Nisa till Ktesifon vid Tigris, söder om dagens Bagdad; också Ekbatana, Hekatompylos och Susa var huvudstäder."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Arsakes I (247–211 f.Kr.), Mithridates I (cirka 171–132 f.Kr.), Mithridates II, Orodes II och Artabanos IV (213–224 e.Kr.)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Från Eufrats norra lopp, i dagens östra Turkiet, till dagens Afghanistan och västra Pakistan. Wikipedias faktaruta anger cirka 2,8 miljoner km² år 1 e.Kr."
+      }
+     },
+     {
+      "label": {
+       "sv": "Språk och religion"
+      },
+      "text": {
+       "sv": "Partiska och grekiska som officiella språk, arameiska som gemensamt språk. Zoroastrism, babylonisk religion och buddhism."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Partherna förintade Crassus armé vid Carrhae 53 f.Kr., ett av Roms värsta nederlag. Riket blev rikt på att beskatta karavanhandeln, bland annat med siden, och Hanriket sände en delegation till Mithridates II:s hov 121 f.Kr."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": -246,
+      "label": {
+       "sv": "247 f.Kr."
+      },
+      "title": {
+       "sv": "Riket grundas"
+      },
+      "text": {
+       "sv": "Arsakes I och parnerna erövrar Parthien i nordöstra Iran från Seleukidriket."
+      },
+      "sources": [
+       "wp-parthian-empire",
+       "whe-parthia"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket från 240 f.Kr."
+      }
+     },
+     {
+      "year": -147,
+      "label": {
+       "sv": "148–141 f.Kr."
+      },
+      "title": {
+       "sv": "Mithridates I tar Medien och Mesopotamien"
+      },
+      "text": {
+       "sv": "Mithridates I intar Ekbatana i Medien 148 eller 147 f.Kr. och erövrar sedan Babylonien, där han präglar mynt i Seleukia 141 f.Kr."
+      },
+      "sources": [
+       "wp-parthian-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket sju gånger större redan från 165 f.Kr."
+      }
+     },
+     {
+      "year": -52,
+      "label": {
+       "sv": "53 f.Kr."
+      },
+      "title": {
+       "sv": "Slaget vid Carrhae"
+      },
+      "text": {
+       "sv": "Den romerske fältherren Crassus invaderar riket men besegras vid Carrhae, i dagens sydöstra Turkiet. Omkring 20 000 romare dör."
+      },
+      "sources": [
+       "wp-parthian-empire"
+      ]
+     },
+     {
+      "year": -39,
+      "label": {
+       "sv": "40–39 f.Kr."
+      },
+      "title": {
+       "sv": "Partherna tar Levanten"
+      },
+      "text": {
+       "sv": "Parthiska styrkor erövrar hela Levanten utom Tyros från romarna, men Marcus Antonius leder ett romerskt motanfall."
+      },
+      "sources": [
+       "wp-parthian-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar bara en liten ökning, cirka 5 procent, 41–38 f.Kr."
+      }
+     },
+     {
+      "year": 224,
+      "label": {
+       "sv": "224"
+      },
+      "title": {
+       "sv": "Riket faller"
+      },
+      "text": {
+       "sv": "Ardashir I besegrar och dödar Artabanos IV och grundar Sasanidriket."
+      },
+      "sources": [
+       "wp-parthian-empire",
+       "whe-parthia"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar ett mindre partherrike till och med 237, samtidigt som Sasanidriket."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 247 f.Kr.–224 e.Kr. Kartan visar riket från 240 f.Kr. till 237 e.Kr."
+    },
+    "sources": [
+     "wp-parthian-empire",
+     "whe-parthia"
+    ],
+    "review": "two-sources"
+   }
   },
   {
    "id": "sasanidriket",
@@ -2342,7 +3406,172 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Sasanidriket var det sista iranska riket före islam, styrt av den sasanidiska ätten 224–651. Det var Roms och Bysans stora rival och en höjdpunkt i den iranska kulturen."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Ardashir I, härskare i Istakhr i Persis, besegrade partherkungen Artabanos IV i slaget vid Hormozdgan 224 och grundade riket."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Ett förödande krig mot Bysans 602–628 och fyra år av inbördeskrig försvagade riket. Det föll för de muslimska erövringarna, med nederlag vid al-Qadisiyya 636 och Nahavand 642. Den siste kungen, Yazdegerd III, mördades i Merv 651."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Istakhr (224–226) och sedan Ktesifon (226–637)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Ardashir I (224–241), Shapur I, Khosrov I (531–579), Khosrov II (590–628) och Yazdegerd III (632–651)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Under Khosrov II, vars styrkor intog Jerusalem 614, Alexandria 619 och resten av Egypten 621. Wikipedias faktaruta anger cirka 3,5 miljoner km² år 550."
+      }
+     },
+     {
+      "label": {
+       "sv": "Språk och religion"
+      },
+      "text": {
+       "sv": "Mellanpersiska. Zoroastrismen var statsreligion; i riket fanns också kristna, manikéer, judar och mazdakiter."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Shapur I tog den romerske kejsaren Valerianus till fånga vid Edessa 260 och firade segern med klippreliefer vid Naqsh-e Rostam. Khosrov I är känd för sina reformer av skatterna och förvaltningen."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 224,
+      "label": {
+       "sv": "224"
+      },
+      "title": {
+       "sv": "Slaget vid Hormozdgan"
+      },
+      "text": {
+       "sv": "Ardashir I besegrar partherkungen Artabanos IV och grundar riket."
+      },
+      "sources": [
+       "wp-sasanian-empire",
+       "whe-sasanian-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Ardashirs rike redan från 215, som ett litet område i dagens södra Iran."
+      }
+     },
+     {
+      "year": 260,
+      "label": {
+       "sv": "260"
+      },
+      "title": {
+       "sv": "Valerianus tillfångatas"
+      },
+      "text": {
+       "sv": "Shapur I besegrar romarna vid Edessa och tar kejsar Valerianus till fånga. Han går in i Anatolien men drar sig tillbaka efter nederlag."
+      },
+      "sources": [
+       "wp-sasanian-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar en ökning med cirka 17 procent 260–262."
+      }
+     },
+     {
+      "year": 614,
+      "label": {
+       "sv": "614–621"
+      },
+      "title": {
+       "sv": "Khosrov II tar Jerusalem och Egypten"
+      },
+      "text": {
+       "sv": "Under kriget mot Bysans intar persiska styrkor Jerusalem 614, Alexandria 619 och resten av Egypten 621. Drömmen om att återställa akemenidernas gränser är nästan uppfylld."
+      },
+      "sources": [
+       "wp-sasanian-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket som störst 623–625, nära 5 miljoner km²."
+      }
+     },
+     {
+      "year": 628,
+      "label": {
+       "sv": "628"
+      },
+      "title": {
+       "sv": "Khosrov II störtas"
+      },
+      "text": {
+       "sv": "Efter kejsar Herakleios motanfall störtas Khosrov II av sin son Kavad II, som slutar kriget och lämnar alla ockuperade områden. Fyra år av inbördeskrig följer."
+      },
+      "sources": [
+       "wp-sasanian-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar en minskning med cirka 26 procent från 629."
+      }
+     },
+     {
+      "year": 651,
+      "label": {
+       "sv": "636–651"
+      },
+      "title": {
+       "sv": "Riket faller"
+      },
+      "text": {
+       "sv": "De muslimska arméerna vinner vid al-Qadisiyya 636 och Nahavand 642. Yazdegerd III flyr österut och mördas i Merv 651."
+      },
+      "sources": [
+       "wp-sasanian-empire",
+       "whe-sasanian-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket till och med 643."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 224–651. Kartan visar riket 215–643."
+    },
+    "sources": [
+     "wp-sasanian-empire",
+     "whe-sasanian-empire"
+    ],
+    "review": "two-sources"
+   }
   },
   {
    "id": "qinriket",
@@ -2377,7 +3606,177 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Qin var en stat i västra Kina under Zhoudynastin. Efter omfattande reformer erövrade den de andra krigförande staterna och enade Kina 221 f.Kr. Qindynastin blev Kinas första kejserliga dynasti men varade bara till 206 f.Kr."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Staten Qin dateras traditionellt till 897 f.Kr. Den låg i västra utkanten av den kinesiska kulturen, vilket gav utrymme att växa. År 770 f.Kr. fick Qin ett förläningsbrev av kung Ping av Zhou."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "När Qin Shi Huang dog 210 f.Kr. satte två rådgivare en arvinge på tronen för att själva styra. Uppror bröt ut, och riket föll till Xiang Yu och Liu Bang, generaler från Chu. Huvudstaden Xianyang förstördes 206 f.Kr., och Liu Bang grundade Hanriket."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad"
+      },
+      "text": {
+       "sv": "Staten Qin flyttade sin huvudstad flera gånger, bland annat till Yong. Den sista var Xianyang, som också var Qindynastins huvudstad."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Hertig Xiao, som stödde Shang Yangs reformer på 300-talet f.Kr., kung Ying Zheng, som blev Qin Shi Huang, den förste kejsaren (221–210 f.Kr.), och Qin Er Shi (210–207 f.Kr.)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Wikipedias faktaruta anger cirka 2,3 miljoner km² år 220 f.Kr. Från 214 f.Kr. gick Qin också söderut mot de områden där baiyuefolken bodde."
+      }
+     },
+     {
+      "label": {
+       "sv": "Språk och religion"
+      },
+      "text": {
+       "sv": "Fornkinesiska. Kinesisk folkreligion och förfäderskult."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Qin standardiserade valuta, mått, vikter och skrift, kopplade ihop murar längs norra gränsen till det som skulle bli kinesiska muren och byggde ett stort vägnät. Qin Shi Huangs gravanläggning vaktas av terrakottaarmén, soldater i naturlig storlek."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": -769,
+      "label": {
+       "sv": "770 f.Kr."
+      },
+      "title": {
+       "sv": "Qin blir förläning"
+      },
+      "text": {
+       "sv": "Kung Ping av Zhou ger Qin ett förläningsbrev. Qin är länge en mindre makt i väster."
+      },
+      "sources": [
+       "wp-qin-state",
+       "wp-qin-dynasty"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Qin från 751 f.Kr."
+      }
+     },
+     {
+      "year": -315,
+      "label": {
+       "sv": "316 f.Kr."
+      },
+      "title": {
+       "sv": "Ba och Shu erövras"
+      },
+      "text": {
+       "sv": "Qin erövrar staterna Ba och Shu i dagens Sichuan. De bördiga och svåråtkomliga områdena ger Qin mat, soldater och en bas för anfall mot Chu."
+      },
+      "sources": [
+       "wp-qin-state"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Qin sju gånger större från 316 f.Kr."
+      }
+     },
+     {
+      "year": -229,
+      "label": {
+       "sv": "230–221 f.Kr."
+      },
+      "title": {
+       "sv": "Kina enas"
+      },
+      "text": {
+       "sv": "Kung Ying Zheng erövrar de rivaliserande staterna en efter en. År 221 f.Kr. är Kina enat, och han tar namnet Qin Shi Huang, den förste kejsaren."
+      },
+      "sources": [
+       "wp-qin-dynasty",
+       "wp-qin-unification"
+      ],
+      "events": [
+       "qins-enandekrig"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar den största tillväxten 224–223 f.Kr."
+      }
+     },
+     {
+      "year": -213,
+      "label": {
+       "sv": "214 f.Kr."
+      },
+      "title": {
+       "sv": "Fälttåget söderut"
+      },
+      "text": {
+       "sv": "Qin Shi Huang sänder huvuddelen av sin armé söderut mot baiyuefolken. Armén förlorar över 100 000 man men bygger en kanal för att föra fram förstärkningar."
+      },
+      "sources": [
+       "wp-qin-dynasty"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar en ökning med cirka 18 procent från 213 f.Kr."
+      }
+     },
+     {
+      "year": -205,
+      "label": {
+       "sv": "206 f.Kr."
+      },
+      "title": {
+       "sv": "Qindynastin faller"
+      },
+      "text": {
+       "sv": "Efter Qin Shi Huangs död bryter uppror ut. Qin ger upp för Liu Bang 207 f.Kr., och Xianyang förstörs 206 f.Kr."
+      },
+      "sources": [
+       "wp-qin-dynasty",
+       "whe-qin-dynasty"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Qindynastin till och med 210 f.Kr."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna daterar staten Qin traditionellt till 897 f.Kr. och Qindynastin till 221–206 f.Kr. Kartan visar staten Qin 751–220 f.Kr. och Qindynastin 219–210 f.Kr."
+    },
+    "sources": [
+     "wp-qin-state",
+     "wp-qin-dynasty",
+     "whe-qin-dynasty"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "guptariket",
@@ -2401,7 +3800,171 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Guptariket var ett indiskt rike som från mitten av 200-talet till mitten av 500-talet styrde stora delar av norra Indien. Perioden har kallats Indiens guldålder, men den beskrivningen är omstridd."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Dynastin grundades av en kung som hette Gupta, cirka 240–280, i Magadha i Gangesslätten. Den stora expansionen började med Chandragupta I, som kröntes 320."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Riket förlorade land och makt till sina egna vasaller och anfölls av hunner från Centralasien (kidariter och alchonhunner). Efter Skandaguptas död 467 gick det utför. Källorna skiljer sig om slutet: Wikipedia anger cirka 579, World History Encyclopedia cirka 550."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Pataliputra, och efter 455 Ayodhya."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Chandragupta I (från 320), Samudragupta (från cirka 335 eller 350 till cirka 375), Chandragupta II (375–415), Kumaragupta I (till 455) och Skandagupta (till 467)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Riket växte genom Samudraguptas fälttåg, och Chandragupta II besegrade de västra satraperna i Malwa, Gujarat och Saurashtra i ett fälttåg som varade till 409. Källorna skiljer sig om ytan: Wikipedias faktaruta anger både cirka 3,5 miljoner km² år 400 och 1,7 miljoner km² år 440."
+      }
+     },
+     {
+      "label": {
+       "sv": "Språk och religion"
+      },
+      "text": {
+       "sv": "Sanskrit i litteratur och lärdom, prakrit i vardagen. Vishnuism var officiell religion, och också buddhism och jainism fanns. Härskarna var hinduer men toleranta mot andra religioner."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Mahabharata och Ramayana fick sin fastställda form under perioden, och här verkade lärda som diktaren Kalidasa och astronomerna Aryabhata och Varahamihira."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 320,
+      "label": {
+       "sv": "320"
+      },
+      "title": {
+       "sv": "Chandragupta I kröns"
+      },
+      "text": {
+       "sv": "Chandragupta I kröns och inleder en snabb utvidgning av riket från Magadha."
+      },
+      "sources": [
+       "wp-gupta-empire",
+       "whe-gupta-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket från 324."
+      }
+     },
+     {
+      "year": 335,
+      "label": {
+       "sv": "cirka 335 eller 350"
+      },
+      "title": {
+       "sv": "Samudraguptas fälttåg"
+      },
+      "text": {
+       "sv": "Samudragupta efterträder sin far. Enligt en inskrift på Allahabadpelaren besegrar han kungar i norr och tolv härskare i söder, längs Indiens östkust."
+      },
+      "sources": [
+       "wp-gupta-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket elva gånger större från 347."
+      }
+     },
+     {
+      "year": 375,
+      "label": {
+       "sv": "375–409"
+      },
+      "title": {
+       "sv": "Chandragupta II går västerut"
+      },
+      "text": {
+       "sv": "Chandragupta II utvidgar riket västerut och besegrar de västra satraperna i Malwa, Gujarat och Saurashtra i ett fälttåg som varar till 409."
+      },
+      "sources": [
+       "wp-gupta-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket som störst 410–450, cirka 2,5 miljoner km²."
+      }
+     },
+     {
+      "year": 455,
+      "label": {
+       "sv": "cirka 455"
+      },
+      "title": {
+       "sv": "Hunnerna anfaller"
+      },
+      "text": {
+       "sv": "Skandagupta slår tillbaka ett anfall av hunner, men krigen tömmer rikets resurser. Kidariterna verkar ha behållit rikets västra del."
+      },
+      "sources": [
+       "wp-gupta-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar en minskning med cirka 11 procent från 451."
+      }
+     },
+     {
+      "year": 467,
+      "label": {
+       "sv": "467"
+      },
+      "title": {
+       "sv": "Skandagupta dör"
+      },
+      "text": {
+       "sv": "Efter Skandaguptas död går riket utför. Mynten visar att guptakungarna förlorar kontrollen över stora delar av västra Indien efter 467–469."
+      },
+      "sources": [
+       "wp-gupta-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket halverat från 490."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger mitten av 200-talet till cirka 579 (Wikipedia) eller cirka 550 (World History Encyclopedia). Kartan visar riket 324–554, från Chandragupta I:s tid."
+    },
+    "sources": [
+     "wp-gupta-empire",
+     "whe-gupta-empire"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "aksumriket",
@@ -2425,7 +3988,170 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Aksum var ett rike på Afrikas horn, med centrum i dagens Eritrea och norra Etiopien. Det var en stormakt på handelsvägen mellan Romarriket och Indien och styrde under perioder också delar av södra Arabien."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Riket växte fram ur den äldre Dʿmt-kulturen och grundades under första århundradet e.Kr., med staden Aksum som huvudstad."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Nedgången hade börjat på 600-talet, då myntpräglingen upphörde, och persernas och senare muslimernas närvaro i Röda havet försvagade handeln. Källorna skiljer sig om slutet: enligt Wikipedia föll riket under oklara omständigheter omkring 960, enligt World History Encyclopedia levde det kvar som en mycket mindre stat in på 700-talet."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstäder"
+      },
+      "text": {
+       "sv": "Aksum, och efter cirka 800 Kubar."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kända härskare"
+      },
+      "text": {
+       "sv": "Gedara (cirka 200–230), Endubis (270–310), Ezana (320-talet till cirka 360) och Kaleb (514–542)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Största utbredning"
+      },
+      "text": {
+       "sv": "Under Kaleb, som erövrade Himyar i Jemen. Wikipedia anger cirka 2,5 miljoner km² år 525 och 1,25 miljoner km² år 350."
+      }
+     },
+     {
+      "label": {
+       "sv": "Språk och religion"
+      },
+      "text": {
+       "sv": "Ge’ez, sabeiska och grekiska. Kristendomen blev statsreligion under Ezana; dessförinnan dyrkades flera gudar. Källorna daterar omvändelsen olika, till 325 eller 328 (Wikipedias faktaruta) och omkring 350 (World History Encyclopedia)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Fler fakta"
+      },
+      "text": {
+       "sv": "Aksum var det första riket söder om Sahara som präglade egna mynt, och mynten har hittats så långt bort som i Caesarea och södra Indien. Mani, manikeismens grundare, räknade Aksum till 200-talets fyra stormakter, tillsammans med Persien, Rom och Kina."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1,
+      "label": {
+       "sv": "första århundradet e.Kr."
+      },
+      "title": {
+       "sv": "Riket grundas"
+      },
+      "text": {
+       "sv": "Ur den äldre Dʿmt-kulturen växer ett kungarike fram med staden Aksum som huvudstad."
+      },
+      "sources": [
+       "wp-aksum",
+       "whe-kingdom-of-axum"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket redan från 51 f.Kr."
+      }
+     },
+     {
+      "year": 330,
+      "label": {
+       "sv": "cirka 330–350"
+      },
+      "title": {
+       "sv": "Ezana blir kristen"
+      },
+      "text": {
+       "sv": "Kung Ezana gör kristendomen till statsreligion och erövrar en kort tid Meroë i Kush, 330. Aksum ärver då det grekiska namnet Etiopien. Källorna daterar omvändelsen till 325 eller 328, eller omkring 350."
+      },
+      "sources": [
+       "wp-aksum",
+       "whe-kingdom-of-axum"
+      ]
+     },
+     {
+      "year": 518,
+      "label": {
+       "sv": "518–525"
+      },
+      "title": {
+       "sv": "Kaleb erövrar Himyar"
+      },
+      "text": {
+       "sv": "På den bysantinske kejsaren Justinus I:s begäran anfaller Kaleb Himyar i Jemen för att stoppa kung Dhu Nuwas förföljelse av kristna, och riket når sin största utbredning. Enligt källan behåller Aksum södra Arabien bara till 525, då Abraha tar makten."
+      },
+      "sources": [
+       "wp-aksum"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar området i Jemen först 534–601."
+      }
+     },
+     {
+      "year": 570,
+      "label": {
+       "sv": "570–578"
+      },
+      "title": {
+       "sv": "Krigen mot Persien"
+      },
+      "text": {
+       "sv": "I krigen mot Persien förlorar Aksum sina områden i Arabien."
+      },
+      "sources": [
+       "wp-aksum"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar området i Jemen till och med 601."
+      }
+     },
+     {
+      "year": 960,
+      "label": {
+       "sv": "cirka 960"
+      },
+      "title": {
+       "sv": "Riket faller"
+      },
+      "text": {
+       "sv": "Rikets sista tre århundraden räknas som en mörk tid, och det faller under oklara omständigheter omkring 960. World History Encyclopedia säger i stället att riket levde kvar som en mindre stat in på 700-talet."
+      },
+      "sources": [
+       "wp-aksum",
+       "whe-kingdom-of-axum"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket till och med 946."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger första århundradet e.Kr. till omkring 960 (Wikipedia) eller in på 700-talet (World History Encyclopedia). Kartan visar riket 51 f.Kr.–946 e.Kr. Kartans yta, oftast cirka 100 000 km², är mycket mindre än Wikipedias uppskattningar."
+    },
+    "sources": [
+     "wp-aksum",
+     "whe-kingdom-of-axum"
+    ],
+    "review": "source-checked"
+   }
   }
  ]
 }
