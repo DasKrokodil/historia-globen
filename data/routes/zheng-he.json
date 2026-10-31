@@ -1,0 +1,1344 @@
+{
+  "routes": [
+    {
+      "id": "zheng-he-resa-1",
+      "kind": "voyage",
+      "category": "upptackter",
+      "title": {
+        "sv": "Zheng Hes första resa",
+        "en": "Zheng He's first voyage"
+      },
+      "summary": {
+        "sv": "Mingkejsaren Yongle skickar en stor flotta under amiralen Zheng He från Nanjing till Indiska oceanen. Under hösten 1405 seglar flottan ner till Fujian, väntar på nordostmonsunen och fortsätter via Champa, Java, Malacka och norra Sumatra till Ceylon och Calicut i Indien. Kung Alakeshvara på Ceylon är fientlig, så flottan stannar inte där. På hemvägen 1407 besegrar flottan piraten Chen Zuyi vid Palembang. Flottan är tillbaka i Nanjing den 2 oktober 1407, med sändebud från bland annat Calicut, Quilon, Semudera, Aru och Malacka.",
+        "en": "The Ming Yongle Emperor sends a large fleet under admiral Zheng He from Nanjing into the Indian Ocean. In autumn 1405 the fleet sails down to Fujian, waits for the northeast monsoon and continues via Champa, Java, Malacca and northern Sumatra to Ceylon and Calicut in India. King Alakeshvara of Ceylon is hostile, so the fleet does not stay there. On the way home in 1407 the fleet defeats the pirate Chen Zuyi at Palembang. It is back in Nanjing on 2 October 1407, bringing envoys from Calicut, Quilon, Semudera, Aru, Malacca and other states."
+      },
+      "start": 1405,
+      "end": 1407,
+      "edtf": "1405/1407-10-02",
+      "precision": 9,
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig"
+        },
+        "text": {
+          "sv": "I Wikipedia (efter Dreyer 2007 och Mingkrönikorna) dateras resan till 1405–1407. World History Encyclopedia skriver att de tre första resorna gjordes 1404, 1408 och 1409. Om flottan verkligen lade till i Quilon är osäkert: kungen av Quilon följde med till Kina 1407, men ingen berättelse bekräftar besöket. Enligt Mills (1970) låg flottan kanske i Calicut från december 1406 till april 1407."
+        }
+      },
+      "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 1405.7,
+          "to": 1405.95,
+          "path": [[118.8, 32.1],[119.4, 32.2],[120.3, 31.9],[120.9, 31.8],[121.3, 31.5],[121.9, 31.4],[122.3, 30.9],[122.9, 30.0],[122.0, 28.5],[121.2, 27.6],[120.4, 26.6],[119.6, 25.9]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [118.8, 32.1],
+              "name": {
+                "sv": "Nanjing"
+              },
+              "edtf": "1405-23"
+            },
+            {
+              "at": [121.3, 31.5],
+              "name": {
+                "sv": "Liujiagang"
+              }
+            },
+            {
+              "at": [119.6, 25.9],
+              "name": {
+                "sv": "Taipingankarplatsen vid Changle"
+              }
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1406,
+          "to": 1406.92,
+          "path": [[119.6, 25.9],[120.0, 25.9],[120.1, 25.8],[120.1, 25.4],[120.0, 25.4],[119.3, 24.3],[117.8, 23.0],[115.5, 22.2],[113.5, 21.5],[111.6, 19.8],[111.3, 18.0],[109.7, 15.5],[109.35, 13.8],[109.7, 12.2],[109.2, 10.9],[107.5, 9.0],[106.0, 5.0],[106.6, 3.3],[106.5, 1.0],[108.0, -0.5],[108.9, -2.2],[110.0, -5.5],[110.4, -6.6],[110.4, -6.6],[107.0, -4.5],[107.0, -1.0],[105.5, 0.5],[104.8, 1.35],[104.2, 1.3],[103.8, 1.22],[103.3, 1.27],[102.6, 1.65],[102.3, 2.2],[101.8, 2.3],[101.5, 2.6],[101.0, 2.7],[100.4, 3.6],[98.9, 3.9],[99.0, 4.6],[97.8, 5.5],[97.2, 5.35],[96.2, 5.7],[95.3, 5.7],[94.5, 5.8],[90.0, 5.8],[84.0, 5.6],[81.0, 5.7],[80.2, 5.8],[79.75, 6.5],[79.65, 6.9],[79.0, 7.2],[77.3, 7.7],[76.4, 8.85],[76.1, 9.95],[75.6, 11.25]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [109.1, 13.9],
+              "name": {
+                "sv": "Champa"
+              }
+            },
+            {
+              "at": [110.0, -7.5],
+              "name": {
+                "sv": "Java"
+              }
+            },
+            {
+              "at": [102.3, 2.2],
+              "name": {
+                "sv": "Malacka"
+              }
+            },
+            {
+              "at": [98.7, 3.6],
+              "name": {
+                "sv": "Aru"
+              }
+            },
+            {
+              "at": [97.1, 5.2],
+              "name": {
+                "sv": "Semudera"
+              }
+            },
+            {
+              "at": [95.3, 5.6],
+              "name": {
+                "sv": "Lambri"
+              }
+            },
+            {
+              "at": [81.0, 7.0],
+              "name": {
+                "sv": "Ceylon (västkusten)"
+              }
+            },
+            {
+              "at": [76.6, 8.9],
+              "name": {
+                "sv": "Quilon (osäkert om flottan lade till)"
+              }
+            },
+            {
+              "at": [75.8, 11.2],
+              "name": {
+                "sv": "Calicut"
+              },
+              "edtf": "1406-12/1407-04?"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1407.3,
+          "to": 1407.751,
+          "edtf": "1407/1407-10-02",
+          "path": [[75.6, 11.25],[76.1, 9.95],[76.4, 8.85],[77.3, 7.7],[80.5, 5.7],[90.0, 5.8],[94.5, 5.8],[95.0, 6.2],[95.7, 6.2],[96.2, 5.7],[97.8, 5.5],[99.0, 4.6],[100.4, 3.6],[101.0, 2.7],[101.5, 2.6],[101.8, 2.3],[102.3, 2.2],[102.6, 1.65],[103.7, 1.15],[104.2, 1.3],[104.8, 1.35],[105.0, 0.0],[105.2, 0.1],[105.2, -1.1],[105.0, -1.5],[105.0, -2.0],[104.9, -2.25],[104.9, -1.7],[104.75, -2.4],[104.8, -3.0],[104.75, -2.4],[104.9, -1.7],[104.9, -2.25],[105.0, -2.0],[105.0, -1.5],[105.4, -0.1],[105.2, 0.1],[105.0, 0.0],[104.8, 1.35],[105.5, 3.0],[106.6, 8.4],[107.5, 9.0],[109.2, 10.9],[109.7, 12.2],[109.7, 15.5],[111.3, 18.0],[111.6, 19.8],[113.5, 21.5],[115.5, 22.2],[117.8, 23.0],[119.3, 24.3],[120.1, 25.2],[120.4, 26.6],[121.2, 27.6],[122.0, 28.5],[122.9, 30.0],[122.3, 30.9],[121.9, 31.4],[121.3, 31.5],[120.9, 31.8],[120.3, 31.9],[119.4, 32.2],[118.8, 32.1]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [102.3, 2.2],
+              "name": {
+                "sv": "Malacka"
+              }
+            },
+            {
+              "at": [104.8, -3.0],
+              "name": {
+                "sv": "Palembang (slaget mot Chen Zuyi)"
+              },
+              "edtf": "1407"
+            },
+            {
+              "at": [118.8, 32.1],
+              "name": {
+                "sv": "Nanjing"
+              },
+              "date": "1407-10-02"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        }
+      ]
+    },
+    {
+      "id": "zheng-he-resa-2",
+      "kind": "voyage",
+      "category": "upptackter",
+      "title": {
+        "sv": "Zheng Hes andra resa",
+        "en": "Zheng He's second voyage"
+      },
+      "summary": {
+        "sv": "Order om en andra resa ges i oktober 1407, och flottan lämnar Kina i slutet av 1407 eller början av 1408. Den seglar via Champa, Siam, Java, Malacka och norra Sumatra till Quilon, Cochin och Calicut, där flottan har i uppdrag att formellt insätta kungen av Calicut. Den här gången lägger flottan inte till på Ceylon. Hemresan går genom Malackasundet 1409, och flottan är tillbaka i Nanjing sommaren 1409. Källorna nämner också platser som inte går att identifiera säkert (Jiayile, Abobadan och Ganbali), och de är inte utritade.",
+        "en": "Orders for a second voyage are issued in October 1407, and the fleet leaves China in late 1407 or early 1408. It sails via Champa, Siam, Java, Malacca and northern Sumatra to Quilon, Cochin and Calicut, where it is tasked with formally investing the king of Calicut. This time the fleet does not land on Ceylon. It passes back through the Strait of Malacca in 1409 and is back in Nanjing in summer 1409. The sources also name places that cannot be identified with certainty (Jiayile, Abobadan and Ganbali); they are not drawn."
+      },
+      "start": 1407,
+      "end": 1409,
+      "edtf": "1407?/1409",
+      "precision": 9,
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig"
+        },
+        "text": {
+          "sv": "Avresan anges som femte året under Yongle, alltså slutet av 1407 eller kanske början av 1408. World History Encyclopedia daterar resan till 1408 och skriver att flottan löste en tvist på Java på hemvägen 1408, medan Wikipedia säger att hemkomsten var sommaren 1409. Det är också omstritt om Zheng He själv var med: Duyvendak (1938) och Mills (1970) menar att han stannade i Kina, Dreyer (2007) att han var med. Siam och Java kan ha besökts av mindre eskadrar innan flottan samlades i Malacka. Ordningen mellan Aru, Semudera och Lambri är här ritad efter geografin. Fei Xin berättar om ett stopp vid Pulau Sembilan i Malackasundet 1409, men Wikipedia länkar platsen till Similanöarna i Andamansjön, så den är inte utritad."
+        }
+      },
+      "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 1407.9,
+          "to": 1408.0,
+          "edtf": "1407?/1408?",
+          "path": [[118.8, 32.1],[119.4, 32.2],[120.3, 31.9],[120.9, 31.8],[121.3, 31.5],[121.9, 31.4],[122.3, 30.9],[122.9, 30.0],[122.0, 28.5],[121.2, 27.6],[120.4, 26.6],[119.6, 25.9]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [118.8, 32.1],
+              "name": {
+                "sv": "Nanjing"
+              },
+              "edtf": "1407?"
+            },
+            {
+              "at": [121.3, 31.5],
+              "name": {
+                "sv": "Liujiagang"
+              }
+            },
+            {
+              "at": [119.6, 25.9],
+              "name": {
+                "sv": "Changle"
+              }
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1408.0,
+          "to": 1409.0,
+          "path": [[119.6, 25.9],[120.0, 25.9],[120.1, 25.8],[120.1, 25.4],[120.0, 25.4],[119.3, 24.3],[117.8, 23.0],[115.5, 22.2],[113.5, 21.5],[111.6, 19.8],[111.3, 18.0],[109.7, 15.5],[109.35, 13.8],[109.7, 12.2],[109.2, 10.9],[107.5, 9.0],[106.3, 9.1],[105.0, 8.2],[104.6, 8.2],[101.8, 10.5],[100.6, 12.6],[100.55, 13.5],[100.6, 13.1],[100.6, 14.3],[100.6, 13.1],[100.55, 13.5],[100.6, 12.6],[101.8, 10.5],[104.0, 7.5],[106.0, 5.0],[106.6, 3.3],[106.5, 1.0],[108.0, -0.5],[108.9, -2.2],[110.0, -5.5],[110.4, -6.6],[110.4, -6.6],[107.0, -4.5],[107.0, -1.0],[105.5, 0.5],[104.8, 1.35],[104.2, 1.3],[103.8, 1.22],[103.3, 1.27],[102.6, 1.65],[102.3, 2.2],[101.8, 2.3],[101.5, 2.6],[101.0, 2.7],[100.4, 3.6],[98.9, 3.9],[99.0, 4.6],[97.8, 5.5],[97.2, 5.35],[96.2, 5.7],[95.3, 5.7],[94.5, 5.8],[90.0, 5.8],[84.0, 5.6],[81.0, 5.7],[80.2, 5.8],[79.0, 7.2],[77.3, 7.7],[76.4, 8.85],[76.1, 9.95],[75.6, 11.25]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [109.1, 13.9],
+              "name": {
+                "sv": "Champa"
+              }
+            },
+            {
+              "at": [100.6, 14.3],
+              "name": {
+                "sv": "Siam"
+              }
+            },
+            {
+              "at": [110.0, -7.5],
+              "name": {
+                "sv": "Java"
+              }
+            },
+            {
+              "at": [102.3, 2.2],
+              "name": {
+                "sv": "Malacka"
+              }
+            },
+            {
+              "at": [98.7, 3.6],
+              "name": {
+                "sv": "Aru"
+              }
+            },
+            {
+              "at": [97.1, 5.2],
+              "name": {
+                "sv": "Semudera"
+              }
+            },
+            {
+              "at": [95.3, 5.6],
+              "name": {
+                "sv": "Lambri"
+              }
+            },
+            {
+              "at": [76.6, 8.9],
+              "name": {
+                "sv": "Quilon"
+              }
+            },
+            {
+              "at": [76.3, 9.9],
+              "name": {
+                "sv": "Cochin"
+              }
+            },
+            {
+              "at": [75.8, 11.2],
+              "name": {
+                "sv": "Calicut (kungen insätts)"
+              }
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1409.0,
+          "to": 1409.5,
+          "edtf": "1409/1409-22",
+          "path": [[75.6, 11.25],[76.1, 9.95],[76.4, 8.85],[77.3, 7.7],[80.5, 5.7],[90.0, 5.8],[94.5, 5.8],[95.0, 6.2],[95.7, 6.2],[96.2, 5.7],[97.8, 5.5],[99.0, 4.6],[100.4, 3.6],[101.0, 2.7],[101.5, 2.6],[101.8, 2.3],[102.26, 2.15],[102.1, 2.2],[102.6, 1.65],[103.3, 1.27],[103.8, 1.22],[104.2, 1.3],[104.7, 1.5],[104.8, 1.5],[104.6, 2.5],[105.5, 6.0],[106.6, 8.4],[107.5, 9.0],[109.2, 10.9],[109.7, 12.2],[109.7, 15.5],[111.3, 18.0],[111.6, 19.8],[113.5, 21.5],[115.5, 22.2],[117.8, 23.0],[119.3, 24.3],[120.1, 25.2],[120.4, 26.6],[121.2, 27.6],[122.0, 28.5],[122.9, 30.0],[122.3, 30.9],[121.9, 31.4],[121.3, 31.5],[120.9, 31.8],[120.3, 31.9],[119.4, 32.2],[118.8, 32.1]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [118.8, 32.1],
+              "name": {
+                "sv": "Nanjing"
+              },
+              "edtf": "1409-22"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        }
+      ]
+    },
+    {
+      "id": "zheng-he-resa-3",
+      "kind": "voyage",
+      "category": "upptackter",
+      "title": {
+        "sv": "Zheng Hes tredje resa",
+        "en": "Zheng He's third voyage"
+      },
+      "summary": {
+        "sv": "Flottan lämnar Liujiagang hösten 1409, väntar vid Changle och seglar ut i januari 1410. På tio dagar når den Champa och fortsätter via Java, Malacka och Semudera till Ceylon, där den lägger till vid Galle 1410, och vidare till Quilon, Cochin och Calicut. På Ceylon kommer det till strid: kung Alakeshvara av Kotte lockar in Zheng He och 2 000 soldater i landet, men kineserna intar huvudstaden och tar kungen till fånga. Zheng He är tillbaka i Nanjing den 6 juli 1411 med fångarna, som kejsaren senare släpper.",
+        "en": "The fleet leaves Liujiagang in autumn 1409, waits at Changle and sails out in January 1410. It reaches Champa within ten days and continues via Java, Malacca and Semudera to Ceylon, where it calls at Galle in 1410, and on to Quilon, Cochin and Calicut. In Ceylon it comes to a fight: King Alakeshvara of Kotte lures Zheng He and 2,000 soldiers inland, but the Chinese take his capital and capture him. Zheng He is back in Nanjing on 6 July 1411 with the captives, whom the emperor later releases."
+      },
+      "start": 1409,
+      "end": 1411,
+      "edtf": "1409/1411-07-06",
+      "precision": 9,
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig"
+        },
+        "text": {
+          "sv": "De flesta forskare placerar striden på Ceylon på hemresan 1411, men Dreyer (2007) tror att den skedde på utresan 1410. De kinesiska källorna säger inte när under resan den inträffade. World History Encyclopedia daterar resan till 1409 men anger inget hemkomstår."
+        }
+      },
+      "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 1409.75,
+          "to": 1410.01,
+          "edtf": "1409-10/1410-01",
+          "path": [[118.8, 32.1],[119.4, 32.2],[120.3, 31.9],[120.9, 31.8],[121.3, 31.5],[121.9, 31.4],[122.3, 30.9],[122.9, 30.0],[122.0, 28.5],[121.2, 27.6],[120.4, 26.6],[119.6, 25.9]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [118.8, 32.1],
+              "name": {
+                "sv": "Nanjing"
+              },
+              "edtf": "1409"
+            },
+            {
+              "at": [121.3, 31.5],
+              "name": {
+                "sv": "Liujiagang"
+              },
+              "edtf": "1409-10/1409-11"
+            },
+            {
+              "at": [119.6, 25.9],
+              "name": {
+                "sv": "Changle"
+              },
+              "edtf": "1409-11/1410-01"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1410.01,
+          "to": 1410.1,
+          "edtf": "1410-01/1410-02",
+          "path": [[119.6, 25.9],[120.0, 25.9],[120.1, 25.8],[120.1, 25.4],[120.0, 25.4],[119.3, 24.3],[117.8, 23.0],[115.5, 22.2],[113.5, 21.5],[111.6, 19.8],[111.3, 18.0],[109.7, 15.5],[109.35, 13.8]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [109.1, 13.9],
+              "name": {
+                "sv": "Champa (inom tio dagar)"
+              },
+              "edtf": "1410-01/1410-02"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1410.1,
+          "to": 1410.9,
+          "edtf": "1410",
+          "path": [[109.35, 13.8],[109.7, 12.2],[109.2, 10.9],[107.5, 9.0],[106.0, 5.0],[106.6, 3.3],[106.5, 1.0],[108.0, -0.5],[108.9, -2.2],[110.0, -5.5],[110.4, -6.6],[110.4, -6.6],[107.0, -4.5],[107.0, -1.0],[105.5, 0.5],[104.8, 1.35],[104.2, 1.3],[103.8, 1.22],[103.3, 1.27],[102.6, 1.65],[102.3, 2.2],[101.8, 2.3],[101.5, 2.6],[101.0, 2.7],[100.4, 3.6],[98.9, 3.9],[99.0, 4.6],[97.8, 5.5],[97.2, 5.35],[96.2, 5.7],[95.4, 6.2],[95.0, 6.2],[94.5, 5.8],[90.0, 5.8],[84.0, 5.6],[81.0, 5.7],[80.2, 5.8],[80.2, 6.0],[80.0, 5.9],[79.0, 7.2],[77.3, 7.7],[76.4, 8.85],[76.1, 9.95],[75.6, 11.25]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [110.0, -7.5],
+              "name": {
+                "sv": "Java"
+              }
+            },
+            {
+              "at": [102.3, 2.2],
+              "name": {
+                "sv": "Malacka"
+              }
+            },
+            {
+              "at": [97.1, 5.2],
+              "name": {
+                "sv": "Semudera"
+              }
+            },
+            {
+              "at": [80.2, 6.0],
+              "name": {
+                "sv": "Galle, Ceylon"
+              },
+              "edtf": "1410"
+            },
+            {
+              "at": [76.6, 8.9],
+              "name": {
+                "sv": "Quilon"
+              }
+            },
+            {
+              "at": [76.3, 9.9],
+              "name": {
+                "sv": "Cochin"
+              }
+            },
+            {
+              "at": [75.8, 11.2],
+              "name": {
+                "sv": "Calicut"
+              }
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1411.0,
+          "to": 1411.512,
+          "edtf": "1411/1411-07-06",
+          "path": [[75.6, 11.25],[76.1, 9.95],[76.4, 8.85],[77.3, 7.7],[79.0, 7.2],[79.65, 6.9],[79.9, 6.9],[79.65, 6.9],[79.75, 6.5],[80.2, 5.8],[81.0, 5.7],[84.0, 5.6],[90.0, 5.8],[94.5, 5.8],[95.0, 6.2],[95.7, 6.2],[96.2, 5.7],[97.8, 5.5],[99.0, 4.6],[100.4, 3.6],[101.0, 2.7],[101.5, 2.6],[102.6, 1.65],[103.3, 1.27],[103.8, 1.22],[104.2, 1.3],[104.7, 1.5],[104.8, 1.5],[104.6, 2.5],[105.5, 6.0],[106.6, 8.4],[107.5, 9.0],[109.2, 10.9],[109.7, 12.2],[109.7, 15.5],[111.3, 18.0],[111.6, 19.8],[113.5, 21.5],[115.5, 22.2],[117.8, 23.0],[119.3, 24.3],[120.1, 25.2],[120.4, 26.6],[121.2, 27.6],[122.0, 28.5],[122.9, 30.0],[122.3, 30.9],[121.9, 31.4],[121.3, 31.5],[120.9, 31.8],[120.3, 31.9],[119.4, 32.2],[118.8, 32.1]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [79.9, 6.9],
+              "name": {
+                "sv": "Kotte, Ceylon (striden mot Alakeshvara)"
+              },
+              "edtf": "1411?"
+            },
+            {
+              "at": [118.8, 32.1],
+              "name": {
+                "sv": "Nanjing"
+              },
+              "date": "1411-07-06"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        }
+      ]
+    },
+    {
+      "id": "zheng-he-resa-4",
+      "kind": "voyage",
+      "category": "upptackter",
+      "title": {
+        "sv": "Zheng Hes fjärde resa",
+        "en": "Zheng He's fourth voyage"
+      },
+      "summary": {
+        "sv": "Den fjärde resan går för första gången förbi Calicut. Flottan lämnar Nanjing 1413 och Fujian vid årsskiftet 1413–1414, och seglar via Champa, Kelantan, Pahang, Malacka, Palembang, Java och norra Sumatra till Ceylon, Cochin och Calicut, och vidare över Maldiverna och Lackadiverna till Hormuz vid Persiska viken. Tolken Ma Huan är med för första gången. På hemvägen 1415 slår Zheng Hes trupper ner usurpatorn Sekandar i Semudera och tar honom till fånga i Lambri. Flottan är tillbaka i Nanjing den 12 augusti 1415.",
+        "en": "The fourth voyage is the first to go beyond Calicut. The fleet leaves Nanjing in 1413 and Fujian around the turn of 1413–1414, and sails via Champa, Kelantan, Pahang, Malacca, Palembang, Java and northern Sumatra to Ceylon, Cochin and Calicut, then on past the Maldives and Laccadives to Hormuz on the Persian Gulf. The interpreter Ma Huan joins for the first time. On the way home in 1415, Zheng He's troops defeat the usurper Sekandar in Semudera and capture him at Lambri. The fleet is back in Nanjing on 12 August 1415."
+      },
+      "start": 1413,
+      "end": 1415,
+      "edtf": "1413/1415-08-12",
+      "precision": 9,
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig"
+        },
+        "text": {
+          "sv": "Enligt Wikipedia (efter Mingkrönikorna och Dreyer 2007) var Hormuz resans mål längst bort. World History Encyclopedia skriver att flottan dessutom seglade till Aden och upp i Röda havet till Jidda, varifrån en grupp reste till Mecka. Wikipedia nämner Aden först på den femte resan och Mecka på den sjunde. Källan räknar Sumatras hamnar i ordningen Lambri, Lide, Aru och Semudera; här är de ritade efter geografin, och Lide är inte utritad eftersom platsen inte är identifierad i källan. Jiayile, Bila och Sunla är inte heller utritade."
+        }
+      },
+      "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 1413.7,
+          "to": 1413.97,
+          "edtf": "1413/1414-01",
+          "path": [[118.8, 32.1],[119.4, 32.2],[120.3, 31.9],[120.9, 31.8],[121.3, 31.5],[121.9, 31.4],[122.3, 30.9],[122.9, 30.0],[122.0, 28.5],[121.2, 27.6],[120.4, 26.6],[119.6, 25.9]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [118.8, 32.1],
+              "name": {
+                "sv": "Nanjing"
+              },
+              "edtf": "1413-23?"
+            },
+            {
+              "at": [119.6, 25.9],
+              "name": {
+                "sv": "Fujian (avresa)"
+              },
+              "edtf": "1413-12/1414-01"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1414.0,
+          "to": 1414.6,
+          "edtf": "1414",
+          "path": [[119.6, 25.9],[120.0, 25.9],[120.1, 25.8],[120.1, 25.4],[120.0, 25.4],[119.3, 24.3],[117.8, 23.0],[115.5, 22.2],[113.5, 21.5],[111.6, 19.8],[111.3, 18.0],[109.7, 15.5],[109.35, 13.8],[109.7, 12.2],[109.2, 10.9],[107.5, 9.0],[104.5, 7.0],[102.4, 6.3],[103.6, 5.2],[103.7, 4.2],[103.45, 3.8],[104.5, 1.6],[104.4, 1.35],[104.7, 1.5],[104.2, 1.3],[103.8, 1.22],[103.3, 1.27],[102.6, 1.65],[102.3, 2.2],[102.6, 1.65],[103.7, 1.15],[104.2, 1.3],[104.8, 1.35],[105.0, 0.0],[105.2, 0.1],[105.2, -1.1],[105.0, -1.5],[105.0, -2.0],[104.9, -2.25],[104.9, -1.7],[104.75, -2.4],[104.8, -3.0],[104.75, -2.4],[104.9, -1.7],[104.9, -2.25],[105.0, -2.1],[105.3, -2.2],[105.6, -2.4],[105.85, -2.65],[105.95, -2.85],[106.2, -3.05],[106.5, -3.4],[108.0, -5.3],[110.4, -6.6],[110.4, -6.6],[107.0, -4.5],[107.0, -1.0],[105.5, 0.5],[104.8, 1.35],[104.2, 1.3],[103.8, 1.22],[103.3, 1.27],[102.6, 1.65],[101.8, 2.3],[101.5, 2.6],[101.0, 2.7],[100.4, 3.6],[98.9, 3.9],[99.0, 4.6],[97.8, 5.5],[97.2, 5.35],[96.2, 5.7],[95.3, 5.7],[94.5, 5.8],[90.0, 5.8],[84.0, 5.6],[81.0, 5.7],[80.2, 5.8],[79.75, 6.5],[79.65, 6.9],[79.0, 7.2],[77.3, 7.7],[76.4, 8.85],[76.1, 9.95],[75.6, 11.25]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [109.1, 13.9],
+              "name": {
+                "sv": "Champa"
+              }
+            },
+            {
+              "at": [102.3, 6.1],
+              "name": {
+                "sv": "Kelantan"
+              }
+            },
+            {
+              "at": [103.3, 3.8],
+              "name": {
+                "sv": "Pahang"
+              }
+            },
+            {
+              "at": [102.3, 2.2],
+              "name": {
+                "sv": "Malacka"
+              }
+            },
+            {
+              "at": [104.8, -3.0],
+              "name": {
+                "sv": "Palembang"
+              }
+            },
+            {
+              "at": [110.0, -7.5],
+              "name": {
+                "sv": "Java"
+              }
+            },
+            {
+              "at": [98.7, 3.6],
+              "name": {
+                "sv": "Aru"
+              }
+            },
+            {
+              "at": [97.1, 5.2],
+              "name": {
+                "sv": "Semudera"
+              }
+            },
+            {
+              "at": [95.3, 5.6],
+              "name": {
+                "sv": "Lambri"
+              }
+            },
+            {
+              "at": [81.0, 7.0],
+              "name": {
+                "sv": "Ceylon"
+              }
+            },
+            {
+              "at": [76.3, 9.9],
+              "name": {
+                "sv": "Cochin"
+              }
+            },
+            {
+              "at": [75.8, 11.2],
+              "name": {
+                "sv": "Calicut"
+              }
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1414.6,
+          "to": 1414.95,
+          "edtf": "1414/1415",
+          "path": [[75.6, 11.25],[74.5, 8.0],[73.5, 4.2],[70.0, 12.0],[62.0, 20.0],[60.5, 23.2],[58.5, 24.8],[57.2, 25.3],[56.7, 26.2],[56.6, 26.6],[56.5, 27.1]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [73.5, 4.2],
+              "name": {
+                "sv": "Liushan (Maldiverna och Lackadiverna)"
+              }
+            },
+            {
+              "at": [56.5, 27.1],
+              "name": {
+                "sv": "Hormuz"
+              }
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1415.0,
+          "to": 1415.611,
+          "edtf": "1415/1415-08-12",
+          "path": [[56.5, 27.1],[56.6, 26.6],[56.7, 26.2],[57.2, 25.3],[58.5, 24.8],[60.5, 23.2],[66.0, 18.0],[76.0, 7.0],[80.5, 5.7],[90.0, 5.8],[94.5, 5.8],[95.3, 5.7],[96.2, 5.7],[97.2, 5.35],[97.8, 5.5],[99.0, 4.6],[100.4, 3.6],[101.0, 2.7],[101.5, 2.6],[101.8, 2.3],[102.26, 2.15],[102.1, 2.2],[102.6, 1.65],[103.3, 1.27],[103.8, 1.22],[104.2, 1.3],[104.7, 1.5],[104.8, 1.5],[104.6, 2.5],[105.5, 6.0],[106.6, 8.4],[107.5, 9.0],[109.2, 10.9],[109.7, 12.2],[109.7, 15.5],[111.3, 18.0],[111.6, 19.8],[113.5, 21.5],[115.5, 22.2],[117.8, 23.0],[119.3, 24.3],[120.1, 25.2],[120.4, 26.6],[121.2, 27.6],[122.0, 28.5],[122.9, 30.0],[122.3, 30.9],[121.9, 31.4],[121.3, 31.5],[120.9, 31.8],[120.3, 31.9],[119.4, 32.2],[118.8, 32.1]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [95.3, 5.6],
+              "name": {
+                "sv": "Lambri (Sekandar tas till fånga)"
+              },
+              "edtf": "1415"
+            },
+            {
+              "at": [97.1, 5.2],
+              "name": {
+                "sv": "Semudera (strid mot Sekandar)"
+              },
+              "edtf": "1415"
+            },
+            {
+              "at": [118.8, 32.1],
+              "name": {
+                "sv": "Nanjing"
+              },
+              "date": "1415-08-12"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        }
+      ]
+    },
+    {
+      "id": "zheng-he-resa-5",
+      "kind": "voyage",
+      "category": "upptackter",
+      "title": {
+        "sv": "Zheng Hes femte resa",
+        "en": "Zheng He's fifth voyage"
+      },
+      "summary": {
+        "sv": "Den femte resan ska föra hem sändebud från arton länder. Zheng He lastar porslin och andra varor i Quanzhou, där han offrar rökelse den 31 maj 1417, och lämnar kanske kusten hösten 1417. Flottan besöker bland annat Champa, Pahang, Java, Palembang, Malacka, Semudera, Lambri, Ceylon, Cochin och Calicut, och sedan Hormuz, Aden och Östafrikas kust: Mogadishu, Brava och Malindi. Kinesiska skepp når Adens kust i januari 1419. Flottan är tillbaka i Kina den 8 augusti 1419 med sändebud som har lejon, leoparder, strutsar, zebror och giraffer med sig.",
+        "en": "The fifth voyage is to take home envoys from eighteen countries. Zheng He loads porcelain and other goods at Quanzhou, where he burns incense on 31 May 1417, and may have left the coast in autumn 1417. The fleet visits Champa, Pahang, Java, Palembang, Malacca, Semudera, Lambri, Ceylon, Cochin and Calicut, then Hormuz, Aden and the East African coast: Mogadishu, Brava and Malindi. Chinese ships reach the coast of Aden in January 1419. The fleet is back in China on 8 August 1419 with envoys bringing lions, leopards, ostriches, zebras and giraffes."
+      },
+      "start": 1417,
+      "end": 1419,
+      "edtf": "1417/1419-08-08",
+      "precision": 9,
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig"
+        },
+        "text": {
+          "sv": "Ordningen Hormuz, Lasa, Aden, Mogadishu, Brava, Zhubu och Malindi är den troligaste enligt Wikipedia, inte säker. Lasa och Zhubu är inte utritade eftersom platserna inte är identifierade i källan, och Shaliwanni (kanske Cannanore) inte heller. World History Encyclopedia skriver om resorna fem till sju tillsammans och nämner Mogadishu, Malindi och Mombasa, och att flottan nådde Zanzibar; Mombasa och Zanzibar finns inte med i Wikipedias lista. Källan säger bara att flottan kom tillbaka till Kina, inte till vilken hamn."
+        }
+      },
+      "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 1417.41,
+          "to": 1418.5,
+          "edtf": "1417-05-31/1418",
+          "path": [[118.7, 24.9],[118.8, 24.8],[117.8, 23.0],[115.5, 22.2],[113.5, 21.5],[111.6, 19.8],[111.3, 18.0],[109.7, 15.5],[109.35, 13.8],[109.7, 12.2],[109.2, 10.9],[107.5, 9.0],[104.5, 6.0],[103.45, 3.8],[104.5, 1.6],[104.8, 1.35],[105.0, 0.0],[107.0, -1.0],[107.0, -4.5],[108.0, -5.3],[110.4, -6.6],[108.0, -5.3],[106.5, -3.4],[106.2, -3.05],[105.95, -2.85],[105.85, -2.65],[105.6, -2.4],[105.3, -2.2],[105.0, -2.1],[104.9, -2.25],[104.9, -1.7],[104.75, -2.4],[104.8, -3.0],[104.75, -2.4],[104.9, -1.7],[104.9, -2.25],[105.0, -2.0],[105.0, -1.5],[105.4, -0.1],[105.2, 0.1],[105.0, 0.0],[104.8, 1.35],[104.2, 1.3],[103.7, 1.15],[102.6, 1.65],[102.3, 2.2],[101.8, 2.3],[101.5, 2.6],[101.0, 2.7],[100.4, 3.6],[99.0, 4.6],[97.8, 5.5],[97.2, 5.35],[96.2, 5.7],[95.3, 5.7],[94.5, 5.8],[90.0, 5.8],[84.0, 5.6],[81.0, 5.7],[80.2, 5.8],[79.75, 6.5],[79.65, 6.9],[79.0, 7.2],[77.3, 7.7],[76.4, 8.85],[76.1, 9.95],[75.6, 11.25]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [118.7, 24.9],
+              "name": {
+                "sv": "Quanzhou (rökelseoffer)"
+              },
+              "date": "1417-05-31"
+            },
+            {
+              "at": [109.1, 13.9],
+              "name": {
+                "sv": "Champa"
+              }
+            },
+            {
+              "at": [103.3, 3.8],
+              "name": {
+                "sv": "Pahang"
+              }
+            },
+            {
+              "at": [110.0, -7.5],
+              "name": {
+                "sv": "Java"
+              }
+            },
+            {
+              "at": [104.8, -3.0],
+              "name": {
+                "sv": "Palembang"
+              }
+            },
+            {
+              "at": [102.3, 2.2],
+              "name": {
+                "sv": "Malacka"
+              }
+            },
+            {
+              "at": [97.1, 5.2],
+              "name": {
+                "sv": "Semudera"
+              }
+            },
+            {
+              "at": [95.3, 5.6],
+              "name": {
+                "sv": "Lambri"
+              }
+            },
+            {
+              "at": [81.0, 7.0],
+              "name": {
+                "sv": "Ceylon"
+              }
+            },
+            {
+              "at": [76.3, 9.9],
+              "name": {
+                "sv": "Cochin"
+              }
+            },
+            {
+              "at": [75.8, 11.2],
+              "name": {
+                "sv": "Calicut"
+              }
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1418.5,
+          "to": 1419.25,
+          "edtf": "1418/1419",
+          "path": [[75.6, 11.25],[74.5, 8.0],[73.5, 4.2],[70.0, 12.0],[62.0, 20.0],[60.5, 23.2],[58.5, 24.8],[57.2, 25.3],[56.7, 26.2],[56.6, 26.6],[56.5, 27.1],[56.7, 26.2],[57.2, 25.3],[58.5, 24.8],[60.3, 22.8],[59.5, 20.5],[57.5, 18.0],[54.9, 16.6],[54.0, 16.5],[51.0, 14.5],[48.0, 13.3],[45.0, 12.7],[45.0, 12.8],[47.0, 12.0],[51.2, 12.4],[51.6, 11.9],[52.0, 10.0],[50.0, 6.0],[47.0, 2.5],[45.4, 2.0],[45.3, 2.0],[44.2, 0.9],[44.0, 1.1],[42.3, -1.4],[40.5, -3.1],[40.1, -3.2]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [73.5, 4.2],
+              "name": {
+                "sv": "Liushan (Maldiverna och Lackadiverna)"
+              }
+            },
+            {
+              "at": [56.5, 27.1],
+              "name": {
+                "sv": "Hormuz"
+              }
+            },
+            {
+              "at": [45.0, 12.8],
+              "name": {
+                "sv": "Aden"
+              },
+              "edtf": "1419-01/1419-03"
+            },
+            {
+              "at": [45.3, 2.0],
+              "name": {
+                "sv": "Mogadishu"
+              }
+            },
+            {
+              "at": [44.0, 1.1],
+              "name": {
+                "sv": "Brava"
+              }
+            },
+            {
+              "at": [40.1, -3.2],
+              "name": {
+                "sv": "Malindi"
+              }
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1419.25,
+          "to": 1419.6,
+          "edtf": "1419/1419-08-08",
+          "path": [[40.1, -3.2],[42.0, -3.0],[60.0, 2.0],[73.0, 4.0],[80.5, 5.7],[90.0, 5.8],[94.5, 5.8],[95.0, 6.2],[95.7, 6.2],[96.2, 5.7],[97.8, 5.5],[99.0, 4.6],[100.4, 3.6],[101.0, 2.7],[101.5, 2.6],[102.6, 1.65],[103.3, 1.27],[103.8, 1.22],[104.2, 1.3],[104.7, 1.5],[104.8, 1.5],[104.6, 2.5],[105.5, 6.0],[106.6, 8.4],[107.5, 9.0],[109.2, 10.9],[109.7, 12.2],[109.7, 15.5],[111.3, 18.0],[111.6, 19.8],[113.5, 21.5],[115.5, 22.2],[117.8, 23.0],[119.3, 24.3],[120.1, 25.2],[120.4, 26.6],[121.2, 27.6],[122.0, 28.5],[122.9, 30.0],[122.3, 30.9],[121.9, 31.4],[121.3, 31.5],[120.9, 31.8],[120.3, 31.9],[119.4, 32.2],[118.8, 32.1]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [118.8, 32.1],
+              "name": {
+                "sv": "Kina (källan anger inte hamnen; flottans bas var Nanjing)"
+              },
+              "date": "1419-08-08"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        }
+      ]
+    },
+    {
+      "id": "zheng-he-resa-6",
+      "kind": "voyage",
+      "category": "upptackter",
+      "title": {
+        "sv": "Zheng Hes sjätte resa",
+        "en": "Zheng He's sixth voyage"
+      },
+      "summary": {
+        "sv": "Den sjätte resan ska föra hem sändebud från sexton länder, och ordern ges den 3 mars 1421. Flottan seglar troligen först till Malacka och norra Sumatra och delar sig i Semudera i flera eskadrar. Alla fortsätter till Ceylon och södra Indien, och därifrån går eskadrar vidare till bland annat Maldiverna, Hormuz, Dhofar, Aden, Mogadishu och Brava. På hemvägen samlas de i Calicut och Semudera, och flottan är tillbaka den 3 september 1422. Samma år, 1421, beslutar kejsaren att resorna ska göra uppehåll.",
+        "en": "The sixth voyage is to take home envoys from sixteen countries, and the order is issued on 3 March 1421. The fleet probably sails first to Malacca and northern Sumatra and splits into several squadrons at Semudera. All of them continue to Ceylon and southern India, from where squadrons go on to the Maldives, Hormuz, Dhofar, Aden, Mogadishu and Brava, among others. On the way home they regroup at Calicut and Semudera, and the fleet is back on 3 September 1422. In the same year, 1421, the emperor orders a pause in the voyages."
+      },
+      "start": 1421,
+      "end": 1422,
+      "edtf": "1421/1422-09-03",
+      "precision": 9,
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig"
+        },
+        "text": {
+          "sv": "Källan anger inte avresedagen eller hamnarna i Kina, och vilka eskadrar som for vart är bara delvis känt. Enligt Mingshi besökte Zheng He själv Ganbali i södra Indien; det är det enda av de tolv länderna väster om Sumatra som uttryckligen sägs ha fått besök av honom. Eskadern till Aden leddes troligen av Zhou Man. Några kinesiska skepp var kvar i Arabien: Rasulidsultanen tog emot en kinesisk delegation i Ta'izz i februari 1423. World History Encyclopedia skriver om resorna fem till sju tillsammans och nämner också Mombasa och Zanzibar, som inte finns med i Wikipedias lista."
+        }
+      },
+      "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 1421.17,
+          "to": 1421.9,
+          "edtf": "1421",
+          "path": [[118.8, 32.1],[119.4, 32.2],[120.3, 31.9],[120.9, 31.8],[121.3, 31.5],[121.9, 31.4],[122.3, 30.9],[122.9, 30.0],[122.0, 28.5],[121.2, 27.6],[120.4, 26.6],[120.0, 25.9],[120.0, 25.4],[119.3, 24.3],[117.8, 23.0],[115.5, 22.2],[113.5, 21.5],[111.6, 19.8],[111.3, 18.0],[109.7, 15.5],[109.7, 12.2],[109.2, 10.9],[107.5, 9.0],[105.5, 6.0],[104.6, 2.5],[104.8, 1.5],[104.7, 1.5],[104.2, 1.3],[103.8, 1.22],[103.3, 1.27],[102.6, 1.65],[102.3, 2.2],[101.8, 2.3],[101.5, 2.6],[101.0, 2.7],[100.4, 3.6],[98.9, 3.9],[99.0, 4.6],[97.8, 5.5],[97.2, 5.35],[96.2, 5.7],[95.3, 5.7],[94.5, 5.8],[90.0, 5.8],[84.0, 5.6],[81.0, 5.7],[80.2, 5.8],[79.75, 6.5],[79.65, 6.9],[79.0, 7.2],[77.3, 7.7],[76.4, 8.85],[76.1, 9.95],[75.6, 11.25]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [118.8, 32.1],
+              "name": {
+                "sv": "Nanjing (avresehamnen anges inte)"
+              },
+              "edtf": "1421?"
+            },
+            {
+              "at": [102.3, 2.2],
+              "name": {
+                "sv": "Malacka"
+              }
+            },
+            {
+              "at": [98.7, 3.6],
+              "name": {
+                "sv": "Aru"
+              }
+            },
+            {
+              "at": [97.1, 5.2],
+              "name": {
+                "sv": "Semudera (flottan delas i eskadrar)"
+              }
+            },
+            {
+              "at": [95.3, 5.6],
+              "name": {
+                "sv": "Lambri"
+              }
+            },
+            {
+              "at": [81.0, 7.0],
+              "name": {
+                "sv": "Ceylon"
+              }
+            },
+            {
+              "at": [75.8, 11.2],
+              "name": {
+                "sv": "Calicut"
+              }
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1421.9,
+          "to": 1422.3,
+          "edtf": "1421/1422",
+          "path": [[75.6, 11.25],[70.0, 15.0],[66.0, 20.0],[60.5, 23.2],[58.5, 24.8],[57.2, 25.3],[56.7, 26.2],[56.6, 26.6],[56.5, 27.1]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [56.5, 27.1],
+              "name": {
+                "sv": "Hormuz (en stor eskader från Calicut)"
+              }
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1421.9,
+          "to": 1422.3,
+          "edtf": "1421/1422",
+          "path": [[76.4, 8.85],[74.5, 8.0],[73.5, 4.2],[70.0, 6.0],[55.0, 3.5],[47.0, 2.5],[45.3, 2.0],[44.2, 0.9],[44.0, 1.1]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [73.5, 4.2],
+              "name": {
+                "sv": "Liushan (Maldiverna och Lackadiverna)"
+              }
+            },
+            {
+              "at": [45.3, 2.0],
+              "name": {
+                "sv": "Mogadishu"
+              }
+            },
+            {
+              "at": [44.0, 1.1],
+              "name": {
+                "sv": "Brava"
+              }
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1421.9,
+          "to": 1422.3,
+          "edtf": "1421/1422",
+          "path": [[75.6, 11.25],[66.0, 14.0],[57.5, 16.5],[54.0, 16.5],[51.0, 14.5],[48.0, 13.3],[45.0, 12.7],[45.0, 12.8]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [54.0, 18.0],
+              "name": {
+                "sv": "Dhofar"
+              }
+            },
+            {
+              "at": [45.0, 12.8],
+              "name": {
+                "sv": "Aden (eskadern under Zhou Man)"
+              }
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1422.3,
+          "to": 1422.671,
+          "edtf": "1422/1422-09-03",
+          "path": [[75.6, 11.25],[76.1, 9.95],[76.4, 8.85],[77.3, 7.7],[80.5, 5.7],[90.0, 5.8],[94.5, 5.8],[95.0, 6.2],[95.7, 6.2],[96.2, 5.7],[97.2, 5.35],[97.8, 5.5],[99.0, 4.6],[100.4, 3.6],[101.0, 2.7],[101.5, 2.6],[102.6, 1.65],[103.3, 1.27],[103.8, 1.22],[104.2, 1.3],[104.7, 1.5],[104.8, 1.5],[104.6, 2.5],[105.5, 6.0],[104.6, 8.2],[101.8, 10.5],[100.6, 12.6],[100.55, 13.5],[100.6, 13.1],[100.6, 14.3],[100.6, 13.1],[100.55, 13.5],[100.6, 12.6],[101.8, 10.5],[104.6, 8.2],[105.4, 8.3],[106.4, 9.1],[107.5, 9.0],[109.2, 10.9],[109.7, 12.2],[109.7, 15.5],[111.3, 18.0],[111.6, 19.8],[113.5, 21.5],[115.5, 22.2],[117.8, 23.0],[119.3, 24.3],[120.1, 25.2],[120.4, 26.6],[121.2, 27.6],[122.0, 28.5],[122.9, 30.0],[122.3, 30.9],[121.9, 31.4],[121.3, 31.5],[120.9, 31.8],[120.3, 31.9],[119.4, 32.2],[118.8, 32.1]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [75.8, 11.2],
+              "name": {
+                "sv": "Calicut (eskadrarna samlas)"
+              }
+            },
+            {
+              "at": [97.1, 5.2],
+              "name": {
+                "sv": "Semudera (hela flottan samlas)"
+              }
+            },
+            {
+              "at": [100.6, 14.3],
+              "name": {
+                "sv": "Siam (troligen på hemvägen)"
+              }
+            },
+            {
+              "at": [118.8, 32.1],
+              "name": {
+                "sv": "Hemkomst (hamnen anges inte; flottans bas var Nanjing)"
+              },
+              "date": "1422-09-03"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        }
+      ]
+    },
+    {
+      "id": "zheng-he-resa-7",
+      "kind": "voyage",
+      "category": "upptackter",
+      "title": {
+        "sv": "Zheng Hes sjunde och sista resa",
+        "en": "Zheng He's seventh and last voyage"
+      },
+      "summary": {
+        "sv": "Kejsaren Xuande tar upp resorna igen, och den 19 januari 1431 lämnar flottan Nanjing. Efter en lång väntan i Changle seglar den ut i januari 1432. Skriften Xia Xiyang ger dag för dag: Vijaya i Champa, Surabaya på Java, Palembang, Malacka, Semudera, Beruwala på Ceylon, Calicut och längst bort Hormuz, dit flottan kommer den 17 januari 1433. En eskader under Hong Bao seglar till Bengalen, och sju man från den följer med ett skepp från Calicut till Mecka. Flottan når Taicang den 7 juli 1433 och huvudstaden Peking den 22 juli. Det blir den sista av skattflottans resor, och Zheng He dör 1433 eller några år senare (källorna skiljer sig).",
+        "en": "The Xuande Emperor revives the voyages, and on 19 January 1431 the fleet leaves Nanjing. After a long wait at Changle it sails out in January 1432. The text Xia Xiyang gives the itinerary day by day: Vijaya in Champa, Surabaya on Java, Palembang, Malacca, Semudera, Beruwala on Ceylon, Calicut and, furthest away, Hormuz, which the fleet reaches on 17 January 1433. A squadron under Hong Bao sails to Bengal, and seven of its men join a ship from Calicut to Mecca. The fleet reaches Taicang on 7 July 1433 and the capital Beijing on 22 July. It is the last of the treasure voyages, and Zheng He dies in 1433 or a few years later (the sources differ)."
+      },
+      "start": 1431,
+      "end": 1433,
+      "edtf": "1431-01-19/1433-07-22",
+      "precision": 11,
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig"
+        },
+        "text": {
+          "sv": "Xia Xiyang nämner åtta mål, medan Mingshi och andra källor säger att flottan besökte minst sjutton länder och Gong Zhen tjugo. Datumet den 28 maj 1433 vid Kunlunhavet (Côn Sơn) kan enligt Dreyer (2007) i stället vara dagen då flottan lämnade Malacka. När Hong Baos eskader skildes från flottan är omstritt. Om Zheng Hes död skiljer sig källorna: World History Encyclopedia skriver att han dog i Calicut 1433, Wikipedia att han dog 1433 under eller strax efter resan, troligen i Calicut, eller enligt Mills (1970) först 1435 i Nanjing."
+        }
+      },
+      "sources": ["wp-ming-treasure-voyages", "wp-zheng-he", "whe-seven-voyages-zheng-he"],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 1431.049,
+          "to": 1431.09,
+          "edtf": "1431-01-19/1431-02-03",
+          "path": [[118.8, 32.1],[119.4, 32.2],[120.3, 31.9],[120.9, 31.8],[121.3, 31.5]],
+          "places": [
+            {
+              "at": [118.8, 32.1],
+              "name": {
+                "sv": "Longwan, Nanjing"
+              },
+              "date": "1431-01-19"
+            },
+            {
+              "at": [121.3, 31.5],
+              "name": {
+                "sv": "Liujiagang"
+              },
+              "date": "1431-02-03"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1431.09,
+          "to": 1431.266,
+          "edtf": "1431-02-03/1431-04-08",
+          "path": [[121.3, 31.5],[121.9, 31.4],[122.3, 30.9],[122.9, 30.0],[122.0, 28.5],[121.2, 27.6],[120.4, 26.6],[119.6, 25.9]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [119.6, 25.9],
+              "name": {
+                "sv": "Changle"
+              },
+              "date": "1431-04-08"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1432.03,
+          "to": 1432.071,
+          "edtf": "1432-01-12/1432-01-27",
+          "path": [[119.6, 25.9],[119.8, 25.9],[120.0, 25.4],[119.3, 24.3],[117.8, 23.0],[115.5, 22.2],[113.5, 21.5],[111.6, 19.8],[111.3, 18.0],[109.7, 15.5],[109.35, 13.8]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [119.6, 25.9],
+              "name": {
+                "sv": "Wuhumen, Minflodens mynning"
+              },
+              "date": "1432-01-12"
+            },
+            {
+              "at": [109.1, 13.9],
+              "name": {
+                "sv": "Vijaya, Champa"
+              },
+              "date": "1432-01-27"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1432.115,
+          "to": 1432.18,
+          "edtf": "1432-02-12/1432-03-07",
+          "path": [[109.35, 13.8],[109.7, 12.2],[109.2, 10.9],[107.5, 9.0],[106.0, 5.0],[106.6, 3.3],[106.5, 1.0],[108.0, -0.5],[108.9, -2.2],[110.0, -5.5],[112.0, -6.4],[112.5, -6.85],[112.7, -7.2]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [112.7, -7.2],
+              "name": {
+                "sv": "Surabaya, Java"
+              },
+              "date": "1432-03-07"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1432.53,
+          "to": 1432.56,
+          "edtf": "1432-07-13/1432-07-24",
+          "path": [[112.7, -7.2],[112.5, -6.85],[112.0, -6.4],[108.0, -5.3],[106.5, -3.4],[106.2, -3.05],[105.95, -2.85],[105.85, -2.65],[105.6, -2.4],[105.3, -2.2],[105.0, -2.1],[104.9, -2.25],[104.9, -1.7],[104.75, -2.4],[104.8, -3.0]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [104.8, -3.0],
+              "name": {
+                "sv": "Palembang"
+              },
+              "date": "1432-07-24"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1432.568,
+          "to": 1432.587,
+          "edtf": "1432-07-27/1432-08-03",
+          "path": [[104.8, -3.0],[104.75, -2.4],[104.9, -1.7],[104.9, -2.25],[105.0, -2.0],[105.0, -1.5],[105.4, -0.1],[105.2, 0.1],[105.0, 0.0],[104.8, 1.35],[104.2, 1.3],[103.7, 1.15],[102.6, 1.65],[102.3, 2.2]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [102.3, 2.2],
+              "name": {
+                "sv": "Malacka"
+              },
+              "date": "1432-08-03"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1432.669,
+          "to": 1432.697,
+          "edtf": "1432-09-02/1432-09-12",
+          "path": [[102.3, 2.2],[101.8, 2.3],[101.5, 2.6],[101.0, 2.7],[100.4, 3.6],[99.0, 4.6],[97.8, 5.5],[97.2, 5.35],[97.1, 5.2]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [97.1, 5.2],
+              "name": {
+                "sv": "Semudera"
+              },
+              "date": "1432-09-12"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1432.836,
+          "to": 1432.907,
+          "edtf": "1432-11-02/1432-11-28",
+          "path": [[97.1, 5.2],[97.2, 5.35],[96.2, 5.7],[95.0, 6.2],[93.9, 6.9],[93.8, 7.0],[90.0, 6.3],[84.0, 5.6],[81.0, 5.7],[80.2, 5.8],[79.75, 6.5],[80.0, 6.5]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [93.8, 7.0],
+              "name": {
+                "sv": "Cuilanxu (troligen Stora Nikobaren)"
+              },
+              "date": "1432-11-14"
+            },
+            {
+              "at": [80.0, 6.5],
+              "name": {
+                "sv": "Beruwala, Ceylon"
+              },
+              "date": "1432-11-28"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1432.918,
+          "to": 1432.94,
+          "edtf": "1432-12-02/1432-12-10",
+          "path": [[80.0, 6.5],[79.75, 6.5],[79.0, 7.2],[77.3, 7.7],[76.4, 8.85],[76.1, 9.95],[75.6, 11.25],[75.8, 11.2]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [75.8, 11.2],
+              "name": {
+                "sv": "Calicut"
+              },
+              "date": "1432-12-10"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1432.951,
+          "to": 1433.044,
+          "edtf": "1432-12-14/1433-01-17",
+          "path": [[75.8, 11.2],[75.6, 11.3],[66.0, 20.0],[60.5, 23.2],[58.5, 24.8],[57.2, 25.3],[56.7, 26.2],[56.6, 26.6],[56.5, 27.1]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [56.5, 27.1],
+              "name": {
+                "sv": "Hormuz"
+              },
+              "date": "1433-01-17"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1433.184,
+          "to": 1433.244,
+          "edtf": "1433-03-09/1433-03-31",
+          "path": [[56.5, 27.1],[56.6, 26.6],[56.7, 26.2],[57.2, 25.3],[58.5, 24.8],[60.5, 23.2],[66.0, 20.0],[75.6, 11.3],[75.8, 11.2]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [75.8, 11.2],
+              "name": {
+                "sv": "Calicut"
+              },
+              "date": "1433-03-31"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1433.268,
+          "to": 1433.312,
+          "edtf": "1433-04-09/1433-04-25",
+          "path": [[75.8, 11.2],[75.6, 11.25],[76.1, 9.95],[76.4, 8.85],[77.5, 7.6],[80.5, 5.7],[90.0, 5.8],[95.0, 5.9],[95.0, 6.2],[96.6, 6.1],[97.2, 5.35],[97.1, 5.2]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [97.1, 5.2],
+              "name": {
+                "sv": "Semudera"
+              },
+              "date": "1433-04-25"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1433.329,
+          "to": 1433.351,
+          "edtf": "1433-05-01/1433-05-09",
+          "path": [[97.1, 5.2],[97.2, 5.35],[97.8, 5.5],[99.0, 4.6],[100.4, 3.6],[101.0, 2.7],[101.5, 2.6],[101.8, 2.3],[102.3, 2.2]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [102.3, 2.2],
+              "name": {
+                "sv": "Malacka"
+              },
+              "date": "1433-05-09"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1433.351,
+          "to": 1433.447,
+          "edtf": "1433-05-09/1433-06-13",
+          "path": [[102.3, 2.2],[102.6, 1.65],[103.3, 1.27],[103.8, 1.22],[104.2, 1.3],[104.7, 1.5],[104.8, 1.5],[104.6, 2.5],[105.5, 6.0],[106.6, 8.7],[107.5, 9.2],[109.2, 10.9],[109.7, 12.2],[109.35, 13.8]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [106.6, 8.7],
+              "name": {
+                "sv": "Kunlunhavet (vid Côn Sơn)"
+              },
+              "date": "1433-05-28",
+              "edtf": "1433-05-28?"
+            },
+            {
+              "at": [109.1, 13.9],
+              "name": {
+                "sv": "Vijaya, Champa"
+              },
+              "date": "1433-06-13"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1433.458,
+          "to": 1433.512,
+          "edtf": "1433-06-17/1433-07-07",
+          "path": [[109.35, 13.8],[109.7, 15.5],[111.3, 18.0],[111.6, 19.8],[113.5, 21.5],[115.5, 22.2],[117.8, 23.0],[119.3, 24.3],[120.1, 25.2],[120.4, 26.6],[121.2, 27.6],[122.0, 28.5],[122.9, 30.0],[122.3, 30.9],[121.9, 31.4],[121.2, 31.6]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [121.2, 31.6],
+              "name": {
+                "sv": "Taicang"
+              },
+              "date": "1433-07-07"
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1432.697,
+          "to": 1432.997,
+          "edtf": "1432/1433",
+          "path": [[97.1, 5.2],[96.5, 6.2],[93.4, 8.7],[92.0, 9.0],[90.5, 15.0],[91.0, 20.5],[91.75, 22.2],[91.8, 22.3],[91.75, 22.2],[91.0, 20.5],[86.0, 14.0],[84.0, 10.0],[81.5, 5.8],[80.2, 5.8],[77.3, 7.7],[76.4, 8.85],[76.1, 9.95],[75.6, 11.25],[75.8, 11.2]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [91.8, 22.3],
+              "name": {
+                "sv": "Chittagong, Bengalen (Hong Baos eskader)"
+              }
+            },
+            {
+              "at": [75.8, 11.2],
+              "name": {
+                "sv": "Calicut (efter att flottan seglat mot Hormuz)"
+              }
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        },
+        {
+          "from": 1433.0,
+          "to": 1433.5,
+          "edtf": "1433",
+          "path": [[75.8, 11.2],[75.6, 11.3],[65.0, 14.0],[52.3, 12.9],[52.0, 12.5],[45.0, 12.3],[43.4, 12.6],[42.5, 13.8],[42.0, 15.0],[38.8, 20.5],[39.0, 21.5],[38.8, 21.5],[38.8, 21.0],[38.9, 20.8],[38.9, 20.8],[39.8, 21.4]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [39.8, 21.4],
+              "name": {
+                "sv": "Mecka (sju man ur Hong Baos eskader)"
+              }
+            }
+          ],
+          "sources": ["wp-ming-treasure-voyages"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schema": "historia-globen/events@1",
-  "notes": "start/end = astronomiska år (ISO 8601): 0 = 1 f.Kr., -1 = 2 f.Kr. precision = Wikidatas skala (7 = århundrade, 8 = decennium, 9 = år, 11 = dag). location = GeoJSON [lon, lat]. review: draft | source-checked | two-sources. kind = \"war\" för krig (spann); partOf = krigets id för slag och händelser i ett krig. top = true för krigets enda viktigaste händelse, som syns även utzoomat; major = true för viktiga händelser där fokusläget pausar; i fokusläge syns krigets alla händelser. icon = namn på en ikon i img/icons/ (valfritt).",
+  "notes": "start/end = astronomiska år (ISO 8601): 0 = 1 f.Kr., -1 = 2 f.Kr. precision = Wikidatas skala (7 = århundrade, 8 = decennium, 9 = år, 11 = dag). location = GeoJSON [lon, lat]. review: draft | source-checked | two-sources. kind = \"war\" för krig (spann); partOf = krigets id för slag och händelser i ett krig. top = true för krigets enda viktigaste händelse, som syns även utzoomat; major = true för viktiga händelser där fokusläget pausar; i fokusläge syns krigets alla händelser. icon = namn på en ikon i img/icons/ (valfritt). empires = grupp-id i data/empires/index.json för riken som var krigförande part i ett krig (valfritt, #76); slagen ärver dem via partOf.",
   "events": [
     { "id": "cheopspyramiden", "category": "kultur", "icon": "pyramid", "start": -2599, "end": -2599, "precision": 7, "edtf": "-2599~",
       "location": { "type": "Point", "coordinates": [31.134, 29.979] }, "place": { "sv": "Giza, Egypten" },
@@ -23,7 +23,7 @@
       "image": {"file": "images/events/olympiska-spelen.webp", "kind": "illustration", "style": "antik", "caption": {"sv": "Illustration i stil med antik grekisk svartfigurig vasmålning, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "Historical illustration of the ancient Olympic Games at Olympia, Greece, beginning in the 8th century BCE, rendered as an ancient Greek black-figure vase painting on warm terracotta ceramic. Several athletic runners compete in a footrace, shown in rhythmic side profile with stylized anatomy and energetic poses; restrained ornamental bands frame the scene. Black slip figures with incised interior details and small red and cream accents, authentic ceramic surface, subtle firing variation, scratches, chips and natural aging. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical artifact. No readable text, no invented letters, no logos, no blood, no dead bodies. No close-up portrait of any historical person. Avoid precise numerical, cartographic or other unsupported factual details."},
       "wikidata": "Q188468", "sources": ["wp-olympics", "wikidata"], "review": "two-sources" },
 
-    { "id": "perserkrigen", "category": "krig", "icon": "swords", "kind": "war", "start": -498, "end": -448, "precision": 9, "edtf": "-0498/-0448~",
+    { "id": "perserkrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["persiska-riket"], "start": -498, "end": -448, "precision": 9, "edtf": "-0498/-0448~",
       "location": { "type": "Point", "coordinates": [27.2756, 37.5311] }, "locationPrecision": "region", "place": { "sv": "Jonien i västra Mindre Asien (började i Miletos, i dagens Turkiet)" },
       "title": { "sv": "Perserkrigen" },
       "summary": { "sv": "Från 499 till 449 f.Kr. krigar grekiska stadsstater mot det persiska Akemenidriket. Kriget börjar med ett uppror i de grekiska städerna i Mindre Asien. Perserkungarna Dareios I och Xerxes I anfaller sedan Grekland två gånger men slås tillbaka vid Marathon, Salamis och Plataiai." },
@@ -86,7 +86,7 @@
       "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Redan antika författare var oense om freden. Diodoros skriver att den slöts, medan Thukydides inte nämner någon fred och Kallisthenes och Theopompos verkar förneka den. Bland moderna historiker godtar en del freden, andra tror att det bara fanns en överenskommelse utan fördrag. Wikidata anger 449 f.Kr." } },
       "wikidata": "Q370709", "sources": ["wp-greco-persian-wars", "wp-peace-of-callias", "wikidata"], "review": "source-checked" },
 
-    { "id": "alexanders-faltag", "category": "krig", "icon": "swords", "kind": "war", "start": -335, "end": -322, "precision": 9, "edtf": "-0335/-0322-06",
+    { "id": "alexanders-faltag", "category": "krig", "icon": "swords", "kind": "war", "empires": ["alexanders-rike", "persiska-riket"], "start": -335, "end": -322, "precision": 9, "edtf": "-0335/-0322-06",
       "location": { "type": "Point", "coordinates": [22.5192, 40.76] }, "locationPrecision": "region", "place": { "sv": "Makedonien (började när Alexander blev kung i Pella, i dagens Grekland)" },
       "title": { "sv": "Alexander den stores fälttåg" },
       "summary": { "sv": "Från 336 till 323 f.Kr. erövrar den makedoniske kungen Alexander den store det persiska Akemenidriket. Hans armé tågar genom Mindre Asien, Syrien, Egypten, Mesopotamien och Iran ända till floden Indus i dagens Pakistan. När Alexander dör i Babylon 323 f.Kr. delas riket av hans generaler." },
@@ -139,7 +139,7 @@
       "note": { "title": { "sv": "Om dödsorsaken" }, "text": { "sv": "Varför Alexander dog har diskuterats i årtusenden, och historiker tolkar de antika källorna olika. Datumet är angivet i den julianska kalendern. Wikidata anger samma dag, 10 juni 323 f.Kr., men ingen plats, så platsen har bara en kontrollerad källa." } },
       "wikidata": "Q5247391", "sources": ["wp-death-of-alexander", "wp-wars-of-alexander"], "review": "source-checked" },
 
-    { "id": "puniska-krigen", "category": "krig", "icon": "swords", "kind": "war", "start": -263, "end": -145, "precision": 9, "edtf": "-0263/-0145",
+    { "id": "puniska-krigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["romarriket", "kartago"], "start": -263, "end": -145, "precision": 9, "edtf": "-0263/-0145",
       "location": { "type": "Point", "coordinates": [15.5542, 38.1936] }, "locationPrecision": "region", "place": { "sv": "Sicilien (började vid Messana, dagens Messina)" },
       "title": { "sv": "De puniska krigen" },
       "summary": { "sv": "Tre krig mellan Romerska republiken och Karthago, med huvudstad i dagens Tunisien, från 264 till 146 f.Kr. De utkämpas på Sicilien, i Italien, på Iberiska halvön och i Nordafrika. Romarna vinner alla tre, och det sista slutar med att Karthago förstörs." },
@@ -193,7 +193,7 @@
       "summary": { "sv": "Efter nästan tre års belägring stormar romarna under Scipio Aemilianus Karthago tidigt år 146 f.Kr. Under en vecka förstörs staden och många invånare dödas, och 50 000 som tas till fånga säljs som slavar. Karthagos land blir den romerska provinsen Africa." },
       "wikidata": "Q815160", "sources": ["wp-siege-of-carthage-146", "wp-punic-wars", "wikidata"], "review": "two-sources" },
 
-    { "id": "chu-han-kriget", "category": "krig", "icon": "swords", "kind": "war", "start": -205, "end": -201, "precision": 9, "edtf": "-0205/-0201",
+    { "id": "chu-han-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["hanriket"], "start": -205, "end": -201, "precision": 9, "edtf": "-0205/-0201",
       "location": { "type": "Point", "coordinates": [108.7092, 34.3297] }, "locationPrecision": "region", "place": { "sv": "Guanzhong runt Qins gamla huvudstad Xianyang, nordvästra Kina (samtidigt uppror i Qi i öster)" },
       "title": { "sv": "Chu–Han-kriget" },
       "summary": { "sv": "Ett inbördeskrig i Kina mellan Qindynastins fall 206 f.Kr. och Handynastins grundande 202 f.Kr. Det står främst mellan Xiang Yu, härskare i Västra Chu, och Liu Bang, kung av Han. Liu Bang vinner och blir Handynastins förste kejsare." },
@@ -242,7 +242,7 @@
       "image": {"file": "images/events/konfucius.webp", "kind": "illustration", "style": "kina-tusch", "caption": {"sv": "Illustration i stil med kinesisk tuschmålning på siden, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "Historical illustration evoking Confucius teaching in ancient Qufu, China, circa 551–479 BCE, rendered in the tradition of a Chinese ink painting on a silk handscroll with restrained mineral colors. A respected teacher, understood symbolically as Confucius but not portrayed as a recognizable portrait, sits or stands at a distance beneath an old tree with a small group of students listening nearby. Layered mountain landscape, mist, rocks and sparse vegetation surround the scene; human figures remain small within the landscape. Expressive black ink brushwork, delicate washes, muted mineral green, blue and warm earth pigments, visible silk fibers, subtle stains, creases and natural aging. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical document. No readable calligraphy, no seals, no invented letters, no logos, no close-up portraits, no blood, no dead bodies. Avoid precise architectural, numerical, cartographic or other unsupported factual details."},
       "wikidata": "Q4604", "sources": ["wp-confucius", "wikidata"], "review": "two-sources" },
 
-    { "id": "qins-enandekrig", "category": "krig", "icon": "swords", "kind": "war", "start": -229, "end": -220, "precision": 9, "edtf": "-0229/-0220",
+    { "id": "qins-enandekrig", "category": "krig", "icon": "swords", "kind": "war", "empires": ["qinriket"], "start": -229, "end": -220, "precision": 9, "edtf": "-0229/-0220",
       "location": { "type": "Point", "coordinates": [113.725, 34.396] }, "locationPrecision": "region", "place": { "sv": "Norra och mellersta Kina (började i staten Han)" },
       "title": { "sv": "Qins enandekrig" },
       "summary": { "sv": "Mellan 230 och 221 f.Kr. erövrar staten Qin de sex andra krigande staterna, en i taget. Qins kung Ying Zheng utropar sig sedan till Kinas förste kejsare, Qin Shi Huang." },
@@ -326,7 +326,7 @@
       "image": {"file": "images/events/sjoslaget-vid-dan-no-ura.webp", "kind": "historisk", "style": "medeltid", "caption": {"sv": "Sjöslaget vid Dan-no-ura, två av åtta paneler i målningen om kejsar Antoku, på guldpapper. Tillskriven Tosa Mitsunobu, före cirka 1525. Utsnitt. Licens: Public domain."}, "credit": "Tosa Mitsunobu / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-sjoslaget-vid-dan-no-ura"},
       "wikidata": "Q968676", "sources": ["wp-dan-no-ura", "wp-genpei-war", "wikidata"], "review": "two-sources" },
 
-    { "id": "mongolernas-invasioner-av-japan", "category": "krig", "icon": "swords", "kind": "war", "start": 1274, "end": 1281, "precision": 10, "edtf": "1274-11/1281-08",
+    { "id": "mongolernas-invasioner-av-japan", "category": "krig", "icon": "swords", "kind": "war", "empires": ["mongolriket"], "start": 1274, "end": 1281, "precision": 10, "edtf": "1274-11/1281-08",
       "location": { "type": "Point", "coordinates": [129.333, 34.417] }, "locationPrecision": "region", "place": { "sv": "Norra Kyushu och öarna Tsushima och Iki, Japan (började på Tsushima)" },
       "title": { "sv": "Mongolernas invasioner av Japan" },
       "summary": { "sv": "Kublai khan, som härskade över mongolernas Yuanrike i Kina, försökte två gånger, 1274 och 1281, erövra Japan med flottor från Korea och Kina. Båda invasionerna misslyckades. Den andra flottan förstördes av en tyfon som japanerna kallade kamikaze, ”gudomlig vind”." },
@@ -361,7 +361,7 @@
       "image": {"file": "images/events/tyfonen-kamikaze-1281.webp", "kind": "historisk", "style": "medeltid", "caption": {"sv": "Den mongoliska flottan förstörs i en tyfon. Tusch och vattenfärg på papper av Kikuchi Yōsai, 1847, i Tokyos nationalmuseum. En konstnärs bild över 500 år senare. Licens: Public domain."}, "credit": "Kikuchi Yōsai / Tokyos nationalmuseum via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-tyfonen-kamikaze-1281"},
       "wikidata": "Q1565008", "sources": ["wp-mongol-invasions-japan", "wp-koan", "wp-kamikaze-typhoon", "wikidata"], "review": "source-checked" },
 
-    { "id": "imjinkriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1592, "end": 1598, "precision": 11, "edtf": "1592-05-23/1598-12-16",
+    { "id": "imjinkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["mingdynastin"], "start": 1592, "end": 1598, "precision": 11, "edtf": "1592-05-23/1598-12-16",
       "location": { "type": "Point", "coordinates": [129.053, 35.163] }, "locationPrecision": "region", "place": { "sv": "Korea och haven runt Koreahalvön (började vid Busan)" },
       "title": { "sv": "Imjinkriget" },
       "summary": { "sv": "Japans härskare Toyotomi Hideyoshi invaderade Korea två gånger, 1592 och 1597, med målet att erövra Kina. Korea och Mingkina drev till slut ut japanerna, men Korea ödelades. Den koreanska flottan under amiral Yi Sun-sin störde japanernas förbindelser över havet och fick stor betydelse." },
@@ -413,7 +413,7 @@
       "image": {"file": "images/events/sjoslaget-vid-noryang.webp", "kind": "illustration", "style": "korea-joseon", "caption": {"sv": "Illustration i stil med koreansk tusch- och färgmålning från Joseontiden, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-30", "license": "CC BY 4.0", "prompt": "Style: Korean Joseon-era ink and colour painting on silk, fine brushwork, muted mineral colours. Subject: Sjöslaget vid Noryang — Noryangsundet vid ön Namhae, Korea, 1598 CE. What happened (show only this, do not add details): Tidigt på morgonen den 16 december 1598 anfaller koreanska och kinesiska skepp under Yi Sun-sin och Chen Lin den japanska flottan i Noryangsundet, när japanerna försöker ta sig hem. Mer än hälften av de japanska skeppen förstörs eller erövras. Yi Sun-sin träffas av en kula och dör. Det är krigets sista stora slag. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details."},
       "wikidata": "Q484271", "sources": ["wp-noryang", "wp-imjin-war", "wikidata"], "review": "two-sources" },
 
-    { "id": "forsta-opiumkriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1839, "end": 1842, "precision": 11, "edtf": "1839-09-04/1842-08-29",
+    { "id": "forsta-opiumkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "qingdynastin"], "start": 1839, "end": 1842, "precision": 11, "edtf": "1839-09-04/1842-08-29",
       "location": { "type": "Point", "coordinates": [114.171, 22.293] }, "locationPrecision": "region", "place": { "sv": "Kinas kust från Pärlfloden till Yangtze (började vid Kowloon, i dagens Hongkong)" },
       "title": { "sv": "Första opiumkriget" },
       "summary": { "sv": "Ett krig 1839–1842 mellan Storbritannien och Qingkina, som började när Kina slog till mot den brittiska opiumhandeln. Den brittiska flottan besegrade de kinesiska styrkorna, och i Nanjingfördraget fick Storbritannien Hongkongön och fem hamnar öppnade för handel." },
@@ -459,7 +459,7 @@
       "image": {"file": "images/events/sokrates.webp", "kind": "illustration", "style": "antik", "caption": {"sv": "Illustration i stil med antik grekisk rödfigurig vasmålning, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "Historical illustration evoking Socrates in philosophical conversation on the agora of Athens, circa 470–399 BCE, rendered as an ancient Greek red-figure vase painting on black-glazed terracotta. A small group of adult men converse and gesture beneath simple colonnades suggesting the Athenian agora; Socrates is only implied as one figure within the group, shown at a distance and not as a recognizable portrait. Red-orange figures against a deep black ground, fine dark contour lines and interior details, restrained ornamental borders, authentic ceramic texture with subtle firing variation, scratches, chips and natural aging. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical artifact. No readable text, no invented letters, no logos, no close-up portraits, no blood, no dead bodies. Avoid precise numerical, cartographic or other unsupported factual details."},
       "wikidata": "Q913", "sources": ["wp-socrates", "wikidata"], "review": "two-sources" },
 
-    { "id": "kalingakriget", "category": "krig", "icon": "swords", "kind": "war", "start": -261, "end": -260, "precision": 9, "edtf": "-0261~/-0260~",
+    { "id": "kalingakriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["mauryariket"], "start": -261, "end": -260, "precision": 9, "edtf": "-0261~/-0260~",
       "location": { "type": "Point", "coordinates": [85.8395, 20.1924] }, "locationPrecision": "region", "place": { "sv": "Kalinga på Indiens östkust, i dagens Odisha" },
       "title": { "sv": "Kalingakriget" },
       "summary": { "sv": "Mauryarikets kejsare Ashoka erövrar kungariket Kalinga vid Bengaliska viken, omkring 261 f.Kr. Enligt Ashokas egna inskrifter dödades 100 000 människor och 150 000 fördes bort. Kriget fick honom att ta avstånd från erövringskrig." },
@@ -537,7 +537,7 @@
       "image": {"file": "images/events/tredje-slaget-vid-panipat.webp", "kind": "historisk", "style": "miniatyr", "caption": {"sv": "Tredje slaget vid Panipat: kanonlinjerna som skjuter mot varandra syns i mitten. Teckning i Faizabadstil, cirka 1770, i British Library. Licens: Public domain."}, "credit": "Okänd konstnär / British Library via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-tredje-slaget-vid-panipat"},
       "wikidata": "Q1259218", "sources": ["wp-third-panipat", "wikidata"], "review": "two-sources" },
 
-    { "id": "indiska-upproret-1857", "category": "krig", "icon": "swords", "kind": "war", "start": 1857, "end": 1858, "precision": 11, "edtf": "1857-05-10/1858-11-01",
+    { "id": "indiska-upproret-1857", "category": "krig", "icon": "swords", "kind": "war", "empires": ["mogulriket", "brittiska-imperiet"], "start": 1857, "end": 1858, "precision": 11, "edtf": "1857-05-10/1858-11-01",
       "location": { "type": "Point", "coordinates": [77.71, 28.98] }, "locationPrecision": "region", "place": { "sv": "Norra och mellersta Indien (började i Meerut)" },
       "title": { "sv": "Indiska upproret 1857" },
       "summary": { "sv": "Ett stort uppror mot Brittiska Ostindiska kompaniets styre i Indien. Det började som ett myteri bland indiska soldater (sepoyer) i Meerut och spreds till fler myterier och civila uppror, främst i Gangesslätten och mellersta Indien. Upproret slogs ned 1858, och därefter tog den brittiska kronan över styret av Indien." },
@@ -636,7 +636,7 @@
       "image": {"file": "images/events/kleopatra.webp", "kind": "illustration", "style": "antik", "caption": {"sv": "Illustration i stil med antik romersk freskomålning, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "Historical illustration evoking Cleopatra’s Alexandria in the 1st century BCE, rendered as a Roman-style fresco on aged plaster. A broad view of Alexandria’s busy harbor with Mediterranean sailing vessels and the monumental lighthouse rising in the distance; quays, warehouses and small human figures establish the port atmosphere. Cleopatra herself is not portrayed. Warm fresco pigments, muted red, ochre, blue-green, cream and black, simplified classical perspective and forms, rich plaster texture, cracks, abrasions and natural pigment loss. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical document. No readable text, no invented letters, no logos, no close-up portraits, no blood, no dead bodies. Avoid precise numerical, cartographic or unsupported architectural details."},
       "wikidata": "Q635", "sources": ["wp-cleopatra", "wikidata"], "review": "two-sources" },
 
-    { "id": "etiopisk-adalska-kriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1529, "end": 1543, "precision": 11, "edtf": "1529-03-09/1543-02-21",
+    { "id": "etiopisk-adalska-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["portugisiska-imperiet", "osmanska-riket", "etiopiska-kejsardomet"], "start": 1529, "end": 1543, "precision": 11, "edtf": "1529-03-09/1543-02-21",
       "location": { "type": "Point", "coordinates": [42.128, 9.311] }, "locationPrecision": "region", "place": { "sv": "Etiopiska kejsardömet, i dag Etiopien och Eritrea (började i Dawaro)" },
       "title": { "sv": "Etiopisk-adalska kriget" },
       "summary": { "sv": "Ett krig mellan det kristna Etiopiska kejsardömet och det muslimska Adalsultanatet på Afrikas horn, 1529–1543. Adals imam Ahmad ibn Ibrahim al-Ghazi erövrade större delen av kejsardömet, men med hjälp av portugisiska musketörer vann Etiopien till slut, och Ahmad stupade vid Wayna Daga." },
@@ -686,7 +686,7 @@
       "image": {"file": "images/events/slaget-vid-wayna-daga.webp", "kind": "historisk", "style": "islamisk", "caption": {"sv": "Imam Ahmads fall och död, skjuten av en portugisisk musketerare. Etiopisk folkteckning av Kegneketa Jemlieri Hailu från Gondar, cirka 1900, i Horniman Museum i London. Licens: CC0."}, "credit": "Kegneketa Jemlieri Hailu / Horniman Museum via Wikimedia Commons", "license": "CC0", "source": "commons-bild-slaget-vid-wayna-daga"},
       "wikidata": "Q957263", "sources": ["wp-wayna-daga", "wp-ethiopian-adal-war", "wikidata"], "review": "two-sources" },
 
-    { "id": "forsta-italiensk-etiopiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1895, "end": 1896, "precision": 11, "edtf": "1895-01-13/1896-10-23",
+    { "id": "forsta-italiensk-etiopiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["etiopiska-kejsardomet"], "start": 1895, "end": 1896, "precision": 11, "edtf": "1895-01-13/1896-10-23",
       "location": { "type": "Point", "coordinates": [39.2206, 14.8139] }, "locationPrecision": "region", "place": { "sv": "Italienska Eritrea och Etiopien (började vid Coatit i dagens Eritrea)" },
       "title": { "sv": "Första italiensk-etiopiska kriget" },
       "summary": { "sv": "Ett krig mellan Italien och Etiopien 1895–1896. Italien ville göra Etiopien till protektorat, men kejsar Menelik II samlade hela landet bakom sig, och vid Adwa 1896 besegrade den etiopiska armén italienarna. Etiopien förblev självständigt, och segern blev en symbol för hela Afrika." },
@@ -727,7 +727,7 @@
       "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Wikipedias artikel om fördraget och Wikidata anger att det undertecknades den 26 oktober 1896, men faktarutan i samma artikel och artikeln om kriget anger den 23 oktober." } },
       "wikidata": "Q2399119", "sources": ["wp-treaty-addis-ababa", "wp-first-italo-ethiopian-war", "wikidata"], "review": "source-checked" },
 
-    { "id": "rifkriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1921, "end": 1926, "precision": 9, "edtf": "1921/1926",
+    { "id": "rifkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "franska-kolonialvaldet"], "start": 1921, "end": 1926, "precision": 9, "edtf": "1921/1926",
       "location": { "type": "Point", "coordinates": [-3.5805, 35.1276] }, "locationPrecision": "region", "place": { "sv": "Rif i norra Marocko, då spanskt protektorat (började kring Annual)" },
       "title": { "sv": "Rifkriget" },
       "summary": { "sv": "Ett antikolonialt krig 1921–1926 mellan berberstammarna i Rifbergen i norra Marocko och Spanien, som fick hjälp av Frankrike från 1924–1925. Under Abd el-Krim besegrade rifberberna den spanska armén vid Annual och grundade Rifrepubliken, men övermakten och den spanska giftgasen avgjorde till slut kriget." },
@@ -770,7 +770,7 @@
       "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Wikipedias artikel om kriget anger 27 maj 1926, och Wikidata anger samma dag för republikens upplösning. Artikeln om Rifrepubliken anger att han gav upp till marskalk Pétain den 26 maj 1926." } },
       "sources": ["wp-rif-war", "wp-republic-of-the-rif", "wikidata"], "review": "source-checked" },
 
-    { "id": "algeriska-frihetskriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1954, "end": 1962, "precision": 11, "edtf": "1954-11-01/1962-03-19",
+    { "id": "algeriska-frihetskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["franska-kolonialvaldet"], "start": 1954, "end": 1962, "precision": 11, "edtf": "1954-11-01/1962-03-19",
       "location": { "type": "Point", "coordinates": [3.05, 36.7667] }, "locationPrecision": "region", "place": { "sv": "Franska Algeriet (började med samordnade anfall över hela landet)" },
       "title": { "sv": "Algeriska frihetskriget" },
       "summary": { "sv": "Ett krig mellan Frankrike och den algeriska befrielsefronten FLN 1954–1962, som slutade med att Algeriet blev självständigt. Det var ett gerillakrig med svåra övergrepp och tortyr, som också blev ett inbördeskrig mellan och inom folkgrupperna och fällde den franska fjärde republiken." },
@@ -910,7 +910,7 @@
       "image": {"file": "images/events/digerdoden.webp", "kind": "illustration", "style": "medeltid", "caption": {"sv": "Illustration i stil med gotisk medeltida handskrift på pergament, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "Historical illustration evoking the Black Death in Europe, 1346–1353, rendered as a Gothic illuminated manuscript on aged parchment. A quiet medieval town street with closed wooden doors and shuttered windows; a small solemn procession of townspeople and clergy moves through the street at a distance, conveying grief, uncertainty and absence without depicting illness graphically. Gothic buildings, restrained marginal foliage and small decorative figures, touches of worn gold leaf, deep blue, muted red, green, ochre and brown pigments. Rich parchment fibers, stains, creases, rubbed pigment and natural aging. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical document. No readable text, no invented letters, no logos, no close-up portraits, no blood, no corpses or dead bodies, no graphic suffering. Avoid precise numerical, cartographic or other unsupported factual details."},
       "wikidata": "Q42005", "sources": ["wp-black-death", "wikidata"], "review": "source-checked" },
 
-    { "id": "mongolernas-erovringar", "category": "krig", "icon": "swords", "kind": "war", "start": 1209, "end": 1279, "precision": 10, "edtf": "1209-04/1279-03-19",
+    { "id": "mongolernas-erovringar", "category": "krig", "icon": "swords", "kind": "war", "empires": ["mongolriket", "songdynastin", "kievriket", "abbasidkalifatet"], "start": 1209, "end": 1279, "precision": 10, "edtf": "1209-04/1279-03-19",
       "location": { "type": "Point", "coordinates": [106.225, 38.485] }, "locationPrecision": "region", "place": { "sv": "Asien och Östeuropa (började i Västra Xia, dagens nordvästra Kina)" },
       "title": { "sv": "Mongolernas erövringar" },
       "summary": { "sv": "Under 1200-talet erövrade mongolerna, först under Djingis khan och sedan under hans ättlingar, stora delar av Asien och Östeuropa. Fälttågen skapade det största sammanhängande riket i historien. Här visas tiden från det första stora fälttåget 1209 till Songdynastins fall 1279." },
@@ -984,7 +984,7 @@
       "image": {"file": "images/events/gutenberg.webp", "kind": "illustration", "style": "renassans", "caption": {"sv": "Illustration i stil med renässansträsnitt eller kopparstick med fin skraffering, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "Historical illustration of a printing workshop in Mainz, Germany, around 1440, evoking Gutenberg’s early movable-type printing, rendered as a Renaissance woodcut or copper engraving in dense black linework with restrained hand coloring. Inside a compact workshop, several craftspeople operate a sturdy wooden screw press, arrange small pieces of movable type in type cases, prepare paper and work at benches. Gutenberg himself is not singled out or portrayed; all people are seen at a moderate distance. Fine cross-hatching, carved-line texture, strong light and shadow, muted hand-applied ochre, red, blue and green accents, aged rag-paper texture, slight stains, worn edges and natural printing imperfections. High detail. Landscape orientation, 4:3. Clearly an artistic historical illustration, never photorealistic and never presented as an authentic surviving historical document. Any sheets, books or type must contain no readable text or invented letters; use only indistinct abstract marks where necessary. No logos, no close-up portraits, no blood, no dead bodies. Avoid precise technical dimensions, named printed works or other unsupported factual details."},
       "wikidata": "Q144334", "sources": ["wp-printing-press", "wikidata"], "review": "source-checked" },
 
-    { "id": "napoleonkrigen", "category": "krig", "icon": "swords", "kind": "war", "start": 1803, "end": 1815, "precision": 11, "edtf": "1803-05-18/1815-11-20",
+    { "id": "napoleonkrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "habsburgska-riket", "ryska-imperiet", "spanska-imperiet", "portugisiska-imperiet", "svenska-stormaktsvaldet", "preussen", "nederlandska-kolonialvaldet"], "start": 1803, "end": 1815, "precision": 11, "edtf": "1803-05-18/1815-11-20",
       "location": { "type": "Point", "coordinates": [-0.128, 51.507] }, "locationPrecision": "region", "place": { "sv": "Europa och haven runt den (började med Storbritanniens krigsförklaring mot Frankrike)" },
       "title": { "sv": "Napoleonkrigen" },
       "summary": { "sv": "En rad krig 1803–1815 där skiftande koalitioner av europeiska stater stred mot Frankrike under Napoleon. Frankrike dominerade en tid stora delar av Europa men besegrades till slut. Enligt uppskattningar dog från knappt 3 upp till 5 miljoner soldater, många av sjukdomar." },
@@ -1067,7 +1067,7 @@
       "image": {"file": "images/events/machu-picchu.webp", "kind": "illustration", "style": "inka", "caption": {"sv": "Illustration i stil med andinsk textil- och keramikkonst med geometriska inkamönster, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "A richly textured, hand-painted Andean manuscript panorama portrays Machu Picchu as a cinematic citadel of terraces, stone buildings, grazing llamas, tiny inhabitants, misty clouds, and towering blue-gray peaks, including a Huayna Picchu–like summit. In the foreground, solemnly dressed Inca-inspired figures in patterned ponchos and headdresses observe the ruins, led by a noble holding a sun-emblazoned staff, all enclosed by an ornate, weathered parchment border of geometric motifs, solar glyphs, birds, llamas, mountains, and stylized human panels in earthy reds, ochres, golds, teal, and cream."},
       "wikidata": "Q676203", "sources": ["wp-machu-picchu", "wikidata"], "review": "two-sources" },
 
-    { "id": "spanska-erovringen-av-aztekriket", "category": "krig", "icon": "swords", "kind": "war", "start": 1519, "end": 1521, "precision": 11, "edtf": "1519-02/1521-08-13",
+    { "id": "spanska-erovringen-av-aztekriket", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "aztekriket"], "start": 1519, "end": 1521, "precision": 11, "edtf": "1519-02/1521-08-13",
       "location": { "type": "Point", "coordinates": [-96.131, 19.209] }, "locationPrecision": "region", "place": { "sv": "Centrala Mexiko (började vid golfkusten nära San Juan de Ulúa)" },
       "title": { "sv": "Spanska erövringen av Aztekriket" },
       "summary": { "sv": "Mellan 1519 och 1521 störtar en liten spansk styrka under Hernán Cortés, tillsammans med tiotusentals krigare från ursprungsfolk som Tlaxcala, Trippelalliansen med huvudstaden Tenochtitlan. Smittkoppor dödar miljoner människor under kriget." },
@@ -1132,7 +1132,7 @@
       "image": {"file": "images/events/tenochtitlans-fall.webp", "kind": "historisk", "style": "aztekisk-kodex", "caption": {"sv": "Tenochtitlans fall, ur en målningsserie om erövringen av Mexiko från andra hälften av 1600-talet. Okänd konstnär. Utsnitt. Licens: Public domain."}, "credit": "Okänd konstnär / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-tenochtitlans-fall"},
       "wikidata": "Q593267", "sources": ["wp-fall-tenochtitlan", "wp-conquest-aztec", "wikidata"], "review": "two-sources" },
 
-    { "id": "spanska-erovringen-av-inkariket", "category": "krig", "icon": "swords", "kind": "war", "start": 1532, "end": 1572, "precision": 9, "edtf": "1532/1572",
+    { "id": "spanska-erovringen-av-inkariket", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "inkariket"], "start": 1532, "end": 1572, "precision": 9, "edtf": "1532/1572",
       "location": { "type": "Point", "coordinates": [-80.46, -3.571] }, "locationPrecision": "region", "place": { "sv": "Anderna, från Ecuador till Peru (började vid Tumbes på Perus nordkust)" },
       "title": { "sv": "Spanska erövringen av Inkariket" },
       "summary": { "sv": "Från 1532 erövrar spanjorerna under Francisco Pizarro, med hjälp av folk som inkafolket hade underkuvat, Tawantinsuyu, inkafolkets rike i Anderna. Motståndet fortsätter i fyrtio år från den nya inkastaten i Vilcabamba, tills den siste inkan Túpac Amaru avrättas 1572." },
@@ -1378,7 +1378,7 @@
       "image": {"file": "images/events/columbus.webp", "kind": "illustration", "style": "renassans", "variant": "portolan", "caption": {"sv": "Illustration i stil med portolankarta från 1400-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "Historical illustration evoking Columbus reaching the Caribbean islands in October 1492, in the style of a late 15th-century portolan chart on aged parchment. Three caravels approach tropical islands across the Atlantic, with a small distant landing scene. Ornamental compass roses, rhumb lines, decorative maritime borders, stylized waves, ships and sea creatures. Muted mineral pigments, ink outlines, rich parchment fibers, stains and natural aging. Landscape orientation, 4:3. Clearly an artistic historical illustration, not a photograph or authentic historical chart. No readable text, invented letters, logos, blood or dead bodies. No exact geographical claims or close-up portraits."},
       "sources": ["wp-columbus", "whe-columbus"], "review": "two-sources" },
 
-    { "id": "ramses-krig-mot-hettiterna", "category": "krig", "icon": "swords", "kind": "war", "start": -1274, "end": -1258, "precision": 9, "edtf": "-1274~/-1258~",
+    { "id": "ramses-krig-mot-hettiterna", "category": "krig", "icon": "swords", "kind": "war", "empires": ["egypten"], "start": -1274, "end": -1258, "precision": 9, "edtf": "-1274~/-1258~",
       "location": { "type": "Point", "coordinates": [36.498, 34.555] }, "locationPrecision": "region", "place": { "sv": "Syrien och Levanten (striderna gällde Amurru och Kadesh)" },
       "title": { "sv": "Ramses II:s krig mot hettiterna" },
       "summary": { "sv": "Egypten under Ramses II och hettiternas rike stred om makten i Syrien. Kriget började när Ramses tog Amurru, fortsatte med slaget vid Kadesh och slutade cirka 1259 f.Kr. med det äldsta fredsfördrag som finns bevarat. Årtalen följer den vanliga, så kallade låga kronologin." },
@@ -1408,7 +1408,7 @@
       "note": { "title": { "sv": "Om dateringen" }, "text": { "sv": "Wikipedia anger att fördraget slöts cirka 1259 f.Kr. och ratificerades under Ramses II:s 21:a regeringsår, 1258 f.Kr. Wikidata anger 1259 f.Kr. Fördraget kallas ibland Kadeshfördraget, men slaget nämns inte i texten." } },
       "wikidata": "Q253155", "sources": ["wp-egyptian-hittite-treaty", "wikidata"], "review": "two-sources" },
 
-    { "id": "arabiska-erovringarna", "category": "krig", "icon": "swords", "kind": "war", "start": 622, "end": 750, "precision": 9, "edtf": "0622/0750",
+    { "id": "arabiska-erovringarna", "category": "krig", "icon": "swords", "kind": "war", "empires": ["umayyadkalifatet", "sasanidriket", "romarriket", "tangdynastin", "frankerriket"], "start": 622, "end": 750, "precision": 9, "edtf": "0622/0750",
       "location": { "type": "Point", "coordinates": [39.61, 24.47] }, "locationPrecision": "region", "place": { "sv": "Från Arabiska halvön till Spanien och Indusdalen (började i Medina)" },
       "title": { "sv": "De arabiska erövringarna" },
       "summary": { "sv": "Under drygt hundra år, 622–750, växte den islamiska staten från Medina till ett välde från Sind i dagens Pakistan till Iberiska halvön, uppskattningsvis 13 miljoner kvadratkilometer. Erövringarna kallas också de tidiga muslimska eller islamiska erövringarna." },
@@ -1654,7 +1654,7 @@
       "image": {"file": "images/events/harvard.webp", "kind": "illustration", "style": "renassans", "caption": {"sv": "Illustration i stil med svartvitt historiskt kopparstick, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "A panoramic, text-free black-and-white copperplate engraving depicts a tranquil early-colonial riverside settlement surrounded by dense wilderness, rendered with meticulous hatching, crosshatching, and a thin antique-print border. A wooded, rocky foreground frames a small rowboat with period-clad figures, while across the calm inlet sit a pitched-roof house, outbuildings, fencing, dock, workers, and scattered tools; distant islands, forested hills, a sailboat, reflective water, and expansive etched clouds complete the historic New England atmosphere."},
       "wikidata": "Q13371", "sources": ["wp-harvard", "wikidata"], "review": "two-sources" },
 
-    { "id": "amerikanska-frihetskriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1775, "end": 1783, "precision": 11, "edtf": "1775-04-19/1783-09-03",
+    { "id": "amerikanska-frihetskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "brittiska-imperiet", "nederlandska-kolonialvaldet"], "start": 1775, "end": 1783, "precision": 11, "edtf": "1775-04-19/1783-09-03",
       "location": { "type": "Point", "coordinates": [-71.231, 42.449] }, "locationPrecision": "region", "place": { "sv": "Östra Nordamerika, Karibien och Atlanten (började vid Lexington och Concord i Massachusetts)" },
       "title": { "sv": "Amerikanska frihetskriget" },
       "summary": { "sv": "Kriget 1775–1783 där tretton brittiska kolonier i Nordamerika, med stöd av Frankrike, Spanien och Nederländerna, vann sin självständighet från Storbritannien och blev USA. Det var också ett inbördeskrig mellan patrioter och lojalister, och ursprungsfolk och förslavade fanns på båda sidor." },
@@ -1741,7 +1741,7 @@
       "image": {"file": "images/events/telefonen.webp", "kind": "illustration", "style": "1800-tal", "caption": {"sv": "Illustration i stil med svartvit tidningsgravyr från 1800-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "A monochrome, richly crosshatched 19th-century engraving depicts an early telephone demonstration in a cluttered Victorian laboratory: at left, a bearded inventor in a dark suit leans over a workbench to speak into a horn-shaped transmitter, while a wire crosses the room to a seated, mustached man on the right listening through a round receiver. Surrounding them are schematics, telegraph apparatus, bottles, tools, books, gauges, wooden tables, tall windows, and period furnishings, all rendered with crisp linework, stippling, and an aged newspaper-print texture."},
       "sources": ["wp-telephone", "eb1911-telephone", "wilber-1886"], "review": "two-sources" },
 
-    { "id": "spanskamerikanska-sjalvstandighetskrigen", "category": "krig", "icon": "swords", "kind": "war", "start": 1808, "end": 1833, "precision": 11, "edtf": "1808-09-25/1833-09-29",
+    { "id": "spanskamerikanska-sjalvstandighetskrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "storcolombia"], "start": 1808, "end": 1833, "precision": 11, "edtf": "1808-09-25/1833-09-29",
       "location": { "type": "Point", "coordinates": [-100.937, 21.152] }, "locationPrecision": "region", "place": { "sv": "Spanska Amerika, från Mexiko till Río de la Plata (punkten: Dolores i Mexiko, där upproret 1810 började)" },
       "title": { "sv": "De spanskamerikanska självständighetskrigen" },
       "summary": { "sv": "En rad krig i Spaniens amerikanska kolonier, från Mexiko i norr till Chile och Río de la Plata i söder. De började när Spaniens kungamakt bröt samman efter Napoleons invasion 1808 och slutade med att nya självständiga stater bildades. Spanien behöll bara Kuba och Puerto Rico." },
@@ -1811,7 +1811,7 @@
       "image": {"file": "images/events/wright.webp", "kind": "illustration", "style": "affisch", "caption": {"sv": "Illustration i stil med art deco-affisch med platta färgfält och tryckraster, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "An Art Deco–inspired vintage poster depicts the Wright brothers’ first flight, using muted cream, ochre, rust, navy, tan, and brown in bold geometric blocks, thick borders, sunburst rays, halftone grain, and no readable text. A wood-and-cloth biplane with a low-seated pilot soars above windswept dunes and distant water, watched by two silhouetted men in period clothing, while a small shed or hangar, scattered equipment, grasses, and stylized clouds complete the heroic retro lithograph scene."},
       "wikidata": "Q46047837", "sources": ["wp-wright", "wikidata"], "review": "two-sources" },
 
-    { "id": "forsta-varldskriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1914, "end": 1918, "precision": 11, "edtf": "1914-07-28/1918-11-11",
+    { "id": "forsta-varldskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "ryska-imperiet", "osmanska-riket", "franska-kolonialvaldet", "japanska-imperiet", "tyska-riket", "osterrike-ungern"], "start": 1914, "end": 1918, "precision": 11, "edtf": "1914-07-28/1918-11-11",
       "location": { "type": "Point", "coordinates": [20.457, 44.818] }, "locationPrecision": "region", "place": { "sv": "Europa, Mellanöstern, Afrika, Stilla havet och Atlanten (började vid Belgrad, Serbien)" },
       "title": { "sv": "Första världskriget" },
       "summary": { "sv": "Ett världsomspännande krig 1914–1918 mellan de allierade (ententen) och centralmakterna. Det hör till de dödligaste krigen i historien: uppskattningsvis 15–22 miljoner soldater och civila dog." },
@@ -1916,7 +1916,7 @@
       "image": {"file": "images/events/sputnik.webp", "kind": "illustration", "style": "rymdalder", "caption": {"sv": "Illustration i stil med rymdålderns affischkonst från 1950-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "Vintage Soviet space-propaganda poster style: a grainy, mid-century graphic scene in bold navy, cream, blue, red, and orange, with no readable text. A Sputnik-like metallic sphere with long antennae and motion trails crosses the starry upper-right sky, while awed silhouetted adults, a child, and a small crowd gaze upward from the foreground beside a spired city skyline, river, radiant sunrise beams, and a sweeping stylized Earth beneath."},
       "wikidata": "Q80811", "sources": ["wp-sputnik", "wikidata"], "review": "two-sources" },
 
-    { "id": "andra-varldskriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1939, "end": 1945, "precision": 11, "edtf": "1939-09-01/1945-09-02",
+    { "id": "andra-varldskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "franska-kolonialvaldet", "sovjetunionen", "japanska-imperiet"], "start": 1939, "end": 1945, "precision": 11, "edtf": "1939-09-01/1945-09-02",
       "location": { "type": "Point", "coordinates": [18.671, 54.408] }, "locationPrecision": "region", "place": { "sv": "Hela världen: Europa, Asien, Afrika, Stilla havet och Atlanten (började med anfallet på Polen)" },
       "title": { "sv": "Andra världskriget" },
       "summary": { "sv": "Det dödligaste kriget i historien, mellan de allierade och axelmakterna. Nästan alla världens länder deltog, och striderna gick i Europa, Asien, Nordafrika och på världshaven. Uppskattningsvis 60–75 miljoner människor dog, de flesta civila." },
@@ -2020,7 +2020,7 @@
       "image": {"file": "images/events/apollo-11.webp", "kind": "illustration", "style": "rymdalder", "caption": {"sv": "Illustration i stil med rymdålderns affischkonst från 1960-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "Retro mid-century space poster depicting the Moon landing in a grainy, lithographic style with muted creams, navy, ochre, gold, blue, and rust-red tones, framed by bold graphic arcs and a clean beige border. A faceted Apollo-style lunar module anchors the rocky foreground beside two opaque-helmeted astronauts, long shadows, footprints, and scattered boulders, while a large Earthrise glows on the right against a stark, star-speckled black sky."},
       "wikidata": "Q43653", "sources": ["wp-apollo-11", "wikidata"], "review": "two-sources" },
 
-    { "id": "anglo-zuluiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1879, "end": 1879, "precision": 11, "edtf": "1879-01-11/1879-07-04",
+    { "id": "anglo-zuluiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet"], "start": 1879, "end": 1879, "precision": 11, "edtf": "1879-01-11/1879-07-04",
       "location": { "type": "Point", "coordinates": [30.537, -28.358] }, "locationPrecision": "region", "place": { "sv": "Zuluriket i dagens Sydafrika (började vid Rorke's Drift)" },
       "title": { "sv": "Anglo-zuluiska kriget" },
       "summary": { "sv": "Ett krig mellan Brittiska imperiet och Zuluriket i nuvarande Sydafrika, från januari till juli 1879. Zulufolket vann vid Isandlwana, men Storbritannien vann kriget och delade sedan upp Zuluriket." },
@@ -2151,7 +2151,7 @@
       "image": {"file": "images/events/nintendo.webp", "kind": "historisk", "style": "japan-ukiyoe", "caption": {"sv": "Hanafuda-kort av typen mushibana från Nintendo, tidig Shōwa-tid (1926–1945), flera decennier efter grundandet. Licens: Public domain."}, "credit": "Nintendo / Japan Playing Card Museum via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-nintendo"},
       "wikidata": "Q8093", "sources": ["wp-nintendo", "wp-kyoto", "wikidata"], "review": "two-sources" },
 
-    { "id": "koreakriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1950, "end": 1953, "precision": 11, "edtf": "1950-06-25/1953-07-27",
+    { "id": "koreakriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["sovjetunionen"], "start": 1950, "end": 1953, "precision": 11, "edtf": "1950-06-25/1953-07-27",
       "location": { "type": "Point", "coordinates": [127.0, 38.0] }, "locationPrecision": "region", "place": { "sv": "Koreahalvön och haven runt den (började vid 38:e breddgraden)" },
       "title": { "sv": "Koreakriget" },
       "summary": { "sv": "Krig på Koreahalvön mellan Nordkorea och Sydkorea och deras allierade. Kina och Sovjetunionen stödde Nordkorea, och FN-styrkor under amerikansk ledning stödde Sydkorea. Omkring en miljon soldater och uppskattningsvis 1,5–3 miljoner civila dog. Striderna upphörde med ett vapenstillestånd 1953, men något fredsavtal har aldrig skrivits." },
@@ -2475,7 +2475,7 @@
       "image": {"file": "images/events/ieyasu-dor.webp", "kind": "historisk", "style": "japan-ukiyoe", "caption": {"sv": "Porträtt av Tokugawa Ieyasu, målat av Kanō Tan'yū under tidig Edo-tid. Licens: Public domain."}, "credit": "Kanō Tan'yū / Osaka slott via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-ieyasu-dor"},
       "wikidata": "Q171977", "sources": ["wp-tokugawa-ieyasu", "wp-sunpu-castle", "wikidata"], "review": "two-sources" },
 
-    { "id": "haitiska-revolutionen", "category": "krig", "icon": "swords", "kind": "war", "start": 1791, "end": 1804, "precision": 11, "edtf": "1791-08-21/1804-01-01",
+    { "id": "haitiska-revolutionen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "brittiska-imperiet"], "start": 1791, "end": 1804, "precision": 11, "edtf": "1791-08-21/1804-01-01",
       "location": { "type": "Point", "coordinates": [-72.2, 19.76] }, "locationPrecision": "region", "place": { "sv": "Saint-Domingue, i dag Haiti (började på norra slätten vid Le Cap, i dag Cap-Haïtien)" },
       "title": { "sv": "Haitiska revolutionen" },
       "summary": { "sv": "Förslavade afrikaner i den franska kolonin Saint-Domingue gjorde uppror 1791. Det blev början på tretton års krig, där även Spanien och Storbritannien blandade sig i. Revolutionen slutade med att Haiti blev självständigt 1804, som den enda stat som har grundats efter ett lyckat slavuppror." },
@@ -2560,7 +2560,7 @@
       "image": {"file": "images/events/taj-mahal.webp", "kind": "historisk", "style": "miniatyr", "caption": {"sv": "Taj Mahal i Agra med trädgården framför. Fotokrom (färglagt tryck efter fotografi) från Photoglob Co. i Zürich, cirka 1890–1910. Library of Congress anger inga kända restriktioner för publicering."}, "credit": "Photoglob Co., Zürich / Library of Congress, Prints & Photographs Division (LC-DIG-ppmsca-41418)", "license": "Inga kända restriktioner (Library of Congress)", "source": "loc-taj-mahal-photochrom"},
       "sources": ["wp-taj-mahal", "whe-taj-mahal"], "review": "source-checked" },
 
-    { "id": "nya-zeelandkrigen", "category": "krig", "icon": "swords", "kind": "war", "start": 1845, "end": 1872, "precision": 11, "edtf": "1845-03-11/1872-05-15",
+    { "id": "nya-zeelandkrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet"], "start": 1845, "end": 1872, "precision": 11, "edtf": "1845-03-11/1872-05-15",
       "location": { "type": "Point", "coordinates": [174.122, -35.262] }, "locationPrecision": "region", "place": { "sv": "Nordön, Nya Zeeland (började vid Kororāreka i Bay of Islands)" },
       "title": { "sv": "Nya Zeelandkrigen (Ngā pakanga o Aotearoa)" },
       "summary": { "sv": "En rad krig 1845–1872 mellan Nya Zeelands koloniala regering, brittiska trupper och maorier som stod på regeringens sida, och maoriska iwi (stammar) som försvarade sin jord och sitt självstyre. På maori kallas de Ngā pakanga o Aotearoa; tidigare hette de också landkrigen eller maorikrigen. Kriget slutade med att regeringen konfiskerade stora markområden från maorierna." },
@@ -2614,7 +2614,7 @@
       "summary": { "sv": "Den andlige ledaren Te Kooti Arikirangi Te Turuki har jagats i fyra år av regeringstrupper och maoriska styrkor. De sista skotten i Nya Zeelandkrigen avlossas den 14 februari 1872. Den 15 maj 1872 går Te Kooti över Waikatofloden och får asyl hos maorikungen Tāwhiao. Han benådas 1883." },
       "sources": ["wp-te-kooti-war", "wp-king-country"], "review": "source-checked" },
 
-    { "id": "australiska-granskrigen", "category": "krig", "icon": "swords", "kind": "war", "start": 1788, "end": 1934, "precision": 9, "edtf": "1788/1934",
+    { "id": "australiska-granskrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet"], "start": 1788, "end": 1934, "precision": 9, "edtf": "1788/1934",
       "location": { "type": "Point", "coordinates": [151.212, -33.859] }, "locationPrecision": "region", "place": { "sv": "Hela Australien (började vid Sydney Cove, Warrane på eora)" },
       "title": { "sv": "De australiska gränskrigen" },
       "summary": { "sv": "Våldsamma konflikter mellan Australiens urfolk och främst brittiska nybyggare, soldater och polis, från de första månaderna efter att den brittiska kolonin grundades 1788 till åtminstone 1928, på sina håll till 1934. Striderna var lokala och spridda över hela kontinenten, ofta som räder och massakrer snarare än slag. Antalet döda är omstritt, men tiotusentals aboriginer dödades." },
@@ -2770,7 +2770,7 @@
       "image": {"file": "images/events/sista-giljotinen.webp", "kind": "illustration", "style": "rymdalder", "variant": "dokumentar", "caption": {"sv": "Illustration i stil med dokumentär tidningsillustration från 1970-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-30", "license": "CC BY 4.0", "prompt": "Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: Sista avrättningen med giljotin — Baumettesfängelset, Marseille, Frankrike, 1977 CE. What happened (show only this, do not add details): Hamida Djandoubi avrättas med giljotin i Marseille den 10 september 1977. Han blir den siste som avrättas i Frankrike innan dödsstraffet avskaffas 1981. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details."},
       "wikidata": "Q465589", "sources": ["wp-hamida-djandoubi", "wp-baumettes", "wikidata"], "review": "two-sources" },
 
-    { "id": "taipingupproret", "category": "krig", "icon": "swords", "kind": "war", "start": 1850, "end": 1864, "precision": 10, "edtf": "1850-12/1864-08",
+    { "id": "taipingupproret", "category": "krig", "icon": "swords", "kind": "war", "empires": ["qingdynastin"], "start": 1850, "end": 1864, "precision": 10, "edtf": "1850-12/1864-08",
       "location": { "type": "Point", "coordinates": [110.083, 23.4] }, "locationPrecision": "region", "place": { "sv": "Södra och mellersta Kina (började i Guangxi)" },
       "title": { "sv": "Taipingupproret" },
       "summary": { "sv": "Ett inbördeskrig i Kina mellan Qingdynastin och det upproriska Taipings himmelska rike, främst utkämpat längs Yangtzefloden. Det räknas som det dödligaste inbördeskriget i historien. De flesta uppskattningar ligger på 20–30 miljoner döda, men vissa går upp till 100 miljoner." },
@@ -3013,7 +3013,7 @@
       "note": { "title": { "sv": "Bara en källa" }, "text": { "sv": "Händelsen har ingen post med datum i Wikidata, så den har inte kunnat jämföras med en andra källa. Wikidata anger ett annat slutdatum för hela kriget, 30 juni 2003." } },
       "sources": ["wp-second-congo-war"], "review": "source-checked" },
 
-    { "id": "trettioariga-kriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1618, "end": 1648, "precision": 11, "edtf": "1618-05-23/1648-10-24",
+    { "id": "trettioariga-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["svenska-stormaktsvaldet", "tysk-romerska-riket", "habsburgska-riket", "spanska-imperiet", "nederlandska-kolonialvaldet", "preussen"], "start": 1618, "end": 1648, "precision": 11, "edtf": "1618-05-23/1648-10-24",
       "location": { "type": "Point", "coordinates": [14.421, 50.088] }, "locationPrecision": "region", "place": { "sv": "Centraleuropa (började i Prag)" },
       "title": { "sv": "Trettioåriga kriget" },
       "summary": { "sv": "Ett av de mest förödande krigen i Europas historia, främst utkämpat i Centraleuropa. Uppskattningsvis 4,5–8 miljoner soldater och civila dog av strider, svält eller sjukdom." },
@@ -3076,7 +3076,7 @@
       "summary": { "sv": "Fredsavtalen i Osnabrück och Münster undertecknas den 24 oktober 1648 och avslutar kriget." },
       "wikidata": "Q150995", "sources": ["wp-peace-westphalia", "wp-munster", "wikidata"], "review": "two-sources" },
 
-    { "id": "stora-nordiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1700, "end": 1721, "precision": 11, "edtf": "1700-02-22/1721-09-10",
+    { "id": "stora-nordiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["svenska-stormaktsvaldet", "osmanska-riket", "ryska-imperiet", "preussen"], "start": 1700, "end": 1721, "precision": 11, "edtf": "1700-02-22/1721-09-10",
       "location": { "type": "Point", "coordinates": [24.107, 56.948] }, "locationPrecision": "region", "place": { "sv": "Norra, mellersta och östra Europa (började vid Riga i svenska Livland)" },
       "title": { "sv": "Stora nordiska kriget" },
       "summary": { "sv": "Ett krig om makten kring Östersjön 1700–1721. En koalition ledd av Ryssland bröt Sveriges ställning som stormakt, och Ryssland blev den ledande makten i regionen. Troligen dog mer än en miljon människor." },
@@ -3182,6 +3182,124 @@
       "title": { "sv": "Guru Nanak grundar sikhismen" },
       "summary": { "sv": "Sikhismen växer fram i Punjab runt slutet av 1400-talet, ur Guru Nanaks lära. Han lever 1469–1539 och är den förste av sikhismens guruer." },
       "image": {"file": "images/events/guru-nanak.webp", "kind": "historisk", "style": "miniatyr", "caption": {"sv": "Guru Nanak i en väggmålning i Gurdwara Baba Atal, 1800-talet, målad av bland andra Jaimal Singh Naqqash. Fotografi av Amritpal Singh Mann. Licens: CC BY-SA 4.0."}, "credit": "Jaimal Singh Naqqash m.fl. (målning), Amritpal Singh Mann (foto) / Wikimedia Commons", "license": "CC BY-SA 4.0", "source": "commons-bild-guru-nanak"},
-      "wikidata": "Q83322", "sources": ["wp-guru-nanak", "wp-sikhism", "wp-nankana-sahib", "wikidata"], "review": "two-sources" }
+      "wikidata": "Q83322", "sources": ["wp-guru-nanak", "wp-sikhism", "wp-nankana-sahib", "wikidata"], "review": "two-sources" },
+    {"id": "texas-sjalvstandighet", "category": "civilisationer", "icon": "scroll", "start": 1836, "end": 1836, "precision": 11, "edtf": "1836-03-02", "location": {"type": "Point", "coordinates": [-96.157, 30.325]}, "place": {"sv": "Washington-on-the-Brazos, Texas"}, "title": {"sv": "Texas förklarar sig självständigt"}, "summary": {"sv": "Ett konvent i Washington-on-the-Brazos antar 2 mars 1836 Texas självständighetsförklaring från Mexiko, mitt under Texasrevolutionen. Republiken Texas finns sedan i knappt tio år, tills den blir en delstat i USA."}, "wikidata": "Q1186774", "sources": ["wp-texas-declaration", "wp-washington-on-the-brazos", "wp-republic-of-texas", "wikidata"], "review": "source-checked"},
+    {"id": "hawaiis-monarki-stortas", "category": "civilisationer", "icon": "crown", "start": 1893, "end": 1893, "precision": 11, "edtf": "1893-01-17", "location": {"type": "Point", "coordinates": [-157.859, 21.307]}, "place": {"sv": "ʻIolani Palace, Honolulu, Hawaiʻi"}, "title": {"sv": "Monarkin på Hawaiʻi störtas"}, "summary": {"sv": "Den 17 januari 1893 läser Säkerhetskommitténs ordförande upp en kungörelse framför ʻIolani Palace i Honolulu: drottning Liliʻuokalani är avsatt, monarkin avskaffad och en provisorisk regering tillsatt. På kommitténs begäran har USA:s sändebud skickat i land amerikanska marinsoldater. Kungariket Hawaii har funnits sedan 1795."}, "wikidata": "Q10931943", "sources": ["wp-overthrow-hawaiian-kingdom", "wp-iolani-palace", "wp-hawaiian-kingdom", "wikidata"], "review": "two-sources"},
+    {"id": "moresnet-blir-belgiskt", "category": "civilisationer", "icon": "treaty", "start": 1920, "end": 1920, "precision": 11, "edtf": "1920-01-10", "location": {"type": "Point", "coordinates": [6.013, 50.73]}, "place": {"sv": "Kelmis, Belgien"}, "title": {"sv": "Neutrala Moresnet blir belgiskt"}, "summary": {"sv": "Neutrala Moresnet, ett område på 3,5 km² kring en zinkgruva som grannländerna har styrt gemensamt sedan 1816, går enligt Versaillesfreden till Belgien. Den 10 januari 1920 blir det kommunen Kelmis."}, "sources": ["wp-neutral-moresnet", "wd-neutral-moresnet"], "review": "two-sources"},
+
+    { "id": "goa-1510", "category": "krig", "icon": "swords", "start": 1510, "end": 1510, "precision": 11, "edtf": "1510-11-25",
+      "location": { "type": "Point", "coordinates": [73.9117, 15.5024] }, "place": { "sv": "Gamla Goa, Indien" },
+      "title": { "sv": "Portugal erövrar Goa" },
+      "summary": { "sv": "Den portugisiske guvernören Afonso de Albuquerque tar staden Goa från sultanatet Bijapur, med stöd av Timoji och hans trupper. Han tog staden en första gång i februari 1510 men drevs ut av sultanen Ismail Adil Shah i maj; den 25 november stormas staden igen. Soldaterna får plundra den i fyra dagar, och de muslimer som inte har flytt dödas på guvernörens order. Goa blir huvudstad i Portugisiska Indien och förblir portugisiskt i över 450 år, tills Indien tar området i december 1961." },
+      "wikidata": "Q2357384", "sources": ["wp-portuguese-conquest-goa", "wp-goa", "wikidata"], "review": "two-sources" },
+
+    { "id": "batavia-1619", "category": "civilisationer", "icon": "ship", "start": 1619, "end": 1619, "precision": 11, "edtf": "1619-05-30",
+      "location": { "type": "Point", "coordinates": [106.8132, -6.1348] }, "place": { "sv": "Jayakarta, i dag Jakarta, Indonesien" },
+      "title": { "sv": "Nederländarna grundar Batavia på Jayakartas ruiner" },
+      "summary": { "sv": "Det nederländska Ostindiska kompaniets guvernör Jan Pieterszoon Coen kommer tillbaka med förstärkningar den 28 maj 1619 och låter två dagar senare jämna staden Jayakarta med marken och driva bort invånarna. På ruinerna byggs ett fort och en stad som får namnet Batavia 1621. Den blir centrum för kompaniets handel i Asien och sedan huvudstad i Nederländska Ostindien. Batavia förblir en europeisk kolonistad i omkring 320 år, tills Japan ockuperar den 1942. I det självständiga Indonesien heter staden Jakarta." },
+      "wikidata": "Q133521490", "sources": ["wp-batavia", "wikidata"], "review": "two-sources" },
+
+    { "id": "kapkolonin-1652", "category": "civilisationer", "icon": "ship", "start": 1652, "end": 1652, "precision": 11, "edtf": "1652-04-06",
+      "location": { "type": "Point", "coordinates": [18.4167, -33.9167] }, "place": { "sv": "Kapstaden, Sydafrika" },
+      "title": { "sv": "Nederländarna grundar Kapkolonin" },
+      "summary": { "sv": "En expedition från Ostindiska kompaniet under Jan van Riebeeck grundar 1652 en station vid Godahoppsudden, där kompaniets fartyg på väg mellan Nederländerna och Batavia kan få nya förråd. Den blir Kapstaden och början på Kapkolonin. Marken vid foten av Taffelberget var khoikhoifolkets betesmark, och när nybyggarna tog den började det första av krigen mellan khoikhoi och nederländarna. Krig och smittkoppor, bland annat 1713 och 1755, bröt sedan ner khoikhoisamhällena, och de drevs bort bortom kolonins gränser." },
+      "wikidata": "Q4807130", "sources": ["wp-dutch-cape-colony", "wikidata"], "review": "two-sources" },
+
+    { "id": "jamestown-1607", "category": "civilisationer", "icon": "ship", "start": 1607, "end": 1607, "precision": 11, "edtf": "1607-05-14",
+      "location": { "type": "Point", "coordinates": [-76.7775, 37.2092] }, "place": { "sv": "Jamestown, Virginia, USA" },
+      "title": { "sv": "Engelsmännen grundar Jamestown" },
+      "summary": { "sv": "Virginiakompaniet i London grundar James Fort vid James River den 14 maj 1607 (4 maj enligt den gamla kalendern). Det blir den första bestående engelska bosättningen i Amerika. Ön de valde användes av paspaheghfolket, och bara 60 av de 214 första bosättarna överlevde svältvintern 1609–1610. Relationerna med powhatanfolket blev snart krig. I augusti 1619 kom de första dokumenterade förslavade afrikanerna till kolonin, och 1622 slog urfolket tillbaka i ett uppror som ödelade bosättningarna runt Jamestown." },
+      "wikidata": "Q323813", "sources": ["wp-jamestown", "wikidata"], "review": "two-sources" },
+
+    { "id": "slavhandeln-forbjuds-1807", "category": "ekonomi", "icon": "treaty", "start": 1807, "end": 1807, "precision": 11, "edtf": "1807-03-25",
+      "location": { "type": "Point", "coordinates": [-0.1242, 51.4994] }, "place": { "sv": "Brittiska parlamentet, London" },
+      "title": { "sv": "Storbritannien förbjuder slavhandeln" },
+      "summary": { "sv": "Det brittiska parlamentet antar en lag som förbjuder slavhandeln över Atlanten i hela det brittiska imperiet, efter 18 års försök. Lagen får kungligt samtycke den 25 mars 1807 och börjar gälla den 1 maj. Den befriar inte dem som redan är förslavade; slaveriet förblir lagligt i större delen av imperiet till 1833. Brittiska fartyg hade dittills fört omkring en tredjedel av alla förslavade över Atlanten, ungefär 3,5 miljoner människor. Bakom förbudet låg både kampanjer i Storbritannien och de förslavades eget motstånd: uppror ombord och i Amerika drev på debatten. Handeln fortsatte olagligt, och över en fjärdedel av alla som fördes över Atlanten skeppades efter 1807." },
+      "wikidata": "Q770832", "sources": ["wp-slave-trade-act-1807", "wp-atlantic-slave-trade"], "review": "source-checked" },
+
+    { "id": "lei-aurea-1888", "category": "civilisationer", "icon": "treaty", "start": 1888, "end": 1888, "precision": 11, "edtf": "1888-05-13",
+      "location": { "type": "Point", "coordinates": [-43.2056, -22.9111] }, "locationPrecision": "country", "place": { "sv": "Brasilien (huvudstaden Rio de Janeiro)" },
+      "title": { "sv": "Brasilien avskaffar slaveriet" },
+      "summary": { "sv": "Den 13 maj 1888 skriver prinsessan Isabel, som styr i stället för sin far kejsar Pedro II, under Lei Áurea, den gyllene lagen. Den avskaffar slaveriet i Brasilien, som blir det sista landet i Amerika att göra det. Brasilien tog emot fler förslavade afrikaner än något annat land. De förslavade gjorde motstånd under hela tiden, bland annat genom att fly och bilda egna samhällen, quilombos, som Palmares." },
+      "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Hur många som fördes till Brasilien är osäkert. Wikipedia om slaveriet i Brasilien skriver omkring 5,5 miljoner mellan 1540 och 1860-talet, medan artikeln om Lei Áurea räknar med 40 procent av 10 miljoner, alltså omkring 4 miljoner." } },
+      "wikidata": "Q1519167", "sources": ["wp-lei-aurea", "wp-slavery-in-brazil"], "review": "source-checked" },
+
+    { "id": "indiens-sjalvstandighet", "category": "civilisationer", "icon": "scroll", "start": 1947, "end": 1947, "precision": 11, "edtf": "1947-08-15",
+      "location": { "type": "Point", "coordinates": [77.2089, 28.6139] }, "place": { "sv": "New Delhi, Indien" },
+      "title": { "sv": "Indien blir självständigt" },
+      "summary": { "sv": "Vid midnatt mellan den 14 och 15 augusti 1947 upphör det brittiska styret i Indien. En lag i det brittiska parlamentet delar Brittiska Indien i två självständiga stater, Indien och Pakistan, som då också omfattar dagens Bangladesh. Självständigheten var målet för en lång frihetsrörelse, känd för icke-våldsligt motstånd och civil olydnad under Mahatma Gandhis ledning. I New Delhi håller Jawaharlal Nehru sitt tal om mötet med ödet och blir Indiens förste premiärminister. Delningen följs av massvåld: mellan 12 och 20 miljoner människor drivs på flykt, och uppskattningarna av antalet döda går från 200 000 till 2 miljoner." },
+      "sources": ["wp-independence-day-india", "wp-indian-independence-act", "wp-partition-of-india"], "review": "source-checked" },
+
+    { "id": "indonesiens-sjalvstandighet", "category": "civilisationer", "icon": "scroll", "start": 1945, "end": 1945, "precision": 11, "edtf": "1945-08-17",
+      "location": { "type": "Point", "coordinates": [106.8269, -6.1753] }, "place": { "sv": "Sukarnos hus på Jalan Pegangsaan Timur 56, Jakarta, Indonesien" },
+      "title": { "sv": "Indonesien utropar sin självständighet" },
+      "summary": { "sv": "Den 17 augusti 1945 läser Sukarno upp Indonesiens självständighetsförklaring vid sitt hus i Jakarta. Den är undertecknad av honom och Mohammad Hatta, som dagen efter blir president och vicepresident. Nederländerna vill ta tillbaka sin koloni, och fyra års väpnat och diplomatiskt motstånd följer, den indonesiska nationella revolutionen. Omkring 100 000 indonesier dödas, enligt den högsta uppskattningen 250 000. Efter rundabordskonferensen i Haag lämnar Nederländerna över makten den 27 december 1949. Först 2023 erkände Nederländerna den 17 augusti 1945 som Indonesiens självständighetsdag." },
+      "wikidata": "Q1661772", "sources": ["wp-proclamation-indonesia", "wp-indonesian-revolution", "wp-round-table-conference-1949", "wikidata"], "review": "two-sources" },
+
+    { "id": "ghanas-sjalvstandighet", "category": "civilisationer", "icon": "scroll", "start": 1957, "end": 1957, "precision": 11, "edtf": "1957-03-06",
+      "location": { "type": "Point", "coordinates": [-0.1969, 5.556] }, "place": { "sv": "Accra, Ghana" },
+      "title": { "sv": "Ghana blir självständigt" },
+      "summary": { "sv": "Den 6 mars 1957 blir den brittiska kolonin Guldkusten självständig under namnet Ghana, med Kwame Nkrumah som premiärminister. Han säger till folket att afrikanerna kan sköta sina egna angelägenheter och att Ghana är fritt för alltid. Vägen dit gick genom en nationalistisk rörelse efter andra världskriget: oroligheterna i Accra 1948, Nkrumahs parti CPP från 1949 och kampanjen positive action med strejker och icke-våldsligt motstånd, som gav honom fängelse men också folkets stöd. Ghana är ett av de första länderna söder om Sahara som blir fria från europeiskt kolonialstyre." },
+      "sources": ["wp-gold-coast-colony", "wp-independence-day-ghana"], "review": "source-checked" },
+
+    { "id": "afrikas-ar-1960", "category": "civilisationer", "icon": "scroll", "start": 1960, "end": 1960, "precision": 9, "edtf": "1960",
+      "location": { "type": "Point", "coordinates": [11.5181, 3.8578] }, "locationPrecision": "region", "place": { "sv": "Afrika (först ut Kamerun, med huvudstaden Yaoundé, den 1 januari)" },
+      "title": { "sv": "Afrikas år: 17 kolonier blir självständiga" },
+      "summary": { "sv": "Under 1960 blir 17 afrikanska kolonier självständiga: 14 från Frankrike, två från Storbritannien och en från Belgien. Antalet självständiga länder i Afrika ökar från nio till 26. Först ut är Kamerun den 1 januari, och sedan följer bland andra Togo, Madagaskar, Somalia, båda Kongo och Nigeria den 1 oktober. Det är höjdpunkten för de afrikanska självständighetsrörelserna. Samma år börjar den väpnade kampen mot apartheid i Sydafrika, och i Kongo störtas premiärministern Patrice Lumumba, som sedan torteras och avrättas. I december antar FN:s generalförsamling en förklaring om att alla folk har rätt till självbestämmande." },
+      "wikidata": "Q387647", "sources": ["wp-year-of-africa"], "review": "source-checked" },
+
+    {"id": "cocoliztli-1545", "category": "halsa", "start": 1545, "end": 1548, "precision": 9, "edtf": "1545/1548",
+      "location": {"type": "Point", "coordinates": [-98.2063, 19.0414]}, "locationPrecision": "region", "place": {"sv": "Mexikos högland, Nya Spanien (troligen först i trakten kring Puebla)"},
+      "title": {"sv": "Cocoliztli, den stora farsoten i Mexiko"},
+      "summary": {"sv": "Mellan 1545 och 1548 drabbas Mexikos högland av en farsot med hög feber och blödningar, som aztekerna kallar cocoliztli, \"pest\" på nahuatl. Uppskattningsvis 5–15 miljoner människor dör, upp till 80 procent av urbefolkningen, varav omkring 800 000 i Mexikodalen. Det är en av de värsta befolkningskatastroferna i historien. Ursprungsbefolkningen drabbas hårdast, eftersom den efter erövringen tvingats samman i nya byar, försvagad av krig och tvångsarbete, och farsoten kommer under en lång period av svår torka. Bristen på arbetskraft leder till hungersnöd, och spanjorerna lägger beslag på marken som de döda lämnar efter sig."},
+      "note": {"title": {"sv": "Vad var cocoliztli?"}, "text": {"sv": "Ingen vet säkert. Forskare har föreslagit en inhemsk virusorsakad blödarfeber som spreds av gnagare och förvärrades av torkan, medan DNA-analyser 2018 av skelett från Oaxaca hittade bakterien Salmonella Paratyphi C, som ger paratyfus. Andra forskare menar att symptomen inte stämmer med paratyfus. Dödssiffrorna är uppskattningar med stor osäkerhet."}},
+      "sources": ["wp-cocoliztli", "eid-acuna-soto-2002"], "review": "two-sources" },
+
+    {"id": "cocoliztli-1576", "category": "halsa", "start": 1576, "end": 1580, "precision": 9, "edtf": "1576/1580",
+      "location": {"type": "Point", "coordinates": [-99.1332, 19.4326]}, "locationPrecision": "region", "place": {"sv": "Mexikos högland, Nya Spanien"},
+      "title": {"sv": "Cocoliztli slår till igen"},
+      "summary": {"sv": "1576 kommer en ny stor cocoliztli-epidemi, efter en torka som sträckte sig från Venezuela till Kanada. Omkring 2–2,5 miljoner människor dör, ungefär hälften av den urbefolkning som fanns kvar efter farsoten 1545–1548. Läkaren Francisco Hernández ser sjukdomen på nära håll och beskriver hög feber, svår huvudvärk, svart tunga, gulsot och kraftiga blödningar. Efter epidemin bestämmer spanjorerna 1577 att skatten från urfolken bara får betalas i majs och pengar. Mexikos befolkning nådde inte samma nivå som före erövringen förrän på 1900-talet."},
+      "note": {"title": {"sv": "Källorna skiljer sig"}, "text": {"sv": "Wikipedia skriver att epidemin varade till omkring 1580 och dödade omkring två miljoner. Artikeln av Acuna-Soto med flera (2002) anger 1576–1578 och 2–2,5 miljoner döda. Vilken sjukdom det var är lika osäkert som för epidemin 1545."}},
+      "sources": ["wp-cocoliztli", "eid-acuna-soto-2002"], "review": "source-checked" },
+
+    {"id": "nya-lagarna-1542", "category": "civilisationer", "icon": "scroll", "start": 1542, "end": 1542, "precision": 11, "edtf": "1542-11-20",
+      "location": {"type": "Point", "coordinates": [2.1734, 41.3851]}, "place": {"sv": "Barcelona (lagarna gällde de spanska kolonierna i Amerika)"},
+      "title": {"sv": "Nya lagarna ska skydda urfolken i Amerika"},
+      "summary": {"sv": "Den 20 november 1542 utfärdar kejsar Karl V de Nya lagarna. Sedan 1502 hade spanska kolonister i Amerika kunnat få rätt att kräva arbete och skatt av grupper av urinvånare, encomienda, ett system som i praktiken blev ett slags slaveri. Burgoslagarna från 1512 skulle reglera arbetet men följdes dåligt. Efter protester från bland andra dominikanen Bartolomé de las Casas förbjuder nu de Nya lagarna att urinvånare görs till slavar, och encomiendan ska avvecklas genom att den inte längre får gå i arv. Kolonisterna gör motstånd: i Peru dödas vicekungen Blasco Núñez Vela 1546 av encomenderos under Gonzalo Pizarro, och i Mexiko låter vicekungen bli att genomföra lagarna. Delar av lagarna dras tillbaka 1545, men tusentals arbetare befrias."},
+      "wikidata": "Q1121487", "sources": ["wp-new-laws", "wp-encomienda", "wp-laws-of-burgos", "wikidata"], "review": "source-checked" },
+
+    {"id": "mita-i-potosi-1573", "category": "civilisationer", "start": 1573, "end": 1573, "precision": 9, "edtf": "1573",
+      "location": {"type": "Point", "coordinates": [-65.7531, -19.5836]}, "place": {"sv": "Potosí, Vicekungadömet Peru (i dag Bolivia)"},
+      "title": {"sv": "Tvångsarbetet mit'a börjar i silvergruvorna i Potosí"},
+      "summary": {"sv": "Vicekungen Francisco de Toledo gör om inkarikets arbetsplikt, mit'a, till tvångsarbete för Spaniens silvergruvor i berget Cerro Rico. De första arbetarna kommer till Potosí 1573. Byarna i ett område på nästan 520 000 kvadratkilometer, från södra Peru genom dagens Bolivia, måste skicka var sjunde vuxen man, omkring 13 000 män om året. De bär malm i säckar på 45–135 kilo uppför stegar i trånga schakt, och många dör i olyckor, av lunginflammation och av kvicksilverförgiftning. Tusentals flyr sina byar för att slippa. I slutet av 1600-talet har Övre Peru förlorat nästan hälften av sin urbefolkning jämfört med drygt hundra år tidigare."},
+      "note": {"title": {"sv": "Källorna skiljer sig"}, "text": {"sv": "Wikipedia om mit'a och om Potosí anger att de första arbetarna kom 1573, medan artikeln om Cerro Rico skriver att Toledo införde mit'a 1574. Hur många som dog i gruvorna är mycket osäkert: en uppskattning är åtta miljoner, men andra källor talar om hundratusentals och menar att åtta miljoner gäller hela Vicekungadömet Peru."}},
+      "sources": ["wp-mita", "wp-potosi", "wp-cerro-rico"], "review": "source-checked" },
+
+    {"id": "smittkoppor-sydney-1789", "category": "halsa", "start": 1789, "end": 1789, "precision": 10, "edtf": "1789-03/1789-05",
+      "location": {"type": "Point", "coordinates": [151.2093, -33.8523]}, "locationPrecision": "region", "place": {"sv": "Port Jackson vid Sydney, eora-folkets land, Australien"},
+      "title": {"sv": "Smittkoppor drabbar eora-folket vid Sydney"},
+      "summary": {"sv": "Omkring 16 månader efter att den brittiska kolonin grundats bryter en epidemi ut bland urfolken runt Port Jackson. Den började troligen i mars 1789 och klingade av i början av maj. I april märker britterna att kanoterna har försvunnit från viken, och de hittar sjuka och döda i klippskrevorna. Både guvernören Arthur Phillip och eoramannen Bennelong trodde att ungefär hälften av eora-folket i Sydneytrakten dog. Arabanoo, som bodde i kolonin och vårdade de sjuka, dog också. Ingen av de brittiska kolonisterna tycks ha insjuknat, men en sjöman från Nordamerika dog. Historikern Peter Dowling menar att epidemin troligen gjorde det omöjligt för urfolken att driva bort kolonin under dess första år."},
+      "note": {"title": {"sv": "Osäkert vilken sjukdom det var"}, "text": {"sv": "De flesta historiker kallar sjukdomen smittkoppor, som kolonisterna själva gjorde. Några läkare och forskare menar att det kan ha varit vattkoppor, som britterna var immuna mot men inte urfolken. Hur sjukdomen kom till Sydney, och hur många som dog, är fortfarande omdebatterat."}},
+      "sources": ["wp-smallpox-australia", "wp-1789-sydney-smallpox"], "review": "source-checked" },
+
+    {"id": "tararnas-vag", "category": "civilisationer", "start": 1830, "end": 1850, "precision": 9, "edtf": "1830/1850",
+      "location": {"type": "Point", "coordinates": [-84.9466, 35.0346]}, "locationPrecision": "region", "place": {"sv": "Sydöstra USA till Indianterritoriet, dagens Oklahoma (cherokeernas marsch började vid Red Clay, Tennessee)"},
+      "title": {"sv": "Tårarnas väg"},
+      "summary": {"sv": "Efter att USA:s president Andrew Jackson skrivit under Indian Removal Act den 28 maj 1830 tvingas omkring 60 000 människor ur cherokee, muskogee (creek), seminole, chickasaw och choctaw bort från sina hemländer i sydöstra USA till Indianterritoriet väster om Mississippifloden. Choctaw tvingas först, 1831, och cherokeerna sist: i maj 1838 får armén order att föra bort dem, och vintern 1838–1839 går de omkring 1 600 kilometer, de flesta till fots. Tusentals dör av sjukdomar, svält och kyla på vägen eller strax efter. Forskare beskriver fördrivningen som etnisk rensning eller folkmord."},
+      "note": {"title": {"sv": "Källorna skiljer sig"}, "text": {"sv": "Wikipedia skriver i löptexten att omkring 4 000 cherokeer dog under marschen, men i sin tabell anger samma artikel 4 000–8 000 döda för cherokeerna. Tabellen ger också 2 000–4 000 eller fler döda bland choctaw, 3 500–4 500 bland muskogee och 500–800 bland chickasaw."}},
+      "wikidata": "Q750448", "sources": ["wp-trail-of-tears", "wp-indian-removal-act"], "review": "source-checked" },
+
+    {"id": "kongofristaten", "category": "civilisationer", "start": 1885, "end": 1908, "precision": 9, "edtf": "1885-07-01/1908",
+      "location": {"type": "Point", "coordinates": [13.0567, -5.8547]}, "locationPrecision": "country", "place": {"sv": "Kongofristaten, i dag Demokratiska republiken Kongo (huvudstaden Boma)"},
+      "title": {"sv": "Kongofristaten, Leopold II:s privata koloni"},
+      "summary": {"sv": "Efter Berlinkonferensen får Belgiens kung Leopold II de europeiska makterna att erkänna honom som härskare över nästan hela Kongobäckenet, ett område på 2,35 miljoner kvadratkilometer. Kongofristaten är hans privata egendom, inte Belgiens, och han besöker den aldrig. Folket tvingas samla vilt gummi och elfenben, och armén Force Publique och koncessionsbolagen straffar med mord, piskning, brända byar och avhuggna händer. Tillsammans med sjukdomar som sömnsjuka, svält och flykt minskar befolkningen kraftigt. Missionärernas vittnesmål och Roger Casements rapport 1904 väcker en internationell protest, och 1908 tar Belgien över området som koloni, Belgiska Kongo."},
+      "note": {"title": {"sv": "Källorna skiljer sig"}, "text": {"sv": "Hur mycket befolkningen minskade är omstritt: moderna uppskattningar ligger mellan 1,2 och 10 miljoner människor, och forskare är oense om övergreppen ska kallas folkmord. Även datumen skiljer sig: Leopold tillkännagav namnet den 29 maj 1885, Wikipedia och Wikidata anger den 1 juli 1885 som början, och namnet ersatte officiellt det gamla den 1 augusti. Wikipedia anger att Belgien tog över den 15 november 1908, Wikidata den 2 april 1908."}},
+      "wikidata": "Q76048", "sources": ["wp-congo-free-state", "wp-congo-free-state-atrocities", "wikidata"], "review": "source-checked" },
+
+    {"id": "herero-och-nama-folkmordet", "category": "krig", "icon": "swords", "start": 1904, "end": 1908, "precision": 9, "edtf": "1904-01-12/1908",
+      "location": {"type": "Point", "coordinates": [16.9167, -21.9833]}, "locationPrecision": "region", "place": {"sv": "Tyska Sydvästafrika, i dag Namibia (upproret började kring Okahandja)"},
+      "title": {"sv": "Folkmordet på herero och nama"},
+      "summary": {"sv": "Den 12 januari 1904 gör hererofolket under Samuel Maharero uppror mot det tyska kolonialstyret, som tagit deras mark och boskap. Efter slaget vid Waterberg den 11 augusti 1904 flyr de flesta herero ut i Omahekeöknen, där många dör av törst och svält. Den tyske befälhavaren Lothar von Trotha beordrar att alla hereromän ska avrättas, men i praktiken dödas även kvinnor och barn. De som överlever spärras in i koncentrationsläger där ungefär hälften dör av sjukdom, svält och tvångsarbete. Nama under Hendrik Witbooi gör uppror i september 1904 och strider till 1908. Omkring 40 000–80 000 herero, 80 procent av folket, och omkring 10 000 nama, hälften av folket, dör. Tyskland erkände 2015 att det var ett folkmord."},
+      "wikidata": "Q312492", "sources": ["wp-herero-nama-genocide", "wikidata"], "review": "two-sources" }
   ]
 }

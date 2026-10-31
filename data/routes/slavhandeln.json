@@ -1,0 +1,173 @@
+{
+  "routes": [
+    {
+      "id": "slavhandel-triangeln",
+      "kind": "trade",
+      "category": "ekonomi",
+      "title": {
+        "sv": "Den transatlantiska slavhandeln: triangeln Europa – Västafrika – Amerika",
+        "en": "The transatlantic slave trade: the triangle Europe – West Africa – the Americas"
+      },
+      "summary": {
+        "sv": "Från 1500-talet till 1860-talet förs förslavade afrikaner över Atlanten till plantager och gruvor i Amerika. Från 1525 går fartyg direkt från den portugisiska kolonin São Tomé till Hispaniola. I den klassiska triangeln seglar fartyg från europeiska hamnar som Liverpool, Bristol och Nantes med textilier, vapen, krut och alkohol till Västafrika, där afrikanska härskare och köpmän säljer krigsfångar och andra tillfångatagna. Den andra sidan, mellanpassagen, går över Atlanten till Karibien och Amerika, och den tredje för socker, rom, tobak och bomull tillbaka till Europa. Engelsmannen John Hawkins räknas som den förste engelske köpmannen som tjänade på triangeln, från 1562. Den norra vindcirkeln i Nordatlanten band ihop Västeuropa, Västafrika, Karibien och Nordamerika. Enligt de flesta uppskattningar lastades omkring 12–12,8 miljoner afrikaner på slavskepp, och 1,5–2 miljoner dog under överfarten. Troligen dog många fler redan i Afrika, i krig, räder och på marscherna till kusten. De förslavade gjorde motstånd: från 1698 till 1807 finns 350 uppror ombord registrerade, och kanske vart tionde fartyg drabbades. Handeln förbjöds av Storbritannien 1807 men fortsatte olagligt, och det sista kända slavskeppet nådde Kuba 1867.",
+        "en": "From the 16th century to the 1860s, enslaved Africans are carried across the Atlantic to plantations and mines in the Americas. From 1525, ships sail directly from the Portuguese colony of São Tomé to Hispaniola. In the classic triangle, ships leave European ports such as Liverpool, Bristol and Nantes with textiles, guns, gunpowder and alcohol for West Africa, where African rulers and merchants sell war captives and others taken by force. The second side, the Middle Passage, crosses the Atlantic to the Caribbean and the Americas, and the third carries sugar, rum, tobacco and cotton back to Europe. John Hawkins is considered the first English merchant to profit from the triangle, from 1562. The northern wind system of the North Atlantic linked Western Europe, West Africa, the Caribbean and North America. Most estimates say about 12–12.8 million Africans were loaded onto slave ships, and 1.5–2 million died during the crossing. Probably many more died in Africa itself, in wars, raids and on the marches to the coast. The enslaved resisted: 350 shipboard revolts are recorded between 1698 and 1807, and perhaps one ship in ten was affected. Britain banned the trade in 1807, but it continued illegally, and the last known slave ship reached Cuba in 1867."
+      },
+      "start": 1525,
+      "end": 1867,
+      "edtf": "1525/1867",
+      "precision": 9,
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig",
+          "en": "The sources differ"
+        },
+        "text": {
+          "sv": "Siffrorna är uppskattningar. Wikipedia anger i inledningen omkring 12,75 miljoner som lastades och upp till 2 miljoner döda under överfarten; Patrick Manning uppskattar 12 miljoner, varav 1,5 miljoner dog ombord och 10,5 miljoner kom fram; Anderson med flera (2013) skriver 12,5 miljoner, varav 10,7 miljoner överlevde; tabellen i samma artikel räknar minst 1,8 miljoner döda till sjöss. Manning uppskattar dessutom att 4 miljoner dog i Afrika efter att ha tillfångatagits, men den siffran gäller också slavhandeln till Arabien och inom Afrika. Triangeln var inte det vanligaste sättet: fler resor gick fram och tillbaka mellan Amerika och Afrika, och fartyg med hemmahamn i Amerika förde troligen fler förslavade än fartyg från Europa. Linjen visar en typisk väg (Liverpool – Ouidah i Beninbukten – Kingston på Jamaica), inte enskilda resor. Etapperna från och till Europa visas till det brittiska förbudet 1807. Slavhandeln över Indiska oceanen och genom Sahara är äldre och pågick längre: forskare uppskattar 10–18 miljoner människor genom Sahara från 600-talet till 1900-talet, och N'Diaye och Pétré-Grenouilleau uppskattar 8 miljoner från Östafrika över Indiska oceanen och Röda havet och 9 miljoner genom Sahara mellan 600-talet och 1920. Slave Voyages-databasen, som många av siffrorna bygger på, har inte kunnat öppnas för kontroll.",
+          "en": "The figures are estimates. Wikipedia's introduction gives about 12.75 million loaded and up to 2 million deaths during the crossing; Patrick Manning estimates 12 million, of whom 1.5 million died on board and 10.5 million arrived; Anderson et al. (2013) write 12.5 million, of whom 10.7 million survived; the table in the same article counts at least 1.8 million deaths at sea. Manning also estimates that 4 million died in Africa after capture, but that figure includes the slave trades to Arabia and within Africa. The triangle was not the most common pattern: more voyages went back and forth between the Americas and Africa, and ships based in the Americas probably carried more enslaved people than ships from Europe. The line shows a typical route (Liverpool – Ouidah in the Bight of Benin – Kingston in Jamaica), not individual voyages. The legs to and from Europe are shown until the British ban of 1807. The slave trades across the Indian Ocean and the Sahara are older and lasted longer: scholars estimate 10–18 million people across the Sahara from the 7th to the 20th century, and N'Diaye and Pétré-Grenouilleau estimate 8 million from East Africa across the Indian Ocean and the Red Sea and 9 million across the Sahara between the 7th century and 1920. The Slave Voyages database, on which many of the figures are based, could not be opened for checking."
+        }
+      },
+      "sources": [
+        "wp-atlantic-slave-trade",
+        "wp-triangular-trade",
+        "wp-john-hawkins",
+        "wp-indian-ocean-slave-trade",
+        "wp-trans-saharan-slave-trade"
+      ],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 1562,
+          "to": 1807,
+          "edtf": "1562/1807",
+          "path": [[-3.05, 53.45],[-3.6, 53.6],[-4.6, 53.6],[-5.1, 53.2],[-5.6, 52.2],[-6.5, 51.2],[-9.0, 48.5],[-12.0, 44.0],[-14.0, 37.0],[-17.0, 31.0],[-19.5, 27.0],[-19.5, 21.0],[-18.5, 15.0],[-17.5, 11.0],[-15.5, 7.5],[-12.5, 5.0],[-8.0, 3.6],[-4.0, 4.0],[0.0, 5.2],[2.1, 6.25]],
+          "uncertain": true,
+          "places": [
+            { "at": [-3.05, 53.45], "name": { "sv": "Liverpool, den största engelska slavhandelshamnen", "en": "Liverpool, the largest English slave-trading port" } },
+            { "at": [2.1, 6.25], "name": { "sv": "Ouidah i Beninbukten (Slavkusten)", "en": "Ouidah in the Bight of Benin (the Slave Coast)" } }
+          ],
+          "sources": ["wp-atlantic-slave-trade", "wp-triangular-trade", "wp-john-hawkins"]
+        },
+        {
+          "from": 1525,
+          "to": 1867,
+          "edtf": "1525/1867",
+          "path": [[2.1, 6.25],[1.5, 4.8],[-4.0, 3.0],[-10.0, 4.0],[-18.0, 8.0],[-30.0, 11.5],[-45.0, 13.0],[-55.0, 13.3],[-59.5, 13.5],[-61.1, 13.55],[-63.0, 14.0],[-68.0, 15.3],[-73.0, 16.5],[-76.0, 17.5],[-76.8, 17.92]],
+          "uncertain": true,
+          "places": [
+            { "at": [-76.8, 17.92], "name": { "sv": "Kingston på Jamaica", "en": "Kingston, Jamaica" } }
+          ],
+          "sources": ["wp-atlantic-slave-trade", "wp-triangular-trade"]
+        },
+        {
+          "from": 1562,
+          "to": 1807,
+          "edtf": "1562/1807",
+          "path": [[-76.8, 17.92],[-76.3, 17.65],[-75.2, 18.2],[-74.4, 19.3],[-73.8, 20.05],[-73.2, 20.6],[-72.2, 21.1],[-71.3, 21.0],[-70.3, 21.4],[-68.0, 24.0],[-63.0, 30.0],[-55.0, 36.0],[-45.0, 41.0],[-30.0, 46.0],[-15.0, 49.5],[-8.0, 51.0],[-6.2, 51.9],[-5.3, 53.0],[-4.8, 53.6],[-4.0, 53.65],[-3.05, 53.45]],
+          "uncertain": true,
+          "sources": ["wp-triangular-trade", "wp-atlantic-slave-trade"]
+        }
+      ]
+    },
+    {
+      "id": "slavhandel-angola-brasilien",
+      "kind": "trade",
+      "category": "ekonomi",
+      "title": {
+        "sv": "Den transatlantiska slavhandeln: Angola – Brasilien",
+        "en": "The transatlantic slave trade: Angola – Brazil"
+      },
+      "summary": {
+        "sv": "Den södra vindcirkeln i Sydatlanten band ihop Västcentralafrika, främst Angola, direkt med Brasilien. Handeln sköttes av portugiser och var i tre hundra år den största. Brasilien tog emot fler förslavade afrikaner än något annat land, och förslavade från Angola och Kongo fick ofta namnen som etikett i Brasilien. Afrikaner kom till Brasilien från 1530- eller 1540-talet. Handeln förbjöds i lag 1831 men fortsatte och växte, och mellan 1831 och 1850 lämnade 564 488 förslavade afrikanska hamnar mot Brasilien, enligt Trans-Atlantic Slave Trade Database som källan citerar. Den upphörde först med Eusébio de Queirós-lagen 1850. Motståndet fanns hela tiden, bland annat i quilombos, samhällen av förrymda.",
+        "en": "The southern wind system of the South Atlantic linked West Central Africa, mainly Angola, directly to Brazil. The trade was run by the Portuguese and for three hundred years was the largest. Brazil received more enslaved Africans than any other country, and people from Angola and Kongo were often labelled with those names in Brazil. Africans arrived in Brazil from the 1530s or 1540s. The trade was outlawed in 1831 but continued and grew; between 1831 and 1850, 564,488 enslaved Africans left African ports for Brazil, according to the Trans-Atlantic Slave Trade Database as cited by the source. It ended only with the Eusébio de Queirós Law of 1850. Resistance was constant, among other things in quilombos, communities of people who had escaped."
+      },
+      "start": 1540,
+      "end": 1850,
+      "edtf": "1540~/1850",
+      "precision": 8,
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig",
+          "en": "The sources differ"
+        },
+        "text": {
+          "sv": "Om början: Wikipedia om slaveriet i Brasilien skriver att det inte går att säga när de första förslavade afrikanerna kom, men att uppskattningarna ligger på 1530-talet, och att omkring 5,5 miljoner fördes till Brasilien mellan 1540 och 1860-talet. Artikeln om Lei Áurea skriver i stället att 40 procent av 10 miljoner förslavade till Amerika kom till Brasilien, alltså omkring 4 miljoner. Om slutet: handeln förbjöds 1831, men upphörde först med lagen 1850. Linjerna visar typiska vägar från Luanda till Salvador i Bahia och till Rio de Janeiro, inte enskilda resor.",
+          "en": "On the start: Wikipedia on slavery in Brazil says it is impossible to say when the first enslaved Africans arrived, but estimates fall in the 1530s, and that about 5.5 million were brought to Brazil between 1540 and the 1860s. The article on the Lei Áurea instead says 40 per cent of 10 million enslaved people brought to the Americas went to Brazil, that is about 4 million. On the end: the trade was outlawed in 1831 but ended only with the law of 1850. The lines show typical routes from Luanda to Salvador in Bahia and to Rio de Janeiro, not individual voyages."
+        }
+      },
+      "sources": [
+        "wp-atlantic-slave-trade",
+        "wp-slavery-in-brazil",
+        "wp-lei-aurea"
+      ],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 1540,
+          "to": 1850,
+          "path": [[13.23, -8.8],[12.6, -9.5],[8.0, -11.0],[0.0, -12.5],[-15.0, -13.5],[-30.0, -13.5],[-36.0, -13.3],[-38.6, -13.05]],
+          "uncertain": true,
+          "places": [
+            { "at": [13.23, -8.8], "name": { "sv": "Luanda i Angola", "en": "Luanda, Angola" } },
+            { "at": [-38.6, -13.05], "name": { "sv": "Salvador i Bahia", "en": "Salvador, Bahia" } }
+          ],
+          "sources": ["wp-atlantic-slave-trade", "wp-slavery-in-brazil"]
+        },
+        {
+          "from": 1540,
+          "to": 1850,
+          "path": [[13.23, -8.8],[12.4, -10.0],[8.0, -13.5],[0.0, -17.0],[-15.0, -21.0],[-30.0, -23.5],[-38.0, -23.8],[-42.0, -23.3],[-43.15, -22.95]],
+          "uncertain": true,
+          "places": [
+            { "at": [-43.15, -22.95], "name": { "sv": "Rio de Janeiro", "en": "Rio de Janeiro" } }
+          ],
+          "sources": ["wp-atlantic-slave-trade", "wp-slavery-in-brazil"]
+        }
+      ]
+    },
+    {
+      "id": "slavhandel-indiska-oceanen",
+      "kind": "trade",
+      "category": "ekonomi",
+      "title": {
+        "sv": "Slavhandeln över Indiska oceanen: Swahilikusten – Oman",
+        "en": "The Indian Ocean slave trade: the Swahili Coast – Oman"
+      },
+      "summary": {
+        "sv": "Slavhandel över Indiska oceanen är flera tusen år gammal, men den växte när arabiska och swahiliska köpmän tog kontroll över Swahilikusten och sjövägarna på 800-talet. Människor från bantufolk i det inre av dagens Kenya, Tanzania och Moçambique fördes till kusten och såldes vidare till Arabiska halvön, Persiska viken, Indien och längre bort. Fartyg från Zanzibar stannade på Sokotra eller i Aden innan de fortsatte till Persiska viken eller Indien, och Muskat i Oman var en av hamnarna. Handeln växte kraftigt på 1800-talet, när den omanske sultanen Said bin Sultan gjorde Zanzibar till huvudstad och anlade plantager med kryddnejlika. Först 1873 skrev sultan Barghash av Zanzibar under på att förbjuda slavhandeln, under brittiska påtryckningar.",
+        "en": "The slave trade across the Indian Ocean is thousands of years old, but it grew when Arab and Swahili merchants took control of the Swahili Coast and the sea routes in the 9th century. People from Bantu groups in the interior of present-day Kenya, Tanzania and Mozambique were taken to the coast and sold on to the Arabian Peninsula, the Persian Gulf, India and beyond. Ships from Zanzibar stopped at Socotra or Aden before continuing to the Persian Gulf or India, and Muscat in Oman was one of the ports. The trade grew strongly in the 19th century, when the Omani sultan Said bin Sultan made Zanzibar his capital and set up clove plantations. Only in 1873 did Sultan Barghash of Zanzibar sign a treaty banning the slave trade, under British pressure."
+      },
+      "start": 850,
+      "end": 1873,
+      "edtf": "0850~/1873",
+      "precision": 7,
+      "note": {
+        "title": {
+          "sv": "Osäkra siffror",
+          "en": "Uncertain figures"
+        },
+        "text": {
+          "sv": "Hur många som fördes över Indiska oceanen är omstritt. N'Diaye och Pétré-Grenouilleau uppskattar 8 miljoner från Östafrika över Indiska oceanen och Röda havet från 600-talet till 1920. Linjen visar en typisk väg från Zanzibar via Sokotra till Muskat, inte enskilda resor.",
+          "en": "How many people were taken across the Indian Ocean is disputed. N'Diaye and Pétré-Grenouilleau estimate 8 million from East Africa across the Indian Ocean and the Red Sea from the 7th century to 1920. The line shows a typical route from Zanzibar via Socotra to Muscat, not individual voyages."
+        }
+      },
+      "sources": [
+        "wp-indian-ocean-slave-trade"
+      ],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 850,
+          "to": 1873,
+          "path": [[39.19, -6.16],[39.65, -6.1],[40.2, -5.5],[40.6, -4.0],[41.5, -2.5],[44.0, -1.0],[47.5, 1.5],[50.5, 5.0],[52.5, 9.0],[53.4, 11.7],[54.6, 12.3],[56.0, 14.0],[60.0, 20.0],[60.2, 22.6],[60.0, 22.9],[59.0, 23.75],[58.59, 23.62]],
+          "uncertain": true,
+          "places": [
+            { "at": [39.19, -6.16], "name": { "sv": "Zanzibar", "en": "Zanzibar" } },
+            { "at": [54.0, 12.45], "name": { "sv": "Sokotra", "en": "Socotra" } },
+            { "at": [58.59, 23.62], "name": { "sv": "Muskat i Oman", "en": "Muscat, Oman" } }
+          ],
+          "sources": ["wp-indian-ocean-slave-trade"]
+        }
+      ]
+    }
+  ]
+}

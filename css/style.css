@@ -17,7 +17,16 @@
   --ok: #8fc48e;
   --medal: #10202c;        /* markörernas botten (#242), samma som GROUND i layers/events.js */
   --gold-dot: #f1d98a;     /* markörernas punkt för betydelse */
-  --ff-ink-soft: #7a5a1f;  /* Samtidigt-kortets dämpade bläck på pergament: pilen och "Dra upp för mer" (#310) */
+  --ff-ink-soft: #7a5a1f;   /* Samtidigt-kortets dämpade bläck på pergament: pilen och "Dra upp för mer" (#310) */
+  /* Upptäcktsvyn (#101), ritas på lagerbilden: åldrad papperskarta, dimma över det okända och portolanlinjer */
+  --discovery-fog: #ddd3b7;          /* dimman över det okända */
+  --discovery-ink: #4a3519;          /* bläck: kust, vattenlinjer, "Terra incognita", skraffering, huvudvindar */
+  --discovery-sea: #c8c49c;          /* haven i blekt pergament med dragning åt grönt */
+  --discovery-land: #c39f62;         /* landet i mörkare, varmare pergament */
+  --discovery-stain: #a57b45;        /* fläckar i pappret */
+  --discovery-edge: #6b4a22;         /* mörkare kanter mot polerna och datumlinjen */
+  --discovery-rhumb-half: #4d6b3c;   /* portolanlinjer: halvvindar i grönt */
+  --discovery-rhumb-quarter: #9a3b2b;/* portolanlinjer: kvartsvindar i rött */
   /* Kapitel över tidslinjen i fokusläget (#244): ur story.chapters, och neutrala band mellan stora händelser */
   --chap-0: #2d4655; --chap-1: #633f3e; --chap-2: #5b5138; --chap-3: #36594e;
   --chap-auto-0: color-mix(in srgb, var(--brass) 22%, var(--night-2));
@@ -805,6 +814,11 @@ details.used-by summary:hover { color: var(--parchment); }
 .war-list h4 { margin: 10px 0 4px; font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
 .war-list ol { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.6; }
 .war-list .meta { font: 400 11px/1 var(--f-mono); color: var(--parchment-dim); }
+/* Krig och riken (#76): rikena i kriget som knappar med rikets färg, rikets krig med årtal */
+.empire-list ul { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0; padding: 0; list-style: none; font-size: 13px; line-height: 1.6; }
+.empire-list .link-btn { text-align: left; }
+.empire-list .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.empire-wars .link-btn { text-align: left; overflow-wrap: anywhere; }
 
 .focus-btn { margin: 8px 0 2px; }
 .speed { min-width: 64px; font-family: var(--f-mono); white-space: nowrap; }
@@ -1050,6 +1064,10 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-facts { margin: 8px 0; }
 .religion-facts dt { margin: 10px 0 2px; font: 600 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--card-accent); }
 .religion-facts dd { margin: 0; font-size: 13.5px; line-height: 1.45; }
+/* Försvunna länder (#72): årtal, föregångare och vad landet blev, i en ram överst i faktarutan */
+.religion-facts.lineage { padding: 2px 10px 8px; border: 1px solid color-mix(in srgb, var(--card-accent) 45%, transparent); border-radius: 6px; }
+.religion-facts.lineage dd .link-btn { font-size: inherit; }
+.lineage-note { margin: 4px 0 8px; font-size: 12.5px; line-height: 1.4; color: var(--card-dim); }
 .detail .war-list li .link-btn[data-year] { font-family: var(--f-mono); }
 .info-btn { margin-left: auto; padding: 2px 8px; border: 1px solid var(--line); border-radius: 999px; background: none; color: var(--brass); font: 500 11px/1.4 var(--f-mono); cursor: pointer; }
 .info-btn:hover { background: var(--night-3); }
@@ -1124,6 +1142,14 @@ details.used-by summary:hover { color: var(--parchment); }
 }
 .religion-legend .rl-hint-close:hover { background: var(--night-2); }
 .religion-legend :is(.rl-hint-close, .rl-about):focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+/* Upptäcktsvyn (#101): perspektivraden syns alltid, också när förklaringen är hopfälld; krediten för kartbilderna */
+.religion-legend .rl-disc {
+  margin: 2px 0 5px; padding: 5px 8px; border-left: 2px solid var(--brass-deep); background: var(--night-3);
+  border-radius: 0 var(--r) var(--r) 0; font: 400 11.5px/1.38 var(--f-body); color: var(--parchment);
+}
+.religion-legend .rl-credit { display: block; }
+.religion-legend .rl-credit a { color: var(--brass); }
+.religion-legend:has(.rl-disc) { max-width: 260px; }
 .layer-sub .rel-about { display: block; margin: 6px 10px 2px; padding: 4px 10px; border-color: var(--brass-deep); }
 .religion-pop {
   position: absolute; z-index: 12; width: min(260px, calc(100% - 16px)); box-sizing: border-box;
@@ -1139,9 +1165,18 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-pop .rp-more { display: block; margin: 10px 0 0; padding: 5px 12px; border-color: var(--brass-deep); font-size: 12px; text-align: left; }
 .religion-pop .rp-wiki { display: block; width: fit-content; margin: 8px 0 0; color: var(--brass); font-size: 12px; }
 .religion-pop .rp-wiki:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+/* Klickrutan för vägar och resor (#38): samma ruta som religionernas, med källorna som länkar */
+.route-pop { overflow-y: auto; overscroll-behavior: contain; }
+.route-pop .rp-src {font-size: 12px; color: var(--parchment-dim); }
+.route-pop .rp-src a { color: var(--brass); }
+.route-pop .rp-note-box { padding: 6px 8px; border-left: 2px solid var(--brass-deep); background: rgba(0, 0, 0, .18); font-size: 12px; }
+.route-pop .rp-note-box strong { display: block; color: var(--brass); font-weight: 600; }
+.route-pop .rp-src a:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
 @media (max-width: 760px) {
   /* smalare än rubrikens högra grannar (knapparna uppe till höger), 44 px hög tryckyta, borta när panelen är öppen */
   .religion-legend { max-width: 172px; font-size: 11px; padding-top: 0; padding-bottom: 0; }
+  .religion-legend:has(.rl-disc) { max-width: 210px; }
+  .religion-legend .rl-disc { font-size: 11px; padding: 4px 6px; }
   .religion-legend .rl-body { padding-bottom: 6px; }
   .religion-legend .rl-toggle { min-height: 40px; }
   .religion-legend .swatch { width: 10px; height: 10px; }
@@ -1324,3 +1359,17 @@ details.used-by summary:hover { color: var(--parchment); }
 .report-btn:hover, .detail .report-btn:hover { color: var(--card-accent, var(--brass)); }
 .feedback-card { padding-top: 0; }
 .feedback-card > .help-head { position: sticky; top: 0; z-index: 1; padding: 12px 0 6px; background: var(--night-2); }
+
+/* Rikets yta över tid i faktarutan (#77) */
+.area-curve { margin: 10px 0 6px; padding: 0; }
+.area-curve .ac-head { display: flex; justify-content: space-between; gap: 8px; font: 600 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--card-accent, var(--brass)); }
+.area-curve .ac-read { font-weight: 500; letter-spacing: 0; text-transform: none; white-space: nowrap; }
+.area-curve .ac-note { margin: 2px 0 0; font: 10px/1.3 var(--f-mono); color: var(--card-muted, currentColor); opacity: .75; }
+.ac-svg { display: block; width: 100%; height: auto; max-height: 84px; margin-top: 2px; overflow: visible; }
+.ac-fill { fill: var(--ac); fill-opacity: .35; stroke: none; }
+.ac-line { fill: none; stroke: var(--ac); stroke-width: 1.5; stroke-linejoin: round; }
+.ac-base, .ac-tick { stroke: currentColor; stroke-opacity: .45; stroke-width: 1; }
+.ac-t, .ac-peak-t { font: 500 9px var(--f-mono); fill: currentColor; fill-opacity: .75; }
+.ac-peak { fill: var(--ac); stroke: currentColor; stroke-width: 1; }
+.ac-now { stroke: currentColor; stroke-width: 1.5; }
+.ac-dot { fill: var(--ac); stroke: currentColor; stroke-width: 1.5; }

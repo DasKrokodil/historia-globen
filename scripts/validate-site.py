@@ -10,10 +10,17 @@ Kontroller:
   4. Alla lokala filer som index.html pekar på (src och href) finns.
   5. Alla relativa importer i JS-modulerna finns, och varje JS-fil nås från js/main.js.
   6. Alla datafiler som js/model.js laddar med getJSON('…') finns.
-  7. Filer som data pekar på finns: rikesfilerna i data/empires/index.json (file), händelsernas
-     bilder (image.file) och ikonerna (icon i events.json och CAT_ICON i js/ui/funfact.js).
-  8. Varje källa som en händelse eller ett krigs berättelse anger finns i sources.json, och varje
-     händelse som en fun fact pekar på finns i events.json (CLAUDE.md, Testa innan du är klar).
+  7. Filer som data pekar på finns: rikesfilerna i data/empires/index.json (file), filerna med vägar
+     och resor i data/routes/index.json (files), händelsernas bilder (image.file), upptäcktsvyns bilder
+     (decorations[].file i data/upptackt.json) och ikonerna (icon i
+     events.json, CAT_ICON i js/ui/funfact.js, symbol i religions.json och
+     symbol i data/empires/index.json).
+  8. Varje källa som en händelse, ett krigs berättelse, en väg, en etapp eller en dekoration i
+     upptäcktsvyn anger finns i sources.json,
+     och varje händelse som en fun fact eller en väg (event) pekar på finns i events.json (CLAUDE.md,
+     Testa innan du är klar).
+  9. Varje rike som ett krig anger i empires (#76) finns som grupp i data/empires/index.json,
+     och bara krig (kind: "war") har fältet.
 
 Användning: python3 scripts/validate-site.py [dist]
 """
@@ -128,8 +135,31 @@ for p in sorted(DIST.rglob('*.js')):
 
 # 7. Filer som data pekar på
 empires = load('data/empires/index.json') if (DIST / 'data/empires/index.json').is_file() else None
+group_ids = {g.get('id') for g in (empires or {}).get('groups', [])}
 for g in (empires or {}).get('groups', []):
-    exists(g.get('file', ''), f"data/empires/index.json ({g.get('id')})")
+    v = g.get('vanished') or {}
+    # Ett försvunnet land utan gräns i Cliopatria har ingen fil, bara en punkt (#72)
+    if 'file' in g or not v.get('point'):
+        exists(g.get('file', ''), f"data/empires/index.json ({g.get('id')})")
+    # Föregångare och efterträdare som är riken pekar på en grupp som finns (#72)
+    for x in v.get('predecessors', []) + v.get('successors', []):
+        if x.get('group') and x['group'] not in group_ids:
+            err(f"data/empires/index.json ({g.get('id')}): gruppen {x['group']} finns inte")
+
+# Vägar och resor (#38): filerna i index.json finns och går att läsa (JSON-syntaxen kontrolleras i steg 3)
+routes = []
+routes_index = load('data/routes/index.json') if exists('data/routes/index.json', 'Vägar och resor') else None
+for f in (routes_index or {}).get('files', []):
+    f = f if isinstance(f, str) else (f or {}).get('file', '')
+    path = f if '/' in f else f'data/routes/{f}'
+    if exists(path, 'data/routes/index.json'):
+        doc = load(path)
+        if doc is None:
+            continue
+        if not isinstance(doc, dict) or not isinstance(doc.get('routes'), list):
+            err(f'{path}: saknar listan routes')
+        else:
+            routes += [(path, r) for r in doc['routes']]
 
 events = load('data/events.json') or {'events': []}
 icons = {}
@@ -152,8 +182,20 @@ religions = load('data/religions.json') if (DIST / 'data/religions.json').is_fil
 for r in (religions or {}).get('religions', []):
     if r.get('symbol'):
         icons.setdefault(r['symbol'], f"data/religions.json ({r['id']}, symbol)")
+# Rikenas symboler (#301): symbol i varje grupp och i polityFacts i data/empires/index.json
+empires_idx = load('data/empires/index.json') if (DIST / 'data/empires/index.json').is_file() else None
+for g in (empires_idx or {}).get('groups', []):
+    if g.get('symbol'):
+        icons.setdefault(g['symbol'], f"data/empires/index.json ({g['id']}, symbol)")
+    for pid, pf in (g.get('polityFacts') or {}).items():
+        if pf.get('symbol'):
+            icons.setdefault(pf['symbol'], f"data/empires/index.json ({g['id']}, polityFacts.{pid}.symbol)")
 for name, by in sorted(icons.items()):
     exists(f'img/icons/{name}.svg', f'ikonen {name} ({by})')
+# Upptäcktsvyns bilder (#101)
+discovery = load('data/upptackt.json') if (DIST / 'data/upptackt.json').is_file() else None
+for d in (discovery or {}).get('decorations', []):
+    exists(d.get('file', ''), f"data/upptackt.json ({d.get('id')}, file)")
 
 # 8. Källor och fun facts
 sources = load('data/sources.json') or {'sources': []}
@@ -163,11 +205,48 @@ for e in events['events']:
     for s in e.get('sources', []) + (e.get('story') or {}).get('sources', []):
         if s not in src_ids:
             err(f"data/events.json ({e['id']}): källan {s} finns inte i sources.json")
+for path, r in routes:
+    rid = r.get('id', '?')
+    for s in r.get('sources', []):
+        if s not in src_ids:
+            err(f'{path} ({rid}): källan {s} finns inte i sources.json')
+    for i, leg in enumerate(r.get('legs', [])):
+        for s in leg.get('sources', []):
+            if s not in src_ids:
+                err(f'{path} ({rid}, etapp {i + 1}): källan {s} finns inte i sources.json')
+    if r.get('event') and r['event'] not in ev_ids:
+        err(f"{path} ({rid}): händelsen {r['event']} finns inte i events.json")
+for d in (discovery or {}).get('decorations', []):
+    if d.get('source') and d['source'] not in src_ids:
+        err(f"data/upptackt.json ({d.get('id')}): källan {d['source']} finns inte i sources.json")
 funfacts = load('data/funfacts.json') or {'funfacts': []}
 for f in funfacts['funfacts']:
     for i in f.get('events', []):
         if i not in ev_ids:
             err(f"data/funfacts.json ({f.get('id')}): händelsen {i} finns inte i events.json")
+# Rikenas faktarutor och försvunna länders årtal och efterträdare (#170, #72): källor och händelser finns
+for g in (empires or {}).get('groups', []):
+    fa, v = g.get('facts') or {}, g.get('vanished') or {}
+    for s in fa.get('sources', []) + [s for m in fa.get('milestones', []) for s in m.get('sources', [])] + v.get('sources', []):
+        if s not in src_ids:
+            err(f"data/empires/index.json ({g.get('id')}): källan {s} finns inte i sources.json")
+    for i in [i for m in fa.get('milestones', []) for i in m.get('events', [])]:
+        if i not in ev_ids:
+            err(f"data/empires/index.json ({g.get('id')}): händelsen {i} finns inte i events.json")
+
+# 9. Krigets riken (#76): empires är grupp-id i data/empires/index.json
+group_ids = {g.get('id') for g in (empires or {}).get('groups', [])}
+for e in events['events']:
+    if 'empires' not in e:
+        continue
+    if e.get('kind') != 'war':
+        err(f"data/events.json ({e['id']}): empires får bara finnas på krig (kind: war)")
+    if not isinstance(e['empires'], list):
+        err(f"data/events.json ({e['id']}): empires ska vara en lista")
+        continue
+    for g in e['empires']:
+        if g not in group_ids:
+            err(f"data/events.json ({e['id']}): riket {g} finns inte i data/empires/index.json")
 
 if errors:
     print(f'validate-site: {len(errors)} fel', file=sys.stderr)

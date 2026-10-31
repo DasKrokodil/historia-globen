@@ -46,6 +46,7 @@ export const REVIEW_SUBJECT_HELP = {
   'Kriget': 'Statusen gäller krigets berättelse i kortet. Varje händelse har en egen status i sin faktaruta.',
   'Riket': 'Statusen gäller rikets faktaruta och berättelse. Varje händelse har en egen status i sin faktaruta.',
   'Religionen': 'Statusen gäller religionens faktaruta. Varje händelse har en egen status i sin faktaruta.',
+  'Landet': 'Statusen gäller landets faktaruta och berättelse. Årtal, föregångare och efterträdare har en egen status, som står vid dem.',
   'Händelsen': 'Statusen gäller just den här händelsen. Samtidigt-kortet och fun facten har en egen status.',
 };
 // Vad statusarna betyder (#310), samma betydelse som källpolicyn i CLAUDE.md. Visas bakom (i)-knappen i faktarutan.
@@ -218,7 +219,7 @@ async function getJSON(path) {
 }
 
 export async function loadAll() {
-  const [events, funfacts, sources, land, empires, borders, styles] = await Promise.all([
+  const [events, funfacts, sources, land, empires, borders, styles, discovery] = await Promise.all([
     getJSON('data/events.json'),
     getJSON('data/funfacts.json'),
     getJSON('data/sources.json'),
@@ -226,6 +227,8 @@ export async function loadAll() {
     getJSON('data/empires/index.json'),
     getJSON('data/borders.json'),
     getJSON('data/styles.json'),
+    // Upptäcktsvyn (#101): liten fil; saknas den fungerar sidan ändå, utan upptäcktsvyn
+    getJSON('data/upptackt.json').catch(err => { console.warn('Upptäcktsvyn kunde inte laddas', err); return null; }),
   ]);
   const byId = Object.fromEntries(events.events.map(e => [e.id, e]));
   // Pågående (#223): end i datan är året då läget senast kontrollerades; det räknas till i år enligt datorns klocka
@@ -238,6 +241,16 @@ export async function loadAll() {
     if (war?._battles) { e._war = war; war._battles.push(e); }
   }
   for (const e of events.events) e._battles?.sort((a, b) => a.start - b.start || (a.edtf < b.edtf ? -1 : 1));
+  // Krig och riken (#76): kriget anger rikena i empires (grupp-id i empires/index.json). Slagen ärver dem via
+  // partOf (e._war._empires). Varje rike får sina krig i tidsordning i g._wars.
+  const groupById = Object.fromEntries(empires.groups.map(g => [g.id, g]));
+  for (const g of empires.groups) g._wars = [];
+  for (const e of events.events) {
+    if (e.kind !== 'war' || !Array.isArray(e.empires)) continue;
+    e._empires = e.empires.map(id => groupById[id]).filter(Boolean);
+    for (const g of e._empires) g._wars.push(e);
+  }
+  for (const g of empires.groups) g._wars.sort((a, b) => a.start - b.start || a.end - b.end);
   const srcById = Object.fromEntries(sources.sources.map(s => [s.id, s]));
   // Fun facts ärver källorna från sina händelser (källa krävs för båda leden).
   for (const f of funfacts.funfacts) {
@@ -246,15 +259,37 @@ export async function loadAll() {
   return {
     events: events.events, byId, funfacts: funfacts.funfacts, sources: sources.sources, srcById, land,
     // Rikena ligger i en fil per rike (R1): index.json vid start, själva gränserna med loadEmpire()
-    empireGroups: empires.groups, polities: empires.groups.flatMap(g => g.polities.map(p => ({ ...p, group: g.id }))), borders, styles,
+    empireGroups: empires.groups, polities: empires.groups.flatMap(g => g.polities.map(p => ({ ...p, group: g.id }))), borders, styles, discovery,
   };
 }
 
-/** Ett rikes gränser (data/empires/<grupp>.json), laddas första gången riket behövs. */
+/** Ett rikes gränser (data/empires/<grupp>.json), laddas första gången riket behövs.
+ *  Ett försvunnet land utan gräns i Cliopatria har ingen fil, bara en punkt (vanished.point, #72). */
 const empireFiles = new Map();
 export function loadEmpire(group) {
-  if (!empireFiles.has(group.id)) empireFiles.set(group.id, getJSON(group.file).then(d => d.polities));
+  if (!empireFiles.has(group.id)) empireFiles.set(group.id, group.file ? getJSON(group.file).then(d => d.polities) : Promise.resolve([]));
   return empireFiles.get(group.id);
+}
+
+/**
+ * Vägar och resor (#38): data/routes/index.json listar filerna (files), och varje fil har { routes: [...] }.
+ * Filerna laddas efter starten, så att sidan inte väntar på dem. En fil som saknas eller inte går att läsa
+ * hoppas över med en varning, och saknas index.json blir det inga vägar; sidan fungerar ändå.
+ * En post i files är en sökväg från repots rot ("data/routes/columbus.json") eller ett filnamn i data/routes/.
+ */
+let routesPromise = null;
+export function loadRoutes() {
+  routesPromise ??= getJSON('data/routes/index.json').then(async index => {
+    const paths = (index.files ?? []).map(f => typeof f === 'string' ? f : f?.file).filter(Boolean)
+      .map(f => f.includes('/') ? f : `data/routes/${f}`);
+    const files = await Promise.allSettled(paths.map(getJSON));
+    return files.flatMap((r, i) => {
+      if (r.status === 'fulfilled' && Array.isArray(r.value?.routes)) return r.value.routes;
+      console.warn(`Vägarna i ${paths[i]} kunde inte läsas`, r.reason ?? '');
+      return [];
+    });
+  }).catch(err => { console.warn('Vägar och resor kunde inte laddas', err); return []; });
+  return routesPromise;
 }
 
 /** Religionsdatan är stor och laddas först när religionslagret slås på. */

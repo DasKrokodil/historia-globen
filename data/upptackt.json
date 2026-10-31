@@ -1,0 +1,46 @@
+{
+  "schema": "historia-globen/upptackt@1",
+  "notes": "Upptäcktsvyn (#101): ett läge i Lager med gammal kartstil. Allt ritas på lagerbilden (beslut 1) av js/layers/discovery.js. perspective är raden som förklarar vad 'upptäckt' betyder här. paper är den åldrade papperskartan som täcker grundkartan medan vyn är på: grain = papperskornens styrka (0–1), stains = antal fläckar, stainStrength = fläckarnas styrka, seed = fröet som bestämmer var korn och fläckar hamnar, waterLines = vattenlinjer längs kusten (count = antal band, widthDeg = det bredaste bandets bredd i grader, opacity), coastPx = bläckkustens bredd i bildpunkter på lagerbilden, vignette = mörkare kanter mot polerna (0–1), vignetteSides = hur stor del av den som gäller mot datumlinjen, rhumb = portolanlinjer ut från varje dekoration med rhumb: true (directions = antal riktningar, avrundas till en multipel av 8; lengthDeg = linjernas längd i grader; opacity; widthPx = bredd i bildpunkter). fog är dimman som täcker kartan: den lyfts i en korridor (corridorDeg grader bred) längs varje etapp i data/routes som har börjat, så långt som linjelagret har ritat den, och förblir lyft senare år. opacity är dimmans täckning (0–1; nära 1 döljer det okända helt), soften hur mycket bredare korridorens mjuka kant är, grain papperskornen i dimman, hatch styrkan på bläckskrafferingen längs dimmans kant (0 = ingen), hatchDeg skrafferingsbandets bredd i grader och hatchSpacingDeg avståndet mellan strecken i grader. labels är texterna i dimman (at = [longitud, latitud], size = textens höjd i grader). decorations är bilder ur gamla kartor (public domain) mitt i öppna hav: file, at = [longitud, latitud] för bildens mitt, width = bredd i grader, fade = tonas bort när en lyft korridor kommer nära (inom bildens radie), rhumb = portolanlinjer ut från bildens mitt (kompassrosor), source = id i sources.json. Färgerna står som CSS-variabler (--discovery-fog, --discovery-ink, --discovery-sea, --discovery-land, --discovery-stain, --discovery-edge, --discovery-rhumb-half, --discovery-rhumb-quarter).",
+  "perspective": {
+    "sv": "Dimman döljer det som resorna och vägarna i datan ännu inte har nått, inte det som världen inte kände till. ”Upptäckt” betyder här att resor från Europa och Kina kom fram: platserna var redan bebodda och kända av dem som bodde där, och därför syns händelserna även i dimman.",
+    "en": "The fog hides what the voyages and routes in the data have not yet reached, not what the world did not know. “Discovery” here means that voyages from Europe and China arrived: the places were already inhabited and known to the people who lived there, which is why the events show even in the fog."
+  },
+  "credit": {
+    "sv": "Kartbilder: havsmonster ur Olaus Magnus Carta marina (1539) och en kompassros ur Guillaume Brouscons världskarta (1543). Public domain, via Wikimedia Commons.",
+    "en": "Map images: sea monsters from Olaus Magnus's Carta marina (1539) and a compass rose from Guillaume Brouscon's world chart (1543). Public domain, via Wikimedia Commons."
+  },
+  "paper": {
+    "grain": 0.22,
+    "stains": 18,
+    "stainStrength": 0.16,
+    "seed": 1539,
+    "waterLines": { "count": 3, "widthDeg": 1.3, "opacity": 0.14 },
+    "coastPx": 2.4,
+    "vignette": 0.45,
+    "vignetteSides": 0.5,
+    "rhumb": { "directions": 32, "lengthDeg": 70, "opacity": 0.42, "widthPx": 1.6 }
+  },
+  "fog": {
+    "opacity": 0.97,
+    "corridorDeg": 7,
+    "soften": 0.7,
+    "grain": 0.2,
+    "hatch": 0.45,
+    "hatchDeg": 1.2,
+    "hatchSpacingDeg": 0.6,
+    "labels": [
+      { "text": { "sv": "Terra incognita" }, "at": [-100, 47], "size": 4.2 },
+      { "text": { "sv": "Terra incognita" }, "at": [-60, -12], "size": 4.2 },
+      { "text": { "sv": "Terra incognita" }, "at": [134, -25], "size": 3.6 },
+      { "text": { "sv": "Terra incognita" }, "at": [20, -72], "size": 4.2 },
+      { "text": { "sv": "Terra incognita" }, "at": [100, 62], "size": 4.2 }
+    ]
+  },
+  "decorations": [
+    { "id": "kompassros-atlanten", "file": "images/karta/kompassros.webp", "at": [-42, 40], "width": 18, "fade": false, "rhumb": true, "title": { "sv": "Kompassros" }, "source": "commons-karta-brouscon-kompassros" },
+    { "id": "kompassros-indiska-oceanen", "file": "images/karta/kompassros.webp", "at": [82, -32], "width": 17, "fade": false, "rhumb": true, "title": { "sv": "Kompassros" }, "source": "commons-karta-brouscon-kompassros" },
+    { "id": "sjoorm-stilla-havet", "file": "images/karta/sjoorm.webp", "at": [-152, 32], "width": 26, "fade": true, "title": { "sv": "Sjöorm" }, "source": "commons-karta-carta-marina-sjoorm" },
+    { "id": "ziphius-sydatlanten", "file": "images/karta/ziphius.webp", "at": [-18, -34], "width": 26, "fade": true, "title": { "sv": "Ziphius" }, "source": "commons-karta-carta-marina-ziphius" },
+    { "id": "havsmonster-sodra-stilla-havet", "file": "images/karta/havsmonster.webp", "at": [-120, -38], "width": 17, "fade": true, "title": { "sv": "Havsmonster och hummer" }, "source": "commons-karta-carta-marina-havsmonster" }
+  ]
+}

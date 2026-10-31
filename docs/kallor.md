@@ -35,6 +35,7 @@ Nivån syns i faktarutan och under Om källorna, inte som eget märke på globen
 | Wikisource: Encyclopædia Britannica 1911, Dictionary of National Biography (1885–1900) och andra äldre verk | Andra källa för årtal och plats | Public domain | Äldre uppslagsverk kan vara föråldrade, så de används som jämförelse, inte ensamma |
 | World History Encyclopedia (worldhistory.org) | Andra källa för årtal och plats | CC BY-NC-SA (artikeltexten) | Bara länkad källa för fakta som årtal och plats. Text kopieras aldrig. |
 | Historical Conflict Event Dataset (HCED, Charles Miller 2022) via World Historical Gazetteer | Utkast om slag och andra stridshändelser (#24) | CC0 1.0 (WHG:s tillägg CC BY 4.0) | Massimport till `data/utkast/hced.json`, alltid `draft`. Varje utkast källkontrolleras mot en annan källa innan det flyttas till `events.json` (se nedan). |
+| UNESCO:s världsarvslista (whc.unesco.org) | Andra källa för världsarv, till exempel L'Anse aux Meadows (#42) | © UNESCO | Bara länkad källa för årtal och plats. Text kopieras aldrig. |
 | FN:s digitala bibliotek (digitallibrary.un.org) | FN-resolutioner och rapporter, till exempel generalförsamlingens resolution ES-11/1 (#223) | FN-dokument | Primärkälla som länkas. Text kopieras inte. |
 | Uppsala Conflict Data Program (UCDP, ucdp.uu.se) | Dödssiffror i krigens berättelse för krig från 1989, till exempel Gulfkriget och Rysslands invasion av Ukraina (#222, #223) | CC BY 4.0 (alla dataset, enligt nedladdningssidan) | Citera datasetets publikation och version. Siffrorna gäller stridsrelaterade dödsfall, inte våld mot civila utanför strid eller indirekta dödsfall, så det skrivs ut i texten. |
 | UCDP/PRIO Armed Conflict Dataset (ucdp.uu.se) | Start, slut och intensitet för krig från 1946, när dödssiffror per år saknas, till exempel Algeriet och Biafra (#257) | CC BY 4.0 (alla dataset, enligt nedladdningssidan) | Datasetet anger bara om konflikten ett år hade 25–999 eller minst 1 000 stridsrelaterade dödsfall, inga exakta siffror, så det skrivs ut i texten. |
@@ -44,12 +45,12 @@ Nivån syns i faktarutan och under Om källorna, inte som eget märke på globen
 
 Molnmiljöns nätverk släpper bara fram vissa sajter. Läget 2026-10-29 (#143):
 
-- **Går att nå:** Wikipedia, Wikidata, Wikimedia Commons, en.wikisource.org, www.worldhistory.org, pmc.ncbi.nlm.nih.gov (ibland en robotkontroll; då fungerar PMC:s OAI-gränssnitt `pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/`), www.bl.uk, www.nasa.gov, home.cern, www.nobelprize.org, www.raa.se, www.pewresearch.org och seshat-db.com.
+- **Går att nå:** Wikipedia, Wikidata, Wikimedia Commons, en.wikisource.org, www.worldhistory.org, pmc.ncbi.nlm.nih.gov (ibland en robotkontroll; då fungerar PMC:s OAI-gränssnitt `pmc.ncbi.nlm.nih.gov/api/oai/v1/mh/`), www.bl.uk, www.nasa.gov, home.cern, www.nobelprize.org, www.raa.se, www.pewresearch.org och seshat-db.com. whc.unesco.org svarade 403 tidigare men gick att läsa med projektets User-Agent 2026-10-31 (#42).
 - **Library of Congress i JSON:** arkivposter går att läsa som `https://www.loc.gov/pictures/item/<id>/?fo=json` (fältet `item.rights_information` är rättighetstexten), och bilderna hämtas från länkarna i `resources` (cdn.loc.gov och tile.loc.gov) (#127).
-- **Svarar men stoppar oss:** www.loc.gov:s vanliga sidor (robotkontroll, 403), Britannica, whc.unesco.org och Smithsonian (403), Met Museum (429). Wikisources API och sökning kan svara 429 om man frågar för ofta; vänta då en stund.
+- **Svarar men stoppar oss:** www.loc.gov:s vanliga sidor (robotkontroll, 403), Britannica och Smithsonian (403), Met Museum (429). Wikisources API och sökning kan svara 429 om man frågar för ofta; vänta då en stund.
 - **World Historical Gazetteer:** whgazetteer.org svarar. Platslistan (`/mapdata/datasets/<id>/`) och enskilda platser (`/api/db/?id=<plats>`) går att läsa utan inloggning; den fullständiga nedladdningen kräver inloggning (#24).
 - **Går att nå sedan 2026-10-30:** ucdp.uu.se (nedladdningar) och digitallibrary.un.org (#223). FN:s digitala bibliotek visar en robotkontroll på vanliga sidor, men sökningen går att läsa som MARCXML (`https://digitallibrary.un.org/search?p=<dokumentnummer>&of=xm`) och PDF:erna via länken `nanna/record/…` som filsidan skickar vidare till.
-- **Spärrade:** bland annat www.un.org, press.un.org, news.un.org och www.ohchr.org (#223), acleddata.com, dataverse.harvard.edu (#24), mathshistory.st-andrews.ac.uk, cudl.lib.cam.ac.uk, english-heritage.org.uk, riksarkivet.se, kungahuset.se, regeringen.se, runeberg.org, gutenberg.org, journals.plos.org, ebi.ac.uk (Europe PMC) och patents.google.com.
+- **Spärrade:** bland annat www.un.org, press.un.org, news.un.org och www.ohchr.org (#223), acleddata.com, dataverse.harvard.edu (#24), mathshistory.st-andrews.ac.uk, cudl.lib.cam.ac.uk, english-heritage.org.uk, riksarkivet.se, kungahuset.se, regeringen.se, runeberg.org, gutenberg.org, journals.plos.org, ebi.ac.uk (Europe PMC), patents.google.com, www.nma.gov.au (National Museum of Australia) och wwwnc.cdc.gov (tidskriften Emerging Infectious Diseases, som i stället går att läsa via PMC) (#330).
 
 ## Utkast från massimport
 
@@ -88,6 +89,23 @@ Gruppen Bilder (#195) listar varje bild på globen, inte bara de med `image.sour
 - Nya datakällor läggs i `data/sources.json` och i README:ns licensavsnitt när de används.
 
 Licenskontroller som redan är gjorda står i respektive issue, till exempel GPlates (#51), ROAD (#50), OWTRAD och CLIWOC (#39) och Black Marble (#9).
+
+### OWTRAD och CLIWOC (#39, kontrollerat 2026-10-30)
+
+| Källa | Vad | Resultat | Får användas? |
+|---|---|---|---|
+| OWTRAD (Old World Trade Routes, ciolek.com) | Handelsvägar i Asien och Europa | Webbplatsen går inte att nå från molnmiljön (anslutningen bryts), så villkoren kunde inte läsas. Inga villkor hittades på Zenodo. | **Nej, inte nu:** villkoren är oklara. Används inte förrän en öppen licens (CC0, CC BY, public domain) har setts på källsidan. |
+| CLIWOC (Climatological Database for the World's Oceans 1750–1850) | Positioner och väder ur skeppsloggar | Officiella sidor (KNMI) visar inga villkor, och NOAA:s ICOADS, där CLIWOC-datan ingår, går inte att nå från molnmiljön. På Zenodo finns bara härledd data med CC BY-SA 4.0, som inte är tillåtet för data här (bara för bildfiler). | **Nej, inte nu:** villkoren är oklara, och den tillgängliga kopian är CC BY-SA. |
+
+Vägarna och resorna i version 4 bygger i stället på uppslagsverk och artiklar med källa per etapp (`data/routes/`, #38). För att pröva OWTRAD och CLIWOC igen behöver molnmiljön släppa på `www.ciolek.com`, `icoads.noaa.gov` och `www.ncei.noaa.gov`.
+
+### Slave Voyages (#330, kontrollerat 2026-10-31)
+
+| Källa | Vad | Resultat | Får användas? |
+|---|---|---|---|
+| Slave Voyages (slavevoyages.org), Trans-Atlantic Slave Trade Database | Resor, hamnar och antal förslavade i den transatlantiska slavhandeln | Webbplatsen går inte att nå från molnmiljön (både `www.slavevoyages.org` och `slavevoyages.org` stoppas), så villkoren kunde inte läsas. | **Nej, inte nu:** villkoren är okända. Används inte förrän en öppen licens (CC0, CC BY, public domain) har setts på källsidan. Siffror som Wikipedia citerar ur databasen används bara med Wikipedia som källa, och det står i texten. |
+
+Slavhandelns vägar i `data/routes/slavhandeln.json` bygger därför på Wikipedia, med typiska vägar i stället för enskilda resor. För att pröva databasen behöver molnmiljön släppa på `www.slavevoyages.org`.
 
 ## Så kontrollerar du en uppgift
 

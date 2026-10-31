@@ -48,6 +48,18 @@
       "text": { "sv": "När Harvard grundas 1636 har bygget av Taj Mahal i Indien redan pågått i omkring fyra år." } },
 
     { "id": "giljotin-starwars", "events": ["sista-giljotinen",  "star-wars"], "show": [1975,  1980], "review": "source-checked",
-      "text": { "sv": "Frankrike avrättar sista gången med giljotin i september 1977, ungefär tre och en halv månad efter att Star Wars har haft premiär." } }
+      "text": { "sv": "Frankrike avrättar sista gången med giljotin i september 1977, ungefär tre och en halv månad efter att Star Wars har haft premiär." } },
+
+    {"id": "wright-moresnet", "events": ["wright", "moresnet-blir-belgiskt"], "show": [1900, 1920], "review": "source-checked", "text": {"sv": "När bröderna Wright flyger 1903 finns Neutrala Moresnet fortfarande, ett område på 3,5 km² mellan Belgien och Tyskland som grannarna styr gemensamt. Det blir belgiskt först 17 år senare, 1920."}},
+
+    {"id": "fax-texas", "events": ["bain-fax", "texas-sjalvstandighet"], "show": [1836, 1846], "review": "source-checked", "text": {"sv": "När Alexander Bain 1843 får patent på en föregångare till faxen är Texas ett eget land. Det förklarade sig självständigt från Mexiko sju år tidigare, 1836."}},
+
+    {"id": "eiffeltornet-hawaii", "events": ["eiffeltornet", "hawaiis-monarki-stortas"], "show": [1886, 1893], "review": "source-checked", "text": {"sv": "När Eiffeltornet står klart i Paris 1889 är Hawaiʻi fortfarande ett kungarike. Fyra år senare, 1893, störtas monarkin."}},
+
+    { "id": "wright-herero", "events": ["wright", "herero-och-nama-folkmordet"], "show": [1903, 1905], "review": "source-checked",
+      "text": {"sv": "Bröderna Wright flyger för första gången den 17 december 1903. 26 dagar senare, den 12 januari 1904, gör hererofolket uppror i Tyska Sydvästafrika, och kriget som följer blir ett folkmord."} },
+
+    { "id": "lei-aurea-kongo", "events": ["lei-aurea-1888", "kongofristaten"], "show": [1886, 1890], "review": "source-checked",
+      "text": {"sv": "När Brasilien som sista land i Amerika avskaffar slaveriet 1888 har Kongofristaten funnits i tre år. Där tvingas människor arbeta för Leopold II i 20 år till, tills Belgien tar över 1908."} }
   ]
 }
