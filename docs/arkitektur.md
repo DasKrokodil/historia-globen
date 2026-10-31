@@ -116,16 +116,25 @@ En post utan `layer` är bara en rad i Lager, till exempel Samtidigt-kortet och 
 
 ## Laddning av data
 
-Vid start laddas det som behövs direkt: händelser, fun facts, källor, grundkartan, dagens gränser, bildstilar och rikenas register (`data/empires/index.json`).
+Vid start laddas bara det som behövs för att visa globen (#337): händelseindexet (`data/genererat/handelser.json`), fun facts, grundkartan, bildstilar, rikenas register utan faktarutor (`data/genererat/riken.json`) och upptäcktsvyns lilla fil. Händelseindexet har allt som tidslinjen, markörerna, listan Samtidigt i världen och Samtidigt-kortets text behöver, men inte de långa fälten.
 
-Stora filer laddas först när de behövs:
+Händelserna och rikena redigeras som förut i `data/events.json` och `data/empires/index.json`. `tools/dela_data.py` delar upp dem i `data/genererat/`, och `scripts/validate-site.py` stoppar publiceringen om de uppdelade filerna inte stämmer med källfilerna (se [datamodell.md](datamodell.md#genererat-uppdelade-filer-337)).
 
+Det som bara behövs vid klick laddas när det behövs, och en gång (`model.js` håller ett löfte per fil):
+
+- **Händelsernas långa fält** (sammanfattning, not, krigets berättelse, bild, källor, Wikidata-id) ligger i en fil per tidsperiod (`data/genererat/handelser-<period>.json`). `loadEventDetails(händelser)` laddar perioderna som händelserna hör till och lägger fälten i samma händelseobjekt (`mergeTexts`), som då får `_full = true`. Det görs strax efter att man har dragit tiden dit (för de synliga händelserna och Samtidigt-kortets, 0,4 s efter omritningen), när en faktaruta öppnas och innan man börjar följa ett krig.
+- **Källregistret** (`data/sources.json`) laddas vid den första faktarutan, klickrutan för en väg, upptäcktsvyn eller Om källorna (`loadSources()`). `data.sources` och `data.srcById` är samma lista och objekt hela tiden och fylls i då, så att panelerna kan behålla sina referenser.
+- **Rikenas faktarutor** (`data/genererat/riken-fakta.json`) laddas vid den första faktarutan om ett rike eller när man börjar följa ett rike (`loadEmpireFacts()`), eftersom rikets berättelse (#171) står i faktarutan. `hasFacts` i registret säger i förväg att riket har en faktaruta (knappen Fakta i fokusraden).
+- **Dagens gränser** (`data/borders.json`) laddas när lagret slås på (`loadBorders()` i lagrets `apply`).
+- **Om källorna** räknar källor för alla uppgifter och laddar därför allt ovan första gången den öppnas (`loadForSources()`); under tiden står "Laddar källorna…" i dialogen.
 - **Ett rike** (`data/empires/<rike>.json`) laddas när året närmar sig rikets tid (inom 100 år) eller när man väljer det i Fokus.
-- **Religionerna** (`data/religions.json`) laddas när religionslagret slås på eller när Fokus-menyn öppnas.
+- **Religionerna** (`data/religions.json`) laddas när religionslagret slås på, när Fokus-menyn öppnas eller när Om källorna öppnas.
 - **Rikenas gränser i religionslagret** (`data/religions-polities.json`, #194) laddas vid det första klicket på ett religionsområde. Rutan visar "Söker riket på platsen…" tills filen är laddad. Ritningen av lagret använder den inte.
-- **Upptäcktsvyn** (`data/upptackt.json`, #101) är liten och laddas vid start; saknas den fungerar sidan utan upptäcktsvyn. Dess bilder (`images/karta/`) laddas första gången vyn slås på.
+- **Upptäcktsvyns bilder** (`images/karta/`, #101) laddas första gången vyn slås på; saknas `data/upptackt.json` fungerar sidan utan upptäcktsvyn.
 - **Vägar och resor** (`data/routes/index.json` och filerna den listar, #38) laddas direkt efter starten utan att sidan väntar på dem (`loadRoutes()` i `model.js`). En fil som saknas eller inte går att läsa hoppas över med en varning i konsolen.
 - **Bilder** i faktarutan laddas när kortet öppnas.
+
+Rutorna ritas direkt med det som redan finns och en gång till när resten har kommit: faktarutan visar namn, tid och plats med "Laddar…" i stället för sammanfattningen (`Panel._whenLoaded`), Samtidigt-kortet ritar in bilderna, och klickrutan för en väg fyller i källorna. Visar rutan något annat när filen kommer, ritas ingenting om.
 
 ## Hoppa i tiden (#140)
 
@@ -187,6 +196,7 @@ Skripten i `tools/` körs för hand, inte av sidan, så principen om inget byggs
 
 | Skript | Gör |
 |---|---|
+| `tools/dela_data.py` | Delar upp `data/events.json` och `data/empires/index.json` i mindre filer i `data/genererat/` (#337). Körs efter varje ändring i källfilerna; `--check` kontrollerar utan att skriva, och `scripts/validate-site.py` gör samma kontroll |
 | `tools/rutter_land.py` | Kontrollerar att sjöetapperna i `data/routes/` inte korsar land (#332). Kräver numpy och Pillow |
 | `tools/riken.py` | Bygger rikesfilerna ur Cliopatria |
 | `tools/religioner.py` | Bygger `data/religions.json` ur Cliopatria och registret med faktarutornas texter: varje rikes religion år för år, arv av religion där rikets faktaruta saknar religion (#269), sammanslaget per religion i ögonblicksbilder |
