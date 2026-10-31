@@ -2,6 +2,7 @@
  "schema": "historia-globen/routes@1",
  "notes": "Vägar och resor (lagertyp linje, #38). Varje fil i files har { \"routes\": [...] } med resor (kind \"voyage\") och handelsvägar (kind \"trade\"), uppdelade i etapper med tid och väg i [longitud, latitud]. Formatet beskrivs i docs/datamodell.md. Bara vägar med granskningsstatus source-checked eller two-sources visas.",
  "files": [
-  "data/routes/zheng-he.json"
+  "data/routes/zheng-he.json",
+  "data/routes/columbus.json"
  ]
 }
