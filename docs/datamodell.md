@@ -150,6 +150,33 @@ Kolonialvälden och moderna imperier (R5, #71): franska kolonialväldet (Cliopat
 
 `tools/riken.py` räknar fram moderlandet ur tabellen `HOMELANDS` (namn och ett fönster, bbox eller polygon, runt moderlandet, eftersom moderlandets post i Cliopatria ibland också innehåller handelsstationer långt bort) och `homeland` i delens inställningar i `GROUPS`. Moderland finns för Brittiska imperiet, Spanska och Portugisiska imperiet (#70), franska och nederländska kolonialväldet, Tyska riket och Japanska imperiet. Perioder där Cliopatria saknar moderlandet (till exempel Nederländerna 1811–1814 och Portugal under den iberiska unionen) ritas som vanligt, utan stjärna.
 
+**Osäkra gränser (#73).** Ett rike vars gräns källan uttryckligen kallar osäker, vag eller flytande får fältet `uncertainBorder` på gruppen i `empires/index.json`. Det skrivs för hand, som `facts`, och `tools/riken.py` behåller det när filen skrivs om:
+
+```json
+"uncertainBorder": { "note": { "sv": "Kanten är mjuk eftersom …" }, "sources": ["wp-ghana-empire"], "review": "source-checked" }
+```
+
+- `note`: varför kanten är mjuk, med källan i texten. Den läggs till i rutan Om kartan.
+- `sources` och `review`: källan som säger att gränsen var osäker. Den räknas under Riken i Om källorna.
+
+Skriptet sätter då `"uncertainBorder": true` på varje del (polity) i rikets fil, och riket ritas med mjuk, utsuddad kant i stället för skarp linje. Markera bara när källan säger det om just det riket. Hittills har bara Ghanariket fältet (Wikipedia: de skriftliga källorna är vaga om rikets största utbredning, och riket kan ha varit ett förbund med olika band till kärnan). Cliopatrias artikel säger att gränser utan fördrag är ungefärliga och att datan inte anger osäkerhet, men det gäller alla riken och räcker inte för att markera ett visst.
+
+**Kärnområde och inflytande (#75).** Cliopatria har relationsposter (`Type` = `RELATION`) med namn som `(Allegiance of Ayyubid Sultanate to Abbasid Caliphate)` och `(Vassalage of Kingdom of Georgia to Timurid Empire)`, där geometrin är båda rikenas områden tillsammans. `tools/riken.py` gör om dem till fältet `influence` på den del (polity) som det andra riket lydde under:
+
+```json
+"influence": [{ "start": 1202, "end": 1235, "relation": "allegiance", "name": { "sv": "Ayyubidernas sultanat", "en": "Ayyubid Sultanate" },
+               "geometry": { "type": "MultiPolygon", … } }]
+```
+
+- Området är relationens område minus delens eget område samma år (ur Cliopatria, före förenklingen), förenklat som riket. Ytor under cirka 3 000 km² tas bort, och perioder som knappt ändras slås ihop.
+- `relation`: `allegiance` (lojalitet) eller `vassalage` (vasall). Allianser och personalunioner räknas inte.
+- `name`: lydrikets namn. Är lydriket ett eget rike på kartan används det namnet, annars `INFLUENCE_NAMES` i skriptet (engelska = Cliopatrias namn).
+- Lydriken som själva är delar av samma grupp hoppas över, eftersom de redan ritas: Gyllene horden, Ilkhanatet och Chagatai-khanatet under Yuandynastin 1294–1374.
+- Inflytandet ritas bara när delen själv syns det året.
+- `index.json` sammanfattar det per grupp i `influence` (`polity`, `name`, `relation`, `from`, `to`), så att rutan Om kartan kan räkna upp det.
+
+Inflytande finns för Romerska republiken (Seleukidriket 204–190 f.Kr.), Östromerska riket (östgoterna 500–554), Bysantinska riket (Kyrkostaten 757–869), Sasanidriket (kidariterna 390–450), Karolingiska riket (Östfrankiska riket 911–921), Abbasidkalifatet (ziyadiderna, ayyubiderna, Rumsultanatet och Delhisultanatet), Timuridriket (jalayiriderna, Georgien och Qara Qoyunlu), Mingdynastin (Joseon 1395–1571) och Brittiska imperiet (Hawaii 1811–1819). Cliopatrias vasaller under Tysk-romerska riket (Böhmen, Brandenburg, Schweiz, Tyska orden) ligger redan inom rikets område och ger inget inflytande. Andra riken har inga sådana relationer i Cliopatria och ritas som förut.
+
 ```json
 { "start": 1919, "end": 1939, "areaKm2": 12702704, "label": [2.3, 47.0],
   "geometry": { "type": "MultiPolygon", … }, "homeland": { "type": "Polygon", … } }

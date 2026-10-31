@@ -1,6 +1,6 @@
 {
  "schema": "historia-globen/empires-index@1",
- "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen. Kolonialvälden och moderna imperier (R5, #71): parts listar Cliopatria-poster som är ihopslagna år för år till ett rike (Tyska riket med German Africa, Etiopiska kejsardömet med Ethiopia till 1974); då är areaKm2 summan av posternas ytor. homeland (#74) är moderlandet i ett utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då homeland.name, moderlandets namn. Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i Cliopatria och har ingen fil, bara en punkt (vanished.point).",
+ "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen. Kolonialvälden och moderna imperier (R5, #71): parts listar Cliopatria-poster som är ihopslagna år för år till ett rike (Tyska riket med German Africa, Etiopiska kejsardömet med Ethiopia till 1974); då är areaKm2 summan av posternas ytor. homeland (#74) är moderlandet i ett utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då homeland.name, moderlandets namn. Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i Cliopatria och har ingen fil, bara en punkt (vanished.point). Inflytande (#75): polity.influence är områden som enligt Cliopatrias relationsposter (typ RELATION, \"Allegiance of A to B\" och \"Vassalage of A to B\") lydde under riket utan att höra till det: relationens område minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) och ger polity.uncertainBorder i rikets fil.",
  "groups": [
   {
    "id": "romarriket",
@@ -78,6 +78,38 @@
       "cliopatria"
      ],
      "review": "source-checked"
+    }
+   ],
+   "influence": [
+    {
+     "polity": "romerska-republiken",
+     "name": {
+      "sv": "Seleukidriket",
+      "en": "Seleucid Empire"
+     },
+     "relation": "allegiance",
+     "from": -203,
+     "to": -189
+    },
+    {
+     "polity": "ostromerska-riket",
+     "name": {
+      "sv": "Östgoternas rike",
+      "en": "Ostrogothic Kingdom"
+     },
+     "relation": "allegiance",
+     "from": 500,
+     "to": 554
+    },
+    {
+     "polity": "bysantinska-riket",
+     "name": {
+      "sv": "Kyrkostaten",
+      "en": "Papal States"
+     },
+     "relation": "allegiance",
+     "from": 757,
+     "to": 869
     }
    ],
    "facts": {
@@ -1945,6 +1977,18 @@
      "en": "Great Britain"
     }
    },
+   "influence": [
+    {
+     "polity": "brittiska-imperiet",
+     "name": {
+      "sv": "Kungariket Hawaii",
+      "en": "Hawaiian Kingdom"
+     },
+     "relation": "allegiance",
+     "from": 1811,
+     "to": 1819
+    }
+   ],
    "facts": {
     "summary": {
      "sv": "Brittiska imperiet bestod av dominions, kolonier, protektorat, mandat och andra områden som styrdes av Storbritannien och dess föregångare. Det växte genom handel, kolonisation och erövring, och som störst var det det största riket i historien."
@@ -3413,6 +3457,18 @@
      "review": "source-checked"
     }
    ],
+   "influence": [
+    {
+     "polity": "sasanidriket",
+     "name": {
+      "sv": "Kidariterna",
+      "en": "Kidarites"
+     },
+     "relation": "allegiance",
+     "from": 390,
+     "to": 450
+    }
+   ],
    "facts": {
     "summary": {
      "sv": "Sasanidriket var det sista iranska riket före islam, styrt av den sasanidiska ätten 224–651. Det var Roms och Bysans stora rival och en höjdpunkt i den iranska kulturen."
@@ -4383,6 +4439,48 @@
      "review": "source-checked"
     }
    ],
+   "influence": [
+    {
+     "polity": "abbasidkalifatet",
+     "name": {
+      "sv": "Ziyadiderna",
+      "en": "Ziyadid dynasty"
+     },
+     "relation": "allegiance",
+     "from": 866,
+     "to": 946
+    },
+    {
+     "polity": "abbasidkalifatet",
+     "name": {
+      "sv": "Ayyubidernas sultanat",
+      "en": "Ayyubid Sultanate"
+     },
+     "relation": "allegiance",
+     "from": 1202,
+     "to": 1249
+    },
+    {
+     "polity": "abbasidkalifatet",
+     "name": {
+      "sv": "Rumsultanatet",
+      "en": "Sultanate of Rum"
+     },
+     "relation": "allegiance",
+     "from": 1202,
+     "to": 1249
+    },
+    {
+     "polity": "abbasidkalifatet",
+     "name": {
+      "sv": "Delhisultanatet",
+      "en": "Delhi Sultanate"
+     },
+     "relation": "allegiance",
+     "from": 1210,
+     "to": 1259
+    }
+   ],
    "facts": {
     "summary": {
      "sv": "Abbasidkalifatet var det tredje islamiska kalifatet, styrt av en dynasti som härstammade från Muhammeds farbror Abbas. Huvudstaden Bagdad blev ett centrum för vetenskap och kultur under det som kallas islams guldålder."
@@ -4593,6 +4691,18 @@
       "cliopatria"
      ],
      "review": "source-checked"
+    }
+   ],
+   "influence": [
+    {
+     "polity": "karolingiska-riket",
+     "name": {
+      "sv": "Östfrankiska riket",
+      "en": "East Franks"
+     },
+     "relation": "allegiance",
+     "from": 911,
+     "to": 921
     }
    ],
    "facts": {
@@ -5572,6 +5682,15 @@
      "review": "source-checked"
     }
    ],
+   "uncertainBorder": {
+    "note": {
+     "sv": "Kanten är mjuk eftersom rikets gräns är osäker. Enligt Wikipedia är de skriftliga källorna vaga om hur stort riket var som mest, och riket kan ha varit ett förbund av mindre stater med olika band till kärnan, från direkt styre till en tribut som mest var till namnet."
+    },
+    "sources": [
+     "wp-ghana-empire"
+    ],
+    "review": "source-checked"
+   },
    "facts": {
     "summary": {
      "sv": "Ghanariket, även kallat Wagadu, var ett rike i västra Sahel, i dagens sydöstra Mauretanien och västra Mali. Det blev rikt på handeln med guld norrut och salt söderut. Det har inget geografiskt samband med dagens Ghana, som tog namnet 1957."
@@ -6075,6 +6194,38 @@
       "cliopatria"
      ],
      "review": "source-checked"
+    }
+   ],
+   "influence": [
+    {
+     "polity": "timuridriket",
+     "name": {
+      "sv": "Jalayiridernas sultanat",
+      "en": "Jalayirid Sultanate"
+     },
+     "relation": "allegiance",
+     "from": 1375,
+     "to": 1394
+    },
+    {
+     "polity": "timuridriket",
+     "name": {
+      "sv": "Kungariket Georgien",
+      "en": "Kingdom of Georgia"
+     },
+     "relation": "vassalage",
+     "from": 1395,
+     "to": 1406
+    },
+    {
+     "polity": "timuridriket",
+     "name": {
+      "sv": "Qara Qoyunlu",
+      "en": "Qara Qoyunlu"
+     },
+     "relation": "vassalage",
+     "from": 1407,
+     "to": 1467
     }
    ],
    "facts": {
@@ -7244,6 +7395,18 @@
       "cliopatria"
      ],
      "review": "source-checked"
+    }
+   ],
+   "influence": [
+    {
+     "polity": "mingdynastin",
+     "name": {
+      "sv": "Joseon (Korea)",
+      "en": "Joseon"
+     },
+     "relation": "allegiance",
+     "from": 1395,
+     "to": 1571
     }
    ],
    "facts": {

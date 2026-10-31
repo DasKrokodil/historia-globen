@@ -46,6 +46,8 @@ function collect({ sources, events, funfacts, polities, empireGroups = [], land,
   for (const g of empireGroups) {
     // Försvunna länder (#72): årtal, föregångare och efterträdare har egna källor och egen status
     if (g.vanished) add('empires', g.vanished.sources ?? [], `${t(g.name)}: årtal och efterträdare`, g.vanished.review);
+    // Osäker gräns (#73): källan som säger att gränsen var osäker
+    if (g.uncertainBorder) add('empires', g.uncertainBorder.sources ?? [], `${t(g.name)}: osäker gräns (mjuk kant)`, g.uncertainBorder.review);
     if (!g.facts) continue;
     add('empires', g.facts.sources ?? [], `${t(g.name)}: faktarutan`, g.facts.review);
     for (const m of g.facts.milestones ?? []) add('empires', m.sources ?? [], `${t(g.name)}: ${t(m.label)}`, g.facts.review);
@@ -109,7 +111,8 @@ export class SourcesDialog {
     this.query = '';
     this.group = null;
     const { events, funfacts, polities, empireGroups = [] } = this.data;
-    const empireFacts = [...empireGroups.filter(g => g.facts).map(g => g.facts), ...empireGroups.filter(g => g.vanished).map(g => g.vanished)];
+    const empireFacts = [...empireGroups.filter(g => g.facts).map(g => g.facts), ...empireGroups.filter(g => g.vanished).map(g => g.vanished),
+      ...empireGroups.filter(g => g.uncertainBorder).map(g => g.uncertainBorder)];
     const religionsDoc = this.data.religionsDoc;
     const total = doc => {
       // Religionslagrets riken: med kontrollerat år för kristnandet har de en egen källa

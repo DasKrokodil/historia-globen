@@ -229,7 +229,7 @@ async function start() {
     selectedId = null;
     // Ramen följer rikets tidsålder och platsen globen riktas mot i fokus
     const place = focus?.type === 'empire' && focus.id === id ? { start: g.from, _lat: focus.center[0], _lon: focus.center[1] } : null;
-    const note = t(g.facts.mapNote);
+    const note = [t(g.facts.mapNote), t(g.uncertainBorder?.note), influenceNote(g)].filter(Boolean).join(' ');
     // Ett försvunnet land (#72) har årtal, föregångare och efterträdare; ett land utan gräns visas som en punkt
     panel.showFacts({ kind: g.vanished ? 'Försvunnet land' : 'Rike', name: t(g.name), color: g.color, facts: g.facts, place,
       curveId: g.file ? g.id : '', lineage: g.vanished ? { ...g.vanished, groups: data.empireGroups } : null,
@@ -240,6 +240,13 @@ async function start() {
     if (narrow.matches) panel.setOpen(false);
     refresh();
     return true;
+  }
+  /** Inflytandet runt riket (#75) i rutan Om kartan: lydriken och vasaller enligt Cliopatrias relationer. */
+  function influenceNote(g) {
+    if (!g.influence?.length) return '';
+    const kind = { allegiance: 'lojalitet', vassalage: 'vasall' };
+    const list = g.influence.map(a => `${t(a.name)} (${kind[a.relation] ?? a.relation}, ${formatYearSpan(a.from, a.to)})`);
+    return `Glest prickade områden med streckad kant lydde enligt Cliopatria under riket utan att höra till det: ${list.join(', ')}.`;
   }
   /** Har det man följer en faktaruta? (riken och religioner med facts) */
   function focusFacts(f) {
@@ -404,7 +411,7 @@ async function start() {
   });
   const focusGroups = (doc = null) => [
     { title: 'Krig', items: data.events.filter(e => e.kind === 'war').map(e => ({ key: `war:${e.id}`, label: t(e.title), sub: formatEventTime(e), color: CAT[e.category]?.color, from: e.start, to: e.end })) },
-    { title: 'Riken', note: 'Gränser ur Cliopatria. Årtalen visar när kartdata finns och kan skilja sig från rikets historiska årtal. Ett kolonialvälde har samma färg överallt; stjärnan och den kraftiga kanten visar huvudlandet. Länder som inte finns längre står under Försvunna länder.', items: empireItems() },
+    { title: 'Riken', note: 'Gränser ur Cliopatria. Årtalen visar när kartdata finns och kan skilja sig från rikets historiska årtal. Ett kolonialvälde har samma färg överallt; stjärnan och den kraftiga kanten visar huvudlandet. En mjuk, utsuddad kant betyder att källorna säger att gränsen är osäker. Glesa prickar med streckad kant är inflytande: lydriken och vasaller enligt Cliopatria. Länder som inte finns längre står under Försvunna länder.', items: empireItems() },
     { title: 'Försvunna länder', all: true, note: 'Länder som inte finns längre: när de bildades och upplöstes enligt källorna, och vilka länder de blev. Gränser ur Cliopatria, som kan ha andra årtal.', items: vanishedItems() },
     { title: 'Religioner', note: 'Visar var religionen var officiell religion eller huvudreligion i en statsbildning, inte religionens ålder eller var alla troende bodde.', items: doc ? religionItems(doc) : [], loading: !doc },
   ];

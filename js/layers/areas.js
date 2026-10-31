@@ -2,6 +2,7 @@
 // Varje rike har perioder (start–end) med en GeoJSON-polygon. Lagret väljer
 // den period som gäller för nuvarande år och ritar den på den platta lagerbilden.
 import { t, isVisibleReview } from '../model.js';
+import { softEdge, influenceAt, drawInfluence } from './area-style.js';
 
 export class AreasLayer {
   constructor(polities = []) {
@@ -27,6 +28,7 @@ export class AreasLayer {
   update({ year }) {
     this.active = [];
     this.activePoints = [];
+    this.influence = [];
     if (!this.enabled) return this.active;
     this.activePoints = (this.points ?? []).filter(g => (!this.onlyGroup || g.id === this.onlyGroup)
       && isVisibleReview(g.vanished.review) && year >= g.vanished.founded && year <= g.vanished.dissolved);
@@ -36,6 +38,7 @@ export class AreasLayer {
       const period = polity.periods.find(p => year >= p.start && year <= p.end);
       if (period) this.active.push({ polity, period });
     }
+    this.influence = influenceAt(this.active, year); // lydriken och vasaller (#75)
     return this.active;
   }
 
@@ -52,12 +55,15 @@ export class AreasLayer {
           ctx.closePath();
         }
       }
+      if (polity.uncertainBorder) { softEdge(ctx, polity.color, k); continue; } // osäker gräns: mjuk kant (#73)
       ctx.fillStyle = hexA(polity.color, 0.32);
       ctx.fill('evenodd');
       ctx.strokeStyle = hexA(polity.color, 0.95);
       ctx.lineWidth = 1.6 * k;
       ctx.stroke();
     }
+    // Inflytandet (#75) ovanpå: glesa prickar, så att ett lydrike som själv är ett rike på kartan syns igenom
+    drawInfluence(ctx, this.influence ?? [], X, Y, k);
     // Huvudlandet i ett utspritt välde (#74): samma färg men tätare fyllning och en kraftig kant
     // med mörk kontur, så att moderlandet syns bland kolonierna. Vilken del det är står i datan (period.homeland).
     for (const { polity, period } of this.active) {
