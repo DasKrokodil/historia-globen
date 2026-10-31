@@ -1939,6 +1939,12 @@
      "review": "source-checked"
     }
    ],
+   "homeland": {
+    "name": {
+     "sv": "Storbritannien",
+     "en": "Great Britain"
+    }
+   },
    "facts": {
     "summary": {
      "sv": "Brittiska imperiet bestod av dominions, kolonier, protektorat, mandat och andra områden som styrdes av Storbritannien och dess föregångare. Det växte genom handel, kolonisation och erövring, och som störst var det det största riket i historien."
@@ -4152,6 +4158,275 @@
     ],
     "review": "source-checked"
    }
+  },
+  {
+   "id": "franska-kolonialvaldet",
+   "name": {
+    "sv": "Franska kolonialväldet",
+    "en": "French colonial empire"
+   },
+   "color": "#3f6fb8",
+   "from": 1815,
+   "to": 1957,
+   "file": "data/empires/franska-kolonialvaldet.json",
+   "polities": [
+    {
+     "id": "frankrike-kungadomet",
+     "name": {
+      "sv": "Frankrike (kungadömet)",
+      "en": "Bourbon Kingdom of France"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "frankrike-andra-republiken",
+     "name": {
+      "sv": "Frankrike (andra republiken)",
+      "en": "French Second Republic"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "andra-franska-kejsardomet",
+     "name": {
+      "sv": "Andra franska kejsardömet",
+      "en": "Second French Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "frankrike-tredje-republiken",
+     "name": {
+      "sv": "Frankrike (tredje republiken)",
+      "en": "French Third Republic"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "vichyregimen",
+     "name": {
+      "sv": "Vichyregimen",
+      "en": "Vichy France"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "frankrike-fjarde-republiken",
+     "name": {
+      "sv": "Frankrike (fjärde republiken)",
+      "en": "French Fourth Republic"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "homeland": {
+    "name": {
+     "sv": "Frankrike",
+     "en": "France"
+    }
+   }
+  },
+  {
+   "id": "nederlandska-kolonialvaldet",
+   "name": {
+    "sv": "Nederländska kolonialväldet",
+    "en": "Dutch colonial empire"
+   },
+   "color": "#e0912c",
+   "from": 1582,
+   "to": 1949,
+   "file": "data/empires/nederlandska-kolonialvaldet.json",
+   "polities": [
+    {
+     "id": "nederlandska-republiken",
+     "name": {
+      "sv": "Nederländska republiken",
+      "en": "Dutch Republic"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "bataviska-republiken",
+     "name": {
+      "sv": "Bataviska republiken",
+      "en": "Batavian Republic"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "nederlanderna",
+     "name": {
+      "sv": "Nederländerna",
+      "en": "Netherlands"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "homeland": {
+    "name": {
+     "sv": "Nederländerna",
+     "en": "Netherlands"
+    }
+   }
+  },
+  {
+   "id": "tyska-riket",
+   "name": {
+    "sv": "Tyska riket",
+    "en": "German Empire"
+   },
+   "color": "#6c7484",
+   "from": 1871,
+   "to": 1919,
+   "file": "data/empires/tyska-riket.json",
+   "polities": [
+    {
+     "id": "tyska-riket",
+     "name": {
+      "sv": "Tyska riket",
+      "en": "German Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "homeland": {
+    "name": {
+     "sv": "Tyskland",
+     "en": "Germany"
+    }
+   }
+  },
+  {
+   "id": "osterrike-ungern",
+   "name": {
+    "sv": "Österrike-Ungern",
+    "en": "Austria-Hungary"
+   },
+   "color": "#b0902e",
+   "from": 1868,
+   "to": 1918,
+   "file": "data/empires/osterrike-ungern.json",
+   "polities": [
+    {
+     "id": "osterrike-ungern",
+     "name": {
+      "sv": "Österrike-Ungern",
+      "en": "Austria-Hungary"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "japanska-imperiet",
+   "name": {
+    "sv": "Japanska imperiet",
+    "en": "Empire of Japan"
+   },
+   "color": "#d8603e",
+   "from": 1868,
+   "to": 1945,
+   "file": "data/empires/japanska-imperiet.json",
+   "polities": [
+    {
+     "id": "japanska-imperiet",
+     "name": {
+      "sv": "Japanska imperiet",
+      "en": "Empire of Japan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "homeland": {
+    "name": {
+     "sv": "Japan",
+     "en": "Japan"
+    }
+   }
+  },
+  {
+   "id": "etiopiska-kejsardomet",
+   "name": {
+    "sv": "Etiopiska kejsardömet",
+    "en": "Ethiopian Empire"
+   },
+   "color": "#4f9a45",
+   "from": 1272,
+   "to": 1974,
+   "file": "data/empires/etiopiska-kejsardomet.json",
+   "polities": [
+    {
+     "id": "etiopiska-kejsardomet",
+     "name": {
+      "sv": "Etiopiska kejsardömet",
+      "en": "Ethiopian Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "sovjetunionen",
+   "name": {
+    "sv": "Sovjetunionen",
+    "en": "Soviet Union"
+   },
+   "color": "#9a2a3a",
+   "from": 1922,
+   "to": 1991,
+   "file": "data/empires/sovjetunionen.json",
+   "polities": [
+    {
+     "id": "sovjetunionen",
+     "name": {
+      "sv": "Sovjetunionen",
+      "en": "Union of Soviet Socialist Republics"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
   }
  ]
 }

@@ -49,6 +49,26 @@ export class AreasLayer {
       ctx.lineWidth = 1.6 * k;
       ctx.stroke();
     }
+    // Huvudlandet i ett utspritt välde (#74): samma färg men tätare fyllning och en kraftig kant
+    // med mörk kontur, så att moderlandet syns bland kolonierna. Vilken del det är står i datan (period.homeland).
+    for (const { polity, period } of this.active) {
+      if (!period.homeland) continue;
+      ctx.beginPath();
+      for (const rings of polygons(period.homeland)) {
+        for (const ring of rings) {
+          ring.forEach(([lon, lat], i) => i ? ctx.lineTo(X(lon), Y(lat)) : ctx.moveTo(X(lon), Y(lat)));
+          ctx.closePath();
+        }
+      }
+      ctx.fillStyle = hexA(polity.color, 0.4);
+      ctx.fill('evenodd');
+      ctx.strokeStyle = 'rgba(16,22,30,0.85)';
+      ctx.lineWidth = 5 * k;
+      ctx.stroke();
+      ctx.strokeStyle = polity.color;
+      ctx.lineWidth = 2.6 * k;
+      ctx.stroke();
+    }
     // Namnen sist, så att de hamnar ovanpå alla områden. Ryms namnet inte i
     // området skrivs det ovanför, med ett streck ner, så att området syns.
     const size = 16 * k * this.labelScale;
@@ -61,7 +81,11 @@ export class AreasLayer {
       const b = bbox(period);
       const bw = X(b.maxLon) - X(b.minLon), bh = Y(b.minLat) - Y(b.maxLat);
       let x = X(period.label[0]), y = Y(period.label[1]);
-      if (ctx.measureText(name).width > bw * 0.9 || bh < size * 2.5) {
+      if (period.homeland) {
+        // Huvudlandet får en mässingsstjärna och rikets namn strax ovanför, i stället för mitt i största kolonin
+        star(ctx, x, y, 7 * k * this.labelScale);
+        y -= size * 1.05;
+      } else if (ctx.measureText(name).width > bw * 0.9 || bh < size * 2.5) {
         const top = Y(b.maxLat);
         y = top - size * 1.6;
         ctx.strokeStyle = 'rgba(246,231,196,0.8)';
@@ -79,6 +103,24 @@ export class AreasLayer {
 }
 
 const polygons = g => g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
+
+let brass = null; // --brass i css/style.css, läses första gången stjärnan ritas
+const BRASS = () => (brass ??= getComputedStyle(document.documentElement).getPropertyValue('--brass').trim() || '#d6b06a');
+
+/** En femuddig mässingsstjärna med mörk kant, märket för huvudlandet (#74). */
+function star(ctx, x, y, r) {
+  ctx.beginPath();
+  for (let i = 0; i < 10; i++) {
+    const a = -Math.PI / 2 + i * Math.PI / 5, d = i % 2 ? r * 0.45 : r;
+    i ? ctx.lineTo(x + d * Math.cos(a), y + d * Math.sin(a)) : ctx.moveTo(x + d * Math.cos(a), y + d * Math.sin(a));
+  }
+  ctx.closePath();
+  ctx.lineWidth = r * 0.45;
+  ctx.strokeStyle = 'rgba(16,22,30,0.85)';
+  ctx.stroke();
+  ctx.fillStyle = BRASS();
+  ctx.fill();
+}
 
 /** Områdets yttre gränser i grader, räknas ut en gång per period. */
 function bbox(period) {
