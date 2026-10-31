@@ -27,7 +27,9 @@ MERGE = 0.02   # slå ihop perioder där gränsen ändras mindre än så här st
 MIN_AREA = 0.02  # öar mindre än så här (kvadratgrader, cirka 200 km2) tas bort
 
 # Stora, utspridda imperier förenklas hårdare så att filen blir lagom stor: grupp -> (TOL, MERGE, MIN_AREA)
-OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08)}
+OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
+             'spanska-imperiet': (0.3, 0.08, 0.08), 'portugisiska-imperiet': (0.3, 0.08, 0.08),
+             'ryska-imperiet': (0.3, 0.05, 0.08)}
 
 # grupp: (svenskt namn, engelskt namn, [(Cliopatria-namn, id, svenskt namn, färg)])
 GROUPS = {
@@ -97,6 +99,49 @@ GROUPS = {
     ]),
     'aksumriket': ('Aksumriket', 'Kingdom of Aksum', [
         ('Kingdom of Axum', 'aksumriket', 'Aksumriket', '#c06a9a'),
+    ]),
+    # R4 Tidigmodern tid (#70)
+    'aztekriket': ('Aztekriket', 'Aztec Empire', [
+        ('Tenochtitlan', 'tenochtitlan', 'Tenochtitlan', '#b84a3a'),
+        ('Aztec Triple Alliance', 'aztekiska-trippelalliansen', 'Aztekiska trippelalliansen', '#b84a3a'),
+    ]),
+    'inkariket': ('Inkariket', 'Inca Empire', [
+        ('Inca Empire', 'inkariket', 'Inkariket', '#8a5a9e'),
+    ]),
+    'songhairiket': ('Songhairiket', 'Songhai Empire', [
+        ('Songhai Empire', 'songhairiket', 'Songhairiket', '#7fae4a'),
+    ]),
+    'mogulriket': ('Mogulriket', 'Mughal Empire', [
+        ('Mughal Empire', 'mogulriket', 'Mogulriket', '#6b9e3a'),
+    ]),
+    'safavidriket': ('Safavidriket', 'Safavid Empire', [
+        ('Safavid Dynasty', 'safavidriket', 'Safavidriket', '#3a86b0'),
+    ]),
+    'mingdynastin': ('Mingdynastin', 'Ming dynasty', [
+        ('Ming Dynasty', 'mingdynastin', 'Mingdynastin', '#c4463c'),
+        ('Southern Ming', 'sodra-ming', 'Södra Ming', '#c4463c'),
+    ]),
+    'qingdynastin': ('Qingdynastin', 'Qing dynasty', [
+        ('Qing Dynasty', 'qingdynastin', 'Qingdynastin', '#d6a433'),
+    ]),
+    'spanska-imperiet': ('Spanska imperiet', 'Spanish Empire', [
+        ('(Spanish Empire)', 'spanska-imperiet', 'Spanska imperiet', '#d9832b'),
+    ]),
+    'portugisiska-imperiet': ('Portugisiska imperiet', 'Portuguese Empire', [
+        ('(Portuguese Empire)', 'portugisiska-imperiet', 'Portugisiska imperiet', '#2e7d5b'),
+    ]),
+    'ryska-imperiet': ('Ryssland: tsardömet och kejsardömet', 'Russia: Tsardom and Empire', [
+        ('Tsardom of Russia', 'ryska-tsardomet', 'Ryska tsardömet', '#5f6fae'),
+        ('Russian Empire', 'ryska-imperiet', 'Ryska imperiet', '#5f6fae'),
+    ]),
+    'svenska-stormaktsvaldet': ('Svenska stormaktsväldet', 'Swedish Empire', [
+        ('Swedish Empire', 'svenska-stormaktsvaldet', 'Svenska stormaktsväldet', '#e0c040'),
+    ]),
+    'habsburgska-riket': ('Habsburgska riket', 'Habsburg Monarchy', [
+        ('(Habsburg Monarchy)', 'habsburgska-riket', 'Habsburgska riket', '#a8475a'),
+    ]),
+    'tokugawa-japan': ('Tokugawa-Japan', 'Tokugawa Japan', [
+        ('Tokugawa Shogunate', 'tokugawa-japan', 'Tokugawa-Japan', '#4b9fb0'),
     ]),
 }
 
@@ -170,7 +215,8 @@ def main():
              '(Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. '
              f'Ändringar: geometrin är förenklad (Douglas-Peucker {TOL} grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 '
              f'borttagna) och på varandra följande perioder där gränsen ändras mindre än {round(MERGE * 100)} procent är sammanslagna. '
-             'Brittiska imperiet är förenklat hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna). '
+             'Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), '
+             'liksom Ryssland (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna). '
              'start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), '
              'är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på '
              'Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. '

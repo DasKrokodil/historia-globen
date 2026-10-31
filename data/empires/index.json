@@ -1,6 +1,6 @@
 {
  "schema": "historia-globen/empires-index@1",
- "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska imperiet är förenklat hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut.",
+ "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut.",
  "groups": [
   {
    "id": "romarriket",
@@ -4152,6 +4152,351 @@
     ],
     "review": "source-checked"
    }
+  },
+  {
+   "id": "aztekriket",
+   "name": {
+    "sv": "Aztekriket",
+    "en": "Aztec Empire"
+   },
+   "color": "#b84a3a",
+   "from": 1326,
+   "to": 1520,
+   "file": "data/empires/aztekriket.json",
+   "polities": [
+    {
+     "id": "tenochtitlan",
+     "name": {
+      "sv": "Tenochtitlan",
+      "en": "Tenochtitlan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "aztekiska-trippelalliansen",
+     "name": {
+      "sv": "Aztekiska trippelalliansen",
+      "en": "Aztec Triple Alliance"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "inkariket",
+   "name": {
+    "sv": "Inkariket",
+    "en": "Inca Empire"
+   },
+   "color": "#8a5a9e",
+   "from": 1440,
+   "to": 1571,
+   "file": "data/empires/inkariket.json",
+   "polities": [
+    {
+     "id": "inkariket",
+     "name": {
+      "sv": "Inkariket",
+      "en": "Inca Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "songhairiket",
+   "name": {
+    "sv": "Songhairiket",
+    "en": "Songhai Empire"
+   },
+   "color": "#7fae4a",
+   "from": 1463,
+   "to": 1608,
+   "file": "data/empires/songhairiket.json",
+   "polities": [
+    {
+     "id": "songhairiket",
+     "name": {
+      "sv": "Songhairiket",
+      "en": "Songhai Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "mogulriket",
+   "name": {
+    "sv": "Mogulriket",
+    "en": "Mughal Empire"
+   },
+   "color": "#6b9e3a",
+   "from": 1529,
+   "to": 1858,
+   "file": "data/empires/mogulriket.json",
+   "polities": [
+    {
+     "id": "mogulriket",
+     "name": {
+      "sv": "Mogulriket",
+      "en": "Mughal Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "safavidriket",
+   "name": {
+    "sv": "Safavidriket",
+    "en": "Safavid Empire"
+   },
+   "color": "#3a86b0",
+   "from": 1502,
+   "to": 1737,
+   "file": "data/empires/safavidriket.json",
+   "polities": [
+    {
+     "id": "safavidriket",
+     "name": {
+      "sv": "Safavidriket",
+      "en": "Safavid Dynasty"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "mingdynastin",
+   "name": {
+    "sv": "Mingdynastin",
+    "en": "Ming dynasty"
+   },
+   "color": "#c4463c",
+   "from": 1375,
+   "to": 1682,
+   "file": "data/empires/mingdynastin.json",
+   "polities": [
+    {
+     "id": "mingdynastin",
+     "name": {
+      "sv": "Mingdynastin",
+      "en": "Ming Dynasty"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "sodra-ming",
+     "name": {
+      "sv": "Södra Ming",
+      "en": "Southern Ming"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "qingdynastin",
+   "name": {
+    "sv": "Qingdynastin",
+    "en": "Qing dynasty"
+   },
+   "color": "#d6a433",
+   "from": 1645,
+   "to": 1911,
+   "file": "data/empires/qingdynastin.json",
+   "polities": [
+    {
+     "id": "qingdynastin",
+     "name": {
+      "sv": "Qingdynastin",
+      "en": "Qing Dynasty"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "spanska-imperiet",
+   "name": {
+    "sv": "Spanska imperiet",
+    "en": "Spanish Empire"
+   },
+   "color": "#d9832b",
+   "from": 1516,
+   "to": 1931,
+   "file": "data/empires/spanska-imperiet.json",
+   "polities": [
+    {
+     "id": "spanska-imperiet",
+     "name": {
+      "sv": "Spanska imperiet",
+      "en": "Spanish Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "portugisiska-imperiet",
+   "name": {
+    "sv": "Portugisiska imperiet",
+    "en": "Portuguese Empire"
+   },
+   "color": "#2e7d5b",
+   "from": 1502,
+   "to": 1910,
+   "file": "data/empires/portugisiska-imperiet.json",
+   "polities": [
+    {
+     "id": "portugisiska-imperiet",
+     "name": {
+      "sv": "Portugisiska imperiet",
+      "en": "Portuguese Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "ryska-imperiet",
+   "name": {
+    "sv": "Ryssland: tsardömet och kejsardömet",
+    "en": "Russia: Tsardom and Empire"
+   },
+   "color": "#5f6fae",
+   "from": 1547,
+   "to": 1916,
+   "file": "data/empires/ryska-imperiet.json",
+   "polities": [
+    {
+     "id": "ryska-tsardomet",
+     "name": {
+      "sv": "Ryska tsardömet",
+      "en": "Tsardom of Russia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "ryska-imperiet",
+     "name": {
+      "sv": "Ryska imperiet",
+      "en": "Russian Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "svenska-stormaktsvaldet",
+   "name": {
+    "sv": "Svenska stormaktsväldet",
+    "en": "Swedish Empire"
+   },
+   "color": "#e0c040",
+   "from": 1612,
+   "to": 1814,
+   "file": "data/empires/svenska-stormaktsvaldet.json",
+   "polities": [
+    {
+     "id": "svenska-stormaktsvaldet",
+     "name": {
+      "sv": "Svenska stormaktsväldet",
+      "en": "Swedish Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "habsburgska-riket",
+   "name": {
+    "sv": "Habsburgska riket",
+    "en": "Habsburg Monarchy"
+   },
+   "color": "#a8475a",
+   "from": 1459,
+   "to": 1805,
+   "file": "data/empires/habsburgska-riket.json",
+   "polities": [
+    {
+     "id": "habsburgska-riket",
+     "name": {
+      "sv": "Habsburgska riket",
+      "en": "Habsburg Monarchy"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "tokugawa-japan",
+   "name": {
+    "sv": "Tokugawa-Japan",
+    "en": "Tokugawa Japan"
+   },
+   "color": "#4b9fb0",
+   "from": 1600,
+   "to": 1869,
+   "file": "data/empires/tokugawa-japan.json",
+   "polities": [
+    {
+     "id": "tokugawa-japan",
+     "name": {
+      "sv": "Tokugawa-Japan",
+      "en": "Tokugawa Shogunate"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
   }
  ]
 }
