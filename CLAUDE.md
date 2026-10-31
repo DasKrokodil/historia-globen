@@ -62,7 +62,7 @@ images/events/        bilder till händelser, <händelse-id>.webp, 800 × 600
 images/karta/         kartbilder till upptäcktsvyn (public domain, ur gamla kartor)
 images/incoming/      Rikards nya bilder, innan de konverteras
 tools/                hjälpskript som körs för hand (riken, bildpromptar, bildkonvertering; dela_data.py efter varje ändring i events.json och empires/index.json)
-docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar, publicering (DEPLOYMENT.md), besökarnas förslag (feedback.md)
+docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar, publicering (DEPLOYMENT.md), besökarnas förslag (feedback.md), externa granskningar (granskningar/)
 scripts/              build-site.sh kopierar webbplatsens filer till dist/ och kör validate-site.py (publicering, ingen kodändring)
 .orchestra/           dirigenten och orkestern: project.md (projektets policy) och shared/ (fäst version, redigeras inte)
 ```
@@ -140,6 +140,7 @@ Rikard gillar stilen. Behåll den:
 - **Dokumentation** ligger i `docs/`: [arkitektur.md](docs/arkitektur.md), [datamodell.md](docs/datamodell.md), [beslut.md](docs/beslut.md) och [kallor.md](docs/kallor.md). Uppdatera dem i samma pull request när koden, ett datafält eller ett arbetssätt ändras.
 - **Fråga först** innan du ändrar arkitekturen, lägger till beroenden, kategorier eller datakällor med ny licens.
 - **Orkestern (#145, permanent sedan #159):** `/orkester [issue eller område]` kör dirigenten och orkestern enligt [.orchestra/project.md](.orchestra/project.md): ett avgränsat pass i PR-läge med högst fyra pull requests, där issues med fakta och data görs med samma modell som dirigenten och dirigenten granskar varje leverans. "Fortsätt med fler issues" startar nästa pass. Filerna i `.orchestra/shared/` redigeras inte här.
+- **Granskningar från Codex:** när en session eller `/orkester` startar, läs `docs/granskningar/handoff.json` om den finns. Är `status` `ready_for_triage`: läs rapporten i `report`, jämför den med koden, dokumentationen och de öppna issues, rapportera dubbletter och föreslå en prioriterad plan. Genomför inget och skapa inga issues förrän Rikard har godkänt planen. Efter godkänd triage: sätt `status` till `triaged` och lägg till `triagedAt` (i en pull request). Se [docs/granskningar/README.md](docs/granskningar/README.md).
 - **Sådant som inte är kod** (namn, domän, fysisk glob, hårdvara, affärsfrågor) planeras i Rikards Claude-projekt "Historia-globen", inte här. Om sådant kommer upp: påminn Rikard om det och skapa högst ett issue med etiketten `utanför-kod` som anteckning.
 
 ## Versionsplan

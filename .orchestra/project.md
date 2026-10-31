@@ -48,7 +48,7 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
 - **Frågor:** frågor som bara Rikard kan svara på postas som kommentar på issuet, med alternativ och en
   rekommendation, och etiketten `user question`. Ett avgränsat pass frågar aldrig i chatten. Ändringar av
   arkitektur, nya beroenden, kategorier eller datakällor med ny licens är alltid sådana frågor (CLAUDE.md).
-- **Inflöde:** inga automatiska inflödessteg.
+- **Inflöde:** inga automatiska inflödessteg. Undantag: när dirigenten startar läser den `docs/granskningar/handoff.json`. Är `status` `ready_for_triage` triageras rapporten enligt CLAUDE.md (Granskningar från Codex) innan passet börjar, och ingenting ur rapporten genomförs förrän Rikard har godkänt planen.
 - **Granskning av varje leverans (obligatorisk):** dirigenten läser diffen och tittar på skärmbilderna innan pull
   requesten öppnas. I faktaarbete stickprovskontrollerar dirigenten källorna själv. Fel rättas i en extra commit, och
   pull requesten säger vad granskningen hittade. I första passet hittade granskningen något i hälften av leveranserna,
