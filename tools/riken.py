@@ -18,6 +18,8 @@ import json
 import sys
 from pathlib import Path
 
+import numpy as np
+import shapely
 from shapely.geometry import Polygon, box, mapping, shape
 from shapely.ops import unary_union
 
@@ -239,6 +241,90 @@ HOMELANDS = {
 }
 
 
+# Riken som Cliopatria delar upp, men som källorna räknar som ett rike (#336). Efter året `after`
+# byggs rikets gräns om: rikets egen post i Cliopatria plus de angivna riken (`add`, Cliopatria-namn
+# med första och sista år, None = utan gräns), men bara den del av dem som ligger innanför gränsen
+# `border` (rikets gräns ett visst år) minus länderna i `outside` (som ingick i Cliopatrias gräns men
+# inte i riket). Riken i `remove` klipps bort från det angivna året, även ur rikets egen post.
+# Ytan (areaKm2) räknas då fram ur den byggda gränsen.
+EXTEND = {
+    'tysk-romerska-riket': {
+        'polity': '(Holy Roman Empire)',
+        'after': 1458,
+        # Cliopatria 1453–1458 räknar Ladislaus Postumus länder (också Ungern) och Tyska ordens
+        # Preussen till riket. Ungern och ordensstaten/hertigdömet Preussen hörde aldrig till riket.
+        'border': ('(Holy Roman Empire)', 1458),
+        'outside': [('Kingdom of Hungary', 1459), ('Teutonic Order', 1458)],
+        'add': [
+            ('(Habsburg Monarchy)', None, None), ('(Kingdom of Bohemia)', None, None),
+            ('Kingdom of Hungary', None, None),  # bara Matthias Corvinus erövringar innanför riket
+            ('Electorate of Brandenburg', None, None), ('Brandenburg-Prussia', None, None),
+            ('Kingdom of Prussia', None, None),
+            ('House of Ascania', None, None), ('Electorate of Saxony', None, None), ('Kingdom of Saxony', None, None),
+            # Cliopatria räknar Sachsen till Polen–Litauen under personalunionen 1697–1763; bara Sachsen ligger innanför
+            ('Polish-Lithuanian Commonwealth', 1697, 1763),
+            ('Duchy of Bavaria', None, None), ('Kingdom of Bavaria', None, None),
+            ('Electorate of Hanover', None, None), ('Kingdom of Hanover', None, None),
+            ('Electorate of Trier', None, None), ('Duchy of Lorraine', None, None),
+            ('County of Savoy', None, None), ('House of Savoy', None, None), ('Kingdom of Sardinia', None, None),
+            ('Duchy of Milan', None, None), ('Republic of Florence', None, None),
+            ('(Spanish Empire)', None, None),  # Burgundiska Nederländerna, Franche-Comté och Milano
+            ('(Kalmar Union)', None, None), ('Denmark-Norway', None, None),  # Holstein
+            # Svenska Pommern, Wismar och Bremen-Verden (från 1648), och under trettioåriga kriget de delar av riket
+            # som Sverige höll (Cliopatria räknar dem till Sverige från 1632)
+            ('Swedish Empire', None, None),
+            ('Swiss Confederation', None, 1647), ('Union of Utrecht', None, 1647), ('(Dutch Republic)', None, 1647),
+            ('Electorate of Hesse', None, None), ('Electorate of Württemberg', None, None),
+            ('Electorate of Baden', None, None), ('Electorate of Salzburg', None, None),
+            ('Austrian Empire', None, None), ('Kingdom of Württemberg', None, None), ('Grand Duchy of Baden', None, None),
+            ('Grand Duchy of Hesse', None, None), ('Grand Duchy of Berg', None, None), ('Duchy of Nassau', None, None),
+            ('Duchy of Mecklenburg', None, None), ('Grand Duchy of Würzburg', None, None), ('Saxe-Altenburg', None, None),
+            ('Principality of Regensberg', None, None), ('Free City of Lübeck', None, None), ('Duchy of Oldenburg', None, None),
+        ],
+        'remove': [('Swiss Confederation', 1648), ('(Dutch Republic)', 1648)],
+    },
+}
+
+
+def km2(g):
+    """Ytan i km2 på en sfär (Lamberts ytriktiga cylinderprojektion)."""
+    r = 6371.0088
+    return shapely.transform(g, lambda c: np.column_stack([np.radians(c[:, 0]) * r, np.sin(np.radians(c[:, 1])) * r])).area
+
+
+def extend(by_name, ext):
+    """Bygger om rikets perioder efter ext['after'] enligt EXTEND och returnerar rikets nya lista med poster."""
+    def at(name, y):
+        for f in by_name.get(name, []):
+            if f['properties']['FromYear'] <= y <= f['properties']['ToYear']:
+                return shape(f['geometry']).buffer(0)
+        return None
+    after = ext['after']
+    own = by_name[ext['polity']]
+    border = at(*ext['border'])
+    for name, y in ext['outside']:
+        border = border.difference(at(name, y))
+    end = max(f['properties']['ToYear'] for f in own)
+    # Ett nytt spann börjar varje gång något av rikena i listan ändras
+    cuts = {after + 1}
+    for name in [ext['polity']] + [a[0] for a in ext['add']] + [r[0] for r in ext['remove']]:
+        for f in by_name.get(name, []):
+            cuts |= {f['properties']['FromYear'], f['properties']['ToYear'] + 1}
+    cuts |= {a[1] for a in ext['add'] if a[1]} | {a[2] + 1 for a in ext['add'] if a[2]} | {r[1] for r in ext['remove']}
+    cuts = sorted(c for c in cuts if after < c <= end) + [end + 1]
+    out = [f for f in own if f['properties']['ToYear'] <= after]
+    props = own[0]['properties']
+    for s, e in zip(cuts, cuts[1:]):
+        parts = [at(ext['polity'], s)]
+        parts += [at(name, s) for name, a, b in ext['add'] if (a is None or a <= s) and (b is None or s <= b)]
+        g = unary_union([p for p in parts if p is not None]).intersection(border)
+        for name, y in ext['remove']:
+            if s >= y and at(name, s) is not None:
+                g = g.difference(at(name, s))
+        out.append({'properties': {**props, 'FromYear': s, 'ToYear': e - 1, 'Area': km2(g)}, 'geometry': mapping(g)})
+    return out
+
+
 def rnd(o):
     if isinstance(o, (list, tuple)):
         if o and isinstance(o[0], (int, float)):
@@ -247,14 +333,15 @@ def rnd(o):
     return o
 
 
-def member_periods(by_name, cname, years=None):
+def member_periods(by_name, cname, years=None, feats=None):
     """Perioderna för en del av ett rike: (start, slut, geometri, yta i km2).
 
     En del är ett namn i Cliopatria, eller en lista med namn som slås ihop år för år, till exempel ett
-    moderland och dess kolonier som ligger som egna poster (#71). years = (från, till) klipper spannet."""
+    moderland och dess kolonier som ligger som egna poster (#71). years = (från, till) klipper spannet.
+    feats ersätter Cliopatrias poster för ett namn (riken som byggs om med EXTEND, #336)."""
     if not isinstance(cname, list):
         items = [(f['properties']['FromYear'], f['properties']['ToYear'], shape(f['geometry']).buffer(0), f['properties']['Area'])
-                 for f in sorted(by_name.get(cname, []), key=lambda f: f['properties']['FromYear'])]
+                 for f in sorted(feats if feats is not None else by_name.get(cname, []), key=lambda f: f['properties']['FromYear'])]
     else:
         feats = [f for n in cname for f in by_name.get(n, [])]
         cuts = sorted({f['properties']['FromYear'] for f in feats} | {f['properties']['ToYear'] + 1 for f in feats})
@@ -316,7 +403,10 @@ def main():
         for cname, pid, psv, color, *rest in members:
             opts = rest[0] if rest else {}
             periods = []
-            for start, end, raw, area in member_periods(by_name, cname, opts.get('years')):
+            feats = None
+            if gid in EXTEND and EXTEND[gid]['polity'] == cname:
+                feats = extend(by_name, EXTEND[gid])
+            for start, end, raw, area in member_periods(by_name, cname, opts.get('years'), feats):
                 g = raw.simplify(tol, preserve_topology=True)
                 if g.geom_type == 'MultiPolygon':
                     g = unary_union([q for q in g.geoms if q.area > min_area] or [max(g.geoms, key=lambda q: q.area)])
@@ -381,7 +471,9 @@ def main():
              'start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), '
              'är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på '
              'Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. '
-             'areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut.')
+             'areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. '
+             'Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och '
+             'Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen.')
     (out / 'index.json').write_text(json.dumps({'schema': 'historia-globen/empires-index@1', 'notes': notes, 'groups': index},
                                                ensure_ascii=False, indent=1))
 

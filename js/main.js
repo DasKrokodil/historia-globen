@@ -229,8 +229,10 @@ async function start() {
     // Ramen följer rikets tidsålder och platsen globen riktas mot i fokus
     const place = focus?.type === 'empire' && focus.id === id ? { start: g.from, _lat: focus.center[0], _lon: focus.center[1] } : null;
     const note = t(g.facts.mapNote);
-    panel.showFacts({ kind: 'Rike', name: t(g.name), color: g.color, facts: g.facts, place,
+    panel.showFacts({ kind: 'Rike', name: t(g.name), color: g.color, facts: g.facts, place, curveId: g.id,
       mapNote: `Gränserna på kartan kommer från Cliopatria (kartdata ${formatYearSpan(g.from, g.to)}). Fakta i rutan kommer från rutans källor.${note ? ` ${note}` : ''}` });
+    // Ytkurvan (#77) ritas när rikets fil har laddats (den laddas ändå för kartan)
+    loadEmpire(g).then(ps => panel.setCurve(g.id, ps, g, timeline.year)).catch(err => console.error(err));
     layers.close(); focusMenu.close();
     if (narrow.matches) panel.setOpen(false);
     refresh();
@@ -607,6 +609,7 @@ async function start() {
     flatMap.setMarkers({ list: layer.sprites.filter(sp => sp.userData.active).map(sp => sp.userData),
       labeled: new Set(visible.map(v => v.e.id)), keep: ff.highlightIds(), selectedId });
     areas.update({ year: wholeYear });
+    panel.setCurveYear(wholeYear);
     borders.update({ year: wholeYear });
     religions.update({ year: wholeYear });
     wars.enabled = eventsOn;

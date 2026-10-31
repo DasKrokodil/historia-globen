@@ -1350,3 +1350,17 @@ details.used-by summary:hover { color: var(--parchment); }
 .report-btn:hover, .detail .report-btn:hover { color: var(--card-accent, var(--brass)); }
 .feedback-card { padding-top: 0; }
 .feedback-card > .help-head { position: sticky; top: 0; z-index: 1; padding: 12px 0 6px; background: var(--night-2); }
+
+/* Rikets yta över tid i faktarutan (#77) */
+.area-curve { margin: 10px 0 6px; padding: 0; }
+.area-curve .ac-head { display: flex; justify-content: space-between; gap: 8px; font: 600 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--card-accent, var(--brass)); }
+.area-curve .ac-read { font-weight: 500; letter-spacing: 0; text-transform: none; white-space: nowrap; }
+.area-curve .ac-note { margin: 2px 0 0; font: 10px/1.3 var(--f-mono); color: var(--card-muted, currentColor); opacity: .75; }
+.ac-svg { display: block; width: 100%; height: auto; max-height: 84px; margin-top: 2px; overflow: visible; }
+.ac-fill { fill: var(--ac); fill-opacity: .35; stroke: none; }
+.ac-line { fill: none; stroke: var(--ac); stroke-width: 1.5; stroke-linejoin: round; }
+.ac-base, .ac-tick { stroke: currentColor; stroke-opacity: .45; stroke-width: 1; }
+.ac-t, .ac-peak-t { font: 500 9px var(--f-mono); fill: currentColor; fill-opacity: .75; }
+.ac-peak { fill: var(--ac); stroke: currentColor; stroke-width: 1; }
+.ac-now { stroke: currentColor; stroke-width: 1.5; }
+.ac-dot { fill: var(--ac); stroke: currentColor; stroke-width: 1.5; }

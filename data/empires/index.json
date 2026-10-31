@@ -1,6 +1,6 @@
 {
  "schema": "historia-globen/empires-index@1",
- "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut.",
+ "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen.",
  "groups": [
   {
    "id": "romarriket",
@@ -4858,7 +4858,7 @@
        "sv": "Största utbredning"
       },
       "text": {
-       "sv": "Riket hade sin största utbredning och makt i mitten av 1200-talet, under huset Hohenstaufen. Wikipedias faktaruta anger cirka 1,1 miljoner km² år 1150. Kartdatan (Cliopatria) ger som mest cirka 1,2 miljoner km² 1450–1458."
+       "sv": "Riket hade sin största utbredning och makt i mitten av 1200-talet, under huset Hohenstaufen. Wikipedias faktaruta anger cirka 1,1 miljoner km² år 1150. Kartdatan (Cliopatria) ger som mest cirka 1,2 miljoner km² 1450–1458, då den också räknar Ungern till riket."
       }
      },
      {
@@ -4937,11 +4937,16 @@
        "sv": "Freden avslutar trettioåriga kriget. Habsburgarna blir kvar som kejsare, men deras makt begränsas allt mer till deras egna österrikiska, böhmiska och ungerska länder."
       },
       "sources": [
-       "whe-holy-roman-empire"
+       "whe-holy-roman-empire",
+       "wp-peace-westphalia",
+       "wp-holy-roman-empire"
       ],
       "events": [
        "westfaliska-freden"
-      ]
+      ],
+      "mapNote": {
+       "sv": "Från 1648 visar kartan inte längre Schweiz och Förenade Nederländerna. Westfaliska freden gjorde Schweiz formellt självständigt; för Nederländerna anger källorna olika år (1581, 1648 eller 1653)."
+      }
      },
      {
       "year": 1806,
@@ -4961,11 +4966,13 @@
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger 962–1806, och vissa historiker räknar från 800. Kartdatan (Cliopatria) börjar 922 med kungariket Tyskland. Från 1459 räknar Cliopatria bara småstaterna till riket: stora delar som Habsburgarnas länder, Böhmen, Brandenburg och Sachsen ligger som egna riken i kartdatan och syns inte här. Därför ser riket mycket mindre ut på kartan efter 1459 än det var."
+     "sv": "Källorna anger 962–1806, och vissa historiker räknar från 800. Kartdatan (Cliopatria) börjar 922 med kungariket Tyskland. 1450–1458 räknar Cliopatria också Ungern och Tyska ordens Preussen till riket, fast de aldrig hörde dit, och därför är riket störst på kartan just då. Från 1459 räknar Cliopatria bara småstaterna till riket och visar de stora staterna som egna riken. Kartan efter 1458 är därför ihopbyggd med tools/riken.py: småstaterna plus de stora staterna i Cliopatria, bland andra Habsburgarnas länder, Böhmen, Brandenburg och Preussen, Sachsen (också under unionen med Polen 1697–1763), Bayern, Hannover, Lothringen, Savojen, Milano och Florens, Spaniens och Danmarks länder i riket och de tyska områden som Sverige höll från 1632. Bara den del av dem som ligger innanför rikets gräns 1458 i Cliopatria räknas, utan Ungern och Preussen. Områden som ett rike utanför tar över, till exempel Frankrikes erövringar i väster, faller bort från kartan, också när de bara var ockuperade en kort tid. Schweiz och Förenade Nederländerna visas till och med 1647. Westfaliska freden 1648 gjorde Schweiz formellt självständigt från riket. För Nederländerna skiljer sig källorna åt: de lämnade riket i praktiken 1581, Spanien erkände republiken 1648 och kejsaren godtog dess neutralitet 1653 (riksdagen 1728). Kartan tar bort dem från 1648. Burgundiska Nederländerna (ungefär dagens Belgien) låg till största delen utanför Cliopatrias gräns 1458 och syns därför inte, fast de hörde till riket. Ytan efter 1458 är räknad ur den ihopbyggda kartan: cirka 0,8 miljoner km² 1460–1600 och cirka 0,7 miljoner km² 1648–1790. Wikipedia anger efter historikern Peter Wilson cirka 690 000 km² för rikets tysk- och tjeckiskspråkiga delar 1648–1792, utan de italienska och franskspråkiga delarna."
     },
     "sources": [
      "wp-holy-roman-empire",
-     "whe-holy-roman-empire"
+     "whe-holy-roman-empire",
+     "wp-peace-westphalia",
+     "wp-electorate-saxony"
     ],
     "review": "two-sources"
    }

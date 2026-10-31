@@ -1,5 +1,6 @@
 // "Samtidigt i världen": lista över synliga händelser per världsdel, kategorifilter
 // (som ligger i lagermenyn, #120) och faktarutan.
+import { buildAreaCurve } from './areacurve.js';
 import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg } from '../model.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -190,11 +191,12 @@ export class Panel {
    * som bestämmer rutans ram efter tidsålder, om det inte finns någon origin.
    * mapNote = förklaring om var kartans gränser kommer ifrån (riken: Cliopatria).
    */
-  showFacts({ kind, name, color, symbol = '', facts: f, origin = null, place = origin, milestonesTitle = 'Nyckelår', mapNote = '' }) {
+  showFacts({ kind, name, color, symbol = '', facts: f, origin = null, place = origin, milestonesTitle = 'Nyckelår', mapNote = '', curveId = '' }) {
     const subj = kind === 'Rike' ? 'Riket' : 'Religionen';
     const srcs = [...new Set([...(f.sources ?? []), ...(f.milestones ?? []).flatMap(m => m.sources ?? [])])]
       .map(id => this.srcById[id]).filter(Boolean);
     this.selectedId = origin?.id ?? null;
+    this.curve = null;
     this.detail.className = `detail detail-card${place ? ` frame-${styleFor(place, this.styles).frame}` : ''}`;
     delete this.detail.dataset.style;
     this.detail.innerHTML = `
@@ -202,6 +204,7 @@ export class Panel {
       <div class="story-label"><span class="swatch" style="background:${esc(color)}"></span>${esc(kind)}</div>
       <h3>${symbol}${esc(name)}</h3>
       <p>${esc(t(f.summary))}</p>
+      ${curveId ? `<figure class="area-curve" data-curve="${esc(curveId)}" hidden></figure>` : ''}
       <dl class="religion-facts">${(f.items ?? []).map(it => `<dt>${esc(t(it.label))}</dt><dd>${esc(t(it.text))}</dd>`).join('')}</dl>
       ${origin ? `<p class="war-link">${symbol ? `Symbolen ${symbol.replace('rel-sym-h', 'rel-sym-in')} på globen visar var religionen uppstod:` : 'Där religionen uppstod:'} <button type="button" class="link-btn" data-goto="${esc(origin.id)}">${esc(t(origin.title))}</button> <span class="meta">${esc(formatEventTime(origin))} · ${esc(t(origin.place))}</span></p>` : ''}
       ${f.milestones?.length ? `<div class="war-list"><h4>${esc(milestonesTitle)}</h4><ol>${f.milestones.map(m =>
@@ -217,6 +220,22 @@ export class Panel {
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
     for (const b of this.detail.querySelectorAll('[data-year]')) b.addEventListener('click', () => this.onYear(Number(b.dataset.year)));
     this.bindReviewInfo();
+  }
+
+  /**
+   * Rikets yta över tid (#77), när rikets fil har laddats. Fylls i rutan om den fortfarande visar samma rike.
+   * Markören följer året via setCurveYear().
+   */
+  setCurve(id, polities, { from, to, color }, year) {
+    const fig = this.detail.querySelector(`.area-curve[data-curve="${CSS.escape(id)}"]`);
+    const curve = fig && buildAreaCurve(polities, { from, to, color });
+    if (!curve) return;
+    fig.innerHTML = curve.html; fig.hidden = false;
+    this.curve = { fig, curve };
+    this.setCurveYear(year);
+  }
+  setCurveYear(year) {
+    if (this.curve?.fig.isConnected) this.curve.curve.setYear(this.curve.fig, year);
   }
 
   /**
