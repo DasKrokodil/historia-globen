@@ -142,6 +142,7 @@ Skripten i `tools/` körs för hand, inte av sidan, så principen om inget byggs
 
 | Skript | Gör |
 |---|---|
+| `tools/rutter_land.py` | Kontrollerar att sjöetapperna i `data/routes/` inte korsar land (#332). Kräver numpy och Pillow |
 | `tools/riken.py` | Bygger rikesfilerna ur Cliopatria |
 | `tools/religioner.py` | Bygger `data/religions.json` ur Cliopatria och registret med faktarutornas texter: varje rikes religion år för år, arv av religion där rikets faktaruta saknar religion (#269), sammanslaget per religion i ögonblicksbilder |
 | `tools/religioner_riken.py` | Bygger `data/religions-polities.json` (varje rikes gräns, för klickrutan) efter `religioner.py` |
