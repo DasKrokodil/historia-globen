@@ -331,6 +331,26 @@ async function run(browser, vp) {
     return `${label} → "${title}"`;
   });
 
+  await check('Fokus har en huvudknapp för uppspelning', async () => {
+    await page.click('#btn-focus');
+    await visible('#focus-menu');
+    await page.click('#focus-menu [data-tab="Krig"]');
+    const war = page.locator('#focus-menu .focus-item[data-key^="war:"]').first();
+    await war.waitFor({ state: 'visible', timeout: T.step });
+    await war.click();
+    await visible('#focus-bar');
+    const action = page.locator('#focus-action');
+    if (!/Spela/.test((await action.textContent()).trim())) throw new Error(`huvudknappen börjar inte med Spela: ${await action.textContent()}`);
+    if (await page.locator('#btn-play').isVisible()) throw new Error('tidslinjens spelknapp syns också i fokusläget');
+    await action.click();
+    await page.waitForFunction(() => document.getElementById('focus-action').textContent.includes('Pausa'), null, { timeout: T.step });
+    await action.click();
+    await page.waitForFunction(() => /Spela|Fortsätt/.test(document.getElementById('focus-action').textContent), null, { timeout: T.step });
+    await page.click('#focus-exit');
+    await hidden('#focus-bar');
+    return 'Spela → Pausa → Spela/Fortsätt; tidslinjens spelknapp dold';
+  });
+
   await check('Platt vy öppnas', async () => {
     await clickView('#btn-flat');
     await visible('#flat-view');
