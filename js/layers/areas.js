@@ -2,6 +2,7 @@
 // Varje rike har perioder (start–end) med en GeoJSON-polygon. Lagret väljer
 // den period som gäller för nuvarande år och ritar den på den platta lagerbilden.
 import { t, isVisibleReview } from '../model.js';
+import { AreaTransition } from './area-transition.js';
 
 export class AreasLayer {
   constructor(polities = []) {
@@ -10,7 +11,11 @@ export class AreasLayer {
     this.active = []; // [{ polity, period }]
     this.labelAlpha = 1; // och hur synliga de är (tonas ut vid kraftig zoom)
     this.labelScale = 1; // namnens storlek relativt grundstorleken (1 = som på platta bilden)
+    this.transition = new AreaTransition(); // mjuk övergång när ett område byter period (#78)
   }
+
+  /** Pågår en övergång? Då behöver lagerbilden ritas om varje bildruta tills den är klar. */
+  get animating() { return this.transition.running; }
 
   /** Rikena laddas ett i taget (en fil per rike) och läggs till när de har kommit. */
   add(polities) {
@@ -18,15 +23,17 @@ export class AreasLayer {
   }
 
   /** Returnerar de riken som finns just det här året. */
-  update({ year }) {
+  update({ year, smooth = false }) {
+    const prev = this.active;
     this.active = [];
-    if (!this.enabled) return this.active;
+    if (!this.enabled) { this.transition.track(prev, this.active, year, false); return this.active; }
     for (const polity of this.polities) {
       if (!isVisibleReview(polity.review)) continue;
       if (this.onlyGroup && polity.group !== this.onlyGroup) continue; // fokusläge för ett rike
       const period = polity.periods.find(p => year >= p.start && year <= p.end);
       if (period) this.active.push({ polity, period });
     }
+    this.transition.track(prev, this.active, year, smooth);
     return this.active;
   }
 
@@ -35,7 +42,8 @@ export class AreasLayer {
     const k = W / 2048; // linjer och text ritas lika stora oavsett bildens upplösning
     ctx.save();
     ctx.lineJoin = 'round';
-    for (const { polity, period } of this.active) {
+    const items = this.transition.items(this.active); // under en övergång: gamla och nya läget, med alpha
+    for (const { polity, period, alpha } of items) {
       ctx.beginPath();
       for (const rings of polygons(period.geometry)) {
         for (const ring of rings) {
@@ -43,9 +51,9 @@ export class AreasLayer {
           ctx.closePath();
         }
       }
-      ctx.fillStyle = hexA(polity.color, 0.32);
+      ctx.fillStyle = hexA(polity.color, 0.32 * alpha);
       ctx.fill('evenodd');
-      ctx.strokeStyle = hexA(polity.color, 0.95);
+      ctx.strokeStyle = hexA(polity.color, 0.95 * alpha);
       ctx.lineWidth = 1.6 * k;
       ctx.stroke();
     }
@@ -55,8 +63,8 @@ export class AreasLayer {
     ctx.font = `italic ${size}px "IM Fell English", Georgia, serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.globalAlpha = this.labelAlpha;
-    for (const { polity, period } of this.active) {
+    for (const { polity, period, alpha } of items) {
+      ctx.globalAlpha = this.labelAlpha * alpha;
       const name = t(polity.name);
       const b = bbox(period);
       const bw = X(b.maxLon) - X(b.minLon), bh = Y(b.minLat) - Y(b.maxLat);

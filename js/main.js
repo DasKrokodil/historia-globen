@@ -5,6 +5,7 @@ import { Globe } from './globe.js';
 import { Timeline, segmentName, setupYearJump, MAX_YEAR } from './timeline.js';
 import { EventsLayer, markerInfo, describeMarker } from './layers/events.js';
 import { AreasLayer } from './layers/areas.js';
+import { MAX_JUMP_YEARS } from './layers/area-transition.js';
 import { BordersLayer } from './layers/borders.js';
 import { ReligionsLayer } from './layers/religions.js';
 import { OriginMarkers } from './layers/origins.js';
@@ -113,7 +114,8 @@ async function start() {
 
   // Lagerväljaren: vilka lager som syns. Startläget står i index.html.
   const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu') });
-  globe.calm = layers.calm; layers.onCalm = on => { globe.calm = on; }; // Lugn rörelse (#246)
+  // Lugn rörelse (#246): också rikenas övergångar (#78) stängs av
+  globe.calm = areas.transition.calm = layers.calm; layers.onCalm = on => { globe.calm = areas.transition.calm = on; };
   // Teckenförklaring och klickruta för religionslagret (#166)
   const relLegend = new ReligionLegend({ legend: $('religion-legend'), pop: $('religion-pop') });
   // Upptäcktsvyns rad i teckenförklaringen (#101): perspektivet och krediten för kartbilderna, med länk till filsidorna
@@ -587,6 +589,27 @@ async function start() {
     { layer: religions, name: 'Religioner', own: focus.type === 'religion' },
   ].filter(f => f.layer.enabled && !f.own);
 
+  // Lagerbilden (beslut 1) ritas om vid varje refresh. Under en övergång för riken (#78) ritas bara
+  // lagerbilden om, en gång per bildruta, tills övergången är klar; annars ritas inget mellan refresh.
+  let areaYear = 0, overlayRaf = 0;
+  function drawOverlay() {
+    cancelAnimationFrame(overlayRaf); overlayRaf = 0;
+    const ctx = globe.overlayContext();
+    const W = globe.overlayCanvas.width, H = globe.overlayCanvas.height;
+    // Ordning nedifrån och upp: upptäcktsvyns papperskarta, riken, religioner, dagens gränser, upptäcktsvyns dimma,
+    // portolanlinjer och havsmonster, vägar och resor, krigsområden, händelsernas sken
+    discovery.drawPaper(ctx, W, H);
+    for (const l of [areas, religions]) faded.includes(l) ? globe.drawFaded((c, w, h) => l.drawOverlay(c, w, h), FADE) : l.drawOverlay(ctx, W, H);
+    borders.drawOverlay(ctx, W, H);
+    discovery.drawOverlay(ctx, W, H);
+    routes.drawOverlay(ctx, W, H);
+    wars.drawOverlay(ctx, W, H);
+    layer.drawOverlay(ctx, W, H);
+    globe.commitOverlay();
+    flatMap.draw(); // Platt vy ritas om med samma bilder (gör inget när den är stängd)
+    if (areas.animating) overlayRaf = requestAnimationFrame(drawOverlay);
+  }
+
   function refresh() {
     [areas.labelScale, areas.labelAlpha] = nameStyle();
     religions.labelScale = origins.scale = areas.labelScale; religions.showNames = religionNames();
@@ -608,7 +631,9 @@ async function start() {
     // Samma markörer i Platt vy (#313): de som syns på klotet, de i listan får klustras och etikett
     flatMap.setMarkers({ list: layer.sprites.filter(sp => sp.userData.active).map(sp => sp.userData),
       labeled: new Set(visible.map(v => v.e.id)), keep: ff.highlightIds(), selectedId });
-    areas.update({ year: wholeYear });
+    // Rikenas övergång (#78) är mjuk när tiden spelas upp eller flyttas lite, annars visas nya läget direkt
+    areas.update({ year: wholeYear, smooth: playing || Math.abs(wholeYear - areaYear) <= MAX_JUMP_YEARS });
+    areaYear = wholeYear;
     panel.setCurveYear(wholeYear);
     borders.update({ year: wholeYear });
     religions.update({ year: wholeYear });
@@ -625,19 +650,7 @@ async function start() {
         discovery: discovery.enabled ? discoveryNote : null });
     if (!religions.enabled || faded.includes(religions)) relLegend.hidePop();
     origins.update(religions.stars, religions.enabled && !faded.includes(religions));
-    const ctx = globe.overlayContext();
-    const W = globe.overlayCanvas.width, H = globe.overlayCanvas.height;
-    // Ordning nedifrån och upp: upptäcktsvyns papperskarta, riken, religioner, dagens gränser, upptäcktsvyns dimma,
-    // portolanlinjer och havsmonster, vägar och resor, krigsområden, händelsernas sken
-    discovery.drawPaper(ctx, W, H);
-    for (const l of [areas, religions]) faded.includes(l) ? globe.drawFaded((c, w, h) => l.drawOverlay(c, w, h), FADE) : l.drawOverlay(ctx, W, H);
-    borders.drawOverlay(ctx, W, H);
-    discovery.drawOverlay(ctx, W, H);
-    routes.drawOverlay(ctx, W, H);
-    wars.drawOverlay(ctx, W, H);
-    layer.drawOverlay(ctx, W, H);
-    globe.commitOverlay();
-    flatMap.draw(); // Platt vy ritas om med samma bilder (gör inget när den är stängd)
+    drawOverlay();
 
     // Korta krig: "22 jan" stort och året där tideräkningen annars står (#204)
     const [num, era] = timeline.formatParts(year);

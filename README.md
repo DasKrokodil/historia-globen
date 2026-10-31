@@ -60,6 +60,7 @@ js/globe.js           3D-globen (three.js), ekvirektangulär rendering
 js/timeline.js        tidsreglage, segmenterad tidsskala, nuvarande år
 js/layers/events.js   lager: händelser som punkter
 js/layers/areas.js    lager: riken som områden som ändras över tid
+js/layers/area-transition.js  mjuk övergång när ett rike byter period, delas eller slås ihop (#78)
 js/layers/borders.js  lager: dagens landsgränser (av som standard)
 js/layers/religions.js lager: religioner som områden, med symboler i områdena (#271)
 js/layers/origins.js  religionens symbol där den uppstod, som klickbar markör (#271)
