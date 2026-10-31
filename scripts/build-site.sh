@@ -65,7 +65,7 @@ ls img/icons/*.svg >/dev/null 2>&1 || fail "inga ikoner i img/icons/"
 for f in img/icons/*.svg; do copy "$f"; done
 
 # Datafiler som js/model.js laddar, och lagrens grupper och vyer (vyer.json, js/ui/layers.js, #357)
-for f in events funfacts sources land borders styles religions religions-polities upptackt vyer; do
+for f in events funfacts sources land borders styles religions religions-polities upptackt bildlager vyer; do
   copy "data/$f.json"
 done
 
@@ -108,6 +108,15 @@ import json
 for d in json.load(open('data/upptackt.json')).get('decorations', []):
     if d.get('file'):
         print(d['file'])
+PY
+)
+
+# Tidsstyrda rasterbilder (#54)
+while IFS= read -r f; do copy "$f"; done < <(python3 -I - <<'PY'
+import json
+for layer in json.load(open('data/bildlager.json')).get('layers', []):
+    if layer.get('file'):
+        print(layer['file'])
 PY
 )
 
