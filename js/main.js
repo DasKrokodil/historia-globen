@@ -11,7 +11,7 @@ import { ReligionsLayer } from './layers/religions.js';
 import { OriginMarkers } from './layers/origins.js';
 import { EmpireMarkers } from './layers/empiremarks.js';
 import { entry as warsEntry } from './layers/wars.js';
-import { LinesLayer } from './layers/lines.js';
+import { entry as routesEntry } from './layers/lines.js';
 import { DiscoveryLayer } from './layers/discovery.js';
 import { Panel } from './ui/panel.js';
 import { FunFacts, empireStory } from './ui/funfact.js';
@@ -87,9 +87,7 @@ async function start() {
   areas.onGlyph = religions.onGlyph;
   const empireMarks = new EmpireMarkers(globe, $('labels'));
   empireMarks.onPick = m => showEmpireFacts(m.group, m.own ? m.polity : null);
-  // Vägar och resor (#38): filerna laddas efter starten, och lagret ritas om när de har kommit
-  const routes = new LinesLayer();
-  loadRoutes().then(list => { routes.setRoutes(list); refresh(); });
+
   // Upptäcktsvyn (#101): gammal kartstil, segelskepp och dimma som resorna lyfter. Bilderna laddas när den slås på.
   const discovery = new DiscoveryLayer(data.discovery, data.land);
   let discoveryRaf = 0;
@@ -134,11 +132,8 @@ async function start() {
     legend: s => ({ items: s.faded.has('religions') ? [] : religions.legendItems() }),
     markers: s => origins.update(religions.stars, religions.enabled && !s.faded.has('religions')),
     drawOverlay: (c, w, h) => religions.drawOverlay(c, w, h) });
-  registry.add({ id: 'routes', name: 'Resor och handelsvägar', layer: routes, z: Z.routes,
-    enabled: s => s.layers.routes,
-    apply: s => { routes.shipStyle = s.on.discovery ? 'ship' : 'dot'; },
-    update: s => routes.update({ year: s.year, fine: s.fine, window: s.window, filters: s.filters }),
-    drawOverlay: (c, w, h) => routes.drawOverlay(c, w, h) });
+  // Vägar och resor (#38)
+  const routes = registry.add(routesEntry(env));
   // Upptäcktsvyns rad i teckenförklaringen (#101): perspektivet och krediten för kartbilderna, med länk till filsidorna
   const discoveryNote = data.discovery && {
     perspective: t(data.discovery.perspective), credit: t(data.discovery.credit),
