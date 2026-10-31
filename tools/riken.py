@@ -7,7 +7,9 @@ och laddas vid start. Geometrin förenklas och perioder där gränsen knappt än
 slås ihop, så att filerna blir små.
 
 Faktarutorna (fältet facts i index.json, #170) skrivs för hand och behålls: skriptet läser
-den befintliga index.json och för över varje grupps facts när filen skrivs igen.
+den befintliga index.json och för över varje grupps facts när filen skrivs igen. Detsamma gäller
+fältet vanished för försvunna länder (#72): årtal, föregångare, efterträdare och, för länder
+utan gräns i Cliopatria, en punkt.
 
 Kör från projektets rot, med Cliopatria-filen (cliopatria_polities_only_v021.geojson
 från https://zenodo.org/records/13363121, CC BY 4.0):
@@ -220,6 +222,37 @@ GROUPS = {
     'sovjetunionen': ('Sovjetunionen', 'Soviet Union', [
         ('Union of Soviet Socialist Republics', 'sovjetunionen', 'Sovjetunionen', '#9a2a3a'),
     ]),
+    # R6 Försvunna länder (#72). Österrike-Ungern och Sovjetunionen ovan hör också dit. Årtal, föregångare
+    # och efterträdare (vanished) skrivs för hand i index.json och behålls, som facts.
+    'kalmarunionen': ('Kalmarunionen', 'Kalmar Union', [
+        ('(Kalmar Union)', 'kalmarunionen', 'Kalmarunionen', '#c84b4b'),
+    ]),
+    'preussen': ('Preussen', 'Prussia', [
+        ('Duchy of Prussia', 'hertigdomet-preussen', 'Hertigdömet Preussen', '#4a6fa0'),
+        ('Brandenburg-Prussia', 'brandenburg-preussen', 'Brandenburg-Preussen', '#4a6fa0', {'years': (1619, 1701)}),
+        # Från 1807 räknar Cliopatria Preussens land till andra riken; bara små rester har egen gräns
+        ('Kingdom of Prussia', 'kungariket-preussen', 'Kungariket Preussen', '#4a6fa0', {'years': (1702, 1806)}),
+    ]),
+    'jugoslavien': ('Jugoslavien', 'Yugoslavia', [
+        # Cliopatria anger Q83286 (den socialistiska förbundsrepubliken) också för kungariket
+        ('Yugoslavia', 'kungariket-jugoslavien', 'Jugoslavien (kungariket)', '#2d8fa8', {'wikidata': 'Q36704'}),
+        ('Socialist Federal Republic of Yugoslavia', 'sfr-jugoslavien', 'Jugoslavien (förbundsrepubliken)', '#2d8fa8'),
+    ]),
+    'tjeckoslovakien': ('Tjeckoslovakien', 'Czechoslovakia', [
+        ('Czechoslovakia', 'tjeckoslovakien', 'Tjeckoslovakien', '#c06a3a'),
+    ]),
+    'storcolombia': ('Storcolombia', 'Gran Colombia', [
+        ('Gran Colombia', 'storcolombia', 'Storcolombia', '#d4b13a'),
+    ]),
+    'republiken-texas': ('Republiken Texas', 'Republic of Texas', [
+        ('Republic of Texas', 'republiken-texas', 'Republiken Texas', '#8f5fbf'),
+    ]),
+    'kungariket-hawaii': ('Kungariket Hawaii', 'Hawaiian Kingdom', [
+        ("Kingdom of Hawaï'i", 'kungariket-hawaii', 'Kungariket Hawaii', '#3fae7a', {'en': 'Hawaiian Kingdom'}),
+    ]),
+    # Saknas i Cliopatria (räknas till Tyska förbundet och Tyska riket). Utan gräns: en punkt (vanished.point i
+    # index.json), och from/to är källornas årtal (vanished.founded/dissolved). Färgen står i inställningarna.
+    'neutrala-moresnet': ('Neutrala Moresnet', 'Neutral Moresnet', [], {'color': '#e0a0c0'}),
 }
 
 # Huvudlandet i utspridda välden (#74): moderlandet ritas med kraftigare kant och en stjärna och får
@@ -394,10 +427,25 @@ def main():
     out.mkdir(exist_ok=True)
     # Faktarutorna skrivs för hand och ska inte försvinna när filerna byggs om
     old = out / 'index.json'
-    facts = {g['id']: g['facts'] for g in json.loads(old.read_text())['groups'] if 'facts' in g} if old.exists() else {}
+    groups_old = {g['id']: g for g in json.loads(old.read_text())['groups']} if old.exists() else {}
+    facts = {k: g['facts'] for k, g in groups_old.items() if 'facts' in g}
+    # Försvunna länder (#72): årtal, föregångare och efterträdare skrivs också för hand
+    vanished = {k: g['vanished'] for k, g in groups_old.items() if 'vanished' in g}
     index = []
-    for gid, (sv, en, members) in GROUPS.items():
+    for gid, (sv, en, members, *gopts) in GROUPS.items():
         tol, merge, min_area = OVERRIDES.get(gid, (TOL, MERGE, MIN_AREA))
+        if not members:
+            # Ett land utan gräns i Cliopatria (#72): bara en post i index.json, med källornas årtal och en punkt
+            v = vanished.get(gid)
+            if not v or 'point' not in v:
+                print(f'{gid}: saknar vanished.point i index.json, hoppas över')
+                continue
+            index.append({'id': gid, 'name': {'sv': sv, 'en': en}, 'color': gopts[0]['color'],
+                          'from': v['founded'], 'to': v['dissolved'], 'polities': [], 'vanished': v})
+            if gid in facts:
+                index[-1]['facts'] = facts[gid]
+            print(f'{gid}: ingen gräns, punkt {v["point"]["coordinates"]}')
+            continue
         home = HOMELANDS.get(gid)
         polities = []
         for cname, pid, psv, color, *rest in members:
@@ -441,7 +489,7 @@ def main():
                 print('saknas i Cliopatria:', cname)
                 continue
             first = cname[0] if isinstance(cname, list) else cname
-            wd = by_name[first][0]['properties'].get('Wikidata')
+            wd = opts.get('wikidata') or by_name[first][0]['properties'].get('Wikidata')
             polity = {'id': pid, 'group': gid, 'name': {'sv': psv, 'en': opts.get('en', first.strip('()'))}, 'wikidata': wd,
                       'color': color, 'sources': ['cliopatria'], 'review': 'source-checked', 'periods': merged}
             if isinstance(cname, list):
@@ -458,6 +506,8 @@ def main():
                       'polities': [{'id': p['id'], 'name': p['name'], 'sources': p['sources'], 'review': p['review']} for p in polities]})
         if home:
             index[-1]['homeland'] = {'name': home['name']}
+        if gid in vanished:
+            index[-1]['vanished'] = vanished[gid]
         if gid in facts:
             index[-1]['facts'] = facts[gid]
         size = (out / f'{gid}.json').stat().st_size
@@ -480,7 +530,11 @@ def main():
              'utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period '
              'dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, '
              'är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då '
-             'homeland.name, moderlandets namn.')
+             'homeland.name, moderlandets namn. '
+             'Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och '
+             'efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). '
+             'Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i '
+             'Cliopatria och har ingen fil, bara en punkt (vanished.point).')
     (out / 'index.json').write_text(json.dumps({'schema': 'historia-globen/empires-index@1', 'notes': notes, 'groups': index},
                                                ensure_ascii=False, indent=1))
 
