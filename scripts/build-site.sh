@@ -14,6 +14,7 @@
 #   data/routes/          index.json och filerna med vägar och resor som index.json listar (fältet files, #38)
 #   images/events/        bilderna som events.json pekar på (image.file)
 #   images/karta/         upptäcktsvyns bilder som data/upptackt.json pekar på (decorations[].file, #101)
+#   _headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
 #   LICENSE, data/LICENSE licenserna för kod (GPL-3.0) och data (CC BY 4.0) följer med de publicerade filerna
 #
 # Interna filer (.claude/, .orchestra/, .github/, docs/, tools/, scripts/, tests/, data/utkast/, images/incoming/,
@@ -46,6 +47,9 @@ copy index.html
 copy css/style.css
 copy LICENSE
 copy data/LICENSE
+
+# Cache-regler för Cloudflare Pages: webbläsaren kontrollerar alltid om sidans filer har ändrats
+copy _headers
 
 # Sidans ikoner (index.html)
 copy img/favicon.svg
