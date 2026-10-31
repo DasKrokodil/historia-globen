@@ -2153,6 +2153,279 @@
     ],
     "review": "source-checked"
    }
+  },
+  {
+   "id": "egypten",
+   "name": {
+    "sv": "Egypten: gamla och nya riket",
+    "en": "Egypt: Old and New Kingdom"
+   },
+   "color": "#3aa0a8",
+   "from": -2500,
+   "to": -801,
+   "file": "data/empires/egypten.json",
+   "polities": [
+    {
+     "id": "egyptens-gamla-rike",
+     "name": {
+      "sv": "Egyptens gamla rike",
+      "en": "Old Kingdom of Egypt"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "egyptens-nya-rike",
+     "name": {
+      "sv": "Egyptens nya rike",
+      "en": "New Kingdom of Egypt"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "assyriska-riket",
+   "name": {
+    "sv": "Assyriska riket",
+    "en": "Assyria"
+   },
+   "color": "#6170bd",
+   "from": -1800,
+   "to": -601,
+   "file": "data/empires/assyriska-riket.json",
+   "polities": [
+    {
+     "id": "assyrien",
+     "name": {
+      "sv": "Assyrien",
+      "en": "Assyria"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "nyassyriska-riket",
+     "name": {
+      "sv": "Nyassyriska riket",
+      "en": "Neo-Assyrian Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "nybabyloniska-riket",
+   "name": {
+    "sv": "Nybabyloniska riket",
+    "en": "Neo-Babylonian Empire"
+   },
+   "color": "#c7568a",
+   "from": -600,
+   "to": -531,
+   "file": "data/empires/nybabyloniska-riket.json",
+   "polities": [
+    {
+     "id": "nybabyloniska-riket",
+     "name": {
+      "sv": "Nybabyloniska riket",
+      "en": "Neo-Babylonian Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kartago",
+   "name": {
+    "sv": "Kartago",
+    "en": "Carthage"
+   },
+   "color": "#7b5fc0",
+   "from": -650,
+   "to": -145,
+   "file": "data/empires/kartago.json",
+   "polities": [
+    {
+     "id": "kartago",
+     "name": {
+      "sv": "Kartago",
+      "en": "Carthage"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "seleukidriket",
+   "name": {
+    "sv": "Seleukidriket",
+    "en": "Seleucid Empire"
+   },
+   "color": "#4aa8c8",
+   "from": -318,
+   "to": -64,
+   "file": "data/empires/seleukidriket.json",
+   "polities": [
+    {
+     "id": "seleukidriket",
+     "name": {
+      "sv": "Seleukidriket",
+      "en": "Seleucid Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "partherriket",
+   "name": {
+    "sv": "Partherriket",
+    "en": "Parthian Empire"
+   },
+   "color": "#9a9433",
+   "from": -239,
+   "to": 237,
+   "file": "data/empires/partherriket.json",
+   "polities": [
+    {
+     "id": "partherriket",
+     "name": {
+      "sv": "Partherriket",
+      "en": "Parthian Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "sasanidriket",
+   "name": {
+    "sv": "Sasanidriket",
+    "en": "Sasanian Empire"
+   },
+   "color": "#3f9a5f",
+   "from": 215,
+   "to": 643,
+   "file": "data/empires/sasanidriket.json",
+   "polities": [
+    {
+     "id": "sasanidriket",
+     "name": {
+      "sv": "Sasanidriket",
+      "en": "Sasanian Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "qinriket",
+   "name": {
+    "sv": "Qin: staten och Qindynastin",
+    "en": "Qin: the state and the Qin dynasty"
+   },
+   "color": "#5a7fc0",
+   "from": -750,
+   "to": -209,
+   "file": "data/empires/qinriket.json",
+   "polities": [
+    {
+     "id": "qin-staten",
+     "name": {
+      "sv": "Staten Qin",
+      "en": "Qin"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "qindynastin",
+     "name": {
+      "sv": "Qindynastin",
+      "en": "Qin Dynasty"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "guptariket",
+   "name": {
+    "sv": "Guptariket",
+    "en": "Gupta Empire"
+   },
+   "color": "#d9a03a",
+   "from": 324,
+   "to": 554,
+   "file": "data/empires/guptariket.json",
+   "polities": [
+    {
+     "id": "guptariket",
+     "name": {
+      "sv": "Guptariket",
+      "en": "Gupta Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "aksumriket",
+   "name": {
+    "sv": "Aksumriket",
+    "en": "Kingdom of Aksum"
+   },
+   "color": "#c06a9a",
+   "from": -50,
+   "to": 946,
+   "file": "data/empires/aksumriket.json",
+   "polities": [
+    {
+     "id": "aksumriket",
+     "name": {
+      "sv": "Aksumriket",
+      "en": "Kingdom of Axum"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
   }
  ]
 }
