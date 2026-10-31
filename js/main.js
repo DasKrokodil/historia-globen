@@ -4,11 +4,9 @@ import { loadAll, loadRoutes, loadReligions, loadReligionPolities, loadEmpire, C
 import { Globe } from './globe.js';
 import { Timeline, segmentName, setupYearJump, MAX_YEAR } from './timeline.js';
 import { EventsLayer, markerInfo, describeMarker } from './layers/events.js';
-import { AreasLayer } from './layers/areas.js';
-import { MAX_JUMP_YEARS } from './layers/area-transition.js';
+import { entry as areasEntry } from './layers/areas.js';
 import { entry as bordersEntry } from './layers/borders.js';
 import { entry as religionsEntry } from './layers/religions.js';
-import { EmpireMarkers } from './layers/empiremarks.js';
 import { entry as warsEntry } from './layers/wars.js';
 import { entry as routesEntry } from './layers/lines.js';
 import { entry as discoveryEntry } from './layers/discovery.js';
@@ -78,41 +76,13 @@ async function start() {
     showEmpireFacts: (id, polity) => showEmpireFacts(id, polity),
   };
   const layer = new EventsLayer(globe, data.events);
-  const areas = new AreasLayer();
-  areas.setPoints(data.empireGroups); // försvunna länder utan gräns, som en punkt (#72)
-  // Rikenas symboler (#301): symbol i gruppen i empires/index.json, eller polityFacts.<rike>.symbol för ett rike i
-  // gruppen med egen faktaruta (Bysantinska riket). Medaljen står på rikets label-punkt och öppnar faktarutan.
-  const empireById = new Map(data.empireGroups.map(g => [g.id, g]));
-  areas.symbolOf = polity => {
-    const g = empireById.get(polity.group);
-    const own = g?.polityFacts?.[polity.id];
-    const symbol = own?.symbol ?? g?.symbol;
-    return symbol ? { symbol, color: polity.color, name: t(polity.name), group: g.id, own: !!own?.facts } : null;
-  };
-  areas.onGlyph = env.refreshSoon;
-  const empireMarks = new EmpireMarkers(globe, $('labels'));
-  empireMarks.onPick = m => showEmpireFacts(m.group, m.own ? m.polity : null);
-
   const noEvents = new Set();
   registry.add({ id: 'events', name: 'Händelser', layer, z: Z.events,
     update: s => layer.update({ year: s.year, window: s.window, filters: s.layers.events ? s.filters : noEvents, selectedId: s.selectedId,
       highlight: s.highlight, focusId: s.focusWar?.id, span: s.span }),
     drawOverlay: (c, w, h) => layer.drawOverlay(c, w, h) });
-  let areaYear = 0;
-  registry.add({ id: 'areas', name: 'Riken', layer: areas, z: Z.areas, fade: { own: f => f.type === 'empire' },
-    enabled: s => s.focus?.type === 'empire' || s.layers.areas,
-    update: s => {
-      [areas.labelScale, areas.labelAlpha] = [s.labels.scale, s.labels.alpha];
-      areas.showNames = s.labels.empireNames; empireMarks.scale = s.labels.scale;
-      ensureEmpires(s.wholeYear);
-      // Rikenas övergång (#78) är mjuk när tiden spelas upp eller flyttas lite, annars visas nya läget direkt
-      const out = areas.update({ year: s.wholeYear, smooth: s.playing || Math.abs(s.wholeYear - areaYear) <= MAX_JUMP_YEARS });
-      areaYear = s.wholeYear;
-      return out;
-    },
-    markers: s => empireMarks.update(areas.marks(), areas.enabled && !s.faded.has('areas')),
-    animating: () => areas.animating,
-    drawOverlay: (c, w, h) => areas.drawOverlay(c, w, h) });
+  // Riken (R1–R6), med rikenas symboler (#301)
+  const areas = registry.add(areasEntry(env));
   // Religioner (#166), med symbolen där religionen uppstod (#271)
   const religions = registry.add(religionsEntry(env));
   // Vägar och resor (#38)
@@ -156,8 +126,8 @@ async function start() {
   // Lagerväljaren: vilka lager som syns. Startläget står i index.html.
   const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu') });
   Object.assign(state, { layers: layers.on, pause: layers.pause, calm: layers.calm });
-  // Lugn rörelse (#246): också rikenas övergångar (#78) stängs av
-  globe.calm = areas.transition.calm = layers.calm; layers.onCalm = on => { state.calm = globe.calm = areas.transition.calm = on; };
+  // Lugn rörelse (#246): också rikenas övergångar (#78) stängs av (i lagrets apply)
+  globe.calm = layers.calm; layers.onCalm = on => { state.calm = globe.calm = on; registry.apply(state); };
   // Teckenförklaring och klickruta för religionslagret (#166)
   const relLegend = new ReligionLegend({ legend: $('religion-legend'), pop: $('religion-pop') });
   // Klickrutan för vägar och resor (#38); "Läs mer" öppnar den kopplade händelsen
@@ -366,7 +336,6 @@ async function start() {
     if (focus) endFocus(false);
     focus = state.focus = f;
     focusWar = state.focusWar = type === 'war' ? data.byId[id] : null;
-    areas.onlyGroup = type === 'empire' ? id : null;
     applyLayers();
     globe.flyTo(f.center[0], f.center[1], 900);
     globe.setZoom(f.zoom);
@@ -412,7 +381,6 @@ async function start() {
   const founding = id => data.events.filter(e => e.founding && e.religion === id).sort((a, b) => a.start - b.start);
   function endFocus(redraw = true) {
     focus = state.focus = null; focusWar = state.focusWar = null; warStops = []; shownStops = new Set(); endShown = false; finishing = false; showMoved(null);
-    areas.onlyGroup = null;
     applyLayers();
     $('focus-bar').hidden = true;
     $('app').classList.remove('focusing');
@@ -469,17 +437,6 @@ async function start() {
   };
   focusMenu.onPick = key => startFocus(key);
 
-  // Rikena laddas när året närmar sig deras tid (en fil per rike, R1). När filen har kommit ritas allt om.
-  const empireLoads = new Set();
-  function ensureEmpires(year) {
-    if (!areas.enabled) return;
-    const pad = 100;
-    for (const g of data.empireGroups) {
-      if (empireLoads.has(g.id) || year < g.from - pad || year > g.to + pad) continue;
-      empireLoads.add(g.id);
-      loadEmpire(g).then(ps => { areas.add(ps); refresh(); }).catch(err => { console.error(err); empireLoads.delete(g.id); });
-    }
-  }
 
   // Rikesnamnen ritas i kartbilden (beslut 1) och växer därför med globen: vid max zoom ser
   // kartbilden ca 10 gånger större ut på skärmen. Därför görs namnen mindre i bilden när man
@@ -967,7 +924,6 @@ async function start() {
     const clustered = new Set(clusters.flatMap(c => c.members.map(m => m.e.id)));
     // Händelsen där en religion uppstod ligger under religionens symbol (#271): bara symbolen och etiketten syns
     registry.frame(now, state);
-    empireMarks.frame();
     const underOrigin = registry.coveredEvents();
     for (const s of layer.sprites) s.visible = s.userData.active && !clustered.has(s.userData.event.id) && !underOrigin.has(s.userData.event.id);
     clusters.forEach((c, i) => {
