@@ -16,6 +16,8 @@ import { FocusMenu } from './ui/focusmenu.js';
 import { Help } from './ui/help.js';
 import { FlatMap } from './ui/flatmap.js';
 import { Feedback } from './ui/feedback.js';
+import { Sheet } from './ui/sheet.js';
+import { ViewMenu } from './ui/viewmenu.js';
 import { createState } from './state.js';
 import { LayerRegistry } from './layers/registry.js';
 
@@ -85,6 +87,9 @@ async function start() {
     pager: $('ff-pager'), next: $('ff-next'), srcBtn: $('ff-sources'),
     pics: $('ff-pics'), kind: $('ff-kind'), min: $('ff-min'), tab: $('ff-tab'), tabCount: $('ff-tab-count'), handle: $('ff-handle'),
   }, { funfacts: [...data.funfacts, ...warCards(data.events)], byId: data.byId, srcById: data.srcById, styles: data.styles });
+  // Smal skärm (#361): faktarutan som ark nedifrån med tre lägen, och gruppen Visa som meny i den kompakta raden överst
+  const detailSheet = new Sheet($('detail'));
+  new ViewMenu({ toggle: $('more-toggle'), menu: $('more-menu') });
   const sources = new SourcesDialog({ root: $('sources-dialog'), body: $('sources-body'), close: $('sources-close'), openBtn: $('btn-sources') }, data);
 
   const timeline = new Timeline({
@@ -777,10 +782,36 @@ async function start() {
     let down = null;
     canvas.addEventListener('pointerdown', e => { down = { x: e.clientX, y: e.clientY }; });
     canvas.addEventListener('pointermove', e => {
-      if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > 12) { down = null; ff.autoClose(); }
+      if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > 12) { down = null; ff.autoClose(); detailSheet.autoClose(); }
     });
     for (const type of ['pointerup', 'pointercancel']) canvas.addEventListener(type, () => { down = null; });
   }
+
+  // Faktarutan som ark (#361): när arket står halvt lyfts klotet, så att dess mitt (där den valda markören hamnar
+  // efter flyTo) ligger mitt i den fria ytan mellan raden överst och arket. Litet ark och datorn: inget lyft.
+  // Helt ark täcker ändå globen, så lyftet står kvar som i halvt läge.
+  {
+    let raf = 0;
+    const lift = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const st = narrow.matches && !$('detail').hidden ? detailSheet.state : null;
+        if (st === 'full') return;
+        if (st !== 'half') return globe.setViewLift(0);
+        const top = document.querySelector('.top-actions').getBoundingClientRect().bottom;
+        const sheetTop = $('detail').getBoundingClientRect().top;
+        globe.setViewLift(Math.max(0, globe.centerY() - (top + sheetTop) / 2));
+      });
+    };
+    detailSheet.onChange = lift;
+    window.addEventListener('resize', lift);
+  }
+  // Platsraden i faktarutan (#312, bara smal skärm): fäller ihop rutan till litet läge och visar markören på globen
+  panel.onShowPlace = e => {
+    detailSheet.set('closed');
+    globe.flyTo(e._lat, e._lon);
+    flatMap.reveal(e._lat, e._lon);
+  };
 
   let popClick = 0; // räknar klick, så att en sen klickruta inte visas efter ett nytt klick
   // Klick nära en väg eller resa som syns (#38) visar klickrutan. Sant om en väg träffades.
