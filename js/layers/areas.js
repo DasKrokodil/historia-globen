@@ -78,6 +78,26 @@ export class AreasLayer {
       ctx.lineWidth = 1.6 * k;
       ctx.stroke();
     }
+    // Huvudlandet i ett utspritt välde (#74): samma färg men tätare fyllning och en kraftig kant
+    // med mörk kontur, så att moderlandet syns bland kolonierna. Vilken del det är står i datan (period.homeland).
+    for (const { polity, period } of this.active) {
+      if (!period.homeland) continue;
+      ctx.beginPath();
+      for (const rings of polygons(period.homeland)) {
+        for (const ring of rings) {
+          ring.forEach(([lon, lat], i) => i ? ctx.lineTo(X(lon), Y(lat)) : ctx.moveTo(X(lon), Y(lat)));
+          ctx.closePath();
+        }
+      }
+      ctx.fillStyle = hexA(polity.color, 0.4);
+      ctx.fill('evenodd');
+      ctx.strokeStyle = 'rgba(16,22,30,0.85)';
+      ctx.lineWidth = 5 * k;
+      ctx.stroke();
+      ctx.strokeStyle = polity.color;
+      ctx.lineWidth = 2.6 * k;
+      ctx.stroke();
+    }
     // Namnen sist, så att de hamnar ovanpå alla områden. Ryms namnet inte i
     // området skrivs det ovanför, med ett streck ner, så att området syns.
     const size = 16 * k * this.labelScale;
@@ -86,45 +106,90 @@ export class AreasLayer {
     ctx.textBaseline = 'middle';
     ctx.globalAlpha = this.labelAlpha;
     const R = ORIGIN_R * k * this.labelScale;
-    for (const { polity, period } of this.active) {
-      const name = t(polity.name);
-      // Rike med symbol (#301): medaljen på label-punkten, och namnet under den bara när namnen visas
-      const sym = this.symbolOf(polity);
-      if (sym) {
-        const x = X(period.label[0]), y = Y(period.label[1]);
-        ctx.globalAlpha = 1;
-        drawMedal(ctx, x, y, R, polity.color, this._glyph(sym.symbol));
-        ctx.globalAlpha = this.labelAlpha;
-        if (!this.showNames) continue;
-        const ny = y + R * 1.25 + size * 0.6;
-        ctx.lineWidth = 3.5 * k * this.labelScale;
-        ctx.strokeStyle = 'rgba(16,22,30,0.8)';
-        ctx.strokeText(name, x, ny);
-        ctx.fillStyle = '#f6e7c4';
-        ctx.fillText(name, x, ny);
-        continue;
-      }
-      const b = bbox(period);
-      const bw = X(b.maxLon) - X(b.minLon), bh = Y(b.minLat) - Y(b.maxLat);
-      let x = X(period.label[0]), y = Y(period.label[1]);
-      if (ctx.measureText(name).width > bw * 0.9 || bh < size * 2.5) {
-        const top = Y(b.maxLat);
-        y = top - size * 1.6;
-        ctx.strokeStyle = 'rgba(246,231,196,0.8)';
-        ctx.lineWidth = 1.2 * k * this.labelScale;
-        ctx.beginPath(); ctx.moveTo(x, top - 2 * k); ctx.lineTo(x, y + size * 0.6); ctx.stroke();
-      }
+    const placed = []; // namnens rutor, så att huvudländernas namn inte hamnar på varandra (#74)
+    const lead = (x1, y1, x2, y2) => {
+      ctx.strokeStyle = 'rgba(246,231,196,0.8)';
+      ctx.lineWidth = 1.2 * k * this.labelScale;
+      ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+    };
+    const write = (name, x, y) => {
       ctx.lineWidth = 3.5 * k * this.labelScale;
       ctx.strokeStyle = 'rgba(16,22,30,0.8)';
       ctx.strokeText(name, x, y);
       ctx.fillStyle = '#f6e7c4';
       ctx.fillText(name, x, y);
+    };
+    // Rike med symbol (#301): medaljen på label-punkten, och namnet under den bara när namnen visas
+    const medal = (polity, period, sym) => {
+      const x = X(period.label[0]), y = Y(period.label[1]);
+      ctx.globalAlpha = 1;
+      drawMedal(ctx, x, y, R, polity.color, this._glyph(sym.symbol));
+      ctx.globalAlpha = this.labelAlpha;
+      if (!this.showNames) return;
+      const name = t(polity.name), ny = y + R * 1.25 + size * 0.6;
+      placed.push(box(x, ny, ctx.measureText(name).width, size));
+      write(name, x, ny);
+    };
+    // Först de vanliga namnen, som de alltid har stått
+    for (const { polity, period } of this.active) {
+      if (period.homeland) continue;
+      const sym = this.symbolOf(polity);
+      if (sym) { medal(polity, period, sym); continue; }
+      const name = t(polity.name);
+      const b = bbox(period);
+      const bw = X(b.maxLon) - X(b.minLon), bh = Y(b.minLat) - Y(b.maxLat);
+      let x = X(period.label[0]), y = Y(period.label[1]);
+      const w = ctx.measureText(name).width;
+      if (w > bw * 0.9 || bh < size * 2.5) {
+        const top = Y(b.maxLat);
+        y = top - size * 1.6;
+        lead(x, top - 2 * k, x, y + size * 0.6);
+      }
+      placed.push(box(x, y, w, size));
+      write(name, x, y);
+    }
+    // Sedan huvudländerna: en mässingsstjärna i moderlandet och rikets namn strax ovanför (i stället för mitt
+    // i den största kolonin). Ligger platsen på ett annat namn flyttas namnet upp eller ner, med ett streck till stjärnan.
+    for (const { polity, period } of this.active) {
+      if (!period.homeland) continue;
+      const sym = this.symbolOf(polity); // med symbol står medaljen i moderlandet i stället för stjärnan
+      if (sym) { medal(polity, period, sym); continue; }
+      const name = t(polity.name), w = ctx.measureText(name).width;
+      const x = X(period.label[0]), y0 = Y(period.label[1]);
+      star(ctx, x, y0, 7 * k * this.labelScale);
+      const offsets = [-1.05, 1.15, -2.2, 2.3, -3.35, 3.45, -4.5, 4.6];
+      const dy = offsets.find(o => !placed.some(p => overlaps(p, box(x, y0 + o * size, w, size)))) ?? offsets[0];
+      const y = y0 + dy * size;
+      if (Math.abs(dy) > 1.2) lead(x, y0 + Math.sign(dy) * 8 * k * this.labelScale, x, y - Math.sign(dy) * size * 0.55);
+      placed.push(box(x, y, w, size));
+      write(name, x, y);
     }
     ctx.restore();
   }
 }
 
+const box = (x, y, w, h) => ({ x0: x - w / 2, x1: x + w / 2, y0: y - h * 0.55, y1: y + h * 0.55 });
+const overlaps = (a, b) => a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a.y1;
+
 const polygons = g => g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
+
+let brass = null; // --brass i css/style.css, läses första gången stjärnan ritas
+const BRASS = () => (brass ??= getComputedStyle(document.documentElement).getPropertyValue('--brass').trim() || '#d6b06a');
+
+/** En femuddig mässingsstjärna med mörk kant, märket för huvudlandet (#74). */
+function star(ctx, x, y, r) {
+  ctx.beginPath();
+  for (let i = 0; i < 10; i++) {
+    const a = -Math.PI / 2 + i * Math.PI / 5, d = i % 2 ? r * 0.45 : r;
+    i ? ctx.lineTo(x + d * Math.cos(a), y + d * Math.sin(a)) : ctx.moveTo(x + d * Math.cos(a), y + d * Math.sin(a));
+  }
+  ctx.closePath();
+  ctx.lineWidth = r * 0.45;
+  ctx.strokeStyle = 'rgba(16,22,30,0.85)';
+  ctx.stroke();
+  ctx.fillStyle = BRASS();
+  ctx.fill();
+}
 
 /** Områdets yttre gränser i grader, räknas ut en gång per period. */
 function bbox(period) {

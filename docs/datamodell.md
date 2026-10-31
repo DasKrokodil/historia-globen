@@ -124,6 +124,21 @@ Tysk-romerska riket efter 1458 (#336, Rikards val A i #69): Cliopatria räknar f
 
 Tidigmoderna riken (R4, #70): Aztekriket (staden Tenochtitlan och trippelalliansen), Inkariket, Songhairiket, Mogulriket, Safavidriket, Mingdynastin (med Södra Ming), Qingdynastin, Spanska och Portugisiska imperiet (Cliopatrias sammanslagna `(Spanish Empire)` och `(Portuguese Empire)`, moderland och kolonier), Ryssland (tsardömet och kejsardömet), Svenska stormaktsväldet (`Swedish Empire`), Habsburgska riket (`(Habsburg Monarchy)`) och Tokugawa-Japan, var och en en egen grupp med faktaruta. Spanska och portugisiska imperiet och Ryssland förenklas hårdare (`OVERRIDES` i `tools/riken.py`). Källor: Wikipedia, World History Encyclopedia (NC, bara länkad) och Wikidata (start- och slutår). Kartdatans avvikelser står i varje rikes `mapNote`, till exempel att Cliopatria räknar Portugal och dess kolonier till Spanska imperiet 1582–1639 och visar `Swedish Empire` ända till 1814, fast stormaktstiden slutade 1721.
 
+Kolonialvälden och moderna imperier (R5, #71): franska kolonialväldet (Cliopatrias sammanslagna Frankrike med kolonier i sex skeden, `(Bourbon Kingdom of France)` 1815–1847 till `(French Fourth Republic)` 1945–1957), nederländska kolonialväldet (`(Dutch Republic)`, `(Batavian Republic)` och `(Netherlands)` till 1949), Tyska riket (`German Empire` och `German Africa`), Österrike-Ungern, Japanska imperiet (`Empire of Japan`), Etiopiska kejsardömet (`Ethiopian Empire` och `Ethiopia` till 1974) och Sovjetunionen, var och en en egen grupp med faktaruta. Två valfria inställningar per del i `GROUPS` (ett femte element, en ordbok): `years` (från, till) klipper delens spann, och en lista med Cliopatria-namn i stället för ett namn slår ihop posterna år för år till en del (`parts` i rikesfilen; `areaKm2` är då summan av posternas ytor). Kartdatans avvikelser står i varje rikes `mapNote`, till exempel att Cliopatria saknar Frankrike och Nederländerna med kolonier 1943–1944.
+
+**Huvudlandet i utspridda välden (#74).** Ett kolonialvälde har samma färg i alla delar. Moderlandet ritas med tätare fyllning, en kraftig kant med mörk kontur och en mässingsstjärna, och rikets namn står strax ovanför stjärnan i stället för mitt i den största kolonin. Det styrs av datan:
+
+- `homeland` på gruppen i `empires/index.json`: `{ "name": { "sv": "Storbritannien", "en": "Great Britain" } }`, moderlandets namn.
+- `homeland` på delen (polity) i rikesfilen: de Cliopatria-poster som är moderlandet, till exempel `["Kingdom of Great Britain"]`. En tom lista betyder att moderlandet tas ur rikets eget område (Japan, där Cliopatria inte skiljer på Japan och kolonierna).
+- `homeland` på perioden: moderlandets gräns det året (GeoJSON, förenklad som riket). `label` står då i moderlandet. Perioder slås bara ihop om moderlandet också är nästan detsamma.
+
+`tools/riken.py` räknar fram moderlandet ur tabellen `HOMELANDS` (namn och ett fönster, bbox eller polygon, runt moderlandet, eftersom moderlandets post i Cliopatria ibland också innehåller handelsstationer långt bort) och `homeland` i delens inställningar i `GROUPS`. Moderland finns för Brittiska imperiet, Spanska och Portugisiska imperiet (#70), franska och nederländska kolonialväldet, Tyska riket och Japanska imperiet. Perioder där Cliopatria saknar moderlandet (till exempel Nederländerna 1811–1814 och Portugal under den iberiska unionen) ritas som vanligt, utan stjärna.
+
+```json
+{ "start": 1919, "end": 1939, "areaKm2": 12702704, "label": [2.3, 47.0],
+  "geometry": { "type": "MultiPolygon", … }, "homeland": { "type": "Polygon", … } }
+```
+
 `facts` (valfritt, #170) i `empires/index.json` är faktarutan om riket (gruppen). Formatet är detsamma som för religionernas `facts` (se nedan): `summary`, `items` (när och var det uppstod, hur det slutade, huvudstäder, kända härskare, största utbredning med år, språk och religion), `milestones` (nyckelår med `year`, `label`, `text` på en till tre meningar och egna `sources`; för riken även `title`, `events` och `mapNote`, se nedan), `sources` och `review`. Dessutom `mapNote`, som säger hur källornas årtal skiljer sig från kartdatans spann (`from`/`to` kommer från Cliopatria, #138). `origin` används inte för riken. Rutan visas när man följer riket i Fokus. Alla riken har en, också antikens tio riken från R2 (#68) och medeltidens elva från R3 (#69).
 
 ```json
@@ -139,7 +154,7 @@ Rikets nyckelår är också rikets berättelse (#171): när man följer riket i 
 - `events` (valfritt): id för händelser i `events.json` som hör till nyckelåret, till exempel ett krig. De visas som knappar i kortet och berättas inte om i texten.
 - `mapNote` (valfritt): hur kartan (Cliopatria) skiljer sig från källans årtal vid just det nyckelåret, till exempel att förändringen syns först några år senare.
 
-`text` säger vad som hände och varför det påverkade utbredningen. Nyckelåren läggs helst där kartan visar en stor förändring av ytan. Osmanska riket, Mongolriket, Hanriket och Brittiska imperiet har 9–10 nyckelår var (#171), Rom 16 och Persiska riket, Makedoniska riket och Mauryariket 7–9 var (#180). Antikens riken (R2, #68) har 5–7 nyckelår var.
+`text` säger vad som hände och varför det påverkade utbredningen. Nyckelåren läggs helst där kartan visar en stor förändring av ytan. Osmanska riket, Mongolriket, Hanriket och Brittiska imperiet har 9–10 nyckelår var (#171), Rom 16 och Persiska riket, Makedoniska riket och Mauryariket 7–9 var (#180). Antikens riken (R2, #68) har 5–7 nyckelår var, och kolonialvälden och moderna imperier (R5, #71) 5–8.
 
 ```json
 { "year": 1699, "label": { "sv": "1699" }, "title": { "sv": "Freden i Karlowitz" },
