@@ -140,16 +140,16 @@ GROUPS = {
     ]),
     # R5 Kolonialvälden och moderna imperier (#71)
     'franska-kolonialvaldet': ('Franska kolonialväldet', 'French colonial empire', [
-        ('(Bourbon Kingdom of France)', 'frankrike-kungadomet', 'Frankrike (kungadömet)', '#3f6fb8',
+        ('(Bourbon Kingdom of France)', 'frankrike-kungadomet', 'Frankrike (kungadömet)', '#2f6fdc',
          {'years': (1815, 1847), 'homeland': ['Bourbon Kingdom of France']}),
-        ('(French Second Republic)', 'frankrike-andra-republiken', 'Frankrike (andra republiken)', '#3f6fb8',
+        ('(French Second Republic)', 'frankrike-andra-republiken', 'Frankrike (andra republiken)', '#2f6fdc',
          {'homeland': ['French Second Republic']}),
-        ('(Second French Empire)', 'andra-franska-kejsardomet', 'Andra franska kejsardömet', '#3f6fb8',
+        ('(Second French Empire)', 'andra-franska-kejsardomet', 'Andra franska kejsardömet', '#2f6fdc',
          {'homeland': ['Second French Empire']}),
-        ('(French Third Republic)', 'frankrike-tredje-republiken', 'Frankrike (tredje republiken)', '#3f6fb8',
+        ('(French Third Republic)', 'frankrike-tredje-republiken', 'Frankrike (tredje republiken)', '#2f6fdc',
          {'homeland': ['French Third Republic']}),
-        ('(Vichy France)', 'vichyregimen', 'Vichyregimen', '#3f6fb8', {'years': (1940, 1942), 'homeland': ['Vichy France']}),
-        ('(French Fourth Republic)', 'frankrike-fjarde-republiken', 'Frankrike (fjärde republiken)', '#3f6fb8',
+        ('(Vichy France)', 'vichyregimen', 'Vichyregimen', '#2f6fdc', {'years': (1940, 1942), 'homeland': ['Vichy France']}),
+        ('(French Fourth Republic)', 'frankrike-fjarde-republiken', 'Frankrike (fjärde republiken)', '#2f6fdc',
          {'homeland': ['French Fourth Republic']}),
     ]),
     'nederlandska-kolonialvaldet': ('Nederländska kolonialväldet', 'Dutch colonial empire', [
@@ -158,7 +158,7 @@ GROUPS = {
         ('(Netherlands)', 'nederlanderna', 'Nederländerna', '#e0912c', {'years': (1811, 1949), 'homeland': ['Netherlands']}),
     ]),
     'tyska-riket': ('Tyska riket', 'German Empire', [
-        (['German Empire', 'German Africa'], 'tyska-riket', 'Tyska riket', '#6c7484', {'en': 'German Empire', 'homeland': ['German Empire']}),
+        (['German Empire', 'German Africa'], 'tyska-riket', 'Tyska riket', '#7a5aa0', {'en': 'German Empire', 'homeland': ['German Empire']}),
     ]),
     'osterrike-ungern': ('Österrike-Ungern', 'Austria-Hungary', [
         ('Austria-Hungary', 'osterrike-ungern', 'Österrike-Ungern', '#b0902e'),

@@ -6254,7 +6254,7 @@
     "sv": "Franska kolonialväldet",
     "en": "French colonial empire"
    },
-   "color": "#3f6fb8",
+   "color": "#2f6fdc",
    "from": 1815,
    "to": 1957,
    "file": "data/empires/franska-kolonialvaldet.json",
@@ -6391,7 +6391,7 @@
     "sv": "Tyska riket",
     "en": "German Empire"
    },
-   "color": "#6c7484",
+   "color": "#7a5aa0",
    "from": 1871,
    "to": 1919,
    "file": "data/empires/tyska-riket.json",
