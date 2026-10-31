@@ -89,6 +89,15 @@ Gruppen Bilder (#195) listar varje bild på globen, inte bara de med `image.sour
 
 Licenskontroller som redan är gjorda står i respektive issue, till exempel GPlates (#51), ROAD (#50), OWTRAD och CLIWOC (#39) och Black Marble (#9).
 
+### OWTRAD och CLIWOC (#39, kontrollerat 2026-10-30)
+
+| Källa | Vad | Resultat | Får användas? |
+|---|---|---|---|
+| OWTRAD (Old World Trade Routes, ciolek.com) | Handelsvägar i Asien och Europa | Webbplatsen går inte att nå från molnmiljön (anslutningen bryts), så villkoren kunde inte läsas. Inga villkor hittades på Zenodo. | **Nej, inte nu:** villkoren är oklara. Används inte förrän en öppen licens (CC0, CC BY, public domain) har setts på källsidan. |
+| CLIWOC (Climatological Database for the World's Oceans 1750–1850) | Positioner och väder ur skeppsloggar | Officiella sidor (KNMI) visar inga villkor, och NOAA:s ICOADS, där CLIWOC-datan ingår, går inte att nå från molnmiljön. På Zenodo finns bara härledd data med CC BY-SA 4.0, som inte är tillåtet för data här (bara för bildfiler). | **Nej, inte nu:** villkoren är oklara, och den tillgängliga kopian är CC BY-SA. |
+
+Vägarna och resorna i version 4 bygger i stället på uppslagsverk och artiklar med källa per etapp (`data/routes/`, #38). För att pröva OWTRAD och CLIWOC igen behöver molnmiljön släppa på `www.ciolek.com`, `icoads.noaa.gov` och `www.ncei.noaa.gov`.
+
 ## Så kontrollerar du en uppgift
 
 1. Öppna källsidan. Läs det som faktiskt står, inte det du minns.
