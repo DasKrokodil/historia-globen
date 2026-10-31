@@ -61,6 +61,12 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   vid ändringar i utseendet. Molnmiljön kan inte ladda upp bilder till GitHub. Pull requesten beskriver därför vad
   skärmbilderna visar, med mått där det hjälper (till exempel "etiketten ligger på x 17–167"), och dirigenten
   skickar de viktigaste bilderna till Rikard i chatten.
+- **Webbläsartestet i GitHub (#339):** varje pull request mot `main` och `production` får jobbet "Öppna sidan i
+  Chromium" (`.github/workflows/browser-test.yml`), som kör `tests/webblasare.mjs` i dator- och mobilbredd: inga
+  konsolfel, globen startar, tidslinjen, Lager, Fokus, Platt vy och Källor, ett rike och en väg syns, ingen horisontell
+  scroll. Orkestern kan lita på att jobbet fångar trasiga grundfunktioner och läsa skärmbilderna i artefakten
+  `skarmbilder`. Arbetare kör samma skript lokalt mot sin egen port innan pull requesten (docs/DEPLOYMENT.md); egna
+  skärmbilder av det issuet ändrar behövs fortfarande.
 - **Leverans (PR-läge):** pusha aldrig till `main`. Varje issue levereras på en egen gren `claude/issue-<N>-<namn>`
   som en pull request på svenska, med `Closes #N`, vad som ändrats, varför och hur Rikard testar. Ingen force push.
   Rikard slår ihop. Issuet stängs när pull requesten slås ihop, inte av orkestern. Uppdatera `docs/` och

@@ -379,3 +379,12 @@ Det görs när det finns texter på fler språk än svenska (version 12, Språk 
 ## `land.json` och `borders.json`: kartor
 
 Färdigprojicerade SVG-banor i 4096 × 2048 (`path`, `width`, `height`) från Natural Earth: grundkartan (1:50m) och dagens landsgränser. Grundkartan laddas vid start; dagens gränser först när lagret slås på (#337).
+
+## `vyer.json`: grupper och förinställda vyer i Lager (#357)
+
+Ingen fakta, bara hur Lager är ordnat. Namnen står per språk som andra texter (`t()`).
+
+- `title`: rubriken över vyerna ("Vy"). `custom`: märket när valen inte stämmer med någon vy ("Anpassad").
+- `groups`: grupperna i Lager i menyns ordning, `{ id, name }`. Varje lager anger sin grupp med fältet `group` i sin post i lagerregistret. En grupp med `"settings": true` (Inställningar) innehåller val som vyerna inte rör, till exempel "Behåll mina lager i fokus".
+- `views`: de förinställda vyerna i knapparnas ordning, `{ id, name, layers }`. `layers` är id:n (`data-layer`) för lagren som är på i vyn; alla andra lager utanför Inställningar slås av. `standard` är de lager som är på när sidan öppnas och ska ändras samtidigt med lagrens `menu.on` om standardläget ändras.
+- Laddas av `loadViews()` i `js/ui/layers.js`. Saknas filen visas Lager som en lista utan grupper och vyer.

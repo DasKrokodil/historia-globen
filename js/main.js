@@ -8,7 +8,7 @@ import { LAYERS } from './layers/index.js';
 import { Panel } from './ui/panel.js';
 import { FunFacts, empireStory } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
-import { LayerMenu } from './ui/layers.js';
+import { LayerMenu, loadViews } from './ui/layers.js';
 import { ReligionLegend } from './ui/legend.js';
 import { RoutePop } from './ui/routepop.js';
 import { cluster, clusterContents, placeLabels, dotBox } from './ui/clusters.js';
@@ -44,7 +44,8 @@ function warCards(events) {
 }
 
 async function start() {
-  const data = await loadAll();
+  // Lagrens grupper och förinställda vyer (#357) är en liten fil; den hämtas samtidigt med resten
+  const [data, views] = await Promise.all([loadAll(), loadViews()]);
   const globe = new Globe($('globe-canvas'));
   globe.drawBase(data.land);
   const flatMap = new FlatMap({
@@ -71,11 +72,11 @@ async function start() {
   };
   // Lagren anmäler sig i registret (layers/index.js), och raderna i Lager byggs ur det (före LayerMenu nedan)
   for (const make of LAYERS) registry.add(make(env));
-  registry.buildMenu($('layer-menu'));
+  registry.buildMenu($('layer-menu'), views?.groups);
   // Lagren som main.js gör mer med än att rita: klick, fokus, listan och etiketterna
   const layer = registry.get('events'), areas = registry.get('areas'), religions = registry.get('religions'), routes = registry.get('routes');
   const panel = new Panel({
-    root: $('panel'), list: $('event-list'), filters: $('filters'), detail: $('detail'),
+    root: $('panel'), list: $('event-list'), filters: $('filters'), chips: $('panel-filters'), detail: $('detail'),
     sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'), close: $('panel-close'),
   }, data);
   const ff = new FunFacts({
@@ -107,7 +108,8 @@ async function start() {
   let finishing = false, finishNext = false;
 
   // Lagerväljaren: vilka lager som syns. Raderna och startläget kommer från registret.
-  const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu') });
+  const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu'),
+    views: views && { ...views, controlled: registry.viewLayers(views.groups) } });
   Object.assign(state, { layers: layers.on, pause: layers.pause, calm: layers.calm });
   // Lugn rörelse (#246): också rikenas övergångar (#78) stängs av (i lagrets apply)
   globe.calm = layers.calm; layers.onCalm = on => { state.calm = globe.calm = on; registry.apply(state); };
@@ -392,6 +394,10 @@ async function start() {
   // Religionens årtal i Fokus: grundandet där det går att belägga, annars bara kartdatans spann (#138)
   // Ärvda områden (#269) räknas inte: spannet är där en faktaruta anger religionen
   const stated = r => r.snapshots.filter(s => !s.inherited);
+  // Sökningen i Fokus (#311) letar i namnen på alla språk som datan har, och för riken och försvunna länder
+  // även i namnen på rikets delar (polities), till exempel "Bysantinska riket" i Rom och "Sverige"
+  const langs = n => Object.values(n ?? {}).filter(Boolean);
+  const empireTerms = g => [...langs(g.name), ...g.polities.flatMap(p => langs(p.name))];
   const religionSpan = (r, first) => {
     const st = stated(r);
     const map = `statsreligion på kartan ${formatYearSpan(st[0].start, st.at(-1).end)}`;
@@ -401,19 +407,19 @@ async function start() {
     const first = founding(r.id)[0];
     const st = stated(r);
     const from = Math.min(first?.start ?? Infinity, st[0].start), to = st.at(-1).end;
-    return { key: `religion:${r.id}`, label: t(r.name), sub: religionSpan(r, first), color: r.color, symbol: symbolUrl(r), from, to };
+    return { key: `religion:${r.id}`, label: t(r.name), terms: langs(r.name), sub: religionSpan(r, first), color: r.color, symbol: symbolUrl(r), from, to };
   });
   const empireItems = () => data.empireGroups.filter(g => !g.vanished).map(g =>
-    ({ key: `empire:${g.id}`, label: t(g.name), sub: `kartdata ${formatYearSpan(g.from, g.to)}`, color: g.color, symbol: symbolUrl(g), from: g.from, to: g.to }));
+    ({ key: `empire:${g.id}`, label: t(g.name), terms: empireTerms(g), sub: `kartdata ${formatYearSpan(g.from, g.to)}`, color: g.color, symbol: symbolUrl(g), from: g.from, to: g.to }));
   // Försvunna länder (#72): listas alla, i tidsordning, med när de bildades och upplöstes och vad de blev
   const vanishedItems = () => data.empireGroups.filter(g => g.vanished).map(g => {
     const [from, to] = empireSpan(g);
     const names = g.vanished.successors.map(s => t(s.name).split(' (')[0]);
     const blev = names.length > 4 ? `${names.slice(0, 3).join(', ')} och ${names.length - 3} till` : names.join(', ');
-    return { key: `empire:${g.id}`, label: t(g.name), sub: `${empireYears(g)} · blev ${blev}`, color: g.color, symbol: symbolUrl(g), from, to };
+    return { key: `empire:${g.id}`, label: t(g.name), terms: empireTerms(g), sub: `${empireYears(g)} · blev ${blev}`, color: g.color, symbol: symbolUrl(g), from, to };
   });
   const focusGroups = (doc = null) => [
-    { title: 'Krig', items: data.events.filter(e => e.kind === 'war').map(e => ({ key: `war:${e.id}`, label: t(e.title), sub: formatEventTime(e), color: CAT[e.category]?.color, from: e.start, to: e.end })) },
+    { title: 'Krig', items: data.events.filter(e => e.kind === 'war').map(e => ({ key: `war:${e.id}`, label: t(e.title), terms: langs(e.title), sub: formatEventTime(e), color: CAT[e.category]?.color, from: e.start, to: e.end })) },
     { title: 'Riken', note: 'Gränser ur Cliopatria. Årtalen visar när kartdata finns och kan skilja sig från rikets historiska årtal. Ett kolonialvälde har samma färg överallt; stjärnan och den kraftiga kanten visar huvudlandet. En mjuk, utsuddad kant betyder att källorna säger att gränsen är osäker. Glesa prickar med streckad kant är inflytande: lydriken och vasaller enligt Cliopatria. Länder som inte finns längre står under Försvunna länder.', items: empireItems() },
     { title: 'Försvunna länder', all: true, note: 'Länder som inte finns längre: när de bildades och upplöstes enligt källorna, och vilka länder de blev. Gränser ur Cliopatria, som kan ha andra årtal.', items: vanishedItems() },
     { title: 'Religioner', note: 'Visar var religionen var officiell religion eller huvudreligion i en statsbildning, inte religionens ålder eller var alla troende bodde.', items: doc ? religionItems(doc) : [], loading: !doc },

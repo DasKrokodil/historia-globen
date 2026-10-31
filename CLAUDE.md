@@ -43,6 +43,7 @@ js/ui/feedback.js     formuläret för besökarnas förslag (avstängt som stand
 js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med functions/)
 functions/api/feedback.js  Cloudflare Pages Function som skapar issues i ett privat repo (enda undantaget från punkt 1)
 tests/                tester för functions/ med node:test (node --test 'tests/*.test.mjs')
+tests/webblasare.mjs  webbläsartest med Playwright, körs i GitHub Actions för varje PR (#339)
 data/events.json      händelser
 data/funfacts.json    fun facts (kopplade till händelse-id)
 data/sources.json     källregister
@@ -51,6 +52,7 @@ data/empires/         riken: index.json och en fil per rike, byggs med tools/rik
 data/routes/          vägar och resor: index.json listar filerna, en fil per resa eller väg (#38)
 data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar (#337); skrivs av tools/dela_data.py, redigeras inte
 data/upptackt.json    upptäcktsvyn: perspektivrad, dimma och kartbilder (#101)
+data/vyer.json        grupperna och de förinställda vyerna i Lager (#357)
 data/religions.json   religioner som områden (statsreligion per rike ur Cliopatria) och faktarutor
 data/religions-polities.json  rikenas områden per religion och period, laddas vid klick (tools/religioner_riken.py)
 data/styles.json      bildstilar efter tidsålder och plats (ramar och promptar)

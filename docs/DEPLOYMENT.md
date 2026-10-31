@@ -74,6 +74,23 @@ python3 -m http.server 8000 --directory dist
 
 `dist/` committas inte (`.gitignore`).
 
+### Webbläsartestet lokalt (#339)
+
+Samma test som GitHub kör (se [Webbläsartest](#webbläsartest-339)) går att köra mot en egen server. Det behöver Node 22 och Playwright 1.63.0 med Chromium, installerat utanför repot:
+
+```bash
+npm install --prefix /tmp/pw --no-save playwright@1.63.0
+/tmp/pw/node_modules/.bin/playwright install chromium
+bash scripts/build-site.sh
+python3 -m http.server 8000 --directory dist &
+NODE_PATH=/tmp/pw/node_modules node tests/webblasare.mjs 8000
+```
+
+- Argumentet är porten (standard 8000). Orkesterns arbetare använder sin egen port (8001–8003).
+- `SKARMBILDER=<mapp>` väljer var skärmbilderna sparas (standard: en mapp i systemets tillfälliga katalog). Skriptet skriver ut var de hamnade.
+- `THREE_LOCAL=<sökväg till three.module.js>` ersätter three.js från jsdelivr med en lokal kopia (`three@0.160.0`) och avbryter Google Fonts. Det behövs i molnmiljön, som inte når jsdelivr. I GitHub används alltid den riktiga adressen.
+- Skriptet avslutas med kod 1 om någon kontroll misslyckas, och tar då en skärmbild som börjar på `FEL-`.
+
 ## Cloudflare Pages
 
 Läget enligt Rikard 2026-10-30. Inställningarna görs i Cloudflares kontrollpanel, inte i repot, och har inte kunnat kontrolleras härifrån.
@@ -122,6 +139,27 @@ Bara pull requests mot `production` får dessutom kontrollen **"Release kommer f
 
 `.github/workflows/release.yml`, **Skapa release**, körs för hand från grenen `production` (Actions → Skapa release → Run workflow, "Use workflow from: production", versionsnummer `vX.Y.Z`). Den bygger och validerar `production`, kontrollerar att numret har rätt form och inte redan finns, kontrollerar med `scripts/production-i-main.sh` att `production` bara innehåller det som finns i `main`, och skapar sedan taggen och en GitHub Release med automatiska anteckningar. Den ändrar inget innehåll i `production` och publicerar inget; publiceringen har redan skett när release-PR:en slogs ihop.
 
+### Webbläsartest (#339)
+
+`.github/workflows/browser-test.yml`, **Webbläsartest**, körs vid samma tillfällen som valideringen (push till `main`, pull requests mot `main` och `production`). Jobbet **"Öppna sidan i Chromium"**:
+
+1. bygger `dist/` med `scripts/build-site.sh`
+2. installerar Playwright 1.63.0 (exakt version) och bara Chromium i en tillfällig mapp utanför repot, så att repot inte får någon `package.json` och `dist/` inte påverkas
+3. startar `python3 -m http.server` i `dist/`
+4. kör `tests/webblasare.mjs`, som öppnar sidan i datorbredd (1400 × 900) och mobilbredd (400 × 800)
+
+Kontrollerna, i båda bredderna:
+- inga fel i konsolen och inga filer som inte går att ladda (bara avbrutna typsnitt från Google Fonts är tillåtna)
+- three.js laddas från jsdelivr (version 0.160.0, som på sidan) och globen startar: rutan "Laddar globen…" försvinner
+- tidslinjen går att flytta: ett klick på tidslinjen ändrar årtalet
+- Lager, Fokus, Platt vy och Källor öppnas; i Fokus följer testet ett rike och går sedan tillbaka
+- ett rike och en väg syns: i Platt vy år 1420 slår testet av och på Riken och Resor och handelsvägar och kontrollerar att kartan ändras
+- ingen horisontell scroll, före och efter att menyerna har öppnats
+
+Testet väntar på att sidan når ett visst läge (en meny syns, årtalet ändras, kartan står still), inte på fasta tider, så att det inte ska bli rött av en slump. Jobbet tar cirka 3 minuter och avbryts efter 10.
+
+**Skärmbilderna** sparas som artefakten `skarmbilder` (14 dagar): öppna körningen under Actions (eller "Details" vid kontrollen i pull requesten) och ladda ner artefakten längst ned på sidan. Bilderna heter `dator-…` och `mobil-…`, i den ordning testet tar dem; en kontroll som misslyckas ger en bild som börjar på `dator-FEL-` eller `mobil-FEL-`. Loggen visar varje kontroll som `OK` eller `FEL` med ett kort mått (till exempel hur många pixlar som ändras när rikena slås på).
+
 Mallen `.github/PULL_REQUEST_TEMPLATE/release.md` är releasechecklistan. Den används när release-PR:en öppnas med `?template=release.md` (se nedan).
 
 Workflowen underkänns om något steg misslyckas.
@@ -136,6 +174,8 @@ Det här går inte att lägga i repot. Rikard gjorde det under Settings → Rule
 | `production` | `refs/heads/production` | ingen radering, ingen force-push, pull request krävs (0 godkännanden, bara merge commit), **"Bygg och validera dist/"** och **"Release kommer från main"** måste vara gröna | Repository admin (alltid), för nödläget i [Rollback](#rollback-till-en-tidigare-release) |
 
 Godkännanden är satta till 0 eftersom projektet har en ägare, och GitHub låter ingen godkänna sin egen pull request. "Release kommer från main" går bara att lägga till som krävd kontroll när den har körts en gång mot `production`; det gjordes med pull request #277.
+
+**Webbläsartestet (#339) är ännu inte en krävd kontroll.** När jobbet **"Öppna sidan i Chromium"** har körts grönt några gånger kan Rikard lägga till det bland de krävda kontrollerna i båda rulesets (Settings → Rules → regeln "Require status checks to pass"). Tills dess visas det i varje pull request men stoppar inte sammanslagningen.
 
 ## Release: från main till production
 

@@ -39,7 +39,7 @@ export function entry({ data, refresh, registry }) {
     get sources() { return sourceIds.map(id => data.srcById[id]).filter(Boolean); },
   };
   return {
-    id: 'discovery', name: 'Upptäcktsvy', layer,
+    id: 'discovery', name: 'Upptäcktsvy', group: 'perspective', layer,
     menu: { on: false, note: 'gammal kartstil med segelskepp, havsmonster och dimma som resorna lyfter' },
     enabled: s => s.layers.discovery && !!data.discovery,
     apply: s => { if (s.on.discovery && !sourcesReady()) loadSources().then(() => refresh()).catch(err => console.error(err)); },

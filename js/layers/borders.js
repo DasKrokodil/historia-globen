@@ -7,7 +7,7 @@ import { loadBorders } from '../model.js';
 export function entry({ refresh }) {
   const layer = new BordersLayer();
   return {
-    id: 'borders', name: 'Dagens gränser', menu: { on: false, note: 'stämmer inte historiskt' }, layer, z: Z.borders,
+    id: 'borders', name: 'Dagens gränser', group: 'power', menu: { on: false, note: 'stämmer inte historiskt' }, layer, z: Z.borders,
     enabled: s => s.layers.borders,
     // Första gången lagret syns laddas gränserna, och kartan ritas om när de har kommit
     apply: s => {
