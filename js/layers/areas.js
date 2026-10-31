@@ -76,31 +76,55 @@ export class AreasLayer {
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.globalAlpha = this.labelAlpha;
-    for (const { polity, period } of this.active) {
-      const name = t(polity.name);
-      const b = bbox(period);
-      const bw = X(b.maxLon) - X(b.minLon), bh = Y(b.minLat) - Y(b.maxLat);
-      let x = X(period.label[0]), y = Y(period.label[1]);
-      if (period.homeland) {
-        // Huvudlandet får en mässingsstjärna och rikets namn strax ovanför, i stället för mitt i största kolonin
-        star(ctx, x, y, 7 * k * this.labelScale);
-        y -= size * 1.05;
-      } else if (ctx.measureText(name).width > bw * 0.9 || bh < size * 2.5) {
-        const top = Y(b.maxLat);
-        y = top - size * 1.6;
-        ctx.strokeStyle = 'rgba(246,231,196,0.8)';
-        ctx.lineWidth = 1.2 * k * this.labelScale;
-        ctx.beginPath(); ctx.moveTo(x, top - 2 * k); ctx.lineTo(x, y + size * 0.6); ctx.stroke();
-      }
+    const placed = []; // namnens rutor, så att huvudländernas namn inte hamnar på varandra (#74)
+    const lead = (x1, y1, x2, y2) => {
+      ctx.strokeStyle = 'rgba(246,231,196,0.8)';
+      ctx.lineWidth = 1.2 * k * this.labelScale;
+      ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+    };
+    const write = (name, x, y) => {
       ctx.lineWidth = 3.5 * k * this.labelScale;
       ctx.strokeStyle = 'rgba(16,22,30,0.8)';
       ctx.strokeText(name, x, y);
       ctx.fillStyle = '#f6e7c4';
       ctx.fillText(name, x, y);
+    };
+    // Först de vanliga namnen, som de alltid har stått
+    for (const { polity, period } of this.active) {
+      if (period.homeland) continue;
+      const name = t(polity.name);
+      const b = bbox(period);
+      const bw = X(b.maxLon) - X(b.minLon), bh = Y(b.minLat) - Y(b.maxLat);
+      let x = X(period.label[0]), y = Y(period.label[1]);
+      const w = ctx.measureText(name).width;
+      if (w > bw * 0.9 || bh < size * 2.5) {
+        const top = Y(b.maxLat);
+        y = top - size * 1.6;
+        lead(x, top - 2 * k, x, y + size * 0.6);
+      }
+      placed.push(box(x, y, w, size));
+      write(name, x, y);
+    }
+    // Sedan huvudländerna: en mässingsstjärna i moderlandet och rikets namn strax ovanför (i stället för mitt
+    // i den största kolonin). Ligger platsen på ett annat namn flyttas namnet upp eller ner, med ett streck till stjärnan.
+    for (const { polity, period } of this.active) {
+      if (!period.homeland) continue;
+      const name = t(polity.name), w = ctx.measureText(name).width;
+      const x = X(period.label[0]), y0 = Y(period.label[1]);
+      star(ctx, x, y0, 7 * k * this.labelScale);
+      const offsets = [-1.05, 1.15, -2.2, 2.3, -3.35, 3.45, -4.5, 4.6];
+      const dy = offsets.find(o => !placed.some(p => overlaps(p, box(x, y0 + o * size, w, size)))) ?? offsets[0];
+      const y = y0 + dy * size;
+      if (Math.abs(dy) > 1.2) lead(x, y0 + Math.sign(dy) * 8 * k * this.labelScale, x, y - Math.sign(dy) * size * 0.55);
+      placed.push(box(x, y, w, size));
+      write(name, x, y);
     }
     ctx.restore();
   }
 }
+
+const box = (x, y, w, h) => ({ x0: x - w / 2, x1: x + w / 2, y0: y - h * 0.55, y1: y + h * 0.55 });
+const overlaps = (a, b) => a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a.y1;
 
 const polygons = g => g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
 
