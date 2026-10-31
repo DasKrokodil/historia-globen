@@ -24,6 +24,8 @@ import { FocusMenu } from './ui/focusmenu.js';
 import { Help } from './ui/help.js';
 import { FlatMap } from './ui/flatmap.js';
 import { Feedback } from './ui/feedback.js';
+import { createState } from './state.js';
+import { LayerRegistry, Z } from './layers/registry.js';
 
 const $ = id => document.getElementById(id);
 
@@ -94,6 +96,63 @@ async function start() {
   const discovery = new DiscoveryLayer(data.discovery, data.land);
   let discoveryRaf = 0;
   discovery.onImage = () => { cancelAnimationFrame(discoveryRaf); discoveryRaf = requestAnimationFrame(() => refresh()); };
+  // Det gemensamma tillståndet och lagerregistret (#338)
+  const state = createState();
+  const registry = new LayerRegistry();
+  const noEvents = new Set();
+  registry.add({ id: 'events', name: 'Händelser', layer, z: Z.events,
+    update: s => layer.update({ year: s.year, window: s.window, filters: s.layers.events ? s.filters : noEvents, selectedId: s.selectedId,
+      highlight: s.highlight, focusId: s.focusWar?.id, span: s.span }),
+    drawOverlay: (c, w, h) => layer.drawOverlay(c, w, h) });
+  let areaYear = 0;
+  registry.add({ id: 'areas', name: 'Riken', layer: areas, z: Z.areas, fade: { own: f => f.type === 'empire' },
+    enabled: s => s.focus?.type === 'empire' || s.layers.areas,
+    update: s => {
+      [areas.labelScale, areas.labelAlpha] = [s.labels.scale, s.labels.alpha];
+      areas.showNames = s.labels.empireNames; empireMarks.scale = s.labels.scale;
+      ensureEmpires(s.wholeYear);
+      // Rikenas övergång (#78) är mjuk när tiden spelas upp eller flyttas lite, annars visas nya läget direkt
+      const out = areas.update({ year: s.wholeYear, smooth: s.playing || Math.abs(s.wholeYear - areaYear) <= MAX_JUMP_YEARS });
+      areaYear = s.wholeYear;
+      return out;
+    },
+    markers: s => empireMarks.update(areas.marks(), areas.enabled && !s.faded.has('areas')),
+    animating: () => areas.animating,
+    drawOverlay: (c, w, h) => areas.drawOverlay(c, w, h) });
+  registry.add({ id: 'religions', name: 'Religioner', layer: religions, z: Z.religions, fade: { own: f => f.type === 'religion' },
+    enabled: s => s.focus?.type === 'religion' || s.layers.religions,
+    apply: s => { $('religion-list').hidden = !s.layers.religions; },
+    update: s => {
+      religions.labelScale = origins.scale = s.labels.scale; religions.showNames = s.labels.religionNames;
+      return religions.update({ year: s.wholeYear });
+    },
+    legend: s => ({ items: s.faded.has('religions') ? [] : religions.legendItems() }),
+    markers: s => origins.update(religions.stars, religions.enabled && !s.faded.has('religions')),
+    drawOverlay: (c, w, h) => religions.drawOverlay(c, w, h) });
+  registry.add({ id: 'routes', name: 'Resor och handelsvägar', layer: routes, z: Z.routes,
+    enabled: s => s.layers.routes,
+    apply: s => { routes.shipStyle = s.on.discovery ? 'ship' : 'dot'; },
+    update: s => routes.update({ year: s.year, fine: s.fine, window: s.window, filters: s.filters }),
+    drawOverlay: (c, w, h) => routes.drawOverlay(c, w, h) });
+  // Upptäcktsvyns rad i teckenförklaringen (#101): perspektivet och krediten för kartbilderna, med länk till filsidorna
+  const discoveryNote = data.discovery && {
+    perspective: t(data.discovery.perspective), credit: t(data.discovery.credit),
+    sources: [...new Set((data.discovery.decorations ?? []).map(d => d.source))].map(id => data.srcById[id]).filter(Boolean),
+  };
+  registry.add({ id: 'discovery', name: 'Upptäcktsvy', layer: discovery,
+    enabled: s => s.layers.discovery && !!data.discovery,
+    update: s => discovery.update({ year: s.year, fine: s.fine, lines: routes }),
+    legend: () => ({ discovery: discovery.enabled ? discoveryNote : null }),
+    passes: [{ z: Z.paper, draw: (c, w, h) => discovery.drawPaper(c, w, h) }, { z: Z.discovery, draw: (c, w, h) => discovery.drawOverlay(c, w, h) }] });
+  registry.add({ id: 'borders', name: 'Dagens gränser', layer: borders, z: Z.borders,
+    enabled: s => s.layers.borders,
+    update: s => borders.update({ year: s.wholeYear }),
+    drawOverlay: (c, w, h) => borders.drawOverlay(c, w, h) });
+  registry.add({ id: 'wars', name: 'Krigsområden', layer: wars, z: Z.wars,
+    enabled: s => s.layers.events,
+    update: s => { wars.labelScale = s.labels.scale; return wars.update({ year: s.year, filters: s.filters, span: s.span, focusId: s.focusWar?.id }); },
+    legend: s => ({ war: wars.active.some(a => a.war === s.focusWar) }),
+    drawOverlay: (c, w, h) => wars.drawOverlay(c, w, h) });
   const panel = new Panel({
     root: $('panel'), list: $('event-list'), filters: $('filters'), detail: $('detail'),
     sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'), close: $('panel-close'),
@@ -128,15 +187,11 @@ async function start() {
 
   // Lagerväljaren: vilka lager som syns. Startläget står i index.html.
   const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu') });
+  Object.assign(state, { layers: layers.on, pause: layers.pause, calm: layers.calm });
   // Lugn rörelse (#246): också rikenas övergångar (#78) stängs av
-  globe.calm = areas.transition.calm = layers.calm; layers.onCalm = on => { globe.calm = areas.transition.calm = on; };
+  globe.calm = areas.transition.calm = layers.calm; layers.onCalm = on => { state.calm = globe.calm = areas.transition.calm = on; };
   // Teckenförklaring och klickruta för religionslagret (#166)
   const relLegend = new ReligionLegend({ legend: $('religion-legend'), pop: $('religion-pop') });
-  // Upptäcktsvyns rad i teckenförklaringen (#101): perspektivet och krediten för kartbilderna, med länk till filsidorna
-  const discoveryNote = data.discovery && {
-    perspective: t(data.discovery.perspective), credit: t(data.discovery.credit),
-    sources: [...new Set((data.discovery.decorations ?? []).map(d => d.source))].map(id => data.srcById[id]).filter(Boolean),
-  };
   // Klickrutan för vägar och resor (#38); "Läs mer" öppnar den kopplade händelsen
   const routePop = new RoutePop($('route-pop'), data);
   routePop.onEvent = id => select(id);
@@ -172,13 +227,7 @@ async function start() {
   document.addEventListener('focusout', e => { if (e.target.closest?.('[data-religion]')) setHighlight(pinnedReligion); });
   // I fokusläge syns det man följer även om lagret är avslaget i menyn
   const applyLayers = () => {
-    areas.enabled = focus?.type === 'empire' || layers.on.areas;
-    borders.enabled = layers.on.borders;
-    routes.enabled = !!layers.on.routes;
-    discovery.enabled = !!layers.on.discovery && !!data.discovery;
-    routes.shipStyle = discovery.enabled ? 'ship' : 'dot';
-    religions.enabled = focus?.type === 'religion' || layers.on.religions;
-    $('religion-list').hidden = !layers.on.religions;
+    registry.apply(state);
     ff.enabled = layers.on.funfacts;
   };
   applyLayers();
@@ -213,7 +262,6 @@ async function start() {
       religionsLoading = false;
     }
   }
-  const noEvents = new Set();
 
   // Faktarutan om en religion och punkten där den uppstod (#90). Uppgifterna står i
   // religionens facts i religions.json, och punkten är händelsen som facts.origin pekar på.
@@ -226,7 +274,7 @@ async function start() {
     const r = data.religionsDoc?.religions.find(x => x.id === id);
     if (!r?.facts) return false;
     const origin = data.byId[r.facts.origin];
-    selectedId = origin?.id ?? null;
+    state.selectedId = origin?.id ?? null;
     panel.showReligion(r, origin);
     // Menyerna stängs så att faktarutan och punkten syns
     layers.close(); focusMenu.close();
@@ -245,7 +293,7 @@ async function start() {
     const own = polity && g?.polityFacts?.[polity.id];
     const facts = own?.facts ?? g?.facts;
     if (!facts) return false;
-    selectedId = null;
+    state.selectedId = null;
     // Ramen följer rikets tidsålder och platsen globen riktas mot i fokus
     const place = focus?.type === 'empire' && focus.id === id ? { start: g.from, _lat: focus.center[0], _lon: focus.center[1] } : null;
     const from = own ? Math.min(...polity.periods.map(p => p.start)) : g.from;
@@ -294,7 +342,6 @@ async function start() {
     if (r) showReligionFacts(r.id);
   }
 
-  let selectedId = null;
   let visible = [];
 
   /** Mittpunkt för en GeoJSON-geometri (mitten av dess yttre gränser), som [lat, lon]. */
@@ -349,8 +396,8 @@ async function start() {
     // Året stannar om det ligger inom spannet; annars flyttas det till starten och flytten visas (#167)
     const prevYear = timeline.year, prevText = timeline.format(prevYear), keepYear = prevYear >= f.from && prevYear <= f.to;
     if (focus) endFocus(false);
-    focus = f;
-    focusWar = type === 'war' ? data.byId[id] : null;
+    focus = state.focus = f;
+    focusWar = state.focusWar = type === 'war' ? data.byId[id] : null;
     areas.onlyGroup = type === 'empire' ? id : null;
     religions.onlyId = type === 'religion' ? id : null;
     applyLayers();
@@ -369,7 +416,7 @@ async function start() {
     showMoved(keepYear ? null : { prevYear, prevText, startYear, short: f.short, type });
     refresh();
     // Före start: varför kriget började och vilka som stred (#122)
-    if (focusWar?.story) { selectedId = focusWar.id; panel.showStory(focusWar, 'intro'); $('app').classList.add('has-detail'); }
+    if (focusWar?.story) { state.selectedId = focusWar.id; panel.showStory(focusWar, 'intro'); $('app').classList.add('has-detail'); }
     // Religionens faktaruta visas först (#90), annars grundandet i faktarutan
     const first = type === 'religion' && founding(id)[0];
     if (type === 'religion' && !showReligionFacts(id, false) && first) select(first.id, false);
@@ -397,7 +444,7 @@ async function start() {
   /** Händelser där en religion grundades (founding: true), i tidsordning. */
   const founding = id => data.events.filter(e => e.founding && e.religion === id).sort((a, b) => a.start - b.start);
   function endFocus(redraw = true) {
-    focus = null; focusWar = null; warStops = []; shownStops = new Set(); endShown = false; finishing = false; showMoved(null);
+    focus = state.focus = null; focusWar = state.focusWar = null; warStops = []; shownStops = new Set(); endShown = false; finishing = false; showMoved(null);
     areas.onlyGroup = null; religions.onlyId = null;
     applyLayers();
     $('focus-bar').hidden = true;
@@ -490,7 +537,8 @@ async function start() {
     clearTimeout(nameTimer);
     nameTimer = setTimeout(() => {
       const [sc, al] = nameStyle();
-      if (areas.labelScale !== sc || areas.labelAlpha !== al || religions.showNames !== religionNames() || areas.showNames !== empireNames()) refresh();
+      const l = state.labels;
+      if (l.scale !== sc || l.alpha !== al || l.religionNames !== religionNames() || l.empireNames !== empireNames()) refresh();
     }, 150);
   };
   globe.onZoom = syncNameScale;
@@ -555,11 +603,11 @@ async function start() {
     stopping = true;
     if (stop === 'end') {
       endShown = true; finishing = false; // knappen blir "Spela igen" (#232)
-      timeline.pause(focusWar.ongoing ? 'Pausad: läget i dag' : 'Pausad: kriget är slut', true); selectedId = focusWar.id; panel.showStory(focusWar, 'summary');
+      timeline.pause(focusWar.ongoing ? 'Pausad: läget i dag' : 'Pausad: kriget är slut', true); state.selectedId = focusWar.id; panel.showStory(focusWar, 'summary');
     } else {
       // I smal skärm öppnas inte panelen, så att kartan syns; händelsen markeras på globen
       shownStops.add(stop.id);
-      timeline.pause('Pausad vid en stor händelse i kriget', true); selectedId = stop.id; panel.showDetail(stop, matchMedia('(min-width: 761px)').matches);
+      timeline.pause('Pausad vid en stor händelse i kriget', true); state.selectedId = stop.id; panel.showDetail(stop, matchMedia('(min-width: 761px)').matches);
       // Tiden står på händelsens år, i ett kort krig på dess dag (#204, #224), också när flera
       // stopp kom i samma steg eller tiden redan hade hunnit förbi händelsen.
       timeline.year = timeline.spanOf(stop)[0];
@@ -637,40 +685,24 @@ async function start() {
   $('wp-finish').addEventListener('click', playToEnd);
   $('pause-finish').addEventListener('click', playToEnd);
 
-  // I fokusläget dämpas påslagna lager som inte hör till det man följer (#235): riken och religioner när man
-  // följer ett krig, religioner för ett rike och riken för en religion. "Behåll mina lager" i Lager visar dem som vanligt.
-  const FADE = 0.35; // religionernas fyllning blir då cirka 18 procent, rikenas cirka 11
-  let faded = [];
-  const fadableLayers = () => !focus ? [] : [
-    { layer: areas, name: 'Riken', own: focus.type === 'empire' },
-    { layer: religions, name: 'Religioner', own: focus.type === 'religion' },
-  ].filter(f => f.layer.enabled && !f.own);
-
-  // Lagerbilden (beslut 1) ritas om vid varje refresh. Under en övergång för riken (#78) ritas bara
-  // lagerbilden om, en gång per bildruta, tills övergången är klar; annars ritas inget mellan refresh.
-  let areaYear = 0, overlayRaf = 0;
+  // Lagerbilden (beslut 1) ritas om vid varje refresh, med lagren i registrets ritordning (Z i layers/registry.js).
+  // I fokusläget dämpas påslagna lager som inte hör till det man följer (#235); "Behåll mina lager" visar dem som vanligt.
+  // Under en övergång för riken (#78) ritas bara lagerbilden om, en gång per bildruta, tills övergången är klar;
+  // annars ritas inget mellan refresh.
+  let overlayRaf = 0;
   function drawOverlay() {
     cancelAnimationFrame(overlayRaf); overlayRaf = 0;
     const ctx = globe.overlayContext();
-    const W = globe.overlayCanvas.width, H = globe.overlayCanvas.height;
-    // Ordning nedifrån och upp: upptäcktsvyns papperskarta, riken, religioner, dagens gränser, upptäcktsvyns dimma,
-    // portolanlinjer och havsmonster, vägar och resor, krigsområden, händelsernas sken
-    discovery.drawPaper(ctx, W, H);
-    for (const l of [areas, religions]) faded.includes(l) ? globe.drawFaded((c, w, h) => l.drawOverlay(c, w, h), FADE) : l.drawOverlay(ctx, W, H);
-    borders.drawOverlay(ctx, W, H);
-    discovery.drawOverlay(ctx, W, H);
-    routes.drawOverlay(ctx, W, H);
-    wars.drawOverlay(ctx, W, H);
-    layer.drawOverlay(ctx, W, H);
+    registry.draw(ctx, globe.overlayCanvas.width, globe.overlayCanvas.height, state, (draw, alpha) => globe.drawFaded(draw, alpha));
     globe.commitOverlay();
     flatMap.draw(); // Platt vy ritas om med samma bilder (gör inget när den är stängd)
-    if (areas.animating) overlayRaf = requestAnimationFrame(drawOverlay);
+    if (registry.animating()) overlayRaf = requestAnimationFrame(drawOverlay);
   }
 
   function refresh() {
-    [areas.labelScale, areas.labelAlpha] = nameStyle();
-    religions.labelScale = origins.scale = empireMarks.scale = areas.labelScale; religions.showNames = religionNames();
-    areas.showNames = empireNames();
+    // Namn och symboler på lagerbilden efter zoom och vy (#154, #271, #301)
+    const [scale, alpha] = nameStyle();
+    state.labels = { scale, alpha, religionNames: religionNames(), empireNames: empireNames() };
     // I fokusläget för korta krig är året ett decimaltal (#204). Händelser och krig får då sina
     // datum ur edtf (span), medan riken, religioner och fun facts får det hela året som förut.
     const year = timeline.year, wholeYear = Math.floor(year), fine = !!focus?.fine;
@@ -678,37 +710,26 @@ async function start() {
     // Spelade det när ritningen började? Ett nytt Samtidigt-kort kan pausa nedan, men krigets
     // stopp ska ändå visas, annars börjar Fortsätt om från krigets början (#224)
     const playing = timeline.playing;
-    ensureEmpires(wholeYear);
     const window = timeline.windowYears(year);
+    Object.assign(state, { year, wholeYear, fine, window, span, playing, filters: panel.filters });
     const within = fine ? `±${Math.round(window * 365.25)} dagar` : `±${Math.round(window)} år`;
     ff.story = focus?.type === 'empire' ? storyFor(focus.id) : [];
     ff.update(wholeYear, panel.filters);
+    state.highlight = ff.highlightIds();
     const eventsOn = layers.on.events;
-    visible = layer.update({ year, window, filters: eventsOn ? panel.filters : noEvents, selectedId, highlight: ff.highlightIds(), focusId: focusWar?.id, span });
+    // Alla lager väljer vad som syns (beslut 2), i registrets ordning
+    visible = registry.update(state).events;
     panel.render(visible, wholeYear, window, eventsOn, fine ? { at: `den ${timeline.format(year)}`, within } : null);
     // Samma markörer i Platt vy (#313): de som syns på klotet, de i listan får klustras och etikett
     flatMap.setMarkers({ list: layer.sprites.filter(sp => sp.userData.active).map(sp => sp.userData),
-      labeled: new Set(visible.map(v => v.e.id)), keep: ff.highlightIds(), selectedId });
-    // Rikenas övergång (#78) är mjuk när tiden spelas upp eller flyttas lite, annars visas nya läget direkt
-    areas.update({ year: wholeYear, smooth: playing || Math.abs(wholeYear - areaYear) <= MAX_JUMP_YEARS });
-    areaYear = wholeYear;
+      labeled: new Set(visible.map(v => v.e.id)), keep: ff.highlightIds(), selectedId: state.selectedId });
     panel.setCurveYear(wholeYear);
-    borders.update({ year: wholeYear });
-    religions.update({ year: wholeYear });
-    wars.enabled = eventsOn;
-    wars.update({ year, filters: panel.filters, span, focusId: focusWar?.id });
-    wars.labelScale = areas.labelScale;
-    routes.update({ year, fine, window, filters: panel.filters });
-    discovery.update({ year, fine, lines: routes });
     if (routePop.route && !routes.active.some(a => a.route === routePop.route)) routePop.hide(); // vägen syns inte längre
-    const fadable = fadableLayers();
-    faded = layers.on.keep ? [] : fadable.map(f => f.layer);
-    relLegend.update(faded.includes(religions) ? [] : religions.legendItems(),
-      { war: wars.active.some(a => a.war === focusWar), fadable: fadable.map(f => f.name), keep: !!layers.on.keep,
-        discovery: discovery.enabled ? discoveryNote : null });
-    if (!religions.enabled || faded.includes(religions)) relLegend.hidePop();
-    origins.update(religions.stars, religions.enabled && !faded.includes(religions));
-    empireMarks.update(areas.marks(), areas.enabled && !faded.includes(areas));
+    const legend = registry.legend(state);
+    relLegend.update(legend.items ?? [], { war: !!legend.war, fadable: registry.fadable(state).map(e => e.name), keep: !!layers.on.keep,
+      discovery: legend.discovery ?? null });
+    if (!religions.enabled || state.faded.has('religions')) relLegend.hidePop();
+    registry.markers(state);
     drawOverlay();
 
     // Korta krig: "22 jan" stort och året där tideräkningen annars står (#204)
@@ -736,7 +757,7 @@ async function start() {
     // I fokus på en religion stannar uppspelningen vid händelserna när den grundades (#123)
     if (focus?.type === 'religion' && timeline.playing) {
       const hit = founding(focus.id).find(e => e.start > lastYear && e.start <= year);
-      if (hit) { timeline.pause('Pausad vid religionens grundande'); selectedId = hit.id; panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }
+      if (hit) { timeline.pause('Pausad vid religionens grundande'); state.selectedId = hit.id; panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }
     }
     // I fokus på ett rike stannar uppspelningen vid rikets nyckelår, och kortet säger varför
     // riket växer eller krymper (#171). Valet finns i Lager.
@@ -748,7 +769,7 @@ async function start() {
     if (!focus && timeline.playing && layers.pause.wars && eventsOn) {
       const war = data.events.find(e => e.kind === 'war' && e.start > lastYear && e.start <= year
         && panel.filters.has(e.category) && isVisibleReview(e.review));
-      if (war) { timeline.pause('Pausad: ett krig bryter ut'); timeline.year = war.start; selectedId = war.id; panel.showDetail(war); }
+      if (war) { timeline.pause('Pausad: ett krig bryter ut'); timeline.year = war.start; state.selectedId = war.id; panel.showDetail(war); }
     }
     lastYear = year;
     $('app').classList.toggle('has-detail', !$('detail').hidden);
@@ -778,7 +799,7 @@ async function start() {
 
   const narrow = matchMedia('(max-width: 760px)');
   function select(id, jump = true) {
-    selectedId = id;
+    state.selectedId = id;
     const e = id ? data.byId[id] : null;
     panel.showDetail(e);
     // I smal skärm stängs listan när en händelse väljs, så att faktarutan syns
@@ -870,7 +891,7 @@ async function start() {
     // Händelsemarkörer har företräde, sedan vägar och resor (de ritas ovanpå områdena)
     if (!hit && routes.active.length && routeClick(globe.pickLatLon(x, y), x, y)) return;
     // Annars: vilken religion ligger under klicket? (#166)
-    if (!hit && religions.enabled && !faded.includes(religions) && religions.active.length) {
+    if (!hit && religions.enabled && !state.faded.has('religions') && religions.active.length) {
       const ll = globe.pickLatLon(x, y);
       const rh = ll && religions.hitTest(ll.lon, ll.lat);
       if (rh) showReligionPop(rh, ll, x, y);
@@ -951,7 +972,7 @@ async function start() {
     const religionTip = (x, y) => {
       cancelAnimationFrame(tipRaf);
       tipRaf = requestAnimationFrame(() => {
-        const on = religions.enabled && !faded.includes(religions) && religions.active.length && relLegend.pop.hidden;
+        const on = religions.enabled && !state.faded.has('religions') && religions.active.length && relLegend.pop.hidden;
         const ll = on && globe.pickLatLon(x, y);
         relLegend.showTip(tip, ll ? religions.hitTest(ll.lon, ll.lat) : null, x, y);
       });
@@ -968,13 +989,13 @@ async function start() {
     canvas.addEventListener('pointerdown', hideTip);
   }
   globe.onFrame(now => {
-    layer.frame(now, selectedId);
+    layer.frame(now, state.selectedId);
     const hl = ff.highlightIds();
     const order = [...visible].sort((a, b) =>
-      ((b.e.id === selectedId) - (a.e.id === selectedId)) || ((b.e.id === hoverId) - (a.e.id === hoverId)) ||
+      ((b.e.id === state.selectedId) - (a.e.id === state.selectedId)) || ((b.e.id === hoverId) - (a.e.id === hoverId)) ||
       (hl.has(b.e.id) - hl.has(a.e.id)) || (b.activity - a.activity));
     // Klustra händelser som ligger nära varandra på skärmen (#26)
-    const items = order.map(v => ({ e: v.e, p: globe.project(v.e._pos), keep: v.e.id === selectedId || hl.has(v.e.id) }));
+    const items = order.map(v => ({ e: v.e, p: globe.project(v.e._pos), keep: v.e.id === state.selectedId || hl.has(v.e.id) }));
     const { singles, clusters } = cluster(items.filter(it => it.p.facing > 0.05));
     const clustered = new Set(clusters.flatMap(c => c.members.map(m => m.e.id)));
     // Händelsen där en religion uppstod ligger under religionens symbol (#271): bara symbolen och etiketten syns
