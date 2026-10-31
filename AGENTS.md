@@ -18,8 +18,8 @@ Rikard äger projektet. Han är projektledare, inte utvecklare. Skriv på svensk
 
 ## Ta ett issue
 
-1. **Välj bara issues i den milstolpe som pågår** (lägst versionsnummer bland de öppna versionerna) eller ett issue som Rikard har pekat ut. Issues med etiketten `utanför-kod` eller `beslut-krävs` tas inte innan Rikard har beslutat.
-2. **Börja med issues utan historiska fakta** (kod, utseende, test, tillgänglighet). Issues med etiketten `data`, `faktafel` eller `källkontroll` och rikesarbete tar du bara om Rikard ber om det.
+1. **Ta bara issues med etiketten `codex: redo`**, eller ett issue som Rikard har pekat ut. Etiketten sätts av Claude Code (dirigenten) när issuet är tydligt avgränsat, saknar historiska fakta och inte krockar med pågående arbete. Ta dem i milstolpens ordning (lägst versionsnummer först).
+2. **Ta aldrig** issues med etiketten `utanför-kod` eller `beslut-krävs`, och inte heller `data`, `faktafel`, `källkontroll` eller rikesarbete om Rikard inte ber om det.
 3. **Hoppa över issues som någon annan har tagit:** etiketten `orkester: pågår` eller `codex: pågår`, eller en öppen pull request som skriver `Closes #N`.
 4. **Ta issuet:** skriv en kommentar ("Codex tar det här") och sätt etiketten `codex: pågår`. Ta bort etiketten när pull requesten är öppnad eller om du avbryter.
 5. **Bygg på grenen** `codex/issue-<N>-<kort-namn>`, utgå från senaste `main`.
