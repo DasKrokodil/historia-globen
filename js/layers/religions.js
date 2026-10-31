@@ -27,7 +27,7 @@ export function entry({ globe, labelsEl, refreshSoon, showReligionFacts }) {
   const origins = new OriginMarkers(globe, labelsEl);
   origins.onPick = id => showReligionFacts(id);
   return {
-    id: 'religions', name: 'Religioner', layer, z: Z.religions,
+    id: 'religions', name: 'Religioner', group: 'power', layer, z: Z.religions,
     menu: { on: false, note: 'rikenas officiella religion · streckad kant = osäker uppgift · prickad = ärvd, rikets faktaruta saknar religion',
       sub: { id: 'religion-list', label: 'Religioner' } },
     fade: { own: focus => focus.type === 'religion' },

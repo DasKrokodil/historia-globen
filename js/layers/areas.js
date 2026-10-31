@@ -50,7 +50,7 @@ export function entry({ globe, data, labelsEl, refresh, refreshSoon, showEmpireF
   };
   let lastYear = 0;
   return {
-    id: 'areas', name: 'Riken', menu: { on: true }, layer, z: Z.areas,
+    id: 'areas', name: 'Riken', group: 'power', menu: { on: true }, layer, z: Z.areas,
     fade: { own: focus => focus.type === 'empire' },
     enabled: s => s.focus?.type === 'empire' || s.layers.areas,
     apply: s => {

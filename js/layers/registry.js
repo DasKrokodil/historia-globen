@@ -6,6 +6,8 @@
 // Ett lager anmäler sig med ett objekt (en "post"). Bara id krävs; resten är valfritt:
 //   id          unikt namn, samma som data-layer i Lager och nyckeln i state.layers och state.on
 //   name        namnet på raden i Lager
+//   group       gruppen i Lager (#357), ett id ur groups i data/vyer.json: people, power, movement, perspective
+//               eller settings. Gruppernas namn och ordning och de förinställda vyerna står i data/vyer.json
 //   menu        { on, note, aria, sub: { id, label } }: raden i Lager, on = standardläget, note = förklaringen
 //               efter namnet, aria = egen aria-label, sub = en tom undermeny under raden (religionerna)
 //   layer       lagret självt (klassen i layers/), för det main.js gör med det utöver ritningen (klick, fokus)
@@ -55,9 +57,33 @@ export class LayerRegistry {
   /**
    * Bygger raderna i Lager, före det som redan står i menyn (kategorier, rörelse, pauser i index.html).
    * Görs innan LayerMenu skapas, som läser raderna och deras startläge.
+   * groups (#357): [{ id, name }] ur data/vyer.json, i menyns ordning. Varje grupp får en rubrik och raderna för
+   * lagren med samma group. Finns ett element med data-group="<id>" i menyn (Inställningar i index.html) läggs
+   * rubriken och raderna först i det; annars skapas gruppen före det som redan står i menyn. Lager utan känd
+   * grupp läggs utan rubrik, som förut.
    */
-  buildMenu(menu) {
+  buildMenu(menu, groups = []) {
     const first = menu.firstElementChild;
+    const places = new Map();
+    for (const g of groups) {
+      let box = menu.querySelector(`[data-group="${g.id}"]`);
+      const own = !box;
+      if (own) { box = document.createElement('div'); box.dataset.group = g.id; }
+      box.classList.add('layer-group');
+      box.setAttribute('role', 'group');
+      const head = document.createElement('div');
+      head.className = 'layer-heading'; head.id = `layer-group-${g.id}`; head.textContent = g.name;
+      box.setAttribute('aria-labelledby', head.id);
+      const at = box.firstChild;
+      box.insertBefore(head, at);
+      places.set(g.id, { box, at });
+      if (own) menu.insertBefore(box, first);
+    }
+    const put = (e, node) => {
+      const p = places.get(e.group);
+      if (p) p.box.insertBefore(node, p.at);
+      else menu.insertBefore(node, first);
+    };
     for (const e of this.entries) {
       if (!e.menu) continue;
       const label = document.createElement('label');
@@ -74,17 +100,21 @@ export class LayerRegistry {
         note.textContent = e.menu.note;
         label.append(note);
       }
-      menu.insertBefore(label, first);
-      menu.insertBefore(document.createTextNode('\n    '), first);
+      put(e, label);
       if (e.menu.sub) {
         const sub = document.createElement('div');
         sub.id = e.menu.sub.id; sub.className = 'layer-sub';
         sub.setAttribute('role', 'group'); sub.setAttribute('aria-label', e.menu.sub.label);
         sub.hidden = true;
-        menu.insertBefore(sub, first);
-        menu.insertBefore(document.createTextNode('\n    '), first);
+        put(e, sub);
       }
     }
+  }
+
+  /** Lagren som de förinställda vyerna styr (#357): rader i Lager vars grupp inte är en inställning. */
+  viewLayers(groups = []) {
+    const settings = new Set(groups.filter(g => g.settings).map(g => g.id));
+    return this.entries.filter(e => e.menu && !settings.has(e.group)).map(e => e.id);
   }
 
   /** Valen har ändrats: vilka lager som syns, och det som hör till valen (fokus, Lugn rörelse). */
