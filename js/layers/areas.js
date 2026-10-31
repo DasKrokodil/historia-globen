@@ -8,6 +8,7 @@ import { t, isVisibleReview } from '../model.js';
 import { glyph } from './events.js';
 import { drawMedal, ORIGIN_R } from './religions.js';
 import { softEdge, influenceAt, drawInfluence } from './area-style.js';
+import { AreaTransition } from './area-transition.js';
 
 export class AreasLayer {
   constructor(polities = []) {
@@ -19,7 +20,11 @@ export class AreasLayer {
     this.symbolOf = () => null; // rikets symbol: (polity) → { symbol, color, name, group } eller null (sätts i main.js)
     this.showNames = true; // namnen under symbolerna (false utzoomat på globen, #301)
     this.onGlyph = () => {}; // anropas när en symbol har laddats, så att lagerbilden ritas om
+    this.transition = new AreaTransition(); // mjuk övergång när ett område byter period (#78)
   }
+
+  /** Pågår en övergång? Då behöver lagerbilden ritas om varje bildruta tills den är klar. */
+  get animating() { return this.transition.running; }
 
   /** Symbolens bild (img/icons/<symbol>.svg) när den har laddats, annars null. */
   _glyph(name) {
@@ -54,11 +59,12 @@ export class AreasLayer {
   }
 
   /** Returnerar de riken som finns just det här året. */
-  update({ year }) {
+  update({ year, smooth = false }) {
+    const prev = this.active;
     this.active = [];
     this.activePoints = [];
     this.influence = [];
-    if (!this.enabled) return this.active;
+    if (!this.enabled) { this.transition.track(prev, this.active, year, false); return this.active; }
     this.activePoints = (this.points ?? []).filter(g => (!this.onlyGroup || g.id === this.onlyGroup)
       && isVisibleReview(g.vanished.review) && year >= g.vanished.founded && year <= g.vanished.dissolved);
     for (const polity of this.polities) {
@@ -68,6 +74,7 @@ export class AreasLayer {
       if (period) this.active.push({ polity, period });
     }
     this.influence = influenceAt(this.active, year); // lydriken och vasaller (#75)
+    this.transition.track(prev, this.active, year, smooth);
     return this.active;
   }
 
@@ -76,7 +83,9 @@ export class AreasLayer {
     const k = W / 2048; // linjer och text ritas lika stora oavsett bildens upplösning
     ctx.save();
     ctx.lineJoin = 'round';
-    for (const { polity, period } of this.active) {
+    // Under en övergång (#78) ritas gamla och nya läget, var och en med sin alpha; annars är alpha 1
+    const items = this.transition.items(this.active);
+    for (const { polity, period, alpha } of items) {
       ctx.beginPath();
       for (const rings of polygons(period.geometry)) {
         for (const ring of rings) {
@@ -84,10 +93,12 @@ export class AreasLayer {
           ctx.closePath();
         }
       }
-      if (polity.uncertainBorder) { softEdge(ctx, polity.color, k); continue; } // osäker gräns: mjuk kant (#73)
-      ctx.fillStyle = hexA(polity.color, 0.32);
+      if (polity.uncertainBorder) { // osäker gräns: mjuk kant (#73)
+        ctx.globalAlpha = alpha; softEdge(ctx, polity.color, k); ctx.globalAlpha = 1; continue;
+      }
+      ctx.fillStyle = hexA(polity.color, 0.32 * alpha);
       ctx.fill('evenodd');
-      ctx.strokeStyle = hexA(polity.color, 0.95);
+      ctx.strokeStyle = hexA(polity.color, 0.95 * alpha);
       ctx.lineWidth = 1.6 * k;
       ctx.stroke();
     }
@@ -95,8 +106,9 @@ export class AreasLayer {
     drawInfluence(ctx, this.influence ?? [], X, Y, k);
     // Huvudlandet i ett utspritt välde (#74): samma färg men tätare fyllning och en kraftig kant
     // med mörk kontur, så att moderlandet syns bland kolonierna. Vilken del det är står i datan (period.homeland).
-    for (const { polity, period } of this.active) {
+    for (const { polity, period, alpha } of items) {
       if (!period.homeland) continue;
+      ctx.globalAlpha = alpha;
       ctx.beginPath();
       for (const rings of polygons(period.homeland)) {
         for (const ring of rings) {
@@ -113,6 +125,7 @@ export class AreasLayer {
       ctx.lineWidth = 2.6 * k;
       ctx.stroke();
     }
+    ctx.globalAlpha = 1;
     // Namnen sist, så att de hamnar ovanpå alla områden. Ryms namnet inte i
     // området skrivs det ovanför, med ett streck ner, så att området syns.
     const size = 16 * k * this.labelScale;
@@ -135,21 +148,22 @@ export class AreasLayer {
       ctx.fillText(name, x, y);
     };
     // Rike med symbol (#301): medaljen på label-punkten, och namnet under den bara när namnen visas
-    const medal = (polity, period, sym) => {
+    const medal = (polity, period, sym, alpha) => {
       const x = X(period.label[0]), y = Y(period.label[1]);
-      ctx.globalAlpha = 1;
+      ctx.globalAlpha = alpha;
       drawMedal(ctx, x, y, R, polity.color, this._glyph(sym.symbol));
-      ctx.globalAlpha = this.labelAlpha;
+      ctx.globalAlpha = this.labelAlpha * alpha;
       if (!this.showNames) return;
       const name = t(polity.name), ny = y + R * 1.25 + size * 0.6;
       placed.push(box(x, ny, ctx.measureText(name).width, size));
       write(name, x, ny);
     };
     // Först de vanliga namnen, som de alltid har stått
-    for (const { polity, period } of this.active) {
+    for (const { polity, period, alpha } of items) {
       if (period.homeland) continue;
+      ctx.globalAlpha = this.labelAlpha * alpha;
       const sym = this.symbolOf(polity);
-      if (sym) { medal(polity, period, sym); continue; }
+      if (sym) { medal(polity, period, sym, alpha); continue; }
       const name = t(polity.name);
       const b = bbox(period);
       const bw = X(b.maxLon) - X(b.minLon), bh = Y(b.minLat) - Y(b.maxLat);
@@ -165,10 +179,11 @@ export class AreasLayer {
     }
     // Sedan huvudländerna: en mässingsstjärna i moderlandet och rikets namn strax ovanför (i stället för mitt
     // i den största kolonin). Ligger platsen på ett annat namn flyttas namnet upp eller ner, med ett streck till stjärnan.
-    for (const { polity, period } of this.active) {
+    for (const { polity, period, alpha } of items) {
       if (!period.homeland) continue;
+      ctx.globalAlpha = this.labelAlpha * alpha;
       const sym = this.symbolOf(polity); // med symbol står medaljen i moderlandet i stället för stjärnan
-      if (sym) { medal(polity, period, sym); continue; }
+      if (sym) { medal(polity, period, sym, alpha); continue; }
       const name = t(polity.name), w = ctx.measureText(name).width;
       const x = X(period.label[0]), y0 = Y(period.label[1]);
       star(ctx, x, y0, 7 * k * this.labelScale);
@@ -179,6 +194,7 @@ export class AreasLayer {
       placed.push(box(x, y, w, size));
       write(name, x, y);
     }
+    ctx.globalAlpha = this.labelAlpha;
     // Försvunna länder utan gräns (#72): en ring med prick i landets färg och namnet till höger. Området är för
     // litet för kartan (Neutrala Moresnet var 3,5 km²), så punkten visar bara var det låg.
     for (const g of this.activePoints ?? []) {

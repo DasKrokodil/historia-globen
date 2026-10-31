@@ -8,6 +8,7 @@
   "data/routes/sidenvagen.json",
   "data/routes/vikingar.json",
   "data/routes/kryddvagarna.json",
-  "data/routes/cook.json"
+  "data/routes/cook.json",
+  "data/routes/slavhandeln.json"
  ]
 }

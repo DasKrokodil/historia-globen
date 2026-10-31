@@ -50,7 +50,7 @@ Molnmiljöns nätverk släpper bara fram vissa sajter. Läget 2026-10-29 (#143):
 - **Svarar men stoppar oss:** www.loc.gov:s vanliga sidor (robotkontroll, 403), Britannica och Smithsonian (403), Met Museum (429). Wikisources API och sökning kan svara 429 om man frågar för ofta; vänta då en stund.
 - **World Historical Gazetteer:** whgazetteer.org svarar. Platslistan (`/mapdata/datasets/<id>/`) och enskilda platser (`/api/db/?id=<plats>`) går att läsa utan inloggning; den fullständiga nedladdningen kräver inloggning (#24).
 - **Går att nå sedan 2026-10-30:** ucdp.uu.se (nedladdningar) och digitallibrary.un.org (#223). FN:s digitala bibliotek visar en robotkontroll på vanliga sidor, men sökningen går att läsa som MARCXML (`https://digitallibrary.un.org/search?p=<dokumentnummer>&of=xm`) och PDF:erna via länken `nanna/record/…` som filsidan skickar vidare till.
-- **Spärrade:** bland annat www.un.org, press.un.org, news.un.org och www.ohchr.org (#223), acleddata.com, dataverse.harvard.edu (#24), mathshistory.st-andrews.ac.uk, cudl.lib.cam.ac.uk, english-heritage.org.uk, riksarkivet.se, kungahuset.se, regeringen.se, runeberg.org, gutenberg.org, journals.plos.org, ebi.ac.uk (Europe PMC) och patents.google.com.
+- **Spärrade:** bland annat www.un.org, press.un.org, news.un.org och www.ohchr.org (#223), acleddata.com, dataverse.harvard.edu (#24), mathshistory.st-andrews.ac.uk, cudl.lib.cam.ac.uk, english-heritage.org.uk, riksarkivet.se, kungahuset.se, regeringen.se, runeberg.org, gutenberg.org, journals.plos.org, ebi.ac.uk (Europe PMC), patents.google.com, www.nma.gov.au (National Museum of Australia) och wwwnc.cdc.gov (tidskriften Emerging Infectious Diseases, som i stället går att läsa via PMC) (#330).
 
 ## Utkast från massimport
 
@@ -98,6 +98,14 @@ Licenskontroller som redan är gjorda står i respektive issue, till exempel GPl
 | CLIWOC (Climatological Database for the World's Oceans 1750–1850) | Positioner och väder ur skeppsloggar | Officiella sidor (KNMI) visar inga villkor, och NOAA:s ICOADS, där CLIWOC-datan ingår, går inte att nå från molnmiljön. På Zenodo finns bara härledd data med CC BY-SA 4.0, som inte är tillåtet för data här (bara för bildfiler). | **Nej, inte nu:** villkoren är oklara, och den tillgängliga kopian är CC BY-SA. |
 
 Vägarna och resorna i version 4 bygger i stället på uppslagsverk och artiklar med källa per etapp (`data/routes/`, #38). För att pröva OWTRAD och CLIWOC igen behöver molnmiljön släppa på `www.ciolek.com`, `icoads.noaa.gov` och `www.ncei.noaa.gov`.
+
+### Slave Voyages (#330, kontrollerat 2026-10-31)
+
+| Källa | Vad | Resultat | Får användas? |
+|---|---|---|---|
+| Slave Voyages (slavevoyages.org), Trans-Atlantic Slave Trade Database | Resor, hamnar och antal förslavade i den transatlantiska slavhandeln | Webbplatsen går inte att nå från molnmiljön (både `www.slavevoyages.org` och `slavevoyages.org` stoppas), så villkoren kunde inte läsas. | **Nej, inte nu:** villkoren är okända. Används inte förrän en öppen licens (CC0, CC BY, public domain) har setts på källsidan. Siffror som Wikipedia citerar ur databasen används bara med Wikipedia som källa, och det står i texten. |
+
+Slavhandelns vägar i `data/routes/slavhandeln.json` bygger därför på Wikipedia, med typiska vägar i stället för enskilda resor. För att pröva databasen behöver molnmiljön släppa på `www.slavevoyages.org`.
 
 ## Så kontrollerar du en uppgift
 
