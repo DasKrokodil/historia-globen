@@ -3182,6 +3182,67 @@
       "title": { "sv": "Guru Nanak grundar sikhismen" },
       "summary": { "sv": "Sikhismen växer fram i Punjab runt slutet av 1400-talet, ur Guru Nanaks lära. Han lever 1469–1539 och är den förste av sikhismens guruer." },
       "image": {"file": "images/events/guru-nanak.webp", "kind": "historisk", "style": "miniatyr", "caption": {"sv": "Guru Nanak i en väggmålning i Gurdwara Baba Atal, 1800-talet, målad av bland andra Jaimal Singh Naqqash. Fotografi av Amritpal Singh Mann. Licens: CC BY-SA 4.0."}, "credit": "Jaimal Singh Naqqash m.fl. (målning), Amritpal Singh Mann (foto) / Wikimedia Commons", "license": "CC BY-SA 4.0", "source": "commons-bild-guru-nanak"},
-      "wikidata": "Q83322", "sources": ["wp-guru-nanak", "wp-sikhism", "wp-nankana-sahib", "wikidata"], "review": "two-sources" }
+      "wikidata": "Q83322", "sources": ["wp-guru-nanak", "wp-sikhism", "wp-nankana-sahib", "wikidata"], "review": "two-sources" },
+
+    { "id": "goa-1510", "category": "krig", "icon": "swords", "start": 1510, "end": 1510, "precision": 11, "edtf": "1510-11-25",
+      "location": { "type": "Point", "coordinates": [73.9117, 15.5024] }, "place": { "sv": "Gamla Goa, Indien" },
+      "title": { "sv": "Portugal erövrar Goa" },
+      "summary": { "sv": "Den portugisiske guvernören Afonso de Albuquerque tar staden Goa från sultanatet Bijapur, med stöd av Timoji och hans trupper. Han tog staden en första gång i februari 1510 men drevs ut av sultanen Ismail Adil Shah i maj; den 25 november stormas staden igen. Soldaterna får plundra den i fyra dagar, och de muslimer som inte har flytt dödas på guvernörens order. Goa blir huvudstad i Portugisiska Indien och förblir portugisiskt i över 450 år, tills Indien tar området i december 1961." },
+      "wikidata": "Q2357384", "sources": ["wp-portuguese-conquest-goa", "wp-goa", "wikidata"], "review": "two-sources" },
+
+    { "id": "batavia-1619", "category": "civilisationer", "icon": "ship", "start": 1619, "end": 1619, "precision": 11, "edtf": "1619-05-30",
+      "location": { "type": "Point", "coordinates": [106.8132, -6.1348] }, "place": { "sv": "Jayakarta, i dag Jakarta, Indonesien" },
+      "title": { "sv": "Nederländarna grundar Batavia på Jayakartas ruiner" },
+      "summary": { "sv": "Det nederländska Ostindiska kompaniets guvernör Jan Pieterszoon Coen kommer tillbaka med förstärkningar den 28 maj 1619 och låter två dagar senare jämna staden Jayakarta med marken och driva bort invånarna. På ruinerna byggs ett fort och en stad som får namnet Batavia 1621. Den blir centrum för kompaniets handel i Asien och sedan huvudstad i Nederländska Ostindien. Batavia förblir en europeisk kolonistad i omkring 320 år, tills Japan ockuperar den 1942. I det självständiga Indonesien heter staden Jakarta." },
+      "wikidata": "Q133521490", "sources": ["wp-batavia", "wikidata"], "review": "two-sources" },
+
+    { "id": "kapkolonin-1652", "category": "civilisationer", "icon": "ship", "start": 1652, "end": 1652, "precision": 11, "edtf": "1652-04-06",
+      "location": { "type": "Point", "coordinates": [18.4167, -33.9167] }, "place": { "sv": "Kapstaden, Sydafrika" },
+      "title": { "sv": "Nederländarna grundar Kapkolonin" },
+      "summary": { "sv": "En expedition från Ostindiska kompaniet under Jan van Riebeeck grundar 1652 en station vid Godahoppsudden, där kompaniets fartyg på väg mellan Nederländerna och Batavia kan få nya förråd. Den blir Kapstaden och början på Kapkolonin. Marken vid foten av Taffelberget var khoikhoifolkets betesmark, och när nybyggarna tog den började det första av krigen mellan khoikhoi och nederländarna. Krig och smittkoppor, bland annat 1713 och 1755, bröt sedan ner khoikhoisamhällena, och de drevs bort bortom kolonins gränser." },
+      "wikidata": "Q4807130", "sources": ["wp-dutch-cape-colony", "wikidata"], "review": "two-sources" },
+
+    { "id": "jamestown-1607", "category": "civilisationer", "icon": "ship", "start": 1607, "end": 1607, "precision": 11, "edtf": "1607-05-14",
+      "location": { "type": "Point", "coordinates": [-76.7775, 37.2092] }, "place": { "sv": "Jamestown, Virginia, USA" },
+      "title": { "sv": "Engelsmännen grundar Jamestown" },
+      "summary": { "sv": "Virginiakompaniet i London grundar James Fort vid James River den 14 maj 1607 (4 maj enligt den gamla kalendern). Det blir den första bestående engelska bosättningen i Amerika. Ön de valde användes av paspaheghfolket, och bara 60 av de 214 första bosättarna överlevde svältvintern 1609–1610. Relationerna med powhatanfolket blev snart krig. I augusti 1619 kom de första dokumenterade förslavade afrikanerna till kolonin, och 1622 slog urfolket tillbaka i ett uppror som ödelade bosättningarna runt Jamestown." },
+      "wikidata": "Q323813", "sources": ["wp-jamestown", "wikidata"], "review": "two-sources" },
+
+    { "id": "slavhandeln-forbjuds-1807", "category": "ekonomi", "icon": "treaty", "start": 1807, "end": 1807, "precision": 11, "edtf": "1807-03-25",
+      "location": { "type": "Point", "coordinates": [-0.1242, 51.4994] }, "place": { "sv": "Brittiska parlamentet, London" },
+      "title": { "sv": "Storbritannien förbjuder slavhandeln" },
+      "summary": { "sv": "Det brittiska parlamentet antar en lag som förbjuder slavhandeln över Atlanten i hela det brittiska imperiet, efter 18 års försök. Lagen får kungligt samtycke den 25 mars 1807 och börjar gälla den 1 maj. Den befriar inte dem som redan är förslavade; slaveriet förblir lagligt i större delen av imperiet till 1833. Brittiska fartyg hade dittills fört omkring en tredjedel av alla förslavade över Atlanten, ungefär 3,5 miljoner människor. Bakom förbudet låg både kampanjer i Storbritannien och de förslavades eget motstånd: uppror ombord och i Amerika drev på debatten. Handeln fortsatte olagligt, och över en fjärdedel av alla som fördes över Atlanten skeppades efter 1807." },
+      "wikidata": "Q770832", "sources": ["wp-slave-trade-act-1807", "wp-atlantic-slave-trade"], "review": "source-checked" },
+
+    { "id": "lei-aurea-1888", "category": "civilisationer", "icon": "treaty", "start": 1888, "end": 1888, "precision": 11, "edtf": "1888-05-13",
+      "location": { "type": "Point", "coordinates": [-43.2056, -22.9111] }, "locationPrecision": "country", "place": { "sv": "Brasilien (huvudstaden Rio de Janeiro)" },
+      "title": { "sv": "Brasilien avskaffar slaveriet" },
+      "summary": { "sv": "Den 13 maj 1888 skriver prinsessan Isabel, som styr i stället för sin far kejsar Pedro II, under Lei Áurea, den gyllene lagen. Den avskaffar slaveriet i Brasilien, som blir det sista landet i Amerika att göra det. Brasilien tog emot fler förslavade afrikaner än något annat land. De förslavade gjorde motstånd under hela tiden, bland annat genom att fly och bilda egna samhällen, quilombos, som Palmares." },
+      "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Hur många som fördes till Brasilien är osäkert. Wikipedia om slaveriet i Brasilien skriver omkring 5,5 miljoner mellan 1540 och 1860-talet, medan artikeln om Lei Áurea räknar med 40 procent av 10 miljoner, alltså omkring 4 miljoner." } },
+      "wikidata": "Q1519167", "sources": ["wp-lei-aurea", "wp-slavery-in-brazil"], "review": "source-checked" },
+
+    { "id": "indiens-sjalvstandighet", "category": "civilisationer", "icon": "scroll", "start": 1947, "end": 1947, "precision": 11, "edtf": "1947-08-15",
+      "location": { "type": "Point", "coordinates": [77.2089, 28.6139] }, "place": { "sv": "New Delhi, Indien" },
+      "title": { "sv": "Indien blir självständigt" },
+      "summary": { "sv": "Vid midnatt mellan den 14 och 15 augusti 1947 upphör det brittiska styret i Indien. En lag i det brittiska parlamentet delar Brittiska Indien i två självständiga stater, Indien och Pakistan, som då också omfattar dagens Bangladesh. Självständigheten var målet för en lång frihetsrörelse, känd för icke-våldsligt motstånd och civil olydnad under Mahatma Gandhis ledning. I New Delhi håller Jawaharlal Nehru sitt tal om mötet med ödet och blir Indiens förste premiärminister. Delningen följs av massvåld: mellan 12 och 20 miljoner människor drivs på flykt, och uppskattningarna av antalet döda går från 200 000 till 2 miljoner." },
+      "sources": ["wp-independence-day-india", "wp-indian-independence-act", "wp-partition-of-india"], "review": "source-checked" },
+
+    { "id": "indonesiens-sjalvstandighet", "category": "civilisationer", "icon": "scroll", "start": 1945, "end": 1945, "precision": 11, "edtf": "1945-08-17",
+      "location": { "type": "Point", "coordinates": [106.8269, -6.1753] }, "place": { "sv": "Sukarnos hus på Jalan Pegangsaan Timur 56, Jakarta, Indonesien" },
+      "title": { "sv": "Indonesien utropar sin självständighet" },
+      "summary": { "sv": "Den 17 augusti 1945 läser Sukarno upp Indonesiens självständighetsförklaring vid sitt hus i Jakarta. Den är undertecknad av honom och Mohammad Hatta, som dagen efter blir president och vicepresident. Nederländerna vill ta tillbaka sin koloni, och fyra års väpnat och diplomatiskt motstånd följer, den indonesiska nationella revolutionen. Omkring 100 000 indonesier dödas, enligt den högsta uppskattningen 250 000. Efter rundabordskonferensen i Haag lämnar Nederländerna över makten den 27 december 1949. Först 2023 erkände Nederländerna den 17 augusti 1945 som Indonesiens självständighetsdag." },
+      "wikidata": "Q1661772", "sources": ["wp-proclamation-indonesia", "wp-indonesian-revolution", "wp-round-table-conference-1949", "wikidata"], "review": "two-sources" },
+
+    { "id": "ghanas-sjalvstandighet", "category": "civilisationer", "icon": "scroll", "start": 1957, "end": 1957, "precision": 11, "edtf": "1957-03-06",
+      "location": { "type": "Point", "coordinates": [-0.1969, 5.556] }, "place": { "sv": "Accra, Ghana" },
+      "title": { "sv": "Ghana blir självständigt" },
+      "summary": { "sv": "Den 6 mars 1957 blir den brittiska kolonin Guldkusten självständig under namnet Ghana, med Kwame Nkrumah som premiärminister. Han säger till folket att afrikanerna kan sköta sina egna angelägenheter och att Ghana är fritt för alltid. Vägen dit gick genom en nationalistisk rörelse efter andra världskriget: oroligheterna i Accra 1948, Nkrumahs parti CPP från 1949 och kampanjen positive action med strejker och icke-våldsligt motstånd, som gav honom fängelse men också folkets stöd. Ghana är ett av de första länderna söder om Sahara som blir fria från europeiskt kolonialstyre." },
+      "sources": ["wp-gold-coast-colony", "wp-independence-day-ghana"], "review": "source-checked" },
+
+    { "id": "afrikas-ar-1960", "category": "civilisationer", "icon": "scroll", "start": 1960, "end": 1960, "precision": 9, "edtf": "1960",
+      "location": { "type": "Point", "coordinates": [11.5181, 3.8578] }, "locationPrecision": "region", "place": { "sv": "Afrika (först ut Kamerun, med huvudstaden Yaoundé, den 1 januari)" },
+      "title": { "sv": "Afrikas år: 17 kolonier blir självständiga" },
+      "summary": { "sv": "Under 1960 blir 17 afrikanska kolonier självständiga: 14 från Frankrike, två från Storbritannien och en från Belgien. Antalet självständiga länder i Afrika ökar från nio till 26. Först ut är Kamerun den 1 januari, och sedan följer bland andra Togo, Madagaskar, Somalia, båda Kongo och Nigeria den 1 oktober. Det är höjdpunkten för de afrikanska självständighetsrörelserna. Samma år börjar den väpnade kampen mot apartheid i Sydafrika, och i Kongo störtas premiärministern Patrice Lumumba, som sedan torteras och avrättas. I december antar FN:s generalförsamling en förklaring om att alla folk har rätt till självbestämmande." },
+      "wikidata": "Q387647", "sources": ["wp-year-of-africa"], "review": "source-checked" }
   ]
 }

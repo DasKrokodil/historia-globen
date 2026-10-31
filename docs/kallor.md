@@ -99,6 +99,14 @@ Licenskontroller som redan är gjorda står i respektive issue, till exempel GPl
 
 Vägarna och resorna i version 4 bygger i stället på uppslagsverk och artiklar med källa per etapp (`data/routes/`, #38). För att pröva OWTRAD och CLIWOC igen behöver molnmiljön släppa på `www.ciolek.com`, `icoads.noaa.gov` och `www.ncei.noaa.gov`.
 
+### Slave Voyages (#330, kontrollerat 2026-10-31)
+
+| Källa | Vad | Resultat | Får användas? |
+|---|---|---|---|
+| Slave Voyages (slavevoyages.org), Trans-Atlantic Slave Trade Database | Resor, hamnar och antal förslavade i den transatlantiska slavhandeln | Webbplatsen går inte att nå från molnmiljön (både `www.slavevoyages.org` och `slavevoyages.org` stoppas), så villkoren kunde inte läsas. | **Nej, inte nu:** villkoren är okända. Används inte förrän en öppen licens (CC0, CC BY, public domain) har setts på källsidan. Siffror som Wikipedia citerar ur databasen används bara med Wikipedia som källa, och det står i texten. |
+
+Slavhandelns vägar i `data/routes/slavhandeln.json` bygger därför på Wikipedia, med typiska vägar i stället för enskilda resor. För att pröva databasen behöver molnmiljön släppa på `www.slavevoyages.org`.
+
 ## Så kontrollerar du en uppgift
 
 1. Öppna källsidan. Läs det som faktiskt står, inte det du minns.
