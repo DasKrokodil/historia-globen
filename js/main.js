@@ -588,8 +588,8 @@ async function start() {
     const running = timeline.playing;
     // Efter en automatisk paus ska eleven fortsätta där berättelsen stannade. "Spela klart"
     // erbjuds först när ett krigsstopp redan har visats, så starten alltid heter "Spela".
-    const finish = !running && !timeline._resume && focusWar && shownStops.size > 0 && next && next !== 'end' && !finishing;
-    const label = running ? 'Pausa' : timeline._resume ? 'Fortsätt' : finish ? 'Spela klart' : 'Spela';
+    const finish = !running && !timeline.resumable && !timeline.atEnd && focusWar && shownStops.size > 0 && next && next !== 'end' && !finishing;
+    const label = running ? 'Pausa' : timeline.resumable ? 'Fortsätt' : timeline.atEnd ? 'Spela igen' : finish ? 'Spela klart' : 'Spela';
     action.dataset.action = running ? 'pause' : finish ? 'finish' : 'play';
     action.textContent = `${running ? 'Ⅱ' : '▶'} ${label}`;
     action.setAttribute('aria-label', `${label} tiden i fokusläget`);
