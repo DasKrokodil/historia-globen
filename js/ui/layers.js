@@ -1,7 +1,38 @@
-// Lagerväljaren: en meny där man slår av och på lager (händelser, fun facts,
-// riken, religioner, dagens gränser). Vilka lager som finns och startläget står i index.html.
+// Lagerväljaren: en meny där man slår av och på lager (händelser, fun facts, riken, religioner, dagens gränser m.m.).
+// Raderna, deras grupper och startläget kommer från lagerregistret (layers/registry.js, #338, #357).
+// Överst står de förinställda vyerna ur data/vyer.json (#357): en vy slår på sina lager och av de andra.
+import { t } from '../model.js';
+
+async function getJSON(path) {
+  const res = await fetch(path);
+  if (!res.ok) throw new Error(`Kunde inte läsa ${path} (${res.status})`);
+  return res.json();
+}
+
+/**
+ * Grupperna och vyerna i Lager (data/vyer.json, #357), med namnen på sidans språk. Saknas filen blir det
+ * null, och Lager visas som en lista utan grupper och vyer.
+ */
+export async function loadViews() {
+  try {
+    const doc = await getJSON('data/vyer.json');
+    return {
+      title: t(doc.title), custom: t(doc.custom),
+      groups: doc.groups.map(g => ({ ...g, name: t(g.name) })),
+      views: doc.views.map(v => ({ ...v, name: t(v.name) })),
+    };
+  } catch (err) {
+    console.warn('Lagrens grupper och vyer kunde inte laddas', err);
+    return null;
+  }
+}
+
 export class LayerMenu {
-  constructor({ button, menu }) {
+  /**
+   * views (valfritt, #357): { title, custom, views: [{ id, name, layers }], controlled: [lager-id] }.
+   * controlled är lagren som vyerna styr; de andra raderna (till exempel "Behåll mina lager") rörs inte.
+   */
+  constructor({ button, menu, views = null }) {
     Object.assign(this, { button, menu });
     this.onChange = () => {};
     this.on = {};
@@ -9,9 +40,11 @@ export class LayerMenu {
       this.on[input.dataset.layer] = input.checked;
       input.addEventListener('change', () => {
         this.on[input.dataset.layer] = input.checked;
+        this.syncView();
         this.onChange(input.dataset.layer, input.checked);
       });
     }
+    this.buildViews(views);
     // Vad uppspelningen ska pausa vid (#114). Valen sparas till nästa besök.
     this.pause = {};
     let saved = {};
@@ -52,6 +85,74 @@ export class LayerMenu {
     const input = this.menu.querySelector(`input[data-layer="${name}"]`);
     if (input) input.checked = on;
     this.on[name] = on;
+    this.syncView();
+  }
+
+  /**
+   * De förinställda vyerna överst i menyn (#357): en knapp per vy, och märket "Anpassad" när valen inte
+   * stämmer med någon vy. Knapparna nås med Tab och väljs med Enter eller mellanslag.
+   */
+  buildViews(views) {
+    this.views = views?.views?.length ? views : null;
+    if (!this.views) return;
+    const box = document.createElement('div');
+    box.className = 'layer-views';
+    box.setAttribute('role', 'group');
+    const head = document.createElement('div');
+    head.className = 'layer-heading first'; head.id = 'layer-views-title'; head.textContent = views.title;
+    box.setAttribute('aria-labelledby', head.id);
+    const row = document.createElement('div');
+    row.className = 'view-chips';
+    this.viewBtns = views.views.map(v => {
+      const btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 'view-chip'; btn.dataset.view = v.id;
+      btn.textContent = v.name;
+      btn.setAttribute('aria-pressed', 'false');
+      btn.addEventListener('click', () => this.applyView(v.id));
+      row.append(btn);
+      return btn;
+    });
+    // Anpassad är inget man väljer, bara ett besked om att lagren har valts för hand
+    this.customChip = document.createElement('span');
+    this.customChip.className = 'view-chip view-custom';
+    this.customChip.textContent = views.custom;
+    row.append(this.customChip);
+    box.append(head, row);
+    this.menu.insertBefore(box, this.menu.firstChild);
+    this.syncView();
+  }
+
+  /** Vyn som stämmer med valen just nu, eller null (Anpassad). */
+  currentView() {
+    if (!this.views) return null;
+    const ids = this.views.controlled;
+    return this.views.views.find(v => ids.every(id => !!this.on[id] === v.layers.includes(id)))?.id ?? null;
+  }
+
+  /** Slår på vyns lager och av de andra som vyerna styr; onChange anropas för varje lager som ändras. */
+  applyView(id) {
+    const view = this.views?.views.find(v => v.id === id);
+    if (!view) return;
+    const changed = [];
+    for (const name of this.views.controlled) {
+      const on = view.layers.includes(name);
+      if (!!this.on[name] === on) continue;
+      const input = this.menu.querySelector(`input[data-layer="${name}"]`);
+      if (input) input.checked = on;
+      this.on[name] = on;
+      changed.push([name, on]);
+    }
+    this.syncView();
+    for (const [name, on] of changed) this.onChange(name, on);
+  }
+
+  /** Markerar vyn som stämmer, eller visar Anpassad. */
+  syncView() {
+    if (!this.views) return;
+    const cur = this.currentView();
+    for (const btn of this.viewBtns) btn.setAttribute('aria-pressed', String(btn.dataset.view === cur));
+    this.customChip.hidden = cur !== null;
+    this.menu.dataset.view = cur ?? 'custom';
   }
 
   /**

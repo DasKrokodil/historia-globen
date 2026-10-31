@@ -54,7 +54,10 @@ python3 -m http.server 8000
 ```
 index.html
 css/style.css
-js/main.js            startar allt och kopplar ihop delarna
+js/main.js            startar allt och kopplar ihop registret, tidslinjen och panelerna
+js/state.js           det gemensamma tillståndet som lagren läser (år, fokus, filter, valda lager, #338)
+js/layers/registry.js lagerregistret: rader i Lager, ritordning, dämpning i fokus, teckenförklaring (#338)
+js/layers/index.js    lagerlistan: alla lager som anmäler sig i registret (#338)
 js/model.js           språk, kategorier, tidsformat, laddning av data
 js/globe.js           3D-globen (three.js), ekvirektangulär rendering
 js/timeline.js        tidsreglage, segmenterad tidsskala, nuvarande år
@@ -78,8 +81,11 @@ js/ui/feedback.js     formuläret Lämna förslag / Rapportera faktafel (avstän
 js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med serverfunktionen)
 js/ui/layers.js       lagerväljaren: slå av och på lager
 js/ui/clusters.js     klustring av händelser som ligger nära varandra
+js/ui/zoomlevels.js   vad som syns på vilken zoomnivå: tre nivåer och tröskelvärden (#358)
 js/ui/focusmenu.js    fokusmenyn: välj ett krig, rike eller en religion att följa
 js/ui/routepop.js     klickrutan för vägar och resor
+js/ui/sheet.js        faktarutan som ark nedifrån i mobilen (litet, halvt, helt)
+js/ui/viewmenu.js     menyn Visa i mobilen (Platt vy, Källor, Hjälp)
 img/icons/            ikoner för händelser och religionernas symboler (egna SVG-teckningar, till exempel treaty.svg för fredsavtal, cross.svg och dharma-wheel.svg, #271)
 img/favicon.svg       sidans ikon i webbläsarfliken (och PNG-versioner för äldre webbläsare och hemskärm)
 images/events/        bilder till händelser (historiska bilder och märkta illustrationer)
@@ -93,12 +99,15 @@ data/funfacts.json    fun facts, kopplade till händelser
 data/sources.json     källregister
 data/land.json        grundkarta (Natural Earth)
 tools/riken.py        bygger rikesfilerna ur Cliopatria
+tools/dela_data.py    delar upp events.json och empires/index.json i data/genererat/ (körs efter varje ändring i dem)
 tools/religioner.py   bygger religionslagret (data/religions.json) ur Cliopatria och faktarutornas texter, med arv av religion
 tools/religioner_riken.py  bygger rikenas gränser för religionslagrets klickruta ur Cliopatria
 data/empires/         riken med utbredning per period, en fil per rike och index.json (Cliopatria)
 data/borders.json     dagens landsgränser (Natural Earth)
 data/routes/          vägar och resor (lagertyp linje): index.json och en fil per resa eller väg
+data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar (genereras, redigeras inte)
 data/upptackt.json    upptäcktsvyn: perspektivraden, den åldrade kartstilen, dimmans täckning och korridorens bredd, dekorationernas platser
+data/vyer.json        grupperna och de förinställda vyerna i Lager (#357)
 data/religions.json   religioner över tid: varje rikes religion (Cliopatria + Wikipedia)
 data/religions-polities.json  varje rikes gräns i religionslagret, för klickrutan (Cliopatria)
 data/styles.json      bildstilar efter tidsålder och plats
@@ -107,8 +116,8 @@ tools/hced.py         gör om Historical Conflict Event Dataset till utkast i da
 scripts/build-site.sh kopierar webbplatsens filer till dist/ för publicering och kör kontrollerna (docs/DEPLOYMENT.md)
 scripts/validate-site.py  kontrollerar dist/: JSON, filreferenser och att inga interna filer följer med
 functions/api/feedback.js  Cloudflare Pages Function för besökarnas förslag (publiceras från repots rot, inte via dist/)
-tests/                tester för serverfunktionen (node --test 'tests/*.test.mjs')
-.github/workflows/    GitHub Actions: bygger och kontrollerar dist/ vid push till main och PR mot main och production; release.yml skapar tagg och GitHub Release
+tests/                tester för serverfunktionen (node --test 'tests/*.test.mjs') och webbläsartestet tests/webblasare.mjs (Playwright, #339)
+.github/workflows/    GitHub Actions: bygger och kontrollerar dist/ vid push till main och PR mot main och production; browser-test.yml öppnar sidan i Chromium; release.yml skapar tagg och GitHub Release
 ```
 
 ## Principer

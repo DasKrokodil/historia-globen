@@ -16,7 +16,7 @@ Historia-globen är en snurrbar jordglob i webbläsaren. Man drar i tiden och se
 2. **Data skild från kod.** All innehållsdata ligger i `data/*.json`. Hårdkoda aldrig händelser, texter eller årtal i JS.
 3. **Ett år styr allt.** `Timeline` äger nuvarande år och skickar `change`, och i fokusläget för korta krig räknas året i delar av år (månader och dagar, #204). Lager och paneler lyssnar och ritar om.
 4. **Ekvirektangulär rendering (beslut 1).** Allt som ritas på klotet ritas först på en ekvirektangulär canvas (`baseCanvas` 4096×2048 för grundkartan, `overlayCanvas` 4096×2048 för lager) som läggs på sfären. Klickbara markörer och bågar ligger som 3D-objekt ovanpå. Skälet: samma platta bild visas som karta i "Platt vy" och ska kunna skickas till en fysisk globskärm. Bryt inte detta.
-5. **Lager som moduler (beslut 2).** Fem lagertyper: punkt (händelser), linje (handelsvägar, migration, fronter), område (riken, utbredning), bildlager (nattljus, klimat) och tur (guidade fördjupningar som data). Varje lager har samma gränssnitt: `update(state)` som returnerar det som syns, och `drawOverlay(ctx, W, H)`.
+5. **Lager som moduler (beslut 2).** Fem lagertyper: punkt (händelser), linje (handelsvägar, migration, fronter), område (riken, utbredning), bildlager (nattljus, klimat) och tur (guidade fördjupningar som data). Varje lager har samma gränssnitt: `update(state)` som returnerar det som syns, och `drawOverlay(ctx, W, H)`. Varje lager anmäler sig i lagerregistret (`js/layers/registry.js`, #338) med en post från sin egen fil.
 6. **three.js** laddas som ES-modul från `https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js`. Exakt version, ändra bara medvetet. Inga andra externa beroenden utan att fråga.
 
 ### Filstruktur
@@ -26,8 +26,11 @@ index.html
 css/style.css
 js/main.js            startar allt och kopplar ihop delarna
 js/model.js           språk, kategorier, granskningsstatus, tidsformat, laddning
+js/state.js           det gemensamma tillståndet (år, fokus, lager, filter) som lagren läser (#338)
 js/globe.js           3D-globen, kamera, styrning, ekvirektangulära canvasar, bågar
 js/timeline.js        tidsreglage, segmenterad skala, uppspelning
+js/layers/registry.js lagerregistret: ritordning, Lager-menyn, uppdatering och toning (#338)
+js/layers/index.js    listan över lagren i Lager-menyns ordning; ett nytt lager läggs till här (#338)
 js/layers/events.js   punktlager: händelser
 js/layers/lines.js    linjelager: vägar och resor som ritas fram över tiden (#38)
 js/layers/discovery.js upptäcktsvyn: gammal kartstil, havsmonster och dimma som resorna lyfter (#101)
@@ -40,13 +43,16 @@ js/ui/feedback.js     formuläret för besökarnas förslag (avstängt som stand
 js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med functions/)
 functions/api/feedback.js  Cloudflare Pages Function som skapar issues i ett privat repo (enda undantaget från punkt 1)
 tests/                tester för functions/ med node:test (node --test 'tests/*.test.mjs')
+tests/webblasare.mjs  webbläsartest med Playwright, körs i GitHub Actions för varje PR (#339)
 data/events.json      händelser
 data/funfacts.json    fun facts (kopplade till händelse-id)
 data/sources.json     källregister
 data/land.json        grundkarta: Natural Earth 1:50m, färdigprojicerad SVG-path i 4096×2048
 data/empires/         riken: index.json och en fil per rike, byggs med tools/riken.py ur Cliopatria
 data/routes/          vägar och resor: index.json listar filerna, en fil per resa eller väg (#38)
+data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar (#337); skrivs av tools/dela_data.py, redigeras inte
 data/upptackt.json    upptäcktsvyn: perspektivrad, dimma och kartbilder (#101)
+data/vyer.json        grupperna och de förinställda vyerna i Lager (#357)
 data/religions.json   religioner som områden (statsreligion per rike ur Cliopatria) och faktarutor
 data/religions-polities.json  rikenas områden per religion och period, laddas vid klick (tools/religioner_riken.py)
 data/styles.json      bildstilar efter tidsålder och plats (ramar och promptar)
@@ -54,7 +60,7 @@ data/utkast/          utkast från massimport (draft), läses inte av appen; hce
 images/events/        bilder till händelser, <händelse-id>.webp, 800 × 600
 images/karta/         kartbilder till upptäcktsvyn (public domain, ur gamla kartor)
 images/incoming/      Rikards nya bilder, innan de konverteras
-tools/                hjälpskript som körs för hand (riken, bildpromptar, bildkonvertering)
+tools/                hjälpskript som körs för hand (riken, bildpromptar, bildkonvertering; dela_data.py efter varje ändring i events.json och empires/index.json)
 docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar, publicering (DEPLOYMENT.md), besökarnas förslag (feedback.md)
 scripts/              build-site.sh kopierar webbplatsens filer till dist/ och kör validate-site.py (publicering, ingen kodändring)
 .orchestra/           dirigenten och orkestern: project.md (projektets policy) och shared/ (fäst version, redigeras inte)
@@ -119,7 +125,7 @@ Rikard gillar stilen. Behåll den:
 
 1. `python3 -m http.server 8000` och öppna http://localhost:8000.
 2. Inga fel i konsolen. Globen snurrar, tidslinjen går att dra, uppspelning fungerar, fun facts dyker upp, "Platt vy" och "Källor" (sidan Om källorna) öppnas.
-3. Kontrollera all JSON (`python3 -m json.tool data/*.json`) och att varje `sources`-id finns i `sources.json` och varje händelse-id i `funfacts.json` finns i `events.json`.
+3. Kontrollera all JSON (`python3 -m json.tool data/*.json`) och att varje `sources`-id finns i `sources.json` och varje händelse-id i `funfacts.json` finns i `events.json`. Har du ändrat `events.json` eller `data/empires/index.json`: kör `python3 tools/dela_data.py` och checka in `data/genererat/` (sidan läser de uppdelade filerna, #337).
 4. Testa både desktop och mobilbredd.
 5. Ändras formuläret för förslag eller `functions/`: kör `node --test 'tests/*.test.mjs'` (se docs/feedback.md).
 

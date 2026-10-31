@@ -16,6 +16,8 @@ Alla datafiler i `data/` och deras fält. Standarderna (årtal, osäkerhet, prec
 
 ## `events.json`: händelser
 
+Händelserna redigeras här. Sidan läser dem uppdelade i ett index och de långa fälten per period, som `tools/dela_data.py` skriver (se [`genererat/`](#genererat-uppdelade-filer-337)).
+
 ```json
 { "id": "korsfastelsen", "category": "religion", "icon": "cross", "religion": "kristendom", "founding": true,
   "start": 30, "end": 33, "precision": 9, "edtf": "0030/0033",
@@ -92,6 +94,8 @@ Korten "När ett krig bröt ut" lagras inte här. De byggs i koden ur händelser
 
 ## `sources.json`: källregister
 
+Laddas vid första faktarutan, klickrutan för en väg, upptäcktsvyn eller Om källorna (#337), inte vid start.
+
 ```json
 { "id": "wp-crucifixion", "title": "Crucifixion of Jesus – Wikipedia", "url": "https://en.wikipedia.org/wiki/Crucifixion_of_Jesus",
   "license": "CC BY-SA 4.0", "checked": "2026-10-29" }
@@ -101,7 +105,7 @@ Korten "När ett krig bröt ut" lagras inte här. De byggs i koden ur händelser
 
 ## `empires/`: riken
 
-`empires/index.json` laddas vid start och listar varje rike (grupp):
+`empires/index.json` listar varje rike (grupp). Sidan läser den uppdelad (#337): registret utan faktarutor vid start och faktarutorna (`facts`) när de behövs, se [`genererat/`](#genererat-uppdelade-filer-337).
 
 ```json
 { "id": "hanriket", "name": { "sv": "Hanriket", "en": "Han dynasty" }, "color": "#d0703a", "from": -202, "to": 237,
@@ -347,6 +351,40 @@ Upptäcktsvyn slås på i Lager. Filen styr allt den visar (ritas av `js/layers/
 
 Tio grundstilar efter tid (`regions` tom) och regionala varianter (`regions` med rutor i grader). Varje stil har `from`, `to`, `frame` (faktarutans ram) och `prompt` (engelsk stilbeskrivning). `variants` väljs efter händelsens kategori, till exempel portolankarta för resor under renässansen. Se `notes` i filen.
 
+## `genererat/`: uppdelade filer (#337)
+
+Sidan laddar inte `events.json` och `empires/index.json` direkt, utan mindre filer som `tools/dela_data.py` skriver ur dem till `data/genererat/`. Källfilerna är fortfarande de man redigerar. **Kör `python3 tools/dela_data.py` efter varje ändring i `events.json` eller `empires/index.json`** och checka in filerna i `data/genererat/` i samma commit. `scripts/validate-site.py` (och `python3 tools/dela_data.py --check`) säger till om någon fil inte stämmer med källan, saknas eller inte längre genereras. Filerna redigeras aldrig för hand.
+
+| Fil | Innehåll | Laddas |
+|---|---|---|
+| `handelser.json` | `periods` (periodernas id, första år `from` och fil) och `events`: alla händelser utan de långa fälten. `note` står kvar med bara sin rubrik (`note.title`), eftersom markören visar osäkerhet när rubriken är "Källorna skiljer sig" | vid start |
+| `handelser-<period>.json` | `events`: { händelse-id: de långa fälten } för händelserna som **börjar** i perioden. De långa fälten är `summary`, `note`, `story`, `image`, `sources` och `wikidata` (listan `DETAIL` i skriptet och `detail` i `handelser.json`) | när händelserna syns, en faktaruta öppnas eller man följer ett krig |
+| `riken.json` | `groups` som i `empires/index.json`, utan `facts`. Grupper med faktaruta har `hasFacts: true`. `polityFacts` (#301) står kvar, eftersom den är liten och kartans symboler behöver den | vid start |
+| `riken-fakta.json` | `facts`: { grupp-id: rikets `facts` } | vid första faktarutan om ett rike eller när man följer ett rike |
+
+Perioderna efter startår: `fkr` (år 0 och tidigare), `1-1499`, `1500-1799`, `1800-1899`, `1900-1945` och `1946-`. Gränserna är valda så att filerna blir ungefär lika stora (40–120 kB) och ändras bara medvetet, eftersom filnamnen följer dem. En händelse hör till den sista perioden vars `from` är högst händelsens `start` (`period_of` i skriptet, `periodOf` i `js/model.js`). Ett krig och dess slag ligger oftast i samma period, men det spelar ingen roll: `loadEventDetails()` laddar alla perioder som händelserna behöver.
+
+Varje post skrivs på en egen rad, så att en ändring i källan syns som ändrade rader i git. `events.json` publiceras ändå, eftersom formuläret för förslag (`functions/api/feedback.js`) slår upp händelser i den.
+
+### Texter per språk (förslag, inte genomfört)
+
+I dag har nästan alla texter bara svenska (`sv`), och några namn har engelska (`en`). När fler språk kommer bör inte varje besökare ladda alla språk. Förslaget:
+
+1. `tools/dela_data.py` skriver periodfilerna per språk: `handelser-<period>.json` med svenska (grundspråket, som alltid finns) och `handelser-<period>.<språk>.json` med bara det språkets texter, till exempel `{ "events": { "apollo-11": { "summary": { "en": "…" } } } }`. Samma sak för indexets `title` och `place` och för rikenas faktarutor.
+2. Sidan laddar grundfilen och, om besökaren har valt ett annat språk, språkets fil ovanpå. `mergeTexts()` i `js/model.js` slår redan ihop texterna på djupet, så att `{ "summary": { "en": … } }` läggs bredvid `sv` i stället för att ersätta den, och `t()` väljer språk och reservspråk som förut. Därför behöver `t()` inte ändras.
+3. Källfilerna behåller alla språk i samma post (`{ "sv": …, "en": … }`), så att en uppgift och dess översättningar redigeras och källkontrolleras på ett ställe.
+
+Det görs när det finns texter på fler språk än svenska (version 12, Språk och sök).
+
 ## `land.json` och `borders.json`: kartor
 
-Färdigprojicerade SVG-banor i 4096 × 2048 (`path`, `width`, `height`) från Natural Earth: grundkartan (1:50m) och dagens landsgränser.
+Färdigprojicerade SVG-banor i 4096 × 2048 (`path`, `width`, `height`) från Natural Earth: grundkartan (1:50m) och dagens landsgränser. Grundkartan laddas vid start; dagens gränser först när lagret slås på (#337).
+
+## `vyer.json`: grupper och förinställda vyer i Lager (#357)
+
+Ingen fakta, bara hur Lager är ordnat. Namnen står per språk som andra texter (`t()`).
+
+- `title`: rubriken över vyerna ("Vy"). `custom`: märket när valen inte stämmer med någon vy ("Anpassad").
+- `groups`: grupperna i Lager i menyns ordning, `{ id, name }`. Varje lager anger sin grupp med fältet `group` i sin post i lagerregistret. En grupp med `"settings": true` (Inställningar) innehåller val som vyerna inte rör, till exempel "Behåll mina lager i fokus".
+- `views`: de förinställda vyerna i knapparnas ordning, `{ id, name, layers }`. `layers` är id:n (`data-layer`) för lagren som är på i vyn; alla andra lager utanför Inställningar slås av. `standard` är de lager som är på när sidan öppnas och ska ändras samtidigt med lagrens `menu.on` om standardläget ändras.
+- Laddas av `loadViews()` i `js/ui/layers.js`. Saknas filen visas Lager som en lista utan grupper och vyer.

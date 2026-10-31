@@ -15,7 +15,24 @@
 // Allt ritas på den platta lagerbilden (beslut 1), så Platt vy visar samma sak. Långa sträckor följer
 // storcirklar (punkter läggs in längs vägen), och linjer över datumlinjen ritas en bildbredd åt andra
 // hållet också, så att de fortsätter på andra sidan bilden.
-import { CAT, isVisibleReview } from '../model.js';
+import { CAT, isVisibleReview, loadRoutes } from '../model.js';
+import { Z } from './registry.js';
+
+/**
+ * Lagrets post i registret (#338). Vägarnas filer laddas efter starten, och lagret ritas om när de har kommit.
+ * I upptäcktsvyn (#101) ritas skeppen som segelskepp i stället för prickar.
+ */
+export function entry({ refresh }) {
+  const layer = new LinesLayer();
+  loadRoutes().then(list => { layer.setRoutes(list); refresh(); });
+  return {
+    id: 'routes', name: 'Resor och handelsvägar', group: 'movement', menu: { on: true, note: 'streckad = osäker väg' }, layer, z: Z.routes,
+    enabled: s => s.layers.routes,
+    apply: s => { layer.shipStyle = s.on.discovery ? 'ship' : 'dot'; },
+    update: s => layer.update({ year: s.year, fine: s.fine, window: s.window, filters: s.filters }),
+    drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
+  };
+}
 
 const RAD = Math.PI / 180;
 const STEP_DEG = 2;       // längre sträckor än så delas upp längs storcirkeln

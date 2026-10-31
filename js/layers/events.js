@@ -2,6 +2,7 @@
 // Varje lager har samma gränssnitt: update(state) och drawOverlay(ctx, W, H).
 import { THREE, latLonToVec3, R } from '../globe.js';
 import { CAT, isVisibleReview, t } from '../model.js';
+import { Z } from './registry.js';
 
 // Ikonfamiljen (#242): alla markörer är samma mässingsmedalj. Mörk botten, mässingsring och en inre
 // cirkel i kategorins färg; bara symbolen i mitten (img/icons/, egna teckningar) skiljer. Händelser
@@ -108,6 +109,23 @@ export function medalTexture(icon, color, { when, major, unsure }, full) {
   if (icon && !glyph(icon).ready) glyph(icon).waiting.push(draw);
   medalCache.set(key, tex);
   return tex;
+}
+
+/**
+ * Lagrets post i registret (#338): på som standard. Avslaget lager eller bortfiltrerad kategori visar ändå
+ * händelserna i det öppna Samtidigt-kortet (highlight). update returnerar de synliga händelserna till listan.
+ */
+export function entry({ globe, data }) {
+  const layer = new EventsLayer(globe, data.events);
+  const none = new Set();
+  return {
+    id: 'events', name: 'Händelser', group: 'people', menu: { on: true }, layer, z: Z.events,
+    enabled: s => s.layers.events,
+    update: s => layer.update({ year: s.year, window: s.window, filters: s.layers.events ? s.filters : none,
+      selectedId: s.selectedId, highlight: s.highlight, focusId: s.focusWar?.id, span: s.span }),
+    frame: (now, s) => layer.frame(now, s.selectedId),
+    drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
+  };
 }
 
 export class EventsLayer {

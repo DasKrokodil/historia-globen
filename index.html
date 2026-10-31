@@ -65,9 +65,14 @@
     </div>
     <div class="action-group" role="group" aria-labelledby="ag-view">
       <span id="ag-view" class="action-label">Visa</span>
-      <button id="btn-flat" class="chip-btn" type="button" aria-pressed="false" title="Visa världen som en platt karta">Platt vy</button>
-      <button id="btn-sources" class="chip-btn" type="button" title="Om källorna: källpolicy och källregister">Källor</button>
-      <button id="btn-help" class="chip-btn" type="button" aria-expanded="false" aria-controls="help">Hjälp</button>
+      <!-- I smal skärm (#361) samlas gruppen Visa i en meny bakom knappen Visa, så att knapparna ryms i en rad
+           med årtalet. I datorn syns knappen inte och menyn är osynlig (display: contents). -->
+      <button id="more-toggle" class="chip-btn more-toggle" type="button" aria-expanded="false" aria-controls="more-menu" aria-label="Visa: Platt vy, Källor och Hjälp">Visa<span class="more-chev" aria-hidden="true"></span></button>
+      <div id="more-menu" class="more-menu">
+        <button id="btn-flat" class="chip-btn" type="button" aria-pressed="false" title="Visa världen som en platt karta">Platt vy</button>
+        <button id="btn-sources" class="chip-btn" type="button" title="Om källorna: källpolicy och källregister">Källor</button>
+        <button id="btn-help" class="chip-btn" type="button" aria-expanded="false" aria-controls="help">Hjälp</button>
+      </div>
     </div>
   </div>
 
@@ -187,25 +192,20 @@
   <div id="focus-menu" class="layer-menu" hidden role="group" aria-label="Fokus"></div>
 
   <div id="layer-menu" class="layer-menu" hidden role="group" aria-label="Lager">
-    <label class="layer-row"><input type="checkbox" data-layer="events" checked> Händelser</label>
-    <label class="layer-row"><input type="checkbox" data-layer="funfacts" checked aria-label="Visa Samtidigt-kortet"> Samtidigt-kortet <span class="layer-note">fun facts och annat som hände samtidigt</span></label>
-    <label class="layer-row"><input type="checkbox" data-layer="areas" checked> Riken</label>
-    <label class="layer-row"><input type="checkbox" data-layer="religions"> Religioner <span class="layer-note">rikenas officiella religion · streckad kant = osäker uppgift · prickad = ärvd, rikets faktaruta saknar religion</span></label>
-    <div id="religion-list" class="layer-sub" role="group" aria-label="Religioner" hidden></div>
-    <label class="layer-row"><input type="checkbox" data-layer="routes" checked> Resor och handelsvägar <span class="layer-note">streckad = osäker väg</span></label>
-    <label class="layer-row"><input type="checkbox" data-layer="discovery"> Upptäcktsvy <span class="layer-note">gammal kartstil med segelskepp, havsmonster och dimma som resorna lyfter</span></label>
-    <label class="layer-row"><input type="checkbox" data-layer="borders"> Dagens gränser <span class="layer-note">stämmer inte historiskt</span></label>
-    <label class="layer-row"><input type="checkbox" data-layer="keep"> Behåll mina lager i fokus <span class="layer-note">annars dämpas riken och religioner som inte hör till det man följer</span></label>
+    <!-- De förinställda vyerna (data/vyer.json, #357) och raderna för lagren i grupper byggs av lagerregistret
+         (js/layers/index.js och registry.js, #338). Gruppen Inställningar nedan får rubriken och sina rader därifrån. -->
     <div class="layer-heading">Kategorier</div>
     <div id="filters" class="filters" role="group" aria-label="Kategorier"></div>
-    <div class="layer-heading">Rörelse</div>
-    <label class="layer-row"><input type="checkbox" data-calm> Lugn rörelse <span class="layer-note">ingen automatisk snurr, globen hoppar i stället för att flyga, inga övergångar · följer webbläsarens inställning för reducerad rörelse</span></label>
-    <div class="layer-heading">Pausa uppspelningen vid</div>
-    <label class="layer-row"><input type="checkbox" data-pause="funfacts" checked aria-label="Pausa vid Samtidigt-kortet"> Samtidigt-kortet <span class="layer-note">fun facts och annat som hände samtidigt</span></label>
-    <label class="layer-row"><input type="checkbox" data-pause="focusFunfacts" aria-label="Pausa vid Samtidigt-kortet även i fokusläget"> Samtidigt-kortet även i fokusläget <span class="layer-note">annars pausar Fokus bara vid det man följer</span></label>
-    <label class="layer-row"><input type="checkbox" data-pause="wars"> När ett krig bryter ut</label>
-    <label class="layer-row"><input type="checkbox" data-pause="major" checked> Stora händelser när man följer ett krig</label>
-    <label class="layer-row"><input type="checkbox" data-pause="empire" checked> Nyckelår när man följer ett rike <span class="layer-note">varför riket växer eller krymper</span></label>
+    <div data-group="settings">
+      <div class="layer-subheading">Rörelse</div>
+      <label class="layer-row"><input type="checkbox" data-calm> Lugn rörelse <span class="layer-note">ingen automatisk snurr, globen hoppar i stället för att flyga, inga övergångar · följer webbläsarens inställning för reducerad rörelse</span></label>
+      <div class="layer-subheading">Pausa uppspelningen vid</div>
+      <label class="layer-row"><input type="checkbox" data-pause="funfacts" checked aria-label="Pausa vid Samtidigt-kortet"> Samtidigt-kortet <span class="layer-note">fun facts och annat som hände samtidigt</span></label>
+      <label class="layer-row"><input type="checkbox" data-pause="focusFunfacts" aria-label="Pausa vid Samtidigt-kortet även i fokusläget"> Samtidigt-kortet även i fokusläget <span class="layer-note">annars pausar Fokus bara vid det man följer</span></label>
+      <label class="layer-row"><input type="checkbox" data-pause="wars"> När ett krig bryter ut</label>
+      <label class="layer-row"><input type="checkbox" data-pause="major" checked> Stora händelser när man följer ett krig</label>
+      <label class="layer-row"><input type="checkbox" data-pause="empire" checked> Nyckelår när man följer ett rike <span class="layer-note">varför riket växer eller krymper</span></label>
+    </div>
   </div>
 
   <aside id="panel" class="panel" aria-label="Samtidigt i världen">
@@ -213,8 +213,9 @@
       <button id="panel-close" type="button" class="panel-x" aria-label="Stäng">×</button>
       <h2>Samtidigt i världen</h2>
       <p id="panel-sub" class="panel-sub"></p>
-      <p class="panel-hint">Välj kategorier under Lager.</p>
     </div>
+    <!-- Kategorichips (#311): samma filter som Kategorier under Lager, byggs av js/ui/panel.js -->
+    <div id="panel-filters" class="filters panel-filters" role="group" aria-label="Kategorier i listan och på globen"></div>
     <div id="event-list" class="event-list"></div>
   </aside>
 

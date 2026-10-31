@@ -21,6 +21,9 @@ Kontroller:
      Testa innan du är klar).
   9. Varje rike som ett krig anger i empires (#76) finns som grupp i data/empires/index.json,
      och bara krig (kind: "war") har fältet.
+ 10. De uppdelade filerna i data/genererat/ (#337) stämmer med källfilerna data/events.json och
+     data/empires/index.json, alltså att någon har kört python3 tools/dela_data.py efter sin ändring.
+     Kontrollen räknar fram filerna med samma kod som skriptet (tools/dela_data.py i repot).
 
 Användning: python3 scripts/validate-site.py [dist]
 """
@@ -247,6 +250,18 @@ for e in events['events']:
     for g in e['empires']:
         if g not in group_ids:
             err(f"data/events.json ({e['id']}): riket {g} finns inte i data/empires/index.json")
+
+# 10. Uppdelade filer (#337): samma innehåll som tools/dela_data.py skriver ur källfilerna i dist/
+TOOL = Path(__file__).resolve().parent.parent / 'tools' / 'dela_data.py'
+if not TOOL.is_file():
+    err(f'{TOOL} saknas: de uppdelade filerna i data/genererat/ kan inte kontrolleras')
+elif (DIST / 'data/events.json').is_file() and (DIST / 'data/empires/index.json').is_file():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('dela_data', TOOL)
+    dela_data = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(dela_data)
+    for e in dela_data.check(DIST):
+        err(e)
 
 if errors:
     print(f'validate-site: {len(errors)} fel', file=sys.stderr)

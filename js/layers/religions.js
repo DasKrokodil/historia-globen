@@ -11,6 +11,43 @@
 // religion i en meny eller i teckenförklaringen (highlight) lyser dess områden upp och de andra tonas ner.
 import { glyph } from './events.js';
 import { t } from '../model.js';
+import { Z } from './registry.js';
+// origins.js hämtar ORIGIN_R härifrån; det används först när medaljerna ritas, så den ömsesidiga importen går bra
+import { OriginMarkers } from './origins.js';
+
+/**
+ * Lagrets post i registret (#338): av som standard, med en undermeny i Lager som main.js fyller när datan har
+ * laddats. I fokusläget syns religionen man följer även om lagret är av, och lagret dämpas när man följer ett
+ * krig eller ett rike (#235). Symbolen där religionen uppstod (#271) är en klickbar 3D-medalj (origins.js), som
+ * döljer händelsens egen medalj och öppnar religionens faktaruta.
+ */
+export function entry({ globe, labelsEl, refreshSoon, showReligionFacts }) {
+  const layer = new ReligionsLayer();
+  layer.onGlyph = refreshSoon; // en symbol som laddas klart ritas in på lagerbilden
+  const origins = new OriginMarkers(globe, labelsEl);
+  origins.onPick = id => showReligionFacts(id);
+  return {
+    id: 'religions', name: 'Religioner', group: 'power', layer, z: Z.religions,
+    menu: { on: false, note: 'rikenas officiella religion · streckad kant = osäker uppgift · prickad = ärvd, rikets faktaruta saknar religion',
+      sub: { id: 'religion-list', label: 'Religioner' } },
+    fade: { own: focus => focus.type === 'religion' },
+    enabled: s => s.focus?.type === 'religion' || s.layers.religions,
+    apply: s => {
+      layer.onlyId = s.focus?.type === 'religion' ? s.focus.id : null;
+      document.getElementById('religion-list').hidden = !s.layers.religions;
+    },
+    update: s => {
+      layer.labelScale = origins.scale = s.labels.scale;
+      layer.showNames = s.labels.religionNames;
+      return layer.update({ year: s.wholeYear });
+    },
+    legend: s => ({ items: s.faded.has('religions') ? [] : layer.legendItems() }),
+    markers: s => origins.update(layer.stars, layer.enabled && !s.faded.has('religions')),
+    frame: () => origins.frame(),
+    covers: () => origins.eventIds,
+    drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
+  };
+}
 
 export const ORIGIN_R = 15; // medaljens radie på lagerbilden, i bildpunkter per 2048 i bredd (som k nedan)
 const BRASS = '#d6b06a', GROUND = '#10202c', INK = 'rgba(11,18,25,0.85)', NAME = '#f6e7c4', DISC = 'rgba(16,32,44,0.6)';

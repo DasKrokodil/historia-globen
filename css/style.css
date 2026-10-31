@@ -299,11 +299,37 @@ body {
 .layer-note.pad { padding: 6px 10px; }
 .focus-search { display: block; width: calc(100% - 20px); margin: 4px 10px 6px; padding: 8px 10px; background: var(--night); color: var(--parchment); border: 1px solid var(--line); border-radius: 8px; font: 400 14px/1.2 var(--f-body); }
 .focus-search:focus-visible { outline: 2px solid var(--brass); outline-offset: 1px; }
-.focus-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 10px 4px; }
-.focus-tabs .chip-btn { padding: 6px 10px; font-size: 12.5px; }
+/* Fokus (#311): huvudet (sökruta, flikar, sortering) ligger still och listan rullar under det */
+.focus-menu { width: min(400px, calc(100vw - 32px)); display: flex; flex-direction: column; overflow: hidden; padding: 6px 0 0; }
+.focus-menu[hidden] { display: none; }
+.focus-head { flex: none; padding: 0 6px 6px; border-bottom: 1px solid var(--line); }
+.focus-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 0 6px 6px; }
+.focus-menu:focus { outline: none; }
+/* Flikarna i en rad; blir de för breda rullar raden i sidled inuti menyn i stället för att bryta */
+.focus-tabs, .focus-sort { display: flex; gap: 4px; margin: 0 4px 4px; overflow-x: auto; scrollbar-width: none; padding: 4px; }
+.focus-tabs::-webkit-scrollbar, .focus-sort::-webkit-scrollbar { display: none; }
+.focus-tabs .chip-btn, .focus-sort .chip-btn { flex: none; white-space: nowrap; padding: 6px 7px; font-size: 12.5px; }
+.focus-sort { align-items: center; margin-bottom: 0; }
+.focus-sort .chip-btn { padding: 4px 8px; font-size: 11.5px; background: transparent; }
+.focus-sort .chip-btn[aria-pressed="true"] { background: var(--night-3); color: var(--brass); border-color: var(--brass-deep); }
+.focus-sort-label { flex: none; margin-right: 2px; font: 600 10.5px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--parchment-dim); }
+.focus-item .focus-name { flex: 1 1 0; min-width: 0; overflow-wrap: break-word; } /* långa namn bryts inom raden, inte under färgen */
+.focus-also { color: var(--brass); }
 .focus-note { max-width: 320px; } /* förklaring under rubrikerna i Fokus (#138) */
 .layer-heading { margin: 8px 10px 2px; padding-top: 8px; border-top: 1px solid var(--line); font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
 .layer-note { flex-basis: 100%; padding-left: 26px; font: 400 11px/1.3 var(--f-mono); color: var(--parchment-dim); }
+/* Grupper och förinställda vyer i Lager (#357) */
+.layer-subheading { margin: 8px 10px 2px; font: 500 10.5px/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--parchment-dim); }
+.view-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px 10px 8px; }
+.view-chip {
+  display: inline-flex; align-items: center; min-height: 32px; padding: 6px 12px;
+  font: 500 12.5px/1 var(--f-body); color: var(--parchment);
+  background: transparent; border: 1px solid var(--line); border-radius: 999px; cursor: pointer;
+}
+.view-chip:hover { background: var(--night-3); border-color: var(--brass-deep); }
+.view-chip[aria-pressed="true"] { background: var(--brass); border-color: var(--brass); color: var(--night); }
+.view-custom { cursor: default; border-style: dashed; border-color: var(--brass-deep); color: var(--brass); font-style: italic; }
+.view-custom[hidden] { display: none; }
 
 /* ---------- panel: "Samtidigt i världen" som utfällbar meny (#112) ---------- */
 .panel {
@@ -323,7 +349,6 @@ body {
 .panel.open { display: flex; }
 .panel-head { position: relative; padding: 16px 18px 10px; border-bottom: 1px solid var(--line); }
 .panel-head .panel-x { position: absolute; top: 12px; right: 12px; float: none; margin: 0; }
-.panel-hint { margin: 4px 0 0; font: 400 11px/1.3 var(--f-mono); color: var(--parchment-dim); }
 .panel-head h2 {
   margin: 0;
   font: 400 21px/1.15 var(--f-display);
@@ -349,6 +374,15 @@ body {
 .filter .dot { width: 8px; height: 8px; border-radius: 50%; }
 .filter[aria-pressed="false"] { opacity: .42; }
 .filter[aria-pressed="false"] .dot { background: transparent !important; outline: 1px solid var(--parchment-dim); }
+/* Kategorichips ovanför listan i Samtidigt (#311): samma filter som under Lager. I smal skärm en rad som rullar i sidled */
+.panel-filters { flex: none; max-width: none; gap: 5px; padding: 8px 14px; border-bottom: 1px solid var(--line); }
+.panel-filters .filter { padding: 4px 8px 4px 6px; font-size: 11px; }
+@media (max-width: 760px) {
+  .panel-filters { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-right: 32px;
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent); }
+  .panel-filters::-webkit-scrollbar { display: none; }
+  .panel-filters .filter { flex: none; white-space: nowrap; }
+}
 
 .event-list {
   padding: 4px 10px 14px;
@@ -1373,3 +1407,136 @@ details.used-by summary:hover { color: var(--parchment); }
 .ac-peak { fill: var(--ac); stroke: currentColor; stroke-width: 1; }
 .ac-now { stroke: currentColor; stroke-width: 1.5; }
 .ac-dot { fill: var(--ac); stroke: currentColor; stroke-width: 1.5; }
+
+/* ---------- mobilen: kompakt rad överst, större glob, kompakt tidslinje och faktarutan som ark (#361) ---------- */
+/* Datorn: knappen Visa och platsraden syns inte, och menyn Visa är osynlig (knapparna står i gruppen som förut). */
+.more-toggle { display: none; }
+.more-menu { display: contents; }
+.place-row { display: none; }
+#detail > .sheet-handle { display: none; }
+@media (max-width: 760px) {
+  /* Raden överst: årtalet till vänster, Samtidigt, Lager, Fokus och menyn Visa till höger, tidsåldern som en rad under */
+  .masthead { top: calc(env(safe-area-inset-top, 0px) + 6px); right: var(--gut-r); max-width: none; }
+  .brand { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .year-readout { margin-top: 0; min-height: 44px; align-items: center; }
+  .year-jump, .year-jump.fine { flex-direction: column; flex-wrap: nowrap; align-items: flex-start; justify-content: center; gap: 0; min-height: 44px; min-width: 44px; }
+  .year-big, .year-jump.fine .year-big { font-size: 30px; line-height: 1; }
+  .year-era, .year-jump.fine .year-era { font-size: 13px; line-height: 1.1; }
+  .year-big, .year-era, .segment-note { text-shadow: 0 1px 6px var(--night), 0 0 2px var(--night); } /* läsbart när globen är inzoomad */
+  .segment-note, .year-readout:has(.year-jump.fine) + .segment-note {
+    margin: 3px 0 0; font-size: 10px; letter-spacing: .05em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .top-actions { flex-direction: row; flex-wrap: nowrap; align-items: center; gap: 3px; top: calc(env(safe-area-inset-top, 0px) + 6px); }
+  .action-group, .action-group:first-child, .action-group:last-child { border: 0; border-radius: 0; padding: 0; gap: 3px; flex-wrap: nowrap; max-width: none; }
+  .action-label { display: none; }
+  /* 40 px synligt, 46 px tryckyta (::after räknas från knappens insida, innanför ramen) */
+  .action-group .chip-btn { position: relative; height: 38px; padding: 0 8px; font-size: 12.5px; white-space: nowrap; }
+  .action-group .chip-btn::after { content: ""; position: absolute; inset: -4px -1px; }
+  .more-toggle { display: inline-flex; align-items: center; gap: 6px; }
+  .more-chev { width: 6px; height: 6px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg) translateY(-2px); }
+  .more-open .more-chev { transform: rotate(-135deg) translateY(-1px); }
+  .more-open .more-toggle, .action-group:has(#btn-flat[aria-pressed="true"]) .more-toggle { border-color: var(--brass); color: var(--brass); }
+  .more-menu {
+    display: none; position: absolute; z-index: 17; top: calc(100% + 8px); right: 0;
+    flex-direction: column; gap: 4px; min-width: 168px; padding: 6px;
+    background: color-mix(in srgb, var(--night-2) 96%, transparent); border: 1px solid var(--line); border-radius: var(--r);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, .5);
+  }
+  .more-open .more-menu { display: flex; }
+  .more-menu .chip-btn { height: 44px; text-align: left; }
+  .more-menu .chip-btn::after { inset: 0; }
+
+  /* Tidslinjen: knapparna 34 px synligt och 44 px tryckyta, lägre band med årtalen */
+  .timebar { padding-top: 6px; padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 6px); }
+  .controls { margin-bottom: 6px; }
+  /* Tryckytorna (::after) möts mitt i mellanrummen: 44 px höga och i 400 px minst 44 px breda */
+  .controls :is(.step, .play) { position: relative; height: 34px; }
+  .controls :is(.step, .play)::after { content: ""; position: absolute; inset: -6px -3px; }
+  .controls .play { flex: 0 0 46px; max-width: none; }
+  .controls .speed { flex: 0 0 50px; max-width: none; overflow: visible; }
+  .track { height: 48px; }
+
+  /* Fokusraden direkt ovanför tidslinjen, knapparna med 44 px tryckyta */
+  .focus-bar { bottom: 104px; }
+  .app.focusing:has(.pause-note:not([hidden])) .focus-bar { bottom: 174px; }
+  .focus-bar .chip-btn { position: relative; min-height: 34px; }
+  .focus-bar .chip-btn::after { content: ""; position: absolute; inset: -6px -3px; }
+  .focus-moved .link-btn { position: relative; }
+  .focus-moved .link-btn::after { content: ""; position: absolute; inset: -10px -4px; }
+
+  /* Korten och arken börjar ovanför tidslinjen, pausraden och fokusraden (samma variabel som #239) */
+  .app { --ff-b: 102px; }
+  .app:has(.pause-note:not([hidden])) { --ff-b: 170px; }
+  .app.focusing { --ff-b: 158px; }
+  .app.focusing:has(.pause-note:not([hidden])) { --ff-b: 226px; }
+
+  /* Stängknappar och handtag: minst 44 × 44 px tryckyta */
+  .panel-x::after, #detail .detail-close::after { content: ""; position: absolute; inset: -8px; }
+  /* Handtaget 36 px och 8 px till under, så att bildernas Läs mer-knappar under behåller 44 px i halvt läge */
+  .ff-handle { z-index: 2; height: 36px; }
+  .ff-handle::after { inset: 0 0 -8px; }
+  .ff-grip { margin-top: 14px; }
+  .ff-chev { top: 13px; }
+  #funfact.ff-s-full .ff-chev { top: 10px; }
+  .ff-drag-hint { top: 11px; }
+  .religion-legend .rl-toggle { min-height: 44px; }
+  /* Händelseknapparna i Samtidigt-kortet: 34 px höga med 10 px mellan raderna, så att tryckytorna inte går in i varandra */
+  .ff-events { gap: 10px 6px; }
+  .ff-chip { min-height: 34px; }
+  .ff-chip::after { inset: -6px -3px; }
+
+  /* Faktarutan som ark nedifrån (js/ui/sheet.js): litet, halvt och helt, i data-sheet */
+  #detail {
+    left: var(--gut); right: var(--gut-r); width: auto;
+    bottom: var(--ff-b);
+    padding-top: 0;
+    border-radius: 16px 16px var(--r) var(--r);
+    overflow-x: hidden;
+    max-height: min(40dvh, calc(100dvh - var(--ff-b) - 190px));
+  }
+  #detail > .sheet-handle {
+    display: block; position: sticky; top: 0; z-index: 3;
+    width: calc(100% + 32px); height: 44px; margin: 0 -16px; padding: 0;
+    border: 0; background: var(--card-bg); cursor: grab; touch-action: none;
+  }
+  #detail > .sheet-handle:focus-visible { outline: 2px solid var(--card-accent); outline-offset: -2px; border-radius: 16px 16px 0 0; }
+  .sheet-grip { display: block; width: 44px; height: 4px; margin: 10px auto 0; border-radius: 2px; background: color-mix(in srgb, var(--card-ink) 35%, transparent); }
+  .sheet-chev {
+    position: absolute; left: calc(50% + 30px); top: 9px; width: 6px; height: 6px;
+    border: solid var(--card-dim); border-width: 1.5px 0 0 1.5px; transform: rotate(45deg); opacity: .8;
+  }
+  #detail[data-sheet="full"] .sheet-chev { top: 6px; transform: rotate(225deg); }
+  /* Krysset ligger i handtagets rad, till höger */
+  #detail .detail-close { position: sticky; top: 7px; z-index: 4; margin: -37px -6px 7px auto; }
+  #detail .detail-close + * { margin-top: 0; }
+  #detail .detail-fig { margin-top: 0; }
+  /* Halvt läge: rubriken och texten först. Bilden (med sin bildtext) syns i helt läge. */
+  #detail[data-sheet="half"] .detail-fig { display: none; }
+  /* (i) och Rapportera faktafel: 44 px tryckyta utan att ytorna går in i varandra när raden bryts */
+  #detail .detail-actions { min-height: 44px; gap: 22px 10px; }
+  #detail .review-info::after { inset: -14px; }
+  #detail .report-btn { position: relative; padding: 10px 0; }
+  #detail .report-btn::after { content: ""; position: absolute; inset: -6px -4px; }
+  #detail[data-sheet="full"], #detail.sheet-dragging { max-height: calc(100dvh - var(--ff-b) - 72px - env(safe-area-inset-top, 0px)); z-index: 16; }
+  #detail.sheet-dragging { overflow: hidden; transition: none; }
+  #detail[data-sheet="closed"]:not(.sheet-dragging) > :not(.sheet-handle, .detail-close, h3) { display: none; }
+  #detail[data-sheet="closed"] { cursor: pointer; padding-bottom: 10px; }
+  #detail[data-sheet="closed"] h3 { padding-right: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  /* Platsraden (#312): överst i faktarutan, fäller ihop rutan och visar markören på globen */
+  #detail .place-row {
+    display: flex; align-items: center; gap: 7px; width: 100%; min-height: 44px; margin: 0 0 8px; padding: 0;
+    background: none; border: 0; border-bottom: 1px solid color-mix(in srgb, var(--card-dim) 35%, transparent);
+    color: var(--card-accent); font: 500 12px/1.2 var(--f-mono); text-align: left; cursor: pointer;
+  }
+  #detail .place-row:focus-visible { outline: 2px solid var(--card-accent); outline-offset: 2px; border-radius: 4px; }
+  .place-pin { flex: none; width: 8px; height: 8px; border: 1.5px solid currentColor; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); margin: 0 2px 2px; }
+  .place-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--card-ink); }
+  .place-go { flex: none; text-decoration: underline; text-underline-offset: 3px; }
+}
+/* Mycket smala skärmar (360 px): knapparna och årtalet lite mindre, så att raden överst ryms */
+@media (max-width: 370px) {
+  .action-group .chip-btn { padding: 0 7px; }
+  .top-actions, .action-group, .action-group:first-child, .action-group:last-child { gap: 2px; }
+  .year-big, .year-jump.fine .year-big { font-size: 26px; }
+}

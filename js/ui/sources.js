@@ -1,7 +1,7 @@
 // "Om källorna": källpolicy och källregistret från data/sources.json.
 // Källorna grupperas efter vad de används till (#141). Grupperna räknas fram ur datan:
 // vilka händelser, fun facts, riken, religioner, kartlager och bilder som pekar på varje källa.
-import { t, settings, loadReligions } from '../model.js';
+import { t, settings, loadReligions, loadForSources } from '../model.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 // Sökningen bryr sig inte om stora bokstäver eller accenter (å, ä, ö räknas som a, a, o)
@@ -106,7 +106,23 @@ export class SourcesDialog {
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !root.hidden) this.hide(); });
   }
 
+  /**
+   * highlightIds = källorna att visa (fun factens), eller en funktion som ger dem när allt har laddats.
+   * Källregistret, händelsernas källor och rikenas faktarutor laddas första gången dialogen öppnas (#337);
+   * under tiden står "Laddar källorna…" i dialogen.
+   */
   open(highlightIds = null) {
+    const token = this.opening = {};
+    if (!this.prepared) {
+      this.body.innerHTML = '<p class="detail-loading" role="status">Laddar källorna…</p>';
+      this._reveal();
+      loadForSources().then(() => {
+        this.prepared = true;
+        if (this.opening === token && !this.root.hidden) this.open(highlightIds);
+      }).catch(err => { console.error(err); this.body.innerHTML = '<p>Källorna kunde inte laddas.</p>'; });
+      return;
+    }
+    if (typeof highlightIds === 'function') highlightIds = highlightIds();
     this.highlight = highlightIds;
     this.query = '';
     this.group = null;
@@ -166,10 +182,7 @@ export class SourcesDialog {
     });
     this.groups = collect(this.data, religionsDoc);
     this.render();
-    this.returnTo = this.root.hidden ? document.activeElement : this.returnTo;
-    this.root.hidden = false;
-    this.body.scrollTop = 0;
-    this.root.querySelector('#sources-close')?.focus({ preventScroll: true }); // fokus in i dialogen (#246)
+    this._reveal();
     // Religionsdatan laddas först när den behövs; religionernas källor fylls i när den har kommit
     if (!religionsDoc) {
       loadReligions().then(doc => {
@@ -180,6 +193,14 @@ export class SourcesDialog {
         this.render();
       }).catch(err => console.error(err));
     }
+  }
+
+  /** Visar dialogen och flyttar fokus in i den (#246); returnTo = det som hade fokus innan. */
+  _reveal() {
+    this.returnTo = this.root.hidden ? document.activeElement : this.returnTo;
+    this.root.hidden = false;
+    this.body.scrollTop = 0;
+    this.root.querySelector('#sources-close')?.focus({ preventScroll: true }); // fokus in i dialogen (#246)
   }
 
   render() {
