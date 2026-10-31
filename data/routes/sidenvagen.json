@@ -1,0 +1,573 @@
+{
+  "routes": [
+    {
+      "id": "sidenvagen-hexi",
+      "kind": "trade",
+      "category": "ekonomi",
+      "title": {
+        "sv": "Sidenvägen: Chang'an och Hexikorridoren",
+        "en": "Silk Road: Chang'an and the Hexi Corridor"
+      },
+      "summary": {
+        "sv": "Sidenvägen var inte en enda väg utan ett nät av handelsvägar mellan Kina och Medelhavet. Den östra delen började i Han-dynastins huvudstad Chang'an, dagens Xi'an, och gick åt nordväst genom Gansu längs en rad oaser i Hexikorridoren mot Anxi och Dunhuang. Under senare Han låg huvudstaden i Luoyang längre österut. Hankinesiska trupper drev ut xiongnu ur korridoren 121 f.Kr., och Kina fick då kontroll över vägen mot Centralasien. Få köpmän reste hela vägen; varorna bytte ägare många gånger på vägen.",
+        "en": "The Silk Road was not one road but a network of trade routes between China and the Mediterranean. Its eastern part started in the Han capital Chang'an, today's Xi'an, and ran northwest through Gansu along a string of oases in the Hexi Corridor towards Anxi and Dunhuang. Under the Later Han the capital was Luoyang, further east. Han troops drove the Xiongnu out of the corridor in 121 BCE, giving China control of the road to Central Asia. Few merchants travelled the whole way; goods changed hands many times along the route."
+      },
+      "start": -129,
+      "end": 1450,
+      "edtf": "-0129~/1450~",
+      "precision": 8,
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig",
+          "en": "Sources differ"
+        },
+        "text": {
+          "sv": "Wikipedia anger på olika ställen att sidenvägen började omkring 130 f.Kr. (Han-dynastins sändebud efter Zhang Qians resor), omkring 114 f.Kr. eller under första århundradet f.Kr. World History Encyclopedia skriver 130 f.Kr. Slutet anges som mitten av 1400-talet (Wikipedia, ungefär 1450) eller 1453, när Osmanska riket tog Konstantinopel (World History Encyclopedia). Enligt Wikipedia fortsatte sidenhandeln ändå till 1720-talet. Här visas vägen från 130 f.Kr. till 1450. Hexikorridoren kom under Han-dynastin 121 f.Kr., och Dunhuang blev ett eget kommanderi först kort efter 104 f.Kr.",
+          "en": "Wikipedia gives the start of the Silk Road in different places as about 130 BCE (Han envoys after Zhang Qian's journeys), about 114 BCE or the 1st century BCE. World History Encyclopedia says 130 BCE. The end is given as the mid-15th century (Wikipedia, about 1450) or 1453, when the Ottoman Empire took Constantinople (World History Encyclopedia). According to Wikipedia the silk trade still went on until the 1720s. The route is shown here from 130 BCE to 1450. The Hexi Corridor came under the Han in 121 BCE, and Dunhuang became a commandery only shortly after 104 BCE."
+        }
+      },
+      "sources": [
+        "wp-silk-road",
+        "wp-northern-silk-road",
+        "wp-hexi-corridor",
+        "wp-dunhuang",
+        "whe-silk-road",
+        "wikidata"
+      ],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": -129,
+          "to": 1450,
+          "edtf": "-0129~/1450~",
+          "path": [[108.9, 34.3], [103.8, 36.1], [102.6, 37.9], [100.5, 38.9], [98.5, 39.7], [95.8, 40.5]],
+          "places": [
+            {
+              "at": [108.9, 34.3],
+              "name": {
+                "sv": "Chang'an (Xi'an)"
+              }
+            },
+            {
+              "at": [103.8, 36.1],
+              "name": {
+                "sv": "Lanzhou"
+              }
+            },
+            {
+              "at": [102.6, 37.9],
+              "name": {
+                "sv": "Wuwei"
+              }
+            },
+            {
+              "at": [100.5, 38.9],
+              "name": {
+                "sv": "Zhangye"
+              }
+            },
+            {
+              "at": [98.5, 39.7],
+              "name": {
+                "sv": "Jiuquan"
+              }
+            },
+            {
+              "at": [95.8, 40.5],
+              "name": {
+                "sv": "Anxi (Guazhou)"
+              }
+            }
+          ],
+          "sources": [
+            "wp-northern-silk-road",
+            "wp-hexi-corridor",
+            "wp-tarim-basin",
+            "wikidata"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sidenvagen-tarim",
+      "kind": "trade",
+      "category": "ekonomi",
+      "title": {
+        "sv": "Sidenvägen runt Tarimbäckenet",
+        "en": "Silk Road around the Tarim Basin"
+      },
+      "summary": {
+        "sv": "Väster om Anxi och Dunhuang delade sig sidenvägen runt Taklamakanöknen i Tarimbäckenet och möttes igen i Kashgar. Den norra vägen gick från oas till oas längs Tianshans fot via Turpan, Karasahr, Korla, Kucha och Aksu. Den södra vägen följde Kunlunbergen via Miran, Niya, Khotan och Yarkant. Under Han-dynastin gick huvudvägen genom mitten, från Jadeporten via Loulan vid Lop Nur till Korla. När floden Tarim bytte lopp omkring 330 e.Kr. flyttade trafiken norrut till Kumul (Hami), och området kring Lop Nur blev obeboeligt.",
+        "en": "West of Anxi and Dunhuang the Silk Road split around the Taklamakan Desert in the Tarim Basin and joined again at Kashgar. The northern route went from oasis to oasis along the foot of the Tian Shan via Turpan, Karasahr, Korla, Kucha and Aksu. The southern route followed the Kunlun Mountains via Miran, Niya, Khotan and Yarkant. Under the Han the main road ran through the middle, from the Jade Gate via Loulan near Lop Nur to Korla. When the Tarim river changed course around 330 CE, traffic moved north to Kumul (Hami), and the Lop Nur area became uninhabitable."
+      },
+      "start": -129,
+      "end": 1450,
+      "edtf": "-0129~/1450~",
+      "precision": 8,
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig",
+          "en": "Sources differ"
+        },
+        "text": {
+          "sv": "Wikipedia anger på olika ställen att sidenvägen började omkring 130 f.Kr. (Han-dynastins sändebud efter Zhang Qians resor), omkring 114 f.Kr. eller under första århundradet f.Kr. World History Encyclopedia skriver 130 f.Kr. Slutet anges som mitten av 1400-talet (Wikipedia, ungefär 1450) eller 1453, när Osmanska riket tog Konstantinopel (World History Encyclopedia). Enligt Wikipedia fortsatte sidenhandeln ändå till 1720-talet. Här visas vägen från 130 f.Kr. till 1450. Wikipedia ger ingen egen tid för den norra och den södra vägen, så de visas för hela perioden. Den södra vägen kan vara äldre än Han-dynastin, och den stördes när Tibet bredde ut sig i slutet av 600-talet och på 700-talet. Mittvägen genom Loulan övergavs enligt samma artikel helt först på 500-talet, inte redan omkring 330. Uppräkningen av orterna längs vägarna saknar egen källhänvisning i Wikipedia.",
+          "en": "Wikipedia gives the start of the Silk Road in different places as about 130 BCE (Han envoys after Zhang Qian's journeys), about 114 BCE or the 1st century BCE. World History Encyclopedia says 130 BCE. The end is given as the mid-15th century (Wikipedia, about 1450) or 1453, when the Ottoman Empire took Constantinople (World History Encyclopedia). According to Wikipedia the silk trade still went on until the 1720s. The route is shown here from 130 BCE to 1450. Wikipedia gives no separate dates for the northern and southern routes, so they are shown for the whole period. The southern route may be older than the Han, and it was disrupted by the Tibetan expansion in the late 7th and 8th centuries. According to the same article the middle route through Loulan was fully abandoned only in the 6th century, not already around 330. The lists of towns along the routes have no citation of their own in Wikipedia."
+        }
+      },
+      "sources": [
+        "wp-tarim-basin",
+        "wp-silk-road-khotan",
+        "wp-silk-road",
+        "wp-northern-silk-road",
+        "whe-silk-road",
+        "wikidata"
+      ],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": -129,
+          "to": 330,
+          "edtf": "-0129~/0330~",
+          "path": [[94.7, 40.1], [93.9, 40.4], [89.8, 40.5], [86.2, 41.8]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [94.7, 40.1],
+              "name": {
+                "sv": "Dunhuang"
+              }
+            },
+            {
+              "at": [93.9, 40.4],
+              "name": {
+                "sv": "Jadeporten (Yumenpasset)"
+              }
+            },
+            {
+              "at": [89.8, 40.5],
+              "name": {
+                "sv": "Loulan"
+              }
+            },
+            {
+              "at": [86.2, 41.8],
+              "name": {
+                "sv": "Korla"
+              }
+            }
+          ],
+          "sources": [
+            "wp-tarim-basin",
+            "wikidata"
+          ]
+        },
+        {
+          "from": -129,
+          "to": 1450,
+          "edtf": "-0129~/1450~",
+          "path": [[86.2, 41.8], [82.9, 41.6], [80.2, 41.2], [76.0, 39.5]],
+          "places": [
+            {
+              "at": [86.2, 41.8],
+              "name": {
+                "sv": "Korla"
+              }
+            },
+            {
+              "at": [82.9, 41.6],
+              "name": {
+                "sv": "Kucha"
+              }
+            },
+            {
+              "at": [80.2, 41.2],
+              "name": {
+                "sv": "Aksu"
+              }
+            },
+            {
+              "at": [76.0, 39.5],
+              "name": {
+                "sv": "Kashgar"
+              }
+            }
+          ],
+          "sources": [
+            "wp-tarim-basin",
+            "wp-northern-silk-road",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 330,
+          "to": 1450,
+          "edtf": "0330~/1450~",
+          "path": [[95.8, 40.5], [93.5, 42.8], [89.2, 43.0], [86.6, 42.0], [86.2, 41.8]],
+          "places": [
+            {
+              "at": [95.8, 40.5],
+              "name": {
+                "sv": "Anxi (Guazhou)"
+              }
+            },
+            {
+              "at": [93.5, 42.8],
+              "name": {
+                "sv": "Kumul (Hami)"
+              }
+            },
+            {
+              "at": [89.2, 43.0],
+              "name": {
+                "sv": "Turpan"
+              }
+            },
+            {
+              "at": [86.6, 42.0],
+              "name": {
+                "sv": "Karasahr"
+              }
+            },
+            {
+              "at": [86.2, 41.8],
+              "name": {
+                "sv": "Korla"
+              }
+            }
+          ],
+          "sources": [
+            "wp-tarim-basin",
+            "wikidata"
+          ]
+        },
+        {
+          "from": -129,
+          "to": 1450,
+          "edtf": "-0129~/1450~",
+          "path": [[95.8, 40.5], [94.7, 40.1], [88.9, 39.2], [88.2, 39.0], [85.5, 38.1], [82.8, 37.8], [81.7, 36.9], [79.9, 37.1], [78.3, 37.6], [77.4, 37.9], [77.2, 38.4], [76.0, 39.5]],
+          "places": [
+            {
+              "at": [95.8, 40.5],
+              "name": {
+                "sv": "Anxi (Guazhou)"
+              }
+            },
+            {
+              "at": [94.7, 40.1],
+              "name": {
+                "sv": "Dunhuang"
+              }
+            },
+            {
+              "at": [88.9, 39.2],
+              "name": {
+                "sv": "Miran"
+              }
+            },
+            {
+              "at": [88.2, 39.0],
+              "name": {
+                "sv": "Qarkilik (Ruoqiang)"
+              }
+            },
+            {
+              "at": [85.5, 38.1],
+              "name": {
+                "sv": "Qarqan (Qiemo)"
+              }
+            },
+            {
+              "at": [82.8, 37.8],
+              "name": {
+                "sv": "Niya"
+              }
+            },
+            {
+              "at": [81.7, 36.9],
+              "name": {
+                "sv": "Keriya"
+              }
+            },
+            {
+              "at": [79.9, 37.1],
+              "name": {
+                "sv": "Khotan"
+              }
+            },
+            {
+              "at": [78.3, 37.6],
+              "name": {
+                "sv": "Pishan (Guma)"
+              }
+            },
+            {
+              "at": [77.4, 37.9],
+              "name": {
+                "sv": "Karghalik (Yecheng)"
+              }
+            },
+            {
+              "at": [77.2, 38.4],
+              "name": {
+                "sv": "Yarkant"
+              }
+            },
+            {
+              "at": [76.0, 39.5],
+              "name": {
+                "sv": "Kashgar"
+              }
+            }
+          ],
+          "sources": [
+            "wp-tarim-basin",
+            "wp-silk-road-khotan",
+            "wikidata"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sidenvagen-vast",
+      "kind": "trade",
+      "category": "ekonomi",
+      "title": {
+        "sv": "Sidenvägen: från Kashgar till Medelhavet",
+        "en": "Silk Road: from Kashgar to the Mediterranean"
+      },
+      "summary": {
+        "sv": "Väster om Kashgar delade sig vägen igen. En gren gick över Torugartpasset till Kokand i Ferganadalen och sedan genom Karakumöknen, en annan genom Alajdalen mot Termez och Balkh. Båda nådde Merv, en stor handelsstad i dagens Turkmenistan. Därifrån gick vägen via Sarakhs, Mashhad och Nishapur till Ray, nära dagens Teheran, och vidare västerut genom norra Iran och Mesopotamien till Levanten vid Medelhavet. Partherriket var länge mellanhand mellan Kina och Rom. Ktesifon var en viktig handelsstad tills araberna tog den 637; senare blev Bagdad den viktigaste staden längs vägen. Orterna är de som källan använder för att beskriva vägen, ofta med dagens namn.",
+        "en": "West of Kashgar the road split again. One branch crossed the Torugart Pass to Kokand in the Fergana Valley and then the Karakum Desert, another went through the Alay Valley towards Termez and Balkh. Both reached Merv, a great trading city in today's Turkmenistan. From there the road ran via Sarakhs, Mashhad and Nishapur to Ray, near today's Tehran, and on west through northern Iran and Mesopotamia to the Levant on the Mediterranean. The Parthian Empire was long the middleman between China and Rome. Ctesiphon was an important trading city until the Arabs took it in 637; later Baghdad became the most important city on the route. The places are those the source uses to describe the route, often with their modern names."
+      },
+      "start": -129,
+      "end": 1450,
+      "edtf": "-0129~/1450~",
+      "precision": 8,
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig",
+          "en": "Sources differ"
+        },
+        "text": {
+          "sv": "Wikipedia anger på olika ställen att sidenvägen började omkring 130 f.Kr. (Han-dynastins sändebud efter Zhang Qians resor), omkring 114 f.Kr. eller under första århundradet f.Kr. World History Encyclopedia skriver 130 f.Kr. Slutet anges som mitten av 1400-talet (Wikipedia, ungefär 1450) eller 1453, när Osmanska riket tog Konstantinopel (World History Encyclopedia). Enligt Wikipedia fortsatte sidenhandeln ändå till 1720-talet. Här visas vägen från 130 f.Kr. till 1450. Wikipedia beskriver vägen väster om Ray bara som en riktning (norra Iran, Mesopotamien, norra Syriska öknen, Levanten). Hamadan, Ktesifon, Bagdad och Antiokia kommer från andra Wikipediasidor, och sidan som kallar Antiokia sidenvägens västra ändpunkt är märkt som otillräckligt belagd. Sträckorna Kokand–Merv, Balkh–Merv och väster om Ray är därför ungefärliga. Merv kunde också nås via Nisa i stället för Sarakhs.",
+          "en": "Wikipedia gives the start of the Silk Road in different places as about 130 BCE (Han envoys after Zhang Qian's journeys), about 114 BCE or the 1st century BCE. World History Encyclopedia says 130 BCE. The end is given as the mid-15th century (Wikipedia, about 1450) or 1453, when the Ottoman Empire took Constantinople (World History Encyclopedia). According to Wikipedia the silk trade still went on until the 1720s. The route is shown here from 130 BCE to 1450. Wikipedia describes the road west of Ray only as a direction (northern Iran, Mesopotamia, the northern Syrian Desert, the Levant). Hamadan, Ctesiphon, Baghdad and Antioch come from other Wikipedia pages, and the page calling Antioch the western end of the Silk Road is tagged as poorly sourced. The stretches Kokand–Merv, Balkh–Merv and west of Ray are therefore approximate. Merv could also be reached via Nisa instead of Sarakhs."
+        }
+      },
+      "sources": [
+        "wp-silk-road",
+        "wp-northern-silk-road",
+        "wp-cities-silk-road",
+        "wp-ctesiphon",
+        "wp-hamadan",
+        "whe-silk-road",
+        "wikidata"
+      ],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": -129,
+          "to": 1450,
+          "edtf": "-0129~/1450~",
+          "path": [[76.0, 39.5], [75.4, 40.6], [70.9, 40.5], [62.2, 37.7]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [76.0, 39.5],
+              "name": {
+                "sv": "Kashgar"
+              }
+            },
+            {
+              "at": [75.4, 40.6],
+              "name": {
+                "sv": "Torugartpasset"
+              }
+            },
+            {
+              "at": [70.9, 40.5],
+              "name": {
+                "sv": "Kokand i Ferganadalen"
+              }
+            },
+            {
+              "at": [62.2, 37.7],
+              "name": {
+                "sv": "Merv"
+              }
+            }
+          ],
+          "sources": [
+            "wp-silk-road",
+            "wp-northern-silk-road",
+            "wikidata"
+          ]
+        },
+        {
+          "from": -129,
+          "to": 1450,
+          "edtf": "-0129~/1450~",
+          "path": [[76.0, 39.5], [73.9, 39.7], [73.0, 39.7], [67.3, 37.2], [66.9, 36.8], [62.2, 37.7]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [76.0, 39.5],
+              "name": {
+                "sv": "Kashgar"
+              }
+            },
+            {
+              "at": [73.9, 39.7],
+              "name": {
+                "sv": "Irkeshtam"
+              }
+            },
+            {
+              "at": [73.0, 39.7],
+              "name": {
+                "sv": "Alajdalen"
+              }
+            },
+            {
+              "at": [67.3, 37.2],
+              "name": {
+                "sv": "Termez"
+              }
+            },
+            {
+              "at": [66.9, 36.8],
+              "name": {
+                "sv": "Balkh"
+              }
+            },
+            {
+              "at": [62.2, 37.7],
+              "name": {
+                "sv": "Merv"
+              }
+            }
+          ],
+          "sources": [
+            "wp-silk-road",
+            "wp-northern-silk-road",
+            "wikidata"
+          ]
+        },
+        {
+          "from": -129,
+          "to": 1450,
+          "edtf": "-0129~/1450~",
+          "path": [[62.2, 37.7], [61.2, 36.5], [59.6, 36.3], [58.8, 36.2], [51.4, 35.6]],
+          "places": [
+            {
+              "at": [62.2, 37.7],
+              "name": {
+                "sv": "Merv"
+              }
+            },
+            {
+              "at": [61.2, 36.5],
+              "name": {
+                "sv": "Sarakhs"
+              }
+            },
+            {
+              "at": [59.6, 36.3],
+              "name": {
+                "sv": "Mashhad"
+              }
+            },
+            {
+              "at": [58.8, 36.2],
+              "name": {
+                "sv": "Nishapur"
+              }
+            },
+            {
+              "at": [51.4, 35.6],
+              "name": {
+                "sv": "Ray"
+              }
+            }
+          ],
+          "sources": [
+            "wp-silk-road",
+            "wikidata"
+          ]
+        },
+        {
+          "from": -129,
+          "to": 637,
+          "edtf": "-0129~/0637",
+          "path": [[51.4, 35.6], [48.5, 34.8], [44.6, 33.1], [36.2, 36.2]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [51.4, 35.6],
+              "name": {
+                "sv": "Ray"
+              }
+            },
+            {
+              "at": [48.5, 34.8],
+              "name": {
+                "sv": "Hamadan"
+              }
+            },
+            {
+              "at": [44.6, 33.1],
+              "name": {
+                "sv": "Ktesifon"
+              }
+            },
+            {
+              "at": [36.2, 36.2],
+              "name": {
+                "sv": "Antiokia"
+              }
+            }
+          ],
+          "sources": [
+            "wp-silk-road",
+            "wp-hamadan",
+            "wp-ctesiphon",
+            "wp-cities-silk-road",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 765,
+          "to": 1450,
+          "edtf": "076X/1450~",
+          "path": [[51.4, 35.6], [48.5, 34.8], [44.4, 33.3]],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [51.4, 35.6],
+              "name": {
+                "sv": "Ray"
+              }
+            },
+            {
+              "at": [48.5, 34.8],
+              "name": {
+                "sv": "Hamadan"
+              }
+            },
+            {
+              "at": [44.4, 33.3],
+              "name": {
+                "sv": "Bagdad"
+              }
+            }
+          ],
+          "sources": [
+            "wp-silk-road",
+            "wp-hamadan",
+            "wp-ctesiphon",
+            "wikidata"
+          ]
+        }
+      ]
+    }
+  ]
+}

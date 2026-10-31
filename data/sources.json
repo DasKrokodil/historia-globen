@@ -714,6 +714,16 @@
     { "id": "commons-bild-sjalvstandighetsforklaringen", "title": "United States Declaration of Independence – William Stones faksimil, 1823 (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:United_States_Declaration_of_Independence.jpg", "license": "Public domain", "checked": "2026-10-30" },
     { "id": "wp-ming-treasure-voyages", "title": "Ming treasure voyages – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ming_treasure_voyages", "license": "CC BY-SA 4.0", "checked": "2026-10-30" },
     { "id": "wp-zheng-he", "title": "Zheng He – Wikipedia", "url": "https://en.wikipedia.org/wiki/Zheng_He", "license": "CC BY-SA 4.0", "checked": "2026-10-30" },
-    { "id": "whe-seven-voyages-zheng-he", "title": "The Seven Voyages of Zheng He – World History Encyclopedia (Mark Cartwright, 2019)", "url": "https://www.worldhistory.org/article/1334/the-seven-voyages-of-zheng-he/", "license": "CC BY-NC-SA (bara länkad, ingen text kopierad)", "checked": "2026-10-30" }
+    { "id": "whe-seven-voyages-zheng-he", "title": "The Seven Voyages of Zheng He – World History Encyclopedia (Mark Cartwright, 2019)", "url": "https://www.worldhistory.org/article/1334/the-seven-voyages-of-zheng-he/", "license": "CC BY-NC-SA (bara länkad, ingen text kopierad)", "checked": "2026-10-30" },
+    { "id": "wp-silk-road", "title": "Silk Road – Wikipedia", "url": "https://en.wikipedia.org/wiki/Silk_Road", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "wp-northern-silk-road", "title": "Northern Silk Road – Wikipedia", "url": "https://en.wikipedia.org/wiki/Northern_Silk_Road", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "wp-tarim-basin", "title": "Tarim Basin – Wikipedia (avsnittet om sidenvägens vägar genom bäckenet)", "url": "https://en.wikipedia.org/wiki/Tarim_Basin", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "wp-silk-road-khotan", "title": "Silk Road (Khotan) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Silk_Road_(Khotan)", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "wp-hexi-corridor", "title": "Hexi Corridor – Wikipedia", "url": "https://en.wikipedia.org/wiki/Hexi_Corridor", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "wp-dunhuang", "title": "Dunhuang – Wikipedia", "url": "https://en.wikipedia.org/wiki/Dunhuang", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "wp-cities-silk-road", "title": "Cities along the Silk Road – Wikipedia (märkt som otillräckligt belagd)", "url": "https://en.wikipedia.org/wiki/Cities_along_the_Silk_Road", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "wp-ctesiphon", "title": "Ctesiphon – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ctesiphon", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "wp-hamadan", "title": "Hamadan – Wikipedia", "url": "https://en.wikipedia.org/wiki/Hamadan", "license": "CC BY-SA 4.0", "checked": "2026-10-31" },
+    { "id": "whe-silk-road", "title": "Silk Road – World History Encyclopedia (Joshua J. Mark, 2018)", "url": "https://www.worldhistory.org/Silk_Road/", "license": "CC BY-NC-SA (bara länkad, ingen text kopierad)", "checked": "2026-10-31" }
   ]
 }
