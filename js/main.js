@@ -49,7 +49,7 @@ function warCards(events) {
 async function start() {
   // Lagrens grupper och förinställda vyer (#357) är en liten fil; den hämtas samtidigt med resten
   const [data, views] = await Promise.all([loadAll(), loadViews()]);
-  const globe = new Globe($('globe-canvas'));
+  const globe = new Globe($('globe-canvas'), $('year-jump'));
   globe.drawBase(data.land);
   const flatMap = new FlatMap({
     root: $('flat-view'), box: $('flat-box'), canvas: $('flat-canvas'),
