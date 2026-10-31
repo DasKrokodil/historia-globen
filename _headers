@@ -1,0 +1,14 @@
+# Cloudflare Pages: cache-regler för historiagloben.se (docs/DEPLOYMENT.md).
+# Sidan har inget byggsteg, så filnamnen ändras inte mellan releaser. Webbläsaren ska därför alltid
+# fråga servern om filen har ändrats (no-cache betyder "kontrollera först", inte "spara inte").
+# Annars kan en ny index.html blandas med gamla JS-moduler och sidan går sönder efter en release.
+/
+  Cache-Control: no-cache
+/index.html
+  Cache-Control: no-cache
+/js/*
+  Cache-Control: no-cache
+/css/*
+  Cache-Control: no-cache
+/data/*
+  Cache-Control: no-cache

@@ -53,6 +53,7 @@ python3 -m http.server 8000
 
 ```
 index.html
+_headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
 css/style.css
 js/main.js            startar allt och kopplar ihop registret, tidslinjen och panelerna
 js/state.js           det gemensamma tillståndet som lagren läser (år, fokus, filter, valda lager, #338)
