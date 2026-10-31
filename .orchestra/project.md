@@ -25,6 +25,9 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   självt att en del kan göras när som helst, får den delen tas, och pull requesten skriver "Del av #N".
 - **Anspråk:** en kommentar på issuet ("Orkestern tar det här, session <id>") och etiketten `orkester: pågår` medan
   arbetet pågår. Etiketten tas bort när pull requesten är öppnad eller arbetet pausas.
+- **Codex (beslut 2026-10-31):** Codex tar också issues och öppnar pull requests, enligt [AGENTS.md](../AGENTS.md). Orkestern
+  hoppar över issues med etiketten `codex: pågår` eller en öppen Codex-pull-request (`codex/issue-*`) som skriver
+  `Closes #N`. Dirigenten granskar Codex pull requests på samma sätt som arbetarnas leveranser innan Rikard slår ihop.
 - **Kapacitet:** högst tre arbetare samtidigt, inklusive hjälpare. Dirigenten får göra ett arbete själv, och det
   räknas då som en plats. Webbläsartester (Playwright) körs av en arbetare i taget, var och en med egen port. Kön
   hålls med en gemensam låsfil: `flock <scratchpad>/pw.lock node skript.cjs`. I molnmiljön når webbläsaren inte
