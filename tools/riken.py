@@ -28,6 +28,8 @@ MIN_AREA = 0.02  # öar mindre än så här (kvadratgrader, cirka 200 km2) tas b
 
 # Stora, utspridda imperier förenklas hårdare så att filen blir lagom stor: grupp -> (TOL, MERGE, MIN_AREA)
 OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
+             'spanska-imperiet': (0.3, 0.08, 0.08), 'portugisiska-imperiet': (0.3, 0.08, 0.08),
+             'ryska-imperiet': (0.3, 0.05, 0.08),
              # R5 (#71): kolonialvälden med många öar och Sovjetunionens långa kust
              'nederlandska-kolonialvaldet': (0.3, 0.08, 0.08), 'franska-kolonialvaldet': (0.3, 0.05, 0.08),
              'japanska-imperiet': (0.3, 0.05, 0.08), 'sovjetunionen': (0.3, 0.05, 0.08)}
@@ -138,6 +140,49 @@ GROUPS = {
     'timuridriket': ('Timuridriket', 'Timurid Empire', [
         ('Timurid Empire', 'timuridriket', 'Timuridriket', '#4a5fc4'),
     ]),
+    # R4 Tidigmodern tid (#70)
+    'aztekriket': ('Aztekriket', 'Aztec Empire', [
+        ('Tenochtitlan', 'tenochtitlan', 'Tenochtitlan', '#8f4a2a'),
+        ('Aztec Triple Alliance', 'aztekiska-trippelalliansen', 'Aztekiska trippelalliansen', '#8f4a2a'),
+    ]),
+    'inkariket': ('Inkariket', 'Inca Empire', [
+        ('Inca Empire', 'inkariket', 'Inkariket', '#8a5a9e'),
+    ]),
+    'songhairiket': ('Songhairiket', 'Songhai Empire', [
+        ('Songhai Empire', 'songhairiket', 'Songhairiket', '#7fae4a'),
+    ]),
+    'mogulriket': ('Mogulriket', 'Mughal Empire', [
+        ('Mughal Empire', 'mogulriket', 'Mogulriket', '#6b9e3a'),
+    ]),
+    'safavidriket': ('Safavidriket', 'Safavid Empire', [
+        ('Safavid Dynasty', 'safavidriket', 'Safavidriket', '#3a86b0'),
+    ]),
+    'mingdynastin': ('Mingdynastin', 'Ming dynasty', [
+        ('Ming Dynasty', 'mingdynastin', 'Mingdynastin', '#c4463c'),
+        ('Southern Ming', 'sodra-ming', 'Södra Ming', '#c4463c'),
+    ]),
+    'qingdynastin': ('Qingdynastin', 'Qing dynasty', [
+        ('Qing Dynasty', 'qingdynastin', 'Qingdynastin', '#d6a433'),
+    ]),
+    'spanska-imperiet': ('Spanska imperiet', 'Spanish Empire', [
+        ('(Spanish Empire)', 'spanska-imperiet', 'Spanska imperiet', '#d2602e', {'homeland': ['Kingdom of Spain', 'Iberian Union']}),
+    ]),
+    'portugisiska-imperiet': ('Portugisiska imperiet', 'Portuguese Empire', [
+        ('(Portuguese Empire)', 'portugisiska-imperiet', 'Portugisiska imperiet', '#2e7d5b', {'homeland': ['Kingdom of Portugal']}),
+    ]),
+    'ryska-imperiet': ('Ryssland: tsardömet och kejsardömet', 'Russia: Tsardom and Empire', [
+        ('Tsardom of Russia', 'ryska-tsardomet', 'Ryska tsardömet', '#7a5fa6'),
+        ('Russian Empire', 'ryska-imperiet', 'Ryska imperiet', '#7a5fa6'),
+    ]),
+    'svenska-stormaktsvaldet': ('Svenska stormaktsväldet', 'Swedish Empire', [
+        ('Swedish Empire', 'svenska-stormaktsvaldet', 'Svenska stormaktsväldet', '#3d8fd1'),
+    ]),
+    'habsburgska-riket': ('Habsburgska riket', 'Habsburg Monarchy', [
+        ('(Habsburg Monarchy)', 'habsburgska-riket', 'Habsburgska riket', '#a8475a'),
+    ]),
+    'tokugawa-japan': ('Tokugawa-Japan', 'Tokugawa Japan', [
+        ('Tokugawa Shogunate', 'tokugawa-japan', 'Tokugawa-Japan', '#4b9fb0'),
+    ]),
     # R5 Kolonialvälden och moderna imperier (#71)
     'franska-kolonialvaldet': ('Franska kolonialväldet', 'French colonial empire', [
         ('(Bourbon Kingdom of France)', 'frankrike-kungadomet', 'Frankrike (kungadömet)', '#2f6fdc',
@@ -181,6 +226,9 @@ GROUPS = {
 # eftersom moderlandets post ibland också innehåller handelsstationer långt bort.
 HOMELANDS = {
     'brittiska-imperiet': {'name': {'sv': 'Storbritannien', 'en': 'Great Britain'}, 'window': (-11, 49.5, 2.2, 61)},
+    # R4 (#70): Iberiska halvön med Balearerna, utan Ceuta, Melilla och Kanarieöarna
+    'spanska-imperiet': {'name': {'sv': 'Spanien', 'en': 'Spain'}, 'window': (-9.8, 36.0, 4.5, 44.0)},
+    'portugisiska-imperiet': {'name': {'sv': 'Portugal', 'en': 'Portugal'}, 'window': (-9.8, 36.8, -6.0, 42.2)},
     'franska-kolonialvaldet': {'name': {'sv': 'Frankrike', 'en': 'France'}, 'window': (-5.5, 41.2, 10, 51.2)},
     'nederlandska-kolonialvaldet': {'name': {'sv': 'Nederländerna', 'en': 'Netherlands'}, 'window': (2.4, 49.4, 7.3, 53.7)},
     'tyska-riket': {'name': {'sv': 'Tyskland', 'en': 'Germany'}, 'window': (5.5, 47, 23, 56)},
@@ -328,7 +376,8 @@ def main():
              '(Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. '
              f'Ändringar: geometrin är förenklad (Douglas-Peucker {TOL} grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 '
              f'borttagna) och på varandra följande perioder där gränsen ändras mindre än {round(MERGE * 100)} procent är sammanslagna. '
-             'Brittiska imperiet är förenklat hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna). '
+             'Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), '
+             'liksom Ryssland (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna). '
              'start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), '
              'är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på '
              'Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. '
