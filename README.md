@@ -64,6 +64,7 @@ js/layers/borders.js  lager: dagens landsgränser (av som standard)
 js/layers/religions.js lager: religioner som områden, med symboler i områdena (#271)
 js/layers/origins.js  religionens symbol där den uppstod, som klickbar markör (#271)
 js/layers/wars.js     lager: krigsområden runt krigets slag
+js/layers/lines.js    lager: vägar och resor som ritas fram över tiden (#38)
 js/ui/panel.js        "Samtidigt i världen" per världsdel, kategorifilter och detaljvy
 js/ui/funfact.js      Samtidigt-kortet (fun facts, när ett krig bröt ut) och bågar på globen
 js/ui/sources.js      sidan Om källorna (knappen Källor)
@@ -74,6 +75,7 @@ js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med
 js/ui/layers.js       lagerväljaren: slå av och på lager
 js/ui/clusters.js     klustring av händelser som ligger nära varandra
 js/ui/focusmenu.js    fokusmenyn: välj ett krig, rike eller en religion att följa
+js/ui/routepop.js     klickrutan för vägar och resor
 img/icons/            ikoner för händelser och religionernas symboler (egna SVG-teckningar, till exempel treaty.svg för fredsavtal, cross.svg och dharma-wheel.svg, #271)
 img/favicon.svg       sidans ikon i webbläsarfliken (och PNG-versioner för äldre webbläsare och hemskärm)
 images/events/        bilder till händelser (historiska bilder och märkta illustrationer)
@@ -90,6 +92,7 @@ tools/religioner.py   bygger religionslagret (data/religions.json) ur Cliopatria
 tools/religioner_riken.py  bygger rikenas gränser för religionslagrets klickruta ur Cliopatria
 data/empires/         riken med utbredning per period, en fil per rike och index.json (Cliopatria)
 data/borders.json     dagens landsgränser (Natural Earth)
+data/routes/          vägar och resor (lagertyp linje): index.json och en fil per resa eller väg
 data/religions.json   religioner över tid: varje rikes religion (Cliopatria + Wikipedia)
 data/religions-polities.json  varje rikes gräns i religionslagret, för klickrutan (Cliopatria)
 data/styles.json      bildstilar efter tidsålder och plats
