@@ -958,6 +958,14 @@ details.used-by summary:hover { color: var(--parchment); }
 }
 .focus-label { font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
 .focus-title { font: 400 16px/1.2 var(--f-display); }
+.focus-state { font: 400 11px/1 var(--f-mono); color: var(--parchment-dim); white-space: nowrap; }
+.focus-action {
+  font: 600 12px/1 var(--f-mono); color: var(--night); background: var(--brass);
+  border: 1px solid var(--brass); border-radius: 999px; padding: 7px 11px; cursor: pointer; white-space: nowrap;
+}
+.focus-action:hover { background: var(--brass-light); }
+/* Fokusåtgärden samlar uppspelningen i samma rad, så tidsraden inte visar två primära knappar. */
+.app.focusing #btn-play { display: none; }
 
 .focus-moved { flex-basis: 100%; text-align: center; font: 400 12px/1.4 var(--f-mono); color: var(--parchment-dim); }
 .focus-moved .link-btn { font: inherit; white-space: nowrap; }
@@ -1025,7 +1033,9 @@ details.used-by summary:hover { color: var(--parchment); }
   .app.focus-moved-on .focus-bar { flex-wrap: wrap; }
   .app.focus-moved-on .detail-card { bottom: 256px; max-height: 36vh; }
   .focus-label { display: none; }
-  .focus-title { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .focus-title { flex: 1 1 64px; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .focus-state { font-size: 10px; }
+  .focus-action { padding: 7px 10px; font-size: 12px; }
   .focus-bar .chip-btn { white-space: nowrap; padding: 7px 10px; font-size: 12px; }
   /* Datumet i fokusläget för korta krig (#289) är bredare och har nedstaplar (j i "jun"): mindre och med luft,
      så att det inte når fokusraden under. Året får bryta till en egen rad om det inte ryms. */
