@@ -4,17 +4,18 @@ Inställningar för [dirigenten och orkestern](shared/README.md) i det här proj
 [shared/ORCHESTRA.md](shared/ORCHESTRA.md). Projektets regler här och i [CLAUDE.md](../CLAUDE.md) går före de
 gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159), efter Rikards utvärdering av första passet.
 
-- **Regler att läsa först:** [CLAUDE.md](../CLAUDE.md) (arkitektur, datamodell, källpolicy, licenser, bilder,
-  utseende, test och arbetssätt), [docs/beslut.md](../docs/beslut.md), [docs/kallor.md](../docs/kallor.md),
-  [docs/datamodell.md](../docs/datamodell.md) och [docs/arkitektur.md](../docs/arkitektur.md).
+- **Regler att läsa:** kärnan och det som uppgiften träffar enligt [context-map.md](context-map.md) (beslut 2026-10-31,
+  ersätter "läs allt först"). Långa referensdokument och hela beslutsloggen läses inte som standard, utan söks i.
 - **Språk:** svenska i chatt, issues, kommentarer och pull requests, kort och tydligt, enligt CLAUDE.md. Rikard är
   projektledare: förklara vad som ändrats och varför. Användarens område: argumentet till `/orkester`.
 - **Läge:** `/orkester` med ett område (issuenummer eller ämne) kör ett avgränsat pass över just det området.
   `/orkester` utan område kör ett avgränsat pass över hela kön. Inget av dem startar timer, köavläsning eller
   bevakning. En obevakad kösession körs bara när Rikard uttryckligen ber om den.
-- **Passets storlek:** ett pass levererar högst fyra pull requests, så att Rikard hinner granska dem. Därefter
-  rapporterar dirigenten och stannar. Nästa pass startar när Rikard ber om det, till exempel "fortsätt med fler
-  issues". Ett angivet område med fler issues får ändå tas i sin helhet.
+- **Passets storlek:** ett pass levererar högst fyra pull requests, men normalstorleken är två till tre, så att Rikard
+  hinner granska dem. Fyra bara för självständiga leveranser med låg risk; arkitektur, central UI och beroendekedjor
+  levereras som en pull request, och beroende delsteg samlas när de inte är värdefulla och testbara var för sig.
+  Därefter rapporterar dirigenten och stannar. Nästa pass startar när Rikard ber om det, till exempel "fortsätt med
+  fler issues". Ett angivet område med fler issues får ändå tas i sin helhet.
 - **Repo och samordning:** `DasKrokodil/historia-globen`. Ingen statusissue; status rapporteras i chatten och i
   varje issue.
 - **Issues:** GitHub, enligt shared/ISSUE-WORKFLOW.md. Projektets etiketter: `idé`, `data`, `faktafel`,
@@ -28,7 +29,7 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
 - **Codex (beslut 2026-10-31):** Codex tar också issues och öppnar pull requests, enligt [AGENTS.md](../AGENTS.md). Orkestern
   hoppar över issues med etiketten `codex: pågår` eller en öppen Codex-pull-request (`codex/issue-*`) som skriver
   `Closes #N`. Dirigenten granskar Codex pull requests på samma sätt som arbetarnas leveranser innan Rikard slår ihop.
-- **Kapacitet:** högst tre arbetare samtidigt, inklusive hjälpare. Dirigenten får göra ett arbete själv, och det
+- **Kapacitet:** en arbetare är standard (resurspolicyn nedan). Högst tre arbetare samtidigt, inklusive hjälpare. Dirigenten får göra ett arbete själv, och det
   räknas då som en plats. Webbläsartester (Playwright) körs av en arbetare i taget, var och en med egen port. Kön
   hålls med en gemensam låsfil: `flock <scratchpad>/pw.lock node skript.cjs`. I molnmiljön når webbläsaren inte
   jsdelivr, så three.js routas till en lokal kopia (`three@0.160.0`) och Google Fonts avbryts.
@@ -82,6 +83,50 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   och återanvänds i 24 timmar. Relevanta buggfixar föreslås som ett issue här. Andra uppgraderingar är frivilliga.
   Uppgraderingar importeras bara när Rikard godkänner. Verktyget `gh` finns inte i molnmiljön; använd GitHubs
   MCP-verktyg eller vanliga git-kommandon.
+
+## Resurspolicy
+
+Beslut 2026-10-31, efter granskningen i [docs/granskningar/2026-10-31-orkester-tokenanalys.md](../docs/granskningar/2026-10-31-orkester-tokenanalys.md).
+Kompletterar "Spend resources deliberately" och "Choose the smallest useful team" i [shared/ORCHESTRA.md](shared/ORCHESTRA.md).
+Granskning och källkontroll hoppas aldrig över; besparingen görs före och runt dem.
+
+- **Bemanning efter uppgift:**
+
+  | Uppgift | Bemanning | Kontroll |
+  | --- | --- | --- |
+  | Stavning, dokumentation, en liten konstant | Dirigenten direkt eller en billigare arbetare | Riktad |
+  | Avgränsad ändring i kod eller utseende | En arbetare och dirigentens granskning | Komponent |
+  | Fakta, årtal, källor, historisk data | Dirigenten eller en arbetare med samma modell som dirigenten | Komponent och källkontroll |
+  | Arkitektur, datamodell, säkerhet, central rendering | Dirigenten och högst en arbetare till att börja med | Full |
+  | Flera likadana, helt separata innehållspaket | Två eller tre arbetare, när mönster och fakta är låsta | Komponent, stickprov och sammanslagningstest |
+
+- **Två eller tre arbetare** bara när dirigenten kan svara ja på allt detta: leveranserna har inga inbördes beroenden,
+  de ändrar inte samma centrala filer eller genererade index (till exempel `js/main.js`, `css/style.css`,
+  `data/events.json`, `data/sources.json`, `data/genererat/`, `docs/beslut.md`), de kan verifieras var för sig, en
+  misslyckad leverans blockerar inte de andra, och tidsvinsten är verklig trots kön till webbläsartestet. Annars körs
+  uppgifterna efter varandra.
+- **Uppdraget till arbetaren** följer [shared/WORKER.md](shared/WORKER.md), på högst cirka 800 ord, och har dessutom:
+  vad som uttryckligen inte ingår, relevanta beslut och verifierade fakta, vilka avsnitt ur
+  [context-map.md](context-map.md) som gäller, och **när arbetaren ska stanna och fråga** (osäkerheter som inte får
+  gissas). Hela chatten, hela kön och hela dokument skickas inte.
+- **Testnivåer efter risk:**
+  1. **Riktad:** dokumentation, statiska texter och mycket små isolerade ändringar. Diff, syntax, länkar eller
+     relevant validator (`python3 -m json.tool`, `scripts/build-site.sh`).
+  2. **Komponent:** data, en panel eller ett lager. Validator plus ett avgränsat webbläsarflöde och skärmbilder av
+     det som ändrats.
+  3. **Full:** central JavaScript, rendering, tidslinje, mobillayout, dataladdning, arkitektur, beroenden och
+     release. Dator och mobil, konsol, hela `tests/webblasare.mjs` lokalt och integrationsprov.
+
+  Webbläsartestet i GitHub skyddar alltid `main`. Dirigenten granskar arbetarens bevis och kör om test bara vid
+  konkret misstanke, bristfälligt bevis eller hög risk.
+- **Paus vid tidigt fel:** hittar dirigenten en väsentlig rättning i någon av passets två första leveranser startas
+  inga nya likadana uppdrag förrän orsaken har förts in i uppdraget, kontextkartan eller testkraven.
+- **Resultatet skrivs en gång:** ett kort bevisblock (vad som ändrats för användaren, viktigaste filer, körda
+  kontroller och utfall, skärmbilder eller källor, kända begränsningar) återanvänds i issuekommentar, pull request
+  och rapport.
+- **Uppföljning (försök under 10–20 issues):** varje pass rapporterar antal arbetare, pull requests, väsentliga
+  rättningar i granskningen och omkörda tester med orsak. Tokenåtgång rapporteras bara när miljön visar den.
+  Ändringen behålls om kvaliteten håller (oförändrad andel rättningar och inga fler fel efter ihopslagning).
 
 ## Projektets fashakar
 
