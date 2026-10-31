@@ -63,6 +63,7 @@ js/layers/areas.js    lager: riken som områden som ändras över tid
 js/layers/borders.js  lager: dagens landsgränser (av som standard)
 js/layers/religions.js lager: religioner som områden, med symboler i områdena (#271)
 js/layers/origins.js  religionens symbol där den uppstod, som klickbar markör (#271)
+js/layers/empiremarks.js rikenas symboler mitt i områdena, som klickbara markörer (#301)
 js/layers/wars.js     lager: krigsområden runt krigets slag
 js/layers/lines.js    lager: vägar och resor som ritas fram över tiden (#38)
 js/layers/discovery.js lager: upptäcktsvyn med dimma som resorna lyfter, havsmonster och kompassrosor (#101)

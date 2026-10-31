@@ -132,6 +132,15 @@
       "text": {
        "sv": "Latin, och med tiden allt mer grekiska. I Bysans ersatte grekiskan latinet som officiellt språk. Romersk polyteism med kejsarkult, och från 380 nicensk kristendom som officiell religion."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Örnen, aquila, var ett av Roms mest framträdande tecken, framför allt som legionernas fältstandar. Varje legion hade en örn, och att förlora den räknades som en stor skam. Enligt Plinius den äldre behölls örnen som enda standar efter 104 f.Kr., men andra källor visar att legionerna fortfarande använde andra djur en tid efter det. Kartan visar örnen för hela gruppen utom Bysantinska riket, som har en egen symbol."
+      }
      }
     ],
     "milestones": [
@@ -425,9 +434,74 @@
      "wp-roman-empire",
      "wp-roman-kingdom",
      "wp-roman-republic",
-     "wp-byzantine-empire"
+     "wp-byzantine-empire",
+     "wp-aquila"
     ],
     "review": "source-checked"
+   },
+   "symbol": "aquila",
+   "polityFacts": {
+    "bysantinska-riket": {
+     "symbol": "double-eagle",
+     "facts": {
+      "summary": {
+       "sv": "Bysantinska riket var den östra fortsättningen på Romarriket, med Konstantinopel som huvudstad. Det överlevde Västroms fall på 400-talet och bestod till 1453. Namnet Bysans kom först efter rikets slut; invånarna kallade själva sitt rike romerskt och sig själva romare."
+      },
+      "items": [
+       {
+        "label": {
+         "sv": "När och var det uppstod"
+        },
+        "text": {
+         "sv": "Det finns ingen enighet om när Bysantinska riket började. Ofta anges 330, då Konstantin den store invigde Konstantinopel som ny huvudstad i öster. Andra räknar från 395, då riket delades efter Theodosius I:s död, och vissa forskare sätter början först på 600- eller 700-talet."
+        }
+       },
+       {
+        "label": {
+         "sv": "Hur det slutade"
+        },
+        "text": {
+         "sv": "Den 29 maj 1453 erövrade osmanerna Konstantinopel. Den siste kejsaren, Konstantin XI, stupade i striderna, och riket upphörde."
+        }
+       },
+       {
+        "label": {
+         "sv": "Huvudstad"
+        },
+        "text": {
+         "sv": "Konstantinopel, dagens Istanbul, under hela rikets tid. Staden plundrades av fjärde korståget 1204 och återtogs 1261."
+        }
+       },
+       {
+        "label": {
+         "sv": "Kända härskare"
+        },
+        "text": {
+         "sv": "Justinianus I (527–565), då riket var som störst, Herakleios (610–641), Basileios II (976–1025), Alexios I Komnenos (1081–1118), Mikael VIII (1261–1282), som återtog Konstantinopel, och Konstantin XI (1449–1453)."
+        }
+       },
+       {
+        "label": {
+         "sv": "Symbolen på kartan",
+         "en": "The symbol on the map"
+        },
+        "text": {
+         "sv": "Dubbelörnen är det tecken som oftast förknippas med Bysans. Som prydnad finns den i bysantinsk konst från 900- och 1000-talet, men tillsammans med kejsaren är den säkert belagd först 1301, under Andronikos II Palaiologos. Under rikets sista århundraden bar kejsarfamiljen den på kläder och utrustning. Kartan visar den ändå för hela rikets tid, som en symbol för riket."
+        }
+       }
+      ],
+      "mapNote": {
+       "sv": "I kartdatan heter riket Bysantinska riket från 633. Åren 395–632 visas som Östromerska riket, med Roms symbol."
+      },
+      "sources": [
+       "wp-byzantine-empire",
+       "whe-byzantine-empire",
+       "wd-byzantine-empire",
+       "wp-byzantine-insignia"
+      ],
+      "review": "two-sources"
+     }
+    }
    }
   },
   {
@@ -504,6 +578,15 @@
       },
       "text": {
        "sv": "Fornpersiska var dynastins språk och arameiska det officiella språket i förvaltningen. Zoroastrism var statsreligion, men många andra religioner fanns i riket. Riket är känt för sin förvaltning, Kungsvägen, ett ordnat postväsende och religiös tolerans, särskilt under Kyros."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Akemenidernas kungliga fältstandar. Xenofon beskriver standaret som Artaxerxes II förde vid Kunaxa som en gyllene örn med utbredda vingar på ett långt spjutskaft, och samma standar sägs ha använts av Kyros den store. Hur det såg ut i detalj vet man inte; teckningen är en förenkling av beskrivningen."
       }
      }
     ],
@@ -672,10 +755,12 @@
      "sv": "Källan anger 550–330 f.Kr."
     },
     "sources": [
-     "wp-achaemenid-empire"
+     "wp-achaemenid-empire",
+     "wp-flag-of-iran"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "eagle-standard"
   },
   {
    "id": "alexanders-rike",
@@ -751,6 +836,15 @@
       },
       "text": {
        "sv": "Fornmakedoniska, attisk grekiska och koine-grekiska. Grekisk polyteism och hellenistisk religion. Alexanders lärare Aristoteles fick stort inflytande på västerländsk filosofi."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Verginasolen, en sol med sexton strålar. Den finns på den gyllene kistan i en kunglig grav från 300-talet f.Kr. i Aigai (Vergina), som tillhörde antingen Filip II, Alexanders far, eller Filip III. Forskarna är oense om den var den makedoniska kungaättens eget tecken eller bara ett vanligt grekiskt prydnadsmotiv."
       }
      }
     ],
@@ -896,10 +990,12 @@
      "sv": "Kartdatan slutar 293 f.Kr., men enligt källan fanns kungadömet kvar till 168 f.Kr."
     },
     "sources": [
-     "wp-macedonia-ancient"
+     "wp-macedonia-ancient",
+     "wp-vergina-sun"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "vergina-sun"
   },
   {
    "id": "hanriket",
@@ -1230,6 +1326,15 @@
       "text": {
        "sv": "Ashoka blev buddhist efter det våldsamma Kalingakriget och sände missionärer bland annat till Sri Lanka och Centralasien, vilket bidrog till att buddhismen blev en världsreligion. Sydasiens befolkning under perioden uppskattas till 15–30 miljoner. Språk: magadhi-prakrit, och troligen sanskrit i litteraturen. Ashokas lejonkapitäl i Sarnath blev Indiens statsvapen 1947."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Lejonkapitälet från Sarnath, toppen på en pelare som kejsar Ashoka lät resa cirka 250 f.Kr.: fyra lejon rygg mot rygg på en rund platta. Lejonen tolkas bland annat som ett tecken för Ashokas makt. Kapitälet är förebild för dagens indiska statsvapen. Teckningen visar lejonen och plattan, inte hjulet som en gång satt ovanpå."
+      }
      }
     ],
     "milestones": [
@@ -1360,10 +1465,12 @@
      "sv": "Källan anger cirka 320 till 185 f.Kr."
     },
     "sources": [
-     "wp-maurya-empire"
+     "wp-maurya-empire",
+     "wp-lion-capital-ashoka"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "lion-capital"
   },
   {
    "id": "osmanska-riket",
@@ -1439,6 +1546,15 @@
       },
       "text": {
        "sv": "Osmansk turkiska var officiellt språk. Arabiska, persiska, grekiska och många andra språk användes också. Sunniislam var statsreligion. Rikets trossamfund (millet) fick i olika grad sköta sina egna angelägenheter."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Tughran, sultanens kalligrafiska namnteckning. Den sattes på alla officiella dokument och präglades på mynt. Varje sultan hade sin egen tughra, och de första är från 1300-talet (den första osmanska tughran är Orhans, 1326). Formen känns igen på två öglor till vänster, tre lodräta streck i mitten och två utsträckta linjer åt höger."
       }
      }
     ],
@@ -1621,10 +1737,12 @@
      "sv": "Källan anger cirka 1299 som start. Kartan slutar 1923, året då republiken utropades, men sultanatet avskaffades redan 1922."
     },
     "sources": [
-     "wp-ottoman"
+     "wp-ottoman",
+     "wp-tughra"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "tughra"
   },
   {
    "id": "mongolriket",
@@ -1744,6 +1862,15 @@
       },
       "text": {
        "sv": "Språk: mellanmongoliska, turkspråk, kinesiska, persiska med flera. Riket förband öst och väst, och den påtvingade freden, Pax Mongolica, gjorde handel och utbyte av teknik och idéer möjligt över Eurasien."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Tug eller sülde, en stång med hästtagel i en krans överst. Den fördes under Mongolriket: vita fanor användes i fred och svarta i krig. Hästtaglet anspelar på hur viktiga hästarna var för mongolerna."
       }
      }
     ],
@@ -1911,10 +2038,12 @@
      "sv": "Kartan visar även khanaten och går därför längre. Källan anger 1206–1368 för själva Mongolriket."
     },
     "sources": [
-     "wp-mongol-empire"
+     "wp-mongol-empire",
+     "wp-tug-banner"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "sulde"
   },
   {
    "id": "brittiska-imperiet",
@@ -1990,6 +2119,15 @@
       },
       "text": {
        "sv": "Kallades \"imperiet där solen aldrig går ned\". Arvet i styrelseskick, rätt och språk finns kvar i stora delar av världen, och många tidigare kolonier gick med i Samväldet (Commonwealth of Nations)."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Kronan står för monarken som den yttersta källan till statens makt. Den heraldiska kronan i Tudorstil från 1901 gjordes enhetlig i hela Brittiska imperiet och finns på många officiella emblem, i Storbritannien och i det forna imperiet. Redan 1880 fick den heraldiska kronan rundare bågar, efter att Viktoria blivit kejsarinna av Indien."
       }
      }
     ],
@@ -2149,10 +2287,12 @@
      "sv": "Källan låter imperiet börja i slutet av 1500-talet och nämner 1997 som slutet för många."
     },
     "sources": [
-     "wp-british-empire"
+     "wp-british-empire",
+     "wp-tudor-crown"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "imperial-crown"
   },
   {
    "id": "egypten",

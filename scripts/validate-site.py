@@ -13,7 +13,8 @@ Kontroller:
   7. Filer som data pekar på finns: rikesfilerna i data/empires/index.json (file), filerna med vägar
      och resor i data/routes/index.json (files), händelsernas bilder (image.file), upptäcktsvyns bilder
      (decorations[].file i data/upptackt.json) och ikonerna (icon i
-     events.json och CAT_ICON i js/ui/funfact.js).
+     events.json, CAT_ICON i js/ui/funfact.js, symbol i religions.json och
+     symbol i data/empires/index.json).
   8. Varje källa som en händelse, ett krigs berättelse, en väg, en etapp eller en dekoration i
      upptäcktsvyn anger finns i sources.json,
      och varje händelse som en fun fact eller en väg (event) pekar på finns i events.json (CLAUDE.md,
@@ -171,6 +172,14 @@ religions = load('data/religions.json') if (DIST / 'data/religions.json').is_fil
 for r in (religions or {}).get('religions', []):
     if r.get('symbol'):
         icons.setdefault(r['symbol'], f"data/religions.json ({r['id']}, symbol)")
+# Rikenas symboler (#301): symbol i varje grupp och i polityFacts i data/empires/index.json
+empires_idx = load('data/empires/index.json') if (DIST / 'data/empires/index.json').is_file() else None
+for g in (empires_idx or {}).get('groups', []):
+    if g.get('symbol'):
+        icons.setdefault(g['symbol'], f"data/empires/index.json ({g['id']}, symbol)")
+    for pid, pf in (g.get('polityFacts') or {}).items():
+        if pf.get('symbol'):
+            icons.setdefault(pf['symbol'], f"data/empires/index.json ({g['id']}, polityFacts.{pid}.symbol)")
 for name, by in sorted(icons.items()):
     exists(f'img/icons/{name}.svg', f'ikonen {name} ({by})')
 # Upptäcktsvyns bilder (#101)

@@ -116,7 +116,7 @@ Korten "När ett krig bröt ut" lagras inte här. De byggs i koden ur händelser
     "periods": [{ "start": -202, "end": -127, "areaKm2": 2042615, "label": [111.5, 33.4], "geometry": { "type": "MultiPolygon", … } }] }] }
 ```
 
-Ett rike kan bestå av flera delar, till exempel Romarriket med kungadömet, republiken, kejsardömet och Bysans. Varje period har en egen gräns. `label` är platsen där namnet skrivs ut. Filerna byggs med `tools/riken.py` ur Cliopatria. Faktarutorna (`facts`, se nedan) skrivs för hand; skriptet läser den befintliga `index.json` och behåller varje rikes `facts` när filen skrivs om (#68).
+Ett rike kan bestå av flera delar, till exempel Romarriket med kungadömet, republiken, kejsardömet och Bysans. Varje period har en egen gräns. `label` är platsen där namnet skrivs ut. Filerna byggs med `tools/riken.py` ur Cliopatria. Faktarutorna (`facts`, se nedan), symbolerna (`symbol`) och de egna faktarutorna för enskilda riken (`polityFacts`) skrivs för hand; skriptet läser den befintliga `index.json` och behåller de fälten i varje rike när filen skrivs om (#68, #301).
 
 Medeltidens riken (R3, #69): Umayyad- och abbasidkalifaten, Frankerriket (merovinger och karoliner, Cliopatrias sammanslagna `(Merovingian Empire)` och `(Carolingian Empire)`), Tysk-romerska riket (`(Holy Roman Empire)`), Tang- och Songdynastierna, Khmerriket, Ghanariket, Maliriket, Kievriket och Timuridriket, var och en en egen grupp med faktaruta. Källor: Wikipedia och World History Encyclopedia (NC, bara länkad). Kartdatans avvikelser står i varje rikes `mapNote`, till exempel att Cliopatria saknar abbasidkalifatet 970–1201 och från 1459 bara räknar Tysk-romerska rikets småstater till riket.
 
@@ -145,6 +145,16 @@ Rikets nyckelår är också rikets berättelse (#171): när man följer riket i 
 { "year": 1699, "label": { "sv": "1699" }, "title": { "sv": "Freden i Karlowitz" },
   "text": { "sv": "Kriget som började vid Wien slutar med förlust. …" }, "sources": ["wp-ottoman", "wp-karlowitz"],
   "mapNote": { "sv": "Kartan visar bara en liten minskning 1687–1705, några procent." } }
+```
+
+`symbol` (valfritt, #301) i en grupp i `empires/index.json` är namnet på rikets symbol, en egen teckning i `img/icons/<symbol>.svg`, som för religionerna (#271). Symbolen ska vara ett emblem som rikets egen tid använde eller som forskningen förknippar med riket, och valet förklaras med källa i faktarutan: en rad `items` med rubriken "Symbolen på kartan", och källan i `facts.sources`. Symbolen står i en mässingsmedalj på rikets `label`-punkt det år man tittar på (ett rike i gruppen i taget, så att till exempel Mongolrikets fyra khanat får var sin), som klickbar 3D-markör ovanpå klotet (`js/layers/empiremarks.js`) och på lagerbilden. Utzoomat på globen syns bara medaljen; vid nära zoom och i Platt vy står rikets namn under den. Pekar man på medaljen visas namnet, och klick öppnar rikets faktaruta. Symbolen står också bredvid färgen i Fokus → Riken och i faktarutans rubrik. Riken utan symbol visas som förut, med namnet på `label`-punkten. `scripts/validate-site.py` kontrollerar att filen finns. Valen: Rom `aquila` (legionsörnen), Akemenidiska riket `eagle-standard` (kungens fältstandar, en gyllene örn med utbredda vingar), Makedoniska riket `vergina-sun` (Verginasolen), Mauryariket `lion-capital` (Ashokas lejonkapitäl, utan hjulet), Mongolriket `sulde` (tug, stången med hästtagel), Osmanska riket `tughra` (sultanens namnteckning), Brittiska imperiet `imperial-crown` (den heraldiska kronan) och Bysantinska riket `double-eagle` (dubbelörnen, i `polityFacts`). Hanriket har ingen symbol, eftersom källorna inte nämner något statsemblem.
+
+`polityFacts` (valfritt, #301) i en grupp är egna faktarutor och symboler för enskilda riken i gruppen, med rikets id (polity) som nyckel: `{ "<polity-id>": { "symbol": "…", "facts": { … } } }`. `facts` har samma format som gruppens. När kartan visar det riket står dess egen symbol i medaljen, och klick öppnar dess egen faktaruta, med kartdata och ytkurva för just det riket. I dag har bara Bysantinska riket (`bysantinska-riket` i gruppen `romarriket`) en egen ruta; åren 395–632 heter riket Östromerska riket i kartdatan och visas med Roms symbol och ruta.
+
+```json
+"symbol": "aquila",
+"polityFacts": { "bysantinska-riket": { "symbol": "double-eagle",
+  "facts": { "summary": { "sv": "…" }, "items": [ … ], "sources": ["wp-byzantine-empire", "whe-byzantine-empire"], "review": "two-sources" } } }
 ```
 
 ## `routes/`: vägar och resor (#38)

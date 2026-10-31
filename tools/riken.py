@@ -6,8 +6,9 @@ riket behövs. data/empires/index.json listar alla riken med namn, färg och tid
 och laddas vid start. Geometrin förenklas och perioder där gränsen knappt ändras
 slås ihop, så att filerna blir små.
 
-Faktarutorna (fältet facts i index.json, #170) skrivs för hand och behålls: skriptet läser
-den befintliga index.json och för över varje grupps facts när filen skrivs igen.
+Faktarutorna (fältet facts i index.json, #170), rikenas symboler (symbol, #301) och egna faktarutor
+för enskilda riken i en grupp (polityFacts, #301) skrivs för hand och behålls: skriptet läser den
+befintliga index.json och för över de fälten i varje grupp när filen skrivs igen.
 
 Kör från projektets rot, med Cliopatria-filen (cliopatria_polities_only_v021.geojson
 från https://zenodo.org/records/13363121, CC BY 4.0):
@@ -24,6 +25,7 @@ from shapely.geometry import mapping, shape
 from shapely.ops import unary_union
 
 ROOT = Path(__file__).resolve().parent.parent
+KEEP = ('facts', 'symbol', 'polityFacts')  # fält i index.json som skrivs för hand och behålls, i den här ordningen
 TOL = 0.2      # förenkling i grader (Douglas-Peucker)
 MERGE = 0.02   # slå ihop perioder där gränsen ändras mindre än så här stor del av ytan
 MIN_AREA = 0.02  # öar mindre än så här (kvadratgrader, cirka 200 km2) tas bort
@@ -288,7 +290,7 @@ def main():
     out.mkdir(exist_ok=True)
     # Faktarutorna skrivs för hand och ska inte försvinna när filerna byggs om
     old = out / 'index.json'
-    facts = {g['id']: g['facts'] for g in json.loads(old.read_text())['groups'] if 'facts' in g} if old.exists() else {}
+    kept = {g['id']: {k: g[k] for k in KEEP if k in g} for g in json.loads(old.read_text())['groups']} if old.exists() else {}
     index = []
     for gid, (sv, en, members) in GROUPS.items():
         tol, merge, min_area = OVERRIDES.get(gid, (TOL, MERGE, MIN_AREA))
@@ -333,8 +335,7 @@ def main():
                       'to': max(q['end'] for p in polities for q in p['periods']),
                       'file': f'data/empires/{gid}.json',
                       'polities': [{'id': p['id'], 'name': p['name'], 'sources': p['sources'], 'review': p['review']} for p in polities]})
-        if gid in facts:
-            index[-1]['facts'] = facts[gid]
+        index[-1].update(kept.get(gid, {}))
         size = (out / f'{gid}.json').stat().st_size
         print(f'{gid}: {len(polities)} riken, {sum(len(p["periods"]) for p in polities)} perioder, {size // 1000} kB')
     notes = ('Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 '
