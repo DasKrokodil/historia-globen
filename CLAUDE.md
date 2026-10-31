@@ -43,6 +43,7 @@ js/ui/feedback.js     formuläret för besökarnas förslag (avstängt som stand
 js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med functions/)
 functions/api/feedback.js  Cloudflare Pages Function som skapar issues i ett privat repo (enda undantaget från punkt 1)
 tests/                tester för functions/ med node:test (node --test 'tests/*.test.mjs')
+tests/webblasare.mjs  webbläsartest med Playwright, körs i GitHub Actions för varje PR (#339)
 data/events.json      händelser
 data/funfacts.json    fun facts (kopplade till händelse-id)
 data/sources.json     källregister

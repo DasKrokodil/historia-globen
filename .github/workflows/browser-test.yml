@@ -1,0 +1,65 @@
+# Webbläsartest (#339, docs/DEPLOYMENT.md): bygger dist/, startar en lokal webbserver och öppnar sidan i Chromium
+# med Playwright i datorbredd (1400 × 900) och mobilbredd (400 × 800). Testskriptet är tests/webblasare.mjs.
+# Playwright används bara här i testerna (Rikards godkännande 2026-10-31); sidan själv får inga nya beroenden.
+# Körs vid push till main och vid pull requests mot main och production, som validate-site.yml.
+name: Webbläsartest
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main, production]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: webblasartest-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PLAYWRIGHT_VERSION: '1.63.0' # exakt version, ändras bara medvetet
+  PORT: '8000'
+
+jobs:
+  browser:
+    name: Öppna sidan i Chromium
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Bygg dist/
+        run: bash scripts/build-site.sh
+
+      - name: Installera Playwright och Chromium (utanför repot)
+        run: |
+          # Installeras i en tillfällig mapp, så att repot inte får någon package.json och dist/ inte påverkas
+          npm install --prefix "$RUNNER_TEMP/pw" --no-save --no-audit --no-fund "playwright@$PLAYWRIGHT_VERSION"
+          "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps --only-shell chromium
+
+      - name: Starta webbservern för dist/
+        run: |
+          python3 -m http.server "$PORT" --directory dist > "$RUNNER_TEMP/server.log" 2>&1 &
+          for i in $(seq 50); do curl -sf -o /dev/null "http://localhost:$PORT/" && exit 0; sleep 0.2; done
+          echo "::error::webbservern svarar inte"; cat "$RUNNER_TEMP/server.log"; exit 1
+
+      - name: Kör webbläsartestet (tests/webblasare.mjs)
+        env:
+          SKARMBILDER: skarmbilder
+        run: NODE_PATH="$RUNNER_TEMP/pw/node_modules" node tests/webblasare.mjs "$PORT"
+
+      - name: Spara skärmbilderna
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: skarmbilder
+          path: skarmbilder/
+          if-no-files-found: warn
+          retention-days: 14
