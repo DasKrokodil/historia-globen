@@ -1,5 +1,5 @@
 // "Samtidigt i världen": lista över synliga händelser per världsdel, kategorifilter
-// (som ligger i lagermenyn, #120) och faktarutan.
+// (i lagermenyn, #120, och som chips ovanför listan, #311) och faktarutan.
 import { buildAreaCurve } from './areacurve.js';
 import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, isVisibleReview } from '../model.js';
 
@@ -69,7 +69,7 @@ function lineageHtml(v) {
 }
 
 export class Panel {
-  constructor({ root, list, filters, detail, sub, count, toggle, close }, { events, srcById, styles }) {
+  constructor({ root, list, filters, chips, detail, sub, count, toggle, close }, { events, srcById, styles }) {
     Object.assign(this, { root, list, filtersEl: filters, detail, sub, count, toggle, srcById, styles });
     this.onSelect = () => {};
     this.onFilter = () => {};
@@ -81,20 +81,24 @@ export class Panel {
     this.onReport = null; // (händelse, knapp) => öppnar formuläret "Rapportera faktafel" (js/ui/feedback.js)
     this.selectedId = null;
 
-    // Visa bara kategorier som har händelser, i den fasta ordningen.
+    // Visa bara kategorier som har händelser, i den fasta ordningen. Samma chips finns på två ställen:
+    // under Lager (#120) och ovanför listan i panelen (#311). Båda styr samma filter, så de följs åt.
     const used = new Set(events.map(e => e.category));
     this.filters = new Set(used);
+    const boxes = [filters, chips].filter(Boolean);
     for (const c of CATEGORIES.filter(c => used.has(c.id))) {
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = 'filter'; b.setAttribute('aria-pressed', 'true');
-      b.innerHTML = `<span class="dot" style="background:${c.color}"></span>${esc(t(c.name))}`;
-      b.addEventListener('click', () => {
-        const on = this.filters.has(c.id);
-        on ? this.filters.delete(c.id) : this.filters.add(c.id);
-        b.setAttribute('aria-pressed', String(!on));
-        this.onFilter(this.filters);
-      });
-      filters.append(b);
+      for (const box of boxes) {
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'filter'; b.dataset.cat = c.id; b.setAttribute('aria-pressed', 'true');
+        b.innerHTML = `<span class="dot" style="background:${c.color}"></span>${esc(t(c.name))}`;
+        b.addEventListener('click', () => {
+          const on = this.filters.has(c.id);
+          on ? this.filters.delete(c.id) : this.filters.add(c.id);
+          for (const x of boxes) x.querySelector(`[data-cat="${c.id}"]`)?.setAttribute('aria-pressed', String(!on));
+          this.onFilter(this.filters);
+        });
+        box.append(b);
+      }
     }
 
     toggle.addEventListener('click', () => {
