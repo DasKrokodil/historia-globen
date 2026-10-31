@@ -344,9 +344,11 @@ async function run(browser, vp) {
       if (!/Spela/.test((await action.textContent()).trim())) throw new Error(`huvudknappen börjar inte med Spela: ${await action.textContent()}`);
       if (await page.locator('#btn-play').isVisible()) throw new Error('tidslinjens spelknapp syns också i fokusläget');
       await action.click();
+      await page.waitForFunction(() => document.getElementById('focus-action').textContent.includes('Pausa'), null, { timeout: 3000 });
       const playing = (await action.textContent()).trim();
       if (!playing.includes('Pausa')) throw new Error(`huvudknappen växlade inte till Pausa: ${playing}`);
       await action.click();
+      await page.waitForFunction(() => /Spela|Fortsätt/.test(document.getElementById('focus-action').textContent), null, { timeout: 3000 });
       const paused = (await action.textContent()).trim();
       if (!/Spela|Fortsätt/.test(paused)) throw new Error(`huvudknappen växlade inte tillbaka: ${paused}`);
       return 'Spela → Pausa → Spela/Fortsätt; tidslinjens spelknapp dold';
