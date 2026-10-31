@@ -30,7 +30,7 @@ jobs:
         run: |
           for i in $(seq 1 30); do
             if curl --fail --silent --show-error --location \
-              "$BASE_URL/js/main.js" --output "$RUNNER_TEMP/publicerad-main.js" \
+              "${BASE_URL}js/main.js" --output "$RUNNER_TEMP/publicerad-main.js" \
               && cmp --silent js/main.js "$RUNNER_TEMP/publicerad-main.js"; then
               echo "Publicerad js/main.js stämmer med production."
               exit 0
