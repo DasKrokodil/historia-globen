@@ -1,0 +1,2266 @@
+{
+  "routes": [
+    {
+      "id": "cook-resa-1",
+      "kind": "voyage",
+      "category": "upptackter",
+      "title": {
+        "sv": "Cooks första resa (Endeavour)",
+        "en": "Cook's first voyage (Endeavour)"
+      },
+      "summary": {
+        "sv": "Den brittiska flottan och Royal Society skickar James Cook med Endeavour från Plymouth i augusti 1768. Målet är att observera Venuspassagen från Tahiti och leta efter den förmodade sydkontinenten. Expeditionen rundar Kap Horn och når Matavaibukten på Tahiti i april 1769; passagen observeras den 3 juni 1769. Därefter seglar Cook söderut och kartlägger hela Nya Zeelands kust under ett halvår. I april 1770 blir besättningen de första kända européerna vid Australiens östkust, går i land i Botany Bay och följer kusten norrut. Den 11 juni går Endeavour på grund på Stora barriärrevet och lagas i sju veckor vid Endeavour River. Hemresan går genom Torressundet till Batavia, där många dör i sjukdom, och runt Godahoppsudden hem till England i juli 1771.",
+        "en": "The Royal Navy and the Royal Society send James Cook in the Endeavour from Plymouth in August 1768. The aims are to observe the transit of Venus from Tahiti and to search for the supposed southern continent. The expedition rounds Cape Horn and reaches Matavai Bay in Tahiti in April 1769; the transit is observed on 3 June 1769. Cook then sails south and charts the whole coast of New Zealand over six months. In April 1770 the crew become the first known Europeans on the east coast of Australia, land at Botany Bay and follow the coast north. On 11 June the Endeavour runs aground on the Great Barrier Reef and is repaired for seven weeks at the Endeavour River. The way home goes through Torres Strait to Batavia, where many die of disease, and round the Cape of Good Hope to England in July 1771."
+      },
+      "start": 1768,
+      "end": 1771,
+      "precision": 11,
+      "edtf": "1768-08-26/1771-07-12",
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig",
+          "en": "The sources differ"
+        },
+        "text": {
+          "sv": "Avfärden från Plymouth anges till den 26 augusti 1768 (Wikipedia) eller den 25 augusti (Dictionary of National Biography och Encyclopædia Britannica 1911). Ankomsten till Downs anges till den 12 juli 1771 i Wikipedia men den 12 juni i båda de äldre uppslagsverken. Botany Bay siktades den 28 april 1770 enligt Britannica; enligt Wikipedia gick Cook i land där den 29 april. Point Hicks siktades den 19 april enligt loggboken, vilket enligt Wikipedia motsvarar den 20 april i dagens tideräkning. Sträckorna till sjöss är ritade ungefärligt mellan de platser källorna nämner.",
+          "en": "The departure from Plymouth is given as 26 August 1768 (Wikipedia) or 25 August (Dictionary of National Biography and Encyclopædia Britannica 1911). Arrival in the Downs is given as 12 July 1771 in Wikipedia but 12 June in both older reference works. Botany Bay was sighted on 28 April 1770 according to Britannica; according to Wikipedia Cook landed there on 29 April. Point Hicks was sighted on 19 April by the ship's log, which Wikipedia says corresponds to 20 April in civil reckoning. The sea legs are drawn approximately between the places the sources name."
+        }
+      },
+      "sources": [
+        "wp-cook-resa-1",
+        "dnb-cook",
+        "eb1911-cook",
+        "wikidata"
+      ],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 1768.65,
+          "to": 1768.872,
+          "edtf": "1768-08-26/1768-11-15",
+          "path": [
+            [-4.1, 50.4],
+            [-6.0, 48.5],
+            [-12.0, 44.0],
+            [-17.6, 33.0],
+            [-21.0, 20.0],
+            [-21.5, 12.0],
+            [-26.0, 5.0],
+            [-33.0, -8.0],
+            [-37.0, -18.0],
+            [-42.0, -23.2],
+            [-43.1, -23.05],
+            [-43.2, -22.9]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-4.1, 50.4],
+              "name": {
+                "sv": "Plymouth",
+                "en": "Plymouth"
+              },
+              "date": "1768-08-26"
+            },
+            {
+              "at": [-43.2, -22.9],
+              "name": {
+                "sv": "Rio de Janeiro",
+                "en": "Rio de Janeiro"
+              },
+              "edtf": "1768-11-15/1768-12-02"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-1",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1768.918,
+          "to": 1769.279,
+          "edtf": "1768-12-02/1769-04-13",
+          "path": [
+            [-43.2, -22.9],
+            [-43.1, -23.05],
+            [-42.0, -23.5],
+            [-50.0, -38.0],
+            [-64.0, -50.0],
+            [-63.3, -53.5],
+            [-63.5, -56.3],
+            [-67.3, -57.3],
+            [-76.0, -56.0],
+            [-95.0, -45.0],
+            [-120.0, -30.0],
+            [-138.0, -24.0],
+            [-146.0, -19.5],
+            [-149.6, -17.4],
+            [-149.5, -17.5]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-67.3, -56.0],
+              "name": {
+                "sv": "Kap Horn",
+                "en": "Cape Horn"
+              }
+            },
+            {
+              "at": [-149.5, -17.5],
+              "name": {
+                "sv": "Matavaibukten, Tahiti",
+                "en": "Matavai Bay, Tahiti"
+              },
+              "edtf": "1769-04-13/1769-07-13"
+            },
+            {
+              "at": [-149.5, -17.5],
+              "name": {
+                "sv": "Point Venus: Venuspassagen observeras",
+                "en": "Point Venus: transit of Venus observed"
+              },
+              "date": "1769-06-03"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-1",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1769.529,
+          "to": 1769.603,
+          "edtf": "1769-07-13/1769-08-09",
+          "path": [
+            [-149.5, -17.5],
+            [-149.6, -17.4],
+            [-150.8, -16.6],
+            [-151.0, -16.7],
+            [-151.3, -16.6],
+            [-151.4, -16.8]
+          ],
+          "places": [
+            {
+              "at": [-151.0, -16.7],
+              "name": {
+                "sv": "Huahine",
+                "en": "Huahine"
+              },
+              "date": "1769-07-16"
+            },
+            {
+              "at": [-151.4, -16.8],
+              "name": {
+                "sv": "Raiatea",
+                "en": "Raiatea"
+              },
+              "date": "1769-07-20"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-1",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1769.603,
+          "to": 1769.764,
+          "edtf": "1769-08-09/1769-10-07",
+          "path": [
+            [-151.4, -16.8],
+            [-151.0, -20.0],
+            [-150.0, -30.0],
+            [-148.0, -40.0],
+            [-160.0, -38.0],
+            [-172.0, -37.0],
+            [178.6, -38.8],
+            [178.0, -38.7]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-151.4, -16.8],
+              "name": {
+                "sv": "Raiatea (avfärd söderut)",
+                "en": "Raiatea (departure south)"
+              },
+              "date": "1769-08-09"
+            },
+            {
+              "at": [178.0, -38.7],
+              "name": {
+                "sv": "Poverty Bay, Nya Zeeland",
+                "en": "Poverty Bay, New Zealand"
+              },
+              "date": "1769-10-07"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-1",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1769.764,
+          "to": 1770.038,
+          "edtf": "1769-10-07/1770-01",
+          "path": [
+            [178.0, -38.7],
+            [178.3, -38.8],
+            [178.1, -39.4],
+            [177.4, -39.45],
+            [178.1, -39.4],
+            [178.4, -38.9],
+            [178.7, -38.0],
+            [178.7, -37.6],
+            [178.5, -37.3],
+            [177.8, -37.35],
+            [176.5, -37.0],
+            [176.0, -36.6],
+            [175.7, -36.0],
+            [175.0, -35.6],
+            [174.7, -35.1],
+            [174.0, -34.7],
+            [173.6, -34.2],
+            [172.6, -34.3],
+            [172.9, -35.5],
+            [173.6, -37.0],
+            [174.2, -38.5],
+            [173.5, -39.0],
+            [173.6, -39.6],
+            [174.2, -40.2],
+            [174.4, -40.7],
+            [174.5, -41.0],
+            [174.3, -41.1],
+            [174.0, -41.2]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [177.1, -39.6],
+              "name": {
+                "sv": "Kap Kidnappers",
+                "en": "Cape Kidnappers"
+              },
+              "date": "1769-10-15"
+            },
+            {
+              "at": [175.7, -36.8],
+              "name": {
+                "sv": "Mercury Bay: Merkuriuspassagen",
+                "en": "Mercury Bay: transit of Mercury"
+              },
+              "date": "1769-11-09"
+            },
+            {
+              "at": [174.2, -35.2],
+              "name": {
+                "sv": "Bay of Islands",
+                "en": "Bay of Islands"
+              }
+            },
+            {
+              "at": [173.1, -34.4],
+              "name": {
+                "sv": "Nordkap (Nya Zeeland)",
+                "en": "North Cape (New Zealand)"
+              }
+            },
+            {
+              "at": [174.0, -41.2],
+              "name": {
+                "sv": "Queen Charlotte Sound",
+                "en": "Queen Charlotte Sound"
+              },
+              "edtf": "1770-01/1770-02-05"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-1",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1770.096,
+          "to": 1770.244,
+          "edtf": "1770-02-05/1770-03-31",
+          "path": [
+            [174.0, -41.2],
+            [174.3, -41.1],
+            [174.6, -41.3],
+            [175.0, -41.7],
+            [175.3, -41.9],
+            [176.2, -41.7],
+            [177.0, -40.6],
+            [176.3, -41.8],
+            [175.3, -42.1],
+            [174.6, -42.1],
+            [173.6, -43.2],
+            [173.6, -44.0],
+            [171.8, -45.2],
+            [170.5, -46.5],
+            [168.5, -47.5],
+            [167.0, -47.5],
+            [166.0, -46.2],
+            [166.2, -45.2],
+            [167.5, -44.0],
+            [169.0, -43.0],
+            [170.5, -42.0],
+            [171.4, -41.2],
+            [172.5, -40.2],
+            [173.2, -40.3],
+            [173.9, -40.7],
+            [173.9, -41.0]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [167.5, -47.3],
+              "name": {
+                "sv": "Sydkap (Stewart Island)",
+                "en": "South Cape (Stewart Island)"
+              },
+              "date": "1770-03-10"
+            },
+            {
+              "at": [173.9, -41.0],
+              "name": {
+                "sv": "Admiralty Bay",
+                "en": "Admiralty Bay"
+              },
+              "edtf": "1770-03-27/1770-03-31"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-1",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1770.244,
+          "to": 1770.323,
+          "edtf": "1770-03-31/1770-04-29",
+          "path": [
+            [173.9, -41.0],
+            [173.9, -40.7],
+            [173.2, -40.3],
+            [160.0, -39.0],
+            [150.0, -38.3],
+            [150.2, -37.5],
+            [150.5, -36.0],
+            [151.0, -35.0],
+            [151.4, -34.3],
+            [151.2, -34.0]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [148.9, -38.0],
+              "name": {
+                "sv": "Point Hicks: Australiens östkust siktas",
+                "en": "Point Hicks: Australia's east coast sighted"
+              },
+              "edtf": "1770-04-20"
+            },
+            {
+              "at": [151.2, -34.0],
+              "name": {
+                "sv": "Botany Bay",
+                "en": "Botany Bay"
+              },
+              "edtf": "1770-04-29/1770-05-06"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-1",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1770.342,
+          "to": 1770.455,
+          "edtf": "1770-05-06/1770-06-16",
+          "path": [
+            [151.2, -34.0],
+            [151.6, -33.8],
+            [152.9, -32.6],
+            [153.6, -31.0],
+            [154.0, -28.6],
+            [153.8, -27.0],
+            [153.7, -25.0],
+            [153.6, -24.4],
+            [152.3, -24.0],
+            [152.5, -22.0],
+            [150.8, -20.5],
+            [148.0, -19.0],
+            [146.8, -17.5],
+            [145.8, -16.3],
+            [145.5, -15.7],
+            [145.2, -15.5]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [151.9, -24.2],
+              "name": {
+                "sv": "Bustard Bay (Seventeen Seventy)",
+                "en": "Bustard Bay (Seventeen Seventy)"
+              },
+              "date": "1770-05-23"
+            },
+            {
+              "at": [145.6, -15.8],
+              "name": {
+                "sv": "Endeavour går på grund på Stora barriärrevet",
+                "en": "Endeavour runs aground on the Great Barrier Reef"
+              },
+              "date": "1770-06-11"
+            },
+            {
+              "at": [145.2, -15.5],
+              "name": {
+                "sv": "Endeavour River: lagning",
+                "en": "Endeavour River: repairs"
+              },
+              "edtf": "1770-06-16/1770-08-03"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-1",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1770.586,
+          "to": 1770.773,
+          "edtf": "1770-08-03/1770-10",
+          "path": [
+            [145.2, -15.5],
+            [145.5, -15.0],
+            [144.6, -13.8],
+            [143.8, -12.5],
+            [143.2, -11.0],
+            [142.8, -10.5],
+            [142.4, -10.7],
+            [141.9, -10.4],
+            [141.5, -10.3],
+            [138.0, -10.0],
+            [130.0, -10.5],
+            [126.0, -11.0],
+            [123.5, -11.2],
+            [122.6, -11.0],
+            [121.8, -10.5],
+            [121.0, -10.8],
+            [119.5, -10.9],
+            [115.0, -9.5],
+            [110.0, -9.0],
+            [106.5, -7.6],
+            [104.6, -6.6],
+            [105.3, -6.35],
+            [105.7, -6.0],
+            [106.0, -5.85],
+            [106.4, -5.85],
+            [106.8, -6.2]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [142.4, -10.7],
+              "name": {
+                "sv": "Possession Island",
+                "en": "Possession Island"
+              },
+              "date": "1770-08-22"
+            },
+            {
+              "at": [121.8, -10.5],
+              "name": {
+                "sv": "Savu",
+                "en": "Savu"
+              }
+            },
+            {
+              "at": [106.8, -6.2],
+              "name": {
+                "sv": "Batavia (Jakarta)",
+                "en": "Batavia (Jakarta)"
+              },
+              "edtf": "1770-10/1770-12-26"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-1",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1770.984,
+          "to": 1771.526,
+          "edtf": "1770-12-26/1771-07-12",
+          "path": [
+            [106.8, -6.2],
+            [106.4, -5.85],
+            [106.0, -5.85],
+            [105.7, -6.0],
+            [105.3, -6.35],
+            [104.6, -6.6],
+            [95.0, -12.0],
+            [75.0, -22.0],
+            [55.0, -30.0],
+            [35.0, -36.0],
+            [20.0, -35.5],
+            [18.0, -34.8],
+            [10.0, -25.0],
+            [-5.5, -15.7],
+            [-15.0, 0.0],
+            [-21.0, 12.0],
+            [-21.5, 20.0],
+            [-28.0, 35.0],
+            [-15.0, 46.0],
+            [-6.0, 49.3],
+            [-5.2, 49.8],
+            [-2.0, 50.2],
+            [0.3, 50.6],
+            [1.3, 50.8],
+            [1.6, 51.1],
+            [1.4, 51.2]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [18.5, -34.4],
+              "name": {
+                "sv": "Godahoppsudden",
+                "en": "Cape of Good Hope"
+              },
+              "date": "1771-03-13"
+            },
+            {
+              "at": [-5.7, -16.0],
+              "name": {
+                "sv": "Sankta Helena",
+                "en": "Saint Helena"
+              }
+            },
+            {
+              "at": [-5.2, 50.0],
+              "name": {
+                "sv": "Lizard Point: England siktas",
+                "en": "Lizard Point: England sighted"
+              },
+              "date": "1771-07-10"
+            },
+            {
+              "at": [1.4, 51.2],
+              "name": {
+                "sv": "Deal (Downs)",
+                "en": "Deal (the Downs)"
+              },
+              "date": "1771-07-12"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-1",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cook-resa-2",
+      "kind": "voyage",
+      "category": "upptackter",
+      "title": {
+        "sv": "Cooks andra resa (Resolution och Adventure)",
+        "en": "Cook's second voyage (Resolution and Adventure)"
+      },
+      "summary": {
+        "sv": "Med Resolution och Adventure lämnar Cook Plymouth i juli 1772 för att en gång för alla ta reda på om det finns en stor sydkontinent. Från Kapstaden seglar han söderut och blir den 17 januari 1773 den förste som korsar Södra polcirkeln. Skeppen kommer ifrån varandra i dimman och möts igen i Nya Zeeland. Under tre år gör Cook stora svep över Stilla havet: till Tahiti och Tonga, långt söderut till 71° 10′ S i januari 1774, sedan till Påskön, Marquesasöarna, Nya Hebriderna och Nya Kaledonien. Hemvägen går runt Kap Horn förbi Sydgeorgien och Sydsandwichöarna. Resolution ankrar i England i slutet av juli 1775. Resan visar att det inte finns någon beboelig sydkontinent, och Larcum Kendalls kronometer gör det möjligt att bestämma longituden noggrant. Linjen följer Resolution; Adventure seglade hem på egen hand 1773–1774.",
+        "en": "With the Resolution and the Adventure, Cook leaves Plymouth in July 1772 to settle whether a great southern continent exists. From Cape Town he sails south and on 17 January 1773 becomes the first to cross the Antarctic Circle. The ships lose each other in fog and meet again in New Zealand. Over three years Cook makes vast sweeps across the Pacific: to Tahiti and Tonga, far south to 71° 10′ S in January 1774, then to Easter Island, the Marquesas, the New Hebrides and New Caledonia. The way home goes round Cape Horn past South Georgia and the South Sandwich Islands. The Resolution anchors in England at the end of July 1775. The voyage shows that there is no habitable southern continent, and Larcum Kendall's chronometer makes it possible to fix longitude accurately. The line follows the Resolution; the Adventure sailed home on her own in 1773–1774."
+      },
+      "start": 1772,
+      "end": 1775,
+      "precision": 11,
+      "edtf": "1772-07-13/1775-07-30",
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig",
+          "en": "The sources differ"
+        },
+        "text": {
+          "sv": "Första passagen av Södra polcirkeln anges till den 17 januari 1773 (Wikipedia) eller den 16 januari (Dictionary of National Biography och Encyclopædia Britannica 1911). Den sydligaste punkten, 71° 10′ S, nåddes den 30 januari 1774 enligt Wikipedias berättelse, den 3 februari enligt Wikipedias inledning och den 27 januari enligt Dictionary of National Biography. Slutet anges som Spithead den 30 juli 1775 (Wikipedia), Plymouth den 29 juli (Dictionary of National Biography) eller Plymouth den 25 juli (Britannica). Sydgeorgien upptäcktes den 14 januari 1775 enligt Dictionary of National Biography; Wikipedia säger att skeppet lämnade ön den 20 januari. Sträckorna till sjöss, särskilt svepen nära Antarktis, är ritade ungefärligt mellan de platser och positioner källorna nämner.",
+          "en": "The first crossing of the Antarctic Circle is given as 17 January 1773 (Wikipedia) or 16 January (Dictionary of National Biography and Encyclopædia Britannica 1911). The southernmost point, 71° 10′ S, was reached on 30 January 1774 according to the body of the Wikipedia article, 3 February according to its introduction and 27 January according to the Dictionary of National Biography. The end is given as Spithead on 30 July 1775 (Wikipedia), Plymouth on 29 July (Dictionary of National Biography) or Plymouth on 25 July (Britannica). South Georgia was discovered on 14 January 1775 according to the Dictionary of National Biography; Wikipedia says the ship left the island on 20 January. The sea legs, especially the sweeps near Antarctica, are drawn approximately between the places and positions the sources name."
+        }
+      },
+      "sources": [
+        "wp-cook-resa-2",
+        "dnb-cook",
+        "eb1911-cook",
+        "wikidata"
+      ],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 1772.53,
+          "to": 1772.582,
+          "edtf": "1772-07-13/1772-08-01",
+          "path": [
+            [-4.1, 50.4],
+            [-6.0, 48.5],
+            [-12.0, 43.0],
+            [-17.4, 33.3],
+            [-17.3, 32.6],
+            [-16.9, 32.6]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-4.1, 50.4],
+              "name": {
+                "sv": "Plymouth",
+                "en": "Plymouth"
+              },
+              "date": "1772-07-13"
+            },
+            {
+              "at": [-16.9, 32.6],
+              "name": {
+                "sv": "Funchal (Madeira)",
+                "en": "Funchal (Madeira)"
+              },
+              "date": "1772-08-01"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-2",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1772.59,
+          "to": 1772.612,
+          "edtf": "1772-08/1772-08-12",
+          "path": [
+            [-16.9, 32.6],
+            [-17.3, 32.4],
+            [-19.0, 28.5],
+            [-21.5, 20.0],
+            [-22.3, 16.8],
+            [-22.6, 15.6],
+            [-23.2, 14.7],
+            [-23.5, 14.9]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-23.5, 14.9],
+              "name": {
+                "sv": "Praia (Kap Verde)",
+                "en": "Praia (Cape Verde)"
+              },
+              "date": "1772-08-12"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-2",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1772.62,
+          "to": 1772.828,
+          "edtf": "1772-08/1772-10-30",
+          "path": [
+            [-23.5, 14.9],
+            [-23.4, 14.5],
+            [-22.0, 5.0],
+            [-20.0, 0.0],
+            [-25.0, -15.0],
+            [-20.0, -28.0],
+            [0.0, -35.0],
+            [15.0, -34.5],
+            [17.8, -33.7],
+            [18.4, -33.9]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [18.4, -33.9],
+              "name": {
+                "sv": "Taffelbukten (Kapstaden)",
+                "en": "Table Bay (Cape Town)"
+              },
+              "edtf": "1772-10-30/1772-11-22"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-2",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1772.891,
+          "to": 1773.23,
+          "edtf": "1772-11-22/1773-03-26",
+          "path": [
+            [18.4, -33.9],
+            [17.8, -34.5],
+            [20.0, -45.0],
+            [22.0, -51.0],
+            [24.0, -55.0],
+            [11.2, -59.3],
+            [25.0, -61.0],
+            [39.6, -66.6],
+            [50.0, -63.0],
+            [60.0, -58.0],
+            [80.0, -58.0],
+            [100.0, -60.0],
+            [120.0, -60.0],
+            [140.0, -58.0],
+            [160.0, -52.0],
+            [166.0, -45.9],
+            [166.6, -45.8]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [11.2, -59.3],
+              "name": {
+                "sv": "Bouvets Kap Circoncision är inte land",
+                "en": "Bouvet's Cape Circoncision is not land"
+              },
+              "date": "1773-01-03"
+            },
+            {
+              "at": [39.6, -66.6],
+              "name": {
+                "sv": "Södra polcirkeln passeras för första gången",
+                "en": "Antarctic Circle crossed for the first time"
+              },
+              "date": "1773-01-17"
+            },
+            {
+              "at": [166.6, -45.8],
+              "name": {
+                "sv": "Dusky Sound, Nya Zeeland",
+                "en": "Dusky Sound, New Zealand"
+              },
+              "edtf": "1773-03-26/1773-05"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-2",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1773.342,
+          "to": 1773.375,
+          "edtf": "1773-05/1773-05-18",
+          "path": [
+            [166.6, -45.8],
+            [166.2, -45.6],
+            [167.5, -44.2],
+            [169.5, -42.8],
+            [171.0, -41.3],
+            [172.4, -40.2],
+            [173.2, -40.3],
+            [174.0, -40.55],
+            [174.4, -40.7],
+            [174.5, -41.0],
+            [174.3, -41.1],
+            [174.0, -41.2]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [174.0, -41.2],
+              "name": {
+                "sv": "Ship Cove (Queen Charlotte Sound): Adventure återfunnen",
+                "en": "Ship Cove (Queen Charlotte Sound): Adventure found again"
+              },
+              "date": "1773-05-18"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-2",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1773.43,
+          "to": 1773.625,
+          "edtf": "1773-06-07/1773-08",
+          "path": [
+            [174.0, -41.2],
+            [174.3, -41.1],
+            [174.6, -41.3],
+            [175.0, -41.7],
+            [175.5, -41.9],
+            [-175.0, -46.9],
+            [-160.0, -45.0],
+            [-145.0, -42.0],
+            [-133.5, -40.0],
+            [-135.0, -30.0],
+            [-140.0, -20.0],
+            [-145.0, -18.0],
+            [-148.8, -17.8],
+            [-149.2, -17.7]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-133.5, -40.0],
+              "name": {
+                "sv": "40° S passeras vid 133° 30′ V",
+                "en": "40° S crossed at 133° 30′ W"
+              },
+              "date": "1773-07-17"
+            },
+            {
+              "at": [-149.2, -17.7],
+              "name": {
+                "sv": "Vaitepihabukten (Tautira), Tahiti",
+                "en": "Vaitepiha Bay (Tautira), Tahiti"
+              },
+              "edtf": "1773-08/1773-08-24"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-2",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1773.644,
+          "to": 1773.767,
+          "edtf": "1773-08-24/1773-10-08",
+          "path": [
+            [-149.2, -17.7],
+            [-149.2, -17.6],
+            [-149.3, -17.4],
+            [-149.5, -17.5],
+            [-149.6, -17.4],
+            [-150.5, -16.9],
+            [-151.0, -16.7],
+            [-151.3, -16.6],
+            [-151.4, -16.8],
+            [-160.0, -19.0],
+            [-172.0, -21.0],
+            [-174.7, -21.5],
+            [-174.9, -21.4],
+            [-175.0, -21.0],
+            [-175.2, -21.2]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-149.5, -17.5],
+              "name": {
+                "sv": "Matavaibukten, Tahiti",
+                "en": "Matavai Bay, Tahiti"
+              },
+              "edtf": "1773-08-26/1773-09-03"
+            },
+            {
+              "at": [-151.0, -16.7],
+              "name": {
+                "sv": "Huahine",
+                "en": "Huahine"
+              }
+            },
+            {
+              "at": [-151.4, -16.8],
+              "name": {
+                "sv": "Raiatea",
+                "en": "Raiatea"
+              }
+            },
+            {
+              "at": [-174.9, -21.4],
+              "name": {
+                "sv": "'Eua (Tonga)",
+                "en": "'Eua (Tonga)"
+              }
+            },
+            {
+              "at": [-175.2, -21.2],
+              "name": {
+                "sv": "Tongatapu",
+                "en": "Tongatapu"
+              }
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-2",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1773.767,
+          "to": 1773.838,
+          "edtf": "1773-10-08/1773-11-03",
+          "path": [
+            [-175.2, -21.2],
+            [-178.0, -28.0],
+            [179.0, -36.0],
+            [178.4, -39.2],
+            [177.6, -40.2],
+            [176.8, -41.0],
+            [175.5, -41.9],
+            [175.0, -41.7],
+            [174.6, -41.3],
+            [174.3, -41.1],
+            [174.0, -41.2]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [174.0, -41.2],
+              "name": {
+                "sv": "Ship Cove (Queen Charlotte Sound)",
+                "en": "Ship Cove (Queen Charlotte Sound)"
+              },
+              "date": "1773-11-03"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-2",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1773.899,
+          "to": 1774.189,
+          "edtf": "1773-11-25/1774-03-11",
+          "path": [
+            [174.0, -41.2],
+            [174.3, -41.1],
+            [174.6, -41.3],
+            [175.0, -41.7],
+            [175.5, -41.9],
+            [180.0, -51.5],
+            [-170.0, -60.0],
+            [-150.0, -64.0],
+            [-136.0, -57.0],
+            [-115.0, -62.0],
+            [-108.0, -67.0],
+            [-106.9, -71.2],
+            [-100.0, -60.0],
+            [-100.0, -45.0],
+            [-105.0, -33.0],
+            [-108.8, -27.2],
+            [-109.3, -27.1]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [180.0, -51.5],
+              "name": {
+                "sv": "Mitt emot London på jordklotet",
+                "en": "Opposite London on the globe"
+              },
+              "date": "1773-12-07"
+            },
+            {
+              "at": [-136.0, -57.0],
+              "name": {
+                "sv": "57° S, 136° V",
+                "en": "57° S, 136° W"
+              },
+              "date": "1774-01-02"
+            },
+            {
+              "at": [-106.9, -71.2],
+              "name": {
+                "sv": "Längst söderut: 71° 10′ S, 106° 54′ V",
+                "en": "Farthest south: 71° 10′ S, 106° 54′ W"
+              },
+              "edtf": "1774-01-30"
+            },
+            {
+              "at": [-109.3, -27.1],
+              "name": {
+                "sv": "Påskön",
+                "en": "Easter Island"
+              },
+              "edtf": "1774-03-11/1774-03-16"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-2",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1774.203,
+          "to": 1774.304,
+          "edtf": "1774-03-16/1774-04-22",
+          "path": [
+            [-109.3, -27.1],
+            [-115.0, -20.0],
+            [-130.0, -12.0],
+            [-139.3, -10.0],
+            [-140.0, -12.0],
+            [-145.0, -15.0],
+            [-147.5, -16.5],
+            [-149.4, -17.3],
+            [-149.6, -17.4],
+            [-149.5, -17.5]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-139.1, -9.9],
+              "name": {
+                "sv": "Vaitahubukten, Tahuata (Marquesasöarna)",
+                "en": "Vaitahu Bay, Tahuata (Marquesas)"
+              },
+              "edtf": "1774-04"
+            },
+            {
+              "at": [-149.5, -17.5],
+              "name": {
+                "sv": "Matavaibukten, Tahiti",
+                "en": "Matavai Bay, Tahiti"
+              },
+              "edtf": "1774-04-22/1774-05"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-2",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1774.364,
+          "to": 1774.786,
+          "edtf": "1774-05/1774-10",
+          "path": [
+            [-149.5, -17.5],
+            [-149.6, -17.4],
+            [-150.5, -16.9],
+            [-151.4, -16.8],
+            [-160.0, -18.0],
+            [-172.0, -19.5],
+            [-174.8, -20.2],
+            [-178.0, -19.0],
+            [-179.5, -21.0],
+            [172.0, -18.0],
+            [168.5, -17.2],
+            [167.8, -16.5],
+            [168.0, -17.2],
+            [167.9, -17.8],
+            [168.8, -18.3],
+            [169.1, -18.8],
+            [169.5, -19.1],
+            [169.3, -19.5],
+            [168.0, -20.3],
+            [165.3, -20.3],
+            [163.8, -20.0],
+            [164.0, -21.0],
+            [165.6, -22.4],
+            [167.0, -22.8],
+            [167.8, -23.0],
+            [167.9, -29.0],
+            [172.0, -36.0],
+            [173.2, -39.0],
+            [173.6, -39.7],
+            [174.4, -40.7],
+            [174.5, -41.0],
+            [174.3, -41.1],
+            [174.0, -41.2]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-151.4, -16.8],
+              "name": {
+                "sv": "Raiatea",
+                "en": "Raiatea"
+              }
+            },
+            {
+              "at": [-174.8, -20.2],
+              "name": {
+                "sv": "Nomuka (Tonga)",
+                "en": "Nomuka (Tonga)"
+              },
+              "edtf": "1774-06"
+            },
+            {
+              "at": [167.8, -16.5],
+              "name": {
+                "sv": "Malekula (Nya Hebriderna)",
+                "en": "Malekula (New Hebrides)"
+              }
+            },
+            {
+              "at": [169.1, -18.8],
+              "name": {
+                "sv": "Erromango",
+                "en": "Erromango"
+              }
+            },
+            {
+              "at": [169.3, -19.5],
+              "name": {
+                "sv": "Tanna",
+                "en": "Tanna"
+              }
+            },
+            {
+              "at": [165.3, -21.2],
+              "name": {
+                "sv": "Nya Kaledonien",
+                "en": "New Caledonia"
+              }
+            },
+            {
+              "at": [167.9, -29.0],
+              "name": {
+                "sv": "Norfolkön",
+                "en": "Norfolk Island"
+              }
+            },
+            {
+              "at": [174.0, -41.2],
+              "name": {
+                "sv": "Queen Charlotte Sound",
+                "en": "Queen Charlotte Sound"
+              },
+              "edtf": "1774-10/1774-11-10"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-2",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1774.858,
+          "to": 1775.216,
+          "edtf": "1774-11-10/1775-03",
+          "path": [
+            [174.0, -41.2],
+            [174.3, -41.1],
+            [174.6, -41.3],
+            [175.0, -41.7],
+            [175.5, -41.9],
+            [-170.0, -53.0],
+            [-140.0, -55.0],
+            [-110.0, -55.0],
+            [-80.0, -55.0],
+            [-68.0, -57.0],
+            [-60.0, -56.0],
+            [-45.0, -55.0],
+            [-38.5, -53.6],
+            [-36.0, -53.8],
+            [-35.0, -55.0],
+            [-27.5, -59.8],
+            [-20.0, -58.5],
+            [0.0, -55.0],
+            [10.0, -45.0],
+            [17.5, -34.0],
+            [18.4, -33.9]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-67.3, -56.0],
+              "name": {
+                "sv": "Kap Horn",
+                "en": "Cape Horn"
+              },
+              "edtf": "1774-12"
+            },
+            {
+              "at": [-36.6, -54.3],
+              "name": {
+                "sv": "Sydgeorgien",
+                "en": "South Georgia"
+              },
+              "edtf": "1775-01-14/1775-01-20"
+            },
+            {
+              "at": [-26.5, -57.8],
+              "name": {
+                "sv": "Sydsandwichöarna (Sandwich Land)",
+                "en": "South Sandwich Islands (Sandwich Land)"
+              },
+              "edtf": "1775-01"
+            },
+            {
+              "at": [18.4, -33.9],
+              "name": {
+                "sv": "Taffelbukten (Kapstaden)",
+                "en": "Table Bay (Cape Town)"
+              },
+              "edtf": "1775-03-21/1775-04"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-2",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1775.318,
+          "to": 1775.575,
+          "edtf": "1775-04/1775-07-30",
+          "path": [
+            [18.4, -33.9],
+            [17.5, -33.5],
+            [5.0, -25.0],
+            [-5.7, -16.0],
+            [-14.3, -8.0],
+            [-31.0, -3.0],
+            [-35.0, 15.0],
+            [-28.0, 38.6],
+            [-12.0, 47.0],
+            [-5.5, 49.7],
+            [-3.0, 50.0],
+            [-1.5, 50.45],
+            [-0.95, 50.6],
+            [-1.1, 50.8]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-5.7, -16.0],
+              "name": {
+                "sv": "Sankta Helena",
+                "en": "Saint Helena"
+              }
+            },
+            {
+              "at": [-14.3, -8.0],
+              "name": {
+                "sv": "Ascension",
+                "en": "Ascension"
+              }
+            },
+            {
+              "at": [-28.0, 38.6],
+              "name": {
+                "sv": "Azorerna",
+                "en": "Azores"
+              }
+            },
+            {
+              "at": [-1.1, 50.8],
+              "name": {
+                "sv": "Spithead (Portsmouth)",
+                "en": "Spithead (Portsmouth)"
+              },
+              "date": "1775-07-30"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-2",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cook-resa-3",
+      "kind": "voyage",
+      "category": "upptackter",
+      "title": {
+        "sv": "Cooks tredje resa (Resolution och Discovery)",
+        "en": "Cook's third voyage (Resolution and Discovery)"
+      },
+      "summary": {
+        "sv": "Cooks sista resa ska hitta Nordvästpassagen mellan Stilla havet och Atlanten, och föra hem Omai från Raiatea. Resolution lämnar Plymouth i juli 1776, Discovery följer efter och skeppen möts vid Godahoppsudden. Via Kerguelen, Tasmanien, Nya Zeeland, Tonga och Tahiti seglar de norrut och når i januari 1778 Hawaiiöarna, som européerna inte kände till. Cook följer Nordamerikas västkust från Oregon till Alaska, går genom Berings sund och stoppas av packis på omkring 70° N i augusti 1778. Vintern tillbringas på Hawaii. I Kealakekuabukten dödas Cook den 14 februari 1779 i en strid med invånarna. Charles Clerke försöker igen genom Berings sund 1779 men stoppas av isen och dör i augusti. Under John Gore går skeppen hem via Kamtjatka, Macao och Godahoppsudden till England i oktober 1780.",
+        "en": "Cook's last voyage is to find the Northwest Passage between the Pacific and the Atlantic, and to take Omai home to Raiatea. The Resolution leaves Plymouth in July 1776, the Discovery follows and the ships meet at the Cape of Good Hope. By way of Kerguelen, Tasmania, New Zealand, Tonga and Tahiti they sail north and in January 1778 reach the Hawaiian Islands, unknown to Europeans. Cook follows the west coast of North America from Oregon to Alaska, passes through the Bering Strait and is stopped by pack ice at about 70° N in August 1778. The winter is spent in Hawaii. At Kealakekua Bay Cook is killed on 14 February 1779 in a clash with the islanders. Charles Clerke tries the Bering Strait again in 1779 but is stopped by the ice and dies in August. Under John Gore the ships return by way of Kamchatka, Macau and the Cape of Good Hope to England in October 1780."
+      },
+      "start": 1776,
+      "end": 1780,
+      "precision": 11,
+      "edtf": "1776-07-12/1780-10-04",
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig",
+          "en": "The sources differ"
+        },
+        "text": {
+          "sv": "Skeppen lämnade Godahoppsudden tillsammans den 1 december 1776 enligt Wikipedia men den 30 november enligt Dictionary of National Biography och Encyclopædia Britannica 1911. Hawaiiöarna siktades den 18 januari 1778 enligt Wikipedia; Britannica skriver i början av februari 1778 och nämner att spanjoren Gaetano kanske såg öarna redan 1555. Ankomsten till Kealakekuabukten den 17 januari 1779 och Cooks död den 14 februari 1779 stämmer i alla tre källorna. Hur långt norrut isen stoppade skeppen 1778 anges som 70° N den 17 augusti (Wikipedia) och 70° 41′ N (Britannica). Sträckorna till sjöss är ritade ungefärligt mellan de platser källorna nämner.",
+          "en": "The ships left the Cape of Good Hope together on 1 December 1776 according to Wikipedia but on 30 November according to the Dictionary of National Biography and Encyclopædia Britannica 1911. The Hawaiian Islands were sighted on 18 January 1778 according to Wikipedia; Britannica says early February 1778 and mentions that the Spaniard Gaetano may have seen the islands as early as 1555. Arrival at Kealakekua Bay on 17 January 1779 and Cook's death on 14 February 1779 agree in all three sources. How far north the ice stopped the ships in 1778 is given as 70° N on 17 August (Wikipedia) and 70° 41′ N (Britannica). The sea legs are drawn approximately between the places the sources name."
+        }
+      },
+      "sources": [
+        "wp-cook-resa-3",
+        "dnb-cook",
+        "eb1911-cook",
+        "wikidata"
+      ],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 1776.527,
+          "to": 1776.582,
+          "edtf": "1776-07-12/1776-08",
+          "path": [
+            [-4.1, 50.4],
+            [-6.0, 48.5],
+            [-12.0, 43.0],
+            [-16.0, 30.0],
+            [-16.0, 28.7],
+            [-16.2, 28.5]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-4.1, 50.4],
+              "name": {
+                "sv": "Plymouth",
+                "en": "Plymouth"
+              },
+              "date": "1776-07-12"
+            },
+            {
+              "at": [-16.2, 28.5],
+              "name": {
+                "sv": "Teneriffa (Santa Cruz)",
+                "en": "Tenerife (Santa Cruz)"
+              },
+              "edtf": "1776-08/1776-08-04"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1776.59,
+          "to": 1776.795,
+          "edtf": "1776-08-04/1776-10-18",
+          "path": [
+            [-16.2, 28.5],
+            [-16.0, 27.5],
+            [-20.0, 20.0],
+            [-22.2, 15.5],
+            [-24.0, 0.0],
+            [-30.0, -15.0],
+            [-20.0, -30.0],
+            [0.0, -37.0],
+            [15.0, -35.0],
+            [17.8, -33.7],
+            [18.4, -33.9]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-22.8, 16.1],
+              "name": {
+                "sv": "Boa Vista (Kap Verde): nära grundstötning",
+                "en": "Boa Vista (Cape Verde): near grounding"
+              }
+            },
+            {
+              "at": [18.4, -33.9],
+              "name": {
+                "sv": "Taffelbukten (Kapstaden): Discovery ansluter",
+                "en": "Table Bay (Cape Town): the Discovery joins"
+              },
+              "edtf": "1776-10-18/1776-12-01"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1776.915,
+          "to": 1777.068,
+          "edtf": "1776-12-01/1777-01-26",
+          "path": [
+            [18.4, -33.9],
+            [17.8, -34.6],
+            [30.0, -44.0],
+            [37.8, -46.5],
+            [55.0, -48.0],
+            [69.5, -48.4],
+            [100.0, -46.0],
+            [130.0, -45.0],
+            [146.0, -44.0],
+            [147.6, -43.6]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [37.8, -46.9],
+              "name": {
+                "sv": "Prins Edwardöarna",
+                "en": "Prince Edward Islands"
+              },
+              "date": "1776-12-13"
+            },
+            {
+              "at": [69.2, -49.2],
+              "name": {
+                "sv": "Kerguelen",
+                "en": "Kerguelen"
+              },
+              "edtf": "1776-12-25"
+            },
+            {
+              "at": [147.0, -42.0],
+              "name": {
+                "sv": "Van Diemens land (Tasmanien)",
+                "en": "Van Diemen's Land (Tasmania)"
+              },
+              "date": "1777-01-26"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1777.079,
+          "to": 1777.115,
+          "edtf": "1777-01/1777-02-12",
+          "path": [
+            [147.6, -43.6],
+            [150.0, -43.0],
+            [165.0, -42.0],
+            [172.0, -40.0],
+            [173.2, -40.3],
+            [174.0, -40.55],
+            [174.4, -40.7],
+            [174.5, -41.0],
+            [174.3, -41.1],
+            [174.0, -41.2]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [174.0, -41.2],
+              "name": {
+                "sv": "Queen Charlotte Sound",
+                "en": "Queen Charlotte Sound"
+              },
+              "edtf": "1777-02-12/1777-02"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1777.151,
+          "to": 1777.321,
+          "edtf": "1777-02/1777-04",
+          "path": [
+            [174.0, -41.2],
+            [174.3, -41.1],
+            [174.6, -41.3],
+            [175.0, -41.7],
+            [175.5, -41.9],
+            [-175.0, -35.0],
+            [-160.0, -25.0],
+            [-158.0, -22.2],
+            [-157.6, -21.0],
+            [-158.3, -20.2],
+            [-170.0, -20.0],
+            [-174.8, -20.6]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-157.9, -21.9],
+              "name": {
+                "sv": "Mangaia",
+                "en": "Mangaia"
+              },
+              "edtf": "1777-03"
+            },
+            {
+              "at": [-158.1, -20.0],
+              "name": {
+                "sv": "Atiu",
+                "en": "Atiu"
+              }
+            },
+            {
+              "at": [-174.8, -20.6],
+              "name": {
+                "sv": "Tongaöarna (Vänskapsöarna)",
+                "en": "Tonga (Friendly Islands)"
+              },
+              "edtf": "1777-04/1777-07"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1777.534,
+          "to": 1777.611,
+          "edtf": "1777-07/1777-08-12",
+          "path": [
+            [-174.8, -20.6],
+            [-165.0, -22.0],
+            [-149.8, -23.2],
+            [-149.8, -20.0],
+            [-149.7, -17.65],
+            [-149.6, -17.4],
+            [-149.5, -17.5]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-149.5, -23.4],
+              "name": {
+                "sv": "Tubuai",
+                "en": "Tubuai"
+              },
+              "edtf": "1777-08"
+            },
+            {
+              "at": [-149.5, -17.7],
+              "name": {
+                "sv": "Tahiti",
+                "en": "Tahiti"
+              },
+              "date": "1777-08-12"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1777.611,
+          "to": 1777.838,
+          "edtf": "1777-08-12/1777-11-03",
+          "path": [
+            [-149.5, -17.5],
+            [-149.6, -17.4],
+            [-150.6, -16.8],
+            [-151.0, -16.7],
+            [-151.3, -16.6],
+            [-151.4, -16.8]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-151.0, -16.7],
+              "name": {
+                "sv": "Huahine: Omai stannar",
+                "en": "Huahine: Omai stays"
+              },
+              "edtf": "1777-10"
+            },
+            {
+              "at": [-151.4, -16.8],
+              "name": {
+                "sv": "Raiatea",
+                "en": "Raiatea"
+              },
+              "date": "1777-11-03"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1777.932,
+          "to": 1777.978,
+          "edtf": "1777-12/1777-12-24",
+          "path": [
+            [-151.4, -16.8],
+            [-151.6, -16.3],
+            [-153.0, -10.0],
+            [-156.75, 0.0],
+            [-157.4, 1.9]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-151.7, -16.5],
+              "name": {
+                "sv": "Bora Bora",
+                "en": "Bora Bora"
+              }
+            },
+            {
+              "at": [-156.75, 0.0],
+              "name": {
+                "sv": "Ekvatorn passeras vid 156° 45′ V",
+                "en": "Equator crossed at 156° 45′ W"
+              },
+              "edtf": "1777-12-22/1777-12-23"
+            },
+            {
+              "at": [-157.4, 1.9],
+              "name": {
+                "sv": "Julön (Kiritimati)",
+                "en": "Christmas Island (Kiritimati)"
+              },
+              "edtf": "1777-12-24/1778-01-02"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1778.003,
+          "to": 1778.088,
+          "edtf": "1778-01-02/1778-02-02",
+          "path": [
+            [-157.4, 1.9],
+            [-158.5, 12.0],
+            [-159.3, 21.7],
+            [-159.9, 21.8],
+            [-160.0, 21.8]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-159.5, 22.1],
+              "name": {
+                "sv": "Kauai: Hawaiiöarna nås",
+                "en": "Kauai: the Hawaiian Islands reached"
+              },
+              "edtf": "1778-01-19"
+            },
+            {
+              "at": [-159.7, 22.0],
+              "name": {
+                "sv": "Waimea, Kauai",
+                "en": "Waimea, Kauai"
+              }
+            },
+            {
+              "at": [-160.2, 21.9],
+              "name": {
+                "sv": "Niihau",
+                "en": "Niihau"
+              },
+              "edtf": "1778-01/1778-02-02"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1778.088,
+          "to": 1778.238,
+          "edtf": "1778-02-02/1778-03-29",
+          "path": [
+            [-160.0, 21.8],
+            [-160.0, 22.4],
+            [-150.0, 30.0],
+            [-135.0, 40.0],
+            [-124.5, 44.8],
+            [-125.5, 46.5],
+            [-127.0, 49.3],
+            [-126.8, 49.55],
+            [-126.6, 49.8]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-124.1, 44.8],
+              "name": {
+                "sv": "Kap Foulweather (Oregon)",
+                "en": "Cape Foulweather (Oregon)"
+              },
+              "date": "1778-03-07"
+            },
+            {
+              "at": [-126.6, 49.8],
+              "name": {
+                "sv": "Nootka Sound",
+                "en": "Nootka Sound"
+              },
+              "edtf": "1778-03-29/1778-04-26"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1778.315,
+          "to": 1778.438,
+          "edtf": "1778-04-26/1778-06",
+          "path": [
+            [-126.6, 49.8],
+            [-126.8, 49.55],
+            [-127.4, 49.3],
+            [-130.0, 50.5],
+            [-136.0, 54.0],
+            [-140.0, 58.5],
+            [-145.0, 59.3],
+            [-146.8, 59.9],
+            [-146.9, 60.25],
+            [-147.1, 60.5],
+            [-147.2, 60.6],
+            [-147.1, 60.5],
+            [-146.9, 60.25],
+            [-146.9, 59.8],
+            [-150.0, 59.1],
+            [-152.0, 59.0],
+            [-153.2, 58.9]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-147.2, 60.6],
+              "name": {
+                "sv": "Prince William Sound",
+                "en": "Prince William Sound"
+              },
+              "edtf": "1778-05"
+            },
+            {
+              "at": [-153.2, 58.9],
+              "name": {
+                "sv": "Cook Inlet",
+                "en": "Cook Inlet"
+              },
+              "edtf": "1778-05-25/1778-06"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1778.438,
+          "to": 1778.625,
+          "edtf": "1778-06/1778-08-17",
+          "path": [
+            [-153.2, 58.9],
+            [-151.5, 58.8],
+            [-151.0, 58.0],
+            [-151.6, 57.2],
+            [-154.0, 56.0],
+            [-158.0, 54.5],
+            [-162.0, 53.9],
+            [-164.6, 54.0],
+            [-165.0, 54.35],
+            [-165.1, 54.8],
+            [-162.5, 58.0],
+            [-165.5, 58.8],
+            [-168.0, 59.9],
+            [-168.5, 61.8],
+            [-168.0, 63.2],
+            [-169.3, 65.0],
+            [-171.0, 65.6],
+            [-169.0, 65.8],
+            [-168.0, 68.0],
+            [-167.5, 69.5],
+            [-163.5, 70.6],
+            [-162.5, 70.5]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-164.2, 54.8],
+              "name": {
+                "sv": "Unimak",
+                "en": "Unimak"
+              }
+            },
+            {
+              "at": [-172.7, 60.4],
+              "name": {
+                "sv": "Sankt Matthewön",
+                "en": "St Matthew Island"
+              },
+              "edtf": "1778-07/1778-08"
+            },
+            {
+              "at": [-168.1, 65.6],
+              "name": {
+                "sv": "Kap Prince of Wales",
+                "en": "Cape Prince of Wales"
+              },
+              "date": "1778-08-09"
+            },
+            {
+              "at": [-171.0, 65.6],
+              "name": {
+                "sv": "Lavrentijabukten (Tjuktjerhalvön)",
+                "en": "Lavrentiya Bay (Chukchi Peninsula)"
+              },
+              "edtf": "1778-08"
+            },
+            {
+              "at": [-161.9, 70.3],
+              "name": {
+                "sv": "Packisen stoppar skeppen (Icy Cape)",
+                "en": "Pack ice stops the ships (Icy Cape)"
+              },
+              "date": "1778-08-17"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1778.625,
+          "to": 1778.786,
+          "edtf": "1778-08-17/1778-10",
+          "path": [
+            [-162.5, 70.5],
+            [-170.0, 70.0],
+            [-176.0, 69.3],
+            [-171.0, 67.2],
+            [-168.5, 66.0],
+            [-168.6, 65.3],
+            [-167.5, 63.0],
+            [-168.2, 60.5],
+            [-167.0, 57.0],
+            [-166.5, 54.3],
+            [-166.6, 53.7]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-166.6, 53.7],
+              "name": {
+                "sv": "Unalaska",
+                "en": "Unalaska"
+              },
+              "edtf": "1778-10"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1778.822,
+          "to": 1779.044,
+          "edtf": "1778-10/1779-01-17",
+          "path": [
+            [-166.6, 53.7],
+            [-162.0, 40.0],
+            [-156.3, 21.2],
+            [-155.8, 21.0],
+            [-155.3, 20.3],
+            [-154.6, 19.6],
+            [-154.7, 19.2],
+            [-155.8, 18.75],
+            [-156.1, 19.2],
+            [-156.05, 19.45],
+            [-155.9, 19.5]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-156.3, 20.8],
+              "name": {
+                "sv": "Maui",
+                "en": "Maui"
+              },
+              "date": "1778-11-26"
+            },
+            {
+              "at": [-154.8, 19.5],
+              "name": {
+                "sv": "Kap Kumukahi (Hawaii)",
+                "en": "Cape Kumukahi (Hawaii)"
+              },
+              "date": "1778-12-21"
+            },
+            {
+              "at": [-155.9, 19.5],
+              "name": {
+                "sv": "Kealakekuabukten",
+                "en": "Kealakekua Bay"
+              },
+              "edtf": "1779-01-17/1779-02-04"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1779.093,
+          "to": 1779.121,
+          "edtf": "1779-02-04/1779-02-14",
+          "path": [
+            [-155.9, 19.5],
+            [-156.1, 19.5],
+            [-156.3, 20.0],
+            [-156.15, 19.6],
+            [-155.9, 19.5]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-155.9, 19.5],
+              "name": {
+                "sv": "Kealakekuabukten: Cook dödas",
+                "en": "Kealakekua Bay: Cook is killed"
+              },
+              "date": "1779-02-14"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1779.142,
+          "to": 1779.323,
+          "edtf": "1779-02-22/1779-04-29",
+          "path": [
+            [-155.9, 19.5],
+            [-156.1, 19.5],
+            [-156.2, 20.0],
+            [-157.2, 20.6],
+            [-158.3, 21.15],
+            [-159.3, 21.7],
+            [-159.9, 21.85],
+            [-159.95, 22.4],
+            [-165.0, 35.0],
+            [-170.0, 45.0],
+            [160.0, 52.0],
+            [159.4, 52.6],
+            [158.6, 52.9]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-159.5, 22.1],
+              "name": {
+                "sv": "Kauai",
+                "en": "Kauai"
+              }
+            },
+            {
+              "at": [158.6, 52.9],
+              "name": {
+                "sv": "Avatjabukten (Kamtjatka)",
+                "en": "Avacha Bay (Kamchatka)"
+              },
+              "edtf": "1779-04-29/1779-06-13"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1779.447,
+          "to": 1779.644,
+          "edtf": "1779-06-13/1779-08",
+          "path": [
+            [158.6, 52.9],
+            [159.4, 52.6],
+            [161.0, 53.0],
+            [163.5, 55.0],
+            [164.3, 56.2],
+            [-178.0, 62.5],
+            [-170.5, 64.8],
+            [-169.0, 65.8],
+            [-168.0, 68.0],
+            [-167.0, 70.0],
+            [-172.0, 69.5],
+            [-169.0, 66.5],
+            [-169.0, 65.8],
+            [-170.5, 64.8],
+            [-178.0, 62.5],
+            [164.3, 56.2],
+            [163.5, 55.0],
+            [161.0, 53.0],
+            [159.4, 52.6],
+            [158.6, 52.9]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [158.6, 52.9],
+              "name": {
+                "sv": "Avatjabukten: Clerke har dött",
+                "en": "Avacha Bay: Clerke has died"
+              },
+              "edtf": "1779-08/1779-10-09"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1779.77,
+          "to": 1779.915,
+          "edtf": "1779-10-09/1779-12-01",
+          "path": [
+            [158.6, 52.9],
+            [159.4, 52.6],
+            [156.0, 49.0],
+            [152.0, 45.0],
+            [146.5, 41.5],
+            [143.0, 40.0],
+            [141.5, 35.0],
+            [138.0, 33.5],
+            [133.0, 31.0],
+            [131.0, 29.9],
+            [130.0, 29.0],
+            [123.0, 24.0],
+            [122.5, 23.0],
+            [121.2, 21.5],
+            [120.3, 21.3],
+            [116.0, 21.5],
+            [113.5, 22.2]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [113.5, 22.2],
+              "name": {
+                "sv": "Macao",
+                "en": "Macau"
+              },
+              "edtf": "1779-12-01/1780-01-13"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1780.033,
+          "to": 1780.276,
+          "edtf": "1780-01-13/1780-04-11",
+          "path": [
+            [113.5, 22.2],
+            [114.0, 20.0],
+            [110.0, 12.0],
+            [108.0, 5.0],
+            [106.5, 2.0],
+            [107.2, -2.5],
+            [107.0, -3.6],
+            [106.2, -5.5],
+            [106.0, -5.85],
+            [105.7, -6.0],
+            [105.3, -6.35],
+            [104.6, -6.6],
+            [95.0, -15.0],
+            [60.0, -32.0],
+            [30.0, -37.0],
+            [19.0, -35.0],
+            [18.65, -34.4],
+            [18.6, -34.25],
+            [18.4, -34.2]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [105.2, -6.6],
+              "name": {
+                "sv": "Panaitan (Prince’s Island) i Sundasundet",
+                "en": "Panaitan (Prince’s Island), Sunda Strait"
+              }
+            },
+            {
+              "at": [18.4, -34.2],
+              "name": {
+                "sv": "Simon’s Bay (Kapstaden)",
+                "en": "Simon’s Bay (Cape Town)"
+              },
+              "edtf": "1780-04-11/1780-05-09"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1780.352,
+          "to": 1780.634,
+          "edtf": "1780-05-09/1780-08",
+          "path": [
+            [18.4, -34.2],
+            [18.6, -34.25],
+            [18.65, -34.45],
+            [18.3, -34.6],
+            [17.5, -34.0],
+            [12.0, -25.0],
+            [-8.0, -15.0],
+            [-25.0, 5.0],
+            [-35.0, 30.0],
+            [-20.0, 50.0],
+            [-12.0, 53.5],
+            [-9.0, 57.0],
+            [-8.2, 58.6],
+            [-6.0, 59.2],
+            [-3.7, 59.0],
+            [-3.3, 59.0]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [-3.3, 59.0],
+              "name": {
+                "sv": "Stromness (Orkney)",
+                "en": "Stromness (Orkney)"
+              },
+              "edtf": "1780-08"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1780.648,
+          "to": 1780.757,
+          "edtf": "1780-08/1780-10-04",
+          "path": [
+            [-3.3, 59.0],
+            [-3.15, 58.85],
+            [-3.0, 58.72],
+            [-2.4, 58.6],
+            [-1.8, 58.3],
+            [-1.5, 57.0],
+            [1.0, 54.0],
+            [2.2, 53.0],
+            [2.0, 52.0],
+            [1.6, 51.65],
+            [0.9, 51.5]
+          ],
+          "uncertain": true,
+          "places": [
+            {
+              "at": [0.9, 51.5],
+              "name": {
+                "sv": "Nore (Themsens mynning)",
+                "en": "The Nore (Thames estuary)"
+              },
+              "date": "1780-10-04"
+            }
+          ],
+          "sources": [
+            "wp-cook-resa-3",
+            "dnb-cook",
+            "eb1911-cook",
+            "wikidata"
+          ]
+        }
+      ]
+    }
+  ]
+}
