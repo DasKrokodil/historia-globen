@@ -177,6 +177,30 @@ En post i `files` är en sökväg från repots rot eller ett filnamn i `data/rou
 
 Etapper får överlappa i tid (till exempel när en flotta delas); varje pågående etapp får då ett skepp. `scripts/validate-site.py` kontrollerar att filerna i `files` finns och går att läsa, att vägarnas och etappernas källor finns i `sources.json` och att `event` finns i `events.json`.
 
+## `upptackt.json`: upptäcktsvyn (#101)
+
+Upptäcktsvyn slås på i Lager. Filen styr allt den visar (ritas av `js/layers/discovery.js`):
+
+```json
+{ "schema": "historia-globen/upptackt@1", "notes": "…",
+  "perspective": { "sv": "Dimman visar bara vad resorna och vägarna i datan har nått …" },
+  "credit": { "sv": "Kartbilder: havsmonster ur Olaus Magnus Carta marina (1539) …" },
+  "fog": { "opacity": 0.62, "corridorDeg": 5, "soften": 0.6,
+    "labels": [{ "text": { "sv": "Terra incognita" }, "at": [-100, 47], "size": 4.2 }] },
+  "decorations": [{ "id": "sjoorm-stilla-havet", "file": "images/karta/sjoorm.webp", "at": [-152, 32],
+    "width": 26, "fade": true, "title": { "sv": "Sjöorm" }, "source": "commons-karta-carta-marina-sjoorm" }] }
+```
+
+| Fält | Betydelse |
+|---|---|
+| `perspective` | Raden i teckenförklaringen: vad dimman och ordet "upptäckt" betyder här. Text per språk |
+| `credit` | Krediten för kartbilderna i teckenförklaringen. Länkar till filsidorna läggs till ur `source` |
+| `fog.opacity` | Dimmans täckning, 0–1. Färgerna är CSS-variablerna `--discovery-fog` och `--discovery-ink` |
+| `fog.corridorDeg` | Bredden i grader på korridoren som lyfts längs varje etapp i `data/routes` som har börjat |
+| `fog.soften` | Hur mycket bredare korridorens mjuka kant är (0,6 = 60 % bredare) |
+| `fog.labels` | Texter i dimman: `text`, `at` = `[longitud, latitud]` för mitten och `size` = höjd i grader |
+| `decorations` | Bilder ur gamla kartor: `file`, `at` = `[longitud, latitud]` för bildens mitt (mitt i öppna hav), `width` = bredd i grader, `fade` = tonas bort när en lyft korridor kommer nära, `title` och `source` (id i `sources.json`, filsidan på Wikimedia Commons) |
+
 ## `religions.json`: religioner
 
 ```json

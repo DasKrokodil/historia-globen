@@ -17,7 +17,9 @@
   --ok: #8fc48e;
   --medal: #10202c;        /* markörernas botten (#242), samma som GROUND i layers/events.js */
   --gold-dot: #f1d98a;     /* markörernas punkt för betydelse */
-  --ff-ink-soft: #7a5a1f;  /* Samtidigt-kortets dämpade bläck på pergament: pilen och "Dra upp för mer" (#310) */
+  --ff-ink-soft: #7a5a1f;
+  --discovery-fog: #d4cfbd;  /* upptäcktsvyns dimma över det okända (#101), ritas på lagerbilden */
+  --discovery-ink: #5b4626;  /* "Terra incognita" i dimman */  /* Samtidigt-kortets dämpade bläck på pergament: pilen och "Dra upp för mer" (#310) */
   /* Kapitel över tidslinjen i fokusläget (#244): ur story.chapters, och neutrala band mellan stora händelser */
   --chap-0: #2d4655; --chap-1: #633f3e; --chap-2: #5b5138; --chap-3: #36594e;
   --chap-auto-0: color-mix(in srgb, var(--brass) 22%, var(--night-2));
@@ -1124,6 +1126,14 @@ details.used-by summary:hover { color: var(--parchment); }
 }
 .religion-legend .rl-hint-close:hover { background: var(--night-2); }
 .religion-legend :is(.rl-hint-close, .rl-about):focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+/* Upptäcktsvyn (#101): perspektivraden syns alltid, också när förklaringen är hopfälld; krediten för kartbilderna */
+.religion-legend .rl-disc {
+  margin: 2px 0 5px; padding: 5px 8px; border-left: 2px solid var(--brass-deep); background: var(--night-3);
+  border-radius: 0 var(--r) var(--r) 0; font: 400 11.5px/1.38 var(--f-body); color: var(--parchment);
+}
+.religion-legend .rl-credit { display: block; }
+.religion-legend .rl-credit a { color: var(--brass); }
+.religion-legend:has(.rl-disc) { max-width: 260px; }
 .layer-sub .rel-about { display: block; margin: 6px 10px 2px; padding: 4px 10px; border-color: var(--brass-deep); }
 .religion-pop {
   position: absolute; z-index: 12; width: min(260px, calc(100% - 16px)); box-sizing: border-box;
@@ -1149,6 +1159,8 @@ details.used-by summary:hover { color: var(--parchment); }
 @media (max-width: 760px) {
   /* smalare än rubrikens högra grannar (knapparna uppe till höger), 44 px hög tryckyta, borta när panelen är öppen */
   .religion-legend { max-width: 172px; font-size: 11px; padding-top: 0; padding-bottom: 0; }
+  .religion-legend:has(.rl-disc) { max-width: 210px; }
+  .religion-legend .rl-disc { font-size: 11px; padding: 4px 6px; }
   .religion-legend .rl-body { padding-bottom: 6px; }
   .religion-legend .rl-toggle { min-height: 40px; }
   .religion-legend .swatch { width: 10px; height: 10px; }

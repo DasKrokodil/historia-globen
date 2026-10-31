@@ -65,6 +65,7 @@ js/layers/religions.js lager: religioner som områden, med symboler i områdena 
 js/layers/origins.js  religionens symbol där den uppstod, som klickbar markör (#271)
 js/layers/wars.js     lager: krigsområden runt krigets slag
 js/layers/lines.js    lager: vägar och resor som ritas fram över tiden (#38)
+js/layers/discovery.js lager: upptäcktsvyn med dimma som resorna lyfter, havsmonster och kompassrosor (#101)
 js/ui/panel.js        "Samtidigt i världen" per världsdel, kategorifilter och detaljvy
 js/ui/funfact.js      Samtidigt-kortet (fun facts, när ett krig bröt ut) och bågar på globen
 js/ui/sources.js      sidan Om källorna (knappen Källor)
@@ -79,6 +80,7 @@ js/ui/routepop.js     klickrutan för vägar och resor
 img/icons/            ikoner för händelser och religionernas symboler (egna SVG-teckningar, till exempel treaty.svg för fredsavtal, cross.svg och dharma-wheel.svg, #271)
 img/favicon.svg       sidans ikon i webbläsarfliken (och PNG-versioner för äldre webbläsare och hemskärm)
 images/events/        bilder till händelser (historiska bilder och märkta illustrationer)
+images/karta/         upptäcktsvyns detaljer ur gamla kartor (havsmonster och kompassros, public domain)
 images/incoming/      nya bilder innan de konverteras
 tools/                hjälpskript som körs för hand (Python): riken, religioner, bildpromptar och bildkonvertering
 docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar; docs/bilder/ har skärmbilderna i README
@@ -93,6 +95,7 @@ tools/religioner_riken.py  bygger rikenas gränser för religionslagrets klickru
 data/empires/         riken med utbredning per period, en fil per rike och index.json (Cliopatria)
 data/borders.json     dagens landsgränser (Natural Earth)
 data/routes/          vägar och resor (lagertyp linje): index.json och en fil per resa eller väg
+data/upptackt.json    upptäcktsvyn: perspektivraden, dimmans styrka och korridorens bredd, dekorationernas platser
 data/religions.json   religioner över tid: varje rikes religion (Cliopatria + Wikipedia)
 data/religions-polities.json  varje rikes gräns i religionslagret, för klickrutan (Cliopatria)
 data/styles.json      bildstilar efter tidsålder och plats
@@ -154,6 +157,7 @@ Hittar du ett faktafel, öppna ett issue och ange vilken uppgift det gäller och
   - **Historiska bilder** kommer från [Wikimedia Commons](https://commons.wikimedia.org/) (public domain, CC0, CC BY eller CC BY-SA) och från [Library of Congress](https://www.loc.gov/pictures/) (poster märkta "No known restrictions on publication"). Varje bild behåller sin egen licens, som står i bildtexten tillsammans med upphov och länk till filsidan eller arkivposten. Filsidan eller arkivposten finns i källregistret.
   - **Illustrationer** i en tidsålders bildtradition är tydligt märkta "inte en historisk bild" i bildtexten. Verktyg, datum och prompt sparas i `data/events.json`. De licensieras under CC BY 4.0 som övrig data, i den mån de alls omfattas av upphovsrätt.
   - **Platshållare** märks "Platshållare" tills den riktiga bilden finns.
+- **Upptäcktsvyns kartbilder** (`images/karta/`) är beskurna detaljer ur Olaus Magnus *Carta marina* (1539) och Guillaume Brouscons världskarta (1543, Huntington Library), via [Wikimedia Commons](https://commons.wikimedia.org/), public domain. Ändringar: beskurna med mjuk oval kant och förminskade. Filsidorna finns i källregistret, och krediten står i teckenförklaringen när upptäcktsvyn är på.
 - **Dirigenten och orkestern** i `.orchestra/shared/` kommer från [solwation/dirigenten-och-orkestern](https://github.com/solwation/dirigenten-och-orkestern) och har MIT-licens. Det är instruktioner för AI-agenter, inte en del av sidan.
 - **three.js** laddas från jsDelivr och har MIT-licens. Typsnitten kommer från Google Fonts (SIL Open Font License).
 - Händelsetexterna är egna sammanfattningar. Källorna, ofta Wikipedia (CC BY-SA), länkas från varje uppgift.
