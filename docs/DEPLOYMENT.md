@@ -153,10 +153,10 @@ Webbläsartestet väljer den publicerade sidan med `BASE_URL=https://historiaglo
 
 ### Webbläsartest (#339)
 
-`.github/workflows/browser-test.yml`, **Webbläsartest**, körs vid samma tillfällen som valideringen (push till `main`, pull requests mot `main` och `production`). Jobbet **"Öppna sidan i Chromium"**:
+`.github/workflows/browser-test.yml`, **Webbläsartest**, körs vid samma tillfällen som valideringen (push till `main`, pull requests mot `main` och `production`). Vid push till `main` och pull requests mot `main` körs bara jobbet **"Öppna sidan i Chromium"**. En release-PR mot `production` kör samma test parallellt i **Chromium, Firefox och WebKit** (#401), så att även Firefox och Safaris webbläsarmotor provas före release. Varje jobb:
 
 1. bygger `dist/` med `scripts/build-site.sh`
-2. installerar Playwright 1.63.0 (exakt version) och bara Chromium i en tillfällig mapp utanför repot, så att repot inte får någon `package.json` och `dist/` inte påverkas
+2. installerar Playwright 1.63.0 (exakt version) och den aktuella webbläsarmotorn i en tillfällig mapp utanför repot, så att repot inte får någon `package.json` och `dist/` inte påverkas
 3. startar `python3 -m http.server` i `dist/`
 4. kör `tests/webblasare.mjs`, som öppnar sidan i datorbredd (1400 × 900) och mobilbredd (400 × 800)
 
@@ -170,7 +170,7 @@ Kontrollerna, i båda bredderna:
 
 Testet väntar på att sidan når ett visst läge (en meny syns, årtalet ändras, kartan står still), inte på fasta tider, så att det inte ska bli rött av en slump. Jobbet tar cirka 3 minuter och avbryts efter 10.
 
-**Skärmbilderna** sparas som artefakten `skarmbilder` (14 dagar): öppna körningen under Actions (eller "Details" vid kontrollen i pull requesten) och ladda ner artefakten längst ned på sidan. Bilderna heter `dator-…` och `mobil-…`, i den ordning testet tar dem; en kontroll som misslyckas ger en bild som börjar på `dator-FEL-` eller `mobil-FEL-`. Loggen visar varje kontroll som `OK` eller `FEL` med ett kort mått (till exempel hur många pixlar som ändras när rikena slås på).
+**Skärmbilderna** sparas i 14 dagar som `skarmbilder-chromium`, `skarmbilder-firefox` och `skarmbilder-webkit` (bara Chromium finns i vanliga körningar): öppna körningen under Actions (eller "Details" vid kontrollen i pull requesten) och ladda ner artefakten längst ned på sidan. Bilderna heter `dator-…` och `mobil-…`, i den ordning testet tar dem; en kontroll som misslyckas ger en bild som börjar på `dator-FEL-` eller `mobil-FEL-`. Loggen visar varje kontroll som `OK` eller `FEL` med ett kort mått (till exempel hur många pixlar som ändras när rikena slås på).
 
 Mallen `.github/PULL_REQUEST_TEMPLATE/release.md` är releasechecklistan. Den används när release-PR:en öppnas med `?template=release.md` (se nedan).
 
