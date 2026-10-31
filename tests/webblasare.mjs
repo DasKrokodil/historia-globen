@@ -9,6 +9,7 @@
 // Argument: porten (standard 8000). Sidan hämtas från http://localhost:<port>/.
 // Miljövariabler (alla valfria):
 //   BASE_URL=<adress>    testa en redan publicerad sida i stället, till exempel https://historiagloben.se/
+//   BROWSER=<motor>       chromium (standard), firefox eller webkit
 //   SKARMBILDER=<mapp>   var skärmbilderna sparas (standard: <tmp>/historia-globen-webblasartest)
 //   THREE_LOCAL=<fil>    lokal kopia av three.module.js (three@0.160.0) som ersätter jsdelivr. För miljöer utan
 //                        nät till jsdelivr, till exempel molnmiljön. Google Fonts avbryts då också.
@@ -26,9 +27,12 @@ import os from 'node:os';
 import path from 'node:path';
 
 const require = createRequire(import.meta.url);
-const { chromium } = require('playwright');
+const playwright = require('playwright');
 
 const PORT = Number(process.argv[2] || 8000);
+const BROWSER = process.env.BROWSER || 'chromium';
+const browserType = { chromium: playwright.chromium, firefox: playwright.firefox, webkit: playwright.webkit }[BROWSER];
+if (!browserType) throw new Error(`Okänd webbläsarmotor: ${BROWSER}`);
 const target = process.env.BASE_URL || `http://localhost:${PORT}/`;
 const BASE = target.endsWith('/') ? target : `${target}/`;
 const OUT = path.resolve(process.env.SKARMBILDER || path.join(os.tmpdir(), 'historia-globen-webblasartest'));
@@ -162,24 +166,37 @@ async function run(browser, vp) {
     const globe = page.locator('#globe-canvas');
     const role = await globe.getAttribute('role');
     if (role !== 'region') throw new Error(`globens roll är "${role}" i stället för "region"`);
+    // Globen är dokumentets första tabbstopp. Headless-motorer hanterar Skift+Tab där olika, så ett osynligt
+    // föregående tabbstopp gör att testet kan kontrollera sidans flöde i stället för webbläsarens verktygsfält.
+    await page.evaluate(() => {
+      const before = document.createElement('input');
+      before.type = 'text';
+      before.id = 'test-before-globe';
+      before.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;opacity:0';
+      document.getElementById('globe-canvas').before(before);
+    });
+    let afterTab, afterBack, afterEscape;
+    try {
+      await globe.focus();
+      await page.keyboard.press('ArrowRight');
+      if (!(await globe.evaluate(el => el === document.activeElement))) throw new Error('piltangenten flyttade fokus från globen');
 
-    await globe.focus();
-    await page.keyboard.press('ArrowRight');
-    if (!(await globe.evaluate(el => el === document.activeElement))) throw new Error('piltangenten flyttade fokus från globen');
+      await page.keyboard.press('Tab');
+      afterTab = await page.evaluate(() => document.activeElement?.id || document.activeElement?.tagName);
+      if (afterTab === 'globe-canvas') throw new Error('Tab fastnade i globen');
 
-    await page.keyboard.press('Tab');
-    const afterTab = await page.evaluate(() => document.activeElement?.id || document.activeElement?.tagName);
-    if (afterTab === 'globe-canvas') throw new Error('Tab fastnade i globen');
+      await globe.focus();
+      await page.keyboard.press('Shift+Tab');
+      afterBack = await page.evaluate(() => document.activeElement?.id || document.activeElement?.tagName);
+      if (afterBack !== 'test-before-globe') throw new Error(`Shift+Tab gick till ${afterBack} i stället för föregående kontroll`);
 
-    await globe.focus();
-    await page.keyboard.press('Shift+Tab');
-    const afterBack = await page.evaluate(() => document.activeElement?.id || document.activeElement?.tagName);
-    if (afterBack === 'globe-canvas') throw new Error('Shift+Tab fastnade i globen');
-
-    await globe.focus();
-    await page.keyboard.press('Escape');
-    const afterEscape = await page.evaluate(() => document.activeElement?.id || document.activeElement?.tagName);
-    if (afterEscape !== 'year-jump') throw new Error(`Escape gick till ${afterEscape} i stället för årskontrollen`);
+      await globe.focus();
+      await page.keyboard.press('Escape');
+      afterEscape = await page.evaluate(() => document.activeElement?.id || document.activeElement?.tagName);
+      if (afterEscape !== 'year-jump') throw new Error(`Escape gick till ${afterEscape} i stället för årskontrollen`);
+    } finally {
+      await page.evaluate(() => document.getElementById('test-before-globe')?.remove());
+    }
     return `Tab → ${afterTab}, Shift+Tab → ${afterBack}, Escape → ${afterEscape}`;
   });
 
@@ -317,7 +334,9 @@ async function run(browser, vp) {
 }
 
 const t0 = Date.now();
-const browser = await chromium.launch({ args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader'] });
+const browser = await browserType.launch(BROWSER === 'chromium'
+  ? { args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader'] }
+  : {});
 let failed = 0;
 try {
   for (const vp of VIEWPORTS) {
