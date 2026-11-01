@@ -33,6 +33,8 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   `beslut-krävs` och utan krock med orkesterns pågående eller planerade arbete. Etiketten tas bort när issuet tas.
   Varje pass och varje planering går igenom den pågående milstolpen efter nya sådana issues, och rapporten till Rikard
   har raden "Nya för Codex: #…" (eller ingen rad när inget är nytt).
+  Codex får också köra `$orkester` (beslut 2026-11-01) med högst två arbetare och tre pull requests per pass, enligt
+  [AGENTS.md](../AGENTS.md). Claude Code granskar fortfarande varje pull request.
 - **Kapacitet:** en arbetare är standard (resurspolicyn nedan). Högst tre arbetare samtidigt, inklusive hjälpare. Dirigenten får göra ett arbete själv, och det
   räknas då som en plats. Webbläsartester (Playwright) körs av en arbetare i taget, var och en med egen port. Kön
   hålls med en gemensam låsfil: `flock <scratchpad>/pw.lock node skript.cjs`. I molnmiljön når webbläsaren inte
