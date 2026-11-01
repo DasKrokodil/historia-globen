@@ -55,7 +55,11 @@ async function start() {
     root: $('flat-view'), box: $('flat-box'), canvas: $('flat-canvas'),
     zoomIn: $('flat-in'), zoomOut: $('flat-out'), reset: $('flat-reset'),
     sources: () => [globe.baseCanvas, globe.overlayCanvas],
-    onToggle: open => { $('btn-flat').setAttribute('aria-pressed', String(open)); syncNameScale(); },
+    onToggle: open => {
+      $('btn-flat').setAttribute('aria-pressed', String(open));
+      globe.setFlatView(open); // Platt vy behåller 4096 × 2048 även när mobilens glob är mindre (#390)
+      syncNameScale(); refresh();
+    },
     // Markörerna i Platt vy (#313): klick öppnar faktarutan som på globen, etiketterna som på globen
     labels: $('flat-labels'), onSelect: id => select(id), labelText, fillLabel,
   });
@@ -118,7 +122,7 @@ async function start() {
     views: views && { ...views, controlled: registry.viewLayers(views.groups) } });
   Object.assign(state, { layers: layers.on, pause: layers.pause, calm: layers.calm });
   // Lugn rörelse (#246): också rikenas övergångar (#78) stängs av (i lagrets apply)
-  globe.calm = layers.calm; layers.onCalm = on => { state.calm = globe.calm = on; registry.apply(state); };
+  globe.setCalm(layers.calm); layers.onCalm = on => { state.calm = on; globe.setCalm(on); registry.apply(state); };
   // Teckenförklaring och klickruta för religionslagret (#166)
   const relLegend = new ReligionLegend({ legend: $('religion-legend'), pop: $('religion-pop') });
   relLegend.empireLegend = views?.empireLegend ?? {};
@@ -790,6 +794,8 @@ async function start() {
     $('app').classList.toggle('has-detail', !$('detail').hidden);
     showNextPause();
   }
+  // Byte mellan mobilglob och Platt vy byter canvasstorlek. Rita om lagren i den nya upplösningen.
+  globe.onTextureSizeChange = () => refresh();
 
   // Rikets berättelse (#171): korten byggs en gång per rike ur facts.milestones
   const stories = new Map();
