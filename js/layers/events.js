@@ -132,7 +132,7 @@ export class EventsLayer {
   constructor(globe, events) {
     this.globe = globe;
     this.events = events;
-    this.state = new Map(); // id -> { activity, inside, dist, when }
+    this.state = new Map(); // id -> { activity, inside, dist, when, fought, opacity }
     this.sprites = [];
     this.byId = new Map(); // händelse-id -> sprite
     for (const e of events) {
@@ -183,13 +183,16 @@ export class EventsLayer {
       const fought = e.partOf === focusId && s1 < year;
       const activity = !shown ? 0 : inside ? 1 : near ? 1 - 0.6 * dist / Math.max(1, window) : fought ? 0.45 : 0;
       const when = inside ? 'now' : s1 < year ? 'past' : 'future';
-      this.state.set(e.id, { activity, inside, dist, when });
+      // Utanför Fokus gör det lägre tonläget tydligt att händelsen bara ligger i tidsfönstret.
+      // Redan utkämpade slag i Fokus behåller sin tidigare svaga visning (#434).
+      const opacity = inside || fought ? 0.45 + 0.55 * activity : Math.min(0.45, activity);
+      this.state.set(e.id, { activity, inside, dist, when, fought, opacity });
       s.userData.info = markerInfo(e, when);
       s.userData.big = e.id === selectedId || highlight.has(e.id);
       s.userData.activity = activity;
       s.visible = activity > 0;
       s.userData.active = activity > 0; // klustringen döljer markörer som ingår i ett kluster
-      s.material.opacity = 0.45 + 0.55 * activity;
+      s.material.opacity = opacity;
       s.userData.baseScale = (s.userData.big ? 0.078 : 0.045 + 0.018 * activity);
       if (activity > 0) this._paint(s);
       if (activity > 0 && okFilter) visible.push({ e, activity, inside, dist });
@@ -203,7 +206,7 @@ export class EventsLayer {
     const k = W / 2048; // skenet blir lika stort oavsett bildens upplösning
     for (const e of this.events) {
       const st = this.state.get(e.id);
-      if (!st || st.activity <= 0) continue;
+      if (!st || st.activity <= 0 || (!st.inside && !st.fought)) continue;
       const x = (e._lon + 180) / 360 * W, y = (90 - e._lat) / 180 * H;
       const r = (26 + 18 * st.activity) * k;
       const col = CAT[e.category]?.color ?? '#ffffff';
