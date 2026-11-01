@@ -579,6 +579,21 @@ async function start() {
     }
     showWarPlay(n);
     timeline.refreshPlayLabel();
+    updateFocusAction(n);
+  }
+  /** Fokusläget har samma tydliga huvudåtgärd för krig, riken och religioner (#360). */
+  function updateFocusAction(next = nextPause()) {
+    if (!focus) return;
+    const action = $('focus-action');
+    const running = timeline.playing;
+    // Efter en automatisk paus ska eleven fortsätta där berättelsen stannade. "Spela klart"
+    // erbjuds först när ett krigsstopp redan har visats, så starten alltid heter "Spela".
+    const finish = !running && !timeline.resumable && !timeline.atEnd && focusWar && shownStops.size > 0 && next && next !== 'end' && !finishing;
+    const label = running ? 'Pausa' : timeline.resumable ? 'Fortsätt' : timeline.atEnd ? 'Spela igen' : finish ? 'Spela klart' : 'Spela';
+    action.dataset.action = running ? 'pause' : finish ? 'finish' : 'play';
+    action.textContent = `${running ? 'Ⅱ' : '▶'} ${label}`;
+    action.setAttribute('aria-label', `${label} tiden i fokusläget`);
+    $('focus-state').textContent = `${timeline.format(timeline.year)} · ${running ? 'Spelar' : 'Står still'}`;
   }
   /** Raden vid spelknappen när man följer ett krig (#244): vilka pauser som är på (valen i Lager) och
    *  "Spela klart", som syns så länge det finns något att hoppa över före slutet. I smal skärm står
@@ -770,6 +785,9 @@ async function start() {
     }
     refresh();
   });
+  // Uppspelningen kan också ändras av ett stopp eller av att tidslinjen når slutet.
+  // Huvudknappen i Fokus ska alltid följa tidslinjens faktiska läge (#360).
+  timeline.addEventListener('playstate', () => updateFocusAction());
   // Fortsätt efter ett stopp i ett krig: nästa stora händelse samma år, eller slutkortet,
   // i stället för att uppspelningen börjar om från krigets början (#217, #232)
   timeline.hasMore = () => !!queuedStop();
@@ -788,6 +806,12 @@ async function start() {
   // efterträdare eller föregångare som finns som rike (#72, follow) börjar följas direkt.
   panel.onEmpire = (id, follow = false) => (!follow && showEmpireFacts(id)) || startFocus(`empire:${id}`);
   $('focus-exit').addEventListener('click', endFocus);
+  $('focus-action').addEventListener('click', () => {
+    if ($('focus-action').dataset.action === 'pause') timeline.pause();
+    else if ($('focus-action').dataset.action === 'finish') playToEnd();
+    else timeline.play();
+    showNextPause();
+  });
   // Knappen Fakta i fokusraden öppnar rikets eller religionens faktaruta igen (#170)
   $('focus-facts').addEventListener('click', () => {
     if (focus?.type === 'empire') showEmpireFacts(focus.id);

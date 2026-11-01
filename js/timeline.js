@@ -332,6 +332,8 @@ export class Timeline extends EventTarget {
   }
   /** I slutet (fokusets slut eller sista året) och utan något kvar att visa börjar nästa uppspelning om. */
   get atEnd() { return !this.playing && this._year >= (this.focus ? this.focus.to : MAX_YEAR) && !this.hasMore(); }
+  /** Sant efter en automatisk paus, när nästa uppspelning fortsätter där tiden stannade. */
+  get resumable() { return this._resume; }
   /** Spelknappens ikon och namn: "Pausa", "Fortsätt" (efter automatisk paus), "Spela igen" (i slutet, #232)
    *  eller "Spela upp tiden". Knappen i pausraden byter text på samma sätt. */
   _labelPlay() {
@@ -341,6 +343,7 @@ export class Timeline extends EventTarget {
     this.playBtn.setAttribute('aria-label', t);
     this.playBtn.title = t;
     if (this.pauseGo) this.pauseGo.textContent = again ? '\u21BB Spela igen' : '\u25B6 Fortsätt';
+    this.dispatchEvent(new CustomEvent('playstate'));
   }
   /** Läs om knappens läge, till exempel när slutkortet har visats utan att året ändrades. */
   refreshPlayLabel() { this._labelPlay(); }

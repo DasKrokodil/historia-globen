@@ -337,6 +337,53 @@ async function run(browser, vp) {
     return `${label} → "${title}"`;
   });
 
+  await check('Fokus har en huvudknapp för uppspelning', async () => {
+    try {
+      await page.click('#btn-focus');
+      await visible('#focus-menu');
+      // Ett rike saknar krigets berättelsekort och dess omedelbara stopp; här testas att den
+      // gemensamma Fokus-knappen alltid speglar tidslinjens verkliga uppspelningsläge.
+      await page.click('#focus-menu [data-tab="Riken"]');
+      const empire = page.locator('#focus-menu .focus-item[data-key^="empire:"]').first();
+      await empire.waitFor({ state: 'visible', timeout: T.step });
+      await empire.click();
+      await visible('#focus-bar');
+      const action = page.locator('#focus-action');
+      if (await page.locator('#btn-play').isVisible()) throw new Error('tidslinjens spelknapp syns också i fokusläget');
+      const synced = async () => {
+        await page.waitForFunction(() => {
+          const actionText = document.getElementById('focus-action').textContent;
+          const playLabel = document.getElementById('btn-play').getAttribute('aria-label');
+          if (playLabel === 'Pausa') return actionText.includes('Pausa');
+          if (playLabel === 'Fortsätt') return actionText.includes('Fortsätt');
+          if (playLabel === 'Spela igen') return actionText.includes('Spela igen');
+          return playLabel === 'Spela upp tiden' && (/▶ Spela$/.test(actionText) || actionText.includes('Spela klart'));
+        }, null, { timeout: 3000 });
+        return page.locator('#btn-play').getAttribute('aria-label');
+      };
+      const initial = await synced();
+      if (initial !== 'Spela upp tiden') throw new Error(`huvudknappen börjar i fel läge: ${initial}`);
+      await action.click();
+      const afterStart = await synced();
+      const noteVisible = await page.locator('#pause-note').isVisible();
+      if (afterStart !== 'Pausa' && afterStart !== 'Fortsätt' && !noteVisible) {
+        throw new Error(`första klicket startade inte eller pausade vid ett stopp: ${afterStart}`);
+      }
+      if (afterStart === 'Pausa') {
+        await action.click();
+        const afterPause = await synced();
+        if (afterPause === 'Pausa') throw new Error('huvudknappen pausade inte tidslinjen');
+      }
+      return `tidslinje och Fokus-knapp är synkade (${initial} → ${afterStart}); tidslinjens spelknapp dold`;
+    } finally {
+      // Ett misslyckat kontrollsteg får inte lämna följande tester i fokusläge eller med tiden spelande.
+      const action = page.locator('#focus-action');
+      if (await action.isVisible().catch(() => false) && (await action.textContent()).includes('Pausa')) await action.click();
+      if (await page.locator('#focus-bar').isVisible().catch(() => false)) await page.click('#focus-exit');
+      await hidden('#focus-bar');
+    }
+  });
+
   await check('Platt vy öppnas', async () => {
     await clickView('#btn-flat');
     await visible('#flat-view');
