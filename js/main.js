@@ -948,7 +948,13 @@ async function start() {
   // Etikettens text och beskrivning, samma på globen och i Platt vy (#313).
   // Händelser i ett krig får årtalet framför namnet, i ett kort krig datumet (#204)
   function labelText(e) {
-    return !e.partOf ? t(e.title) : `${focus?.fine ? dayParts(edtfSpan(e)[0])[0] : formatYear(e.start)} · ${t(e.title)}`;
+    let text = !e.partOf ? t(e.title) : `${focus?.fine ? dayParts(edtfSpan(e)[0])[0] : formatYear(e.start)} · ${t(e.title)}`;
+    // Utanför Fokus visar tidsfönstrets händelser när de slutade eller börjar. Orden kommer ur data/vyer.json,
+    // medan model.js formaterar året så att även f.Kr. blir rätt (#434).
+    const when = layer.state.get(e.id)?.when;
+    const prefix = !focus && views?.eventWindow?.[when];
+    if (prefix) text += ` · ${prefix} ${formatYear(when === 'past' ? e.end : e.start)}`;
+    return text;
   }
   function fillLabel(el, e, text) {
     if (el._text !== text) { // texten byts när fokusläget för ett kort krig börjar eller slutar
