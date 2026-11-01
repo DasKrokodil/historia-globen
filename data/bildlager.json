@@ -3,14 +3,14 @@
   "layers": [
     {
       "id": "nattljus-2016",
-      "name": { "sv": "Nattljus" },
+      "name": { "sv": "Nattljus (NASA, 2016)" },
       "title": { "sv": "Nattljus från rymden, 2016" },
       "file": "images/lager/nattljus-2016.jpg",
       "from": 2016,
       "to": null,
       "opacity": 0.72,
       "source": "nasa-black-marble-2016",
-      "license": "Public domain"
+      "license": "Public domain i USA enligt NASA:s riktlinjer för bilder"
     }
   ]
 }
