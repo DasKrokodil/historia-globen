@@ -312,6 +312,8 @@ async function run(browser, vp) {
       return document.activeElement === expected;
     }, null, { timeout: T.step });
     await shot('3-lager');
+    if (await page.locator('#layer-menu').isHidden()) await page.click('#btn-layers');
+    await visible('#layer-menu');
     await page.click('#layer-customize');
     await visible('#layer-custom');
     const menuWidth = await page.locator('#layer-menu').evaluate(el => ({ scroll: el.scrollWidth, client: el.clientWidth }));
