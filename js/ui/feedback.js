@@ -4,7 +4,8 @@
 // Avstängt tills index.html har en site key för Cloudflare Turnstile (data-sitekey) OCH integritetstexten är
 // godkänd (data-privacy="approved"). Avstängt visas länkar till repots issue-mallar, skicka-knappen är avstängd och
 // inget externt skript laddas. Påslaget laddas Turnstiles skript först när formuläret öppnas.
-// Bara händelsens id skickas; servern slår själv upp titel och tid i data/events.json.
+// Händelser skickar bara id:t för titel och tid. Övriga faktarutor skickar en validerad
+// objektmarkör; adressen rensas alltid från sökparametrar och fragment.
 import { FEEDBACK_CATEGORIES, LIMITS, validateFeedback } from '../feedback-rules.js';
 import { t, formatEventTime } from '../model.js';
 
@@ -59,6 +60,7 @@ export class Feedback {
     });
     this.endpoint = root.dataset.endpoint || '/api/feedback';
     this.event = null;
+    this.object = null;
     this.opener = null;
     this.token = '';
     this.widgetId = null;
@@ -97,12 +99,13 @@ export class Feedback {
    * Öppna formuläret. opener = knappen som öppnade det (fokus går tillbaka dit). event = händelsen när
    * besökaren rapporterar ett faktafel från faktarutan; då är kategorin faktafel förvald.
    */
-  open({ opener = null, event = null } = {}) {
+  open({ opener = null, event = null, object = null } = {}) {
     this.opener = opener;
     const wasOpen = !this.root.hidden;
-    if (event || !wasOpen) {
+    if (event || object || !wasOpen) {
       this.event = event;
-      if (event) this.category.value = 'correction';
+      this.object = object;
+      if (event || object) this.category.value = 'correction';
       this.done.hidden = true; this.form.hidden = false;
     }
     this.renderEvent();
@@ -141,11 +144,11 @@ export class Feedback {
   }
 
   renderEvent() {
-    const show = !!this.event && this.category.value === 'correction';
+    const show = !!(this.event || this.object) && this.category.value === 'correction';
     this.eventBox.hidden = !show;
     if (show) {
-      this.eventTitle.textContent = t(this.event.title);
-      this.eventTime.textContent = formatEventTime(this.event);
+      this.eventTitle.textContent = this.event ? t(this.event.title) : `${this.object.label} (${this.object.id})`;
+      this.eventTime.textContent = this.event ? formatEventTime(this.event) : `år ${this.object.year}`;
     }
   }
 
@@ -231,6 +234,12 @@ export class Feedback {
     if (value.source) body.source = value.source;
     if (value.email) body.email = value.email;
     if (value.eventId) body.eventId = value.eventId;
+    if (this.object && value.category === 'correction') {
+      body.objectType = this.object.type;
+      body.objectId = this.object.id;
+      body.objectYear = String(this.object.year);
+      body.pageUrl = currentPageUrl();
+    }
 
     this.sending = true; this.applyMode();
     this.form.setAttribute('aria-busy', 'true');
@@ -246,7 +255,7 @@ export class Feedback {
 
     if (res?.status === 201 && out?.ok === true) {
       this.form.reset();
-      this.event = null;
+      this.event = null; this.object = null;
       this.renderEvent(); this.renderCount();
       this.setStatus('');
       this.form.hidden = true; this.done.hidden = false;
@@ -263,4 +272,11 @@ export class Feedback {
       : (SERVER_ERRORS[out?.error] ?? 'Förslaget kunde inte skickas just nu. Försök igen senare. Det du har skrivit finns kvar.');
     this.setStatus(msg, true);
   }
+}
+
+/** Samma sida men utan besökarens sökparametrar eller fragment. */
+export function currentPageUrl(location = window.location) {
+  const url = new URL(location.href);
+  url.search = ''; url.hash = ''; url.username = ''; url.password = '';
+  return url.href;
 }
