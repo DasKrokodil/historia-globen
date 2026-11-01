@@ -29,7 +29,7 @@ export function figure(e, srcById) {
 }
 
 /** Diskret knapp "Rapportera faktafel" nedtill i faktarutan, bredvid granskningsstatusen. */
-const reportBtn = e => `<button type="button" class="link-btn report-btn" data-report="${esc(e.id)}" aria-haspopup="dialog" aria-controls="feedback">Rapportera faktafel</button>`;
+const reportBtn = ({ type, id, label }) => `<button type="button" class="link-btn report-btn" data-report-type="${esc(type)}" data-report-id="${esc(id)}" data-report-label="${esc(label)}" aria-haspopup="dialog" aria-controls="feedback">Rapportera faktafel</button>`;
 
 /**
  * Granskningsstatusen nedtill i faktarutan, med en liten (i)-knapp (#310) som fäller ut vad statusarna betyder
@@ -81,7 +81,7 @@ export class Panel {
     this.onEmpire = () => {}; // (rikets id) => rikets faktaruta (#76)
     this.onOpen = () => {};
     this.onYear = () => {};
-    this.onReport = null; // (händelse, knapp) => öppnar formuläret "Rapportera faktafel" (js/ui/feedback.js)
+    this.onReport = null; // (objekt, knapp) => öppnar formuläret "Rapportera faktafel" (js/ui/feedback.js)
     this.onShowPlace = null; // (händelse) => platsraden i mobil (#312): fäller ihop rutan och visar markören på globen
     this.selectedId = null;
     this.shown = null; // det faktarutan visar just nu; en rad som laddas klart ritar bara om samma ruta (#337)
@@ -227,17 +227,20 @@ export class Panel {
       <div class="meta">${esc(formatEventTime(war))} · ${esc(t(war.place))}</div>
       <div class="story">${body}</div>
       ${srcLine(srcs, pending)}
-      ${this.onReport ? `<div class="detail-actions">${reportBtn(war)}</div>` : ''}`;
+      ${this.onReport ? `<div class="detail-actions">${reportBtn({ type: 'war', id: war.id, label: t(war.title) })}</div>` : ''}`;
     this.detail.scrollTop = 0;
     this.detail.hidden = false;
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
-    this.bindReport(war);
+    this.bindReport(war.start);
     this.bindLinks();
   }
 
-  /** Knappen "Rapportera faktafel" öppnar formuläret med händelsen förvald. */
-  bindReport(e) {
-    this.detail.querySelector('[data-report]')?.addEventListener('click', ev => this.onReport?.(e, ev.currentTarget));
+  /** Knappen "Rapportera faktafel" skickar bara objektets typ och id till formuläret. */
+  bindReport(year) {
+    this.detail.querySelector('[data-report-type]')?.addEventListener('click', ev => {
+      const b = ev.currentTarget;
+      this.onReport?.({ type: b.dataset.reportType, id: b.dataset.reportId, label: b.dataset.reportLabel, year }, b);
+    });
   }
 
   /** Länkarna mellan krig och riken (#76): ett rike öppnar rikets faktaruta (med data-follow, #72: börjar följa riket), ett krig följs i fokusläget. */
@@ -252,9 +255,9 @@ export class Panel {
    * religionens facts i religions.json. origin är händelsen där religionen uppstod,
    * som också är punkten på globen.
    */
-  showReligion(r, origin) {
+  showReligion(r, origin, report = null) {
     this.showFacts({ kind: 'Religion', name: t(r.name), color: r.color, symbol: symbolImg(r, 'rel-sym rel-sym-h'), facts: r.facts, origin,
-      milestonesTitle: t(r.facts.milestonesTitle) || 'Statsreligion i riken' });
+      milestonesTitle: t(r.facts.milestonesTitle) || 'Statsreligion i riken', report });
   }
 
   /**
@@ -291,9 +294,10 @@ export class Panel {
       ${shownWars.length ? `<div class="war-list empire-wars"><h4>Krig</h4><ol>${shownWars.map(w =>
         `<li><span class="meta">${esc(formatEventTime(w))}</span> <button type="button" class="link-btn" data-follow-war="${esc(w.id)}" title="Följ kriget">▶ ${esc(t(w.title))}</button></li>`).join('')}</ol></div>` : ''}`;
     const empireMapKey = empireMap ? [this.empireLegend.softEdge, this.empireLegend.influence].filter(Boolean).map(text => `<p class="map-key">${esc(text)}</p>`).join('') : '';
+    const report = opts.report ?? null;
     const sourcesAndMap = `${mapNote ? `<aside class="detail-note"><h4>Om kartan</h4><p>${esc(mapNote)}</p>${empireMapKey}</aside>` : ''}
       ${srcLine(srcs, pending)}
-      <div class="detail-actions">${reviewRow(f.review, subj)}</div>`;
+      <div class="detail-actions">${reviewRow(f.review, subj)}${this.onReport && report ? reportBtn(report) : ''}</div>`;
     const body = isEmpire ? `
       <details class="facts-section" open><summary>Kortfattat</summary>${overview}</details>
       ${development ? `<details class="facts-section"><summary>Hur riket förändrades</summary>${development}</details>` : ''}
@@ -319,6 +323,7 @@ export class Panel {
     for (const b of this.detail.querySelectorAll('[data-year]')) b.addEventListener('click', () => this.onYear(Number(b.dataset.year)));
     this.bindLinks();
     this.bindReviewInfo();
+    if (report) this.bindReport(report.year);
   }
 
   /**
@@ -384,7 +389,7 @@ export class Panel {
       ${srcLine(srcs, pending)}
       <div class="detail-actions">
         ${reviewRow(e.review, 'Händelsen')}
-        ${this.onReport ? reportBtn(e) : ''}
+        ${this.onReport ? reportBtn({ type: 'event', id: e.id, label: t(e.title) }) : ''}
       </div>`;
     this.detail.scrollTop = 0;
     this.detail.hidden = false;
@@ -392,7 +397,7 @@ export class Panel {
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
     this.detail.querySelector('[data-focus]')?.addEventListener('click', ev => this.onFocus(ev.currentTarget.dataset.focus));
     this.detail.querySelector('[data-show-place]')?.addEventListener('click', () => this.onShowPlace(e));
-    this.bindReport(e);
+    this.bindReport(e.start);
     this.bindLinks();
     this.bindReviewInfo();
   }
