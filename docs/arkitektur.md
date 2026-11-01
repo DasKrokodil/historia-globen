@@ -276,6 +276,7 @@ Skripten i `tools/` körs för hand, inte av sidan, så principen om inget byggs
 | Skript | Gör |
 |---|---|
 | `tools/dela_data.py` | Delar upp `data/events.json` och `data/empires/index.json` i mindre filer i `data/genererat/` (#337). Körs efter varje ändring i källfilerna; `--check` kontrollerar utan att skriva, och `scripts/validate-site.py` gör samma kontroll |
+| `tools/tackningsrapport.py` | Skriver `docs/tackningsrapport.md` med händelser per världsdel, århundrade och kategori (#484). Världsdelarna följer `region()` i `js/model.js`; `--check` kontrollerar att rapporten är uppdaterad |
 | `tools/rutter_land.py` | Kontrollerar att sjöetapperna i `data/routes/` inte korsar land (#332). Kräver numpy och Pillow |
 | `tools/riken.py` | Bygger rikesfilerna ur Cliopatria |
 | `tools/religioner.py` | Bygger `data/religions.json` ur Cliopatria och registret med faktarutornas texter: varje rikes religion år för år, arv av religion där rikets faktaruta saknar religion (#269), sammanslaget per religion i ögonblicksbilder |
