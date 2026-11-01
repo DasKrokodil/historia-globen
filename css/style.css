@@ -1527,6 +1527,11 @@ details.used-by summary:hover { color: var(--parchment); }
   .controls .play { flex: 0 0 46px; max-width: none; }
   .controls .speed { flex: 0 0 50px; max-width: none; overflow: visible; }
   .track { height: 48px; }
+  /* Ett krig kan ha många namn på kort avstånd. På mobil visar vi namnet närmast
+     reglaget; alla band behåller full beskrivning i titel och tillgänglighetsnamn. */
+  .chap-label:not(.chap-label-current) { display: none; }
+  .chap-label-current { position: absolute; left: 0; width: max-content; max-width: calc(100vw - 24px); }
+  .chap-label-flip .chap-label-current { right: 0; left: auto; }
 
   /* Fokusraden direkt ovanför tidslinjen, knapparna med 44 px tryckyta */
   .focus-bar { bottom: 104px; }
