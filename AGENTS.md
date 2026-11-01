@@ -31,6 +31,7 @@ Rikard äger projektet. Han är projektledare, inte utvecklare. Skriv på svensk
 
 Codex får köra orkestern (beslut 2026-11-01): `$orkester` följer `.orchestra/project.md` och `.orchestra/shared/` på samma sätt som `/orkester` i Claude Code, med Codex som dirigent för sitt eget pass. Utöver det som står där gäller:
 
+- **Börja varje pass med `codex: synpunkter`:** skriv dina synpunkter på alla öppna issues med den etiketten innan du bygger något (se "Ta ett issue").
 - **Bara issues med `codex: redo`**, enligt "Ta ett issue" ovan.
 - **Högst två arbetare samtidigt**, inklusive dirigenten, och bara när issuena är oberoende: de rör inte samma filer (till exempel `js/main.js`, `css/style.css`, `data/events.json`, `data/sources.json`, `data/genererat/`, `docs/beslut.md`) och bygger inte på varandra. Annars en i taget.
 - **Högst tre pull requests per pass.** Stanna sedan, lista dina pull requests och vänta på granskning från Claude Code innan nästa pass.
