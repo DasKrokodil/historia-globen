@@ -189,9 +189,18 @@ async function run(browser, vp) {
     const detail = (await page.textContent('#detail')).replace(/\s+/g, ' ').trim();
     if (!detail.includes(title)) throw new Error(`faktarutan gäller inte den valda händelsen: ${title}`);
     await shot('3-handelse-oppnas');
+    const calm = page.locator('input[data-calm]');
+    if (await calm.isChecked()) await calm.click();
+    // Valet flyger först till markören. När flygningen är klar ska den valda medaljen fortsätta
+    // pulsera även om globen annars står helt stilla (#390).
+    await page.waitForTimeout(1300);
+    const firstPulse = await page.locator('#globe-canvas').screenshot();
+    await page.waitForTimeout(180);
+    const secondPulse = await page.locator('#globe-canvas').screenshot();
+    if (firstPulse.equals(secondPulse)) throw new Error('den valda markörens puls stannade när globen stod stilla');
     await page.locator('#detail [data-close]').click();
     await hidden('#detail');
-    return title;
+    return `${title}; vald markör pulserar när globen står stilla`;
   });
 
   await check('sidzoom är tillåten utanför globen', async () => {

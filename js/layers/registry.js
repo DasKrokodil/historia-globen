@@ -157,6 +157,9 @@ export class LayerRegistry {
   /** Varje bildruta. */
   frame(now, state) { for (const e of this.entries) e.frame?.(now, state); }
 
+  /** Har något 3D-lager en tidsstyrd bildruta även när kameran står still? */
+  frameAnimating(state) { return this.entries.some(e => e.frameAnimating?.(state)); }
+
   /** Händelser vars medalj täcks av ett lagers egen 3D-markör (religionens symbol där den uppstod, #271). */
   coveredEvents() {
     const ids = new Set();
