@@ -26,7 +26,7 @@ Listan bygger på referenserna i koden:
 |---|---|---|
 | `index.html` | startsidan | – |
 | `css/style.css` | stilmallen (inga `url()` till lokala filer) | `index.html` |
-| `_headers` | Cloudflare Pages cache-regler: `Cache-Control: no-cache` för sidan, `js/`, `css/` och `data/`, så att webbläsaren alltid kontrollerar om en fil har ändrats. Den innehåller också en `Content-Security-Policy-Report-Only` och en `Permissions-Policy`. Utan `no-cache` kunde en ny `index.html` blandas med gamla JS-moduler efter release v4.1.0 ("Globen kunde inte starta"). Har zonen i Cloudflare en egen Browser Cache TTL ska den stå på "Respect Existing Headers". | Cloudflare Pages läser den ur `dist/` |
+| `_headers` | Cloudflare Pages cache-regler: `Cache-Control: no-cache` för sidan, `js/`, `css/` och `data/`, så att webbläsaren alltid kontrollerar om en fil har ändrats. Utan den kunde en ny `index.html` blandas med gamla JS-moduler efter release v4.1.0 ("Globen kunde inte starta"). Har zonen i Cloudflare en egen Browser Cache TTL ska den stå på "Respect Existing Headers". | Cloudflare Pages läser den ur `dist/` |
 | `js/**/*.js` (20 moduler) | ES-modulerna | `index.html` → `js/main.js` → `import` |
 | `img/favicon.svg`, `img/favicon-32.png`, `img/apple-touch-icon.png` | sidans ikoner | `index.html` |
 | `img/icons/*.svg` | markörernas och korten symboler, hämtas med `fetch` efter namn | `icon` i `data/events.json`, `symbol` i `data/religions.json` (#271), `CAT_ICON` och standardikonen `star` i `js/ui/funfact.js`, `index.html` |
