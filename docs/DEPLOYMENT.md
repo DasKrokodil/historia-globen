@@ -46,6 +46,12 @@ Alla ikoner i `img/icons/` publiceras, eftersom namnen kommer ur data och JS. I 
 
 De måste vara nåbara från båda miljöerna. Det gäller också om en Content-Security-Policy eller Cloudflare-regel läggs till.
 
+### Säkerhetsheaders
+
+`_headers` skickar tills vidare **Content-Security-Policy-Report-Only** för alla sidor. Den begränsar resurser till den egna webbplatsen, jsDelivr (three.js), Google Fonts och Cloudflare Turnstile när förslagsformuläret används. `frame-ancestors 'none'` hindrar att sidan bäddas in i andra webbplatser, och `Permissions-Policy` stänger av kamera, mikrofon, plats och betalningar som sidan inte använder.
+
+Report-Only ändrar inte vad besökaren kan läsa in, utan skriver CSP-avvikelser i webbläsarkonsolen. Kontrollera därför konsolen på både development och produktion efter varje release som ändrar resurser eller formuläret. Byt först till den skarpa headern `Content-Security-Policy` efter minst en release utan CSP-varningar; behåll då exakt samma regelvärde och testa formuläret med Turnstile.
+
 ## Bygga och kontrollera lokalt
 
 ```bash
