@@ -69,11 +69,16 @@ const DIFF = `((a, b) => {
 async function run(browser, vp) {
   const results = [];
   const errors = [];
+  const webglWarnings = [];
   const context = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, deviceScaleFactor: 1 });
   const page = await context.newPage();
   let threeOk = false;
 
   page.on('console', m => {
+    if (m.type() === 'warning' && /GL_INVALID_VALUE|glTexSubImage2D/i.test(m.text())) {
+      webglWarnings.push(m.text());
+      return;
+    }
     if (m.type() !== 'error') return;
     const url = m.location()?.url || '';
     if (isFont(url)) return;
@@ -521,6 +526,7 @@ async function run(browser, vp) {
   });
 
   await check('Platt vy öppnas', async () => {
+    if (vp.width <= 760) webglWarnings.length = 0;
     await clickView('#btn-flat');
     await visible('#flat-view');
     await page.waitForFunction(() => document.getElementById('btn-flat').getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
@@ -574,6 +580,32 @@ async function run(browser, vp) {
   await check('Platt vy stängs', async () => {
     await clickView('#btn-flat');
     await hidden('#flat-view');
+    if (vp.width > 760) return 'stängs';
+    await page.waitForTimeout(200);
+    if (webglWarnings.length) throw new Error(`WebGL-varning efter Platt vy: ${webglWarnings[0]}`);
+
+    // Lugn rörelse gör två bilder jämförbara. Händelser av/på ska ändra klotets bild även efter
+    // att canvasarnas storlek växlats i Platt vy (#470).
+    await page.click('#btn-layers');
+    await visible('#layer-menu');
+    const calm = page.locator('input[data-calm]');
+    if (!(await calm.isChecked())) await calm.click();
+    const events = page.locator(layerRow('events'));
+    if (!(await events.isChecked())) await events.click();
+    await events.click();
+    await page.keyboard.press('Escape');
+    await hidden('#layer-menu');
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    const withoutEvents = await page.locator('#globe-canvas').screenshot();
+    await page.click('#btn-layers');
+    await visible('#layer-menu');
+    await events.click();
+    await page.keyboard.press('Escape');
+    await hidden('#layer-menu');
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    const withEvents = await page.locator('#globe-canvas').screenshot();
+    if (withoutEvents.equals(withEvents)) throw new Error('globens bild ändras inte när Händelser slås på efter Platt vy');
+    return 'stängs utan WebGL-varning och Händelser ritas om';
   });
 
   await check('Fokus följer ett krig till slutet', async () => {
