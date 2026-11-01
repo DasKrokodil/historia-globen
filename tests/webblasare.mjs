@@ -275,7 +275,8 @@ async function run(browser, vp) {
     await page.click('#empire-legend [data-empire-close]');
     await hidden('#empire-legend');
     const afterEmpireClose = await page.evaluate(() => document.activeElement?.className || document.activeElement?.id);
-    if (!String(afterEmpireClose).includes('empire-legend-button')) throw new Error(`fokus återvände till ${afterEmpireClose} i stället för rikesknappen`);
+    const expectedFocus = await page.locator('#layer-menu').isHidden() ? 'btn-layers' : 'empire-legend-button';
+    if (!String(afterEmpireClose).includes(expectedFocus)) throw new Error(`fokus återvände till ${afterEmpireClose} i stället för ${expectedFocus}`);
     await shot('3-lager');
     await page.click('#layer-customize');
     await visible('#layer-custom');
