@@ -253,6 +253,7 @@ async function run(browser, vp) {
   });
 
   await check('Lager öppnas', async () => {
+    await jumpTo(1900);
     await page.click('#btn-layers');
     await visible('#layer-menu');
     if (!(await page.locator('#layer-custom').isHidden())) throw new Error('de enskilda lagren är öppna på första nivån');
@@ -260,6 +261,21 @@ async function run(browser, vp) {
     if (views < 3) throw new Error(`bara ${views} färdiga vyer i menyn`);
     const n = await page.locator('#layer-menu input[data-layer]').count();
     if (n < 3) throw new Error(`bara ${n} lager i menyn`);
+    const empireButton = page.locator('.empire-legend-button');
+    await empireButton.waitFor({ state: 'visible', timeout: T.step });
+    await empireButton.click();
+    await visible('#empire-legend');
+    const empireBody = page.locator('#empire-legend #el-body');
+    if (await empireBody.isHidden()) await page.click('#empire-legend .el-toggle');
+    const colonialRows = page.locator('#empire-legend .el-heading + ul > li[data-empire]');
+    if (await colonialRows.count() < 1) throw new Error('rikesförklaringen saknar en rad under Kolonialvälden');
+    const empireRow = colonialRows.first();
+    await empireRow.click();
+    await page.waitForFunction(() => document.querySelector('#empire-legend li[data-empire]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+    await page.click('#empire-legend [data-empire-close]');
+    await hidden('#empire-legend');
+    const afterEmpireClose = await page.evaluate(() => document.activeElement?.className || document.activeElement?.id);
+    if (!String(afterEmpireClose).includes('empire-legend-button')) throw new Error(`fokus återvände till ${afterEmpireClose} i stället för rikesknappen`);
     await shot('3-lager');
     await page.click('#layer-customize');
     await visible('#layer-custom');
