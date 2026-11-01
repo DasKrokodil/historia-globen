@@ -8,6 +8,8 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
 export { THREE };
 export const R = 1;
 const DEG = Math.PI / 180;
+const GLOBE_TEXTURE = 4096;
+const MOBILE_GLOBE_TEXTURE = 2048;
 
 /** Latitud/longitud till punkt på klotet, i samma system som klotets bildkoordinater. */
 export function latLonToVec3(lat, lon, r = R) {
@@ -38,9 +40,9 @@ export class Globe {
 
     // Ekvirektangulära bilder
     this.baseCanvas = document.createElement('canvas');
-    this.baseCanvas.width = 4096; this.baseCanvas.height = 2048;
     this.overlayCanvas = document.createElement('canvas');
-    this.overlayCanvas.width = 4096; this.overlayCanvas.height = 2048;
+    this._textureWidth = 0;
+    this._setTextureSize();
 
     this.baseTex = new THREE.CanvasTexture(this.baseCanvas);
     this.baseTex.colorSpace = THREE.SRGBColorSpace;
@@ -84,16 +86,19 @@ export class Globe {
     this.calm = false; // Lugn rörelse (#246): ingen automatisk snurr, ingen flygning, ingen utrullning
     this._vel = { x: 0, y: 0 };
     this._fly = null;
+    this._needsRender = true;
 
     this.group.rotation.set(0.35, 0, 0);
     this._initControls();
     this._resize();
     new ResizeObserver(() => this._resize()).observe(canvas);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) this.invalidate(); });
     this.renderer.setAnimationLoop(t => this._tick(t));
   }
 
   // ---------- Grundkarta ----------
   drawBase(land) {
+    this._land = land;
     const c = this.baseCanvas, ctx = c.getContext('2d');
     const W = c.width, H = c.height;
     const X = lon => (lon + 180) / 360 * W, Y = lat => (90 - lat) / 180 * H;
@@ -119,6 +124,7 @@ export class Globe {
     ctx.stroke(path);
     ctx.restore();
     this.baseTex.needsUpdate = true;
+    this.invalidate();
   }
 
   overlayContext() {
@@ -126,7 +132,7 @@ export class Globe {
     ctx.clearRect(0, 0, this.overlayCanvas.width, this.overlayCanvas.height);
     return ctx;
   }
-  commitOverlay() { this.overlayTex.needsUpdate = true; }
+  commitOverlay() { this.overlayTex.needsUpdate = true; this.invalidate(); }
   /** Ritar ett lager dämpat på lagerbilden (#235): först på en egen bild i samma storlek, som sedan
    *  läggs på med genomskinlighet alpha. Lagren sätter själva globalAlpha, så det går inte att dämpa direkt. */
   drawFaded(draw, alpha) {
@@ -158,10 +164,21 @@ export class Globe {
       );
       this.arcGroup.add(line);
     }
+    this.invalidate();
   }
 
   // ---------- Kamera och styrning ----------
   setViewShift(px) { this.viewShiftPx = px; this._resize(); }
+
+  /** Platt vy behöver den fulla gemensamma bilden; annars räcker halva upplösningen på smal mobil. */
+  setFlatView(open) {
+    if (this._flatView === open) return;
+    this._flatView = open;
+    this._setTextureSize();
+  }
+
+  /** Lugn rörelse stannar också eventuell utrullning och ber om en sista, stilla bild. */
+  setCalm(on) { this.calm = on; this.invalidate(); }
 
   /**
    * Lyft bilden av klotet uppåt med py pixlar (#361): i smal skärm, när faktarutan står som ark nedtill,
@@ -173,6 +190,7 @@ export class Globe {
     if (py === (this._lift?.to ?? this.viewLiftPx)) return;
     if (this.calm) ms = 1;
     this._lift = { t0: performance.now(), ms, from: this.viewLiftPx, to: py };
+    this.invalidate();
   }
 
   /** Klotets mitt på skärmen (y i pixlar från canvasens överkant), utan lyftet. */
@@ -202,12 +220,15 @@ export class Globe {
     this.camera.position.set(0, -0.06, this.baseDist / this.zoom);
     this.camera.lookAt(0, -0.06, 0);
     this.camera.updateProjectionMatrix();
+    this._setTextureSize();
+    this.invalidate();
   }
 
   setZoom(z) {
     this.zoom = Math.min(3.2, Math.max(0.8, z));
     this.camera.position.z = this.baseDist / this.zoom;
     this.onZoom?.(this.zoom);
+    this.invalidate();
   }
 
   /** Tid (performance.now) då användaren senast vred, zoomade eller tryckte på globen (#165). */
@@ -223,6 +244,7 @@ export class Globe {
     this._vel = { x: 0, y: 0 };
     if (this.calm) ms = 1; // hoppar i stället för att flyga
     this._fly = { t0: performance.now(), ms, fx: this.group.rotation.x, fy: cy, tx, ty };
+    this.invalidate();
   }
 
   _initControls() {
@@ -237,6 +259,7 @@ export class Globe {
       this.autoRotate = false; this._fly = null; this.lastUserInput = performance.now();
       if (pts.size === 2) { const [a, b] = [...pts.values()]; pinch0 = Math.hypot(a.x - b.x, a.y - b.y); zoom0 = this.zoom; }
       el.classList.add('dragging');
+      this.invalidate();
     });
     el.addEventListener('pointermove', e => {
       if (!pts.has(e.pointerId)) return;
@@ -254,6 +277,7 @@ export class Globe {
       const now = performance.now(), dt = Math.max(8, now - last.t);
       this._vel = { x: dy * k / dt * 16, y: dx * k / dt * 16 };
       last = { x: e.clientX, y: e.clientY, t: now };
+      this.invalidate();
     });
     const end = e => {
       if (!pts.has(e.pointerId)) return;
@@ -297,6 +321,7 @@ export class Globe {
       if (!handled) return;
       e.preventDefault();
       this.autoRotate = false; this._fly = null; this._vel = { x: 0, y: 0 }; this.lastUserInput = performance.now();
+      this.invalidate();
     });
     el.addEventListener('wheel', e => { this.lastUserInput = performance.now(); e.preventDefault(); this.setZoom(this.zoom * Math.exp(-e.deltaY * 0.0012)); }, { passive: false });
   }
@@ -331,13 +356,32 @@ export class Globe {
 
   onFrame(cb) { this.frameCallbacks.push(cb); }
 
+  /** Nästa bild behövs efter en tillstånds-, textur- eller kameraförändring. */
+  invalidate() { this._needsRender = true; }
+
+  _setTextureSize() {
+    const w = this.canvas.clientWidth || innerWidth, h = this.canvas.clientHeight || innerHeight;
+    const mobile = !this._flatView && w <= 760 && h > w;
+    const width = mobile ? MOBILE_GLOBE_TEXTURE : GLOBE_TEXTURE;
+    if (width === this._textureWidth) return false;
+    this._textureWidth = width;
+    for (const canvas of [this.baseCanvas, this.overlayCanvas]) { canvas.width = width; canvas.height = width / 2; }
+    this.fadeCanvas = null;
+    if (this._land) this.drawBase(this._land);
+    this.onTextureSizeChange?.(width, width / 2);
+    return true;
+  }
+
   _tick(t) {
+    if (document.hidden) return;
+    let moving = false;
     if (this._lift) {
       const l = this._lift, s = Math.min(1, (performance.now() - l.t0) / l.ms);
       const e = 1 - Math.pow(1 - s, 3);
       this.viewLiftPx = Math.round(l.from + (l.to - l.from) * e);
       if (s >= 1) this._lift = null;
       this._applyView();
+      moving = true;
     }
     if (this._fly) {
       const f = this._fly, s = Math.min(1, (performance.now() - f.t0) / f.ms);
@@ -345,13 +389,18 @@ export class Globe {
       this.group.rotation.x = f.fx + (f.tx - f.fx) * e;
       this.group.rotation.y = f.fy + (f.ty - f.fy) * e;
       if (s >= 1) this._fly = null;
+      moving = true;
     } else if (this.autoRotate && !this.calm) {
       this.group.rotation.y += 0.0009;
+      moving = true;
     } else if (!this.calm && Math.abs(this._vel.x) + Math.abs(this._vel.y) > 1e-5) {
       this.group.rotation.y += this._vel.y;
       this.group.rotation.x = Math.max(-1.25, Math.min(1.25, this.group.rotation.x + this._vel.x));
       this._vel.x *= 0.92; this._vel.y *= 0.92;
+      moving = true;
     }
+    if (!moving && !this._needsRender) return;
+    this._needsRender = false;
     this.group.updateMatrixWorld();
     for (const cb of this.frameCallbacks) cb(t);
     this.renderer.render(this.scene, this.camera);
