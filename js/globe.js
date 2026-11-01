@@ -368,6 +368,10 @@ export class Globe {
     const mobile = !this._flatView && w <= 760 && h > w;
     const width = mobile ? MOBILE_GLOBE_TEXTURE : GLOBE_TEXTURE;
     if (width === this._textureWidth) return false;
+    // CanvasTexture behåller annars den tidigare GPU-storleken när canvasen växlar mellan
+    // mobilglob och Platt vy. Frigör den gamla GPU-texturen före storleksbytet (#470).
+    this.baseTex?.dispose();
+    this.overlayTex?.dispose();
     this._textureWidth = width;
     for (const canvas of [this.baseCanvas, this.overlayCanvas]) { canvas.width = width; canvas.height = width / 2; }
     this.fadeCanvas = null;
