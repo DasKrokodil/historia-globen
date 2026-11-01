@@ -416,6 +416,24 @@ async function run(browser, vp) {
     return `${n} pixlar ändras när Nattljus slås på`;
   });
 
+  await check('tidsfönstret skiljer avslutade och pågående krig', async () => {
+    await page.keyboard.press('Escape');
+    await hidden('#layer-menu');
+    await jumpTo(2026);
+    await page.click('#btn-panel');
+    await visible('#panel');
+    const afghanistan = page.locator('#event-list .event-btn', { hasText: 'Kriget i Afghanistan' });
+    await afghanistan.waitFor({ state: 'visible', timeout: T.step });
+    await afghanistan.click();
+    await page.waitForFunction(() => [...document.querySelectorAll('#flat-labels .glabel')]
+      .some(el => /Kriget i Afghanistan.*slut 2021/.test(el.textContent)), null, { timeout: T.step });
+    const label = await page.locator('#flat-labels .glabel').filter({ hasText: 'Kriget i Afghanistan' }).textContent();
+    if (!label.includes('slut 2021')) throw new Error(`Afghanistan saknar slutetikett: ${label}`);
+    await shot('6-tidsfonster-2026');
+    const n = await layerDraws('wars', 200);
+    return `${label.trim()}; ${n} pixlar från det pågående krigets område`;
+  });
+
   await check('Platt vy stängs', async () => {
     await clickView('#btn-flat');
     await hidden('#flat-view');
