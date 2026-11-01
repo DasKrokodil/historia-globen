@@ -130,7 +130,9 @@ async function start() {
   empireLegendButton.textContent = views?.empireLegend?.show ?? 'Vilket rike?';
   empireLegendButton.setAttribute('aria-controls', 'empire-legend');
   empireLegendButton.setAttribute('aria-expanded', 'false');
-  $('layer-menu').querySelector('input[data-layer="areas"]')?.closest('.layer-row')?.after(empireLegendButton);
+  // Knappen hör till Lagermenyns första nivå: Riken kan vara på i en färdig vy utan att
+  // besökaren först behöver öppna ”Anpassa själv” för att hitta förklaringen (#437).
+  $('layer-menu').querySelector('.view-chips')?.after(empireLegendButton);
   // Klickrutan för vägar och resor (#38); "Läs mer" öppnar den kopplade händelsen
   const routePop = new RoutePop($('route-pop'), data);
   routePop.onEvent = id => select(id);
@@ -169,6 +171,9 @@ async function start() {
     empireLegend.setVisible(false);
     empireLegendButton.setAttribute('aria-expanded', 'false');
     pinnedEmpire = null; setEmpireHighlight(null);
+    // I mobil stängs Lager när förklaringen öppnas, så öppna samma nivå igen innan
+    // fokus återgår till dess knapp.
+    if (matchMedia('(max-width: 760px)').matches && $('layer-menu').hidden) layers.open();
     if (!empireLegendButton.hidden) empireLegendButton.focus({ preventScroll: true });
   };
   empireLegendButton.addEventListener('click', () => {
