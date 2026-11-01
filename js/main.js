@@ -1049,6 +1049,7 @@ async function start() {
       const hit = globe.pick(e.clientX, e.clientY, layer.sprites.filter(s => s.visible));
       hoverId = hit ? hit.userData.event.id : null;
       canvas.classList.toggle('on-marker', !!hit);
+      globe.invalidate(); // hovringsetiketten placeras i globe.onFrame även när kameran står still (#390)
       if (hit) hideTip(); else religionTip(e.clientX, e.clientY);
     });
     canvas.addEventListener('pointerleave', () => { hoverId = null; canvas.classList.remove('on-marker'); hideTip(); });
