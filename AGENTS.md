@@ -24,7 +24,19 @@ Rikard äger projektet. Han är projektledare, inte utvecklare. Skriv på svensk
 2. **Ta aldrig** issues med etiketten `utanför-kod` eller `beslut-krävs`, och inte heller `data`, `faktafel`, `källkontroll` eller rikesarbete om Rikard inte ber om det.
 3. **Hoppa över issues som någon annan har tagit:** etiketten `orkester: pågår` eller `codex: pågår`, eller en öppen pull request som skriver `Closes #N`.
 4. **Ta issuet:** skriv en kommentar ("Codex tar det här") och sätt etiketten `codex: pågår`. Ta bort etiketten när pull requesten är öppnad eller om du avbryter.
+   **Etiketten `codex: synpunkter`** betyder att Claude Code eller Rikard vill ha dina synpunkter innan något bestäms: läs issuet och koden och skriv en kommentar med bedömning, andra idéer och vad som ger mest nytta för minst kod. Bygg ingenting och öppna ingen pull request för sådana issues. Ta bort etiketten när kommentaren är skriven.
 5. **Bygg på grenen** `codex/issue-<N>-<kort-namn>`, utgå från senaste `main`.
+
+## Orkestern i Codex ($orkester)
+
+Codex får köra orkestern (beslut 2026-11-01): `$orkester` följer `.orchestra/project.md` och `.orchestra/shared/` på samma sätt som `/orkester` i Claude Code, med Codex som dirigent för sitt eget pass. Utöver det som står där gäller:
+
+- **Bara issues med `codex: redo`**, enligt "Ta ett issue" ovan.
+- **Högst två arbetare samtidigt**, inklusive dirigenten, och bara när issuena är oberoende: de rör inte samma filer (till exempel `js/main.js`, `css/style.css`, `data/events.json`, `data/sources.json`, `data/genererat/`, `docs/beslut.md`) och bygger inte på varandra. Annars en i taget.
+- **Högst tre pull requests per pass.** Stanna sedan, lista dina pull requests och vänta på granskning från Claude Code innan nästa pass.
+- **Varje arbetare** har en egen gren från senaste `main` (`codex/issue-<N>-<namn>`), egen arbetskopia och egen port, och kör hela webbläsartestet innan pull requesten.
+- **Claude Code granskar** varje pull request, och bara Rikard slår ihop. Orkesterpasset i Claude Code och Codex hoppar över varandras issues (`orkester: pågår` och `codex: pågår`).
+- **Fältrapport efter varje pass:** skriv en kort kommentar på #412 om hur orkestern fungerade i Codex: antal arbetare och pull requests, vad som gick bra, vad som krånglade (regler som var oklara, saknades eller inte passade Codex, krockar, omkörda tester) och konkreta förslag på ändringar i `.orchestra/shared/`. Ändra inte `.orchestra/shared/` själv; förslagen samlas till en pull request till upstream (Olofs dirigenten-och-orkestern) efter Rikards utvärdering.
 
 ## Testa innan pull request
 
