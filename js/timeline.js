@@ -275,6 +275,11 @@ export class Timeline extends EventTarget {
       n++;
       band.style.left = pct(a); band.style.width = pct(b - a);
       band.title = c.title;
+      // På mobil döljs de övriga namnen visuellt, men varje band behåller sin fulla
+      // beskrivning för skärmläsare och som tooltip (#446).
+      band.setAttribute('role', 'img');
+      band.setAttribute('aria-label', c.title);
+      band.dataset.center = String((a + b) / 2);
       const label = document.createElement('span');
       label.className = 'chap-label';
       label.textContent = c.label;
@@ -298,6 +303,23 @@ export class Timeline extends EventTarget {
         this.warEl.append(line);
       }
       this.warEl.append(d);
+    }
+    this._showNearestStoryLabel();
+  }
+
+  /** I en smal tidslinje får bara bandet närmast reglaget ett synligt namn (#446). */
+  _showNearestStoryLabel() {
+    const bands = [...this.chaptersEl.querySelectorAll('.chap')];
+    if (!bands.length) return;
+    const at = this.toPos(this._year);
+    let nearest = bands[0];
+    for (const band of bands.slice(1)) {
+      if (Math.abs(Number(band.dataset.center) - at) < Math.abs(Number(nearest.dataset.center) - at)) nearest = band;
+    }
+    for (const band of bands) {
+      const current = band === nearest;
+      band.querySelector('.chap-label')?.classList.toggle('chap-label-current', current);
+      band.classList.toggle('chap-label-flip', current && Number(band.dataset.center) > 0.5);
     }
   }
 
@@ -396,6 +418,7 @@ export class Timeline extends EventTarget {
   _render() {
     const p = this.toPos(this._year);
     this.thumb.style.left = `${p * 100}%`;
+    this._showNearestStoryLabel();
     this.track.setAttribute('aria-valuenow', String(this._year));
     this.track.setAttribute('aria-valuetext', this.format(this._year));
     this._labelPlay(); // i slutet heter knappen "Spela igen"

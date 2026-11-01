@@ -53,7 +53,8 @@ export function entry({ globe, data, labelsEl, refresh, refreshSoon, showEmpireF
     id: 'areas', name: 'Riken', group: 'power', menu: { on: true }, layer, z: Z.areas,
     fade: { own: focus => focus.type === 'empire' },
     // Rikenas kartnyckel behövs när man följer ett rike, inte på startsidan där Riken är på som standard (#427).
-    legend: s => ({ areas: s.focus?.type === 'empire' }),
+    // Själva listan öppnas på begäran från Lager (#437), så den täcker aldrig startskärmen.
+    legend: s => ({ areas: s.focus?.type === 'empire', empires: s.layers.areas ? layer.legendItems(data.empireGroups) : [] }),
     enabled: s => s.focus?.type === 'empire' || s.layers.areas,
     apply: s => {
       layer.onlyGroup = s.focus?.type === 'empire' ? s.focus.id : null;
@@ -81,6 +82,7 @@ export class AreasLayer {
     this.polities = polities;
     this.enabled = true;
     this.active = []; // [{ polity, period }]
+    this.highlight = null; // grupp-id från rikesförklaringen (#437)
     this.labelAlpha = 1; // och hur synliga de är (tonas ut vid kraftig zoom)
     this.labelScale = 1; // namnens storlek relativt grundstorleken (1 = som på platta bilden)
     this.symbolOf = () => null; // rikets symbol: (polity) → { symbol, color, name, group } eller null (sätts i main.js)
@@ -254,6 +256,17 @@ export class AreasLayer {
     this.points = groups.filter(g => g.vanished?.point);
   }
 
+  /** Aktiva rikesgrupper för teckenförklaringen (#437), med kolonialvälden först i UI:t. */
+  legendItems(groups) {
+    const activeIds = new Set(this.active.map(({ polity }) => polity.group));
+    for (const group of this.activePoints ?? []) activeIds.add(group.id);
+    return groups.filter(group => activeIds.has(group.id)).map(group => ({
+      group,
+      // Moderlandet är uttryckligt i den aktiva kartperioden (#74), inte en historisk gissning.
+      colonial: this.active.some(({ polity, period }) => polity.group === group.id && !!period.homeland),
+    }));
+  }
+
   /** Returnerar de riken som finns just det här året. */
   update({ year, smooth = false }) {
     const prev = this.active;
@@ -283,7 +296,8 @@ export class AreasLayer {
     ctx.lineJoin = 'round';
     // Under en övergång (#78) ritas gamla och nya läget, var och en med sin alpha; annars är alpha 1
     const items = this.transition.items(this.active);
-    for (const { polity, period, alpha } of items) {
+    for (const { polity, period, alpha: transitionAlpha } of items) {
+      const alpha = transitionAlpha * (!this.highlight || polity.group === this.highlight ? 1 : 0.25);
       ctx.beginPath();
       for (const rings of polygons(period.geometry)) {
         for (const ring of rings) {
@@ -301,10 +315,19 @@ export class AreasLayer {
       ctx.stroke();
     }
     // Inflytandet (#75) ovanpå: glesa prickar, så att ett lydrike som själv är ett rike på kartan syns igenom
-    drawInfluence(ctx, this.influence ?? [], X, Y, k);
+    const influence = this.influence ?? [];
+    ctx.globalAlpha = this.highlight ? 0.25 : 1;
+    drawInfluence(ctx, influence, X, Y, k);
+    // Den valda gruppens lydriken och vasaller ska vara lika tydliga som dess egna områden.
+    if (this.highlight) {
+      ctx.globalAlpha = 1;
+      drawInfluence(ctx, influence.filter(({ polity }) => polity.group === this.highlight), X, Y, k);
+    }
+    ctx.globalAlpha = 1;
     // Huvudlandet i ett utspritt välde (#74): samma färg men tätare fyllning och en kraftig kant
     // med mörk kontur, så att moderlandet syns bland kolonierna. Vilken del det är står i datan (period.homeland).
-    for (const { polity, period, alpha } of items) {
+    for (const { polity, period, alpha: transitionAlpha } of items) {
+      const alpha = transitionAlpha * (!this.highlight || polity.group === this.highlight ? 1 : 0.25);
       if (!period.homeland) continue;
       ctx.globalAlpha = alpha;
       ctx.beginPath();
@@ -345,7 +368,8 @@ export class AreasLayer {
       ctx.fillText(name, x * k, y * k);
     };
     // Bara det läge (period) som gäller nu får namn; ett område som tonas ut (#78) visar bara gränsen
-    for (const { polity, period, alpha } of items) {
+    for (const { polity, period, alpha: transitionAlpha } of items) {
+      const alpha = transitionAlpha * (!this.highlight || polity.group === this.highlight ? 1 : 0.25);
       const d = L.get(akey(polity, period));
       if (!d) continue;
       ctx.globalAlpha = alpha;
