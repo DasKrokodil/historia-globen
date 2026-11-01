@@ -34,6 +34,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 DIST = Path(sys.argv[1] if len(sys.argv) > 1 else 'dist').resolve()
+ROOT = Path(__file__).resolve().parent.parent
 
 # Får aldrig publiceras. Mappar anges med / på slutet.
 FORBIDDEN = ['.git/', '.github/', '.claude/', '.orchestra/', 'docs/', 'tools/', 'scripts/',
@@ -68,6 +69,67 @@ def load(path):
     except (OSError, ValueError) as e:
         err(f'{path}: går inte att läsa ({e})')
         return None
+
+
+def type_matches(value, expected):
+    """Kontrollerna som schemana använder; bool är inte ett heltal i JSON Schema."""
+    return {
+        'object': isinstance(value, dict),
+        'array': isinstance(value, list),
+        'string': isinstance(value, str),
+        'integer': isinstance(value, int) and not isinstance(value, bool),
+        'number': isinstance(value, (int, float)) and not isinstance(value, bool),
+        'boolean': isinstance(value, bool),
+        'null': value is None,
+    }.get(expected, False)
+
+
+def schema_errors(value, schema, path='$'):
+    """Validerar den lilla JSON Schema-del som används i schemas/ (#391)."""
+    found = []
+    expected = schema.get('type')
+    if expected and not type_matches(value, expected):
+        return [f'{path}: ska vara {expected}, är {type(value).__name__}']
+
+    if 'enum' in schema and value not in schema['enum']:
+        found.append(f"{path}: {value!r} finns inte i enum")
+    if 'pattern' in schema and isinstance(value, str) and not re.search(schema['pattern'], value):
+        found.append(f"{path}: {value!r} matchar inte pattern {schema['pattern']!r}")
+    if 'minimum' in schema and isinstance(value, (int, float)) and not isinstance(value, bool) \
+            and value < schema['minimum']:
+        found.append(f"{path}: {value} är mindre än minimum {schema['minimum']}")
+    if 'maximum' in schema and isinstance(value, (int, float)) and not isinstance(value, bool) \
+            and value > schema['maximum']:
+        found.append(f"{path}: {value} är större än maximum {schema['maximum']}")
+
+    if isinstance(value, dict):
+        for name in schema.get('required', []):
+            if name not in value:
+                found.append(f'{path}: obligatoriska fältet {name!r} saknas')
+        for name, child in schema.get('properties', {}).items():
+            if name in value:
+                found += schema_errors(value[name], child, f'{path}.{name}')
+    elif isinstance(value, list) and 'items' in schema:
+        for i, item in enumerate(value):
+            found += schema_errors(item, schema['items'], f'{path}[{i}]')
+    return found
+
+
+def load_schema(name):
+    path = ROOT / 'schemas' / name
+    try:
+        return json.loads(path.read_text(encoding='utf-8'))
+    except (OSError, ValueError) as e:
+        err(f'schemas/{name}: går inte att läsa ({e})')
+        return None
+
+
+def validate_schema_file(data_path, value, schema_name):
+    schema = load_schema(schema_name)
+    if schema is None:
+        return
+    for problem in schema_errors(value, schema):
+        err(f'{data_path}: schemafel: {problem}')
 
 
 if not DIST.is_dir():
@@ -243,6 +305,15 @@ for g in (empires or {}).get('groups', []):
     for i in [i for m in fa.get('milestones', []) for i in m.get('events', [])]:
         if i not in ev_ids:
             err(f"data/empires/index.json ({g.get('id')}): händelsen {i} finns inte i events.json")
+
+# 8b. JSON Schema (#391): schemana ligger utanför dist/ och används bara vid bygg och kontroll.
+validate_schema_file('data/events.json', events, 'event.schema.json')
+validate_schema_file('data/sources.json', sources, 'source.schema.json')
+validate_schema_file('data/empires/index.json', empires or {}, 'empire-index.schema.json')
+validate_schema_file('data/routes/index.json', routes_index or {}, 'routes-index.schema.json')
+for path, route in routes:
+    validate_schema_file(path, {'routes': [route]}, 'route.schema.json')
+validate_schema_file('data/funfacts.json', funfacts, 'funfact.schema.json')
 
 # 9. Krigets riken (#76): empires är grupp-id i data/empires/index.json
 group_ids = {g.get('id') for g in (empires or {}).get('groups', [])}
