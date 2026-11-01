@@ -171,10 +171,11 @@ async function start() {
     empireLegend.setVisible(false);
     empireLegendButton.setAttribute('aria-expanded', 'false');
     pinnedEmpire = null; setEmpireHighlight(null);
-    // I mobil är Lager redan stängt när rutan stängs; låt då kartan vara fri och
-    // återgå till knappen som öppnar Lager. På datorn finns Lager kvar och fokus
-    // går tillbaka till den knapp som öppnade förklaringen.
-    ($('layer-menu').hidden ? $('btn-layers') : empireLegendButton).focus({ preventScroll: true });
+    // Klick i rutan ligger utanför Lager och kan stänga menyn före ×-klicket. Välj
+    // därför alltid den knapp som faktiskt syns, och upprepa fokus efter omritningen.
+    const returnFocus = () => ($('layer-menu').hidden ? $('btn-layers') : empireLegendButton);
+    returnFocus().focus({ preventScroll: true });
+    requestAnimationFrame(() => returnFocus().focus({ preventScroll: true }));
   };
   empireLegendButton.addEventListener('click', () => {
     const open = !$('empire-legend').hidden;
