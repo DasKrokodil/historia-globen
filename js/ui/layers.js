@@ -18,6 +18,7 @@ export async function loadViews() {
     const doc = await getJSON('data/vyer.json');
     return {
       title: t(doc.title), custom: t(doc.custom), customize: t(doc.customize),
+      eventWindow: Object.fromEntries(Object.entries(doc.eventWindow ?? {}).map(([when, text]) => [when, t(text)])),
       empireLegend: Object.fromEntries(Object.entries(doc.empireLegend ?? {}).map(([id, text]) => [id, t(text)])),
       groups: doc.groups.map(g => ({ ...g, name: t(g.name) })),
       views: doc.views.map(v => ({ ...v, name: t(v.name) })),
