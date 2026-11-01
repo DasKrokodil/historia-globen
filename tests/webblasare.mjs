@@ -162,6 +162,38 @@ async function run(browser, vp) {
     return `år ${await year()}`;
   });
 
+  await check('Samtidigt-kortet går till nästa händelse', async () => {
+    await visible('#funfact');
+    const next = page.locator('#ff-next');
+    if (await next.isHidden()) throw new Error('Samtidigt-kortet saknar Nästa vid ett kort med flera händelser');
+    const before = (await page.textContent('#ff-events')).replace(/\s+/g, ' ').trim();
+    const pagerBefore = (await page.textContent('#ff-pager')).trim();
+    await next.click();
+    await page.waitForFunction(({ before, pagerBefore }) => {
+      const events = document.getElementById('ff-events')?.textContent.replace(/\s+/g, ' ').trim();
+      const pager = document.getElementById('ff-pager')?.textContent.trim();
+      return events && (events !== before || pager !== pagerBefore);
+    }, { before, pagerBefore }, { timeout: T.step });
+    const after = (await page.textContent('#ff-events')).replace(/\s+/g, ' ').trim();
+    await shot('2-samtidigt-nasta');
+    return `${pagerBefore} → ${(await page.textContent('#ff-pager')).trim()}: ${before} → ${after}`;
+  });
+
+  await check('en händelse öppnas från Samtidigt', async () => {
+    const event = page.locator('#ff-events .ff-chip').first();
+    const title = (await event.textContent()).replace(/\s+/g, ' ').trim();
+    // Samtidigt-kortet kan ligga i en mobilpanel ovanpå globen. Klicka på själva knappen så att
+    // testet provar kortets egen händelsehanterare, utan att fastna i panelens övergång.
+    await event.evaluate(el => el.click());
+    await visible('#detail');
+    const detail = (await page.textContent('#detail')).replace(/\s+/g, ' ').trim();
+    if (!detail.includes(title)) throw new Error(`faktarutan gäller inte den valda händelsen: ${title}`);
+    await shot('3-handelse-oppnas');
+    await page.locator('#detail [data-close]').click();
+    await hidden('#detail');
+    return title;
+  });
+
   await check('sidzoom är tillåten utanför globen', async () => {
     const z = await page.evaluate(() => {
       const viewport = document.querySelector('meta[name="viewport"]')?.content ?? '';
@@ -276,6 +308,26 @@ async function run(browser, vp) {
     return `${views} vyer, ${n} lager; Anpassa själv minns öppet läge`;
   });
 
+  await check('Lager byter till en färdig vy', async () => {
+    await page.click('#btn-layers');
+    await visible('#layer-menu');
+    const current = page.locator('#layer-menu .view-chip[data-view][aria-pressed="true"]');
+    const before = await current.getAttribute('data-view');
+    const choices = page.locator('#layer-menu .view-chip[data-view][aria-pressed="false"]');
+    if (!await choices.count()) throw new Error('det finns ingen annan färdig Lager-vy att välja');
+    const choice = choices.first();
+    const after = await choice.getAttribute('data-view');
+    await choice.click();
+    await page.waitForFunction(({ before, after }) => {
+      const active = document.querySelector('#layer-menu .view-chip[data-view][aria-pressed="true"]')?.dataset.view;
+      return active === after && active !== before;
+    }, { before, after }, { timeout: T.step });
+    await shot('4-lager-vy');
+    await page.keyboard.press('Escape');
+    await hidden('#layer-menu');
+    return `${before} → ${after}`;
+  });
+
   await check('Fokus öppnas och följer ett rike', async () => {
     if (!(await page.locator('#religion-legend').isHidden())) throw new Error('rikesförklaringen syns på startskärmen');
     await page.click('#btn-focus');
@@ -294,7 +346,7 @@ async function run(browser, vp) {
       throw new Error(`live-regionen läser HTML-entiteter: ${liveText}`);
     }
     await page.fill('#focus-menu .focus-search', 'rom');
-    await shot('4-fokus-filter');
+    await shot('5-fokus-sok');
     await page.keyboard.press('Escape');
     await hidden('#focus-menu');
     await page.click('#btn-focus');
@@ -413,6 +465,7 @@ async function run(browser, vp) {
   await check('nattljus syns från 2016', async () => {
     await jumpTo(2016);
     const n = await layerDraws('images', 5000);
+    await shot('8-bildlager-2016');
     return `${n} pixlar ändras när Nattljus slås på`;
   });
 
@@ -437,6 +490,38 @@ async function run(browser, vp) {
   await check('Platt vy stängs', async () => {
     await clickView('#btn-flat');
     await hidden('#flat-view');
+  });
+
+  await check('Fokus följer ett krig till slutet', async () => {
+    await page.click('#btn-focus');
+    await visible('#focus-menu');
+    // Föregående Fokus-flöde slutar i Riken; kriget måste sökas i rätt typflik som en besökare gör.
+    await page.click('#focus-menu [data-tab="Krig"]');
+    await page.fill('#focus-menu .focus-search', 'andra världskriget');
+    const war = page.locator('#focus-menu .focus-item[data-key^="war:"]').first();
+    await war.waitFor({ state: 'visible', timeout: T.step });
+    await war.click();
+    await visible('#focus-bar');
+
+    // Tio år per sekund håller flödet kort, men låter fortfarande uppspelningen stanna vid varje viktiga händelse.
+    for (let i = 0; i < 6 && !(await page.textContent('#btn-speed')).includes('10 år/s'); i++) await page.click('#btn-speed');
+    if (!(await page.textContent('#btn-speed')).includes('10 år/s')) throw new Error('kunde inte välja 10 år/s för krigsflödet');
+
+    // "Spela klart" är krigets avsedda elevflöde: det går till slutet utan att fastna vid
+    // mellanpauser och visar ändå berättelsens slutkort.
+    // Datorn visar "Spela klart" i krigsraden, mobilen i pausraden. Välj den kontroll
+    // som faktiskt är synlig, så att samma besöksflöde provas i båda layouterna.
+    await page.locator('#wp-finish').evaluate(el => {
+      const desktop = getComputedStyle(el).display !== 'none' && getComputedStyle(el).visibility !== 'hidden';
+      (desktop ? el : document.getElementById('pause-finish'))?.click();
+    });
+    await page.waitForFunction(() => document.getElementById('detail')?.textContent.includes('När kriget är slut'), null, { timeout: T.step });
+    const summary = (await page.textContent('#detail')).replace(/\s+/g, ' ').trim();
+    if (!summary.includes('Andra världskriget')) throw new Error('slutkortet saknar krigets namn');
+    // Slutkortet animeras in samtidigt som WebGL-ytan ritar om. Stäng av just skärmbildens
+    // rörelser i stället för att vänta på en stilla canvas som inte hör till kortet.
+    await page.locator('#detail').screenshot({ path: path.join(OUT, `${vp.name}-9-krigets-slut.png`), animations: 'disabled' });
+    return 'Spela klart når slutkortet';
   });
 
   await check('Källor öppnas', async () => {
