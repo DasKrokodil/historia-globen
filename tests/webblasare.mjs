@@ -358,6 +358,32 @@ async function run(browser, vp) {
     return `${before} → ${after}`;
   });
 
+  await check('Upptäcktsvyns förklaring går att fälla ihop', async () => {
+    await setLayer('discovery', true);
+    await page.keyboard.press('Escape');
+    await hidden('#layer-menu');
+    const legend = page.locator('#religion-legend');
+    const toggle = legend.locator('.rl-toggle');
+    const body = legend.locator('#rl-body');
+    await visible('#religion-legend');
+    if ((await toggle.textContent()).trim() !== 'Upptäcktsvy') throw new Error('upptäcktsvyn saknar sin datahämtade rubrik');
+    if (await body.isHidden()) await toggle.click();
+    await visible('#religion-legend #rl-body');
+    await toggle.click();
+    await hidden('#religion-legend #rl-body');
+    if (await page.evaluate(() => sessionStorage.getItem('hg-discovery-legend-open')) !== '0') {
+      throw new Error('det hopfällda valet sparas inte för besöket');
+    }
+    await toggle.click();
+    await visible('#religion-legend #rl-body');
+    await shot('4b-upptacktsvy');
+    await setLayer('discovery', false);
+    await page.keyboard.press('Escape');
+    await hidden('#layer-menu');
+    await hidden('#religion-legend');
+    return 'fälls ihop och ut; valet sparas i sessionen';
+  });
+
   await check('Fokus öppnas och följer ett rike', async () => {
     if (!(await page.locator('#religion-legend').isHidden())) throw new Error('rikesförklaringen syns på startskärmen');
     await page.click('#btn-focus');

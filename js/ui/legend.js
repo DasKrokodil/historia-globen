@@ -11,6 +11,7 @@ const cleanName = n => String(n).replace(/^\((.*)\)$/, '$1'); // "(Kingdom of Fr
 const OBSTACLES = '.funfact, .ff-tab, .detail-card, .panel, .focus-bar, .pause-note';
 const GAP = 10; // luft mellan förklaringen och det som ligger under
 const HINT_KEY = 'hg-rel-tip'; // tipsraden har visats (#308)
+const DISCOVERY_KEY = 'hg-discovery-legend-open'; // den hopfällda upptäcktsvyn (#375)
 
 export class ReligionLegend {
   constructor({ legend, pop }) {
@@ -23,6 +24,8 @@ export class ReligionLegend {
     // Byter man fönsterbredd över gränsen gäller standardläget för den nya bredden.
     const wide = matchMedia('(min-width: 761px)');
     this.open = wide.matches;
+    this.discoveryOpen = true;
+    try { this.discoveryOpen = sessionStorage.getItem(DISCOVERY_KEY) !== '0'; } catch { /* utan lagring */ }
     wide.addEventListener('change', () => { this.open = wide.matches; this.render(); this.fit(); });
     legend.addEventListener('click', e => {
       if (e.target.closest('[data-hint-close]')) { this.closeHint(); return; }
@@ -32,7 +35,11 @@ export class ReligionLegend {
       const li = e.target.closest('li[data-religion]');
       if (li) { this.onPin(li.dataset.religion); return; }
       if (!e.target.closest('.rl-toggle')) return;
-      this.open = !this.open; this.render(); this.fit();
+      if (this.focus?.discovery) {
+        this.discoveryOpen = !this.discoveryOpen;
+        try { sessionStorage.setItem(DISCOVERY_KEY, this.discoveryOpen ? '1' : '0'); } catch { /* utan lagring */ }
+      } else this.open = !this.open;
+      this.render(); this.fit();
     });
     this.fit = this.fit.bind(this);
     this.fitSoon = () => { cancelAnimationFrame(this._raf); this._raf = requestAnimationFrame(this.fit); };
@@ -94,7 +101,8 @@ export class ReligionLegend {
     if (!items.length && !areas && !war && !fadable.length && !discovery) { this.legend.hidden = true; this.legend.textContent = ''; this._html = ''; return; }
     const unsure = items.some(i => i.unsure), inherited = items.some(i => i.inherited);
     const title = (items.length ? 1 : 0) + (areas ? 1 : 0) + (war ? 1 : 0) + (discovery ? 1 : 0) > 1 ? 'Teckenförklaring'
-      : items.length ? 'Religioner' : areas ? 'Riken' : war ? 'Krigsområden' : discovery ? 'Upptäcktsvy' : 'Lager i fokus';
+      : items.length ? 'Religioner' : areas ? 'Riken' : war ? 'Krigsområden' : discovery ? discovery.title : 'Lager i fokus';
+    const open = discovery ? this.discoveryOpen : this.open;
     const religionsHtml = !items.length ? '' : `<ul>${items.map(({ religion: r, sure, unsure: u, inherited: i }) =>
       `<li data-religion="${esc(r.id)}" tabindex="0" role="button" aria-pressed="${this.pinned === r.id}" class="${this.highlight === r.id ? 'on' : ''}" title="Peka eller tryck för att lyfta fram ${esc(t(r.name).toLowerCase())} på kartan"><span class="swatch" style="background:${esc(r.color)}"></span>${symbolImg(r)}<span class="rl-name">${esc(t(r.name))}${
         sure ? '' : u ? ' <em>(osäkert)</em>' : i ? ' <em>(ärvt)</em>' : ''}</span></li>`).join('')}</ul>${
@@ -111,8 +119,8 @@ export class ReligionLegend {
     const aboutHtml = !items.some(i => i.religion.facts) ? '' : '<button type="button" class="info-btn rl-about" data-about>Läs om religionerna</button>';
     // Tipsraden första gången lagret slås på (#308). Den står utanför den hopfällbara listan, så att den syns även i mobil.
     const hintHtml = !this.hint || !items.length ? '' : `<p class="rl-hint" role="note"><span>Klicka på ett färgat område för att se religion och rike.</span><button type="button" class="rl-hint-close" data-hint-close aria-label="Stäng tipset">×</button></p>`;
-    // Upptäcktsvyn (#101): perspektivraden står utanför den hopfällbara delen, så att den syns även i mobil.
-    // Krediten för kartbilderna, med länkar till filsidorna, ligger i den hopfällbara delen.
+    // Upptäcktsvyn (#375): förklaringen och kartkrediten följer samma hopfällbara kropp,
+    // så att den inte täcker kartan i mobil. Den korta rubriken ligger kvar i knappen.
     const discHtml = !discovery ? '' : `<p class="rl-disc" role="note">${esc(discovery.perspective)}</p>`;
     const creditHtml = !discovery ? '' : `<p class="rl-note rl-credit">${esc(discovery.credit)}${discovery.sources?.length ? ` Filsidor: ${
       discovery.sources.map((s, i) => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${i + 1}<span class="sr-only"> ${esc(s.title)} (öppnas i en ny flik)</span></a>`).join(', ')}.` : ''}</p>`;
@@ -124,12 +132,12 @@ export class ReligionLegend {
     // Hopfälld i smal skärm (#309): religionerna som syns just nu som färgprickar på en rad under rubriken,
     // så att man ser vad som finns utan att förklaringen täcker globen. CSS visar raden bara i smal skärm.
     const DOTS = 9, shown = items.slice(0, items.length > DOTS + 1 ? DOTS : DOTS + 1);
-    const dotsHtml = this.open || (!items.length && !war && !areas) ? '' : `<span class="rl-dots" aria-hidden="true">${
+    const dotsHtml = open || (!items.length && !war && !areas) ? '' : `<span class="rl-dots" aria-hidden="true">${
       shown.map(({ religion: r, sure }) => `<span class="rl-dot${sure ? '' : ' rl-dot-pale'}" style="background:${esc(r.color)}" title="${esc(t(r.name))}"></span>`).join('')}${
       items.length > shown.length ? `<span class="rl-more">+${items.length - shown.length}</span>` : ''}${
       war ? `<span class="rl-dot rl-hatch" style="--war:${esc(CAT.krig.color)}" title="Krigsskådeplats"></span>` : ''}</span>`;
-    const html = `<button type="button" class="rl-toggle" aria-expanded="${this.open}" aria-controls="rl-body"><span class="rl-title">${title}</span><span class="rl-chev" aria-hidden="true"></span>${dotsHtml}</button>${hintHtml}${discHtml}
-      <div id="rl-body" class="rl-body" ${this.open ? '' : 'hidden'}>${aboutHtml}${religionsHtml}${symbolsHtml}${areasHtml}${warHtml}${creditHtml}${fadeHtml}</div>`;
+    const html = `<button type="button" class="rl-toggle" aria-expanded="${open}" aria-controls="rl-body"><span class="rl-title">${title}</span><span class="rl-chev" aria-hidden="true"></span>${dotsHtml}</button>${hintHtml}
+      <div id="rl-body" class="rl-body" ${open ? '' : 'hidden'}>${discHtml}${aboutHtml}${religionsHtml}${symbolsHtml}${areasHtml}${warHtml}${creditHtml}${fadeHtml}</div>`;
     // Samma innehåll ritas inte om, så att musen och tangentbordets fokus ligger kvar på raden (#271)
     if (html !== this._html) {
       const focused = this.legend.contains(document.activeElement) && document.activeElement.dataset.religion;
@@ -151,8 +159,9 @@ export class ReligionLegend {
     const top = Math.round((mast ? mast.getBoundingClientRect().bottom : 56) + 8);
     lg.style.top = `${top}px`;
     const body = lg.querySelector('.rl-body'); if (!body) return;
-    body.hidden = !this.open; body.style.maxHeight = '';
-    if (!this.open) return;
+    const open = this.focus?.discovery ? this.discoveryOpen : this.open;
+    body.hidden = !open; body.style.maxHeight = '';
+    if (!open) return;
     const me = lg.getBoundingClientRect();
     let limit = innerHeight - 150;
     for (const el of document.querySelectorAll(OBSTACLES)) {
@@ -160,7 +169,7 @@ export class ReligionLegend {
       const r = el.getBoundingClientRect();
       if (r.width && r.left < me.right && r.right > me.left && r.bottom > top) limit = Math.min(limit, r.top);
     }
-    const head = lg.querySelector('.rl-toggle').offsetHeight + (lg.querySelector('.rl-hint')?.offsetHeight ?? 0) + (lg.querySelector('.rl-disc')?.offsetHeight ?? 0);
+    const head = lg.querySelector('.rl-toggle').offsetHeight + (lg.querySelector('.rl-hint')?.offsetHeight ?? 0);
     const room = limit - GAP - top - head - 14; // 14 = rutans utfyllnad
     if (room < 56) body.hidden = true; // för lite plats: bara knappen syns
     else body.style.maxHeight = `${Math.floor(room)}px`;
