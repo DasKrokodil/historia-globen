@@ -124,6 +124,7 @@ export function entry({ globe, data }) {
     update: s => layer.update({ year: s.year, window: s.window, filters: s.layers.events ? s.filters : none,
       selectedId: s.selectedId, highlight: s.highlight, focusId: s.focusWar?.id, span: s.span }),
     frame: (now, s) => layer.frame(now, s.selectedId),
+    frameAnimating: s => !s.calm && layer.hasSelected(s.selectedId),
     drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
   };
 }
@@ -151,6 +152,9 @@ export class EventsLayer {
       this.byId.set(e.id, s);
     }
   }
+
+  /** Den valda markören pulserar bara när den faktiskt är synlig. */
+  hasSelected(id) { return !!id && !!this.byId.get(id)?.visible; }
 
   /** Byter medaljens bild när tidsläget eller detaljnivån ändras (texturerna återanvänds ur medalCache). */
   _paint(s) {

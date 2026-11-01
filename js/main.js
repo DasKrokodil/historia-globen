@@ -1134,7 +1134,7 @@ async function start() {
       seen.add(e.id);
     }
     for (const [id, el] of pool) if (!seen.has(id)) el.hidden = true;
-  });
+  }, () => registry.frameAnimating(state));
 
   $('loading').hidden = true;
   // Kort hjälp för nya besökare (#245), när globen har laddats

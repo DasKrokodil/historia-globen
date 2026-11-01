@@ -354,7 +354,11 @@ export class Globe {
     return hit?.uv ? { lon: hit.uv.x * 360 - 180, lat: hit.uv.y * 180 - 90 } : null;
   }
 
-  onFrame(cb) { this.frameCallbacks.push(cb); }
+  /**
+   * Körs före varje rendering. `animating` talar om att återkommande bilder behövs även när
+   * kameran står still, till exempel för en vald händelses puls.
+   */
+  onFrame(cb, animating = null) { this.frameCallbacks.push({ cb, animating }); }
 
   /** Nästa bild behövs efter en tillstånds-, textur- eller kameraförändring. */
   invalidate() { this._needsRender = true; }
@@ -399,10 +403,11 @@ export class Globe {
       this._vel.x *= 0.92; this._vel.y *= 0.92;
       moving = true;
     }
-    if (!moving && !this._needsRender) return;
+    const frameAnimating = !this.calm && this.frameCallbacks.some(f => f.animating?.());
+    if (!moving && !this._needsRender && !frameAnimating) return;
     this._needsRender = false;
     this.group.updateMatrixWorld();
-    for (const cb of this.frameCallbacks) cb(t);
+    for (const { cb } of this.frameCallbacks) cb(t);
     this.renderer.render(this.scene, this.camera);
   }
 }
