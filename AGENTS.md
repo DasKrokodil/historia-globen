@@ -24,6 +24,7 @@ Rikard äger projektet. Han är projektledare, inte utvecklare. Skriv på svensk
 2. **Ta aldrig** issues med etiketten `utanför-kod` eller `beslut-krävs`, och inte heller `data`, `faktafel`, `källkontroll` eller rikesarbete om Rikard inte ber om det.
 3. **Hoppa över issues som någon annan har tagit:** etiketten `orkester: pågår` eller `codex: pågår`, eller en öppen pull request som skriver `Closes #N`.
 4. **Ta issuet:** skriv en kommentar ("Codex tar det här") och sätt etiketten `codex: pågår`. Ta bort etiketten när pull requesten är öppnad eller om du avbryter.
+   **Etiketten `codex: synpunkter`** betyder att Claude Code eller Rikard vill ha dina synpunkter innan något bestäms: läs issuet och koden och skriv en kommentar med bedömning, andra idéer och vad som ger mest nytta för minst kod. Bygg ingenting och öppna ingen pull request för sådana issues. Ta bort etiketten när kommentaren är skriven.
 5. **Bygg på grenen** `codex/issue-<N>-<kort-namn>`, utgå från senaste `main`.
 
 ## Orkestern i Codex ($orkester)
