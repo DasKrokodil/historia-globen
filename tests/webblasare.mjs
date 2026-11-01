@@ -457,6 +457,34 @@ async function run(browser, vp) {
     }
   });
 
+  await check('Krigets tidslinje har läsbara mobiletiketter', async () => {
+    await page.click('#btn-focus');
+    await visible('#focus-menu');
+    await page.click('#focus-menu [data-tab="Krig"]');
+    const war = page.locator('#focus-menu .focus-item[data-key="war:andra-varldskriget"]');
+    await war.waitFor({ state: 'visible', timeout: T.step });
+    await war.click();
+    await visible('#focus-bar');
+    const story = await page.locator('#track-chapters .chap').evaluateAll(bands => bands.map(band => ({
+      title: band.getAttribute('title'), aria: band.getAttribute('aria-label'),
+      label: band.querySelector('.chap-label')?.textContent?.trim(),
+      visible: !!(band.querySelector('.chap-label')?.offsetParent),
+      box: (() => { const el = band.querySelector('.chap-label'), r = el?.getBoundingClientRect(); return r && { left: r.left, right: r.right, top: r.top, bottom: r.bottom, clipped: el.scrollWidth > el.clientWidth }; })(),
+    })));
+    if (!story.length || story.some(b => !b.title || !b.aria || !b.label || !b.aria.includes(b.label))) {
+      throw new Error('krigets tidslinjeband saknar full titel eller tillgänglighetsnamn');
+    }
+    const visibleLabels = story.filter(b => b.visible);
+    if (vp.width <= 760) {
+      if (visibleLabels.length !== 1) throw new Error(`mobilen visar ${visibleLabels.length} tidslinjeetiketter i stället för en`);
+      if (visibleLabels.some(b => b.box.right > vp.width || b.box.left < 0 || b.box.clipped)) throw new Error('mobilens synliga tidslinjeetikett klipps av');
+    }
+    await shot('6b-fokus-krig-tidslinje');
+    await page.click('#focus-exit');
+    await hidden('#focus-bar');
+    return `${visibleLabels.length} synlig etikett; full text finns på alla ${story.length} band`;
+  });
+
   await check('Platt vy öppnas', async () => {
     await clickView('#btn-flat');
     await visible('#flat-view');
