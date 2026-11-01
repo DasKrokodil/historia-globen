@@ -274,9 +274,11 @@ async function run(browser, vp) {
     await page.waitForFunction(() => document.querySelector('#empire-legend li[data-empire]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
     await page.click('#empire-legend [data-empire-close]');
     await hidden('#empire-legend');
-    const afterEmpireClose = await page.evaluate(() => document.activeElement?.className || document.activeElement?.id);
-    const expectedFocus = await page.locator('#layer-menu').isHidden() ? 'btn-layers' : 'empire-legend-button';
-    if (!String(afterEmpireClose).includes(expectedFocus)) throw new Error(`fokus återvände till ${afterEmpireClose} i stället för ${expectedFocus}`);
+    await page.waitForFunction(() => {
+      const menu = document.getElementById('layer-menu');
+      const expected = menu?.hidden ? document.getElementById('btn-layers') : document.querySelector('.empire-legend-button');
+      return document.activeElement === expected;
+    }, null, { timeout: T.step });
     await shot('3-lager');
     await page.click('#layer-customize');
     await visible('#layer-custom');
