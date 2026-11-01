@@ -3,10 +3,11 @@
 import { Z } from './registry.js';
 
 export function entry({ data, refreshSoon }) {
-  const layer = new ImageLayer(data.imageLayers?.layers ?? []);
+  const imageLayers = data.imageLayers?.layers ?? [];
+  const layer = new ImageLayer(imageLayers);
   layer.onLoad = refreshSoon;
   return {
-    id: 'images', name: 'Nattljus', group: 'perspective', layer,
+    id: 'images', name: imageLayers[0]?.name?.sv ?? 'Bildlager', group: 'perspective', layer,
     menu: { on: false, note: 'NASA Black Marble från 2016' }, z: Z.images,
     enabled: s => s.layers.images,
     update: s => layer.update(s.wholeYear),
