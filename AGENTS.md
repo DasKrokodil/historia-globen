@@ -35,6 +35,7 @@ Codex får köra orkestern (beslut 2026-11-01): `$orkester` följer `.orchestra/
 - **Högst tre pull requests per pass.** Stanna sedan, lista dina pull requests och vänta på granskning från Claude Code innan nästa pass.
 - **Varje arbetare** har en egen gren från senaste `main` (`codex/issue-<N>-<namn>`), egen arbetskopia och egen port, och kör hela webbläsartestet innan pull requesten.
 - **Claude Code granskar** varje pull request, och bara Rikard slår ihop. Orkesterpasset i Claude Code och Codex hoppar över varandras issues (`orkester: pågår` och `codex: pågår`).
+- **Fältrapport efter varje pass:** skriv en kort kommentar på #412 om hur orkestern fungerade i Codex: antal arbetare och pull requests, vad som gick bra, vad som krånglade (regler som var oklara, saknades eller inte passade Codex, krockar, omkörda tester) och konkreta förslag på ändringar i `.orchestra/shared/`. Ändra inte `.orchestra/shared/` själv; förslagen samlas till en pull request till upstream (Olofs dirigenten-och-orkestern) efter Rikards utvärdering.
 
 ## Testa innan pull request
 
