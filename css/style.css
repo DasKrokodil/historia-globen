@@ -144,6 +144,12 @@ body {
   left: var(--gut);
   pointer-events: none;
   max-width: min(520px, 60vw);
+  /* Samma mörka platta som i Platt vy: rubrik, år och sammanhang ska vara läsbara
+     även när globen är inzoomad över ljust land. */
+  background: color-mix(in srgb, var(--night) 82%, transparent);
+  border-radius: var(--r);
+  padding: 2px 10px 6px;
+  margin: -2px 0 0 -10px;
 }
 .brand {
   margin: 0;
@@ -784,11 +790,6 @@ body {
 .flat-labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 .flat-canvas:focus-visible { outline: 2px solid var(--brass); outline-offset: -3px; }
 .app:has(.flat-view:not([hidden])) .labels { visibility: hidden; } /* globens etiketter hör inte till kartan */
-/* Årtalet uppe till vänster får en mörk platta, så att det syns mot pergamentfärgat land */
-.app:has(.flat-view:not([hidden])) .masthead {
-  background: color-mix(in srgb, var(--night) 82%, transparent);
-  border-radius: var(--r); padding: 2px 10px 6px; margin: -2px 0 0 -10px;
-}
 .flat-zoom {
   position: absolute; right: var(--gut-r); top: 12px;
   display: flex; flex-direction: column; gap: 6px;
