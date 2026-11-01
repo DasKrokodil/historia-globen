@@ -14,9 +14,14 @@ export const FEEDBACK_CATEGORY = Object.fromEntries(FEEDBACK_CATEGORIES.map(c =>
 export const LIMITS = { descriptionMin: 10, descriptionMax: 4000, sourceMax: 500, emailMax: 254 };
 
 /** Fälten som får skickas. website är honungsfältet (ska vara tomt). */
-export const FIELDS = ['category', 'description', 'source', 'email', 'eventId', 'turnstileToken', 'website'];
+export const FIELDS = ['category', 'description', 'source', 'email', 'eventId', 'objectType', 'objectId', 'objectYear', 'pageUrl', 'turnstileToken', 'website'];
 
 export const EVENT_ID = /^[a-z0-9][a-z0-9-]{0,99}$/;
+/** Faktarutor som kan bifoga ett objekt till en faktafelsrapport (#379). */
+export const REPORT_OBJECT_TYPES = {
+  event: 'Händelse', empire: 'Rike', 'vanished-country': 'Försvunnet land',
+  religion: 'Religion', war: 'Krig', route: 'Väg eller resa',
+};
 // Enkel formatkontroll: något@något.toppdomän, utan mellanslag och tecken som inte hör hemma i en adress
 const EMAIL = /^[^\s@<>()[\]\\,;:"`]+@[^\s@<>()[\]\\,;:"`]+\.[^\s@<>()[\]\\,;:"`.]{2,}$/;
 
@@ -34,7 +39,8 @@ export function validateFeedback(input) {
   const str = k => (typeof input[k] === 'string' ? clean(input[k]) : input[k] == null ? '' : null);
   const value = {
     category: str('category'), description: str('description'), source: str('source'),
-    email: str('email'), eventId: str('eventId'),
+    email: str('email'), eventId: str('eventId'), objectType: str('objectType'),
+    objectId: str('objectId'), objectYear: str('objectYear'), pageUrl: str('pageUrl'),
   };
   for (const [k, v] of Object.entries(value)) if (v === null) errors[k] = 'invalid';
 
@@ -55,6 +61,22 @@ export function validateFeedback(input) {
   if (!errors.eventId && value.eventId) {
     if (!EVENT_ID.test(value.eventId)) errors.eventId = 'invalid';
     else if (value.category !== 'correction') errors.eventId = 'not_allowed'; // en händelse hör bara till faktafel
+  }
+  const contextFields = ['objectType', 'objectId', 'objectYear', 'pageUrl'];
+  const hasContext = contextFields.some(k => value[k]);
+  if (hasContext && value.category !== 'correction') {
+    for (const k of contextFields) if (!errors[k]) errors[k] = 'not_allowed';
+  } else if (hasContext) {
+    for (const k of contextFields) if (!errors[k] && !value[k]) errors[k] = 'required';
+    if (!errors.objectType && !REPORT_OBJECT_TYPES[value.objectType]) errors.objectType = 'invalid';
+    if (!errors.objectId && !EVENT_ID.test(value.objectId)) errors.objectId = 'invalid';
+    if (!errors.objectYear && !/^-?\d{1,8}$/.test(value.objectYear)) errors.objectYear = 'invalid';
+    if (!errors.pageUrl) {
+      try {
+        const url = new URL(value.pageUrl);
+        if (!/^https?:$/.test(url.protocol) || url.search || url.hash || url.username || url.password) errors.pageUrl = 'invalid';
+      } catch { errors.pageUrl = 'invalid'; }
+    }
   }
   return { errors, value };
 }
