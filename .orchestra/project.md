@@ -117,7 +117,8 @@ Granskning och källkontroll hoppas aldrig över; besparingen görs före och ru
   gissas). Hela chatten, hela kön och hela dokument skickas inte.
 - **Testnivåer efter risk:**
   1. **Riktad:** dokumentation, statiska texter och mycket små isolerade ändringar. Diff, syntax, länkar eller
-     relevant validator (`python3 -m json.tool`, `scripts/build-site.sh`).
+     relevant validator (`python3 -m json.tool`, `scripts/build-site.sh`). Inget lokalt webbläsartest när bara
+     dokumentation ändras (beslut 2026-11-01).
   2. **Komponent:** data, en panel eller ett lager. Validator plus ett avgränsat webbläsarflöde och skärmbilder av
      det som ändrats.
   3. **Full:** central JavaScript, rendering, tidslinje, mobillayout, dataladdning, arkitektur, beroenden och

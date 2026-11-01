@@ -24,7 +24,7 @@ Rikard äger projektet. Han är projektledare, inte utvecklare. Skriv på svensk
 2. **Ta aldrig** issues med etiketten `utanför-kod` eller `beslut-krävs`, och inte heller `data`, `faktafel`, `källkontroll` eller rikesarbete om Rikard inte ber om det.
 3. **Hoppa över issues som någon annan har tagit:** etiketten `orkester: pågår` eller `codex: pågår`, eller en öppen pull request som skriver `Closes #N`.
 4. **Ta issuet:** skriv en kommentar ("Codex tar det här") och sätt etiketten `codex: pågår`. Ta bort etiketten när pull requesten är öppnad eller om du avbryter.
-   **Etiketten `codex: synpunkter`** betyder att Claude Code eller Rikard vill ha dina synpunkter innan något bestäms: läs issuet och koden och skriv en kommentar med bedömning, andra idéer och vad som ger mest nytta för minst kod. Bygg ingenting och öppna ingen pull request för sådana issues. Ta bort etiketten när kommentaren är skriven.
+   **Etiketten `codex: synpunkter`** betyder att Claude Code eller Rikard vill ha dina synpunkter innan något bestäms: läs issuet och koden och skriv en kommentar med bedömning, andra idéer och vad som ger mest nytta för minst kod. Bygg ingenting och öppna ingen pull request för sådana issues. Publicera kommentaren direkt på GitHub utan att fråga Rikard eller Claude Code först (beslut 2026-11-01), kontrollera att den syns på issuet, ta sedan bort etiketten och fortsätt med nästa uppgift. Det räcker inte att skriva synpunkterna i chatten.
 5. **Bygg på grenen** `codex/issue-<N>-<kort-namn>`, utgå från senaste `main`.
 
 ## Orkestern i Codex ($orkester)
@@ -35,7 +35,7 @@ Codex får köra orkestern (beslut 2026-11-01): `$orkester` följer `.orchestra/
 - **Bara issues med `codex: redo`**, enligt "Ta ett issue" ovan.
 - **Högst två arbetare samtidigt**, inklusive dirigenten, och bara när issuena är oberoende: de rör inte samma filer (till exempel `js/main.js`, `css/style.css`, `data/events.json`, `data/sources.json`, `data/genererat/`, `docs/beslut.md`) och bygger inte på varandra. Annars en i taget.
 - **Högst tre pull requests per pass.** Stanna sedan, lista dina pull requests och vänta på granskning från Claude Code innan nästa pass.
-- **Varje arbetare** har en egen gren från senaste `main` (`codex/issue-<N>-<namn>`), egen arbetskopia och egen port, och kör hela webbläsartestet innan pull requesten.
+- **Varje arbetare** har en egen gren från senaste `main` (`codex/issue-<N>-<namn>`), egen arbetskopia och egen port. Den som kör webbläsartestet startar först sin egen lokala server på sin port, och testerna körs en i taget. Har grenen uppdaterats mot nyare `main` körs testet om innan pull requesten.
 - **Claude Code granskar** varje pull request, och bara Rikard slår ihop. Orkesterpasset i Claude Code och Codex hoppar över varandras issues (`orkester: pågår` och `codex: pågår`).
 - **Fältrapport efter varje pass:** skriv en kort kommentar på #412 om hur orkestern fungerade i Codex: antal arbetare och pull requests, vad som gick bra, vad som krånglade (regler som var oklara, saknades eller inte passade Codex, krockar, omkörda tester) och konkreta förslag på ändringar i `.orchestra/shared/`. Ändra inte `.orchestra/shared/` själv; förslagen samlas till en pull request till upstream (Olofs dirigenten-och-orkestern) efter Rikards utvärdering.
 
@@ -45,7 +45,7 @@ Enligt CLAUDE.md, "Testa innan du är klar":
 
 - `bash scripts/build-site.sh` (bygger `dist/` och kör `scripts/validate-site.py`).
 - `python3 -m json.tool` på ändrade JSON-filer. Har du ändrat `data/events.json` eller `data/empires/index.json`: kör `python3 tools/dela_data.py` och checka in `data/genererat/`.
-- Webbläsartestet `tests/webblasare.mjs` (Playwright, körs i GitHub Actions för varje pull request): inga konsolfel, ingen horisontell scroll vid 400 px.
+- Webbläsartestet `tests/webblasare.mjs` (Playwright, körs i GitHub Actions för varje pull request): inga konsolfel, ingen horisontell scroll vid 400 px. Kör det lokalt när du ändrar sådant som syns på sidan (`index.html`, `js/`, `css/`, `data/`, `images/`, `_headers`). Ändrar du bara dokumentation (till exempel `AGENTS.md`, `CLAUDE.md`, `README.md`, `docs/`, `.orchestra/project.md`) behövs det inte lokalt: läs igenom diffen och kontrollera länkarna (testnivån "Riktad" i `.orchestra/project.md`).
 - Ändras `functions/` eller formuläret: `node --test 'tests/*.test.mjs'`.
 - Uppdatera `docs/` (arkitektur, datamodell, beslut) och filstrukturen i README.md och CLAUDE.md när något ändras.
 
