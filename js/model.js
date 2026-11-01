@@ -238,7 +238,7 @@ export function mergeTexts(target, src) {
 let DATA = null; // det loadAll() returnerade; de senare laddningarna fyller i samma objekt
 
 export async function loadAll() {
-  const [events, funfacts, land, empires, styles, discovery] = await Promise.all([
+  const [events, funfacts, land, empires, styles, discovery, imageLayers] = await Promise.all([
     getJSON('data/genererat/handelser.json'),
     getJSON('data/funfacts.json'),
     getJSON('data/land.json'),
@@ -246,6 +246,7 @@ export async function loadAll() {
     getJSON('data/styles.json'),
     // Upptäcktsvyn (#101): liten fil; saknas den fungerar sidan ändå, utan upptäcktsvyn
     getJSON('data/upptackt.json').catch(err => { console.warn('Upptäcktsvyn kunde inte laddas', err); return null; }),
+    getJSON('data/bildlager.json').catch(err => { console.warn('Bildlagren kunde inte laddas', err); return { layers: [] }; }),
   ]);
   const byId = Object.fromEntries(events.events.map(e => [e.id, e]));
   // Pågående (#223): end i datan är året då läget senast kontrollerades; det räknas till i år enligt datorns klocka
@@ -277,7 +278,7 @@ export async function loadAll() {
     // Rikena ligger i en fil per rike (R1): indexet vid start, själva gränserna med loadEmpire(), faktarutorna med loadEmpireFacts()
     empireGroups: empires.groups, polities: empires.groups.flatMap(g => g.polities.map(p => ({ ...p, group: g.id }))),
     // Dagens gränser laddas när lagret slås på (loadBorders)
-    borders: null, styles, discovery,
+    borders: null, styles, discovery, imageLayers,
   };
   return DATA;
 }

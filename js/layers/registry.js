@@ -27,6 +27,7 @@
 /** Ritordningen nedifrån och upp. Luckorna gör att ett nytt lager kan läggas in mellan två andra. */
 export const Z = {
   paper: 0,       // upptäcktsvyns papperskarta (#101)
+  images: 5,      // tidsstyrda rasterbilder, till exempel nattljus (#54)
   areas: 10,      // riken
   religions: 20,  // religioner
   borders: 30,    // dagens gränser

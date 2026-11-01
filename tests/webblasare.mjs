@@ -410,6 +410,12 @@ async function run(browser, vp) {
     return `${n} pixlar ändras när Resor och handelsvägar slås på`;
   });
 
+  await check('nattljus syns från 2016', async () => {
+    await jumpTo(2016);
+    const n = await layerDraws('images', 5000);
+    return `${n} pixlar ändras när Nattljus slås på`;
+  });
+
   await check('Platt vy stängs', async () => {
     await clickView('#btn-flat');
     await hidden('#flat-view');

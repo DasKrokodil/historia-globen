@@ -199,6 +199,10 @@ for name, by in sorted(icons.items()):
 discovery = load('data/upptackt.json') if (DIST / 'data/upptackt.json').is_file() else None
 for d in (discovery or {}).get('decorations', []):
     exists(d.get('file', ''), f"data/upptackt.json ({d.get('id')}, file)")
+# Tidsstyrda rasterbilder (#54)
+image_layers = load('data/bildlager.json') if (DIST / 'data/bildlager.json').is_file() else None
+for layer in (image_layers or {}).get('layers', []):
+    exists(layer.get('file', ''), f"data/bildlager.json ({layer.get('id')}, file)")
 
 # 8. Källor och fun facts
 sources = load('data/sources.json') or {'sources': []}
@@ -222,6 +226,9 @@ for path, r in routes:
 for d in (discovery or {}).get('decorations', []):
     if d.get('source') and d['source'] not in src_ids:
         err(f"data/upptackt.json ({d.get('id')}): källan {d['source']} finns inte i sources.json")
+for layer in (image_layers or {}).get('layers', []):
+    if layer.get('source') and layer['source'] not in src_ids:
+        err(f"data/bildlager.json ({layer.get('id')}): källan {layer['source']} finns inte i sources.json")
 funfacts = load('data/funfacts.json') or {'funfacts': []}
 for f in funfacts['funfacts']:
     for i in f.get('events', []):
