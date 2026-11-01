@@ -335,7 +335,7 @@ export class FlatMap {
         this._waitGlyph.add(e.icon);
         glyph(e.icon).waiting.push(() => this.draw());
       }
-      ctx.globalAlpha = 0.45 + 0.55 * u.activity;
+      ctx.globalAlpha = u.opacity;
       if (e.id === selectedId) { // vald händelse: en mässingsring runt medaljen (på klotet pulserar den)
         ctx.lineWidth = 2; ctx.strokeStyle = cssVar('--brass');
         ctx.beginPath(); ctx.arc(p.x, p.y, px / 2 + 3, 0, Math.PI * 2); ctx.stroke();
