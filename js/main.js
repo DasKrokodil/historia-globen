@@ -205,7 +205,7 @@ async function start() {
     if (!r?.facts) return false;
     const origin = data.byId[r.facts.origin];
     state.selectedId = origin?.id ?? null;
-    panel.showReligion(r, origin);
+    panel.showReligion(r, origin, { type: 'religion', id: r.id, label: t(r.name), year: Math.round(timeline.year) });
     // Menyerna stängs så att faktarutan och punkten syns
     layers.close(); focusMenu.close();
     if (narrow.matches) panel.setOpen(false);
@@ -245,6 +245,7 @@ async function start() {
     panel.showFacts({ kind: lineage ? 'Försvunnet land' : 'Rike', name: t(own ? polity.name : g.name), color: g.color, facts, place, curveId,
       symbol: symbolImg(sym, 'rel-sym rel-sym-h'), wars, lineage,
       empireMap: !!g.file,
+      report: { type: lineage ? 'vanished-country' : 'empire', id: own ? polity.id : g.id, label: t(own ? polity.name : g.name), year: Math.round(timeline.year) },
       mapNote: g.file ? `Gränserna på kartan kommer från Cliopatria (kartdata ${formatYearSpan(from, to)}). Fakta i rutan kommer från rutans källor.${note ? ` ${note}` : ''}` : note });
     // Ytkurvan (#77) ritas när rikets fil har laddats (den laddas ändå för kartan); för ett rike med egen
     // faktaruta (#301) visar kurvan bara det riket
@@ -1077,7 +1078,12 @@ async function start() {
   // Besökarnas förslag (docs/feedback.md): från Hjälp och från faktarutans "Rapportera faktafel"
   const feedback = new Feedback($('feedback'));
   $('help-feedback').addEventListener('click', () => { help.close(false); feedback.open({ opener: $('btn-help') }); });
-  panel.onReport = (e, btn) => feedback.open({ opener: btn, event: e });
+  const report = (object, btn) => {
+    object.year = Math.round(timeline.year);
+    feedback.open({ opener: btn, event: object.type === 'event' ? data.byId[object.id] : null, object });
+  };
+  panel.onReport = report;
+  routePop.onReport = report;
   timeline.init(1325);
   globe.flyTo(34, -50, 1600);
   globe.autoRotate = false;
