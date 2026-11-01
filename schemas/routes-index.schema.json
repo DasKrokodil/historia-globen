@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historia-globen: register för vägar och resor",
+  "type": "object",
+  "required": ["schema", "files"],
+  "properties": {
+    "schema": { "type": "string", "pattern": "^historia-globen/routes@1$" },
+    "notes": { "type": "string" },
+    "files": { "type": "array", "items": { "type": "string", "pattern": "^(data/routes/)?[^/]+\\.json$" } }
+  }
+}

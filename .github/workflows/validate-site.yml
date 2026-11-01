@@ -23,6 +23,8 @@ jobs:
           python-version: '3.12'
       - name: Bygg dist/ och kör valideringen
         run: bash scripts/build-site.sh
+      - name: Kontrollera att JSON Schema stoppar ett medvetet fel
+        run: python3 -I tests/validate-schema-test.py
       - uses: actions/setup-node@v4
         with:
           node-version: '22'

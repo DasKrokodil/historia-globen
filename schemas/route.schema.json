@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historia-globen: väg eller resa",
+  "type": "object",
+  "required": ["routes"],
+  "properties": {
+    "routes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "category", "title", "summary", "start", "end", "precision", "edtf", "sources", "review", "legs"],
+        "properties": {
+          "id": { "type": "string", "pattern": ".+" },
+          "kind": { "type": "string", "enum": ["voyage", "trade"] },
+          "category": { "type": "string", "enum": ["upptackter", "ekonomi"] },
+          "title": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
+          "summary": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
+          "start": { "type": "integer" },
+          "end": { "type": "integer" },
+          "precision": { "type": "integer", "minimum": 0, "maximum": 11 },
+          "edtf": { "type": "string", "pattern": ".+" },
+          "sources": { "type": "array", "items": { "type": "string", "pattern": ".+" } },
+          "review": { "type": "string", "enum": ["draft", "source-checked", "two-sources"] },
+          "legs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["from", "to", "path", "sources"],
+              "properties": {
+                "from": { "type": "number" },
+                "to": { "type": "number" },
+                "path": { "type": "array", "items": { "type": "array", "items": { "type": "number", "minimum": -180, "maximum": 180 } } },
+                "sources": { "type": "array", "items": { "type": "string", "pattern": ".+" } }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

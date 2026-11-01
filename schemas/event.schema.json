@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historia-globen: händelser",
+  "type": "object",
+  "required": ["schema", "events"],
+  "properties": {
+    "schema": { "type": "string", "pattern": "^historia-globen/events@1$" },
+    "notes": { "type": "string" },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "category", "start", "end", "precision", "edtf", "location", "place", "title", "summary", "sources", "review"],
+        "properties": {
+          "id": { "type": "string", "pattern": ".+" },
+          "category": { "type": "string", "enum": ["natur", "manniskan", "civilisationer", "religion", "vetenskap", "upptackter", "krig", "kultur", "sport", "ekonomi", "halsa", "klimat", "rymden"] },
+          "start": { "type": "integer" },
+          "end": { "type": "integer" },
+          "precision": { "type": "integer", "minimum": 0, "maximum": 11 },
+          "edtf": { "type": "string", "pattern": ".+" },
+          "location": {
+            "type": "object",
+            "required": ["type", "coordinates"],
+            "properties": {
+              "type": { "type": "string", "enum": ["Point"] },
+              "coordinates": { "type": "array", "items": { "type": "number", "minimum": -180, "maximum": 180 } }
+            }
+          },
+          "place": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
+          "title": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
+          "summary": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
+          "sources": { "type": "array", "items": { "type": "string", "pattern": ".+" } },
+          "review": { "type": "string", "enum": ["draft", "source-checked", "two-sources"] }
+        }
+      }
+    }
+  }
+}

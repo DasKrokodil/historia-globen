@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historia-globen: källor",
+  "type": "object",
+  "required": ["schema", "sources"],
+  "properties": {
+    "schema": { "type": "string", "pattern": "^historia-globen/sources@1$" },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "url", "license", "checked"],
+        "properties": {
+          "id": { "type": "string", "pattern": ".+" },
+          "title": { "type": "string", "pattern": ".+" },
+          "url": { "type": "string", "pattern": "^https?://" },
+          "license": { "type": "string", "pattern": ".+" },
+          "checked": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" }
+        }
+      }
+    }
+  }
+}

@@ -11,6 +11,7 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 - **Texter** lagras per språk, svenska först.
 - **Källor och granskning:** posterna pekar på id i `sources.json` och har `review` (`draft`, `source-checked` eller `two-sources`).
 - **Redigera källfilerna,** inte `data/genererat/`; kör `python3 tools/dela_data.py` efter ändringar i `events.json` och `empires/index.json`.
+- **JSON Schema:** `schemas/` beskriver den gemensamma grundnivån för händelser, källor, rikesregistret, vägar/resor och fun facts. `scripts/validate-site.py` använder en liten egen kontroll för `type`, `required`, `properties`, `items`, `enum`, `pattern` och `minimum`/`maximum`; den körs vid varje bygge. Det är medvetet inget externt Python-paket (#391).
 
 **Avsnitt**
 - Gemensamma standarder – år, osäkerhet, precision, plats, text, källor och granskning.

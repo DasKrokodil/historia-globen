@@ -1,0 +1,18 @@
+{
+  "schema": "historia-globen/events@1",
+  "events": [
+    {
+      "id": "medvetet-fel",
+      "category": "kultur",
+      "start": 1969,
+      "end": 1969,
+      "precision": 9,
+      "edtf": "1969",
+      "location": { "type": "Point", "coordinates": [18.0, 59.0] },
+      "place": { "sv": "Testplats" },
+      "summary": { "sv": "Den här testposten saknar medvetet title." },
+      "sources": ["wikidata"],
+      "review": "draft"
+    }
+  ]
+}
