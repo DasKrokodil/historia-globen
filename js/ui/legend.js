@@ -240,3 +240,108 @@ export class ReligionLegend {
     tip.style.top = `${Math.max(8, y - host.top + 16)}px`;
   }
 }
+
+/**
+ * Rikesförklaringen (#437). Den delar placering, mobilformat och tangentbordsmönster med
+ * ReligionLegend men visas bara när besökaren väljer "Vilket rike?" i Lager. Det gör att
+ * Riken fortfarande kan vara på vid start utan att en ruta täcker globen (#427, #428).
+ */
+export class EmpireLegend {
+  constructor({ legend }) {
+    this.legend = legend;
+    this.items = [];
+    this.text = {};
+    this.visible = false;
+    this.open = matchMedia('(min-width: 761px)').matches;
+    this.highlight = null;
+    this.pinned = null;
+    this.onPin = () => {};
+    this.onClose = () => {};
+    const wide = matchMedia('(min-width: 761px)');
+    wide.addEventListener('change', () => { this.open = wide.matches; this.render(); this.fit(); });
+    legend.addEventListener('click', e => {
+      const close = e.target.closest('[data-empire-close]');
+      if (close) { this.onClose(); return; }
+      const item = e.target.closest('li[data-empire]');
+      if (item) { this.onPin(item.dataset.empire); return; }
+      if (!e.target.closest('.el-toggle')) return;
+      this.open = !this.open; this.render(); this.fit();
+    });
+    legend.addEventListener('keydown', e => {
+      const item = e.target.closest('li[data-empire]');
+      if (item && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); this.onPin(item.dataset.empire); }
+      if (e.key === 'Escape') { e.stopPropagation(); this.onClose(); }
+    });
+    this.fit = this.fit.bind(this);
+    this.fitSoon = () => { cancelAnimationFrame(this._raf); this._raf = requestAnimationFrame(this.fit); };
+    addEventListener('resize', this.fitSoon);
+    const ro = new ResizeObserver(this.fitSoon);
+    for (const el of document.querySelectorAll(OBSTACLES + ', .masthead')) ro.observe(el);
+    new MutationObserver(this.fitSoon).observe(document.body, { subtree: true, attributes: true, attributeFilter: ['class', 'hidden'] });
+  }
+
+  update(items, text = {}) {
+    this.items = items ?? [];
+    this.text = text;
+    this.render(); this.fit();
+  }
+
+  setVisible(visible) {
+    this.visible = visible;
+    if (!visible) this.pinned = this.highlight = null;
+    this.render(); this.fit();
+  }
+
+  render() {
+    if (!this.visible || !this.items.length) { this.legend.hidden = true; this.legend.textContent = ''; this._html = ''; return; }
+    const colonies = this.items.filter(item => item.colonial).sort(byName);
+    const others = this.items.filter(item => !item.colonial).sort(byName);
+    const item = ({ group, colonial }) => {
+      const name = t(group.name);
+      const label = colonial ? `${name} · ${this.text.colonies ?? 'kolonier'}` : name;
+      const mark = symbolImg(group) || '<span class="el-star" aria-hidden="true">★</span>';
+      return `<li data-empire="${esc(group.id)}" tabindex="0" role="button" aria-pressed="${this.pinned === group.id}" class="${this.highlight === group.id ? 'on' : ''}" title="${esc(this.text.highlight ?? 'Peka eller tryck för att lyfta fram riket på kartan.')}"><span class="swatch" style="background:${esc(group.color)}"></span>${mark}<span class="rl-name">${esc(label)}</span></li>`;
+    };
+    const more = (this.text.more ?? 'Fler riken ({count})').replace('{count}', others.length);
+    const coloniesHtml = colonies.length ? `<p class="el-heading">${esc(this.text.colonial ?? 'Kolonialvälden')}</p><ul>${colonies.map(item).join('')}</ul>` : '';
+    const othersHtml = others.length ? `<details class="el-more"><summary>${esc(more)}</summary><ul>${others.map(item).join('')}</ul></details>` : '';
+    const dots = this.open ? '' : `<span class="rl-dots" aria-hidden="true">${this.items.slice(0, 10).map(({ group }) =>
+      `<span class="rl-dot" style="background:${esc(group.color)}" title="${esc(t(group.name))}"></span>`).join('')}${
+      this.items.length > 10 ? `<span class="rl-more">+${this.items.length - 10}</span>` : ''}</span>`;
+    const html = `<button type="button" class="rl-toggle el-toggle" aria-expanded="${this.open}" aria-controls="el-body"><span class="rl-title">${esc(this.text.title ?? 'Riken')}</span><span class="rl-chev" aria-hidden="true"></span>${dots}</button>
+      <button type="button" class="el-close" data-empire-close aria-label="Stäng teckenförklaringen för riken">×</button>
+      <div id="el-body" class="rl-body" ${this.open ? '' : 'hidden'}>${coloniesHtml}${othersHtml}<p class="rl-note el-note">${esc(this.text.highlight ?? 'Peka eller tryck för att lyfta fram riket på kartan.')}</p></div>`;
+    if (html !== this._html) {
+      const focused = this.legend.contains(document.activeElement) && document.activeElement.dataset.empire;
+      const scroll = this.legend.querySelector('.rl-body')?.scrollTop ?? 0;
+      this.legend.innerHTML = this._html = html;
+      const body = this.legend.querySelector('.rl-body'); if (body) body.scrollTop = scroll;
+      if (focused) this.legend.querySelector(`[data-empire="${focused}"]`)?.focus({ preventScroll: true });
+    }
+    this.legend.hidden = false;
+  }
+
+  fit() {
+    const lg = this.legend;
+    if (lg.hidden) return;
+    const mast = document.querySelector('.masthead');
+    const top = Math.round((mast ? mast.getBoundingClientRect().bottom : 56) + 8);
+    lg.style.top = `${top}px`;
+    const body = lg.querySelector('.rl-body'); if (!body) return;
+    body.hidden = !this.open; body.style.maxHeight = '';
+    if (!this.open) return;
+    const me = lg.getBoundingClientRect();
+    let limit = innerHeight - 150;
+    for (const el of document.querySelectorAll(OBSTACLES)) {
+      if (el.hidden || getComputedStyle(el).display === 'none') continue;
+      const r = el.getBoundingClientRect();
+      if (r.width && r.left < me.right && r.right > me.left && r.bottom > top) limit = Math.min(limit, r.top);
+    }
+    const head = lg.querySelector('.rl-toggle').offsetHeight;
+    const room = limit - GAP - top - head - 14;
+    if (room < 56) body.hidden = true;
+    else body.style.maxHeight = `${Math.floor(room)}px`;
+  }
+}
+
+const byName = (a, b) => t(a.group.name).localeCompare(t(b.group.name), 'sv');

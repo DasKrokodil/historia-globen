@@ -9,7 +9,7 @@ import { Panel } from './ui/panel.js';
 import { FunFacts, empireStory } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
 import { LayerMenu, loadViews } from './ui/layers.js';
-import { ReligionLegend } from './ui/legend.js';
+import { ReligionLegend, EmpireLegend } from './ui/legend.js';
 import { RoutePop } from './ui/routepop.js';
 import { cluster, clusterContents, placeLabels, dotBox } from './ui/clusters.js';
 import { ZOOM_LEVELS, zoomLevel, pxPerImg, zoomView, eventKeepouts, globeEmpireBlocks } from './ui/zoomlevels.js';
@@ -122,6 +122,17 @@ async function start() {
   // Teckenförklaring och klickruta för religionslagret (#166)
   const relLegend = new ReligionLegend({ legend: $('religion-legend'), pop: $('religion-pop') });
   relLegend.empireLegend = views?.empireLegend ?? {};
+  // Rikesförklaringen öppnas från Lager, aldrig automatiskt när Riken är på (#437, #427).
+  const empireLegend = new EmpireLegend({ legend: $('empire-legend') });
+  const empireLegendButton = document.createElement('button');
+  empireLegendButton.type = 'button';
+  empireLegendButton.className = 'link-btn empire-legend-button';
+  empireLegendButton.textContent = views?.empireLegend?.show ?? 'Vilket rike?';
+  empireLegendButton.setAttribute('aria-controls', 'empire-legend');
+  empireLegendButton.setAttribute('aria-expanded', 'false');
+  // Knappen hör till Lagermenyns första nivå: Riken kan vara på i en färdig vy utan att
+  // besökaren först behöver öppna ”Anpassa själv” för att hitta förklaringen (#437).
+  $('layer-menu').querySelector('.view-chips')?.after(empireLegendButton);
   // Klickrutan för vägar och resor (#38); "Läs mer" öppnar den kopplade händelsen
   const routePop = new RoutePop($('route-pop'), data);
   routePop.onEvent = id => select(id);
@@ -145,16 +156,53 @@ async function start() {
     });
   };
   relLegend.onPin = id => { pinnedReligion = pinnedReligion === id ? null : id; setHighlight(pinnedReligion); };
+  let pinnedEmpire = null, wantEmpireHighlight = null, empireHlRaf = 0;
+  const setEmpireHighlight = id => {
+    wantEmpireHighlight = id ?? null;
+    cancelAnimationFrame(empireHlRaf);
+    empireHlRaf = requestAnimationFrame(() => {
+      if (areas.highlight === wantEmpireHighlight && empireLegend.pinned === pinnedEmpire) return;
+      areas.highlight = empireLegend.highlight = wantEmpireHighlight; empireLegend.pinned = pinnedEmpire;
+      refresh();
+    });
+  };
+  empireLegend.onPin = id => { pinnedEmpire = pinnedEmpire === id ? null : id; setEmpireHighlight(pinnedEmpire); };
+  empireLegend.onClose = () => {
+    empireLegend.setVisible(false);
+    empireLegendButton.setAttribute('aria-expanded', 'false');
+    pinnedEmpire = null; setEmpireHighlight(null);
+    // Klick i rutan ligger utanför Lager och kan stänga menyn före ×-klicket. Välj
+    // därför alltid den knapp som faktiskt syns, och upprepa fokus efter omritningen.
+    const returnFocus = () => ($('layer-menu').hidden ? $('btn-layers') : empireLegendButton);
+    returnFocus().focus({ preventScroll: true });
+    requestAnimationFrame(() => returnFocus().focus({ preventScroll: true }));
+  };
+  empireLegendButton.addEventListener('click', () => {
+    const open = !$('empire-legend').hidden;
+    if (open) empireLegend.onClose();
+    else {
+      // Menyn ligger ovanpå kartan i mobil. Stäng den först, så att rikesrutan inte öppnas bakom den.
+      layers.close();
+      empireLegend.setVisible(true); empireLegendButton.setAttribute('aria-expanded', 'true');
+    }
+  });
   document.addEventListener('pointerover', e => {
     if (e.pointerType === 'touch') return;
-    const el = e.target.closest?.('[data-religion]');
-    setHighlight(el ? el.dataset.religion : pinnedReligion);
+    const religion = e.target.closest?.('[data-religion]');
+    const empire = e.target.closest?.('[data-empire]');
+    setHighlight(religion ? religion.dataset.religion : pinnedReligion);
+    setEmpireHighlight(empire ? empire.dataset.empire : pinnedEmpire);
   });
   document.addEventListener('focusin', e => {
-    const el = e.target.closest?.('[data-religion]');
-    if (el) setHighlight(el.dataset.religion);
+    const religion = e.target.closest?.('[data-religion]');
+    const empire = e.target.closest?.('[data-empire]');
+    if (religion) setHighlight(religion.dataset.religion);
+    if (empire) setEmpireHighlight(empire.dataset.empire);
   });
-  document.addEventListener('focusout', e => { if (e.target.closest?.('[data-religion]')) setHighlight(pinnedReligion); });
+  document.addEventListener('focusout', e => {
+    if (e.target.closest?.('[data-religion]')) setHighlight(pinnedReligion);
+    if (e.target.closest?.('[data-empire]')) setEmpireHighlight(pinnedEmpire);
+  });
   // I fokusläge syns det man följer även om lagret är avslaget i menyn
   const applyLayers = () => {
     registry.apply(state);
@@ -692,6 +740,9 @@ async function start() {
     const legend = registry.legend(state);
     relLegend.update(legend.items ?? [], { areas: !!legend.areas, war: !!legend.war, fadable: registry.fadable(state).map(e => e.name), keep: !!layers.on.keep,
       discovery: legend.discovery ?? null });
+    empireLegend.update(legend.empires ?? [], views?.empireLegend ?? {});
+    empireLegendButton.hidden = !layers.on.areas || !(legend.empires?.length);
+    if (empireLegendButton.hidden && !$('empire-legend').hidden) empireLegend.onClose();
     if (!religions.enabled || state.faded.has('religions')) relLegend.hidePop();
     registry.markers(state);
     drawOverlay();
@@ -933,6 +984,7 @@ async function start() {
     // Lagret slås bara på: menyn står kvar öppen och ingen faktaruta öppnas (#308). Första gången
     // visar teckenförklaringen en tipsrad; faktarutan finns bakom knappen "Läs om religionerna".
     if (name === 'religions') relLegend.setHint(on);
+    if (name === 'areas' && !on && !$('empire-legend').hidden) empireLegend.onClose();
     await ensureReligions();
   };
   // Nyckelår i rikets och religionens faktaruta hoppar dit i tiden

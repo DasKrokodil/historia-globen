@@ -1368,6 +1368,24 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-legend li[aria-pressed="true"] { box-shadow: inset 2px 0 0 var(--brass); }
 .religion-legend li[data-religion]:focus-visible { outline: 2px solid var(--brass); outline-offset: 0; }
 .religion-legend .rl-sym-note { display: block; }
+/* Rikesförklaringen öppnas uttryckligen från Lager (#437); i övrigt återanvänder den religionernas kompakta ruta. */
+.empire-legend { position: absolute; }
+.empire-legend .el-close { position: absolute; top: 2px; right: 5px; min-width: 28px; min-height: 28px; border: 0; border-radius: 4px; background: none; color: var(--brass); font: 400 18px/1 var(--f-body); cursor: pointer; }
+.empire-legend .el-close:hover { background: var(--night-3); }
+.empire-legend .el-toggle { padding-right: 24px; }
+.empire-legend .el-heading { margin: 3px 0 3px; color: var(--parchment-dim); font: 500 10.5px/1.2 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; }
+.empire-legend .el-more { margin-top: 6px; padding-top: 5px; border-top: 1px solid var(--line); }
+.empire-legend .el-more summary { cursor: pointer; color: var(--brass); font: 400 11px/1.35 var(--f-mono); }
+.empire-legend .el-more ul { margin-top: 4px; }
+.empire-legend li[data-empire] { cursor: pointer; border-radius: 4px; margin: 0 -4px; padding: 1px 4px; }
+.empire-legend li[data-empire]:hover, .empire-legend li.on { background: var(--night-3); }
+.empire-legend li[data-empire][aria-pressed="true"] { box-shadow: inset 2px 0 0 var(--brass); }
+.empire-legend li[data-empire]:focus-visible, .empire-legend :is(.el-close, .el-more summary):focus-visible { outline: 2px solid var(--brass); outline-offset: 0; }
+.empire-legend .el-star { width: 16px; color: var(--brass); text-align: center; font-size: 15px; line-height: 1; }
+.empire-legend .el-note { display: block; }
+@media (max-width: 760px) {
+  .empire-legend .el-close { top: 0; min-width: 36px; min-height: 36px; }
+}
 .religion-tip {
   position: absolute; z-index: 11; display: flex; align-items: center; gap: 6px; max-width: 240px; pointer-events: none;
   background: color-mix(in srgb, var(--night-2) 94%, transparent); border: 1px solid var(--brass-deep); border-radius: 8px;

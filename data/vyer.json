@@ -8,6 +8,12 @@
     "future": { "sv": "börjar", "en": "starts" }
   },
   "empireLegend": {
+    "show": { "sv": "Vilket rike?", "en": "Which empire?" },
+    "title": { "sv": "Riken", "en": "Empires" },
+    "colonial": { "sv": "Kolonialvälden", "en": "Colonial empires" },
+    "colonies": { "sv": "kolonier", "en": "colonies" },
+    "more": { "sv": "Fler riken ({count})", "en": "More empires ({count})" },
+    "highlight": { "sv": "Peka eller tryck för att lyfta fram riket på kartan.", "en": "Point or tap to highlight the empire on the map." },
     "softEdge": { "sv": "Mjuk kant: källorna säger att gränsen är osäker.", "en": "Soft edge: the sources say the boundary is uncertain." },
     "influence": { "sv": "Glesa prickar med streckad kant: lydriken och vasaller enligt Cliopatria, inte rikets kärnområde.", "en": "Sparse dots with a dashed border: tributaries and vassals according to Cliopatria, not the empire's core area." }
   },
