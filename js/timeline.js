@@ -55,9 +55,9 @@ const ICON_AGAIN = 'M8 2.5V0L4.2 3.6 8 7.2V4.5a3.5 3.5 0 1 1-3.5 3.5h-2A5.5 5.5 
 const fmtDays = r => { const n = fmtNum(r * DAYS_PER_YEAR); return `${n} ${dayUnit(n)}/s`; };
 
 export class Timeline extends EventTarget {
-  constructor({ track, thumb, segs, ticks, dots, ffMarks, chapters, warMarks, playBtn, playIcon, stepBtns, speedBtn, pauseNote, pauseText, pauseGo }) {
+  constructor({ track, thumb, segs, ticks, dots, ffMarks, chapters, warMarks, playBtn, playIcon, stepBtns, speedBtn, pauseNote, pauseText, pauseGo, status }) {
     super();
-    Object.assign(this, { track, thumb, playBtn, playIcon, speedBtn, pauseNote, pauseText, pauseGo, stepBtns, segsEl: segs, ticksEl: ticks });
+    Object.assign(this, { track, thumb, playBtn, playIcon, speedBtn, pauseNote, pauseText, pauseGo, status, stepBtns, segsEl: segs, ticksEl: ticks });
     this._year = 1325;
     this.playing = false;
     this._resume = false; // automatisk paus: knappen heter "Fortsätt"
@@ -400,19 +400,31 @@ export class Timeline extends EventTarget {
   }
   /** Pausar. Med `reason` (text) är det en automatisk paus: knappen blir "Fortsätt" och raden vid knappen visar varför.
    *  `always` visar raden även om uppspelningen redan stod still (nästa stopp i ett krig, #217). */
-  pause(reason, always = false) {
+  pause(reason, always = false, announcement = reason) {
     const wasPlaying = this.playing;
     this.playing = false;
     this.playBtn.setAttribute('aria-pressed', 'false');
     const auto = !!reason && (wasPlaying || always);
     this._resume = auto;
     this._labelPlay();
-    this._showNote(auto ? reason : null);
+    this._showNote(auto ? reason : null, auto ? announcement : null);
   }
-  _showNote(text) {
+  _showNote(text, announcement = text) {
     if (!this.pauseNote) return;
     this.pauseNote.hidden = !text;
     if (text) this.pauseText.textContent = text;
+    if (announcement) this._announce(announcement);
+    else if (this.status) this.status.textContent = '';
+  }
+  /** Den här raden finns alltid i DOM:en, så att skärmläsaren säkert får ändringen. */
+  _announce(text) {
+    if (!this.status) return;
+    const request = (this._announceRequest ?? 0) + 1;
+    this._announceRequest = request;
+    this.status.textContent = '';
+    requestAnimationFrame(() => {
+      if (this._announceRequest === request) this.status.textContent = text;
+    });
   }
 
   _render() {

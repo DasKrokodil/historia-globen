@@ -213,6 +213,26 @@ async function run(browser, vp) {
     return `${pagerBefore} → ${(await page.textContent('#ff-pager')).trim()}: ${before} → ${after}`;
   });
 
+  await check('skärmläsarstatusen säger paus och Samtidigt-text', async () => {
+    const attrs = await page.evaluate(() => {
+      const year = document.querySelector('.year-readout');
+      const card = document.getElementById('funfact');
+      const status = document.getElementById('screen-reader-status');
+      const resume = document.getElementById('pause-go');
+      return {
+        yearLive: year?.getAttribute('aria-live'), cardLive: card?.getAttribute('aria-live'),
+        statusRole: status?.getAttribute('role'), atomic: status?.getAttribute('aria-atomic'),
+        statusClass: status?.classList.contains('sr-only'), resumeDescription: resume?.getAttribute('aria-describedby'),
+      };
+    });
+    if (attrs.yearLive || attrs.cardLive) throw new Error('året eller hela Samtidigt-kortet är fortfarande en live region');
+    if (attrs.statusRole !== 'status' || attrs.atomic !== 'true' || !attrs.statusClass) throw new Error('den permanenta osynliga statusraden saknas');
+    if (attrs.resumeDescription !== 'pause-text') throw new Error('Fortsätt beskriver inte paustexten');
+    const cardText = (await page.textContent('#ff-text')).replace(/\s+/g, ' ').trim();
+    await page.waitForFunction(text => document.getElementById('screen-reader-status')?.textContent.includes(text), cardText, { timeout: T.step });
+    return 'år och kort är inte live; Samtidigt-texten annonseras i den permanenta statusraden';
+  });
+
   await check('en händelse öppnas från Samtidigt', async () => {
     const event = page.locator('#ff-events .ff-chip').first();
     const title = (await event.textContent()).replace(/\s+/g, ' ').trim();
@@ -673,6 +693,8 @@ async function run(browser, vp) {
         throw new Error(`pausraden saknar plats, datum eller resa: ${pause}`);
       }
       if (!pause.includes('Källorna skiljer sig')) throw new Error('resans osäkerhetsnot syns inte i pausrutan');
+      const pauseText = (await page.textContent('#pause-text')).replace(/\s+/g, ' ').trim();
+      await page.waitForFunction(text => document.getElementById('screen-reader-status')?.textContent.includes(text), pauseText, { timeout: T.step });
       await shot('6b-fokus-resa-stopp');
       await page.click('#focus-exit');
       await hidden('#focus-bar');

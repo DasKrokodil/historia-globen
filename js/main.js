@@ -99,7 +99,7 @@ async function start() {
   const ff = new FunFacts({
     root: $('funfact'), text: $('ff-text'), events: $('ff-events'), review: $('ff-review'),
     pager: $('ff-pager'), next: $('ff-next'), srcBtn: $('ff-sources'),
-    pics: $('ff-pics'), kind: $('ff-kind'), min: $('ff-min'), tab: $('ff-tab'), tabCount: $('ff-tab-count'), handle: $('ff-handle'),
+    pics: $('ff-pics'), kind: $('ff-kind'), min: $('ff-min'), tab: $('ff-tab'), tabCount: $('ff-tab-count'), handle: $('ff-handle'), status: $('screen-reader-status'),
   }, { funfacts: [...data.funfacts, ...warCards(data.events)], byId: data.byId, srcById: data.srcById, styles: data.styles });
   // Smal skärm (#361): faktarutan som ark nedifrån med tre lägen, och gruppen Visa som meny i den kompakta raden överst
   const detailSheet = new Sheet($('detail'));
@@ -109,7 +109,7 @@ async function start() {
   const timeline = new Timeline({
     track: $('track'), thumb: $('thumb'), segs: $('track-segments'), ticks: $('ticks'),
     dots: $('track-dots'), ffMarks: $('track-ff'), chapters: $('track-chapters'), warMarks: $('track-war'), playBtn: $('btn-play'), playIcon: $('play-icon'), pauseNote: $('pause-note'), pauseText: $('pause-text'),
-    pauseGo: $('pause-go'),
+    pauseGo: $('pause-go'), status: $('screen-reader-status'),
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
   setupYearJump(timeline, { button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'), onJump: () => orientToPanelHighlight() });
@@ -980,7 +980,9 @@ async function start() {
   // I fokusläget pausar uppspelningen som standard bara vid det man följer; Samtidigt-pausen är där ett eget val (#234)
   ff.onNew = () => {
     const on = focus ? layers.pause.focusFunfacts : layers.pause.funfacts;
-    if (timeline.playing && on && !ff.minimized && !finishing) timeline.pause('Pausad vid ett nytt Samtidigt-kort');
+    if (timeline.playing && on && !ff.minimized && !finishing) {
+      timeline.pause('Pausad vid ett nytt Samtidigt-kort', false, `Pausad vid ett nytt Samtidigt-kort. ${ff.announcement()}`);
+    }
   };
   // Raden "Nästa paus" följer pausvalen i Lager
   $('layer-menu').addEventListener('change', e => { if (e.target.dataset.pause) showNextPause(); });

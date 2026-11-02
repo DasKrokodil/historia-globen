@@ -44,6 +44,7 @@ export class FunFacts {
     this.onSelect = () => {}; // öppnar hela faktarutan ("Läs mer")
     this.onSources = () => {};
     this.onNew = () => {};
+    this._announcedKey = '';
     this.minimized = false;
     try { this.minimized = localStorage.getItem('hg-ff-min') === '1'; } catch { /* utan lagring */ }
     // Panelen i smal skärm (#239): ihopfällt kort (minimized) visas som stängd panel i stället för en flik.
@@ -247,6 +248,25 @@ export class FunFacts {
     return new Set(f && !this.minimized && !this.autoClosed ? f.events : []);
   }
 
+  /** Texten som skärmläsaren får när ett nytt Samtidigt-kort visas. */
+  announcement() {
+    return `${this.kind.textContent.trim()}. ${this.text.textContent.trim()}`;
+  }
+
+  _announce(f) {
+    if (!this.status) return;
+    const text = this.announcement();
+    const key = `${f.id}:${this.index}:${text}`;
+    if (key === this._announcedKey) return;
+    this._announcedKey = key;
+    const request = (this._announceRequest ?? 0) + 1;
+    this._announceRequest = request;
+    this.status.textContent = '';
+    requestAnimationFrame(() => {
+      if (this._announceRequest === request) this.status.textContent = text;
+    });
+  }
+
   _show() {
     const f = this.active[this.index];
     // I smal skärm är det ihopfällda kortet en stängd panel, inte en flik (#239)
@@ -254,7 +274,7 @@ export class FunFacts {
     this.tab.hidden = !f || !this.minimized || asSheet;
     this.tabCount.textContent = String(this.active.length);
     this._syncSheet();
-    if (!f || (this.minimized && !asSheet)) { this.root.hidden = true; this.onArcs([]); return; }
+    if (!f || (this.minimized && !asSheet)) { this.root.hidden = true; this._announcedKey = ''; this.onArcs([]); return; }
     const story = f.kind === 'empire';
     this.root.classList.toggle('ff-story', story);
     this.root.classList.remove('ff-open');
@@ -279,6 +299,7 @@ export class FunFacts {
     this.pager.textContent = this.active.length > 1 ? `${this.index + 1} av ${this.active.length}` : '';
     this.next.hidden = this.active.length < 2;
     this.root.hidden = false;
+    this._announce(f);
     this._maybeHint();
     // Bågar från första händelsen till de övriga (inte när panelen är stängd)
     const [a, ...rest] = evs;
