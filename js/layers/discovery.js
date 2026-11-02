@@ -240,7 +240,7 @@ export class DiscoveryLayer {
     c.fillRect(0, 0, w, h);
     c.globalCompositeOperation = 'source-over';
     // Terra incognita, i bläck på dimman
-    c.globalAlpha = 0.6;
+    c.globalAlpha = 0.82;
     c.fillStyle = ink;
     c.textAlign = 'center'; c.textBaseline = 'middle';
     for (const l of fog.labels ?? []) {

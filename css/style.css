@@ -92,7 +92,10 @@ body {
   font-size: 12px; font-weight: 500;
   color: var(--parchment);
   background: color-mix(in srgb, var(--night) 78%, transparent);
-  border: 1px solid var(--control-line);
+  /* Egen, ljusare ram: etiketten ligger även över ljust land och pergament. */
+  --label-border: #a9a08c;
+  --label-hover-border: var(--brass);
+  border: 1px solid var(--label-border);
   border-radius: 6px;
   padding: 2px 7px;
   white-space: nowrap;
@@ -129,7 +132,7 @@ body {
 .glabel { font-family: inherit; }
 .glabel:focus-visible, .gcluster:focus-visible, .globe-canvas:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
 .globe-canvas:focus-visible { outline-offset: -3px; }
-.glabel-hover { z-index: 1; border-color: var(--brass-deep); }
+.glabel-hover { z-index: 1; border-color: var(--label-hover-border); }
 .globe-canvas.on-marker { cursor: pointer; }
 .glabel .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
 @media (max-width: 760px) {
