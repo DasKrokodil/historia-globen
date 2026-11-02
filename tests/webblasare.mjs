@@ -614,8 +614,21 @@ async function run(browser, vp) {
     if (header.toString('ascii', 1, 4) !== 'PNG' || header.readUInt32BE(16) !== 3508 || header.readUInt32BE(20) !== 2480) {
       throw new Error('affischen är inte A4 liggande PNG (3508 × 2480)');
     }
+    const poster = await page.evaluate(async () => {
+      const [{ selectPosterEvents }, doc, views] = await Promise.all([
+        import('./js/ui/poster.js'),
+        fetch('data/genererat/handelser.json').then(response => response.json()),
+        fetch('data/vyer.json').then(response => response.json()),
+      ]);
+      return {
+        ids: selectPosterEvents(1969, doc.events).map(event => event.id),
+        website: views.poster.website.sv,
+      };
+    });
+    if (poster.ids.length > 8 || poster.ids.includes('oxford')) throw new Error('affischen tar med för många eller långvariga bakgrundshändelser');
+    if (poster.website !== 'historiagloben.se') throw new Error('affischen saknar webbplatsrad från vydata');
     await jumpTo(ROUTE_YEAR);
-    return `${header.readUInt32BE(16)} × ${header.readUInt32BE(20)}; ${download.suggestedFilename()}`;
+    return `${header.readUInt32BE(16)} × ${header.readUInt32BE(20)}; ${poster.ids.length} händelser; ${download.suggestedFilename()}`;
   });
 
   await check('ett rike syns', async () => {

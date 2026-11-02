@@ -1064,6 +1064,7 @@ async function start() {
       });
     } catch (err) {
       console.error(err);
+      window.alert(t(poster.error));
     } finally {
       posterButton.disabled = false;
     }

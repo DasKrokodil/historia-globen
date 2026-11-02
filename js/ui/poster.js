@@ -1,13 +1,24 @@
 // A4-affisch från Platt vy (#485). Kartan kommer från samma ekvirektangulära
 // canvasar som klotet använder; DOM-etiketterna ersätts av en kort händelselista.
 
-import { formatYear, t } from '../model.js';
+import { formatEventTime, formatYear, t } from '../model.js';
 
 const WIDTH = 3508;  // A4 liggande, 300 dpi
 const HEIGHT = 2480;
-const MAP_HEIGHT = WIDTH / 2; // samma 2:1-proportion som baseCanvas och overlayCanvas
+const MAP_WIDTH = 3200;
+const MAP_HEIGHT = MAP_WIDTH / 2; // samma 2:1-proportion som baseCanvas och overlayCanvas
+const MAP_X = (WIDTH - MAP_WIDTH) / 2;
+const MAP_Y = 40;
 const MARGIN = 120;
 const MAX_EVENTS = 8;
+const COLORS = {
+  background: '#101924', text: '#f1eadc', muted: '#c8c0b0', accent: '#d0a85f', line: '#8a7551',
+};
+
+// Tillfällig lokal avgränsning: #508 kan dela datumurvalet med andra vyer senare.
+function isLongRunningBackgroundEvent(event, year) {
+  return /\/\.\.$/.test(event.edtf ?? '') && event.start <= year - 100;
+}
 
 /**
  * De viktigaste händelserna som pågår ett helt valt år. Funktionen är medvetet
@@ -17,7 +28,7 @@ const MAX_EVENTS = 8;
 export function selectPosterEvents(year, events) {
   return events
     .map((event, index) => ({ event, index }))
-    .filter(({ event }) => event.start <= year && event.end >= year)
+    .filter(({ event }) => event.start <= year && event.end >= year && !isLongRunningBackgroundEvent(event, year))
     .sort((a, b) => priority(a.event) - priority(b.event) || a.index - b.index)
     .slice(0, MAX_EVENTS)
     .map(({ event }) => event);
@@ -25,13 +36,8 @@ export function selectPosterEvents(year, events) {
 
 function priority(event) { return event.top ? 0 : event.major ? 1 : 2; }
 
-function drawFitText(ctx, text, x, y, maxWidth, size, weight = '400', align = 'left') {
-  let fontSize = size;
-  do {
-    ctx.font = `${weight} ${fontSize}px Instrument Sans, sans-serif`;
-    if (ctx.measureText(text).width <= maxWidth || fontSize <= 17) break;
-    fontSize -= 1;
-  } while (fontSize > 17);
+function drawText(ctx, text, x, y, size, weight = '400', align = 'left') {
+  ctx.font = `${weight} ${size}px Instrument Sans, sans-serif`;
   ctx.textAlign = align;
   ctx.fillText(text, x, y);
 }
@@ -43,40 +49,49 @@ export function createPoster({ baseCanvas, overlayCanvas, year, events, labels }
   const ctx = canvas.getContext('2d');
   const listed = selectPosterEvents(year, events);
 
-  ctx.fillStyle = '#101924';
+  ctx.fillStyle = COLORS.background;
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
-  ctx.drawImage(baseCanvas, 0, 0, WIDTH, MAP_HEIGHT);
-  ctx.drawImage(overlayCanvas, 0, 0, WIDTH, MAP_HEIGHT);
-  ctx.fillStyle = '#d8d0be';
-  ctx.fillRect(0, MAP_HEIGHT, WIDTH, 3);
+  ctx.drawImage(baseCanvas, MAP_X, MAP_Y, MAP_WIDTH, MAP_HEIGHT);
+  ctx.drawImage(overlayCanvas, MAP_X, MAP_Y, MAP_WIDTH, MAP_HEIGHT);
+  ctx.fillStyle = COLORS.muted;
+  ctx.fillRect(MAP_X, MAP_Y + MAP_HEIGHT, MAP_WIDTH, 3);
 
-  let y = MAP_HEIGHT + 94;
-  ctx.fillStyle = '#d0a85f';
-  drawFitText(ctx, formatYear(year), MARGIN, y, WIDTH - MARGIN * 2, 58, '600');
-  y += 56;
-  ctx.fillStyle = '#f1eadc';
-  drawFitText(ctx, t(labels.title), MARGIN, y, WIDTH - MARGIN * 2, 42, '600');
+  let y = MAP_Y + MAP_HEIGHT + 160;
+  ctx.fillStyle = COLORS.accent;
+  drawText(ctx, formatYear(year), MARGIN, y, 140, '600');
+  y += 72;
+  ctx.fillStyle = COLORS.text;
+  drawText(ctx, t(labels.title), MARGIN, y, 64, '600');
   y += 48;
-  ctx.fillStyle = '#c8c0b0';
-  drawFitText(ctx, t(labels.legend), MARGIN, y, WIDTH - MARGIN * 2, 25);
+  ctx.fillStyle = COLORS.muted;
+  drawText(ctx, t(labels.legend), MARGIN, y, 32);
 
-  y += 52;
-  const listBottom = HEIGHT - 112;
-  const rowHeight = Math.max(31, Math.floor((listBottom - y) / Math.max(1, listed.length)));
-  ctx.fillStyle = '#f1eadc';
-  for (const event of listed) {
-    const line = `${formatYear(event.start)} · ${t(event.title)}`;
-    drawFitText(ctx, line, MARGIN, y, WIDTH - MARGIN * 2, Math.min(27, rowHeight - 8));
-    y += rowHeight;
+  const listTop = y + 70;
+  const columnCount = listed.length > 4 ? 2 : 1;
+  const rows = Math.max(1, Math.ceil(listed.length / columnCount));
+  const listBottom = HEIGHT - 142;
+  const rowHeight = Math.floor((listBottom - listTop) / rows);
+  const columnWidth = (WIDTH - MARGIN * 2) / columnCount;
+  ctx.fillStyle = COLORS.text;
+  for (const [index, event] of listed.entries()) {
+    const column = Math.floor(index / rows);
+    const row = index % rows;
+    const x = MARGIN + column * columnWidth;
+    const rowY = listTop + row * rowHeight;
+    drawText(ctx, `${formatEventTime(event)} · ${t(event.title)}`, x, rowY + 48, 48);
+    ctx.fillStyle = COLORS.muted;
+    drawText(ctx, t(event.place), x, rowY + 82, 30);
+    ctx.fillStyle = COLORS.text;
   }
-  if (!listed.length) drawFitText(ctx, t(labels.empty), MARGIN, y, WIDTH - MARGIN * 2, 25);
+  if (!listed.length) drawText(ctx, t(labels.empty), MARGIN, listTop + 48, 48);
 
-  ctx.strokeStyle = '#8a7551';
+  ctx.strokeStyle = COLORS.line;
   ctx.lineWidth = 2;
   ctx.beginPath(); ctx.moveTo(MARGIN, HEIGHT - 82); ctx.lineTo(WIDTH - MARGIN, HEIGHT - 82); ctx.stroke();
-  ctx.fillStyle = '#c8c0b0';
-  drawFitText(ctx, t(labels.sources), MARGIN, HEIGHT - 42, WIDTH - MARGIN * 2, 22);
-  drawFitText(ctx, t(labels.license), WIDTH - MARGIN, HEIGHT - 42, WIDTH - MARGIN * 2, 22, '400', 'right');
+  ctx.fillStyle = COLORS.muted;
+  drawText(ctx, t(labels.sources), MARGIN, HEIGHT - 42, 22);
+  drawText(ctx, t(labels.website), WIDTH / 2, HEIGHT - 42, 22, '400', 'center');
+  drawText(ctx, t(labels.license), WIDTH - MARGIN, HEIGHT - 42, 22, '400', 'right');
   return { canvas, events: listed };
 }
 
