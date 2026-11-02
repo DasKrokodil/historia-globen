@@ -156,10 +156,10 @@ Rikard gillar stilen. Behåll den:
 | Version | Innehåll |
 |---|---|
 | 4.2 Stabilitet och tillgänglighet | Upptäcktsvyn (#375–#378), tangentbord och zoom (#386, #362), kontroll efter publicering (#388), läsbar tidslinje (#298), faktarutor och introduktion (#359, #363, #364) och små förenklingar |
-| 4.3 Teknisk grund | main.js delas upp och tillståndet blir centralt (#389), lättare mobilrendering (#390), JSON Schema (#391), lagertypen bildlager (#54) |
+| 4.3 Teknisk grund | main.js delas upp och tillståndet blir centralt (#389, utan adressdelen som är #501 i 5.2), lättare mobilrendering (#390), JSON Schema (#391), lagertypen bildlager (#54) |
 | 5.0 Guidade berättelser | Turformat som data (#47) och en första tur (#13, andra världskriget); fler turer och berättelselägen därefter |
 | 5.1 Global täckning | Granskningsvy, mindre redigeringsfiler, täckningsrapport och innehåll i små batcher per region (#61, #62, #394) |
-| 5.2 Sök, delning och introduktion | "Vad hände här?" (#15), delbara länkar (#64), sök |
+| 5.2 Sök, delning och introduktion | "Vad hände här?" (#15), delbara länkar (#64) och tillståndet i adressen (#501), sök |
 | 6 Skolpilot | Lektionsturer, quiz och elevuppdrag (#66, #65, #250), läroplansreferenser, pilot med en lärare eller klass |
 | 7 Människans långa historia | Tidsmodell för ungefärliga datum, tidslinje i nivåer (#49), människoarter (#11) |
 | 8 Jordens historia | Eget läge med geologisk tidslinje och forntida kartor (#12, #51–#53) |
@@ -167,9 +167,9 @@ Rikard gillar stilen. Behåll den:
 
 Parallella spår (milstolpar utan versionsnummer, görs bredvid huvudversionerna):
 - **Innehållspaket:** vetenskap, medicin, teknik, rymdfärdens milstolpar (#84) och temavyer (musik, litteratur, filosofi, ekonomi, personer, byggnadsverk, perspektiv). Paketen blockerar inte varandra eller huvudversionerna.
-- **Riken:** R1–R6 är klara; kvar är småfrågor.
+- **Riken:** R1–R6 är klara; milstolpen heter "Riken: R7 och restarbete".
 - **Hårdvara** (H1–H3): anteckningar, planeringen sker i Rikards Claude-projekt.
-- **Experiment senare:** flöden i nutid (flyg, sjöfart), rymden (månen, satelliter, Mars) och översättning till fler språk.
+- **Experiment och senare:** experimenten är delade i "Historiska datum och utskrift", "Flöden och rörelse", "Lekar och tankeexperiment" och "Rymden". "Senare" är delad i "beslut krävs", "teknik" och "innehåll och media". "Teman: temamotor" (#398) är förutsättningen för temavyerna, och "Paket: Temavyer och innehåll" är en samlingsrubrik, inte en arbetsmilstolpe. Bilder görs i "Bilder: batchar".
 
 Regler:
 - **Varje version slutar med att Rikard utvärderar** innan nästa börjar.
