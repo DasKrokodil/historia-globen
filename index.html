@@ -142,7 +142,24 @@
     </details>
     <p class="help-support">Historia Globen är gratis att använda. Vill du bidra till drift och vidareutveckling kan du lämna ett frivilligt stöd.
       <a href="https://ko-fi.com/historiagloben" target="_blank" rel="noopener noreferrer" aria-label="Stöd Historia Globen på Ko-fi (öppnas i en ny flik)">Stöd Historia Globen<span aria-hidden="true"> ↗</span></a></p>
+    <p class="help-intro"><button id="help-intro" class="link-btn" type="button" aria-controls="intro">Visa introduktionen igen</button></p>
     <p class="help-feedback">Saknar du något eller har du hittat ett fel? <button id="help-feedback" class="link-btn" type="button" aria-haspopup="dialog" aria-controls="feedback">Lämna förslag</button></p>
+  </aside>
+
+  <aside id="intro" class="intro-dialog" role="dialog" aria-modal="true" aria-labelledby="intro-title" hidden>
+    <div class="intro-box">
+      <div class="intro-head">
+        <p id="intro-progress" class="intro-progress"></p>
+        <button id="intro-close" class="panel-x" type="button" aria-label="Stäng introduktionen">×</button>
+      </div>
+      <h2 id="intro-title" class="intro-title"></h2>
+      <div id="intro-content"></div>
+      <div class="intro-actions">
+        <button id="intro-back" class="link-btn" type="button"></button>
+        <button id="intro-skip" class="link-btn" type="button"></button>
+        <button id="intro-next" class="focus-action" type="button"></button>
+      </div>
+    </div>
   </aside>
 
   <!-- Besökarnas förslag (docs/feedback.md). Avstängt så länge data-sitekey är tom eller integritetstexten inte är

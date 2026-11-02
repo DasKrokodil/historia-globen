@@ -1,0 +1,36 @@
+{
+  "schema": "historia-globen/intro@1",
+  "funfact": "nintendo-eiffel",
+  "steps": [
+    {
+      "kind": "event",
+      "event": "eiffeltornet",
+      "title": { "sv": "Ett år, en plats" },
+      "text": { "sv": "Börja med en händelse på globen." }
+    },
+    {
+      "kind": "funfact",
+      "event": "nintendo",
+      "title": { "sv": "Samma år, en annan plats" },
+      "text": { "sv": "Historia-globen kopplar ihop sådant som händer samtidigt." }
+    },
+    {
+      "kind": "choices",
+      "title": { "sv": "Nu är det din tur" },
+      "text": { "sv": "Dra i tidslinjen och leta efter fler saker som händer samtidigt." }
+    }
+  ],
+  "labels": {
+    "close": { "sv": "Stäng introduktionen" },
+    "skip": { "sv": "Hoppa över" },
+    "back": { "sv": "Tillbaka" },
+    "next": { "sv": "Nästa" },
+    "step": { "sv": "Steg {current} av {total}" },
+    "event": { "sv": "På den här platsen" },
+    "sameYear": { "sv": "På en annan plats samma år" },
+    "explore": { "sv": "Utforska fritt" },
+    "follow": { "sv": "Följ en berättelse" },
+    "task": { "sv": "Gör ett uppdrag" },
+    "restart": { "sv": "Visa introduktionen igen" }
+  }
+}

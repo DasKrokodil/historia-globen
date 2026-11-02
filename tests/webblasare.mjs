@@ -167,6 +167,34 @@ async function run(browser, vp) {
     return `år ${await year()}`;
   });
 
+  await check('introduktionen visar samtidighet och går att starta om', async () => {
+    await visible('#intro');
+    const first = (await page.textContent('#intro')).replace(/\s+/g, ' ').trim();
+    if (!first.includes('Eiffeltornet')) throw new Error('introduktionens första steg saknar den valda händelsen');
+    await page.click('#intro-next');
+    const second = (await page.textContent('#intro')).replace(/\s+/g, ' ').trim();
+    if (!second.includes('Nintendo') || !second.includes('Samma år som Eiffeltornet')) throw new Error('introduktionen visar inte fun facten med två platser');
+    await page.click('#intro-next');
+    if (!(await page.locator('#intro .intro-choice').count())) throw new Error('introduktionens sista steg saknar val');
+    await page.keyboard.press('Escape');
+    await hidden('#intro');
+    if (await page.evaluate(() => localStorage.getItem('hg-intro-seen') !== '1')) throw new Error('introduktionen sparas inte som sedd vid avslut');
+
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await clickView('#btn-help');
+    await page.locator('#help-intro').scrollIntoViewIfNeeded();
+    await page.click('#help-intro');
+    await visible('#intro');
+    const animation = await page.locator('.intro-box').evaluate(el => getComputedStyle(el).animationName);
+    if (animation !== 'none') throw new Error(`introduktionen animeras trots Lugn rörelse: ${animation}`);
+    await page.keyboard.press('Escape');
+    await hidden('#intro');
+    const focusRestored = await page.evaluate(() => ['btn-help', 'more-toggle'].includes(document.activeElement?.id));
+    if (!focusRestored) throw new Error('Escape lämnade inte fokus på en synlig Hjälp-knapp');
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    return 'tre steg, fun fact, Escape, Hjälp och reducerad rörelse fungerar';
+  });
+
   await check('Samtidigt-kortet går till nästa händelse', async () => {
     await visible('#funfact');
     const next = page.locator('#ff-next');
@@ -795,6 +823,7 @@ async function runReflow(browser) {
   try {
     await page.goto(BASE, { waitUntil: 'domcontentloaded', timeout: T.load });
     await page.waitForFunction(() => document.getElementById('loading')?.hidden, null, { timeout: T.load });
+    if (await page.isVisible('#intro')) await page.click('#intro-close');
     if (await page.isVisible('#help')) await page.click('#help-close');
 
     for (const z of [{ percent: 200, width: 700, height: 450 }, { percent: 400, width: 350, height: 225 }]) {
