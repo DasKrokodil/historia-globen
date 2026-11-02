@@ -75,7 +75,7 @@
 
   <header class="masthead">
     <h1 class="brand">Historia-globen</h1>
-    <div class="year-readout" aria-live="polite">
+    <div class="year-readout">
       <button id="year-jump" class="year-jump" type="button" aria-expanded="false" aria-controls="jump-pop" title="Hoppa till ett år">
         <span id="year-big" class="year-big">1325</span>
         <span id="year-era" class="year-era"></span>
@@ -282,7 +282,7 @@
 
   <section id="detail" class="detail detail-card" hidden aria-live="polite" aria-label="Om händelsen"></section>
 
-  <section id="funfact" class="funfact" hidden aria-live="polite" aria-label="Samtidigt-kortet">
+  <section id="funfact" class="funfact" hidden aria-label="Samtidigt-kortet">
     <button id="ff-handle" class="ff-handle" type="button" aria-expanded="true" aria-label="Samtidigt-kortet: visa mer"><span class="ff-grip" aria-hidden="true"></span><span class="ff-chev" aria-hidden="true"></span><span id="ff-drag-hint" class="ff-drag-hint" aria-hidden="true" hidden>Dra upp för mer</span></button>
     <div id="ff-pics" class="ff-pics" hidden></div>
     <div class="ff-eyebrow">
@@ -318,7 +318,7 @@
       <span id="pause-text"></span>
       <span id="pause-next" class="pause-next" hidden></span>
       <button id="pause-finish" class="pause-finish" type="button" hidden>Spela klart &#9654;</button>
-      <button id="pause-go" class="pause-go" type="button">&#9654; Fortsätt</button>
+      <button id="pause-go" class="pause-go" type="button" aria-describedby="pause-text">&#9654; Fortsätt</button>
     </div>
     <div class="controls">
       <div id="war-play" class="war-play" hidden>
@@ -349,6 +349,7 @@
       <div class="ticks" id="ticks"></div>
     </div>
   </footer>
+  <p id="screen-reader-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
 
   <div id="sources-dialog" class="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="sources-title">
     <div class="sheet-inner">
