@@ -34,7 +34,7 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   Varje pass och varje planering går igenom den pågående milstolpen efter nya sådana issues, och rapporten till Rikard
   har raden "Nya för Codex: #…" (eller ingen rad när inget är nytt).
   Codex får också köra `$orkester` (beslut 2026-11-01) enligt [AGENTS.md](../AGENTS.md). Sedan 2026-11-02 kör Codex
-  löpande på `codex: redo`-kön, med högst fyra öppna pull requests och två arbetare samtidigt. Claude Code granskar
+  löpande på `codex: redo`-kön, med högst fyra öppna pull requests (en ändring som byggs räknas som öppen) och tre arbetare som bygger samtidigt. Dirigenten räknas inte som arbetare. Claude Code granskar
   fortfarande varje pull request, och bara de som Codex har märkt "Klar för Claude Code-granskning". `codex: redo`
   sätts aldrig på fakta-, bild- eller arkitekturärenden förrän rätt förutsättningar finns, och tas bort om ett issue blir
   beroende av ett Claude-spår eller kräver källgranskning. Dirigentens eget arbete märks med `orkester: pågår`.
