@@ -25,7 +25,7 @@ Codex arbetar i två roller (beslut 2026-11-01):
 - **Codex Luna** förbereder: går igenom issues, skriver synpunkter och lämnar köplaner i chatten. Luna bygger ingenting och öppnar inga pull requests.
 - **Codex Terra** bygger: tar avgränsade `codex: redo`-issues och öppnar pull requests.
 
-När en pull request är klar att granskas skriver Codex kommentaren **"Klar för Claude Code-granskning"**. Claude Code granskar bara pull requests med den kommentaren: diff, filkrockar, testbevis, arkitektur och källpolicy. Svaret är antingen "godkänd" eller konkreta, minimala arbetsorder i samma pull request. Ingen slår ihop utom Rikard.
+När en pull request är byggd granskas den först av en **annan Codex-körning än den som byggde** (Codex-granskning, beslut 2026-11-02): diff, filkrockar, att bygget och hela webbläsartestet är gröna, att kraven i issuet och i dirigentens order är uppfyllda, och dokumentation och beslut. Granskaren skriver kommentaren **"Codex-granskning: godkänd"** eller konkreta, minimala arbetsorder, och byggaren rättar i samma pull request. Först därefter skriver Codex **"Klar för Claude Code-granskning"**. Claude Code granskar bara pull requests med den kommentaren, och bara det som kräver dirigentens bedömning: källpolicy, arkitektur och hur det ser ut och fungerar för besökaren (en körning och en skärmbild). Pull requests med fakta, data eller källor granskas alltid fullt av Claude Code. Svaret är antingen "godkänd" eller konkreta, minimala arbetsorder i samma pull request. Ingen slår ihop utom Rikard.
 
 ## Ta ett issue
 
