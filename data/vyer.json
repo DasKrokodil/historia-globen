@@ -7,6 +7,17 @@
     "past": { "sv": "slut", "en": "ended" },
     "future": { "sv": "börjar", "en": "starts" }
   },
+  "poster": {
+    "button": { "sv": "Affisch", "en": "Poster" },
+    "title": { "sv": "Historia-globen", "en": "History globe" },
+    "legend": { "sv": "Världskarta med utvalda händelser som pågår detta år.", "en": "World map with selected events active this year." },
+    "sources": { "sv": "Källor: Historia-globen, Om källorna", "en": "Sources: Historia-globen, About the sources" },
+    "website": { "sv": "historiagloben.se", "en": "historiagloben.se" },
+    "license": { "sv": "Data: CC BY 4.0", "en": "Data: CC BY 4.0" },
+    "empty": { "sv": "Inga aktiva händelser att lista för detta år.", "en": "No active events to list for this year." },
+    "filename": { "sv": "historia-globen", "en": "historia-globen" },
+    "error": { "sv": "Kunde inte skapa affischen. Försök igen.", "en": "Could not create the poster. Try again." }
+  },
   "uncertainty": {
     "label": { "sv": "Historisk osäkerhet", "en": "Historical uncertainty" },
     "approximate": { "sv": "dateringen är ungefärlig", "en": "the date is approximate" },

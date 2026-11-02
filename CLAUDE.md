@@ -40,6 +40,7 @@ js/ui/panel.js        "Samtidigt i världen" per världsdel, filter, detaljvy
 js/ui/funfact.js      Samtidigt-kortet (fun facts m.m.) och bågar
 js/ui/sources.js      sidan Om källorna
 js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering
+js/ui/poster.js       A4-affisch som PNG från Platt vy
 js/ui/routepop.js     klickrutan för vägar och resor
 js/ui/feedback.js     formuläret för besökarnas förslag (avstängt som standard, docs/feedback.md)
 js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med functions/)

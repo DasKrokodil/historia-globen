@@ -16,6 +16,7 @@ import { ZOOM_LEVELS, zoomLevel, pxPerImg, zoomView, eventKeepouts, globeEmpireB
 import { FocusMenu } from './ui/focusmenu.js';
 import { Help } from './ui/help.js';
 import { FlatMap } from './ui/flatmap.js';
+import { downloadPoster } from './ui/poster.js';
 import { Feedback } from './ui/feedback.js';
 import { Sheet } from './ui/sheet.js';
 import { ViewMenu } from './ui/viewmenu.js';
@@ -63,6 +64,14 @@ async function start() {
     // Markörerna i Platt vy (#313): klick öppnar faktarutan som på globen, etiketterna som på globen
     labels: $('flat-labels'), onSelect: id => select(id), labelText, fillLabel,
   });
+  const poster = views?.poster;
+  const posterButton = $('flat-poster');
+  posterButton.hidden = !poster;
+  if (poster) {
+    posterButton.textContent = t(poster.button);
+    posterButton.title = t(poster.button);
+    posterButton.setAttribute('aria-label', t(poster.button));
+  }
 
   // Det gemensamma tillståndet och lagerregistret (#338)
   const state = createState();
@@ -1045,6 +1054,21 @@ async function start() {
   // Platt vy (#292): världen som en platt karta för skärmar, med zoom och panorering.
   // Tidslinjen, Samtidigt, Lager och Fokus fungerar som vanligt medan den är öppen.
   $('btn-flat').addEventListener('click', () => flatMap.setOpen(flatMap.hidden));
+  posterButton.addEventListener('click', async () => {
+    if (!poster) return;
+    posterButton.disabled = true;
+    try {
+      await downloadPoster({
+        baseCanvas: globe.baseCanvas, overlayCanvas: globe.overlayCanvas,
+        year: Math.floor(timeline.year), events: data.events.filter(event => isVisibleReview(event.review)), labels: poster,
+      });
+    } catch (err) {
+      console.error(err);
+      window.alert(t(poster.error));
+    } finally {
+      posterButton.disabled = false;
+    }
+  });
   // Escape stänger Platt vy, men först det som ligger ovanpå (menyer, Hjälp, förslagsformuläret, panelen, faktarutan)
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape' || flatMap.hidden) return;

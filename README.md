@@ -79,6 +79,7 @@ js/ui/funfact.js      Samtidigt-kortet (fun facts, när ett krig bröt ut) och b
 js/ui/sources.js      sidan Om källorna (knappen Källor)
 js/ui/help.js         kort hjälp i tre steg för nya besökare (knappen Hjälp)
 js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering (knappen Platt vy)
+js/ui/poster.js       A4-affisch som PNG från Platt vy (knappen Affisch)
 js/ui/feedback.js     formuläret Lämna förslag / Rapportera faktafel (avstängt som standard, docs/feedback.md)
 js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med serverfunktionen)
 js/ui/layers.js       lagerväljaren: slå av och på lager
