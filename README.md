@@ -78,7 +78,7 @@ js/ui/panel.js        "Samtidigt i världen" per världsdel, kategorifilter och 
 js/ui/funfact.js      Samtidigt-kortet (fun facts, när ett krig bröt ut) och bågar på globen
 js/ui/sources.js      sidan Om källorna (knappen Källor)
 js/ui/help.js         kort hjälp i tre steg för nya besökare (knappen Hjälp)
-js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg (#363)
+js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg, från Utforska (#363, #516)
 js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering (knappen Platt vy)
 js/ui/poster.js       A4-affisch som PNG från Platt vy (knappen Affisch)
 js/ui/feedback.js     formuläret Lämna förslag / Rapportera faktafel (avstängt som standard, docs/feedback.md)
@@ -100,7 +100,7 @@ docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källa
 .orchestra/           arbetsflödet dirigenten och orkestern (MIT-licens)
 data/events.json      händelser
 data/funfacts.json    fun facts, kopplade till händelser
-data/intro.json       introduktionens steg och referenser till befintliga händelser/fun facts (#363)
+data/intro.json       introduktionens startår, texter och referenser till befintliga händelser/fun facts (#363, #516)
 data/sources.json     källregister
 data/land.json        grundkarta (Natural Earth)
 tools/riken.py        bygger rikesfilerna ur Cliopatria

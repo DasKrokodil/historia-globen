@@ -168,8 +168,15 @@ async function run(browser, vp) {
     return `år ${await year()}`;
   });
 
-  await check('introduktionen visar samtidighet och går att starta om', async () => {
+  await check('introduktionen startas frivilligt från Utforska', async () => {
+    if (await page.isVisible('#intro')) throw new Error('introduktionen öppnas automatiskt vid första besöket');
+    if (await page.locator('#help-intro').count()) throw new Error('Hjälp innehåller fortfarande en länk till introduktionen');
+    const introButton = page.locator('#btn-intro');
+    await visible('#btn-intro');
+    if ((await introButton.textContent()).trim() !== 'Ett år, en plats') throw new Error('knappen under Utforska har fel text');
+    await introButton.click();
     await visible('#intro');
+    if ((await year()) !== '1889') throw new Error(`introduktionen startade på ${await year()} i stället för 1889`);
     const first = (await page.textContent('#intro')).replace(/\s+/g, ' ').trim();
     if (!first.includes('Eiffeltornet')) throw new Error('introduktionens första steg saknar den valda händelsen');
     await page.click('#intro-next');
@@ -179,21 +186,20 @@ async function run(browser, vp) {
     if (!(await page.locator('#intro .intro-choice').count())) throw new Error('introduktionens sista steg saknar val');
     await page.keyboard.press('Escape');
     await hidden('#intro');
-    if (await page.evaluate(() => localStorage.getItem('hg-intro-seen') !== '1')) throw new Error('introduktionen sparas inte som sedd vid avslut');
+    if ((await year()) !== '1889') throw new Error('året ändrades när introduktionen stängdes');
+    if (await page.evaluate(() => localStorage.getItem('hg-intro-seen') !== null)) throw new Error('introduktionen använder fortfarande hg-intro-seen');
 
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    await clickView('#btn-help');
-    await page.locator('#help-intro').scrollIntoViewIfNeeded();
-    await page.click('#help-intro');
+    await introButton.click();
     await visible('#intro');
     const animation = await page.locator('.intro-box').evaluate(el => getComputedStyle(el).animationName);
     if (animation !== 'none') throw new Error(`introduktionen animeras trots Lugn rörelse: ${animation}`);
     await page.keyboard.press('Escape');
     await hidden('#intro');
-    const focusRestored = await page.evaluate(() => ['btn-help', 'more-toggle'].includes(document.activeElement?.id));
-    if (!focusRestored) throw new Error('Escape lämnade inte fokus på en synlig Hjälp-knapp');
+    const focusRestored = await page.evaluate(() => document.activeElement?.id === 'btn-intro');
+    if (!focusRestored) throw new Error('Escape lämnade inte fokus på knappen som öppnade introduktionen');
     await page.emulateMedia({ reducedMotion: 'no-preference' });
-    return 'tre steg, fun fact, Escape, Hjälp och reducerad rörelse fungerar';
+    return 'ingen automatisk popup; tre steg, år 1889, Escape och reducerad rörelse fungerar';
   });
 
   await check('Samtidigt-kortet går till nästa händelse', async () => {
@@ -351,104 +357,115 @@ async function run(browser, vp) {
     const globe = page.locator('#globe-canvas');
     // Begränsa provet till krig så att en långvarig plats vid polcirkeln inte blir årets första rad.
     // Det använder samma kategorifilter som besökaren och ger Biafra-markören nära ekvatorn för 1968–1969.
-    await page.evaluate(() => {
-      for (const category of document.querySelectorAll('#filters [data-cat]')) {
-        if (category.dataset.cat !== 'krig' && category.getAttribute('aria-pressed') === 'true') category.click();
+    let filtersChanged = false;
+    const restore = async () => {
+      await page.emulateMedia({ reducedMotion: 'no-preference' }).catch(() => {});
+      if (filtersChanged) {
+        await page.evaluate(() => {
+          for (const category of document.querySelectorAll('#filters [data-cat]')) {
+            if (category.getAttribute('aria-pressed') === 'false') category.click();
+          }
+        }).catch(() => {});
       }
-    });
-    const spinAway = async () => {
-      // Dra på själva globen, som en besökare gör. Läs sedan av den verkliga synligheten i stället
-      // för att anta ett visst rotationsvärde från canvasens pixlar eller tangentsteg.
-      const box = await globe.boundingBox();
-      if (!box) throw new Error('globen saknar träffyta för rotationsprovet');
-      const y = box.y + box.height / 2;
-      await page.mouse.move(box.x + box.width * 0.2, y);
-      await page.mouse.down();
-      await page.mouse.move(box.x + box.width * 0.8, y, { steps: 6 });
-      await page.mouse.up();
-      await page.waitForTimeout(3100); // den manuella styrningens spärr är tre sekunder
+      // Ett misslyckat årshopp får inte lämna dess popover eller annan överlagring över nästa prov.
+      await page.keyboard.press('Escape').catch(() => {});
     };
-    await page.evaluate(() => {
-      window.__hgFlights = [];
-      window.__hgOrientationRequests = [];
-      const canvas = document.getElementById('globe-canvas');
-      canvas.addEventListener('hg:globe-flight', event => window.__hgFlights.push(event.detail));
-      canvas.addEventListener('hg:globe-orientation-request', event => window.__hgOrientationRequests.push(event.detail));
-    });
-    const reset = () => page.evaluate(() => {
-      window.__hgFlights = [];
-      window.__hgOrientationRequests = [];
-    });
-    const jumpRequest = async targetYear => {
-      await reset();
-      await jumpTo(targetYear);
-      if (!(await page.locator('#event-list .event-btn').count())) throw new Error(`${targetYear} saknar panelhändelse för rotationsprovet`);
-      await page.waitForFunction(() => window.__hgOrientationRequests?.length, null, { timeout: T.step });
-      return page.evaluate(() => window.__hgOrientationRequests.at(-1));
-    };
-    const settleIfFlying = async request => {
-      if (request.visible) return;
+    try {
+      await page.evaluate(() => {
+        for (const category of document.querySelectorAll('#filters [data-cat]')) {
+          if (category.dataset.cat !== 'krig' && category.getAttribute('aria-pressed') === 'true') category.click();
+        }
+      });
+      filtersChanged = true;
+      const spinAway = async () => {
+        // Dra på själva globen, som en besökare gör. Läs sedan av den verkliga synligheten i stället
+        // för att anta ett visst rotationsvärde från canvasens pixlar eller tangentsteg.
+        const box = await globe.boundingBox();
+        if (!box) throw new Error('globen saknar träffyta för rotationsprovet');
+        const y = box.y + box.height / 2;
+        await page.mouse.move(box.x + box.width * 0.2, y);
+        await page.mouse.down();
+        await page.mouse.move(box.x + box.width * 0.8, y, { steps: 6 });
+        await page.mouse.up();
+        await page.waitForTimeout(3100); // den manuella styrningens spärr är tre sekunder
+      };
+      await page.evaluate(() => {
+        window.__hgFlights = [];
+        window.__hgOrientationRequests = [];
+        const canvas = document.getElementById('globe-canvas');
+        canvas.addEventListener('hg:globe-flight', event => window.__hgFlights.push(event.detail));
+        canvas.addEventListener('hg:globe-orientation-request', event => window.__hgOrientationRequests.push(event.detail));
+      });
+      const reset = () => page.evaluate(() => {
+        window.__hgFlights = [];
+        window.__hgOrientationRequests = [];
+      });
+      const jumpRequest = async targetYear => {
+        await reset();
+        await jumpTo(targetYear);
+        if (!(await page.locator('#event-list .event-btn').count())) throw new Error(`${targetYear} saknar panelhändelse för rotationsprovet`);
+        await page.waitForFunction(() => window.__hgOrientationRequests?.length, null, { timeout: T.step });
+        return page.evaluate(() => window.__hgOrientationRequests.at(-1));
+      };
+      const settleIfFlying = async request => {
+        if (request.visible) return;
+        await page.waitForFunction(() => window.__hgFlights?.some(f => f.phase === 'end'), null, { timeout: T.step });
+      };
+
+      // Välj först två skilda år som faktiskt använder samma första panelhändelse. Då bevisar provet
+      // kamerans respons för en konkret markör, i stället för att anta panelordningen mellan två år.
+      // Föregående tangentbordsprov vrider medvetet globen; vänta ut den produktregeln innan ett hopp får
+      // begära orientering, annars prövar vi bara spärren för nylig manuell styrning.
+      await page.waitForTimeout(3100);
+      const baseYear = 1969;
+      const base = await jumpRequest(baseYear);
+      await settleIfFlying(base);
+      let matchingYear = null;
+      for (const candidate of [1968, 1970, 1967, 1971]) {
+        const request = await jumpRequest(candidate);
+        await settleIfFlying(request);
+        if (request.id === base.id) { matchingYear = candidate; break; }
+      }
+      if (matchingYear == null) throw new Error(`ingen testbar granne till ${baseYear} har samma panelmarkör som ${base.id}`);
+
+      // Ett nytt, uttryckligt hopp till samma markerings-id ska nu konstatera att den finns på framsidan.
+      const front = await jumpRequest(baseYear);
+      if (front.id !== base.id || !front.visible) throw new Error(`panelmarkören ${base.id} står inte verifierat på framsidan före manuell vridning`);
+      // Zoomnivån skiljer sig mellan bredder. Vrid därför i högst tre tydliga halva varv och kontrollera
+      // den verkliga markörens synlighet efter varje varv, i stället för att anta ett visst tangentsteg.
+      const turnTargetToBack = async firstYear => {
+        let targetYear = firstYear;
+        const observed = [];
+        for (let attempt = 0; attempt < 3; attempt++) {
+          await spinAway();
+          const request = await jumpRequest(targetYear);
+          observed.push({ year: targetYear, visible: request.visible });
+          if (request.id !== base.id) throw new Error(`år ${targetYear} bytte panelmarkör från ${base.id} till ${request.id}`);
+          if (!request.visible) return { request, year: targetYear };
+          targetYear = targetYear === baseYear ? matchingYear : baseYear;
+        }
+        throw new Error(`manuell vridning lade inte panelmarkören ${base.id} på baksidan: ${JSON.stringify(observed)}`);
+      };
+      const back = await turnTargetToBack(matchingYear);
       await page.waitForFunction(() => window.__hgFlights?.some(f => f.phase === 'end'), null, { timeout: T.step });
-    };
-
-    // Välj först två skilda år som faktiskt använder samma första panelhändelse. Då bevisar provet
-    // kamerans respons för en konkret markör, i stället för att anta panelordningen mellan två år.
-    // Föregående tangentbordsprov vrider medvetet globen; vänta ut den produktregeln innan ett hopp får
-    // begära orientering, annars prövar vi bara spärren för nylig manuell styrning.
-    await page.waitForTimeout(3100);
-    const baseYear = 1969;
-    const base = await jumpRequest(baseYear);
-    await settleIfFlying(base);
-    let matchingYear = null;
-    for (const candidate of [1968, 1970, 1967, 1971]) {
-      const request = await jumpRequest(candidate);
-      await settleIfFlying(request);
-      if (request.id === base.id) { matchingYear = candidate; break; }
-    }
-    if (matchingYear == null) throw new Error(`ingen testbar granne till ${baseYear} har samma panelmarkör som ${base.id}`);
-
-    // Ett nytt, uttryckligt hopp till samma markerings-id ska nu konstatera att den finns på framsidan.
-    const front = await jumpRequest(baseYear);
-    if (front.id !== base.id || !front.visible) throw new Error(`panelmarkören ${base.id} står inte verifierat på framsidan före manuell vridning`);
-    // Zoomnivån skiljer sig mellan bredder. Vrid därför i högst tre tydliga halva varv och kontrollera
-    // den verkliga markörens synlighet efter varje varv, i stället för att anta ett visst tangentsteg.
-    const turnTargetToBack = async firstYear => {
-      let targetYear = firstYear;
-      const observed = [];
-      for (let attempt = 0; attempt < 3; attempt++) {
-        await spinAway();
-        const request = await jumpRequest(targetYear);
-        observed.push({ year: targetYear, visible: request.visible });
-        if (request.id !== base.id) throw new Error(`år ${targetYear} bytte panelmarkör från ${base.id} till ${request.id}`);
-        if (!request.visible) return { request, year: targetYear };
-        targetYear = targetYear === baseYear ? matchingYear : baseYear;
+      const flight = await page.evaluate(() => window.__hgFlights);
+      const start = flight.find(f => f.phase === 'start'), end = flight.find(f => f.phase === 'end');
+      if (!start || !end || Math.abs(end.x - start.targetX) > 0.001 || Math.abs(end.y - start.targetY) > 0.001) {
+        throw new Error('årshoppet nådde inte den förväntade globorienteringen');
       }
-      throw new Error(`manuell vridning lade inte panelmarkören ${base.id} på baksidan: ${JSON.stringify(observed)}`);
-    };
-    const back = await turnTargetToBack(matchingYear);
-    await page.waitForFunction(() => window.__hgFlights?.some(f => f.phase === 'end'), null, { timeout: T.step });
-    const flight = await page.evaluate(() => window.__hgFlights);
-    const start = flight.find(f => f.phase === 'start'), end = flight.find(f => f.phase === 'end');
-    if (!start || !end || Math.abs(end.x - start.targetX) > 0.001 || Math.abs(end.y - start.targetY) > 0.001) {
-      throw new Error('årshoppet nådde inte den förväntade globorienteringen');
-    }
 
-    const nextYear = back.year === baseYear ? matchingYear : baseYear;
-    const afterFlight = await jumpRequest(nextYear);
-    if (afterFlight.id !== base.id || !afterFlight.visible) throw new Error(`panelen bekräftade inte återställd framsida för ${base.id}`);
-    await page.emulateMedia({ reducedMotion: 'reduce' });
-    const reduced = await turnTargetToBack(back.year);
-    await page.waitForTimeout(1250);
-    const reducedFlights = await page.evaluate(() => window.__hgFlights);
-    await page.emulateMedia({ reducedMotion: 'no-preference' });
-    if (reduced.request.id !== base.id || reduced.request.visible || reducedFlights.length) throw new Error('reducerad rörelse startade ändå automatisk globrotation');
-    // Återställ filtren så att följande prov har hela sidan som utgångsläge.
-    await page.evaluate(() => {
-      for (const category of document.querySelectorAll('#filters [data-cat]')) {
-        if (category.getAttribute('aria-pressed') === 'false') category.click();
-      }
-    });
-    return `markör ${base.id} verifierad fram/bak; år ${back.year} flyger tillbaka; reducerad rörelse lämnar globen stilla`;
+      const nextYear = back.year === baseYear ? matchingYear : baseYear;
+      const afterFlight = await jumpRequest(nextYear);
+      if (afterFlight.id !== base.id || !afterFlight.visible) throw new Error(`panelen bekräftade inte återställd framsida för ${base.id}`);
+      await page.emulateMedia({ reducedMotion: 'reduce' });
+      const reduced = await turnTargetToBack(back.year);
+      await page.waitForTimeout(1250);
+      const reducedFlights = await page.evaluate(() => window.__hgFlights);
+      if (reduced.request.id !== base.id || reduced.request.visible || reducedFlights.length) throw new Error('reducerad rörelse startade ändå automatisk globrotation');
+      return `markör ${base.id} verifierad fram/bak; år ${back.year} flyger tillbaka; reducerad rörelse lämnar globen stilla`;
+    } finally {
+      await restore();
+    }
   });
 
   await check('Lager öppnas', async () => {
@@ -983,7 +1000,7 @@ async function runReflow(browser) {
         await page.setViewportSize({ width: z.width, height: z.height });
         await page.waitForFunction(([w, h]) => innerWidth === w && innerHeight === h, [z.width, z.height]);
         const frame = await page.evaluate(() => {
-          const ids = ['year-jump', 'btn-panel', 'btn-layers', 'btn-focus', 'more-toggle', 'btn-play', 'btn-speed', 'track'];
+          const ids = ['year-jump', 'btn-panel', 'btn-layers', 'btn-focus', 'btn-intro', 'more-toggle', 'btn-play', 'btn-speed', 'track'];
           const outside = ids.filter(id => {
             const r = document.getElementById(id)?.getBoundingClientRect();
             return !r || r.width < 1 || r.height < 1 || r.left < 0 || r.top < 0 || r.right > innerWidth || r.bottom > innerHeight;

@@ -1,8 +1,6 @@
-// Frivillig introduktion (#363): tre stilla steg med befintliga händelser och en fun fact.
-// Texterna och id:na ligger i data/intro.json. Ingen kamera eller tidslinje flyttas automatiskt.
+// Frivillig introduktion (#363, #516): tre stilla steg med befintliga händelser och en fun fact.
+// Texterna, id:na och startåret ligger i data/intro.json.
 import { formatEventTime, t } from '../model.js';
-
-const KEY = 'hg-intro-seen';
 
 async function getJSON(path) {
   const res = await fetch(path);
@@ -22,13 +20,13 @@ const focusable = root => [...root.querySelectorAll('button:not([disabled]), [hr
   .filter(el => !el.hidden && el.offsetParent !== null);
 
 export class Intro {
-  constructor({ root, close, progress, title, content, back, next, skip }, data, { events, funfacts, onExplore, onFollow, onTask, fallbackFocus }) {
-    Object.assign(this, { root, closeBtn: close, progress, title, content, back, next, skip, data, events, funfacts, onExplore, onFollow, onTask, fallbackFocus });
+  constructor({ root, close, progress, title, content, back, next, skip }, data, { events, funfacts, onStart, onExplore, onFollow, onTask, fallbackFocus }) {
+    Object.assign(this, { root, closeBtn: close, progress, title, content, back, next, skip, data, events, funfacts, onStart, onExplore, onFollow, onTask, fallbackFocus });
     this.step = 0;
     this.opener = null;
     this.byId = Object.fromEntries(events.map(event => [event.id, event]));
     this.funfact = funfacts.find(funfact => funfact.id === data?.funfact);
-    this.ready = Boolean(data?.steps?.length && this.funfact && data.steps.every(step => !step.event || this.byId[step.event]));
+    this.ready = Boolean(Number.isInteger(data?.year) && data.steps?.length && this.funfact && data.steps.every(step => !step.event || this.byId[step.event]));
     if (!this.ready) return;
 
     close.setAttribute('aria-label', t(data.labels.close));
@@ -46,31 +44,10 @@ export class Intro {
     });
   }
 
-  hasSeen() {
-    try { return localStorage.getItem(KEY) === '1'; }
-    catch { return false; }
-  }
-
-  markSeen() {
-    try { localStorage.setItem(KEY, '1'); }
-    catch { /* utan lagring visas introduktionen vid varje besök */ }
-  }
-
-  showFirstTime() {
-    if (!this.ready || this.hasSeen()) return false;
-    this.open();
-    return true;
-  }
-
-  restart(opener) {
-    if (!this.ready) return;
-    try { localStorage.removeItem(KEY); } catch { /* öppna ändå */ }
-    this.open(opener);
-  }
-
   open(opener = null) {
     if (!this.ready) return;
     this.opener = opener;
+    this.onStart?.(this.data.year);
     this.root.hidden = false;
     this.showStep(0);
     requestAnimationFrame(() => this.closeBtn.focus({ preventScroll: true }));
@@ -79,7 +56,6 @@ export class Intro {
   close(refocus = true) {
     if (this.root.hidden) return;
     this.root.hidden = true;
-    this.markSeen();
     if (refocus) {
       const fallback = typeof this.fallbackFocus === 'function' ? this.fallbackFocus() : this.fallbackFocus;
       const target = this.opener?.isConnected && this.opener.offsetParent !== null ? this.opener : fallback;
