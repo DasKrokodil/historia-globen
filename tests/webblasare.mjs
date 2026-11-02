@@ -442,6 +442,9 @@ async function run(browser, vp) {
     if (await page.locator('#focus-menu .focus-item[data-key^="war:"]').count() < visibleWars) throw new Error('Visa alla visar inte fler krig');
     await page.click('#focus-menu [data-group-age]');
     if (await page.locator('#focus-menu .focus-age').count() < 1) throw new Error('tidsåldersindelning saknas i Fokus');
+    if (!await page.locator('#focus-menu .focus-age').filter({ hasText: 'Hög- och senmedeltid' }).count()) {
+      throw new Error('Fokus visar inte den dataägda epoketiketten Hög- och senmedeltid');
+    }
     await page.fill('#focus-menu .focus-search', 'rom');
     await page.click('#focus-menu [data-tab="Riken"]');
     await page.click('#focus-menu [data-sort="alfabetiskt"]');

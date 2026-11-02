@@ -474,9 +474,11 @@ async function start() {
 
   // Fokusmenyn listar krig, riken, religioner och resor. Resorna och religionerna hämtas när menyn öppnas.
   // Tidsåldrarna i Fokus kommer från de globala bildstilarna, inte från ny historisk data (#507).
-  const focusAges = data.styles.styles.filter(style => !style.regions.length).map(style => ({ ...style, label: t(style.name) }));
+  const focusAges = data.styles.styles.filter(style => !style.regions.length).map(style => ({
+    ...style, label: views?.focus?.timeAges?.[style.id] ?? '',
+  }));
   const focusMenu = new FocusMenu({ button: $('btn-focus'), menu: $('focus-menu'), texts: {
-    groupByAge: t(views?.focus?.groupByAge), showAll: t(views?.focus?.showAll), showNearest: t(views?.focus?.showNearest),
+    groupByAge: views?.focus?.groupByAge, showAll: views?.focus?.showAll, showNearest: views?.focus?.showNearest,
   }, ages: focusAges });
   // Varje post har sitt tidsspann (from–to), så att menyn kan visa det som hör till tiden man står i (#121)
   // Religionens årtal i Fokus: grundandet där det går att belägga, annars bara kartdatans spann (#138)
