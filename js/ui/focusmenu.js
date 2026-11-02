@@ -9,7 +9,7 @@
 //   Alfabetiskt visar allt.
 // - Tangentbord: pil ner från sökrutan går till listan, pilarna flyttar i listan, Enter väljer (i sökrutan
 //   den första träffen), Escape stänger. På dator får sökrutan fokus när menyn öppnas.
-const TABS = ['Alla', 'Krig', 'Riken', 'Försvunna länder', 'Religioner'];
+const TABS = ['Alla', 'Krig', 'Riken', 'Försvunna länder', 'Religioner', 'Resor'];
 const SORTS = [['relevans', 'Relevans'], ['kronologiskt', 'Kronologiskt'], ['alfabetiskt', 'Alfabetiskt']];
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 /** Gemener utan accenter, så att "osterrike" hittar Österrike och "bys" hittar Bysantinska riket. */
@@ -35,7 +35,7 @@ export class FocusMenu {
     menu.classList.add('focus-menu');
     menu.innerHTML = `<div class="focus-head">
         <div class="layer-heading first">Följ i fokusläge</div>
-        <input type="search" class="focus-search" placeholder="Sök krig, rike, land eller religion" aria-label="Sök i Fokus" autocomplete="off" spellcheck="false">
+        <input type="search" class="focus-search" placeholder="Sök krig, rike, land, religion eller resa" aria-label="Sök i Fokus" autocomplete="off" spellcheck="false">
         <div class="focus-tabs" role="group" aria-label="Visa">${TABS.map(n => `<button type="button" class="chip-btn" data-tab="${n}" aria-pressed="${n === this.tab}">${n}</button>`).join('')}</div>
         <div class="focus-sort" role="group" aria-label="Ordna efter"><span class="focus-sort-label">Ordna</span>${SORTS.map(([id, n]) => `<button type="button" class="chip-btn" data-sort="${id}" aria-pressed="${id === this.sort}">${n}</button>`).join('')}</div>
       </div>

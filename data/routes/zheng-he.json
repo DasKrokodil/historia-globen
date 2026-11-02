@@ -38,7 +38,8 @@
               "name": {
                 "sv": "Nanjing"
               },
-              "edtf": "1405-23"
+              "edtf": "1405-23",
+              "stop": true
             },
             {
               "at": [121.3, 31.5],
@@ -137,14 +138,19 @@
               "name": {
                 "sv": "Palembang (slaget mot Chen Zuyi)"
               },
-              "edtf": "1407"
+              "edtf": "1407",
+              "dateLabel": {
+                "sv": "1407, på hemresan"
+              },
+              "stop": true
             },
             {
               "at": [118.8, 32.1],
               "name": {
                 "sv": "Nanjing"
               },
-              "date": "1407-10-02"
+              "date": "1407-10-02",
+              "stop": true
             }
           ],
           "sources": ["wp-ming-treasure-voyages"]

@@ -1,6 +1,6 @@
 // Startar allt och kopplar ihop delarna:
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
-import { loadAll, loadReligions, loadReligionPolities, loadEmpire, loadEmpireFacts, loadEventDetails, CAT, t, symbolUrl, symbolImg, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays, dayParts } from './model.js';
+import { loadAll, loadReligions, loadReligionPolities, loadEmpire, loadEmpireFacts, loadEventDetails, loadRoutes, CAT, t, symbolUrl, symbolImg, formatYear, formatEventTime, formatDate, isVisibleReview, edtfSpan, edtfHasDays, dayParts } from './model.js';
 import { Globe } from './globe.js';
 import { Timeline, segmentName, setupYearJump, MAX_YEAR } from './timeline.js';
 import { markerInfo, describeMarker } from './layers/events.js';
@@ -108,8 +108,9 @@ async function start() {
   timeline.setMarks(data.events.filter(e => !e.partOf || e.top || e.major), data.funfacts, e => CAT[e.category]?.color ?? '#fff',
     e => e.kind === 'war' || (e.partOf && !e.top));
 
-  let focusWar = null, focus = null, lastYear = 0;
+  let focusWar = null, focusRoute = null, focus = null, lastYear = 0;
   let warStops = [], stopping = false; // kö med stopp när man följer ett krig (#217)
+  let routeStops = []; // kö med stopp när man följer en resa (#376)
   // Stopp som redan har visats i den här genomspelningen, och om slutkortet har visats (#232).
   // Båda glöms när tiden flyttas för hand eller man följer något annat.
   let shownStops = new Set(), endShown = false;
@@ -357,6 +358,16 @@ async function start() {
       const [from, to] = fine ? edtfSpan(war) : [war.start, Math.min(war.end, MAX_YEAR)]; // pågående krig slutar i dag (#223)
       f = { type, id, title: `${t(war.title)} ${formatEventTime(war)}`, short: t(war.title), from, to, fine,
         center: [pts.reduce((s, e) => s + e._lat, 0) / pts.length, pts.reduce((s, e) => s + e._lon, 0) / pts.length], zoom: 2.2 };
+    } else if (type === 'route') {
+      const route = (await loadRoutes()).find(r => r.id === id && r.kind === 'voyage');
+      if (!route) return;
+      // Dagar används bara när själva resans spann har dagprecision. Zheng Hes första resa
+      // har medvetet bara år/månad utom vid hemkomsten (#376).
+      const fine = edtfHasDays(route.edtf);
+      const [from, to] = fine ? edtfSpan(route) : [route.start, route.end];
+      const first = route.legs?.[0]?.path?.[0] ?? [0, 0];
+      f = { type, id, title: `${t(route.title)} · ${formatEventTime(route)}`, short: t(route.title), from, to, fine,
+        center: [first[1], first[0]], zoom: 1.5, route };
     } else if (type === 'empire') {
       const g = data.empireGroups.find(x => x.id === id);
       // Rikets berättelse (#171) står i faktarutan, som laddas med gränserna (#337)
@@ -390,6 +401,8 @@ async function start() {
     if (focus) endFocus(false);
     focus = state.focus = f;
     focusWar = state.focusWar = type === 'war' ? data.byId[id] : null;
+    focusRoute = state.focusRoute = type === 'route' ? f.route : null;
+    routeStops = [];
     applyLayers();
     globe.flyTo(f.center[0], f.center[1], 900);
     globe.setZoom(f.zoom);
@@ -434,7 +447,7 @@ async function start() {
   /** Händelser där en religion grundades (founding: true), i tidsordning. */
   const founding = id => data.events.filter(e => e.founding && e.religion === id).sort((a, b) => a.start - b.start);
   function endFocus(redraw = true) {
-    focus = state.focus = null; focusWar = state.focusWar = null; warStops = []; shownStops = new Set(); endShown = false; finishing = false; showMoved(null);
+    focus = state.focus = null; focusWar = state.focusWar = null; focusRoute = state.focusRoute = null; warStops = []; routeStops = []; shownStops = new Set(); endShown = false; finishing = false; showMoved(null);
     applyLayers();
     $('focus-bar').hidden = true;
     $('app').classList.remove('focusing');
@@ -449,7 +462,7 @@ async function start() {
   const empireYears = g => !g.vanished ? `kartdata ${formatYearSpan(g.from, g.to)}`
     : `${formatYearSpan(g.vanished.founded, g.vanished.dissolved)} · ${g.file ? `kartdata ${formatYearSpan(g.from, g.to)}` : 'punkt på kartan'}`;
 
-  // Fokusmenyn listar krig, riken och religioner. Religionerna hämtas när menyn öppnas.
+  // Fokusmenyn listar krig, riken, religioner och resor. Resorna och religionerna hämtas när menyn öppnas.
   const focusMenu = new FocusMenu({ button: $('btn-focus'), menu: $('focus-menu') });
   // Varje post har sitt tidsspann (from–to), så att menyn kan visa det som hör till tiden man står i (#121)
   // Religionens årtal i Fokus: grundandet där det går att belägga, annars bara kartdatans spann (#138)
@@ -479,11 +492,15 @@ async function start() {
     const blev = names.length > 4 ? `${names.slice(0, 3).join(', ')} och ${names.length - 3} till` : names.join(', ');
     return { key: `empire:${g.id}`, label: t(g.name), terms: empireTerms(g), sub: `${empireYears(g)} · blev ${blev}`, color: g.color, symbol: symbolUrl(g), from, to };
   });
-  const focusGroups = (doc = null) => [
+  let focusRoutes = null;
+  const routeItems = list => list.filter(r => r.kind === 'voyage' && isVisibleReview(r.review)).map(r =>
+    ({ key: `route:${r.id}`, label: t(r.title), terms: langs(r.title), sub: formatEventTime(r), color: CAT[r.category]?.color, from: r.start, to: r.end }));
+  const focusGroups = (doc = null, routeList = focusRoutes) => [
     { title: 'Krig', items: data.events.filter(e => e.kind === 'war').map(e => ({ key: `war:${e.id}`, label: t(e.title), terms: langs(e.title), sub: formatEventTime(e), color: CAT[e.category]?.color, from: e.start, to: e.end })) },
     { title: 'Riken', note: 'Gränser ur Cliopatria. Årtalen visar när kartdata finns och kan skilja sig från rikets historiska årtal. Ett kolonialvälde har samma färg överallt; stjärnan och den kraftiga kanten visar huvudlandet. En mjuk, utsuddad kant betyder att källorna säger att gränsen är osäker. Glesa prickar med streckad kant är inflytande: lydriken och vasaller enligt Cliopatria. Länder som inte finns längre står under Försvunna länder.', items: empireItems() },
     { title: 'Försvunna länder', all: true, note: 'Länder som inte finns längre: när de bildades och upplöstes enligt källorna, och vilka länder de blev. Gränser ur Cliopatria, som kan ha andra årtal.', items: vanishedItems() },
     { title: 'Religioner', note: 'Visar var religionen var officiell religion eller huvudreligion i en statsbildning, inte religionens ålder eller var alla troende bodde.', items: doc ? religionItems(doc) : [], loading: !doc },
+    { title: 'Resor', note: 'Följ en resa i dess egen takt. Pauser finns bara vid källbelagda platser med datum.', items: routeList ? routeItems(routeList) : [], loading: !routeList },
   ];
   focusMenu.setGroups(focusGroups());
   focusMenu.onOpen = async () => {
@@ -491,7 +508,9 @@ async function start() {
     // Nära = inom fyra gånger det tidslinjen visar runt året (vid 1325 cirka ±150 år)
     const year = Math.floor(timeline.year), r = Math.round(timeline.windowYears(year) * 4 / 10) * 10;
     focusMenu.setTime({ year, from: year - r, to: year + r, label: `inom ±${r} år från ${formatYear(year)}` });
-    if (focusMenu.groups.find(g => g.title === 'Religioner').loading) focusMenu.setGroups(focusGroups(await loadReligions()));
+    const doc = focusMenu.groups.find(g => g.title === 'Religioner').loading ? await loadReligions() : data.religionsDoc;
+    focusRoutes ??= await loadRoutes();
+    focusMenu.setGroups(focusGroups(doc, focusRoutes));
   };
   focusMenu.onPick = key => startFocus(key);
 
@@ -601,11 +620,45 @@ async function start() {
     showNextPause();
   }
 
+  /** Stopp ur resedatan. Ett datum styr den fina tidslinjen; år och årstid stannar på årsvis skala. */
+  function stopsForRoute(route) {
+    return route.legs.flatMap(leg => (leg.places ?? []).filter(place => place.stop).map(place => {
+      const iso = place.date ?? place.edtf ?? '';
+      const day = /^-?\d{4}-\d{2}-\d{2}$/.test(iso);
+      // "1405-23" är befintlig kod för hösten i Zheng He-datan, inte ett kalenderdatum.
+      let at = day ? edtfSpan({ edtf: iso, start: route.start, end: route.end })[0]
+        : /^-?\d{4}$/.test(iso) ? Number(iso) : leg.from;
+      // I årsvis fokus måste också ett dagsdatum ligga på sitt år, annars kan resans slut passeras
+      // innan stoppet nås. Den fina skalan behåller däremot den exakta dagen.
+      if (!edtfHasDays(route.edtf)) at = Math.floor(at);
+      return { place, at, day, key: `${route.id}:${iso}:${t(place.name)}` };
+    })).sort((a, b) => a.at - b.at);
+  }
+  function stopDate(place) {
+    if (place.dateLabel) return t(place.dateLabel);
+    if (place.date) return formatDate(place.date);
+    if (/^-?\d{4}-23$/.test(place.edtf ?? '')) return `hösten ${place.edtf.slice(0, 4)}`;
+    return place.edtf ?? '';
+  }
+  function showRouteStop(stop) {
+    stopping = true;
+    const place = stop.place;
+    const text = place.text ? `Pausad: ${t(place.text)} · ${t(focusRoute.title)}`
+      : `Pausad vid ${t(place.name)} · ${stopDate(place)} · ${t(focusRoute.title)}`;
+    // Noten finns redan i resedatan och ska synas vid varje stopp, så att osäkerheten inte tappas bort.
+    const note = focusRoute.note ? `${t(focusRoute.note.title)}: ${t(focusRoute.note.text)}` : '';
+    timeline.pause(note ? `${text} · ${note}` : text, true);
+    timeline.year = stop.at;
+    stopping = false;
+    showNextPause();
+  }
+
   /** Krigets slut i fokusläget: sista dagen eller året, och "i dag" för ett pågående krig (#223). */
   const warEndOf = () => Math.min(timeline.spanOf(focusWar)[1], MAX_YEAR);
   /** Nästa stopp som Fortsätt ska visa: kön, eller slutkortet om tiden står i krigets slut och
    *  kortet inte har visats än. Då börjar uppspelningen aldrig om före slutkortet (#232). */
   function queuedStop() {
+    if (focusRoute) return routeStops[0] ?? null;
     if (!focusWar) return null;
     if (warStops.length) return warStops[0];
     return focusWar.story && !endShown && timeline.year >= warEndOf() ? 'end' : null;
@@ -613,7 +666,7 @@ async function start() {
   /** Nästa paus när man följer ett krig: köat stopp, nästa stora händelse (om pausen är vald) eller slutkortet. */
   function nextPause() {
     const q = queuedStop();
-    if (q || !focusWar) return q;
+    if (q || focusRoute || !focusWar) return q;
     const y = timeline.year, at = e => timeline.spanOf(e)[0];
     // Händelser på fokusets första dag eller år räknas när uppspelningen startar där (#224)
     const ahead = e => !shownStops.has(e.id) && (at(e) > y || (at(e) === y && y === focus.from));
@@ -624,13 +677,13 @@ async function start() {
   function showNextPause() {
     const n = nextPause();
     const text = !n ? '' : n === 'end' ? (focusWar.ongoing ? 'läget i dag' : 'när kriget är slut')
-      : `${t(n.title)} (${timeline.format(timeline.spanOf(n)[0])})`;
+      : focusRoute ? `${t(n.place.name)} (${stopDate(n.place)})` : `${t(n.title)} (${timeline.format(timeline.spanOf(n)[0])})`;
     for (const [el, pre] of [[$('next-pause'), 'Nästa paus: '], [$('pause-next'), 'Nästa: ']]) {
       el.hidden = !text;
       el.textContent = text ? pre + text : '';
       el.title = text ? `Nästa paus: ${text}` : '';
     }
-    showWarPlay(n);
+    showWarPlay(focusWar ? n : null);
     timeline.refreshPlayLabel();
     updateFocusAction(n);
   }
@@ -773,6 +826,17 @@ async function start() {
       warStops = [...hits, ...(ended ? ['end'] : [])];
       if (warStops.length) showWarStop(warStops.shift(), fine);
     }
+    // Resans markerade stopp köas i samma steg. Det behövs när flera godkända stopp har samma år,
+    // som Palembang och Nanjing 1407, och när den årsvisa tidslinjen går förbi dem i ett enda steg.
+    if (focusRoute && playing && layers.pause.route) {
+      const hits = stopsForRoute(focusRoute).filter(s => !shownStops.has(s.key) && passed(s.at));
+      routeStops = [...routeStops, ...hits];
+      if (routeStops.length) {
+        const stop = routeStops.shift();
+        shownStops.add(stop.key);
+        showRouteStop(stop);
+      }
+    }
     // I fokus på en religion stannar uppspelningen vid händelserna när den grundades (#123)
     if (focus?.type === 'religion' && timeline.playing) {
       const hit = founding(focus.id).find(e => e.start > lastYear && e.start <= year);
@@ -838,7 +902,7 @@ async function start() {
     // Tiden flyttades för hand (året ändrades utan uppspelning och inte av ett stopp): kön med krigets
     // stopp glöms, och stoppen visas igen när man spelar på nytt (#232). Också "Spela igen" går hit.
     if (!timeline.playing && !stopping) {
-      warStops = []; shownStops = new Set(); finishing = false;
+      warStops = []; routeStops = []; shownStops = new Set(); finishing = false;
       if (focusWar && timeline.year < warEndOf()) endShown = false;
     }
     refresh();
@@ -846,8 +910,7 @@ async function start() {
   // Uppspelningen kan också ändras av ett stopp eller av att tidslinjen når slutet.
   // Huvudknappen i Fokus ska alltid följa tidslinjens faktiska läge (#360).
   timeline.addEventListener('playstate', () => updateFocusAction());
-  // Fortsätt efter ett stopp i ett krig: nästa stora händelse samma år, eller slutkortet,
-  // i stället för att uppspelningen börjar om från krigets början (#217, #232)
+  // Fortsätt efter ett stopp i ett krig eller en resa: nästa köade stopp visas innan tiden går vidare.
   timeline.hasMore = () => !!queuedStop();
   timeline.addEventListener('beforeplay', e => {
     // Vanlig uppspelning pausar som valt i Lager; Spela klart sätter finishNext precis innan
@@ -855,8 +918,14 @@ async function start() {
     const stop = queuedStop();
     if (!stop) return;
     e.preventDefault();
-    if (warStops[0] === stop) warStops.shift();
-    showWarStop(stop, !!focus?.fine);
+    if (focusRoute) {
+      if (routeStops[0] === stop) routeStops.shift();
+      shownStops.add(stop.key);
+      showRouteStop(stop);
+    } else {
+      if (warStops[0] === stop) warStops.shift();
+      showWarStop(stop, !!focus?.fine);
+    }
   });
   panel.onSelect = select;
   panel.onFocus = id => startFocus(`war:${id}`);

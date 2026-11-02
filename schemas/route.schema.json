@@ -30,6 +30,15 @@
                 "from": { "type": "number" },
                 "to": { "type": "number" },
                 "path": { "type": "array", "items": { "type": "array", "items": { "type": "number", "minimum": -180, "maximum": 180 } } },
+                "places": { "type": "array", "items": { "type": "object", "properties": {
+                  "at": { "type": "array", "items": { "type": "number" } },
+                  "name": { "type": "object", "properties": { "sv": { "type": "string", "pattern": ".+" } } },
+                  "date": { "type": "string", "pattern": ".+" },
+                  "edtf": { "type": "string", "pattern": ".+" },
+                  "dateLabel": { "type": "object", "properties": { "sv": { "type": "string", "pattern": ".+" } } },
+                  "stop": { "type": "boolean" },
+                  "text": { "type": "object", "properties": { "sv": { "type": "string", "pattern": ".+" } } }
+                } } },
                 "sources": { "type": "array", "items": { "type": "string", "pattern": ".+" } }
               }
             }
