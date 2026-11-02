@@ -889,12 +889,20 @@ async function start() {
   // låser den gemensamma rangordningen. Fokus, Platt vy, uppspelning och reducerad rörelse berörs inte.
   const RECENT_TURN_MS = 3000;
   function orientToPanelHighlight() {
-    if (focus || timeline.playing || !flatMap.hidden || matchMedia('(prefers-reduced-motion: reduce)').matches
-      || performance.now() - globe.lastUserInput < RECENT_TURN_MS) return;
+    if (focus || timeline.playing || !flatMap.hidden || performance.now() - globe.lastUserInput < RECENT_TURN_MS) return;
     // `visible` är panelens nuvarande relevansordning. #508 ska ersätta den med den gemensamma
     // ordningen top, major, pågår och närmast i tid; håll urvalet på ett ställe tills dess.
     const e = visible[0]?.e;
-    if (e && !globe.isPointVisible(e._lat, e._lon)) globe.flyTo(e._lat, e._lon);
+    if (!e) return;
+    const pointVisible = globe.isPointVisible(e._lat, e._lon);
+    // En liten canvas-händelse beskriver vilket panelurval som orienteringen bedömde. Den gör
+    // integrationer och regressioner stabila utan att exponera Globe-instansen globalt (#515).
+    globe.canvas.dispatchEvent(new CustomEvent('hg:globe-orientation-request', {
+      detail: { id: e.id, lat: e._lat, lon: e._lon, visible: pointVisible },
+    }));
+    // Reducerad rörelse får fortfarande veta vilket urval som bedömdes, men flyttar aldrig kameran.
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!pointVisible) globe.flyTo(e._lat, e._lon);
   }
 
   const narrow = matchMedia('(max-width: 760px)');
