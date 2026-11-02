@@ -1,6 +1,6 @@
 {
-  "status": "triaged",
-  "report": "docs/granskningar/2026-10-31-orkester-tokenanalys.md",
-  "createdAt": "2026-10-31T16:14:57Z",
-  "triagedAt": "2026-10-31T16:29:31Z"
+  "status": "ready_for_triage",
+  "report": "docs/granskningar/2026-11-02-fullanalys-dev.md",
+  "createdAt": "2026-11-02T14:40:39Z",
+  "triagedAt": null
 }
