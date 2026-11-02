@@ -33,8 +33,11 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   `beslut-krävs` och utan krock med orkesterns pågående eller planerade arbete. Etiketten tas bort när issuet tas.
   Varje pass och varje planering går igenom den pågående milstolpen efter nya sådana issues, och rapporten till Rikard
   har raden "Nya för Codex: #…" (eller ingen rad när inget är nytt).
-  Codex får också köra `$orkester` (beslut 2026-11-01) med högst två arbetare och tre pull requests per pass, enligt
-  [AGENTS.md](../AGENTS.md). Claude Code granskar fortfarande varje pull request.
+  Codex får också köra `$orkester` (beslut 2026-11-01) enligt [AGENTS.md](../AGENTS.md). Sedan 2026-11-02 kör Codex
+  löpande på `codex: redo`-kön, med högst fyra öppna pull requests och två arbetare samtidigt. Claude Code granskar
+  fortfarande varje pull request, och bara de som Codex har märkt "Klar för Claude Code-granskning". `codex: redo`
+  sätts aldrig på fakta-, bild- eller arkitekturärenden förrän rätt förutsättningar finns, och tas bort om ett issue blir
+  beroende av ett Claude-spår eller kräver källgranskning. Dirigentens eget arbete märks med `orkester: pågår`.
 - **Kapacitet:** en arbetare är standard (resurspolicyn nedan). Högst tre arbetare samtidigt, inklusive hjälpare. Dirigenten får göra ett arbete själv, och det
   räknas då som en plats. Webbläsartester (Playwright) körs av en arbetare i taget, var och en med egen port. Kön
   hålls med en gemensam låsfil: `flock <scratchpad>/pw.lock node skript.cjs`. I molnmiljön når webbläsaren inte
@@ -43,7 +46,9 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   `python3 -m http.server`: 8001, 8002 och 8003 (dirigenten använder 8000). Kontrollera att servern visar
   arbetarens egen kopia. Arbetskopiorna läggs utanför repot, till exempel `/home/user/orkester/<N>-<namn>`, och tas
   bort när pull requesten är ihopslagen.
-- **Modeller:** arbetare får en billigare modell för rutinändringar i kod och utseende. **Undantag (källpolicyn):**
+- **Modeller:** dirigenten följer modellnivåerna i CLAUDE.md (Sonnet medium för triage och normal granskning, Sonnet
+  high för större gränssnitts-, tidslinje- och renderingsändringar, Opus för arkitektur, fakta, källpolicy och datamodell).
+  Arbetare får en billigare modell för rutinändringar i kod och utseende. **Undantag (källpolicyn):**
   issues med etiketten `data`, `faktafel` eller `källkontroll`, och allt som lägger in eller ändrar fakta, årtal,
   platser eller källor, görs av dirigenten själv eller av en arbetare med samma modell som dirigenten. Källsidan
   öppnas alltid. Ingen uppgift skrivs ur minnet. Nivåerna är `draft`, `source-checked` och `two-sources`; det finns ingen människogranskning (#252).
