@@ -341,10 +341,13 @@ async function run(browser, vp) {
     };
 
     await jumpTo(1969);
+    if (!(await page.locator('#event-list .event-btn').count())) throw new Error('1969 saknar panelhändelse för rotationsprovet');
     await page.waitForTimeout(1200); // första årshoppet hinner centrera den relevanta markören
     await spinAway();
     await page.evaluate(() => { window.__hgFlights = []; document.getElementById('globe-canvas').addEventListener('hg:globe-flight', event => window.__hgFlights.push(event.detail)); });
-    await jumpTo(1969);
+    // Växla år: Timeline skickar bara change för ett faktiskt nytt år, och 1968 har samma Biafra-markör först.
+    await jumpTo(1968);
+    if (!(await page.locator('#event-list .event-btn').count())) throw new Error('1968 saknar panelhändelse för rotationsprovet');
     await page.waitForFunction(() => window.__hgFlights?.some(f => f.phase === 'end'), null, { timeout: T.step });
     const flight = await page.evaluate(() => window.__hgFlights);
     const start = flight.find(f => f.phase === 'start'), end = flight.find(f => f.phase === 'end');
