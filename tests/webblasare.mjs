@@ -331,7 +331,7 @@ async function run(browser, vp) {
     const spinAway = async () => {
       const box = await globe.boundingBox();
       if (!box) throw new Error('globens yta saknas');
-      // Ett helt varv minus lite placerar den nyss framflyttade markören på baksidan.
+      // Ett halvt varv placerar den nyss framflyttade markören på baksidan.
       // Pointer capture gör att draget fortsätter utanför canvasens högra kant.
       await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
       await page.mouse.down();
