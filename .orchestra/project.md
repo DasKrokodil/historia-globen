@@ -38,6 +38,11 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   först varje pull request ("Codex-granskning: godkänd"). Claude Code granskar därefter bara de som Codex har märkt "Klar för Claude Code-granskning", och bara det som kräver dirigentens bedömning (källpolicy, arkitektur, synligt resultat); fakta, data och källor granskas alltid fullt. `codex: redo`
   sätts aldrig på fakta-, bild- eller arkitekturärenden förrän rätt förutsättningar finns, och tas bort om ett issue blir
   beroende av ett Claude-spår eller kräver källgranskning. Dirigentens eget arbete märks med `orkester: pågår`.
+- **Flödesregler (beslut 2026-11-02):** (1) Händelsedriven kögenomgång: efter varje ny, uppdaterad eller ihopslagen pull
+  request kontrolleras alla `codex: redo`-issues direkt, och nästa blockerade ärende får förberedelsearbete. (2) Omedelbar
+  handoff: när en arbetare öppnar eller uppdaterar en pull request börjar den separata Codex-granskningen i samma tur.
+  (3) Ingen passiv `codex: pågår`: etiketten kräver en aktiv arbetare, ett pågående test eller en publicering, eller en
+  dokumenterad extern spärr; annars återupptas, förbereds eller avmarkeras ärendet direkt.
 - **Kapacitet:** en arbetare är standard (resurspolicyn nedan). Högst tre arbetare samtidigt, inklusive hjälpare. Dirigenten får göra ett arbete själv, och det
   räknas då som en plats. Webbläsartester (Playwright) körs av en arbetare i taget, var och en med egen port. Kön
   hålls med en gemensam låsfil: `flock <scratchpad>/pw.lock node skript.cjs`. I molnmiljön når webbläsaren inte
