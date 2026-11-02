@@ -7,6 +7,23 @@
     "past": { "sv": "slut", "en": "ended" },
     "future": { "sv": "börjar", "en": "starts" }
   },
+  "focus": {
+    "groupByAge": { "sv": "Gruppera efter: Tidsålder", "en": "Group by: Historical period" },
+    "showAll": { "sv": "Visa alla ({count} till)", "en": "Show all ({count} more)" },
+    "showNearest": { "sv": "Visa närmast", "en": "Show nearest" },
+    "timeAges": {
+      "grotta": { "sv": "Förhistoria", "en": "Prehistory" },
+      "egypten": { "sv": "Forntiden", "en": "Ancient history" },
+      "antik": { "sv": "Antiken", "en": "Antiquity" },
+      "tidig-medeltid": { "sv": "Tidig medeltid", "en": "Early Middle Ages" },
+      "medeltid": { "sv": "Hög- och senmedeltid", "en": "High and Late Middle Ages" },
+      "renassans": { "sv": "Tidigmodern tid", "en": "Early modern period" },
+      "barock": { "sv": "Tidigmodern tid", "en": "Early modern period" },
+      "1800-tal": { "sv": "1800-talet", "en": "19th century" },
+      "affisch": { "sv": "Första hälften av 1900-talet", "en": "First half of the 20th century" },
+      "rymdalder": { "sv": "Senare 1900-tal och nutid", "en": "Late 20th century and present" }
+    }
+  },
   "poster": {
     "button": { "sv": "Affisch", "en": "Poster" },
     "title": { "sv": "Historia-globen", "en": "History globe" },
