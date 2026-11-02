@@ -8,6 +8,19 @@ const LOADING = '<p class="detail-loading" role="status">Laddar…</p>';
 /** Källraden. pending = källregistret eller händelsens källor laddas fortfarande (#337): då står ingen rad alls. */
 const srcLine = (srcs, pending) => pending ? '' : `<div class="src">Källa: ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || 'saknas'}</div>`;
 
+/** Källornas kontrollnivå och den historiska osäkerheten är olika saker (#364). */
+const uncertaintyRow = (e, copy = {}) => {
+  const reasons = [];
+  const edtf = e.edtf ?? '';
+  if (edtf.includes('~')) reasons.push(t(copy.approximate));
+  if (edtf.includes('?')) reasons.push(t(copy.uncertain));
+  if (edtf.includes('/')) reasons.push(t(copy.range));
+  if (e.precision != null && e.precision < 9) reasons.push(t(copy.precision));
+  if (e.locationPrecision) reasons.push(t(copy.place));
+  if (t(e.note?.title) === 'Källorna skiljer sig') reasons.push(t(copy.sourcesDisagree));
+  return reasons.length ? `<p class="uncertainty-row"><b>${esc(t(copy.label))}:</b> ${esc([...new Set(reasons)].join(' · '))}</p>` : '';
+};
+
 /**
  * Bild överst i faktarutan (#129): en riktig historisk bild med källa och licens, eller
  * en illustration i tidens bildtradition som alltid märks med en synlig bildtext.
@@ -72,8 +85,8 @@ function lineageHtml(v) {
 }
 
 export class Panel {
-  constructor({ root, list, filters, chips, detail, sub, count, toggle, close }, { events, srcById, styles }, { empireLegend = {} } = {}) {
-    Object.assign(this, { root, list, filtersEl: filters, detail, sub, count, toggle, srcById, styles, empireLegend });
+  constructor({ root, list, filters, chips, detail, sub, count, toggle, close }, { events, srcById, styles }, { empireLegend = {}, uncertainty = {} } = {}) {
+    Object.assign(this, { root, list, filtersEl: filters, detail, sub, count, toggle, srcById, styles, empireLegend, uncertainty });
     this.onSelect = () => {};
     this.onFilter = () => {};
     this.onSources = () => {};
@@ -381,6 +394,7 @@ export class Panel {
       <div class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))} · ${esc(t(CAT[e.category]?.name))}</div>
       ${loading ? LOADING : `<p>${esc(t(e.summary))}</p>`}
       ${e.note ? `<aside class="detail-note"><h4>${esc(t(e.note.title))}</h4><p>${esc(t(e.note.text))}</p></aside>` : ''}
+      ${uncertaintyRow(e, this.uncertainty)}
       ${e._war ? `<p class="war-link">Del av: <button type="button" class="link-btn" data-goto="${esc(e._war.id)}">${esc(t(e._war.title))}</button></p>` : ''}
       ${e.kind === 'war' ? `<button type="button" class="chip-btn focus-btn" data-focus="${esc(e.id)}">▶ Följ kriget långsamt</button>` : ''}
       ${e._battles?.length ? `<div class="war-list"><h4>Slag och händelser i kriget</h4><ol>${e._battles.map(b =>
