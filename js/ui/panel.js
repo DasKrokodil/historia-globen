@@ -9,12 +9,11 @@ const LOADING = '<p class="detail-loading" role="status">Laddar…</p>';
 const srcLine = (srcs, pending) => pending ? '' : `<div class="src">Källa: ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || 'saknas'}</div>`;
 
 /** Källornas kontrollnivå och den historiska osäkerheten är olika saker (#364). */
-const uncertaintyRow = (e, copy = {}) => {
+export const uncertaintyRow = (e, copy = {}) => {
   const reasons = [];
   const edtf = e.edtf ?? '';
   if (edtf.includes('~')) reasons.push(t(copy.approximate));
   if (edtf.includes('?')) reasons.push(t(copy.uncertain));
-  if (edtf.includes('/')) reasons.push(t(copy.range));
   if (e.precision != null && e.precision < 9) reasons.push(t(copy.precision));
   if (e.locationPrecision) reasons.push(t(copy.place));
   if (t(e.note?.title) === 'Källorna skiljer sig') reasons.push(t(copy.sourcesDisagree));

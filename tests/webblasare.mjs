@@ -630,7 +630,7 @@ async function run(browser, vp) {
     await page.fill('#jump-input', '2600 f.Kr.');
     await page.press('#jump-input', 'Enter');
     await hidden('#jump-pop');
-    await page.click('#btn-panel');
+    if (await page.isHidden('#panel')) await page.click('#btn-panel');
     await visible('#panel');
     const event = page.locator('#event-list .event-btn', { hasText: 'Cheopspyramiden' });
     await event.waitFor({ state: 'visible', timeout: T.step });

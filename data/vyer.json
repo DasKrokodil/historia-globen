@@ -11,7 +11,6 @@
     "label": { "sv": "Historisk osäkerhet", "en": "Historical uncertainty" },
     "approximate": { "sv": "dateringen är ungefärlig", "en": "the date is approximate" },
     "uncertain": { "sv": "dateringen är osäker", "en": "the date is uncertain" },
-    "range": { "sv": "dateringen är ett spann", "en": "the date is a range" },
     "precision": { "sv": "dateringen är inte känd på årsnivå", "en": "the date is not known to year precision" },
     "place": { "sv": "platsen är ungefärlig", "en": "the place is approximate" },
     "sourcesDisagree": { "sv": "källorna skiljer sig", "en": "the sources disagree" },
