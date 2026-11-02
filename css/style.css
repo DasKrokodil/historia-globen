@@ -1027,8 +1027,7 @@ details.used-by summary:hover { color: var(--parchment); }
   /* Utforska får plats i en rad ovanför rubrikens undertext, och Visa radbryts smalt under den (#245) */
   .top-actions { flex-direction: column; align-items: flex-end; gap: 12px; top: calc(env(safe-area-inset-top, 0px) + 16px); }
   .action-group { gap: 3px; padding: 3px; border-radius: 19px; }
-  .action-group:first-child { flex-wrap: wrap; max-width: 230px; }
-  #btn-intro { flex-basis: 100%; }
+  .action-group:first-child { flex-wrap: nowrap; }
   .action-group:last-child { max-width: 128px; } /* Platt vy överst, Källor och Hjälp under */
   .action-group .chip-btn { padding: 8px 9px; font-size: 12.5px; }
   .action-group .count { margin-left: 2px; }
@@ -1544,6 +1543,9 @@ details.used-by summary:hover { color: var(--parchment); }
   }
   .top-actions { flex-direction: row; flex-wrap: nowrap; align-items: center; gap: 3px; top: calc(env(safe-area-inset-top, 0px) + 6px); }
   .action-group, .action-group:first-child, .action-group:last-child { border: 0; border-radius: 0; padding: 0; gap: 3px; flex-wrap: nowrap; max-width: none; }
+  /* Den frivilliga introduktionen får en egen rad, så årskontrollen inte täcks av Utforska i mobilen (#516). */
+  .action-group:first-child { padding-bottom: 41px; }
+  #btn-intro { position: absolute; top: 41px; right: 0; }
   .action-label { display: none; }
   /* 40 px synligt, 46 px tryckyta (::after räknas från knappens insida, innanför ramen) */
   .action-group .chip-btn { position: relative; height: 38px; padding: 0 8px; font-size: 12.5px; white-space: nowrap; }
