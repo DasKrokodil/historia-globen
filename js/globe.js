@@ -244,7 +244,18 @@ export class Globe {
     this._vel = { x: 0, y: 0 };
     if (this.calm) ms = 1; // hoppar i stället för att flyga
     this._fly = { t0: performance.now(), ms, fx: this.group.rotation.x, fy: cy, tx, ty };
+    // Ett litet offentligt händelsepar gör att användargränssnitt och regressionstester kan följa
+    // den faktiska orienteringen utan att läsa renderade pixlar (#515).
+    this.canvas.dispatchEvent(new CustomEvent('hg:globe-flight', { detail: { phase: 'start', x: this.group.rotation.x, y: cy, targetX: tx, targetY: ty } }));
     this.invalidate();
+  }
+
+  /** Är punkten på den synliga halvan av klotet? Används för att inte röra
+   * kameran i onödan efter ett uttryckligt årshopp (#515). */
+  isPointVisible(lat, lon) {
+    this.camera.updateMatrixWorld();
+    this.group.updateMatrixWorld();
+    return this.project(latLonToVec3(lat, lon)).facing > 0;
   }
 
   _initControls() {
@@ -396,7 +407,10 @@ export class Globe {
       const e = s < 0.5 ? 4 * s * s * s : 1 - Math.pow(-2 * s + 2, 3) / 2;
       this.group.rotation.x = f.fx + (f.tx - f.fx) * e;
       this.group.rotation.y = f.fy + (f.ty - f.fy) * e;
-      if (s >= 1) this._fly = null;
+      if (s >= 1) {
+        this._fly = null;
+        this.canvas.dispatchEvent(new CustomEvent('hg:globe-flight', { detail: { phase: 'end', x: this.group.rotation.x, y: this.group.rotation.y } }));
+      }
       moving = true;
     } else if (this.autoRotate && !this.calm) {
       this.group.rotation.y += 0.0009;
