@@ -144,6 +144,8 @@ Rikard gillar stilen. Behåll den:
 - **Fråga först** innan du ändrar arkitekturen, lägger till beroenden, kategorier eller datakällor med ny licens.
 - **Orkestern (#145, permanent sedan #159):** `/orkester [issue eller område]` kör dirigenten och orkestern enligt [.orchestra/project.md](.orchestra/project.md): ett avgränsat pass i PR-läge med högst fyra pull requests, där issues med fakta och data görs med samma modell som dirigenten och dirigenten granskar varje leverans. "Fortsätt med fler issues" startar nästa pass. Filerna i `.orchestra/shared/` redigeras inte här.
 - **Codex tar issues (beslut 2026-10-31):** Codex följer [AGENTS.md](AGENTS.md), som pekar hit. Codex tar bara issues med etiketten `codex: redo`, som Claude Code sätter på avgränsade issues utan historiska fakta, och sätter etiketten `codex: pågår` och bygger på grenar `codex/issue-<N>-<namn>`. Orkestern och Claude Code hoppar över sådana issues, och Claude Code granskar Codex pull requests innan Rikard slår ihop.
+- **Codex kör löpande (beslut 2026-11-02):** Codex fortsätter på `codex: redo`-kön utan nytt kommando, med högst 4 öppna pull requests (en ändring som byggs räknas som öppen) och 3 arbetare som bygger parallellt, där dirigenten inte räknas som arbetare, enligt [AGENTS.md](AGENTS.md). Codex Luna förbereder och lämnar köplaner, Codex Terra bygger. Claude Code granskar de pull requests som har kommentaren "Klar för Claude Code-granskning": diff, filkrockar, testbevis, arkitektur och källpolicy. Svaret är "godkänd" eller konkreta, minimala arbetsorder i samma pull request, och bara Rikard slår ihop. Claude Code sätter `codex: redo` först när ett issue är tydligt avgränsat, saknar olösta beslut och inte krockar med öppna pull requests eller eget arbete, aldrig på fakta, bilder eller arkitektur. Eget pågående arbete märks med `orkester: pågår`, och `codex: redo` tas bort om ett issue blir beroende av ett Claude-spår eller kräver källgranskning. Planer och beslut skrivs som kommentar på berört issue.
+- **Modellnivå för Claude Code (beslut 2026-11-02):** Sonnet medium för löpande triage, etiketter, köplanering och normal granskning av pull requests. Sonnet high för större ändringar i gränssnitt, tidslinje och rendering. Opus för arkitektur, historiska fakta och källor, källpolicy, datamodell och beslut som påverkar flera issues. Byt inte modell bara för att uppgiften är lång, utan när den kräver djupare bedömning, och säg kort vilken nivå som passar i början av en större granskning och varför. Rikard byter modell med `/model`.
 - **Granskningar från Codex:** när en session eller `/orkester` startar, läs `docs/granskningar/handoff.json` om den finns. Är `status` `ready_for_triage`: läs rapporten i `report`, jämför den med koden, dokumentationen och de öppna issues, rapportera dubbletter och föreslå en prioriterad plan. Genomför inget och skapa inga issues förrän Rikard har godkänt planen. Efter godkänd triage: sätt `status` till `triaged` och lägg till `triagedAt` (i en pull request). Se [docs/granskningar/README.md](docs/granskningar/README.md).
 - **Sådant som inte är kod** (namn, domän, fysisk glob, hårdvara, affärsfrågor) planeras i Rikards Claude-projekt "Historia-globen", inte här. Om sådant kommer upp: påminn Rikard om det och skapa högst ett issue med etiketten `utanför-kod` som anteckning.
 
@@ -154,10 +156,10 @@ Rikard gillar stilen. Behåll den:
 | Version | Innehåll |
 |---|---|
 | 4.2 Stabilitet och tillgänglighet | Upptäcktsvyn (#375–#378), tangentbord och zoom (#386, #362), kontroll efter publicering (#388), läsbar tidslinje (#298), faktarutor och introduktion (#359, #363, #364) och små förenklingar |
-| 4.3 Teknisk grund | main.js delas upp och tillståndet blir centralt (#389), lättare mobilrendering (#390), JSON Schema (#391), lagertypen bildlager (#54) |
+| 4.3 Teknisk grund | main.js delas upp och tillståndet blir centralt (#389, utan adressdelen som är #501 i 5.2), lättare mobilrendering (#390), JSON Schema (#391), lagertypen bildlager (#54) |
 | 5.0 Guidade berättelser | Turformat som data (#47) och en första tur (#13, andra världskriget); fler turer och berättelselägen därefter |
 | 5.1 Global täckning | Granskningsvy, mindre redigeringsfiler, täckningsrapport och innehåll i små batcher per region (#61, #62, #394) |
-| 5.2 Sök, delning och introduktion | "Vad hände här?" (#15), delbara länkar (#64), sök |
+| 5.2 Sök, delning och introduktion | "Vad hände här?" (#15), delbara länkar (#64) och tillståndet i adressen (#501), sök |
 | 6 Skolpilot | Lektionsturer, quiz och elevuppdrag (#66, #65, #250), läroplansreferenser, pilot med en lärare eller klass |
 | 7 Människans långa historia | Tidsmodell för ungefärliga datum, tidslinje i nivåer (#49), människoarter (#11) |
 | 8 Jordens historia | Eget läge med geologisk tidslinje och forntida kartor (#12, #51–#53) |
@@ -165,9 +167,9 @@ Rikard gillar stilen. Behåll den:
 
 Parallella spår (milstolpar utan versionsnummer, görs bredvid huvudversionerna):
 - **Innehållspaket:** vetenskap, medicin, teknik, rymdfärdens milstolpar (#84) och temavyer (musik, litteratur, filosofi, ekonomi, personer, byggnadsverk, perspektiv). Paketen blockerar inte varandra eller huvudversionerna.
-- **Riken:** R1–R6 är klara; kvar är småfrågor.
+- **Riken:** R1–R6 är klara; milstolpen heter "Riken: R7 och restarbete".
 - **Hårdvara** (H1–H3): anteckningar, planeringen sker i Rikards Claude-projekt.
-- **Experiment senare:** flöden i nutid (flyg, sjöfart), rymden (månen, satelliter, Mars) och översättning till fler språk.
+- **Experiment och senare:** experimenten är delade i "Historiska datum och utskrift", "Flöden och rörelse", "Lekar och tankeexperiment" och "Rymden". "Senare" är delad i "beslut krävs", "teknik" och "innehåll och media". "Teman: temamotor" (#398) är förutsättningen för temavyerna, och "Paket: Temavyer och innehåll" är en samlingsrubrik, inte en arbetsmilstolpe. Bilder görs i "Bilder: batchar".
 
 Regler:
 - **Varje version slutar med att Rikard utvärderar** innan nästa börjar.

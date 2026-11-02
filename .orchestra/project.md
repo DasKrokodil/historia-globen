@@ -33,8 +33,11 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   `beslut-krävs` och utan krock med orkesterns pågående eller planerade arbete. Etiketten tas bort när issuet tas.
   Varje pass och varje planering går igenom den pågående milstolpen efter nya sådana issues, och rapporten till Rikard
   har raden "Nya för Codex: #…" (eller ingen rad när inget är nytt).
-  Codex får också köra `$orkester` (beslut 2026-11-01) med högst två arbetare och tre pull requests per pass, enligt
-  [AGENTS.md](../AGENTS.md). Claude Code granskar fortfarande varje pull request.
+  Codex får också köra `$orkester` (beslut 2026-11-01) enligt [AGENTS.md](../AGENTS.md). Sedan 2026-11-02 kör Codex
+  löpande på `codex: redo`-kön, med högst fyra öppna pull requests (en ändring som byggs räknas som öppen) och tre arbetare som bygger samtidigt. Dirigenten räknas inte som arbetare. Claude Code granskar
+  fortfarande varje pull request, och bara de som Codex har märkt "Klar för Claude Code-granskning". `codex: redo`
+  sätts aldrig på fakta-, bild- eller arkitekturärenden förrän rätt förutsättningar finns, och tas bort om ett issue blir
+  beroende av ett Claude-spår eller kräver källgranskning. Dirigentens eget arbete märks med `orkester: pågår`.
 - **Kapacitet:** en arbetare är standard (resurspolicyn nedan). Högst tre arbetare samtidigt, inklusive hjälpare. Dirigenten får göra ett arbete själv, och det
   räknas då som en plats. Webbläsartester (Playwright) körs av en arbetare i taget, var och en med egen port. Kön
   hålls med en gemensam låsfil: `flock <scratchpad>/pw.lock node skript.cjs`. I molnmiljön når webbläsaren inte
@@ -43,7 +46,9 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   `python3 -m http.server`: 8001, 8002 och 8003 (dirigenten använder 8000). Kontrollera att servern visar
   arbetarens egen kopia. Arbetskopiorna läggs utanför repot, till exempel `/home/user/orkester/<N>-<namn>`, och tas
   bort när pull requesten är ihopslagen.
-- **Modeller:** arbetare får en billigare modell för rutinändringar i kod och utseende. **Undantag (källpolicyn):**
+- **Modeller:** dirigenten följer modellnivåerna i CLAUDE.md (Sonnet medium för triage och normal granskning, Sonnet
+  high för större gränssnitts-, tidslinje- och renderingsändringar, Opus för arkitektur, fakta, källpolicy och datamodell).
+  Arbetare får en billigare modell för rutinändringar i kod och utseende. **Undantag (källpolicyn):**
   issues med etiketten `data`, `faktafel` eller `källkontroll`, och allt som lägger in eller ändrar fakta, årtal,
   platser eller källor, görs av dirigenten själv eller av en arbetare med samma modell som dirigenten. Källsidan
   öppnas alltid. Ingen uppgift skrivs ur minnet. Nivåerna är `draft`, `source-checked` och `two-sources`; det finns ingen människogranskning (#252).
@@ -81,9 +86,13 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   som en pull request på svenska, med `Closes #N`, vad som ändrats, varför och hur Rikard testar. Ingen force push.
   Rikard slår ihop. Issuet stängs när pull requesten slås ihop, inte av orkestern. Uppdatera `docs/` och
   beslutsloggen i `docs/beslut.md` i samma pull request när något sådant ändras.
+- **Väntan (Wait mechanism):** Claude Code väntar med schemalagda kontroller (`send_later` och schemalagda uppgifter) och aldrig med
+  `sleep` eller en körning som står och väntar. Kan en körmiljö inte vänta (till exempel en engångskörning) gör den ett avgränsat
+  pass och säger det. Codex kör löpande på `codex: redo`-kön enligt [AGENTS.md](../AGENTS.md). Användningsgränsen kontrolleras före
+  varje schemalagd kontroll, och vid 60 % av veckogränsen pausar dirigenten (beslut 2026-11-01).
 - **Gränser och licenser:** kod GPL-3.0, data CC BY 4.0, källor och licenser enligt CLAUDE.md. Orkesterns filer i
   `.orchestra/shared` har MIT-licens och redigeras inte här. Ändringar i dem föreslås till upstream.
-- **Installerad version:** uppströms commit `84fc833611b4b69e290f3e7a829613bb72a74aa5` (efter v0.6.0, ännu utan release-tagg; innehåller reglerna från fältrapporten från Historia-globen), via git subtree med squash. Godkänd av Rikard 2026-10-30.
+- **Installerad version:** uppströms release **v0.7.0**, commit `2bd00217aa1704134c6e2a3d5c9614c6b7fdbfbe` (tagg `v0.7.0`, 2026-10-31), via git subtree med squash. Godkänd av Rikard 2026-11-02 (tidigare: `84fc833`, efter v0.6.0). Slå ihop uppdateringar med **Create a merge commit**, så att subtree-historiken bevaras.
   Uppdatera enligt [shared/INSTALL.md](shared/INSTALL.md).
 - **Uppströmsversioner:** https://github.com/solwation/dirigenten-och-orkestern, kontrolleras när dirigenten startar
   och återanvänds i 24 timmar. Relevanta buggfixar föreslås som ett issue här. Andra uppgraderingar är frivilliga.
