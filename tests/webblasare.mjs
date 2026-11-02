@@ -329,22 +329,19 @@ async function run(browser, vp) {
   await check('årshopp vrider bara globen vid behov', async () => {
     const globe = page.locator('#globe-canvas');
     const spinAway = async () => {
-      const box = await globe.boundingBox();
-      if (!box) throw new Error('globens yta saknas');
-      // Ett halvt varv placerar den nyss framflyttade markören på baksidan.
-      // Pointer capture gör att draget fortsätter utanför canvasens högra kant.
-      await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
-      await page.mouse.down();
-      await page.mouse.move(box.x + box.width / 2 + 750, box.y + box.height / 2, { steps: 4 });
-      await page.mouse.up();
+      // 32 piltangenter är ett drygt halvt varv (3,2 radianer) från den just centrerade
+      // markören. Det är stabilare än ett drag som kan lämna en smal mobilcanvas.
+      await globe.focus();
+      for (let i = 0; i < 32; i++) await page.keyboard.press('ArrowRight');
       await page.waitForTimeout(3100); // den manuella styrningens spärr är tre sekunder
     };
 
+    await page.evaluate(() => { window.__hgFlights = []; document.getElementById('globe-canvas').addEventListener('hg:globe-flight', event => window.__hgFlights.push(event.detail)); });
     await jumpTo(1969);
     if (!(await page.locator('#event-list .event-btn').count())) throw new Error('1969 saknar panelhändelse för rotationsprovet');
-    await page.waitForTimeout(1200); // första årshoppet hinner centrera den relevanta markören
+    await page.waitForFunction(() => window.__hgFlights?.some(f => f.phase === 'end'), null, { timeout: T.step });
     await spinAway();
-    await page.evaluate(() => { window.__hgFlights = []; document.getElementById('globe-canvas').addEventListener('hg:globe-flight', event => window.__hgFlights.push(event.detail)); });
+    await page.evaluate(() => { window.__hgFlights = []; });
     // Växla år: Timeline skickar bara change för ett faktiskt nytt år, och 1968 har samma Biafra-markör först.
     await jumpTo(1968);
     if (!(await page.locator('#event-list .event-btn').count())) throw new Error('1968 saknar panelhändelse för rotationsprovet');
