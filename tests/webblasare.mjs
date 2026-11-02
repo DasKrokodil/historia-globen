@@ -343,22 +343,23 @@ async function run(browser, vp) {
     await jumpTo(1969);
     await page.waitForTimeout(1200); // första årshoppet hinner centrera den relevanta markören
     await spinAway();
-    const before = await globe.screenshot();
+    await page.evaluate(() => { window.__hgFlights = []; document.getElementById('globe-canvas').addEventListener('hg:globe-flight', event => window.__hgFlights.push(event.detail)); });
     await jumpTo(1969);
-    await page.waitForTimeout(250);
-    const during = await globe.screenshot();
-    await page.waitForTimeout(1200);
-    const after = await globe.screenshot();
-    if (before.equals(after) || during.equals(after)) throw new Error('årshoppet startade eller avslutade inte den förväntade rotationen');
+    await page.waitForFunction(() => window.__hgFlights?.some(f => f.phase === 'end'), null, { timeout: T.step });
+    const flight = await page.evaluate(() => window.__hgFlights);
+    const start = flight.find(f => f.phase === 'start'), end = flight.find(f => f.phase === 'end');
+    if (!start || !end || Math.abs(end.x - start.targetX) > 0.001 || Math.abs(end.y - start.targetY) > 0.001) {
+      throw new Error('årshoppet nådde inte den förväntade globorienteringen');
+    }
 
     await spinAway();
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    const reducedBefore = await globe.screenshot();
+    await page.evaluate(() => { window.__hgFlights = []; });
     await jumpTo(1969);
     await page.waitForTimeout(1250);
-    const reducedAfter = await globe.screenshot();
+    const reducedFlights = await page.evaluate(() => window.__hgFlights);
     await page.emulateMedia({ reducedMotion: 'no-preference' });
-    if (!reducedBefore.equals(reducedAfter)) throw new Error('reducerad rörelse startade ändå automatisk globrotation');
+    if (reducedFlights.length) throw new Error('reducerad rörelse startade ändå automatisk globrotation');
     return 'årshopp flyger från baksidan; reducerad rörelse lämnar globen stilla';
   });
 
