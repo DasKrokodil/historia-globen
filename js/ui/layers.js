@@ -19,6 +19,7 @@ export async function loadViews() {
     return {
       title: t(doc.title), custom: t(doc.custom), customize: t(doc.customize),
       eventWindow: Object.fromEntries(Object.entries(doc.eventWindow ?? {}).map(([when, text]) => [when, t(text)])),
+      poster: Object.fromEntries(Object.entries(doc.poster ?? {}).map(([id, text]) => [id, t(text)])),
       empireLegend: Object.fromEntries(Object.entries(doc.empireLegend ?? {}).map(([id, text]) => [id, t(text)])),
       uncertainty: Object.fromEntries(Object.entries(doc.uncertainty ?? {}).map(([id, text]) => [id, t(text)])),
       groups: doc.groups.map(g => ({ ...g, name: t(g.name) })),

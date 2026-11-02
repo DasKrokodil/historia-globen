@@ -805,6 +805,7 @@ body {
   cursor: pointer;
 }
 .flat-zbtn:hover { border-color: var(--brass); color: var(--brass); }
+.flat-poster { width: auto; min-width: 40px; padding: 0 10px; font-size: 13px; }
 @media (max-width: 760px) { .flat-zbtn { width: 44px; height: 44px; } }
 
 /* ---------- källor ---------- */

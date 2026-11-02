@@ -597,6 +597,27 @@ async function run(browser, vp) {
     await hidden('#jump-pop');
   });
 
+  await check('Affisch sparas från Platt vy', async () => {
+    const button = page.locator('#flat-poster');
+    await button.waitFor({ state: 'visible', timeout: T.step });
+    if ((await button.textContent()).trim() !== 'Affisch') throw new Error('Affischknappen saknar text från vydata');
+    await jumpTo(1969); // året har flera aktiva händelser; listan under kartan ska därför också exporteras
+    await shot('6-affisch-fore-export');
+    const [download] = await Promise.all([
+      page.waitForEvent('download', { timeout: T.step }),
+      button.click(),
+    ]);
+    if (download.suggestedFilename() !== `historia-globen-${await year()}.png`) throw new Error(`fel affischnamn: ${download.suggestedFilename()}`);
+    await download.saveAs(path.join(OUT, `${vp.name}-6-affisch.png`));
+    const file = await download.path();
+    const header = fs.readFileSync(file);
+    if (header.toString('ascii', 1, 4) !== 'PNG' || header.readUInt32BE(16) !== 3508 || header.readUInt32BE(20) !== 2480) {
+      throw new Error('affischen är inte A4 liggande PNG (3508 × 2480)');
+    }
+    await jumpTo(ROUTE_YEAR);
+    return `${header.readUInt32BE(16)} × ${header.readUInt32BE(20)}; ${download.suggestedFilename()}`;
+  });
+
   await check('ett rike syns', async () => {
     const n = await layerDraws('areas', 5000);
     return `${n} pixlar ändras när Riken slås på`;
