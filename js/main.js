@@ -85,7 +85,7 @@ async function start() {
   const panel = new Panel({
     root: $('panel'), list: $('event-list'), filters: $('filters'), chips: $('panel-filters'), detail: $('detail'),
     sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'), close: $('panel-close'),
-  }, data, { empireLegend: views?.empireLegend });
+  }, data, { empireLegend: views?.empireLegend, uncertainty: views?.uncertainty });
   const ff = new FunFacts({
     root: $('funfact'), text: $('ff-text'), events: $('ff-events'), review: $('ff-review'),
     pager: $('ff-pager'), next: $('ff-next'), srcBtn: $('ff-sources'),
@@ -94,7 +94,7 @@ async function start() {
   // Smal skärm (#361): faktarutan som ark nedifrån med tre lägen, och gruppen Visa som meny i den kompakta raden överst
   const detailSheet = new Sheet($('detail'));
   new ViewMenu({ toggle: $('more-toggle'), menu: $('more-menu') });
-  const sources = new SourcesDialog({ root: $('sources-dialog'), body: $('sources-body'), close: $('sources-close'), openBtn: $('btn-sources') }, data);
+  const sources = new SourcesDialog({ root: $('sources-dialog'), body: $('sources-body'), close: $('sources-close'), openBtn: $('btn-sources') }, data, { uncertainty: views?.uncertainty });
 
   const timeline = new Timeline({
     track: $('track'), thumb: $('thumb'), segs: $('track-segments'), ticks: $('ticks'),

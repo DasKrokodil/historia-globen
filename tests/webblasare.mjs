@@ -649,6 +649,31 @@ async function run(browser, vp) {
     await hidden('#sources-dialog');
   });
 
+  await check('faktarutan skiljer källkontroll från osäkerhet', async () => {
+    if (await page.locator('#focus-bar').isVisible()) {
+      await page.click('#focus-exit');
+      await hidden('#focus-bar');
+    }
+    await setLayer('events', true);
+    await page.keyboard.press('Escape');
+    await hidden('#layer-menu');
+    await page.click('#year-jump');
+    await visible('#jump-input');
+    await page.fill('#jump-input', '2600 f.Kr.');
+    await page.press('#jump-input', 'Enter');
+    await hidden('#jump-pop');
+    if (await page.isHidden('#panel')) await page.click('#btn-panel');
+    await visible('#panel');
+    const event = page.locator('#event-list .event-btn', { hasText: 'Cheopspyramiden' });
+    await event.waitFor({ state: 'visible', timeout: T.step });
+    await event.click();
+    await visible('#detail .uncertainty-row');
+    const text = (await page.textContent('#detail .uncertainty-row')).replace(/\s+/g, ' ').trim();
+    if (!/Historisk osäkerhet:.*dateringen är ungefärlig/.test(text)) throw new Error(`osäkerhetsraden saknar ungefärlig datering: ${text}`);
+    if (!(await page.locator('#detail .review-badge').count())) throw new Error('faktarutan saknar en separat rad för källkontroll');
+    return text;
+  });
+
   await check('ingen horisontell scroll efteråt', async () => {
     const w = await page.evaluate(() => ({ doc: document.documentElement.scrollWidth, body: document.body.scrollWidth, win: window.innerWidth }));
     if (Math.max(w.doc, w.body) > w.win) throw new Error(`sidan är ${Math.max(w.doc, w.body)} px bred i ett ${w.win} px fönster`);

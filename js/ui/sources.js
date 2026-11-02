@@ -95,8 +95,8 @@ function collect({ sources, events, funfacts, polities, empireGroups = [], land,
 }
 
 export class SourcesDialog {
-  constructor({ root, body, close, openBtn }, data) {
-    Object.assign(this, { root, body, data, openBtn });
+  constructor({ root, body, close, openBtn }, data, { uncertainty = {} } = {}) {
+    Object.assign(this, { root, body, data, openBtn, uncertainty });
     this.onSettings = () => {};
     this.query = '';
     this.group = null;
@@ -153,6 +153,7 @@ export class SourcesDialog {
         <li>Osäkerhet visas öppet, till exempel "cirka" eller ett spann. Om källorna är oense står det i faktarutan.</li>
         <li>En fun fact som jämför två saker har källa för båda leden.</li>
       </ol>
+      <aside class="detail-note src-uncertainty"><h4>${esc(t(this.uncertainty.label))}</h4><p>${esc(t(this.uncertainty.about))}</p></aside>
       <h3>Läget just nu</h3>
       <p class="src-total">${total(religionsDoc)}</p>
       <h3>Källregister</h3>
