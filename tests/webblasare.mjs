@@ -497,10 +497,69 @@ async function run(browser, vp) {
     }
   });
 
+  await check('Fokus pausar vid en resas godkända stopp', async () => {
+    try {
+      await page.click('#btn-focus');
+      await visible('#focus-menu');
+      await page.click('#focus-menu [data-tab="Resor"]');
+      await page.fill('#focus-menu .focus-search', 'Columbus första resa');
+      const route = page.locator('#focus-menu .focus-item[data-key="route:columbus-resa-1"]');
+      await route.waitFor({ state: 'visible', timeout: T.step });
+      await route.click();
+      await visible('#focus-bar');
+      const speed = (await page.textContent('#btn-speed')).replace(/\s+/g, ' ').trim();
+      if (!/dag|d\/s/.test(speed)) throw new Error(`resan med dagsdatum använder inte dagtakt: ${speed}`);
+      await page.click('#focus-action');
+      await visible('#pause-note');
+      const pause = (await page.textContent('#pause-note')).replace(/\s+/g, ' ').trim();
+      if (!pause.includes('Palos de la Frontera') || !pause.includes('3 augusti 1492') || !pause.includes('Columbus första resa')) {
+        throw new Error(`pausraden saknar plats, datum eller resa: ${pause}`);
+      }
+      if (!pause.includes('Källorna skiljer sig')) throw new Error('resans osäkerhetsnot syns inte i pausrutan');
+      await shot('6b-fokus-resa-stopp');
+      await page.click('#focus-exit');
+      await hidden('#focus-bar');
+
+      await page.click('#btn-layers');
+      await visible('#layer-menu');
+      if (await page.locator('#layer-custom').isHidden()) await page.click('#layer-customize');
+      const stops = page.locator('input[data-pause="route"]');
+      await stops.waitFor({ state: 'visible', timeout: T.step });
+      if (!(await stops.isChecked())) throw new Error('resestoppen är inte på som standard');
+      await stops.click();
+      await page.keyboard.press('Escape');
+      await hidden('#layer-menu');
+
+      await page.click('#btn-focus');
+      await visible('#focus-menu');
+      await page.click('#focus-menu [data-tab="Resor"]');
+      await page.fill('#focus-menu .focus-search', 'Columbus första resa');
+      await page.locator('#focus-menu .focus-item[data-key="route:columbus-resa-1"]').click();
+      await page.click('#focus-action');
+      await page.waitForTimeout(500);
+      if (await page.locator('#pause-note').isVisible()) throw new Error('resan pausade trots att resestoppen är avstängda');
+      await page.click('#focus-action');
+      await page.click('#focus-exit');
+      await hidden('#focus-bar');
+      await jumpTo(1900); // följande krigstest söker nära tiden det står på
+      return `${speed}; stoppet vid Palos pausar med plats, datum, resa och not; valet kan stängas av`;
+    } finally {
+      const action = page.locator('#focus-action');
+      if (await action.isVisible().catch(() => false) && (await action.textContent()).includes('Pausa')) await action.click();
+      if (await page.locator('#focus-bar').isVisible().catch(() => false)) await page.click('#focus-exit');
+      // Återställ inställningen, så att senare flöden får sidans standard.
+      if (!(await page.locator('#layer-menu').isVisible().catch(() => false))) await page.click('#btn-layers');
+      const stops = page.locator('input[data-pause="route"]');
+      if (await stops.isVisible().catch(() => false) && !(await stops.isChecked())) await stops.click();
+      await page.keyboard.press('Escape');
+    }
+  });
+
   await check('Krigets tidslinje har läsbara mobiletiketter', async () => {
     await page.click('#btn-focus');
     await visible('#focus-menu');
     await page.click('#focus-menu [data-tab="Krig"]');
+    await page.fill('#focus-menu .focus-search', 'andra världskriget'); // sökning visar även krig utanför årets relevansfönster
     const war = page.locator('#focus-menu .focus-item[data-key="war:andra-varldskriget"]');
     await war.waitFor({ state: 'visible', timeout: T.step });
     await war.click();

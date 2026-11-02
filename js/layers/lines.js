@@ -27,8 +27,8 @@ export function entry({ refresh }) {
   loadRoutes().then(list => { layer.setRoutes(list); refresh(); });
   return {
     id: 'routes', name: 'Resor och handelsvägar', group: 'movement', menu: { on: true, note: 'streckad = osäker väg' }, layer, z: Z.routes,
-    enabled: s => s.layers.routes,
-    apply: s => { layer.shipStyle = s.on.discovery ? 'ship' : 'dot'; },
+    enabled: s => s.focus?.type === 'route' || s.layers.routes,
+    apply: s => { layer.shipStyle = s.on.discovery ? 'ship' : 'dot'; layer.onlyRoute = s.focusRoute?.id ?? null; },
     update: s => layer.update({ year: s.year, fine: s.fine, window: s.window, filters: s.filters }),
     drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
   };
@@ -162,6 +162,7 @@ export class LinesLayer {
   constructor(routes = []) {
     this.enabled = true;
     this.shipStyle = 'dot'; // 'ship' i upptäcktsvyn (#101)
+    this.onlyRoute = null;  // resan i Fokus (#376)
     this.active = []; // [{ route, alpha, legs: [{ leg, pts, dashed }], ships: [[lon, lat, dir], ...] }]
     this.setRoutes(routes);
   }
@@ -187,6 +188,7 @@ export class LinesLayer {
     if (!this.enabled) return this.active;
     const now = fine ? year : Math.floor(year) + 0.999;
     for (const { route, legs } of this.routes) {
+      if (this.onlyRoute && route.id !== this.onlyRoute) continue;
       if (!isVisibleReview(route.review) || (filters && !filters.has(route.category))) continue;
       if (route.kind === 'trade') {
         const shown = legs.filter(({ leg }) => now >= leg.from - window && year <= leg.to + window)

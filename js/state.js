@@ -17,9 +17,10 @@ export function createState() {
     span: e => [e.start, e.end], // en händelses tid som [början, slut], i fokusläget för korta krig datum ur edtf
     playing: false,   // spelade tidslinjen när omritningen började
 
-    // Fokusläget (#109, #113): { type: 'war' | 'empire' | 'religion', id, from, to, fine, ... } eller null
+    // Fokusläget (#109, #113, #376): { type: 'war' | 'empire' | 'religion' | 'route', id, from, to, fine, ... } eller null
     focus: null,
     focusWar: null,   // kriget man följer (händelsen), eller null
+    focusRoute: null, // resan man följer, eller null
 
     // Besökarens val
     layers: {},       // valen i Lager: { events: true, areas: true, religions: false, ... } (LayerMenu.on)
