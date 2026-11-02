@@ -42,6 +42,7 @@ js/ui/sources.js      sidan Om källorna
 js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering
 js/ui/poster.js       A4-affisch som PNG från Platt vy
 js/ui/routepop.js     klickrutan för vägar och resor
+js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg (#363)
 js/ui/feedback.js     formuläret för besökarnas förslag (avstängt som standard, docs/feedback.md)
 js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med functions/)
 functions/api/feedback.js  Cloudflare Pages Function som skapar issues i ett privat repo (enda undantaget från punkt 1)
@@ -49,6 +50,7 @@ tests/                tester för functions/ med node:test (node --test 'tests/*
 tests/webblasare.mjs  webbläsartest med Playwright, körs i GitHub Actions för varje PR (#339)
 data/events.json      händelser
 data/funfacts.json    fun facts (kopplade till händelse-id)
+data/intro.json       introduktionens steg och referenser till befintliga händelser/fun facts (#363)
 data/sources.json     källregister
 data/land.json        grundkarta: Natural Earth 1:50m, färdigprojicerad SVG-path i 4096×2048
 data/empires/         riken: index.json och en fil per rike, byggs med tools/riken.py ur Cliopatria

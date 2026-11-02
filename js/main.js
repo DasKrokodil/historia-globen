@@ -15,6 +15,7 @@ import { cluster, clusterContents, placeLabels, dotBox } from './ui/clusters.js'
 import { ZOOM_LEVELS, zoomLevel, pxPerImg, zoomView, eventKeepouts, globeEmpireBlocks } from './ui/zoomlevels.js';
 import { FocusMenu } from './ui/focusmenu.js';
 import { Help } from './ui/help.js';
+import { Intro, loadIntro } from './ui/intro.js';
 import { FlatMap } from './ui/flatmap.js';
 import { downloadPoster } from './ui/poster.js';
 import { Feedback } from './ui/feedback.js';
@@ -49,7 +50,7 @@ function warCards(events) {
 
 async function start() {
   // Lagrens grupper och förinställda vyer (#357) är en liten fil; den hämtas samtidigt med resten
-  const [data, views] = await Promise.all([loadAll(), loadViews()]);
+  const [data, views, introData] = await Promise.all([loadAll(), loadViews(), loadIntro()]);
   const globe = new Globe($('globe-canvas'), $('year-jump'));
   globe.drawBase(data.land);
   const flatMap = new FlatMap({
@@ -1231,8 +1232,8 @@ async function start() {
 
   $('loading').hidden = true;
   // Kort hjälp för nya besökare (#245), när globen har laddats
+  let intro = null;
   const help = new Help({ root: $('help'), button: $('btn-help'), close: $('help-close') });
-  help.showFirstTime();
   // Besökarnas förslag (docs/feedback.md): från Hjälp och från faktarutans "Rapportera faktafel"
   const feedback = new Feedback($('feedback'));
   $('help-feedback').addEventListener('click', () => { help.close(false); feedback.open({ opener: $('btn-help') }); });
@@ -1245,6 +1246,25 @@ async function start() {
   timeline.init(1325);
   globe.flyTo(34, -50, 1600);
   globe.autoRotate = false;
+
+  // Frivillig introduktion (#363): tre stilla kort utan att flytta kamera eller år automatiskt.
+  intro = new Intro({
+    root: $('intro'), close: $('intro-close'), progress: $('intro-progress'), title: $('intro-title'), content: $('intro-content'),
+    back: $('intro-back'), next: $('intro-next'), skip: $('intro-skip'),
+  }, introData, {
+    events: data.events, funfacts: data.funfacts,
+    onExplore: () => $('track').focus({ preventScroll: true }),
+    onFollow: () => $('btn-focus').click(),
+    onTask: () => $('track').focus({ preventScroll: true }),
+    fallbackFocus: () => $('btn-help').offsetParent !== null ? $('btn-help') : $('more-toggle'),
+  });
+  // Introduktionen ersätter den automatiska hjälpen första gången; Hjälp finns alltid kvar i knappen Visa.
+  const introShown = intro.showFirstTime();
+  if (!introShown) help.showFirstTime();
+  const introButton = $('help-intro');
+  introButton.hidden = !intro.ready;
+  introButton.textContent = introData?.labels?.restart ? t(introData.labels.restart) : introButton.textContent;
+  introButton.addEventListener('click', () => { help.close(false); intro.restart(introButton); });
 }
 
 const narrowView = matchMedia('(max-width: 760px)');

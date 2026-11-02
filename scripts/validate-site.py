@@ -296,6 +296,14 @@ for f in funfacts['funfacts']:
     for i in f.get('events', []):
         if i not in ev_ids:
             err(f"data/funfacts.json ({f.get('id')}): händelsen {i} finns inte i events.json")
+# Introduktionen (#363) får bara hänvisa till befintliga, redan visbara händelser och fun facts.
+intro = load('data/intro.json') or {}
+funfact_ids = {f.get('id') for f in funfacts['funfacts']}
+if intro.get('funfact') not in funfact_ids:
+    err(f"data/intro.json: fun facten {intro.get('funfact')} finns inte i data/funfacts.json")
+for step in intro.get('steps', []):
+    if step.get('event') and step['event'] not in ev_ids:
+        err(f"data/intro.json: händelsen {step['event']} finns inte i data/events.json")
 # Rikenas faktarutor och försvunna länders årtal och efterträdare (#170, #72): källor och händelser finns
 for g in (empires or {}).get('groups', []):
     fa, v = g.get('facts') or {}, g.get('vanished') or {}

@@ -67,8 +67,8 @@ while IFS= read -r f; do copy "$f"; done < <(find js -type f -name '*.js' | sort
 ls img/icons/*.svg >/dev/null 2>&1 || fail "inga ikoner i img/icons/"
 for f in img/icons/*.svg; do copy "$f"; done
 
-# Datafiler som js/model.js laddar, och lagrens grupper och vyer (vyer.json, js/ui/layers.js, #357)
-for f in events funfacts sources land borders styles religions religions-polities upptackt bildlager vyer; do
+# Datafiler som js/model.js och UI-modulerna laddar, inklusive introduktionen (#363)
+for f in events funfacts intro sources land borders styles religions religions-polities upptackt bildlager vyer; do
   copy "data/$f.json"
 done
 
