@@ -247,6 +247,14 @@ export class Globe {
     this.invalidate();
   }
 
+  /** Är punkten på den synliga halvan av klotet? Används för att inte röra
+   * kameran i onödan efter ett uttryckligt årshopp (#515). */
+  isPointVisible(lat, lon) {
+    this.camera.updateMatrixWorld();
+    this.group.updateMatrixWorld();
+    return this.project(latLonToVec3(lat, lon)).facing > 0;
+  }
+
   _initControls() {
     const el = this.canvas;
     const pts = new Map();

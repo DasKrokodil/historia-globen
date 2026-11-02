@@ -112,7 +112,7 @@ async function start() {
     pauseGo: $('pause-go'),
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
-  setupYearJump(timeline, { button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'), onJump: () => flyToYearHighlight() });
+  setupYearJump(timeline, { button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'), onJump: () => orientToPanelHighlight() });
   // Översikten visar varje krig som en prick vid dess viktigaste händelse (top); krigets streck och slagen
   // märkta major syns först i fokusläget (#298)
   timeline.setMarks(data.events.filter(e => !e.partOf || e.top || e.major), data.funfacts, e => CAT[e.category]?.color ?? '#fff',
@@ -884,18 +884,17 @@ async function start() {
     return stories.get(id);
   }
 
-  // Efter "Hoppa till år" (#165): globen vänder sig mot årets viktigaste händelse, alltså den första
-  // händelsen i det första Samtidigt-kortet, annars den första i listan. Hoppas över i fokusläge och
-  // om användaren nyss vridit globen själv. Uppspelning och stegknappar anropar inte denna.
+  // Efter "Hoppa till år" och när Samtidigt öppnas (#515): globen vänder sig bara mot årets första
+  // panelrelevanta händelse om dess markör är på baksidan. Panelens nuvarande ordning används tills #508
+  // låser den gemensamma rangordningen. Fokus, Platt vy, uppspelning och reducerad rörelse berörs inte.
   const RECENT_TURN_MS = 3000;
-  function flyToYearHighlight() {
-    if (focus || performance.now() - globe.lastUserInput < RECENT_TURN_MS) return;
-    // Närmast i tid först, och bland jämnbördiga den mest avgränsade (ett datum före ett spann som Oxford 1096–2026)
-    const rank = e => [Math.max(0, e.start - timeline.year, timeline.year - e.end), e.end - e.start];
-    const byRank = (a, b) => { const [x, y] = [rank(a), rank(b)]; return x[0] - y[0] || x[1] - y[1]; };
-    const card = (ff.active[0]?.events ?? []).map(id => data.byId[id]).filter(Boolean);
-    const e = card.sort(byRank)[0] ?? visible.map(v => v.e).sort(byRank)[0];
-    if (e) globe.flyTo(e._lat, e._lon);
+  function orientToPanelHighlight() {
+    if (focus || timeline.playing || !flatMap.hidden || matchMedia('(prefers-reduced-motion: reduce)').matches
+      || performance.now() - globe.lastUserInput < RECENT_TURN_MS) return;
+    // `visible` är panelens nuvarande relevansordning. #508 ska ersätta den med den gemensamma
+    // ordningen top, major, pågår och närmast i tid; håll urvalet på ett ställe tills dess.
+    const e = visible[0]?.e;
+    if (e && !globe.isPointVisible(e._lat, e._lon)) globe.flyTo(e._lat, e._lon);
   }
 
   const narrow = matchMedia('(max-width: 760px)');
@@ -1100,7 +1099,7 @@ async function start() {
   document.fonts?.ready.then(refresh);
 
   // Menyerna uppe till höger: bara en åt gången
-  panel.onOpen = () => { layers.close(); focusMenu.close(); };
+  panel.onOpen = () => { layers.close(); focusMenu.close(); orientToPanelHighlight(); };
   layers.onOpen = () => { panel.setOpen(false); focusMenu.close(); };
 
   // Etikettens text och beskrivning, samma på globen och i Platt vy (#313).
