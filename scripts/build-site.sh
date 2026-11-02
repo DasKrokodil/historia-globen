@@ -16,6 +16,7 @@
 #   images/karta/         upptäcktsvyns bilder som data/upptackt.json pekar på (decorations[].file, #101)
 #   _headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
 #   LICENSE, data/LICENSE licenserna för kod (GPL-3.0) och data (CC BY 4.0) följer med de publicerade filerna
+#   robots.txt, sitemap.xml indexeringsfiler för startsidan (#467)
 #
 # Interna filer (.claude/, .orchestra/, .github/, docs/, tools/, scripts/, tests/, data/utkast/, images/incoming/,
 # CLAUDE.md, README.md) kopieras aldrig. functions/ (formulärets Pages Function, docs/feedback.md) kopieras inte
@@ -47,6 +48,8 @@ copy index.html
 copy css/style.css
 copy LICENSE
 copy data/LICENSE
+copy robots.txt
+copy sitemap.xml
 
 # Cache-regler för Cloudflare Pages: webbläsaren kontrollerar alltid om sidans filer har ändrats
 copy _headers

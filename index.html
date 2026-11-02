@@ -4,7 +4,45 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
-<title>Historia-globen</title>
+<title>Historia-globen – se vad som hände samtidigt i världen</title>
+<meta name="description" content="Utforska världshistorien på en snurrbar jordglob. Dra i tiden och se vad som hände samtidigt på olika håll i världen.">
+<link rel="canonical" href="https://historiagloben.se/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:url" content="https://historiagloben.se/">
+<meta property="og:title" content="Historia-globen – se vad som hände samtidigt i världen">
+<meta property="og:description" content="Utforska världshistorien på en snurrbar jordglob. Dra i tiden och se vad som hände samtidigt på olika håll i världen.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Historia-globen – se vad som hände samtidigt i världen">
+<meta name="twitter:description" content="Utforska världshistorien på en snurrbar jordglob. Dra i tiden och se vad som hände samtidigt på olika håll i världen.">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Historia-globen",
+    "inLanguage": "sv",
+    "url": "https://historiagloben.se/"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "Historia-globen – data",
+    "inLanguage": "sv",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "distribution": {
+      "@type": "DataDownload",
+      "contentUrl": "https://github.com/DasKrokodil/historia-globen/tree/main/data",
+      "encodingFormat": "application/json"
+    },
+    "isBasedOn": {
+      "@type": "SoftwareSourceCode",
+      "codeRepository": "https://github.com/DasKrokodil/historia-globen",
+      "license": "https://www.gnu.org/licenses/gpl-3.0.html"
+    }
+  }
+]
+</script>
 <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -14,6 +52,9 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<noscript>
+  <p>Historia-globen är en interaktiv jordglob för att utforska vad som hände samtidigt i världens historia. Sidan behöver JavaScript för globen och tidslinjen. <a href="data/sources.json">Om källorna och källregistret</a>.</p>
+</noscript>
 <div class="app" id="app">
   <canvas id="globe-canvas" class="globe-canvas" tabindex="0" role="region" aria-roledescription="interaktiv jordglob" aria-label="Snurrbar jordglob. Dra för att snurra, scrolla eller nyp för att zooma. Med tangentbord: piltangenter snurrar, plus och minus zoomar, Escape går till årskontrollen. Händelserna finns också i listan Samtidigt i världen."></canvas>
   <div id="labels" class="labels"></div>

@@ -231,6 +231,10 @@ I smal skärm (högst 760 px) konkurrerade globen, knapparna, tidslinjen och kor
 
 Webbläsarens egen sidzoom är tillåten (#404): viewport begränsar inte skalan och sidans `touch-action: manipulation` tillåter nypzoom och panorering, men hindrar dubbeltryckszoom och tillhörande tryckfördröjning. Globen har en egen zoom med nyp, scroll och +/−, så globytan har `touch-action: none` och ett lokalt stopp för Safaris nypgest (`gesturestart`). Därmed kan besökaren zooma och omflöda gränssnittet från övriga delar av sidan utan att en nypning på globen samtidigt zoomar både glob och sida.
 
+## Synlighet och indexering
+
+Startsidan har en beskrivande titel, metabeskrivning, canonical-adress och motsvarande Open Graph- och Twitter-metadata (#467). `robots.txt` och `sitemap.xml` publiceras i roten och listar bara startsidan: Om källorna är en dialog, inte en egen adress. JSON-LD beskriver endast webbplatsens namn och språk samt datans CC BY 4.0-licens, dataadressen och kodens GPL-3.0-licens. Ingen `og:image` publiceras förrän det finns en riktig bild. `noscript` förklarar att globen behöver JavaScript och länkar till källregistret.
+
 ## Fokusläget
 
 Fokus-knappen följer ett krig, ett rike, en religion eller en resa. Tidslinjen visar bara det spannet, globen riktas mot platsen och uppspelningen går långsamt.

@@ -25,6 +25,7 @@ Listan bygger på referenserna i koden:
 | I `dist/` | Varför | Var referensen finns |
 |---|---|---|
 | `index.html` | startsidan | – |
+| `robots.txt`, `sitemap.xml` | indexeringsregler och sitemap för startsidan | sökmotorer; `index.html` hänvisar inte till dem |
 | `css/style.css` | stilmallen (inga `url()` till lokala filer) | `index.html` |
 | `_headers` | Cloudflare Pages cache-regler: `Cache-Control: no-cache` för sidan, `js/`, `css/` och `data/`, så att webbläsaren alltid kontrollerar om en fil har ändrats. Utan den kunde en ny `index.html` blandas med gamla JS-moduler efter release v4.1.0 ("Globen kunde inte starta"). Har zonen i Cloudflare en egen Browser Cache TTL ska den stå på "Respect Existing Headers". | Cloudflare Pages läser den ur `dist/` |
 | `js/**/*.js` (20 moduler) | ES-modulerna | `index.html` → `js/main.js` → `import` |
