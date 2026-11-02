@@ -19,6 +19,7 @@ export async function loadViews() {
     return {
       title: t(doc.title), custom: t(doc.custom), customize: t(doc.customize),
       eventWindow: Object.fromEntries(Object.entries(doc.eventWindow ?? {}).map(([when, text]) => [when, t(text)])),
+      panel: Object.fromEntries(Object.entries(doc.panel ?? {}).map(([id, text]) => [id, t(text)])),
       poster: Object.fromEntries(Object.entries(doc.poster ?? {}).map(([id, text]) => [id, t(text)])),
       focus: {
         groupByAge: t(doc.focus?.groupByAge), showAll: t(doc.focus?.showAll), showNearest: t(doc.focus?.showNearest),

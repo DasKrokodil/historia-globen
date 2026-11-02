@@ -216,7 +216,7 @@ export class FunFacts {
     this.pics.innerHTML = shown.map(e => {
       const st = styleFor(e, this.styles), img = e.image;
       const label = !img ? '' : img.placeholder ? 'Platshållare' : img.kind === 'illustration' ? 'Illustration' : '';
-      return `<button type="button" class="ff-pic frame-${st.frame}${img ? '' : ' no-img'}" data-id="${esc(e.id)}" aria-label="Läs mer: ${esc(t(e.title))}">
+      return `<button type="button" class="ff-pic frame-${st.frame}${img ? '' : ' no-img'}" data-id="${esc(e.id)}" aria-label="${img ? 'Bildkort' : 'Reservkort utan bild'}: Läs mer om ${esc(t(e.title))}">
         ${img ? `<img src="${esc(img.file)}" alt="" width="800" height="600">` : ''}
         ${label ? `<span class="ff-badge">${label}</span>` : ''}
         <span class="ff-cap">${shown.length > 1 || !img ? `<span class="ff-name">${esc(t(e.title))}</span>` : ''}<span class="ff-more">Läs mer ›</span></span>

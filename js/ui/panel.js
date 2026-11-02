@@ -84,7 +84,7 @@ function lineageHtml(v) {
 }
 
 export class Panel {
-  constructor({ root, list, filters, chips, detail, sub, count, toggle, close }, { events, srcById, styles }, { empireLegend = {}, uncertainty = {} } = {}) {
+  constructor({ root, list, filters, chips, detail, sub, count, toggle, close }, { events, srcById, styles }, { empireLegend = {}, uncertainty = {}, panel = {} } = {}) {
     Object.assign(this, { root, list, filtersEl: filters, detail, sub, count, toggle, srcById, styles, empireLegend, uncertainty });
     this.onSelect = () => {};
     this.onFilter = () => {};
@@ -97,6 +97,9 @@ export class Panel {
     this.onShowPlace = null; // (händelse) => platsraden i mobil (#312): fäller ihop rutan och visar markören på globen
     this.selectedId = null;
     this.shown = null; // det faktarutan visar just nu; en rad som laddas klart ritar bara om samma ruta (#337)
+    this.expandedRegions = new Set();
+    this.longOpen = false;
+    this.copy = panel;
 
     // Visa bara kategorier som har händelser, i den fasta ordningen. Samma chips finns på två ställen:
     // under Lager (#120) och ovanför listan i panelen (#311). Båda styr samma filter, så de följs åt.
@@ -157,34 +160,44 @@ export class Panel {
       return;
     }
     const inside = visible.filter(v => v.inside).length;
-    this.count.textContent = String(visible.length);
     const near = visible.length - inside;
+    const copy = key => t(this.copy[key]) || key;
+    const summary = copy('summary');
+    const summaryText = summary.replace('{count}', visible.length).replace('{inside}', inside).replace('{near}', near);
+    this.count.textContent = String(visible.length);
+    this.toggle.setAttribute('aria-label', summaryText);
     const at = labels?.at ?? `år ${formatYear(year)}`, within = labels?.within ?? `±${Math.round(window)} år`;
     const parts = [];
     parts.push(inside ? `${inside} ${inside === 1 ? 'händelse pågår' : 'händelser pågår'} ${at}` : `Inget pågår exakt ${at}`);
     if (near) parts.push(`${near} till inom ${within}`);
-    this.sub.textContent = visible.length ? parts.join(', ') + '.' : `Inget i datan inom ${within} från ${at.replace(/^(år|den) /, '')}.`;
+    this.sub.textContent = visible.length ? `${summaryText}. ${parts.join(', ')}.` : `Inget i datan inom ${within} från ${at.replace(/^(år|den) /, '')}.`;
     if (!visible.length) {
       this.list.innerHTML = `<p class="empty-note">Dra i tidslinjen eller tryck på uppspelning för att hitta nästa händelse. Prickarna under tidslinjen visar var det finns data.</p>`;
       return;
     }
     // Grupperat per världsdel, i fast ordning, så att man ser vad som händer på olika håll
     const groups = new Map(REGIONS.map(r => [r, []]));
-    for (const v of visible) groups.get(v.e._region ??= region(v.e._lat, v.e._lon)).push(v);
-    this.list.innerHTML = [...groups].filter(([, vs]) => vs.length).map(([name, vs]) => `
+    const old = [];
+    for (const v of visible) (v.longRunning ? old : groups.get(v.e._region ??= region(v.e._lat, v.e._lon))).push(v);
+    const rank = (a, b) => (b.e.top - a.e.top) || (b.e.major - a.e.major) || (b.inside - a.inside) || (Math.abs(a.e.start - year) - Math.abs(b.e.start - year)) || t(a.e.title).localeCompare(t(b.e.title), 'sv');
+    const row = ({ e, inside }, name = '') => `
+          <li class="event-item${inside ? '' : ' is-near'}${e.id === this.selectedId ? ' is-selected' : ''}">
+            <button type="button" class="event-btn" data-id="${esc(e.id)}" aria-label="${esc(`${formatEventTime(e)}, ${t(e.title)}${name ? `, ${name}` : ''}, ${reviewLabel(e.review, 'Händelsen')}`)}"${e.id === this.selectedId ? ' aria-current="true"' : ''}>
+              <span class="dot" style="background:${CAT[e.category]?.color}"></span><span class="ttl">${esc(t(e.title))}</span><span class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))}</span>
+            </button>
+          </li>`;
+    this.list.innerHTML = [...groups].filter(([, vs]) => vs.length).map(([name, vs]) => {
+      vs.sort(rank); const open = this.expandedRegions.has(name), shown = open ? vs : vs.slice(0, 5), rest = vs.length - shown.length;
+      return `
       <section class="region-group">
         <h3 class="region-head">${esc(name)} <span class="region-count">${vs.length}</span></h3>
-        <ol>${vs.map(({ e, inside }) => `
-          <li class="event-item${inside ? '' : ' is-near'}${e.id === this.selectedId ? ' is-selected' : ''}">
-            <button type="button" class="event-btn" data-id="${esc(e.id)}" aria-label="${esc(`${formatEventTime(e)}, ${t(e.title)}, ${name}, ${reviewLabel(e.review, 'Händelsen')}`)}"${e.id === this.selectedId ? ' aria-current="true"' : ''}>
-              <span class="dot" style="background:${CAT[e.category]?.color}"></span>
-              <span class="ttl">${esc(t(e.title))}</span>
-              <span class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))}</span>
-            </button>
-          </li>`).join('')}</ol>
-      </section>`).join('');
+        <ol>${shown.map(v => row(v, name)).join('')}</ol>${vs.length > 5 ? `<button type="button" class="link-btn panel-more" data-region="${esc(name)}" aria-expanded="${open}" aria-label="${esc(open ? `${copy('showLess')} i ${name}` : copy('showMore').replace('{count}', rest).replace('{region}', name))}">${esc(open ? copy('showLess') : copy('showMore').replace('{count}', rest).replace('{region}', name))}</button>` : ''}
+      </section>`;
+    }).join('') + (old.length ? `<section class="region-group long-running"><button type="button" class="link-btn panel-more" data-long aria-expanded="${this.longOpen}">${esc(copy('longRunning').replace('{count}', old.length))}</button>${this.longOpen ? `<ol>${old.sort(rank).map(v => row(v)).join('')}</ol>` : ''}</section>` : '');
     // Riktiga knappar: Enter och mellanslag fungerar av sig själva
     for (const b of this.list.querySelectorAll('.event-btn')) b.addEventListener('click', () => this.onSelect(b.dataset.id));
+    for (const b of this.list.querySelectorAll('[data-region]')) b.addEventListener('click', () => { this.expandedRegions.has(b.dataset.region) ? this.expandedRegions.delete(b.dataset.region) : this.expandedRegions.add(b.dataset.region); this.render(visible, year, window, eventsOn, labels); });
+    this.list.querySelector('[data-long]')?.addEventListener('click', () => { this.longOpen = !this.longOpen; this.render(visible, year, window, eventsOn, labels); });
   }
 
   /**

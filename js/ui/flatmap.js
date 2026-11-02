@@ -132,6 +132,8 @@ export class FlatMap {
    */
   setMarkers({ list, labeled, keep, selectedId }) {
     this._marks = { list, labeled, keep, selectedId };
+    // Renderingsstatus: samma urval som faktiskt ritas, även när en medalj blir en klunga eller saknar etikett vid låg zoom.
+    this.root.dataset.visibleEvents = list.filter(u => u.activity > 0).map(u => u.event.id).join(' ');
     this.draw();
   }
 

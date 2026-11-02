@@ -600,7 +600,7 @@ body {
 .ff-story-map { display: block; margin-top: 6px; font: 400 12.5px/1.4 var(--f-body); color: #6b5a3a; }
 .ff-story .ff-events:empty { display: none; }
 .ff-events { display: flex; flex-wrap: wrap; gap: 6px; }
-.ff-has-pics .ff-events { display: none; } /* bildrutorna har namn och Läs mer, så knapparna behövs inte (#190) */
+.ff-has-pics .ff-events { display: flex; } /* även reserv- och bildkort behåller hela händelselistan (#508) */
 .ff-chip {
   display: inline-flex; align-items: center; gap: 6px;
   font: 500 12px/1 var(--f-body);
