@@ -27,6 +27,11 @@ Codex arbetar i två roller (beslut 2026-11-01):
 
 När en pull request är byggd granskas den först av en **annan Codex-körning än den som byggde** (Codex-granskning, beslut 2026-11-02): diff, filkrockar, att bygget och hela webbläsartestet är gröna, att kraven i issuet och i dirigentens order är uppfyllda, och dokumentation och beslut. Granskaren skriver kommentaren **"Codex-granskning: godkänd"** eller konkreta, minimala arbetsorder, och byggaren rättar i samma pull request. Först därefter skriver Codex **"Klar för Claude Code-granskning"**. Claude Code granskar bara pull requests med den kommentaren, och bara det som kräver dirigentens bedömning: källpolicy, arkitektur och hur det ser ut och fungerar för besökaren (en körning och en skärmbild). Pull requests med fakta, data eller källor granskas alltid fullt av Claude Code. Svaret är antingen "godkänd" eller konkreta, minimala arbetsorder i samma pull request. Ingen slår ihop utom Rikard.
 
+**Tre regler för flödet (beslut 2026-11-02):**
+1. **Händelsedriven kögenomgång.** Efter varje ny, uppdaterad eller ihopslagen pull request görs direkt en full kontroll av alla `codex: redo`-issues, och nästa blockerade ärende får förberedelsearbete (till exempel `codex: synpunkter` med en plan) i stället för att vänta.
+2. **Omedelbar handoff.** När en arbetare öppnar eller uppdaterar en pull request börjar den separata Codex-granskningen i samma tur, inte vid nästa heartbeat, CI-resultat eller statusfråga.
+3. **Ingen passiv `codex: pågår`.** Ett `codex: pågår` måste alltid ha en aktiv arbetare, ett pågående test eller en publicering, eller en dokumenterad extern spärr (skriven som kommentar på issuet). Annars återupptas, förbereds eller avmarkeras det direkt.
+
 ## Ta ett issue
 
 1. **Ta bara issues med etiketten `codex: redo`**, eller ett issue som Rikard har pekat ut. Etiketten sätts av Claude Code (dirigenten) när issuet är tydligt avgränsat, saknar historiska fakta och inte krockar med pågående arbete. Ta dem i milstolpens ordning (lägst versionsnummer först).
