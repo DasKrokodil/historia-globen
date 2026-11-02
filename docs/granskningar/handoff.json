@@ -1,6 +1,6 @@
 {
-  "status": "triaged",
-  "report": "docs/granskningar/2026-11-02-fullanalys-dev.md",
-  "createdAt": "2026-11-02T14:40:39Z",
-  "triagedAt": "2026-11-02T15:30:00Z"
+  "status": "ready_for_triage",
+  "report": "docs/granskningar/2026-11-02-roadmap-beroendeanalys.md",
+  "createdAt": "2026-11-02T15:00:00Z",
+  "triagedAt": null
 }
