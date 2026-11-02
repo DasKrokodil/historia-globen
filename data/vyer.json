@@ -7,6 +7,11 @@
     "past": { "sv": "slut", "en": "ended" },
     "future": { "sv": "börjar", "en": "starts" }
   },
+  "focus": {
+    "groupByAge": { "sv": "Gruppera efter: Tidsålder", "en": "Group by: Historical period" },
+    "showAll": { "sv": "Visa alla ({count} till)", "en": "Show all ({count} more)" },
+    "showNearest": { "sv": "Visa närmast", "en": "Show nearest" }
+  },
   "poster": {
     "button": { "sv": "Affisch", "en": "Poster" },
     "title": { "sv": "Historia-globen", "en": "History globe" },

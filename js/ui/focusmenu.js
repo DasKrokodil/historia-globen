@@ -17,13 +17,18 @@ const norm = s => String(s).toLocaleLowerCase('sv').normalize('NFD').replace(/\p
 const byName = (a, b) => a.label.localeCompare(b.label, 'sv');
 
 export class FocusMenu {
-  constructor({ button, menu }) {
+  constructor({ button, menu, texts = {}, ages = [] }) {
     Object.assign(this, { button, menu });
+    this.texts = texts;
+    this.ages = ages;
     this.onPick = () => {};
     this.onOpen = () => {};
     this.groups = [];
     this.time = null;
     this.showAll = false;
+    this.showAllGroups = new Set();
+    this.openGroup = null;
+    this.groupByAge = false;
     this.query = '';
     this.tab = 'Alla';
     this.sort = 'relevans';
@@ -37,7 +42,7 @@ export class FocusMenu {
         <div class="layer-heading first">Följ i fokusläge</div>
         <input type="search" class="focus-search" placeholder="Sök krig, rike, land, religion eller resa" aria-label="Sök i Fokus" autocomplete="off" spellcheck="false">
         <div class="focus-tabs" role="group" aria-label="Visa">${TABS.map(n => `<button type="button" class="chip-btn" data-tab="${n}" aria-pressed="${n === this.tab}">${n}</button>`).join('')}</div>
-        <div class="focus-sort" role="group" aria-label="Ordna efter"><span class="focus-sort-label">Ordna</span>${SORTS.map(([id, n]) => `<button type="button" class="chip-btn" data-sort="${id}" aria-pressed="${id === this.sort}">${n}</button>`).join('')}</div>
+        <div class="focus-sort" role="group" aria-label="Ordna efter"><span class="focus-sort-label">Ordna</span>${SORTS.map(([id, n]) => `<button type="button" class="chip-btn" data-sort="${id}" aria-pressed="${id === this.sort}">${n}</button>`).join('')}<button type="button" class="chip-btn" data-group-age aria-pressed="false">${esc(this.texts.groupByAge ?? 'Gruppera efter: Tidsålder')}</button></div>
       </div>
       <div class="focus-body" role="group" aria-label="Att följa"></div>
       <p class="focus-live sr-only" aria-live="polite"></p>`;
@@ -56,6 +61,11 @@ export class FocusMenu {
     };
     choose('data-tab', 'hg-focus-tab', 'tab');
     choose('data-sort', 'hg-focus-sort', 'sort');
+    menu.querySelector('[data-group-age]').addEventListener('click', e => {
+      this.groupByAge = !this.groupByAge;
+      e.currentTarget.setAttribute('aria-pressed', String(this.groupByAge));
+      this.render();
+    });
     menu.addEventListener('keydown', e => this.key(e));
     button.addEventListener('click', () => (menu.hidden ? this.open() : this.close()));
     document.addEventListener('pointerdown', e => {
@@ -71,8 +81,12 @@ export class FocusMenu {
     this.tab = 'Alla';
     this.sort = 'relevans';
     this.showAll = false;
+    this.showAllGroups.clear();
+    this.openGroup = null;
+    this.groupByAge = false;
     for (const b of this.menu.querySelectorAll('[data-tab]')) b.setAttribute('aria-pressed', String(b.dataset.tab === this.tab));
     for (const b of this.menu.querySelectorAll('[data-sort]')) b.setAttribute('aria-pressed', String(b.dataset.sort === this.sort));
+    this.menu.querySelector('[data-group-age]')?.setAttribute('aria-pressed', 'false');
     try {
       localStorage.removeItem('hg-focus-tab');
       localStorage.removeItem('hg-focus-sort');
@@ -94,8 +108,11 @@ export class FocusMenu {
   /** Året man står på och fönstret runt det: { year, from, to, label }. Visa alla nollställs. */
   setTime(time) {
     this.time = time;
-    this.showAll = false;
     this.render();
+  }
+
+  ageFor(item) {
+    return this.ages.find(age => item.from >= age.from && item.from <= age.to) ?? this.ages.at(-1);
   }
 
   /** Posten om den matchar alla sökord, med det namn som träffade när det inte är postens egen rubrik. */
@@ -113,17 +130,15 @@ export class FocusMenu {
     const chrono = (a, b) => a.from - b.from || byName(a, b);
     const words = norm(this.query.trim()).split(/\s+/).filter(Boolean);
     const relevance = this.sort === 'relevans';
-    let hidden = 0, found = 0;
+    let found = 0;
     const groups = this.groups.filter(g => this.tab === 'Alla' || g.title === this.tab).map(g => {
       const cmp = this.sort === 'alfabetiskt' ? byName : this.sort === 'kronologiskt' || g.all ? chrono
         : (a, b) => dist(a) - dist(b) || byName(a, b);
       const sorted = [...g.items].sort(cmp);
-      // Vid sökning, och i Kronologiskt och Alfabetiskt, letar vi bland alla poster, inte bara de nära året
-      const items = words.length ? sorted.map(it => this.match(it, words)).filter(Boolean)
-        : !relevance || this.showAll || g.all ? sorted : sorted.filter(near);
-      hidden += sorted.length - items.length;
+      // En öppen rullgardin visar alltid de närmaste åtta; sökning visar alla träffar.
+      const items = words.length ? sorted.map(it => this.match(it, words)).filter(Boolean) : sorted;
       found += items.length;
-      return { ...g, items };
+      return { ...g, total: sorted.length, items };
     }).filter(g => g.items.length || (g.loading && !words.length));
     const q = words.length > 0;
     const activeHtml = [], activeText = [];
@@ -140,47 +155,81 @@ export class FocusMenu {
       activeHtml.push(`Sortering: ${esc(sortLabel)}`);
       activeText.push(`Sortering: ${sortLabel}`);
     }
+    if (this.groupByAge) {
+      activeHtml.push(esc(this.texts.groupByAge ?? 'Gruppera efter: Tidsålder'));
+      activeText.push(this.texts.groupByAge ?? 'Gruppera efter: Tidsålder');
+    }
     const activeRow = activeHtml.length ? `<div class="focus-active">
       <span class="focus-active-text"><strong>${found} resultat</strong> · ${activeHtml.join(' · ')}</span>
       <button type="button" class="focus-clear" data-clear>Rensa allt</button>
     </div>` : '';
-    // Raden om året gäller bara Relevans, och inte grupper som alltid visas hela (Försvunna länder, #72)
-    const intro = !q && relevance && tm && !this.showAll && groups.some(g => !g.all)
+    const intro = !q && relevance && tm && groups.some(g => !g.all)
       ? `<div class="layer-note pad">Det som pågår ${esc(tm.label)}, närmast först.</div>` : '';
     const empty = q ? `Inget namn innehåller "${esc(this.query.trim())}".` : 'Inget att följa i den här tiden ännu.';
     // Förklaringen under en rubrik visas på gruppens egen flik, inte i Alla eller vid sökning, så att listan blir kort
     const own = this.tab !== 'Alla' && !q;
-    this.body.innerHTML = activeRow + intro + (groups.map(g => `
-      <div class="layer-heading">${esc(g.title)}</div>
-      ${g.note && own ? `<div class="layer-note pad focus-note">${esc(g.note)}</div>` : ''}
-      ${g.items.length ? g.items.map(it => `<button type="button" class="layer-row focus-item" data-key="${esc(it.key)}"${it.key.startsWith('religion:') ? ` data-religion="${esc(it.key.slice(9))}"` : ''}>
+    const rows = items => items.map(it => `<button type="button" class="layer-row focus-item" data-key="${esc(it.key)}"${it.key.startsWith('religion:') ? ` data-religion="${esc(it.key.slice(9))}"` : ''}>
         <span class="swatch" style="background:${esc(it.color)}"></span>${it.symbol ? `<img class="rel-sym" src="${esc(it.symbol)}" alt="" width="16" height="16">` : ''}<span class="focus-name">${esc(it.label)}</span>
         ${it.also ? `<span class="layer-note focus-also">även ${esc(it.also)}</span>` : ''}
-        ${it.sub ? `<span class="layer-note">${esc(it.sub)}</span>` : ''}</button>`).join('') : '<div class="layer-note pad">Laddas …</div>'}`).join('')
+        ${it.sub ? `<span class="layer-note">${esc(it.sub)}</span>` : ''}</button>`).join('');
+    const groupItems = (g, expanded) => {
+      if (!expanded) return '';
+      if (!g.items.length) return g.loading ? '<div class="layer-note pad">Laddas …</div>' : '';
+      const showAll = q || this.showAllGroups.has(g.title);
+      const visible = showAll ? g.items : g.items.slice(0, 8);
+      const ageRows = this.groupByAge ? visible.reduce((html, it) => {
+        const age = this.ageFor(it);
+        const label = age?.label ?? '';
+        if (label !== html.last) html.html += `<div class="focus-age">${esc(label)}</div>`;
+        html.last = label; html.html += rows([it]); return html;
+      }, { html: '', last: null }).html : rows(visible);
+      const more = !q && g.items.length > visible.length ? `<button type="button" class="layer-row focus-more" data-group-all="${esc(g.title)}">${esc((this.texts.showAll ?? 'Visa alla ({count} till)').replace('{count}', g.items.length - visible.length))}</button>` : '';
+      const less = !q && showAll && g.items.length > 8 ? `<button type="button" class="layer-row focus-more" data-group-near="${esc(g.title)}">${esc(this.texts.showNearest ?? 'Visa närmast')}</button>` : '';
+      return `${ageRows}${more}${less}`;
+    };
+    this.body.innerHTML = activeRow + intro + (groups.map(g => {
+      const expanded = q || (this.tab !== 'Alla' ? true : this.openGroup === g.title);
+      return `<section class="focus-group"><button type="button" class="focus-group-toggle" data-group="${esc(g.title)}" aria-expanded="${expanded}"><span>${esc(g.title)} <span class="focus-group-count">(${g.total})</span></span><span class="focus-group-chev" aria-hidden="true"></span></button>
+      ${g.note && own ? `<div class="layer-note pad focus-note">${esc(g.note)}</div>` : ''}${groupItems(g, expanded)}</section>`;
+    }).join('')
       || `<div class="layer-note pad">${empty}</div>`)
-      + (relevance && hidden && !q ? `<button type="button" class="layer-row focus-more" data-all>Visa alla (${hidden} till)</button>` : '')
-      + (relevance && this.showAll && tm && !q ? `<button type="button" class="layer-row focus-more" data-near>Visa bara det som pågår ${esc(tm.label)}</button>` : '');
+      ;
     this.live.textContent = activeText.length ? `${found} resultat. ${activeText.join('. ')}` : '';
     this.body.querySelector('[data-clear]')?.addEventListener('click', () => this.clearFilters());
     for (const b of this.body.querySelectorAll('[data-key]')) {
       b.addEventListener('click', () => { this.close(); this.onPick(b.dataset.key); });
     }
-    const more = (attr, all) => this.body.querySelector(`[${attr}]`)?.addEventListener('click', () => {
-      this.showAll = all; this.render();
-      this.body.querySelector('.focus-more')?.focus({ preventScroll: true });
+    for (const b of this.body.querySelectorAll('[data-group]')) b.addEventListener('click', () => {
+      const title = b.dataset.group;
+      this.openGroup = this.openGroup === title ? null : title;
+      this.render();
+      [...this.body.querySelectorAll('[data-group]')].find(x => x.dataset.group === title)?.focus({ preventScroll: true });
     });
-    more('data-all', true);
-    more('data-near', false);
+    for (const b of this.body.querySelectorAll('[data-group-all]')) b.addEventListener('click', () => {
+      this.showAllGroups.add(b.dataset.groupAll); this.render();
+      [...this.body.querySelectorAll('[data-group-all]')].find(x => x.dataset.groupAll === b.dataset.groupAll)?.focus({ preventScroll: true });
+    });
+    for (const b of this.body.querySelectorAll('[data-group-near]')) b.addEventListener('click', () => {
+      this.showAllGroups.delete(b.dataset.groupNear); this.render();
+      [...this.body.querySelectorAll('[data-group-all]')].find(x => x.dataset.groupAll === b.dataset.groupNear)?.focus({ preventScroll: true });
+    });
   }
 
   /** Tangentbordet i menyn: pilarna mellan sökrutan och listan, och mellan flikarna och sorteringarna. */
   key(e) {
     const t = e.target;
-    const rows = [...this.body.querySelectorAll('button')];
+    const headings = [...this.body.querySelectorAll('[data-group]')];
+    const rows = [...this.body.querySelectorAll('button:not([data-group])')];
     const go = el => { if (el) { e.preventDefault(); el.focus(); el.scrollIntoView({ block: 'nearest' }); } };
     if (t === this.input) {
-      if (e.key === 'ArrowDown') go(rows[0]);
+      if (e.key === 'ArrowDown') go(headings[0] ?? rows[0]);
       else if (e.key === 'Enter') { e.preventDefault(); rows.find(b => b.dataset.key)?.click(); }
+      return;
+    }
+    const h = headings.indexOf(t);
+    if (h >= 0) {
+      if (e.key === 'ArrowDown') go(headings[(h + 1) % headings.length]);
+      else if (e.key === 'ArrowUp') go(headings[(h - 1 + headings.length) % headings.length]);
       return;
     }
     const i = rows.indexOf(t);

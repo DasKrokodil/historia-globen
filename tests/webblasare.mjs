@@ -421,6 +421,27 @@ async function run(browser, vp) {
     if (!(await page.locator('#religion-legend').isHidden())) throw new Error('rikesförklaringen syns på startskärmen');
     await page.click('#btn-focus');
     await visible('#focus-menu');
+    await page.click('#focus-menu [data-tab="Alla"]');
+    const focusGroups = page.locator('#focus-menu [data-group]');
+    if (await focusGroups.count() < 5) throw new Error('Fokus visar inte alla hopfällbara grupper');
+    if (await focusGroups.evaluateAll(buttons => buttons.some(button => button.getAttribute('aria-expanded') !== 'false'))) {
+      throw new Error('Alla-fliken startar inte med hopfällda fokusgrupper');
+    }
+    const wars = page.locator('#focus-menu [data-group="Krig"]');
+    await wars.focus();
+    await page.keyboard.press('ArrowDown');
+    if (await page.evaluate(() => document.activeElement?.dataset.group) !== 'Riken') throw new Error('pil ner flyttar inte mellan fokusgrupper');
+    await wars.focus();
+    await page.keyboard.press('Enter');
+    if (await wars.getAttribute('aria-expanded') !== 'true') throw new Error('Krig-gruppen fälls inte upp med tangentbordet');
+    if (await page.locator('#focus-menu [data-group="Riken"]').getAttribute('aria-expanded') !== 'false') throw new Error('flera fokusgrupper är öppna samtidigt');
+    const visibleWars = await page.locator('#focus-menu .focus-item[data-key^="war:"]').count();
+    if (visibleWars > 8) throw new Error(`Krig visar ${visibleWars} poster före Visa alla, inte högst åtta`);
+    const moreWars = page.locator('#focus-menu [data-group-all="Krig"]');
+    if (await moreWars.count()) await moreWars.click();
+    if (await page.locator('#focus-menu .focus-item[data-key^="war:"]').count() < visibleWars) throw new Error('Visa alla visar inte fler krig');
+    await page.click('#focus-menu [data-group-age]');
+    if (await page.locator('#focus-menu .focus-age').count() < 1) throw new Error('tidsåldersindelning saknas i Fokus');
     await page.fill('#focus-menu .focus-search', 'rom');
     await page.click('#focus-menu [data-tab="Riken"]');
     await page.click('#focus-menu [data-sort="alfabetiskt"]');
