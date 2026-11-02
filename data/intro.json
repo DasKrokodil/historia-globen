@@ -1,5 +1,6 @@
 {
   "schema": "historia-globen/intro@1",
+  "year": 1889,
   "funfact": "nintendo-eiffel",
   "steps": [
     {
@@ -17,7 +18,7 @@
     {
       "kind": "choices",
       "title": { "sv": "Nu är det din tur" },
-      "text": { "sv": "Dra i tidslinjen och leta efter fler saker som händer samtidigt." }
+      "text": { "sv": "Du står kvar på 1889. Dra i tidslinjen och leta efter fler saker som händer samtidigt." }
     }
   ],
   "labels": {
@@ -31,6 +32,6 @@
     "explore": { "sv": "Utforska fritt" },
     "follow": { "sv": "Följ en berättelse" },
     "task": { "sv": "Gör ett uppdrag" },
-    "restart": { "sv": "Visa introduktionen igen" }
+    "start": { "sv": "Ett år, en plats" }
   }
 }

@@ -168,8 +168,15 @@ async function run(browser, vp) {
     return `år ${await year()}`;
   });
 
-  await check('introduktionen visar samtidighet och går att starta om', async () => {
+  await check('introduktionen startas frivilligt från Utforska', async () => {
+    if (await page.isVisible('#intro')) throw new Error('introduktionen öppnas automatiskt vid första besöket');
+    if (await page.locator('#help-intro').count()) throw new Error('Hjälp innehåller fortfarande en länk till introduktionen');
+    const introButton = page.locator('#btn-intro');
+    await visible('#btn-intro');
+    if ((await introButton.textContent()).trim() !== 'Ett år, en plats') throw new Error('knappen under Utforska har fel text');
+    await introButton.click();
     await visible('#intro');
+    if ((await year()) !== '1889') throw new Error(`introduktionen startade på ${await year()} i stället för 1889`);
     const first = (await page.textContent('#intro')).replace(/\s+/g, ' ').trim();
     if (!first.includes('Eiffeltornet')) throw new Error('introduktionens första steg saknar den valda händelsen');
     await page.click('#intro-next');
@@ -179,21 +186,20 @@ async function run(browser, vp) {
     if (!(await page.locator('#intro .intro-choice').count())) throw new Error('introduktionens sista steg saknar val');
     await page.keyboard.press('Escape');
     await hidden('#intro');
-    if (await page.evaluate(() => localStorage.getItem('hg-intro-seen') !== '1')) throw new Error('introduktionen sparas inte som sedd vid avslut');
+    if ((await year()) !== '1889') throw new Error('året ändrades när introduktionen stängdes');
+    if (await page.evaluate(() => localStorage.getItem('hg-intro-seen') !== null)) throw new Error('introduktionen använder fortfarande hg-intro-seen');
 
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    await clickView('#btn-help');
-    await page.locator('#help-intro').scrollIntoViewIfNeeded();
-    await page.click('#help-intro');
+    await introButton.click();
     await visible('#intro');
     const animation = await page.locator('.intro-box').evaluate(el => getComputedStyle(el).animationName);
     if (animation !== 'none') throw new Error(`introduktionen animeras trots Lugn rörelse: ${animation}`);
     await page.keyboard.press('Escape');
     await hidden('#intro');
-    const focusRestored = await page.evaluate(() => ['btn-help', 'more-toggle'].includes(document.activeElement?.id));
-    if (!focusRestored) throw new Error('Escape lämnade inte fokus på en synlig Hjälp-knapp');
+    const focusRestored = await page.evaluate(() => document.activeElement?.id === 'btn-intro');
+    if (!focusRestored) throw new Error('Escape lämnade inte fokus på knappen som öppnade introduktionen');
     await page.emulateMedia({ reducedMotion: 'no-preference' });
-    return 'tre steg, fun fact, Escape, Hjälp och reducerad rörelse fungerar';
+    return 'ingen automatisk popup; tre steg, år 1889, Escape och reducerad rörelse fungerar';
   });
 
   await check('Samtidigt-kortet går till nästa händelse', async () => {
@@ -983,7 +989,7 @@ async function runReflow(browser) {
         await page.setViewportSize({ width: z.width, height: z.height });
         await page.waitForFunction(([w, h]) => innerWidth === w && innerHeight === h, [z.width, z.height]);
         const frame = await page.evaluate(() => {
-          const ids = ['year-jump', 'btn-panel', 'btn-layers', 'btn-focus', 'more-toggle', 'btn-play', 'btn-speed', 'track'];
+          const ids = ['year-jump', 'btn-panel', 'btn-layers', 'btn-focus', 'btn-intro', 'more-toggle', 'btn-play', 'btn-speed', 'track'];
           const outside = ids.filter(id => {
             const r = document.getElementById(id)?.getBoundingClientRect();
             return !r || r.width < 1 || r.height < 1 || r.left < 0 || r.top < 0 || r.right > innerWidth || r.bottom > innerHeight;

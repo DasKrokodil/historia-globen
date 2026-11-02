@@ -1262,24 +1262,23 @@ async function start() {
   globe.flyTo(34, -50, 1600);
   globe.autoRotate = false;
 
-  // Frivillig introduktion (#363): tre stilla kort utan att flytta kamera eller år automatiskt.
+  // Frivillig introduktion (#363, #516): startas från Utforska och sätter bara då introduktionens år.
   intro = new Intro({
     root: $('intro'), close: $('intro-close'), progress: $('intro-progress'), title: $('intro-title'), content: $('intro-content'),
     back: $('intro-back'), next: $('intro-next'), skip: $('intro-skip'),
   }, introData, {
     events: data.events, funfacts: data.funfacts,
+    onStart: year => { if (Number.isInteger(year)) timeline.year = year; },
     onExplore: () => $('track').focus({ preventScroll: true }),
     onFollow: () => $('btn-focus').click(),
     onTask: () => $('track').focus({ preventScroll: true }),
-    fallbackFocus: () => $('btn-help').offsetParent !== null ? $('btn-help') : $('more-toggle'),
+    fallbackFocus: () => $('btn-intro'),
   });
-  // Introduktionen ersätter den automatiska hjälpen första gången; Hjälp finns alltid kvar i knappen Visa.
-  const introShown = intro.showFirstTime();
-  if (!introShown) help.showFirstTime();
-  const introButton = $('help-intro');
+  help.showFirstTime();
+  const introButton = $('btn-intro');
   introButton.hidden = !intro.ready;
-  introButton.textContent = introData?.labels?.restart ? t(introData.labels.restart) : introButton.textContent;
-  introButton.addEventListener('click', () => { help.close(false); intro.restart(introButton); });
+  introButton.textContent = introData?.labels?.start ? t(introData.labels.start) : introButton.textContent;
+  introButton.addEventListener('click', () => intro.open(introButton));
 }
 
 const narrowView = matchMedia('(max-width: 760px)');

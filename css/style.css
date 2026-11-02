@@ -245,7 +245,7 @@ body {
   right: var(--gut-r);
   display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end;
 }
-/* Knapparna i två grupper (#245): Utforska (Samtidigt, Lager, Fokus) och Visa (Platt vy, Källor, Hjälp).
+/* Knapparna i två grupper (#245, #516): Utforska (Samtidigt, Lager, Fokus, Ett år, en plats) och Visa (Platt vy, Källor, Hjälp).
    Varje grupp har en tunn mässingsram med gruppens namn ingraverat i ramens överkant. */
 .action-group {
   position: relative;
@@ -1027,7 +1027,8 @@ details.used-by summary:hover { color: var(--parchment); }
   /* Utforska får plats i en rad ovanför rubrikens undertext, och Visa radbryts smalt under den (#245) */
   .top-actions { flex-direction: column; align-items: flex-end; gap: 12px; top: calc(env(safe-area-inset-top, 0px) + 16px); }
   .action-group { gap: 3px; padding: 3px; border-radius: 19px; }
-  .action-group:first-child { flex-wrap: nowrap; }
+  .action-group:first-child { flex-wrap: wrap; max-width: 230px; }
+  #btn-intro { flex-basis: 100%; }
   .action-group:last-child { max-width: 128px; } /* Platt vy överst, Källor och Hjälp under */
   .action-group .chip-btn { padding: 8px 9px; font-size: 12.5px; }
   .action-group .count { margin-left: 2px; }
