@@ -326,6 +326,42 @@ async function run(browser, vp) {
     return `${before} → ${await year()}`;
   });
 
+  await check('årshopp vrider bara globen vid behov', async () => {
+    const globe = page.locator('#globe-canvas');
+    const spinAway = async () => {
+      const box = await globe.boundingBox();
+      if (!box) throw new Error('globens yta saknas');
+      // Ett helt varv minus lite placerar den nyss framflyttade markören på baksidan.
+      // Pointer capture gör att draget fortsätter utanför canvasens högra kant.
+      await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+      await page.mouse.down();
+      await page.mouse.move(box.x + box.width / 2 + 750, box.y + box.height / 2, { steps: 4 });
+      await page.mouse.up();
+      await page.waitForTimeout(3100); // den manuella styrningens spärr är tre sekunder
+    };
+
+    await jumpTo(1969);
+    await page.waitForTimeout(1200); // första årshoppet hinner centrera den relevanta markören
+    await spinAway();
+    const before = await globe.screenshot();
+    await jumpTo(1969);
+    await page.waitForTimeout(250);
+    const during = await globe.screenshot();
+    await page.waitForTimeout(1200);
+    const after = await globe.screenshot();
+    if (before.equals(after) || during.equals(after)) throw new Error('årshoppet startade eller avslutade inte den förväntade rotationen');
+
+    await spinAway();
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    const reducedBefore = await globe.screenshot();
+    await jumpTo(1969);
+    await page.waitForTimeout(1250);
+    const reducedAfter = await globe.screenshot();
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    if (!reducedBefore.equals(reducedAfter)) throw new Error('reducerad rörelse startade ändå automatisk globrotation');
+    return 'årshopp flyger från baksidan; reducerad rörelse lämnar globen stilla';
+  });
+
   await check('Lager öppnas', async () => {
     await jumpTo(1900);
     await page.click('#btn-layers');
