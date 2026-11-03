@@ -105,3 +105,12 @@ Varje större granskning ska också svara på **vad som saknas**, inte bara på 
 - **Balans:** krig mot övriga kategorier, och negativt mot positivt (taggen `framsteg`, #555).
 - **Saknade välkända händelser:** lista bara sådant som en öppnad källa eller referenslista visar att vi borde ha (till exempel Wikidata eller etablerade tidslinjer), aldrig ur minnet.
 - **Rapport:** en daterad täckningsrapport i `docs/granskningar/` med prioriterade luckor (hög, medel, låg), vad som är dubblett av öppna issues och en uppskattning av arbetet. Claude Code triagerar den; faktaluckor fylls med källor av Claude Code.
+
+## Benchmark mot andra sidor och spel (beslut 2026-11-03)
+
+En fullständig analys ska också titta utåt. Jämför med andra sidor och spel som gör liknande saker eller löser ett problem vi har:
+
+- **Vad:** historieatlaser och interaktiva tidslinjer, geografi- och kunskapsspel, skolmaterial, dataportaler och kartvisningar. Välj exemplen efter vad analysen visade (till exempel långa listor, quiz, delning, berättelseläge).
+- **Per exempel:** länk och datum då du tittade, vad som fungerar och varför, vad vi kan göra med vår egen data, ungefärlig insats (liten, medel, stor) och risk (licens, prestanda, arkitektur, tillgänglighet).
+- **Regler:** bara idéer, aldrig kopierad kod, bild, text eller data, och ingen imitation av ett varumärkes utseende. Följ användarvillkoren, logga inte in och skicka inga personuppgifter.
+- **Resultat:** ett avsnitt "Benchmark" i rapporten med de tre till fem mest användbara idéerna, rankade. Claude Code triagerar dem tillsammans med övriga fynd, och Rikard godkänner innan något blir ett issue.
