@@ -1246,7 +1246,7 @@ async function start() {
   }, () => registry.frameAnimating(state));
 
   $('loading').hidden = true;
-  // Kort hjälp för nya besökare (#245), när globen har laddats
+  // Hjälpen öppnas bara från knappen Hjälp (#245, #527).
   let intro = null;
   const help = new Help({ root: $('help'), button: $('btn-help'), close: $('help-close') });
   // Besökarnas förslag (docs/feedback.md): från Hjälp och från faktarutans "Rapportera faktafel"
@@ -1274,7 +1274,6 @@ async function start() {
     onTask: () => $('track').focus({ preventScroll: true }),
     fallbackFocus: () => $('btn-intro'),
   });
-  help.showFirstTime();
   const introButton = $('btn-intro');
   introButton.hidden = !intro.ready;
   introButton.textContent = introData?.labels?.start ? t(introData.labels.start) : introButton.textContent;
