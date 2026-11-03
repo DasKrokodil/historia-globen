@@ -168,6 +168,34 @@ async function run(browser, vp) {
     return `år ${await year()}`;
   });
 
+  await check('hjälpen öppnas bara på begäran', async () => {
+    const help = page.locator('#help');
+    const helpButton = page.locator('#btn-help');
+    if (await page.isVisible('#help')) throw new Error('hjälpen öppnas automatiskt vid första besöket');
+    if ((await helpButton.getAttribute('aria-expanded')) !== 'false') throw new Error('Hjälp-knappen är inte stängd vid första besöket');
+    if (await page.evaluate(() => localStorage.getItem('hg-help-seen') !== null)) throw new Error('hjälpen använder fortfarande hg-help-seen');
+
+    await clickView('#btn-help');
+    await visible('#help');
+    if ((await helpButton.getAttribute('aria-expanded')) !== 'true') throw new Error('Hjälp-knappen visar inte att hjälpen är öppen');
+    if (await page.evaluate(() => document.activeElement?.id !== 'help-close')) throw new Error('fokus flyttas inte till Stäng när hjälpen öppnas');
+    await shot('1-hjalp-oppnas');
+    await page.keyboard.press('Escape');
+    await hidden('#help');
+    if ((await helpButton.getAttribute('aria-expanded')) !== 'false') throw new Error('Hjälp-knappen visar inte att hjälpen är stängd');
+    if (vp.width > 760 && await page.evaluate(() => document.activeElement?.id !== 'btn-help')) throw new Error('Escape lämnar inte fokus på Hjälp-knappen');
+
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await clickView('#btn-help');
+    await visible('#help');
+    const animation = await help.evaluate(el => getComputedStyle(el).animationDuration);
+    if ((Number.parseFloat(animation) || 0) > .001) throw new Error(`hjälpens rörelse stoppas inte vid reducerad rörelse: ${animation}`);
+    await page.keyboard.press('Escape');
+    await hidden('#help');
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    return 'ingen automatisk hjälp; öppning, Escape, fokus och reducerad rörelse fungerar';
+  });
+
   await check('Samtidigt sorterar och skiljer gamla öppna spann', async () => {
     await jumpTo(1100); await page.click('#btn-panel'); await visible('#panel');
     if (!(await page.locator('#event-list .event-btn', { hasText: 'Undervisning i Oxford' }).count())) throw new Error('Oxford saknas i vanliga listan år 1100');

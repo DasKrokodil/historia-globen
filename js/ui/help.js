@@ -1,8 +1,6 @@
-// Kort hjälp för nya besökare (#245): tre steg ("Dra globen", "Byt år", "Följ en berättelse").
-// Hjälpen visas första gången (sparas som hg-help-seen i localStorage, med try/catch), försvinner vid
-// första interaktionen eller med Stäng, och öppnas igen med knappen Hjälp. Texterna står i index.html.
-
-const KEY = 'hg-help-seen';
+// Kort hjälp: tre steg ("Dra globen", "Byt år", "Följ en berättelse").
+// Hjälpen öppnas med knappen Hjälp, försvinner vid första interaktionen eller med Stäng.
+// Texterna står i index.html.
 
 export class Help {
   constructor({ root, button, close }) {
@@ -20,13 +18,6 @@ export class Help {
     root.addEventListener('keydown', e => { if (e.key === 'Escape') this.close(true); });
   }
 
-  /** Visa hjälpen om besökaren inte har sett den. Utan lagring visas den vid varje besök. */
-  showFirstTime() {
-    let seen = false;
-    try { seen = localStorage.getItem(KEY) === '1'; } catch { /* utan lagring */ }
-    if (!seen) this.open(false);
-  }
-
   /** Öppna hjälpen. Från knappen flyttas fokus till Stäng, så att tangentbordsanvändare hittar den. */
   open(fromButton) {
     // Under knapparna uppe till höger, som kan ligga i flera rader (som menyerna Lager och Fokus)
@@ -38,12 +29,11 @@ export class Help {
     if (fromButton) this.closeBtn.focus({ preventScroll: true });
   }
 
-  /** Stäng hjälpen och kom ihåg att den har setts. Fokus tillbaka till knappen om det låg i hjälpen. */
+  /** Stäng hjälpen. Fokus tillbaka till knappen om det låg i hjälpen. */
   close(refocus = this.root.contains(document.activeElement)) {
     if (this.root.hidden) return;
     this.root.hidden = true;
     this.button.setAttribute('aria-expanded', 'false');
-    try { localStorage.setItem(KEY, '1'); } catch { /* utan lagring */ }
     if (refocus) this.button.focus({ preventScroll: true });
   }
 }
