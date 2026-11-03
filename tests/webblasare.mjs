@@ -161,6 +161,14 @@ async function run(browser, vp) {
       const l = document.getElementById('loading');
       return l && (l.hidden || getComputedStyle(l).display === 'none');
     }, null, { timeout: T.load });
+    const helpStartsHidden = await page.evaluate(() => ({
+      hidden: document.getElementById('help')?.hidden,
+      expanded: document.getElementById('btn-help')?.getAttribute('aria-expanded'),
+      legacySeen: localStorage.getItem('hg-help-seen'),
+    }));
+    if (!helpStartsHidden.hidden) throw new Error('hjälpen öppnas automatiskt vid första besöket');
+    if (helpStartsHidden.expanded !== 'false') throw new Error('Hjälp-knappen är inte stängd vid första besöket');
+    if (helpStartsHidden.legacySeen !== null) throw new Error('hjälpen använder fortfarande hg-help-seen');
     const msg = await page.textContent('#loading');
     if (/kunde inte starta/i.test(msg)) throw new Error(msg.trim());
     if (!THREE_LOCAL && !threeOk) throw new Error('three.js laddades inte från jsdelivr');
@@ -171,10 +179,6 @@ async function run(browser, vp) {
   await check('hjälpen öppnas bara på begäran', async () => {
     const help = page.locator('#help');
     const helpButton = page.locator('#btn-help');
-    if (await page.isVisible('#help')) throw new Error('hjälpen öppnas automatiskt vid första besöket');
-    if ((await helpButton.getAttribute('aria-expanded')) !== 'false') throw new Error('Hjälp-knappen är inte stängd vid första besöket');
-    if (await page.evaluate(() => localStorage.getItem('hg-help-seen') !== null)) throw new Error('hjälpen använder fortfarande hg-help-seen');
-
     await clickView('#btn-help');
     await visible('#help');
     if ((await helpButton.getAttribute('aria-expanded')) !== 'true') throw new Error('Hjälp-knappen visar inte att hjälpen är öppen');
