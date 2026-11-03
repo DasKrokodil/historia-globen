@@ -231,6 +231,9 @@ async function run(browser, vp) {
   });
 
   await check('introduktionen startas frivilligt från Utforska', async () => {
+    // Samtidigt-provet ovan öppnar listan för Visa fler. Stäng den som en besökare gör så att
+    // introduktionsknappen provas utan en avsiktligt överlagrad panel i mobilbredd.
+    if (await page.locator('#panel').isVisible()) await page.click('#panel-close');
     if (await page.isVisible('#intro')) throw new Error('introduktionen öppnas automatiskt vid första besöket');
     if (await page.locator('#help-intro').count()) throw new Error('Hjälp innehåller fortfarande en länk till introduktionen');
     const introButton = page.locator('#btn-intro');
@@ -1182,6 +1185,70 @@ async function runReducedMotion(browser) {
   }
 }
 
+async function runPresentation(browser) {
+  const results = [];
+  const presentationUrl = new URL(BASE);
+  presentationUrl.searchParams.set('presentation', '1');
+  for (const vp of [
+    { name: 'presentation-1280', width: 1280, height: 720 },
+    { name: 'presentation-1920', width: 1920, height: 1080 },
+    { name: 'presentation-mobil', width: 400, height: 800 },
+    { name: 'presentation-zoom-400', width: 350, height: 225 },
+  ]) {
+    const context = await browser.newContext({ viewport: vp, deviceScaleFactor: 1, reducedMotion: vp.name === 'presentation-mobil' ? 'reduce' : 'no-preference' });
+    const page = await context.newPage();
+    const errors = [];
+    page.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url || '')) errors.push(m.text()); });
+    page.on('pageerror', e => errors.push(e.message));
+    if (THREE_LOCAL) {
+      const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+      await page.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      await page.route(u => isFont(u.href), r => r.abort());
+    }
+    const t0 = Date.now();
+    try {
+      await page.goto(presentationUrl.href, { waitUntil: 'domcontentloaded', timeout: T.load });
+      await page.waitForFunction(() => document.getElementById('loading')?.hidden, null, { timeout: T.load });
+      const state = await page.evaluate(() => ({
+        active: document.getElementById('app')?.classList.contains('presentation-mode'),
+        exit: document.getElementById('presentation-exit')?.getBoundingClientRect().toJSON(),
+        scroll: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth),
+        width: innerWidth,
+        stored: Object.keys(localStorage).some(key => /presentation/i.test(key)),
+        calm: document.documentElement.classList.contains('calm'),
+      }));
+      if (!state.active || !state.exit?.width || !state.exit?.height) throw new Error('presentationsläget eller avslutsknappen saknas');
+      if (state.scroll > state.width) throw new Error(`presentationsläget ger ${state.scroll}px horisontell scroll i ${state.width}px`);
+      if (state.stored) throw new Error('presentationsläget sparas i localStorage');
+      if (vp.name === 'presentation-mobil' && !state.calm) throw new Error('reducerad rörelse aktiverar inte Lugn rörelse i presentationsläge');
+      if (vp.width >= 1000) {
+        await page.click('#btn-panel');
+        const event = page.locator('#event-list .event-btn').first();
+        await event.waitFor({ state: 'visible', timeout: T.step });
+        await event.click();
+        const detail = await page.locator('#detail').boundingBox();
+        if (!detail || detail.width < 430) throw new Error('faktarutan är inte större i presentationsläge');
+        await page.locator('#detail [data-close]').click();
+        await page.click('#btn-flat');
+        await page.waitForSelector('#flat-view', { state: 'visible', timeout: T.step });
+        await page.click('#btn-flat');
+      }
+      if (vp.name === 'presentation-1280' || vp.name === 'presentation-1920') await page.screenshot({ path: path.join(OUT, `${vp.name}.png`) });
+      await page.locator('#presentation-exit').focus();
+      await page.keyboard.press('Enter');
+      await page.waitForFunction(() => !new URL(location.href).searchParams.has('presentation'), null, { timeout: T.load });
+      results.push({ name: `presentationsläge ${vp.width} × ${vp.height}`, ok: errors.length === 0, ms: Date.now() - t0,
+        note: errors.join(' | ') || 'klass, exit, kärnkontroller och omflöde fungerar' });
+    } catch (e) {
+      results.push({ name: `presentationsläge ${vp.width} × ${vp.height}`, ok: false, ms: Date.now() - t0, note: String(e.message).split('\n')[0] });
+      await page.screenshot({ path: path.join(OUT, `FEL-${vp.name}.png`) }).catch(() => {});
+    } finally {
+      await context.close();
+    }
+  }
+  return results;
+}
+
 const t0 = Date.now();
 const browser = await browserType.launch(BROWSER === 'chromium'
   ? { args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader'] }
@@ -1204,6 +1271,11 @@ try {
   for (const r of await runReducedMotion(browser)) {
     if (!r.ok) failed++;
     console.log(`  ${r.ok ? 'OK  ' : 'FEL '} ${r.name}${r.note ? `: ${r.note}` : ''}`);
+  }
+  console.log('\npresentationsläge');
+  for (const r of await runPresentation(browser)) {
+    if (!r.ok) failed++;
+    console.log(`  ${r.ok ? 'OK  ' : 'FEL '} ${r.name}${r.note ? `: ${r.note}` : ''}${r.ms ? ` (${(r.ms / 1000).toFixed(1)} s)` : ''}`);
   }
 } finally {
   await browser.close();

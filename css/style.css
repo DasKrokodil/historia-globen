@@ -279,6 +279,34 @@ body {
   font: 600 11px/1 var(--f-mono);
 }
 
+/* ---------- presentationsläge (#488) ----------
+   Aktiveras bara av ?presentation=1. Normalvyn får inga ändrade variabler eller mått. */
+.presentation-exit { display: none; align-items: center; min-height: 44px; text-decoration: none; }
+.presentation-mode .presentation-exit { display: inline-flex; }
+.presentation-mode .top-actions { gap: 12px; }
+@media (min-width: 761px) {
+  .presentation-mode .top-actions .chip-btn,
+  .presentation-mode .top-actions .presentation-exit { min-height: 44px; padding: 10px 15px; font-size: 15px; }
+  .presentation-mode .top-actions .action-label { font-size: 10.5px; }
+  .presentation-mode .masthead .year-big { font-size: 54px; }
+  .presentation-mode .masthead .segment-note { font-size: 13px; }
+  .presentation-mode .timebar .step,
+  .presentation-mode .timebar .play { min-width: 56px; height: 40px; font-size: 14px; }
+  .presentation-mode .timebar .track { height: 62px; }
+  .presentation-mode .timebar .tick { font-size: 12px; }
+  .presentation-mode #detail { width: min(460px, calc(100vw - 48px)); max-height: 55vh; padding: 20px 22px; }
+  .presentation-mode #detail h3 { font-size: 25px; }
+  .presentation-mode #detail p { font-size: 16px; line-height: 1.55; }
+  .presentation-mode #funfact { width: min(440px, calc(100vw - 48px)); max-height: calc(100dvh - 164px - 176px); padding: 18px 20px 16px; }
+  .presentation-mode #funfact .ff-text { font-size: 22px; }
+  .presentation-mode .panel { width: min(420px, calc(100vw - 48px)); max-height: 52vh; }
+  .presentation-mode .panel .event-btn .ttl { font-size: 17px; }
+}
+@media (min-width: 1600px) {
+  .presentation-mode #detail { width: min(520px, calc(100vw - 64px)); }
+  .presentation-mode #funfact { width: min(480px, calc(100vw - 64px)); }
+}
+
 :focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
 
 /* ---------- lagerväljare ---------- */
