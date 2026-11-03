@@ -249,25 +249,28 @@ export class FunFacts {
    * Bilderna överst i kortet (#190): händelsernas bilder visas alltid, högst tre sida vid sida, utan text
    * under dem utom händelsens namn (när det är flera) och "Läs mer", som öppnar hela faktarutan med
    * bildtext, kredit och licens. Illustrationer får etiketten "Illustration" i hörnet (bildregel 2:
-   * den fulla märkningen står i faktarutan). Händelser utan bild får en ruta med tidsålderns ram.
-   * Inga bilder i kortet alls: ingen bildrad.
+   * den fulla märkningen står i faktarutan). Bildlösa händelser får i stället en avsiktlig
+   * reservruta med kategori, ikon, år och titel i samma rad och höjd som bildkorten (#542).
    */
   _renderPics(evs, kind) {
     const withImg = evs.filter(e => e.image), rest = evs.filter(e => !e.image);
     const shown = [...withImg, ...rest].slice(0, 3);
-    this.pics.hidden = !withImg.length;
-    this.root.classList.toggle('ff-has-pics', !!withImg.length);
+    this.pics.hidden = !shown.length;
+    this.root.classList.toggle('ff-has-pics', !!shown.length);
     this.root.classList.remove('ff-sym');
     if (!withImg.length && kind === 'war' && evs.length) return this._renderSymbol(evs[0]);
-    if (!withImg.length) { this.pics.innerHTML = ''; return; }
+    if (!shown.length) { this.pics.innerHTML = ''; return; }
     this.pics.style.setProperty('--n', shown.length);
     this.pics.innerHTML = shown.map(e => {
-      const st = styleFor(e, this.styles), img = e.image;
+      const st = styleFor(e, this.styles), img = e.image, reserve = !img;
+      const icon = e.icon || CAT_ICON[e.category] || 'star';
+      const category = t(CAT[e.category]?.name) || e.category;
+      const year = formatYear(e.start);
       const label = !img ? '' : img.placeholder ? 'Platshållare' : img.kind === 'illustration' ? 'Illustration' : '';
-      return `<button type="button" class="ff-pic frame-${st.frame}${img ? '' : ' no-img'}" data-id="${esc(e.id)}" aria-label="${img ? 'Bildkort' : 'Reservkort utan bild'}: Läs mer om ${esc(t(e.title))}">
-        ${img ? `<img src="${esc(img.file)}" alt="" width="800" height="600">` : ''}
+      return `<button type="button" class="ff-pic frame-${st.frame}${reserve ? ' ff-reserve' : ''}" data-id="${esc(e.id)}" aria-label="${reserve ? `${category}, ${year}, ${t(e.title)}` : 'Bildkort'}: Läs mer om ${esc(t(e.title))}"${reserve ? ` style="--ff-reserve-color:${esc(CAT[e.category]?.color || 'var(--brass)')}"` : ''}>
+        ${img ? `<img src="${esc(img.file)}" alt="" width="800" height="600">` : `<span class="ff-reserve-top" aria-hidden="true"><img class="ff-reserve-icon" src="img/icons/${esc(icon)}.svg" alt="" width="40" height="40"><span class="ff-reserve-year">${esc(year)}</span></span><span class="ff-reserve-category" aria-hidden="true">${esc(category)}</span>`}
         ${label ? `<span class="ff-badge">${label}</span>` : ''}
-        <span class="ff-cap">${shown.length > 1 || !img ? `<span class="ff-name">${esc(t(e.title))}</span>` : ''}<span class="ff-more">Läs mer ›</span></span>
+        <span class="ff-cap">${shown.length > 1 || reserve ? `<span class="ff-name">${esc(t(e.title))}</span>` : ''}<span class="ff-more">Läs mer ›</span></span>
       </button>`;
     }).join('');
     for (const b of this.pics.querySelectorAll('.ff-pic')) b.addEventListener('click', () => this.onSelect(b.dataset.id));
@@ -280,13 +283,16 @@ export class FunFacts {
    */
   _renderSymbol(e) {
     const st = styleFor(e, this.styles), icon = e.icon || CAT_ICON[e.category] || 'star';
+    const category = t(CAT[e.category]?.name) || e.category;
+    const year = formatYear(e.start);
     this.pics.hidden = false;
     this.root.classList.add('ff-sym');
     this.pics.style.setProperty('--n', 1);
-    this.pics.innerHTML = `<button type="button" class="ff-pic ff-symbol frame-${st.frame} no-img" data-id="${esc(e.id)}" aria-label="Läs mer: ${esc(t(e.title))}">
-      <img class="ff-sym-icon" src="img/icons/${esc(icon)}.svg" alt="" width="64" height="64">
+    this.pics.innerHTML = `<button type="button" class="ff-pic ff-symbol ff-reserve frame-${st.frame}" data-id="${esc(e.id)}" aria-label="${esc(category)}, ${esc(year)}, ${esc(t(e.title))}: Läs mer om ${esc(t(e.title))}" style="--ff-reserve-color:${esc(CAT[e.category]?.color || 'var(--brass)')}">
+      <span class="ff-reserve-top" aria-hidden="true"><img class="ff-reserve-icon" src="img/icons/${esc(icon)}.svg" alt="" width="40" height="40"><span class="ff-reserve-year">${esc(year)}</span></span>
+      <span class="ff-reserve-category" aria-hidden="true">${esc(category)}</span>
       <span class="ff-badge">Grafisk symbol</span>
-      <span class="ff-cap"><span class="ff-more">Läs mer ›</span></span>
+      <span class="ff-cap"><span class="ff-name">${esc(t(e.title))}</span><span class="ff-more">Läs mer ›</span></span>
     </button>`;
     this.pics.querySelector('.ff-pic').addEventListener('click', ev => this.onSelect(ev.currentTarget.dataset.id));
   }
