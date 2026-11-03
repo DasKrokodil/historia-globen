@@ -981,6 +981,12 @@ async function run(browser, vp) {
   });
 
   await check('Krigets tidslinje har läsbara mobiletiketter', async () => {
+    // Föregående resefokus kan avslutas samtidigt som dess sista omritning sker.
+    // Säkerställ grundläget innan detta fristående krigsflöde öppnar Fokus igen.
+    if (await page.locator('#focus-bar').isVisible().catch(() => false)) {
+      await page.click('#focus-exit');
+      await hidden('#focus-bar');
+    }
     await page.click('#btn-focus');
     await visible('#focus-menu');
     await page.click('#focus-menu [data-tab="Krig"]');
