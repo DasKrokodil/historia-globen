@@ -29,10 +29,12 @@ När en pull request är byggd granskas den först av en **annan Codex-körning 
 
 **Blind-spots-rundan är Codex uppgift (beslut 2026-11-02):** vid varje större UI/UX-granskning gör Codex en separat, självkritisk analys (tomma, delvis tomma och blandade lägen, reservlösningar, urval mot full lista, laddning, paus, byte och övergångar, mobil, tangentbord och skärmläsare) och skriver en daterad rapport i `docs/granskningar/` med `handoff.json`. Claude Code läser rapporten och skapar issues av fynden.
 
-**Tre regler för flödet (beslut 2026-11-02):**
-1. **Händelsedriven kögenomgång.** Efter varje ny, uppdaterad eller ihopslagen pull request görs direkt en full kontroll av alla `codex: redo`-issues, och nästa blockerade ärende får förberedelsearbete (till exempel `codex: synpunkter` med en plan) i stället för att vänta.
+**Tre regler för flödet (beslut 2026-11-02, riskbaserat från 2026-11-03):**
+1. **Händelsedriven kögenomgång.** Efter varje ny, uppdaterad eller ihopslagen pull request görs direkt en lätt kökontroll: status, krockar, beroenden och nästa möjliga issue. En fullständig review görs inte automatiskt efter varje issue, utan när en granskningssignal träffas: en avslutad milstolpe eller batch, en kritisk bugg, en större central förändring, en releasekandidat eller en uttrycklig begäran.
 2. **Omedelbar handoff.** När en arbetare öppnar eller uppdaterar en pull request börjar den separata Codex-granskningen i samma tur, inte vid nästa heartbeat, CI-resultat eller statusfråga.
 3. **Ingen passiv `codex: pågår`.** Ett `codex: pågår` måste alltid ha en aktiv arbetare, ett pågående test eller en publicering, eller en dokumenterad extern spärr (skriven som kommentar på issuet). Annars återupptas, förbereds eller avmarkeras det direkt.
+
+**Riskbaserad granskning och testning (beslut 2026-11-03):** Varje issue får riktad kontroll och de tester som hör till ändringen. Relaterade issues kan samlas till en batchgranskning. Full kontroll krävs för historiska fakta, källor, datamodell, arkitektur, säkerhet, centrala flöden, svåråterkalleliga ändringar och release. En snabbare merge är tillåten för isolerade, reversibla och lätt verifierbara ändringar om den accepterade risken, uppföljningen och eventuell buggrättning är dokumenterad. Målet är minsta test- och granskningspaket som ger rimlig säkerhet, inte samma fulla svit flera gånger. Release förbereds automatiskt när kriterierna är uppfyllda men publiceras först efter releasekontroll och Rikards godkännande.
 
 ## Ta ett issue
 
