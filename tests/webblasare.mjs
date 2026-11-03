@@ -378,15 +378,21 @@ async function run(browser, vp) {
     return `deterministiskt urval i ${selection.available} världsdelar, högst ${selection.mostRepeated} gånger samma fact på tio tryck; kortet hoppade till ${expected}`;
   });
 
-  await check('Samtidigt-kortet förklarar blandade bild- och reservkort', async () => {
+  await check('Samtidigt-kortet ger bildlösa händelser en likvärdig reservruta', async () => {
     await jumpTo(1879); await visible('#funfact');
-    const chips = await page.locator('#ff-events .ff-chip').count();
-    const reserve = page.locator('#ff-pics .ff-pic.no-img').first();
-    if (!chips || !(await reserve.count())) throw new Error('blandat kort saknar textlista eller reservkort');
-    const label = await reserve.getAttribute('aria-label');
-    if (!/Reservkort utan bild/.test(label ?? '')) throw new Error('reservkortet saknar beskrivande tillgängligt namn');
+    const cards = page.locator('#ff-pics .ff-pic');
+    const reserve = page.locator('#ff-pics .ff-pic.ff-reserve');
+    const image = page.locator('#ff-pics .ff-pic img:not(.ff-reserve-icon)');
+    if (await cards.count() < 3 || await reserve.count() < 2 || !await image.count()) throw new Error('1879 saknar blandade bild- och reservkort');
+    const label = await reserve.first().getAttribute('aria-label');
+    if (!/Krig och konflikter, 1879, Anglo-zuluiska kriget/.test(label ?? '')) throw new Error('reservkortet saknar kategori, år och titel i sitt namn');
+    const missing = await reserve.evaluateAll(nodes => nodes.some(node => ['.ff-reserve-icon', '.ff-reserve-year', '.ff-reserve-category', '.ff-name'].some(selector => !node.querySelector(selector))));
+    if (missing) throw new Error('reservkortet saknar ikon, år, kategori eller titel');
+    const heights = await cards.evaluateAll(nodes => nodes.map(node => Math.round(node.getBoundingClientRect().height)));
+    if (new Set(heights).size !== 1) throw new Error(`bild- och reservkort har olika höjd: ${heights.join(', ')}`);
+    await page.screenshot({ path: path.join(OUT, `${vp.name}-samtidigt-reservkort-1879.png`), fullPage: false });
     await jumpTo(1889);
-    return 'bildkort, reservkort och textlista visas tillsammans';
+    return 'bildkort och reservkort har samma höjd och tillgängliga namn';
   });
 
   await check('skärmläsarstatusen säger paus och Samtidigt-text', async () => {
