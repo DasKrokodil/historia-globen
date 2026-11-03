@@ -323,6 +323,54 @@ async function run(browser, vp) {
     return `${pagerBefore} → ${(await page.textContent('#ff-pager')).trim()}: ${before} → ${after}`;
   });
 
+  await check('Visste du? väljer ett regionbalanserat kort och hoppar till dess år', async () => {
+    const surprise = page.locator('#ff-surprise');
+    await surprise.waitFor({ state: 'visible', timeout: T.step });
+    if ((await surprise.textContent()).trim() !== 'Visste du?') throw new Error('Visste du?-texten kommer inte från vyn');
+    const selection = await page.evaluate(async () => {
+      const [{ pickBalancedFunFact }, factDoc, eventDoc] = await Promise.all([
+        import('./js/ui/funfact.js'), fetch('./data/funfacts.json').then(r => r.json()), fetch('./data/events.json').then(r => r.json()),
+      ]);
+      const byId = Object.fromEntries(eventDoc.events.map(event => [event.id, event]));
+      const one = new Map(), two = new Map();
+      const a = [], b = [];
+      for (let seed = 0; seed < 25; seed++) {
+        a.push(pickBalancedFunFact(factDoc.funfacts, byId, one, seed)?.fact.id);
+        b.push(pickBalancedFunFact(factDoc.funfacts, byId, two, seed)?.fact.id);
+      }
+      const counts = [...one.values()];
+      return { same: JSON.stringify(a) === JSON.stringify(b), spread: Math.max(...counts) - Math.min(...counts), available: counts.length };
+    });
+    if (!selection.same || selection.available < 2 || selection.spread > 1) throw new Error(`urvalet är inte deterministiskt och jämnt (${JSON.stringify(selection)})`);
+    // I mobil ligger kortets fot i ett eget rullbart ark. Klickhanteraren prövas
+    // direkt här, medan den separata träffyte- och omflödeskontrollen nedan
+    // verifierar att knappen också får plats på skärmen.
+    await surprise.evaluate(button => button.click());
+    await visible('#funfact');
+    const chosen = await page.evaluate(async () => {
+      const id = document.getElementById('funfact')?.dataset.funfactId;
+      const doc = await fetch('./data/funfacts.json').then(r => r.json());
+      return doc.funfacts.find(fact => fact.id === id);
+    });
+    if (!chosen || chosen.review === 'draft') throw new Error('knappen valde ingen redan synlig fun fact');
+    const expected = String(chosen.show[0] < 1 ? 1 - chosen.show[0] : chosen.show[0]);
+    if (await year() !== expected) throw new Error(`tiden hoppade inte till kortets år ${expected}`);
+    if (vp.width <= 760) {
+      await page.locator('#btn-layers').evaluate(button => button.click()); await visible('#layer-menu');
+      const calm = page.locator('input[data-calm]');
+      if (!(await calm.isChecked())) await calm.evaluate(input => input.click());
+      // Kortets fot ligger längst ned i mobilarket. Aktivera samma knappprogram när
+      // Lagermenyn är öppen, så testet prövar årshoppet utan att en överliggande meny
+      // får Playwrights koordinatklick att fastna.
+      await surprise.evaluate(button => button.click()); await visible('#funfact');
+      if (!await page.evaluate(() => document.documentElement.classList.contains('calm'))) throw new Error('Lugn rörelse försvann vid Visste du?-hoppet');
+      if (await calm.isChecked()) await calm.evaluate(input => input.click());
+      await page.evaluate(() => document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })));
+      await hidden('#layer-menu');
+    }
+    return `deterministiskt urval i ${selection.available} världsdelar; kortet hoppade till ${expected}`;
+  });
+
   await check('Samtidigt-kortet förklarar blandade bild- och reservkort', async () => {
     await jumpTo(1879); await visible('#funfact');
     const chips = await page.locator('#ff-events .ff-chip').count();

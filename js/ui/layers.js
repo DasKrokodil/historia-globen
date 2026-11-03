@@ -22,6 +22,7 @@ export async function loadViews() {
       panel: Object.fromEntries(Object.entries(doc.panel ?? {}).map(([id, text]) => [id, t(text)])),
       poster: Object.fromEntries(Object.entries(doc.poster ?? {}).map(([id, text]) => [id, t(text)])),
       birthday: Object.fromEntries(Object.entries(doc.birthday ?? {}).map(([id, text]) => [id, t(text)])),
+      funfacts: Object.fromEntries(Object.entries(doc.funfacts ?? {}).map(([id, text]) => [id, t(text)])),
       focus: {
         groupByAge: t(doc.focus?.groupByAge), showAll: t(doc.focus?.showAll), showNearest: t(doc.focus?.showNearest),
         timeAges: Object.fromEntries(Object.entries(doc.focus?.timeAges ?? {}).map(([id, text]) => [id, t(text)])),

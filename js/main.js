@@ -112,7 +112,8 @@ async function start() {
     root: $('funfact'), text: $('ff-text'), events: $('ff-events'), review: $('ff-review'),
     pager: $('ff-pager'), next: $('ff-next'), srcBtn: $('ff-sources'),
     pics: $('ff-pics'), kind: $('ff-kind'), min: $('ff-min'), tab: $('ff-tab'), tabCount: $('ff-tab-count'), handle: $('ff-handle'), status: $('screen-reader-status'),
-  }, { funfacts: [...data.funfacts, ...warCards(data.events)], byId: data.byId, srcById: data.srcById, styles: data.styles });
+  }, { funfacts: [...data.funfacts, ...warCards(data.events)], byId: data.byId, srcById: data.srcById, styles: data.styles, surprise: $('ff-surprise') });
+  $('ff-surprise').textContent = t(views?.funfacts?.surprise) || 'Visste du?';
   // Smal skärm (#361): faktarutan som ark nedifrån med tre lägen, och gruppen Visa som meny i den kompakta raden överst
   const detailSheet = new Sheet($('detail'));
   new ViewMenu({ toggle: $('more-toggle'), menu: $('more-menu') });
@@ -125,6 +126,14 @@ async function start() {
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
   setupYearJump(timeline, { button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'), onJump: () => orientToPanelHighlight() });
+  // Samma direkta årshopp som Min dag i historien och Hoppa till år använder: stoppa
+  // uppspelningen, flytta Timeline (som äger året) och låt refresh bygga Samtidigt-kortet.
+  ff.onSurprise = fact => {
+    timeline.pause();
+    timeline.year = fact.show[0];
+    refresh();
+    orientToPanelHighlight();
+  };
 
   let focusWar = null, focusRoute = null, focus = null, lastYear = 0;
   let warStops = [], stopping = false; // kö med stopp när man följer ett krig (#217)
