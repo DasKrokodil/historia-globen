@@ -55,7 +55,7 @@ const ICON_AGAIN = 'M8 2.5V0L4.2 3.6 8 7.2V4.5a3.5 3.5 0 1 1-3.5 3.5h-2A5.5 5.5 
 const fmtDays = r => { const n = fmtNum(r * DAYS_PER_YEAR); return `${n} ${dayUnit(n)}/s`; };
 
 export class Timeline extends EventTarget {
-  constructor({ track, thumb, segs, ticks, dots, ffMarks, chapters, warMarks, playBtn, playIcon, stepBtns, speedBtn, pauseNote, pauseText, pauseGo, status }) {
+  constructor({ track, thumb, segs, ticks, dots, ffMarks, chapters, warMarks, markNote, playBtn, playIcon, stepBtns, speedBtn, pauseNote, pauseText, pauseGo, status }) {
     super();
     Object.assign(this, { track, thumb, playBtn, playIcon, speedBtn, pauseNote, pauseText, pauseGo, status, stepBtns, segsEl: segs, ticksEl: ticks });
     this._year = 1325;
@@ -70,7 +70,7 @@ export class Timeline extends EventTarget {
     // Hastighet i år per sekund (#164). Det gamla sparade värdet ('hg-speed', ×-faktor) ignoreras.
     this.speed = 25;
     try { const v = Number(localStorage.getItem('hg-speed-ars')); if (SPEEDS.includes(v)) this.speed = v; } catch { /* utan lagring */ }
-    this.dotsEl = dots; this.ffEl = ffMarks; this.chaptersEl = chapters; this.warEl = warMarks;
+    this.dotsEl = dots; this.ffEl = ffMarks; this.chaptersEl = chapters; this.warEl = warMarks; this.markNote = markNote;
     this._story = null; // kapitel och markeringar när man följer ett krig (#244)
     this._drawScale();
     addEventListener('resize', () => { if (this.focus) { this._drawScale(); this._drawStory(); } }); // antal årtal beror på bredden
@@ -216,37 +216,35 @@ export class Timeline extends EventTarget {
     this.dispatchEvent(new CustomEvent('change', { detail: { year: y } }));
   }
 
-  /** Markeringar på reglaget: en prick per händelse, ett streck för spann, en romb per fun fact.
-   *  focusOnly(e): sant för händelser som bara markeras i fokusläget, inte i översikten (#298). */
-  setMarks(events, funfacts, colorOf, focusOnly = () => false) {
-    this._marks = [events, funfacts, colorOf, focusOnly];
-    const inView = y => !this.focus || (y >= this.focus.from && y <= this.focus.to);
+  /** Märken från lagerregistret (#378): cirkel = händelse, romb = Samtidigt, streck = resa. */
+  setMarks(marks = []) {
+    this._marks = [marks];
     this.dotsEl.replaceChildren();
-    for (const e of events) {
-      if (!this.focus && focusOnly(e)) continue;
-      const [s0, s1] = this.spanOf(e);
+    this.ffEl.replaceChildren();
+    const show = mark => {
+      if (!this.markNote) return;
+      this.markNote.textContent = mark.label;
+      this.markNote.hidden = false;
+    };
+    for (const mark of marks) {
+      const [s0, s1] = mark.until == null ? [mark.at, mark.at] : this.spanOf({ start: mark.at, end: mark.until, edtf: '' });
       if (this.focus && (s1 < this.focus.from || s0 > this.focus.to)) continue;
-      // I fokusläget för korta krig är ett datum en dag lång, och det ritas som en prick
       const a = this.toPos(s0), b = this.focus?.fine && s1 - s0 <= 1.5 / DAYS_PER_YEAR ? a : this.toPos(s1);
-      const d = document.createElement('div');
-      if (b - a > 0.004) {
+      const d = document.createElement('button');
+      d.type = 'button'; d.className = mark.type === 'funfact' ? 'tff' : mark.type === 'route' ? 'troute' : 'tdot';
+      d.setAttribute('aria-label', mark.label); d.title = mark.label;
+      if (mark.type === 'route-stop') d.classList.add('route-stop');
+      if (mark.until != null && b - a > 0.004) {
         d.className = 'tspan';
         d.style.left = `${a * 100}%`; d.style.width = `${(b - a) * 100}%`;
       } else {
-        d.className = 'tdot';
         d.style.left = `${a * 100}%`;
       }
-      d.style.background = colorOf(e);
-      this.dotsEl.append(d);
-    }
-    this.ffEl.replaceChildren();
-    for (const f of funfacts) {
-      const mid = (f.show[0] + f.show[1]) / 2;
-      if (!inView(mid)) continue;
-      const d = document.createElement('div');
-      d.className = 'tff';
-      d.style.left = `${this.toPos(mid) * 100}%`;
-      this.ffEl.append(d);
+      if (mark.color) d.style.background = mark.color;
+      d.addEventListener('pointerdown', e => e.stopPropagation());
+      d.addEventListener('focus', () => show(mark));
+      d.addEventListener('click', e => { e.stopPropagation(); show(mark); });
+      (mark.type === 'funfact' ? this.ffEl : this.dotsEl).append(d);
     }
   }
 

@@ -818,6 +818,36 @@ async function run(browser, vp) {
     }
   });
 
+  await check('tidslinjemärken följer Lager och resefokus', async () => {
+    try {
+      await setLayer('events', true);
+      if (await page.locator('.tdot').count() < 1) throw new Error('Händelser saknar cirklar på tidslinjen');
+      await setLayer('events', false);
+      if (await page.locator('.tdot').count() !== 0) throw new Error('Händelsecirklar ligger kvar när Händelser är av');
+      await setLayer('events', true);
+      const eventMark = page.locator('.tdot').first();
+      await eventMark.focus();
+      const note = page.locator('#timeline-mark-note');
+      if (await note.isHidden() || !(await note.textContent()).trim()) throw new Error('Tangentbordsfokus visar inte märkets text');
+      await setLayer('funfacts', true);
+      if (await page.locator('.tff').count() < 1) throw new Error('Samtidigt saknar romber på tidslinjen');
+      await setLayer('routes', true);
+      if (await page.locator('.troute').count() < 1) throw new Error('Resor saknar start- och slutstreck på tidslinjen');
+      await page.keyboard.press('Escape');
+      await page.click('#btn-focus');
+      await visible('#focus-menu');
+      await page.click('#focus-menu [data-tab="Resor"]');
+      await page.fill('#focus-menu .focus-search', 'Columbus första resa');
+      await page.locator('#focus-menu .focus-item[data-key="route:columbus-resa-1"]').click();
+      if (await page.locator('.tdot.route-stop').count() < 1) throw new Error('Resefokus saknar märken för källbelagda stopp');
+      return 'lagerfilter döljer händelsecirklar; romber, resestreck och resefokusets stopp syns';
+    } finally {
+      if (await page.locator('#focus-bar').isVisible().catch(() => false)) await page.click('#focus-exit');
+      await hidden('#focus-bar');
+      if (await page.locator('#layer-menu').isVisible().catch(() => false)) await page.keyboard.press('Escape');
+    }
+  });
+
   await check('Krigets tidslinje har läsbara mobiletiketter', async () => {
     await page.click('#btn-focus');
     await visible('#focus-menu');
