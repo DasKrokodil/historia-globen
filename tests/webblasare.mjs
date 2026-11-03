@@ -378,15 +378,31 @@ async function run(browser, vp) {
     return `deterministiskt urval i ${selection.available} världsdelar, högst ${selection.mostRepeated} gånger samma fact på tio tryck; kortet hoppade till ${expected}`;
   });
 
-  await check('Samtidigt-kortet förklarar blandade bild- och reservkort', async () => {
+  await check('Samtidigt-kortet ger bildlösa händelser en likvärdig reservruta', async () => {
     await jumpTo(1879); await visible('#funfact');
-    const chips = await page.locator('#ff-events .ff-chip').count();
-    const reserve = page.locator('#ff-pics .ff-pic.no-img').first();
-    if (!chips || !(await reserve.count())) throw new Error('blandat kort saknar textlista eller reservkort');
-    const label = await reserve.getAttribute('aria-label');
-    if (!/Reservkort utan bild/.test(label ?? '')) throw new Error('reservkortet saknar beskrivande tillgängligt namn');
-    await jumpTo(1889);
-    return 'bildkort, reservkort och textlista visas tillsammans';
+    const cards = page.locator('#ff-pics .ff-pic');
+    const reserve = page.locator('#ff-pics .ff-pic.ff-reserve');
+    const image = page.locator('#ff-pics .ff-pic img:not(.ff-reserve-icon)');
+    if (await cards.count() < 3 || await reserve.count() < 2 || !await image.count()) throw new Error('1879 saknar blandade bild- och reservkort');
+    const label = await reserve.first().getAttribute('aria-label');
+    if (!/Krig och konflikter, 1879, Anglo-zuluiska kriget/.test(label ?? '')) throw new Error('reservkortet saknar kategori, år och titel i sitt namn');
+    const missing = await reserve.evaluateAll(nodes => nodes.some(node => ['.ff-reserve-icon', '.ff-reserve-year', '.ff-reserve-category', '.ff-name'].some(selector => !node.querySelector(selector))));
+    if (missing) throw new Error('reservkortet saknar ikon, år, kategori eller titel');
+    const heights = await cards.evaluateAll(nodes => nodes.map(node => Math.round(node.getBoundingClientRect().height)));
+    if (new Set(heights).size !== 1) throw new Error(`bild- och reservkort har olika höjd: ${heights.join(', ')}`);
+    const imageHeight = await image.first().evaluate(el => Math.round(el.closest('.ff-pic').getBoundingClientRect().height));
+    await page.screenshot({ path: path.join(OUT, `${vp.name}-samtidigt-reservkort-1879.png`), fullPage: false });
+    try {
+      await jumpTo(1274);
+      if ((await page.textContent('#ff-kind')).trim() !== 'När ett krig bröt ut') throw new Error('1274 saknar det verifierade krigskortet i Samtidigt');
+      const symbol = page.locator('#ff-pics .ff-symbol.ff-reserve');
+      await symbol.waitFor({ state: 'visible', timeout: T.step });
+      const symbolHeight = await symbol.evaluate(el => Math.round(el.getBoundingClientRect().height));
+      if (Math.abs(symbolHeight - imageHeight) > 1) throw new Error(`bildlöst krigskort har höjd ${symbolHeight}, bildkortet ${imageHeight}`);
+    } finally {
+      await jumpTo(1889);
+    }
+    return 'bildkort och bildlöst krigskort har samma höjd och tillgängliga namn';
   });
 
   await check('skärmläsarstatusen säger paus och Samtidigt-text', async () => {
@@ -975,7 +991,14 @@ async function run(browser, vp) {
   });
 
   await check('Krigets tidslinje har läsbara mobiletiketter', async () => {
-    await page.click('#btn-focus');
+    // Föregående resefokus kan avslutas samtidigt som dess sista omritning sker.
+    // Säkerställ grundläget innan detta fristående krigsflöde öppnar Fokus igen.
+    if (await page.locator('#focus-bar').isVisible().catch(() => false)) {
+      await page.click('#focus-exit');
+      await hidden('#focus-bar');
+    }
+    try {
+      await page.click('#btn-focus');
     await visible('#focus-menu');
     await page.click('#focus-menu [data-tab="Krig"]');
     await page.fill('#focus-menu .focus-search', 'andra världskriget'); // sökning visar även krig utanför årets relevansfönster
@@ -998,9 +1021,11 @@ async function run(browser, vp) {
       if (visibleLabels.some(b => b.box.right > vp.width || b.box.left < 0 || b.box.clipped)) throw new Error('mobilens synliga tidslinjeetikett klipps av');
     }
     await shot('6b-fokus-krig-tidslinje');
-    await page.click('#focus-exit');
-    await hidden('#focus-bar');
     return `${visibleLabels.length} synlig etikett; full text finns på alla ${story.length} band`;
+    } finally {
+      if (await page.locator('#focus-bar').isVisible().catch(() => false)) await page.click('#focus-exit');
+      await hidden('#focus-bar');
+    }
   });
 
   await check('Platt vy öppnas', async () => {

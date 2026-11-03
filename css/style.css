@@ -675,7 +675,15 @@ body {
 .ff-pic.no-img .ff-cap { top: 0; justify-content: center; align-items: center; padding: 8px; background: none; }
 .ff-name { align-self: stretch; font: 500 12.5px/1.2 var(--f-body); color: var(--parchment); text-shadow: 0 1px 2px rgba(0,0,0,.6); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
 .ff-pic.no-img .ff-name { align-self: center; text-align: center; color: var(--card-ink); text-shadow: none; font-family: var(--f-display); font-size: 14px; }
+.ff-pic.ff-reserve { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 8px; background: linear-gradient(145deg, color-mix(in srgb, var(--ff-reserve-color) 72%, var(--night-2)), color-mix(in srgb, var(--ff-reserve-color) 38%, var(--night))); }
+.ff-reserve-top { display: flex; align-items: center; gap: 6px; }
+.ff-reserve-icon { width: 30px; height: 30px; object-fit: contain; background: none; opacity: .88; }
+.ff-reserve-year { font: 600 13px/1 var(--f-mono); color: var(--card-ink); }
+.ff-reserve-category { font: 600 9px/1 var(--f-mono); letter-spacing: .07em; text-transform: uppercase; color: var(--card-ink); opacity: .8; }
+.ff-pic.ff-reserve .ff-cap { position: static; align-items: center; gap: 4px; padding: 0; background: none; }
+.ff-pic.ff-reserve .ff-name { align-self: center; text-align: center; color: var(--card-ink); text-shadow: none; font-family: var(--f-display); font-size: 14px; }
 .ff-symbol.ff-pic { height: 96px; }
+.ff-symbol.ff-reserve { height: 132px; } /* samma bildradshöjd som övriga reserv- och bildkort (#542) */
 .ff-symbol .ff-sym-icon { position: absolute; left: 50%; top: 44%; width: 56px; height: 56px; transform: translate(-50%, -50%); object-fit: contain; opacity: .8; background: none; }
 .ff-symbol.no-img .ff-cap { top: auto; justify-content: flex-end; align-items: flex-end; padding: 14px 7px 6px; }
 .ff-more { padding: 4px 8px; border-radius: 999px; font: 600 11px/1 var(--f-body); color: #22190c; background: var(--brass); white-space: nowrap; }
@@ -1084,6 +1092,14 @@ details.used-by summary:hover { color: var(--parchment); }
   .ff-pics { margin: -12px -14px 8px; }
   .ff-pic.ff-pic { height: 74px; }
   .ff-name { -webkit-line-clamp: 2; font-size: 11px; line-height: 1.15; } /* alla namn ska vara läsbara */
+  .ff-pic.ff-reserve { display: block; padding: 0; }
+  .ff-reserve-top { position: absolute; left: 4px; top: 3px; gap: 3px; }
+  .ff-reserve-icon { width: 16px; height: 16px; }
+  .ff-reserve-year { font-size: 9px; }
+  .ff-reserve-category { display: none; }
+  .ff-pic.ff-reserve .ff-cap { position: absolute; inset: 21px 0 0; justify-content: center; padding: 1px 2px; background: color-mix(in srgb, var(--night) 72%, transparent); }
+  .ff-pic.ff-reserve .ff-name { font-size: 10px; line-height: 1.05; -webkit-line-clamp: 2; }
+  .ff-pic.ff-reserve .ff-more { display: none; }
   .ff-cap { padding: 12px 5px 4px; gap: 3px; }
   .ff-more { padding: 3px 6px; font-size: 10.5px; }
   /* Bilderna har egna Läs mer-knappar: knapparna under texten behövs inte i smal skärm, så kortet blir inte högre än förut (#190) */
