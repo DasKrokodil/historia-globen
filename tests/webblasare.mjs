@@ -224,6 +224,21 @@ async function run(browser, vp) {
     return 'ingen automatisk hjälp; öppning, Escape, fokus och reducerad rörelse fungerar';
   });
 
+  await check('Min dag i historien hoppar till år och visar datumurval', async () => {
+    await clickView('#btn-help'); await visible('#help');
+    const input = page.locator('#birthday-input');
+    await input.fill('1969'); await page.locator('#birthday-form').evaluate(form => form.requestSubmit());
+    await visible('#birthday-result');
+    if (!/(1969: \d+ händelser)/.test((await page.textContent('#birthday-summary')) ?? '')) throw new Error('årsresultatet saknas');
+    if (String(await year()) !== '1969') throw new Error(`året hoppade inte till 1969 utan ${await year()}`);
+    await input.fill('1969-07-20'); await page.locator('#birthday-form').evaluate(form => form.requestSubmit());
+    if (!/1969-07-20: \d+ händelser med dagsdatum/.test((await page.textContent('#birthday-summary')) ?? '')) throw new Error('datumresultatet saknar dagsdatum');
+    await input.fill('inte ett år'); await page.locator('#birthday-form').evaluate(form => form.requestSubmit());
+    await visible('#birthday-error');
+    await page.click('#help-close');
+    return 'årshopp, fullständigt datum och feltext fungerar';
+  });
+
   await check('Samtidigt sorterar och skiljer gamla öppna spann', async () => {
     await jumpTo(1100); await page.click('#btn-panel'); await visible('#panel');
     if (!(await page.locator('#event-list .event-btn', { hasText: 'Undervisning i Oxford' }).count())) throw new Error('Oxford saknas i vanliga listan år 1100');

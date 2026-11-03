@@ -28,6 +28,7 @@ _headers              Cloudflare Pages cache-regler (no-cache, så att en releas
 css/style.css
 js/main.js            startar allt och kopplar ihop delarna
 js/model.js           språk, kategorier, granskningsstatus, tidsformat, laddning
+js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
 js/state.js           det gemensamma tillståndet (år, fokus, lager, filter) som lagren läser (#338)
 js/globe.js           3D-globen, kamera, styrning, ekvirektangulära canvasar, bågar
 js/timeline.js        tidsreglage, segmenterad skala, uppspelning

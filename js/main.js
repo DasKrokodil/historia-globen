@@ -1243,7 +1243,10 @@ async function start() {
   $('loading').hidden = true;
   // Hjälpen öppnas bara från knappen Hjälp (#245, #527).
   let intro = null;
-  const help = new Help({ root: $('help'), button: $('btn-help'), close: $('help-close') });
+  const help = new Help({
+    root: $('help'), button: $('btn-help'), close: $('help-close'),
+    birthday: { title: $('birthday-title'), text: $('birthday-copy'), label: $('birthday-label'), input: $('birthday-input'), submit: $('birthday-submit'), form: $('birthday-form'), error: $('birthday-error'), result: $('birthday-result'), summary: $('birthday-summary'), list: $('birthday-events') },
+  }, { events: data.events, birthday: views?.birthday }, { onYear: year => { timeline.pause(); timeline.setFocus(null); timeline.year = year; } });
   // Besökarnas förslag (docs/feedback.md): från Hjälp och från faktarutans "Rapportera faktafel"
   const feedback = new Feedback($('feedback'));
   $('help-feedback').addEventListener('click', () => { help.close(false); feedback.open({ opener: $('btn-help') }); });

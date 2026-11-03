@@ -78,6 +78,7 @@ js/ui/panel.js        "Samtidigt i världen" per världsdel, kategorifilter och 
 js/ui/funfact.js      Samtidigt-kortet (fun facts, när ett krig bröt ut) och bågar på globen
 js/ui/sources.js      sidan Om källorna (knappen Källor)
 js/ui/help.js         kort hjälp i tre steg för nya besökare (knappen Hjälp)
+js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
 js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg, från Utforska (#363, #516)
 js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering (knappen Platt vy)
 js/ui/poster.js       A4-affisch som PNG från Platt vy (knappen Affisch)
