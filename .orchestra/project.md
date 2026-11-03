@@ -94,7 +94,7 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
 - **Leverans (PR-läge):** pusha aldrig till `main`. Varje issue levereras på en egen gren `claude/issue-<N>-<namn>`
   som en pull request på svenska, med `Closes #N`, vad som ändrats, varför och hur Rikard testar. Ingen force push.
   Rikard slår ihop. Issuet stängs när pull requesten slås ihop, inte av orkestern. Uppdatera `docs/` och
-  beslutsloggen i `docs/beslut.md` i samma pull request när något sådant ändras.
+  beslutet som egen fil i `docs/beslut/` (`ÅÅÅÅ-MM-DD-kortnamn.md`) i samma pull request när något sådant ändras. `docs/beslut.md` är fryst.
 - **Väntan (Wait mechanism):** Claude Code väntar med schemalagda kontroller (`send_later` och schemalagda uppgifter) och aldrig med
   `sleep` eller en körning som står och väntar. Kan en körmiljö inte vänta (till exempel en engångskörning) gör den ett avgränsat
   pass och säger det. Codex kör löpande på `codex: redo`-kön enligt [AGENTS.md](../AGENTS.md). Användningsgränsen kontrolleras före
@@ -126,7 +126,7 @@ Granskning och källkontroll hoppas aldrig över; besparingen görs före och ru
 
 - **Två eller tre arbetare** bara när dirigenten kan svara ja på allt detta: leveranserna har inga inbördes beroenden,
   de ändrar inte samma centrala filer eller genererade index (till exempel `js/main.js`, `css/style.css`,
-  `data/events.json`, `data/sources.json`, `data/genererat/`, `docs/beslut.md`), de kan verifieras var för sig, en
+  `data/events.json`, `data/sources.json`, `data/genererat/`, `docs/beslut/`), de kan verifieras var för sig, en
   misslyckad leverans blockerar inte de andra, och tidsvinsten är verklig trots kön till webbläsartestet. Annars körs
   uppgifterna efter varandra.
 - **Uppdraget till arbetaren** följer [shared/WORKER.md](shared/WORKER.md), på högst cirka 800 ord, och har dessutom:

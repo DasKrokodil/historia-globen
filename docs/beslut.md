@@ -1,6 +1,8 @@
 # Beslutslogg
 
-Beslut som påverkar arkitektur, datamodell, källor, licenser, kategorier eller utseende. Nya beslut läggs till sist, med datum, beslut och kort motivering, i samma pull request som ändringen.
+**Den här loggen är fryst (beslut 2026-11-03).** Nya beslut skrivs som en egen fil i [beslut/](beslut/README.md), så att pull requests inte krockar i den här filen. Pull requests som redan var öppna den 2026-11-03 får lägga sin rad här en sista gång.
+
+Beslut som påverkar arkitektur, datamodell, källor, licenser, kategorier eller utseende, fram till och med 2026-11-03.
 
 Beslut 1–10 i texten (till exempel "beslut 1" om den platta bilden) kommer från planeringsdokumentet i Rikards Claude-projekt. De viktigaste är upprepade i [CLAUDE.md](../CLAUDE.md).
 
