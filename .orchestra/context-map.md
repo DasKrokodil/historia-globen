@@ -22,6 +22,6 @@ Ersätter "läs allt först". Dirigent och arbetare läser **kärnan**, issuet o
 | Publicering, cache, CI, release (`.github/`, `scripts/`, `_headers`) | [docs/DEPLOYMENT.md](../docs/DEPLOYMENT.md); docs/arkitektur.md: Publicering, Testa |
 | Formuläret för förslag (`functions/`, `js/ui/feedback.js`) | [docs/feedback.md](../docs/feedback.md) |
 | Bara dokumentation | Kärnan och de dokument som ändras |
-| Arkitektur, datamodell, kategorier, licenser, nya beroenden | Hela berörda avsnitt i docs/arkitektur.md eller docs/datamodell.md och sök i docs/beslut.md; det är alltid en fråga till Rikard först |
+| Arkitektur, datamodell, kategorier, licenser, nya beroenden | Hela berörda avsnitt i docs/arkitektur.md eller docs/datamodell.md och sök i docs/beslut/ och i den frysta docs/beslut.md; det är alltid en fråga till Rikard först |
 
 Hittar du ett beslut eller en regel som verkar motsäga uppdraget: stanna och fråga dirigenten i stället för att läsa vidare på måfå.

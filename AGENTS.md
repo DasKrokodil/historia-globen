@@ -11,7 +11,7 @@ Rikard äger projektet. Han är projektledare, inte utvecklare. Skriv på svensk
 - **Fakta ur minnet.** Varje uppgift (årtal, plats, påstående) ska komma från en källa som du har öppnat och som står i `data/sources.json`. Ny data är `draft` tills källan är kontrollerad. Källpolicyn i CLAUDE.md gäller fullt ut.
 - **Pusha till `main` eller `production`.** Allt levereras som pull request mot `main` från en egen gren. Ingen force-push.
 - **Nya beroenden, ramverk eller byggsteg.** Inget byggsteg, vanliga ES-moduler, three.js 0.160.0 från jsDelivr (CLAUDE.md, Arkitektur). Fråga först.
-- **Ändra arkitektur, datamodell, kategorier eller licenser** utan Rikards godkännande. Beslut förs in i `docs/beslut.md`.
+- **Ändra arkitektur, datamodell, kategorier eller licenser** utan Rikards godkännande. Beslut skrivs som egen fil i `docs/beslut/` (`ÅÅÅÅ-MM-DD-kortnamn.md`, se `docs/beslut/README.md`), inte som ny rad i `docs/beslut.md`, som är fryst.
 - **Personuppgifter eller hemligheter** i repot, i issues eller i förfrågningar till externa tjänster: inga namn, e-postadresser, lokala sökvägar med användarnamn, tokens eller nycklar. Använd User-Agent `Historia-globen (https://github.com/DasKrokodil/historia-globen)`.
 - **Ändra mer än issuet kräver.** Ändra inte gemensamma CSS-variabler (till exempel `--line` och färgerna i `:root`), globala regler eller utseendet i övrigt, och ta inte bort befintliga regler, om inte issuet säger det. Behövs en ändring utanför issuet: gör den så smal som möjligt, till exempel med en ny variabel för just det fallet, och skriv i pull requesten vad som påverkas utanför issuet. (Lärdom av granskningen av #420 och #421.)
 - **Redigera `.orchestra/shared/`** eller kopiera text från Wikipedia och andra källor.

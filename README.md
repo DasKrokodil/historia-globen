@@ -134,7 +134,7 @@ tests/                tester för serverfunktionen (node --test 'tests/*.test.mj
 - **Ekvirektangulär rendering.** Lagren ritas på en platt världsbild som läggs på klotet. Knappen "Platt vy" visar samma bild som en platt karta, och bilden kan också skickas till en fysisk globskärm.
 - **Lager som moduler.** Lagertyperna är punkt, linje, område, bildlager och tur.
 
-Mer i [docs/arkitektur.md](docs/arkitektur.md). Besluten bakom finns i [docs/beslut.md](docs/beslut.md).
+Mer i [docs/arkitektur.md](docs/arkitektur.md). Besluten bakom finns i [docs/beslut/](docs/beslut/README.md) och den äldre loggen [docs/beslut.md](docs/beslut.md).
 
 ## Datamodell i korthet
 
