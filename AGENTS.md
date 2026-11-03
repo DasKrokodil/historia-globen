@@ -77,6 +77,11 @@ Enligt CLAUDE.md, "Testa innan du är klar":
   - **Menyer och fokus:** var hamnar tangentbordsfokus när en meny, ruta eller ett kort stängs? Det ska vara en synlig knapp.
   - **Animationer:** fortsätter det som ska röra sig (till exempel den valda markörens puls) att röra sig även när inget annat ändras?
   - **Regler som bygger på datan:** räkna hur många poster i `data/events.json` (eller berörd fil) regeln slår på, och skriv siffran i pull requesten. Slår den på långt fler än avsett är regeln fel.
+  - **Visad text, inte bara att något finns (lärdom av #528):** en knapp kan finnas och ändå visa en teknisk nyckel (`longRunning`, `showMore`) i stället för text. Varje ny text ska ligga i `data/` (inte i JS, ingen reservtext i koden), och testet ska kontrollera den **synliga texten** och att inga råa nycklar syns.
+  - **Städa efter dig (lärdom av #559):** ett test som öppnar ett läge (Fokus, en dialog, Platt vy, presentationsläge) ska stänga det i `finally`. Annars drar ett enda fel med sig alla följande tester i timeouter, och det ser ut som många fel när det är ett.
+  - **Kontrollera att det du väntar på finns i det läget:** Samtidigt-kortet är till exempel dolt i Fokus. Verifiera förutsättningen i Chromium innan du lägger en `waitFor` på det.
+  - **Hårdkoda inte år eller poster som kan ändras (lärdom av #559, #376):** ett test som kräver "år 1274 har ett krigskort" går sönder när datan växer. Härled året ur datan när det går, eller skriv i testet varför just det året behövs.
+  - **Mät relativt, inte i pixlar:** jämför höjder och storlekar mot en jämförbar komponent i samma läge i stället för fasta siffror, eftersom panelens lägen skriver över regler.
 - Uppdatera `docs/` (arkitektur, datamodell, beslut) och filstrukturen i README.md och CLAUDE.md när något ändras.
 
 ## Pull request
