@@ -683,6 +683,7 @@ body {
 .ff-pic.ff-reserve .ff-cap { position: static; align-items: center; gap: 4px; padding: 0; background: none; }
 .ff-pic.ff-reserve .ff-name { align-self: center; text-align: center; color: var(--card-ink); text-shadow: none; font-family: var(--f-display); font-size: 14px; }
 .ff-symbol.ff-pic { height: 96px; }
+.ff-symbol.ff-reserve { height: 132px; } /* samma bildradshöjd som övriga reserv- och bildkort (#542) */
 .ff-symbol .ff-sym-icon { position: absolute; left: 50%; top: 44%; width: 56px; height: 56px; transform: translate(-50%, -50%); object-fit: contain; opacity: .8; background: none; }
 .ff-symbol.no-img .ff-cap { top: auto; justify-content: flex-end; align-items: flex-end; padding: 14px 7px 6px; }
 .ff-more { padding: 4px 8px; border-radius: 999px; font: 600 11px/1 var(--f-body); color: #22190c; background: var(--brass); white-space: nowrap; }
