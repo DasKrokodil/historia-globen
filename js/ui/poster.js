@@ -2,6 +2,7 @@
 // canvasar som klotet använder; DOM-etiketterna ersätts av en kort händelselista.
 
 import { formatEventTime, formatYear, t } from '../model.js';
+import { selectEventsForYear } from '../date-events.js';
 
 const WIDTH = 3508;  // A4 liggande, 300 dpi
 const HEIGHT = 2480;
@@ -15,26 +16,14 @@ const COLORS = {
   background: '#101924', text: '#f1eadc', muted: '#c8c0b0', accent: '#d0a85f', line: '#8a7551',
 };
 
-// Tillfällig lokal avgränsning: #508 kan dela datumurvalet med andra vyer senare.
-function isLongRunningBackgroundEvent(event, year) {
-  return /\/\.\.$/.test(event.edtf ?? '') && event.start <= year - 100;
-}
-
 /**
  * De viktigaste händelserna som pågår ett helt valt år. Funktionen är medvetet
  * ren: #483 kan flytta den till ett gemensamt datumurval utan att exportkoden
  * eller main.js får egen datumlogik.
  */
 export function selectPosterEvents(year, events) {
-  return events
-    .map((event, index) => ({ event, index }))
-    .filter(({ event }) => event.start <= year && event.end >= year && !isLongRunningBackgroundEvent(event, year))
-    .sort((a, b) => priority(a.event) - priority(b.event) || a.index - b.index)
-    .slice(0, MAX_EVENTS)
-    .map(({ event }) => event);
+  return selectEventsForYear(year, events).slice(0, MAX_EVENTS);
 }
-
-function priority(event) { return event.top ? 0 : event.major ? 1 : 2; }
 
 function drawText(ctx, text, x, y, size, weight = '400', align = 'left') {
   ctx.font = `${weight} ${size}px Instrument Sans, sans-serif`;

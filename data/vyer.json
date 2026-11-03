@@ -41,6 +41,18 @@
     "filename": { "sv": "historia-globen", "en": "historia-globen" },
     "error": { "sv": "Kunde inte skapa affischen. Försök igen.", "en": "Could not create the poster. Try again." }
   },
+  "birthday": {
+    "title": { "sv": "Min dag i historien", "en": "My day in history" },
+    "copy": { "sv": "Skriv ett år eller ett helt datum och se redan källgranskade händelser. Uppgiften stannar i din webbläsare.", "en": "Enter a year or a full date to see already source-checked events. The entry stays in your browser." },
+    "label": { "sv": "År eller datum", "en": "Year or date" },
+    "placeholder": { "sv": "Till exempel 1969 eller 1969-07-20", "en": "For example 1969 or 1969-07-20" },
+    "submit": { "sv": "Visa", "en": "Show" },
+    "invalid": { "sv": "Skriv ett år, eller ett datum som ÅÅÅÅ-MM-DD.", "en": "Enter a year, or a date as YYYY-MM-DD." },
+    "yearResult": { "sv": "{year}: {count} händelser", "en": "{year}: {count} events" },
+    "dateResult": { "sv": "{date}: {count} händelser med dagsdatum", "en": "{date}: {count} events with a day date" },
+    "empty": { "sv": "Inga händelser i det här urvalet.", "en": "No events in this selection." },
+    "more": { "sv": "Visar de första {count}.", "en": "Showing the first {count}." }
+  },
   "uncertainty": {
     "label": { "sv": "Historisk osäkerhet", "en": "Historical uncertainty" },
     "approximate": { "sv": "dateringen är ungefärlig", "en": "the date is approximate" },
