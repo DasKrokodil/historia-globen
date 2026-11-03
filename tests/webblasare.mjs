@@ -390,6 +390,7 @@ async function run(browser, vp) {
     if (missing) throw new Error('reservkortet saknar ikon, år, kategori eller titel');
     const heights = await cards.evaluateAll(nodes => nodes.map(node => Math.round(node.getBoundingClientRect().height)));
     if (new Set(heights).size !== 1) throw new Error(`bild- och reservkort har olika höjd: ${heights.join(', ')}`);
+    const imageHeight = await image.first().evaluate(el => Math.round(el.closest('.ff-pic').getBoundingClientRect().height));
     await page.screenshot({ path: path.join(OUT, `${vp.name}-samtidigt-reservkort-1879.png`), fullPage: false });
     try {
       await jumpTo(1274);
@@ -397,8 +398,7 @@ async function run(browser, vp) {
       const symbol = page.locator('#ff-pics .ff-symbol.ff-reserve');
       await symbol.waitFor({ state: 'visible', timeout: T.step });
       const symbolHeight = await symbol.evaluate(el => Math.round(el.getBoundingClientRect().height));
-      const expectedSymbolHeight = vp.width <= 760 ? 74 : 132;
-      if (symbolHeight !== expectedSymbolHeight) throw new Error(`bildlöst krigskort har höjd ${symbolHeight}, väntade ${expectedSymbolHeight}`);
+      if (Math.abs(symbolHeight - imageHeight) > 1) throw new Error(`bildlöst krigskort har höjd ${symbolHeight}, bildkortet ${imageHeight}`);
     } finally {
       await jumpTo(1889);
     }
