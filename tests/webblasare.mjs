@@ -392,24 +392,16 @@ async function run(browser, vp) {
     if (new Set(heights).size !== 1) throw new Error(`bild- och reservkort har olika höjd: ${heights.join(', ')}`);
     await page.screenshot({ path: path.join(OUT, `${vp.name}-samtidigt-reservkort-1879.png`), fullPage: false });
     try {
-      await page.click('#btn-focus');
-      await visible('#focus-menu');
-      await page.click('#focus-menu [data-tab="Krig"]');
-      await page.fill('#focus-menu .focus-search', 'andra världskriget');
-      await page.locator('#focus-menu .focus-item[data-key="war:andra-varldskriget"]').click();
-      await visible('#detail');
-      await page.locator('#detail [data-close]').click();
-      await hidden('#detail');
+      await jumpTo(1274);
+      if ((await page.textContent('#ff-kind')).trim() !== 'När ett krig bröt ut') throw new Error('1274 saknar det verifierade krigskortet i Samtidigt');
       const symbol = page.locator('#ff-pics .ff-symbol.ff-reserve');
       await symbol.waitFor({ state: 'visible', timeout: T.step });
       const symbolHeight = await symbol.evaluate(el => Math.round(el.getBoundingClientRect().height));
       const expectedSymbolHeight = vp.width <= 760 ? 74 : 132;
       if (symbolHeight !== expectedSymbolHeight) throw new Error(`bildlöst krigskort har höjd ${symbolHeight}, väntade ${expectedSymbolHeight}`);
     } finally {
-      if (await page.locator('#focus-bar').isVisible().catch(() => false)) await page.click('#focus-exit');
-      await hidden('#focus-bar');
+      await jumpTo(1889);
     }
-    await jumpTo(1889);
     return 'bildkort och bildlöst krigskort har samma höjd och tillgängliga namn';
   });
 
