@@ -160,10 +160,10 @@ Rikard gillar stilen. Behåll den:
 
 | Version | Innehåll |
 |---|---|
-| 4.2 Stabilitet och tillgänglighet | Upptäcktsvyn (#375–#378), tangentbord och zoom (#386, #362), kontroll efter publicering (#388), läsbar tidslinje (#298), faktarutor och introduktion (#359, #363, #364) och små förenklingar |
+| 4.2 Stabilitet och tillgänglighet | Upptäcktsvyn (#375, #376, #378; dimman över riken #377 ligger i R7), tangentbord och zoom (#386, #362), kontroll efter publicering (#388), läsbar tidslinje (#298), faktarutor och introduktion (#359, #363, #364) och små förenklingar |
 | 4.3 Teknisk grund | main.js delas upp och tillståndet blir centralt (#389, utan adressdelen som är #501 i 5.2), lättare mobilrendering (#390), JSON Schema (#391), lagertypen bildlager (#54) |
 | 5.0 Guidade berättelser | Turformat som data (#47) och en första tur (#13, andra världskriget); fler turer och berättelselägen därefter |
-| 5.1 Global täckning | Granskningsvy, mindre redigeringsfiler, täckningsrapport och innehåll i små batcher per region (#61, #62, #394) |
+| 5.1 Global täckning, delad i tre (beslut 2026-11-03) | **5.1a** redigeringsformat (#394), **5.1b** kärnhändelser (#452) och deras bilder (#453) i källkontrollerade batchar om högst 20 per PR, **5.1c** massimport per världsdel (#61) när format, schema, källflöde och täckningsmått är stabila. Granskningsvyn för människor (#62) är stängd (#252) |
 | 5.2 Sök, delning och introduktion | "Vad hände här?" (#15), delbara länkar (#64) och tillståndet i adressen (#501), sök |
 | 6 Skolpilot | Lektionsturer, quiz och elevuppdrag (#66, #65, #250), läroplansreferenser, pilot med en lärare eller klass |
 | 7 Människans långa historia | Tidsmodell för ungefärliga datum, tidslinje i nivåer (#49), människoarter (#11) |
