@@ -50,6 +50,17 @@ function warCards(events) {
 }
 
 async function start() {
+  // Presentationsläget är avsiktligt bara en delbar adressparameter. Det sparar inget val och
+  // påverkar därför inte nästa besök utan parametern.
+  const presentation = new URLSearchParams(location.search).get('presentation') === '1';
+  const presentationExit = $('presentation-exit');
+  $('app').classList.toggle('presentation-mode', presentation);
+  presentationExit.hidden = !presentation;
+  if (presentation) {
+    const exit = new URL(location.href);
+    exit.searchParams.delete('presentation');
+    presentationExit.href = `${exit.pathname}${exit.search}${exit.hash}`;
+  }
   // Lagrens grupper och förinställda vyer (#357) är en liten fil; den hämtas samtidigt med resten
   const [data, views, introData] = await Promise.all([loadAll(), loadViews(), loadIntro()]);
   const globe = new Globe($('globe-canvas'), $('year-jump'));
