@@ -989,6 +989,11 @@ async function run(browser, vp) {
     await war.waitFor({ state: 'visible', timeout: T.step });
     await war.click();
     await visible('#focus-bar');
+    const symbol = page.locator('#ff-pics .ff-symbol.ff-reserve');
+    await symbol.waitFor({ state: 'visible', timeout: T.step });
+    const symbolHeight = await symbol.evaluate(el => Math.round(el.getBoundingClientRect().height));
+    const expectedSymbolHeight = vp.width <= 760 ? 74 : 132;
+    if (symbolHeight !== expectedSymbolHeight) throw new Error(`bildlöst krigskort har höjd ${symbolHeight}, väntade ${expectedSymbolHeight}`);
     const story = await page.locator('#track-chapters .chap').evaluateAll(bands => bands.map(band => ({
       title: band.getAttribute('title'), aria: band.getAttribute('aria-label'),
       label: band.querySelector('.chap-label')?.textContent?.trim(),
