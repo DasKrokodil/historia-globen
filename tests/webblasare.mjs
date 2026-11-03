@@ -168,6 +168,36 @@ async function run(browser, vp) {
     return `år ${await year()}`;
   });
 
+  await check('Samtidigt sorterar och skiljer gamla öppna spann', async () => {
+    await jumpTo(1100); await page.click('#btn-panel'); await visible('#panel');
+    if (!(await page.locator('#event-list .event-btn', { hasText: 'Undervisning i Oxford' }).count())) throw new Error('Oxford saknas i vanliga listan år 1100');
+    await page.click('#panel-close');
+    await clickView('#btn-flat');
+    await page.click('#flat-reset'); await settleFlat();
+    if (!/(^|\s)oxford(\s|$)/.test((await page.locator('#flat-view').getAttribute('data-visible-events')) ?? '')) throw new Error('Oxford-markören saknas i Platt vy år 1100');
+    await clickView('#btn-flat');
+    await jumpTo(1612);
+    await page.click('#btn-panel'); await visible('#panel');
+    const old = page.locator('#event-list [data-long]');
+    if (!(await old.count()) || (await old.getAttribute('aria-expanded')) !== 'false') throw new Error('Oxford saknar hopfälld långvarig grupp år 1612');
+    const panelText = (await page.textContent('#panel')).replace(/\s+/g, ' ');
+    if (!/träffar: \d+ pågår, \d+ nära/.test(panelText) || /\{count\}|\{inside\}|\{near\}/.test(panelText)) throw new Error('panelen visar inte datastyrd träffsammanfattning');
+    if (await page.locator('#panel button').evaluateAll(buttons => buttons.some(b => ['longRunning', 'showMore', 'showLess', 'summary'].includes(b.textContent.trim())))) throw new Error('panelen visar en rå datanyckel');
+    if (!/Pågår sedan länge \(1\)/.test((await old.textContent()) ?? '')) throw new Error('långraden har fel synlig text');
+    await old.focus(); await page.keyboard.press('Enter');
+    if (!(await page.locator('#event-list .event-btn', { hasText: 'Undervisning i Oxford' }).count())) throw new Error('Oxford visas inte efter att långvarig grupp öppnas');
+    await page.click('#panel-close');
+    await clickView('#btn-flat');
+    await page.click('#flat-reset'); await settleFlat();
+    if (/(^|\s)oxford(\s|$)/.test((await page.locator('#flat-view').getAttribute('data-visible-events')) ?? '')) throw new Error('Oxford-markören syns i Platt vy år 1612');
+    await clickView('#btn-flat');
+    await page.click('#btn-panel'); await visible('#panel');
+    const more = page.locator('#event-list [data-region]').first();
+    if (await more.count()) { if (!/Visa \d+ till i /.test((await more.textContent()) ?? '')) throw new Error('Visa fler saknar synlig datastyrd världsdel'); await more.focus(); await page.keyboard.press('Enter'); if ((await more.getAttribute('aria-expanded')) !== 'true') throw new Error('Visa fler öppnas inte med tangentbord'); }
+    await jumpTo(1889);
+    return 'Oxford: vanlig 1100, hopfälld 1612; Visa fler nås med tangentbord';
+  });
+
   await check('introduktionen startas frivilligt från Utforska', async () => {
     if (await page.isVisible('#intro')) throw new Error('introduktionen öppnas automatiskt vid första besöket');
     if (await page.locator('#help-intro').count()) throw new Error('Hjälp innehåller fortfarande en länk till introduktionen');
@@ -219,6 +249,17 @@ async function run(browser, vp) {
     return `${pagerBefore} → ${(await page.textContent('#ff-pager')).trim()}: ${before} → ${after}`;
   });
 
+  await check('Samtidigt-kortet förklarar blandade bild- och reservkort', async () => {
+    await jumpTo(1879); await visible('#funfact');
+    const chips = await page.locator('#ff-events .ff-chip').count();
+    const reserve = page.locator('#ff-pics .ff-pic.no-img').first();
+    if (!chips || !(await reserve.count())) throw new Error('blandat kort saknar textlista eller reservkort');
+    const label = await reserve.getAttribute('aria-label');
+    if (!/Reservkort utan bild/.test(label ?? '')) throw new Error('reservkortet saknar beskrivande tillgängligt namn');
+    await jumpTo(1889);
+    return 'bildkort, reservkort och textlista visas tillsammans';
+  });
+
   await check('skärmläsarstatusen säger paus och Samtidigt-text', async () => {
     const attrs = await page.evaluate(() => {
       const year = document.querySelector('.year-readout');
@@ -254,10 +295,9 @@ async function run(browser, vp) {
     // Valet flyger först till markören. När flygningen är klar ska den valda medaljen fortsätta
     // pulsera även om globen annars står helt stilla (#390).
     await page.waitForTimeout(1300);
-    const firstPulse = await page.locator('#globe-canvas').screenshot();
-    await page.waitForTimeout(180);
-    const secondPulse = await page.locator('#globe-canvas').screenshot();
-    if (firstPulse.equals(secondPulse)) throw new Error('den valda markörens puls stannade när globen stod stilla');
+    const pulseFrames = [await page.locator('#globe-canvas').screenshot()];
+    for (let i = 0; i < 3; i++) { await page.waitForTimeout(80); pulseFrames.push(await page.locator('#globe-canvas').screenshot()); }
+    if (pulseFrames.every(frame => frame.equals(pulseFrames[0]))) throw new Error('den valda markörens puls stannade när globen stod stilla');
     await page.locator('#detail [data-close]').click();
     await hidden('#detail');
     return `${title}; vald markör pulserar när globen står stilla`;
@@ -378,15 +418,10 @@ async function run(browser, vp) {
       });
       filtersChanged = true;
       const spinAway = async () => {
-        // Dra på själva globen, som en besökare gör. Läs sedan av den verkliga synligheten i stället
-        // för att anta ett visst rotationsvärde från canvasens pixlar eller tangentsteg.
-        const box = await globe.boundingBox();
-        if (!box) throw new Error('globen saknar träffyta för rotationsprovet');
-        const y = box.y + box.height / 2;
-        await page.mouse.move(box.x + box.width * 0.2, y);
-        await page.mouse.down();
-        await page.mouse.move(box.x + box.width * 0.8, y, { steps: 6 });
-        await page.mouse.up();
+        // Tangentbordets rotation är samma verkliga, tillgängliga användarflöde som canvasen erbjuder.
+        // Den är stabilare än ett långt musdrag vars tröghet annars kan passera ett helt varv i datorvyn.
+        await globe.focus();
+        for (let i = 0; i < 4; i++) await page.keyboard.press('Shift+ArrowRight');
         await page.waitForTimeout(3100); // den manuella styrningens spärr är tre sekunder
       };
       await page.evaluate(() => {

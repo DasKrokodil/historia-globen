@@ -1,5 +1,6 @@
 # Arkitektur
 
+> **Samtidigt-listan (#508):** Världsdelarna behålls. Panelen visar fem rangordnade träffar per världsdel och *Visa fler* behåller sitt val. Öppna EDTF-spann som startat minst 100 år före valt år ligger sist i en hopfälld grupp. `isLongRunning()` används också av händelselagret, så markören saknas på globen och i Platt vy tills posten väljs.
 Hur Historia-globen är uppbyggd och varför. Den här filen uppdateras i samma pull request som koden när något av det här ändras. De bindande principerna står också i [CLAUDE.md](../CLAUDE.md#arkitektur-beslutad-ändra-inte-utan-att-fråga), och besluten bakom dem i [beslut.md](beslut.md).
 
 ## Kort sammanfattning

@@ -95,7 +95,7 @@ async function start() {
   const panel = new Panel({
     root: $('panel'), list: $('event-list'), filters: $('filters'), chips: $('panel-filters'), detail: $('detail'),
     sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'), close: $('panel-close'),
-  }, data, { empireLegend: views?.empireLegend, uncertainty: views?.uncertainty });
+  }, data, { empireLegend: views?.empireLegend, uncertainty: views?.uncertainty, panel: views?.panel });
   const ff = new FunFacts({
     root: $('funfact'), text: $('ff-text'), events: $('ff-events'), review: $('ff-review'),
     pager: $('ff-pager'), next: $('ff-next'), srcBtn: $('ff-sources'),

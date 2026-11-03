@@ -149,6 +149,9 @@ export function formatEventTime(e) {
   return `${approx}${e.start}–${e.end}`;
 }
 
+/** Pågående institutioner hör hemma i panelens egen, hopfällda grupp först efter ett sekel (#508). */
+export const isLongRunning = (e, year) => /\/\.\.$/.test(e.edtf ?? '') && year - e.start >= 100;
+
 // ---------- Delar av år (#204) ----------
 // I fokusläget för korta krig räknar tidslinjen i dagar. Året är då ett decimaltal: året plus den
 // andel av året som har gått, så att 1 januari 1879 är 1879,0 och 2 juli 1879 ungefär 1879,5.

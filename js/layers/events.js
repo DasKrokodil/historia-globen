@@ -1,7 +1,7 @@
 // Lagertyp "punkt" (beslut 2): händelser som punkter på globen.
 // Varje lager har samma gränssnitt: update(state) och drawOverlay(ctx, W, H).
 import { THREE, latLonToVec3, R } from '../globe.js';
-import { CAT, isVisibleReview, t } from '../model.js';
+import { CAT, isLongRunning, isVisibleReview, t } from '../model.js';
 import { Z } from './registry.js';
 
 // Ikonfamiljen (#242): alla markörer är samma mässingsmedalj. Mörk botten, mässingsring och en inre
@@ -178,7 +178,8 @@ export class EventsLayer {
       const okFilter = onMap && filters.has(e.category) && isVisibleReview(e.review);
       // Händelserna i Samtidigt-kortet syns alltid, så att kortets bågar har markörer i båda ändar,
       // också när lagret Händelser är avslaget eller kategorin filtrerad bort. De räknas inte i listan.
-      const shown = okFilter || (highlight.has(e.id) && isVisibleReview(e.review));
+      const longRunning = isLongRunning(e, year);
+      const shown = (okFilter && !longRunning) || ((highlight.has(e.id) || e.id === selectedId) && isVisibleReview(e.review));
       const [s0, s1] = span(e);
       const inside = year >= s0 && year <= s1;
       const dist = inside ? 0 : Math.min(Math.abs(year - s0), Math.abs(year - s1));
@@ -199,7 +200,8 @@ export class EventsLayer {
       s.material.opacity = opacity;
       s.userData.baseScale = (s.userData.big ? 0.078 : 0.045 + 0.018 * activity);
       if (activity > 0) this._paint(s);
-      if (activity > 0 && okFilter) visible.push({ e, activity, inside, dist });
+      // Panelen räknar även gamla öppna spann, men markören ritas först när posten väljs.
+      if ((activity > 0 || longRunning) && okFilter) visible.push({ e, activity, inside, dist, longRunning });
     }
     visible.sort((a, b) => (b.inside - a.inside) || (a.dist - b.dist) || (a.e.start - b.e.start));
     return visible;
