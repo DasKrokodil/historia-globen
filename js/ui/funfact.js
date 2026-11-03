@@ -3,7 +3,7 @@
 // mellan de platser som hör ihop. Det kan fällas ihop till en flik (#120).
 // I smal skärm (högst 760 px) är kortet en panel underifrån med tre lägen (#239): stängd (handtag och
 // rubrikraden), halv och hel. Man drar i handtaget eller trycker på det, och kortet stängs när man drar i globen.
-import { CAT, REVIEW, t, formatYear, formatEventTime, styleFor, isVisibleReview, reviewLabel, REVIEW_SUBJECT_HELP, needDetails } from '../model.js';
+import { CAT, REVIEW, REGIONS, region, t, formatYear, formatEventTime, styleFor, isVisibleReview, reviewLabel, REVIEW_SUBJECT_HELP, needDetails } from '../model.js';
 
 const KIND = { funfact: 'Fun fact', war: 'När ett krig bröt ut', empire: 'Rikets berättelse', vanished: 'Landets berättelse' };
 
@@ -32,8 +32,35 @@ const HINT_KEY = 'hg-ff-drag-hint'; // "Dra upp för mer" har visats (#310)
 const HINT_MS = 6000;
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
+/**
+ * Väljer en redan synlig fun fact med en uttrycklig, jämn turordning mellan
+ * världsdelarna. En fact får vara kandidat för varje världsdel där någon av
+ * dess länkade händelser ligger. Vid lika många tidigare val bryter seedet
+ * lika, och nästa fact inom världsdelen väljs också deterministiskt.
+ */
+export function pickBalancedFunFact(funfacts, byId, counts, seed) {
+  const candidates = new Map(REGIONS.map(name => [name, []]));
+  for (const fact of funfacts) {
+    if (fact.kind || !isVisibleReview(fact.review)) continue;
+    const regions = new Set(fact.events.map(id => byId[id]).filter(Boolean).map(event => {
+      const [lon, lat] = event.location?.coordinates ?? [event._lon, event._lat];
+      return Number.isFinite(lat) && Number.isFinite(lon) ? region(lat, lon) : null;
+    }).filter(Boolean));
+    for (const name of regions) candidates.get(name)?.push(fact);
+  }
+  const available = REGIONS.filter(name => candidates.get(name)?.length);
+  if (!available.length) return null;
+  const least = Math.min(...available.map(name => counts.get(name) ?? 0));
+  const tied = available.filter(name => (counts.get(name) ?? 0) === least);
+  const selectedRegion = tied[seed % tied.length];
+  const options = candidates.get(selectedRegion);
+  const fact = options[Math.floor(seed / tied.length) % options.length];
+  counts.set(selectedRegion, (counts.get(selectedRegion) ?? 0) + 1);
+  return { fact, region: selectedRegion };
+}
+
 export class FunFacts {
-  constructor(els, { funfacts, byId, srcById, styles }) {
+  constructor(els, { funfacts, byId, srcById, styles, surprise }) {
     Object.assign(this, els);
     this.all = funfacts; this.byId = byId; this.srcById = srcById; this.styles = styles;
     this.active = []; this.index = 0; this.shownKey = '';
@@ -45,6 +72,11 @@ export class FunFacts {
     this.onSources = () => {};
     this.onNew = () => {};
     this._announcedKey = '';
+    this.surprise = surprise;
+    this.surpriseCounts = new Map();
+    this.surpriseStep = 0;
+    this.requestedId = null;
+    this.onSurprise = () => {};
     this.minimized = false;
     try { this.minimized = localStorage.getItem('hg-ff-min') === '1'; } catch { /* utan lagring */ }
     // Panelen i smal skärm (#239): ihopfällt kort (minimized) visas som stängd panel i stället för en flik.
@@ -63,6 +95,12 @@ export class FunFacts {
     this.text.addEventListener('click', () => this.root.classList.toggle('ff-open'));
     // Kortets källor räknas fram i main.js (händelsernas källor laddas först när de behövs, #337)
     this.srcBtn.addEventListener('click', () => { const f = this.active[this.index]; if (f) this.onSources(f); });
+    this.surprise?.addEventListener('click', () => {
+      const picked = pickBalancedFunFact(this.all, this.byId, this.surpriseCounts, this.surpriseStep++);
+      if (!picked) return;
+      this.requestedId = picked.fact.id;
+      this.onSurprise(picked.fact, picked.region);
+    });
   }
 
   update(year, filters) {
@@ -75,10 +113,12 @@ export class FunFacts {
       // Kort som jämför flera händelser (samtidighet) först, sedan det som började senast, så att det nya syns
       .sort((a, b) => (b.events.length > 1) - (a.events.length > 1) || b.show[0] - a.show[0]))];
     const key = active.map(f => f.id).join('|');
-    if (key === this.shownKey) return;
+    const requestedIndex = this.requestedId ? active.findIndex(f => f.id === this.requestedId) : -1;
+    if (key === this.shownKey && requestedIndex < 0) return;
     // Rikets berättelse pausar uppspelningen själv (main.js), med egen orsak och eget val i Lager
     const fresh = active.some(f => f.kind !== 'empire' && !this.active.includes(f));
-    this.shownKey = key; this.active = active; this.index = 0;
+    this.shownKey = key; this.active = active; this.index = requestedIndex >= 0 ? requestedIndex : 0;
+    this.requestedId = null;
     if (fresh && this.autoClosed) { this.autoClosed = false; this.sheet = 'half'; }
     this._show();
     if (fresh) this.onNew();
@@ -274,7 +314,8 @@ export class FunFacts {
     this.tab.hidden = !f || !this.minimized || asSheet;
     this.tabCount.textContent = String(this.active.length);
     this._syncSheet();
-    if (!f || (this.minimized && !asSheet)) { this.root.hidden = true; this._announcedKey = ''; this.onArcs([]); return; }
+    if (!f || (this.minimized && !asSheet)) { this.root.hidden = true; this.root.dataset.funfactId = ''; this._announcedKey = ''; this.onArcs([]); return; }
+    this.root.dataset.funfactId = f.id;
     const story = f.kind === 'empire';
     this.root.classList.toggle('ff-story', story);
     this.root.classList.remove('ff-open');
