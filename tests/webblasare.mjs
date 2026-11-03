@@ -397,6 +397,9 @@ async function run(browser, vp) {
       await page.click('#focus-menu [data-tab="Krig"]');
       await page.fill('#focus-menu .focus-search', 'andra världskriget');
       await page.locator('#focus-menu .focus-item[data-key="war:andra-varldskriget"]').click();
+      await visible('#detail');
+      await page.locator('#detail [data-close]').click();
+      await hidden('#detail');
       const symbol = page.locator('#ff-pics .ff-symbol.ff-reserve');
       await symbol.waitFor({ state: 'visible', timeout: T.step });
       const symbolHeight = await symbol.evaluate(el => Math.round(el.getBoundingClientRect().height));
