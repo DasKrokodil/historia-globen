@@ -4,6 +4,7 @@ import { loadAll, loadReligions, loadReligionPolities, loadEmpire, loadEmpireFac
 import { Globe } from './globe.js';
 import { Timeline, segmentName, setupYearJump, MAX_YEAR } from './timeline.js';
 import { markerInfo, describeMarker } from './layers/events.js';
+import { routeStops as stopsForRoute } from './layers/lines.js';
 import { LAYERS } from './layers/index.js';
 import { Panel } from './ui/panel.js';
 import { FunFacts, empireStory } from './ui/funfact.js';
@@ -108,15 +109,11 @@ async function start() {
 
   const timeline = new Timeline({
     track: $('track'), thumb: $('thumb'), segs: $('track-segments'), ticks: $('ticks'),
-    dots: $('track-dots'), ffMarks: $('track-ff'), chapters: $('track-chapters'), warMarks: $('track-war'), playBtn: $('btn-play'), playIcon: $('play-icon'), pauseNote: $('pause-note'), pauseText: $('pause-text'),
+    dots: $('track-dots'), ffMarks: $('track-ff'), chapters: $('track-chapters'), warMarks: $('track-war'), markNote: $('timeline-mark-note'), playBtn: $('btn-play'), playIcon: $('play-icon'), pauseNote: $('pause-note'), pauseText: $('pause-text'),
     pauseGo: $('pause-go'), status: $('screen-reader-status'),
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
   setupYearJump(timeline, { button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'), onJump: () => orientToPanelHighlight() });
-  // Översikten visar varje krig som en prick vid dess viktigaste händelse (top); krigets streck och slagen
-  // märkta major syns först i fokusläget (#298)
-  timeline.setMarks(data.events.filter(e => !e.partOf || e.top || e.major), data.funfacts, e => CAT[e.category]?.color ?? '#fff',
-    e => e.kind === 'war' || (e.partOf && !e.top));
 
   let focusWar = null, focusRoute = null, focus = null, lastYear = 0;
   let warStops = [], stopping = false; // kö med stopp när man följer ett krig (#217)
@@ -636,20 +633,6 @@ async function start() {
     showNextPause();
   }
 
-  /** Stopp ur resedatan. Ett datum styr den fina tidslinjen; år och årstid stannar på årsvis skala. */
-  function stopsForRoute(route) {
-    return route.legs.flatMap(leg => (leg.places ?? []).filter(place => place.stop).map(place => {
-      const iso = place.date ?? place.edtf ?? '';
-      const day = /^-?\d{4}-\d{2}-\d{2}$/.test(iso);
-      // "1405-23" är befintlig kod för hösten i Zheng He-datan, inte ett kalenderdatum.
-      let at = day ? edtfSpan({ edtf: iso, start: route.start, end: route.end })[0]
-        : /^-?\d{4}$/.test(iso) ? Number(iso) : leg.from;
-      // I årsvis fokus måste också ett dagsdatum ligga på sitt år, annars kan resans slut passeras
-      // innan stoppet nås. Den fina skalan behåller däremot den exakta dagen.
-      if (!edtfHasDays(route.edtf)) at = Math.floor(at);
-      return { place, at, day, key: `${route.id}:${iso}:${t(place.name)}` };
-    })).sort((a, b) => a.at - b.at);
-  }
   function stopDate(place) {
     if (place.dateLabel) return t(place.dateLabel);
     if (place.date) return formatDate(place.date);
@@ -798,6 +781,7 @@ async function start() {
     const eventsOn = layers.on.events;
     // Alla lager väljer vad som syns (beslut 2), i registrets ordning
     visible = registry.update(state).events;
+    timeline.setMarks(registry.marks(state));
     prefetchDetails();
     panel.render(visible, wholeYear, window, eventsOn, fine ? { at: `den ${timeline.format(year)}`, within } : null);
     // Samma markörer i Platt vy (#313): de som syns på klotet, de i listan får klustras och etikett

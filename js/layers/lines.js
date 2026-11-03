@@ -15,7 +15,7 @@
 // Allt ritas på den platta lagerbilden (beslut 1), så Platt vy visar samma sak. Långa sträckor följer
 // storcirklar (punkter läggs in längs vägen), och linjer över datumlinjen ritas en bildbredd åt andra
 // hållet också, så att de fortsätter på andra sidan bilden.
-import { CAT, isVisibleReview, loadRoutes } from '../model.js';
+import { CAT, edtfHasDays, edtfSpan, formatDate, isVisibleReview, loadRoutes, t } from '../model.js';
 import { Z } from './registry.js';
 
 /**
@@ -26,10 +26,11 @@ export function entry({ refresh }) {
   const layer = new LinesLayer();
   loadRoutes().then(list => { layer.setRoutes(list); refresh(); });
   return {
-    id: 'routes', name: 'Resor och handelsvägar', group: 'movement', menu: { on: true, note: 'streckad = osäker väg' }, layer, z: Z.routes,
+    id: 'routes', name: 'Resor och handelsvägar', group: 'movement', menu: { on: true, note: 'lodrätt streck på tidslinjen · streckad = osäker väg' }, layer, z: Z.routes,
     enabled: s => s.focus?.type === 'route' || s.layers.routes,
     apply: s => { layer.shipStyle = s.on.discovery ? 'ship' : 'dot'; layer.onlyRoute = s.focusRoute?.id ?? null; },
     update: s => layer.update({ year: s.year, fine: s.fine, window: s.window, filters: s.filters }),
+    marks: s => layer.marks(s),
     drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
   };
 }
@@ -39,6 +40,20 @@ const STEP_DEG = 2;       // längre sträckor än så delas upp längs storcirk
 const HIT_DEG = 1.5;      // klick så här nära en synlig linje (i grader) träffar den
 const FADED = 0.4;        // genomskinlighet för en resa som är slut
 const TRADE = 0.6;        // handelsvägarnas dämpade färg
+
+/** De redan källbelagda stoppen används både av Fokus-pauser och tidslinjemärken (#376, #378). */
+export function routeStops(route) {
+  return route.legs.flatMap(leg => (leg.places ?? []).filter(place => place.stop).map(place => {
+    const iso = place.date ?? place.edtf ?? '';
+    const day = /^-?\d{4}-\d{2}-\d{2}$/.test(iso);
+    let at = day ? edtfSpan({ edtf: iso, start: route.start, end: route.end })[0]
+      : /^-?\d{4}$/.test(iso) ? Number(iso) : leg.from;
+    if (!edtfHasDays(route.edtf)) at = Math.floor(at);
+    const date = place.dateLabel ? t(place.dateLabel) : place.date ? formatDate(place.date)
+      : /^-?\d{4}-23$/.test(place.edtf ?? '') ? `hösten ${place.edtf.slice(0, 4)}` : place.edtf ?? '';
+    return { place, at, day, date, key: `${route.id}:${iso}:${t(place.name)}` };
+  })).sort((a, b) => a.at - b.at);
+}
 
 const toVec = ([lon, lat]) => [Math.cos(lat * RAD) * Math.cos(lon * RAD), Math.cos(lat * RAD) * Math.sin(lon * RAD), Math.sin(lat * RAD)];
 const toLonLat = ([x, y, z]) => [Math.atan2(y, x) / RAD, Math.atan2(z, Math.hypot(x, y)) / RAD];
@@ -176,6 +191,20 @@ export class LinesLayer {
         .map(leg => ({ leg, prep: prepare(leg.path) }));
       return { route, legs };
     }).filter(r => r.legs.length);
+  }
+
+  /** Resor får streck vid start/slut; i resefokus blir källbelagda stopp prickar. */
+  marks({ filters, focusRoute, focus }) {
+    const colorOf = route => CAT[route.category]?.color ?? '#fff';
+    if (focus?.type === 'route' && focusRoute) return routeStops(focusRoute).map(stop => ({
+      type: 'route-stop', at: stop.at, color: colorOf(focusRoute),
+      label: `${t(focusRoute.title)} · ${t(stop.place.name)} · ${stop.date}`,
+    }));
+    if (focus || !this.enabled) return [];
+    return this.routes.flatMap(({ route }) => route.kind === 'voyage' && isVisibleReview(route.review) && filters.has(route.category) ? [
+      { type: 'route', at: route.start, color: colorOf(route), label: `${t(route.title)} börjar` },
+      { type: 'route', at: route.end, color: colorOf(route), label: `${t(route.title)} slutar` },
+    ] : []);
   }
 
   /**

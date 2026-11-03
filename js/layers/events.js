@@ -1,7 +1,7 @@
 // Lagertyp "punkt" (beslut 2): händelser som punkter på globen.
 // Varje lager har samma gränssnitt: update(state) och drawOverlay(ctx, W, H).
 import { THREE, latLonToVec3, R } from '../globe.js';
-import { CAT, isLongRunning, isVisibleReview, t } from '../model.js';
+import { CAT, formatYear, isLongRunning, isVisibleReview, t } from '../model.js';
 import { Z } from './registry.js';
 
 // Ikonfamiljen (#242): alla markörer är samma mässingsmedalj. Mörk botten, mässingsring och en inre
@@ -119,10 +119,11 @@ export function entry({ globe, data }) {
   const layer = new EventsLayer(globe, data.events);
   const none = new Set();
   return {
-    id: 'events', name: 'Händelser', group: 'people', menu: { on: true }, layer, z: Z.events,
+    id: 'events', name: 'Händelser', group: 'people', menu: { on: true, note: 'cirkel på tidslinjen' }, layer, z: Z.events,
     enabled: s => s.layers.events,
     update: s => layer.update({ year: s.year, window: s.window, filters: s.layers.events ? s.filters : none,
       selectedId: s.selectedId, highlight: s.highlight, focusId: s.focusWar?.id, span: s.span }),
+    marks: s => layer.marks(s),
     frame: (now, s) => layer.frame(now, s.selectedId),
     frameAnimating: s => !s.calm && layer.hasSelected(s.selectedId),
     drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
@@ -155,6 +156,16 @@ export class EventsLayer {
 
   /** Den valda markören pulserar bara när den faktiskt är synlig. */
   hasSelected(id) { return !!id && !!this.byId.get(id)?.visible; }
+
+  /** Märkena är samma granskade och filtrerade händelser som lagret kan visa.
+   * Fokusets egna berättelse- och resemarkeringar läggs ovanpå dem av sina lager. */
+  marks({ filters, on }) {
+    if (!on.events) return [];
+    return this.events
+      .filter(e => isVisibleReview(e.review) && filters.has(e.category) && (!e.partOf || e.top))
+      .map(e => ({ type: 'event', at: e.start, until: e.end, color: CAT[e.category]?.color ?? '#fff',
+        label: `${t(e.title)} · ${e.start === e.end ? formatYear(e.start) : `${formatYear(e.start)}–${formatYear(e.end)}`}` }));
+  }
 
   /** Byter medaljens bild när tidsläget eller detaljnivån ändras (texturerna återanvänds ur medalCache). */
   _paint(s) {
