@@ -9,23 +9,27 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / 'dist'
 FIXTURE = ROOT / 'tests' / 'fixtures' / 'schema-invalid-event.json'
+EVIDENCE_FIXTURE = ROOT / 'tests' / 'fixtures' / 'schema-invalid-evidence.json'
 
 if not DIST.is_dir():
     subprocess.run(['bash', 'scripts/build-site.sh'], cwd=ROOT, check=True)
 
-with tempfile.TemporaryDirectory() as tmp:
-    broken = Path(tmp) / 'dist'
-    shutil.copytree(DIST, broken)
-    shutil.copyfile(FIXTURE, broken / 'data' / 'events.json')
-    result = subprocess.run(
-        [sys.executable, '-I', 'scripts/validate-site.py', str(broken)],
-        cwd=ROOT,
-        text=True,
-        capture_output=True,
-    )
+def rejects(fixture, expected):
+    with tempfile.TemporaryDirectory() as tmp:
+        broken = Path(tmp) / 'dist'
+        shutil.copytree(DIST, broken)
+        shutil.copyfile(fixture, broken / 'data' / 'events.json')
+        result = subprocess.run(
+            [sys.executable, '-I', 'scripts/validate-site.py', str(broken)],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+        )
+    if result.returncode == 0:
+        raise SystemExit(f'Förväntade att {fixture.name} underkänns.')
+    if expected not in result.stderr:
+        raise SystemExit(f'{fixture.name} underkändes av fel skäl:\n{result.stderr}')
 
-if result.returncode == 0:
-    raise SystemExit('Förväntade att det medvetet felaktiga eventet underkänns.')
-if "obligatoriska fältet 'title' saknas" not in result.stderr:
-    raise SystemExit(f'Feltestet underkändes av fel skäl:\n{result.stderr}')
-print('validate-schema-test: ok (medvetet saknad title underkänns)')
+rejects(FIXTURE, "obligatoriska fältet 'title' saknas")
+rejects(EVIDENCE_FIXTURE, "evidence.date använder källan cliopatria, som saknas i händelsens sources")
+print('validate-schema-test: ok (saknad title och ogiltig evidence underkänns)')

@@ -84,8 +84,16 @@ def type_matches(value, expected):
     }.get(expected, False)
 
 
-def schema_errors(value, schema, path='$'):
+def schema_errors(value, schema, path='$', root=None):
     """Validerar den lilla JSON Schema-del som används i schemas/ (#391)."""
+    root = root or schema
+    if '$ref' in schema:
+        target = root
+        for part in schema['$ref'].removeprefix('#/').split('/'):
+            target = target.get(part) if isinstance(target, dict) else None
+        if target is None:
+            return [f"{path}: okänd schemareferens {schema['$ref']!r}"]
+        return schema_errors(value, target, path, root)
     found = []
     expected = schema.get('type')
     if expected and not type_matches(value, expected):
@@ -108,10 +116,10 @@ def schema_errors(value, schema, path='$'):
                 found.append(f'{path}: obligatoriska fältet {name!r} saknas')
         for name, child in schema.get('properties', {}).items():
             if name in value:
-                found += schema_errors(value[name], child, f'{path}.{name}')
+                found += schema_errors(value[name], child, f'{path}.{name}', root)
     elif isinstance(value, list) and 'items' in schema:
         for i, item in enumerate(value):
-            found += schema_errors(item, schema['items'], f'{path}[{i}]')
+            found += schema_errors(item, schema['items'], f'{path}[{i}]', root)
     return found
 
 
@@ -270,10 +278,25 @@ for layer in (image_layers or {}).get('layers', []):
 sources = load('data/sources.json') or {'sources': []}
 src_ids = {s['id'] for s in sources['sources']}
 ev_ids = {e['id'] for e in events['events']}
+evidence_fields = {'summary', 'date', 'location', 'image', 'uncertainty'}
 for e in events['events']:
     for s in e.get('sources', []) + (e.get('story') or {}).get('sources', []):
         if s not in src_ids:
             err(f"data/events.json ({e['id']}): källan {s} finns inte i sources.json")
+    for field, refs in (e.get('evidence') or {}).items():
+        if field not in evidence_fields:
+            err(f"data/events.json ({e['id']}): evidence.{field} är inte ett känt påstående")
+            continue
+        if not isinstance(refs, list):
+            continue  # JSON Schema ger ett tydligare formfel nedan.
+        for ref in refs:
+            if not isinstance(ref, dict):
+                continue  # JSON Schema ger ett tydligare formfel nedan.
+            source = ref.get('source')
+            if source not in src_ids:
+                err(f"data/events.json ({e['id']}): evidence.{field} använder källan {source}, som inte finns i sources.json")
+            elif source not in e.get('sources', []):
+                err(f"data/events.json ({e['id']}): evidence.{field} använder källan {source}, som saknas i händelsens sources")
 for path, r in routes:
     rid = r.get('id', '?')
     for s in r.get('sources', []):

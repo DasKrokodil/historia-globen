@@ -530,6 +530,11 @@ body {
 .detail .meta { font: 400 11.5px/1.4 var(--f-mono); color: var(--card-accent, var(--brass)); }
 .detail p { margin: 8px 0; line-height: 1.5; max-width: 65ch; }
 .detail .src { font-size: 12.5px; color: var(--card-dim, var(--parchment-dim)); }
+.detail .evidence-ref { margin-left: 2px; font: 500 10px/1 var(--f-mono); }
+.detail .evidence-sources { margin-top: 12px; border-top: 1px solid var(--card-line, var(--line)); padding-top: 8px; }
+.detail .evidence-sources h4 { margin: 0 0 5px; color: var(--card-accent, var(--brass)); }
+.detail .evidence-group h5 { margin: 8px 0 2px; font: 500 10px/1.2 var(--f-mono); letter-spacing: .05em; text-transform: uppercase; }
+.detail .evidence-group ol { margin: 0; padding-left: 20px; }
 .detail a, .detail .link-btn { color: var(--card-accent, var(--brass)); }
 .detail .review-badge, .detail .war-link, .detail .war-list .meta { color: var(--card-dim); }
 .detail .war-list h4 { color: var(--card-accent); }

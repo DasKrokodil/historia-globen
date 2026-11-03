@@ -7,9 +7,54 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;'
 const LOADING = '<p class="detail-loading" role="status">Laddar…</p>';
 /** Källraden. pending = källregistret eller händelsens källor laddas fortfarande (#337): då står ingen rad alls. */
 const srcLine = (srcs, pending) => pending ? '' : `<div class="src">Källa: ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || 'saknas'}</div>`;
+const EVIDENCE_FIELDS = ['summary', 'date', 'location', 'image', 'uncertainty'];
+const EVIDENCE_ROLES = [
+  ['date', 'Datum'], ['text', 'Text'], ['map', 'Karta'], ['image', 'Bild'], ['uncertainty', 'Osäkerhet']
+];
+
+/**
+ * Källor per påstående (#383). Saknas evidence lämnas den vanliga källraden helt
+ * oförändrad. Samma källa har samma siffra vid flera påståenden, men kan visas
+ * under flera roller i den fullständiga listan.
+ */
+export function evidenceView(e, srcs) {
+  const refs = e.evidence && typeof e.evidence === 'object' ? e.evidence : {};
+  const fieldRefs = field => Array.isArray(refs[field]) ? refs[field] : [];
+  const byId = new Map(srcs.map(s => [s.id, s]));
+  const numbers = new Map();
+  const grouped = new Map(EVIDENCE_ROLES.map(([role]) => [role, []]));
+  let next = 1;
+  for (const field of EVIDENCE_FIELDS) for (const ref of fieldRefs(field)) {
+    const source = byId.get(ref.source);
+    if (!source || !grouped.has(ref.role)) continue;
+    if (!numbers.has(ref.source)) numbers.set(ref.source, next++);
+    const rows = grouped.get(ref.role);
+    if (!rows.some(row => row.id === ref.source)) rows.push({ ...source, n: numbers.get(ref.source) });
+  }
+  if (!numbers.size) return { marker: () => '', sources: '' };
+  const marker = field => fieldRefs(field).map(ref => numbers.has(ref.source)
+    ? `<sup class="evidence-ref"><a href="#evidence-${numbers.get(ref.source)}" aria-label="Källa ${numbers.get(ref.source)}">[${numbers.get(ref.source)}]</a></sup>` : '').join('');
+  const assigned = new Set(numbers.keys());
+  const printed = new Set();
+  const sections = EVIDENCE_ROLES.map(([role, label]) => {
+    const rows = grouped.get(role);
+    return rows.length ? `<section class="evidence-group"><h5>${label}</h5><ol>${rows.map(source => {
+      const target = !printed.has(source.id); printed.add(source.id);
+      return sourceLink(source, target);
+    }).join('')}</ol></section>` : '';
+  }).join('');
+  const unassigned = srcs.filter(s => !assigned.has(s.id));
+  const other = unassigned.length ? `<section class="evidence-group"><h5>Övriga källor</h5><ol>${unassigned.map(sourceLink).join('')}</ol></section>` : '';
+  return { marker, sources: `<section class="src evidence-sources"><h4>Alla källor</h4>${sections}${other}</section>` };
+}
+
+function sourceLink(source, target = false) {
+  target = target && source.n != null ? ` id="evidence-${source.n}"` : '';
+  return `<li${target}><a href="${esc(source.url)}" target="_blank" rel="noopener">${esc(source.title)}</a></li>`;
+}
 
 /** Källornas kontrollnivå och den historiska osäkerheten är olika saker (#364). */
-export const uncertaintyRow = (e, copy = {}) => {
+export const uncertaintyRow = (e, copy = {}, evidence = '') => {
   const reasons = [];
   const edtf = e.edtf ?? '';
   if (edtf.includes('~')) reasons.push(t(copy.approximate));
@@ -17,7 +62,7 @@ export const uncertaintyRow = (e, copy = {}) => {
   if (e.precision != null && e.precision < 9) reasons.push(t(copy.precision));
   if (e.locationPrecision) reasons.push(t(copy.place));
   if (t(e.note?.title) === 'Källorna skiljer sig') reasons.push(t(copy.sourcesDisagree));
-  return reasons.length ? `<p class="uncertainty-row"><b>${esc(t(copy.label))}:</b> ${esc([...new Set(reasons)].join(' · '))}</p>` : '';
+  return reasons.length ? `<p class="uncertainty-row"><b>${esc(t(copy.label))}:</b> ${esc([...new Set(reasons)].join(' · '))}${evidence}</p>` : '';
 };
 
 /**
@@ -25,7 +70,7 @@ export const uncertaintyRow = (e, copy = {}) => {
  * en illustration i tidens bildtradition som alltid märks med en synlig bildtext.
  * Bilden finns bara i kortet, så den laddas först när kortet öppnas.
  */
-export function figure(e, srcById) {
+export function figure(e, srcById, evidence = '') {
   const img = e.image;
   if (!img) return '';
   // Historiska bilder länkar licensen till filsidan i källregistret
@@ -35,7 +80,7 @@ export function figure(e, srcById) {
   return `<figure class="detail-fig${img.placeholder ? ' is-placeholder' : ''}">
     ${img.placeholder ? '<span class="fig-badge">Platshållare</span>' : ''}
     <img src="${esc(img.file)}" alt="${esc(t(img.caption))}" loading="lazy" width="800" height="600">
-    <figcaption><span class="fig-caption">${esc(t(img.caption))}</span>
+    <figcaption><span class="fig-caption">${esc(t(img.caption))}</span>${evidence}
       <span class="fig-credit">${credit}</span></figcaption>
   </figure>`;
 }
@@ -392,8 +437,9 @@ export class Panel {
     const pending = this._whenLoaded(needDetails([e]), () => this.showDetail(e, show)), loading = pending && !e._full;
     // Wikidata länkas till händelsens egen post
     const srcs = (e.sources ?? []).map(id => id === 'wikidata' && e.wikidata
-      ? { title: `Wikidata ${e.wikidata}`, url: `https://www.wikidata.org/wiki/${e.wikidata}` }
-      : this.srcById[id]).filter(Boolean);
+      ? { id, title: `Wikidata ${e.wikidata}`, url: `https://www.wikidata.org/wiki/${e.wikidata}` }
+      : this.srcById[id] && { ...this.srcById[id], id }).filter(Boolean);
+    const evidence = evidenceView(e, srcs);
     // Kortets ram följer händelsens tidsålder, med eller utan bild (#129)
     const st = styleFor(e, this.styles);
     this.detail.className = `detail detail-card frame-${st.frame}`;
@@ -401,18 +447,18 @@ export class Panel {
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
       ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(t(e.place))}: visa på globen"><span class="place-pin" aria-hidden="true"></span><span class="place-name">${esc(t(e.place))}</span><span class="place-go" aria-hidden="true">· visa på globen</span></button>` : ''}
-      ${figure(e, this.srcById)}
+      ${figure(e, this.srcById, evidence.marker('image'))}
       <h3>${esc(t(e.title))}</h3>
-      <div class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))} · ${esc(t(CAT[e.category]?.name))}</div>
-      ${loading ? LOADING : `<p>${esc(t(e.summary))}</p>`}
+      <div class="meta">${esc(formatEventTime(e))}${evidence.marker('date')} · ${esc(t(e.place))}${evidence.marker('location')} · ${esc(t(CAT[e.category]?.name))}</div>
+      ${loading ? LOADING : `<p>${esc(t(e.summary))}${evidence.marker('summary')}</p>`}
       ${e.note ? `<aside class="detail-note"><h4>${esc(t(e.note.title))}</h4><p>${esc(t(e.note.text))}</p></aside>` : ''}
-      ${uncertaintyRow(e, this.uncertainty)}
+      ${uncertaintyRow(e, this.uncertainty, evidence.marker('uncertainty'))}
       ${e._war ? `<p class="war-link">Del av: <button type="button" class="link-btn" data-goto="${esc(e._war.id)}">${esc(t(e._war.title))}</button></p>` : ''}
       ${e.kind === 'war' ? `<button type="button" class="chip-btn focus-btn" data-focus="${esc(e.id)}">▶ Följ kriget långsamt</button>` : ''}
       ${e._battles?.length ? `<div class="war-list"><h4>Slag och händelser i kriget</h4><ol>${e._battles.map(b =>
         `<li><button type="button" class="link-btn" data-goto="${esc(b.id)}">${esc(t(b.title))}</button> <span class="meta">${esc(formatEventTime(b))}</span></li>`).join('')}</ol></div>` : ''}
       ${empireList(e._empires ?? e._war?._empires)}
-      ${srcLine(srcs, pending)}
+      ${evidence.sources || srcLine(srcs, pending)}
       <div class="detail-actions">
         ${reviewRow(e.review, 'Händelsen')}
         ${this.onReport ? reportBtn({ type: 'event', id: e.id, label: t(e.title) }) : ''}
