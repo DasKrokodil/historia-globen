@@ -138,6 +138,8 @@ export class Timeline extends EventTarget {
     this._labelSpeed();
     this._labelSteps();
     this._drawScale();
+    // Samma märken får en annan plats på den inzoomade skalan, även om deras data är oförändrad.
+    this._marksKey = null;
     if (this._marks) this.setMarks(...this._marks);
     this._drawStory();
     if (range && (this._year < range.from || this._year > range.to)) this.year = range.from;
@@ -218,6 +220,9 @@ export class Timeline extends EventTarget {
 
   /** Märken från lagerregistret (#378): cirkel = händelse, romb = Samtidigt, streck = resa. */
   setMarks(marks = []) {
+    const key = marks.map(mark => [mark.type, mark.at, mark.until ?? '', mark.color ?? '', mark.label ?? ''].join('\u001f')).join('\u001e');
+    if (key === this._marksKey) return;
+    this._marksKey = key;
     this._marks = [marks];
     this.dotsEl.replaceChildren();
     this.ffEl.replaceChildren();
