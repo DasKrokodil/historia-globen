@@ -36,9 +36,10 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;'
  * Väljer en redan synlig fun fact med en uttrycklig, jämn turordning mellan
  * världsdelarna. En fact får vara kandidat för varje världsdel där någon av
  * dess länkade händelser ligger. Vid lika många tidigare val bryter seedet
- * lika, och nästa fact inom världsdelen väljs också deterministiskt.
+ * lika, och nästa fact inom världsdelen väljs också deterministiskt. De fem
+ * senast visade facts hoppas över när det finns en annan kandidat i tur.
  */
-export function pickBalancedFunFact(funfacts, byId, counts, seed) {
+export function pickBalancedFunFact(funfacts, byId, counts, seed, recent = []) {
   const candidates = new Map(REGIONS.map(name => [name, []]));
   for (const fact of funfacts) {
     if (fact.kind || !isVisibleReview(fact.review)) continue;
@@ -54,7 +55,11 @@ export function pickBalancedFunFact(funfacts, byId, counts, seed) {
   const tied = available.filter(name => (counts.get(name) ?? 0) === least);
   const selectedRegion = tied[seed % tied.length];
   const options = candidates.get(selectedRegion);
-  const fact = options[Math.floor(seed / tied.length) % options.length];
+  // Regionbalansen väljs före rotationen. Därmed blir inte den datatätaste
+  // världsdelen vanligare bara för att en annan nyss har visats.
+  const fresh = options.filter(fact => !recent.includes(fact.id));
+  const rotation = fresh.length ? fresh : options;
+  const fact = rotation[Math.floor(seed / tied.length) % rotation.length];
   counts.set(selectedRegion, (counts.get(selectedRegion) ?? 0) + 1);
   return { fact, region: selectedRegion };
 }
@@ -75,6 +80,7 @@ export class FunFacts {
     this.surprise = surprise;
     this.surpriseCounts = new Map();
     this.surpriseStep = 0;
+    this.surpriseRecent = [];
     this.requestedId = null;
     this.onSurprise = () => {};
     this.minimized = false;
@@ -96,8 +102,10 @@ export class FunFacts {
     // Kortets källor räknas fram i main.js (händelsernas källor laddas först när de behövs, #337)
     this.srcBtn.addEventListener('click', () => { const f = this.active[this.index]; if (f) this.onSources(f); });
     this.surprise?.addEventListener('click', () => {
-      const picked = pickBalancedFunFact(this.all, this.byId, this.surpriseCounts, this.surpriseStep++);
+      const picked = pickBalancedFunFact(this.all, this.byId, this.surpriseCounts, this.surpriseStep++, this.surpriseRecent);
       if (!picked) return;
+      this.surpriseRecent.push(picked.fact.id);
+      if (this.surpriseRecent.length > 5) this.surpriseRecent.shift();
       this.requestedId = picked.fact.id;
       this.onSurprise(picked.fact, picked.region);
     });

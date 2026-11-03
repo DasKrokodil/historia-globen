@@ -333,15 +333,22 @@ async function run(browser, vp) {
       ]);
       const byId = Object.fromEntries(eventDoc.events.map(event => [event.id, event]));
       const one = new Map(), two = new Map();
+      const recentA = [], recentB = [];
       const a = [], b = [];
       for (let seed = 0; seed < 25; seed++) {
-        a.push(pickBalancedFunFact(factDoc.funfacts, byId, one, seed)?.fact.id);
-        b.push(pickBalancedFunFact(factDoc.funfacts, byId, two, seed)?.fact.id);
+        const first = pickBalancedFunFact(factDoc.funfacts, byId, one, seed, recentA)?.fact.id;
+        const second = pickBalancedFunFact(factDoc.funfacts, byId, two, seed, recentB)?.fact.id;
+        a.push(first); b.push(second);
+        recentA.push(first); recentB.push(second);
+        if (recentA.length > 5) recentA.shift();
+        if (recentB.length > 5) recentB.shift();
       }
       const counts = [...one.values()];
-      return { same: JSON.stringify(a) === JSON.stringify(b), spread: Math.max(...counts) - Math.min(...counts), available: counts.length };
+      const firstTen = a.slice(0, 10);
+      const mostRepeated = Math.max(...Object.values(Object.groupBy(firstTen, id => id)).map(ids => ids.length));
+      return { same: JSON.stringify(a) === JSON.stringify(b), spread: Math.max(...counts) - Math.min(...counts), available: counts.length, mostRepeated };
     });
-    if (!selection.same || selection.available < 2 || selection.spread > 1) throw new Error(`urvalet är inte deterministiskt och jämnt (${JSON.stringify(selection)})`);
+    if (!selection.same || selection.available < 2 || selection.spread > 1 || selection.mostRepeated > 2) throw new Error(`urvalet är inte deterministiskt, jämnt och varierat (${JSON.stringify(selection)})`);
     // I mobil ligger kortets fot i ett eget rullbart ark. Klickhanteraren prövas
     // direkt här, medan den separata träffyte- och omflödeskontrollen nedan
     // verifierar att knappen också får plats på skärmen.
@@ -368,7 +375,7 @@ async function run(browser, vp) {
       await page.evaluate(() => document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })));
       await hidden('#layer-menu');
     }
-    return `deterministiskt urval i ${selection.available} världsdelar; kortet hoppade till ${expected}`;
+    return `deterministiskt urval i ${selection.available} världsdelar, högst ${selection.mostRepeated} gånger samma fact på tio tryck; kortet hoppade till ${expected}`;
   });
 
   await check('Samtidigt-kortet förklarar blandade bild- och reservkort', async () => {
