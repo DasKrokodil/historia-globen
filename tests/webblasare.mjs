@@ -733,6 +733,35 @@ async function run(browser, vp) {
     if (await focusGroups.evaluateAll(buttons => buttons.some(button => button.getAttribute('aria-expanded') !== 'false'))) {
       throw new Error('Alla-fliken startar inte med hopfällda fokusgrupper');
     }
+    const focusKinds = { Krig: 'war:', Riken: 'empire:', 'Försvunna länder': 'empire:', Religioner: 'religion:', Resor: 'route:' };
+    const countInHeading = text => Number(/\((\d+)\)/.exec(text)?.[1]);
+    const verifyFocusCount = async (tab, title) => {
+      await page.click(`#focus-menu [data-tab="${tab}"]`);
+      const group = page.locator(`#focus-menu .focus-group:has([data-group="${title}"])`);
+      const heading = await group.locator('[data-group]').textContent();
+      const expected = countInHeading(heading);
+      const rows = group.locator('[data-key]');
+      const actual = await rows.count();
+      if (actual !== expected) throw new Error(`${tab} säger ${expected} resultat men visar ${actual}`);
+      const wrong = await rows.evaluateAll((items, prefix) => items.some(item => !item.dataset.key.startsWith(prefix)), focusKinds[title]);
+      if (wrong) throw new Error(`${tab} visar en post utanför sitt filter`);
+    };
+    for (const [tab, title] of [['Krig', 'Krig'], ['Riken', 'Riken'], ['Försvunna länder', 'Försvunna länder'], ['Religioner', 'Religioner'], ['Resor', 'Resor']]) {
+      await verifyFocusCount(tab, title);
+    }
+    // Alla är en översikt: en grupp öppnas i taget, men dess räknare ska ändå
+    // stämma när man väljer Visa alla.
+    await page.click('#focus-menu [data-tab="Alla"]');
+    for (const title of Object.keys(focusKinds)) {
+      const group = page.locator(`#focus-menu .focus-group:has([data-group="${title}"])`);
+      await group.locator('[data-group]').click();
+      const more = group.locator('[data-group-all]');
+      if (await more.count()) await more.click();
+      const expected = countInHeading(await group.locator('[data-group]').textContent());
+      if (await group.locator('[data-key]').count() !== expected) throw new Error(`Alla/${title} har fel räknare`);
+      const near = group.locator('[data-group-near]');
+      if (await near.count()) await near.click();
+    }
     const wars = page.locator('#focus-menu [data-group="Krig"]');
     await wars.focus();
     await page.keyboard.press('ArrowDown');
@@ -742,7 +771,7 @@ async function run(browser, vp) {
     if (await wars.getAttribute('aria-expanded') !== 'true') throw new Error('Krig-gruppen fälls inte upp med tangentbordet');
     if (await page.locator('#focus-menu [data-group="Riken"]').getAttribute('aria-expanded') !== 'false') throw new Error('flera fokusgrupper är öppna samtidigt');
     const visibleWars = await page.locator('#focus-menu .focus-item[data-key^="war:"]').count();
-    if (visibleWars > 8) throw new Error(`Krig visar ${visibleWars} poster före Visa alla, inte högst åtta`);
+    if (visibleWars > 8) throw new Error(`Alla/Krig visar ${visibleWars} poster före Visa alla, inte högst åtta`);
     const moreWars = page.locator('#focus-menu [data-group-all="Krig"]');
     if (await moreWars.count()) await moreWars.click();
     if (await page.locator('#focus-menu .focus-item[data-key^="war:"]').count() < visibleWars) throw new Error('Visa alla visar inte fler krig');
