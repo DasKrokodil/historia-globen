@@ -175,7 +175,10 @@ export class FocusMenu {
     const groupItems = (g, expanded) => {
       if (!expanded) return '';
       if (!g.items.length) return g.loading ? '<div class="layer-note pad">Laddas …</div>' : '';
-      const showAll = q || this.showAllGroups.has(g.title);
+      // En vald flik är redan ett avgränsat urval. Visa därför hela gruppen så
+      // att antalet i rubriken direkt motsvarar de synliga raderna; Alla behåller
+      // sin korta, hopfällbara översikt.
+      const showAll = q || this.tab !== 'Alla' || this.showAllGroups.has(g.title);
       const visible = showAll ? g.items : g.items.slice(0, 8);
       const ageRows = this.groupByAge ? visible.reduce((html, it) => {
         const age = this.ageFor(it);
