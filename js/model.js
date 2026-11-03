@@ -317,7 +317,7 @@ function loadPeriod(p) {
   return periodFiles.get(p.id);
 }
 /**
- * Händelsernas långa fält (summary, note, story, image, sources, wikidata) för de här händelserna. Filerna per
+ * Händelsernas långa fält (summary, note, story, image, sources, wikidata, evidence) för de här händelserna. Filerna per
  * period laddas en gång; händelserna får fälten i samma objekt och _full = true. Ger ett löfte.
  */
 export function loadEventDetails(events) {

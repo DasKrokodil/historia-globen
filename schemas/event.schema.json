@@ -30,7 +30,30 @@
           "title": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
           "summary": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
           "sources": { "type": "array", "items": { "type": "string", "pattern": ".+" } },
+          "evidence": {
+            "type": "object",
+            "properties": {
+              "summary": { "$ref": "#/$defs/evidenceReferences" },
+              "date": { "$ref": "#/$defs/evidenceReferences" },
+              "location": { "$ref": "#/$defs/evidenceReferences" },
+              "image": { "$ref": "#/$defs/evidenceReferences" },
+              "uncertainty": { "$ref": "#/$defs/evidenceReferences" }
+            }
+          },
           "review": { "type": "string", "enum": ["draft", "source-checked", "two-sources"] }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "evidenceReferences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source", "role"],
+        "properties": {
+          "source": { "type": "string", "pattern": ".+" },
+          "role": { "type": "string", "enum": ["date", "text", "map", "image", "uncertainty"] }
         }
       }
     }

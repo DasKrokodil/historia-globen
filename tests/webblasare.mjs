@@ -176,6 +176,30 @@ async function run(browser, vp) {
     return `år ${await year()}`;
   });
 
+  await check('källor per påstående grupperas utan att ändra händelsedata', async () => {
+    const rendered = await page.evaluate(async () => {
+      const { evidenceView } = await import('./js/ui/panel.js');
+      const view = evidenceView({ evidence: {
+        summary: [{ source: 'a', role: 'text' }],
+        date: [{ source: 'a', role: 'date' }],
+        location: [{ source: 'b', role: 'map' }],
+      } }, [
+        { id: 'a', title: 'Källa A', url: 'https://example.test/a' },
+        { id: 'b', title: 'Källa B', url: 'https://example.test/b' },
+        { id: 'c', title: 'Källa C', url: 'https://example.test/c' },
+      ]);
+      return { summary: view.marker('summary'), location: view.marker('location'), sources: view.sources };
+    });
+    if (!rendered.summary.includes('[1]') || !rendered.location.includes('[2]')) {
+      throw new Error('hänvisningssiffrorna efter påståendena saknas eller är inte stabila');
+    }
+    if (!/Alla källor/.test(rendered.sources) || !/Datum/.test(rendered.sources) || !/Text/.test(rendered.sources)
+      || !/Karta/.test(rendered.sources) || !/Övriga källor/.test(rendered.sources)) {
+      throw new Error('källorna grupperas inte efter roll med kvarvarande källor');
+    }
+    return 'hänvisningar och rollgrupper från testobjekt';
+  });
+
   await check('hjälpen öppnas bara på begäran', async () => {
     const help = page.locator('#help');
     const helpButton = page.locator('#btn-help');

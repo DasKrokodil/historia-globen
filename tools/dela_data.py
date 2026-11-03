@@ -28,7 +28,7 @@ from pathlib import Path
 
 # Fälten som flyttas till periodfilerna. note stannar med bara sin rubrik i indexet, eftersom markören
 # visar "osäker" när rubriken är "Källorna skiljer sig" (js/layers/events.js); hela noten ligger i periodfilen.
-DETAIL = ['summary', 'note', 'story', 'image', 'sources', 'wikidata']
+DETAIL = ['summary', 'note', 'story', 'image', 'sources', 'wikidata', 'evidence']
 
 # Perioderna efter händelsens start (astronomiskt år). from = första året i perioden, None = från början.
 # Gränserna är valda så att filerna blir ungefär lika stora (40–120 kB). Ändras de, ändras filnamnen.

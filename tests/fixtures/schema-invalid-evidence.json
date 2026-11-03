@@ -1,0 +1,23 @@
+{
+  "schema": "historia-globen/events@1",
+  "events": [
+    {
+      "id": "ogiltig-evidence",
+      "category": "kultur",
+      "start": 1969,
+      "end": 1969,
+      "precision": 9,
+      "edtf": "1969",
+      "location": { "type": "Point", "coordinates": [18.0, 59.0] },
+      "place": { "sv": "Testplats" },
+      "title": { "sv": "Testhändelse" },
+      "summary": { "sv": "En fullständig testpost med en felaktig källhänvisning." },
+      "sources": ["wikidata"],
+      "evidence": {
+        "date": [{ "source": "cliopatria", "role": "date" }],
+        "summary": [{ "source": "wikidata", "role": "fel-roll" }]
+      },
+      "review": "draft"
+    }
+  ]
+}
