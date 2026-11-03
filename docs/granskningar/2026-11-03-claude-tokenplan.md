@@ -60,3 +60,25 @@ Dela upp milstolpen innan implementation: `#394 → #452 → #453 → #61`.
 - En agent börjar först när föregående steg har lämnat över relevant beslut, testbevis och kända begränsningar.
 - Minst 40 procent av Claude Codes helgbudget ska inte planeras in i förväg.
 - Ingen ny större uppgift startas bara för att token finns kvar; stoppunkten är en del av planen.
+
+## Förslag: riskbaserade webbläsartester
+
+Hela webbläsarsviten behöver inte köras lokalt för varje issue. Testnivån bör följa ändringens risk:
+
+| Ändring | Testnivå |
+| --- | --- |
+| Endast dokumentation | Riktad kontroll, ingen webbläsarsvit |
+| Isolerad text, konstant eller liten UI-detalj | Riktad kontroll eller komponenttest |
+| En panel, meny eller ett lager | Komponenttest med dator- och mobilbild |
+| Tidslinje, glob, central JavaScript, dataladdning eller mobil layout | Full webbläsarsvit |
+| Release eller större arkitekturändring | Full svit plus integrationskontroll |
+
+Rekommenderad process:
+
+- Varje pull request kör ett snabbt smoke-test.
+- Isolerade issues får riktade eller komponentbaserade tester.
+- Full webbläsarsvit körs för central kod, mobiländringar, tidslinje/glob, dataladdning och arkitektur.
+- Full svit körs alltid före release och när flera pull requests ska testas tillsammans.
+- Efter en release görs en full integrationskontroll mot den sammanslagna versionen.
+
+Detta är ett processförslag, inte en ändring av GitHub-workflowen i denna pull request. Claude Code och Rikard behöver bedöma hur branch protection och `.github/workflows/browser-test.yml` ska ändras innan den nya testnivån införs.
