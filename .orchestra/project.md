@@ -45,6 +45,7 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   handoff: när en arbetare öppnar eller uppdaterar en pull request börjar den separata Codex-granskningen i samma tur.
   (3) Ingen passiv `codex: pågår`: etiketten kräver en aktiv arbetare, ett pågående test eller en publicering, eller en
   dokumenterad extern spärr; annars återupptas, förbereds eller avmarkeras ärendet direkt.
+- **Riskbaserat flöde (beslut 2026-11-03):** Den tidigare kökontrollen efter varje PR är lättviktig och ersätter inte automatiskt en full review. Full review triggas av avslutad batch eller milstolpe, kritisk bugg, större central ändring, releasekandidat eller uttrycklig begäran. Testnivån följer risk: riktad för isolerade ändringar, komponent/integration för relaterade ändringar och full svit inför release eller vid central/riskfylld ändring. Snabbare merge kräver dokumenterad accepterad risk och uppföljning. Release publiceras först efter releasekontroll och Rikards godkännande.
 - **Kapacitet:** en arbetare är standard (resurspolicyn nedan). Högst tre arbetare samtidigt, inklusive hjälpare. Dirigenten får göra ett arbete själv, och det
   räknas då som en plats. Webbläsartester (Playwright) körs av en arbetare i taget, var och en med egen port. Kön
   hålls med en gemensam låsfil: `flock <scratchpad>/pw.lock node skript.cjs`. I molnmiljön når webbläsaren inte
