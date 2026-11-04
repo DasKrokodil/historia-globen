@@ -28,7 +28,7 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   arbetet pågår. Etiketten tas bort när pull requesten är öppnad eller arbetet pausas.
 - **Codex (beslut 2026-10-31):** Codex tar också issues och öppnar pull requests, enligt [AGENTS.md](../AGENTS.md). Orkestern
   hoppar över issues med etiketten `codex: pågår` eller en öppen Codex-pull-request (`codex/issue-*`) som skriver
-  `Closes #N`. Dirigenten granskar Codex pull requests på samma sätt som arbetarnas leveranser innan Rikard slår ihop.
+  `Closes #N`. För Codex pull requests gäller i stället: Codex-förgranskning efter att pull requesten öppnats, därefter Claude Codes beslut ("godkänd" eller arbetsorder) och sist Rikards merge. Samma diff och samma verifieringsbevis återanvänds, ingen del granskas två gånger. Dirigentens granskning "innan pull requesten öppnas" nedan gäller orkesterns egna arbetare.
   Dirigenten sätter etiketten `codex: redo` på issues som Codex får ta: tydligt avgränsade, utan historiska fakta, utan
   `beslut-krävs` och utan krock med orkesterns pågående eller planerade arbete. Etiketten tas bort när issuet tas.
   Varje pass och varje planering går igenom den pågående milstolpen efter nya sådana issues, och rapporten till Rikard
@@ -41,7 +41,7 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
 - **Blind-spots-rundan (beslut 2026-11-02):** den separata, självkritiska analysen i UX-genomgången görs av Codex och
   skrivs som rapport i `docs/granskningar/`. Dirigenten läser rapporten och gör issues av fynden, men gör inte analysen själv.
 - **Flödesregler (beslut 2026-11-02):** (1) Händelsedriven kögenomgång: efter varje ny, uppdaterad eller ihopslagen pull
-  request kontrolleras alla `codex: redo`-issues direkt, och nästa blockerade ärende får förberedelsearbete. (2) Omedelbar
+  request görs direkt en lätt kökontroll av `codex: redo`-issues (full granskning bara vid utlösarna i CLAUDE.md), och nästa blockerade ärende får förberedelsearbete. (2) Omedelbar
   handoff: när en arbetare öppnar eller uppdaterar en pull request börjar den separata Codex-granskningen i samma tur.
   (3) Ingen passiv `codex: pågår`: etiketten kräver en aktiv arbetare, ett pågående test eller en publicering, eller en
   dokumenterad extern spärr; annars återupptas, förbereds eller avmarkeras ärendet direkt.
@@ -74,7 +74,7 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   arkitektur, nya beroenden, kategorier eller datakällor med ny licens är alltid sådana frågor (CLAUDE.md).
 - **Inflöde:** inga automatiska inflödessteg. Undantag: när dirigenten startar läser den `docs/granskningar/handoff.json`. Är `status` `ready_for_triage` triageras rapporten enligt CLAUDE.md (Granskningar från Codex) innan passet börjar, och ingenting ur rapporten genomförs förrän Rikard har godkänt planen.
 - **Granskning av varje leverans (obligatorisk):** dirigenten läser diffen och tittar på skärmbilderna innan pull
-  requesten öppnas. I faktaarbete stickprovskontrollerar dirigenten källorna själv. Fel rättas i en extra commit, och
+  requesten öppnas (orkesterns egna arbetare; för Codex pull requests, se Codex-punkten ovan). I faktaarbete stickprovskontrollerar dirigenten källorna själv. Fel rättas i en extra commit, och
   pull requesten säger vad granskningen hittade. I första passet hittade granskningen något i hälften av leveranserna,
   så steget hoppas aldrig över.
 - **Granskning när kön är tom:** standard, och dessutom slås alla öppna orkester-pull-requests ihop på prov i en
