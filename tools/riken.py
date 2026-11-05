@@ -39,7 +39,9 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              'ryska-imperiet': (0.3, 0.05, 0.08),
              # R5 (#71): kolonialvälden med många öar och Sovjetunionens långa kust
              'nederlandska-kolonialvaldet': (0.3, 0.08, 0.08), 'franska-kolonialvaldet': (0.3, 0.05, 0.08),
-             'japanska-imperiet': (0.3, 0.05, 0.08), 'sovjetunionen': (0.3, 0.05, 0.08)}
+             'japanska-imperiet': (0.3, 0.05, 0.08), 'sovjetunionen': (0.3, 0.05, 0.08),
+             # R7 (#407): USA med Alaska, de arktiska öarna och Stilla havet
+             'usa': (0.3, 0.05, 0.08)}
 
 # grupp: (svenskt namn, engelskt namn, [(Cliopatria-namn, id, svenskt namn, färg)])
 GROUPS = {
@@ -259,6 +261,39 @@ GROUPS = {
     # Saknas i Cliopatria (räknas till Tyska förbundet och Tyska riket). Utan gräns: en punkt (vanished.point i
     # index.json), och from/to är källornas årtal (vanished.founded/dissolved). Färgen står i inställningarna.
     'neutrala-moresnet': ('Neutrala Moresnet', 'Neutral Moresnet', [], {'color': '#e0a0c0'}),
+    # R7 (#407): stater i Amerika som krigen och resorna behöver (inbördeskriget, Paraguaykriget, mexikanska revolutionen)
+    'usa': ('USA', 'United States', [
+        ('United States of America', 'usa', 'USA', '#4a7ab8', {'en': 'United States'}),
+    ]),
+    'amerikas-konfedererade-stater': ('Amerikas konfedererade stater', 'Confederate States of America', [
+        ('Confederate States of America', 'amerikas-konfedererade-stater', 'Amerikas konfedererade stater', '#8c7f6a'),
+    ]),
+    'mexiko': ('Mexiko', 'Mexico', [
+        ('First Mexican Empire', 'forsta-mexikanska-kejsardomet', 'Första mexikanska kejsardömet', '#2f9a74'),
+        ('Federated Republic of Mexico', 'mexikanska-forbundsrepubliken', 'Mexikanska förbundsrepubliken', '#2f9a74',
+         {'en': 'Mexican Federal Republic'}),
+        ('Centralist Mexico', 'centralistiska-republiken-mexiko', 'Centralistiska republiken Mexiko', '#5aa88a',
+         {'en': 'Centralist Republic of Mexico'}),
+        ('Second Mexican Empire', 'andra-mexikanska-kejsardomet', 'Andra mexikanska kejsardömet', '#2f9a74'),
+        # Cliopatria anger Q5062192 (centralistiska republiken) också för Mexiko från 1868
+        ('Mexico', 'mexiko', 'Mexiko', '#2f9a74', {'wikidata': 'Q96'}),
+    ]),
+    'brasilien': ('Brasilien: kejsardömet och republiken', 'Brazil: the Empire and the Republic', [
+        ('Empire of Brazil', 'kejsardomet-brasilien', 'Kejsardömet Brasilien', '#9ab83a'),
+        # Cliopatria delar republiken i fyra poster efter styrelseskick; här en del
+        (['Brazilian Republic', 'Unitary State of Brazil', 'Federated Republic of Brazil', 'Republic of Brazil'],
+         'brasilien', 'Brasilien', '#9ab83a', {'en': 'Brazil'}),
+    ]),
+    'argentina': ('Argentina', 'Argentina', [
+        # Cliopatria kallar landet Argentine Confederation ända till 1929; källorna säger att namnet Argentine Republic slogs fast 1860
+        (['Argentine Confederation', 'Argentine Republic'], 'argentina', 'Argentina', '#6fb3d9', {'en': 'Argentina', 'wikidata': 'Q414'}),
+    ]),
+    'paraguay': ('Paraguay', 'Paraguay', [
+        ('Paraguay', 'paraguay', 'Paraguay', '#c0504a'),
+    ]),
+    'uruguay': ('Uruguay', 'Uruguay', [
+        ('Oriental Republic of Uruguay', 'uruguay', 'Uruguay', '#8a6fc4', {'en': 'Uruguay'}),
+    ]),
 }
 
 # Huvudlandet i utspridda välden (#74): moderlandet ritas med kraftigare kant och en stjärna och får
