@@ -33,6 +33,7 @@ Listan bygger på referenserna i koden:
 | `img/icons/*.svg` | markörernas och korten symboler, hämtas med `fetch` efter namn | `icon` i `data/events.json`, `symbol` i `data/religions.json` (#271), `CAT_ICON` och standardikonen `star` i `js/ui/funfact.js`, `index.html` |
 | `data/events.json`, `funfacts.json`, `sources.json`, `land.json`, `borders.json`, `styles.json`, `empires/index.json` | laddas vid start | `loadAll()` i `js/model.js` |
 | `data/licenses.json` | maskinläsbar sammanställning av källregistrets licensuppgifter | `tools/license_manifests.py`, genererad från `data/sources.json` (#393) |
+| `data/version.json` | aktuell versionsetikett, releasedatum och länk till releaserna | versionsraden i Om källorna (#552) |
 | `data/religions.json`, `data/religions-polities.json` | laddas när religionslagret slås på eller vid klick | `loadReligions()`, `loadReligionPolities()` i `js/model.js` |
 | `data/empires/<rike>.json` | laddas när riket behövs | fältet `file` i `data/empires/index.json` |
 | `images/events/*.webp` | händelsernas bilder | `image.file` i `data/events.json` |
@@ -79,6 +80,7 @@ Skriptet gör så här:
   9. Varje rike som ett krig anger i `empires` (#76) finns i `data/empires/index.json`, och bara krig har fältet.
   10. Filerna i `data/genererat/` stämmer med källfilerna.
   11. `data/licenses.json` och `images/licenses.json` stämmer med källregistret och händelsernas bilduppgifter.
+  12. `data/version.json` finns och versionsnumret följer `X.Y.Z` eller `X.Y.Z-dev`.
 
 Provkör den byggda sidan:
 
@@ -217,6 +219,8 @@ Godkännanden är satta till 0 eftersom projektet har en ägare, och GitHub låt
 Inget annat än en sammanslagen release-PR uppdaterar historiagloben.se: `production` går inte att pusha till direkt, och sammanslagningar till `main` bygger bara förhandsversionen.
 
 ### Versionsnummer vX.Y.Z
+
+`data/version.json` visar versionen i Om källorna. På `main` används en utvecklingsversion med suffixet `-dev` och tomt `released`-datum. När en release förbereds uppdateras filen till `X.Y.Z` och datumet då den publiceras; efteråt får `main` nästa `X.Y.Z-dev`. Release-PR:ens checklista påminner om båda ändringarna.
 
 Taggarna skrivs `vX.Y.Z` med gemener och tre tal (semantisk versionering):
 - **X (huvudversion):** versionen i versionsplanen, till exempel `v3.0.0` när version 3 (Krig och slag) släpps.

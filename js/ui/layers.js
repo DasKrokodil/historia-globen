@@ -29,6 +29,7 @@ export async function loadViews() {
       },
       empireLegend: Object.fromEntries(Object.entries(doc.empireLegend ?? {}).map(([id, text]) => [id, t(text)])),
       uncertainty: Object.fromEntries(Object.entries(doc.uncertainty ?? {}).map(([id, text]) => [id, t(text)])),
+      sourceVersion: Object.fromEntries(Object.entries(doc.sourceVersion ?? {}).map(([id, text]) => [id, t(text)])),
       groups: doc.groups.map(g => ({ ...g, name: t(g.name) })),
       views: doc.views.map(v => ({ ...v, name: t(v.name) })),
     };

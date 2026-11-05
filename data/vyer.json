@@ -44,6 +44,11 @@
     "filename": { "sv": "historia-globen", "en": "historia-globen" },
     "error": { "sv": "Kunde inte skapa affischen. Försök igen.", "en": "Could not create the poster. Try again." }
   },
+  "sourceVersion": {
+    "version": { "sv": "Version", "en": "Version" },
+    "development": { "sv": "utvecklingsversion", "en": "development version" },
+    "releases": { "sv": "releaser", "en": "releases" }
+  },
   "birthday": {
     "title": { "sv": "Min dag i historien", "en": "My day in history" },
     "copy": { "sv": "Skriv ett år eller ett helt datum och se redan källgranskade händelser. Uppgiften stannar i din webbläsare.", "en": "Enter a year or a full date to see already source-checked events. The entry stays in your browser." },

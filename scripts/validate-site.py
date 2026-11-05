@@ -31,6 +31,7 @@ Användning: python3 scripts/validate-site.py [dist]
 import json
 import re
 import sys
+from datetime import date
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -384,6 +385,33 @@ else:
     spec.loader.exec_module(license_manifests)
     for e in license_manifests.check(DIST):
         err(e)
+
+# 12. Versionsrad (#552): filen måste finnas och ha giltiga releaseuppgifter.
+if exists('data/version.json', 'Versionsuppgifter'):
+    version_data = load('data/version.json')
+    if isinstance(version_data, dict):
+        version = version_data.get('version')
+        released = version_data.get('released')
+        releases = version_data.get('releases')
+        is_development = isinstance(version, str) and version.endswith('-dev')
+        if not isinstance(version, str) or not re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+(?:-dev)?', version):
+            err('data/version.json: version ska följa X.Y.Z eller X.Y.Z-dev')
+        if not isinstance(released, str):
+            err('data/version.json: released ska vara en textsträng')
+        elif released:
+            if not re.fullmatch(r'[0-9]{4}-[0-9]{2}-[0-9]{2}', released):
+                err('data/version.json: released ska vara ett datum på formen ÅÅÅÅ-MM-DD eller tomt')
+            else:
+                try:
+                    date.fromisoformat(released)
+                except ValueError:
+                    err('data/version.json: released ska vara ett giltigt datum')
+        if is_development and released:
+            err('data/version.json: released ska vara tomt för en utvecklingsversion')
+        if not isinstance(releases, str) or not re.fullmatch(r'https://\S+', releases):
+            err('data/version.json: releases ska vara en HTTPS-länk')
+    elif version_data is not None:
+        err('data/version.json: roten ska vara ett objekt')
 
 if errors:
     print(f'validate-site: {len(errors)} fel', file=sys.stderr)
