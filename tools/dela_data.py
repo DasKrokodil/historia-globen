@@ -13,7 +13,7 @@ scripts/validate-site.py kontrollerar att de byggda filerna stämmer med dem, s�
   python3 tools/dela_data.py          skriver om data/events.json och filerna i data/genererat/
   python3 tools/dela_data.py --check  skriver ingenting, avslutas med kod 1 om något inte stämmer
 
-Redigeringsfilerna kontrolleras först: alla sex periodfiler finns, varje händelse ligger i filen för sitt
+Redigeringsfilerna kontrolleras först: alla sju periodfiler finns, varje händelse ligger i filen för sitt
 startår och inget id finns två gånger. Är något fel skrivs ingenting.
 
 De byggda filerna (docs/datamodell.md, "Redigeringsfiler" och "Uppdelade filer"):
@@ -49,7 +49,8 @@ PERIODS = [
     ('1500-1799', 1500),
     ('1800-1899', 1800),
     ('1900-1945', 1900),
-    ('1946-', 1946),
+    ('1946-1979', 1946),
+    ('1980-', 1980),       # 1946- delades 2026-11-05 (#611) när filen blev 139 kB
 ]
 
 SRC = 'data/handelser'  # redigeringsfilerna för händelser (#394)

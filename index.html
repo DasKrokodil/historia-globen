@@ -113,6 +113,7 @@
         <button id="btn-layers" class="chip-btn" type="button" aria-expanded="false" aria-controls="layer-menu">Lager</button>
         <button id="btn-focus" class="chip-btn" type="button" aria-expanded="false" aria-controls="focus-menu">Fokus</button>
         <button id="btn-intro" class="chip-btn" type="button" aria-controls="intro"></button>
+        <button id="btn-tour" class="chip-btn" type="button" aria-expanded="false" aria-controls="tour-menu" hidden>Turer</button>
       </div>
       <div class="action-group" role="group" aria-labelledby="ag-view">
         <span id="ag-view" class="action-label">Visa</span>
@@ -254,6 +255,11 @@
   <div id="route-pop" class="religion-pop route-pop" role="dialog" aria-label="Väg eller resa" hidden></div>
 
   <div id="focus-menu" class="layer-menu" hidden role="group" aria-label="Fokus"></div>
+  <!-- Guidade turer (#47): listan över turerna i data/turer/index.json (js/ui/tour.js) -->
+  <div id="tour-menu" class="layer-menu tour-menu" hidden role="group" aria-labelledby="tour-menu-title">
+    <p id="tour-menu-title" class="layer-heading"></p>
+    <ul id="tour-list" class="tour-list"></ul>
+  </div>
 
   <div id="layer-menu" class="layer-menu" hidden role="group" aria-label="Lager">
     <!-- De förinställda vyerna (data/vyer.json, #357) och raderna för lagren i grupper byggs av lagerregistret
@@ -306,6 +312,25 @@
   </section>
 
   <button id="ff-tab" class="ff-tab" type="button" hidden aria-label="Visa Samtidigt-kortet">Samtidigt <span id="ff-tab-count" class="count">1</span></button>
+
+  <!-- Kortet för en guidad tur (#47): ett steg i taget; Fortsätt i pausraden går också till nästa steg -->
+  <section id="tour-card" class="tour-card" aria-labelledby="tour-name" hidden>
+    <div class="tour-head">
+      <p id="tour-progress" class="tour-progress"></p>
+      <button id="tour-close" class="panel-x" type="button" aria-label="Avsluta turen">×</button>
+    </div>
+    <h2 id="tour-name" class="tour-name"></h2>
+    <h3 id="tour-title" class="tour-title"></h3>
+    <p id="tour-text" class="tour-text"></p>
+    <div class="tour-links">
+      <button id="tour-read" class="link-btn" type="button" aria-controls="detail"></button>
+      <button id="tour-sources" class="link-btn" type="button"></button>
+    </div>
+    <div class="tour-actions">
+      <button id="tour-back" class="chip-btn" type="button"></button>
+      <button id="tour-next" class="tour-next" type="button"></button>
+    </div>
+  </section>
 
   <div id="focus-bar" class="focus-bar" hidden>
     <span class="focus-label">Fokus</span> <span id="focus-title" class="focus-title"></span>

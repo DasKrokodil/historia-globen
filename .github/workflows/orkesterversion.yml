@@ -1,0 +1,27 @@
+# Orkesterns versionskontroll: en gång om dagen jämförs den installerade versionen av dirigenten och orkestern
+# (raden "Installerad version" i .orchestra/project.md) med de stabila taggarna i upstream-repot.
+# Finns en nyare version skapas ett issue, eller så uppdateras det som redan är öppet. Ingenting importeras
+# automatiskt: uppdateringen görs för hand enligt .orchestra/shared/INSTALL.md när Rikard godkänner.
+# Logiken ligger i .github/scripts/orkesterversion.cjs.
+name: Orkesterns version
+
+on:
+  schedule:
+    - cron: '41 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  version:
+    name: Jämför med upstream
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const k = require('./.github/scripts/orkesterversion.cjs');
+            core.info(await k.kontrollera({ github, context, core }));

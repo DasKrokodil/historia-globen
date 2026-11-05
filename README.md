@@ -83,6 +83,8 @@ js/ui/sources.js      sidan Om källorna (knappen Källor)
 js/ui/help.js         kort hjälp i tre steg för nya besökare (knappen Hjälp)
 js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
 js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg, från Utforska (#363, #516)
+js/ui/tour.js         guidade turer: spelar upp en tur ur data/turer/ steg för steg (knappen Turer, #47)
+js/tour-format.js     turformatets kontroll, delas med testerna (#47)
 js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering (knappen Platt vy)
 js/ui/poster.js       A4-affisch som PNG från Platt vy (knappen Affisch)
 js/ui/feedback.js     formuläret Lämna förslag / Rapportera faktafel (avstängt som standard, docs/feedback.md)
@@ -93,7 +95,7 @@ js/ui/zoomlevels.js   vad som syns på vilken zoomnivå: tre nivåer och tröske
 js/ui/focusmenu.js    fokusmenyn: välj ett krig, rike eller en religion att följa
 js/ui/routepop.js     klickrutan för vägar och resor
 js/ui/sheet.js        faktarutan som ark nedifrån i mobilen (litet, halvt, helt)
-js/ui/viewmenu.js     mobilmenyn Meny (Lager, Fokus, Ett år, en plats, Platt vy, Källor, Hjälp, #530)
+js/ui/viewmenu.js     mobilmenyn Meny (Lager, Fokus, Ett år, en plats, Turer, Platt vy, Källor, Hjälp, #530)
 img/icons/            ikoner för händelser och religionernas symboler (egna SVG-teckningar, till exempel treaty.svg för fredsavtal, cross.svg och dharma-wheel.svg, #271)
 img/favicon.svg       sidans ikon i webbläsarfliken (och PNG-versioner för äldre webbläsare och hemskärm)
 images/events/        bilder till händelser (historiska bilder och märkta illustrationer)
@@ -106,6 +108,7 @@ data/handelser/       händelserna, en redigeringsfil per period; här redigeras
 data/events.json      alla händelser i en fil, byggd ur data/handelser/ (redigeras inte)
 data/funfacts.json    fun facts, kopplade till händelser
 data/intro.json       introduktionens startår, texter och referenser till befintliga händelser/fun facts (#363, #516)
+data/turer/           guidade turer: index.json och en fil per tur med steg (år, kamera, text, lager, händelse, källor) (#47)
 data/sources.json     källregister
 data/version.json     versionsnummer och länk till releaserna
 data/licenses.json    genererat register över källornas licensuppgifter
