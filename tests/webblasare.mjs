@@ -1745,6 +1745,7 @@ async function run(browser, vp) {
     });
     await page.waitForFunction(() => document.getElementById('detail')?.textContent.includes('När kriget är slut'), null, { timeout: T.step });
     const summary = (await page.textContent('#detail')).replace(/\s+/g, ' ').trim();
+    if (!(await page.locator('#detail .review-badge').count())) throw new Error('krigets slutkort saknar granskningsstatus (#608)');
     if (!summary.includes('Andra världskriget')) throw new Error('slutkortet saknar krigets namn');
     // Slutkortet animeras in samtidigt som WebGL-ytan ritar om. Stäng av just skärmbildens
     // rörelser i stället för att vänta på en stilla canvas som inte hör till kortet.
@@ -1880,6 +1881,18 @@ async function run(browser, vp) {
     const text = (await page.textContent('#detail .uncertainty-row')).replace(/\s+/g, ' ').trim();
     if (!/Historisk osäkerhet:.*dateringen är ungefärlig/.test(text)) throw new Error(`osäkerhetsraden saknar ungefärlig datering: ${text}`);
     if (!(await page.locator('#detail .review-badge').count())) throw new Error('faktarutan saknar en separat rad för källkontroll');
+    // Rubrik och datumrad före bilden (#605), platsen en gång (#607) och markeringen i datumraden (#606)
+    const order = await page.evaluate(() => {
+      const d = document.getElementById('detail');
+      const pos = s => { const el = d.querySelector(s); return el ? [...d.querySelectorAll('*')].indexOf(el) : -1; };
+      return { h3: pos('h3'), meta: pos('.meta'), fig: pos('.detail-fig'), places: d.querySelectorAll('.place-name').length };
+    });
+    if (order.h3 < 0 || order.meta < order.h3 || (order.fig >= 0 && order.fig < order.meta)) throw new Error(`rubrik och datumrad står inte före bilden: ${JSON.stringify(order)}`);
+    if (order.places) throw new Error('platsen står två gånger i faktarutan');
+    const mark = page.locator('#detail .meta [data-unc-mark]');
+    if (!(await mark.count())) throw new Error('datumraden saknar markeringen för osäkerhet');
+    await mark.first().click();
+    if (await page.evaluate(() => document.activeElement?.id) !== 'detail-uncertainty') throw new Error('markeringen leder inte till raden Historisk osäkerhet');
     return text;
   });
 
