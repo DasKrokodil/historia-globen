@@ -311,7 +311,8 @@ async function start() {
       raf = requestAnimationFrame(() => {
         const st = narrow.matches && !$('detail').hidden ? detailSheet.state : null;
         if (st === 'full') return;
-        if (st !== 'half') return globe.setViewLift(0);
+        // Under en guidad tur lyfter turens kort klotet (js/ui/tour.js), annars inget lyft
+        if (st !== 'half') return app.tour?.active ? app.tour.lift() : globe.setViewLift(0);
         const top = document.querySelector('.top-actions').getBoundingClientRect().bottom;
         const sheetTop = $('detail').getBoundingClientRect().top;
         globe.setViewLift(Math.max(0, globe.centerY() - (top + sheetTop) / 2));
@@ -463,6 +464,8 @@ async function start() {
     timeline, globe, flatMap, layers, narrow, root: $('app'), events: data.byId,
     layerIds: new Set(registry.entries.map(e => e.id)), controlled: registry.viewLayers(views?.groups),
     select: (id, jump) => app.select(id, jump),
+    // Markera en händelse på globen utan att öppna faktarutan (turens steg i smal skärm)
+    mark: id => { panel.showDetail(null); store.setSelected(id); app.refresh(); },
     focusKey: () => (state.focus ? `${state.focus.type}:${state.focus.id}` : null),
     startFocus: key => app.startFocus(key), endFocus: redraw => app.endFocus(redraw),
     openSources: ids => sources.open(() => ids),

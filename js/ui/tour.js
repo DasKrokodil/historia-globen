@@ -39,7 +39,7 @@ export class TourPlayer {
   /**
    * els: knappen, menyn, listan och kortets delar (index.html).
    * data: { labels, tours } från loadTours.
-   * app: det som turen styr, se main.js (timeline, globe, flatMap, layers, controlled, select, focusKey,
+   * app: det som turen styr, se main.js (timeline, globe, flatMap, layers, controlled, select, mark, focusKey,
    *      startFocus, endFocus, openSources, events, layerIds, narrow, root).
    */
   constructor(els, data, app) {
@@ -163,7 +163,10 @@ export class TourPlayer {
     this.setLayers(step.layers);
     timeline.year = step.at;
     // Faktarutan först (den flyttar kameran till händelsen), sedan stegets egen kamera
+    // I smal skärm markeras händelsen bara på globen (krigets händelser syns annars inte utzoomat), och
+    // faktarutan öppnas med "Läs om händelsen", så att arket inte täcker kortet
     if (step.open && !app.narrow.matches) app.select(step.open, false);
+    else if (step.open) app.mark(step.open);
     else app.select(null, false);
     globe.flyTo(step.camera.lat, step.camera.lon);
     globe.setZoom(step.camera.zoom);
