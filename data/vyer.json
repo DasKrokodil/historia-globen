@@ -84,7 +84,9 @@
     "precision": { "sv": "dateringen är inte känd på årsnivå", "en": "the date is not known to year precision" },
     "place": { "sv": "platsen är ungefärlig", "en": "the place is approximate" },
     "sourcesDisagree": { "sv": "källorna skiljer sig", "en": "the sources disagree" },
-    "about": { "sv": "Källkontroll visar hur uppgiften har jämförts med sina källor. Historisk osäkerhet visar vad källorna eller dateringen lämnar öppet.", "en": "Source checking shows how the claim was compared with its sources. Historical uncertainty shows what the sources or dating leave open." }
+    "about": { "sv": "Källkontroll visar hur uppgiften har jämförts med sina källor. Historisk osäkerhet visar vad källorna eller dateringen lämnar öppet.", "en": "Source checking shows how the claim was compared with its sources. Historical uncertainty shows what the sources or dating leave open." },
+    "mark": { "sv": "osäkert", "en": "uncertain" },
+    "markTitle": { "sv": "Visa vad som är osäkert", "en": "Show what is uncertain" }
   },
   "sourcesSummary": {
     "title": { "sv": "Så läser du statusen", "en": "How to read the status" },

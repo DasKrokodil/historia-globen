@@ -62,7 +62,17 @@ export const uncertaintyRow = (e, copy = {}, evidence = '') => {
   if (e.precision != null && e.precision < 9) reasons.push(t(copy.precision));
   if (e.locationPrecision) reasons.push(t(copy.place));
   if (t(e.note?.title) === 'Källorna skiljer sig') reasons.push(t(copy.sourcesDisagree));
-  return reasons.length ? `<p class="uncertainty-row"><b>${esc(t(copy.label))}:</b> ${esc([...new Set(reasons)].join(' · '))}${evidence}</p>` : '';
+  return reasons.length ? `<p class="uncertainty-row" id="detail-uncertainty" tabindex="-1"><b>${esc(t(copy.label))}:</b> ${esc([...new Set(reasons)].join(' · '))}${evidence}</p>` : '';
+};
+/**
+ * Kort markering i datumraden (#606) efter det som är osäkert: datumet (ungefärligt, osäkert, grov precision eller
+ * oense källor, samma regler som uncertaintyRow) eller platsen. Den leder till raden Historisk osäkerhet.
+ */
+const uncertaintyMark = (e, what, copy = {}) => {
+  const edtf = e.edtf ?? '';
+  const date = edtf.includes('~') || edtf.includes('?') || (e.precision != null && e.precision < 9) || t(e.note?.title) === 'Källorna skiljer sig';
+  if (!(what === 'date' ? date : !!e.locationPrecision)) return '';
+  return ` <button type="button" class="unc-mark" data-unc-mark aria-controls="detail-uncertainty" title="${esc(t(copy.markTitle) || 'Visa vad som är osäkert')}">${esc(t(copy.mark) || 'osäkert')}</button>`;
 };
 
 /**
@@ -311,12 +321,16 @@ export class Panel {
       <div class="meta">${esc(formatEventTime(war))} · ${esc(t(war.place))}</div>
       <div class="story">${body}</div>
       ${srcLine(srcs, pending)}
-      ${this.onReport ? `<div class="detail-actions">${reportBtn({ type: 'war', id: war.id, label: t(war.title) })}</div>` : ''}`;
+      <div class="detail-actions">
+        ${reviewRow(war.review, 'Kriget')}
+        ${this.onReport ? reportBtn({ type: 'war', id: war.id, label: t(war.title) }) : ''}
+      </div>`;
     this.detail.scrollTop = 0;
     this.detail.hidden = false;
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
     this.bindReport(war.start);
     this.bindLinks();
+    this.bindReviewInfo(); // statusraden med (i) som i händelsens faktaruta (#608)
   }
 
   /** Knappen "Rapportera faktafel" skickar bara objektets typ och id till formuläret. */
@@ -458,15 +472,19 @@ export class Panel {
     const st = styleFor(e, this.styles);
     this.detail.className = `detail detail-card frame-${st.frame}`;
     this.detail.dataset.style = st.variant?.id ?? st.style.id;
+    // Rubrik och datumrad först, sedan bilden (#605), så att man ser vad händelsen heter utan att rulla.
+    // Platsen står en gång, i datumraden; mobilens knapp "Visa på globen" har platsen i sitt namn (#607).
+    // Datumraden får en kort markering när händelsen har raden Historisk osäkerhet (#606).
+    const unc = uncertaintyRow(e, this.uncertainty, evidence.marker('uncertainty'));
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
-      ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(t(e.place))}: visa på globen"><span class="place-pin" aria-hidden="true"></span><span class="place-name">${esc(t(e.place))}</span><span class="place-go" aria-hidden="true">· visa på globen</span></button>` : ''}
-      ${figure(e, this.srcById, evidence.marker('image'))}
       <h3>${esc(t(e.title))}</h3>
-      <div class="meta">${esc(formatEventTime(e))}${evidence.marker('date')} · ${esc(t(e.place))}${evidence.marker('location')} · ${esc(t(CAT[e.category]?.name))}</div>
+      <div class="meta">${esc(formatEventTime(e))}${evidence.marker('date')}${unc ? uncertaintyMark(e, 'date', this.uncertainty) : ''} · ${esc(t(e.place))}${evidence.marker('location')}${unc ? uncertaintyMark(e, 'place', this.uncertainty) : ''} · ${esc(t(CAT[e.category]?.name))}</div>
+      ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(t(e.place))}: visa på globen"><span class="place-pin" aria-hidden="true"></span><span class="place-go">Visa på globen</span></button>` : ''}
+      ${figure(e, this.srcById, evidence.marker('image'))}
       ${loading ? LOADING : `<p>${esc(t(e.summary))}${evidence.marker('summary')}</p>`}
       ${e.note ? `<aside class="detail-note"><h4>${esc(t(e.note.title))}</h4><p>${esc(t(e.note.text))}</p></aside>` : ''}
-      ${uncertaintyRow(e, this.uncertainty, evidence.marker('uncertainty'))}
+      ${unc}
       ${e._war ? `<p class="war-link">Del av: <button type="button" class="link-btn" data-goto="${esc(e._war.id)}">${esc(t(e._war.title))}</button></p>` : ''}
       ${e.kind === 'war' ? `<button type="button" class="chip-btn focus-btn" data-focus="${esc(e.id)}">▶ Följ kriget långsamt</button>` : ''}
       ${e._battles?.length ? `<div class="war-list"><h4>Slag och händelser i kriget</h4><ol>${e._battles.map(b =>
@@ -483,6 +501,12 @@ export class Panel {
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
     this.detail.querySelector('[data-focus]')?.addEventListener('click', ev => this.onFocus(ev.currentTarget.dataset.focus));
     this.detail.querySelector('[data-show-place]')?.addEventListener('click', () => this.onShowPlace(e));
+    // Markeringen i datumraden visar förklaringen och flyttar fokus dit (#606)
+    this.detail.querySelector('[data-unc-mark]')?.addEventListener('click', () => {
+      const row = this.detail.querySelector('#detail-uncertainty');
+      row?.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      row?.focus({ preventScroll: true });
+    });
     this.bindReport(e.start);
     this.bindLinks();
     this.bindReviewInfo();
