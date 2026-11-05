@@ -1,0 +1,16 @@
+{
+  "schema": "historia-globen/turer@1",
+  "tours": ["tre-platser-1325"],
+  "labels": {
+    "button": { "sv": "Turer", "en": "Tours" },
+    "menuTitle": { "sv": "Guidade turer", "en": "Guided tours" },
+    "step": { "sv": "Steg {current} av {total}", "en": "Step {current} of {total}" },
+    "back": { "sv": "Föregående", "en": "Previous" },
+    "next": { "sv": "Nästa", "en": "Next" },
+    "end": { "sv": "Avsluta turen", "en": "End the tour" },
+    "done": { "sv": "Klar", "en": "Done" },
+    "read": { "sv": "Läs om händelsen", "en": "Read about the event" },
+    "sources": { "sv": "Källor", "en": "Sources" },
+    "paused": { "sv": "Turen: {title}", "en": "Tour: {title}" }
+  }
+}

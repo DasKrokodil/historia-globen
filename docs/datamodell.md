@@ -419,6 +419,15 @@ Färdigprojicerade SVG-banor i 4096 × 2048 (`path`, `width`, `height`) från Na
 
 `layers` är en lista av ekvirektangulära bilder. Varje post har `id`, översatt `name` och `title`, `file`, `from`, valfritt `to`, `opacity`, `source` (id i `sources.json`) och `license`. Bilden väljs när året ligger inom perioden och ritas på lagerbilden; den syns därför lika på klotet och i Platt vy. Första posten är NASA Black Marble 2016, från 2016 och framåt.
 
+## `turer/`: guidade turer (#47)
+
+En guidad tur är data, inte kod (Rikards beslut 2026-11-01, docs/beslut/2026-11-01-turformat-47.md). `turer/index.json` (`schema: historia-globen/turer@1`) listar turernas id i menyns ordning (`tours`) och knapparnas texter (`labels`). Varje tur ligger i `turer/<id>.json` (`schema: historia-globen/tur@1`, `schemas/tour.schema.json`):
+
+- `version` (1), `id` (samma som filnamnet), `title` och valfri `summary` per språk, `review` (`draft` visas aldrig).
+- `steps`: stegen i ordning. Varje steg har `id`, `at` (år med astronomisk årsräkning; decimaltal är tillåtet för delar av år, men utanför fokusläget för korta krig visar tidslinjen hela år), `camera` (`lat`, `lon`, `zoom` som globen, 0.8–3.2; Platt vy använder samma mitt), valfri `title`, `text` per språk, `layers` (lagren som är på i steget, id i lagerregistret; de andra lagren som vyerna styr slås av), valfri `open` (en befintlig händelse vars faktaruta öppnas) och `sources` (id i `sources.json`).
+- **Källpolicyn gäller varje steg:** texten får bara säga det som stegets källor stöder, och siffror och årtal ska stämma med händelserna. Den första turen (`tre-platser-1325`) säger bara det som redan står i de tre händelserna och deras källor; osäkerhet (`1325~` för Tenochtitlan) skrivs ut ("omkring 1325").
+- Kontrolleras av `js/tour-format.js` (i webbläsaren och i `tests/tour.test.mjs`), `scripts/validate-site.py` (filer, händelser, källor, schema) och webbläsartestet.
+
 ## `vyer.json`: grupper och förinställda vyer i Lager (#357)
 
 Ingen fakta, bara hur Lager är ordnat. Namnen står per språk som andra texter (`t()`).

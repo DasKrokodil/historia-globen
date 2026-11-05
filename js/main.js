@@ -14,6 +14,7 @@ import { ReligionLegend, EmpireLegend } from './ui/legend.js';
 import { RoutePop } from './ui/routepop.js';
 import { Help } from './ui/help.js';
 import { Intro, loadIntro } from './ui/intro.js';
+import { TourPlayer, loadTours } from './ui/tour.js';
 import { FlatMap } from './ui/flatmap.js';
 import { downloadPoster } from './ui/poster.js';
 import { Feedback } from './ui/feedback.js';
@@ -63,7 +64,7 @@ async function start() {
     presentationExit.href = `${exit.pathname}${exit.search}${exit.hash}`;
   }
   // Lagrens grupper och förinställda vyer (#357) är en liten fil; den hämtas samtidigt med resten
-  const [data, views, introData] = await Promise.all([loadAll(), loadViews(), loadIntro()]);
+  const [data, views, introData, toursData] = await Promise.all([loadAll(), loadViews(), loadIntro(), loadTours()]);
   const globe = new Globe($('globe-canvas'), $('year-jump'));
   globe.drawBase(data.land);
   const flatMap = new FlatMap({
@@ -390,7 +391,8 @@ async function start() {
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape' || flatMap.hidden) return;
     const open = ['help', 'feedback', 'layer-menu', 'focus-menu', 'sources-dialog', 'jump-pop', 'detail', 'religion-pop', 'route-pop'].some(id => !$(id).hidden);
-    if (open || $('app').classList.contains('panel-open')) return;
+    // Escape i turens kort avslutar turen (js/ui/tour.js), inte Platt vy
+    if (open || $('app').classList.contains('panel-open') || $('tour-card').contains(document.activeElement)) return;
     flatMap.setOpen(false);
     $('btn-flat').focus({ preventScroll: true });
   }, { capture: true });
@@ -451,6 +453,26 @@ async function start() {
   introButton.hidden = !intro.ready;
   introButton.textContent = introData?.labels?.start ? t(introData.labels.start) : introButton.textContent;
   introButton.addEventListener('click', () => intro.open(introButton));
+
+  // Guidade turer (#47): en tur är data i data/turer/, och spelaren styr tidslinjen, kameran, Lager och faktarutan
+  const tour = new TourPlayer({
+    button: $('btn-tour'), menu: $('tour-menu'), menuTitle: $('tour-menu-title'), list: $('tour-list'),
+    card: $('tour-card'), progress: $('tour-progress'), name: $('tour-name'), title: $('tour-title'), text: $('tour-text'),
+    read: $('tour-read'), srcBtn: $('tour-sources'), back: $('tour-back'), next: $('tour-next'), closeBtn: $('tour-close'),
+  }, toursData, {
+    timeline, globe, flatMap, layers, narrow, root: $('app'), events: data.byId,
+    layerIds: new Set(registry.entries.map(e => e.id)), controlled: registry.viewLayers(views?.groups),
+    select: (id, jump) => app.select(id, jump),
+    focusKey: () => (state.focus ? `${state.focus.type}:${state.focus.id}` : null),
+    startFocus: key => app.startFocus(key), endFocus: redraw => app.endFocus(redraw),
+    openSources: ids => sources.open(() => ids),
+    fallbackFocus: () => $('track'),
+  });
+  app.tour = tour;
+  tour.onOpen = () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); };
+  // Turen i adressen (?tur=<id>) startar direkt, till exempel från en lektion eller ett test
+  const tourParam = new URLSearchParams(location.search).get('tur');
+  if (tourParam) tour.start(tourParam);
 }
 
 
