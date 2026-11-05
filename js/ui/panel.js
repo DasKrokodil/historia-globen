@@ -107,7 +107,7 @@ const reviewRow = (status, subj) => {
   return `<span class="review-badge ${rv.cls}" title="${esc(REVIEW_SUBJECT_HELP[subj])}">${esc(reviewLabel(status, subj))}</span>
     <button type="button" class="review-info" data-review-info aria-expanded="false" aria-controls="review-help" aria-label="Vad betyder granskningsstatusen?" title="Vad betyder granskningsstatusen?">i</button>
     <div id="review-help" class="review-help" hidden>
-      <ul>${REVIEW_HELP.map(h => `<li><b>${esc(REVIEW[h.status].sv)}:</b> ${esc(h.text)}</li>`).join('')}</ul>
+      <ul>${REVIEW_HELP.map(h => `<li><b>${esc(REVIEW[h.status].label)}:</b> ${esc(h.text)}</li>`).join('')}</ul>
       <button type="button" class="link-btn" data-review-sources>Om källorna</button>
     </div>`;
 };

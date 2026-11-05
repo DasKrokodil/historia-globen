@@ -1580,6 +1580,22 @@ details.used-by summary:hover { color: var(--parchment); }
 /* ---------- besökarnas förslag (docs/feedback.md) ---------- */
 .help-feedback { margin: 8px 0 0; border-top: 1px solid var(--line); padding-top: 6px; font: 400 12px/1.4 var(--f-body); color: var(--parchment-dim); }
 .help-feedback .link-btn { font-size: 12.5px; padding: 2px 0; }
+
+/* Språkväljaren (#63): en chip-knapp i gruppen Visa, med en egen pil så att den liknar de andra knapparna */
+.lang-pick { display: inline-flex; }
+.lang-select {
+  appearance: none; -webkit-appearance: none;
+  padding-right: 26px;
+  background-image: linear-gradient(45deg, transparent 50%, var(--brass) 50%), linear-gradient(135deg, var(--brass) 50%, transparent 50%);
+  background-position: calc(100% - 14px) 52%, calc(100% - 9px) 52%;
+  background-size: 5px 5px, 5px 5px; background-repeat: no-repeat;
+}
+.top-actions .lang-select { padding-right: 26px; } /* mobilens .top-actions .chip-btn har mindre utfyllnad */
+.more-menu .lang-pick { display: flex; }
+.more-menu .lang-pick .lang-select { flex: 1; min-width: 0; text-align: left; }
+.lang-select:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.lang-select option { color: var(--parchment); background: var(--night-2); }
+.help-lang { margin: 6px 0 0; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; font: 400 12px/1.4 var(--f-body); color: var(--parchment-dim); }
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .feedback-card {
   z-index: 18; width: min(380px, calc(100vw - var(--gut) - var(--gut-r)));
