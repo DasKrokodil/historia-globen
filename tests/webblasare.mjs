@@ -263,6 +263,8 @@ async function run(browser, vp) {
     await page.fill('#jump-input', '-2600'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
     const yText = await page.textContent('#year-big');
     if (yText.trim() !== '2600') throw new Error(`-2600 hoppade inte till f.Kr. utan ${yText}`);
+    await page.click('#year-jump');
+    await visible('#jump-input');
     await page.fill('#jump-input', '20240229'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
     if (!/2024-02-29: \d+ händelser med dagsdatum/.test((await page.textContent('#jump-date-summary')) ?? '')) throw new Error('skottdag tolkas inte som giltigt datum');
     return 'år, datum, skottdag och ogiltigt datum fungerar i årshoppet';
