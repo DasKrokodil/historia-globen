@@ -772,6 +772,49 @@ body {
 html.calm .intro-box { animation: none; }
 @media (prefers-reduced-motion: reduce) { .intro-box { animation: none; } }
 
+/* ---------- guidad tur (#47) ---------- */
+/* Kortet står där Samtidigt-kortet brukar stå; under turen döljs Samtidigt-kortet, så att de inte krockar */
+.tour-card {
+  box-sizing: border-box; position: absolute; z-index: 14;
+  left: var(--gut); bottom: 140px; width: min(380px, calc(100vw - 32px));
+  max-height: calc(100dvh - 140px - 150px); overflow-y: auto;
+  padding: 14px 16px 12px;
+  background: color-mix(in srgb, var(--night-2) 96%, transparent); color: var(--parchment);
+  border: 1px solid var(--brass-deep); border-radius: var(--r);
+  backdrop-filter: blur(6px); box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+}
+.tour-card[hidden] { display: none; }
+.app.touring .funfact, .app.touring .ff-tab { display: none; }
+.app:has(.pause-note:not([hidden])) .tour-card { bottom: 186px; max-height: calc(100dvh - 186px - 150px); }
+.tour-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.tour-progress { margin: 0; font: 500 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+.tour-head .panel-x { position: relative; float: none; margin: -4px -6px 0 0; flex: none; }
+.tour-name { margin: 6px 0 0; font: 500 11.5px/1.3 var(--f-mono); color: var(--parchment-dim); }
+.tour-title { margin: 6px 0 0; font: 400 22px/1.15 var(--f-display); color: var(--parchment); }
+.tour-text { margin: 8px 0 0; font: 400 15px/1.45 var(--f-body); color: var(--parchment); }
+.tour-links { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 10px; }
+.tour-links .link-btn[hidden] { display: none; }
+.tour-actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 14px; }
+.tour-actions .chip-btn { margin-right: auto; }
+.tour-actions .chip-btn[hidden] { display: none; }
+.tour-next { min-height: 36px; padding: 8px 14px; border: 1px solid var(--brass); border-radius: 999px; background: var(--brass); color: var(--night); font: 600 13px/1 var(--f-body); cursor: pointer; }
+.tour-next:focus-visible, .tour-pick:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
+.tour-menu { width: min(360px, calc(100vw - 32px)); }
+.tour-list { list-style: none; margin: 0; padding: 0; }
+.tour-pick { display: grid; gap: 4px; width: 100%; min-height: 44px; padding: 9px 10px; border: 0; border-radius: 8px; background: none; color: var(--parchment); text-align: left; cursor: pointer; }
+.tour-pick:hover { background: color-mix(in srgb, var(--brass) 14%, transparent); }
+.tour-pick-title { font: 400 18px/1.15 var(--f-display); }
+.tour-pick-meta { font: 400 13px/1.35 var(--f-body); color: var(--parchment-dim); }
+.tour-pick-meta[hidden] { display: none; }
+@media (max-width: 760px) {
+  .tour-card { left: var(--gut); right: var(--gut-r); width: auto; bottom: 136px; padding: 12px 14px 10px; max-height: calc(100dvh - 136px - 176px); }
+  .app:has(.pause-note:not([hidden])) .tour-card { bottom: 196px; max-height: calc(100dvh - 196px - 176px); }
+  .tour-title { font-size: 19px; }
+  .tour-text { font-size: 15px; }
+  .tour-links .link-btn { min-height: 44px; }
+  .tour-next, .tour-actions .chip-btn { min-height: 44px; }
+}
+
 /* ---------- tidslinjen ---------- */
 .timebar {
   position: absolute;
@@ -1186,8 +1229,9 @@ details.used-by summary:hover { color: var(--parchment); }
 .calm *, .calm *::before, .calm *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
 
 /* ---------- bild i faktarutan (#129) ---------- */
-.detail-fig { position: relative; margin: -14px -16px 10px; }
-.detail-fig img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r) var(--r) 0 0; background: var(--night-3); }
+/* Bilden kommer efter rubrik och datumrad (#605) och går ut till kortets kanter */
+.detail-fig { position: relative; margin: 10px -16px 10px; }
+.detail-fig img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: var(--night-3); }
 .detail-fig figcaption { padding: 5px 12px 0; font: 400 11px/1.35 var(--f-mono); color: var(--card-dim); }
 .fig-caption { display: block; color: var(--card-ink); font-style: italic; }
 .fig-credit a { color: var(--card-accent); }
@@ -1197,9 +1241,17 @@ details.used-by summary:hover { color: var(--parchment); }
   font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase;
   color: #fff; background: var(--danger);
 }
-/* Krysset ligger ovanpå bilden: det tar ingen plats, så att bilden går ända upp */
+/* Krysset tar ingen plats; rubriken lämnar plats åt det */
 .detail-card .detail-close { position: sticky; z-index: 2; float: none; display: block; margin: -4px -6px -26px auto; }
 .detail-card .detail-close + h3 { padding-right: 30px; }
+/* Kort markering i datumraden när händelsen har raden Historisk osäkerhet (#606) */
+.unc-mark {
+  font: inherit; color: var(--card-accent); background: none; border: 0; padding: 0 0 0 2px; cursor: pointer;
+  text-decoration: underline dotted; text-underline-offset: 3px; position: relative;
+}
+.unc-mark::after { content: ""; position: absolute; inset: -12px -6px; } /* större tryckyta */
+.unc-mark:focus-visible { outline: 2px solid var(--card-accent); outline-offset: 2px; border-radius: 3px; }
+.uncertainty-row:focus { outline: 2px solid var(--card-accent); outline-offset: 3px; border-radius: 3px; }
 @media (max-width: 760px) { .detail-fig img { aspect-ratio: 16 / 9; } }
 
 /* ---------- ramar efter tidsålder (#129) ----------
@@ -1723,7 +1775,7 @@ details.used-by summary:hover { color: var(--parchment); }
   /* Krysset ligger i handtagets rad, till höger */
   #detail .detail-close { position: sticky; top: 7px; z-index: 4; margin: -37px -6px 7px auto; }
   #detail .detail-close + * { margin-top: 0; }
-  #detail .detail-fig { margin-top: 0; }
+  #detail .detail-fig { margin-top: 8px; }
   /* Halvt läge: rubriken och texten först. Bilden (med sin bildtext) syns i helt läge. */
   #detail[data-sheet="half"] .detail-fig { display: none; }
   /* (i) och Rapportera faktafel: 44 px tryckyta utan att ytorna går in i varandra när raden bryts */
@@ -1737,15 +1789,15 @@ details.used-by summary:hover { color: var(--parchment); }
   #detail[data-sheet="closed"] { cursor: pointer; padding-bottom: 10px; }
   #detail[data-sheet="closed"] h3 { padding-right: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-  /* Platsraden (#312): överst i faktarutan, fäller ihop rutan och visar markören på globen */
+  /* Platsraden (#312): under datumraden (#605), fäller ihop rutan och visar markören på globen. Platsen
+     står redan i datumraden, så knappen säger bara "Visa på globen" och har platsen i sitt namn (#607). */
   #detail .place-row {
-    display: flex; align-items: center; gap: 7px; width: 100%; min-height: 44px; margin: 0 0 8px; padding: 0;
-    background: none; border: 0; border-bottom: 1px solid color-mix(in srgb, var(--card-dim) 35%, transparent);
+    display: inline-flex; align-items: center; gap: 7px; width: auto; min-height: 44px; margin: 0; padding: 0;
+    background: none; border: 0;
     color: var(--card-accent); font: 500 12px/1.2 var(--f-mono); text-align: left; cursor: pointer;
   }
   #detail .place-row:focus-visible { outline: 2px solid var(--card-accent); outline-offset: 2px; border-radius: 4px; }
   .place-pin { flex: none; width: 8px; height: 8px; border: 1.5px solid currentColor; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); margin: 0 2px 2px; }
-  .place-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--card-ink); }
   .place-go { flex: none; text-decoration: underline; text-underline-offset: 3px; }
 }
 /* Mycket smala skärmar (360 px): knapparna och årtalet lite mindre, så att raden överst ryms */

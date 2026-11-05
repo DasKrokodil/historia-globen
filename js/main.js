@@ -14,12 +14,13 @@ import { ReligionLegend, EmpireLegend } from './ui/legend.js';
 import { RoutePop } from './ui/routepop.js';
 import { Help } from './ui/help.js';
 import { Intro, loadIntro } from './ui/intro.js';
+import { TourPlayer, loadTours } from './ui/tour.js';
 import { FlatMap } from './ui/flatmap.js';
 import { downloadPoster } from './ui/poster.js';
 import { Feedback } from './ui/feedback.js';
 import { Sheet } from './ui/sheet.js';
 import { ViewMenu } from './ui/viewmenu.js';
-import { createState } from './state.js';
+import { createStore, toJSON } from './state.js';
 import { LayerRegistry } from './layers/registry.js';
 import { createSelection } from './controllers/selection.js';
 import { createFacts } from './controllers/facts.js';
@@ -63,7 +64,7 @@ async function start() {
     presentationExit.href = `${exit.pathname}${exit.search}${exit.hash}`;
   }
   // Lagrens grupper och förinställda vyer (#357) är en liten fil; den hämtas samtidigt med resten
-  const [data, views, introData] = await Promise.all([loadAll(), loadViews(), loadIntro()]);
+  const [data, views, introData, toursData] = await Promise.all([loadAll(), loadViews(), loadIntro(), loadTours()]);
   const globe = new Globe($('globe-canvas'), $('year-jump'));
   globe.drawBase(data.land);
   const flatMap = new FlatMap({
@@ -88,12 +89,16 @@ async function start() {
   }
 
   // Det gemensamma tillståndet och lagerregistret (#338)
-  const state = createState();
+  // Åtgärder och prenumeration (#403): tidslinjen äger året, övriga val ändras med store.set…
+  const store = createStore();
+  const state = store.state;
   const registry = new LayerRegistry();
   // Det delade underlaget för controllerna (#402): komponenterna och funktionerna som de kopplas ihop med.
   // Funktionerna fylls i när varje controller skapas längre ner; anropen sker först efter starten.
   const narrow = matchMedia('(max-width: 760px)');
-  const app = { $, data, views, state, registry, globe, flatMap, narrow };
+  const app = { $, data, views, state, store, registry, globe, flatMap, narrow };
+  // Hela tillståndet som JSON (#403): år, kamera, fokus, lager, kategorier och Lugn rörelse. Används av #64/#501.
+  app.snapshot = () => toJSON(state, globe.view);
   // Det lagren får när de skapas: klotet, datan och vägar tillbaka till main.js (omritning, faktarutor)
   let glyphRaf = 0;
   const env = {
@@ -152,9 +157,10 @@ async function start() {
     layers.set('events', true);
     layers.onChange('events', true);
   };
-  Object.assign(state, { layers: layers.on, pause: layers.pause, calm: layers.calm });
+  state.pause = layers.pause;
+  store.setLayers(layers.on); store.setCalm(layers.calm);
   // Lugn rörelse (#246): också rikenas övergångar (#78) stängs av (i lagrets apply)
-  globe.setCalm(layers.calm); layers.onCalm = on => { state.calm = on; globe.setCalm(on); registry.apply(state); };
+  globe.setCalm(layers.calm); layers.onCalm = on => { store.setCalm(on); globe.setCalm(on); registry.apply(state); };
   // Teckenförklaring och klickruta för religionslagret (#166)
   const relLegend = new ReligionLegend({ legend: $('religion-legend'), pop: $('religion-pop') });
   relLegend.empireLegend = views?.empireLegend ?? {};
@@ -274,7 +280,7 @@ async function start() {
     if (focus?.type === 'empire') app.showEmpireFacts(focus.id);
     else if (focus?.type === 'religion') app.showReligionFacts(focus.id, false);
   });
-  panel.onFilter = (...a) => app.refresh(...a);
+  panel.onFilter = (...a) => { store.setFilters(panel.filters); app.refresh(...a); };
   ff.onSelect = (...a) => app.select(...a);
   ff.onArcs = pairs => { globe.setArcs(pairs); flatMap.setArcs(pairs); };
   // Kortets källor (#337): rikets berättelse har egna, fun facts och krigskort ärver händelsernas, som har laddats
@@ -385,12 +391,14 @@ async function start() {
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape' || flatMap.hidden) return;
     const open = ['help', 'feedback', 'layer-menu', 'focus-menu', 'sources-dialog', 'jump-pop', 'detail', 'religion-pop', 'route-pop'].some(id => !$(id).hidden);
-    if (open || $('app').classList.contains('panel-open')) return;
+    // Escape i turens kort avslutar turen (js/ui/tour.js), inte Platt vy
+    if (open || $('app').classList.contains('panel-open') || $('tour-card').contains(document.activeElement)) return;
     flatMap.setOpen(false);
     $('btn-flat').focus({ preventScroll: true });
   }, { capture: true });
 
   layers.onChange = async (name, on) => {
+    store.setLayers(layers.on);
     applyLayers(); app.refresh();
     // Lagret slås bara på: menyn står kvar öppen och ingen faktaruta öppnas (#308). Första gången
     // visar teckenförklaringen en tipsrad; faktarutan finns bakom knappen "Läs om religionerna".
@@ -445,6 +453,26 @@ async function start() {
   introButton.hidden = !intro.ready;
   introButton.textContent = introData?.labels?.start ? t(introData.labels.start) : introButton.textContent;
   introButton.addEventListener('click', () => intro.open(introButton));
+
+  // Guidade turer (#47): en tur är data i data/turer/, och spelaren styr tidslinjen, kameran, Lager och faktarutan
+  const tour = new TourPlayer({
+    button: $('btn-tour'), menu: $('tour-menu'), menuTitle: $('tour-menu-title'), list: $('tour-list'),
+    card: $('tour-card'), progress: $('tour-progress'), name: $('tour-name'), title: $('tour-title'), text: $('tour-text'),
+    read: $('tour-read'), srcBtn: $('tour-sources'), back: $('tour-back'), next: $('tour-next'), closeBtn: $('tour-close'),
+  }, toursData, {
+    timeline, globe, flatMap, layers, narrow, root: $('app'), events: data.byId,
+    layerIds: new Set(registry.entries.map(e => e.id)), controlled: registry.viewLayers(views?.groups),
+    select: (id, jump) => app.select(id, jump),
+    focusKey: () => (state.focus ? `${state.focus.type}:${state.focus.id}` : null),
+    startFocus: key => app.startFocus(key), endFocus: redraw => app.endFocus(redraw),
+    openSources: ids => sources.open(() => ids),
+    fallbackFocus: () => $('track'),
+  });
+  app.tour = tour;
+  tour.onOpen = () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); };
+  // Turen i adressen (?tur=<id>) startar direkt, till exempel från en lektion eller ett test
+  const tourParam = new URLSearchParams(location.search).get('tur');
+  if (tourParam) tour.start(tourParam);
 }
 
 

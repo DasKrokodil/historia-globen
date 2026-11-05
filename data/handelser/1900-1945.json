@@ -370,6 +370,48 @@
       "location": {"type": "Point", "coordinates": [16.9167, -21.9833]}, "locationPrecision": "region", "place": {"sv": "Tyska Sydvästafrika, i dag Namibia (upproret började kring Okahandja)"},
       "title": {"sv": "Folkmordet på herero och nama"},
       "summary": {"sv": "Den 12 januari 1904 gör hererofolket under Samuel Maharero uppror mot det tyska kolonialstyret, som tagit deras mark och boskap. Efter slaget vid Waterberg den 11 augusti 1904 flyr de flesta herero ut i Omahekeöknen, där många dör av törst och svält. Den tyske befälhavaren Lothar von Trotha beordrar att alla hereromän ska avrättas, men i praktiken dödas även kvinnor och barn. De som överlever spärras in i koncentrationsläger där ungefär hälften dör av sjukdom, svält och tvångsarbete. Nama under Hendrik Witbooi gör uppror i september 1904 och strider till 1908. Omkring 40 000–80 000 herero, 80 procent av folket, och omkring 10 000 nama, hälften av folket, dör. Tyskland erkände 2015 att det var ett folkmord."},
-      "wikidata": "Q312492", "sources": ["wp-herero-nama-genocide", "wikidata"], "review": "two-sources" }
+      "wikidata": "Q312492", "sources": ["wp-herero-nama-genocide", "wikidata"], "review": "two-sources" },
+
+    {"id": "fn-grundas", "category": "civilisationer", "icon": "treaty", "start": 1945, "end": 1945, "precision": 11, "edtf": "1945-06-26/1945-10-24",
+      "location": {"type": "Point", "coordinates": [-122.4164, 37.7775]}, "place": {"sv": "San Francisco, USA"},
+      "title": {"sv": "FN-stadgan skrivs under och FN grundas"},
+      "summary": {"sv": "Den 26 juni 1945, sista dagen av en konferens i San Francisco med delegater från 50 allierade länder, skriver 50 av de 51 första medlemsländerna under FN-stadgan. Stadgan träder i kraft den 24 oktober 1945, och då finns Förenta nationerna."},
+      "wikidata": "Q171328", "sources": ["wp-charter-of-the-united-nations", "wp-uncio", "wikidata"], "review": "two-sources" },
+
+    {"id": "titanic-sjunker", "category": "katastrofer", "icon": "ship", "start": 1912, "end": 1912, "precision": 11, "edtf": "1912-04-15",
+      "location": {"type": "Point", "coordinates": [-49.94694, 41.7325]}, "place": {"sv": "Nordatlanten (vraket ligger på 41°44′ N, 49°57′ V)"},
+      "title": {"sv": "Titanic sjunker"},
+      "summary": {"sv": "Tidigt den 15 april 1912 sjunker passagerarfartyget Titanic i Nordatlanten efter att ha kolliderat med ett isberg, på väg från Southampton till New York. Av de 2 208 passagerarna och besättningsmännen omkommer omkring 1 500; uppskattningarna varierar. Fartyget hade 20 livbåtar med plats för 1 178 människor."},
+      "wikidata": "Q25173", "sources": ["wp-titanic", "wikidata"], "review": "two-sources" },
+
+    {"id": "oktoberrevolutionen", "category": "civilisationer", "start": 1917, "end": 1917, "precision": 11, "edtf": "1917-11-07",
+      "location": {"type": "Point", "coordinates": [30.3139, 59.9404]}, "place": {"sv": "Petrograd (i dag Sankt Petersburg), Ryssland"},
+      "title": {"sv": "Oktoberrevolutionen i Ryssland"},
+      "summary": {"sv": "Den 7 november 1917, som var den 25 oktober enligt den kalender som Ryssland då använde, gör bolsjevikerna under Vladimir Lenin uppror i Petrograd mot den provisoriska regeringen. Till natten därpå har de tagit Vinterpalatset, där motståndet är svagt. Revolutionen leder till det ryska inbördeskriget och till att Sovjetunionen bildas."},
+      "wikidata": "Q42976", "sources": ["wp-october-revolution", "wp-winter-palace", "wikidata"], "review": "two-sources" },
+
+    {"id": "penicillinet-upptacks", "category": "halsa", "start": 1928, "end": 1928, "precision": 9, "edtf": "1928",
+      "location": {"type": "Point", "coordinates": [-0.17306, 51.51722]}, "place": {"sv": "St Mary's Hospital, London, Storbritannien"},
+      "title": {"sv": "Penicillinet upptäcks"},
+      "summary": {"sv": "År 1928 upptäcker Alexander Fleming vid St Mary's Hospital i London att en blågrön mögelsvamp, som har förorenat en av hans odlingsplattor, dödar bakterier. Han publicerar fynden 1929. Från 1939 gör Howard Florey, Ernst Chain och deras grupp i Oxford penicillinet till ett användbart läkemedel, och 1944 massproduceras det. Fleming, Florey och Chain får Nobelpriset i fysiologi eller medicin 1945."},
+      "wikidata": "Q3042914", "sources": ["wp-history-of-penicillin", "wp-st-marys-hospital-london"], "review": "source-checked" },
+
+    {"id": "borskraschen-1929", "category": "ekonomi", "start": 1929, "end": 1929, "precision": 11, "edtf": "1929-10-24/1929-10-29",
+      "location": {"type": "Point", "coordinates": [-74.0111, 40.7069]}, "place": {"sv": "New York-börsen, New York, USA"},
+      "title": {"sv": "Börskraschen på Wall Street"},
+      "summary": {"sv": "Den 24 oktober 1929, svarta torsdagen, börjar ett stort kursras på New York-börsen. På svarta måndagen och svarta tisdagen, den 28 och 29 oktober, faller Dow Jones-indexet med sammanlagt 23 procent. Kraschen blir början på det som utvecklas till den stora depressionen i hela världen."},
+      "wikidata": "Q201684", "sources": ["wp-wall-street-crash-1929", "wp-new-york-stock-exchange", "wikidata"], "review": "two-sources" },
+
+    {"id": "fotbolls-vm-1930", "category": "sport", "start": 1930, "end": 1930, "precision": 11, "edtf": "1930-07-13/1930-07-30",
+      "location": {"type": "Point", "coordinates": [-56.1528389, -34.8946611]}, "place": {"sv": "Estadio Centenario, Montevideo, Uruguay"},
+      "title": {"sv": "Det första fotbolls-VM"},
+      "summary": {"sv": "Den 13–30 juli 1930 spelas det första världsmästerskapet i fotboll i Montevideo i Uruguay, som samma år firar hundra år sedan landets första grundlag. 13 lag deltar. I finalen på Estadio Centenario den 30 juli vinner Uruguay över Argentina med 4–2."},
+      "wikidata": "Q48432", "sources": ["wp-1930-fifa-world-cup", "wp-estadio-centenario", "wikidata"], "review": "two-sources" },
+
+    {"id": "saltmarschen", "category": "civilisationer", "start": 1930, "end": 1930, "precision": 11, "edtf": "1930-03-12/1930-04-06",
+      "location": {"type": "Point", "coordinates": [72.800944, 20.886472]}, "place": {"sv": "Från Sabarmati-ashramet till Dandi, Indien"},
+      "title": {"sv": "Gandhis saltmarsch"},
+      "summary": {"sv": "Den 12 mars 1930 börjar Mahatma Gandhi gå från Sabarmati-ashramet till kustbyn Dandi, en sträcka på cirka 385 kilometer, i protest mot det brittiska saltmonopolet. Den 6 april bryter han mot saltlagarna i Dandi. I kampanjen som följer fängslas över 60 000 indier."},
+      "wikidata": "Q239344", "sources": ["wp-salt-march", "wp-dandi", "wikidata"], "review": "two-sources" }
   ]
 }

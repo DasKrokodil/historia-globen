@@ -705,6 +705,60 @@
       "title": {"sv": "Smittkoppor drabbar eora-folket vid Sydney"},
       "summary": {"sv": "Omkring 16 månader efter att den brittiska kolonin grundats bryter en epidemi ut bland urfolken runt Port Jackson. Den började troligen i mars 1789 och klingade av i början av maj. I april märker britterna att kanoterna har försvunnit från viken, och de hittar sjuka och döda i klippskrevorna. Både guvernören Arthur Phillip och eoramannen Bennelong trodde att ungefär hälften av eora-folket i Sydneytrakten dog. Arabanoo, som bodde i kolonin och vårdade de sjuka, dog också. Ingen av de brittiska kolonisterna tycks ha insjuknat, men en sjöman från Nordamerika dog. Historikern Peter Dowling menar att epidemin troligen gjorde det omöjligt för urfolken att driva bort kolonin under dess första år."},
       "note": {"title": {"sv": "Osäkert vilken sjukdom det var"}, "text": {"sv": "De flesta historiker kallar sjukdomen smittkoppor, som kolonisterna själva gjorde. Några läkare och forskare menar att det kan ha varit vattkoppor, som britterna var immuna mot men inte urfolken. Hur sjukdomen kom till Sydney, och hur många som dog, är fortfarande omdebatterat."}},
-      "sources": ["wp-smallpox-australia", "wp-1789-sydney-smallpox"], "review": "source-checked" }
+      "sources": ["wp-smallpox-australia", "wp-1789-sydney-smallpox"], "review": "source-checked" },
+
+    {"id": "luthers-teser", "category": "religion", "icon": "book", "start": 1517, "end": 1517, "precision": 11, "edtf": "1517-10-31",
+      "location": {"type": "Point", "coordinates": [12.63778, 51.86639]}, "place": {"sv": "Wittenberg, Tysk-romerska riket (i dag Tyskland)"},
+      "title": {"sv": "Luthers 95 teser"},
+      "summary": {"sv": "Den 31 oktober 1517 skickar Martin Luther sina 95 teser till ärkebiskop Albrekt av Brandenburg. Teserna kritiserar handeln med avlat och hur den hänger ihop med ånger, botgöring och påvens makt. Enligt traditionen spikade Luther också upp dem på dörren till Allhelgonakyrkan i Wittenberg, men det är omstritt. I efterhand räknas teserna som början på den protestantiska reformationen."},
+      "wikidata": "Q157506", "sources": ["wp-ninety-five-theses", "wp-all-saints-church-wittenberg", "wikidata"], "review": "two-sources" },
+
+    {"id": "magellans-jordenruntsegling", "category": "upptackter", "icon": "ship", "start": 1519, "end": 1522, "precision": 10, "edtf": "1519-08-10/1522-09",
+      "location": {"type": "Point", "coordinates": [-6.35, 36.767]}, "place": {"sv": "Sevilla och Sanlúcar de Barrameda, Spanien (start och mål)"},
+      "title": {"sv": "Den första seglingen jorden runt"},
+      "summary": {"sv": "Den 10 augusti 1519 lämnar Ferdinand Magellans flotta Sevilla, och den 20 september seglar de fem fartygen med omkring 270 man ut från Sanlúcar de Barrameda. Magellan dödas i strid på Mactan i Filippinerna i april 1521. I september 1522 kommer fartyget Victoria under Juan Sebastián Elcano tillbaka till Spanien med bara 18 av de 270 männen. Det är den första seglingen runt jorden."},
+      "wikidata": "Q1225170", "sources": ["wp-magellan-expedition", "wp-sanlucar-de-barrameda", "wikidata"], "review": "two-sources" },
+
+    {"id": "kopernikus-de-revolutionibus", "category": "vetenskap", "icon": "book", "start": 1543, "end": 1543, "precision": 9, "edtf": "1543",
+      "location": {"type": "Point", "coordinates": [11.0775, 49.45389]}, "place": {"sv": "Nürnberg, Tysk-romerska riket (i dag Tyskland)"},
+      "title": {"sv": "Kopernikus: jorden kretsar kring solen"},
+      "summary": {"sv": "År 1543 trycks Nicolaus Copernicus bok De revolutionibus orbium coelestium i Nürnberg, strax före hans död samma år. Boken lägger fram en modell där solen står i mitten och jorden är en av planeterna som kretsar runt den. Övergången till den världsbilden hjälpte till att inleda den vetenskapliga revolutionen."},
+      "wikidata": "Q845981", "sources": ["wp-de-revolutionibus", "wp-nuremberg", "wikidata"], "review": "two-sources" },
+
+    {"id": "galileo-sidereus-nuncius", "category": "vetenskap", "icon": "book", "start": 1610, "end": 1610, "precision": 11, "edtf": "1610-03-13",
+      "location": {"type": "Point", "coordinates": [12.33583, 45.4375]}, "locationPrecision": "region", "place": {"sv": "Republiken Venedig (i dag Italien)"},
+      "title": {"sv": "Galileo riktar teleskopet mot himlen"},
+      "summary": {"sv": "Den 13 mars 1610 ger Galileo Galilei ut Sidereus Nuncius (Stjärnbudbäraren) i Republiken Venedig. Där beskriver han vad han har sett genom sitt teleskop: att månens yta är ojämn och bergig, att Vintergatan består av hundratals stjärnor som inte syns med blotta ögat och att himlakroppar kretsar runt Jupiter. Det är det första vetenskapliga verket som bygger på observationer genom ett teleskop."},
+      "wikidata": "Q1457297", "sources": ["wp-sidereus-nuncius", "wp-venice", "wikidata"], "review": "two-sources" },
+
+    {"id": "newtons-principia", "category": "vetenskap", "icon": "book", "start": 1687, "end": 1687, "precision": 10, "edtf": "1687-07",
+      "location": {"type": "Point", "coordinates": [-0.1275, 51.50722]}, "locationPrecision": "region", "place": {"sv": "England (utgiven i London)"},
+      "title": {"sv": "Newtons Principia"},
+      "summary": {"sv": "I juli 1687 kommer Isaac Newtons bok Principia ut. Den lägger fram Newtons rörelselagar och lagen om den allmänna gravitationen och blir den matematiska grunden för den klassiska mekaniken. Edmond Halley betalade utgivningen på egen risk, eftersom Royal Society hade gjort av med sina pengar för böcker. Boken räknas som ett av de viktigaste verken i vetenskapens historia."},
+      "wikidata": "Q205921", "sources": ["wp-principia", "wp-london", "wikidata"], "review": "two-sources" },
+
+    {"id": "cook-nar-australien", "category": "upptackter", "icon": "ship", "start": 1770, "end": 1770, "precision": 11, "edtf": "1770-04-29",
+      "location": {"type": "Point", "coordinates": [151.23306, -33.99972]}, "place": {"sv": "Botany Bay, Australien"},
+      "title": {"sv": "James Cook når Australiens östkust"},
+      "summary": {"sv": "I april 1770 ser James Cook och besättningen på HMS Endeavour Australiens östkust. Den 29 april går de i land för första gången, vid Botany Bay, där två män från gweagalfolket kommer ned till båten. Cook följer sedan kusten norrut och gör i augusti 1770 anspråk på hela östkusten för Storbritannien, på en ö som han kallar Possession Island."},
+      "wikidata": "Q3178839", "sources": ["wp-first-voyage-of-james-cook", "wp-botany-bay", "wikidata"], "review": "source-checked" },
+
+    {"id": "forsta-flottan-sydney", "category": "civilisationer", "icon": "ship", "start": 1788, "end": 1788, "precision": 11, "edtf": "1788-01-26",
+      "location": {"type": "Point", "coordinates": [151.21167, -33.85861]}, "place": {"sv": "Sydney Cove, Port Jackson, Australien"},
+      "title": {"sv": "Första flottan når Sydney"},
+      "summary": {"sv": "Den 13 maj 1787 lämnar elva brittiska fartyg med omkring 1 420 människor Portsmouth under kapten Arthur Phillip. De når Botany Bay den 18 januari 1788, men Phillip väljer bort platsen. Den 26 januari ankrar flottan i Sydney Cove och hissar den brittiska flaggan. Där grundas kolonin New South Wales som straffkoloni, början på den brittiska bosättningen i Australien. Snart uppstår konflikter, och eorafolket och Pemulwuy från bidjigalklanen gör motstånd mot kolonisterna."},
+      "wikidata": "Q1419429", "sources": ["wp-first-fleet", "wp-sydney-cove", "wikidata"], "review": "source-checked" },
+
+    {"id": "stormningen-av-bastiljen", "category": "civilisationer", "start": 1789, "end": 1789, "precision": 11, "edtf": "1789-07-14",
+      "location": {"type": "Point", "coordinates": [2.36917, 48.85306]}, "place": {"sv": "Paris, Frankrike"},
+      "title": {"sv": "Bastiljen stormas"},
+      "summary": {"sv": "Den 14 juli 1789 stormas Bastiljen i Paris, en medeltida fästning som används som vapenförråd och politiskt fängelse. Där finns bara sju fångar. Fästningens guvernör de Launay dödas efter att ha gett upp. Bastiljens fall blir startskottet för franska revolutionen, och 14 juli är i dag Frankrikes nationaldag."},
+      "wikidata": "Q6539", "sources": ["wp-storming-of-the-bastille", "wikidata"], "review": "two-sources" },
+
+    {"id": "jenners-vaccin", "category": "halsa", "start": 1796, "end": 1796, "precision": 11, "edtf": "1796-05-14",
+      "location": {"type": "Point", "coordinates": [-2.459, 51.691]}, "locationPrecision": "region", "place": {"sv": "Berkeley, Gloucestershire, England (där Jenner bodde)"},
+      "title": {"sv": "Edward Jenner och det första vaccinet"},
+      "summary": {"sv": "Den 14 maj 1796 prövar Edward Jenner sin idé: han ympar in var från kokoppsblåsor hos mjölkerskan Sarah Nelmes på James Phipps, son till hans trädgårdsmästare. När Phipps senare utsätts för smittkoppor blir han inte sjuk. Jenner tar fram smittkoppsvaccinet, världens första vaccin, och kallas ofta immunologins fader."},
+      "wikidata": "Q40852", "sources": ["wp-edward-jenner", "wp-berkeley-gloucestershire"], "review": "source-checked" }
   ]
 }

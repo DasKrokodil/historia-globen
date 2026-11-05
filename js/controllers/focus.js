@@ -101,9 +101,7 @@ export function createFocus(app) {
     // Året stannar om det ligger inom spannet; annars flyttas det till starten och flytten visas (#167)
     const prevYear = timeline.year, prevText = timeline.format(prevYear), keepYear = prevYear >= f.from && prevYear <= f.to;
     if (state.focus) endFocus(false);
-    state.focus = f;
-    state.focusWar = type === 'war' ? data.byId[id] : null;
-    state.focusRoute = type === 'route' ? f.route : null;
+    app.store.setFocus(f, { war: type === 'war' ? data.byId[id] : null, route: type === 'route' ? f.route : null });
     app.playback.clearRouteStops();
     app.applyLayers();
     globe.flyTo(f.center[0], f.center[1], 900);
@@ -122,7 +120,7 @@ export function createFocus(app) {
     showMoved(keepYear ? null : { prevYear, prevText, startYear, short: f.short, type });
     app.refresh();
     // Före start: varför kriget började och vilka som stred (#122)
-    if (focusWar?.story) { state.selectedId = focusWar.id; panel.showStory(focusWar, 'intro'); $('app').classList.add('has-detail'); }
+    if (focusWar?.story) { app.store.setSelected(focusWar.id); panel.showStory(focusWar, 'intro'); $('app').classList.add('has-detail'); }
     // Religionens faktaruta visas först (#90), annars grundandet i faktarutan
     const first = type === 'religion' && founding(id)[0];
     if (type === 'religion' && !app.showReligionFacts(id, false) && first) app.select(first.id, false);
@@ -148,7 +146,7 @@ export function createFocus(app) {
     app.refresh();
   });
   function endFocus(redraw = true) {
-    state.focus = null; state.focusWar = null; state.focusRoute = null;
+    app.store.setFocus(null);
     app.playback.reset(); showMoved(null);
     app.applyLayers();
     $('focus-bar').hidden = true;
