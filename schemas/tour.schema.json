@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historia-globen: en guidad tur (#47)",
+  "type": "object",
+  "required": ["schema", "version", "id", "title", "review", "steps"],
+  "properties": {
+    "schema": { "type": "string", "pattern": "^historia-globen/tur@1$" },
+    "version": { "type": "integer", "minimum": 1, "maximum": 1 },
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "title": { "$ref": "#/$defs/text" },
+    "summary": { "$ref": "#/$defs/text" },
+    "review": { "type": "string", "enum": ["draft", "source-checked", "two-sources"] },
+    "steps": { "type": "array", "items": { "$ref": "#/$defs/step" } }
+  },
+  "$defs": {
+    "text": {
+      "type": "object",
+      "required": ["sv"],
+      "properties": { "sv": { "type": "string", "pattern": "\\S" }, "en": { "type": "string" }, "fr": { "type": "string" }, "de": { "type": "string" }, "es": { "type": "string" } }
+    },
+    "step": {
+      "type": "object",
+      "required": ["id", "at", "camera", "text", "layers", "sources"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "at": { "type": "number" },
+        "camera": {
+          "type": "object",
+          "required": ["lat", "lon", "zoom"],
+          "properties": {
+            "lat": { "type": "number", "minimum": -90, "maximum": 90 },
+            "lon": { "type": "number", "minimum": -180, "maximum": 180 },
+            "zoom": { "type": "number", "minimum": 0.8, "maximum": 3.2 }
+          }
+        },
+        "title": { "$ref": "#/$defs/text" },
+        "text": { "$ref": "#/$defs/text" },
+        "layers": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
+        "open": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "sources": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

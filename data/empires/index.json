@@ -525,7 +525,43 @@
       "review": "two-sources"
      }
     }
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Rom",
+      "en": "Rome"
+     },
+     "wikidata": "Q220",
+     "at": [
+      12.483,
+      41.893
+     ],
+     "to": 330,
+     "sources": [
+      "wp-roman-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Konstantinopel",
+      "en": "Constantinople"
+     },
+     "wikidata": "Q16869",
+     "at": [
+      28.976,
+      41.012
+     ],
+     "from": 330,
+     "sources": [
+      "wp-roman-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "persiska-riket",
@@ -1018,7 +1054,43 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "vergina-sun"
+   "symbol": "vergina-sun",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Aigai",
+      "en": "Aigai"
+     },
+     "wikidata": "Q16963755",
+     "at": [
+      22.323,
+      40.478
+     ],
+     "to": -398,
+     "sources": [
+      "wp-macedonia-ancient",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Pella",
+      "en": "Pella"
+     },
+     "wikidata": "Q213679",
+     "at": [
+      22.519,
+      40.76
+     ],
+     "from": -398,
+     "sources": [
+      "wp-macedonia-ancient",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "hanriket",
@@ -1493,7 +1565,25 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "lion-capital"
+   "symbol": "lion-capital",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Pataliputra",
+      "en": "Pataliputra"
+     },
+     "wikidata": "Q389755",
+     "at": [
+      85.144,
+      25.611
+     ],
+     "sources": [
+      "wp-maurya-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "osmanska-riket",
@@ -1765,7 +1855,87 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "tughra"
+   "symbol": "tughra",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Söğüt",
+      "en": "Söğüt"
+     },
+     "wikidata": "Q768506",
+     "at": [
+      30.181,
+      40.019
+     ],
+     "from": 1299,
+     "to": 1331,
+     "sources": [
+      "wp-ottoman",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Bursa",
+      "en": "Bursa"
+     },
+     "wikidata": "Q40738",
+     "at": [
+      29.081,
+      40.191
+     ],
+     "from": 1335,
+     "to": 1365,
+     "sources": [
+      "wp-ottoman",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källorna skiljer sig: faktarutans källa anger att Edirne blev huvudstad på 1360-talet och att året för erövringen är omstritt (1361–1369); Wikidata anger 1365."
+     }
+    },
+    {
+     "name": {
+      "sv": "Edirne",
+      "en": "Edirne"
+     },
+     "wikidata": "Q43387",
+     "at": [
+      26.574,
+      41.673
+     ],
+     "from": 1365,
+     "to": 1453,
+     "sources": [
+      "wp-ottoman",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källorna skiljer sig: faktarutans källa anger att Edirne blev huvudstad på 1360-talet och att året för erövringen är omstritt (1361–1369); Wikidata anger 1365."
+     }
+    },
+    {
+     "name": {
+      "sv": "Konstantinopel",
+      "en": "Constantinople"
+     },
+     "wikidata": "Q16869",
+     "at": [
+      28.976,
+      41.012
+     ],
+     "from": 1453,
+     "to": 1922,
+     "sources": [
+      "wp-ottoman",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "mongolriket",
@@ -2066,7 +2236,64 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "sulde"
+   "symbol": "sulde",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Avraga",
+      "en": "Avarga"
+     },
+     "wikidata": "Q4827751",
+     "at": [
+      109.153,
+      47.094
+     ],
+     "polity": "mongolriket",
+     "from": 1206,
+     "to": 1235,
+     "sources": [
+      "wp-mongol-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Karakorum",
+      "en": "Karakorum"
+     },
+     "wikidata": "Q62677",
+     "at": [
+      102.824,
+      47.198
+     ],
+     "polity": "mongolriket",
+     "from": 1235,
+     "to": 1271,
+     "sources": [
+      "wp-mongol-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Dadu (Khanbalik, dagens Peking)",
+      "en": "Khanbaliq"
+     },
+     "wikidata": "Q101186473",
+     "at": [
+      116.4,
+      39.933
+     ],
+     "polity": "yuandynastin",
+     "sources": [
+      "wp-mongol-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "brittiska-imperiet",
@@ -2333,7 +2560,25 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "imperial-crown"
+   "symbol": "imperial-crown",
+   "capitals": [
+    {
+     "name": {
+      "sv": "London",
+      "en": "London"
+     },
+     "wikidata": "Q84",
+     "at": [
+      -0.128,
+      51.507
+     ],
+     "sources": [
+      "wp-british-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "egypten",
@@ -2584,7 +2829,128 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "pschent"
+   "symbol": "pschent",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Memfis",
+      "en": "Memphis"
+     },
+     "wikidata": "Q5715",
+     "at": [
+      31.251,
+      29.845
+     ],
+     "polity": "egyptens-gamla-rike",
+     "sources": [
+      "wp-old-kingdom-egypt",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Thebe",
+      "en": "Thebes"
+     },
+     "wikidata": "Q101583",
+     "at": [
+      32.61,
+      25.721
+     ],
+     "polity": "egyptens-nya-rike",
+     "to": -1351,
+     "sources": [
+      "wp-old-kingdom-egypt",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Amarna",
+      "en": "Amarna"
+     },
+     "wikidata": "Q5736",
+     "at": [
+      30.906,
+      27.662
+     ],
+     "polity": "egyptens-nya-rike",
+     "from": -1351,
+     "to": -1335,
+     "sources": [
+      "wp-old-kingdom-egypt",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Thebe",
+      "en": "Thebes"
+     },
+     "wikidata": "Q101583",
+     "at": [
+      32.61,
+      25.721
+     ],
+     "polity": "egyptens-nya-rike",
+     "from": -1335,
+     "to": -1278,
+     "sources": [
+      "wp-old-kingdom-egypt",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Åren för Thebe efter Amarnatiden, Pi-Ramesses och Memfis kommer bara från Wikidata; faktarutans källa nämner städerna i den ordningen men utan årtal."
+     }
+    },
+    {
+     "name": {
+      "sv": "Pi-Ramses",
+      "en": "Pi-Ramesses"
+     },
+     "wikidata": "Q937930",
+     "at": [
+      31.834,
+      30.799
+     ],
+     "polity": "egyptens-nya-rike",
+     "from": -1278,
+     "to": -1212,
+     "sources": [
+      "wp-old-kingdom-egypt",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Åren för Thebe efter Amarnatiden, Pi-Ramesses och Memfis kommer bara från Wikidata; faktarutans källa nämner städerna i den ordningen men utan årtal."
+     }
+    },
+    {
+     "name": {
+      "sv": "Memfis",
+      "en": "Memphis"
+     },
+     "wikidata": "Q5715",
+     "at": [
+      31.251,
+      29.845
+     ],
+     "polity": "egyptens-nya-rike",
+     "from": -1212,
+     "sources": [
+      "wp-old-kingdom-egypt",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Åren för Thebe efter Amarnatiden, Pi-Ramesses och Memfis kommer bara från Wikidata; faktarutans källa nämner städerna i den ordningen men utan årtal."
+     }
+    }
+   ]
   },
   {
    "id": "assyriska-riket",
@@ -2785,7 +3151,98 @@
      "whe-neo-assyrian-empire"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Ashur",
+      "en": "Assur"
+     },
+     "wikidata": "Q200200",
+     "at": [
+      43.263,
+      35.457
+     ],
+     "to": -878,
+     "sources": [
+      "wp-assyria",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Nimrud",
+      "en": "Nimrud"
+     },
+     "wikidata": "Q237614",
+     "at": [
+      43.329,
+      36.098
+     ],
+     "from": -878,
+     "to": -705,
+     "sources": [
+      "wp-assyria",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Dur-Sharrukin",
+      "en": "Dur-Sharrukin"
+     },
+     "wikidata": "Q253208",
+     "at": [
+      43.229,
+      36.51
+     ],
+     "from": -705,
+     "to": -704,
+     "sources": [
+      "wp-assyria",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Nineve",
+      "en": "Nineveh"
+     },
+     "wikidata": "Q5680",
+     "at": [
+      43.15,
+      36.367
+     ],
+     "from": -704,
+     "to": -611,
+     "sources": [
+      "wp-assyria",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Harran",
+      "en": "Harran"
+     },
+     "wikidata": "Q199547",
+     "at": [
+      39.025,
+      36.871
+     ],
+     "from": -611,
+     "to": -608,
+     "sources": [
+      "wp-assyria",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "nybabyloniska-riket",
@@ -2967,7 +3424,25 @@
      "whe-nebuchadnezzar-ii"
     ],
     "review": "two-sources"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Babylon",
+      "en": "Babylon"
+     },
+     "wikidata": "Q5684",
+     "at": [
+      44.421,
+      32.542
+     ],
+     "sources": [
+      "wp-neo-babylonian-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "kartago",
@@ -3191,7 +3666,25 @@
     ],
     "review": "two-sources"
    },
-   "symbol": "palm"
+   "symbol": "palm",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Karthago",
+      "en": "Carthage"
+     },
+     "wikidata": "Q6343",
+     "at": [
+      10.323,
+      36.853
+     ],
+     "sources": [
+      "wp-ancient-carthage",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "seleukidriket",
@@ -4610,7 +5103,45 @@
     ],
     "review": "two-sources"
    },
-   "symbol": "white-banner"
+   "symbol": "white-banner",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Damaskus",
+      "en": "Damascus"
+     },
+     "wikidata": "Q3766",
+     "at": [
+      36.292,
+      33.513
+     ],
+     "from": 661,
+     "to": 744,
+     "sources": [
+      "wp-umayyad-caliphate",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Harran",
+      "en": "Harran"
+     },
+     "wikidata": "Q199547",
+     "at": [
+      39.025,
+      36.871
+     ],
+     "from": 744,
+     "to": 750,
+     "sources": [
+      "wp-umayyad-caliphate",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "abbasidkalifatet",
@@ -4875,7 +5406,63 @@
     ],
     "review": "two-sources"
    },
-   "symbol": "black-banner"
+   "symbol": "black-banner",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Bagdad",
+      "en": "Baghdad"
+     },
+     "wikidata": "Q1530",
+     "at": [
+      44.366,
+      33.315
+     ],
+     "from": 762,
+     "to": 836,
+     "sources": [
+      "wp-abbasid-caliphate",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Samarra",
+      "en": "Samarra"
+     },
+     "wikidata": "Q170047",
+     "at": [
+      43.886,
+      34.196
+     ],
+     "from": 836,
+     "to": 892,
+     "sources": [
+      "wp-abbasid-caliphate",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Bagdad",
+      "en": "Baghdad"
+     },
+     "wikidata": "Q1530",
+     "at": [
+      44.366,
+      33.315
+     ],
+     "from": 892,
+     "to": 1258,
+     "sources": [
+      "wp-abbasid-caliphate",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "frankerriket",
@@ -5497,7 +6084,45 @@
      "whe-tang-dynasty"
     ],
     "review": "two-sources"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Chang'an",
+      "en": "Chang'an, Tang Empire"
+     },
+     "wikidata": "Q10923028",
+     "at": [
+      108.9,
+      34.267
+     ],
+     "from": 618,
+     "to": 690,
+     "sources": [
+      "wp-tang-dynasty",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Chang'an",
+      "en": "Chang'an, Tang Empire"
+     },
+     "wikidata": "Q10923028",
+     "at": [
+      108.9,
+      34.267
+     ],
+     "from": 705,
+     "to": 904,
+     "sources": [
+      "wp-tang-dynasty",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "songdynastin",
@@ -5886,7 +6511,45 @@
      "whe-khmer-empire"
     ],
     "review": "two-sources"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Lingapura (Koh Ker)",
+      "en": "Koh Ker"
+     },
+     "wikidata": "Q1778458",
+     "at": [
+      104.547,
+      13.75
+     ],
+     "from": 928,
+     "to": 944,
+     "sources": [
+      "wp-khmer-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Yasodharapura (Angkor)",
+      "en": "Yasodharapura"
+     },
+     "wikidata": "Q2654910",
+     "at": [
+      103.867,
+      13.412
+     ],
+     "from": 944,
+     "to": 1431,
+     "sources": [
+      "wp-khmer-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "ghanariket",
@@ -6411,7 +7074,27 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "tryzub"
+   "symbol": "tryzub",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Kyiv",
+      "en": "Kyiv"
+     },
+     "wikidata": "Q1899",
+     "at": [
+      30.524,
+      50.45
+     ],
+     "from": 882,
+     "to": 1240,
+     "sources": [
+      "wp-kievan-rus",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "timuridriket",
@@ -6871,7 +7554,25 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "eagle-cactus"
+   "symbol": "eagle-cactus",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Tenochtitlan",
+      "en": "Tenochtitlan"
+     },
+     "wikidata": "Q13695",
+     "at": [
+      -99.131,
+      19.435
+     ],
+     "sources": [
+      "wp-aztec-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "inkariket",
@@ -7061,7 +7762,25 @@
     ],
     "review": "two-sources"
    },
-   "symbol": "mascapaicha"
+   "symbol": "mascapaicha",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Cusco",
+      "en": "Cusco"
+     },
+     "wikidata": "Q5582862",
+     "at": [
+      -71.979,
+      -13.517
+     ],
+     "sources": [
+      "wp-inca-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "songhairiket",
@@ -7233,7 +7952,25 @@
      "whe-songhai-empire"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Gao",
+      "en": "Gao"
+     },
+     "wikidata": "Q188904",
+     "at": [
+      -0.05,
+      16.267
+     ],
+     "sources": [
+      "wp-songhai-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "mogulriket",
@@ -7477,7 +8214,62 @@
     ],
     "review": "two-sources"
    },
-   "symbol": "lion-sun"
+   "symbol": "lion-sun",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Fatehpur Sikri",
+      "en": "Fatehpur Sikri"
+     },
+     "wikidata": "Q179046",
+     "at": [
+      77.661,
+      27.091
+     ],
+     "from": 1571,
+     "to": 1585,
+     "sources": [
+      "wp-mughal-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Lahore",
+      "en": "Lahore"
+     },
+     "wikidata": "Q11739",
+     "at": [
+      74.344,
+      31.55
+     ],
+     "from": 1586,
+     "to": 1598,
+     "sources": [
+      "wp-mughal-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Delhi",
+      "en": "Delhi"
+     },
+     "wikidata": "Q1353",
+     "at": [
+      77.217,
+      28.667
+     ],
+     "from": 1639,
+     "sources": [
+      "wp-mughal-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "safavidriket",
@@ -7871,7 +8663,66 @@
      "wd-southern-ming"
     ],
     "review": "two-sources"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Nanjing",
+      "en": "Nanjing"
+     },
+     "wikidata": "Q16666",
+     "at": [
+      118.779,
+      32.061
+     ],
+     "polity": "mingdynastin",
+     "to": 1420,
+     "sources": [
+      "wp-ming",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Peking",
+      "en": "Beijing"
+     },
+     "wikidata": "Q956",
+     "at": [
+      116.408,
+      39.904
+     ],
+     "polity": "mingdynastin",
+     "from": 1421,
+     "to": 1644,
+     "sources": [
+      "wp-ming",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källorna skiljer sig: Peking blev huvudstad 1420 enligt en källa och 1421 enligt en annan; här från 1421."
+     }
+    },
+    {
+     "name": {
+      "sv": "Nanjing",
+      "en": "Nanjing"
+     },
+     "wikidata": "Q16666",
+     "at": [
+      118.779,
+      32.061
+     ],
+     "polity": "sodra-ming",
+     "sources": [
+      "wp-ming",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "qingdynastin",
@@ -8093,7 +8944,26 @@
     ],
     "review": "two-sources"
    },
-   "symbol": "dragon-flag"
+   "symbol": "dragon-flag",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Peking",
+      "en": "Shuntian Fu"
+     },
+     "wikidata": "Q7334692",
+     "at": [
+      116.391,
+      39.905
+     ],
+     "from": 1644,
+     "sources": [
+      "wp-qing-dynasty",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "spanska-imperiet",
@@ -8346,7 +9216,62 @@
     ],
     "review": "two-sources"
    },
-   "symbol": "pillars"
+   "symbol": "pillars",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Madrid",
+      "en": "Madrid city"
+     },
+     "wikidata": "Q116170766",
+     "at": [
+      -3.688,
+      40.408
+     ],
+     "from": 1561,
+     "to": 1601,
+     "sources": [
+      "wp-spanish-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Valladolid",
+      "en": "Valladolid city"
+     },
+     "wikidata": "Q31925679",
+     "at": [
+      -4.729,
+      41.652
+     ],
+     "from": 1601,
+     "to": 1606,
+     "sources": [
+      "wp-spanish-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Madrid",
+      "en": "Madrid city"
+     },
+     "wikidata": "Q116170766",
+     "at": [
+      -3.688,
+      40.408
+     ],
+     "from": 1606,
+     "sources": [
+      "wp-spanish-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "portugisiska-imperiet",
@@ -8582,7 +9507,64 @@
     ],
     "review": "two-sources"
    },
-   "symbol": "armillary"
+   "symbol": "armillary",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Lissabon",
+      "en": "Lisbon"
+     },
+     "wikidata": "Q597",
+     "at": [
+      -9.139,
+      38.708
+     ],
+     "to": 1808,
+     "sources": [
+      "wp-portuguese-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Rio de Janeiro",
+      "en": "Rio de Janeiro"
+     },
+     "wikidata": "Q8678",
+     "at": [
+      -43.206,
+      -22.911
+     ],
+     "from": 1808,
+     "to": 1821,
+     "sources": [
+      "wp-portuguese-empire",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Wikidata anger 1815–1821; faktarutans källa anger 1808–1821, då hovet flyttade till Rio de Janeiro."
+     }
+    },
+    {
+     "name": {
+      "sv": "Lissabon",
+      "en": "Lisbon"
+     },
+     "wikidata": "Q597",
+     "at": [
+      -9.139,
+      38.708
+     ],
+     "from": 1821,
+     "sources": [
+      "wp-portuguese-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "ryska-imperiet",
@@ -8848,7 +9830,84 @@
     ],
     "review": "two-sources"
    },
-   "symbol": "double-eagle"
+   "symbol": "double-eagle",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Moskva",
+      "en": "Moscow"
+     },
+     "wikidata": "Q649",
+     "at": [
+      37.617,
+      55.751
+     ],
+     "from": 1547,
+     "to": 1712,
+     "sources": [
+      "wp-tsardom-of-russia",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Sankt Petersburg",
+      "en": "Saint Petersburg"
+     },
+     "wikidata": "Q656",
+     "at": [
+      30.317,
+      59.95
+     ],
+     "from": 1712,
+     "to": 1728,
+     "sources": [
+      "wp-tsardom-of-russia",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Moskva",
+      "en": "Moscow"
+     },
+     "wikidata": "Q649",
+     "at": [
+      37.617,
+      55.751
+     ],
+     "from": 1728,
+     "to": 1730,
+     "sources": [
+      "wp-tsardom-of-russia",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Faktarutans källa säger bara att huvudstaden låg i Moskva igen några år på 1720- och 1730-talen; åren 1728–1730 kommer från Wikidata."
+     }
+    },
+    {
+     "name": {
+      "sv": "Sankt Petersburg",
+      "en": "Saint Petersburg"
+     },
+     "wikidata": "Q656",
+     "at": [
+      30.317,
+      59.95
+     ],
+     "from": 1730,
+     "to": 1917,
+     "sources": [
+      "wp-tsardom-of-russia",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "svenska-stormaktsvaldet",
@@ -8858,7 +9917,7 @@
    },
    "color": "#3d8fd1",
    "from": 1612,
-   "to": 1814,
+   "to": 2024,
    "file": "data/empires/svenska-stormaktsvaldet.json",
    "polities": [
     {
@@ -8882,11 +9941,33 @@
       "cliopatria"
      ],
      "review": "source-checked"
+    },
+    {
+     "id": "sverige-norge",
+     "name": {
+      "sv": "Sverige-Norge",
+      "en": "Sweden-Norway"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "sverige-1905",
+     "name": {
+      "sv": "Sverige",
+      "en": "Kingdom of Sweden"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
     }
    ],
    "facts": {
     "summary": {
-     "sv": "Under stormaktstiden, 1611–1721, var Sverige en europeisk stormakt som behärskade stora delar av Östersjöområdet. Den slutade när Sverige förlorade stora nordiska kriget."
+     "sv": "Under stormaktstiden, 1611–1721, var Sverige en europeisk stormakt som behärskade stora delar av Östersjöområdet. Den slutade när Sverige förlorade stora nordiska kriget. 1814–1905 var Sverige i union med Norge, och sedan 1905 är landet ett eget kungarike."
     },
     "items": [
      {
@@ -8899,10 +9980,26 @@
      },
      {
       "label": {
-       "sv": "Hur det slutade"
+       "sv": "Hur stormaktstiden slutade"
       },
       "text": {
        "sv": "Karl XII förlorade slaget vid Poltava 1709. När han dog 1718 var riket kraftigt försvagat, och vid freden i Nystad 1721 förlorade Sverige stora områden. Finland avträddes till Ryssland 1809 och Svenska Pommern efter Napoleonkrigen."
+      }
+     },
+     {
+      "label": {
+       "sv": "Unionen med Norge"
+      },
+      "text": {
+       "sv": "Vid freden i Kiel 14 januari 1814 måste Danmark-Norge avträda Norge till Sveriges kung. Norge förklarade sig självständigt och antog en egen grundlag 17 maj 1814, men efter ett kort krig och konventionen i Moss valde stortinget Sveriges kung Karl XIII till Norges kung 4 november 1814. Länderna hade gemensam kung och utrikespolitik men egna grundlagar, riksdagar, arméer och valutor. Fälttåget mot Norge 1814 var sista gången Sverige var i krig."
+      }
+     },
+     {
+      "label": {
+       "sv": "Efter 1905"
+      },
+      "text": {
+       "sv": "Stortinget förklarade unionen upplöst 7 juni 1905, och Sverige godtog det 26 oktober. Sverige var officiellt neutralt i båda världskrigen, men neutraliteten under andra världskriget är omdiskuterad. Landet gick med i EU 1995 och, efter Rysslands invasion av Ukraina, i Nato 7 mars 2024."
       }
      },
      {
@@ -9087,21 +10184,111 @@
        "freden-i-fredrikshamn"
       ],
       "mapNote": {
-       "sv": "Kartan visar riket till och med 1814."
+       "sv": "Kartan visar ytan minska från cirka 790 000 till 464 000 km² 1809."
       }
+     },
+     {
+      "year": 1814,
+      "label": {
+       "sv": "1814"
+      },
+      "title": {
+       "sv": "Unionen med Norge"
+      },
+      "text": {
+       "sv": "Efter freden i Kiel och ett kort krig väljer stortinget Sveriges kung till Norges kung 4 november 1814. Unionen är en personalunion med gemensam kung och utrikespolitik."
+      },
+      "sources": [
+       "wp-union-sweden-norway",
+       "wd-union-sweden-norway",
+       "wp-sweden"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Norge som eget land 1814 och unionen Sverige-Norge från 1815."
+      }
+     },
+     {
+      "year": 1905,
+      "label": {
+       "sv": "1905"
+      },
+      "title": {
+       "sv": "Unionen upplöses"
+      },
+      "text": {
+       "sv": "Stortinget förklarar unionen upplöst 7 juni 1905, och Sverige godtar det 26 oktober. Upplösningen sker fredligt."
+      },
+      "sources": [
+       "wp-union-sweden-norway",
+       "wd-union-sweden-norway"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Sverige utan Norge från 1905."
+      }
+     },
+     {
+      "year": 1995,
+      "label": {
+       "sv": "1995"
+      },
+      "title": {
+       "sv": "EU"
+      },
+      "text": {
+       "sv": "Sverige går med i Europeiska unionen."
+      },
+      "sources": [
+       "wp-sweden"
+      ]
+     },
+     {
+      "year": 2024,
+      "label": {
+       "sv": "2024"
+      },
+      "title": {
+       "sv": "Nato"
+      },
+      "text": {
+       "sv": "Efter Rysslands invasion av Ukraina 2022 söker Sverige medlemskap, och blir medlem i Nato 7 mars 2024."
+      },
+      "sources": [
+       "wp-sweden"
+      ]
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger stormaktstiden till 1611–1721; den slutade med freden i Nystad 1721. Kartan (Cliopatria) kallar Sverige \"Swedish Empire\" ända till 1814. Här heter riket därför Svenska stormaktsväldet till och med 1721 och Sverige 1722–1814, med kartdatans gränser, alltså Sverige med Finland och Pommern efter stormaktstiden."
+     "sv": "Källorna anger stormaktstiden till 1611–1721; den slutade med freden i Nystad 1721. Kartan (Cliopatria) kallar Sverige \"Swedish Empire\" ända till 1814. Här heter riket därför Svenska stormaktsväldet till och med 1721 och Sverige 1722–1814, med kartdatans gränser, alltså Sverige med Finland och Pommern efter stormaktstiden. Unionen med Norge visas 1815–1904 (källorna: 1814–1905) och Sverige från 1905."
     },
     "sources": [
      "wp-swedish-empire",
      "wd-swedish-empire",
-     "wp-three-crowns"
+     "wp-three-crowns",
+     "wp-union-sweden-norway",
+     "wd-union-sweden-norway",
+     "wp-sweden"
     ],
     "review": "two-sources"
    },
-   "symbol": "three-crowns"
+   "symbol": "three-crowns",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Stockholm",
+      "en": "Stockholm"
+     },
+     "wikidata": "Q1754",
+     "at": [
+      18.069,
+      59.329
+     ],
+     "sources": [
+      "wp-swedish-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "habsburgska-riket",
@@ -9287,7 +10474,61 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "double-eagle"
+   "symbol": "double-eagle",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Wien",
+      "en": "Vienna"
+     },
+     "wikidata": "Q1741",
+     "at": [
+      16.372,
+      48.208
+     ],
+     "to": 1583,
+     "sources": [
+      "wp-habsburg-monarchy",
+      "wikidata"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "name": {
+      "sv": "Prag",
+      "en": "Prague"
+     },
+     "wikidata": "Q1085",
+     "at": [
+      14.421,
+      50.087
+     ],
+     "from": 1583,
+     "to": 1611,
+     "sources": [
+      "wp-habsburg-monarchy",
+      "wikidata"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "name": {
+      "sv": "Wien",
+      "en": "Vienna"
+     },
+     "wikidata": "Q1741",
+     "at": [
+      16.372,
+      48.208
+     ],
+     "from": 1611,
+     "sources": [
+      "wp-habsburg-monarchy",
+      "wikidata"
+     ],
+     "review": "source-checked"
+    }
+   ]
   },
   {
    "id": "tokugawa-japan",
@@ -9484,7 +10725,25 @@
     ],
     "review": "two-sources"
    },
-   "symbol": "aoi"
+   "symbol": "aoi",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Edo",
+      "en": "Edo"
+     },
+     "wikidata": "Q215646",
+     "at": [
+      139.774,
+      35.684
+     ],
+     "sources": [
+      "wp-tokugawa-shogunate",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "franska-kolonialvaldet",
@@ -9784,7 +11043,25 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "tricolour"
+   "symbol": "tricolour",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Paris",
+      "en": "Paris"
+     },
+     "wikidata": "Q90",
+     "at": [
+      2.352,
+      48.857
+     ],
+     "sources": [
+      "wp-french-colonial-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "nederlandska-kolonialvaldet",
@@ -10251,7 +11528,25 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "heraldic-eagle"
+   "symbol": "heraldic-eagle",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Berlin",
+      "en": "Berlin"
+     },
+     "wikidata": "Q64",
+     "at": [
+      13.383,
+      52.517
+     ],
+     "sources": [
+      "wp-german-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "osterrike-ungern",
@@ -10506,7 +11801,25 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "double-eagle"
+   "symbol": "double-eagle",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Wien",
+      "en": "Vienna"
+     },
+     "wikidata": "Q1741",
+     "at": [
+      16.372,
+      48.208
+     ],
+     "sources": [
+      "wp-austria-hungary",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "japanska-imperiet",
@@ -10750,7 +12063,26 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "chrysanthemum"
+   "symbol": "chrysanthemum",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Tokyo",
+      "en": "Tokyo"
+     },
+     "wikidata": "Q1490",
+     "at": [
+      139.692,
+      35.689
+     ],
+     "from": 1869,
+     "sources": [
+      "wp-empire-of-japan",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "etiopiska-kejsardomet",
@@ -10996,7 +12328,44 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "judah-lion"
+   "symbol": "judah-lion",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Gondar",
+      "en": "Gondar"
+     },
+     "wikidata": "Q218861",
+     "at": [
+      37.467,
+      12.6
+     ],
+     "from": 1635,
+     "to": 1855,
+     "sources": [
+      "wp-ethiopian-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Addis Abeba",
+      "en": "Addis Ababa"
+     },
+     "wikidata": "Q3624",
+     "at": [
+      38.752,
+      9.036
+     ],
+     "from": 1889,
+     "sources": [
+      "wp-ethiopian-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "sovjetunionen",
@@ -11351,7 +12720,25 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "hammer-sickle"
+   "symbol": "hammer-sickle",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Moskva",
+      "en": "Moscow"
+     },
+     "wikidata": "Q649",
+     "at": [
+      37.617,
+      55.751
+     ],
+     "sources": [
+      "wp-soviet-union",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "kalmarunionen",
@@ -11805,6 +13192,43 @@
     ],
     "review": "source-checked"
    },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Königsberg",
+      "en": "Königsberg"
+     },
+     "wikidata": "Q4120832",
+     "at": [
+      20.509,
+      54.711
+     ],
+     "from": 1525,
+     "to": 1701,
+     "sources": [
+      "wp-prussia",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Berlin",
+      "en": "Berlin"
+     },
+     "wikidata": "Q64",
+     "at": [
+      13.383,
+      52.517
+     ],
+     "from": 1701,
+     "sources": [
+      "wp-prussia",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ],
    "symbol": "heraldic-eagle"
   },
   {
@@ -12091,6 +13515,24 @@
     ],
     "review": "source-checked"
    },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Belgrad",
+      "en": "Belgrade"
+     },
+     "wikidata": "Q3711",
+     "at": [
+      20.457,
+      44.818
+     ],
+     "sources": [
+      "wp-yugoslavia",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ],
    "symbol": "torches",
    "polityFacts": {
     "kungariket-jugoslavien": {
@@ -12346,6 +13788,24 @@
     ],
     "review": "source-checked"
    },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Prag",
+      "en": "Prague"
+     },
+     "wikidata": "Q1085",
+     "at": [
+      14.421,
+      50.087
+     ],
+     "sources": [
+      "wp-czechoslovakia",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ],
    "symbol": "bohemian-lion"
   },
   {
@@ -12560,6 +14020,24 @@
     ],
     "review": "source-checked"
    },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Bogotá",
+      "en": "Bogotá"
+     },
+     "wikidata": "Q2841",
+     "at": [
+      -74.082,
+      4.61
+     ],
+     "sources": [
+      "wp-gran-colombia",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ],
    "symbol": "cornucopia-fasces"
   },
   {
@@ -12745,6 +14223,43 @@
     ],
     "review": "source-checked"
    },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Houston",
+      "en": "Houston"
+     },
+     "wikidata": "Q16555",
+     "at": [
+      -95.383,
+      29.763
+     ],
+     "from": 1837,
+     "to": 1839,
+     "sources": [
+      "wp-republic-of-texas",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Austin",
+      "en": "Austin"
+     },
+     "wikidata": "Q16559",
+     "at": [
+      -97.733,
+      30.3
+     ],
+     "from": 1839,
+     "sources": [
+      "wp-republic-of-texas",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ],
    "symbol": "lone-star"
   },
   {
@@ -12946,6 +14461,44 @@
     ],
     "review": "source-checked"
    },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Lahaina",
+      "en": "Lahaina"
+     },
+     "wikidata": "Q1012971",
+     "at": [
+      -156.675,
+      20.886
+     ],
+     "from": 1820,
+     "to": 1845,
+     "sources": [
+      "wp-hawaiian-kingdom",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Honolulu",
+      "en": "Honolulu"
+     },
+     "wikidata": "Q18094",
+     "at": [
+      -157.857,
+      21.305
+     ],
+     "from": 1845,
+     "to": 1893,
+     "sources": [
+      "wp-hawaiian-kingdom",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ],
    "symbol": "puloulou"
   },
   {
@@ -13367,7 +14920,68 @@
      "wd-united-states"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "New York",
+      "en": "New York City"
+     },
+     "wikidata": "Q60",
+     "at": [
+      -74.006,
+      40.713
+     ],
+     "from": 1785,
+     "to": 1790,
+     "sources": [
+      "wp-united-states",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Åren kommer bara från Wikidata; faktarutans källa nämner bara Washington, D.C."
+     }
+    },
+    {
+     "name": {
+      "sv": "Philadelphia",
+      "en": "Philadelphia"
+     },
+     "wikidata": "Q1345",
+     "at": [
+      -75.164,
+      39.953
+     ],
+     "from": 1790,
+     "to": 1800,
+     "sources": [
+      "wp-united-states",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Åren kommer bara från Wikidata; faktarutans källa nämner bara Washington, D.C."
+     }
+    },
+    {
+     "name": {
+      "sv": "Washington, D.C.",
+      "en": "Washington, D.C."
+     },
+     "wikidata": "Q61",
+     "at": [
+      -77.037,
+      38.895
+     ],
+     "from": 1800,
+     "sources": [
+      "wp-united-states",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "amerikas-konfedererade-stater",
@@ -13460,6 +15074,15 @@
       "text": {
        "sv": "Montgomery i Alabama från februari till maj 1861, sedan Richmond i Virginia."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "\"Stars and Bars\", sydstaternas första officiella nationsflagga, som användes från 4 mars 1861 till 1 maj 1863: tre band och en blå kanton med en ring av vita stjärnor, först sju, en för varje sydstat som bröt sig ur. Kartan visar inte stridsflaggan. Den var aldrig nationsflagga, men är i dag sydstaternas mest kända symbol och har efter kriget använts mitt i politiska, kulturella och rasmässiga kontroverser i USA."
+      }
      }
     ],
     "milestones": [
@@ -13519,10 +15142,49 @@
      "sv": "Källorna anger 1861–1865, som kartan. Kartan visar sydstaternas område krympa från cirka 1,7 miljoner km² 1861 till 1,1 miljoner km² 1865."
     },
     "sources": [
-     "wp-confederate-states"
+     "wp-confederate-states",
+     "wp-flags-confederate-states"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Montgomery",
+      "en": "Montgomery"
+     },
+     "wikidata": "Q29364",
+     "at": [
+      -86.3,
+      32.367
+     ],
+     "from": 1861,
+     "to": 1861,
+     "sources": [
+      "wp-confederate-states",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Richmond",
+      "en": "Richmond"
+     },
+     "wikidata": "Q43421",
+     "at": [
+      -77.437,
+      37.541
+     ],
+     "from": 1861,
+     "sources": [
+      "wp-confederate-states",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ],
+   "symbol": "stars-and-bars"
   },
   {
    "id": "mexiko",
@@ -13806,7 +15468,25 @@
      "wp-second-mexican-empire"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Mexico City",
+      "en": "Mexico City"
+     },
+     "wikidata": "Q1489",
+     "at": [
+      -99.136,
+      19.354
+     ],
+     "sources": [
+      "wp-mexico",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "brasilien",
@@ -14020,7 +15700,43 @@
      "wp-empire-of-brazil"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Rio de Janeiro",
+      "en": "Rio de Janeiro"
+     },
+     "wikidata": "Q8678",
+     "at": [
+      -43.206,
+      -22.911
+     ],
+     "to": 1960,
+     "sources": [
+      "wp-brazil",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Brasília",
+      "en": "Brasília"
+     },
+     "wikidata": "Q2844",
+     "at": [
+      -47.883,
+      -15.794
+     ],
+     "from": 1960,
+     "sources": [
+      "wp-brazil",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "argentina",
@@ -14209,7 +15925,25 @@
      "wp-argentina"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Buenos Aires",
+      "en": "Buenos Aires"
+     },
+     "wikidata": "Q1486",
+     "at": [
+      -58.382,
+      -34.6
+     ],
+     "sources": [
+      "wp-argentina",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "paraguay",
@@ -14392,7 +16126,25 @@
      "wp-paraguayan-war"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Asunción",
+      "en": "Asunción"
+     },
+     "wikidata": "Q2933",
+     "at": [
+      -57.634,
+      -25.28
+     ],
+     "sources": [
+      "wp-paraguay",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "uruguay",
@@ -14546,7 +16298,25 @@
      "wp-paraguayan-war"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Montevideo",
+      "en": "Montevideo"
+     },
+     "wikidata": "Q1335",
+     "at": [
+      -56.191,
+      -34.906
+     ],
+     "sources": [
+      "wp-uruguay",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "israel",
@@ -14994,7 +16764,25 @@
      "wd-egypt"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Kairo",
+      "en": "Cairo"
+     },
+     "wikidata": "Q85",
+     "at": [
+      31.236,
+      30.044
+     ],
+     "sources": [
+      "wp-egypt",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "syrien",
@@ -15199,7 +16987,25 @@
      "wp-syria"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Damaskus",
+      "en": "Damascus"
+     },
+     "wikidata": "Q3766",
+     "at": [
+      36.292,
+      33.513
+     ],
+     "sources": [
+      "wp-syria",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "jordanien",
@@ -15374,7 +17180,25 @@
      "wd-jordan"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Amman",
+      "en": "Amman"
+     },
+     "wikidata": "Q3805",
+     "at": [
+      35.933,
+      31.95
+     ],
+     "sources": [
+      "wp-jordan",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "irak",
@@ -15574,7 +17398,25 @@
      "wd-iraq"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Bagdad",
+      "en": "Baghdad"
+     },
+     "wikidata": "Q1530",
+     "at": [
+      44.366,
+      33.315
+     ],
+     "sources": [
+      "wp-iraq",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "iran",
@@ -16002,7 +17844,25 @@
      "wp-history-of-kuwait"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Kuwait City",
+      "en": "Kuwait City"
+     },
+     "wikidata": "Q35178",
+     "at": [
+      47.98,
+      29.375
+     ],
+     "sources": [
+      "wp-kuwait",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "indien",
@@ -16211,7 +18071,25 @@
      "wd-india"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "New Delhi",
+      "en": "New Delhi"
+     },
+     "wikidata": "Q987",
+     "at": [
+      77.209,
+      28.614
+     ],
+     "sources": [
+      "wp-india",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "pakistan",
@@ -16619,7 +18497,25 @@
      "wd-bangladesh"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Dhaka",
+      "en": "Dhaka"
+     },
+     "wikidata": "Q1354",
+     "at": [
+      90.394,
+      23.729
+     ],
+     "sources": [
+      "wp-bangladesh",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "afghanistan",
@@ -16888,7 +18784,25 @@
      "wd-kingdom-of-afghanistan"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Kabul",
+      "en": "Kabul"
+     },
+     "wikidata": "Q5838",
+     "at": [
+      69.166,
+      34.533
+     ],
+     "sources": [
+      "wp-afghanistan",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "marathariket",
@@ -17312,7 +19226,25 @@
      "wd-korean-empire"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Hanseong (Seoul)",
+      "en": "Hanseongbu"
+     },
+     "wikidata": "Q624467",
+     "at": [
+      127,
+      37.583
+     ],
+     "sources": [
+      "wp-joseon",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "nordkorea",
@@ -17517,7 +19449,25 @@
      "wd-north-korea"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Pyongyang",
+      "en": "Pyongyang"
+     },
+     "wikidata": "Q18808",
+     "at": [
+      125.748,
+      39.017
+     ],
+     "sources": [
+      "wp-north-korea",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "sydkorea",
@@ -17725,7 +19675,25 @@
      "wd-south-korea"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Seoul",
+      "en": "Seoul"
+     },
+     "wikidata": "Q8684",
+     "at": [
+      126.99,
+      37.56
+     ],
+     "sources": [
+      "wp-south-korea",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "vietnam",
@@ -17948,7 +19916,25 @@
      "wd-vietnam"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Hanoi",
+      "en": "Hanoi"
+     },
+     "wikidata": "Q1858",
+     "at": [
+      105.841,
+      21.024
+     ],
+     "sources": [
+      "wp-north-vietnam",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "sydvietnam",
@@ -18131,7 +20117,25 @@
      "wd-south-vietnam"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Saigon",
+      "en": "Saigon"
+     },
+     "wikidata": "Q105076326",
+     "at": [
+      106.697,
+      10.802
+     ],
+     "sources": [
+      "wp-south-vietnam",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "taipingriket",
@@ -18317,7 +20321,25 @@
      "wd-taiping-heavenly-kingdom"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Nanjing",
+      "en": "Nanjing"
+     },
+     "wikidata": "Q16666",
+     "at": [
+      118.779,
+      32.061
+     ],
+     "sources": [
+      "wp-taiping-heavenly-kingdom",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "nigeria",
@@ -18456,7 +20478,41 @@
      "wp-nigeria"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Lagos",
+      "en": "Lagos"
+     },
+     "wikidata": "Q8673",
+     "at": [
+      3.394,
+      6.456
+     ],
+     "to": 1991,
+     "sources": [
+      "wikidata"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "name": {
+      "sv": "Abuja",
+      "en": "Abuja"
+     },
+     "wikidata": "Q3787",
+     "at": [
+      7.491,
+      9.056
+     ],
+     "from": 1991,
+     "sources": [
+      "wikidata"
+     ],
+     "review": "source-checked"
+    }
+   ]
   },
   {
    "id": "kongo-kinshasa",
@@ -18610,7 +20666,24 @@
      "wp-dr-congo"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Kinshasa",
+      "en": "Kinshasa"
+     },
+     "wikidata": "Q3838",
+     "at": [
+      15.312,
+      -4.322
+     ],
+     "sources": [
+      "wikidata"
+     ],
+     "review": "source-checked"
+    }
+   ]
   },
   {
    "id": "rwanda",
@@ -18749,7 +20822,24 @@
      "wp-rwanda"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Kigali",
+      "en": "Kigali"
+     },
+     "wikidata": "Q3859",
+     "at": [
+      30.115,
+      -1.953
+     ],
+     "sources": [
+      "wikidata"
+     ],
+     "review": "source-checked"
+    }
+   ]
   },
   {
    "id": "uganda",
@@ -18888,7 +20978,24 @@
      "wp-uganda"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Kampala",
+      "en": "Kampala"
+     },
+     "wikidata": "Q3894",
+     "at": [
+      32.581,
+      0.314
+     ],
+     "sources": [
+      "wikidata"
+     ],
+     "review": "source-checked"
+    }
+   ]
   },
   {
    "id": "zululand",
@@ -19178,7 +21285,41 @@
      "wp-australian-frontier-wars"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Melbourne",
+      "en": "Melbourne"
+     },
+     "wikidata": "Q3141",
+     "at": [
+      144.963,
+      -37.814
+     ],
+     "to": 1927,
+     "sources": [
+      "wikidata"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "name": {
+      "sv": "Canberra",
+      "en": "Canberra"
+     },
+     "wikidata": "Q3114",
+     "at": [
+      149.127,
+      -35.293
+     ],
+     "from": 1927,
+     "sources": [
+      "wikidata"
+     ],
+     "review": "source-checked"
+    }
+   ]
   },
   {
    "id": "nya-zeeland",
@@ -19317,7 +21458,24 @@
      "wp-new-zealand"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Wellington",
+      "en": "Wellington"
+     },
+     "wikidata": "Q23661",
+     "at": [
+      174.777,
+      -41.289
+     ],
+     "sources": [
+      "wikidata"
+     ],
+     "review": "source-checked"
+    }
+   ]
   },
   {
    "id": "papua-nya-guinea",
@@ -19453,7 +21611,24 @@
      "wp-papua-new-guinea"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Port Moresby",
+      "en": "Port Moresby"
+     },
+     "wikidata": "Q36526",
+     "at": [
+      147.149,
+      -9.479
+     ],
+     "sources": [
+      "wikidata"
+     ],
+     "review": "source-checked"
+    }
+   ]
   },
   {
    "id": "kanada",
@@ -19588,7 +21763,24 @@
      "wp-canada"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Ottawa",
+      "en": "Ottawa"
+     },
+     "wikidata": "Q1930",
+     "at": [
+      -75.695,
+      45.425
+     ],
+     "sources": [
+      "wikidata"
+     ],
+     "review": "source-checked"
+    }
+   ]
   },
   {
    "id": "chile",
@@ -19724,7 +21916,24 @@
      "wp-chile"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Santiago de Chile",
+      "en": "Santiago"
+     },
+     "wikidata": "Q2887",
+     "at": [
+      -70.65,
+      -33.438
+     ],
+     "sources": [
+      "wikidata"
+     ],
+     "review": "source-checked"
+    }
+   ]
   },
   {
    "id": "peru",
@@ -19866,7 +22075,24 @@
      "wp-peru"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Lima",
+      "en": "Lima"
+     },
+     "wikidata": "Q2868",
+     "at": [
+      -77.037,
+      -12.06
+     ],
+     "sources": [
+      "wikidata"
+     ],
+     "review": "source-checked"
+    }
+   ]
   },
   {
    "id": "bolivia",
@@ -20193,7 +22419,24 @@
      "wp-colombia"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Bogotá",
+      "en": "Bogotá"
+     },
+     "wikidata": "Q2841",
+     "at": [
+      -74.082,
+      4.61
+     ],
+     "sources": [
+      "wikidata"
+     ],
+     "review": "source-checked"
+    }
+   ]
   },
   {
    "id": "venezuela",
@@ -20328,7 +22571,24 @@
      "wp-venezuela"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Caracas",
+      "en": "Caracas"
+     },
+     "wikidata": "Q1533",
+     "at": [
+      -66.914,
+      10.506
+     ],
+     "sources": [
+      "wikidata"
+     ],
+     "review": "source-checked"
+    }
+   ]
   },
   {
    "id": "ecuador",
@@ -20448,7 +22708,24 @@
      "wp-ecuador"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Quito",
+      "en": "Quito"
+     },
+     "wikidata": "Q2900",
+     "at": [
+      -78.513,
+      -0.22
+     ],
+     "sources": [
+      "wikidata"
+     ],
+     "review": "source-checked"
+    }
+   ]
   },
   {
    "id": "haiti",
@@ -20613,7 +22890,24 @@
      "wp-haitian-revolution"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Port-au-Prince",
+      "en": "Port-au-Prince"
+     },
+     "wikidata": "Q34261",
+     "at": [
+      -72.34,
+      18.547
+     ],
+     "sources": [
+      "wikidata"
+     ],
+     "review": "source-checked"
+    }
+   ]
   },
   {
    "id": "ukraina",
@@ -20820,7 +23114,25 @@
      "wp-declaration-independence-ukraine"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Kyiv",
+      "en": "Kyiv"
+     },
+     "wikidata": "Q1899",
+     "at": [
+      30.524,
+      50.45
+     ],
+     "sources": [
+      "wp-ukraine",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "ryska-federationen",
@@ -21004,7 +23316,25 @@
      "wp-dissolution-of-the-soviet-union"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Moskva",
+      "en": "Moscow"
+     },
+     "wikidata": "Q649",
+     "at": [
+      37.617,
+      55.751
+     ],
+     "sources": [
+      "wp-russia",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   }
  ]
 }

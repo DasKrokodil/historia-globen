@@ -13,6 +13,7 @@
 #                         data/events.json och data/empires/index.json; validate-site.py kontrollerar att de stämmer
 #   data/empires/         index.json och rikesfilerna som index.json pekar på (fältet file)
 #   data/routes/          index.json och filerna med vägar och resor som index.json listar (fältet files, #38)
+#   data/turer/           index.json och en fil per guidad tur som index.json listar (#47)
 #   images/events/        bilderna som events.json pekar på (image.file)
 #   images/karta/         upptäcktsvyns bilder som data/upptackt.json pekar på (decorations[].file, #101)
 #   _headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
@@ -96,6 +97,15 @@ import json
 for f in json.load(open('data/routes/index.json')).get('files', []):
     f = f if isinstance(f, str) else f.get('file', '')
     print(f if '/' in f else 'data/routes/' + f)
+PY
+)
+
+# Guidade turer (#47): index.json och en fil per tur som index.json listar
+copy data/turer/index.json
+while IFS= read -r f; do copy "data/turer/$f.json"; done < <(python3 -I - <<'PY'
+import json
+for t in json.load(open('data/turer/index.json')).get('tours', []):
+    print(t)
 PY
 )
 
