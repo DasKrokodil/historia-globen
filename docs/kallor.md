@@ -66,6 +66,8 @@ Så lyfts ett utkast till händelserna (`data/handelser/<period>.json`, #394):
 3. Skriv svensk titel (till exempel "Slaget vid …") och en egen sammanfattning ur källan, med `precision` och `edtf` som visar osäkerheten. Koppla slaget till sitt krig med `partOf` om kriget finns.
 4. Lägg källan i `sources.json`, behåll `whg-hced` i `sources` och sätt `review` till `source-checked` (eller `two-sources`). Ta bort fältet `hced` och flytta posten till periodfilen för slagets startår i `data/handelser/`, och kör `python3 tools/dela_data.py`. Ta bort utkastet ur `data/utkast/hced.json` så att det inte finns två gånger.
 
+**Massimport per världsdel (#61, beslut 2026-11-05):** Wikidata används som lista över tänkbara händelser i alla kategorier och HCED för slag. Varje batch har högst 20 händelser, väljs ur den tommaste cellen i `python3 tools/tackning.py` och får ha högst en fjärdedel krig. En period är klar när varje världsdel har minst hälften så många händelser som den största världsdelen i samma period. Varje händelse kontrolleras som ovan: öppnad källa, Wikidata som andra källa för år och plats, och "Källorna skiljer sig" i `note` när de inte stämmer.
+
 ## Pågående krig: hålla uppgifterna aktuella (#223)
 
 Ett pågående krig (`ongoing: true`) har uppgifter som åldras: läget i dag (`story.outcome`), dödssiffrorna (`story.casualties`) och nya händelser. Därför står kontrolldatumet i `story.asOf` och syns i kortet "Läget i dag (kontrollerat …)".
