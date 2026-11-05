@@ -7,6 +7,9 @@
     "past": { "sv": "slut", "en": "ended" },
     "future": { "sv": "börjar", "en": "starts" }
   },
+  "menu": {
+    "label": { "sv": "Meny", "en": "Menu" }
+  },
   "funfacts": {
     "surprise": { "sv": "Visste du?", "en": "Did you know?" }
   },

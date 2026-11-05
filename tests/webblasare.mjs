@@ -139,7 +139,8 @@ async function run(browser, vp) {
     const value = Number(document.getElementById('year-big').textContent.trim());
     return document.getElementById('year-era').textContent.trim() === 'f.Kr.' ? 1 - value : value;
   });
-  // Platt vy, Källor och Hjälp ligger i mobilen i menyn Visa (#361): öppna den först när knappen inte syns
+  // Lager, Fokus, Ett år, en plats, Platt vy, Källor och Hjälp ligger i mobilen i menyn Meny (#361, #530):
+  // öppna den först när knappen inte syns
   const clickView = async sel => {
     if (await page.isHidden(sel) && await page.isVisible('#more-toggle')) await page.click('#more-toggle');
     await page.click(sel);
@@ -161,13 +162,13 @@ async function run(browser, vp) {
   })()`, null, { polling: 300, timeout: T.step });
   const layerRow = name => `#layer-menu input[data-layer="${name}"]`;
   const setLayer = async (name, on) => {
-    if (await page.isHidden('#layer-menu')) { await page.click('#btn-layers'); await visible('#layer-menu'); }
+    if (await page.isHidden('#layer-menu')) { await clickView('#btn-layers'); await visible('#layer-menu'); }
     const box = page.locator(layerRow(name));
     if (await box.isHidden()) { await page.click('#layer-customize'); await box.waitFor({ state: 'visible', timeout: T.step }); }
     if ((await box.isChecked()) !== on) await box.click();
   };
   const setPause = async (name, on) => {
-    if (await page.isHidden('#layer-menu')) { await page.click('#btn-layers'); await visible('#layer-menu'); }
+    if (await page.isHidden('#layer-menu')) { await clickView('#btn-layers'); await visible('#layer-menu'); }
     const box = page.locator(`input[data-pause="${name}"]`);
     if (await box.isHidden()) { await page.click('#layer-customize'); await box.waitFor({ state: 'visible', timeout: T.step }); }
     if ((await box.isChecked()) !== on) await box.click();
@@ -234,6 +235,61 @@ async function run(browser, vp) {
     return 'hänvisningar och rollgrupper från testobjekt';
   });
 
+  await check('mobilmenyn samlar knapparna (#530)', async () => {
+    const inMenu = ['btn-layers', 'btn-focus', 'btn-intro', 'btn-flat', 'btn-sources', 'btn-help'];
+    if (vp.width > 760) {
+      if (await page.isVisible('#more-toggle')) throw new Error('knappen Meny syns i datorbredd');
+      for (const id of ['btn-panel', ...inMenu]) if (await page.isHidden(`#${id}`)) throw new Error(`#${id} syns inte i datorbredd`);
+      if (!await page.evaluate(() => !!document.getElementById('btn-panel').closest('.action-group'))) throw new Error('Samtidigt står inte i gruppen Utforska i datorn');
+      return 'datorn: grupperna Utforska och Visa som förut, ingen Meny';
+    }
+    const toggle = page.locator('#more-toggle');
+    await visible('#more-toggle');
+    if ((await toggle.textContent()).trim() !== 'Meny') throw new Error('knappen heter inte Meny');
+    if (await toggle.getAttribute('aria-expanded') !== 'false') throw new Error('menyn är öppen från början');
+    if (await page.isHidden('#btn-panel')) throw new Error('Samtidigt syns inte bredvid Meny');
+    if (await page.evaluate(() => !!document.getElementById('btn-panel').closest('#more-menu'))) throw new Error('Samtidigt ligger kvar i menyn');
+    if (await page.isVisible('#btn-layers')) throw new Error('Lager syns fast menyn är stängd');
+    // Tangentbord: Enter öppnar, Escape stänger och fokus tillbaka till Meny, mellanslag öppnar
+    await toggle.focus();
+    await page.keyboard.press('Enter');
+    await visible('#more-menu');
+    if (await toggle.getAttribute('aria-expanded') !== 'true') throw new Error('aria-expanded blir inte true');
+    if (!await page.evaluate(() => document.getElementById('more-menu').contains(document.activeElement))) throw new Error('fokus flyttas inte in i menyn');
+    const layout = await page.evaluate(ids => {
+      const box = id => document.getElementById(id).getBoundingClientRect();
+      const m = box('more-menu'), y = box('year-jump'), bar = document.querySelector('.timebar').getBoundingClientRect();
+      const overlap = (a, b) => a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
+      return {
+        hidden: ids.filter(id => { const r = box(id); return !document.getElementById(id).hidden && (r.width < 1 || r.left < 0 || r.right > innerWidth); }),
+        year: overlap(m, y), bar: m.bottom > bar.top, heading: getComputedStyle(document.getElementById('ag-view')).display !== 'none',
+        rowYear: overlap(box('btn-panel'), y) || overlap(box('more-toggle'), y),
+      };
+    }, inMenu);
+    if (layout.hidden.length) throw new Error(`syns inte i menyn: ${layout.hidden.join(', ')}`);
+    if (layout.year || layout.rowYear) throw new Error('menyn eller knapparna täcker årtalet');
+    if (layout.bar) throw new Error('menyn täcker tidslinjen');
+    if (!layout.heading) throw new Error('rubriken Visa saknas i menyn');
+    await shot('530-mobilmeny-oppen');
+    await page.keyboard.press('Escape');
+    await hidden('#more-menu');
+    if (await toggle.getAttribute('aria-expanded') !== 'false') throw new Error('aria-expanded blir inte false');
+    if (await page.evaluate(() => document.activeElement?.id !== 'more-toggle')) throw new Error('Escape lämnar inte fokus på Meny');
+    await page.keyboard.press('Space');
+    await visible('#more-menu');
+    await page.click('#more-toggle');
+    await hidden('#more-menu');
+    // Lager nås från menyn, menyn stänger sig, och Escape i Lager lämnar fokus på Meny
+    await page.click('#more-toggle');
+    await page.click('#btn-layers');
+    await visible('#layer-menu');
+    if (await page.isVisible('#more-menu')) throw new Error('menyn står kvar när Lager öppnas');
+    await page.keyboard.press('Escape');
+    await hidden('#layer-menu');
+    if (await page.evaluate(() => document.activeElement?.id !== 'more-toggle')) throw new Error('fokus går inte till Meny när Lager stängs');
+    return 'Samtidigt och Meny i raden; Enter, mellanslag, Escape och fokus; menyn täcker inte årtal eller tidslinje';
+  });
+
   await check('hjälpen öppnas bara på begäran', async () => {
     const help = page.locator('#help');
     const helpButton = page.locator('#btn-help');
@@ -245,7 +301,8 @@ async function run(browser, vp) {
     await page.keyboard.press('Escape');
     await hidden('#help');
     if ((await helpButton.getAttribute('aria-expanded')) !== 'false') throw new Error('Hjälp-knappen visar inte att hjälpen är stängd');
-    if (vp.width > 760 && await page.evaluate(() => document.activeElement?.id !== 'btn-help')) throw new Error('Escape lämnar inte fokus på Hjälp-knappen');
+    const helpReturn = vp.width > 760 ? 'btn-help' : 'more-toggle'; // i mobilen ligger Hjälp i den stängda menyn (#530)
+    if (await page.evaluate(id => document.activeElement?.id !== id, helpReturn)) throw new Error(`Escape lämnar inte fokus på ${helpReturn}`);
 
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await clickView('#btn-help');
@@ -323,6 +380,7 @@ async function run(browser, vp) {
     if (await page.isVisible('#intro')) throw new Error('introduktionen öppnas automatiskt vid första besöket');
     if (await page.locator('#help-intro').count()) throw new Error('Hjälp innehåller fortfarande en länk till introduktionen');
     const introButton = page.locator('#btn-intro');
+    if (await introButton.isHidden() && await page.isVisible('#more-toggle')) await page.click('#more-toggle');
     await visible('#btn-intro');
     if ((await introButton.textContent()).trim() !== 'Ett år, en plats') throw new Error('knappen under Utforska har fel text');
     await introButton.click();
@@ -341,13 +399,14 @@ async function run(browser, vp) {
     if (await page.evaluate(() => localStorage.getItem('hg-intro-seen') !== null)) throw new Error('introduktionen använder fortfarande hg-intro-seen');
 
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    await introButton.click();
+    await clickView('#btn-intro');
     await visible('#intro');
     const animation = await page.locator('.intro-box').evaluate(el => getComputedStyle(el).animationName);
     if (animation !== 'none') throw new Error(`introduktionen animeras trots Lugn rörelse: ${animation}`);
     await page.keyboard.press('Escape');
     await hidden('#intro');
-    const focusRestored = await page.evaluate(() => document.activeElement?.id === 'btn-intro');
+    // I mobilen ligger knappen i den stängda menyn, och då går fokus till Meny (#530)
+    const focusRestored = await page.evaluate(id => document.activeElement?.id === id, vp.width > 760 ? 'btn-intro' : 'more-toggle');
     if (!focusRestored) throw new Error('Escape lämnade inte fokus på knappen som öppnade introduktionen');
     await page.emulateMedia({ reducedMotion: 'no-preference' });
     return 'ingen automatisk popup; tre steg, år 1889, Escape och reducerad rörelse fungerar';
@@ -702,7 +761,7 @@ async function run(browser, vp) {
 
   await check('Lager öppnas', async () => {
     await jumpTo(1900);
-    await page.click('#btn-layers');
+    await clickView('#btn-layers');
     await visible('#layer-menu');
     if (!(await page.locator('#layer-custom').isHidden())) throw new Error('de enskilda lagren är öppna på första nivån');
     const views = await page.locator('#layer-menu .view-chip[data-view]').count();
@@ -724,11 +783,13 @@ async function run(browser, vp) {
     await hidden('#empire-legend');
     await page.waitForFunction(() => {
       const menu = document.getElementById('layer-menu');
-      const expected = menu?.hidden ? document.getElementById('btn-layers') : document.querySelector('.empire-legend-button');
+      // I mobilen ligger Lager i den stängda menyn Meny, och då går fokus till Meny (#530)
+      const layersButton = innerWidth > 760 ? document.getElementById('btn-layers') : document.getElementById('more-toggle');
+      const expected = menu?.hidden ? layersButton : document.querySelector('.empire-legend-button');
       return document.activeElement === expected;
     }, null, { timeout: T.step });
     await shot('3-lager');
-    if (await page.locator('#layer-menu').isHidden()) await page.click('#btn-layers');
+    if (await page.locator('#layer-menu').isHidden()) await clickView('#btn-layers');
     await visible('#layer-menu');
     await page.click('#layer-customize');
     await visible('#layer-custom');
@@ -737,7 +798,7 @@ async function run(browser, vp) {
     await shot('3-lager-anpassa');
     await page.keyboard.press('Escape');
     await hidden('#layer-menu');
-    await page.click('#btn-layers');
+    await clickView('#btn-layers');
     await visible('#layer-menu');
     await visible('#layer-custom');
     await page.keyboard.press('Escape');
@@ -746,7 +807,7 @@ async function run(browser, vp) {
   });
 
   await check('Lager byter till en färdig vy', async () => {
-    await page.click('#btn-layers');
+    await clickView('#btn-layers');
     await visible('#layer-menu');
     const current = page.locator('#layer-menu .view-chip[data-view][aria-pressed="true"]');
     const before = await current.getAttribute('data-view');
@@ -770,7 +831,7 @@ async function run(browser, vp) {
     const menu = page.locator('#layer-menu');
     try {
       if (await panel.evaluate(el => el.classList.contains('open'))) await page.click('#panel-close');
-      await page.click('#btn-layers');
+      await clickView('#btn-layers');
       await visible('#layer-menu');
       if (await page.locator('#layer-custom').isHidden()) await page.click('#layer-customize');
       await visible('#layer-custom');
@@ -799,7 +860,7 @@ async function run(browser, vp) {
       if (!await page.locator(layerRow('events')).isChecked()) throw new Error('panelen slog inte på händelselagret');
       if (await page.evaluate(() => document.activeElement?.id) !== 'btn-panel') throw new Error('fokus hamnade inte på den synliga panelknappen');
       await page.click('#btn-panel');
-      await page.click('#btn-layers');
+      await clickView('#btn-layers');
       await visible('#layer-menu');
       if (await page.locator('#layer-custom').isHidden()) await page.click('#layer-customize');
       await visible('#layer-custom');
@@ -817,7 +878,7 @@ async function run(browser, vp) {
       return 'alla kontrollerade lager stängs av, Samtidigt kan slå på Händelser och Återställ återställer Standard';
     } finally {
       if (await panel.evaluate(el => el.classList.contains('open'))) await page.click('#panel-close');
-      if (await menu.isHidden()) await page.click('#btn-layers');
+      if (await menu.isHidden()) await clickView('#btn-layers');
       if (await page.locator('#layer-custom').isHidden()) await page.click('#layer-customize');
       await page.getByRole('button', { name: 'Återställ standardvyn' }).click();
       await page.keyboard.press('Escape');
@@ -853,7 +914,7 @@ async function run(browser, vp) {
 
   await check('Fokus öppnas och följer ett rike', async () => {
     if (!(await page.locator('#religion-legend').isHidden())) throw new Error('rikesförklaringen syns på startskärmen');
-    await page.click('#btn-focus');
+    await clickView('#btn-focus');
     await visible('#focus-menu');
     await page.click('#focus-menu [data-tab="Alla"]');
     const focusGroups = page.locator('#focus-menu [data-group]');
@@ -925,7 +986,7 @@ async function run(browser, vp) {
     await shot('5-fokus-sok');
     await page.keyboard.press('Escape');
     await hidden('#focus-menu');
-    await page.click('#btn-focus');
+    await clickView('#btn-focus');
     await visible('#focus-menu .focus-active');
     await page.click('#focus-menu [data-clear]');
     await hidden('#focus-menu .focus-active');
@@ -967,7 +1028,7 @@ async function run(browser, vp) {
 
   await check('Fokus har en huvudknapp för uppspelning', async () => {
     try {
-      await page.click('#btn-focus');
+      await clickView('#btn-focus');
       await visible('#focus-menu');
       // Ett rike saknar krigets berättelsekort och dess omedelbara stopp; här testas att den
       // gemensamma Fokus-knappen alltid speglar tidslinjens verkliga uppspelningsläge.
@@ -1014,7 +1075,7 @@ async function run(browser, vp) {
 
   await check('Fokus pausar vid en resas godkända stopp', async () => {
     try {
-      await page.click('#btn-focus');
+      await clickView('#btn-focus');
       await visible('#focus-menu');
       await page.click('#focus-menu [data-tab="Resor"]');
       await page.fill('#focus-menu .focus-search', 'Columbus första resa');
@@ -1040,7 +1101,7 @@ async function run(browser, vp) {
       await page.click('#focus-exit');
       await hidden('#focus-bar');
 
-      await page.click('#btn-layers');
+      await clickView('#btn-layers');
       await visible('#layer-menu');
       if (await page.locator('#layer-custom').isHidden()) await page.click('#layer-customize');
       const stops = page.locator('input[data-pause="route"]');
@@ -1050,7 +1111,7 @@ async function run(browser, vp) {
       await page.keyboard.press('Escape');
       await hidden('#layer-menu');
 
-      await page.click('#btn-focus');
+      await clickView('#btn-focus');
       await visible('#focus-menu');
       await page.click('#focus-menu [data-tab="Resor"]');
       await page.fill('#focus-menu .focus-search', 'Columbus första resa');
@@ -1068,7 +1129,7 @@ async function run(browser, vp) {
       if (await action.isVisible().catch(() => false) && (await action.textContent()).includes('Pausa')) await action.click();
       if (await page.locator('#focus-bar').isVisible().catch(() => false)) await page.click('#focus-exit');
       // Återställ inställningen, så att senare flöden får sidans standard.
-      if (!(await page.locator('#layer-menu').isVisible().catch(() => false))) await page.click('#btn-layers');
+      if (!(await page.locator('#layer-menu').isVisible().catch(() => false))) await clickView('#btn-layers');
       const stops = page.locator('input[data-pause="route"]');
       if (await stops.isVisible().catch(() => false) && !(await stops.isChecked())) await stops.click();
       await page.keyboard.press('Escape');
@@ -1082,7 +1143,7 @@ async function run(browser, vp) {
     try {
       await setPause('route', true);
       await page.keyboard.press('Escape');
-      await page.click('#btn-focus');
+      await clickView('#btn-focus');
       await visible('#focus-menu');
       await page.click('#focus-menu [data-tab="Resor"]');
       await page.fill('#focus-menu .focus-search', 'Zheng Hes första resa');
@@ -1170,7 +1231,7 @@ async function run(browser, vp) {
       await shot('538-fore-fokus');
 
       for (const item of cases) {
-        await page.click('#btn-focus');
+        await clickView('#btn-focus');
         await visible('#focus-menu');
         await page.click(`#focus-menu [data-tab="${item.tab}"]`);
         await page.fill('#focus-menu .focus-search', item.query);
@@ -1300,7 +1361,7 @@ async function run(browser, vp) {
       await setPause('focusFunfacts', false);
       await page.keyboard.press('Escape');
       await jumpTo(war.start - 1);
-      await page.click('#btn-focus');
+      await clickView('#btn-focus');
       await visible('#focus-menu');
       await page.click('#focus-menu [data-tab="Krig"]');
       await page.fill('#focus-menu .focus-search', war.title);
@@ -1405,7 +1466,7 @@ async function run(browser, vp) {
       await setLayer('routes', true);
       if (await page.locator('.troute').count() < 1) throw new Error('Resor saknar start- och slutstreck på tidslinjen');
       await page.keyboard.press('Escape');
-      await page.click('#btn-focus');
+      await clickView('#btn-focus');
       await visible('#focus-menu');
       await page.click('#focus-menu [data-tab="Resor"]');
       await page.fill('#focus-menu .focus-search', 'Columbus första resa');
@@ -1427,7 +1488,7 @@ async function run(browser, vp) {
       await hidden('#focus-bar');
     }
     try {
-      await page.click('#btn-focus');
+      await clickView('#btn-focus');
     await visible('#focus-menu');
     await page.click('#focus-menu [data-tab="Krig"]');
     await page.fill('#focus-menu .focus-search', 'andra världskriget'); // sökning visar även krig utanför årets relevansfönster
@@ -1552,7 +1613,7 @@ async function run(browser, vp) {
 
     // Lugn rörelse gör två bilder jämförbara. Händelser av/på ska ändra klotets bild även efter
     // att canvasarnas storlek växlats i Platt vy (#470).
-    await page.click('#btn-layers');
+    await clickView('#btn-layers');
     await visible('#layer-menu');
     const calm = page.locator('input[data-calm]');
     if (!(await calm.isChecked())) await calm.click();
@@ -1563,7 +1624,7 @@ async function run(browser, vp) {
     await hidden('#layer-menu');
     await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
     const withoutEvents = await page.locator('#globe-canvas').screenshot();
-    await page.click('#btn-layers');
+    await clickView('#btn-layers');
     await visible('#layer-menu');
     await events.click();
     await page.keyboard.press('Escape');
@@ -1575,7 +1636,7 @@ async function run(browser, vp) {
   });
 
   await check('Fokus följer ett krig till slutet', async () => {
-    await page.click('#btn-focus');
+    await clickView('#btn-focus');
     await visible('#focus-menu');
     // Föregående Fokus-flöde slutar i Riken; kriget måste sökas i rätt typflik som en besökare gör.
     await page.click('#focus-menu [data-tab="Krig"]');
@@ -1743,7 +1804,9 @@ async function runReflow(browser) {
         await page.setViewportSize({ width: z.width, height: z.height });
         await page.waitForFunction(([w, h]) => innerWidth === w && innerHeight === h, [z.width, z.height]);
         const frame = await page.evaluate(() => {
-          const ids = ['year-jump', 'btn-panel', 'btn-layers', 'btn-focus', 'btn-intro', 'more-toggle', 'btn-play', 'btn-speed', 'track'];
+          // I smal skärm ligger Lager, Fokus och Ett år, en plats i menyn Meny (#530); de prövas nedan via menyn
+          const ids = innerWidth > 760 ? ['year-jump', 'btn-panel', 'btn-layers', 'btn-focus', 'btn-intro', 'btn-play', 'btn-speed', 'track']
+            : ['year-jump', 'btn-panel', 'more-toggle', 'btn-play', 'btn-speed', 'track'];
           const outside = ids.filter(id => {
             const r = document.getElementById(id)?.getBoundingClientRect();
             return !r || r.width < 1 || r.height < 1 || r.left < 0 || r.top < 0 || r.right > innerWidth || r.bottom > innerHeight;
@@ -1758,17 +1821,20 @@ async function runReflow(browser) {
         if (panelRoom < 1) throw new Error('Samtidigt-listan saknar rullbar yta');
         await page.keyboard.press('Escape');
 
+        const openMenu = async () => { if (await page.isVisible('#more-toggle')) await page.click('#more-toggle'); };
+        await openMenu();
         await page.click('#btn-layers');
         const layerRoom = await page.locator('#layer-menu').evaluate(el => ({ client: el.clientHeight, scroll: el.scrollHeight }));
         if (layerRoom.client < 1) throw new Error('Lager-menyn saknar rullbar yta');
         await page.keyboard.press('Escape');
 
+        await openMenu();
         await page.click('#btn-focus');
         const focusRoom = await page.locator('#focus-menu .focus-body').evaluate(el => el.clientHeight);
         if (focusRoom < 1) throw new Error('Fokus-listan saknar rullbar yta');
         await page.keyboard.press('Escape');
 
-        await page.click('#more-toggle');
+        await openMenu();
         await page.click('#btn-help');
         const help = page.locator('#help');
         const helpRoom = await help.evaluate(el => ({ client: el.clientHeight, scroll: el.scrollHeight, overflow: getComputedStyle(el).overflowY }));
@@ -1776,7 +1842,7 @@ async function runReflow(browser) {
         await page.locator('#help-feedback').scrollIntoViewIfNeeded();
         await page.click('#help-close');
 
-        await page.click('#more-toggle');
+        await openMenu();
         await page.click('#btn-sources');
         const sourceRoom = await page.locator('#sources-body').evaluate(el => el.clientHeight);
         if (sourceRoom < 1) throw new Error('Källsidan saknar rullbar yta');
