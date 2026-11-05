@@ -59,6 +59,7 @@ AGENTS.md             regler för Codex och andra agenter; pekar på CLAUDE.md
 _headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
 css/style.css
 js/main.js            startar allt och kopplar ihop registret, tidslinjen och panelerna
+js/controllers/       main.js uppdelad: val, fokus, faktarutor, omritning, uppspelning, berättelse och etiketter (#402)
 js/state.js           det gemensamma tillståndet som lagren läser (år, fokus, filter, valda lager, #338)
 js/layers/registry.js lagerregistret: rader i Lager, ritordning, dämpning i fokus, teckenförklaring (#338)
 js/layers/index.js    lagerlistan: alla lager som anmäler sig i registret (#338)

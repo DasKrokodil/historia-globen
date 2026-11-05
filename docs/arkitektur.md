@@ -50,7 +50,7 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 
 ```mermaid
 flowchart LR
-  T[Tidslinjen<br/>js/timeline.js] -- change: år --> M[main.js<br/>refresh]
+  T[Tidslinjen<br/>js/timeline.js] -- change: år --> M[controllers/render.js<br/>refresh]
   M -- state --> R[Lagerregistret<br/>layers/registry.js]
   R --> L1[Händelser<br/>layers/events.js]
   R --> L2[Riken<br/>layers/areas.js]
@@ -68,7 +68,7 @@ flowchart LR
   M --> D[Faktarutan<br/>ui/panel.js]
 ```
 
-Varje gång året ändras körs `refresh()` i `main.js`. Den fyller i det gemensamma tillståndet `state` (`js/state.js`: år, fokus, filter, valda lager med mera) och låter lagerregistret göra resten (se [Lagerregistret](#lagerregistret-338)):
+Varje gång året ändras körs `refresh()` i `js/controllers/render.js` (före #402 i `main.js`). Den fyller i det gemensamma tillståndet `state` (`js/state.js`: år, fokus, filter, valda lager med mera) och låter lagerregistret göra resten (se [Lagerregistret](#lagerregistret-338)):
 
 1. Samtidigt-kortet väljer vilka fun facts och krigskort som gäller. Kort som jämför flera händelser visas först, sedan det som började senast.
 2. Alla lager väljer vad som syns med `update(state)`, i lagerlistans ordning (`registry.update`): händelser, riken, religioner, vägar och resor, upptäcktsvyn, dagens gränser och krigsområden. Listan Samtidigt i världen ritas om med de synliga händelserna.
@@ -84,7 +84,8 @@ Klickbara markörer, etiketter och bågar ligger ovanpå klotet som 3D-objekt oc
 
 | Fil | Ansvar |
 |---|---|
-| `js/main.js` | Startar allt och kopplar ihop registret, tidslinjen och panelerna: fokusläget, pauser, klick och etiketter |
+| `js/main.js` | Startar allt och kopplar ihop registret, tidslinjen, panelerna och controllerna: skapar delarna, lyssnar på klick, menyer och tangenter. Själva ansvaret ligger i `js/controllers/` (#402) |
+| `js/controllers/` | Uppdelningen av main.js (#402, del av #389), vanliga ES-moduler utan ramverk. Varje fil har en funktion `createX(app)` som får det delade underlaget `app` (komponenterna och de andra controllernas funktioner) och returnerar sina funktioner. Det man följer läses ur `state.focus`, `state.focusWar` och `state.focusRoute`. `selection.js`: val av händelse och vändningen mot Samtidigt-listan (#515). `facts.js`: faktarutorna om riken och religioner och religionslagrets laddning. `focus.js`: `startFocus`, `endFocus`, raden "Tiden flyttades" och Fokus-menyns listor. `render.js`: `refresh()`, lagerbilden, namnens storlek efter zoom och rikets berättelse. `playback.js`: köerna med krigets och resans stopp, Spela klart, huvudknappen i fokusraden och pauserna; köerna ägs bara här, och `refresh()` anropar `playback.check()` efter ritningen (därför flyttades omritningen och uppspelningen tillsammans). `story.js`: krigets kapitel och markeringar på tidslinjen och resans stoppdatum (rena funktioner). `labels.js`: etiketternas text, hovring och placering i varje bildruta |
 | `js/state.js` | Det gemensamma tillståndet (#338): `createState()` och `snapshot()`, se [Lagerregistret](#lagerregistret-338) |
 | `js/layers/registry.js` | Lagerregistret (#338): `LayerRegistry`, ritordningen `Z` och dämpningen `FADE`, se [Lagerregistret](#lagerregistret-338) |
 | `js/layers/index.js` | Lagerlistan (#338): alla lager som anmäler sig, i radernas ordning i Lager |
@@ -136,7 +137,7 @@ Rikesnamn, rikesmedaljer och händelser trängdes i Europa när man såg hela ka
 - **En lista med upptagna rutor**, som `placeLabels`: `AreasLayer._layout()` lägger först in rutor för händelserna som har företräde och för markörerna hos de 14 viktigaste händelserna, sedan rikena i prioritetsordning. En medalj som skulle täcka något flyttas lite inom riket (inom rutan runt området), ett namn flyttas under eller ovanför medaljen, eller uppåt eller nedåt med ett streck; ryms det ändå inte döljs namnet (och medaljen) tills man zoomar in. Försvunna länder utan gräns (#72) syns bara inzoomat. På globen räknas medaljens ruta med 3D-medaljens minsta storlek på skärmen och görs bredare mot polerna, där bilden pressas ihop på klotet.
 - **Händelseetiketterna viker för rikena:** `AreasLayer.placedBoxes()` ger rikenas namn och medaljer som rutor, och `placeLabels` får dem som `blocked` (i Platt vy via `flatMap.obstacles`, på globen varje bildruta via `globeEmpireBlocks`). Ryms etiketten inte ovanför markören läggs den under.
 - **Beslut 1:** namnen och medaljerna ritas fortfarande på den platta lagerbilden (`overlayCanvas`, 4096 × 2048), i en upplösning för hela jorden. Därför ritas lagerbilden om när zoomnivån byter nivå (`globe.onZoom` och `flatMap.onZoom` anropar `syncNameScale` i `main.js`, som ritar om 150 ms efter att zoomandet stannat), inte varje bildruta. Rikets 3D-medalj på globen (`empiremarks.js`) följer samma beslut: `AreasLayer.marks()` ger bara de medaljer som fick plats, på den plats de fick. I Platt vy är namnen och medaljerna mindre på bilden ju längre in man har zoomat (`flatScale`: 1, 0,7 och 0,4), så att fler ryms utan att täcka varandra.
-- **Med lagerregistret (#338):** rikenas post (`entry(env)` i `areas.js`) väljer områdena i `registry.update(state)`. Direkt efter, när händelserna som syns är kända, sätter `refresh()` i `main.js` zoomnivån och händelserna som ska hållas fria (`areas.setView(...)`) och `flatMap.obstacles`. Namnens platser räknas först när lagerbilden och markörerna ritas (`_layout()` räknas om när året, vyn eller storleken har ändrats). `syncNameScale` jämför med `state.labels` och med `areas.view.level`.
+- **Med lagerregistret (#338):** rikenas post (`entry(env)` i `areas.js`) väljer områdena i `registry.update(state)`. Direkt efter, när händelserna som syns är kända, sätter `refresh()` i `controllers/render.js` zoomnivån och händelserna som ska hållas fria (`areas.setView(...)`) och `flatMap.obstacles`. Namnens platser räknas först när lagerbilden och markörerna ritas (`_layout()` räknas om när året, vyn eller storleken har ändrats). `syncNameScale` jämför med `state.labels` och med `areas.view.level`.
 - **Begränsningar:** närmast klotets kant, där bilden syns snett, kan två 3D-medaljer på globen fortfarande gå in i varandra. Inom en nivå räknas rutorna för händelsernas etiketter med den zoom som gällde när lagerbilden senast ritades. En fysisk glob utan zoom får nivån hela världen.
 
 ## Lagerregistret (#338)
@@ -258,7 +259,7 @@ Fokus-knappen följer ett krig, ett rike, en religion eller en resa. Tidslinjen 
 - **Rike:** bara rikets områden syns, och globen riktas mot riket när det var som störst. Har riket en faktaruta (`facts`) visas den när man börjar följa det. Rikets nyckelår visas som kort och pausar uppspelningen (valbart), se Rikets berättelse nedan.
 - **Religion:** börjar vid religionens grundande, stannar vid grundhändelserna och visar sedan religionens spridning som statsreligion. Har religionen en faktaruta (`facts`) visas den först; det sker i `startFocus()` och hänger inte på att religionslagret slås på (#308).
 
-Året styr: ligger nuvarande år inom det man följer stannar tiden där (`startFocus` i `main.js`). Annars flyttas den till starten, och en rad i fokusraden säger "Tiden flyttades till …" med knappen "Tillbaka till <året>", som lämnar fokus och går till det året (det ligger ju utanför spannet). Krigets berättelse och faktarutorna visas som förut.
+Året styr: ligger nuvarande år inom det man följer stannar tiden där (`startFocus` i `controllers/focus.js`). Annars flyttas den till starten, och en rad i fokusraden säger "Tiden flyttades till …" med knappen "Tillbaka till <året>", som lämnar fokus och går till det året (det ligger ju utanför spannet). Krigets berättelse och faktarutorna visas som förut.
 
 Har det man följer en faktaruta (riken och religioner med `facts`) finns knappen Fakta i fokusraden, som öppnar rutan igen.
 
