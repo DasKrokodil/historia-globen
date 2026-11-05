@@ -86,6 +86,26 @@
     "sourcesDisagree": { "sv": "källorna skiljer sig", "en": "the sources disagree" },
     "about": { "sv": "Källkontroll visar hur uppgiften har jämförts med sina källor. Historisk osäkerhet visar vad källorna eller dateringen lämnar öppet.", "en": "Source checking shows how the claim was compared with its sources. Historical uncertainty shows what the sources or dating leave open." }
   },
+  "sourcesSummary": {
+    "title": { "sv": "Så läser du statusen", "en": "How to read the status" },
+    "checked": {
+      "label": { "sv": "Källkontrollerad", "en": "Source checked" },
+      "text": { "sv": "Uppgiften har jämförts med en källa som har öppnats och lästs.", "en": "The claim has been compared with a source that was opened and read." }
+    },
+    "two": {
+      "label": { "sv": "Två källor stämmer", "en": "Two sources agree" },
+      "text": { "sv": "Årtal och plats har också jämförts med en andra, oberoende källa, och de stämmer.", "en": "Year and place have also been compared with a second, independent source, and they agree." }
+    },
+    "uncertain": {
+      "label": { "sv": "Historien kan ändå vara osäker", "en": "History can still be uncertain" },
+      "text": { "sv": "Det gäller oavsett de två första. Källorna kan sakna detaljer, skilja sig åt eller bara ge ett ungefärligt år eller en ungefärlig plats. Då står det i faktarutan.", "en": "This applies regardless of the first two. The sources can lack details, disagree, or give only an approximate year or place. The fact box then says so." },
+      "example": { "sv": "Exempel: två kontrollerade källor kan ändå ange olika årtal.", "en": "Example: two checked sources can still give different years." }
+    },
+    "filter": { "sv": "Status", "en": "Status" },
+    "all": { "sv": "Alla", "en": "All" },
+    "draft": { "sv": "Ej färdiggranskad (utkast)", "en": "Not yet checked (draft)" },
+    "filtered": { "sv": "med statusen {status}", "en": "with the status {status}" }
+  },
   "empireLegend": {
     "show": { "sv": "Vilket rike?", "en": "Which empire?" },
     "title": { "sv": "Riken", "en": "Empires" },
