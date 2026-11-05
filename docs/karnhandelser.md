@@ -13,7 +13,7 @@
 
 ## Omgångarna
 
-**Läget:** omgång 1 är inlagd (19 händelser, 11 med två källor som stämmer och 8 källkontrollerade, där källorna skiljer sig eller en andra källa saknas för platsen). Omgång 2 är inlagd (20 händelser, 16 med två källor och 4 källkontrollerade, där Wikidata saknar plats eller datum att jämföra med).
+**Läget:** omgång 1 är inlagd (19 händelser, 11 med två källor som stämmer och 8 källkontrollerade, där källorna skiljer sig eller en andra källa saknas för platsen). Omgång 2 är inlagd (20 händelser, 16 med två källor och 4 källkontrollerade, där Wikidata saknar plats eller datum att jämföra med). Omgång 3 är inlagd (20 händelser, 11 med två källor och 9 källkontrollerade, där Wikidata saknar datum eller källorna skiljer sig).
 
 | Omgång | Tid | Nya händelser | Världsdelar |
 | --- | --- | --- | --- |
