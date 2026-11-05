@@ -18341,7 +18341,122 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Nigeria är en förbundsrepublik i Västafrika och Afrikas folkrikaste land, med huvudstaden Abuja. Landet blev självständigt från Storbritannien 1 oktober 1960."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Landet fick sin nuvarande form 1914, när britterna slog ihop protektoraten Södra och Norra Nigeria. Det blev självständigt som förbundsstat 1 oktober 1960."
+      }
+     },
+     {
+      "label": {
+       "sv": "Inbördeskriget"
+      },
+      "text": {
+       "sv": "Emeka Ojukwu utropade sydöstra Nigeria som den självständiga staten Biafra 1967. Kriget började 6 juli 1967 och slutade i januari 1970, efter en lång blockad av Biafra."
+      }
+     },
+     {
+      "label": {
+       "sv": "Styrelseskick"
+      },
+      "text": {
+       "sv": "Efter inbördeskriget följde flera militärdiktaturer, med en kort demokratisk period 1979–1983. Sedan 1999 är landet en stabil demokrati, då militärstyret under Abubakar lämnade över makten till den valde presidenten Olusegun Obasanjo."
+      }
+     },
+     {
+      "label": {
+       "sv": "Folk och språk"
+      },
+      "text": {
+       "sv": "Över 250 folkgrupper med 500 språk. De största är hausa, yoruba och igbo, tillsammans över 60 procent. Officiellt språk är engelska, och landet är ungefär till hälften muslimskt och till hälften kristet."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1914,
+      "label": {
+       "sv": "1914"
+      },
+      "title": {
+       "sv": "Nigeria bildas"
+      },
+      "text": {
+       "sv": "Britterna slår ihop protektoraten Södra och Norra Nigeria."
+      },
+      "sources": [
+       "wp-nigeria"
+      ]
+     },
+     {
+      "year": 1960,
+      "label": {
+       "sv": "1960"
+      },
+      "title": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Nigeria blir självständigt som förbundsstat 1 oktober 1960."
+      },
+      "sources": [
+       "wp-nigeria"
+      ],
+      "mapNote": {
+       "sv": "Kartan börjar 1961."
+      }
+     },
+     {
+      "year": 1967,
+      "label": {
+       "sv": "1967"
+      },
+      "title": {
+       "sv": "Biafrakriget"
+      },
+      "text": {
+       "sv": "Biafra utropas, och inbördeskriget varar till januari 1970."
+      },
+      "sources": [
+       "wp-nigeria",
+       "wp-nigerian-civil-war"
+      ],
+      "events": [
+       "biafrakriget"
+      ]
+     },
+     {
+      "year": 1999,
+      "label": {
+       "sv": "1999"
+      },
+      "title": {
+       "sv": "Demokratin"
+      },
+      "text": {
+       "sv": "Militärstyret lämnar över makten till den valde presidenten Olusegun Obasanjo 29 maj 1999."
+      },
+      "sources": [
+       "wp-nigeria"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan anger 1 oktober 1960 som självständighetsdag. Kartan visar landet från 1961."
+    },
+    "sources": [
+     "wp-nigeria"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "kongo-kinshasa",
@@ -18365,7 +18480,137 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Demokratiska republiken Kongo, ofta kallat Kongo-Kinshasa, är ett land i Centralafrika kring Kongobäckenet, med huvudstaden Kinshasa. Det blev självständigt från Belgien 30 juni 1960."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Belgiens kung Leopold II fick rätten till området 1885 och kallade det Kongostaten. Efter internationella protester mot övergreppen lämnade han över det 1908, och det blev en belgisk koloni. Självständigheten kom 30 juni 1960, under namnet Republiken Kongo."
+      }
+     },
+     {
+      "label": {
+       "sv": "Mobutu och Zaire"
+      },
+      "text": {
+       "sv": "Direkt efter självständigheten följde utbrytningar och mordet på premiärminister Patrice Lumumba. Mobutu Sese Seko tog makten 1965 och döpte om landet till Zaire 1971. Han störtades 1997 av Laurent-Désiré Kabila, som gav landet dess namn tillbaka."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kongokrigen"
+      },
+      "text": {
+       "sv": "Första Kongokriget 1996–1997 följde på flyktingströmmen från inbördeskriget i Rwanda. Andra Kongokriget 1998–2003 krävde enligt uppskattningar flera miljoner liv."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och språk"
+      },
+      "text": {
+       "sv": "Kinshasa. Franska är officiellt språk; det finns över 200 inhemska språk, och lingala är det mest talade."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1885,
+      "label": {
+       "sv": "1885"
+      },
+      "title": {
+       "sv": "Kongostaten"
+      },
+      "text": {
+       "sv": "Leopold II får rätten till området och kallar det Kongostaten."
+      },
+      "sources": [
+       "wp-dr-congo"
+      ],
+      "events": [
+       "kongofristaten"
+      ]
+     },
+     {
+      "year": 1960,
+      "label": {
+       "sv": "1960"
+      },
+      "title": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Belgiska Kongo blir självständigt 30 juni 1960 som Republiken Kongo, med Patrice Lumumba som premiärminister."
+      },
+      "sources": [
+       "wp-dr-congo"
+      ]
+     },
+     {
+      "year": 1965,
+      "label": {
+       "sv": "1965"
+      },
+      "title": {
+       "sv": "Mobutu"
+      },
+      "text": {
+       "sv": "Mobutu Sese Seko tar makten. Landet heter Zaire från 1971."
+      },
+      "sources": [
+       "wp-dr-congo"
+      ]
+     },
+     {
+      "year": 1997,
+      "label": {
+       "sv": "1997"
+      },
+      "title": {
+       "sv": "Mobutu störtas"
+      },
+      "text": {
+       "sv": "Laurent-Désiré Kabila störtar Mobutu och ger landet namnet tillbaka."
+      },
+      "sources": [
+       "wp-dr-congo"
+      ]
+     },
+     {
+      "year": 1998,
+      "label": {
+       "sv": "1998"
+      },
+      "title": {
+       "sv": "Andra Kongokriget"
+      },
+      "text": {
+       "sv": "Kriget varar till 2003 och kräver enligt uppskattningar flera miljoner liv."
+      },
+      "sources": [
+       "wp-dr-congo",
+       "wp-second-congo-war"
+      ],
+      "events": [
+       "andra-kongokriget"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan anger 30 juni 1960, som kartan. Kartan visar landet under samma namn hela tiden, också åren som Zaire."
+    },
+    "sources": [
+     "wp-dr-congo"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "rwanda",
@@ -18389,7 +18634,122 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Rwanda är ett litet, tätbefolkat land i Östafrikas sjöområde, med huvudstaden Kigali. Det blev självständigt 1 juli 1962."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Kungariket Rwanda växte fram på 1400-talet och dominerade området från mitten av 1700-talet. Tyskland gjorde det till en del av Tyska Östafrika 1897, och Belgien tog över 1916. Landet skildes från Burundi och blev självständigt 1 juli 1962."
+      }
+     },
+     {
+      "label": {
+       "sv": "Folkmordet 1994"
+      },
+      "text": {
+       "sv": "Rwandiska patriotiska fronten (RPF) inledde ett inbördeskrig 1990. När president Habyarimanas flygplan sköts ned 6 april 1994 började folkmordet: på omkring 100 dagar dödades mellan 500 000 och 1 000 000 tutsier och moderata hutuer. RPF tog kontroll över landet i mitten av juli."
+      }
+     },
+     {
+      "label": {
+       "sv": "Styrelseskick"
+      },
+      "text": {
+       "sv": "Sedan 1994 styrs landet i praktiken som en enpartistat av RPF, med Paul Kagame som president sedan 2000."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och yta"
+      },
+      "text": {
+       "sv": "Kigali. Ytan är 26 338 km²."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1962,
+      "label": {
+       "sv": "1962"
+      },
+      "title": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Rwanda skiljs från Burundi och blir självständigt 1 juli 1962."
+      },
+      "sources": [
+       "wp-rwanda"
+      ],
+      "mapNote": {
+       "sv": "Kartan börjar 1963."
+      }
+     },
+     {
+      "year": 1990,
+      "label": {
+       "sv": "1990"
+      },
+      "title": {
+       "sv": "Inbördeskriget"
+      },
+      "text": {
+       "sv": "RPF inleder ett inbördeskrig mot regeringen."
+      },
+      "sources": [
+       "wp-rwanda"
+      ]
+     },
+     {
+      "year": 1994,
+      "label": {
+       "sv": "1994"
+      },
+      "title": {
+       "sv": "Folkmordet"
+      },
+      "text": {
+       "sv": "På omkring 100 dagar dödas mellan 500 000 och 1 000 000 tutsier och moderata hutuer."
+      },
+      "sources": [
+       "wp-rwanda"
+      ]
+     },
+     {
+      "year": 1998,
+      "label": {
+       "sv": "1998"
+      },
+      "title": {
+       "sv": "Andra Kongokriget"
+      },
+      "text": {
+       "sv": "Rwandas armé är en av de krigförande i Kongokrigen."
+      },
+      "sources": [
+       "wp-rwanda",
+       "wp-second-congo-war"
+      ],
+      "events": [
+       "andra-kongokriget"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan anger 1 juli 1962 som självständighetsdag. Kartan visar landet från 1963."
+    },
+    "sources": [
+     "wp-rwanda"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "uganda",
@@ -18413,7 +18773,122 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Uganda är ett land i Östafrikas sjöområde, uppkallat efter kungariket Buganda, med huvudstaden Kampala. Det blev självständigt från Storbritannien 9 oktober 1962."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Britterna upprättade protektoratet Uganda 1894. Landet blev självständigt 9 oktober 1962, med Milton Obote som förste premiärminister."
+      }
+     },
+     {
+      "label": {
+       "sv": "Obote och Amin"
+      },
+      "text": {
+       "sv": "Mengokrisen 1966 ledde till strid med kungariket Buganda och till att landet blev en presidentrepublik. Idi Amin störtade Obote i en militärkupp 1971 och styrde som brutal diktator tills han störtades 1979 i kriget mellan Uganda och Tanzania."
+      }
+     },
+     {
+      "label": {
+       "sv": "Museveni"
+      },
+      "text": {
+       "sv": "Efter det omstridda valet 1980 följde ett sexårigt gerillakrig, som Yoweri Musevenis National Resistance Movement vann 1986. Museveni har varit president sedan dess."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och språk"
+      },
+      "text": {
+       "sv": "Kampala. Officiella språk är engelska och swahili."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1962,
+      "label": {
+       "sv": "1962"
+      },
+      "title": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Uganda blir självständigt 9 oktober 1962."
+      },
+      "sources": [
+       "wp-uganda"
+      ],
+      "mapNote": {
+       "sv": "Kartan börjar 1963."
+      }
+     },
+     {
+      "year": 1971,
+      "label": {
+       "sv": "1971"
+      },
+      "title": {
+       "sv": "Idi Amin"
+      },
+      "text": {
+       "sv": "Idi Amin tar makten i en militärkupp och styr som diktator till 1979."
+      },
+      "sources": [
+       "wp-uganda"
+      ]
+     },
+     {
+      "year": 1986,
+      "label": {
+       "sv": "1986"
+      },
+      "title": {
+       "sv": "Museveni"
+      },
+      "text": {
+       "sv": "Yoweri Musevenis rörelse vinner gerillakriget."
+      },
+      "sources": [
+       "wp-uganda"
+      ]
+     },
+     {
+      "year": 1998,
+      "label": {
+       "sv": "1998"
+      },
+      "title": {
+       "sv": "Andra Kongokriget"
+      },
+      "text": {
+       "sv": "Uganda är en av de krigförande i Kongokrigen."
+      },
+      "sources": [
+       "wp-uganda",
+       "wp-second-congo-war"
+      ],
+      "events": [
+       "andra-kongokriget"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan anger 9 oktober 1962 som självständighetsdag. Kartan visar landet från 1963."
+    },
+    "sources": [
+     "wp-uganda"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "zululand",
@@ -18437,7 +18912,134 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Zuluriket var ett kungadöme i södra Afrika, längs Indiska oceanens kust mellan floderna Tugela och Pongola, i dagens KwaZulu-Natal i Sydafrika. Shaka byggde upp det på 1810-talet, och britterna erövrade det 1879."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Riket växte fram under mfecane, en tid av oro och statsbildning i södra Afrika. Shaka blev zulukung och tog efter Dingiswayos död omkring 1816 ledningen för hela Mthethwa-förbundet. Han byggde en stående armé, amabutho, och utvidgade riket genom krig och diplomati."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kungar"
+      },
+      "text": {
+       "sv": "Shaka mördades 1828 av sina halvbröder och efterträddes av Dingane. Senare kungar var bland andra Cetshwayo. Ett inbördeskrig på 1850-talet slutade med slaget vid Ndondakusuka 1856 mellan bröderna Cetshwayo och Mbuyazi."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade"
+      },
+      "text": {
+       "sv": "Britterna invaderade Zululand 1879. Zulus segrade vid Isandlwana i januari, men britterna besegrade dem vid Ulundi i juli, och Cetshwayo tillfångatogs 28 augusti. Riket delades mellan elva zuluhövdingar och två andra, och britterna annekterade Zululand 1887. Området blev en del av Natal och senare Sydafrika."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1816,
+      "label": {
+       "sv": "1816"
+      },
+      "title": {
+       "sv": "Shaka"
+      },
+      "text": {
+       "sv": "Shaka tar ledningen för hela Mthethwa-förbundet och bygger ut riket."
+      },
+      "sources": [
+       "wp-zulu-kingdom"
+      ],
+      "mapNote": {
+       "sv": "Kartan börjar 1820."
+      }
+     },
+     {
+      "year": 1828,
+      "label": {
+       "sv": "1828"
+      },
+      "title": {
+       "sv": "Shaka mördas"
+      },
+      "text": {
+       "sv": "Halvbrodern Dingane låter mörda Shaka och blir kung."
+      },
+      "sources": [
+       "wp-zulu-kingdom"
+      ]
+     },
+     {
+      "year": 1838,
+      "label": {
+       "sv": "1838"
+      },
+      "title": {
+       "sv": "Blood River"
+      },
+      "text": {
+       "sv": "Voortrekkerna under Andries Pretorius slår tillbaka zuluarmén 16 december 1838."
+      },
+      "sources": [
+       "wp-zulu-kingdom"
+      ]
+     },
+     {
+      "year": 1879,
+      "label": {
+       "sv": "1879"
+      },
+      "title": {
+       "sv": "Anglo-zuluiska kriget"
+      },
+      "text": {
+       "sv": "Britterna invaderar. Zulus segrar vid Isandlwana, men förlorar vid Ulundi, och kriget är över."
+      },
+      "sources": [
+       "wp-zulu-kingdom",
+       "wp-anglo-zulu-war"
+      ],
+      "events": [
+       "anglo-zuluiska-kriget",
+       "slaget-vid-isandlwana",
+       "slaget-vid-ulundi"
+      ]
+     },
+     {
+      "year": 1887,
+      "label": {
+       "sv": "1887"
+      },
+      "title": {
+       "sv": "Annekteringen"
+      },
+      "text": {
+       "sv": "Britterna annekterar Zululand."
+      },
+      "sources": [
+       "wp-zulu-kingdom"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket till och med 1897."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan säger att Shaka byggde upp riket på 1810-talet och att britterna annekterade det 1887. Kartan visar riket 1820–1897."
+    },
+    "sources": [
+     "wp-zulu-kingdom"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "australien",
@@ -18461,7 +19063,122 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Australien är en förbundsstat och konstitutionell monarki som omfattar den australiska kontinenten, med huvudstaden Canberra. Kolonierna gick samman i Australiska statsförbundet 1901."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Aboriginernas förfäder kom för 50 000–65 000 år sedan. Den brittiska koloniseringen började 1788 med straffkolonin New South Wales. De sex kolonierna gick samman 1901 och bildade Australiska statsförbundet."
+      }
+     },
+     {
+      "label": {
+       "sv": "Ursprungsbefolkningen"
+      },
+      "text": {
+       "sv": "Vid den brittiska bosättningen talade aboriginerna fler än 250 språk. Efter folkomröstningen 1967 fick förbundsregeringen lagstifta om aboriginerna, och de räknades fullt ut i folkräkningen."
+      }
+     },
+     {
+      "label": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Självstyret från Storbritannien växte steg för steg, med Westminsterstadgan, som Australien antog 1942, och till sist Australia Act 1986."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad"
+      },
+      "text": {
+       "sv": "Canberra. De största städerna är Sydney och Melbourne."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1788,
+      "label": {
+       "sv": "1788"
+      },
+      "title": {
+       "sv": "Kolonisationen"
+      },
+      "text": {
+       "sv": "Britterna grundar straffkolonin New South Wales."
+      },
+      "sources": [
+       "wp-australia"
+      ],
+      "events": [
+       "australiska-granskrigen"
+      ]
+     },
+     {
+      "year": 1901,
+      "label": {
+       "sv": "1901"
+      },
+      "title": {
+       "sv": "Statsförbundet"
+      },
+      "text": {
+       "sv": "Kolonierna går samman i Australiska statsförbundet."
+      },
+      "sources": [
+       "wp-australia"
+      ],
+      "mapNote": {
+       "sv": "Kartan börjar 1905."
+      }
+     },
+     {
+      "year": 1967,
+      "label": {
+       "sv": "1967"
+      },
+      "title": {
+       "sv": "Folkomröstningen"
+      },
+      "text": {
+       "sv": "Förbundsregeringen får lagstifta om aboriginerna, och de räknas fullt ut i folkräkningen."
+      },
+      "sources": [
+       "wp-australia"
+      ]
+     },
+     {
+      "year": 1986,
+      "label": {
+       "sv": "1986"
+      },
+      "title": {
+       "sv": "Australia Act"
+      },
+      "text": {
+       "sv": "Australia Act fullbordar den stegvisa frigörelsen från Storbritannien."
+      },
+      "sources": [
+       "wp-australia"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan anger 1901 för statsförbundet. Kartan visar landet från 1905 och med större yta 1945."
+    },
+    "sources": [
+     "wp-australia",
+     "wp-australian-frontier-wars"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "nya-zeeland",
@@ -18485,7 +19202,122 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Nya Zeeland är en önation i sydvästra Stilla havet med huvudstaden Wellington. Polynesier bosatte sig på öarna mellan cirka 1280 och 1350, och landet blev helt självständigt från Storbritannien 1947."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Öarna var det sista stora beboeliga landet som människor bosatte. Polynesier kom mellan cirka 1280 och 1350 och utvecklade maorikulturen. Abel Tasman var den förste europé som såg öarna, 1642, och James Cook den förste som gick i land och kartlade dem, 1769."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kolonin"
+      },
+      "text": {
+       "sv": "Storbritannien och maorihövdingar skrev under Waitangifördraget 1840, och kolonin Nya Zeeland bildades 1841. I Nya Zeelandkrigen som följde förlorade maorierna stora landområden genom konfiskationer."
+      }
+     },
+     {
+      "label": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Nya Zeeland blev en dominion 1907 och fick full självständighet i lag 1947, med monarken kvar som statschef."
+      }
+     },
+     {
+      "label": {
+       "sv": "Rösträtt för kvinnor"
+      },
+      "text": {
+       "sv": "Nya Zeeland var 1893 det första landet i världen som gav alla kvinnor rösträtt."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1840,
+      "label": {
+       "sv": "1840"
+      },
+      "title": {
+       "sv": "Waitangifördraget"
+      },
+      "text": {
+       "sv": "Storbritannien och maorihövdingar skriver under fördraget; kolonin bildas 1841."
+      },
+      "sources": [
+       "wp-new-zealand"
+      ]
+     },
+     {
+      "year": 1845,
+      "label": {
+       "sv": "1845"
+      },
+      "title": {
+       "sv": "Nya Zeelandkrigen"
+      },
+      "text": {
+       "sv": "Krig mellan kolonialregeringen och maoriska stammar, främst på Nordön."
+      },
+      "sources": [
+       "wp-new-zealand",
+       "wp-new-zealand-wars"
+      ],
+      "events": [
+       "nya-zeelandkrigen"
+      ]
+     },
+     {
+      "year": 1893,
+      "label": {
+       "sv": "1893"
+      },
+      "title": {
+       "sv": "Kvinnlig rösträtt"
+      },
+      "text": {
+       "sv": "Nya Zeeland blir det första landet där alla kvinnor får rösta."
+      },
+      "sources": [
+       "wp-new-zealand"
+      ]
+     },
+     {
+      "year": 1947,
+      "label": {
+       "sv": "1947"
+      },
+      "title": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Landet får full självständighet i lag."
+      },
+      "sources": [
+       "wp-new-zealand"
+      ],
+      "mapNote": {
+       "sv": "Kartan börjar 1948."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan anger full självständighet 1947. Kartan visar landet från 1948."
+    },
+    "sources": [
+     "wp-new-zealand"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "papua-nya-guinea",
@@ -18509,7 +19341,119 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Papua Nya Guinea omfattar östra halvan av Nya Guinea och hundratals öar, med huvudstaden Port Moresby. Det blev självständigt från Australien 16 september 1975 och är världens språkrikaste land."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Östra Nya Guinea delades 1884 mellan Tyska Nya Guinea i norr och Brittiska Nya Guinea i söder, som Australien tog över 1902. Australien ockuperade den tyska delen under första världskriget, och de två territorierna förenades 1949. Självständigheten kom 16 september 1975."
+      }
+     },
+     {
+      "label": {
+       "sv": "Bougainville"
+      },
+      "text": {
+       "sv": "Ett nytt uppror på Bougainville började 1988, mot både öns och landets regering."
+      }
+     },
+     {
+      "label": {
+       "sv": "Språk och folk"
+      },
+      "text": {
+       "sv": "Det finns 840 kända språk. Engelska och tok pisin fungerar som gemensamma språk. De flesta bor på landsbygden."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och yta"
+      },
+      "text": {
+       "sv": "Port Moresby. Ytan är 462 840 km²."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1884,
+      "label": {
+       "sv": "1884"
+      },
+      "title": {
+       "sv": "Delningen"
+      },
+      "text": {
+       "sv": "Östra Nya Guinea delas mellan Tyskland och Storbritannien."
+      },
+      "sources": [
+       "wp-papua-new-guinea"
+      ]
+     },
+     {
+      "year": 1949,
+      "label": {
+       "sv": "1949"
+      },
+      "title": {
+       "sv": "Territorierna förenas"
+      },
+      "text": {
+       "sv": "Efter striderna under andra världskriget förenas de två territorierna under Australien."
+      },
+      "sources": [
+       "wp-papua-new-guinea"
+      ]
+     },
+     {
+      "year": 1975,
+      "label": {
+       "sv": "1975"
+      },
+      "title": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Papua Nya Guinea blir självständigt 16 september 1975."
+      },
+      "sources": [
+       "wp-papua-new-guinea"
+      ]
+     },
+     {
+      "year": 1988,
+      "label": {
+       "sv": "1988"
+      },
+      "title": {
+       "sv": "Bougainville"
+      },
+      "text": {
+       "sv": "Ett nytt uppror börjar på Bougainville."
+      },
+      "sources": [
+       "wp-papua-new-guinea",
+       "wp-bougainville-conflict"
+      ],
+      "events": [
+       "bougainvillekonflikten"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan anger självständighet 16 september 1975. Kartan visar området från 1946, alltså också under Australiens styre."
+    },
+    "sources": [
+     "wp-papua-new-guinea"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "kanada",
