@@ -9,18 +9,20 @@
 - **reserv**: med om du vill, annars inte. Stryk, flytta eller lägg till rader som du vill.
 - **Period** är bara till för att sortera listan. Det exakta årtalet sätts ur källan.
 
-**Sammanlagt:** 114 kärnhändelser, varav 35 redan finns och 79 är nya, fördelade på fyra omgångar. Dessutom 19 i reserv.
+**Sammanlagt:** 114 kärnhändelser, varav 36 redan finns och 78 är nya, fördelade på fyra omgångar. Dessutom 19 i reserv.
 
 ## Omgångarna
 
-**Läget:** omgång 1 är inlagd (19 händelser, 11 med två källor som stämmer och 8 källkontrollerade, där källorna skiljer sig eller en andra källa saknas för platsen). Omgång 2 är inlagd (20 händelser, 16 med två källor och 4 källkontrollerade, där Wikidata saknar plats eller datum att jämföra med). Omgång 3 är inlagd (20 händelser, 11 med två källor och 9 källkontrollerade, där Wikidata saknar datum eller källorna skiljer sig).
+**Läget:** omgång 1 är inlagd (19 händelser, 11 med två källor som stämmer och 8 källkontrollerade, där källorna skiljer sig eller en andra källa saknas för platsen). Omgång 2 är inlagd (20 händelser, 16 med två källor och 4 källkontrollerade, där Wikidata saknar plats eller datum att jämföra med). Omgång 3 är inlagd (20 händelser, 11 med två källor och 9 källkontrollerade, där Wikidata saknar datum eller källorna skiljer sig). Omgång 4 är inlagd (19 händelser, 3 med två källor och 16 källkontrollerade, eftersom Wikidata sällan har jämförbara datum för forntiden). Lindisfarne fanns redan och lades inte in igen. **Alla omgångar är inlagda.**
+
+**Före tidslinjens början:** jordbrukets början (cirka 10 000–8 000 f.Kr.) och kilskriften (cirka 3300 f.Kr.) ligger före år 3000 f.Kr., där tidslinjen börjar i dag. De finns i datan men syns inte på globen förrän tidslinjen förlängs i version 7 (#49).
 
 | Omgång | Tid | Nya händelser | Världsdelar |
 | --- | --- | --- | --- |
 | 1 | Efter 1945, de händelser som issuet nämner först | 19 | Afrika 5, Nordamerika 4, Europa 4, Asien 3, Sydamerika 2, Världen 1 |
 | 2 | 1800-talet till 1990 | 20 | Nordamerika 6, Europa 5, Asien 4, Afrika 2, Oceanien 2, Sydamerika 1 |
 | 3 | Cirka 1000 till 1870 | 20 | Europa 9, Oceanien 4, Asien 4, Nordamerika 1, Afrika 1, Världen 1 |
-| 4 | Forntid till medeltid | 20 | Europa 9, Asien 6, Afrika 2, Sydamerika 1, Oceanien 1, Nordamerika 1 |
+| 4 | Forntid till medeltid | 19 | Europa 8, Asien 6, Afrika 2, Sydamerika 1, Oceanien 1, Nordamerika 1 |
 
 Omgång 1 tar de händelser som besökare saknar mest (11 september, Berlinmurens fall, Sovjetunionens upplösning, apartheids slut, FN, tsunamin 2004, covid-19). Varje omgång har händelser från minst fem världsdelar.
 
@@ -73,7 +75,7 @@ Omgång 1 tar de händelser som besökare saknar mest (11 september, Berlinmuren
 | Hijra, islams tideräkning börjar | Religion | Asien | finns (`hijra`) |
 | Karl den store kröns till kejsare | Civilisationer | Europa | 4 |
 | Visdomens hus i Bagdad | Vetenskap | Asien | reserv |
-| Vikingatiden börjar: Lindisfarne | Civilisationer | Europa | 4 |
+| Vikingar plundrar Lindisfarne | Civilisationer | Europa | finns (`lindisfarne`) |
 | Mayastädernas nedgång | Civilisationer | Nordamerika | 4 |
 | Leif Eriksson når Vinland (L'Anse aux Meadows) | Upptäckter | Nordamerika | 3 |
 | Polynesierna når Aotearoa (Nya Zeeland) | Upptäckter | Oceanien | 3 |
