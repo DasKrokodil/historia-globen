@@ -1,7 +1,7 @@
 # Bildpromptar
 
 Skapade av `tools/bildpromptar.py` (#129). Kopiera prompten till ett bildverktyg och lägg bilden i
-`images/incoming/<händelse-id>.png` (eller .jpg/.webp). Spara verktyg och datum, så fyller Claude i `image` i events.json.
+`images/incoming/<händelse-id>.png` (eller .jpg/.webp). Spara verktyg och datum, så fyller Claude i `image` i händelsens fil i data/handelser/.
 Sök alltid efter en riktig public domain-bild på Wikimedia Commons först.
 
 ## Nintendo grundas (`nintendo`)

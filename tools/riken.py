@@ -41,7 +41,11 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              'nederlandska-kolonialvaldet': (0.3, 0.08, 0.08), 'franska-kolonialvaldet': (0.3, 0.05, 0.08),
              'japanska-imperiet': (0.3, 0.05, 0.08), 'sovjetunionen': (0.3, 0.05, 0.08),
              # R7 (#407): USA med Alaska, de arktiska öarna och Stilla havet
-             'usa': (0.3, 0.05, 0.08)}
+             'usa': (0.3, 0.05, 0.08),
+             # Kanada, Ryssland och Australien med långa kuster och många öar
+             'kanada': (0.3, 0.05, 0.08), 'australien': (0.3, 0.05, 0.08),
+             # Ryssland: perioderna slås aldrig ihop, så att Krim (cirka 0,2 procent av ytan) syns från 2014
+             'ryska-federationen': (0.3, 0.0, 0.08)}
 
 # grupp: (svenskt namn, engelskt namn, [(Cliopatria-namn, id, svenskt namn, färg)])
 GROUPS = {
@@ -293,6 +297,151 @@ GROUPS = {
     ]),
     'uruguay': ('Uruguay', 'Uruguay', [
         ('Oriental Republic of Uruguay', 'uruguay', 'Uruguay', '#8a6fc4', {'en': 'Uruguay'}),
+    ]),
+    # R7 (#407), andra omgången: stater i Mellanöstern som krigen behöver (1948, 1967, 1973, Iran–Irak och Gulfkriget)
+    'israel': ('Israel', 'Israel', [
+        ('State of Israel', 'israel', 'Israel', '#7aa6e0', {'en': 'Israel'}),
+    ]),
+    # Gruppen 'egypten' är det forntida Egypten (R2); det moderna Egypten från 1922 är en egen grupp
+    'moderna-egypten': ('Egypten från 1922', 'Egypt since 1922', [
+        ('Kingdom of Egypt', 'kungariket-egypten', 'Kungariket Egypten', '#c9a23a'),
+        ('Republic of Egypt', 'republiken-egypten', 'Republiken Egypten', '#c9a23a'),
+        # Cliopatria: Egypten och Syrien 1958–1966, sedan bara Egypten till 1972
+        ('United Arab Republic', 'forenade-arabrepubliken', 'Förenade arabrepubliken', '#c9a23a'),
+        ('Arab Republic of Egypt', 'arabrepubliken-egypten', 'Arabrepubliken Egypten', '#c9a23a'),
+    ]),
+    'syrien': ('Syrien', 'Syria', [
+        # Cliopatria delar Syrien i fem poster efter styrelseskick och anger Q-id för partiet och för Baathregimen; här en del
+        (['Second Syrian Republic', 'Republic of Syria', "Ba'athist Syria", "Arab Socialist Ba'ath Party", 'Syria'],
+         'syrien', 'Syrien', '#b0485a', {'en': 'Syria', 'wikidata': 'Q858'}),
+    ]),
+    'jordanien': ('Jordanien', 'Jordan', [
+        ('Kingdom of Jordan', 'jordanien', 'Jordanien', '#5aa860', {'en': 'Jordan'}),
+    ]),
+    'irak': ('Irak: kungariket och republiken', 'Iraq: the Kingdom and the Republic', [
+        ('Kingdom of Iraq', 'kungariket-irak', 'Kungariket Irak', '#8a5fb0'),
+        (['Iraqi Republic', 'Republic of Iraq'], 'irak', 'Irak', '#8a5fb0', {'en': 'Iraq'}),
+    ]),
+    'iran': ('Iran: qajarerna, pahlavi och islamiska republiken', 'Iran: the Qajars, the Pahlavis and the Islamic Republic', [
+        ('Qajar Dynasty', 'qajarernas-iran', 'Qajarernas Iran', '#d07a3a', {'en': 'Qajar Iran'}),
+        ('Pahlavi Dynasty', 'pahlavis-iran', 'Pahlavis Iran', '#d07a3a', {'en': 'Pahlavi Iran'}),
+        ('Islamic Republic of Iran', 'islamiska-republiken-iran', 'Islamiska republiken Iran', '#d07a3a'),
+    ]),
+    'kuwait': ('Kuwait', 'Kuwait', [
+        # Cliopatria har emiratet 1757–1872 och från 1991 som Kuwait, och staten 1961–1989 som State of Kuwait
+        (['Kuwait', 'State of Kuwait'], 'kuwait', 'Kuwait', '#a0507a', {'en': 'Kuwait', 'wikidata': 'Q817'}),
+    ]),
+    # R7 (#407), tredje omgången: Sydasien (Bangladeshs befrielsekrig, det afghansk-marathiska kriget, Afghanistan 2001)
+    'indien': ('Indien', 'India', [
+        ('Republic of India', 'indien', 'Indien', '#e0a040', {'en': 'India'}),
+    ]),
+    'pakistan': ('Pakistan', 'Pakistan', [
+        ('Islamic Republic of Pakistan', 'pakistan', 'Pakistan', '#3f8f4f', {'en': 'Pakistan'}),
+    ]),
+    'bangladesh': ('Bangladesh', 'Bangladesh', [
+        ("People's Republic of Bangladesh", 'bangladesh', 'Bangladesh', '#c0504a', {'en': 'Bangladesh'}),
+    ]),
+    'afghanistan': ('Afghanistan: Durranis rike, emiratet, kungariket och republiken',
+                    'Afghanistan: the Durrani Empire, the Emirate, the Kingdom and the Republic', [
+        ('Durrani Empire', 'durranis-rike', 'Durranis rike', '#9a7a4a'),
+        # Cliopatria kallar emiratet Durrani Dynasty 1840–1845
+        (['Emirate of Afghanistan', 'Durrani Dynasty'], 'emiratet-afghanistan', 'Emiratet Afghanistan', '#9a7a4a',
+         {'en': 'Emirate of Afghanistan', 'wikidata': 'Q1335260'}),
+        ('Kingdom of Afghanistan', 'kungariket-afghanistan', 'Kungariket Afghanistan', '#9a7a4a'),
+        (['Republic of Afghanistan', 'Afghanistan'], 'afghanistan', 'Afghanistan', '#9a7a4a', {'en': 'Afghanistan', 'wikidata': 'Q889'}),
+    ]),
+    'marathariket': ('Marathariket', 'Maratha Empire', [
+        ('Maratha Empire', 'marathariket', 'Marathariket', '#d06a2a'),
+    ]),
+    # R7 (#407), fjärde omgången: Östasien (Imjinkriget, Koreakriget, Vietnamkriget, Taipingupproret)
+    'korea': ('Korea: Joseon och Koreanska kejsardömet', 'Korea: Joseon and the Korean Empire', [
+        # Cliopatria anger Q28405 (Gojoseon) för Joseon
+        ('Joseon', 'joseon', 'Joseon (Korea)', '#4a9ab0', {'en': 'Joseon', 'wikidata': 'Q28179'}),
+        ('Korean Empire', 'koreanska-kejsardomet', 'Koreanska kejsardömet', '#4a9ab0'),
+    ]),
+    'nordkorea': ('Nordkorea', 'North Korea', [
+        ("Democratic People's Republic of Korea", 'nordkorea', 'Nordkorea', '#b0404a', {'en': 'North Korea'}),
+    ]),
+    'sydkorea': ('Sydkorea', 'South Korea', [
+        # Cliopatria anger Nordkoreas Q-id (Q423) också för Sydkorea
+        ('Republic of Korea', 'sydkorea', 'Sydkorea', '#4a7ac0', {'en': 'South Korea', 'wikidata': 'Q884'}),
+    ]),
+    'vietnam': ('Vietnam: Nordvietnam och det enade Vietnam', 'Vietnam: North Vietnam and unified Vietnam', [
+        ('Democratic Republic of Vietnam', 'nordvietnam', 'Nordvietnam', '#c04040', {'en': 'North Vietnam'}),
+        ('Socialist Republic of Vietnam', 'vietnam', 'Vietnam', '#c04040', {'en': 'Vietnam'}),
+    ]),
+    'sydvietnam': ('Sydvietnam', 'South Vietnam', [
+        # Cliopatria anger Nordvietnams Q-id (Q172640) också för Sydvietnam
+        ('Republic of Vietnam', 'sydvietnam', 'Sydvietnam', '#d0b040', {'en': 'South Vietnam', 'wikidata': 'Q180573'}),
+    ]),
+    'taipingriket': ('Taipingriket', 'Taiping Heavenly Kingdom', [
+        ('Taiping Heavenly Kingdom', 'taipingriket', 'Taipingriket', '#b06ab0'),
+    ]),
+    # R7 (#407), femte omgången: Afrika och Oceanien
+    'nigeria': ('Nigeria', 'Nigeria', [
+        ('Federal Republic of Nigeria', 'nigeria', 'Nigeria', '#3f9a5a', {'en': 'Nigeria'}),
+    ]),
+    'kongo-kinshasa': ('Kongo-Kinshasa', 'Democratic Republic of the Congo', [
+        # Cliopatria: Democratic Republic of the Congo 1960–1972 och från 1996, Zaire 1973–1995
+        (['Democratic Republic of the Congo', 'Zaire'], 'kongo-kinshasa', 'Kongo-Kinshasa', '#4a8ac0',
+         {'en': 'Democratic Republic of the Congo', 'wikidata': 'Q974'}),
+    ]),
+    'rwanda': ('Rwanda', 'Rwanda', [
+        ('Republic of Rwanda', 'rwanda', 'Rwanda', '#c08a3a', {'en': 'Rwanda'}),
+    ]),
+    'uganda': ('Uganda', 'Uganda', [
+        ('Republic of Uganda', 'uganda', 'Uganda', '#a04a7a', {'en': 'Uganda'}),
+    ]),
+    'zululand': ('Zuluriket', 'Zulu Kingdom', [
+        ('Zululand', 'zuluriket', 'Zuluriket', '#8a6a3a', {'en': 'Zulu Kingdom'}),
+    ]),
+    'australien': ('Australien', 'Australia', [
+        ('Commonwealth of Australia', 'australien', 'Australien', '#d08a3a', {'en': 'Australia'}),
+    ]),
+    'nya-zeeland': ('Nya Zeeland', 'New Zealand', [
+        ('New Zealand', 'nya-zeeland', 'Nya Zeeland', '#3a9a8a'),
+    ]),
+    'papua-nya-guinea': ('Papua Nya Guinea', 'Papua New Guinea', [
+        ('Papua New Guinea', 'papua-nya-guinea', 'Papua Nya Guinea', '#a05a3a'),
+    ]),
+    # R7 (#407), sjätte omgången: Amerika (självständighetskrigen och Haitiska revolutionen)
+    'kanada': ('Kanada', 'Canada', [
+        ('Canada', 'kanada', 'Kanada', '#c04a4a'),
+    ]),
+    'chile': ('Chile', 'Chile', [
+        ('Republic of Chile', 'chile', 'Chile', '#4a6ab0', {'en': 'Chile'}),
+    ]),
+    'peru': ('Peru', 'Peru', [
+        ('Republic of Peru', 'peru', 'Peru', '#b04a5a', {'en': 'Peru'}),
+    ]),
+    'bolivia': ('Bolivia', 'Bolivia', [
+        ('Bolivia', 'bolivia', 'Bolivia', '#5a9a4a'),
+    ]),
+    'colombia': ('Colombia: Nya Granada och republiken', 'Colombia: New Granada and the Republic', [
+        ('New Granada', 'forenade-provinserna-nya-granada', 'Förenade provinserna Nya Granada', '#d0a03a',
+         {'en': 'United Provinces of New Granada'}),
+        ('Republic of New Granada', 'republiken-nya-granada', 'Republiken Nya Granada', '#d0a03a'),
+        ('United States of Colombia', 'colombias-forenta-stater', 'Colombias förenta stater', '#d0a03a'),
+        ('Republic of Colombia', 'colombia', 'Colombia', '#d0a03a', {'en': 'Colombia'}),
+    ]),
+    'venezuela': ('Venezuela', 'Venezuela', [
+        (['Republic of Venezuela', 'Venezuela'], 'venezuela', 'Venezuela', '#8a4ab0', {'en': 'Venezuela', 'wikidata': 'Q717'}),
+    ]),
+    'ecuador': ('Ecuador', 'Ecuador', [
+        ('Republic of Ecuador', 'ecuador', 'Ecuador', '#3a9ab0', {'en': 'Ecuador'}),
+    ]),
+    'haiti': ('Haiti', 'Haiti', [
+        # Cliopatria: Haiti 1792–1802 (före självständigheten), Empire of Haiti 1805–1915 och Republic of Haiti från 1936
+        ('Haiti', 'saint-domingue', 'Saint-Domingue under revolutionen', '#3a5ab0', {'en': 'Saint-Domingue during the revolution'}),
+        ('Empire of Haiti', 'haiti-1805', 'Haiti 1805–1915', '#3a5ab0', {'en': 'Haiti 1805–1915'}),
+        ('Republic of Haiti', 'haiti', 'Haiti', '#3a5ab0', {'en': 'Haiti'}),
+    ]),
+    # R7 (#407), sjunde omgången: Europa (Rysslands invasion av Ukraina)
+    'ukraina': ('Ukraina', 'Ukraine', [
+        ('Ukraine', 'ukraina', 'Ukraina', '#e0c040', {'wikidata': 'Q212'}),
+    ]),
+    'ryska-federationen': ('Ryska federationen', 'Russian Federation', [
+        ('Russian Federation', 'ryska-federationen', 'Ryska federationen', '#7a5fa6'),
     ]),
 }
 

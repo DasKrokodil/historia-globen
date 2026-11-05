@@ -34,7 +34,7 @@ Flera agenter arbetar parallellt (Claude Code, Codex och du). Ett issue får bar
 Enligt CLAUDE.md, "Testa innan du är klar", och AGENTS.md, "Testa innan pull request":
 
 - `bash scripts/build-site.sh` (bygger `dist/` och kör `scripts/validate-site.py`).
-- `python3 -m json.tool` på ändrade JSON-filer. Har du ändrat `data/events.json` eller `data/empires/index.json`: kör `python3 tools/dela_data.py` och checka in `data/genererat/`.
+- `python3 -m json.tool` på ändrade JSON-filer. Händelser redigeras i `data/handelser/<period>.json`, inte i `data/events.json` (#394). Har du ändrat en fil i `data/handelser/` eller `data/empires/index.json`: kör `python3 tools/dela_data.py` och checka in `data/events.json` och `data/genererat/`.
 - Ändras något som syns på sidan: kör `python3 -m http.server 8000`, kontrollera att konsolen är tom och att inget scrollar i sidled vid 400 px bredd, och kör `tests/webblasare.mjs`.
 - Ändras `functions/`: `node --test 'tests/*.test.mjs'`.
 - Testa beteendet, inte bara att inget kraschar: synlig text (inga råa nycklar), var tangentbordsfokus hamnar, och räkna hur många poster en dataregel slår på.

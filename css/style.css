@@ -973,6 +973,20 @@ html.calm .intro-box { animation: none; }
 }
 .src-search input::placeholder { color: var(--parchment-dim); opacity: .8; }
 .src-search input:focus { outline: none; border-color: var(--brass); }
+/* Sammanfattningen överst och statusfiltret i Om källorna (#517) */
+.src-summary dl { margin: 6px 0 4px; display: grid; gap: 8px; }
+.src-level { padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--night-3); }
+.src-level dt { display: flex; align-items: center; gap: 6px; font: 400 16px/1.2 var(--f-display); color: var(--parchment); }
+.src-level dt i { width: 9px; height: 9px; border-radius: 2px; display: inline-block; flex: none; }
+.src-level dd { margin: 3px 0 0; font-size: 13.5px; line-height: 1.45; color: var(--parchment-dim); }
+.src-level dd em { color: var(--parchment); }
+.src-level-uncertain { border-style: dashed; }
+.src-status { margin-top: 8px; }
+.src-status select {
+  min-width: 0; max-width: 100%; font: inherit; font-size: 16px; color: var(--parchment);
+  background: var(--night); border: 1px solid var(--control-line); border-radius: 8px; padding: 7px 8px;
+}
+.src-status select:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
 .sheet-body .src-hits { font: 500 11.5px/1.4 var(--f-mono); color: var(--parchment-dim); margin: 8px 0 4px; }
 .src-section h4 { font: 400 18px/1.2 var(--f-display); color: var(--parchment); margin: 16px 0 4px; }
 .src-sub { font: 500 11px/1.2 var(--f-mono); color: var(--parchment-dim); text-transform: uppercase; letter-spacing: .05em; margin: 12px 0 2px; }
