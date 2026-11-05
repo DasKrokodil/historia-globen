@@ -759,6 +759,22 @@
       "location": {"type": "Point", "coordinates": [-2.459, 51.691]}, "locationPrecision": "region", "place": {"sv": "Berkeley, Gloucestershire, England (där Jenner bodde)"},
       "title": {"sv": "Edward Jenner och det första vaccinet"},
       "summary": {"sv": "Den 14 maj 1796 prövar Edward Jenner sin idé: han ympar in var från kokoppsblåsor hos mjölkerskan Sarah Nelmes på James Phipps, son till hans trädgårdsmästare. När Phipps senare utsätts för smittkoppor blir han inte sjuk. Jenner tar fram smittkoppsvaccinet, världens första vaccin, och kallas ofta immunologins fader."},
-      "wikidata": "Q40852", "sources": ["wp-edward-jenner", "wp-berkeley-gloucestershire"], "review": "source-checked" }
+      "wikidata": "Q40852", "sources": ["wp-edward-jenner", "wp-berkeley-gloucestershire"], "review": "source-checked" },
+    {"id": "atlantiska-slavhandeln", "category": "ekonomi", "start": 1519, "end": 1867, "precision": 8, "edtf": "1519/1867",
+      "location": {"type": "Point", "coordinates": [-17.39833, 14.66694]}, "locationPrecision": "region", "place": {"sv": "Väst- och Centralafrika till Amerika (Gorée, Senegal, som exempel)"},
+      "title": {"sv": "Den transatlantiska slavhandeln"},
+      "summary": {"sv": "Under mer än 300 år fördes förslavade afrikaner med fartyg över Atlanten till Amerika. Den första kända direkta resan från Afrika gick 1519, och det sista kända slavskeppet till Kuba kom 1867. De flesta kom från Väst- och Centralafrika och tvingades arbeta på plantager, i gruvor och i hushåll. Enligt nuvarande uppskattningar lastades omkring 12,75 miljoner människor på slavskepp, och upp till 2 miljoner av dem dog under resan. Portugal, Storbritannien, Spanien och Frankrike var bland de största slavhandelsländerna."},
+      "wikidata": "Q10701282", "sources": ["wp-atlantic-slave-trade", "wp-goree", "wikidata"], "review": "source-checked" },
+    {"id": "sakoku-japan-stanger", "category": "civilisationer", "start": 1633, "end": 1853, "precision": 9, "edtf": "1633/1853",
+      "location": {"type": "Point", "coordinates": [129.87302, 32.74352]}, "locationPrecision": "region", "place": {"sv": "Japan (Dejima, Nagasaki)"},
+      "title": {"sv": "Japan stänger sig (sakoku)"},
+      "summary": {"sv": "Med en rad påbud mellan 1633 och 1639 begränsade Tokugawashogunatet Japans kontakter med omvärlden kraftigt. Nästan alla utlänningar förbjöds att komma in i landet, och vanliga japaner fick inte resa ut. Handel fanns ändå kvar, bland annat med Kina i Nagasaki och med nederländarna på ön Dejima, den enda europeiska handelsstationen. Politiken tog slut efter 1853, när en amerikansk flotta under Matthew Perry tvingade Japan att öppna sig för handel."},
+      "note": {"title": {"sv": "Källorna skiljer sig"}, "text": {"sv": "Wikipedia anger att politiken infördes 1633–1639 och tog slut efter 1853. Wikidata anger 1639–1854 (då Kanagawafördraget slöts)."}},
+      "wikidata": "Q332075", "sources": ["wp-sakoku", "wp-dejima", "wikidata"], "review": "source-checked" },
+    {"id": "watt-separat-kondensor", "category": "vetenskap", "start": 1765, "end": 1765, "precision": 10, "edtf": "1765-05",
+      "location": {"type": "Point", "coordinates": [-4.23528, 55.84889]}, "place": {"sv": "Glasgow Green, Glasgow, Skottland"},
+      "title": {"sv": "Watt kommer på den separata kondensorn"},
+      "summary": {"sv": "James Watt arbetade som instrumentmakare vid universitetet i Glasgow och såg att Newcomens ångmaskin slösade energi genom att cylindern kyldes och värmdes om vid varje slag. I maj 1765, under en promenad över Glasgow Green, fick han idén att låta ångan kondensera i en egen kammare, en kondensor, så att cylindern kunde hållas varm. Han fick patent på uppfinningen 1769. De första maskinerna med Watts konstruktion togs i bruk i företag 1776 och användes först för att pumpa vatten ur gruvor. Förbättringen gjorde ångmaskinen mycket effektivare och fick stor betydelse för den industriella revolutionen."},
+      "wikidata": "Q3099902", "sources": ["wp-james-watt", "wp-watt-steam-engine", "wp-glasgow-green"], "review": "source-checked" }
   ]
 }

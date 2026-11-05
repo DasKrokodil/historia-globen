@@ -412,6 +412,11 @@
       "location": {"type": "Point", "coordinates": [72.800944, 20.886472]}, "place": {"sv": "Från Sabarmati-ashramet till Dandi, Indien"},
       "title": {"sv": "Gandhis saltmarsch"},
       "summary": {"sv": "Den 12 mars 1930 börjar Mahatma Gandhi gå från Sabarmati-ashramet till kustbyn Dandi, en sträcka på cirka 385 kilometer, i protest mot det brittiska saltmonopolet. Den 6 april bryter han mot saltlagarna i Dandi. I kampanjen som följer fängslas över 60 000 indier."},
-      "wikidata": "Q239344", "sources": ["wp-salt-march", "wp-dandi", "wikidata"], "review": "two-sources" }
+      "wikidata": "Q239344", "sources": ["wp-salt-march", "wp-dandi", "wikidata"], "review": "two-sources" },
+    {"id": "panamakanalen-oppnas", "category": "ekonomi", "icon": "ship", "start": 1914, "end": 1914, "precision": 11, "edtf": "1914-08-15",
+      "location": {"type": "Point", "coordinates": [-79.75, 9.12]}, "place": {"sv": "Panamakanalen, Panama"},
+      "title": {"sv": "Panamakanalen öppnas"},
+      "summary": {"sv": "Den 15 augusti 1914 öppnades Panamakanalen formellt, när lastfartyget SS Ancon passerade. Kanalen är omkring 82 kilometer lång och förbinder Atlanten med Stilla havet över Panamanäset, så att fartyg slipper den långa och farliga vägen runt Sydamerikas sydspets. Frankrike började bygget 1881 men gav upp 1889, och USA tog över arbetet 1904. Omkring 5 600 arbetare dog av sjukdomar och olyckor under den amerikanska byggtiden. Panama tog över kontrollen av kanalen 1999."},
+      "wikidata": "Q7350", "sources": ["wp-panama-canal", "wikidata"], "review": "two-sources" }
   ]
 }
