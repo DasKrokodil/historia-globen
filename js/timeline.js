@@ -74,7 +74,7 @@ export class Timeline extends EventTarget {
     this.dotsEl = dots; this.ffEl = ffMarks; this.chaptersEl = chapters; this.warEl = warMarks; this.markNote = markNote;
     this._story = null; // kapitel och markeringar när man följer ett krig (#244)
     this._drawScale();
-    addEventListener('resize', () => { if (this.focus) { this._drawScale(); this._drawStory(); } }); // antal årtal beror på bredden
+    addEventListener('resize', () => { if (this.focus) { this._drawScale(); this._drawStory(); } else this._hideOverlaps(); }); // antal årtal beror på bredden
 
     speedBtn.addEventListener('click', () => {
       this.speed = SPEEDS[(SPEEDS.indexOf(this.speed) + 1) % SPEEDS.length];
@@ -180,7 +180,28 @@ export class Timeline extends EventTarget {
       d.className = `tick lvl${level}` + (y === MIN_YEAR ? ' first' : '');
       d.style.left = `${yearToPos(y) * 100}%`;
       d.textContent = y === 1 ? '0' : formatYear(y);
+      d.dataset.level = level;
       this.ticksEl.append(d);
+    }
+    this._hideOverlaps();
+    requestAnimationFrame(() => this._hideOverlaps()); // en gång till när typsnitten och layouten är klara
+  }
+
+  /**
+   * Döljer årtal på skalan som skulle krocka med ett viktigare årtal (#63). Bredden beror på språket:
+   * "1000 av. J.-C." är längre än "1000 f.Kr.". Nivå 1 behålls alltid, sedan nivå 2 och 3 där de får plats.
+   */
+  _hideOverlaps() {
+    const ticks = [...this.ticksEl.querySelectorAll('.tick[data-level]')];
+    for (const d of ticks) d.classList.remove('tick-hidden');
+    const kept = [];
+    for (const level of ['1', '2', '3']) {
+      for (const d of ticks.filter(t => t.dataset.level === level)) {
+        const r = d.getBoundingClientRect();
+        if (!r.width) continue; // dold av bredden (lvl2 och lvl3 i smal skärm)
+        if (level !== '1' && kept.some(k => r.left < k.right + 6 && r.right > k.left - 6)) { d.classList.add('tick-hidden'); continue; }
+        kept.push(r);
+      }
     }
   }
 
