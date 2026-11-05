@@ -13577,7 +13577,7 @@
        "en": "The symbol on the map"
       },
       "text": {
-       "sv": "\"Stars and Bars\", sydstaternas första officiella nationsflagga, som användes från 4 mars 1861 till 1 maj 1863: tre band och en blå kanton med en ring av vita stjärnor, först sju, en för varje sydstat som bröt sig ur. Kartan visar inte stridsflaggan. Den var aldrig nationsflagga, men är i dag sydstaternas mest kända symbol och har efter kriget använts mitt i politiska, kulturella och rasmässiga kontroverser i USA."
+       "sv": "Stridsflaggan: ett brett blått sankt andreaskors med vit kant och vita stjärnor på röd botten, ett förslag till nationsflagga som avvisades och i stället blev arméns stridsflagga. Den var aldrig sydstaternas nationsflagga, men den ingick i de två senare nationsflaggorna (1863–1865) och är i dag sydstaternas mest kända symbol. Efter kriget har den använts mitt i politiska, kulturella och rasmässiga kontroverser i USA. Den första nationsflaggan var \"Stars and Bars\" (1861–1863)."
       }
      }
     ],
@@ -13643,7 +13643,7 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "stars-and-bars"
+   "symbol": "battle-flag"
   },
   {
    "id": "mexiko",
