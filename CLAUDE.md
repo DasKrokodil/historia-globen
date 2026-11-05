@@ -31,6 +31,7 @@ css/style.css
 js/main.js            startar allt och kopplar ihop delarna
 js/controllers/       main.js uppdelad i val, fokus, faktarutor, omritning, uppspelning, berättelse och etiketter (#402)
 js/model.js           språk, kategorier, granskningsstatus, tidsformat, laddning
+js/i18n.js            språkval och gränssnittets texter: ui('nyckel') ur data/ui/<språk>.json och data-i18n i index.html (#63)
 js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
 js/state.js           det gemensamma tillståndet (år, fokus, lager, filter) som lagren läser (#338), med åtgärder, prenumeration och JSON (#403)
 js/globe.js           3D-globen, kamera, styrning, ekvirektangulära canvasar, bågar
@@ -68,6 +69,7 @@ data/routes/          vägar och resor: index.json listar filerna, en fil per re
 data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar (#337); skrivs av tools/dela_data.py, redigeras inte
 data/upptackt.json    upptäcktsvyn: perspektivrad, dimma och kartbilder (#101)
 data/vyer.json        grupperna och de förinställda vyerna i Lager (#357)
+data/ui/              gränssnittets texter: sprak.json (språken, vem som översatte och granskade) och en fil per språk (#63)
 data/religions.json   religioner som områden (statsreligion per rike ur Cliopatria) och faktarutor
 data/religions-polities.json  rikenas områden per religion och period, laddas vid klick (tools/religioner_riken.py)
 data/styles.json      bildstilar efter tidsålder och plats (ramar och promptar)

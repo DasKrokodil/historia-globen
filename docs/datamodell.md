@@ -415,6 +415,16 @@ Perioderna efter startår: `fkr` (år 0 och tidigare), `1-1499`, `1500-1799`, `1
 
 Varje post skrivs på en egen rad, så att en ändring i källan syns som ändrade rader i git. `events.json` (byggd ur `data/handelser/`) publiceras ändå, eftersom formuläret för förslag (`functions/api/feedback.js`) slår upp händelser i den.
 
+### Gränssnittets texter: `ui/` (#63)
+
+Gränssnittets texter, skilda från datans texter (beslut 2026-11-05, docs/beslut/2026-11-05-sprak-63.md).
+
+- `ui/sprak.json`: språken i språkväljaren, i ordning. Varje språk har `id` (`sv`, `en` …), `name` (som språket skriver sitt namn), `auto` (väljs efter webbläsarens språk; bara färdiga språk), `complete` (alla gränssnittstexter finns), valfritt `beta` (ordet efter namnet när språket inte är färdigt), och för översatta språk `translatedBy`, `translatedAt`, `reviewedBy` och `review` (`unreviewed` eller `reviewed`, AI-korsgranskning).
+- `ui/<språk>.json`: ett platt objekt med nyckel och text. Nycklarna i `index.html` (`data-i18n="help.title"`) och de som JavaScript hämtar med `ui('time.bce')`. `{namn}` i en text byts mot ett värde (`"time.since": "sedan {start}"`). En text kan vara en lista (månaderna). Fältet `_om` är en kommentar.
+- `ui/sv.json` har svenskan för de nycklar som JavaScript hämtar. Sidans fasta texter står på svenska i `index.html` och finns bara i de andra språkens filer.
+- Kategoriernas namn på andra språk: `cat.<id>` och `cat.<id>.count` (ental och flertal); svenskan står i `CATEGORIES` i `js/model.js`.
+- Saknas en nyckel visas engelska, sedan svenska, som för datans texter.
+
 ### Texter per språk (förslag, inte genomfört)
 
 I dag har nästan alla texter bara svenska (`sv`), och några namn har engelska (`en`). När fler språk kommer bör inte varje besökare ladda alla språk. Förslaget:
@@ -423,7 +433,7 @@ I dag har nästan alla texter bara svenska (`sv`), och några namn har engelska 
 2. Sidan laddar grundfilen och, om besökaren har valt ett annat språk, språkets fil ovanpå. `mergeTexts()` i `js/model.js` slår redan ihop texterna på djupet, så att `{ "summary": { "en": … } }` läggs bredvid `sv` i stället för att ersätta den, och `t()` väljer språk och reservspråk som förut. Därför behöver `t()` inte ändras.
 3. Källfilerna behåller alla språk i samma post (`{ "sv": …, "en": … }`), så att en uppgift och dess översättningar redigeras och källkontrolleras på ett ställe.
 
-Det görs när det finns texter på fler språk än svenska (version 12, Språk och sök).
+Det görs när det finns texter på fler språk än svenska (#63, Version 5.2).
 
 ## `land.json` och `borders.json`: kartor
 

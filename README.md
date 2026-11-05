@@ -64,6 +64,7 @@ js/state.js           det gemensamma tillståndet som lagren läser (år, fokus,
 js/layers/registry.js lagerregistret: rader i Lager, ritordning, dämpning i fokus, teckenförklaring (#338)
 js/layers/index.js    lagerlistan: alla lager som anmäler sig i registret (#338)
 js/model.js           språk, kategorier, tidsformat, laddning av data
+js/i18n.js            språkval och gränssnittets texter på valt språk (#63)
 js/globe.js           3D-globen (three.js), ekvirektangulär rendering
 js/timeline.js        tidsreglage, segmenterad tidsskala, nuvarande år
 js/layers/events.js   lager: händelser som punkter
@@ -127,6 +128,7 @@ data/routes/          vägar och resor (lagertyp linje): index.json och en fil p
 data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar (genereras, redigeras inte)
 data/upptackt.json    upptäcktsvyn: perspektivraden, den åldrade kartstilen, dimmans täckning och korridorens bredd, dekorationernas platser
 data/vyer.json        grupperna och de förinställda vyerna i Lager (#357)
+data/ui/              gränssnittets texter: sprak.json och en fil per språk (#63)
 data/religions.json   religioner över tid: varje rikes religion (Cliopatria + Wikipedia)
 data/religions-polities.json  varje rikes gräns i religionslagret, för klickrutan (Cliopatria)
 data/styles.json      bildstilar efter tidsålder och plats

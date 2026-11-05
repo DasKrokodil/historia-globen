@@ -1,6 +1,6 @@
 // Tidsreglaget äger det nuvarande året (arkitekturprincip 3).
 // Beslut 4: segmenterad skala där nutiden får mer plats än forntiden.
-import { formatYear, formatDate, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, isVisibleReview, t } from './model.js';
+import { formatYear, formatDate, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t } from './model.js';
 import { selectEventsForDate } from './date-events.js';
 
 export const MIN_YEAR = -2999;   // 3000 f.Kr.
@@ -512,7 +512,7 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
     b.type = 'button'; b.className = 'jump-epoch';
     const [num, e] = yearParts(y);
     b.innerHTML = `<span class="jump-epoch-name"></span><span class="jump-epoch-year"></span>`;
-    b.firstChild.textContent = label; b.lastChild.textContent = `${num} ${e || 'e.Kr.'}`.trim();
+    b.firstChild.textContent = label; b.lastChild.textContent = `${num} ${e || CE_TXT}`.trim();
     b.addEventListener('click', () => jump(y));
     epochs.append(b);
   };
