@@ -331,6 +331,29 @@ if intro.get('funfact') not in funfact_ids:
 for step in intro.get('steps', []):
     if step.get('event') and step['event'] not in ev_ids:
         err(f"data/intro.json: händelsen {step['event']} finns inte i data/events.json")
+# Guidade turer (#47): registret och turerna finns, och stegen pekar på befintliga händelser och källor.
+# Lagrens id kontrolleras av tests/tour.test.mjs, som läser lagerlistan i js/layers/index.js.
+tours = []
+tours_index = load('data/turer/index.json') if exists('data/turer/index.json', 'Guidade turer') else None
+for tid in (tours_index or {}).get('tours', []):
+    path = f'data/turer/{tid}.json'
+    if not exists(path, 'data/turer/index.json'):
+        continue
+    tour = load(path)
+    if not isinstance(tour, dict):
+        continue
+    tours.append((path, tour))
+    if tour.get('id') != tid:
+        err(f"{path}: id {tour.get('id')!r} ska vara samma som filnamnet ({tid})")
+    for i, step in enumerate(tour.get('steps', [])):
+        where = f"{path} (steg {i + 1}, {step.get('id', '?')})"
+        if step.get('open') and step['open'] not in ev_ids:
+            err(f"{where}: händelsen {step['open']} finns inte i events.json")
+        if not step.get('sources'):
+            err(f'{where}: källor saknas (sources)')
+        for src in step.get('sources', []):
+            if src not in src_ids:
+                err(f'{where}: källan {src} finns inte i sources.json')
 # Rikenas faktarutor och försvunna länders årtal och efterträdare (#170, #72): källor och händelser finns
 for g in (empires or {}).get('groups', []):
     fa, v = g.get('facts') or {}, g.get('vanished') or {}
@@ -349,6 +372,9 @@ validate_schema_file('data/routes/index.json', routes_index or {}, 'routes-index
 for path, route in routes:
     validate_schema_file(path, {'routes': [route]}, 'route.schema.json')
 validate_schema_file('data/funfacts.json', funfacts, 'funfact.schema.json')
+validate_schema_file('data/turer/index.json', tours_index or {}, 'tours-index.schema.json')
+for path, tour in tours:
+    validate_schema_file(path, tour, 'tour.schema.json')
 
 # 9. Krigets riken (#76): empires är grupp-id i data/empires/index.json
 group_ids = {g.get('id') for g in (empires or {}).get('groups', [])}

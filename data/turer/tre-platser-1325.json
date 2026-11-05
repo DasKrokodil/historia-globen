@@ -1,0 +1,40 @@
+{
+  "schema": "historia-globen/tur@1",
+  "version": 1,
+  "id": "tre-platser-1325",
+  "title": { "sv": "Tre platser, 1324–1325", "en": "Three places, 1324–1325" },
+  "summary": { "sv": "En pilgrimsfärd, en resa som börjar och en stad som grundas, på tre platser under två år." },
+  "review": "source-checked",
+  "steps": [
+    {
+      "id": "kairo",
+      "at": 1324,
+      "camera": { "lat": 30.04, "lon": 31.24, "zoom": 1.6 },
+      "title": { "sv": "Kairo, juli 1324" },
+      "text": { "sv": "Mali-kungen Mansa Musa når Kairo på sin pilgrimsfärd till Mecka. Följet väcker uppseende med sin storlek och rikedom." },
+      "layers": ["events", "areas"],
+      "open": "mansa-musa-kairo",
+      "sources": ["wp-mansa-musa", "wp-cairo", "whe-mansa-musa"]
+    },
+    {
+      "id": "tanger",
+      "at": 1325,
+      "camera": { "lat": 35.78, "lon": -5.8, "zoom": 1.6 },
+      "title": { "sv": "Tanger, 14 juni 1325" },
+      "text": { "sv": "Året efter lämnar 21-årige Ibn Battuta sin hemstad Tanger. Han ska också till Mecka, och det blir början på resor som varar i många år." },
+      "layers": ["events", "areas"],
+      "open": "ibn-battuta-resa",
+      "sources": ["wp-ibn-battuta", "wp-tangier", "whe-ibn-battuta"]
+    },
+    {
+      "id": "tenochtitlan",
+      "at": 1325,
+      "camera": { "lat": 19.43, "lon": -99.13, "zoom": 1.4 },
+      "title": { "sv": "Mexikodalen, omkring 1325" },
+      "text": { "sv": "Ungefär samtidigt grundas aztekernas huvudstad Tenochtitlan på en ö i Texcocosjön." },
+      "layers": ["events", "areas"],
+      "open": "tenochtitlan",
+      "sources": ["wp-tenochtitlan", "wikidata"]
+    }
+  ]
+}

@@ -47,6 +47,8 @@ js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering
 js/ui/poster.js       A4-affisch som PNG från Platt vy
 js/ui/routepop.js     klickrutan för vägar och resor
 js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg (#363)
+js/ui/tour.js         guidade turer: spelar upp en tur ur data/turer/ steg för steg (#47)
+js/tour-format.js     turformatets kontroll, delas med testerna (#47)
 js/ui/feedback.js     formuläret för besökarnas förslag (avstängt som standard, docs/feedback.md)
 js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med functions/)
 functions/api/feedback.js  Cloudflare Pages Function som skapar issues i ett privat repo (enda undantaget från punkt 1)
@@ -56,6 +58,7 @@ data/handelser/       händelserna, en redigeringsfil per period (fkr.json, 1-14
 data/events.json      alla händelser i en fil, byggs av tools/dela_data.py ur data/handelser/; redigeras inte
 data/funfacts.json    fun facts (kopplade till händelse-id)
 data/intro.json       introduktionens steg och referenser till befintliga händelser/fun facts (#363)
+data/turer/           guidade turer: index.json och en fil per tur (#47, beslut 2026-11-01)
 data/sources.json     källregister
 data/version.json     versionsnummer och länk till releaserna
 data/licenses.json    genererat register över källornas licensuppgifter (#393)
