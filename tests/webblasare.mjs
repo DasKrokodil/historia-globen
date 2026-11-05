@@ -324,11 +324,11 @@ async function run(browser, vp) {
     await page.click('#year-jump');
     await visible('#jump-input');
     await input.fill('19860426'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
-    if (!/1986-04-26: \d+ händelser med dagsdatum/.test((await page.textContent('#jump-date-summary')) ?? '')) throw new Error('datumresultatet saknar dagsdatum');
+    if (!/26 april 1986: \d+ händelser med dagsdatum/.test((await page.textContent('#jump-date-summary')) ?? '')) throw new Error('datumresultatet saknar dagsdatum på svenska');
     await page.click('#year-jump');
     await visible('#jump-input');
     await input.fill('860426'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
-    if (!/1986-04-26: \d+ händelser med dagsdatum/.test((await page.textContent('#jump-date-summary')) ?? '')) throw new Error('kort datum tolkas inte som 1986-04-26');
+    if (!/26 april 1986: \d+ händelser med dagsdatum/.test((await page.textContent('#jump-date-summary')) ?? '')) throw new Error('kort datum tolkas inte som 26 april 1986');
     await page.click('#year-jump');
     await visible('#jump-input');
     await input.fill('19861340'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
@@ -339,8 +339,28 @@ async function run(browser, vp) {
     await page.click('#year-jump');
     await visible('#jump-input');
     await page.fill('#jump-input', '20240229'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
-    if (!/2024-02-29: \d+ händelser med dagsdatum/.test((await page.textContent('#jump-date-summary')) ?? '')) throw new Error('skottdag tolkas inte som giltigt datum');
+    if (!/29 februari 2024: \d+ händelser med dagsdatum/.test((await page.textContent('#jump-date-summary')) ?? '')) throw new Error('skottdag tolkas inte som giltigt datum');
     return 'år, datum, skottdag och ogiltigt datum fungerar i årshoppet';
+  });
+
+  await check('datumresultatets rader öppnar händelsen (#590)', async () => {
+    if (await page.isHidden('#jump-pop')) await page.click('#year-jump');
+    await visible('#jump-input');
+    await page.fill('#jump-input', '19860426'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
+    const row = page.locator('#jump-date-events button.jump-date-event', { hasText: 'Tjernobylkatastrofen' });
+    await row.waitFor({ state: 'visible', timeout: T.step });
+    // I mobilen döljs snabbhoppen när ett datum visas, så att resultatet tar mindre plats
+    const epochsShown = await page.isVisible('#jump-epochs');
+    if (vp.width <= 760 && epochsShown) throw new Error('snabbhoppen syns fortfarande efter ett datum i mobilen');
+    if (vp.width > 760 && !epochsShown) throw new Error('snabbhoppen döljs i datorn');
+    // Tangentbord: raden nås med Tab och öppnas med Enter
+    await row.focus();
+    await page.keyboard.press('Enter');
+    await hidden('#jump-pop');
+    await page.waitForFunction(() => document.querySelector('#detail')?.textContent.includes('Tjernobylkatastrofen'), null, { timeout: T.step });
+    if (String(await year()) !== '1986') throw new Error(`året ändrades till ${await year()} när händelsen öppnades`);
+    await page.locator('#detail [data-close]').first().click().catch(() => page.keyboard.press('Escape'));
+    return `raden är en knapp, Enter öppnar faktarutan för Tjernobyl; snabbhopp ${epochsShown ? 'kvar' : 'dolda'}`;
   });
 
   await check('Samtidigt sorterar och skiljer gamla öppna spann', async () => {

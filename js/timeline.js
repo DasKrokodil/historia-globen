@@ -1,6 +1,6 @@
 // Tidsreglaget äger det nuvarande året (arkitekturprincip 3).
 // Beslut 4: segmenterad skala där nutiden får mer plats än forntiden.
-import { formatYear, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, isVisibleReview, t } from './model.js';
+import { formatYear, formatDate, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, isVisibleReview, t } from './model.js';
 import { selectEventsForDate } from './date-events.js';
 
 export const MIN_YEAR = -2999;   // 3000 f.Kr.
@@ -443,12 +443,17 @@ export class Timeline extends EventTarget {
 }
 
 
-/** "Hoppa till år": tryck på årtalet, skriv ett år (med f.Kr./e.Kr.) eller ett datum (#140, #551). */
-export function setupYearJump(timeline, { button, pop, input, msg, epochs, events = [], copy = {}, onJump }) {
+/** "Hoppa till år": tryck på årtalet, skriv ett år (med f.Kr./e.Kr.) eller ett datum (#140, #551).
+ *  Raderna i datumresultatet är knappar som stänger årshoppet och öppnar händelsen (`onSelect(id)`, #590). */
+export function setupYearJump(timeline, { button, pop, input, msg, epochs, events = [], copy = {}, onJump, onSelect }) {
   const result = pop.querySelector('#jump-date-result');
   const summary = pop.querySelector('#jump-date-summary');
   const list = pop.querySelector('#jump-date-events');
-  const clearResult = () => { if (result) { result.setAttribute('hidden', 'hidden'); result.hidden = true; } summary && (summary.textContent = ''); list && list.replaceChildren(); };
+  const clearResult = () => {
+    if (result) { result.setAttribute('hidden', 'hidden'); result.hidden = true; }
+    summary && (summary.textContent = ''); list && list.replaceChildren();
+    pop.classList.remove('has-date-result');
+  };
   let era = 'ce';
   const setEra = e => {
     era = e;
@@ -475,10 +480,17 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
     if (!result || !summary || !list) return;
     const { yearResult, dateResult, empty, more } = copy;
     const template = date ? t(dateResult) : t(yearResult);
-    summary.textContent = template.replace('{date}', date ?? '').replace('{year}', formatYear(year)).replace('{count}', String(found.length));
+    // Datumet på svenska, "26 april 1986", som i resten av sidan (#590)
+    summary.textContent = template.replace('{date}', date ? formatDate(date) : '').replace('{year}', formatYear(year)).replace('{count}', String(found.length));
     list.replaceChildren(...found.slice(0, 5).map(event => {
       const item = document.createElement('li');
-      item.textContent = t(event.title);
+      if (!onSelect) { item.textContent = t(event.title); return item; }
+      // Varje rad öppnar händelsens faktaruta, på samma sätt som en rad i Samtidigt (#590)
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'jump-date-event'; b.dataset.id = event.id;
+      b.textContent = t(event.title);
+      b.addEventListener('click', () => { close(); onSelect(event.id); });
+      item.append(b);
       return item;
     }));
     if (!found.length) {
@@ -492,6 +504,7 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
     }
     result.hidden = false;
     result.removeAttribute('hidden');
+    pop.classList.add('has-date-result'); // i mobilen döljs snabbhoppen, så att resultatet tar mindre plats (#590)
   };
   const chip = (label, y) => {
     const b = document.createElement('button');

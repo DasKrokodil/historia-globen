@@ -229,6 +229,18 @@ body {
 .jump-epoch:hover { border-color: var(--brass-deep); }
 .jump-epoch-name { font: 400 12px/1.25 var(--f-body); }
 .jump-epoch-year { font: 500 11px/1 var(--f-mono); color: var(--brass); }
+/* Datumresultatet (#551, #590): raderna är knappar som öppnar händelsen */
+.jump-date-result p { margin: 10px 0 6px; font: 500 12px/1.4 var(--f-mono); color: var(--parchment-dim); }
+.jump-date-result ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+.jump-date-result li { font: 400 13px/1.35 var(--f-body); color: var(--parchment-dim); }
+.jump-date-event {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; min-height: 44px; padding: 6px 10px;
+  font: 400 13px/1.3 var(--f-body); color: var(--parchment); text-align: left;
+  background: var(--night); border: 1px solid var(--control-line); border-radius: 8px; cursor: pointer;
+}
+.jump-date-event::after { content: "›"; flex: none; color: var(--brass); font-size: 16px; }
+.jump-date-event:hover { border-color: var(--brass-deep); }
+@media (max-width: 760px) { .jump-pop.has-date-result .jump-epochs { display: none; } }
 .segment-note {
   margin: 6px 0 0;
   font-family: var(--f-mono);

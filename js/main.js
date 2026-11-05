@@ -128,6 +128,7 @@ async function start() {
   setupYearJump(timeline, {
     button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'),
     events: data.events, copy: views?.jump ?? {}, onJump: () => orientToPanelHighlight(),
+    onSelect: id => select(id, false), // raderna i datumresultatet (#590); året är redan rätt
   });
   // Samma direkta årshopp som Min dag i historien och Hoppa till år använder: stoppa
   // uppspelningen, flytta Timeline (som äger året) och låt refresh bygga Samtidigt-kortet.
