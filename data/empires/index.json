@@ -11464,6 +11464,15 @@
       "text": {
        "sv": "Medeltida danska, svenska och norska samt latin användes officiellt. Dessutom talades bland annat isländska, färöiska, finska, samiska och lågtyska."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Ingen symbol. Källan anger inget vapen för unionen, bara att Erik av Pommern valdes till kung under ätten Griffens fana."
+      }
      }
     ],
     "milestones": [
@@ -11672,6 +11681,15 @@
       "text": {
        "sv": "10,3 miljoner invånare 1816 och 24,7 miljoner 1871, då 60 procent av Tyska rikets befolkning. I Tyska riket hade Preussen tre femtedelar av ytan och två tredjedelar av invånarna."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Den preussiska örnen, en svart örn. Kejsar Fredrik II gav Tyska orden rätt att föra rikets svarta örn 1229, och den förblev vapnet för de preussiska staterna ända till 1947. Från 1701 bar örnen en kunglig krona."
+      }
      }
     ],
     "milestones": [
@@ -11782,10 +11800,12 @@
      "sv": "Källorna anger 1525–1947. Kartan visar Preussen 1526–1806: hertigdömet (1526–1618), Brandenburg-Preussen (1619–1701) och kungariket (1702–1806). Från 1807 har Cliopatria ingen egen gräns för Preussen: landet räknas till Franska kejsardömet och Rhenförbundet, sedan till Tyska förbundet (1815–1867), Nordtyska förbundet (1868–1870) och Tyska riket. Några mycket små preussiska områden som Cliopatria visar 1807–1863 är inte med."
     },
     "sources": [
-     "wp-prussia"
+     "wp-prussia",
+     "wp-coat-of-arms-prussia"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "heraldic-eagle"
   },
   {
    "id": "jugoslavien",
@@ -11946,6 +11966,15 @@
       "text": {
        "sv": "17,5 miljoner invånare 1955 och 23,5 miljoner 1991, enligt Jugoslaviens statistiska årsböcker."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Socialistiska Jugoslaviens emblem: sex facklor som brinner i en gemensam låga, en för varje delrepublik. Emblemet ritades 1943 och hade fem facklor fram till 1963. Kungariket Jugoslavien (1918–1941) hade i stället en vit dubbelörn, som utvecklades ur Serbiens vapen, och visas med den."
+      }
      }
     ],
     "milestones": [
@@ -12057,9 +12086,16 @@
     },
     "sources": [
      "wp-yugoslavia",
-     "wp-breakup-of-yugoslavia"
+     "wp-breakup-of-yugoslavia",
+     "wp-emblem-of-yugoslavia"
     ],
     "review": "source-checked"
+   },
+   "symbol": "torches",
+   "polityFacts": {
+    "kungariket-jugoslavien": {
+     "symbol": "double-eagle"
+    }
    }
   },
   {
@@ -12166,6 +12202,15 @@
       },
       "text": {
        "sv": "Kommunistpartiet tog makten i en kupp 25 februari 1948. Pragvåren 1968 slogs ned när Sovjetunionen och andra länder i Warszawapakten invaderade landet 21 augusti 1968."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Det böhmiska lejonet, det stående lejonet med dubbel svans. Det lilla riksvapnet från 1920 var Böhmens vapen med Slovakiens vapen ovanpå, och efter 1945 var det det vapen som mest användes."
       }
      }
     ],
@@ -12296,10 +12341,12 @@
     },
     "sources": [
      "wp-czechoslovakia",
-     "wp-dissolution-of-czechoslovakia"
+     "wp-dissolution-of-czechoslovakia",
+     "wp-coat-of-arms-czechoslovakia"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "bohemian-lion"
   },
   {
    "id": "storcolombia",
@@ -12407,6 +12454,15 @@
       "text": {
        "sv": "Cirka 3 064 800 km² och 2,58 miljoner invånare 1825."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Riksvapnet från 6 oktober 1821: två ymnighetshorn med blommor och frukter kring ett knippe spjut och pilar, bundna med ett band i flaggans färger, som tecken på rikedom, styrka och enighet. Före det användes andra vapen 1819–1821."
+      }
      }
     ],
     "milestones": [
@@ -12499,10 +12555,12 @@
      "sv": "Källorna anger 1819–1831. Kartan visar staten 1822–1833."
     },
     "sources": [
-     "wp-gran-colombia"
+     "wp-gran-colombia",
+     "wp-coat-of-arms-gran-colombia"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "cornucopia-fasces"
   },
   {
    "id": "republiken-texas",
@@ -12597,6 +12655,15 @@
       "text": {
        "sv": "Omkring 135 000 invånare 1845 (uppskattning). Mexiko eller komancherna kontrollerade eller gjorde anspråk på stora delar av det område som republiken räknade som sitt."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Den ensamma stjärnan. Republikens första flagga hade en guldstjärna på blått, och 1839 antogs Lone Star-flaggan. Republikens sigill från 25 januari 1839 är förebilden för delstatens sigill, som har en femuddig stjärna."
+      }
      }
     ],
     "milestones": [
@@ -12673,10 +12740,12 @@
     },
     "sources": [
      "wp-republic-of-texas",
-     "wp-texas-declaration"
+     "wp-texas-declaration",
+     "wp-seal-of-texas"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "lone-star"
   },
   {
    "id": "kungariket-hawaii",
@@ -12765,6 +12834,15 @@
       },
       "text": {
        "sv": "Cirka 250 000 invånare år 1800, 130 313 år 1832 och 89 990 år 1890. Sjukdomar som européer och amerikaner förde med sig fick den infödda befolkningen att minska snabbt."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "En pūloʻuloʻu, en boll klädd i kapa på en stav, som bars framför en hövding som tecken för kapu (helgd) och beskydd. Den står i två fält i kungarikets vapen, som antogs 1845."
       }
      }
     ],
@@ -12863,10 +12941,12 @@
     "sources": [
      "wp-hawaiian-kingdom",
      "wp-overthrow-hawaiian-kingdom",
-     "wp-republic-of-hawaii"
+     "wp-republic-of-hawaii",
+     "wp-coat-of-arms-hawaiian-kingdom"
     ],
     "review": "source-checked"
-   }
+   },
+   "symbol": "puloulou"
   },
   {
    "id": "neutrala-moresnet",
@@ -12950,6 +13030,15 @@
       },
       "text": {
        "sv": "Gruvbolaget Vieille Montagne var största arbetsgivare och drev bostäder, affärer, sjukhus och bank. Invånarna ökade från 256 år 1815 till 4 668 år 1914. Gruvan tog slut 1885. Ett försök med egna frimärken 1886 och ett kasino 1903 stoppades, och 1908 föreslogs att området skulle bli en esperantostat, Amikejo."
+      }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "Ingen symbol. Källan visar bara en flagga för området, inget vapen."
       }
      }
     ],
