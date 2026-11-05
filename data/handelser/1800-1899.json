@@ -350,7 +350,7 @@
       "image": {"file": "images/events/telefonen.webp", "kind": "illustration", "style": "1800-tal", "caption": {"sv": "Illustration i stil med svartvit tidningsgravyr från 1800-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "A monochrome, richly crosshatched 19th-century engraving depicts an early telephone demonstration in a cluttered Victorian laboratory: at left, a bearded inventor in a dark suit leans over a workbench to speak into a horn-shaped transmitter, while a wire crosses the room to a seated, mustached man on the right listening through a round receiver. Surrounding them are schematics, telegraph apparatus, bottles, tools, books, gauges, wooden tables, tall windows, and period furnishings, all rendered with crisp linework, stippling, and an aged newspaper-print texture."},
       "sources": ["wp-telephone", "eb1911-telephone", "wilber-1886"], "review": "two-sources" },
 
-    { "id": "spanskamerikanska-sjalvstandighetskrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "storcolombia", "mexiko"], "start": 1808, "end": 1833, "precision": 11, "edtf": "1808-09-25/1833-09-29",
+    { "id": "spanskamerikanska-sjalvstandighetskrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "storcolombia", "mexiko", "chile", "venezuela", "colombia", "peru"], "start": 1808, "end": 1833, "precision": 11, "edtf": "1808-09-25/1833-09-29",
       "location": { "type": "Point", "coordinates": [-100.937, 21.152] }, "locationPrecision": "region", "place": { "sv": "Spanska Amerika, från Mexiko till Río de la Plata (punkten: Dolores i Mexiko, där upproret 1810 började)" },
       "title": { "sv": "De spanskamerikanska självständighetskrigen" },
       "summary": { "sv": "En rad krig i Spaniens amerikanska kolonier, från Mexiko i norr till Chile och Río de la Plata i söder. De började när Spaniens kungamakt bröt samman efter Napoleons invasion 1808 och slutade med att nya självständiga stater bildades. Spanien behöll bara Kuba och Puerto Rico." },
@@ -413,7 +413,7 @@
       "summary": { "sv": "Den 23 januari 1826 lämnar rojalisterna över fästningen Real Felipe. De hade vägrat godta kapitulationen efter Ayacucho och varit belägrade sedan den 5 december 1824, och tusentals soldater och civila flyktingar hade dött av svält och sjukdom. Därmed är Spaniens välde i Sydamerika slut." },
       "wikidata": "Q6123901", "sources": ["wp-second-siege-callao", "wp-real-felipe", "wikidata"], "review": "two-sources" },
 
-    { "id": "anglo-zuluiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet"], "start": 1879, "end": 1879, "precision": 11, "edtf": "1879-01-11/1879-07-04",
+    { "id": "anglo-zuluiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "zululand"], "start": 1879, "end": 1879, "precision": 11, "edtf": "1879-01-11/1879-07-04",
       "location": { "type": "Point", "coordinates": [30.537, -28.358] }, "locationPrecision": "region", "place": { "sv": "Zuluriket i dagens Sydafrika (började vid Rorke's Drift)" },
       "title": { "sv": "Anglo-zuluiska kriget" },
       "summary": { "sv": "Ett krig mellan Brittiska imperiet och Zuluriket i nuvarande Sydafrika, från januari till juli 1879. Zulufolket vann vid Isandlwana, men Storbritannien vann kriget och delade sedan upp Zuluriket." },
@@ -621,7 +621,7 @@
       "note": { "title": { "sv": "Bara en källa" }, "text": { "sv": "Händelsen bygger bara på Wikipedia. Artikeln om Kamehameha I anger april 1810, artikeln om Kaumualiʻi bara året." } },
       "sources": ["wp-kaumualii", "wp-kamehameha-i", "wp-honolulu"], "review": "source-checked" },
 
-    { "id": "taipingupproret", "category": "krig", "icon": "swords", "kind": "war", "empires": ["qingdynastin"], "start": 1850, "end": 1864, "precision": 10, "edtf": "1850-12/1864-08",
+    { "id": "taipingupproret", "category": "krig", "icon": "swords", "kind": "war", "empires": ["qingdynastin", "taipingriket"], "start": 1850, "end": 1864, "precision": 10, "edtf": "1850-12/1864-08",
       "location": { "type": "Point", "coordinates": [110.083, 23.4] }, "locationPrecision": "region", "place": { "sv": "Södra och mellersta Kina (började i Guangxi)" },
       "title": { "sv": "Taipingupproret" },
       "summary": { "sv": "Ett inbördeskrig i Kina mellan Qingdynastin och det upproriska Taipings himmelska rike, främst utkämpat längs Yangtzefloden. Det räknas som det dödligaste inbördeskriget i historien. De flesta uppskattningar ligger på 20–30 miljoner döda, men vissa går upp till 100 miljoner." },

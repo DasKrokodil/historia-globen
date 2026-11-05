@@ -3,7 +3,7 @@
   "period": "1500-1799",
   "note": "Redigeringsfil (#394): händelserna som börjar i perioden. Efter ändring: kör python3 tools/dela_data.py, som bygger data/events.json och data/genererat/. Fälten beskrivs i docs/datamodell.md.",
   "events": [
-    { "id": "imjinkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["mingdynastin"], "start": 1592, "end": 1598, "precision": 11, "edtf": "1592-05-23/1598-12-16",
+    { "id": "imjinkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["mingdynastin", "korea"], "start": 1592, "end": 1598, "precision": 11, "edtf": "1592-05-23/1598-12-16",
       "location": { "type": "Point", "coordinates": [129.053, 35.163] }, "locationPrecision": "region", "place": { "sv": "Korea och haven runt Koreahalvön (började vid Busan)" },
       "title": { "sv": "Imjinkriget" },
       "summary": { "sv": "Japans härskare Toyotomi Hideyoshi invaderade Korea två gånger, 1592 och 1597, med målet att erövra Kina. Korea och Mingkina drev till slut ut japanerna, men Korea ödelades. Den koreanska flottan under amiral Yi Sun-sin störde japanernas förbindelser över havet och fick stor betydelse." },
@@ -74,7 +74,7 @@
       "summary": { "sv": "Den 23 juni 1757 besegrar Brittiska Ostindiska kompaniet under Robert Clive Bengalens nawab Siraj-ud-Daulah och hans franska allierade. Clive hade mutat nawabens överbefälhavare Mir Jafar, vars trupper aldrig gick in i striden, och Mir Jafar blev ny nawab. Slaget räknas som början på kompaniets välde i Indien." },
       "wikidata": "Q203233", "sources": ["wp-plassey", "wikidata"], "review": "two-sources" },
 
-    { "id": "afghansk-marathiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1758, "end": 1761, "precision": 11, "edtf": "1758-03-08/1761-01-14",
+    { "id": "afghansk-marathiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["afghanistan", "marathariket"], "start": 1758, "end": 1761, "precision": 11, "edtf": "1758-03-08/1761-01-14",
       "location": { "type": "Point", "coordinates": [76.3833, 30.6167] }, "locationPrecision": "region", "place": { "sv": "Punjab och trakten kring Delhi (började vid Sirhind)" },
       "title": { "sv": "Afghansk-marathiska kriget" },
       "summary": { "sv": "Ett krig om Punjab och Delhi mellan Durraniriket (Afghanistan) under Ahmad Shah Durrani och Marathariket, som en tid hade stöd av sikherna. Det slutade med Marathas förödande nederlag i tredje slaget vid Panipat 1761." },
@@ -430,7 +430,7 @@
       "image": {"file": "images/events/ieyasu-dor.webp", "kind": "historisk", "style": "japan-ukiyoe", "caption": {"sv": "Porträtt av Tokugawa Ieyasu, målat av Kanō Tan'yū under tidig Edo-tid. Licens: Public domain."}, "credit": "Kanō Tan'yū / Osaka slott via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-ieyasu-dor"},
       "wikidata": "Q171977", "sources": ["wp-tokugawa-ieyasu", "wp-sunpu-castle", "wikidata"], "review": "two-sources" },
 
-    { "id": "haitiska-revolutionen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "brittiska-imperiet"], "start": 1791, "end": 1804, "precision": 11, "edtf": "1791-08-21/1804-01-01",
+    { "id": "haitiska-revolutionen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "brittiska-imperiet", "haiti"], "start": 1791, "end": 1804, "precision": 11, "edtf": "1791-08-21/1804-01-01",
       "location": { "type": "Point", "coordinates": [-72.2, 19.76] }, "locationPrecision": "region", "place": { "sv": "Saint-Domingue, i dag Haiti (började på norra slätten vid Le Cap, i dag Cap-Haïtien)" },
       "title": { "sv": "Haitiska revolutionen" },
       "summary": { "sv": "Förslavade afrikaner i den franska kolonin Saint-Domingue gjorde uppror 1791. Det blev början på tretton års krig, där även Spanien och Storbritannien blandade sig i. Revolutionen slutade med att Haiti blev självständigt 1804, som den enda stat som har grundats efter ett lyckat slavuppror." },
@@ -460,7 +460,7 @@
       "image": {"file": "images/events/taj-mahal.webp", "kind": "historisk", "style": "miniatyr", "caption": {"sv": "Taj Mahal i Agra med trädgården framför. Fotokrom (färglagt tryck efter fotografi) från Photoglob Co. i Zürich, cirka 1890–1910. Library of Congress anger inga kända restriktioner för publicering."}, "credit": "Photoglob Co., Zürich / Library of Congress, Prints & Photographs Division (LC-DIG-ppmsca-41418)", "license": "Inga kända restriktioner (Library of Congress)", "source": "loc-taj-mahal-photochrom"},
       "sources": ["wp-taj-mahal", "whe-taj-mahal"], "review": "source-checked" },
 
-    { "id": "australiska-granskrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet"], "start": 1788, "end": 1934, "precision": 9, "edtf": "1788/1934",
+    { "id": "australiska-granskrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "australien"], "start": 1788, "end": 1934, "precision": 9, "edtf": "1788/1934",
       "location": { "type": "Point", "coordinates": [151.212, -33.859] }, "locationPrecision": "region", "place": { "sv": "Hela Australien (började vid Sydney Cove, Warrane på eora)" },
       "title": { "sv": "De australiska gränskrigen" },
       "summary": { "sv": "Våldsamma konflikter mellan Australiens urfolk och främst brittiska nybyggare, soldater och polis, från de första månaderna efter att den brittiska kolonin grundades 1788 till åtminstone 1928, på sina håll till 1934. Striderna var lokala och spridda över hela kontinenten, ofta som räder och massakrer snarare än slag. Antalet döda är omstritt, men tiotusentals aboriginer dödades." },
