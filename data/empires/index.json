@@ -15074,6 +15074,15 @@
       "text": {
        "sv": "Montgomery i Alabama från februari till maj 1861, sedan Richmond i Virginia."
       }
+     },
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map"
+      },
+      "text": {
+       "sv": "\"Stars and Bars\", sydstaternas första officiella nationsflagga, som användes från 4 mars 1861 till 1 maj 1863: tre band och en blå kanton med en ring av vita stjärnor, först sju, en för varje sydstat som bröt sig ur. Kartan visar inte stridsflaggan. Den var aldrig nationsflagga, men är i dag sydstaternas mest kända symbol och har efter kriget använts mitt i politiska, kulturella och rasmässiga kontroverser i USA."
+      }
      }
     ],
     "milestones": [
@@ -15133,7 +15142,8 @@
      "sv": "Källorna anger 1861–1865, som kartan. Kartan visar sydstaternas område krympa från cirka 1,7 miljoner km² 1861 till 1,1 miljoner km² 1865."
     },
     "sources": [
-     "wp-confederate-states"
+     "wp-confederate-states",
+     "wp-flags-confederate-states"
     ],
     "review": "source-checked"
    },
@@ -15173,7 +15183,8 @@
      ],
      "review": "two-sources"
     }
-   ]
+   ],
+   "symbol": "stars-and-bars"
   },
   {
    "id": "mexiko",
