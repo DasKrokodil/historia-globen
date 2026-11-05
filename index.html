@@ -87,10 +87,8 @@
       <label class="jump-label" for="jump-input">År eller datum</label>
       <div class="jump-row">
         <input id="jump-input" class="jump-input" type="text" inputmode="text" enterkeyhint="go" placeholder="till exempel 1986 eller 1986-04-26" aria-describedby="jump-msg">
-        <div class="jump-era" role="group" aria-label="Tideräkning">
-          <button type="button" class="jump-era-btn" data-era="bce" aria-pressed="false">f.Kr.</button>
-          <button type="button" class="jump-era-btn" data-era="ce" aria-pressed="true">e.Kr.</button>
-        </div>
+        <!-- Ett år utan tideräkning är e.Kr. Knappen f.Kr. trycks bara när man menar före vår tideräkning (#591). -->
+        <button type="button" class="jump-era-btn" data-era="bce" aria-pressed="false" title="Året är före vår tideräkning">f.Kr.</button>
         <button type="submit" class="jump-go">Gå</button>
       </div>
       <p id="jump-msg" class="jump-msg" role="alert"></p>
@@ -104,19 +102,20 @@
 
   <div class="top-actions">
     <a id="presentation-exit" class="chip-btn presentation-exit" href="index.html" hidden>Avsluta presentationsläge</a>
-    <div class="action-group" role="group" aria-labelledby="ag-explore">
-      <span id="ag-explore" class="action-label">Utforska</span>
-      <button id="btn-panel" class="chip-btn panel-toggle" type="button" aria-expanded="false" aria-controls="panel">Samtidigt <span id="panel-count" class="count">0</span></button>
-      <button id="btn-layers" class="chip-btn" type="button" aria-expanded="false" aria-controls="layer-menu">Lager</button>
-      <button id="btn-focus" class="chip-btn" type="button" aria-expanded="false" aria-controls="focus-menu">Fokus</button>
-      <button id="btn-intro" class="chip-btn" type="button" aria-controls="intro"></button>
-    </div>
-    <div class="action-group" role="group" aria-labelledby="ag-view">
-      <span id="ag-view" class="action-label">Visa</span>
-      <!-- I smal skärm (#361) samlas gruppen Visa i en meny bakom knappen Visa, så att knapparna ryms i en rad
-           med årtalet. I datorn syns knappen inte och menyn är osynlig (display: contents). -->
-      <button id="more-toggle" class="chip-btn more-toggle" type="button" aria-expanded="false" aria-controls="more-menu" aria-label="Visa: Platt vy, Källor och Hjälp">Visa<span class="more-chev" aria-hidden="true"></span></button>
-      <div id="more-menu" class="more-menu">
+    <!-- Mobilmenyn (#530): i smal skärm står bara Samtidigt och Meny i sidhuvudet, och resten av knapparna samlas
+         i en nedfällbar panel bakom Meny (Samtidigt flyttas då ut ur gruppen, js/ui/viewmenu.js). I datorn syns
+         knappen Meny inte och menyn är osynlig (display: contents): grupperna Utforska och Visa står som förut. -->
+    <button id="more-toggle" class="chip-btn more-toggle" type="button" aria-expanded="false" aria-controls="more-menu"><span id="more-label">Meny</span><span class="more-chev" aria-hidden="true"></span></button>
+    <div id="more-menu" class="more-menu">
+      <div class="action-group" role="group" aria-labelledby="ag-explore">
+        <span id="ag-explore" class="action-label">Utforska</span>
+        <button id="btn-panel" class="chip-btn panel-toggle" type="button" aria-expanded="false" aria-controls="panel">Samtidigt <span id="panel-count" class="count">0</span></button>
+        <button id="btn-layers" class="chip-btn" type="button" aria-expanded="false" aria-controls="layer-menu">Lager</button>
+        <button id="btn-focus" class="chip-btn" type="button" aria-expanded="false" aria-controls="focus-menu">Fokus</button>
+        <button id="btn-intro" class="chip-btn" type="button" aria-controls="intro"></button>
+      </div>
+      <div class="action-group" role="group" aria-labelledby="ag-view">
+        <span id="ag-view" class="action-label">Visa</span>
         <button id="btn-flat" class="chip-btn" type="button" aria-pressed="false" title="Visa världen som en platt karta">Platt vy</button>
         <button id="btn-sources" class="chip-btn" type="button" title="Om källorna: källpolicy och källregister">Källor</button>
         <button id="btn-help" class="chip-btn" type="button" aria-expanded="false" aria-controls="help">Hjälp</button>

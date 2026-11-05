@@ -114,9 +114,9 @@ async function start() {
     pics: $('ff-pics'), kind: $('ff-kind'), min: $('ff-min'), tab: $('ff-tab'), tabCount: $('ff-tab-count'), handle: $('ff-handle'), status: $('screen-reader-status'),
   }, { funfacts: [...data.funfacts, ...warCards(data.events)], byId: data.byId, srcById: data.srcById, styles: data.styles, surprise: $('ff-surprise') });
   $('ff-surprise').textContent = t(views?.funfacts?.surprise) || 'Visste du?';
-  // Smal skärm (#361): faktarutan som ark nedifrån med tre lägen, och gruppen Visa som meny i den kompakta raden överst
+  // Smal skärm (#361): faktarutan som ark nedifrån med tre lägen, och mobilmenyn (#530): Samtidigt och Meny i raden överst
   const detailSheet = new Sheet($('detail'));
-  new ViewMenu({ toggle: $('more-toggle'), menu: $('more-menu') });
+  new ViewMenu({ toggle: $('more-toggle'), menu: $('more-menu'), keep: $('btn-panel'), label: t(views?.menu?.label) });
   const sources = new SourcesDialog({ root: $('sources-dialog'), body: $('sources-body'), close: $('sources-close'), openBtn: $('btn-sources') }, data, { uncertainty: views?.uncertainty, sourceVersion: views?.sourceVersion });
 
   const timeline = new Timeline({
@@ -128,6 +128,7 @@ async function start() {
   setupYearJump(timeline, {
     button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'),
     events: data.events, copy: views?.jump ?? {}, onJump: () => orientToPanelHighlight(),
+    onSelect: id => select(id, false), // raderna i datumresultatet (#590); året är redan rätt
   });
   // Samma direkta årshopp som Min dag i historien och Hoppa till år använder: stoppa
   // uppspelningen, flytta Timeline (som äger året) och låt refresh bygga Samtidigt-kortet.
@@ -1294,7 +1295,7 @@ async function start() {
 }
 
 const narrowView = matchMedia('(max-width: 760px)');
-const UI_OVER_GLOBE = '.brand, #year-jump, #year-segment, .action-group, #religion-legend';
+const UI_OVER_GLOBE = '.brand, #year-jump, #year-segment, .top-actions > .chip-btn, .action-group, #religion-legend';
 const UI_BOTTOM = '.timebar .controls > *, #war-play, #pause-note, #focus-bar';
 
 /** Korten ovanför fokusraden (#183): fokusraden växer när raden "Tiden flyttades" syns och flyttas upp när pausraden
