@@ -32,9 +32,11 @@ Listan bygger på referenserna i koden:
 | `img/favicon.svg`, `img/favicon-32.png`, `img/apple-touch-icon.png` | sidans ikoner | `index.html` |
 | `img/icons/*.svg` | markörernas och korten symboler, hämtas med `fetch` efter namn | `icon` i `data/events.json`, `symbol` i `data/religions.json` (#271), `CAT_ICON` och standardikonen `star` i `js/ui/funfact.js`, `index.html` |
 | `data/events.json`, `funfacts.json`, `sources.json`, `land.json`, `borders.json`, `styles.json`, `empires/index.json` | laddas vid start | `loadAll()` i `js/model.js` |
+| `data/licenses.json` | maskinläsbar sammanställning av källregistrets licensuppgifter | `tools/license_manifests.py`, genererad från `data/sources.json` (#393) |
 | `data/religions.json`, `data/religions-polities.json` | laddas när religionslagret slås på eller vid klick | `loadReligions()`, `loadReligionPolities()` i `js/model.js` |
 | `data/empires/<rike>.json` | laddas när riket behövs | fältet `file` i `data/empires/index.json` |
 | `images/events/*.webp` | händelsernas bilder | `image.file` i `data/events.json` |
+| `images/licenses.json` | licens, kredit och eventuell källpost för händelsebilder | `tools/license_manifests.py`, genererad från `data/events.json` och `data/sources.json` (#393) |
 | `LICENSE`, `data/LICENSE` | licenserna för kod (GPL-3.0) och data (CC BY 4.0) | Inte läst av sidan; följer med eftersom licenserna gäller de publicerade filerna. |
 
 Alla ikoner i `img/icons/` publiceras, eftersom namnen kommer ur data och JS. I dag används alla 38. Bilderna i `images/events/` publiceras bara om en händelse pekar på dem.
@@ -59,6 +61,8 @@ Report-Only ändrar inte vad besökaren kan läsa in, utan skriver CSP-avvikelse
 scripts/build-site.sh
 ```
 
+Licensmanifesten uppdateras vid behov med `python3 tools/license_manifests.py`. Ändra inte manifestfilerna för hand.
+
 Skriptet gör så här:
 - Tar bort gamla `dist/` och skapar en ny.
 - Kopierar filerna enligt listan ovan.
@@ -73,6 +77,8 @@ Skriptet gör så här:
   7. Filer som data pekar på finns: rikesfiler (`file`), bilder (`image.file`) och ikoner (`icon` och `CAT_ICON`).
   8. Varje `sources`-id i händelserna finns i `sources.json`, och varje händelse som en fun fact pekar på finns i `events.json`.
   9. Varje rike som ett krig anger i `empires` (#76) finns i `data/empires/index.json`, och bara krig har fältet.
+  10. Filerna i `data/genererat/` stämmer med källfilerna.
+  11. `data/licenses.json` och `images/licenses.json` stämmer med källregistret och händelsernas bilduppgifter.
 
 Provkör den byggda sidan:
 

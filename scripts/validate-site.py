@@ -24,6 +24,7 @@ Kontroller:
  10. De uppdelade filerna i data/genererat/ (#337) stämmer med källfilerna data/events.json och
      data/empires/index.json, alltså att någon har kört python3 tools/dela_data.py efter sin ändring.
      Kontrollen räknar fram filerna med samma kod som skriptet (tools/dela_data.py i repot).
+ 11. Licensmanifesten (#393) stämmer med data/sources.json och bilduppgifterna i data/events.json.
 
 Användning: python3 scripts/validate-site.py [dist]
 """
@@ -370,6 +371,18 @@ elif (DIST / 'data/events.json').is_file() and (DIST / 'data/empires/index.json'
     dela_data = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(dela_data)
     for e in dela_data.check(DIST):
+        err(e)
+
+# 11. Licensmanifest (#393): genererade filer i dist/ måste stämma med källorna.
+LICENSE_TOOL = Path(__file__).resolve().parent.parent / 'tools' / 'license_manifests.py'
+if not LICENSE_TOOL.is_file():
+    err(f'{LICENSE_TOOL} saknas: licensmanifesten kan inte kontrolleras')
+else:
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('license_manifests', LICENSE_TOOL)
+    license_manifests = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(license_manifests)
+    for e in license_manifests.check(DIST):
         err(e)
 
 if errors:

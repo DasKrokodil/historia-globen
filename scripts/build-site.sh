@@ -8,6 +8,7 @@
 #   img/                  sidans ikoner och markörernas symboler (img/icons/<namn>.svg, namnet kommer ur
 #                         events.json och js/ui/funfact.js och hämtas med fetch)
 #   data/*.json           filerna som js/model.js och js/ui/layers.js (vyer.json, #357) laddar med getJSON (events.json läses också av functions/api/feedback.js)
+#   data/licenses.json    licensuppgifter ur sources.json, genererad av tools/license_manifests.py (#393)
 #   data/genererat/       händelser och riken uppdelade i mindre filer (#337), som tools/dela_data.py skriver ur
 #                         data/events.json och data/empires/index.json; validate-site.py kontrollerar att de stämmer
 #   data/empires/         index.json och rikesfilerna som index.json pekar på (fältet file)
@@ -71,6 +72,8 @@ for f in img/icons/*.svg; do copy "$f"; done
 for f in events funfacts intro sources land borders styles religions religions-polities upptackt bildlager vyer; do
   copy "data/$f.json"
 done
+copy data/licenses.json
+copy images/licenses.json
 
 # Uppdelade filer (#337): alla filer som tools/dela_data.py skriver
 ls data/genererat/*.json >/dev/null 2>&1 || fail "inga filer i data/genererat/ (kör python3 tools/dela_data.py)"
