@@ -423,8 +423,14 @@ GROUPS = {
         ('New Granada', 'forenade-provinserna-nya-granada', 'Förenade provinserna Nya Granada', '#d0a03a',
          {'en': 'United Provinces of New Granada', 'wikidata': 'Q2249661'}),
         ('Republic of New Granada', 'republiken-nya-granada', 'Republiken Nya Granada', '#d0a03a'),
+        ('Granadine Confederation', 'granadinska-konfederationen', 'Granadinska konfederationen', '#d0a03a'),
         ('United States of Colombia', 'colombias-forenta-stater', 'Colombias förenta stater', '#d0a03a'),
         ('Republic of Colombia', 'colombia', 'Colombia', '#d0a03a', {'en': 'Colombia'}),
+    ]),
+    # Försvunnet land (vanished i index.json): Peru och Bolivia i ett förbund 1836–1839
+    'peruansk-bolivianska-konfederationen': ('Peruansk-bolivianska konfederationen', 'Peru–Bolivian Confederation', [
+        ('Peru-Bolivian Confederation', 'peruansk-bolivianska-konfederationen', 'Peruansk-bolivianska konfederationen', '#8a6a9a',
+         {'en': 'Peru–Bolivian Confederation'}),
     ]),
     'venezuela': ('Venezuela', 'Venezuela', [
         (['Republic of Venezuela', 'Venezuela'], 'venezuela', 'Venezuela', '#8a4ab0', {'en': 'Venezuela', 'wikidata': 'Q717'}),

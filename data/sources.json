@@ -1085,6 +1085,11 @@
     {"id": "wp-haiti", "title": "Haiti – Wikipedia", "url": "https://en.wikipedia.org/wiki/Haiti", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
     {"id": "wd-haiti", "title": "Haiti (Q790) – Wikidata", "url": "https://www.wikidata.org/wiki/Q790", "license": "CC0", "checked": "2026-11-05"},
     {"id": "wp-saint-domingue", "title": "Saint-Domingue – Wikipedia", "url": "https://en.wikipedia.org/wiki/Saint-Domingue", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
-    {"id": "wp-united-states-occupation-of-haiti", "title": "United States occupation of Haiti – Wikipedia", "url": "https://en.wikipedia.org/wiki/United_States_occupation_of_Haiti", "license": "CC BY-SA 4.0", "checked": "2026-11-05"}
+    {"id": "wp-united-states-occupation-of-haiti", "title": "United States occupation of Haiti – Wikipedia", "url": "https://en.wikipedia.org/wiki/United_States_occupation_of_Haiti", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wd-rwandan-genocide", "title": "Rwandan genocide (Q131297) – Wikidata", "url": "https://www.wikidata.org/wiki/Q131297", "license": "CC0", "checked": "2026-11-05"},
+    {"id": "wp-kigali", "title": "Kigali – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kigali", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wd-peru-bolivian-confederation", "title": "Peru–Bolivian Confederation (Q899706) – Wikidata", "url": "https://www.wikidata.org/wiki/Q899706", "license": "CC0", "checked": "2026-11-05"},
+    {"id": "wp-granadine-confederation", "title": "Granadine Confederation – Wikipedia", "url": "https://en.wikipedia.org/wiki/Granadine_Confederation", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wd-granadine-confederation", "title": "Granadine Confederation (Q1141215) – Wikidata", "url": "https://www.wikidata.org/wiki/Q1141215", "license": "CC0", "checked": "2026-11-05"}
   ]
 }

@@ -2972,6 +2972,13 @@
       "summary": { "sv": "Den 15 december 2011 avslutas det amerikanska uppdraget i Irak formellt vid en ceremoni i Bagdad. De sista 500 soldaterna lämnar landet på morgonen den 18 december och kör över gränsen till Kuwait, enligt avtalet från 2008 om att alla amerikanska styrkor skulle vara ute före årets slut. Kvar blir ambassadens personal, drygt hundra militärer och 4 000–5 000 privata militära entreprenörer." },
       "wikidata": "Q4118977", "sources": ["wp-us-withdrawal-iraq", "wp-iraq-war", "wikidata"], "review": "two-sources" },
 
+    { "id": "folkmordet-i-rwanda", "category": "krig", "start": 1994, "end": 1994, "precision": 11, "edtf": "1994-04-07/1994-07-19",
+      "location": { "type": "Point", "coordinates": [30.115, -1.953] }, "locationPrecision": "country", "place": { "sv": "Rwanda (dödandet började 7 april i flera prefekturer, bland dem Kigali)" },
+      "title": { "sv": "Folkmordet i Rwanda" },
+      "summary": { "sv": "Från 7 april till 19 juli 1994, under inbördeskriget i Rwanda, dödade hutumiliser systematiskt tutsier, och även moderata hutuer och twa. Dödandet började dagen efter att president Juvénal Habyarimanas plan sköts ner vid Kigali, och det slutade när Rwandiska patriotiska fronten (RPF) hade tagit hela landet. De flesta forskare uppskattar att 500 000–662 000 tutsier dödades." },
+      "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Wikipedia anger att folkmordet slutade 19 juli 1994, Wikidata 4 juli, den dag då RPF enligt Wikipedia tog Kigali. Rwandas regering anger över en miljon döda, en siffra som Wikipedia beskriver som otillförlitlig. Vem som sköt ner presidentens plan är omstritt." } },
+      "wikidata": "Q131297", "sources": ["wp-rwandan-genocide", "wd-rwandan-genocide", "wp-kigali"], "review": "source-checked" },
+
     { "id": "andra-kongokriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["kongo-kinshasa", "rwanda", "uganda"], "start": 1998, "end": 2003, "precision": 11, "edtf": "1998-08-02/2003-07-18",
       "location": { "type": "Point", "coordinates": [29.223, -1.664] }, "locationPrecision": "region", "place": { "sv": "Demokratiska republiken Kongo (började i Goma)" },
       "title": { "sv": "Andra Kongokriget" },

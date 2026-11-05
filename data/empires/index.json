@@ -18827,6 +18827,9 @@
       "sources": [
        "wp-rwandan-genocide",
        "wp-rwanda"
+      ],
+      "events": [
+       "folkmordet-i-rwanda"
       ]
      },
      {
@@ -20371,7 +20374,7 @@
        "wp-peru"
       ],
       "mapNote": {
-       "sv": "Kartan saknar Peru i den här gruppen 1836–1839. Cliopatria har en egen post för konfederationen de åren."
+       "sv": "Kartan visar Peruansk-bolivianska konfederationen som ett eget land 1836–1839."
       }
      },
      {
@@ -20444,7 +20447,7 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan visar Peru från 1822, året efter att självständigheten utropades. Den saknar Peru i den här gruppen 1836–1839, när landet ingick i Peruansk-bolivianska konfederationen, som Cliopatria har som en egen post."
+     "sv": "Kartan visar Peru från 1822, året efter att självständigheten utropades. Åren 1836–1839 visar kartan i stället Peruansk-bolivianska konfederationen som ett eget land."
     },
     "sources": [
      "wp-peru",
@@ -20553,7 +20556,7 @@
        "wp-bolivia"
       ],
       "mapNote": {
-       "sv": "Kartan saknar Bolivia i den här gruppen 1836–1839. Cliopatria har en egen post för konfederationen de åren."
+       "sv": "Kartan visar Peruansk-bolivianska konfederationen som ett eget land 1836–1839."
       }
      },
      {
@@ -20643,7 +20646,7 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan visar Bolivia från 1825, som källorna. Åren 1825–1829 räknar Cliopatria landet också till Storcolombia, och 1836–1839 saknas landet i den här gruppen, när det ingick i Peruansk-bolivianska konfederationen. Kartan visar Bolivias förluster av land senare än källorna: kusten och Acre först från 1905."
+     "sv": "Kartan visar Bolivia från 1825, som källorna. Åren 1825–1829 räknar Cliopatria landet också till Storcolombia, och 1836–1839 visar kartan i stället Peruansk-bolivianska konfederationen som ett eget land. Kartan visar Bolivias förluster av land senare än källorna: kusten och Acre först från 1905."
     },
     "sources": [
      "wp-bolivia",
@@ -20679,6 +20682,17 @@
      "name": {
       "sv": "Republiken Nya Granada",
       "en": "Republic of New Granada"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "granadinska-konfederationen",
+     "name": {
+      "sv": "Granadinska konfederationen",
+      "en": "Granadine Confederation"
      },
      "sources": [
       "cliopatria"
@@ -20727,6 +20741,14 @@
       },
       "text": {
        "sv": "Bildades efter Storcolombias upplösning 1830, när Ecuador och Venezuela bröt sig ur. Panama hörde till republiken. Den bytte namn till Granadinska konfederationen 1858."
+      }
+     },
+     {
+      "label": {
+       "sv": "Granadinska konfederationen"
+      },
+      "text": {
+       "sv": "En ny grundlag 22 maj 1858 gjorde Republiken Nya Granada till en förbundsstat, Granadinska konfederationen, med huvudstaden Bogotá. Den omfattade dagens Colombia och Panama. Tomás Cipriano de Mosquera ledde ett uppror mot president Mariano Ospina Rodríguez, och efter inbördeskriget 1860–1862 upphörde konfederationen 8 maj 1863."
       }
      },
      {
@@ -20837,6 +20859,25 @@
       }
      },
      {
+      "year": 1858,
+      "label": {
+       "sv": "1858"
+      },
+      "title": {
+       "sv": "Granadinska konfederationen"
+      },
+      "text": {
+       "sv": "En ny grundlag 22 maj 1858 gör landet till en förbundsstat, Granadinska konfederationen."
+      },
+      "sources": [
+       "wp-granadine-confederation",
+       "wd-granadine-confederation"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar konfederationen från 1859."
+      }
+     },
+     {
       "year": 1863,
       "label": {
        "sv": "1863"
@@ -20853,7 +20894,7 @@
        "wp-colombia"
       ],
       "mapNote": {
-       "sv": "Kartan saknar landet i den här gruppen 1859–1862. Cliopatria har en egen post för Granadinska konfederationen de åren."
+       "sv": "Kartan visar Granadinska konfederationen 1859–1862 och Colombias förenta stater från 1863."
       }
      },
      {
@@ -20914,7 +20955,7 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan visar Förenade provinserna Nya Granada 1811–1821, fast källorna säger att Spanien tog tillbaka landet 1816, och 1820–1821 överlappar den Storcolombia. Storcolombia är ett eget rike på kartan 1822–1833. Republiken Nya Granada visas från 1834 (källorna: 1831), och 1859–1862 saknas landet i den här gruppen. Kartan visar Colombias förenta stater bara 1863–1865, men källorna anger 1863–1886."
+     "sv": "Kartan visar Förenade provinserna Nya Granada 1811–1821, fast källorna säger att Spanien tog tillbaka landet 1816, och 1820–1821 överlappar den Storcolombia. Storcolombia är ett eget rike på kartan 1822–1833. Republiken Nya Granada visas från 1834 (källorna: 1831), och Granadinska konfederationen 1859–1862 (källorna: 1858–1863). Kartan visar Colombias förenta stater bara 1863–1865, men källorna anger 1863–1886."
     },
     "sources": [
      "wp-colombia",
@@ -20923,9 +20964,168 @@
      "wp-republic-of-new-granada",
      "wd-republic-of-new-granada",
      "wp-united-states-of-colombia",
-     "wd-united-states-of-colombia"
+     "wd-united-states-of-colombia",
+     "wp-granadine-confederation",
+     "wd-granadine-confederation"
     ],
     "review": "source-checked"
+   }
+  },
+  {
+   "id": "peruansk-bolivianska-konfederationen",
+   "name": {
+    "sv": "Peruansk-bolivianska konfederationen",
+    "en": "Peru–Bolivian Confederation"
+   },
+   "color": "#8a6a9a",
+   "from": 1836,
+   "to": 1839,
+   "file": "data/empires/peruansk-bolivianska-konfederationen.json",
+   "polities": [
+    {
+     "id": "peruansk-bolivianska-konfederationen",
+     "name": {
+      "sv": "Peruansk-bolivianska konfederationen",
+      "en": "Peru–Bolivian Confederation"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "vanished": {
+    "wikidata": "Q899706",
+    "founded": 1836,
+    "dissolved": 1839,
+    "edtf": "1836-10-28/1839-08-25",
+    "predecessors": [
+     {
+      "name": {
+       "sv": "Peru (Nordperu och Sydperu)"
+      },
+      "group": "peru",
+      "wikidata": "Q419"
+     },
+     {
+      "name": {
+       "sv": "Bolivia"
+      },
+      "group": "bolivia",
+      "wikidata": "Q750"
+     }
+    ],
+    "successors": [
+     {
+      "name": {
+       "sv": "Peru"
+      },
+      "group": "peru",
+      "wikidata": "Q419"
+     },
+     {
+      "name": {
+       "sv": "Bolivia"
+      },
+      "group": "bolivia",
+      "wikidata": "Q750"
+     }
+    ],
+    "note": {
+     "sv": "Wikipedia anger att förbundet grundades genom ett dekret 28 oktober 1836 och förklarades upplöst 25 augusti 1839; Bolivias president José Miguel de Velasco förklarade det upplöst först 26 oktober 1839. Wikidata anger 1836–1839. Föregångare och efterträdare står inte i källornas faktaruta; enligt Wikipedia bestod förbundet av Nordperu, Sydperu och Bolivia."
+    },
+    "sources": [
+     "wp-peru-bolivian-confederation",
+     "wd-peru-bolivian-confederation"
+    ],
+    "review": "two-sources"
+   },
+   "facts": {
+    "summary": {
+     "sv": "Peruansk-bolivianska konfederationen var ett förbund av tre stater i Anderna, Nordperu, Sydperu och Bolivia, 1836–1839. Den leddes av Bolivias president Andrés de Santa Cruz och upplöstes efter ett krig mot Chile och Argentina."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Förbundet grundades genom ett dekret 28 oktober 1836 och fick sina institutioner genom Tacnapakten 1 maj 1837. Det bestod av Nordperu och Sydperu, som Perus republik hade delats i, och Bolivia."
+      }
+     },
+     {
+      "label": {
+       "sv": "Styrelseskick"
+      },
+      "text": {
+       "sv": "Ett statsförbund under en högste beskyddare, Andrés de Santa Cruz. Huvudstaden var Tacna."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kriget"
+      },
+      "text": {
+       "sv": "Chiles kongress godkände en krigsförklaring mot förbundet 26 december 1836, och Argentina förklarade krig 19 maj 1837. Förbundets armé besegrades vid Yungay 20 januari 1839."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1836,
+      "label": {
+       "sv": "1836"
+      },
+      "title": {
+       "sv": "Förbundet bildas"
+      },
+      "text": {
+       "sv": "Förbundet grundas genom ett dekret 28 oktober 1836 med Andrés de Santa Cruz som högste beskyddare. Chile godkänner en krigsförklaring 26 december 1836."
+      },
+      "sources": [
+       "wp-peru-bolivian-confederation",
+       "wd-peru-bolivian-confederation"
+      ]
+     },
+     {
+      "year": 1837,
+      "label": {
+       "sv": "1837"
+      },
+      "title": {
+       "sv": "Tacnapakten"
+      },
+      "text": {
+       "sv": "Tacnapakten 1 maj 1837 ger förbundet dess institutioner. Argentina förklarar krig 19 maj 1837."
+      },
+      "sources": [
+       "wp-peru-bolivian-confederation"
+      ]
+     },
+     {
+      "year": 1839,
+      "label": {
+       "sv": "1839"
+      },
+      "title": {
+       "sv": "Yungay och upplösningen"
+      },
+      "text": {
+       "sv": "Förbundets armé besegras vid Yungay 20 januari 1839. Agustín Gamarra förklarar förbundet upplöst 25 augusti 1839."
+      },
+      "sources": [
+       "wp-peru-bolivian-confederation"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar förbundet 1836–1839, som källorna. Peru och Bolivia saknas som egna länder på kartan de åren."
+    },
+    "sources": [
+     "wp-peru-bolivian-confederation",
+     "wd-peru-bolivian-confederation"
+    ],
+    "review": "two-sources"
    }
   },
   {
