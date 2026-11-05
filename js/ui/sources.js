@@ -28,6 +28,13 @@ const KINDS = {
 const kindOf = k => KINDS[k] ?? { one: String(k ?? 'bild'), many: String(k ?? 'bilder'), label: String(k ?? 'Bild') };
 const MAX_USES = 8;   // fler användningar än så fälls ihop
 
+async function loadVersion() {
+  const response = await fetch('data/version.json');
+  if (response.status === 404) return null;
+  if (!response.ok) throw new Error(`Kunde inte läsa data/version.json (${response.status})`);
+  return response.json();
+}
+
 /** Räknar fram vilka uppgifter som pekar på varje källa, grupp för grupp. */
 function collect({ sources, events, funfacts, polities, empireGroups = [], land, borders, discovery }, religionsDoc) {
   const groups = Object.fromEntries(GROUPS.map(g => [g.id, { ...g, uses: new Map(), items: [] }]));
@@ -95,8 +102,9 @@ function collect({ sources, events, funfacts, polities, empireGroups = [], land,
 }
 
 export class SourcesDialog {
-  constructor({ root, body, close, openBtn }, data, { uncertainty = {} } = {}) {
-    Object.assign(this, { root, body, data, openBtn, uncertainty });
+  constructor({ root, body, close, openBtn }, data, { uncertainty = {}, sourceVersion = {} } = {}) {
+    Object.assign(this, { root, body, data, openBtn, uncertainty, sourceVersion });
+    this.versionPromise = null;
     this.onSettings = () => {};
     this.query = '';
     this.group = null;
@@ -168,7 +176,8 @@ export class SourcesDialog {
       <div class="check-row">
         <input type="checkbox" id="show-drafts" ${settings.showDrafts ? 'checked' : ''}>
         <label for="show-drafts">Visa även utkast (för den som kontrollerar källor)</label>
-      </div>`;
+      </div>
+      <p class="src-version" hidden></p>`;
     this.body.querySelector('[data-all]')?.addEventListener('click', () => this.open());
     this.body.querySelector('#show-drafts').addEventListener('change', e => {
       settings.showDrafts = e.target.checked;
@@ -183,6 +192,7 @@ export class SourcesDialog {
     });
     this.groups = collect(this.data, religionsDoc);
     this.render();
+    this.showVersion();
     this._reveal();
     // Religionsdatan laddas först när den behövs; religionernas källor fylls i när den har kommit
     if (!religionsDoc) {
@@ -194,6 +204,23 @@ export class SourcesDialog {
         this.render();
       }).catch(err => console.error(err));
     }
+  }
+
+  showVersion() {
+    this.versionPromise ??= loadVersion();
+    this.versionPromise.then(version => {
+      const row = this.body.querySelector('.src-version');
+      if (!version || !row) return;
+      const development = version.version.endsWith('-dev');
+      row.append(`${this.sourceVersion.version} ${version.version}${development ? ` · ${this.sourceVersion.development}` : ''} · `);
+      const link = document.createElement('a');
+      link.href = version.releases;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = this.sourceVersion.releases;
+      row.append(link);
+      row.hidden = false;
+    }).catch(err => console.error('Versionsinformationen kunde inte laddas', err));
   }
 
   /** Visar dialogen och flyttar fokus in i den (#246); returnTo = det som hade fokus innan. */

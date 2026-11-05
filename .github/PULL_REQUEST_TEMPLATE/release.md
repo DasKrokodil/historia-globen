@@ -8,6 +8,7 @@
 -
 
 ### Checklista före sammanslagning
+- [ ] Uppdatera `data/version.json` till versionen som ska publiceras (och tillbaka till nästa `-dev` efteråt).
 - [ ] `main` är grön i Actions (senaste push-körningen av "Validera webbplatsen").
 - [ ] Förhandsversionen av `main` (dev.historiagloben.se) är kontrollerad i dator och mobil: globen snurrar, tidslinjen går att dra, uppspelning, Samtidigt, Platt vy och Källor fungerar, inga synliga fel.
 - [ ] **UX-genomgång av Claude Code** (#150, del C): samma flöden som webbläsartestet (Samtidigt och nästa händelse, en händelse, byte av vy i Lager, sökning i Fokus, ett krig till slutkortet, bildlagret, Platt vy, Källor) på dev.historiagloben.se i dator och mobil. Rapport: <!-- vad som fungerade, fynd och issues (#…), eller "inga fynd" -->

@@ -938,6 +938,8 @@ html.calm .intro-box { animation: none; }
 .check-row { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
 /* Grupper, granskningsläge och sökning (#141) */
 .src-intro { color: var(--parchment-dim); }
+.sheet-body .src-version { color: var(--parchment-dim); font-size: .85rem; margin: 24px 0 0; overflow-wrap: anywhere; text-align: center; }
+.src-version a { color: var(--brass); }
 .src-groups { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr)); gap: 8px; margin: 10px 0 12px; }
 .src-group {
   display: flex; flex-direction: column; gap: 5px; min-width: 0;

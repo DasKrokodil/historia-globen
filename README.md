@@ -105,6 +105,7 @@ data/events.json      händelser
 data/funfacts.json    fun facts, kopplade till händelser
 data/intro.json       introduktionens startår, texter och referenser till befintliga händelser/fun facts (#363, #516)
 data/sources.json     källregister
+data/version.json     versionsnummer och länk till releaserna
 data/licenses.json    genererat register över källornas licensuppgifter
 images/licenses.json  genererat register över händelsebildernas licenser (#393)
 data/land.json        grundkarta (Natural Earth)

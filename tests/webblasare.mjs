@@ -1522,10 +1522,75 @@ async function run(browser, vp) {
     await clickView('#btn-sources');
     await visible('#sources-dialog');
     await page.waitForFunction(() => document.getElementById('sources-body').textContent.trim().length > 100, null, { timeout: T.step });
+    await page.waitForFunction(() => {
+      const row = document.querySelector('.src-version');
+      return row && !row.hidden;
+    }, null, { timeout: T.step });
+    const version = await page.evaluate(() => fetch('data/version.json').then(response => response.json()));
+    const versionRow = page.locator('.src-version');
+    const versionText = (await versionRow.textContent()).replace(/\s+/g, ' ').trim();
+    if (!versionText.includes(`Version ${version.version}`) || (!version.released && !versionText.includes('utvecklingsversion'))) {
+      throw new Error(`versionsraden visar inte versionen och statusen: ${versionText}`);
+    }
+    if (/sourceVersion|development|releases/.test(versionText)) throw new Error(`versionsraden visar en rå textnyckel: ${versionText}`);
+    const releaseLink = versionRow.getByRole('link', { name: 'releaser' });
+    if (await releaseLink.getAttribute('href') !== version.releases
+      || await releaseLink.getAttribute('target') !== '_blank'
+      || await releaseLink.getAttribute('rel') !== 'noopener') {
+      throw new Error('releaselänken saknar rätt adress eller säker öppning i ny flik');
+    }
+    if (vp.name === 'dator') {
+      for (const width of [700, 350]) {
+        await page.setViewportSize({ width, height: 900 });
+        const layout = await page.evaluate(() => ({
+          viewport: document.documentElement.clientWidth,
+          document: document.documentElement.scrollWidth,
+          row: document.querySelector('.src-version').getBoundingClientRect(),
+        }));
+        if (layout.document > layout.viewport || layout.row.right > layout.viewport + 1) {
+          throw new Error(`versionsraden får horisontell scroll vid ${width}px: ${JSON.stringify(layout)}`);
+        }
+      }
+      await page.setViewportSize({ width: vp.width, height: vp.height });
+    }
+    await versionRow.scrollIntoViewIfNeeded();
+    const versionBox = await versionRow.boundingBox();
+    if (!versionBox || versionBox.bottom > vp.height) throw new Error('versionsraden går inte att rulla fram i Om källorna');
     await shot('7-kallor');
     await page.click('#sources-close');
     await hidden('#sources-dialog');
+    return `Version ${version.version}, fungerande releaselänk och omflöde utan horisontell scroll`;
   });
+
+  if (vp.name === 'dator') {
+    await check('versionsraden döljs om versionsfilen saknas', async () => {
+      const fallbackPage = await context.newPage();
+      const fallbackErrors = [];
+      fallbackPage.on('console', message => {
+        if (message.type() !== 'error' || isFont(message.location()?.url)) return;
+        // Chromium reports an intentional 404 for this optional file as a console error.
+        if (message.text() === 'Failed to load resource: the server responded with a status of 404 (Not Found)') return;
+        fallbackErrors.push(message.text());
+      });
+      fallbackPage.on('pageerror', error => fallbackErrors.push(error.message));
+      try {
+        await fallbackPage.route('**/data/version.json', route => route.fulfill({ status: 404, body: 'Not found' }));
+        await fallbackPage.goto(BASE);
+        await fallbackPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        const responsePromise = fallbackPage.waitForResponse(response => response.url().endsWith('/data/version.json'));
+        await fallbackPage.click('#btn-sources');
+        const response = await responsePromise;
+        if (response.status() !== 404) throw new Error(`versionsfilen svarade ${response.status()} i stället för 404`);
+        await fallbackPage.waitForFunction(() => document.getElementById('sources-body').textContent.trim().length > 100, null, { timeout: T.step });
+        const row = fallbackPage.locator('.src-version');
+        if (await row.count() !== 1 || !await row.isHidden()) throw new Error('versionsraden visas trots att data/version.json saknas');
+        if (fallbackErrors.length) throw new Error(`saknad versionsfil gav konsolfel: ${fallbackErrors.join('; ')}`);
+      } finally {
+        await fallbackPage.close();
+      }
+      return '404 döljer raden utan konsolfel';
+    });
+  }
 
   await check('faktarutan skiljer källkontroll från osäkerhet', async () => {
     if (await page.locator('#focus-bar').isVisible()) {
