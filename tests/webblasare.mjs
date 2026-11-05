@@ -28,6 +28,7 @@ import path from 'node:path';
 
 const require = createRequire(import.meta.url);
 const playwright = require('playwright');
+const { PNG } = require('playwright-core/lib/utilsBundle');
 
 const PORT = Number(process.argv[2] || 8000);
 const BROWSER = process.env.BROWSER || 'chromium';
@@ -98,6 +99,12 @@ async function run(browser, vp) {
   }
 
   const shot = async name => page.screenshot({ path: path.join(OUT, `${vp.name}-${name}.png`) });
+  const screenshotPixel = (buffer, x, y) => {
+    const image = PNG.sync.read(buffer);
+    if (x < 0 || y < 0 || x >= image.width || y >= image.height) throw new Error('skärmbilden saknar mätpunkten');
+    const offset = (y * image.width + x) * 4;
+    return [...image.data.subarray(offset, offset + 3)];
+  };
   const visible = sel => page.waitForSelector(sel, { state: 'visible', timeout: T.step });
   const hidden = sel => page.waitForSelector(sel, { state: 'hidden', timeout: T.step });
   const check = async (name, fn) => {
@@ -112,6 +119,10 @@ async function run(browser, vp) {
     }
   };
   const year = () => page.textContent('#year-big').then(s => s.trim());
+  const yearNumber = () => page.evaluate(() => {
+    const value = Number(document.getElementById('year-big').textContent.trim());
+    return document.getElementById('year-era').textContent.trim() === 'f.Kr.' ? 1 - value : value;
+  });
   // Platt vy, Källor och Hjälp ligger i mobilen i menyn Visa (#361): öppna den först när knappen inte syns
   const clickView = async sel => {
     if (await page.isHidden(sel) && await page.isVisible('#more-toggle')) await page.click('#more-toggle');
@@ -136,6 +147,12 @@ async function run(browser, vp) {
   const setLayer = async (name, on) => {
     if (await page.isHidden('#layer-menu')) { await page.click('#btn-layers'); await visible('#layer-menu'); }
     const box = page.locator(layerRow(name));
+    if (await box.isHidden()) { await page.click('#layer-customize'); await box.waitFor({ state: 'visible', timeout: T.step }); }
+    if ((await box.isChecked()) !== on) await box.click();
+  };
+  const setPause = async (name, on) => {
+    if (await page.isHidden('#layer-menu')) { await page.click('#btn-layers'); await visible('#layer-menu'); }
+    const box = page.locator(`input[data-pause="${name}"]`);
     if (await box.isHidden()) { await page.click('#layer-customize'); await box.waitFor({ state: 'visible', timeout: T.step }); }
     if ((await box.isChecked()) !== on) await box.click();
   };
@@ -173,6 +190,7 @@ async function run(browser, vp) {
     if (/kunde inte starta/i.test(msg)) throw new Error(msg.trim());
     if (!THREE_LOCAL && !threeOk) throw new Error('three.js laddades inte från jsdelivr');
     await shot('1-start');
+    await shot('538-grundvy');
     return `år ${await year()}`;
   });
 
@@ -308,6 +326,11 @@ async function run(browser, vp) {
 
   await check('Samtidigt-kortet går till nästa händelse', async () => {
     await visible('#funfact');
+    if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
+    await visible('#panel');
+    await shot('538-samtidigt-oppet');
+    await page.click('#panel-close');
+    await hidden('#panel');
     const next = page.locator('#ff-next');
     if (await next.isHidden()) throw new Error('Samtidigt-kortet saknar Nästa vid ett kort med flera händelser');
     const before = (await page.textContent('#ff-events')).replace(/\s+/g, ' ').trim();
@@ -564,9 +587,9 @@ async function run(browser, vp) {
       filtersChanged = true;
       const spinAway = async () => {
         // Tangentbordets rotation är samma verkliga, tillgängliga användarflöde som canvasen erbjuder.
-        // Den är stabilare än ett långt musdrag vars tröghet annars kan passera ett helt varv i datorvyn.
+        // Flera steg före en enda väntan testar samma rörelse utan att betala spärrens tre sekunder per steggrupp.
         await globe.focus();
-        for (let i = 0; i < 4; i++) await page.keyboard.press('Shift+ArrowRight');
+        for (let i = 0; i < 12; i++) await page.keyboard.press('Shift+ArrowRight');
         await page.waitForTimeout(3100); // den manuella styrningens spärr är tre sekunder
       };
       await page.evaluate(() => {
@@ -910,6 +933,8 @@ async function run(browser, vp) {
       await route.waitFor({ state: 'visible', timeout: T.step });
       await route.click();
       await visible('#focus-bar');
+      const stopMarks = await page.locator('.tdot.route-stop').count();
+      if (stopMarks !== 6) throw new Error(`Columbus första resa har ${stopMarks} stopp, inte 6`);
       const speed = (await page.textContent('#btn-speed')).replace(/\s+/g, ' ').trim();
       if (!/dag|d\/s/.test(speed)) throw new Error(`resan med dagsdatum använder inte dagtakt: ${speed}`);
       await page.click('#focus-action');
@@ -922,6 +947,7 @@ async function run(browser, vp) {
       const pauseText = (await page.textContent('#pause-text')).replace(/\s+/g, ' ').trim();
       await page.waitForFunction(text => document.getElementById('screen-reader-status')?.textContent.includes(text), pauseText, { timeout: T.step });
       await shot('6b-fokus-resa-stopp');
+      await shot('538-fokus-columbus');
       await page.click('#focus-exit');
       await hidden('#focus-bar');
 
@@ -957,6 +983,320 @@ async function run(browser, vp) {
       const stops = page.locator('input[data-pause="route"]');
       if (await stops.isVisible().catch(() => false) && !(await stops.isChecked())) await stops.click();
       await page.keyboard.press('Escape');
+    }
+  });
+
+  await check('Zheng Hes resa har tre köade stopp och årstakt', async () => {
+    const previousYear = await yearNumber();
+    const routePause = page.locator('input[data-pause="route"]');
+    const routePauseWasOn = await routePause.isChecked();
+    try {
+      await setPause('route', true);
+      await page.keyboard.press('Escape');
+      await page.click('#btn-focus');
+      await visible('#focus-menu');
+      await page.click('#focus-menu [data-tab="Resor"]');
+      await page.fill('#focus-menu .focus-search', 'Zheng Hes första resa');
+      const route = page.locator('#focus-menu .focus-item[data-key="route:zheng-he-resa-1"]');
+      await route.waitFor({ state: 'visible', timeout: T.step });
+      await route.click();
+      await visible('#focus-bar');
+
+      const marks = await page.locator('.tdot.route-stop').evaluateAll(nodes => nodes.map(node =>
+        node.getAttribute('aria-label') || node.title));
+      if (marks.length !== 3) throw new Error(`Zheng Hes första resa har ${marks.length} stopp, inte 3`);
+      for (const label of ['Nanjing · hösten 1405', 'Palembang', 'Nanjing · 2 oktober 1407']) {
+        if (!marks.some(mark => mark.includes(label))) throw new Error(`resestoppet saknas: ${label}`);
+      }
+
+      const speed = (await page.textContent('#btn-speed')).replace(/\s+/g, ' ').trim();
+      if (!/år\/s/.test(speed) || /dag|d\/s/.test(speed)) throw new Error(`Zheng Hes resa använder inte årstakt: ${speed}`);
+      await shot('538-fokus-zheng-he');
+      if (vp.width <= 760) return 'tre stopp och årstakt verifierade; den köade uppspelningen körs i datorbredd';
+
+      const waitForNextPause = async previous => {
+        await page.waitForFunction(text => {
+          const note = document.getElementById('pause-note');
+          return note && !note.hidden && note.textContent.replace(/\s+/g, ' ').trim() !== text;
+        }, previous, { timeout: T.step });
+        return (await page.textContent('#pause-note')).replace(/\s+/g, ' ').trim();
+      };
+      await page.click('#focus-action');
+      await visible('#pause-note');
+      const first = (await page.textContent('#pause-note')).replace(/\s+/g, ' ').trim();
+      if (!first.includes('hösten 1405')) throw new Error(`första stoppet är inte hösten 1405: ${first}`);
+      await page.click('#focus-action');
+      const second = await waitForNextPause(first);
+      if (!second.includes('Palembang') || !second.includes('1407, på hemresan')) {
+        throw new Error(`hemresans stopp saknar Palembang och årstext: ${second}`);
+      }
+      await jumpTo(1406);
+      await page.click('#focus-action');
+      await page.waitForFunction(text => {
+        const note = document.getElementById('pause-note');
+        return note && !note.hidden && note.textContent.replace(/\s+/g, ' ').trim() === text;
+      }, second, { timeout: T.step });
+      const afterJump = (await page.textContent('#pause-note')).replace(/\s+/g, ' ').trim();
+      if (!afterJump.includes('Palembang') || !afterJump.includes('1407, på hemresan')) {
+        throw new Error(`manuellt tidshopp återställde inte resans stoppkö: ${afterJump}`);
+      }
+      await page.click('#focus-action');
+      const third = await waitForNextPause(afterJump);
+      if (!third.includes('Nanjing') || !third.includes('2 oktober 1407')) {
+        throw new Error(`sista stoppet saknar Nanjing och datumet: ${third}`);
+      }
+      return `tre stopp i årstakt; manuellt tidshopp återställer kön: ${first}; ${second}; ${afterJump}; ${third}`;
+    } finally {
+      const action = page.locator('#focus-action');
+      if (await action.isVisible().catch(() => false) && (await action.textContent()).includes('Pausa')) await action.click();
+      if (await page.locator('#focus-bar').isVisible().catch(() => false)) await page.click('#focus-exit');
+      await hidden('#focus-bar');
+      if (await page.locator('#focus-menu').isVisible().catch(() => false)) await page.keyboard.press('Escape');
+      await setPause('route', routePauseWasOn);
+      await page.keyboard.press('Escape');
+      await jumpTo(previousYear);
+    }
+  });
+
+  await check('Tillbaka återställer tid och lager för alla Fokus-typer', async () => {
+    const previousYear = await yearNumber();
+    const layerNames = ['events', 'routes'];
+    const originalLayers = Object.fromEntries(await Promise.all(layerNames.map(async name =>
+      [name, await page.locator(layerRow(name)).isChecked()])));
+    const cases = [
+      { tab: 'Krig', query: 'andra världskriget', key: 'war:andra-varldskriget', shot: '538-fokus-krig' },
+      { tab: 'Riken', query: 'rom', key: 'empire:romarriket' },
+      { tab: 'Religioner', query: 'Kristendom', key: 'religion:kristendom' },
+      { tab: 'Resor', query: 'Zheng Hes första resa', key: 'route:zheng-he-resa-1', shot: '538-fokus-resa' },
+    ];
+    const layersDuringFocus = { events: false, routes: true };
+    if (vp.width <= 760) return 'hela Tillbaka-rundan körs i datorbredd; mobilens krigs- och resefokus finns i skärmbilderna';
+    try {
+      await setLayer('events', false);
+      await setLayer('routes', true);
+      await page.keyboard.press('Escape');
+      await jumpTo(-2999);
+      const beforeFocus = await yearNumber();
+      const cameraBeforeFocus = await page.locator('#globe-canvas').screenshot();
+      await shot('538-fore-fokus');
+
+      for (const item of cases) {
+        await page.click('#btn-focus');
+        await visible('#focus-menu');
+        await page.click(`#focus-menu [data-tab="${item.tab}"]`);
+        await page.fill('#focus-menu .focus-search', item.query);
+        const row = page.locator(`#focus-menu .focus-item[data-key="${item.key}"]`);
+        await row.waitFor({ state: 'visible', timeout: T.step });
+        await row.click();
+        await visible('#focus-bar');
+        const back = page.locator('#focus-moved-back');
+        await back.waitFor({ state: 'visible', timeout: T.step });
+        if (!(await back.textContent()).includes('Tillbaka till')) throw new Error(`${item.key}: Tillbaka saknar årtal`);
+        if (item.shot) await shot(item.shot);
+
+        await back.click();
+        await hidden('#focus-bar');
+        if (await yearNumber() !== beforeFocus) throw new Error(`${item.key}: Tillbaka återställde inte året`);
+        for (const name of layerNames) {
+          if (await page.locator(layerRow(name)).isChecked() !== layersDuringFocus[name]) {
+            throw new Error(`${item.key}: Tillbaka återställde inte lagret ${name}`);
+          }
+        }
+        if (item.shot === '538-fokus-krig') {
+          if (await page.locator('#detail').isVisible()) await page.click('#detail [data-close]');
+          const cameraAfterBack = await page.locator('#globe-canvas').screenshot();
+          const beforePixel = screenshotPixel(cameraBeforeFocus, 1300, 450);
+          const afterPixel = screenshotPixel(cameraAfterBack, 1300, 450);
+          const difference = beforePixel.reduce((sum, channel, index) => sum + Math.abs(channel - afterPixel[index]), 0);
+          if (difference > 18) throw new Error(`Tillbaka återställde inte globens zoom: kantpixel ${beforePixel} → ${afterPixel}`);
+          await shot('538-efter-tillbaka');
+        }
+      }
+      return 'krig, rike, religion och resa: Tillbaka återställer år och lager; krigets zoom återställs';
+    } finally {
+      if (await page.locator('#focus-bar').isVisible().catch(() => false)) {
+        const action = page.locator('#focus-action');
+        if ((await action.textContent()).includes('Pausa')) await action.click();
+        await page.click('#focus-exit');
+      }
+      if (await page.locator('#focus-menu').isVisible().catch(() => false)) await page.keyboard.press('Escape');
+      for (const name of layerNames) await setLayer(name, originalLayers[name]);
+      await page.keyboard.press('Escape');
+      await jumpTo(previousYear);
+    }
+  });
+
+  await check('Samtidigt-pauser kan slås av i Lager', async () => {
+    const previousYear = await yearNumber();
+    const funfactsOn = await page.locator(layerRow('funfacts')).isChecked();
+    const pauseOn = await page.locator('input[data-pause="funfacts"]').isChecked();
+    if (vp.width <= 760) return 'uppspelning med och utan Samtidigt-paus verifieras i datorbredd';
+    try {
+      const target = await page.evaluate(async current => {
+        const [factDoc, eventDoc] = await Promise.all([
+          fetch('./data/funfacts.json').then(response => response.json()),
+          fetch('./data/events.json').then(response => response.json()),
+        ]);
+        const byId = new Map(eventDoc.events.map(event => [event.id, event]));
+        const max = Number(document.getElementById('track').getAttribute('aria-valuemax'));
+        const fact = factDoc.funfacts
+          .filter(candidate => candidate.review !== 'draft' && candidate.kind !== 'empire'
+            && Number.isInteger(candidate.show?.[0]) && candidate.show[0] > current && candidate.show[0] <= max
+            && candidate.events?.length && candidate.events.every(id => byId.has(id)))
+          .sort((a, b) => a.show[0] - b.show[0])[0];
+        return fact ? { id: fact.id, year: fact.show[0] } : null;
+      }, previousYear);
+      if (!target) throw new Error('hittade inget framtida Samtidigt-kort att testa');
+
+      await setLayer('funfacts', true);
+      await setPause('funfacts', true);
+      await page.keyboard.press('Escape');
+      for (let i = 0; i < 5 && !(await page.textContent('#btn-speed')).includes('1 år/s'); i++) await page.click('#btn-speed');
+      if (!(await page.textContent('#btn-speed')).includes('1 år/s')) throw new Error('kunde inte välja 1 år/s för Samtidigt-testet');
+
+      await jumpTo(target.year - 1);
+      await page.click('#btn-play');
+      await page.waitForFunction(() => {
+        const note = document.getElementById('pause-note');
+        return note && !note.hidden && note.textContent.includes('Pausad vid ett nytt Samtidigt-kort');
+      }, null, { timeout: T.step });
+
+      await setPause('funfacts', false);
+      await page.keyboard.press('Escape');
+      await jumpTo(target.year - 1);
+      await page.click('#btn-play');
+      await page.waitForFunction(year => {
+        const n = Number(document.getElementById('year-big').textContent.trim());
+        const era = document.getElementById('year-era').textContent.trim();
+        const current = era === 'f.Kr.' ? 1 - n : n;
+        return current > year && document.getElementById('btn-play').getAttribute('aria-label') === 'Pausa';
+      }, target.year, { timeout: T.step });
+      return `paus vid kortet år ${target.year}; avstängd paus låter uppspelningen fortsätta`;
+    } finally {
+      if (await page.locator('#btn-play').getAttribute('aria-label') === 'Pausa') await page.click('#btn-play');
+      await setPause('funfacts', pauseOn);
+      await setLayer('funfacts', funfactsOn);
+      await page.keyboard.press('Escape');
+      await jumpTo(previousYear);
+    }
+  });
+
+  await check('Krigets stoppkö fortsätter, återställs vid tidshopp och följer Lager', async () => {
+    if (vp.width <= 760) return 'krigsstoppkön testas i datorbredd; mobilens krigsfokus och Spela klart testas separat';
+    const previousYear = await yearNumber();
+    const majorWasOn = await page.locator('input[data-pause="major"]').isChecked();
+    const focusFunfactsWasOn = await page.locator('input[data-pause="focusFunfacts"]').isChecked();
+    try {
+      const war = await page.evaluate(async () => {
+        const doc = await fetch('./data/events.json').then(response => response.json());
+        const choices = doc.events.filter(candidate => candidate.kind === 'war' && candidate.story
+          && !candidate.ongoing && candidate.end - candidate.start > 2).map(event => {
+          const parts = doc.events.filter(candidate => candidate.partOf === event.id);
+          const major = parts.filter(candidate => candidate.major)
+            .sort((a, b) => a.start - b.start)
+            .map(candidate => ({ id: candidate.id, start: candidate.start, title: candidate.title?.sv || candidate.id }));
+          return { event, parts: parts.length, major };
+        }).filter(choice => choice.major.length >= 2)
+          .sort((a, b) => a.parts - b.parts || a.event.end - a.event.start - (b.event.end - b.event.start));
+        const choice = choices[0];
+        if (!choice) return null;
+        return {
+          id: choice.event.id, title: choice.event.title?.sv || choice.event.id,
+          start: choice.event.start, end: choice.event.end, major: choice.major,
+        };
+      });
+      if (!war || war.major.length < 2) throw new Error('kriget saknar minst två stora händelser att köa');
+
+      await setPause('major', true);
+      await setPause('focusFunfacts', false);
+      await page.keyboard.press('Escape');
+      await jumpTo(war.start - 1);
+      await page.click('#btn-focus');
+      await visible('#focus-menu');
+      await page.click('#focus-menu [data-tab="Krig"]');
+      await page.fill('#focus-menu .focus-search', war.title);
+      const warItem = page.locator(`#focus-menu .focus-item[data-key="war:${war.id}"]`);
+      await warItem.waitFor({ state: 'visible', timeout: T.step });
+      await warItem.click();
+      await visible('#focus-bar');
+      for (let i = 0; i < 6 && !(await page.textContent('#btn-speed')).includes('10 år/s'); i++) await page.click('#btn-speed');
+      const speed = (await page.textContent('#btn-speed')).replace(/\s+/g, ' ').trim();
+      if (!speed.includes('10 år/s')) throw new Error(`kunde inte välja högsta hastighet för krigsstoppkön: ${speed}`);
+      await shot('538-fokus-krig');
+
+      const nextPauseText = () => page.evaluate(() => {
+        const values = ['next-pause', 'pause-next'].map(id =>
+          (document.getElementById(id)?.textContent.replace(/\s+/g, ' ').trim() ?? '')
+            .replace(/^Nästa(?: paus)?:\s*/, ''));
+        return values.find(Boolean) ?? '';
+      });
+      const waitForNextPause = async previous => {
+        await page.waitForFunction(text => {
+          const values = ['next-pause', 'pause-next'].map(id =>
+            (document.getElementById(id)?.textContent.replace(/\s+/g, ' ').trim() ?? '')
+              .replace(/^Nästa(?: paus)?:\s*/, ''));
+          return values.some(value => value && value !== text);
+        }, previous, { timeout: T.step });
+        return nextPauseText();
+      };
+      const beforePlay = await nextPauseText();
+      if (!beforePlay.includes(war.major[0].title)) throw new Error(`första krigsstoppet saknas i raden Nästa paus: ${beforePlay}`);
+      await page.click('#focus-action');
+      await page.waitForFunction(previous => {
+        const note = document.getElementById('pause-note');
+        const values = ['next-pause', 'pause-next'].map(id =>
+          (document.getElementById(id)?.textContent.replace(/\s+/g, ' ').trim() ?? '')
+            .replace(/^Nästa(?: paus)?:\s*/, ''));
+        return note && !note.hidden && values.some(value => value && value !== previous);
+      }, beforePlay, { timeout: T.step });
+      const first = await nextPauseText();
+      if (!first.includes(war.major[1].title)) throw new Error(`Fortsätt-raden visar inte nästa krigsstopp: ${first}`);
+      await page.click('#focus-action');
+      const second = await waitForNextPause(first);
+      if (second === first) throw new Error(`Fortsätt flyttade inte krigets stoppkö: ${second}`);
+
+      let manualYear = (await yearNumber()) === war.start ? war.start + 1 : war.start;
+      let nextMajor = war.major.find(stop => stop.start > manualYear
+        || (manualYear === war.start && stop.start === manualYear));
+      if (!nextMajor) {
+        manualYear = war.start;
+        nextMajor = war.major[0];
+      }
+      await jumpTo(manualYear);
+      const beforeJump = await nextPauseText();
+      if (!beforeJump.includes(nextMajor.title)) throw new Error(`tidhoppet återställde inte första väntande stoppet: ${beforeJump}`);
+      await page.click('#focus-action');
+      const afterJump = await waitForNextPause(beforeJump);
+      const nextAfterJump = war.major[war.major.indexOf(nextMajor) + 1];
+      if (nextAfterJump && !afterJump.includes(nextAfterJump.title)) {
+        throw new Error(`Fortsätt efter tidshopp visade fel stopp: ${afterJump}`);
+      }
+
+      await setPause('major', false);
+      await page.keyboard.press('Escape');
+      const nearEnd = war.end - 1;
+      await jumpTo((await yearNumber()) === nearEnd ? war.start : nearEnd);
+      await page.click('#focus-action');
+      await page.waitForFunction(() => {
+        const note = document.getElementById('pause-note');
+        return note && !note.hidden && document.getElementById('detail')?.textContent.includes('När kriget är slut');
+      }, null, { timeout: T.step });
+      const endPause = (await page.textContent('#pause-note')).replace(/\s+/g, ' ').trim();
+      if (!/slut|idag/i.test(endPause) || /stor händelse/i.test(endPause)) {
+        throw new Error(`avstängda krigspauser visade inte bara slutkortet: ${endPause}`);
+      }
+      return 'Fortsätt visar nästa stopp; manuellt tidshopp börjar om kön; Lager kan stänga av mellanstoppen';
+    } finally {
+      if (await page.locator('#focus-bar').isVisible().catch(() => false)) {
+        const action = page.locator('#focus-action');
+        if ((await action.textContent()).includes('Pausa')) await action.click();
+        await page.click('#focus-exit');
+      }
+      if (await page.locator('#focus-menu').isVisible().catch(() => false)) await page.keyboard.press('Escape');
+      await setPause('major', majorWasOn);
+      await setPause('focusFunfacts', focusFunfactsWasOn);
+      await page.keyboard.press('Escape');
+      await jumpTo(previousYear);
     }
   });
 
@@ -1155,6 +1495,7 @@ async function run(browser, vp) {
     await war.waitFor({ state: 'visible', timeout: T.step });
     await war.click();
     await visible('#focus-bar');
+    await shot('538-fokus-krig');
 
     // Tio år per sekund håller flödet kort, men låter fortfarande uppspelningen stanna vid varje viktiga händelse.
     for (let i = 0; i < 6 && !(await page.textContent('#btn-speed')).includes('10 år/s'); i++) await page.click('#btn-speed');
