@@ -3427,6 +3427,126 @@
       "title": {"sv": "Covid-19-pandemin"},
       "summary": {"sv": "I december 2019 börjar ett utbrott av en ny sjukdom i Wuhan i Kina. Den orsakas av coronaviruset SARS-CoV-2 och får namnet covid-19. WHO förklarar ett internationellt hälsonödläge den 30 januari 2020 och kallar utbrottet en pandemi den 11 mars 2020. Nödläget upphävs den 5 maj 2023. Över sju miljoner dödsfall har rapporterats, och uppskattningarna av hur många som faktiskt dog ligger mellan 18,5 och 35,2 miljoner."},
       "note": {"title": {"sv": "Källorna skiljer sig"}, "text": {"sv": "Wikipedia anger att utbrottet började i december 2019, medan Wikidata anger att epidemin började den 17 november 2019."}},
-      "wikidata": "Q81068910", "sources": ["wp-covid-19-pandemic", "wp-wuhan", "wikidata"], "review": "source-checked" }
+      "wikidata": "Q81068910", "sources": ["wp-covid-19-pandemic", "wp-wuhan", "wikidata"], "review": "source-checked" },
+
+    {"id": "slaveriet-avskaffas-i-usa", "category": "civilisationer", "icon": "scroll", "start": 1865, "end": 1865, "precision": 11, "edtf": "1865-12-06",
+      "location": {"type": "Point", "coordinates": [-77.00889, 38.88972]}, "locationPrecision": "country", "place": {"sv": "USA (kongressen i Capitolium, Washington)"},
+      "title": {"sv": "Slaveriet förbjuds i USA"},
+      "summary": {"sv": "Den 6 december 1865 har 27 delstater godkänt det trettonde tillägget till USA:s grundlag, och därmed gäller det. Tillägget förbjuder slaveri och ofrivilligt tvångsarbete i hela USA, utom som straff för den som har dömts för ett brott. Kongressens två kamrar hade antagit tillägget 1864 och i januari 1865."},
+      "wikidata": "Q175613", "sources": ["wp-thirteenth-amendment", "wp-united-states-capitol", "wikidata"], "review": "two-sources" },
+
+    {"id": "meijirestaurationen", "category": "civilisationer", "icon": "crown", "start": 1868, "end": 1868, "precision": 11, "edtf": "1868-01-03",
+      "location": {"type": "Point", "coordinates": [135.76222, 35.02528]}, "locationPrecision": "country", "place": {"sv": "Japan (kejsarhovet i Kyoto)"},
+      "title": {"sv": "Meijirestaurationen i Japan"},
+      "summary": {"sv": "Den 3 januari 1868 störtas Tokugawa-shogunatet, och kejsarens makt återupprättas i Japan under kejsar Meiji. Kejsardömet Japan bildas. Furstendömena upplöses, samurajerna förlorar sin ställning som klass och det feodala systemet avskaffas. Japan industrialiseras och tar efter västerländska förebilder."},
+      "wikidata": "Q8707", "sources": ["wp-meiji-restoration", "wp-kyoto-imperial-palace", "wikidata"], "review": "two-sources" },
+
+    {"id": "suezkanalen-oppnas", "category": "ekonomi", "icon": "ship", "start": 1869, "end": 1869, "precision": 11, "edtf": "1869-11-17",
+      "location": {"type": "Point", "coordinates": [32.34417, 30.705]}, "place": {"sv": "Suezkanalen, Egypten (från Port Said i norr till Suez i söder)"},
+      "title": {"sv": "Suezkanalen öppnas"},
+      "summary": {"sv": "Den 17 november 1869 öppnas Suezkanalen mellan Medelhavet och Röda havet. Bygget började den 25 april 1859 och sköttes av ett bolag som Ferdinand de Lesseps bildade för att bygga kanalen. Kanalen blir en viktig handelsväg mellan Europa och Asien, eftersom fartygen inte längre behöver segla runt Afrika."},
+      "wikidata": "Q899", "sources": ["wp-suez-canal", "wikidata"], "review": "two-sources" },
+
+    {"id": "krakatau-1883", "category": "katastrofer", "start": 1883, "end": 1883, "precision": 11, "edtf": "1883-08-27",
+      "location": {"type": "Point", "coordinates": [105.423, -6.102]}, "place": {"sv": "Krakatau i Sundasundet, Nederländska Ostindien (i dag Indonesien)"},
+      "title": {"sv": "Vulkanen Krakatau får sitt stora utbrott"},
+      "summary": {"sv": "Den 27 augusti 1883 har vulkanön Krakatau sitt kraftigaste utbrott. Den tredje explosionen är det starkaste ljud som man känner till. Utbrottet och tsunamierna som det orsakar dödar minst 36 417 människor. Året efter är somrarna på norra halvklotet i genomsnitt 0,4 °C kallare."},
+      "wikidata": "Q8094772", "sources": ["wp-1883-krakatoa", "wikidata"], "review": "two-sources" },
+
+    {"id": "berlinkonferensen", "category": "civilisationer", "icon": "treaty", "start": 1884, "end": 1885, "precision": 11, "edtf": "1884-11-15/1885-02-26",
+      "location": {"type": "Point", "coordinates": [13.38253, 52.51245]}, "place": {"sv": "Rikskansliet på Wilhelmstrasse, Berlin, Tyskland"},
+      "title": {"sv": "Berlinkonferensen om Afrika"},
+      "summary": {"sv": "Från den 15 november 1884 till den 26 februari 1885 möts 14 parter från Europa, USA och Osmanska riket i Berlin. Tysklands rikskansler Otto von Bismarck har bjudit in på begäran av Belgiens kung Leopold II. Inga afrikanska länder bjuds in. Slutakten reglerar hur de europeiska makterna koloniserar och handlar i Afrika och erkänner Leopolds område i Kongo. Den kan ses som att den formaliserar kapplöpningen om Afrika, men en del historiker menar att konferensens roll ofta överdrivs."},
+      "wikidata": "Q13582", "sources": ["wp-berlin-conference", "wp-reich-chancellery", "wikidata"], "review": "two-sources" },
+
+    {"id": "kvinnlig-rostratt-nya-zeeland", "category": "civilisationer", "icon": "scroll", "start": 1893, "end": 1893, "precision": 11, "edtf": "1893-09-19",
+      "location": {"type": "Point", "coordinates": [174.77722, -41.28889]}, "locationPrecision": "country", "place": {"sv": "Nya Zeeland"},
+      "title": {"sv": "Kvinnor får rösta i Nya Zeeland"},
+      "summary": {"sv": "Den 19 september 1893 skriver guvernören lord Glasgow under en vallag som ger kvinnor över 21 år rätt att rösta. Nya Zeeland blir det första landet i världen där alla kvinnor får rösta i parlamentsval. Bakom reformen låg bland andra Kate Sheppard och namninsamlingar som 1893 fick nära 32 000 underskrifter. Kvinnorna röstar första gången den 28 november 1893, men de kan inte väljas in i parlamentet förrän 1919."},
+      "wikidata": "Q3447247", "sources": ["wp-womens-suffrage-new-zealand", "wp-wellington"], "review": "source-checked" },
+
+    {"id": "olympiska-spelen-1896", "category": "sport", "start": 1896, "end": 1896, "precision": 11, "edtf": "1896-04-06/1896-04-15",
+      "location": {"type": "Point", "coordinates": [23.74111, 37.96833]}, "place": {"sv": "Panathenaiska stadion, Aten, Grekland"},
+      "title": {"sv": "De första moderna olympiska spelen"},
+      "summary": {"sv": "Den 6–15 april 1896 hålls de första moderna olympiska spelen i Aten. De anordnas av Internationella olympiska kommittén (IOK), som Pierre de Coubertin skapade vid en kongress i Paris 1894. Enligt IOK deltar 14 länder och 241 idrottare, alla män, men båda siffrorna tolkas olika. Öppnings- och avslutningsceremonierna hålls på Panathenaiska stadion."},
+      "wikidata": "Q8080", "sources": ["wp-1896-summer-olympics", "wp-panathenaic-stadium", "wikidata"], "review": "two-sources" },
+
+    {"id": "titanic-sjunker", "category": "katastrofer", "icon": "ship", "start": 1912, "end": 1912, "precision": 11, "edtf": "1912-04-15",
+      "location": {"type": "Point", "coordinates": [-49.94694, 41.7325]}, "place": {"sv": "Nordatlanten (vraket ligger på 41°44′ N, 49°57′ V)"},
+      "title": {"sv": "Titanic sjunker"},
+      "summary": {"sv": "Tidigt den 15 april 1912 sjunker passagerarfartyget Titanic i Nordatlanten efter att ha kolliderat med ett isberg, på väg från Southampton till New York. Av de 2 208 passagerarna och besättningsmännen omkommer omkring 1 500; uppskattningarna varierar. Fartyget hade 20 livbåtar med plats för 1 178 människor."},
+      "wikidata": "Q25173", "sources": ["wp-titanic", "wikidata"], "review": "two-sources" },
+
+    {"id": "oktoberrevolutionen", "category": "civilisationer", "start": 1917, "end": 1917, "precision": 11, "edtf": "1917-11-07",
+      "location": {"type": "Point", "coordinates": [30.3139, 59.9404]}, "place": {"sv": "Petrograd (i dag Sankt Petersburg), Ryssland"},
+      "title": {"sv": "Oktoberrevolutionen i Ryssland"},
+      "summary": {"sv": "Den 7 november 1917, som var den 25 oktober enligt den kalender som Ryssland då använde, gör bolsjevikerna under Vladimir Lenin uppror i Petrograd mot den provisoriska regeringen. Till natten därpå har de tagit Vinterpalatset, där motståndet är svagt. Revolutionen leder till det ryska inbördeskriget och till att Sovjetunionen bildas."},
+      "wikidata": "Q42976", "sources": ["wp-october-revolution", "wp-winter-palace", "wikidata"], "review": "two-sources" },
+
+    {"id": "penicillinet-upptacks", "category": "halsa", "start": 1928, "end": 1928, "precision": 9, "edtf": "1928",
+      "location": {"type": "Point", "coordinates": [-0.17306, 51.51722]}, "place": {"sv": "St Mary's Hospital, London, Storbritannien"},
+      "title": {"sv": "Penicillinet upptäcks"},
+      "summary": {"sv": "År 1928 upptäcker Alexander Fleming vid St Mary's Hospital i London att en blågrön mögelsvamp, som har förorenat en av hans odlingsplattor, dödar bakterier. Han publicerar fynden 1929. Från 1939 gör Howard Florey, Ernst Chain och deras grupp i Oxford penicillinet till ett användbart läkemedel, och 1944 massproduceras det. Fleming, Florey och Chain får Nobelpriset i fysiologi eller medicin 1945."},
+      "wikidata": "Q3042914", "sources": ["wp-history-of-penicillin", "wp-st-marys-hospital-london"], "review": "source-checked" },
+
+    {"id": "borskraschen-1929", "category": "ekonomi", "start": 1929, "end": 1929, "precision": 11, "edtf": "1929-10-24/1929-10-29",
+      "location": {"type": "Point", "coordinates": [-74.0111, 40.7069]}, "place": {"sv": "New York-börsen, New York, USA"},
+      "title": {"sv": "Börskraschen på Wall Street"},
+      "summary": {"sv": "Den 24 oktober 1929, svarta torsdagen, börjar ett stort kursras på New York-börsen. På svarta måndagen och svarta tisdagen, den 28 och 29 oktober, faller Dow Jones-indexet med sammanlagt 23 procent. Kraschen blir början på det som utvecklas till den stora depressionen i hela världen."},
+      "wikidata": "Q201684", "sources": ["wp-wall-street-crash-1929", "wp-new-york-stock-exchange", "wikidata"], "review": "two-sources" },
+
+    {"id": "fotbolls-vm-1930", "category": "sport", "start": 1930, "end": 1930, "precision": 11, "edtf": "1930-07-13/1930-07-30",
+      "location": {"type": "Point", "coordinates": [-56.1528389, -34.8946611]}, "place": {"sv": "Estadio Centenario, Montevideo, Uruguay"},
+      "title": {"sv": "Det första fotbolls-VM"},
+      "summary": {"sv": "Den 13–30 juli 1930 spelas det första världsmästerskapet i fotboll i Montevideo i Uruguay, som samma år firar hundra år sedan landets första grundlag. 13 lag deltar. I finalen på Estadio Centenario den 30 juli vinner Uruguay över Argentina med 4–2."},
+      "wikidata": "Q48432", "sources": ["wp-1930-fifa-world-cup", "wp-estadio-centenario", "wikidata"], "review": "two-sources" },
+
+    {"id": "saltmarschen", "category": "civilisationer", "start": 1930, "end": 1930, "precision": 11, "edtf": "1930-03-12/1930-04-06",
+      "location": {"type": "Point", "coordinates": [72.800944, 20.886472]}, "place": {"sv": "Från Sabarmati-ashramet till Dandi, Indien"},
+      "title": {"sv": "Gandhis saltmarsch"},
+      "summary": {"sv": "Den 12 mars 1930 börjar Mahatma Gandhi gå från Sabarmati-ashramet till kustbyn Dandi, en sträcka på cirka 385 kilometer, i protest mot det brittiska saltmonopolet. Den 6 april bryter han mot saltlagarna i Dandi. I kampanjen som följer fängslas över 60 000 indier."},
+      "wikidata": "Q239344", "sources": ["wp-salt-march", "wp-dandi", "wikidata"], "review": "two-sources" },
+
+    {"id": "dna-strukturen", "category": "vetenskap", "icon": "book", "start": 1953, "end": 1953, "precision": 11, "edtf": "1953-04-25",
+      "location": {"type": "Point", "coordinates": [0.0925, 52.20917]}, "locationPrecision": "region", "place": {"sv": "Cavendishlaboratoriet, Cambridge, Storbritannien"},
+      "title": {"sv": "DNA-molekylens dubbelspiral"},
+      "summary": {"sv": "Den 25 april 1953 beskriver James Watson och Francis Crick vid Cavendishlaboratoriet i Cambridge DNA-molekylens dubbelspiral i tidskriften Nature. Upptäckten gjordes den 28 februari samma år. Artikeln byggde också på opublicerat arbete av Rosalind Franklin, Maurice Wilkins och andra vid King's College London. Watson, Crick och Wilkins får Nobelpriset i medicin 1962."},
+      "wikidata": "Q1895685", "sources": ["wp-watson-crick-1953", "wp-cavendish-laboratory", "wikidata"], "review": "source-checked" },
+
+    {"id": "keelingkurvan", "category": "klimat", "start": 1958, "end": 1958, "precision": 10, "edtf": "1958-03",
+      "location": {"type": "Point", "coordinates": [-155.5769536, 19.536193]}, "place": {"sv": "Mauna Loa-observatoriet, Hawaii, USA"},
+      "title": {"sv": "Koldioxiden mäts på Mauna Loa: Keelingkurvan"},
+      "summary": {"sv": "I mars 1958 börjar Charles David Keeling från Scripps-institutet för oceanografi mäta luftens halt av koldioxid vid Mauna Loa-observatoriet på Hawaii. Den första mätningen ger 313 miljondelar. Mätserien, som kallas Keelingkurvan, visar att halten stadigt ökar, och allt snabbare, på grund av förbränning av fossila bränslen. I november 2018 var halten 406 miljondelar."},
+      "wikidata": "Q224858", "sources": ["wp-keeling-curve", "wp-mauna-loa-observatory", "wikidata"], "review": "source-checked" },
+
+    {"id": "kubanska-revolutionen", "category": "civilisationer", "start": 1953, "end": 1959, "precision": 11, "edtf": "1953-07-26/1959-01-01",
+      "location": {"type": "Point", "coordinates": [-82.35889, 23.13667]}, "locationPrecision": "country", "place": {"sv": "Kuba"},
+      "title": {"sv": "Kubanska revolutionen"},
+      "summary": {"sv": "Den 26 juli 1953 anfaller Fidel Castro och hans bror Raúl Moncadakasernen, och det blir början på ett uppror mot Fulgencio Batistas regim. Vid nyåret 1958–1959 störtas Batista och flyr landet, och Castros 26 juli-rörelse tar över regeringen. Rörelsen blir i oktober 1965 Kubas kommunistiska parti."},
+      "wikidata": "Q11264", "sources": ["wp-cuban-revolution", "wp-havana", "wikidata"], "review": "two-sources" },
+
+    {"id": "berlinmuren-byggs", "category": "civilisationer", "start": 1961, "end": 1961, "precision": 11, "edtf": "1961-08-13",
+      "location": {"type": "Point", "coordinates": [13.44111, 52.50444]}, "place": {"sv": "Berlin, Tyskland"},
+      "title": {"sv": "Berlinmuren byggs"},
+      "summary": {"sv": "Den 13 augusti 1961 börjar Östtysklands regering bygga Berlinmuren. Regimen kallar den en antifascistisk skyddsvall, men huvudsyftet är att hindra östtyskar från att fly till väst. Muren och gränsen runt Västberlin blir 155 kilometer lång. Mellan 136 och över 200 människor dödas av östtyska myndigheter vid gränsen innan muren öppnas 1989."},
+      "wikidata": "Q5086", "sources": ["wp-berlin-wall", "wikidata"], "review": "two-sources" },
+
+    {"id": "marschen-till-washington", "category": "civilisationer", "start": 1963, "end": 1963, "precision": 11, "edtf": "1963-08-28",
+      "location": {"type": "Point", "coordinates": [-77.0501, 38.8893]}, "place": {"sv": "Lincolnmonumentet, Washington, D.C., USA"},
+      "title": {"sv": "Marschen till Washington och \"I Have a Dream\""},
+      "summary": {"sv": "Den 28 augusti 1963 samlas omkring 250 000 människor i Washington, D.C. för jobb och frihet och för medborgerliga rättigheter. Vid Lincolnmonumentet håller Martin Luther King Jr. talet \"I Have a Dream\". Marschen bidrar till att lagen om medborgerliga rättigheter antas 1964 och rösträttslagen 1965."},
+      "wikidata": "Q1128871", "sources": ["wp-march-on-washington", "wikidata"], "review": "two-sources" },
+
+    {"id": "kulturrevolutionen", "category": "civilisationer", "start": 1966, "end": 1976, "precision": 11, "edtf": "1966-05-16/1976-10-06",
+      "location": {"type": "Point", "coordinates": [116.391083, 39.907333]}, "locationPrecision": "country", "place": {"sv": "Kina"},
+      "title": {"sv": "Kulturrevolutionen i Kina"},
+      "summary": {"sv": "I maj 1966 startar kommunistpartiets ordförande Mao Zedong kulturrevolutionen. Han uppmanar unga människor att \"bombardera högkvarteret\", och många bildar grupper av rödgardister över hela Kina. Uppskattningarna av hur många som dödas varierar från hundratusentals till miljoner. Kulturrevolutionen tar slut när Mao dör 1976 och de fyras gäng grips."},
+      "wikidata": "Q8690", "sources": ["wp-cultural-revolution", "wp-tiananmen", "wikidata"], "review": "two-sources" },
+
+    {"id": "montrealprotokollet", "category": "klimat", "icon": "treaty", "start": 1987, "end": 1987, "precision": 11, "edtf": "1987-09-16",
+      "location": {"type": "Point", "coordinates": [-73.55417, 45.50889]}, "place": {"sv": "Montréal, Kanada"},
+      "title": {"sv": "Montrealprotokollet skyddar ozonlagret"},
+      "summary": {"sv": "Den 16 september 1987 kommer länderna i Montréal överens om att fasa ut freoner och andra ämnen som bryter ned ozonlagret. Protokollet träder i kraft 1989 och blir det första fördraget i FN:s historia som alla länder har ratificerat, med 198 parter. Ozonhålet över Antarktis läker långsamt, och ozonlagret väntas vara tillbaka på 1980 års nivå mellan 2040 och 2066."},
+      "wikidata": "Q219438", "sources": ["wp-montreal-protocol", "wp-montreal", "wikidata"], "review": "two-sources" }
   ]
 }
