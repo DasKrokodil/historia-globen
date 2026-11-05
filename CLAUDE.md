@@ -52,7 +52,7 @@ js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med
 functions/api/feedback.js  Cloudflare Pages Function som skapar issues i ett privat repo (enda undantaget från punkt 1)
 tests/                tester för functions/ med node:test (node --test 'tests/*.test.mjs')
 tests/webblasare.mjs  webbläsartest med Playwright, körs i GitHub Actions för varje PR (#339)
-data/handelser/       händelserna, en redigeringsfil per period (fkr.json, 1-1499.json … 1946-.json); här redigeras händelser (#394)
+data/handelser/       händelserna, en redigeringsfil per period (fkr.json, 1-1499.json … 1946-1979.json, 1980-.json); här redigeras händelser (#394)
 data/events.json      alla händelser i en fil, byggs av tools/dela_data.py ur data/handelser/; redigeras inte
 data/funfacts.json    fun facts (kopplade till händelse-id)
 data/intro.json       introduktionens steg och referenser till befintliga händelser/fun facts (#363)
