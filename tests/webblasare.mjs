@@ -13,6 +13,13 @@
 //   SKARMBILDER=<mapp>   var skärmbilderna sparas (standard: <tmp>/historia-globen-webblasartest)
 //   THREE_LOCAL=<fil>    lokal kopia av three.module.js (three@0.160.0) som ersätter jsdelivr. För miljöer utan
 //                        nät till jsdelivr, till exempel molnmiljön. Google Fonts avbryts då också.
+//   ENDAST=<text>        kör bara kontroller vars namn innehåller texten (gemener/versaler spelar ingen roll; flera
+//                        alternativ skiljs med |, till exempel ENDAST="årshoppet|versionsraden"). Hela avsnitten
+//                        "zoom och omflödning", "reducerad rörelse" och "presentationsläge" körs bara om texten matchar
+//                        avsnittets namn. "inga fel i konsolen" körs alltid. Matchar ingen kontroll avslutas testet med
+//                        kod 1, så att ett stavfel inte ger grönt. "sidan svarar" och "globen laddas" körs alltid, eftersom
+//                        de öppnar sidan och väntar in globen. För felsökning (#587): kontrollerna är inte alltid
+//                        oberoende av varandra, så kör hela sviten en gång innan pull requesten lämnas in.
 // Playwright hämtas med require, så NODE_PATH fungerar (till exempel NODE_PATH=/opt/node22/lib/node_modules).
 //
 // Kontrollerna (samma i båda bredderna):
@@ -32,6 +39,13 @@ const { PNG } = require('playwright-core/lib/utilsBundle');
 
 const PORT = Number(process.argv[2] || 8000);
 const BROWSER = process.env.BROWSER || 'chromium';
+// ENDAST (#587): kör bara kontroller vars namn innehåller någon av texterna. Utan ENDAST körs allt som förut.
+const ENDAST = (process.env.ENDAST || '').split('|').map(t => t.trim().toLowerCase()).filter(Boolean);
+// 'sidan svarar' och 'globen laddas' öppnar sidan och väntar in globen: alla andra kontroller bygger på dem, så de körs alltid.
+const ALLTID = ['sidan svarar', 'globen laddas'];
+const wanted = name => !ENDAST.length || ALLTID.includes(name) || ENDAST.some(t => name.toLowerCase().includes(t));
+let matched = 0;
+let skipped = 0;
 const browserType = { chromium: playwright.chromium, firefox: playwright.firefox, webkit: playwright.webkit }[BROWSER];
 if (!browserType) throw new Error(`Okänd webbläsarmotor: ${BROWSER}`);
 const target = process.env.BASE_URL || `http://localhost:${PORT}/`;
@@ -108,6 +122,8 @@ async function run(browser, vp) {
   const visible = sel => page.waitForSelector(sel, { state: 'visible', timeout: T.step });
   const hidden = sel => page.waitForSelector(sel, { state: 'hidden', timeout: T.step });
   const check = async (name, fn) => {
+    if (!wanted(name)) { skipped++; return; }
+    if (!ALLTID.includes(name)) matched++;
     const t0 = Date.now();
     try {
       const note = await fn();
@@ -1890,22 +1906,29 @@ try {
     }
   }
   console.log('\nzoom och omflödning');
-  for (const r of await runReflow(browser)) {
+  if (wanted('zoom och omflödning')) matched++; else skipped++;
+  for (const r of wanted('zoom och omflödning') ? await runReflow(browser) : []) {
     if (!r.ok) failed++;
     console.log(`  ${r.ok ? 'OK  ' : 'FEL '} ${r.name}${r.note ? `: ${r.note}` : ''}${r.ms ? ` (${(r.ms / 1000).toFixed(1)} s)` : ''}`);
   }
   console.log('\nreducerad rörelse');
-  for (const r of await runReducedMotion(browser)) {
+  if (wanted('reducerad rörelse')) matched++; else skipped++;
+  for (const r of wanted('reducerad rörelse') ? await runReducedMotion(browser) : []) {
     if (!r.ok) failed++;
     console.log(`  ${r.ok ? 'OK  ' : 'FEL '} ${r.name}${r.note ? `: ${r.note}` : ''}`);
   }
   console.log('\npresentationsläge');
-  for (const r of await runPresentation(browser)) {
+  if (wanted('presentationsläge')) matched++; else skipped++;
+  for (const r of wanted('presentationsläge') ? await runPresentation(browser) : []) {
     if (!r.ok) failed++;
     console.log(`  ${r.ok ? 'OK  ' : 'FEL '} ${r.name}${r.note ? `: ${r.note}` : ''}${r.ms ? ` (${(r.ms / 1000).toFixed(1)} s)` : ''}`);
   }
 } finally {
   await browser.close();
+}
+if (ENDAST.length) {
+  console.log(`\nENDAST="${ENDAST.join('|')}": ${matched} kontroller och avsnitt kördes, ${skipped} hoppades över.`);
+  if (!matched) { console.log('FEL ENDAST matchade ingen kontroll. Kontrollera stavningen.'); failed++; }
 }
 console.log(`\n${failed ? `${failed} kontroller misslyckades` : 'Alla kontroller gick igenom'} på ${((Date.now() - t0) / 1000).toFixed(0)} s. Skärmbilder: ${OUT}`);
 process.exit(failed ? 1 : 0);
