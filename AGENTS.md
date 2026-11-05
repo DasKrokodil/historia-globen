@@ -80,7 +80,7 @@ Gäller Claude Code, Codex och Copilot. Målet är att ingen agent lägger kvot 
 Enligt CLAUDE.md, "Testa innan du är klar":
 
 - `bash scripts/build-site.sh` (bygger `dist/` och kör `scripts/validate-site.py`).
-- `python3 -m json.tool` på ändrade JSON-filer. Har du ändrat `data/events.json` eller `data/empires/index.json`: kör `python3 tools/dela_data.py` och checka in `data/genererat/`.
+- `python3 -m json.tool` på ändrade JSON-filer. Händelser redigeras i `data/handelser/<period>.json`, inte i `data/events.json` (#394). Har du ändrat en fil i `data/handelser/` eller `data/empires/index.json`: kör `python3 tools/dela_data.py` och checka in `data/events.json` och `data/genererat/`.
 - Webbläsartestet `tests/webblasare.mjs` (Playwright, körs i GitHub Actions för varje pull request): inga konsolfel, ingen horisontell scroll vid 400 px. Kör det lokalt när du ändrar sådant som syns på sidan (`index.html`, `js/`, `css/`, `data/`, `images/`, `_headers`). Ändrar du bara dokumentation (till exempel `AGENTS.md`, `CLAUDE.md`, `README.md`, `docs/`, `.orchestra/project.md`) behövs det inte lokalt: läs igenom diffen och kontrollera länkarna (testnivån "Riktad" i `.orchestra/project.md`).
 - Ändras `functions/` eller formuläret: `node --test 'tests/*.test.mjs'`.
 - **Testa beteendet, inte bara att inget kraschar** (lärdom av #442, #450 och #493, där testerna var gröna men något ändå var fel):

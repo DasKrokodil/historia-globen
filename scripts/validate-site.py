@@ -21,9 +21,11 @@ Kontroller:
      Testa innan du är klar).
   9. Varje rike som ett krig anger i empires (#76) finns som grupp i data/empires/index.json,
      och bara krig (kind: "war") har fältet.
- 10. De uppdelade filerna i data/genererat/ (#337) stämmer med källfilerna data/events.json och
-     data/empires/index.json, alltså att någon har kört python3 tools/dela_data.py efter sin ändring.
-     Kontrollen räknar fram filerna med samma kod som skriptet (tools/dela_data.py i repot).
+ 10. data/events.json och de uppdelade filerna i data/genererat/ (#337) stämmer med redigeringsfilerna
+     data/handelser/<period>.json (#394) och data/empires/index.json i repot, alltså att någon har kört
+     python3 tools/dela_data.py efter sin ändring. Kontrollen räknar fram filerna med samma kod som
+     skriptet (tools/dela_data.py i repot) och jämför med dem i dist/. Den hittar också händelser som
+     ligger i fel periodfil och id som finns två gånger.
  11. Licensmanifesten (#393) stämmer med data/sources.json och bilduppgifterna i data/events.json.
 
 Användning: python3 scripts/validate-site.py [dist]
@@ -362,16 +364,17 @@ for e in events['events']:
         if g not in group_ids:
             err(f"data/events.json ({e['id']}): riket {g} finns inte i data/empires/index.json")
 
-# 10. Uppdelade filer (#337): samma innehåll som tools/dela_data.py skriver ur källfilerna i dist/
-TOOL = Path(__file__).resolve().parent.parent / 'tools' / 'dela_data.py'
+# 10. Byggda händelsefiler och uppdelade filer (#337, #394): samma innehåll som tools/dela_data.py skriver
+# ur redigeringsfilerna i repot (data/handelser/ publiceras inte, så de läses från ROOT, inte från dist/)
+TOOL = ROOT / 'tools' / 'dela_data.py'
 if not TOOL.is_file():
-    err(f'{TOOL} saknas: de uppdelade filerna i data/genererat/ kan inte kontrolleras')
-elif (DIST / 'data/events.json').is_file() and (DIST / 'data/empires/index.json').is_file():
+    err(f'{TOOL} saknas: data/events.json och de uppdelade filerna i data/genererat/ kan inte kontrolleras')
+elif (ROOT / 'data/empires/index.json').is_file():
     import importlib.util
     spec = importlib.util.spec_from_file_location('dela_data', TOOL)
     dela_data = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(dela_data)
-    for e in dela_data.check(DIST):
+    for e in dela_data.check(ROOT, DIST):
         err(e)
 
 # 11. Licensmanifest (#393): genererade filer i dist/ måste stämma med källorna.

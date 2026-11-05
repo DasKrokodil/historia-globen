@@ -10,8 +10,8 @@ formen "Wars of Scandinavian Union (1389)": konflikten som källan för händels
 Skriptet gör en händelse per beskrivning, alltså per plats, konflikt och år.
 
 Allt blir utkast (`review: "draft"`) i data/utkast/hced.json, som appen inte läser. Ett utkast
-flyttas till data/events.json först när någon har källkontrollerat det (se docs/kallor.md).
-data/events.json ändras aldrig av skriptet.
+flyttas till rätt periodfil i data/handelser/ (#394) först när någon har källkontrollerat det (se docs/kallor.md).
+Redigeringsfilerna i data/handelser/ och data/events.json ändras aldrig av skriptet.
 
 Årtal: WHG anger år före vår tideräkning som negativa tal i historisk räkning utan år 0
 ("-0585" = 585 f.Kr.). Vi lagrar astronomiska år, så de blir 1 - 585 = -584. År 0 finns inte i
@@ -395,7 +395,7 @@ def main():
     doc = {
         'schema': 'historia-globen/events@1',
         'notes': ('Utkast från Historical Conflict Event Dataset via World Historical Gazetteer (dataset 1415, CC0 1.0), '
-                  'byggda med tools/hced.py. Appen läser inte den här filen. Ett utkast flyttas till data/events.json '
+                  'byggda med tools/hced.py. Appen läser inte den här filen. Ett utkast flyttas till data/handelser/<period>.json '
                   'först när källsidan är öppnad och årtal och plats stämmer (se docs/kallor.md). '
                   'start/end = astronomiska år; WHG:s negativa år (historisk räkning, "-0585" = 585 f.Kr.) är omräknade '
                   'till 1 - N. Titeln är platsens namn och konflikten enligt källan, på engelska. '

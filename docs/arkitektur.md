@@ -186,7 +186,7 @@ Vyn **Bara kartan** stänger av alla lager som vyerna styr, så att bara grundka
 
 Vid start laddas bara det som behövs för att visa globen (#337): händelseindexet (`data/genererat/handelser.json`), fun facts, grundkartan, bildstilar, rikenas register utan faktarutor (`data/genererat/riken.json`) och upptäcktsvyns lilla fil. Händelseindexet har allt som tidslinjen, markörerna, listan Samtidigt i världen och Samtidigt-kortets text behöver, men inte de långa fälten.
 
-Händelserna och rikena redigeras som förut i `data/events.json` och `data/empires/index.json`. `tools/dela_data.py` delar upp dem i `data/genererat/`, och `scripts/validate-site.py` stoppar publiceringen om de uppdelade filerna inte stämmer med källfilerna (se [datamodell.md](datamodell.md#genererat-uppdelade-filer-337)).
+Händelserna redigeras i `data/handelser/`, en fil per period (#394), och rikena i `data/empires/index.json`. `tools/dela_data.py` bygger `data/events.json` (alla händelser i en fil, för verktyg, tester och formulärets serverfunktion) och delar upp händelser och riken i `data/genererat/`, och `scripts/validate-site.py` stoppar publiceringen om de byggda filerna inte stämmer med redigeringsfilerna (se [datamodell.md](datamodell.md#genererat-uppdelade-filer-337)).
 
 Det som bara behövs vid klick laddas när det behövs, och en gång (`model.js` håller ett löfte per fil):
 
@@ -292,7 +292,8 @@ Skripten i `tools/` körs för hand, inte av sidan, så principen om inget byggs
 
 | Skript | Gör |
 |---|---|
-| `tools/dela_data.py` | Delar upp `data/events.json` och `data/empires/index.json` i mindre filer i `data/genererat/` (#337). Körs efter varje ändring i källfilerna; `--check` kontrollerar utan att skriva, och `scripts/validate-site.py` gör samma kontroll |
+| `tools/dela_data.py` | Bygger `data/events.json` ur redigeringsfilerna i `data/handelser/` (#394) och delar upp händelser och `data/empires/index.json` i mindre filer i `data/genererat/` (#337). Körs efter varje ändring i källfilerna; stoppar händelser i fel periodfil och dubbla id; `--check` kontrollerar utan att skriva, och `scripts/validate-site.py` gör samma kontroll |
+| `tools/tackning.py` | Skriver täckningsrapporten `docs/granskningar/tackning-ÅÅÅÅ-MM-DD.md` (#563): händelser per period, världsdel och kategori med tomma och nästan tomma celler, per sekel från 1000, balansen krig mot övrigt (och framsteg när #555 finns), andel med bild, fun fact och två källor, osäkert datum och ungefärlig plats, och de tio största luckorna vägda efter periodens längd och världsdelens landyta (räknad ur `data/land.json`). Mäter bara, skriver inga fakta; `--datum` ger samma rapport för samma indata. Testas av `tests/tackning-test.py` |
 | `tools/tackningsrapport.py` | Skriver `docs/tackningsrapport.md` med händelser per världsdel, århundrade och kategori (#484). Världsdelarna följer `region()` i `js/model.js`; `--check` kontrollerar att rapporten är uppdaterad |
 | `tools/rutter_land.py` | Kontrollerar att sjöetapperna i `data/routes/` inte korsar land (#332). Kräver numpy och Pillow |
 | `tools/riken.py` | Bygger rikesfilerna ur Cliopatria |
@@ -300,7 +301,7 @@ Skripten i `tools/` körs för hand, inte av sidan, så principen om inget byggs
 | `tools/religioner.py` | Bygger `data/religions.json` ur Cliopatria och registret med faktarutornas texter: varje rikes religion år för år, arv av religion där rikets faktaruta saknar religion (#269), sammanslaget per religion i ögonblicksbilder |
 | `tools/religioner_riken.py` | Bygger `data/religions-polities.json` (varje rikes gräns, för klickrutan) efter `religioner.py` |
 | `tools/bildpromptar.py` | Skriver promptar för illustrationer till `docs/bildpromptar.md` |
-| `tools/bilder_in.py` | Konverterar bilder från `images/incoming/` till `images/events/` och fyller i `image` i `events.json` från bildloggen `images/incoming/bildlogg.json`. Undermappar, till exempel `images/incoming/vantar/` för bilder som ska göras om, hoppas över |
+| `tools/bilder_in.py` | Konverterar bilder från `images/incoming/` till `images/events/` och fyller i `image` i händelsens fil i `data/handelser/` från bildloggen `images/incoming/bildlogg.json`. Undermappar, till exempel `images/incoming/vantar/` för bilder som ska göras om, hoppas över |
 
 ## Publicering
 

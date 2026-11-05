@@ -10,12 +10,12 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 - **Plats** är GeoJSON i WGS 84, `[longitud, latitud]`.
 - **Texter** lagras per språk, svenska först.
 - **Källor och granskning:** posterna pekar på id i `sources.json` och har `review` (`draft`, `source-checked` eller `two-sources`).
-- **Redigera källfilerna,** inte `data/genererat/`; kör `python3 tools/dela_data.py` efter ändringar i `events.json` och `empires/index.json`.
+- **Redigera källfilerna,** inte `data/events.json` eller `data/genererat/`. Händelser redigeras i `data/handelser/<period>.json` (#394). Kör `python3 tools/dela_data.py` efter ändringar i `data/handelser/` och `empires/index.json`.
 - **JSON Schema:** `schemas/` beskriver den gemensamma grundnivån för händelser, källor, rikesregistret, vägar/resor och fun facts. `scripts/validate-site.py` använder en liten egen kontroll för `type`, `required`, `properties`, `items`, `enum`, `pattern` och `minimum`/`maximum`; den körs vid varje bygge. Det är medvetet inget externt Python-paket (#391).
 
 **Avsnitt**
 - Gemensamma standarder – år, osäkerhet, precision, plats, text, källor och granskning.
-- `events.json` – händelsernas fält, inklusive bilder (`image`).
+- `handelser/` och `events.json` – händelsernas redigeringsfiler och fält, inklusive bilder (`image`).
 - `utkast/` – utkast från massimport som appen inte läser.
 - `funfacts.json` – fun facts kopplade till händelser.
 - `sources.json` – källregistret.
@@ -41,9 +41,13 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 | Källor | Lista med id ur `sources.json` | `["wp-crucifixion"]` |
 | Granskning | `review`: `draft`, `source-checked` eller `two-sources`. Se [kallor.md](kallor.md). | `"source-checked"` |
 
-## `events.json`: händelser
+## `handelser/` och `events.json`: händelser
 
-Händelserna redigeras här. Sidan läser dem uppdelade i ett index och de långa fälten per period, som `tools/dela_data.py` skriver (se [`genererat/`](#genererat-uppdelade-filer-337)).
+**Redigeringsfiler (#394, beslut 2026-11-05):** händelserna redigeras i `data/handelser/`, en fil per period efter händelsens **startår**: `fkr.json` (år 0 och tidigare), `1-1499.json`, `1500-1799.json`, `1800-1899.json`, `1900-1945.json` och `1946-.json`. Det är samma perioder som de uppdelade filerna i [`genererat/`](#genererat-uppdelade-filer-337). Varje fil har `schema`, `period` (filens period), `note` och `events`, en lista med händelser i formatet nedan. En ny händelse läggs sist i filen för sitt startår. Ändras `start` så att händelsen hamnar i en annan period, flyttas den till den filen.
+
+`data/events.json` byggs av `tools/dela_data.py` ur redigeringsfilerna och redigeras inte. Den har alla händelser i en fil, en per rad: periodfilerna i periodernas ordning och händelserna i filens ordning. Verktyg, tester och formulärets serverfunktion läser den som förut. `python3 tools/dela_data.py --check` och `scripts/validate-site.py` stoppar en händelse i fel periodfil, ett id som finns två gånger, en okänd fil i `data/handelser/` och en `events.json` som inte stämmer med redigeringsfilerna (till exempel efter en ändring för hand).
+
+Sidan läser händelserna uppdelade i ett index och de långa fälten per period, som `tools/dela_data.py` skriver (se [`genererat/`](#genererat-uppdelade-filer-337)).
 
 ```json
 { "id": "korsfastelsen", "category": "religion", "icon": "cross", "religion": "kristendom", "founding": true,
@@ -98,7 +102,7 @@ Reglerna för bilder står i [CLAUDE.md](../CLAUDE.md#bilder-129).
 
 ## `utkast/`: utkast från massimport
 
-Filerna i `data/utkast/` har samma format som `events.json` (`schema`, `notes`, `events`), men alla händelser har `review: "draft"` och appen läser inte filerna. Ett utkast flyttas till `events.json` när det är källkontrollerat (se [kallor.md](kallor.md#utkast-från-massimport)).
+Filerna i `data/utkast/` har samma format som `events.json` (`schema`, `notes`, `events`), men alla händelser har `review: "draft"` och appen läser inte filerna. Ett utkast flyttas till rätt periodfil i `data/handelser/` när det är källkontrollerat (se [kallor.md](kallor.md#utkast-från-massimport)).
 
 `utkast/hced.json` byggs med `tools/hced.py` ur Historical Conflict Event Dataset (#24). Titel och plats är på engelska, som i datasetet, och sammanfattningen är byggd ur fälten. Extra fält:
 
@@ -384,7 +388,7 @@ Tio grundstilar efter tid (`regions` tom) och regionala varianter (`regions` med
 
 ## `genererat/`: uppdelade filer (#337)
 
-Sidan laddar inte `events.json` och `empires/index.json` direkt, utan mindre filer som `tools/dela_data.py` skriver ur dem till `data/genererat/`. Källfilerna är fortfarande de man redigerar. **Kör `python3 tools/dela_data.py` efter varje ändring i `events.json` eller `empires/index.json`** och checka in filerna i `data/genererat/` i samma commit. `scripts/validate-site.py` (och `python3 tools/dela_data.py --check`) säger till om någon fil inte stämmer med källan, saknas eller inte längre genereras. Filerna redigeras aldrig för hand.
+Sidan laddar inte `events.json` och `empires/index.json` direkt, utan mindre filer som `tools/dela_data.py` skriver till `data/genererat/`. Det man redigerar är `data/handelser/` (#394) och `empires/index.json`. **Kör `python3 tools/dela_data.py` efter varje ändring i `data/handelser/` eller `empires/index.json`** och checka in `data/events.json` och filerna i `data/genererat/` i samma commit. `scripts/validate-site.py` (och `python3 tools/dela_data.py --check`) säger till om någon fil inte stämmer med källan, saknas eller inte längre genereras. Filerna redigeras aldrig för hand.
 
 | Fil | Innehåll | Laddas |
 |---|---|---|
@@ -395,7 +399,7 @@ Sidan laddar inte `events.json` och `empires/index.json` direkt, utan mindre fil
 
 Perioderna efter startår: `fkr` (år 0 och tidigare), `1-1499`, `1500-1799`, `1800-1899`, `1900-1945` och `1946-`. Gränserna är valda så att filerna blir ungefär lika stora (40–120 kB) och ändras bara medvetet, eftersom filnamnen följer dem. En händelse hör till den sista perioden vars `from` är högst händelsens `start` (`period_of` i skriptet, `periodOf` i `js/model.js`). Ett krig och dess slag ligger oftast i samma period, men det spelar ingen roll: `loadEventDetails()` laddar alla perioder som händelserna behöver.
 
-Varje post skrivs på en egen rad, så att en ändring i källan syns som ändrade rader i git. `events.json` publiceras ändå, eftersom formuläret för förslag (`functions/api/feedback.js`) slår upp händelser i den.
+Varje post skrivs på en egen rad, så att en ändring i källan syns som ändrade rader i git. `events.json` (byggd ur `data/handelser/`) publiceras ändå, eftersom formuläret för förslag (`functions/api/feedback.js`) slår upp händelser i den.
 
 ### Texter per språk (förslag, inte genomfört)
 
