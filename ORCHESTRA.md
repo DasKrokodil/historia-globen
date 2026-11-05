@@ -9,13 +9,20 @@ platform restrictions take precedence.
 
 ## Read map
 
-| Run | Read, in order |
+| Role/run | Read at startup/resume, in order |
 | --- | --- |
-| Scoped task (an ordinary request) | Host policy, this file, [ISSUE-WORKFLOW.md](ISSUE-WORKFLOW.md) for GitHub issues |
-| Bounded pass or queue session | The above plus [COORDINATION.md](COORDINATION.md) and the host's queue/timer settings |
-| Worker assignment | Host policy, [WORKER.md](WORKER.md), the brief and the phase sections it names |
+| Conductor, scoped task | Host policy; this read map, checklist, *Start and resume*, *Keep progress observable* and *Default time limits*; [ISSUE-WORKFLOW.md](ISSUE-WORKFLOW.md) for GitHub issues |
+| Conductor, bounded pass or queue session | The above plus [COORDINATION.md](COORDINATION.md) and the host's queue/timer settings |
+| Worker | Host policy, [WORKER.md](WORKER.md), the brief and the phase sections it names |
 
-Reading or maintaining these files never starts an unattended run. An empty scope,
+Read each applicable policy once per session; on resume reuse it unless changed, and
+resolve Issueflow as its guide specifies. Before each phase, read its section below
+and any linked procedure needed for that work; reuse unchanged sections already read.
+The checklist routes phase reading, not extra documents. This reuse never replaces
+fresh queue fetches, claim checks or recovery required below and in COORDINATION.md.
+
+Reading these files alone never starts an unattended run. A chat request for changes
+starts the workflow under [chat intake](#turn-chat-requests-into-work). An empty scope,
 such as a bare `/orkester`, lets the conductor choose the work: by default one
 [bounded pass](COORDINATION.md#run-a-bounded-pass); a host policy may configure a queue
 session instead.
@@ -28,11 +35,35 @@ session instead.
 | `planning` | [Short plan](#start-with-a-short-delivery-plan); issue claimed under Issueflow; [resources](#spend-resources-deliberately) and [team](#choose-the-smallest-useful-team) chosen; [hooks](#apply-project-hooks-at-each-phase) resolved |
 | `implementation` | Own checkout under the [isolation rules](#isolate-concurrent-agents); assigned scope only |
 | `verification` | [Agreed risk-based checks](#verification) pass on the delivered revision |
-| `review` | [Conductor reads the combined diff](#review) against acceptance |
+| `review` | [Handoff](#handoff-for-integration) retains owner/evidence while waiting; [conductor reads the combined diff](#review) against acceptance |
 | `delivery` | [Published under host rules](#delivery); delivered revision verified |
 | `follow-up` | [Completion comment](#follow-up) with evidence before closure; active labels removed |
 
 ## Start and resume
+
+### Turn chat requests into work
+
+Treat a user's chat request for changes as a request to get them resolved. Before
+implementation, create one issue per independently reviewable change, or update an
+existing matching issue, in the host's tracker; capture the requested outcome and
+acceptance under [Issueflow](ISSUE-WORKFLOW.md) for GitHub. Then start or resume the
+orchestra within that scope without asking for a separate `/orkester` command or
+confirmation. This also applies when no orchestra is running, none has run yet, or
+the previous idle watch has ended. Follow startup/recovery below and the host's run
+mode; a scoped request does not silently expand to the whole backlog or enable timers.
+
+If a run is already active, add the request to that conductor's work and apply the
+normal selection and ownership rules; do not start a competing run or reset its idle
+deadline just because a message arrived. Reuse issues and preserved work on resume.
+
+Respect explicit limits such as "do not start the orchestra", "only create issues"
+or "discuss only". Record requested changes as issues when allowed, keeping any
+explicitly deferred work paused and unclaimed until the user authorizes execution;
+do not let queue selection bypass that limit. A prior explicit stop still applies
+unless the user authorizes resumption. Answer questions, status requests and discussion
+without inventing change tasks; a request for changes to these instructions is itself
+work under this rule. Chat intake does not grant publication permissions beyond the
+host/user rules or install a background listener.
 
 ### Check the installed workflow
 
@@ -189,6 +220,28 @@ threshold alone does not justify optimization. Stop once agreed checks pass; whe
 verification passes its [time limit](#default-time-limits), reassess and pick the
 smallest check for the missing proof, without skipping required verification or hiding failures.
 
+## Handoff for integration
+
+Only completed implementation with passing assigned checks can be handed off. Follow
+[Issueflow](ISSUE-WORKFLOW.md) for all work-label transitions: waiting uses
+`integration-ready`, active integration/review uses the active label. A helper reports
+its part without marking the whole issue ready while other implementation continues.
+
+The handoff comment and private checkpoint record issue, integration owner,
+owner/session label, branch/checkout, exact commit, checks/evidence, remaining
+acceptance and next action. Retain the ownership label against competing claims.
+The worker stops its processes, releases locks and frees its slot; retain checkout
+and commits until integrated or preserved. Waiting uses neither active time nor
+capacity; a parent summary label uses no slot either.
+
+The conductor tracks handoffs, including open PRs, in its integration queue and
+resumes review/integration under the same ownership. Corrections need a named owner
+and next action, with Issueflow's active-correction or backlog transition; rejected
+work cannot stay ready. A genuine integration wait retains handoff ownership; a
+pause, return to backlog or user question releases work labels and claim. Preserve
+branch and evidence in either case. Only accepted integration, required checks and
+the host's publication/closure steps finish the issue.
+
 ## Review
 
 The conductor reads the combined diff and results (and required images) for missed
@@ -206,27 +259,31 @@ Attribution names the actual tool when required.
 
 *PR mode* (the host's delivery mode is a PR the user merges, see
 [PROJECT.example.md](PROJECT.example.md)): the result note says "PR open, not on main";
-the issue closes only after the merge, or by the host's rule, and until then its active
-labels are removed (paused under [Issueflow](ISSUE-WORKFLOW.md)); whichever session's
-queue fetch first sees the merge posts the completion comment and closes. Merge order and
-refreshing branches after each merge: [Select and claim](COORDINATION.md#select-and-claim).
+the issue closes only after the merge, or by the host's rule. Use the
+[handoff procedure](#handoff-for-integration) while waiting. Whichever session's queue
+fetch first sees the merge verifies delivery evidence and performs [follow-up](#follow-up).
+Merge order and branch refresh: [Select and claim](COORDINATION.md#select-and-claim).
 
 ## Follow-up
 
-The conductor owns follow-up unless the plan names another owner, and picks the smallest
-useful evidence in an authorized, accessible destination: a screenshot with revision
-and environment for visible changes (supporting, not replacing, functional checks), a
-test or reproduction result for behavior, a link to the published text and what was
-checked for documentation, and the deployed revision and post-deployment check for
-deployments.
+The conductor owns follow-up unless the plan names another owner. Choose the smallest
+useful evidence. Before closure, post a completion comment with outcome, delivered
+revision, checks, evidence links/attachments, limitations and remaining acceptance
+in an authorized, accessible destination:
 
-Before closing an issue, post a completion comment: outcome, delivered revision,
-checks, evidence links, limitations and remaining acceptance; then release labels under
-[Issueflow](ISSUE-WORKFLOW.md) and leave unmet acceptance open with next action and
-owner. Inspect images before posting and expose no private data; never claim an upload
-that did not happen. Run required post-publication checks before claiming them, and
-schedule later monitoring only when authorized. Reuse the result note; follow-up is no
-separate reporting phase.
+- UI/UX, styling, 2D/3D graphics or rendering: screenshots or rendered comparisons,
+  with revision and environment, embedded or linked as accessible artifacts. Include
+  before/after when useful; images supplement functional checks. If capture or hosting
+  is unavailable, state the limitation and reason. Inspect images, expose no private
+  data and never claim an upload that did not happen.
+- Behavior: test or reproduction result.
+- Documentation: published text link and recorded checks.
+- Deployment: deployed revision and post-deployment check.
+
+Run required post-publication checks before claiming them. Then release labels under
+[Issueflow](ISSUE-WORKFLOW.md); leave unmet acceptance open with next action and owner.
+Schedule later monitoring only when authorized. Reuse the result note; follow-up is
+no separate reporting phase.
 
 ### Close after a best-guess fix
 
