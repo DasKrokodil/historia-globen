@@ -137,6 +137,7 @@ export class Panel {
     this.onFocus = () => {};
     this.onEmpire = () => {}; // (rikets id) => rikets faktaruta (#76)
     this.onOpen = () => {};
+    this.onEnableEvents = () => {};
     this.onYear = () => {};
     this.onReport = null; // (objekt, knapp) => öppnar formuläret "Rapportera faktafel" (js/ui/feedback.js)
     this.onShowPlace = null; // (händelse) => platsraden i mobil (#312): fäller ihop rutan och visar markören på globen
@@ -200,8 +201,21 @@ export class Panel {
   render(visible, year, window, eventsOn = true, labels = null) {
     if (!eventsOn) {
       this.count.textContent = '0';
-      this.sub.textContent = 'Händelselagret är avstängt.';
-      this.list.innerHTML = `<p class="empty-note">Slå på Händelser under Lager för att se vad som hände.</p>`;
+      this.toggle.setAttribute('aria-label', t(this.copy.eventsOff));
+      this.sub.textContent = t(this.copy.eventsOff);
+      const help = document.createElement('p');
+      help.className = 'empty-note';
+      help.textContent = t(this.copy.eventsOffHelp);
+      const enable = document.createElement('button');
+      enable.type = 'button';
+      enable.className = 'link-btn panel-enable-events';
+      enable.textContent = t(this.copy.enableEvents);
+      enable.setAttribute('aria-label', t(this.copy.enableEventsLabel));
+      enable.addEventListener('click', () => {
+        this.onEnableEvents();
+        this.toggle.focus({ preventScroll: true });
+      });
+      this.list.replaceChildren(help, enable);
       return;
     }
     const inside = visible.filter(v => v.inside).length;

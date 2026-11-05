@@ -14,7 +14,19 @@
     "summary": { "sv": "{count} träffar: {inside} pågår, {near} nära", "en": "{count} matches: {inside} ongoing, {near} nearby" },
     "showMore": { "sv": "Visa {count} till i {region}", "en": "Show {count} more in {region}" },
     "showLess": { "sv": "Visa färre", "en": "Show fewer" },
-    "longRunning": { "sv": "Pågår sedan länge ({count})", "en": "Ongoing for a long time ({count})" }
+    "longRunning": { "sv": "Pågår sedan länge ({count})", "en": "Ongoing for a long time ({count})" },
+    "eventsOff": { "sv": "Händelselagret är avstängt.", "en": "The events layer is off." },
+    "eventsOffHelp": { "sv": "Slå på Händelser för att se vad som hände.", "en": "Turn on Events to see what happened." },
+    "enableEvents": { "sv": "Slå på Händelser", "en": "Turn on Events" },
+    "enableEventsLabel": { "sv": "Slå på händelselagret", "en": "Turn on the events layer" }
+  },
+  "layerActions": {
+    "disableAll": { "sv": "Stäng av alla", "en": "Turn all off" },
+    "disableAllLabel": { "sv": "Stäng av alla lager", "en": "Turn off all layers" },
+    "restore": { "sv": "Återställ", "en": "Restore" },
+    "restoreLabel": { "sv": "Återställ standardvyn", "en": "Restore the default view" },
+    "allOff": { "sv": "Alla lager är avstängda.", "en": "All layers are off." },
+    "standardRestored": { "sv": "Standardvyn är återställd.", "en": "The default view has been restored." }
   },
   "focus": {
     "groupByAge": { "sv": "Gruppera efter: Tidsålder", "en": "Group by: Historical period" },

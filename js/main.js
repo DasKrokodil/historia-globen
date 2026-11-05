@@ -148,6 +148,10 @@ async function start() {
   // Lagerväljaren: vilka lager som syns. Raderna och startläget kommer från registret.
   const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu'),
     views: views && { ...views, controlled: registry.viewLayers(views.groups) } });
+  panel.onEnableEvents = () => {
+    layers.set('events', true);
+    layers.onChange('events', true);
+  };
   Object.assign(state, { layers: layers.on, pause: layers.pause, calm: layers.calm });
   // Lugn rörelse (#246): också rikenas övergångar (#78) stängs av (i lagrets apply)
   globe.setCalm(layers.calm); layers.onCalm = on => { state.calm = on; globe.setCalm(on); registry.apply(state); };

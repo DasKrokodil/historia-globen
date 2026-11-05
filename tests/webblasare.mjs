@@ -736,6 +736,66 @@ async function run(browser, vp) {
     return `${before} → ${after}`;
   });
 
+  await check('Stäng av alla lager och återställ Standard', async () => {
+    const panel = page.locator('#panel');
+    const menu = page.locator('#layer-menu');
+    try {
+      if (await panel.evaluate(el => el.classList.contains('open'))) await page.click('#panel-close');
+      await page.click('#btn-layers');
+      await visible('#layer-menu');
+      if (await page.locator('#layer-custom').isHidden()) await page.click('#layer-customize');
+      await visible('#layer-custom');
+      await page.getByRole('button', { name: 'Stäng av alla lager' }).focus();
+      await page.keyboard.press('Enter');
+      await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="bara-kartan"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+      const offStates = await page.locator('#layer-custom input[data-layer]').evaluateAll(inputs =>
+        inputs.filter(input => input.closest('[data-group]')?.dataset.group !== 'settings').map(input => input.checked));
+      if (!offStates.length || offStates.some(Boolean)) throw new Error('Stäng av alla lämnade lager på');
+      if ((await page.locator('.layer-action-status').textContent()).trim() !== 'Alla lager är avstängda.') {
+        throw new Error('statusraden säger inte att alla lager är avstängda');
+      }
+
+      await page.getByRole('button', { name: 'Bara kartan', exact: true }).click();
+      if (await page.locator('#layer-menu [data-view="bara-kartan"]').getAttribute('aria-pressed') !== 'true') {
+        throw new Error('vyn Bara kartan markeras inte som vald');
+      }
+      await page.keyboard.press('Escape');
+      await hidden('#layer-menu');
+      await page.click('#btn-panel');
+      await visible('#panel');
+      if ((await page.locator('#panel-sub').textContent()).trim() !== 'Händelselagret är avstängt.') {
+        throw new Error('Samtidigt förklarar inte att händelselagret är avstängt');
+      }
+      await page.getByRole('button', { name: 'Slå på händelselagret' }).click();
+      if (!await page.locator(layerRow('events')).isChecked()) throw new Error('panelen slog inte på händelselagret');
+      if (await page.evaluate(() => document.activeElement?.id) !== 'btn-panel') throw new Error('fokus hamnade inte på den synliga panelknappen');
+      await page.click('#btn-panel');
+      await page.click('#btn-layers');
+      await visible('#layer-menu');
+      if (await page.locator('#layer-custom').isHidden()) await page.click('#layer-customize');
+      await visible('#layer-custom');
+      await page.getByRole('button', { name: 'Återställ standardvyn' }).click();
+      await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="standard"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+      if ((await page.locator('.layer-action-status').textContent()).trim() !== 'Standardvyn är återställd.') {
+        throw new Error('statusraden bekräftar inte återställningen');
+      }
+      const expected = await page.evaluate(() => fetch('data/vyer.json').then(response => response.json()).then(doc => doc.views.find(view => view.id === 'standard').layers));
+      const standardStates = await page.locator('#layer-custom input[data-layer]').evaluateAll(inputs =>
+        Object.fromEntries(inputs.filter(input => input.closest('[data-group]')?.dataset.group !== 'settings').map(input => [input.dataset.layer, input.checked])));
+      if (expected.some(id => standardStates[id] !== true) || Object.entries(standardStates).some(([id, on]) => on !== expected.includes(id))) {
+        throw new Error(`Återställ gav inte Standard: ${JSON.stringify(standardStates)}`);
+      }
+      return 'alla kontrollerade lager stängs av, Samtidigt kan slå på Händelser och Återställ återställer Standard';
+    } finally {
+      if (await panel.evaluate(el => el.classList.contains('open'))) await page.click('#panel-close');
+      if (await menu.isHidden()) await page.click('#btn-layers');
+      if (await page.locator('#layer-custom').isHidden()) await page.click('#layer-customize');
+      await page.getByRole('button', { name: 'Återställ standardvyn' }).click();
+      await page.keyboard.press('Escape');
+      await hidden('#layer-menu');
+    }
+  });
+
   await check('Upptäcktsvyns förklaring går att fälla ihop', async () => {
     await setLayer('discovery', true);
     await page.keyboard.press('Escape');
