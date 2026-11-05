@@ -307,7 +307,7 @@ export class Panel {
       <h4>Parterna</h4>
       <div class="parties">${s.parties.map(p => `<div><strong>${esc(t(p.name))}</strong><p>${esc(t(p.members))}</p></div>`).join('')}</div>
       ${empireList(war._empires)}
-      <p class="story-hint">Tryck på ▶ för att följa kriget.</p>` : war.ongoing ? `
+      <p class="story-hint">Tryck på ▶ för att följa kriget.</p>${(() => { const tour = this.tourFor?.(war.id); return tour ? `<button type="button" class="story-tour" data-tour="${esc(tour.id)}">${esc(tour.label)}</button>` : ''; })()}` : war.ongoing ? `
       <h4>Läget i dag</h4><p>${esc(t(s.outcome))}</p>
       <h4>Döda hittills, enligt uppskattningar</h4><p>${esc(t(s.casualties))}</p>` : `
       <h4>Hur kriget slutade</h4><p>${esc(t(s.outcome))}</p>
@@ -331,6 +331,7 @@ export class Panel {
     this.bindReport(war.start);
     this.bindLinks();
     this.bindReviewInfo(); // statusraden med (i) som i händelsens faktaruta (#608)
+    this.detail.querySelector('[data-tour]')?.addEventListener('click', ev => this.onTour?.(ev.currentTarget.dataset.tour, ev.currentTarget));
   }
 
   /** Knappen "Rapportera faktafel" skickar bara objektets typ och id till formuläret. */

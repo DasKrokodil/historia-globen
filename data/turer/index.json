@@ -10,6 +10,8 @@
     "end": { "sv": "Avsluta turen", "en": "End the tour" },
     "done": { "sv": "Klar", "en": "Done" },
     "read": { "sv": "Läs om händelsen", "en": "Read about the event" },
+    "question": { "sv": "Att fundera på:", "en": "Something to think about:" },
+    "story": { "sv": "Följ berättelsen: {title} ({total} steg)", "en": "Follow the story: {title} ({total} steps)" },
     "sources": { "sv": "Källor", "en": "Sources" },
     "paused": { "sv": "Turen: {title}", "en": "Tour: {title}" }
   }

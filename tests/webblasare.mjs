@@ -495,6 +495,30 @@ async function run(browser, vp) {
     return 'tre steg med år, lager och paus; Nästa, Fortsätt, Föregående och Avsluta fungerar';
   });
 
+  await check('krigets första kort startar berättelsen med kapitel och frågor (#247)', async () => {
+    const startYear = Number(await page.getAttribute('#track', 'aria-valuenow'));
+    await clickView('#btn-focus');
+    await page.fill('#focus-menu input', 'Första världskriget');
+    await page.click('#focus-menu [data-key="war:forsta-varldskriget"]');
+    const start = page.locator('#detail .story-tour[data-tour="forsta-varldskriget"]');
+    await start.waitFor({ state: 'visible', timeout: T.step });
+    await start.click();
+    await visible('#tour-card');
+    if (!(await page.isVisible('#tour-chapter'))) throw new Error('första steget visar inget kapitel');
+    if ((await page.textContent('#tour-chapter')).trim() !== 'Hur kriget började') throw new Error('fel kapitel i första steget');
+    await page.click('#tour-next');
+    if (!(await page.isVisible('#tour-question'))) throw new Error('andra steget visar ingen fråga');
+    if (!(await page.textContent('#tour-question')).includes('Att fundera på')) throw new Error('frågan saknar rubrik');
+    await page.click('#tour-close');
+    await hidden('#tour-card');
+    // Turen återställer fokus på kriget; lämna sidan som den var
+    if (!(await page.evaluate(() => document.getElementById('focus-bar').hidden))) await page.click('#focus-exit');
+    await page.$eval('#focus-menu input', el => { el.value = ''; el.dispatchEvent(new Event('input', { bubbles: true })); });
+    if (await page.isVisible('#detail')) await page.click('#detail [data-close]');
+    await jumpTo(startYear);
+    return 'Följ berättelsen i krigets kort; kapitel i steg 1 och fråga i steg 2; Avsluta återställer fokus';
+  });
+
   await check('Samtidigt-kortet går till nästa händelse', async () => {
     await visible('#funfact');
     if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');

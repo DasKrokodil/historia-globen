@@ -2,8 +2,11 @@
 // Den här filen kontrollerar en tur utan att röra sidan, så att samma regler gäller i webbläsaren
 // (js/ui/tour.js) och i testerna (tests/tour.test.mjs). Inga importer: filen ska gå att läsa i node.
 //
-// En tur:  { schema, version, id, title, summary?, review, steps: [steg, ...] }
-// Ett steg: { id, at, camera: { lat, lon, zoom }, title?, text, layers: [lager-id], open?, sources: [käll-id] }
+// En tur:  { schema, version, id, title, summary?, war?, review, steps: [steg, ...] }
+//   war     valfritt: kriget (händelse-id) som turen berättar om; krigets första kort får då "Följ berättelsen" (#247)
+// Ett steg: { id, at, camera: { lat, lon, zoom }, title?, chapter?, question?, text, layers: [lager-id], open?, sources: [käll-id] }
+//   chapter valfritt kapitelnamn per språk, visas ovanför rubriken (berättelseläget, #247)
+//   question valfri fråga att fundera på, per språk; den påstår inget som stegets källor inte säger
 //   at      år med astronomisk årsräkning; decimaltal är tillåtet (delar av år, #204), men utanför
 //           fokusläget för korta krig visar tidslinjen hela år
 //   camera  globens kameraläge; zoom som globen (0.8–3.2). Platt vy använder samma mitt.
@@ -32,6 +35,7 @@ export function tourProblems(tour, known = {}) {
   if (typeof tour.id !== 'string' || !ID.test(tour.id)) say('id saknas eller har fel tecken.');
   if (!isText(tour.title)) say('titeln saknas (title.sv).');
   if (!TOUR_REVIEW.includes(tour.review)) say(`okänd granskningsstatus ${tour.review}.`);
+  if (tour.war != null && (typeof tour.war !== 'string' || (known.events && !known.events.has(tour.war)))) say(`kriget ${tour.war} finns inte.`);
   if (!Array.isArray(tour.steps) || !tour.steps.length) { say('har inga steg.'); return out; }
   const ids = new Set();
   tour.steps.forEach((s, i) => {
@@ -46,6 +50,8 @@ export function tourProblems(tour, known = {}) {
     else if (Math.abs(c.lat) > 90 || Math.abs(c.lon) > 180 || c.zoom < 0.8 || c.zoom > 3.2) say(`${where}: kameran ligger utanför jorden eller zoomen (0.8–3.2).`);
     if (!isText(s.text)) say(`${where}: texten saknas (text.sv).`);
     if (s.title != null && !isText(s.title)) say(`${where}: titeln ska vara text per språk.`);
+    if (s.chapter != null && !isText(s.chapter)) say(`${where}: kapitlet ska vara text per språk.`);
+    if (s.question != null && !isText(s.question)) say(`${where}: frågan ska vara text per språk.`);
     if (!Array.isArray(s.layers)) say(`${where}: layers ska vara en lista med lager-id.`);
     else for (const l of s.layers) if (known.layers && !known.layers.has(l)) say(`${where}: lagret ${l} finns inte.`);
     if (s.open != null && (typeof s.open !== 'string' || (known.events && !known.events.has(s.open)))) say(`${where}: händelsen ${s.open} finns inte.`);

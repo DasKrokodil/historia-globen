@@ -9,6 +9,7 @@
   "summary": {
     "sv": "Från anfallet på Polen 1939 till Japans kapitulation 1945, i Europa, Nordafrika och Stilla havet."
   },
+  "war": "andra-varldskriget",
   "review": "source-checked",
   "steps": [
     {
@@ -18,6 +19,9 @@
         "lat": 52.0,
         "lon": 19.0,
         "zoom": 1.6
+      },
+      "chapter": {
+        "sv": "1939–1940: kriget i Europa börjar"
       },
       "title": {
         "sv": "Polen, 1 september 1939"
@@ -77,6 +81,9 @@
       "text": {
         "sv": "Det tyska flygvapnet anfaller Storbritannien men tar inte herraväldet i luften. Hitler skjuter upp den planerade invasionen och ställer till slut in den."
       },
+      "question": {
+        "sv": "Tyskland tog Frankrike på några veckor, men lyckades inte i luften över Storbritannien. Vad gjorde det svårare att anfalla en ö?"
+      },
       "layers": [
         "events",
         "wars",
@@ -85,6 +92,7 @@
       "open": "slaget-om-storbritannien",
       "sources": [
         "wp-battle-of-britain",
+        "wp-battle-of-france",
         "wikidata"
       ]
     },
@@ -95,6 +103,9 @@
         "lat": 52.1,
         "lon": 23.7,
         "zoom": 1.5
+      },
+      "chapter": {
+        "sv": "1941: Sovjetunionen och USA dras in"
       },
       "title": {
         "sv": "Sovjetunionen, 22 juni 1941"
@@ -129,6 +140,9 @@
       "text": {
         "sv": "Samma år i Stilla havet: japanska flygplan från sex hangarfartyg anfaller den amerikanska Stillahavsflottan. USA förklarar krig mot Japan dagen efter, och Tyskland förklarar sedan krig mot USA."
       },
+      "question": {
+        "sv": "Barbarossa och Pearl Harbor hände samma år, långt från varandra. Vad kan det ha betytt att både Sovjetunionen och USA nu var med i kriget?"
+      },
       "layers": [
         "events",
         "wars",
@@ -149,6 +163,9 @@
         "lat": 28.0,
         "lon": -178.0,
         "zoom": 1.3
+      },
+      "chapter": {
+        "sv": "1942–1943: axelmakterna stoppas"
       },
       "title": {
         "sv": "Midway, 4–7 juni 1942"
@@ -232,6 +249,9 @@
       "text": {
         "sv": "I november 1942 omringar Röda armén den tyska sjätte armén vid Volga, och när striderna tar slut den 2 februari 1943 är den utplånad. Slaget ses allmänt som vändpunkten i kriget i Europa. En vecka senare drar Japan tillbaka sina sista styrkor från Guadalcanal."
       },
+      "question": {
+        "sv": "Varför tror du att ett slag om en enda stad kan ses som en vändpunkt i ett helt krig?"
+      },
       "layers": [
         "events",
         "wars",
@@ -251,6 +271,9 @@
         "lat": 49.3,
         "lon": -0.6,
         "zoom": 1.7
+      },
+      "chapter": {
+        "sv": "1944–1945: kriget i Europa slutar"
       },
       "title": {
         "sv": "Normandie, 6 juni 1944"
@@ -282,6 +305,9 @@
       },
       "text": {
         "sv": "Sovjetiska trupper befriar Auschwitz. Minst 1,1 miljoner människor dog i lägret, de flesta judar. Det blev en symbol för Förintelsen, där omkring sex miljoner judar mördades."
+      },
+      "question": {
+        "sv": "Den 27 januari är i dag en minnesdag för Förintelsens offer. Varför tror du att man har valt just den dagen?"
       },
       "layers": [
         "events",
@@ -330,6 +356,9 @@
         "lon": 131.0,
         "zoom": 1.6
       },
+      "chapter": {
+        "sv": "1945: kriget mot Japan slutar"
+      },
       "title": {
         "sv": "Hiroshima och Nagasaki, 6 och 9 augusti 1945"
       },
@@ -361,6 +390,9 @@
       "text": {
         "sv": "Japan och nio allierade länder skriver under kapitulationen ombord på USS Missouri. Andra världskriget är slut."
       },
+      "question": {
+        "sv": "Kriget i Europa slutade i maj, men mot Japan först i september. Vad betydde det för dem som fortfarande stred?"
+      },
       "layers": [
         "events",
         "wars",
@@ -370,6 +402,7 @@
       "sources": [
         "wp-japanese-surrender",
         "wp-world-war-ii",
+        "wp-german-surrender",
         "wikidata"
       ]
     }
