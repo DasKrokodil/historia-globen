@@ -988,15 +988,26 @@ async function run(browser, vp) {
         const names = layer.activeCapitals.map(x => x.name.sv);
         return { year, want: c.name.sv, names, ok: names.includes(c.name.sv) || !layer.active.length };
       });
+      // #616: en händelsemarkör på huvudstaden. Namnet ska då stå bredvid markören, inte under den.
+      layer.update({ year: checks[0].year });
+      const c0 = layer.activeCapitals[0];
+      let skymd = null;
+      if (c0) {
+        layer.setView({ pxPerImg: 1, markers: [{ lon: c0.at[0], lat: c0.at[1], r: 20 }] });
+        layer._layout();
+        const cap = layer._lay.caps[0], x = (c0.at[0] + 180) / 360 * 2048, y = (90 - c0.at[1]) / 180 * 1024, r = 20 / 2;
+        skymd = cap.b.x0 < x + r && x - r < cap.b.x1 && cap.b.y0 < y + r && y - r < cap.b.y1 ? cap.name : null;
+      }
       layer.onlyGroup = null;
       layer.update({ year: checks[0].year });
-      return { group: g.id, checks, utanFokus: layer.activeCapitals.length };
+      return { group: g.id, checks, utanFokus: layer.activeCapitals.length, skymd };
     });
     if (r.missing) throw new Error('inget rike med två daterade huvudstäder i data/genererat/riken.json');
     const bad = r.checks.find(c => !c.ok);
     if (bad) throw new Error(`${r.group} ${bad.year}: väntade ${bad.want}, fick ${bad.names.join(', ') || 'ingen'}`);
     if (r.utanFokus) throw new Error('huvudstäder visas fast inget rike följs');
-    return `${r.group}: ${r.checks.map(c => `${c.year} ${c.want}`).join(', ')}; inga utan Fokus`;
+    if (r.skymd) throw new Error(`${r.skymd}: namnet ligger under en händelsemarkör på staden (#616)`);
+    return `${r.group}: ${r.checks.map(c => `${c.year} ${c.want}`).join(', ')}; inga utan Fokus; namnet viker för en markör`;
   });
 
   await check('Upptäcktsvyns förklaring går att fälla ihop', async () => {
