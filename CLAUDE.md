@@ -23,6 +23,8 @@ Historia-globen är en snurrbar jordglob i webbläsaren. Man drar i tiden och se
 
 ```
 index.html
+CONTENT-LICENSE.md   sammanfattning av licenser för kod, data och bilder
+THIRD-PARTY-NOTICES.md licenser för externa komponenter och datakällor
 AGENTS.md             regler för Codex och andra agenter; pekar på CLAUDE.md
 _headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
 css/style.css
@@ -53,6 +55,7 @@ data/events.json      händelser
 data/funfacts.json    fun facts (kopplade till händelse-id)
 data/intro.json       introduktionens steg och referenser till befintliga händelser/fun facts (#363)
 data/sources.json     källregister
+data/licenses.json    genererat register över källornas licensuppgifter (#393)
 data/land.json        grundkarta: Natural Earth 1:50m, färdigprojicerad SVG-path i 4096×2048
 data/empires/         riken: index.json och en fil per rike, byggs med tools/riken.py ur Cliopatria
 data/routes/          vägar och resor: index.json listar filerna, en fil per resa eller väg (#38)
@@ -64,9 +67,10 @@ data/religions-polities.json  rikenas områden per religion och period, laddas v
 data/styles.json      bildstilar efter tidsålder och plats (ramar och promptar)
 data/utkast/          utkast från massimport (draft), läses inte av appen; hced.json byggs med tools/hced.py
 images/events/        bilder till händelser, <händelse-id>.webp, 800 × 600
+images/licenses.json  genererat register över händelsebildernas licenser (#393)
 images/karta/         kartbilder till upptäcktsvyn (public domain, ur gamla kartor)
 images/incoming/      Rikards nya bilder, innan de konverteras
-tools/                hjälpskript som körs för hand (riken, bildpromptar, bildkonvertering; dela_data.py efter varje ändring i events.json och empires/index.json)
+tools/                hjälpskript som körs för hand; tools/license_manifests.py genererar licensmanifesten, och dela_data.py körs efter ändring i events.json eller empires/index.json
 docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar, publicering (DEPLOYMENT.md), besökarnas förslag (feedback.md), externa granskningar (granskningar/)
 scripts/              build-site.sh kopierar webbplatsens filer till dist/ och kör validate-site.py (publicering, ingen kodändring)
 .orchestra/           dirigenten och orkestern: project.md (projektets policy) och shared/ (fäst version, redigeras inte)

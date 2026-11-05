@@ -53,6 +53,8 @@ python3 -m http.server 8000
 
 ```
 index.html
+CONTENT-LICENSE.md   sammanfattning av licenserna för kod, data och bilder
+THIRD-PARTY-NOTICES.md licenser för externa komponenter och datakällor
 AGENTS.md             regler för Codex och andra agenter; pekar på CLAUDE.md
 _headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
 css/style.css
@@ -96,19 +98,22 @@ img/favicon.svg       sidans ikon i webbläsarfliken (och PNG-versioner för äl
 images/events/        bilder till händelser (historiska bilder och märkta illustrationer)
 images/karta/         upptäcktsvyns detaljer ur gamla kartor (havsmonster och kompassros, public domain)
 images/incoming/      nya bilder innan de konverteras
-tools/                hjälpskript som körs för hand (Python): riken, religioner, bildpromptar och bildkonvertering
+tools/                hjälpskript som körs för hand (Python): riken, religioner, bildpromptar, bildkonvertering och licensmanifest
 docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar; docs/bilder/ har skärmbilderna i README; docs/granskningar/ tar emot externa granskningar
 .orchestra/           arbetsflödet dirigenten och orkestern (MIT-licens)
 data/events.json      händelser
 data/funfacts.json    fun facts, kopplade till händelser
 data/intro.json       introduktionens startår, texter och referenser till befintliga händelser/fun facts (#363, #516)
 data/sources.json     källregister
+data/licenses.json    genererat register över källornas licensuppgifter
+images/licenses.json  genererat register över händelsebildernas licenser (#393)
 data/land.json        grundkarta (Natural Earth)
 tools/riken.py        bygger rikesfilerna ur Cliopatria
 tools/dela_data.py    delar upp events.json och empires/index.json i data/genererat/ (körs efter varje ändring i dem)
 tools/tackningsrapport.py  skriver docs/tackningsrapport.md med täckningen per världsdel, århundrade och kategori
 tools/religioner.py   bygger religionslagret (data/religions.json) ur Cliopatria och faktarutornas texter, med arv av religion
 tools/religioner_riken.py  bygger rikenas gränser för religionslagrets klickruta ur Cliopatria
+tools/license_manifests.py  genererar data/licenses.json och images/licenses.json; validate-site.py kontrollerar att de är aktuella
 data/empires/         riken med utbredning per period, en fil per rike och index.json (Cliopatria)
 data/borders.json     dagens landsgränser (Natural Earth)
 data/routes/          vägar och resor (lagertyp linje): index.json och en fil per resa eller väg
@@ -161,6 +166,8 @@ Hur kontrollen går till står i [docs/kallor.md](docs/kallor.md).
 Hittar du ett faktafel, öppna ett issue och ange vilken uppgift det gäller och en källa som visar det rätta. Nya händelser tas emot på samma sätt: med källa, plats och årtal.
 
 ## Licenser
+
+Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna](THIRD-PARTY-NOTICES.md) och de maskinläsbara manifesten `data/licenses.json` och `images/licenses.json`.
 
 - **Koden** är licensierad under [GNU GPL v3.0](LICENSE). Du får använda, ändra och sprida den, men det du sprider vidare måste också vara öppet under GPL.
 - **Datan** i `data/` (händelser, fun facts och källregister) är licensierad under [CC BY 4.0](data/LICENSE). Ange "Historia-globen" som källa vid användning.
