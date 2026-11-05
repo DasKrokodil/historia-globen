@@ -1,6 +1,6 @@
 {
   "schema": "historia-globen/turer@1",
-  "tours": ["andra-varldskriget", "tre-platser-1325"],
+  "tours": ["andra-varldskriget", "forsta-varldskriget", "tre-platser-1325"],
   "labels": {
     "button": { "sv": "Turer", "en": "Tours" },
     "menuTitle": { "sv": "Guidade turer", "en": "Guided tours" },
