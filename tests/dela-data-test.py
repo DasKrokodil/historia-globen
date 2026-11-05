@@ -69,7 +69,7 @@ def extra_file(root):
     (root / 'data' / 'handelser' / 'medeltid.json').write_text('{"events": []}', encoding='utf-8')
 
 
-rejects('händelse i fel periodfil', move_first_to('fkr', '1946-'), 'ska ligga i data/handelser/fkr.json')
+rejects('händelse i fel periodfil', move_first_to('fkr', '1980-'), 'ska ligga i data/handelser/fkr.json')
 rejects('samma id två gånger', edit_period('1-1499', copy_first_event), 'finns redan i data/handelser/1-1499.json')
 rejects('okänd fil i data/handelser/', extra_file, 'data/handelser/medeltid.json är ingen periodfil')
 rejects('events.json ändrad för hand', hand_edit_events_json, 'data/events.json stämmer inte med redigeringsfilerna')
