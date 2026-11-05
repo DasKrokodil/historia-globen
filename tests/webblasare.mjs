@@ -967,6 +967,35 @@ async function run(browser, vp) {
     return 'fälls ihop och ut; valet sparas i sessionen';
   });
 
+  // #377, regel A: dimman lyfts över hela riket när en resa har nått dess område. USA används eftersom issuets
+  // krav är att USA syns under inbördeskriget (1863). Den riktiga modulen och USA:s fil laddas; vägarna ersätts av
+  // en punkt i landet (reached), så att testet inte beror på vilka resor som finns i datan.
+  await check('upptäcktsvyn lyfter dimman över ett rike som en resa har nått', async () => {
+    const r = await page.evaluate(async () => {
+      const { DiscoveryLayer } = await import('./js/layers/discovery.js');
+      const get = url => fetch(url).then(res => res.json());
+      const [doc, index] = await Promise.all([get('data/upptackt.json'), get('data/empires/index.json')]);
+      const group = index.groups.find(g => g.id === 'usa');
+      if (!group) return { missing: true };
+      const { polities } = await get(group.file);
+      const last = polities[0].periods.at(-1);
+      const lifted = (pts, year) => {
+        const layer = new DiscoveryLayer(doc, null);
+        layer.enabled = true;
+        layer._loadImages = () => {};
+        layer.addEmpire(group.id, polities);
+        layer.update({ year, lines: { routes: [1], reached: () => [pts] } });
+        return layer.lifted.length;
+      };
+      return { inne: lifted([last.label], 1863), fore: lifted([last.label], group.from - 1), langtBort: lifted([[0, 0]], 1863) };
+    });
+    if (r.missing) throw new Error('USA saknas i data/empires/index.json (#407)');
+    if (!r.inne) throw new Error('dimman lyfts inte över USA 1863 fast en resa har nått landet');
+    if (r.fore) throw new Error('dimman lyfts över USA innan landet fanns');
+    if (r.langtBort) throw new Error('dimman lyfts över USA fast ingen resa har nått landet');
+    return `USA 1863: ${r.inne} perioder lyfta; före landet fanns och utan kontakt: inga`;
+  });
+
   await check('Fokus öppnas och följer ett rike', async () => {
     if (!(await page.locator('#religion-legend').isHidden())) throw new Error('rikesförklaringen syns på startskärmen');
     await clickView('#btn-focus');
