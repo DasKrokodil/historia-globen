@@ -496,6 +496,7 @@ async function run(browser, vp) {
   });
 
   await check('slutkortet visar det viktigaste att ta med sig med källa per punkt (#500)', async () => {
+    const startYear = Number(await page.getAttribute('#track', 'aria-valuenow'));
     await clickView('#btn-focus');
     await page.fill('#focus-menu input', 'Första världskriget');
     await page.click('#focus-menu [data-key="war:forsta-varldskriget"]');
@@ -513,6 +514,10 @@ async function run(browser, vp) {
     if (!items.length || items.includes(false)) throw new Error('en punkt saknar egen källa');
     await page.click('#focus-exit');
     await page.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+    // Lämna sidan som den var för nästa kontroll: tom sökruta i Fokus och samma år som före kontrollen
+    await page.$eval('#focus-menu input', el => { el.value = ''; el.dispatchEvent(new Event('input', { bubbles: true })); });
+    if (await page.isVisible('#detail')) await page.click('#detail [data-close]');
+    await jumpTo(startYear);
     return `${items.length} punkter under tre rubriker, var och en med källa`;
   });
 
