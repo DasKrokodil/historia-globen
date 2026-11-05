@@ -1782,9 +1782,9 @@ async function run(browser, vp) {
     const before = await page.locator('.src-list tbody tr').count();
     await page.selectOption('#src-status', 'two');
     const hits = await page.textContent('.src-hits');
-    if (!hits.includes('Två jämförda källor')) throw new Error(`träffraden nämner inte filtret: ${hits}`);
+    if (!hits.includes('Två källor stämmer')) throw new Error(`träffraden nämner inte filtret: ${hits}`);
     const after = await page.locator('.src-list tbody tr').count();
-    if (!after || after >= before) throw new Error(`filtret Två jämförda källor gav ${after} rader av ${before}`);
+    if (!after || after >= before) throw new Error(`filtret Två källor stämmer gav ${after} rader av ${before}`);
     await shot('517-kallor-filter');
     // Tomt resultat: ett sökord som inget matchar ger en tydlig rad i stället för en tom lista
     await page.fill('#src-q', 'zzqxv');

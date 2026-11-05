@@ -89,11 +89,11 @@
   "sourcesSummary": {
     "title": { "sv": "Så läser du statusen", "en": "How to read the status" },
     "checked": {
-      "label": { "sv": "Kontrollerad källa", "en": "Checked source" },
+      "label": { "sv": "Källkontrollerad", "en": "Source checked" },
       "text": { "sv": "Uppgiften har jämförts med en källa som har öppnats och lästs.", "en": "The claim has been compared with a source that was opened and read." }
     },
     "two": {
-      "label": { "sv": "Två jämförda källor", "en": "Two sources compared" },
+      "label": { "sv": "Två källor stämmer", "en": "Two sources agree" },
       "text": { "sv": "Årtal och plats har också jämförts med en andra, oberoende källa, och de stämmer.", "en": "Year and place have also been compared with a second, independent source, and they agree." }
     },
     "uncertain": {
