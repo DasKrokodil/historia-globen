@@ -65,6 +65,16 @@ Codex får köra orkestern (beslut 2026-11-01): `$orkester` följer `.orchestra/
 - **Claude Code granskar** varje pull request, och bara Rikard slår ihop. Orkesterpasset i Claude Code och Codex hoppar över varandras issues (`orkester: pågår` och `codex: pågår`).
 - **Fältrapport efter varje pass:** skriv en kort kommentar på #412 om hur orkestern fungerade i Codex: antal arbetare och pull requests, vad som gick bra, vad som krånglade (regler som var oklara, saknades eller inte passade Codex, krockar, omkörda tester) och konkreta förslag på ändringar i `.orchestra/shared/`. Ändra inte `.orchestra/shared/` själv; förslagen samlas till en pull request till upstream (Olofs dirigenten-och-orkestern) efter Rikards utvärdering.
 
+## Röd kontroll eller slut på tid: samma regel för alla agenter (beslut 2026-11-05)
+
+Gäller Claude Code, Codex och Copilot.
+
+1. **Läs loggen först.** Är en kontroll röd: öppna loggen för just den kontrollen (GitHub Actions) och hitta den **första** felande kontrollen innan du ändrar något. Följdfel är vanliga. Gissa inte.
+2. **Kör bara det som felade** när det går (till exempel det enskilda steget eller testet), inte hela webbläsartestet efter varje ändring. Hela sviten tar flera minuter och kostar mycket tid och kvot. Kör hela sviten en gång innan du lämnar in.
+3. **Högst två försök.** Har du rättat två gånger och kontrollen är fortfarande röd: stanna. Committa och pusha det du har och skriv en kommentar i pull requesten eller issuet: vad som är klart, vilket fel som återstår (kontrollens namn och felraden), vad du har provat och vad du tror är nästa steg. Hoppa aldrig över, ta aldrig bort och försvaga aldrig ett test för att få det grönt.
+4. **Tar kvoten, tiden eller kontexten slut:** gör som i punkt 3 direkt, så att någon annan kan ta över utan att börja om. Ett `pågår` utan aktiv arbetare avmarkeras (regel 3 för flödet).
+5. **Den som tar över** läser kommentaren och loggen, och bryter inte regeln "ett issue, en ägare": ägaren byts uttryckligen i en kommentar och i etiketten.
+
 ## Testa innan pull request
 
 Enligt CLAUDE.md, "Testa innan du är klar":

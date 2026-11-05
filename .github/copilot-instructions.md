@@ -39,6 +39,13 @@ Enligt CLAUDE.md, "Testa innan du är klar", och AGENTS.md, "Testa innan pull re
 - Ändras `functions/`: `node --test 'tests/*.test.mjs'`.
 - Testa beteendet, inte bara att inget kraschar: synlig text (inga råa nycklar), var tangentbordsfokus hamnar, och räkna hur många poster en dataregel slår på.
 
+## Röd kontroll eller slut på kvot
+
+1. **Läs loggen först:** öppna loggen för den felande kontrollen i GitHub Actions och hitta den första felande kontrollen innan du ändrar. Gissa inte.
+2. **Kör bara det som felade**, inte hela webbläsartestet efter varje ändring. Kör hela sviten en gång innan du lämnar in.
+3. **Högst två försök.** Är kontrollen fortfarande röd efter två rättningar: stanna, committa och pusha, och skriv en kommentar i pull requesten eller issuet med vad som är klart, vilket fel som återstår (kontrollens namn och felraden), vad du har provat och nästa steg. Försvaga eller ta aldrig bort ett test för att få det grönt.
+4. **Närmar sig kvoten slut:** gör samma sak direkt. Rapporten ska räcka för att någon annan tar över utan att börja om. Se AGENTS.md, "Röd kontroll eller slut på tid".
+
 ## Pull request
 
 - Rubrik och beskrivning på svenska, med `Closes #N`, vad som ändrats, varför, hur Rikard testar det och vad du inte har kunnat testa.
