@@ -54,7 +54,7 @@ Händelserna redigeras här. Sidan läser dem uppdelade i ett index och de lång
   "sources": ["wp-crucifixion", "wp-jerusalem"], "review": "source-checked" }
 ```
 
-**Obligatoriska fält:** `id` (läsbart och unikt), `category` (en av de tretton kategorierna i `model.js`), `start`, `end`, `precision`, `edtf`, `location`, `place`, `title`, `summary`, `sources` och `review`.
+**Obligatoriska fält:** `id` (läsbart och unikt), `category` (en av de fjorton kategorierna i `model.js`; `katastrofer` sedan #554), `start`, `end`, `precision`, `edtf`, `location`, `place`, `title`, `summary`, `sources` och `review`.
 
 **Valfria fält:**
 

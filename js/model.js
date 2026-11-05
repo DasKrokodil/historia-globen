@@ -27,7 +27,10 @@ export const CATEGORIES = [
   { id: 'sport',          name: { sv: 'Sport' },                          color: '#f28c45', count: { sv: ['sporthändelse', 'sporthändelser'] } },
   { id: 'ekonomi',        name: { sv: 'Ekonomi och handel' },             color: '#a9bd5e', count: { sv: ['händelse i ekonomin', 'händelser i ekonomin'] } },
   { id: 'halsa',          name: { sv: 'Hälsa och epidemier' },            color: '#d8d46e', count: { sv: ['hälsohändelse', 'hälsohändelser'] } },
-  { id: 'klimat',         name: { sv: 'Klimat och naturkatastrofer' },    color: '#7aa4e6', count: { sv: ['klimathändelse', 'klimathändelser'] } },
+  { id: 'klimat',         name: { sv: 'Klimat' },                         color: '#7aa4e6', count: { sv: ['klimathändelse', 'klimathändelser'] } },
+  // Katastrofer (#554, beslut 2026-11-03): natur- och teknikkatastrofer, svält. Inte epidemier (halsa) eller krig.
+  // Violett, eftersom den skiljer sig från krig och de andra färgerna även vid simulerad färgblindhet.
+  { id: 'katastrofer',    name: { sv: 'Katastrofer' },                    color: '#c256f5', count: { sv: ['katastrof', 'katastrofer'] } },
   { id: 'rymden',         name: { sv: 'Rymden' },                         color: '#cfcbff', count: { sv: ['rymdhändelse', 'rymdhändelser'] } },
 ];
 export const CAT = Object.fromEntries(CATEGORIES.map(c => [c.id, c]));

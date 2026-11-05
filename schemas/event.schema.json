@@ -13,7 +13,7 @@
         "required": ["id", "category", "start", "end", "precision", "edtf", "location", "place", "title", "summary", "sources", "review"],
         "properties": {
           "id": { "type": "string", "pattern": ".+" },
-          "category": { "type": "string", "enum": ["natur", "manniskan", "civilisationer", "religion", "vetenskap", "upptackter", "krig", "kultur", "sport", "ekonomi", "halsa", "klimat", "rymden"] },
+          "category": { "type": "string", "enum": ["natur", "manniskan", "civilisationer", "religion", "vetenskap", "upptackter", "krig", "kultur", "sport", "ekonomi", "halsa", "klimat", "katastrofer", "rymden"] },
           "start": { "type": "integer" },
           "end": { "type": "integer" },
           "precision": { "type": "integer", "minimum": 0, "maximum": 11 },

@@ -373,6 +373,33 @@ async function run(browser, vp) {
     return 'Oxford: vanlig 1100, hopfälld 1612; Visa fler nås med tangentbord';
   });
 
+  await check('kategorin Katastrofer visar Tjernobyl (#554)', async () => {
+    await jumpTo(1986);
+    if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
+    await visible('#panel');
+    const chip = page.locator('#panel-filters [data-cat="katastrofer"]');
+    if (await chip.count() !== 1) throw new Error('filterknappen Katastrofer saknas');
+    if ((await chip.textContent()).trim() !== 'Katastrofer') throw new Error(`filterknappen heter "${(await chip.textContent()).trim()}"`);
+    // Färgen mot panelens bakgrund (--night-2): minst 3:1 för en grafisk markering (WCAG 1.4.11, #505)
+    const ratio = await chip.evaluate(el => {
+      const rgb = c => c.match(/\d+(\.\d+)?/g).slice(0, 3).map(Number);
+      const lum = c => { const [r, g, b] = rgb(c).map(v => { v /= 255; return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+      const probe = document.createElement('span'); probe.style.color = 'var(--night-2)'; document.body.append(probe);
+      const bg = getComputedStyle(probe).color; probe.remove();
+      const [a, b] = [lum(getComputedStyle(el.querySelector('.dot')).backgroundColor), lum(bg)].sort((x, y) => y - x);
+      return (a + 0.05) / (b + 0.05);
+    });
+    if (ratio < 3) throw new Error(`kategorifärgen har bara kontrasten ${ratio.toFixed(1)}:1`);
+    const row = page.locator('#event-list .event-btn', { hasText: 'Tjernobylkatastrofen' });
+    await row.first().waitFor({ state: 'visible', timeout: T.step });
+    await chip.click();
+    await row.first().waitFor({ state: 'detached', timeout: T.step });
+    await chip.click();
+    await row.first().waitFor({ state: 'visible', timeout: T.step });
+    await page.click('#panel-close');
+    return `filterknapp, Tjernobyl följer filtret, kontrast ${ratio.toFixed(1)}:1`;
+  });
+
   await check('introduktionen startas frivilligt från Utforska', async () => {
     // Samtidigt-provet ovan öppnar listan för Visa fler. Stäng den som en besökare gör så att
     // introduktionsknappen provas utan en avsiktligt överlagrad panel i mobilbredd.
