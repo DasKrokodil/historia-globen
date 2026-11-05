@@ -212,11 +212,10 @@ body {
   background: var(--night); border: 1px solid var(--control-line); border-radius: 8px;
 }
 .jump-input:focus { border-color: var(--brass); outline: none; }
-.jump-era { display: flex; border: 1px solid var(--control-line); border-radius: 8px; overflow: hidden; }
 .jump-era-btn, .jump-go, .jump-epoch {
   font: 500 12px/1 var(--f-mono); color: var(--parchment); background: var(--night); border: 0; cursor: pointer;
 }
-.jump-era-btn { padding: 0 9px; }
+.jump-era-btn { padding: 0 10px; border: 1px solid var(--control-line); border-radius: 8px; }
 .jump-era-btn[aria-pressed="true"] { background: var(--brass); color: var(--night); }
 .jump-go { padding: 0 12px; border-radius: 8px; background: var(--brass); color: var(--night); font-weight: 600; }
 .jump-msg { min-height: 0; margin: 0; font: 400 12px/1.4 var(--f-body); color: var(--danger); }

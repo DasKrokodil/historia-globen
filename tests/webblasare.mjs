@@ -340,7 +340,15 @@ async function run(browser, vp) {
     await visible('#jump-input');
     await page.fill('#jump-input', '20240229'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
     if (!/29 februari 2024: \d+ händelser med dagsdatum/.test((await page.textContent('#jump-date-summary')) ?? '')) throw new Error('skottdag tolkas inte som giltigt datum');
-    return 'år, datum, skottdag och ogiltigt datum fungerar i årshoppet';
+    // Bara knappen f.Kr. finns; e.Kr. är standard och kräver inget val (#591)
+    if (await page.locator('#jump-pop .jump-era-btn').count() !== 1) throw new Error('årshoppet har fler tideräkningsknappar än f.Kr.');
+    await page.click('#year-jump'); if (await page.isHidden('#jump-input')) await page.click('#year-jump');
+    await visible('#jump-input');
+    await page.click('#jump-pop .jump-era-btn[data-era="bce"]');
+    if (await page.getAttribute('#jump-pop .jump-era-btn', 'aria-pressed') !== 'true') throw new Error('knappen f.Kr. slås inte på');
+    await page.fill('#jump-input', '500'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
+    if ((await yearNumber()) !== -499) throw new Error(`500 med f.Kr. gav ${await yearNumber()} i stället för -499`);
+    return 'år, datum, skottdag och ogiltigt datum fungerar; e.Kr. är standard och f.Kr. är en knapp';
   });
 
   await check('datumresultatets rader öppnar händelsen (#590)', async () => {

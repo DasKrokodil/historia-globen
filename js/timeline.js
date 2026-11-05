@@ -458,6 +458,7 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
   const setEra = e => {
     era = e;
     for (const b of pop.querySelectorAll('.jump-era-btn')) b.setAttribute('aria-pressed', String(b.dataset.era === era));
+    // e.Kr. är standard och behöver inget val: bara knappen f.Kr. finns, och den slås av och på
   };
   const close = () => { clearResult(); pop.hidden = true; button.setAttribute('aria-expanded', 'false'); };
   const open = () => {
@@ -526,7 +527,7 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
     }
     (pop.hidden ? open() : close());
   });
-  for (const b of pop.querySelectorAll('.jump-era-btn')) b.addEventListener('click', () => { setEra(b.dataset.era); input.focus(); });
+  for (const b of pop.querySelectorAll('.jump-era-btn')) b.addEventListener('click', () => { setEra(era === b.dataset.era ? 'ce' : b.dataset.era); input.focus(); });
   pop.addEventListener('submit', ev => {
     ev.preventDefault();
     const parsed = parseYearInput(input.value, era === 'bce' ? 'bce' : 'ce');
