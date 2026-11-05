@@ -1,6 +1,7 @@
 // Tidsreglaget äger det nuvarande året (arkitekturprincip 3).
 // Beslut 4: segmenterad skala där nutiden får mer plats än forntiden.
-import { formatYear, parseYear, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT } from './model.js';
+import { formatYear, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, isVisibleReview, t } from './model.js';
+import { selectEventsForDate } from './date-events.js';
 
 export const MIN_YEAR = -2999;   // 3000 f.Kr.
 // Tidslinjen slutar i dag enligt datorns klocka, men aldrig före 2026 då datan senast kontrollerades (#229)
@@ -442,16 +443,20 @@ export class Timeline extends EventTarget {
 }
 
 
-/** "Hoppa till år": tryck på årtalet, skriv ett år (med f.Kr./e.Kr.) eller välj en tidsålder (#140). */
-export function setupYearJump(timeline, { button, pop, input, msg, epochs, onJump }) {
+/** "Hoppa till år": tryck på årtalet, skriv ett år (med f.Kr./e.Kr.) eller ett datum (#140, #551). */
+export function setupYearJump(timeline, { button, pop, input, msg, epochs, events = [], copy = {}, onJump }) {
+  const result = pop.querySelector('#jump-date-result');
+  const summary = pop.querySelector('#jump-date-summary');
+  const list = pop.querySelector('#jump-date-events');
+  const clearResult = () => { if (result) { result.setAttribute('hidden', 'hidden'); result.hidden = true; } summary && (summary.textContent = ''); list && list.replaceChildren(); };
   let era = 'ce';
   const setEra = e => {
     era = e;
     for (const b of pop.querySelectorAll('.jump-era-btn')) b.setAttribute('aria-pressed', String(b.dataset.era === era));
   };
-  const close = () => { pop.hidden = true; button.setAttribute('aria-expanded', 'false'); };
+  const close = () => { clearResult(); pop.hidden = true; button.setAttribute('aria-expanded', 'false'); };
   const open = () => {
-    setEra('ce'); input.value = ''; msg.textContent = '';
+    setEra('ce'); input.value = ''; msg.textContent = ''; clearResult();
     pop.hidden = false; button.setAttribute('aria-expanded', 'true');
     input.focus();
   };
@@ -466,6 +471,28 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, onJum
     close(); button.focus();
     onJump?.(y); // bara hopp, inte uppspelning eller stegknappar (#165)
   };
+  const showDateResult = (date, year, found) => {
+    if (!result || !summary || !list) return;
+    const { yearResult, dateResult, empty, more } = copy;
+    const template = date ? t(dateResult) : t(yearResult);
+    summary.textContent = template.replace('{date}', date ?? '').replace('{year}', formatYear(year)).replace('{count}', String(found.length));
+    list.replaceChildren(...found.slice(0, 5).map(event => {
+      const item = document.createElement('li');
+      item.textContent = t(event.title);
+      return item;
+    }));
+    if (!found.length) {
+      const item = document.createElement('li');
+      item.textContent = t(empty);
+      list.append(item);
+    } else if (found.length > 5) {
+      const item = document.createElement('li');
+      item.textContent = t(more).replace('{count}', String(5));
+      list.append(item);
+    }
+    result.hidden = false;
+    result.removeAttribute('hidden');
+  };
   const chip = (label, y) => {
     const b = document.createElement('button');
     b.type = 'button'; b.className = 'jump-epoch';
@@ -479,16 +506,37 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, onJum
   SEGMENTS.forEach((s, i) => chip(s.name, i ? s.from + 1 : s.from));
   chip('Idag', MAX_YEAR);
 
-  button.addEventListener('click', () => (pop.hidden ? open() : close()));
+  button.addEventListener('click', () => {
+    if (!pop.hidden && result && !result.hidden) {
+      input.focus();
+      return;
+    }
+    (pop.hidden ? open() : close());
+  });
   for (const b of pop.querySelectorAll('.jump-era-btn')) b.addEventListener('click', () => { setEra(b.dataset.era); input.focus(); });
   pop.addEventListener('submit', ev => {
     ev.preventDefault();
-    const y = parseYear(input.value, era);
-    if (y === null) { msg.textContent = 'Skriv ett år, till exempel 1969 eller 2600 f.Kr.'; return; }
-    if (y < MIN_YEAR || y > MAX_YEAR) { msg.textContent = `Välj ett år mellan ${formatYear(MIN_YEAR)} och ${formatYear(MAX_YEAR)}.`; return; }
+    const parsed = parseYearInput(input.value, era === 'bce' ? 'bce' : 'ce');
+    if (parsed.type === 'invalid') { clearResult(); msg.textContent = parsed.error; return; }
+    const y = parsed.year;
+    if (y < MIN_YEAR || y > MAX_YEAR) { clearResult(); msg.textContent = `Välj ett år mellan ${formatYear(MIN_YEAR)} och ${formatYear(MAX_YEAR)}.`; return; }
+    if (parsed.type === 'date') {
+      const visible = events.filter(event => isVisibleReview(event.review));
+      const found = selectEventsForDate(parsed.date, visible);
+      timeline.pause();
+      timeline.setFocus(null);
+      timeline.year = y;
+      showDateResult(parsed.date, y, found);
+      onJump?.(y);
+      if (Math.floor(timeline.year) !== y) {
+        msg.textContent = `Året ligger utanför det du följer nu (${timeline.format(timeline.focus.from)}–${timeline.format(timeline.focus.to)}).`;
+        return;
+      }
+      return;
+    }
     jump(y);
   });
-  input.addEventListener('input', () => { msg.textContent = ''; });
+  input.addEventListener('input', () => { msg.textContent = ''; clearResult(); });
   pop.addEventListener('keydown', ev => { if (ev.key === 'Escape') { close(); button.focus(); } });
   document.addEventListener('pointerdown', ev => { if (!pop.hidden && !pop.contains(ev.target) && !button.contains(ev.target)) close(); });
 }

@@ -61,13 +61,14 @@
     "development": { "sv": "utvecklingsversion", "en": "development version" },
     "releases": { "sv": "releaser", "en": "releases" }
   },
-  "birthday": {
+  "jump": {
     "title": { "sv": "Min dag i historien", "en": "My day in history" },
-    "copy": { "sv": "Skriv ett år eller ett helt datum och se redan källgranskade händelser. Uppgiften stannar i din webbläsare.", "en": "Enter a year or a full date to see already source-checked events. The entry stays in your browser." },
+    "copy": { "sv": "Skriv ett år eller ett datum för att hoppa till det året och se redan källgranskade händelser. Uppgiften stannar i din webbläsare.", "en": "Enter a year or a date to jump to that year and see already source-checked events. The entry stays in your browser." },
     "label": { "sv": "År eller datum", "en": "Year or date" },
-    "placeholder": { "sv": "Till exempel 1969 eller 1969-07-20", "en": "For example 1969 or 1969-07-20" },
-    "submit": { "sv": "Visa", "en": "Show" },
-    "invalid": { "sv": "Skriv ett år, eller ett datum som ÅÅÅÅ-MM-DD.", "en": "Enter a year, or a date as YYYY-MM-DD." },
+    "placeholder": { "sv": "Till exempel 1986, 19860426, 860426 eller 1986-04-26", "en": "For example 1986, 19860426, 860426 or 1986-04-26" },
+    "help": { "sv": "00–26 tolkas som 2000–2026, 27–99 som 1927–1999. Månad 01–12 och dag måste vara giltiga. Ogiltigt datum ger ett felmeddelande i fältet.", "en": "00–26 is read as 2000–2026, 27–99 as 1927–1999. Month 01–12 and day must be valid. Invalid dates show an error in the field." },
+    "submit": { "sv": "Gå", "en": "Go" },
+    "invalid": { "sv": "Skriv ett år eller ett giltigt datum: ÅÅÅÅ, ÅÅÅÅMMDD, ÅÅMMDD eller ÅÅÅÅ-MM-DD.", "en": "Enter a year or a valid date: YYYY, YYYYMMDD, YYMMDD or YYYY-MM-DD." },
     "yearResult": { "sv": "{year}: {count} händelser", "en": "{year}: {count} events" },
     "dateResult": { "sv": "{date}: {count} händelser med dagsdatum", "en": "{date}: {count} events with a day date" },
     "empty": { "sv": "Inga händelser i det här urvalet.", "en": "No events in this selection." },

@@ -124,6 +124,49 @@ export function parseYear(text, defaultEra = 'ce') {
   return isBc ? 1 - n : n;
 }
 
+function isValidDate(y, m, d) {
+  if (!Number.isInteger(y) || !Number.isInteger(m) || !Number.isInteger(d)) return false;
+  if (m < 1 || m > 12) return false;
+  const maxDays = [31, (y % 4 === 0 && (y % 100 !== 0 || y % 400 === 0)) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  return d >= 1 && d <= maxDays[m - 1];
+}
+
+export function parseYearInput(text, defaultEra = 'ce', now = new Date()) {
+  const value = String(text ?? '').trim();
+  if (!value) return { type: 'invalid', year: null, date: null, error: 'Skriv ett år eller ett giltigt datum.' };
+
+  const iso = /^\d{4}-\d{2}-\d{2}$/.exec(value);
+  if (iso) {
+    const [y, mo, d] = value.split('-').map(Number);
+    if (!isValidDate(y, mo, d)) return { type: 'invalid', year: null, date: null, error: 'Ogiltigt datum: datumet finns inte.' };
+    return { type: 'date', year: y, date: value };
+  }
+
+  const full = /^\d{8}$/.exec(value);
+  if (full) {
+    const y = Number(value.slice(0, 4));
+    const mo = Number(value.slice(4, 6));
+    const d = Number(value.slice(6, 8));
+    if (!isValidDate(y, mo, d)) return { type: 'invalid', year: null, date: null, error: 'Ogiltigt datum: datumet finns inte.' };
+    return { type: 'date', year: y, date: `${y}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}` };
+  }
+
+  const short = /^\d{6}$/.exec(value);
+  if (short) {
+    const yy = Number(value.slice(0, 2));
+    const mo = Number(value.slice(2, 4));
+    const d = Number(value.slice(4, 6));
+    const currentYear = now.getFullYear();
+    const year = yy <= currentYear % 100 ? 2000 + yy : 1900 + yy;
+    if (!isValidDate(year, mo, d)) return { type: 'invalid', year: null, date: null, error: 'Ogiltigt datum: datumet finns inte.' };
+    return { type: 'date', year, date: `${year}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}` };
+  }
+
+  const year = parseYear(value, defaultEra);
+  if (year != null) return { type: 'year', year, date: null };
+  return { type: 'invalid', year: null, date: null, error: 'Skriv ett år eller ett giltigt datum.' };
+}
+
 const MONTHS = ['januari','februari','mars','april','maj','juni','juli','augusti','september','oktober','november','december'];
 
 /** Datum ur data ("2026-10-30") som text: "30 oktober 2026". */
