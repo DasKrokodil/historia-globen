@@ -1,6 +1,6 @@
 # Kärnhändelser: förslag till lista (#452)
 
-Utkast 2026-11-05. **Rikard godkänner listan innan något läggs in.** Det här är bara ett urval av vad som ska finnas, inga uppgifter. Inga årtal, platser eller påståenden skrivs i listan. De hämtas ur en källa som har öppnats när händelsen läggs in, enligt källpolicyn i CLAUDE.md.
+**Godkänd av Rikard 2026-11-05**, med beslutet att omgångarna inte väntar på det nya redigeringsformatet (#394). Det här är bara ett urval av vad som ska finnas, inga uppgifter. Inga årtal, platser eller påståenden skrivs i listan. De hämtas ur en källa som har öppnats när händelsen läggs in, enligt källpolicyn i CLAUDE.md.
 
 ## Så läser du listan
 
@@ -12,6 +12,8 @@ Utkast 2026-11-05. **Rikard godkänner listan innan något läggs in.** Det här
 **Sammanlagt:** 114 kärnhändelser, varav 35 redan finns och 79 är nya, fördelade på fyra omgångar. Dessutom 19 i reserv.
 
 ## Omgångarna
+
+**Läget:** omgång 1 är inlagd (19 händelser, 12 med två källor som stämmer och 7 källkontrollerade, där källorna skiljer sig eller en andra källa saknas för platsen).
 
 | Omgång | Tid | Nya händelser | Världsdelar |
 | --- | --- | --- | --- |
