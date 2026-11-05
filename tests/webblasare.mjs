@@ -969,6 +969,36 @@ async function run(browser, vp) {
     }
   });
 
+  // #474: huvudstaden som gäller året syns när man följer ett rike. Testet tar ett rike ur datan med minst två daterade
+  // huvudstäder och kontrollerar mitt i varje stads spann att just den staden visas, med den riktiga modulen.
+  await check('huvudstaden följer året när man följer ett rike', async () => {
+    const r = await page.evaluate(async () => {
+      const { AreasLayer } = await import('./js/layers/areas.js');
+      const get = url => fetch(url).then(res => res.json());
+      const { groups } = await get('data/genererat/riken.json');
+      const g = groups.find(x => x.file && (x.capitals ?? []).filter(c => c.from != null && c.to != null && c.to - c.from >= 2).length >= 2);
+      if (!g) return { missing: true };
+      const { polities } = await get(g.file);
+      const layer = new AreasLayer(polities);
+      layer.setCapitals(groups);
+      layer.onlyGroup = g.id;
+      const checks = g.capitals.filter(c => c.from != null && c.to != null && c.to - c.from >= 2).map(c => {
+        const year = Math.floor((c.from + c.to) / 2);
+        layer.update({ year });
+        const names = layer.activeCapitals.map(x => x.name.sv);
+        return { year, want: c.name.sv, names, ok: names.includes(c.name.sv) || !layer.active.length };
+      });
+      layer.onlyGroup = null;
+      layer.update({ year: checks[0].year });
+      return { group: g.id, checks, utanFokus: layer.activeCapitals.length };
+    });
+    if (r.missing) throw new Error('inget rike med två daterade huvudstäder i data/genererat/riken.json');
+    const bad = r.checks.find(c => !c.ok);
+    if (bad) throw new Error(`${r.group} ${bad.year}: väntade ${bad.want}, fick ${bad.names.join(', ') || 'ingen'}`);
+    if (r.utanFokus) throw new Error('huvudstäder visas fast inget rike följs');
+    return `${r.group}: ${r.checks.map(c => `${c.year} ${c.want}`).join(', ')}; inga utan Fokus`;
+  });
+
   await check('Upptäcktsvyns förklaring går att fälla ihop', async () => {
     await setLayer('discovery', true);
     await page.keyboard.press('Escape');
