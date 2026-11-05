@@ -43,7 +43,7 @@ function collect({ sources, events, funfacts, polities, empireGroups = [], land,
     if (item) g.items.push({ label, review });
     for (const id of new Set(ids)) {
       if (!g.uses.has(id)) g.uses.set(id, []);
-      g.uses.get(id).push(label);
+      g.uses.get(id).push({ label, review });
     }
   };
   for (const e of events) add('events', [...(e.sources ?? []), ...(e.story?.sources ?? [])], t(e.title), e.review);
@@ -102,12 +102,13 @@ function collect({ sources, events, funfacts, polities, empireGroups = [], land,
 }
 
 export class SourcesDialog {
-  constructor({ root, body, close, openBtn }, data, { uncertainty = {}, sourceVersion = {} } = {}) {
-    Object.assign(this, { root, body, data, openBtn, uncertainty, sourceVersion });
+  constructor({ root, body, close, openBtn }, data, { sourceVersion = {}, summary = {} } = {}) {
+    Object.assign(this, { root, body, data, openBtn, sourceVersion, summary });
     this.versionPromise = null;
     this.onSettings = () => {};
     this.query = '';
     this.group = null;
+    this.status = '';   // statusfiltret (#517): '' = alla, annars en nyckel i LEVELS
     openBtn.addEventListener('click', () => this.open());
     close.addEventListener('click', () => this.hide());
     root.addEventListener('click', e => { if (e.target === root) this.hide(); });
@@ -134,6 +135,7 @@ export class SourcesDialog {
     this.highlight = highlightIds;
     this.query = '';
     this.group = null;
+    this.status = '';
     const { events, funfacts, polities, empireGroups = [] } = this.data;
     const empireFacts = [...empireGroups.filter(g => g.facts).map(g => g.facts), ...empireGroups.filter(g => g.vanished).map(g => g.vanished),
       ...empireGroups.filter(g => g.uncertainBorder).map(g => g.uncertainBorder)];
@@ -152,6 +154,7 @@ export class SourcesDialog {
 
     this.body.innerHTML = `
       ${highlightIds ? '<p><strong>Källor för den här fun facten.</strong> <button type="button" class="link-btn" data-all>Visa alla källor</button></p>' : ''}
+      ${this.summaryHtml()}
       <h3>Källpolicy</h3>
       <ol>
         <li>Varje uppgift har minst en källa, med länk och datum då den kontrollerades.</li>
@@ -161,7 +164,6 @@ export class SourcesDialog {
         <li>Osäkerhet visas öppet, till exempel "cirka" eller ett spann. Om källorna är oense står det i faktarutan.</li>
         <li>En fun fact som jämför två saker har källa för båda leden.</li>
       </ol>
-      <aside class="detail-note src-uncertainty"><h4>${esc(t(this.uncertainty.label))}</h4><p>${esc(t(this.uncertainty.about))}</p></aside>
       <h3>Läget just nu</h3>
       <p class="src-total">${total(religionsDoc)}</p>
       <h3>Källregister</h3>
@@ -170,6 +172,10 @@ export class SourcesDialog {
       <div class="src-search">
         <label for="src-q">Sök</label>
         <input type="search" id="src-q" autocomplete="off" spellcheck="false" placeholder="Källa eller vad den används till">
+      </div>
+      <div class="src-search src-status">
+        <label for="src-status">${esc(t(this.summary.filter) || 'Status')}</label>
+        <select id="src-status"></select>
       </div>
       <p class="src-hits" aria-live="polite"></p>
       <div class="src-list"></div>
@@ -184,6 +190,7 @@ export class SourcesDialog {
       this.onSettings();
     });
     this.body.querySelector('#src-q').addEventListener('input', e => { this.query = e.target.value; this.render(); });
+    this.body.querySelector('#src-status').addEventListener('change', e => { this.status = e.target.value; this.render(); });
     this.body.querySelector('.src-groups').addEventListener('click', e => {
       const b = e.target.closest('[data-group]');
       if (!b) return;
@@ -204,6 +211,30 @@ export class SourcesDialog {
         this.render();
       }).catch(err => console.error(err));
     }
+  }
+
+  /** Sammanfattningen överst (#517): två granskningsnivåer och historisk osäkerhet, som gäller oavsett nivå. */
+  summaryHtml() {
+    const s = this.summary;
+    if (!s?.title) return '';
+    const row = (cls, r, extra = '') => `<div class="src-level ${cls}"><dt>${cls === 'src-level-uncertain' ? '' : `<i class="lv-${cls === 'src-level-two' ? 'two' : 'checked'}" aria-hidden="true"></i>`}${esc(t(r.label))}</dt><dd>${esc(t(r.text))}${extra}</dd></div>`;
+    return `<section class="src-summary" aria-labelledby="src-summary-title">
+      <h3 id="src-summary-title">${esc(t(s.title))}</h3>
+      <dl>
+        ${row('src-level-checked', s.checked)}
+        ${row('src-level-two', s.two)}
+        ${row('src-level-uncertain', s.uncertain, s.uncertain.example ? ` <em>${esc(t(s.uncertain.example))}</em>` : '')}
+      </dl>
+    </section>`;
+  }
+
+  /** Statusfiltrets val: alla, de två nivåerna och utkast bara när det finns utkast. */
+  statusOptions(groups) {
+    const s = this.summary;
+    const drafts = groups.reduce((n, g) => n + g.counts.draft, 0);
+    const opts = [['', t(s.all) || 'Alla'], ['checked', t(s.checked?.label)], ['two', t(s.two?.label)]];
+    if (drafts || this.status === 'draft') opts.push(['draft', t(s.draft)]);
+    return opts;
   }
 
   showVersion() {
@@ -237,6 +268,13 @@ export class SourcesDialog {
     const loadingReligions = !this.data.religionsDoc;
     const pick = this.highlight ? s => this.highlight.includes(s.id) : () => true;
     const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+    const status = LEVELS.find(l => l.key === this.status) ?? null;
+    const options = this.statusOptions(groups);
+    const select = this.body.querySelector('#src-status');
+    if (select) {
+      select.innerHTML = options.map(([v, label]) => `<option value="${v}"${v === this.status ? ' selected' : ''}>${esc(label)}</option>`).join('');
+    }
+    const statusLabel = status ? options.find(([v]) => v === status.key)?.[1] ?? status.label : '';
 
     // Gruppkorten: antal källor och hur långt granskningen har kommit
     this.body.querySelector('.src-groups').innerHTML = groups.map(g => {
@@ -271,7 +309,10 @@ export class SourcesDialog {
     const sections = groups.filter(g => !this.group || g.id === this.group).map(g => {
       const groupHit = q && norm(g.label).includes(q);
       const rows = sources.filter(s => g.uses.has(s.id) && pick(s)).map(s => {
-        const uses = g.uses.get(s.id);
+        // Med statusfiltret (#517) visas bara källor som någon uppgift med den statusen pekar på,
+        // och "Används för" visar bara de uppgifterna.
+        const uses = g.uses.get(s.id).filter(u => !status || u.review === status.review).map(u => u.label);
+        if (status && !uses.length) return '';
         const srcHit = !q || groupHit || [s.title, s.id, s.license].some(x => norm(x).includes(q));
         const useHits = q ? uses.filter(u => norm(u).includes(q)) : [];
         if (!srcHit && !useHits.length) return '';
@@ -282,7 +323,7 @@ export class SourcesDialog {
           <td class="num">${esc(s.checked)}</td>
         </tr>`;
       }).filter(Boolean);
-      const imgRows = this.highlight ? [] : (g.images ?? []).map(x => imageRow(x, sources, q, groupHit)).filter(Boolean);
+      const imgRows = this.highlight || status ? [] : (g.images ?? []).map(x => imageRow(x, sources, q, groupHit)).filter(Boolean);
       imgShown += imgRows.length;
       if (!rows.length && !imgRows.length) return '';
       const imgTable = imgRows.length ? `<h5 class="src-sub">Bilder på globen <span class="src-n">${imgRows.length}</span></h5>
@@ -302,8 +343,9 @@ export class SourcesDialog {
     }).filter(Boolean);
 
     const all = sources.filter(pick).length;
-    const where = this.group ? ` i ${this.groups[this.group].label}` : '';
-    this.body.querySelector('.src-hits').textContent = q || this.group
+    const where = (this.group ? ` i ${this.groups[this.group].label}` : '')
+      + (status ? ` ${(t(this.summary.filtered) || 'med statusen {status}').replace('{status}', `"${statusLabel}"`)}` : '');
+    this.body.querySelector('.src-hits').textContent = q || this.group || status
       ? (shown.size || imgShown ? `Visar ${[shown.size || !imgShown ? `${shown.size} av ${all} källor` : '', imgShown ? `${imgShown} ${imgShown === 1 ? 'bild' : 'bilder'}` : ''].filter(Boolean).join(' och ')}${where}.` : `Ingen källa matchar${q ? ` "${this.query.trim()}"` : ''}${where}.`)
       : `${all} källor.`;
     this.body.querySelector('.src-list').innerHTML = sections.join('');
