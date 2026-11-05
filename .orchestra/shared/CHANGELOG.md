@@ -2,6 +2,43 @@
 
 ## Unreleased
 
+## 0.8.2 — 2026-11-05
+
+- Shorten repeated handoff, ownership, worker and follow-up instructions with links
+  to their authoritative sections. Distinguish session reading from phase reading;
+  preserve existing gates, anchors and fresh queue checks (#47).
+
+- Fix Markdown link checking for nested code fences, closing fences with info text
+  and heading anchors that collide with generated suffixes. Add focused standard
+  library regression tests to CI (#46).
+
+## 0.8.1 — 2026-11-05
+
+- Clarify chat intake: a request for changes creates or reuses issues and starts or
+  resumes the orchestra to resolve them, including before its first run or after an
+  idle watch ends. Respect explicit deferral, reuse an active conductor, and preserve
+  scope, ownership, timer and publication rules; align host policy and entry guidance
+  (#45).
+
+## 0.8.0 — 2026-11-04
+
+- Add the integration-ready handoff and integration queue: finished work retains its
+  integration owner and evidence without active time or a worker slot. Align core,
+  worker briefs, parent/PR handling, examples and maintainer policy with the canonical
+  Issueflow guide; refresh its exact snapshot/provenance to `0e712c3` and document
+  adoption from earlier releases (#43).
+
+- Move the project icon to root `icon.svg` so dashboards can discover it; README
+  uses the same file (#44).
+
+## 0.7.1 — 2026-11-02
+
+- Clarify screenshot requirements in completion comments: ORCHESTRA.md and AI.md now
+  explicitly name UI/UX, styling and 2D/3D graphics/rendering under *Follow-up*, requiring
+  screenshots or comparisons in the issue's completion comment (or an explicit statement
+  when capture/upload is unsupported); PROJECT.example.md illustrates the lifecycle for
+  both UI and graphics/3D scenes (#42).
+
 ## 0.7.0 — 2026-10-31
 
 - Add a *Terms* table to COORDINATION.md defining scoped task, bounded pass, queue
