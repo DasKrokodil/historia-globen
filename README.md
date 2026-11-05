@@ -129,8 +129,8 @@ tools/hced.py         gör om Historical Conflict Event Dataset till utkast i da
 scripts/build-site.sh kopierar webbplatsens filer till dist/ för publicering och kör kontrollerna (docs/DEPLOYMENT.md)
 scripts/validate-site.py  kontrollerar dist/: JSON, filreferenser och att inga interna filer följer med
 functions/api/feedback.js  Cloudflare Pages Function för besökarnas förslag (publiceras från repots rot, inte via dist/)
-tests/                tester för serverfunktionen (node --test 'tests/*.test.mjs') och webbläsartestet tests/webblasare.mjs (Playwright, #339)
-.github/workflows/    GitHub Actions: bygger och kontrollerar dist/ vid push till main och PR mot main och production; browser-test.yml öppnar sidan i Chromium; release.yml skapar tagg och GitHub Release
+tests/                tester för serverfunktionen och etikettkontrollen (node --test 'tests/*.test.mjs') och webbläsartestet tests/webblasare.mjs (Playwright, #339)
+.github/workflows/    GitHub Actions: bygger och kontrollerar dist/ vid push till main och PR mot main och production; browser-test.yml öppnar sidan i Chromium; release.yml skapar tagg och GitHub Release; etikettkontroll.yml (logik i .github/scripts/etikettkontroll.cjs) varnar när ett issue har flera ägare eller både redo och pågår, städar etiketter efter en sammanslagen PR och påminner om ett pågår som legat orört i 7 dagar (#588)
 ```
 
 ## Principer
