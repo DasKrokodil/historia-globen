@@ -704,6 +704,72 @@
       "title": {"sv": "Kongofristaten, Leopold II:s privata koloni"},
       "summary": {"sv": "Efter Berlinkonferensen får Belgiens kung Leopold II de europeiska makterna att erkänna honom som härskare över nästan hela Kongobäckenet, ett område på 2,35 miljoner kvadratkilometer. Kongofristaten är hans privata egendom, inte Belgiens, och han besöker den aldrig. Folket tvingas samla vilt gummi och elfenben, och armén Force Publique och koncessionsbolagen straffar med mord, piskning, brända byar och avhuggna händer. Tillsammans med sjukdomar som sömnsjuka, svält och flykt minskar befolkningen kraftigt. Missionärernas vittnesmål och Roger Casements rapport 1904 väcker en internationell protest, och 1908 tar Belgien över området som koloni, Belgiska Kongo."},
       "note": {"title": {"sv": "Källorna skiljer sig"}, "text": {"sv": "Hur mycket befolkningen minskade är omstritt: moderna uppskattningar ligger mellan 1,2 och 10 miljoner människor, och forskare är oense om övergreppen ska kallas folkmord. Även datumen skiljer sig: Leopold tillkännagav namnet den 29 maj 1885, Wikipedia och Wikidata anger den 1 juli 1885 som början, och namnet ersatte officiellt det gamla den 1 augusti. Wikipedia anger att Belgien tog över den 15 november 1908, Wikidata den 2 april 1908."}},
-      "wikidata": "Q76048", "sources": ["wp-congo-free-state", "wp-congo-free-state-atrocities", "wikidata"], "review": "source-checked" }
+      "wikidata": "Q76048", "sources": ["wp-congo-free-state", "wp-congo-free-state-atrocities", "wikidata"], "review": "source-checked" },
+
+    {"id": "slaveriet-avskaffas-i-usa", "category": "civilisationer", "icon": "scroll", "start": 1865, "end": 1865, "precision": 11, "edtf": "1865-12-06",
+      "location": {"type": "Point", "coordinates": [-77.00889, 38.88972]}, "locationPrecision": "country", "place": {"sv": "USA (kongressen i Capitolium, Washington)"},
+      "title": {"sv": "Slaveriet förbjuds i USA"},
+      "summary": {"sv": "Den 6 december 1865 har 27 delstater godkänt det trettonde tillägget till USA:s grundlag, och därmed gäller det. Tillägget förbjuder slaveri och ofrivilligt tvångsarbete i hela USA, utom som straff för den som har dömts för ett brott. Kongressens två kamrar hade antagit tillägget 1864 och i januari 1865."},
+      "wikidata": "Q175613", "sources": ["wp-thirteenth-amendment", "wp-united-states-capitol", "wikidata"], "review": "two-sources" },
+
+    {"id": "meijirestaurationen", "category": "civilisationer", "icon": "crown", "start": 1868, "end": 1868, "precision": 11, "edtf": "1868-01-03",
+      "location": {"type": "Point", "coordinates": [135.76222, 35.02528]}, "locationPrecision": "country", "place": {"sv": "Japan (kejsarhovet i Kyoto)"},
+      "title": {"sv": "Meijirestaurationen i Japan"},
+      "summary": {"sv": "Den 3 januari 1868 störtas Tokugawa-shogunatet, och kejsarens makt återupprättas i Japan under kejsar Meiji. Kejsardömet Japan bildas. Furstendömena upplöses, samurajerna förlorar sin ställning som klass och det feodala systemet avskaffas. Japan industrialiseras och tar efter västerländska förebilder."},
+      "wikidata": "Q8707", "sources": ["wp-meiji-restoration", "wp-kyoto-imperial-palace", "wikidata"], "review": "two-sources" },
+
+    {"id": "suezkanalen-oppnas", "category": "ekonomi", "icon": "ship", "start": 1869, "end": 1869, "precision": 11, "edtf": "1869-11-17",
+      "location": {"type": "Point", "coordinates": [32.34417, 30.705]}, "place": {"sv": "Suezkanalen, Egypten (från Port Said i norr till Suez i söder)"},
+      "title": {"sv": "Suezkanalen öppnas"},
+      "summary": {"sv": "Den 17 november 1869 öppnas Suezkanalen mellan Medelhavet och Röda havet. Bygget började den 25 april 1859 och sköttes av ett bolag som Ferdinand de Lesseps bildade för att bygga kanalen. Kanalen blir en viktig handelsväg mellan Europa och Asien, eftersom fartygen inte längre behöver segla runt Afrika."},
+      "wikidata": "Q899", "sources": ["wp-suez-canal", "wikidata"], "review": "two-sources" },
+
+    {"id": "krakatau-1883", "category": "katastrofer", "start": 1883, "end": 1883, "precision": 11, "edtf": "1883-08-27",
+      "location": {"type": "Point", "coordinates": [105.423, -6.102]}, "place": {"sv": "Krakatau i Sundasundet, Nederländska Ostindien (i dag Indonesien)"},
+      "title": {"sv": "Vulkanen Krakatau får sitt stora utbrott"},
+      "summary": {"sv": "Den 27 augusti 1883 har vulkanön Krakatau sitt kraftigaste utbrott. Den tredje explosionen är det starkaste ljud som man känner till. Utbrottet och tsunamierna som det orsakar dödar minst 36 417 människor. Året efter är somrarna på norra halvklotet i genomsnitt 0,4 °C kallare."},
+      "wikidata": "Q8094772", "sources": ["wp-1883-krakatoa", "wikidata"], "review": "two-sources" },
+
+    {"id": "berlinkonferensen", "category": "civilisationer", "icon": "treaty", "start": 1884, "end": 1885, "precision": 11, "edtf": "1884-11-15/1885-02-26",
+      "location": {"type": "Point", "coordinates": [13.38253, 52.51245]}, "place": {"sv": "Rikskansliet på Wilhelmstrasse, Berlin, Tyskland"},
+      "title": {"sv": "Berlinkonferensen om Afrika"},
+      "summary": {"sv": "Från den 15 november 1884 till den 26 februari 1885 möts 14 parter från Europa, USA och Osmanska riket i Berlin. Tysklands rikskansler Otto von Bismarck har bjudit in på begäran av Belgiens kung Leopold II. Inga afrikanska länder bjuds in. Slutakten reglerar hur de europeiska makterna koloniserar och handlar i Afrika och erkänner Leopolds område i Kongo. Den kan ses som att den formaliserar kapplöpningen om Afrika, men en del historiker menar att konferensens roll ofta överdrivs."},
+      "wikidata": "Q13582", "sources": ["wp-berlin-conference", "wp-reich-chancellery", "wikidata"], "review": "two-sources" },
+
+    {"id": "kvinnlig-rostratt-nya-zeeland", "category": "civilisationer", "icon": "scroll", "start": 1893, "end": 1893, "precision": 11, "edtf": "1893-09-19",
+      "location": {"type": "Point", "coordinates": [174.77722, -41.28889]}, "locationPrecision": "country", "place": {"sv": "Nya Zeeland"},
+      "title": {"sv": "Kvinnor får rösta i Nya Zeeland"},
+      "summary": {"sv": "Den 19 september 1893 skriver guvernören lord Glasgow under en vallag som ger kvinnor över 21 år rätt att rösta. Nya Zeeland blir det första landet i världen där alla kvinnor får rösta i parlamentsval. Bakom reformen låg bland andra Kate Sheppard och namninsamlingar som 1893 fick nära 32 000 underskrifter. Kvinnorna röstar första gången den 28 november 1893, men de kan inte väljas in i parlamentet förrän 1919."},
+      "wikidata": "Q3447247", "sources": ["wp-womens-suffrage-new-zealand", "wp-wellington"], "review": "source-checked" },
+
+    {"id": "olympiska-spelen-1896", "category": "sport", "start": 1896, "end": 1896, "precision": 11, "edtf": "1896-04-06/1896-04-15",
+      "location": {"type": "Point", "coordinates": [23.74111, 37.96833]}, "place": {"sv": "Panathenaiska stadion, Aten, Grekland"},
+      "title": {"sv": "De första moderna olympiska spelen"},
+      "summary": {"sv": "Den 6–15 april 1896 hålls de första moderna olympiska spelen i Aten. De anordnas av Internationella olympiska kommittén (IOK), som Pierre de Coubertin skapade vid en kongress i Paris 1894. Enligt IOK deltar 14 länder och 241 idrottare, alla män, men båda siffrorna tolkas olika. Öppnings- och avslutningsceremonierna hålls på Panathenaiska stadion."},
+      "wikidata": "Q8080", "sources": ["wp-1896-summer-olympics", "wp-panathenaic-stadium", "wikidata"], "review": "two-sources" },
+
+    {"id": "tambora-1815", "category": "klimat", "start": 1815, "end": 1815, "precision": 11, "edtf": "1815-04-10",
+      "location": {"type": "Point", "coordinates": [118.0, -8.25]}, "place": {"sv": "Vulkanen Tambora på Sumbawa, Nederländska Ostindien (i dag Indonesien)"},
+      "title": {"sv": "Tambora och året utan sommar"},
+      "summary": {"sv": "Den 10 april 1815 når vulkanen Tamboras utbrott på ön Sumbawa sin våldsammaste fas. Det räknas som det kraftigaste vulkanutbrottet i människans nedtecknade historia. Omkring 10 000–11 000 människor dör direkt av utbrottet och 49 000–90 000 av svälten och sjukdomarna efteråt; andra uppskattningar är högre eller lägre. Avkylningen gör att 1816 kallas året utan sommar, med extremt väder och missväxt på många håll i världen."},
+      "wikidata": "Q3591483", "sources": ["wp-1815-tambora", "wikidata"], "review": "two-sources" },
+
+    {"id": "forsta-jarnvagen-mellan-stader", "category": "ekonomi", "start": 1830, "end": 1830, "precision": 11, "edtf": "1830-09-15",
+      "location": {"type": "Point", "coordinates": [-2.9917, 53.4072]}, "locationPrecision": "region", "place": {"sv": "Liverpool–Manchester, England"},
+      "title": {"sv": "Den första järnvägen mellan två städer"},
+      "summary": {"sv": "Den 15 september 1830 öppnar järnvägen mellan Liverpool och Manchester, världens första järnväg mellan två städer. Den är också den första som bara använder ånglok och den första med fast tidtabell. Loket Rocket hade konstruerats av George Stephenson och hans son Robert. På invigningsdagen dödas parlamentsledamoten William Huskisson."},
+      "wikidata": "Q1398696", "sources": ["wp-liverpool-and-manchester-railway", "wp-liverpool", "wikidata"], "review": "two-sources" },
+
+    {"id": "waitangifordraget", "category": "civilisationer", "icon": "treaty", "start": 1840, "end": 1840, "precision": 11, "edtf": "1840-02-06",
+      "location": {"type": "Point", "coordinates": [174.08194, -35.26625]}, "place": {"sv": "Waitangi, Bay of Islands, Nya Zeeland"},
+      "title": {"sv": "Waitangifördraget"},
+      "summary": {"sv": "Den 6 februari 1840 skriver kapten William Hobson för den brittiska kronan och maoriska hövdingar under Waitangifördraget vid Waitangi i Bay of Islands. Omkring 530–540 maorier skriver under den maoriska versionen men bara 39 den engelska. Texterna skiljer sig: den engelska överlåter suveräniteten till kronan, medan den maoriska ger kronan kawanatanga, styre. Fördraget ses allt mer som Nya Zeelands grunddokument, och 6 februari är nationaldag."},
+      "wikidata": "Q472802", "sources": ["wp-treaty-of-waitangi", "wp-waitangi-northland", "wikidata"], "review": "two-sources" },
+
+    {"id": "om-arternas-uppkomst", "category": "vetenskap", "icon": "book", "start": 1859, "end": 1859, "precision": 11, "edtf": "1859-11-24",
+      "location": {"type": "Point", "coordinates": [-0.1275, 51.50722]}, "locationPrecision": "region", "place": {"sv": "London, Storbritannien"},
+      "title": {"sv": "Darwins Om arternas uppkomst"},
+      "summary": {"sv": "Den 24 november 1859 ger förlaget John Murray i London ut Charles Darwins bok Om arternas uppkomst. Darwin visar att populationer förändras över generationer genom naturligt urval. Den 1 juli 1858 hade Darwins och Alfred Russel Wallaces uppsatser om evolutionen lästs upp i Linnésällskapet i London. Boken räknas som grunden för evolutionsbiologin."},
+      "wikidata": "Q20124", "sources": ["wp-on-the-origin-of-species", "wp-london", "wikidata"], "review": "two-sources" }
   ]
 }
