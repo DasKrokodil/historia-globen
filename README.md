@@ -101,7 +101,8 @@ images/incoming/      nya bilder innan de konverteras
 tools/                hjälpskript som körs för hand (Python): riken, religioner, bildpromptar, bildkonvertering och licensmanifest
 docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar; docs/bilder/ har skärmbilderna i README; docs/granskningar/ tar emot externa granskningar
 .orchestra/           arbetsflödet dirigenten och orkestern (MIT-licens)
-data/events.json      händelser
+data/handelser/       händelserna, en redigeringsfil per period; här redigeras händelser (#394)
+data/events.json      alla händelser i en fil, byggd ur data/handelser/ (redigeras inte)
 data/funfacts.json    fun facts, kopplade till händelser
 data/intro.json       introduktionens startår, texter och referenser till befintliga händelser/fun facts (#363, #516)
 data/sources.json     källregister
@@ -110,7 +111,7 @@ data/licenses.json    genererat register över källornas licensuppgifter
 images/licenses.json  genererat register över händelsebildernas licenser (#393)
 data/land.json        grundkarta (Natural Earth)
 tools/riken.py        bygger rikesfilerna ur Cliopatria
-tools/dela_data.py    delar upp events.json och empires/index.json i data/genererat/ (körs efter varje ändring i dem)
+tools/dela_data.py    bygger events.json ur data/handelser/ och delar upp händelser och riken i data/genererat/ (körs efter varje ändring)
 tools/tackningsrapport.py  skriver docs/tackningsrapport.md med täckningen per världsdel, århundrade och kategori
 tools/religioner.py   bygger religionslagret (data/religions.json) ur Cliopatria och faktarutornas texter, med arv av religion
 tools/religioner_riken.py  bygger rikenas gränser för religionslagrets klickruta ur Cliopatria
@@ -183,7 +184,7 @@ Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna]
 - **Ikonerna** i `img/icons/` och sidans ikon (`img/favicon.svg` med PNG-versioner) är egna teckningar för projektet och licensieras som koden (GPL v3.0).
 - **Bilder i faktarutan** (`images/events/`):
   - **Historiska bilder** kommer från [Wikimedia Commons](https://commons.wikimedia.org/) (public domain, CC0, CC BY eller CC BY-SA) och från [Library of Congress](https://www.loc.gov/pictures/) (poster märkta "No known restrictions on publication"). Varje bild behåller sin egen licens, som står i bildtexten tillsammans med upphov och länk till filsidan eller arkivposten. Filsidan eller arkivposten finns i källregistret.
-  - **Illustrationer** i en tidsålders bildtradition är tydligt märkta "inte en historisk bild" i bildtexten. Verktyg, datum och prompt sparas i `data/events.json`. De licensieras under CC BY 4.0 som övrig data, i den mån de alls omfattas av upphovsrätt.
+  - **Illustrationer** i en tidsålders bildtradition är tydligt märkta "inte en historisk bild" i bildtexten. Verktyg, datum och prompt sparas i händelsens fält `image` (`data/handelser/`). De licensieras under CC BY 4.0 som övrig data, i den mån de alls omfattas av upphovsrätt.
   - **Platshållare** märks "Platshållare" tills den riktiga bilden finns.
 - **Upptäcktsvyns kartbilder** (`images/karta/`) är beskurna detaljer ur Olaus Magnus *Carta marina* (1539) och Guillaume Brouscons världskarta (1543, Huntington Library), via [Wikimedia Commons](https://commons.wikimedia.org/), public domain. Ändringar: beskurna med mjuk oval kant och förminskade. Filsidorna finns i källregistret, och krediten står i teckenförklaringen när upptäcktsvyn är på.
 - **Dirigenten och orkestern** i `.orchestra/shared/` kommer från [solwation/dirigenten-och-orkestern](https://github.com/solwation/dirigenten-och-orkestern) och har MIT-licens. Det är instruktioner för AI-agenter, inte en del av sidan.

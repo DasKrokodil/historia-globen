@@ -51,7 +51,8 @@ js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med
 functions/api/feedback.js  Cloudflare Pages Function som skapar issues i ett privat repo (enda undantaget från punkt 1)
 tests/                tester för functions/ med node:test (node --test 'tests/*.test.mjs')
 tests/webblasare.mjs  webbläsartest med Playwright, körs i GitHub Actions för varje PR (#339)
-data/events.json      händelser
+data/handelser/       händelserna, en redigeringsfil per period (fkr.json, 1-1499.json … 1946-.json); här redigeras händelser (#394)
+data/events.json      alla händelser i en fil, byggs av tools/dela_data.py ur data/handelser/; redigeras inte
 data/funfacts.json    fun facts (kopplade till händelse-id)
 data/intro.json       introduktionens steg och referenser till befintliga händelser/fun facts (#363)
 data/sources.json     källregister
@@ -71,7 +72,7 @@ images/events/        bilder till händelser, <händelse-id>.webp, 800 × 600
 images/licenses.json  genererat register över händelsebildernas licenser (#393)
 images/karta/         kartbilder till upptäcktsvyn (public domain, ur gamla kartor)
 images/incoming/      Rikards nya bilder, innan de konverteras
-tools/                hjälpskript som körs för hand; tools/license_manifests.py genererar licensmanifesten, och dela_data.py körs efter ändring i events.json eller empires/index.json
+tools/                hjälpskript som körs för hand; tools/license_manifests.py genererar licensmanifesten, och dela_data.py körs efter ändring i data/handelser/ eller empires/index.json
 docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar, publicering (DEPLOYMENT.md), besökarnas förslag (feedback.md), externa granskningar (granskningar/)
 scripts/              build-site.sh kopierar webbplatsens filer till dist/ och kör validate-site.py (publicering, ingen kodändring)
 .orchestra/           dirigenten och orkestern: project.md (projektets policy) och shared/ (fäst version, redigeras inte)
@@ -120,7 +121,7 @@ Varje händelse kan få en bild i fältet `image` (fil, `kind`, stil, bildtext, 
 3. **Bilden förmedlar stämning, inte fakta.** Lägg inte in detaljer i bilden som inte stöds av händelsens källa.
 4. **Respekt.** Profeten Muhammed avbildas aldrig; Hijra visas med landskap, karavan och arkitektur. Inga karikatyrer av folk. Krig, sjukdom och död får visas när händelsen handlar om det (beslut 2026-10-29; kan anpassas för olika åldrar senare). Riktiga personers ansikten får visas, både i historiska porträtt och i illustrationer (beslut 2026-10-30).
 5. **Spårbarhet.** Spara stil, verktyg, datum och exakt prompt för varje illustration i `image`.
-6. **Filer.** `images/events/<händelse-id>.webp`, 800 × 600 pixlar, helst under 150 kB. `python3 tools/bilder_in.py` konverterar bilder från `images/incoming/` och fyller i `image` i events.json från bildloggen `images/incoming/bildlogg.json`. `python3 tools/bildpromptar.py` skriver promptar till `docs/bildpromptar.md`. Lägg aldrig API-nycklar för bildverktyg i repot.
+6. **Filer.** `images/events/<händelse-id>.webp`, 800 × 600 pixlar, helst under 150 kB. `python3 tools/bilder_in.py` konverterar bilder från `images/incoming/` och fyller i `image` i händelsens fil i `data/handelser/` från bildloggen `images/incoming/bildlogg.json`. `python3 tools/bildpromptar.py` skriver promptar till `docs/bildpromptar.md`. Lägg aldrig API-nycklar för bildverktyg i repot.
 7. **Platshållare** har `"placeholder": true` och märks "Platshållare" i kortet tills den riktiga bilden finns.
 
 ## Utseende
@@ -136,7 +137,7 @@ Rikard gillar stilen. Behåll den:
 
 1. `python3 -m http.server 8000` och öppna http://localhost:8000.
 2. Inga fel i konsolen. Globen snurrar, tidslinjen går att dra, uppspelning fungerar, fun facts dyker upp, "Platt vy" och "Källor" (sidan Om källorna) öppnas.
-3. Kontrollera all JSON (`python3 -m json.tool data/*.json`) och att varje `sources`-id finns i `sources.json` och varje händelse-id i `funfacts.json` finns i `events.json`. Har du ändrat `events.json` eller `data/empires/index.json`: kör `python3 tools/dela_data.py` och checka in `data/genererat/` (sidan läser de uppdelade filerna, #337).
+3. Kontrollera all JSON (`python3 -m json.tool data/*.json`) och att varje `sources`-id finns i `sources.json` och varje händelse-id i `funfacts.json` finns i `events.json`. Händelser redigeras i `data/handelser/<period>.json` (perioden efter startåret), inte i `events.json` (#394). Har du ändrat en fil i `data/handelser/` eller `data/empires/index.json`: kör `python3 tools/dela_data.py` och checka in `data/events.json` och `data/genererat/` (sidan läser de uppdelade filerna, #337).
 4. Testa både desktop och mobilbredd.
 5. Ändras formuläret för förslag eller `functions/`: kör `node --test 'tests/*.test.mjs'` (se docs/feedback.md).
 6. **Röd kontroll (beslut 2026-11-05, skärpt samma dag):** läs loggen och hitta den första felande kontrollen, rätta högst en gång och bara om felet är trivialt (kör bara den felande kontrollen: `ENDAST="<del av namnet>" node tests/webblasare.mjs <port>`), annars lämna en överlämningsrapport och sätt `behöver hjälp` (Codex och Copilot gör så, och Claude Code tar över vid kökontrollen). Se [AGENTS.md](AGENTS.md#röd-kontroll-eller-slut-på-tid-samma-regel-för-alla-agenter-beslut-2026-11-05-skärpt-samma-dag).
