@@ -138,6 +138,7 @@
       "sources": [
         "wp-pearl-harbor",
         "wp-world-war-ii",
+        "wp-barbarossa",
         "wikidata"
       ]
     },
@@ -213,6 +214,7 @@
       "open": "andra-slaget-vid-el-alamein",
       "sources": [
         "wp-el-alamein-2",
+        "wp-guadalcanal",
         "wikidata"
       ]
     },
