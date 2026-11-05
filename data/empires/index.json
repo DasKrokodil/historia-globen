@@ -15937,7 +15937,192 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Indien är en federal parlamentarisk republik i Sydasien med huvudstaden New Delhi. Landet blev självständigt 15 augusti 1947, när Brittiska Indien delades i Indien och Pakistan, och blev republik 1950."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Det brittiska styret upphörde vid midnatt mellan 14 och 15 augusti 1947. Brittiska Indien delades då i två stater: Indien med hinduisk majoritet och Pakistan med muslimsk majoritet. Delningen följdes av massvåld och stora flyktingströmmar."
+      }
+     },
+     {
+      "label": {
+       "sv": "Styrelseskick"
+      },
+      "text": {
+       "sv": "En federal parlamentarisk republik. Grundlagen trädde i kraft 26 januari 1950. Landet består av 28 delstater och 8 unionsterritorier."
+      }
+     },
+     {
+      "label": {
+       "sv": "Krig och kriser"
+      },
+      "text": {
+       "sv": "Indien och Pakistan krigade om Kashmir 1947–1948 och igen 1965. Indien krigade mot Kina 1962 och gick 1971 in i Bangladeshs befrielsekrig. Medborgerliga fri- och rättigheter var upphävda 1975–1977."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och yta"
+      },
+      "text": {
+       "sv": "New Delhi. Ytan är 3 287 263 km²."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1947,
+      "label": {
+       "sv": "1947"
+      },
+      "title": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Det brittiska styret upphör vid midnatt mellan 14 och 15 augusti 1947, och Brittiska Indien delas i Indien och Pakistan. Jawaharlal Nehru blir Indiens förste premiärminister."
+      },
+      "sources": [
+       "wp-india",
+       "wp-independence-day-india",
+       "wp-partition-of-india"
+      ],
+      "events": [
+       "indiens-sjalvstandighet"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Indien från 1947, med en mindre yta det första året."
+      }
+     },
+     {
+      "year": 1950,
+      "label": {
+       "sv": "1950"
+      },
+      "title": {
+       "sv": "Republiken"
+      },
+      "text": {
+       "sv": "Indiens grundlag träder i kraft 26 januari 1950, och landet blir en federal republik."
+      },
+      "sources": [
+       "wp-india",
+       "wp-history-of-the-republic-of-india"
+      ]
+     },
+     {
+      "year": 1961,
+      "label": {
+       "sv": "1961"
+      },
+      "title": {
+       "sv": "Goa"
+      },
+      "text": {
+       "sv": "Indien invaderar och annekterar den portugisiska kolonin Goa 1961."
+      },
+      "sources": [
+       "wp-history-of-the-republic-of-india"
+      ]
+     },
+     {
+      "year": 1962,
+      "label": {
+       "sv": "1962"
+      },
+      "title": {
+       "sv": "Kriget mot Kina"
+      },
+      "text": {
+       "sv": "Indien och Kina utkämpar ett kort gränskrig 1962."
+      },
+      "sources": [
+       "wp-history-of-the-republic-of-india",
+       "wp-india"
+      ]
+     },
+     {
+      "year": 1971,
+      "label": {
+       "sv": "1971"
+      },
+      "title": {
+       "sv": "Bangladeshs befrielsekrig"
+      },
+      "text": {
+       "sv": "Indien går in i kriget i Östpakistan, som slutar med Pakistans kapitulation i Dhaka 16 december 1971. Östpakistan blir självständigt som Bangladesh."
+      },
+      "sources": [
+       "wp-bangladesh-liberation-war"
+      ],
+      "events": [
+       "bangladeshs-befrielsekrig",
+       "pakistan-kapitulerar-i-dhaka"
+      ]
+     },
+     {
+      "year": 1974,
+      "label": {
+       "sv": "1974"
+      },
+      "title": {
+       "sv": "Första kärnvapenprovet"
+      },
+      "text": {
+       "sv": "Indien gör sitt första kärnvapenprov 1974 och ytterligare fem prov 1998."
+      },
+      "sources": [
+       "wp-history-of-the-republic-of-india"
+      ]
+     },
+     {
+      "year": 1975,
+      "label": {
+       "sv": "1975"
+      },
+      "title": {
+       "sv": "Undantagstillståndet"
+      },
+      "text": {
+       "sv": "De medborgerliga fri- och rättigheterna upphävs 1975–1977."
+      },
+      "sources": [
+       "wp-india"
+      ]
+     },
+     {
+      "year": 1991,
+      "label": {
+       "sv": "1991"
+      },
+      "title": {
+       "sv": "Ekonomiska reformer"
+      },
+      "text": {
+       "sv": "Från 1991 öppnar Indien sin ekonomi mer, och reformerna knyter landet närmare världsekonomin."
+      },
+      "sources": [
+       "wp-history-of-the-republic-of-india",
+       "wp-india"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar Indien från 1947, som källorna. Före 1947 räknar Cliopatria området till Brittiska Indien (British Raj) inom Brittiska imperiet. Landets yta på kartan växer 1948 och 1963."
+    },
+    "sources": [
+     "wp-india",
+     "wp-history-of-the-republic-of-india",
+     "wd-india"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "pakistan",
@@ -15961,7 +16146,193 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Pakistan är en federal parlamentarisk islamisk republik i Sydasien med huvudstaden Islamabad. Landet blev självständigt 14 augusti 1947, när Brittiska Indien delades, och omfattade fram till 1971 också Östpakistan, dagens Bangladesh."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Pakistan bildades 14 augusti 1947 av de muslimska majoritetsområdena i nordvästra och östra Brittiska Indien. Landet bestod av två delar långt från varandra, Västpakistan och Östpakistan."
+      }
+     },
+     {
+      "label": {
+       "sv": "Styrelseskick"
+      },
+      "text": {
+       "sv": "En federal parlamentarisk islamisk republik. Grundlagen från 1956 gjorde Pakistan till islamisk republik, och den nuvarande grundlagen är från 1973. Landet har växlat mellan civilt styre och militärstyre: militären tog makten 1958, 1977 och 1999."
+      }
+     },
+     {
+      "label": {
+       "sv": "Delningen 1971"
+      },
+      "text": {
+       "sv": "Östpakistan bröt sig ur efter ett nio månader långt krig och blev självständigt som Bangladesh, sedan Pakistan kapitulerat i Dhaka 16 december 1971."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och yta"
+      },
+      "text": {
+       "sv": "Islamabad. Huvudstaden flyttades från Karachi till Islamabad under Ayub Khans tid som president. Ytan är 881 913 km²."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1947,
+      "label": {
+       "sv": "1947"
+      },
+      "title": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Brittiska Indien delas 14–15 augusti 1947 i Indien och Pakistan. Pakistan omfattar då också Östbengalen, senare Östpakistan."
+      },
+      "sources": [
+       "wp-pakistan",
+       "wp-bangladesh",
+       "wp-partition-of-india"
+      ],
+      "events": [
+       "indiens-sjalvstandighet"
+      ]
+     },
+     {
+      "year": 1956,
+      "label": {
+       "sv": "1956"
+      },
+      "title": {
+       "sv": "Islamisk republik"
+      },
+      "text": {
+       "sv": "Den nya grundlagen 1956 gör Pakistan till en islamisk republik."
+      },
+      "sources": [
+       "wp-history-of-pakistan-1947",
+       "wp-pakistan"
+      ]
+     },
+     {
+      "year": 1958,
+      "label": {
+       "sv": "1958"
+      },
+      "title": {
+       "sv": "Militären tar makten"
+      },
+      "text": {
+       "sv": "President Iskander Mirza inför krigslagar i oktober 1958 och upphäver grundlagen. General Ayub Khan tar sedan över makten."
+      },
+      "sources": [
+       "wp-history-of-pakistan-1947",
+       "wp-pakistan"
+      ]
+     },
+     {
+      "year": 1971,
+      "label": {
+       "sv": "1971"
+      },
+      "title": {
+       "sv": "Östpakistan blir Bangladesh"
+      },
+      "text": {
+       "sv": "Pakistans armé slår till mot den bengaliska självständighetsrörelsen i mars 1971. Efter att Indien gått in i kriget kapitulerar Pakistan i Dhaka 16 december, och Östpakistan blir Bangladesh."
+      },
+      "sources": [
+       "wp-bangladesh-liberation-war",
+       "wp-pakistan"
+      ],
+      "events": [
+       "bangladeshs-befrielsekrig",
+       "pakistan-kapitulerar-i-dhaka"
+      ],
+      "mapNote": {
+       "sv": "Kartan räknar Östpakistan till Pakistan till och med 1972."
+      }
+     },
+     {
+      "year": 1973,
+      "label": {
+       "sv": "1973"
+      },
+      "title": {
+       "sv": "Nya grundlagen"
+      },
+      "text": {
+       "sv": "Under Zulfikar Ali Bhutto får Pakistan 1973 en grundlag med parlamentariskt styrelseskick."
+      },
+      "sources": [
+       "wp-pakistan"
+      ]
+     },
+     {
+      "year": 1977,
+      "label": {
+       "sv": "1977"
+      },
+      "title": {
+       "sv": "Zia ul-Haqs militärstyre"
+      },
+      "text": {
+       "sv": "Grundlagen sätts ur kraft under Zia ul-Haqs krigslagar 1977. Den återinförs med ändringar 1985."
+      },
+      "sources": [
+       "wp-pakistan"
+      ]
+     },
+     {
+      "year": 1988,
+      "label": {
+       "sv": "1988"
+      },
+      "title": {
+       "sv": "Benazir Bhutto"
+      },
+      "text": {
+       "sv": "Zia ul-Haq dör i en flygolycka 1988, och Benazir Bhutto väljs till landets första kvinnliga premiärminister."
+      },
+      "sources": [
+       "wp-pakistan"
+      ]
+     },
+     {
+      "year": 1998,
+      "label": {
+       "sv": "1998"
+      },
+      "title": {
+       "sv": "Kärnvapenproven"
+      },
+      "text": {
+       "sv": "Pakistan gör sex kärnvapenprov 28 och 30 maj 1998, som svar på Indiens prov samma månad."
+      },
+      "sources": [
+       "wp-history-of-pakistan-1947",
+       "wp-pakistan"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar Pakistan från 1947, som källorna. Cliopatria räknar Östpakistan till Pakistan till och med 1972, och Bangladesh visas som eget land först från 1973, fast källorna anger 1971. Före 1947 räknar Cliopatria området till Brittiska Indien (British Raj)."
+    },
+    "sources": [
+     "wp-pakistan",
+     "wp-history-of-pakistan-1947",
+     "wd-pakistan"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "bangladesh",
@@ -15985,7 +16356,181 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Bangladesh är en parlamentarisk republik i Bengalen med huvudstaden Dhaka. Området var Pakistans östra del, Östpakistan, från 1947 och blev självständigt efter befrielsekriget 1971."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Vid delningen 1947 blev området Östbengalen, den folkrikaste delen av Pakistan. Det fick namnet Östpakistan 1956. Självständigheten utropades 26 mars 1971, och kriget slutade med Pakistans kapitulation 16 december 1971."
+      }
+     },
+     {
+      "label": {
+       "sv": "Vägen till självständighet"
+      },
+      "text": {
+       "sv": "Regeringen i Pakistan slog hårt ned den bengaliska språkrörelsen 1952 och skötte hjälpen dåligt efter cyklonen Bhola 1970, då över 500 000 människor dog. I valet i december 1970 vann Awami League 167 av Östpakistans 169 platser."
+      }
+     },
+     {
+      "label": {
+       "sv": "Styrelseskick"
+      },
+      "text": {
+       "sv": "En parlamentarisk republik. Grundlagen antogs 4 november 1972; Wikipedias faktaruta anger 16 december 1972 som datum för den nuvarande grundlagen. Sheikh Mujibur Rahman ledde landet tills han mördades 1975. Efter militärstyre återinfördes parlamentarisk demokrati 1991."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och yta"
+      },
+      "text": {
+       "sv": "Dhaka. Wikipedia anger ytan till 148 460 km², Wikidata till 147 570 km²."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1947,
+      "label": {
+       "sv": "1947"
+      },
+      "title": {
+       "sv": "Östbengalen blir del av Pakistan"
+      },
+      "text": {
+       "sv": "Vid delningen av Brittiska Indien blir Östbengalen Pakistans östra och folkrikaste del."
+      },
+      "sources": [
+       "wp-bangladesh",
+       "wp-partition-of-india"
+      ],
+      "events": [
+       "indiens-sjalvstandighet"
+      ],
+      "mapNote": {
+       "sv": "Kartan räknar området till Pakistan 1947–1972."
+      }
+     },
+     {
+      "year": 1971,
+      "label": {
+       "sv": "1971"
+      },
+      "title": {
+       "sv": "Självständigheten utropas"
+      },
+      "text": {
+       "sv": "Pakistans armé slår till mot den bengaliska rörelsen natten till 26 mars 1971. Samma dag utropar Sheikh Mujibur Rahman Bangladeshs självständighet."
+      },
+      "sources": [
+       "wp-bangladesh",
+       "wp-bangladesh-declaration"
+      ],
+      "events": [
+       "operation-searchlight",
+       "bangladeshs-sjalvstandighet-utropas",
+       "bangladeshs-befrielsekrig"
+      ]
+     },
+     {
+      "year": 1971,
+      "label": {
+       "sv": "16 december 1971"
+      },
+      "title": {
+       "sv": "Segern"
+      },
+      "text": {
+       "sv": "Efter nio månaders krig, då ett folkmord på bengaler ägde rum, kapitulerar Pakistan i Dhaka 16 december 1971."
+      },
+      "sources": [
+       "wp-bangladesh",
+       "wp-instrument-surrender-1971"
+      ],
+      "events": [
+       "pakistan-kapitulerar-i-dhaka"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Bangladesh först från 1973."
+      }
+     },
+     {
+      "year": 1972,
+      "label": {
+       "sv": "1972"
+      },
+      "title": {
+       "sv": "Grundlagen"
+      },
+      "text": {
+       "sv": "Bangladeshs grundlag antas 4 november 1972."
+      },
+      "sources": [
+       "wp-bangladesh"
+      ]
+     },
+     {
+      "year": 1975,
+      "label": {
+       "sv": "1975"
+      },
+      "title": {
+       "sv": "Mujib mördas"
+      },
+      "text": {
+       "sv": "Sheikh Mujibur Rahman, som lett landet sedan självständigheten, mördas 1975."
+      },
+      "sources": [
+       "wp-bangladesh"
+      ]
+     },
+     {
+      "year": 1991,
+      "label": {
+       "sv": "1991"
+      },
+      "title": {
+       "sv": "Demokratin återinförs"
+      },
+      "text": {
+       "sv": "Militärdiktatorn Hussain Muhammad Ershad störtas i ett folkuppror 1990, och parlamentarisk demokrati återinförs 1991."
+      },
+      "sources": [
+       "wp-bangladesh"
+      ]
+     },
+     {
+      "year": 2024,
+      "label": {
+       "sv": "2024"
+      },
+      "title": {
+       "sv": "Julirevolten"
+      },
+      "text": {
+       "sv": "Efter ett uppror mot den auktoritära regeringen tvingas premiärminister Sheikh Hasina avgå och fly i augusti 2024."
+      },
+      "sources": [
+       "wp-bangladesh"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar Bangladesh först från 1973. Cliopatria räknar området till Pakistan till och med 1972, fast självständigheten utropades i mars 1971 och kriget slutade i december 1971."
+    },
+    "sources": [
+     "wp-bangladesh",
+     "wd-bangladesh"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "afghanistan",
@@ -16042,7 +16587,219 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Afghanistan i Centralasien har sin grund i Durranis rike, som Ahmad Shah Durrani grundade 1747. Därefter kom emiratet (från 1823), kungariket (1926–1973) och republiken från 1973. Talibanerna har styrt landet sedan 2021. Huvudstaden är Kabul."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Durranis rike"
+      },
+      "text": {
+       "sv": "Efter Nader Shahs död valde en stamförsamling (loya jirga) nära Kandahar Ahmad Shah Durrani till shah 1747. Riket hade Kandahar som huvudstad och från 1776 Kabul. Det tog mogulområden 1749 och plundrade Delhi 1757. Kabul föll till Barakzaiklanen i mars 1823."
+      }
+     },
+     {
+      "label": {
+       "sv": "Emiratet"
+      },
+      "text": {
+       "sv": "Emiratet grundades 1823 och styrdes från 1834 av emirer, först Dost Mohammad Khan. Britterna försökte ta landet i det första anglo-afghanska kriget 1838–1842 men drog sig tillbaka. Efter det andra kriget 1878–1880 tog Storbritannien över de afghanska områdena i dagens Pakistan. Landet var brittiskt protektorat tills ett fördrag 1919 gav det full självständighet; Wikipedia anger både 8 och 19 augusti 1919."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kungariket"
+      },
+      "text": {
+       "sv": "Amanullah Khan utropade sig till kung 9 juni 1926. Han störtades 1929, och Nadir Shah blev kung i oktober samma år. Zahir Shah regerade från 1933. Landet var neutralt i andra världskriget, gick med i FN 1946 och fick en ny grundlag 1964."
+      }
+     },
+     {
+      "label": {
+       "sv": "Republiken och krigen"
+      },
+      "text": {
+       "sv": "Daoud Khan störtade kungen 1973. Kommunisterna tog makten i april 1978, och Sovjetunionen invaderade landet i december 1979 och drog sig tillbaka 1989. Därefter följde inbördeskrig, talibanernas styre från 1996, den USA-ledda invasionen 2001 och talibanernas återkomst 2021."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och yta"
+      },
+      "text": {
+       "sv": "Kabul. Wikipedia anger ytan till 652 864 km², Wikidata till 652 230 km²."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1747,
+      "label": {
+       "sv": "1747"
+      },
+      "title": {
+       "sv": "Durranis rike grundas"
+      },
+      "text": {
+       "sv": "Ahmad Shah Durrani väljs till shah nära Kandahar efter Nader Shahs död och grundar Durranis rike."
+      },
+      "sources": [
+       "wp-durrani-empire",
+       "wp-afghanistan",
+       "wd-durrani-empire"
+      ],
+      "mapNote": {
+       "sv": "Wikipedia anger både 1747 och att riket formellt grundades 1748. Kartan visar riket från 1748, och Cliopatria räknar landets mitt till Afsharidernas Iran till 1750."
+      }
+     },
+     {
+      "year": 1761,
+      "label": {
+       "sv": "1761"
+      },
+      "title": {
+       "sv": "Tredje slaget vid Panipat"
+      },
+      "text": {
+       "sv": "Den 14 januari 1761 besegrar Ahmad Shah Durranis afghanska armé Marathas armé vid Panipat norr om Delhi. Slaget räknas som ett av 1700-talets största och blodigaste."
+      },
+      "sources": [
+       "wp-third-panipat",
+       "wp-durrani-empire"
+      ],
+      "events": [
+       "afghansk-marathiska-kriget",
+       "tredje-slaget-vid-panipat"
+      ]
+     },
+     {
+      "year": 1823,
+      "label": {
+       "sv": "1823"
+      },
+      "title": {
+       "sv": "Emiratet"
+      },
+      "text": {
+       "sv": "Barakzaiklanen tar Kabul i mars 1823, och Durranis rike ersätts av emiratet Afghanistan."
+      },
+      "sources": [
+       "wp-durrani-empire",
+       "wp-emirate-of-afghanistan"
+      ],
+      "mapNote": {
+       "sv": "Wikidata anger att Durranis rike upphörde 1826. Kartan visar Durranis rike till 1827 och emiratet från 1828."
+      }
+     },
+     {
+      "year": 1926,
+      "label": {
+       "sv": "1926"
+      },
+      "title": {
+       "sv": "Kungariket"
+      },
+      "text": {
+       "sv": "Amanullah Khan utropar sig till kung 9 juni 1926, sju år efter att landet blivit fritt från brittiskt inflytande 1919."
+      },
+      "sources": [
+       "wp-kingdom-of-afghanistan",
+       "wp-afghanistan",
+       "wd-kingdom-of-afghanistan"
+      ]
+     },
+     {
+      "year": 1973,
+      "label": {
+       "sv": "1973"
+      },
+      "title": {
+       "sv": "Republiken"
+      },
+      "text": {
+       "sv": "Medan kung Zahir Shah är i Italien griper hans kusin Daoud Khan makten i en blodlös statskupp 17 juli 1973, och Afghanistan blir republik."
+      },
+      "sources": [
+       "wp-kingdom-of-afghanistan",
+       "wp-afghanistan"
+      ]
+     },
+     {
+      "year": 1996,
+      "label": {
+       "sv": "1996"
+      },
+      "title": {
+       "sv": "Talibanerna tar Kabul"
+      },
+      "text": {
+       "sv": "Talibanerna, som uppstod 1994, driver ut Rabbanis regering från Kabul 1996 och utropar ett emirat."
+      },
+      "sources": [
+       "wp-afghanistan"
+      ],
+      "mapNote": {
+       "sv": "Kartan saknar Afghanistan som helhet 1987–1995, då Cliopatria räknar landets mitt till mujahedin. 1996–2005 visar kartan bara en liten del av landet som Afghanistan och räknar mitten till talibanerna."
+      }
+     },
+     {
+      "year": 2001,
+      "label": {
+       "sv": "2001"
+      },
+      "title": {
+       "sv": "Invasionen"
+      },
+      "text": {
+       "sv": "USA och Storbritannien inleder flyganfall 7 oktober 2001. Norra alliansen tar Kabul 13 november, och i december är talibanernas regering störtad."
+      },
+      "sources": [
+       "wp-us-invasion-afghanistan",
+       "wp-war-in-afghanistan-2001"
+      ],
+      "events": [
+       "kriget-i-afghanistan-2001",
+       "invasionen-av-afghanistan-2001"
+      ]
+     },
+     {
+      "year": 2021,
+      "label": {
+       "sv": "2021"
+      },
+      "title": {
+       "sv": "Talibanerna tillbaka"
+      },
+      "text": {
+       "sv": "Talibanerna intar Kabul 15 augusti 2021 utan motstånd. President Ashraf Ghani flyr, och Islamiska republiken faller."
+      },
+      "sources": [
+       "wp-fall-of-kabul-2021",
+       "wp-afghanistan"
+      ],
+      "events": [
+       "talibanerna-intar-kabul-2021"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar fyra perioder: Durranis rike 1748–1827, emiratet 1828–1925, kungariket 1926–1972 och Afghanistan från 1973. Källorna anger 1747 för Durranis rike och 1823 för emiratet. Kartan saknar landet 1987–1995 och visar 1996–2005 bara en liten del av det, eftersom Cliopatria då räknar landets mitt till mujahedin respektive talibanerna."
+    },
+    "sources": [
+     "wp-afghanistan",
+     "wp-durrani-empire",
+     "wp-emirate-of-afghanistan",
+     "wp-kingdom-of-afghanistan",
+     "wd-afghanistan",
+     "wd-durrani-empire",
+     "wd-emirate-of-afghanistan",
+     "wd-kingdom-of-afghanistan"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "marathariket",
@@ -16066,7 +16823,178 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Marathariket var ett rike i västra och mellersta Indien som Shivaji grundade 1674. Det växte på 1700-talet till en stormakt som tog Delhi, men förlorade vid Panipat 1761 och föll till britterna 1818."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Shivaji kröntes till chhatrapati 6 juni 1674 och skapade en självständig marathisk stat med Raigad som huvudstad. Senare var Satara kungens säte och Pune peshwans."
+      }
+     },
+     {
+      "label": {
+       "sv": "Styrelseskick"
+      },
+      "text": {
+       "sv": "Envälde fram till 1761. Därefter styrdes riket mer som ett förbund av furstar, med kungen som galjonsfigur. Den verkliga makten låg ofta hos peshwan, en sorts förste minister."
+      }
+     },
+     {
+      "label": {
+       "sv": "Krigen"
+      },
+      "text": {
+       "sv": "Mogulkejsaren Aurangzeb förde krig mot Marathas i Deckan 1680–1707. Marathas tog Delhi 1760 men förlorade mot afghanerna vid Panipat 1761. Tre krig mot britterna följde, och efter det tredje, 1817–1818, förlorade riket sin självständighet."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och yta"
+      },
+      "text": {
+       "sv": "Raigad (1674–1689), Jinji (1689–1698) och Satara (1700–1818); peshwan satt i Pune 1728–1818. Som störst, omkring 1760, var riket cirka 2 500 000 km²."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1674,
+      "label": {
+       "sv": "1674"
+      },
+      "title": {
+       "sv": "Shivaji krönes"
+      },
+      "text": {
+       "sv": "Shivaji krönes till chhatrapati 6 juni 1674 och grundar en självständig marathisk stat med Raigad som huvudstad."
+      },
+      "sources": [
+       "wp-maratha-empire",
+       "wd-maratha-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket först från 1677 och saknar det 1691–1717."
+      }
+     },
+     {
+      "year": 1680,
+      "label": {
+       "sv": "1680"
+      },
+      "title": {
+       "sv": "Krigen i Deckan"
+      },
+      "text": {
+       "sv": "Aurangzeb för krig mot Marathas i Deckan 1680–1707, vilket kostar mogulriket mycket i både soldater och pengar."
+      },
+      "sources": [
+       "wp-maratha-empire"
+      ]
+     },
+     {
+      "year": 1713,
+      "label": {
+       "sv": "1713"
+      },
+      "title": {
+       "sv": "Peshwan"
+      },
+      "text": {
+       "sv": "Balaji Vishwanath utses till peshwa 16 november 1713. Under hans son Baji Rao I växer riket kraftigt."
+      },
+      "sources": [
+       "wp-maratha-empire"
+      ]
+     },
+     {
+      "year": 1760,
+      "label": {
+       "sv": "1760"
+      },
+      "title": {
+       "sv": "Delhi intas"
+      },
+      "text": {
+       "sv": "Marathas under Sadashivrao Bhau intar Delhi i slutet av juli 1760, tillsammans med jatfursten Suraj Mal."
+      },
+      "sources": [
+       "wp-capture-delhi-1760",
+       "wp-maratha-empire"
+      ],
+      "events": [
+       "marathas-tar-delhi-1760",
+       "afghansk-marathiska-kriget"
+      ]
+     },
+     {
+      "year": 1761,
+      "label": {
+       "sv": "1761"
+      },
+      "title": {
+       "sv": "Nederlaget vid Panipat"
+      },
+      "text": {
+       "sv": "Den 14 januari 1761 förlorar Marathas mot Ahmad Shah Durranis afghanska armé vid Panipat, och rikets snabba utbredning stannar av."
+      },
+      "sources": [
+       "wp-third-panipat",
+       "wp-maratha-empire"
+      ],
+      "events": [
+       "tredje-slaget-vid-panipat"
+      ]
+     },
+     {
+      "year": 1772,
+      "label": {
+       "sv": "1772"
+      },
+      "title": {
+       "sv": "Ett förbund"
+      },
+      "text": {
+       "sv": "Efter peshwan Madhavrao I:s död 1772 går den marathiska makten nedåt, och riket blir mer ett förbund än ett imperium."
+      },
+      "sources": [
+       "wp-maratha-empire"
+      ]
+     },
+     {
+      "year": 1818,
+      "label": {
+       "sv": "1818"
+      },
+      "title": {
+       "sv": "Britterna tar över"
+      },
+      "text": {
+       "sv": "I det tredje anglo-marathiska kriget förlorar Marathas sin självständighet. Peshwan förvisas, och kärnområdet med Pune hamnar under direkt brittiskt styre. Satara behåller en egen raja tills britterna tar över 1848."
+      },
+      "sources": [
+       "wp-maratha-empire",
+       "wd-maratha-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar ett litet marathiskt område till och med 1845."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar riket 1677–1690 och 1718–1845, inte från 1674 som källorna. Den saknar riket 1691–1717 och visar efter 1819 bara ett litet område, fast källorna anger att riket föll 1818. Wikipedias infobox anger det tredje anglo-marathiska kriget till 1817–1819 och brödtexten till 1817–1818."
+    },
+    "sources": [
+     "wp-maratha-empire",
+     "wd-maratha-empire"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "korea",
@@ -16101,7 +17029,201 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Joseon var ett kungarike på Koreahalvön som grundades 1392 och styrdes av samma kungaätt i mer än 500 år. År 1897 blev det Koreanska kejsardömet, som Japan annekterade 1910."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Generalen Yi Seong-gye gjorde en statskupp i huvudstaden Kaegyŏng (dagens Kaesong), störtade Goryeos kung och blev själv kung, under namnet Taejo, 5 augusti 1392. Landet fick namnet Joseon 1393."
+      }
+     },
+     {
+      "label": {
+       "sv": "Styrelseskick"
+      },
+      "text": {
+       "sv": "Joseon var en envåldsmonarki. Det Koreanska kejsardömet var formellt också en envåldsmonarki men i praktiken en konstitutionell monarki, med Gojong som kejsare 1897–1907 och Sunjong 1907–1910."
+      }
+     },
+     {
+      "label": {
+       "sv": "Krig och invasioner"
+      },
+      "text": {
+       "sv": "Japan invaderade Korea 1592 och 1597–1598 utan att lyckas. Senare jin-dynastin anföll 1627 och Qingdynastin 1636–1637."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och yta"
+      },
+      "text": {
+       "sv": "Hanseong (dagens Seoul) var huvudstad från 1394, med ett avbrott 1399–1405 då Kaegyŏng åter var huvudstad. Wikipedia anger ingen yta; Wikidata anger cirka 220 000 km² för Joseon och 220 750 km² för kejsardömet."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1392,
+      "label": {
+       "sv": "1392"
+      },
+      "title": {
+       "sv": "Joseon grundas"
+      },
+      "text": {
+       "sv": "Yi Seong-gye störtar Goryeos kung och blir kung Taejo 5 augusti 1392."
+      },
+      "sources": [
+       "wp-joseon",
+       "wd-joseon"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Joseon först från 1395. Före det visar Cliopatria Goryeo."
+      }
+     },
+     {
+      "year": 1393,
+      "label": {
+       "sv": "1393"
+      },
+      "title": {
+       "sv": "Nytt namn och ny huvudstad"
+      },
+      "text": {
+       "sv": "Landet får namnet Joseon 1393, och huvudstaden flyttas från Kaegyŏng till Hanseong. Wikipedia anger 1393 för flytten i inledningen men 1394 i faktarutan."
+      },
+      "sources": [
+       "wp-joseon"
+      ]
+     },
+     {
+      "year": 1443,
+      "label": {
+       "sv": "1443"
+      },
+      "title": {
+       "sv": "Hangul"
+      },
+      "text": {
+       "sv": "Kung Sejong skapar det koreanska alfabetet, hangul, 1443. Det kungörs 9 oktober 1446."
+      },
+      "sources": [
+       "wp-joseon"
+      ]
+     },
+     {
+      "year": 1592,
+      "label": {
+       "sv": "1592"
+      },
+      "title": {
+       "sv": "Imjinkriget"
+      },
+      "text": {
+       "sv": "Japans härskare Toyotomi Hideyoshi invaderar Korea 1592 och igen 1597. Korea och Mingkina driver ut japanerna, men Korea ödeläggs. Amiral Yi Sun-sins flotta stör japanernas förbindelser över havet."
+      },
+      "sources": [
+       "wp-imjin-war",
+       "wp-joseon"
+      ],
+      "events": [
+       "imjinkriget",
+       "belagringen-av-busan-1592",
+       "sjoslaget-vid-hansan",
+       "sjoslaget-vid-noryang"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Joseon med en mindre yta 1595–1599."
+      }
+     },
+     {
+      "year": 1636,
+      "label": {
+       "sv": "1636"
+      },
+      "title": {
+       "sv": "Qingdynastins invasion"
+      },
+      "text": {
+       "sv": "Senare jin-dynastin har anfallit 1627, och 1636–1637 invaderar Qingdynastin Joseon."
+      },
+      "sources": [
+       "wp-joseon"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Joseon med en mindre yta 1636–1639."
+      }
+     },
+     {
+      "year": 1897,
+      "label": {
+       "sv": "1897"
+      },
+      "title": {
+       "sv": "Kejsardömet utropas"
+      },
+      "text": {
+       "sv": "Kung Gojong utropar det Koreanska kejsardömet i oktober 1897. Wikipedia anger 13 oktober och Wikidata 12 oktober."
+      },
+      "sources": [
+       "wp-korean-empire",
+       "wp-joseon",
+       "wd-korean-empire"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar kejsardömet först från 1898."
+      }
+     },
+     {
+      "year": 1905,
+      "label": {
+       "sv": "1905"
+      },
+      "title": {
+       "sv": "Japanskt protektorat"
+      },
+      "text": {
+       "sv": "Genom Eulsafördraget 17 november 1905 blir kejsardömet ett protektorat under Japan."
+      },
+      "sources": [
+       "wp-korean-empire"
+      ]
+     },
+     {
+      "year": 1910,
+      "label": {
+       "sv": "1910"
+      },
+      "title": {
+       "sv": "Japan annekterar Korea"
+      },
+      "text": {
+       "sv": "Japan annekterar Korea 29 augusti 1910, och kejsardömet upphör."
+      },
+      "sources": [
+       "wp-korean-empire",
+       "wd-korean-empire"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar Joseon 1395–1897 och kejsardömet 1898–1910. Källorna anger 1392 för Joseons grundande och oktober 1897 för kejsardömet. Ytan på kartan är mindre 1595–1599 och 1636–1639."
+    },
+    "sources": [
+     "wp-joseon",
+     "wp-korean-empire",
+     "wd-joseon",
+     "wd-korean-empire"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "nordkorea",
@@ -16125,7 +17247,188 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Nordkorea, Demokratiska folkrepubliken Korea, är en kommunistisk stat på norra delen av Koreahalvön. Den bildades 9 september 1948 och har sedan dess styrts av Kim Il Sung, hans son och hans sonson."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Efter Japans kapitulation 1945 delades Korea i två zoner längs 38:e breddgraden. Sovjetunionen styrde norr om gränsen från 24 augusti 1945, och Demokratiska folkrepubliken Korea bildades 9 september 1948."
+      }
+     },
+     {
+      "label": {
+       "sv": "Styrelseskick"
+      },
+      "text": {
+       "sv": "En kommunistisk enhetsstat med juche som statsideologi. Den nuvarande grundlagen är från 27 december 1972."
+      }
+     },
+     {
+      "label": {
+       "sv": "Ledarna"
+      },
+      "text": {
+       "sv": "Kim Il Sung var landets förste ledare. Efter hans död 1994 tog sonen Kim Jong Il över, och när Kim Jong Il dog 17 december 2011 efterträddes han av sin son Kim Jong Un."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och yta"
+      },
+      "text": {
+       "sv": "Pyongyang. Ytan är cirka 120 540 km²."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1948,
+      "label": {
+       "sv": "1948"
+      },
+      "title": {
+       "sv": "Staten bildas"
+      },
+      "text": {
+       "sv": "Demokratiska folkrepubliken Korea bildas 9 september 1948 norr om 38:e breddgraden."
+      },
+      "sources": [
+       "wp-north-korea",
+       "wd-north-korea"
+      ]
+     },
+     {
+      "year": 1950,
+      "label": {
+       "sv": "1950"
+      },
+      "title": {
+       "sv": "Anfallet på Sydkorea"
+      },
+      "text": {
+       "sv": "Nordkoreanska styrkor går över 38:e breddgraden 25 juni 1950, och Koreakriget börjar."
+      },
+      "sources": [
+       "wp-operation-pokpung",
+       "wp-north-korea"
+      ],
+      "events": [
+       "nordkoreas-anfall-1950",
+       "koreakriget"
+      ]
+     },
+     {
+      "year": 1953,
+      "label": {
+       "sv": "1953"
+      },
+      "title": {
+       "sv": "Vapenstilleståndet"
+      },
+      "text": {
+       "sv": "Vapenstilleståndet skrivs under i Panmunjom 27 juli 1953. Det skapar den demilitariserade zonen mellan Nord- och Sydkorea, men något fredsavtal sluts aldrig."
+      },
+      "sources": [
+       "wp-korean-armistice"
+      ],
+      "events": [
+       "vapenstilleståndet-i-korea"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Nordkorea med en något mindre yta från 1953."
+      }
+     },
+     {
+      "year": 1972,
+      "label": {
+       "sv": "1972"
+      },
+      "title": {
+       "sv": "Ny grundlag"
+      },
+      "text": {
+       "sv": "Den nuvarande grundlagen antas 27 december 1972."
+      },
+      "sources": [
+       "wp-north-korea"
+      ]
+     },
+     {
+      "year": 1991,
+      "label": {
+       "sv": "1991"
+      },
+      "title": {
+       "sv": "Medlem i FN"
+      },
+      "text": {
+       "sv": "Nordkorea går med i FN 1991, samtidigt som Sydkorea."
+      },
+      "sources": [
+       "wp-north-korea"
+      ]
+     },
+     {
+      "year": 1994,
+      "label": {
+       "sv": "1994"
+      },
+      "title": {
+       "sv": "Kim Jong Il och svälten"
+      },
+      "text": {
+       "sv": "Kim Il Sung dör 1994, och sonen Kim Jong Il tar över. Svälten i mitten av 1990-talet kostar uppskattningsvis 240 000–420 000 människor livet."
+      },
+      "sources": [
+       "wp-north-korea"
+      ]
+     },
+     {
+      "year": 2006,
+      "label": {
+       "sv": "2006"
+      },
+      "title": {
+       "sv": "Första kärnvapenprovet"
+      },
+      "text": {
+       "sv": "Nordkorea meddelar 2006 att landet har genomfört sitt första kärnvapenprov."
+      },
+      "sources": [
+       "wp-north-korea"
+      ]
+     },
+     {
+      "year": 2011,
+      "label": {
+       "sv": "2011"
+      },
+      "title": {
+       "sv": "Kim Jong Un"
+      },
+      "text": {
+       "sv": "Kim Jong Il dör 17 december 2011, och sonen Kim Jong Un blir landets ledare."
+      },
+      "sources": [
+       "wp-north-korea"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar Nordkorea från 1948, som källorna. Före det räknar Cliopatria området till Japanska imperiet."
+    },
+    "sources": [
+     "wp-north-korea",
+     "wd-north-korea"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "sydkorea",
@@ -16149,7 +17452,191 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Sydkorea, Republiken Korea, ligger på södra delen av Koreahalvön och bildades 15 augusti 1948. Landet gick från fattigdom och diktatur till en stark ekonomi och, efter 1987, demokrati."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Efter Japans kapitulation 1945 delades Korea längs 38:e breddgraden, och USA styrde söder om gränsen från 8 september 1945. Republiken Korea bildades 15 augusti 1948."
+      }
+     },
+     {
+      "label": {
+       "sv": "Styrelseskick"
+      },
+      "text": {
+       "sv": "En presidentrepublik. Den nuvarande grundlagen är från 29 oktober 1987, efter demokratirörelsen samma år."
+      }
+     },
+     {
+      "label": {
+       "sv": "Ekonomin"
+      },
+      "text": {
+       "sv": "Under perioden som kallas \"Undret vid Hanfloden\" växte ekonomin med i genomsnitt 10 procent om året mellan 1962 och 1994."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och yta"
+      },
+      "text": {
+       "sv": "Seoul. Ytan är 100 472 km²."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1948,
+      "label": {
+       "sv": "1948"
+      },
+      "title": {
+       "sv": "Republiken bildas"
+      },
+      "text": {
+       "sv": "Republiken Korea bildas 15 augusti 1948 söder om 38:e breddgraden. Samma år hålls landets första direkta val."
+      },
+      "sources": [
+       "wp-south-korea",
+       "wd-south-korea"
+      ],
+      "mapNote": {
+       "sv": "Cliopatria lägger 1948–1966 också en post för USA över landets mitt."
+      }
+     },
+     {
+      "year": 1950,
+      "label": {
+       "sv": "1950"
+      },
+      "title": {
+       "sv": "Koreakriget"
+      },
+      "text": {
+       "sv": "Nordkorea anfaller 25 juni 1950 och intar Seoul. FN-styrkorna håller Pusanperimetern och vänder kriget med landstigningen vid Inchon 15 september."
+      },
+      "sources": [
+       "wp-operation-pokpung",
+       "wp-pusan-perimeter",
+       "wp-battle-inchon"
+      ],
+      "events": [
+       "koreakriget",
+       "nordkoreas-anfall-1950",
+       "slaget-om-pusanperimetern",
+       "landstigningen-vid-inchon"
+      ]
+     },
+     {
+      "year": 1953,
+      "label": {
+       "sv": "1953"
+      },
+      "title": {
+       "sv": "Vapenstilleståndet"
+      },
+      "text": {
+       "sv": "Striderna upphör med vapenstilleståndet 27 juli 1953. Sydkorea skriver inte under, och något fredsavtal sluts aldrig."
+      },
+      "sources": [
+       "wp-korean-armistice"
+      ],
+      "events": [
+       "vapenstilleståndet-i-korea"
+      ]
+     },
+     {
+      "year": 1960,
+      "label": {
+       "sv": "1960"
+      },
+      "title": {
+       "sv": "Aprilrevolutionen"
+      },
+      "text": {
+       "sv": "Ett studentuppror, aprilrevolutionen, tvingar den enväldige presidenten Syngman Rhee att avgå 1960."
+      },
+      "sources": [
+       "wp-south-korea"
+      ]
+     },
+     {
+      "year": 1961,
+      "label": {
+       "sv": "1961"
+      },
+      "title": {
+       "sv": "Park Chung Hees kupp"
+      },
+      "text": {
+       "sv": "General Park Chung Hee tar makten i en militärkupp 16 maj 1961."
+      },
+      "sources": [
+       "wp-south-korea"
+      ]
+     },
+     {
+      "year": 1980,
+      "label": {
+       "sv": "1980"
+      },
+      "title": {
+       "sv": "Gwangju"
+      },
+      "text": {
+       "sv": "Specialstyrkor slår ned demokratirörelsen i Gwangju 18–27 maj 1980. Troligen dödas mellan 500 och 2 000 civila."
+      },
+      "sources": [
+       "wp-south-korea"
+      ]
+     },
+     {
+      "year": 1987,
+      "label": {
+       "sv": "1987"
+      },
+      "title": {
+       "sv": "Demokratin"
+      },
+      "text": {
+       "sv": "Junirörelsen 1987 gör slut på det auktoritära styret, och en ny grundlag antas 29 oktober 1987."
+      },
+      "sources": [
+       "wp-south-korea"
+      ]
+     },
+     {
+      "year": 1988,
+      "label": {
+       "sv": "1988"
+      },
+      "title": {
+       "sv": "OS i Seoul"
+      },
+      "text": {
+       "sv": "Seoul står värd för olympiska sommarspelen 1988."
+      },
+      "sources": [
+       "wp-south-korea"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar Sydkorea från 1948, som källorna. Före det räknar Cliopatria området till Japanska imperiet. Cliopatria lägger 1948–1966 också en post för USA över samma område."
+    },
+    "sources": [
+     "wp-south-korea",
+     "wd-south-korea"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "vietnam",
@@ -16184,7 +17671,195 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Ho Chi Minh utropade Demokratiska republiken Vietnam 2 september 1945. Efter Genèveavtalen 1954 styrde den norra delen av landet, Nordvietnam, och efter segern i Vietnamkriget enades landet 2 juli 1976 som Socialistiska republiken Vietnam."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Vietminh tog makten i augustirevolutionen 1945, och Ho Chi Minh utropade självständigheten 2 september 1945. Genèveavtalen 21 juli 1954 delade Vietnam vid 17:e breddgraden."
+      }
+     },
+     {
+      "label": {
+       "sv": "Styrelseskick"
+      },
+      "text": {
+       "sv": "Nordvietnam var en kommunistisk enhetsstat med en grundlag efter sovjetisk förebild. Dagens Vietnam är också en kommunistisk enhetsstat."
+      }
+     },
+     {
+      "label": {
+       "sv": "Reformerna"
+      },
+      "text": {
+       "sv": "Kommunistpartiet inledde 1986 marknadsreformer under namnet Đổi Mới. Vietnam blev medlem i WTO 11 januari 2007."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och yta"
+      },
+      "text": {
+       "sv": "Hanoi. Nordvietnam hade en yta på 157 880 km² och dagens Vietnam har 331 345 km²."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1945,
+      "label": {
+       "sv": "1945"
+      },
+      "title": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Ho Chi Minh utropar Demokratiska republiken Vietnam 2 september 1945, efter augustirevolutionen och Japans kapitulation."
+      },
+      "sources": [
+       "wp-north-vietnam",
+       "wd-north-vietnam"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar inte staten före 1956. Cliopatria räknar landet 1946 till Franska Indokina."
+      }
+     },
+     {
+      "year": 1946,
+      "label": {
+       "sv": "1946"
+      },
+      "title": {
+       "sv": "Indokinakriget"
+      },
+      "text": {
+       "sv": "Kriget mot Frankrike börjar 19 december 1946."
+      },
+      "sources": [
+       "wp-north-vietnam"
+      ]
+     },
+     {
+      "year": 1954,
+      "label": {
+       "sv": "1954"
+      },
+      "title": {
+       "sv": "Điện Biên Phủ och Genève"
+      },
+      "text": {
+       "sv": "Vietminh besegrar fransmännen vid Điện Biên Phủ 1954. Genèveavtalen 21 juli 1954 delar Vietnam vid 17:e breddgraden, och de val om ett enat land som skulle hållas 1956 blir aldrig av."
+      },
+      "sources": [
+       "wp-north-vietnam"
+      ]
+     },
+     {
+      "year": 1964,
+      "label": {
+       "sv": "1964"
+      },
+      "title": {
+       "sv": "Tonkinbukten"
+      },
+      "text": {
+       "sv": "Efter incidenten i Tonkinbukten i augusti 1964 ger USA:s kongress president Johnson befogenhet att sätta in amerikanska styrkor. USA deltar med egna stridande trupper 1965–1973."
+      },
+      "sources": [
+       "wp-gulf-of-tonkin",
+       "wp-vietnam-war"
+      ],
+      "events": [
+       "incidenten-i-tonkinbukten",
+       "vietnamkriget"
+      ]
+     },
+     {
+      "year": 1969,
+      "label": {
+       "sv": "1969"
+      },
+      "title": {
+       "sv": "Ho Chi Minh dör"
+      },
+      "text": {
+       "sv": "Ho Chi Minh dör 2 september 1969."
+      },
+      "sources": [
+       "wp-north-vietnam"
+      ]
+     },
+     {
+      "year": 1975,
+      "label": {
+       "sv": "1975"
+      },
+      "title": {
+       "sv": "Saigons fall"
+      },
+      "text": {
+       "sv": "Nordvietnams armé och FNL intar Saigon 30 april 1975, och kriget är slut."
+      },
+      "sources": [
+       "wp-fall-of-saigon"
+      ],
+      "events": [
+       "saigons-fall"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Nordvietnam med en större yta 1973–1975."
+      }
+     },
+     {
+      "year": 1976,
+      "label": {
+       "sv": "1976"
+      },
+      "title": {
+       "sv": "Landet enas"
+      },
+      "text": {
+       "sv": "Nord och syd enas formellt 2 juli 1976 som Socialistiska republiken Vietnam."
+      },
+      "sources": [
+       "wp-north-vietnam",
+       "wp-vietnam",
+       "wd-vietnam"
+      ]
+     },
+     {
+      "year": 1986,
+      "label": {
+       "sv": "1986"
+      },
+      "title": {
+       "sv": "Đổi Mới"
+      },
+      "text": {
+       "sv": "Kommunistpartiets sjätte kongress inför marknadsreformerna Đổi Mới 1986."
+      },
+      "sources": [
+       "wp-vietnam"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar Nordvietnam 1956–1975 och det enade Vietnam från 1976. Källorna anger 1945 för statens grundande och 1954 för delningen. Cliopatria lägger 1967–2005 också en post för USA över södra Vietnam."
+    },
+    "sources": [
+     "wp-north-vietnam",
+     "wp-vietnam",
+     "wd-north-vietnam",
+     "wd-vietnam"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "sydvietnam",
@@ -16208,7 +17883,166 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Sydvietnam, Republiken Vietnam, var en stat i södra Vietnam med huvudstaden Saigon. Republiken utropades 26 oktober 1955 och upphörde när Saigon föll 30 april 1975."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Staten Vietnam bildades 1949. Efter en folkomröstning 1955, som präglades av omfattande valfusk, avsattes Bảo Đại och Ngô Đình Diệm utropade republiken 26 oktober 1955."
+      }
+     },
+     {
+      "label": {
+       "sv": "Styrelseskick"
+      },
+      "text": {
+       "sv": "En presidentrepublik 1955–1963, en militärjunta 1963–1967 och en semipresidentiell republik 1967–1975. Presidenter var Ngô Đình Diệm 1955–1963, Nguyễn Văn Thiệu 1967–1975 och Dương Văn Minh 1975."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kriget"
+      },
+      "text": {
+       "sv": "Nordvietnam stödde upproret i söder, och USA stödde Sydvietnam. Amerikanska stridande trupper deltog 1965–1973."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och yta"
+      },
+      "text": {
+       "sv": "Saigon (i dag Ho Chi Minh-staden). Ytan var 173 809 km²."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1955,
+      "label": {
+       "sv": "1955"
+      },
+      "title": {
+       "sv": "Republiken utropas"
+      },
+      "text": {
+       "sv": "Ngô Đình Diệm utropar Republiken Vietnam 26 oktober 1955, efter en folkomröstning med omfattande valfusk."
+      },
+      "sources": [
+       "wp-south-vietnam",
+       "wd-south-vietnam"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Sydvietnam först från 1956."
+      }
+     },
+     {
+      "year": 1963,
+      "label": {
+       "sv": "1963"
+      },
+      "title": {
+       "sv": "Diệm störtas"
+      },
+      "text": {
+       "sv": "Diệm dödas 1963 i en militärkupp som leds av general Dương Văn Minh och stöds av CIA."
+      },
+      "sources": [
+       "wp-south-vietnam"
+      ]
+     },
+     {
+      "year": 1965,
+      "label": {
+       "sv": "1965"
+      },
+      "title": {
+       "sv": "USA trappar upp"
+      },
+      "text": {
+       "sv": "Amerikanska marinkårs- och armésoldater sätts in 1965. I november står det första stora slaget mellan USA:s och Nordvietnams arméer i Ia Drang."
+      },
+      "sources": [
+       "wp-south-vietnam",
+       "wp-ia-drang"
+      ],
+      "events": [
+       "vietnamkriget",
+       "slaget-i-ia-drang"
+      ]
+     },
+     {
+      "year": 1968,
+      "label": {
+       "sv": "1968"
+      },
+      "title": {
+       "sv": "Tetoffensiven"
+      },
+      "text": {
+       "sv": "Nordvietnams armé och FNL anfaller fler än 100 städer i Sydvietnam 30–31 januari 1968, bland dem Saigon. Anfallen slås tillbaka."
+      },
+      "sources": [
+       "wp-tet-offensive"
+      ],
+      "events": [
+       "tetoffensiven"
+      ],
+      "mapNote": {
+       "sv": "Kartan saknar Sydvietnam 1967–1972, då Cliopatria i stället visar USA över området."
+      }
+     },
+     {
+      "year": 1973,
+      "label": {
+       "sv": "1973"
+      },
+      "title": {
+       "sv": "Vapenvilan i Paris"
+      },
+      "text": {
+       "sv": "En vapenvila sluts i Paris i januari 1973, men striderna börjar snart igen."
+      },
+      "sources": [
+       "wp-south-vietnam",
+       "wp-north-vietnam"
+      ]
+     },
+     {
+      "year": 1975,
+      "label": {
+       "sv": "1975"
+      },
+      "title": {
+       "sv": "Saigons fall"
+      },
+      "text": {
+       "sv": "President Dương Văn Minh kapitulerar 30 april 1975, och Sydvietnam upphör att finnas."
+      },
+      "sources": [
+       "wp-fall-of-saigon",
+       "wp-south-vietnam"
+      ],
+      "events": [
+       "saigons-fall"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar Sydvietnam 1956–1966 och 1973–1975 men saknar landet 1967–1972, då Cliopatria i stället visar USA över området (USA ligger kvar över södra Vietnam till 2005). Republiken utropades i oktober 1955."
+    },
+    "sources": [
+     "wp-south-vietnam",
+     "wd-south-vietnam"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "taipingriket",
@@ -16232,7 +18066,169 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Taipings himmelska rike var en teokratisk monarki i södra och östra Kina som ville störta Qingdynastin. Det grundades 1851 av Hong Xiuquan, hade Nanjing som huvudstad från 1853 och föll 1864."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Upproret började i Guangxi 1850, och 11 januari 1851 utropade sig Hong Xiuquan till \"himmelsk kung\" i en ny dynasti."
+      }
+     },
+     {
+      "label": {
+       "sv": "Tro och styre"
+      },
+      "text": {
+       "sv": "Hong Xiuquan sade sig vara Jesu yngre bror, och rörelsen blandade protestantisk kristendom med kinesisk religion. Riket var en teokratisk envåldsmonarki."
+      }
+     },
+     {
+      "label": {
+       "sv": "Reformerna"
+      },
+      "text": {
+       "sv": "Riket avskaffade privat ägande av jord, så att staten ägde och fördelade all mark, och förbjöd fotbindning."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kriget"
+      },
+      "text": {
+       "sv": "Taipingupproret räknas som historiens dödligaste inbördeskrig. De flesta uppskattningar ligger på 20–30 miljoner döda."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad"
+      },
+      "text": {
+       "sv": "Tianjing, \"den himmelska huvudstaden\", det vill säga Nanjing."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1851,
+      "label": {
+       "sv": "1851"
+      },
+      "title": {
+       "sv": "Riket utropas"
+      },
+      "text": {
+       "sv": "Hong Xiuquan utropar upproret i Jintian och grundar Taipings himmelska rike 11 januari 1851."
+      },
+      "sources": [
+       "wp-jintian-uprising",
+       "wp-taiping-heavenly-kingdom",
+       "wd-taiping-heavenly-kingdom"
+      ],
+      "events": [
+       "jintianupproret",
+       "taipingupproret"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket först från 1853."
+      }
+     },
+     {
+      "year": 1853,
+      "label": {
+       "sv": "1853"
+      },
+      "title": {
+       "sv": "Nanjing blir Tianjing"
+      },
+      "text": {
+       "sv": "Taipingarmén erövrar Nanjing 19 mars 1853 och gör staden till sin huvudstad, Tianjing. En armé ger sig samma år av mot Peking men förintas till 1855."
+      },
+      "sources": [
+       "wp-nanjing-1853",
+       "wp-northern-expedition-taiping"
+      ],
+      "events": [
+       "nanjing-blir-tianjing-1853",
+       "norra-expeditionen-taiping"
+      ]
+     },
+     {
+      "year": 1856,
+      "label": {
+       "sv": "1856"
+      },
+      "title": {
+       "sv": "Tianjingincidenten"
+      },
+      "text": {
+       "sv": "Taipingledarna strider mot varandra i huvudstaden från 2 september 1856. Yang Xiuqing och mer än 27 000 andra dödas, och rörelsen försvagas."
+      },
+      "sources": [
+       "wp-tianjing-incident",
+       "wp-taiping-heavenly-kingdom"
+      ],
+      "events": [
+       "tianjingincidenten"
+      ]
+     },
+     {
+      "year": 1861,
+      "label": {
+       "sv": "1861"
+      },
+      "title": {
+       "sv": "Anqing och Shanghai"
+      },
+      "text": {
+       "sv": "Zeng Guofans armé tar Anqing 5 september 1861 och öppnar vägen mot Nanjing. Taipings anfall mot Shanghai 1861–1862 slås tillbaka."
+      },
+      "sources": [
+       "wp-anqing-battle",
+       "wp-shanghai-1861"
+      ],
+      "events": [
+       "slaget-vid-anqing",
+       "slaget-vid-shanghai-1861"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar riket som störst 1861, cirka 348 000 km²."
+      }
+     },
+     {
+      "year": 1864,
+      "label": {
+       "sv": "1864"
+      },
+      "title": {
+       "sv": "Nanjing faller"
+      },
+      "text": {
+       "sv": "Hong Xiuquan dör 1 juni 1864, och Qingarmén tar Nanjing 19 juli. Hans son och efterträdare Hong Tianguifu tillfångatas 25 oktober 1864. Spridda taipingstyrkor fortsätter att göra motstånd, och den sista upprorsarmén förintas i augusti 1871."
+      },
+      "sources": [
+       "wp-nanjing-1864",
+       "wp-taiping-heavenly-kingdom"
+      ],
+      "events": [
+       "tredje-slaget-vid-nanjing"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar riket 1853–1864. Källorna anger att det grundades i januari 1851; Nanjing intogs 1853."
+    },
+    "sources": [
+     "wp-taiping-heavenly-kingdom",
+     "wd-taiping-heavenly-kingdom"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "nigeria",
@@ -16695,7 +18691,190 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Ukraina är en republik i östra Europa med Kyiv som huvudstad. Landet blev självständigt 1991, när Sovjetunionen upplöstes. År 2014 började kriget med Ryssland."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Ukrainska SSR:s högsta sovjet antog självständighetsförklaringen 24 augusti 1991. I en folkomröstning 1 december 1991 röstade över 90 procent för självständigheten. Polen och Kanada erkände landet först, 2 december, och Sovjetunionen upplöstes 26 december 1991."
+      }
+     },
+     {
+      "label": {
+       "sv": "Styrelseskick"
+      },
+      "text": {
+       "sv": "En semipresidentiell republik."
+      }
+     },
+     {
+      "label": {
+       "sv": "Två revolutioner"
+      },
+      "text": {
+       "sv": "Orangea revolutionen 2004–2005 följde på ett presidentval som enligt kritikerna var fullt av fusk. Revolutionen i februari 2014, i slutet av Euromajdanprotesterna, ledde till att parlamentet avsatte president Viktor Janukovytj."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kriget med Ryssland"
+      },
+      "text": {
+       "sv": "Efter revolutionen 2014 ockuperade och annekterade Ryssland Krimhalvön, och i Donbas började ett krig mellan Ukraina och separatister med ryskt stöd. Den 24 februari 2022 inledde Ryssland en fullskalig invasion av Ukraina."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och yta"
+      },
+      "text": {
+       "sv": "Kyiv. Ytan är 603 628 km² enligt Wikipedia och 603 550 km² enligt Wikidata."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1991,
+      "label": {
+       "sv": "1991"
+      },
+      "title": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Ukrainska SSR:s högsta sovjet förklarar Ukraina självständigt 24 augusti 1991, med 346 röster mot 1. I folkomröstningen 1 december röstar över 90 procent ja, och 84 procent av de röstberättigade deltar."
+      },
+      "sources": [
+       "wp-declaration-independence-ukraine",
+       "wp-ukraine",
+       "wd-ukraine"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Ukraina först från 1992. År 1991 räknar Cliopatria området till Sovjetunionen."
+      }
+     },
+     {
+      "year": 2004,
+      "label": {
+       "sv": "2004"
+      },
+      "title": {
+       "sv": "Orangea revolutionen"
+      },
+      "text": {
+       "sv": "Efter den andra valomgången i presidentvalet 21 november 2004 mellan Viktor Jusjtjenko och Viktor Janukovytj protesterar människor mot valfusk. Högsta domstolen beslutar om ett omval, som hålls 26 december, och Jusjtjenko vinner med omkring 52 procent av rösterna."
+      },
+      "sources": [
+       "wp-orange-revolution",
+       "wp-ukraine"
+      ]
+     },
+     {
+      "year": 2014,
+      "label": {
+       "sv": "feb 2014"
+      },
+      "title": {
+       "sv": "Revolutionen i februari"
+      },
+      "text": {
+       "sv": "Euromajdanprotesterna börjar i november 2013, när president Janukovytj plötsligt bestämmer sig för att inte skriva under associeringsavtalet med EU. I februari 2014 dödas många demonstranter av regeringens styrkor i Kyiv, och 22 februari röstar parlamentet för att avsätta Janukovytj."
+      },
+      "sources": [
+       "wp-revolution-of-dignity",
+       "wp-ukraine"
+      ]
+     },
+     {
+      "year": 2014,
+      "label": {
+       "sv": "mars 2014"
+      },
+      "title": {
+       "sv": "Ryssland annekterar Krim"
+      },
+      "text": {
+       "sv": "Den 27 februari 2014 börjar ryska specialstyrkor utan gradbeteckningar ta kontroll över viktiga platser på Krim. Efter en folkomröstning som Wikipedia kallar illegitim införlivar Ryssland halvön 18 mars 2014. FN:s generalförsamling bekräftar i resolution 68/262 Ukrainas gränser, och Ukraina och många andra länder ser annekteringen som ett brott mot folkrätten."
+      },
+      "sources": [
+       "wp-annexation-of-crimea",
+       "wp-ukraine"
+      ],
+      "mapNote": {
+       "sv": "Cliopatria räknar Krim både till Ukraina och till Ryssland 2014–2023, och från 2024 bara till Ryssland."
+      }
+     },
+     {
+      "year": 2014,
+      "label": {
+       "sv": "april 2014"
+      },
+      "title": {
+       "sv": "Kriget i Donbas"
+      },
+      "text": {
+       "sv": "I april 2014 börjar paramilitära grupper med ryskt stöd ett uppror i östra Ukraina, och Ukrainas armé går till motangrepp. Rysslands militär deltar i hemlighet. Ett nytt vapenstillestånd, Minsk II, sluts 12 februari 2015. Omkring 14 000 människor dödas innan kriget 2022 går upp i den fullskaliga invasionen."
+      },
+      "sources": [
+       "wp-war-in-donbas"
+      ]
+     },
+     {
+      "year": 2022,
+      "label": {
+       "sv": "feb 2022"
+      },
+      "title": {
+       "sv": "Rysslands invasion"
+      },
+      "text": {
+       "sv": "Den 24 februari 2022 anfaller Ryssland Ukraina, en kraftig upptrappning av kriget som började 2014. Ryska styrkor försöker inta Kyiv från norr, men 2 april är Kyiv och Kyiv oblast åter under ukrainsk kontroll."
+      },
+      "sources": [
+       "wp-russian-invasion-ukraine",
+       "wp-battle-of-kyiv-2022",
+       "wp-ukraine"
+      ],
+      "events": [
+       "rysslands-invasion-av-ukraina",
+       "slaget-om-kyiv-2022"
+      ]
+     },
+     {
+      "year": 2022,
+      "label": {
+       "sv": "sep 2022"
+      },
+      "title": {
+       "sv": "Annekteringen av fyra provinser"
+      },
+      "text": {
+       "sv": "Den 30 september 2022 förklarar Ryssland ensidigt att det annekterar Donetsk, Luhansk, Zaporizjzja och Cherson oblast, efter folkomröstningar som de ryska ockupationsmyndigheterna har ordnat. Ryssland kontrollerar inte någon av provinserna helt. Annekteringen erkänns inte av omvärlden, utom av Nordkorea, och 143 av FN:s medlemsländer fördömer den som olaglig."
+      },
+      "sources": [
+       "wp-russian-annexation-southeastern-ukraine"
+      ],
+      "mapNote": {
+       "sv": "Kartan räknar de områden som Ryssland har ockuperat sedan 2022 till Ukraina, och visar inte frontlinjen."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar Ukraina från 1992; enligt källorna blev landet självständigt 24 augusti 1991, och Sovjetunionen upplöstes 26 december 1991. Cliopatria räknar Krim till Ukraina till och med 2023 och samtidigt till Ryssland 2014–2024, så att halvön 2014–2023 hör till båda länderna. Från 2024 visas Ukraina utan Krim. De områden som Ryssland har ockuperat sedan 2022 visas som en del av Ukraina. Kartan slutar 2024 och säger inget om läget därefter."
+    },
+    "sources": [
+     "wp-ukraine",
+     "wd-ukraine",
+     "wp-declaration-independence-ukraine"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "ryska-federationen",
@@ -16719,7 +18898,167 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Ryska federationen, eller Ryssland, uppstod ur Ryska SFSR när Sovjetunionen upplöstes 1991, och den räknas som Sovjetunionens efterträdarstat. Huvudstaden är Moskva."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Ryska SFSR förklarade sig suveränt 12 juni 1990. Den 8 december 1991 skrev ledarna för Ryssland, Ukraina och Belarus under Belovezjavtalen, som slog fast att Sovjetunionen inte längre fanns. Sovjetunionen upplöstes formellt 26 december 1991. Wikidata anger 25 december 1991 som Ryska federationens början."
+      }
+     },
+     {
+      "label": {
+       "sv": "Styrelseskick"
+      },
+      "text": {
+       "sv": "En federal, semipresidentiell republik. Författningen är från 12 december 1993. Sedan sekelskiftet har Vladimir Putin dominerat politiken, och enligt Wikipedia har landet blivit allt mer auktoritärt under hans ledning."
+      }
+     },
+     {
+      "label": {
+       "sv": "Krigen"
+      },
+      "text": {
+       "sv": "Ryssland förde två krig i Tjetjenien, 1994–1996 och från 1999, och ett krig mot Georgien 2008. År 2014 annekterade Ryssland Krim, vilket inte erkänns internationellt, och sedan dess för landet krig mot Ukraina. Efter invasionen 2022 förklarade Ryssland ytterligare fyra ukrainska provinser annekterade."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och yta"
+      },
+      "text": {
+       "sv": "Moskva. Ytan inom de internationellt erkända gränserna är 17 098 246 km² enligt Wikipedia; Wikidata anger 17 075 400 km²."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1991,
+      "label": {
+       "sv": "1991"
+      },
+      "title": {
+       "sv": "Sovjetunionen upplöses"
+      },
+      "text": {
+       "sv": "Ledarna för Ryssland, Ukraina och Belarus skriver under Belovezjavtalen 8 december 1991. Michail Gorbatjov avgår 25 december och lämnar över sina befogenheter, också kontrollen över kärnvapnen, till Boris Jeltsin. Dagen efter upplöses Sovjetunionen formellt, och Ryssland blir dess erkända efterträdarstat."
+      },
+      "sources": [
+       "wp-dissolution-of-the-soviet-union",
+       "wp-russia",
+       "wd-russia"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Ryska federationen först från 1992. År 1991 räknar Cliopatria området till Sovjetunionen."
+      }
+     },
+     {
+      "year": 1993,
+      "label": {
+       "sv": "1993"
+      },
+      "title": {
+       "sv": "Författningskrisen"
+      },
+      "text": {
+       "sv": "Den 21 september 1993 upplöser president Jeltsin parlamentet, i strid med den dåvarande författningen. Den 4 oktober stormar armén parlamentsbyggnaden i Moskva; enligt den ryska regeringens siffror dödas 147 människor. En ny författning antas 12 december 1993."
+      },
+      "sources": [
+       "wp-1993-russian-constitutional-crisis",
+       "wp-russia"
+      ]
+     },
+     {
+      "year": 1994,
+      "label": {
+       "sv": "1994"
+      },
+      "title": {
+       "sv": "Första Tjetjenienkriget"
+      },
+      "text": {
+       "sv": "Ryska trupper går in i Tjetjenien 11 december 1994. Kriget slutar 31 augusti 1996 med Khasavjurtavtalet, och de ryska styrkorna drar sig tillbaka. Mellan 30 000 och 100 000 tjetjenska civila beräknas ha dödats."
+      },
+      "sources": [
+       "wp-first-chechen-war"
+      ]
+     },
+     {
+      "year": 1999,
+      "label": {
+       "sv": "1999"
+      },
+      "title": {
+       "sv": "Andra Tjetjenienkriget och Putin"
+      },
+      "text": {
+       "sv": "I augusti 1999 tränger islamister från Tjetjenien in i Dagestan, och kriget i Tjetjenien börjar på nytt. Jeltsin avgår 31 december 1999, och premiärminister Vladimir Putin blir tillförordnad president; han väljs i mars 2000. Regeringens operation i Tjetjenien avslutas officiellt i april 2009."
+      },
+      "sources": [
+       "wp-second-chechen-war",
+       "wp-vladimir-putin"
+      ]
+     },
+     {
+      "year": 2014,
+      "label": {
+       "sv": "2014"
+      },
+      "title": {
+       "sv": "Krim annekteras"
+      },
+      "text": {
+       "sv": "Ryska specialstyrkor utan gradbeteckningar börjar ta kontroll över Krim 27 februari 2014, och 18 mars införlivar Ryssland halvön med Ryssland. Annekteringen erkänns inte internationellt, och samma vår börjar kriget i Donbas."
+      },
+      "sources": [
+       "wp-annexation-of-crimea",
+       "wp-russia",
+       "wp-war-in-donbas"
+      ],
+      "mapNote": {
+       "sv": "Cliopatria räknar Krim till Ryssland från 2014 men också till Ukraina till och med 2023."
+      }
+     },
+     {
+      "year": 2022,
+      "label": {
+       "sv": "2022"
+      },
+      "title": {
+       "sv": "Invasionen av Ukraina"
+      },
+      "text": {
+       "sv": "Den 24 februari 2022 anfaller Ryssland Ukraina, en kraftig upptrappning av kriget som började 2014. Den 30 september 2022 förklarar Ryssland fyra ukrainska provinser annekterade, fast landet inte kontrollerar någon av dem helt. Annekteringen erkänns inte av omvärlden, utom av Nordkorea."
+      },
+      "sources": [
+       "wp-russian-invasion-ukraine",
+       "wp-russian-annexation-southeastern-ukraine",
+       "wp-russia"
+      ],
+      "events": [
+       "rysslands-invasion-av-ukraina"
+      ],
+      "mapNote": {
+       "sv": "Kartan räknar inte de områden i Ukraina som Ryssland har ockuperat sedan 2022 till Ryssland."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar Ryska federationen från 1992; enligt källorna upplöstes Sovjetunionen i december 1991. Cliopatria räknar Krim till Ryssland 2014–2024 och samtidigt till Ukraina 2014–2023. De områden i Ukraina som Ryssland har ockuperat sedan 2022 räknas inte till Ryssland. Kartan slutar 2024 och säger inget om läget därefter."
+    },
+    "sources": [
+     "wp-russia",
+     "wd-russia",
+     "wp-dissolution-of-the-soviet-union"
+    ],
+    "review": "source-checked"
+   }
   }
  ]
 }

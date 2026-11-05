@@ -43,7 +43,9 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # R7 (#407): USA med Alaska, de arktiska öarna och Stilla havet
              'usa': (0.3, 0.05, 0.08),
              # Kanada, Ryssland och Australien med långa kuster och många öar
-             'kanada': (0.3, 0.05, 0.08), 'ryska-federationen': (0.3, 0.05, 0.08), 'australien': (0.3, 0.05, 0.08)}
+             'kanada': (0.3, 0.05, 0.08), 'australien': (0.3, 0.05, 0.08),
+             # Ryssland: perioderna slås aldrig ihop, så att Krim (cirka 0,2 procent av ytan) syns från 2014
+             'ryska-federationen': (0.3, 0.0, 0.08)}
 
 # grupp: (svenskt namn, engelskt namn, [(Cliopatria-namn, id, svenskt namn, färg)])
 GROUPS = {
@@ -353,7 +355,8 @@ GROUPS = {
     ]),
     # R7 (#407), fjärde omgången: Östasien (Imjinkriget, Koreakriget, Vietnamkriget, Taipingupproret)
     'korea': ('Korea: Joseon och Koreanska kejsardömet', 'Korea: Joseon and the Korean Empire', [
-        ('Joseon', 'joseon', 'Joseon (Korea)', '#4a9ab0'),
+        # Cliopatria anger Q28405 (Gojoseon) för Joseon
+        ('Joseon', 'joseon', 'Joseon (Korea)', '#4a9ab0', {'en': 'Joseon', 'wikidata': 'Q28179'}),
         ('Korean Empire', 'koreanska-kejsardomet', 'Koreanska kejsardömet', '#4a9ab0'),
     ]),
     'nordkorea': ('Nordkorea', 'North Korea', [
@@ -368,7 +371,8 @@ GROUPS = {
         ('Socialist Republic of Vietnam', 'vietnam', 'Vietnam', '#c04040', {'en': 'Vietnam'}),
     ]),
     'sydvietnam': ('Sydvietnam', 'South Vietnam', [
-        ('Republic of Vietnam', 'sydvietnam', 'Sydvietnam', '#d0b040', {'en': 'South Vietnam'}),
+        # Cliopatria anger Nordvietnams Q-id (Q172640) också för Sydvietnam
+        ('Republic of Vietnam', 'sydvietnam', 'Sydvietnam', '#d0b040', {'en': 'South Vietnam', 'wikidata': 'Q180573'}),
     ]),
     'taipingriket': ('Taipingriket', 'Taiping Heavenly Kingdom', [
         ('Taiping Heavenly Kingdom', 'taipingriket', 'Taipingriket', '#b06ab0'),
