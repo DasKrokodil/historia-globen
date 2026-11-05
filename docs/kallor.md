@@ -59,12 +59,12 @@ Stora öppna dataset kan ge tusentals händelser på en gång. De läggs inte di
 
 Första källan är Historical Conflict Event Dataset (#24). `python3 tools/hced.py` hämtar platserna från World Historical Gazetteer och skriver ett urval på cirka 150 utkast, spridda över världsdelar och tidsåldrar, till `data/utkast/hced.json` (`--alla` gör om hela datasetet, `--lpf` läser en nedladdad fil). Datasetet har en post per plats, och varje beskrivning av platsen ("Trojan War (-1184)") blir ett utkast. Negativa år i datasetet är år f.Kr. utan år 0 (`-0605` är slaget vid Karkemish 605 f.Kr.), så de räknas om till `1 - N`. Skriptet listar också utkast som troligen redan finns i `events.json` (samma år ±1 och inom 25 km eller samma namn) i fältet `duplicates`, och varnar i `hced.check` när datasetets punkt verkar fel.
 
-Så lyfts ett utkast till `events.json`:
+Så lyfts ett utkast till händelserna (`data/handelser/<period>.json`, #394):
 
 1. Kontrollera i `duplicates` att slaget inte redan finns.
 2. Öppna en källa om slaget (till exempel Wikipedia eller Wikidata) och jämför år, plats och konflikt. Datasetet har fel ibland, till exempel en plats som fått fel koordinat eller fel konflikt.
 3. Skriv svensk titel (till exempel "Slaget vid …") och en egen sammanfattning ur källan, med `precision` och `edtf` som visar osäkerheten. Koppla slaget till sitt krig med `partOf` om kriget finns.
-4. Lägg källan i `sources.json`, behåll `whg-hced` i `sources` och sätt `review` till `source-checked` (eller `two-sources`). Ta bort fältet `hced` och flytta posten till `events.json`. Ta bort utkastet ur `data/utkast/hced.json` så att det inte finns två gånger.
+4. Lägg källan i `sources.json`, behåll `whg-hced` i `sources` och sätt `review` till `source-checked` (eller `two-sources`). Ta bort fältet `hced` och flytta posten till periodfilen för slagets startår i `data/handelser/`, och kör `python3 tools/dela_data.py`. Ta bort utkastet ur `data/utkast/hced.json` så att det inte finns två gånger.
 
 ## Pågående krig: hålla uppgifterna aktuella (#223)
 

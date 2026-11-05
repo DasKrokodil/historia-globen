@@ -126,7 +126,7 @@ Granskning och källkontroll hoppas aldrig över; besparingen görs före och ru
 
 - **Två eller tre arbetare** bara när dirigenten kan svara ja på allt detta: leveranserna har inga inbördes beroenden,
   de ändrar inte samma centrala filer eller genererade index (till exempel `js/main.js`, `css/style.css`,
-  `data/events.json`, `data/sources.json`, `data/genererat/`, `docs/beslut/`), de kan verifieras var för sig, en
+  samma periodfil i `data/handelser/`, `data/events.json`, `data/sources.json`, `data/genererat/`, `docs/beslut/`), de kan verifieras var för sig, en
   misslyckad leverans blockerar inte de andra, och tidsvinsten är verklig trots kön till webbläsartestet. Annars körs
   uppgifterna efter varandra.
 - **Uppdraget till arbetaren** följer [shared/WORKER.md](shared/WORKER.md), på högst cirka 800 ord, och har dessutom:

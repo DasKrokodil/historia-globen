@@ -967,6 +967,35 @@ async function run(browser, vp) {
     return 'fälls ihop och ut; valet sparas i sessionen';
   });
 
+  // #377, regel A: dimman lyfts över hela riket när en resa har nått dess område. USA används eftersom issuets
+  // krav är att USA syns under inbördeskriget (1863). Den riktiga modulen och USA:s fil laddas; vägarna ersätts av
+  // en punkt i landet (reached), så att testet inte beror på vilka resor som finns i datan.
+  await check('upptäcktsvyn lyfter dimman över ett rike som en resa har nått', async () => {
+    const r = await page.evaluate(async () => {
+      const { DiscoveryLayer } = await import('./js/layers/discovery.js');
+      const get = url => fetch(url).then(res => res.json());
+      const [doc, index] = await Promise.all([get('data/upptackt.json'), get('data/empires/index.json')]);
+      const group = index.groups.find(g => g.id === 'usa');
+      if (!group) return { missing: true };
+      const { polities } = await get(group.file);
+      const last = polities[0].periods.at(-1);
+      const lifted = (pts, year) => {
+        const layer = new DiscoveryLayer(doc, null);
+        layer.enabled = true;
+        layer._loadImages = () => {};
+        layer.addEmpire(group.id, polities);
+        layer.update({ year, lines: { routes: [1], reached: () => [pts] } });
+        return layer.lifted.length;
+      };
+      return { inne: lifted([last.label], 1863), fore: lifted([last.label], group.from - 1), langtBort: lifted([[0, 0]], 1863) };
+    });
+    if (r.missing) throw new Error('USA saknas i data/empires/index.json (#407)');
+    if (!r.inne) throw new Error('dimman lyfts inte över USA 1863 fast en resa har nått landet');
+    if (r.fore) throw new Error('dimman lyfts över USA innan landet fanns');
+    if (r.langtBort) throw new Error('dimman lyfts över USA fast ingen resa har nått landet');
+    return `USA 1863: ${r.inne} perioder lyfta; före landet fanns och utan kontakt: inga`;
+  });
+
   await check('Fokus öppnas och följer ett rike', async () => {
     if (!(await page.locator('#religion-legend').isHidden())) throw new Error('rikesförklaringen syns på startskärmen');
     await clickView('#btn-focus');
@@ -1716,6 +1745,7 @@ async function run(browser, vp) {
     });
     await page.waitForFunction(() => document.getElementById('detail')?.textContent.includes('När kriget är slut'), null, { timeout: T.step });
     const summary = (await page.textContent('#detail')).replace(/\s+/g, ' ').trim();
+    if (!(await page.locator('#detail .review-badge').count())) throw new Error('krigets slutkort saknar granskningsstatus (#608)');
     if (!summary.includes('Andra världskriget')) throw new Error('slutkortet saknar krigets namn');
     // Slutkortet animeras in samtidigt som WebGL-ytan ritar om. Stäng av just skärmbildens
     // rörelser i stället för att vänta på en stilla canvas som inte hör till kortet.
@@ -1765,6 +1795,38 @@ async function run(browser, vp) {
     await page.click('#sources-close');
     await hidden('#sources-dialog');
     return `Version ${version.version}, fungerande releaselänk och omflöde utan horisontell scroll`;
+  });
+
+  await check('Om källorna: sammanfattning och statusfilter', async () => {
+    await clickView('#btn-sources');
+    await visible('#sources-dialog');
+    await page.waitForSelector('#src-status option', { state: 'attached', timeout: T.step });
+    const rows = await page.locator('.src-summary .src-level').count();
+    if (rows !== 3) throw new Error(`sammanfattningen har ${rows} rader i stället för 3`);
+    const summaryText = (await page.textContent('.src-summary')).replace(/\s+/g, ' ');
+    if (/sourcesSummary|\{status\}/.test(summaryText)) throw new Error(`sammanfattningen visar en rå textnyckel: ${summaryText}`);
+    // Tangentbord: filtret nås med Tab från sökrutan och byts med piltangenten
+    await page.focus('#src-q');
+    await page.keyboard.press('Tab');
+    if (await page.evaluate(() => document.activeElement?.id) !== 'src-status') throw new Error('statusfiltret nås inte med Tab från sökrutan');
+    const before = await page.locator('.src-list tbody tr').count();
+    await page.selectOption('#src-status', 'two');
+    const hits = await page.textContent('.src-hits');
+    if (!hits.includes('Två källor stämmer')) throw new Error(`träffraden nämner inte filtret: ${hits}`);
+    const after = await page.locator('.src-list tbody tr').count();
+    if (!after || after >= before) throw new Error(`filtret Två källor stämmer gav ${after} rader av ${before}`);
+    await shot('517-kallor-filter');
+    // Tomt resultat: ett sökord som inget matchar ger en tydlig rad i stället för en tom lista
+    await page.fill('#src-q', 'zzqxv');
+    const empty = await page.textContent('.src-hits');
+    if (!empty.startsWith('Ingen källa matchar') || await page.locator('.src-list tbody tr').count()) throw new Error(`tomt filterresultat visas inte tydligt: ${empty}`);
+    const wide = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);
+    if (wide) throw new Error('Om källorna får horisontell scroll');
+    await page.fill('#src-q', '');
+    await page.selectOption('#src-status', '');
+    await page.click('#sources-close');
+    await hidden('#sources-dialog');
+    return `3 rader i sammanfattningen, filtret ger ${after} av ${before} rader, tomt resultat tydligt`;
   });
 
   if (vp.name === 'dator') {
@@ -1819,6 +1881,18 @@ async function run(browser, vp) {
     const text = (await page.textContent('#detail .uncertainty-row')).replace(/\s+/g, ' ').trim();
     if (!/Historisk osäkerhet:.*dateringen är ungefärlig/.test(text)) throw new Error(`osäkerhetsraden saknar ungefärlig datering: ${text}`);
     if (!(await page.locator('#detail .review-badge').count())) throw new Error('faktarutan saknar en separat rad för källkontroll');
+    // Rubrik och datumrad före bilden (#605), platsen en gång (#607) och markeringen i datumraden (#606)
+    const order = await page.evaluate(() => {
+      const d = document.getElementById('detail');
+      const pos = s => { const el = d.querySelector(s); return el ? [...d.querySelectorAll('*')].indexOf(el) : -1; };
+      return { h3: pos('h3'), meta: pos('.meta'), fig: pos('.detail-fig'), places: d.querySelectorAll('.place-name').length };
+    });
+    if (order.h3 < 0 || order.meta < order.h3 || (order.fig >= 0 && order.fig < order.meta)) throw new Error(`rubrik och datumrad står inte före bilden: ${JSON.stringify(order)}`);
+    if (order.places) throw new Error('platsen står två gånger i faktarutan');
+    const mark = page.locator('#detail .meta [data-unc-mark]');
+    if (!(await mark.count())) throw new Error('datumraden saknar markeringen för osäkerhet');
+    await mark.first().click();
+    if (await page.evaluate(() => document.activeElement?.id) !== 'detail-uncertainty') throw new Error('markeringen leder inte till raden Historisk osäkerhet');
     return text;
   });
 
