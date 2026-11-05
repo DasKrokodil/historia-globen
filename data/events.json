@@ -1182,7 +1182,7 @@
       "note": { "title": { "sv": "Om kalendern" }, "text": { "sv": "Datumen gäller den julianska kalendern, som användes då och som källorna följer. Den gregorianska kalendern infördes först 1582." } },
       "wikidata": "Q296269", "sources": ["wp-tupac-amaru", "wp-conquest-inca", "wikidata"], "review": "two-sources" },
 
-    { "id": "amerikanska-inbordeskriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1861, "end": 1865, "precision": 11, "edtf": "1861-04-12/1865-05-26",
+    { "id": "amerikanska-inbordeskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["usa", "amerikas-konfedererade-stater"], "start": 1861, "end": 1865, "precision": 11, "edtf": "1861-04-12/1865-05-26",
       "location": { "type": "Point", "coordinates": [-79.875, 32.752] }, "locationPrecision": "region", "place": { "sv": "USA, mest i södra delstaterna (började vid Fort Sumter i Charleston, South Carolina)" },
       "title": { "sv": "Amerikanska inbördeskriget" },
       "summary": { "sv": "Ett inbördeskrig 1861–1865 mellan USA:s regering (Unionen, \"Norr\") och Amerikas konfedererade stater (\"Söder\"), som hade brutit sig ur för att bevara slaveriet. Unionen vann, och fyra miljoner förslavade afroamerikaner blev fria. Det är det krig där flest amerikaner har dött." },
@@ -1249,7 +1249,7 @@
       "note": { "title": { "sv": "Bara en källa" }, "text": { "sv": "Datum och plats kommer från Wikipedia (artiklarna om Stand Watie och om inbördeskriget). Wikidata har ingen egen post för kapitulationen." } },
       "sources": ["wp-stand-watie", "wp-american-civil-war"], "review": "source-checked" },
 
-    { "id": "paraguaykriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1864, "end": 1870, "precision": 11, "edtf": "1864-11-12/1870-03-01",
+    { "id": "paraguaykriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brasilien", "argentina", "uruguay", "paraguay"], "start": 1864, "end": 1870, "precision": 11, "edtf": "1864-11-12/1870-03-01",
       "location": { "type": "Point", "coordinates": [-57.441, -23.402] }, "locationPrecision": "region", "place": { "sv": "Paraguay, södra Brasilien och nordöstra Argentina (började på Paraguayfloden vid Concepción)" },
       "title": { "sv": "Paraguaykriget (trippelallianskriget)" },
       "summary": { "sv": "Latinamerikas blodigaste krig mellan stater, 1864–1870, mellan Paraguay och trippelalliansen Brasilien, Argentina och Uruguay. Paraguay förlorade en stor del av sin befolkning, enligt flera uppskattningar mer än hälften, och fick lämna ifrån sig omstritt land." },
@@ -1309,7 +1309,7 @@
       "summary": { "sv": "Efter ett gerillakrig i över ett år hinner brasilianska trupper den 1 mars 1870 upp Francisco Solano López och hans sista 400 man vid Cerro Corá, 45 mil nordost om Asunción. López dödas, och kriget är slut." },
       "wikidata": "Q3504617", "sources": ["wp-cerro-cora", "wp-paraguayan-war", "wikidata"], "review": "two-sources" },
 
-    { "id": "mexikanska-revolutionen", "category": "krig", "icon": "swords", "kind": "war", "start": 1910, "end": 1920, "precision": 11, "edtf": "1910-11-20/1920-12-01",
+    { "id": "mexikanska-revolutionen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["mexiko"], "start": 1910, "end": 1920, "precision": 11, "edtf": "1910-11-20/1920-12-01",
       "location": { "type": "Point", "coordinates": [-99.07, 18.747] }, "locationPrecision": "region", "place": { "sv": "Mexiko (de första upproren bröt ut i Morelos och i norra Mexiko)" },
       "title": { "sv": "Mexikanska revolutionen" },
       "summary": { "sv": "En serie väpnade konflikter i Mexiko 1910–1920 som störtade Porfirio Díaz, gav landet en ny grundlag och förändrade staten och kulturen. Bönder, gruvarbetare och många av landets ursprungsfolk deltog. Omkring en miljon människor dog, de flesta civila." },
@@ -1654,7 +1654,7 @@
       "image": {"file": "images/events/harvard.webp", "kind": "illustration", "style": "renassans", "caption": {"sv": "Illustration i stil med svartvitt historiskt kopparstick, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "A panoramic, text-free black-and-white copperplate engraving depicts a tranquil early-colonial riverside settlement surrounded by dense wilderness, rendered with meticulous hatching, crosshatching, and a thin antique-print border. A wooded, rocky foreground frames a small rowboat with period-clad figures, while across the calm inlet sit a pitched-roof house, outbuildings, fencing, dock, workers, and scattered tools; distant islands, forested hills, a sailboat, reflective water, and expansive etched clouds complete the historic New England atmosphere."},
       "wikidata": "Q13371", "sources": ["wp-harvard", "wikidata"], "review": "two-sources" },
 
-    { "id": "amerikanska-frihetskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "brittiska-imperiet", "nederlandska-kolonialvaldet"], "start": 1775, "end": 1783, "precision": 11, "edtf": "1775-04-19/1783-09-03",
+    { "id": "amerikanska-frihetskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "brittiska-imperiet", "nederlandska-kolonialvaldet", "usa"], "start": 1775, "end": 1783, "precision": 11, "edtf": "1775-04-19/1783-09-03",
       "location": { "type": "Point", "coordinates": [-71.231, 42.449] }, "locationPrecision": "region", "place": { "sv": "Östra Nordamerika, Karibien och Atlanten (började vid Lexington och Concord i Massachusetts)" },
       "title": { "sv": "Amerikanska frihetskriget" },
       "summary": { "sv": "Kriget 1775–1783 där tretton brittiska kolonier i Nordamerika, med stöd av Frankrike, Spanien och Nederländerna, vann sin självständighet från Storbritannien och blev USA. Det var också ett inbördeskrig mellan patrioter och lojalister, och ursprungsfolk och förslavade fanns på båda sidor." },
@@ -1741,7 +1741,7 @@
       "image": {"file": "images/events/telefonen.webp", "kind": "illustration", "style": "1800-tal", "caption": {"sv": "Illustration i stil med svartvit tidningsgravyr från 1800-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "A monochrome, richly crosshatched 19th-century engraving depicts an early telephone demonstration in a cluttered Victorian laboratory: at left, a bearded inventor in a dark suit leans over a workbench to speak into a horn-shaped transmitter, while a wire crosses the room to a seated, mustached man on the right listening through a round receiver. Surrounding them are schematics, telegraph apparatus, bottles, tools, books, gauges, wooden tables, tall windows, and period furnishings, all rendered with crisp linework, stippling, and an aged newspaper-print texture."},
       "sources": ["wp-telephone", "eb1911-telephone", "wilber-1886"], "review": "two-sources" },
 
-    { "id": "spanskamerikanska-sjalvstandighetskrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "storcolombia"], "start": 1808, "end": 1833, "precision": 11, "edtf": "1808-09-25/1833-09-29",
+    { "id": "spanskamerikanska-sjalvstandighetskrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "storcolombia", "mexiko"], "start": 1808, "end": 1833, "precision": 11, "edtf": "1808-09-25/1833-09-29",
       "location": { "type": "Point", "coordinates": [-100.937, 21.152] }, "locationPrecision": "region", "place": { "sv": "Spanska Amerika, från Mexiko till Río de la Plata (punkten: Dolores i Mexiko, där upproret 1810 började)" },
       "title": { "sv": "De spanskamerikanska självständighetskrigen" },
       "summary": { "sv": "En rad krig i Spaniens amerikanska kolonier, från Mexiko i norr till Chile och Río de la Plata i söder. De började när Spaniens kungamakt bröt samman efter Napoleons invasion 1808 och slutade med att nya självständiga stater bildades. Spanien behöll bara Kuba och Puerto Rico." },
@@ -1811,7 +1811,7 @@
       "image": {"file": "images/events/wright.webp", "kind": "illustration", "style": "affisch", "caption": {"sv": "Illustration i stil med art deco-affisch med platta färgfält och tryckraster, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "An Art Deco–inspired vintage poster depicts the Wright brothers’ first flight, using muted cream, ochre, rust, navy, tan, and brown in bold geometric blocks, thick borders, sunburst rays, halftone grain, and no readable text. A wood-and-cloth biplane with a low-seated pilot soars above windswept dunes and distant water, watched by two silhouetted men in period clothing, while a small shed or hangar, scattered equipment, grasses, and stylized clouds complete the heroic retro lithograph scene."},
       "wikidata": "Q46047837", "sources": ["wp-wright", "wikidata"], "review": "two-sources" },
 
-    { "id": "forsta-varldskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "ryska-imperiet", "osmanska-riket", "franska-kolonialvaldet", "japanska-imperiet", "tyska-riket", "osterrike-ungern"], "start": 1914, "end": 1918, "precision": 11, "edtf": "1914-07-28/1918-11-11",
+    { "id": "forsta-varldskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "ryska-imperiet", "osmanska-riket", "franska-kolonialvaldet", "japanska-imperiet", "tyska-riket", "osterrike-ungern", "usa"], "start": 1914, "end": 1918, "precision": 11, "edtf": "1914-07-28/1918-11-11",
       "location": { "type": "Point", "coordinates": [20.457, 44.818] }, "locationPrecision": "region", "place": { "sv": "Europa, Mellanöstern, Afrika, Stilla havet och Atlanten (började vid Belgrad, Serbien)" },
       "title": { "sv": "Första världskriget" },
       "summary": { "sv": "Ett världsomspännande krig 1914–1918 mellan de allierade (ententen) och centralmakterna. Det hör till de dödligaste krigen i historien: uppskattningsvis 15–22 miljoner soldater och civila dog." },
@@ -1916,7 +1916,7 @@
       "image": {"file": "images/events/sputnik.webp", "kind": "illustration", "style": "rymdalder", "caption": {"sv": "Illustration i stil med rymdålderns affischkonst från 1950-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "Vintage Soviet space-propaganda poster style: a grainy, mid-century graphic scene in bold navy, cream, blue, red, and orange, with no readable text. A Sputnik-like metallic sphere with long antennae and motion trails crosses the starry upper-right sky, while awed silhouetted adults, a child, and a small crowd gaze upward from the foreground beside a spired city skyline, river, radiant sunrise beams, and a sweeping stylized Earth beneath."},
       "wikidata": "Q80811", "sources": ["wp-sputnik", "wikidata"], "review": "two-sources" },
 
-    { "id": "andra-varldskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "franska-kolonialvaldet", "sovjetunionen", "japanska-imperiet"], "start": 1939, "end": 1945, "precision": 11, "edtf": "1939-09-01/1945-09-02",
+    { "id": "andra-varldskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "franska-kolonialvaldet", "sovjetunionen", "japanska-imperiet", "usa"], "start": 1939, "end": 1945, "precision": 11, "edtf": "1939-09-01/1945-09-02",
       "location": { "type": "Point", "coordinates": [18.671, 54.408] }, "locationPrecision": "region", "place": { "sv": "Hela världen: Europa, Asien, Afrika, Stilla havet och Atlanten (började med anfallet på Polen)" },
       "title": { "sv": "Andra världskriget" },
       "summary": { "sv": "Det dödligaste kriget i historien, mellan de allierade och axelmakterna. Nästan alla världens länder deltog, och striderna gick i Europa, Asien, Nordafrika och på världshaven. Uppskattningsvis 60–75 miljoner människor dog, de flesta civila." },
@@ -2151,7 +2151,7 @@
       "image": {"file": "images/events/nintendo.webp", "kind": "historisk", "style": "japan-ukiyoe", "caption": {"sv": "Hanafuda-kort av typen mushibana från Nintendo, tidig Shōwa-tid (1926–1945), flera decennier efter grundandet. Licens: Public domain."}, "credit": "Nintendo / Japan Playing Card Museum via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-nintendo"},
       "wikidata": "Q8093", "sources": ["wp-nintendo", "wp-kyoto", "wikidata"], "review": "two-sources" },
 
-    { "id": "koreakriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["sovjetunionen"], "start": 1950, "end": 1953, "precision": 11, "edtf": "1950-06-25/1953-07-27",
+    { "id": "koreakriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["sovjetunionen", "usa"], "start": 1950, "end": 1953, "precision": 11, "edtf": "1950-06-25/1953-07-27",
       "location": { "type": "Point", "coordinates": [127.0, 38.0] }, "locationPrecision": "region", "place": { "sv": "Koreahalvön och haven runt den (började vid 38:e breddgraden)" },
       "title": { "sv": "Koreakriget" },
       "summary": { "sv": "Krig på Koreahalvön mellan Nordkorea och Sydkorea och deras allierade. Kina och Sovjetunionen stödde Nordkorea, och FN-styrkor under amerikansk ledning stödde Sydkorea. Omkring en miljon soldater och uppskattningsvis 1,5–3 miljoner civila dog. Striderna upphörde med ett vapenstillestånd 1953, men något fredsavtal har aldrig skrivits." },
@@ -2201,7 +2201,7 @@
       "summary": { "sv": "Den 27 juli 1953 skrivs vapenstilleståndet under i Panmunjom av FN-kommandot, Nordkoreas armé och de kinesiska frivilligstyrkorna. Det börjar gälla klockan 22 samma dag. Avtalet skapar den demilitariserade zonen mellan Nord- och Sydkorea och ordnar utväxlingen av krigsfångar. Sydkorea skriver inte under, och något fredsavtal sluts aldrig." },
       "wikidata": "Q2862267", "sources": ["wp-korean-armistice", "wikidata"], "review": "two-sources" },
 
-    { "id": "vietnamkriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1955, "end": 1975, "precision": 9, "edtf": "1955~/1975-04-30",
+    { "id": "vietnamkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["usa"], "start": 1955, "end": 1975, "precision": 9, "edtf": "1955~/1975-04-30",
       "location": { "type": "Point", "coordinates": [106.702, 10.776] }, "locationPrecision": "region", "place": { "sv": "Vietnam, Laos och Kambodja" },
       "title": { "sv": "Vietnamkriget" },
       "summary": { "sv": "Krig i Vietnam, Laos och Kambodja mellan Nordvietnam och Sydvietnam och deras allierade. Sovjetunionen och Kina stödde Nordvietnam, och USA och andra antikommunistiska länder stödde Sydvietnam. USA deltog med egna stridande trupper från 1965 till 1973. Uppskattningsvis 970 000–3 miljoner vietnamesiska soldater och civila dog." },
@@ -2830,7 +2830,7 @@
       "image": {"file": "images/events/star-wars.webp", "kind": "historisk", "style": "rymdalder", "caption": {"sv": "En biograf i Kalifornien gör reklam för Star Wars, 1977. Fotografi av Michael Dorausch. Licens: CC BY-SA 2.0."}, "credit": "Michael Dorausch / Wikimedia Commons", "license": "CC BY-SA 2.0", "source": "commons-bild-star-wars"},
       "wikidata": "Q17738", "sources": ["wp-star-wars", "wp-us-center", "wikidata"], "review": "two-sources" },
 
-    { "id": "gulfkriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1990, "end": 1991, "precision": 11, "edtf": "1990-08-02/1991-02-28",
+    { "id": "gulfkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["usa"], "start": 1990, "end": 1991, "precision": 11, "edtf": "1990-08-02/1991-02-28",
       "location": { "type": "Point", "coordinates": [47.98, 29.375] }, "locationPrecision": "region", "place": { "sv": "Kuwait och Irak, med strider även i Saudiarabien (började i Kuwait)" },
       "title": { "sv": "Gulfkriget" },
       "summary": { "sv": "Ett krig mellan Irak och en koalition av 42 länder under ledning av USA, sedan Irak hade invaderat grannlandet Kuwait den 2 augusti 1990. Koalitionen bombade Irak och Kuwait från januari 1991 och drev ut de irakiska trupperna ur Kuwait med en markoffensiv i slutet av februari." },
@@ -2879,7 +2879,7 @@
       "note": { "title": { "sv": "Bara en källa" }, "text": { "sv": "Vapenvilan har ingen egen post i Wikidata, så händelsen har inte kunnat jämföras med en andra källa. Wikidata anger samma slutdatum för hela kriget, 28 februari 1991." } },
       "sources": ["wp-gulf-war"], "review": "source-checked" },
 
-    { "id": "kriget-i-afghanistan-2001", "category": "krig", "icon": "swords", "kind": "war", "start": 2001, "end": 2021, "precision": 11, "edtf": "2001-10-07/2021-08-30",
+    { "id": "kriget-i-afghanistan-2001", "category": "krig", "icon": "swords", "kind": "war", "empires": ["usa"], "start": 2001, "end": 2021, "precision": 11, "edtf": "2001-10-07/2021-08-30",
       "location": { "type": "Point", "coordinates": [69.166, 34.533] }, "locationPrecision": "region", "place": { "sv": "Afghanistan (började med flyganfall mot mål över hela landet)" },
       "title": { "sv": "Kriget i Afghanistan (2001–2021)" },
       "summary": { "sv": "Ett krig i Afghanistan som började när en USA-ledd koalition invaderade landet efter terrorattackerna den 11 september 2001 och störtade talibanernas regering. Talibanerna förde sedan ett gerillakrig mot den nya regeringen och de utländska trupperna, och 2021 tog de makten igen." },
@@ -2926,7 +2926,7 @@
       "note": { "title": { "sv": "Bara en källa" }, "text": { "sv": "Händelsen har ingen egen post i Wikidata, så den har inte kunnat jämföras med en andra källa. Wikidata anger samma slutdatum för hela kriget, 30 augusti 2021." } },
       "sources": ["wp-fall-of-kabul-2021", "wp-war-in-afghanistan-2001"], "review": "source-checked" },
 
-    { "id": "irakkriget", "category": "krig", "icon": "swords", "kind": "war", "start": 2003, "end": 2011, "precision": 11, "edtf": "2003-03-20/2011-12-18",
+    { "id": "irakkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["usa"], "start": 2003, "end": 2011, "precision": 11, "edtf": "2003-03-20/2011-12-18",
       "location": { "type": "Point", "coordinates": [44.366, 33.315] }, "locationPrecision": "region", "place": { "sv": "Irak (började med flyganfall mot Bagdad och en markinvasion från Kuwait)" },
       "title": { "sv": "Irakkriget" },
       "summary": { "sv": "Ett krig i Irak som började när en USA-ledd koalition invaderade landet i mars 2003 och störtade Saddam Husseins regering. Efter invasionen följde ett långt uppror mot de utländska trupperna och den nya irakiska regeringen, och ett inbördeskrig mellan shia- och sunnimuslimer. De sista amerikanska trupperna lämnade Irak i december 2011." },

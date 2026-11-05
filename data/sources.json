@@ -963,6 +963,18 @@
     {"id": "commons-bild-indonesiens-sjalvstandighet", "title": "Indonesia declaration of independence, 17 August 1945 – Wikimedia Commons, filsida", "url": "https://commons.wikimedia.org/wiki/File:Indonesia_declaration_of_independence_17_August_1945.jpg", "license": "Public domain", "checked": "2026-11-01"},
     {"id": "commons-bild-ghanas-sjalvstandighet", "title": "Nixons in Ghana 1957 – Wikimedia Commons, filsida", "url": "https://commons.wikimedia.org/wiki/File:Nixons_in_Ghana_1957.jpg", "license": "Public domain (USA:s federala myndighet)", "checked": "2026-11-01"},
     {"id": "commons-bild-nya-lagarna-1542", "title": "Leyes Nuevas (1543) – Wikimedia Commons, filsida", "url": "https://commons.wikimedia.org/wiki/File:Leyes_Nuevas1.jpg", "license": "Public domain", "checked": "2026-11-01"},
-    {"id": "wp-chernobyl-disaster", "title": "Chernobyl disaster – Wikipedia", "url": "https://en.wikipedia.org/wiki/Chernobyl_disaster", "license": "CC BY-SA 4.0", "checked": "2026-11-03"}
+    {"id": "wp-chernobyl-disaster", "title": "Chernobyl disaster – Wikipedia", "url": "https://en.wikipedia.org/wiki/Chernobyl_disaster", "license": "CC BY-SA 4.0", "checked": "2026-11-03"},
+    {"id": "wp-united-states", "title": "United States – Wikipedia", "url": "https://en.wikipedia.org/wiki/United_States", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wd-united-states", "title": "United States (Q30) – Wikidata", "url": "https://www.wikidata.org/wiki/Q30", "license": "CC0", "checked": "2026-11-05"},
+    {"id": "wp-confederate-states", "title": "Confederate States of America – Wikipedia", "url": "https://en.wikipedia.org/wiki/Confederate_States_of_America", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wd-confederate-states", "title": "Confederate States of America (Q81931) – Wikidata", "url": "https://www.wikidata.org/wiki/Q81931", "license": "CC0", "checked": "2026-11-05"},
+    {"id": "wp-mexico", "title": "Mexico – Wikipedia", "url": "https://en.wikipedia.org/wiki/Mexico", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wp-first-mexican-empire", "title": "First Mexican Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/First_Mexican_Empire", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wp-second-mexican-empire", "title": "Second Mexican Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Second_Mexican_Empire", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wp-brazil", "title": "Brazil – Wikipedia", "url": "https://en.wikipedia.org/wiki/Brazil", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wp-empire-of-brazil", "title": "Empire of Brazil – Wikipedia", "url": "https://en.wikipedia.org/wiki/Empire_of_Brazil", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wp-argentina", "title": "Argentina – Wikipedia", "url": "https://en.wikipedia.org/wiki/Argentina", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wp-paraguay", "title": "Paraguay – Wikipedia", "url": "https://en.wikipedia.org/wiki/Paraguay", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wp-uruguay", "title": "Uruguay – Wikipedia", "url": "https://en.wikipedia.org/wiki/Uruguay", "license": "CC BY-SA 4.0", "checked": "2026-11-05"}
   ]
 }
