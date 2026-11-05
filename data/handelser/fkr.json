@@ -382,6 +382,79 @@
       "title": { "sv": "Buddha grundar buddhismen" },
       "summary": { "sv": "Buddha, en vandrande lärare på Gangesslätten, grundar buddhismen. Han levde under 500- eller 400-talet f.Kr., och forskarna är oense om exakta årtal. Enligt traditionen nådde han upplysningen i Bodh Gaya." },
       "image": {"file": "images/events/buddha.webp", "kind": "historisk", "style": "egypten", "caption": {"sv": "Ett litet tempel under Bodhiträdet i Bodh Gaya, platsen där Buddha enligt traditionen nådde upplysningen. Målning av okänd konstnär, cirka 1810, över 2 000 år efter Buddhas tid. Utsnitt. Public domain."}, "credit": "Okänd konstnär / British Library via Wikimedia Commons", "license": "Public domain", "source": "commons-bodh-gaya-1810"},
-      "sources": ["wp-gautama-buddha", "wp-bodh-gaya", "whe-buddha"], "review": "two-sources" }
+      "sources": ["wp-gautama-buddha", "wp-bodh-gaya", "whe-buddha"], "review": "two-sources" },
+
+    {"id": "jordbrukets-borjan", "category": "manniskan", "start": -9999, "end": -7999, "precision": 6, "edtf": "-9999~/-7999~",
+      "location": {"type": "Point", "coordinates": [40.0, 36.0]}, "locationPrecision": "region", "place": {"sv": "Bördiga halvmånen, Sydvästasien"},
+      "title": {"sv": "Jordbruket börjar i Bördiga halvmånen"},
+      "summary": {"sv": "Från omkring 10 000 till 8 000 f.Kr. börjar människor i Bördiga halvmånen i Sydvästasien att odla och hålla tama djur. Här tämjs bland annat enkornsvete, emmervete, korn, linser, ärter, kikärter och lin, liksom får, getter och grisar. De tidigaste kända jordbruksbyarna ligger kring Jordanfloden och övre Eufrat. Jordbruket uppstår också på egen hand på andra håll, bland annat i Kina, på Nya Guineas högland, i Mexiko, i norra Sydamerika och i Afrika."},
+      "wikidata": "Q180548", "sources": ["wp-neolithic-revolution", "wp-fertile-crescent"], "review": "source-checked" },
+
+    {"id": "kilskriften", "category": "kultur", "icon": "book", "start": -3299, "end": -3299, "precision": 7, "edtf": "-3299~",
+      "location": {"type": "Point", "coordinates": [45.63722, 31.32417]}, "place": {"sv": "Uruk i Sumer, södra Mesopotamien (i dag Irak)"},
+      "title": {"sv": "Skriften uppstår: kilskrift i Uruk"},
+      "summary": {"sv": "I staden Uruk i Sumer finns de äldsta kända exemplen på skrift, från slutet av fjärde årtusendet f.Kr. Kilskriften, det äldsta kända skriftsystemet, växer fram ur bildtecken och ur ett system av lerbrickor som användes i bokföring. Tecknen ritas och trycks in i lertavlor med en vass vasspenna. Kilskrift används i mer än 3 000 år: den sista säkert daterade tavlan, också den från Uruk, är från år 79/80 e.Kr."},
+      "wikidata": "Q401", "sources": ["wp-cuneiform", "wp-uruk"], "review": "source-checked" },
+
+    {"id": "egypten-enas", "category": "civilisationer", "icon": "pschent", "start": -3099, "end": -3099, "precision": 7, "edtf": "-3099~",
+      "location": {"type": "Point", "coordinates": [32.77944, 25.09722]}, "locationPrecision": "country", "place": {"sv": "Egypten (Narmerpaletten hittades i Hierakonpolis)"},
+      "title": {"sv": "Egypten enas under Narmer"},
+      "summary": {"sv": "Omkring 3100 f.Kr., med en osäkerhet på cirka 150 år, börjar kung Narmers regering. Många forskare ser honom som den som enade Egypten och grundade den första dynastin. Narmerpaletten, en ristad stenplatta, hittades i Hierakonpolis säsongen 1897–1898."},
+      "wikidata": "Q189582", "sources": ["wp-narmer", "wp-hierakonpolis"], "review": "source-checked" },
+
+    {"id": "caral", "category": "civilisationer", "icon": "temple-pyramid", "start": -2599, "end": -1999, "precision": 7, "edtf": "-2599~/-1999~",
+      "location": {"type": "Point", "coordinates": [-77.520277777778, -10.893611111111]}, "place": {"sv": "Caral i Supedalen, Peru, 182 km norr om Lima"},
+      "title": {"sv": "Caral, en av Amerikas äldsta städer"},
+      "summary": {"sv": "Staden Caral i Supedalen i Peru, 23 kilometer från kusten, är bebodd från omkring 2600 till 2000 f.Kr. Den är huvudstad i Caralkulturen, som växte fram mellan 3000 och 1800 f.Kr., och en av de största platserna i Norte Chico-civilisationen. Omkring 3 000 människor bodde där. Caral har kallats Amerikas äldsta stad, men fynd av andra gamla platser i närheten har ifrågasatt det. Staden blev världsarv 2009."},
+      "wikidata": "Q219279", "sources": ["wp-caral", "wikidata"], "review": "source-checked" },
+
+    {"id": "stonehenge", "category": "kultur", "start": -3099, "end": -1599, "precision": 7, "edtf": "-3099~/-1599~",
+      "location": {"type": "Point", "coordinates": [-1.82611, 51.17889]}, "place": {"sv": "Salisburyslätten, Wiltshire, England"},
+      "title": {"sv": "Stonehenge byggs"},
+      "summary": {"sv": "Stonehenge på Salisburyslätten i England byggs i flera etapper från omkring 3100 till 1600 f.Kr. Den stora ringen av sarsenstenar reses mellan 2600 och 2400 f.Kr. De mindre blåstenarna kommer troligen från Preselibergen i sydvästra Wales. Monumentet är riktat mot soluppgången vid midsommar och solnedgången vid midvinter. Det blev världsarv 1986."},
+      "wikidata": "Q39671", "sources": ["wp-stonehenge", "wikidata"], "review": "two-sources" },
+
+    {"id": "mohenjo-daro", "category": "civilisationer", "start": -2499, "end": -1699, "precision": 7, "edtf": "-2499~/-1699~",
+      "location": {"type": "Point", "coordinates": [68.13889, 27.32917]}, "place": {"sv": "Mohenjo-daro vid nedre Indus, Sindh, Pakistan"},
+      "title": {"sv": "Mohenjo-daro, en av Induskulturens storstäder"},
+      "summary": {"sv": "Omkring 2500 f.Kr. byggs Mohenjo-daro vid nedre Indus. Den blir en av Induskulturens största städer och en av världens tidigaste stora städer, med kanske 40 000 invånare, även om den siffran är osäker. Staden har ett stort bad, täckta avlopp längs huvudgatorna och över 700 brunnar. Den överges omkring 1700 f.Kr. och blev 1980 Sydasiens första världsarv."},
+      "wikidata": "Q5725", "sources": ["wp-mohenjo-daro", "wikidata"], "review": "two-sources" },
+
+    {"id": "hammurabis-lagar", "category": "civilisationer", "icon": "scroll", "start": -1752, "end": -1752, "precision": 8, "edtf": "-1752~",
+      "location": {"type": "Point", "coordinates": [44.42111, 32.5425]}, "place": {"sv": "Babylon, Mesopotamien (i dag Irak)"},
+      "title": {"sv": "Hammurabis lagar"},
+      "summary": {"sv": "Omkring 1753 f.Kr. låter Hammurabi, den sjätte kungen i Babylons första dynasti, ställa samman en lagsamling. Den är den längsta och bäst ordnade lagtexten från den forntida Främre Orienten, och lagarna är numrerade upp till 282. En princip som ligger bakom många av dem är öga för öga. Huvudexemplaret är inristat på en omkring 2,25 meter hög stele av basalt, som hittades i Susa 1901 och i dag finns på Louvren."},
+      "wikidata": "Q93304", "sources": ["wp-code-of-hammurabi", "wp-babylon", "wikidata"], "review": "source-checked" },
+
+    {"id": "vulkanutbrottet-pa-thera", "category": "katastrofer", "start": -1599, "end": -1599, "precision": 7, "edtf": "-1599~",
+      "location": {"type": "Point", "coordinates": [25.4, 36.41]}, "place": {"sv": "Thera (Santorini), Egeiska havet, Grekland"},
+      "title": {"sv": "Vulkanutbrottet på Thera"},
+      "summary": {"sv": "Omkring 1600 f.Kr. får vulkanön Thera (Santorini) i Egeiska havet ett av de största vulkanutbrotten i människans historia. Staden Akrotiri begravs under pimpsten och aska. På Kreta, där den minoiska kulturen fanns, sköljer upp till nio meter höga tsunamier över kustorter, och jordbävningar förstör flera platser."},
+      "note": {"title": {"sv": "Källorna skiljer sig"}, "text": {"sv": "Dateringen är omstridd. Kol-14-dateringar ger olika spann mellan cirka 1680 och 1500 f.Kr., medan arkeologiska fynd pekar mot cirka 1550–1480 f.Kr."}},
+      "wikidata": "Q1144693", "sources": ["wp-minoan-eruption"], "review": "source-checked" },
+
+    {"id": "lapitafolket-nar-samoa", "category": "upptackter", "icon": "ship", "start": -999, "end": -999, "precision": 7, "edtf": "-0999~",
+      "location": {"type": "Point", "coordinates": [-171.983, -13.833]}, "place": {"sv": "Mulifanua, Samoa"},
+      "title": {"sv": "Lapitafolket når Samoa"},
+      "summary": {"sv": "Omkring 1000 f.Kr. har lapitafolket nått Fiji, Tonga och Samoa, längst österut av alla platser där lapitakulturen finns. Ett fynd vid Mulifanua på Samoa är omkring 3 000 år gammalt. Lapitafolket spred sig sjövägen över Melanesien från omkring 1600 f.Kr. och är kända för sin keramik med stämplade mönster. De är direkta förfäder till Polynesiens folk."},
+      "wikidata": "Q1021436", "sources": ["wp-lapita-culture", "wp-mulifanua"], "review": "source-checked" },
+
+    {"id": "demokratin-i-aten", "category": "civilisationer", "icon": "columns", "start": -507, "end": -506, "precision": 9, "edtf": "-0507/-0506",
+      "location": {"type": "Point", "coordinates": [23.71944, 37.97167]}, "place": {"sv": "Aten, Grekland (folkförsamlingen på Pnyx)"},
+      "title": {"sv": "Kleisthenes och demokratin i Aten"},
+      "summary": {"sv": "År 510 f.Kr. störtas tyrannen Hippias, son till Peisistratos, i Aten med hjälp av spartanska soldater. År 508/507 f.Kr. genomför Kleisthenes reformer som ger makten till medborgarna. De fyra gamla stammarna, som byggde på släktskap, ersätts av tio nya som bygger på var man bor, uppdelade i mindre enheter som kallas demer. Rådet utökas från 400 till 500 medlemmar, 50 från varje stam. Folkförsamlingen samlas på kullen Pnyx. Kleisthenes kallas den atenska demokratins fader."},
+      "wikidata": "Q207634", "sources": ["wp-cleisthenes", "wp-pnyx"], "review": "source-checked" },
+
+    {"id": "zhang-qian-sidenvagen", "category": "ekonomi", "start": -137, "end": -124, "precision": 9, "edtf": "-0137/-0124",
+      "location": {"type": "Point", "coordinates": [108.85833, 34.30833]}, "place": {"sv": "Chang'an, Kina, Sidenvägens östra ändpunkt"},
+      "title": {"sv": "Zhang Qians resa öppnar Sidenvägen"},
+      "summary": {"sv": "År 138 f.Kr. skickar Handynastins kejsare Wu sändebudet Zhang Qian västerut. Han tas till fånga av xiongnu och hålls som slav i tretton år, men når till sist riket Dayuan i Ferganadalen och beskriver Baktrien. År 125 f.Kr. är han tillbaka. Hans resa räknas som början på den handelsväg mellan öst och väst som senare fick namnet Sidenvägen."},
+      "wikidata": "Q197276", "sources": ["wp-zhang-qian", "wp-changan"], "review": "source-checked" },
+
+    {"id": "caesar-mordas", "category": "civilisationer", "start": -43, "end": -43, "precision": 11, "edtf": "-0043-03-15",
+      "location": {"type": "Point", "coordinates": [12.47694, 41.89528]}, "place": {"sv": "Pompejus kuria, Rom"},
+      "title": {"sv": "Julius Caesar mördas"},
+      "summary": {"sv": "Den 15 mars 44 f.Kr., på idus i mars, mördas Julius Caesar i Pompejus kuria i Rom. Omkring 60 senatorer deltar, under ledning av bland andra Marcus Junius Brutus och Gaius Cassius Longinus, och Caesar får omkring 23 knivhugg. Mordet följs av nya inbördeskrig, republiken faller och Romarriket växer fram under Augustus."},
+      "wikidata": "Q1025466", "sources": ["wp-assassination-of-julius-caesar", "wikidata"], "review": "two-sources" }
   ]
 }
