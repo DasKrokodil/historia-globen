@@ -1,0 +1,46 @@
+# Instruktioner för GitHub Copilot – Historia-globen
+
+Den här filen läses automatiskt av Copilot (agentläget i VS Code och Copilot på GitHub). **Reglerna finns i [CLAUDE.md](../CLAUDE.md), [AGENTS.md](../AGENTS.md) och [.orchestra/project.md](../.orchestra/project.md). Läs dem innan du ändrar något.** Vid motsägelse gäller CLAUDE.md. Här upprepas bara det viktigaste.
+
+## Skriv till Rikard
+
+Rikard äger projektet. Han är projektledare, inte utvecklare. Skriv på svenska, kort och tydligt, i issues, kommentarer och pull requests: vad som ändrats, varför och hur han testar det.
+
+## Aldrig
+
+- **Fakta ur minnet.** Varje årtal, plats och påstående ska komma från en källa du har öppnat och som står i `data/sources.json`. Ny data är `draft` tills källan är kontrollerad. Kopiera aldrig text från Wikipedia eller andra källor.
+- **Pusha till `main` eller `production`**, eller force-pusha. Allt levereras som pull request från en egen gren. Bara Rikard slår ihop.
+- **Nya beroenden, ramverk eller byggsteg.** Vanliga ES-moduler, inget byggsteg, three.js 0.160.0 från jsDelivr. Fråga först.
+- **Ändra arkitektur, datamodell, kategorier eller licenser** utan Rikards godkännande. Beslut skrivs som egen fil i `docs/beslut/`.
+- **Hårdkoda händelser, texter eller årtal i JS.** Innehåll ligger i `data/*.json`.
+- **Ändra mer än issuet kräver**, till exempel gemensamma CSS-variabler eller utseendet i övrigt.
+- **Redigera `.orchestra/shared/`**, lägga hemligheter eller personuppgifter i repot, eller skapa egna issues. Hittar du något utanför issuet: skriv det som en kommentar i din pull request.
+
+## Ta ett issue (ett issue, en ägare)
+
+Flera agenter arbetar parallellt (Claude Code, Codex och du). Ett issue får bara ha en ägare.
+
+1. **Ta bara issues med etiketten `copilot: redo`**, eller ett issue som Rikard har pekat ut. Etiketten sätts av Claude Code. Ta dem i milstolpens ordning (lägst versionsnummer först).
+2. **Ta aldrig** issues med `codex: redo`, `utanför-kod` eller `beslut-krävs`, och inte heller `data`, `faktafel`, `källkontroll` eller rikesarbete om Rikard inte ber om det.
+3. **Kontrollera att ingen annan har tagit issuet, direkt före du börjar:** etiketten `codex: pågår`, `orkester: pågår` eller `copilot: pågår`, en öppen pull request som skriver `Closes #N` eller `Del av #N`, eller en gren `codex/issue-<N>-*` eller `copilot/issue-<N>-*`. Är något av det sant: ta det inte, välj nästa.
+4. **Ta issuet:** skriv en kommentar ("Copilot tar det här") och sätt etiketten `copilot: pågår`. Ta bort `copilot: redo` när du tar det. Läs etiketterna en gång till direkt efteråt: har någon annan hunnit före, backa genast, ta bort din etikett och skriv en kommentar.
+5. **Bygg på grenen** `copilot/issue-<N>-<kort-namn>`, utgå från senaste `main`.
+6. **Ta bort `copilot: pågår`** när pull requesten är öppnad eller om du avbryter. Ett `copilot: pågår` utan aktivt arbete ska alltid tas bort.
+7. **Högst fyra öppna pull requests** totalt i projektet (alla agenter räknas ihop). Är det redan fyra: bygg inget nytt.
+8. **Ingen tar ett issue som ändrar samma filer som en öppen pull request.** Välj ett annat, eller vänta.
+
+## Testa innan pull request
+
+Enligt CLAUDE.md, "Testa innan du är klar", och AGENTS.md, "Testa innan pull request":
+
+- `bash scripts/build-site.sh` (bygger `dist/` och kör `scripts/validate-site.py`).
+- `python3 -m json.tool` på ändrade JSON-filer. Har du ändrat `data/events.json` eller `data/empires/index.json`: kör `python3 tools/dela_data.py` och checka in `data/genererat/`.
+- Ändras något som syns på sidan: kör `python3 -m http.server 8000`, kontrollera att konsolen är tom och att inget scrollar i sidled vid 400 px bredd, och kör `tests/webblasare.mjs`.
+- Ändras `functions/`: `node --test 'tests/*.test.mjs'`.
+- Testa beteendet, inte bara att inget kraschar: synlig text (inga råa nycklar), var tangentbordsfokus hamnar, och räkna hur många poster en dataregel slår på.
+
+## Pull request
+
+- Rubrik och beskrivning på svenska, med `Closes #N`, vad som ändrats, varför, hur Rikard testar det och vad du inte har kunnat testa.
+- Små, avgränsade pull requests, ett issue per pull request.
+- Claude Code granskar pull requesten innan Rikard slår ihop. Svara på granskningen i pull requesten. Granskningar från Claude Code är order: gör det som står och svara kort i samma tråd, eller skriv en fråga om något är oklart.
