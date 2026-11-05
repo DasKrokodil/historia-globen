@@ -361,7 +361,7 @@
       "image": {"file": "images/events/tyfonen-kamikaze-1281.webp", "kind": "historisk", "style": "medeltid", "caption": {"sv": "Den mongoliska flottan förstörs i en tyfon. Tusch och vattenfärg på papper av Kikuchi Yōsai, 1847, i Tokyos nationalmuseum. En konstnärs bild över 500 år senare. Licens: Public domain."}, "credit": "Kikuchi Yōsai / Tokyos nationalmuseum via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-tyfonen-kamikaze-1281"},
       "wikidata": "Q1565008", "sources": ["wp-mongol-invasions-japan", "wp-koan", "wp-kamikaze-typhoon", "wikidata"], "review": "source-checked" },
 
-    { "id": "imjinkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["mingdynastin"], "start": 1592, "end": 1598, "precision": 11, "edtf": "1592-05-23/1598-12-16",
+    { "id": "imjinkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["mingdynastin", "korea"], "start": 1592, "end": 1598, "precision": 11, "edtf": "1592-05-23/1598-12-16",
       "location": { "type": "Point", "coordinates": [129.053, 35.163] }, "locationPrecision": "region", "place": { "sv": "Korea och haven runt Koreahalvön (började vid Busan)" },
       "title": { "sv": "Imjinkriget" },
       "summary": { "sv": "Japans härskare Toyotomi Hideyoshi invaderade Korea två gånger, 1592 och 1597, med målet att erövra Kina. Korea och Mingkina drev till slut ut japanerna, men Korea ödelades. Den koreanska flottan under amiral Yi Sun-sin störde japanernas förbindelser över havet och fick stor betydelse." },
@@ -494,7 +494,7 @@
       "summary": { "sv": "Den 23 juni 1757 besegrar Brittiska Ostindiska kompaniet under Robert Clive Bengalens nawab Siraj-ud-Daulah och hans franska allierade. Clive hade mutat nawabens överbefälhavare Mir Jafar, vars trupper aldrig gick in i striden, och Mir Jafar blev ny nawab. Slaget räknas som början på kompaniets välde i Indien." },
       "wikidata": "Q203233", "sources": ["wp-plassey", "wikidata"], "review": "two-sources" },
 
-    { "id": "afghansk-marathiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1758, "end": 1761, "precision": 11, "edtf": "1758-03-08/1761-01-14",
+    { "id": "afghansk-marathiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["afghanistan", "marathariket"], "start": 1758, "end": 1761, "precision": 11, "edtf": "1758-03-08/1761-01-14",
       "location": { "type": "Point", "coordinates": [76.3833, 30.6167] }, "locationPrecision": "region", "place": { "sv": "Punjab och trakten kring Delhi (började vid Sirhind)" },
       "title": { "sv": "Afghansk-marathiska kriget" },
       "summary": { "sv": "Ett krig om Punjab och Delhi mellan Durraniriket (Afghanistan) under Ahmad Shah Durrani och Marathariket, som en tid hade stöd av sikherna. Det slutade med Marathas förödande nederlag i tredje slaget vid Panipat 1761." },
@@ -585,7 +585,7 @@
       "note": { "title": { "sv": "Källorna skiljer sig" }, "text": { "sv": "Wikipedias artikel om upproret anger att ranin dog den 17 juni, slagets andra dag, och att upprorsmännen besegrades den 20 juni. Artikeln om ranin anger att anfallet började den 17 juni, att hon dog den 18 juni och att staden intogs den 19 juni. Wikidata anger den 17 juni som hennes dödsdag. Slaget har ingen egen post i Wikidata." } },
       "sources": ["wp-indian-rebellion-1857", "wp-lakshmibai", "wp-gwalior", "wikidata"], "review": "source-checked" },
 
-    { "id": "bangladeshs-befrielsekrig", "category": "krig", "icon": "swords", "kind": "war", "start": 1971, "end": 1971, "precision": 11, "edtf": "1971-03-26/1971-12-16",
+    { "id": "bangladeshs-befrielsekrig", "category": "krig", "icon": "swords", "kind": "war", "empires": ["pakistan", "indien", "bangladesh"], "start": 1971, "end": 1971, "precision": 11, "edtf": "1971-03-26/1971-12-16",
       "location": { "type": "Point", "coordinates": [90.3889, 23.7644] }, "locationPrecision": "region", "place": { "sv": "Östpakistan, i dag Bangladesh (började i Dhaka)" },
       "title": { "sv": "Bangladeshs befrielsekrig" },
       "summary": { "sv": "Kriget där Östpakistan blev självständigt som Bangladesh. Det började när Pakistans armé slog till mot den bengaliska självständighetsrörelsen i mars 1971 och slutade med Pakistans kapitulation i Dhaka den 16 december, sedan Indien gått in i kriget. Hundratusentals civila dödades, enligt vissa uppskattningar miljoner, och omkring 10 miljoner flydde till Indien." },
@@ -818,7 +818,7 @@
       "image": {"file": "images/events/eviansavtalen.webp", "kind": "illustration", "style": "rymdalder", "variant": "dokumentar", "caption": {"sv": "Illustration i stil med dokumentär tidningsillustration från 1970-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-30", "license": "CC BY 4.0", "prompt": "Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: Éviansavtalen: Algeriet blir fritt — Évian-les-Bains, Frankrike, 1962 CE. What happened (show only this, do not add details): Den 18 mars 1962 kommer Frankrike och FLN:s exilregering överens i Évian, där Krim Belkacem undertecknar för den algeriska sidan. Avtalen ger eldupphör från den 19 mars, frigivning av fångar och full självständighet för Algeriet efter en folkomröstning. Den 1 juli röstar nästan alla algerier för självständighet, och Algeriet blir självständigt den 3 juli 1962; den 5 juli firas som självständighetsdag. Under tiden fortsätter OAS med hundratals bombdåd i Algeriet. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details."},
       "wikidata": "Q1471139", "sources": ["wp-evian-accords", "wp-algerian-war", "wikidata"], "review": "two-sources" },
 
-    { "id": "biafrakriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1967, "end": 1970, "precision": 11, "edtf": "1967-07-06/1970-01-15",
+    { "id": "biafrakriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["nigeria"], "start": 1967, "end": 1970, "precision": 11, "edtf": "1967-07-06/1970-01-15",
       "location": { "type": "Point", "coordinates": [7.5, 6.45] }, "locationPrecision": "region", "place": { "sv": "Sydöstra Nigeria (började med federala anfall i norra Biafra, mot Nsukka och Garkem)" },
       "title": { "sv": "Biafrakriget (nigerianska inbördeskriget)" },
       "summary": { "sv": "Ett inbördeskrig 1967–1970 mellan Nigeria och Biafra, den utbrytarstat som Östra regionen, med igbofolket som största grupp, hade utropat. Nigeria omringade och blockerade Biafra, och blockaden ledde till en svält där hundratusentals civila dog, de flesta barn och kvinnor. Kriget var ett av de första som visades i tv över hela världen." },
@@ -1523,7 +1523,7 @@
       "summary": { "sv": "Mamluksultanatet i Egypten belägrar Akko från den 4 april 1291 och tar staden den 18 maj. Korsfararna förlorade därmed sitt sista stora fäste i kungariket Jerusalem, och fler korståg till Levanten kom inte till stånd. Korstågsrörelsen fortsatte dock i andra former." },
       "wikidata": "Q325985", "sources": ["wp-siege-acre-1291", "wp-crusades", "wikidata"], "review": "two-sources" },
 
-    { "id": "arabisk-israeliska-kriget-1948", "category": "krig", "icon": "swords", "kind": "war", "start": 1948, "end": 1949, "precision": 11, "edtf": "1948-05-15/1949-03-10",
+    { "id": "arabisk-israeliska-kriget-1948", "category": "krig", "icon": "swords", "kind": "war", "empires": ["israel", "moderna-egypten", "jordanien", "syrien", "irak"], "start": 1948, "end": 1949, "precision": 11, "edtf": "1948-05-15/1949-03-10",
       "location": { "type": "Point", "coordinates": [34.78, 32.08] }, "locationPrecision": "region", "place": { "sv": "Det tidigare brittiska mandatet Palestina, Sinaihalvön och södra Libanon" },
       "title": { "sv": "Arabisk-israeliska kriget 1948" },
       "summary": { "sv": "Kriget mellan Israel och en koalition av arabstater började dagen efter att Israel utropats, den 15 maj 1948, och slutade med vapenstilleståndsavtalen 1949. I Israel kallas kriget självständighetskriget. För palestinierna är det en del av Nakba, \"katastrofen\", då över 700 000 palestinier flydde eller fördrevs." },
@@ -1570,7 +1570,7 @@
       "summary": { "sv": "Den 5–10 mars 1949 tar israeliska brigader södra Negev ner till Röda havet, ett område som Jordanien gjorde anspråk på i vapenstilleståndsförhandlingarna. De mötte inget större motstånd. Namnet betyder \"faktum\" på hebreiska. Det var krigets sista fälttåg." },
       "wikidata": "Q931576", "sources": ["wp-operation-uvda", "wikidata"], "review": "two-sources" },
 
-    { "id": "sexdagarskriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1967, "end": 1967, "precision": 11, "edtf": "1967-06-05/1967-06-10",
+    { "id": "sexdagarskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["israel", "moderna-egypten", "syrien", "jordanien", "irak"], "start": 1967, "end": 1967, "precision": 11, "edtf": "1967-06-05/1967-06-10",
       "location": { "type": "Point", "coordinates": [34.0, 29.5] }, "locationPrecision": "region", "place": { "sv": "Sinaihalvön, Gazaremsan, Västbanken, Jerusalem och Golanhöjderna (började med flyganfall mot Egypten)" },
       "title": { "sv": "Sexdagarskriget" },
       "summary": { "sv": "Den 5–10 juni 1967 krigade Israel mot en koalition av arabstater, främst Egypten, Syrien och Jordanien. Israel erövrade och ockuperade Sinaihalvön, Gazaremsan, Västbanken med Östra Jerusalem och Golanhöjderna. Kriget kallas också 1967 års arabisk-israeliska krig, och många av dess följder är fortfarande olösta." },
@@ -1606,7 +1606,7 @@
       "note": { "title": { "sv": "Bara en källa" }, "text": { "sv": "Striderna på Golanhöjderna har ingen egen post med datum i Wikidata, så händelsen bygger bara på Wikipedias artikel om sexdagarskriget. Punkten är Golanhöjderna enligt Wikidata." } },
       "sources": ["wp-six-day-war"], "review": "source-checked" },
 
-    { "id": "jom-kippurkriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1973, "end": 1973, "precision": 11, "edtf": "1973-10-06/1973-10-25",
+    { "id": "jom-kippurkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["israel", "moderna-egypten", "syrien", "jordanien", "irak", "kuwait"], "start": 1973, "end": 1973, "precision": 11, "edtf": "1973-10-06/1973-10-25",
       "location": { "type": "Point", "coordinates": [32.344, 30.705] }, "locationPrecision": "region", "place": { "sv": "Sinaihalvön, Suezkanalen och Golanhöjderna (började längs Suezkanalen och på Golan)" },
       "title": { "sv": "Jom kippurkriget" },
       "summary": { "sv": "Den 6–25 oktober 1973 krigade Israel mot en koalition av arabstater ledd av Egypten och Syrien. Kriget började med ett överraskningsanfall på den judiska helgdagen jom kippur, som det året sammanföll med tionde dagen i ramadan. I Israel kallas det jom kippurkriget och i arabvärlden oktoberkriget eller ramadankriget." },
@@ -1741,7 +1741,7 @@
       "image": {"file": "images/events/telefonen.webp", "kind": "illustration", "style": "1800-tal", "caption": {"sv": "Illustration i stil med svartvit tidningsgravyr från 1800-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "A monochrome, richly crosshatched 19th-century engraving depicts an early telephone demonstration in a cluttered Victorian laboratory: at left, a bearded inventor in a dark suit leans over a workbench to speak into a horn-shaped transmitter, while a wire crosses the room to a seated, mustached man on the right listening through a round receiver. Surrounding them are schematics, telegraph apparatus, bottles, tools, books, gauges, wooden tables, tall windows, and period furnishings, all rendered with crisp linework, stippling, and an aged newspaper-print texture."},
       "sources": ["wp-telephone", "eb1911-telephone", "wilber-1886"], "review": "two-sources" },
 
-    { "id": "spanskamerikanska-sjalvstandighetskrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "storcolombia", "mexiko"], "start": 1808, "end": 1833, "precision": 11, "edtf": "1808-09-25/1833-09-29",
+    { "id": "spanskamerikanska-sjalvstandighetskrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "storcolombia", "mexiko", "chile", "venezuela", "colombia", "peru"], "start": 1808, "end": 1833, "precision": 11, "edtf": "1808-09-25/1833-09-29",
       "location": { "type": "Point", "coordinates": [-100.937, 21.152] }, "locationPrecision": "region", "place": { "sv": "Spanska Amerika, från Mexiko till Río de la Plata (punkten: Dolores i Mexiko, där upproret 1810 började)" },
       "title": { "sv": "De spanskamerikanska självständighetskrigen" },
       "summary": { "sv": "En rad krig i Spaniens amerikanska kolonier, från Mexiko i norr till Chile och Río de la Plata i söder. De började när Spaniens kungamakt bröt samman efter Napoleons invasion 1808 och slutade med att nya självständiga stater bildades. Spanien behöll bara Kuba och Puerto Rico." },
@@ -1811,7 +1811,7 @@
       "image": {"file": "images/events/wright.webp", "kind": "illustration", "style": "affisch", "caption": {"sv": "Illustration i stil med art deco-affisch med platta färgfält och tryckraster, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "An Art Deco–inspired vintage poster depicts the Wright brothers’ first flight, using muted cream, ochre, rust, navy, tan, and brown in bold geometric blocks, thick borders, sunburst rays, halftone grain, and no readable text. A wood-and-cloth biplane with a low-seated pilot soars above windswept dunes and distant water, watched by two silhouetted men in period clothing, while a small shed or hangar, scattered equipment, grasses, and stylized clouds complete the heroic retro lithograph scene."},
       "wikidata": "Q46047837", "sources": ["wp-wright", "wikidata"], "review": "two-sources" },
 
-    { "id": "forsta-varldskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "ryska-imperiet", "osmanska-riket", "franska-kolonialvaldet", "japanska-imperiet", "tyska-riket", "osterrike-ungern", "usa"], "start": 1914, "end": 1918, "precision": 11, "edtf": "1914-07-28/1918-11-11",
+    { "id": "forsta-varldskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "ryska-imperiet", "osmanska-riket", "franska-kolonialvaldet", "japanska-imperiet", "tyska-riket", "osterrike-ungern", "usa", "australien"], "start": 1914, "end": 1918, "precision": 11, "edtf": "1914-07-28/1918-11-11",
       "location": { "type": "Point", "coordinates": [20.457, 44.818] }, "locationPrecision": "region", "place": { "sv": "Europa, Mellanöstern, Afrika, Stilla havet och Atlanten (började vid Belgrad, Serbien)" },
       "title": { "sv": "Första världskriget" },
       "summary": { "sv": "Ett världsomspännande krig 1914–1918 mellan de allierade (ententen) och centralmakterna. Det hör till de dödligaste krigen i historien: uppskattningsvis 15–22 miljoner soldater och civila dog." },
@@ -2020,7 +2020,7 @@
       "image": {"file": "images/events/apollo-11.webp", "kind": "illustration", "style": "rymdalder", "caption": {"sv": "Illustration i stil med rymdålderns affischkonst från 1960-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "Retro mid-century space poster depicting the Moon landing in a grainy, lithographic style with muted creams, navy, ochre, gold, blue, and rust-red tones, framed by bold graphic arcs and a clean beige border. A faceted Apollo-style lunar module anchors the rocky foreground beside two opaque-helmeted astronauts, long shadows, footprints, and scattered boulders, while a large Earthrise glows on the right against a stark, star-speckled black sky."},
       "wikidata": "Q43653", "sources": ["wp-apollo-11", "wikidata"], "review": "two-sources" },
 
-    { "id": "anglo-zuluiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet"], "start": 1879, "end": 1879, "precision": 11, "edtf": "1879-01-11/1879-07-04",
+    { "id": "anglo-zuluiska-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "zululand"], "start": 1879, "end": 1879, "precision": 11, "edtf": "1879-01-11/1879-07-04",
       "location": { "type": "Point", "coordinates": [30.537, -28.358] }, "locationPrecision": "region", "place": { "sv": "Zuluriket i dagens Sydafrika (började vid Rorke's Drift)" },
       "title": { "sv": "Anglo-zuluiska kriget" },
       "summary": { "sv": "Ett krig mellan Brittiska imperiet och Zuluriket i nuvarande Sydafrika, från januari till juli 1879. Zulufolket vann vid Isandlwana, men Storbritannien vann kriget och delade sedan upp Zuluriket." },
@@ -2078,7 +2078,7 @@
       "image": {"file": "images/events/www.webp", "kind": "illustration", "style": "rymdalder", "caption": {"sv": "Illustration i stil med redaktionell tidskriftsillustration från 1980–90-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-29", "license": "CC BY 4.0", "prompt": "A vintage late-’80s/’90s poster-style illustration shows a curly-haired man in glasses and a pale collared shirt typing at a beige CRT computer in a tidy office, surrounded by books, papers, a plant, desk supplies, and a telephone. Behind him, a large blue-and-green Earth connects to floating browser-like panels featuring generic scenes—mountains, a city, a temple, pyramids, plants, people, a sailboat, and more—through glowing red-orange arcs and node points, all rendered with bold flat colors, halftone grain, worn paper edges, and no readable text."},
       "wikidata": "Q466", "sources": ["wp-www", "wikidata"], "review": "two-sources" },
 
-    { "id": "rysslands-invasion-av-ukraina", "category": "krig", "icon": "swords", "kind": "war", "ongoing": true, "start": 2022, "end": 2026, "precision": 11, "edtf": "2022-02-24/..",
+    { "id": "rysslands-invasion-av-ukraina", "category": "krig", "icon": "swords", "kind": "war", "empires": ["ukraina", "ryska-federationen"], "ongoing": true, "start": 2022, "end": 2026, "precision": 11, "edtf": "2022-02-24/..",
       "location": { "type": "Point", "coordinates": [30.523, 50.45] }, "locationPrecision": "region", "place": { "sv": "Ukraina (anfall från norr, öster och söder, bland annat mot Kyiv)" },
       "title": { "sv": "Rysslands invasion av Ukraina" },
       "summary": { "sv": "Den 24 februari 2022 anföll Ryssland Ukraina, en kraftig upptrappning av kriget mellan länderna som började 2014. Det är det största och dödligaste kriget i Europa sedan andra världskriget, och det pågår fortfarande." },
@@ -2151,7 +2151,7 @@
       "image": {"file": "images/events/nintendo.webp", "kind": "historisk", "style": "japan-ukiyoe", "caption": {"sv": "Hanafuda-kort av typen mushibana från Nintendo, tidig Shōwa-tid (1926–1945), flera decennier efter grundandet. Licens: Public domain."}, "credit": "Nintendo / Japan Playing Card Museum via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-nintendo"},
       "wikidata": "Q8093", "sources": ["wp-nintendo", "wp-kyoto", "wikidata"], "review": "two-sources" },
 
-    { "id": "koreakriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["sovjetunionen", "usa"], "start": 1950, "end": 1953, "precision": 11, "edtf": "1950-06-25/1953-07-27",
+    { "id": "koreakriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["sovjetunionen", "usa", "nordkorea", "sydkorea"], "start": 1950, "end": 1953, "precision": 11, "edtf": "1950-06-25/1953-07-27",
       "location": { "type": "Point", "coordinates": [127.0, 38.0] }, "locationPrecision": "region", "place": { "sv": "Koreahalvön och haven runt den (började vid 38:e breddgraden)" },
       "title": { "sv": "Koreakriget" },
       "summary": { "sv": "Krig på Koreahalvön mellan Nordkorea och Sydkorea och deras allierade. Kina och Sovjetunionen stödde Nordkorea, och FN-styrkor under amerikansk ledning stödde Sydkorea. Omkring en miljon soldater och uppskattningsvis 1,5–3 miljoner civila dog. Striderna upphörde med ett vapenstillestånd 1953, men något fredsavtal har aldrig skrivits." },
@@ -2201,7 +2201,7 @@
       "summary": { "sv": "Den 27 juli 1953 skrivs vapenstilleståndet under i Panmunjom av FN-kommandot, Nordkoreas armé och de kinesiska frivilligstyrkorna. Det börjar gälla klockan 22 samma dag. Avtalet skapar den demilitariserade zonen mellan Nord- och Sydkorea och ordnar utväxlingen av krigsfångar. Sydkorea skriver inte under, och något fredsavtal sluts aldrig." },
       "wikidata": "Q2862267", "sources": ["wp-korean-armistice", "wikidata"], "review": "two-sources" },
 
-    { "id": "vietnamkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["usa"], "start": 1955, "end": 1975, "precision": 9, "edtf": "1955~/1975-04-30",
+    { "id": "vietnamkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["usa", "vietnam", "sydvietnam"], "start": 1955, "end": 1975, "precision": 9, "edtf": "1955~/1975-04-30",
       "location": { "type": "Point", "coordinates": [106.702, 10.776] }, "locationPrecision": "region", "place": { "sv": "Vietnam, Laos och Kambodja" },
       "title": { "sv": "Vietnamkriget" },
       "summary": { "sv": "Krig i Vietnam, Laos och Kambodja mellan Nordvietnam och Sydvietnam och deras allierade. Sovjetunionen och Kina stödde Nordvietnam, och USA och andra antikommunistiska länder stödde Sydvietnam. USA deltog med egna stridande trupper från 1965 till 1973. Uppskattningsvis 970 000–3 miljoner vietnamesiska soldater och civila dog." },
@@ -2253,7 +2253,7 @@
       "summary": { "sv": "Den 29 april 1975 inleder Nordvietnams armé och FNL det sista anfallet mot Saigon, Sydvietnams huvudstad. Tusentals civila och amerikaner evakueras. Den 30 april kapitulerar president Dương Văn Minh, och FNL:s flagga hissas över presidentpalatset. Sydvietnam upphör att finnas, och kriget är slut." },
       "wikidata": "Q482456", "sources": ["wp-fall-of-saigon", "wikidata"], "review": "two-sources" },
 
-    { "id": "iran-irak-kriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1980, "end": 1988, "precision": 11, "edtf": "1980-09-22/1988-08-20",
+    { "id": "iran-irak-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["iran", "irak"], "start": 1980, "end": 1988, "precision": 11, "edtf": "1980-09-22/1988-08-20",
       "location": { "type": "Point", "coordinates": [48.694, 31.327] }, "locationPrecision": "region", "place": { "sv": "Iran, Irak och Persiska viken (började med Iraks invasion av västra Iran, bland annat Khuzestan)" },
       "title": { "sv": "Kriget mellan Iran och Irak" },
       "summary": { "sv": "Kriget började när Irak invaderade Iran i september 1980 och slutade med en vapenvila som FN förhandlade fram i augusti 1988. Det präglades av skyttegravskrig och avsiktliga angrepp på civila, bland annat irakiska anfall med kemiska vapen. Omkring 450 000–500 000 människor dog, och gränsen blev densamma som före kriget." },
@@ -2475,7 +2475,7 @@
       "image": {"file": "images/events/ieyasu-dor.webp", "kind": "historisk", "style": "japan-ukiyoe", "caption": {"sv": "Porträtt av Tokugawa Ieyasu, målat av Kanō Tan'yū under tidig Edo-tid. Licens: Public domain."}, "credit": "Kanō Tan'yū / Osaka slott via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-ieyasu-dor"},
       "wikidata": "Q171977", "sources": ["wp-tokugawa-ieyasu", "wp-sunpu-castle", "wikidata"], "review": "two-sources" },
 
-    { "id": "haitiska-revolutionen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "brittiska-imperiet"], "start": 1791, "end": 1804, "precision": 11, "edtf": "1791-08-21/1804-01-01",
+    { "id": "haitiska-revolutionen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["spanska-imperiet", "brittiska-imperiet", "haiti"], "start": 1791, "end": 1804, "precision": 11, "edtf": "1791-08-21/1804-01-01",
       "location": { "type": "Point", "coordinates": [-72.2, 19.76] }, "locationPrecision": "region", "place": { "sv": "Saint-Domingue, i dag Haiti (började på norra slätten vid Le Cap, i dag Cap-Haïtien)" },
       "title": { "sv": "Haitiska revolutionen" },
       "summary": { "sv": "Förslavade afrikaner i den franska kolonin Saint-Domingue gjorde uppror 1791. Det blev början på tretton års krig, där även Spanien och Storbritannien blandade sig i. Revolutionen slutade med att Haiti blev självständigt 1804, som den enda stat som har grundats efter ett lyckat slavuppror." },
@@ -2614,7 +2614,7 @@
       "summary": { "sv": "Den andlige ledaren Te Kooti Arikirangi Te Turuki har jagats i fyra år av regeringstrupper och maoriska styrkor. De sista skotten i Nya Zeelandkrigen avlossas den 14 februari 1872. Den 15 maj 1872 går Te Kooti över Waikatofloden och får asyl hos maorikungen Tāwhiao. Han benådas 1883." },
       "sources": ["wp-te-kooti-war", "wp-king-country"], "review": "source-checked" },
 
-    { "id": "australiska-granskrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet"], "start": 1788, "end": 1934, "precision": 9, "edtf": "1788/1934",
+    { "id": "australiska-granskrigen", "category": "krig", "icon": "swords", "kind": "war", "empires": ["brittiska-imperiet", "australien"], "start": 1788, "end": 1934, "precision": 9, "edtf": "1788/1934",
       "location": { "type": "Point", "coordinates": [151.212, -33.859] }, "locationPrecision": "region", "place": { "sv": "Hela Australien (började vid Sydney Cove, Warrane på eora)" },
       "title": { "sv": "De australiska gränskrigen" },
       "summary": { "sv": "Våldsamma konflikter mellan Australiens urfolk och främst brittiska nybyggare, soldater och polis, från de första månaderna efter att den brittiska kolonin grundades 1788 till åtminstone 1928, på sina håll till 1934. Striderna var lokala och spridda över hela kontinenten, ofta som räder och massakrer snarare än slag. Antalet döda är omstritt, men tiotusentals aboriginer dödades." },
@@ -2714,7 +2714,7 @@
       "note": { "title": { "sv": "Hur många emuer dog?" }, "text": { "sv": "Uppgifterna skiljer sig. Efter första försöket uppskattades 50 till 500 döda emuer. Befälet, major Meredith, rapporterade till slut 986 säkra träffar med 9 860 skott och ytterligare 2 500 skadade fåglar som dog, men historikern Greg Beyer bedömer att siffrorna troligen är kraftigt överdrivna." } },
       "wikidata": "Q14665", "sources": ["wp-emu-war", "wp-campion-wa", "wikidata"], "review": "two-sources" },
 
-    { "id": "bougainvillekonflikten", "category": "krig", "icon": "swords", "kind": "war", "start": 1988, "end": 1998, "precision": 9, "edtf": "1988/1998",
+    { "id": "bougainvillekonflikten", "category": "krig", "icon": "swords", "kind": "war", "empires": ["papua-nya-guinea"], "start": 1988, "end": 1998, "precision": 9, "edtf": "1988/1998",
       "location": { "type": "Point", "coordinates": [155.495, -6.315] }, "locationPrecision": "region", "place": { "sv": "Bougainville, Papua Nya Guinea (började vid gruvan i Panguna)" },
       "title": { "sv": "Bougainvillekonflikten" },
       "summary": { "sv": "Ett inbördeskrig 1988–1998 på ön Bougainville i Papua Nya Guinea, som började med protester mot den stora koppargruvan i Panguna och blev ett krig för självständighet. Bougainvilles president John Momis har kallat det den största konflikten i Oceanien sedan andra världskriget. Freden ledde till självstyre och en folkomröstning om självständighet." },
@@ -2770,7 +2770,7 @@
       "image": {"file": "images/events/sista-giljotinen.webp", "kind": "illustration", "style": "rymdalder", "variant": "dokumentar", "caption": {"sv": "Illustration i stil med dokumentär tidningsillustration från 1970-talet, inte en historisk bild."}, "credit": "AI-genererad med ChatGPT, 2026-10-30", "license": "CC BY 4.0", "prompt": "Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: Sista avrättningen med giljotin — Baumettesfängelset, Marseille, Frankrike, 1977 CE. What happened (show only this, do not add details): Hamida Djandoubi avrättas med giljotin i Marseille den 10 september 1977. Han blir den siste som avrättas i Frankrike innan dödsstraffet avskaffas 1981. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details."},
       "wikidata": "Q465589", "sources": ["wp-hamida-djandoubi", "wp-baumettes", "wikidata"], "review": "two-sources" },
 
-    { "id": "taipingupproret", "category": "krig", "icon": "swords", "kind": "war", "empires": ["qingdynastin"], "start": 1850, "end": 1864, "precision": 10, "edtf": "1850-12/1864-08",
+    { "id": "taipingupproret", "category": "krig", "icon": "swords", "kind": "war", "empires": ["qingdynastin", "taipingriket"], "start": 1850, "end": 1864, "precision": 10, "edtf": "1850-12/1864-08",
       "location": { "type": "Point", "coordinates": [110.083, 23.4] }, "locationPrecision": "region", "place": { "sv": "Södra och mellersta Kina (började i Guangxi)" },
       "title": { "sv": "Taipingupproret" },
       "summary": { "sv": "Ett inbördeskrig i Kina mellan Qingdynastin och det upproriska Taipings himmelska rike, främst utkämpat längs Yangtzefloden. Det räknas som det dödligaste inbördeskriget i historien. De flesta uppskattningar ligger på 20–30 miljoner döda, men vissa går upp till 100 miljoner." },
@@ -2830,7 +2830,7 @@
       "image": {"file": "images/events/star-wars.webp", "kind": "historisk", "style": "rymdalder", "caption": {"sv": "En biograf i Kalifornien gör reklam för Star Wars, 1977. Fotografi av Michael Dorausch. Licens: CC BY-SA 2.0."}, "credit": "Michael Dorausch / Wikimedia Commons", "license": "CC BY-SA 2.0", "source": "commons-bild-star-wars"},
       "wikidata": "Q17738", "sources": ["wp-star-wars", "wp-us-center", "wikidata"], "review": "two-sources" },
 
-    { "id": "gulfkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["usa"], "start": 1990, "end": 1991, "precision": 11, "edtf": "1990-08-02/1991-02-28",
+    { "id": "gulfkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["usa", "irak", "kuwait", "moderna-egypten"], "start": 1990, "end": 1991, "precision": 11, "edtf": "1990-08-02/1991-02-28",
       "location": { "type": "Point", "coordinates": [47.98, 29.375] }, "locationPrecision": "region", "place": { "sv": "Kuwait och Irak, med strider även i Saudiarabien (började i Kuwait)" },
       "title": { "sv": "Gulfkriget" },
       "summary": { "sv": "Ett krig mellan Irak och en koalition av 42 länder under ledning av USA, sedan Irak hade invaderat grannlandet Kuwait den 2 augusti 1990. Koalitionen bombade Irak och Kuwait från januari 1991 och drev ut de irakiska trupperna ur Kuwait med en markoffensiv i slutet av februari." },
@@ -2879,7 +2879,7 @@
       "note": { "title": { "sv": "Bara en källa" }, "text": { "sv": "Vapenvilan har ingen egen post i Wikidata, så händelsen har inte kunnat jämföras med en andra källa. Wikidata anger samma slutdatum för hela kriget, 28 februari 1991." } },
       "sources": ["wp-gulf-war"], "review": "source-checked" },
 
-    { "id": "kriget-i-afghanistan-2001", "category": "krig", "icon": "swords", "kind": "war", "empires": ["usa"], "start": 2001, "end": 2021, "precision": 11, "edtf": "2001-10-07/2021-08-30",
+    { "id": "kriget-i-afghanistan-2001", "category": "krig", "icon": "swords", "kind": "war", "empires": ["usa", "afghanistan"], "start": 2001, "end": 2021, "precision": 11, "edtf": "2001-10-07/2021-08-30",
       "location": { "type": "Point", "coordinates": [69.166, 34.533] }, "locationPrecision": "region", "place": { "sv": "Afghanistan (började med flyganfall mot mål över hela landet)" },
       "title": { "sv": "Kriget i Afghanistan (2001–2021)" },
       "summary": { "sv": "Ett krig i Afghanistan som började när en USA-ledd koalition invaderade landet efter terrorattackerna den 11 september 2001 och störtade talibanernas regering. Talibanerna förde sedan ett gerillakrig mot den nya regeringen och de utländska trupperna, och 2021 tog de makten igen." },
@@ -2926,7 +2926,7 @@
       "note": { "title": { "sv": "Bara en källa" }, "text": { "sv": "Händelsen har ingen egen post i Wikidata, så den har inte kunnat jämföras med en andra källa. Wikidata anger samma slutdatum för hela kriget, 30 augusti 2021." } },
       "sources": ["wp-fall-of-kabul-2021", "wp-war-in-afghanistan-2001"], "review": "source-checked" },
 
-    { "id": "irakkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["usa"], "start": 2003, "end": 2011, "precision": 11, "edtf": "2003-03-20/2011-12-18",
+    { "id": "irakkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["usa", "irak"], "start": 2003, "end": 2011, "precision": 11, "edtf": "2003-03-20/2011-12-18",
       "location": { "type": "Point", "coordinates": [44.366, 33.315] }, "locationPrecision": "region", "place": { "sv": "Irak (började med flyganfall mot Bagdad och en markinvasion från Kuwait)" },
       "title": { "sv": "Irakkriget" },
       "summary": { "sv": "Ett krig i Irak som började när en USA-ledd koalition invaderade landet i mars 2003 och störtade Saddam Husseins regering. Efter invasionen följde ett långt uppror mot de utländska trupperna och den nya irakiska regeringen, och ett inbördeskrig mellan shia- och sunnimuslimer. De sista amerikanska trupperna lämnade Irak i december 2011." },
@@ -2972,7 +2972,7 @@
       "summary": { "sv": "Den 15 december 2011 avslutas det amerikanska uppdraget i Irak formellt vid en ceremoni i Bagdad. De sista 500 soldaterna lämnar landet på morgonen den 18 december och kör över gränsen till Kuwait, enligt avtalet från 2008 om att alla amerikanska styrkor skulle vara ute före årets slut. Kvar blir ambassadens personal, drygt hundra militärer och 4 000–5 000 privata militära entreprenörer." },
       "wikidata": "Q4118977", "sources": ["wp-us-withdrawal-iraq", "wp-iraq-war", "wikidata"], "review": "two-sources" },
 
-    { "id": "andra-kongokriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1998, "end": 2003, "precision": 11, "edtf": "1998-08-02/2003-07-18",
+    { "id": "andra-kongokriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["kongo-kinshasa", "rwanda", "uganda"], "start": 1998, "end": 2003, "precision": 11, "edtf": "1998-08-02/2003-07-18",
       "location": { "type": "Point", "coordinates": [29.223, -1.664] }, "locationPrecision": "region", "place": { "sv": "Demokratiska republiken Kongo (började i Goma)" },
       "title": { "sv": "Andra Kongokriget" },
       "summary": { "sv": "Ett krig i Demokratiska republiken Kongo som drog in nio afrikanska länder och omkring 25 väpnade grupper, och som därför har kallats \"Afrikas världskrig\". Rwanda och Uganda stödde rebeller mot president Laurent-Désiré Kabila, medan bland andra Angola, Zimbabwe och Namibia försvarade hans regering. Enligt den mest citerade uppskattningen dog miljoner människor, de flesta av sjukdomar och undernäring, men siffran är omstridd." },
