@@ -296,6 +296,7 @@ Skripten i `tools/` körs för hand, inte av sidan, så principen om inget byggs
 | `tools/tackningsrapport.py` | Skriver `docs/tackningsrapport.md` med händelser per världsdel, århundrade och kategori (#484). Världsdelarna följer `region()` i `js/model.js`; `--check` kontrollerar att rapporten är uppdaterad |
 | `tools/rutter_land.py` | Kontrollerar att sjöetapperna i `data/routes/` inte korsar land (#332). Kräver numpy och Pillow |
 | `tools/riken.py` | Bygger rikesfilerna ur Cliopatria |
+| `tools/tackning_riken.py` | Täckningsanalys (#556): hur stor del av Cliopatrias land rikena täcker över tid och vilka stater som saknas, som Markdown. Ändrar inga datafiler |
 | `tools/religioner.py` | Bygger `data/religions.json` ur Cliopatria och registret med faktarutornas texter: varje rikes religion år för år, arv av religion där rikets faktaruta saknar religion (#269), sammanslaget per religion i ögonblicksbilder |
 | `tools/religioner_riken.py` | Bygger `data/religions-polities.json` (varje rikes gräns, för klickrutan) efter `religioner.py` |
 | `tools/bildpromptar.py` | Skriver promptar för illustrationer till `docs/bildpromptar.md` |
