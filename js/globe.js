@@ -250,6 +250,16 @@ export class Globe {
     this.invalidate();
   }
 
+  /**
+   * Var kameran tittar, som { lat, lon, zoom } (#403): omvändningen av flyTo, för tillståndet som JSON.
+   * Under en flygning är det målet som räknas, så att ett sparat läge blir dit globen är på väg.
+   */
+  get view() {
+    const x = this._fly ? this._fly.tx : this.group.rotation.x, y = this._fly ? this._fly.ty : this.group.rotation.y;
+    const lon = ((((Math.PI / 2 - y) / DEG - 180) % 360) + 540) % 360 - 180;
+    return { lat: x / DEG, lon, zoom: this.zoom };
+  }
+
   /** Är punkten på den synliga halvan av klotet? Används för att inte röra
    * kameran i onödan efter ett uttryckligt årshopp (#515). */
   isPointVisible(lat, lon) {

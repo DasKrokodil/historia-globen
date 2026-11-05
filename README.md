@@ -60,7 +60,7 @@ _headers              Cloudflare Pages cache-regler (no-cache, så att en releas
 css/style.css
 js/main.js            startar allt och kopplar ihop registret, tidslinjen och panelerna
 js/controllers/       main.js uppdelad: val, fokus, faktarutor, omritning, uppspelning, berättelse och etiketter (#402)
-js/state.js           det gemensamma tillståndet som lagren läser (år, fokus, filter, valda lager, #338)
+js/state.js           det gemensamma tillståndet som lagren läser (år, fokus, filter, valda lager, #338), åtgärder och JSON (#403)
 js/layers/registry.js lagerregistret: rader i Lager, ritordning, dämpning i fokus, teckenförklaring (#338)
 js/layers/index.js    lagerlistan: alla lager som anmäler sig i registret (#338)
 js/model.js           språk, kategorier, tidsformat, laddning av data

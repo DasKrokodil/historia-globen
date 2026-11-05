@@ -81,7 +81,8 @@ export function createRender(app) {
     // stopp ska ändå visas, annars börjar Fortsätt om från krigets början (#224)
     const playing = timeline.playing;
     const window = timeline.windowYears(year);
-    Object.assign(state, { year, wholeYear, fine, window, span, playing, filters: panel.filters });
+    // Tidslinjen äger året; tillståndet speglar det (#403)
+    app.store.mirror({ year, wholeYear, fine, window, span, playing, filters: panel.filters });
     const within = fine ? `±${Math.round(window * 365.25)} dagar` : `±${Math.round(window)} år`;
     ff.story = focus?.type === 'empire' ? storyFor(focus.id) : [];
     ff.update(wholeYear, panel.filters);
