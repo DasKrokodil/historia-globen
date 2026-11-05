@@ -393,7 +393,8 @@ GROUPS = {
         ('Republic of Uganda', 'uganda', 'Uganda', '#a04a7a', {'en': 'Uganda'}),
     ]),
     'zululand': ('Zuluriket', 'Zulu Kingdom', [
-        ('Zululand', 'zuluriket', 'Zuluriket', '#8a6a3a', {'en': 'Zulu Kingdom'}),
+        # Cliopatria anger Q13558877 (en förgreningssida) för Zuluriket
+        ('Zululand', 'zuluriket', 'Zuluriket', '#8a6a3a', {'en': 'Zulu Kingdom', 'wikidata': 'Q729768'}),
     ]),
     'australien': ('Australien', 'Australia', [
         ('Commonwealth of Australia', 'australien', 'Australien', '#d08a3a', {'en': 'Australia'}),
@@ -418,8 +419,9 @@ GROUPS = {
         ('Bolivia', 'bolivia', 'Bolivia', '#5a9a4a'),
     ]),
     'colombia': ('Colombia: Nya Granada och republiken', 'Colombia: New Granada and the Republic', [
+        # Cliopatria anger Q1863715, en förgreningssida
         ('New Granada', 'forenade-provinserna-nya-granada', 'Förenade provinserna Nya Granada', '#d0a03a',
-         {'en': 'United Provinces of New Granada'}),
+         {'en': 'United Provinces of New Granada', 'wikidata': 'Q2249661'}),
         ('Republic of New Granada', 'republiken-nya-granada', 'Republiken Nya Granada', '#d0a03a'),
         ('United States of Colombia', 'colombias-forenta-stater', 'Colombias förenta stater', '#d0a03a'),
         ('Republic of Colombia', 'colombia', 'Colombia', '#d0a03a', {'en': 'Colombia'}),
@@ -432,8 +434,9 @@ GROUPS = {
     ]),
     'haiti': ('Haiti', 'Haiti', [
         # Cliopatria: Haiti 1792–1802 (före självständigheten), Empire of Haiti 1805–1915 och Republic of Haiti från 1936
-        ('Haiti', 'saint-domingue', 'Saint-Domingue under revolutionen', '#3a5ab0', {'en': 'Saint-Domingue during the revolution'}),
-        ('Empire of Haiti', 'haiti-1805', 'Haiti 1805–1915', '#3a5ab0', {'en': 'Haiti 1805–1915'}),
+        # Cliopatria anger Q2006756 (första kejsardömet 1804–1806) för båda; Saint-Domingue är Q861551 och Haiti Q790
+        ('Haiti', 'saint-domingue', 'Saint-Domingue under revolutionen', '#3a5ab0', {'en': 'Saint-Domingue during the revolution', 'wikidata': 'Q861551'}),
+        ('Empire of Haiti', 'haiti-1805', 'Haiti 1805–1915', '#3a5ab0', {'en': 'Haiti 1805–1915', 'wikidata': 'Q790'}),
         ('Republic of Haiti', 'haiti', 'Haiti', '#3a5ab0', {'en': 'Haiti'}),
     ]),
     # R7 (#407), sjunde omgången: Europa (Rysslands invasion av Ukraina)
