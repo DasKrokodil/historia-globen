@@ -28,7 +28,7 @@ from shapely.geometry import Polygon, box, mapping, shape
 from shapely.ops import unary_union
 
 ROOT = Path(__file__).resolve().parent.parent
-KEEP = ('facts', 'symbol', 'polityFacts')  # fält i index.json som skrivs för hand och behålls, i den här ordningen
+KEEP = ('facts', 'symbol', 'polityFacts', 'capitals')  # fält i index.json som skrivs för hand och behålls, i den här ordningen
 TOL = 0.2      # förenkling i grader (Douglas-Peucker)
 MERGE = 0.02   # slå ihop perioder där gränsen ändras mindre än så här stor del av ytan
 MIN_AREA = 0.02  # öar mindre än så här (kvadratgrader, cirka 200 km2) tas bort

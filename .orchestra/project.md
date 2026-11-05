@@ -26,6 +26,11 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   självt att en del kan göras när som helst, får den delen tas, och pull requesten skriver "Del av #N".
 - **Anspråk:** en kommentar på issuet ("Orkestern tar det här, session <id>") och etiketten `orkester: pågår` medan
   arbetet pågår. Etiketten tas bort när pull requesten är öppnad eller arbetet pausas.
+- **Integrationskön (shared v0.8.0, "integration-ready"):** i PR-läget är en öppen pull request med `Closes #N` den
+  färdiga överlämningen. Ägaren, grenen, commit, bevisen och nästa steg står i pull requesten och dess kommentarer, och
+  det är den som leder arbetet som återupptar den (rättar efter granskning, ombaserar). En sådan pull request tar ingen
+  arbetarplats, men räknas mot gränsen på fyra öppna pull requests. Etiketten `integration-ready` används inte här,
+  eftersom pull requesten själv visar läget och etikettkontrollen (#588) bara känner till våra egna etiketter.
 - **Codex (beslut 2026-10-31):** Codex tar också issues och öppnar pull requests, enligt [AGENTS.md](../AGENTS.md). Orkestern
   hoppar över issues med etiketten `codex: pågår` eller `copilot: pågår`, eller en öppen Codex- eller Copilot-pull-request (`codex/issue-*`, `copilot/issue-*`) som skriver
   `Closes #N` (beslut 2026-11-05: ett issue, en ägare). För Codex pull requests gäller i stället: Codex-förgranskning efter att pull requesten öppnats, därefter Claude Codes beslut ("godkänd" eller arbetsorder) och sist Rikards merge. Samma diff och samma verifieringsbevis återanvänds, ingen del granskas två gånger. Dirigentens granskning "innan pull requesten öppnas" nedan gäller orkesterns egna arbetare.
@@ -101,10 +106,12 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   varje schemalagd kontroll, och vid 60 % av veckogränsen pausar dirigenten (beslut 2026-11-01).
 - **Gränser och licenser:** kod GPL-3.0, data CC BY 4.0, källor och licenser enligt CLAUDE.md. Orkesterns filer i
   `.orchestra/shared` har MIT-licens och redigeras inte här. Ändringar i dem föreslås till upstream.
-- **Installerad version:** uppströms release **v0.7.0**, commit `2bd00217aa1704134c6e2a3d5c9614c6b7fdbfbe` (tagg `v0.7.0`, 2026-10-31), via git subtree med squash. Godkänd av Rikard 2026-11-02 (tidigare: `84fc833`, efter v0.6.0). Slå ihop uppdateringar med **Create a merge commit**, så att subtree-historiken bevaras.
+- **Installerad version:** uppströms release **v0.8.2**, commit `5a67f022cea5ec2a81fcadb99b727d9f3482e26a` (tagg `v0.8.2`, 2026-11-05), via git subtree med squash. Godkänd av Rikard 2026-11-05 (tidigare: v0.7.0, `2bd0021`). Slå ihop uppdateringar med **Create a merge commit**, så att subtree-historiken bevaras.
   Uppdatera enligt [shared/INSTALL.md](shared/INSTALL.md).
 - **Uppströmsversioner:** https://github.com/solwation/dirigenten-och-orkestern, kontrolleras när dirigenten startar
-  och återanvänds i 24 timmar. Relevanta buggfixar föreslås som ett issue här. Andra uppgraderingar är frivilliga.
+  och återanvänds i 24 timmar. Dessutom jämför flödet Orkesterns version (`.github/workflows/orkesterversion.yml`, beslut
+  2026-11-05) varje dag taggen på raden ovan med upstreams stabila taggar och skapar eller uppdaterar ett issue när en
+  nyare version finns. Flödet importerar ingenting. Raden "Installerad version" måste därför behålla formen (tagg `vX.Y.Z`). Relevanta buggfixar föreslås som ett issue här. Andra uppgraderingar är frivilliga.
   Uppgraderingar importeras bara när Rikard godkänner. Verktyget `gh` finns inte i molnmiljön; använd GitHubs
   MCP-verktyg eller vanliga git-kommandon.
 

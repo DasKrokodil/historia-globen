@@ -238,6 +238,7 @@
       "open": "slaget-vid-stalingrad",
       "sources": [
         "wp-stalingrad",
+        "wp-guadalcanal",
         "wikidata"
       ]
     },
@@ -315,6 +316,7 @@
       "sources": [
         "wp-german-surrender",
         "wp-karlshorst-museum",
+        "wp-japanese-surrender",
         "wikidata"
       ]
     },

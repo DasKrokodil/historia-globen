@@ -25,6 +25,7 @@ import { ZOOM_LEVELS } from '../ui/zoomlevels.js';
 export function entry({ globe, data, labelsEl, refresh, refreshSoon, showEmpireFacts }) {
   const layer = new AreasLayer();
   layer.setPoints(data.empireGroups); // försvunna länder utan gräns, som en punkt (#72)
+  layer.setCapitals(data.empireGroups); // huvudstäder med årsspann (#474), syns när man följer ett rike
   // Symbol i gruppen i empires/index.json, eller polityFacts.<rike>.symbol för ett rike i gruppen med egen
   // faktaruta (Bysantinska riket). Medaljen står på rikets label-punkt och öppnar faktarutan.
   const empireById = new Map(data.empireGroups.map(g => [g.id, g]));
@@ -256,6 +257,12 @@ export class AreasLayer {
     this.points = groups.filter(g => g.vanished?.point);
   }
 
+  /** Huvudstäder (#474): capitals i varje grupp i empires/index.json, med årsspann (from/to, annars gruppens).
+   *  De visas bara när man följer ett rike i Fokus (onlyGroup), så att kartan inte blir plottrig. */
+  setCapitals(groups) {
+    this.capitals = new Map(groups.filter(g => g.capitals?.length).map(g => [g.id, g]));
+  }
+
   /** Aktiva rikesgrupper för teckenförklaringen (#437), med kolonialvälden först i UI:t. */
   legendItems(groups) {
     const activeIds = new Set(this.active.map(({ polity }) => polity.group));
@@ -284,6 +291,12 @@ export class AreasLayer {
       if (period) this.active.push({ polity, period });
     }
     this.influence = influenceAt(this.active, year); // lydriken och vasaller (#75)
+    // Huvudstaden det här året (#474): bara för riket man följer, och bara när en del av riket syns på kartan
+    // (en huvudstad som hör till en viss del, polity, bara när den delen syns)
+    const g = this.onlyGroup && this.capitals?.get(this.onlyGroup);
+    const shown = new Set(this.active.map(({ polity }) => polity.id));
+    this.activeCapitals = g && shown.size ? g.capitals.filter(c => isVisibleReview(c.review)
+      && year >= (c.from ?? g.from) && year <= (c.to ?? g.to) && (!c.polity || shown.has(c.polity))) : [];
     this._rev++; // namnens platser räknas om (#358)
     this.transition.track(prev, this.active, year, smooth);
     return this.active;
@@ -381,6 +394,24 @@ export class AreasLayer {
       if (!d.name) continue;
       if (d.lead) lead(d.lead);
       write(d.name, d.x, d.y);
+    }
+    ctx.globalAlpha = this.labelAlpha;
+    // Huvudstäder (#474): en liten fyrkant i pergament med mörk kant och stadens namn, så att den inte förväxlas
+    // med moderlandets stjärna (#74) eller ringen för försvunna länder utan gräns (#72)
+    for (const c of this.activeCapitals ?? []) {
+      const x = X(c.at[0]), y = Y(c.at[1]), r = 3.6 * k * this.labelScale;
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = '#f6e7c4';
+      ctx.strokeStyle = 'rgba(16,22,30,0.9)';
+      ctx.lineWidth = 1.6 * k * this.labelScale;
+      ctx.fillRect(x - r, y - r, 2 * r, 2 * r);
+      ctx.strokeRect(x - r, y - r, 2 * r, 2 * r);
+      ctx.globalAlpha = this.labelAlpha;
+      ctx.save();
+      ctx.font = `italic ${12 * k * this.labelScale}px "IM Fell English", Georgia, serif`;
+      ctx.textAlign = 'left';
+      write(t(c.name), (x + r * 2) / k, y / k);
+      ctx.restore();
     }
     ctx.globalAlpha = this.labelAlpha;
     // Försvunna länder utan gräns (#72): en ring med prick i landets färg och namnet till höger. Området är för
