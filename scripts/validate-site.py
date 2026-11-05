@@ -334,7 +334,8 @@ for step in intro.get('steps', []):
 # Rikenas faktarutor och försvunna länders årtal och efterträdare (#170, #72): källor och händelser finns
 for g in (empires or {}).get('groups', []):
     fa, v = g.get('facts') or {}, g.get('vanished') or {}
-    for s in fa.get('sources', []) + [s for m in fa.get('milestones', []) for s in m.get('sources', [])] + v.get('sources', []):
+    caps = [s for c in g.get('capitals', []) for s in c.get('sources', [])]  # huvudstäder (#474)
+    for s in fa.get('sources', []) + [s for m in fa.get('milestones', []) for s in m.get('sources', [])] + v.get('sources', []) + caps:
         if s not in src_ids:
             err(f"data/empires/index.json ({g.get('id')}): källan {s} finns inte i sources.json")
     for i in [i for m in fa.get('milestones', []) for i in m.get('events', [])]:
