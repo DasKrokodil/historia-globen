@@ -25,9 +25,13 @@ test('sprak.json har svenska som grundspråk och unika språk', () => {
 
 for (const l of meta.languages.filter(l => l.id !== 'sv')) {
   const dict = json(`data/ui/${l.id}.json`);
-  test(`${l.id}.json har alla nycklar som JavaScript hämtar (sv.json) och samma {platshållare}`, () => {
+  // Engelska är reservspråket och färdiga språk ska ha allt; ett ofärdigt språk (beta) får sakna en nyckel,
+  // som då visas på engelska enligt reservordningen, men en text som finns ska ha samma platshållare.
+  const strict = l.id === 'en' || l.complete;
+  test(`${l.id}.json har ${strict ? 'alla nycklar' : 'rätt form på nycklarna'} som JavaScript hämtar (sv.json) och samma {platshållare}`, () => {
     for (const [k, v] of Object.entries(sv)) {
       if (k.startsWith('_')) continue;
+      if (!strict && !(k in dict)) { console.warn(`${l.id}: saknar ${k} (visas på engelska)`); continue; }
       assert.ok(k in dict, `${l.id}.json saknar ${k}`);
       if (Array.isArray(v)) { assert.equal(dict[k].length, v.length, k); continue; }
       const ph = s => [...String(s).matchAll(/\{(\w+)\}/g)].map(m => m[1]).sort();
