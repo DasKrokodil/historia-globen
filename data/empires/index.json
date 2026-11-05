@@ -8858,7 +8858,7 @@
    },
    "color": "#3d8fd1",
    "from": 1612,
-   "to": 1814,
+   "to": 2024,
    "file": "data/empires/svenska-stormaktsvaldet.json",
    "polities": [
     {
@@ -8882,11 +8882,33 @@
       "cliopatria"
      ],
      "review": "source-checked"
+    },
+    {
+     "id": "sverige-norge",
+     "name": {
+      "sv": "Sverige-Norge",
+      "en": "Sweden-Norway"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "sverige-1905",
+     "name": {
+      "sv": "Sverige",
+      "en": "Kingdom of Sweden"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
     }
    ],
    "facts": {
     "summary": {
-     "sv": "Under stormaktstiden, 1611–1721, var Sverige en europeisk stormakt som behärskade stora delar av Östersjöområdet. Den slutade när Sverige förlorade stora nordiska kriget."
+     "sv": "Under stormaktstiden, 1611–1721, var Sverige en europeisk stormakt som behärskade stora delar av Östersjöområdet. Den slutade när Sverige förlorade stora nordiska kriget. 1814–1905 var Sverige i union med Norge, och sedan 1905 är landet ett eget kungarike."
     },
     "items": [
      {
@@ -8899,10 +8921,26 @@
      },
      {
       "label": {
-       "sv": "Hur det slutade"
+       "sv": "Hur stormaktstiden slutade"
       },
       "text": {
        "sv": "Karl XII förlorade slaget vid Poltava 1709. När han dog 1718 var riket kraftigt försvagat, och vid freden i Nystad 1721 förlorade Sverige stora områden. Finland avträddes till Ryssland 1809 och Svenska Pommern efter Napoleonkrigen."
+      }
+     },
+     {
+      "label": {
+       "sv": "Unionen med Norge"
+      },
+      "text": {
+       "sv": "Vid freden i Kiel 14 januari 1814 måste Danmark-Norge avträda Norge till Sveriges kung. Norge förklarade sig självständigt och antog en egen grundlag 17 maj 1814, men efter ett kort krig och konventionen i Moss valde stortinget Sveriges kung Karl XIII till Norges kung 4 november 1814. Länderna hade gemensam kung och utrikespolitik men egna grundlagar, riksdagar, arméer och valutor. Fälttåget mot Norge 1814 var sista gången Sverige var i krig."
+      }
+     },
+     {
+      "label": {
+       "sv": "Efter 1905"
+      },
+      "text": {
+       "sv": "Stortinget förklarade unionen upplöst 7 juni 1905, och Sverige godtog det 26 oktober. Sverige var officiellt neutralt i båda världskrigen, men neutraliteten under andra världskriget är omdiskuterad. Landet gick med i EU 1995 och, efter Rysslands invasion av Ukraina, i Nato 7 mars 2024."
       }
      },
      {
@@ -9087,17 +9125,89 @@
        "freden-i-fredrikshamn"
       ],
       "mapNote": {
-       "sv": "Kartan visar riket till och med 1814."
+       "sv": "Kartan visar ytan minska från cirka 790 000 till 464 000 km² 1809."
       }
+     },
+     {
+      "year": 1814,
+      "label": {
+       "sv": "1814"
+      },
+      "title": {
+       "sv": "Unionen med Norge"
+      },
+      "text": {
+       "sv": "Efter freden i Kiel och ett kort krig väljer stortinget Sveriges kung till Norges kung 4 november 1814. Unionen är en personalunion med gemensam kung och utrikespolitik."
+      },
+      "sources": [
+       "wp-union-sweden-norway",
+       "wd-union-sweden-norway",
+       "wp-sweden"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Norge som eget land 1814 och unionen Sverige-Norge från 1815."
+      }
+     },
+     {
+      "year": 1905,
+      "label": {
+       "sv": "1905"
+      },
+      "title": {
+       "sv": "Unionen upplöses"
+      },
+      "text": {
+       "sv": "Stortinget förklarar unionen upplöst 7 juni 1905, och Sverige godtar det 26 oktober. Upplösningen sker fredligt."
+      },
+      "sources": [
+       "wp-union-sweden-norway",
+       "wd-union-sweden-norway"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar Sverige utan Norge från 1905."
+      }
+     },
+     {
+      "year": 1995,
+      "label": {
+       "sv": "1995"
+      },
+      "title": {
+       "sv": "EU"
+      },
+      "text": {
+       "sv": "Sverige går med i Europeiska unionen."
+      },
+      "sources": [
+       "wp-sweden"
+      ]
+     },
+     {
+      "year": 2024,
+      "label": {
+       "sv": "2024"
+      },
+      "title": {
+       "sv": "Nato"
+      },
+      "text": {
+       "sv": "Efter Rysslands invasion av Ukraina 2022 söker Sverige medlemskap, och blir medlem i Nato 7 mars 2024."
+      },
+      "sources": [
+       "wp-sweden"
+      ]
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger stormaktstiden till 1611–1721; den slutade med freden i Nystad 1721. Kartan (Cliopatria) kallar Sverige \"Swedish Empire\" ända till 1814. Här heter riket därför Svenska stormaktsväldet till och med 1721 och Sverige 1722–1814, med kartdatans gränser, alltså Sverige med Finland och Pommern efter stormaktstiden."
+     "sv": "Källorna anger stormaktstiden till 1611–1721; den slutade med freden i Nystad 1721. Kartan (Cliopatria) kallar Sverige \"Swedish Empire\" ända till 1814. Här heter riket därför Svenska stormaktsväldet till och med 1721 och Sverige 1722–1814, med kartdatans gränser, alltså Sverige med Finland och Pommern efter stormaktstiden. Unionen med Norge visas 1815–1904 (källorna: 1814–1905) och Sverige från 1905."
     },
     "sources": [
      "wp-swedish-empire",
      "wd-swedish-empire",
-     "wp-three-crowns"
+     "wp-three-crowns",
+     "wp-union-sweden-norway",
+     "wd-union-sweden-norway",
+     "wp-sweden"
     ],
     "review": "two-sources"
    },
