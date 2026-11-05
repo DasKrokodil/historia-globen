@@ -40,12 +40,27 @@
               "uncertainty": { "$ref": "#/$defs/evidenceReferences" }
             }
           },
+          "story": {
+            "type": "object",
+            "properties": {
+              "takeaways": { "type": "array", "items": { "$ref": "#/$defs/takeaway" } }
+            }
+          },
           "review": { "type": "string", "enum": ["draft", "source-checked", "two-sources"] }
         }
       }
     }
   },
   "$defs": {
+    "takeaway": {
+      "type": "object",
+      "required": ["status", "text", "sources"],
+      "properties": {
+        "status": { "type": "string", "enum": ["belagt", "omtvistat", "okant"] },
+        "text": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
+        "sources": { "type": "array", "items": { "type": "string", "pattern": ".+" } }
+      }
+    },
     "evidenceReferences": {
       "type": "array",
       "items": {

@@ -8,6 +8,25 @@ const LOADING = '<p class="detail-loading" role="status">Laddar…</p>';
 /** Källraden. pending = källregistret eller händelsens källor laddas fortfarande (#337): då står ingen rad alls. */
 const srcLine = (srcs, pending) => pending ? '' : `<div class="src">Källa: ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || 'saknas'}</div>`;
 const EVIDENCE_FIELDS = ['summary', 'date', 'location', 'image', 'uncertainty'];
+// Det viktigaste att ta med sig (#500, Rikards beslut 2026-11-03): krigets story.takeaways, grupperade efter
+// vad källorna säger. Rubrikerna är vanlig svenska, så att osäkerheten förklaras i ord och inte med en symbol.
+const TAKEAWAY_GROUPS = [
+  ['belagt', 'Det här vet vi från källorna'],
+  ['omtvistat', 'Här är forskare inte överens'],
+  ['okant', 'Det här vet vi inte säkert'],
+];
+/** Punkterna under sina rubriker, var och en med sin egen källa. Tom text när kriget saknar punkter. */
+function takeawaysHtml(items, srcById, pending) {
+  if (!items?.length) return '';
+  const groups = TAKEAWAY_GROUPS.map(([status, title]) => {
+    const own = items.filter(x => x.status === status);
+    if (!own.length) return '';
+    return `<h5 class="takeaway-head takeaway-${status}">${esc(title)}</h5><ul class="takeaways">${own.map(x => `<li>${esc(t(x.text))}${
+      pending ? '' : `<span class="takeaway-src">${(x.sources ?? []).map(id => srcById[id]).filter(Boolean)
+        .map(src => `<a href="${esc(src.url)}" target="_blank" rel="noopener">${esc(src.title)}</a>`).join(', ')}</span>`}</li>`).join('')}</ul>`;
+  }).join('');
+  return groups && `<section class="takeaway-box" aria-label="Det viktigaste att ta med sig"><h4>Det viktigaste att ta med sig</h4>${groups}</section>`;
+}
 const EVIDENCE_ROLES = [
   ['date', 'Datum'], ['text', 'Text'], ['map', 'Karta'], ['image', 'Bild'], ['uncertainty', 'Osäkerhet']
 ];
@@ -309,9 +328,11 @@ export class Panel {
       ${empireList(war._empires)}
       <p class="story-hint">Tryck på ▶ för att följa kriget.</p>` : war.ongoing ? `
       <h4>Läget i dag</h4><p>${esc(t(s.outcome))}</p>
-      <h4>Döda hittills, enligt uppskattningar</h4><p>${esc(t(s.casualties))}</p>` : `
+      <h4>Döda hittills, enligt uppskattningar</h4><p>${esc(t(s.casualties))}</p>
+      ${takeawaysHtml(s.takeaways, this.srcById, pending)}` : `
       <h4>Hur kriget slutade</h4><p>${esc(t(s.outcome))}</p>
       <h4>Döda</h4><p>${esc(t(s.casualties))}</p>
+      ${takeawaysHtml(s.takeaways, this.srcById, pending)}
       ${empireList(war._empires)}`;
     const label = mode === 'intro' ? 'Innan kriget börjar' : war.ongoing ? `Läget i dag (kontrollerat ${formatDate(s.asOf)})` : 'När kriget är slut';
     this.detail.innerHTML = `
