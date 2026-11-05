@@ -28,7 +28,7 @@ from shapely.geometry import Polygon, box, mapping, shape
 from shapely.ops import unary_union
 
 ROOT = Path(__file__).resolve().parent.parent
-KEEP = ('facts', 'symbol', 'polityFacts')  # fält i index.json som skrivs för hand och behålls, i den här ordningen
+KEEP = ('facts', 'symbol', 'polityFacts', 'capitals')  # fält i index.json som skrivs för hand och behålls, i den här ordningen
 TOL = 0.2      # förenkling i grader (Douglas-Peucker)
 MERGE = 0.02   # slå ihop perioder där gränsen ändras mindre än så här stor del av ytan
 MIN_AREA = 0.02  # öar mindre än så här (kvadratgrader, cirka 200 km2) tas bort
@@ -192,6 +192,9 @@ GROUPS = {
     'svenska-stormaktsvaldet': ('Sverige: stormaktsväldet och efter', 'Sweden: the Swedish Empire and after', [
         ('Swedish Empire', 'svenska-stormaktsvaldet', 'Svenska stormaktsväldet', '#3d8fd1', {'years': (1612, 1721)}),
         ('Swedish Empire', 'sverige-1722', 'Sverige', '#3d8fd1', {'years': (1722, 1814), 'en': 'Sweden', 'wikidata': 'Q34'}),
+        # #556: unionen med Norge och Sverige efter 1905, så att gruppen går "och efter" (Kingdom of Sweden finns från 980 i Cliopatria)
+        ('United Kingdoms of Sweden and Norway', 'sverige-norge', 'Sverige-Norge', '#3d8fd1', {'en': 'Sweden-Norway'}),
+        ('Kingdom of Sweden', 'sverige-1905', 'Sverige', '#3d8fd1', {'years': (1905, 2024), 'en': 'Kingdom of Sweden'}),
     ]),
     'habsburgska-riket': ('Habsburgska riket', 'Habsburg Monarchy', [
         ('(Habsburg Monarchy)', 'habsburgska-riket', 'Habsburgska riket', '#a8475a'),

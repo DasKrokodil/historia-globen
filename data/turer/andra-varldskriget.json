@@ -1,0 +1,375 @@
+{
+  "schema": "historia-globen/tur@1",
+  "version": 1,
+  "id": "andra-varldskriget",
+  "title": {
+    "sv": "Andra världskriget i Europa och Stilla havet",
+    "en": "The Second World War in Europe and the Pacific"
+  },
+  "summary": {
+    "sv": "Från anfallet på Polen 1939 till Japans kapitulation 1945, i Europa, Nordafrika och Stilla havet."
+  },
+  "review": "source-checked",
+  "steps": [
+    {
+      "id": "polen",
+      "at": 1939,
+      "camera": {
+        "lat": 52.0,
+        "lon": 19.0,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "Polen, 1 september 1939"
+      },
+      "text": {
+        "sv": "Tyskland anfaller Polen tillsammans med Slovakien. Bland de första striderna är beskjutningen av Westerplatte vid Danzig. Två dagar senare förklarar Storbritannien och Frankrike krig mot Tyskland."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "anfallet-pa-polen",
+      "sources": [
+        "wp-invasion-poland",
+        "wp-westerplatte",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "frankrike",
+      "at": 1940,
+      "camera": {
+        "lat": 49.4,
+        "lon": 2.9,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "Frankrike, maj–juni 1940"
+      },
+      "text": {
+        "sv": "Den 10 maj anfaller Tyskland Nederländerna, Belgien, Luxemburg och Frankrike. Paris intas den 14 juni, och vapenstilleståndet som skrevs under vid Compiègne börjar gälla den 25 juni."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "frankrikes-fall",
+      "sources": [
+        "wp-battle-of-france",
+        "wp-armistice-1940",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "storbritannien",
+      "at": 1940,
+      "camera": {
+        "lat": 54.0,
+        "lon": -2.0,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "Storbritannien, sommaren och hösten 1940"
+      },
+      "text": {
+        "sv": "Det tyska flygvapnet anfaller Storbritannien men tar inte herraväldet i luften. Hitler skjuter upp den planerade invasionen och ställer till slut in den."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "slaget-om-storbritannien",
+      "sources": [
+        "wp-battle-of-britain",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "barbarossa",
+      "at": 1941,
+      "camera": {
+        "lat": 52.1,
+        "lon": 23.7,
+        "zoom": 1.5
+      },
+      "title": {
+        "sv": "Sovjetunionen, 22 juni 1941"
+      },
+      "text": {
+        "sv": "Tyskland och flera av dess europeiska förbundna anfaller Sovjetunionen med mer än 3,8 miljoner soldater. Det är den största militära offensiven i historien och öppnar östfronten."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "operation-barbarossa",
+      "sources": [
+        "wp-barbarossa",
+        "wp-defense-brest-fortress",
+        "wp-brest-fortress",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "pearl-harbor",
+      "at": 1941,
+      "camera": {
+        "lat": 21.4,
+        "lon": -157.9,
+        "zoom": 1.4
+      },
+      "title": {
+        "sv": "Pearl Harbor, 7 december 1941"
+      },
+      "text": {
+        "sv": "Samma år i Stilla havet: japanska flygplan från sex hangarfartyg anfaller den amerikanska Stillahavsflottan. USA förklarar krig mot Japan dagen efter, och Tyskland förklarar sedan krig mot USA."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "attacken-mot-pearl-harbor",
+      "sources": [
+        "wp-pearl-harbor",
+        "wp-world-war-ii",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "midway",
+      "at": 1942,
+      "camera": {
+        "lat": 28.0,
+        "lon": -178.0,
+        "zoom": 1.3
+      },
+      "title": {
+        "sv": "Midway, 4–7 juni 1942"
+      },
+      "text": {
+        "sv": "Den amerikanska flottan besegrar en japansk flotta nära Midway. Japan förlorar fyra hangarfartyg, och dess framryckning i Stilla havet stoppas."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "slaget-vid-midway",
+      "sources": [
+        "wp-midway",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "guadalcanal",
+      "at": 1942,
+      "camera": {
+        "lat": -9.4,
+        "lon": 160.0,
+        "zoom": 1.4
+      },
+      "title": {
+        "sv": "Guadalcanal, 7 augusti 1942"
+      },
+      "text": {
+        "sv": "Allierade trupper, mest amerikanska marinsoldater, landstiger på Guadalcanal. Det blir de allierades första stora offensiv på land mot Japan, med strider både på ön och till sjöss."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "slaget-om-guadalcanal",
+      "sources": [
+        "wp-guadalcanal",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "el-alamein",
+      "at": 1942,
+      "camera": {
+        "lat": 30.8,
+        "lon": 28.9,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "El Alamein, oktober 1942"
+      },
+      "text": {
+        "sv": "Under tiden i Nordafrika anfaller den brittiska åttonde armén under Bernard Montgomery den tysk-italienska pansararmén vid El Alamein. Axelmakternas styrkor måste dra sig tillbaka ur Egypten och Libyen."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "andra-slaget-vid-el-alamein",
+      "sources": [
+        "wp-el-alamein-2",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "stalingrad",
+      "at": 1943,
+      "camera": {
+        "lat": 48.7,
+        "lon": 44.5,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "Stalingrad, 2 februari 1943"
+      },
+      "text": {
+        "sv": "I november 1942 omringar Röda armén den tyska sjätte armén vid Volga, och när striderna tar slut den 2 februari 1943 är den utplånad. Slaget ses allmänt som vändpunkten i kriget i Europa. En vecka senare drar Japan tillbaka sina sista styrkor från Guadalcanal."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "slaget-vid-stalingrad",
+      "sources": [
+        "wp-stalingrad",
+        "wp-guadalcanal",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "d-dagen",
+      "at": 1944,
+      "camera": {
+        "lat": 49.3,
+        "lon": -0.6,
+        "zoom": 1.7
+      },
+      "title": {
+        "sv": "Normandie, 6 juni 1944"
+      },
+      "text": {
+        "sv": "Allierade trupper, bland dem amerikanska, brittiska och kanadensiska, landsätts från luften och från havet på fem avsnitt av Normandies kust. Det är den största landstigningen från havet i historien och början på befrielsen av Frankrike och Västeuropa."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "d-dagen",
+      "sources": [
+        "wp-normandy-landings",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "auschwitz",
+      "at": 1945,
+      "camera": {
+        "lat": 50.0,
+        "lon": 19.2,
+        "zoom": 1.7
+      },
+      "title": {
+        "sv": "Auschwitz, 27 januari 1945"
+      },
+      "text": {
+        "sv": "Sovjetiska trupper befriar Auschwitz. Minst 1,1 miljoner människor dog i lägret, de flesta judar. Det blev en symbol för Förintelsen, där omkring sex miljoner judar mördades."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "auschwitz-befrias",
+      "sources": [
+        "wp-auschwitz",
+        "wp-holocaust",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "berlin",
+      "at": 1945,
+      "camera": {
+        "lat": 52.5,
+        "lon": 13.5,
+        "zoom": 1.7
+      },
+      "title": {
+        "sv": "Berlin, 8 maj 1945"
+      },
+      "text": {
+        "sv": "Tysklands högsta militära ledning skriver under en villkorslös kapitulation i Karlshorst i Berlin, dagen efter en första kapitulation i Reims. Kriget i Europa är slut, men mot Japan fortsätter det."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "tysklands-kapitulation",
+      "sources": [
+        "wp-german-surrender",
+        "wp-karlshorst-museum",
+        "wp-japanese-surrender",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "hiroshima-nagasaki",
+      "at": 1945,
+      "camera": {
+        "lat": 33.5,
+        "lon": 131.0,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "Hiroshima och Nagasaki, 6 och 9 augusti 1945"
+      },
+      "text": {
+        "sv": "USA fäller atombomber över Hiroshima och Nagasaki. Mellan 150 000 och 246 000 människor dödas, de flesta civila. Mellan bomberna förklarar Sovjetunionen krig mot Japan och anfaller Manchuriet."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "atombomberna-hiroshima-nagasaki",
+      "sources": [
+        "wp-hiroshima-nagasaki",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "tokyobukten",
+      "at": 1945,
+      "camera": {
+        "lat": 35.4,
+        "lon": 139.8,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "Tokyobukten, 2 september 1945"
+      },
+      "text": {
+        "sv": "Japan och nio allierade länder skriver under kapitulationen ombord på USS Missouri. Andra världskriget är slut."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "japans-kapitulation",
+      "sources": [
+        "wp-japanese-surrender",
+        "wp-world-war-ii",
+        "wikidata"
+      ]
+    }
+  ]
+}

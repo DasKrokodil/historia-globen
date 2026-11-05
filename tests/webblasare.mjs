@@ -236,7 +236,7 @@ async function run(browser, vp) {
   });
 
   await check('mobilmenyn samlar knapparna (#530)', async () => {
-    const inMenu = ['btn-layers', 'btn-focus', 'btn-intro', 'btn-flat', 'btn-sources', 'btn-help'];
+    const inMenu = ['btn-layers', 'btn-focus', 'btn-intro', 'btn-tour', 'btn-flat', 'btn-sources', 'btn-help'];
     if (vp.width > 760) {
       if (await page.isVisible('#more-toggle')) throw new Error('knappen Meny syns i datorbredd');
       for (const id of ['btn-panel', ...inMenu]) if (await page.isHidden(`#${id}`)) throw new Error(`#${id} syns inte i datorbredd`);
@@ -465,6 +465,34 @@ async function run(browser, vp) {
     if (!focusRestored) throw new Error('Escape lämnade inte fokus på knappen som öppnade introduktionen');
     await page.emulateMedia({ reducedMotion: 'no-preference' });
     return 'ingen automatisk popup; tre steg, år 1889, Escape och reducerad rörelse fungerar';
+  });
+
+  await check('en guidad tur går att spela steg för steg och återställer lagren (#47)', async () => {
+    const layersOn = () => page.evaluate(() => [...document.querySelectorAll('#layer-menu input[data-layer]')].filter(i => i.checked).map(i => i.dataset.layer).sort().join(','));
+    const before = await layersOn();
+    await clickView('#btn-tour');
+    await visible('#tour-menu');
+    await page.click('#tour-menu .tour-pick[data-tour="tre-platser-1325"]');
+    await visible('#tour-card');
+    const progress = () => page.textContent('#tour-progress').then(s => s.trim());
+    if ((await progress()) !== 'Steg 1 av 3') throw new Error(`turen började på ${await progress()}`);
+    if ((await year()) !== '1324') throw new Error(`turens första steg står på ${await year()} i stället för 1324`);
+    await visible('#pause-note');
+    if (!(await page.textContent('#pause-text')).includes('Turen:')) throw new Error('pausraden visar inte turen');
+    if ((await layersOn()) !== 'areas,events') throw new Error(`stegets lager är ${await layersOn()} i stället för areas,events`);
+    await page.click('#tour-next');
+    if ((await progress()) !== 'Steg 2 av 3') throw new Error('Nästa gick inte till steg 2');
+    // Fortsätt i pausraden går också till nästa steg (tidslinjen äger året och pausar där)
+    await page.click('#pause-go');
+    await page.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('3 av 3'), null, { timeout: T.step });
+    if ((await year()) !== '1325') throw new Error(`sista steget står på ${await year()} i stället för 1325`);
+    if (await page.isVisible('#funfact')) throw new Error('Samtidigt-kortet syns ovanpå turens kort');
+    await page.click('#tour-back');
+    if ((await progress()) !== 'Steg 2 av 3') throw new Error('Föregående gick inte tillbaka');
+    await page.click('#tour-close');
+    await hidden('#tour-card');
+    if ((await layersOn()) !== before) throw new Error(`lagren återställdes inte: ${await layersOn()} i stället för ${before}`);
+    return 'tre steg med år, lager och paus; Nästa, Fortsätt, Föregående och Avsluta fungerar';
   });
 
   await check('Samtidigt-kortet går till nästa händelse', async () => {
@@ -939,6 +967,36 @@ async function run(browser, vp) {
       await page.keyboard.press('Escape');
       await hidden('#layer-menu');
     }
+  });
+
+  // #474: huvudstaden som gäller året syns när man följer ett rike. Testet tar ett rike ur datan med minst två daterade
+  // huvudstäder och kontrollerar mitt i varje stads spann att just den staden visas, med den riktiga modulen.
+  await check('huvudstaden följer året när man följer ett rike', async () => {
+    const r = await page.evaluate(async () => {
+      const { AreasLayer } = await import('./js/layers/areas.js');
+      const get = url => fetch(url).then(res => res.json());
+      const { groups } = await get('data/genererat/riken.json');
+      const g = groups.find(x => x.file && (x.capitals ?? []).filter(c => c.from != null && c.to != null && c.to - c.from >= 2).length >= 2);
+      if (!g) return { missing: true };
+      const { polities } = await get(g.file);
+      const layer = new AreasLayer(polities);
+      layer.setCapitals(groups);
+      layer.onlyGroup = g.id;
+      const checks = g.capitals.filter(c => c.from != null && c.to != null && c.to - c.from >= 2).map(c => {
+        const year = Math.floor((c.from + c.to) / 2);
+        layer.update({ year });
+        const names = layer.activeCapitals.map(x => x.name.sv);
+        return { year, want: c.name.sv, names, ok: names.includes(c.name.sv) || !layer.active.length };
+      });
+      layer.onlyGroup = null;
+      layer.update({ year: checks[0].year });
+      return { group: g.id, checks, utanFokus: layer.activeCapitals.length };
+    });
+    if (r.missing) throw new Error('inget rike med två daterade huvudstäder i data/genererat/riken.json');
+    const bad = r.checks.find(c => !c.ok);
+    if (bad) throw new Error(`${r.group} ${bad.year}: väntade ${bad.want}, fick ${bad.names.join(', ') || 'ingen'}`);
+    if (r.utanFokus) throw new Error('huvudstäder visas fast inget rike följs');
+    return `${r.group}: ${r.checks.map(c => `${c.year} ${c.want}`).join(', ')}; inga utan Fokus`;
   });
 
   await check('Upptäcktsvyns förklaring går att fälla ihop', async () => {

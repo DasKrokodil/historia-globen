@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historia-globen: register för guidade turer (#47)",
+  "type": "object",
+  "required": ["schema", "tours"],
+  "properties": {
+    "schema": { "type": "string", "pattern": "^historia-globen/turer@1$" },
+    "tours": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
+    "labels": { "type": "object" }
+  }
+}
