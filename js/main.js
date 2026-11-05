@@ -19,7 +19,7 @@ import { downloadPoster } from './ui/poster.js';
 import { Feedback } from './ui/feedback.js';
 import { Sheet } from './ui/sheet.js';
 import { ViewMenu } from './ui/viewmenu.js';
-import { createState } from './state.js';
+import { createStore, toJSON } from './state.js';
 import { LayerRegistry } from './layers/registry.js';
 import { createSelection } from './controllers/selection.js';
 import { createFacts } from './controllers/facts.js';
@@ -88,12 +88,16 @@ async function start() {
   }
 
   // Det gemensamma tillståndet och lagerregistret (#338)
-  const state = createState();
+  // Åtgärder och prenumeration (#403): tidslinjen äger året, övriga val ändras med store.set…
+  const store = createStore();
+  const state = store.state;
   const registry = new LayerRegistry();
   // Det delade underlaget för controllerna (#402): komponenterna och funktionerna som de kopplas ihop med.
   // Funktionerna fylls i när varje controller skapas längre ner; anropen sker först efter starten.
   const narrow = matchMedia('(max-width: 760px)');
-  const app = { $, data, views, state, registry, globe, flatMap, narrow };
+  const app = { $, data, views, state, store, registry, globe, flatMap, narrow };
+  // Hela tillståndet som JSON (#403): år, kamera, fokus, lager, kategorier och Lugn rörelse. Används av #64/#501.
+  app.snapshot = () => toJSON(state, globe.view);
   // Det lagren får när de skapas: klotet, datan och vägar tillbaka till main.js (omritning, faktarutor)
   let glyphRaf = 0;
   const env = {
@@ -152,9 +156,10 @@ async function start() {
     layers.set('events', true);
     layers.onChange('events', true);
   };
-  Object.assign(state, { layers: layers.on, pause: layers.pause, calm: layers.calm });
+  state.pause = layers.pause;
+  store.setLayers(layers.on); store.setCalm(layers.calm);
   // Lugn rörelse (#246): också rikenas övergångar (#78) stängs av (i lagrets apply)
-  globe.setCalm(layers.calm); layers.onCalm = on => { state.calm = on; globe.setCalm(on); registry.apply(state); };
+  globe.setCalm(layers.calm); layers.onCalm = on => { store.setCalm(on); globe.setCalm(on); registry.apply(state); };
   // Teckenförklaring och klickruta för religionslagret (#166)
   const relLegend = new ReligionLegend({ legend: $('religion-legend'), pop: $('religion-pop') });
   relLegend.empireLegend = views?.empireLegend ?? {};
@@ -274,7 +279,7 @@ async function start() {
     if (focus?.type === 'empire') app.showEmpireFacts(focus.id);
     else if (focus?.type === 'religion') app.showReligionFacts(focus.id, false);
   });
-  panel.onFilter = (...a) => app.refresh(...a);
+  panel.onFilter = (...a) => { store.setFilters(panel.filters); app.refresh(...a); };
   ff.onSelect = (...a) => app.select(...a);
   ff.onArcs = pairs => { globe.setArcs(pairs); flatMap.setArcs(pairs); };
   // Kortets källor (#337): rikets berättelse har egna, fun facts och krigskort ärver händelsernas, som har laddats
@@ -391,6 +396,7 @@ async function start() {
   }, { capture: true });
 
   layers.onChange = async (name, on) => {
+    store.setLayers(layers.on);
     applyLayers(); app.refresh();
     // Lagret slås bara på: menyn står kvar öppen och ingen faktaruta öppnas (#308). Första gången
     // visar teckenförklaringen en tipsrad; faktarutan finns bakom knappen "Läs om religionerna".

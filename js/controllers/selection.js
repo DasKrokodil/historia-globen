@@ -27,7 +27,7 @@ export function createSelection(app) {
   }
 
   function select(id, jump = true) {
-    state.selectedId = id;
+    app.store.setSelected(id);
     const e = id ? data.byId[id] : null;
     panel.showDetail(e);
     // I smal skärm stängs listan när en händelse väljs, så att faktarutan syns

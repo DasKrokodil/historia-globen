@@ -51,7 +51,7 @@ export function createFacts(app) {
     const r = data.religionsDoc?.religions.find(x => x.id === id);
     if (!r?.facts) return false;
     const origin = data.byId[r.facts.origin];
-    state.selectedId = origin?.id ?? null;
+    app.store.setSelected(origin?.id ?? null);
     panel.showReligion(r, origin, { type: 'religion', id: r.id, label: t(r.name), year: Math.round(timeline.year) });
     // Menyerna stängs så att faktarutan och punkten syns
     layers.close(); app.focusMenu.close();
@@ -76,7 +76,7 @@ export function createFacts(app) {
     }
     const facts = own?.facts ?? g?.facts;
     if (!facts) return false;
-    state.selectedId = null;
+    app.store.setSelected(null);
     // Ramen följer rikets tidsålder och platsen globen riktas mot i fokus
     const place = focus?.type === 'empire' && focus.id === id ? { start: g.from, _lat: focus.center[0], _lon: focus.center[1] } : null;
     const from = own ? Math.min(...polity.periods.map(p => p.start)) : g.from;
