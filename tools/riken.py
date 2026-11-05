@@ -188,6 +188,9 @@ GROUPS = {
     'svenska-stormaktsvaldet': ('Sverige: stormaktsväldet och efter', 'Sweden: the Swedish Empire and after', [
         ('Swedish Empire', 'svenska-stormaktsvaldet', 'Svenska stormaktsväldet', '#3d8fd1', {'years': (1612, 1721)}),
         ('Swedish Empire', 'sverige-1722', 'Sverige', '#3d8fd1', {'years': (1722, 1814), 'en': 'Sweden', 'wikidata': 'Q34'}),
+        # #556: unionen med Norge och Sverige efter 1905, så att gruppen går "och efter" (Kingdom of Sweden finns från 980 i Cliopatria)
+        ('United Kingdoms of Sweden and Norway', 'sverige-norge', 'Sverige-Norge', '#3d8fd1', {'en': 'Sweden-Norway'}),
+        ('Kingdom of Sweden', 'sverige-1905', 'Sverige', '#3d8fd1', {'years': (1905, 2024), 'en': 'Kingdom of Sweden'}),
     ]),
     'habsburgska-riket': ('Habsburgska riket', 'Habsburg Monarchy', [
         ('(Habsburg Monarchy)', 'habsburgska-riket', 'Habsburgska riket', '#a8475a'),
