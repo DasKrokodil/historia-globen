@@ -3,6 +3,7 @@
 // Ansvaret ligger i js/controllers/ (#402): val av händelse, fokusläget, faktarutor om riken och religioner,
 // omritningen, uppspelningens pauser, krigets berättelse och etiketterna. Här skapas delarna och kopplas ihop.
 import { loadAll, loadReligionPolities, t, formatYear, isVisibleReview } from './model.js';
+import { applyStatic, setupLangPicker, takeReturnYear, LANG_INFO } from './i18n.js';
 import { Globe } from './globe.js';
 import { Timeline, setupYearJump } from './timeline.js';
 import { LAYERS } from './layers/index.js';
@@ -52,6 +53,9 @@ function warCards(events) {
 }
 
 async function start() {
+  // Språket (#63): sidans fasta texter på valt språk innan något annat skriver i dem
+  applyStatic();
+  $('lang-note').hidden = !!LANG_INFO.complete;
   // Presentationsläget är avsiktligt bara en delbar adressparameter. Det sparar inget val och
   // påverkar därför inte nästa besök utan parametern.
   const presentation = new URLSearchParams(location.search).get('presentation') === '1';
@@ -434,7 +438,8 @@ async function start() {
   };
   panel.onReport = report;
   routePop.onReport = report;
-  timeline.init(1325);
+  timeline.init(takeReturnYear() ?? 1325); // året finns kvar efter byte av språk
+  setupLangPicker($('lang-select'), () => timeline.year);
   globe.flyTo(34, -50, 1600);
   globe.autoRotate = false;
 
