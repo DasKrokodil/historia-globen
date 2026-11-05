@@ -42,7 +42,7 @@ Enligt CLAUDE.md, "Testa innan du är klar", och AGENTS.md, "Testa innan pull re
 ## Röd kontroll eller slut på kvot
 
 1. **Läs loggen först:** öppna loggen för den felande kontrollen i GitHub Actions och hitta den första felande kontrollen innan du ändrar. Gissa inte.
-2. **Ett försök:** rätta en gång, och bara om felet är trivialt (orsaken syns i loggen, några rader, i filer som issuet redan ändrar). Kör bara det som felade, inte hela webbläsartestet.
+2. **Ett försök:** rätta en gång, och bara om felet är trivialt (orsaken syns i loggen, några rader, i filer som issuet redan ändrar). Kör bara det som felade, inte hela webbläsartestet (`ENDAST="årshoppet" node tests/webblasare.mjs 8000` kör bara kontroller vars namn innehåller texten).
 3. **Annars, eller är det fortfarande rött: lämna över.** Committa och pusha, skriv en överlämningsrapport som kommentar i pull requesten (vad som är klart, kontrollens namn och felraden, vad du har provat, vad du tror är orsaken, nästa steg), sätt etiketten `behöver hjälp` på pull requesten och issuet, ta bort `copilot: pågår` och gå vidare. Claude Code tar över. Försvaga eller ta aldrig bort ett test för att få det grönt.
 4. **Närmar sig kvoten slut:** lämna över på samma sätt direkt. Se AGENTS.md, "Röd kontroll eller slut på tid".
 
