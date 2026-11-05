@@ -139,6 +139,7 @@ Rikard gillar stilen. Behåll den:
 3. Kontrollera all JSON (`python3 -m json.tool data/*.json`) och att varje `sources`-id finns i `sources.json` och varje händelse-id i `funfacts.json` finns i `events.json`. Har du ändrat `events.json` eller `data/empires/index.json`: kör `python3 tools/dela_data.py` och checka in `data/genererat/` (sidan läser de uppdelade filerna, #337).
 4. Testa både desktop och mobilbredd.
 5. Ändras formuläret för förslag eller `functions/`: kör `node --test 'tests/*.test.mjs'` (se docs/feedback.md).
+6. **Röd kontroll (beslut 2026-11-05, skärpt samma dag):** läs loggen och hitta den första felande kontrollen, rätta högst en gång och bara om felet är trivialt, annars lämna en överlämningsrapport och sätt `behöver hjälp` (Codex och Copilot gör så, och Claude Code tar över vid kökontrollen). Se [AGENTS.md](AGENTS.md#röd-kontroll-eller-slut-på-tid-samma-regel-för-alla-agenter-beslut-2026-11-05-skärpt-samma-dag).
 
 ## Arbetssätt för idéer, beslut och ändringar
 

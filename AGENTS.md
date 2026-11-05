@@ -65,6 +65,16 @@ Codex får köra orkestern (beslut 2026-11-01): `$orkester` följer `.orchestra/
 - **Claude Code granskar** varje pull request, och bara Rikard slår ihop. Orkesterpasset i Claude Code och Codex hoppar över varandras issues (`orkester: pågår` och `codex: pågår`).
 - **Fältrapport efter varje pass:** skriv en kort kommentar på #412 om hur orkestern fungerade i Codex: antal arbetare och pull requests, vad som gick bra, vad som krånglade (regler som var oklara, saknades eller inte passade Codex, krockar, omkörda tester) och konkreta förslag på ändringar i `.orchestra/shared/`. Ändra inte `.orchestra/shared/` själv; förslagen samlas till en pull request till upstream (Olofs dirigenten-och-orkestern) efter Rikards utvärdering.
 
+## Röd kontroll eller slut på tid: samma regel för alla agenter (beslut 2026-11-05, skärpt samma dag)
+
+Gäller Claude Code, Codex och Copilot. Målet är att ingen agent lägger kvot på att gissa, och att Claude Code (som når CI-loggar och har överblick över repot) tar de fel som inte är triviala.
+
+1. **Läs loggen först.** Är en kontroll röd: öppna loggen för just den kontrollen (GitHub Actions) och hitta den **första** felande kontrollen innan du ändrar något. Följdfel är vanliga. Gissa inte.
+2. **Ett försök.** Du får rätta **en gång**, och bara om felet är trivialt: orsaken framgår tydligt av loggen, ändringen är några rader och ligger i filer som issuet redan ändrar. Kör bara det som felade (inte hela webbläsartestet) och kör hela sviten en gång innan du lämnar in.
+3. **Annars, eller är kontrollen fortfarande röd: stanna och lämna över.** Committa och pusha det du har, skriv en **överlämningsrapport** som kommentar i pull requesten (och en rad i issuet), sätt etiketten `behöver hjälp` på pull requesten och issuet, ta bort din egen `pågår`-etikett och gå vidare till nästa issue. Rapporten innehåller: vad som är klart, kontrollens namn och felraden, vad du har provat, vad du tror är orsaken, och föreslaget nästa steg. Hoppa aldrig över, ta aldrig bort och försvaga aldrig ett test för att få det grönt.
+4. **Tar kvoten, tiden eller kontexten slut:** gör som i punkt 3 direkt, med det du har, så att någon annan kan ta över utan att börja om.
+5. **Claude Code tar över:** vid kökontrollen letar Claude Code efter `behöver hjälp`, läser rapporten och loggen, rättar på samma gren, sätter `orkester: pågår` medan arbetet pågår och tar bort `behöver hjälp` när kontrollen är grön. Kräver felet ett beslut av Rikard, nya fakta eller en arkitekturändring skriver Claude Code det som en kommentar och lämnar etiketten kvar. Ägarbytet står i en kommentar, så att regeln "ett issue, en ägare" gäller även då.
+
 ## Testa innan pull request
 
 Enligt CLAUDE.md, "Testa innan du är klar":
