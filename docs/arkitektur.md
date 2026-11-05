@@ -293,6 +293,7 @@ Skripten i `tools/` körs för hand, inte av sidan, så principen om inget byggs
 | Skript | Gör |
 |---|---|
 | `tools/dela_data.py` | Bygger `data/events.json` ur redigeringsfilerna i `data/handelser/` (#394) och delar upp händelser och `data/empires/index.json` i mindre filer i `data/genererat/` (#337). Körs efter varje ändring i källfilerna; stoppar händelser i fel periodfil och dubbla id; `--check` kontrollerar utan att skriva, och `scripts/validate-site.py` gör samma kontroll |
+| `tools/tackning.py` | Skriver täckningsrapporten `docs/granskningar/tackning-ÅÅÅÅ-MM-DD.md` (#563): händelser per period, världsdel och kategori med tomma och nästan tomma celler, per sekel från 1000, balansen krig mot övrigt (och framsteg när #555 finns), andel med bild, fun fact och två källor, osäkert datum och ungefärlig plats, och de tio största luckorna vägda efter periodens längd och världsdelens landyta (räknad ur `data/land.json`). Mäter bara, skriver inga fakta; `--datum` ger samma rapport för samma indata. Testas av `tests/tackning-test.py` |
 | `tools/tackningsrapport.py` | Skriver `docs/tackningsrapport.md` med händelser per världsdel, århundrade och kategori (#484). Världsdelarna följer `region()` i `js/model.js`; `--check` kontrollerar att rapporten är uppdaterad |
 | `tools/rutter_land.py` | Kontrollerar att sjöetapperna i `data/routes/` inte korsar land (#332). Kräver numpy och Pillow |
 | `tools/riken.py` | Bygger rikesfilerna ur Cliopatria |
