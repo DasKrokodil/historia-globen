@@ -266,6 +266,7 @@
       <div class="layer-subheading">Pausa uppspelningen vid</div>
       <label class="layer-row"><input type="checkbox" data-pause="funfacts" checked aria-label="Pausa vid Samtidigt-kortet"> Samtidigt-kortet <span class="layer-note">fun facts och annat som hände samtidigt</span></label>
       <label class="layer-row"><input type="checkbox" data-pause="focusFunfacts" aria-label="Pausa vid Samtidigt-kortet även i fokusläget"> Samtidigt-kortet även i fokusläget <span class="layer-note">annars pausar Fokus bara vid det man följer</span></label>
+      <label class="layer-row"><input type="checkbox" data-pause="ffAuto" checked aria-label="Fortsätt själv efter Samtidigt-kortet"> Fortsätt själv efter Samtidigt-kortet <span class="layer-note">nedräkning efter textens längd; av = står still tills du trycker Fortsätt</span></label>
       <label class="layer-row"><input type="checkbox" data-pause="wars"> När ett krig bryter ut</label>
       <label class="layer-row"><input type="checkbox" data-pause="major" checked> Stora händelser när man följer ett krig</label>
       <label class="layer-row"><input type="checkbox" data-pause="empire" checked> Nyckelår när man följer ett rike <span class="layer-note">varför riket växer eller krymper</span></label>
@@ -322,6 +323,7 @@
     <div id="pause-note" class="pause-note" role="status" hidden>
       <span id="pause-text"></span>
       <span id="pause-next" class="pause-next" hidden></span>
+      <span id="pause-countdown" class="pause-countdown" aria-hidden="true" hidden></span>
       <button id="pause-finish" class="pause-finish" type="button" hidden>Spela klart &#9654;</button>
       <button id="pause-go" class="pause-go" type="button" aria-describedby="pause-text">&#9654; Fortsätt</button>
     </div>

@@ -1360,10 +1360,11 @@ async function run(browser, vp) {
     }
   });
 
-  await check('Samtidigt-pauser kan slås av i Lager', async () => {
+  await check('Samtidigt-pauser kan slås av i Lager och fortsätter själv efter nedräkning', async () => {
     const previousYear = await yearNumber();
     const funfactsOn = await page.locator(layerRow('funfacts')).isChecked();
     const pauseOn = await page.locator('input[data-pause="funfacts"]').isChecked();
+    const autoOn = await page.locator('input[data-pause="ffAuto"]').isChecked();
     if (vp.width <= 760) return 'uppspelning med och utan Samtidigt-paus verifieras i datorbredd';
     try {
       const target = await page.evaluate(async current => {
@@ -1388,12 +1389,43 @@ async function run(browser, vp) {
       for (let i = 0; i < 5 && !(await page.textContent('#btn-speed')).includes('1 år/s'); i++) await page.click('#btn-speed');
       if (!(await page.textContent('#btn-speed')).includes('1 år/s')) throw new Error('kunde inte välja 1 år/s för Samtidigt-testet');
 
-      await jumpTo(target.year - 1);
-      await page.click('#btn-play');
-      await page.waitForFunction(() => {
+      const atCard = () => page.waitForFunction(() => {
         const note = document.getElementById('pause-note');
         return note && !note.hidden && note.textContent.includes('Pausad vid ett nytt Samtidigt-kort');
       }, null, { timeout: T.step });
+      const playLabel = () => page.locator('#btn-play').getAttribute('aria-label');
+
+      // Fortsätt själv (#578, på som standard): nedräkning som skärmläsaren inte får, sedan fortsätter uppspelningen
+      await setPause('ffAuto', true);
+      await page.keyboard.press('Escape');
+      await jumpTo(target.year - 1);
+      await page.click('#btn-play');
+      await atCard();
+      const cd = page.locator('#pause-countdown');
+      if (!(await cd.isVisible()) || !/Fortsätter om \d/.test(await cd.textContent())) throw new Error('nedräkningen syns inte vid Samtidigt-kortet');
+      if (await cd.getAttribute('aria-hidden') !== 'true') throw new Error('nedräkningen ska inte läsas upp varje sekund');
+      await page.waitForFunction(() => document.getElementById('btn-play').getAttribute('aria-label') === 'Pausa'
+        && document.getElementById('pause-countdown').hidden, null, { timeout: 20000 });
+      await page.click('#btn-play');
+
+      // Rör man kortet under nedräkningen avbryts den och uppspelningen står still
+      await jumpTo(target.year - 1);
+      await page.click('#btn-play');
+      await atCard();
+      await page.dispatchEvent('#funfact', 'pointerdown');
+      if (await cd.isVisible()) throw new Error('nedräkningen avbröts inte när man rörde kortet');
+      await page.waitForTimeout(3500);
+      if (await playLabel() === 'Pausa') throw new Error('uppspelningen fortsatte fast nedräkningen avbröts');
+
+      // Utan Fortsätt själv står uppspelningen still tills man trycker Fortsätt
+      await setPause('ffAuto', false);
+      await page.keyboard.press('Escape');
+      await jumpTo(target.year - 1);
+      await page.click('#btn-play');
+      await atCard();
+      if (await cd.isVisible()) throw new Error('nedräkningen syns fast Fortsätt själv är av');
+      await page.waitForTimeout(3500);
+      if (await playLabel() === 'Pausa') throw new Error('uppspelningen fortsatte fast Fortsätt själv är av');
 
       await setPause('funfacts', false);
       await page.keyboard.press('Escape');
@@ -1405,9 +1437,10 @@ async function run(browser, vp) {
         const current = era === 'f.Kr.' ? 1 - n : n;
         return current > year && document.getElementById('btn-play').getAttribute('aria-label') === 'Pausa';
       }, target.year, { timeout: T.step });
-      return `paus vid kortet år ${target.year}; avstängd paus låter uppspelningen fortsätta`;
+      return `paus vid kortet år ${target.year} med nedräkning som fortsätter själv, avbryts av kortet och kan stängas av; avstängd paus låter uppspelningen fortsätta`;
     } finally {
       if (await page.locator('#btn-play').getAttribute('aria-label') === 'Pausa') await page.click('#btn-play');
+      await setPause('ffAuto', autoOn);
       await setPause('funfacts', pauseOn);
       await setLayer('funfacts', funfactsOn);
       await page.keyboard.press('Escape');
