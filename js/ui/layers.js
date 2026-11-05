@@ -30,6 +30,7 @@ export async function loadViews() {
       empireLegend: Object.fromEntries(Object.entries(doc.empireLegend ?? {}).map(([id, text]) => [id, t(text)])),
       uncertainty: Object.fromEntries(Object.entries(doc.uncertainty ?? {}).map(([id, text]) => [id, t(text)])),
       sourceVersion: Object.fromEntries(Object.entries(doc.sourceVersion ?? {}).map(([id, text]) => [id, t(text)])),
+      layerActions: Object.fromEntries(Object.entries(doc.layerActions ?? {}).map(([id, text]) => [id, t(text)])),
       groups: doc.groups.map(g => ({ ...g, name: t(g.name) })),
       views: doc.views.map(v => ({ ...v, name: t(v.name) })),
     };
@@ -140,6 +141,7 @@ export class LayerMenu {
     this.customBox = document.createElement('div');
     this.customBox.className = 'layer-custom'; this.customBox.id = 'layer-custom';
     while (this.menu.firstChild) this.customBox.append(this.menu.firstChild);
+    this.addLayerActions(views);
     let customOpen = false;
     try { customOpen = sessionStorage.getItem('hg-layer-customize') === '1'; } catch { /* utan lagring */ }
     this.customBtn.addEventListener('click', () => this.setCustomOpen(this.customBox.hidden));
@@ -147,6 +149,32 @@ export class LayerMenu {
     this.menu.append(box, this.customBox);
     this.setCustomOpen(customOpen, false);
     this.syncView();
+  }
+
+  /** Snabbvalen stänger alla kontrollerade lager eller återgår till Standard. */
+  addLayerActions(views) {
+    const labels = views.layerActions;
+    if (!labels) return;
+    const actions = document.createElement('div');
+    actions.className = 'layer-actions';
+    const disable = document.createElement('button');
+    disable.type = 'button';
+    disable.className = 'layer-action';
+    disable.textContent = labels.disableAll;
+    disable.setAttribute('aria-label', labels.disableAllLabel);
+    disable.addEventListener('click', () => this.applyView('bara-kartan'));
+    const restore = document.createElement('button');
+    restore.type = 'button';
+    restore.className = 'layer-action';
+    restore.textContent = labels.restore;
+    restore.setAttribute('aria-label', labels.restoreLabel);
+    restore.addEventListener('click', () => this.applyView('standard'));
+    this.actionStatus = document.createElement('p');
+    this.actionStatus.className = 'layer-action-status';
+    this.actionStatus.setAttribute('role', 'status');
+    this.actionStatus.setAttribute('aria-live', 'polite');
+    actions.append(disable, restore, this.actionStatus);
+    this.customBox.prepend(actions);
   }
 
   /** Visar eller döljer de enskilda lagren och minns nivån under den här flikens besök (#380). */
@@ -180,6 +208,7 @@ export class LayerMenu {
       changed.push([name, on]);
     }
     this.syncView();
+    if (id === 'standard' && this.actionStatus) this.actionStatus.textContent = this.views.layerActions.standardRestored;
     for (const [name, on] of changed) this.onChange(name, on);
   }
 
@@ -190,6 +219,9 @@ export class LayerMenu {
     for (const btn of this.viewBtns) btn.setAttribute('aria-pressed', String(btn.dataset.view === cur));
     this.customChip.hidden = cur !== null;
     this.menu.dataset.view = cur ?? 'custom';
+    if (this.actionStatus) {
+      this.actionStatus.textContent = cur === 'bara-kartan' ? this.views.layerActions.allOff : '';
+    }
   }
 
   /**
