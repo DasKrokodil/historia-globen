@@ -19477,7 +19477,118 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Kanada är en förbundsstat och konstitutionell monarki i Nordamerika, världens näst största land till ytan, med huvudstaden Ottawa. Landet bildades som dominion 1867 och blev steg för steg självständigt från Storbritannien."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Ursprungsfolk har bott i området i tusentals år. Från 1500-talet utforskade och bosatte britter och fransmän Atlantkusten, och Frankrike avträdde nästan alla sina kolonier i Nordamerika 1763. Tre brittiska kolonier gick samman 1867 och bildade dominion Kanada, med fyra provinser."
+      }
+     },
+     {
+      "label": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Nya provinser och territorier lades till, vilket trängde undan ursprungsbefolkningen. Westminsterstadgan 1931 gav landet större självständighet, och Canada Act 1982 klippte de sista rättsliga banden till Storbritanniens parlament."
+      }
+     },
+     {
+      "label": {
+       "sv": "Språk och styrelseskick"
+      },
+      "text": {
+       "sv": "En parlamentarisk demokrati med monarken som formell statschef. Förbundsstaten är officiellt tvåspråkig, med engelska och franska."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad"
+      },
+      "text": {
+       "sv": "Ottawa. De största storstadsområdena är Toronto, Montréal och Vancouver."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1763,
+      "label": {
+       "sv": "1763"
+      },
+      "title": {
+       "sv": "Frankrike avträder sina kolonier"
+      },
+      "text": {
+       "sv": "Frankrike avträder nästan alla sina kolonier i Nordamerika."
+      },
+      "sources": [
+       "wp-canada"
+      ]
+     },
+     {
+      "year": 1867,
+      "label": {
+       "sv": "1867"
+      },
+      "title": {
+       "sv": "Konfederationen"
+      },
+      "text": {
+       "sv": "Tre brittiska kolonier går samman i dominion Kanada."
+      },
+      "sources": [
+       "wp-canada"
+      ]
+     },
+     {
+      "year": 1931,
+      "label": {
+       "sv": "1931"
+      },
+      "title": {
+       "sv": "Westminsterstadgan"
+      },
+      "text": {
+       "sv": "Kanada får större självständighet från Storbritannien."
+      },
+      "sources": [
+       "wp-canada"
+      ],
+      "mapNote": {
+       "sv": "Kartan börjar 1932."
+      }
+     },
+     {
+      "year": 1982,
+      "label": {
+       "sv": "1982"
+      },
+      "title": {
+       "sv": "Canada Act"
+      },
+      "text": {
+       "sv": "De sista rättsliga banden till Storbritanniens parlament klipps."
+      },
+      "sources": [
+       "wp-canada"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan anger 1867 för dominion Kanada. Kartan visar landet från 1932, efter Westminsterstadgan; före det räknas det till Brittiska imperiet."
+    },
+    "sources": [
+     "wp-canada"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "chile",
@@ -19501,7 +19612,119 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Chile är en republik längs Sydamerikas västkust, mellan Anderna och Stilla havet, med huvudstaden Santiago. Landet förklarade sig självständigt från Spanien 1818."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Spanien erövrade området i mitten av 1500-talet men besegrade aldrig mapuchefolket i söder. Chile förklarade sig självständigt 1818 och blev en relativt stabil auktoritär republik på 1830-talet."
+      }
+     },
+     {
+      "label": {
+       "sv": "Utvidgningen"
+      },
+      "text": {
+       "sv": "Under 1800-talet växte landet. Mapuchefolkets motstånd bröts på 1880-talet, och i Stillahavskriget mot Peru och Bolivia fick Chile sitt nuvarande norra område."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kuppen och diktaturen"
+      },
+      "text": {
+       "sv": "Kuppen 11 september 1973, med stöd från USA, störtade Salvador Allendes valda vänsterregering. Augusto Pinochets militärdiktatur varade i sexton och ett halvt år, med över 3 000 döda och försvunna, och slutade 1990 efter en folkomröstning 1988."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och yta"
+      },
+      "text": {
+       "sv": "Santiago. Ytan är 756 102 km²."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1818,
+      "label": {
+       "sv": "1818"
+      },
+      "title": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Chile förklarar sig självständigt från Spanien."
+      },
+      "sources": [
+       "wp-chile"
+      ]
+     },
+     {
+      "year": 1879,
+      "label": {
+       "sv": "1879"
+      },
+      "title": {
+       "sv": "Stillahavskriget"
+      },
+      "text": {
+       "sv": "Chile besegrar Peru och Bolivia och får sitt nuvarande norra område. Källorna skiljer sig om slutåret: Wikipedias artikel om Chile anger 1879–1883, artikeln om Peru 1879–1884."
+      },
+      "sources": [
+       "wp-chile",
+       "wp-peru"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar ytan öka från cirka 315 000 till 429 000 km² 1880 och 732 000 km² 1885."
+      }
+     },
+     {
+      "year": 1973,
+      "label": {
+       "sv": "1973"
+      },
+      "title": {
+       "sv": "Kuppen"
+      },
+      "text": {
+       "sv": "Militären störtar Salvador Allendes regering 11 september 1973."
+      },
+      "sources": [
+       "wp-chile"
+      ]
+     },
+     {
+      "year": 1990,
+      "label": {
+       "sv": "1990"
+      },
+      "title": {
+       "sv": "Demokratin"
+      },
+      "text": {
+       "sv": "Pinochets diktatur slutar efter folkomröstningen 1988."
+      },
+      "sources": [
+       "wp-chile"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan anger självständighetsförklaringen 1818. Kartan visar landet från 1812, med ett uppehåll 1815–1819."
+    },
+    "sources": [
+     "wp-chile"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "peru",
@@ -19525,7 +19748,125 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Peru är en republik i västra Sydamerika med huvudstaden Lima. Här låg Caral–Supe, Amerikas tidigaste civilisation, och Inkariket. Landet utropade sin självständighet från Spanien 1821 och fullbordade den 1824."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Spanien erövrade området på 1500-talet, och vicekungadömet Peru styrdes från Lima. Peru utropade sin självständighet 1821, och efter fälttågen under O'Higgins, San Martín och Bolívar och det avgörande slaget vid Ayacucho var den fullbordad 1824."
+      }
+     },
+     {
+      "label": {
+       "sv": "Stillahavskriget"
+      },
+      "text": {
+       "sv": "En period av relativ stabilitet tack vare guanoexporten slutade med Stillahavskriget 1879–1884. Källorna skiljer sig om slutåret: Wikipedias artikel om Chile anger 1879–1883, artikeln om Peru 1879–1884."
+      }
+     },
+     {
+      "label": {
+       "sv": "1900-talet"
+      },
+      "text": {
+       "sv": "Landet präglades av politisk och social oro, bland annat konflikten mellan staten och gerillagrupper som Lysande stigen. Alberto Fujimori styrde auktoritärt på 1990-talet."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och yta"
+      },
+      "text": {
+       "sv": "Lima. Ytan är 1 285 216 km²."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1821,
+      "label": {
+       "sv": "1821"
+      },
+      "title": {
+       "sv": "Självständigheten utropas"
+      },
+      "text": {
+       "sv": "Peru utropar sin självständighet från Spanien."
+      },
+      "sources": [
+       "wp-peru"
+      ],
+      "mapNote": {
+       "sv": "Kartan börjar 1822."
+      }
+     },
+     {
+      "year": 1824,
+      "label": {
+       "sv": "1824"
+      },
+      "title": {
+       "sv": "Ayacucho"
+      },
+      "text": {
+       "sv": "Segern vid Ayacucho fullbordar självständigheten."
+      },
+      "sources": [
+       "wp-peru"
+      ],
+      "events": [
+       "slaget-vid-ayacucho"
+      ]
+     },
+     {
+      "year": 1879,
+      "label": {
+       "sv": "1879"
+      },
+      "title": {
+       "sv": "Stillahavskriget"
+      },
+      "text": {
+       "sv": "Peru och Bolivia förlorar kriget mot Chile. Källorna skiljer sig om slutåret: Wikipedias artikel om Chile anger 1879–1883, artikeln om Peru 1879–1884."
+      },
+      "sources": [
+       "wp-peru",
+       "wp-chile"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar ytan minska från cirka 1,37 till 1,25 miljoner km² 1880."
+      }
+     },
+     {
+      "year": 1990,
+      "label": {
+       "sv": "1990"
+      },
+      "title": {
+       "sv": "Fujimori"
+      },
+      "text": {
+       "sv": "Alberto Fujimori blir president och styr auktoritärt under 1990-talet."
+      },
+      "sources": [
+       "wp-peru"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan anger 1821 och 1824. Kartan visar landet från 1822 och saknar det 1836–1839."
+    },
+    "sources": [
+     "wp-peru"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "bolivia",
@@ -19549,7 +19890,121 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Bolivia är ett land utan kust i centrala Sydamerika. Regeringen sitter i La Paz, medan Sucre är huvudstad enligt grundlagen. Republiken, uppkallad efter Simón Bolívar, utropades 6 augusti 1825."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Området hörde till Tiwanaku, som föll omkring år 1000, och dess västra del kom under Inkariket på 1440-talet. Under Spanien styrdes det av audiencian i Charcas, och silvret i Potosí bar stora delar av det spanska väldet. Efter ett misslyckat uppror i Sucre 1809 följde sexton års krig, tills republiken utropades 6 augusti 1825."
+      }
+     },
+     {
+      "label": {
+       "sv": "Förlorade områden"
+      },
+      "text": {
+       "sv": "Bolivia förlorade kusten till Chile från 1879, Acre till Brasilien 1899–1903 och större delen av Gran Chaco till Paraguay i Chacokriget 1932–1935."
+      }
+     },
+     {
+      "label": {
+       "sv": "Revolutionen 1952"
+      },
+      "text": {
+       "sv": "Den nationella revolutionen 1952 gav allmän rösträtt, förstatligade tenngruvorna och genomförde en begränsad jordreform. Den siste icke valde militären lämnade makten 1982."
+      }
+     },
+     {
+      "label": {
+       "sv": "Språk"
+      },
+      "text": {
+       "sv": "Spanska, och 36 inhemska språk med officiell ställning, främst guaraní, aymara och quechua."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1825,
+      "label": {
+       "sv": "1825"
+      },
+      "title": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Republiken utropas 6 augusti 1825 och uppkallas efter Bolívar."
+      },
+      "sources": [
+       "wp-bolivia"
+      ]
+     },
+     {
+      "year": 1879,
+      "label": {
+       "sv": "1879"
+      },
+      "title": {
+       "sv": "Kusten går förlorad"
+      },
+      "text": {
+       "sv": "Chile tar Bolivias kustområde."
+      },
+      "sources": [
+       "wp-bolivia"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar ytan minska först 1868 och 1905."
+      }
+     },
+     {
+      "year": 1932,
+      "label": {
+       "sv": "1932"
+      },
+      "title": {
+       "sv": "Chacokriget"
+      },
+      "text": {
+       "sv": "Kriget mot Paraguay 1932–1935; Bolivia förlorar större delen av Gran Chaco."
+      },
+      "sources": [
+       "wp-bolivia"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar ytan minska från cirka 1,33 till 1,09 miljoner km² 1936."
+      }
+     },
+     {
+      "year": 1952,
+      "label": {
+       "sv": "1952"
+      },
+      "title": {
+       "sv": "Revolutionen"
+      },
+      "text": {
+       "sv": "Allmän rösträtt, förstatligade tenngruvor och en begränsad jordreform."
+      },
+      "sources": [
+       "wp-bolivia"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan anger 6 augusti 1825, som kartan. Kartan saknar landet 1836–1839."
+    },
+    "sources": [
+     "wp-bolivia"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "colombia",
@@ -19606,7 +20061,139 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Colombia är en republik i nordvästra Sydamerika med huvudstaden Bogotá. Landet förklarade sig självständigt 1810 och har bytt namn och styrelseskick flera gånger; dagens namn och centralstyrda republik är från 1886."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Spanjorerna landsteg i La Guajira 1499 och hade i mitten av 1500-talet koloniserat större delen av området som Nya Granada. Självständigheten förklarades 1810, och området blev Förenade provinserna i Nya Granada. Efter en spansk återerövring säkrades självständigheten, och Storcolombia bildades 1819."
+      }
+     },
+     {
+      "label": {
+       "sv": "Namnen"
+      },
+      "text": {
+       "sv": "Efter Storcolombia följde Granadinska konfederationen (1858), Colombias förenta stater (1863) och från 1886 Republiken Colombia, en centralstyrd republik."
+      }
+     },
+     {
+      "label": {
+       "sv": "Panama"
+      },
+      "text": {
+       "sv": "Med stöd från USA och Frankrike bröt sig Panama loss 1903, och Colombia fick sina nuvarande gränser."
+      }
+     },
+     {
+      "label": {
+       "sv": "Den väpnade konflikten"
+      },
+      "text": {
+       "sv": "Sedan 1960-talet har landet drabbats av en väpnad konflikt och politiskt våld, som trappades upp på 1990-talet. Sedan 2000 har säkerheten förbättrats."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1810,
+      "label": {
+       "sv": "1810"
+      },
+      "title": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Självständigheten förklaras, och Förenade provinserna i Nya Granada bildas."
+      },
+      "sources": [
+       "wp-colombia"
+      ],
+      "mapNote": {
+       "sv": "Kartan börjar 1811."
+      }
+     },
+     {
+      "year": 1819,
+      "label": {
+       "sv": "1819"
+      },
+      "title": {
+       "sv": "Storcolombia"
+      },
+      "text": {
+       "sv": "Självständigheten säkras, och Storcolombia bildas."
+      },
+      "sources": [
+       "wp-colombia"
+      ],
+      "events": [
+       "slaget-vid-boyaca"
+      ]
+     },
+     {
+      "year": 1863,
+      "label": {
+       "sv": "1863"
+      },
+      "title": {
+       "sv": "Colombias förenta stater"
+      },
+      "text": {
+       "sv": "Landet blir en federation."
+      },
+      "sources": [
+       "wp-colombia"
+      ]
+     },
+     {
+      "year": 1886,
+      "label": {
+       "sv": "1886"
+      },
+      "title": {
+       "sv": "Republiken Colombia"
+      },
+      "text": {
+       "sv": "Landet blir en centralstyrd republik med dagens namn."
+      },
+      "sources": [
+       "wp-colombia"
+      ]
+     },
+     {
+      "year": 1903,
+      "label": {
+       "sv": "1903"
+      },
+      "title": {
+       "sv": "Panama bryter sig loss"
+      },
+      "text": {
+       "sv": "Panama lämnar Colombia med stöd från USA och Frankrike."
+      },
+      "sources": [
+       "wp-colombia"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar ytan minska från cirka 1,22 till 1,14 miljoner km² 1905."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar landet i fyra delar efter namn och styrelseskick, och saknar det 1822–1833 (då det ingick i Storcolombia) och 1859–1862."
+    },
+    "sources": [
+     "wp-colombia"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "venezuela",
@@ -19630,7 +20217,118 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Venezuela är en förbundsrepublik på Sydamerikas nordkust med huvudstaden Caracas. Landet förklarade sig självständigt från Spanien 1811 och blev en egen stat 1830."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Spanien koloniserade området från 1522, mot ursprungsfolkens motstånd. Venezuela var 1811 ett av de första spanskamerikanska områdena som förklarade sig självständigt, och det ingick sedan i Storcolombia. Landet blev en helt självständig stat 1830."
+      }
+     },
+     {
+      "label": {
+       "sv": "Diktaturer och demokrati"
+      },
+      "text": {
+       "sv": "Under 1800-talet dominerades landet av regionala militärdiktatorer, ända in på 1900-talet. Från 1958 hade det demokratiska regeringar, som ett undantag i en region med militärdiktaturer."
+      }
+     },
+     {
+      "label": {
+       "sv": "Kriser"
+      },
+      "text": {
+       "sv": "Ekonomiska chocker på 1980- och 1990-talen ledde till kravallerna Caracazo 1989 och två kuppförsök 1992. Hugo Chávez valdes 1998, och en ny grundlag skrevs 1999. Valen 2013, 2018 och 2024 var omstridda."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad och yta"
+      },
+      "text": {
+       "sv": "Caracas. Ytan är 912 050 km²."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1811,
+      "label": {
+       "sv": "1811"
+      },
+      "title": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Venezuela förklarar sig självständigt från Spanien."
+      },
+      "sources": [
+       "wp-venezuela"
+      ]
+     },
+     {
+      "year": 1830,
+      "label": {
+       "sv": "1830"
+      },
+      "title": {
+       "sv": "En egen stat"
+      },
+      "text": {
+       "sv": "Venezuela lämnar Storcolombia och blir helt självständigt."
+      },
+      "sources": [
+       "wp-venezuela"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar landet från 1834."
+      }
+     },
+     {
+      "year": 1958,
+      "label": {
+       "sv": "1958"
+      },
+      "title": {
+       "sv": "Demokratin"
+      },
+      "text": {
+       "sv": "En rad demokratiska regeringar börjar."
+      },
+      "sources": [
+       "wp-venezuela"
+      ]
+     },
+     {
+      "year": 1998,
+      "label": {
+       "sv": "1998"
+      },
+      "title": {
+       "sv": "Chávez"
+      },
+      "text": {
+       "sv": "Hugo Chávez väljs till president, och den bolivarianska revolutionen börjar."
+      },
+      "sources": [
+       "wp-venezuela"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan anger 1811 och 1830. Kartan visar landet 1811 och 1814 och sedan från 1834."
+    },
+    "sources": [
+     "wp-venezuela"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "ecuador",
@@ -19654,7 +20352,103 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Ecuador är en republik i nordvästra Sydamerika med huvudstaden Quito, och omfattar också Galápagosöarna. Landet blev självständigt 1820 som en del av Storcolombia och en egen stat 13 maj 1830."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Ursprungsfolken i området blev en del av Inkariket på 1400-talet, och Spanien koloniserade det på 1500-talet. Ecuador blev självständigt 1820 som en del av Storcolombia och bröt sig loss 13 maj 1830. Den förste presidenten var general Juan José Flores."
+      }
+     },
+     {
+      "label": {
+       "sv": "Naturens rättigheter"
+      },
+      "text": {
+       "sv": "Grundlagen från 2008 var den första i världen som gav naturen rättigheter som går att kräva ut i domstol."
+      }
+     },
+     {
+      "label": {
+       "sv": "Folk och språk"
+      },
+      "text": {
+       "sv": "De flesta är mestiser. Spanska är officiellt språk, och 13 inhemska språk är erkända, bland dem quechua och shuar."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad"
+      },
+      "text": {
+       "sv": "Quito. Den största staden är Guayaquil."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1820,
+      "label": {
+       "sv": "1820"
+      },
+      "title": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Ecuador blir självständigt som en del av Storcolombia."
+      },
+      "sources": [
+       "wp-ecuador"
+      ]
+     },
+     {
+      "year": 1830,
+      "label": {
+       "sv": "1830"
+      },
+      "title": {
+       "sv": "En egen stat"
+      },
+      "text": {
+       "sv": "Ecuador lämnar Storcolombia 13 maj 1830."
+      },
+      "sources": [
+       "wp-ecuador"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar landet från 1834."
+      }
+     },
+     {
+      "year": 2008,
+      "label": {
+       "sv": "2008"
+      },
+      "title": {
+       "sv": "Grundlagen"
+      },
+      "text": {
+       "sv": "Den nya grundlagen ger naturen rättigheter."
+      },
+      "sources": [
+       "wp-ecuador"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källan anger 13 maj 1830. Kartan visar landet från 1834."
+    },
+    "sources": [
+     "wp-ecuador"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "haiti",
@@ -19700,7 +20494,126 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Haiti ligger på västra delen av ön Hispaniola, med huvudstaden Port-au-Prince. Haitiska revolutionen 1791–1804 gjorde landet till den enda stat i historien som skapats genom ett slavuppror."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod"
+      },
+      "text": {
+       "sv": "Ön beboddes av taínofolket. Columbus grundade La Navidad 1492, och ön hörde till Spanien tills västra delen avträddes till Frankrike 1697 och blev plantagekolonin Saint-Domingue. Ledarna för revolutionen utropade självständigheten 1 januari 1804, och Dessalines blev kejsare."
+      }
+     },
+     {
+      "label": {
+       "sv": "1800-talet"
+      },
+      "text": {
+       "sv": "Den nya staten var först ett kejsardöme, delades sedan i två och enades igen 1820. Faustin Soulouque grundade ett andra kejsardöme innan republiken återkom 1859. Landet led under politisk oro, isolering och en förlamande skuld till Frankrike."
+      }
+     },
+     {
+      "label": {
+       "sv": "1900-talet och i dag"
+      },
+      "text": {
+       "sv": "USA ockuperade Haiti 1915–1934, och familjen Duvalier styrde som diktatorer 1957–1986. En jordbävning och ett koleraurbrott drabbade landet på 2010-talet. Presidentposten har varit tom sedan mordet på Jovenel Moïse i juli 2021."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad"
+      },
+      "text": {
+       "sv": "Port-au-Prince."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1791,
+      "label": {
+       "sv": "1791"
+      },
+      "title": {
+       "sv": "Revolutionen"
+      },
+      "text": {
+       "sv": "Slavupproret i Saint-Domingue inleder revolutionen."
+      },
+      "sources": [
+       "wp-haiti",
+       "wp-haitian-revolution"
+      ],
+      "events": [
+       "haitiska-revolutionen"
+      ]
+     },
+     {
+      "year": 1804,
+      "label": {
+       "sv": "1804"
+      },
+      "title": {
+       "sv": "Självständigheten"
+      },
+      "text": {
+       "sv": "Haiti förklarar sig självständigt 1 januari 1804."
+      },
+      "sources": [
+       "wp-haiti"
+      ],
+      "events": [
+       "haitis-sjalvstandighet"
+      ]
+     },
+     {
+      "year": 1915,
+      "label": {
+       "sv": "1915"
+      },
+      "title": {
+       "sv": "USA:s ockupation"
+      },
+      "text": {
+       "sv": "USA ockuperar Haiti till 1934."
+      },
+      "sources": [
+       "wp-haiti"
+      ],
+      "mapNote": {
+       "sv": "Kartan saknar Haiti 1916–1935."
+      }
+     },
+     {
+      "year": 1957,
+      "label": {
+       "sv": "1957"
+      },
+      "title": {
+       "sv": "Duvalier"
+      },
+      "text": {
+       "sv": "Familjen Duvalier styr som diktatorer till 1986."
+      },
+      "sources": [
+       "wp-haiti"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar Saint-Domingue 1792–1802, Haiti 1805–1915 och från 1936. Åren 1822–1845 visar kartan ett större område, cirka 84 000 km² mot annars cirka 31 000 km²."
+    },
+    "sources": [
+     "wp-haiti",
+     "wp-haitian-revolution"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "ukraina",
