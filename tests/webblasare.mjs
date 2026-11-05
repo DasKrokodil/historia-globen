@@ -28,6 +28,7 @@ import path from 'node:path';
 
 const require = createRequire(import.meta.url);
 const playwright = require('playwright');
+const { PNG } = require('playwright-core/lib/utilsBundle');
 
 const PORT = Number(process.argv[2] || 8000);
 const BROWSER = process.env.BROWSER || 'chromium';
@@ -98,6 +99,12 @@ async function run(browser, vp) {
   }
 
   const shot = async name => page.screenshot({ path: path.join(OUT, `${vp.name}-${name}.png`) });
+  const screenshotPixel = (buffer, x, y) => {
+    const image = PNG.sync.read(buffer);
+    if (x < 0 || y < 0 || x >= image.width || y >= image.height) throw new Error('skärmbilden saknar mätpunkten');
+    const offset = (y * image.width + x) * 4;
+    return [...image.data.subarray(offset, offset + 3)];
+  };
   const visible = sel => page.waitForSelector(sel, { state: 'visible', timeout: T.step });
   const hidden = sel => page.waitForSelector(sel, { state: 'hidden', timeout: T.step });
   const check = async (name, fn) => {
@@ -1023,12 +1030,22 @@ async function run(browser, vp) {
       if (!second.includes('Palembang') || !second.includes('1407, på hemresan')) {
         throw new Error(`hemresans stopp saknar Palembang och årstext: ${second}`);
       }
+      await jumpTo(1406);
       await page.click('#focus-action');
-      const third = await waitForNextPause(second);
+      await page.waitForFunction(text => {
+        const note = document.getElementById('pause-note');
+        return note && !note.hidden && note.textContent.replace(/\s+/g, ' ').trim() === text;
+      }, second, { timeout: T.step });
+      const afterJump = (await page.textContent('#pause-note')).replace(/\s+/g, ' ').trim();
+      if (!afterJump.includes('Palembang') || !afterJump.includes('1407, på hemresan')) {
+        throw new Error(`manuellt tidshopp återställde inte resans stoppkö: ${afterJump}`);
+      }
+      await page.click('#focus-action');
+      const third = await waitForNextPause(afterJump);
       if (!third.includes('Nanjing') || !third.includes('2 oktober 1407')) {
         throw new Error(`sista stoppet saknar Nanjing och datumet: ${third}`);
       }
-      return `tre stopp i årstakt: ${first}; ${second}; ${third}`;
+      return `tre stopp i årstakt; manuellt tidshopp återställer kön: ${first}; ${second}; ${afterJump}; ${third}`;
     } finally {
       const action = page.locator('#focus-action');
       if (await action.isVisible().catch(() => false) && (await action.textContent()).includes('Pausa')) await action.click();
@@ -1060,6 +1077,7 @@ async function run(browser, vp) {
       await page.keyboard.press('Escape');
       await jumpTo(-2999);
       const beforeFocus = await yearNumber();
+      const cameraBeforeFocus = await page.locator('#globe-canvas').screenshot();
       await shot('538-fore-fokus');
 
       for (const item of cases) {
@@ -1084,9 +1102,17 @@ async function run(browser, vp) {
             throw new Error(`${item.key}: Tillbaka återställde inte lagret ${name}`);
           }
         }
-        if (item.shot === '538-fokus-krig') await shot('538-efter-tillbaka');
+        if (item.shot === '538-fokus-krig') {
+          if (await page.locator('#detail').isVisible()) await page.click('#detail [data-close]');
+          const cameraAfterBack = await page.locator('#globe-canvas').screenshot();
+          const beforePixel = screenshotPixel(cameraBeforeFocus, 1300, 450);
+          const afterPixel = screenshotPixel(cameraAfterBack, 1300, 450);
+          const difference = beforePixel.reduce((sum, channel, index) => sum + Math.abs(channel - afterPixel[index]), 0);
+          if (difference > 18) throw new Error(`Tillbaka återställde inte globens zoom: kantpixel ${beforePixel} → ${afterPixel}`);
+          await shot('538-efter-tillbaka');
+        }
       }
-      return 'krig, rike, religion och resa: Tillbaka återställer året och lagerläget';
+      return 'krig, rike, religion och resa: Tillbaka återställer år och lager; krigets zoom återställs';
     } finally {
       if (await page.locator('#focus-bar').isVisible().catch(() => false)) {
         const action = page.locator('#focus-action');
