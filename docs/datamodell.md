@@ -416,6 +416,16 @@ Perioderna efter startår: `fkr` (år 0 och tidigare), `1-1499`, `1500-1799`, `1
 
 Varje post skrivs på en egen rad, så att en ändring i källan syns som ändrade rader i git. `events.json` (byggd ur `data/handelser/`) publiceras ändå, eftersom formuläret för förslag (`functions/api/feedback.js`) slår upp händelser i den.
 
+### Gränssnittets texter: `ui/` (#63)
+
+Gränssnittets texter, skilda från datans texter (beslut 2026-11-05, docs/beslut/2026-11-05-sprak-63.md).
+
+- `ui/sprak.json`: språken i språkväljaren, i ordning. Varje språk har `id` (`sv`, `en` …), `name` (som språket skriver sitt namn), `auto` (väljs efter webbläsarens språk; bara färdiga språk), `complete` (alla gränssnittstexter finns), valfritt `beta` (ordet efter namnet när språket inte är färdigt), och för översatta språk `translatedBy`, `translatedAt`, `reviewedBy` och `review` (`unreviewed` eller `reviewed`, AI-korsgranskning).
+- `ui/<språk>.json`: ett platt objekt med nyckel och text. Nycklarna i `index.html` (`data-i18n="help.title"`) och de som JavaScript hämtar med `ui('time.bce')`. `{namn}` i en text byts mot ett värde (`"time.since": "sedan {start}"`). En text kan vara en lista (månaderna). Fältet `_om` är en kommentar.
+- `ui/sv.json` har svenskan för de nycklar som JavaScript hämtar. Sidans fasta texter står på svenska i `index.html` och finns bara i de andra språkens filer.
+- Kategoriernas namn på andra språk: `cat.<id>` och `cat.<id>.count` (ental och flertal); svenskan står i `CATEGORIES` i `js/model.js`.
+- Saknas en nyckel visas engelska, sedan svenska, som för datans texter.
+
 ### Texter per språk (förslag, inte genomfört)
 
 I dag har nästan alla texter bara svenska (`sv`), och några namn har engelska (`en`). När fler språk kommer bör inte varje besökare ladda alla språk. Förslaget:
@@ -424,7 +434,7 @@ I dag har nästan alla texter bara svenska (`sv`), och några namn har engelska 
 2. Sidan laddar grundfilen och, om besökaren har valt ett annat språk, språkets fil ovanpå. `mergeTexts()` i `js/model.js` slår redan ihop texterna på djupet, så att `{ "summary": { "en": … } }` läggs bredvid `sv` i stället för att ersätta den, och `t()` väljer språk och reservspråk som förut. Därför behöver `t()` inte ändras.
 3. Källfilerna behåller alla språk i samma post (`{ "sv": …, "en": … }`), så att en uppgift och dess översättningar redigeras och källkontrolleras på ett ställe.
 
-Det görs när det finns texter på fler språk än svenska (version 12, Språk och sök).
+Det görs när det finns texter på fler språk än svenska (#63, Version 5.2).
 
 ## `land.json` och `borders.json`: kartor
 
@@ -442,6 +452,8 @@ En guidad tur är data, inte kod (Rikards beslut 2026-11-01, docs/beslut/2026-11
 - `steps`: stegen i ordning. Varje steg har `id`, `at` (år med astronomisk årsräkning; decimaltal är tillåtet för delar av år, men utanför fokusläget för korta krig visar tidslinjen hela år), `camera` (`lat`, `lon`, `zoom` som globen, 0.8–3.2; Platt vy använder samma mitt), valfri `title`, `text` per språk, `layers` (lagren som är på i steget, id i lagerregistret; de andra lagren som vyerna styr slås av), valfri `open` (en befintlig händelse vars faktaruta öppnas) och `sources` (id i `sources.json`).
 - **Källpolicyn gäller varje steg:** texten får bara säga det som stegets källor stöder, och siffror och årtal ska stämma med händelserna. Den första turen (`tre-platser-1325`) säger bara det som redan står i de tre händelserna och deras källor; osäkerhet (`1325~` för Tenochtitlan) skrivs ut ("omkring 1325").
 - **Andra världskriget (`andra-varldskriget`, #13):** 14 steg med Europa, Nordafrika och Stilla havet om vartannat, från anfallet på Polen till Japans kapitulation. Varje steg öppnar en befintlig händelse i kriget och har dess källor, och texten säger bara det som står i händelsen. Där källorna skiljer sig om datum (Stalingrad, El Alamein, D-dagen, Tysklands kapitulation; se händelsernas `note`) nämner steget bara det datum som källorna är överens om.
+- **Första världskriget (`forsta-varldskriget`, #48):** 14 steg på fyra kontinenter, från skotten i Sarajevo till vapenstilleståndet vid Compiègne. Steget om krigsutbrottet öppnar kriget självt och bygger på krigets `story`. Där källorna skiljer sig om första eller sista dagen (Tannenberg, Marne, Gallipoli, Somme) nämner steget bara det som källorna är överens om.
+- **Jämförelser mellan steg** ("samtidigt", "en vecka senare", "medan … pågår") behöver källor för båda leden (källpolicyn punkt 5): steget får då också den andra händelsens källa i `sources`.
 - Kontrolleras av `js/tour-format.js` (i webbläsaren och i `tests/tour.test.mjs`), `scripts/validate-site.py` (filer, händelser, källor, schema) och webbläsartestet.
 
 ## `vyer.json`: grupper och förinställda vyer i Lager (#357)

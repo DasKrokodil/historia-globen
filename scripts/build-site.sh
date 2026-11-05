@@ -14,6 +14,7 @@
 #   data/empires/         index.json och rikesfilerna som index.json pekar på (fältet file)
 #   data/routes/          index.json och filerna med vägar och resor som index.json listar (fältet files, #38)
 #   data/turer/           index.json och en fil per guidad tur som index.json listar (#47)
+#   data/ui/              gränssnittets texter: sprak.json och en fil per språk (#63)
 #   images/events/        bilderna som events.json pekar på (image.file)
 #   images/karta/         upptäcktsvyns bilder som data/upptackt.json pekar på (decorations[].file, #101)
 #   _headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
@@ -75,6 +76,15 @@ for f in events funfacts intro sources land borders styles religions religions-p
 done
 copy data/licenses.json
 copy images/licenses.json
+
+# Gränssnittets språk (#63): sprak.json och en fil per språk som js/i18n.js laddar
+copy data/ui/sprak.json
+while IFS= read -r f; do copy "data/ui/$f.json"; done < <(python3 -I - <<'PY'
+import json
+for l in json.load(open('data/ui/sprak.json'))['languages']:
+    print(l['id'])
+PY
+)
 
 # Uppdelade filer (#337): alla filer som tools/dela_data.py skriver
 ls data/genererat/*.json >/dev/null 2>&1 || fail "inga filer i data/genererat/ (kör python3 tools/dela_data.py)"
