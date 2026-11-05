@@ -242,19 +242,32 @@ async function run(browser, vp) {
     return 'ingen automatisk hjälp; öppning, Escape, fokus och reducerad rörelse fungerar';
   });
 
-  await check('Min dag i historien hoppar till år och visar datumurval', async () => {
-    await clickView('#btn-help'); await visible('#help');
-    const input = page.locator('#birthday-input');
-    await input.fill('1969'); await page.locator('#birthday-form').evaluate(form => form.requestSubmit());
-    await visible('#birthday-result');
-    if (!/(1969: \d+ händelser)/.test((await page.textContent('#birthday-summary')) ?? '')) throw new Error('årsresultatet saknas');
-    if (String(await year()) !== '1969') throw new Error(`året hoppade inte till 1969 utan ${await year()}`);
-    await input.fill('1969-07-20'); await page.locator('#birthday-form').evaluate(form => form.requestSubmit());
-    if (!/1969-07-20: \d+ händelser med dagsdatum/.test((await page.textContent('#birthday-summary')) ?? '')) throw new Error('datumresultatet saknar dagsdatum');
-    await input.fill('inte ett år'); await page.locator('#birthday-form').evaluate(form => form.requestSubmit());
-    await visible('#birthday-error');
-    await page.click('#help-close');
-    return 'årshopp, fullständigt datum och feltext fungerar';
+  await check('årshoppet accepterar år, datum och felmeddelanden', async () => {
+    await page.click('#year-jump');
+    await visible('#jump-input');
+    const input = page.locator('#jump-input');
+    await input.fill('1986'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
+    if (String(await year()) !== '1986') throw new Error(`året hoppade inte till 1986 utan ${await year()}`);
+    await page.click('#year-jump');
+    await visible('#jump-input');
+    await input.fill('19860426'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
+    if (!/1986-04-26: \d+ händelser med dagsdatum/.test((await page.textContent('#jump-date-summary')) ?? '')) throw new Error('datumresultatet saknar dagsdatum');
+    await page.click('#year-jump');
+    await visible('#jump-input');
+    await input.fill('860426'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
+    if (!/1986-04-26: \d+ händelser med dagsdatum/.test((await page.textContent('#jump-date-summary')) ?? '')) throw new Error('kort datum tolkas inte som 1986-04-26');
+    await page.click('#year-jump');
+    await visible('#jump-input');
+    await input.fill('19861340'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
+    if (!(await page.locator('#jump-msg').textContent()).includes('Ogiltigt datum')) throw new Error('ogiltigt datum visar inte felmeddelande');
+    await page.fill('#jump-input', '-2600'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
+    const yText = await page.textContent('#year-big');
+    if (yText.trim() !== '2600') throw new Error(`-2600 hoppade inte till f.Kr. utan ${yText}`);
+    await page.click('#year-jump');
+    await visible('#jump-input');
+    await page.fill('#jump-input', '20240229'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
+    if (!/2024-02-29: \d+ händelser med dagsdatum/.test((await page.textContent('#jump-date-summary')) ?? '')) throw new Error('skottdag tolkas inte som giltigt datum');
+    return 'år, datum, skottdag och ogiltigt datum fungerar i årshoppet';
   });
 
   await check('Samtidigt sorterar och skiljer gamla öppna spann', async () => {

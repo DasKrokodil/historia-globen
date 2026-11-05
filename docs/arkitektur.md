@@ -23,7 +23,7 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 - Mindre trängsel på kartan (#358) – zoomnivån styr vad som får namn och medalj.
 - Lagerregistret (#338) – hur lager anmäler sig, ritordning, grupper och förinställda vyer.
 - Laddning av data – vad som laddas vid start och vad som laddas senare (#337).
-- Hoppa i tiden (#140) – stegknappar och att skriva in ett år.
+- Hoppa i tiden (#140) – stegknappar, årtal och datum i samma ruta; `YYYY`, `YYYYMMDD`, `YYMMDD` och `YYYY-MM-DD` ger samma direktiva flöde som ett år.
 - Tangentbord och skärmläsare (#139) – Tab, Enter och tangenter på globen.
 - Mobilen (#361) – layouten i smal skärm.
 - Pekskärmar och zoom (#191) – webbläsarens zoom avstängd, globens egen zoom.

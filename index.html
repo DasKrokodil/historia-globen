@@ -83,10 +83,10 @@
       </button>
     </div>
     <p id="year-segment" class="segment-note"></p>
-    <form id="jump-pop" class="jump-pop" hidden autocomplete="off" aria-label="Hoppa till år">
-      <label class="jump-label" for="jump-input">Hoppa till år</label>
+    <form id="jump-pop" class="jump-pop" hidden autocomplete="off" aria-label="Hoppa till år eller datum">
+      <label class="jump-label" for="jump-input">År eller datum</label>
       <div class="jump-row">
-        <input id="jump-input" class="jump-input" type="text" inputmode="numeric" enterkeyhint="go" placeholder="till exempel 1969" aria-describedby="jump-msg">
+        <input id="jump-input" class="jump-input" type="text" inputmode="text" enterkeyhint="go" placeholder="till exempel 1986 eller 1986-04-26" aria-describedby="jump-msg">
         <div class="jump-era" role="group" aria-label="Tideräkning">
           <button type="button" class="jump-era-btn" data-era="bce" aria-pressed="false">f.Kr.</button>
           <button type="button" class="jump-era-btn" data-era="ce" aria-pressed="true">e.Kr.</button>
@@ -94,6 +94,10 @@
         <button type="submit" class="jump-go">Gå</button>
       </div>
       <p id="jump-msg" class="jump-msg" role="alert"></p>
+      <div id="jump-date-result" class="jump-date-result" hidden aria-live="polite">
+        <p id="jump-date-summary"></p>
+        <ol id="jump-date-events"></ol>
+      </div>
       <div id="jump-epochs" class="jump-epochs"></div>
     </form>
   </header>
@@ -130,15 +134,6 @@
       <li><b>Byt år</b> <span>Tryck på årtalet eller dra i tidslinjen.</span></li>
       <li><b>Följ en berättelse</b> <span>Välj ett krig, ett rike eller en religion under Fokus.</span></li>
     </ol>
-    <section id="birthday" class="help-birthday" aria-labelledby="birthday-title">
-      <h3 id="birthday-title"></h3><p id="birthday-copy"></p>
-      <form id="birthday-form" novalidate>
-        <label id="birthday-label" for="birthday-input"></label>
-        <div><input id="birthday-input" type="text" inputmode="text" autocomplete="bday" required><button id="birthday-submit" class="chip-btn" type="submit"></button></div>
-      </form>
-      <p id="birthday-error" role="alert" hidden></p>
-      <div id="birthday-result" aria-live="polite" hidden><p id="birthday-summary"></p><ol id="birthday-events"></ol></div>
-    </section>
     <details class="help-marks">
       <summary>Markörer, klungor och religioner</summary>
       <ul>

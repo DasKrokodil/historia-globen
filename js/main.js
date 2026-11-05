@@ -125,7 +125,10 @@ async function start() {
     pauseGo: $('pause-go'), status: $('screen-reader-status'),
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
-  setupYearJump(timeline, { button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'), onJump: () => orientToPanelHighlight() });
+  setupYearJump(timeline, {
+    button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'),
+    events: data.events, copy: views?.jump ?? {}, onJump: () => orientToPanelHighlight(),
+  });
   // Samma direkta årshopp som Min dag i historien och Hoppa till år använder: stoppa
   // uppspelningen, flytta Timeline (som äger året) och låt refresh bygga Samtidigt-kortet.
   ff.onSurprise = fact => {
@@ -1258,8 +1261,7 @@ async function start() {
   let intro = null;
   const help = new Help({
     root: $('help'), button: $('btn-help'), close: $('help-close'),
-    birthday: { title: $('birthday-title'), text: $('birthday-copy'), label: $('birthday-label'), input: $('birthday-input'), submit: $('birthday-submit'), form: $('birthday-form'), error: $('birthday-error'), result: $('birthday-result'), summary: $('birthday-summary'), list: $('birthday-events') },
-  }, { events: data.events, birthday: views?.birthday }, { onYear: year => { timeline.pause(); timeline.setFocus(null); timeline.year = year; } });
+  });
   // Besökarnas förslag (docs/feedback.md): från Hjälp och från faktarutans "Rapportera faktafel"
   const feedback = new Feedback($('feedback'));
   $('help-feedback').addEventListener('click', () => { help.close(false); feedback.open({ opener: $('btn-help') }); });
