@@ -1917,6 +1917,43 @@ async function run(browser, vp) {
     });
   }
 
+  if (vp.name === 'dator') {
+    // Tillståndet i adressen (#501) och delbara länkar (#64): en länk återskapar år och fokus, och Bakåt fungerar
+    await check('en delad länk återskapar år och fokus', async () => {
+      const linkPage = await context.newPage();
+      const linkErrors = [];
+      linkPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) linkErrors.push(m.text()); });
+      linkPage.on('pageerror', e => linkErrors.push(e.message));
+      try {
+        if (THREE_LOCAL) {
+          const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+          await linkPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+          await linkPage.route(u => isFont(u.href), r => r.abort());
+        }
+        await linkPage.goto(`${BASE}#y=1630&f=war:trettioariga-kriget&l=areas,events,funfacts`);
+        await linkPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await linkPage.waitForSelector('#focus-bar', { state: 'visible', timeout: T.step });
+        const got = await linkPage.evaluate(() => ({ year: document.getElementById('year-big').textContent.trim(), title: document.getElementById('focus-title').textContent }));
+        if (got.year !== '1630') throw new Error(`länken gav året ${got.year}, inte 1630`);
+        if (!/Trettioåriga/.test(got.title)) throw new Error(`länken följer inte trettioåriga kriget (${got.title})`);
+        // Lämna fokus: ett nytt steg i historiken. Bakåt ska ge kriget igen.
+        await linkPage.click('#focus-exit');
+        await linkPage.waitForSelector('#focus-bar', { state: 'hidden', timeout: T.step });
+        await linkPage.waitForFunction(() => !location.hash.includes('f=war'), null, { timeout: T.step });
+        await linkPage.goBack();
+        await linkPage.waitForSelector('#focus-bar', { state: 'visible', timeout: T.step });
+        // En trasig länk ger det vanliga startläget utan fel
+        await linkPage.goto(`${BASE}?ny=1#y=abc&f=war:finns-inte`); // ?ny=1 gör att sidan laddas om
+        await linkPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        if (await linkPage.locator('#focus-bar').isVisible()) throw new Error('en trasig länk startade ett fokus');
+        if (linkErrors.length) throw new Error(`länken gav konsolfel: ${linkErrors.join('; ')}`);
+      } finally {
+        await linkPage.close();
+      }
+      return 'år 1630 och trettioåriga kriget ur länken; Bakåt efter Tillbaka ger kriget igen; trasig länk ger startläget';
+    });
+  }
+
   await check('faktarutan skiljer källkontroll från osäkerhet', async () => {
     if (await page.locator('#focus-bar').isVisible()) {
       await page.click('#focus-exit');

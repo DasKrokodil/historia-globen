@@ -85,12 +85,13 @@ Klickbara markörer, etiketter och bågar ligger ovanpå klotet som 3D-objekt oc
 | Fil | Ansvar |
 |---|---|
 | `js/main.js` | Startar allt och kopplar ihop registret, tidslinjen, panelerna och controllerna: skapar delarna, lyssnar på klick, menyer och tangenter. Själva ansvaret ligger i `js/controllers/` (#402) |
-| `js/controllers/` | Uppdelningen av main.js (#402, del av #389), vanliga ES-moduler utan ramverk. Varje fil har en funktion `createX(app)` som får det delade underlaget `app` (komponenterna och de andra controllernas funktioner) och returnerar sina funktioner. Det man följer läses ur `state.focus`, `state.focusWar` och `state.focusRoute`. `selection.js`: val av händelse och vändningen mot Samtidigt-listan (#515). `facts.js`: faktarutorna om riken och religioner och religionslagrets laddning. `focus.js`: `startFocus`, `endFocus`, raden "Tiden flyttades" och Fokus-menyns listor. `render.js`: `refresh()`, lagerbilden, namnens storlek efter zoom och rikets berättelse. `playback.js`: köerna med krigets och resans stopp, Spela klart, huvudknappen i fokusraden och pauserna; köerna ägs bara här, och `refresh()` anropar `playback.check()` efter ritningen (därför flyttades omritningen och uppspelningen tillsammans). `story.js`: krigets kapitel och markeringar på tidslinjen och resans stoppdatum (rena funktioner). `labels.js`: etiketternas text, hovring och placering i varje bildruta |
+| `js/controllers/` | Uppdelningen av main.js (#402, del av #389), vanliga ES-moduler utan ramverk. Varje fil har en funktion `createX(app)` som får det delade underlaget `app` (komponenterna och de andra controllernas funktioner) och returnerar sina funktioner. Det man följer läses ur `state.focus`, `state.focusWar` och `state.focusRoute`. `selection.js`: val av händelse och vändningen mot Samtidigt-listan (#515). `facts.js`: faktarutorna om riken och religioner och religionslagrets laddning. `focus.js`: `startFocus`, `endFocus`, raden "Tiden flyttades" och Fokus-menyns listor. `render.js`: `refresh()`, lagerbilden, namnens storlek efter zoom och rikets berättelse. `playback.js`: köerna med krigets och resans stopp, Spela klart, huvudknappen i fokusraden och pauserna; köerna ägs bara här, och `refresh()` anropar `playback.check()` efter ritningen (därför flyttades omritningen och uppspelningen tillsammans). `story.js`: krigets kapitel och markeringar på tidslinjen och resans stoppdatum (rena funktioner). `labels.js`: etiketternas text, hovring och placering i varje bildruta. `address.js`: tillståndet i adressen och knappen Dela (#501, #64) |
 | `js/state.js` | Det gemensamma tillståndet (#338): `createState()`, `snapshot()`, och sedan #403 `createStore()` med åtgärder och prenumeration samt `toJSON()`/`fromJSON()`, se [Lagerregistret](#lagerregistret-338) |
 | `js/layers/registry.js` | Lagerregistret (#338): `LayerRegistry`, ritordningen `Z` och dämpningen `FADE`, se [Lagerregistret](#lagerregistret-338) |
 | `js/layers/index.js` | Lagerlistan (#338): alla lager som anmäler sig, i radernas ordning i Lager |
 | `js/model.js` | Språk (`t()`), kategorier (fjorton i `CATEGORIES`; `katastrofer` för natur- och teknikkatastrofer och svält sedan #554, medan `klimat` nu bara heter Klimat), granskningsnivåer, tidsformat, världsdelar, bildstilar (`styleFor()`), laddning av data |
 | `js/i18n.js` | Språket i gränssnittet (#63): väljer språk (`?lang=`, sparat val `hg-lang`, webbläsarens språk om språket är `auto`, annars svenska), laddar `data/ui/<språk>.json` med top-level await, `ui('nyckel', värden)` för texter som JavaScript bygger, `applyStatic()` som byter sidans fasta texter (`data-i18n`, `data-i18n-aria-label` …) och språkväljaren `setupLangPicker()`, som sparar valet och laddar om sidan med året kvar. `model.js` hämtar `LANG` härifrån, så att `t()` och `ui()` följer samma språk |
+| `js/url-state.js` | Adressformatet (#501, #64): `encodeHash()`, `decodeHash()` och `isNewStep()`, utan beroenden på webbläsaren (testas i `tests/url-state.test.mjs`). Se [Tillståndet i adressen](#tillståndet-i-adressen-och-delbara-länkar-501-64) |
 | `js/date-events.js` | Rent, återanvändbart urval av händelser för ett år eller ett exakt datum (#483). Öppet slut som redan har pågått minst 100 år räknas som bakgrund; affischen återanvänder samma årsregel (#485), och #489 kan återanvända datumurvalet |
 | `js/globe.js` | Klotet (three.js), kamera, styrning, de platta bilderna, bågar. I smal, stående skärm (högst 760 px bred) får klotet nästan hela bredden (`_resize()`, marginal 1,1 i stället för 1,32, #361) och använder 2048 × 1024 canvasar så länge Platt vy är stängd; `setFlatView()` växlar till 4096 × 2048 när kartan öppnas (#390). `invalidate()` gör att WebGL bara ritar när klotet eller texturen ändras, rör sig eller roterar; dold flik ritas inte. `setViewLift(py)` lyfter bilden av klotet uppåt med en mjuk övergång (`setViewOffset`, i `_tick()`; Lugn rörelse: direkt) när faktarutan står som ark nedtill. `centerY()` ger klotets mitt utan lyftet. Datorn är oförändrad |
 | `js/timeline.js` | Tidsreglaget med segmenterad skala, fokusspann, uppspelning, hastighet och "Hoppa till år" (årtalet `#year-jump` är knappen; vid hovring och fokus visas en diskret penna `.year-pen` bredvid, utanför flödet så att inget flyttar sig, #310). Reglagets markeringar (`setMarks`) kommer från lagerregistrets filtrerade `marks(state)`: cirkel för händelse, romb för Samtidigt och kort lodrätt streck för resas start/slut; märkets etikett visas vid fokus eller tryck (#378). Krigets kapitel och stora händelser ritas dessutom först i fokusläget (#298) |
@@ -208,6 +209,26 @@ Det som bara behövs vid klick laddas när det behövs, och en gång (`model.js`
 - **Bilder** i faktarutan laddas när kortet öppnas.
 
 Rutorna ritas direkt med det som redan finns och en gång till när resten har kommit: faktarutan visar namn, tid och plats med "Laddar…" i stället för sammanfattningen (`Panel._whenLoaded`), Samtidigt-kortet ritar in bilderna, och klickrutan för en väg fyller i källorna. Visar rutan något annat när filen kommer, ritas ingenting om.
+
+## Tillståndet i adressen och delbara länkar (#501, #64)
+
+Vyn står i adressen efter `#`, så att en kopierad länk öppnar samma vy och Bakåt och Framåt i webbläsaren fungerar. Formatet byggs på `toJSON()`/`fromJSON()` i `js/state.js` (#403) och står i `js/url-state.js`:
+
+```
+#y=1325&c=34,-50,1.6&f=war:trettioariga-kriget&l=areas,events,funfacts&k=krig,kultur
+```
+
+| Fält | Betydelse |
+|---|---|
+| `y` | Året, astronomisk årsräkning; decimaltal i fokusläget för korta krig (#204). Det enda som krävs |
+| `c` | Kameran: `lat,lon,zoom`, rättas inom jordens gränser och zoom 0,8–3,2 |
+| `f` | Det man följer i Fokus: `war`, `empire`, `religion` eller `route`, kolon och id |
+| `l` | Lagren som är på (id i lagerregistret); `l=` betyder inga lager, saknas `l` behålls sidans val |
+| `k` | Kategorierna som syns; saknas `k` syns alla, så att länken visar en ny kategori när den kommer till |
+
+Lugn rörelse står inte i länken, eftersom det är besökarens egen inställning. Okända fält hoppas över, och en trasig länk (till exempel ett krig som inte finns) ger det vanliga startläget utan fel. En tur i adressen (`?tur=`) går före hashen.
+
+`js/controllers/address.js` läser hashen vid start och ställer in lagren, kategorierna, året, fokus och sist kameran. Därefter läses tillståndet var 0,7 sekund och skrivs med `history.replaceState`; en ny post i historiken (`pushState`) blir det bara vid ett nytt fokus, ändrade lager eller kategorier, eller ett årshopp som har stått still en stund (`isNewStep()`). Uppspelning och vridning av globen ersätter den nuvarande posten. `popstate` (Bakåt, Framåt eller en ändrad hash) ställer in vyn igen. Knappen **Dela** i gruppen Visa kopierar länken, eller öppnar delningsmenyn på pekskärmar som har en.
 
 ## Hoppa i tiden (#140)
 

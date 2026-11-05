@@ -227,5 +227,10 @@
   "play.fwd1": "1 year forward",
   "play.track": "Year",
   "sources.title": "About the sources",
-  "common.loading": "Loading the globe…"
+  "common.loading": "Loading the globe…",
+  "share.button": "Share",
+  "share.title": "Copy a link to this view",
+  "share.copied": "Link copied",
+  "share.manual": "Copy the link",
+  "share.prompt": "Copy the link to this view:"
 }

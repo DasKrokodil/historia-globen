@@ -296,6 +296,8 @@ body {
 .presentation-mode .presentation-exit { display: inline-flex; }
 .presentation-mode .top-actions { gap: 12px; }
 @media (min-width: 761px) {
+  /* Raden bryts innan den når årtalet uppe till vänster (#64: knappen Dela gjorde raden längre) */
+  .top-actions { max-width: calc(100% - var(--gut-r) - 200px); }
   .presentation-mode .top-actions .chip-btn,
   .presentation-mode .top-actions .presentation-exit { min-height: 44px; padding: 10px 15px; font-size: 15px; }
   .presentation-mode .top-actions .action-label { font-size: 10.5px; }

@@ -23,5 +23,10 @@
   "time.months": ["januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti", "september", "oktober", "november", "december"],
   "time.monthsShort": ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec"],
   "time.error.input": "Skriv ett år eller ett giltigt datum.",
-  "time.error.date": "Ogiltigt datum: datumet finns inte."
+  "time.error.date": "Ogiltigt datum: datumet finns inte.",
+  "share.button": "Dela",
+  "share.title": "Kopiera en länk till den här vyn",
+  "share.copied": "Länken är kopierad",
+  "share.manual": "Kopiera länken",
+  "share.prompt": "Kopiera länken till den här vyn:"
 }
