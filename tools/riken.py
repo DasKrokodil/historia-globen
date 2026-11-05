@@ -294,6 +294,39 @@ GROUPS = {
     'uruguay': ('Uruguay', 'Uruguay', [
         ('Oriental Republic of Uruguay', 'uruguay', 'Uruguay', '#8a6fc4', {'en': 'Uruguay'}),
     ]),
+    # R7 (#407), andra omgången: stater i Mellanöstern som krigen behöver (1948, 1967, 1973, Iran–Irak och Gulfkriget)
+    'israel': ('Israel', 'Israel', [
+        ('State of Israel', 'israel', 'Israel', '#7aa6e0', {'en': 'Israel'}),
+    ]),
+    # Gruppen 'egypten' är det forntida Egypten (R2); det moderna Egypten från 1922 är en egen grupp
+    'moderna-egypten': ('Egypten från 1922', 'Egypt since 1922', [
+        ('Kingdom of Egypt', 'kungariket-egypten', 'Kungariket Egypten', '#c9a23a'),
+        ('Republic of Egypt', 'republiken-egypten', 'Republiken Egypten', '#c9a23a'),
+        # Cliopatria: Egypten och Syrien 1958–1966, sedan bara Egypten till 1972
+        ('United Arab Republic', 'forenade-arabrepubliken', 'Förenade arabrepubliken', '#c9a23a'),
+        ('Arab Republic of Egypt', 'arabrepubliken-egypten', 'Arabrepubliken Egypten', '#c9a23a'),
+    ]),
+    'syrien': ('Syrien', 'Syria', [
+        # Cliopatria delar Syrien i fem poster efter styrelseskick och anger Q-id för partiet och för Baathregimen; här en del
+        (['Second Syrian Republic', 'Republic of Syria', "Ba'athist Syria", "Arab Socialist Ba'ath Party", 'Syria'],
+         'syrien', 'Syrien', '#b0485a', {'en': 'Syria', 'wikidata': 'Q858'}),
+    ]),
+    'jordanien': ('Jordanien', 'Jordan', [
+        ('Kingdom of Jordan', 'jordanien', 'Jordanien', '#5aa860', {'en': 'Jordan'}),
+    ]),
+    'irak': ('Irak: kungariket och republiken', 'Iraq: the Kingdom and the Republic', [
+        ('Kingdom of Iraq', 'kungariket-irak', 'Kungariket Irak', '#8a5fb0'),
+        (['Iraqi Republic', 'Republic of Iraq'], 'irak', 'Irak', '#8a5fb0', {'en': 'Iraq'}),
+    ]),
+    'iran': ('Iran: qajarerna, pahlavi och islamiska republiken', 'Iran: the Qajars, the Pahlavis and the Islamic Republic', [
+        ('Qajar Dynasty', 'qajarernas-iran', 'Qajarernas Iran', '#d07a3a', {'en': 'Qajar Iran'}),
+        ('Pahlavi Dynasty', 'pahlavis-iran', 'Pahlavis Iran', '#d07a3a', {'en': 'Pahlavi Iran'}),
+        ('Islamic Republic of Iran', 'islamiska-republiken-iran', 'Islamiska republiken Iran', '#d07a3a'),
+    ]),
+    'kuwait': ('Kuwait', 'Kuwait', [
+        # Cliopatria har emiratet 1757–1872 och från 1991 som Kuwait, och staten 1961–1989 som State of Kuwait
+        (['Kuwait', 'State of Kuwait'], 'kuwait', 'Kuwait', '#a0507a', {'en': 'Kuwait', 'wikidata': 'Q817'}),
+    ]),
 }
 
 # Huvudlandet i utspridda välden (#74): moderlandet ritas med kraftigare kant och en stjärna och får

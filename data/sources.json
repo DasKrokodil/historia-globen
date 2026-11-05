@@ -975,6 +975,22 @@
     {"id": "wp-empire-of-brazil", "title": "Empire of Brazil – Wikipedia", "url": "https://en.wikipedia.org/wiki/Empire_of_Brazil", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
     {"id": "wp-argentina", "title": "Argentina – Wikipedia", "url": "https://en.wikipedia.org/wiki/Argentina", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
     {"id": "wp-paraguay", "title": "Paraguay – Wikipedia", "url": "https://en.wikipedia.org/wiki/Paraguay", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
-    {"id": "wp-uruguay", "title": "Uruguay – Wikipedia", "url": "https://en.wikipedia.org/wiki/Uruguay", "license": "CC BY-SA 4.0", "checked": "2026-11-05"}
+    {"id": "wp-uruguay", "title": "Uruguay – Wikipedia", "url": "https://en.wikipedia.org/wiki/Uruguay", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wp-israel", "title": "Israel – Wikipedia", "url": "https://en.wikipedia.org/wiki/Israel", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wd-israel", "title": "Israel (Q801) – Wikidata", "url": "https://www.wikidata.org/wiki/Q801", "license": "CC0", "checked": "2026-11-05"},
+    {"id": "wp-egypt", "title": "Egypt – Wikipedia", "url": "https://en.wikipedia.org/wiki/Egypt", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wp-kingdom-of-egypt", "title": "Kingdom of Egypt – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kingdom_of_Egypt", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wd-egypt", "title": "Egypt (Q79) – Wikidata", "url": "https://www.wikidata.org/wiki/Q79", "license": "CC0", "checked": "2026-11-05"},
+    {"id": "wp-syria", "title": "Syria – Wikipedia", "url": "https://en.wikipedia.org/wiki/Syria", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wp-jordan", "title": "Jordan – Wikipedia", "url": "https://en.wikipedia.org/wiki/Jordan", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wd-jordan", "title": "Jordan (Q810) – Wikidata", "url": "https://www.wikidata.org/wiki/Q810", "license": "CC0", "checked": "2026-11-05"},
+    {"id": "wp-iraq", "title": "Iraq – Wikipedia", "url": "https://en.wikipedia.org/wiki/Iraq", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wd-iraq", "title": "Iraq (Q796) – Wikidata", "url": "https://www.wikidata.org/wiki/Q796", "license": "CC0", "checked": "2026-11-05"},
+    {"id": "wp-iran", "title": "Iran – Wikipedia", "url": "https://en.wikipedia.org/wiki/Iran", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wp-qajar-iran", "title": "Qajar Iran – Wikipedia", "url": "https://en.wikipedia.org/wiki/Qajar_Iran", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wp-pahlavi-iran", "title": "Pahlavi Iran – Wikipedia", "url": "https://en.wikipedia.org/wiki/Pahlavi_Iran", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wd-iran", "title": "Iran (Q794) – Wikidata", "url": "https://www.wikidata.org/wiki/Q794", "license": "CC0", "checked": "2026-11-05"},
+    {"id": "wp-kuwait", "title": "Kuwait – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kuwait", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wp-history-of-kuwait", "title": "History of Kuwait – Wikipedia", "url": "https://en.wikipedia.org/wiki/History_of_Kuwait", "license": "CC BY-SA 4.0", "checked": "2026-11-05"}
   ]
 }

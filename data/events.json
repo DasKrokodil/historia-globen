@@ -1523,7 +1523,7 @@
       "summary": { "sv": "Mamluksultanatet i Egypten belägrar Akko från den 4 april 1291 och tar staden den 18 maj. Korsfararna förlorade därmed sitt sista stora fäste i kungariket Jerusalem, och fler korståg till Levanten kom inte till stånd. Korstågsrörelsen fortsatte dock i andra former." },
       "wikidata": "Q325985", "sources": ["wp-siege-acre-1291", "wp-crusades", "wikidata"], "review": "two-sources" },
 
-    { "id": "arabisk-israeliska-kriget-1948", "category": "krig", "icon": "swords", "kind": "war", "start": 1948, "end": 1949, "precision": 11, "edtf": "1948-05-15/1949-03-10",
+    { "id": "arabisk-israeliska-kriget-1948", "category": "krig", "icon": "swords", "kind": "war", "empires": ["israel", "moderna-egypten", "jordanien", "syrien", "irak"], "start": 1948, "end": 1949, "precision": 11, "edtf": "1948-05-15/1949-03-10",
       "location": { "type": "Point", "coordinates": [34.78, 32.08] }, "locationPrecision": "region", "place": { "sv": "Det tidigare brittiska mandatet Palestina, Sinaihalvön och södra Libanon" },
       "title": { "sv": "Arabisk-israeliska kriget 1948" },
       "summary": { "sv": "Kriget mellan Israel och en koalition av arabstater började dagen efter att Israel utropats, den 15 maj 1948, och slutade med vapenstilleståndsavtalen 1949. I Israel kallas kriget självständighetskriget. För palestinierna är det en del av Nakba, \"katastrofen\", då över 700 000 palestinier flydde eller fördrevs." },
@@ -1570,7 +1570,7 @@
       "summary": { "sv": "Den 5–10 mars 1949 tar israeliska brigader södra Negev ner till Röda havet, ett område som Jordanien gjorde anspråk på i vapenstilleståndsförhandlingarna. De mötte inget större motstånd. Namnet betyder \"faktum\" på hebreiska. Det var krigets sista fälttåg." },
       "wikidata": "Q931576", "sources": ["wp-operation-uvda", "wikidata"], "review": "two-sources" },
 
-    { "id": "sexdagarskriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1967, "end": 1967, "precision": 11, "edtf": "1967-06-05/1967-06-10",
+    { "id": "sexdagarskriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["israel", "moderna-egypten", "syrien", "jordanien", "irak"], "start": 1967, "end": 1967, "precision": 11, "edtf": "1967-06-05/1967-06-10",
       "location": { "type": "Point", "coordinates": [34.0, 29.5] }, "locationPrecision": "region", "place": { "sv": "Sinaihalvön, Gazaremsan, Västbanken, Jerusalem och Golanhöjderna (började med flyganfall mot Egypten)" },
       "title": { "sv": "Sexdagarskriget" },
       "summary": { "sv": "Den 5–10 juni 1967 krigade Israel mot en koalition av arabstater, främst Egypten, Syrien och Jordanien. Israel erövrade och ockuperade Sinaihalvön, Gazaremsan, Västbanken med Östra Jerusalem och Golanhöjderna. Kriget kallas också 1967 års arabisk-israeliska krig, och många av dess följder är fortfarande olösta." },
@@ -1606,7 +1606,7 @@
       "note": { "title": { "sv": "Bara en källa" }, "text": { "sv": "Striderna på Golanhöjderna har ingen egen post med datum i Wikidata, så händelsen bygger bara på Wikipedias artikel om sexdagarskriget. Punkten är Golanhöjderna enligt Wikidata." } },
       "sources": ["wp-six-day-war"], "review": "source-checked" },
 
-    { "id": "jom-kippurkriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1973, "end": 1973, "precision": 11, "edtf": "1973-10-06/1973-10-25",
+    { "id": "jom-kippurkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["israel", "moderna-egypten", "syrien", "jordanien", "irak", "kuwait"], "start": 1973, "end": 1973, "precision": 11, "edtf": "1973-10-06/1973-10-25",
       "location": { "type": "Point", "coordinates": [32.344, 30.705] }, "locationPrecision": "region", "place": { "sv": "Sinaihalvön, Suezkanalen och Golanhöjderna (började längs Suezkanalen och på Golan)" },
       "title": { "sv": "Jom kippurkriget" },
       "summary": { "sv": "Den 6–25 oktober 1973 krigade Israel mot en koalition av arabstater ledd av Egypten och Syrien. Kriget började med ett överraskningsanfall på den judiska helgdagen jom kippur, som det året sammanföll med tionde dagen i ramadan. I Israel kallas det jom kippurkriget och i arabvärlden oktoberkriget eller ramadankriget." },
@@ -2253,7 +2253,7 @@
       "summary": { "sv": "Den 29 april 1975 inleder Nordvietnams armé och FNL det sista anfallet mot Saigon, Sydvietnams huvudstad. Tusentals civila och amerikaner evakueras. Den 30 april kapitulerar president Dương Văn Minh, och FNL:s flagga hissas över presidentpalatset. Sydvietnam upphör att finnas, och kriget är slut." },
       "wikidata": "Q482456", "sources": ["wp-fall-of-saigon", "wikidata"], "review": "two-sources" },
 
-    { "id": "iran-irak-kriget", "category": "krig", "icon": "swords", "kind": "war", "start": 1980, "end": 1988, "precision": 11, "edtf": "1980-09-22/1988-08-20",
+    { "id": "iran-irak-kriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["iran", "irak"], "start": 1980, "end": 1988, "precision": 11, "edtf": "1980-09-22/1988-08-20",
       "location": { "type": "Point", "coordinates": [48.694, 31.327] }, "locationPrecision": "region", "place": { "sv": "Iran, Irak och Persiska viken (började med Iraks invasion av västra Iran, bland annat Khuzestan)" },
       "title": { "sv": "Kriget mellan Iran och Irak" },
       "summary": { "sv": "Kriget började när Irak invaderade Iran i september 1980 och slutade med en vapenvila som FN förhandlade fram i augusti 1988. Det präglades av skyttegravskrig och avsiktliga angrepp på civila, bland annat irakiska anfall med kemiska vapen. Omkring 450 000–500 000 människor dog, och gränsen blev densamma som före kriget." },
@@ -2830,7 +2830,7 @@
       "image": {"file": "images/events/star-wars.webp", "kind": "historisk", "style": "rymdalder", "caption": {"sv": "En biograf i Kalifornien gör reklam för Star Wars, 1977. Fotografi av Michael Dorausch. Licens: CC BY-SA 2.0."}, "credit": "Michael Dorausch / Wikimedia Commons", "license": "CC BY-SA 2.0", "source": "commons-bild-star-wars"},
       "wikidata": "Q17738", "sources": ["wp-star-wars", "wp-us-center", "wikidata"], "review": "two-sources" },
 
-    { "id": "gulfkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["usa"], "start": 1990, "end": 1991, "precision": 11, "edtf": "1990-08-02/1991-02-28",
+    { "id": "gulfkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["usa", "irak", "kuwait", "moderna-egypten"], "start": 1990, "end": 1991, "precision": 11, "edtf": "1990-08-02/1991-02-28",
       "location": { "type": "Point", "coordinates": [47.98, 29.375] }, "locationPrecision": "region", "place": { "sv": "Kuwait och Irak, med strider även i Saudiarabien (började i Kuwait)" },
       "title": { "sv": "Gulfkriget" },
       "summary": { "sv": "Ett krig mellan Irak och en koalition av 42 länder under ledning av USA, sedan Irak hade invaderat grannlandet Kuwait den 2 augusti 1990. Koalitionen bombade Irak och Kuwait från januari 1991 och drev ut de irakiska trupperna ur Kuwait med en markoffensiv i slutet av februari." },
@@ -2926,7 +2926,7 @@
       "note": { "title": { "sv": "Bara en källa" }, "text": { "sv": "Händelsen har ingen egen post i Wikidata, så den har inte kunnat jämföras med en andra källa. Wikidata anger samma slutdatum för hela kriget, 30 augusti 2021." } },
       "sources": ["wp-fall-of-kabul-2021", "wp-war-in-afghanistan-2001"], "review": "source-checked" },
 
-    { "id": "irakkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["usa"], "start": 2003, "end": 2011, "precision": 11, "edtf": "2003-03-20/2011-12-18",
+    { "id": "irakkriget", "category": "krig", "icon": "swords", "kind": "war", "empires": ["usa", "irak"], "start": 2003, "end": 2011, "precision": 11, "edtf": "2003-03-20/2011-12-18",
       "location": { "type": "Point", "coordinates": [44.366, 33.315] }, "locationPrecision": "region", "place": { "sv": "Irak (började med flyganfall mot Bagdad och en markinvasion från Kuwait)" },
       "title": { "sv": "Irakkriget" },
       "summary": { "sv": "Ett krig i Irak som började när en USA-ledd koalition invaderade landet i mars 2003 och störtade Saddam Husseins regering. Efter invasionen följde ett långt uppror mot de utländska trupperna och den nya irakiska regeringen, och ett inbördeskrig mellan shia- och sunnimuslimer. De sista amerikanska trupperna lämnade Irak i december 2011." },
