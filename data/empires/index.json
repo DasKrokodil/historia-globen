@@ -25857,6 +25857,257 @@
      "review": "source-checked"
     }
    ]
+  },
+  {
+   "id": "tadzjikistan",
+   "name": {
+    "sv": "Tadzjikistan",
+    "en": "Tajikistan"
+   },
+   "color": "#5a9ac0",
+   "from": 1992,
+   "to": 2024,
+   "file": "data/empires/tadzjikistan.json",
+   "polities": [
+    {
+     "id": "tadzjikistan",
+     "name": {
+      "sv": "Tadzjikistan",
+      "en": "Tajikistan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "nicaragua",
+   "name": {
+    "sv": "Nicaragua",
+    "en": "Nicaragua"
+   },
+   "color": "#4a8ab0",
+   "from": 1840,
+   "to": 2024,
+   "file": "data/empires/nicaragua.json",
+   "polities": [
+    {
+     "id": "nicaragua",
+     "name": {
+      "sv": "Nicaragua",
+      "en": "Nicaragua"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "eritrea",
+   "name": {
+    "sv": "Eritrea",
+    "en": "Eritrea"
+   },
+   "color": "#6aa04a",
+   "from": 1992,
+   "to": 2024,
+   "file": "data/empires/eritrea.json",
+   "polities": [
+    {
+     "id": "eritrea",
+     "name": {
+      "sv": "Eritrea",
+      "en": "Eritrea"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kuba",
+   "name": {
+    "sv": "Kuba",
+    "en": "Cuba"
+   },
+   "color": "#c05050",
+   "from": 1905,
+   "to": 2024,
+   "file": "data/empires/kuba.json",
+   "polities": [
+    {
+     "id": "kuba",
+     "name": {
+      "sv": "Kuba",
+      "en": "Cuba"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "grekland",
+   "name": {
+    "sv": "Grekland",
+    "en": "Greece"
+   },
+   "color": "#b05a8a",
+   "from": 1822,
+   "to": 2024,
+   "file": "data/empires/grekland.json",
+   "polities": [
+    {
+     "id": "grekland",
+     "name": {
+      "sv": "Grekland",
+      "en": "Greece"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "benin",
+   "name": {
+    "sv": "Benin",
+    "en": "Benin"
+   },
+   "color": "#c08a3a",
+   "from": 1961,
+   "to": 2024,
+   "file": "data/empires/benin.json",
+   "polities": [
+    {
+     "id": "benin",
+     "name": {
+      "sv": "Benin",
+      "en": "Benin"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "honduras",
+   "name": {
+    "sv": "Honduras",
+    "en": "Honduras"
+   },
+   "color": "#c0704a",
+   "from": 1840,
+   "to": 2024,
+   "file": "data/empires/honduras.json",
+   "polities": [
+    {
+     "id": "honduras",
+     "name": {
+      "sv": "Honduras",
+      "en": "Honduras"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "island",
+   "name": {
+    "sv": "Island",
+    "en": "Iceland"
+   },
+   "color": "#5a8ab0",
+   "from": 1918,
+   "to": 2024,
+   "file": "data/empires/island.json",
+   "polities": [
+    {
+     "id": "kungariket-island",
+     "name": {
+      "sv": "Kungariket Island",
+      "en": "Kingdom of Iceland"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "island",
+     "name": {
+      "sv": "Island",
+      "en": "Iceland"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "bulgarien",
+   "name": {
+    "sv": "Bulgarien",
+    "en": "Bulgaria"
+   },
+   "color": "#4aa070",
+   "from": 1880,
+   "to": 2024,
+   "file": "data/empires/bulgarien.json",
+   "polities": [
+    {
+     "id": "bulgarien",
+     "name": {
+      "sv": "Bulgarien",
+      "en": "Bulgaria"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "guatemala",
+   "name": {
+    "sv": "Guatemala",
+    "en": "Guatemala"
+   },
+   "color": "#8a6ab0",
+   "from": 1840,
+   "to": 2024,
+   "file": "data/empires/guatemala.json",
+   "polities": [
+    {
+     "id": "guatemala",
+     "name": {
+      "sv": "Guatemala",
+      "en": "Guatemala"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
   }
  ]
 }
