@@ -577,7 +577,8 @@ async function run(browser, vp) {
     const cards = page.locator('#ff-pics .ff-pic');
     const reserve = page.locator('#ff-pics .ff-pic.ff-reserve');
     const image = page.locator('#ff-pics .ff-pic img:not(.ff-reserve-icon)');
-    if (await cards.count() < 3 || await reserve.count() < 2 || !await image.count()) throw new Error('1879 saknar blandade bild- och reservkort');
+    // Minst ett kort av varje sort räcker för att pröva blandningen; fler bilder i datan (#453) får inte fälla testet.
+    if (await cards.count() < 2 || !await reserve.count() || !await image.count()) throw new Error('1879 saknar blandade bild- och reservkort');
     const label = await reserve.first().getAttribute('aria-label');
     if (!/Krig och konflikter, 1879, Anglo-zuluiska kriget/.test(label ?? '')) throw new Error('reservkortet saknar kategori, år och titel i sitt namn');
     const missing = await reserve.evaluateAll(nodes => nodes.some(node => ['.ff-reserve-icon', '.ff-reserve-year', '.ff-reserve-category', '.ff-name'].some(selector => !node.querySelector(selector))));
