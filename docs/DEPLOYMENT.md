@@ -189,6 +189,8 @@ Kontrollerna, i båda bredderna:
 
 Testet väntar på att sidan når ett visst läge (en meny syns, årtalet ändras, kartan står still), inte på fasta tider, så att det inte ska bli rött av en slump. Hela sviten tar 6–10 minuter. Jobbet avbryts efter 20 minuter, och steget som installerar Playwright avbryts efter 5 (#617).
 
+Apt-paketen som Playwright installerar med `--with-deps` (mest typsnitt) sparas i en egen cache (`apt-debs-…`) och läggs tillbaka i apt:s arkiv före installationen, så att de inte laddas ner från Ubuntus spegel varje gång (#684). Cachen fylls stegvis: varje körning sparar de paket den hann hämta, även när installationen stoppades av tidsgränsen, så en långsam spegel kan ge några röda körningar i följd efter en ny Playwright- eller Ubuntu-version, men varje omkörning kommer längre tills alla paket finns i cachen.
+
 #### Avbruten eller röd: tre olika fall (#617)
 
 En körning som inte blir grön kan ha tre helt olika orsaker. Titta på statusen och på hur länge körningen höll på innan du ändrar något:
@@ -196,7 +198,7 @@ En körning som inte blir grön kan ha tre helt olika orsaker. Titta på statuse
 | Fall | Så ser det ut | Vad du gör |
 | --- | --- | --- |
 | **En nyare push till samma gren** | `cancelled` efter 0–10 minuter, och en nyare körning finns för samma gren (`concurrency: cancel-in-progress`) | Inget. Det är avsikten; titta på den nyaste körningen. |
-| **Tidsgränsen** | `cancelled` efter cirka 20 minuter för hela jobbet, eller steget "Installera Playwright …" stoppat efter cirka 5 minuter | Ingen kontroll har fallerat. Har installationen stoppats (oftast `apt` som hämtar typsnittspaket långsamt): **kör om körningen en gång** ("Re-run jobs"). Stoppas den igen, eller tar själva testet mer än 20 minuter, är det ett eget fel som ska bli ett issue. |
+| **Tidsgränsen** | `cancelled` efter cirka 20 minuter för hela jobbet, eller steget "Installera Playwright …" stoppat efter cirka 5 minuter | Ingen kontroll har fallerat. Har installationen stoppats (oftast `apt` som hämtar typsnittspaket långsamt, vilket numera bara kan hända när apt-cachen saknas, #684): **kör om körningen en gång** ("Re-run jobs"). Stoppas den igen, eller tar själva testet mer än 20 minuter, är det ett eget fel som ska bli ett issue. |
 | **Ett riktigt fel** | `failure`, och loggen visar `FEL` vid en kontroll | Följ regeln om röd kontroll i [AGENTS.md](../AGENTS.md#röd-kontroll-eller-slut-på-tid-samma-regel-för-alla-agenter-beslut-2026-11-05-skärpt-samma-dag): hitta den första felande kontrollen. |
 
 Blir sviten för långsam igen kan den delas i två parallella jobb med `ENDAST` (#587); det är inte gjort ännu.

@@ -77,7 +77,7 @@ js/layers/origins.js  religionens symbol där den uppstod, som klickbar markör 
 js/layers/empiremarks.js rikenas symboler mitt i områdena, som klickbara markörer (#301)
 js/layers/wars.js     lager: krigsområden runt krigets slag
 js/layers/lines.js    lager: vägar och resor som ritas fram över tiden (#38)
-js/layers/discovery.js lager: upptäcktsvyn med dimma som resorna lyfter, havsmonster och kompassrosor (#101)
+js/layers/discovery.js lager: upptäcktsvyn med dimma som lyfts över Europa, grannarna och dit resorna når, havsmonster och kompassrosor (#101)
 js/ui/panel.js        "Samtidigt i världen" per världsdel, kategorifilter och detaljvy
 js/ui/funfact.js      Samtidigt-kortet (fun facts, när ett krig bröt ut) och bågar på globen
 js/ui/sources.js      sidan Om källorna (knappen Källor)
@@ -120,7 +120,8 @@ images/licenses.json  genererat register över händelsebildernas licenser (#393
 data/land.json        grundkarta (Natural Earth)
 tools/riken.py        bygger rikesfilerna ur Cliopatria
 tools/ne_omstridda.py tar ut omstridda områden ur Natural Earth till tools/ne-omstridda-omraden.geojson, som riken.py läser (#644)
-tools/dela_data.py    bygger events.json ur data/handelser/ och delar upp händelser och riken i data/genererat/ (körs efter varje ändring)
+tools/dela_data.py    bygger events.json ur data/handelser/ och delar upp händelser och riken i data/genererat/, med en fil per språk (körs efter varje ändring)
+tools/oversattning.py spärren mot oöversatta texter och kontrollen av inaktuella översättningar (#675)
 tools/tackning.py     skriver täckningsrapporten med luckor per period, världsdel och kategori i docs/granskningar/ (#563)
 tools/tackningsrapport.py  skriver docs/tackningsrapport.md med täckningen per världsdel, århundrade och kategori
 tools/religioner.py   bygger religionslagret (data/religions.json) ur Cliopatria och faktarutornas texter, med arv av religion
@@ -129,7 +130,8 @@ tools/license_manifests.py  genererar data/licenses.json och images/licenses.jso
 data/empires/         riken med utbredning per period, en fil per rike och index.json (Cliopatria)
 data/borders.json     dagens landsgränser (Natural Earth)
 data/routes/          vägar och resor (lagertyp linje): index.json och en fil per resa eller väg
-data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar (genereras, redigeras inte)
+data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar, med en fil per språk (genereras, redigeras inte)
+data/oversattning.json baslinjen för oöversatta texter och registret över översättningar (genereras av tools/oversattning.py)
 data/upptackt.json    upptäcktsvyn: perspektivraden, den åldrade kartstilen, dimmans täckning och korridorens bredd, dekorationernas platser
 data/vyer.json        grupperna och de förinställda vyerna i Lager (#357)
 data/ui/              gränssnittets texter: sprak.json och en fil per språk (#63)

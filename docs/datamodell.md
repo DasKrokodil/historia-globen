@@ -25,7 +25,8 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 - `religions.json` – religioner, områden och faktarutor.
 - `religions-polities.json` (#194) – rikenas gränser i religionslagret.
 - `styles.json` – bildstilar efter tid och plats.
-- `genererat/` (#337) – de uppdelade filer som sidan laddar.
+- `genererat/` (#337) – de uppdelade filer som sidan laddar, med en fil per språk ovanpå (#675).
+- `oversattning.json` (#675) – spärren mot oöversatta texter och registret över översättningar; skrivs av `tools/oversattning.py`, publiceras inte.
 - `land.json` och `borders.json` – grundkartan och dagens gränser.
 - `vyer.json` (#357) – grupper och förinställda vyer i Lager.
 
@@ -190,7 +191,11 @@ Kolonialvälden och moderna imperier (R5, #71): franska kolonialväldet (Cliopat
 
 **Nutida stater, tredje omgången (#644).** Myanmar (Cliopatrias `Burma` från 1948 och `Union of Myanmar` ihopslagna, Wikidata Q836; Burma före 1885 är inte med), Somalia, Centralafrikanska republiken, Madagaskar, Sydsudan (från 2014, som i Cliopatria), Kenya, Botswana, Thailand (`Kingdom of Thailand` från 1932), Turkmenistan och Kamerun. Cliopatria räknar Botswana till Brittiska imperiet till och med 1968, fast Botswana är eget land från 1967 i Cliopatria; imperiet har därför `minus` med Botswana, som Frankrike i andra omgången. Spanien, Norge, Japan och Marocko hör till de största luckorna men väntar: de överlappar riken vi redan har (Spanska imperiet, Sverige-Norge och Japanska imperiet), och Marocko behöver noten om Västsahara.
 
-**Nutida stater, fjärde omgången (#644).** Spanien (`Second Spanish Republic` 1932–1938, `Francoist Spain` 1939–1975 och `Kingdom of Spain` från 1976; Spanska imperiet slutar 1931), Jemen (Wikidata Q805 i stället för Cliopatrias Q199841, Sydjemen), Norge (`Kingdom of Norway` från 1905, efter unionen med Sverige; 1941–1944 har Norge nästan ingen yta i Cliopatria), Uzbekistan, Japan (`Japan` från 1953, Wikidata Q17 i stället för Q188712, Kejsardömet Japan; Cliopatria saknar Japan 1946–1952), Marocko (1670–1911 och från 1956, med noten om Västsahara), Zimbabwe (från 1983), Tyskland (`Federated Republic of Germany` från 1991), Malaysia och Kongo-Brazzaville (Wikidata Q971 i stället för Q974, Kongo-Kinshasa). Cliopatria räknar Japan till USA 1947–1966 och Okinawa till USA till och med 2005, också de år då Japan är eget land i Cliopatria; USA har därför `minus` med Japan. Okinawa ligger ändå kvar i USA till och med 2005, eftersom ön är för liten för att perioderna ska skiljas åt vid förenklingen.
+**Nutida stater, fjärde omgången (#644).** Spanien (`Second Spanish Republic` 1932–1938, `Francoist Spain` 1939–1975 och `Kingdom of Spain` från 1976; Spanska imperiet slutar 1931), Jemen (Wikidata Q805 i stället för Cliopatrias Q199841, Sydjemen), Norge (`Kingdom of Norway` från 1905, efter unionen med Sverige; 1941–1944 har Norge nästan ingen yta i Cliopatria), Uzbekistan, Japan (`Japan` från 1953, Wikidata Q17 i stället för Q188712, Kejsardömet Japan; Cliopatria saknar Japan 1946–1952), Marocko (1670–1911 och från 1956, med noten om Västsahara), Zimbabwe (från 1983), Tyskland (`Federated Republic of Germany` från 1991), Malaysia och Kongo-Brazzaville (Wikidata Q971 i stället för Q974, Kongo-Kinshasa). Cliopatria räknar Japan till USA 1947–1966 och Okinawa till USA till och med 2005, också de år då Japan är eget land i Cliopatria; USA har därför `minus` med Japan. Okinawa låg först kvar i USA till och med 2005, eftersom ön är för liten för att perioderna ska skiljas åt vid förenklingen; det rättas i femte omgången med `splits`.
+
+**Nutida stater, femte omgången (#644).** Filippinerna (från 1947), Finland (från 1918), Elfenbenskusten, Polen (`Second Polish Republic` 1919–1939 och `Republic of Poland` från 1953; Cliopatria saknar Polen 1940–1952), Oman (`Sultanate of Oman` 1744–1899 och från 1973, `Sultanate of Muscat and Oman` 1900–1946; Cliopatria saknar 1947–1972), Italien (Cliopatrias `Kingdom of Italy` klippt till 1862–1945, eftersom posten också har det medeltida kungariket 936–969, och `Republic of Italy` från 1946), Burkina Faso, Gabon, Guinea (Wikidata Q1006 i stället för Cliopatrias Q983, Ekvatorialguinea) och Ghana. Storbritannien väntar, eftersom det är moderlandet i Brittiska imperiet. `minus` kan nu också ta `(namn, från år)`, så att en stat bara klipps bort från ett visst år: Brittiska imperiet har `minus` med Ghana och med Oman från 1973, och USA med Filippinerna. En ny inställning per del, `splits` (år), anger år där perioderna aldrig slås ihop, så att en liten men viktig ändring inte försvinner i sammanslagningen. USA har `splits` 1947, 1953 och 1973, så att Filippinerna inte ligger kvar i USA efter 1946, Japan inte efter 1952 och Okinawa inte efter 1972.
+
+**Nutida stater, sjätte omgången (#644).** Rumänien (`Kingdom of Romania` 1919–1947, `Socialist Republic of Romania` 1948–1989 och `Romania` från 1990 med Wikidata Q218 i stället för Cliopatrias Q203493, kungariket; Cliopatria saknar 1945–1946), Laos (`Kingdom of Laos` 1956–1975 och `Communist Laos`), Guyana, Belarus, Senegal (från 1961; år 1960 ingår Senegal i Mali, som i Cliopatria), Kirgizistan, Kambodja (`Kingdom of Cambodia` 1956–1975 och från 1996, `Khmer Rouge` 1976–1978 under namnet Röda khmererna, som Wikidata kallar Cliopatrias Q191764, och `People's Republic of Kampuchea` 1979–1995), Tunisien, Nepal (från 1775) och Surinam. Cliopatria räknar Guyana till Brittiska imperiet till och med 1968, fast landet är eget från 1967; imperiets `minus` har därför också Guyana.
 
 **Huvudlandet i utspridda välden (#74).** Ett kolonialvälde har samma färg i alla delar. Moderlandet ritas med tätare fyllning, en kraftig kant med mörk kontur och en mässingsstjärna, och rikets namn står strax ovanför stjärnan i stället för mitt i den största kolonin. Det styrs av datan:
 
@@ -325,12 +330,13 @@ Upptäcktsvyn slås på i Lager. Filen styr allt den visar (ritas av `js/layers/
 
 ```json
 { "schema": "historia-globen/upptackt@1", "notes": "…",
-  "perspective": { "sv": "Dimman döljer det som resorna och vägarna i datan ännu inte har nått …" },
+  "perspective": { "sv": "Vyn ser världen från Europa. Dimman är lyft över de europeiska rikena i datan …" },
   "credit": { "sv": "Kartbilder: havsmonster ur Olaus Magnus Carta marina (1539) …" },
   "paper": { "grain": 0.22, "stains": 18, "stainStrength": 0.16, "seed": 1539,
     "waterLines": { "count": 3, "widthDeg": 1.3, "opacity": 0.14 }, "coastPx": 2.4,
     "vignette": 0.45, "vignetteSides": 0.5,
     "rhumb": { "directions": 32, "lengthDeg": 70, "opacity": 0.42, "widthPx": 1.6 } },
+  "home": { "empires": ["romarriket", "alexanders-rike", "…"], "neighborDeg": 3.5 },
   "fog": { "opacity": 0.97, "corridorDeg": 7, "soften": 0.7, "grain": 0.2,
     "hatch": 0.45, "hatchDeg": 1.2, "hatchSpacingDeg": 0.6,
     "labels": [{ "text": { "sv": "Terra incognita" }, "at": [-100, 47], "size": 4.2 }] },
@@ -350,6 +356,8 @@ Upptäcktsvyn slås på i Lager. Filen styr allt den visar (ritas av `js/layers/
 | `paper.coastPx` | Bläckkustens bredd i bildpunkter på lagerbilden (4096 × 2048) |
 | `paper.vignette`, `paper.vignetteSides` | Mörkare kanter mot polerna (0–1), och hur stor del av det som gäller mot datumlinjen |
 | `paper.rhumb` | Portolanlinjer ut från varje dekoration med `rhumb: true`, ovanpå dimman: `directions` = antal riktningar (avrundas till en multipel av 8; huvudvindar i bläck, halvvindar i grönt `--discovery-rhumb-half`, kvartsvindar i rött `--discovery-rhumb-quarter`), `lengthDeg` = längd i grader, `opacity` och `widthPx` |
+| `home.empires` | Vyns utgångspunkt i Europa: grupp-id i `data/empires/index.json` för de europeiska rikena. Dimman är lyft över dem för varje period som har börjat |
+| `home.neighborDeg` | Hur nära, i grader, ett annat rikes område ska ha legat ett hemrikes område under samma år för att räknas som granne. Då lyfts dimman över grannen från det året (grannarnas grannar räknas inte) |
 | `fog.opacity` | Dimmans täckning, 0–1. Nära 1 döljer allt som inte har nåtts; händelsernas markörer syns ändå, eftersom de ligger ovanpå klotet. Färgerna är CSS-variablerna `--discovery-fog` och `--discovery-ink` |
 | `fog.corridorDeg` | Bredden i grader på korridoren som lyfts längs varje etapp i `data/routes` som har börjat |
 | `fog.soften` | Hur mycket bredare korridorens mjuka kant är (0,7 = 70 % bredare) |
@@ -418,10 +426,11 @@ Sidan laddar inte `events.json` och `empires/index.json` direkt, utan mindre fil
 
 | Fil | Innehåll | Laddas |
 |---|---|---|
-| `handelser.json` | `periods` (periodernas id, första år `from` och fil) och `events`: alla händelser utan de långa fälten. `note` står kvar med bara sin rubrik (`note.title`), eftersom markören visar osäkerhet när rubriken är "Källorna skiljer sig" | vid start |
+| `handelser.json` | `periods` (periodernas id, första år `from` och fil), `translations` (språkfilerna, #675) och `events`: alla händelser utan de långa fälten. `note` står kvar med bara sin rubrik (`note.title`), eftersom markören visar osäkerhet när rubriken är "Källorna skiljer sig" | vid start |
 | `handelser-<period>.json` | `events`: { händelse-id: de långa fälten } för händelserna som **börjar** i perioden. De långa fälten är `summary`, `note`, `story`, `image`, `sources`, `wikidata` och valfria `evidence` (listan `DETAIL` i skriptet och `detail` i `handelser.json`) | när händelserna syns, en faktaruta öppnas eller man följer ett krig |
 | `riken.json` | `groups` som i `empires/index.json`, utan `facts`. Grupper med faktaruta har `hasFacts: true`. `polityFacts` (#301) står kvar, eftersom den är liten och kartans symboler behöver den | vid start |
 | `riken-fakta.json` | `facts`: { grupp-id: rikets `facts` } | vid första faktarutan om ett rike eller när man följer ett rike |
+| `<fil>.<språk>.json` | texterna på ett annat språk än svenska för filen ovan (#675), se [Texter per språk](#texter-per-språk-675) | tillsammans med grundfilen, bara på det språket och engelska |
 
 Perioderna efter startår: `fkr` (år 0 och tidigare), `1-1499`, `1500-1799`, `1800-1899`, `1900-1945`, `1946-1979` och `1980-`. Gränserna är valda så att filerna blir ungefär lika stora (40–120 kB) och ändras bara medvetet, eftersom filnamnen följer dem. En händelse hör till den sista perioden vars `from` är högst händelsens `start` (`period_of` i skriptet, `periodOf` i `js/model.js`). Ett krig och dess slag ligger oftast i samma period, men det spelar ingen roll: `loadEventDetails()` laddar alla perioder som händelserna behöver.
 
@@ -437,16 +446,26 @@ Gränssnittets texter, skilda från datans texter (beslut 2026-11-05, docs/beslu
 - `ui/sv.json` har svenskan för de nycklar som JavaScript hämtar. Sidans fasta texter står på svenska i `index.html` och finns bara i de andra språkens filer.
 - Kategoriernas namn på andra språk: `cat.<id>` och `cat.<id>.count` (ental och flertal); svenskan står i `CATEGORIES` i `js/model.js`.
 - Saknas en nyckel visas engelska, sedan svenska, som för datans texter.
+- Från 2026-11-06 läggs en ny nyckel i alla fem språkfilerna i samma pull request, och nytt innehåll översätts när det skapas (docs/beslut/2026-11-06-oversatt-samtidigt.md).
 
-### Texter per språk (förslag, inte genomfört)
+### Texter per språk (#675)
 
-I dag har nästan alla texter bara svenska (`sv`), och några namn har engelska (`en`). När fler språk kommer bör inte varje besökare ladda alla språk. Förslaget:
+Texter lagras per språk i samma post, `{ "sv": "…", "en": "…", "de": "…", "es": "…", "fr": "…" }`, så att en uppgift och dess översättningar redigeras och källkontrolleras på ett ställe. Svenska är grundspråket och finns alltid. Nytt innehåll översätts i samma pull request som det skapas (beslut 2026-11-06, docs/beslut/2026-11-06-oversatt-samtidigt.md).
 
-1. `tools/dela_data.py` skriver periodfilerna per språk: `handelser-<period>.json` med svenska (grundspråket, som alltid finns) och `handelser-<period>.<språk>.json` med bara det språkets texter, till exempel `{ "events": { "apollo-11": { "summary": { "en": "…" } } } }`. Samma sak för indexets `title` och `place` och för rikenas faktarutor.
-2. Sidan laddar grundfilen och, om besökaren har valt ett annat språk, språkets fil ovanpå. `mergeTexts()` i `js/model.js` slår redan ihop texterna på djupet, så att `{ "summary": { "en": … } }` läggs bredvid `sv` i stället för att ersätta den, och `t()` väljer språk och reservspråk som förut. Därför behöver `t()` inte ändras.
-3. Källfilerna behåller alla språk i samma post (`{ "sv": …, "en": … }`), så att en uppgift och dess översättningar redigeras och källkontrolleras på ett ställe.
+**Språkfiler i `genererat/`.** För att en besökare inte ska ladda alla språk skriver `tools/dela_data.py` grundfilerna med bara svenskan och varje annat språk i en egen fil ovanpå: `handelser.<språk>.json`, `handelser-<period>.<språk>.json`, `riken.<språk>.json` och `riken-fakta.<språk>.json`. En språkfil har samma nyckel som grundfilen (`events`, `groups`, `facts`) men som { id: bara språkets texter }, och en lista skrivs som ett objekt med platsen i listan som nyckel (`{ "items": { "6": { "label": { "en": "…" } } } }`). Filen skrivs bara när språket har minst en text där, och `translations` i `handelser.json` listar dem (`{ "en": ["handelser", "riken-fakta"] }`).
 
-Det görs när det finns texter på fler språk än svenska (#63, Version 5.2).
+- En text är ett objekt där alla nycklar är språk i `ui/sprak.json` och där svenskan finns. Andra objekt delas inte.
+- **Rikenas namn** (`name` i `riken.json`) står kvar på alla språk i grundfilen, eftersom de engelska namnen är Cliopatrias namn och sidan använder dem som nyckel (religionernas teckenförklaring).
+- Sidan (`js/model.js`) laddar på svenska inga språkfiler. På ett annat språk laddas det språkets filer och engelskans (reservspråket i `t()`), samtidigt som grundfilen, och `mergeTexts()` lägger texterna på posterna. Kan en språkfil inte laddas visas svenskan.
+- Övriga filer som sidan laddar direkt (fun facts, religioner, vägar, turer, introduktionen, upptäcktsvyn, vyer) har alla språk i samma fil; de är små.
+
+**Spärren och inaktuella översättningar: `oversattning.json`.** `tools/oversattning.py` läser alla datafiler med innehåll (utom poster med `review: "draft"`) och räknar per fil och språk hur många texter som saknar översättning. Filen har tre fält, och skrivs bara av skriptet:
+
+- `languages`: språken som baslinjen gäller. Ett nytt språk i `ui/sprak.json` börjar med det som finns.
+- `baseline`: { fil: { språk: antal oöversatta } }. Antalet får aldrig öka; en text utan översättning stoppar pull requesten.
+- `register`: { språk: ["svenska:översättning", …] }, korta kontrollsummor (SHA-1, åtta tecken) av den svenska texten och översättningen. Ändras svenskan men inte översättningen hittas översättningen i registret med en annan svensk text, och då är den **inaktuell** och stoppar pull requesten tills den är uppdaterad.
+
+Kör `python3 tools/oversattning.py` efter varje ändring i innehållet och checka in `data/oversattning.json`. `--check` kontrollerar utan att skriva (GitHub Actions kör det), och `--lista` visar varje oöversatt text. Undantagen `--tillat-okning` och `--godta-inaktuella` används bara med Rikards ok. Filen publiceras inte.
 
 ## `land.json` och `borders.json`: kartor
 

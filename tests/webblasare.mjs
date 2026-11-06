@@ -575,6 +575,33 @@ async function run(browser, vp) {
     return 'Följ fallet i rikets ruta; status i steg 1 och okänt i steg 5';
   });
 
+  // #627: i mobilen hamnade arket med krigets slutkort bakom fokusraden när raden "Tiden flyttades" och
+  // pausraden syntes samtidigt, eftersom en mobilregel för --ff-b vann över den uppmätta fokusraden.
+  await check('krigets slutkort ligger ovanför fokusraden (#627)', async () => {
+    const startYear = Number(await page.getAttribute('#track', 'aria-valuenow'));
+    await clickView('#btn-focus');
+    await page.fill('#focus-menu input', 'Koreakriget');
+    await page.click('#focus-menu [data-key="war:koreakriget"]');
+    await page.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '1950', null, { timeout: T.step });
+    const box = await page.locator('#track').boundingBox();
+    await page.mouse.click(box.x + box.width - 1, box.y + box.height / 2); // krigets slut
+    await page.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '1953', null, { timeout: T.step });
+    await page.click('#focus-action');
+    await visible('#detail');
+    await page.waitForFunction(() => !document.getElementById('pause-note').hidden, null, { timeout: T.step });
+    const r = await page.evaluate(() => {
+      const d = document.getElementById('detail').getBoundingClientRect(), f = document.getElementById('focus-bar').getBoundingClientRect();
+      return { detailBottom: Math.round(d.bottom), barTop: Math.round(f.top), moved: document.getElementById('app').classList.contains('focus-moved-on') };
+    });
+    if (r.detailBottom > r.barTop) throw new Error(`arket slutar vid ${r.detailBottom} px men fokusraden börjar vid ${r.barTop} px`);
+    await page.click('#focus-exit');
+    await page.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+    await page.$eval('#focus-menu input', el => { el.value = ''; el.dispatchEvent(new Event('input', { bubbles: true })); });
+    if (await page.isVisible('#detail')) await page.click('#detail [data-close]');
+    await jumpTo(startYear);
+    return `arket slutar vid ${r.detailBottom} px, fokusraden börjar vid ${r.barTop} px${r.moved ? ' (med raden Tiden flyttades)' : ''}`;
+  });
+
   await check('Samtidigt-kortet går till nästa händelse', async () => {
     await visible('#funfact');
     if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
@@ -1229,6 +1256,36 @@ async function run(browser, vp) {
     return `USA 1863: ${r.inne} perioder lyfta; före landet fanns och utan kontakt: inga`;
   });
 
+  // Hemriken: vyn ser världen från Europa, så Makedonien (med Alexanders erövringar) och dess grannar syns utan
+  // resor. Persiska riket är granne till Makedonien; Hanriket låg aldrig nära ett hemrike och förblir dolt.
+  await check('upptäcktsvyn lyfter dimman över hemrikena och deras grannar', async () => {
+    const r = await page.evaluate(async () => {
+      const { DiscoveryLayer } = await import('./js/layers/discovery.js');
+      const get = url => fetch(url).then(res => res.json());
+      const [doc, index] = await Promise.all([get('data/upptackt.json'), get('data/empires/index.json')]);
+      const layer = new DiscoveryLayer(doc, null);
+      layer.enabled = true;
+      layer._loadImages = () => {};
+      for (const id of ['alexanders-rike', 'persiska-riket', 'hanriket']) {
+        const group = index.groups.find(g => g.id === id);
+        if (!group) return { missing: id };
+        layer.addEmpire(id, (await get(group.file)).polities);
+      }
+      const shown = year => {
+        layer.fogKey = null;
+        layer.update({ year, lines: { routes: [], reached: () => [] } });
+        return [...layer.empires].filter(([, e]) => layer.lifted.some(g => e.periods.some(q => q.geometry === g))).map(([id]) => id);
+      };
+      return { y257: shown(-257), y700: shown(-700) };
+    });
+    if (r.missing) throw new Error(`${r.missing} saknas i data/empires/index.json`);
+    if (!r.y257.includes('alexanders-rike')) throw new Error('dimman är inte lyft över Makedonien 257 f.Kr.');
+    if (!r.y257.includes('persiska-riket')) throw new Error('dimman är inte lyft över grannen Persiska riket 257 f.Kr.');
+    if (r.y257.includes('hanriket')) throw new Error('dimman lyfts över Hanriket fast det aldrig gränsade till ett hemrike');
+    if (r.y700.includes('persiska-riket')) throw new Error('dimman lyfts över Persiska riket innan det fanns');
+    return `257 f.Kr.: ${r.y257.join(', ')}`;
+  });
+
   await check('Fokus öppnas och följer ett rike', async () => {
     if (!(await page.locator('#religion-legend').isHidden())) throw new Error('rikesförklaringen syns på startskärmen');
     await clickView('#btn-focus');
@@ -1595,14 +1652,20 @@ async function run(browser, vp) {
         const row = page.locator(`#focus-menu .focus-item[data-key="${item.key}"]`);
         await row.waitFor({ state: 'visible', timeout: T.step });
         await row.click();
-        await visible('#focus-bar');
+        // #635: hoppet från 3000 f.Kr. ritar om hela lagerbilden (4096 × 2048) och laddar upp den till grafiken. Utan
+        // grafikkort, som i CI och i molnet, kan sidan då stå still i över 20 sekunder, så att visible() med T.step
+        // tar slut fast sidan gör rätt. Vänta därför på tillståndet (fokusraden och raden Tillbaka till) med T.load.
+        await page.waitForFunction(() => {
+          const bar = document.getElementById('focus-bar'), link = document.getElementById('focus-moved-back');
+          return !bar.hidden && bar.offsetHeight > 0 && link.offsetParent !== null;
+        }, null, { timeout: T.load, polling: 250 });
         const back = page.locator('#focus-moved-back');
-        await back.waitFor({ state: 'visible', timeout: T.step });
         if (!(await back.textContent()).includes('Tillbaka till')) throw new Error(`${item.key}: Tillbaka saknar årtal`);
         if (item.shot) await shot(item.shot);
 
         await back.click();
-        await hidden('#focus-bar');
+        // Tillbaka till 3000 f.Kr. ritar om lagerbilden igen (se ovan)
+        await page.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.load, polling: 250 });
         if (await yearNumber() !== beforeFocus) throw new Error(`${item.key}: Tillbaka återställde inte året`);
         for (const name of layerNames) {
           if (await page.locator(layerRow(name)).isChecked() !== layersDuringFocus[name]) {
@@ -2279,6 +2342,44 @@ async function run(browser, vp) {
     const w = await page.evaluate(() => ({ doc: document.documentElement.scrollWidth, body: document.body.scrollWidth, win: window.innerWidth }));
     if (Math.max(w.doc, w.body) > w.win) throw new Error(`sidan är ${Math.max(w.doc, w.body)} px bred i ett ${w.win} px fönster`);
     await shot('8-slut');
+  });
+
+  // Språkbytet laddar om sidan även när adressen har en #-del (url-state.js, #501). Med location.assign() till
+  // samma adress laddades sidan inte om: valet sparades men texterna stod kvar på svenska. Körs sist, eftersom
+  // sidan laddas om, och återställer svenska efteråt.
+  // Omladdningen bevisas med ett märke på den gamla sidan som ska vara borta (framenavigated räcker inte, eftersom
+  // den också kommer när sidan skriver om #-delen, och load kan dröja i GitHub Actions när typsnitten hänger).
+  // Efter omladdningen väntar testet tills sidan har startat och språkväljaren har sina språk; den kopplas in sist
+  // i starten, och ett byte före det gör ingenting.
+  await check('språkbytet laddar om sidan på det nya språket (#63)', async () => {
+    if (!(await page.evaluate(() => location.hash))) throw new Error('adressen saknar #-del, så testet prövar inte felet');
+    const ready = l => {
+      const s = document.getElementById('lang-select'), loading = document.getElementById('loading');
+      return !window.__hgGammal && document.documentElement.lang === l && s?.options.length > 1 && s.value === l
+        && !!loading && (loading.hidden || getComputedStyle(loading).display === 'none');
+    };
+    const pick = async lang => {
+      await page.evaluate(l => {
+        window.__hgGammal = true;
+        const s = document.getElementById('lang-select');
+        s.value = l;
+        s.dispatchEvent(new Event('change'));
+      }, lang);
+      try {
+        await page.waitForFunction(ready, lang, { timeout: T.load });
+      } catch (err) {
+        const st = await page.evaluate(() => ({
+          gammal: !!window.__hgGammal, lang: document.documentElement.lang, stored: localStorage.getItem('hg-lang'),
+          url: location.pathname + location.search + location.hash, nav: performance.getEntriesByType('navigation')[0]?.type,
+        })).catch(e => ({ fel: e.message }));
+        throw new Error(`sidan bytte inte till ${lang}: ${JSON.stringify(st)}`);
+      }
+    };
+    await pick('en');
+    const label = await page.evaluate(() => document.getElementById('btn-layers').textContent.trim());
+    if (label === 'Lager') throw new Error('knappen Lager står kvar på svenska efter byte till engelska');
+    await pick('sv');
+    return `engelska: ${label}`;
   });
 
   results.push({ name: 'inga fel i konsolen', ok: errors.length === 0, ms: 0, note: errors.slice(0, 10).join(' | ') || undefined });

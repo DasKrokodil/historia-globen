@@ -1826,6 +1826,10 @@ details.used-by summary:hover { color: var(--parchment); }
   .app:has(.pause-note:not([hidden])) { --ff-b: 170px; }
   .app.focusing { --ff-b: 158px; }
   .app.focusing:has(.pause-note:not([hidden])) { --ff-b: 226px; }
+  /* Den uppmätta fokusraden (#183) gäller före de fasta avstånden ovan, också när pausraden syns (#627).
+     Regeln med :has() ovan är lika specifik som den i #239 och står senare, så den vann annars, och arket
+     hamnade bakom fokusraden när krigets slutkort öppnades med raden "Tiden flyttades". */
+  .app.app.app.focusing.focus-var { --ff-b: calc(var(--focus-top) + 8px); }
 
   /* Stängknappar och handtag: minst 44 × 44 px tryckyta */
   .panel-x::after, #detail .detail-close::after { content: ""; position: absolute; inset: -8px; }
