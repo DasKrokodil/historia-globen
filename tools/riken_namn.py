@@ -10,7 +10,8 @@ filerna byggs om, så länge det svenska namnet är oförändrat.
 
 Bara namn som saknas fylls i; befintliga ändras inte. Gruppens namn tas från den del som har samma svenska namn
 som gruppen; finns ingen sådan del skrivs gruppen ut som saknad, och dess namn får översättas för hand.
-Wikidata svarar 429 vid många anrop: skriptet hämtar högst 20 id åt gången och väntar och försöker igen.
+Wikidata svarar 429 vid många anrop: skriptet hämtar högst 10 id åt gången, väntar 10 sekunder mellan anropen och
+väntar längre och försöker igen vid 429.
 """
 import json
 import sys
@@ -28,9 +29,9 @@ HEADERS = {'User-Agent': 'historia-globen-riken-namn/1.0 (hobbyprojekt)'}
 def labels(ids):
     out = {}
     ids = sorted(set(ids))
-    for i in range(0, len(ids), 20):
-        chunk = ids[i:i + 20]
-        for attempt in range(8):
+    for i in range(0, len(ids), 10):
+        chunk = ids[i:i + 10]
+        for attempt in range(12):
             try:
                 req = urllib.request.Request(API + '%7C'.join(chunk), headers=HEADERS)
                 with urllib.request.urlopen(req, timeout=30) as r:
@@ -38,12 +39,12 @@ def labels(ids):
                 break
             except Exception as e:  # 429 eller nätfel: vänta och försök igen
                 print(f'  Wikidata: {e}, väntar', file=sys.stderr)
-                time.sleep(30 * (attempt + 1))
+                time.sleep(min(60 * (attempt + 1), 300))
         else:
             raise SystemExit('Wikidata svarar inte')
         for q, ent in data['entities'].items():
             out[q] = {lang: v['value'] for lang, v in ent.get('labels', {}).items() if lang in LANGS}
-        time.sleep(2)
+        time.sleep(10)
     return out
 
 
