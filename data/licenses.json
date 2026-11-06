@@ -7,6 +7,12 @@
   },
   "sourcesByLicense": [
     {
+      "license": "CC BY 1.0",
+      "sourceIds": [
+        "commons-bild-kulturrevolutionen"
+      ]
+    },
+    {
       "license": "CC BY 2.0",
       "sourceIds": [
         "commons-bild-arabiska-varen",
@@ -94,6 +100,7 @@
     {
       "license": "CC BY-SA 2.0",
       "sourceIds": [
+        "commons-bild-kvinnlig-rostratt-nya-zeeland",
         "commons-bild-star-wars"
       ]
     },
@@ -1295,10 +1302,15 @@
         "commons-bild-befrielsen-av-kuwait",
         "commons-bild-belagringen-av-delhi-1857",
         "commons-bild-belagringen-av-jerusalem-1099",
+        "commons-bild-berlinkonferensen",
+        "commons-bild-berlinmuren-byggs",
         "commons-bild-blockaden-av-biafra",
+        "commons-bild-borskraschen-1929",
         "commons-bild-cervantes-dor",
         "commons-bild-covid-19-pandemin",
         "commons-bild-darwin-fods",
+        "commons-bild-dna-strukturen",
+        "commons-bild-fotbolls-vm-1930",
         "commons-bild-haitis-sjalvstandighet",
         "commons-bild-hawaiis-monarki-stortas",
         "commons-bild-ibn-battuta-resa",
@@ -1309,19 +1321,28 @@
         "commons-bild-invasionen-av-irak-2003",
         "commons-bild-israel-utropas-1948",
         "commons-bild-jordbavningen-i-valdivia-1960",
+        "commons-bild-keelingkurvan",
         "commons-bild-khorramshahr-aterorovras-1982",
         "commons-bild-korsfastelsen",
+        "commons-bild-krakatau-1883",
         "commons-bild-kubakrisen",
         "commons-bild-landstigningen-vid-inchon",
         "commons-bild-lincoln-fods",
+        "commons-bild-marschen-till-washington",
+        "commons-bild-meijirestaurationen",
         "commons-bild-mexikos-grundlag-1917",
+        "commons-bild-montrealprotokollet",
         "commons-bild-moresnet-blir-belgiskt",
         "commons-bild-myall-creek-massakern",
         "commons-bild-nanjingfordraget",
         "commons-bild-nintendo",
         "commons-bild-nya-lagarna-1542",
+        "commons-bild-oktoberrevolutionen",
+        "commons-bild-olympiska-spelen-1896",
         "commons-bild-operation-badr-1973",
         "commons-bild-pakistan-kapitulerar-i-dhaka",
+        "commons-bild-penicillinet-upptacks",
+        "commons-bild-saltmarschen",
         "commons-bild-shakespeare-dor",
         "commons-bild-sjalvstandighetsforklaringen",
         "commons-bild-sjoslaget-vid-dan-no-ura",
@@ -1342,10 +1363,13 @@
         "commons-bild-slaget-vid-waterloo",
         "commons-bild-slaget-vid-yarmuk",
         "commons-bild-slaget-vid-zama",
+        "commons-bild-slaveriet-avskaffas-i-usa",
         "commons-bild-smittkoppor-utrotas",
+        "commons-bild-suezkanalen-oppnas",
         "commons-bild-tenochtitlans-fall",
         "commons-bild-tetoffensiven",
         "commons-bild-texas-sjalvstandighet",
+        "commons-bild-titanic-sjunker",
         "commons-bild-tredje-slaget-vid-panipat",
         "commons-bild-tsunamin-i-indiska-oceanen-2004",
         "commons-bild-tyfonen-kamikaze-1281",

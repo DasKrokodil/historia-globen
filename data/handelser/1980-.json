@@ -375,6 +375,7 @@
       "location": {"type": "Point", "coordinates": [-73.55417, 45.50889]}, "place": {"sv": "Montréal, Kanada"},
       "title": {"sv": "Montrealprotokollet skyddar ozonlagret"},
       "summary": {"sv": "Den 16 september 1987 kommer länderna i Montréal överens om att fasa ut freoner och andra ämnen som bryter ned ozonlagret. Protokollet träder i kraft 1989 och blir det första fördraget i FN:s historia som alla länder har ratificerat, med 198 parter. Ozonhålet över Antarktis läker långsamt, och ozonlagret väntas vara tillbaka på 1980 års nivå mellan 2040 och 2066."},
+      "image": {"file": "images/events/montrealprotokollet.webp", "kind": "historisk", "style": "rymdalder", "caption": {"sv": "Ozonhålet över Antarktis den 15 oktober 1987, uppmätt av satelliten NOAA-9, samma höst som Montrealprotokollet antogs. Licens: Public domain."}, "credit": "NOAA / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-montrealprotokollet"},
       "wikidata": "Q219438", "sources": ["wp-montreal-protocol", "wp-montreal", "wikidata"], "review": "two-sources" },
     {"id": "euron-infors", "category": "ekonomi", "start": 1999, "end": 1999, "precision": 11, "edtf": "1999-01-01",
       "location": {"type": "Point", "coordinates": [8.7025, 50.10944]}, "locationPrecision": "region", "place": {"sv": "Euroområdet (Europeiska centralbanken i Frankfurt, Tyskland)"},
