@@ -421,6 +421,7 @@ body {
 .layer-action { min-height: 44px; padding: 6px 8px; color: var(--parchment); background: var(--night-3); border: 1px solid var(--control-line); border-radius: 8px; font: 500 12.5px/1.2 var(--f-body); cursor: pointer; }
 .layer-action:hover { border-color: var(--brass-deep); }
 .layer-action-status { grid-column: 1 / -1; margin: 0; color: var(--parchment-dim); font-size: 12px; line-height: 1.35; }
+.layer-view-status { margin: 6px 0 0; color: var(--parchment-dim); font-size: 12.5px; line-height: 1.4; }
 .panel-enable-events { min-height: 44px; margin: 0 10px 12px; }
 .layer-customize-chev {
   width: 6px; height: 6px; border: solid currentColor; border-width: 0 1.5px 1.5px 0;
@@ -1885,3 +1886,17 @@ details.used-by summary:hover { color: var(--parchment); }
   .year-big, .year-jump.fine .year-big { font-size: 26px; }
 }
 
+
+/* Taggar i faktarutan (#555), till exempel "Framsteg": en liten ram i kortets accentfärg, utan fyllning, så att
+   den inte ser ut som ett betyg eller en kategorifärg. Fälls ut med förklaringen. */
+.tag-marks { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 2px; }
+.tag-mark { max-width: 100%; }
+.tag-mark summary {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 24px; padding: 2px 9px;
+  border: 1px solid var(--card-accent, var(--brass)); border-radius: 999px; cursor: pointer; list-style: none;
+  font: 500 11px/1.2 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--card-accent, var(--brass));
+}
+.tag-mark summary::-webkit-details-marker { display: none; }
+.tag-mark summary::after { content: "i"; font: italic 600 10px/1 var(--f-display); opacity: .8; }
+.tag-mark summary:focus-visible { outline: 2px solid var(--card-accent, var(--brass)); outline-offset: 2px; }
+.tag-mark p { margin: 6px 0 0; font-size: 13px; line-height: 1.45; overflow-wrap: anywhere; }

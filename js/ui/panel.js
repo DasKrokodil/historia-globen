@@ -157,9 +157,26 @@ function lineageHtml(v) {
     <p class="lineage-note"><span class="review-badge ${rv.cls}">${esc(reviewLabel(v.review, 'Årtal och efterträdare'))}</span></p>`;
 }
 
+/**
+ * Märkningen av taggar i faktarutan (#555), till exempel "Framsteg". En liten ruta som fälls ut med förklaringen,
+ * med Tab och Enter; texterna står i data/vyer.json (tags). Taggar utan texter visas inte.
+ */
+function tagMarks(e, tags) {
+  const marks = (Array.isArray(e.tags) ? e.tags : []).filter(tag => tags?.[tag]?.label).map(tag => {
+    const c = tags[tag];
+    return `<details class="tag-mark" data-tag="${esc(tag)}"><summary aria-label="${esc(c.markLabel || c.label)}">${esc(c.label)}</summary><p>${esc(c.about ?? '')}</p></details>`;
+  });
+  return marks.length ? `<div class="tag-marks">${marks.join('')}</div>` : '';
+}
+
 export class Panel {
-  constructor({ root, list, filters, chips, detail, sub, count, toggle, close }, { events, srcById, styles }, { empireLegend = {}, uncertainty = {}, panel = {} } = {}) {
+  constructor({ root, list, filters, chips, detail, sub, count, toggle, close }, { events, srcById, styles }, { empireLegend = {}, uncertainty = {}, panel = {}, tags = {} } = {}) {
     Object.assign(this, { root, list, filtersEl: filters, detail, sub, count, toggle, srcById, styles, empireLegend, uncertainty });
+    // Taggar (#555): texterna ur data/vyer.json, taggen som vyn visar och hur många synliga händelser som har varje tagg
+    this.tags = tags ?? {};
+    this.tag = null;
+    this.tagCounts = new Map();
+    for (const e of events) for (const tag of (isVisibleReview(e.review) && Array.isArray(e.tags) ? e.tags : [])) this.tagCounts.set(tag, (this.tagCounts.get(tag) ?? 0) + 1);
     this.onSelect = () => {};
     this.onFilter = () => {};
     this.onSources = () => {};
@@ -266,6 +283,16 @@ export class Panel {
     parts.push(inside ? `${inside} ${inside === 1 ? 'händelse pågår' : 'händelser pågår'} ${at}` : `Inget pågår exakt ${at}`);
     if (near) parts.push(`${near} till inom ${within}`);
     this.sub.textContent = visible.length ? `${summaryText}. ${parts.join(', ')}.` : `Inget i datan inom ${within} från ${at.replace(/^(år|den) /, '')}.`;
+    const tagCopy = this.tag && this.tags[this.tag];
+    if (!visible.length && tagCopy) {
+      // Vyn med tagg (#555): säg om ingen händelse har taggen ännu, eller om det bara är tomt kring året
+      const note = document.createElement('p');
+      note.className = 'empty-note tag-empty';
+      note.textContent = this.tagCounts.get(this.tag) ? (tagCopy.none ?? '').replace('{within}', within).replace('{at}', at.replace(/^(år|den) /, '')) : tagCopy.empty;
+      this.sub.textContent = note.textContent;
+      this.list.replaceChildren(note);
+      return;
+    }
     if (!visible.length) {
       this.list.innerHTML = `<p class="empty-note">Dra i tidslinjen eller tryck på uppspelning för att hitta nästa händelse. Prickarna under tidslinjen visar var det finns data.</p>`;
       return;
@@ -510,6 +537,7 @@ export class Panel {
       <button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
       <h3>${esc(t(e.title))}</h3>
       <div class="meta">${esc(formatEventTime(e))}${evidence.marker('date')}${unc ? uncertaintyMark(e, 'date', this.uncertainty) : ''} · ${esc(t(e.place))}${evidence.marker('location')}${unc ? uncertaintyMark(e, 'place', this.uncertainty) : ''} · ${esc(t(CAT[e.category]?.name))}</div>
+      ${tagMarks(e, this.tags)}
       ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(t(e.place))}: visa på globen"><span class="place-pin" aria-hidden="true"></span><span class="place-go">Visa på globen</span></button>` : ''}
       ${figure(e, this.srcById, evidence.marker('image'))}
       ${loading ? LOADING : `<p>${esc(t(e.summary))}${evidence.marker('summary')}</p>`}

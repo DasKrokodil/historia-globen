@@ -31,6 +31,11 @@ export function glyph(name) {
   return gl;
 }
 
+/** Om händelsen har taggen (#555), till exempel 'framsteg'. Utan tagg (null) räknas alla händelser. */
+export function hasTag(e, tag) {
+  return !tag || (Array.isArray(e.tags) && e.tags.includes(tag));
+}
+
 /** Hur markören ska se ut: tidsläge (now, past, future), betydelse och osäkerhet. */
 export function markerInfo(e, when = 'now') {
   const unsure = /[~?]/.test(e.edtf ?? '') || t(e.note?.title) === 'Källorna skiljer sig';
@@ -122,7 +127,7 @@ export function entry({ globe, data }) {
     id: 'events', name: 'Händelser', group: 'people', menu: { on: true, note: 'cirkel på tidslinjen' }, layer, z: Z.events,
     enabled: s => s.layers.events,
     update: s => layer.update({ year: s.year, window: s.window, filters: s.layers.events ? s.filters : none,
-      selectedId: s.selectedId, highlight: s.highlight, focusId: s.focusWar?.id, span: s.span }),
+      selectedId: s.selectedId, highlight: s.highlight, focusId: s.focusWar?.id, span: s.span, tag: s.tag }),
     marks: s => layer.marks(s),
     frame: (now, s) => layer.frame(now, s.selectedId),
     frameAnimating: s => !s.calm && layer.hasSelected(s.selectedId),
@@ -159,10 +164,10 @@ export class EventsLayer {
 
   /** Märkena är samma granskade och filtrerade händelser som lagret kan visa.
    * Fokusets egna berättelse- och resemarkeringar läggs ovanpå dem av sina lager. */
-  marks({ filters, on }) {
+  marks({ filters, on, tag = null }) {
     if (!on.events) return [];
     return this.events
-      .filter(e => isVisibleReview(e.review) && filters.has(e.category) && (!e.partOf || e.top))
+      .filter(e => isVisibleReview(e.review) && filters.has(e.category) && hasTag(e, tag) && (!e.partOf || e.top))
       .map(e => ({ type: 'event', at: e.start, until: e.end, color: CAT[e.category]?.color ?? '#fff',
         label: `${t(e.title)} · ${e.start === e.end ? formatYear(e.start) : `${formatYear(e.start)}–${formatYear(e.end)}`}` }));
   }
@@ -179,14 +184,14 @@ export class EventsLayer {
    * span (valfritt): händelsens tid som [början, slut]. I fokusläget för korta krig är det datum ur edtf (#204).
    * Returnerar händelserna som syns, de pågående först.
    */
-  update({ year, window, filters, selectedId, highlight, focusId = null, span = e => [e.start, e.end] }) {
+  update({ year, window, filters, selectedId, highlight, focusId = null, span = e => [e.start, e.end], tag = null }) {
     const visible = [];
     for (const s of this.sprites) {
       const e = s.userData.event;
       // Händelser i ett krig: utzoomat syns bara den viktigaste (top). I fokusläge
       // syns krigets alla händelser. Valda händelser syns alltid.
       const onMap = !e.partOf || e.top || e.partOf === focusId || e.id === selectedId;
-      const okFilter = onMap && filters.has(e.category) && isVisibleReview(e.review);
+      const okFilter = onMap && filters.has(e.category) && hasTag(e, tag) && isVisibleReview(e.review);
       // Händelserna i Samtidigt-kortet syns alltid, så att kortets bågar har markörer i båda ändar,
       // också när lagret Händelser är avslaget eller kategorin filtrerad bort. De räknas inte i listan.
       const longRunning = isLongRunning(e, year);

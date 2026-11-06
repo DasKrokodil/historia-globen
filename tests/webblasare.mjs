@@ -1005,6 +1005,88 @@ async function run(browser, vp) {
     }
   });
 
+  // #555: vyn Framsteg i Lager. Ingen riktig händelse har taggen ännu, så vyn ska säga att den är tom. Med en
+  // test-fixtur (taggen läggs på Apollo 11 bara i testet, inte i datan) ska vyn visa just den händelsen och
+  // faktarutan ha märkningen med ett namn för skärmläsare.
+  await check('vyn Framsteg är tom utan taggar och visar taggade händelser (#555)', async () => {
+    // Det tomma läget, med den riktiga datan
+    await jumpTo(1969);
+    await clickView('#btn-layers');
+    await visible('#layer-menu');
+    const chip = page.locator('#layer-menu .view-chip[data-view="framsteg"]');
+    if (await chip.count() !== 1) throw new Error('vyn Framsteg saknas i Lager');
+    await chip.focus();
+    await page.keyboard.press('Enter');
+    await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="framsteg"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+    const status = page.locator('#layer-menu .layer-view-status');
+    await status.waitFor({ state: 'visible', timeout: T.step });
+    if (!/Inga händelser är markerade som framsteg ännu/.test(await status.textContent())) throw new Error(`tomt läge saknas i Lager: "${await status.textContent()}"`);
+    await page.keyboard.press('Escape');
+    await hidden('#layer-menu');
+    if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
+    await visible('#panel');
+    await page.waitForFunction(() => /markerade som framsteg/.test(document.querySelector('#event-list .tag-empty')?.textContent ?? ''), null, { timeout: T.step });
+    if (await page.locator('#event-list .event-btn').count()) throw new Error('vyn Framsteg visar otaggade händelser');
+    await page.click('#panel-close');
+    // Tillbaka till Standard
+    await clickView('#btn-layers');
+    await visible('#layer-menu');
+    await page.click('#layer-menu .view-chip[data-view="standard"]');
+    await page.keyboard.press('Escape');
+    await hidden('#layer-menu');
+
+    // Test-fixturen: samma sida i en ny flik, där Apollo 11 har taggen framsteg
+    const tagPage = await context.newPage();
+    const tagErrors = [];
+    tagPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) tagErrors.push(m.text()); });
+    tagPage.on('pageerror', e => tagErrors.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await tagPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await tagPage.route(u => isFont(u.href), r => r.abort());
+      }
+      await tagPage.route('**/data/genererat/handelser.json', async route => {
+        const res = await route.fetch();
+        const doc = await res.json();
+        for (const e of doc.events) if (e.id === 'apollo-11') e.tags = ['framsteg'];
+        await route.fulfill({ response: res, json: doc });
+      });
+      await tagPage.goto(`${BASE}#y=1969`);
+      await tagPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      const tagView = async sel => {
+        if (await tagPage.isHidden(sel) && await tagPage.isVisible('#more-toggle')) await tagPage.click('#more-toggle');
+        await tagPage.click(sel);
+      };
+      await tagView('#btn-layers');
+      await tagPage.waitForSelector('#layer-menu', { state: 'visible', timeout: T.step });
+      await tagPage.click('#layer-menu .view-chip[data-view="framsteg"]');
+      if (await tagPage.locator('#layer-menu .layer-view-status').isVisible()) throw new Error('tomt läge visas trots en taggad händelse');
+      await tagPage.keyboard.press('Escape');
+      if (await tagPage.locator('#panel').isHidden()) await tagPage.click('#btn-panel');
+      await tagPage.waitForSelector('#event-list .event-btn[data-id="apollo-11"]', { state: 'visible', timeout: T.step });
+      const ids = await tagPage.locator('#event-list .event-btn').evaluateAll(bs => bs.map(b => b.dataset.id));
+      if (ids.length !== 1 || ids[0] !== 'apollo-11') throw new Error(`vyn visar ${ids.join(', ')}, inte bara den taggade händelsen`);
+      await tagPage.click('#event-list .event-btn[data-id="apollo-11"]');
+      const mark = tagPage.locator('#detail .tag-mark[data-tag="framsteg"] summary');
+      await mark.waitFor({ state: 'visible', timeout: T.step });
+      const name = await mark.getAttribute('aria-label');
+      if (!name || !name.startsWith('Framsteg')) throw new Error(`märkningen saknar namn för skärmläsare (${name})`);
+      await mark.focus();
+      await tagPage.keyboard.press('Enter');
+      const about = tagPage.locator('#detail .tag-mark[data-tag="framsteg"] p');
+      await about.waitFor({ state: 'visible', timeout: T.step });
+      if (!/baksidor/.test(await about.textContent())) throw new Error('förklaringen till märkningen saknas');
+      const wide = await tagPage.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);
+      if (wide) throw new Error('märkningen ger horisontell scroll');
+      await tagPage.screenshot({ path: path.join(OUT, `${vp.name}-framsteg.png`) });
+      if (tagErrors.length) throw new Error(`fixturen gav konsolfel: ${tagErrors.join('; ')}`);
+    } finally {
+      await tagPage.close();
+    }
+    return 'tomt läge i Lager och Samtidigt; med fixtur bara Apollo 11, märkning med namn och förklaring';
+  });
+
   // #474: huvudstaden som gäller året syns när man följer ett rike. Testet tar ett rike ur datan med minst två daterade
   // huvudstäder och kontrollerar mitt i varje stads spann att just den staden visas, med den riktiga modulen.
   await check('huvudstaden följer året när man följer ett rike', async () => {

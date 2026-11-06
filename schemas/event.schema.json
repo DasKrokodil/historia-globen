@@ -30,6 +30,7 @@
           "title": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
           "summary": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
           "sources": { "type": "array", "items": { "type": "string", "pattern": ".+" } },
+          "tags": { "type": "array", "uniqueItems": true, "minItems": 1, "items": { "type": "string", "enum": ["framsteg"] } },
           "evidence": {
             "type": "object",
             "properties": {
