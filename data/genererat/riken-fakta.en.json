@@ -45,5 +45,8 @@
 "republiken-texas":{"items":{"4":{"label":{"en":"The symbol on the map"}}}},
 "kungariket-hawaii":{"items":{"4":{"label":{"en":"The symbol on the map"}}}},
 "neutrala-moresnet":{"items":{"4":{"label":{"en":"The symbol on the map"}}}},
-"amerikas-konfedererade-stater":{"items":{"4":{"label":{"en":"The symbol on the map"}}}}
+"amerikas-konfedererade-stater":{"items":{"4":{"label":{"en":"The symbol on the map"}}}},
+"azerbajdzjan":{"mapNote":{"en":"The border is disputed. Nagorno-Karabakh and surrounding areas, which Cliopatria counts as part of Armenia, are shown without a state up to and including 2022 and as part of Azerbaijan from 2023, because the Swedish Ministry for Foreign Affairs writes that Azerbaijan re-established its control over Nagorno-Karabakh in the autumn of 2023 (checked 2026-11-06). The border of the area comes from Natural Earth."}},
+"armenien":{"mapNote":{"en":"The border is disputed. Cliopatria counts Nagorno-Karabakh and surrounding areas as part of Armenia. The map does not show them as Armenia: up to and including 2022 they are shown without a state, as disputed, and from 2023 as part of Azerbaijan, because the Swedish Ministry for Foreign Affairs writes that Azerbaijan then re-established its control over Nagorno-Karabakh (checked 2026-11-06). The area is the part of Cliopatria's Armenia that lies within Azerbaijan's border in Natural Earth."}},
+"georgien":{"mapNote":{"en":"The border is disputed. Abkhazia and South Ossetia are drawn as part of Georgia, because for disputed borders the map follows Sweden's official position: Sweden supports Georgia's territorial integrity (Swedish Ministry for Foreign Affairs, checked 2026-11-06). According to Natural Earth, the areas are self-governing. The map shows Georgia in 1918–1921 and from 1992, as Cliopatria does."}}
 }}

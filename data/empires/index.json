@@ -27191,6 +27191,349 @@
      "review": "source-checked"
     }
    ]
+  },
+  {
+   "id": "azerbajdzjan",
+   "name": {
+    "sv": "Azerbajdzjan",
+    "en": "Azerbaijan",
+    "de": "Aserbaidschan",
+    "es": "Azerbaiyán",
+    "fr": "Azerbaïdjan"
+   },
+   "color": "#3a9ab0",
+   "from": 1992,
+   "to": 2024,
+   "file": "data/empires/azerbajdzjan.json",
+   "polities": [
+    {
+     "id": "azerbajdzjan",
+     "name": {
+      "sv": "Azerbajdzjan",
+      "en": "Azerbaijan",
+      "de": "Aserbaidschan",
+      "es": "Azerbaiyán",
+      "fr": "Azerbaïdjan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Gränsen är omstridd. Nagorno-Karabach och omkringliggande områden, som Cliopatria räknar till Armenien, visas utan stat till och med 2022 och som en del av Azerbajdzjan från 2023, eftersom UD skriver att Azerbajdzjan hösten 2023 återupprättade sin kontroll över Nagorno-Karabach (kontrollerad 2026-11-06). Gränsen för området kommer ur Natural Earth.",
+     "en": "The border is disputed. Nagorno-Karabakh and surrounding areas, which Cliopatria counts as part of Armenia, are shown without a state up to and including 2022 and as part of Azerbaijan from 2023, because the Swedish Ministry for Foreign Affairs writes that Azerbaijan re-established its control over Nagorno-Karabakh in the autumn of 2023 (checked 2026-11-06). The border of the area comes from Natural Earth.",
+     "de": "Die Grenze ist umstritten. Bergkarabach und umliegende Gebiete, die Cliopatria zu Armenien rechnet, werden bis einschließlich 2022 ohne Staat und ab 2023 als Teil Aserbaidschans gezeigt, weil das schwedische Außenministerium schreibt, dass Aserbaidschan im Herbst 2023 seine Kontrolle über Bergkarabach wiederhergestellt hat (geprüft am 2026-11-06). Die Grenze des Gebiets stammt aus Natural Earth.",
+     "es": "La frontera está en disputa. Nagorno Karabaj y las zonas circundantes, que Cliopatria cuenta como parte de Armenia, se muestran sin Estado hasta 2022 inclusive y como parte de Azerbaiyán desde 2023, porque el Ministerio de Asuntos Exteriores de Suecia escribe que Azerbaiyán restableció su control sobre Nagorno Karabaj en el otoño de 2023 (comprobado el 2026-11-06). La frontera de la zona procede de Natural Earth.",
+     "fr": "La frontière est contestée. Le Haut-Karabagh et les territoires environnants, que Cliopatria compte comme faisant partie de l'Arménie, apparaissent sans État jusqu'en 2022 inclus et comme faisant partie de l'Azerbaïdjan à partir de 2023, car le ministère suédois des Affaires étrangères écrit que l'Azerbaïdjan a rétabli son contrôle sur le Haut-Karabagh à l'automne 2023 (vérifié le 2026-11-06). La frontière du territoire provient de Natural Earth."
+    },
+    "sources": [
+     "ud-azerbajdzjan",
+     "natural-earth-omstridda"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "armenien",
+   "name": {
+    "sv": "Armenien",
+    "en": "Armenia",
+    "de": "Armenien",
+    "es": "Armenia",
+    "fr": "Arménie"
+   },
+   "color": "#c06a4a",
+   "from": 1992,
+   "to": 2024,
+   "file": "data/empires/armenien.json",
+   "polities": [
+    {
+     "id": "armenien",
+     "name": {
+      "sv": "Armenien",
+      "en": "Armenia",
+      "de": "Armenien",
+      "es": "Armenia",
+      "fr": "Arménie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Gränsen är omstridd. Cliopatria räknar Nagorno-Karabach och omkringliggande områden till Armenien. Kartan visar dem inte som Armenien: till och med 2022 visas de utan stat, som omstridda, och från 2023 som en del av Azerbajdzjan, eftersom UD skriver att Azerbajdzjan då återupprättade sin kontroll över Nagorno-Karabach (kontrollerad 2026-11-06). Området är den del av Cliopatrias Armenien som ligger inom Azerbajdzjans gräns i Natural Earth.",
+     "en": "The border is disputed. Cliopatria counts Nagorno-Karabakh and surrounding areas as part of Armenia. The map does not show them as Armenia: up to and including 2022 they are shown without a state, as disputed, and from 2023 as part of Azerbaijan, because the Swedish Ministry for Foreign Affairs writes that Azerbaijan then re-established its control over Nagorno-Karabakh (checked 2026-11-06). The area is the part of Cliopatria's Armenia that lies within Azerbaijan's border in Natural Earth.",
+     "de": "Die Grenze ist umstritten. Cliopatria rechnet Bergkarabach und umliegende Gebiete zu Armenien. Die Karte zeigt sie nicht als Armenien: bis einschließlich 2022 werden sie ohne Staat, als umstritten, gezeigt und ab 2023 als Teil Aserbaidschans, weil das schwedische Außenministerium schreibt, dass Aserbaidschan damals seine Kontrolle über Bergkarabach wiederhergestellt hat (geprüft am 2026-11-06). Das Gebiet ist der Teil von Cliopatrias Armenien, der innerhalb der Grenze Aserbaidschans in Natural Earth liegt.",
+     "es": "La frontera está en disputa. Cliopatria cuenta Nagorno Karabaj y las zonas circundantes como parte de Armenia. El mapa no las muestra como Armenia: hasta 2022 inclusive se muestran sin Estado, como zona en disputa, y desde 2023 como parte de Azerbaiyán, porque el Ministerio de Asuntos Exteriores de Suecia escribe que Azerbaiyán restableció entonces su control sobre Nagorno Karabaj (comprobado el 2026-11-06). La zona es la parte de la Armenia de Cliopatria que se encuentra dentro de la frontera de Azerbaiyán en Natural Earth.",
+     "fr": "La frontière est contestée. Cliopatria compte le Haut-Karabagh et les territoires environnants comme faisant partie de l'Arménie. La carte ne les montre pas comme l'Arménie : jusqu'en 2022 inclus, ils apparaissent sans État, comme contestés, et à partir de 2023 comme faisant partie de l'Azerbaïdjan, car le ministère suédois des Affaires étrangères écrit que l'Azerbaïdjan a alors rétabli son contrôle sur le Haut-Karabagh (vérifié le 2026-11-06). Le territoire est la partie de l'Arménie de Cliopatria située à l'intérieur de la frontière de l'Azerbaïdjan dans Natural Earth."
+    },
+    "sources": [
+     "ud-armenien",
+     "ud-azerbajdzjan",
+     "natural-earth-omstridda"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "georgien",
+   "name": {
+    "sv": "Georgien",
+    "en": "Georgia",
+    "de": "Georgien",
+    "es": "Georgia",
+    "fr": "Géorgie"
+   },
+   "color": "#a04a7a",
+   "from": 1918,
+   "to": 2024,
+   "file": "data/empires/georgien.json",
+   "polities": [
+    {
+     "id": "georgien",
+     "name": {
+      "sv": "Georgien",
+      "en": "Georgia",
+      "de": "Georgien",
+      "es": "Georgia",
+      "fr": "Géorgie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Gränsen är omstridd. Abchazien och Sydossetien ritas som en del av Georgien, eftersom kartan i omstridda gränser följer Sveriges officiella hållning: Sverige stöder Georgiens territoriella integritet (UD, kontrollerad 2026-11-06). Enligt Natural Earth är områdena självstyrande. Kartan visar Georgien 1918–1921 och från 1992, som Cliopatria.",
+     "en": "The border is disputed. Abkhazia and South Ossetia are drawn as part of Georgia, because for disputed borders the map follows Sweden's official position: Sweden supports Georgia's territorial integrity (Swedish Ministry for Foreign Affairs, checked 2026-11-06). According to Natural Earth, the areas are self-governing. The map shows Georgia in 1918–1921 and from 1992, as Cliopatria does.",
+     "de": "Die Grenze ist umstritten. Abchasien und Südossetien sind als Teil Georgiens gezeichnet, weil die Karte bei umstrittenen Grenzen der offiziellen Haltung Schwedens folgt: Schweden unterstützt die territoriale Integrität Georgiens (schwedisches Außenministerium, geprüft am 2026-11-06). Laut Natural Earth sind die Gebiete selbstverwaltet. Die Karte zeigt Georgien 1918–1921 und ab 1992, wie Cliopatria.",
+     "es": "La frontera está en disputa. Abjasia y Osetia del Sur se dibujan como parte de Georgia, porque en las fronteras en disputa el mapa sigue la posición oficial de Suecia: Suecia apoya la integridad territorial de Georgia (Ministerio de Asuntos Exteriores de Suecia, comprobado el 2026-11-06). Según Natural Earth, las zonas se autogobiernan. El mapa muestra Georgia en 1918–1921 y desde 1992, como Cliopatria.",
+     "fr": "La frontière est contestée. L'Abkhazie et l'Ossétie du Sud sont dessinées comme faisant partie de la Géorgie, car pour les frontières contestées la carte suit la position officielle de la Suède : la Suède soutient l'intégrité territoriale de la Géorgie (ministère suédois des Affaires étrangères, vérifié le 2026-11-06). Selon Natural Earth, ces territoires s'administrent eux-mêmes. La carte montre la Géorgie en 1918–1921 et à partir de 1992, comme Cliopatria."
+    },
+    "sources": [
+     "ud-georgien",
+     "natural-earth-omstridda"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "slovakien",
+   "name": {
+    "sv": "Slovakien",
+    "en": "Slovakia",
+    "de": "Slowakei",
+    "es": "Eslovaquia",
+    "fr": "Slovaquie"
+   },
+   "color": "#4aa070",
+   "from": 1992,
+   "to": 2024,
+   "file": "data/empires/slovakien.json",
+   "polities": [
+    {
+     "id": "slovakien",
+     "name": {
+      "sv": "Slovakien",
+      "en": "Slovakia",
+      "de": "Slowakei",
+      "es": "Eslovaquia",
+      "fr": "Slovaquie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "bhutan",
+   "name": {
+    "sv": "Bhutan",
+    "en": "Bhutan",
+    "de": "Bhutan",
+    "es": "Bután",
+    "fr": "Bhoutan"
+   },
+   "color": "#c0703a",
+   "from": 1636,
+   "to": 2024,
+   "file": "data/empires/bhutan.json",
+   "polities": [
+    {
+     "id": "bhutan",
+     "name": {
+      "sv": "Bhutan",
+      "en": "Bhutan",
+      "de": "Bhutan",
+      "es": "Bután",
+      "fr": "Bhoutan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "schweiz",
+   "name": {
+    "sv": "Schweiz",
+    "en": "Switzerland",
+    "de": "Schweiz",
+    "es": "Suiza",
+    "fr": "Suisse"
+   },
+   "color": "#c04040",
+   "from": 1648,
+   "to": 2024,
+   "file": "data/empires/schweiz.json",
+   "polities": [
+    {
+     "id": "schweiz",
+     "name": {
+      "sv": "Schweiz",
+      "en": "Switzerland",
+      "de": "Schweiz",
+      "es": "Suiza",
+      "fr": "Suisse"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "nederlanderna",
+   "name": {
+    "sv": "Nederländerna",
+    "en": "Netherlands",
+    "de": "Niederlande",
+    "es": "Países Bajos",
+    "fr": "Pays-Bas"
+   },
+   "color": "#d0803a",
+   "from": 1950,
+   "to": 2024,
+   "file": "data/empires/nederlanderna.json",
+   "polities": [
+    {
+     "id": "nederlanderna",
+     "name": {
+      "sv": "Nederländerna",
+      "en": "Netherlands",
+      "de": "Niederlande",
+      "es": "Países Bajos",
+      "fr": "Pays-Bas"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "salomonoarna",
+   "name": {
+    "sv": "Salomonöarna",
+    "en": "Solomon Islands",
+    "de": "Salomonen",
+    "es": "Islas Salomón",
+    "fr": "Îles Salomon"
+   },
+   "color": "#4a8ac0",
+   "from": 1979,
+   "to": 2024,
+   "file": "data/empires/salomonoarna.json",
+   "polities": [
+    {
+     "id": "salomonoarna",
+     "name": {
+      "sv": "Salomonöarna",
+      "en": "Solomon Islands",
+      "de": "Salomonen",
+      "es": "Islas Salomón",
+      "fr": "Îles Salomon"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "guinea-bissau",
+   "name": {
+    "sv": "Guinea-Bissau",
+    "en": "Guinea-Bissau",
+    "de": "Guinea-Bissau",
+    "es": "Guinea-Bisáu",
+    "fr": "Guinée-Bissau"
+   },
+   "color": "#c0a04a",
+   "from": 1973,
+   "to": 2024,
+   "file": "data/empires/guinea-bissau.json",
+   "polities": [
+    {
+     "id": "guinea-bissau",
+     "name": {
+      "sv": "Guinea-Bissau",
+      "en": "Guinea-Bissau",
+      "de": "Guinea-Bissau",
+      "es": "Guinea-Bisáu",
+      "fr": "Guinée-Bissau"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "lesotho",
+   "name": {
+    "sv": "Lesotho",
+    "en": "Lesotho",
+    "de": "Lesotho",
+    "es": "Lesoto",
+    "fr": "Lesotho"
+   },
+   "color": "#6a5ab0",
+   "from": 1967,
+   "to": 2024,
+   "file": "data/empires/lesotho.json",
+   "polities": [
+    {
+     "id": "lesotho",
+     "name": {
+      "sv": "Lesotho",
+      "en": "Lesotho",
+      "de": "Lesotho",
+      "es": "Lesoto",
+      "fr": "Lesotho"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
   }
  ]
 }

@@ -1,0 +1,7 @@
+{"note":"Genereras av tools/dela_data.py ur data/empires/index.json. Redigera inte här, utan i källfilen, och kör skriptet igen.",
+"lang":"de",
+"facts":{
+"azerbajdzjan":{"mapNote":{"de":"Die Grenze ist umstritten. Bergkarabach und umliegende Gebiete, die Cliopatria zu Armenien rechnet, werden bis einschließlich 2022 ohne Staat und ab 2023 als Teil Aserbaidschans gezeigt, weil das schwedische Außenministerium schreibt, dass Aserbaidschan im Herbst 2023 seine Kontrolle über Bergkarabach wiederhergestellt hat (geprüft am 2026-11-06). Die Grenze des Gebiets stammt aus Natural Earth."}},
+"armenien":{"mapNote":{"de":"Die Grenze ist umstritten. Cliopatria rechnet Bergkarabach und umliegende Gebiete zu Armenien. Die Karte zeigt sie nicht als Armenien: bis einschließlich 2022 werden sie ohne Staat, als umstritten, gezeigt und ab 2023 als Teil Aserbaidschans, weil das schwedische Außenministerium schreibt, dass Aserbaidschan damals seine Kontrolle über Bergkarabach wiederhergestellt hat (geprüft am 2026-11-06). Das Gebiet ist der Teil von Cliopatrias Armenien, der innerhalb der Grenze Aserbaidschans in Natural Earth liegt."}},
+"georgien":{"mapNote":{"de":"Die Grenze ist umstritten. Abchasien und Südossetien sind als Teil Georgiens gezeichnet, weil die Karte bei umstrittenen Grenzen der offiziellen Haltung Schwedens folgt: Schweden unterstützt die territoriale Integrität Georgiens (schwedisches Außenministerium, geprüft am 2026-11-06). Laut Natural Earth sind die Gebiete selbstverwaltet. Die Karte zeigt Georgien 1918–1921 und ab 1992, wie Cliopatria."}}
+}}
