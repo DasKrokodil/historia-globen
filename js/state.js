@@ -60,7 +60,7 @@ export function snapshot(state) {
 //
 // Tidslinjen äger året (CLAUDE.md punkt 3, Rikards val 2026-11-05 i #403): året ändras som förut via
 // Timeline, och omritningen speglar det in i tillståndet med mirror(). Övriga val ändras med åtgärderna
-// nedan, och den som vill veta om en ändring prenumererar. Själva adressen (delbara länkar) görs i #64/#501.
+// nedan, och den som vill veta om en ändring prenumererar. Adressen (delbara länkar, #64/#501) står i js/url-state.js.
 
 /** Versionen av JSON-formatet. Höjs om fälten ändras på ett sätt som gamla länkar inte klarar. */
 export const STATE_VERSION = 1;

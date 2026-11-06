@@ -30,6 +30,7 @@ import { createFocus } from './controllers/focus.js';
 import { createRender } from './controllers/render.js';
 import { createPlayback } from './controllers/playback.js';
 import { createLabels } from './controllers/labels.js';
+import { createAddress } from './controllers/address.js';
 
 const $ = id => document.getElementById(id);
 
@@ -499,6 +500,20 @@ async function start() {
   // Turen i adressen (?tur=<id>) startar direkt, till exempel från en lektion eller ett test
   const tourParam = new URLSearchParams(location.search).get('tur');
   if (tourParam) tour.start(tourParam);
+
+  // Tillståndet i adressen (#501) och knappen Dela (#64). En tur i adressen går före en delad vy.
+  const address = createAddress(app);
+  app.address = address;
+  await address.start({ read: !tourParam });
+  const shareBtn = $('btn-share');
+  let shareTimer = 0;
+  shareBtn.addEventListener('click', () => address.share(text => {
+    const label = shareBtn.textContent;
+    shareBtn.textContent = text;
+    $('screen-reader-status').textContent = text;
+    clearTimeout(shareTimer);
+    shareTimer = setTimeout(() => { shareBtn.textContent = label; }, 2500);
+  }));
 }
 
 

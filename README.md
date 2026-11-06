@@ -59,7 +59,7 @@ AGENTS.md             regler för Codex och andra agenter; pekar på CLAUDE.md
 _headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
 css/style.css
 js/main.js            startar allt och kopplar ihop registret, tidslinjen och panelerna
-js/controllers/       main.js uppdelad: val, fokus, faktarutor, omritning, uppspelning, berättelse och etiketter (#402)
+js/controllers/       main.js uppdelad: val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402) och adressen (#501)
 js/state.js           det gemensamma tillståndet som lagren läser (år, fokus, filter, valda lager, #338), åtgärder och JSON (#403)
 js/layers/registry.js lagerregistret: rader i Lager, ritordning, dämpning i fokus, teckenförklaring (#338)
 js/layers/index.js    lagerlistan: alla lager som anmäler sig i registret (#338)
@@ -82,6 +82,7 @@ js/ui/panel.js        "Samtidigt i världen" per världsdel, kategorifilter och 
 js/ui/funfact.js      Samtidigt-kortet (fun facts, när ett krig bröt ut) och bågar på globen
 js/ui/sources.js      sidan Om källorna (knappen Källor)
 js/ui/help.js         kort hjälp i tre steg för nya besökare (knappen Hjälp)
+js/url-state.js       adressformatet för delbara länkar och Bakåt/Framåt (#501, #64)
 js/search-index.js    sökningens index och matchning (#570)
 js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
 js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg, från Utforska (#363, #516)

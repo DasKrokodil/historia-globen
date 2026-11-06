@@ -204,6 +204,13 @@ export class Panel {
     document.addEventListener('keydown', ev => { if (ev.key === 'Escape') { this.setOpen(false); if (!detail.hidden) this.onSelect(null); } });
   }
 
+  /** Kategorierna som syns, utifrån (en delad länk, #501). Båda raderna med chips följer med. */
+  setFilters(ids) {
+    this.filters = new Set(ids);
+    for (const b of this.root.ownerDocument.querySelectorAll('.filter[data-cat]')) b.setAttribute('aria-pressed', String(this.filters.has(b.dataset.cat)));
+    this.onFilter(this.filters);
+  }
+
   /** Öppna eller stäng listan "Samtidigt i världen". */
   setOpen(open) {
     if (open) {
