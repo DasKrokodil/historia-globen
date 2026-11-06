@@ -99,7 +99,9 @@ export function createRender(app) {
     // Zoomnivån (#358): vilka rikesnamn och medaljer som får plats, och de viktigaste händelserna som ska hållas fria.
     // Rikena har redan valt sina områden i registry.update; namnens platser räknas när de ritas (AreasLayer._layout),
     // så det räcker att sätta vyn här, när händelserna (visible) är kända och innan lagerbilden och markörerna ritas.
-    areas.setView({ ...zoomView(globe, flatMap), keepouts: eventKeepouts(visible, { selectedId: state.selectedId, highlight: state.highlight, text: app.labelText }) });
+    areas.setView({ ...zoomView(globe, flatMap), keepouts: eventKeepouts(visible, { selectedId: state.selectedId, highlight: state.highlight, text: app.labelText }),
+      // Alla händelsemarkörer som syns, med halva storleken på skärmen, så att huvudstädernas namn viker undan (#616)
+      markers: layer.sprites.filter(sp => sp.userData.active).map(({ userData: u }) => ({ lon: u.event._lon, lat: u.event._lat, r: (flatMap.hidden ? (u.px ?? 22) : flatMap.markerPx(u)) / 2 + 2 })) });
     flatMap.obstacles = areas.placedBoxes(); // händelseetiketterna i Platt vy hamnar inte på rikesnamnen
     panel.setCurveYear(wholeYear);
     if (routePop.route && !routes.active.some(a => a.route === routePop.route)) routePop.hide(); // vägen syns inte längre

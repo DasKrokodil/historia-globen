@@ -1109,6 +1109,9 @@ details.used-by summary:hover { color: var(--parchment); }
 @media (min-width: 1100px) { .pause-finish { display: none; } }
 @media (max-width: 760px) { .pause-finish { padding: 6px 8px; } }
 .next-pause[hidden], .pause-next { display: none; }
+/* Nedräkningen vid Samtidigt-kortet (#578) */
+.pause-countdown { color: var(--brass); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pause-countdown[hidden] { display: none; }
 .pause-next { color: var(--parchment-dim); }
 @media (max-width: 1099px) {
   .next-pause { display: none; }

@@ -99,7 +99,8 @@ export class AreasLayer {
   /**
    * Zoomnivån och det som ska hållas fritt (#358): level = nivå i ZOOM_LEVELS, pxPerImg = skärmpixlar per bildpunkt
    * (4096 i bredd), minMedalPx = 3D-medaljens minsta storlek på skärmen (på globen, 0 i Platt vy) och
-   * keepouts = händelser som alltid har företräde, med plats för etiketten (eventKeepouts i ui/zoomlevels.js).
+   * keepouts = händelser som alltid har företräde, med plats för etiketten (eventKeepouts i ui/zoomlevels.js), och
+   * markers = alla händelsemarkörer som syns ({ lon, lat, r } med r i skärmpixlar), som huvudstädernas namn viker för (#616).
    */
   setView(view) {
     this.view = { ...this.view, ...view };
@@ -242,7 +243,30 @@ export class AreasLayer {
       if (!keep && (v.level < ZOOM_LEVELS.length - 1 || !free(b))) continue;
       take(b); map.set('pt:' + g.id, true);
     }
-    this._lay = { key, map, placed };
+    // Huvudstäder (#474, #616): fyrkanten står alltid på stadens plats, och namnet står till höger om den. Ligger en
+    // händelsemarkör, en etikett eller ett rikesnamn där flyttas namnet till vänster, ovanför eller under. Är alla
+    // sidor upptagna står det till höger som förut. Markörerna (view.markers) är alla händelser som syns, med sin
+    // storlek på skärmen, eftersom en huvudstad ofta har en händelse på samma plats.
+    const capFont = `italic ${12 * sc}px "IM Fell English", Georgia, serif`, cs = 12 * sc, cr = 3.6 * sc;
+    const marks = (v.markers ?? []).map(m => sq(X(m.lon), Y(m.lat), m.r / unit));
+    const capFree = b => free(b) && !marks.some(u => overlaps(u, b));
+    const caps = (this.activeCapitals ?? []).map(c => {
+      const x = X(c.at[0]), y = Y(c.at[1]), name = t(c.name), w = measure(name, capFont);
+      // Sidorna i tur och ordning (höger, vänster, ovanför, under), först tätt intill fyrkanten och sedan längre ut,
+      // så att namnet hamnar strax bortom en markör som ligger på staden
+      const at = g => [
+        { align: 'left', x: x + cr * 2 + g, y, b: { x0: x + cr * 2 + g, x1: x + cr * 2 + g + w, y0: y - cs * 0.55, y1: y + cs * 0.55 } },
+        { align: 'right', x: x - cr * 2 - g, y, b: { x0: x - cr * 2 - g - w, x1: x - cr * 2 - g, y0: y - cs * 0.55, y1: y + cs * 0.55 } },
+        { align: 'center', x, y: y - cr - cs * 0.7 - g, b: box(x, y - cr - cs * 0.7 - g, w, cs) },
+        { align: 'center', x, y: y + cr + cs * 0.7 + g, b: box(x, y + cr + cs * 0.7 + g, w, cs) },
+      ];
+      let side = null;
+      for (let i = 0; i <= 8 && !side; i++) side = at(i * cs * 0.5).find(o => capFree(o.b));
+      side ??= at(0)[0];
+      take(sq(x, y, cr)); take(side.b);
+      return { name, sq: [x, y], ...side };
+    });
+    this._lay = { key, map, placed, caps };
     return map;
   }
 
@@ -398,8 +422,8 @@ export class AreasLayer {
     ctx.globalAlpha = this.labelAlpha;
     // Huvudstäder (#474): en liten fyrkant i pergament med mörk kant och stadens namn, så att den inte förväxlas
     // med moderlandets stjärna (#74) eller ringen för försvunna länder utan gräns (#72)
-    for (const c of this.activeCapitals ?? []) {
-      const x = X(c.at[0]), y = Y(c.at[1]), r = 3.6 * k * this.labelScale;
+    for (const c of this._lay?.caps ?? []) {
+      const x = c.sq[0] * k, y = c.sq[1] * k, r = 3.6 * k * this.labelScale;
       ctx.globalAlpha = 1;
       ctx.fillStyle = '#f6e7c4';
       ctx.strokeStyle = 'rgba(16,22,30,0.9)';
@@ -409,8 +433,8 @@ export class AreasLayer {
       ctx.globalAlpha = this.labelAlpha;
       ctx.save();
       ctx.font = `italic ${12 * k * this.labelScale}px "IM Fell English", Georgia, serif`;
-      ctx.textAlign = 'left';
-      write(t(c.name), (x + r * 2) / k, y / k);
+      ctx.textAlign = c.align; // namnets sida bestäms av _layout() (#616)
+      write(c.name, c.x, c.y);
       ctx.restore();
     }
     ctx.globalAlpha = this.labelAlpha;
