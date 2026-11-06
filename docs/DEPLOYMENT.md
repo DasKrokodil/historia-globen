@@ -48,13 +48,13 @@ Alla ikoner i `img/icons/` publiceras, eftersom namnen kommer ur data och JS. I 
 - three.js 0.160.0 från `cdn.jsdelivr.net` (`js/globe.js`)
 - typsnitten från Google Fonts, `fonts.googleapis.com` och `fonts.gstatic.com` (`index.html`)
 
-De måste vara nåbara från båda miljöerna. Det gäller också om en Content-Security-Policy eller Cloudflare-regel läggs till.
+De måste vara nåbara från båda miljöerna. De står därför i Content-Security-Policy i `_headers`, och de måste också tillåtas om en Cloudflare-regel läggs till.
 
 ### Säkerhetsheaders
 
-`_headers` skickar tills vidare **Content-Security-Policy-Report-Only** för alla sidor. Den begränsar resurser till den egna webbplatsen, jsDelivr (three.js), Google Fonts och Cloudflare Turnstile när förslagsformuläret används. `frame-ancestors 'none'` hindrar att sidan bäddas in i andra webbplatser, och `Permissions-Policy` stänger av kamera, mikrofon, plats och betalningar som sidan inte använder.
+`_headers` skickar en skarp **Content-Security-Policy** för alla sidor (#707, [beslut 2026-11-06](beslut/2026-11-06-ingen-tredjepartsstatistik-skarp-csp.md); Report-Only från #392 till v5.0.0). Den begränsar resurser till den egna webbplatsen, jsDelivr (three.js), Google Fonts och Cloudflare Turnstile när förslagsformuläret används. `frame-ancestors 'none'` hindrar att sidan bäddas in i andra webbplatser, och `Permissions-Policy` stänger av kamera, mikrofon, plats och betalningar som sidan inte använder.
 
-Report-Only ändrar inte vad besökaren kan läsa in, utan skriver CSP-avvikelser i webbläsarkonsolen. Kontrollera därför konsolen på både development och produktion efter varje release som ändrar resurser eller formuläret. Byt först till den skarpa headern `Content-Security-Policy` efter minst en release utan CSP-varningar; behåll då exakt samma regelvärde och testa formuläret med Turnstile.
+Regeln är skarp: webbläsaren blockerar allt som inte står i den och skriver felet i konsolen. Det gäller också skript som Cloudflare lägger in i sidan, till exempel Cloudflare Web Analytics (`static.cloudflareinsights.com`). Den ska vara avstängd i Cloudflares inställningar, eftersom sidan inte har något statistikskript (beslutet ovan, #466). Kontrollera konsolen på development efter varje ändring som lägger till en resurs eller ändrar formuläret, och på produktionen efter varje release. Ett CSP-fel betyder att något blockeras för besökaren. En ny extern källa kräver ett beslut (CLAUDE.md, arkitektur punkt 6) och läggs till i regeln i samma pull request. Turnstile (`challenges.cloudflare.com`) är tillåtet för förslagsformuläret.
 
 ## Bygga och kontrollera lokalt
 
@@ -290,4 +290,4 @@ Så länge källan är `main` kan `main` publiceras **publikt och utan Cloudflar
 - **dev.historiagloben.se och Cloudflare Access:** inte verifierat härifrån om domänen pekar på `main.historia-globen.pages.dev` och om Access skyddar den (förhandsadresserna på pages.dev är skyddade). Det ställs in i Cloudflare, inte i repot.
 - **DNS:** historiagloben.se och dev.historiagloben.se går inte att slå upp eller nå från arbetsmiljön, så DNS-posterna är inte kontrollerade härifrån.
 - **Bygginställningar i Cloudflare:** byggkommando och utdatakatalog står inte i repot; se [Cloudflare Pages](#cloudflare-pages).
-- **Externa resurser:** jsDelivr och Google Fonts måste vara tillåtna om en Content-Security-Policy införs.
+- **Externa resurser:** jsDelivr, Google Fonts och Turnstile är tillåtna i den skarpa CSP:n i `_headers` (#707).

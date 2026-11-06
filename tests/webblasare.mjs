@@ -67,19 +67,25 @@ const isFont = url => { try { return FONT_HOSTS.includes(new URL(url).hostname);
 
 // Körs i sidan: jämför den platta kartans pixlar (#flat-canvas) med en sparad bild.
 // Används för att se att ett lager faktiskt ritar något: lagret av → spara → lagret på → räkna ändrade pixlar.
-const PIXELS = `(() => {
-  const c = document.getElementById('flat-canvas');
-  const d = c.getContext('2d').getImageData(0, 0, c.width, c.height).data;
-  return d;
-})()`;
-const DIFF = `((a, b) => {
-  if (!a || !b || a.length !== b.length) return Infinity;
-  let n = 0;
-  for (let i = 0; i < a.length; i += 4) {
-    if (Math.abs(a[i] - b[i]) + Math.abs(a[i + 1] - b[i + 1]) + Math.abs(a[i + 2] - b[i + 2]) > 30) n++;
-  }
-  return n;
-})`;
+// Hjälpen läggs i window.__hgTestPixels av en vanlig funktion (inte en textsträng), eftersom en sträng måste köras
+// med eval, och det stoppar sidans skarpa Content-Security-Policy (#707) när testet körs mot den publicerade sidan.
+function installPixelHelpers() {
+  window.__hgTestPixels ??= {
+    now() {
+      const c = document.getElementById('flat-canvas');
+      return c.getContext('2d').getImageData(0, 0, c.width, c.height).data;
+    },
+    diff(a, b) {
+      if (!a || !b || a.length !== b.length) return Infinity;
+      let n = 0;
+      for (let i = 0; i < a.length; i += 4) {
+        if (Math.abs(a[i] - b[i]) + Math.abs(a[i + 1] - b[i + 1]) + Math.abs(a[i + 2] - b[i + 2]) > 30) n++;
+      }
+      return n;
+    },
+  };
+  return window.__hgTestPixels;
+}
 
 async function run(browser, vp) {
   const results = [];
@@ -168,12 +174,15 @@ async function run(browser, vp) {
     await page.waitForFunction(v => document.getElementById('year-big').textContent.trim() === v, String(y < 1 ? 1 - y : y), { timeout: T.step });
   };
   // Väntar tills den platta kartan står still (två bilder i rad nästan lika) och sparar den som jämförelsebild.
-  const settleFlat = () => page.waitForFunction(`(() => {
-    const now = ${PIXELS}, prev = window.__hgTestPrev;
-    window.__hgTestPrev = now;
-    if (prev && ${DIFF}(prev, now) < 20) { window.__hgTestBase = now; return true; }
-    return false;
-  })()`, null, { polling: 300, timeout: T.step });
+  const settleFlat = async () => {
+    await page.evaluate(installPixelHelpers);
+    await page.waitForFunction(() => {
+      const px = window.__hgTestPixels, now = px.now(), prev = window.__hgTestPrev;
+      window.__hgTestPrev = now;
+      if (prev && px.diff(prev, now) < 20) { window.__hgTestBase = now; return true; }
+      return false;
+    }, null, { polling: 300, timeout: T.step });
+  };
   const layerRow = name => `#layer-menu input[data-layer="${name}"]`;
   const setLayer = async (name, on) => {
     if (await page.isHidden('#layer-menu')) { await clickView('#btn-layers'); await visible('#layer-menu'); }
@@ -194,8 +203,11 @@ async function run(browser, vp) {
     await settleFlat();
     await setLayer(name, true);
     await page.mouse.move(1, 1);
-    const h = await page.waitForFunction(`(() => { const n = ${DIFF}(window.__hgTestBase, ${PIXELS}); return n >= ${min} && n; })()`,
-      null, { polling: 300, timeout: T.step });
+    await page.evaluate(installPixelHelpers);
+    const h = await page.waitForFunction(min => {
+      const px = window.__hgTestPixels, n = px.diff(window.__hgTestBase, px.now());
+      return n >= min && n;
+    }, min, { polling: 300, timeout: T.step });
     return h.jsonValue();
   };
 
