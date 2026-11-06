@@ -18712,12 +18712,14 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan visar Indien från 1947, som källorna. Före 1947 räknar Cliopatria området till Brittiska Indien (British Raj) inom Brittiska imperiet. Landets yta på kartan växer 1948 och 1963."
+     "sv": "Kartan visar Indien från 1947, som källorna. Före 1947 räknar Cliopatria området till Brittiska Indien (British Raj) inom Brittiska imperiet. Landets yta på kartan växer 1948 och 1963. Gränsen i Kashmir är omstridd. Kartan visar Cliopatrias linjer, alltså vem som kontrollerar områdena och inte vem de tillhör: en del räknas till Indien, en del till Pakistan och en del i nordost till Kina. Sverige har ingen uttalad hållning om gränsen som vi hittat; UD skriver om det indiska unionsterritoriet Jammu och Kashmir och om den Pakistan-kontrollerade delen av Kashmir (kontrollerad 2026-11-06)."
     },
     "sources": [
      "wp-india",
      "wp-history-of-the-republic-of-india",
-     "wd-india"
+     "wd-india",
+     "ud-avradan-indien",
+     "ud-avradan-pakistan"
     ],
     "review": "source-checked"
    },
@@ -18940,12 +18942,14 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan visar Pakistan från 1947, som källorna. Cliopatria räknar Östpakistan till Pakistan till och med 1972, och Bangladesh visas som eget land först från 1973, fast källorna anger 1971. Före 1947 räknar Cliopatria området till Brittiska Indien (British Raj)."
+     "sv": "Kartan visar Pakistan från 1947, som källorna. Cliopatria räknar Östpakistan till Pakistan till och med 1972, och Bangladesh visas som eget land först från 1973, fast källorna anger 1971. Före 1947 räknar Cliopatria området till Brittiska Indien (British Raj). Gränsen i Kashmir är omstridd. Kartan visar Cliopatrias linjer, alltså vem som kontrollerar områdena och inte vem de tillhör: en del räknas till Indien, en del till Pakistan och en del i nordost till Kina. Sverige har ingen uttalad hållning om gränsen som vi hittat; UD skriver om det indiska unionsterritoriet Jammu och Kashmir och om den Pakistan-kontrollerade delen av Kashmir (kontrollerad 2026-11-06)."
     },
     "sources": [
      "wp-pakistan",
      "wp-history-of-pakistan-1947",
-     "wd-pakistan"
+     "wd-pakistan",
+     "ud-avradan-indien",
+     "ud-avradan-pakistan"
     ],
     "review": "source-checked"
    },
