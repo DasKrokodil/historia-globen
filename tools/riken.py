@@ -85,7 +85,9 @@ GROUPS = {
         ('Golden Horde', 'gyllene-horden', 'Gyllene horden', '#b08c4a'),
     ]),
     'brittiska-imperiet': ('Brittiska imperiet', 'British Empire', [
-        ('(British Empire)', 'brittiska-imperiet', 'Brittiska imperiet', '#c2557a', {'homeland': ['Kingdom of Great Britain']}),
+        # Cliopatria räknar Botswana till imperiet till och med 1968, fast Botswana är eget land från 1967 (#644)
+        ('(British Empire)', 'brittiska-imperiet', 'Brittiska imperiet', '#c2557a',
+         {'homeland': ['Kingdom of Great Britain'], 'minus': ['Republic of Botswana']}),
     ]),
     # R2 Antiken (#68)
     'egypten': ('Egypten: gamla och nya riket', 'Egypt: Old and New Kingdom', [
@@ -275,7 +277,9 @@ GROUPS = {
     'neutrala-moresnet': ('Neutrala Moresnet', 'Neutral Moresnet', [], {'color': '#e0a0c0'}),
     # R7 (#407): stater i Amerika som krigen och resorna behöver (inbördeskriget, Paraguaykriget, mexikanska revolutionen)
     'usa': ('USA', 'United States', [
-        ('United States of America', 'usa', 'USA', '#4a7ab8', {'en': 'United States'}),
+        # Cliopatria räknar Japan till USA 1947–1966 och Okinawa till och med 2005, också de år då Japan är eget land
+        # i Cliopatria (från 1953); de åren klipps Japan bort (#644)
+        ('United States of America', 'usa', 'USA', '#4a7ab8', {'en': 'United States', 'minus': ['Japan']}),
     ]),
     'amerikas-konfedererade-stater': ('Amerikas konfedererade stater', 'Confederate States of America', [
         ('Confederate States of America', 'amerikas-konfedererade-stater', 'Amerikas konfedererade stater', '#8c7f6a'),
@@ -539,6 +543,78 @@ GROUPS = {
         # Cliopatria räknar Algeriet och Djibouti till Femte republiken 1961–2023, också de år då de är egna stater i Cliopatria
         ('French Fifth Republic', 'femte-republiken', 'Frankrike', '#3a5fa0',
          {'en': 'French Fifth Republic', 'minus': ["People's Democratic Republic of Algeria", 'Republic of Djibouti']}),
+    ]),
+    # Nutida stater, tredje omgången (#644). Spanien, Norge, Japan och Marocko väntar: de överlappar riken vi har
+    # (Spanska imperiet, Sverige-Norge, Japanska imperiet) eller behöver noten om Västsahara
+    'myanmar': ('Myanmar', 'Myanmar', [
+        (['Burma', 'Union of Myanmar'], 'myanmar', 'Myanmar', '#a8649a', {'en': 'Myanmar', 'wikidata': 'Q836', 'years': (1948, 2024)}),
+    ]),
+    'somalia': ('Somalia', 'Somalia', [
+        ('Federal Republic of Somalia', 'somalia', 'Somalia', '#4a90c0', {'en': 'Somalia'}),
+    ]),
+    'centralafrikanska-republiken': ('Centralafrikanska republiken', 'Central African Republic', [
+        ('Central African Republic', 'centralafrikanska-republiken', 'Centralafrikanska republiken', '#7aa04a',
+         {'en': 'Central African Republic'}),
+    ]),
+    'madagaskar': ('Madagaskar', 'Madagascar', [
+        ('Madagascar', 'madagaskar', 'Madagaskar', '#9a6ab0', {'en': 'Madagascar'}),
+    ]),
+    'sydsudan': ('Sydsudan', 'South Sudan', [
+        ('South Sudan', 'sydsudan', 'Sydsudan', '#c06a8a', {'en': 'South Sudan'}),
+    ]),
+    'kenya': ('Kenya', 'Kenya', [
+        ('Republic of Kenya', 'kenya', 'Kenya', '#b05050', {'en': 'Kenya'}),
+    ]),
+    'botswana': ('Botswana', 'Botswana', [
+        ('Republic of Botswana', 'botswana', 'Botswana', '#d07a5a', {'en': 'Botswana'}),
+    ]),
+    'thailand': ('Thailand', 'Thailand', [
+        ('Kingdom of Thailand', 'thailand', 'Thailand', '#4f9a9a', {'en': 'Thailand'}),
+    ]),
+    'turkmenistan': ('Turkmenistan', 'Turkmenistan', [
+        ('Turkmenistan', 'turkmenistan', 'Turkmenistan', '#9ab04a', {'en': 'Turkmenistan'}),
+    ]),
+    'kamerun': ('Kamerun', 'Cameroon', [
+        ('Republic of Cameroon', 'kamerun', 'Kamerun', '#c05a3a', {'en': 'Cameroon'}),
+    ]),
+    # Nutida stater, fjärde omgången (#644). Spanien börjar 1932 (Spanska imperiet slutar 1931), Norge 1905
+    # (unionen med Sverige slutar 1904) och Japan 1953 (Japanska imperiet slutar 1945; Cliopatria saknar 1946–1952)
+    'spanien': ('Spanien', 'Spain', [
+        ('Second Spanish Republic', 'andra-spanska-republiken', 'Andra spanska republiken', '#d07a3a', {'en': 'Second Spanish Republic'}),
+        ('Francoist Spain', 'spanien-under-franco', 'Spanien under Franco', '#d07a3a', {'en': 'Francoist Spain'}),
+        ('Kingdom of Spain', 'spanien', 'Spanien', '#d07a3a', {'en': 'Spain', 'years': (1976, 2024)}),
+    ]),
+    # Cliopatria anger Q199841 (Sydjemen) för Jemen; rätt id är Q805
+    'jemen': ('Jemen', 'Yemen', [
+        ('Republic of Yemen', 'jemen', 'Jemen', '#4a8aa0', {'en': 'Yemen', 'wikidata': 'Q805'}),
+    ]),
+    'norge': ('Norge', 'Norway', [
+        ('Kingdom of Norway', 'norge', 'Norge', '#2f8f7a', {'en': 'Norway', 'years': (1905, 2024)}),
+    ]),
+    'uzbekistan': ('Uzbekistan', 'Uzbekistan', [
+        ('Republic of Uzbekistan', 'uzbekistan', 'Uzbekistan', '#c0705a', {'en': 'Uzbekistan'}),
+    ]),
+    # Cliopatria anger Q188712 (Kejsardömet Japan) för Japan efter 1953; rätt id är Q17
+    'japan': ('Japan', 'Japan', [
+        ('Japan', 'japan', 'Japan', '#e07a8a', {'en': 'Japan', 'wikidata': 'Q17'}),
+    ]),
+    # Marocko 1670–1911 och från 1956; däremellan ingår landet i franska kolonialväldet. Västsahara hör inte till
+    # Marocko i Cliopatria, vilket stämmer med att Sverige inte har uttalat vem området tillhör (docs/omstridda-granser.md)
+    'marocko': ('Marocko', 'Morocco', [
+        ('Morocco', 'marocko', 'Marocko', '#b0503a', {'en': 'Morocco'}),
+    ]),
+    'zimbabwe': ('Zimbabwe', 'Zimbabwe', [
+        ('Republic of Zimbabwe', 'zimbabwe', 'Zimbabwe', '#9a4a6a', {'en': 'Zimbabwe'}),
+    ]),
+    'tyskland': ('Tyskland', 'Germany', [
+        ('Federated Republic of Germany', 'tyskland', 'Tyskland', '#c8b04a', {'en': 'Germany'}),
+    ]),
+    'malaysia': ('Malaysia', 'Malaysia', [
+        ('Malaysia', 'malaysia', 'Malaysia', '#d08a4a', {'en': 'Malaysia'}),
+    ]),
+    # Cliopatria anger Q974 (Kongo-Kinshasa) för Kongo-Brazzaville; rätt id är Q971
+    'kongo-brazzaville': ('Kongo-Brazzaville', 'Republic of the Congo', [
+        ('Republic of the Congo', 'kongo-brazzaville', 'Kongo-Brazzaville', '#c07aa0', {'en': 'Republic of the Congo', 'wikidata': 'Q971'}),
     ]),
 }
 
