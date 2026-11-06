@@ -230,5 +230,19 @@
   "play.fwd1": "1 year forward",
   "play.track": "Year",
   "sources.title": "About the sources",
-  "common.loading": "Loading the globe…"
+  "common.loading": "Loading the globe…",
+  "search.button": "Search",
+  "search.label": "Search the globe",
+  "search.placeholder": "for example Pompeii, Rome or Columbus",
+  "search.note": "The search covers the globe's own events, empires and journeys.",
+  "search.hint": "Type the name of an event, an empire, a journey or a place.",
+  "search.none": "Nothing in the globe's content matches “{q}”.",
+  "search.one": "1 result",
+  "search.count": "{n} results",
+  "search.many": "More than {n} results. Type more words to narrow it down.",
+  "search.type.event": "Event",
+  "search.type.war": "War",
+  "search.type.empire": "Empire",
+  "search.type.route": "Journey",
+  "search.mapData": "map data {span}"
 }

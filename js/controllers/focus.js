@@ -197,7 +197,7 @@ export function createFocus(app) {
   ];
   focusMenu.setGroups(focusGroups());
   focusMenu.onOpen = async () => {
-    panel.setOpen(false); layers.close();
+    panel.setOpen(false); layers.close(); app.search?.close(false);
     // Nära = inom fyra gånger det tidslinjen visar runt året (vid 1325 cirka ±150 år)
     const year = Math.floor(timeline.year), r = Math.round(timeline.windowYears(year) * 4 / 10) * 10;
     focusMenu.setTime({ year, from: year - r, to: year + r, label: `inom ±${r} år från ${formatYear(year)}` });

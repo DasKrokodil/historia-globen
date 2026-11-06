@@ -1961,6 +1961,41 @@ async function run(browser, vp) {
     });
   }
 
+  // Sök (#570): en händelse öppnas på sitt år, ett rike börjar följas, och tomt resultat syns tydligt
+  await check('Sök hittar händelser och riken', async () => {
+    if (await page.locator('#focus-bar').isVisible()) { await page.click('#focus-exit'); await hidden('#focus-bar'); }
+    const openSearch = async () => {
+      if (await page.isHidden('#btn-search')) await page.click('#more-toggle');
+      await page.click('#btn-search');
+      await visible('#search-pop');
+    };
+    await openSearch();
+    await page.fill('#search-input', 'pompeji');
+    await page.waitForSelector('.search-hit', { timeout: T.step });
+    await page.keyboard.press('Enter');
+    await hidden('#search-pop');
+    await visible('#detail');
+    const year = (await page.textContent('#year-big')).trim();
+    if (year !== '79') throw new Error(`Pompeji öppnades på året ${year}, inte 79`);
+    if (!/Pompeji/.test(await page.textContent('#detail'))) throw new Error('faktarutan visar inte Pompeji');
+    await page.keyboard.press('Escape');
+    await openSearch();
+    await page.fill('#search-input', 'bysantinska');
+    await page.locator('.search-hit').first().click();
+    await visible('#focus-bar');
+    if (!/Rom/.test(await page.textContent('#focus-title'))) throw new Error('Bysantinska hittade inte Rom i Fokus');
+    await page.click('#focus-exit');
+    await hidden('#focus-bar');
+    await openSearch();
+    await page.fill('#search-input', 'qxzvw');
+    await page.waitForFunction(() => /Inget/.test(document.getElementById('search-status').textContent), null, { timeout: T.step });
+    if (await page.locator('.search-hit').count()) throw new Error('nonsens gav träffar');
+    await page.keyboard.press('Escape');
+    await hidden('#search-pop');
+    if (await page.locator('#more-menu').isVisible() && await page.isVisible('#more-toggle')) await page.click('#more-toggle').catch(() => {});
+    return 'Pompeji öppnas år 79; Bysantinska ger Rom i Fokus; nonsens ger "Inget …"; Escape stänger';
+  });
+
   await check('faktarutan skiljer källkontroll från osäkerhet', async () => {
     if (await page.locator('#focus-bar').isVisible()) {
       await page.click('#focus-exit');
