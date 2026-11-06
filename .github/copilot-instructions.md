@@ -26,7 +26,7 @@ Flera agenter hos två personer arbetar parallellt (Claude Code, Codex och du). 
 4. **Ta issuet:** skriv en kommentar med konto ("Copilot (DasKrokodil) tar det här"), sätt `pågår`, ta bort `redo` och tilldela issuet personen vars konto du kör på. Läs issuet en gång till direkt efteråt: har någon annan hunnit före gäller den första kommentaren; kom du sist, backa genast (ta bort din tilldelning och skriv en kommentar).
 5. **Bygg på grenen** `copilot/issue-<N>-<kort-namn>`, utgå från senaste `main`.
 6. **Ta bort `pågår`** när pull requesten är öppnad (tilldelningen står kvar). Avbryter du: ta bort `pågår` och tilldelningen och sätt tillbaka `redo`. Ett `pågår` utan aktivt arbete ska alltid tas bort.
-7. **Högst fyra öppna pull requests per person** (räknat på kontot du kör på; en ändring som byggs räknas). Är det redan fyra: bygg inget nytt.
+7. **Högst fyra öppna pull requests per person** (räknat på kontot du kör på; en ändring som byggs räknas). Är det redan fyra: bygg inget nytt, utan gör i stället klart dina egna (rätta efter granskning, laga röda kontroller) eller förbered nästa issue med en kommentar (vilka filer som ändras, testplan). Bygg inte färdigt på en gren i väntan på en ledig plats.
 8. **Ingen tar ett issue som ändrar samma filer som en öppen pull request.** Välj ett annat, eller vänta.
 
 ## Testa innan pull request
