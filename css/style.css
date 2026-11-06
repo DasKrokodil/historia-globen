@@ -884,6 +884,7 @@ html.calm .intro-box { animation: none; }
 .tick.first { transform: none; }
 .tick.first::before { left: 0; }
 .tick.lvl2, .tick.lvl3 { display: none; }
+.tick.tick-hidden { visibility: hidden; } /* krockar med ett viktigare årtal (#63) */
 @media (min-width: 600px) { .tick.lvl2 { display: block; } }
 @media (min-width: 900px) { .tick.lvl3 { display: block; } }
 

@@ -421,6 +421,7 @@ Gränssnittets texter, skilda från datans texter (beslut 2026-11-05, docs/beslu
 
 - `ui/sprak.json`: språken i språkväljaren, i ordning. Varje språk har `id` (`sv`, `en` …), `name` (som språket skriver sitt namn), `auto` (väljs efter webbläsarens språk; bara färdiga språk), `complete` (alla gränssnittstexter finns), valfritt `beta` (ordet efter namnet när språket inte är färdigt), och för översatta språk `translatedBy`, `translatedAt`, `reviewedBy` och `review` (`unreviewed` eller `reviewed`, AI-korsgranskning).
 - `ui/<språk>.json`: ett platt objekt med nyckel och text. Nycklarna i `index.html` (`data-i18n="help.title"`) och de som JavaScript hämtar med `ui('time.bce')`. `{namn}` i en text byts mot ett värde (`"time.since": "sedan {start}"`). En text kan vara en lista (månaderna). Fältet `_om` är en kommentar.
+- Språk i dag: `sv` (grundspråk), `en`, `fr`, `de` och `es`. De fyra senare är "beta" och ogranskade.
 - `ui/sv.json` har svenskan för de nycklar som JavaScript hämtar. Sidans fasta texter står på svenska i `index.html` och finns bara i de andra språkens filer.
 - Kategoriernas namn på andra språk: `cat.<id>` och `cat.<id>.count` (ental och flertal); svenskan står i `CATEGORIES` i `js/model.js`.
 - Saknas en nyckel visas engelska, sedan svenska, som för datans texter.
