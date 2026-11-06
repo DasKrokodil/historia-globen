@@ -12,6 +12,21 @@
       "source": null
     },
     {
+      "eventId": "arabiska-varen",
+      "eventTitle": "Arabiska våren",
+      "file": "images/events/tsunamin-i-indiska-oceanen-2004.webp",
+      "kind": "historisk",
+      "credit": "Philip A. McDaniel, U.S. Navy / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-tsunamin-i-indiska-oceanen-2004",
+        "title": "By nära Sumatras kust efter tsunamin, 2 januari 2005 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:US_Navy_050102-N-9593M-040_A_village_near_the_coast_of_Sumatra_lays_in_ruin_after_the_Tsunami_that_struck_South_East_Asia.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
       "eventId": "bagdads-fall-1258",
       "eventTitle": "Bagdads fall",
       "file": "images/events/bagdads-fall-1258.webp",
@@ -168,6 +183,21 @@
       "source": null
     },
     {
+      "eventId": "covid-19-pandemin",
+      "eventTitle": "Covid-19-pandemin",
+      "file": "images/events/covid-19-pandemin.webp",
+      "kind": "historisk",
+      "credit": "Alissa Eckert och Dan Higgins, CDC / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-covid-19-pandemin",
+        "title": "CDC:s illustration av SARS-CoV-2, januari 2020 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:SARS-CoV-2_without_background.png",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
       "eventId": "darwin-fods",
       "eventTitle": "Charles Darwin föds",
       "file": "images/events/darwin-fods.webp",
@@ -214,6 +244,36 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "fn-grundas",
+      "eventTitle": "FN-stadgan skrivs under och FN grundas",
+      "file": "images/events/fn-grundas.webp",
+      "kind": "historisk",
+      "credit": "Megs / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-fn-grundas",
+        "title": "FN-stadgan i utställning vid FN:s högkvarter, foto 2025 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:United_Nations_Charter.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "gagarin-vostok-1",
+      "eventTitle": "Jurij Gagarin blir första människan i rymden",
+      "file": "images/events/manskliga-rattigheter-1948.webp",
+      "kind": "historisk",
+      "credit": "FDR Presidential Library & Museum / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-manskliga-rattigheter-1948",
+        "title": "Eleanor Roosevelt med förklaringen om de mänskliga rättigheterna, 1949 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Eleanor_Roosevelt_UDHR.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-05"
+      }
     },
     {
       "eventId": "ghanas-sjalvstandighet",
@@ -504,6 +564,21 @@
       }
     },
     {
+      "eventId": "kubakrisen",
+      "eventTitle": "Kubakrisen",
+      "file": "images/events/kubakrisen.webp",
+      "kind": "historisk",
+      "credit": "Okänd U-2-pilot / John F. Kennedy Presidential Library via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kubakrisen",
+        "title": "Spaningsfoto av robotbaser på Kuba, 16 oktober 1962 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Cuba_Missiles_Crisis_U-2_photo.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
       "eventId": "landstigningen-vid-inchon",
       "eventTitle": "Landstigningen vid Inchon",
       "file": "images/events/landstigningen-vid-inchon.webp",
@@ -603,6 +678,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Portada_Original_de_la_Constitucion_Mexicana_de_1917.png",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "militarkuppen-i-chile-1973",
+      "eventTitle": "Militärkuppen i Chile",
+      "file": "images/events/militarkuppen-i-chile-1973.webp",
+      "kind": "historisk",
+      "credit": "Biblioteca del Congreso Nacional de Chile / Wikimedia Commons",
+      "license": "CC BY 3.0 CL",
+      "source": {
+        "id": "commons-bild-militarkuppen-i-chile-1973",
+        "title": "Bombningen av La Moneda, 11 september 1973 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Golpe_de_Estado_1973.jpg",
+        "license": "CC BY 3.0 CL",
+        "checked": "2026-11-05"
       }
     },
     {
@@ -1182,6 +1272,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Slaget_ved_Zama_-_Cornelis_Cort,_1567.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "smittkoppor-utrotas",
+      "eventTitle": "Smittkopporna utrotas",
+      "file": "images/events/smittkoppor-utrotas.webp",
+      "kind": "historisk",
+      "credit": "CDC / Fred Murphy och Sylvia Whitfield via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-smittkoppor-utrotas",
+        "title": "Smittkoppsvirus i elektronmikroskop, CDC 1975 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Smallpox_virus_virions_TEM_PHIL_1849.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-05"
       }
     },
     {
