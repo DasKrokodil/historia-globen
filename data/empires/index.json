@@ -1344,7 +1344,105 @@
      "wp-han-dynasty"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Chang'an",
+      "en": "Chang'an"
+     },
+     "wikidata": "Q6501000",
+     "at": [
+      108.858,
+      34.308
+     ],
+     "from": -205,
+     "to": 9,
+     "sources": [
+      "wp-han-dynasty",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källorna skiljer sig något: Wikipedia anger 206 f.Kr. som början, Wikidata 202 f.Kr. Åren 9–23 styrde Xindynastin, och då hade Hanriket ingen huvudstad."
+     }
+    },
+    {
+     "name": {
+      "sv": "Luoyang",
+      "en": "Luoyang"
+     },
+     "wikidata": "Q187136",
+     "at": [
+      112.424,
+      34.659
+     ],
+     "from": 23,
+     "to": 190,
+     "sources": [
+      "wp-han-dynasty",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källorna skiljer sig något: Wikipedia anger 23 som början, Wikidata 25."
+     }
+    },
+    {
+     "name": {
+      "sv": "Chang'an",
+      "en": "Chang'an"
+     },
+     "wikidata": "Q6501000",
+     "at": [
+      108.858,
+      34.308
+     ],
+     "from": 190,
+     "to": 195,
+     "sources": [
+      "wp-han-dynasty",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Luoyang",
+      "en": "Luoyang"
+     },
+     "wikidata": "Q187136",
+     "at": [
+      112.424,
+      34.659
+     ],
+     "from": 196,
+     "to": 196,
+     "sources": [
+      "wp-han-dynasty",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Xuchang",
+      "en": "Xuchang"
+     },
+     "wikidata": "Q404529",
+     "at": [
+      113.82,
+      34.024
+     ],
+     "from": 196,
+     "to": 220,
+     "sources": [
+      "wp-han-dynasty",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "mauryariket",
@@ -3902,7 +4000,66 @@
     ],
     "review": "two-sources"
    },
-   "symbol": "anchor"
+   "symbol": "anchor",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Babylon",
+      "en": "Babylon"
+     },
+     "wikidata": "Q5684",
+     "at": [
+      44.421,
+      32.542
+     ],
+     "from": -311,
+     "to": -304,
+     "sources": [
+      "wp-seleucid-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Seleukia",
+      "en": "Seleucia"
+     },
+     "wikidata": "Q1136681",
+     "at": [
+      44.52,
+      33.1
+     ],
+     "from": -304,
+     "to": -239,
+     "sources": [
+      "wp-seleucid-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Antiochia",
+      "en": "Antioch"
+     },
+     "wikidata": "Q200441",
+     "at": [
+      36.182,
+      36.205
+     ],
+     "from": -239,
+     "to": -62,
+     "sources": [
+      "wp-seleucid-empire",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källorna skiljer sig med ett år om slutet: Wikipedia anger 63 f.Kr., Wikidata 64 f.Kr. Wikidata nämner också Lysimachia som huvudstad, utan årtal."
+     }
+    }
+   ]
   },
   {
    "id": "partherriket",
@@ -4311,7 +4468,45 @@
     ],
     "review": "two-sources"
    },
-   "symbol": "derafsh"
+   "symbol": "derafsh",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Istakhr",
+      "en": "Istakhr"
+     },
+     "wikidata": "Q862251",
+     "at": [
+      52.909,
+      29.982
+     ],
+     "from": 224,
+     "to": 226,
+     "sources": [
+      "wp-sasanian-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Ktesifon",
+      "en": "Ctesiphon"
+     },
+     "wikidata": "Q192541",
+     "at": [
+      44.581,
+      33.094
+     ],
+     "from": 226,
+     "to": 637,
+     "sources": [
+      "wp-sasanian-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "qinriket",
@@ -4516,7 +4711,29 @@
      "whe-qin-dynasty"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Xianyang",
+      "en": "Xianyang"
+     },
+     "wikidata": "Q2360265",
+     "at": [
+      108.858,
+      34.414
+     ],
+     "polity": "qindynastin",
+     "sources": [
+      "wp-qin-dynasty",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Visas bara för Qindynastin. Staten Qin hade åtta huvudstäder före den, och källan anger årtal för bara några av dem, så de visas inte."
+     }
+    }
+   ]
   },
   {
    "id": "guptariket",
@@ -4715,7 +4932,49 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "garuda"
+   "symbol": "garuda",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Pataliputra",
+      "en": "Pataliputra"
+     },
+     "wikidata": "Q389755",
+     "at": [
+      85.144,
+      25.611
+     ],
+     "to": 455,
+     "sources": [
+      "wp-gupta-empire",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källan anger att huvudstaden flyttades till Ayodhya på 400-talet, under Kumaragupta eller Skandagupta, och sätter Ayodhya till \"efter 455\". Chandragupta II hade en andra huvudstad i Ujjain, utan årtal. Wikidata anger bara Pataliputra."
+     }
+    },
+    {
+     "name": {
+      "sv": "Ayodhya",
+      "en": "Ayodhya"
+     },
+     "wikidata": "Q186040",
+     "at": [
+      82.204,
+      26.799
+     ],
+     "from": 455,
+     "sources": [
+      "wp-gupta-empire",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källan anger \"efter 455\", under Kumaragupta eller Skandagupta; året är ungefärligt."
+     }
+    }
+   ]
   },
   {
    "id": "aksumriket",
@@ -4902,7 +5161,29 @@
      "whe-kingdom-of-axum"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Aksum",
+      "en": "Axum"
+     },
+     "wikidata": "Q5832",
+     "at": [
+      38.733,
+      14.117
+     ],
+     "to": 800,
+     "sources": [
+      "wp-aksum",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källan anger att huvudstaden från omkring 800 var Kubar, en stad som nämns i arabiska källor men vars plats inte är känd. Därför visas ingen huvudstad efter omkring 800."
+     }
+    }
+   ]
   },
   {
    "id": "umayyadkalifatet",
@@ -6315,7 +6596,117 @@
      "whe-song-dynasty"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Bianjing (Kaifeng)",
+      "en": "Bianjing (Kaifeng)"
+     },
+     "wikidata": "Q7223839",
+     "at": [
+      114.34,
+      34.794
+     ],
+     "from": 960,
+     "to": 1127,
+     "sources": [
+      "wp-song-dynasty",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Yingtian (Shangqiu)",
+      "en": "Yingtian (Shangqiu)"
+     },
+     "wikidata": "Q404817",
+     "at": [
+      115.647,
+      34.426
+     ],
+     "from": 1127,
+     "to": 1128,
+     "sources": [
+      "wp-song-dynasty",
+      "wikidata"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "name": {
+      "sv": "Yangzhou",
+      "en": "Yangzhou"
+     },
+     "wikidata": "Q57906",
+     "at": [
+      119.436,
+      32.391
+     ],
+     "from": 1128,
+     "to": 1129,
+     "sources": [
+      "wp-song-dynasty",
+      "wikidata"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "name": {
+      "sv": "Lin'an (Hangzhou)",
+      "en": "Lin'an (Hangzhou)"
+     },
+     "wikidata": "Q15936775",
+     "at": [
+      120.167,
+      30.267
+     ],
+     "from": 1129,
+     "to": 1129,
+     "sources": [
+      "wp-song-dynasty",
+      "wikidata"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "name": {
+      "sv": "Jiangning (Nanjing)",
+      "en": "Jiangning (Nanjing)"
+     },
+     "wikidata": "Q16666",
+     "at": [
+      118.779,
+      32.061
+     ],
+     "from": 1129,
+     "to": 1138,
+     "sources": [
+      "wp-song-dynasty",
+      "wikidata"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "name": {
+      "sv": "Lin'an (Hangzhou)",
+      "en": "Lin'an (Hangzhou)"
+     },
+     "wikidata": "Q15936775",
+     "at": [
+      120.167,
+      30.267
+     ],
+     "from": 1138,
+     "to": 1276,
+     "sources": [
+      "wp-song-dynasty",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "khmerriket",
@@ -7337,7 +7728,84 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "three-rings"
+   "symbol": "three-rings",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Samarkand",
+      "en": "Samarkand"
+     },
+     "wikidata": "Q5753",
+     "at": [
+      66.976,
+      39.655
+     ],
+     "from": 1370,
+     "to": 1405,
+     "sources": [
+      "wp-timurid-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Herat",
+      "en": "Herat"
+     },
+     "wikidata": "Q45313",
+     "at": [
+      62.203,
+      34.342
+     ],
+     "from": 1405,
+     "to": 1447,
+     "sources": [
+      "wp-timurid-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Samarkand",
+      "en": "Samarkand"
+     },
+     "wikidata": "Q5753",
+     "at": [
+      66.976,
+      39.655
+     ],
+     "from": 1447,
+     "to": 1459,
+     "sources": [
+      "wp-timurid-empire",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källorna skiljer sig: Wikipedia anger att huvudstaden var Samarkand igen 1447–1459, medan Wikidata anger Herat för hela tiden 1405–1507."
+     }
+    },
+    {
+     "name": {
+      "sv": "Herat",
+      "en": "Herat"
+     },
+     "wikidata": "Q45313",
+     "at": [
+      62.203,
+      34.342
+     ],
+     "from": 1459,
+     "to": 1507,
+     "sources": [
+      "wp-timurid-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "aztekriket",
@@ -8448,7 +8916,63 @@
     ],
     "review": "two-sources"
    },
-   "symbol": "lion-sun"
+   "symbol": "lion-sun",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Tabriz",
+      "en": "Tabriz"
+     },
+     "wikidata": "Q80053",
+     "at": [
+      46.296,
+      38.074
+     ],
+     "from": 1501,
+     "to": 1555,
+     "sources": [
+      "wp-safavid-iran",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Qazvin",
+      "en": "Qazvin"
+     },
+     "wikidata": "Q181578",
+     "at": [
+      50.004,
+      36.285
+     ],
+     "from": 1555,
+     "to": 1598,
+     "sources": [
+      "wp-safavid-iran",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Isfahan",
+      "en": "Isfahan"
+     },
+     "wikidata": "Q42053",
+     "at": [
+      51.675,
+      32.653
+     ],
+     "from": 1598,
+     "to": 1736,
+     "sources": [
+      "wp-safavid-iran",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "mingdynastin",
@@ -11317,7 +11841,49 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "arrow-bundle"
+   "symbol": "arrow-bundle",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Haag",
+      "en": "The Hague"
+     },
+     "wikidata": "Q36600",
+     "at": [
+      4.31,
+      52.08
+     ],
+     "polity": "nederlandska-republiken",
+     "sources": [
+      "wp-dutch-republic",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Republiken hade ingen huvudstad enligt lag; Haag var huvudstad i praktiken."
+     }
+    },
+    {
+     "name": {
+      "sv": "Amsterdam",
+      "en": "Amsterdam"
+     },
+     "wikidata": "Q727",
+     "at": [
+      4.883,
+      52.367
+     ],
+     "polity": "nederlanderna",
+     "sources": [
+      "wp-netherlands",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Amsterdam är huvudstad enligt grundlagen, medan regeringen och kungahuset sitter i Haag."
+     }
+    }
+   ]
   },
   {
    "id": "tyska-riket",
@@ -17657,7 +18223,30 @@
      "wd-iran"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Teheran",
+      "en": "Tehran"
+     },
+     "wikidata": "Q3616",
+     "at": [
+      51.39,
+      35.689
+     ],
+     "sources": [
+      "wp-qajar-iran",
+      "wp-pahlavi-iran",
+      "wp-iran",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Faktarutans källa anger att Agha Mohammad Khan, som kröntes till shah 1796, gjorde Teheran till huvudstad, men inte vilket år."
+     }
+    }
+   ]
   },
   {
    "id": "kuwait",
@@ -18299,7 +18888,66 @@
      "wd-pakistan"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Karachi",
+      "en": "Karachi"
+     },
+     "wikidata": "Q8660",
+     "at": [
+      67.01,
+      24.86
+     ],
+     "from": 1947,
+     "to": 1959,
+     "sources": [
+      "wp-karachi",
+      "wikidata"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "name": {
+      "sv": "Rawalpindi",
+      "en": "Rawalpindi"
+     },
+     "wikidata": "Q93230",
+     "at": [
+      73.068,
+      33.601
+     ],
+     "from": 1959,
+     "to": 1967,
+     "sources": [
+      "wp-islamabad",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Huvudstad i praktiken medan Islamabad byggdes."
+     }
+    },
+    {
+     "name": {
+      "sv": "Islamabad",
+      "en": "Islamabad"
+     },
+     "wikidata": "Q1362",
+     "at": [
+      73.037,
+      33.699
+     ],
+     "from": 1967,
+     "sources": [
+      "wp-islamabad",
+      "wp-pakistan",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "bangladesh",
@@ -18997,7 +19645,69 @@
      "wd-maratha-empire"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Raigad",
+      "en": "Raigad"
+     },
+     "wikidata": "Q3626515",
+     "at": [
+      73.445,
+      18.235
+     ],
+     "from": 1674,
+     "to": 1689,
+     "sources": [
+      "wp-maratha-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Jinji",
+      "en": "Jinji (Gingee)"
+     },
+     "wikidata": "Q3536493",
+     "at": [
+      79.396,
+      12.251
+     ],
+     "from": 1689,
+     "to": 1698,
+     "sources": [
+      "wp-maratha-empire",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källan kallar Jinji huvudstad i praktiken (de facto)."
+     }
+    },
+    {
+     "name": {
+      "sv": "Satara",
+      "en": "Satara"
+     },
+     "wikidata": "Q581562",
+     "at": [
+      73.983,
+      17.683
+     ],
+     "from": 1700,
+     "to": 1818,
+     "sources": [
+      "wp-maratha-empire",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Kungens säte. Peshwan, rikets förste minister, satt i Pune 1728–1818."
+     }
+    }
+   ]
   },
   {
    "id": "korea",
@@ -21146,7 +21856,54 @@
      "wp-zulu-kingdom"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "uMgungundlovu",
+      "en": "uMgungundlovu"
+     },
+     "wikidata": "Q2467337",
+     "at": [
+      31.268,
+      -28.436
+     ],
+     "from": 1829,
+     "to": 1840,
+     "sources": [
+      "wp-umgungundlovu",
+      "wp-zulu-kingdom",
+      "wp-kwabulawayo",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Dingane grundade sin kungliga kraal här 1829, året efter att han tagit makten genom att mörda Shaka. Källan anger inte när den slutade vara huvudstad; här visas den till slutet av hans regering 1840. Shakas huvudstad kwaBulawayo (grundad omkring 1820) visas inte, eftersom dess plats saknar koordinater i Wikidata."
+     }
+    },
+    {
+     "name": {
+      "sv": "Ulundi",
+      "en": "Ulundi"
+     },
+     "wikidata": "Q1013421",
+     "at": [
+      31.416,
+      -28.335
+     ],
+     "from": 1873,
+     "to": 1879,
+     "sources": [
+      "wp-ulundi",
+      "wp-zulu-kingdom",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Cetshwayo grundade Ulundi när han blev kung 1873. Britterna intog och jämnade den med marken i slaget vid Ulundi 4 juli 1879."
+     }
+    }
+   ]
   },
   {
    "id": "australien",
@@ -22230,7 +22987,29 @@
      "wp-bolivia"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Sucre",
+      "en": "Sucre"
+     },
+     "wikidata": "Q2907",
+     "at": [
+      -65.26,
+      -19.047
+     ],
+     "from": 1826,
+     "sources": [
+      "wp-bolivia",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Staden hette La Plata när den blev provisorisk huvudstad 1826 och fick namnet Sucre 1839. Sucre är huvudstad enligt grundlagen, men regeringen och parlamentet sitter sedan början av 1900-talet i La Paz."
+     }
+    }
+   ]
   },
   {
    "id": "colombia",
