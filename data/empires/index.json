@@ -9805,7 +9805,7 @@
    },
    "color": "#2e7d5b",
    "from": 1502,
-   "to": 1910,
+   "to": 1975,
    "file": "data/empires/portugisiska-imperiet.json",
    "polities": [
     {
@@ -10020,7 +10020,11 @@
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger 1415–1999. Kartan visar Portugisiska imperiet med Portugal 1502–1910; 1582–1639 bara några kolonier, eftersom resten ingår i Spanska imperiet."
+     "sv": "Källorna anger 1415–1999. Kartan visar Portugisiska imperiet med Portugal 1502–1975; 1582–1639 bara några kolonier, eftersom resten ingår i Spanska imperiet. Åren 1911–1975 är det Cliopatrias Portugisiska republiken och Estado Novo, som båda omfattar kolonierna. Från 1976 visas Portugal som eget land.",
+     "en": "The sources give 1415–1999. The map shows the Portuguese Empire with Portugal in 1502–1975; in 1582–1639 only some colonies, since the rest is part of the Spanish Empire. In 1911–1975 it is Cliopatria's Portuguese Republic and Estado Novo, which both include the colonies. From 1976 Portugal is shown as a country of its own.",
+     "de": "Die Quellen nennen 1415–1999. Die Karte zeigt das Portugiesische Kolonialreich mit Portugal in den Jahren 1502–1975; 1582–1639 nur einige Kolonien, da der Rest zum Spanischen Kolonialreich gehört. In den Jahren 1911–1975 sind es Cliopatrias Portugiesische Republik und der Estado Novo, die beide die Kolonien umfassen. Ab 1976 wird Portugal als eigenes Land gezeigt.",
+     "es": "Las fuentes indican 1415–1999. El mapa muestra el Imperio portugués con Portugal en 1502–1975; en 1582–1639 solo algunas colonias, ya que el resto forma parte del Imperio español. En 1911–1975 son la República Portuguesa y el Estado Novo de Cliopatria, que incluyen ambos las colonias. Desde 1976 Portugal se muestra como país propio.",
+     "fr": "Les sources donnent 1415–1999. La carte montre l'Empire portugais avec le Portugal de 1502 à 1975 ; de 1582 à 1639 seulement quelques colonies, car le reste fait partie de l'Empire espagnol. De 1911 à 1975, il s'agit de la République portugaise et de l'Estado Novo de Cliopatria, qui comprennent tous deux les colonies. À partir de 1976, le Portugal est montré comme un pays à part entière."
     },
     "sources": [
      "wp-portuguese-empire",
@@ -24405,7 +24409,22 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Östtimor räknas inte till Indonesien. Indonesien ockuperade området 1975, men Sverige erkände aldrig ockupationen, och inte heller FN erkände att Indonesien tog in området (UD och FN, kontrollerade 2026-11-06). Gränsen är omstridd, och kartan följer Sveriges officiella hållning. Cliopatria räknar Östtimor till Indonesien 1976–2005.",
+     "en": "Timor-Leste is not counted as part of Indonesia. Indonesia occupied the territory in 1975, but Sweden never recognised the occupation, and the UN never recognised Indonesia's integration of the territory either (Swedish Ministry for Foreign Affairs and UN, checked 2026-11-06). The border is disputed, and the map follows Sweden's official position. Cliopatria counts Timor-Leste as part of Indonesia in 1976–2005.",
+     "de": "Osttimor wird nicht zu Indonesien gezählt. Indonesien besetzte das Gebiet 1975, aber Schweden hat die Besetzung nie anerkannt, und auch die UNO erkannte die Eingliederung durch Indonesien nie an (schwedisches Außenministerium und UNO, geprüft am 2026-11-06). Die Grenze ist umstritten, und die Karte folgt der offiziellen Haltung Schwedens. Cliopatria zählt Osttimor in den Jahren 1976–2005 zu Indonesien.",
+     "es": "Timor Oriental no se cuenta como parte de Indonesia. Indonesia ocupó el territorio en 1975, pero Suecia nunca reconoció la ocupación, y la ONU tampoco reconoció la integración del territorio en Indonesia (Ministerio de Asuntos Exteriores de Suecia y ONU, comprobado el 2026-11-06). La frontera es disputada, y el mapa sigue la posición oficial de Suecia. Cliopatria cuenta Timor Oriental como parte de Indonesia en 1976–2005.",
+     "fr": "Le Timor oriental n'est pas compté comme partie de l'Indonésie. L'Indonésie a occupé le territoire en 1975, mais la Suède n'a jamais reconnu l'occupation, et l'ONU n'a jamais reconnu non plus l'intégration du territoire à l'Indonésie (ministère suédois des Affaires étrangères et ONU, vérifié le 2026-11-06). La frontière est contestée, et la carte suit la position officielle de la Suède. Cliopatria compte le Timor oriental comme partie de l'Indonésie de 1976 à 2005."
+    },
+    "sources": [
+     "ud-osttimor",
+     "un-untaet",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "saudiarabien",
@@ -28762,6 +28781,82 @@
      "review": "source-checked"
     }
    ]
+  },
+  {
+   "id": "etiopien",
+   "name": {
+    "sv": "Etiopien",
+    "en": "Ethiopia",
+    "de": "Äthiopien",
+    "es": "Etiopía",
+    "fr": "Éthiopie"
+   },
+   "color": "#5a9a4a",
+   "from": 1975,
+   "to": 2024,
+   "file": "data/empires/etiopien.json",
+   "polities": [
+    {
+     "id": "etiopien",
+     "name": {
+      "sv": "Etiopien",
+      "en": "Ethiopia",
+      "de": "Äthiopien",
+      "es": "Etiopía",
+      "fr": "Éthiopie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "osttimor",
+   "name": {
+    "sv": "Östtimor",
+    "en": "Timor-Leste",
+    "de": "Osttimor",
+    "es": "Timor Oriental",
+    "fr": "Timor oriental"
+   },
+   "color": "#c0804a",
+   "from": 2002,
+   "to": 2024,
+   "file": "data/empires/osttimor.json",
+   "polities": [
+    {
+     "id": "osttimor",
+     "name": {
+      "sv": "Östtimor",
+      "en": "Timor-Leste",
+      "de": "Osttimor",
+      "es": "Timor Oriental",
+      "fr": "Timor oriental"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Östtimor visas som egen stat från självständigheten 20 maj 2002 (FN). Indonesien ockuperade området 1975. Sverige erkände aldrig ockupationen, och inte heller FN erkände att Indonesien tog in området (UD och FN, kontrollerade 2026-11-06). Kartan följer Sveriges officiella hållning: åren 1976–2001 räknas området inte till Indonesien och visas utan stat. FN förvaltade området från oktober 1999 till självständigheten. Källorna skiljer sig: Cliopatria räknar Östtimor till Indonesien till och med 2005 och som egen stat från 2006, och Wikidata anger 28 november 1975 som startdatum.",
+     "en": "Timor-Leste is shown as a separate state from independence on 20 May 2002 (UN). Indonesia occupied the territory in 1975. Sweden never recognised the occupation, and the UN never recognised Indonesia's integration of the territory either (Swedish Ministry for Foreign Affairs and UN, checked 2026-11-06). The map follows Sweden's official position: in 1976–2001 the territory is not counted as part of Indonesia and is shown without a state. The UN administered the territory from October 1999 until independence. The sources differ: Cliopatria counts Timor-Leste as part of Indonesia until 2005 and as a separate state from 2006, and Wikidata gives 28 November 1975 as its start date.",
+     "de": "Osttimor wird ab der Unabhängigkeit am 20. Mai 2002 als eigener Staat gezeigt (UNO). Indonesien besetzte das Gebiet 1975. Schweden hat die Besetzung nie anerkannt, und auch die UNO erkannte die Eingliederung durch Indonesien nie an (schwedisches Außenministerium und UNO, geprüft am 2026-11-06). Die Karte folgt der offiziellen Haltung Schwedens: In den Jahren 1976–2001 wird das Gebiet nicht zu Indonesien gezählt und ohne Staat gezeigt. Die UNO verwaltete das Gebiet von Oktober 1999 bis zur Unabhängigkeit. Die Quellen weichen voneinander ab: Cliopatria zählt Osttimor bis 2005 zu Indonesien und ab 2006 als eigenen Staat, und Wikidata nennt den 28. November 1975 als Anfangsdatum.",
+     "es": "Timor Oriental se muestra como Estado propio desde la independencia del 20 de mayo de 2002 (ONU). Indonesia ocupó el territorio en 1975. Suecia nunca reconoció la ocupación, y la ONU tampoco reconoció la integración del territorio en Indonesia (Ministerio de Asuntos Exteriores de Suecia y ONU, comprobado el 2026-11-06). El mapa sigue la posición oficial de Suecia: en 1976–2001 el territorio no se cuenta como parte de Indonesia y se muestra sin Estado. La ONU administró el territorio desde octubre de 1999 hasta la independencia. Las fuentes difieren: Cliopatria cuenta Timor Oriental como parte de Indonesia hasta 2005 y como Estado propio desde 2006, y Wikidata da el 28 de noviembre de 1975 como fecha de inicio.",
+     "fr": "Le Timor oriental est montré comme un État distinct à partir de l'indépendance du 20 mai 2002 (ONU). L'Indonésie a occupé le territoire en 1975. La Suède n'a jamais reconnu l'occupation, et l'ONU n'a jamais reconnu non plus l'intégration du territoire à l'Indonésie (ministère suédois des Affaires étrangères et ONU, vérifié le 2026-11-06). La carte suit la position officielle de la Suède : de 1976 à 2001, le territoire n'est pas compté comme partie de l'Indonésie et est montré sans État. L'ONU a administré le territoire d'octobre 1999 jusqu'à l'indépendance. Les sources divergent : Cliopatria compte le Timor oriental comme partie de l'Indonésie jusqu'en 2005 et comme État distinct à partir de 2006, et Wikidata donne le 28 novembre 1975 comme date de début."
+    },
+    "sources": [
+     "ud-osttimor",
+     "un-untaet",
+     "cliopatria",
+     "wikidata"
+    ],
+    "review": "source-checked"
+   }
   }
  ]
 }

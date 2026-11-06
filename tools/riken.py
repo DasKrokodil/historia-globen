@@ -63,7 +63,9 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              'malta': (0.02, 0.02, 0.001), 'barbados': (0.02, 0.02, 0.001), 'dominica': (0.02, 0.02, 0.001),
              'saint-lucia': (0.02, 0.02, 0.001), 'antigua-och-barbuda': (0.02, 0.02, 0.001),
              'saint-vincent-och-grenadinerna': (0.02, 0.02, 0.001), 'grenada': (0.02, 0.02, 0.001),
-             'seychellerna': (0.02, 0.02, 0.001), 'palau': (0.02, 0.02, 0.001)}
+             'seychellerna': (0.02, 0.02, 0.001), 'palau': (0.02, 0.02, 0.001),
+             # Östtimor (femtonde omgången) blir annars en triangel
+             'osttimor': (0.03, 0.02, 0.005)}
 
 # grupp: (svenskt namn, engelskt namn, [(Cliopatria-namn, id, svenskt namn, färg)])
 GROUPS = {
@@ -112,8 +114,9 @@ GROUPS = {
                                                                          'Seychelles'],
           # Perioderna delas när öländerna blir egna länder i Cliopatria (Malta, Barbados och Antigua och Barbuda 1967,
           # Saint Vincent 1969, Grenada och Seychellerna 1976, Dominica och Saint Lucia 1979, Brunei 1987), annars slås
-          # ändringen ihop med åren före
-          'splits': (1967, 1969, 1976, 1979, 1987)}),
+          # ändringen ihop med åren före. 1919: Cliopatria räknar norra Moçambique till imperiet bara 1918, och det
+          # ska inte ligga kvar över Portugisiska imperiet 1919–1921 (#644)
+          'splits': (1919, 1967, 1969, 1976, 1979, 1987)}),
     ]),
     # R2 Antiken (#68)
     'egypten': ('Egypten: gamla och nya riket', 'Egypt: Old and New Kingdom', [
@@ -216,7 +219,14 @@ GROUPS = {
          {'homeland': ['Kingdom of Spain', 'Iberian Union'], 'minus': [('Dominican Republic', 1865)]}),
     ]),
     'portugisiska-imperiet': ('Portugisiska imperiet', 'Portuguese Empire', [
-        ('(Portuguese Empire)', 'portugisiska-imperiet', 'Portugisiska imperiet', '#2e7d5b', {'homeland': ['Kingdom of Portugal']}),
+        # 1911–1975 (#644): Cliopatrias Portuguese Republic (1911–1925) och Estado Novo (1926–1975) omfattar både
+        # Portugal och kolonierna. Estado Novo 1979–2024 i Cliopatria är bara Cabinda, som också ligger i Angola, och
+        # tas inte med. Guinea-Bissau (eget land från 1973 i Cliopatria) och Indien (Goa från 1961) klipps bort
+        (['(Portuguese Empire)', 'Portuguese Republic', 'Estado Novo'], 'portugisiska-imperiet', 'Portugisiska imperiet',
+         '#2e7d5b', {'homeland': ['Kingdom of Portugal', 'Portuguese Republic', 'Estado Novo'], 'years': (1502, 1975),
+                     'wikidata': 'Q200464', 'minus': ['Republic of Guinea-Bissau', ('Republic of India', 1961)],
+                     # Goa till Indien 1961 och Guinea-Bissau eget land 1973 är små ändringar som annars slås ihop
+                     'splits': (1961, 1973)}),
     ]),
     'ryska-imperiet': ('Ryssland: tsardömet och kejsardömet', 'Russia: Tsardom and Empire', [
         ('Tsardom of Russia', 'ryska-tsardomet', 'Ryska tsardömet', '#7a5fa6'),
@@ -1019,6 +1029,17 @@ GROUPS = {
     'palau': ('Palau', 'Palau', [
         ('Palau', 'palau', 'Palau', '#5a7ac0', {'en': 'Palau'}),
     ]),
+    # Nutida stater, femtonde omgången (#644). Etiopien efter kejsardömet: Cliopatrias Ethiopia från 1975
+    # (Etiopiska kejsardömet tar posten till och med 1974)
+    'etiopien': ('Etiopien', 'Ethiopia', [
+        ('Ethiopia', 'etiopien', 'Etiopien', '#5a9a4a', {'en': 'Ethiopia', 'years': (1975, 2024)}),
+    ]),
+    # Östtimor (Rikards beslut om nutida omstridda gränser, #556): självständigt från 2002 (UD, FN:s UNTAET).
+    # Cliopatria har landet från 2006 och räknar det till Indonesien 1976–2005; åren 2002–2005 får gränsen ur
+    # DISPUTED ('osttimor'), och 1976–2001 räknas området inte till Indonesien
+    'osttimor': ('Östtimor', 'Timor-Leste', [
+        ('East Timor', 'osttimor', 'Östtimor', '#c0804a', {'en': 'Timor-Leste', 'prepend': (2002, 2005)}),
+    ]),
 }
 
 # Huvudlandet i utspridda välden (#74): moderlandet ritas med kraftigare kant och en stjärna och får
@@ -1120,6 +1141,14 @@ DISPUTED = {
     # Cyperns gräns 1970 minus gränsen 2000
     'norra-cypern': {'area': (('Republic of Cyprus', 1970), ('Republic of Cyprus', 2000)), 'from': 1976,
                      'remove': [], 'add': ['cypern']},
+    # Östtimor: Sverige erkände aldrig Indonesiens ockupation 1975 (UD, Östtimor), och landet blev självständigt
+    # 20 maj 2002 efter FN:s förvaltning från oktober 1999 (FN, UNTAET). Cliopatria räknar området till Indonesien
+    # 1976–2005; det är Indonesiens gräns 2005 minus gränsen 2006. Det räknas inte till Indonesien och visas utan
+    # stat 1976–2001 (som Golanhöjderna), och som Östtimor från 2002
+    'osttimor-indonesien': {'area': (('Republic of Indonesia', 2005), ('Republic of Indonesia', 2006)), 'from': 1976,
+                            'remove': ['indonesien'], 'add': []},
+    'osttimor': {'area': (('Republic of Indonesia', 2005), ('Republic of Indonesia', 2006)), 'from': 2002,
+                 'remove': [], 'add': ['osttimor']},
 }
 
 
@@ -1421,6 +1450,9 @@ def main():
             # En del utan Cliopatria-namn (None) får hela sin gräns ur DISPUTED (Palestina, #644)
             base = ([(*opts['years'], Polygon(), 0)] if cname is None
                     else member_periods(by_name, cname, opts.get('years'), feats))
+            # prepend: år före Cliopatrias första år, utan egen gräns; gränsen läggs till ur DISPUTED (Östtimor, #644)
+            if opts.get('prepend'):
+                base = [(*opts['prepend'], Polygon(), 0)] + base
             if opts.get('minus'):
                 base = minus_others(base, opts['minus'], by_name)
             for start, end, raw, area in apply_disputed(base, gid, disputed):
