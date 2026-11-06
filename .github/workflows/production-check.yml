@@ -16,7 +16,8 @@ jobs:
   production:
     name: Kontrollera historiagloben.se
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    # Hela webbläsartestet tar nu cirka 12 minuter; vid v5.0.0 gick alla steg igenom men jobbet stoppades av gränsen 12.
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
