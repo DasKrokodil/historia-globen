@@ -26860,7 +26860,21 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Kosovo ingår inte i Serbien på kartan, och inte heller i Cliopatria. Kosovo visas som egen stat från självständighetsförklaringen 2008, enligt Historia-globens beslut; Sverige har diplomatiska förbindelser med Kosovo sedan dess (UD, kontrollerad 2026-11-06). Åren före 2008 visas Kosovo utan stat, eftersom området förvaltades av FN och statusen inte var avgjord.",
+     "en": "Kosovo is not part of Serbia on the map, nor in Cliopatria. Kosovo is shown as a separate state from the declaration of independence in 2008, by decision of Historia-globen; Sweden has had diplomatic relations with Kosovo since then (Swedish Ministry for Foreign Affairs, checked 2026-11-06). In the years before 2008 Kosovo is shown without a state, because the area was administered by the UN and its status had not been settled.",
+     "de": "Kosovo gehört auf der Karte nicht zu Serbien, und auch nicht in Cliopatria. Kosovo wird nach einer Entscheidung von Historia-globen ab der Unabhängigkeitserklärung 2008 als eigener Staat gezeigt; Schweden unterhält seitdem diplomatische Beziehungen zu Kosovo (schwedisches Außenministerium, geprüft am 2026-11-06). In den Jahren vor 2008 wird Kosovo ohne Staat gezeigt, weil das Gebiet von der UNO verwaltet wurde und sein Status nicht geklärt war.",
+     "es": "Kosovo no forma parte de Serbia en el mapa, ni tampoco en Cliopatria. Kosovo se muestra como Estado propio desde la declaración de independencia de 2008, por decisión de Historia-globen; Suecia mantiene relaciones diplomáticas con Kosovo desde entonces (Ministerio de Asuntos Exteriores de Suecia, comprobado el 2026-11-06). En los años anteriores a 2008 Kosovo se muestra sin Estado, porque la zona estaba administrada por la ONU y su estatus no estaba resuelto.",
+     "fr": "Le Kosovo ne fait pas partie de la Serbie sur la carte, ni dans Cliopatria. Le Kosovo est montré comme un État distinct à partir de la déclaration d'indépendance de 2008, sur décision d'Historia-globen ; la Suède entretient depuis des relations diplomatiques avec le Kosovo (ministère suédois des Affaires étrangères, vérifié le 2026-11-06). Dans les années avant 2008, le Kosovo est montré sans État, car le territoire était administré par l'ONU et son statut n'était pas réglé."
+    },
+    "sources": [
+     "ud-kosovo",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "irland",
@@ -28141,6 +28155,336 @@
       "de": "Kap Verde",
       "es": "Cabo Verde",
       "fr": "Cap-Vert"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kosovo",
+   "name": {
+    "sv": "Kosovo",
+    "en": "Kosovo",
+    "de": "Kosovo",
+    "es": "Kosovo",
+    "fr": "Kosovo"
+   },
+   "color": "#4a6ab0",
+   "from": 2008,
+   "to": 2024,
+   "file": "data/empires/kosovo.json",
+   "polities": [
+    {
+     "id": "kosovo",
+     "name": {
+      "sv": "Kosovo",
+      "en": "Kosovo",
+      "de": "Kosovo",
+      "es": "Kosovo",
+      "fr": "Kosovo"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Kosovo visas som egen stat från självständighetsförklaringen 2008, enligt Historia-globens beslut. Sverige har diplomatiska förbindelser med Kosovo sedan dess (UD, kontrollerad 2026-11-06). Åren 2000–2007 visas området utan stat: Kosovo förvaltades av FN och statusen var inte avgjord. Sverige slöt ett avtal med FN:s förvaltning (UNMIK, SÖ 2005:29), och under 2007 pågick förhandlingarna om Kosovos framtida status (regeringens skrivelse 2007/08:82). Cliopatria visar Kosovo som egen stat redan från 2000.",
+     "en": "Kosovo is shown as a separate state from the declaration of independence in 2008, by decision of Historia-globen. Sweden has had diplomatic relations with Kosovo since then (Swedish Ministry for Foreign Affairs, checked 2026-11-06). In 2000–2007 the area is shown without a state: Kosovo was administered by the UN and its status had not been settled. Sweden concluded an agreement with the UN administration (UNMIK, SÖ 2005:29), and in 2007 negotiations on Kosovo's future status were under way (Swedish government communication 2007/08:82). Cliopatria shows Kosovo as a separate state from as early as 2000.",
+     "de": "Kosovo wird nach einer Entscheidung von Historia-globen ab der Unabhängigkeitserklärung 2008 als eigener Staat gezeigt. Schweden unterhält seitdem diplomatische Beziehungen zu Kosovo (schwedisches Außenministerium, geprüft am 2026-11-06). In den Jahren 2000–2007 wird das Gebiet ohne Staat gezeigt: Kosovo wurde von der UNO verwaltet, und sein Status war nicht geklärt. Schweden schloss ein Abkommen mit der UN-Verwaltung (UNMIK, SÖ 2005:29), und 2007 liefen die Verhandlungen über den künftigen Status Kosovos (Mitteilung der schwedischen Regierung 2007/08:82). Cliopatria zeigt Kosovo schon ab 2000 als eigenen Staat.",
+     "es": "Kosovo se muestra como Estado propio desde la declaración de independencia de 2008, por decisión de Historia-globen. Suecia mantiene relaciones diplomáticas con Kosovo desde entonces (Ministerio de Asuntos Exteriores de Suecia, comprobado el 2026-11-06). En 2000–2007 la zona se muestra sin Estado: Kosovo estaba administrado por la ONU y su estatus no estaba resuelto. Suecia firmó un acuerdo con la administración de la ONU (UNMIK, SÖ 2005:29), y en 2007 seguían las negociaciones sobre el futuro estatus de Kosovo (comunicación del gobierno sueco 2007/08:82). Cliopatria muestra Kosovo como Estado propio ya desde 2000.",
+     "fr": "Le Kosovo est montré comme un État distinct à partir de la déclaration d'indépendance de 2008, sur décision d'Historia-globen. La Suède entretient depuis des relations diplomatiques avec le Kosovo (ministère suédois des Affaires étrangères, vérifié le 2026-11-06). De 2000 à 2007, le territoire est montré sans État : le Kosovo était administré par l'ONU et son statut n'était pas réglé. La Suède a conclu un accord avec l'administration de l'ONU (MINUK, SÖ 2005:29), et en 2007 les négociations sur le statut futur du Kosovo étaient en cours (communication du gouvernement suédois 2007/08:82). Cliopatria montre le Kosovo comme un État distinct dès 2000."
+    },
+    "sources": [
+     "ud-kosovo",
+     "so-2005-29-unmik",
+     "skr-2007-08-82-osse",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "cypern",
+   "name": {
+    "sv": "Cypern",
+    "en": "Cyprus",
+    "de": "Zypern",
+    "es": "Chipre",
+    "fr": "Chypre"
+   },
+   "color": "#c08a3a",
+   "from": 1961,
+   "to": 2024,
+   "file": "data/empires/cypern.json",
+   "polities": [
+    {
+     "id": "cypern",
+     "name": {
+      "sv": "Cypern",
+      "en": "Cyprus",
+      "de": "Zypern",
+      "es": "Chipre",
+      "fr": "Chypre"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Ön är delad. Från 1976 ritas hela ön som Cypern, enligt Historia-globens beslut. Sedan 1974 delas ön av en FN-kontrollerad buffertzon, och området norr om zonen kontrolleras inte av Republiken Cyperns regering. Sverige erkänner inte Norra Cyperns självständighet, i enlighet med FN:s säkerhetsråds resolution 541 från 1983 (UD, kontrollerad 2026-11-06). Cliopatria visar Norra Cypern som egen stat från 1976.",
+     "en": "The island is divided. From 1976 the whole island is drawn as Cyprus, by decision of Historia-globen. Since 1974 the island has been divided by a UN-controlled buffer zone, and the area north of the zone is not controlled by the government of the Republic of Cyprus. Sweden does not recognise the independence of Northern Cyprus, in accordance with UN Security Council resolution 541 of 1983 (Swedish Ministry for Foreign Affairs, checked 2026-11-06). Cliopatria shows Northern Cyprus as a separate state from 1976.",
+     "de": "Die Insel ist geteilt. Ab 1976 ist nach einer Entscheidung von Historia-globen die ganze Insel als Zypern gezeichnet. Seit 1974 wird die Insel durch eine von der UNO kontrollierte Pufferzone geteilt, und das Gebiet nördlich der Zone wird nicht von der Regierung der Republik Zypern kontrolliert. Schweden erkennt die Unabhängigkeit Nordzyperns gemäß der Resolution 541 des UN-Sicherheitsrats von 1983 nicht an (schwedisches Außenministerium, geprüft am 2026-11-06). Cliopatria zeigt Nordzypern ab 1976 als eigenen Staat.",
+     "es": "La isla está dividida. Desde 1976 toda la isla se dibuja como Chipre, por decisión de Historia-globen. Desde 1974 la isla está dividida por una zona de amortiguación controlada por la ONU, y la zona al norte no está controlada por el gobierno de la República de Chipre. Suecia no reconoce la independencia del norte de Chipre, de acuerdo con la resolución 541 del Consejo de Seguridad de la ONU de 1983 (Ministerio de Asuntos Exteriores de Suecia, comprobado el 2026-11-06). Cliopatria muestra el norte de Chipre como un Estado propio desde 1976.",
+     "fr": "L'île est divisée. À partir de 1976, toute l'île est dessinée comme Chypre, sur décision d'Historia-globen. Depuis 1974, l'île est divisée par une zone tampon contrôlée par l'ONU, et le territoire au nord de cette zone n'est pas contrôlé par le gouvernement de la République de Chypre. La Suède ne reconnaît pas l'indépendance de Chypre du Nord, conformément à la résolution 541 du Conseil de sécurité de l'ONU de 1983 (ministère suédois des Affaires étrangères, vérifié le 2026-11-06). Cliopatria montre Chypre du Nord comme un État distinct à partir de 1976."
+    },
+    "sources": [
+     "ud-cypern",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "montenegro",
+   "name": {
+    "sv": "Montenegro",
+    "en": "Montenegro",
+    "de": "Montenegro",
+    "es": "Montenegro",
+    "fr": "Monténégro"
+   },
+   "color": "#b04a4a",
+   "from": 2006,
+   "to": 2024,
+   "file": "data/empires/montenegro.json",
+   "polities": [
+    {
+     "id": "montenegro",
+     "name": {
+      "sv": "Montenegro",
+      "en": "Montenegro",
+      "de": "Montenegro",
+      "es": "Montenegro",
+      "fr": "Monténégro"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "brunei",
+   "name": {
+    "sv": "Brunei",
+    "en": "Brunei",
+    "de": "Brunei",
+    "es": "Brunéi",
+    "fr": "Brunei"
+   },
+   "color": "#c0a03a",
+   "from": 1987,
+   "to": 2024,
+   "file": "data/empires/brunei.json",
+   "polities": [
+    {
+     "id": "brunei",
+     "name": {
+      "sv": "Brunei",
+      "en": "Brunei",
+      "de": "Brunei",
+      "es": "Brunéi",
+      "fr": "Brunei"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "trinidad-och-tobago",
+   "name": {
+    "sv": "Trinidad och Tobago",
+    "en": "Trinidad and Tobago",
+    "de": "Trinidad und Tobago",
+    "es": "Trinidad y Tobago",
+    "fr": "Trinité-et-Tobago"
+   },
+   "color": "#b04a5a",
+   "from": 1963,
+   "to": 2024,
+   "file": "data/empires/trinidad-och-tobago.json",
+   "polities": [
+    {
+     "id": "trinidad-och-tobago",
+     "name": {
+      "sv": "Trinidad och Tobago",
+      "en": "Trinidad and Tobago",
+      "de": "Trinidad und Tobago",
+      "es": "Trinidad y Tobago",
+      "fr": "Trinité-et-Tobago"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "mauritius",
+   "name": {
+    "sv": "Mauritius",
+    "en": "Mauritius",
+    "de": "Mauritius",
+    "es": "Mauricio",
+    "fr": "Maurice"
+   },
+   "color": "#5a6ab0",
+   "from": 1969,
+   "to": 2024,
+   "file": "data/empires/mauritius.json",
+   "polities": [
+    {
+     "id": "mauritius",
+     "name": {
+      "sv": "Mauritius",
+      "en": "Mauritius",
+      "de": "Mauritius",
+      "es": "Mauricio",
+      "fr": "Maurice"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "luxemburg",
+   "name": {
+    "sv": "Luxemburg",
+    "en": "Luxembourg",
+    "de": "Luxemburg",
+    "es": "Luxemburgo",
+    "fr": "Luxembourg"
+   },
+   "color": "#5a9ac0",
+   "from": 1890,
+   "to": 2024,
+   "file": "data/empires/luxemburg.json",
+   "polities": [
+    {
+     "id": "luxemburg",
+     "name": {
+      "sv": "Luxemburg",
+      "en": "Luxembourg",
+      "de": "Luxemburg",
+      "es": "Luxemburgo",
+      "fr": "Luxembourg"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "sao-tome-och-principe",
+   "name": {
+    "sv": "São Tomé och Príncipe",
+    "en": "São Tomé and Príncipe",
+    "de": "São Tomé und Príncipe",
+    "es": "Santo Tomé y Príncipe",
+    "fr": "Sao Tomé-et-Principe"
+   },
+   "color": "#4aa070",
+   "from": 1976,
+   "to": 2024,
+   "file": "data/empires/sao-tome-och-principe.json",
+   "polities": [
+    {
+     "id": "sao-tome-och-principe",
+     "name": {
+      "sv": "São Tomé och Príncipe",
+      "en": "São Tomé and Príncipe",
+      "de": "São Tomé und Príncipe",
+      "es": "Santo Tomé y Príncipe",
+      "fr": "Sao Tomé-et-Principe"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "bahrain",
+   "name": {
+    "sv": "Bahrain",
+    "en": "Bahrain",
+    "de": "Bahrain",
+    "es": "Baréin",
+    "fr": "Bahreïn"
+   },
+   "color": "#b04a6a",
+   "from": 1973,
+   "to": 2024,
+   "file": "data/empires/bahrain.json",
+   "polities": [
+    {
+     "id": "bahrain",
+     "name": {
+      "sv": "Bahrain",
+      "en": "Bahrain",
+      "de": "Bahrain",
+      "es": "Baréin",
+      "fr": "Bahreïn"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "singapore",
+   "name": {
+    "sv": "Singapore",
+    "en": "Singapore",
+    "de": "Singapur",
+    "es": "Singapur",
+    "fr": "Singapour"
+   },
+   "color": "#c05a5a",
+   "from": 1967,
+   "to": 2024,
+   "file": "data/empires/singapore.json",
+   "polities": [
+    {
+     "id": "singapore",
+     "name": {
+      "sv": "Singapore",
+      "en": "Singapore",
+      "de": "Singapur",
+      "es": "Singapur",
+      "fr": "Singapour"
      },
      "sources": [
       "cliopatria"
