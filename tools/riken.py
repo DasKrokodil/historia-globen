@@ -58,7 +58,12 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # Luxemburg och Singapore är små
              'luxemburg': (0.03, 0.02, 0.005), 'singapore': (0.02, 0.02, 0.005),
              # Malaysias förenklade gräns täckte annars en del av Singapore över Johorsundet
-             'malaysia': (0.03, 0.02, 0.02)}
+             'malaysia': (0.03, 0.02, 0.02),
+             # Små önationer (fjortonde omgången): finare förenkling och små öar behålls, annars blir öarna trianglar
+             'malta': (0.02, 0.02, 0.001), 'barbados': (0.02, 0.02, 0.001), 'dominica': (0.02, 0.02, 0.001),
+             'saint-lucia': (0.02, 0.02, 0.001), 'antigua-och-barbuda': (0.02, 0.02, 0.001),
+             'saint-vincent-och-grenadinerna': (0.02, 0.02, 0.001), 'grenada': (0.02, 0.02, 0.001),
+             'seychellerna': (0.02, 0.02, 0.001), 'palau': (0.02, 0.02, 0.001)}
 
 # grupp: (svenskt namn, engelskt namn, [(Cliopatria-namn, id, svenskt namn, färg)])
 GROUPS = {
@@ -101,9 +106,14 @@ GROUPS = {
                                                                          'Lesotho', 'Solomon Islands', 'Republic of Fiji',
                                                                          'Commonwealth of The Bahamas', 'State of Qatar',
                                                                          'Republic of The Gambia', 'Sultanate of Brunei',
-                                                                         'Kingdom of Bahrain', 'Republic of Cyprus'],
-          # Brunei blir eget land i Cliopatria 1987; perioden delas där, annars slås ändringen ihop med åren före
-          'splits': (1987,)}),
+                                                                         'Kingdom of Bahrain', 'Republic of Cyprus', 'Malta',
+                                                                         'Barbados', 'Commonwealth of Dominica', 'Saint Lucia',
+                                                                         'Antigua and Barbuda', 'Saint Vincent', 'Grenada',
+                                                                         'Seychelles'],
+          # Perioderna delas när öländerna blir egna länder i Cliopatria (Malta, Barbados och Antigua och Barbuda 1967,
+          # Saint Vincent 1969, Grenada och Seychellerna 1976, Dominica och Saint Lucia 1979, Brunei 1987), annars slås
+          # ändringen ihop med åren före
+          'splits': (1967, 1969, 1976, 1979, 1987)}),
     ]),
     # R2 Antiken (#68)
     'egypten': ('Egypten: gamla och nya riket', 'Egypt: Old and New Kingdom', [
@@ -300,9 +310,10 @@ GROUPS = {
     'usa': ('USA', 'United States', [
         # Cliopatria räknar Japan till USA 1947–1966 och Okinawa till och med 2005, också de år då Japan är eget land
         # i Cliopatria (från 1953); de åren klipps Japan bort (#644)
-        ('United States of America', 'usa', 'USA', '#4a7ab8', {'en': 'United States', 'minus': ['Japan', 'Republic of the Philippines', 'Republic of Liberia'],
-                                                       # Liberia eget land 1848, Filippinerna 1947, Japan 1953, Okinawa till Japan 1973 (Cliopatria)
-                                                       'splits': (1848, 1947, 1953, 1973)}),
+        ('United States of America', 'usa', 'USA', '#4a7ab8', {'en': 'United States', 'minus': ['Japan', 'Republic of the Philippines', 'Republic of Liberia', 'Palau'],
+                                                       # Liberia eget land 1848, Filippinerna 1947, Japan 1953, Okinawa till Japan 1973, Palau
+                                                       # 1996 (Cliopatria)
+                                                       'splits': (1848, 1947, 1953, 1973, 1996)}),
     ]),
     'amerikas-konfedererade-stater': ('Amerikas konfedererade stater', 'Confederate States of America', [
         ('Confederate States of America', 'amerikas-konfedererade-stater', 'Amerikas konfedererade stater', '#8c7f6a'),
@@ -976,6 +987,37 @@ GROUPS = {
     ]),
     'singapore': ('Singapore', 'Singapore', [
         ('Republic of Singapore', 'singapore', 'Singapore', '#c05a5a', {'en': 'Singapore'}),
+    ]),
+    # Nutida stater, fjortonde omgången (#644). Saint Kitts och Nevis väntar: Cliopatrias "Saint Kitts" ligger på ön
+    # Saint Croix i Amerikanska Jungfruöarna, och Mikronesiska federationen har bara ön Pohnpei i Cliopatria. Andorra väntar:
+    # Spaniens och Frankrikes förenklade gränser täcker nästan hela landet
+    'malta': ('Malta', 'Malta', [
+        ('Malta', 'malta', 'Malta', '#c04a4a', {'en': 'Malta'}),
+    ]),
+    'barbados': ('Barbados', 'Barbados', [
+        ('Barbados', 'barbados', 'Barbados', '#3a6ab0', {'en': 'Barbados'}),
+    ]),
+    'dominica': ('Dominica', 'Dominica', [
+        ('Commonwealth of Dominica', 'dominica', 'Dominica', '#4a9a5a', {'en': 'Dominica'}),
+    ]),
+    'saint-lucia': ('Saint Lucia', 'Saint Lucia', [
+        ('Saint Lucia', 'saint-lucia', 'Saint Lucia', '#4a8ab0', {'en': 'Saint Lucia'}),
+    ]),
+    'antigua-och-barbuda': ('Antigua och Barbuda', 'Antigua and Barbuda', [
+        ('Antigua and Barbuda', 'antigua-och-barbuda', 'Antigua och Barbuda', '#c05a4a', {'en': 'Antigua and Barbuda'}),
+    ]),
+    'saint-vincent-och-grenadinerna': ('Saint Vincent och Grenadinerna', 'Saint Vincent and the Grenadines', [
+        ('Saint Vincent', 'saint-vincent-och-grenadinerna', 'Saint Vincent och Grenadinerna', '#5aa07a',
+         {'en': 'Saint Vincent and the Grenadines'}),
+    ]),
+    'grenada': ('Grenada', 'Grenada', [
+        ('Grenada', 'grenada', 'Grenada', '#c08a3a', {'en': 'Grenada'}),
+    ]),
+    'seychellerna': ('Seychellerna', 'Seychelles', [
+        ('Seychelles', 'seychellerna', 'Seychellerna', '#3a8a9a', {'en': 'Seychelles'}),
+    ]),
+    'palau': ('Palau', 'Palau', [
+        ('Palau', 'palau', 'Palau', '#5a7ac0', {'en': 'Palau'}),
     ]),
 }
 

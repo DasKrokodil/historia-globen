@@ -28492,6 +28492,276 @@
      "review": "source-checked"
     }
    ]
+  },
+  {
+   "id": "malta",
+   "name": {
+    "sv": "Malta",
+    "en": "Malta",
+    "de": "Malta",
+    "es": "Malta",
+    "fr": "Malte"
+   },
+   "color": "#c04a4a",
+   "from": 1967,
+   "to": 2024,
+   "file": "data/empires/malta.json",
+   "polities": [
+    {
+     "id": "malta",
+     "name": {
+      "sv": "Malta",
+      "en": "Malta",
+      "de": "Malta",
+      "es": "Malta",
+      "fr": "Malte"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "barbados",
+   "name": {
+    "sv": "Barbados",
+    "en": "Barbados",
+    "de": "Barbados",
+    "es": "Barbados",
+    "fr": "Barbade"
+   },
+   "color": "#3a6ab0",
+   "from": 1967,
+   "to": 2024,
+   "file": "data/empires/barbados.json",
+   "polities": [
+    {
+     "id": "barbados",
+     "name": {
+      "sv": "Barbados",
+      "en": "Barbados",
+      "de": "Barbados",
+      "es": "Barbados",
+      "fr": "Barbade"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "dominica",
+   "name": {
+    "sv": "Dominica",
+    "en": "Dominica",
+    "de": "Dominica",
+    "es": "Dominica",
+    "fr": "Dominique"
+   },
+   "color": "#4a9a5a",
+   "from": 1979,
+   "to": 2024,
+   "file": "data/empires/dominica.json",
+   "polities": [
+    {
+     "id": "dominica",
+     "name": {
+      "sv": "Dominica",
+      "en": "Dominica",
+      "de": "Dominica",
+      "es": "Dominica",
+      "fr": "Dominique"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "saint-lucia",
+   "name": {
+    "sv": "Saint Lucia",
+    "en": "Saint Lucia",
+    "de": "St. Lucia",
+    "es": "Santa Lucía",
+    "fr": "Sainte-Lucie"
+   },
+   "color": "#4a8ab0",
+   "from": 1979,
+   "to": 2024,
+   "file": "data/empires/saint-lucia.json",
+   "polities": [
+    {
+     "id": "saint-lucia",
+     "name": {
+      "sv": "Saint Lucia",
+      "en": "Saint Lucia",
+      "de": "St. Lucia",
+      "es": "Santa Lucía",
+      "fr": "Sainte-Lucie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "antigua-och-barbuda",
+   "name": {
+    "sv": "Antigua och Barbuda",
+    "en": "Antigua and Barbuda",
+    "de": "Antigua und Barbuda",
+    "es": "Antigua y Barbuda",
+    "fr": "Antigua-et-Barbuda"
+   },
+   "color": "#c05a4a",
+   "from": 1967,
+   "to": 2024,
+   "file": "data/empires/antigua-och-barbuda.json",
+   "polities": [
+    {
+     "id": "antigua-och-barbuda",
+     "name": {
+      "sv": "Antigua och Barbuda",
+      "en": "Antigua and Barbuda",
+      "de": "Antigua und Barbuda",
+      "es": "Antigua y Barbuda",
+      "fr": "Antigua-et-Barbuda"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "saint-vincent-och-grenadinerna",
+   "name": {
+    "sv": "Saint Vincent och Grenadinerna",
+    "en": "Saint Vincent and the Grenadines",
+    "de": "St. Vincent und die Grenadinen",
+    "es": "San Vicente y las Granadinas",
+    "fr": "Saint-Vincent-et-les-Grenadines"
+   },
+   "color": "#5aa07a",
+   "from": 1969,
+   "to": 2024,
+   "file": "data/empires/saint-vincent-och-grenadinerna.json",
+   "polities": [
+    {
+     "id": "saint-vincent-och-grenadinerna",
+     "name": {
+      "sv": "Saint Vincent och Grenadinerna",
+      "en": "Saint Vincent and the Grenadines",
+      "de": "St. Vincent und die Grenadinen",
+      "es": "San Vicente y las Granadinas",
+      "fr": "Saint-Vincent-et-les-Grenadines"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "grenada",
+   "name": {
+    "sv": "Grenada",
+    "en": "Grenada",
+    "de": "Grenada",
+    "es": "Granada",
+    "fr": "Grenade"
+   },
+   "color": "#c08a3a",
+   "from": 1976,
+   "to": 2024,
+   "file": "data/empires/grenada.json",
+   "polities": [
+    {
+     "id": "grenada",
+     "name": {
+      "sv": "Grenada",
+      "en": "Grenada",
+      "de": "Grenada",
+      "es": "Granada",
+      "fr": "Grenade"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "seychellerna",
+   "name": {
+    "sv": "Seychellerna",
+    "en": "Seychelles",
+    "de": "Seychellen",
+    "es": "Seychelles",
+    "fr": "Seychelles"
+   },
+   "color": "#3a8a9a",
+   "from": 1976,
+   "to": 2024,
+   "file": "data/empires/seychellerna.json",
+   "polities": [
+    {
+     "id": "seychellerna",
+     "name": {
+      "sv": "Seychellerna",
+      "en": "Seychelles",
+      "de": "Seychellen",
+      "es": "Seychelles",
+      "fr": "Seychelles"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "palau",
+   "name": {
+    "sv": "Palau",
+    "en": "Palau",
+    "de": "Palau",
+    "es": "Palaos",
+    "fr": "Palaos"
+   },
+   "color": "#5a7ac0",
+   "from": 1996,
+   "to": 2024,
+   "file": "data/empires/palau.json",
+   "polities": [
+    {
+     "id": "palau",
+     "name": {
+      "sv": "Palau",
+      "en": "Palau",
+      "de": "Palau",
+      "es": "Palaos",
+      "fr": "Palaos"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
   }
  ]
 }
