@@ -1,6 +1,6 @@
 # Etikettkontrollen (#588): håller regeln "ett issue, en ägare" (AGENTS.md, beslut 2026-11-05).
-#  1. Varnar (kommentar och etiketten etikettfel) när ett issue har flera ägare, både codex: redo och copilot: redo,
-#     eller redo och pågår samtidigt. Varningen tas bort när det är rättat.
+#  1. Varnar (kommentar och etiketten etikettfel) när ett issue har både redo och pågår, flera pågår-etiketter,
+#     eller är taget men tilldelat flera personer (beslut 2026-11-06). Varningen tas bort när det är rättat.
 #  2. Städar bort pågår-, redo- och behöver hjälp-etiketter på issuen som en sammanslagen pull request stänger.
 #  3. Påminner dagligen om ett pågår som ingen har rört på 7 dagar (bara en kommentar, ingen automatisk avmarkering).
 # Logiken ligger i .github/scripts/etikettkontroll.cjs. Flödet rör bara etiketter och kommentarer, inte kod eller data.
@@ -8,7 +8,7 @@ name: Etikettkontroll
 
 on:
   issues:
-    types: [labeled, unlabeled]
+    types: [labeled, unlabeled, assigned, unassigned]
   pull_request:
     types: [closed]
   schedule:

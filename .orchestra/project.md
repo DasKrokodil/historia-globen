@@ -24,31 +24,35 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
 - **Krav per issue:** milstolpar som Rikard ännu inte har öppnat för arbete (versioner efter den pågående) tas inte
   utan att han ber om det, enligt CLAUDE.md: varje version slutar med hans utvärdering. Undantag: säger issuet
   självt att en del kan göras när som helst, får den delen tas, och pull requesten skriver "Del av #N".
-- **Anspråk:** en kommentar på issuet ("Orkestern tar det här, session <id>") och etiketten `orkester: pågår` medan
-  arbetet pågår. Etiketten tas bort när pull requesten är öppnad eller arbetet pausas.
+- **Anspråk:** en kommentar på issuet ("Orkestern (DasKrokodil) tar det här, session <id>"), etiketten `pågår` och
+  tilldelning till kontots person medan arbetet pågår (beslut 2026-11-06, samma för alla agenter). `pågår` tas bort när
+  pull requesten är öppnad eller arbetet pausas. Dirigent är bara Claude Code på Rikards konto; på Andreas konto
+  (`Einzbeng`) körs orkestern inte som dirigent, och hans Claude Code tar `redo`-issues som arbetare.
 - **Integrationskön (shared v0.8.0, "integration-ready"):** i PR-läget är en öppen pull request med `Closes #N` den
   färdiga överlämningen. Ägaren, grenen, commit, bevisen och nästa steg står i pull requesten och dess kommentarer, och
   det är den som leder arbetet som återupptar den (rättar efter granskning, ombaserar). En sådan pull request tar ingen
-  arbetarplats, men räknas mot gränsen på fyra öppna pull requests. Etiketten `integration-ready` används inte här,
+  arbetarplats, men räknas mot gränsen på fyra öppna pull requests per person. Etiketten `integration-ready` används inte här,
   eftersom pull requesten själv visar läget och etikettkontrollen (#588) bara känner till våra egna etiketter.
 - **Codex (beslut 2026-10-31):** Codex tar också issues och öppnar pull requests, enligt [AGENTS.md](../AGENTS.md). Orkestern
-  hoppar över issues med etiketten `codex: pågår` eller `copilot: pågår`, eller en öppen Codex- eller Copilot-pull-request (`codex/issue-*`, `copilot/issue-*`) som skriver
-  `Closes #N` (beslut 2026-11-05: ett issue, en ägare). För Codex pull requests gäller i stället: Codex-förgranskning efter att pull requesten öppnats, därefter Claude Codes beslut ("godkänd" eller arbetsorder) och sist Rikards merge. Samma diff och samma verifieringsbevis återanvänds, ingen del granskas två gånger. Dirigentens granskning "innan pull requesten öppnas" nedan gäller orkesterns egna arbetare.
-  Dirigenten sätter etiketten `codex: redo` på issues som Codex får ta: tydligt avgränsade, utan historiska fakta, utan
-  `beslut-krävs` och utan krock med orkesterns pågående eller planerade arbete. Etiketten tas bort när issuet tas.
-  Varje pass och varje planering går igenom den pågående milstolpen efter nya sådana issues, och rapporten till Rikard
-  har raden "Nya för Codex: #…" (eller ingen rad när inget är nytt). Samma villkor gäller för `copilot: redo` (beslut 2026-11-05): dirigenten sätter bara en av `codex: redo` och `copilot: redo` på ett issue, och kökontrollen rättar issues som har båda eller som både är redo och har en `pågår`-etikett från någon annan.
+  hoppar över issues med etiketten `pågår` eller en tilldelad person, eller en öppen pull request (`*/issue-<N>-*`) som skriver
+  `Closes #N` (beslut 2026-11-05 och 2026-11-06: ett issue, en ägare). För Codex pull requests gäller i stället: Codex-förgranskning efter att pull requesten öppnats, därefter Claude Codes beslut ("godkänd" eller arbetsorder) och sist Rikards merge. Samma diff och samma verifieringsbevis återanvänds, ingen del granskas två gånger. Dirigentens granskning "innan pull requesten öppnas" nedan gäller orkesterns egna arbetare.
+  Dirigenten sätter den gemensamma etiketten `redo` (beslut 2026-11-06, ersätter `codex: redo` och `copilot: redo`) på
+  issues som någon agent får ta: tydligt avgränsade, utan `beslut-krävs` och utan krock med pågående eller planerat
+  arbete. Codex och Copilot tar inte `redo`-issues med fakta, data, källor, bilder eller riken; de tar Claude Code
+  (Rikards eller Andreas). Etiketten tas bort när issuet tas. Varje pass och varje planering går igenom den pågående
+  milstolpen efter nya sådana issues, och rapporten till Rikard har raden "Nya redo: #…" (eller ingen rad när inget är
+  nytt). Kökontrollen rättar issues som både är `redo` och tagna.
   Codex får också köra `$orkester` (beslut 2026-11-01) enligt [AGENTS.md](../AGENTS.md). Sedan 2026-11-02 kör Codex
-  löpande på `codex: redo`-kön, med högst fyra öppna pull requests (en ändring som byggs räknas som öppen) och tre arbetare som bygger samtidigt. Dirigenten räknas inte som arbetare. En annan Codex-körning granskar
-  först varje pull request ("Codex-granskning: godkänd"). Claude Code granskar därefter bara de som Codex har märkt "Klar för Claude Code-granskning", och bara det som kräver dirigentens bedömning (källpolicy, arkitektur, synligt resultat); fakta, data och källor granskas alltid fullt. `codex: redo`
-  sätts aldrig på fakta-, bild- eller arkitekturärenden förrän rätt förutsättningar finns, och tas bort om ett issue blir
-  beroende av ett Claude-spår eller kräver källgranskning. Dirigentens eget arbete märks med `orkester: pågår`.
+  löpande på `redo`-kön, med högst fyra öppna pull requests per person (en ändring som byggs räknas som öppen) och tre arbetare som bygger samtidigt. Dirigenten räknas inte som arbetare. En annan Codex-körning granskar
+  först varje pull request ("Codex-granskning: godkänd"). Claude Code granskar därefter bara de som Codex har märkt "Klar för Claude Code-granskning", och bara det som kräver dirigentens bedömning (källpolicy, arkitektur, synligt resultat); fakta, data och källor granskas alltid fullt. `redo`
+  sätts aldrig på arkitekturärenden förrän rätt förutsättningar finns, och tas bort om ett issue blir beroende av ett
+  annat spår. Dirigentens eget arbete märks som alla andras (`pågår` och tilldelning).
 - **Blind-spots-rundan (beslut 2026-11-02):** den separata, självkritiska analysen i UX-genomgången görs av Codex och
   skrivs som rapport i `docs/granskningar/`. Dirigenten läser rapporten och gör issues av fynden, men gör inte analysen själv.
 - **Flödesregler (beslut 2026-11-02):** (1) Händelsedriven kögenomgång: efter varje ny, uppdaterad eller ihopslagen pull
-  request görs direkt en lätt kökontroll av `codex: redo`-issues (full granskning bara vid utlösarna i CLAUDE.md), och nästa blockerade ärende får förberedelsearbete. (2) Omedelbar
+  request görs direkt en lätt kökontroll av `redo`-issues (full granskning bara vid utlösarna i CLAUDE.md), och nästa blockerade ärende får förberedelsearbete. (2) Omedelbar
   handoff: när en arbetare öppnar eller uppdaterar en pull request börjar den separata Codex-granskningen i samma tur.
-  (3) Ingen passiv `codex: pågår`: etiketten kräver en aktiv arbetare, ett pågående test eller en publicering, eller en
+  (3) Ingen passiv `pågår`: etiketten kräver en aktiv arbetare, ett pågående test eller en publicering, eller en
   dokumenterad extern spärr; annars återupptas, förbereds eller avmarkeras ärendet direkt.
 - **Riskbaserat flöde (beslut 2026-11-03):** Den tidigare kökontrollen efter varje PR är lättviktig och ersätter inte automatiskt en full review. Full review triggas av avslutad batch eller milstolpe, kritisk bugg, större central ändring, releasekandidat eller uttrycklig begäran. Testnivån följer risk: riktad för isolerade ändringar, komponent/integration för relaterade ändringar och full svit inför release eller vid central/riskfylld ändring. Snabbare merge kräver dokumenterad accepterad risk och uppföljning. Release publiceras först efter releasekontroll och Rikards godkännande.
 - **Tokenbudget (beslut 2026-11-03):** Veckoplaner anger intervall, osäkerhet och reserv separat för Codex-förberedelse, Codex-implementation/granskning och Claude Code-triage/slutgranskning. Efter varje avslutat issue noteras faktisk förbrukning och avvikelsen mot uppskattningen, så att kommande veckoplaner kalibreras.
@@ -102,7 +106,7 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   beslutet som egen fil i `docs/beslut/` (`ÅÅÅÅ-MM-DD-kortnamn.md`) i samma pull request när något sådant ändras. `docs/beslut.md` är fryst.
 - **Väntan (Wait mechanism):** Claude Code väntar med schemalagda kontroller (`send_later` och schemalagda uppgifter) och aldrig med
   `sleep` eller en körning som står och väntar. Kan en körmiljö inte vänta (till exempel en engångskörning) gör den ett avgränsat
-  pass och säger det. Codex kör löpande på `codex: redo`-kön enligt [AGENTS.md](../AGENTS.md). Användningsgränsen kontrolleras före
+  pass och säger det. Codex kör löpande på `redo`-kön enligt [AGENTS.md](../AGENTS.md). Användningsgränsen kontrolleras före
   varje schemalagd kontroll, och vid 60 % av veckogränsen pausar dirigenten (beslut 2026-11-01).
 - **Gränser och licenser:** kod GPL-3.0, data CC BY 4.0, källor och licenser enligt CLAUDE.md. Orkesterns filer i
   `.orchestra/shared` har MIT-licens och redigeras inte här. Ändringar i dem föreslås till upstream.
