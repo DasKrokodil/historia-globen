@@ -1342,5 +1342,41 @@
     "credit": "British Library via Wikimedia Commons",
     "license": "Public domain",
     "source": "commons-bild-magna-carta"
+  },
+  {
+    "id": "mandela-friges",
+    "file": "mandela-friges.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Nelson Mandela och USA:s president George H. W. Bush i Vita huset den 25 juni 1990, fyra månader efter frigivningen. Inte från själva frigivningen. Licens: Public domain."
+    },
+    "credit": "George Bush Presidential Library and Museum / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-mandela-friges"
+  },
+  {
+    "id": "folkmordet-i-rwanda",
+    "file": "folkmordet-i-rwanda.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Kvarlevor och kläder efter människor som dödades i kyrkan i Ntarama under folkmordet. Platsen är i dag en minnesplats. Foto från 2006. Licens: CC BY 2.0."
+    },
+    "credit": "Scott Chacon / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-folkmordet-i-rwanda"
+  },
+  {
+    "id": "parisavtalet",
+    "file": "parisavtalet.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Delegationsledarna vid FN:s klimatmöte COP21 i Paris den 30 november 2015, mötets första dag. Avtalet antogs den 12 december. Licens: CC BY 2.0."
+    },
+    "credit": "Presidencia de la República Mexicana / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-parisavtalet"
   }
 ]
