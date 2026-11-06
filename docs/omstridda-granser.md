@@ -67,6 +67,7 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 - **Källa:** [Georgien, regeringen.se](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/europa-och-centralasien/georgien/), kontrollerad 2026-11-06.
 - **Cliopatria:** posten "Russian-occupied territories" (1992–2024) räknas som en del av Ryska federationen (fältet MemberOf). Vår `ryska-federationen` bygger bara på posten "Russian Federation" och tar inte med dem, så kartan visar dem inte som ryska i dag. En punkt i Abchazien (Suchumi) hör inte till någon stat 2013–2024, och en punkt vid Tschinvali hör till Georgien.
 - **Förslag:** när Georgien läggs in ritas Abchazien och Sydossetien som en del av Georgien, med noten "Området kontrolleras inte av Georgiens regering. Sverige stöder Georgiens territoriella integritet, och kartan följer Sveriges officiella hållning enligt UD (kontrollerad …)". Posten "Russian-occupied territories" läggs aldrig till Ryssland.
+- **Gjort (2026-11-06):** Georgien är inlagt (tionde omgången nutida stater, 1918–1921 och från 1992) med Abchazien och Sydossetien ur Natural Earths omstridda områden (`DISPUTED` i `tools/riken.py`), och noten i rutan Om kartan på alla fem språken.
 
 ### 7. Transnistrien
 - **Sveriges hållning:** UD nämner Transnistrien och Gagauzien som regioner i Moldavien (i samband med rysk påverkan), men har ingen uttalad hållning om Transnistriens status på sidan.
@@ -108,6 +109,7 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 - **Källor:** [Azerbajdzjan](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/europa-och-centralasien/azerbajdzjan/) och [Armenien](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/europa-och-centralasien/armenien/), regeringen.se, kontrollerade 2026-11-06.
 - **Cliopatria:** en punkt vid Stepanakert hör till Armenien 2013–2024, alltså även efter 2023.
 - **Beslut (svar 7):** området visas som omstritt, inte som Armenien, till och med 2022, och räknas till Azerbajdzjan från 2023.
+- **Gjort (2026-11-06):** Armenien och Azerbajdzjan är inlagda (tionde omgången). Cliopatria räknar både Nagorno-Karabach och omkringliggande områden till Armenien 1992–2024. Det omstridda området är den del av Cliopatrias Armenien som ligger inom Azerbajdzjans gräns i Natural Earth: det räknas aldrig till Armenien, visas utan stat 1992–2022 och som Azerbajdzjan från 2023. Noten i rutan Om kartan för båda länderna säger det öppet.
 
 ### 13. Somaliland
 - **Sveriges hållning:** UD:s sida om Somalia nämner inte Somaliland.

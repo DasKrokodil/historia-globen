@@ -89,7 +89,8 @@ GROUPS = {
         # är egna länder de åren i Cliopatria (#644)
         ('(British Empire)', 'brittiska-imperiet', 'Brittiska imperiet', '#c2557a',
          {'homeland': ['Kingdom of Great Britain'], 'minus': ['Republic of Botswana', 'Ghana', 'Guyana', ('Sultanate of Oman', 1973),
-                                                                         'Malawi', 'United Arab Emirates', 'Second Republic of Austria']}),
+                                                                         'Malawi', 'United Arab Emirates', 'Second Republic of Austria',
+                                                                         'Lesotho', 'Solomon Islands']}),
     ]),
     # R2 Antiken (#68)
     'egypten': ('Egypten: gamla och nya riket', 'Egypt: Old and New Kingdom', [
@@ -812,6 +813,42 @@ GROUPS = {
     'estland': ('Estland', 'Estonia', [
         (['Estonia', 'Republic of Estonia'], 'estland', 'Estland', '#3a8ab0', {'en': 'Estonia', 'wikidata': 'Q191'}),
     ]),
+    # Nutida stater, tionde omgången (#644)
+    'azerbajdzjan': ('Azerbajdzjan', 'Azerbaijan', [
+        ('Republic of Azerbaijan', 'azerbajdzjan', 'Azerbajdzjan', '#3a9ab0', {'en': 'Azerbaijan'}),
+    ]),
+    'armenien': ('Armenien', 'Armenia', [
+        ('Republic of Armenia', 'armenien', 'Armenien', '#c06a4a', {'en': 'Armenia'}),
+    ]),
+    # Bara från 1918: Cliopatrias "Georgia" har också med ett medeltida rike (947–1009). Cliopatria anger Q4962
+    # (en förgreningssida); rätt id är Q230
+    'georgien': ('Georgien', 'Georgia', [
+        ('Georgia', 'georgien', 'Georgien', '#a04a7a', {'en': 'Georgia', 'wikidata': 'Q230', 'years': (1918, 2024)}),
+    ]),
+    # Cliopatria anger Q33946 (Tjeckoslovakien) för Slovakien; rätt id är Q214
+    'slovakien': ('Slovakien', 'Slovakia', [
+        ('Slovakia', 'slovakien', 'Slovakien', '#4aa070', {'en': 'Slovakia', 'wikidata': 'Q214'}),
+    ]),
+    'bhutan': ('Bhutan', 'Bhutan', [
+        ('Kingdom of Bhutan', 'bhutan', 'Bhutan', '#c0703a', {'en': 'Bhutan'}),
+    ]),
+    # Från 1648: före dess räknar Cliopatria Edsförbundet också till Tysk-romerska riket
+    'schweiz': ('Schweiz', 'Switzerland', [
+        ('Swiss Confederation', 'schweiz', 'Schweiz', '#c04040', {'en': 'Switzerland', 'years': (1648, 2024)}),
+    ]),
+    # Från 1950: före dess ingår Nederländerna i nederländska kolonialväldet
+    'nederlanderna': ('Nederländerna', 'Netherlands', [
+        ('Netherlands', 'nederlanderna', 'Nederländerna', '#d0803a', {'en': 'Netherlands', 'years': (1950, 2024)}),
+    ]),
+    'salomonoarna': ('Salomonöarna', 'Solomon Islands', [
+        ('Solomon Islands', 'salomonoarna', 'Salomonöarna', '#4a8ac0', {'en': 'Solomon Islands'}),
+    ]),
+    'guinea-bissau': ('Guinea-Bissau', 'Guinea-Bissau', [
+        ('Republic of Guinea-Bissau', 'guinea-bissau', 'Guinea-Bissau', '#c0a04a', {'en': 'Guinea-Bissau'}),
+    ]),
+    'lesotho': ('Lesotho', 'Lesotho', [
+        ('Lesotho', 'lesotho', 'Lesotho', '#6a5ab0', {'en': 'Lesotho'}),
+    ]),
 }
 
 # Huvudlandet i utspridda välden (#74): moderlandet ritas med kraftigare kant och en stjärna och får
@@ -896,6 +933,16 @@ DISPUTED = {
     # Staten Palestina, som Sverige erkände 30 oktober 2014 (UD, Palestina): Västbanken med Östra Jerusalem och Gaza
     'palestina': {'area': ('ne', ['vastbanken', 'ostra-jerusalem', 'gaza']), 'from': 2014,
                   'remove': [], 'add': ['palestina']},
+    # Nagorno-Karabach (Rikards beslut 2026-11-06): omstritt till och med 2022, Azerbajdzjan från 2023, då UD skriver
+    # att Azerbajdzjan återupprättade kontrollen. Cliopatria räknar området och omkringliggande områden till Armenien;
+    # det omstridda området är den del av Cliopatrias Armenien som ligger inom Azerbajdzjans gräns i Natural Earth
+    'karabach-armenien': {'area': ('ne-snitt', 'azerbajdzjan', ('Republic of Armenia', 2000)), 'from': 1992,
+                          'remove': ['armenien'], 'add': []},
+    'karabach-azerbajdzjan': {'area': ('ne-snitt', 'azerbajdzjan', ('Republic of Armenia', 2000)), 'from': 2023,
+                              'remove': [], 'add': ['azerbajdzjan']},
+    # Abchazien och Sydossetien ritas som Georgien (Rikards beslut; UD: Sverige stöder Georgiens territoriella integritet)
+    'abchazien-sydossetien': {'area': ('ne', ['abchazien', 'sydossetien']), 'from': 1992,
+                              'remove': [], 'add': ['georgien']},
 }
 
 
@@ -908,8 +955,13 @@ def disputed_areas(by_name):
         raise SystemExit(f'DISPUTED: {name} saknas år {y} i Cliopatria')
     ne = {f['properties']['id']: shape(f['geometry']).buffer(0)
           for f in json.loads((ROOT / 'tools/ne-omstridda-omraden.geojson').read_text())['features']}
-    return {k: unary_union([ne[i] for i in d['area'][1]]) if d['area'][0] == 'ne'
-            else at(*d['area'][0]).difference(at(*d['area'][1])) for k, d in DISPUTED.items()}
+    def area(a):
+        if a[0] == 'ne':
+            return unary_union([ne[i] for i in a[1]])
+        if a[0] == 'ne-snitt':  # ett land i Natural Earth snittat med en Cliopatria-post ett visst år
+            return ne[a[1]].intersection(at(*a[2]))
+        return at(*a[0]).difference(at(*a[1]))
+    return {k: area(d['area']) for k, d in DISPUTED.items()}
 
 
 def apply_disputed(items, gid, areas):

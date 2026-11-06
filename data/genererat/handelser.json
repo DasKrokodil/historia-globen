@@ -1,7 +1,7 @@
 {"note":"Genereras av tools/dela_data.py ur data/events.json. Redigera inte här, utan i källfilen, och kör skriptet igen.",
 "detail":["summary","note","story","image","sources","wikidata","evidence"],
 "periods":[{"id":"fkr","from":null,"file":"data/genererat/handelser-fkr.json"},{"id":"1-1499","from":1,"file":"data/genererat/handelser-1-1499.json"},{"id":"1500-1799","from":1500,"file":"data/genererat/handelser-1500-1799.json"},{"id":"1800-1899","from":1800,"file":"data/genererat/handelser-1800-1899.json"},{"id":"1900-1945","from":1900,"file":"data/genererat/handelser-1900-1945.json"},{"id":"1946-1979","from":1946,"file":"data/genererat/handelser-1946-1979.json"},{"id":"1980-","from":1980,"file":"data/genererat/handelser-1980-.json"}],
-"translations":{"de":["handelser-1980-"],"en":["handelser-1980-","riken","riken-fakta"],"es":["handelser-1980-"],"fr":["handelser-1980-"]},
+"translations":{"de":["handelser-1980-","riken-fakta"],"en":["handelser-1980-","riken","riken-fakta"],"es":["handelser-1980-","riken-fakta"],"fr":["handelser-1980-","riken-fakta"]},
 "events":[
 {"id":"cheopspyramiden","category":"kultur","icon":"pyramid","start":-2599,"end":-2599,"precision":7,"edtf":"-2599~","location":{"type":"Point","coordinates":[31.134,29.979]},"place":{"sv":"Giza, Egypten"},"title":{"sv":"Cheopspyramiden byggs"},"review":"two-sources"},
 {"id":"mammutar-wrangel","category":"natur","start":-2999,"end":-1999,"precision":7,"edtf":"../-1999~","location":{"type":"Point","coordinates":[-179.42,71.23]},"place":{"sv":"Wrangelön, Sibirien"},"title":{"sv":"De sista ullhårsmammutarna"},"review":"two-sources"},
