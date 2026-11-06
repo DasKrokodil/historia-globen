@@ -187,7 +187,9 @@ GROUPS = {
         ('Qing Dynasty', 'qingdynastin', 'Qingdynastin', '#d6a433'),
     ]),
     'spanska-imperiet': ('Spanska imperiet', 'Spanish Empire', [
-        ('(Spanish Empire)', 'spanska-imperiet', 'Spanska imperiet', '#d2602e', {'homeland': ['Kingdom of Spain', 'Iberian Union']}),
+        # Cliopatria räknar Dominikanska republiken till imperiet 1865, fast den är eget land det året (#644)
+        ('(Spanish Empire)', 'spanska-imperiet', 'Spanska imperiet', '#d2602e',
+         {'homeland': ['Kingdom of Spain', 'Iberian Union'], 'minus': [('Dominican Republic', 1865)]}),
     ]),
     'portugisiska-imperiet': ('Portugisiska imperiet', 'Portuguese Empire', [
         ('(Portuguese Empire)', 'portugisiska-imperiet', 'Portugisiska imperiet', '#2e7d5b', {'homeland': ['Kingdom of Portugal']}),
@@ -244,7 +246,8 @@ GROUPS = {
          {'en': 'Ethiopian Empire', 'years': (1272, 1974)}),
     ]),
     'sovjetunionen': ('Sovjetunionen', 'Soviet Union', [
-        ('Union of Soviet Socialist Republics', 'sovjetunionen', 'Sovjetunionen', '#9a2a3a'),
+        # Cliopatria räknar Litauen till Sovjetunionen till och med 1991, fast Litauen är eget land från 1990 (#644)
+        ('Union of Soviet Socialist Republics', 'sovjetunionen', 'Sovjetunionen', '#9a2a3a', {'minus': ['Republic of Lithuania'], 'splits': (1990,)}),
     ]),
     # R6 Försvunna länder (#72). Österrike-Ungern och Sovjetunionen ovan hör också dit. Årtal, föregångare
     # och efterträdare (vanished) skrivs för hand i index.json och behålls, som facts.
@@ -470,7 +473,7 @@ GROUPS = {
     'kina': ('Kina', 'China', [
         ('Republic of China', 'republiken-kina', 'Republiken Kina', '#c8423c',
          {'en': 'Republic of China', 'wikidata': 'Q13426199', 'years': (1912, 1949)}),
-        ("People's Republic of China", 'folkrepubliken-kina', 'Kina', '#c8423c', {'en': "People's Republic of China"}),
+        ("People's Republic of China", 'folkrepubliken-kina', 'Kina', '#c8423c', {'en': 'China'}),
     ]),
     # Taiwan (#644, Rikards svar 5): Cliopatrias Republiken Kina efter 1949, under namnet Taiwan som regeringen använder
     'taiwan': ('Taiwan', 'Taiwan', [
@@ -546,7 +549,7 @@ GROUPS = {
     'frankrike': ('Frankrike', 'France', [
         # Cliopatria räknar Algeriet och Djibouti till Femte republiken 1961–2023, också de år då de är egna stater i Cliopatria
         ('French Fifth Republic', 'femte-republiken', 'Frankrike', '#3a5fa0',
-         {'en': 'French Fifth Republic', 'minus': ["People's Democratic Republic of Algeria", 'Republic of Djibouti']}),
+         {'en': 'France', 'minus': ["People's Democratic Republic of Algeria", 'Republic of Djibouti']}),
     ]),
     # Nutida stater, tredje omgången (#644). Spanien, Norge, Japan och Marocko väntar: de överlappar riken vi har
     # (Spanska imperiet, Sverige-Norge, Japanska imperiet) eller behöver noten om Västsahara
@@ -774,6 +777,40 @@ GROUPS = {
     # Irländska fristaten 1922–1937 och Éire slås ihop till Irland (Q27)
     'irland': ('Irland', 'Ireland', [
         (['Irish Free State', 'Éire'], 'irland', 'Irland', '#5aa060', {'en': 'Ireland', 'wikidata': 'Q27'}),
+    ]),
+    # Nutida stater, nionde omgången (#644). Azerbajdzjan väntar på lösningen för Nagorno-Karabach (tas med Armenien)
+    'sierra-leone': ('Sierra Leone', 'Sierra Leone', [
+        ('Sierra Leone', 'sierra-leone', 'Sierra Leone', '#c06a3a', {'en': 'Sierra Leone'}),
+    ]),
+    'sri-lanka': ('Sri Lanka', 'Sri Lanka', [
+        ('Sri Lanka', 'sri-lanka', 'Sri Lanka', '#c05a5a', {'en': 'Sri Lanka'}),
+    ]),
+    'lettland': ('Lettland', 'Latvia', [
+        ('Republic of Latvia', 'lettland', 'Lettland', '#a04a5a', {'en': 'Latvia'}),
+    ]),
+    # Cliopatria kallar Litauen 1919–1939 "Kingdom of Lithuania" med id:t för det medeltida kungariket (Q1656775);
+    # posterna slås ihop till Litauen (Q37)
+    'litauen': ('Litauen', 'Lithuania', [
+        (['Kingdom of Lithuania', 'Republic of Lithuania'], 'litauen', 'Litauen', '#4aa0a0', {'en': 'Lithuania', 'wikidata': 'Q37'}),
+    ]),
+    'togo': ('Togo', 'Togo', [
+        ('Togo', 'togo', 'Togo', '#5aa070', {'en': 'Togo'}),
+    ]),
+    'costa-rica': ('Costa Rica', 'Costa Rica', [
+        ('Republic of Costa Rica', 'costa-rica', 'Costa Rica', '#c07a4a', {'en': 'Costa Rica'}),
+    ]),
+    'dominikanska-republiken': ('Dominikanska republiken', 'Dominican Republic', [
+        ('Dominican Republic', 'dominikanska-republiken', 'Dominikanska republiken', '#3a8a7a', {'en': 'Dominican Republic'}),
+    ]),
+    # Bara från 1992; Cliopatrias Independent State of Croatia 1941–1944 är inte med
+    'kroatien': ('Kroatien', 'Croatia', [
+        ('Republic of Croatia', 'kroatien', 'Kroatien', '#c04a6a', {'en': 'Croatia'}),
+    ]),
+    'bosnien-och-hercegovina': ('Bosnien och Hercegovina', 'Bosnia and Herzegovina', [
+        ('Bosnia and Herzegovina', 'bosnien-och-hercegovina', 'Bosnien och Hercegovina', '#4a7ac0', {'en': 'Bosnia and Herzegovina'}),
+    ]),
+    'estland': ('Estland', 'Estonia', [
+        (['Estonia', 'Republic of Estonia'], 'estland', 'Estland', '#3a8ab0', {'en': 'Estonia', 'wikidata': 'Q191'}),
     ]),
 }
 
