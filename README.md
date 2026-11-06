@@ -77,7 +77,7 @@ js/layers/origins.js  religionens symbol där den uppstod, som klickbar markör 
 js/layers/empiremarks.js rikenas symboler mitt i områdena, som klickbara markörer (#301)
 js/layers/wars.js     lager: krigsområden runt krigets slag
 js/layers/lines.js    lager: vägar och resor som ritas fram över tiden (#38)
-js/layers/discovery.js lager: upptäcktsvyn med dimma som resorna lyfter, havsmonster och kompassrosor (#101)
+js/layers/discovery.js lager: upptäcktsvyn med dimma som lyfts över Europa, grannarna och dit resorna når, havsmonster och kompassrosor (#101)
 js/ui/panel.js        "Samtidigt i världen" per världsdel, kategorifilter och detaljvy
 js/ui/funfact.js      Samtidigt-kortet (fun facts, när ett krig bröt ut) och bågar på globen
 js/ui/sources.js      sidan Om källorna (knappen Källor)
