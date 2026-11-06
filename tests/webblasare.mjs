@@ -553,6 +553,33 @@ async function run(browser, vp) {
     return `${items.length} punkter under tre rubriker, var och en med källa`;
   });
 
+  // #627: i mobilen hamnade arket med krigets slutkort bakom fokusraden när raden "Tiden flyttades" och
+  // pausraden syntes samtidigt, eftersom en mobilregel för --ff-b vann över den uppmätta fokusraden.
+  await check('krigets slutkort ligger ovanför fokusraden (#627)', async () => {
+    const startYear = Number(await page.getAttribute('#track', 'aria-valuenow'));
+    await clickView('#btn-focus');
+    await page.fill('#focus-menu input', 'Koreakriget');
+    await page.click('#focus-menu [data-key="war:koreakriget"]');
+    await page.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '1950', null, { timeout: T.step });
+    const box = await page.locator('#track').boundingBox();
+    await page.mouse.click(box.x + box.width - 1, box.y + box.height / 2); // krigets slut
+    await page.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '1953', null, { timeout: T.step });
+    await page.click('#focus-action');
+    await visible('#detail');
+    await page.waitForFunction(() => !document.getElementById('pause-note').hidden, null, { timeout: T.step });
+    const r = await page.evaluate(() => {
+      const d = document.getElementById('detail').getBoundingClientRect(), f = document.getElementById('focus-bar').getBoundingClientRect();
+      return { detailBottom: Math.round(d.bottom), barTop: Math.round(f.top), moved: document.getElementById('app').classList.contains('focus-moved-on') };
+    });
+    if (r.detailBottom > r.barTop) throw new Error(`arket slutar vid ${r.detailBottom} px men fokusraden börjar vid ${r.barTop} px`);
+    await page.click('#focus-exit');
+    await page.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+    await page.$eval('#focus-menu input', el => { el.value = ''; el.dispatchEvent(new Event('input', { bubbles: true })); });
+    if (await page.isVisible('#detail')) await page.click('#detail [data-close]');
+    await jumpTo(startYear);
+    return `arket slutar vid ${r.detailBottom} px, fokusraden börjar vid ${r.barTop} px${r.moved ? ' (med raden Tiden flyttades)' : ''}`;
+  });
+
   await check('Samtidigt-kortet går till nästa händelse', async () => {
     await visible('#funfact');
     if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
