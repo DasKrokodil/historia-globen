@@ -65,6 +65,7 @@ export class TourPlayer {
     for (const b of [this.endBtn, this.pauseStop]) if (b) b.textContent = label('end');
     this.read.textContent = label('read');
     this.srcBtn.textContent = label('sources');
+    this.questionLabel.textContent = label('question') || 'Att fundera på:';
     this.buildMenu();
 
     this.button.addEventListener('click', () => (this.menu.hidden ? this.openMenu() : this.closeMenu()));
@@ -99,6 +100,11 @@ export class TourPlayer {
     const hasMore = timeline.hasMore;
     timeline.hasMore = () => (this.tour && !this.last) || hasMore();
   }
+
+  /** Turen som berättar om kriget med id (fältet war), eller null (#247). */
+  forWar(id) { return this.tours?.find(x => x.war === id) ?? null; }
+  /** Knappens text i krigets första kort, ur data/turer/index.json (labels.story). */
+  storyLabel(tour) { return fill(t(this.labels.story) || '{title}', { title: t(tour.title), total: tour.steps.length }); }
 
   get step() { return this.tour?.steps[this.index] ?? null; }
   get last() { return !!this.tour && this.index >= this.tour.steps.length - 1; }
@@ -182,6 +188,11 @@ export class TourPlayer {
     this.title.textContent = t(step.title);
     this.title.hidden = !step.title;
     this.text.textContent = t(step.text);
+    // Berättelseläget (#247): kapitlet ovanför rubriken och en fråga att fundera på under texten
+    this.chapter.textContent = t(step.chapter);
+    this.chapter.hidden = !step.chapter;
+    this.questionText.textContent = t(step.question);
+    this.question.hidden = !step.question;
     this.read.hidden = !step.open;
     this.back.hidden = this.index === 0;
     if (this.endBtn) this.endBtn.hidden = this.last; // sista steget: Klar avslutar
@@ -189,7 +200,7 @@ export class TourPlayer {
     this.next.textContent = this.last ? t(this.labels.done) : `${t(this.labels.next)} →`;
     // Pausraden visar turen och läses upp; Fortsätt där går till nästa steg (beforeplay ovan)
     const note = fill(t(this.labels.paused), { title: t(this.tour.title) });
-    const say = [this.progress.textContent, t(step.title), t(step.text)].filter(Boolean).join('. ');
+    const say = [this.progress.textContent, t(step.chapter), t(step.title), t(step.text), t(step.question)].filter(Boolean).join('. ');
     if (this.last) timeline.pause();
     else timeline.pause(note, true, say);
   }

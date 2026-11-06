@@ -9,6 +9,7 @@
   "summary": {
     "sv": "Från skotten i Sarajevo 1914 till vapenstilleståndet 1918, i Europa, Asien, Afrika och Amerika."
   },
+  "war": "forsta-varldskriget",
   "review": "source-checked",
   "steps": [
     {
@@ -18,6 +19,9 @@
         "lat": 43.9,
         "lon": 18.4,
         "zoom": 1.7
+      },
+      "chapter": {
+        "sv": "Hur kriget började"
       },
       "title": {
         "sv": "Sarajevo, 28 juni 1914"
@@ -52,6 +56,9 @@
       "text": {
         "sv": "En månad efter skotten förklarar Österrike-Ungern krig mot Serbien. I början av augusti förklarar Tyskland krig mot Ryssland och Frankrike, och Storbritannien går in i kriget när Tyskland invaderar Belgien."
       },
+      "question": {
+        "sv": "Hur kunde ett mord i en enda stad leda till att flera stormakter förklarade krig mot varandra?"
+      },
       "layers": [
         "events",
         "wars",
@@ -71,6 +78,9 @@
         "lat": 53.8,
         "lon": 20.5,
         "zoom": 1.6
+      },
+      "chapter": {
+        "sv": "1914: kriget sprids"
       },
       "title": {
         "sv": "Ostpreussen, slutet av augusti 1914"
@@ -128,6 +138,9 @@
       "text": {
         "sv": "Samtidigt i Kina belägrar japanska och brittiska styrkor den tyska hamnstaden Qingdao. Det är krigets enda stora landslag i Asien och Stilla havet."
       },
+      "question": {
+        "sv": "Varför stred man om en tysk hamnstad i Kina, i ett krig som började i Europa?"
+      },
       "layers": [
         "events",
         "wars",
@@ -137,7 +150,8 @@
       "sources": [
         "wp-tsingtao-1914",
         "wikidata",
-        "wp-marne-1914"
+        "wp-marne-1914",
+        "wp-world-war-i"
       ]
     },
     {
@@ -172,6 +186,9 @@
         "lat": 40.2,
         "lon": 26.3,
         "zoom": 1.7
+      },
+      "chapter": {
+        "sv": "1915–1916: stora slag på många fronter"
       },
       "title": {
         "sv": "Gallipoli, 1915"
@@ -280,6 +297,9 @@
       "text": {
         "sv": "Brittiska och franska arméer anfaller de tyska linjerna vid Somme. Över tre miljoner soldater deltar, och mer än en miljon dödas eller såras. Stridsvagnar används för första gången i september."
       },
+      "question": {
+        "sv": "Över tre miljoner soldater deltog vid Somme. Vad tror du att det betydde för familjerna hemma?"
+      },
       "layers": [
         "events",
         "wars",
@@ -298,6 +318,9 @@
         "lat": 38.9,
         "lon": -77.0,
         "zoom": 1.5
+      },
+      "chapter": {
+        "sv": "1917–1918: USA kommer in, Ryssland lämnar"
       },
       "title": {
         "sv": "Washington, 6 april 1917"
@@ -331,6 +354,9 @@
       "text": {
         "sv": "Sovjetryssland sluter separatfred med centralmakterna och lämnar kriget. Ryssland förlorar bland annat Ukraina, Polen, Belarus och de baltiska länderna."
       },
+      "question": {
+        "sv": "Inom ett år gick USA in i kriget och Ryssland lämnade det. Hur kan det ha förändrat kriget?"
+      },
       "layers": [
         "events",
         "wars",
@@ -339,6 +365,7 @@
       "open": "freden-i-brest-litovsk",
       "sources": [
         "wp-brest-litovsk",
+        "wp-us-entry-ww1",
         "wikidata"
       ]
     },
@@ -350,11 +377,17 @@
         "lon": 2.9,
         "zoom": 1.7
       },
+      "chapter": {
+        "sv": "Slutet"
+      },
       "title": {
         "sv": "Compiègne, 11 november 1918"
       },
       "text": {
         "sv": "Vapenstilleståndet skrivs under i en järnvägsvagn i skogen vid Compiègne och träder i kraft klockan 11. Striderna upphör, och kriget är slut. Freden sluts i Versailles den 28 juni 1919."
+      },
+      "question": {
+        "sv": "Freden slöts i Versailles mer än ett halvår efter vapenstilleståndet. Varför kan det ta tid att sluta fred?"
       },
       "layers": [
         "events",
