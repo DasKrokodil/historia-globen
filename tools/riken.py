@@ -470,7 +470,7 @@ GROUPS = {
     'kina': ('Kina', 'China', [
         ('Republic of China', 'republiken-kina', 'Republiken Kina', '#c8423c',
          {'en': 'Republic of China', 'wikidata': 'Q13426199', 'years': (1912, 1949)}),
-        ("People's Republic of China", 'folkrepubliken-kina', 'Kina', '#c8423c', {'en': "People's Republic of China"}),
+        ("People's Republic of China", 'folkrepubliken-kina', 'Kina', '#c8423c', {'en': 'China'}),
     ]),
     # Taiwan (#644, Rikards svar 5): Cliopatrias Republiken Kina efter 1949, under namnet Taiwan som regeringen använder
     'taiwan': ('Taiwan', 'Taiwan', [
@@ -546,7 +546,7 @@ GROUPS = {
     'frankrike': ('Frankrike', 'France', [
         # Cliopatria räknar Algeriet och Djibouti till Femte republiken 1961–2023, också de år då de är egna stater i Cliopatria
         ('French Fifth Republic', 'femte-republiken', 'Frankrike', '#3a5fa0',
-         {'en': 'French Fifth Republic', 'minus': ["People's Democratic Republic of Algeria", 'Republic of Djibouti']}),
+         {'en': 'France', 'minus': ["People's Democratic Republic of Algeria", 'Republic of Djibouti']}),
     ]),
     # Nutida stater, tredje omgången (#644). Spanien, Norge, Japan och Marocko väntar: de överlappar riken vi har
     # (Spanska imperiet, Sverige-Norge, Japanska imperiet) eller behöver noten om Västsahara

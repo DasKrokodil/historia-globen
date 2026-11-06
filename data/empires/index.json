@@ -17090,7 +17090,10 @@
    "id": "palestina",
    "name": {
     "sv": "Palestina",
-    "en": "Palestine"
+    "en": "Palestine",
+    "de": "Palästina",
+    "es": "Palestina",
+    "fr": "Palestine"
    },
    "color": "#2f9488",
    "from": 2014,
@@ -17101,7 +17104,10 @@
      "id": "palestina",
      "name": {
       "sv": "Palestina",
-      "en": "Palestine"
+      "en": "Palestine",
+      "de": "Palästina",
+      "es": "Palestina",
+      "fr": "Palestine"
      },
      "sources": [
       "natural-earth-omstridda"
@@ -24190,7 +24196,10 @@
    "id": "kina",
    "name": {
     "sv": "Kina",
-    "en": "China"
+    "en": "China",
+    "de": "China",
+    "es": "China",
+    "fr": "Chine"
    },
    "color": "#c8423c",
    "from": 1912,
@@ -24201,7 +24210,10 @@
      "id": "republiken-kina",
      "name": {
       "sv": "Republiken Kina",
-      "en": "Republic of China"
+      "en": "Republic of China",
+      "de": "Republik China",
+      "es": "República de China",
+      "fr": "république de Chine"
      },
      "sources": [
       "cliopatria"
@@ -24212,7 +24224,10 @@
      "id": "folkrepubliken-kina",
      "name": {
       "sv": "Kina",
-      "en": "People's Republic of China"
+      "en": "China",
+      "de": "China",
+      "es": "China",
+      "fr": "Chine"
      },
      "sources": [
       "cliopatria"
@@ -24236,7 +24251,10 @@
    "id": "taiwan",
    "name": {
     "sv": "Taiwan",
-    "en": "Taiwan"
+    "en": "Taiwan",
+    "de": "Taiwan",
+    "es": "Taiwán",
+    "fr": "Taïwan"
    },
    "color": "#d9905a",
    "from": 1950,
@@ -24247,7 +24265,10 @@
      "id": "taiwan",
      "name": {
       "sv": "Taiwan",
-      "en": "Taiwan"
+      "en": "Taiwan",
+      "de": "Taiwan",
+      "es": "Taiwán",
+      "fr": "Taïwan"
      },
      "sources": [
       "cliopatria"
@@ -24270,7 +24291,10 @@
    "id": "kazakstan",
    "name": {
     "sv": "Kazakstan",
-    "en": "Kazakhstan"
+    "en": "Kazakhstan",
+    "de": "Kasachstan",
+    "es": "Kazajistán",
+    "fr": "Kazakhstan"
    },
    "color": "#4aa3c8",
    "from": 1992,
@@ -24281,7 +24305,10 @@
      "id": "kazakstan",
      "name": {
       "sv": "Kazakstan",
-      "en": "Kazakhstan"
+      "en": "Kazakhstan",
+      "de": "Kasachstan",
+      "es": "Kazajistán",
+      "fr": "Kazakhstan"
      },
      "sources": [
       "cliopatria"
@@ -24294,7 +24321,10 @@
    "id": "algeriet",
    "name": {
     "sv": "Algeriet",
-    "en": "Algeria"
+    "en": "Algeria",
+    "de": "Algerien",
+    "es": "Argelia",
+    "fr": "Algérie"
    },
    "color": "#3f9a5c",
    "from": 1963,
@@ -24305,7 +24335,10 @@
      "id": "algeriet",
      "name": {
       "sv": "Algeriet",
-      "en": "Algeria"
+      "en": "Algeria",
+      "de": "Algerien",
+      "es": "Argelia",
+      "fr": "Algérie"
      },
      "sources": [
       "cliopatria"
@@ -24318,7 +24351,10 @@
    "id": "danmark",
    "name": {
     "sv": "Danmark",
-    "en": "Denmark"
+    "en": "Denmark",
+    "de": "Dänemark",
+    "es": "Dinamarca",
+    "fr": "Danemark"
    },
    "color": "#c0504d",
    "from": 1945,
@@ -24329,7 +24365,10 @@
      "id": "danmark",
      "name": {
       "sv": "Danmark",
-      "en": "Denmark"
+      "en": "Denmark",
+      "de": "Dänemark",
+      "es": "Dinamarca",
+      "fr": "Danemark"
      },
      "sources": [
       "cliopatria"
@@ -24342,7 +24381,10 @@
    "id": "indonesien",
    "name": {
     "sv": "Indonesien",
-    "en": "Indonesia"
+    "en": "Indonesia",
+    "de": "Indonesien",
+    "es": "Indonesia",
+    "fr": "Indonésie"
    },
    "color": "#b04a7a",
    "from": 1946,
@@ -24353,7 +24395,10 @@
      "id": "indonesien",
      "name": {
       "sv": "Indonesien",
-      "en": "Indonesia"
+      "en": "Indonesia",
+      "de": "Indonesien",
+      "es": "Indonesia",
+      "fr": "Indonésie"
      },
      "sources": [
       "cliopatria"
@@ -24366,7 +24411,10 @@
    "id": "saudiarabien",
    "name": {
     "sv": "Saudiarabien",
-    "en": "Saudi Arabia"
+    "en": "Saudi Arabia",
+    "de": "Saudi-Arabien",
+    "es": "Arabia Saudí",
+    "fr": "Arabie saoudite"
    },
    "color": "#8a7a2f",
    "from": 1926,
@@ -24377,7 +24425,10 @@
      "id": "hijaz-och-najd",
      "name": {
       "sv": "Kingdom of Nejd and Hejaz",
-      "en": "Kingdom of Nejd and Hejaz"
+      "en": "Kingdom of Nejd and Hejaz",
+      "de": "Königreich Hedschas und Nadschd",
+      "es": "Reino del Nejd y del Hiyaz",
+      "fr": "Royaume du Nejd et du Hedjaz"
      },
      "sources": [
       "cliopatria"
@@ -24388,7 +24439,10 @@
      "id": "saudiarabien",
      "name": {
       "sv": "Saudiarabien",
-      "en": "Saudi Arabia"
+      "en": "Saudi Arabia",
+      "de": "Saudi-Arabien",
+      "es": "Arabia Saudí",
+      "fr": "Arabie saoudite"
      },
      "sources": [
       "cliopatria"
@@ -24401,7 +24455,10 @@
    "id": "sudan",
    "name": {
     "sv": "Sudan",
-    "en": "Sudan"
+    "en": "Sudan",
+    "de": "Sudan",
+    "es": "Sudán",
+    "fr": "Soudan"
    },
    "color": "#a0703a",
    "from": 1956,
@@ -24412,7 +24469,10 @@
      "id": "sudan",
      "name": {
       "sv": "Sudan",
-      "en": "Sudan"
+      "en": "Sudan",
+      "de": "Sudan",
+      "es": "Sudán",
+      "fr": "Soudan"
      },
      "sources": [
       "cliopatria"
@@ -24425,7 +24485,10 @@
    "id": "libyen",
    "name": {
     "sv": "Libyen",
-    "en": "Libya"
+    "en": "Libya",
+    "de": "Libyen",
+    "es": "Libia",
+    "fr": "Libye"
    },
    "color": "#5f7fb0",
    "from": 1953,
@@ -24436,7 +24499,10 @@
      "id": "kungariket-libyen",
      "name": {
       "sv": "Kungariket Libyen",
-      "en": "Kingdom of Libya"
+      "en": "Kingdom of Libya",
+      "de": "Königreich Libyen",
+      "es": "Reino de Libia",
+      "fr": "royaume de Libye"
      },
      "sources": [
       "cliopatria"
@@ -24447,7 +24513,10 @@
      "id": "libyen",
      "name": {
       "sv": "Libyen",
-      "en": "Libya"
+      "en": "Libya",
+      "de": "Libyen",
+      "es": "Libia",
+      "fr": "Libye"
      },
      "sources": [
       "cliopatria"
@@ -24460,7 +24529,10 @@
    "id": "mongoliet",
    "name": {
     "sv": "Mongoliet",
-    "en": "Mongolia"
+    "en": "Mongolia",
+    "de": "Mongolei",
+    "es": "Mongolia",
+    "fr": "Mongolie"
    },
    "color": "#3a6fb0",
    "from": 1926,
@@ -24471,7 +24543,10 @@
      "id": "mongoliska-folkrepubliken",
      "name": {
       "sv": "Mongoliska folkrepubliken",
-      "en": "Mongolian People's Republic"
+      "en": "Mongolian People's Republic",
+      "de": "Mongolische Volksrepublik",
+      "es": "República Popular de Mongolia",
+      "fr": "République populaire mongole"
      },
      "sources": [
       "cliopatria"
@@ -24482,7 +24557,10 @@
      "id": "mongoliet",
      "name": {
       "sv": "Mongoliet",
-      "en": "Mongolia"
+      "en": "Mongolia",
+      "de": "Mongolei",
+      "es": "Mongolia",
+      "fr": "Mongolie"
      },
      "sources": [
       "cliopatria"
@@ -24495,7 +24573,10 @@
    "id": "tchad",
    "name": {
     "sv": "Tchad",
-    "en": "Chad"
+    "en": "Chad",
+    "de": "Tschad",
+    "es": "Chad",
+    "fr": "Tchad"
    },
    "color": "#c9a050",
    "from": 1961,
@@ -24506,7 +24587,10 @@
      "id": "tchad",
      "name": {
       "sv": "Tchad",
-      "en": "Chad"
+      "en": "Chad",
+      "de": "Tschad",
+      "es": "Chad",
+      "fr": "Tchad"
      },
      "sources": [
       "cliopatria"
@@ -24519,7 +24603,10 @@
    "id": "angola",
    "name": {
     "sv": "Angola",
-    "en": "Angola"
+    "en": "Angola",
+    "de": "Angola",
+    "es": "Angola",
+    "fr": "Angola"
    },
    "color": "#c05050",
    "from": 1976,
@@ -24530,7 +24617,10 @@
      "id": "angola",
      "name": {
       "sv": "Angola",
-      "en": "Angola"
+      "en": "Angola",
+      "de": "Angola",
+      "es": "Angola",
+      "fr": "Angola"
      },
      "sources": [
       "cliopatria"
@@ -24543,7 +24633,10 @@
    "id": "mali",
    "name": {
     "sv": "Mali",
-    "en": "Mali"
+    "en": "Mali",
+    "de": "Mali",
+    "es": "Mali",
+    "fr": "Mali"
    },
    "color": "#d4a24a",
    "from": 1960,
@@ -24554,7 +24647,10 @@
      "id": "mali",
      "name": {
       "sv": "Mali",
-      "en": "Mali"
+      "en": "Mali",
+      "de": "Mali",
+      "es": "Mali",
+      "fr": "Mali"
      },
      "sources": [
       "cliopatria"
@@ -24567,7 +24663,10 @@
    "id": "sydafrika",
    "name": {
     "sv": "Sydafrika",
-    "en": "South Africa"
+    "en": "South Africa",
+    "de": "Südafrika",
+    "es": "Sudáfrica",
+    "fr": "Afrique du Sud"
    },
    "color": "#4f8a5a",
    "from": 1932,
@@ -24578,7 +24677,10 @@
      "id": "sydafrika",
      "name": {
       "sv": "Sydafrika",
-      "en": "South Africa"
+      "en": "South Africa",
+      "de": "Südafrika",
+      "es": "Sudáfrica",
+      "fr": "Afrique du Sud"
      },
      "sources": [
       "cliopatria"
@@ -24591,7 +24693,10 @@
    "id": "niger",
    "name": {
     "sv": "Niger",
-    "en": "Niger"
+    "en": "Niger",
+    "de": "Niger",
+    "es": "Níger",
+    "fr": "Niger"
    },
    "color": "#b0603a",
    "from": 1961,
@@ -24602,7 +24707,10 @@
      "id": "niger",
      "name": {
       "sv": "Niger",
-      "en": "Niger"
+      "en": "Niger",
+      "de": "Niger",
+      "es": "Níger",
+      "fr": "Niger"
      },
      "sources": [
       "cliopatria"
@@ -24615,7 +24723,10 @@
    "id": "mauretanien",
    "name": {
     "sv": "Mauretanien",
-    "en": "Mauritania"
+    "en": "Mauritania",
+    "de": "Mauretanien",
+    "es": "Mauritania",
+    "fr": "Mauritanie"
    },
    "color": "#a86a9a",
    "from": 1961,
@@ -24626,7 +24737,10 @@
      "id": "mauretanien",
      "name": {
       "sv": "Mauretanien",
-      "en": "Mauritania"
+      "en": "Mauritania",
+      "de": "Mauretanien",
+      "es": "Mauritania",
+      "fr": "Mauritanie"
      },
      "sources": [
       "cliopatria"
@@ -24639,7 +24753,10 @@
    "id": "tanzania",
    "name": {
     "sv": "Tanzania",
-    "en": "Tanzania"
+    "en": "Tanzania",
+    "de": "Tansania",
+    "es": "Tanzania",
+    "fr": "Tanzanie"
    },
    "color": "#5aa070",
    "from": 1961,
@@ -24650,7 +24767,10 @@
      "id": "tanzania",
      "name": {
       "sv": "Tanzania",
-      "en": "Tanzania"
+      "en": "Tanzania",
+      "de": "Tansania",
+      "es": "Tanzania",
+      "fr": "Tanzanie"
      },
      "sources": [
       "cliopatria"
@@ -24663,7 +24783,10 @@
    "id": "namibia",
    "name": {
     "sv": "Namibia",
-    "en": "Namibia"
+    "en": "Namibia",
+    "de": "Namibia",
+    "es": "Namibia",
+    "fr": "Namibie"
    },
    "color": "#5a9ab0",
    "from": 1990,
@@ -24674,7 +24797,10 @@
      "id": "namibia",
      "name": {
       "sv": "Namibia",
-      "en": "Namibia"
+      "en": "Namibia",
+      "de": "Namibia",
+      "es": "Namibia",
+      "fr": "Namibie"
      },
      "sources": [
       "cliopatria"
@@ -24687,7 +24813,10 @@
    "id": "mocambique",
    "name": {
     "sv": "Moçambique",
-    "en": "Mozambique"
+    "en": "Mozambique",
+    "de": "Mosambik",
+    "es": "Mozambique",
+    "fr": "Mozambique"
    },
    "color": "#d0a040",
    "from": 1976,
@@ -24698,7 +24827,10 @@
      "id": "mocambique",
      "name": {
       "sv": "Moçambique",
-      "en": "Mozambique"
+      "en": "Mozambique",
+      "de": "Mosambik",
+      "es": "Mozambique",
+      "fr": "Mozambique"
      },
      "sources": [
       "cliopatria"
@@ -24711,7 +24843,10 @@
    "id": "turkiet",
    "name": {
     "sv": "Turkiet",
-    "en": "Turkey"
+    "en": "Turkey",
+    "de": "Türkei",
+    "es": "Turquía",
+    "fr": "Turquie"
    },
    "color": "#4a8ab0",
    "from": 1924,
@@ -24722,7 +24857,10 @@
      "id": "turkiet",
      "name": {
       "sv": "Turkiet",
-      "en": "Turkey"
+      "en": "Turkey",
+      "de": "Türkei",
+      "es": "Turquía",
+      "fr": "Turquie"
      },
      "sources": [
       "cliopatria"
@@ -24735,7 +24873,10 @@
    "id": "zambia",
    "name": {
     "sv": "Zambia",
-    "en": "Zambia"
+    "en": "Zambia",
+    "de": "Sambia",
+    "es": "Zambia",
+    "fr": "Zambie"
    },
    "color": "#8a6ab0",
    "from": 1967,
@@ -24746,7 +24887,10 @@
      "id": "zambia",
      "name": {
       "sv": "Zambia",
-      "en": "Zambia"
+      "en": "Zambia",
+      "de": "Sambia",
+      "es": "Zambia",
+      "fr": "Zambie"
      },
      "sources": [
       "cliopatria"
@@ -24759,7 +24903,10 @@
    "id": "frankrike",
    "name": {
     "sv": "Frankrike",
-    "en": "France"
+    "en": "France",
+    "de": "Frankreich",
+    "es": "Francia",
+    "fr": "France"
    },
    "color": "#3a5fa0",
    "from": 1958,
@@ -24770,7 +24917,10 @@
      "id": "femte-republiken",
      "name": {
       "sv": "Frankrike",
-      "en": "French Fifth Republic"
+      "en": "France",
+      "de": "Frankreich",
+      "es": "Francia",
+      "fr": "France"
      },
      "sources": [
       "cliopatria"
@@ -24783,7 +24933,10 @@
    "id": "myanmar",
    "name": {
     "sv": "Myanmar",
-    "en": "Myanmar"
+    "en": "Myanmar",
+    "de": "Myanmar",
+    "es": "Birmania",
+    "fr": "Birmanie"
    },
    "color": "#a8649a",
    "from": 1948,
@@ -24794,7 +24947,10 @@
      "id": "myanmar",
      "name": {
       "sv": "Myanmar",
-      "en": "Myanmar"
+      "en": "Myanmar",
+      "de": "Myanmar",
+      "es": "Birmania",
+      "fr": "Birmanie"
      },
      "sources": [
       "cliopatria"
@@ -24807,7 +24963,10 @@
    "id": "somalia",
    "name": {
     "sv": "Somalia",
-    "en": "Somalia"
+    "en": "Somalia",
+    "de": "Somalia",
+    "es": "Somalia",
+    "fr": "Somalie"
    },
    "color": "#4a90c0",
    "from": 1960,
@@ -24818,7 +24977,10 @@
      "id": "somalia",
      "name": {
       "sv": "Somalia",
-      "en": "Somalia"
+      "en": "Somalia",
+      "de": "Somalia",
+      "es": "Somalia",
+      "fr": "Somalie"
      },
      "sources": [
       "cliopatria"
@@ -24831,7 +24993,10 @@
    "id": "centralafrikanska-republiken",
    "name": {
     "sv": "Centralafrikanska republiken",
-    "en": "Central African Republic"
+    "en": "Central African Republic",
+    "de": "Zentralafrikanische Republik",
+    "es": "República Centroafricana",
+    "fr": "République centrafricaine"
    },
    "color": "#7aa04a",
    "from": 1961,
@@ -24842,7 +25007,10 @@
      "id": "centralafrikanska-republiken",
      "name": {
       "sv": "Centralafrikanska republiken",
-      "en": "Central African Republic"
+      "en": "Central African Republic",
+      "de": "Zentralafrikanische Republik",
+      "es": "República Centroafricana",
+      "fr": "République centrafricaine"
      },
      "sources": [
       "cliopatria"
@@ -24855,7 +25023,10 @@
    "id": "madagaskar",
    "name": {
     "sv": "Madagaskar",
-    "en": "Madagascar"
+    "en": "Madagascar",
+    "de": "Madagaskar",
+    "es": "Madagascar",
+    "fr": "Madagascar"
    },
    "color": "#9a6ab0",
    "from": 1960,
@@ -24866,7 +25037,10 @@
      "id": "madagaskar",
      "name": {
       "sv": "Madagaskar",
-      "en": "Madagascar"
+      "en": "Madagascar",
+      "de": "Madagaskar",
+      "es": "Madagascar",
+      "fr": "Madagascar"
      },
      "sources": [
       "cliopatria"
@@ -24879,7 +25053,10 @@
    "id": "sydsudan",
    "name": {
     "sv": "Sydsudan",
-    "en": "South Sudan"
+    "en": "South Sudan",
+    "de": "Südsudan",
+    "es": "Sudán del Sur",
+    "fr": "Soudan du Sud"
    },
    "color": "#c06a8a",
    "from": 2014,
@@ -24890,7 +25067,10 @@
      "id": "sydsudan",
      "name": {
       "sv": "Sydsudan",
-      "en": "South Sudan"
+      "en": "South Sudan",
+      "de": "Südsudan",
+      "es": "Sudán del Sur",
+      "fr": "Soudan du Sud"
      },
      "sources": [
       "cliopatria"
@@ -24903,7 +25083,10 @@
    "id": "kenya",
    "name": {
     "sv": "Kenya",
-    "en": "Kenya"
+    "en": "Kenya",
+    "de": "Kenia",
+    "es": "Kenia",
+    "fr": "Kenya"
    },
    "color": "#b05050",
    "from": 1963,
@@ -24914,7 +25097,10 @@
      "id": "kenya",
      "name": {
       "sv": "Kenya",
-      "en": "Kenya"
+      "en": "Kenya",
+      "de": "Kenia",
+      "es": "Kenia",
+      "fr": "Kenya"
      },
      "sources": [
       "cliopatria"
@@ -24927,7 +25113,10 @@
    "id": "botswana",
    "name": {
     "sv": "Botswana",
-    "en": "Botswana"
+    "en": "Botswana",
+    "de": "Botswana",
+    "es": "Botsuana",
+    "fr": "Botswana"
    },
    "color": "#d07a5a",
    "from": 1967,
@@ -24938,7 +25127,10 @@
      "id": "botswana",
      "name": {
       "sv": "Botswana",
-      "en": "Botswana"
+      "en": "Botswana",
+      "de": "Botswana",
+      "es": "Botsuana",
+      "fr": "Botswana"
      },
      "sources": [
       "cliopatria"
@@ -24951,7 +25143,10 @@
    "id": "thailand",
    "name": {
     "sv": "Thailand",
-    "en": "Thailand"
+    "en": "Thailand",
+    "de": "Thailand",
+    "es": "Tailandia",
+    "fr": "Thaïlande"
    },
    "color": "#4f9a9a",
    "from": 1932,
@@ -24962,7 +25157,10 @@
      "id": "thailand",
      "name": {
       "sv": "Thailand",
-      "en": "Thailand"
+      "en": "Thailand",
+      "de": "Thailand",
+      "es": "Tailandia",
+      "fr": "Thaïlande"
      },
      "sources": [
       "cliopatria"
@@ -24975,7 +25173,10 @@
    "id": "turkmenistan",
    "name": {
     "sv": "Turkmenistan",
-    "en": "Turkmenistan"
+    "en": "Turkmenistan",
+    "de": "Turkmenistan",
+    "es": "Turkmenistán",
+    "fr": "Turkménistan"
    },
    "color": "#9ab04a",
    "from": 1992,
@@ -24986,7 +25187,10 @@
      "id": "turkmenistan",
      "name": {
       "sv": "Turkmenistan",
-      "en": "Turkmenistan"
+      "en": "Turkmenistan",
+      "de": "Turkmenistan",
+      "es": "Turkmenistán",
+      "fr": "Turkménistan"
      },
      "sources": [
       "cliopatria"
@@ -24999,7 +25203,10 @@
    "id": "kamerun",
    "name": {
     "sv": "Kamerun",
-    "en": "Cameroon"
+    "en": "Cameroon",
+    "de": "Kamerun",
+    "es": "Camerún",
+    "fr": "Cameroun"
    },
    "color": "#c05a3a",
    "from": 1960,
@@ -25010,7 +25217,10 @@
      "id": "kamerun",
      "name": {
       "sv": "Kamerun",
-      "en": "Cameroon"
+      "en": "Cameroon",
+      "de": "Kamerun",
+      "es": "Camerún",
+      "fr": "Cameroun"
      },
      "sources": [
       "cliopatria"
@@ -25023,7 +25233,10 @@
    "id": "spanien",
    "name": {
     "sv": "Spanien",
-    "en": "Spain"
+    "en": "Spain",
+    "de": "Spanien",
+    "es": "España",
+    "fr": "Espagne"
    },
    "color": "#d07a3a",
    "from": 1932,
@@ -25034,7 +25247,10 @@
      "id": "andra-spanska-republiken",
      "name": {
       "sv": "Andra spanska republiken",
-      "en": "Second Spanish Republic"
+      "en": "Second Spanish Republic",
+      "de": "Zweite Spanische Republik",
+      "es": "Segunda República Española",
+      "fr": "Seconde République espagnole"
      },
      "sources": [
       "cliopatria"
@@ -25045,7 +25261,10 @@
      "id": "spanien-under-franco",
      "name": {
       "sv": "Spanien under Franco",
-      "en": "Francoist Spain"
+      "en": "Francoist Spain",
+      "de": "Franco-Diktatur",
+      "es": "España franquista",
+      "fr": "Espagne franquiste"
      },
      "sources": [
       "cliopatria"
@@ -25056,7 +25275,10 @@
      "id": "spanien",
      "name": {
       "sv": "Spanien",
-      "en": "Spain"
+      "en": "Spain",
+      "de": "Spanien",
+      "es": "España",
+      "fr": "Espagne"
      },
      "sources": [
       "cliopatria"
@@ -25069,7 +25291,10 @@
    "id": "jemen",
    "name": {
     "sv": "Jemen",
-    "en": "Yemen"
+    "en": "Yemen",
+    "de": "Jemen",
+    "es": "Yemen",
+    "fr": "Yémen"
    },
    "color": "#4a8aa0",
    "from": 1990,
@@ -25080,7 +25305,10 @@
      "id": "jemen",
      "name": {
       "sv": "Jemen",
-      "en": "Yemen"
+      "en": "Yemen",
+      "de": "Jemen",
+      "es": "Yemen",
+      "fr": "Yémen"
      },
      "sources": [
       "cliopatria"
@@ -25093,7 +25321,10 @@
    "id": "norge",
    "name": {
     "sv": "Norge",
-    "en": "Norway"
+    "en": "Norway",
+    "de": "Norwegen",
+    "es": "Noruega",
+    "fr": "Norvège"
    },
    "color": "#2f8f7a",
    "from": 1905,
@@ -25104,7 +25335,10 @@
      "id": "norge",
      "name": {
       "sv": "Norge",
-      "en": "Norway"
+      "en": "Norway",
+      "de": "Norwegen",
+      "es": "Noruega",
+      "fr": "Norvège"
      },
      "sources": [
       "cliopatria"
@@ -25117,7 +25351,10 @@
    "id": "uzbekistan",
    "name": {
     "sv": "Uzbekistan",
-    "en": "Uzbekistan"
+    "en": "Uzbekistan",
+    "de": "Usbekistan",
+    "es": "Uzbekistán",
+    "fr": "Ouzbékistan"
    },
    "color": "#c0705a",
    "from": 1992,
@@ -25128,7 +25365,10 @@
      "id": "uzbekistan",
      "name": {
       "sv": "Uzbekistan",
-      "en": "Uzbekistan"
+      "en": "Uzbekistan",
+      "de": "Usbekistan",
+      "es": "Uzbekistán",
+      "fr": "Ouzbékistan"
      },
      "sources": [
       "cliopatria"
@@ -25141,7 +25381,10 @@
    "id": "japan",
    "name": {
     "sv": "Japan",
-    "en": "Japan"
+    "en": "Japan",
+    "de": "Japan",
+    "es": "Japón",
+    "fr": "Japon"
    },
    "color": "#e07a8a",
    "from": 1953,
@@ -25152,7 +25395,10 @@
      "id": "japan",
      "name": {
       "sv": "Japan",
-      "en": "Japan"
+      "en": "Japan",
+      "de": "Japan",
+      "es": "Japón",
+      "fr": "Japon"
      },
      "sources": [
       "cliopatria"
@@ -25165,7 +25411,10 @@
    "id": "marocko",
    "name": {
     "sv": "Marocko",
-    "en": "Morocco"
+    "en": "Morocco",
+    "de": "Marokko",
+    "es": "Marruecos",
+    "fr": "Maroc"
    },
    "color": "#b0503a",
    "from": 1670,
@@ -25176,7 +25425,10 @@
      "id": "marocko",
      "name": {
       "sv": "Marocko",
-      "en": "Morocco"
+      "en": "Morocco",
+      "de": "Marokko",
+      "es": "Marruecos",
+      "fr": "Maroc"
      },
      "sources": [
       "cliopatria"
@@ -25198,7 +25450,10 @@
    "id": "zimbabwe",
    "name": {
     "sv": "Zimbabwe",
-    "en": "Zimbabwe"
+    "en": "Zimbabwe",
+    "de": "Simbabwe",
+    "es": "Zimbabue",
+    "fr": "Zimbabwe"
    },
    "color": "#9a4a6a",
    "from": 1983,
@@ -25209,7 +25464,10 @@
      "id": "zimbabwe",
      "name": {
       "sv": "Zimbabwe",
-      "en": "Zimbabwe"
+      "en": "Zimbabwe",
+      "de": "Simbabwe",
+      "es": "Zimbabue",
+      "fr": "Zimbabwe"
      },
      "sources": [
       "cliopatria"
@@ -25222,7 +25480,10 @@
    "id": "tyskland",
    "name": {
     "sv": "Tyskland",
-    "en": "Germany"
+    "en": "Germany",
+    "de": "Deutschland",
+    "es": "Alemania",
+    "fr": "Allemagne"
    },
    "color": "#c8b04a",
    "from": 1991,
@@ -25233,7 +25494,10 @@
      "id": "tyskland",
      "name": {
       "sv": "Tyskland",
-      "en": "Germany"
+      "en": "Germany",
+      "de": "Deutschland",
+      "es": "Alemania",
+      "fr": "Allemagne"
      },
      "sources": [
       "cliopatria"
@@ -25246,7 +25510,10 @@
    "id": "malaysia",
    "name": {
     "sv": "Malaysia",
-    "en": "Malaysia"
+    "en": "Malaysia",
+    "de": "Malaysia",
+    "es": "Malasia",
+    "fr": "Malaisie"
    },
    "color": "#d08a4a",
    "from": 1963,
@@ -25257,7 +25524,10 @@
      "id": "malaysia",
      "name": {
       "sv": "Malaysia",
-      "en": "Malaysia"
+      "en": "Malaysia",
+      "de": "Malaysia",
+      "es": "Malasia",
+      "fr": "Malaisie"
      },
      "sources": [
       "cliopatria"
@@ -25270,7 +25540,10 @@
    "id": "kongo-brazzaville",
    "name": {
     "sv": "Kongo-Brazzaville",
-    "en": "Republic of the Congo"
+    "en": "Republic of the Congo",
+    "de": "Republik Kongo",
+    "es": "Congo",
+    "fr": "République du Congo"
    },
    "color": "#c07aa0",
    "from": 1961,
@@ -25281,7 +25554,10 @@
      "id": "kongo-brazzaville",
      "name": {
       "sv": "Kongo-Brazzaville",
-      "en": "Republic of the Congo"
+      "en": "Republic of the Congo",
+      "de": "Republik Kongo",
+      "es": "Congo",
+      "fr": "République du Congo"
      },
      "sources": [
       "cliopatria"
@@ -25294,7 +25570,10 @@
    "id": "filippinerna",
    "name": {
     "sv": "Filippinerna",
-    "en": "Philippines"
+    "en": "Philippines",
+    "de": "Philippinen",
+    "es": "Filipinas",
+    "fr": "Philippines"
    },
    "color": "#5a8ac8",
    "from": 1947,
@@ -25305,7 +25584,10 @@
      "id": "filippinerna",
      "name": {
       "sv": "Filippinerna",
-      "en": "Philippines"
+      "en": "Philippines",
+      "de": "Philippinen",
+      "es": "Filipinas",
+      "fr": "Philippines"
      },
      "sources": [
       "cliopatria"
@@ -25318,7 +25600,10 @@
    "id": "finland",
    "name": {
     "sv": "Finland",
-    "en": "Finland"
+    "en": "Finland",
+    "de": "Finnland",
+    "es": "Finlandia",
+    "fr": "Finlande"
    },
    "color": "#d0708a",
    "from": 1918,
@@ -25329,7 +25614,10 @@
      "id": "finland",
      "name": {
       "sv": "Finland",
-      "en": "Finland"
+      "en": "Finland",
+      "de": "Finnland",
+      "es": "Finlandia",
+      "fr": "Finlande"
      },
      "sources": [
       "cliopatria"
@@ -25342,7 +25630,10 @@
    "id": "elfenbenskusten",
    "name": {
     "sv": "Elfenbenskusten",
-    "en": "Ivory Coast"
+    "en": "Ivory Coast",
+    "de": "Elfenbeinküste",
+    "es": "Costa de Marfil",
+    "fr": "Côte d'Ivoire"
    },
    "color": "#5aa06a",
    "from": 1961,
@@ -25353,7 +25644,10 @@
      "id": "elfenbenskusten",
      "name": {
       "sv": "Elfenbenskusten",
-      "en": "Ivory Coast"
+      "en": "Ivory Coast",
+      "de": "Elfenbeinküste",
+      "es": "Costa de Marfil",
+      "fr": "Côte d'Ivoire"
      },
      "sources": [
       "cliopatria"
@@ -25366,7 +25660,10 @@
    "id": "polen",
    "name": {
     "sv": "Polen",
-    "en": "Poland"
+    "en": "Poland",
+    "de": "Polen",
+    "es": "Polonia",
+    "fr": "Pologne"
    },
    "color": "#c04050",
    "from": 1919,
@@ -25377,7 +25674,10 @@
      "id": "andra-polska-republiken",
      "name": {
       "sv": "Andra polska republiken",
-      "en": "Second Polish Republic"
+      "en": "Second Polish Republic",
+      "de": "Zweite Polnische Republik",
+      "es": "Segunda República polaca",
+      "fr": "Deuxième République de Pologne"
      },
      "sources": [
       "cliopatria"
@@ -25388,7 +25688,10 @@
      "id": "polen",
      "name": {
       "sv": "Polen",
-      "en": "Poland"
+      "en": "Poland",
+      "de": "Polen",
+      "es": "Polonia",
+      "fr": "Pologne"
      },
      "sources": [
       "cliopatria"
@@ -25401,7 +25704,10 @@
    "id": "oman",
    "name": {
     "sv": "Oman",
-    "en": "Oman"
+    "en": "Oman",
+    "de": "Oman",
+    "es": "Omán",
+    "fr": "Oman"
    },
    "color": "#c07a5a",
    "from": 1744,
@@ -25412,7 +25718,10 @@
      "id": "oman",
      "name": {
       "sv": "Oman",
-      "en": "Oman"
+      "en": "Oman",
+      "de": "Oman",
+      "es": "Omán",
+      "fr": "Oman"
      },
      "sources": [
       "cliopatria"
@@ -25423,7 +25732,10 @@
      "id": "muskat-och-oman",
      "name": {
       "sv": "Muskat och Oman",
-      "en": "Muscat and Oman"
+      "en": "Muscat and Oman",
+      "de": "Mascat und Oman",
+      "es": "Sultanato de Mascate y Omán",
+      "fr": "Mascate et Oman"
      },
      "sources": [
       "cliopatria"
@@ -25436,7 +25748,10 @@
    "id": "italien",
    "name": {
     "sv": "Italien",
-    "en": "Italy"
+    "en": "Italy",
+    "de": "Italien",
+    "es": "Italia",
+    "fr": "Italie"
    },
    "color": "#4aa070",
    "from": 1862,
@@ -25447,7 +25762,10 @@
      "id": "kungariket-italien",
      "name": {
       "sv": "Kungariket Italien",
-      "en": "Kingdom of Italy"
+      "en": "Kingdom of Italy",
+      "de": "Königreich Italien",
+      "es": "Reino de Italia",
+      "fr": "royaume d'Italie"
      },
      "sources": [
       "cliopatria"
@@ -25458,7 +25776,10 @@
      "id": "italien",
      "name": {
       "sv": "Italien",
-      "en": "Italy"
+      "en": "Italy",
+      "de": "Italien",
+      "es": "Italia",
+      "fr": "Italie"
      },
      "sources": [
       "cliopatria"
@@ -25471,7 +25792,10 @@
    "id": "burkina-faso",
    "name": {
     "sv": "Burkina Faso",
-    "en": "Burkina Faso"
+    "en": "Burkina Faso",
+    "de": "Burkina Faso",
+    "es": "Burkina Faso",
+    "fr": "Burkina Faso"
    },
    "color": "#3a8ab0",
    "from": 1961,
@@ -25482,7 +25806,10 @@
      "id": "burkina-faso",
      "name": {
       "sv": "Burkina Faso",
-      "en": "Burkina Faso"
+      "en": "Burkina Faso",
+      "de": "Burkina Faso",
+      "es": "Burkina Faso",
+      "fr": "Burkina Faso"
      },
      "sources": [
       "cliopatria"
@@ -25495,7 +25822,10 @@
    "id": "gabon",
    "name": {
     "sv": "Gabon",
-    "en": "Gabon"
+    "en": "Gabon",
+    "de": "Gabun",
+    "es": "Gabón",
+    "fr": "Gabon"
    },
    "color": "#4aa0a0",
    "from": 1961,
@@ -25506,7 +25836,10 @@
      "id": "gabon",
      "name": {
       "sv": "Gabon",
-      "en": "Gabon"
+      "en": "Gabon",
+      "de": "Gabun",
+      "es": "Gabón",
+      "fr": "Gabon"
      },
      "sources": [
       "cliopatria"
@@ -25519,7 +25852,10 @@
    "id": "guinea",
    "name": {
     "sv": "Guinea",
-    "en": "Guinea"
+    "en": "Guinea",
+    "de": "Guinea",
+    "es": "Guinea",
+    "fr": "Guinée"
    },
    "color": "#a07ac0",
    "from": 1960,
@@ -25530,7 +25866,10 @@
      "id": "guinea",
      "name": {
       "sv": "Guinea",
-      "en": "Guinea"
+      "en": "Guinea",
+      "de": "Guinea",
+      "es": "Guinea",
+      "fr": "Guinée"
      },
      "sources": [
       "cliopatria"
@@ -25543,7 +25882,10 @@
    "id": "ghana",
    "name": {
     "sv": "Ghana",
-    "en": "Ghana"
+    "en": "Ghana",
+    "de": "Ghana",
+    "es": "Ghana",
+    "fr": "Ghana"
    },
    "color": "#c05a5a",
    "from": 1958,
@@ -25554,7 +25896,10 @@
      "id": "ghana",
      "name": {
       "sv": "Ghana",
-      "en": "Ghana"
+      "en": "Ghana",
+      "de": "Ghana",
+      "es": "Ghana",
+      "fr": "Ghana"
      },
      "sources": [
       "cliopatria"
@@ -25567,7 +25912,10 @@
    "id": "rumanien",
    "name": {
     "sv": "Rumänien",
-    "en": "Romania"
+    "en": "Romania",
+    "de": "Rumänien",
+    "es": "Rumania",
+    "fr": "Roumanie"
    },
    "color": "#3a8a9a",
    "from": 1919,
@@ -25578,7 +25926,10 @@
      "id": "kungariket-rumanien",
      "name": {
       "sv": "Kungariket Rumänien",
-      "en": "Kingdom of Romania"
+      "en": "Kingdom of Romania",
+      "de": "Königreich Rumänien",
+      "es": "Reino de Rumania",
+      "fr": "royaume de Roumanie"
      },
      "sources": [
       "cliopatria"
@@ -25589,7 +25940,10 @@
      "id": "socialistiska-republiken-rumanien",
      "name": {
       "sv": "Socialistiska republiken Rumänien",
-      "en": "Socialist Republic of Romania"
+      "en": "Socialist Republic of Romania",
+      "de": "Sozialistische Republik Rumänien",
+      "es": "República Socialista de Rumania",
+      "fr": "République socialiste de Roumanie"
      },
      "sources": [
       "cliopatria"
@@ -25600,7 +25954,10 @@
      "id": "rumanien",
      "name": {
       "sv": "Rumänien",
-      "en": "Romania"
+      "en": "Romania",
+      "de": "Rumänien",
+      "es": "Rumania",
+      "fr": "Roumanie"
      },
      "sources": [
       "cliopatria"
@@ -25613,7 +25970,10 @@
    "id": "laos",
    "name": {
     "sv": "Laos",
-    "en": "Laos"
+    "en": "Laos",
+    "de": "Laos",
+    "es": "Laos",
+    "fr": "Laos"
    },
    "color": "#4a9ad0",
    "from": 1956,
@@ -25624,7 +25984,10 @@
      "id": "kungariket-laos",
      "name": {
       "sv": "Kungariket Laos",
-      "en": "Kingdom of Laos"
+      "en": "Kingdom of Laos",
+      "de": "Königreich Laos",
+      "es": "Reino de Laos",
+      "fr": "Royaume du Laos"
      },
      "sources": [
       "cliopatria"
@@ -25635,7 +25998,10 @@
      "id": "laos",
      "name": {
       "sv": "Laos",
-      "en": "Laos"
+      "en": "Laos",
+      "de": "Laos",
+      "es": "Laos",
+      "fr": "Laos"
      },
      "sources": [
       "cliopatria"
@@ -25648,7 +26014,10 @@
    "id": "guyana",
    "name": {
     "sv": "Guyana",
-    "en": "Guyana"
+    "en": "Guyana",
+    "de": "Guyana",
+    "es": "Guyana",
+    "fr": "Guyana"
    },
    "color": "#4aa06a",
    "from": 1967,
@@ -25659,7 +26028,10 @@
      "id": "guyana",
      "name": {
       "sv": "Guyana",
-      "en": "Guyana"
+      "en": "Guyana",
+      "de": "Guyana",
+      "es": "Guyana",
+      "fr": "Guyana"
      },
      "sources": [
       "cliopatria"
@@ -25672,7 +26044,10 @@
    "id": "belarus",
    "name": {
     "sv": "Belarus",
-    "en": "Belarus"
+    "en": "Belarus",
+    "de": "Belarus",
+    "es": "Bielorrusia",
+    "fr": "Biélorussie"
    },
    "color": "#b0603a",
    "from": 1992,
@@ -25683,7 +26058,10 @@
      "id": "belarus",
      "name": {
       "sv": "Belarus",
-      "en": "Belarus"
+      "en": "Belarus",
+      "de": "Belarus",
+      "es": "Bielorrusia",
+      "fr": "Biélorussie"
      },
      "sources": [
       "cliopatria"
@@ -25696,7 +26074,10 @@
    "id": "senegal",
    "name": {
     "sv": "Senegal",
-    "en": "Senegal"
+    "en": "Senegal",
+    "de": "Senegal",
+    "es": "Senegal",
+    "fr": "Sénégal"
    },
    "color": "#3a9a7a",
    "from": 1961,
@@ -25707,7 +26088,10 @@
      "id": "senegal",
      "name": {
       "sv": "Senegal",
-      "en": "Senegal"
+      "en": "Senegal",
+      "de": "Senegal",
+      "es": "Senegal",
+      "fr": "Sénégal"
      },
      "sources": [
       "cliopatria"
@@ -25720,7 +26104,10 @@
    "id": "kirgizistan",
    "name": {
     "sv": "Kirgizistan",
-    "en": "Kyrgyzstan"
+    "en": "Kyrgyzstan",
+    "de": "Kirgisistan",
+    "es": "Kirguistán",
+    "fr": "Kirghizistan"
    },
    "color": "#c04a6a",
    "from": 1992,
@@ -25731,7 +26118,10 @@
      "id": "kirgizistan",
      "name": {
       "sv": "Kirgizistan",
-      "en": "Kyrgyzstan"
+      "en": "Kyrgyzstan",
+      "de": "Kirgisistan",
+      "es": "Kirguistán",
+      "fr": "Kirghizistan"
      },
      "sources": [
       "cliopatria"
@@ -25744,7 +26134,10 @@
    "id": "kambodja",
    "name": {
     "sv": "Kambodja",
-    "en": "Cambodia"
+    "en": "Cambodia",
+    "de": "Kambodscha",
+    "es": "Camboya",
+    "fr": "Cambodge"
    },
    "color": "#7a6ab0",
    "from": 1956,
@@ -25755,7 +26148,10 @@
      "id": "kambodja",
      "name": {
       "sv": "Kambodja",
-      "en": "Cambodia"
+      "en": "Cambodia",
+      "de": "Kambodscha",
+      "es": "Camboya",
+      "fr": "Cambodge"
      },
      "sources": [
       "cliopatria"
@@ -25766,7 +26162,10 @@
      "id": "roda-khmererna",
      "name": {
       "sv": "Röda khmererna",
-      "en": "Khmer Rouge"
+      "en": "Khmer Rouge",
+      "de": "Rote Khmer",
+      "es": "Jemeres Rojos",
+      "fr": "Parti communiste du Cambodge (Khmers rouges)"
      },
      "sources": [
       "cliopatria"
@@ -25777,7 +26176,10 @@
      "id": "folkrepubliken-kampuchea",
      "name": {
       "sv": "Folkrepubliken Kampuchea",
-      "en": "People's Republic of Kampuchea"
+      "en": "People's Republic of Kampuchea",
+      "de": "Volksrepublik Kambodscha",
+      "es": "República Popular de Kampuchea",
+      "fr": "République populaire du Kampuchéa"
      },
      "sources": [
       "cliopatria"
@@ -25790,7 +26192,10 @@
    "id": "tunisien",
    "name": {
     "sv": "Tunisien",
-    "en": "Tunisia"
+    "en": "Tunisia",
+    "de": "Tunesien",
+    "es": "Túnez",
+    "fr": "Tunisie"
    },
    "color": "#c06a3a",
    "from": 1956,
@@ -25801,7 +26206,10 @@
      "id": "tunisien",
      "name": {
       "sv": "Tunisien",
-      "en": "Tunisia"
+      "en": "Tunisia",
+      "de": "Tunesien",
+      "es": "Túnez",
+      "fr": "Tunisie"
      },
      "sources": [
       "cliopatria"
@@ -25814,7 +26222,10 @@
    "id": "nepal",
    "name": {
     "sv": "Nepal",
-    "en": "Nepal"
+    "en": "Nepal",
+    "de": "Nepal",
+    "es": "Nepal",
+    "fr": "Népal"
    },
    "color": "#8a5ab0",
    "from": 1775,
@@ -25825,7 +26236,10 @@
      "id": "nepal",
      "name": {
       "sv": "Nepal",
-      "en": "Nepal"
+      "en": "Nepal",
+      "de": "Nepal",
+      "es": "Nepal",
+      "fr": "Népal"
      },
      "sources": [
       "cliopatria"
@@ -25838,7 +26252,10 @@
    "id": "surinam",
    "name": {
     "sv": "Surinam",
-    "en": "Suriname"
+    "en": "Suriname",
+    "de": "Suriname",
+    "es": "Surinam",
+    "fr": "Suriname"
    },
    "color": "#c0703a",
    "from": 1976,
@@ -25849,7 +26266,10 @@
      "id": "surinam",
      "name": {
       "sv": "Surinam",
-      "en": "Suriname"
+      "en": "Suriname",
+      "de": "Suriname",
+      "es": "Surinam",
+      "fr": "Suriname"
      },
      "sources": [
       "cliopatria"
