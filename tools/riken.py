@@ -85,7 +85,9 @@ GROUPS = {
         ('Golden Horde', 'gyllene-horden', 'Gyllene horden', '#b08c4a'),
     ]),
     'brittiska-imperiet': ('Brittiska imperiet', 'British Empire', [
-        ('(British Empire)', 'brittiska-imperiet', 'Brittiska imperiet', '#c2557a', {'homeland': ['Kingdom of Great Britain']}),
+        # Cliopatria räknar Botswana till imperiet till och med 1968, fast Botswana är eget land från 1967 (#644)
+        ('(British Empire)', 'brittiska-imperiet', 'Brittiska imperiet', '#c2557a',
+         {'homeland': ['Kingdom of Great Britain'], 'minus': ['Republic of Botswana']}),
     ]),
     # R2 Antiken (#68)
     'egypten': ('Egypten: gamla och nya riket', 'Egypt: Old and New Kingdom', [
@@ -539,6 +541,39 @@ GROUPS = {
         # Cliopatria räknar Algeriet och Djibouti till Femte republiken 1961–2023, också de år då de är egna stater i Cliopatria
         ('French Fifth Republic', 'femte-republiken', 'Frankrike', '#3a5fa0',
          {'en': 'French Fifth Republic', 'minus': ["People's Democratic Republic of Algeria", 'Republic of Djibouti']}),
+    ]),
+    # Nutida stater, tredje omgången (#644). Spanien, Norge, Japan och Marocko väntar: de överlappar riken vi har
+    # (Spanska imperiet, Sverige-Norge, Japanska imperiet) eller behöver noten om Västsahara
+    'myanmar': ('Myanmar', 'Myanmar', [
+        (['Burma', 'Union of Myanmar'], 'myanmar', 'Myanmar', '#a8649a', {'en': 'Myanmar', 'wikidata': 'Q836', 'years': (1948, 2024)}),
+    ]),
+    'somalia': ('Somalia', 'Somalia', [
+        ('Federal Republic of Somalia', 'somalia', 'Somalia', '#4a90c0', {'en': 'Somalia'}),
+    ]),
+    'centralafrikanska-republiken': ('Centralafrikanska republiken', 'Central African Republic', [
+        ('Central African Republic', 'centralafrikanska-republiken', 'Centralafrikanska republiken', '#7aa04a',
+         {'en': 'Central African Republic'}),
+    ]),
+    'madagaskar': ('Madagaskar', 'Madagascar', [
+        ('Madagascar', 'madagaskar', 'Madagaskar', '#9a6ab0', {'en': 'Madagascar'}),
+    ]),
+    'sydsudan': ('Sydsudan', 'South Sudan', [
+        ('South Sudan', 'sydsudan', 'Sydsudan', '#c06a8a', {'en': 'South Sudan'}),
+    ]),
+    'kenya': ('Kenya', 'Kenya', [
+        ('Republic of Kenya', 'kenya', 'Kenya', '#b05050', {'en': 'Kenya'}),
+    ]),
+    'botswana': ('Botswana', 'Botswana', [
+        ('Republic of Botswana', 'botswana', 'Botswana', '#d07a5a', {'en': 'Botswana'}),
+    ]),
+    'thailand': ('Thailand', 'Thailand', [
+        ('Kingdom of Thailand', 'thailand', 'Thailand', '#4f9a9a', {'en': 'Thailand'}),
+    ]),
+    'turkmenistan': ('Turkmenistan', 'Turkmenistan', [
+        ('Turkmenistan', 'turkmenistan', 'Turkmenistan', '#9ab04a', {'en': 'Turkmenistan'}),
+    ]),
+    'kamerun': ('Kamerun', 'Cameroon', [
+        ('Republic of Cameroon', 'kamerun', 'Kamerun', '#c05a3a', {'en': 'Cameroon'}),
     ]),
 }
 

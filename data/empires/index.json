@@ -24778,6 +24778,246 @@
      "review": "source-checked"
     }
    ]
+  },
+  {
+   "id": "myanmar",
+   "name": {
+    "sv": "Myanmar",
+    "en": "Myanmar"
+   },
+   "color": "#a8649a",
+   "from": 1948,
+   "to": 2024,
+   "file": "data/empires/myanmar.json",
+   "polities": [
+    {
+     "id": "myanmar",
+     "name": {
+      "sv": "Myanmar",
+      "en": "Myanmar"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "somalia",
+   "name": {
+    "sv": "Somalia",
+    "en": "Somalia"
+   },
+   "color": "#4a90c0",
+   "from": 1960,
+   "to": 2024,
+   "file": "data/empires/somalia.json",
+   "polities": [
+    {
+     "id": "somalia",
+     "name": {
+      "sv": "Somalia",
+      "en": "Somalia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "centralafrikanska-republiken",
+   "name": {
+    "sv": "Centralafrikanska republiken",
+    "en": "Central African Republic"
+   },
+   "color": "#7aa04a",
+   "from": 1961,
+   "to": 2024,
+   "file": "data/empires/centralafrikanska-republiken.json",
+   "polities": [
+    {
+     "id": "centralafrikanska-republiken",
+     "name": {
+      "sv": "Centralafrikanska republiken",
+      "en": "Central African Republic"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "madagaskar",
+   "name": {
+    "sv": "Madagaskar",
+    "en": "Madagascar"
+   },
+   "color": "#9a6ab0",
+   "from": 1960,
+   "to": 2024,
+   "file": "data/empires/madagaskar.json",
+   "polities": [
+    {
+     "id": "madagaskar",
+     "name": {
+      "sv": "Madagaskar",
+      "en": "Madagascar"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "sydsudan",
+   "name": {
+    "sv": "Sydsudan",
+    "en": "South Sudan"
+   },
+   "color": "#c06a8a",
+   "from": 2014,
+   "to": 2024,
+   "file": "data/empires/sydsudan.json",
+   "polities": [
+    {
+     "id": "sydsudan",
+     "name": {
+      "sv": "Sydsudan",
+      "en": "South Sudan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kenya",
+   "name": {
+    "sv": "Kenya",
+    "en": "Kenya"
+   },
+   "color": "#b05050",
+   "from": 1963,
+   "to": 2024,
+   "file": "data/empires/kenya.json",
+   "polities": [
+    {
+     "id": "kenya",
+     "name": {
+      "sv": "Kenya",
+      "en": "Kenya"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "botswana",
+   "name": {
+    "sv": "Botswana",
+    "en": "Botswana"
+   },
+   "color": "#d07a5a",
+   "from": 1967,
+   "to": 2024,
+   "file": "data/empires/botswana.json",
+   "polities": [
+    {
+     "id": "botswana",
+     "name": {
+      "sv": "Botswana",
+      "en": "Botswana"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "thailand",
+   "name": {
+    "sv": "Thailand",
+    "en": "Thailand"
+   },
+   "color": "#4f9a9a",
+   "from": 1932,
+   "to": 2024,
+   "file": "data/empires/thailand.json",
+   "polities": [
+    {
+     "id": "thailand",
+     "name": {
+      "sv": "Thailand",
+      "en": "Thailand"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "turkmenistan",
+   "name": {
+    "sv": "Turkmenistan",
+    "en": "Turkmenistan"
+   },
+   "color": "#9ab04a",
+   "from": 1992,
+   "to": 2024,
+   "file": "data/empires/turkmenistan.json",
+   "polities": [
+    {
+     "id": "turkmenistan",
+     "name": {
+      "sv": "Turkmenistan",
+      "en": "Turkmenistan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kamerun",
+   "name": {
+    "sv": "Kamerun",
+    "en": "Cameroon"
+   },
+   "color": "#c05a3a",
+   "from": 1960,
+   "to": 2024,
+   "file": "data/empires/kamerun.json",
+   "polities": [
+    {
+     "id": "kamerun",
+     "name": {
+      "sv": "Kamerun",
+      "en": "Cameroon"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
   }
  ]
 }
