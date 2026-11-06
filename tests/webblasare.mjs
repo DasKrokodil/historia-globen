@@ -2235,6 +2235,25 @@ async function run(browser, vp) {
     await shot('8-slut');
   });
 
+  // Språkbytet laddar om sidan även när adressen har en #-del (url-state.js, #501). Med location.assign() till
+  // samma adress laddades sidan inte om: valet sparades men texterna stod kvar på svenska. Körs sist, eftersom
+  // sidan laddas om, och återställer svenska efteråt.
+  await check('språkbytet laddar om sidan på det nya språket (#63)', async () => {
+    if (!(await page.evaluate(() => location.hash))) throw new Error('adressen saknar #-del, så testet prövar inte felet');
+    const pick = async lang => {
+      await Promise.all([
+        page.waitForEvent('load', { timeout: T.load }),
+        page.evaluate(l => { const s = document.getElementById('lang-select'); s.value = l; s.dispatchEvent(new Event('change')); }, lang),
+      ]);
+      await page.waitForFunction(l => document.documentElement.lang === l, lang, { timeout: T.load });
+    };
+    await pick('en');
+    const label = await page.evaluate(() => document.getElementById('btn-layers').textContent.trim());
+    if (label === 'Lager') throw new Error('knappen Lager står kvar på svenska efter byte till engelska');
+    await pick('sv');
+    return `engelska: ${label}`;
+  });
+
   results.push({ name: 'inga fel i konsolen', ok: errors.length === 0, ms: 0, note: errors.slice(0, 10).join(' | ') || undefined });
   await context.close();
   return results;
