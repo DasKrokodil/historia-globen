@@ -90,7 +90,7 @@ export function createFacts(app) {
     const wars = own ? (g._wars ?? []).filter(w => w.end >= from && w.start <= to) : g._wars;
     // Ett försvunnet land (#72) har årtal, föregångare och efterträdare; ett land utan gräns visas som en punkt
     const lineage = g.vanished && !own ? { ...g.vanished, groups: data.empireGroups } : null;
-    panel.showFacts({ kind: lineage ? 'Försvunnet land' : 'Rike', name: t(own ? polity.name : g.name), color: g.color, facts, place, curveId,
+    panel.showFacts({ kind: lineage ? 'Försvunnet land' : 'Rike', name: t(own ? polity.name : g.name), color: g.color, facts, place, curveId, empireId: own ? null : g.id,
       symbol: symbolImg(sym, 'rel-sym rel-sym-h'), wars, lineage,
       empireMap: !!g.file,
       report: { type: lineage ? 'vanished-country' : 'empire', id: own ? polity.id : g.id, label: t(own ? polity.name : g.name), year: Math.round(timeline.year) },

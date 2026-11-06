@@ -1,18 +1,22 @@
 {
   "schema": "historia-globen/turer@1",
-  "tours": ["andra-varldskriget", "forsta-varldskriget", "tre-platser-1325"],
+  "tours": ["andra-varldskriget", "forsta-varldskriget", "vastroms-fall", "hanrikets-fall", "songhairikets-fall", "tre-platser-1325"],
   "labels": {
-    "button": { "sv": "Turer", "en": "Tours" },
-    "menuTitle": { "sv": "Guidade turer", "en": "Guided tours" },
-    "step": { "sv": "Steg {current} av {total}", "en": "Step {current} of {total}" },
-    "back": { "sv": "Föregående", "en": "Previous" },
-    "next": { "sv": "Nästa", "en": "Next" },
-    "end": { "sv": "Avsluta turen", "en": "End the tour" },
-    "done": { "sv": "Klar", "en": "Done" },
-    "read": { "sv": "Läs om händelsen", "en": "Read about the event" },
-    "question": { "sv": "Att fundera på:", "en": "Something to think about:" },
-    "story": { "sv": "Följ berättelsen: {title} ({total} steg)", "en": "Follow the story: {title} ({total} steps)" },
-    "sources": { "sv": "Källor", "en": "Sources" },
-    "paused": { "sv": "Turen: {title}", "en": "Tour: {title}" }
+    "button": { "sv": "Turer", "en": "Tours", "fr": "Visites", "de": "Touren", "es": "Recorridos" },
+    "menuTitle": { "sv": "Guidade turer", "en": "Guided tours", "fr": "Visites guidées", "de": "Geführte Touren", "es": "Recorridos guiados" },
+    "step": { "sv": "Steg {current} av {total}", "en": "Step {current} of {total}", "fr": "Étape {current} sur {total}", "de": "Schritt {current} von {total}", "es": "Paso {current} de {total}" },
+    "back": { "sv": "Föregående", "en": "Previous", "fr": "Précédent", "de": "Vorheriger Schritt", "es": "Anterior" },
+    "next": { "sv": "Nästa", "en": "Next", "fr": "Suivant", "de": "Weiter", "es": "Siguiente" },
+    "end": { "sv": "Avsluta turen", "en": "End the tour", "fr": "Terminer la visite", "de": "Tour beenden", "es": "Terminar el recorrido" },
+    "done": { "sv": "Klar", "en": "Done", "fr": "Terminé", "de": "Fertig", "es": "Listo" },
+    "read": { "sv": "Läs om händelsen", "en": "Read about the event", "fr": "En savoir plus sur l'événement", "de": "Mehr über das Ereignis", "es": "Leer sobre el acontecimiento" },
+    "question": { "sv": "Att fundera på:", "en": "Something to think about:", "fr": "À méditer :", "de": "Zum Nachdenken:", "es": "Para pensar:" },
+    "story": { "sv": "Följ berättelsen: {title} ({total} steg)", "en": "Follow the story: {title} ({total} steps)", "fr": "Suivre le récit : {title} ({total} étapes)", "de": "Der Geschichte folgen: {title} ({total} Schritte)", "es": "Seguir el relato: {title} ({total} pasos)" },
+    "fall": { "sv": "Följ fallet: {title} ({total} steg)", "en": "Follow the fall: {title} ({total} steps)", "fr": "Suivre la chute : {title} ({total} étapes)", "de": "Dem Fall folgen: {title} ({total} Schritte)", "es": "Seguir la caída: {title} ({total} pasos)" },
+    "status-belagt": { "sv": "Det här vet vi från källorna", "en": "What the sources tell us", "fr": "Ce que disent les sources", "de": "Was die Quellen sagen", "es": "Lo que dicen las fuentes" },
+    "status-omtvistat": { "sv": "Här är forskare inte överens", "en": "Where researchers disagree", "fr": "Là où les chercheurs ne sont pas d'accord", "de": "Wo die Forschung uneins ist", "es": "Donde los investigadores no están de acuerdo" },
+    "status-okant": { "sv": "Det här vet vi inte säkert", "en": "What we do not know for sure", "fr": "Ce que nous ne savons pas avec certitude", "de": "Was wir nicht sicher wissen", "es": "Lo que no sabemos con certeza" },
+    "sources": { "sv": "Källor", "en": "Sources", "fr": "Sources", "de": "Quellen", "es": "Fuentes" },
+    "paused": { "sv": "Turen: {title}", "en": "Tour: {title}", "fr": "Visite : {title}", "de": "Tour: {title}", "es": "Recorrido: {title}" }
   }
 }

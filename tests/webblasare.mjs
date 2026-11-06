@@ -553,6 +553,28 @@ async function run(browser, vp) {
     return `${items.length} punkter under tre rubriker, var och en med källa`;
   });
 
+  await check('rikets faktaruta startar turen om rikets fall med status per steg (#499)', async () => {
+    const startYear = Number(await page.getAttribute('#track', 'aria-valuenow'));
+    await clickView('#btn-focus');
+    await page.fill('#focus-menu input', 'Hanriket');
+    await page.click('#focus-menu [data-key="empire:hanriket"]');
+    const start = page.locator('#detail .story-tour[data-tour="hanrikets-fall"]');
+    await start.waitFor({ state: 'visible', timeout: T.step });
+    await start.click();
+    await visible('#tour-card');
+    if (!(await page.isVisible('#tour-status'))) throw new Error('första steget visar ingen status');
+    if ((await page.textContent('#tour-status')).trim() !== 'Det här vet vi från källorna') throw new Error('fel status i första steget');
+    for (let i = 0; i < 4; i++) await page.click('#tour-next');
+    if ((await page.textContent('#tour-status')).trim() !== 'Det här vet vi inte säkert') throw new Error('steget om arméernas storlek är inte märkt som osäkert');
+    await page.click('#tour-close');
+    await hidden('#tour-card');
+    if (!(await page.evaluate(() => document.getElementById('focus-bar').hidden))) await page.click('#focus-exit');
+    await page.$eval('#focus-menu input', el => { el.value = ''; el.dispatchEvent(new Event('input', { bubbles: true })); });
+    if (await page.isVisible('#detail')) await page.click('#detail [data-close]');
+    await jumpTo(startYear);
+    return 'Följ fallet i rikets ruta; status i steg 1 och okänt i steg 5';
+  });
+
   // #627: i mobilen hamnade arket med krigets slutkort bakom fokusraden när raden "Tiden flyttades" och
   // pausraden syntes samtidigt, eftersom en mobilregel för --ff-b vann över den uppmätta fokusraden.
   await check('krigets slutkort ligger ovanför fokusraden (#627)', async () => {

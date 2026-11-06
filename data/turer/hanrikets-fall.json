@@ -1,0 +1,258 @@
+{
+  "schema": "historia-globen/tur@1",
+  "version": 1,
+  "id": "hanrikets-fall",
+  "title": {
+    "sv": "Hur föll Hanriket?",
+    "en": "How did the Han Empire fall?",
+    "fr": "Comment l'Empire Han est-il tombé ?",
+    "de": "Wie fiel das Han-Reich?",
+    "es": "¿Cómo cayó el Imperio Han?"
+  },
+  "summary": {
+    "sv": "Från Gula turbanernas uppror 184 till kejsarens abdikation 220, och vad källorna inte säger.",
+    "en": "From the Yellow Turban Rebellion in 184 to the emperor's abdication in 220, and what the sources do not tell us.",
+    "fr": "De la révolte des Turbans jaunes en 184 à l'abdication de l'empereur en 220, et ce que les sources ne disent pas.",
+    "de": "Vom Aufstand der Gelben Turbane 184 bis zur Abdankung des Kaisers 220, und was die Quellen nicht sagen.",
+    "es": "De la rebelión de los Turbantes Amarillos en 184 a la abdicación del emperador en 220, y lo que las fuentes no dicen."
+  },
+  "empire": "hanriket",
+  "review": "source-checked",
+  "steps": [
+    {
+      "id": "gula-turbaner",
+      "at": 184,
+      "camera": {
+        "lat": 34.6,
+        "lon": 112.4,
+        "zoom": 1.4
+      },
+      "chapter": {
+        "sv": "Kris",
+        "en": "Crisis",
+        "fr": "Crise",
+        "de": "Krise",
+        "es": "Crisis"
+      },
+      "title": {
+        "sv": "Gula turbanernas uppror, 184",
+        "en": "The Yellow Turban Rebellion, 184",
+        "fr": "La révolte des Turbans jaunes, 184",
+        "de": "Der Aufstand der Gelben Turbane, 184",
+        "es": "La rebelión de los Turbantes Amarillos, 184"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "Landet kastas in i oro av Gula turbanernas uppror, som pågår från 184 till 205.",
+        "en": "The country is thrown into turmoil by the Yellow Turban Rebellion, which lasts from 184 to 205.",
+        "fr": "Le pays est plongé dans le désordre par la révolte des Turbans jaunes, qui dure de 184 à 205.",
+        "de": "Das Land wird durch den Aufstand der Gelben Turbane, der von 184 bis 205 dauert, ins Chaos gestürzt.",
+        "es": "El país se ve sumido en el desorden por la rebelión de los Turbantes Amarillos, que dura de 184 a 205."
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-end-of-han"
+      ]
+    },
+    {
+      "id": "luoyang-190",
+      "at": 190,
+      "camera": {
+        "lat": 34.6,
+        "lon": 112.4,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "Luoyang brinner, 190",
+        "en": "Luoyang burns, 190",
+        "fr": "Luoyang brûle, 190",
+        "de": "Luoyang brennt, 190",
+        "es": "Luoyang arde, 190"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "Dong Zhuo, som har fört in sin armé i huvudstaden, tvingar hovet och Luoyangs invånare att flytta västerut till Chang'an. Den gamla huvudstaden bränns på hans order.",
+        "en": "Dong Zhuo, who has brought his army into the capital, forces the court and the people of Luoyang to move west to Chang'an. The old capital is burned on his orders.",
+        "fr": "Dong Zhuo, qui a fait entrer son armée dans la capitale, force la cour et les habitants de Luoyang à partir vers l'ouest, à Chang'an. L'ancienne capitale est incendiée sur son ordre.",
+        "de": "Dong Zhuo, der sein Heer in die Hauptstadt geführt hat, zwingt den Hof und die Einwohner Luoyangs, nach Westen nach Chang'an zu ziehen. Die alte Hauptstadt wird auf seinen Befehl niedergebrannt.",
+        "es": "Dong Zhuo, que ha llevado su ejército a la capital, obliga a la corte y a los habitantes de Luoyang a trasladarse al oeste, a Chang'an. La antigua capital es incendiada por orden suya."
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-end-of-han"
+      ]
+    },
+    {
+      "id": "luoyang-195",
+      "at": 195,
+      "camera": {
+        "lat": 34.6,
+        "lon": 112.4,
+        "zoom": 1.6
+      },
+      "chapter": {
+        "sv": "Vanliga människor",
+        "en": "Ordinary people",
+        "fr": "Les gens ordinaires",
+        "de": "Gewöhnliche Menschen",
+        "es": "La gente común"
+      },
+      "title": {
+        "sv": "Luoyang, 195",
+        "en": "Luoyang, 195",
+        "fr": "Luoyang, 195",
+        "de": "Luoyang, 195",
+        "es": "Luoyang, 195"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "I Luoyang saknas det nödvändigaste för att leva, och många ämbetsmän svälter ihjäl. Källan berättar om ämbetsmännen men säger inget om hur det gick för vanliga människor.",
+        "en": "Luoyang lacks the essentials of life, and many officials starve to death. The source tells us about the officials but says nothing about what happened to ordinary people.",
+        "fr": "À Luoyang, on manque du nécessaire pour vivre, et de nombreux fonctionnaires meurent de faim. La source parle des fonctionnaires mais ne dit rien du sort des gens ordinaires.",
+        "de": "In Luoyang fehlt das Lebensnotwendige, und viele Beamte verhungern. Die Quelle erzählt von den Beamten, sagt aber nichts darüber, wie es gewöhnlichen Menschen erging.",
+        "es": "En Luoyang falta lo imprescindible para vivir, y muchos funcionarios mueren de hambre. La fuente habla de los funcionarios, pero no dice nada de lo que les pasó a las personas comunes."
+      },
+      "question": {
+        "sv": "Varför tror du att källorna oftare berättar om ämbetsmän än om bönder?",
+        "en": "Why do you think the sources tell us about officials more often than about farmers?",
+        "fr": "Pourquoi penses-tu que les sources parlent plus souvent des fonctionnaires que des paysans ?",
+        "de": "Warum glaubst du, erzählen die Quellen häufiger von Beamten als von Bauern?",
+        "es": "¿Por qué crees que las fuentes hablan más a menudo de los funcionarios que de los campesinos?"
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-end-of-han"
+      ]
+    },
+    {
+      "id": "cao-cao",
+      "at": 196,
+      "camera": {
+        "lat": 34.6,
+        "lon": 112.4,
+        "zoom": 1.4
+      },
+      "chapter": {
+        "sv": "Makten flyttar",
+        "en": "Power shifts",
+        "fr": "Le pouvoir se déplace",
+        "de": "Die Macht verschiebt sich",
+        "es": "El poder cambia de manos"
+      },
+      "title": {
+        "sv": "Cao Cao tar kejsaren, 196",
+        "en": "Cao Cao takes the emperor, 196",
+        "fr": "Cao Cao s'empare de l'empereur, 196",
+        "de": "Cao Cao bringt den Kaiser in seine Gewalt, 196",
+        "es": "Cao Cao se hace con el emperador, 196"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "Cao Cao tar kontroll över kejsar Xian och hans hov. Han styr till synes under kejsaren, men i själva verket är kejsaren hans gisslan.",
+        "en": "Cao Cao takes control of Emperor Xian and his court. On the surface he rules under the emperor, but in reality the emperor is his hostage.",
+        "fr": "Cao Cao prend le contrôle de l'empereur Xian et de sa cour. En apparence, il gouverne sous l'autorité de l'empereur, mais en réalité l'empereur est son otage.",
+        "de": "Cao Cao bringt Kaiser Xian und seinen Hof unter seine Kontrolle. Dem Anschein nach regiert er unter dem Kaiser, in Wirklichkeit aber ist der Kaiser seine Geisel.",
+        "es": "Cao Cao toma el control del emperador Xian y de su corte. En apariencia gobierna bajo el emperador, pero en realidad el emperador es su rehén."
+      },
+      "question": {
+        "sv": "Varför kan det vara klokt att styra i kejsarens namn i stället för att ta titeln själv?",
+        "en": "Why might it be wise to rule in the emperor's name instead of taking the title yourself?",
+        "fr": "Pourquoi peut-il être habile de gouverner au nom de l'empereur plutôt que de prendre soi-même le titre ?",
+        "de": "Warum kann es klug sein, im Namen des Kaisers zu regieren, statt den Titel selbst anzunehmen?",
+        "es": "¿Por qué puede ser inteligente gobernar en nombre del emperador en lugar de tomar uno mismo el título?"
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-end-of-han"
+      ]
+    },
+    {
+      "id": "roda-klipporna",
+      "at": 208,
+      "camera": {
+        "lat": 31.0,
+        "lon": 113.0,
+        "zoom": 1.3
+      },
+      "chapter": {
+        "sv": "Det vi inte vet",
+        "en": "What we do not know",
+        "fr": "Ce que nous ne savons pas",
+        "de": "Was wir nicht wissen",
+        "es": "Lo que no sabemos"
+      },
+      "title": {
+        "sv": "Röda klipporna, 208–209",
+        "en": "Red Cliffs, 208–209",
+        "fr": "La Falaise rouge, 208–209",
+        "de": "Rote Klippen, 208–209",
+        "es": "Acantilados Rojos, 208–209"
+      },
+      "status": "okant",
+      "text": {
+        "sv": "Cao Caos armé uppskattas till 220 000 man, men själv påstod han att han hade 800 000. Hur stora arméerna var vet vi inte säkert.",
+        "en": "Cao Cao's army is estimated at 220,000 men, but he himself claimed to have 800,000. We do not know for sure how large the armies were.",
+        "fr": "L'armée de Cao Cao est estimée à 220 000 hommes, mais lui-même affirmait en avoir 800 000. Nous ne savons pas avec certitude quelle était la taille des armées.",
+        "de": "Cao Caos Heer wird auf 220 000 Mann geschätzt, er selbst behauptete jedoch, 800 000 zu haben. Wie groß die Heere waren, wissen wir nicht sicher.",
+        "es": "Se calcula que el ejército de Cao Cao tenía 220 000 hombres, pero él mismo afirmaba tener 800 000. No sabemos con seguridad cuán grandes eran los ejércitos."
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-end-of-han"
+      ]
+    },
+    {
+      "id": "abdikationen",
+      "at": 220,
+      "camera": {
+        "lat": 34.6,
+        "lon": 112.4,
+        "zoom": 1.3
+      },
+      "chapter": {
+        "sv": "Slutet",
+        "en": "The end",
+        "fr": "La fin",
+        "de": "Das Ende",
+        "es": "El final"
+      },
+      "title": {
+        "sv": "Kejsaren abdikerar, 220",
+        "en": "The emperor abdicates, 220",
+        "fr": "L'empereur abdique, 220",
+        "de": "Der Kaiser dankt ab, 220",
+        "es": "El emperador abdica, 220"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "Cao Caos son Cao Pi tvingar kejsar Xian att abdikera och blir kejsare i en ny dynasti, Cao Wei. Året efter grundar Liu Bei Shu Han. De tre kungadömenas tid varar till 280.",
+        "en": "Cao Cao's son Cao Pi forces Emperor Xian to abdicate and becomes emperor of a new dynasty, Cao Wei. The following year Liu Bei founds Shu Han. The Three Kingdoms period lasts until 280.",
+        "fr": "Cao Pi, le fils de Cao Cao, force l'empereur Xian à abdiquer et devient empereur d'une nouvelle dynastie, les Cao Wei. L'année suivante, Liu Bei fonde le Shu Han. La période des Trois Royaumes dure jusqu'en 280.",
+        "de": "Cao Caos Sohn Cao Pi zwingt Kaiser Xian zur Abdankung und wird Kaiser einer neuen Dynastie, Cao Wei. Im Jahr darauf gründet Liu Bei Shu Han. Die Zeit der Drei Reiche dauert bis 280.",
+        "es": "Cao Pi, hijo de Cao Cao, obliga al emperador Xian a abdicar y se convierte en emperador de una nueva dinastía, Cao Wei. Al año siguiente Liu Bei funda Shu Han. El periodo de los Tres Reinos dura hasta 280."
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-end-of-han"
+      ]
+    }
+  ]
+}
