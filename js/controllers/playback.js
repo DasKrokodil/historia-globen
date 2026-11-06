@@ -244,12 +244,62 @@ export function createPlayback(app) {
   // Uppspelningen stannar vid en ny fun fact, så att man hinner läsa. Play fortsätter.
   // Ihopfällt kort: ingen paus, eftersom kortet inte syns
   // I fokusläget pausar uppspelningen som standard bara vid det man följer; Samtidigt-pausen är där ett eget val (#234)
+  // Med valet "Fortsätt själv" (på som standard, #578) räknas pausen ned och uppspelningen fortsätter av sig själv.
   ff.onNew = () => {
     const on = state.focus ? layers.pause.focusFunfacts : layers.pause.funfacts;
     if (timeline.playing && on && !ff.minimized && !finishing) {
-      timeline.pause('Pausad vid ett nytt Samtidigt-kort', false, `Pausad vid ett nytt Samtidigt-kort. ${ff.announcement()}`);
+      const auto = !!layers.pause.ffAuto;
+      const secs = auto ? readingSeconds(ff.announcement()) : 0;
+      const tail = auto ? ` Fortsätter själv om ${secs} sekunder.` : '';
+      timeline.pause('Pausad vid ett nytt Samtidigt-kort', false, `Pausad vid ett nytt Samtidigt-kort. ${ff.announcement()}${tail}`);
+      if (auto) startCountdown(secs);
     }
   };
+
+  // Nedräkningen vid Samtidigt-kortet (#578). Tiden följer textens längd, minst 3 sekunder.
+  // Siffran är aria-hidden: skärmläsaren får bara meddelandet ovan, inte varje sekund (#506).
+  // Rör man kortet, väljer en händelse, flyttar tiden eller stänger av valet avbryts nedräkningen
+  // och uppspelningen står still tills man trycker Fortsätt.
+  const countdownEl = $('pause-countdown');
+  let countdown = null;
+  function readingSeconds(text) {
+    const words = text.split(/\s+/).filter(Boolean).length;
+    return Math.min(15, Math.max(3, Math.ceil(words / 3)));
+  }
+  function showCountdown() {
+    countdownEl.hidden = !countdown;
+    countdownEl.textContent = countdown ? `Fortsätter om ${countdown.left} …` : '';
+  }
+  function stopCountdown() {
+    if (!countdown) return;
+    clearInterval(countdown.timer);
+    countdown = null;
+    showCountdown();
+  }
+  function startCountdown(secs) {
+    stopCountdown();
+    countdown = { left: secs, year: timeline.year, selected: state.selectedId, focus: state.focus };
+    countdown.timer = setInterval(() => {
+      if (!countdown) return;
+      // Pausen är inte längre Samtidigt-pausen (en annan paus, uppspelning eller valet avstängt)
+      if (timeline.playing || !timeline.resumable || !layers.pause.ffAuto) { stopCountdown(); return; }
+      countdown.left -= 1;
+      if (countdown.left > 0) { showCountdown(); return; }
+      stopCountdown();
+      timeline.play();
+    }, 1000);
+    showCountdown();
+  }
+  timeline.addEventListener('beforeplay', stopCountdown);
+  // Omritningen efter ett årsbyte kommer i samma change som pausen; bara ett nytt år avbryter
+  timeline.addEventListener('change', () => { if (countdown && timeline.year !== countdown.year) stopCountdown(); });
+  app.store.subscribe(({ type }) => {
+    if (!countdown) return;
+    if ((type === 'selected' && state.selectedId !== countdown.selected) || (type === 'focus' && state.focus !== countdown.focus)) stopCountdown();
+  });
+  for (const type of ['pointerdown', 'keydown']) ff.root.addEventListener(type, stopCountdown);
+  ff.tab?.addEventListener('pointerdown', stopCountdown);
+
   // Raden "Nästa paus" följer pausvalen i Lager
   $('layer-menu').addEventListener('change', e => { if (e.target.dataset.pause) showNextPause(); });
 

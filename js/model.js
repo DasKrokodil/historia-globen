@@ -1,7 +1,10 @@
 // Gemensam modell: språk, kategorier, tidsformat och laddning av data.
 // All data ligger i data/*.json (beslut: data skild från kod).
 
-export const LANG = 'sv';
+// Språket väljs i js/i18n.js (#63): adressen, det sparade valet eller webbläsaren, annars svenska.
+// Gränssnittets texter hämtas med ui('nyckel') ur data/ui/<språk>.json.
+import { LANG, ui, hasUi } from './i18n.js';
+export { LANG, ui };
 const FALLBACK = ['en', 'sv'];
 
 /** Plockar text på aktuellt språk, annars engelska, annars svenska. */
@@ -33,33 +36,33 @@ export const CATEGORIES = [
   { id: 'katastrofer',    name: { sv: 'Katastrofer' },                    color: '#c256f5', count: { sv: ['katastrof', 'katastrofer'] } },
   { id: 'rymden',         name: { sv: 'Rymden' },                         color: '#cfcbff', count: { sv: ['rymdhändelse', 'rymdhändelser'] } },
 ];
+// Kategorierna på andra språk (#63): svenskan står ovan, övriga språk i data/ui/<språk>.json (cat.<id> och cat.<id>.count)
+for (const c of CATEGORIES) {
+  if (hasUi(`cat.${c.id}`)) c.name[LANG] = ui(`cat.${c.id}`);
+  if (hasUi(`cat.${c.id}.count`)) c.count[LANG] = ui(`cat.${c.id}.count`);
+}
 export const CAT = Object.fromEntries(CATEGORIES.map(c => [c.id, c]));
 
 // Granskningsstatus (källpolicy). Bara kontrollerade uppgifter visas som standard.
 // Nivån säger hur väl källorna är kontrollerade; ingen människogranskning (#252).
+// Texterna står i data/ui/<språk>.json (review.<status>), label är texten på valt språk.
 export const REVIEW = {
-  'draft':          { sv: 'Utkast',             cls: 'draft' },
-  'source-checked': { sv: 'Källkontrollerad',   cls: 'checked' },
-  'two-sources':    { sv: 'Två källor stämmer', cls: 'two' },
+  'draft':          { label: ui('review.draft'),          cls: 'draft' },
+  'source-checked': { label: ui('review.source-checked'), cls: 'checked' },
+  'two-sources':    { label: ui('review.two-sources'),    cls: 'two' },
 };
 // Statusraden säger vad statusen gäller (#196): "Fun facten: källkontrollerad".
-// subject = Fun facten, Kriget, Riket, Händelsen, Religionen. Förklaringen visas som tooltip.
-export const REVIEW_SUBJECT_HELP = {
-  'Fun facten': 'Statusen gäller själva jämförelsen i kortet. Varje händelse har en egen status i sin faktaruta.',
-  'Kriget': 'Statusen gäller krigets berättelse i kortet. Varje händelse har en egen status i sin faktaruta.',
-  'Riket': 'Statusen gäller rikets faktaruta och berättelse. Varje händelse har en egen status i sin faktaruta.',
-  'Religionen': 'Statusen gäller religionens faktaruta. Varje händelse har en egen status i sin faktaruta.',
-  'Landet': 'Statusen gäller landets faktaruta och berättelse. Årtal, föregångare och efterträdare har en egen status, som står vid dem.',
-  'Händelsen': 'Statusen gäller just den här händelsen. Samtidigt-kortet och fun facten har en egen status.',
-};
+// subject = Fun facten, Kriget, Riket, Händelsen, Religionen … (den svenska formen är nyckeln; texten på valt
+// språk står i review.subject.<subject>). Förklaringen visas som tooltip (review.subjectHelp.<subject>).
+const SUBJECTS_WITH_HELP = ['Fun facten', 'Kriget', 'Riket', 'Religionen', 'Landet', 'Händelsen'];
+export const REVIEW_SUBJECT_HELP = Object.fromEntries(SUBJECTS_WITH_HELP.map(s => [s, ui(`review.subjectHelp.${s}`)]));
 // Vad statusarna betyder (#310), samma betydelse som källpolicyn i CLAUDE.md. Visas bakom (i)-knappen i faktarutan.
-export const REVIEW_HELP = [
-  { status: 'source-checked', text: 'årtal, plats och påståenden är kontrollerade mot källan.' },
-  { status: 'two-sources', text: 'dessutom jämförda med en andra, oberoende källa.' },
-];
+export const REVIEW_HELP = ['source-checked', 'two-sources'].map(status => ({ status, text: ui(`review.help.${status}`) }));
 export function reviewLabel(status, subject) {
   const rv = REVIEW[status] ?? REVIEW.draft;
-  return `${subject}: ${rv.sv.charAt(0).toLowerCase()}${rv.sv.slice(1)}`;
+  const key = `review.subject.${subject}`, translated = ui(key);
+  const subj = LANG === 'sv' || translated === key ? subject : translated;
+  return ui('review.line', { subject: subj, status: rv.label.charAt(0).toLowerCase() + rv.label.slice(1) });
 }
 export const settings = { showDrafts: false };
 export const isVisibleReview = r => settings.showDrafts || r === 'source-checked' || r === 'two-sources';
@@ -102,15 +105,19 @@ export function styleFor(e, doc) {
 export const isBCE = y => y <= 0;
 export const bce = y => 1 - y;
 
+// Tideräkningens förkortningar på valt språk: f.Kr./e.Kr., BC/AD … (data/ui/<språk>.json)
+const BCE_TXT = ui('time.bce'), CE_TXT = ui('time.ce');
+export { BCE_TXT, CE_TXT };
+
 /** Kort årtal för listor: "551 f.Kr.", "793", "1325". */
 export function formatYear(y) {
-  return isBCE(y) ? `${bce(y)} f.Kr.` : `${y}`;
+  return isBCE(y) ? `${bce(y)} ${BCE_TXT}` : `${y}`;
 }
 
 /** Stort årtal i huvudet: [siffra, epok]. */
 export function yearParts(y) {
-  if (isBCE(y)) return [String(bce(y)), 'f.Kr.'];
-  if (y < 1000) return [String(y), 'e.Kr.'];
+  if (isBCE(y)) return [String(bce(y)), BCE_TXT];
+  if (y < 1000) return [String(y), CE_TXT];
   return [String(y), ''];
 }
 
@@ -136,12 +143,12 @@ function isValidDate(y, m, d) {
 
 export function parseYearInput(text, defaultEra = 'ce', now = new Date()) {
   const value = String(text ?? '').trim();
-  if (!value) return { type: 'invalid', year: null, date: null, error: 'Skriv ett år eller ett giltigt datum.' };
+  if (!value) return { type: 'invalid', year: null, date: null, error: ui('time.error.input') };
 
   const iso = /^\d{4}-\d{2}-\d{2}$/.exec(value);
   if (iso) {
     const [y, mo, d] = value.split('-').map(Number);
-    if (!isValidDate(y, mo, d)) return { type: 'invalid', year: null, date: null, error: 'Ogiltigt datum: datumet finns inte.' };
+    if (!isValidDate(y, mo, d)) return { type: 'invalid', year: null, date: null, error: ui('time.error.date') };
     return { type: 'date', year: y, date: value };
   }
 
@@ -150,7 +157,7 @@ export function parseYearInput(text, defaultEra = 'ce', now = new Date()) {
     const y = Number(value.slice(0, 4));
     const mo = Number(value.slice(4, 6));
     const d = Number(value.slice(6, 8));
-    if (!isValidDate(y, mo, d)) return { type: 'invalid', year: null, date: null, error: 'Ogiltigt datum: datumet finns inte.' };
+    if (!isValidDate(y, mo, d)) return { type: 'invalid', year: null, date: null, error: ui('time.error.date') };
     return { type: 'date', year: y, date: `${y}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}` };
   }
 
@@ -161,16 +168,16 @@ export function parseYearInput(text, defaultEra = 'ce', now = new Date()) {
     const d = Number(value.slice(4, 6));
     const currentYear = now.getFullYear();
     const year = yy <= currentYear % 100 ? 2000 + yy : 1900 + yy;
-    if (!isValidDate(year, mo, d)) return { type: 'invalid', year: null, date: null, error: 'Ogiltigt datum: datumet finns inte.' };
+    if (!isValidDate(year, mo, d)) return { type: 'invalid', year: null, date: null, error: ui('time.error.date') };
     return { type: 'date', year, date: `${year}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}` };
   }
 
   const year = parseYear(value, defaultEra);
   if (year != null) return { type: 'year', year, date: null };
-  return { type: 'invalid', year: null, date: null, error: 'Skriv ett år eller ett giltigt datum.' };
+  return { type: 'invalid', year: null, date: null, error: ui('time.error.input') };
 }
 
-const MONTHS = ['januari','februari','mars','april','maj','juni','juli','augusti','september','oktober','november','december'];
+const MONTHS = ui('time.months'); // januari … december på valt språk
 
 /** Datum ur data ("2026-10-30") som text: "30 oktober 2026". */
 export function formatDate(iso) {
@@ -181,17 +188,17 @@ export function formatDate(iso) {
 /** Tid för en händelse enligt dess precision och EDTF-markering. */
 export function formatEventTime(e) {
   const edtf = e.edtf || '';
-  if (e.ongoing) return `${formatYear(e.start)}–pågår`; // pågående krig (#223)
-  const approx = edtf.includes('~') ? 'cirka ' : '';
+  if (e.ongoing) return ui('time.ongoing', { start: formatYear(e.start) }); // pågående krig (#223)
+  const approx = edtf.includes('~') ? ui('time.approx') : '';
   const day = /^(-?\d{4})-(\d{2})-(\d{2})$/.exec(edtf);
   if (day && e.start === e.end) {
     return `${Number(day[3])} ${MONTHS[Number(day[2]) - 1]} ${formatYear(e.start)}`;
   }
-  if (edtf.endsWith('/..')) return `sedan ${formatYear(e.start)}`;
-  if (edtf.startsWith('../')) return `till ${approx}${formatYear(e.end)}`;
+  if (edtf.endsWith('/..')) return ui('time.since', { start: formatYear(e.start) });
+  if (edtf.startsWith('../')) return ui('time.until', { end: approx + formatYear(e.end) });
   if (e.start === e.end) return approx + formatYear(e.start);
-  if (isBCE(e.start) && isBCE(e.end)) return `${approx}${bce(e.start)}–${bce(e.end)} f.Kr.`;
-  if (isBCE(e.start)) return `${approx}${bce(e.start)} f.Kr.–${e.end} e.Kr.`;
+  if (isBCE(e.start) && isBCE(e.end)) return `${approx}${bce(e.start)}–${bce(e.end)} ${BCE_TXT}`;
+  if (isBCE(e.start)) return `${approx}${bce(e.start)} ${BCE_TXT}–${e.end} ${CE_TXT}`;
   return `${approx}${e.start}–${e.end}`;
 }
 
@@ -202,7 +209,7 @@ export const isLongRunning = (e, year) => /\/\.\.$/.test(e.edtf ?? '') && year -
 // I fokusläget för korta krig räknar tidslinjen i dagar. Året är då ett decimaltal: året plus den
 // andel av året som har gått, så att 1 januari 1879 är 1879,0 och 2 juli 1879 ungefär 1879,5.
 // Datumen läses ur händelsernas edtf (proleptisk gregoriansk kalender, astronomiska år som i datan).
-export const MONTHS_SHORT = ['jan','feb','mar','apr','maj','jun','jul','aug','sep','okt','nov','dec'];
+export const MONTHS_SHORT = ui('time.monthsShort'); // jan … dec på valt språk
 function utcMs(y, m, d) { const t = new Date(0); t.setUTCFullYear(y, m, d); return t.getTime(); } // fungerar även före år 100
 const yearMs = y => [utcMs(y, 0, 1), utcMs(y + 1, 0, 1)];
 function msToYear(ms) {

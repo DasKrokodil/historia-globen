@@ -31,6 +31,8 @@ css/style.css
 js/main.js            startar allt och kopplar ihop delarna
 js/controllers/       main.js uppdelad i val, fokus, faktarutor, omritning, uppspelning, berättelse och etiketter (#402)
 js/model.js           språk, kategorier, granskningsstatus, tidsformat, laddning
+js/i18n.js            språkval och gränssnittets texter: ui('nyckel') ur data/ui/<språk>.json och data-i18n i index.html (#63)
+js/search-index.js    sökningens index och matchning (#570)
 js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
 js/state.js           det gemensamma tillståndet (år, fokus, lager, filter) som lagren läser (#338), med åtgärder, prenumeration och JSON (#403)
 js/globe.js           3D-globen, kamera, styrning, ekvirektangulära canvasar, bågar
@@ -47,6 +49,7 @@ js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering
 js/ui/poster.js       A4-affisch som PNG från Platt vy
 js/ui/routepop.js     klickrutan för vägar och resor
 js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg (#363)
+js/ui/search.js       knappen Sök och träfflistan (#570)
 js/ui/tour.js         guidade turer: spelar upp en tur ur data/turer/ steg för steg (#47)
 js/tour-format.js     turformatets kontroll, delas med testerna (#47)
 js/ui/feedback.js     formuläret för besökarnas förslag (avstängt som standard, docs/feedback.md)
@@ -68,6 +71,7 @@ data/routes/          vägar och resor: index.json listar filerna, en fil per re
 data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar (#337); skrivs av tools/dela_data.py, redigeras inte
 data/upptackt.json    upptäcktsvyn: perspektivrad, dimma och kartbilder (#101)
 data/vyer.json        grupperna och de förinställda vyerna i Lager (#357)
+data/ui/              gränssnittets texter: sprak.json (språken, vem som översatte och granskade) och en fil per språk (#63)
 data/religions.json   religioner som områden (statsreligion per rike ur Cliopatria) och faktarutor
 data/religions-polities.json  rikenas områden per religion och period, laddas vid klick (tools/religioner_riken.py)
 data/styles.json      bildstilar efter tidsålder och plats (ramar och promptar)

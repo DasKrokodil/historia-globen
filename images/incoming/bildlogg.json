@@ -466,5 +466,185 @@
     },
     "credit": "AI-genererad med ChatGPT, 2026-10-30",
     "prompt": "Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: Upproret i Goma inleder kriget — Goma i provinsen Nordkivu, östra Kongo, 1998 CE. What happened (show only this, do not add details): Den 2 augusti 1998 gör banyamulengesoldater i Goma uppror mot president Kabila, med stöd av Rwanda. Samma månad bildas rebellgruppen RCD med stöd av Rwanda och Uganda, och den tar snabbt kontroll över stora delar av östra Kongo, bland annat städerna Bukavu och Uvira. Den 23 augusti faller Kisangani. I Kinshasa uppviglar regeringen till våld mot tutsier. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details. No flags, banners or insignia."
+  },
+  {
+    "id": "fn-grundas",
+    "file": "fn-grundas.jpg",
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "FN-stadgan i en utställning vid FN:s högkvarter i New York, utlånad från USA:s nationalarkiv. Nutida fotografi från 2025, inte från 1945. Licens: CC BY 4.0."
+    },
+    "credit": "Megs / Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "source": "commons-bild-fn-grundas"
+  },
+  {
+    "id": "manskliga-rattigheter-1948",
+    "file": "manskliga-rattigheter-1948.jpg",
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "Eleanor Roosevelt med en affisch av den allmänna förklaringen om de mänskliga rättigheterna, Lake Success i New York, november 1949, ett år efter att förklaringen antogs. Licens: CC BY 2.0."
+    },
+    "credit": "FDR Presidential Library & Museum / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-manskliga-rattigheter-1948"
+  },
+  {
+    "id": "jordbavningen-i-valdivia-1960",
+    "file": "jordbavningen-i-valdivia-1960.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Jordbävningsskador på trähus i Valdivia, Chile, 1960. Licens: Public domain."
+    },
+    "credit": "Pierre St. Amand / NOAA via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-jordbavningen-i-valdivia-1960"
+  },
+  {
+    "id": "gagarin-vostok-1",
+    "file": "gagarin-vostok-1.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Jurij Gagarin, 12 april 1961. Licens: CC BY 4.0 (Mos.ru)."
+    },
+    "credit": "TASS / Mos.ru via Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "source": "commons-bild-gagarin-vostok-1"
+  },
+  {
+    "id": "kubakrisen",
+    "file": "kubakrisen.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Ett av de första spaningsfotona av robotbaser under bygge på Kuba, som visades för president Kennedy på morgonen den 16 oktober 1962. Licens: Public domain."
+    },
+    "credit": "Okänd U-2-pilot / John F. Kennedy Presidential Library via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-kubakrisen"
+  },
+  {
+    "id": "militarkuppen-i-chile-1973",
+    "file": "militarkuppen-i-chile-1973.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Bombningen av presidentpalatset La Moneda i Santiago den 11 september 1973. Licens: CC BY 3.0 CL."
+    },
+    "credit": "Biblioteca del Congreso Nacional de Chile / Wikimedia Commons",
+    "license": "CC BY 3.0 CL",
+    "source": "commons-bild-militarkuppen-i-chile-1973"
+  },
+  {
+    "id": "smittkoppor-utrotas",
+    "file": "smittkoppor-utrotas.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Smittkoppsvirus i elektronmikroskop, förstorat cirka 370 000 gånger. Bild från 1975. Licens: Public domain."
+    },
+    "credit": "CDC / Fred Murphy och Sylvia Whitfield via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-smittkoppor-utrotas"
+  },
+  {
+    "id": "berlinmurens-fall",
+    "file": "berlinmurens-fall.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Checkpoint Charlie i Berlin natten då muren öppnades, 10 november 1989. Licens: CC BY-SA 3.0 DE."
+    },
+    "credit": "Bundesarchiv, Bild 183-1989-1110-018 / Klaus Oberst / Wikimedia Commons",
+    "license": "CC BY-SA 3.0 DE",
+    "source": "commons-bild-berlinmurens-fall"
+  },
+  {
+    "id": "sovjetunionens-upplosning",
+    "file": "sovjetunionens-upplosning.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Leonid Kravtjuk, Stanislav Sjusjkevitj och Boris Jeltsin vid undertecknandet av Belovezjavtalet den 8 december 1991. Licens: CC BY-SA 3.0."
+    },
+    "credit": "RIA Novosti archive, image #848095 / U. Ivanov / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-sovjetunionens-upplosning"
+  },
+  {
+    "id": "sydafrikas-forsta-fria-val",
+    "file": "sydafrikas-forsta-fria-val.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Nelson Mandela röstar i valet i april 1994, vid Ohlange School i Inanda nära Durban. Licens: CC BY-SA 3.0."
+    },
+    "credit": "Paul Weinberg / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-sydafrikas-forsta-fria-val"
+  },
+  {
+    "id": "attackerna-11-september-2001",
+    "file": "attackerna-11-september-2001.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Rök stiger från World Trade Centers torn i New York den 11 september 2001. Licens: CC BY 2.0."
+    },
+    "credit": "Michael Foran / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-attackerna-11-september-2001"
+  },
+  {
+    "id": "tsunamin-i-indiska-oceanen-2004",
+    "file": "tsunamin-i-indiska-oceanen-2004.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "En förstörd by nära Sumatras kust i Indonesien, fotograferad från luften den 2 januari 2005, en vecka efter tsunamin. Licens: Public domain."
+    },
+    "credit": "Philip A. McDaniel, U.S. Navy / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-tsunamin-i-indiska-oceanen-2004"
+  },
+  {
+    "id": "finanskrisen-2008",
+    "file": "finanskrisen-2008.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Lehman Brothers huvudkontor i New York den 15 september 2008, dagen då banken begärde sig i konkurs. Licens: CC BY 2.0."
+    },
+    "credit": "Robert Scoble / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-finanskrisen-2008"
+  },
+  {
+    "id": "arabiska-varen",
+    "file": "arabiska-varen.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Demonstranter möter polisen på Avenue Habib Bourguiba i Tunis den 20 januari 2011. Licens: CC BY 2.0."
+    },
+    "credit": "Chris Belsten / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-arabiska-varen"
+  },
+  {
+    "id": "covid-19-pandemin",
+    "file": "covid-19-pandemin.png",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Viruset SARS-CoV-2 i en vetenskaplig illustration från USA:s smittskyddsmyndighet CDC, januari 2020. Inte ett fotografi. Licens: Public domain."
+    },
+    "credit": "Alissa Eckert och Dan Higgins, CDC / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-covid-19-pandemin"
   }
 ]

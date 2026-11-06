@@ -6,14 +6,14 @@
 
 - **Omgång** 1–4: den pull request där händelsen läggs in, högst 20 per omgång.
 - **finns**: händelsen finns redan på globen (id inom parentes). Den läggs inte in igen, men får en bild i #453.
-- **reserv**: med om du vill, annars inte. Stryk, flytta eller lägg till rader som du vill. Reservlistans 19 händelser lades in som omgång 5 (2026-11-05); stryk gärna rader i den pull requesten.
+- **reserv**: med om du vill, annars inte. Stryk, flytta eller lägg till rader som du vill. Reservlistan lades in som omgång 5 (2026-11-05), 17 händelser, eftersom Olmekerna och Nazcalinjerna redan hade kommit in med massimporten om Amerika (#628); stryk gärna rader i den pull requesten.
 - **Period** är bara till för att sortera listan. Det exakta årtalet sätts ur källan.
 
-**Sammanlagt:** 114 kärnhändelser, varav 36 redan finns och 78 är nya, fördelade på fyra omgångar. Dessutom 19 från reservlistan i omgång 5.
+**Sammanlagt:** 114 kärnhändelser, varav 36 redan finns och 78 är nya, fördelade på fyra omgångar. Dessutom 17 från reservlistan i omgång 5 (två av reservlistans 19 fanns redan efter #628).
 
 ## Omgångarna
 
-**Läget:** omgång 1 är inlagd (19 händelser, 11 med två källor som stämmer och 8 källkontrollerade, där källorna skiljer sig eller en andra källa saknas för platsen). Omgång 2 är inlagd (20 händelser, 16 med två källor och 4 källkontrollerade, där Wikidata saknar plats eller datum att jämföra med). Omgång 3 är inlagd (20 händelser, 11 med två källor och 9 källkontrollerade, där Wikidata saknar datum eller källorna skiljer sig). Omgång 4 är inlagd (19 händelser, 3 med två källor och 16 källkontrollerade, eftersom Wikidata sällan har jämförbara datum för forntiden). Lindisfarne fanns redan och lades inte in igen. **Alla fyra omgångarna är inlagda.** Omgång 5 tar reservlistan (19 händelser, 5 med två källor och 14 källkontrollerade, eftersom Wikidata ofta saknar datum att jämföra med eller anger andra årtal; skillnaderna står i händelsernas `note`).
+**Läget:** omgång 1 är inlagd (19 händelser, 11 med två källor som stämmer och 8 källkontrollerade, där källorna skiljer sig eller en andra källa saknas för platsen). Omgång 2 är inlagd (20 händelser, 16 med två källor och 4 källkontrollerade, där Wikidata saknar plats eller datum att jämföra med). Omgång 3 är inlagd (20 händelser, 11 med två källor och 9 källkontrollerade, där Wikidata saknar datum eller källorna skiljer sig). Omgång 4 är inlagd (19 händelser, 3 med två källor och 16 källkontrollerade, eftersom Wikidata sällan har jämförbara datum för forntiden). Lindisfarne fanns redan och lades inte in igen. **Alla fyra omgångarna är inlagda.** Omgång 5 tar reservlistan (17 händelser, 5 med två källor och 12 källkontrollerade; Olmekerna och Nazcalinjerna fanns redan efter massimporten #628, eftersom Wikidata ofta saknar datum att jämföra med eller anger andra årtal; skillnaderna står i händelsernas `note`).
 
 **Före tidslinjens början:** jordbrukets början (cirka 10 000–8 000 f.Kr.) och kilskriften (cirka 3300 f.Kr.) ligger före år 3000 f.Kr., där tidslinjen börjar i dag. Det gäller också Göbekli Tepe (cirka 9500–8000 f.Kr., omgång 5). De finns i datan men syns inte på globen förrän tidslinjen förlängs i version 7 (#49).
 
@@ -23,7 +23,7 @@
 | 2 | 1800-talet till 1990 | 20 | Nordamerika 6, Europa 5, Asien 4, Afrika 2, Oceanien 2, Sydamerika 1 |
 | 3 | Cirka 1000 till 1870 | 20 | Europa 9, Oceanien 4, Asien 4, Nordamerika 1, Afrika 1, Världen 1 |
 | 4 | Forntid till medeltid | 19 | Europa 8, Asien 6, Afrika 2, Sydamerika 1, Oceanien 1, Nordamerika 1 |
-| 5 | Reservlistan, forntid till 1999 | 19 | Europa 6, Asien 6, Nordamerika 3, Sydamerika 2, Afrika 1, Oceanien 1 |
+| 5 | Reservlistan, forntid till 1999 | 17 | Europa 6, Asien 6, Nordamerika 2, Sydamerika 1, Afrika 1, Oceanien 1 |
 
 Omgång 1 tar de händelser som besökare saknar mest (11 september, Berlinmurens fall, Sovjetunionens upplösning, apartheids slut, FN, tsunamin 2004, covid-19). Varje omgång har händelser från minst fem världsdelar.
 
@@ -44,14 +44,14 @@ Omgång 1 tar de händelser som besökare saknar mest (11 september, Berlinmuren
 | Induskulturens städer (Mohenjo-daro) | Civilisationer | Asien | 4 |
 | Hammurabis lagar | Civilisationer | Asien | 4 |
 | Vulkanutbrottet på Thera (Santorini) | Katastrofer | Europa | 4 |
-| Olmekerna | Civilisationer | Nordamerika | 5 |
+| Olmekerna | Civilisationer | Nordamerika | finns (`olmekerna-san-lorenzo`, #628) |
 | Lapitafolket bosätter Stilla havets öar | Upptäckter | Oceanien | 4 |
 
 ### Antiken
 
 | Händelse | Kategori | Världsdel | Omgång |
 | --- | --- | --- | --- |
-| Nazcalinjerna | Kultur | Sydamerika | 5 |
+| Nazcalinjerna | Kultur | Sydamerika | finns (`nazcalinjerna`, #628) |
 | De första olympiska spelen | Sport | Europa | finns (`olympiska-spelen`) |
 | Buddha | Religion | Asien | finns (`buddha`) |
 | Konfucius | Religion | Asien | finns (`konfucius`) |

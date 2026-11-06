@@ -988,15 +988,26 @@ async function run(browser, vp) {
         const names = layer.activeCapitals.map(x => x.name.sv);
         return { year, want: c.name.sv, names, ok: names.includes(c.name.sv) || !layer.active.length };
       });
+      // #616: en händelsemarkör på huvudstaden. Namnet ska då stå bredvid markören, inte under den.
+      layer.update({ year: checks[0].year });
+      const c0 = layer.activeCapitals[0];
+      let skymd = null;
+      if (c0) {
+        layer.setView({ pxPerImg: 1, markers: [{ lon: c0.at[0], lat: c0.at[1], r: 20 }] });
+        layer._layout();
+        const cap = layer._lay.caps[0], x = (c0.at[0] + 180) / 360 * 2048, y = (90 - c0.at[1]) / 180 * 1024, r = 20 / 2;
+        skymd = cap.b.x0 < x + r && x - r < cap.b.x1 && cap.b.y0 < y + r && y - r < cap.b.y1 ? cap.name : null;
+      }
       layer.onlyGroup = null;
       layer.update({ year: checks[0].year });
-      return { group: g.id, checks, utanFokus: layer.activeCapitals.length };
+      return { group: g.id, checks, utanFokus: layer.activeCapitals.length, skymd };
     });
     if (r.missing) throw new Error('inget rike med två daterade huvudstäder i data/genererat/riken.json');
     const bad = r.checks.find(c => !c.ok);
     if (bad) throw new Error(`${r.group} ${bad.year}: väntade ${bad.want}, fick ${bad.names.join(', ') || 'ingen'}`);
     if (r.utanFokus) throw new Error('huvudstäder visas fast inget rike följs');
-    return `${r.group}: ${r.checks.map(c => `${c.year} ${c.want}`).join(', ')}; inga utan Fokus`;
+    if (r.skymd) throw new Error(`${r.skymd}: namnet ligger under en händelsemarkör på staden (#616)`);
+    return `${r.group}: ${r.checks.map(c => `${c.year} ${c.want}`).join(', ')}; inga utan Fokus; namnet viker för en markör`;
   });
 
   await check('Upptäcktsvyns förklaring går att fälla ihop', async () => {
@@ -1418,10 +1429,11 @@ async function run(browser, vp) {
     }
   });
 
-  await check('Samtidigt-pauser kan slås av i Lager', async () => {
+  await check('Samtidigt-pauser kan slås av i Lager och fortsätter själv efter nedräkning', async () => {
     const previousYear = await yearNumber();
     const funfactsOn = await page.locator(layerRow('funfacts')).isChecked();
     const pauseOn = await page.locator('input[data-pause="funfacts"]').isChecked();
+    const autoOn = await page.locator('input[data-pause="ffAuto"]').isChecked();
     if (vp.width <= 760) return 'uppspelning med och utan Samtidigt-paus verifieras i datorbredd';
     try {
       const target = await page.evaluate(async current => {
@@ -1446,12 +1458,43 @@ async function run(browser, vp) {
       for (let i = 0; i < 5 && !(await page.textContent('#btn-speed')).includes('1 år/s'); i++) await page.click('#btn-speed');
       if (!(await page.textContent('#btn-speed')).includes('1 år/s')) throw new Error('kunde inte välja 1 år/s för Samtidigt-testet');
 
-      await jumpTo(target.year - 1);
-      await page.click('#btn-play');
-      await page.waitForFunction(() => {
+      const atCard = () => page.waitForFunction(() => {
         const note = document.getElementById('pause-note');
         return note && !note.hidden && note.textContent.includes('Pausad vid ett nytt Samtidigt-kort');
       }, null, { timeout: T.step });
+      const playLabel = () => page.locator('#btn-play').getAttribute('aria-label');
+
+      // Fortsätt själv (#578, på som standard): nedräkning som skärmläsaren inte får, sedan fortsätter uppspelningen
+      await setPause('ffAuto', true);
+      await page.keyboard.press('Escape');
+      await jumpTo(target.year - 1);
+      await page.click('#btn-play');
+      await atCard();
+      const cd = page.locator('#pause-countdown');
+      if (!(await cd.isVisible()) || !/Fortsätter om \d/.test(await cd.textContent())) throw new Error('nedräkningen syns inte vid Samtidigt-kortet');
+      if (await cd.getAttribute('aria-hidden') !== 'true') throw new Error('nedräkningen ska inte läsas upp varje sekund');
+      await page.waitForFunction(() => document.getElementById('btn-play').getAttribute('aria-label') === 'Pausa'
+        && document.getElementById('pause-countdown').hidden, null, { timeout: 20000 });
+      await page.click('#btn-play');
+
+      // Rör man kortet under nedräkningen avbryts den och uppspelningen står still
+      await jumpTo(target.year - 1);
+      await page.click('#btn-play');
+      await atCard();
+      await page.dispatchEvent('#funfact', 'pointerdown');
+      if (await cd.isVisible()) throw new Error('nedräkningen avbröts inte när man rörde kortet');
+      await page.waitForTimeout(3500);
+      if (await playLabel() === 'Pausa') throw new Error('uppspelningen fortsatte fast nedräkningen avbröts');
+
+      // Utan Fortsätt själv står uppspelningen still tills man trycker Fortsätt
+      await setPause('ffAuto', false);
+      await page.keyboard.press('Escape');
+      await jumpTo(target.year - 1);
+      await page.click('#btn-play');
+      await atCard();
+      if (await cd.isVisible()) throw new Error('nedräkningen syns fast Fortsätt själv är av');
+      await page.waitForTimeout(3500);
+      if (await playLabel() === 'Pausa') throw new Error('uppspelningen fortsatte fast Fortsätt själv är av');
 
       await setPause('funfacts', false);
       await page.keyboard.press('Escape');
@@ -1463,9 +1506,10 @@ async function run(browser, vp) {
         const current = era === 'f.Kr.' ? 1 - n : n;
         return current > year && document.getElementById('btn-play').getAttribute('aria-label') === 'Pausa';
       }, target.year, { timeout: T.step });
-      return `paus vid kortet år ${target.year}; avstängd paus låter uppspelningen fortsätta`;
+      return `paus vid kortet år ${target.year} med nedräkning som fortsätter själv, avbryts av kortet och kan stängas av; avstängd paus låter uppspelningen fortsätta`;
     } finally {
       if (await page.locator('#btn-play').getAttribute('aria-label') === 'Pausa') await page.click('#btn-play');
+      await setPause('ffAuto', autoOn);
       await setPause('funfacts', pauseOn);
       await setLayer('funfacts', funfactsOn);
       await page.keyboard.press('Escape');
@@ -1916,6 +1960,41 @@ async function run(browser, vp) {
       return '404 döljer raden utan konsolfel';
     });
   }
+
+  // Sök (#570): en händelse öppnas på sitt år, ett rike börjar följas, och tomt resultat syns tydligt
+  await check('Sök hittar händelser och riken', async () => {
+    if (await page.locator('#focus-bar').isVisible()) { await page.click('#focus-exit'); await hidden('#focus-bar'); }
+    const openSearch = async () => {
+      if (await page.isHidden('#btn-search')) await page.click('#more-toggle');
+      await page.click('#btn-search');
+      await visible('#search-pop');
+    };
+    await openSearch();
+    await page.fill('#search-input', 'pompeji');
+    await page.waitForSelector('.search-hit', { timeout: T.step });
+    await page.keyboard.press('Enter');
+    await hidden('#search-pop');
+    await visible('#detail');
+    const year = (await page.textContent('#year-big')).trim();
+    if (year !== '79') throw new Error(`Pompeji öppnades på året ${year}, inte 79`);
+    if (!/Pompeji/.test(await page.textContent('#detail'))) throw new Error('faktarutan visar inte Pompeji');
+    await page.keyboard.press('Escape');
+    await openSearch();
+    await page.fill('#search-input', 'bysantinska');
+    await page.locator('.search-hit').first().click();
+    await visible('#focus-bar');
+    if (!/Rom/.test(await page.textContent('#focus-title'))) throw new Error('Bysantinska hittade inte Rom i Fokus');
+    await page.click('#focus-exit');
+    await hidden('#focus-bar');
+    await openSearch();
+    await page.fill('#search-input', 'qxzvw');
+    await page.waitForFunction(() => /Inget/.test(document.getElementById('search-status').textContent), null, { timeout: T.step });
+    if (await page.locator('.search-hit').count()) throw new Error('nonsens gav träffar');
+    await page.keyboard.press('Escape');
+    await hidden('#search-pop');
+    if (await page.locator('#more-menu').isVisible() && await page.isVisible('#more-toggle')) await page.click('#more-toggle').catch(() => {});
+    return 'Pompeji öppnas år 79; Bysantinska ger Rom i Fokus; nonsens ger "Inget …"; Escape stänger';
+  });
 
   await check('faktarutan skiljer källkontroll från osäkerhet', async () => {
     if (await page.locator('#focus-bar').isVisible()) {

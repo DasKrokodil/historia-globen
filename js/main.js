@@ -2,7 +2,9 @@
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
 // Ansvaret ligger i js/controllers/ (#402): val av händelse, fokusläget, faktarutor om riken och religioner,
 // omritningen, uppspelningens pauser, krigets berättelse och etiketterna. Här skapas delarna och kopplas ihop.
-import { loadAll, loadReligionPolities, t, formatYear, isVisibleReview } from './model.js';
+import { loadAll, loadReligionPolities, loadRoutes, t, formatYear, isVisibleReview } from './model.js';
+import { Search } from './ui/search.js';
+import { applyStatic, setupLangPicker, takeReturnYear, LANG_INFO } from './i18n.js';
 import { Globe } from './globe.js';
 import { Timeline, setupYearJump } from './timeline.js';
 import { LAYERS } from './layers/index.js';
@@ -52,6 +54,9 @@ function warCards(events) {
 }
 
 async function start() {
+  // Språket (#63): sidans fasta texter på valt språk innan något annat skriver i dem
+  applyStatic();
+  $('lang-note').hidden = !!LANG_INFO.complete;
   // Presentationsläget är avsiktligt bara en delbar adressparameter. Det sparar inget val och
   // påverkar därför inte nästa besök utan parametern.
   const presentation = new URLSearchParams(location.search).get('presentation') === '1';
@@ -414,8 +419,25 @@ async function start() {
   document.fonts?.ready.then(() => app.refresh());
 
   // Menyerna uppe till höger: bara en åt gången
-  panel.onOpen = () => { layers.close(); app.focusMenu.close(); app.orientToPanelHighlight(); };
-  layers.onOpen = () => { panel.setOpen(false); app.focusMenu.close(); };
+  panel.onOpen = () => { layers.close(); app.focusMenu.close(); search.close(false); app.orientToPanelHighlight(); };
+  layers.onOpen = () => { panel.setOpen(false); app.focusMenu.close(); search.close(false); };
+
+  // Sök (#570): en träff gör det man annars gör för hand. En händelse öppnas på sitt år (lagret Händelser och
+  // händelsens kategori slås på om de är av); krig, riken och resor börjar följas i Fokus.
+  const search = new Search({ button: $('btn-search'), pop: $('search-pop'), input: $('search-input'), list: $('search-list'), status: $('search-status') },
+    data, { loadRoutes });
+  app.search = search;
+  search.onOpen = () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); };
+  search.onPick = item => {
+    timeline.pause();
+    if (item.type !== 'event') return app.startFocus(`${item.type}:${item.id}`);
+    const e = item.ref;
+    if (!layers.on.events) { layers.set('events', true); layers.onChange('events', true); }
+    if (!panel.filters.has(e.category)) $('filters').querySelector(`[data-cat="${e.category}"]`)?.click();
+    if (state.focus) app.endFocus(false);
+    timeline.year = e.start;
+    app.select(e.id, false);
+  };
 
   labels.start();
 
@@ -434,7 +456,8 @@ async function start() {
   };
   panel.onReport = report;
   routePop.onReport = report;
-  timeline.init(1325);
+  timeline.init(takeReturnYear() ?? 1325); // året finns kvar efter byte av språk
+  setupLangPicker($('lang-select'), () => timeline.year);
   globe.flyTo(34, -50, 1600);
   globe.autoRotate = false;
 
@@ -472,7 +495,7 @@ async function start() {
     fallbackFocus: () => $('track'),
   });
   app.tour = tour;
-  tour.onOpen = () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); };
+  tour.onOpen = () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); search.close(false); };
   // Turen i adressen (?tur=<id>) startar direkt, till exempel från en lektion eller ett test
   const tourParam = new URLSearchParams(location.search).get('tur');
   if (tourParam) tour.start(tourParam);
