@@ -2,11 +2,13 @@
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
 // Ansvaret ligger i js/controllers/ (#402): val av händelse, fokusläget, faktarutor om riken och religioner,
 // omritningen, uppspelningens pauser, krigets berättelse och etiketterna. Här skapas delarna och kopplas ihop.
-import { loadAll, loadReligionPolities, t, formatYear, isVisibleReview } from './model.js';
+import { loadAll, loadReligionPolities, loadRoutes, t, formatYear, formatEventTime, isVisibleReview, CAT } from './model.js';
+import { buildIndex, search as searchIndex } from './search-index.js';
 import { applyStatic, setupLangPicker, takeReturnYear, LANG_INFO } from './i18n.js';
 import { Globe } from './globe.js';
 import { Timeline, setupYearJump } from './timeline.js';
 import { LAYERS } from './layers/index.js';
+import { hasTag } from './layers/events.js';
 import { Panel } from './ui/panel.js';
 import { FunFacts } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
@@ -20,7 +22,8 @@ import { FlatMap } from './ui/flatmap.js';
 import { downloadPoster } from './ui/poster.js';
 import { Feedback } from './ui/feedback.js';
 import { Sheet } from './ui/sheet.js';
-import { ViewMenu } from './ui/viewmenu.js';
+import { ViewMenu, ExtraMenu } from './ui/viewmenu.js';
+import { ViewMode } from './ui/viewmode.js';
 import { createStore, toJSON } from './state.js';
 import { LayerRegistry } from './layers/registry.js';
 import { createSelection } from './controllers/selection.js';
@@ -29,6 +32,7 @@ import { createFocus } from './controllers/focus.js';
 import { createRender } from './controllers/render.js';
 import { createPlayback } from './controllers/playback.js';
 import { createLabels } from './controllers/labels.js';
+import { createAddress } from './controllers/address.js';
 
 const $ = id => document.getElementById(id);
 
@@ -76,7 +80,7 @@ async function start() {
     zoomIn: $('flat-in'), zoomOut: $('flat-out'), reset: $('flat-reset'),
     sources: () => [globe.baseCanvas, globe.overlayCanvas],
     onToggle: open => {
-      $('btn-flat').setAttribute('aria-pressed', String(open));
+      app.viewMode?.sync();
       globe.setFlatView(open); // Platt vy behåller 4096 × 2048 även när mobilens glob är mindre (#390)
       app.syncNameScale(); app.refresh();
     },
@@ -121,7 +125,7 @@ async function start() {
   const panel = new Panel({
     root: $('panel'), list: $('event-list'), filters: $('filters'), chips: $('panel-filters'), detail: $('detail'),
     sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'), close: $('panel-close'),
-  }, data, { empireLegend: views?.empireLegend, uncertainty: views?.uncertainty, panel: views?.panel });
+  }, data, { empireLegend: views?.empireLegend, uncertainty: views?.uncertainty, panel: views?.panel, tags: views?.tags });
   const ff = new FunFacts({
     root: $('funfact'), text: $('ff-text'), events: $('ff-events'), review: $('ff-review'),
     pager: $('ff-pager'), next: $('ff-next'), srcBtn: $('ff-sources'),
@@ -131,6 +135,7 @@ async function start() {
   // Smal skärm (#361): faktarutan som ark nedifrån med tre lägen, och mobilmenyn (#530): Samtidigt och Meny i raden överst
   const detailSheet = new Sheet($('detail'));
   new ViewMenu({ toggle: $('more-toggle'), menu: $('more-menu'), keep: $('btn-panel'), label: t(views?.menu?.label) });
+  new ExtraMenu({ toggle: $('btn-more'), menu: $('extra-menu') });
   const sources = new SourcesDialog({ root: $('sources-dialog'), body: $('sources-body'), close: $('sources-close'), openBtn: $('btn-sources') }, data, { sourceVersion: views?.sourceVersion, summary: views?.sourcesSummary });
 
   const timeline = new Timeline({
@@ -156,7 +161,10 @@ async function start() {
 
   // Lagerväljaren: vilka lager som syns. Raderna och startläget kommer från registret.
   const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu'),
-    views: views && { ...views, controlled: registry.viewLayers(views.groups) } });
+    views: views && { ...views, controlled: registry.viewLayers(views.groups),
+      tagCount: tag => data.events.filter(e => hasTag(e, tag) && isVisibleReview(e.review)).length } });
+  // En vy med tagg (#555), till exempel Framsteg, visar bara händelser med taggen
+  layers.onTag = tag => { store.setTag(tag); panel.tag = tag; app.refresh(); };
   panel.onEnableEvents = () => {
     layers.set('events', true);
     layers.onChange('events', true);
@@ -376,7 +384,8 @@ async function start() {
 
   // Platt vy (#292): världen som en platt karta för skärmar, med zoom och panorering.
   // Tidslinjen, Samtidigt, Lager och Fokus fungerar som vanligt medan den är öppen.
-  $('btn-flat').addEventListener('click', () => flatMap.setOpen(flatMap.hidden));
+  // Vyväljaren (#651): Glob, Platt karta och Upptäcktsresor
+  app.viewMode = new ViewMode({ globe: $('btn-globe'), flat: $('btn-flat'), discovery: $('btn-discovery') }, { flatMap, layers });
   posterButton.addEventListener('click', async () => {
     if (!poster) return;
     posterButton.disabled = true;
@@ -405,6 +414,7 @@ async function start() {
   layers.onChange = async (name, on) => {
     store.setLayers(layers.on);
     applyLayers(); app.refresh();
+    if (name === 'discovery') app.viewMode?.sync(); // Upptäcktsresor i Vy följer lagret (#651)
     // Lagret slås bara på: menyn står kvar öppen och ingen faktaruta öppnas (#308). Första gången
     // visar teckenförklaringen en tipsrad; faktarutan finns bakom knappen "Läs om religionerna".
     if (name === 'religions') relLegend.setHint(on);
@@ -420,6 +430,29 @@ async function start() {
   // Menyerna uppe till höger: bara en åt gången
   panel.onOpen = () => { layers.close(); app.focusMenu.close(); app.orientToPanelHighlight(); };
   layers.onOpen = () => { panel.setOpen(false); app.focusMenu.close(); };
+
+  // Sök och följ (#651, tidigare Sök #570): händelserna söks i samma ruta som det man kan följa. En händelse öppnas
+  // på sitt år (lagret Händelser och händelsens kategori slås på om de är av); resten börjar följas i Fokus.
+  let eventIndex = null;
+  app.focusMenu.searchEvents = q => {
+    eventIndex ??= buildIndex({ events: data.events }, { t, visible: isVisibleReview }).filter(it => it.type === 'event');
+    return searchIndex(eventIndex, q, 30).map(it => ({
+      key: `event:${it.id}`, label: it.title, from: it.start, to: it.end,
+      sub: [formatEventTime(it.ref), it.place].filter(Boolean).join(' · '), color: CAT[it.ref.category]?.color ?? 'var(--brass)',
+    }));
+  };
+  const follow = app.focusMenu.onPick;
+  app.focusMenu.onPick = key => {
+    if (!key.startsWith('event:')) return follow(key);
+    const e = data.byId[key.slice(6)];
+    if (!e) return;
+    timeline.pause();
+    if (!layers.on.events) { layers.set('events', true); layers.onChange('events', true); }
+    if (!panel.filters.has(e.category)) $('filters').querySelector(`[data-cat="${e.category}"]`)?.click();
+    if (state.focus) app.endFocus(false);
+    timeline.year = e.start;
+    app.select(e.id, false);
+  };
 
   labels.start();
 
@@ -464,8 +497,12 @@ async function start() {
   const tour = new TourPlayer({
     button: $('btn-tour'), menu: $('tour-menu'), menuTitle: $('tour-menu-title'), list: $('tour-list'),
     card: $('tour-card'), progress: $('tour-progress'), name: $('tour-name'), title: $('tour-title'), text: $('tour-text'),
+<<<<<<< HEAD
     read: $('tour-read'), srcBtn: $('tour-sources'), back: $('tour-back'), next: $('tour-next'), closeBtn: $('tour-close'),
     chapter: $('tour-chapter'), question: $('tour-question'), questionLabel: $('tour-question-label'), questionText: $('tour-question-text'),
+=======
+    read: $('tour-read'), srcBtn: $('tour-sources'), back: $('tour-back'), next: $('tour-next'), closeBtn: $('tour-close'), endBtn: $('tour-end'), pauseStop: $('pause-stop'),
+>>>>>>> origin/main
   }, toursData, {
     timeline, globe, flatMap, layers, narrow, root: $('app'), events: data.byId,
     layerIds: new Set(registry.entries.map(e => e.id)), controlled: registry.viewLayers(views?.groups),
@@ -485,6 +522,20 @@ async function start() {
   // Turen i adressen (?tur=<id>) startar direkt, till exempel från en lektion eller ett test
   const tourParam = new URLSearchParams(location.search).get('tur');
   if (tourParam) tour.start(tourParam);
+
+  // Tillståndet i adressen (#501) och knappen Dela (#64). En tur i adressen går före en delad vy.
+  const address = createAddress(app);
+  app.address = address;
+  await address.start({ read: !tourParam });
+  const shareBtn = $('btn-share');
+  let shareTimer = 0;
+  shareBtn.addEventListener('click', () => address.share(text => {
+    const label = shareBtn.textContent;
+    shareBtn.textContent = text;
+    $('screen-reader-status').textContent = text;
+    clearTimeout(shareTimer);
+    shareTimer = setTimeout(() => { shareBtn.textContent = label; }, 2500);
+  }));
 }
 
 
@@ -501,8 +552,26 @@ function trackFocusBar() {
   new MutationObserver(update).observe(app, { attributes: true, attributeFilter: ['class'], subtree: true });
   window.addEventListener('resize', update);
   update();
+  return update;
 }
-trackFocusBar();
+const updateFocusTop = trackFocusBar();
+
+/** Pausraden kan bli flera rader hög (#647). CSS får dess ovankant som --pause-top (avstånd från sidans underkant),
+ *  så att fokusraden alltid ligger ovanför den i stället för ett fast antal pixlar upp. */
+function trackPauseNote(after) {
+  const app = $('app'), note = $('pause-note');
+  const update = () => {
+    const on = !note.hidden && note.offsetHeight > 0;
+    app.classList.toggle('pause-var', on);
+    if (on) app.style.setProperty('--pause-top', `${Math.round(window.innerHeight - note.getBoundingClientRect().top)}px`);
+    after(); // fokusraden flyttades: korten ovanför den följer med
+  };
+  new ResizeObserver(update).observe(note);
+  new MutationObserver(update).observe(note, { attributes: true, attributeFilter: ['hidden'] });
+  window.addEventListener('resize', update);
+  update();
+}
+trackPauseNote(updateFocusTop);
 
 // Safari på iPad och iPhone: globen sköter själv nypgesterna med pekhändelser. Stoppa därför Safaris
 // sidzoom bara när gesten börjar på globen; resten av sidan ska gå att zooma som vanligt (#191, #404).

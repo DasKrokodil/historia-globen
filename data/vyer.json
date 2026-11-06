@@ -1,5 +1,5 @@
 {
-  "about": "Grupperna och de förinställda vyerna i Lager (#357, #380). Varje lager anger sin grupp i lagerregistret (fältet group). En vy slår på lagren i layers och slår av de andra lagren i grupper som inte är inställningar. Stämmer valen inte med någon vy visas custom. De enskilda valen ligger bakom customize.",
+  "about": "Grupperna och de förinställda vyerna i Lager (#357, #380). Varje lager anger sin grupp i lagerregistret (fältet group). En vy slår på lagren i layers och slår av de andra lagren i grupper som inte är inställningar. Stämmer valen inte med någon vy visas custom. De enskilda valen ligger bakom customize. En vy med tag (#555) visar bara händelser med den taggen (fältet tags i händelsen); texterna för taggen står i tags.",
   "title": { "sv": "Vy", "en": "View" },
   "custom": { "sv": "Anpassad", "en": "Custom" },
   "customize": { "sv": "Anpassa själv", "en": "Customize" },
@@ -118,6 +118,15 @@
     "softEdge": { "sv": "Mjuk kant: källorna säger att gränsen är osäker.", "en": "Soft edge: the sources say the boundary is uncertain." },
     "influence": { "sv": "Glesa prickar med streckad kant: lydriken och vasaller enligt Cliopatria, inte rikets kärnområde.", "en": "Sparse dots with a dashed border: tributaries and vassals according to Cliopatria, not the empire's core area." }
   },
+  "tags": {
+    "framsteg": {
+      "label": { "sv": "Framsteg", "en": "Progress" },
+      "markLabel": { "sv": "Framsteg, visa vad märkningen betyder", "en": "Progress, show what the mark means" },
+      "about": { "sv": "Händelser som de flesta ser som en förbättring för människors liv. Många framsteg hade också baksidor.", "en": "Events that most people see as an improvement in people's lives. Many advances also had downsides." },
+      "empty": { "sv": "Inga händelser är markerade som framsteg ännu.", "en": "No events are marked as progress yet." },
+      "none": { "sv": "Inga framsteg inom {within} från {at}. Prickarna under tidslinjen visar var det finns framsteg.", "en": "No progress within {within} of {at}. The dots under the timeline show where there is progress." }
+    }
+  },
   "groups": [
     { "id": "people", "name": { "sv": "Människor och händelser", "en": "People and events" } },
     { "id": "power", "name": { "sv": "Makt, tro och gränser", "en": "Power, faith and borders" } },
@@ -131,6 +140,6 @@
     { "id": "utforska", "name": { "sv": "Utforska", "en": "Explore" }, "layers": ["events", "funfacts", "areas"] },
     { "id": "makt", "name": { "sv": "Makt och gränser", "en": "Power and borders" }, "layers": ["events", "areas", "religions", "borders", "wars"] },
     { "id": "resor", "name": { "sv": "Resor och handel", "en": "Journeys and trade" }, "layers": ["events", "routes"] },
-    { "id": "perspektiv", "name": { "sv": "Perspektiv", "en": "Perspective" }, "layers": ["discovery", "routes"] }
+    { "id": "framsteg", "name": { "sv": "Framsteg", "en": "Progress" }, "layers": ["events"], "tag": "framsteg" }
   ]
 }

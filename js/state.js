@@ -28,6 +28,7 @@ export function createState() {
     pause: {},        // vad uppspelningen pausar vid (LayerMenu.pause)
     calm: false,      // Lugn rörelse (#246)
     filters: new Set(), // kategorierna som syns (Panel.filters)
+    tag: null,        // vyn visar bara händelser med den här taggen, till exempel 'framsteg' (#555), eller null
 
     // Det som är valt eller markerat
     selectedId: null, // händelsen i faktarutan
@@ -60,7 +61,7 @@ export function snapshot(state) {
 //
 // Tidslinjen äger året (CLAUDE.md punkt 3, Rikards val 2026-11-05 i #403): året ändras som förut via
 // Timeline, och omritningen speglar det in i tillståndet med mirror(). Övriga val ändras med åtgärderna
-// nedan, och den som vill veta om en ändring prenumererar. Själva adressen (delbara länkar) görs i #64/#501.
+// nedan, och den som vill veta om en ändring prenumererar. Adressen (delbara länkar, #64/#501) står i js/url-state.js.
 
 /** Versionen av JSON-formatet. Höjs om fälten ändras på ett sätt som gamla länkar inte klarar. */
 export const STATE_VERSION = 1;
@@ -68,7 +69,7 @@ const FOCUS_TYPES = ['war', 'empire', 'religion', 'route'];
 
 /**
  * Ett lager med tillståndet och dess åtgärder. Varje åtgärd ändrar state och meddelar prenumeranterna
- * med { type, state }, där type är 'year', 'focus', 'selected', 'layers', 'filters' eller 'calm'.
+ * med { type, state }, där type är 'year', 'focus', 'selected', 'layers', 'filters', 'tag' eller 'calm'.
  */
 export function createStore(state = createState()) {
   const subscribers = new Set();
@@ -106,6 +107,11 @@ export function createStore(state = createState()) {
     setFilters(filters) {
       state.filters = filters;
       notify('filters');
+    },
+    /** Taggen som vyn visar (#555), till exempel 'framsteg', eller null för alla händelser. */
+    setTag(tag) {
+      state.tag = tag ?? null;
+      notify('tag');
     },
     setCalm(on) {
       state.calm = !!on;

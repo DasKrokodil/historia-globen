@@ -51,7 +51,8 @@ Molnmiljöns nätverk släpper bara fram vissa sajter. Läget 2026-10-29 (#143):
 - **World Historical Gazetteer:** whgazetteer.org svarar. Platslistan (`/mapdata/datasets/<id>/`) och enskilda platser (`/api/db/?id=<plats>`) går att läsa utan inloggning; den fullständiga nedladdningen kräver inloggning (#24).
 - **Går att nå sedan 2026-10-30:** ucdp.uu.se (nedladdningar) och digitallibrary.un.org (#223). FN:s digitala bibliotek visar en robotkontroll på vanliga sidor, men sökningen går att läsa som MARCXML (`https://digitallibrary.un.org/search?p=<dokumentnummer>&of=xm`) och PDF:erna via länken `nanna/record/…` som filsidan skickar vidare till.
 - **Släppta 2026-10-31 (Rikard lade till dem i miljöns nätverksinställning):** historiagloben.se och dev.historiagloben.se (för att kontrollera den publicerade sidan), cdn.jsdelivr.net (three.js), riksarkivet.se, runeberg.org, www.gutenberg.org och mathshistory.st-andrews.ac.uk. www.un.org och www.loc.gov svarade också 200 samma dag. www.smithsonianmag.com svarar 403 även när domänen är tillagd (sajtens egen spärr).
-- **Spärrade:** bland annat press.un.org, news.un.org och www.ohchr.org (#223), acleddata.com, dataverse.harvard.edu (#24), cudl.lib.cam.ac.uk, english-heritage.org.uk, kungahuset.se, regeringen.se, journals.plos.org, ebi.ac.uk (Europe PMC), patents.google.com, www.nma.gov.au (National Museum of Australia) och wwwnc.cdc.gov (tidskriften Emerging Infectious Diseases, som i stället går att läsa via PMC) (#330).
+- **Går att nå sedan 2026-11-06:** www.regeringen.se (UD:s landsidor, uttalanden och reseavrådan, #644). Den engelska www.government.se svarar fortfarande 403.
+- **Spärrade:** bland annat press.un.org, news.un.org och www.ohchr.org (#223), acleddata.com, dataverse.harvard.edu (#24), cudl.lib.cam.ac.uk, english-heritage.org.uk, kungahuset.se, www.government.se, journals.plos.org, ebi.ac.uk (Europe PMC), patents.google.com, www.nma.gov.au (National Museum of Australia) och wwwnc.cdc.gov (tidskriften Emerging Infectious Diseases, som i stället går att läsa via PMC) (#330).
 
 ## Utkast från massimport
 
@@ -79,7 +80,7 @@ Ett pågående krig (`ongoing: true`) har uppgifter som åldras: läget i dag (`
 
 ## Sidan Om källorna
 
-Under Om källorna (knappen Källor uppe till höger, i gruppen Visa) finns källpolicyn, läget för hela granskningen och källregistret. Källregistret är grupperat efter vad källorna används till: händelser och fun facts, riken, religioner, kartdata och bilder. Grupperna räknas fram ur datan (vilka uppgifter i `events.json`, `funfacts.json`, `empires/index.json`, `religions.json`, `land.json`, `borders.json` och fältet `image.source` som pekar på varje källa), så en ny källa hamnar rätt av sig själv. En källa kan höra till flera grupper, till exempel Cliopatria (riken och religioner). En källa som ingen uppgift pekar på visas under Övriga källor.
+Under Om källorna (knappen Källor under Mer uppe till höger) finns källpolicyn, läget för hela granskningen och källregistret. Källregistret är grupperat efter vad källorna används till: händelser och fun facts, riken, religioner, kartdata och bilder. Grupperna räknas fram ur datan (vilka uppgifter i `events.json`, `funfacts.json`, `empires/index.json`, `religions.json`, `land.json`, `borders.json` och fältet `image.source` som pekar på varje källa), så en ny källa hamnar rätt av sig själv. En källa kan höra till flera grupper, till exempel Cliopatria (riken och religioner). En källa som ingen uppgift pekar på visas under Övriga källor.
 
 Varje grupp visar hur många källor och uppgifter den har och hur många uppgifter som har nivån källkontrollerad och två källor (och utkast, om det finns). Kartdata och bilder har ingen granskningsnivå per uppgift.
 

@@ -1,6 +1,7 @@
-// Mobilmenyn (#530, byggd på menyn Visa från #361): i smal skärm står bara Samtidigt och knappen Meny i
-// sidhuvudet. Lager, Fokus, Ett år, en plats och gruppen Visa (Platt vy, Källor, Hjälp) samlas i en nedfällbar
-// panel bakom Meny. I datorn syns knappen inte och grupperna står som förut (CSS: .more-menu är display: contents).
+// Mobilmenyn (#530, grupperna sedan #651): i smal skärm står bara Samtidigt och knappen Meny i sidhuvudet.
+// Grupperna Vy (Glob, Platt karta, Upptäcktsresor), Utforska (Sök och följ, Turer, Ett år, en plats, Lager) och
+// Mer (Källor, Hjälp, Dela, Språk) samlas i en nedfällbar panel bakom Meny. I datorn syns knappen inte och
+// grupperna står i sidhuvudet (CSS: .more-menu är display: contents), med Mer som en liten egen meny.
 // Knapparna själva sköts av sina egna moduler; den här filen öppnar och stänger menyn, flyttar Samtidigt ut ur
 // gruppen i smal skärm och skickar fokus till Meny när en knapp som ligger i den stängda menyn ska få fokus.
 const narrow = matchMedia('(max-width: 760px)');
@@ -53,5 +54,39 @@ export class ViewMenu {
     this.root.classList.toggle('more-open', open);
     this.toggle.setAttribute('aria-expanded', String(open));
     if (open) this.menu.querySelector('button:not([hidden])')?.focus({ preventScroll: true });
+  }
+}
+
+/**
+ * Mer (#651): Källor, Hjälp, Dela och Språk. I datorn står de i en liten meny bakom knappen Mer, i mobilen som en
+ * rad längst ner i Meny (där syns knappen Mer inte och raden är alltid öppen, CSS). Ett val stänger menyn, liksom
+ * Escape, ett klick utanför och Tab ut ur den. När en panel som öppnades härifrån (Hjälp, Källor) stängs och
+ * knappen ligger i den stängda menyn får Mer fokus i stället.
+ */
+export class ExtraMenu {
+  constructor({ toggle, menu }) {
+    Object.assign(this, { toggle, menu, wrap: toggle.parentElement });
+    toggle.addEventListener('click', () => this.set(!this.isOpen));
+    menu.addEventListener('click', e => { if (!narrow.matches && e.target.closest('button')) this.set(false); });
+    document.addEventListener('pointerdown', e => { if (this.isOpen && !this.wrap.contains(e.target)) this.set(false); });
+    this.wrap.addEventListener('focusout', e => {
+      if (this.isOpen && e.relatedTarget && !this.wrap.contains(e.relatedTarget)) this.set(false);
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && this.isOpen) { this.set(false); toggle.focus({ preventScroll: true }); }
+    });
+    for (const b of menu.querySelectorAll('button')) {
+      const own = b.focus.bind(b); // ViewMenus omdirigering i mobilen ligger under (main.js skapar ViewMenu först)
+      b.focus = opts => (!narrow.matches && !this.isOpen ? toggle.focus(opts) : own(opts));
+    }
+    narrow.addEventListener('change', () => this.set(false));
+  }
+
+  get isOpen() { return this.wrap.classList.contains('extra-open'); }
+
+  set(open) {
+    this.wrap.classList.toggle('extra-open', open);
+    this.toggle.setAttribute('aria-expanded', String(open));
+    if (open) this.menu.querySelector('button')?.focus({ preventScroll: true });
   }
 }

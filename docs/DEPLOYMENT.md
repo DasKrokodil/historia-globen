@@ -149,6 +149,10 @@ Formulärets serverfunktion `functions/api/feedback.js` (beslut 2026-10-30, [fee
 
 Jobbet **"Bygg och validera dist/"** kör också testerna för förslagens serverfunktion (`node --test 'tests/*.test.mjs'`, Node 22, inga beroenden).
 
+Jobbet **"Starta formulärets Pages Function som Cloudflare"** (#663) kör `scripts/pages-function-check.sh`. Skriptet startar `functions/api/feedback.js` med `wrangler pages dev dist` (Cloudflares egen körmiljö, workerd) och skickar ett anrop till `/api/feedback`. Utan nycklar ska svaret vara 503 `disabled`; startar funktionen inte är kontrollen röd. Skälet: Cloudflare stoppar **hela** publiceringen om funktionen inte startar, och koden som funktionen importerar (`js/model.js`, `js/i18n.js`) körs annars bara i node och i webbläsaren. Efter #634 misslyckades publiceringen av `main` 21 gånger i rad medan alla andra kontroller var gröna (#662). wrangler installeras i en tillfällig mapp med exakt version, som Playwright, och används bara här. Lokalt: `bash scripts/pages-function-check.sh` (kräver Node och nätet för npm första gången).
+
+Kontrollen **"Cloudflare Pages"** kommer från Cloudflare, inte från Actions. Är den röd på `main` publiceras dev inte, även om allt annat är grönt; titta då på den först.
+
 Bara pull requests mot `production` får dessutom kontrollen **"Release kommer från main"**. Den underkänner pull requesten om
 - den inte kommer från grenen `main` i samma repo, eller
 - `production` har ändringar som saknas i `main`, till exempel efter ett nödläge (se [Rollback](#rollback-till-en-tidigare-release)). Merge-commitarna som varje release ger i `production` är tillåtna, så länge de bara för in det som finns i `main` (`scripts/production-i-main.sh`). Kontrollen skriver också ut vilka ändringar som släpps.
@@ -183,7 +187,19 @@ Kontrollerna, i båda bredderna:
 - ett rike och en väg syns: i Platt vy år 1420 slår testet av och på Riken och Resor och handelsvägar och kontrollerar att kartan ändras
 - ingen horisontell scroll, före och efter att menyerna har öppnats
 
-Testet väntar på att sidan når ett visst läge (en meny syns, årtalet ändras, kartan står still), inte på fasta tider, så att det inte ska bli rött av en slump. Jobbet tar cirka 3 minuter och avbryts efter 10.
+Testet väntar på att sidan når ett visst läge (en meny syns, årtalet ändras, kartan står still), inte på fasta tider, så att det inte ska bli rött av en slump. Hela sviten tar 6–10 minuter. Jobbet avbryts efter 20 minuter, och steget som installerar Playwright avbryts efter 5 (#617).
+
+#### Avbruten eller röd: tre olika fall (#617)
+
+En körning som inte blir grön kan ha tre helt olika orsaker. Titta på statusen och på hur länge körningen höll på innan du ändrar något:
+
+| Fall | Så ser det ut | Vad du gör |
+| --- | --- | --- |
+| **En nyare push till samma gren** | `cancelled` efter 0–10 minuter, och en nyare körning finns för samma gren (`concurrency: cancel-in-progress`) | Inget. Det är avsikten; titta på den nyaste körningen. |
+| **Tidsgränsen** | `cancelled` efter cirka 20 minuter för hela jobbet, eller steget "Installera Playwright …" stoppat efter cirka 5 minuter | Ingen kontroll har fallerat. Har installationen stoppats (oftast `apt` som hämtar typsnittspaket långsamt): **kör om körningen en gång** ("Re-run jobs"). Stoppas den igen, eller tar själva testet mer än 20 minuter, är det ett eget fel som ska bli ett issue. |
+| **Ett riktigt fel** | `failure`, och loggen visar `FEL` vid en kontroll | Följ regeln om röd kontroll i [AGENTS.md](../AGENTS.md#röd-kontroll-eller-slut-på-tid-samma-regel-för-alla-agenter-beslut-2026-11-05-skärpt-samma-dag): hitta den första felande kontrollen. |
+
+Blir sviten för långsam igen kan den delas i två parallella jobb med `ENDAST` (#587); det är inte gjort ännu.
 
 **Skärmbilderna** sparas i 14 dagar som `skarmbilder-chromium`, `skarmbilder-firefox` och `skarmbilder-webkit` (bara Chromium finns i vanliga körningar): öppna körningen under Actions (eller "Details" vid kontrollen i pull requesten) och ladda ner artefakten längst ned på sidan. Bilderna heter `dator-…` och `mobil-…`, i den ordning testet tar dem; en kontroll som misslyckas ger en bild som börjar på `dator-FEL-` eller `mobil-FEL-`. Loggen visar varje kontroll som `OK` eller `FEL` med ett kort mått (till exempel hur många pixlar som ändras när rikena slås på).
 

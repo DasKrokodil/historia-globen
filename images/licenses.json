@@ -3,6 +3,36 @@
   "scope": "data/events.json events[].image",
   "images": [
     {
+      "eventId": "aksum-blir-kristet",
+      "eventTitle": "Kung Ezana gör Aksum kristet",
+      "file": "images/events/aksum-blir-kristet.webp",
+      "kind": "historisk",
+      "credit": "Rod Waddington / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-aksum-blir-kristet",
+        "title": "Ezanas sten, Aksum (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ezana_Stone,_Aksum_(6183743976).jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "angkor-wat",
+      "eventTitle": "Angkor Wat byggs",
+      "file": "images/events/angkor-wat.webp",
+      "kind": "historisk",
+      "credit": "Bjørn Christian Tørrissen / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-angkor-wat",
+        "title": "Angkor Wat (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Angkor_Wat.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-06"
+      }
+    },
+    {
       "eventId": "apollo-11",
       "eventTitle": "Apollo 11 landar på månen",
       "file": "images/events/apollo-11.webp",
@@ -10,6 +40,36 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "arabiska-varen",
+      "eventTitle": "Arabiska våren",
+      "file": "images/events/arabiska-varen.webp",
+      "kind": "historisk",
+      "credit": "Chris Belsten / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-arabiska-varen",
+        "title": "Demonstration i Tunis, 20 januari 2011 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tunisian_Revolution_Protest.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "attackerna-11-september-2001",
+      "eventTitle": "Terrorattackerna den 11 september",
+      "file": "images/events/attackerna-11-september-2001.webp",
+      "kind": "historisk",
+      "credit": "Michael Foran / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-attackerna-11-september-2001",
+        "title": "Rök över World Trade Center, 11 september 2001 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:WTC_smoking_on_9-11.jpeg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-05"
+      }
     },
     {
       "eventId": "bagdads-fall-1258",
@@ -96,6 +156,51 @@
       }
     },
     {
+      "eventId": "berlinkonferensen",
+      "eventTitle": "Berlinkonferensen om Afrika",
+      "file": "images/events/berlinkonferensen.webp",
+      "kind": "historisk",
+      "credit": "Adalbert von Roessler, Über Land und Meer / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-berlinkonferensen",
+        "title": "Roessler: Berlinkonferensen, 1884 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kongokonferenz.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "berlinmuren-byggs",
+      "eventTitle": "Berlinmuren byggs",
+      "file": "images/events/berlinmuren-byggs.webp",
+      "kind": "historisk",
+      "credit": "U.S. National Archives / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-berlinmuren-byggs",
+        "title": "Berlinmuren byggs, 20 november 1961 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Berlin_Wall_1961-11-20.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "berlinmurens-fall",
+      "eventTitle": "Berlinmuren faller",
+      "file": "images/events/berlinmurens-fall.webp",
+      "kind": "historisk",
+      "credit": "Bundesarchiv, Bild 183-1989-1110-018 / Klaus Oberst / Wikimedia Commons",
+      "license": "CC BY-SA 3.0 DE",
+      "source": {
+        "id": "commons-bild-berlinmurens-fall",
+        "title": "Checkpoint Charlie natten då muren öppnades, 10 november 1989 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-1989-1110-018%2C_Berlin%2C_Checkpoint_Charlie%2C_Nacht_des_Mauerfalls.jpg",
+        "license": "CC BY-SA 3.0 DE",
+        "checked": "2026-11-05"
+      }
+    },
+    {
       "eventId": "blockaden-av-biafra",
       "eventTitle": "Blockaden och svälten i Biafra",
       "file": "images/events/blockaden-av-biafra.webp",
@@ -108,6 +213,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Food_aid_Nigeria.png",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "borskraschen-1929",
+      "eventTitle": "Börskraschen på Wall Street",
+      "file": "images/events/borskraschen-1929.webp",
+      "kind": "historisk",
+      "credit": "Associated Press / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-borskraschen-1929",
+        "title": "Folkmassor utanför New York-börsen, 24 oktober 1929 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Crowds_gathering_outside_New_York_Stock_Exchange.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
       }
     },
     {
@@ -132,6 +252,36 @@
         "url": "https://commons.wikimedia.org/wiki/File:A_small_temple_beneath_the_Bodhi_tree,_Bodh_Gaya,_c._1810.jpg",
         "license": "Public domain",
         "checked": "2026-10-29"
+      }
+    },
+    {
+      "eventId": "caesar-mordas",
+      "eventTitle": "Julius Caesar mördas",
+      "file": "images/events/caesar-mordas.webp",
+      "kind": "historisk",
+      "credit": "Vincenzo Camuccini / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-caesar-mordas",
+        "title": "Caesars död, Vincenzo Camuccini (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Vincenzo_Camuccini_-_La_morte_di_Cesare.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "caral",
+      "eventTitle": "Caral, en av Amerikas äldsta städer",
+      "file": "images/events/caral.webp",
+      "kind": "historisk",
+      "credit": "Jon Gudorf / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-caral",
+        "title": "Den stora pyramiden i Caral (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mayor_Pyramid_and_circular_enclosure._Caral,_Peru.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-06"
       }
     },
     {
@@ -168,6 +318,36 @@
       "source": null
     },
     {
+      "eventId": "cook-nar-australien",
+      "eventTitle": "James Cook når Australiens östkust",
+      "file": "images/events/cook-nar-australien.webp",
+      "kind": "historisk",
+      "credit": "Tupaia / British Library via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-cook-nar-australien",
+        "title": "Människor i en kanot, Botany Bay, april 1770 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:People_in_a_canoe,_Botany_Bay,_April_1770.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "covid-19-pandemin",
+      "eventTitle": "Covid-19-pandemin",
+      "file": "images/events/covid-19-pandemin.webp",
+      "kind": "historisk",
+      "credit": "Alissa Eckert och Dan Higgins, CDC / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-covid-19-pandemin",
+        "title": "CDC:s illustration av SARS-CoV-2, januari 2020 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:SARS-CoV-2_without_background.png",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
       "eventId": "darwin-fods",
       "eventTitle": "Charles Darwin föds",
       "file": "images/events/darwin-fods.webp",
@@ -183,6 +363,21 @@
       }
     },
     {
+      "eventId": "demokratin-i-aten",
+      "eventTitle": "Kleisthenes och demokratin i Aten",
+      "file": "images/events/demokratin-i-aten.webp",
+      "kind": "historisk",
+      "credit": "George E. Koronaios / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-demokratin-i-aten",
+        "title": "Pnyx med talarstolen, 23 september 2018 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Pnyx_plateau_on_23_September_2018.jpg",
+        "license": "CC0",
+        "checked": "2026-11-06"
+      }
+    },
+    {
       "eventId": "digerdoden",
       "eventTitle": "Digerdöden",
       "file": "images/events/digerdoden.webp",
@@ -190,6 +385,36 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "dna-strukturen",
+      "eventTitle": "DNA-molekylens dubbelspiral",
+      "file": "images/events/dna-strukturen.webp",
+      "kind": "historisk",
+      "credit": "Alkivar / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-dna-strukturen",
+        "title": "Crick och Watsons DNA-modell, Science Museum (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:DNA_Model_Crick-Watson.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "egypten-enas",
+      "eventTitle": "Egypten enas under Narmer",
+      "file": "images/events/egypten-enas.webp",
+      "kind": "historisk",
+      "credit": "Gary Todd / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-egypten-enas",
+        "title": "Narmerpaletten (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Palette_of_King_Narmer,_Slate,_Hierakonpolis,_3150-3125_BC_(9797312864).jpg",
+        "license": "CC0",
+        "checked": "2026-11-06"
+      }
     },
     {
       "eventId": "eiffeltornet",
@@ -214,6 +439,111 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "finanskrisen-2008",
+      "eventTitle": "Finanskrisen",
+      "file": "images/events/finanskrisen-2008.webp",
+      "kind": "historisk",
+      "credit": "Robert Scoble / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-finanskrisen-2008",
+        "title": "Lehman Brothers huvudkontor, 15 september 2008 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lehman_Brothers-NYC-20080915.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "fn-grundas",
+      "eventTitle": "FN-stadgan skrivs under och FN grundas",
+      "file": "images/events/fn-grundas.webp",
+      "kind": "historisk",
+      "credit": "Megs / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-fn-grundas",
+        "title": "FN-stadgan i utställning vid FN:s högkvarter, foto 2025 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:United_Nations_Charter.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "forsta-flottan-sydney",
+      "eventTitle": "Första flottan når Sydney",
+      "file": "images/events/forsta-flottan-sydney.webp",
+      "kind": "historisk",
+      "credit": "William Bradley / State Library of New South Wales via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-forsta-flottan-sydney",
+        "title": "Första flottan seglar in i Port Jackson (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:First_Fleet_entering_Sydney_1788_Bradley.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "forsta-jarnvagen-mellan-stader",
+      "eventTitle": "Den första järnvägen mellan två städer",
+      "file": "images/events/forsta-jarnvagen-mellan-stader.webp",
+      "kind": "historisk",
+      "credit": "I. Shaw junior / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-forsta-jarnvagen-mellan-stader",
+        "title": "Invigningen av Liverpool and Manchester Railway (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Opening_of_the_Liverpool_and_Manchester_Railway.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "fotbolls-vm-1930",
+      "eventTitle": "Det första fotbolls-VM",
+      "file": "images/events/fotbolls-vm-1930.webp",
+      "kind": "historisk",
+      "credit": "Okänd fotograf / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-fotbolls-vm-1930",
+        "title": "Estadio Centenario, 1930 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Estadio_Centenario_1930.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "gagarin-vostok-1",
+      "eventTitle": "Jurij Gagarin blir första människan i rymden",
+      "file": "images/events/gagarin-vostok-1.webp",
+      "kind": "historisk",
+      "credit": "TASS / Mos.ru via Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-gagarin-vostok-1",
+        "title": "Kosmonauten Jurij Gagarin, 1961 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:%D0%9A%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82_%D0%AE%D1%80%D0%B8%D0%B9_%D0%93%D0%B0%D0%B3%D0%B0%D1%80%D0%B8%D0%BD_%28cropped%29.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "galileo-sidereus-nuncius",
+      "eventTitle": "Galileo riktar teleskopet mot himlen",
+      "file": "images/events/galileo-sidereus-nuncius.webp",
+      "kind": "historisk",
+      "credit": "Wellcome Collection / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-galileo-sidereus-nuncius",
+        "title": "Två teckningar av månen, Galileo (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:2_diagrams_of_moon,_Galileo,_17th_Century_Wellcome_L0009590.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-06"
+      }
     },
     {
       "eventId": "ghanas-sjalvstandighet",
@@ -276,6 +606,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Deklarasyon_Endepandans_Ayiti.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "hammurabis-lagar",
+      "eventTitle": "Hammurabis lagar",
+      "file": "images/events/hammurabis-lagar.webp",
+      "kind": "historisk",
+      "credit": "Fred Romero / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-hammurabis-lagar",
+        "title": "Hammurabis lagstele, Louvren Sb 8 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Code_of_Hammurabi_(Louvre_Sb_8)-31434550325.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-06"
       }
     },
     {
@@ -432,6 +777,21 @@
       }
     },
     {
+      "eventId": "jenners-vaccin",
+      "eventTitle": "Edward Jenner och det första vaccinet",
+      "file": "images/events/jenners-vaccin.webp",
+      "kind": "historisk",
+      "credit": "John Raphael Smith / Wellcome Collection via Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-jenners-vaccin",
+        "title": "Edward Jenner, mezzotint av J. R. Smith, 1800 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Edward_Jenner._Mezzotint_by_J._R._Smith,_1800,_after_himself_Wellcome_V0003069.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-06"
+      }
+    },
+    {
       "eventId": "jesu-fodelse",
       "eventTitle": "Jesus föds",
       "file": "images/events/jesu-fodelse.webp",
@@ -447,6 +807,36 @@
       }
     },
     {
+      "eventId": "jordbavningen-i-valdivia-1960",
+      "eventTitle": "Jordbävningen i Valdivia, den kraftigaste som har mätts",
+      "file": "images/events/jordbavningen-i-valdivia-1960.webp",
+      "kind": "historisk",
+      "credit": "Pierre St. Amand / NOAA via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-jordbavningen-i-valdivia-1960",
+        "title": "Valdivia efter jordbävningen 1960 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Valdivia_after_earthquake%2C_1960.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "jordbrukets-borjan",
+      "eventTitle": "Jordbruket börjar i Bördiga halvmånen",
+      "file": "images/events/jordbrukets-borjan.webp",
+      "kind": "historisk",
+      "credit": "Osama Shukir Muhammed Amin / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-jordbrukets-borjan",
+        "title": "Jarmo (Qal'at Jarmo), utgrävningarna 2021 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Jarmo_(Qal%27at_Jarmo),_late_8th_century_BCE_to_late_6th_century_BCE._Sulaymaniyah,_Iraq._March_2021._Aftermaths_of_1948-1955_excavations_conducted_by_the_Oriental_Institute_of_Chicago.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-06"
+      }
+    },
+    {
       "eventId": "kalinga-erovras",
       "eventTitle": "Ashoka erövrar Kalinga",
       "file": "images/events/kalinga-erovras.webp",
@@ -454,6 +844,36 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "karl-den-store-krons",
+      "eventTitle": "Karl den store kröns till kejsare",
+      "file": "images/events/karl-den-store-krons.webp",
+      "kind": "historisk",
+      "credit": "Jean Fouquet / Bibliothèque nationale de France via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-karl-den-store-krons",
+        "title": "Karl den stores kröning, Jean Fouquet (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Sacre_de_Charlemagne.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "keelingkurvan",
+      "eventTitle": "Koldioxiden mäts på Mauna Loa: Keelingkurvan",
+      "file": "images/events/keelingkurvan.webp",
+      "kind": "historisk",
+      "credit": "John Miller, NOAA / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-keelingkurvan",
+        "title": "Keeling och Chin vid Mauna Loa-observatoriet, 1997 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Charles_David_Keeling_and_John_Chin_at_Mauna_Loa_Observatory_in_1997.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
     },
     {
       "eventId": "khorramshahr-aterorovras-1982",
@@ -468,6 +888,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Liberation_of_Khorramshahr_%E2%80%93_Jameh_Mosque.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "kilskriften",
+      "eventTitle": "Skriften uppstår: kilskrift i Uruk",
+      "file": "images/events/kilskriften.webp",
+      "kind": "historisk",
+      "credit": "Mbzt / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-kilskriften",
+        "title": "Lertavla med tidig skrift, Uruk III, Louvren AO 19936 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:P1150884_Louvre_Uruk_III_tablette_%C3%A9criture_pr%C3%A9cun%C3%A9iforme_AO19936_rwk.jpg",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-06"
       }
     },
     {
@@ -489,6 +924,36 @@
       "source": null
     },
     {
+      "eventId": "konstantinopels-fall",
+      "eventTitle": "Konstantinopels fall",
+      "file": "images/events/konstantinopels-fall.webp",
+      "kind": "historisk",
+      "credit": "Philippe de Mazerolles (tillskriven) / Bibliothèque nationale de France via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-konstantinopels-fall",
+        "title": "Belägringen av Konstantinopel, BnF fr. 2691 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Siege_constantinople_bnf_fr2691.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "kopernikus-de-revolutionibus",
+      "eventTitle": "Kopernikus: jorden kretsar kring solen",
+      "file": "images/events/kopernikus-de-revolutionibus.webp",
+      "kind": "historisk",
+      "credit": "Nicolaus Copernicus / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kopernikus-de-revolutionibus",
+        "title": "Kopernikus heliocentriska modell ur De revolutionibus (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Copernican_heliocentrism.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
       "eventId": "korsfastelsen",
       "eventTitle": "Jesus korsfästs",
       "file": "images/events/korsfastelsen.webp",
@@ -504,6 +969,66 @@
       }
     },
     {
+      "eventId": "krakatau-1883",
+      "eventTitle": "Vulkanen Krakatau får sitt stora utbrott",
+      "file": "images/events/krakatau-1883.webp",
+      "kind": "historisk",
+      "credit": "Okänd fotograf / KITLV, Leidens universitetsbibliotek via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-krakatau-1883",
+        "title": "Utbrottet på Krakatau, foto 1883 (KITLV 5888) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:De_uitbarsting_van_de_Krakatau%2C_KITLV_5888.tiff",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "kubakrisen",
+      "eventTitle": "Kubakrisen",
+      "file": "images/events/kubakrisen.webp",
+      "kind": "historisk",
+      "credit": "Okänd U-2-pilot / John F. Kennedy Presidential Library via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kubakrisen",
+        "title": "Spaningsfoto av robotbaser på Kuba, 16 oktober 1962 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Cuba_Missiles_Crisis_U-2_photo.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "kulturrevolutionen",
+      "eventTitle": "Kulturrevolutionen i Kina",
+      "file": "images/events/kulturrevolutionen.webp",
+      "kind": "historisk",
+      "credit": "Shizhao / Wikimedia Commons",
+      "license": "CC BY 1.0",
+      "source": {
+        "id": "commons-bild-kulturrevolutionen",
+        "title": "Maocitat på en husvägg i Zhuji, foto 2005 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Quotations_From_Chairman_Mao_Tse-Tung_on_wall.JPG",
+        "license": "CC BY 1.0",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "kvinnlig-rostratt-nya-zeeland",
+      "eventTitle": "Kvinnor får rösta i Nya Zeeland",
+      "file": "images/events/kvinnlig-rostratt-nya-zeeland.webp",
+      "kind": "historisk",
+      "credit": "Archives New Zealand / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-kvinnlig-rostratt-nya-zeeland",
+        "title": "Namninsamlingen för kvinnlig rösträtt 1893, Archives New Zealand (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_1893_Women%27s_Suffrage_Petition_%2816734429368%29.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-05"
+      }
+    },
+    {
       "eventId": "landstigningen-vid-inchon",
       "eventTitle": "Landstigningen vid Inchon",
       "file": "images/events/landstigningen-vid-inchon.webp",
@@ -516,6 +1041,36 @@
         "url": "https://commons.wikimedia.org/wiki/File:Lopez_scaling_seawall.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "lanse-aux-meadows",
+      "eventTitle": "Nordbor i Amerika: L'Anse aux Meadows",
+      "file": "images/events/lanse-aux-meadows.webp",
+      "kind": "historisk",
+      "credit": "Clinton Pierce / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-lanse-aux-meadows",
+        "title": "L'Anse aux Meadows, grunden till det största huset (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:LanseAuxMeadows_LargeBuilding.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "lapitafolket-nar-samoa",
+      "eventTitle": "Lapitafolket når Samoa",
+      "file": "images/events/lapitafolket-nar-samoa.webp",
+      "kind": "historisk",
+      "credit": "Torbenbrinker / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-lapitafolket-nar-samoa",
+        "title": "Lapitakeramik, Port Vila, Vanuatu (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:PortVilaLapita.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-06"
       }
     },
     {
@@ -558,6 +1113,21 @@
       "source": null
     },
     {
+      "eventId": "luthers-teser",
+      "eventTitle": "Luthers 95 teser",
+      "file": "images/events/luthers-teser.webp",
+      "kind": "historisk",
+      "credit": "Martin Luther / e-rara via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-luthers-teser",
+        "title": "De 95 teserna, tryck från Basel 1517 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ninety-five_Theses_(Basel).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
       "eventId": "machu-picchu",
       "eventTitle": "Machu Picchu byggs",
       "file": "images/events/machu-picchu.webp",
@@ -565,6 +1135,36 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "magellans-jordenruntsegling",
+      "eventTitle": "Den första seglingen jorden runt",
+      "file": "images/events/magellans-jordenruntsegling.webp",
+      "kind": "historisk",
+      "credit": "Johannes Stradanus / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-magellans-jordenruntsegling",
+        "title": "Magellans resa, allegori av Stradanus (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Magellan_expedition_by_Stradanus.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "magna-carta",
+      "eventTitle": "Magna Carta",
+      "file": "images/events/magna-carta.webp",
+      "kind": "historisk",
+      "credit": "British Library via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-magna-carta",
+        "title": "Magna Carta, British Library Cotton MS Augustus II.106 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Magna_Carta_(British_Library_Cotton_MS_Augustus_II.106).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
     },
     {
       "eventId": "mammutar-wrangel",
@@ -591,6 +1191,81 @@
       }
     },
     {
+      "eventId": "manskliga-rattigheter-1948",
+      "eventTitle": "FN antar förklaringen om de mänskliga rättigheterna",
+      "file": "images/events/manskliga-rattigheter-1948.webp",
+      "kind": "historisk",
+      "credit": "FDR Presidential Library & Museum / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-manskliga-rattigheter-1948",
+        "title": "Eleanor Roosevelt med förklaringen om de mänskliga rättigheterna, 1949 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Eleanor_Roosevelt_UDHR.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "marco-polos-resa",
+      "eventTitle": "Marco Polo reser till Kublai khan",
+      "file": "images/events/marco-polos-resa.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-marco-polos-resa",
+        "title": "Marco Polo på resa, miniatyr (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Marco_Polo_traveling.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "marschen-till-washington",
+      "eventTitle": "Marschen till Washington och \"I Have a Dream\"",
+      "file": "images/events/marschen-till-washington.webp",
+      "kind": "historisk",
+      "credit": "Rowland Scherman, U.S. Information Agency / National Archives via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-marschen-till-washington",
+        "title": "Marschens ledare, 28 augusti 1963 (NARA 542010) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Civil_Rights_March_on_Washington%2C_D.C._%28Leaders_marching_from_the_Washington_Monument_to_the_Lincoln_Memorial%29_-_NARA_-_542010.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "mayastadernas-nedgang",
+      "eventTitle": "Mayastäderna i söder överges",
+      "file": "images/events/mayastadernas-nedgang.webp",
+      "kind": "historisk",
+      "credit": "Francisco Anzola / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-mayastadernas-nedgang",
+        "title": "Stora torget i Tikal (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tikal_Great_Plaza_(3746467501).jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "meijirestaurationen",
+      "eventTitle": "Meijirestaurationen i Japan",
+      "file": "images/events/meijirestaurationen.webp",
+      "kind": "historisk",
+      "credit": "Tsukioka Yoshitoshi / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-meijirestaurationen",
+        "title": "Yoshitoshi: kejsarens tåg korsar Rokugo, 1868 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:%E6%AD%A6%E5%B7%9E%E5%85%AD%E9%83%B7%E8%88%B9%E6%B8%A1%E5%9B%B3_Bushu_Rokugo_funawatashi_no_zu.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
       "eventId": "mexikos-grundlag-1917",
       "eventTitle": "Mexikos grundlag antas",
       "file": "images/events/mexikos-grundlag-1917.webp",
@@ -606,6 +1281,21 @@
       }
     },
     {
+      "eventId": "militarkuppen-i-chile-1973",
+      "eventTitle": "Militärkuppen i Chile",
+      "file": "images/events/militarkuppen-i-chile-1973.webp",
+      "kind": "historisk",
+      "credit": "Biblioteca del Congreso Nacional de Chile / Wikimedia Commons",
+      "license": "CC BY 3.0 CL",
+      "source": {
+        "id": "commons-bild-militarkuppen-i-chile-1973",
+        "title": "Bombningen av La Moneda, 11 september 1973 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Golpe_de_Estado_1973.jpg",
+        "license": "CC BY 3.0 CL",
+        "checked": "2026-11-05"
+      }
+    },
+    {
       "eventId": "ming",
       "eventTitle": "Mingdynastin",
       "file": "images/events/ming.webp",
@@ -613,6 +1303,36 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "mohenjo-daro",
+      "eventTitle": "Mohenjo-daro, en av Induskulturens storstäder",
+      "file": "images/events/mohenjo-daro.webp",
+      "kind": "historisk",
+      "credit": "Saqib Qayyum / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-mohenjo-daro",
+        "title": "Det stora badet i Mohenjo-daro (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Great_bath_view_Mohenjodaro.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "montrealprotokollet",
+      "eventTitle": "Montrealprotokollet skyddar ozonlagret",
+      "file": "images/events/montrealprotokollet.webp",
+      "kind": "historisk",
+      "credit": "NOAA / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-montrealprotokollet",
+        "title": "Ozonhålet över Antarktis, 15 oktober 1987 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ozone_Hole%2C_1987_%2850700749751%29.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
     },
     {
       "eventId": "moresnet-blir-belgiskt",
@@ -693,6 +1413,21 @@
       "source": null
     },
     {
+      "eventId": "newtons-principia",
+      "eventTitle": "Newtons Principia",
+      "file": "images/events/newtons-principia.webp",
+      "kind": "historisk",
+      "credit": "Isaac Newton / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-newtons-principia",
+        "title": "Titelsidan till Principia, 1687 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Newton%27s_Principia_title_page.png",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
       "eventId": "nintendo",
       "eventTitle": "Nintendo grundas",
       "file": "images/events/nintendo.webp",
@@ -723,6 +1458,21 @@
       }
     },
     {
+      "eventId": "oktoberrevolutionen",
+      "eventTitle": "Oktoberrevolutionen i Ryssland",
+      "file": "images/events/oktoberrevolutionen.webp",
+      "kind": "historisk",
+      "credit": "Pjotr Novitskij / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-oktoberrevolutionen",
+        "title": "Novitskij: efter intagandet av Vinterpalatset, 1917 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:After_the_capture_of_the_Winter_Palace_26_October_1917.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
       "eventId": "olympiska-spelen",
       "eventTitle": "De antika olympiska spelen",
       "file": "images/events/olympiska-spelen.webp",
@@ -730,6 +1480,36 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "olympiska-spelen-1896",
+      "eventTitle": "De första moderna olympiska spelen",
+      "file": "images/events/olympiska-spelen-1896.webp",
+      "kind": "historisk",
+      "credit": "Okänd fotograf / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-olympiska-spelen-1896",
+        "title": "Öppningen av de olympiska spelen i Aten, 1896 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ouverture_des_premiers_jeux_olympiques_%C3%A0_Ath%C3%A8nes%2C_en_1896.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "om-arternas-uppkomst",
+      "eventTitle": "Darwins Om arternas uppkomst",
+      "file": "images/events/om-arternas-uppkomst.webp",
+      "kind": "historisk",
+      "credit": "John Murray / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-om-arternas-uppkomst",
+        "title": "Titelsidan till Om arternas uppkomst, 1859 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Origin_of_Species_title_page.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
     },
     {
       "eventId": "operation-badr-1973",
@@ -795,6 +1575,36 @@
       }
     },
     {
+      "eventId": "penicillinet-upptacks",
+      "eventTitle": "Penicillinet upptäcks",
+      "file": "images/events/penicillinet-upptacks.webp",
+      "kind": "historisk",
+      "credit": "Ministry of Information / Imperial War Museum via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-penicillinet-upptacks",
+        "title": "Fleming i laboratoriet på St Mary's Hospital, 1939–45 (IWM D17801) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Professor_Alexander_Fleming_at_work_in_his_laboratory_at_St_Mary%27s_Hospital%2C_London%2C_during_the_Second_World_War._D17801_%28cropped%29.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "polynesier-nar-aotearoa",
+      "eventTitle": "Polynesier bosätter sig på Aotearoa (Nya Zeeland)",
+      "file": "images/events/polynesier-nar-aotearoa.webp",
+      "kind": "historisk",
+      "credit": "Szilas / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-polynesier-nar-aotearoa",
+        "title": "Tidiga maoriföremål från Wairau Bar (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Early_Maori_objects_from_Wairau_Bar,_Canterbury_Museum,_2016-01-27.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
       "eventId": "qi-ger-upp-221-fkr",
       "eventTitle": "Qi ger upp och Kina enas",
       "file": "images/events/qi-ger-upp-221-fkr.webp",
@@ -802,6 +1612,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "saltmarschen",
+      "eventTitle": "Gandhis saltmarsch",
+      "file": "images/events/saltmarschen.webp",
+      "kind": "historisk",
+      "credit": "Okänd fotograf / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-saltmarschen",
+        "title": "Gandhi under saltmarschen, mars 1930 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Marche_sel.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
     },
     {
       "eventId": "shakespeare-dor",
@@ -1185,6 +2010,36 @@
       }
     },
     {
+      "eventId": "slaveriet-avskaffas-i-usa",
+      "eventTitle": "Slaveriet förbjuds i USA",
+      "file": "images/events/slaveriet-avskaffas-i-usa.webp",
+      "kind": "historisk",
+      "credit": "Harper's Weekly / Internet Archive via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaveriet-avskaffas-i-usa",
+        "title": "Harper's Weekly: firandet av det trettonde tillägget, 1865 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:AdoptionOf13thAmendment.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "smittkoppor-utrotas",
+      "eventTitle": "Smittkopporna utrotas",
+      "file": "images/events/smittkoppor-utrotas.webp",
+      "kind": "historisk",
+      "credit": "CDC / Fred Murphy och Sylvia Whitfield via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-smittkoppor-utrotas",
+        "title": "Smittkoppsvirus i elektronmikroskop, CDC 1975 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Smallpox_virus_virions_TEM_PHIL_1849.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
       "eventId": "sokrates",
       "eventTitle": "Sokrates lever",
       "file": "images/events/sokrates.webp",
@@ -1192,6 +2047,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "sovjetunionens-upplosning",
+      "eventTitle": "Sovjetunionen upplöses",
+      "file": "images/events/sovjetunionens-upplosning.webp",
+      "kind": "historisk",
+      "credit": "RIA Novosti archive, image #848095 / U. Ivanov / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-sovjetunionens-upplosning",
+        "title": "Undertecknandet av Belovezjavtalet, 8 december 1991 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:RIAN_archive_848095_Signing_the_Agreement_to_eliminate_the_USSR_and_establish_the_Commonwealth_of_Independent_States.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-05"
+      }
     },
     {
       "eventId": "spanska-sjukan",
@@ -1227,6 +2097,81 @@
       }
     },
     {
+      "eventId": "stonehenge",
+      "eventTitle": "Stonehenge byggs",
+      "file": "images/events/stonehenge.webp",
+      "kind": "historisk",
+      "credit": "garethwiscombe / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-stonehenge",
+        "title": "Stonehenge, 30 juli 2007 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Stonehenge2007_07_30.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "stora-zimbabwe",
+      "eventTitle": "Stora Zimbabwe, en stad av sten",
+      "file": "images/events/stora-zimbabwe.webp",
+      "kind": "historisk",
+      "credit": "Jan Derk / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-stora-zimbabwe",
+        "title": "Den stora inhägnaden i Stora Zimbabwe (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Great-Zimbabwe.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "stormningen-av-bastiljen",
+      "eventTitle": "Bastiljen stormas",
+      "file": "images/events/stormningen-av-bastiljen.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär / Château de Versailles via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-stormningen-av-bastiljen",
+        "title": "Stormningen av Bastiljen, okänd konstnär (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Anonymous_-_Prise_de_la_Bastille.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "suezkanalen-oppnas",
+      "eventTitle": "Suezkanalen öppnas",
+      "file": "images/events/suezkanalen-oppnas.webp",
+      "kind": "historisk",
+      "credit": "Édouard Riou / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-suezkanalen-oppnas",
+        "title": "Riou: invigningen av Suezkanalen, 1869 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:L%27inauguration_du_canal_de_Suez%2C_17_November_1869_Gal18_riou_001f.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "sydafrikas-forsta-fria-val",
+      "eventTitle": "Sydafrikas första fria val: apartheid tar slut",
+      "file": "images/events/sydafrikas-forsta-fria-val.webp",
+      "kind": "historisk",
+      "credit": "Paul Weinberg / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-sydafrikas-forsta-fria-val",
+        "title": "Nelson Mandela röstar, april 1994 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mandela_voting_in_1994.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-05"
+      }
+    },
+    {
       "eventId": "taj-mahal",
       "eventTitle": "Taj Mahal byggs",
       "file": "images/events/taj-mahal.webp",
@@ -1239,6 +2184,21 @@
         "url": "https://www.loc.gov/pictures/item/2017658158/",
         "license": "No known restrictions on publication",
         "checked": "2026-10-29"
+      }
+    },
+    {
+      "eventId": "tambora-1815",
+      "eventTitle": "Tambora och året utan sommar",
+      "file": "images/events/tambora-1815.webp",
+      "kind": "historisk",
+      "credit": "Tisquesusa / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-tambora-1815",
+        "title": "Tamboras krater, panorama (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Panorama_Mount_Tambora_caldera.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-06"
       }
     },
     {
@@ -1305,6 +2265,21 @@
       }
     },
     {
+      "eventId": "titanic-sjunker",
+      "eventTitle": "Titanic sjunker",
+      "file": "images/events/titanic-sjunker.webp",
+      "kind": "historisk",
+      "credit": "Francis Godolphin Osbourne Stuart / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-titanic-sjunker",
+        "title": "Titanic lämnar Southampton, 10 april 1912 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:RMS_Titanic_3.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
       "eventId": "tredje-slaget-vid-panipat",
       "eventTitle": "Tredje slaget vid Panipat",
       "file": "images/events/tredje-slaget-vid-panipat.webp",
@@ -1335,6 +2310,21 @@
       }
     },
     {
+      "eventId": "tsunamin-i-indiska-oceanen-2004",
+      "eventTitle": "Tsunamin i Indiska oceanen",
+      "file": "images/events/tsunamin-i-indiska-oceanen-2004.webp",
+      "kind": "historisk",
+      "credit": "Philip A. McDaniel, U.S. Navy / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-tsunamin-i-indiska-oceanen-2004",
+        "title": "By nära Sumatras kust efter tsunamin, 2 januari 2005 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:US_Navy_050102-N-9593M-040_A_village_near_the_coast_of_Sumatra_lays_in_ruin_after_the_Tsunami_that_struck_South_East_Asia.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
       "eventId": "tyfonen-kamikaze-1281",
       "eventTitle": "Tyfonen kamikaze förstör flottan",
       "file": "images/events/tyfonen-kamikaze-1281.webp",
@@ -1359,6 +2349,81 @@
       "source": null
     },
     {
+      "eventId": "vasco-da-gama-nar-indien",
+      "eventTitle": "Vasco da Gama når Indien sjövägen",
+      "file": "images/events/vasco-da-gama-nar-indien.webp",
+      "kind": "historisk",
+      "credit": "Alfredo Roque Gameiro / Biblioteca Nacional de Portugal via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-vasco-da-gama-nar-indien",
+        "title": "Vasco da Gamas ankomst till Calicut (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:A_chegada_de_Vasco_da_Gama_a_Calicute_em_1498.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "vastromerska-rikets-fall",
+      "eventTitle": "Västromerska riket faller",
+      "file": "images/events/vastromerska-rikets-fall.webp",
+      "kind": "historisk",
+      "credit": "American Numismatic Society / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-vastromerska-rikets-fall",
+        "title": "Solidus med Romulus Augustulus (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Gold_Solidus_of_Romulus_Augustulus.jpg",
+        "license": "CC0",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "vesuvius-79",
+      "eventTitle": "Vesuvius begraver Pompeji",
+      "file": "images/events/vesuvius-79.webp",
+      "kind": "historisk",
+      "credit": "John Martin / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-vesuvius-79",
+        "title": "Pompejis och Herculaneums undergång, John Martin (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Destruction_of_Pompeii_and_Herculaneum.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "vulkanutbrottet-pa-thera",
+      "eventTitle": "Vulkanutbrottet på Thera",
+      "file": "images/events/vulkanutbrottet-pa-thera.webp",
+      "kind": "historisk",
+      "credit": "Norbert Nagel / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-vulkanutbrottet-pa-thera",
+        "title": "Utgrävningarna i Akrotiri, Santorini (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Archaeological_site_of_Akrotiri_-_Santorini_-_July_12th_2012_-_98.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "waitangifordraget",
+      "eventTitle": "Waitangifördraget",
+      "file": "images/events/waitangifordraget.webp",
+      "kind": "historisk",
+      "credit": "William Hobson, James Freeman, James Busby, Henry och Edward Williams / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-waitangifordraget",
+        "title": "Waitangifördraget, Waitangiarket (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Treatyofwaitangi.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
       "eventId": "wright",
       "eventTitle": "Bröderna Wright flyger",
       "file": "images/events/wright.webp",
@@ -1375,6 +2440,36 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "zhang-qian-sidenvagen",
+      "eventTitle": "Zhang Qians resa öppnar Sidenvägen",
+      "file": "images/events/zhang-qian-sidenvagen.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-zhang-qian-sidenvagen",
+        "title": "Zhang Qians resa, väggmålning i Mogaogrottorna (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Zhang_Qian.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "zheng-hes-resor",
+      "eventTitle": "Zheng Hes skattflottor",
+      "file": "images/events/zheng-hes-resor.webp",
+      "kind": "historisk",
+      "credit": "Mao Yuanyi / Library of Congress via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-zheng-hes-resor",
+        "title": "Sjökort över Zheng Hes resor ur Wubei zhi (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Wu_bei_zhi_LOC_2004633695-20.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
     }
   ]
 }

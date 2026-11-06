@@ -8,6 +8,25 @@ const LOADING = '<p class="detail-loading" role="status">Laddar…</p>';
 /** Källraden. pending = källregistret eller händelsens källor laddas fortfarande (#337): då står ingen rad alls. */
 const srcLine = (srcs, pending) => pending ? '' : `<div class="src">Källa: ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || 'saknas'}</div>`;
 const EVIDENCE_FIELDS = ['summary', 'date', 'location', 'image', 'uncertainty'];
+// Det viktigaste att ta med sig (#500, Rikards beslut 2026-11-03): krigets story.takeaways, grupperade efter
+// vad källorna säger. Rubrikerna är vanlig svenska, så att osäkerheten förklaras i ord och inte med en symbol.
+const TAKEAWAY_GROUPS = [
+  ['belagt', 'Det här vet vi från källorna'],
+  ['omtvistat', 'Här är forskare inte överens'],
+  ['okant', 'Det här vet vi inte säkert'],
+];
+/** Punkterna under sina rubriker, var och en med sin egen källa. Tom text när kriget saknar punkter. */
+function takeawaysHtml(items, srcById, pending) {
+  if (!items?.length) return '';
+  const groups = TAKEAWAY_GROUPS.map(([status, title]) => {
+    const own = items.filter(x => x.status === status);
+    if (!own.length) return '';
+    return `<h5 class="takeaway-head takeaway-${status}">${esc(title)}</h5><ul class="takeaways">${own.map(x => `<li>${esc(t(x.text))}${
+      pending ? '' : `<span class="takeaway-src">${(x.sources ?? []).map(id => srcById[id]).filter(Boolean)
+        .map(src => `<a href="${esc(src.url)}" target="_blank" rel="noopener">${esc(src.title)}</a>`).join(', ')}</span>`}</li>`).join('')}</ul>`;
+  }).join('');
+  return groups && `<section class="takeaway-box" aria-label="Det viktigaste att ta med sig"><h4>Det viktigaste att ta med sig</h4>${groups}</section>`;
+}
 const EVIDENCE_ROLES = [
   ['date', 'Datum'], ['text', 'Text'], ['map', 'Karta'], ['image', 'Bild'], ['uncertainty', 'Osäkerhet']
 ];
@@ -138,9 +157,26 @@ function lineageHtml(v) {
     <p class="lineage-note"><span class="review-badge ${rv.cls}">${esc(reviewLabel(v.review, 'Årtal och efterträdare'))}</span></p>`;
 }
 
+/**
+ * Märkningen av taggar i faktarutan (#555), till exempel "Framsteg". En liten ruta som fälls ut med förklaringen,
+ * med Tab och Enter; texterna står i data/vyer.json (tags). Taggar utan texter visas inte.
+ */
+function tagMarks(e, tags) {
+  const marks = (Array.isArray(e.tags) ? e.tags : []).filter(tag => tags?.[tag]?.label).map(tag => {
+    const c = tags[tag];
+    return `<details class="tag-mark" data-tag="${esc(tag)}"><summary aria-label="${esc(c.markLabel || c.label)}">${esc(c.label)}</summary><p>${esc(c.about ?? '')}</p></details>`;
+  });
+  return marks.length ? `<div class="tag-marks">${marks.join('')}</div>` : '';
+}
+
 export class Panel {
-  constructor({ root, list, filters, chips, detail, sub, count, toggle, close }, { events, srcById, styles }, { empireLegend = {}, uncertainty = {}, panel = {} } = {}) {
+  constructor({ root, list, filters, chips, detail, sub, count, toggle, close }, { events, srcById, styles }, { empireLegend = {}, uncertainty = {}, panel = {}, tags = {} } = {}) {
     Object.assign(this, { root, list, filtersEl: filters, detail, sub, count, toggle, srcById, styles, empireLegend, uncertainty });
+    // Taggar (#555): texterna ur data/vyer.json, taggen som vyn visar och hur många synliga händelser som har varje tagg
+    this.tags = tags ?? {};
+    this.tag = null;
+    this.tagCounts = new Map();
+    for (const e of events) for (const tag of (isVisibleReview(e.review) && Array.isArray(e.tags) ? e.tags : [])) this.tagCounts.set(tag, (this.tagCounts.get(tag) ?? 0) + 1);
     this.onSelect = () => {};
     this.onFilter = () => {};
     this.onSources = () => {};
@@ -183,6 +219,13 @@ export class Panel {
     });
     close?.addEventListener('click', () => this.setOpen(false));
     document.addEventListener('keydown', ev => { if (ev.key === 'Escape') { this.setOpen(false); if (!detail.hidden) this.onSelect(null); } });
+  }
+
+  /** Kategorierna som syns, utifrån (en delad länk, #501). Båda raderna med chips följer med. */
+  setFilters(ids) {
+    this.filters = new Set(ids);
+    for (const b of this.root.ownerDocument.querySelectorAll('.filter[data-cat]')) b.setAttribute('aria-pressed', String(this.filters.has(b.dataset.cat)));
+    this.onFilter(this.filters);
   }
 
   /** Öppna eller stäng listan "Samtidigt i världen". */
@@ -240,6 +283,16 @@ export class Panel {
     parts.push(inside ? `${inside} ${inside === 1 ? 'händelse pågår' : 'händelser pågår'} ${at}` : `Inget pågår exakt ${at}`);
     if (near) parts.push(`${near} till inom ${within}`);
     this.sub.textContent = visible.length ? `${summaryText}. ${parts.join(', ')}.` : `Inget i datan inom ${within} från ${at.replace(/^(år|den) /, '')}.`;
+    const tagCopy = this.tag && this.tags[this.tag];
+    if (!visible.length && tagCopy) {
+      // Vyn med tagg (#555): säg om ingen händelse har taggen ännu, eller om det bara är tomt kring året
+      const note = document.createElement('p');
+      note.className = 'empty-note tag-empty';
+      note.textContent = this.tagCounts.get(this.tag) ? (tagCopy.none ?? '').replace('{within}', within).replace('{at}', at.replace(/^(år|den) /, '')) : tagCopy.empty;
+      this.sub.textContent = note.textContent;
+      this.list.replaceChildren(note);
+      return;
+    }
     if (!visible.length) {
       this.list.innerHTML = `<p class="empty-note">Dra i tidslinjen eller tryck på uppspelning för att hitta nästa händelse. Prickarna under tidslinjen visar var det finns data.</p>`;
       return;
@@ -309,9 +362,11 @@ export class Panel {
       ${empireList(war._empires)}
       <p class="story-hint">Tryck på ▶ för att följa kriget.</p>${(() => { const tour = this.tourFor?.(war.id); return tour ? `<button type="button" class="story-tour" data-tour="${esc(tour.id)}">${esc(tour.label)}</button>` : ''; })()}` : war.ongoing ? `
       <h4>Läget i dag</h4><p>${esc(t(s.outcome))}</p>
-      <h4>Döda hittills, enligt uppskattningar</h4><p>${esc(t(s.casualties))}</p>` : `
+      <h4>Döda hittills, enligt uppskattningar</h4><p>${esc(t(s.casualties))}</p>
+      ${takeawaysHtml(s.takeaways, this.srcById, pending)}` : `
       <h4>Hur kriget slutade</h4><p>${esc(t(s.outcome))}</p>
       <h4>Döda</h4><p>${esc(t(s.casualties))}</p>
+      ${takeawaysHtml(s.takeaways, this.srcById, pending)}
       ${empireList(war._empires)}`;
     const label = mode === 'intro' ? 'Innan kriget börjar' : war.ongoing ? `Läget i dag (kontrollerat ${formatDate(s.asOf)})` : 'När kriget är slut';
     this.detail.innerHTML = `
@@ -387,6 +442,8 @@ export class Panel {
     const isEmpire = kind === 'Rike' || kind === 'Försvunnet land';
     const overview = `${lineage ? lineageHtml(lineage) : ''}
       <dl class="religion-facts">${(f.items ?? []).map(it => `<dt>${esc(t(it.label))}</dt><dd>${esc(t(it.text))}</dd>`).join('')}</dl>`;
+    // Ett land med bara gräns och en not (kartan före fakta, #644) har inget att visa under Kortfattat
+    const hasOverview = !!(lineage || f.items?.length);
     const development = `${curveId ? `<figure class="area-curve" data-curve="${esc(curveId)}" hidden></figure>` : ''}
       ${f.milestones?.length ? `<div class="war-list"><h4>${esc(milestonesTitle)}</h4><ol>${f.milestones.map(m =>
         `<li><button type="button" class="link-btn" data-year="${Number(m.year)}">${esc(t(m.label) || formatYear(m.year))}</button> ${m.title ? `<b>${esc(t(m.title))}.</b> ` : ''}${esc(t(m.text))}${m.mapNote ? ` <span class="ms-map">Om kartan: ${esc(t(m.mapNote))}</span>` : ''}</li>`).join('')}</ol></div>` : ''}
@@ -398,9 +455,9 @@ export class Panel {
       ${srcLine(srcs, pending)}
       <div class="detail-actions">${reviewRow(f.review, subj)}${this.onReport && report ? reportBtn(report) : ''}</div>`;
     const body = isEmpire ? `
-      <details class="facts-section" open><summary>Kortfattat</summary>${overview}</details>
+      ${hasOverview ? `<details class="facts-section" open><summary>Kortfattat</summary>${overview}</details>` : ''}
       ${development ? `<details class="facts-section"><summary>Hur riket förändrades</summary>${development}</details>` : ''}
-      <details class="facts-section"><summary>Källor och karta</summary>${sourcesAndMap}</details>` : `
+      <details class="facts-section"${hasOverview ? '' : ' open'}><summary>Källor och karta</summary>${sourcesAndMap}</details>` : `
       ${overview}
       ${origin ? `<p class="war-link">${symbol ? `Symbolen ${symbol.replace('rel-sym-h', 'rel-sym-in')} på globen visar var religionen uppstod:` : 'Där religionen uppstod:'} <button type="button" class="link-btn" data-goto="${esc(origin.id)}">${esc(t(origin.title))}</button> <span class="meta">${esc(formatEventTime(origin))} · ${esc(t(origin.place))}</span></p>` : ''}
       ${development}
@@ -413,7 +470,7 @@ export class Panel {
       <button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
       <div class="story-label"><span class="swatch" style="background:${esc(color)}"></span>${esc(kind)}</div>
       <h3>${symbol}${esc(name)}</h3>
-      <p>${esc(t(f.summary))}</p>
+      ${t(f.summary) ? `<p>${esc(t(f.summary))}</p>` : ''}
       ${body}`;
     this.detail.hidden = false;
     this.detail.scrollTop = 0; // efter hidden, annars behåller kortet förra läget
@@ -481,6 +538,7 @@ export class Panel {
       <button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
       <h3>${esc(t(e.title))}</h3>
       <div class="meta">${esc(formatEventTime(e))}${evidence.marker('date')}${unc ? uncertaintyMark(e, 'date', this.uncertainty) : ''} · ${esc(t(e.place))}${evidence.marker('location')}${unc ? uncertaintyMark(e, 'place', this.uncertainty) : ''} · ${esc(t(CAT[e.category]?.name))}</div>
+      ${tagMarks(e, this.tags)}
       ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(t(e.place))}: visa på globen"><span class="place-pin" aria-hidden="true"></span><span class="place-go">Visa på globen</span></button>` : ''}
       ${figure(e, this.srcById, evidence.marker('image'))}
       ${loading ? LOADING : `<p>${esc(t(e.summary))}${evidence.marker('summary')}</p>`}

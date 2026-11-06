@@ -3,13 +3,16 @@
 // Överst ligger en sökruta, flikar och sortering (#240, #311); de ligger kvar medan listan under rullar.
 // - Sökningen letar i alla namn en post har (svenska, engelska och för riken namnen på rikets delar,
 //   till exempel "Bysantinska riket" i Rom), även delar av namn och utan att bry sig om accenter.
-// - Flikarna: Alla, Krig, Riken, Försvunna länder, Religioner. Fliken och sorteringen sparas i localStorage.
+// - Flikarna: Alla, Händelser, Krig, Riken, Försvunna länder, Religioner, Resor. Fliken och sorteringen sparas i
+//   localStorage. Sök och följ (#651): Sök (#570) ingår här. Händelser har ingen lista att bläddra i; de hittas
+//   när man skriver (searchEvents, ur js/search-index.js) och öppnas i stället för att följas.
 // - Sorteringen: Relevans visar det som pågår nära året man står på, närmast först, och resten bakom
 //   "Visa alla" (#121); Försvunna länder visas där alltid hela, i tidsordning (#72). Kronologiskt och
 //   Alfabetiskt visar allt.
 // - Tangentbord: pil ner från sökrutan går till listan, pilarna flyttar i listan, Enter väljer (i sökrutan
 //   den första träffen), Escape stänger. På dator får sökrutan fokus när menyn öppnas.
-const TABS = ['Alla', 'Krig', 'Riken', 'Försvunna länder', 'Religioner', 'Resor'];
+const EVENTS = 'Händelser';
+const TABS = ['Alla', EVENTS, 'Krig', 'Riken', 'Försvunna länder', 'Religioner', 'Resor'];
 const SORTS = [['relevans', 'Relevans'], ['kronologiskt', 'Kronologiskt'], ['alfabetiskt', 'Alfabetiskt']];
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 /** Gemener utan accenter, så att "osterrike" hittar Österrike och "bys" hittar Bysantinska riket. */
@@ -23,6 +26,7 @@ export class FocusMenu {
     this.ages = ages;
     this.onPick = () => {};
     this.onOpen = () => {};
+    this.searchEvents = () => []; // (sökord) → händelser som träffar: [{ key: 'event:<id>', label, sub, color }]
     this.groups = [];
     this.time = null;
     this.showAll = false;
@@ -39,8 +43,8 @@ export class FocusMenu {
     // Huvudet byggs en gång, så att fältet behåller markören medan listan ritas om
     menu.classList.add('focus-menu');
     menu.innerHTML = `<div class="focus-head">
-        <div class="layer-heading first">Följ i fokusläge</div>
-        <input type="search" class="focus-search" placeholder="Sök krig, rike, land, religion eller resa" aria-label="Sök i Fokus" autocomplete="off" spellcheck="false">
+        <div class="layer-heading first">Sök och följ</div>
+        <input type="search" class="focus-search" placeholder="Händelse, krig, rike, land, religion eller resa" aria-label="Sök händelser, krig, riken, länder, religioner och resor" autocomplete="off" spellcheck="false" enterkeyhint="search">
         <div class="focus-tabs" role="group" aria-label="Visa">${TABS.map(n => `<button type="button" class="chip-btn" data-tab="${n}" aria-pressed="${n === this.tab}">${n}</button>`).join('')}</div>
         <div class="focus-sort" role="group" aria-label="Ordna efter"><span class="focus-sort-label">Ordna</span>${SORTS.map(([id, n]) => `<button type="button" class="chip-btn" data-sort="${id}" aria-pressed="${id === this.sort}">${n}</button>`).join('')}<button type="button" class="chip-btn" data-group-age aria-pressed="false">${esc(this.texts.groupByAge ?? 'Gruppera efter: Tidsålder')}</button></div>
       </div>
@@ -131,9 +135,14 @@ export class FocusMenu {
     const words = norm(this.query.trim()).split(/\s+/).filter(Boolean);
     const relevance = this.sort === 'relevans';
     let found = 0;
-    const groups = this.groups.filter(g => this.tab === 'Alla' || g.title === this.tab).map(g => {
+    const query = this.query.trim();
+    const eventGroup = words.length && (this.tab === 'Alla' || this.tab === EVENTS)
+      ? [{ title: EVENTS, pre: true, items: this.searchEvents(query) }] : [];
+    const groups = [...this.groups, ...eventGroup].filter(g => this.tab === 'Alla' || g.title === this.tab).map(g => {
       const cmp = this.sort === 'alfabetiskt' ? byName : this.sort === 'kronologiskt' || g.all ? chrono
         : (a, b) => dist(a) - dist(b) || byName(a, b);
+      // Händelserna kommer färdigsorterade och färdigmatchade ur sökningen (search-index.js)
+      if (g.pre) { found += g.items.length; return { ...g, total: g.items.length }; }
       const sorted = [...g.items].sort(cmp);
       // En öppen rullgardin visar alltid de närmaste åtta; sökning visar alla träffar.
       const items = words.length ? sorted.map(it => this.match(it, words)).filter(Boolean) : sorted;
@@ -165,7 +174,8 @@ export class FocusMenu {
     </div>` : '';
     const intro = !q && relevance && tm && groups.some(g => !g.all)
       ? `<div class="layer-note pad">Det som pågår ${esc(tm.label)}, närmast först.</div>` : '';
-    const empty = q ? `Inget namn innehåller "${esc(this.query.trim())}".` : 'Inget att följa i den här tiden ännu.';
+    const empty = q ? `Inget namn innehåller "${esc(this.query.trim())}".`
+      : this.tab === EVENTS ? 'Skriv i sökrutan för att hitta en händelse, till exempel Pompeji.' : 'Inget att följa i den här tiden ännu.';
     // Förklaringen under en rubrik visas på gruppens egen flik, inte i Alla eller vid sökning, så att listan blir kort
     const own = this.tab !== 'Alla' && !q;
     const rows = items => items.map(it => `<button type="button" class="layer-row focus-item" data-key="${esc(it.key)}"${it.key.startsWith('religion:') ? ` data-religion="${esc(it.key.slice(9))}"` : ''}>

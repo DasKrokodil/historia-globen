@@ -6,32 +6,32 @@
     {
       "kind": "event",
       "event": "eiffeltornet",
-      "title": { "sv": "Ett år, en plats" },
-      "text": { "sv": "Börja med en händelse på globen." }
+      "title": { "sv": "Ett år, en plats", "en": "One year, one place", "fr": "Une année, un lieu", "de": "Ein Jahr, ein Ort", "es": "Un año, un lugar" },
+      "text": { "sv": "Börja med en händelse på globen.", "en": "Start with an event on the globe.", "fr": "Commencez par un événement sur le globe.", "de": "Beginne mit einem Ereignis auf dem Globus.", "es": "Empieza con un acontecimiento en el globo." }
     },
     {
       "kind": "funfact",
       "event": "nintendo",
-      "title": { "sv": "Samma år, en annan plats" },
-      "text": { "sv": "Historia-globen kopplar ihop sådant som händer samtidigt." }
+      "title": { "sv": "Samma år, en annan plats", "en": "Same year, another place", "fr": "La même année, un autre lieu", "de": "Dasselbe Jahr, ein anderer Ort", "es": "El mismo año, otro lugar" },
+      "text": { "sv": "Historia-globen kopplar ihop sådant som händer samtidigt.", "en": "Historia-globen connects things that happen at the same time.", "fr": "Historia-globen relie ce qui se passe en même temps.", "de": "Historia-globen verbindet, was gleichzeitig geschieht.", "es": "Historia-globen conecta lo que ocurre al mismo tiempo." }
     },
     {
       "kind": "choices",
-      "title": { "sv": "Nu är det din tur" },
-      "text": { "sv": "Du står kvar på 1889. Dra i tidslinjen och leta efter fler saker som händer samtidigt." }
+      "title": { "sv": "Nu är det din tur", "en": "Now it's your turn", "fr": "À vous de jouer", "de": "Jetzt bist du dran", "es": "Ahora te toca a ti" },
+      "text": { "sv": "Du står kvar på 1889. Dra i tidslinjen och leta efter fler saker som händer samtidigt.", "en": "You are still in 1889. Drag the timeline and look for more things that happen at the same time.", "fr": "Vous êtes toujours en 1889. Faites glisser la frise chronologique et cherchez d'autres choses qui se passent en même temps.", "de": "Du bist immer noch im Jahr 1889. Ziehe an der Zeitleiste und suche nach weiteren Dingen, die gleichzeitig geschehen.", "es": "Sigues en 1889. Arrastra la línea de tiempo y busca más cosas que ocurren al mismo tiempo." }
     }
   ],
   "labels": {
-    "close": { "sv": "Stäng introduktionen" },
-    "skip": { "sv": "Hoppa över" },
-    "back": { "sv": "Tillbaka" },
-    "next": { "sv": "Nästa" },
-    "step": { "sv": "Steg {current} av {total}" },
-    "event": { "sv": "På den här platsen" },
-    "sameYear": { "sv": "På en annan plats samma år" },
-    "explore": { "sv": "Utforska fritt" },
-    "follow": { "sv": "Följ en berättelse" },
-    "task": { "sv": "Gör ett uppdrag" },
-    "start": { "sv": "Ett år, en plats" }
+    "close": { "sv": "Stäng introduktionen", "en": "Close the introduction", "fr": "Fermer l'introduction", "de": "Einführung schließen", "es": "Cerrar la introducción" },
+    "skip": { "sv": "Hoppa över", "en": "Skip", "fr": "Passer", "de": "Überspringen", "es": "Omitir" },
+    "back": { "sv": "Tillbaka", "en": "Back", "fr": "Retour", "de": "Zurück", "es": "Atrás" },
+    "next": { "sv": "Nästa", "en": "Next", "fr": "Suivant", "de": "Weiter", "es": "Siguiente" },
+    "step": { "sv": "Steg {current} av {total}", "en": "Step {current} of {total}", "fr": "Étape {current} sur {total}", "de": "Schritt {current} von {total}", "es": "Paso {current} de {total}" },
+    "event": { "sv": "På den här platsen", "en": "In this place", "fr": "À cet endroit", "de": "An diesem Ort", "es": "En este lugar" },
+    "sameYear": { "sv": "På en annan plats samma år", "en": "Somewhere else the same year", "fr": "Ailleurs la même année", "de": "Anderswo im selben Jahr", "es": "En otro lugar el mismo año" },
+    "explore": { "sv": "Utforska fritt", "en": "Explore freely", "fr": "Explorer librement", "de": "Frei erkunden", "es": "Explorar libremente" },
+    "follow": { "sv": "Följ en berättelse", "en": "Follow a story", "fr": "Suivre un récit", "de": "Einer Geschichte folgen", "es": "Seguir una historia" },
+    "task": { "sv": "Gör ett uppdrag", "en": "Do a task", "fr": "Faire une mission", "de": "Eine Aufgabe lösen", "es": "Hacer una misión" },
+    "start": { "sv": "Ett år, en plats", "en": "One year, one place", "fr": "Une année, un lieu", "de": "Ein Jahr, ein Ort", "es": "Un año, un lugar" }
   }
 }

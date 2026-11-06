@@ -1,6 +1,6 @@
 {
  "schema": "historia-globen/empires-index@1",
- "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen. Kolonialvälden och moderna imperier (R5, #71): parts listar Cliopatria-poster som är ihopslagna år för år till ett rike (Tyska riket med German Africa, Etiopiska kejsardömet med Ethiopia till 1974); då är areaKm2 summan av posternas ytor. homeland (#74) är moderlandet i ett utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då homeland.name, moderlandets namn. Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i Cliopatria och har ingen fil, bara en punkt (vanished.point). Sverige (#70): Cliopatrias \"Swedish Empire\" 1612–1814 är delad i två delar med samma gränser, Svenska stormaktsväldet till och med 1721 (freden i Nystad) och Sverige 1722–1814. Inflytande (#75): polity.influence är områden som enligt Cliopatrias relationsposter (typ RELATION, \"Allegiance of A to B\" och \"Vassalage of A to B\") lydde under riket utan att höra till det: relationens område minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) och ger polity.uncertainBorder i rikets fil.",
+ "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen. Kolonialvälden och moderna imperier (R5, #71): parts listar Cliopatria-poster som är ihopslagna år för år till ett rike (Tyska riket med German Africa, Etiopiska kejsardömet med Ethiopia till 1974); då är areaKm2 summan av posternas ytor. homeland (#74) är moderlandet i ett utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då homeland.name, moderlandets namn. Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i Cliopatria och har ingen fil, bara en punkt (vanished.point). Sverige (#70): Cliopatrias \"Swedish Empire\" 1612–1814 är delad i två delar med samma gränser, Svenska stormaktsväldet till och med 1721 (freden i Nystad) och Sverige 1722–1814. Inflytande (#75): polity.influence är områden som enligt Cliopatrias relationsposter (typ RELATION, \"Allegiance of A to B\" och \"Vassalage of A to B\") lydde under riket utan att höra till det: relationens område minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) och ger polity.uncertainBorder i rikets fil. Omstridda gränser i nutid (#644): följer Sveriges officiella hållning enligt UD (DISPUTED i tools/riken.py, docs/omstridda-granser.md). Krim och Sevastopol räknas till Ukraina även från 2014, och inte till Ryska federationen. Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel från 1967; Staten Palestina (Västbanken med Östra Jerusalem och Gaza) visas från 2014, då Sverige erkände den. De gränserna kommer ur Natural Earth (ne_10m_admin_0_disputed_areas 5.1.1, public domain), och gruppen har då borderSource. Där är areaKm2 räknad ur den nya gränsen.",
  "groups": [
   {
    "id": "romarriket",
@@ -1344,7 +1344,105 @@
      "wp-han-dynasty"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Chang'an",
+      "en": "Chang'an"
+     },
+     "wikidata": "Q6501000",
+     "at": [
+      108.858,
+      34.308
+     ],
+     "from": -205,
+     "to": 9,
+     "sources": [
+      "wp-han-dynasty",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källorna skiljer sig något: Wikipedia anger 206 f.Kr. som början, Wikidata 202 f.Kr. Åren 9–23 styrde Xindynastin, och då hade Hanriket ingen huvudstad."
+     }
+    },
+    {
+     "name": {
+      "sv": "Luoyang",
+      "en": "Luoyang"
+     },
+     "wikidata": "Q187136",
+     "at": [
+      112.424,
+      34.659
+     ],
+     "from": 23,
+     "to": 190,
+     "sources": [
+      "wp-han-dynasty",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källorna skiljer sig något: Wikipedia anger 23 som början, Wikidata 25."
+     }
+    },
+    {
+     "name": {
+      "sv": "Chang'an",
+      "en": "Chang'an"
+     },
+     "wikidata": "Q6501000",
+     "at": [
+      108.858,
+      34.308
+     ],
+     "from": 190,
+     "to": 195,
+     "sources": [
+      "wp-han-dynasty",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Luoyang",
+      "en": "Luoyang"
+     },
+     "wikidata": "Q187136",
+     "at": [
+      112.424,
+      34.659
+     ],
+     "from": 196,
+     "to": 196,
+     "sources": [
+      "wp-han-dynasty",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Xuchang",
+      "en": "Xuchang"
+     },
+     "wikidata": "Q404529",
+     "at": [
+      113.82,
+      34.024
+     ],
+     "from": 196,
+     "to": 220,
+     "sources": [
+      "wp-han-dynasty",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "mauryariket",
@@ -3902,7 +4000,66 @@
     ],
     "review": "two-sources"
    },
-   "symbol": "anchor"
+   "symbol": "anchor",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Babylon",
+      "en": "Babylon"
+     },
+     "wikidata": "Q5684",
+     "at": [
+      44.421,
+      32.542
+     ],
+     "from": -311,
+     "to": -304,
+     "sources": [
+      "wp-seleucid-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Seleukia",
+      "en": "Seleucia"
+     },
+     "wikidata": "Q1136681",
+     "at": [
+      44.52,
+      33.1
+     ],
+     "from": -304,
+     "to": -239,
+     "sources": [
+      "wp-seleucid-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Antiochia",
+      "en": "Antioch"
+     },
+     "wikidata": "Q200441",
+     "at": [
+      36.182,
+      36.205
+     ],
+     "from": -239,
+     "to": -62,
+     "sources": [
+      "wp-seleucid-empire",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källorna skiljer sig med ett år om slutet: Wikipedia anger 63 f.Kr., Wikidata 64 f.Kr. Wikidata nämner också Lysimachia som huvudstad, utan årtal."
+     }
+    }
+   ]
   },
   {
    "id": "partherriket",
@@ -4311,7 +4468,45 @@
     ],
     "review": "two-sources"
    },
-   "symbol": "derafsh"
+   "symbol": "derafsh",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Istakhr",
+      "en": "Istakhr"
+     },
+     "wikidata": "Q862251",
+     "at": [
+      52.909,
+      29.982
+     ],
+     "from": 224,
+     "to": 226,
+     "sources": [
+      "wp-sasanian-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Ktesifon",
+      "en": "Ctesiphon"
+     },
+     "wikidata": "Q192541",
+     "at": [
+      44.581,
+      33.094
+     ],
+     "from": 226,
+     "to": 637,
+     "sources": [
+      "wp-sasanian-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "qinriket",
@@ -4516,7 +4711,29 @@
      "whe-qin-dynasty"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Xianyang",
+      "en": "Xianyang"
+     },
+     "wikidata": "Q2360265",
+     "at": [
+      108.858,
+      34.414
+     ],
+     "polity": "qindynastin",
+     "sources": [
+      "wp-qin-dynasty",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Visas bara för Qindynastin. Staten Qin hade åtta huvudstäder före den, och källan anger årtal för bara några av dem, så de visas inte."
+     }
+    }
+   ]
   },
   {
    "id": "guptariket",
@@ -4715,7 +4932,49 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "garuda"
+   "symbol": "garuda",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Pataliputra",
+      "en": "Pataliputra"
+     },
+     "wikidata": "Q389755",
+     "at": [
+      85.144,
+      25.611
+     ],
+     "to": 455,
+     "sources": [
+      "wp-gupta-empire",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källan anger att huvudstaden flyttades till Ayodhya på 400-talet, under Kumaragupta eller Skandagupta, och sätter Ayodhya till \"efter 455\". Chandragupta II hade en andra huvudstad i Ujjain, utan årtal. Wikidata anger bara Pataliputra."
+     }
+    },
+    {
+     "name": {
+      "sv": "Ayodhya",
+      "en": "Ayodhya"
+     },
+     "wikidata": "Q186040",
+     "at": [
+      82.204,
+      26.799
+     ],
+     "from": 455,
+     "sources": [
+      "wp-gupta-empire",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källan anger \"efter 455\", under Kumaragupta eller Skandagupta; året är ungefärligt."
+     }
+    }
+   ]
   },
   {
    "id": "aksumriket",
@@ -4902,7 +5161,29 @@
      "whe-kingdom-of-axum"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Aksum",
+      "en": "Axum"
+     },
+     "wikidata": "Q5832",
+     "at": [
+      38.733,
+      14.117
+     ],
+     "to": 800,
+     "sources": [
+      "wp-aksum",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källan anger att huvudstaden från omkring 800 var Kubar, en stad som nämns i arabiska källor men vars plats inte är känd. Därför visas ingen huvudstad efter omkring 800."
+     }
+    }
+   ]
   },
   {
    "id": "umayyadkalifatet",
@@ -6315,7 +6596,117 @@
      "whe-song-dynasty"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Bianjing (Kaifeng)",
+      "en": "Bianjing (Kaifeng)"
+     },
+     "wikidata": "Q7223839",
+     "at": [
+      114.34,
+      34.794
+     ],
+     "from": 960,
+     "to": 1127,
+     "sources": [
+      "wp-song-dynasty",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Yingtian (Shangqiu)",
+      "en": "Yingtian (Shangqiu)"
+     },
+     "wikidata": "Q404817",
+     "at": [
+      115.647,
+      34.426
+     ],
+     "from": 1127,
+     "to": 1128,
+     "sources": [
+      "wp-song-dynasty",
+      "wikidata"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "name": {
+      "sv": "Yangzhou",
+      "en": "Yangzhou"
+     },
+     "wikidata": "Q57906",
+     "at": [
+      119.436,
+      32.391
+     ],
+     "from": 1128,
+     "to": 1129,
+     "sources": [
+      "wp-song-dynasty",
+      "wikidata"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "name": {
+      "sv": "Lin'an (Hangzhou)",
+      "en": "Lin'an (Hangzhou)"
+     },
+     "wikidata": "Q15936775",
+     "at": [
+      120.167,
+      30.267
+     ],
+     "from": 1129,
+     "to": 1129,
+     "sources": [
+      "wp-song-dynasty",
+      "wikidata"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "name": {
+      "sv": "Jiangning (Nanjing)",
+      "en": "Jiangning (Nanjing)"
+     },
+     "wikidata": "Q16666",
+     "at": [
+      118.779,
+      32.061
+     ],
+     "from": 1129,
+     "to": 1138,
+     "sources": [
+      "wp-song-dynasty",
+      "wikidata"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "name": {
+      "sv": "Lin'an (Hangzhou)",
+      "en": "Lin'an (Hangzhou)"
+     },
+     "wikidata": "Q15936775",
+     "at": [
+      120.167,
+      30.267
+     ],
+     "from": 1138,
+     "to": 1276,
+     "sources": [
+      "wp-song-dynasty",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "khmerriket",
@@ -7337,7 +7728,84 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "three-rings"
+   "symbol": "three-rings",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Samarkand",
+      "en": "Samarkand"
+     },
+     "wikidata": "Q5753",
+     "at": [
+      66.976,
+      39.655
+     ],
+     "from": 1370,
+     "to": 1405,
+     "sources": [
+      "wp-timurid-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Herat",
+      "en": "Herat"
+     },
+     "wikidata": "Q45313",
+     "at": [
+      62.203,
+      34.342
+     ],
+     "from": 1405,
+     "to": 1447,
+     "sources": [
+      "wp-timurid-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Samarkand",
+      "en": "Samarkand"
+     },
+     "wikidata": "Q5753",
+     "at": [
+      66.976,
+      39.655
+     ],
+     "from": 1447,
+     "to": 1459,
+     "sources": [
+      "wp-timurid-empire",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källorna skiljer sig: Wikipedia anger att huvudstaden var Samarkand igen 1447–1459, medan Wikidata anger Herat för hela tiden 1405–1507."
+     }
+    },
+    {
+     "name": {
+      "sv": "Herat",
+      "en": "Herat"
+     },
+     "wikidata": "Q45313",
+     "at": [
+      62.203,
+      34.342
+     ],
+     "from": 1459,
+     "to": 1507,
+     "sources": [
+      "wp-timurid-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "aztekriket",
@@ -8448,7 +8916,63 @@
     ],
     "review": "two-sources"
    },
-   "symbol": "lion-sun"
+   "symbol": "lion-sun",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Tabriz",
+      "en": "Tabriz"
+     },
+     "wikidata": "Q80053",
+     "at": [
+      46.296,
+      38.074
+     ],
+     "from": 1501,
+     "to": 1555,
+     "sources": [
+      "wp-safavid-iran",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Qazvin",
+      "en": "Qazvin"
+     },
+     "wikidata": "Q181578",
+     "at": [
+      50.004,
+      36.285
+     ],
+     "from": 1555,
+     "to": 1598,
+     "sources": [
+      "wp-safavid-iran",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Isfahan",
+      "en": "Isfahan"
+     },
+     "wikidata": "Q42053",
+     "at": [
+      51.675,
+      32.653
+     ],
+     "from": 1598,
+     "to": 1736,
+     "sources": [
+      "wp-safavid-iran",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "mingdynastin",
@@ -11317,7 +11841,49 @@
     ],
     "review": "source-checked"
    },
-   "symbol": "arrow-bundle"
+   "symbol": "arrow-bundle",
+   "capitals": [
+    {
+     "name": {
+      "sv": "Haag",
+      "en": "The Hague"
+     },
+     "wikidata": "Q36600",
+     "at": [
+      4.31,
+      52.08
+     ],
+     "polity": "nederlandska-republiken",
+     "sources": [
+      "wp-dutch-republic",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Republiken hade ingen huvudstad enligt lag; Haag var huvudstad i praktiken."
+     }
+    },
+    {
+     "name": {
+      "sv": "Amsterdam",
+      "en": "Amsterdam"
+     },
+     "wikidata": "Q727",
+     "at": [
+      4.883,
+      52.367
+     ],
+     "polity": "nederlanderna",
+     "sources": [
+      "wp-netherlands",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Amsterdam är huvudstad enligt grundlagen, medan regeringen och kungahuset sitter i Haag."
+     }
+    }
+   ]
   },
   {
    "id": "tyska-riket",
@@ -15081,7 +15647,7 @@
        "en": "The symbol on the map"
       },
       "text": {
-       "sv": "\"Stars and Bars\", sydstaternas första officiella nationsflagga, som användes från 4 mars 1861 till 1 maj 1863: tre band och en blå kanton med en ring av vita stjärnor, först sju, en för varje sydstat som bröt sig ur. Kartan visar inte stridsflaggan. Den var aldrig nationsflagga, men är i dag sydstaternas mest kända symbol och har efter kriget använts mitt i politiska, kulturella och rasmässiga kontroverser i USA."
+       "sv": "Stridsflaggan: ett brett blått sankt andreaskors med vit kant och vita stjärnor på röd botten, ett förslag till nationsflagga som avvisades och i stället blev arméns stridsflagga. Den var aldrig sydstaternas nationsflagga, men den ingick i de två senare nationsflaggorna (1863–1865) och är i dag sydstaternas mest kända symbol. Efter kriget har den använts mitt i politiska, kulturella och rasmässiga kontroverser i USA. Den första nationsflaggan var \"Stars and Bars\" (1861–1863)."
       }
      }
     ],
@@ -15184,7 +15750,7 @@
      "review": "two-sources"
     }
    ],
-   "symbol": "stars-and-bars"
+   "symbol": "battle-flag"
   },
   {
    "id": "mexiko",
@@ -16431,13 +16997,14 @@
       },
       "sources": [
        "wp-six-day-war",
-       "wp-israel"
+       "wp-israel",
+       "ud-handel-israel-palestina"
       ],
       "events": [
        "sexdagarskriget"
       ],
       "mapNote": {
-       "sv": "Kartan räknar Sinai, Gaza, Västbanken och Golanhöjderna till Israel från 1967."
+       "sv": "Kartan räknar Sinai till Israel från 1967, som Cliopatria. Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel, eftersom kartan följer Sveriges hållning enligt UD (kontrollerad 2026-11-06)."
       }
      },
      {
@@ -16458,7 +17025,7 @@
        "jom-kippurkriget"
       ],
       "mapNote": {
-       "sv": "Kartan visar Sinai och Gaza utanför Israel 1973–1975 och åter inom Israel 1976–1982."
+       "sv": "Kartan visar Sinai utanför Israel 1973–1975 och åter inom Israel 1976–1982."
       }
      },
      {
@@ -16509,11 +17076,68 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan följer Cliopatria, som räknar de områden Israel har ockuperat till landets yta: Sinai och Gaza 1956–1957, 1967–1972 och 1976–1982, Västbanken och Golanhöjderna från 1967 och södra Libanon 1983–1986. Källorna beskriver Västbanken, Gaza och Sinai som ockuperade områden."
+     "sv": "Gränsen är omstridd. Kartan följer Cliopatria, utom i nutida omstridda gränser, där den följer Sveriges officiella hållning enligt UD (kontrollerad 2026-11-06): Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel från 1967, eftersom Sverige ser dem som ockuperade områden utanför Israel inom 1967 års gränser. Gränserna för de områdena kommer ur Natural Earth; Cliopatria räknar dem till Israel. Sinai (1956–1957, 1967–1972 och 1976–1982), Gaza 1956–1957 och södra Libanon 1983–1986 visas som i Cliopatria. Källorna beskriver Västbanken, Gaza och Sinai som ockuperade områden."
     },
     "sources": [
      "wp-israel",
-     "wd-israel"
+     "wd-israel",
+     "ud-handel-israel-palestina"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "palestina",
+   "name": {
+    "sv": "Palestina",
+    "en": "Palestine"
+   },
+   "color": "#2f9488",
+   "from": 2014,
+   "to": 2024,
+   "file": "data/empires/palestina.json",
+   "polities": [
+    {
+     "id": "palestina",
+     "name": {
+      "sv": "Palestina",
+      "en": "Palestine"
+     },
+     "sources": [
+      "natural-earth-omstridda"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "borderSource": "Natural Earth",
+   "facts": {
+    "summary": {
+     "sv": "Staten Palestina består enligt Sveriges hållning av Västbanken med Östra Jerusalem och Gaza, områden som Israel ockuperade 1967. Sverige erkände Staten Palestina 30 oktober 2014."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Sveriges erkännande"
+      },
+      "text": {
+       "sv": "Sverige erkände Staten Palestina 30 oktober 2014. Sveriges generalkonsulat i Jerusalem, sedan 1991 med utsänd personal, sköter de officiella kontakterna med den palestinska myndigheten."
+      }
+     },
+     {
+      "label": {
+       "sv": "Ockuperade områden"
+      },
+      "text": {
+       "sv": "Enligt UD gäller EU:s avtal med Israel staten Israel inom 1967 års gränser och inte Västbanken, Östra Jerusalem, Gaza eller Golanhöjderna, som räknas som ockuperade områden. EU och Sverige anser att de israeliska bosättningarna på Västbanken och i Östra Jerusalem strider mot folkrätten."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Gränsen är omstridd. Cliopatria har ingen palestinsk stat efter 1948 och räknar Västbanken, Östra Jerusalem och Gaza till Israel från 1967. Kartan följer Sveriges officiella hållning enligt UD (kontrollerad 2026-11-06) och visar Staten Palestina från Sveriges erkännande 2014, med gränser ur Natural Earth. Kartan säger inget om vem som kontrollerar områdena; Israel ockuperar dem enligt UD. Före 2014 visas områdena utan stat."
+    },
+    "sources": [
+     "ud-palestina",
+     "ud-handel-israel-palestina"
     ],
     "review": "source-checked"
    }
@@ -16917,14 +17541,15 @@
        "sv": "Israel erövrar Golanhöjderna i sexdagarskrigets två sista dagar, 9–10 juni 1967."
       },
       "sources": [
-       "wp-six-day-war"
+       "wp-six-day-war",
+       "ud-handel-israel-palestina"
       ],
       "events": [
        "golanhojderna-1967",
        "sexdagarskriget"
       ],
       "mapNote": {
-       "sv": "Kartan räknar Golanhöjderna till Israel från 1967."
+       "sv": "Golanhöjderna räknas inte till Israel från 1967, eftersom kartan följer Sveriges hållning att de är ockuperade (UD, kontrollerad 2026-11-06). Cliopatria räknar dem inte till Syrien, så området är tomt på kartan."
       }
      },
      {
@@ -16984,7 +17609,8 @@
      "sv": "Kartan börjar 1946. Cliopatria räknar Syrien till Förenade arabrepubliken 1958–1966, så landet saknas som eget 1958–1960 och finns dubbelt 1961–1966."
     },
     "sources": [
-     "wp-syria"
+     "wp-syria",
+     "ud-handel-israel-palestina"
     ],
     "review": "source-checked"
    },
@@ -17657,7 +18283,30 @@
      "wd-iran"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Teheran",
+      "en": "Tehran"
+     },
+     "wikidata": "Q3616",
+     "at": [
+      51.39,
+      35.689
+     ],
+     "sources": [
+      "wp-qajar-iran",
+      "wp-pahlavi-iran",
+      "wp-iran",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Faktarutans källa anger att Agha Mohammad Khan, som kröntes till shah 1796, gjorde Teheran till huvudstad, men inte vilket år."
+     }
+    }
+   ]
   },
   {
    "id": "kuwait",
@@ -18063,12 +18712,14 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan visar Indien från 1947, som källorna. Före 1947 räknar Cliopatria området till Brittiska Indien (British Raj) inom Brittiska imperiet. Landets yta på kartan växer 1948 och 1963."
+     "sv": "Kartan visar Indien från 1947, som källorna. Före 1947 räknar Cliopatria området till Brittiska Indien (British Raj) inom Brittiska imperiet. Landets yta på kartan växer 1948 och 1963. Gränsen i Kashmir är omstridd. Kartan visar Cliopatrias linjer, alltså vem som kontrollerar områdena och inte vem de tillhör: en del räknas till Indien, en del till Pakistan och en del i nordost till Kina. Sverige har ingen uttalad hållning om gränsen som vi hittat; UD skriver om det indiska unionsterritoriet Jammu och Kashmir och om den Pakistan-kontrollerade delen av Kashmir (kontrollerad 2026-11-06)."
     },
     "sources": [
      "wp-india",
      "wp-history-of-the-republic-of-india",
-     "wd-india"
+     "wd-india",
+     "ud-avradan-indien",
+     "ud-avradan-pakistan"
     ],
     "review": "source-checked"
    },
@@ -18291,15 +18942,76 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan visar Pakistan från 1947, som källorna. Cliopatria räknar Östpakistan till Pakistan till och med 1972, och Bangladesh visas som eget land först från 1973, fast källorna anger 1971. Före 1947 räknar Cliopatria området till Brittiska Indien (British Raj)."
+     "sv": "Kartan visar Pakistan från 1947, som källorna. Cliopatria räknar Östpakistan till Pakistan till och med 1972, och Bangladesh visas som eget land först från 1973, fast källorna anger 1971. Före 1947 räknar Cliopatria området till Brittiska Indien (British Raj). Gränsen i Kashmir är omstridd. Kartan visar Cliopatrias linjer, alltså vem som kontrollerar områdena och inte vem de tillhör: en del räknas till Indien, en del till Pakistan och en del i nordost till Kina. Sverige har ingen uttalad hållning om gränsen som vi hittat; UD skriver om det indiska unionsterritoriet Jammu och Kashmir och om den Pakistan-kontrollerade delen av Kashmir (kontrollerad 2026-11-06)."
     },
     "sources": [
      "wp-pakistan",
      "wp-history-of-pakistan-1947",
-     "wd-pakistan"
+     "wd-pakistan",
+     "ud-avradan-indien",
+     "ud-avradan-pakistan"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Karachi",
+      "en": "Karachi"
+     },
+     "wikidata": "Q8660",
+     "at": [
+      67.01,
+      24.86
+     ],
+     "from": 1947,
+     "to": 1959,
+     "sources": [
+      "wp-karachi",
+      "wikidata"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "name": {
+      "sv": "Rawalpindi",
+      "en": "Rawalpindi"
+     },
+     "wikidata": "Q93230",
+     "at": [
+      73.068,
+      33.601
+     ],
+     "from": 1959,
+     "to": 1967,
+     "sources": [
+      "wp-islamabad",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Huvudstad i praktiken medan Islamabad byggdes."
+     }
+    },
+    {
+     "name": {
+      "sv": "Islamabad",
+      "en": "Islamabad"
+     },
+     "wikidata": "Q1362",
+     "at": [
+      73.037,
+      33.699
+     ],
+     "from": 1967,
+     "sources": [
+      "wp-islamabad",
+      "wp-pakistan",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    }
+   ]
   },
   {
    "id": "bangladesh",
@@ -18997,7 +19709,69 @@
      "wd-maratha-empire"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Raigad",
+      "en": "Raigad"
+     },
+     "wikidata": "Q3626515",
+     "at": [
+      73.445,
+      18.235
+     ],
+     "from": 1674,
+     "to": 1689,
+     "sources": [
+      "wp-maratha-empire",
+      "wikidata"
+     ],
+     "review": "two-sources"
+    },
+    {
+     "name": {
+      "sv": "Jinji",
+      "en": "Jinji (Gingee)"
+     },
+     "wikidata": "Q3536493",
+     "at": [
+      79.396,
+      12.251
+     ],
+     "from": 1689,
+     "to": 1698,
+     "sources": [
+      "wp-maratha-empire",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Källan kallar Jinji huvudstad i praktiken (de facto)."
+     }
+    },
+    {
+     "name": {
+      "sv": "Satara",
+      "en": "Satara"
+     },
+     "wikidata": "Q581562",
+     "at": [
+      73.983,
+      17.683
+     ],
+     "from": 1700,
+     "to": 1818,
+     "sources": [
+      "wp-maratha-empire",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Kungens säte. Peshwan, rikets förste minister, satt i Pune 1728–1818."
+     }
+    }
+   ]
   },
   {
    "id": "korea",
@@ -21146,7 +21920,54 @@
      "wp-zulu-kingdom"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "uMgungundlovu",
+      "en": "uMgungundlovu"
+     },
+     "wikidata": "Q2467337",
+     "at": [
+      31.268,
+      -28.436
+     ],
+     "from": 1829,
+     "to": 1840,
+     "sources": [
+      "wp-umgungundlovu",
+      "wp-zulu-kingdom",
+      "wp-kwabulawayo",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Dingane grundade sin kungliga kraal här 1829, året efter att han tagit makten genom att mörda Shaka. Källan anger inte när den slutade vara huvudstad; här visas den till slutet av hans regering 1840. Shakas huvudstad kwaBulawayo (grundad omkring 1820) visas inte, eftersom dess plats saknar koordinater i Wikidata."
+     }
+    },
+    {
+     "name": {
+      "sv": "Ulundi",
+      "en": "Ulundi"
+     },
+     "wikidata": "Q1013421",
+     "at": [
+      31.416,
+      -28.335
+     ],
+     "from": 1873,
+     "to": 1879,
+     "sources": [
+      "wp-ulundi",
+      "wp-zulu-kingdom",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Cetshwayo grundade Ulundi när han blev kung 1873. Britterna intog och jämnade den med marken i slaget vid Ulundi 4 juli 1879."
+     }
+    }
+   ]
   },
   {
    "id": "australien",
@@ -22230,7 +23051,29 @@
      "wp-bolivia"
     ],
     "review": "source-checked"
-   }
+   },
+   "capitals": [
+    {
+     "name": {
+      "sv": "Sucre",
+      "en": "Sucre"
+     },
+     "wikidata": "Q2907",
+     "at": [
+      -65.26,
+      -19.047
+     ],
+     "from": 1826,
+     "sources": [
+      "wp-bolivia",
+      "wikidata"
+     ],
+     "review": "source-checked",
+     "note": {
+      "sv": "Staden hette La Plata när den blev provisorisk huvudstad 1826 och fick namnet Sucre 1839. Sucre är huvudstad enligt grundlagen, men regeringen och parlamentet sitter sedan början av 1900-talet i La Paz."
+     }
+    }
+   ]
   },
   {
    "id": "colombia",
@@ -23044,10 +23887,12 @@
       },
       "sources": [
        "wp-annexation-of-crimea",
-       "wp-ukraine"
+       "wp-ukraine",
+       "ud-ukraina",
+       "ud-annekteringar-ukraina-2022"
       ],
       "mapNote": {
-       "sv": "Cliopatria räknar Krim både till Ukraina och till Ryssland 2014–2023, och från 2024 bara till Ryssland."
+       "sv": "Gränsen är omstridd. Ryssland annekterade Krim 2014, men Sverige erkänner inte annekteringen och räknar Krim och Sevastopol till Ukraina. Kartan följer Sveriges officiella hållning enligt UD (kontrollerad 2026-11-06). Cliopatria räknar Krim också till Ryssland 2014–2023 och bara till Ryssland 2024."
       }
      },
      {
@@ -23098,7 +23943,8 @@
        "sv": "Den 30 september 2022 förklarar Ryssland ensidigt att det annekterar Donetsk, Luhansk, Zaporizjzja och Cherson oblast, efter folkomröstningar som de ryska ockupationsmyndigheterna har ordnat. Ryssland kontrollerar inte någon av provinserna helt. Annekteringen erkänns inte av omvärlden, utom av Nordkorea, och 143 av FN:s medlemsländer fördömer den som olaglig."
       },
       "sources": [
-       "wp-russian-annexation-southeastern-ukraine"
+       "wp-russian-annexation-southeastern-ukraine",
+       "ud-annekteringar-ukraina-2022"
       ],
       "mapNote": {
        "sv": "Kartan räknar de områden som Ryssland har ockuperat sedan 2022 till Ukraina, och visar inte frontlinjen."
@@ -23106,12 +23952,14 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan visar Ukraina från 1992; enligt källorna blev landet självständigt 24 augusti 1991, och Sovjetunionen upplöstes 26 december 1991. Cliopatria räknar Krim till Ukraina till och med 2023 och samtidigt till Ryssland 2014–2024, så att halvön 2014–2023 hör till båda länderna. Från 2024 visas Ukraina utan Krim. De områden som Ryssland har ockuperat sedan 2022 visas som en del av Ukraina. Kartan slutar 2024 och säger inget om läget därefter."
+     "sv": "Kartan visar Ukraina från 1992; enligt källorna blev landet självständigt 24 augusti 1991, och Sovjetunionen upplöstes 26 december 1991. Krim och Sevastopol visas som en del av Ukraina hela tiden, också efter Rysslands annektering 2014, eftersom kartan i omstridda gränser följer Sveriges officiella hållning enligt UD (kontrollerad 2026-11-06). Cliopatria räknar Krim också till Ryssland 2014–2023 och bara till Ryssland 2024. De områden som Ryssland har ockuperat sedan 2022 visas som en del av Ukraina, i enlighet med både Cliopatria och Sveriges hållning. Kartan slutar 2024 och säger inget om läget därefter."
     },
     "sources": [
      "wp-ukraine",
      "wd-ukraine",
-     "wp-declaration-independence-ukraine"
+     "wp-declaration-independence-ukraine",
+     "ud-annekteringar-ukraina-2022",
+     "ud-ukraina"
     ],
     "review": "source-checked"
    },
@@ -23277,10 +24125,11 @@
       "sources": [
        "wp-annexation-of-crimea",
        "wp-russia",
-       "wp-war-in-donbas"
+       "wp-war-in-donbas",
+       "ud-annekteringar-ukraina-2022"
       ],
       "mapNote": {
-       "sv": "Cliopatria räknar Krim till Ryssland från 2014 men också till Ukraina till och med 2023."
+       "sv": "Gränsen är omstridd. Ryssland annekterade Krim 2014, men Sverige erkänner inte annekteringen och räknar Krim och Sevastopol till Ukraina. Kartan följer Sveriges officiella hållning enligt UD (kontrollerad 2026-11-06). Cliopatria räknar Krim till Ryssland från 2014."
       }
      },
      {
@@ -23308,12 +24157,13 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan visar Ryska federationen från 1992; enligt källorna upplöstes Sovjetunionen i december 1991. Cliopatria räknar Krim till Ryssland 2014–2024 och samtidigt till Ukraina 2014–2023. De områden i Ukraina som Ryssland har ockuperat sedan 2022 räknas inte till Ryssland. Kartan slutar 2024 och säger inget om läget därefter."
+     "sv": "Kartan visar Ryska federationen från 1992; enligt källorna upplöstes Sovjetunionen i december 1991. Krim och Sevastopol räknas inte till Ryssland, eftersom kartan i omstridda gränser följer Sveriges officiella hållning enligt UD: Sverige erkänner inte annekteringen 2014 (kontrollerad 2026-11-06). Cliopatria räknar Krim till Ryssland 2014–2024. De områden i Ukraina som Ryssland har ockuperat sedan 2022 räknas inte heller till Ryssland. Kartan slutar 2024 och säger inget om läget därefter."
     },
     "sources": [
      "wp-russia",
      "wd-russia",
-     "wp-dissolution-of-the-soviet-union"
+     "wp-dissolution-of-the-soviet-union",
+     "ud-annekteringar-ukraina-2022"
     ],
     "review": "source-checked"
    },
@@ -23333,6 +24183,599 @@
       "wikidata"
      ],
      "review": "two-sources"
+    }
+   ]
+  },
+  {
+   "id": "kina",
+   "name": {
+    "sv": "Kina",
+    "en": "China"
+   },
+   "color": "#c8423c",
+   "from": 1912,
+   "to": 2024,
+   "file": "data/empires/kina.json",
+   "polities": [
+    {
+     "id": "republiken-kina",
+     "name": {
+      "sv": "Republiken Kina",
+      "en": "Republic of China"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "folkrepubliken-kina",
+     "name": {
+      "sv": "Kina",
+      "en": "People's Republic of China"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Kartan visar Republiken Kina 1912–1949 och Folkrepubliken Kina från 1950. Cliopatria saknar Republiken Kina 1916–1929. Efter 1949 visas Taiwan som ett eget område (se Taiwan). Gränsen i Kashmir är omstridd: Cliopatria räknar den nordöstra delen av Kashmir till Kina, och kartan visar vem som kontrollerar områdena, inte vem de tillhör. Sverige har ingen uttalad hållning om Kashmir som vi hittat (UD, kontrollerad 2026-11-06)."
+    },
+    "sources": [
+     "ud-kina",
+     "ud-avradan-indien",
+     "ud-avradan-pakistan"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "taiwan",
+   "name": {
+    "sv": "Taiwan",
+    "en": "Taiwan"
+   },
+   "color": "#d9905a",
+   "from": 1950,
+   "to": 2024,
+   "file": "data/empires/taiwan.json",
+   "polities": [
+    {
+     "id": "taiwan",
+     "name": {
+      "sv": "Taiwan",
+      "en": "Taiwan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Taiwans status är omstridd. Kartan visar Taiwan som ett eget område med Cliopatrias gräns (Republiken Kina efter 1949) och under namnet Taiwan, som regeringen använder. Sverige har inga diplomatiska förbindelser med Taiwan men ett handelskontor i Taipei, och någon uttalad svensk hållning om Taiwans status har vi inte hittat (UD, kontrollerad 2026-11-06). Cliopatria visar en mindre yta 2024 än 1950–2023."
+    },
+    "sources": [
+     "ud-taiwan",
+     "ud-kina"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "kazakstan",
+   "name": {
+    "sv": "Kazakstan",
+    "en": "Kazakhstan"
+   },
+   "color": "#4aa3c8",
+   "from": 1992,
+   "to": 2024,
+   "file": "data/empires/kazakstan.json",
+   "polities": [
+    {
+     "id": "kazakstan",
+     "name": {
+      "sv": "Kazakstan",
+      "en": "Kazakhstan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "algeriet",
+   "name": {
+    "sv": "Algeriet",
+    "en": "Algeria"
+   },
+   "color": "#3f9a5c",
+   "from": 1963,
+   "to": 2024,
+   "file": "data/empires/algeriet.json",
+   "polities": [
+    {
+     "id": "algeriet",
+     "name": {
+      "sv": "Algeriet",
+      "en": "Algeria"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "danmark",
+   "name": {
+    "sv": "Danmark",
+    "en": "Denmark"
+   },
+   "color": "#c0504d",
+   "from": 1945,
+   "to": 2024,
+   "file": "data/empires/danmark.json",
+   "polities": [
+    {
+     "id": "danmark",
+     "name": {
+      "sv": "Danmark",
+      "en": "Denmark"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "indonesien",
+   "name": {
+    "sv": "Indonesien",
+    "en": "Indonesia"
+   },
+   "color": "#b04a7a",
+   "from": 1946,
+   "to": 2024,
+   "file": "data/empires/indonesien.json",
+   "polities": [
+    {
+     "id": "indonesien",
+     "name": {
+      "sv": "Indonesien",
+      "en": "Indonesia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "saudiarabien",
+   "name": {
+    "sv": "Saudiarabien",
+    "en": "Saudi Arabia"
+   },
+   "color": "#8a7a2f",
+   "from": 1926,
+   "to": 2024,
+   "file": "data/empires/saudiarabien.json",
+   "polities": [
+    {
+     "id": "hijaz-och-najd",
+     "name": {
+      "sv": "Kingdom of Nejd and Hejaz",
+      "en": "Kingdom of Nejd and Hejaz"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "saudiarabien",
+     "name": {
+      "sv": "Saudiarabien",
+      "en": "Saudi Arabia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "sudan",
+   "name": {
+    "sv": "Sudan",
+    "en": "Sudan"
+   },
+   "color": "#a0703a",
+   "from": 1956,
+   "to": 2024,
+   "file": "data/empires/sudan.json",
+   "polities": [
+    {
+     "id": "sudan",
+     "name": {
+      "sv": "Sudan",
+      "en": "Sudan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "libyen",
+   "name": {
+    "sv": "Libyen",
+    "en": "Libya"
+   },
+   "color": "#5f7fb0",
+   "from": 1953,
+   "to": 2024,
+   "file": "data/empires/libyen.json",
+   "polities": [
+    {
+     "id": "kungariket-libyen",
+     "name": {
+      "sv": "Kungariket Libyen",
+      "en": "Kingdom of Libya"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "libyen",
+     "name": {
+      "sv": "Libyen",
+      "en": "Libya"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "mongoliet",
+   "name": {
+    "sv": "Mongoliet",
+    "en": "Mongolia"
+   },
+   "color": "#3a6fb0",
+   "from": 1926,
+   "to": 2024,
+   "file": "data/empires/mongoliet.json",
+   "polities": [
+    {
+     "id": "mongoliska-folkrepubliken",
+     "name": {
+      "sv": "Mongoliska folkrepubliken",
+      "en": "Mongolian People's Republic"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "mongoliet",
+     "name": {
+      "sv": "Mongoliet",
+      "en": "Mongolia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "tchad",
+   "name": {
+    "sv": "Tchad",
+    "en": "Chad"
+   },
+   "color": "#c9a050",
+   "from": 1961,
+   "to": 2024,
+   "file": "data/empires/tchad.json",
+   "polities": [
+    {
+     "id": "tchad",
+     "name": {
+      "sv": "Tchad",
+      "en": "Chad"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "angola",
+   "name": {
+    "sv": "Angola",
+    "en": "Angola"
+   },
+   "color": "#c05050",
+   "from": 1976,
+   "to": 2024,
+   "file": "data/empires/angola.json",
+   "polities": [
+    {
+     "id": "angola",
+     "name": {
+      "sv": "Angola",
+      "en": "Angola"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "mali",
+   "name": {
+    "sv": "Mali",
+    "en": "Mali"
+   },
+   "color": "#d4a24a",
+   "from": 1960,
+   "to": 2024,
+   "file": "data/empires/mali.json",
+   "polities": [
+    {
+     "id": "mali",
+     "name": {
+      "sv": "Mali",
+      "en": "Mali"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "sydafrika",
+   "name": {
+    "sv": "Sydafrika",
+    "en": "South Africa"
+   },
+   "color": "#4f8a5a",
+   "from": 1932,
+   "to": 2024,
+   "file": "data/empires/sydafrika.json",
+   "polities": [
+    {
+     "id": "sydafrika",
+     "name": {
+      "sv": "Sydafrika",
+      "en": "South Africa"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "niger",
+   "name": {
+    "sv": "Niger",
+    "en": "Niger"
+   },
+   "color": "#b0603a",
+   "from": 1961,
+   "to": 2024,
+   "file": "data/empires/niger.json",
+   "polities": [
+    {
+     "id": "niger",
+     "name": {
+      "sv": "Niger",
+      "en": "Niger"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "mauretanien",
+   "name": {
+    "sv": "Mauretanien",
+    "en": "Mauritania"
+   },
+   "color": "#a86a9a",
+   "from": 1961,
+   "to": 2024,
+   "file": "data/empires/mauretanien.json",
+   "polities": [
+    {
+     "id": "mauretanien",
+     "name": {
+      "sv": "Mauretanien",
+      "en": "Mauritania"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "tanzania",
+   "name": {
+    "sv": "Tanzania",
+    "en": "Tanzania"
+   },
+   "color": "#5aa070",
+   "from": 1961,
+   "to": 2024,
+   "file": "data/empires/tanzania.json",
+   "polities": [
+    {
+     "id": "tanzania",
+     "name": {
+      "sv": "Tanzania",
+      "en": "Tanzania"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "namibia",
+   "name": {
+    "sv": "Namibia",
+    "en": "Namibia"
+   },
+   "color": "#5a9ab0",
+   "from": 1990,
+   "to": 2024,
+   "file": "data/empires/namibia.json",
+   "polities": [
+    {
+     "id": "namibia",
+     "name": {
+      "sv": "Namibia",
+      "en": "Namibia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "mocambique",
+   "name": {
+    "sv": "Moçambique",
+    "en": "Mozambique"
+   },
+   "color": "#d0a040",
+   "from": 1976,
+   "to": 2024,
+   "file": "data/empires/mocambique.json",
+   "polities": [
+    {
+     "id": "mocambique",
+     "name": {
+      "sv": "Moçambique",
+      "en": "Mozambique"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "turkiet",
+   "name": {
+    "sv": "Turkiet",
+    "en": "Turkey"
+   },
+   "color": "#4a8ab0",
+   "from": 1924,
+   "to": 2024,
+   "file": "data/empires/turkiet.json",
+   "polities": [
+    {
+     "id": "turkiet",
+     "name": {
+      "sv": "Turkiet",
+      "en": "Turkey"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "zambia",
+   "name": {
+    "sv": "Zambia",
+    "en": "Zambia"
+   },
+   "color": "#8a6ab0",
+   "from": 1967,
+   "to": 2024,
+   "file": "data/empires/zambia.json",
+   "polities": [
+    {
+     "id": "zambia",
+     "name": {
+      "sv": "Zambia",
+      "en": "Zambia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "frankrike",
+   "name": {
+    "sv": "Frankrike",
+    "en": "France"
+   },
+   "color": "#3a5fa0",
+   "from": 1958,
+   "to": 2024,
+   "file": "data/empires/frankrike.json",
+   "polities": [
+    {
+     "id": "femte-republiken",
+     "name": {
+      "sv": "Frankrike",
+      "en": "French Fifth Republic"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
     }
    ]
   }

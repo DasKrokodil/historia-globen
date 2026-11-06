@@ -74,7 +74,7 @@ export class Timeline extends EventTarget {
     this.dotsEl = dots; this.ffEl = ffMarks; this.chaptersEl = chapters; this.warEl = warMarks; this.markNote = markNote;
     this._story = null; // kapitel och markeringar när man följer ett krig (#244)
     this._drawScale();
-    addEventListener('resize', () => { if (this.focus) { this._drawScale(); this._drawStory(); } }); // antal årtal beror på bredden
+    addEventListener('resize', () => { if (this.focus) { this._drawScale(); this._drawStory(); } else this._hideOverlaps(); }); // antal årtal beror på bredden
 
     speedBtn.addEventListener('click', () => {
       this.speed = SPEEDS[(SPEEDS.indexOf(this.speed) + 1) % SPEEDS.length];
@@ -180,7 +180,28 @@ export class Timeline extends EventTarget {
       d.className = `tick lvl${level}` + (y === MIN_YEAR ? ' first' : '');
       d.style.left = `${yearToPos(y) * 100}%`;
       d.textContent = y === 1 ? '0' : formatYear(y);
+      d.dataset.level = level;
       this.ticksEl.append(d);
+    }
+    this._hideOverlaps();
+    requestAnimationFrame(() => this._hideOverlaps()); // en gång till när typsnitten och layouten är klara
+  }
+
+  /**
+   * Döljer årtal på skalan som skulle krocka med ett viktigare årtal (#63). Bredden beror på språket:
+   * "1000 av. J.-C." är längre än "1000 f.Kr.". Nivå 1 behålls alltid, sedan nivå 2 och 3 där de får plats.
+   */
+  _hideOverlaps() {
+    const ticks = [...this.ticksEl.querySelectorAll('.tick[data-level]')];
+    for (const d of ticks) d.classList.remove('tick-hidden');
+    const kept = [];
+    for (const level of ['1', '2', '3']) {
+      for (const d of ticks.filter(t => t.dataset.level === level)) {
+        const r = d.getBoundingClientRect();
+        if (!r.width) continue; // dold av bredden (lvl2 och lvl3 i smal skärm)
+        if (level !== '1' && kept.some(k => r.left < k.right + 6 && r.right > k.left - 6)) { d.classList.add('tick-hidden'); continue; }
+        kept.push(r);
+      }
     }
   }
 
@@ -403,20 +424,29 @@ export class Timeline extends EventTarget {
     requestAnimationFrame(step);
   }
   /** Pausar. Med `reason` (text) är det en automatisk paus: knappen blir "Fortsätt" och raden vid knappen visar varför.
-   *  `always` visar raden även om uppspelningen redan stod still (nästa stopp i ett krig, #217). */
-  pause(reason, always = false, announcement = reason) {
+   *  `always` visar raden även om uppspelningen redan stod still (nästa stopp i ett krig, #217).
+   *  `more` ({ title, text }) är en fällbar rad i pausraden, till exempel resans not om att källorna skiljer sig (#647).
+   */
+  pause(reason, always = false, announcement = reason, more = null) {
     const wasPlaying = this.playing;
     this.playing = false;
     this.playBtn.setAttribute('aria-pressed', 'false');
     const auto = !!reason && (wasPlaying || always);
     this._resume = auto;
     this._labelPlay();
-    this._showNote(auto ? reason : null, auto ? announcement : null);
+    this._showNote(auto ? reason : null, auto ? announcement : null, auto ? more : null);
   }
-  _showNote(text, announcement = text) {
+  _showNote(text, announcement = text, more = null) {
     if (!this.pauseNote) return;
     this.pauseNote.hidden = !text;
     if (text) this.pauseText.textContent = text;
+    const box = this.pauseNote.querySelector('#pause-more');
+    if (box) {
+      box.hidden = !more;
+      box.open = false;
+      box.querySelector('#pause-more-title').textContent = more ? more.title : '';
+      box.querySelector('#pause-more-text').textContent = more ? more.text : '';
+    }
     if (announcement) this._announce(announcement);
     else if (this.status) this.status.textContent = '';
   }

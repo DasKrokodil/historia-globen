@@ -138,6 +138,8 @@ export function createFocus(app) {
     $('focus-moved-text').textContent = `Tiden flyttades till ${timeline.format(m.startYear)}, ${why} · `;
     $('focus-moved-back').textContent = `Tillbaka till ${m.prevText}`;
   }
+  // Raden behövs bara innan man börjar spela: under uppspelningen gör den fokusraden högre och krockar med pausraden (#647)
+  timeline.addEventListener('playstate', () => { if (timeline.playing && movedBack) showMoved(null); });
   // Tillbaka lämnar fokus och går till året man stod på, eftersom det ligger utanför spannet
   $('focus-moved-back').addEventListener('click', () => {
     const y = movedBack?.prevYear;
@@ -201,7 +203,9 @@ export function createFocus(app) {
     // Nära = inom fyra gånger det tidslinjen visar runt året (vid 1325 cirka ±150 år)
     const year = Math.floor(timeline.year), r = Math.round(timeline.windowYears(year) * 4 / 10) * 10;
     focusMenu.setTime({ year, from: year - r, to: year + r, label: `inom ±${r} år från ${formatYear(year)}` });
-    const doc = focusMenu.groups.find(g => g.title === 'Religioner').loading ? await loadReligions() : data.religionsDoc;
+    // Religionerna laddas en gång och sparas, så att de finns kvar nästa gång menyn öppnas, också när lagret
+    // Religioner aldrig har öppnats (annars blev fliken tom andra gången)
+    const doc = data.religionsDoc ??= await loadReligions();
     focusRoutes ??= await loadRoutes();
     focusMenu.setGroups(focusGroups(doc, focusRoutes));
   };

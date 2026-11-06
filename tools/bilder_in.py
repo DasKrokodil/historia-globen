@@ -90,8 +90,11 @@ def fill_events(ids, log):
             continue
         f, start = found[0]
         raw = raws[f]
-        end = raw.find('\n\n', start)
-        end = len(raw) if end < 0 else end
+        # Händelsen slutar där nästa händelse eller listans slut börjar. Redigeringsfilerna
+        # har inga tomrader mellan händelserna, så en tomrad duger inte som gräns: då
+        # hamnade bilden på en senare händelse (rättat 2026-11-06, #453).
+        nxt = re.compile(r'\n\s*\{\s*"id":|\n\s*\]').search(raw, start + 1)
+        end = len(raw) if not nxt else nxt.start()
         block = raw[start:end]
         if '\n      "image": ' in block:
             block = re.sub(r'\n      "image": .*\n', '\n' + line, block, count=1)

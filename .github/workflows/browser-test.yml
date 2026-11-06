@@ -26,7 +26,7 @@ jobs:
   browser:
     name: Öppna sidan i ${{ matrix.browser.name }}
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20 # hela sviten tar cirka 10 minuter; 10 räckte inte längre (#617)
     strategy:
       fail-fast: false
       matrix:
@@ -54,6 +54,9 @@ jobs:
         run: bash scripts/build-site.sh
 
       - name: Installera Playwright och ${{ matrix.browser.name }} (utanför repot)
+        # Egen gräns (#617): steget tar normalt under en minut, men apt hämtar typsnittspaket
+        # utan cache och kan hänga. Då ska installationen bli röd, inte testet stå som avbrutet.
+        timeout-minutes: 5
         env:
           BROWSER: ${{ matrix.browser.id }}
         run: |

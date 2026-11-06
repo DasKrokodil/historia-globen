@@ -44,8 +44,13 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              'usa': (0.3, 0.05, 0.08),
              # Kanada, Ryssland och Australien med långa kuster och många öar
              'kanada': (0.3, 0.05, 0.08), 'australien': (0.3, 0.05, 0.08),
-             # Ryssland: perioderna slås aldrig ihop, så att Krim (cirka 0,2 procent av ytan) syns från 2014
-             'ryska-federationen': (0.3, 0.0, 0.08)}
+             # Ryssland: perioderna slås aldrig ihop, så att små ändringar (som Krim, cirka 0,2 procent av ytan) inte försvinner
+             'ryska-federationen': (0.3, 0.0, 0.08),
+             # Israel och Palestina (#644): små länder med smala gränsområden (Gaza är cirka 10 km bred), så
+             # förenklingen är finare, annars försvinner Gaza och gränserna mot Västbanken hamnar fel
+             'israel': (0.03, 0.02, 0.02), 'palestina': (0.03, 0.02, 0.02),
+             # Nutida stater (#644): Danmark med Grönland, Kina och Indonesien med många öar
+             'danmark': (0.3, 0.05, 0.08), 'kina': (0.3, 0.05, 0.08), 'indonesien': (0.2, 0.05, 0.05)}
 
 # grupp: (svenskt namn, engelskt namn, [(Cliopatria-namn, id, svenskt namn, färg)])
 GROUPS = {
@@ -305,6 +310,11 @@ GROUPS = {
     'israel': ('Israel', 'Israel', [
         ('State of Israel', 'israel', 'Israel', '#7aa6e0', {'en': 'Israel'}),
     ]),
+    # Staten Palestina (#644): finns inte i Cliopatria efter 1948. Gränsen kommer ur Natural Earth (DISPUTED) och
+    # visas från Sveriges erkännande 30 oktober 2014 (Rikards beslut 2026-11-06). Cliopatria-namnet är None.
+    'palestina': ('Palestina', 'Palestine', [
+        (None, 'palestina', 'Palestina', '#2f9488', {'en': 'Palestine', 'wikidata': 'Q219060', 'years': (2014, 2024)}),
+    ]),
     # Gruppen 'egypten' är det forntida Egypten (R2); det moderna Egypten från 1922 är en egen grupp
     'moderna-egypten': ('Egypten från 1922', 'Egypt since 1922', [
         ('Kingdom of Egypt', 'kungariket-egypten', 'Kungariket Egypten', '#c9a23a'),
@@ -446,6 +456,90 @@ GROUPS = {
     'ryska-federationen': ('Ryska federationen', 'Russian Federation', [
         ('Russian Federation', 'ryska-federationen', 'Ryska federationen', '#7a5fa6'),
     ]),
+    # Global täckning, nutida stater, första omgången (#644): de tio största luckorna år 2024 enligt
+    # tools/tackning_riken.py. Kartan före fakta: bara gränser och namn (svenska namn ur Wikidata), utom
+    # noterna om omstridda gränser (docs/omstridda-granser.md).
+    'kina': ('Kina', 'China', [
+        ('Republic of China', 'republiken-kina', 'Republiken Kina', '#c8423c',
+         {'en': 'Republic of China', 'wikidata': 'Q13426199', 'years': (1912, 1949)}),
+        ("People's Republic of China", 'folkrepubliken-kina', 'Kina', '#c8423c', {'en': "People's Republic of China"}),
+    ]),
+    # Taiwan (#644, Rikards svar 5): Cliopatrias Republiken Kina efter 1949, under namnet Taiwan som regeringen använder
+    'taiwan': ('Taiwan', 'Taiwan', [
+        ('Republic of China', 'taiwan', 'Taiwan', '#d9905a', {'en': 'Taiwan', 'wikidata': 'Q865', 'years': (1950, 2024)}),
+    ]),
+    'kazakstan': ('Kazakstan', 'Kazakhstan', [
+        ('Kazakhstan', 'kazakstan', 'Kazakstan', '#4aa3c8', {'en': 'Kazakhstan'}),
+    ]),
+    'algeriet': ('Algeriet', 'Algeria', [
+        ("People's Democratic Republic of Algeria", 'algeriet', 'Algeriet', '#3f9a5c', {'en': 'Algeria'}),
+    ]),
+    # Cliopatria anger Q350186 (Kristofer II av Danmark) för Danmark; rätt id är Q35
+    'danmark': ('Danmark', 'Denmark', [
+        ('Denmark', 'danmark', 'Danmark', '#c0504d', {'en': 'Denmark', 'wikidata': 'Q35'}),
+    ]),
+    'indonesien': ('Indonesien', 'Indonesia', [
+        ('Republic of Indonesia', 'indonesien', 'Indonesien', '#b04a7a', {'en': 'Indonesia'}),
+    ]),
+    'saudiarabien': ('Saudiarabien', 'Saudi Arabia', [
+        ('Kingdom of Hejaz and Nejd', 'hijaz-och-najd', 'Kingdom of Nejd and Hejaz', '#8a7a2f',
+         {'en': 'Kingdom of Nejd and Hejaz', 'wikidata': 'Q1756546'}),
+        ('Kingdom of Saudi Arabia', 'saudiarabien', 'Saudiarabien', '#8a7a2f', {'en': 'Saudi Arabia'}),
+    ]),
+    'sudan': ('Sudan', 'Sudan', [
+        ('Republic of Sudan', 'sudan', 'Sudan', '#a0703a', {'en': 'Sudan'}),
+    ]),
+    # Cliopatria anger Q17435890 (Libyens historia under Gaddafi) för Libyska arabrepubliken; delen får Q1016
+    'libyen': ('Libyen', 'Libya', [
+        ('Kingdom of Libya', 'kungariket-libyen', 'Kungariket Libyen', '#5f7fb0', {'en': 'Kingdom of Libya'}),
+        (['Libyan Arab Republic', 'State of Libya'], 'libyen', 'Libyen', '#5f7fb0', {'en': 'Libya', 'wikidata': 'Q1016'}),
+    ]),
+    'mongoliet': ('Mongoliet', 'Mongolia', [
+        ("Mongolian People's Republic", 'mongoliska-folkrepubliken', 'Mongoliska folkrepubliken', '#3a6fb0',
+         {'en': "Mongolian People's Republic"}),
+        ('Mongolia', 'mongoliet', 'Mongoliet', '#3a6fb0', {'en': 'Mongolia'}),
+    ]),
+    'tchad': ('Tchad', 'Chad', [
+        ('Republic of Chad', 'tchad', 'Tchad', '#c9a050', {'en': 'Chad'}),
+    ]),
+    # Nutida stater, andra omgången (#644): nästa elva luckor år 2024 enligt tools/tackning_riken.py
+    'angola': ('Angola', 'Angola', [
+        ("People's Republic of Angola", 'angola', 'Angola', '#c05050', {'en': 'Angola'}),
+    ]),
+    # Cliopatria anger Q216632 (Malifederationen, 1959–1960) för Mali; rätt id är Q912
+    'mali': ('Mali', 'Mali', [
+        ('Mali Federation', 'mali', 'Mali', '#d4a24a', {'en': 'Mali', 'wikidata': 'Q912'}),
+    ]),
+    'sydafrika': ('Sydafrika', 'South Africa', [
+        ('South Africa', 'sydafrika', 'Sydafrika', '#4f8a5a', {'en': 'South Africa'}),
+    ]),
+    'niger': ('Niger', 'Niger', [
+        ('Republic of the Niger', 'niger', 'Niger', '#b0603a', {'en': 'Niger'}),
+    ]),
+    'mauretanien': ('Mauretanien', 'Mauritania', [
+        ('Mauritania', 'mauretanien', 'Mauretanien', '#a86a9a', {'en': 'Mauritania'}),
+    ]),
+    'tanzania': ('Tanzania', 'Tanzania', [
+        ('Tanzania', 'tanzania', 'Tanzania', '#5aa070', {'en': 'Tanzania'}),
+    ]),
+    'namibia': ('Namibia', 'Namibia', [
+        ('Namibia', 'namibia', 'Namibia', '#5a9ab0', {'en': 'Namibia'}),
+    ]),
+    'mocambique': ('Moçambique', 'Mozambique', [
+        ('Mozambique', 'mocambique', 'Moçambique', '#d0a040', {'en': 'Mozambique'}),
+    ]),
+    'turkiet': ('Turkiet', 'Turkey', [
+        ('Republic of Turkey', 'turkiet', 'Turkiet', '#4a8ab0', {'en': 'Turkey'}),
+    ]),
+    'zambia': ('Zambia', 'Zambia', [
+        ('Zambia', 'zambia', 'Zambia', '#8a6ab0', {'en': 'Zambia'}),
+    ]),
+    # Frankrike efter kolonialväldet (som slutar 1957 i gruppen franska-kolonialvaldet)
+    'frankrike': ('Frankrike', 'France', [
+        # Cliopatria räknar Algeriet och Djibouti till Femte republiken 1961–2023, också de år då de är egna stater i Cliopatria
+        ('French Fifth Republic', 'femte-republiken', 'Frankrike', '#3a5fa0',
+         {'en': 'French Fifth Republic', 'minus': ["People's Democratic Republic of Algeria", 'Republic of Djibouti']}),
+    ]),
 }
 
 # Huvudlandet i utspridda välden (#74): moderlandet ritas med kraftigare kant och en stjärna och får
@@ -512,6 +606,77 @@ EXTEND = {
 }
 
 
+# Omstridda gränser i nutid (beslut 2026-11-03, #644, docs/omstridda-granser.md): områden som Cliopatria räknar
+# till ett rike men som enligt Sveriges officiella hållning (UD) hör till ett annat. Området (`area`) är antingen
+# skillnaden mellan två gränser i Cliopatria (((namn, år), (namn, år))) eller ('ne', [id, ...]): områden ur
+# tools/ne-omstridda-omraden.geojson (Natural Earth, public domain, byggd med tools/ne_omstridda.py). Från året
+# `from` tas området bort ur grupperna i `remove` och läggs till grupperna i `add`. Ytan (areaKm2) räknas då fram
+# ur den nya gränsen.
+DISPUTED = {
+    # Krim och Sevastopol: Cliopatria räknar halvön till Ryssland från 2014 och till Ukraina bara till och med 2023.
+    # Sverige erkänner inte annekteringen (UD, uttalande 30 september 2022), så halvön ritas som Ukraina.
+    'krim': {'area': (('Ukraine', 2013), ('Ukraine', 2024)), 'from': 2014,
+             'remove': ['ryska-federationen'], 'add': ['ukraina']},
+    # Västbanken med Östra Jerusalem, Gaza och Golanhöjderna: Cliopatria räknar dem till Israel från 1967. Enligt UD
+    # (Handel med Israel och Palestina) är de ockuperade och ingår inte i Israel inom 1967 års gränser.
+    'ockuperat-1967': {'area': ('ne', ['vastbanken', 'ostra-jerusalem', 'gaza', 'golan']), 'from': 1967,
+                       'remove': ['israel'], 'add': []},
+    # Staten Palestina, som Sverige erkände 30 oktober 2014 (UD, Palestina): Västbanken med Östra Jerusalem och Gaza
+    'palestina': {'area': ('ne', ['vastbanken', 'ostra-jerusalem', 'gaza']), 'from': 2014,
+                  'remove': [], 'add': ['palestina']},
+}
+
+
+def disputed_areas(by_name):
+    """Områdena i DISPUTED som geometrier: {namn: geometri}."""
+    def at(name, y):
+        for f in by_name.get(name, []):
+            if f['properties']['FromYear'] <= y <= f['properties']['ToYear']:
+                return shape(f['geometry']).buffer(0)
+        raise SystemExit(f'DISPUTED: {name} saknas år {y} i Cliopatria')
+    ne = {f['properties']['id']: shape(f['geometry']).buffer(0)
+          for f in json.loads((ROOT / 'tools/ne-omstridda-omraden.geojson').read_text())['features']}
+    return {k: unary_union([ne[i] for i in d['area'][1]]) if d['area'][0] == 'ne'
+            else at(*d['area'][0]).difference(at(*d['area'][1])) for k, d in DISPUTED.items()}
+
+
+def apply_disputed(items, gid, areas):
+    """Klipper bort eller lägger till områdena i DISPUTED i en dels perioder (start, slut, geometri, yta)."""
+    for key, d in DISPUTED.items():
+        op = 'remove' if gid in d['remove'] else 'add' if gid in d['add'] else None
+        if not op:
+            continue
+        out = []
+        for a, b, g, ar in items:
+            spans = [(a, b)] if (b < d['from'] or a >= d['from']) else [(a, d['from'] - 1), (d['from'], b)]
+            for s, e in spans:
+                if s < d['from']:
+                    out.append((s, e, g, ar))
+                    continue
+                ng = g.difference(areas[key]) if op == 'remove' else unary_union([g, areas[key]])
+                out.append((s, e, ng, km2(ng)))
+        items = out
+    return items
+
+
+def minus_others(items, names, by_name):
+    """Klipper bort andra Cliopatria-stater (names) ur en dels perioder de år de finns (#644). Cliopatria räknar ibland
+    ett område både till en stat och till dess forna kolonialmakt, till exempel Algeriet och Djibouti till Femte franska
+    republiken 1961–2023. Perioderna delas där någon av staterna börjar eller slutar."""
+    feats = [f for n in names for f in by_name.get(n, [])]
+    out = []
+    for a, b, g, ar in items:
+        cuts = sorted({a, b + 1} | {c for f in feats for c in (f['properties']['FromYear'], f['properties']['ToYear'] + 1) if a < c <= b})
+        for s, e in zip(cuts, cuts[1:]):
+            on = [shape(f['geometry']).buffer(0) for f in feats if f['properties']['FromYear'] <= s <= f['properties']['ToYear']]
+            if on:
+                ng = g.difference(unary_union(on))
+                out.append((s, e - 1, ng, km2(ng)))
+            else:
+                out.append((s, e - 1, g, ar))
+    return out
+
+
 def km2(g):
     """Ytan i km2 på en sfär (Lamberts ytriktiga cylinderprojektion)."""
     r = 6371.0088
@@ -551,11 +716,15 @@ def extend(by_name, ext):
     return out
 
 
-def rnd(o):
+# Koordinaterna avrundas till 0.1 grad, utom för små länder där gränsen annars hamnar fel (#644)
+DECIMALS = {'israel': 2, 'palestina': 2}
+
+
+def rnd(o, nd=1):
     if isinstance(o, (list, tuple)):
         if o and isinstance(o[0], (int, float)):
-            return [round(o[0], 1), round(o[1], 1)]
-        return [rnd(x) for x in o]
+            return [round(o[0], nd), round(o[1], nd)]
+        return [rnd(x, nd) for x in o]
     return o
 
 
@@ -682,11 +851,14 @@ def main():
         if p['Type'] == 'POLITY':
             by_name.setdefault(p['Name'], []).append(f)
     rels = relations(src)
+    disputed = disputed_areas(by_name)  # omstridda gränser enligt Sveriges hållning (#644)
     # Riken med eget namn i GROUPS, så att ett lydrike som också är ett eget rike på kartan får samma namn (#75)
     known = {}
     for _gid, (_sv, _en, _members, *_o) in GROUPS.items():
         for cname, _pid, psv, _color, *rest in _members:
             first = cname[0] if isinstance(cname, list) else cname
+            if first is None:
+                continue
             # En Cliopatria-post i flera delar (Sverige före och efter 1721, #70): den första delens namn gäller
             known.setdefault(first, {'sv': psv, 'en': (rest[0] if rest else {}).get('en', first.strip('()'))})
     for en_name, sv_name in INFLUENCE_NAMES.items():
@@ -718,7 +890,7 @@ def main():
             continue
         home = HOMELANDS.get(gid)
         polities = []
-        own = {n.strip('()') for m in members for n in (m[0] if isinstance(m[0], list) else [m[0]])}
+        own = {n.strip('()') for m in members for n in (m[0] if isinstance(m[0], list) else [m[0]]) if n}
         for cname, pid, psv, color, *rest in members:
             opts = rest[0] if rest else {}
             periods = []
@@ -726,7 +898,12 @@ def main():
             feats = None
             if gid in EXTEND and EXTEND[gid]['polity'] == cname:
                 feats = extend(by_name, EXTEND[gid])
-            for start, end, raw, area in member_periods(by_name, cname, opts.get('years'), feats):
+            # En del utan Cliopatria-namn (None) får hela sin gräns ur DISPUTED (Palestina, #644)
+            base = ([(*opts['years'], Polygon(), 0)] if cname is None
+                    else member_periods(by_name, cname, opts.get('years'), feats))
+            if opts.get('minus'):
+                base = minus_others(base, opts['minus'], by_name)
+            for start, end, raw, area in apply_disputed(base, gid, disputed):
                 core.append((start, end, raw))
                 g = raw.simplify(tol, preserve_topology=True)
                 if g.geom_type == 'MultiPolygon':
@@ -737,7 +914,7 @@ def main():
                 c = (max(g.geoms, key=lambda q: q.area) if g.geom_type == 'MultiPolygon' else g).representative_point()
                 q = {'start': start, 'end': end, 'areaKm2': round(area),
                      'label': [round(c.x, 1), round(c.y, 1)], '_shape': g,
-                     'geometry': {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'])}}
+                     'geometry': {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], DECIMALS.get(gid, 1))}}
                 # Huvudlandet (#74): den del av riket som är moderlandet. Den ritas kraftigare och får rikets namn.
                 if home and 'homeland' in opts:
                     hg = homeland_shape(by_name, opts['homeland'], home['window'], raw, start, tol, min_area)
@@ -763,15 +940,16 @@ def main():
                 continue
             first = cname[0] if isinstance(cname, list) else cname
             wd = opts.get('wikidata') or by_name[first][0]['properties'].get('Wikidata')
-            polity = {'id': pid, 'group': gid, 'name': {'sv': psv, 'en': opts.get('en', first.strip('()'))}, 'wikidata': wd,
-                      'color': color, 'sources': ['cliopatria'], 'review': 'source-checked', 'periods': merged}
+            polity = {'id': pid, 'group': gid, 'name': {'sv': psv, 'en': opts.get('en', (first or '').strip('()'))}, 'wikidata': wd,
+                      'color': color, 'sources': ['cliopatria'] if first else ['natural-earth-omstridda'],
+                      'review': 'source-checked', 'periods': merged}
             if isinstance(cname, list):
                 polity['parts'] = cname  # Cliopatria-namnen som slogs ihop
             if home and 'homeland' in opts:
                 polity['homeland'] = opts['homeland']  # Cliopatria-namnen för moderlandet
             if gid in uncertain:
                 polity['uncertainBorder'] = True  # osäker gräns (#73): ritas med mjuk kant
-            infl = influence_periods(rels, cname, core, own, known, tol, merge, min_area)
+            infl = influence_periods(rels, cname, core, own, known, tol, merge, min_area) if cname else None
             if infl:
                 polity['influence'] = infl  # lydriken och vasaller enligt Cliopatria (#75)
             polities.append(polity)
@@ -782,6 +960,8 @@ def main():
                       'to': max(q['end'] for p in polities for q in p['periods']),
                       'file': f'data/empires/{gid}.json',
                       'polities': [{'id': p['id'], 'name': p['name'], 'sources': p['sources'], 'review': p['review']} for p in polities]})
+        if not any(m[0] for m in members):
+            index[-1]['borderSource'] = 'Natural Earth'  # gränsen kommer inte från Cliopatria (#644)
         if home:
             index[-1]['homeland'] = {'name': home['name']}
         if gid in vanished:
@@ -830,7 +1010,12 @@ def main():
              'minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva '
              'är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. '
              'Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) '
-             'och ger polity.uncertainBorder i rikets fil.')
+             'och ger polity.uncertainBorder i rikets fil. '
+             'Omstridda gränser i nutid (#644): följer Sveriges officiella hållning enligt UD (DISPUTED i tools/riken.py, '
+             'docs/omstridda-granser.md). Krim och Sevastopol räknas till Ukraina även från 2014, och inte till Ryska federationen. '
+             'Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel från 1967; Staten Palestina '
+             '(Västbanken med Östra Jerusalem och Gaza) visas från 2014, då Sverige erkände den. De gränserna kommer ur Natural Earth '
+             '(ne_10m_admin_0_disputed_areas 5.1.1, public domain), och gruppen har då borderSource. Där är areaKm2 räknad ur den nya gränsen.')
     (out / 'index.json').write_text(json.dumps({'schema': 'historia-globen/empires-index@1', 'notes': notes, 'groups': index},
                                                ensure_ascii=False, indent=1))
 

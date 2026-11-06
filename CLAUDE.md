@@ -29,9 +29,11 @@ AGENTS.md             regler för Codex och andra agenter; pekar på CLAUDE.md
 _headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
 css/style.css
 js/main.js            startar allt och kopplar ihop delarna
-js/controllers/       main.js uppdelad i val, fokus, faktarutor, omritning, uppspelning, berättelse och etiketter (#402)
+js/controllers/       main.js uppdelad i val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402) och adressen (#501)
 js/model.js           språk, kategorier, granskningsstatus, tidsformat, laddning
 js/i18n.js            språkval och gränssnittets texter: ui('nyckel') ur data/ui/<språk>.json och data-i18n i index.html (#63)
+js/url-state.js       adressformatet för delbara länkar och Bakåt/Framåt (#501, #64)
+js/search-index.js    sökningens index och matchning (#570)
 js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
 js/state.js           det gemensamma tillståndet (år, fokus, lager, filter) som lagren läser (#338), med åtgärder, prenumeration och JSON (#403)
 js/globe.js           3D-globen, kamera, styrning, ekvirektangulära canvasar, bågar
@@ -48,6 +50,7 @@ js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering
 js/ui/poster.js       A4-affisch som PNG från Platt vy
 js/ui/routepop.js     klickrutan för vägar och resor
 js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg (#363)
+js/ui/viewmode.js     vyväljaren: Glob, Platt karta och Upptäcktsresor (#651)
 js/ui/tour.js         guidade turer: spelar upp en tur ur data/turer/ steg för steg (#47)
 js/tour-format.js     turformatets kontroll, delas med testerna (#47)
 js/ui/feedback.js     formuläret för besökarnas förslag (avstängt som standard, docs/feedback.md)
@@ -80,7 +83,7 @@ images/karta/         kartbilder till upptäcktsvyn (public domain, ur gamla kar
 images/incoming/      Rikards nya bilder, innan de konverteras
 tools/                hjälpskript som körs för hand; tools/license_manifests.py genererar licensmanifesten, och dela_data.py körs efter ändring i data/handelser/ eller empires/index.json
 docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar, publicering (DEPLOYMENT.md), besökarnas förslag (feedback.md), externa granskningar (granskningar/)
-scripts/              build-site.sh kopierar webbplatsens filer till dist/ och kör validate-site.py (publicering, ingen kodändring)
+scripts/              build-site.sh kopierar webbplatsens filer till dist/ och kör validate-site.py (publicering, ingen kodändring); pages-function-check.sh startar formulärets funktion som Cloudflare (#663)
 .orchestra/           dirigenten och orkestern: project.md (projektets policy) och shared/ (fäst version, redigeras inte)
 ```
 
@@ -95,7 +98,7 @@ Nya lager läggs i `js/layers/`, ny UI i `js/ui/`, ny data i `data/`. Uppdatera 
 - **Plats** = GeoJSON i WGS 84, `[longitud, latitud]`. Områden blir `Polygon`/`MultiPolygon`. Valfritt `locationPrecision`: `region` eller `country` när platsen är ungefärlig.
 - **Texter** lagras per språk: `{ "sv": "...", "en": "...", "fr", "de", "es" }`. Svenska först. Saknas ett språk visas engelska, sedan svenska (`t()` i `model.js`).
 - **Kategorier** (fast lista, `CATEGORIES` i `model.js`): natur, manniskan, civilisationer, religion, vetenskap, upptackter, krig, kultur, sport, ekonomi, halsa, klimat, katastrofer, rymden. Nya kategorier kräver Rikards ok.
-- **Händelse**, obligatoriska fält: `id` (läsbart, unikt), `category`, `start`, `end`, `precision`, `edtf`, `location`, `place`, `title`, `summary`, `sources` (lista med id från sources.json), `review`. Valfritt: `wikidata` (Q-id, bara om du har verifierat det eller om det kommer från en datakälla vi litar på, se Beslutslogg). Valfritt `note` (`title`, `text`): en extra ruta i faktarutan, till exempel "Om år 0".
+- **Händelse**, obligatoriska fält: `id` (läsbart, unikt), `category`, `start`, `end`, `precision`, `edtf`, `location`, `place`, `title`, `summary`, `sources` (lista med id från sources.json), `review`. Valfritt: `wikidata` (Q-id, bara om du har verifierat det eller om det kommer från en datakälla vi litar på, se Beslutslogg). Valfritt `note` (`title`, `text`): en extra ruta i faktarutan, till exempel "Om år 0". Valfritt `tags` (#555): än så länge bara `["framsteg"]`, och bara när källan själv beskriver händelsen som en förbättring (se docs/datamodell.md).
 - **Religioners grundande:** en händelse med `"founding": true` och `"religion": "<religionens id i religions.json>"`. Fokus på religionen börjar vid den första sådana händelsen och stannar vid de följande. Ikonen (`icon`) är religionens symbol (`symbol` i religions.json, till exempel `cross`, #271). Religioner som växte fram gradvis (judendom, hinduism, shinto, kinesisk religion) får ingen grundhändelse.
 - **Krig och slag:** ett krig är en händelse med `"kind": "war"` och start och slut (spann). Slag och andra händelser i kriget pekar på kriget med `partOf` (krigets id). Krigets `location` är platsen där det började, med `locationPrecision: "region"`. Krigsområdet ritas runt krigets plats och de slag som har utkämpats, med ett område per krigsskådeplats när slagen ligger långt isär (#211). Utzoomat syns bara krigets enda viktigaste händelse (`"top": true`) och krigsområdet. I fokusläget syns krigets alla händelser med årtal, och uppspelningen pausar vid dem som har `"major": true` (går att stänga av i Lager). Valfritt fält `story` på kriget: `intro` (varför kriget började), `parties` (sidor med namn och deltagare), `outcome` (hur det slutade), `casualties` (döda, som spann) och `sources`. Det visas som ett kort när man börjar följa kriget och när uppspelningen når krigets slut. Ett pågående krig har `"ongoing": true` och `edtf` med öppet slut (`2022-02-24/..`); `end` är året då läget kontrollerades och räknas till i år vid laddning, `outcome` är då läget i dag med datum i `story.asOf`, och slutkortet heter "Läget i dag".
 
@@ -125,7 +128,7 @@ Varje händelse kan få en bild i fältet `image` (fil, `kind`, stil, bildtext, 
 1. **Riktig bild först.** Sök på Wikimedia Commons efter en historisk bild innan en illustration görs. Kontrollera licensen på filsidan och lägg filsidan som källa i `sources.json`. Tillåtet för historiska bilder: public domain, CC0, CC BY, CC BY-SA och Library of Congress-bilder märkta "No known restrictions on publication" (beslut 2026-10-29). Även Library of Congress (loc.gov) går att söka i. Bilden behåller sin egen licens, som står i bildtexten.
 2. **Illustrationer märks alltid** med en synlig bildtext, till exempel "Illustration i stil med …, inte en historisk bild". De får aldrig se ut som fotografier eller äkta dokument.
 3. **Bilden förmedlar stämning, inte fakta.** Lägg inte in detaljer i bilden som inte stöds av händelsens källa.
-4. **Respekt.** Profeten Muhammed avbildas aldrig; Hijra visas med landskap, karavan och arkitektur. Inga karikatyrer av folk. Krig, sjukdom och död får visas när händelsen handlar om det (beslut 2026-10-29; kan anpassas för olika åldrar senare). Riktiga personers ansikten får visas, både i historiska porträtt och i illustrationer (beslut 2026-10-30).
+4. **Respekt.** Profeten Muhammed avbildas aldrig; Hijra visas med landskap, karavan och arkitektur. Våra egna illustrationer karikerar aldrig folk eller personer. Krig, sjukdom och död får visas när händelsen handlar om det (beslut 2026-10-29; kan anpassas för olika åldrar senare). Även kvarlevor, avrättningar, våld, symboler, flaggor och samtida karikatyrer (till exempel Darwin som apa) får visas när bilden är historiskt relevant för händelsen; bildtexten säger vad bilden visar och om den är en karikatyr eller propaganda, och licensreglerna gäller som vanligt (beslut 2026-11-06). Riktiga personers ansikten får visas, både i historiska porträtt och i illustrationer (beslut 2026-10-30).
 5. **Spårbarhet.** Spara stil, verktyg, datum och exakt prompt för varje illustration i `image`.
 6. **Filer.** `images/events/<händelse-id>.webp`, 800 × 600 pixlar, helst under 150 kB. `python3 tools/bilder_in.py` konverterar bilder från `images/incoming/` och fyller i `image` i händelsens fil i `data/handelser/` från bildloggen `images/incoming/bildlogg.json`. `python3 tools/bildpromptar.py` skriver promptar till `docs/bildpromptar.md`. Lägg aldrig API-nycklar för bildverktyg i repot.
 7. **Platshållare** har `"placeholder": true` och märks "Platshållare" i kortet tills den riktiga bilden finns.
