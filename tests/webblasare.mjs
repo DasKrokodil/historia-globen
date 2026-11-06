@@ -1630,14 +1630,20 @@ async function run(browser, vp) {
         const row = page.locator(`#focus-menu .focus-item[data-key="${item.key}"]`);
         await row.waitFor({ state: 'visible', timeout: T.step });
         await row.click();
-        await visible('#focus-bar');
+        // #635: hoppet från 3000 f.Kr. ritar om hela lagerbilden (4096 × 2048) och laddar upp den till grafiken. Utan
+        // grafikkort, som i CI och i molnet, kan sidan då stå still i över 20 sekunder, så att visible() med T.step
+        // tar slut fast sidan gör rätt. Vänta därför på tillståndet (fokusraden och raden Tillbaka till) med T.load.
+        await page.waitForFunction(() => {
+          const bar = document.getElementById('focus-bar'), link = document.getElementById('focus-moved-back');
+          return !bar.hidden && bar.offsetHeight > 0 && link.offsetParent !== null;
+        }, null, { timeout: T.load, polling: 250 });
         const back = page.locator('#focus-moved-back');
-        await back.waitFor({ state: 'visible', timeout: T.step });
         if (!(await back.textContent()).includes('Tillbaka till')) throw new Error(`${item.key}: Tillbaka saknar årtal`);
         if (item.shot) await shot(item.shot);
 
         await back.click();
-        await hidden('#focus-bar');
+        // Tillbaka till 3000 f.Kr. ritar om lagerbilden igen (se ovan)
+        await page.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.load, polling: 250 });
         if (await yearNumber() !== beforeFocus) throw new Error(`${item.key}: Tillbaka återställde inte året`);
         for (const name of layerNames) {
           if (await page.locator(layerRow(name)).isChecked() !== layersDuringFocus[name]) {
