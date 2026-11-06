@@ -25,7 +25,8 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 - `religions.json` – religioner, områden och faktarutor.
 - `religions-polities.json` (#194) – rikenas gränser i religionslagret.
 - `styles.json` – bildstilar efter tid och plats.
-- `genererat/` (#337) – de uppdelade filer som sidan laddar.
+- `genererat/` (#337) – de uppdelade filer som sidan laddar, med en fil per språk ovanpå (#675).
+- `oversattning.json` (#675) – spärren mot oöversatta texter och registret över översättningar; skrivs av `tools/oversattning.py`, publiceras inte.
 - `land.json` och `borders.json` – grundkartan och dagens gränser.
 - `vyer.json` (#357) – grupper och förinställda vyer i Lager.
 
@@ -423,10 +424,11 @@ Sidan laddar inte `events.json` och `empires/index.json` direkt, utan mindre fil
 
 | Fil | Innehåll | Laddas |
 |---|---|---|
-| `handelser.json` | `periods` (periodernas id, första år `from` och fil) och `events`: alla händelser utan de långa fälten. `note` står kvar med bara sin rubrik (`note.title`), eftersom markören visar osäkerhet när rubriken är "Källorna skiljer sig" | vid start |
+| `handelser.json` | `periods` (periodernas id, första år `from` och fil), `translations` (språkfilerna, #675) och `events`: alla händelser utan de långa fälten. `note` står kvar med bara sin rubrik (`note.title`), eftersom markören visar osäkerhet när rubriken är "Källorna skiljer sig" | vid start |
 | `handelser-<period>.json` | `events`: { händelse-id: de långa fälten } för händelserna som **börjar** i perioden. De långa fälten är `summary`, `note`, `story`, `image`, `sources`, `wikidata` och valfria `evidence` (listan `DETAIL` i skriptet och `detail` i `handelser.json`) | när händelserna syns, en faktaruta öppnas eller man följer ett krig |
 | `riken.json` | `groups` som i `empires/index.json`, utan `facts`. Grupper med faktaruta har `hasFacts: true`. `polityFacts` (#301) står kvar, eftersom den är liten och kartans symboler behöver den | vid start |
 | `riken-fakta.json` | `facts`: { grupp-id: rikets `facts` } | vid första faktarutan om ett rike eller när man följer ett rike |
+| `<fil>.<språk>.json` | texterna på ett annat språk än svenska för filen ovan (#675), se [Texter per språk](#texter-per-språk-675) | tillsammans med grundfilen, bara på det språket och engelska |
 
 Perioderna efter startår: `fkr` (år 0 och tidigare), `1-1499`, `1500-1799`, `1800-1899`, `1900-1945`, `1946-1979` och `1980-`. Gränserna är valda så att filerna blir ungefär lika stora (40–120 kB) och ändras bara medvetet, eftersom filnamnen följer dem. En händelse hör till den sista perioden vars `from` är högst händelsens `start` (`period_of` i skriptet, `periodOf` i `js/model.js`). Ett krig och dess slag ligger oftast i samma period, men det spelar ingen roll: `loadEventDetails()` laddar alla perioder som händelserna behöver.
 
@@ -444,15 +446,24 @@ Gränssnittets texter, skilda från datans texter (beslut 2026-11-05, docs/beslu
 - Saknas en nyckel visas engelska, sedan svenska, som för datans texter.
 - Från 2026-11-06 läggs en ny nyckel i alla fem språkfilerna i samma pull request, och nytt innehåll översätts när det skapas (docs/beslut/2026-11-06-oversatt-samtidigt.md).
 
-### Texter per språk (förslag, inte genomfört)
+### Texter per språk (#675)
 
-I dag har nästan alla texter bara svenska (`sv`), och några namn har engelska (`en`). När fler språk kommer bör inte varje besökare ladda alla språk. Förslaget:
+Texter lagras per språk i samma post, `{ "sv": "…", "en": "…", "de": "…", "es": "…", "fr": "…" }`, så att en uppgift och dess översättningar redigeras och källkontrolleras på ett ställe. Svenska är grundspråket och finns alltid. Nytt innehåll översätts i samma pull request som det skapas (beslut 2026-11-06, docs/beslut/2026-11-06-oversatt-samtidigt.md).
 
-1. `tools/dela_data.py` skriver periodfilerna per språk: `handelser-<period>.json` med svenska (grundspråket, som alltid finns) och `handelser-<period>.<språk>.json` med bara det språkets texter, till exempel `{ "events": { "apollo-11": { "summary": { "en": "…" } } } }`. Samma sak för indexets `title` och `place` och för rikenas faktarutor.
-2. Sidan laddar grundfilen och, om besökaren har valt ett annat språk, språkets fil ovanpå. `mergeTexts()` i `js/model.js` slår redan ihop texterna på djupet, så att `{ "summary": { "en": … } }` läggs bredvid `sv` i stället för att ersätta den, och `t()` väljer språk och reservspråk som förut. Därför behöver `t()` inte ändras.
-3. Källfilerna behåller alla språk i samma post (`{ "sv": …, "en": … }`), så att en uppgift och dess översättningar redigeras och källkontrolleras på ett ställe.
+**Språkfiler i `genererat/`.** För att en besökare inte ska ladda alla språk skriver `tools/dela_data.py` grundfilerna med bara svenskan och varje annat språk i en egen fil ovanpå: `handelser.<språk>.json`, `handelser-<period>.<språk>.json`, `riken.<språk>.json` och `riken-fakta.<språk>.json`. En språkfil har samma nyckel som grundfilen (`events`, `groups`, `facts`) men som { id: bara språkets texter }, och en lista skrivs som ett objekt med platsen i listan som nyckel (`{ "items": { "6": { "label": { "en": "…" } } } }`). Filen skrivs bara när språket har minst en text där, och `translations` i `handelser.json` listar dem (`{ "en": ["handelser", "riken-fakta"] }`).
 
-Det görs när det finns texter på fler språk än svenska (#63, Version 5.2).
+- En text är ett objekt där alla nycklar är språk i `ui/sprak.json` och där svenskan finns. Andra objekt delas inte.
+- **Rikenas namn** (`name` i `riken.json`) står kvar på alla språk i grundfilen, eftersom de engelska namnen är Cliopatrias namn och sidan använder dem som nyckel (religionernas teckenförklaring).
+- Sidan (`js/model.js`) laddar på svenska inga språkfiler. På ett annat språk laddas det språkets filer och engelskans (reservspråket i `t()`), samtidigt som grundfilen, och `mergeTexts()` lägger texterna på posterna. Kan en språkfil inte laddas visas svenskan.
+- Övriga filer som sidan laddar direkt (fun facts, religioner, vägar, turer, introduktionen, upptäcktsvyn, vyer) har alla språk i samma fil; de är små.
+
+**Spärren och inaktuella översättningar: `oversattning.json`.** `tools/oversattning.py` läser alla datafiler med innehåll (utom poster med `review: "draft"`) och räknar per fil och språk hur många texter som saknar översättning. Filen har tre fält, och skrivs bara av skriptet:
+
+- `languages`: språken som baslinjen gäller. Ett nytt språk i `ui/sprak.json` börjar med det som finns.
+- `baseline`: { fil: { språk: antal oöversatta } }. Antalet får aldrig öka; en text utan översättning stoppar pull requesten.
+- `register`: { språk: ["svenska:översättning", …] }, korta kontrollsummor (SHA-1, åtta tecken) av den svenska texten och översättningen. Ändras svenskan men inte översättningen hittas översättningen i registret med en annan svensk text, och då är den **inaktuell** och stoppar pull requesten tills den är uppdaterad.
+
+Kör `python3 tools/oversattning.py` efter varje ändring i innehållet och checka in `data/oversattning.json`. `--check` kontrollerar utan att skriva (GitHub Actions kör det), och `--lista` visar varje oöversatt text. Undantagen `--tillat-okning` och `--godta-inaktuella` används bara med Rikards ok. Filen publiceras inte.
 
 ## `land.json` och `borders.json`: kartor
 

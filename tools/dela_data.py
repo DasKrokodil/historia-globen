@@ -28,8 +28,15 @@ De byggda filerna (docs/datamodell.md, "Redigeringsfiler" och "Uppdelade filer")
   riken-fakta.json          rikenas faktarutor och nyckelår, per grupp-id. Laddas när en faktaruta öppnas
                             eller när man följer ett rike.
 
-Texter per språk: fälten i en händelse slås ihop på djupet i webbläsaren (mergeTexts i js/model.js), så att
-en senare fil med bara engelska texter kan läggas ovanpå utan att de svenska försvinner (docs/datamodell.md).
+Texter per språk (#675, docs/datamodell.md): i redigeringsfilerna står alla språk i samma post
+({"sv": …, "en": …}). Händelsernas filer och rikenas faktarutor byggs med bara svenskan, och varje annat språk
+får en egen fil ovanpå med bara det språkets texter:
+  handelser.<språk>.json, handelser-<period>.<språk>.json, riken.<språk>.json, riken-fakta.<språk>.json
+Filerna skrivs bara när språket har minst en text där, och handelser.json listar dem i fältet translations.
+Sidan laddar bara det valda språkets filer (och engelska, som är reservspråket) och slår ihop dem på djupet
+(mergeTexts i js/model.js). En lista i en språkfil skrivs som ett objekt med platsen i listan som nyckel
+({"0": …}), så att bara texterna läggs ovanpå. Rikenas namn (fältet name) står kvar på alla språk i riken.json,
+eftersom de engelska namnen är Cliopatrias namn och används som nyckel i sidan (EMPIRE_KEEP).
 """
 import json
 import sys
@@ -53,6 +60,11 @@ PERIODS = [
     ('1980-', 1980),       # 1946- delades 2026-11-05 (#611) när filen blev 139 kB
 ]
 
+LANGS_FILE = 'data/ui/sprak.json'  # språken; svenska är grundspråket
+BASE_LANG = 'sv'
+# Rikenas namn står kvar på alla språk i riken.json: de engelska namnen är Cliopatrias namn, och sidan använder
+# dem som nyckel (religionernas teckenförklaring i js/main.js). Namnen är korta.
+EMPIRE_KEEP = ('name',)
 SRC = 'data/handelser'  # redigeringsfilerna för händelser (#394)
 EVENTS = 'data/events.json'
 OUT = 'data/genererat'
@@ -75,6 +87,51 @@ def period_of(start):
         if frm is None or start >= frm:
             pid = p
     return pid
+
+
+def is_text(v, langs):
+    """En text per språk: ett objekt vars nycklar alla är språk och som har svenska."""
+    return (isinstance(v, dict) and BASE_LANG in v and all(k in langs for k in v)
+            and all(isinstance(x, (str, list)) for x in v.values()))
+
+
+def split_texts(v, langs, keep=()):
+    """(värdet med bara svenskan, {språk: bara det språkets texter}). Listor blir {"index": …} i språkfilerna.
+
+    keep = fältnamn vars texter står kvar med alla språk i grundfilen (rikenas name, se nedan)."""
+    if is_text(v, langs):
+        return {BASE_LANG: v[BASE_LANG]}, {k: {k: x} for k, x in v.items() if k != BASE_LANG}
+    if isinstance(v, (dict, list)):
+        items = v.items() if isinstance(v, dict) else ((str(i), x) for i, x in enumerate(v))
+        base, extra = ({} if isinstance(v, dict) else []), {}
+        for k, x in items:
+            if k in keep and isinstance(v, dict):
+                b, ex = x, {}
+            else:
+                b, ex = split_texts(x, langs, keep)
+            if isinstance(base, dict):
+                base[k] = b
+            else:
+                base.append(b)
+            for lang, part in ex.items():
+                extra.setdefault(lang, {})[k] = part
+        return base, extra
+    return v, {}
+
+
+def split_items(items, langs, keep=()):
+    """{id: post} -> ({id: post med bara svenskan}, {språk: {id: språkets texter}})."""
+    base, extra = {}, {}
+    for k, v in items.items():
+        base[k], ex = split_texts(v, langs, keep)
+        for lang, part in ex.items():
+            extra.setdefault(lang, {})[k] = part
+    return base, extra
+
+
+def read_langs(root):
+    doc = json.loads((Path(root) / LANGS_FILE).read_text(encoding='utf-8'))
+    return [lang['id'] for lang in doc['languages']]
 
 
 def src_file(pid):
@@ -136,10 +193,17 @@ def read_events(root):
     return events, errors
 
 
-def build_from(events, empires):
+def build_from(events, empires, langs=(BASE_LANG,)):
     """data/events.json och de uppdelade filerna som {relativ sökväg: innehåll}."""
     out = {EVENTS: dump_lines({'schema': SCHEMA, 'note': NOTE.format(src=f'{SRC}/<period>.json'),
                                'notes': EVENTS_NOTES}, 'events', events)}
+    langs = set(langs) | {BASE_LANG}
+    translations = {}  # {språk: [filnamn utan .json]}
+
+    def extra_files(stem, key, extra, head):
+        for lang in sorted(extra):
+            translations.setdefault(lang, []).append(stem)
+            out[f'{OUT}/{stem}.{lang}.json'] = dump_lines({**head, 'lang': lang}, key, extra[lang])
 
     index, details = [], {p: {} for p, _ in PERIODS}
     for e in events:
@@ -148,12 +212,14 @@ def build_from(events, empires):
             light['note'] = {'title': e['note']['title']}
         index.append(light)
         details[period_of(e['start'])][e['id']] = {k: e[k] for k in DETAIL if k in e}
+    index_base, index_extra = split_items({e['id']: e for e in index}, langs)
     periods = [{'id': p, 'from': frm, 'file': f'{OUT}/handelser-{p}.json'} for p, frm in PERIODS]
-    out[f'{OUT}/handelser.json'] = dump_lines(
-        {'note': NOTE.format(src=EVENTS), 'detail': DETAIL, 'periods': periods}, 'events', index)
+    head = {'note': NOTE.format(src=EVENTS)}
+    extra_files('handelser', 'events', index_extra, head)
     for p, _ in PERIODS:
-        out[f'{OUT}/handelser-{p}.json'] = dump_lines(
-            {'note': NOTE.format(src=EVENTS), 'period': p}, 'events', details[p])
+        base, extra = split_items(details[p], langs)
+        out[f'{OUT}/handelser-{p}.json'] = dump_lines({**head, 'period': p}, 'events', base)
+        extra_files(f'handelser-{p}', 'events', extra, {**head, 'period': p})
 
     groups, facts = [], {}
     for g in empires['groups']:
@@ -162,8 +228,19 @@ def build_from(events, empires):
             light['hasFacts'] = True
             facts[g['id']] = g['facts']
         groups.append(light)
-    out[f'{OUT}/riken.json'] = dump_lines({'note': NOTE.format(src='data/empires/index.json')}, 'groups', groups)
-    out[f'{OUT}/riken-fakta.json'] = dump_lines({'note': NOTE.format(src='data/empires/index.json')}, 'facts', facts)
+    head = {'note': NOTE.format(src='data/empires/index.json')}
+    groups_base, groups_extra = split_items({g['id']: g for g in groups}, langs, keep=EMPIRE_KEEP)
+    out[f'{OUT}/riken.json'] = dump_lines(head, 'groups', list(groups_base.values()))
+    extra_files('riken', 'groups', groups_extra, head)
+    facts_base, facts_extra = split_items(facts, langs)
+    out[f'{OUT}/riken-fakta.json'] = dump_lines(head, 'facts', facts_base)
+    extra_files('riken-fakta', 'facts', facts_extra, head)
+
+    # Indexet skrivs sist, eftersom det listar språkfilerna (translations)
+    out[f'{OUT}/handelser.json'] = dump_lines(
+        {'note': NOTE.format(src=EVENTS), 'detail': DETAIL, 'periods': periods,
+         'translations': {lang: translations[lang] for lang in sorted(translations)}},
+        'events', list(index_base.values()))
     return out
 
 
@@ -172,7 +249,7 @@ def build(root):
     root = Path(root)
     events, errors = read_events(root)
     empires = json.loads((root / 'data/empires/index.json').read_text(encoding='utf-8'))
-    return build_from(events, empires), errors
+    return build_from(events, empires, read_langs(root)), errors
 
 
 def check(root, gen_root=None):

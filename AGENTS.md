@@ -88,6 +88,7 @@ Enligt CLAUDE.md, "Testa innan du är klar":
 - `python3 -m json.tool` på ändrade JSON-filer. Händelser redigeras i `data/handelser/<period>.json`, inte i `data/events.json` (#394). Har du ändrat en fil i `data/handelser/` eller `data/empires/index.json`: kör `python3 tools/dela_data.py` och checka in `data/events.json` och `data/genererat/`.
 - Webbläsartestet `tests/webblasare.mjs` (Playwright, körs i GitHub Actions för varje pull request): inga konsolfel, ingen horisontell scroll vid 400 px. Kör det lokalt när du ändrar sådant som syns på sidan (`index.html`, `js/`, `css/`, `data/`, `images/`, `_headers`). Ändrar du bara dokumentation (till exempel `AGENTS.md`, `CLAUDE.md`, `README.md`, `docs/`, `.orchestra/project.md`) behövs det inte lokalt: läs igenom diffen och kontrollera länkarna (testnivån "Riktad" i `.orchestra/project.md`).
 - Ändras `functions/` eller formuläret: `node --test 'tests/*.test.mjs'`.
+- Ändras innehåll i `data/`: `python3 tools/oversattning.py` och checka in `data/oversattning.json` (#675). Den stoppar ny text utan översättning och inaktuella översättningar; GitHub Actions kör `--check`.
 - **Testa beteendet, inte bara att inget kraschar** (lärdom av #442, #450 och #493, där testerna var gröna men något ändå var fel):
   - **Menyer och fokus:** var hamnar tangentbordsfokus när en meny, ruta eller ett kort stängs? Det ska vara en synlig knapp.
   - **Animationer:** fortsätter det som ska röra sig (till exempel den valda markörens puls) att röra sig även när inget annat ändras?

@@ -70,7 +70,8 @@ data/licenses.json    genererat register över källornas licensuppgifter (#393)
 data/land.json        grundkarta: Natural Earth 1:50m, färdigprojicerad SVG-path i 4096×2048
 data/empires/         riken: index.json och en fil per rike, byggs med tools/riken.py ur Cliopatria
 data/routes/          vägar och resor: index.json listar filerna, en fil per resa eller väg (#38)
-data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar (#337); skrivs av tools/dela_data.py, redigeras inte
+data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar (#337), med en fil per språk ovanpå (#675); skrivs av tools/dela_data.py, redigeras inte
+data/oversattning.json spärren mot oöversatta texter och registret över översättningar (#675); skrivs av tools/oversattning.py, publiceras inte
 data/upptackt.json    upptäcktsvyn: perspektivrad, dimma och kartbilder (#101)
 data/vyer.json        grupperna och de förinställda vyerna i Lager (#357)
 data/ui/              gränssnittets texter: sprak.json (språken, vem som översatte och granskade) och en fil per språk (#63)
@@ -154,7 +155,7 @@ Rikard gillar stilen. Behåll den:
 
 1. `python3 -m http.server 8000` och öppna http://localhost:8000.
 2. Inga fel i konsolen. Globen snurrar, tidslinjen går att dra, uppspelning fungerar, fun facts dyker upp, "Platt vy" och "Källor" (sidan Om källorna) öppnas.
-3. Kontrollera all JSON (`python3 -m json.tool data/*.json`) och att varje `sources`-id finns i `sources.json` och varje händelse-id i `funfacts.json` finns i `events.json`. Händelser redigeras i `data/handelser/<period>.json` (perioden efter startåret), inte i `events.json` (#394). Har du ändrat en fil i `data/handelser/` eller `data/empires/index.json`: kör `python3 tools/dela_data.py` och checka in `data/events.json` och `data/genererat/` (sidan läser de uppdelade filerna, #337).
+3. Kontrollera all JSON (`python3 -m json.tool data/*.json`) och att varje `sources`-id finns i `sources.json` och varje händelse-id i `funfacts.json` finns i `events.json`. Händelser redigeras i `data/handelser/<period>.json` (perioden efter startåret), inte i `events.json` (#394). Har du ändrat en fil i `data/handelser/` eller `data/empires/index.json`: kör `python3 tools/dela_data.py` och checka in `data/events.json` och `data/genererat/` (sidan läser de uppdelade filerna, #337). Har du ändrat innehåll: kör `python3 tools/oversattning.py` och checka in `data/oversattning.json` (#675); den stoppar ny text utan översättning och inaktuella översättningar.
 4. Testa både desktop och mobilbredd.
 5. Ändras formuläret för förslag eller `functions/`: kör `node --test 'tests/*.test.mjs'` (se docs/feedback.md).
 6. **Röd kontroll (beslut 2026-11-05, skärpt samma dag):** läs loggen och hitta den första felande kontrollen, rätta högst en gång och bara om felet är trivialt (kör bara den felande kontrollen: `ENDAST="<del av namnet>" node tests/webblasare.mjs <port>`), annars lämna en överlämningsrapport och sätt `behöver hjälp` (Codex och Copilot gör så, och Claude Code tar över vid kökontrollen). Se [AGENTS.md](AGENTS.md#röd-kontroll-eller-slut-på-tid-samma-regel-för-alla-agenter-beslut-2026-11-05-skärpt-samma-dag).

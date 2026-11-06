@@ -279,16 +279,45 @@ async function getJSON(path) {
 
 const isPlain = v => v != null && typeof v === 'object' && !Array.isArray(v);
 /**
- * Lägger fälten i src på target, och slår ihop objekt på djupet (texter per språk, #337). En fil med bara
+ * Lägger fälten i src på target, och slår ihop objekt på djupet (texter per språk, #337, #675). En fil med bara
  * engelska texter ({ title: { en } }) kan då läggas ovanpå en med svenska utan att de svenska försvinner,
- * och t() väljer språk som förut. Listor (källor, berättelsens parter) ersätts i stället för att slås ihop.
+ * och t() väljer språk som förut. Ett objekt ovanpå en lista ({ "2": { label: { en } } }) slås ihop med posten
+ * på den platsen i listan, så att en språkfil kan översätta texter i en lista (tools/dela_data.py). Annars
+ * ersätts listor (källor, berättelsens parter).
  */
 export function mergeTexts(target, src) {
   for (const [k, v] of Object.entries(src)) {
     if (isPlain(v) && isPlain(target[k])) mergeTexts(target[k], v);
-    else target[k] = v;
+    else if (isPlain(v) && Array.isArray(target[k])) {
+      for (const [i, part] of Object.entries(v)) {
+        if (isPlain(part) && isPlain(target[k][i])) mergeTexts(target[k][i], part);
+        else target[k][i] = part;
+      }
+    } else target[k] = v;
   }
   return target;
+}
+
+// Språkfilerna (#675): tools/dela_data.py skriver svenskan i grundfilerna och varje annat språk i en egen fil
+// ovanpå (handelser-fkr.en.json …), listade i fältet translations i handelser.json. Sidan laddar bara det valda
+// språket och engelska, som är reservspråket i t(). På svenska laddas inga språkfiler, eftersom varje text som
+// delas upp har svenska. Kan en språkfil inte laddas visas svenskan i stället.
+const TEXT_LANGS = LANG === 'sv' ? [] : [...new Set([LANG, ...FALLBACK])].filter(l => l !== 'sv');
+let translations = {};
+function languageFiles(file) {
+  const stem = file.replace(/^.*\//, '').replace(/\.json$/, '');
+  return Promise.all(TEXT_LANGS.filter(l => translations[l]?.includes(stem)).map(l =>
+    getJSON(file.replace(/\.json$/, `.${l}.json`))
+      .catch(err => { console.warn(`Texterna på ${l} kunde inte laddas (${file})`, err); return null; })));
+}
+/** Lägger språkfilernas texter (doc[key] = { id: texter }) på posterna; target(id) ger posten. */
+function mergeLanguages(docs, key, target) {
+  for (const doc of docs) {
+    for (const [id, fields] of Object.entries(doc?.[key] ?? {})) {
+      const t = target(id);
+      if (t) mergeTexts(t, fields);
+    }
+  }
 }
 
 let DATA = null; // det loadAll() returnerade; de senare laddningarna fyller i samma objekt
@@ -305,6 +334,13 @@ export async function loadAll() {
     getJSON('data/bildlager.json').catch(err => { console.warn('Bildlagren kunde inte laddas', err); return { layers: [] }; }),
   ]);
   const byId = Object.fromEntries(events.events.map(e => [e.id, e]));
+  // Språkfilerna för händelserna och rikena (#675) läggs på innan något annat räknas ut
+  translations = events.translations ?? {};
+  const groupsById = Object.fromEntries(empires.groups.map(g => [g.id, g]));
+  const [eventLangs, empireLangs] = await Promise.all([
+    languageFiles('data/genererat/handelser.json'), languageFiles('data/genererat/riken.json')]);
+  mergeLanguages(eventLangs, 'events', id => byId[id]);
+  mergeLanguages(empireLangs, 'groups', id => groupsById[id]);
   // Pågående (#223): end i datan är året då läget senast kontrollerades; det räknas till i år enligt datorns klocka
   // Det gäller också andra händelser som pågår, med öppet slut i edtf ("1096/..", till exempel Oxford, #229)
   for (const e of events.events) if (e.ongoing || /\/\.\.$/.test(e.edtf ?? '')) e.end = Math.max(e.end, new Date().getFullYear());
@@ -317,11 +353,10 @@ export async function loadAll() {
   for (const e of events.events) e._battles?.sort((a, b) => a.start - b.start || (a.edtf < b.edtf ? -1 : 1));
   // Krig och riken (#76): kriget anger rikena i empires (grupp-id i empires/index.json). Slagen ärver dem via
   // partOf (e._war._empires). Varje rike får sina krig i tidsordning i g._wars.
-  const groupById = Object.fromEntries(empires.groups.map(g => [g.id, g]));
   for (const g of empires.groups) g._wars = [];
   for (const e of events.events) {
     if (e.kind !== 'war' || !Array.isArray(e.empires)) continue;
-    e._empires = e.empires.map(id => groupById[id]).filter(Boolean);
+    e._empires = e.empires.map(id => groupsById[id]).filter(Boolean);
     for (const g of e._empires) g._wars.push(e);
   }
   for (const g of empires.groups) g._wars.sort((a, b) => a.start - b.start || a.end - b.end);
@@ -361,8 +396,9 @@ function periodOf(e) {
 const periodFiles = new Map();
 function loadPeriod(p) {
   if (!periodFiles.has(p.id)) {
-    periodFiles.set(p.id, getJSON(p.file).then(doc => {
+    periodFiles.set(p.id, Promise.all([getJSON(p.file), languageFiles(p.file)]).then(([doc, langs]) => {
       for (const [id, fields] of Object.entries(doc.events)) if (DATA.byId[id]) mergeTexts(DATA.byId[id], fields);
+      mergeLanguages(langs, 'events', id => DATA.byId[id]);
       // Alla händelser i perioden räknas som klara, också en som saknas i filen, så att ingen väntar i en evig loop
       for (const e of DATA.events) if (periodOf(e) === p) e._full = true;
     }).catch(err => { periodFiles.delete(p.id); throw err; }));
@@ -397,8 +433,10 @@ export function needDetails(events = [], { sources = true } = {}) {
 /** Rikenas faktarutor (data/genererat/riken-fakta.json): fyller i facts i varje grupp som har hasFacts. */
 let empireFactsPromise = null;
 export function loadEmpireFacts() {
-  empireFactsPromise ??= getJSON('data/genererat/riken-fakta.json').then(doc => {
+  const file = 'data/genererat/riken-fakta.json';
+  empireFactsPromise ??= Promise.all([getJSON(file), languageFiles(file)]).then(([doc, langs]) => {
     for (const g of DATA.empireGroups) if (doc.facts[g.id]) g.facts = doc.facts[g.id];
+    mergeLanguages(langs, 'facts', id => DATA.empireGroups.find(g => g.id === id)?.facts);
   }).catch(err => { empireFactsPromise = null; throw err; });
   return empireFactsPromise;
 }
