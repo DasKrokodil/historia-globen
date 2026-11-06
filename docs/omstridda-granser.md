@@ -26,6 +26,7 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 | 11. Kashmir | Ingen uttalad hållning hittad; UD skriver "indiska unionsterritoriet Jammu och Kashmir" och "den Pakistan-kontrollerade delen av Kashmir" | Delat mellan Indien, Pakistan och Kina | `indien`, `pakistan` | **Gjort 2026-11-06:** Cliopatrias linjer med not |
 | 12. Nagorno-Karabach | Azerbajdzjan återupprättade sin kontroll hösten 2023; den armeniska befolkningen flydde | Armenien, även 2024 | inget ännu | Omstritt till 2022, Azerbajdzjan från 2023 (svar 7) |
 | 13. Somaliland | Ingen text om Somaliland på UD:s sida om Somalia | Somalia | inget ännu | Stämmer, inget att ändra |
+| 14. Östtimor | Indonesiens ockupation 1975 erkändes aldrig av Sverige; självständigt 2002 | Indonesien 1976–2005, egen stat från 2006 | `indonesien`, `osttimor` | **Gjort 2026-11-06:** utan stat 1976–2001, Östtimor från 2002, med not |
 
 ## Fallen ett och ett
 
@@ -119,6 +120,13 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 - **Källa:** [Somalia, regeringen.se](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/afrika/somalia/), kontrollerad 2026-11-06.
 - **Cliopatria:** en punkt vid Hargeisa hör till Somalia (Federal Republic of Somalia) 2013–2024.
 - **Förslag:** ingen ändring och ingen not, eftersom kartan inte ritar något som UD säger emot.
+
+### 14. Östtimor
+- **Sveriges hållning:** UD skriver att Sverige aldrig erkände Indonesiens ockupation av den forna portugisiska kolonin 1975, att Östtimor blev självständigt 2002 efter ett par år som FN-protektorat, och att Sverige upprättade diplomatiska förbindelser med landet 2002.
+- **Källa:** [Östtimor, regeringen.se](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/asien-och-oceanien/osttimor/), kontrollerad 2026-11-06.
+- **Andra källan:** FN:s sidor om [UNTAET](https://peacekeeping.un.org/en/mission/past/etimor/etimor.htm) och [bakgrunden](https://peacekeeping.un.org/en/mission/past/etimor/UntaetB.htm) säger att Indonesien tog in Östtimor som provins 1976 och att FN aldrig erkände det, att FN:s övergångsförvaltning UNTAET inrättades 25 oktober 1999, och att Östtimor blev självständigt 20 maj 2002. Kontrollerade 2026-11-06. FN:s medlemslista anger att landet blev medlem 27 september 2002.
+- **Cliopatria:** området hör till Indonesien (Republic of Indonesia) 1976–2005 och är en egen stat (East Timor) från 2006. Wikidata (Q574) anger 28 november 1975 som startdatum. Källorna skiljer sig alltså, och det står i noten.
+- **Gjort (2026-11-06, femtonde omgången nutida stater):** området (Indonesiens gräns 2005 minus gränsen 2006 i Cliopatria) räknas aldrig till Indonesien från 1976, visas utan stat 1976–2001 (som Golanhöjderna) och som Östtimor från 2002 (`DISPUTED` i `tools/riken.py`). Åren 2002–2005 har Östtimor samma gräns. Noten i rutan Om kartan för Östtimor och Indonesien finns på alla fem språken, med UD:s och FN:s sidor som källor. Hållningen är tydlig, så den här gången behövdes ingen fråga till Rikard; väljer han hellre att visa området på annat sätt 1976–2001 ändras bara `DISPUTED`.
 
 ## Frågor till Rikard (2026-11-06, besvarade)
 

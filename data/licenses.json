@@ -1494,6 +1494,12 @@
       ]
     },
     {
+      "license": "Förenta nationerna (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "un-untaet"
+      ]
+    },
+    {
       "license": "No known restrictions on publication",
       "sourceIds": [
         "loc-eiffel-campanile-1889",
@@ -1658,6 +1664,7 @@
         "ud-kina",
         "ud-kosovo",
         "ud-moldavien",
+        "ud-osttimor",
         "ud-palestina",
         "ud-taiwan",
         "ud-ukraina",
