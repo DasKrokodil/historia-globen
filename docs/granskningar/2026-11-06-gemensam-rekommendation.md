@@ -66,8 +66,14 @@ Rikard godkände planen. `handoff.json` har status `triaged`.
 - `data/ui/` och `js/ui/funfact.js`: #671 och #706 → #670 → #672 → #673 → #674.
 - `data/oversattning.json` och `data/genererat/`: PR #705 (rikena) → första omgången av #676 (engelska, bara Claude Code; Codex korsgranskar).
 
-**Beslut som väntar på Rikard:** #707, #709, #613, #571, #630, #466.
+**Rikards beslut (samma dag), alla enligt dirigentens rekommendation:**
+- #707: Cloudflare Web Analytics stängs av, CSP blir skarp (`redo`). #466 stängd, beslutet från 2026-11-02 står fast.
+- #709: Sök och följ minns bara sorteringen (väntar på #671).
+- #613: anteckningstyper `note.kind` (Claude Code; väntar på PR #705), milstolpe Version 6.
+- #571: inget bygge; Rikard gör ett användartest efter #706 (etikett `användartest`).
+- #630: Mikronesien och Rapa Nui räknas till Oceanien (`redo`).
+- Beslutsfiler i `docs/beslut/`: `2026-11-06-anteckningstyper-613.md`, `2026-11-06-ingen-tredjepartsstatistik-skarp-csp.md`, `2026-11-06-varldsdelar-geografi-630.md`.
 
-**Milstolpar:** nya milstolpar kan inte skapas från den här sessionen. Förslaget är två nya: "Version 5.1d: Stabilisering" (#692, #702, #706, #707, #708; exit-test: 360 × 640 och 400 × 800 utan överlapp, tangentbord och zoom, mätt hopp utan grafikkort) och ett parallellt spår "Språk: översättning" (#63, #670–#679). Då blir Version 5.2 bara sök, delning och introduktion (#15, #569, #579). Tills dess ligger de nya stabiliseringsissuena i "Senare: teknik" och #709 i "Senare: beslut krävs".
+**Milstolpar:** Rikard skapade två nya, och issuena är flyttade: "Version 5.1d: Stabilisering" (#692, #702, #706, #707, #708; exit-test: 360 × 640 och 400 × 800 utan överlapp, tangentbord och zoom, mätt hopp utan grafikkort) och ett parallellt spår "Språk: översättning" (#63, #670–#679). Då blir Version 5.2 bara sök, delning och introduktion (#15, #569, #579). #630 och #709 ligger också i 5.1d.
 
 **Att kontrollera:** den svarta rutan över globen i mobil i headless-testet ska jämföras med en riktig telefon vid nästa UX-genomgång innan ett issue skapas.
