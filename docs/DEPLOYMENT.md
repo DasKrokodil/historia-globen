@@ -172,7 +172,7 @@ Webbläsartestet väljer den publicerade sidan med `BASE_URL=https://historiaglo
 
 ### Webbläsartest (#339)
 
-`.github/workflows/browser-test.yml`, **Webbläsartest**, körs vid samma tillfällen som valideringen (push till `main`, pull requests mot `main` och `production`). Vid push till `main` och pull requests mot `main` körs bara jobbet **"Öppna sidan i Chromium"**. En release-PR mot `production` kör samma test parallellt i **Chromium, Firefox och WebKit** (#401), så att även Firefox och Safaris webbläsarmotor provas före release. Varje jobb:
+`.github/workflows/browser-test.yml`, **Webbläsartest**, körs vid samma tillfällen som valideringen (push till `main`, pull requests mot `main` och `production`). Vid push till `main` och pull requests mot `main` körs bara jobbet **"Öppna sidan i Chromium"**. En release-PR mot `production` kör samma test parallellt i **Chromium, Firefox och WebKit** (#401), så att även Firefox och Safaris webbläsarmotor provas före release. En pull request mot `main` med etiketten **`alla-webbläsare`** kör också alla tre från nästa push (#702), så att en rättning för Firefox eller WebKit kan provas utan en release-PR. Firefox startas med inställningar som tillåter WebGL i mjukvara, eftersom Actions saknar grafikkort. Varje jobb:
 
 1. bygger `dist/` med `scripts/build-site.sh`
 2. installerar Playwright 1.63.0 (exakt version) och den aktuella webbläsarmotorn i en tillfällig mapp utanför repot, så att repot inte får någon `package.json` och `dist/` inte påverkas

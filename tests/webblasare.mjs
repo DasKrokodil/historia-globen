@@ -87,6 +87,17 @@ function installPixelHelpers() {
   return window.__hgTestPixels;
 }
 
+// Felraden för en kontroll (#702): första raden i felet, vad Playwright väntade på och raden i testet där det
+// hände. Förr syntes bara "page.waitForFunction: Timeout 15000ms exceeded.", och det gick inte att se vilken väntan
+// i kontrollen som hängde utan skärmbilderna.
+function failNote(e) {
+  const lines = String(e?.message ?? e).replace(/\u001b\[\d+m/g, '').split('\n');
+  const waiting = lines.find(l => /^\s*-\s*waiting for /.test(l))?.replace(/^\s*-\s*/, '').trim();
+  // Hjälparna (visible, hidden …) ligger också i filen, så de tre första raderna visas: hjälparen och kontrollen
+  const here = [...new Set(String(e?.stack ?? '').split('\n').map(l => l.match(/webblasare\.mjs:(\d+):\d+/)?.[1]).filter(Boolean))].slice(0, 3);
+  return [lines[0], waiting && `(${waiting})`, here.length && `[rad ${here.join(', ')}]`].filter(Boolean).join(' ');
+}
+
 async function run(browser, vp) {
   const results = [];
   const errors = [];
@@ -147,7 +158,7 @@ async function run(browser, vp) {
       const note = await fn();
       results.push({ name, ok: true, ms: Date.now() - t0, note });
     } catch (e) {
-      results.push({ name, ok: false, ms: Date.now() - t0, note: String(e.message).split('\n')[0] });
+      results.push({ name, ok: false, ms: Date.now() - t0, note: failNote(e) });
       await shot(`FEL-${name.replace(/[^a-zåäö0-9]+/gi, '-')}`).catch(() => {});
       await page.keyboard.press('Escape').catch(() => {});
     }
@@ -2636,9 +2647,15 @@ async function runPresentation(browser) {
 }
 
 const t0 = Date.now();
-const browser = await browserType.launch(BROWSER === 'chromium'
-  ? { args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader'] }
-  : {});
+// Ingen av webbläsarna har ett grafikkort i GitHub Actions. Chromium ritar WebGL med SwiftShader. Firefox vägrar
+// annars skapa WebGL med en mjukvarudrivrutin ("Exhausted GL driver options", #702); webgl.force-enabled tillåter
+// det, och WebGL körs i samma process, eftersom GPU-processen inte startar utan grafikkort. Bara testmiljön ändras.
+const LAUNCH = {
+  chromium: { args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader'] },
+  firefox: { firefoxUserPrefs: { 'webgl.force-enabled': true, 'webgl.disabled': false, 'webgl.out-of-process': false } },
+  webkit: {},
+};
+const browser = await browserType.launch(LAUNCH[BROWSER]);
 let failed = 0;
 try {
   for (const vp of VIEWPORTS) {
