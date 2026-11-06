@@ -14,15 +14,30 @@
     {
       "eventId": "arabiska-varen",
       "eventTitle": "Arabiska våren",
-      "file": "images/events/tsunamin-i-indiska-oceanen-2004.webp",
+      "file": "images/events/arabiska-varen.webp",
       "kind": "historisk",
-      "credit": "Philip A. McDaniel, U.S. Navy / Wikimedia Commons",
-      "license": "Public domain",
+      "credit": "Chris Belsten / Wikimedia Commons",
+      "license": "CC BY 2.0",
       "source": {
-        "id": "commons-bild-tsunamin-i-indiska-oceanen-2004",
-        "title": "By nära Sumatras kust efter tsunamin, 2 januari 2005 (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:US_Navy_050102-N-9593M-040_A_village_near_the_coast_of_Sumatra_lays_in_ruin_after_the_Tsunami_that_struck_South_East_Asia.jpg",
-        "license": "Public domain",
+        "id": "commons-bild-arabiska-varen",
+        "title": "Demonstration i Tunis, 20 januari 2011 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tunisian_Revolution_Protest.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "attackerna-11-september-2001",
+      "eventTitle": "Terrorattackerna den 11 september",
+      "file": "images/events/attackerna-11-september-2001.webp",
+      "kind": "historisk",
+      "credit": "Michael Foran / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-attackerna-11-september-2001",
+        "title": "Rök över World Trade Center, 11 september 2001 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:WTC_smoking_on_9-11.jpeg",
+        "license": "CC BY 2.0",
         "checked": "2026-11-05"
       }
     },
@@ -128,15 +143,30 @@
     {
       "eventId": "berlinmuren-byggs",
       "eventTitle": "Berlinmuren byggs",
-      "file": "images/events/keelingkurvan.webp",
+      "file": "images/events/berlinmuren-byggs.webp",
       "kind": "historisk",
-      "credit": "John Miller, NOAA / Wikimedia Commons",
+      "credit": "U.S. National Archives / Wikimedia Commons",
       "license": "Public domain",
       "source": {
-        "id": "commons-bild-keelingkurvan",
-        "title": "Keeling och Chin vid Mauna Loa-observatoriet, 1997 (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Charles_David_Keeling_and_John_Chin_at_Mauna_Loa_Observatory_in_1997.jpg",
+        "id": "commons-bild-berlinmuren-byggs",
+        "title": "Berlinmuren byggs, 20 november 1961 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Berlin_Wall_1961-11-20.jpg",
         "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "berlinmurens-fall",
+      "eventTitle": "Berlinmuren faller",
+      "file": "images/events/berlinmurens-fall.webp",
+      "kind": "historisk",
+      "credit": "Bundesarchiv, Bild 183-1989-1110-018 / Klaus Oberst / Wikimedia Commons",
+      "license": "CC BY-SA 3.0 DE",
+      "source": {
+        "id": "commons-bild-berlinmurens-fall",
+        "title": "Checkpoint Charlie natten då muren öppnades, 10 november 1989 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-1989-1110-018%2C_Berlin%2C_Checkpoint_Charlie%2C_Nacht_des_Mauerfalls.jpg",
+        "license": "CC BY-SA 3.0 DE",
         "checked": "2026-11-05"
       }
     },
@@ -267,6 +297,21 @@
       "source": null
     },
     {
+      "eventId": "dna-strukturen",
+      "eventTitle": "DNA-molekylens dubbelspiral",
+      "file": "images/events/dna-strukturen.webp",
+      "kind": "historisk",
+      "credit": "Alkivar / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-dna-strukturen",
+        "title": "Crick och Watsons DNA-modell, Science Museum (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:DNA_Model_Crick-Watson.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
       "eventId": "eiffeltornet",
       "eventTitle": "Eiffeltornet står klart",
       "file": "images/events/eiffeltornet.webp",
@@ -289,6 +334,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "finanskrisen-2008",
+      "eventTitle": "Finanskrisen",
+      "file": "images/events/finanskrisen-2008.webp",
+      "kind": "historisk",
+      "credit": "Robert Scoble / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-finanskrisen-2008",
+        "title": "Lehman Brothers huvudkontor, 15 september 2008 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lehman_Brothers-NYC-20080915.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-05"
+      }
     },
     {
       "eventId": "fn-grundas",
@@ -323,15 +383,15 @@
     {
       "eventId": "gagarin-vostok-1",
       "eventTitle": "Jurij Gagarin blir första människan i rymden",
-      "file": "images/events/manskliga-rattigheter-1948.webp",
+      "file": "images/events/gagarin-vostok-1.webp",
       "kind": "historisk",
-      "credit": "FDR Presidential Library & Museum / Wikimedia Commons",
-      "license": "CC BY 2.0",
+      "credit": "TASS / Mos.ru via Wikimedia Commons",
+      "license": "CC BY 4.0",
       "source": {
-        "id": "commons-bild-manskliga-rattigheter-1948",
-        "title": "Eleanor Roosevelt med förklaringen om de mänskliga rättigheterna, 1949 (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Eleanor_Roosevelt_UDHR.jpg",
-        "license": "CC BY 2.0",
+        "id": "commons-bild-gagarin-vostok-1",
+        "title": "Kosmonauten Jurij Gagarin, 1961 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:%D0%9A%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82_%D0%AE%D1%80%D0%B8%D0%B9_%D0%93%D0%B0%D0%B3%D0%B0%D1%80%D0%B8%D0%BD_%28cropped%29.jpg",
+        "license": "CC BY 4.0",
         "checked": "2026-11-05"
       }
     },
@@ -567,6 +627,21 @@
       }
     },
     {
+      "eventId": "jordbavningen-i-valdivia-1960",
+      "eventTitle": "Jordbävningen i Valdivia, den kraftigaste som har mätts",
+      "file": "images/events/jordbavningen-i-valdivia-1960.webp",
+      "kind": "historisk",
+      "credit": "Pierre St. Amand / NOAA via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-jordbavningen-i-valdivia-1960",
+        "title": "Valdivia efter jordbävningen 1960 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Valdivia_after_earthquake%2C_1960.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
       "eventId": "kalinga-erovras",
       "eventTitle": "Ashoka erövrar Kalinga",
       "file": "images/events/kalinga-erovras.webp",
@@ -574,6 +649,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "keelingkurvan",
+      "eventTitle": "Koldioxiden mäts på Mauna Loa: Keelingkurvan",
+      "file": "images/events/keelingkurvan.webp",
+      "kind": "historisk",
+      "credit": "John Miller, NOAA / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-keelingkurvan",
+        "title": "Keeling och Chin vid Mauna Loa-observatoriet, 1997 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Charles_David_Keeling_and_John_Chin_at_Mauna_Loa_Observatory_in_1997.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
+      }
     },
     {
       "eventId": "khorramshahr-aterorovras-1982",
@@ -656,15 +746,15 @@
     {
       "eventId": "kulturrevolutionen",
       "eventTitle": "Kulturrevolutionen i Kina",
-      "file": "images/events/marschen-till-washington.webp",
+      "file": "images/events/kulturrevolutionen.webp",
       "kind": "historisk",
-      "credit": "Rowland Scherman, U.S. Information Agency / National Archives via Wikimedia Commons",
-      "license": "Public domain",
+      "credit": "Shizhao / Wikimedia Commons",
+      "license": "CC BY 1.0",
       "source": {
-        "id": "commons-bild-marschen-till-washington",
-        "title": "Marschens ledare, 28 augusti 1963 (NARA 542010) (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Civil_Rights_March_on_Washington%2C_D.C._%28Leaders_marching_from_the_Washington_Monument_to_the_Lincoln_Memorial%29_-_NARA_-_542010.jpg",
-        "license": "Public domain",
+        "id": "commons-bild-kulturrevolutionen",
+        "title": "Maocitat på en husvägg i Zhuji, foto 2005 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Quotations_From_Chairman_Mao_Tse-Tung_on_wall.JPG",
+        "license": "CC BY 1.0",
         "checked": "2026-11-05"
       }
     },
@@ -768,6 +858,36 @@
         "url": "https://commons.wikimedia.org/wiki/File:Catalan_Atlas_BNF_Sheet_6_Mansa_Musa.jpg",
         "license": "Public domain",
         "checked": "2026-10-29"
+      }
+    },
+    {
+      "eventId": "manskliga-rattigheter-1948",
+      "eventTitle": "FN antar förklaringen om de mänskliga rättigheterna",
+      "file": "images/events/manskliga-rattigheter-1948.webp",
+      "kind": "historisk",
+      "credit": "FDR Presidential Library & Museum / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-manskliga-rattigheter-1948",
+        "title": "Eleanor Roosevelt med förklaringen om de mänskliga rättigheterna, 1949 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Eleanor_Roosevelt_UDHR.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "marschen-till-washington",
+      "eventTitle": "Marschen till Washington och \"I Have a Dream\"",
+      "file": "images/events/marschen-till-washington.webp",
+      "kind": "historisk",
+      "credit": "Rowland Scherman, U.S. Information Agency / National Archives via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-marschen-till-washington",
+        "title": "Marschens ledare, 28 augusti 1963 (NARA 542010) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Civil_Rights_March_on_Washington%2C_D.C._%28Leaders_marching_from_the_Washington_Monument_to_the_Lincoln_Memorial%29_-_NARA_-_542010.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
       }
     },
     {
@@ -1509,6 +1629,21 @@
       "source": null
     },
     {
+      "eventId": "sovjetunionens-upplosning",
+      "eventTitle": "Sovjetunionen upplöses",
+      "file": "images/events/sovjetunionens-upplosning.webp",
+      "kind": "historisk",
+      "credit": "RIA Novosti archive, image #848095 / U. Ivanov / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-sovjetunionens-upplosning",
+        "title": "Undertecknandet av Belovezjavtalet, 8 december 1991 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:RIAN_archive_848095_Signing_the_Agreement_to_eliminate_the_USSR_and_establish_the_Commonwealth_of_Independent_States.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-05"
+      }
+    },
+    {
       "eventId": "spanska-sjukan",
       "eventTitle": "Spanska sjukan",
       "file": "images/events/spanska-sjukan.webp",
@@ -1553,6 +1688,21 @@
         "title": "Riou: invigningen av Suezkanalen, 1869 (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:L%27inauguration_du_canal_de_Suez%2C_17_November_1869_Gal18_riou_001f.jpg",
         "license": "Public domain",
+        "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "sydafrikas-forsta-fria-val",
+      "eventTitle": "Sydafrikas första fria val: apartheid tar slut",
+      "file": "images/events/sydafrikas-forsta-fria-val.webp",
+      "kind": "historisk",
+      "credit": "Paul Weinberg / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-sydafrikas-forsta-fria-val",
+        "title": "Nelson Mandela röstar, april 1994 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mandela_voting_in_1994.jpg",
+        "license": "CC BY-SA 3.0",
         "checked": "2026-11-05"
       }
     },
@@ -1677,6 +1827,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Prager.Fenstersturz.1618.jpg",
         "license": "Public domain",
         "checked": "2026-10-29"
+      }
+    },
+    {
+      "eventId": "tsunamin-i-indiska-oceanen-2004",
+      "eventTitle": "Tsunamin i Indiska oceanen",
+      "file": "images/events/tsunamin-i-indiska-oceanen-2004.webp",
+      "kind": "historisk",
+      "credit": "Philip A. McDaniel, U.S. Navy / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-tsunamin-i-indiska-oceanen-2004",
+        "title": "By nära Sumatras kust efter tsunamin, 2 januari 2005 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:US_Navy_050102-N-9593M-040_A_village_near_the_coast_of_Sumatra_lays_in_ruin_after_the_Tsunami_that_struck_South_East_Asia.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-05"
       }
     },
     {

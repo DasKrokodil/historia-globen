@@ -1479,6 +1479,12 @@
     {"id": "wp-history-of-nauru", "title": "History of Nauru – Wikipedia", "url": "https://en.wikipedia.org/wiki/History_of_Nauru", "license": "CC BY-SA 4.0", "checked": "2026-11-06"},
     {"id": "wp-nauru", "title": "Nauru – Wikipedia", "url": "https://en.wikipedia.org/wiki/Nauru", "license": "CC BY-SA 4.0", "checked": "2026-11-06"},
     {"id": "wp-torres-strait-islands", "title": "Torres Strait Islands – Wikipedia", "url": "https://en.wikipedia.org/wiki/Torres_Strait_Islands", "license": "CC BY-SA 4.0", "checked": "2026-11-06"},
-    {"id": "wp-ubirr", "title": "Ubirr – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ubirr", "license": "CC BY-SA 4.0", "checked": "2026-11-06"}
+    {"id": "wp-ubirr", "title": "Ubirr – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ubirr", "license": "CC BY-SA 4.0", "checked": "2026-11-06"},
+    { "id": "wp-dutch-republic", "title": "Dutch Republic – Wikipedia", "url": "https://en.wikipedia.org/wiki/Dutch_Republic", "license": "CC BY-SA 4.0", "checked": "2026-11-06" },
+    { "id": "wp-netherlands", "title": "Netherlands – Wikipedia", "url": "https://en.wikipedia.org/wiki/Netherlands", "license": "CC BY-SA 4.0", "checked": "2026-11-06" },
+    { "id": "wp-karachi", "title": "Karachi – Wikipedia", "url": "https://en.wikipedia.org/wiki/Karachi", "license": "CC BY-SA 4.0", "checked": "2026-11-06" },
+    { "id": "wp-islamabad", "title": "Islamabad – Wikipedia", "url": "https://en.wikipedia.org/wiki/Islamabad", "license": "CC BY-SA 4.0", "checked": "2026-11-06" },
+    { "id": "wp-kwabulawayo", "title": "Bulawayo (Zulu empire) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Bulawayo_(Zulu_empire)", "license": "CC BY-SA 4.0", "checked": "2026-11-06" },
+    { "id": "wp-umgungundlovu", "title": "uMgungundlovu – Wikipedia", "url": "https://en.wikipedia.org/wiki/UMgungundlovu", "license": "CC BY-SA 4.0", "checked": "2026-11-06" }
   ]
 }

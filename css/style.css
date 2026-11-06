@@ -1073,6 +1073,12 @@ details.used-by summary:hover { color: var(--parchment); }
   background: color-mix(in srgb, var(--night-2) 94%, transparent);
   border: 1px solid var(--brass-deep); border-radius: 999px;
 }
+/* Resans not i pausraden (#647): rubriken syns, texten fälls ut på en egen rad */
+.pause-more[hidden] { display: none; }
+.pause-more summary { color: var(--brass); cursor: pointer; white-space: nowrap; }
+.pause-more[open] { flex-basis: 100%; order: 1; font-weight: 400; color: var(--parchment-dim); }
+.pause-more[open] summary { margin-bottom: 4px; }
+.pause-note:has(.pause-more[open]) { border-radius: var(--r); max-height: 40vh; overflow-y: auto; }
 .pause-go {
   font: 600 12px/1 var(--f-mono); color: var(--night); background: var(--brass);
   border: 1px solid var(--brass); border-radius: 999px; padding: 6px 12px; cursor: pointer; white-space: nowrap;
@@ -1206,10 +1212,11 @@ details.used-by summary:hover { color: var(--parchment); }
   .pause-note { border-radius: var(--r); justify-content: space-between; width: auto; }
   .focus-bar {
     left: var(--gut); right: var(--gut-r); transform: none; max-width: none;
-    flex-wrap: nowrap; justify-content: space-between; gap: 8px;
+    flex-wrap: wrap; justify-content: space-between; gap: 8px;
     border-radius: var(--r); padding: 6px 6px 6px 12px;
   }
-  .app.focus-moved-on .focus-bar { flex-wrap: wrap; }
+  /* Raden bryter när knapparna inte ryms (till exempel "Fortsätt" och "Tillbaka till hela tiden"), i stället för
+     att sticka ut åt höger (#647). */
   .app.focus-moved-on .detail-card { bottom: 256px; max-height: 36vh; }
   .focus-label { display: none; }
   .focus-title { flex: 1 1 64px; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
@@ -1481,6 +1488,9 @@ details.used-by summary:hover { color: var(--parchment); }
 /* ---------- korten ovanför fokusraden (#183) ---------- */
 /* main.js mäter fokusraden (--focus-top) så att Samtidigt-kortet och faktarutan alltid ligger ovanför den,
    oavsett om raden "Tiden flyttades" eller pausraden (eller båda) syns. */
+/* main.js mäter också pausraden (--pause-top): fokusraden ligger ovanför den även när den är flera rader hög (#647).
+   Fler klasser än reglerna med fasta avstånd ovan, så att den här vinner i alla bredder. */
+.app.app.app.focusing.pause-var .focus-bar { bottom: calc(var(--pause-top) + 8px); }
 .app.app.focusing.focus-var :is(.funfact, .ff-tab, .detail-card) { bottom: calc(var(--focus-top) + 8px); }
 .app.app.focusing.focus-var :is(.funfact, .ff-tab) { max-height: calc(100dvh - var(--focus-top) - 8px - 150px); }
 @media (max-width: 760px) {
