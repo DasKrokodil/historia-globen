@@ -85,10 +85,10 @@ GROUPS = {
         ('Golden Horde', 'gyllene-horden', 'Gyllene horden', '#b08c4a'),
     ]),
     'brittiska-imperiet': ('Brittiska imperiet', 'British Empire', [
-        # Cliopatria räknar Botswana till imperiet till och med 1968, Ghana till och med 1960 och Oman från 1973, fast de
+        # Cliopatria räknar Botswana och Guyana till imperiet till och med 1968, Ghana till och med 1960 och Oman från 1973, fast de
         # är egna länder de åren i Cliopatria (#644)
         ('(British Empire)', 'brittiska-imperiet', 'Brittiska imperiet', '#c2557a',
-         {'homeland': ['Kingdom of Great Britain'], 'minus': ['Republic of Botswana', 'Ghana', ('Sultanate of Oman', 1973)]}),
+         {'homeland': ['Kingdom of Great Britain'], 'minus': ['Republic of Botswana', 'Ghana', 'Guyana', ('Sultanate of Oman', 1973)]}),
     ]),
     # R2 Antiken (#68)
     'egypten': ('Egypten: gamla och nya riket', 'Egypt: Old and New Kingdom', [
@@ -656,6 +656,46 @@ GROUPS = {
     ]),
     'ghana': ('Ghana', 'Ghana', [
         ('Ghana', 'ghana', 'Ghana', '#c05a5a', {'en': 'Ghana'}),
+    ]),
+    # Nutida stater, sjätte omgången (#644)
+    # Cliopatria anger Q203493 (Kungariket Rumänien) också för Rumänien efter 1989; rätt id är Q218
+    'rumanien': ('Rumänien', 'Romania', [
+        ('Kingdom of Romania', 'kungariket-rumanien', 'Kungariket Rumänien', '#3a8a9a', {'en': 'Kingdom of Romania'}),
+        ('Socialist Republic of Romania', 'socialistiska-republiken-rumanien', 'Socialistiska republiken Rumänien', '#3a8a9a',
+         {'en': 'Socialist Republic of Romania'}),
+        ('Romania', 'rumanien', 'Rumänien', '#3a8a9a', {'en': 'Romania', 'wikidata': 'Q218'}),
+    ]),
+    'laos': ('Laos', 'Laos', [
+        ('Kingdom of Laos', 'kungariket-laos', 'Kungariket Laos', '#4a9ad0', {'en': 'Kingdom of Laos'}),
+        ('Communist Laos', 'laos', 'Laos', '#4a9ad0', {'en': 'Laos'}),
+    ]),
+    'guyana': ('Guyana', 'Guyana', [
+        ('Guyana', 'guyana', 'Guyana', '#4aa06a', {'en': 'Guyana'}),
+    ]),
+    'belarus': ('Belarus', 'Belarus', [
+        ('Republic of Belarus', 'belarus', 'Belarus', '#b0603a', {'en': 'Belarus'}),
+    ]),
+    'senegal': ('Senegal', 'Senegal', [
+        ('Republic of Senegal', 'senegal', 'Senegal', '#3a9a7a', {'en': 'Senegal'}),
+    ]),
+    'kirgizistan': ('Kirgizistan', 'Kyrgyzstan', [
+        ('Kyrgyzstan', 'kirgizistan', 'Kirgizistan', '#c04a6a', {'en': 'Kyrgyzstan'}),
+    ]),
+    # Kungariket Kambodja 1956–1975 och från 1996; däremellan Cliopatrias Röda khmererna och Folkrepubliken Kampuchea
+    'kambodja': ('Kambodja', 'Cambodia', [
+        ('Kingdom of Cambodia', 'kambodja', 'Kambodja', '#7a6ab0', {'en': 'Cambodia'}),
+        ('Khmer Rouge', 'roda-khmererna', 'Röda khmererna', '#7a6ab0', {'en': 'Khmer Rouge'}),
+        ("People's Republic of Kampuchea", 'folkrepubliken-kampuchea', 'Folkrepubliken Kampuchea', '#7a6ab0',
+         {'en': "People's Republic of Kampuchea"}),
+    ]),
+    'tunisien': ('Tunisien', 'Tunisia', [
+        ('Republic of Tunisia', 'tunisien', 'Tunisien', '#c06a3a', {'en': 'Tunisia'}),
+    ]),
+    'nepal': ('Nepal', 'Nepal', [
+        ('Nepal', 'nepal', 'Nepal', '#8a5ab0', {'en': 'Nepal'}),
+    ]),
+    'surinam': ('Surinam', 'Suriname', [
+        ('Republic of Suriname', 'surinam', 'Surinam', '#c0703a', {'en': 'Suriname'}),
     ]),
 }
 
