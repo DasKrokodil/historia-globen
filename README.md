@@ -120,7 +120,8 @@ images/licenses.json  genererat register över händelsebildernas licenser (#393
 data/land.json        grundkarta (Natural Earth)
 tools/riken.py        bygger rikesfilerna ur Cliopatria
 tools/ne_omstridda.py tar ut omstridda områden ur Natural Earth till tools/ne-omstridda-omraden.geojson, som riken.py läser (#644)
-tools/dela_data.py    bygger events.json ur data/handelser/ och delar upp händelser och riken i data/genererat/ (körs efter varje ändring)
+tools/dela_data.py    bygger events.json ur data/handelser/ och delar upp händelser och riken i data/genererat/, med en fil per språk (körs efter varje ändring)
+tools/oversattning.py spärren mot oöversatta texter och kontrollen av inaktuella översättningar (#675)
 tools/tackning.py     skriver täckningsrapporten med luckor per period, världsdel och kategori i docs/granskningar/ (#563)
 tools/tackningsrapport.py  skriver docs/tackningsrapport.md med täckningen per världsdel, århundrade och kategori
 tools/religioner.py   bygger religionslagret (data/religions.json) ur Cliopatria och faktarutornas texter, med arv av religion
@@ -129,7 +130,8 @@ tools/license_manifests.py  genererar data/licenses.json och images/licenses.jso
 data/empires/         riken med utbredning per period, en fil per rike och index.json (Cliopatria)
 data/borders.json     dagens landsgränser (Natural Earth)
 data/routes/          vägar och resor (lagertyp linje): index.json och en fil per resa eller väg
-data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar (genereras, redigeras inte)
+data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar, med en fil per språk (genereras, redigeras inte)
+data/oversattning.json baslinjen för oöversatta texter och registret över översättningar (genereras av tools/oversattning.py)
 data/upptackt.json    upptäcktsvyn: perspektivraden, den åldrade kartstilen, dimmans täckning och korridorens bredd, dekorationernas platser
 data/vyer.json        grupperna och de förinställda vyerna i Lager (#357)
 data/ui/              gränssnittets texter: sprak.json och en fil per språk (#63)
