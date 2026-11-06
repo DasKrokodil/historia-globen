@@ -25289,6 +25289,279 @@
      "review": "source-checked"
     }
    ]
+  },
+  {
+   "id": "filippinerna",
+   "name": {
+    "sv": "Filippinerna",
+    "en": "Philippines"
+   },
+   "color": "#5a8ac8",
+   "from": 1947,
+   "to": 2024,
+   "file": "data/empires/filippinerna.json",
+   "polities": [
+    {
+     "id": "filippinerna",
+     "name": {
+      "sv": "Filippinerna",
+      "en": "Philippines"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "finland",
+   "name": {
+    "sv": "Finland",
+    "en": "Finland"
+   },
+   "color": "#d0708a",
+   "from": 1918,
+   "to": 2024,
+   "file": "data/empires/finland.json",
+   "polities": [
+    {
+     "id": "finland",
+     "name": {
+      "sv": "Finland",
+      "en": "Finland"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "elfenbenskusten",
+   "name": {
+    "sv": "Elfenbenskusten",
+    "en": "Ivory Coast"
+   },
+   "color": "#5aa06a",
+   "from": 1961,
+   "to": 2024,
+   "file": "data/empires/elfenbenskusten.json",
+   "polities": [
+    {
+     "id": "elfenbenskusten",
+     "name": {
+      "sv": "Elfenbenskusten",
+      "en": "Ivory Coast"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "polen",
+   "name": {
+    "sv": "Polen",
+    "en": "Poland"
+   },
+   "color": "#c04050",
+   "from": 1919,
+   "to": 2024,
+   "file": "data/empires/polen.json",
+   "polities": [
+    {
+     "id": "andra-polska-republiken",
+     "name": {
+      "sv": "Andra polska republiken",
+      "en": "Second Polish Republic"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "polen",
+     "name": {
+      "sv": "Polen",
+      "en": "Poland"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "oman",
+   "name": {
+    "sv": "Oman",
+    "en": "Oman"
+   },
+   "color": "#c07a5a",
+   "from": 1744,
+   "to": 2024,
+   "file": "data/empires/oman.json",
+   "polities": [
+    {
+     "id": "oman",
+     "name": {
+      "sv": "Oman",
+      "en": "Oman"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "muskat-och-oman",
+     "name": {
+      "sv": "Muskat och Oman",
+      "en": "Muscat and Oman"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "italien",
+   "name": {
+    "sv": "Italien",
+    "en": "Italy"
+   },
+   "color": "#4aa070",
+   "from": 1862,
+   "to": 2024,
+   "file": "data/empires/italien.json",
+   "polities": [
+    {
+     "id": "kungariket-italien",
+     "name": {
+      "sv": "Kungariket Italien",
+      "en": "Kingdom of Italy"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "italien",
+     "name": {
+      "sv": "Italien",
+      "en": "Italy"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "burkina-faso",
+   "name": {
+    "sv": "Burkina Faso",
+    "en": "Burkina Faso"
+   },
+   "color": "#3a8ab0",
+   "from": 1961,
+   "to": 2024,
+   "file": "data/empires/burkina-faso.json",
+   "polities": [
+    {
+     "id": "burkina-faso",
+     "name": {
+      "sv": "Burkina Faso",
+      "en": "Burkina Faso"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "gabon",
+   "name": {
+    "sv": "Gabon",
+    "en": "Gabon"
+   },
+   "color": "#4aa0a0",
+   "from": 1961,
+   "to": 2024,
+   "file": "data/empires/gabon.json",
+   "polities": [
+    {
+     "id": "gabon",
+     "name": {
+      "sv": "Gabon",
+      "en": "Gabon"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "guinea",
+   "name": {
+    "sv": "Guinea",
+    "en": "Guinea"
+   },
+   "color": "#a07ac0",
+   "from": 1960,
+   "to": 2024,
+   "file": "data/empires/guinea.json",
+   "polities": [
+    {
+     "id": "guinea",
+     "name": {
+      "sv": "Guinea",
+      "en": "Guinea"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "ghana",
+   "name": {
+    "sv": "Ghana",
+    "en": "Ghana"
+   },
+   "color": "#c05a5a",
+   "from": 1958,
+   "to": 2024,
+   "file": "data/empires/ghana.json",
+   "polities": [
+    {
+     "id": "ghana",
+     "name": {
+      "sv": "Ghana",
+      "en": "Ghana"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
   }
  ]
 }
