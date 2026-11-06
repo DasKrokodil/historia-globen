@@ -2237,12 +2237,14 @@ async function run(browser, vp) {
 
   // Språkbytet laddar om sidan även när adressen har en #-del (url-state.js, #501). Med location.assign() till
   // samma adress laddades sidan inte om: valet sparades men texterna stod kvar på svenska. Körs sist, eftersom
-  // sidan laddas om, och återställer svenska efteråt.
+  // sidan laddas om, och återställer svenska efteråt. Testet väntar på att omladdningen börjar (framenavigated),
+  // inte på load eller domcontentloaded: typsnittens stilmall från Google kan hänga i GitHub Actions och hålla
+  // tillbaka båda, fast sidan laddas om.
   await check('språkbytet laddar om sidan på det nya språket (#63)', async () => {
     if (!(await page.evaluate(() => location.hash))) throw new Error('adressen saknar #-del, så testet prövar inte felet');
     const pick = async lang => {
       await Promise.all([
-        page.waitForEvent('load', { timeout: T.load }),
+        page.waitForEvent('framenavigated', { predicate: f => f === page.mainFrame(), timeout: T.step }),
         page.evaluate(l => { const s = document.getElementById('lang-select'); s.value = l; s.dispatchEvent(new Event('change')); }, lang),
       ]);
       await page.waitForFunction(l => document.documentElement.lang === l, lang, { timeout: T.load });
