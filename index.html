@@ -344,6 +344,7 @@
     </div>
     <div class="tour-actions">
       <button id="tour-back" class="chip-btn" type="button"></button>
+      <button id="tour-end" class="tour-end" type="button"></button>
       <button id="tour-next" class="tour-next" type="button"></button>
     </div>
   </section>
@@ -366,6 +367,8 @@
       <span id="pause-next" class="pause-next" hidden></span>
       <span id="pause-countdown" class="pause-countdown" aria-hidden="true" hidden></span>
       <button id="pause-finish" class="pause-finish" type="button" hidden data-i18n="play.finish">Spela klart &#9654;</button>
+      <!-- Avsluta turen (js/ui/tour.js): syns bara medan en tur pågår, bredvid Fortsätt -->
+      <button id="pause-stop" class="pause-stop" type="button" hidden></button>
       <button id="pause-go" class="pause-go" type="button" aria-describedby="pause-text" data-i18n="play.continue">&#9654; Fortsätt</button>
     </div>
     <div class="controls">

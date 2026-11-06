@@ -799,7 +799,10 @@ html.calm .intro-box { animation: none; }
 .tour-actions .chip-btn { margin-right: auto; }
 .tour-actions .chip-btn[hidden] { display: none; }
 .tour-next { min-height: 36px; padding: 8px 14px; border: 1px solid var(--brass); border-radius: 999px; background: var(--brass); color: var(--night); font: 600 13px/1 var(--f-body); cursor: pointer; }
-.tour-next:focus-visible, .tour-pick:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
+.tour-end { min-height: 36px; padding: 8px 14px; border: 1px solid var(--control-line); border-radius: 999px; background: transparent; color: var(--parchment); font: 500 13px/1 var(--f-body); cursor: pointer; }
+.tour-end:hover { border-color: var(--brass-deep); }
+.tour-end[hidden] { display: none; }
+.tour-next:focus-visible, .tour-end:focus-visible, .tour-pick:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
 .tour-menu { width: min(360px, calc(100vw - 32px)); }
 .tour-list { list-style: none; margin: 0; padding: 0; }
 .tour-pick { display: grid; gap: 4px; width: 100%; min-height: 44px; padding: 9px 10px; border: 0; border-radius: 8px; background: none; color: var(--parchment); text-align: left; cursor: pointer; }
@@ -813,7 +816,7 @@ html.calm .intro-box { animation: none; }
   .tour-title { font-size: 19px; }
   .tour-text { font-size: 15px; }
   .tour-links .link-btn { min-height: 44px; }
-  .tour-next, .tour-actions .chip-btn { min-height: 44px; }
+  .tour-next, .tour-end, .tour-actions .chip-btn { min-height: 44px; }
 }
 
 /* ---------- tidslinjen ---------- */
@@ -1072,6 +1075,12 @@ details.used-by summary:hover { color: var(--parchment); }
   background: color-mix(in srgb, var(--night-2) 94%, transparent);
   border: 1px solid var(--brass-deep); border-radius: 999px;
 }
+.pause-stop {
+  font: 500 12px/1 var(--f-mono); color: var(--parchment); background: transparent;
+  border: 1px solid var(--control-line); border-radius: 999px; padding: 6px 12px; cursor: pointer; white-space: nowrap;
+}
+.pause-stop:hover { border-color: var(--brass-deep); }
+.pause-stop[hidden] { display: none; }
 .pause-go {
   font: 600 12px/1 var(--f-mono); color: var(--night); background: var(--brass);
   border: 1px solid var(--brass); border-radius: 999px; padding: 6px 12px; cursor: pointer; white-space: nowrap;
