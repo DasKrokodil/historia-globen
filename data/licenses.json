@@ -1397,6 +1397,7 @@
         "eb1911-telephone",
         "natural-earth",
         "natural-earth-countries",
+        "natural-earth-omstridda",
         "wilber-1886"
       ]
     },
@@ -1423,6 +1424,8 @@
       "license": "Regeringskansliet (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "ud-annekteringar-ukraina-2022",
+        "ud-handel-israel-palestina",
+        "ud-palestina",
         "ud-ukraina"
       ]
     },

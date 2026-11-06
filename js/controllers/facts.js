@@ -94,7 +94,7 @@ export function createFacts(app) {
       symbol: symbolImg(sym, 'rel-sym rel-sym-h'), wars, lineage,
       empireMap: !!g.file,
       report: { type: lineage ? 'vanished-country' : 'empire', id: own ? polity.id : g.id, label: t(own ? polity.name : g.name), year: Math.round(timeline.year) },
-      mapNote: g.file ? `Gränserna på kartan kommer från Cliopatria (kartdata ${formatYearSpan(from, to)}). Fakta i rutan kommer från rutans källor.${note ? ` ${note}` : ''}` : note });
+      mapNote: g.file ? `Gränserna på kartan kommer från ${g.borderSource ?? 'Cliopatria'} (kartdata ${formatYearSpan(from, to)}). Fakta i rutan kommer från rutans källor.${note ? ` ${note}` : ''}` : note });
     // Ytkurvan (#77) ritas när rikets fil har laddats (den laddas ändå för kartan); för ett rike med egen
     // faktaruta (#301) visar kurvan bara det riket
     if (own) panel.setCurve(curveId, [polity], { from, to, color: g.color }, timeline.year);

@@ -2,7 +2,7 @@
 
 Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-granser.md](beslut/2026-11-03-omstridda-granser.md)): nutida omstridda gränser och statusfrågor ritas enligt **Sveriges officiella hållning**, med en källa på regeringen.se per fall. Saknas en tydlig svensk hållning visar vi Cliopatrias gräns med en öppen not och frågar Rikard innan vi väljer sida. Historiska gränser (före cirka 1945) följer Cliopatria.
 
-**Läget (2026-11-06):** Rikard har godkänt listan och svarat på frågorna (se [Rikards svar](#rikards-svar-2026-11-06) sist). **Krim är rättat** (fall 1, se nedan). De andra fallen görs i de omgångar där landet läggs in, och källorna läggs då in i `data/sources.json`.
+**Läget (2026-11-06):** Rikard har godkänt listan och svarat på frågorna (se [Rikards svar](#rikards-svar-2026-11-06) sist). **Krim är rättat** (fall 1), och **Israel, Palestina och Golan** (fall 3 och 4) ritas enligt Sveriges hållning. De andra fallen görs i de omgångar där landet läggs in, och källorna läggs då in i `data/sources.json`.
 
 **Hur listan togs fram (2026-11-06):**
 - Sveriges hållning: UD:s landsidor under *Sveriges förbindelser med omvärlden* på regeringen.se, UD:s uttalanden och reseavrådan. Allt är öppnat och läst 2026-11-06. Texten nedan är egna ord, inga citat.
@@ -15,8 +15,8 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 |---|---|---|---|---|
 | 1. Krim och Sevastopol | Del av Ukraina; annekteringen erkänns inte | Både Ukraina och Ryssland 2014–2023, bara Ryssland 2024 | `ukraina`, `ryska-federationen` | **Rättat 2026-11-06:** Krim som Ukraina hela tiden |
 | 2. Donetsk, Luhansk, Cherson, Zaporizjzja | Del av Ukraina; annekteringarna 2022 erkänns inte | Ukraina | `ukraina` | Stämmer, bara en not |
-| 3. Västbanken, Östra Jerusalem och Gaza | Ockuperade; Sverige erkände Staten Palestina 30 oktober 2014 | Västbanken och Östra Jerusalem som Israel, Gaza tomt, ingen palestinsk stat | `israel` | **Avviker:** gränsen ur Natural Earth (svar 1) |
-| 4. Golanhöjderna | Ockuperat område, ingår inte i Israel inom 1967 års gränser | Israel | `israel`, `syrien` | **Avviker:** gränsen ur Natural Earth (svar 1) |
+| 3. Västbanken, Östra Jerusalem och Gaza | Ockuperade; Sverige erkände Staten Palestina 30 oktober 2014 | Västbanken och Östra Jerusalem som Israel, Gaza tomt, ingen palestinsk stat | `israel` | **Rättat 2026-11-06:** Palestina från 2014, gränsen ur Natural Earth |
+| 4. Golanhöjderna | Ockuperat område, ingår inte i Israel inom 1967 års gränser | Israel | `israel`, `syrien` | **Rättat 2026-11-06:** inte Israel från 1967 |
 | 5. Norra Cypern | Självständigheten erkänns inte (FN:s säkerhetsråds resolution 541/1983) | Egen stat 1976–2024 | inget ännu | Hela ön som Cypern, med not (svar 2) |
 | 6. Abchazien och Sydossetien | Sverige stöder Georgiens territoriella integritet | "Russian-occupied territories", räknas till Ryssland, 1992–2024 | inget ännu (`ryska-federationen` tar inte med dem) | **Avviker** när Georgien läggs in |
 | 7. Transnistrien | UD beskriver Transnistrien som en region i Moldavien; ingen uttalad hållning om statusen hittad | Samma post som fall 6 | inget ännu | Som Moldavien, med not (svar 3) |
@@ -47,11 +47,14 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 - **Cliopatria:** Västbanken och Östra Jerusalem hör till Israel (State of Israel) 2013–2024, och Gaza hör inte till någon stat. Den enda palestinska posten är "Palestinians" år 1948.
 - **Beslut (svar 1):** gränsen hämtas ur Natural Earth, och Palestina ritas som stat från 30 oktober 2014. Cliopatria har ingen gräns för Palestina eller för 1967 års linje, så en sådan gräns måste hämtas ur en annan källa.
 
+- **Gjort (2026-11-06):** Cliopatria räknar Västbanken och Östra Jerusalem till Israel från 1967 och Gaza 1967–1972 och 1976–1982 (efter 1982 hör Gaza inte till någon stat i Cliopatria). Från 1967 räknas de inte till Israel, och från 2014 visas Staten Palestina (Västbanken med Östra Jerusalem och Gaza, Wikidata Q219060) med gränser ur Natural Earths omstridda områden (`tools/ne_omstridda.py`). Åren 1967–2013 är områdena tomma. Palestina har en kort faktaruta som bygger på UD:s två sidor. Små områden som Natural Earth också markerar (ingenmansland vid Latrun och i Jerusalem, Scopusberget och Shebaagårdarna) är inte med, eftersom UD:s sidor inte nämner dem och de försvinner i förenklingen.
+
 ### 4. Golanhöjderna
 - **Sveriges hållning:** samma källa som fall 3: Golan räknas som ockuperat område och ingår inte i Israel inom 1967 års gränser.
 - **Källa:** [Handel med Israel och Palestina, regeringen.se](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/mellanostern-och-nordafrika/israel/handel-med-israel-och-palestina/), kontrollerad 2026-11-06.
 - **Cliopatria:** Golan hör till Israel 2013–2024 (åren före 2013 är inte kontrollerade än).
 - **Beslut (svar 1):** Golan räknas inte till Israel; gränsen hämtas ur Natural Earth.
+- **Gjort (2026-11-06):** Golanhöjderna räknas inte till Israel från 1967 (Cliopatria räknar dem till Israel från 1967). Cliopatria räknar dem inte till Syrien, så området är tomt på kartan; Rikard har inte bett att det ritas som Syrien, och UD:s text säger att området är ockuperat, inte vems det är. Not i Israels och Syriens ruta Om kartan.
 
 ### 5. Norra Cypern
 - **Sveriges hållning:** UD skriver att ön sedan 1974 delas av en FN-kontrollerad buffertzon, att den internationellt erkända regeringen i Republiken Cypern kontrollerar området söder om zonen, och att Sverige inte erkänner Norra Cyperns självständighet, i enlighet med FN:s säkerhetsråds resolution 541 från 1983.
@@ -137,6 +140,7 @@ Krim rättades först, som Rikard bad om.
 
 1. ~~Rikard godkänner listan och svarar på frågorna.~~ Klart 2026-11-06.
 2. ~~Krim rättas (fall 1).~~ Klart 2026-11-06.
-3. Nästa: Israel inom 1967 års gränser och Golan (svar 1, gränsen ur Natural Earth), och noterna för `israel`, `syrien`, `indien` och `pakistan` (svar 6). Palestina som stat från 2014.
-4. Därefter staterna i omgångar om cirka tio, störst lucka först enligt `tools/tackning_riken.py`; varje land i listan ovan får sin not när det läggs in.
-5. Hållningarna kontrolleras igen vid varje release som rör nutida gränser, och kontrolldatumet uppdateras.
+3. ~~Israel inom 1967 års gränser, Golan och Palestina från 2014 (svar 1).~~ Klart 2026-11-06.
+4. Nästa: noterna för `indien` och `pakistan` om Kashmir (svar 6).
+5. Därefter staterna i omgångar om cirka tio, störst lucka först enligt `tools/tackning_riken.py`; varje land i listan ovan får sin not när det läggs in.
+6. Hållningarna kontrolleras igen vid varje release som rör nutida gränser, och kontrolldatumet uppdateras.
