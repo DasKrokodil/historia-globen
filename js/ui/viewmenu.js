@@ -1,6 +1,7 @@
-// Mobilmenyn (#530, byggd på menyn Visa från #361): i smal skärm står bara Samtidigt och knappen Meny i
-// sidhuvudet. Lager, Fokus, Ett år, en plats och gruppen Visa (Platt vy, Källor, Hjälp) samlas i en nedfällbar
-// panel bakom Meny. I datorn syns knappen inte och grupperna står som förut (CSS: .more-menu är display: contents).
+// Mobilmenyn (#530, grupperna sedan #651): i smal skärm står bara Samtidigt och knappen Meny i sidhuvudet.
+// Grupperna Vy (Glob, Platt karta, Upptäcktsresor), Utforska (Sök och följ, Turer, Ett år, en plats, Lager) och
+// Mer (Källor, Hjälp, Dela, Språk) samlas i en nedfällbar panel bakom Meny. I datorn syns knappen inte och
+// grupperna står i sidhuvudet (CSS: .more-menu är display: contents), med Mer som en liten egen meny.
 // Knapparna själva sköts av sina egna moduler; den här filen öppnar och stänger menyn, flyttar Samtidigt ut ur
 // gruppen i smal skärm och skickar fokus till Meny när en knapp som ligger i den stängda menyn ska få fokus.
 const narrow = matchMedia('(max-width: 760px)');
