@@ -24185,6 +24185,335 @@
      "review": "two-sources"
     }
    ]
+  },
+  {
+   "id": "kina",
+   "name": {
+    "sv": "Kina",
+    "en": "China"
+   },
+   "color": "#c8423c",
+   "from": 1912,
+   "to": 2024,
+   "file": "data/empires/kina.json",
+   "polities": [
+    {
+     "id": "republiken-kina",
+     "name": {
+      "sv": "Republiken Kina",
+      "en": "Republic of China"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "folkrepubliken-kina",
+     "name": {
+      "sv": "Kina",
+      "en": "People's Republic of China"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Kartan visar Republiken Kina 1912–1949 och Folkrepubliken Kina från 1950. Cliopatria saknar Republiken Kina 1916–1929. Efter 1949 visas Taiwan som ett eget område (se Taiwan). Gränsen i Kashmir är omstridd: Cliopatria räknar den nordöstra delen av Kashmir till Kina, och kartan visar vem som kontrollerar områdena, inte vem de tillhör. Sverige har ingen uttalad hållning om Kashmir som vi hittat (UD, kontrollerad 2026-11-06)."
+    },
+    "sources": [
+     "ud-kina",
+     "ud-avradan-indien",
+     "ud-avradan-pakistan"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "taiwan",
+   "name": {
+    "sv": "Taiwan",
+    "en": "Taiwan"
+   },
+   "color": "#d9905a",
+   "from": 1950,
+   "to": 2024,
+   "file": "data/empires/taiwan.json",
+   "polities": [
+    {
+     "id": "taiwan",
+     "name": {
+      "sv": "Taiwan",
+      "en": "Taiwan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Taiwans status är omstridd. Kartan visar Taiwan som ett eget område med Cliopatrias gräns (Republiken Kina efter 1949) och under namnet Taiwan, som regeringen använder. Sverige har inga diplomatiska förbindelser med Taiwan men ett handelskontor i Taipei, och någon uttalad svensk hållning om Taiwans status har vi inte hittat (UD, kontrollerad 2026-11-06). Cliopatria visar en mindre yta 2024 än 1950–2023."
+    },
+    "sources": [
+     "ud-taiwan",
+     "ud-kina"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "kazakstan",
+   "name": {
+    "sv": "Kazakstan",
+    "en": "Kazakhstan"
+   },
+   "color": "#4aa3c8",
+   "from": 1992,
+   "to": 2024,
+   "file": "data/empires/kazakstan.json",
+   "polities": [
+    {
+     "id": "kazakstan",
+     "name": {
+      "sv": "Kazakstan",
+      "en": "Kazakhstan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "algeriet",
+   "name": {
+    "sv": "Algeriet",
+    "en": "Algeria"
+   },
+   "color": "#3f9a5c",
+   "from": 1963,
+   "to": 2024,
+   "file": "data/empires/algeriet.json",
+   "polities": [
+    {
+     "id": "algeriet",
+     "name": {
+      "sv": "Algeriet",
+      "en": "Algeria"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "danmark",
+   "name": {
+    "sv": "Danmark",
+    "en": "Denmark"
+   },
+   "color": "#c0504d",
+   "from": 1945,
+   "to": 2024,
+   "file": "data/empires/danmark.json",
+   "polities": [
+    {
+     "id": "danmark",
+     "name": {
+      "sv": "Danmark",
+      "en": "Denmark"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "indonesien",
+   "name": {
+    "sv": "Indonesien",
+    "en": "Indonesia"
+   },
+   "color": "#b04a7a",
+   "from": 1946,
+   "to": 2024,
+   "file": "data/empires/indonesien.json",
+   "polities": [
+    {
+     "id": "indonesien",
+     "name": {
+      "sv": "Indonesien",
+      "en": "Indonesia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "saudiarabien",
+   "name": {
+    "sv": "Saudiarabien",
+    "en": "Saudi Arabia"
+   },
+   "color": "#8a7a2f",
+   "from": 1926,
+   "to": 2024,
+   "file": "data/empires/saudiarabien.json",
+   "polities": [
+    {
+     "id": "hijaz-och-najd",
+     "name": {
+      "sv": "Kingdom of Nejd and Hejaz",
+      "en": "Kingdom of Nejd and Hejaz"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "saudiarabien",
+     "name": {
+      "sv": "Saudiarabien",
+      "en": "Saudi Arabia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "sudan",
+   "name": {
+    "sv": "Sudan",
+    "en": "Sudan"
+   },
+   "color": "#a0703a",
+   "from": 1956,
+   "to": 2024,
+   "file": "data/empires/sudan.json",
+   "polities": [
+    {
+     "id": "sudan",
+     "name": {
+      "sv": "Sudan",
+      "en": "Sudan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "libyen",
+   "name": {
+    "sv": "Libyen",
+    "en": "Libya"
+   },
+   "color": "#5f7fb0",
+   "from": 1953,
+   "to": 2024,
+   "file": "data/empires/libyen.json",
+   "polities": [
+    {
+     "id": "kungariket-libyen",
+     "name": {
+      "sv": "Kungariket Libyen",
+      "en": "Kingdom of Libya"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "libyen",
+     "name": {
+      "sv": "Libyen",
+      "en": "Libya"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "mongoliet",
+   "name": {
+    "sv": "Mongoliet",
+    "en": "Mongolia"
+   },
+   "color": "#3a6fb0",
+   "from": 1926,
+   "to": 2024,
+   "file": "data/empires/mongoliet.json",
+   "polities": [
+    {
+     "id": "mongoliska-folkrepubliken",
+     "name": {
+      "sv": "Mongoliska folkrepubliken",
+      "en": "Mongolian People's Republic"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "mongoliet",
+     "name": {
+      "sv": "Mongoliet",
+      "en": "Mongolia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "tchad",
+   "name": {
+    "sv": "Tchad",
+    "en": "Chad"
+   },
+   "color": "#c9a050",
+   "from": 1961,
+   "to": 2024,
+   "file": "data/empires/tchad.json",
+   "polities": [
+    {
+     "id": "tchad",
+     "name": {
+      "sv": "Tchad",
+      "en": "Chad"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
   }
  ]
 }
