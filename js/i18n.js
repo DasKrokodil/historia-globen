@@ -15,11 +15,15 @@ const BASE = 'sv';
 const ATTRS = ['aria-label', 'title', 'placeholder', 'aria-roledescription'];
 
 // Sökvägen räknas från den här filen (js/), så att det fungerar oavsett sidans adress. I node (testerna) läses
-// filen från disk, eftersom fetch inte kan läsa file:-adresser där.
+// filen från disk, eftersom fetch inte kan läsa file:-adresser där. I formulärets Cloudflare Pages Function
+// (functions/api/feedback.js importerar model.js och därmed den här filen) finns varken fönster, node eller en
+// giltig import.meta.url. Där får inget kasta fel, annars startar inte funktionen och hela publiceringen
+// misslyckas; svenska används då.
 async function getJSON(path) {
-  const url = new URL(`../${path}`, import.meta.url);
   try {
+    const url = new URL(`../${path}`, import.meta.url);
     if (typeof window === 'undefined') {
+      if (typeof process === 'undefined' || !process.versions?.node) return null;
       const fs = await import('node:fs/promises');
       return JSON.parse(await fs.readFile(url, 'utf8'));
     }

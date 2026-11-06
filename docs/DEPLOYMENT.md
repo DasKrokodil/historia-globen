@@ -149,6 +149,10 @@ Formulärets serverfunktion `functions/api/feedback.js` (beslut 2026-10-30, [fee
 
 Jobbet **"Bygg och validera dist/"** kör också testerna för förslagens serverfunktion (`node --test 'tests/*.test.mjs'`, Node 22, inga beroenden).
 
+Jobbet **"Starta formulärets Pages Function som Cloudflare"** (#663) kör `scripts/pages-function-check.sh`. Skriptet startar `functions/api/feedback.js` med `wrangler pages dev dist` (Cloudflares egen körmiljö, workerd) och skickar ett anrop till `/api/feedback`. Utan nycklar ska svaret vara 503 `disabled`; startar funktionen inte är kontrollen röd. Skälet: Cloudflare stoppar **hela** publiceringen om funktionen inte startar, och koden som funktionen importerar (`js/model.js`, `js/i18n.js`) körs annars bara i node och i webbläsaren. Efter #634 misslyckades publiceringen av `main` 21 gånger i rad medan alla andra kontroller var gröna (#662). wrangler installeras i en tillfällig mapp med exakt version, som Playwright, och används bara här. Lokalt: `bash scripts/pages-function-check.sh` (kräver Node och nätet för npm första gången).
+
+Kontrollen **"Cloudflare Pages"** kommer från Cloudflare, inte från Actions. Är den röd på `main` publiceras dev inte, även om allt annat är grönt; titta då på den först.
+
 Bara pull requests mot `production` får dessutom kontrollen **"Release kommer från main"**. Den underkänner pull requesten om
 - den inte kommer från grenen `main` i samma repo, eller
 - `production` har ändringar som saknas i `main`, till exempel efter ett nödläge (se [Rollback](#rollback-till-en-tidigare-release)). Merge-commitarna som varje release ger i `production` är tillåtna, så länge de bara för in det som finns i `main` (`scripts/production-i-main.sh`). Kontrollen skriver också ut vilka ändringar som släpps.
