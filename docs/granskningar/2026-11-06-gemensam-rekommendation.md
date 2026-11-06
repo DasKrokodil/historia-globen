@@ -1,15 +1,15 @@
 # Gemensam rekommendation efter v5.0.0 (2026-11-06)
 
-Claude Code (dirigent, Rikards konto) har jämfört Codex helhetsanalys ([PR #703](https://github.com/DasKrokodil/historia-globen/pull/703), `docs/granskningar/2026-11-06-helhetsanalys.md`) med koden på `main` (`e35e79e`), de öppna issues och milstolparna, och gjort en egen kontroll i webbläsaren (Chromium/Playwright, 400×800 och 360×640, ny profil utan sparade val). Det här är ett förslag. Inget är genomfört och inga issues är skapade förrän Rikard har godkänt planen.
+Claude Code (dirigent, Rikards konto) har jämfört Codex helhetsanalys ([PR #703](https://github.com/DasKrokodil/historia-globen/pull/703), `docs/granskningar/2026-11-06-helhetsanalys.md`) med koden på `main` (`e35e79e`), de öppna issues och milstolparna, och gjort en egen kontroll i webbläsaren (Chromium/Playwright, 400×800 och 360×640, ny profil utan sparade val). Rikard godkände planen samma dag; se "Triage genomförd" sist.
 
 ## Vad Codex har rätt i (bekräftat)
 
 | Codex fynd | Kontroll | Bedömning |
 | --- | --- | --- |
-| Fynd 1: mobilkortet krockar med tidslinjen | **Bekräftat.** I 400×800 ligger Samtidigt-kortets knapprad (Fun facten, Källor, Nästa, Visste du?) på 682–714 px och uppspelningsraden börjar på 706 px; i 360×640 hamnar hela knappraden bakom tidslinjen (575–608 mot 546–580). Kortets innehåll är högre än kortet. Källor-knappen går alltså inte att se i halvöppet läge på en vanlig mobil. | Viktigaste fyndet. Nytt fel, inget öppet issue. |
+| Fynd 1: mobilkortet krockar med tidslinjen | **Bekräftat.** I 400×800 ligger Samtidigt-kortets knapprad (Fun facten, Källor, Nästa, Visste du?) på 682–714 px och uppspelningsraden börjar på 706 px; i 360×640 hamnar hela knappraden bakom tidslinjen (575–608 mot 546–580). Kortets innehåll är högre än kortet, så knappraden ligger under kortets nederkant och syns bara om man rullar inne i kortet. Källor-knappen syns alltså inte i startläget på en vanlig mobil. | Viktigaste fyndet. Nytt fel, inget öppet issue. |
 | P0.1: låsning utan grafikkort | Finns redan som #692. | Instämmer, högsta tekniska prioritet. |
 | #702: Firefox/WebKit i release-testet | Finns redan. | Instämmer: skilj "motorn startade inte" från "produkten gör fel". |
-| P0.3: CSP är bara Report-Only | Stämmer, men planen finns redan i docs/DEPLOYMENT.md: byt till skarp CSP efter en release utan CSP-varningar. | Liten uppgift. Kontrollera konsolen på produktionen för v5.0.0, sedan byt. |
+| P0.3: CSP är bara Report-Only | Stämmer, men planen finns redan i docs/DEPLOYMENT.md: byt till skarp CSP efter en release utan CSP-varningar. | Inte helt liten: på produktionen lägger Cloudflare in sitt statistikskript (Web Analytics, `static.cloudflareinsights.com`), som bryter mot regeln. Skarp CSP skulle blockera det. Det kräver ett beslut, kopplat till #466. |
 | Strategin: stabilisera, sedan skolpilot, djup tid senare | Stämmer med CLAUDE.md:s versionsplan. | Instämmer. |
 | 5.2 har blivit en säck | 13 öppna i 5.2, varav 10 är översättning (#63, #670–#679). | Instämmer. Se förslag nedan. |
 
@@ -35,7 +35,7 @@ Claude Code (dirigent, Rikards konto) har jämfört Codex helhetsanalys ([PR #70
 1. **Nytt issue: Samtidigt-kortets knapprad döljs av tidslinjen i mobil** (bugg, `utseende`, kan få `redo`). Kortets innehåll ska rymmas i halvöppet läge eller kortet ska skjuta upp, och webbläsartestet ska kontrollera att Källor, Nästa och uppspelningsraden inte överlappar i 360×640 och 400×800. Liten–medel. Passar Claude Code eller Codex.
 2. **#692 låsning utan grafikkort.** Stor. Claude Code (rendering, Sonnet high).
 3. **#702 webbläsartestet i Firefox/WebKit.** Medel. Codex.
-4. **Skarp CSP** när produktionens konsol är fri från CSP-varningar för v5.0.0. Liten. Kan bli ett issue med `redo`.
+4. **Skarp CSP** efter beslut om Cloudflare Web Analytics (#707, #466).
 
 ### Nästa
 
@@ -53,7 +53,21 @@ Claude Code (dirigent, Rikards konto) har jämfört Codex helhetsanalys ([PR #70
 
 Vi instämmer med Codex: inget LMS, inga konton, inga topplistor, ingen djup tid eller temamotor innan stabiliseringen och skolpiloten är klara.
 
-## Efter godkännande
+## Triage genomförd (2026-11-06)
 
-- Skapa issuet om mobilkortet (och CSP-issuet) och sätt `redo` på dem som saknar beslut.
-- Sätt `status: triaged` och `triagedAt` i `docs/granskningar/handoff.json` (i PR #703 eller en egen PR).
+Rikard godkände planen. `handoff.json` har status `triaged`.
+
+**Nya issues:** #706 (mobilkortets knapprad, `redo`), #707 (skarp CSP och Cloudflare Web Analytics, `beslut-krävs`), #708 (200 % zoom och fokus i Sök och följ i webbläsartestet, väntar på #706 och #702), #709 (Sök och följ minns fliken, `beslut-krävs`).
+
+**Redo att ta nu:** #706 (vilken agent som helst), #692 (byggorder skriven; passar Claude Code), #671 (sedan tidigare).
+
+**Köordning med villkor (ändrar samma filer):**
+- `tests/webblasare.mjs`: #706 → #702 → #708.
+- `data/ui/` och `js/ui/funfact.js`: #671 och #706 → #670 → #672 → #673 → #674.
+- `data/oversattning.json` och `data/genererat/`: PR #705 (rikena) → första omgången av #676 (engelska, bara Claude Code; Codex korsgranskar).
+
+**Beslut som väntar på Rikard:** #707, #709, #613, #571, #630, #466.
+
+**Milstolpar:** nya milstolpar kan inte skapas från den här sessionen. Förslaget är två nya: "Version 5.1d: Stabilisering" (#692, #702, #706, #707, #708; exit-test: 360 × 640 och 400 × 800 utan överlapp, tangentbord och zoom, mätt hopp utan grafikkort) och ett parallellt spår "Språk: översättning" (#63, #670–#679). Då blir Version 5.2 bara sök, delning och introduktion (#15, #569, #579). Tills dess ligger de nya stabiliseringsissuena i "Senare: teknik" och #709 i "Senare: beslut krävs".
+
+**Att kontrollera:** den svarta rutan över globen i mobil i headless-testet ska jämföras med en riktig telefon vid nästa UX-genomgång innan ett issue skapas.
