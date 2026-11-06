@@ -515,8 +515,26 @@ function trackFocusBar() {
   new MutationObserver(update).observe(app, { attributes: true, attributeFilter: ['class'], subtree: true });
   window.addEventListener('resize', update);
   update();
+  return update;
 }
-trackFocusBar();
+const updateFocusTop = trackFocusBar();
+
+/** Pausraden kan bli flera rader hög (#647). CSS får dess ovankant som --pause-top (avstånd från sidans underkant),
+ *  så att fokusraden alltid ligger ovanför den i stället för ett fast antal pixlar upp. */
+function trackPauseNote(after) {
+  const app = $('app'), note = $('pause-note');
+  const update = () => {
+    const on = !note.hidden && note.offsetHeight > 0;
+    app.classList.toggle('pause-var', on);
+    if (on) app.style.setProperty('--pause-top', `${Math.round(window.innerHeight - note.getBoundingClientRect().top)}px`);
+    after(); // fokusraden flyttades: korten ovanför den följer med
+  };
+  new ResizeObserver(update).observe(note);
+  new MutationObserver(update).observe(note, { attributes: true, attributeFilter: ['hidden'] });
+  window.addEventListener('resize', update);
+  update();
+}
+trackPauseNote(updateFocusTop);
 
 // Safari på iPad och iPhone: globen sköter själv nypgesterna med pekhändelser. Stoppa därför Safaris
 // sidzoom bara när gesten börjar på globen; resten av sidan ska gå att zooma som vanligt (#191, #404).

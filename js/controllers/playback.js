@@ -49,8 +49,10 @@ export function createPlayback(app) {
     const text = place.text ? `Pausad: ${t(place.text)} · ${t(focusRoute.title)}`
       : `Pausad vid ${t(place.name)} · ${stopDate(place)} · ${t(focusRoute.title)}`;
     // Noten finns redan i resedatan och ska synas vid varje stopp, så att osäkerheten inte tappas bort.
-    const note = focusRoute.note ? `${t(focusRoute.note.title)}: ${t(focusRoute.note.text)}` : '';
-    timeline.pause(note ? `${text} · ${note}` : text, true);
+    // Rubriken syns i pausraden och texten fälls ut, så att raden inte blir så hög att den krockar (#647).
+    // Skärmläsaren får hela noten.
+    const note = focusRoute.note ? { title: t(focusRoute.note.title), text: t(focusRoute.note.text) } : null;
+    timeline.pause(text, true, note ? `${text} · ${note.title}: ${note.text}` : text, note);
     timeline.year = stop.at;
     stopping = false;
     showNextPause();
