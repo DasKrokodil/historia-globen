@@ -5,6 +5,7 @@
 import { loadReligions, loadEmpire, loadEmpireFacts, loadEventDetails, loadRoutes, CAT, t, symbolUrl, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays } from '../model.js';
 import { MAX_YEAR } from '../timeline.js';
 import { FocusMenu } from '../ui/focusmenu.js';
+import { ui } from '../i18n.js';
 import { warStory } from './story.js';
 import { formatYearSpan } from './facts.js';
 
@@ -23,8 +24,9 @@ function geoCenter(geoms) {
 /** Fokusets spann för ett rike: kartdatan, och för ett försvunnet land också källornas årtal (#72). */
 const empireSpan = g => g.vanished ? [Math.min(g.from, g.vanished.founded), Math.max(g.to, g.vanished.dissolved)] : [g.from, g.to];
 /** Årtalen i Fokus: kartdatans spann, och för ett försvunnet land först källornas årtal (#72). */
-const empireYears = g => !g.vanished ? `kartdata ${formatYearSpan(g.from, g.to)}`
-  : `${formatYearSpan(g.vanished.founded, g.vanished.dissolved)} · ${g.file ? `kartdata ${formatYearSpan(g.from, g.to)}` : 'punkt på kartan'}`;
+const mapData = g => ui('search.mapData', { span: formatYearSpan(g.from, g.to) });
+const empireYears = g => !g.vanished ? mapData(g)
+  : `${formatYearSpan(g.vanished.founded, g.vanished.dissolved)} · ${g.file ? mapData(g) : ui('focus.mapPoint')}`;
 // Religionens årtal i Fokus: grundandet där det går att belägga, annars bara kartdatans spann (#138)
 // Ärvda områden (#269) räknas inte: spannet är där en faktaruta anger religionen
 const stated = r => r.snapshots.filter(s => !s.inherited);
@@ -134,9 +136,9 @@ export function createFocus(app) {
     $('app').classList.toggle('focus-moved-on', !!m);
     movedBack = m;
     if (!m) return;
-    const why = m.type === 'war' ? 'då kriget börjar' : m.type === 'religion' ? `då ${m.short} börjar` : `då ${m.short} börjar`;
-    $('focus-moved-text').textContent = `Tiden flyttades till ${timeline.format(m.startYear)}, ${why} · `;
-    $('focus-moved-back').textContent = `Tillbaka till ${m.prevText}`;
+    const why = m.type === 'war' ? ui('focus.movedWar') : ui('focus.movedStart', { name: m.short });
+    $('focus-moved-text').textContent = `${ui('focus.moved', { year: timeline.format(m.startYear), why })} · `;
+    $('focus-moved-back').textContent = ui('focus.movedBack', { year: m.prevText });
   }
   // Raden behövs bara innan man börjar spela: under uppspelningen gör den fokusraden högre och krockar med pausraden (#647)
   timeline.addEventListener('playstate', () => { if (timeline.playing && movedBack) showMoved(null); });
@@ -169,8 +171,8 @@ export function createFocus(app) {
   // Varje post har sitt tidsspann (from–to), så att menyn kan visa det som hör till tiden man står i (#121)
   const religionSpan = (r, first) => {
     const st = stated(r);
-    const map = `statsreligion på kartan ${formatYearSpan(st[0].start, st.at(-1).end)}`;
-    return first ? `grundad ${formatEventTime(first)} · ${map}` : map;
+    const map = ui('focus.stateReligion', { span: formatYearSpan(st[0].start, st.at(-1).end) });
+    return first ? `${ui('focus.founded', { time: formatEventTime(first) })} · ${map}` : map;
   };
   const religionItems = doc => doc.religions.map(r => {
     const first = founding(r.id)[0];
@@ -179,30 +181,31 @@ export function createFocus(app) {
     return { key: `religion:${r.id}`, label: t(r.name), terms: langs(r.name), sub: religionSpan(r, first), color: r.color, symbol: symbolUrl(r), from, to };
   });
   const empireItems = () => data.empireGroups.filter(g => !g.vanished).map(g =>
-    ({ key: `empire:${g.id}`, label: t(g.name), terms: empireTerms(g), sub: `kartdata ${formatYearSpan(g.from, g.to)}`, color: g.color, symbol: symbolUrl(g), from: g.from, to: g.to }));
+    ({ key: `empire:${g.id}`, label: t(g.name), terms: empireTerms(g), sub: mapData(g), color: g.color, symbol: symbolUrl(g), from: g.from, to: g.to }));
   // Försvunna länder (#72): listas alla, i tidsordning, med när de bildades och upplöstes och vad de blev
   const vanishedItems = () => data.empireGroups.filter(g => g.vanished).map(g => {
     const [from, to] = empireSpan(g);
     const names = g.vanished.successors.map(s => t(s.name).split(' (')[0]);
-    const blev = names.length > 4 ? `${names.slice(0, 3).join(', ')} och ${names.length - 3} till` : names.join(', ');
-    return { key: `empire:${g.id}`, label: t(g.name), terms: empireTerms(g), sub: `${empireYears(g)} · blev ${blev}`, color: g.color, symbol: symbolUrl(g), from, to };
+    const blev = names.length > 4 ? ui('focus.andMore', { names: names.slice(0, 3).join(', '), count: names.length - 3 }) : names.join(', ');
+    return { key: `empire:${g.id}`, label: t(g.name), terms: empireTerms(g), sub: `${empireYears(g)} · ${ui('focus.became', { names: blev })}`, color: g.color, symbol: symbolUrl(g), from, to };
   });
   let focusRoutes = null;
   const routeItems = list => list.filter(r => r.kind === 'voyage' && isVisibleReview(r.review)).map(r =>
     ({ key: `route:${r.id}`, label: t(r.title), terms: langs(r.title), sub: formatEventTime(r), color: CAT[r.category]?.color, from: r.start, to: r.end }));
+  // title är gruppens id (samma som flikarna i focusmenu.js); namnet som visas hämtas där med ui() (#671)
   const focusGroups = (doc = null, routeList = focusRoutes) => [
     { title: 'Krig', items: data.events.filter(e => e.kind === 'war').map(e => ({ key: `war:${e.id}`, label: t(e.title), terms: langs(e.title), sub: formatEventTime(e), color: CAT[e.category]?.color, from: e.start, to: e.end })) },
-    { title: 'Riken', note: 'Gränser ur Cliopatria. Årtalen visar när kartdata finns och kan skilja sig från rikets historiska årtal. Ett kolonialvälde har samma färg överallt; stjärnan och den kraftiga kanten visar huvudlandet. En mjuk, utsuddad kant betyder att källorna säger att gränsen är osäker. Glesa prickar med streckad kant är inflytande: lydriken och vasaller enligt Cliopatria. Länder som inte finns längre står under Försvunna länder.', items: empireItems() },
-    { title: 'Försvunna länder', all: true, note: 'Länder som inte finns längre: när de bildades och upplöstes enligt källorna, och vilka länder de blev. Gränser ur Cliopatria, som kan ha andra årtal.', items: vanishedItems() },
-    { title: 'Religioner', note: 'Visar var religionen var officiell religion eller huvudreligion i en statsbildning, inte religionens ålder eller var alla troende bodde.', items: doc ? religionItems(doc) : [], loading: !doc },
-    { title: 'Resor', note: 'Följ en resa i dess egen takt. Pauser finns bara vid källbelagda platser med datum.', items: routeList ? routeItems(routeList) : [], loading: !routeList },
+    { title: 'Riken', note: ui('focus.note.empires'), items: empireItems() },
+    { title: 'Försvunna länder', all: true, note: ui('focus.note.vanished'), items: vanishedItems() },
+    { title: 'Religioner', note: ui('focus.note.religions'), items: doc ? religionItems(doc) : [], loading: !doc },
+    { title: 'Resor', note: ui('focus.note.routes'), items: routeList ? routeItems(routeList) : [], loading: !routeList },
   ];
   focusMenu.setGroups(focusGroups());
   focusMenu.onOpen = async () => {
     panel.setOpen(false); layers.close();
     // Nära = inom fyra gånger det tidslinjen visar runt året (vid 1325 cirka ±150 år)
     const year = Math.floor(timeline.year), r = Math.round(timeline.windowYears(year) * 4 / 10) * 10;
-    focusMenu.setTime({ year, from: year - r, to: year + r, label: `inom ±${r} år från ${formatYear(year)}` });
+    focusMenu.setTime({ year, from: year - r, to: year + r, label: ui('focus.window', { years: r, year: formatYear(year) }) });
     // Religionerna laddas en gång och sparas, så att de finns kvar nästa gång menyn öppnas, också när lagret
     // Religioner aldrig har öppnats (annars blev fliken tom andra gången)
     const doc = data.religionsDoc ??= await loadReligions();

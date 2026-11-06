@@ -14,6 +14,7 @@ import { t } from '../model.js';
 import { Z } from './registry.js';
 // origins.js hämtar ORIGIN_R härifrån; det används först när medaljerna ritas, så den ömsesidiga importen går bra
 import { OriginMarkers } from './origins.js';
+import { ui } from '../i18n.js';
 
 /**
  * Lagrets post i registret (#338): av som standard, med en undermeny i Lager som main.js fyller när datan har
@@ -27,9 +28,9 @@ export function entry({ globe, labelsEl, refreshSoon, showReligionFacts }) {
   const origins = new OriginMarkers(globe, labelsEl);
   origins.onPick = id => showReligionFacts(id);
   return {
-    id: 'religions', name: 'Religioner', group: 'power', layer, z: Z.religions,
-    menu: { on: false, note: 'rikenas officiella religion · streckad kant = osäker uppgift · prickad = ärvd, rikets faktaruta saknar religion',
-      sub: { id: 'religion-list', label: 'Religioner' } },
+    id: 'religions', name: ui('layer.religions'), group: 'power', layer, z: Z.religions,
+    menu: { on: false, note: ui('layer.religionsNote'),
+      sub: { id: 'religion-list', label: ui('layer.religions') } },
     fade: { own: focus => focus.type === 'religion' },
     enabled: s => s.focus?.type === 'religion' || s.layers.religions,
     apply: s => {

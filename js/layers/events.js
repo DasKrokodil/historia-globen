@@ -3,6 +3,7 @@
 import { THREE, latLonToVec3, R } from '../globe.js';
 import { CAT, formatYear, isLongRunning, isVisibleReview, t } from '../model.js';
 import { Z } from './registry.js';
+import { ui } from '../i18n.js';
 
 // Ikonfamiljen (#242): alla markörer är samma mässingsmedalj. Mörk botten, mässingsring och en inre
 // cirkel i kategorins färg; bara symbolen i mitten (img/icons/, egna teckningar) skiljer. Händelser
@@ -124,7 +125,7 @@ export function entry({ globe, data }) {
   const layer = new EventsLayer(globe, data.events);
   const none = new Set();
   return {
-    id: 'events', name: 'Händelser', group: 'people', menu: { on: true, note: 'cirkel på tidslinjen' }, layer, z: Z.events,
+    id: 'events', name: ui('layer.events'), group: 'people', menu: { on: true, note: ui('layer.eventsNote') }, layer, z: Z.events,
     enabled: s => s.layers.events,
     update: s => layer.update({ year: s.year, window: s.window, filters: s.layers.events ? s.filters : none,
       selectedId: s.selectedId, highlight: s.highlight, focusId: s.focusWar?.id, span: s.span, tag: s.tag }),

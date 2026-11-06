@@ -2,6 +2,7 @@
 // Raderna, deras grupper och startläget kommer från lagerregistret (layers/registry.js, #338, #357).
 // Överst står de förinställda vyerna ur data/vyer.json (#357): en vy slår på sina lager och av de andra.
 import { t } from '../model.js';
+import { ui } from '../i18n.js';
 
 async function getJSON(path) {
   const res = await fetch(path);
@@ -280,8 +281,8 @@ export class LayerMenu {
       if (it.info) {
         const btn = document.createElement('button');
         btn.type = 'button'; btn.className = 'info-btn';
-        btn.textContent = 'Fakta';
-        btn.setAttribute('aria-label', `Fakta om ${it.name}`);
+        btn.textContent = ui('focus.facts');
+        btn.setAttribute('aria-label', ui('layer.factsAbout', { name: it.name }));
         btn.addEventListener('click', ev => { ev.preventDefault(); this.close(); onInfo(it.id); });
         label.append(btn);
       }

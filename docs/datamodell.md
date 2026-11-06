@@ -467,6 +467,7 @@ Gränssnittets texter, skilda från datans texter (beslut 2026-11-05, docs/beslu
 - Kategoriernas namn på andra språk: `cat.<id>` och `cat.<id>.count` (ental och flertal); svenskan står i `CATEGORIES` i `js/model.js`.
 - Saknas en nyckel visas engelska, sedan svenska, som för datans texter.
 - Från 2026-11-06 läggs en ny nyckel i alla fem språkfilerna i samma pull request, och nytt innehåll översätts när det skapas (docs/beslut/2026-11-06-oversatt-samtidigt.md). `tests/i18n.test.mjs` kräver att varje språk har varje nyckel i `sv.json` och `index.html`, också ett språk som är beta, och samma `{platshållare}` (#669).
+- Sök och följ, fokusraden, uppspelningens fokusknappar och raderna i Lager hämtar sina texter med `ui()` (#671). Flikarna i Sök och följ och gruppernas `title` i `js/controllers/focus.js` har svenska id (`Krig`, `Försvunna länder` …), eftersom fliken sparas i `localStorage`; namnet som visas kommer från `focus.tab.*`. En text med singular och plural är en lista `[en, flera]`, till exempel `time.withinYears`.
 
 ### Texter per språk (#675)
 

@@ -6,6 +6,7 @@
 // får varje skådeplats en kort etikett med världsdelen den ligger i (#236).
 import { CAT, isVisibleReview, region, REGIONS } from '../model.js';
 import { Z } from './registry.js';
+import { ui } from '../i18n.js';
 
 /**
  * Lagrets post i registret (#338). Krigsområdena har en egen rad i gruppen Makt, tro och gränser (#357), men
@@ -15,8 +16,8 @@ import { Z } from './registry.js';
 export function entry({ data }) {
   const layer = new WarsLayer(data.events);
   return {
-    id: 'wars', name: 'Krigsområden', group: 'power', layer, z: Z.wars,
-    menu: { on: true, note: 'området där ett krig pågår · syns när Händelser är på' },
+    id: 'wars', name: ui('layer.wars'), group: 'power', layer, z: Z.wars,
+    menu: { on: true, note: ui('layer.warsNote') },
     enabled: s => s.layers.events && (s.layers.wars || s.focus?.type === 'war'),
     update: s => {
       layer.labelScale = s.labels.scale;

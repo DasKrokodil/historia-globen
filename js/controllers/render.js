@@ -3,6 +3,7 @@
 // Sist får uppspelningen (playback.js) se om något ska pausa. Här finns också namnens storlek efter zoom
 // (#154, #271, #301, #358) och rikets berättelse för Samtidigt-kortet (#171).
 import { loadEventDetails } from '../model.js';
+import { ui } from '../i18n.js';
 import { segmentName } from '../timeline.js';
 import { ZOOM_LEVELS, zoomLevel, pxPerImg, zoomView, eventKeepouts } from '../ui/zoomlevels.js';
 import { empireStory } from '../ui/funfact.js';
@@ -83,7 +84,9 @@ export function createRender(app) {
     const window = timeline.windowYears(year);
     // Tidslinjen äger året; tillståndet speglar det (#403)
     app.store.mirror({ year, wholeYear, fine, window, span, playing, filters: panel.filters });
-    const within = fine ? `±${Math.round(window * 365.25)} dagar` : `±${Math.round(window)} år`;
+    // Singular och plural ur språkfilen ([en, flera]), till exempel "±1 dag" och "±3 dagar"
+    const plural = (key, n) => String(ui(key)[n === 1 ? 0 : 1]).replace('{n}', n);
+    const within = fine ? plural('time.withinDays', Math.round(window * 365.25)) : plural('time.withinYears', Math.round(window));
     ff.story = focus?.type === 'empire' ? storyFor(focus.id) : [];
     ff.update(wholeYear, panel.filters);
     state.highlight = ff.highlightIds();
@@ -92,7 +95,7 @@ export function createRender(app) {
     visible = registry.update(state).events;
     timeline.setMarks(registry.marks(state));
     prefetchDetails();
-    panel.render(visible, wholeYear, window, eventsOn, fine ? { at: `den ${timeline.format(year)}`, within } : null);
+    panel.render(visible, wholeYear, window, eventsOn, fine ? { at: ui('time.onDate', { date: timeline.format(year) }), within } : null);
     // Samma markörer i Platt vy (#313): de som syns på klotet, de i listan får klustras och etikett
     flatMap.setMarkers({ list: layer.sprites.filter(sp => sp.userData.active).map(sp => sp.userData),
       labeled: new Set(visible.map(v => v.e.id)), keep: ff.highlightIds(), selectedId: state.selectedId });
@@ -120,7 +123,7 @@ export function createRender(app) {
     $('year-big').textContent = num;
     $('year-era').textContent = era;
     $('year-jump').classList.toggle('fine', fine);
-    $('year-segment').textContent = `${focus ? `Fokus: ${focus.short}` : segmentName(year)} · visar ${within}`;
+    $('year-segment').textContent = `${focus ? ui('focus.segment', { name: focus.short }) : segmentName(year)} · ${ui('time.shows', { within })}`;
     // Pauserna i uppspelningen: krigets och resans stopp, grundanden, rikets nyckelår och krig som bryter ut
     app.playback.check({ year, fine, span, playing, eventsOn });
     $('app').classList.toggle('has-detail', !$('detail').hidden);
