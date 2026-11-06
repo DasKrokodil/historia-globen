@@ -14,14 +14,14 @@
     "surprise": { "sv": "Visste du?", "en": "Did you know?" }
   },
   "panel": {
-    "summary": { "sv": "{count} träffar: {inside} pågår, {near} nära", "en": "{count} matches: {inside} ongoing, {near} nearby" },
-    "showMore": { "sv": "Visa {count} till i {region}", "en": "Show {count} more in {region}" },
-    "showLess": { "sv": "Visa färre", "en": "Show fewer" },
-    "longRunning": { "sv": "Pågår sedan länge ({count})", "en": "Ongoing for a long time ({count})" },
-    "eventsOff": { "sv": "Händelselagret är avstängt.", "en": "The events layer is off." },
-    "eventsOffHelp": { "sv": "Slå på Händelser för att se vad som hände.", "en": "Turn on Events to see what happened." },
-    "enableEvents": { "sv": "Slå på Händelser", "en": "Turn on Events" },
-    "enableEventsLabel": { "sv": "Slå på händelselagret", "en": "Turn on the events layer" }
+    "summary": { "sv": "{count} träffar: {inside} pågår, {near} nära", "en": "{count} matches: {inside} ongoing, {near} nearby", "de": "{count} Treffer: {inside} laufend, {near} in der Nähe", "es": "{count} resultados: {inside} en curso, {near} cerca", "fr": "{count} résultats : {inside} en cours, {near} à proximité" },
+    "showMore": { "sv": "Visa {count} till i {region}", "en": "Show {count} more in {region}", "de": "{count} weitere in {region} zeigen", "es": "Mostrar {count} más en {region}", "fr": "Afficher {count} de plus en {region}" },
+    "showLess": { "sv": "Visa färre", "en": "Show fewer", "de": "Weniger zeigen", "es": "Mostrar menos", "fr": "Afficher moins" },
+    "longRunning": { "sv": "Pågår sedan länge ({count})", "en": "Ongoing for a long time ({count})", "de": "Seit Langem laufend ({count})", "es": "En curso desde hace mucho ({count})", "fr": "En cours depuis longtemps ({count})" },
+    "eventsOff": { "sv": "Händelselagret är avstängt.", "en": "The events layer is off.", "de": "Die Ereignisebene ist ausgeschaltet.", "es": "La capa de acontecimientos está desactivada.", "fr": "La couche des événements est désactivée." },
+    "eventsOffHelp": { "sv": "Slå på Händelser för att se vad som hände.", "en": "Turn on Events to see what happened.", "de": "Schalte Ereignisse ein, um zu sehen, was geschah.", "es": "Activa Acontecimientos para ver qué ocurrió.", "fr": "Activez Événements pour voir ce qui s’est passé." },
+    "enableEvents": { "sv": "Slå på Händelser", "en": "Turn on Events", "de": "Ereignisse einschalten", "es": "Activar Acontecimientos", "fr": "Activer Événements" },
+    "enableEventsLabel": { "sv": "Slå på händelselagret", "en": "Turn on the events layer", "de": "Die Ereignisebene einschalten", "es": "Activar la capa de acontecimientos", "fr": "Activer la couche des événements" }
   },
   "layerActions": {
     "disableAll": { "sv": "Stäng av alla", "en": "Turn all off", "de": "Alle ausschalten", "es": "Desactivar todas", "fr": "Tout désactiver" },
@@ -78,15 +78,15 @@
     "more": { "sv": "Visar de första {count}.", "en": "Showing the first {count}." }
   },
   "uncertainty": {
-    "label": { "sv": "Historisk osäkerhet", "en": "Historical uncertainty" },
-    "approximate": { "sv": "dateringen är ungefärlig", "en": "the date is approximate" },
-    "uncertain": { "sv": "dateringen är osäker", "en": "the date is uncertain" },
-    "precision": { "sv": "dateringen är inte känd på årsnivå", "en": "the date is not known to year precision" },
-    "place": { "sv": "platsen är ungefärlig", "en": "the place is approximate" },
-    "sourcesDisagree": { "sv": "källorna skiljer sig", "en": "the sources disagree" },
-    "about": { "sv": "Källkontroll visar hur uppgiften har jämförts med sina källor. Historisk osäkerhet visar vad källorna eller dateringen lämnar öppet.", "en": "Source checking shows how the claim was compared with its sources. Historical uncertainty shows what the sources or dating leave open." },
-    "mark": { "sv": "osäkert", "en": "uncertain" },
-    "markTitle": { "sv": "Visa vad som är osäkert", "en": "Show what is uncertain" }
+    "label": { "sv": "Historisk osäkerhet", "en": "Historical uncertainty", "de": "Historische Unsicherheit", "es": "Incertidumbre histórica", "fr": "Incertitude historique" },
+    "approximate": { "sv": "dateringen är ungefärlig", "en": "the date is approximate", "de": "die Datierung ist ungefähr", "es": "la datación es aproximada", "fr": "la datation est approximative" },
+    "uncertain": { "sv": "dateringen är osäker", "en": "the date is uncertain", "de": "die Datierung ist unsicher", "es": "la datación es incierta", "fr": "la datation est incertaine" },
+    "precision": { "sv": "dateringen är inte känd på årsnivå", "en": "the date is not known to year precision", "de": "die Datierung ist nicht auf das Jahr genau bekannt", "es": "la datación no se conoce con precisión de año", "fr": "la datation n’est pas connue à l’année près" },
+    "place": { "sv": "platsen är ungefärlig", "en": "the place is approximate", "de": "der Ort ist ungefähr", "es": "el lugar es aproximado", "fr": "le lieu est approximatif" },
+    "sourcesDisagree": { "sv": "källorna skiljer sig", "en": "the sources disagree", "de": "die Quellen weichen voneinander ab", "es": "las fuentes no coinciden", "fr": "les sources divergent" },
+    "about": { "sv": "Källkontroll visar hur uppgiften har jämförts med sina källor. Historisk osäkerhet visar vad källorna eller dateringen lämnar öppet.", "en": "Source checking shows how the claim was compared with its sources. Historical uncertainty shows what the sources or dating leave open.", "de": "Die Quellenprüfung zeigt, wie die Angabe mit ihren Quellen verglichen wurde. Historische Unsicherheit zeigt, was die Quellen oder die Datierung offenlassen.", "es": "La comprobación de fuentes muestra cómo se comparó el dato con sus fuentes. La incertidumbre histórica muestra lo que las fuentes o la datación dejan abierto.", "fr": "La vérification des sources montre comment l’information a été comparée à ses sources. L’incertitude historique montre ce que les sources ou la datation laissent ouvert." },
+    "mark": { "sv": "osäkert", "en": "uncertain", "de": "unsicher", "es": "incierto", "fr": "incertain" },
+    "markTitle": { "sv": "Visa vad som är osäkert", "en": "Show what is uncertain", "de": "Zeigen, was unsicher ist", "es": "Mostrar qué es incierto", "fr": "Montrer ce qui est incertain" }
   },
   "sourcesSummary": {
     "title": { "sv": "Så läser du statusen", "en": "How to read the status" },

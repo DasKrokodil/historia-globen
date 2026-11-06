@@ -95,7 +95,7 @@ export function createRender(app) {
     visible = registry.update(state).events;
     timeline.setMarks(registry.marks(state));
     prefetchDetails();
-    panel.render(visible, wholeYear, window, eventsOn, fine ? { at: ui('time.onDate', { date: timeline.format(year) }), within } : null);
+    panel.render(visible, wholeYear, window, eventsOn, fine ? { at: ui('time.onDate', { date: timeline.format(year) }), bare: timeline.format(year), within } : null);
     // Samma markörer i Platt vy (#313): de som syns på klotet, de i listan får klustras och etikett
     flatMap.setMarkers({ list: layer.sprites.filter(sp => sp.userData.active).map(sp => sp.userData),
       labeled: new Set(visible.map(v => v.e.id)), keep: ff.highlightIds(), selectedId: state.selectedId });

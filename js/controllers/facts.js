@@ -1,6 +1,7 @@
 // Faktarutorna om religioner (#90, #308) och riken (#170, #72, #301), och religionslagrets laddning
 // (#402, del av #389). Uppgifterna står i religions.json och empires/index.json; här väljs bara vad som visas.
 import { loadReligions, loadEmpire, loadEmpireFacts, t, symbolUrl, symbolImg, formatEventTime } from '../model.js';
+import { ui } from '../i18n.js';
 
 export const formatYearSpan = (a, b) => formatEventTime({ start: a, end: b, edtf: '' });
 
@@ -13,7 +14,7 @@ export function createFacts(app) {
   async function ensureReligions() {
     if (religionsLoading || !layers.on.religions) return;
     religionsLoading = true;
-    $('religion-list').textContent = 'Laddar religioner…';
+    $('religion-list').textContent = ui('facts.religionsLoading');
     try {
       const doc = await loadReligions();
       setReligions(doc);
@@ -22,7 +23,7 @@ export function createFacts(app) {
       if (doc.religions.some(r => r.facts)) {
         const about = document.createElement('button');
         about.type = 'button'; about.className = 'info-btn rel-about';
-        about.textContent = 'Läs om religionerna';
+        about.textContent = ui('facts.aboutReligions');
         about.addEventListener('click', () => showAboutReligions());
         $('religion-list').append(about);
       }
@@ -35,7 +36,7 @@ export function createFacts(app) {
       app.refresh();
     } catch (err) {
       console.error(err);
-      $('religion-list').textContent = 'Religionerna kunde inte laddas.';
+      $('religion-list').textContent = ui('facts.religionsFailed');
       religionsLoading = false;
     }
   }
@@ -90,11 +91,11 @@ export function createFacts(app) {
     const wars = own ? (g._wars ?? []).filter(w => w.end >= from && w.start <= to) : g._wars;
     // Ett försvunnet land (#72) har årtal, föregångare och efterträdare; ett land utan gräns visas som en punkt
     const lineage = g.vanished && !own ? { ...g.vanished, groups: data.empireGroups } : null;
-    panel.showFacts({ kind: lineage ? 'Försvunnet land' : 'Rike', name: t(own ? polity.name : g.name), color: g.color, facts, place, curveId, empireId: own ? null : g.id,
+    panel.showFacts({ kind: lineage ? 'vanished' : 'empire', name: t(own ? polity.name : g.name), color: g.color, facts, place, curveId, empireId: own ? null : g.id,
       symbol: symbolImg(sym, 'rel-sym rel-sym-h'), wars, lineage,
       empireMap: !!g.file,
       report: { type: lineage ? 'vanished-country' : 'empire', id: own ? polity.id : g.id, label: t(own ? polity.name : g.name), year: Math.round(timeline.year) },
-      mapNote: g.file ? `Gränserna på kartan kommer från ${g.borderSource ?? 'Cliopatria'} (kartdata ${formatYearSpan(from, to)}). Fakta i rutan kommer från rutans källor.${note ? ` ${note}` : ''}` : note });
+      mapNote: g.file ? `${ui('facts.mapNote', { source: g.borderSource ?? 'Cliopatria', span: formatYearSpan(from, to) })}${note ? ` ${note}` : ''}` : note });
     // Ytkurvan (#77) ritas när rikets fil har laddats (den laddas ändå för kartan); för ett rike med egen
     // faktaruta (#301) visar kurvan bara det riket
     if (own) panel.setCurve(curveId, [polity], { from, to, color: g.color }, timeline.year);
@@ -107,9 +108,9 @@ export function createFacts(app) {
   /** Inflytandet runt riket (#75) i rutan Om kartan: lydriken och vasaller enligt Cliopatrias relationer. */
   function influenceNote(g) {
     if (!g.influence?.length) return '';
-    const kind = { allegiance: 'lojalitet', vassalage: 'vasall' };
-    const list = g.influence.map(a => `${t(a.name)} (${kind[a.relation] ?? a.relation}, ${formatYearSpan(a.from, a.to)})`);
-    return `Glest prickade områden med streckad kant lydde enligt Cliopatria under riket utan att höra till det: ${list.join(', ')}.`;
+    const kind = r => (['allegiance', 'vassalage'].includes(r) ? ui(`facts.influence.${r}`) : r);
+    const list = g.influence.map(a => `${t(a.name)} (${kind(a.relation)}, ${formatYearSpan(a.from, a.to)})`);
+    return ui('facts.influenceNote', { list: list.join(', ') });
   }
   /** Knappen "Läs om religionerna" (#308): faktarutan för religionen man följer i Fokus, annars för den
    *  första synliga religionen som har en (tidigare visades den automatiskt när lagret slogs på, #90). */

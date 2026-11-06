@@ -4,8 +4,10 @@
 // I smal skärm (högst 760 px) är kortet en panel underifrån med tre lägen (#239): stängd (handtag och
 // rubrikraden), halv och hel. Man drar i handtaget eller trycker på det, och kortet stängs när man drar i globen.
 import { CAT, REVIEW, REGIONS, region, t, formatYear, formatEventTime, styleFor, isVisibleReview, reviewLabel, REVIEW_SUBJECT_HELP, needDetails } from '../model.js';
+import { ui } from '../i18n.js';
 
-const KIND = { funfact: 'Fun fact', war: 'När ett krig bröt ut', empire: 'Rikets berättelse', vanished: 'Landets berättelse' };
+// Kortets slag (funfact, war, empire, vanished); rubriken står i ff.kind.<slag> i data/ui/ (#670)
+const kindLabel = kind => ui(`ff.kind.${kind}`);
 
 /**
  * Rikets berättelse (#171): rikets nyckelår (facts.milestones i empires/index.json) som kort
@@ -26,7 +28,6 @@ export function empireStory(group, byId) {
 const CAT_ICON = { krig: 'swords', civilisationer: 'crown', religion: 'dome', vetenskap: 'scroll', upptackter: 'ship', kultur: 'columns', rymden: 'rocket', ekonomi: 'ship', klimat: 'mountain-city' };
 // Panelens lägen i smal skärm (#239), från minst till störst
 const SHEET = ['closed', 'half', 'full'];
-const SHEET_LABEL = { closed: 'stängt', half: 'halvt', full: 'helt' };
 const narrow = matchMedia('(max-width: 760px)');
 const HINT_KEY = 'hg-ff-drag-hint'; // "Dra upp för mer" har visats (#310)
 const HINT_MS = 6000;
@@ -242,7 +243,7 @@ export class FunFacts {
     for (const s of SHEET) this.root.classList.toggle(`ff-s-${s}`, narrow.matches && s === st);
     if (!this.handle) return;
     this.handle.setAttribute('aria-expanded', String(st !== 'closed'));
-    this.handle.setAttribute('aria-label', `Samtidigt-kortet, ${SHEET_LABEL[st]}. ${st === 'full' ? 'Tryck för att stänga' : 'Tryck för att visa mer'}, eller använd pil upp och ner.`);
+    this.handle.setAttribute('aria-label', ui('ff.handle', { state: ui(`ff.sheet.${st}`), action: ui(st === 'full' ? 'ff.handle.close' : 'ff.handle.open') }));
   }
 
   /**
@@ -266,11 +267,11 @@ export class FunFacts {
       const icon = e.icon || CAT_ICON[e.category] || 'star';
       const category = t(CAT[e.category]?.name) || e.category;
       const year = formatYear(e.start);
-      const label = !img ? '' : img.placeholder ? 'Platshållare' : img.kind === 'illustration' ? 'Illustration' : '';
-      return `<button type="button" class="ff-pic frame-${st.frame}${reserve ? ' ff-reserve' : ''}" data-id="${esc(e.id)}" aria-label="${reserve ? `${category}, ${year}, ${t(e.title)}` : 'Bildkort'}: Läs mer om ${esc(t(e.title))}"${reserve ? ` style="--ff-reserve-color:${esc(CAT[e.category]?.color || 'var(--brass)')}"` : ''}>
+      const label = !img ? '' : img.placeholder ? ui('image.placeholder') : img.kind === 'illustration' ? ui('ff.illustration') : '';
+      return `<button type="button" class="ff-pic frame-${st.frame}${reserve ? ' ff-reserve' : ''}" data-id="${esc(e.id)}" aria-label="${esc(`${reserve ? `${category}, ${year}, ${t(e.title)}` : ui('ff.pictureCard')}: ${ui('ff.readMoreAbout', { title: t(e.title) })}`)}"${reserve ? ` style="--ff-reserve-color:${esc(CAT[e.category]?.color || 'var(--brass)')}"` : ''}>
         ${img ? `<img src="${esc(img.file)}" alt="" width="800" height="600">` : `<span class="ff-reserve-top" aria-hidden="true"><img class="ff-reserve-icon" src="img/icons/${esc(icon)}.svg" alt="" width="40" height="40"><span class="ff-reserve-year">${esc(year)}</span></span><span class="ff-reserve-category" aria-hidden="true">${esc(category)}</span>`}
-        ${label ? `<span class="ff-badge">${label}</span>` : ''}
-        <span class="ff-cap">${shown.length > 1 || reserve ? `<span class="ff-name">${esc(t(e.title))}</span>` : ''}<span class="ff-more">Läs mer ›</span></span>
+        ${label ? `<span class="ff-badge">${esc(label)}</span>` : ''}
+        <span class="ff-cap">${shown.length > 1 || reserve ? `<span class="ff-name">${esc(t(e.title))}</span>` : ''}<span class="ff-more">${esc(ui('ff.readMore'))}</span></span>
       </button>`;
     }).join('');
     for (const b of this.pics.querySelectorAll('.ff-pic')) b.addEventListener('click', () => this.onSelect(b.dataset.id));
@@ -288,11 +289,11 @@ export class FunFacts {
     this.pics.hidden = false;
     this.root.classList.add('ff-sym');
     this.pics.style.setProperty('--n', 1);
-    this.pics.innerHTML = `<button type="button" class="ff-pic ff-symbol ff-reserve frame-${st.frame}" data-id="${esc(e.id)}" aria-label="${esc(category)}, ${esc(year)}, ${esc(t(e.title))}: Läs mer om ${esc(t(e.title))}" style="--ff-reserve-color:${esc(CAT[e.category]?.color || 'var(--brass)')}">
+    this.pics.innerHTML = `<button type="button" class="ff-pic ff-symbol ff-reserve frame-${st.frame}" data-id="${esc(e.id)}" aria-label="${esc(`${category}, ${year}, ${t(e.title)}: ${ui('ff.readMoreAbout', { title: t(e.title) })}`)}" style="--ff-reserve-color:${esc(CAT[e.category]?.color || 'var(--brass)')}">
       <span class="ff-reserve-top" aria-hidden="true"><img class="ff-reserve-icon" src="img/icons/${esc(icon)}.svg" alt="" width="40" height="40"><span class="ff-reserve-year">${esc(year)}</span></span>
       <span class="ff-reserve-category" aria-hidden="true">${esc(category)}</span>
-      <span class="ff-badge">Grafisk symbol</span>
-      <span class="ff-cap"><span class="ff-name">${esc(t(e.title))}</span><span class="ff-more">Läs mer ›</span></span>
+      <span class="ff-badge">${esc(ui('ff.symbol'))}</span>
+      <span class="ff-cap"><span class="ff-name">${esc(t(e.title))}</span><span class="ff-more">${esc(ui('ff.readMore'))}</span></span>
     </button>`;
     this.pics.querySelector('.ff-pic').addEventListener('click', ev => this.onSelect(ev.currentTarget.dataset.id));
   }
@@ -334,7 +335,7 @@ export class FunFacts {
     this.root.classList.toggle('ff-story', story);
     this.root.classList.remove('ff-open');
     if (this.pre) this.pre.hidden = story;
-    this.kind.textContent = story ? `${f.vanished ? KIND.vanished : KIND.empire} · ${f.empire}` : KIND[f.kind ?? 'funfact'];
+    this.kind.textContent = story ? `${kindLabel(f.vanished ? 'vanished' : 'empire')} · ${f.empire}` : kindLabel(f.kind ?? 'funfact');
     const evs = f.events.map(id => this.byId[id]);
     // Bilderna står i händelsernas långa fält, som laddas per period (#337): kortet ritas om när de har kommit
     needDetails(evs, { sources: false })?.then(() => { if (this.active[this.index] === f) this._show(); }).catch(err => console.error(err));
@@ -342,7 +343,7 @@ export class FunFacts {
     if (story) {
       this.text.innerHTML = `<span class="ff-story-head"><span class="ff-year">${esc(f.label)}</span> ${esc(f.title)}</span>`
         + `<span class="ff-story-text">${esc(f.body)}</span>`
-        + (f.mapNote ? `<span class="ff-story-map"><b>Om kartan:</b> ${esc(f.mapNote)}</span>` : '');
+        + (f.mapNote ? `<span class="ff-story-map"><b>${esc(ui('facts.aboutMapInline'))}</b> ${esc(f.mapNote)}</span>` : '');
     } else this.text.textContent = t(f.text);
     this.events.innerHTML = evs.map(e => `<button type="button" class="ff-chip" data-id="${esc(e.id)}">${e.image ? `<img class="ff-thumb" src="${esc(e.image.file)}" alt="" loading="lazy">` : `<span class="dot" style="background:${CAT[e.category]?.color}"></span>`}${f.kind === 'war' ? `<span class="ff-year">${esc(formatYear(e.start))}</span>` : ''}${esc(t(e.title))}</button>`).join('');
     for (const b of this.events.querySelectorAll('.ff-chip')) b.addEventListener('click', () => this.onSelect(b.dataset.id));
@@ -351,7 +352,7 @@ export class FunFacts {
     const subject = story ? (f.vanished ? 'Landet' : 'Riket') : f.kind === 'war' ? 'Kriget' : 'Fun facten';
     this.review.textContent = reviewLabel(f.review, subject);
     this.review.title = REVIEW_SUBJECT_HELP[subject];
-    this.pager.textContent = this.active.length > 1 ? `${this.index + 1} av ${this.active.length}` : '';
+    this.pager.textContent = this.active.length > 1 ? ui('ff.pager', { n: this.index + 1, total: this.active.length }) : '';
     this.next.hidden = this.active.length < 2;
     this.root.hidden = false;
     this._announce(f);
