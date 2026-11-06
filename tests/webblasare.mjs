@@ -116,10 +116,14 @@ async function run(browser, vp) {
     if (m.type() !== 'error') return;
     const url = m.location()?.url || '';
     if (isFont(url)) return;
+    // WebKit skriver en hämtning som avbryts av omladdningen som "TypeError: Load failed" i konsolen (#702).
+    // Bara exakt det meddelandet, och bara medan språktestet laddar om sidan, räknas bort.
+    if (reloading && /^TypeError: Load failed$/.test(m.text())) return;
     errors.push(`konsol: ${m.text()}${url ? ` (${url})` : ''}`);
   });
   // Medan språktestet laddar om sidan (#63) avbryter webbläsaren hämtningar som pågår, till exempel ikoner. WebKit
-  // rapporterar det som fel ("Load request cancelled", "… due to access control checks"); det är omladdningen,
+  // rapporterar det som fel ("Load request cancelled", "… due to access control checks", i konsolen "TypeError: Load
+  // failed"); det är omladdningen,
   // inte ett fel på sidan. Bara avbrutna hämtningar under omladdningen räknas bort (v5.0.0).
   let reloading = false;
   const cancelled = text => /cancel|abort|access control checks/i.test(text ?? '');
