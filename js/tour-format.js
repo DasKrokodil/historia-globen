@@ -4,9 +4,11 @@
 //
 // En tur:  { schema, version, id, title, summary?, war?, review, steps: [steg, ...] }
 //   war     valfritt: kriget (händelse-id) som turen berättar om; krigets första kort får då "Följ berättelsen" (#247)
+//   empire  valfritt: riket (grupp-id i data/empires/index.json) vars fall turen följer; rikets faktaruta får då en knapp (#499)
 // Ett steg: { id, at, camera: { lat, lon, zoom }, title?, chapter?, question?, text, layers: [lager-id], open?, sources: [käll-id] }
 //   chapter valfritt kapitelnamn per språk, visas ovanför rubriken (berättelseläget, #247)
 //   question valfri fråga att fundera på, per språk; den påstår inget som stegets källor inte säger
+//   status  valfritt: vad källorna säger om steget, samma ord som slutkortet (#500): belagt, omtvistat eller okant (#499)
 //   at      år med astronomisk årsräkning; decimaltal är tillåtet (delar av år, #204), men utanför
 //           fokusläget för korta krig visar tidslinjen hela år
 //   camera  globens kameraläge; zoom som globen (0.8–3.2). Platt vy använder samma mitt.
@@ -16,6 +18,7 @@
 
 export const TOUR_VERSION = 1;
 export const TOUR_REVIEW = ['draft', 'source-checked', 'two-sources'];
+export const STEP_STATUS = ['belagt', 'omtvistat', 'okant'];
 const ID = /^[a-z0-9-]+$/;
 
 const isText = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.sv === 'string' && v.sv.trim() !== '';
@@ -36,6 +39,7 @@ export function tourProblems(tour, known = {}) {
   if (!isText(tour.title)) say('titeln saknas (title.sv).');
   if (!TOUR_REVIEW.includes(tour.review)) say(`okänd granskningsstatus ${tour.review}.`);
   if (tour.war != null && (typeof tour.war !== 'string' || (known.events && !known.events.has(tour.war)))) say(`kriget ${tour.war} finns inte.`);
+  if (tour.empire != null && (typeof tour.empire !== 'string' || (known.empires && !known.empires.has(tour.empire)))) say(`riket ${tour.empire} finns inte.`);
   if (!Array.isArray(tour.steps) || !tour.steps.length) { say('har inga steg.'); return out; }
   const ids = new Set();
   tour.steps.forEach((s, i) => {
@@ -52,6 +56,7 @@ export function tourProblems(tour, known = {}) {
     if (s.title != null && !isText(s.title)) say(`${where}: titeln ska vara text per språk.`);
     if (s.chapter != null && !isText(s.chapter)) say(`${where}: kapitlet ska vara text per språk.`);
     if (s.question != null && !isText(s.question)) say(`${where}: frågan ska vara text per språk.`);
+    if (s.status != null && !STEP_STATUS.includes(s.status)) say(`${where}: okänd status ${s.status}.`);
     if (!Array.isArray(s.layers)) say(`${where}: layers ska vara en lista med lager-id.`);
     else for (const l of s.layers) if (known.layers && !known.layers.has(l)) say(`${where}: lagret ${l} finns inte.`);
     if (s.open != null && (typeof s.open !== 'string' || (known.events && !known.events.has(s.open)))) say(`${where}: händelsen ${s.open} finns inte.`);

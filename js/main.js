@@ -465,10 +465,10 @@ async function start() {
     button: $('btn-tour'), menu: $('tour-menu'), menuTitle: $('tour-menu-title'), list: $('tour-list'),
     card: $('tour-card'), progress: $('tour-progress'), name: $('tour-name'), title: $('tour-title'), text: $('tour-text'),
     read: $('tour-read'), srcBtn: $('tour-sources'), back: $('tour-back'), next: $('tour-next'), closeBtn: $('tour-close'),
-    chapter: $('tour-chapter'), question: $('tour-question'), questionLabel: $('tour-question-label'), questionText: $('tour-question-text'),
+    chapter: $('tour-chapter'), question: $('tour-question'), questionLabel: $('tour-question-label'), questionText: $('tour-question-text'), status: $('tour-status'),
   }, toursData, {
     timeline, globe, flatMap, layers, narrow, root: $('app'), events: data.byId,
-    layerIds: new Set(registry.entries.map(e => e.id)), controlled: registry.viewLayers(views?.groups),
+    layerIds: new Set(registry.entries.map(e => e.id)), controlled: registry.viewLayers(views?.groups), empires: new Set(data.empireGroups.map(g => g.id)),
     select: (id, jump) => app.select(id, jump),
     // Markera en händelse på globen utan att öppna faktarutan (turens steg i smal skärm)
     mark: id => { panel.showDetail(null); store.setSelected(id); app.refresh(); },
@@ -480,6 +480,8 @@ async function start() {
   app.tour = tour;
   // Berättelseläget (#247): krigets första kort får "Följ berättelsen" när en tur berättar om kriget
   panel.tourFor = id => { const x = tour.forWar(id); return x && { id: x.id, label: tour.storyLabel(x) }; };
+  // Rikens fall (#499): rikets faktaruta får en knapp när en tur följer rikets fall
+  panel.empireTourFor = id => { const x = tour.forEmpire(id); return x && { id: x.id, label: tour.storyLabel(x, 'fall') }; };
   panel.onTour = (id, btn) => tour.start(id, btn);
   tour.onOpen = () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); };
   // Turen i adressen (?tur=<id>) startar direkt, till exempel från en lektion eller ett test

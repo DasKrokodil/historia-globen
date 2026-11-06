@@ -369,7 +369,8 @@ export class Panel {
    * föregångare och vad det blev. Efterträdare som finns som riken är knappar som börjar följa det riket.
    */
   showFacts(opts) {
-    const { kind, name, color, symbol = '', facts: f, origin = null, place = origin, milestonesTitle = 'Nyckelår', mapNote = '', curveId = '', wars = [], lineage = null, empireMap = false } = opts;
+    const { kind, name, color, symbol = '', facts: f, origin = null, place = origin, milestonesTitle = 'Nyckelår', mapNote = '', curveId = '', wars = [], lineage = null, empireMap = false, empireId = null } = opts;
+    const fall = empireId ? this.empireTourFor?.(empireId) : null; // rikets fall som tur (#499)
     // Rikets krig (#76): krig som anger riket i empires, i tidsordning; bara de som syns enligt granskningsstatusen
     const shownWars = wars.filter(w => isVisibleReview(w.review));
     // Ritas rutan om när källorna har kommit, ritas ytkurvan (#77) in igen om den hann komma före
@@ -414,6 +415,7 @@ export class Panel {
       <div class="story-label"><span class="swatch" style="background:${esc(color)}"></span>${esc(kind)}</div>
       <h3>${symbol}${esc(name)}</h3>
       <p>${esc(t(f.summary))}</p>
+      ${fall ? `<button type="button" class="story-tour" data-tour="${esc(fall.id)}">${esc(fall.label)}</button>` : ''}
       ${body}`;
     this.detail.hidden = false;
     this.detail.scrollTop = 0; // efter hidden, annars behåller kortet förra läget
@@ -423,6 +425,7 @@ export class Panel {
     this.bindLinks();
     this.bindReviewInfo();
     if (report) this.bindReport(report.year);
+    this.detail.querySelector('[data-tour]')?.addEventListener('click', ev => this.onTour?.(ev.currentTarget.dataset.tour, ev.currentTarget));
   }
 
   /**

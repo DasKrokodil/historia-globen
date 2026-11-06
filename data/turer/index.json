@@ -1,6 +1,6 @@
 {
   "schema": "historia-globen/turer@1",
-  "tours": ["andra-varldskriget", "forsta-varldskriget", "tre-platser-1325"],
+  "tours": ["andra-varldskriget", "forsta-varldskriget", "vastroms-fall", "hanrikets-fall", "mayastadernas-fall", "tre-platser-1325"],
   "labels": {
     "button": { "sv": "Turer", "en": "Tours" },
     "menuTitle": { "sv": "Guidade turer", "en": "Guided tours" },
@@ -12,6 +12,10 @@
     "read": { "sv": "Läs om händelsen", "en": "Read about the event" },
     "question": { "sv": "Att fundera på:", "en": "Something to think about:" },
     "story": { "sv": "Följ berättelsen: {title} ({total} steg)", "en": "Follow the story: {title} ({total} steps)" },
+    "fall": { "sv": "Följ fallet: {title} ({total} steg)", "en": "Follow the fall: {title} ({total} steps)" },
+    "status-belagt": { "sv": "Det här vet vi från källorna", "en": "What the sources tell us" },
+    "status-omtvistat": { "sv": "Här är forskare inte överens", "en": "Where researchers disagree" },
+    "status-okant": { "sv": "Det här vet vi inte säkert", "en": "What we do not know for sure" },
     "sources": { "sv": "Källor", "en": "Sources" },
     "paused": { "sv": "Turen: {title}", "en": "Tour: {title}" }
   }
