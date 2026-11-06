@@ -1568,6 +1568,7 @@
         "eb1911-telephone",
         "natural-earth",
         "natural-earth-countries",
+        "natural-earth-omstridda",
         "wilber-1886"
       ]
     },
@@ -1588,6 +1589,15 @@
       "sourceIds": [
         "nasa-black-marble-2016",
         "nasa-media-guidelines"
+      ]
+    },
+    {
+      "license": "Regeringskansliet (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "ud-annekteringar-ukraina-2022",
+        "ud-handel-israel-palestina",
+        "ud-palestina",
+        "ud-ukraina"
       ]
     },
     {

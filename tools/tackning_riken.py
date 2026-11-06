@@ -33,7 +33,7 @@ def our_names():
     names = set()
     for _gid, (_sv, _en, members, *_o) in GROUPS.items():
         for cname, *_rest in members:
-            names.update(cname if isinstance(cname, list) else [cname])
+            names.update(n for n in (cname if isinstance(cname, list) else [cname]) if n)
     return names
 
 
