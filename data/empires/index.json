@@ -26171,6 +26171,306 @@
      "review": "source-checked"
     }
    ]
+  },
+  {
+   "id": "liberia",
+   "name": {
+    "sv": "Liberia",
+    "en": "Liberia",
+    "de": "Liberia",
+    "es": "Liberia",
+    "fr": "Liberia"
+   },
+   "color": "#3a8ab0",
+   "from": 1848,
+   "to": 2024,
+   "file": "data/empires/liberia.json",
+   "polities": [
+    {
+     "id": "liberia",
+     "name": {
+      "sv": "Liberia",
+      "en": "Liberia",
+      "de": "Liberia",
+      "es": "Liberia",
+      "fr": "Liberia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "portugal",
+   "name": {
+    "sv": "Portugal",
+    "en": "Portugal",
+    "de": "Portugal",
+    "es": "Portugal",
+    "fr": "Portugal"
+   },
+   "color": "#4aa070",
+   "from": 1976,
+   "to": 2024,
+   "file": "data/empires/portugal.json",
+   "polities": [
+    {
+     "id": "portugal",
+     "name": {
+      "sv": "Portugal",
+      "en": "Portugal",
+      "de": "Portugal",
+      "es": "Portugal",
+      "fr": "Portugal"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "malawi",
+   "name": {
+    "sv": "Malawi",
+    "en": "Malawi",
+    "de": "Malawi",
+    "es": "Malaui",
+    "fr": "Malawi"
+   },
+   "color": "#c05a5a",
+   "from": 1967,
+   "to": 2024,
+   "file": "data/empires/malawi.json",
+   "polities": [
+    {
+     "id": "malawi",
+     "name": {
+      "sv": "Malawi",
+      "en": "Malawi",
+      "de": "Malawi",
+      "es": "Malaui",
+      "fr": "Malawi"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "ungern",
+   "name": {
+    "sv": "Ungern",
+    "en": "Hungary",
+    "de": "Ungarn",
+    "es": "Hungría",
+    "fr": "Hongrie"
+   },
+   "color": "#c0703a",
+   "from": 1919,
+   "to": 2024,
+   "file": "data/empires/ungern.json",
+   "polities": [
+    {
+     "id": "ungern",
+     "name": {
+      "sv": "Ungern",
+      "en": "Hungary",
+      "de": "Ungarn",
+      "es": "Hungría",
+      "fr": "Hongrie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "osterrike",
+   "name": {
+    "sv": "Österrike",
+    "en": "Austria",
+    "de": "Österreich",
+    "es": "Austria",
+    "fr": "Autriche"
+   },
+   "color": "#c04050",
+   "from": 1919,
+   "to": 2024,
+   "file": "data/empires/osterrike.json",
+   "polities": [
+    {
+     "id": "osterrike",
+     "name": {
+      "sv": "Österrike",
+      "en": "Austria",
+      "de": "Österreich",
+      "es": "Austria",
+      "fr": "Autriche"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "panama",
+   "name": {
+    "sv": "Panama",
+    "en": "Panama",
+    "de": "Panama",
+    "es": "Panamá",
+    "fr": "Panama"
+   },
+   "color": "#5a9ac0",
+   "from": 1905,
+   "to": 2024,
+   "file": "data/empires/panama.json",
+   "polities": [
+    {
+     "id": "panama",
+     "name": {
+      "sv": "Panama",
+      "en": "Panama",
+      "de": "Panama",
+      "es": "Panamá",
+      "fr": "Panama"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "tjeckien",
+   "name": {
+    "sv": "Tjeckien",
+    "en": "Czech Republic",
+    "de": "Tschechien",
+    "es": "República Checa",
+    "fr": "Tchéquie"
+   },
+   "color": "#5a6ab0",
+   "from": 1992,
+   "to": 2024,
+   "file": "data/empires/tjeckien.json",
+   "polities": [
+    {
+     "id": "tjeckien",
+     "name": {
+      "sv": "Tjeckien",
+      "en": "Czech Republic",
+      "de": "Tschechien",
+      "es": "República Checa",
+      "fr": "Tchéquie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "forenade-arabemiraten",
+   "name": {
+    "sv": "Förenade arabemiraten",
+    "en": "United Arab Emirates",
+    "de": "Vereinigte Arabische Emirate",
+    "es": "Emiratos Árabes Unidos",
+    "fr": "Émirats arabes unis"
+   },
+   "color": "#3a9a7a",
+   "from": 1973,
+   "to": 2024,
+   "file": "data/empires/forenade-arabemiraten.json",
+   "polities": [
+    {
+     "id": "forenade-arabemiraten",
+     "name": {
+      "sv": "Förenade arabemiraten",
+      "en": "United Arab Emirates",
+      "de": "Vereinigte Arabische Emirate",
+      "es": "Emiratos Árabes Unidos",
+      "fr": "Émirats arabes unis"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "serbien",
+   "name": {
+    "sv": "Serbien",
+    "en": "Serbia",
+    "de": "Serbien",
+    "es": "Serbia",
+    "fr": "Serbie"
+   },
+   "color": "#8a5ab0",
+   "from": 2006,
+   "to": 2024,
+   "file": "data/empires/serbien.json",
+   "polities": [
+    {
+     "id": "serbien",
+     "name": {
+      "sv": "Serbien",
+      "en": "Serbia",
+      "de": "Serbien",
+      "es": "Serbia",
+      "fr": "Serbie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "irland",
+   "name": {
+    "sv": "Irland",
+    "en": "Ireland",
+    "de": "Irland",
+    "es": "Irlanda",
+    "fr": "Irlande"
+   },
+   "color": "#5aa060",
+   "from": 1922,
+   "to": 2024,
+   "file": "data/empires/irland.json",
+   "polities": [
+    {
+     "id": "irland",
+     "name": {
+      "sv": "Irland",
+      "en": "Ireland",
+      "de": "Irland",
+      "es": "Irlanda",
+      "fr": "Irlande"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
   }
  ]
 }
