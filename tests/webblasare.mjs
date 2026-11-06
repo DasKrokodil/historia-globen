@@ -2289,6 +2289,44 @@ async function run(browser, vp) {
     await shot('8-slut');
   });
 
+  // Språkbytet laddar om sidan även när adressen har en #-del (url-state.js, #501). Med location.assign() till
+  // samma adress laddades sidan inte om: valet sparades men texterna stod kvar på svenska. Körs sist, eftersom
+  // sidan laddas om, och återställer svenska efteråt.
+  // Omladdningen bevisas med ett märke på den gamla sidan som ska vara borta (framenavigated räcker inte, eftersom
+  // den också kommer när sidan skriver om #-delen, och load kan dröja i GitHub Actions när typsnitten hänger).
+  // Efter omladdningen väntar testet tills sidan har startat och språkväljaren har sina språk; den kopplas in sist
+  // i starten, och ett byte före det gör ingenting.
+  await check('språkbytet laddar om sidan på det nya språket (#63)', async () => {
+    if (!(await page.evaluate(() => location.hash))) throw new Error('adressen saknar #-del, så testet prövar inte felet');
+    const ready = l => {
+      const s = document.getElementById('lang-select'), loading = document.getElementById('loading');
+      return !window.__hgGammal && document.documentElement.lang === l && s?.options.length > 1 && s.value === l
+        && !!loading && (loading.hidden || getComputedStyle(loading).display === 'none');
+    };
+    const pick = async lang => {
+      await page.evaluate(l => {
+        window.__hgGammal = true;
+        const s = document.getElementById('lang-select');
+        s.value = l;
+        s.dispatchEvent(new Event('change'));
+      }, lang);
+      try {
+        await page.waitForFunction(ready, lang, { timeout: T.load });
+      } catch (err) {
+        const st = await page.evaluate(() => ({
+          gammal: !!window.__hgGammal, lang: document.documentElement.lang, stored: localStorage.getItem('hg-lang'),
+          url: location.pathname + location.search + location.hash, nav: performance.getEntriesByType('navigation')[0]?.type,
+        })).catch(e => ({ fel: e.message }));
+        throw new Error(`sidan bytte inte till ${lang}: ${JSON.stringify(st)}`);
+      }
+    };
+    await pick('en');
+    const label = await page.evaluate(() => document.getElementById('btn-layers').textContent.trim());
+    if (label === 'Lager') throw new Error('knappen Lager står kvar på svenska efter byte till engelska');
+    await pick('sv');
+    return `engelska: ${label}`;
+  });
+
   results.push({ name: 'inga fel i konsolen', ok: errors.length === 0, ms: 0, note: errors.slice(0, 10).join(' | ') || undefined });
   await context.close();
   return results;

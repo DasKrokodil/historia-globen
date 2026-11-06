@@ -5,7 +5,7 @@
 //
 // Språket väljs i den här ordningen: ?lang= i adressen, det sparade valet (localStorage hg-lang), webbläsarens
 // språk om det språket är markerat "auto" (bara färdiga översättningar väljs automatiskt, så att ingen hamnar i
-// en halvfärdig översättning utan att ha valt den), annars svenska. Byte av språk laddar om sidan och behåller året.
+// en halvfärdig översättning utan att ha valt den), annars svenska. Byte av språk laddar om sidan och behåller året (location.reload, eftersom adressens #-del annars stoppar omladdningen).
 //
 // Sidans fasta texter står på svenska i index.html. I ett annat språk byts de ut med attributen
 // data-i18n="nyckel" (textinnehållet) och data-i18n-<attribut>="nyckel" (aria-label, title, placeholder,
@@ -143,6 +143,9 @@ export function setupLangPicker(select, getYear) {
     let stored = false;
     try { stored = localStorage.getItem('hg-lang') === select.value; } catch { /* ingen lagring */ }
     if (!stored) url.searchParams.set('lang', select.value);
-    location.assign(url.href);
+    // Adressen ändras på plats och sidan laddas om. location.assign() räcker inte: adressen har en #-del
+    // (url-state.js, #501), och en adress som bara skiljer sig i #-delen, eller inte alls, laddar inte om sidan.
+    history.replaceState(history.state, '', url.href);
+    location.reload();
   });
 }
