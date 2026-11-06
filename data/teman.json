@@ -1,0 +1,13 @@
+{
+  "schema": "historia-globen/teman@1",
+  "note": "Teman (#398, beslut 2026-11-01): ett tema väljs i Fokus. Det visar bara temats händelser och slår på vyn i view (id i data/vyer.json). Händelserna måste finnas i events.json; temat lägger inte till några egna uppgifter.",
+  "themes": [
+    {
+      "id": "teknik",
+      "name": { "sv": "Teknik och uppfinningar", "en": "Technology and inventions" },
+      "intro": { "sv": "Uppfinningar och tekniska genombrott som redan finns på globen, från tryckpressen till webben. Dra i tiden eller tryck på ett årtal för att se vad som hände samtidigt i resten av världen." },
+      "view": "utforska",
+      "events": ["gutenberg", "forsta-jarnvagen-mellan-stader", "bain-fax", "suezkanalen-oppnas", "telefonen", "wright", "sputnik", "apollo-11", "www"]
+    }
+  ]
+}

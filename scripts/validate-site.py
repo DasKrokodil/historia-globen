@@ -331,6 +331,22 @@ if intro.get('funfact') not in funfact_ids:
 for step in intro.get('steps', []):
     if step.get('event') and step['event'] not in ev_ids:
         err(f"data/intro.json: händelsen {step['event']} finns inte i data/events.json")
+# Teman (#398): temats händelser finns och syns, och vyn finns i data/vyer.json
+themes_doc = load('data/teman.json') if exists('data/teman.json', 'Teman') else None
+view_ids = {v.get('id') for v in (load('data/vyer.json') or {}).get('views', [])}
+seen_themes = set()
+for th in (themes_doc or {}).get('themes', []):
+    tid = th.get('id', '?')
+    if tid in seen_themes:
+        err(f'data/teman.json: temat {tid} finns två gånger')
+    seen_themes.add(tid)
+    if not th.get('events'):
+        err(f'data/teman.json ({tid}): temat har inga händelser')
+    for i in th.get('events', []):
+        if i not in ev_ids:
+            err(f'data/teman.json ({tid}): händelsen {i} finns inte i events.json')
+    if th.get('view') and th['view'] not in view_ids:
+        err(f"data/teman.json ({tid}): vyn {th['view']} finns inte i data/vyer.json")
 # Guidade turer (#47): registret och turerna finns, och stegen pekar på befintliga händelser och källor.
 # Lagrens id kontrolleras av tests/tour.test.mjs, som läser lagerlistan i js/layers/index.js.
 tours = []
@@ -374,6 +390,7 @@ for path, route in routes:
     validate_schema_file(path, {'routes': [route]}, 'route.schema.json')
 validate_schema_file('data/funfacts.json', funfacts, 'funfact.schema.json')
 validate_schema_file('data/turer/index.json', tours_index or {}, 'tours-index.schema.json')
+validate_schema_file('data/teman.json', themes_doc or {}, 'themes.schema.json')
 for path, tour in tours:
     validate_schema_file(path, tour, 'tour.schema.json')
 

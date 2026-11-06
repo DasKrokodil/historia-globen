@@ -431,6 +431,14 @@ export function loadEmpire(group) {
  * En post i files är en sökväg från repots rot ("data/routes/columbus.json") eller ett filnamn i data/routes/.
  */
 let routesPromise = null;
+let themesPromise = null;
+/** Teman (#398): data/teman.json, laddas när Fokus öppnas. En fil som saknas ger inga teman. */
+export function loadThemes() {
+  themesPromise ??= getJSON('data/teman.json').then(doc => doc?.themes ?? [])
+    .catch(err => { console.warn('Teman kunde inte laddas', err); return []; });
+  return themesPromise;
+}
+
 export function loadRoutes() {
   routesPromise ??= getJSON('data/routes/index.json').then(async index => {
     const paths = (index.files ?? []).map(f => typeof f === 'string' ? f : f?.file).filter(Boolean)

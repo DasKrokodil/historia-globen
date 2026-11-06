@@ -17,7 +17,8 @@ export function createState() {
     span: e => [e.start, e.end], // en händelses tid som [början, slut], i fokusläget för korta krig datum ur edtf
     playing: false,   // spelade tidslinjen när omritningen började
 
-    // Fokusläget (#109, #113, #376): { type: 'war' | 'empire' | 'religion' | 'route', id, from, to, fine, ... } eller null
+    // Fokusläget (#109, #113, #376, #398): { type: 'war' | 'empire' | 'religion' | 'route' | 'theme', id, from, to, fine, ... } eller null
+    // Ett tema har events: en mängd (Set) med temats händelse-id
     focus: null,
     focusWar: null,   // kriget man följer (händelsen), eller null
     focusRoute: null, // resan man följer, eller null
@@ -64,7 +65,7 @@ export function snapshot(state) {
 
 /** Versionen av JSON-formatet. Höjs om fälten ändras på ett sätt som gamla länkar inte klarar. */
 export const STATE_VERSION = 1;
-const FOCUS_TYPES = ['war', 'empire', 'religion', 'route'];
+const FOCUS_TYPES = ['war', 'empire', 'religion', 'route', 'theme'];
 
 /**
  * Ett lager med tillståndet och dess åtgärder. Varje åtgärd ändrar state och meddelar prenumeranterna

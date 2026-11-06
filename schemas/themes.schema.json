@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historia-globen: teman i Fokus (#398)",
+  "type": "object",
+  "required": ["schema", "themes"],
+  "properties": {
+    "schema": { "type": "string", "pattern": "^historia-globen/teman@1$" },
+    "note": { "type": "string" },
+    "themes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "intro", "events"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "name": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
+          "intro": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
+          "view": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "events": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } }
+        }
+      }
+    }
+  }
+}

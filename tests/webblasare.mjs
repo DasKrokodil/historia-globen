@@ -495,6 +495,33 @@ async function run(browser, vp) {
     return 'tre steg med år, lager och paus; Nästa, Fortsätt, Föregående och Avsluta fungerar';
   });
 
+  await check('ett tema i Fokus visar bara temats händelser och återställer lagren (#398)', async () => {
+    const startYear = Number(await page.getAttribute('#track', 'aria-valuenow'));
+    const layersOn = () => page.evaluate(() => [...document.querySelectorAll('#layer-menu input[data-layer]')].filter(i => i.checked).map(i => i.dataset.layer).sort().join(','));
+    const before = await layersOn();
+    await clickView('#btn-focus');
+    await page.click('#focus-menu [data-tab="Teman"]');
+    const row = page.locator('#focus-menu .focus-item[data-key="theme:teknik"]');
+    await row.waitFor({ state: 'visible', timeout: T.step });
+    await row.click();
+    await page.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '1440', null, { timeout: T.step });
+    await visible('#detail [data-year="1876"]');
+    if ((await page.$$eval('#detail [data-year]', x => x.length)) !== 9) throw new Error('temats ruta visar inte nio händelser');
+    await page.click('#detail [data-year="1876"]');
+    await page.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '1876', null, { timeout: T.step });
+    const listed = await page.$$eval('#event-list [data-id]', x => x.map(e => e.dataset.id));
+    const theme = ['gutenberg', 'forsta-jarnvagen-mellan-stader', 'bain-fax', 'suezkanalen-oppnas', 'telefonen', 'wright', 'sputnik', 'apollo-11', 'www'];
+    if (!listed.length || listed.some(id => !theme.includes(id))) throw new Error(`listan visar händelser utanför temat: ${listed.join(', ')}`);
+    await page.click('#focus-exit');
+    await page.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+    if ((await layersOn()) !== before) throw new Error(`lagren återställdes inte: ${await layersOn()} i stället för ${before}`);
+    await page.$eval('#focus-menu input', el => { el.value = ''; el.dispatchEvent(new Event('input', { bubbles: true })); });
+    await page.$$eval('#focus-menu [data-tab="Alla"]', b => b[0]?.click());
+    if (await page.isVisible('#detail')) await page.click('#detail [data-close]');
+    await jumpTo(startYear);
+    return `temat teknik: 9 händelser, bara temats i listan (${listed.join(', ')}), lagren tillbaka`;
+  });
+
   await check('Samtidigt-kortet går till nästa händelse', async () => {
     await visible('#funfact');
     if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');

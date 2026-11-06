@@ -378,7 +378,7 @@ export class Panel {
       if (c && c[0] === curveId) this.setCurve(...c);
     });
     this.curveArgs = null;
-    const subj = kind === 'Rike' ? 'Riket' : kind === 'Försvunnet land' ? 'Landet' : 'Religionen';
+    const subj = kind === 'Rike' ? 'Riket' : kind === 'Försvunnet land' ? 'Landet' : kind === 'Tema' ? 'Temat' : 'Religionen';
     const srcs = [...new Set([...(f.sources ?? []), ...(f.milestones ?? []).flatMap(m => m.sources ?? []), ...(lineage?.sources ?? [])])]
       .map(id => this.srcById[id]).filter(Boolean);
     // Riken har ofta mer fördjupning än ryms i det mobila arket. Sammanfattningen

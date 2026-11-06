@@ -283,6 +283,7 @@ async function start() {
     const focus = state.focus;
     if (focus?.type === 'empire') app.showEmpireFacts(focus.id);
     else if (focus?.type === 'religion') app.showReligionFacts(focus.id, false);
+    else if (focus?.type === 'theme') focusCtl.showThemeFacts();
   });
   panel.onFilter = (...a) => { store.setFilters(panel.filters); app.refresh(...a); };
   ff.onSelect = (...a) => app.select(...a);

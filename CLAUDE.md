@@ -60,6 +60,7 @@ data/events.json      alla händelser i en fil, byggs av tools/dela_data.py ur d
 data/funfacts.json    fun facts (kopplade till händelse-id)
 data/intro.json       introduktionens steg och referenser till befintliga händelser/fun facts (#363)
 data/turer/           guidade turer: index.json och en fil per tur (#47, beslut 2026-11-01)
+data/teman.json       teman i Fokus: namn, introduktion, händelse-id och vy (#398)
 data/sources.json     källregister
 data/version.json     versionsnummer och länk till releaserna
 data/licenses.json    genererat register över källornas licensuppgifter (#393)

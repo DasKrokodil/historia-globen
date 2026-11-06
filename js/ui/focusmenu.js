@@ -9,7 +9,7 @@
 //   Alfabetiskt visar allt.
 // - Tangentbord: pil ner från sökrutan går till listan, pilarna flyttar i listan, Enter väljer (i sökrutan
 //   den första träffen), Escape stänger. På dator får sökrutan fokus när menyn öppnas.
-const TABS = ['Alla', 'Krig', 'Riken', 'Försvunna länder', 'Religioner', 'Resor'];
+const TABS = ['Alla', 'Krig', 'Riken', 'Försvunna länder', 'Religioner', 'Resor', 'Teman'];
 const SORTS = [['relevans', 'Relevans'], ['kronologiskt', 'Kronologiskt'], ['alfabetiskt', 'Alfabetiskt']];
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 /** Gemener utan accenter, så att "osterrike" hittar Österrike och "bys" hittar Bysantinska riket. */

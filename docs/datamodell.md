@@ -455,6 +455,10 @@ En guidad tur är data, inte kod (Rikards beslut 2026-11-01, docs/beslut/2026-11
 - **Jämförelser mellan steg** ("samtidigt", "en vecka senare", "medan … pågår") behöver källor för båda leden (källpolicyn punkt 5): steget får då också den andra händelsens källa i `sources`.
 - Kontrolleras av `js/tour-format.js` (i webbläsaren och i `tests/tour.test.mjs`), `scripts/validate-site.py` (filer, händelser, källor, schema) och webbläsartestet.
 
+## `teman.json`: teman i Fokus (#398)
+
+Ett tema är data (Rikards beslut 2026-11-01, docs/beslut/2026-11-01-temamotor-398.md). `schema: historia-globen/teman@1`, `schemas/themes.schema.json`. `themes` är en lista där varje tema har `id`, `name` och `intro` per språk, `events` (en lista med händelse-id ur `events.json`, i valfri ordning) och valfritt `view` (en vy ur `vyer.json` som slås på medan temat följs). Ett tema lägger inte till några egna uppgifter: introduktionen beskriver bara urvalet, och händelserna har sina egna källor, som visas i temats faktaruta. Första temat är teknik (`teknik`, #105) med nio befintliga händelser från fyra världsdelar. `scripts/validate-site.py` kontrollerar att händelserna och vyn finns.
+
 ## `vyer.json`: grupper och förinställda vyer i Lager (#357)
 
 Ingen fakta, bara hur Lager är ordnat. Namnen står per språk som andra texter (`t()`).
