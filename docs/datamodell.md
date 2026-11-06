@@ -468,6 +468,7 @@ Gränssnittets texter, skilda från datans texter (beslut 2026-11-05, docs/beslu
 - Saknas en nyckel visas engelska, sedan svenska, som för datans texter.
 - Från 2026-11-06 läggs en ny nyckel i alla fem språkfilerna i samma pull request, och nytt innehåll översätts när det skapas (docs/beslut/2026-11-06-oversatt-samtidigt.md). `tests/i18n.test.mjs` kräver att varje språk har varje nyckel i `sv.json` och `index.html`, också ett språk som är beta, och samma `{platshållare}` (#669).
 - Sök och följ, fokusraden, uppspelningens fokusknappar och raderna i Lager hämtar sina texter med `ui()` (#671). Flikarna i Sök och följ och gruppernas `title` i `js/controllers/focus.js` har svenska id (`Krig`, `Försvunna länder` …), eftersom fliken sparas i `localStorage`; namnet som visas kommer från `focus.tab.*`. En text med singular och plural är en lista `[en, flera]`, till exempel `time.withinYears`.
+- Faktarutan, Samtidigt-listan och Samtidigt-kortet hämtar sina texter med `ui()` (#670): `detail.*`, `story.*` (krigets kort), `facts.*` (rikes- och religionsrutorna), `ff.*` och `panel.*`. Världsdelarna har svenska id i `REGIONS` (`js/model.js`); namnet som visas står i `region.<id>`. `showFacts()` tar `kind` som id (`empire`, `vanished`, `religion`) och visar `facts.kind.<id>`. Rutan "Källorna skiljer sig" känns igen på händelsens svenska `note.title`, så att den syns också när rubriken är översatt.
 
 ### Texter per språk (#675)
 

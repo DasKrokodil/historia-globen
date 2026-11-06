@@ -39,7 +39,7 @@ export function hasTag(e, tag) {
 
 /** Hur markören ska se ut: tidsläge (now, past, future), betydelse och osäkerhet. */
 export function markerInfo(e, when = 'now') {
-  const unsure = /[~?]/.test(e.edtf ?? '') || t(e.note?.title) === 'Källorna skiljer sig';
+  const unsure = /[~?]/.test(e.edtf ?? '') || (e.note?.title?.sv ?? e.note?.title) === 'Källorna skiljer sig';
   return { when, major: !!(e.top || e.major), unsure };
 }
 
