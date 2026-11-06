@@ -127,6 +127,7 @@ tools/tackning.py     skriver täckningsrapporten med luckor per period, världs
 tools/tackningsrapport.py  skriver docs/tackningsrapport.md med täckningen per världsdel, århundrade och kategori
 tools/religioner.py   bygger religionslagret (data/religions.json) ur Cliopatria och faktarutornas texter, med arv av religion
 tools/religioner_riken.py  bygger rikenas gränser för religionslagrets klickruta ur Cliopatria
+tools/matning_hopp.mjs mäter hur länge sidan inte svarar vid ett långt hopp i tiden (Playwright, #692)
 tools/license_manifests.py  genererar data/licenses.json och images/licenses.json; validate-site.py kontrollerar att de är aktuella
 data/empires/         riken med utbredning per period, en fil per rike och index.json (Cliopatria)
 data/borders.json     dagens landsgränser (Natural Earth)
