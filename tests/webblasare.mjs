@@ -158,7 +158,15 @@ async function run(browser, vp) {
       const note = await fn();
       results.push({ name, ok: true, ms: Date.now() - t0, note });
     } catch (e) {
-      results.push({ name, ok: false, ms: Date.now() - t0, note: failNote(e) });
+      // Läget i sidan när kontrollen föll (#702): vilket element som har fokus och vilka paneler som är öppna
+      const state = await page.evaluate(ids => {
+        const a = document.activeElement;
+        const focus = a ? `${a.tagName.toLowerCase()}${a.id ? `#${a.id}` : ''}${a.className && typeof a.className === 'string' ? `.${a.className.trim().split(/\s+/).join('.')}` : ''}` : 'inget';
+        const open = ids.filter(id => { const el = document.getElementById(id); return el && !el.hidden && el.getClientRects().length; });
+        const menu = document.querySelector('.top-actions')?.classList.contains('more-open') ? ', Meny öppen' : '';
+        return `läge: år ${document.getElementById('year-big')?.textContent.trim()}, fokus ${focus}, öppna: ${open.join(' ') || 'inga'}${menu}`;
+      }, ['jump-pop', 'help', 'layer-menu', 'focus-menu', 'empire-legend', 'detail', 'panel', 'sources-dialog', 'search-pop', 'flat-view', 'tour-card']).catch(() => '');
+      results.push({ name, ok: false, ms: Date.now() - t0, note: [failNote(e), state].filter(Boolean).join(' · ') });
       await shot(`FEL-${name.replace(/[^a-zåäö0-9]+/gi, '-')}`).catch(() => {});
       await page.keyboard.press('Escape').catch(() => {});
     }
