@@ -18,8 +18,17 @@
         "commons-bild-arabiska-varen",
         "commons-bild-attackerna-11-september-2001",
         "commons-bild-finanskrisen-2008",
+        "commons-bild-hammurabis-lagar",
         "commons-bild-manskliga-rattigheter-1948",
-        "commons-bild-muhammeds-forsta-uppenbarelse"
+        "commons-bild-mayastadernas-nedgang",
+        "commons-bild-muhammeds-forsta-uppenbarelse",
+        "commons-bild-stonehenge"
+      ]
+    },
+    {
+      "license": "CC BY 3.0",
+      "sourceIds": [
+        "commons-bild-kilskriften"
       ]
     },
     {
@@ -103,6 +112,8 @@
     {
       "license": "CC BY-SA 2.0",
       "sourceIds": [
+        "commons-bild-aksum-blir-kristet",
+        "commons-bild-caral",
         "commons-bild-kvinnlig-rostratt-nya-zeeland",
         "commons-bild-star-wars"
       ]
@@ -111,9 +122,12 @@
       "license": "CC BY-SA 3.0",
       "sourceIds": [
         "commons-bild-lanse-aux-meadows",
+        "commons-bild-lapitafolket-nar-samoa",
+        "commons-bild-mohenjo-daro",
         "commons-bild-slaget-vid-adwa",
         "commons-bild-sovjetunionens-upplosning",
-        "commons-bild-sydafrikas-forsta-fria-val"
+        "commons-bild-sydafrikas-forsta-fria-val",
+        "commons-bild-vulkanutbrottet-pa-thera"
       ]
     },
     {
@@ -125,7 +139,9 @@
     {
       "license": "CC BY-SA 4.0",
       "sourceIds": [
+        "commons-bild-angkor-wat",
         "commons-bild-guru-nanak",
+        "commons-bild-jordbrukets-borjan",
         "commons-bild-operation-focus",
         "commons-bild-slaget-vid-salamis",
         "wikipedia-religion",
@@ -1392,8 +1408,11 @@
     {
       "license": "CC0",
       "sourceIds": [
+        "commons-bild-demokratin-i-aten",
+        "commons-bild-egypten-enas",
         "commons-bild-jamestown-1607",
         "commons-bild-lei-aurea-1888",
+        "commons-bild-vastromerska-rikets-fall",
         "wd-afghanistan",
         "wd-austria-hungary",
         "wd-bangladesh",
@@ -1487,6 +1506,7 @@
         "commons-bild-berlinmuren-byggs",
         "commons-bild-blockaden-av-biafra",
         "commons-bild-borskraschen-1929",
+        "commons-bild-caesar-mordas",
         "commons-bild-cervantes-dor",
         "commons-bild-cook-nar-australien",
         "commons-bild-covid-19-pandemin",
@@ -1505,6 +1525,7 @@
         "commons-bild-invasionen-av-irak-2003",
         "commons-bild-israel-utropas-1948",
         "commons-bild-jordbavningen-i-valdivia-1960",
+        "commons-bild-karl-den-store-krons",
         "commons-bild-keelingkurvan",
         "commons-bild-khorramshahr-aterorovras-1982",
         "commons-bild-konstantinopels-fall",
@@ -1516,6 +1537,7 @@
         "commons-bild-lincoln-fods",
         "commons-bild-luthers-teser",
         "commons-bild-magellans-jordenruntsegling",
+        "commons-bild-magna-carta",
         "commons-bild-marco-polos-resa",
         "commons-bild-marschen-till-washington",
         "commons-bild-meijirestaurationen",
@@ -1568,7 +1590,9 @@
         "commons-bild-tsunamin-i-indiska-oceanen-2004",
         "commons-bild-tyfonen-kamikaze-1281",
         "commons-bild-vasco-da-gama-nar-indien",
+        "commons-bild-vesuvius-79",
         "commons-bild-waitangifordraget",
+        "commons-bild-zhang-qian-sidenvagen",
         "commons-bild-zheng-hes-resor",
         "commons-bodh-gaya-1810",
         "commons-catalan-atlas-mansa-musa",
