@@ -331,6 +331,14 @@ if intro.get('funfact') not in funfact_ids:
 for step in intro.get('steps', []):
     if step.get('event') and step['event'] not in ev_ids:
         err(f"data/intro.json: händelsen {step['event']} finns inte i data/events.json")
+# Det viktigaste att ta med sig (#500): varje punkt har egna källor som finns i sources.json
+for e in events['events']:
+    for i, x in enumerate((e.get('story') or {}).get('takeaways', [])):
+        if not x.get('sources'):
+            err(f"data/events.json ({e['id']}, takeaways[{i}]): punkten saknar källor")
+        for src in x.get('sources', []):
+            if src not in src_ids:
+                err(f"data/events.json ({e['id']}, takeaways[{i}]): källan {src} finns inte i sources.json")
 # Guidade turer (#47): registret och turerna finns, och stegen pekar på befintliga händelser och källor.
 # Lagrens id kontrolleras av tests/tour.test.mjs, som läser lagerlistan i js/layers/index.js.
 tours = []

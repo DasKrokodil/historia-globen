@@ -495,6 +495,32 @@ async function run(browser, vp) {
     return 'tre steg med år, lager och paus; Nästa, Fortsätt, Föregående och Avsluta fungerar';
   });
 
+  await check('slutkortet visar det viktigaste att ta med sig med källa per punkt (#500)', async () => {
+    const startYear = Number(await page.getAttribute('#track', 'aria-valuenow'));
+    await clickView('#btn-focus');
+    await page.fill('#focus-menu input', 'Första världskriget');
+    await page.click('#focus-menu [data-key="war:forsta-varldskriget"]');
+    // Fokusläget flyttar först tiden till krigets början; först därefter går End till krigets slut
+    await page.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '1914', null, { timeout: T.step });
+    const box = await page.locator('#track').boundingBox();
+    await page.mouse.click(box.x + box.width - 1, box.y + box.height / 2); // längst till höger: krigets slut
+    await page.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '1918', null, { timeout: T.step });
+    await page.click('#focus-action');
+    await visible('.takeaway-box');
+    const heads = await page.$$eval('.takeaway-head', h => h.map(x => x.textContent.trim()));
+    const want = ['Det här vet vi från källorna', 'Här är forskare inte överens', 'Det här vet vi inte säkert'];
+    if (heads.join('|') !== want.join('|')) throw new Error(`rubrikerna är ${heads.join(', ')}`);
+    const items = await page.$$eval('.takeaways li', l => l.map(li => !!li.querySelector('.takeaway-src a')));
+    if (!items.length || items.includes(false)) throw new Error('en punkt saknar egen källa');
+    await page.click('#focus-exit');
+    await page.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+    // Lämna sidan som den var för nästa kontroll: tom sökruta i Fokus och samma år som före kontrollen
+    await page.$eval('#focus-menu input', el => { el.value = ''; el.dispatchEvent(new Event('input', { bubbles: true })); });
+    if (await page.isVisible('#detail')) await page.click('#detail [data-close]');
+    await jumpTo(startYear);
+    return `${items.length} punkter under tre rubriker, var och en med källa`;
+  });
+
   await check('Samtidigt-kortet går till nästa händelse', async () => {
     await visible('#funfact');
     if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
