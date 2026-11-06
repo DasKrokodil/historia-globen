@@ -189,7 +189,7 @@ Kontrollerna, i båda bredderna:
 
 Testet väntar på att sidan når ett visst läge (en meny syns, årtalet ändras, kartan står still), inte på fasta tider, så att det inte ska bli rött av en slump. Hela sviten tar 6–10 minuter. Jobbet avbryts efter 20 minuter, och steget som installerar Playwright avbryts efter 5 (#617).
 
-Apt-paketen som Playwright installerar med `--with-deps` (mest typsnitt) sparas i en egen cache (`apt-debs-…`) och läggs tillbaka i apt:s arkiv före installationen, så att de inte laddas ner från Ubuntus spegel varje gång (#684). Bara den första körningen efter en ny nyckel (ny Playwright-version, ny Ubuntu-version på runnern) hämtar dem från spegeln.
+Apt-paketen som Playwright installerar med `--with-deps` (mest typsnitt) sparas i en egen cache (`apt-debs-…`) och läggs tillbaka i apt:s arkiv före installationen, så att de inte laddas ner från Ubuntus spegel varje gång (#684). Cachen fylls stegvis: varje körning sparar de paket den hann hämta, även när installationen stoppades av tidsgränsen, så en långsam spegel kan ge några röda körningar i följd efter en ny Playwright- eller Ubuntu-version, men varje omkörning kommer längre tills alla paket finns i cachen.
 
 #### Avbruten eller röd: tre olika fall (#617)
 
