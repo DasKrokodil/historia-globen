@@ -27534,6 +27534,320 @@
      "review": "source-checked"
     }
    ]
+  },
+  {
+   "id": "storbritannien",
+   "name": {
+    "sv": "Storbritannien",
+    "en": "United Kingdom",
+    "de": "Vereinigtes Königreich",
+    "es": "Reino Unido",
+    "fr": "Royaume-Uni"
+   },
+   "color": "#c2557a",
+   "from": 2000,
+   "to": 2024,
+   "file": "data/empires/storbritannien.json",
+   "polities": [
+    {
+     "id": "storbritannien",
+     "name": {
+      "sv": "Storbritannien",
+      "en": "United Kingdom",
+      "de": "Vereinigtes Königreich",
+      "es": "Reino Unido",
+      "fr": "Royaume-Uni"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "belgien",
+   "name": {
+    "sv": "Belgien",
+    "en": "Belgium",
+    "de": "Belgien",
+    "es": "Bélgica",
+    "fr": "Belgique"
+   },
+   "color": "#a04a7a",
+   "from": 1830,
+   "to": 2024,
+   "file": "data/empires/belgien.json",
+   "polities": [
+    {
+     "id": "belgien",
+     "name": {
+      "sv": "Belgien",
+      "en": "Belgium",
+      "de": "Belgien",
+      "es": "Bélgica",
+      "fr": "Belgique"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "ekvatorialguinea",
+   "name": {
+    "sv": "Ekvatorialguinea",
+    "en": "Equatorial Guinea",
+    "de": "Äquatorialguinea",
+    "es": "Guinea Ecuatorial",
+    "fr": "Guinée équatoriale"
+   },
+   "color": "#c05a5a",
+   "from": 1969,
+   "to": 2024,
+   "file": "data/empires/ekvatorialguinea.json",
+   "polities": [
+    {
+     "id": "ekvatorialguinea",
+     "name": {
+      "sv": "Ekvatorialguinea",
+      "en": "Equatorial Guinea",
+      "de": "Äquatorialguinea",
+      "es": "Guinea Ecuatorial",
+      "fr": "Guinée équatoriale"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "albanien",
+   "name": {
+    "sv": "Albanien",
+    "en": "Albania",
+    "de": "Albanien",
+    "es": "Albania",
+    "fr": "Albanie"
+   },
+   "color": "#c04a4a",
+   "from": 1991,
+   "to": 2024,
+   "file": "data/empires/albanien.json",
+   "polities": [
+    {
+     "id": "albanien",
+     "name": {
+      "sv": "Albanien",
+      "en": "Albania",
+      "de": "Albanien",
+      "es": "Albania",
+      "fr": "Albanie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "moldavien",
+   "name": {
+    "sv": "Moldavien",
+    "en": "Moldova",
+    "de": "Moldau",
+    "es": "Moldavia",
+    "fr": "Moldavie"
+   },
+   "color": "#5a7ab0",
+   "from": 1992,
+   "to": 2024,
+   "file": "data/empires/moldavien.json",
+   "polities": [
+    {
+     "id": "moldavien",
+     "name": {
+      "sv": "Moldavien",
+      "en": "Moldova",
+      "de": "Moldau",
+      "es": "Moldavia",
+      "fr": "Moldavie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Gränsen är omstridd. Transnistrien ritas som en del av Moldavien, enligt Historia-globens beslut. UD beskriver Transnistrien som en region i Moldavien men har ingen uttalad hållning om områdets status som vi hittat (kontrollerad 2026-11-06). Enligt Natural Earth är området självstyrande. Cliopatria räknar Transnistrien till Ryssland, som ockuperat område.",
+     "en": "The border is disputed. Transnistria is drawn as part of Moldova, by decision of Historia-globen. The Swedish Ministry for Foreign Affairs describes Transnistria as a region of Moldova but has no stated position on the area's status that we have found (checked 2026-11-06). According to Natural Earth, the area is self-governing. Cliopatria counts Transnistria as part of Russia, as an occupied territory.",
+     "de": "Die Grenze ist umstritten. Transnistrien ist nach einer Entscheidung von Historia-globen als Teil Moldaus gezeichnet. Das schwedische Außenministerium beschreibt Transnistrien als Region Moldaus, hat aber keine von uns gefundene ausdrückliche Haltung zum Status des Gebiets (geprüft am 2026-11-06). Laut Natural Earth ist das Gebiet selbstverwaltet. Cliopatria rechnet Transnistrien als besetztes Gebiet zu Russland.",
+     "es": "La frontera está en disputa. Transnistria se dibuja como parte de Moldavia, por decisión de Historia-globen. El Ministerio de Asuntos Exteriores de Suecia describe Transnistria como una región de Moldavia, pero no tiene una posición expresa sobre el estatus de la zona que hayamos encontrado (comprobado el 2026-11-06). Según Natural Earth, la zona se autogobierna. Cliopatria cuenta Transnistria como parte de Rusia, como territorio ocupado.",
+     "fr": "La frontière est contestée. La Transnistrie est dessinée comme faisant partie de la Moldavie, sur décision d'Historia-globen. Le ministère suédois des Affaires étrangères décrit la Transnistrie comme une région de la Moldavie, mais n'a pas de position déclarée sur le statut du territoire que nous ayons trouvée (vérifié le 2026-11-06). Selon Natural Earth, le territoire s'administre lui-même. Cliopatria compte la Transnistrie comme faisant partie de la Russie, en tant que territoire occupé."
+    },
+    "sources": [
+     "ud-moldavien",
+     "natural-earth-omstridda"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "nordmakedonien",
+   "name": {
+    "sv": "Nordmakedonien",
+    "en": "North Macedonia",
+    "de": "Nordmazedonien",
+    "es": "Macedonia del Norte",
+    "fr": "Macédoine du Nord"
+   },
+   "color": "#d0803a",
+   "from": 1992,
+   "to": 2024,
+   "file": "data/empires/nordmakedonien.json",
+   "polities": [
+    {
+     "id": "nordmakedonien",
+     "name": {
+      "sv": "Nordmakedonien",
+      "en": "North Macedonia",
+      "de": "Nordmazedonien",
+      "es": "Macedonia del Norte",
+      "fr": "Macédoine du Nord"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "burundi",
+   "name": {
+    "sv": "Burundi",
+    "en": "Burundi",
+    "de": "Burundi",
+    "es": "Burundi",
+    "fr": "Burundi"
+   },
+   "color": "#4aa070",
+   "from": 1963,
+   "to": 2024,
+   "file": "data/empires/burundi.json",
+   "polities": [
+    {
+     "id": "burundi",
+     "name": {
+      "sv": "Burundi",
+      "en": "Burundi",
+      "de": "Burundi",
+      "es": "Burundi",
+      "fr": "Burundi"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "belize",
+   "name": {
+    "sv": "Belize",
+    "en": "Belize",
+    "de": "Belize",
+    "es": "Belice",
+    "fr": "Belize"
+   },
+   "color": "#4a8ab0",
+   "from": 1983,
+   "to": 2024,
+   "file": "data/empires/belize.json",
+   "polities": [
+    {
+     "id": "belize",
+     "name": {
+      "sv": "Belize",
+      "en": "Belize",
+      "de": "Belize",
+      "es": "Belice",
+      "fr": "Belize"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "djibouti",
+   "name": {
+    "sv": "Djibouti",
+    "en": "Djibouti",
+    "de": "Dschibuti",
+    "es": "Yibuti",
+    "fr": "Djibouti"
+   },
+   "color": "#5aa0a0",
+   "from": 1979,
+   "to": 2024,
+   "file": "data/empires/djibouti.json",
+   "polities": [
+    {
+     "id": "djibouti",
+     "name": {
+      "sv": "Djibouti",
+      "en": "Djibouti",
+      "de": "Dschibuti",
+      "es": "Yibuti",
+      "fr": "Djibouti"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "el-salvador",
+   "name": {
+    "sv": "El Salvador",
+    "en": "El Salvador",
+    "de": "El Salvador",
+    "es": "El Salvador",
+    "fr": "Salvador"
+   },
+   "color": "#5a6ab0",
+   "from": 1840,
+   "to": 2024,
+   "file": "data/empires/el-salvador.json",
+   "polities": [
+    {
+     "id": "el-salvador",
+     "name": {
+      "sv": "El Salvador",
+      "en": "El Salvador",
+      "de": "El Salvador",
+      "es": "El Salvador",
+      "fr": "Salvador"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
   }
  ]
 }
