@@ -770,6 +770,21 @@
       "location": {"type": "Point", "coordinates": [-0.1275, 51.50722]}, "locationPrecision": "region", "place": {"sv": "London, Storbritannien"},
       "title": {"sv": "Darwins Om arternas uppkomst"},
       "summary": {"sv": "Den 24 november 1859 ger förlaget John Murray i London ut Charles Darwins bok Om arternas uppkomst. Darwin visar att populationer förändras över generationer genom naturligt urval. Den 1 juli 1858 hade Darwins och Alfred Russel Wallaces uppsatser om evolutionen lästs upp i Linnésällskapet i London. Boken räknas som grunden för evolutionsbiologin."},
-      "wikidata": "Q20124", "sources": ["wp-on-the-origin-of-species", "wp-london", "wikidata"], "review": "two-sources" }
+      "wikidata": "Q20124", "sources": ["wp-on-the-origin-of-species", "wp-london", "wikidata"], "review": "two-sources" },
+    {"id": "brasiliens-sjalvstandighet", "category": "civilisationer", "start": 1822, "end": 1822, "precision": 11, "edtf": "1822-09-07",
+      "location": {"type": "Point", "coordinates": [-46.61667, -23.56667]}, "place": {"sv": "Vid bäcken Ipiranga, São Paulo, Brasilien"},
+      "title": {"sv": "Brasilien förklarar sig självständigt"},
+      "summary": {"sv": "Den 7 september 1822 förklarade prinsregenten Pedro av Braganza Brasilien självständigt från Portugal, vid bäcken Ipiranga i São Paulo. Händelsen kallas Ropet från Ipiranga och dagen firas som Brasiliens nationaldag. Pedro utropades till kejsare i oktober samma år, och landet blev kejsardömet Brasilien. Ett krig mot de portugisiska styrkorna följde, och de sista portugisiska soldaterna lämnade landet 1824. Portugal erkände Brasiliens självständighet i ett fördrag den 29 augusti 1825."},
+      "wikidata": "Q1548600", "sources": ["wp-independence-of-brazil", "wp-ipiranga-brook", "wikidata"], "review": "two-sources" },
+    {"id": "kommunistiska-manifestet", "category": "ekonomi", "start": 1848, "end": 1848, "precision": 10, "edtf": "1848-02",
+      "location": {"type": "Point", "coordinates": [-0.09306, 51.51556]}, "locationPrecision": "region", "place": {"sv": "City of London, London, Storbritannien"},
+      "title": {"sv": "Kommunistiska manifestet ges ut"},
+      "summary": {"sv": "I slutet av februari 1848 gavs Kommunistiska manifestet ut i London, utan författarnamn och på tyska, som ett häfte på 23 sidor. Det var skrivet av Karl Marx och Friedrich Engels på uppdrag av Kommunistiska förbundet. Skriften beskriver historien som en kamp mellan samhällsklasser och kritiserar hur arbetare utnyttjas under kapitalismen. Den kom ut samtidigt som revolutionerna 1848 i Europa och har blivit en av världens mest inflytelserika politiska texter."},
+      "wikidata": "Q40591", "sources": ["wp-the-communist-manifesto", "wikidata"], "review": "two-sources" },
+    {"id": "curie-polonium-radium", "category": "vetenskap", "start": 1898, "end": 1898, "precision": 9, "edtf": "1898-07/1898-12-26",
+      "location": {"type": "Point", "coordinates": [2.34694, 48.84139]}, "place": {"sv": "Laboratorium vid ESPCI, Paris, Frankrike"},
+      "title": {"sv": "Marie och Pierre Curie upptäcker polonium och radium"},
+      "summary": {"sv": "Marie Curie undersökte uranmineralet pitchblende och såg att det strålade mer än uranet självt, vilket tydde på att det fanns ett okänt och mer aktivt ämne i det. Hon och maken Pierre Curie arbetade i ett ombyggt skjul intill skolan ESPCI i Paris. I juli 1898 meddelade de att de hittat ett nytt grundämne, som de kallade polonium efter hennes hemland Polen. Den 26 december 1898 tillkännagav de ett andra grundämne, radium. Under arbetet myntade de också ordet radioaktivitet."},
+      "sources": ["wp-marie-curie", "wp-radium", "wp-polonium", "wikidata"], "review": "source-checked" }
   ]
 }

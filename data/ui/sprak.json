@@ -2,8 +2,56 @@
   "_om": "Språken i språkväljaren (#63, beslut 2026-11-05). auto: väljs automatiskt efter webbläsarens språk (bara färdiga översättningar). complete: alla gränssnittstexter finns. review: unreviewed eller reviewed (AI-korsgranskning: översätter Claude Code granskar Codex och tvärtom). Datans texter (händelser, fun facts, riken) har egna uppgifter per språk när de översätts.",
   "default": "sv",
   "languages": [
-    { "id": "sv", "name": "Svenska", "auto": true, "complete": true, "source": true },
-    { "id": "en", "name": "English", "beta": "beta", "auto": false, "complete": false,
-      "translatedBy": "Claude Code", "translatedAt": "2026-11-05", "reviewedBy": null, "review": "unreviewed" }
+    {
+      "id": "sv",
+      "name": "Svenska",
+      "auto": true,
+      "complete": true,
+      "source": true
+    },
+    {
+      "id": "en",
+      "name": "English",
+      "beta": "beta",
+      "auto": false,
+      "complete": false,
+      "translatedBy": "Claude Code",
+      "translatedAt": "2026-11-05",
+      "reviewedBy": null,
+      "review": "unreviewed"
+    },
+    {
+      "id": "fr",
+      "name": "Français",
+      "beta": "bêta",
+      "auto": false,
+      "complete": false,
+      "translatedBy": "Claude Code",
+      "translatedAt": "2026-11-05",
+      "reviewedBy": null,
+      "review": "unreviewed"
+    },
+    {
+      "id": "de",
+      "name": "Deutsch",
+      "beta": "Beta",
+      "auto": false,
+      "complete": false,
+      "translatedBy": "Claude Code",
+      "translatedAt": "2026-11-05",
+      "reviewedBy": null,
+      "review": "unreviewed"
+    },
+    {
+      "id": "es",
+      "name": "Español",
+      "beta": "beta",
+      "auto": false,
+      "complete": false,
+      "translatedBy": "Claude Code",
+      "translatedAt": "2026-11-05",
+      "reviewedBy": null,
+      "review": "unreviewed"
+    }
   ]
 }

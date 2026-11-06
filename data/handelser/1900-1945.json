@@ -376,6 +376,7 @@
       "location": {"type": "Point", "coordinates": [-122.4164, 37.7775]}, "place": {"sv": "San Francisco, USA"},
       "title": {"sv": "FN-stadgan skrivs under och FN grundas"},
       "summary": {"sv": "Den 26 juni 1945, sista dagen av en konferens i San Francisco med delegater från 50 allierade länder, skriver 50 av de 51 första medlemsländerna under FN-stadgan. Stadgan träder i kraft den 24 oktober 1945, och då finns Förenta nationerna."},
+      "image": {"file": "images/events/fn-grundas.webp", "kind": "historisk", "style": "affisch", "caption": {"sv": "FN-stadgan i en utställning vid FN:s högkvarter i New York, utlånad från USA:s nationalarkiv. Nutida fotografi från 2025, inte från 1945. Licens: CC BY 4.0."}, "credit": "Megs / Wikimedia Commons", "license": "CC BY 4.0", "source": "commons-bild-fn-grundas"},
       "wikidata": "Q171328", "sources": ["wp-charter-of-the-united-nations", "wp-uncio", "wikidata"], "review": "two-sources" },
 
     {"id": "titanic-sjunker", "category": "katastrofer", "icon": "ship", "start": 1912, "end": 1912, "precision": 11, "edtf": "1912-04-15",
@@ -412,6 +413,11 @@
       "location": {"type": "Point", "coordinates": [72.800944, 20.886472]}, "place": {"sv": "Från Sabarmati-ashramet till Dandi, Indien"},
       "title": {"sv": "Gandhis saltmarsch"},
       "summary": {"sv": "Den 12 mars 1930 börjar Mahatma Gandhi gå från Sabarmati-ashramet till kustbyn Dandi, en sträcka på cirka 385 kilometer, i protest mot det brittiska saltmonopolet. Den 6 april bryter han mot saltlagarna i Dandi. I kampanjen som följer fängslas över 60 000 indier."},
-      "wikidata": "Q239344", "sources": ["wp-salt-march", "wp-dandi", "wikidata"], "review": "two-sources" }
+      "wikidata": "Q239344", "sources": ["wp-salt-march", "wp-dandi", "wikidata"], "review": "two-sources" },
+    {"id": "panamakanalen-oppnas", "category": "ekonomi", "icon": "ship", "start": 1914, "end": 1914, "precision": 11, "edtf": "1914-08-15",
+      "location": {"type": "Point", "coordinates": [-79.75, 9.12]}, "place": {"sv": "Panamakanalen, Panama"},
+      "title": {"sv": "Panamakanalen öppnas"},
+      "summary": {"sv": "Den 15 augusti 1914 öppnades Panamakanalen formellt, när lastfartyget SS Ancon passerade. Kanalen är omkring 82 kilometer lång och förbinder Atlanten med Stilla havet över Panamanäset, så att fartyg slipper den långa och farliga vägen runt Sydamerikas sydspets. Frankrike började bygget 1881 men gav upp 1889, och USA tog över arbetet 1904. Omkring 5 600 arbetare dog av sjukdomar och olyckor under den amerikanska byggtiden. Panama tog över kontrollen av kanalen 1999."},
+      "wikidata": "Q7350", "sources": ["wp-panama-canal", "wikidata"], "review": "two-sources" }
   ]
 }

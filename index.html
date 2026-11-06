@@ -112,6 +112,8 @@
         <button id="btn-panel" class="chip-btn panel-toggle" type="button" aria-expanded="false" aria-controls="panel" data-i18n="top.panel">Samtidigt <span id="panel-count" class="count">0</span></button>
         <button id="btn-layers" class="chip-btn" type="button" aria-expanded="false" aria-controls="layer-menu" data-i18n="top.layers">Lager</button>
         <button id="btn-focus" class="chip-btn" type="button" aria-expanded="false" aria-controls="focus-menu" data-i18n="top.focus">Fokus</button>
+        <!-- Sök i globens innehåll (#570): händelser, riken och resor (js/ui/search.js) -->
+        <button id="btn-search" class="chip-btn" type="button" aria-expanded="false" aria-controls="search-pop" data-i18n="search.button">Sök</button>
         <button id="btn-intro" class="chip-btn" type="button" aria-controls="intro"></button>
         <button id="btn-tour" class="chip-btn" type="button" aria-expanded="false" aria-controls="tour-menu" hidden data-i18n="top.tours">Turer</button>
       </div>
@@ -260,6 +262,14 @@
 
   <div id="focus-menu" class="layer-menu" hidden role="group" aria-label="Fokus" data-i18n-aria-label="top.focus"></div>
   <!-- Guidade turer (#47): listan över turerna i data/turer/index.json (js/ui/tour.js) -->
+  <div id="search-pop" class="layer-menu search-pop" hidden role="dialog" aria-labelledby="search-label">
+    <label id="search-label" class="layer-heading" for="search-input" data-i18n="search.label">Sök i globen</label>
+    <input id="search-input" class="search-input" type="search" autocomplete="off" enterkeyhint="search" spellcheck="false"
+           placeholder="till exempel Pompeji, Rom eller Columbus" data-i18n-placeholder="search.placeholder" aria-describedby="search-status search-note" aria-controls="search-list">
+    <p id="search-status" class="search-status" role="status" aria-live="polite"></p>
+    <ul id="search-list" class="search-list"></ul>
+    <p id="search-note" class="search-note" data-i18n="search.note">Sökningen gäller globens egna händelser, riken och resor.</p>
+  </div>
   <div id="tour-menu" class="layer-menu tour-menu" hidden role="group" aria-labelledby="tour-menu-title">
     <p id="tour-menu-title" class="layer-heading"></p>
     <ul id="tour-list" class="tour-list"></ul>
@@ -276,6 +286,7 @@
       <div class="layer-subheading" data-i18n="layers.pauseAt">Pausa uppspelningen vid</div>
       <label class="layer-row"><input type="checkbox" data-pause="funfacts" checked aria-label="Pausa vid Samtidigt-kortet" data-i18n-aria-label="layers.pFfLabel"> <span data-i18n="layers.pFf">Samtidigt-kortet</span> <span class="layer-note" data-i18n="layers.pFfNote">fun facts och annat som hände samtidigt</span></label>
       <label class="layer-row"><input type="checkbox" data-pause="focusFunfacts" aria-label="Pausa vid Samtidigt-kortet även i fokusläget" data-i18n-aria-label="layers.pFocusLabel"> <span data-i18n="layers.pFocus">Samtidigt-kortet även i fokusläget</span> <span class="layer-note" data-i18n="layers.pFocusNote">annars pausar Fokus bara vid det man följer</span></label>
+      <label class="layer-row"><input type="checkbox" data-pause="ffAuto" checked aria-label="Fortsätt själv efter Samtidigt-kortet" data-i18n-aria-label="layers.pAutoLabel"> <span data-i18n="layers.pAuto">Fortsätt själv efter Samtidigt-kortet</span> <span class="layer-note" data-i18n="layers.pAutoNote">nedräkning efter textens längd; av = står still tills du trycker Fortsätt</span></label>
       <label class="layer-row"><input type="checkbox" data-pause="wars"> <span data-i18n="layers.pWars">När ett krig bryter ut</span></label>
       <label class="layer-row"><input type="checkbox" data-pause="major" checked> <span data-i18n="layers.pMajor">Stora händelser när man följer ett krig</span></label>
       <label class="layer-row"><input type="checkbox" data-pause="empire" checked> <span data-i18n="layers.pEmpire">Nyckelår när man följer ett rike</span> <span class="layer-note" data-i18n="layers.pEmpireNote">varför riket växer eller krymper</span></label>
@@ -351,6 +362,7 @@
     <div id="pause-note" class="pause-note" role="status" hidden>
       <span id="pause-text"></span>
       <span id="pause-next" class="pause-next" hidden></span>
+      <span id="pause-countdown" class="pause-countdown" aria-hidden="true" hidden></span>
       <button id="pause-finish" class="pause-finish" type="button" hidden data-i18n="play.finish">Spela klart &#9654;</button>
       <button id="pause-go" class="pause-go" type="button" aria-describedby="pause-text" data-i18n="play.continue">&#9654; Fortsätt</button>
     </div>

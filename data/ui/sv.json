@@ -23,5 +23,19 @@
   "time.months": ["januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti", "september", "oktober", "november", "december"],
   "time.monthsShort": ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec"],
   "time.error.input": "Skriv ett år eller ett giltigt datum.",
-  "time.error.date": "Ogiltigt datum: datumet finns inte."
+  "time.error.date": "Ogiltigt datum: datumet finns inte.",
+  "search.button": "Sök",
+  "search.label": "Sök i globen",
+  "search.placeholder": "till exempel Pompeji, Rom eller Columbus",
+  "search.note": "Sökningen gäller globens egna händelser, riken och resor.",
+  "search.hint": "Skriv namnet på en händelse, ett rike, en resa eller en plats.",
+  "search.none": "Inget i globens innehåll matchar ”{q}”.",
+  "search.one": "1 träff",
+  "search.count": "{n} träffar",
+  "search.many": "Fler än {n} träffar. Skriv fler ord för att begränsa.",
+  "search.type.event": "Händelse",
+  "search.type.war": "Krig",
+  "search.type.empire": "Rike",
+  "search.type.route": "Resa",
+  "search.mapData": "kartdata {span}"
 }
