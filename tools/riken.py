@@ -88,7 +88,8 @@ GROUPS = {
         # Cliopatria räknar Botswana och Guyana till imperiet till och med 1968, Ghana till och med 1960 och Oman från 1973, fast de
         # är egna länder de åren i Cliopatria (#644)
         ('(British Empire)', 'brittiska-imperiet', 'Brittiska imperiet', '#c2557a',
-         {'homeland': ['Kingdom of Great Britain'], 'minus': ['Republic of Botswana', 'Ghana', 'Guyana', ('Sultanate of Oman', 1973)]}),
+         {'homeland': ['Kingdom of Great Britain'], 'minus': ['Republic of Botswana', 'Ghana', 'Guyana', ('Sultanate of Oman', 1973),
+                                                                         'Malawi', 'United Arab Emirates', 'Second Republic of Austria']}),
     ]),
     # R2 Antiken (#68)
     'egypten': ('Egypten: gamla och nya riket', 'Egypt: Old and New Kingdom', [
@@ -280,9 +281,9 @@ GROUPS = {
     'usa': ('USA', 'United States', [
         # Cliopatria räknar Japan till USA 1947–1966 och Okinawa till och med 2005, också de år då Japan är eget land
         # i Cliopatria (från 1953); de åren klipps Japan bort (#644)
-        ('United States of America', 'usa', 'USA', '#4a7ab8', {'en': 'United States', 'minus': ['Japan', 'Republic of the Philippines'],
-                                                       # Filippinerna eget land 1947, Japan 1953, Okinawa till Japan 1973 (Cliopatria)
-                                                       'splits': (1947, 1953, 1973)}),
+        ('United States of America', 'usa', 'USA', '#4a7ab8', {'en': 'United States', 'minus': ['Japan', 'Republic of the Philippines', 'Republic of Liberia'],
+                                                       # Liberia eget land 1848, Filippinerna 1947, Japan 1953, Okinawa till Japan 1973 (Cliopatria)
+                                                       'splits': (1848, 1947, 1953, 1973)}),
     ]),
     'amerikas-konfedererade-stater': ('Amerikas konfedererade stater', 'Confederate States of America', [
         ('Confederate States of America', 'amerikas-konfedererade-stater', 'Amerikas konfedererade stater', '#8c7f6a'),
@@ -734,6 +735,45 @@ GROUPS = {
     ]),
     'guatemala': ('Guatemala', 'Guatemala', [
         ('Guatemala', 'guatemala', 'Guatemala', '#8a6ab0', {'en': 'Guatemala'}),
+    ]),
+    # Nutida stater, åttonde omgången (#644)
+    'liberia': ('Liberia', 'Liberia', [
+        ('Republic of Liberia', 'liberia', 'Liberia', '#3a8ab0', {'en': 'Liberia'}),
+    ]),
+    # Bara från 1976: Cliopatrias Portuguese Republic 1911–1925 omfattar också kolonierna
+    'portugal': ('Portugal', 'Portugal', [
+        ('Portugal', 'portugal', 'Portugal', '#4aa070', {'en': 'Portugal'}),
+    ]),
+    'malawi': ('Malawi', 'Malawi', [
+        ('Malawi', 'malawi', 'Malawi', '#c05a5a', {'en': 'Malawi'}),
+    ]),
+    # Cliopatrias tre poster (republiken 1919–1943, Hungary och folkrepubliken) överlappar inte; Cliopatria anger
+    # Q28513 (Österrike-Ungern) för Hungary, rätt id är Q28
+    'ungern': ('Ungern', 'Hungary', [
+        (['Hungarian Republic', 'Hungary', "Hungarian People's Republic"], 'ungern', 'Ungern', '#c0703a',
+         {'en': 'Hungary', 'wikidata': 'Q28'}),
+    ]),
+    # Cliopatria anger Q187830 (Österrikes historia) för andra republiken; rätt id är Q40
+    'osterrike': ('Österrike', 'Austria', [
+        (['Republic of Austria', 'Second Republic of Austria'], 'osterrike', 'Österrike', '#c04050', {'en': 'Austria', 'wikidata': 'Q40'}),
+    ]),
+    'panama': ('Panama', 'Panama', [
+        ('Republic of Panama', 'panama', 'Panama', '#5a9ac0', {'en': 'Panama'}),
+    ]),
+    'tjeckien': ('Tjeckien', 'Czech Republic', [
+        ('Czech Republic', 'tjeckien', 'Tjeckien', '#5a6ab0', {'en': 'Czech Republic'}),
+    ]),
+    'forenade-arabemiraten': ('Förenade arabemiraten', 'United Arab Emirates', [
+        ('United Arab Emirates', 'forenade-arabemiraten', 'Förenade arabemiraten', '#3a9a7a', {'en': 'United Arab Emirates'}),
+    ]),
+    # Bara från 2006: Cliopatria kallar 1992–2005 "Serbia-Montenegro", men staten fick det namnet först 2003 enligt
+    # Wikidata. Kosovo ingår inte i Serbien i Cliopatria efter 1999, som Rikard beslutade (docs/omstridda-granser.md)
+    'serbien': ('Serbien', 'Serbia', [
+        ('Republic of Serbia', 'serbien', 'Serbien', '#8a5ab0', {'en': 'Serbia'}),
+    ]),
+    # Irländska fristaten 1922–1937 och Éire slås ihop till Irland (Q27)
+    'irland': ('Irland', 'Ireland', [
+        (['Irish Free State', 'Éire'], 'irland', 'Irland', '#5aa060', {'en': 'Ireland', 'wikidata': 'Q27'}),
     ]),
 }
 
