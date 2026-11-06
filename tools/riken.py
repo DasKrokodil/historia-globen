@@ -502,6 +502,44 @@ GROUPS = {
     'tchad': ('Tchad', 'Chad', [
         ('Republic of Chad', 'tchad', 'Tchad', '#c9a050', {'en': 'Chad'}),
     ]),
+    # Nutida stater, andra omgången (#644): nästa elva luckor år 2024 enligt tools/tackning_riken.py
+    'angola': ('Angola', 'Angola', [
+        ("People's Republic of Angola", 'angola', 'Angola', '#c05050', {'en': 'Angola'}),
+    ]),
+    # Cliopatria anger Q216632 (Malifederationen, 1959–1960) för Mali; rätt id är Q912
+    'mali': ('Mali', 'Mali', [
+        ('Mali Federation', 'mali', 'Mali', '#d4a24a', {'en': 'Mali', 'wikidata': 'Q912'}),
+    ]),
+    'sydafrika': ('Sydafrika', 'South Africa', [
+        ('South Africa', 'sydafrika', 'Sydafrika', '#4f8a5a', {'en': 'South Africa'}),
+    ]),
+    'niger': ('Niger', 'Niger', [
+        ('Republic of the Niger', 'niger', 'Niger', '#b0603a', {'en': 'Niger'}),
+    ]),
+    'mauretanien': ('Mauretanien', 'Mauritania', [
+        ('Mauritania', 'mauretanien', 'Mauretanien', '#a86a9a', {'en': 'Mauritania'}),
+    ]),
+    'tanzania': ('Tanzania', 'Tanzania', [
+        ('Tanzania', 'tanzania', 'Tanzania', '#5aa070', {'en': 'Tanzania'}),
+    ]),
+    'namibia': ('Namibia', 'Namibia', [
+        ('Namibia', 'namibia', 'Namibia', '#5a9ab0', {'en': 'Namibia'}),
+    ]),
+    'mocambique': ('Moçambique', 'Mozambique', [
+        ('Mozambique', 'mocambique', 'Moçambique', '#d0a040', {'en': 'Mozambique'}),
+    ]),
+    'turkiet': ('Turkiet', 'Turkey', [
+        ('Republic of Turkey', 'turkiet', 'Turkiet', '#4a8ab0', {'en': 'Turkey'}),
+    ]),
+    'zambia': ('Zambia', 'Zambia', [
+        ('Zambia', 'zambia', 'Zambia', '#8a6ab0', {'en': 'Zambia'}),
+    ]),
+    # Frankrike efter kolonialväldet (som slutar 1957 i gruppen franska-kolonialvaldet)
+    'frankrike': ('Frankrike', 'France', [
+        # Cliopatria räknar Algeriet och Djibouti till Femte republiken 1961–2023, också de år då de är egna stater i Cliopatria
+        ('French Fifth Republic', 'femte-republiken', 'Frankrike', '#3a5fa0',
+         {'en': 'French Fifth Republic', 'minus': ["People's Democratic Republic of Algeria", 'Republic of Djibouti']}),
+    ]),
 }
 
 # Huvudlandet i utspridda välden (#74): moderlandet ritas med kraftigare kant och en stjärna och får
@@ -619,6 +657,24 @@ def apply_disputed(items, gid, areas):
                 out.append((s, e, ng, km2(ng)))
         items = out
     return items
+
+
+def minus_others(items, names, by_name):
+    """Klipper bort andra Cliopatria-stater (names) ur en dels perioder de år de finns (#644). Cliopatria räknar ibland
+    ett område både till en stat och till dess forna kolonialmakt, till exempel Algeriet och Djibouti till Femte franska
+    republiken 1961–2023. Perioderna delas där någon av staterna börjar eller slutar."""
+    feats = [f for n in names for f in by_name.get(n, [])]
+    out = []
+    for a, b, g, ar in items:
+        cuts = sorted({a, b + 1} | {c for f in feats for c in (f['properties']['FromYear'], f['properties']['ToYear'] + 1) if a < c <= b})
+        for s, e in zip(cuts, cuts[1:]):
+            on = [shape(f['geometry']).buffer(0) for f in feats if f['properties']['FromYear'] <= s <= f['properties']['ToYear']]
+            if on:
+                ng = g.difference(unary_union(on))
+                out.append((s, e - 1, ng, km2(ng)))
+            else:
+                out.append((s, e - 1, g, ar))
+    return out
 
 
 def km2(g):
@@ -845,6 +901,8 @@ def main():
             # En del utan Cliopatria-namn (None) får hela sin gräns ur DISPUTED (Palestina, #644)
             base = ([(*opts['years'], Polygon(), 0)] if cname is None
                     else member_periods(by_name, cname, opts.get('years'), feats))
+            if opts.get('minus'):
+                base = minus_others(base, opts['minus'], by_name)
             for start, end, raw, area in apply_disputed(base, gid, disputed):
                 core.append((start, end, raw))
                 g = raw.simplify(tol, preserve_topology=True)
