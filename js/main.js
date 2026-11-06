@@ -2,8 +2,8 @@
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
 // Ansvaret ligger i js/controllers/ (#402): val av händelse, fokusläget, faktarutor om riken och religioner,
 // omritningen, uppspelningens pauser, krigets berättelse och etiketterna. Här skapas delarna och kopplas ihop.
-import { loadAll, loadReligionPolities, loadRoutes, t, formatYear, isVisibleReview } from './model.js';
-import { Search } from './ui/search.js';
+import { loadAll, loadReligionPolities, loadRoutes, t, formatYear, formatEventTime, isVisibleReview, CAT } from './model.js';
+import { buildIndex, search as searchIndex } from './search-index.js';
 import { applyStatic, setupLangPicker, takeReturnYear, LANG_INFO } from './i18n.js';
 import { Globe } from './globe.js';
 import { Timeline, setupYearJump } from './timeline.js';
@@ -21,7 +21,8 @@ import { FlatMap } from './ui/flatmap.js';
 import { downloadPoster } from './ui/poster.js';
 import { Feedback } from './ui/feedback.js';
 import { Sheet } from './ui/sheet.js';
-import { ViewMenu } from './ui/viewmenu.js';
+import { ViewMenu, ExtraMenu } from './ui/viewmenu.js';
+import { ViewMode } from './ui/viewmode.js';
 import { createStore, toJSON } from './state.js';
 import { LayerRegistry } from './layers/registry.js';
 import { createSelection } from './controllers/selection.js';
@@ -78,7 +79,7 @@ async function start() {
     zoomIn: $('flat-in'), zoomOut: $('flat-out'), reset: $('flat-reset'),
     sources: () => [globe.baseCanvas, globe.overlayCanvas],
     onToggle: open => {
-      $('btn-flat').setAttribute('aria-pressed', String(open));
+      app.viewMode?.sync();
       globe.setFlatView(open); // Platt vy behåller 4096 × 2048 även när mobilens glob är mindre (#390)
       app.syncNameScale(); app.refresh();
     },
@@ -133,6 +134,7 @@ async function start() {
   // Smal skärm (#361): faktarutan som ark nedifrån med tre lägen, och mobilmenyn (#530): Samtidigt och Meny i raden överst
   const detailSheet = new Sheet($('detail'));
   new ViewMenu({ toggle: $('more-toggle'), menu: $('more-menu'), keep: $('btn-panel'), label: t(views?.menu?.label) });
+  new ExtraMenu({ toggle: $('btn-more'), menu: $('extra-menu') });
   const sources = new SourcesDialog({ root: $('sources-dialog'), body: $('sources-body'), close: $('sources-close'), openBtn: $('btn-sources') }, data, { sourceVersion: views?.sourceVersion, summary: views?.sourcesSummary });
 
   const timeline = new Timeline({
@@ -378,7 +380,8 @@ async function start() {
 
   // Platt vy (#292): världen som en platt karta för skärmar, med zoom och panorering.
   // Tidslinjen, Samtidigt, Lager och Fokus fungerar som vanligt medan den är öppen.
-  $('btn-flat').addEventListener('click', () => flatMap.setOpen(flatMap.hidden));
+  // Vyväljaren (#651): Glob, Platt karta och Upptäcktsresor
+  app.viewMode = new ViewMode({ globe: $('btn-globe'), flat: $('btn-flat'), discovery: $('btn-discovery') }, { flatMap, layers });
   posterButton.addEventListener('click', async () => {
     if (!poster) return;
     posterButton.disabled = true;
@@ -407,6 +410,7 @@ async function start() {
   layers.onChange = async (name, on) => {
     store.setLayers(layers.on);
     applyLayers(); app.refresh();
+    if (name === 'discovery') app.viewMode?.sync(); // Upptäcktsresor i Vy följer lagret (#651)
     // Lagret slås bara på: menyn står kvar öppen och ingen faktaruta öppnas (#308). Första gången
     // visar teckenförklaringen en tipsrad; faktarutan finns bakom knappen "Läs om religionerna".
     if (name === 'religions') relLegend.setHint(on);
@@ -420,19 +424,25 @@ async function start() {
   document.fonts?.ready.then(() => app.refresh());
 
   // Menyerna uppe till höger: bara en åt gången
-  panel.onOpen = () => { layers.close(); app.focusMenu.close(); search.close(false); app.orientToPanelHighlight(); };
-  layers.onOpen = () => { panel.setOpen(false); app.focusMenu.close(); search.close(false); };
+  panel.onOpen = () => { layers.close(); app.focusMenu.close(); app.orientToPanelHighlight(); };
+  layers.onOpen = () => { panel.setOpen(false); app.focusMenu.close(); };
 
-  // Sök (#570): en träff gör det man annars gör för hand. En händelse öppnas på sitt år (lagret Händelser och
-  // händelsens kategori slås på om de är av); krig, riken och resor börjar följas i Fokus.
-  const search = new Search({ button: $('btn-search'), pop: $('search-pop'), input: $('search-input'), list: $('search-list'), status: $('search-status') },
-    data, { loadRoutes });
-  app.search = search;
-  search.onOpen = () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); };
-  search.onPick = item => {
+  // Sök och följ (#651, tidigare Sök #570): händelserna söks i samma ruta som det man kan följa. En händelse öppnas
+  // på sitt år (lagret Händelser och händelsens kategori slås på om de är av); resten börjar följas i Fokus.
+  let eventIndex = null;
+  app.focusMenu.searchEvents = q => {
+    eventIndex ??= buildIndex({ events: data.events }, { t, visible: isVisibleReview }).filter(it => it.type === 'event');
+    return searchIndex(eventIndex, q, 30).map(it => ({
+      key: `event:${it.id}`, label: it.title, from: it.start, to: it.end,
+      sub: [formatEventTime(it.ref), it.place].filter(Boolean).join(' · '), color: CAT[it.ref.category]?.color ?? 'var(--brass)',
+    }));
+  };
+  const follow = app.focusMenu.onPick;
+  app.focusMenu.onPick = key => {
+    if (!key.startsWith('event:')) return follow(key);
+    const e = data.byId[key.slice(6)];
+    if (!e) return;
     timeline.pause();
-    if (item.type !== 'event') return app.startFocus(`${item.type}:${item.id}`);
-    const e = item.ref;
     if (!layers.on.events) { layers.set('events', true); layers.onChange('events', true); }
     if (!panel.filters.has(e.category)) $('filters').querySelector(`[data-cat="${e.category}"]`)?.click();
     if (state.focus) app.endFocus(false);
@@ -496,7 +506,7 @@ async function start() {
     fallbackFocus: () => $('track'),
   });
   app.tour = tour;
-  tour.onOpen = () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); search.close(false); };
+  tour.onOpen = () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); };
   // Turen i adressen (?tur=<id>) startar direkt, till exempel från en lektion eller ett test
   const tourParam = new URLSearchParams(location.search).get('tur');
   if (tourParam) tour.start(tourParam);

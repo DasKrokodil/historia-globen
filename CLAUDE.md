@@ -50,7 +50,7 @@ js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering
 js/ui/poster.js       A4-affisch som PNG från Platt vy
 js/ui/routepop.js     klickrutan för vägar och resor
 js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg (#363)
-js/ui/search.js       knappen Sök och träfflistan (#570)
+js/ui/viewmode.js     vyväljaren: Glob, Platt karta och Upptäcktsresor (#651)
 js/ui/tour.js         guidade turer: spelar upp en tur ur data/turer/ steg för steg (#47)
 js/tour-format.js     turformatets kontroll, delas med testerna (#47)
 js/ui/feedback.js     formuläret för besökarnas förslag (avstängt som standard, docs/feedback.md)

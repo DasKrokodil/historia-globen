@@ -130,7 +130,6 @@
     { "id": "bara-kartan", "name": { "sv": "Bara kartan", "en": "Map only" }, "layers": [] },
     { "id": "utforska", "name": { "sv": "Utforska", "en": "Explore" }, "layers": ["events", "funfacts", "areas"] },
     { "id": "makt", "name": { "sv": "Makt och gränser", "en": "Power and borders" }, "layers": ["events", "areas", "religions", "borders", "wars"] },
-    { "id": "resor", "name": { "sv": "Resor och handel", "en": "Journeys and trade" }, "layers": ["events", "routes"] },
-    { "id": "perspektiv", "name": { "sv": "Perspektiv", "en": "Perspective" }, "layers": ["discovery", "routes"] }
+    { "id": "resor", "name": { "sv": "Resor och handel", "en": "Journeys and trade" }, "layers": ["events", "routes"] }
   ]
 }
