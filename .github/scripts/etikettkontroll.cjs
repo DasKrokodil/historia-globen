@@ -1,17 +1,19 @@
-// Etikettkontrollen (#588, beslut 2026-11-05): håller regeln "ett issue, en ägare" med en maskin.
+// Etikettkontrollen (#588, beslut 2026-11-05, förenklad 2026-11-06): håller regeln "ett issue, en ägare" med en maskin.
+// Sedan 2026-11-06 finns en gemensam `redo` och en gemensam `pågår`, och ägaren är den person som issuet är tilldelat
+// (Assignees). De gamla agentetiketterna räknas med tills de är omdöpta i GitHub.
 // Används av .github/workflows/etikettkontroll.yml via actions/github-script. Ingen hemlighet behövs,
 // bara GITHUB_TOKEN med issues: write. Allt som skrivs till GitHub är etiketter och korta kommentarer.
 // Ändrar ingen kod eller data i sidan.
 
-const AGARE = ['orkester: pågår', 'codex: pågår', 'copilot: pågår'];
-const REDO = ['codex: redo', 'copilot: redo'];
+const AGARE = ['pågår', 'orkester: pågår', 'codex: pågår', 'copilot: pågår'];
+const REDO = ['redo', 'codex: redo', 'copilot: redo'];
 const STADA = [...AGARE, ...REDO, 'behöver hjälp', 'etikettfel'];
 const FEL = 'etikettfel';
 const PAMINN_DAGAR = 7;
 const SIGNATUR = '\n\n---\n_Automatisk etikettkontroll (#588)._';
 
-// Ren funktion: vilka motsägelser finns bland etiketterna? Tom lista = allt är som det ska.
-function bedom(etiketter) {
+// Ren funktion: vilka motsägelser finns bland etiketterna och tilldelningen? Tom lista = allt är som det ska.
+function bedom(etiketter, tilldelade = []) {
   const namn = new Set(etiketter);
   const agare = AGARE.filter(e => namn.has(e));
   const redo = REDO.filter(e => namn.has(e));
@@ -20,6 +22,9 @@ function bedom(etiketter) {
   if (redo.length > 1) problem.push(`både ${redo.map(e => `\`${e}\``).join(' och ')}`);
   if (agare.length >= 1 && redo.length >= 1) {
     problem.push(`${redo.map(e => `\`${e}\``).join(', ')} sitter kvar fast issuet redan är taget (${agare.map(e => `\`${e}\``).join(', ')})`);
+  }
+  if (agare.length >= 1 && tilldelade.length > 1) {
+    problem.push(`issuet är taget men tilldelat flera personer: ${tilldelade.map(t => `\`${t}\``).join(', ')}`);
   }
   return problem;
 }
@@ -32,6 +37,7 @@ function stangda(text) {
 }
 
 const namnLista = issue => (issue.labels || []).map(l => (typeof l === 'string' ? l : l.name));
+const tilldeladeLista = issue => (issue.assignees || []).map(a => a.login);
 
 async function taBortEtikett({ github, context }, nummer, namn) {
   try {
@@ -47,13 +53,13 @@ async function kontrolleraIssue(ctx, nummer) {
   const { data: issue } = await github.rest.issues.get({ ...context.repo, issue_number: nummer });
   if (issue.pull_request || issue.state !== 'open') return 'hoppade över';
   const etiketter = namnLista(issue);
-  const problem = bedom(etiketter);
+  const problem = bedom(etiketter, tilldeladeLista(issue));
   const harFel = etiketter.includes(FEL);
   if (problem.length && !harFel) {
     await github.rest.issues.addLabels({ ...context.repo, issue_number: nummer, labels: [FEL] });
     await github.rest.issues.createComment({
       ...context.repo, issue_number: nummer,
-      body: `**Etiketterna säger emot varandra:** ${problem.join('; ')}.\n\nRegeln är ett issue, en ägare (AGENTS.md, beslut 2026-11-05). Ta bort den etikett som inte stämmer. Varningen försvinner av sig själv när det är rättat.${SIGNATUR}`,
+      body: `**Etiketterna säger emot varandra:** ${problem.join('; ')}.\n\nRegeln är ett issue, en ägare (AGENTS.md, beslut 2026-11-05 och 2026-11-06). Den agent som kom först, enligt kommentarerna, behåller issuet. Ta bort den etikett som inte stämmer. Varningen försvinner av sig själv när det är rättat.${SIGNATUR}`,
     });
     return 'varnade';
   }

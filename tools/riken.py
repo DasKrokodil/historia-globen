@@ -85,7 +85,10 @@ GROUPS = {
         ('Golden Horde', 'gyllene-horden', 'Gyllene horden', '#b08c4a'),
     ]),
     'brittiska-imperiet': ('Brittiska imperiet', 'British Empire', [
-        ('(British Empire)', 'brittiska-imperiet', 'Brittiska imperiet', '#c2557a', {'homeland': ['Kingdom of Great Britain']}),
+        # Cliopatria räknar Botswana till imperiet till och med 1968, Ghana till och med 1960 och Oman från 1973, fast de
+        # är egna länder de åren i Cliopatria (#644)
+        ('(British Empire)', 'brittiska-imperiet', 'Brittiska imperiet', '#c2557a',
+         {'homeland': ['Kingdom of Great Britain'], 'minus': ['Republic of Botswana', 'Ghana', ('Sultanate of Oman', 1973)]}),
     ]),
     # R2 Antiken (#68)
     'egypten': ('Egypten: gamla och nya riket', 'Egypt: Old and New Kingdom', [
@@ -275,7 +278,11 @@ GROUPS = {
     'neutrala-moresnet': ('Neutrala Moresnet', 'Neutral Moresnet', [], {'color': '#e0a0c0'}),
     # R7 (#407): stater i Amerika som krigen och resorna behöver (inbördeskriget, Paraguaykriget, mexikanska revolutionen)
     'usa': ('USA', 'United States', [
-        ('United States of America', 'usa', 'USA', '#4a7ab8', {'en': 'United States'}),
+        # Cliopatria räknar Japan till USA 1947–1966 och Okinawa till och med 2005, också de år då Japan är eget land
+        # i Cliopatria (från 1953); de åren klipps Japan bort (#644)
+        ('United States of America', 'usa', 'USA', '#4a7ab8', {'en': 'United States', 'minus': ['Japan', 'Republic of the Philippines'],
+                                                       # Filippinerna eget land 1947, Japan 1953, Okinawa till Japan 1973 (Cliopatria)
+                                                       'splits': (1947, 1953, 1973)}),
     ]),
     'amerikas-konfedererade-stater': ('Amerikas konfedererade stater', 'Confederate States of America', [
         ('Confederate States of America', 'amerikas-konfedererade-stater', 'Amerikas konfedererade stater', '#8c7f6a'),
@@ -540,6 +547,116 @@ GROUPS = {
         ('French Fifth Republic', 'femte-republiken', 'Frankrike', '#3a5fa0',
          {'en': 'French Fifth Republic', 'minus': ["People's Democratic Republic of Algeria", 'Republic of Djibouti']}),
     ]),
+    # Nutida stater, tredje omgången (#644). Spanien, Norge, Japan och Marocko väntar: de överlappar riken vi har
+    # (Spanska imperiet, Sverige-Norge, Japanska imperiet) eller behöver noten om Västsahara
+    'myanmar': ('Myanmar', 'Myanmar', [
+        (['Burma', 'Union of Myanmar'], 'myanmar', 'Myanmar', '#a8649a', {'en': 'Myanmar', 'wikidata': 'Q836', 'years': (1948, 2024)}),
+    ]),
+    'somalia': ('Somalia', 'Somalia', [
+        ('Federal Republic of Somalia', 'somalia', 'Somalia', '#4a90c0', {'en': 'Somalia'}),
+    ]),
+    'centralafrikanska-republiken': ('Centralafrikanska republiken', 'Central African Republic', [
+        ('Central African Republic', 'centralafrikanska-republiken', 'Centralafrikanska republiken', '#7aa04a',
+         {'en': 'Central African Republic'}),
+    ]),
+    'madagaskar': ('Madagaskar', 'Madagascar', [
+        ('Madagascar', 'madagaskar', 'Madagaskar', '#9a6ab0', {'en': 'Madagascar'}),
+    ]),
+    'sydsudan': ('Sydsudan', 'South Sudan', [
+        ('South Sudan', 'sydsudan', 'Sydsudan', '#c06a8a', {'en': 'South Sudan'}),
+    ]),
+    'kenya': ('Kenya', 'Kenya', [
+        ('Republic of Kenya', 'kenya', 'Kenya', '#b05050', {'en': 'Kenya'}),
+    ]),
+    'botswana': ('Botswana', 'Botswana', [
+        ('Republic of Botswana', 'botswana', 'Botswana', '#d07a5a', {'en': 'Botswana'}),
+    ]),
+    'thailand': ('Thailand', 'Thailand', [
+        ('Kingdom of Thailand', 'thailand', 'Thailand', '#4f9a9a', {'en': 'Thailand'}),
+    ]),
+    'turkmenistan': ('Turkmenistan', 'Turkmenistan', [
+        ('Turkmenistan', 'turkmenistan', 'Turkmenistan', '#9ab04a', {'en': 'Turkmenistan'}),
+    ]),
+    'kamerun': ('Kamerun', 'Cameroon', [
+        ('Republic of Cameroon', 'kamerun', 'Kamerun', '#c05a3a', {'en': 'Cameroon'}),
+    ]),
+    # Nutida stater, fjärde omgången (#644). Spanien börjar 1932 (Spanska imperiet slutar 1931), Norge 1905
+    # (unionen med Sverige slutar 1904) och Japan 1953 (Japanska imperiet slutar 1945; Cliopatria saknar 1946–1952)
+    'spanien': ('Spanien', 'Spain', [
+        ('Second Spanish Republic', 'andra-spanska-republiken', 'Andra spanska republiken', '#d07a3a', {'en': 'Second Spanish Republic'}),
+        ('Francoist Spain', 'spanien-under-franco', 'Spanien under Franco', '#d07a3a', {'en': 'Francoist Spain'}),
+        ('Kingdom of Spain', 'spanien', 'Spanien', '#d07a3a', {'en': 'Spain', 'years': (1976, 2024)}),
+    ]),
+    # Cliopatria anger Q199841 (Sydjemen) för Jemen; rätt id är Q805
+    'jemen': ('Jemen', 'Yemen', [
+        ('Republic of Yemen', 'jemen', 'Jemen', '#4a8aa0', {'en': 'Yemen', 'wikidata': 'Q805'}),
+    ]),
+    'norge': ('Norge', 'Norway', [
+        ('Kingdom of Norway', 'norge', 'Norge', '#2f8f7a', {'en': 'Norway', 'years': (1905, 2024)}),
+    ]),
+    'uzbekistan': ('Uzbekistan', 'Uzbekistan', [
+        ('Republic of Uzbekistan', 'uzbekistan', 'Uzbekistan', '#c0705a', {'en': 'Uzbekistan'}),
+    ]),
+    # Cliopatria anger Q188712 (Kejsardömet Japan) för Japan efter 1953; rätt id är Q17
+    'japan': ('Japan', 'Japan', [
+        ('Japan', 'japan', 'Japan', '#e07a8a', {'en': 'Japan', 'wikidata': 'Q17'}),
+    ]),
+    # Marocko 1670–1911 och från 1956; däremellan ingår landet i franska kolonialväldet. Västsahara hör inte till
+    # Marocko i Cliopatria, vilket stämmer med att Sverige inte har uttalat vem området tillhör (docs/omstridda-granser.md)
+    'marocko': ('Marocko', 'Morocco', [
+        ('Morocco', 'marocko', 'Marocko', '#b0503a', {'en': 'Morocco'}),
+    ]),
+    'zimbabwe': ('Zimbabwe', 'Zimbabwe', [
+        ('Republic of Zimbabwe', 'zimbabwe', 'Zimbabwe', '#9a4a6a', {'en': 'Zimbabwe'}),
+    ]),
+    'tyskland': ('Tyskland', 'Germany', [
+        ('Federated Republic of Germany', 'tyskland', 'Tyskland', '#c8b04a', {'en': 'Germany'}),
+    ]),
+    'malaysia': ('Malaysia', 'Malaysia', [
+        ('Malaysia', 'malaysia', 'Malaysia', '#d08a4a', {'en': 'Malaysia'}),
+    ]),
+    # Cliopatria anger Q974 (Kongo-Kinshasa) för Kongo-Brazzaville; rätt id är Q971
+    'kongo-brazzaville': ('Kongo-Brazzaville', 'Republic of the Congo', [
+        ('Republic of the Congo', 'kongo-brazzaville', 'Kongo-Brazzaville', '#c07aa0', {'en': 'Republic of the Congo', 'wikidata': 'Q971'}),
+    ]),
+    # Nutida stater, femte omgången (#644). Storbritannien väntar: det är moderlandet i Brittiska imperiet
+    'filippinerna': ('Filippinerna', 'Philippines', [
+        ('Republic of the Philippines', 'filippinerna', 'Filippinerna', '#5a8ac8', {'en': 'Philippines'}),
+    ]),
+    'finland': ('Finland', 'Finland', [
+        ('Republic of Finland', 'finland', 'Finland', '#d0708a', {'en': 'Finland'}),
+    ]),
+    'elfenbenskusten': ('Elfenbenskusten', 'Ivory Coast', [
+        ("Republic of Côte d'Ivoire", 'elfenbenskusten', 'Elfenbenskusten', '#5aa06a', {'en': 'Ivory Coast'}),
+    ]),
+    # Cliopatria saknar Polen 1940–1952
+    'polen': ('Polen', 'Poland', [
+        ('Second Polish Republic', 'andra-polska-republiken', 'Andra polska republiken', '#c04050', {'en': 'Second Polish Republic'}),
+        ('Republic of Poland', 'polen', 'Polen', '#c04050', {'en': 'Poland'}),
+    ]),
+    # Oman 1744–1899 och från 1973, Muskat och Oman 1900–1946; Cliopatria saknar 1947–1972
+    'oman': ('Oman', 'Oman', [
+        ('Sultanate of Oman', 'oman', 'Oman', '#c07a5a', {'en': 'Oman'}),
+        ('Sultanate of Muscat and Oman', 'muskat-och-oman', 'Muskat och Oman', '#c07a5a', {'en': 'Muscat and Oman'}),
+    ]),
+    # Cliopatrias "Kingdom of Italy" har också med det medeltida kungariket (936–969); här bara 1862–1945
+    'italien': ('Italien', 'Italy', [
+        ('Kingdom of Italy', 'kungariket-italien', 'Kungariket Italien', '#4aa070', {'en': 'Kingdom of Italy', 'years': (1862, 1945)}),
+        ('Republic of Italy', 'italien', 'Italien', '#4aa070', {'en': 'Italy'}),
+    ]),
+    'burkina-faso': ('Burkina Faso', 'Burkina Faso', [
+        ('Burkina Faso', 'burkina-faso', 'Burkina Faso', '#3a8ab0', {'en': 'Burkina Faso'}),
+    ]),
+    'gabon': ('Gabon', 'Gabon', [
+        ('Gabon', 'gabon', 'Gabon', '#4aa0a0', {'en': 'Gabon'}),
+    ]),
+    # Cliopatria anger Q983 (Ekvatorialguinea) för Guinea; rätt id är Q1006
+    'guinea': ('Guinea', 'Guinea', [
+        ('Guinea', 'guinea', 'Guinea', '#a07ac0', {'en': 'Guinea', 'wikidata': 'Q1006'}),
+    ]),
+    'ghana': ('Ghana', 'Ghana', [
+        ('Ghana', 'ghana', 'Ghana', '#c05a5a', {'en': 'Ghana'}),
+    ]),
 }
 
 # Huvudlandet i utspridda välden (#74): moderlandet ritas med kraftigare kant och en stjärna och får
@@ -663,12 +780,16 @@ def minus_others(items, names, by_name):
     """Klipper bort andra Cliopatria-stater (names) ur en dels perioder de år de finns (#644). Cliopatria räknar ibland
     ett område både till en stat och till dess forna kolonialmakt, till exempel Algeriet och Djibouti till Femte franska
     republiken 1961–2023. Perioderna delas där någon av staterna börjar eller slutar."""
-    feats = [f for n in names for f in by_name.get(n, [])]
+    # Ett namn kan vara (namn, från år): då klipps staten bara bort från det året
+    pairs = [(n, None) if isinstance(n, str) else n for n in names]
+    feats = [f for n, y in pairs for f in by_name.get(n, []) if y is None or f['properties']['ToYear'] >= y]
+    first = {n: y for n, y in pairs}
+    start = lambda f: max(f['properties']['FromYear'], first[f['properties']['Name']] or f['properties']['FromYear'])
     out = []
     for a, b, g, ar in items:
-        cuts = sorted({a, b + 1} | {c for f in feats for c in (f['properties']['FromYear'], f['properties']['ToYear'] + 1) if a < c <= b})
+        cuts = sorted({a, b + 1} | {c for f in feats for c in (start(f), f['properties']['ToYear'] + 1) if a < c <= b})
         for s, e in zip(cuts, cuts[1:]):
-            on = [shape(f['geometry']).buffer(0) for f in feats if f['properties']['FromYear'] <= s <= f['properties']['ToYear']]
+            on = [shape(f['geometry']).buffer(0) for f in feats if start(f) <= s <= f['properties']['ToYear']]
             if on:
                 ng = g.difference(unary_union(on))
                 out.append((s, e - 1, ng, km2(ng)))
@@ -926,7 +1047,8 @@ def main():
                 periods.append(q)
             merged = []
             for q in periods:
-                if merged and merged[-1]['end'] + 1 >= q['start']:
+                # splits: år där perioderna aldrig slås ihop, så att en liten men viktig ändring syns (#644)
+                if merged and merged[-1]['end'] + 1 >= q['start'] and q['start'] not in opts.get('splits', ()):
                     a, b = merged[-1]['_shape'], q['_shape']
                     if a.symmetric_difference(b).area < merge * a.area and same_homeland(merged[-1], q, merge):
                         merged[-1]['end'] = q['end']

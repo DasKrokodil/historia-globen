@@ -4,7 +4,7 @@ Den här filen läses automatiskt av Copilot (agentläget i VS Code och Copilot 
 
 ## Skriv till Rikard
 
-Rikard äger projektet. Han är projektledare, inte utvecklare. Skriv på svenska, kort och tydligt, i issues, kommentarer och pull requests: vad som ändrats, varför och hur han testar det.
+Rikard (GitHub `DasKrokodil`) äger projektet. Andreas (`Einzbeng`) är medarbetare och kör egna agenter; bara Rikard slår ihop (beslut 2026-11-06). Rikard är projektledare, inte utvecklare. Skriv på svenska, kort och tydligt, i issues, kommentarer och pull requests: vad som ändrats, varför och hur han testar det.
 
 ## Aldrig
 
@@ -18,15 +18,15 @@ Rikard äger projektet. Han är projektledare, inte utvecklare. Skriv på svensk
 
 ## Ta ett issue (ett issue, en ägare)
 
-Flera agenter arbetar parallellt (Claude Code, Codex och du). Ett issue får bara ha en ägare.
+Flera agenter hos två personer arbetar parallellt (Claude Code, Codex och du). Ett issue får bara ha en ägare. Etiketterna är gemensamma för alla agenter (beslut 2026-11-06).
 
-1. **Ta bara issues med etiketten `copilot: redo`**, eller ett issue som Rikard har pekat ut. Etiketten sätts av Claude Code. Ta dem i milstolpens ordning (lägst versionsnummer först).
-2. **Ta aldrig** issues med `codex: redo`, `utanför-kod` eller `beslut-krävs`, och inte heller `data`, `faktafel`, `källkontroll` eller rikesarbete om Rikard inte ber om det.
-3. **Kontrollera att ingen annan har tagit issuet, direkt före du börjar:** etiketten `codex: pågår`, `orkester: pågår` eller `copilot: pågår`, en öppen pull request som skriver `Closes #N` eller `Del av #N`, eller en gren `codex/issue-<N>-*` eller `copilot/issue-<N>-*`. Är något av det sant: ta det inte, välj nästa.
-4. **Ta issuet:** skriv en kommentar ("Copilot tar det här") och sätt etiketten `copilot: pågår`. Ta bort `copilot: redo` när du tar det. Läs etiketterna en gång till direkt efteråt: har någon annan hunnit före, backa genast, ta bort din etikett och skriv en kommentar.
+1. **Ta bara issues med etiketten `redo`**, eller ett issue som Rikard har pekat ut. Etiketten sätts av Claude Code (dirigenten). Ta dem i milstolpens ordning (lägst versionsnummer först).
+2. **Ta aldrig** issues med `utanför-kod` eller `beslut-krävs`, och inte heller `data`, `faktafel`, `källkontroll`, bilder eller rikesarbete (de är Claude Codes) om Rikard inte ber om det.
+3. **Kontrollera att ingen annan har tagit issuet, direkt före du börjar:** etiketten `pågår` (eller en gammal `codex: pågår`, `orkester: pågår`, `copilot: pågår`), en tilldelad person, en öppen pull request som skriver `Closes #N` eller `Del av #N`, eller en gren `*/issue-<N>-*`. Är något av det sant: ta det inte, välj nästa.
+4. **Ta issuet:** skriv en kommentar med konto ("Copilot (DasKrokodil) tar det här"), sätt `pågår`, ta bort `redo` och tilldela issuet personen vars konto du kör på. Läs issuet en gång till direkt efteråt: har någon annan hunnit före gäller den första kommentaren; kom du sist, backa genast (ta bort din tilldelning och skriv en kommentar).
 5. **Bygg på grenen** `copilot/issue-<N>-<kort-namn>`, utgå från senaste `main`.
-6. **Ta bort `copilot: pågår`** när pull requesten är öppnad eller om du avbryter. Ett `copilot: pågår` utan aktivt arbete ska alltid tas bort.
-7. **Högst fyra öppna pull requests** totalt i projektet (alla agenter räknas ihop). Är det redan fyra: bygg inget nytt.
+6. **Ta bort `pågår`** när pull requesten är öppnad (tilldelningen står kvar). Avbryter du: ta bort `pågår` och tilldelningen och sätt tillbaka `redo`. Ett `pågår` utan aktivt arbete ska alltid tas bort.
+7. **Högst fyra öppna pull requests per person** (räknat på kontot du kör på; en ändring som byggs räknas). Är det redan fyra: bygg inget nytt, utan gör i stället klart dina egna (rätta efter granskning, laga röda kontroller) eller förbered nästa issue med en kommentar (vilka filer som ändras, testplan). Bygg inte färdigt på en gren i väntan på en ledig plats.
 8. **Ingen tar ett issue som ändrar samma filer som en öppen pull request.** Välj ett annat, eller vänta.
 
 ## Testa innan pull request
@@ -43,7 +43,7 @@ Enligt CLAUDE.md, "Testa innan du är klar", och AGENTS.md, "Testa innan pull re
 
 1. **Läs loggen först:** öppna loggen för den felande kontrollen i GitHub Actions och hitta den första felande kontrollen innan du ändrar. Gissa inte.
 2. **Ett försök:** rätta en gång, och bara om felet är trivialt (orsaken syns i loggen, några rader, i filer som issuet redan ändrar). Kör bara det som felade, inte hela webbläsartestet (`ENDAST="årshoppet" node tests/webblasare.mjs 8000` kör bara kontroller vars namn innehåller texten).
-3. **Annars, eller är det fortfarande rött: lämna över.** Committa och pusha, skriv en överlämningsrapport som kommentar i pull requesten (vad som är klart, kontrollens namn och felraden, vad du har provat, vad du tror är orsaken, nästa steg), sätt etiketten `behöver hjälp` på pull requesten och issuet, ta bort `copilot: pågår` och gå vidare. Claude Code tar över. Försvaga eller ta aldrig bort ett test för att få det grönt.
+3. **Annars, eller är det fortfarande rött: lämna över.** Committa och pusha, skriv en överlämningsrapport som kommentar i pull requesten (vad som är klart, kontrollens namn och felraden, vad du har provat, vad du tror är orsaken, nästa steg), sätt etiketten `behöver hjälp` på pull requesten och issuet, ta bort `pågår` och gå vidare. Claude Code tar över. Försvaga eller ta aldrig bort ett test för att få det grönt.
 4. **Närmar sig kvoten slut:** lämna över på samma sätt direkt. Se AGENTS.md, "Röd kontroll eller slut på tid".
 
 ## Pull request

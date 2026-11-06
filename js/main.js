@@ -498,6 +498,7 @@ async function start() {
     button: $('btn-tour'), menu: $('tour-menu'), menuTitle: $('tour-menu-title'), list: $('tour-list'),
     card: $('tour-card'), progress: $('tour-progress'), name: $('tour-name'), title: $('tour-title'), text: $('tour-text'),
     read: $('tour-read'), srcBtn: $('tour-sources'), back: $('tour-back'), next: $('tour-next'), closeBtn: $('tour-close'), endBtn: $('tour-end'), pauseStop: $('pause-stop'),
+    chapter: $('tour-chapter'), question: $('tour-question'), questionLabel: $('tour-question-label'), questionText: $('tour-question-text'),
   }, toursData, {
     timeline, globe, flatMap, layers, narrow, root: $('app'), events: data.byId,
     layerIds: new Set(registry.entries.map(e => e.id)), controlled: registry.viewLayers(views?.groups),
@@ -510,6 +511,9 @@ async function start() {
     fallbackFocus: () => $('track'),
   });
   app.tour = tour;
+  // Berättelseläget (#247): krigets första kort får "Följ berättelsen" när en tur berättar om kriget
+  panel.tourFor = id => { const x = tour.forWar(id); return x && { id: x.id, label: tour.storyLabel(x) }; };
+  panel.onTour = (id, btn) => tour.start(id, btn);
   tour.onOpen = () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); };
   // Turen i adressen (?tur=<id>) startar direkt, till exempel från en lektion eller ett test
   const tourParam = new URLSearchParams(location.search).get('tur');

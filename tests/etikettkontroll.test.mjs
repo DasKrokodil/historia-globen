@@ -12,6 +12,16 @@ test('bedom: inga motsägelser är tom lista', () => {
   assert.deepEqual(bedom(['codex: redo']), []);
   assert.deepEqual(bedom(['copilot: pågår']), []);
   assert.deepEqual(bedom(['behöver hjälp', 'orkester: pågår']), []);
+  assert.deepEqual(bedom(['redo']), []);
+  assert.deepEqual(bedom(['pågår'], ['DasKrokodil']), []);
+  assert.deepEqual(bedom(['redo'], ['DasKrokodil', 'Einzbeng']), []);
+});
+
+test('bedom: gemensamma redo och pågår (beslut 2026-11-06)', () => {
+  assert.equal(bedom(['redo', 'pågår']).length, 1);
+  assert.equal(bedom(['pågår', 'codex: pågår']).length, 1);
+  assert.equal(bedom(['pågår'], ['DasKrokodil', 'Einzbeng']).length, 1);
+  assert.equal(bedom(['redo', 'pågår'], ['DasKrokodil', 'Einzbeng']).length, 2);
 });
 
 test('bedom: flera ägare, två redo och redo med pågår ger varning', () => {
@@ -55,6 +65,10 @@ test('kontrolleraIssue varnar bara en gång och tar bort varningen när det är 
   assert.deepEqual(f.calls, [['remove', 'etikettfel']]);
   f = fake({ issue: { state: 'closed', labels: [{ name: 'codex: pågår' }, { name: 'copilot: pågår' }] } });
   assert.equal(await kontrolleraIssue(f.ctx, 5), 'hoppade över');
+  f = fake({ issue: { state: 'open', labels: [{ name: 'pågår' }], assignees: [{ login: 'DasKrokodil' }, { login: 'Einzbeng' }] } });
+  assert.equal(await kontrolleraIssue(f.ctx, 5), 'varnade');
+  f = fake({ issue: { state: 'open', labels: [{ name: 'pågår' }], assignees: [{ login: 'Einzbeng' }] } });
+  assert.equal(await kontrolleraIssue(f.ctx, 5), 'ok');
 });
 
 test('stadaEfterMerge tar bort pågår, redo och hjälp på issuen men låter andra etiketter vara', async () => {
@@ -74,6 +88,7 @@ test('dagligKontroll påminner om gammalt pågår utan öppen pull request, men 
     { number: 2, state: 'open', updated_at: dagar(2), labels: [{ name: 'codex: pågår' }] },
     { number: 3, state: 'open', updated_at: dagar(10), labels: [{ name: 'copilot: pågår' }] },
     { number: 4, state: 'open', updated_at: dagar(10), labels: [{ name: 'idé' }] },
+    { number: 5, state: 'open', updated_at: dagar(10), labels: [{ name: 'pågår' }] },
   ];
   const pulls = [{ head: { ref: 'copilot/issue-3-version' }, updated_at: dagar(1) }];
   const kommentarer = [];
@@ -94,5 +109,5 @@ test('dagligKontroll påminner om gammalt pågår utan öppen pull request, men 
     },
   };
   await dagligKontroll(ctx);
-  assert.deepEqual(kommentarer, [1]);
+  assert.deepEqual(kommentarer, [1, 5]);
 });

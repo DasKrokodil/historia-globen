@@ -503,6 +503,30 @@ async function run(browser, vp) {
     return 'tre steg med år, lager och paus; Nästa, Fortsätt, Föregående och Avsluta fungerar';
   });
 
+  await check('krigets första kort startar berättelsen med kapitel och frågor (#247)', async () => {
+    const startYear = Number(await page.getAttribute('#track', 'aria-valuenow'));
+    await clickView('#btn-focus');
+    await page.fill('#focus-menu input', 'Första världskriget');
+    await page.click('#focus-menu [data-key="war:forsta-varldskriget"]');
+    const start = page.locator('#detail .story-tour[data-tour="forsta-varldskriget"]');
+    await start.waitFor({ state: 'visible', timeout: T.step });
+    await start.click();
+    await visible('#tour-card');
+    if (!(await page.isVisible('#tour-chapter'))) throw new Error('första steget visar inget kapitel');
+    if ((await page.textContent('#tour-chapter')).trim() !== 'Hur kriget började') throw new Error('fel kapitel i första steget');
+    await page.click('#tour-next');
+    if (!(await page.isVisible('#tour-question'))) throw new Error('andra steget visar ingen fråga');
+    if (!(await page.textContent('#tour-question')).includes('Att fundera på')) throw new Error('frågan saknar rubrik');
+    await page.click('#tour-close');
+    await hidden('#tour-card');
+    // Turen återställer fokus på kriget; lämna sidan som den var
+    if (!(await page.evaluate(() => document.getElementById('focus-bar').hidden))) await page.click('#focus-exit');
+    await page.$eval('#focus-menu input', el => { el.value = ''; el.dispatchEvent(new Event('input', { bubbles: true })); });
+    if (await page.isVisible('#detail')) await page.click('#detail [data-close]');
+    await jumpTo(startYear);
+    return 'Följ berättelsen i krigets kort; kapitel i steg 1 och fråga i steg 2; Avsluta återställer fokus';
+  });
+
   await check('slutkortet visar det viktigaste att ta med sig med källa per punkt (#500)', async () => {
     const startYear = Number(await page.getAttribute('#track', 'aria-valuenow'));
     await clickView('#btn-focus');
@@ -1181,6 +1205,36 @@ async function run(browser, vp) {
     if (r.fore) throw new Error('dimman lyfts över USA innan landet fanns');
     if (r.langtBort) throw new Error('dimman lyfts över USA fast ingen resa har nått landet');
     return `USA 1863: ${r.inne} perioder lyfta; före landet fanns och utan kontakt: inga`;
+  });
+
+  // Hemriken: vyn ser världen från Europa, så Makedonien (med Alexanders erövringar) och dess grannar syns utan
+  // resor. Persiska riket är granne till Makedonien; Hanriket låg aldrig nära ett hemrike och förblir dolt.
+  await check('upptäcktsvyn lyfter dimman över hemrikena och deras grannar', async () => {
+    const r = await page.evaluate(async () => {
+      const { DiscoveryLayer } = await import('./js/layers/discovery.js');
+      const get = url => fetch(url).then(res => res.json());
+      const [doc, index] = await Promise.all([get('data/upptackt.json'), get('data/empires/index.json')]);
+      const layer = new DiscoveryLayer(doc, null);
+      layer.enabled = true;
+      layer._loadImages = () => {};
+      for (const id of ['alexanders-rike', 'persiska-riket', 'hanriket']) {
+        const group = index.groups.find(g => g.id === id);
+        if (!group) return { missing: id };
+        layer.addEmpire(id, (await get(group.file)).polities);
+      }
+      const shown = year => {
+        layer.fogKey = null;
+        layer.update({ year, lines: { routes: [], reached: () => [] } });
+        return [...layer.empires].filter(([, e]) => layer.lifted.some(g => e.periods.some(q => q.geometry === g))).map(([id]) => id);
+      };
+      return { y257: shown(-257), y700: shown(-700) };
+    });
+    if (r.missing) throw new Error(`${r.missing} saknas i data/empires/index.json`);
+    if (!r.y257.includes('alexanders-rike')) throw new Error('dimman är inte lyft över Makedonien 257 f.Kr.');
+    if (!r.y257.includes('persiska-riket')) throw new Error('dimman är inte lyft över grannen Persiska riket 257 f.Kr.');
+    if (r.y257.includes('hanriket')) throw new Error('dimman lyfts över Hanriket fast det aldrig gränsade till ett hemrike');
+    if (r.y700.includes('persiska-riket')) throw new Error('dimman lyfts över Persiska riket innan det fanns');
+    return `257 f.Kr.: ${r.y257.join(', ')}`;
   });
 
   await check('Fokus öppnas och följer ett rike', async () => {

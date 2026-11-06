@@ -24778,6 +24778,790 @@
      "review": "source-checked"
     }
    ]
+  },
+  {
+   "id": "myanmar",
+   "name": {
+    "sv": "Myanmar",
+    "en": "Myanmar"
+   },
+   "color": "#a8649a",
+   "from": 1948,
+   "to": 2024,
+   "file": "data/empires/myanmar.json",
+   "polities": [
+    {
+     "id": "myanmar",
+     "name": {
+      "sv": "Myanmar",
+      "en": "Myanmar"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "somalia",
+   "name": {
+    "sv": "Somalia",
+    "en": "Somalia"
+   },
+   "color": "#4a90c0",
+   "from": 1960,
+   "to": 2024,
+   "file": "data/empires/somalia.json",
+   "polities": [
+    {
+     "id": "somalia",
+     "name": {
+      "sv": "Somalia",
+      "en": "Somalia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "centralafrikanska-republiken",
+   "name": {
+    "sv": "Centralafrikanska republiken",
+    "en": "Central African Republic"
+   },
+   "color": "#7aa04a",
+   "from": 1961,
+   "to": 2024,
+   "file": "data/empires/centralafrikanska-republiken.json",
+   "polities": [
+    {
+     "id": "centralafrikanska-republiken",
+     "name": {
+      "sv": "Centralafrikanska republiken",
+      "en": "Central African Republic"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "madagaskar",
+   "name": {
+    "sv": "Madagaskar",
+    "en": "Madagascar"
+   },
+   "color": "#9a6ab0",
+   "from": 1960,
+   "to": 2024,
+   "file": "data/empires/madagaskar.json",
+   "polities": [
+    {
+     "id": "madagaskar",
+     "name": {
+      "sv": "Madagaskar",
+      "en": "Madagascar"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "sydsudan",
+   "name": {
+    "sv": "Sydsudan",
+    "en": "South Sudan"
+   },
+   "color": "#c06a8a",
+   "from": 2014,
+   "to": 2024,
+   "file": "data/empires/sydsudan.json",
+   "polities": [
+    {
+     "id": "sydsudan",
+     "name": {
+      "sv": "Sydsudan",
+      "en": "South Sudan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kenya",
+   "name": {
+    "sv": "Kenya",
+    "en": "Kenya"
+   },
+   "color": "#b05050",
+   "from": 1963,
+   "to": 2024,
+   "file": "data/empires/kenya.json",
+   "polities": [
+    {
+     "id": "kenya",
+     "name": {
+      "sv": "Kenya",
+      "en": "Kenya"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "botswana",
+   "name": {
+    "sv": "Botswana",
+    "en": "Botswana"
+   },
+   "color": "#d07a5a",
+   "from": 1967,
+   "to": 2024,
+   "file": "data/empires/botswana.json",
+   "polities": [
+    {
+     "id": "botswana",
+     "name": {
+      "sv": "Botswana",
+      "en": "Botswana"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "thailand",
+   "name": {
+    "sv": "Thailand",
+    "en": "Thailand"
+   },
+   "color": "#4f9a9a",
+   "from": 1932,
+   "to": 2024,
+   "file": "data/empires/thailand.json",
+   "polities": [
+    {
+     "id": "thailand",
+     "name": {
+      "sv": "Thailand",
+      "en": "Thailand"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "turkmenistan",
+   "name": {
+    "sv": "Turkmenistan",
+    "en": "Turkmenistan"
+   },
+   "color": "#9ab04a",
+   "from": 1992,
+   "to": 2024,
+   "file": "data/empires/turkmenistan.json",
+   "polities": [
+    {
+     "id": "turkmenistan",
+     "name": {
+      "sv": "Turkmenistan",
+      "en": "Turkmenistan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kamerun",
+   "name": {
+    "sv": "Kamerun",
+    "en": "Cameroon"
+   },
+   "color": "#c05a3a",
+   "from": 1960,
+   "to": 2024,
+   "file": "data/empires/kamerun.json",
+   "polities": [
+    {
+     "id": "kamerun",
+     "name": {
+      "sv": "Kamerun",
+      "en": "Cameroon"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "spanien",
+   "name": {
+    "sv": "Spanien",
+    "en": "Spain"
+   },
+   "color": "#d07a3a",
+   "from": 1932,
+   "to": 2024,
+   "file": "data/empires/spanien.json",
+   "polities": [
+    {
+     "id": "andra-spanska-republiken",
+     "name": {
+      "sv": "Andra spanska republiken",
+      "en": "Second Spanish Republic"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "spanien-under-franco",
+     "name": {
+      "sv": "Spanien under Franco",
+      "en": "Francoist Spain"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "spanien",
+     "name": {
+      "sv": "Spanien",
+      "en": "Spain"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "jemen",
+   "name": {
+    "sv": "Jemen",
+    "en": "Yemen"
+   },
+   "color": "#4a8aa0",
+   "from": 1990,
+   "to": 2024,
+   "file": "data/empires/jemen.json",
+   "polities": [
+    {
+     "id": "jemen",
+     "name": {
+      "sv": "Jemen",
+      "en": "Yemen"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "norge",
+   "name": {
+    "sv": "Norge",
+    "en": "Norway"
+   },
+   "color": "#2f8f7a",
+   "from": 1905,
+   "to": 2024,
+   "file": "data/empires/norge.json",
+   "polities": [
+    {
+     "id": "norge",
+     "name": {
+      "sv": "Norge",
+      "en": "Norway"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "uzbekistan",
+   "name": {
+    "sv": "Uzbekistan",
+    "en": "Uzbekistan"
+   },
+   "color": "#c0705a",
+   "from": 1992,
+   "to": 2024,
+   "file": "data/empires/uzbekistan.json",
+   "polities": [
+    {
+     "id": "uzbekistan",
+     "name": {
+      "sv": "Uzbekistan",
+      "en": "Uzbekistan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "japan",
+   "name": {
+    "sv": "Japan",
+    "en": "Japan"
+   },
+   "color": "#e07a8a",
+   "from": 1953,
+   "to": 2024,
+   "file": "data/empires/japan.json",
+   "polities": [
+    {
+     "id": "japan",
+     "name": {
+      "sv": "Japan",
+      "en": "Japan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "marocko",
+   "name": {
+    "sv": "Marocko",
+    "en": "Morocco"
+   },
+   "color": "#b0503a",
+   "from": 1670,
+   "to": 2024,
+   "file": "data/empires/marocko.json",
+   "polities": [
+    {
+     "id": "marocko",
+     "name": {
+      "sv": "Marocko",
+      "en": "Morocco"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Kartan visar Marocko 1670–1911 och från 1956; däremellan räknar Cliopatria landet till franska kolonialväldet. Västsaharas status är omstridd och ska avgöras i en FN-ledd process. Sverige stöder FN-processen och ser Marockos autonomiplan som en trovärdig grund för förhandlingar, men har inte uttalat vem området tillhör (UD, kontrollerad 2026-11-06). Kartan räknar därför inte Västsahara till Marocko, och det gör inte heller Cliopatria."
+    },
+    "sources": [
+     "ud-vastsahara"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "zimbabwe",
+   "name": {
+    "sv": "Zimbabwe",
+    "en": "Zimbabwe"
+   },
+   "color": "#9a4a6a",
+   "from": 1983,
+   "to": 2024,
+   "file": "data/empires/zimbabwe.json",
+   "polities": [
+    {
+     "id": "zimbabwe",
+     "name": {
+      "sv": "Zimbabwe",
+      "en": "Zimbabwe"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "tyskland",
+   "name": {
+    "sv": "Tyskland",
+    "en": "Germany"
+   },
+   "color": "#c8b04a",
+   "from": 1991,
+   "to": 2024,
+   "file": "data/empires/tyskland.json",
+   "polities": [
+    {
+     "id": "tyskland",
+     "name": {
+      "sv": "Tyskland",
+      "en": "Germany"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "malaysia",
+   "name": {
+    "sv": "Malaysia",
+    "en": "Malaysia"
+   },
+   "color": "#d08a4a",
+   "from": 1963,
+   "to": 2024,
+   "file": "data/empires/malaysia.json",
+   "polities": [
+    {
+     "id": "malaysia",
+     "name": {
+      "sv": "Malaysia",
+      "en": "Malaysia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kongo-brazzaville",
+   "name": {
+    "sv": "Kongo-Brazzaville",
+    "en": "Republic of the Congo"
+   },
+   "color": "#c07aa0",
+   "from": 1961,
+   "to": 2024,
+   "file": "data/empires/kongo-brazzaville.json",
+   "polities": [
+    {
+     "id": "kongo-brazzaville",
+     "name": {
+      "sv": "Kongo-Brazzaville",
+      "en": "Republic of the Congo"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "filippinerna",
+   "name": {
+    "sv": "Filippinerna",
+    "en": "Philippines"
+   },
+   "color": "#5a8ac8",
+   "from": 1947,
+   "to": 2024,
+   "file": "data/empires/filippinerna.json",
+   "polities": [
+    {
+     "id": "filippinerna",
+     "name": {
+      "sv": "Filippinerna",
+      "en": "Philippines"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "finland",
+   "name": {
+    "sv": "Finland",
+    "en": "Finland"
+   },
+   "color": "#d0708a",
+   "from": 1918,
+   "to": 2024,
+   "file": "data/empires/finland.json",
+   "polities": [
+    {
+     "id": "finland",
+     "name": {
+      "sv": "Finland",
+      "en": "Finland"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "elfenbenskusten",
+   "name": {
+    "sv": "Elfenbenskusten",
+    "en": "Ivory Coast"
+   },
+   "color": "#5aa06a",
+   "from": 1961,
+   "to": 2024,
+   "file": "data/empires/elfenbenskusten.json",
+   "polities": [
+    {
+     "id": "elfenbenskusten",
+     "name": {
+      "sv": "Elfenbenskusten",
+      "en": "Ivory Coast"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "polen",
+   "name": {
+    "sv": "Polen",
+    "en": "Poland"
+   },
+   "color": "#c04050",
+   "from": 1919,
+   "to": 2024,
+   "file": "data/empires/polen.json",
+   "polities": [
+    {
+     "id": "andra-polska-republiken",
+     "name": {
+      "sv": "Andra polska republiken",
+      "en": "Second Polish Republic"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "polen",
+     "name": {
+      "sv": "Polen",
+      "en": "Poland"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "oman",
+   "name": {
+    "sv": "Oman",
+    "en": "Oman"
+   },
+   "color": "#c07a5a",
+   "from": 1744,
+   "to": 2024,
+   "file": "data/empires/oman.json",
+   "polities": [
+    {
+     "id": "oman",
+     "name": {
+      "sv": "Oman",
+      "en": "Oman"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "muskat-och-oman",
+     "name": {
+      "sv": "Muskat och Oman",
+      "en": "Muscat and Oman"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "italien",
+   "name": {
+    "sv": "Italien",
+    "en": "Italy"
+   },
+   "color": "#4aa070",
+   "from": 1862,
+   "to": 2024,
+   "file": "data/empires/italien.json",
+   "polities": [
+    {
+     "id": "kungariket-italien",
+     "name": {
+      "sv": "Kungariket Italien",
+      "en": "Kingdom of Italy"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "italien",
+     "name": {
+      "sv": "Italien",
+      "en": "Italy"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "burkina-faso",
+   "name": {
+    "sv": "Burkina Faso",
+    "en": "Burkina Faso"
+   },
+   "color": "#3a8ab0",
+   "from": 1961,
+   "to": 2024,
+   "file": "data/empires/burkina-faso.json",
+   "polities": [
+    {
+     "id": "burkina-faso",
+     "name": {
+      "sv": "Burkina Faso",
+      "en": "Burkina Faso"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "gabon",
+   "name": {
+    "sv": "Gabon",
+    "en": "Gabon"
+   },
+   "color": "#4aa0a0",
+   "from": 1961,
+   "to": 2024,
+   "file": "data/empires/gabon.json",
+   "polities": [
+    {
+     "id": "gabon",
+     "name": {
+      "sv": "Gabon",
+      "en": "Gabon"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "guinea",
+   "name": {
+    "sv": "Guinea",
+    "en": "Guinea"
+   },
+   "color": "#a07ac0",
+   "from": 1960,
+   "to": 2024,
+   "file": "data/empires/guinea.json",
+   "polities": [
+    {
+     "id": "guinea",
+     "name": {
+      "sv": "Guinea",
+      "en": "Guinea"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "ghana",
+   "name": {
+    "sv": "Ghana",
+    "en": "Ghana"
+   },
+   "color": "#c05a5a",
+   "from": 1958,
+   "to": 2024,
+   "file": "data/empires/ghana.json",
+   "polities": [
+    {
+     "id": "ghana",
+     "name": {
+      "sv": "Ghana",
+      "en": "Ghana"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
   }
  ]
 }

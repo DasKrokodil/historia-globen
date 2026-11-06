@@ -24,7 +24,7 @@
       "text": { "sv": "Året efter lämnar 21-årige Ibn Battuta sin hemstad Tanger. Han ska också till Mecka, och det blir början på resor som varar i många år." },
       "layers": ["events", "areas"],
       "open": "ibn-battuta-resa",
-      "sources": ["wp-ibn-battuta", "wp-tangier", "whe-ibn-battuta"]
+      "sources": ["wp-ibn-battuta", "wp-tangier", "whe-ibn-battuta", "wp-mansa-musa"]
     },
     {
       "id": "tenochtitlan",
@@ -34,7 +34,7 @@
       "text": { "sv": "Ungefär samtidigt grundas aztekernas huvudstad Tenochtitlan på en ö i Texcocosjön." },
       "layers": ["events", "areas"],
       "open": "tenochtitlan",
-      "sources": ["wp-tenochtitlan", "wikidata"]
+      "sources": ["wp-tenochtitlan", "wikidata", "wp-ibn-battuta"]
     }
   ]
 }

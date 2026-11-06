@@ -24,6 +24,14 @@ test('fel i steg och tur hittas', () => {
   }
 });
 
+test('berättelseläget: kapitel, fråga och krig kontrolleras (#247)', () => {
+  const ok = tour({ war: 'e1', steps: [step({ chapter: { sv: 'Början' }, question: { sv: 'Varför?' } })] });
+  assert.deepEqual(tourProblems(ok, known), []);
+  const bad = tour({ war: 'okant-krig', steps: [step({ chapter: 'Början', question: { en: 'Why?' } })] });
+  const all = tourProblems(bad, known).join('\n');
+  for (const part of ['kriget okant-krig', 'kapitlet ska vara text', 'frågan ska vara text']) assert.match(all, new RegExp(part), `saknar ${part}`);
+});
+
 test('en tur utan steg eller med fel typ', () => {
   assert.equal(tourProblems(null).length, 1);
   assert.match(tourProblems(tour({ steps: [] })).join(), /inga steg/);

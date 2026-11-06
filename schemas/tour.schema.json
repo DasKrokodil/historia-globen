@@ -9,6 +9,7 @@
     "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
     "title": { "$ref": "#/$defs/text" },
     "summary": { "$ref": "#/$defs/text" },
+    "war": { "type": "string", "pattern": "^[a-z0-9-]+$" },
     "review": { "type": "string", "enum": ["draft", "source-checked", "two-sources"] },
     "steps": { "type": "array", "items": { "$ref": "#/$defs/step" } }
   },
@@ -34,6 +35,8 @@
           }
         },
         "title": { "$ref": "#/$defs/text" },
+        "chapter": { "$ref": "#/$defs/text" },
+        "question": { "$ref": "#/$defs/text" },
         "text": { "$ref": "#/$defs/text" },
         "layers": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
         "open": { "type": "string", "pattern": "^[a-z0-9-]+$" },
