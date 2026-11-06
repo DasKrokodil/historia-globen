@@ -1114,5 +1114,233 @@
     "credit": "John Murray / Wikimedia Commons",
     "license": "Public domain",
     "source": "commons-bild-om-arternas-uppkomst"
+  },
+  {
+    "id": "jordbrukets-borjan",
+    "file": "jordbrukets-borjan.png",
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Utgrävningarna i Jarmo i norra Irak, en av de tidiga jordbruksbyarna i Bördiga halvmånen, fotograferade 2021. Nutida foto. Licens: CC BY-SA 4.0."
+    },
+    "credit": "Osama Shukir Muhammed Amin / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-jordbrukets-borjan"
+  },
+  {
+    "id": "kilskriften",
+    "file": "kilskriften.png",
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Lertavla med tidig skrift från Uruk III-perioden, slutet av 3000-talet f.Kr., i Louvren. Nutida museifoto. Licens: CC BY 3.0."
+    },
+    "credit": "Mbzt / Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "source": "commons-bild-kilskriften"
+  },
+  {
+    "id": "egypten-enas",
+    "file": "egypten-enas.png",
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Narmerpaletten från Hierakonpolis. Den visar kung Narmer som slår ner en fiende. Nutida foto från 2002. Licens: CC0."
+    },
+    "credit": "Gary Todd / Wikimedia Commons",
+    "license": "CC0",
+    "source": "commons-bild-egypten-enas"
+  },
+  {
+    "id": "caral",
+    "file": "caral.png",
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Den stora pyramiden och den runda platsen i Caral i Peru. Nutida foto. Licens: CC BY-SA 2.0."
+    },
+    "credit": "Jon Gudorf / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-caral"
+  },
+  {
+    "id": "stonehenge",
+    "file": "stonehenge.png",
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Stonehenge, fotograferat 2007. Nutida foto. Licens: CC BY 2.0."
+    },
+    "credit": "garethwiscombe / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-stonehenge"
+  },
+  {
+    "id": "mohenjo-daro",
+    "file": "mohenjo-daro.png",
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Det stora badet i Mohenjo-daro, fotograferat 2014. Nutida foto. Licens: CC BY-SA 3.0."
+    },
+    "credit": "Saqib Qayyum / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-mohenjo-daro"
+  },
+  {
+    "id": "hammurabis-lagar",
+    "file": "hammurabis-lagar.png",
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Stelen med Hammurabis lagar i Louvren. Nutida museifoto. Licens: CC BY 2.0."
+    },
+    "credit": "Fred Romero / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-hammurabis-lagar"
+  },
+  {
+    "id": "vulkanutbrottet-pa-thera",
+    "file": "vulkanutbrottet-pa-thera.png",
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Vid utgrävningsplatsen Akrotiri på Santorini, staden som begravdes av utbrottet. Nutida foto från 2012. Licens: CC BY-SA 3.0."
+    },
+    "credit": "Norbert Nagel / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-vulkanutbrottet-pa-thera"
+  },
+  {
+    "id": "lapitafolket-nar-samoa",
+    "file": "lapitafolket-nar-samoa.png",
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Lapitakeramik i Vanuatus kulturcentrum i Port Vila. Kärlen kommer från Vanuatu, inte från Samoa. Nutida museifoto. Licens: CC BY-SA 3.0."
+    },
+    "credit": "Torbenbrinker / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-lapitafolket-nar-samoa"
+  },
+  {
+    "id": "demokratin-i-aten",
+    "file": "demokratin-i-aten.png",
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Pnyx i Aten, där folkförsamlingen möttes, med Akropolis i bakgrunden. Nutida foto från 2018. Licens: CC0."
+    },
+    "credit": "George E. Koronaios / Wikimedia Commons",
+    "license": "CC0",
+    "source": "commons-bild-demokratin-i-aten"
+  },
+  {
+    "id": "zhang-qian-sidenvagen",
+    "file": "zhang-qian-sidenvagen.png",
+    "kind": "historisk",
+    "style": "kina-tusch",
+    "caption": {
+      "sv": "Zhang Qians resa västerut, väggmålning i Mogaogrottorna i Dunhuang från 600- eller 700-talet. Senare bild. Licens: Public domain."
+    },
+    "credit": "Okänd konstnär / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-zhang-qian-sidenvagen"
+  },
+  {
+    "id": "caesar-mordas",
+    "file": "caesar-mordas.png",
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Mordet på Julius Caesar, målning av Vincenzo Camuccini från 1804–1805. Senare bild. Licens: Public domain."
+    },
+    "credit": "Vincenzo Camuccini / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-caesar-mordas"
+  },
+  {
+    "id": "vesuvius-79",
+    "file": "vesuvius-79.png",
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Pompejis och Herculaneums undergång, målning av John Martin från 1822. Senare bild. Licens: Public domain."
+    },
+    "credit": "John Martin / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-vesuvius-79"
+  },
+  {
+    "id": "aksum-blir-kristet",
+    "file": "aksum-blir-kristet.png",
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Ezanas sten i Aksum, med inskrift på grekiska, sabeiska och ge'ez om kungens omvändelse. Nutida foto från 2011. Licens: CC BY-SA 2.0."
+    },
+    "credit": "Rod Waddington / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-aksum-blir-kristet"
+  },
+  {
+    "id": "vastromerska-rikets-fall",
+    "file": "vastromerska-rikets-fall.png",
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Guldmynt (solidus) med Romulus Augustulus, den siste västromerske kejsaren, präglat 475–476. Licens: CC0."
+    },
+    "credit": "American Numismatic Society / Wikimedia Commons",
+    "license": "CC0",
+    "source": "commons-bild-vastromerska-rikets-fall"
+  },
+  {
+    "id": "karl-den-store-krons",
+    "file": "karl-den-store-krons.png",
+    "kind": "historisk",
+    "style": "tidig-medeltid",
+    "caption": {
+      "sv": "Karl den store kröns till kejsare i Rom. Miniatyr av Jean Fouquet i Grandes Chroniques de France, omkring 1455–1460. Senare bild. Licens: Public domain."
+    },
+    "credit": "Jean Fouquet / Bibliothèque nationale de France via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-karl-den-store-krons"
+  },
+  {
+    "id": "mayastadernas-nedgang",
+    "file": "mayastadernas-nedgang.png",
+    "kind": "historisk",
+    "style": "tidig-medeltid",
+    "caption": {
+      "sv": "Stora torget i Tikal, fotograferat 2009. Nutida foto. Licens: CC BY 2.0."
+    },
+    "credit": "Francisco Anzola / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-mayastadernas-nedgang"
+  },
+  {
+    "id": "angkor-wat",
+    "file": "angkor-wat.png",
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Angkor Wat, fotograferat 2005. Nutida foto. Licens: CC BY-SA 4.0."
+    },
+    "credit": "Bjørn Christian Tørrissen / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-angkor-wat"
+  },
+  {
+    "id": "magna-carta",
+    "file": "magna-carta.png",
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Magna Carta från 1215, ett av fyra bevarade exemplar, i British Library. Licens: Public domain."
+    },
+    "credit": "British Library via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-magna-carta"
   }
 ]
