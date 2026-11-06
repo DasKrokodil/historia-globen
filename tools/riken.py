@@ -277,7 +277,9 @@ GROUPS = {
     'neutrala-moresnet': ('Neutrala Moresnet', 'Neutral Moresnet', [], {'color': '#e0a0c0'}),
     # R7 (#407): stater i Amerika som krigen och resorna behöver (inbördeskriget, Paraguaykriget, mexikanska revolutionen)
     'usa': ('USA', 'United States', [
-        ('United States of America', 'usa', 'USA', '#4a7ab8', {'en': 'United States'}),
+        # Cliopatria räknar Japan till USA 1947–1966 och Okinawa till och med 2005, också de år då Japan är eget land
+        # i Cliopatria (från 1953); de åren klipps Japan bort (#644)
+        ('United States of America', 'usa', 'USA', '#4a7ab8', {'en': 'United States', 'minus': ['Japan']}),
     ]),
     'amerikas-konfedererade-stater': ('Amerikas konfedererade stater', 'Confederate States of America', [
         ('Confederate States of America', 'amerikas-konfedererade-stater', 'Amerikas konfedererade stater', '#8c7f6a'),
@@ -574,6 +576,45 @@ GROUPS = {
     ]),
     'kamerun': ('Kamerun', 'Cameroon', [
         ('Republic of Cameroon', 'kamerun', 'Kamerun', '#c05a3a', {'en': 'Cameroon'}),
+    ]),
+    # Nutida stater, fjärde omgången (#644). Spanien börjar 1932 (Spanska imperiet slutar 1931), Norge 1905
+    # (unionen med Sverige slutar 1904) och Japan 1953 (Japanska imperiet slutar 1945; Cliopatria saknar 1946–1952)
+    'spanien': ('Spanien', 'Spain', [
+        ('Second Spanish Republic', 'andra-spanska-republiken', 'Andra spanska republiken', '#d07a3a', {'en': 'Second Spanish Republic'}),
+        ('Francoist Spain', 'spanien-under-franco', 'Spanien under Franco', '#d07a3a', {'en': 'Francoist Spain'}),
+        ('Kingdom of Spain', 'spanien', 'Spanien', '#d07a3a', {'en': 'Spain', 'years': (1976, 2024)}),
+    ]),
+    # Cliopatria anger Q199841 (Sydjemen) för Jemen; rätt id är Q805
+    'jemen': ('Jemen', 'Yemen', [
+        ('Republic of Yemen', 'jemen', 'Jemen', '#4a8aa0', {'en': 'Yemen', 'wikidata': 'Q805'}),
+    ]),
+    'norge': ('Norge', 'Norway', [
+        ('Kingdom of Norway', 'norge', 'Norge', '#2f8f7a', {'en': 'Norway', 'years': (1905, 2024)}),
+    ]),
+    'uzbekistan': ('Uzbekistan', 'Uzbekistan', [
+        ('Republic of Uzbekistan', 'uzbekistan', 'Uzbekistan', '#c0705a', {'en': 'Uzbekistan'}),
+    ]),
+    # Cliopatria anger Q188712 (Kejsardömet Japan) för Japan efter 1953; rätt id är Q17
+    'japan': ('Japan', 'Japan', [
+        ('Japan', 'japan', 'Japan', '#e07a8a', {'en': 'Japan', 'wikidata': 'Q17'}),
+    ]),
+    # Marocko 1670–1911 och från 1956; däremellan ingår landet i franska kolonialväldet. Västsahara hör inte till
+    # Marocko i Cliopatria, vilket stämmer med att Sverige inte har uttalat vem området tillhör (docs/omstridda-granser.md)
+    'marocko': ('Marocko', 'Morocco', [
+        ('Morocco', 'marocko', 'Marocko', '#b0503a', {'en': 'Morocco'}),
+    ]),
+    'zimbabwe': ('Zimbabwe', 'Zimbabwe', [
+        ('Republic of Zimbabwe', 'zimbabwe', 'Zimbabwe', '#9a4a6a', {'en': 'Zimbabwe'}),
+    ]),
+    'tyskland': ('Tyskland', 'Germany', [
+        ('Federated Republic of Germany', 'tyskland', 'Tyskland', '#c8b04a', {'en': 'Germany'}),
+    ]),
+    'malaysia': ('Malaysia', 'Malaysia', [
+        ('Malaysia', 'malaysia', 'Malaysia', '#d08a4a', {'en': 'Malaysia'}),
+    ]),
+    # Cliopatria anger Q974 (Kongo-Kinshasa) för Kongo-Brazzaville; rätt id är Q971
+    'kongo-brazzaville': ('Kongo-Brazzaville', 'Republic of the Congo', [
+        ('Republic of the Congo', 'kongo-brazzaville', 'Kongo-Brazzaville', '#c07aa0', {'en': 'Republic of the Congo', 'wikidata': 'Q971'}),
     ]),
 }
 
