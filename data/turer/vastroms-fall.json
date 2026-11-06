@@ -1,0 +1,197 @@
+{
+  "schema": "historia-globen/tur@1",
+  "version": 1,
+  "id": "vastroms-fall",
+  "title": {
+    "sv": "Hur föll Västromerska riket?"
+  },
+  "summary": {
+    "sv": "Ett långt förlopp från tidiga tecken till 476, och varför forskarna fortfarande diskuterar det."
+  },
+  "empire": "romarriket",
+  "review": "source-checked",
+  "steps": [
+    {
+      "id": "armorica",
+      "at": 360,
+      "camera": {
+        "lat": 48.1,
+        "lon": -2.8,
+        "zoom": 1.7
+      },
+      "chapter": {
+        "sv": "Tidiga tecken"
+      },
+      "title": {
+        "sv": "Armorica, omkring år 360"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "Omkring år 360 slutade man använda pengar lokalt i Armorica, och nästan alla villor där övergavs."
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-fall-western-roman-empire"
+      ]
+    },
+    {
+      "id": "goterna",
+      "at": 376,
+      "camera": {
+        "lat": 44.5,
+        "lon": 26.0,
+        "zoom": 1.5
+      },
+      "chapter": {
+        "sv": "Kris"
+      },
+      "title": {
+        "sv": "Goterna kommer in i riket, 376"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "En stor folkvandring av goter och andra folk, på flykt undan hunnerna, tar sig in i riket."
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-fall-western-roman-empire"
+      ]
+    },
+    {
+      "id": "rom-410",
+      "at": 410,
+      "camera": {
+        "lat": 41.9,
+        "lon": 12.5,
+        "zoom": 1.8
+      },
+      "title": {
+        "sv": "Rom, 410"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "Alarik tar Rom genom att svälta ut staden och plundrar den sedan i tre dagar."
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-fall-western-roman-empire"
+      ]
+    },
+    {
+      "id": "rom-455",
+      "at": 455,
+      "camera": {
+        "lat": 41.9,
+        "lon": 12.5,
+        "zoom": 1.8
+      },
+      "title": {
+        "sv": "Rom, 455"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "Vandalerna tar sig in i Rom och plundrar staden i två veckor."
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-fall-western-roman-empire"
+      ]
+    },
+    {
+      "id": "ravenna-476",
+      "at": 476,
+      "camera": {
+        "lat": 44.4,
+        "lon": 12.2,
+        "zoom": 1.8
+      },
+      "chapter": {
+        "sv": "Slutet"
+      },
+      "title": {
+        "sv": "Ravenna, 4 september 476"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "Odoaker tvingar Romulus Augustulus, den siste kejsaren i Västrom, att abdikera och skickar de kejserliga insignierna till Konstantinopel."
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "open": "vastromerska-rikets-fall",
+      "sources": [
+        "wp-romulus-augustulus",
+        "wp-fall-western-roman-empire",
+        "wp-ravenna"
+      ]
+    },
+    {
+      "id": "forskarna",
+      "at": 476,
+      "camera": {
+        "lat": 41.9,
+        "lon": 12.5,
+        "zoom": 1.3
+      },
+      "chapter": {
+        "sv": "Hur ska det förstås?"
+      },
+      "title": {
+        "sv": "Ett fall eller en förvandling?"
+      },
+      "status": "omtvistat",
+      "text": {
+        "sv": "Varför Västrom föll är en av de stora frågorna i forskningen om antiken. Alexander Demandt räknade upp 210 olika teorier. Andra beskriver förloppet som en sammansatt kulturell förvandling snarare än ett fall, och 476 är en praktisk gräns som har använts sedan Gibbon."
+      },
+      "question": {
+        "sv": "Varför tror du att forskare har kommit fram till så många olika förklaringar?"
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-fall-western-roman-empire"
+      ]
+    },
+    {
+      "id": "armen",
+      "at": 476,
+      "camera": {
+        "lat": 41.9,
+        "lon": 12.5,
+        "zoom": 1.3
+      },
+      "chapter": {
+        "sv": "Det vi inte vet"
+      },
+      "title": {
+        "sv": "Armén före 376"
+      },
+      "status": "okant",
+      "text": {
+        "sv": "Forskarna är inte överens om huruvida arméns slagkraft hade minskat redan före 376."
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-fall-western-roman-empire"
+      ]
+    }
+  ]
+}

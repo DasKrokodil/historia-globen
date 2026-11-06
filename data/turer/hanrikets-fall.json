@@ -1,0 +1,174 @@
+{
+  "schema": "historia-globen/tur@1",
+  "version": 1,
+  "id": "hanrikets-fall",
+  "title": {
+    "sv": "Hur föll Hanriket?"
+  },
+  "summary": {
+    "sv": "Från Gula turbanernas uppror 184 till kejsarens abdikation 220, och vad källorna inte säger."
+  },
+  "empire": "hanriket",
+  "review": "source-checked",
+  "steps": [
+    {
+      "id": "gula-turbaner",
+      "at": 184,
+      "camera": {
+        "lat": 34.6,
+        "lon": 112.4,
+        "zoom": 1.4
+      },
+      "chapter": {
+        "sv": "Kris"
+      },
+      "title": {
+        "sv": "Gula turbanernas uppror, 184"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "Landet kastas in i oro av Gula turbanernas uppror, som pågår från 184 till 205."
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-end-of-han"
+      ]
+    },
+    {
+      "id": "luoyang-190",
+      "at": 190,
+      "camera": {
+        "lat": 34.6,
+        "lon": 112.4,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "Luoyang brinner, 190"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "Dong Zhuo, som har fört in sin armé i huvudstaden, tvingar hovet och Luoyangs invånare att flytta västerut till Chang'an. Den gamla huvudstaden bränns på hans order."
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-end-of-han"
+      ]
+    },
+    {
+      "id": "luoyang-195",
+      "at": 195,
+      "camera": {
+        "lat": 34.6,
+        "lon": 112.4,
+        "zoom": 1.6
+      },
+      "chapter": {
+        "sv": "Vanliga människor"
+      },
+      "title": {
+        "sv": "Luoyang, 195"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "I Luoyang saknas det nödvändigaste för att leva, och många ämbetsmän svälter ihjäl. Källan berättar om ämbetsmännen men säger inget om hur det gick för vanliga människor."
+      },
+      "question": {
+        "sv": "Varför tror du att källorna oftare berättar om ämbetsmän än om bönder?"
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-end-of-han"
+      ]
+    },
+    {
+      "id": "cao-cao",
+      "at": 196,
+      "camera": {
+        "lat": 34.6,
+        "lon": 112.4,
+        "zoom": 1.4
+      },
+      "chapter": {
+        "sv": "Makten flyttar"
+      },
+      "title": {
+        "sv": "Cao Cao tar kejsaren, 196"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "Cao Cao tar kontroll över kejsar Xian och hans hov. Han styr till synes under kejsaren, men i själva verket är kejsaren hans gisslan."
+      },
+      "question": {
+        "sv": "Varför kan det vara klokt att styra i kejsarens namn i stället för att ta titeln själv?"
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-end-of-han"
+      ]
+    },
+    {
+      "id": "roda-klipporna",
+      "at": 208,
+      "camera": {
+        "lat": 31.0,
+        "lon": 113.0,
+        "zoom": 1.3
+      },
+      "chapter": {
+        "sv": "Det vi inte vet"
+      },
+      "title": {
+        "sv": "Röda klipporna, 208–209"
+      },
+      "status": "okant",
+      "text": {
+        "sv": "Cao Caos armé uppskattas till 220 000 man, men själv påstod han att han hade 800 000. Hur stora arméerna var vet vi inte säkert."
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-end-of-han"
+      ]
+    },
+    {
+      "id": "abdikationen",
+      "at": 220,
+      "camera": {
+        "lat": 34.6,
+        "lon": 112.4,
+        "zoom": 1.3
+      },
+      "chapter": {
+        "sv": "Slutet"
+      },
+      "title": {
+        "sv": "Kejsaren abdikerar, 220"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "Cao Caos son Cao Pi tvingar kejsar Xian att abdikera och blir kejsare i en ny dynasti, Cao Wei. Året efter grundar Liu Bei Shu Han. De tre kungadömenas tid varar till 280."
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-end-of-han"
+      ]
+    }
+  ]
+}

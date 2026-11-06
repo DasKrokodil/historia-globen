@@ -32,6 +32,13 @@ test('berättelseläget: kapitel, fråga och krig kontrolleras (#247)', () => {
   for (const part of ['kriget okant-krig', 'kapitlet ska vara text', 'frågan ska vara text']) assert.match(all, new RegExp(part), `saknar ${part}`);
 });
 
+test('rikens fall: status per steg och riket kontrolleras (#499)', () => {
+  const k = { ...known, empires: new Set(['romarriket']) };
+  assert.deepEqual(tourProblems(tour({ empire: 'romarriket', steps: [step({ status: 'omtvistat' })] }), k), []);
+  const all = tourProblems(tour({ empire: 'atlantis', steps: [step({ status: 'kanske' })] }), k).join('\n');
+  for (const part of ['riket atlantis', 'okänd status kanske']) assert.match(all, new RegExp(part), `saknar ${part}`);
+});
+
 test('en tur utan steg eller med fel typ', () => {
   assert.equal(tourProblems(null).length, 1);
   assert.match(tourProblems(tour({ steps: [] })).join(), /inga steg/);
@@ -41,6 +48,7 @@ test('turerna i data/turer/ följer formatet och pekar på befintliga händelser
   const index = read('data/turer/index.json');
   const events = new Set(read('data/events.json').events.map(e => e.id));
   const sources = new Set(read('data/sources.json').sources.map(s => s.id));
+  const empires = new Set(read('data/empires/index.json').groups.map(g => g.id));
   // Lagrens id: posterna i js/layers/index.js heter som lagren (events, areas, …)
   const list = readFileSync(new URL('../js/layers/index.js', import.meta.url), 'utf8').match(/export const LAYERS = \[([^\]]*)\]/)[1];
   const layers = new Set(list.split(',').map(x => x.trim()).filter(Boolean));
@@ -48,6 +56,6 @@ test('turerna i data/turer/ följer formatet och pekar på befintliga händelser
   for (const id of index.tours) {
     const t = read(`data/turer/${id}.json`);
     assert.equal(t.id, id, 'filnamnet och id ska vara samma');
-    assert.deepEqual(tourProblems(t, { events, sources, layers }), []);
+    assert.deepEqual(tourProblems(t, { events, sources, layers, empires }), []);
   }
 });

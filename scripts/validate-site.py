@@ -353,6 +353,10 @@ for tid in (tours_index or {}).get('tours', []):
     tours.append((path, tour))
     if tour.get('id') != tid:
         err(f"{path}: id {tour.get('id')!r} ska vara samma som filnamnet ({tid})")
+    if tour.get('war') and tour['war'] not in ev_ids:
+        err(f"{path}: kriget {tour['war']} finns inte i events.json")
+    if tour.get('empire') and tour['empire'] not in {g.get('id') for g in (empires or {}).get('groups', [])}:
+        err(f"{path}: riket {tour['empire']} finns inte i data/empires/index.json")
     for i, step in enumerate(tour.get('steps', [])):
         where = f"{path} (steg {i + 1}, {step.get('id', '?')})"
         if step.get('open') and step['open'] not in ev_ids:
