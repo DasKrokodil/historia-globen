@@ -624,7 +624,8 @@ async function run(browser, vp) {
     try {
       await jumpTo(1274);
       if ((await page.textContent('#ff-kind')).trim() !== 'När ett krig bröt ut') throw new Error('1274 saknar det verifierade krigskortet i Samtidigt');
-      const symbol = page.locator('#ff-pics .ff-symbol.ff-reserve');
+      // Krigskortet är en symbolruta när inget kort har bild och en reservruta bland bildkort (Marco Polo 1271 fick bild i #453).
+      const symbol = page.locator('#ff-pics .ff-reserve[aria-label^="Krig och konflikter"]').first();
       await symbol.waitFor({ state: 'visible', timeout: T.step });
       const symbolHeight = await symbol.evaluate(el => Math.round(el.getBoundingClientRect().height));
       if (Math.abs(symbolHeight - imageHeight) > 1) throw new Error(`bildlöst krigskort har höjd ${symbolHeight}, bildkortet ${imageHeight}`);
