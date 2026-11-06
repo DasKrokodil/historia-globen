@@ -199,7 +199,8 @@ Rikard gillar stilen. Behåll den:
 | 4.3 Teknisk grund | main.js delas upp och tillståndet blir centralt (#389, utan adressdelen som är #501 i 5.2), lättare mobilrendering (#390), JSON Schema (#391), lagertypen bildlager (#54) |
 | 5.0 Guidade berättelser | Turformat som data (#47), turer om andra och första världskriget (#13, #48), berättelseläget med kapitel och frågor (#247) och slutkort med det viktigaste att ta med sig (#500). Rikens fall (#499) och tidslinjebläddraren (#231) flyttades till senare (2026-11-06) |
 | 5.1 Global täckning, delad i tre (beslut 2026-11-03) | **5.1a** redigeringsformat (#394), **5.1b** kärnhändelser (#452) och deras bilder (#453) i källkontrollerade batchar om högst 20 per PR, **5.1c** massimport per världsdel (#61) när format, schema, källflöde och täckningsmått är stabila. Granskningsvyn för människor (#62) är stängd (#252) |
-| 5.2 Sök, delning och introduktion | "Vad hände här?" (#15), delbara länkar (#64) och tillståndet i adressen (#501), sök |
+| 5.1d Stabilisering (2026-11-06) | Efter helhetsanalysen (docs/granskningar/2026-11-06-gemensam-rekommendation.md): mobilkortet (#706), låsning utan grafikkort (#692), webbläsartestet i Firefox och WebKit (#702), skarp CSP (#707), zoom och tangentbord i testet (#708) |
+| 5.2 Sök, delning och introduktion | "Vad hände här?" (#15), tidsintervall (#569) och regionkort (#579); delbara länkar (#64, #501) och sök är släppta i v5.0.0 |
 | 6 Skolpilot | Lektionsturer, quiz och elevuppdrag (#66, #65, #250), läroplansreferenser, pilot med en lärare eller klass |
 | 7 Människans långa historia | Tidsmodell för ungefärliga datum, tidslinje i nivåer (#49), människoarter (#11) |
 | 8 Jordens historia | Eget läge med geologisk tidslinje och forntida kartor (#12, #51–#53) |
@@ -207,6 +208,7 @@ Rikard gillar stilen. Behåll den:
 
 Parallella spår (milstolpar utan versionsnummer, görs bredvid huvudversionerna):
 - **Innehållspaket:** vetenskap, medicin, teknik, rymdfärdens milstolpar (#84) och temavyer (musik, litteratur, filosofi, ekonomi, personer, byggnadsverk, perspektiv). Paketen blockerar inte varandra eller huvudversionerna.
+- **Språk: översättning** (#63, #670–#679): gränssnittets texter en del i taget, sedan innehållet per period, engelska först (beslut 2026-11-06).
 - **Riken:** R1–R7 är klara; nu pågår milstolpen "Riken: global täckning" (#556, #644–#646).
 - **Hårdvara** (H1–H3): anteckningar, planeringen sker i Rikards Claude-projekt.
 - **Experiment och senare:** experimenten är delade i "Historiska datum och utskrift", "Flöden och rörelse", "Lekar och tankeexperiment" och "Rymden". "Senare" är delad i "beslut krävs", "teknik" och "innehåll och media". "Teman: temamotor" (#398) är förutsättningen för temavyerna, och "Paket: Temavyer och innehåll" är en samlingsrubrik, inte en arbetsmilstolpe. Bilder görs i "Bilder: batchar".
