@@ -1,6 +1,6 @@
 {
  "schema": "historia-globen/empires-index@1",
- "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen. Kolonialvälden och moderna imperier (R5, #71): parts listar Cliopatria-poster som är ihopslagna år för år till ett rike (Tyska riket med German Africa, Etiopiska kejsardömet med Ethiopia till 1974); då är areaKm2 summan av posternas ytor. homeland (#74) är moderlandet i ett utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då homeland.name, moderlandets namn. Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i Cliopatria och har ingen fil, bara en punkt (vanished.point). Sverige (#70): Cliopatrias \"Swedish Empire\" 1612–1814 är delad i två delar med samma gränser, Svenska stormaktsväldet till och med 1721 (freden i Nystad) och Sverige 1722–1814. Inflytande (#75): polity.influence är områden som enligt Cliopatrias relationsposter (typ RELATION, \"Allegiance of A to B\" och \"Vassalage of A to B\") lydde under riket utan att höra till det: relationens område minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) och ger polity.uncertainBorder i rikets fil.",
+ "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen. Kolonialvälden och moderna imperier (R5, #71): parts listar Cliopatria-poster som är ihopslagna år för år till ett rike (Tyska riket med German Africa, Etiopiska kejsardömet med Ethiopia till 1974); då är areaKm2 summan av posternas ytor. homeland (#74) är moderlandet i ett utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då homeland.name, moderlandets namn. Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i Cliopatria och har ingen fil, bara en punkt (vanished.point). Sverige (#70): Cliopatrias \"Swedish Empire\" 1612–1814 är delad i två delar med samma gränser, Svenska stormaktsväldet till och med 1721 (freden i Nystad) och Sverige 1722–1814. Inflytande (#75): polity.influence är områden som enligt Cliopatrias relationsposter (typ RELATION, \"Allegiance of A to B\" och \"Vassalage of A to B\") lydde under riket utan att höra till det: relationens område minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) och ger polity.uncertainBorder i rikets fil. Omstridda gränser i nutid (#644): följer Sveriges officiella hållning enligt UD (DISPUTED i tools/riken.py, docs/omstridda-granser.md). Krim och Sevastopol räknas till Ukraina även från 2014, och inte till Ryska federationen. Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel från 1967; Staten Palestina (Västbanken med Östra Jerusalem och Gaza) visas från 2014, då Sverige erkände den. De gränserna kommer ur Natural Earth (ne_10m_admin_0_disputed_areas 5.1.1, public domain), och gruppen har då borderSource. Där är areaKm2 räknad ur den nya gränsen.",
  "groups": [
   {
    "id": "romarriket",
@@ -16997,13 +16997,14 @@
       },
       "sources": [
        "wp-six-day-war",
-       "wp-israel"
+       "wp-israel",
+       "ud-handel-israel-palestina"
       ],
       "events": [
        "sexdagarskriget"
       ],
       "mapNote": {
-       "sv": "Kartan räknar Sinai, Gaza, Västbanken och Golanhöjderna till Israel från 1967."
+       "sv": "Kartan räknar Sinai till Israel från 1967, som Cliopatria. Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel, eftersom kartan följer Sveriges hållning enligt UD (kontrollerad 2026-11-06)."
       }
      },
      {
@@ -17024,7 +17025,7 @@
        "jom-kippurkriget"
       ],
       "mapNote": {
-       "sv": "Kartan visar Sinai och Gaza utanför Israel 1973–1975 och åter inom Israel 1976–1982."
+       "sv": "Kartan visar Sinai utanför Israel 1973–1975 och åter inom Israel 1976–1982."
       }
      },
      {
@@ -17075,11 +17076,68 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan följer Cliopatria, som räknar de områden Israel har ockuperat till landets yta: Sinai och Gaza 1956–1957, 1967–1972 och 1976–1982, Västbanken och Golanhöjderna från 1967 och södra Libanon 1983–1986. Källorna beskriver Västbanken, Gaza och Sinai som ockuperade områden."
+     "sv": "Gränsen är omstridd. Kartan följer Cliopatria, utom i nutida omstridda gränser, där den följer Sveriges officiella hållning enligt UD (kontrollerad 2026-11-06): Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel från 1967, eftersom Sverige ser dem som ockuperade områden utanför Israel inom 1967 års gränser. Gränserna för de områdena kommer ur Natural Earth; Cliopatria räknar dem till Israel. Sinai (1956–1957, 1967–1972 och 1976–1982), Gaza 1956–1957 och södra Libanon 1983–1986 visas som i Cliopatria. Källorna beskriver Västbanken, Gaza och Sinai som ockuperade områden."
     },
     "sources": [
      "wp-israel",
-     "wd-israel"
+     "wd-israel",
+     "ud-handel-israel-palestina"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "palestina",
+   "name": {
+    "sv": "Palestina",
+    "en": "Palestine"
+   },
+   "color": "#2f9488",
+   "from": 2014,
+   "to": 2024,
+   "file": "data/empires/palestina.json",
+   "polities": [
+    {
+     "id": "palestina",
+     "name": {
+      "sv": "Palestina",
+      "en": "Palestine"
+     },
+     "sources": [
+      "natural-earth-omstridda"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "borderSource": "Natural Earth",
+   "facts": {
+    "summary": {
+     "sv": "Staten Palestina består enligt Sveriges hållning av Västbanken med Östra Jerusalem och Gaza, områden som Israel ockuperade 1967. Sverige erkände Staten Palestina 30 oktober 2014."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Sveriges erkännande"
+      },
+      "text": {
+       "sv": "Sverige erkände Staten Palestina 30 oktober 2014. Sveriges generalkonsulat i Jerusalem, sedan 1991 med utsänd personal, sköter de officiella kontakterna med den palestinska myndigheten."
+      }
+     },
+     {
+      "label": {
+       "sv": "Ockuperade områden"
+      },
+      "text": {
+       "sv": "Enligt UD gäller EU:s avtal med Israel staten Israel inom 1967 års gränser och inte Västbanken, Östra Jerusalem, Gaza eller Golanhöjderna, som räknas som ockuperade områden. EU och Sverige anser att de israeliska bosättningarna på Västbanken och i Östra Jerusalem strider mot folkrätten."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Gränsen är omstridd. Cliopatria har ingen palestinsk stat efter 1948 och räknar Västbanken, Östra Jerusalem och Gaza till Israel från 1967. Kartan följer Sveriges officiella hållning enligt UD (kontrollerad 2026-11-06) och visar Staten Palestina från Sveriges erkännande 2014, med gränser ur Natural Earth. Kartan säger inget om vem som kontrollerar områdena; Israel ockuperar dem enligt UD. Före 2014 visas områdena utan stat."
+    },
+    "sources": [
+     "ud-palestina",
+     "ud-handel-israel-palestina"
     ],
     "review": "source-checked"
    }
@@ -17483,14 +17541,15 @@
        "sv": "Israel erövrar Golanhöjderna i sexdagarskrigets två sista dagar, 9–10 juni 1967."
       },
       "sources": [
-       "wp-six-day-war"
+       "wp-six-day-war",
+       "ud-handel-israel-palestina"
       ],
       "events": [
        "golanhojderna-1967",
        "sexdagarskriget"
       ],
       "mapNote": {
-       "sv": "Kartan räknar Golanhöjderna till Israel från 1967."
+       "sv": "Golanhöjderna räknas inte till Israel från 1967, eftersom kartan följer Sveriges hållning att de är ockuperade (UD, kontrollerad 2026-11-06). Cliopatria räknar dem inte till Syrien, så området är tomt på kartan."
       }
      },
      {
@@ -17550,7 +17609,8 @@
      "sv": "Kartan börjar 1946. Cliopatria räknar Syrien till Förenade arabrepubliken 1958–1966, så landet saknas som eget 1958–1960 och finns dubbelt 1961–1966."
     },
     "sources": [
-     "wp-syria"
+     "wp-syria",
+     "ud-handel-israel-palestina"
     ],
     "review": "source-checked"
    },
@@ -23823,10 +23883,12 @@
       },
       "sources": [
        "wp-annexation-of-crimea",
-       "wp-ukraine"
+       "wp-ukraine",
+       "ud-ukraina",
+       "ud-annekteringar-ukraina-2022"
       ],
       "mapNote": {
-       "sv": "Cliopatria räknar Krim både till Ukraina och till Ryssland 2014–2023, och från 2024 bara till Ryssland."
+       "sv": "Gränsen är omstridd. Ryssland annekterade Krim 2014, men Sverige erkänner inte annekteringen och räknar Krim och Sevastopol till Ukraina. Kartan följer Sveriges officiella hållning enligt UD (kontrollerad 2026-11-06). Cliopatria räknar Krim också till Ryssland 2014–2023 och bara till Ryssland 2024."
       }
      },
      {
@@ -23877,7 +23939,8 @@
        "sv": "Den 30 september 2022 förklarar Ryssland ensidigt att det annekterar Donetsk, Luhansk, Zaporizjzja och Cherson oblast, efter folkomröstningar som de ryska ockupationsmyndigheterna har ordnat. Ryssland kontrollerar inte någon av provinserna helt. Annekteringen erkänns inte av omvärlden, utom av Nordkorea, och 143 av FN:s medlemsländer fördömer den som olaglig."
       },
       "sources": [
-       "wp-russian-annexation-southeastern-ukraine"
+       "wp-russian-annexation-southeastern-ukraine",
+       "ud-annekteringar-ukraina-2022"
       ],
       "mapNote": {
        "sv": "Kartan räknar de områden som Ryssland har ockuperat sedan 2022 till Ukraina, och visar inte frontlinjen."
@@ -23885,12 +23948,14 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan visar Ukraina från 1992; enligt källorna blev landet självständigt 24 augusti 1991, och Sovjetunionen upplöstes 26 december 1991. Cliopatria räknar Krim till Ukraina till och med 2023 och samtidigt till Ryssland 2014–2024, så att halvön 2014–2023 hör till båda länderna. Från 2024 visas Ukraina utan Krim. De områden som Ryssland har ockuperat sedan 2022 visas som en del av Ukraina. Kartan slutar 2024 och säger inget om läget därefter."
+     "sv": "Kartan visar Ukraina från 1992; enligt källorna blev landet självständigt 24 augusti 1991, och Sovjetunionen upplöstes 26 december 1991. Krim och Sevastopol visas som en del av Ukraina hela tiden, också efter Rysslands annektering 2014, eftersom kartan i omstridda gränser följer Sveriges officiella hållning enligt UD (kontrollerad 2026-11-06). Cliopatria räknar Krim också till Ryssland 2014–2023 och bara till Ryssland 2024. De områden som Ryssland har ockuperat sedan 2022 visas som en del av Ukraina, i enlighet med både Cliopatria och Sveriges hållning. Kartan slutar 2024 och säger inget om läget därefter."
     },
     "sources": [
      "wp-ukraine",
      "wd-ukraine",
-     "wp-declaration-independence-ukraine"
+     "wp-declaration-independence-ukraine",
+     "ud-annekteringar-ukraina-2022",
+     "ud-ukraina"
     ],
     "review": "source-checked"
    },
@@ -24056,10 +24121,11 @@
       "sources": [
        "wp-annexation-of-crimea",
        "wp-russia",
-       "wp-war-in-donbas"
+       "wp-war-in-donbas",
+       "ud-annekteringar-ukraina-2022"
       ],
       "mapNote": {
-       "sv": "Cliopatria räknar Krim till Ryssland från 2014 men också till Ukraina till och med 2023."
+       "sv": "Gränsen är omstridd. Ryssland annekterade Krim 2014, men Sverige erkänner inte annekteringen och räknar Krim och Sevastopol till Ukraina. Kartan följer Sveriges officiella hållning enligt UD (kontrollerad 2026-11-06). Cliopatria räknar Krim till Ryssland från 2014."
       }
      },
      {
@@ -24087,12 +24153,13 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan visar Ryska federationen från 1992; enligt källorna upplöstes Sovjetunionen i december 1991. Cliopatria räknar Krim till Ryssland 2014–2024 och samtidigt till Ukraina 2014–2023. De områden i Ukraina som Ryssland har ockuperat sedan 2022 räknas inte till Ryssland. Kartan slutar 2024 och säger inget om läget därefter."
+     "sv": "Kartan visar Ryska federationen från 1992; enligt källorna upplöstes Sovjetunionen i december 1991. Krim och Sevastopol räknas inte till Ryssland, eftersom kartan i omstridda gränser följer Sveriges officiella hållning enligt UD: Sverige erkänner inte annekteringen 2014 (kontrollerad 2026-11-06). Cliopatria räknar Krim till Ryssland 2014–2024. De områden i Ukraina som Ryssland har ockuperat sedan 2022 räknas inte heller till Ryssland. Kartan slutar 2024 och säger inget om läget därefter."
     },
     "sources": [
      "wp-russia",
      "wd-russia",
-     "wp-dissolution-of-the-soviet-union"
+     "wp-dissolution-of-the-soviet-union",
+     "ud-annekteringar-ukraina-2022"
     ],
     "review": "source-checked"
    },

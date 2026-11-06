@@ -1282,6 +1282,20 @@ async function run(browser, vp) {
         throw new Error(`pausraden saknar plats, datum eller resa: ${pause}`);
       }
       if (!pause.includes('Källorna skiljer sig')) throw new Error('resans osäkerhetsnot syns inte i pausrutan');
+      // #647: fokusraden får inte ligga över pausraden, inte heller när noten är utfälld,
+      // och raden "Tiden flyttades" ska inte ligga kvar när uppspelningen har startat.
+      if (await page.locator('#focus-moved').isVisible()) throw new Error('raden "Tiden flyttades" ligger kvar under uppspelningen');
+      const overlap = () => page.evaluate(() => {
+        const a = document.getElementById('focus-bar').getBoundingClientRect();
+        const b = document.getElementById('pause-note').getBoundingClientRect();
+        return a.bottom > b.top + 1 && a.top < b.bottom - 1 && a.right > b.left && a.left < b.right;
+      });
+      if (await overlap()) throw new Error('fokusraden ligger över pausraden');
+      await page.click('#pause-more summary');
+      await page.waitForFunction(() => document.getElementById('pause-more').open, null, { timeout: T.step });
+      await page.waitForTimeout(100); // låt ResizeObserver flytta fokusraden
+      if (await overlap()) throw new Error('fokusraden ligger över pausraden när noten är utfälld');
+      await page.click('#pause-more summary');
       const pauseText = (await page.textContent('#pause-text')).replace(/\s+/g, ' ').trim();
       await page.waitForFunction(text => document.getElementById('screen-reader-status')?.textContent.includes(text), pauseText, { timeout: T.step });
       await shot('6b-fokus-resa-stopp');
@@ -1311,7 +1325,7 @@ async function run(browser, vp) {
       await page.click('#focus-exit');
       await hidden('#focus-bar');
       await jumpTo(1900); // följande krigstest söker nära tiden det står på
-      return `${speed}; stoppet vid Palos pausar med plats, datum, resa och not; valet kan stängas av`;
+      return `${speed}; stoppet vid Palos pausar med plats, datum, resa och not utan att krocka med fokusraden; valet kan stängas av`;
     } finally {
       const action = page.locator('#focus-action');
       if (await action.isVisible().catch(() => false) && (await action.textContent()).includes('Pausa')) await action.click();

@@ -424,20 +424,29 @@ export class Timeline extends EventTarget {
     requestAnimationFrame(step);
   }
   /** Pausar. Med `reason` (text) är det en automatisk paus: knappen blir "Fortsätt" och raden vid knappen visar varför.
-   *  `always` visar raden även om uppspelningen redan stod still (nästa stopp i ett krig, #217). */
-  pause(reason, always = false, announcement = reason) {
+   *  `always` visar raden även om uppspelningen redan stod still (nästa stopp i ett krig, #217).
+   *  `more` ({ title, text }) är en fällbar rad i pausraden, till exempel resans not om att källorna skiljer sig (#647).
+   */
+  pause(reason, always = false, announcement = reason, more = null) {
     const wasPlaying = this.playing;
     this.playing = false;
     this.playBtn.setAttribute('aria-pressed', 'false');
     const auto = !!reason && (wasPlaying || always);
     this._resume = auto;
     this._labelPlay();
-    this._showNote(auto ? reason : null, auto ? announcement : null);
+    this._showNote(auto ? reason : null, auto ? announcement : null, auto ? more : null);
   }
-  _showNote(text, announcement = text) {
+  _showNote(text, announcement = text, more = null) {
     if (!this.pauseNote) return;
     this.pauseNote.hidden = !text;
     if (text) this.pauseText.textContent = text;
+    const box = this.pauseNote.querySelector('#pause-more');
+    if (box) {
+      box.hidden = !more;
+      box.open = false;
+      box.querySelector('#pause-more-title').textContent = more ? more.title : '';
+      box.querySelector('#pause-more-text').textContent = more ? more.text : '';
+    }
     if (announcement) this._announce(announcement);
     else if (this.status) this.status.textContent = '';
   }
