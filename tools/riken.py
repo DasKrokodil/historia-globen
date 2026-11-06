@@ -589,7 +589,8 @@ GROUPS = {
     # (unionen med Sverige slutar 1904) och Japan 1953 (Japanska imperiet slutar 1945; Cliopatria saknar 1946–1952)
     'spanien': ('Spanien', 'Spain', [
         ('Second Spanish Republic', 'andra-spanska-republiken', 'Andra spanska republiken', '#d07a3a', {'en': 'Second Spanish Republic'}),
-        ('Francoist Spain', 'spanien-under-franco', 'Spanien under Franco', '#d07a3a', {'en': 'Francoist Spain'}),
+        ('Francoist Spain', 'spanien-under-franco', 'Spanien under Franco', '#d07a3a',
+         {'en': 'Francoist Spain', 'minus': ['Equatorial Guinea']}),
         ('Kingdom of Spain', 'spanien', 'Spanien', '#d07a3a', {'en': 'Spain', 'years': (1976, 2024)}),
     ]),
     # Cliopatria anger Q199841 (Sydjemen) för Jemen; rätt id är Q805
@@ -849,6 +850,44 @@ GROUPS = {
     'lesotho': ('Lesotho', 'Lesotho', [
         ('Lesotho', 'lesotho', 'Lesotho', '#6a5ab0', {'en': 'Lesotho'}),
     ]),
+    # Nutida stater, elfte omgången (#644)
+    # Storbritannien från 2000, när Brittiska imperiet slutar (gruppen brittiska-imperiet, där Kingdom of Great Britain är
+    # moderlandet). Cliopatria anger Q23666 (ön Storbritannien); här Q145, Förenade kungariket
+    'storbritannien': ('Storbritannien', 'United Kingdom', [
+        ('Kingdom of Great Britain', 'storbritannien', 'Storbritannien', '#c2557a',
+         {'en': 'United Kingdom', 'wikidata': 'Q145', 'years': (2000, 2024),
+          # Cliopatria räknar Oman, Qatar och Förenade arabemiraten till Storbritannien 2000–2023, samtidigt som de är
+          # egna länder i Cliopatria (år 2024 har posten bara de brittiska öarna)
+          'minus': ['Sultanate of Oman', 'State of Qatar', 'United Arab Emirates']}),
+    ]),
+    'belgien': ('Belgien', 'Belgium', [
+        ('Kingdom of Belgium', 'belgien', 'Belgien', '#a04a7a', {'en': 'Belgium'}),
+    ]),
+    'ekvatorialguinea': ('Ekvatorialguinea', 'Equatorial Guinea', [
+        ('Equatorial Guinea', 'ekvatorialguinea', 'Ekvatorialguinea', '#c05a5a', {'en': 'Equatorial Guinea'}),
+    ]),
+    # Cliopatria anger Q467864 (Socialistiska folkrepubliken Albanien) också efter 1991; rätt id är Q222
+    'albanien': ('Albanien', 'Albania', [
+        ('Republic of Albania', 'albanien', 'Albanien', '#c04a4a', {'en': 'Albania', 'wikidata': 'Q222'}),
+    ]),
+    'moldavien': ('Moldavien', 'Moldova', [
+        ('Republic of Moldova', 'moldavien', 'Moldavien', '#5a7ab0', {'en': 'Moldova'}),
+    ]),
+    'nordmakedonien': ('Nordmakedonien', 'North Macedonia', [
+        ('Former Yugoslav Republic of Macedonia', 'nordmakedonien', 'Nordmakedonien', '#d0803a', {'en': 'North Macedonia'}),
+    ]),
+    'burundi': ('Burundi', 'Burundi', [
+        ('Republic of Burundi', 'burundi', 'Burundi', '#4aa070', {'en': 'Burundi'}),
+    ]),
+    'belize': ('Belize', 'Belize', [
+        ('Belize', 'belize', 'Belize', '#4a8ab0', {'en': 'Belize'}),
+    ]),
+    'djibouti': ('Djibouti', 'Djibouti', [
+        ('Republic of Djibouti', 'djibouti', 'Djibouti', '#5aa0a0', {'en': 'Djibouti'}),
+    ]),
+    'el-salvador': ('El Salvador', 'El Salvador', [
+        ('Republic of El Salvador', 'el-salvador', 'El Salvador', '#5a6ab0', {'en': 'El Salvador'}),
+    ]),
 }
 
 # Huvudlandet i utspridda välden (#74): moderlandet ritas med kraftigare kant och en stjärna och får
@@ -943,6 +982,8 @@ DISPUTED = {
     # Abchazien och Sydossetien ritas som Georgien (Rikards beslut; UD: Sverige stöder Georgiens territoriella integritet)
     'abchazien-sydossetien': {'area': ('ne', ['abchazien', 'sydossetien']), 'from': 1992,
                               'remove': [], 'add': ['georgien']},
+    # Transnistrien ritas som Moldavien (Rikards beslut; UD beskriver Transnistrien som en region i Moldavien)
+    'transnistrien': {'area': ('ne', ['transnistrien']), 'from': 1992, 'remove': [], 'add': ['moldavien']},
 }
 
 
