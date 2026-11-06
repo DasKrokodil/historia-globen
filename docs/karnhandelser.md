@@ -6,16 +6,16 @@
 
 - **Omgång** 1–4: den pull request där händelsen läggs in, högst 20 per omgång.
 - **finns**: händelsen finns redan på globen (id inom parentes). Den läggs inte in igen, men får en bild i #453.
-- **reserv**: med om du vill, annars inte. Stryk, flytta eller lägg till rader som du vill.
+- **reserv**: med om du vill, annars inte. Stryk, flytta eller lägg till rader som du vill. Reservlistan lades in som omgång 5 (2026-11-05), 17 händelser, eftersom Olmekerna och Nazcalinjerna redan hade kommit in med massimporten om Amerika (#628); stryk gärna rader i den pull requesten.
 - **Period** är bara till för att sortera listan. Det exakta årtalet sätts ur källan.
 
-**Sammanlagt:** 114 kärnhändelser, varav 36 redan finns och 78 är nya, fördelade på fyra omgångar. Dessutom 19 i reserv.
+**Sammanlagt:** 114 kärnhändelser, varav 36 redan finns och 78 är nya, fördelade på fyra omgångar. Dessutom 17 från reservlistan i omgång 5 (två av reservlistans 19 fanns redan efter #628).
 
 ## Omgångarna
 
-**Läget:** omgång 1 är inlagd (19 händelser, 11 med två källor som stämmer och 8 källkontrollerade, där källorna skiljer sig eller en andra källa saknas för platsen). Omgång 2 är inlagd (20 händelser, 16 med två källor och 4 källkontrollerade, där Wikidata saknar plats eller datum att jämföra med). Omgång 3 är inlagd (20 händelser, 11 med två källor och 9 källkontrollerade, där Wikidata saknar datum eller källorna skiljer sig). Omgång 4 är inlagd (19 händelser, 3 med två källor och 16 källkontrollerade, eftersom Wikidata sällan har jämförbara datum för forntiden). Lindisfarne fanns redan och lades inte in igen. **Alla omgångar är inlagda.**
+**Läget:** omgång 1 är inlagd (19 händelser, 11 med två källor som stämmer och 8 källkontrollerade, där källorna skiljer sig eller en andra källa saknas för platsen). Omgång 2 är inlagd (20 händelser, 16 med två källor och 4 källkontrollerade, där Wikidata saknar plats eller datum att jämföra med). Omgång 3 är inlagd (20 händelser, 11 med två källor och 9 källkontrollerade, där Wikidata saknar datum eller källorna skiljer sig). Omgång 4 är inlagd (19 händelser, 3 med två källor och 16 källkontrollerade, eftersom Wikidata sällan har jämförbara datum för forntiden). Lindisfarne fanns redan och lades inte in igen. **Alla fyra omgångarna är inlagda.** Omgång 5 tar reservlistan (17 händelser, 5 med två källor och 12 källkontrollerade; Olmekerna och Nazcalinjerna fanns redan efter massimporten #628, eftersom Wikidata ofta saknar datum att jämföra med eller anger andra årtal; skillnaderna står i händelsernas `note`).
 
-**Före tidslinjens början:** jordbrukets början (cirka 10 000–8 000 f.Kr.) och kilskriften (cirka 3300 f.Kr.) ligger före år 3000 f.Kr., där tidslinjen börjar i dag. De finns i datan men syns inte på globen förrän tidslinjen förlängs i version 7 (#49).
+**Före tidslinjens början:** jordbrukets början (cirka 10 000–8 000 f.Kr.) och kilskriften (cirka 3300 f.Kr.) ligger före år 3000 f.Kr., där tidslinjen börjar i dag. Det gäller också Göbekli Tepe (cirka 9500–8000 f.Kr., omgång 5). De finns i datan men syns inte på globen förrän tidslinjen förlängs i version 7 (#49).
 
 | Omgång | Tid | Nya händelser | Världsdelar |
 | --- | --- | --- | --- |
@@ -23,6 +23,7 @@
 | 2 | 1800-talet till 1990 | 20 | Nordamerika 6, Europa 5, Asien 4, Afrika 2, Oceanien 2, Sydamerika 1 |
 | 3 | Cirka 1000 till 1870 | 20 | Europa 9, Oceanien 4, Asien 4, Nordamerika 1, Afrika 1, Världen 1 |
 | 4 | Forntid till medeltid | 19 | Europa 8, Asien 6, Afrika 2, Sydamerika 1, Oceanien 1, Nordamerika 1 |
+| 5 | Reservlistan, forntid till 1999 | 17 | Europa 6, Asien 6, Nordamerika 2, Sydamerika 1, Afrika 1, Oceanien 1 |
 
 Omgång 1 tar de händelser som besökare saknar mest (11 september, Berlinmurens fall, Sovjetunionens upplösning, apartheids slut, FN, tsunamin 2004, covid-19). Varje omgång har händelser från minst fem världsdelar.
 
@@ -33,7 +34,7 @@ Omgång 1 tar de händelser som besökare saknar mest (11 september, Berlinmuren
 | Händelse | Kategori | Världsdel | Omgång |
 | --- | --- | --- | --- |
 | Jordbrukets början i Bördiga halvmånen | Människan | Asien | 4 |
-| Göbekli Tepe | Kultur | Asien | reserv |
+| Göbekli Tepe | Kultur | Asien | 5 |
 | Skriften uppstår (kilskrift i Sumer) | Kultur | Asien | 4 |
 | Egypten enas | Civilisationer | Afrika | 4 |
 | Caral, en av Amerikas äldsta städer | Civilisationer | Sydamerika | 4 |
@@ -43,26 +44,26 @@ Omgång 1 tar de händelser som besökare saknar mest (11 september, Berlinmuren
 | Induskulturens städer (Mohenjo-daro) | Civilisationer | Asien | 4 |
 | Hammurabis lagar | Civilisationer | Asien | 4 |
 | Vulkanutbrottet på Thera (Santorini) | Katastrofer | Europa | 4 |
-| Olmekerna | Civilisationer | Nordamerika | reserv |
+| Olmekerna | Civilisationer | Nordamerika | finns (`olmekerna-san-lorenzo`, #628) |
 | Lapitafolket bosätter Stilla havets öar | Upptäckter | Oceanien | 4 |
 
 ### Antiken
 
 | Händelse | Kategori | Världsdel | Omgång |
 | --- | --- | --- | --- |
-| Nazcalinjerna | Kultur | Sydamerika | reserv |
+| Nazcalinjerna | Kultur | Sydamerika | finns (`nazcalinjerna`, #628) |
 | De första olympiska spelen | Sport | Europa | finns (`olympiska-spelen`) |
 | Buddha | Religion | Asien | finns (`buddha`) |
 | Konfucius | Religion | Asien | finns (`konfucius`) |
 | Demokratin i Aten | Civilisationer | Europa | 4 |
 | Kina enas under Qin | Civilisationer | Asien | finns (`qi-ger-upp-221-fkr`) |
-| Terrakottaarmén | Kultur | Asien | reserv |
+| Terrakottaarmén | Kultur | Asien | 5 |
 | Sidenvägen öppnas | Ekonomi | Asien | 4 |
 | Julius Caesar mördas | Civilisationer | Europa | 4 |
 | Jesu födelse | Religion | Asien | finns (`jesu-fodelse`) |
 | Vesuvius begraver Pompeji | Katastrofer | Europa | 4 |
-| Papperet i Kina | Vetenskap | Asien | reserv |
-| Teotihuacan | Civilisationer | Nordamerika | reserv |
+| Papperet i Kina | Vetenskap | Asien | 5 |
+| Teotihuacan | Civilisationer | Nordamerika | 5 |
 | Aksum blir kristet | Religion | Afrika | 4 |
 | Västromerska rikets fall | Civilisationer | Europa | 4 |
 
@@ -70,16 +71,16 @@ Omgång 1 tar de händelser som besökare saknar mest (11 september, Berlinmuren
 
 | Händelse | Kategori | Världsdel | Omgång |
 | --- | --- | --- | --- |
-| Hagia Sofia | Kultur | Europa | reserv |
-| Justinianska pesten | Hälsa | Europa | reserv |
+| Hagia Sofia | Kultur | Europa | 5 |
+| Justinianska pesten | Hälsa | Europa | 5 |
 | Hijra, islams tideräkning börjar | Religion | Asien | finns (`hijra`) |
 | Karl den store kröns till kejsare | Civilisationer | Europa | 4 |
-| Visdomens hus i Bagdad | Vetenskap | Asien | reserv |
+| Visdomens hus i Bagdad | Vetenskap | Asien | 5 |
 | Vikingar plundrar Lindisfarne | Civilisationer | Europa | finns (`lindisfarne`) |
 | Mayastädernas nedgång | Civilisationer | Nordamerika | 4 |
 | Leif Eriksson når Vinland (L'Anse aux Meadows) | Upptäckter | Nordamerika | 3 |
 | Polynesierna når Aotearoa (Nya Zeeland) | Upptäckter | Oceanien | 3 |
-| Sagan om Genji | Kultur | Asien | reserv |
+| Sagan om Genji | Kultur | Asien | 5 |
 | Angkor Wat | Kultur | Asien | 4 |
 | Magna Carta | Civilisationer | Europa | 4 |
 | Mongolernas erövringar | Krig | Asien | finns (`mongolernas-erovringar`) |
@@ -89,7 +90,7 @@ Omgång 1 tar de händelser som besökare saknar mest (11 september, Berlinmuren
 | Tenochtitlan grundas | Civilisationer | Nordamerika | finns (`tenochtitlan`) |
 | Digerdöden | Hälsa | Europa | finns (`digerdoden`) |
 | Zheng Hes flottor | Upptäckter | Asien | 3 |
-| Rapa Nui och moai-statyerna | Kultur | Oceanien | reserv |
+| Rapa Nui och moai-statyerna | Kultur | Oceanien | 5 |
 | Gutenbergs boktryck | Vetenskap | Europa | finns (`gutenberg`) |
 | Konstantinopels fall | Civilisationer | Europa | 3 |
 | Machu Picchu | Kultur | Sydamerika | finns (`machu-picchu`) |
@@ -104,14 +105,14 @@ Omgång 1 tar de händelser som besökare saknar mest (11 september, Berlinmuren
 | Magellans jordenruntsegling | Upptäckter | Världen | 3 |
 | Tenochtitlans fall | Krig | Nordamerika | finns (`tenochtitlans-fall`) |
 | Kopernikus: jorden kretsar kring solen | Vetenskap | Europa | 3 |
-| Transatlantiska slavhandeln | Ekonomi | Afrika | reserv |
+| Transatlantiska slavhandeln | Ekonomi | Afrika | 5 |
 | Galileos teleskop | Vetenskap | Europa | 3 |
 | Taj Mahal | Kultur | Asien | finns (`taj-mahal`) |
-| Japan stänger sig (sakoku) | Civilisationer | Asien | reserv |
+| Japan stänger sig (sakoku) | Civilisationer | Asien | 5 |
 | Westfaliska freden | Civilisationer | Europa | finns (`westfaliska-freden`) |
 | Newtons Principia | Vetenskap | Europa | 3 |
 | Cook når Australiens östkust | Upptäckter | Oceanien | 3 |
-| Watts ångmaskin | Vetenskap | Europa | reserv |
+| Watts ångmaskin | Vetenskap | Europa | 5 |
 | USA:s självständighetsförklaring | Civilisationer | Nordamerika | finns (`sjalvstandighetsforklaringen`) |
 | Första flottan når Sydney | Civilisationer | Oceanien | 3 |
 | Franska revolutionen: Bastiljen stormas | Civilisationer | Europa | 3 |
@@ -122,11 +123,11 @@ Omgång 1 tar de händelser som besökare saknar mest (11 september, Berlinmuren
 | Händelse | Kategori | Världsdel | Omgång |
 | --- | --- | --- | --- |
 | Haitis självständighet | Civilisationer | Nordamerika | finns (`haitis-sjalvstandighet`) |
-| Brasiliens självständighet | Civilisationer | Sydamerika | reserv |
+| Brasiliens självständighet | Civilisationer | Sydamerika | 5 |
 | Tambora och året utan sommar | Klimat | Asien | 3 |
 | Den första järnvägen för passagerare | Ekonomi | Europa | 3 |
 | Waitangifördraget | Civilisationer | Oceanien | 3 |
-| Kommunistiska manifestet | Ekonomi | Europa | reserv |
+| Kommunistiska manifestet | Ekonomi | Europa | 5 |
 | Darwins Om arternas uppkomst | Vetenskap | Europa | 3 |
 | Slaveriet avskaffas i USA | Civilisationer | Nordamerika | 2 |
 | Meijirestaurationen | Civilisationer | Asien | 2 |
@@ -137,7 +138,7 @@ Omgång 1 tar de händelser som besökare saknar mest (11 september, Berlinmuren
 | Slaveriet avskaffas i Brasilien (Lei Áurea) | Civilisationer | Sydamerika | finns (`lei-aurea-1888`) |
 | Kvinnlig rösträtt i Nya Zeeland | Civilisationer | Oceanien | 2 |
 | De första moderna olympiska spelen | Sport | Europa | 2 |
-| Marie Curie och radioaktiviteten | Vetenskap | Europa | reserv |
+| Marie Curie och radioaktiviteten | Vetenskap | Europa | 5 |
 
 ### 1900–1945
 
@@ -146,7 +147,7 @@ Omgång 1 tar de händelser som besökare saknar mest (11 september, Berlinmuren
 | Bröderna Wrights flygning | Vetenskap | Nordamerika | finns (`wright`) |
 | Titanic sjunker | Katastrofer | Nordamerika | 2 |
 | Skotten i Sarajevo och första världskriget | Krig | Europa | finns (`skotten-i-sarajevo`) |
-| Panamakanalen öppnas | Ekonomi | Nordamerika | reserv |
+| Panamakanalen öppnas | Ekonomi | Nordamerika | 5 |
 | Ryska revolutionen | Civilisationer | Europa | 2 |
 | Spanska sjukan | Hälsa | Världen | finns (`spanska-sjukan`) |
 | Penicillinet upptäcks | Hälsa | Europa | 2 |
@@ -193,7 +194,7 @@ Omgång 1 tar de händelser som besökare saknar mest (11 september, Berlinmuren
 | Sovjetunionens upplösning | Civilisationer | Europa | 1 |
 | Folkmordet i Rwanda | Krig | Afrika | 1 |
 | Sydafrikas första fria val, apartheid upphör | Civilisationer | Afrika | 1 |
-| Euron införs | Ekonomi | Europa | reserv |
+| Euron införs | Ekonomi | Europa | 5 |
 | Terrorattackerna 11 september | Krig | Nordamerika | 1 |
 | Tsunamin i Indiska oceanen | Katastrofer | Asien | 1 |
 | Finanskrisen | Ekonomi | Nordamerika | 1 |
