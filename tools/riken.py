@@ -1069,6 +1069,21 @@ def main():
     groups_old = {g['id']: g for g in json.loads(old.read_text())['groups']} if old.exists() else {}
     # Faktarutor, symboler och polityFacts (KEEP) skrivs för hand och läggs sist i gruppen
     kept = {k: {f: g[f] for f in KEEP if f in g} for k, g in groups_old.items()}
+    # Namnens översättningar (de, es, fr …) skrivs inte här utan står i datan (tools/riken_namn.py, #676). De
+    # bevaras när filerna byggs om, så länge det svenska namnet är detsamma (annars är översättningen inaktuell)
+    old_names = {}
+    for k, g in groups_old.items():
+        old_names[('group', k)] = g.get('name', {})
+        f = out / f'{k}.json'
+        if f.exists():
+            for op in json.loads(f.read_text()).get('polities', []):
+                old_names[('polity', k, op['id'])] = op.get('name', {})
+
+    def with_old(name, key):
+        old = old_names.get(key, {})
+        if old.get('sv') != name['sv']:
+            return name
+        return {**name, **{lang: v for lang, v in old.items() if lang not in name}}
     # Försvunna länder (#72): årtal, föregångare och efterträdare skrivs också för hand
     vanished = {k: g['vanished'] for k, g in groups_old.items() if 'vanished' in g}
     # Osäkra gränser (#73): skrivs för hand, med källa som säger att gränsen var osäker eller flytande
@@ -1140,7 +1155,8 @@ def main():
                 continue
             first = cname[0] if isinstance(cname, list) else cname
             wd = opts.get('wikidata') or by_name[first][0]['properties'].get('Wikidata')
-            polity = {'id': pid, 'group': gid, 'name': {'sv': psv, 'en': opts.get('en', (first or '').strip('()'))}, 'wikidata': wd,
+            pname = with_old({'sv': psv, 'en': opts.get('en', (first or '').strip('()'))}, ('polity', gid, pid))
+            polity = {'id': pid, 'group': gid, 'name': pname, 'wikidata': wd,
                       'color': color, 'sources': ['cliopatria'] if first else ['natural-earth-omstridda'],
                       'review': 'source-checked', 'periods': merged}
             if isinstance(cname, list):
@@ -1155,7 +1171,7 @@ def main():
             polities.append(polity)
         doc = {'schema': 'historia-globen/areas@1', 'group': gid, 'polities': polities}
         (out / f'{gid}.json').write_text(json.dumps(doc, ensure_ascii=False, separators=(',', ':')))
-        index.append({'id': gid, 'name': {'sv': sv, 'en': en}, 'color': polities[0]['color'],
+        index.append({'id': gid, 'name': with_old({'sv': sv, 'en': en}, ('group', gid)), 'color': polities[0]['color'],
                       'from': min(q['start'] for p in polities for q in p['periods']),
                       'to': max(q['end'] for p in polities for q in p['periods']),
                       'file': f'data/empires/{gid}.json',
