@@ -53,9 +53,39 @@ jobs:
       - name: Bygg dist/
         run: bash scripts/build-site.sh
 
+      # Apt-paketen som --with-deps installerar (mest typsnitt) hämtades förr från Ubuntus spegel
+      # varje gång, och spegeln var ibland så långsam att installationen slog i taket (#684).
+      # Nu sparas .deb-filerna i en egen cache och läggs tillbaka i apt:s arkiv före installationen,
+      # så att apt bara installerar dem i stället för att ladda ner. Samma paket som förut, så
+      # testmiljön (och typsnitten i skärmbilderna) blir densamma. Nyckeln har Ubuntus kodnamn,
+      # så att en ny runner-version får en egen cache.
+      - name: Förbered apt-cachen
+        id: apt
+        run: |
+          echo "dist=$(lsb_release -cs)" >> "$GITHUB_OUTPUT"
+          mkdir -p "$RUNNER_TEMP/apt-debs"
+          # apt ska behålla de hämtade paketen i /var/cache/apt/archives så att de kan sparas efteråt
+          echo 'Binary::apt::APT::Keep-Downloaded-Packages "true"; APT::Keep-Downloaded-Packages "true";' \
+            | sudo tee /etc/apt/apt.conf.d/99historia-globen-behall-paket > /dev/null
+          sudo rm -f /etc/apt/apt.conf.d/docker-clean
+
+      - name: Hämta apt-paketen ur cachen
+        id: apt-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ runner.temp }}/apt-debs
+          key: apt-debs-${{ steps.apt.outputs.dist }}-${{ matrix.browser.id }}-${{ env.PLAYWRIGHT_VERSION }}-v1
+
+      - name: Lägg tillbaka apt-paketen
+        if: steps.apt-cache.outputs.cache-hit == 'true'
+        run: |
+          sudo find "$RUNNER_TEMP/apt-debs" -maxdepth 1 -name '*.deb' -exec cp -t /var/cache/apt/archives/ {} +
+          echo "$(ls "$RUNNER_TEMP/apt-debs" | wc -l) paket ur cachen"
+
       - name: Installera Playwright och ${{ matrix.browser.name }} (utanför repot)
-        # Egen gräns (#617): steget tar normalt under en minut, men apt hämtar typsnittspaket
-        # utan cache och kan hänga. Då ska installationen bli röd, inte testet stå som avbrutet.
+        # Egen gräns (#617): steget tar normalt under en minut. Utan apt-cachen (första körningen
+        # efter en ny nyckel) hämtas typsnitten från spegeln och kan hänga; då ska installationen
+        # bli röd, inte testet stå som avbrutet.
         timeout-minutes: 5
         env:
           BROWSER: ${{ matrix.browser.id }}
@@ -67,6 +97,24 @@ jobs:
           else
             "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps "$BROWSER"
           fi
+
+      # Sparas direkt efter installationen, inte när jobbet är klart, så att cachen fylls även om
+      # själva testet sedan blir rött.
+      # En tom cache sparas aldrig, annars skulle alla följande körningar träffa den och ändå ladda ner.
+      - name: Spara apt-paketen i cachen
+        id: apt-save
+        if: steps.apt-cache.outputs.cache-hit != 'true'
+        run: |
+          find /var/cache/apt/archives -maxdepth 1 -name '*.deb' -exec cp -t "$RUNNER_TEMP/apt-debs" {} +
+          n=$(find "$RUNNER_TEMP/apt-debs" -maxdepth 1 -name '*.deb' | wc -l)
+          echo "count=$n" >> "$GITHUB_OUTPUT"
+          echo "$n paket sparas"
+      - name: Ladda upp apt-cachen
+        if: steps.apt-cache.outputs.cache-hit != 'true' && steps.apt-save.outputs.count != '0'
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ runner.temp }}/apt-debs
+          key: ${{ steps.apt-cache.outputs.cache-primary-key }}
 
       - name: Starta webbservern för dist/
         run: |
