@@ -204,7 +204,7 @@ Det som bara behövs vid klick laddas när det behövs, och en gång (`model.js`
 - **Rikenas faktarutor** (`data/genererat/riken-fakta.json`) laddas vid den första faktarutan om ett rike eller när man börjar följa ett rike (`loadEmpireFacts()`), eftersom rikets berättelse (#171) står i faktarutan. `hasFacts` i registret säger i förväg att riket har en faktaruta (knappen Fakta i fokusraden).
 - **Dagens gränser** (`data/borders.json`) laddas när lagret slås på (`loadBorders()` i lagrets `apply`).
 - **Om källorna** räknar källor för alla uppgifter och laddar därför allt ovan första gången den öppnas (`loadForSources()`); under tiden står "Laddar källorna…" i dialogen.
-- **Ett rike** (`data/empires/<rike>.json`) laddas när året närmar sig rikets tid (inom 100 år) eller när man väljer det i Fokus.
+- **Ett rike** (`data/empires/<rike>.json`) laddas när året närmar sig rikets tid (inom 100 år) eller när man väljer det i Fokus. När en fil har kommit ritas sidan om med `refreshSoon`, högst en gång per bildruta: vid ett långt hopp kommer över hundra filer nästan samtidigt, och en hel omritning per fil gjorde att sidan inte svarade på 36 sekunder utan grafikkort (#692).
 - **Religionerna** (`data/religions.json`) laddas när religionslagret slås på, när Fokus-menyn öppnas eller när Om källorna öppnas.
 - **Rikenas gränser i religionslagret** (`data/religions-polities.json`, #194) laddas vid det första klicket på ett religionsområde. Rutan visar "Söker riket på platsen…" tills filen är laddad. Ritningen av lagret använder den inte.
 - **Upptäcktsvyns bilder** (`images/karta/`, #101) laddas första gången vyn slås på; saknas `data/upptackt.json` fungerar sidan utan upptäcktsvyn.
@@ -337,6 +337,7 @@ Skripten i `tools/` körs för hand, inte av sidan, så principen om inget byggs
 | `tools/tackning_riken.py` | Täckningsanalys (#556): hur stor del av Cliopatrias land rikena täcker över tid och vilka stater som saknas, som Markdown. Ändrar inga datafiler |
 | `tools/religioner.py` | Bygger `data/religions.json` ur Cliopatria och registret med faktarutornas texter: varje rikes religion år för år, arv av religion där rikets faktaruta saknar religion (#269), sammanslaget per religion i ögonblicksbilder |
 | `tools/religioner_riken.py` | Bygger `data/religions-polities.json` (varje rikes gräns, för klickrutan) efter `religioner.py` |
+| `tools/matning_hopp.mjs` | Mäter med Playwright hur länge sidan inte svarar när man börjar följa andra världskriget från 3000 f.Kr. med Resor på (#692): längsta glapp för en timer var 50:e ms, och de långa uppgifterna. `STRYPNING=4` ger CPU-strypning och `GPU=1` startar Chromium med grafikkort. Körs för hand, inte i CI |
 | `tools/bildpromptar.py` | Skriver promptar för illustrationer till `docs/bildpromptar.md` |
 | `tools/bilder_in.py` | Konverterar bilder från `images/incoming/` till `images/events/` och fyller i `image` i händelsens fil i `data/handelser/` från bildloggen `images/incoming/bildlogg.json`. Undermappar, till exempel `images/incoming/vantar/` för bilder som ska göras om, hoppas över |
 
