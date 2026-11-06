@@ -26891,6 +26891,306 @@
      "review": "source-checked"
     }
    ]
+  },
+  {
+   "id": "sierra-leone",
+   "name": {
+    "sv": "Sierra Leone",
+    "en": "Sierra Leone",
+    "de": "Sierra Leone",
+    "es": "Sierra Leona",
+    "fr": "Sierra Leone"
+   },
+   "color": "#c06a3a",
+   "from": 1961,
+   "to": 2024,
+   "file": "data/empires/sierra-leone.json",
+   "polities": [
+    {
+     "id": "sierra-leone",
+     "name": {
+      "sv": "Sierra Leone",
+      "en": "Sierra Leone",
+      "de": "Sierra Leone",
+      "es": "Sierra Leona",
+      "fr": "Sierra Leone"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "sri-lanka",
+   "name": {
+    "sv": "Sri Lanka",
+    "en": "Sri Lanka",
+    "de": "Sri Lanka",
+    "es": "Sri Lanka",
+    "fr": "Sri Lanka"
+   },
+   "color": "#c05a5a",
+   "from": 1948,
+   "to": 2024,
+   "file": "data/empires/sri-lanka.json",
+   "polities": [
+    {
+     "id": "sri-lanka",
+     "name": {
+      "sv": "Sri Lanka",
+      "en": "Sri Lanka",
+      "de": "Sri Lanka",
+      "es": "Sri Lanka",
+      "fr": "Sri Lanka"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "lettland",
+   "name": {
+    "sv": "Lettland",
+    "en": "Latvia",
+    "de": "Lettland",
+    "es": "Letonia",
+    "fr": "Lettonie"
+   },
+   "color": "#a04a5a",
+   "from": 1920,
+   "to": 2024,
+   "file": "data/empires/lettland.json",
+   "polities": [
+    {
+     "id": "lettland",
+     "name": {
+      "sv": "Lettland",
+      "en": "Latvia",
+      "de": "Lettland",
+      "es": "Letonia",
+      "fr": "Lettonie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "litauen",
+   "name": {
+    "sv": "Litauen",
+    "en": "Lithuania",
+    "de": "Litauen",
+    "es": "Lituania",
+    "fr": "Lituanie"
+   },
+   "color": "#4aa0a0",
+   "from": 1919,
+   "to": 2024,
+   "file": "data/empires/litauen.json",
+   "polities": [
+    {
+     "id": "litauen",
+     "name": {
+      "sv": "Litauen",
+      "en": "Lithuania",
+      "de": "Litauen",
+      "es": "Lituania",
+      "fr": "Lituanie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "togo",
+   "name": {
+    "sv": "Togo",
+    "en": "Togo",
+    "de": "Togo",
+    "es": "Togo",
+    "fr": "Togo"
+   },
+   "color": "#5aa070",
+   "from": 1960,
+   "to": 2024,
+   "file": "data/empires/togo.json",
+   "polities": [
+    {
+     "id": "togo",
+     "name": {
+      "sv": "Togo",
+      "en": "Togo",
+      "de": "Togo",
+      "es": "Togo",
+      "fr": "Togo"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "costa-rica",
+   "name": {
+    "sv": "Costa Rica",
+    "en": "Costa Rica",
+    "de": "Costa Rica",
+    "es": "Costa Rica",
+    "fr": "Costa Rica"
+   },
+   "color": "#c07a4a",
+   "from": 1840,
+   "to": 2024,
+   "file": "data/empires/costa-rica.json",
+   "polities": [
+    {
+     "id": "costa-rica",
+     "name": {
+      "sv": "Costa Rica",
+      "en": "Costa Rica",
+      "de": "Costa Rica",
+      "es": "Costa Rica",
+      "fr": "Costa Rica"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "dominikanska-republiken",
+   "name": {
+    "sv": "Dominikanska republiken",
+    "en": "Dominican Republic",
+    "de": "Dominikanische Republik",
+    "es": "República Dominicana",
+    "fr": "République dominicaine"
+   },
+   "color": "#3a8a7a",
+   "from": 1846,
+   "to": 2024,
+   "file": "data/empires/dominikanska-republiken.json",
+   "polities": [
+    {
+     "id": "dominikanska-republiken",
+     "name": {
+      "sv": "Dominikanska republiken",
+      "en": "Dominican Republic",
+      "de": "Dominikanische Republik",
+      "es": "República Dominicana",
+      "fr": "République dominicaine"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kroatien",
+   "name": {
+    "sv": "Kroatien",
+    "en": "Croatia",
+    "de": "Kroatien",
+    "es": "Croacia",
+    "fr": "Croatie"
+   },
+   "color": "#c04a6a",
+   "from": 1992,
+   "to": 2024,
+   "file": "data/empires/kroatien.json",
+   "polities": [
+    {
+     "id": "kroatien",
+     "name": {
+      "sv": "Kroatien",
+      "en": "Croatia",
+      "de": "Kroatien",
+      "es": "Croacia",
+      "fr": "Croatie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "bosnien-och-hercegovina",
+   "name": {
+    "sv": "Bosnien och Hercegovina",
+    "en": "Bosnia and Herzegovina",
+    "de": "Bosnien und Herzegowina",
+    "es": "Bosnia y Herzegovina",
+    "fr": "Bosnie-Herzégovine"
+   },
+   "color": "#4a7ac0",
+   "from": 1992,
+   "to": 2024,
+   "file": "data/empires/bosnien-och-hercegovina.json",
+   "polities": [
+    {
+     "id": "bosnien-och-hercegovina",
+     "name": {
+      "sv": "Bosnien och Hercegovina",
+      "en": "Bosnia and Herzegovina",
+      "de": "Bosnien und Herzegowina",
+      "es": "Bosnia y Herzegovina",
+      "fr": "Bosnie-Herzégovine"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "estland",
+   "name": {
+    "sv": "Estland",
+    "en": "Estonia",
+    "de": "Estland",
+    "es": "Estonia",
+    "fr": "Estonie"
+   },
+   "color": "#3a8ab0",
+   "from": 1919,
+   "to": 2024,
+   "file": "data/empires/estland.json",
+   "polities": [
+    {
+     "id": "estland",
+     "name": {
+      "sv": "Estland",
+      "en": "Estonia",
+      "de": "Estland",
+      "es": "Estonia",
+      "fr": "Estonie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
   }
  ]
 }
