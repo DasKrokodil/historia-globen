@@ -13758,6 +13758,7 @@
     ],
     "review": "source-checked"
    },
+   "symbol": "heraldic-eagle",
    "capitals": [
     {
      "name": {
@@ -13794,8 +13795,7 @@
      ],
      "review": "two-sources"
     }
-   ],
-   "symbol": "heraldic-eagle"
+   ]
   },
   {
    "id": "jugoslavien",
@@ -14081,6 +14081,12 @@
     ],
     "review": "source-checked"
    },
+   "symbol": "torches",
+   "polityFacts": {
+    "kungariket-jugoslavien": {
+     "symbol": "double-eagle"
+    }
+   },
    "capitals": [
     {
      "name": {
@@ -14098,13 +14104,7 @@
      ],
      "review": "two-sources"
     }
-   ],
-   "symbol": "torches",
-   "polityFacts": {
-    "kungariket-jugoslavien": {
-     "symbol": "double-eagle"
-    }
-   }
+   ]
   },
   {
    "id": "tjeckoslovakien",
@@ -14354,6 +14354,7 @@
     ],
     "review": "source-checked"
    },
+   "symbol": "bohemian-lion",
    "capitals": [
     {
      "name": {
@@ -14371,8 +14372,7 @@
      ],
      "review": "two-sources"
     }
-   ],
-   "symbol": "bohemian-lion"
+   ]
   },
   {
    "id": "storcolombia",
@@ -14586,6 +14586,7 @@
     ],
     "review": "source-checked"
    },
+   "symbol": "cornucopia-fasces",
    "capitals": [
     {
      "name": {
@@ -14603,8 +14604,7 @@
      ],
      "review": "two-sources"
     }
-   ],
-   "symbol": "cornucopia-fasces"
+   ]
   },
   {
    "id": "republiken-texas",
@@ -14789,6 +14789,7 @@
     ],
     "review": "source-checked"
    },
+   "symbol": "lone-star",
    "capitals": [
     {
      "name": {
@@ -14825,8 +14826,7 @@
      ],
      "review": "two-sources"
     }
-   ],
-   "symbol": "lone-star"
+   ]
   },
   {
    "id": "kungariket-hawaii",
@@ -15027,6 +15027,7 @@
     ],
     "review": "source-checked"
    },
+   "symbol": "puloulou",
    "capitals": [
     {
      "name": {
@@ -15064,8 +15065,7 @@
      ],
      "review": "two-sources"
     }
-   ],
-   "symbol": "puloulou"
+   ]
   },
   {
    "id": "neutrala-moresnet",
@@ -15713,6 +15713,7 @@
     ],
     "review": "source-checked"
    },
+   "symbol": "battle-flag",
    "capitals": [
     {
      "name": {
@@ -15749,8 +15750,7 @@
      ],
      "review": "two-sources"
     }
-   ],
-   "symbol": "battle-flag"
+   ]
   },
   {
    "id": "mexiko",
@@ -27841,6 +27841,306 @@
       "de": "El Salvador",
       "es": "El Salvador",
       "fr": "Salvador"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "fiji",
+   "name": {
+    "sv": "Fiji",
+    "en": "Fiji",
+    "de": "Fidschi",
+    "es": "Fiyi",
+    "fr": "Fidji"
+   },
+   "color": "#4a9ab0",
+   "from": 1973,
+   "to": 2024,
+   "file": "data/empires/fiji.json",
+   "polities": [
+    {
+     "id": "fiji",
+     "name": {
+      "sv": "Fiji",
+      "en": "Fiji",
+      "de": "Fidschi",
+      "es": "Fiyi",
+      "fr": "Fidji"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "slovenien",
+   "name": {
+    "sv": "Slovenien",
+    "en": "Slovenia",
+    "de": "Slowenien",
+    "es": "Eslovenia",
+    "fr": "Slovénie"
+   },
+   "color": "#4a7ab0",
+   "from": 1992,
+   "to": 2024,
+   "file": "data/empires/slovenien.json",
+   "polities": [
+    {
+     "id": "slovenien",
+     "name": {
+      "sv": "Slovenien",
+      "en": "Slovenia",
+      "de": "Slowenien",
+      "es": "Eslovenia",
+      "fr": "Slovénie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "bahamas",
+   "name": {
+    "sv": "Bahamas",
+    "en": "The Bahamas",
+    "de": "Bahamas",
+    "es": "Bahamas",
+    "fr": "Bahamas"
+   },
+   "color": "#3aa0b0",
+   "from": 1973,
+   "to": 2024,
+   "file": "data/empires/bahamas.json",
+   "polities": [
+    {
+     "id": "bahamas",
+     "name": {
+      "sv": "Bahamas",
+      "en": "The Bahamas",
+      "de": "Bahamas",
+      "es": "Bahamas",
+      "fr": "Bahamas"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "eswatini",
+   "name": {
+    "sv": "Eswatini",
+    "en": "Eswatini",
+    "de": "Eswatini",
+    "es": "Esuatini",
+    "fr": "Eswatini"
+   },
+   "color": "#5a8a4a",
+   "from": 1969,
+   "to": 2024,
+   "file": "data/empires/eswatini.json",
+   "polities": [
+    {
+     "id": "eswatini",
+     "name": {
+      "sv": "Eswatini",
+      "en": "Eswatini",
+      "de": "Eswatini",
+      "es": "Esuatini",
+      "fr": "Eswatini"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "vanuatu",
+   "name": {
+    "sv": "Vanuatu",
+    "en": "Vanuatu",
+    "de": "Vanuatu",
+    "es": "Vanuatu",
+    "fr": "Vanuatu"
+   },
+   "color": "#a07a3a",
+   "from": 1983,
+   "to": 2024,
+   "file": "data/empires/vanuatu.json",
+   "polities": [
+    {
+     "id": "vanuatu",
+     "name": {
+      "sv": "Vanuatu",
+      "en": "Vanuatu",
+      "de": "Vanuatu",
+      "es": "Vanuatu",
+      "fr": "Vanuatu"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "jamaica",
+   "name": {
+    "sv": "Jamaica",
+    "en": "Jamaica",
+    "de": "Jamaika",
+    "es": "Jamaica",
+    "fr": "Jamaïque"
+   },
+   "color": "#4aa060",
+   "from": 1963,
+   "to": 2024,
+   "file": "data/empires/jamaica.json",
+   "polities": [
+    {
+     "id": "jamaica",
+     "name": {
+      "sv": "Jamaica",
+      "en": "Jamaica",
+      "de": "Jamaika",
+      "es": "Jamaica",
+      "fr": "Jamaïque"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "qatar",
+   "name": {
+    "sv": "Qatar",
+    "en": "Qatar",
+    "de": "Katar",
+    "es": "Catar",
+    "fr": "Qatar"
+   },
+   "color": "#8a3a5a",
+   "from": 1973,
+   "to": 2024,
+   "file": "data/empires/qatar.json",
+   "polities": [
+    {
+     "id": "qatar",
+     "name": {
+      "sv": "Qatar",
+      "en": "Qatar",
+      "de": "Katar",
+      "es": "Catar",
+      "fr": "Qatar"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "gambia",
+   "name": {
+    "sv": "Gambia",
+    "en": "The Gambia",
+    "de": "Gambia",
+    "es": "Gambia",
+    "fr": "Gambie"
+   },
+   "color": "#c07a4a",
+   "from": 1967,
+   "to": 2024,
+   "file": "data/empires/gambia.json",
+   "polities": [
+    {
+     "id": "gambia",
+     "name": {
+      "sv": "Gambia",
+      "en": "The Gambia",
+      "de": "Gambia",
+      "es": "Gambia",
+      "fr": "Gambie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "libanon",
+   "name": {
+    "sv": "Libanon",
+    "en": "Lebanon",
+    "de": "Libanon",
+    "es": "Líbano",
+    "fr": "Liban"
+   },
+   "color": "#3a8a5a",
+   "from": 1944,
+   "to": 2024,
+   "file": "data/empires/libanon.json",
+   "polities": [
+    {
+     "id": "libanon",
+     "name": {
+      "sv": "Libanon",
+      "en": "Lebanon",
+      "de": "Libanon",
+      "es": "Líbano",
+      "fr": "Liban"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kap-verde",
+   "name": {
+    "sv": "Kap Verde",
+    "en": "Cape Verde",
+    "de": "Kap Verde",
+    "es": "Cabo Verde",
+    "fr": "Cap-Vert"
+   },
+   "color": "#3a6aa0",
+   "from": 1976,
+   "to": 2024,
+   "file": "data/empires/kap-verde.json",
+   "polities": [
+    {
+     "id": "kap-verde",
+     "name": {
+      "sv": "Kap Verde",
+      "en": "Cape Verde",
+      "de": "Kap Verde",
+      "es": "Cabo Verde",
+      "fr": "Cap-Vert"
      },
      "sources": [
       "cliopatria"
