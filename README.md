@@ -119,6 +119,7 @@ data/licenses.json    genererat register över källornas licensuppgifter
 images/licenses.json  genererat register över händelsebildernas licenser (#393)
 data/land.json        grundkarta (Natural Earth)
 tools/riken.py        bygger rikesfilerna ur Cliopatria
+tools/riken_namn.py   hämtar rikenas namn på tyska, spanska och franska ur Wikidata; riken.py bevarar dem (#676, #644)
 tools/ne_omstridda.py tar ut omstridda områden ur Natural Earth till tools/ne-omstridda-omraden.geojson, som riken.py läser (#644)
 tools/dela_data.py    bygger events.json ur data/handelser/ och delar upp händelser och riken i data/genererat/, med en fil per språk (körs efter varje ändring)
 tools/oversattning.py spärren mot oöversatta texter och kontrollen av inaktuella översättningar (#675)
