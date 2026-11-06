@@ -17,6 +17,7 @@
 // hållet också, så att de fortsätter på andra sidan bilden.
 import { CAT, edtfHasDays, edtfSpan, formatDate, isVisibleReview, loadRoutes, t } from '../model.js';
 import { Z } from './registry.js';
+import { ui } from '../i18n.js';
 
 /**
  * Lagrets post i registret (#338). Vägarnas filer laddas efter starten, och lagret ritas om när de har kommit.
@@ -26,7 +27,7 @@ export function entry({ refresh }) {
   const layer = new LinesLayer();
   loadRoutes().then(list => { layer.setRoutes(list); refresh(); });
   return {
-    id: 'routes', name: 'Resor och handelsvägar', group: 'movement', menu: { on: true, note: 'lodrätt streck på tidslinjen · streckad = osäker väg' }, layer, z: Z.routes,
+    id: 'routes', name: ui('layer.routes'), group: 'movement', menu: { on: true, note: ui('layer.routesNote') }, layer, z: Z.routes,
     enabled: s => s.focus?.type === 'route' || s.layers.routes,
     apply: s => { layer.shipStyle = s.on.discovery ? 'ship' : 'dot'; layer.onlyRoute = s.focusRoute?.id ?? null; },
     update: s => layer.update({ year: s.year, fine: s.fine, window: s.window, filters: s.filters }),

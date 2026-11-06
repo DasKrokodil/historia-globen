@@ -2,12 +2,13 @@
 // Av som standard, eftersom dagens gränser inte stämmer historiskt. Filen laddas först när lagret slås på (#337).
 import { Z } from './registry.js';
 import { loadBorders } from '../model.js';
+import { ui } from '../i18n.js';
 
 /** Lagrets post i registret (#338): raden i Lager (av som standard), ritordningen och uppdateringen. */
 export function entry({ refresh }) {
   const layer = new BordersLayer();
   return {
-    id: 'borders', name: 'Dagens gränser', group: 'power', menu: { on: false, note: 'stämmer inte historiskt' }, layer, z: Z.borders,
+    id: 'borders', name: ui('layer.borders'), group: 'power', menu: { on: false, note: ui('layer.bordersNote') }, layer, z: Z.borders,
     enabled: s => s.layers.borders,
     // Första gången lagret syns laddas gränserna, och kartan ritas om när de har kommit
     apply: s => {

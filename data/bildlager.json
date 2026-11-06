@@ -3,8 +3,8 @@
   "layers": [
     {
       "id": "nattljus-2016",
-      "name": { "sv": "Nattljus (NASA, 2016)" },
-      "title": { "sv": "Nattljus från rymden, 2016" },
+      "name": { "sv": "Nattljus (NASA, 2016)", "en": "Night lights (NASA, 2016)", "de": "Nachtlichter (NASA, 2016)", "es": "Luces nocturnas (NASA, 2016)", "fr": "Lumières nocturnes (NASA, 2016)" },
+      "title": { "sv": "Nattljus från rymden, 2016", "en": "Night lights from space, 2016", "de": "Nachtlichter aus dem All, 2016", "es": "Luces nocturnas desde el espacio, 2016", "fr": "Lumières nocturnes vues de l'espace, 2016" },
       "file": "images/lager/nattljus-2016.jpg",
       "from": 2016,
       "to": null,

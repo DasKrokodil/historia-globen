@@ -15,6 +15,7 @@ import { AreaTransition, MAX_JUMP_YEARS } from './area-transition.js';
 import { EmpireMarkers } from './empiremarks.js';
 import { Z } from './registry.js';
 import { ZOOM_LEVELS } from '../ui/zoomlevels.js';
+import { ui } from '../i18n.js';
 
 /**
  * Lagrets post i registret (#338): på som standard. I fokusläget syns riket man följer även om lagret är av, bara
@@ -53,7 +54,7 @@ export function entry({ globe, data, labelsEl, refreshSoon, showEmpireFacts }) {
   };
   let lastYear = 0;
   return {
-    id: 'areas', name: 'Riken', group: 'power', menu: { on: true }, layer, z: Z.areas,
+    id: 'areas', name: ui('layer.areas'), group: 'power', menu: { on: true }, layer, z: Z.areas,
     fade: { own: focus => focus.type === 'empire' },
     // Rikenas kartnyckel behövs när man följer ett rike, inte på startsidan där Riken är på som standard (#427).
     // Själva listan öppnas på begäran från Lager (#437), så den täcker aldrig startskärmen.

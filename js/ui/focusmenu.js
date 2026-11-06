@@ -11,9 +11,17 @@
 //   Alfabetiskt visar allt.
 // - Tangentbord: pil ner från sökrutan går till listan, pilarna flyttar i listan, Enter väljer (i sökrutan
 //   den första träffen), Escape stänger. På dator får sökrutan fokus när menyn öppnas.
+import { ui } from '../i18n.js';
+
+// Flikarnas och sorteringens id är svenska ord, eftersom de sparas i localStorage och gruppernas id (focus.js) är
+// desamma. Det som visas hämtas med ui() på valt språk (#671).
 const EVENTS = 'Händelser';
 const TABS = ['Alla', EVENTS, 'Krig', 'Riken', 'Försvunna länder', 'Religioner', 'Resor'];
-const SORTS = [['relevans', 'Relevans'], ['kronologiskt', 'Kronologiskt'], ['alfabetiskt', 'Alfabetiskt']];
+const TAB_KEY = { Alla: 'all', [EVENTS]: 'events', Krig: 'wars', Riken: 'empires', 'Försvunna länder': 'vanished', Religioner: 'religions', Resor: 'routes' };
+/** Flikens eller gruppens namn på valt språk; ett okänt id visas som det är. */
+export const tabName = id => (TAB_KEY[id] ? ui(`focus.tab.${TAB_KEY[id]}`) : id);
+const SORTS = ['relevans', 'kronologiskt', 'alfabetiskt'];
+const sortName = id => ui(`focus.sort.${id}`);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 /** Gemener utan accenter, så att "osterrike" hittar Österrike och "bys" hittar Bysantinska riket. */
 const norm = s => String(s).toLocaleLowerCase('sv').normalize('NFD').replace(/\p{M}/gu, '');
@@ -38,17 +46,17 @@ export class FocusMenu {
     this.sort = 'relevans';
     try {
       const v = localStorage.getItem('hg-focus-tab'); if (TABS.includes(v)) this.tab = v;
-      const s = localStorage.getItem('hg-focus-sort'); if (SORTS.some(([id]) => id === s)) this.sort = s;
+      const s = localStorage.getItem('hg-focus-sort'); if (SORTS.includes(s)) this.sort = s;
     } catch { /* utan lagring */ }
     // Huvudet byggs en gång, så att fältet behåller markören medan listan ritas om
     menu.classList.add('focus-menu');
     menu.innerHTML = `<div class="focus-head">
-        <div class="layer-heading first">Sök och följ</div>
-        <input type="search" class="focus-search" placeholder="Händelse, krig, rike, land, religion eller resa" aria-label="Sök händelser, krig, riken, länder, religioner och resor" autocomplete="off" spellcheck="false" enterkeyhint="search">
-        <div class="focus-tabs" role="group" aria-label="Visa">${TABS.map(n => `<button type="button" class="chip-btn" data-tab="${n}" aria-pressed="${n === this.tab}">${n}</button>`).join('')}</div>
-        <div class="focus-sort" role="group" aria-label="Ordna efter"><span class="focus-sort-label">Ordna</span>${SORTS.map(([id, n]) => `<button type="button" class="chip-btn" data-sort="${id}" aria-pressed="${id === this.sort}">${n}</button>`).join('')}<button type="button" class="chip-btn" data-group-age aria-pressed="false">${esc(this.texts.groupByAge ?? 'Gruppera efter: Tidsålder')}</button></div>
+        <div class="layer-heading first">${esc(ui('top.focus'))}</div>
+        <input type="search" class="focus-search" placeholder="${esc(ui('focus.placeholder'))}" aria-label="${esc(ui('focus.searchLabel'))}" autocomplete="off" spellcheck="false" enterkeyhint="search">
+        <div class="focus-tabs" role="group" aria-label="${esc(ui('focus.tabsLabel'))}">${TABS.map(n => `<button type="button" class="chip-btn" data-tab="${esc(n)}" aria-pressed="${n === this.tab}">${esc(tabName(n))}</button>`).join('')}</div>
+        <div class="focus-sort" role="group" aria-label="${esc(ui('focus.sortLabel'))}"><span class="focus-sort-label">${esc(ui('focus.sort'))}</span>${SORTS.map(id => `<button type="button" class="chip-btn" data-sort="${id}" aria-pressed="${id === this.sort}">${esc(sortName(id))}</button>`).join('')}<button type="button" class="chip-btn" data-group-age aria-pressed="false">${esc(this.texts.groupByAge)}</button></div>
       </div>
-      <div class="focus-body" role="group" aria-label="Att följa"></div>
+      <div class="focus-body" role="group" aria-label="${esc(ui('focus.listLabel'))}"></div>
       <p class="focus-live sr-only" aria-live="polite"></p>`;
     this.body = menu.querySelector('.focus-body');
     this.live = menu.querySelector('.focus-live');
@@ -97,7 +105,7 @@ export class FocusMenu {
     } catch { /* utan lagring */ }
     this.body.scrollTop = 0;
     this.render();
-    this.live.textContent = 'Sökning, filter och sortering rensade';
+    this.live.textContent = ui('focus.cleared');
     this.input.focus({ preventScroll: true });
   }
 
@@ -152,39 +160,38 @@ export class FocusMenu {
     const q = words.length > 0;
     const activeHtml = [], activeText = [];
     if (q) {
-      activeHtml.push(`Sök: “${esc(this.query.trim())}”`);
-      activeText.push(`Sök: “${this.query.trim()}”`);
+      activeHtml.push(esc(ui('focus.activeSearch', { query: this.query.trim() })));
+      activeText.push(ui('focus.activeSearch', { query: this.query.trim() }));
     }
     if (this.tab !== 'Alla') {
-      activeHtml.push(`Filter: ${esc(this.tab)}`);
-      activeText.push(`Filter: ${this.tab}`);
+      activeHtml.push(esc(ui('focus.activeFilter', { name: tabName(this.tab) })));
+      activeText.push(ui('focus.activeFilter', { name: tabName(this.tab) }));
     }
     if (this.sort !== 'relevans') {
-      const sortLabel = SORTS.find(([id]) => id === this.sort)?.[1] ?? this.sort;
-      activeHtml.push(`Sortering: ${esc(sortLabel)}`);
-      activeText.push(`Sortering: ${sortLabel}`);
+      activeHtml.push(esc(ui('focus.activeSort', { name: sortName(this.sort) })));
+      activeText.push(ui('focus.activeSort', { name: sortName(this.sort) }));
     }
     if (this.groupByAge) {
-      activeHtml.push(esc(this.texts.groupByAge ?? 'Gruppera efter: Tidsålder'));
-      activeText.push(this.texts.groupByAge ?? 'Gruppera efter: Tidsålder');
+      activeHtml.push(esc(this.texts.groupByAge));
+      activeText.push(this.texts.groupByAge);
     }
     const activeRow = activeHtml.length ? `<div class="focus-active">
-      <span class="focus-active-text"><strong>${found} resultat</strong> · ${activeHtml.join(' · ')}</span>
-      <button type="button" class="focus-clear" data-clear>Rensa allt</button>
+      <span class="focus-active-text"><strong>${esc(ui('focus.results', { count: found }))}</strong> · ${activeHtml.join(' · ')}</span>
+      <button type="button" class="focus-clear" data-clear>${esc(ui('focus.clearAll'))}</button>
     </div>` : '';
     const intro = !q && relevance && tm && groups.some(g => !g.all)
-      ? `<div class="layer-note pad">Det som pågår ${esc(tm.label)}, närmast först.</div>` : '';
-    const empty = q ? `Inget namn innehåller "${esc(this.query.trim())}".`
-      : this.tab === EVENTS ? 'Skriv i sökrutan för att hitta en händelse, till exempel Pompeji.' : 'Inget att följa i den här tiden ännu.';
+      ? `<div class="layer-note pad">${esc(ui('focus.nearFirst', { window: tm.label }))}</div>` : '';
+    const empty = esc(q ? ui('focus.noMatch', { query: this.query.trim() })
+      : this.tab === EVENTS ? ui('focus.eventsHint') : ui('focus.nothing'));
     // Förklaringen under en rubrik visas på gruppens egen flik, inte i Alla eller vid sökning, så att listan blir kort
     const own = this.tab !== 'Alla' && !q;
     const rows = items => items.map(it => `<button type="button" class="layer-row focus-item" data-key="${esc(it.key)}"${it.key.startsWith('religion:') ? ` data-religion="${esc(it.key.slice(9))}"` : ''}>
         <span class="swatch" style="background:${esc(it.color)}"></span>${it.symbol ? `<img class="rel-sym" src="${esc(it.symbol)}" alt="" width="16" height="16">` : ''}<span class="focus-name">${esc(it.label)}</span>
-        ${it.also ? `<span class="layer-note focus-also">även ${esc(it.also)}</span>` : ''}
+        ${it.also ? `<span class="layer-note focus-also">${esc(ui('focus.also', { name: it.also }))}</span>` : ''}
         ${it.sub ? `<span class="layer-note">${esc(it.sub)}</span>` : ''}</button>`).join('');
     const groupItems = (g, expanded) => {
       if (!expanded) return '';
-      if (!g.items.length) return g.loading ? '<div class="layer-note pad">Laddas …</div>' : '';
+      if (!g.items.length) return g.loading ? `<div class="layer-note pad">${esc(ui('focus.loading'))}</div>` : '';
       // En vald flik är redan ett avgränsat urval. Visa därför hela gruppen så
       // att antalet i rubriken direkt motsvarar de synliga raderna; Alla behåller
       // sin korta, hopfällbara översikt.
@@ -196,18 +203,18 @@ export class FocusMenu {
         if (label !== html.last) html.html += `<div class="focus-age">${esc(label)}</div>`;
         html.last = label; html.html += rows([it]); return html;
       }, { html: '', last: null }).html : rows(visible);
-      const more = !q && g.items.length > visible.length ? `<button type="button" class="layer-row focus-more" data-group-all="${esc(g.title)}">${esc((this.texts.showAll ?? 'Visa alla ({count} till)').replace('{count}', g.items.length - visible.length))}</button>` : '';
-      const less = !q && showAll && g.items.length > 8 ? `<button type="button" class="layer-row focus-more" data-group-near="${esc(g.title)}">${esc(this.texts.showNearest ?? 'Visa närmast')}</button>` : '';
+      const more = !q && g.items.length > visible.length ? `<button type="button" class="layer-row focus-more" data-group-all="${esc(g.title)}">${esc(String(this.texts.showAll).replace('{count}', g.items.length - visible.length))}</button>` : '';
+      const less = !q && showAll && g.items.length > 8 ? `<button type="button" class="layer-row focus-more" data-group-near="${esc(g.title)}">${esc(this.texts.showNearest)}</button>` : '';
       return `${ageRows}${more}${less}`;
     };
     this.body.innerHTML = activeRow + intro + (groups.map(g => {
       const expanded = q || (this.tab !== 'Alla' ? true : this.openGroup === g.title);
-      return `<section class="focus-group"><button type="button" class="focus-group-toggle" data-group="${esc(g.title)}" aria-expanded="${expanded}"><span>${esc(g.title)} <span class="focus-group-count">(${g.total})</span></span><span class="focus-group-chev" aria-hidden="true"></span></button>
+      return `<section class="focus-group"><button type="button" class="focus-group-toggle" data-group="${esc(g.title)}" aria-expanded="${expanded}"><span>${esc(tabName(g.title))} <span class="focus-group-count">(${g.total})</span></span><span class="focus-group-chev" aria-hidden="true"></span></button>
       ${g.note && own ? `<div class="layer-note pad focus-note">${esc(g.note)}</div>` : ''}${groupItems(g, expanded)}</section>`;
     }).join('')
       || `<div class="layer-note pad">${empty}</div>`)
       ;
-    this.live.textContent = activeText.length ? `${found} resultat. ${activeText.join('. ')}` : '';
+    this.live.textContent = activeText.length ? `${ui('focus.results', { count: found })}. ${activeText.join('. ')}` : '';
     this.body.querySelector('[data-clear]')?.addEventListener('click', () => this.clearFilters());
     for (const b of this.body.querySelectorAll('[data-key]')) {
       b.addEventListener('click', () => { this.close(); this.onPick(b.dataset.key); });

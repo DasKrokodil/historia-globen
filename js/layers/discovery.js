@@ -32,6 +32,7 @@ import { t, loadSources, sourcesReady, loadEmpire, isVisibleReview } from '../mo
 import { traceWrapped, segDist } from './lines.js';
 import { tracePath } from './area-style.js';
 import { Z } from './registry.js';
+import { ui } from '../i18n.js';
 
 /**
  * Lagrets post i registret (#338): av som standard. Papperskartan ritas underst och dimman, portolanlinjerna och
@@ -59,8 +60,8 @@ export function entry({ data, refresh, registry }) {
     get sources() { return sourceIds.map(id => data.srcById[id]).filter(Boolean); },
   };
   return {
-    id: 'discovery', name: 'Upptäcktsvy', group: 'perspective', layer,
-    menu: { on: false, note: 'gammal kartstil med segelskepp, havsmonster och dimma som resorna lyfter' },
+    id: 'discovery', name: ui('layer.discovery'), group: 'perspective', layer,
+    menu: { on: false, note: ui('layer.discoveryNote') },
     enabled: s => s.layers.discovery && !!data.discovery,
     apply: s => { if (s.on.discovery && !sourcesReady()) loadSources().then(() => refresh()).catch(err => console.error(err)); },
     update: s => { if (layer.enabled) ensureEmpires(s.wholeYear ?? Math.floor(s.year)); layer.update({ year: s.year, fine: s.fine, lines: registry.get('routes') }); },
