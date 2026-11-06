@@ -414,6 +414,8 @@ export class Panel {
     const isEmpire = kind === 'Rike' || kind === 'Försvunnet land';
     const overview = `${lineage ? lineageHtml(lineage) : ''}
       <dl class="religion-facts">${(f.items ?? []).map(it => `<dt>${esc(t(it.label))}</dt><dd>${esc(t(it.text))}</dd>`).join('')}</dl>`;
+    // Ett land med bara gräns och en not (kartan före fakta, #644) har inget att visa under Kortfattat
+    const hasOverview = !!(lineage || f.items?.length);
     const development = `${curveId ? `<figure class="area-curve" data-curve="${esc(curveId)}" hidden></figure>` : ''}
       ${f.milestones?.length ? `<div class="war-list"><h4>${esc(milestonesTitle)}</h4><ol>${f.milestones.map(m =>
         `<li><button type="button" class="link-btn" data-year="${Number(m.year)}">${esc(t(m.label) || formatYear(m.year))}</button> ${m.title ? `<b>${esc(t(m.title))}.</b> ` : ''}${esc(t(m.text))}${m.mapNote ? ` <span class="ms-map">Om kartan: ${esc(t(m.mapNote))}</span>` : ''}</li>`).join('')}</ol></div>` : ''}
@@ -425,9 +427,9 @@ export class Panel {
       ${srcLine(srcs, pending)}
       <div class="detail-actions">${reviewRow(f.review, subj)}${this.onReport && report ? reportBtn(report) : ''}</div>`;
     const body = isEmpire ? `
-      <details class="facts-section" open><summary>Kortfattat</summary>${overview}</details>
+      ${hasOverview ? `<details class="facts-section" open><summary>Kortfattat</summary>${overview}</details>` : ''}
       ${development ? `<details class="facts-section"><summary>Hur riket förändrades</summary>${development}</details>` : ''}
-      <details class="facts-section"><summary>Källor och karta</summary>${sourcesAndMap}</details>` : `
+      <details class="facts-section"${hasOverview ? '' : ' open'}><summary>Källor och karta</summary>${sourcesAndMap}</details>` : `
       ${overview}
       ${origin ? `<p class="war-link">${symbol ? `Symbolen ${symbol.replace('rel-sym-h', 'rel-sym-in')} på globen visar var religionen uppstod:` : 'Där religionen uppstod:'} <button type="button" class="link-btn" data-goto="${esc(origin.id)}">${esc(t(origin.title))}</button> <span class="meta">${esc(formatEventTime(origin))} · ${esc(t(origin.place))}</span></p>` : ''}
       ${development}
@@ -440,7 +442,7 @@ export class Panel {
       <button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
       <div class="story-label"><span class="swatch" style="background:${esc(color)}"></span>${esc(kind)}</div>
       <h3>${symbol}${esc(name)}</h3>
-      <p>${esc(t(f.summary))}</p>
+      ${t(f.summary) ? `<p>${esc(t(f.summary))}</p>` : ''}
       ${body}`;
     this.detail.hidden = false;
     this.detail.scrollTop = 0; // efter hidden, annars behåller kortet förra läget

@@ -48,7 +48,9 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              'ryska-federationen': (0.3, 0.0, 0.08),
              # Israel och Palestina (#644): små länder med smala gränsområden (Gaza är cirka 10 km bred), så
              # förenklingen är finare, annars försvinner Gaza och gränserna mot Västbanken hamnar fel
-             'israel': (0.03, 0.02, 0.02), 'palestina': (0.03, 0.02, 0.02)}
+             'israel': (0.03, 0.02, 0.02), 'palestina': (0.03, 0.02, 0.02),
+             # Nutida stater (#644): Danmark med Grönland, Kina och Indonesien med många öar
+             'danmark': (0.3, 0.05, 0.08), 'kina': (0.3, 0.05, 0.08), 'indonesien': (0.2, 0.05, 0.05)}
 
 # grupp: (svenskt namn, engelskt namn, [(Cliopatria-namn, id, svenskt namn, färg)])
 GROUPS = {
@@ -453,6 +455,52 @@ GROUPS = {
     ]),
     'ryska-federationen': ('Ryska federationen', 'Russian Federation', [
         ('Russian Federation', 'ryska-federationen', 'Ryska federationen', '#7a5fa6'),
+    ]),
+    # Global täckning, nutida stater, första omgången (#644): de tio största luckorna år 2024 enligt
+    # tools/tackning_riken.py. Kartan före fakta: bara gränser och namn (svenska namn ur Wikidata), utom
+    # noterna om omstridda gränser (docs/omstridda-granser.md).
+    'kina': ('Kina', 'China', [
+        ('Republic of China', 'republiken-kina', 'Republiken Kina', '#c8423c',
+         {'en': 'Republic of China', 'wikidata': 'Q13426199', 'years': (1912, 1949)}),
+        ("People's Republic of China", 'folkrepubliken-kina', 'Kina', '#c8423c', {'en': "People's Republic of China"}),
+    ]),
+    # Taiwan (#644, Rikards svar 5): Cliopatrias Republiken Kina efter 1949, under namnet Taiwan som regeringen använder
+    'taiwan': ('Taiwan', 'Taiwan', [
+        ('Republic of China', 'taiwan', 'Taiwan', '#d9905a', {'en': 'Taiwan', 'wikidata': 'Q865', 'years': (1950, 2024)}),
+    ]),
+    'kazakstan': ('Kazakstan', 'Kazakhstan', [
+        ('Kazakhstan', 'kazakstan', 'Kazakstan', '#4aa3c8', {'en': 'Kazakhstan'}),
+    ]),
+    'algeriet': ('Algeriet', 'Algeria', [
+        ("People's Democratic Republic of Algeria", 'algeriet', 'Algeriet', '#3f9a5c', {'en': 'Algeria'}),
+    ]),
+    # Cliopatria anger Q350186 (Kristofer II av Danmark) för Danmark; rätt id är Q35
+    'danmark': ('Danmark', 'Denmark', [
+        ('Denmark', 'danmark', 'Danmark', '#c0504d', {'en': 'Denmark', 'wikidata': 'Q35'}),
+    ]),
+    'indonesien': ('Indonesien', 'Indonesia', [
+        ('Republic of Indonesia', 'indonesien', 'Indonesien', '#b04a7a', {'en': 'Indonesia'}),
+    ]),
+    'saudiarabien': ('Saudiarabien', 'Saudi Arabia', [
+        ('Kingdom of Hejaz and Nejd', 'hijaz-och-najd', 'Kingdom of Nejd and Hejaz', '#8a7a2f',
+         {'en': 'Kingdom of Nejd and Hejaz', 'wikidata': 'Q1756546'}),
+        ('Kingdom of Saudi Arabia', 'saudiarabien', 'Saudiarabien', '#8a7a2f', {'en': 'Saudi Arabia'}),
+    ]),
+    'sudan': ('Sudan', 'Sudan', [
+        ('Republic of Sudan', 'sudan', 'Sudan', '#a0703a', {'en': 'Sudan'}),
+    ]),
+    # Cliopatria anger Q17435890 (Libyens historia under Gaddafi) för Libyska arabrepubliken; delen får Q1016
+    'libyen': ('Libyen', 'Libya', [
+        ('Kingdom of Libya', 'kungariket-libyen', 'Kungariket Libyen', '#5f7fb0', {'en': 'Kingdom of Libya'}),
+        (['Libyan Arab Republic', 'State of Libya'], 'libyen', 'Libyen', '#5f7fb0', {'en': 'Libya', 'wikidata': 'Q1016'}),
+    ]),
+    'mongoliet': ('Mongoliet', 'Mongolia', [
+        ("Mongolian People's Republic", 'mongoliska-folkrepubliken', 'Mongoliska folkrepubliken', '#3a6fb0',
+         {'en': "Mongolian People's Republic"}),
+        ('Mongolia', 'mongoliet', 'Mongoliet', '#3a6fb0', {'en': 'Mongolia'}),
+    ]),
+    'tchad': ('Tchad', 'Chad', [
+        ('Republic of Chad', 'tchad', 'Tchad', '#c9a050', {'en': 'Chad'}),
     ]),
 }
 

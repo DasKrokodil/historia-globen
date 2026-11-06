@@ -22,8 +22,8 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 | 7. Transnistrien | UD beskriver Transnistrien som en region i Moldavien; ingen uttalad hållning om statusen hittad | Samma post som fall 6 | inget ännu | Som Moldavien, med not (svar 3) |
 | 8. Kosovo | Diplomatiska förbindelser sedan självständighetsförklaringen 2008, ambassad i Pristina | Egen stat 2000–2024 | inget ännu | Egen stat från 2008, omstritt 2000–2007 (svar 4) |
 | 9. Västsahara | Stöder FN-processen och Marockos autonomiplan som grund för förhandlingar; ingen uttalad hållning om vem området tillhör | Tomt (ingen stat) | inget ännu | Stämmer, bara en not |
-| 10. Taiwan | Inga diplomatiska förbindelser, handelskontor i Taipei, regeringen använder namnet Taiwan; ingen uttalad hållning om statusen hittad | Republiken Kina, egen stat | inget ännu | Cliopatrias gräns med not (svar 5) |
-| 11. Kashmir | Ingen uttalad hållning hittad; UD skriver "indiska unionsterritoriet Jammu och Kashmir" och "den Pakistan-kontrollerade delen av Kashmir" | Delat mellan Indien, Pakistan och Kina | `indien`, `pakistan` | Cliopatrias linjer med not (svar 6) |
+| 10. Taiwan | Inga diplomatiska förbindelser, handelskontor i Taipei, regeringen använder namnet Taiwan; ingen uttalad hållning om statusen hittad | Republiken Kina, egen stat | inget ännu | **Gjort 2026-11-06:** Cliopatrias gräns med not |
+| 11. Kashmir | Ingen uttalad hållning hittad; UD skriver "indiska unionsterritoriet Jammu och Kashmir" och "den Pakistan-kontrollerade delen av Kashmir" | Delat mellan Indien, Pakistan och Kina | `indien`, `pakistan` | **Gjort 2026-11-06:** Cliopatrias linjer med not |
 | 12. Nagorno-Karabach | Azerbajdzjan återupprättade sin kontroll hösten 2023; den armeniska befolkningen flydde | Armenien, även 2024 | inget ännu | Omstritt till 2022, Azerbajdzjan från 2023 (svar 7) |
 | 13. Somaliland | Ingen text om Somaliland på UD:s sida om Somalia | Somalia | inget ännu | Stämmer, inget att ändra |
 
@@ -54,7 +54,7 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 - **Källa:** [Handel med Israel och Palestina, regeringen.se](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/mellanostern-och-nordafrika/israel/handel-med-israel-och-palestina/), kontrollerad 2026-11-06.
 - **Cliopatria:** Golan hör till Israel 2013–2024 (åren före 2013 är inte kontrollerade än).
 - **Beslut (svar 1):** Golan räknas inte till Israel; gränsen hämtas ur Natural Earth.
-- **Gjort (2026-11-06):** Golanhöjderna räknas inte till Israel från 1967 (Cliopatria räknar dem till Israel från 1967). Cliopatria räknar dem inte till Syrien, så området är tomt på kartan; Rikard har inte bett att det ritas som Syrien, och UD:s text säger att området är ockuperat, inte vems det är. Not i Israels och Syriens ruta Om kartan.
+- **Gjort (2026-11-06):** Golanhöjderna räknas inte till Israel från 1967 (Cliopatria räknar dem till Israel från 1967). Cliopatria räknar dem inte till Syrien, så området är tomt på kartan. UD:s text säger att området är ockuperat, inte vems det är, och Rikard godkände 2026-11-06 att det lämnas tomt. Not i Israels och Syriens ruta Om kartan.
 
 ### 5. Norra Cypern
 - **Sveriges hållning:** UD skriver att ön sedan 1974 delas av en FN-kontrollerad buffertzon, att den internationellt erkända regeringen i Republiken Cypern kontrollerar området söder om zonen, och att Sverige inte erkänner Norra Cyperns självständighet, i enlighet med FN:s säkerhetsråds resolution 541 från 1983.
@@ -95,12 +95,13 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 - **Källor:** [Taiwan, regeringen.se](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/asien-och-oceanien/taiwan/) och [Kina, regeringen.se](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/asien-och-oceanien/kina/), kontrollerade 2026-11-06.
 - **Cliopatria:** "Republic of China" är en egen stat 1950–2024 (Taiwan med öarna).
 - **Beslut (svar 5):** Cliopatrias gräns, namnet Taiwan och noten om att statusen är omstridd.
+- **Gjort (2026-11-06):** Taiwan är en egen grupp (`taiwan`, Cliopatrias Republiken Kina 1950–2024, Wikidata Q865) i första omgången nutida stater, med noten i rutan Om kartan. Kina (`kina`) har Republiken Kina 1912–1949 och Folkrepubliken från 1950, och dess ruta Om kartan hänvisar till Taiwan och har noten om Kashmir.
 
 ### 11. Kashmir
 - **Sveriges hållning:** ingen uttalad hållning om gränsen hittad. UD:s reseavrådan (7 maj 2025) talar om "det indiska unionsterritoriet Jammu och Kashmir" och om "den Pakistan-kontrollerade delen av Kashmir", alltså om vem som kontrollerar områdena, inte om vem de tillhör.
 - **Källor:** [Indien – avrådan](https://www.regeringen.se/ud-avrader/indien---avradan/) och [Pakistan – avrådan](https://www.regeringen.se/ud-avrader/pakistan---avradan/), regeringen.se, kontrollerade 2026-11-06; landsidorna för [Indien](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/asien-och-oceanien/indien/) och [Pakistan](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/asien-och-oceanien/pakistan/) nämner inte Kashmir.
 - **Cliopatria:** Srinagar hör till Indien, Muzaffarabad och Gilgit till Pakistan, och Aksai Chin till Kina (2013–2024).
-- **Beslut (svar 6):** Cliopatrias linjer och noten om att gränsen är omstridd.
+- **Gjort (2026-11-06):** Cliopatrias linjer behålls. Rutan Om kartan för Indien och Pakistan säger att gränsen är omstridd, att kartan visar vem som kontrollerar områdena och inte vem de tillhör, och att Sverige inte har någon uttalad hållning som vi hittat. UD:s två reseavrådan står som källor.
 
 ### 12. Nagorno-Karabach
 - **Sveriges hållning:** UD skriver att Azerbajdzjan hösten 2023 genomförde en militär operation i Nagorno-Karabach och återupprättade sin kontroll över området, att regionens armeniska befolkning flydde till Armenien, och att parterna enades om ett utkast till fredsavtal 13 mars 2025.
@@ -141,6 +142,6 @@ Krim rättades först, som Rikard bad om.
 1. ~~Rikard godkänner listan och svarar på frågorna.~~ Klart 2026-11-06.
 2. ~~Krim rättas (fall 1).~~ Klart 2026-11-06.
 3. ~~Israel inom 1967 års gränser, Golan och Palestina från 2014 (svar 1).~~ Klart 2026-11-06.
-4. Nästa: noterna för `indien` och `pakistan` om Kashmir (svar 6).
+4. ~~Noterna för `indien` och `pakistan` om Kashmir (svar 6).~~ Klart 2026-11-06.
 5. Därefter staterna i omgångar om cirka tio, störst lucka först enligt `tools/tackning_riken.py`; varje land i listan ovan får sin not när det läggs in.
 6. Hållningarna kontrolleras igen vid varje release som rör nutida gränser, och kontrolldatumet uppdateras.
