@@ -23,25 +23,27 @@ test('sprak.json har svenska som grundspråk och unika språk', () => {
   }
 });
 
+// Översätt samtidigt (beslut 2026-11-06, #669): varje språk ska ha varje nyckel, också ett ofärdigt språk (beta).
+// En ny gränssnittstext läggs alltså i alla språkfiler i samma pull request, och en saknad nyckel stoppar den.
+const ph = s => [...String(s).matchAll(/\{(\w+)\}/g)].map(m => m[1]).sort();
 for (const l of meta.languages.filter(l => l.id !== 'sv')) {
   const dict = json(`data/ui/${l.id}.json`);
-  // Engelska är reservspråket och färdiga språk ska ha allt; ett ofärdigt språk (beta) får sakna en nyckel,
-  // som då visas på engelska enligt reservordningen, men en text som finns ska ha samma platshållare.
-  const strict = l.id === 'en' || l.complete;
-  test(`${l.id}.json har ${strict ? 'alla nycklar' : 'rätt form på nycklarna'} som JavaScript hämtar (sv.json) och samma {platshållare}`, () => {
+  test(`${l.id}.json har alla nycklar som JavaScript hämtar (sv.json) och samma {platshållare}`, () => {
+    const missing = Object.keys(sv).filter(k => !k.startsWith('_') && !(k in dict));
+    assert.deepEqual(missing, [], `${l.id}.json saknar ${missing.join(', ')} (översätt samtidigt, beslut 2026-11-06)`);
     for (const [k, v] of Object.entries(sv)) {
       if (k.startsWith('_')) continue;
-      if (!strict && !(k in dict)) { console.warn(`${l.id}: saknar ${k} (visas på engelska)`); continue; }
-      assert.ok(k in dict, `${l.id}.json saknar ${k}`);
       if (Array.isArray(v)) { assert.equal(dict[k].length, v.length, k); continue; }
-      const ph = s => [...String(s).matchAll(/\{(\w+)\}/g)].map(m => m[1]).sort();
-      assert.deepEqual(ph(dict[k]), ph(v), `${k}: platshållarna skiljer sig`);
+      assert.deepEqual(ph(dict[k]), ph(v), `${l.id}.json ${k}: platshållarna skiljer sig`);
     }
   });
-  test(`${l.id}.json har alla nycklar i index.html${l.complete ? '' : ' (ofärdigt språk: bara en varning)'}`, () => {
+  test(`${l.id}.json har alla nycklar i index.html`, () => {
     const missing = [...htmlKeys].filter(k => !(k in dict));
-    if (l.complete) assert.deepEqual(missing, []);
-    else if (missing.length) console.warn(`${l.id}: saknar ${missing.join(', ')}`);
+    assert.deepEqual(missing, [], `${l.id}.json saknar ${missing.join(', ')} (översätt samtidigt, beslut 2026-11-06)`);
+  });
+  test(`${l.id}.json har samma {platshållare} som engelskan för texterna i index.html`, () => {
+    const en = json('data/ui/en.json');
+    for (const k of htmlKeys) if (k in en && typeof en[k] === 'string') assert.deepEqual(ph(dict[k]), ph(en[k]), `${l.id}.json ${k}`);
   });
 }
 
