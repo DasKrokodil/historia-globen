@@ -138,6 +138,8 @@ export function createFocus(app) {
     $('focus-moved-text').textContent = `Tiden flyttades till ${timeline.format(m.startYear)}, ${why} · `;
     $('focus-moved-back').textContent = `Tillbaka till ${m.prevText}`;
   }
+  // Raden behövs bara innan man börjar spela: under uppspelningen gör den fokusraden högre och krockar med pausraden (#647)
+  timeline.addEventListener('playstate', () => { if (timeline.playing && movedBack) showMoved(null); });
   // Tillbaka lämnar fokus och går till året man stod på, eftersom det ligger utanför spannet
   $('focus-moved-back').addEventListener('click', () => {
     const y = movedBack?.prevYear;
