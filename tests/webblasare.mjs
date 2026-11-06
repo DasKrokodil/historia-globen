@@ -99,9 +99,21 @@ async function run(browser, vp) {
     if (isFont(url)) return;
     errors.push(`konsol: ${m.text()}${url ? ` (${url})` : ''}`);
   });
-  page.on('pageerror', e => errors.push(`sidfel: ${e.message}`));
+  // Medan språktestet laddar om sidan (#63) avbryter webbläsaren hämtningar som pågår, till exempel ikoner. WebKit
+  // rapporterar det som fel ("Load request cancelled", "… due to access control checks"); det är omladdningen,
+  // inte ett fel på sidan. Bara avbrutna hämtningar under omladdningen räknas bort (v5.0.0).
+  let reloading = false;
+  const cancelled = text => /cancel|abort|access control checks/i.test(text ?? '');
+  // "ResizeObserver loop completed with undelivered notifications" är enligt specifikationen ett ofarligt meddelande
+  // om att en storleksändring skickas i nästa bildruta; WebKit rapporterar det som sidfel. Bara exakt det räknas bort.
+  const benign = msg => /^ResizeObserver loop completed with undelivered notifications\.?$/.test(msg ?? '');
+  page.on('pageerror', e => {
+    if (benign(e.message) || (reloading && cancelled(e.message))) return;
+    errors.push(`sidfel: ${e.message}`);
+  });
   page.on('requestfailed', r => {
     if (isFont(r.url())) return;
+    if (reloading && cancelled(r.failure()?.errorText)) return;
     errors.push(`laddning misslyckades: ${r.url()} (${r.failure()?.errorText})`);
   });
   page.on('response', r => { if (r.url() === THREE_URL && r.ok()) threeOk = true; });
@@ -324,34 +336,31 @@ async function run(browser, vp) {
   });
 
   await check('årshoppet accepterar år, datum och felmeddelanden', async () => {
-    await page.click('#year-jump');
-    await visible('#jump-input');
+    // Öppna årshoppet bara när det är stängt: ett datumresultat kan lämna rutan öppen, och då stänger ett klick
+    // på årtalet den i stället (föll i WebKit i mobilbredd inför v5.0.0).
+    const openJump = async () => { if (await page.isHidden('#jump-input')) await page.click('#year-jump'); await visible('#jump-input'); };
+    await openJump();
     const input = page.locator('#jump-input');
     await input.fill('1986'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
     if (String(await year()) !== '1986') throw new Error(`året hoppade inte till 1986 utan ${await year()}`);
-    await page.click('#year-jump');
-    await visible('#jump-input');
+    await openJump();
     await input.fill('19860426'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
     if (!/26 april 1986: \d+ händelser med dagsdatum/.test((await page.textContent('#jump-date-summary')) ?? '')) throw new Error('datumresultatet saknar dagsdatum på svenska');
-    await page.click('#year-jump');
-    await visible('#jump-input');
+    await openJump();
     await input.fill('860426'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
     if (!/26 april 1986: \d+ händelser med dagsdatum/.test((await page.textContent('#jump-date-summary')) ?? '')) throw new Error('kort datum tolkas inte som 26 april 1986');
-    await page.click('#year-jump');
-    await visible('#jump-input');
+    await openJump();
     await input.fill('19861340'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
     if (!(await page.locator('#jump-msg').textContent()).includes('Ogiltigt datum')) throw new Error('ogiltigt datum visar inte felmeddelande');
     await page.fill('#jump-input', '-2600'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
     const yText = await page.textContent('#year-big');
     if (yText.trim() !== '2600') throw new Error(`-2600 hoppade inte till f.Kr. utan ${yText}`);
-    await page.click('#year-jump');
-    await visible('#jump-input');
+    await openJump();
     await page.fill('#jump-input', '20240229'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
     if (!/29 februari 2024: \d+ händelser med dagsdatum/.test((await page.textContent('#jump-date-summary')) ?? '')) throw new Error('skottdag tolkas inte som giltigt datum');
     // Bara knappen f.Kr. finns; e.Kr. är standard och kräver inget val (#591)
     if (await page.locator('#jump-pop .jump-era-btn').count() !== 1) throw new Error('årshoppet har fler tideräkningsknappar än f.Kr.');
-    await page.click('#year-jump'); if (await page.isHidden('#jump-input')) await page.click('#year-jump');
-    await visible('#jump-input');
+    await page.click('#year-jump'); if (await page.isHidden('#jump-input')) await openJump();
     await page.click('#jump-pop .jump-era-btn[data-era="bce"]');
     if (await page.getAttribute('#jump-pop .jump-era-btn', 'aria-pressed') !== 'true') throw new Error('knappen f.Kr. slås inte på');
     await page.fill('#jump-input', '500'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
@@ -1434,6 +1443,9 @@ async function run(browser, vp) {
       }
       if (afterStart === 'Pausa') {
         await action.click();
+        // WebKit utan grafikkort hinner ibland inte hantera klicket innan synced() läser läget, som då fortfarande
+        // är ett synkat "Pausa". Vänta därför först på att tidslinjen har lämnat Pausa (själva kontrollen står kvar nedan).
+        await page.waitForFunction(() => document.getElementById('btn-play').getAttribute('aria-label') !== 'Pausa', null, { timeout: T.step }).catch(() => {});
         const afterPause = await synced();
         if (afterPause === 'Pausa') throw new Error('huvudknappen pausade inte tidslinjen');
       }
@@ -2359,6 +2371,7 @@ async function run(browser, vp) {
         && !!loading && (loading.hidden || getComputedStyle(loading).display === 'none');
     };
     const pick = async lang => {
+      reloading = true;
       await page.evaluate(l => {
         window.__hgGammal = true;
         const s = document.getElementById('lang-select');
@@ -2373,6 +2386,8 @@ async function run(browser, vp) {
           url: location.pathname + location.search + location.hash, nav: performance.getEntriesByType('navigation')[0]?.type,
         })).catch(e => ({ fel: e.message }));
         throw new Error(`sidan bytte inte till ${lang}: ${JSON.stringify(st)}`);
+      } finally {
+        reloading = false;
       }
     };
     await pick('en');
