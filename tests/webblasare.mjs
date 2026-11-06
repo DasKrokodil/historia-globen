@@ -141,8 +141,10 @@ async function run(browser, vp) {
   });
   // Lager, Fokus, Ett år, en plats, Platt vy, Källor och Hjälp ligger i mobilen i menyn Meny (#361, #530):
   // öppna den först när knappen inte syns
+  // Källor, Hjälp och Dela ligger i datorn bakom knappen Mer (#651)
   const clickView = async sel => {
     if (await page.isHidden(sel) && await page.isVisible('#more-toggle')) await page.click('#more-toggle');
+    if (await page.isHidden(sel) && await page.isVisible('#btn-more')) await page.click('#btn-more');
     await page.click(sel);
   };
   const jumpTo = async y => {
@@ -236,12 +238,18 @@ async function run(browser, vp) {
   });
 
   await check('mobilmenyn samlar knapparna (#530)', async () => {
-    const inMenu = ['btn-layers', 'btn-focus', 'btn-intro', 'btn-tour', 'btn-flat', 'btn-sources', 'btn-help'];
+    const inMenu = ['btn-layers', 'btn-focus', 'btn-intro', 'btn-tour', 'btn-globe', 'btn-flat', 'btn-discovery', 'btn-sources', 'btn-help'];
     if (vp.width > 760) {
       if (await page.isVisible('#more-toggle')) throw new Error('knappen Meny syns i datorbredd');
-      for (const id of ['btn-panel', ...inMenu]) if (await page.isHidden(`#${id}`)) throw new Error(`#${id} syns inte i datorbredd`);
+      // Källor och Hjälp ligger bakom Mer i datorn (#651)
+      const shown = inMenu.filter(id => !['btn-sources', 'btn-help'].includes(id));
+      for (const id of ['btn-panel', 'btn-more', ...shown]) if (await page.isHidden(`#${id}`)) throw new Error(`#${id} syns inte i datorbredd`);
+      await page.click('#btn-more');
+      for (const id of ['btn-sources', 'btn-help', 'btn-share']) if (await page.isHidden(`#${id}`)) throw new Error(`#${id} syns inte under Mer`);
+      await page.keyboard.press('Escape');
+      if (await page.isVisible('#btn-help')) throw new Error('Escape stänger inte Mer');
       if (!await page.evaluate(() => !!document.getElementById('btn-panel').closest('.action-group'))) throw new Error('Samtidigt står inte i gruppen Utforska i datorn');
-      return 'datorn: grupperna Utforska och Visa som förut, ingen Meny';
+      return 'datorn: grupperna Vy och Utforska och knappen Mer, ingen Meny';
     }
     const toggle = page.locator('#more-toggle');
     await visible('#more-toggle');
@@ -262,14 +270,14 @@ async function run(browser, vp) {
       const overlap = (a, b) => a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
       return {
         hidden: ids.filter(id => { const r = box(id); return !document.getElementById(id).hidden && (r.width < 1 || r.left < 0 || r.right > innerWidth); }),
-        year: overlap(m, y), bar: m.bottom > bar.top, heading: getComputedStyle(document.getElementById('ag-view')).display !== 'none',
+        year: overlap(m, y), bar: m.bottom > bar.top, heading: getComputedStyle(document.getElementById('ag-mode')).display !== 'none',
         rowYear: overlap(box('btn-panel'), y) || overlap(box('more-toggle'), y),
       };
     }, inMenu);
     if (layout.hidden.length) throw new Error(`syns inte i menyn: ${layout.hidden.join(', ')}`);
     if (layout.year || layout.rowYear) throw new Error('menyn eller knapparna täcker årtalet');
     if (layout.bar) throw new Error('menyn täcker tidslinjen');
-    if (!layout.heading) throw new Error('rubriken Visa saknas i menyn');
+    if (!layout.heading) throw new Error('rubriken Vy saknas i menyn');
     await shot('530-mobilmeny-oppen');
     await page.keyboard.press('Escape');
     await hidden('#more-menu');
@@ -301,7 +309,7 @@ async function run(browser, vp) {
     await page.keyboard.press('Escape');
     await hidden('#help');
     if ((await helpButton.getAttribute('aria-expanded')) !== 'false') throw new Error('Hjälp-knappen visar inte att hjälpen är stängd');
-    const helpReturn = vp.width > 760 ? 'btn-help' : 'more-toggle'; // i mobilen ligger Hjälp i den stängda menyn (#530)
+    const helpReturn = vp.width > 760 ? 'btn-more' : 'more-toggle'; // Hjälp ligger i den stängda menyn Mer (#651) eller Meny (#530)
     if (await page.evaluate(id => document.activeElement?.id !== id, helpReturn)) throw new Error(`Escape lämnar inte fokus på ${helpReturn}`);
 
     await page.emulateMedia({ reducedMotion: 'reduce' });
@@ -2014,6 +2022,7 @@ async function run(browser, vp) {
         await fallbackPage.goto(BASE);
         await fallbackPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         const responsePromise = fallbackPage.waitForResponse(response => response.url().endsWith('/data/version.json'));
+        await fallbackPage.click('#btn-more'); // Källor ligger bakom Mer i datorn (#651)
         await fallbackPage.click('#btn-sources');
         const response = await responsePromise;
         if (response.status() !== 404) throw new Error(`versionsfilen svarade ${response.status()} i stället för 404`);
@@ -2064,37 +2073,38 @@ async function run(browser, vp) {
       return 'år 1630 och trettioåriga kriget ur länken; Bakåt efter Tillbaka ger kriget igen; trasig länk ger startläget';
     });
   }
-  // Sök (#570): en händelse öppnas på sitt år, ett rike börjar följas, och tomt resultat syns tydligt
-  await check('Sök hittar händelser och riken', async () => {
+  // Sök och följ (#651, tidigare Sök #570): en händelse öppnas på sitt år, ett rike börjar följas, och tomt resultat syns tydligt
+  await check('Sök och följ hittar händelser och riken', async () => {
     if (await page.locator('#focus-bar').isVisible()) { await page.click('#focus-exit'); await hidden('#focus-bar'); }
     const openSearch = async () => {
-      if (await page.isHidden('#btn-search')) await page.click('#more-toggle');
-      await page.click('#btn-search');
-      await visible('#search-pop');
+      if (await page.isHidden('#focus-menu')) await clickView('#btn-focus');
+      await visible('#focus-menu');
     };
     await openSearch();
-    await page.fill('#search-input', 'pompeji');
-    await page.waitForSelector('.search-hit', { timeout: T.step });
-    await page.keyboard.press('Enter');
-    await hidden('#search-pop');
+    await page.click('#focus-menu [data-tab="Alla"]'); // en flik från ett tidigare test kan vara sparad
+    await page.fill('#focus-menu .focus-search', 'pompeji');
+    await page.waitForSelector('#focus-menu [data-key^="event:"]', { timeout: T.step });
+    await page.press('#focus-menu .focus-search', 'Enter');
+    await hidden('#focus-menu');
     await visible('#detail');
     const year = (await page.textContent('#year-big')).trim();
     if (year !== '79') throw new Error(`Pompeji öppnades på året ${year}, inte 79`);
     if (!/Pompeji/.test(await page.textContent('#detail'))) throw new Error('faktarutan visar inte Pompeji');
     await page.keyboard.press('Escape');
     await openSearch();
-    await page.fill('#search-input', 'bysantinska');
-    await page.locator('.search-hit').first().click();
+    await page.fill('#focus-menu .focus-search', 'bysantinska');
+    await page.locator('#focus-menu [data-key]').first().click();
     await visible('#focus-bar');
     if (!/Rom/.test(await page.textContent('#focus-title'))) throw new Error('Bysantinska hittade inte Rom i Fokus');
     await page.click('#focus-exit');
     await hidden('#focus-bar');
     await openSearch();
-    await page.fill('#search-input', 'qxzvw');
-    await page.waitForFunction(() => /Inget/.test(document.getElementById('search-status').textContent), null, { timeout: T.step });
-    if (await page.locator('.search-hit').count()) throw new Error('nonsens gav träffar');
+    await page.fill('#focus-menu .focus-search', 'qxzvw');
+    await page.waitForFunction(() => /Inget/.test(document.querySelector('#focus-menu .focus-body').textContent), null, { timeout: T.step });
+    if (await page.locator('#focus-menu [data-key]').count()) throw new Error('nonsens gav träffar');
+    await page.fill('#focus-menu .focus-search', '');
     await page.keyboard.press('Escape');
-    await hidden('#search-pop');
+    await hidden('#focus-menu');
     if (await page.locator('#more-menu').isVisible() && await page.isVisible('#more-toggle')) await page.click('#more-toggle').catch(() => {});
     return 'Pompeji öppnas år 79; Bysantinska ger Rom i Fokus; nonsens ger "Inget …"; Escape stänger';
   });
@@ -2191,6 +2201,7 @@ async function runReflow(browser) {
         await page.keyboard.press('Escape');
 
         const openMenu = async () => { if (await page.isVisible('#more-toggle')) await page.click('#more-toggle'); };
+        const openMore = async () => { await openMenu(); if (await page.isVisible('#btn-more')) await page.click('#btn-more'); };
         await openMenu();
         await page.click('#btn-layers');
         const layerRoom = await page.locator('#layer-menu').evaluate(el => ({ client: el.clientHeight, scroll: el.scrollHeight }));
@@ -2203,7 +2214,7 @@ async function runReflow(browser) {
         if (focusRoom < 1) throw new Error('Fokus-listan saknar rullbar yta');
         await page.keyboard.press('Escape');
 
-        await openMenu();
+        await openMore();
         await page.click('#btn-help');
         const help = page.locator('#help');
         const helpRoom = await help.evaluate(el => ({ client: el.clientHeight, scroll: el.scrollHeight, overflow: getComputedStyle(el).overflowY }));
@@ -2211,7 +2222,7 @@ async function runReflow(browser) {
         await page.locator('#help-feedback').scrollIntoViewIfNeeded();
         await page.click('#help-close');
 
-        await openMenu();
+        await openMore();
         await page.click('#btn-sources');
         const sourceRoom = await page.locator('#sources-body').evaluate(el => el.clientHeight);
         if (sourceRoom < 1) throw new Error('Källsidan saknar rullbar yta');

@@ -107,26 +107,36 @@
          knappen Meny inte och menyn är osynlig (display: contents): grupperna Utforska och Visa står som förut. -->
     <button id="more-toggle" class="chip-btn more-toggle" type="button" aria-expanded="false" aria-controls="more-menu"><span id="more-label" data-i18n="top.menu">Meny</span><span class="more-chev" aria-hidden="true"></span></button>
     <div id="more-menu" class="more-menu">
+      <!-- Vy (#651): tre sätt att se världen sida vid sida. Glob, Platt karta (#292) och Upptäcktsresor (#101),
+           som är lagret discovery med resorna. Bara en åt gången (js/ui/viewmode.js). -->
+      <div class="action-group view-mode" role="group" aria-labelledby="ag-mode">
+        <span id="ag-mode" class="action-label" data-i18n="top.mode">Vy</span>
+        <button id="btn-globe" class="chip-btn" type="button" aria-pressed="true" data-i18n="top.globe">Glob</button>
+        <button id="btn-flat" class="chip-btn" type="button" aria-pressed="false" title="Visa världen som en platt karta" data-i18n-title="top.flatTitle" data-i18n="top.flat">Platt karta</button>
+        <button id="btn-discovery" class="chip-btn" type="button" aria-pressed="false" title="Världen som européerna kände den, med dimma som resorna lyfter" data-i18n-title="top.discoveryTitle" data-i18n="top.discovery">Upptäckts&shy;resor</button>
+      </div>
       <div class="action-group" role="group" aria-labelledby="ag-explore">
         <span id="ag-explore" class="action-label" data-i18n="top.explore">Utforska</span>
         <button id="btn-panel" class="chip-btn panel-toggle" type="button" aria-expanded="false" aria-controls="panel" data-i18n="top.panel">Samtidigt <span id="panel-count" class="count">0</span></button>
-        <button id="btn-layers" class="chip-btn" type="button" aria-expanded="false" aria-controls="layer-menu" data-i18n="top.layers">Lager</button>
-        <button id="btn-focus" class="chip-btn" type="button" aria-expanded="false" aria-controls="focus-menu" data-i18n="top.focus">Fokus</button>
-        <!-- Sök i globens innehåll (#570): händelser, riken och resor (js/ui/search.js) -->
-        <button id="btn-search" class="chip-btn" type="button" aria-expanded="false" aria-controls="search-pop" data-i18n="search.button">Sök</button>
-        <button id="btn-intro" class="chip-btn" type="button" aria-controls="intro"></button>
+        <!-- Sök och följ (#651): Fokus och Sök (#570) i en ruta. Händelser öppnas, krig, riken, länder, religioner och resor följs. -->
+        <button id="btn-focus" class="chip-btn" type="button" aria-expanded="false" aria-controls="focus-menu" data-i18n="top.focus">Sök och följ</button>
         <button id="btn-tour" class="chip-btn" type="button" aria-expanded="false" aria-controls="tour-menu" hidden data-i18n="top.tours">Turer</button>
+        <button id="btn-intro" class="chip-btn" type="button" aria-controls="intro"></button>
+        <button id="btn-layers" class="chip-btn" type="button" aria-expanded="false" aria-controls="layer-menu" data-i18n="top.layers">Lager</button>
       </div>
-      <div class="action-group" role="group" aria-labelledby="ag-view">
-        <span id="ag-view" class="action-label" data-i18n="top.view">Visa</span>
-        <button id="btn-flat" class="chip-btn" type="button" aria-pressed="false" title="Visa världen som en platt karta" data-i18n-title="top.flatTitle" data-i18n="top.flat">Platt vy</button>
-        <button id="btn-sources" class="chip-btn" type="button" title="Om källorna: källpolicy och källregister" data-i18n-title="top.sourcesTitle" data-i18n="top.sources">Källor</button>
-        <button id="btn-help" class="chip-btn" type="button" aria-expanded="false" aria-controls="help" data-i18n="top.help">Hjälp</button>
-        <!-- Dela (#64): länken till vyn som den ser ut nu, med år, kamera, fokus, lager och kategorier (#501) -->
-        <button id="btn-share" class="chip-btn" type="button" title="Kopiera en länk till den här vyn" data-i18n-title="share.title" data-i18n="share.button">Dela</button>
-        <!-- Språkväljaren (#63): språken i data/ui/sprak.json, byte laddar om sidan och behåller året (js/i18n.js) -->
-        <label class="lang-pick"><span class="sr-only" data-i18n="lang.label">Språk</span>
-          <select id="lang-select" class="chip-btn lang-select" data-i18n-title="lang.label" title="Språk"></select></label>
+      <!-- Mer (#651): Källor, Hjälp, Dela och Språk. I datorn en liten meny bakom knappen Mer, i mobilen en rad
+           längst ner i menyn (js/ui/viewmenu.js, ExtraMenu). -->
+      <div class="extra-wrap">
+        <button id="btn-more" class="chip-btn extra-toggle" type="button" aria-expanded="false" aria-controls="extra-menu" title="Källor, hjälp, dela och språk" data-i18n-title="top.moreTitle"><span class="extra-dots" aria-hidden="true"></span><span data-i18n="top.more">Mer</span></button>
+        <div id="extra-menu" class="extra-menu" role="group" aria-label="Mer" data-i18n-aria-label="top.more">
+          <button id="btn-sources" class="chip-btn" type="button" title="Om källorna: källpolicy och källregister" data-i18n-title="top.sourcesTitle" data-i18n="top.sources">Källor</button>
+          <button id="btn-help" class="chip-btn" type="button" aria-expanded="false" aria-controls="help" data-i18n="top.help">Hjälp</button>
+          <!-- Dela (#64): länken till vyn som den ser ut nu, med år, kamera, fokus, lager och kategorier (#501) -->
+          <button id="btn-share" class="chip-btn" type="button" title="Kopiera en länk till den här vyn" data-i18n-title="share.title" data-i18n="share.button">Dela</button>
+          <!-- Språkväljaren (#63): språken i data/ui/sprak.json, byte laddar om sidan och behåller året (js/i18n.js) -->
+          <label class="lang-pick"><span class="sr-only" data-i18n="lang.label">Språk</span>
+            <select id="lang-select" class="chip-btn lang-select" data-i18n-title="lang.label" title="Språk"></select></label>
+        </div>
       </div>
     </div>
   </div>
@@ -262,16 +272,8 @@
   <div id="religion-tip" class="religion-tip" aria-hidden="true" hidden></div>
   <div id="route-pop" class="religion-pop route-pop" role="dialog" aria-label="Väg eller resa" data-i18n-aria-label="pop.route" hidden></div>
 
-  <div id="focus-menu" class="layer-menu" hidden role="group" aria-label="Fokus" data-i18n-aria-label="top.focus"></div>
+  <div id="focus-menu" class="layer-menu" hidden role="group" aria-label="Sök och följ" data-i18n-aria-label="top.focus"></div>
   <!-- Guidade turer (#47): listan över turerna i data/turer/index.json (js/ui/tour.js) -->
-  <div id="search-pop" class="layer-menu search-pop" hidden role="dialog" aria-labelledby="search-label">
-    <label id="search-label" class="layer-heading" for="search-input" data-i18n="search.label">Sök i globen</label>
-    <input id="search-input" class="search-input" type="search" autocomplete="off" enterkeyhint="search" spellcheck="false"
-           placeholder="till exempel Pompeji, Rom eller Columbus" data-i18n-placeholder="search.placeholder" aria-describedby="search-status search-note" aria-controls="search-list">
-    <p id="search-status" class="search-status" role="status" aria-live="polite"></p>
-    <ul id="search-list" class="search-list"></ul>
-    <p id="search-note" class="search-note" data-i18n="search.note">Sökningen gäller globens egna händelser, riken och resor.</p>
-  </div>
   <div id="tour-menu" class="layer-menu tour-menu" hidden role="group" aria-labelledby="tour-menu-title">
     <p id="tour-menu-title" class="layer-heading"></p>
     <ul id="tour-list" class="tour-list"></ul>
@@ -344,6 +346,7 @@
     </div>
     <div class="tour-actions">
       <button id="tour-back" class="chip-btn" type="button"></button>
+      <button id="tour-end" class="tour-end" type="button"></button>
       <button id="tour-next" class="tour-next" type="button"></button>
     </div>
   </section>
@@ -367,6 +370,8 @@
       <span id="pause-next" class="pause-next" hidden></span>
       <span id="pause-countdown" class="pause-countdown" aria-hidden="true" hidden></span>
       <button id="pause-finish" class="pause-finish" type="button" hidden data-i18n="play.finish">Spela klart &#9654;</button>
+      <!-- Avsluta turen (js/ui/tour.js): syns bara medan en tur pågår, bredvid Fortsätt -->
+      <button id="pause-stop" class="pause-stop" type="button" hidden></button>
       <button id="pause-go" class="pause-go" type="button" aria-describedby="pause-text" data-i18n="play.continue">&#9654; Fortsätt</button>
     </div>
     <div class="controls">

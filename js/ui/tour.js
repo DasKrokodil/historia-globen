@@ -61,6 +61,8 @@ export class TourPlayer {
     this.back.textContent = `← ${label('back')}`;
     this.closeBtn.setAttribute('aria-label', label('end'));
     this.closeBtn.title = label('end');
+    // Avsluta bredvid Nästa i kortet och bredvid Fortsätt i pausraden, så att det syns hur man kommer ur turen
+    for (const b of [this.endBtn, this.pauseStop]) if (b) b.textContent = label('end');
     this.read.textContent = label('read');
     this.srcBtn.textContent = label('sources');
     this.buildMenu();
@@ -73,6 +75,8 @@ export class TourPlayer {
     this.back.addEventListener('click', () => this.go(this.index - 1));
     this.next.addEventListener('click', () => (this.last ? this.end() : this.go(this.index + 1)));
     this.closeBtn.addEventListener('click', () => this.end());
+    this.endBtn?.addEventListener('click', () => this.end());
+    this.pauseStop?.addEventListener('click', () => this.end());
     this.read.addEventListener('click', () => { const id = this.step?.open; if (id) app.select(id, false); });
     this.srcBtn.addEventListener('click', () => { const ids = this.step?.sources ?? []; app.openSources(ids); });
     this.card.addEventListener('keydown', e => { if (e.key === 'Escape') { e.stopPropagation(); this.end(); } });
@@ -180,6 +184,8 @@ export class TourPlayer {
     this.text.textContent = t(step.text);
     this.read.hidden = !step.open;
     this.back.hidden = this.index === 0;
+    if (this.endBtn) this.endBtn.hidden = this.last; // sista steget: Klar avslutar
+    if (this.pauseStop) this.pauseStop.hidden = false;
     this.next.textContent = this.last ? t(this.labels.done) : `${t(this.labels.next)} →`;
     // Pausraden visar turen och läses upp; Fortsätt där går till nästa steg (beforeplay ovan)
     const note = fill(t(this.labels.paused), { title: t(this.tour.title) });
@@ -217,6 +223,7 @@ export class TourPlayer {
     const { app } = this, saved = this.saved;
     this.tour = null; this.target = null; this.saved = null;
     this.card.hidden = true;
+    if (this.pauseStop) this.pauseStop.hidden = true;
     app.root.classList.remove('touring');
     app.globe.setViewLift(0);
     app.timeline.pause();

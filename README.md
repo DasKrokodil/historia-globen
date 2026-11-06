@@ -86,7 +86,7 @@ js/url-state.js       adressformatet för delbara länkar och Bakåt/Framåt (#5
 js/search-index.js    sökningens index och matchning (#570)
 js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
 js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg, från Utforska (#363, #516)
-js/ui/search.js       knappen Sök och träfflistan (#570)
+js/ui/viewmode.js     vyväljaren: Glob, Platt karta och Upptäcktsresor (#651)
 js/ui/tour.js         guidade turer: spelar upp en tur ur data/turer/ steg för steg (knappen Turer, #47)
 js/tour-format.js     turformatets kontroll, delas med testerna (#47)
 js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering (knappen Platt vy)
