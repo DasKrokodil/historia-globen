@@ -121,6 +121,13 @@ Rikard är mycket mån om att inget påhittat hamnar på globen. Följ detta str
 - Kopiera aldrig text från Wikipedia eller andra källor. Skriv egna korta sammanfattningar och länka källan.
 - Ange varje ny datakälla i `data/sources.json` och i README:ns licensavsnitt.
 
+## Språk: översätt samtidigt (beslut 2026-11-06)
+
+- **Ny gränssnittstext** läggs i alla fem språkfilerna i `data/ui/` (`sv`, `en`, `de`, `es`, `fr`) i samma pull request.
+- **Nytt innehåll** (händelse, fun fact, tur, rike, religion, väg): svenskan skrivs och källkontrolleras först, och översättningarna till `en`, `de`, `es` och `fr` görs i samma pull request. En översättning ändrar aldrig fakta: årtal, siffror, namn, platser och påståenden är desamma som i svenskan. Granskaren kontrollerar källor och översättningar i samma steg.
+- **Ändras svenskan** uppdateras översättningarna i samma pull request.
+- Antalet oöversatta texter får aldrig öka. Äldre innehåll översätts i omgångar: engelska först, sedan tyska, spanska och franska (docs/beslut/2026-11-06-oversatt-samtidigt.md).
+
 ## Bilder (#129)
 
 Varje händelse kan få en bild i fältet `image` (fil, `kind`, stil, bildtext, kredit, licens, och för illustrationer prompten). Stilen följer tidsåldern och platsen enligt `data/styles.json`, och faktarutans ram följer stilen även när bild saknas.

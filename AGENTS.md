@@ -92,6 +92,7 @@ Enligt CLAUDE.md, "Testa innan du är klar":
   - **Kontrollera att det du väntar på finns i det läget:** Samtidigt-kortet är till exempel dolt i Fokus. Verifiera förutsättningen i Chromium innan du lägger en `waitFor` på det.
   - **Hårdkoda inte år eller poster som kan ändras (lärdom av #559, #376):** ett test som kräver "år 1274 har ett krigskort" går sönder när datan växer. Härled året ur datan när det går, eller skriv i testet varför just det året behövs.
   - **Mät relativt, inte i pixlar:** jämför höjder och storlekar mot en jämförbar komponent i samma läge i stället för fasta siffror, eftersom panelens lägen skriver över regler.
+- **Översätt samtidigt (beslut 2026-11-06):** en ny eller ändrad gränssnittstext läggs i alla fem filerna i `data/ui/` (`sv`, `en`, `de`, `es`, `fr`) i samma pull request, och `node --test tests/i18n.test.mjs` ska vara grönt. Översättningen ändrar ingen betydelse och har samma `{platshållare}`. Samma regel gäller nytt innehåll, men innehåll med historiska fakta tar du bara om Rikard ber om det (se "Ta ett issue").
 - Uppdatera `docs/` (arkitektur, datamodell, beslut) och filstrukturen i README.md och CLAUDE.md när något ändras.
 
 ## Pull request
