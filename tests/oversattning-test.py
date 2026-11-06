@@ -149,6 +149,18 @@ def main():
     if chosen:
         assert not errors and any(f'färre oöversatta på {chosen["lang"]}' in r for r in reminders), (errors, reminders)
 
+    # Samma översättning till två olika svenska texter är tillåtet så länge båda svenska texterna finns kvar
+    # (till exempel "Kartago" och "Karthago", som båda blir "Carthage"); bara en översättning vars svenska text har
+    # ändrats är inaktuell
+    def same_translation(doc):
+        found = [text for _, text in oversattning.texts(doc, {'sv', 'en', 'de', 'es', 'fr'})
+                 if text.get('en') and isinstance(text['en'], str)]
+        first = found[0]
+        other = next(text for text in found if text['sv'] != first['sv'] and text['en'] != first['en'])
+        other['en'] = first['en']
+    errors, reminders = with_copy(edit('data/routes/cook.json', same_translation))
+    assert not errors and any('inte är registrerad' in r for r in reminders), (errors, reminders)
+
     print('oversattning-test: ok (uppdelning per språk, ny text utan översättning, utkast, inaktuell och '
           'uppdaterad översättning, ny översättning)')
 

@@ -12,6 +12,9 @@ Inaktuella översättningar: data/oversattning.json har också ett register med 
 och av översättningen för varje översatt text ("svenska:översättning"). Ändras den svenska texten men inte
 översättningen står översättningen kvar i registret med den gamla svenskan, och då är den inaktuell: den
 skrevs för en annan svensk text.
+Samma översättning till två olika svenska texter är tillåtet så länge båda svenska texterna finns kvar ("Kartago"
+och "Karthago" blir båda "Carthage"); den räknas bara som inaktuell när ingen av de registrerade svenska texterna
+finns kvar med den.
 
   python3 tools/oversattning.py           kontrollerar, och skriver om baslinjen och registret om allt stämmer
   python3 tools/oversattning.py --check   skriver ingenting, avslutas med kod 1 om något inte stämmer
@@ -153,13 +156,23 @@ def compare(root, accept_stale=False):
                 reminders.append(f'{rel}: inga oöversatta på {lang} längre (baslinjen är {old})')
 
     # Inaktuella: översättningen finns i registret, men med en annan svensk text
-    known_tr = {lang: {p.split(':')[1]: p.split(':')[0] for p in register.get(lang, [])} for lang in pairs}
+    # tr -> de svenska texter (kontrollsummor) som översättningen står registrerad för. Samma översättning kan höra
+    # till flera olika svenska texter ("Kartago" och "Karthago" blir båda "Carthage"); den är bara inaktuell när
+    # ingen av de registrerade svenska texterna finns kvar med den översättningen.
+    known_tr = {lang: {} for lang in pairs}
+    for lang in pairs:
+        for p in register.get(lang, []):
+            old_sv, old_tr = p.split(':')
+            known_tr[lang].setdefault(old_tr, set()).add(old_sv)
+    present = {lang: {p.split(':')[0] + ':' + p.split(':')[1] for p in pairs[lang]} for lang in pairs}
     stale = set()
     for rel, path, lang, sv, tr in found:
         pair = f'{sv}:{tr}'
         if pair in register.get(lang, []):
             continue
-        if tr in known_tr.get(lang, {}) and not accept_stale:
+        olds = known_tr.get(lang, {}).get(tr, set())
+        still_there = any(f'{old_sv}:{tr}' in present[lang] for old_sv in olds)
+        if olds and not still_there and not accept_stale:
             stale.add((lang, pair))
             errors.append(f'{rel} {path}: översättningen till {lang} är inaktuell; den svenska texten har ändrats '
                           f'efter översättningen. Uppdatera översättningen i samma pull request.')

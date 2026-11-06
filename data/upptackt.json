@@ -38,18 +38,18 @@
     "hatchDeg": 1.2,
     "hatchSpacingDeg": 0.6,
     "labels": [
-      { "text": { "sv": "Terra incognita" }, "at": [-100, 47], "size": 4.2 },
-      { "text": { "sv": "Terra incognita" }, "at": [-60, -12], "size": 4.2 },
-      { "text": { "sv": "Terra incognita" }, "at": [134, -25], "size": 3.6 },
-      { "text": { "sv": "Terra incognita" }, "at": [20, -72], "size": 4.2 },
-      { "text": { "sv": "Terra incognita" }, "at": [100, 62], "size": 4.2 }
+      { "text": { "sv": "Terra incognita", "en": "Terra incognita" }, "at": [-100, 47], "size": 4.2 },
+      { "text": { "sv": "Terra incognita", "en": "Terra incognita" }, "at": [-60, -12], "size": 4.2 },
+      { "text": { "sv": "Terra incognita", "en": "Terra incognita" }, "at": [134, -25], "size": 3.6 },
+      { "text": { "sv": "Terra incognita", "en": "Terra incognita" }, "at": [20, -72], "size": 4.2 },
+      { "text": { "sv": "Terra incognita", "en": "Terra incognita" }, "at": [100, 62], "size": 4.2 }
     ]
   },
   "decorations": [
-    { "id": "kompassros-atlanten", "file": "images/karta/kompassros.webp", "at": [-42, 40], "width": 18, "fade": false, "rhumb": true, "title": { "sv": "Kompassros" }, "source": "commons-karta-brouscon-kompassros" },
-    { "id": "kompassros-indiska-oceanen", "file": "images/karta/kompassros.webp", "at": [82, -32], "width": 17, "fade": false, "rhumb": true, "title": { "sv": "Kompassros" }, "source": "commons-karta-brouscon-kompassros" },
-    { "id": "sjoorm-stilla-havet", "file": "images/karta/sjoorm.webp", "at": [-152, 32], "width": 26, "fade": true, "title": { "sv": "Sjöorm" }, "source": "commons-karta-carta-marina-sjoorm" },
-    { "id": "ziphius-sydatlanten", "file": "images/karta/ziphius.webp", "at": [-18, -34], "width": 26, "fade": true, "title": { "sv": "Ziphius" }, "source": "commons-karta-carta-marina-ziphius" },
-    { "id": "havsmonster-sodra-stilla-havet", "file": "images/karta/havsmonster.webp", "at": [-120, -38], "width": 17, "fade": true, "title": { "sv": "Havsmonster och hummer" }, "source": "commons-karta-carta-marina-havsmonster" }
+    { "id": "kompassros-atlanten", "file": "images/karta/kompassros.webp", "at": [-42, 40], "width": 18, "fade": false, "rhumb": true, "title": { "sv": "Kompassros", "en": "Compass rose" }, "source": "commons-karta-brouscon-kompassros" },
+    { "id": "kompassros-indiska-oceanen", "file": "images/karta/kompassros.webp", "at": [82, -32], "width": 17, "fade": false, "rhumb": true, "title": { "sv": "Kompassros", "en": "Compass rose" }, "source": "commons-karta-brouscon-kompassros" },
+    { "id": "sjoorm-stilla-havet", "file": "images/karta/sjoorm.webp", "at": [-152, 32], "width": 26, "fade": true, "title": { "sv": "Sjöorm", "en": "Sea serpent" }, "source": "commons-karta-carta-marina-sjoorm" },
+    { "id": "ziphius-sydatlanten", "file": "images/karta/ziphius.webp", "at": [-18, -34], "width": 26, "fade": true, "title": { "sv": "Ziphius", "en": "Ziphius" }, "source": "commons-karta-carta-marina-ziphius" },
+    { "id": "havsmonster-sodra-stilla-havet", "file": "images/karta/havsmonster.webp", "at": [-120, -38], "width": 17, "fade": true, "title": { "sv": "Havsmonster och hummer", "en": "Sea monster and lobster" }, "source": "commons-karta-carta-marina-havsmonster" }
   ]
 }

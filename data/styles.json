@@ -4,7 +4,8 @@
  "regions": {
   "kina": {
    "name": {
-    "sv": "Kina"
+    "sv": "Kina",
+    "en": "China"
    },
    "bbox": [
     [
@@ -17,7 +18,8 @@
   },
   "japan": {
    "name": {
-    "sv": "Japan"
+    "sv": "Japan",
+    "en": "Japan"
    },
    "bbox": [
     [
@@ -30,7 +32,8 @@
   },
   "islamiska-varlden": {
    "name": {
-    "sv": "Islamiska världen (Arabiska halvön, Levanten, Nordafrika)"
+    "sv": "Islamiska världen (Arabiska halvön, Levanten, Nordafrika)",
+    "en": "The Islamic world (Arabian Peninsula, Levant, North Africa)"
    },
    "bbox": [
     [
@@ -61,7 +64,8 @@
   },
   "persien-indien-osmanska": {
    "name": {
-    "sv": "Persien, Indien och Osmanska riket"
+    "sv": "Persien, Indien och Osmanska riket",
+    "en": "Persia, India and the Ottoman Empire"
    },
    "bbox": [
     [
@@ -74,7 +78,8 @@
   },
   "mexiko": {
    "name": {
-    "sv": "Mexiko och Mesoamerika"
+    "sv": "Mexiko och Mesoamerika",
+    "en": "Mexico and Mesoamerica"
    },
    "bbox": [
     [
@@ -87,7 +92,8 @@
   },
   "anderna": {
    "name": {
-    "sv": "Anderna"
+    "sv": "Anderna",
+    "en": "The Andes"
    },
    "bbox": [
     [
@@ -100,7 +106,8 @@
   },
   "vastafrika": {
    "name": {
-    "sv": "Västafrika"
+    "sv": "Västafrika",
+    "en": "West Africa"
    },
    "bbox": [
     [
@@ -113,7 +120,8 @@
   },
   "korea": {
    "name": {
-    "sv": "Korea"
+    "sv": "Korea",
+    "en": "Korea"
    },
    "bbox": [
     [
@@ -126,7 +134,8 @@
   },
   "indien": {
    "name": {
-    "sv": "Indien"
+    "sv": "Indien",
+    "en": "India"
    },
    "bbox": [
     [
@@ -139,7 +148,8 @@
   },
   "stilla-havet": {
    "name": {
-    "sv": "Stilla havets öar"
+    "sv": "Stilla havets öar",
+    "en": "The islands of the Pacific"
    },
    "bbox": [
     [
@@ -221,7 +231,8 @@
     "krig": {
      "id": "bayeux",
      "name": {
-      "sv": "Broderi i stil med Bayeuxtapeten"
+      "sv": "Broderi i stil med Bayeuxtapeten",
+      "en": "Embroidery in the style of the Bayeux Tapestry"
      },
      "prompt": "embroidered linen panel in the style of the Bayeux Tapestry, wool thread in terracotta, ochre, green and blue, continuous frieze with border bands"
     }
@@ -242,7 +253,8 @@
     "upptackter": {
      "id": "portolan",
      "name": {
-      "sv": "Portolankarta"
+      "sv": "Portolankarta",
+      "en": "Portolan chart"
      },
      "prompt": "Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour"
     }
@@ -263,14 +275,16 @@
     "natur": {
      "id": "plansch",
      "name": {
-      "sv": "Naturhistorisk plansch"
+      "sv": "Naturhistorisk plansch",
+      "en": "Natural history plate"
      },
      "prompt": "natural history plate, hand-coloured copper engraving of the subject with neat labels removed, scientific illustration style"
     },
     "vetenskap": {
      "id": "plansch",
      "name": {
-      "sv": "Naturhistorisk plansch"
+      "sv": "Naturhistorisk plansch",
+      "en": "Natural history plate"
      },
      "prompt": "scientific plate, hand-coloured copper engraving of instruments and diagrams, Enlightenment encyclopedia style"
     }
