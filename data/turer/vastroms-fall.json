@@ -3,10 +3,18 @@
   "version": 1,
   "id": "vastroms-fall",
   "title": {
-    "sv": "Hur föll Västromerska riket?"
+    "sv": "Hur föll Västromerska riket?",
+    "en": "How did the Western Roman Empire fall?",
+    "fr": "Comment l'Empire romain d'Occident est-il tombé ?",
+    "de": "Wie fiel das Weströmische Reich?",
+    "es": "¿Cómo cayó el Imperio romano de Occidente?"
   },
   "summary": {
-    "sv": "Ett långt förlopp från tidiga tecken till 476, och varför forskarna fortfarande diskuterar det."
+    "sv": "Ett långt förlopp från tidiga tecken till 476, och varför forskarna fortfarande diskuterar det.",
+    "en": "A long process from early signs to 476, and why researchers still debate it.",
+    "fr": "Un long processus, des premiers signes jusqu'à 476, et pourquoi les chercheurs en débattent encore.",
+    "de": "Ein langer Verlauf von den ersten Anzeichen bis 476 und warum die Forschung bis heute darüber streitet.",
+    "es": "Un largo proceso desde las primeras señales hasta 476, y por qué los investigadores todavía lo debaten."
   },
   "empire": "romarriket",
   "review": "source-checked",
@@ -20,14 +28,26 @@
         "zoom": 1.7
       },
       "chapter": {
-        "sv": "Tidiga tecken"
+        "sv": "Tidiga tecken",
+        "en": "Early signs",
+        "fr": "Premiers signes",
+        "de": "Erste Anzeichen",
+        "es": "Primeras señales"
       },
       "title": {
-        "sv": "Armorica, omkring år 360"
+        "sv": "Armorica, omkring år 360",
+        "en": "Armorica, around 360",
+        "fr": "L'Armorique, vers 360",
+        "de": "Armorica, um 360",
+        "es": "Armórica, hacia 360"
       },
       "status": "belagt",
       "text": {
-        "sv": "Redan omkring 350 var nästan alla villor i Armorica övergivna efter årtionden av sjöröveranfall, och omkring 360 slutade man använda pengar där."
+        "sv": "Redan omkring 350 var nästan alla villor i Armorica övergivna efter årtionden av sjöröveranfall, och omkring 360 slutade man använda pengar där.",
+        "en": "By around 350, almost all villas in Armorica had been abandoned after decades of pirate raids, and around 360 people there stopped using money.",
+        "fr": "Vers 350 déjà, presque toutes les villas d'Armorique étaient abandonnées après des décennies d'attaques de pirates, et vers 360 on cessa d'y utiliser la monnaie.",
+        "de": "Schon um 350 waren nach jahrzehntelangen Piratenüberfällen fast alle Villen in Armorica verlassen, und um 360 hörte man dort auf, Geld zu benutzen.",
+        "es": "Hacia 350 casi todas las villas de Armórica ya estaban abandonadas tras décadas de ataques piratas, y hacia 360 se dejó de usar dinero allí."
       },
       "layers": [
         "events",
@@ -46,14 +66,26 @@
         "zoom": 1.5
       },
       "chapter": {
-        "sv": "Kris"
+        "sv": "Kris",
+        "en": "Crisis",
+        "fr": "Crise",
+        "de": "Krise",
+        "es": "Crisis"
       },
       "title": {
-        "sv": "Goterna kommer in i riket, 376"
+        "sv": "Goterna kommer in i riket, 376",
+        "en": "The Goths enter the empire, 376",
+        "fr": "Les Goths entrent dans l'Empire, 376",
+        "de": "Die Goten kommen ins Reich, 376",
+        "es": "Los godos entran en el Imperio, 376"
       },
       "status": "belagt",
       "text": {
-        "sv": "En stor folkvandring av goter och andra folk, på flykt undan hunnerna, tar sig in i riket."
+        "sv": "En stor folkvandring av goter och andra folk, på flykt undan hunnerna, tar sig in i riket.",
+        "en": "A large migration of Goths and other peoples, fleeing the Huns, makes its way into the empire.",
+        "fr": "Une grande migration de Goths et d'autres peuples, fuyant les Huns, pénètre dans l'Empire.",
+        "de": "Eine große Wanderung von Goten und anderen Völkern, auf der Flucht vor den Hunnen, gelangt ins Reich.",
+        "es": "Una gran migración de godos y otros pueblos, que huyen de los hunos, entra en el Imperio."
       },
       "layers": [
         "events",
@@ -72,11 +104,19 @@
         "zoom": 1.8
       },
       "title": {
-        "sv": "Rom, 410"
+        "sv": "Rom, 410",
+        "en": "Rome, 410",
+        "fr": "Rome, 410",
+        "de": "Rom, 410",
+        "es": "Roma, 410"
       },
       "status": "belagt",
       "text": {
-        "sv": "Alarik tar Rom genom att svälta ut staden och plundrar den sedan i tre dagar."
+        "sv": "Alarik tar Rom genom att svälta ut staden och plundrar den sedan i tre dagar.",
+        "en": "Alaric takes Rome by starving the city and then sacks it for three days.",
+        "fr": "Alaric prend Rome en affamant la ville, puis la pille pendant trois jours.",
+        "de": "Alarich nimmt Rom ein, indem er die Stadt aushungert, und plündert sie dann drei Tage lang.",
+        "es": "Alarico toma Roma rindiendo la ciudad por hambre y luego la saquea durante tres días."
       },
       "layers": [
         "events",
@@ -95,11 +135,19 @@
         "zoom": 1.8
       },
       "title": {
-        "sv": "Rom, 455"
+        "sv": "Rom, 455",
+        "en": "Rome, 455",
+        "fr": "Rome, 455",
+        "de": "Rom, 455",
+        "es": "Roma, 455"
       },
       "status": "belagt",
       "text": {
-        "sv": "Vandalerna tar sig in i Rom och plundrar staden i två veckor."
+        "sv": "Vandalerna tar sig in i Rom och plundrar staden i två veckor.",
+        "en": "The Vandals enter Rome and plunder the city for two weeks.",
+        "fr": "Les Vandales entrent dans Rome et pillent la ville pendant deux semaines.",
+        "de": "Die Vandalen dringen in Rom ein und plündern die Stadt zwei Wochen lang.",
+        "es": "Los vándalos entran en Roma y saquean la ciudad durante dos semanas."
       },
       "layers": [
         "events",
@@ -118,14 +166,26 @@
         "zoom": 1.8
       },
       "chapter": {
-        "sv": "Slutet"
+        "sv": "Slutet",
+        "en": "The end",
+        "fr": "La fin",
+        "de": "Das Ende",
+        "es": "El final"
       },
       "title": {
-        "sv": "Ravenna, 4 september 476"
+        "sv": "Ravenna, 4 september 476",
+        "en": "Ravenna, 4 September 476",
+        "fr": "Ravenne, 4 septembre 476",
+        "de": "Ravenna, 4. September 476",
+        "es": "Rávena, 4 de septiembre de 476"
       },
       "status": "belagt",
       "text": {
-        "sv": "Odoaker tvingar Romulus Augustulus, den siste kejsaren i Västrom, att abdikera och skickar de kejserliga insignierna till Konstantinopel."
+        "sv": "Odoaker tvingar Romulus Augustulus, den siste kejsaren i Västrom, att abdikera och skickar de kejserliga insignierna till Konstantinopel.",
+        "en": "Odoacer forces Romulus Augustulus, the last emperor in the West, to abdicate and sends the imperial insignia to Constantinople.",
+        "fr": "Odoacre force Romulus Augustule, le dernier empereur d'Occident, à abdiquer et envoie les insignes impériaux à Constantinople.",
+        "de": "Odoaker zwingt Romulus Augustulus, den letzten Kaiser Westroms, zur Abdankung und schickt die kaiserlichen Insignien nach Konstantinopel.",
+        "es": "Odoacro obliga a Rómulo Augústulo, el último emperador de Occidente, a abdicar y envía las insignias imperiales a Constantinopla."
       },
       "layers": [
         "events",
@@ -147,17 +207,33 @@
         "zoom": 1.3
       },
       "chapter": {
-        "sv": "Hur ska det förstås?"
+        "sv": "Hur ska det förstås?",
+        "en": "How should it be understood?",
+        "fr": "Comment le comprendre ?",
+        "de": "Wie ist das zu verstehen?",
+        "es": "¿Cómo debe entenderse?"
       },
       "title": {
-        "sv": "Ett fall eller en förvandling?"
+        "sv": "Ett fall eller en förvandling?",
+        "en": "A fall or a transformation?",
+        "fr": "Une chute ou une transformation ?",
+        "de": "Ein Fall oder ein Wandel?",
+        "es": "¿Una caída o una transformación?"
       },
       "status": "omtvistat",
       "text": {
-        "sv": "Varför Västrom föll är en av de stora frågorna i forskningen om antiken. Alexander Demandt räknade upp 210 olika teorier. Andra beskriver förloppet som en sammansatt kulturell förvandling snarare än ett fall, och 476 är en praktisk gräns som har använts sedan Gibbon."
+        "sv": "Varför Västrom föll är en av de stora frågorna i forskningen om antiken. Alexander Demandt räknade upp 210 olika teorier. Andra beskriver förloppet som en sammansatt kulturell förvandling snarare än ett fall, och 476 är en praktisk gräns som har använts sedan Gibbon.",
+        "en": "Why the Western Roman Empire fell is one of the great questions in the study of antiquity. Alexander Demandt listed 210 different theories. Others describe the process as a complex cultural transformation rather than a fall, and 476 is a convenient marker that has been used since Gibbon.",
+        "fr": "La raison de la chute de l'Empire d'Occident est l'une des grandes questions de la recherche sur l'Antiquité. Alexander Demandt a recensé 210 théories différentes. D'autres décrivent le processus comme une transformation culturelle complexe plutôt qu'une chute, et 476 est un repère commode utilisé depuis Gibbon.",
+        "de": "Warum Westrom fiel, ist eine der großen Fragen der Altertumsforschung. Alexander Demandt zählte 210 verschiedene Theorien auf. Andere beschreiben den Verlauf eher als vielschichtigen kulturellen Wandel denn als Fall, und 476 ist eine praktische Grenze, die seit Gibbon verwendet wird.",
+        "es": "Por qué cayó el Imperio de Occidente es una de las grandes preguntas de la investigación sobre la Antigüedad. Alexander Demandt enumeró 210 teorías distintas. Otros describen el proceso como una compleja transformación cultural más que como una caída, y 476 es un límite práctico que se usa desde Gibbon."
       },
       "question": {
-        "sv": "Varför tror du att forskare har kommit fram till så många olika förklaringar?"
+        "sv": "Varför tror du att forskare har kommit fram till så många olika förklaringar?",
+        "en": "Why do you think researchers have come up with so many different explanations?",
+        "fr": "Pourquoi penses-tu que les chercheurs sont arrivés à tant d'explications différentes ?",
+        "de": "Warum glaubst du, sind Forschende zu so vielen verschiedenen Erklärungen gekommen?",
+        "es": "¿Por qué crees que los investigadores han llegado a tantas explicaciones distintas?"
       },
       "layers": [
         "events",
@@ -176,14 +252,26 @@
         "zoom": 1.3
       },
       "chapter": {
-        "sv": "Det vi inte vet"
+        "sv": "Det vi inte vet",
+        "en": "What we do not know",
+        "fr": "Ce que nous ne savons pas",
+        "de": "Was wir nicht wissen",
+        "es": "Lo que no sabemos"
       },
       "title": {
-        "sv": "Armén före 376"
+        "sv": "Armén före 376",
+        "en": "The army before 376",
+        "fr": "L'armée avant 376",
+        "de": "Das Heer vor 376",
+        "es": "El ejército antes de 376"
       },
       "status": "okant",
       "text": {
-        "sv": "Forskarna är inte överens om huruvida arméns slagkraft hade minskat redan före 376."
+        "sv": "Forskarna är inte överens om huruvida arméns slagkraft hade minskat redan före 376.",
+        "en": "Researchers do not agree on whether the army's fighting strength had already declined before 376.",
+        "fr": "Les chercheurs ne s'accordent pas sur la question de savoir si la force de combat de l'armée avait déjà diminué avant 376.",
+        "de": "Die Forschung ist sich nicht einig, ob die Schlagkraft des Heeres schon vor 376 nachgelassen hatte.",
+        "es": "Los investigadores no se ponen de acuerdo sobre si la capacidad de combate del ejército ya había disminuido antes de 376."
       },
       "layers": [
         "events",

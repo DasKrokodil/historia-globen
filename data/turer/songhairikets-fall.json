@@ -3,10 +3,18 @@
   "version": 1,
   "id": "songhairikets-fall",
   "title": {
-    "sv": "Hur föll Songhairiket?"
+    "sv": "Hur föll Songhairiket?",
+    "en": "How did the Songhai Empire fall?",
+    "fr": "Comment l'Empire songhaï est-il tombé ?",
+    "de": "Wie fiel das Songhai-Reich?",
+    "es": "¿Cómo cayó el Imperio songhai?"
   },
   "summary": {
-    "sv": "Från striderna om tronen på 1580-talet till Marockos erövring 1591 och vad som levde vidare, och vems röster som finns kvar."
+    "sv": "Från striderna om tronen på 1580-talet till Marockos erövring 1591 och vad som levde vidare, och vems röster som finns kvar.",
+    "en": "From the struggles over the throne in the 1580s to Morocco's conquest in 1591 and what lived on, and whose voices have survived.",
+    "fr": "Des luttes pour le trône dans les années 1580 à la conquête marocaine de 1591 et à ce qui a survécu, et quelles voix nous sont parvenues.",
+    "de": "Von den Thronkämpfen der 1580er-Jahre bis zur marokkanischen Eroberung 1591 und dem, was weiterlebte, und wessen Stimmen erhalten geblieben sind.",
+    "es": "De las luchas por el trono en la década de 1580 a la conquista marroquí de 1591 y lo que sobrevivió, y qué voces se han conservado."
   },
   "empire": "songhairiket",
   "review": "source-checked",
@@ -20,14 +28,26 @@
         "zoom": 1.4
       },
       "chapter": {
-        "sv": "Kris"
+        "sv": "Kris",
+        "en": "Crisis",
+        "fr": "Crise",
+        "de": "Krise",
+        "es": "Crisis"
       },
       "title": {
-        "sv": "Strid om tronen, 1588"
+        "sv": "Strid om tronen, 1588",
+        "en": "A struggle for the throne, 1588",
+        "fr": "Une lutte pour le trône, 1588",
+        "de": "Kampf um den Thron, 1588",
+        "es": "Lucha por el trono, 1588"
       },
       "status": "belagt",
       "text": {
-        "sv": "Efter Askia Daouds död 1583 försvagas riket av strider om tronen. 1588 blir hans son Ishaq kung, samtidigt som en av bröderna tågar mot huvudstaden Gao med en upprorsarmé. Ishaq vinner, men armén har förlorat många soldater och ledare."
+        "sv": "Efter Askia Daouds död 1583 försvagas riket av strider om tronen. 1588 blir hans son Ishaq kung, samtidigt som en av bröderna tågar mot huvudstaden Gao med en upprorsarmé. Ishaq vinner, men armén har förlorat många soldater och ledare.",
+        "en": "After the death of Askia Daoud in 1583, the empire is weakened by struggles over the throne. In 1588 his son Ishaq becomes king, while one of his brothers marches on the capital Gao with a rebel army. Ishaq wins, but the army has lost many soldiers and leaders.",
+        "fr": "Après la mort de l'askia Daoud en 1583, l'empire est affaibli par des luttes pour le trône. En 1588, son fils Ishaq devient roi, alors qu'un de ses frères marche sur la capitale Gao avec une armée rebelle. Ishaq l'emporte, mais l'armée a perdu de nombreux soldats et chefs.",
+        "de": "Nach dem Tod von Askia Daoud 1583 wird das Reich durch Kämpfe um den Thron geschwächt. 1588 wird sein Sohn Ishaq König, während einer seiner Brüder mit einem Rebellenheer auf die Hauptstadt Gao zieht. Ishaq siegt, doch das Heer hat viele Soldaten und Anführer verloren.",
+        "es": "Tras la muerte de Askia Daoud en 1583, el imperio se debilita por las luchas por el trono. En 1588 su hijo Ishaq se convierte en rey, mientras uno de sus hermanos marcha sobre la capital, Gao, con un ejército rebelde. Ishaq vence, pero el ejército ha perdido muchos soldados y jefes."
       },
       "layers": [
         "events",
@@ -48,17 +68,33 @@
         "zoom": 1.0
       },
       "chapter": {
-        "sv": "Grannen i norr"
+        "sv": "Grannen i norr",
+        "en": "The neighbour to the north",
+        "fr": "Le voisin du nord",
+        "de": "Der Nachbar im Norden",
+        "es": "El vecino del norte"
       },
       "title": {
-        "sv": "Saltet i Taghaza, 1589"
+        "sv": "Saltet i Taghaza, 1589",
+        "en": "The salt of Taghaza, 1589",
+        "fr": "Le sel de Teghazza, 1589",
+        "de": "Das Salz von Taghaza, 1589",
+        "es": "La sal de Taghaza, 1589"
       },
       "status": "belagt",
       "text": {
-        "sv": "Marocko har slagit tillbaka Portugal 1578, men kostnaderna har nästan tömt statskassan. Sultan Ahmad al-Mansur kräver intäkterna från saltgruvan Taghaza i Sahara, och Ishaq vägrar. Enligt källan hade sultanen fått höra av en kunglig slav som flytt från Taghaza att Songhai var splittrat och försvagat."
+        "sv": "Marocko har slagit tillbaka Portugal 1578, men kostnaderna har nästan tömt statskassan. Sultan Ahmad al-Mansur kräver intäkterna från saltgruvan Taghaza i Sahara, och Ishaq vägrar. Enligt källan hade sultanen fått höra av en kunglig slav som flytt från Taghaza att Songhai var splittrat och försvagat.",
+        "en": "Morocco has driven back Portugal in 1578, but the costs have nearly emptied the treasury. Sultan Ahmad al-Mansur demands the revenue from the Taghaza salt mine in the Sahara, and Ishaq refuses. According to the source, the sultan had heard from a royal slave who had escaped from Taghaza that Songhai was divided and weakened.",
+        "fr": "Le Maroc a repoussé le Portugal en 1578, mais les dépenses ont presque vidé le trésor. Le sultan Ahmad al-Mansur exige les revenus de la mine de sel de Teghazza, dans le Sahara, et Ishaq refuse. Selon la source, le sultan avait appris d'un esclave royal évadé de Teghazza que le Songhaï était divisé et affaibli.",
+        "de": "Marokko hat Portugal 1578 zurückgeschlagen, doch die Kosten haben die Staatskasse fast geleert. Sultan Ahmad al-Mansur fordert die Einnahmen aus der Salzmine Taghaza in der Sahara, und Ishaq lehnt ab. Laut der Quelle hatte der Sultan von einem aus Taghaza geflohenen königlichen Sklaven erfahren, dass Songhai gespalten und geschwächt war.",
+        "es": "Marruecos ha rechazado a Portugal en 1578, pero los gastos casi han vaciado el tesoro. El sultán Ahmad al-Mansur exige los ingresos de la mina de sal de Taghaza, en el Sáhara, e Ishaq se niega. Según la fuente, el sultán había sabido por un esclavo real huido de Taghaza que el Songhai estaba dividido y debilitado."
       },
       "question": {
-        "sv": "Varför kan det vara farligt för ett rike när grannarna får veta att det är splittrat?"
+        "sv": "Varför kan det vara farligt för ett rike när grannarna får veta att det är splittrat?",
+        "en": "Why can it be dangerous for an empire when its neighbours find out that it is divided?",
+        "fr": "Pourquoi peut-il être dangereux pour un empire que ses voisins apprennent qu'il est divisé ?",
+        "de": "Warum kann es für ein Reich gefährlich sein, wenn die Nachbarn erfahren, dass es gespalten ist?",
+        "es": "¿Por qué puede ser peligroso para un imperio que sus vecinos sepan que está dividido?"
       },
       "layers": [
         "events",
@@ -79,14 +115,26 @@
         "zoom": 1.6
       },
       "chapter": {
-        "sv": "Erövringen"
+        "sv": "Erövringen",
+        "en": "The conquest",
+        "fr": "La conquête",
+        "de": "Die Eroberung",
+        "es": "La conquista"
       },
       "title": {
-        "sv": "Slaget vid Tondibi, 1591"
+        "sv": "Slaget vid Tondibi, 1591",
+        "en": "The Battle of Tondibi, 1591",
+        "fr": "La bataille de Tondibi, 1591",
+        "de": "Die Schlacht von Tondibi, 1591",
+        "es": "La batalla de Tondibi, 1591"
       },
       "status": "belagt",
       "text": {
-        "sv": "Den 13 mars 1591 möts arméerna vid Tondibi, norr om Gao. Marockanerna har arkebuser och kanoner, vilket Songhai saknar. Slaget tar ungefär två timmar och slutar med att Songhais armé besegras."
+        "sv": "Den 13 mars 1591 möts arméerna vid Tondibi, norr om Gao. Marockanerna har arkebuser och kanoner, vilket Songhai saknar. Slaget tar ungefär två timmar och slutar med att Songhais armé besegras.",
+        "en": "On 13 March 1591 the armies meet at Tondibi, north of Gao. The Moroccans have arquebuses and cannons, which Songhai lacks. The battle lasts about two hours and ends with the defeat of the Songhai army.",
+        "fr": "Le 13 mars 1591, les armées se rencontrent à Tondibi, au nord de Gao. Les Marocains ont des arquebuses et des canons, dont le Songhaï est dépourvu. La bataille dure environ deux heures et se termine par la défaite de l'armée songhaï.",
+        "de": "Am 13. März 1591 treffen die Heere bei Tondibi nördlich von Gao aufeinander. Die Marokkaner haben Arkebusen und Kanonen, die Songhai fehlen. Die Schlacht dauert etwa zwei Stunden und endet mit der Niederlage des Songhai-Heeres.",
+        "es": "El 13 de marzo de 1591 los ejércitos se enfrentan en Tondibi, al norte de Gao. Los marroquíes tienen arcabuces y cañones, de los que carece el Songhai. La batalla dura unas dos horas y termina con la derrota del ejército songhai."
       },
       "layers": [
         "events",
@@ -106,17 +154,33 @@
         "zoom": 1.4
       },
       "chapter": {
-        "sv": "Det vi inte vet"
+        "sv": "Det vi inte vet",
+        "en": "What we do not know",
+        "fr": "Ce que nous ne savons pas",
+        "de": "Was wir nicht wissen",
+        "es": "Lo que no sabemos"
       },
       "title": {
-        "sv": "Hur stora var arméerna?"
+        "sv": "Hur stora var arméerna?",
+        "en": "How large were the armies?",
+        "fr": "Quelle était la taille des armées ?",
+        "de": "Wie groß waren die Heere?",
+        "es": "¿Cuán grandes eran los ejércitos?"
       },
       "status": "okant",
       "text": {
-        "sv": "Källorna skiljer sig. Den marockanska hären anges till omkring 4 000 man i en källa och omkring 20 000 i en annan. Uppgifterna om Songhais armé går från knappt 28 000 till 80 000 man. Alla är överens om att Songhai var fler."
+        "sv": "Källorna skiljer sig. Den marockanska hären anges till omkring 4 000 man i en källa och omkring 20 000 i en annan. Uppgifterna om Songhais armé går från knappt 28 000 till 80 000 man. Alla är överens om att Songhai var fler.",
+        "en": "The sources differ. The Moroccan army is given as about 4,000 men in one source and about 20,000 in another. The figures for the Songhai army range from just under 28,000 to 80,000 men. All agree that Songhai had more soldiers.",
+        "fr": "Les sources divergent. L'armée marocaine compte environ 4 000 hommes selon une source et environ 20 000 selon une autre. Les chiffres pour l'armée songhaï vont d'un peu moins de 28 000 à 80 000 hommes. Toutes s'accordent à dire que le Songhaï était plus nombreux.",
+        "de": "Die Quellen weichen voneinander ab. Das marokkanische Heer wird in einer Quelle mit etwa 4 000 Mann angegeben, in einer anderen mit etwa 20 000. Die Angaben zum Songhai-Heer reichen von knapp 28 000 bis 80 000 Mann. Alle sind sich einig, dass Songhai zahlenmäßig überlegen war.",
+        "es": "Las fuentes difieren. El ejército marroquí tiene unos 4000 hombres según una fuente y unos 20 000 según otra. Las cifras del ejército songhai van de algo menos de 28 000 a 80 000 hombres. Todas coinciden en que el Songhai era más numeroso."
       },
       "question": {
-        "sv": "Varför tror du att uppgifter om hur stora arméer var ofta skiljer sig så mycket?"
+        "sv": "Varför tror du att uppgifter om hur stora arméer var ofta skiljer sig så mycket?",
+        "en": "Why do you think figures for the size of armies so often differ so much?",
+        "fr": "Pourquoi penses-tu que les chiffres sur la taille des armées divergent si souvent autant ?",
+        "de": "Warum glaubst du, weichen Angaben über die Größe von Heeren so oft so stark voneinander ab?",
+        "es": "¿Por qué crees que las cifras sobre el tamaño de los ejércitos difieren tan a menudo tanto?"
       },
       "layers": [
         "events",
@@ -137,17 +201,33 @@
         "zoom": 1.4
       },
       "chapter": {
-        "sv": "Städerna"
+        "sv": "Städerna",
+        "en": "The cities",
+        "fr": "Les villes",
+        "de": "Die Städte",
+        "es": "Las ciudades"
       },
       "title": {
-        "sv": "Gao, Timbuktu och Djenné"
+        "sv": "Gao, Timbuktu och Djenné",
+        "en": "Gao, Timbuktu and Djenné",
+        "fr": "Gao, Tombouctou et Djenné",
+        "de": "Gao, Timbuktu und Djenné",
+        "es": "Gao, Tombuctú y Djenné"
       },
       "status": "belagt",
       "text": {
-        "sv": "Ishaq låter tömma huvudstaden Gao, och invånarna har redan lämnat staden när den plundras. Timbuktu intas i maj 1591 och Djenné 1592. Alla tre handelsstäderna plundras."
+        "sv": "Ishaq låter tömma huvudstaden Gao, och invånarna har redan lämnat staden när den plundras. Timbuktu intas i maj 1591 och Djenné 1592. Alla tre handelsstäderna plundras.",
+        "en": "Ishaq has the capital Gao evacuated, and its residents have already left when the city is plundered. Timbuktu is taken in May 1591 and Djenné in 1592. All three trading cities are plundered.",
+        "fr": "Ishaq fait évacuer la capitale Gao, et ses habitants l'ont déjà quittée quand la ville est pillée. Tombouctou est prise en mai 1591 et Djenné en 1592. Les trois villes marchandes sont pillées.",
+        "de": "Ishaq lässt die Hauptstadt Gao räumen, und die Einwohner haben die Stadt bereits verlassen, als sie geplündert wird. Timbuktu wird im Mai 1591 eingenommen, Djenné 1592. Alle drei Handelsstädte werden geplündert.",
+        "es": "Ishaq hace evacuar la capital, Gao, y sus habitantes ya se han ido cuando la ciudad es saqueada. Tombuctú es tomada en mayo de 1591 y Djenné en 1592. Las tres ciudades comerciales son saqueadas."
       },
       "question": {
-        "sv": "Vad tror du att det betydde för handeln i området att alla tre städerna plundrades?"
+        "sv": "Vad tror du att det betydde för handeln i området att alla tre städerna plundrades?",
+        "en": "What do you think it meant for trade in the region that all three cities were plundered?",
+        "fr": "Que penses-tu que le pillage des trois villes a signifié pour le commerce de la région ?",
+        "de": "Was glaubst du, bedeutete es für den Handel in der Region, dass alle drei Städte geplündert wurden?",
+        "es": "¿Qué crees que significó para el comercio de la región que las tres ciudades fueran saqueadas?"
       },
       "layers": [
         "events",
@@ -168,14 +248,26 @@
         "zoom": 1.2
       },
       "chapter": {
-        "sv": "Härskaren"
+        "sv": "Härskaren",
+        "en": "The ruler",
+        "fr": "Le souverain",
+        "de": "Der Herrscher",
+        "es": "El soberano"
       },
       "title": {
-        "sv": "Kungens slut, 1592"
+        "sv": "Kungens slut, 1592",
+        "en": "The king's end, 1592",
+        "fr": "La fin du roi, 1592",
+        "de": "Das Ende des Königs, 1592",
+        "es": "El fin del rey, 1592"
       },
       "status": "belagt",
       "text": {
-        "sv": "Ishaq ber om fred, men sultanen skickar i stället förstärkningar och en ny befälhavare. Efter ett nytt nederlag i oktober 1591 flyr Ishaq till Dendi, där han avsätts. I april 1592 dödas han i landsflykt."
+        "sv": "Ishaq ber om fred, men sultanen skickar i stället förstärkningar och en ny befälhavare. Efter ett nytt nederlag i oktober 1591 flyr Ishaq till Dendi, där han avsätts. I april 1592 dödas han i landsflykt.",
+        "en": "Ishaq sues for peace, but the sultan instead sends reinforcements and a new commander. After another defeat in October 1591, Ishaq flees to Dendi, where he is deposed. In April 1592 he is killed in exile.",
+        "fr": "Ishaq demande la paix, mais le sultan envoie à la place des renforts et un nouveau commandant. Après une nouvelle défaite en octobre 1591, Ishaq s'enfuit au Dendi, où il est déposé. En avril 1592, il est tué en exil.",
+        "de": "Ishaq bittet um Frieden, doch der Sultan schickt stattdessen Verstärkung und einen neuen Befehlshaber. Nach einer weiteren Niederlage im Oktober 1591 flieht Ishaq nach Dendi, wo er abgesetzt wird. Im April 1592 wird er im Exil getötet.",
+        "es": "Ishaq pide la paz, pero el sultán envía en cambio refuerzos y un nuevo comandante. Tras otra derrota en octubre de 1591, Ishaq huye a Dendi, donde es depuesto. En abril de 1592 muere asesinado en el exilio."
       },
       "layers": [
         "events",
@@ -194,17 +286,33 @@
         "zoom": 1.1
       },
       "chapter": {
-        "sv": "Efterspelet"
+        "sv": "Efterspelet",
+        "en": "The aftermath",
+        "fr": "Les suites",
+        "de": "Die Folgen",
+        "es": "Las consecuencias"
       },
       "title": {
-        "sv": "Det som levde vidare"
+        "sv": "Det som levde vidare",
+        "en": "What lived on",
+        "fr": "Ce qui a survécu",
+        "de": "Was weiterlebte",
+        "es": "Lo que sobrevivió"
       },
       "status": "belagt",
       "text": {
-        "sv": "Marocko lyckas inte styra det stora området, som splittras i dussintals mindre riken. Songhai lever vidare i den enda provinsen som finns kvar, Dendi, i ytterligare två och ett halvt sekel. Från 1612 utses Timbuktus pashor på plats i stället för från Marocko, och 1618 släpper sultanen den direkta kontrollen."
+        "sv": "Marocko lyckas inte styra det stora området, som splittras i dussintals mindre riken. Songhai lever vidare i den enda provinsen som finns kvar, Dendi, i ytterligare två och ett halvt sekel. Från 1612 utses Timbuktus pashor på plats i stället för från Marocko, och 1618 släpper sultanen den direkta kontrollen.",
+        "en": "Morocco fails to govern the vast region, which splinters into dozens of smaller kingdoms. Songhai lives on in its only remaining province, Dendi, for another two and a half centuries. From 1612 the pashas of Timbuktu are appointed locally rather than from Morocco, and in 1618 the sultan gives up direct control.",
+        "fr": "Le Maroc ne parvient pas à gouverner cette vaste région, qui se morcelle en dizaines de petits royaumes. Le Songhaï survit dans sa seule province restante, le Dendi, pendant encore deux siècles et demi. À partir de 1612, les pachas de Tombouctou sont nommés sur place et non plus depuis le Maroc, et en 1618 le sultan renonce au contrôle direct.",
+        "de": "Marokko gelingt es nicht, das große Gebiet zu regieren, das in Dutzende kleinerer Reiche zerfällt. Songhai lebt in der einzigen verbliebenen Provinz, Dendi, noch zweieinhalb Jahrhunderte weiter. Ab 1612 werden die Paschas von Timbuktu vor Ort ernannt statt von Marokko aus, und 1618 gibt der Sultan die direkte Kontrolle auf.",
+        "es": "Marruecos no logra gobernar la extensa región, que se fragmenta en decenas de reinos más pequeños. El Songhai sobrevive en su única provincia restante, Dendi, durante otros dos siglos y medio. Desde 1612 los bajás de Tombuctú se nombran allí mismo y no desde Marruecos, y en 1618 el sultán renuncia al control directo."
       },
       "question": {
-        "sv": "Kan man säga att ett rike har fallit om dess kungar fortsätter att regera någon annanstans?"
+        "sv": "Kan man säga att ett rike har fallit om dess kungar fortsätter att regera någon annanstans?",
+        "en": "Can you say that an empire has fallen if its kings go on ruling somewhere else?",
+        "fr": "Peut-on dire qu'un empire est tombé si ses rois continuent de régner ailleurs ?",
+        "de": "Kann man sagen, dass ein Reich gefallen ist, wenn seine Könige anderswo weiterregieren?",
+        "es": "¿Se puede decir que un imperio ha caído si sus reyes siguen reinando en otro lugar?"
       },
       "layers": [
         "events",
@@ -225,17 +333,33 @@
         "zoom": 1.4
       },
       "chapter": {
-        "sv": "Vanliga människor"
+        "sv": "Vanliga människor",
+        "en": "Ordinary people",
+        "fr": "Les gens ordinaires",
+        "de": "Gewöhnliche Menschen",
+        "es": "La gente común"
       },
       "title": {
-        "sv": "Vems röster finns kvar?"
+        "sv": "Vems röster finns kvar?",
+        "en": "Whose voices have survived?",
+        "fr": "Quelles voix nous sont parvenues ?",
+        "de": "Wessen Stimmen sind erhalten?",
+        "es": "¿Qué voces se han conservado?"
       },
       "status": "okant",
       "text": {
-        "sv": "Det mesta vi vet om Songhais fall kommer från två krönikor från Timbuktu, skrivna på 1600-talet. Den viktigaste, Tarikh al-Sudan, skrevs omkring 1655 av al-Sa'di, som arbetade för den marockanska förvaltningen. I källorna som turen bygger på står inget om hur bönder, fiskare och andra vanliga människor upplevde erövringen."
+        "sv": "Det mesta vi vet om Songhais fall kommer från två krönikor från Timbuktu, skrivna på 1600-talet. Den viktigaste, Tarikh al-Sudan, skrevs omkring 1655 av al-Sa'di, som arbetade för den marockanska förvaltningen. I källorna som turen bygger på står inget om hur bönder, fiskare och andra vanliga människor upplevde erövringen.",
+        "en": "Most of what we know about the fall of Songhai comes from two chronicles from Timbuktu, written in the 1600s. The most important, the Tarikh al-Sudan, was written around 1655 by al-Sa'di, who worked for the Moroccan administration. The sources this tour is based on say nothing about how farmers, fishermen and other ordinary people experienced the conquest.",
+        "fr": "L'essentiel de ce que nous savons sur la chute du Songhaï provient de deux chroniques de Tombouctou écrites au XVIIe siècle. La plus importante, le Tarikh al-Sudan, a été écrite vers 1655 par al-Sa'di, qui travaillait pour l'administration marocaine. Les sources sur lesquelles repose cette visite ne disent rien de la manière dont les paysans, les pêcheurs et les autres gens ordinaires ont vécu la conquête.",
+        "de": "Das meiste, was wir über den Fall Songhais wissen, stammt aus zwei Chroniken aus Timbuktu, die im 17. Jahrhundert geschrieben wurden. Die wichtigste, der Tarikh al-Sudan, wurde um 1655 von al-Sa'di verfasst, der für die marokkanische Verwaltung arbeitete. In den Quellen, auf denen diese Tour beruht, steht nichts darüber, wie Bauern, Fischer und andere gewöhnliche Menschen die Eroberung erlebten.",
+        "es": "La mayor parte de lo que sabemos sobre la caída del Songhai procede de dos crónicas de Tombuctú escritas en el siglo XVII. La más importante, el Tarikh al-Sudan, fue escrita hacia 1655 por al-Sa'di, que trabajaba para la administración marroquí. Las fuentes en las que se basa este recorrido no dicen nada sobre cómo vivieron la conquista los campesinos, los pescadores y otras personas comunes."
       },
       "question": {
-        "sv": "Vad kan det betyda för berättelsen att krönikören arbetade för dem som hade erövrat landet?"
+        "sv": "Vad kan det betyda för berättelsen att krönikören arbetade för dem som hade erövrat landet?",
+        "en": "What might it mean for the story that the chronicler worked for those who had conquered the country?",
+        "fr": "Qu'est-ce que cela peut signifier pour le récit que le chroniqueur ait travaillé pour ceux qui avaient conquis le pays ?",
+        "de": "Was kann es für die Erzählung bedeuten, dass der Chronist für die Eroberer des Landes arbeitete?",
+        "es": "¿Qué puede significar para el relato que el cronista trabajara para quienes habían conquistado el país?"
       },
       "layers": [
         "events",
