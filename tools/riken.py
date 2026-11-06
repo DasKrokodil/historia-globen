@@ -54,7 +54,11 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # Gambia (cirka 30 km bred längs floden) och Libanon är smala: finare förenkling för dem och grannarna Senegal och
              # Syrien, annars täcker grannarnas förenklade gräns en stor del av landet
              'gambia': (0.05, 0.02, 0.02), 'libanon': (0.05, 0.02, 0.02),
-             'senegal': (0.05, 0.02, 0.02), 'syrien': (0.05, 0.005, 0.02)}
+             'senegal': (0.05, 0.02, 0.02), 'syrien': (0.05, 0.005, 0.02),
+             # Luxemburg och Singapore är små
+             'luxemburg': (0.03, 0.02, 0.005), 'singapore': (0.02, 0.02, 0.005),
+             # Malaysias förenklade gräns täckte annars en del av Singapore över Johorsundet
+             'malaysia': (0.03, 0.02, 0.02)}
 
 # grupp: (svenskt namn, engelskt namn, [(Cliopatria-namn, id, svenskt namn, färg)])
 GROUPS = {
@@ -96,7 +100,10 @@ GROUPS = {
                                                                          'Malawi', 'United Arab Emirates', 'Second Republic of Austria',
                                                                          'Lesotho', 'Solomon Islands', 'Republic of Fiji',
                                                                          'Commonwealth of The Bahamas', 'State of Qatar',
-                                                                         'Republic of The Gambia']}),
+                                                                         'Republic of The Gambia', 'Sultanate of Brunei',
+                                                                         'Kingdom of Bahrain', 'Republic of Cyprus'],
+          # Brunei blir eget land i Cliopatria 1987; perioden delas där, annars slås ändringen ihop med åren före
+          'splits': (1987,)}),
     ]),
     # R2 Antiken (#68)
     'egypten': ('Egypten: gamla och nya riket', 'Egypt: Old and New Kingdom', [
@@ -237,7 +244,9 @@ GROUPS = {
     'nederlandska-kolonialvaldet': ('Nederländska kolonialväldet', 'Dutch colonial empire', [
         ('(Dutch Republic)', 'nederlandska-republiken', 'Nederländska republiken', '#e0912c', {'homeland': ['Dutch Republic']}),
         ('(Batavian Republic)', 'bataviska-republiken', 'Bataviska republiken', '#e0912c', {'homeland': ['Batavian Republic']}),
-        ('(Netherlands)', 'nederlanderna', 'Nederländerna', '#e0912c', {'years': (1811, 1949), 'homeland': ['Netherlands']}),
+        # Cliopatria räknar Luxemburg till Nederländerna till och med 1914, också efter 1890 då Luxemburg är eget land (#644)
+        ('(Netherlands)', 'nederlanderna', 'Nederländerna', '#e0912c', {'years': (1811, 1949), 'homeland': ['Netherlands'],
+                                                                         'minus': ['Luxembourg'], 'splits': (1890,)}),
     ]),
     'tyska-riket': ('Tyska riket', 'German Empire', [
         (['German Empire', 'German Africa'], 'tyska-riket', 'Tyska riket', '#7a5aa0', {'en': 'German Empire', 'homeland': ['German Empire']}),
@@ -627,7 +636,8 @@ GROUPS = {
         ('Federated Republic of Germany', 'tyskland', 'Tyskland', '#c8b04a', {'en': 'Germany'}),
     ]),
     'malaysia': ('Malaysia', 'Malaysia', [
-        ('Malaysia', 'malaysia', 'Malaysia', '#d08a4a', {'en': 'Malaysia'}),
+        # Cliopatria har Singapore i Malaysia 1963–1966; perioden delas 1967, annars slås den ihop med åren efter
+        ('Malaysia', 'malaysia', 'Malaysia', '#d08a4a', {'en': 'Malaysia', 'splits': (1967,)}),
     ]),
     # Cliopatria anger Q974 (Kongo-Kinshasa) för Kongo-Brazzaville; rätt id är Q971
     'kongo-brazzaville': ('Kongo-Brazzaville', 'Republic of the Congo', [
@@ -866,7 +876,7 @@ GROUPS = {
          {'en': 'United Kingdom', 'wikidata': 'Q145', 'years': (2000, 2024),
           # Cliopatria räknar Oman, Qatar och Förenade arabemiraten till Storbritannien 2000–2023, samtidigt som de är
           # egna länder i Cliopatria (år 2024 har posten bara de brittiska öarna)
-          'minus': ['Sultanate of Oman', 'State of Qatar', 'United Arab Emirates']}),
+          'minus': ['Sultanate of Oman', 'State of Qatar', 'United Arab Emirates', 'Kingdom of Bahrain']}),
     ]),
     'belgien': ('Belgien', 'Belgium', [
         ('Kingdom of Belgium', 'belgien', 'Belgien', '#a04a7a', {'en': 'Belgium'}),
@@ -928,6 +938,44 @@ GROUPS = {
     ]),
     'kap-verde': ('Kap Verde', 'Cape Verde', [
         ('Republic of Cabo Verde', 'kap-verde', 'Kap Verde', '#3a6aa0', {'en': 'Cape Verde'}),
+    ]),
+    # Nutida stater, trettonde omgången (#644)
+    # Kosovo som stat från självständighetsförklaringen 2008 (Rikards beslut, fall 8 i docs/omstridda-granser.md);
+    # Cliopatria har Kosovo redan från 2000, och 2000–2007 visas området utan stat
+    'kosovo': ('Kosovo', 'Kosovo', [
+        ('Kosovo', 'kosovo', 'Kosovo', '#4a6ab0', {'en': 'Kosovo', 'years': (2008, 2024)}),
+    ]),
+    # Hela ön ritas som Cypern (Rikards beslut, fall 5): Norra Cypern läggs till ur DISPUTED
+    'cypern': ('Cypern', 'Cyprus', [
+        ('Republic of Cyprus', 'cypern', 'Cypern', '#c08a3a', {'en': 'Cyprus'}),
+    ]),
+    # Bara från 2006: Cliopatrias Montenegro har också furstendömet och kungariket 1853–1915
+    'montenegro': ('Montenegro', 'Montenegro', [
+        ('Montenegro', 'montenegro', 'Montenegro', '#b04a4a', {'en': 'Montenegro', 'years': (2006, 2024)}),
+    ]),
+    # Bara från 1987, Cliopatrias nutida post (Cliopatria har sultanatet 1363–1889 och inget 1890–1986). Cliopatria anger
+    # Q887803 (det historiska sultanatet); rätt id för landet är Q921
+    'brunei': ('Brunei', 'Brunei', [
+        ('Sultanate of Brunei', 'brunei', 'Brunei', '#c0a03a', {'en': 'Brunei', 'wikidata': 'Q921', 'years': (1987, 2024)}),
+    ]),
+    'trinidad-och-tobago': ('Trinidad och Tobago', 'Trinidad and Tobago', [
+        ('Republic of Trinidad and Tobago', 'trinidad-och-tobago', 'Trinidad och Tobago', '#b04a5a', {'en': 'Trinidad and Tobago'}),
+    ]),
+    'mauritius': ('Mauritius', 'Mauritius', [
+        ('Mauritius', 'mauritius', 'Mauritius', '#5a6ab0', {'en': 'Mauritius'}),
+    ]),
+    # Cliopatria anger Q2719360 (det medeltida hertigdömet); rätt id är Q32
+    'luxemburg': ('Luxemburg', 'Luxembourg', [
+        ('Luxembourg', 'luxemburg', 'Luxemburg', '#5a9ac0', {'en': 'Luxembourg', 'wikidata': 'Q32'}),
+    ]),
+    'sao-tome-och-principe': ('São Tomé och Príncipe', 'São Tomé and Príncipe', [
+        ('São Tomé and Príncipe', 'sao-tome-och-principe', 'São Tomé och Príncipe', '#4aa070', {'en': 'São Tomé and Príncipe'}),
+    ]),
+    'bahrain': ('Bahrain', 'Bahrain', [
+        ('Kingdom of Bahrain', 'bahrain', 'Bahrain', '#b04a6a', {'en': 'Bahrain'}),
+    ]),
+    'singapore': ('Singapore', 'Singapore', [
+        ('Republic of Singapore', 'singapore', 'Singapore', '#c05a5a', {'en': 'Singapore'}),
     ]),
 }
 
@@ -1025,6 +1073,11 @@ DISPUTED = {
                               'remove': [], 'add': ['georgien']},
     # Transnistrien ritas som Moldavien (Rikards beslut; UD beskriver Transnistrien som en region i Moldavien)
     'transnistrien': {'area': ('ne', ['transnistrien']), 'from': 1992, 'remove': [], 'add': ['moldavien']},
+    # Norra Cypern ritas som Cypern (Rikards beslut; UD: Sverige erkänner inte Norra Cypern, FN:s resolution 541/1983).
+    # Cliopatria har hela ön som Republiken Cypern till och med 1975 och Norra Cypern som egen stat från 1976; området är
+    # Cyperns gräns 1970 minus gränsen 2000
+    'norra-cypern': {'area': (('Republic of Cyprus', 1970), ('Republic of Cyprus', 2000)), 'from': 1976,
+                     'remove': [], 'add': ['cypern']},
 }
 
 
