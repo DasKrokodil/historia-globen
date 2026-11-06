@@ -191,13 +191,13 @@ Rikard gillar stilen. Behåll den:
 
 ## Versionsplan
 
-**GitHub-milstolparna är huvudkällan** för vad som ingår och vad som pågår. Versionsnumren nedan beskriver ordningen och upprepas inte i andra dokument. Version 2–4 och rikena R1–R6 är klara och släppta (senast v4.1.1). Ordningen ändrades 2026-10-31 (docs/beslut.md): först det som gör sidan stabil och användbar i skolan, sedan de dyra specialfunktionerna. Tekniska förutsättningar byggs före de funktioner som behöver dem.
+**GitHub-milstolparna är huvudkällan** för vad som ingår och vad som pågår. Versionsnumren nedan beskriver ordningen och upprepas inte i andra dokument. Version 2–5.0 och rikena R1–R7 är klara och släppta, senast **v5.0.0** (2026-11-06), som också innehåller 4.2, 4.3, 5.1a, 5.1c och de första delarna av 5.2 (sök och delbara länkar). Kvar i 5.1 är bilderna till kärnhändelserna (#453 i 5.1b). Ordningen ändrades 2026-10-31 (docs/beslut.md): först det som gör sidan stabil och användbar i skolan, sedan de dyra specialfunktionerna. Tekniska förutsättningar byggs före de funktioner som behöver dem.
 
 | Version | Innehåll |
 |---|---|
 | 4.2 Stabilitet och tillgänglighet | Upptäcktsvyn (#375, #376, #378; dimman över riken #377 ligger i R7), tangentbord och zoom (#386, #362), kontroll efter publicering (#388), läsbar tidslinje (#298), faktarutor och introduktion (#359, #363, #364) och små förenklingar |
 | 4.3 Teknisk grund | main.js delas upp och tillståndet blir centralt (#389, utan adressdelen som är #501 i 5.2), lättare mobilrendering (#390), JSON Schema (#391), lagertypen bildlager (#54) |
-| 5.0 Guidade berättelser | Turformat som data (#47) och en första tur (#13, andra världskriget); fler turer och berättelselägen därefter |
+| 5.0 Guidade berättelser | Turformat som data (#47), turer om andra och första världskriget (#13, #48), berättelseläget med kapitel och frågor (#247) och slutkort med det viktigaste att ta med sig (#500). Rikens fall (#499) och tidslinjebläddraren (#231) flyttades till senare (2026-11-06) |
 | 5.1 Global täckning, delad i tre (beslut 2026-11-03) | **5.1a** redigeringsformat (#394), **5.1b** kärnhändelser (#452) och deras bilder (#453) i källkontrollerade batchar om högst 20 per PR, **5.1c** massimport per världsdel (#61) när format, schema, källflöde och täckningsmått är stabila. Granskningsvyn för människor (#62) är stängd (#252) |
 | 5.2 Sök, delning och introduktion | "Vad hände här?" (#15), delbara länkar (#64) och tillståndet i adressen (#501), sök |
 | 6 Skolpilot | Lektionsturer, quiz och elevuppdrag (#66, #65, #250), läroplansreferenser, pilot med en lärare eller klass |
@@ -207,7 +207,7 @@ Rikard gillar stilen. Behåll den:
 
 Parallella spår (milstolpar utan versionsnummer, görs bredvid huvudversionerna):
 - **Innehållspaket:** vetenskap, medicin, teknik, rymdfärdens milstolpar (#84) och temavyer (musik, litteratur, filosofi, ekonomi, personer, byggnadsverk, perspektiv). Paketen blockerar inte varandra eller huvudversionerna.
-- **Riken:** R1–R6 är klara; milstolpen heter "Riken: R7 och restarbete".
+- **Riken:** R1–R7 är klara; nu pågår milstolpen "Riken: global täckning" (#556, #644–#646).
 - **Hårdvara** (H1–H3): anteckningar, planeringen sker i Rikards Claude-projekt.
 - **Experiment och senare:** experimenten är delade i "Historiska datum och utskrift", "Flöden och rörelse", "Lekar och tankeexperiment" och "Rymden". "Senare" är delad i "beslut krävs", "teknik" och "innehåll och media". "Teman: temamotor" (#398) är förutsättningen för temavyerna, och "Paket: Temavyer och innehåll" är en samlingsrubrik, inte en arbetsmilstolpe. Bilder görs i "Bilder: batchar".
 
