@@ -69,18 +69,21 @@ jobs:
             | sudo tee /etc/apt/apt.conf.d/99historia-globen-behall-paket > /dev/null
           sudo rm -f /etc/apt/apt.conf.d/docker-clean
 
+      # Cachen fylls stegvis (#684): nyckeln slutar på en kontrollsumma av filnamnen, och den senaste
+      # cachen med samma början hämtas. Varje körning sparar de paket den har (även när installationen
+      # stoppades av tidsgränsen), så att en långsam spegel bara behöver ladda ner det som saknas.
       - name: Hämta apt-paketen ur cachen
         id: apt-cache
         uses: actions/cache/restore@v4
         with:
           path: ${{ runner.temp }}/apt-debs
-          key: apt-debs-${{ steps.apt.outputs.dist }}-${{ matrix.browser.id }}-${{ env.PLAYWRIGHT_VERSION }}-v1
+          key: apt-debs-${{ steps.apt.outputs.dist }}-${{ matrix.browser.id }}-${{ env.PLAYWRIGHT_VERSION }}-v2-
+          restore-keys: apt-debs-${{ steps.apt.outputs.dist }}-${{ matrix.browser.id }}-${{ env.PLAYWRIGHT_VERSION }}-v2-
 
       - name: Lägg tillbaka apt-paketen
-        if: steps.apt-cache.outputs.cache-hit == 'true'
         run: |
           sudo find "$RUNNER_TEMP/apt-debs" -maxdepth 1 -name '*.deb' -exec cp -t /var/cache/apt/archives/ {} +
-          echo "$(ls "$RUNNER_TEMP/apt-debs" | wc -l) paket ur cachen"
+          echo "$(find "$RUNNER_TEMP/apt-debs" -maxdepth 1 -name '*.deb' | wc -l) paket ur cachen"
 
       - name: Installera Playwright och ${{ matrix.browser.name }} (utanför repot)
         # Egen gräns (#617): steget tar normalt under en minut. Utan apt-cachen (första körningen
@@ -98,23 +101,31 @@ jobs:
             "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps "$BROWSER"
           fi
 
-      # Sparas direkt efter installationen, inte när jobbet är klart, så att cachen fylls även om
-      # själva testet sedan blir rött.
-      # En tom cache sparas aldrig, annars skulle alla följande körningar träffa den och ändå ladda ner.
+      # Sparas direkt efter installationen, och även när den stoppades av tidsgränsen, så att nästa
+      # körning kommer längre. Nyckeln bygger på filnamnen: samma paket som förut sparas inte igen,
+      # och en tom cache sparas aldrig.
       - name: Spara apt-paketen i cachen
         id: apt-save
-        if: steps.apt-cache.outputs.cache-hit != 'true'
+        if: always()
         run: |
+          mkdir -p "$RUNNER_TEMP/apt-debs"
           find /var/cache/apt/archives -maxdepth 1 -name '*.deb' -exec cp -t "$RUNNER_TEMP/apt-debs" {} +
           n=$(find "$RUNNER_TEMP/apt-debs" -maxdepth 1 -name '*.deb' | wc -l)
+          sum=$(find "$RUNNER_TEMP/apt-debs" -maxdepth 1 -name '*.deb' -printf '%f\n' | sort | sha256sum | cut -c1-16)
+          key="apt-debs-${{ steps.apt.outputs.dist }}-${{ matrix.browser.id }}-$PLAYWRIGHT_VERSION-v2-$sum"
           echo "count=$n" >> "$GITHUB_OUTPUT"
-          echo "$n paket sparas"
+          echo "key=$key" >> "$GITHUB_OUTPUT"
+          if [ "$key" = "${{ steps.apt-cache.outputs.cache-matched-key }}" ]; then
+            echo "$n paket, samma som i cachen"; echo "new=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "$n paket sparas"; echo "new=true" >> "$GITHUB_OUTPUT"
+          fi
       - name: Ladda upp apt-cachen
-        if: steps.apt-cache.outputs.cache-hit != 'true' && steps.apt-save.outputs.count != '0'
+        if: always() && steps.apt-save.outputs.new == 'true' && steps.apt-save.outputs.count != '0'
         uses: actions/cache/save@v4
         with:
           path: ${{ runner.temp }}/apt-debs
-          key: ${{ steps.apt-cache.outputs.cache-primary-key }}
+          key: ${{ steps.apt-save.outputs.key }}
 
       - name: Starta webbservern för dist/
         run: |
