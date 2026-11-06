@@ -177,6 +177,29 @@ test('eventId hör bara till faktafel', async () => {
   assert.equal(r.json.fields.eventId, 'not_allowed');
 });
 
+test('faktafel om rike: objekt, år och rensad adress kommer med utan personuppgifter', async () => {
+  const r = await post({ ...VALID, category: 'correction',
+    objectType: 'empire', objectId: 'romarriket', objectYear: '1500', pageUrl: 'https://historiagloben.se/' });
+  assert.equal(r.status, 201);
+  assert.equal(assetCalls.length, 0, 'andra faktarutor behöver inte läsa händelsedatan');
+  const { body } = issueSent();
+  assert.match(body, /### Objekt på sidan\n- \*\*Typ:\*\* Rike\n- \*\*Id:\*\* `romarriket`\n- \*\*Året i vyn:\*\* 1500\n- \*\*Adress:\*\* `https:\/\/historiagloben\.se\/`/);
+});
+test('objektmetadata måste vara komplett, vara faktafel och komma från samma adress', async () => {
+  let r = await post({ ...VALID, category: 'correction', objectType: 'religion' });
+  assert.equal(r.status, 400);
+  assert.equal(r.json.fields.objectId, 'required');
+  r = await post({ ...VALID, category: 'feature', objectType: 'religion', objectId: 'kristendom', objectYear: '1500', pageUrl: 'https://historiagloben.se/' });
+  assert.equal(r.status, 400);
+  assert.equal(r.json.fields.objectType, 'not_allowed');
+  r = await post({ ...VALID, category: 'correction', objectType: 'religion', objectId: 'kristendom', objectYear: '1500', pageUrl: 'https://historiagloben.se/?email=besokare@example.se' });
+  assert.equal(r.status, 400);
+  assert.equal(r.json.fields.pageUrl, 'invalid');
+  r = await post({ ...VALID, category: 'correction', objectType: 'religion', objectId: 'kristendom', objectYear: '1500', pageUrl: 'https://evil.example/' });
+  assert.equal(r.status, 400);
+  assert.equal(r.json.fields.pageUrl, 'invalid');
+});
+
 // ---------- Validering ----------
 test('obligatoriska fält: kategori och beskrivning', async () => {
   let r = await post({ description: 'En tillräckligt lång text.', turnstileToken: 'x' });

@@ -132,6 +132,8 @@ export class FlatMap {
    */
   setMarkers({ list, labeled, keep, selectedId }) {
     this._marks = { list, labeled, keep, selectedId };
+    // Renderingsstatus: samma urval som faktiskt ritas, även när en medalj blir en klunga eller saknar etikett vid låg zoom.
+    this.root.dataset.visibleEvents = list.filter(u => u.activity > 0).map(u => u.event.id).join(' ');
     this.draw();
   }
 
@@ -149,6 +151,17 @@ export class FlatMap {
     this.cx = (lon + 180) / 360 * IMG_W; this.cy = (90 - lat) / 180 * IMG_H;
     this._clamp();
     this.draw();
+  }
+
+  /** Kartans mitt och zoom, till exempel ett steg i en guidad tur (#47). Globens zoom (0.8–3.2) används som den är,
+   *  inom kartans gränser. Sparas också när Platt vy är stängd, så att kartan öppnas där. */
+  setView(lat, lon, zoom = 1) {
+    this.cx = (lon + 180) / 360 * IMG_W; this.cy = (90 - lat) / 180 * IMG_H;
+    this.zoom = Math.min(MAX_ZOOM, Math.max(1, zoom));
+    if (this.hidden || !this.w) return;
+    this._clamp();
+    this.draw();
+    this.onZoom?.();
   }
 
   /** Öppna eller stäng Platt vy. */
@@ -171,12 +184,16 @@ export class FlatMap {
     this.w = r.width; this.h = r.height;
     this.canvas.width = Math.round(this.w * this.dpr);
     this.canvas.height = Math.round(this.h * this.dpr);
+    this._clamp(); // en mitt som sattes medan kartan var stängd (setView) hamnar inom ytan
     this.draw();
     this.onZoom?.();
   }
 
   /** Skärmpixlar per bildpixel. Zoom 1 täcker ytan. */
   get scale() { return Math.max(this.w / IMG_W, this.h / IMG_H) * this.zoom; }
+
+  /** Markörens storlek på skärmen i Platt vy (px), som när den ritas (#616: huvudstädernas namn viker för den). */
+  markerPx(u) { return medalSize(u, u.baseScale * WORLD * this.scale).px; }
 
   _local(e) { const r = this.canvas.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
 
@@ -335,7 +352,7 @@ export class FlatMap {
         this._waitGlyph.add(e.icon);
         glyph(e.icon).waiting.push(() => this.draw());
       }
-      ctx.globalAlpha = 0.45 + 0.55 * u.activity;
+      ctx.globalAlpha = u.opacity;
       if (e.id === selectedId) { // vald händelse: en mässingsring runt medaljen (på klotet pulserar den)
         ctx.lineWidth = 2; ctx.strokeStyle = cssVar('--brass');
         ctx.beginPath(); ctx.arc(p.x, p.y, px / 2 + 3, 0, Math.PI * 2); ctx.stroke();

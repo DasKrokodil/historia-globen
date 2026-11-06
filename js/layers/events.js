@@ -1,7 +1,7 @@
 // Lagertyp "punkt" (beslut 2): händelser som punkter på globen.
 // Varje lager har samma gränssnitt: update(state) och drawOverlay(ctx, W, H).
 import { THREE, latLonToVec3, R } from '../globe.js';
-import { CAT, isVisibleReview, t } from '../model.js';
+import { CAT, formatYear, isLongRunning, isVisibleReview, t } from '../model.js';
 import { Z } from './registry.js';
 
 // Ikonfamiljen (#242): alla markörer är samma mässingsmedalj. Mörk botten, mässingsring och en inre
@@ -29,6 +29,11 @@ export function glyph(name) {
     gl.img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg.replace(/stroke-width="[\d.]+"/, 'stroke-width="2.1"'));
   }).catch(err => console.warn(`Ikonen ${name} kunde inte laddas`, err));
   return gl;
+}
+
+/** Om händelsen har taggen (#555), till exempel 'framsteg'. Utan tagg (null) räknas alla händelser. */
+export function hasTag(e, tag) {
+  return !tag || (Array.isArray(e.tags) && e.tags.includes(tag));
 }
 
 /** Hur markören ska se ut: tidsläge (now, past, future), betydelse och osäkerhet. */
@@ -119,11 +124,13 @@ export function entry({ globe, data }) {
   const layer = new EventsLayer(globe, data.events);
   const none = new Set();
   return {
-    id: 'events', name: 'Händelser', group: 'people', menu: { on: true }, layer, z: Z.events,
+    id: 'events', name: 'Händelser', group: 'people', menu: { on: true, note: 'cirkel på tidslinjen' }, layer, z: Z.events,
     enabled: s => s.layers.events,
     update: s => layer.update({ year: s.year, window: s.window, filters: s.layers.events ? s.filters : none,
-      selectedId: s.selectedId, highlight: s.highlight, focusId: s.focusWar?.id, span: s.span }),
+      selectedId: s.selectedId, highlight: s.highlight, focusId: s.focusWar?.id, span: s.span, tag: s.tag }),
+    marks: s => layer.marks(s),
     frame: (now, s) => layer.frame(now, s.selectedId),
+    frameAnimating: s => !s.calm && layer.hasSelected(s.selectedId),
     drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
   };
 }
@@ -132,7 +139,7 @@ export class EventsLayer {
   constructor(globe, events) {
     this.globe = globe;
     this.events = events;
-    this.state = new Map(); // id -> { activity, inside, dist, when }
+    this.state = new Map(); // id -> { activity, inside, dist, when, fought, opacity }
     this.sprites = [];
     this.byId = new Map(); // händelse-id -> sprite
     for (const e of events) {
@@ -152,6 +159,19 @@ export class EventsLayer {
     }
   }
 
+  /** Den valda markören pulserar bara när den faktiskt är synlig. */
+  hasSelected(id) { return !!id && !!this.byId.get(id)?.visible; }
+
+  /** Märkena är samma granskade och filtrerade händelser som lagret kan visa.
+   * Fokusets egna berättelse- och resemarkeringar läggs ovanpå dem av sina lager. */
+  marks({ filters, on, tag = null }) {
+    if (!on.events) return [];
+    return this.events
+      .filter(e => isVisibleReview(e.review) && filters.has(e.category) && hasTag(e, tag) && (!e.partOf || e.top))
+      .map(e => ({ type: 'event', at: e.start, until: e.end, color: CAT[e.category]?.color ?? '#fff',
+        label: `${t(e.title)} · ${e.start === e.end ? formatYear(e.start) : `${formatYear(e.start)}–${formatYear(e.end)}`}` }));
+  }
+
   /** Byter medaljens bild när tidsläget eller detaljnivån ändras (texturerna återanvänds ur medalCache). */
   _paint(s) {
     const { event: e, color, info, full } = s.userData;
@@ -164,17 +184,18 @@ export class EventsLayer {
    * span (valfritt): händelsens tid som [början, slut]. I fokusläget för korta krig är det datum ur edtf (#204).
    * Returnerar händelserna som syns, de pågående först.
    */
-  update({ year, window, filters, selectedId, highlight, focusId = null, span = e => [e.start, e.end] }) {
+  update({ year, window, filters, selectedId, highlight, focusId = null, span = e => [e.start, e.end], tag = null }) {
     const visible = [];
     for (const s of this.sprites) {
       const e = s.userData.event;
       // Händelser i ett krig: utzoomat syns bara den viktigaste (top). I fokusläge
       // syns krigets alla händelser. Valda händelser syns alltid.
       const onMap = !e.partOf || e.top || e.partOf === focusId || e.id === selectedId;
-      const okFilter = onMap && filters.has(e.category) && isVisibleReview(e.review);
+      const okFilter = onMap && filters.has(e.category) && hasTag(e, tag) && isVisibleReview(e.review);
       // Händelserna i Samtidigt-kortet syns alltid, så att kortets bågar har markörer i båda ändar,
       // också när lagret Händelser är avslaget eller kategorin filtrerad bort. De räknas inte i listan.
-      const shown = okFilter || (highlight.has(e.id) && isVisibleReview(e.review));
+      const longRunning = isLongRunning(e, year);
+      const shown = (okFilter && !longRunning) || ((highlight.has(e.id) || e.id === selectedId) && isVisibleReview(e.review));
       const [s0, s1] = span(e);
       const inside = year >= s0 && year <= s1;
       const dist = inside ? 0 : Math.min(Math.abs(year - s0), Math.abs(year - s1));
@@ -183,16 +204,20 @@ export class EventsLayer {
       const fought = e.partOf === focusId && s1 < year;
       const activity = !shown ? 0 : inside ? 1 : near ? 1 - 0.6 * dist / Math.max(1, window) : fought ? 0.45 : 0;
       const when = inside ? 'now' : s1 < year ? 'past' : 'future';
-      this.state.set(e.id, { activity, inside, dist, when });
+      // Utanför Fokus gör det lägre tonläget tydligt att händelsen bara ligger i tidsfönstret.
+      // Redan utkämpade slag i Fokus behåller sin tidigare svaga visning (#434).
+      const opacity = inside || fought ? 0.45 + 0.55 * activity : Math.min(0.45, activity);
+      this.state.set(e.id, { activity, inside, dist, when, fought, opacity });
       s.userData.info = markerInfo(e, when);
       s.userData.big = e.id === selectedId || highlight.has(e.id);
       s.userData.activity = activity;
       s.visible = activity > 0;
       s.userData.active = activity > 0; // klustringen döljer markörer som ingår i ett kluster
-      s.material.opacity = 0.45 + 0.55 * activity;
+      s.material.opacity = opacity;
       s.userData.baseScale = (s.userData.big ? 0.078 : 0.045 + 0.018 * activity);
       if (activity > 0) this._paint(s);
-      if (activity > 0 && okFilter) visible.push({ e, activity, inside, dist });
+      // Panelen räknar även gamla öppna spann, men markören ritas först när posten väljs.
+      if ((activity > 0 || longRunning) && okFilter) visible.push({ e, activity, inside, dist, longRunning });
     }
     visible.sort((a, b) => (b.inside - a.inside) || (a.dist - b.dist) || (a.e.start - b.e.start));
     return visible;
@@ -203,7 +228,7 @@ export class EventsLayer {
     const k = W / 2048; // skenet blir lika stort oavsett bildens upplösning
     for (const e of this.events) {
       const st = this.state.get(e.id);
-      if (!st || st.activity <= 0) continue;
+      if (!st || st.activity <= 0 || (!st.inside && !st.fought)) continue;
       const x = (e._lon + 180) / 360 * W, y = (90 - e._lat) / 180 * H;
       const r = (26 + 18 * st.activity) * k;
       const col = CAT[e.category]?.color ?? '#ffffff';

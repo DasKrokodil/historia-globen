@@ -1,6 +1,7 @@
 // Tidsreglaget äger det nuvarande året (arkitekturprincip 3).
 // Beslut 4: segmenterad skala där nutiden får mer plats än forntiden.
-import { formatYear, parseYear, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT } from './model.js';
+import { formatYear, formatDate, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t } from './model.js';
+import { selectEventsForDate } from './date-events.js';
 
 export const MIN_YEAR = -2999;   // 3000 f.Kr.
 // Tidslinjen slutar i dag enligt datorns klocka, men aldrig före 2026 då datan senast kontrollerades (#229)
@@ -55,9 +56,9 @@ const ICON_AGAIN = 'M8 2.5V0L4.2 3.6 8 7.2V4.5a3.5 3.5 0 1 1-3.5 3.5h-2A5.5 5.5 
 const fmtDays = r => { const n = fmtNum(r * DAYS_PER_YEAR); return `${n} ${dayUnit(n)}/s`; };
 
 export class Timeline extends EventTarget {
-  constructor({ track, thumb, segs, ticks, dots, ffMarks, chapters, warMarks, playBtn, playIcon, stepBtns, speedBtn, pauseNote, pauseText, pauseGo }) {
+  constructor({ track, thumb, segs, ticks, dots, ffMarks, chapters, warMarks, markNote, playBtn, playIcon, stepBtns, speedBtn, pauseNote, pauseText, pauseGo, status }) {
     super();
-    Object.assign(this, { track, thumb, playBtn, playIcon, speedBtn, pauseNote, pauseText, pauseGo, stepBtns, segsEl: segs, ticksEl: ticks });
+    Object.assign(this, { track, thumb, playBtn, playIcon, speedBtn, pauseNote, pauseText, pauseGo, status, stepBtns, segsEl: segs, ticksEl: ticks });
     this._year = 1325;
     this.playing = false;
     this._resume = false; // automatisk paus: knappen heter "Fortsätt"
@@ -70,10 +71,10 @@ export class Timeline extends EventTarget {
     // Hastighet i år per sekund (#164). Det gamla sparade värdet ('hg-speed', ×-faktor) ignoreras.
     this.speed = 25;
     try { const v = Number(localStorage.getItem('hg-speed-ars')); if (SPEEDS.includes(v)) this.speed = v; } catch { /* utan lagring */ }
-    this.dotsEl = dots; this.ffEl = ffMarks; this.chaptersEl = chapters; this.warEl = warMarks;
+    this.dotsEl = dots; this.ffEl = ffMarks; this.chaptersEl = chapters; this.warEl = warMarks; this.markNote = markNote;
     this._story = null; // kapitel och markeringar när man följer ett krig (#244)
     this._drawScale();
-    addEventListener('resize', () => { if (this.focus) { this._drawScale(); this._drawStory(); } }); // antal årtal beror på bredden
+    addEventListener('resize', () => { if (this.focus) { this._drawScale(); this._drawStory(); } else this._hideOverlaps(); }); // antal årtal beror på bredden
 
     speedBtn.addEventListener('click', () => {
       this.speed = SPEEDS[(SPEEDS.indexOf(this.speed) + 1) % SPEEDS.length];
@@ -138,6 +139,8 @@ export class Timeline extends EventTarget {
     this._labelSpeed();
     this._labelSteps();
     this._drawScale();
+    // Samma märken får en annan plats på den inzoomade skalan, även om deras data är oförändrad.
+    this._marksKey = null;
     if (this._marks) this.setMarks(...this._marks);
     this._drawStory();
     if (range && (this._year < range.from || this._year > range.to)) this.year = range.from;
@@ -177,7 +180,28 @@ export class Timeline extends EventTarget {
       d.className = `tick lvl${level}` + (y === MIN_YEAR ? ' first' : '');
       d.style.left = `${yearToPos(y) * 100}%`;
       d.textContent = y === 1 ? '0' : formatYear(y);
+      d.dataset.level = level;
       this.ticksEl.append(d);
+    }
+    this._hideOverlaps();
+    requestAnimationFrame(() => this._hideOverlaps()); // en gång till när typsnitten och layouten är klara
+  }
+
+  /**
+   * Döljer årtal på skalan som skulle krocka med ett viktigare årtal (#63). Bredden beror på språket:
+   * "1000 av. J.-C." är längre än "1000 f.Kr.". Nivå 1 behålls alltid, sedan nivå 2 och 3 där de får plats.
+   */
+  _hideOverlaps() {
+    const ticks = [...this.ticksEl.querySelectorAll('.tick[data-level]')];
+    for (const d of ticks) d.classList.remove('tick-hidden');
+    const kept = [];
+    for (const level of ['1', '2', '3']) {
+      for (const d of ticks.filter(t => t.dataset.level === level)) {
+        const r = d.getBoundingClientRect();
+        if (!r.width) continue; // dold av bredden (lvl2 och lvl3 i smal skärm)
+        if (level !== '1' && kept.some(k => r.left < k.right + 6 && r.right > k.left - 6)) { d.classList.add('tick-hidden'); continue; }
+        kept.push(r);
+      }
     }
   }
 
@@ -216,37 +240,38 @@ export class Timeline extends EventTarget {
     this.dispatchEvent(new CustomEvent('change', { detail: { year: y } }));
   }
 
-  /** Markeringar på reglaget: en prick per händelse, ett streck för spann, en romb per fun fact.
-   *  focusOnly(e): sant för händelser som bara markeras i fokusläget, inte i översikten (#298). */
-  setMarks(events, funfacts, colorOf, focusOnly = () => false) {
-    this._marks = [events, funfacts, colorOf, focusOnly];
-    const inView = y => !this.focus || (y >= this.focus.from && y <= this.focus.to);
+  /** Märken från lagerregistret (#378): cirkel = händelse, romb = Samtidigt, streck = resa. */
+  setMarks(marks = []) {
+    const key = marks.map(mark => [mark.type, mark.at, mark.until ?? '', mark.color ?? '', mark.label ?? ''].join('\u001f')).join('\u001e');
+    if (key === this._marksKey) return;
+    this._marksKey = key;
+    this._marks = [marks];
     this.dotsEl.replaceChildren();
-    for (const e of events) {
-      if (!this.focus && focusOnly(e)) continue;
-      const [s0, s1] = this.spanOf(e);
+    this.ffEl.replaceChildren();
+    const show = mark => {
+      if (!this.markNote) return;
+      this.markNote.textContent = mark.label;
+      this.markNote.hidden = false;
+    };
+    for (const mark of marks) {
+      const [s0, s1] = mark.until == null ? [mark.at, mark.at] : this.spanOf({ start: mark.at, end: mark.until, edtf: '' });
       if (this.focus && (s1 < this.focus.from || s0 > this.focus.to)) continue;
-      // I fokusläget för korta krig är ett datum en dag lång, och det ritas som en prick
       const a = this.toPos(s0), b = this.focus?.fine && s1 - s0 <= 1.5 / DAYS_PER_YEAR ? a : this.toPos(s1);
-      const d = document.createElement('div');
-      if (b - a > 0.004) {
+      const d = document.createElement('button');
+      d.type = 'button'; d.className = mark.type === 'funfact' ? 'tff' : mark.type === 'route' ? 'troute' : 'tdot';
+      d.setAttribute('aria-label', mark.label); d.title = mark.label;
+      if (mark.type === 'route-stop') d.classList.add('route-stop');
+      if (mark.until != null && b - a > 0.004) {
         d.className = 'tspan';
         d.style.left = `${a * 100}%`; d.style.width = `${(b - a) * 100}%`;
       } else {
-        d.className = 'tdot';
         d.style.left = `${a * 100}%`;
       }
-      d.style.background = colorOf(e);
-      this.dotsEl.append(d);
-    }
-    this.ffEl.replaceChildren();
-    for (const f of funfacts) {
-      const mid = (f.show[0] + f.show[1]) / 2;
-      if (!inView(mid)) continue;
-      const d = document.createElement('div');
-      d.className = 'tff';
-      d.style.left = `${this.toPos(mid) * 100}%`;
-      this.ffEl.append(d);
+      if (mark.color) d.style.background = mark.color;
+      d.addEventListener('pointerdown', e => e.stopPropagation());
+      d.addEventListener('focus', () => show(mark));
+      d.addEventListener('click', e => { e.stopPropagation(); show(mark); });
+      (mark.type === 'funfact' ? this.ffEl : this.dotsEl).append(d);
     }
   }
 
@@ -275,6 +300,11 @@ export class Timeline extends EventTarget {
       n++;
       band.style.left = pct(a); band.style.width = pct(b - a);
       band.title = c.title;
+      // På mobil döljs de övriga namnen visuellt, men varje band behåller sin fulla
+      // beskrivning för skärmläsare och som tooltip (#446).
+      band.setAttribute('role', 'img');
+      band.setAttribute('aria-label', c.title);
+      band.dataset.center = String((a + b) / 2);
       const label = document.createElement('span');
       label.className = 'chap-label';
       label.textContent = c.label;
@@ -298,6 +328,23 @@ export class Timeline extends EventTarget {
         this.warEl.append(line);
       }
       this.warEl.append(d);
+    }
+    this._showNearestStoryLabel();
+  }
+
+  /** I en smal tidslinje får bara bandet närmast reglaget ett synligt namn (#446). */
+  _showNearestStoryLabel() {
+    const bands = [...this.chaptersEl.querySelectorAll('.chap')];
+    if (!bands.length) return;
+    const at = this.toPos(this._year);
+    let nearest = bands[0];
+    for (const band of bands.slice(1)) {
+      if (Math.abs(Number(band.dataset.center) - at) < Math.abs(Number(nearest.dataset.center) - at)) nearest = band;
+    }
+    for (const band of bands) {
+      const current = band === nearest;
+      band.querySelector('.chap-label')?.classList.toggle('chap-label-current', current);
+      band.classList.toggle('chap-label-flip', current && Number(band.dataset.center) > 0.5);
     }
   }
 
@@ -332,6 +379,8 @@ export class Timeline extends EventTarget {
   }
   /** I slutet (fokusets slut eller sista året) och utan något kvar att visa börjar nästa uppspelning om. */
   get atEnd() { return !this.playing && this._year >= (this.focus ? this.focus.to : MAX_YEAR) && !this.hasMore(); }
+  /** Sant efter en automatisk paus, när nästa uppspelning fortsätter där tiden stannade. */
+  get resumable() { return this._resume; }
   /** Spelknappens ikon och namn: "Pausa", "Fortsätt" (efter automatisk paus), "Spela igen" (i slutet, #232)
    *  eller "Spela upp tiden". Knappen i pausraden byter text på samma sätt. */
   _labelPlay() {
@@ -341,6 +390,7 @@ export class Timeline extends EventTarget {
     this.playBtn.setAttribute('aria-label', t);
     this.playBtn.title = t;
     if (this.pauseGo) this.pauseGo.textContent = again ? '\u21BB Spela igen' : '\u25B6 Fortsätt';
+    this.dispatchEvent(new CustomEvent('playstate'));
   }
   /** Läs om knappens läge, till exempel när slutkortet har visats utan att året ändrades. */
   refreshPlayLabel() { this._labelPlay(); }
@@ -374,25 +424,47 @@ export class Timeline extends EventTarget {
     requestAnimationFrame(step);
   }
   /** Pausar. Med `reason` (text) är det en automatisk paus: knappen blir "Fortsätt" och raden vid knappen visar varför.
-   *  `always` visar raden även om uppspelningen redan stod still (nästa stopp i ett krig, #217). */
-  pause(reason, always = false) {
+   *  `always` visar raden även om uppspelningen redan stod still (nästa stopp i ett krig, #217).
+   *  `more` ({ title, text }) är en fällbar rad i pausraden, till exempel resans not om att källorna skiljer sig (#647).
+   */
+  pause(reason, always = false, announcement = reason, more = null) {
     const wasPlaying = this.playing;
     this.playing = false;
     this.playBtn.setAttribute('aria-pressed', 'false');
     const auto = !!reason && (wasPlaying || always);
     this._resume = auto;
     this._labelPlay();
-    this._showNote(auto ? reason : null);
+    this._showNote(auto ? reason : null, auto ? announcement : null, auto ? more : null);
   }
-  _showNote(text) {
+  _showNote(text, announcement = text, more = null) {
     if (!this.pauseNote) return;
     this.pauseNote.hidden = !text;
     if (text) this.pauseText.textContent = text;
+    const box = this.pauseNote.querySelector('#pause-more');
+    if (box) {
+      box.hidden = !more;
+      box.open = false;
+      box.querySelector('#pause-more-title').textContent = more ? more.title : '';
+      box.querySelector('#pause-more-text').textContent = more ? more.text : '';
+    }
+    if (announcement) this._announce(announcement);
+    else if (this.status) this.status.textContent = '';
+  }
+  /** Den här raden finns alltid i DOM:en, så att skärmläsaren säkert får ändringen. */
+  _announce(text) {
+    if (!this.status) return;
+    const request = (this._announceRequest ?? 0) + 1;
+    this._announceRequest = request;
+    this.status.textContent = '';
+    requestAnimationFrame(() => {
+      if (this._announceRequest === request) this.status.textContent = text;
+    });
   }
 
   _render() {
     const p = this.toPos(this._year);
     this.thumb.style.left = `${p * 100}%`;
+    this._showNearestStoryLabel();
     this.track.setAttribute('aria-valuenow', String(this._year));
     this.track.setAttribute('aria-valuetext', this.format(this._year));
     this._labelPlay(); // i slutet heter knappen "Spela igen"
@@ -401,16 +473,26 @@ export class Timeline extends EventTarget {
 }
 
 
-/** "Hoppa till år": tryck på årtalet, skriv ett år (med f.Kr./e.Kr.) eller välj en tidsålder (#140). */
-export function setupYearJump(timeline, { button, pop, input, msg, epochs, onJump }) {
+/** "Hoppa till år": tryck på årtalet, skriv ett år (med f.Kr./e.Kr.) eller ett datum (#140, #551).
+ *  Raderna i datumresultatet är knappar som stänger årshoppet och öppnar händelsen (`onSelect(id)`, #590). */
+export function setupYearJump(timeline, { button, pop, input, msg, epochs, events = [], copy = {}, onJump, onSelect }) {
+  const result = pop.querySelector('#jump-date-result');
+  const summary = pop.querySelector('#jump-date-summary');
+  const list = pop.querySelector('#jump-date-events');
+  const clearResult = () => {
+    if (result) { result.setAttribute('hidden', 'hidden'); result.hidden = true; }
+    summary && (summary.textContent = ''); list && list.replaceChildren();
+    pop.classList.remove('has-date-result');
+  };
   let era = 'ce';
   const setEra = e => {
     era = e;
     for (const b of pop.querySelectorAll('.jump-era-btn')) b.setAttribute('aria-pressed', String(b.dataset.era === era));
+    // e.Kr. är standard och behöver inget val: bara knappen f.Kr. finns, och den slås av och på
   };
-  const close = () => { pop.hidden = true; button.setAttribute('aria-expanded', 'false'); };
+  const close = () => { clearResult(); pop.hidden = true; button.setAttribute('aria-expanded', 'false'); };
   const open = () => {
-    setEra('ce'); input.value = ''; msg.textContent = '';
+    setEra('ce'); input.value = ''; msg.textContent = ''; clearResult();
     pop.hidden = false; button.setAttribute('aria-expanded', 'true');
     input.focus();
   };
@@ -425,12 +507,42 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, onJum
     close(); button.focus();
     onJump?.(y); // bara hopp, inte uppspelning eller stegknappar (#165)
   };
+  const showDateResult = (date, year, found) => {
+    if (!result || !summary || !list) return;
+    const { yearResult, dateResult, empty, more } = copy;
+    const template = date ? t(dateResult) : t(yearResult);
+    // Datumet på svenska, "26 april 1986", som i resten av sidan (#590)
+    summary.textContent = template.replace('{date}', date ? formatDate(date) : '').replace('{year}', formatYear(year)).replace('{count}', String(found.length));
+    list.replaceChildren(...found.slice(0, 5).map(event => {
+      const item = document.createElement('li');
+      if (!onSelect) { item.textContent = t(event.title); return item; }
+      // Varje rad öppnar händelsens faktaruta, på samma sätt som en rad i Samtidigt (#590)
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'jump-date-event'; b.dataset.id = event.id;
+      b.textContent = t(event.title);
+      b.addEventListener('click', () => { close(); onSelect(event.id); });
+      item.append(b);
+      return item;
+    }));
+    if (!found.length) {
+      const item = document.createElement('li');
+      item.textContent = t(empty);
+      list.append(item);
+    } else if (found.length > 5) {
+      const item = document.createElement('li');
+      item.textContent = t(more).replace('{count}', String(5));
+      list.append(item);
+    }
+    result.hidden = false;
+    result.removeAttribute('hidden');
+    pop.classList.add('has-date-result'); // i mobilen döljs snabbhoppen, så att resultatet tar mindre plats (#590)
+  };
   const chip = (label, y) => {
     const b = document.createElement('button');
     b.type = 'button'; b.className = 'jump-epoch';
     const [num, e] = yearParts(y);
     b.innerHTML = `<span class="jump-epoch-name"></span><span class="jump-epoch-year"></span>`;
-    b.firstChild.textContent = label; b.lastChild.textContent = `${num} ${e || 'e.Kr.'}`.trim();
+    b.firstChild.textContent = label; b.lastChild.textContent = `${num} ${e || CE_TXT}`.trim();
     b.addEventListener('click', () => jump(y));
     epochs.append(b);
   };
@@ -438,16 +550,37 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, onJum
   SEGMENTS.forEach((s, i) => chip(s.name, i ? s.from + 1 : s.from));
   chip('Idag', MAX_YEAR);
 
-  button.addEventListener('click', () => (pop.hidden ? open() : close()));
-  for (const b of pop.querySelectorAll('.jump-era-btn')) b.addEventListener('click', () => { setEra(b.dataset.era); input.focus(); });
+  button.addEventListener('click', () => {
+    if (!pop.hidden && result && !result.hidden) {
+      input.focus();
+      return;
+    }
+    (pop.hidden ? open() : close());
+  });
+  for (const b of pop.querySelectorAll('.jump-era-btn')) b.addEventListener('click', () => { setEra(era === b.dataset.era ? 'ce' : b.dataset.era); input.focus(); });
   pop.addEventListener('submit', ev => {
     ev.preventDefault();
-    const y = parseYear(input.value, era);
-    if (y === null) { msg.textContent = 'Skriv ett år, till exempel 1969 eller 2600 f.Kr.'; return; }
-    if (y < MIN_YEAR || y > MAX_YEAR) { msg.textContent = `Välj ett år mellan ${formatYear(MIN_YEAR)} och ${formatYear(MAX_YEAR)}.`; return; }
+    const parsed = parseYearInput(input.value, era === 'bce' ? 'bce' : 'ce');
+    if (parsed.type === 'invalid') { clearResult(); msg.textContent = parsed.error; return; }
+    const y = parsed.year;
+    if (y < MIN_YEAR || y > MAX_YEAR) { clearResult(); msg.textContent = `Välj ett år mellan ${formatYear(MIN_YEAR)} och ${formatYear(MAX_YEAR)}.`; return; }
+    if (parsed.type === 'date') {
+      const visible = events.filter(event => isVisibleReview(event.review));
+      const found = selectEventsForDate(parsed.date, visible);
+      timeline.pause();
+      timeline.setFocus(null);
+      timeline.year = y;
+      showDateResult(parsed.date, y, found);
+      onJump?.(y);
+      if (Math.floor(timeline.year) !== y) {
+        msg.textContent = `Året ligger utanför det du följer nu (${timeline.format(timeline.focus.from)}–${timeline.format(timeline.focus.to)}).`;
+        return;
+      }
+      return;
+    }
     jump(y);
   });
-  input.addEventListener('input', () => { msg.textContent = ''; });
+  input.addEventListener('input', () => { msg.textContent = ''; clearResult(); });
   pop.addEventListener('keydown', ev => { if (ev.key === 'Escape') { close(); button.focus(); } });
   document.addEventListener('pointerdown', ev => { if (!pop.hidden && !pop.contains(ev.target) && !button.contains(ev.target)) close(); });
 }

@@ -77,7 +77,8 @@
               "name": {
                 "sv": "Palos de la Frontera"
               },
-              "date": "1492-08-03"
+              "date": "1492-08-03",
+              "stop": true
             },
             {
               "at": [
@@ -145,7 +146,8 @@
               "name": {
                 "sv": "Guanahaní (troligen San Salvador)"
               },
-              "date": "1492-10-12"
+              "date": "1492-10-12",
+              "stop": true
             }
           ],
           "sources": [
@@ -277,7 +279,11 @@
               "name": {
                 "sv": "La Navidad"
               },
-              "date": "1492-12-25"
+              "date": "1492-12-25",
+              "stop": true,
+              "text": {
+                "sv": "25 december 1492: Santa María går på grund utanför Hispaniola. Fortet La Navidad byggs av vraket från den 26 december."
+              }
             }
           ],
           "sources": [
@@ -341,7 +347,8 @@
               "name": {
                 "sv": "Rincónbukten, Samanáhalvön"
               },
-              "date": "1493-01-13"
+              "date": "1493-01-13",
+              "stop": true
             }
           ],
           "sources": [
@@ -430,7 +437,8 @@
               "name": {
                 "sv": "Lissabon"
               },
-              "date": "1493-03-04"
+              "date": "1493-03-04",
+              "stop": true
             }
           ],
           "sources": [
@@ -483,7 +491,8 @@
               "name": {
                 "sv": "Palos de la Frontera"
               },
-              "date": "1493-03-15"
+              "date": "1493-03-15",
+              "stop": true
             }
           ],
           "sources": [

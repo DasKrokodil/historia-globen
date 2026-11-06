@@ -3,7 +3,7 @@
 // mellan de platser som hör ihop. Det kan fällas ihop till en flik (#120).
 // I smal skärm (högst 760 px) är kortet en panel underifrån med tre lägen (#239): stängd (handtag och
 // rubrikraden), halv och hel. Man drar i handtaget eller trycker på det, och kortet stängs när man drar i globen.
-import { CAT, REVIEW, t, formatYear, formatEventTime, styleFor, isVisibleReview, reviewLabel, REVIEW_SUBJECT_HELP, needDetails } from '../model.js';
+import { CAT, REVIEW, REGIONS, region, t, formatYear, formatEventTime, styleFor, isVisibleReview, reviewLabel, REVIEW_SUBJECT_HELP, needDetails } from '../model.js';
 
 const KIND = { funfact: 'Fun fact', war: 'När ett krig bröt ut', empire: 'Rikets berättelse', vanished: 'Landets berättelse' };
 
@@ -32,8 +32,40 @@ const HINT_KEY = 'hg-ff-drag-hint'; // "Dra upp för mer" har visats (#310)
 const HINT_MS = 6000;
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
+/**
+ * Väljer en redan synlig fun fact med en uttrycklig, jämn turordning mellan
+ * världsdelarna. En fact får vara kandidat för varje världsdel där någon av
+ * dess länkade händelser ligger. Vid lika många tidigare val bryter seedet
+ * lika, och nästa fact inom världsdelen väljs också deterministiskt. De fem
+ * senast visade facts hoppas över när det finns en annan kandidat i tur.
+ */
+export function pickBalancedFunFact(funfacts, byId, counts, seed, recent = []) {
+  const candidates = new Map(REGIONS.map(name => [name, []]));
+  for (const fact of funfacts) {
+    if (fact.kind || !isVisibleReview(fact.review)) continue;
+    const regions = new Set(fact.events.map(id => byId[id]).filter(Boolean).map(event => {
+      const [lon, lat] = event.location?.coordinates ?? [event._lon, event._lat];
+      return Number.isFinite(lat) && Number.isFinite(lon) ? region(lat, lon) : null;
+    }).filter(Boolean));
+    for (const name of regions) candidates.get(name)?.push(fact);
+  }
+  const available = REGIONS.filter(name => candidates.get(name)?.length);
+  if (!available.length) return null;
+  const least = Math.min(...available.map(name => counts.get(name) ?? 0));
+  const tied = available.filter(name => (counts.get(name) ?? 0) === least);
+  const selectedRegion = tied[seed % tied.length];
+  const options = candidates.get(selectedRegion);
+  // Regionbalansen väljs före rotationen. Därmed blir inte den datatätaste
+  // världsdelen vanligare bara för att en annan nyss har visats.
+  const fresh = options.filter(fact => !recent.includes(fact.id));
+  const rotation = fresh.length ? fresh : options;
+  const fact = rotation[Math.floor(seed / tied.length) % rotation.length];
+  counts.set(selectedRegion, (counts.get(selectedRegion) ?? 0) + 1);
+  return { fact, region: selectedRegion };
+}
+
 export class FunFacts {
-  constructor(els, { funfacts, byId, srcById, styles }) {
+  constructor(els, { funfacts, byId, srcById, styles, surprise }) {
     Object.assign(this, els);
     this.all = funfacts; this.byId = byId; this.srcById = srcById; this.styles = styles;
     this.active = []; this.index = 0; this.shownKey = '';
@@ -44,6 +76,13 @@ export class FunFacts {
     this.onSelect = () => {}; // öppnar hela faktarutan ("Läs mer")
     this.onSources = () => {};
     this.onNew = () => {};
+    this._announcedKey = '';
+    this.surprise = surprise;
+    this.surpriseCounts = new Map();
+    this.surpriseStep = 0;
+    this.surpriseRecent = [];
+    this.requestedId = null;
+    this.onSurprise = () => {};
     this.minimized = false;
     try { this.minimized = localStorage.getItem('hg-ff-min') === '1'; } catch { /* utan lagring */ }
     // Panelen i smal skärm (#239): ihopfällt kort (minimized) visas som stängd panel i stället för en flik.
@@ -62,6 +101,14 @@ export class FunFacts {
     this.text.addEventListener('click', () => this.root.classList.toggle('ff-open'));
     // Kortets källor räknas fram i main.js (händelsernas källor laddas först när de behövs, #337)
     this.srcBtn.addEventListener('click', () => { const f = this.active[this.index]; if (f) this.onSources(f); });
+    this.surprise?.addEventListener('click', () => {
+      const picked = pickBalancedFunFact(this.all, this.byId, this.surpriseCounts, this.surpriseStep++, this.surpriseRecent);
+      if (!picked) return;
+      this.surpriseRecent.push(picked.fact.id);
+      if (this.surpriseRecent.length > 5) this.surpriseRecent.shift();
+      this.requestedId = picked.fact.id;
+      this.onSurprise(picked.fact, picked.region);
+    });
   }
 
   update(year, filters) {
@@ -74,10 +121,12 @@ export class FunFacts {
       // Kort som jämför flera händelser (samtidighet) först, sedan det som började senast, så att det nya syns
       .sort((a, b) => (b.events.length > 1) - (a.events.length > 1) || b.show[0] - a.show[0]))];
     const key = active.map(f => f.id).join('|');
-    if (key === this.shownKey) return;
+    const requestedIndex = this.requestedId ? active.findIndex(f => f.id === this.requestedId) : -1;
+    if (key === this.shownKey && requestedIndex < 0) return;
     // Rikets berättelse pausar uppspelningen själv (main.js), med egen orsak och eget val i Lager
     const fresh = active.some(f => f.kind !== 'empire' && !this.active.includes(f));
-    this.shownKey = key; this.active = active; this.index = 0;
+    this.shownKey = key; this.active = active; this.index = requestedIndex >= 0 ? requestedIndex : 0;
+    this.requestedId = null;
     if (fresh && this.autoClosed) { this.autoClosed = false; this.sheet = 'half'; }
     this._show();
     if (fresh) this.onNew();
@@ -200,25 +249,28 @@ export class FunFacts {
    * Bilderna överst i kortet (#190): händelsernas bilder visas alltid, högst tre sida vid sida, utan text
    * under dem utom händelsens namn (när det är flera) och "Läs mer", som öppnar hela faktarutan med
    * bildtext, kredit och licens. Illustrationer får etiketten "Illustration" i hörnet (bildregel 2:
-   * den fulla märkningen står i faktarutan). Händelser utan bild får en ruta med tidsålderns ram.
-   * Inga bilder i kortet alls: ingen bildrad.
+   * den fulla märkningen står i faktarutan). Bildlösa händelser får i stället en avsiktlig
+   * reservruta med kategori, ikon, år och titel i samma rad och höjd som bildkorten (#542).
    */
   _renderPics(evs, kind) {
     const withImg = evs.filter(e => e.image), rest = evs.filter(e => !e.image);
     const shown = [...withImg, ...rest].slice(0, 3);
-    this.pics.hidden = !withImg.length;
-    this.root.classList.toggle('ff-has-pics', !!withImg.length);
+    this.pics.hidden = !shown.length;
+    this.root.classList.toggle('ff-has-pics', !!shown.length);
     this.root.classList.remove('ff-sym');
     if (!withImg.length && kind === 'war' && evs.length) return this._renderSymbol(evs[0]);
-    if (!withImg.length) { this.pics.innerHTML = ''; return; }
+    if (!shown.length) { this.pics.innerHTML = ''; return; }
     this.pics.style.setProperty('--n', shown.length);
     this.pics.innerHTML = shown.map(e => {
-      const st = styleFor(e, this.styles), img = e.image;
+      const st = styleFor(e, this.styles), img = e.image, reserve = !img;
+      const icon = e.icon || CAT_ICON[e.category] || 'star';
+      const category = t(CAT[e.category]?.name) || e.category;
+      const year = formatYear(e.start);
       const label = !img ? '' : img.placeholder ? 'Platshållare' : img.kind === 'illustration' ? 'Illustration' : '';
-      return `<button type="button" class="ff-pic frame-${st.frame}${img ? '' : ' no-img'}" data-id="${esc(e.id)}" aria-label="Läs mer: ${esc(t(e.title))}">
-        ${img ? `<img src="${esc(img.file)}" alt="" width="800" height="600">` : ''}
+      return `<button type="button" class="ff-pic frame-${st.frame}${reserve ? ' ff-reserve' : ''}" data-id="${esc(e.id)}" aria-label="${reserve ? `${category}, ${year}, ${t(e.title)}` : 'Bildkort'}: Läs mer om ${esc(t(e.title))}"${reserve ? ` style="--ff-reserve-color:${esc(CAT[e.category]?.color || 'var(--brass)')}"` : ''}>
+        ${img ? `<img src="${esc(img.file)}" alt="" width="800" height="600">` : `<span class="ff-reserve-top" aria-hidden="true"><img class="ff-reserve-icon" src="img/icons/${esc(icon)}.svg" alt="" width="40" height="40"><span class="ff-reserve-year">${esc(year)}</span></span><span class="ff-reserve-category" aria-hidden="true">${esc(category)}</span>`}
         ${label ? `<span class="ff-badge">${label}</span>` : ''}
-        <span class="ff-cap">${shown.length > 1 || !img ? `<span class="ff-name">${esc(t(e.title))}</span>` : ''}<span class="ff-more">Läs mer ›</span></span>
+        <span class="ff-cap">${shown.length > 1 || reserve ? `<span class="ff-name">${esc(t(e.title))}</span>` : ''}<span class="ff-more">Läs mer ›</span></span>
       </button>`;
     }).join('');
     for (const b of this.pics.querySelectorAll('.ff-pic')) b.addEventListener('click', () => this.onSelect(b.dataset.id));
@@ -231,13 +283,16 @@ export class FunFacts {
    */
   _renderSymbol(e) {
     const st = styleFor(e, this.styles), icon = e.icon || CAT_ICON[e.category] || 'star';
+    const category = t(CAT[e.category]?.name) || e.category;
+    const year = formatYear(e.start);
     this.pics.hidden = false;
     this.root.classList.add('ff-sym');
     this.pics.style.setProperty('--n', 1);
-    this.pics.innerHTML = `<button type="button" class="ff-pic ff-symbol frame-${st.frame} no-img" data-id="${esc(e.id)}" aria-label="Läs mer: ${esc(t(e.title))}">
-      <img class="ff-sym-icon" src="img/icons/${esc(icon)}.svg" alt="" width="64" height="64">
+    this.pics.innerHTML = `<button type="button" class="ff-pic ff-symbol ff-reserve frame-${st.frame}" data-id="${esc(e.id)}" aria-label="${esc(category)}, ${esc(year)}, ${esc(t(e.title))}: Läs mer om ${esc(t(e.title))}" style="--ff-reserve-color:${esc(CAT[e.category]?.color || 'var(--brass)')}">
+      <span class="ff-reserve-top" aria-hidden="true"><img class="ff-reserve-icon" src="img/icons/${esc(icon)}.svg" alt="" width="40" height="40"><span class="ff-reserve-year">${esc(year)}</span></span>
+      <span class="ff-reserve-category" aria-hidden="true">${esc(category)}</span>
       <span class="ff-badge">Grafisk symbol</span>
-      <span class="ff-cap"><span class="ff-more">Läs mer ›</span></span>
+      <span class="ff-cap"><span class="ff-name">${esc(t(e.title))}</span><span class="ff-more">Läs mer ›</span></span>
     </button>`;
     this.pics.querySelector('.ff-pic').addEventListener('click', ev => this.onSelect(ev.currentTarget.dataset.id));
   }
@@ -247,6 +302,25 @@ export class FunFacts {
     return new Set(f && !this.minimized && !this.autoClosed ? f.events : []);
   }
 
+  /** Texten som skärmläsaren får när ett nytt Samtidigt-kort visas. */
+  announcement() {
+    return `${this.kind.textContent.trim()}. ${this.text.textContent.trim()}`;
+  }
+
+  _announce(f) {
+    if (!this.status) return;
+    const text = this.announcement();
+    const key = `${f.id}:${this.index}:${text}`;
+    if (key === this._announcedKey) return;
+    this._announcedKey = key;
+    const request = (this._announceRequest ?? 0) + 1;
+    this._announceRequest = request;
+    this.status.textContent = '';
+    requestAnimationFrame(() => {
+      if (this._announceRequest === request) this.status.textContent = text;
+    });
+  }
+
   _show() {
     const f = this.active[this.index];
     // I smal skärm är det ihopfällda kortet en stängd panel, inte en flik (#239)
@@ -254,7 +328,8 @@ export class FunFacts {
     this.tab.hidden = !f || !this.minimized || asSheet;
     this.tabCount.textContent = String(this.active.length);
     this._syncSheet();
-    if (!f || (this.minimized && !asSheet)) { this.root.hidden = true; this.onArcs([]); return; }
+    if (!f || (this.minimized && !asSheet)) { this.root.hidden = true; this.root.dataset.funfactId = ''; this._announcedKey = ''; this.onArcs([]); return; }
+    this.root.dataset.funfactId = f.id;
     const story = f.kind === 'empire';
     this.root.classList.toggle('ff-story', story);
     this.root.classList.remove('ff-open');
@@ -279,6 +354,7 @@ export class FunFacts {
     this.pager.textContent = this.active.length > 1 ? `${this.index + 1} av ${this.active.length}` : '';
     this.next.hidden = this.active.length < 2;
     this.root.hidden = false;
+    this._announce(f);
     this._maybeHint();
     // Bågar från första händelsen till de övriga (inte när panelen är stängd)
     const [a, ...rest] = evs;

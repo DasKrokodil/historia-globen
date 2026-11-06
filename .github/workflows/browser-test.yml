@@ -1,5 +1,6 @@
-# Webbläsartest (#339, docs/DEPLOYMENT.md): bygger dist/, startar en lokal webbserver och öppnar sidan i Chromium
-# med Playwright i datorbredd (1400 × 900) och mobilbredd (400 × 800). Testskriptet är tests/webblasare.mjs.
+# Webbläsartest (#339, #401, docs/DEPLOYMENT.md): bygger dist/, startar en lokal webbserver och öppnar sidan
+# med Playwright i datorbredd (1400 × 900) och mobilbredd (400 × 800). Vanliga körningar använder Chromium;
+# release-PR mot production använder dessutom Firefox och WebKit. Testskriptet är tests/webblasare.mjs.
 # Playwright används bara här i testerna (Rikards godkännande 2026-10-31); sidan själv får inga nya beroenden.
 # Körs vid push till main och vid pull requests mot main och production, som validate-site.yml.
 name: Webbläsartest
@@ -23,9 +24,15 @@ env:
 
 jobs:
   browser:
-    name: Öppna sidan i Chromium
+    name: Öppna sidan i ${{ matrix.browser.name }}
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Chromium tar cirka 10 minuter; 10 räckte inte längre (#617). Firefox och WebKit (bara på release-PR:en) är
+    # långsammare utan grafikkort: Firefox nådde 20 minuter utan att bli klar inför v5.0.0, så de får 45.
+    timeout-minutes: ${{ matrix.browser.id == 'chromium' && 20 || 45 }}
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: ${{ fromJSON(github.event_name == 'pull_request' && github.base_ref == 'production' && '[{"id":"chromium","name":"Chromium"},{"id":"firefox","name":"Firefox"},{"id":"webkit","name":"WebKit"}]' || '[{"id":"chromium","name":"Chromium"}]') }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -35,14 +42,92 @@ jobs:
         with:
           node-version: '22'
 
+      # Playwrights webbläsare laddas annars ner på nytt för varje PR. Version och motor
+      # ligger i nyckeln, så en medveten uppgradering eller ett annat test får en egen cache.
+      - name: Cacha Playwright och npm
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/ms-playwright
+            ~/.npm
+          key: playwright-${{ runner.os }}-${{ matrix.browser.id }}-${{ env.PLAYWRIGHT_VERSION }}-v1
+
       - name: Bygg dist/
         run: bash scripts/build-site.sh
 
-      - name: Installera Playwright och Chromium (utanför repot)
+      # Apt-paketen som --with-deps installerar (mest typsnitt) hämtades förr från Ubuntus spegel
+      # varje gång, och spegeln var ibland så långsam att installationen slog i taket (#684).
+      # Nu sparas .deb-filerna i en egen cache och läggs tillbaka i apt:s arkiv före installationen,
+      # så att apt bara installerar dem i stället för att ladda ner. Samma paket som förut, så
+      # testmiljön (och typsnitten i skärmbilderna) blir densamma. Nyckeln har Ubuntus kodnamn,
+      # så att en ny runner-version får en egen cache.
+      - name: Förbered apt-cachen
+        id: apt
+        run: |
+          echo "dist=$(lsb_release -cs)" >> "$GITHUB_OUTPUT"
+          mkdir -p "$RUNNER_TEMP/apt-debs"
+          # apt ska behålla de hämtade paketen i /var/cache/apt/archives så att de kan sparas efteråt
+          echo 'Binary::apt::APT::Keep-Downloaded-Packages "true"; APT::Keep-Downloaded-Packages "true";' \
+            | sudo tee /etc/apt/apt.conf.d/99historia-globen-behall-paket > /dev/null
+          sudo rm -f /etc/apt/apt.conf.d/docker-clean
+
+      # Cachen fylls stegvis (#684): nyckeln slutar på en kontrollsumma av filnamnen, och den senaste
+      # cachen med samma början hämtas. Varje körning sparar de paket den har (även när installationen
+      # stoppades av tidsgränsen), så att en långsam spegel bara behöver ladda ner det som saknas.
+      - name: Hämta apt-paketen ur cachen
+        id: apt-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ runner.temp }}/apt-debs
+          key: apt-debs-${{ steps.apt.outputs.dist }}-${{ matrix.browser.id }}-${{ env.PLAYWRIGHT_VERSION }}-v2-
+          restore-keys: apt-debs-${{ steps.apt.outputs.dist }}-${{ matrix.browser.id }}-${{ env.PLAYWRIGHT_VERSION }}-v2-
+
+      - name: Lägg tillbaka apt-paketen
+        run: |
+          sudo find "$RUNNER_TEMP/apt-debs" -maxdepth 1 -name '*.deb' -exec cp -t /var/cache/apt/archives/ {} +
+          echo "$(find "$RUNNER_TEMP/apt-debs" -maxdepth 1 -name '*.deb' | wc -l) paket ur cachen"
+
+      - name: Installera Playwright och ${{ matrix.browser.name }} (utanför repot)
+        # Egen gräns (#617): steget tar normalt under en minut. Utan apt-cachen (första körningen
+        # efter en ny nyckel) hämtas typsnitten från spegeln och kan hänga; då ska installationen
+        # bli röd, inte testet stå som avbrutet.
+        timeout-minutes: 5
+        env:
+          BROWSER: ${{ matrix.browser.id }}
         run: |
           # Installeras i en tillfällig mapp, så att repot inte får någon package.json och dist/ inte påverkas
           npm install --prefix "$RUNNER_TEMP/pw" --no-save --no-audit --no-fund "playwright@$PLAYWRIGHT_VERSION"
-          "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps --only-shell chromium
+          if [ "$BROWSER" = chromium ]; then
+            "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps --only-shell chromium
+          else
+            "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps "$BROWSER"
+          fi
+
+      # Sparas direkt efter installationen, och även när den stoppades av tidsgränsen, så att nästa
+      # körning kommer längre. Nyckeln bygger på filnamnen: samma paket som förut sparas inte igen,
+      # och en tom cache sparas aldrig.
+      - name: Spara apt-paketen i cachen
+        id: apt-save
+        if: always()
+        run: |
+          mkdir -p "$RUNNER_TEMP/apt-debs"
+          find /var/cache/apt/archives -maxdepth 1 -name '*.deb' -exec cp -t "$RUNNER_TEMP/apt-debs" {} +
+          n=$(find "$RUNNER_TEMP/apt-debs" -maxdepth 1 -name '*.deb' | wc -l)
+          sum=$(find "$RUNNER_TEMP/apt-debs" -maxdepth 1 -name '*.deb' -printf '%f\n' | sort | sha256sum | cut -c1-16)
+          key="apt-debs-${{ steps.apt.outputs.dist }}-${{ matrix.browser.id }}-$PLAYWRIGHT_VERSION-v2-$sum"
+          echo "count=$n" >> "$GITHUB_OUTPUT"
+          echo "key=$key" >> "$GITHUB_OUTPUT"
+          if [ "$key" = "${{ steps.apt-cache.outputs.cache-matched-key }}" ]; then
+            echo "$n paket, samma som i cachen"; echo "new=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "$n paket sparas"; echo "new=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Ladda upp apt-cachen
+        if: always() && steps.apt-save.outputs.new == 'true' && steps.apt-save.outputs.count != '0'
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ runner.temp }}/apt-debs
+          key: ${{ steps.apt-save.outputs.key }}
 
       - name: Starta webbservern för dist/
         run: |
@@ -52,6 +137,7 @@ jobs:
 
       - name: Kör webbläsartestet (tests/webblasare.mjs)
         env:
+          BROWSER: ${{ matrix.browser.id }}
           SKARMBILDER: skarmbilder
         run: NODE_PATH="$RUNNER_TEMP/pw/node_modules" node tests/webblasare.mjs "$PORT"
 
@@ -59,7 +145,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: skarmbilder
+          name: skarmbilder-${{ matrix.browser.id }}
           path: skarmbilder/
           if-no-files-found: warn
           retention-days: 14

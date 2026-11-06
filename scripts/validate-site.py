@@ -21,19 +21,24 @@ Kontroller:
      Testa innan du är klar).
   9. Varje rike som ett krig anger i empires (#76) finns som grupp i data/empires/index.json,
      och bara krig (kind: "war") har fältet.
- 10. De uppdelade filerna i data/genererat/ (#337) stämmer med källfilerna data/events.json och
-     data/empires/index.json, alltså att någon har kört python3 tools/dela_data.py efter sin ändring.
-     Kontrollen räknar fram filerna med samma kod som skriptet (tools/dela_data.py i repot).
+ 10. data/events.json och de uppdelade filerna i data/genererat/ (#337) stämmer med redigeringsfilerna
+     data/handelser/<period>.json (#394) och data/empires/index.json i repot, alltså att någon har kört
+     python3 tools/dela_data.py efter sin ändring. Kontrollen räknar fram filerna med samma kod som
+     skriptet (tools/dela_data.py i repot) och jämför med dem i dist/. Den hittar också händelser som
+     ligger i fel periodfil och id som finns två gånger.
+ 11. Licensmanifesten (#393) stämmer med data/sources.json och bilduppgifterna i data/events.json.
 
 Användning: python3 scripts/validate-site.py [dist]
 """
 import json
 import re
 import sys
+from datetime import date
 from html.parser import HTMLParser
 from pathlib import Path
 
 DIST = Path(sys.argv[1] if len(sys.argv) > 1 else 'dist').resolve()
+ROOT = Path(__file__).resolve().parent.parent
 
 # Får aldrig publiceras. Mappar anges med / på slutet.
 FORBIDDEN = ['.git/', '.github/', '.claude/', '.orchestra/', 'docs/', 'tools/', 'scripts/',
@@ -68,6 +73,75 @@ def load(path):
     except (OSError, ValueError) as e:
         err(f'{path}: går inte att läsa ({e})')
         return None
+
+
+def type_matches(value, expected):
+    """Kontrollerna som schemana använder; bool är inte ett heltal i JSON Schema."""
+    return {
+        'object': isinstance(value, dict),
+        'array': isinstance(value, list),
+        'string': isinstance(value, str),
+        'integer': isinstance(value, int) and not isinstance(value, bool),
+        'number': isinstance(value, (int, float)) and not isinstance(value, bool),
+        'boolean': isinstance(value, bool),
+        'null': value is None,
+    }.get(expected, False)
+
+
+def schema_errors(value, schema, path='$', root=None):
+    """Validerar den lilla JSON Schema-del som används i schemas/ (#391)."""
+    root = root or schema
+    if '$ref' in schema:
+        target = root
+        for part in schema['$ref'].removeprefix('#/').split('/'):
+            target = target.get(part) if isinstance(target, dict) else None
+        if target is None:
+            return [f"{path}: okänd schemareferens {schema['$ref']!r}"]
+        return schema_errors(value, target, path, root)
+    found = []
+    expected = schema.get('type')
+    if expected and not type_matches(value, expected):
+        return [f'{path}: ska vara {expected}, är {type(value).__name__}']
+
+    if 'enum' in schema and value not in schema['enum']:
+        found.append(f"{path}: {value!r} finns inte i enum")
+    if 'pattern' in schema and isinstance(value, str) and not re.search(schema['pattern'], value):
+        found.append(f"{path}: {value!r} matchar inte pattern {schema['pattern']!r}")
+    if 'minimum' in schema and isinstance(value, (int, float)) and not isinstance(value, bool) \
+            and value < schema['minimum']:
+        found.append(f"{path}: {value} är mindre än minimum {schema['minimum']}")
+    if 'maximum' in schema and isinstance(value, (int, float)) and not isinstance(value, bool) \
+            and value > schema['maximum']:
+        found.append(f"{path}: {value} är större än maximum {schema['maximum']}")
+
+    if isinstance(value, dict):
+        for name in schema.get('required', []):
+            if name not in value:
+                found.append(f'{path}: obligatoriska fältet {name!r} saknas')
+        for name, child in schema.get('properties', {}).items():
+            if name in value:
+                found += schema_errors(value[name], child, f'{path}.{name}', root)
+    elif isinstance(value, list) and 'items' in schema:
+        for i, item in enumerate(value):
+            found += schema_errors(item, schema['items'], f'{path}[{i}]', root)
+    return found
+
+
+def load_schema(name):
+    path = ROOT / 'schemas' / name
+    try:
+        return json.loads(path.read_text(encoding='utf-8'))
+    except (OSError, ValueError) as e:
+        err(f'schemas/{name}: går inte att läsa ({e})')
+        return None
+
+
+def validate_schema_file(data_path, value, schema_name):
+    schema = load_schema(schema_name)
+    if schema is None:
+        return
+    for problem in schema_errors(value, schema):
+        err(f'{data_path}: schemafel: {problem}')
 
 
 if not DIST.is_dir():
@@ -199,15 +273,34 @@ for name, by in sorted(icons.items()):
 discovery = load('data/upptackt.json') if (DIST / 'data/upptackt.json').is_file() else None
 for d in (discovery or {}).get('decorations', []):
     exists(d.get('file', ''), f"data/upptackt.json ({d.get('id')}, file)")
+# Tidsstyrda rasterbilder (#54)
+image_layers = load('data/bildlager.json') if (DIST / 'data/bildlager.json').is_file() else None
+for layer in (image_layers or {}).get('layers', []):
+    exists(layer.get('file', ''), f"data/bildlager.json ({layer.get('id')}, file)")
 
 # 8. Källor och fun facts
 sources = load('data/sources.json') or {'sources': []}
 src_ids = {s['id'] for s in sources['sources']}
 ev_ids = {e['id'] for e in events['events']}
+evidence_fields = {'summary', 'date', 'location', 'image', 'uncertainty'}
 for e in events['events']:
     for s in e.get('sources', []) + (e.get('story') or {}).get('sources', []):
         if s not in src_ids:
             err(f"data/events.json ({e['id']}): källan {s} finns inte i sources.json")
+    for field, refs in (e.get('evidence') or {}).items():
+        if field not in evidence_fields:
+            err(f"data/events.json ({e['id']}): evidence.{field} är inte ett känt påstående")
+            continue
+        if not isinstance(refs, list):
+            continue  # JSON Schema ger ett tydligare formfel nedan.
+        for ref in refs:
+            if not isinstance(ref, dict):
+                continue  # JSON Schema ger ett tydligare formfel nedan.
+            source = ref.get('source')
+            if source not in src_ids:
+                err(f"data/events.json ({e['id']}): evidence.{field} använder källan {source}, som inte finns i sources.json")
+            elif source not in e.get('sources', []):
+                err(f"data/events.json ({e['id']}): evidence.{field} använder källan {source}, som saknas i händelsens sources")
 for path, r in routes:
     rid = r.get('id', '?')
     for s in r.get('sources', []):
@@ -222,20 +315,79 @@ for path, r in routes:
 for d in (discovery or {}).get('decorations', []):
     if d.get('source') and d['source'] not in src_ids:
         err(f"data/upptackt.json ({d.get('id')}): källan {d['source']} finns inte i sources.json")
+for layer in (image_layers or {}).get('layers', []):
+    if layer.get('source') and layer['source'] not in src_ids:
+        err(f"data/bildlager.json ({layer.get('id')}): källan {layer['source']} finns inte i sources.json")
 funfacts = load('data/funfacts.json') or {'funfacts': []}
 for f in funfacts['funfacts']:
     for i in f.get('events', []):
         if i not in ev_ids:
             err(f"data/funfacts.json ({f.get('id')}): händelsen {i} finns inte i events.json")
+# Introduktionen (#363) får bara hänvisa till befintliga, redan visbara händelser och fun facts.
+intro = load('data/intro.json') or {}
+funfact_ids = {f.get('id') for f in funfacts['funfacts']}
+if intro.get('funfact') not in funfact_ids:
+    err(f"data/intro.json: fun facten {intro.get('funfact')} finns inte i data/funfacts.json")
+for step in intro.get('steps', []):
+    if step.get('event') and step['event'] not in ev_ids:
+        err(f"data/intro.json: händelsen {step['event']} finns inte i data/events.json")
+# Det viktigaste att ta med sig (#500): varje punkt har egna källor som finns i sources.json
+for e in events['events']:
+    for i, x in enumerate((e.get('story') or {}).get('takeaways', [])):
+        if not x.get('sources'):
+            err(f"data/events.json ({e['id']}, takeaways[{i}]): punkten saknar källor")
+        for src in x.get('sources', []):
+            if src not in src_ids:
+                err(f"data/events.json ({e['id']}, takeaways[{i}]): källan {src} finns inte i sources.json")
+# Guidade turer (#47): registret och turerna finns, och stegen pekar på befintliga händelser och källor.
+# Lagrens id kontrolleras av tests/tour.test.mjs, som läser lagerlistan i js/layers/index.js.
+tours = []
+tours_index = load('data/turer/index.json') if exists('data/turer/index.json', 'Guidade turer') else None
+for tid in (tours_index or {}).get('tours', []):
+    path = f'data/turer/{tid}.json'
+    if not exists(path, 'data/turer/index.json'):
+        continue
+    tour = load(path)
+    if not isinstance(tour, dict):
+        continue
+    tours.append((path, tour))
+    if tour.get('id') != tid:
+        err(f"{path}: id {tour.get('id')!r} ska vara samma som filnamnet ({tid})")
+    if tour.get('war') and tour['war'] not in ev_ids:
+        err(f"{path}: kriget {tour['war']} finns inte i events.json")
+    if tour.get('empire') and tour['empire'] not in {g.get('id') for g in (empires or {}).get('groups', [])}:
+        err(f"{path}: riket {tour['empire']} finns inte i data/empires/index.json")
+    for i, step in enumerate(tour.get('steps', [])):
+        where = f"{path} (steg {i + 1}, {step.get('id', '?')})"
+        if step.get('open') and step['open'] not in ev_ids:
+            err(f"{where}: händelsen {step['open']} finns inte i events.json")
+        if not step.get('sources'):
+            err(f'{where}: källor saknas (sources)')
+        for src in step.get('sources', []):
+            if src not in src_ids:
+                err(f'{where}: källan {src} finns inte i sources.json')
 # Rikenas faktarutor och försvunna länders årtal och efterträdare (#170, #72): källor och händelser finns
 for g in (empires or {}).get('groups', []):
     fa, v = g.get('facts') or {}, g.get('vanished') or {}
-    for s in fa.get('sources', []) + [s for m in fa.get('milestones', []) for s in m.get('sources', [])] + v.get('sources', []):
+    caps = [s for c in g.get('capitals', []) for s in c.get('sources', [])]  # huvudstäder (#474)
+    for s in fa.get('sources', []) + [s for m in fa.get('milestones', []) for s in m.get('sources', [])] + v.get('sources', []) + caps:
         if s not in src_ids:
             err(f"data/empires/index.json ({g.get('id')}): källan {s} finns inte i sources.json")
     for i in [i for m in fa.get('milestones', []) for i in m.get('events', [])]:
         if i not in ev_ids:
             err(f"data/empires/index.json ({g.get('id')}): händelsen {i} finns inte i events.json")
+
+# 8b. JSON Schema (#391): schemana ligger utanför dist/ och används bara vid bygg och kontroll.
+validate_schema_file('data/events.json', events, 'event.schema.json')
+validate_schema_file('data/sources.json', sources, 'source.schema.json')
+validate_schema_file('data/empires/index.json', empires or {}, 'empire-index.schema.json')
+validate_schema_file('data/routes/index.json', routes_index or {}, 'routes-index.schema.json')
+for path, route in routes:
+    validate_schema_file(path, {'routes': [route]}, 'route.schema.json')
+validate_schema_file('data/funfacts.json', funfacts, 'funfact.schema.json')
+validate_schema_file('data/turer/index.json', tours_index or {}, 'tours-index.schema.json')
+for path, tour in tours:
+    validate_schema_file(path, tour, 'tour.schema.json')
 
 # 9. Krigets riken (#76): empires är grupp-id i data/empires/index.json
 group_ids = {g.get('id') for g in (empires or {}).get('groups', [])}
@@ -251,17 +403,57 @@ for e in events['events']:
         if g not in group_ids:
             err(f"data/events.json ({e['id']}): riket {g} finns inte i data/empires/index.json")
 
-# 10. Uppdelade filer (#337): samma innehåll som tools/dela_data.py skriver ur källfilerna i dist/
-TOOL = Path(__file__).resolve().parent.parent / 'tools' / 'dela_data.py'
+# 10. Byggda händelsefiler och uppdelade filer (#337, #394): samma innehåll som tools/dela_data.py skriver
+# ur redigeringsfilerna i repot (data/handelser/ publiceras inte, så de läses från ROOT, inte från dist/)
+TOOL = ROOT / 'tools' / 'dela_data.py'
 if not TOOL.is_file():
-    err(f'{TOOL} saknas: de uppdelade filerna i data/genererat/ kan inte kontrolleras')
-elif (DIST / 'data/events.json').is_file() and (DIST / 'data/empires/index.json').is_file():
+    err(f'{TOOL} saknas: data/events.json och de uppdelade filerna i data/genererat/ kan inte kontrolleras')
+elif (ROOT / 'data/empires/index.json').is_file():
     import importlib.util
     spec = importlib.util.spec_from_file_location('dela_data', TOOL)
     dela_data = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(dela_data)
-    for e in dela_data.check(DIST):
+    for e in dela_data.check(ROOT, DIST):
         err(e)
+
+# 11. Licensmanifest (#393): genererade filer i dist/ måste stämma med källorna.
+LICENSE_TOOL = Path(__file__).resolve().parent.parent / 'tools' / 'license_manifests.py'
+if not LICENSE_TOOL.is_file():
+    err(f'{LICENSE_TOOL} saknas: licensmanifesten kan inte kontrolleras')
+else:
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('license_manifests', LICENSE_TOOL)
+    license_manifests = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(license_manifests)
+    for e in license_manifests.check(DIST):
+        err(e)
+
+# 12. Versionsrad (#552): filen måste finnas och ha giltiga releaseuppgifter.
+if exists('data/version.json', 'Versionsuppgifter'):
+    version_data = load('data/version.json')
+    if isinstance(version_data, dict):
+        version = version_data.get('version')
+        released = version_data.get('released')
+        releases = version_data.get('releases')
+        is_development = isinstance(version, str) and version.endswith('-dev')
+        if not isinstance(version, str) or not re.fullmatch(r'[0-9]+\.[0-9]+\.[0-9]+(?:-dev)?', version):
+            err('data/version.json: version ska följa X.Y.Z eller X.Y.Z-dev')
+        if not isinstance(released, str):
+            err('data/version.json: released ska vara en textsträng')
+        elif released:
+            if not re.fullmatch(r'[0-9]{4}-[0-9]{2}-[0-9]{2}', released):
+                err('data/version.json: released ska vara ett datum på formen ÅÅÅÅ-MM-DD eller tomt')
+            else:
+                try:
+                    date.fromisoformat(released)
+                except ValueError:
+                    err('data/version.json: released ska vara ett giltigt datum')
+        if is_development and released:
+            err('data/version.json: released ska vara tomt för en utvecklingsversion')
+        if not isinstance(releases, str) or not re.fullmatch(r'https://\S+', releases):
+            err('data/version.json: releases ska vara en HTTPS-länk')
+    elif version_data is not None:
+        err('data/version.json: roten ska vara ett objekt')
 
 if errors:
     print(f'validate-site: {len(errors)} fel', file=sys.stderr)

@@ -50,7 +50,9 @@ Molnmiljöns nätverk släpper bara fram vissa sajter. Läget 2026-10-29 (#143):
 - **Svarar men stoppar oss:** www.loc.gov:s vanliga sidor (robotkontroll, 403), Britannica och Smithsonian (403), Met Museum (429). Wikisources API och sökning kan svara 429 om man frågar för ofta; vänta då en stund.
 - **World Historical Gazetteer:** whgazetteer.org svarar. Platslistan (`/mapdata/datasets/<id>/`) och enskilda platser (`/api/db/?id=<plats>`) går att läsa utan inloggning; den fullständiga nedladdningen kräver inloggning (#24).
 - **Går att nå sedan 2026-10-30:** ucdp.uu.se (nedladdningar) och digitallibrary.un.org (#223). FN:s digitala bibliotek visar en robotkontroll på vanliga sidor, men sökningen går att läsa som MARCXML (`https://digitallibrary.un.org/search?p=<dokumentnummer>&of=xm`) och PDF:erna via länken `nanna/record/…` som filsidan skickar vidare till.
-- **Spärrade:** bland annat www.un.org, press.un.org, news.un.org och www.ohchr.org (#223), acleddata.com, dataverse.harvard.edu (#24), mathshistory.st-andrews.ac.uk, cudl.lib.cam.ac.uk, english-heritage.org.uk, riksarkivet.se, kungahuset.se, regeringen.se, runeberg.org, gutenberg.org, journals.plos.org, ebi.ac.uk (Europe PMC), patents.google.com, www.nma.gov.au (National Museum of Australia) och wwwnc.cdc.gov (tidskriften Emerging Infectious Diseases, som i stället går att läsa via PMC) (#330).
+- **Släppta 2026-10-31 (Rikard lade till dem i miljöns nätverksinställning):** historiagloben.se och dev.historiagloben.se (för att kontrollera den publicerade sidan), cdn.jsdelivr.net (three.js), riksarkivet.se, runeberg.org, www.gutenberg.org och mathshistory.st-andrews.ac.uk. www.un.org och www.loc.gov svarade också 200 samma dag. www.smithsonianmag.com svarar 403 även när domänen är tillagd (sajtens egen spärr).
+- **Går att nå sedan 2026-11-06:** www.regeringen.se (UD:s landsidor, uttalanden och reseavrådan, #644). Den engelska www.government.se svarar fortfarande 403.
+- **Spärrade:** bland annat press.un.org, news.un.org och www.ohchr.org (#223), acleddata.com, dataverse.harvard.edu (#24), cudl.lib.cam.ac.uk, english-heritage.org.uk, kungahuset.se, www.government.se, journals.plos.org, ebi.ac.uk (Europe PMC), patents.google.com, www.nma.gov.au (National Museum of Australia) och wwwnc.cdc.gov (tidskriften Emerging Infectious Diseases, som i stället går att läsa via PMC) (#330).
 
 ## Utkast från massimport
 
@@ -58,12 +60,14 @@ Stora öppna dataset kan ge tusentals händelser på en gång. De läggs inte di
 
 Första källan är Historical Conflict Event Dataset (#24). `python3 tools/hced.py` hämtar platserna från World Historical Gazetteer och skriver ett urval på cirka 150 utkast, spridda över världsdelar och tidsåldrar, till `data/utkast/hced.json` (`--alla` gör om hela datasetet, `--lpf` läser en nedladdad fil). Datasetet har en post per plats, och varje beskrivning av platsen ("Trojan War (-1184)") blir ett utkast. Negativa år i datasetet är år f.Kr. utan år 0 (`-0605` är slaget vid Karkemish 605 f.Kr.), så de räknas om till `1 - N`. Skriptet listar också utkast som troligen redan finns i `events.json` (samma år ±1 och inom 25 km eller samma namn) i fältet `duplicates`, och varnar i `hced.check` när datasetets punkt verkar fel.
 
-Så lyfts ett utkast till `events.json`:
+Så lyfts ett utkast till händelserna (`data/handelser/<period>.json`, #394):
 
 1. Kontrollera i `duplicates` att slaget inte redan finns.
 2. Öppna en källa om slaget (till exempel Wikipedia eller Wikidata) och jämför år, plats och konflikt. Datasetet har fel ibland, till exempel en plats som fått fel koordinat eller fel konflikt.
 3. Skriv svensk titel (till exempel "Slaget vid …") och en egen sammanfattning ur källan, med `precision` och `edtf` som visar osäkerheten. Koppla slaget till sitt krig med `partOf` om kriget finns.
-4. Lägg källan i `sources.json`, behåll `whg-hced` i `sources` och sätt `review` till `source-checked` (eller `two-sources`). Ta bort fältet `hced` och flytta posten till `events.json`. Ta bort utkastet ur `data/utkast/hced.json` så att det inte finns två gånger.
+4. Lägg källan i `sources.json`, behåll `whg-hced` i `sources` och sätt `review` till `source-checked` (eller `two-sources`). Ta bort fältet `hced` och flytta posten till periodfilen för slagets startår i `data/handelser/`, och kör `python3 tools/dela_data.py`. Ta bort utkastet ur `data/utkast/hced.json` så att det inte finns två gånger.
+
+**Massimport per världsdel (#61, beslut 2026-11-05):** Wikidata används som lista över tänkbara händelser i alla kategorier och HCED för slag. Varje batch har högst 20 händelser, väljs ur den tommaste cellen i `python3 tools/tackning.py` och får ha högst en fjärdedel krig. En period är klar när varje världsdel har minst hälften så många händelser som den största världsdelen i samma period. Varje händelse kontrolleras som ovan: öppnad källa, Wikidata som andra källa för år och plats, och "Källorna skiljer sig" i `note` när de inte stämmer.
 
 ## Pågående krig: hålla uppgifterna aktuella (#223)
 
@@ -76,7 +80,7 @@ Ett pågående krig (`ongoing: true`) har uppgifter som åldras: läget i dag (`
 
 ## Sidan Om källorna
 
-Under Om källorna (knappen Källor uppe till höger, i gruppen Visa) finns källpolicyn, läget för hela granskningen och källregistret. Källregistret är grupperat efter vad källorna används till: händelser och fun facts, riken, religioner, kartdata och bilder. Grupperna räknas fram ur datan (vilka uppgifter i `events.json`, `funfacts.json`, `empires/index.json`, `religions.json`, `land.json`, `borders.json` och fältet `image.source` som pekar på varje källa), så en ny källa hamnar rätt av sig själv. En källa kan höra till flera grupper, till exempel Cliopatria (riken och religioner). En källa som ingen uppgift pekar på visas under Övriga källor.
+Under Om källorna (knappen Källor under Mer uppe till höger) finns källpolicyn, läget för hela granskningen och källregistret. Källregistret är grupperat efter vad källorna används till: händelser och fun facts, riken, religioner, kartdata och bilder. Grupperna räknas fram ur datan (vilka uppgifter i `events.json`, `funfacts.json`, `empires/index.json`, `religions.json`, `land.json`, `borders.json` och fältet `image.source` som pekar på varje källa), så en ny källa hamnar rätt av sig själv. En källa kan höra till flera grupper, till exempel Cliopatria (riken och religioner). En källa som ingen uppgift pekar på visas under Övriga källor.
 
 Varje grupp visar hur många källor och uppgifter den har och hur många uppgifter som har nivån källkontrollerad och två källor (och utkast, om det finns). Kartdata och bilder har ingen granskningsnivå per uppgift.
 

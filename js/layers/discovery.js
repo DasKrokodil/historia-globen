@@ -8,8 +8,17 @@
 //    texten "Terra incognita" på några stora ytor. Kring varje etapp i data/routes som har börjat lyfts dimman i
 //    en korridor med mjuk kant längs den del som linjelagret har ritat (LinesLayer.reached), och dimmans kant
 //    skrafferas med bläck som på gamla kartor. Det som har lyfts förblir lyft senare år. Dimman visar alltså
-//    bara vad resorna och vägarna i datan har nått, inte vad världen kände till; det säger raden i datafilen.
+//    vad som var känt sett från Europa (se hemriken nedan) och vad resorna och vägarna i datan har nått, inte vad
+//    världen kände till; det säger raden i datafilen.
 //    Händelsernas markörer ligger som 3D-objekt ovanpå och syns även i dimman.
+//    Riken (#377, regel A): när en lyft korridor har nått ett rikes område (någon gång i rikets karta, före
+//    eller under rikets tid) lyfts dimman över hela riket, för varje period som har börjat. Kom resan fram innan
+//    riket fanns, lyfts dimman när riket uppstår. Det som har lyfts förblir lyft, som korridorerna.
+//    Hemriken (home i datafilen): vyn ser världen från Europa, så dimman är lyft över de europeiska rikena i
+//    datan (Rom, Makedonien och senare de europeiska staterna och kolonialväldena) för varje period som har
+//    börjat. Deras grannar lyfts också: ett rike vars område någon gång låg högst home.neighborDeg grader från ett
+//    hemrikes område under samma år lyfts från det året, för varje period som har börjat. Grannarnas grannar
+//    räknas inte, så att dimman inte sprider sig av sig själv.
 // 3. Portolanlinjer: tunna bläcklinjer i alla riktningar ut från varje kompassros, ovanpå dimman.
 // 4. Dekorationer: havsmonster och kompassrosor ur gamla kartor (public domain) mitt i öppna hav. Monster med
 //    fade tonas bort när en lyft korridor kommer nära (inom bildens radie), så att utsmyckningen tunnas ut när
@@ -19,8 +28,9 @@
 // CSS-variablerna --discovery-*. Allt ritas på den platta lagerbilden (beslut 1), så att Platt vy visar samma sak.
 // Papperskartan ritas en gång. Dimman ritas på en egen bild i halv upplösning som bara görs om när året (eller
 // vägarna) ändras; att lyfta den görs med destination-out.
-import { t, loadSources, sourcesReady } from '../model.js';
+import { t, loadSources, sourcesReady, loadEmpire, isVisibleReview } from '../model.js';
 import { traceWrapped, segDist } from './lines.js';
+import { tracePath } from './area-style.js';
 import { Z } from './registry.js';
 
 /**
@@ -32,10 +42,20 @@ export function entry({ data, refresh, registry }) {
   const layer = new DiscoveryLayer(data.discovery, data.land);
   let raf = 0;
   layer.onImage = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => refresh()); };
+  // Rikenas gränser (#377) laddas när vyn är på och riket har börjat; filerna delas med rikeslagret
+  const loads = new Set();
+  const ensureEmpires = year => {
+    for (const g of data.empireGroups ?? []) {
+      if (!g.file || loads.has(g.id) || year < g.from) continue;
+      loads.add(g.id);
+      loadEmpire(g).then(ps => { layer.addEmpire(g.id, ps); layer.onImage(); })
+        .catch(err => { console.error(err); loads.delete(g.id); });
+    }
+  };
   // Kartbildernas källor kommer ur källregistret, som laddas när vyn slås på (#337)
   const sourceIds = [...new Set((data.discovery?.decorations ?? []).map(d => d.source))];
   const note = data.discovery && {
-    perspective: t(data.discovery.perspective), credit: t(data.discovery.credit),
+    title: t(data.discovery.title), perspective: t(data.discovery.perspective), credit: t(data.discovery.credit),
     get sources() { return sourceIds.map(id => data.srcById[id]).filter(Boolean); },
   };
   return {
@@ -43,7 +63,7 @@ export function entry({ data, refresh, registry }) {
     menu: { on: false, note: 'gammal kartstil med segelskepp, havsmonster och dimma som resorna lyfter' },
     enabled: s => s.layers.discovery && !!data.discovery,
     apply: s => { if (s.on.discovery && !sourcesReady()) loadSources().then(() => refresh()).catch(err => console.error(err)); },
-    update: s => layer.update({ year: s.year, fine: s.fine, lines: registry.get('routes') }),
+    update: s => { if (layer.enabled) ensureEmpires(s.wholeYear ?? Math.floor(s.year)); layer.update({ year: s.year, fine: s.fine, lines: registry.get('routes') }); },
     legend: () => ({ discovery: layer.enabled ? note : null }),
     passes: [
       { z: Z.paper, draw: (ctx, W, H) => layer.drawPaper(ctx, W, H) },
@@ -57,6 +77,39 @@ const FINE_STEP = 0.01;      // i fokusläget för korta krig görs dimman om h�
 const cssVar = (name, fallback) => getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback;
 const clamp01 = v => Math.max(0, Math.min(1, v));
 const CLEAR = 'rgba(255,255,255,0)'; // genomskinligt vitt: gör ingenting med multiply
+
+/** Ligger punkten [lon, lat] i polygonen (yttre ring och hål, jämn-udda-regeln)? */
+function inRings([x, y], rings) {
+  let inside = false;
+  for (const ring of rings) {
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const [xi, yi] = ring[i], [xj, yj] = ring[j];
+      if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) inside = !inside;
+    }
+  }
+  return inside;
+}
+
+/**
+ * Ligger två rikesområden (listor med { rings, box }) högst d grader från varandra? En punkt i det ena ligger inne i
+ * det andra eller nära dess kant. Lådorna sållar bort det mesta först.
+ */
+function near(as, bs, d) {
+  for (const a of as) {
+    for (const b of bs) {
+      const k = Math.max(0.05, Math.cos(Math.max(Math.abs(a.box[1]), Math.abs(a.box[3]), Math.abs(b.box[1]), Math.abs(b.box[3])) * Math.PI / 180));
+      const dx = d / k;
+      if (a.box[2] < b.box[0] - dx || b.box[2] < a.box[0] - dx || a.box[3] < b.box[1] - d || b.box[3] < a.box[1] - d) continue;
+      for (const pt of a.rings[0]) {
+        if (pt[0] < b.box[0] - dx || pt[0] > b.box[2] + dx || pt[1] < b.box[1] - d || pt[1] > b.box[3] + d) continue;
+        if (inRings(pt, b.rings)) return true;
+        if (b.rings.some(ring => ring.some((q, i) => i && segDist(pt, ring[i - 1], q) <= d))) return true;
+      }
+      if (b.rings[0].some(pt => inRings(pt, a.rings))) return true;
+    }
+  }
+  return false;
+}
 
 /** Slumptal med frö (mulberry32), så att korn och fläckar hamnar på samma ställe varje gång. */
 function rng(seed) {
@@ -101,6 +154,68 @@ export class DiscoveryLayer {
     this.onImage = () => {};  // en bild har laddats klart: lagret behöver ritas om
     this.fogKey = null;
     this.fonts = false;       // typsnittet för "Terra incognita" har laddats (annars ritas texten om när det kommer)
+    this.empires = new Map(); // rikets grupp-id → { polys: [{ rings, box }], periods: [{ start, end, geometry, polys }] } (#377)
+  }
+
+  /** Ett rikes gränser har laddats (polities ur data/empires/<grupp>.json): dimman räknas om. */
+  addEmpire(id, polities) {
+    const periods = [], polys = [];
+    for (const p of polities) {
+      if (!isVisibleReview(p.review)) continue;
+      for (const q of p.periods) {
+        const own = [];
+        for (const rings of q.geometry.type === 'Polygon' ? [q.geometry.coordinates] : q.geometry.coordinates) {
+          const box = [180, 90, -180, -90];
+          for (const [x, y] of rings[0]) { box[0] = Math.min(box[0], x); box[1] = Math.min(box[1], y); box[2] = Math.max(box[2], x); box[3] = Math.max(box[3], y); }
+          own.push({ rings, box });
+        }
+        periods.push({ start: q.start, end: q.end ?? Infinity, geometry: q.geometry, polys: own });
+        polys.push(...own);
+      }
+    }
+    const home = new Set(this.doc?.home?.empires ?? []);
+    const e = { polys, periods, contact: Infinity, none: -Infinity, home: home.has(id), neighbor: Infinity };
+    // Grannar till hemrikena: räknas en gång när riket (eller ett nytt hemrike) har laddats
+    for (const [oid, o] of this.empires) {
+      if (oid === id) continue;
+      if (e.home && !o.home) o.neighbor = Math.min(o.neighbor, this._neighbor(e, o));
+      else if (!e.home && o.home) e.neighbor = Math.min(e.neighbor, this._neighbor(o, e));
+    }
+    this.empires.set(id, e);
+    this.fogKey = null;
+  }
+
+  /**
+   * Första året då hemriket h och riket o låg högst home.neighborDeg grader från varandra (en period ur var och en
+   * som gällde samma år), eller Infinity om de aldrig var grannar.
+   */
+  _neighbor(h, o) {
+    const d = this.doc?.home?.neighborDeg ?? 3.5;
+    let best = Infinity;
+    for (const a of h.periods) {
+      for (const b of o.periods) {
+        const year = Math.max(a.start, b.start);
+        if (year >= best || year > Math.min(a.end, b.end)) continue;
+        if (near(a.polys, b.polys, d)) best = year;
+      }
+    }
+    return best;
+  }
+
+  /** Har någon lyft korridor nått rikets område (någon period)? Svaret minns, eftersom det lyfta bara växer med tiden. */
+  _contact(e, now, reached) {
+    if (now >= e.contact) return true;
+    if (now <= e.none) return false;
+    const half = (this.doc.fog?.corridorDeg ?? 7) / 2;
+    const hit = reached.some(pts => pts.some(pt => e.polys.some(({ rings, box }) => {
+      if (pt[1] < box[1] - half || pt[1] > box[3] + half) return false;
+      const k = Math.max(0.05, Math.cos(pt[1] * Math.PI / 180)), dx = half / k;
+      if (pt[0] < box[0] - dx || pt[0] > box[2] + dx) return false;
+      if (inRings(pt, rings)) return true;
+      return rings.some(ring => ring.some((a, i) => i && segDist(pt, ring[i - 1], a) <= half));
+    })));
+    if (hit) e.contact = now; else e.none = now;
+    return hit;
   }
 
   _loadImages() {
@@ -126,6 +241,16 @@ export class DiscoveryLayer {
     if (key !== this.fogKey) {
       this.fogKey = key;
       this.reached = lines ? lines.reached({ year: now, fine }) : [];
+      // Riken som en resa har nått (#377): alla perioder som har börjat lyfts. Kommer vägarna efter rikena
+      // gäller inte det som minns om kontakt längre.
+      const nRoutes = lines?.routes.length ?? 0;
+      if (nRoutes !== this.nRoutes) { this.nRoutes = nRoutes; for (const e of this.empires.values()) { e.contact = Infinity; e.none = -Infinity; } }
+      this.lifted = [];
+      for (const e of this.empires.values()) {
+        if (!e.periods.some(q => q.start <= now)) continue;
+        if (!e.home && now < e.neighbor && !this._contact(e, now, this.reached)) continue;
+        for (const q of e.periods) if (q.start <= now) this.lifted.push(q.geometry);
+      }
       this.fades = new Map((this.doc.decorations ?? []).filter(d => d.fade).map(d => [d.id, this._fade(d)]));
       this.fogDirty = true;
     }
@@ -240,7 +365,7 @@ export class DiscoveryLayer {
     c.fillRect(0, 0, w, h);
     c.globalCompositeOperation = 'source-over';
     // Terra incognita, i bläck på dimman
-    c.globalAlpha = 0.6;
+    c.globalAlpha = 0.82;
     c.fillStyle = ink;
     c.textAlign = 'center'; c.textBaseline = 'middle';
     for (const l of fog.labels ?? []) {
@@ -248,17 +373,23 @@ export class DiscoveryLayer {
       c.font = `italic ${Math.round((l.size ?? 4) * deg)}px "IM Fell English", Georgia, serif`;
       c.fillText(t(l.text), (lon + 180) * deg, (90 - lat) / 180 * h);
     }
-    const reached = this.reached ?? [];
+    const reached = this.reached ?? [], lifted = this.lifted ?? [];
+    const X = lon => (lon + 180) * deg, Y = lat => (90 - lat) / 180 * h;
+    const areas = ctx => { for (const g of lifted) { tracePath(ctx, g, X, Y); ctx.fill('evenodd'); } };
+    const edges = ctx => { for (const g of lifted) { tracePath(ctx, g, X, Y); ctx.stroke(); } };
     const each = () => { for (const pts of reached) traceWrapped(c, pts.length > 1 ? pts : [pts[0], pts[0]], w, h, ctx => ctx.stroke()); };
     c.lineJoin = 'round'; c.lineCap = 'round';
     const width = (fog.corridorDeg ?? 7) * deg, soft = fog.soften ?? 0.6;
     // Skrafferad kant: bläckstreck i ett band utanför korridoren, som dimmans kant på gamla kartor
     const hatch = clamp01(fog.hatch ?? 0);
-    if (hatch > 0 && reached.length) {
+    if (hatch > 0 && (reached.length || lifted.length)) {
       c.globalAlpha = hatch;
       c.strokeStyle = c.createPattern(hatchTile(Math.max(4, Math.round((fog.hatchSpacingDeg ?? 0.6) * deg)), ink), 'repeat');
       c.lineWidth = width * (1 + soft) + 2 * (fog.hatchDeg ?? 1.2) * deg;
       each();
+      // Rikenas skrafferade kant: ett band lika brett som korridorens utanför gränsen (#377)
+      c.lineWidth = 2 * (fog.hatchDeg ?? 1.2) * deg;
+      edges(c);
     }
     // Korridorerna: mjuk kant i flera steg (bredare och svagare) och sedan själva korridoren
     c.globalCompositeOperation = 'destination-out';
@@ -268,6 +399,12 @@ export class DiscoveryLayer {
       c.lineWidth = width * (1 + soft * (1 - i / steps));
       c.globalAlpha = i === steps ? 1 : 0.25;
       each();
+    }
+    // Rikena: hela området, med en smal mjuk kant (#377)
+    if (lifted.length) {
+      for (let i = 0; i < 3; i++) { c.globalAlpha = 0.25; c.lineWidth = (3 - i) * 0.6 * deg; edges(c); }
+      c.globalAlpha = 1;
+      areas(c);
     }
     c.globalCompositeOperation = 'source-over'; c.globalAlpha = 1;
     this.fogDirty = false;

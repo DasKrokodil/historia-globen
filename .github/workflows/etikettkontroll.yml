@@ -1,0 +1,51 @@
+# Etikettkontrollen (#588): håller regeln "ett issue, en ägare" (AGENTS.md, beslut 2026-11-05).
+#  1. Varnar (kommentar och etiketten etikettfel) när ett issue har både redo och pågår, flera pågår-etiketter,
+#     eller är taget men tilldelat flera personer (beslut 2026-11-06). Varningen tas bort när det är rättat.
+#  2. Städar bort pågår-, redo- och behöver hjälp-etiketter på issuen som en sammanslagen pull request stänger.
+#  3. Påminner dagligen om ett pågår som ingen har rört på 7 dagar (bara en kommentar, ingen automatisk avmarkering).
+# Logiken ligger i .github/scripts/etikettkontroll.cjs. Flödet rör bara etiketter och kommentarer, inte kod eller data.
+name: Etikettkontroll
+
+on:
+  issues:
+    types: [labeled, unlabeled, assigned, unassigned]
+  pull_request:
+    types: [closed]
+  schedule:
+    - cron: '23 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  etiketter:
+    name: Kontrollera etiketter
+    runs-on: ubuntu-latest
+    # Egen etikett som flödet sätter själv ska inte starta flödet igen.
+    if: >-
+      github.event_name != 'issues' || github.event.label.name != 'etikettfel'
+    concurrency:
+      # En körning per issue: den senaste etikettändringen vinner, så att ett steg i taget (lägg på pågår,
+      # ta bort redo) inte ger en falsk varning.
+      group: etikettkontroll-${{ github.event.issue.number || github.event.pull_request.number || 'daglig' }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const k = require('./.github/scripts/etikettkontroll.cjs');
+            const ctx = { github, context, core };
+            if (context.eventName === 'issues') {
+              // Vänta lite så att agentens nästa etikettsteg hinner komma, och läs sedan om etiketterna.
+              await new Promise(r => setTimeout(r, 45000));
+              core.info(`Issue #${context.payload.issue.number}: ${await k.kontrolleraIssue(ctx, context.payload.issue.number)}`);
+            } else if (context.eventName === 'pull_request') {
+              const gjorda = await k.stadaEfterMerge(ctx, context.payload.pull_request);
+              core.info(gjorda.length ? `Städade: ${gjorda.join(', ')}` : 'Inget att städa.');
+            } else {
+              await k.dagligKontroll(ctx);
+            }

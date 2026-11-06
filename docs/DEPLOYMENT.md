@@ -25,15 +25,19 @@ Listan bygger på referenserna i koden:
 | I `dist/` | Varför | Var referensen finns |
 |---|---|---|
 | `index.html` | startsidan | – |
+| `robots.txt`, `sitemap.xml` | indexeringsregler och sitemap för startsidan | sökmotorer; `index.html` hänvisar inte till dem |
 | `css/style.css` | stilmallen (inga `url()` till lokala filer) | `index.html` |
 | `_headers` | Cloudflare Pages cache-regler: `Cache-Control: no-cache` för sidan, `js/`, `css/` och `data/`, så att webbläsaren alltid kontrollerar om en fil har ändrats. Utan den kunde en ny `index.html` blandas med gamla JS-moduler efter release v4.1.0 ("Globen kunde inte starta"). Har zonen i Cloudflare en egen Browser Cache TTL ska den stå på "Respect Existing Headers". | Cloudflare Pages läser den ur `dist/` |
 | `js/**/*.js` (20 moduler) | ES-modulerna | `index.html` → `js/main.js` → `import` |
 | `img/favicon.svg`, `img/favicon-32.png`, `img/apple-touch-icon.png` | sidans ikoner | `index.html` |
 | `img/icons/*.svg` | markörernas och korten symboler, hämtas med `fetch` efter namn | `icon` i `data/events.json`, `symbol` i `data/religions.json` (#271), `CAT_ICON` och standardikonen `star` i `js/ui/funfact.js`, `index.html` |
 | `data/events.json`, `funfacts.json`, `sources.json`, `land.json`, `borders.json`, `styles.json`, `empires/index.json` | laddas vid start | `loadAll()` i `js/model.js` |
+| `data/licenses.json` | maskinläsbar sammanställning av källregistrets licensuppgifter | `tools/license_manifests.py`, genererad från `data/sources.json` (#393) |
+| `data/version.json` | aktuell versionsetikett, releasedatum och länk till releaserna | versionsraden i Om källorna (#552) |
 | `data/religions.json`, `data/religions-polities.json` | laddas när religionslagret slås på eller vid klick | `loadReligions()`, `loadReligionPolities()` i `js/model.js` |
 | `data/empires/<rike>.json` | laddas när riket behövs | fältet `file` i `data/empires/index.json` |
 | `images/events/*.webp` | händelsernas bilder | `image.file` i `data/events.json` |
+| `images/licenses.json` | licens, kredit och eventuell källpost för händelsebilder | `tools/license_manifests.py`, genererad från `data/events.json` och `data/sources.json` (#393) |
 | `LICENSE`, `data/LICENSE` | licenserna för kod (GPL-3.0) och data (CC BY 4.0) | Inte läst av sidan; följer med eftersom licenserna gäller de publicerade filerna. |
 
 Alla ikoner i `img/icons/` publiceras, eftersom namnen kommer ur data och JS. I dag används alla 38. Bilderna i `images/events/` publiceras bara om en händelse pekar på dem.
@@ -46,11 +50,19 @@ Alla ikoner i `img/icons/` publiceras, eftersom namnen kommer ur data och JS. I 
 
 De måste vara nåbara från båda miljöerna. Det gäller också om en Content-Security-Policy eller Cloudflare-regel läggs till.
 
+### Säkerhetsheaders
+
+`_headers` skickar tills vidare **Content-Security-Policy-Report-Only** för alla sidor. Den begränsar resurser till den egna webbplatsen, jsDelivr (three.js), Google Fonts och Cloudflare Turnstile när förslagsformuläret används. `frame-ancestors 'none'` hindrar att sidan bäddas in i andra webbplatser, och `Permissions-Policy` stänger av kamera, mikrofon, plats och betalningar som sidan inte använder.
+
+Report-Only ändrar inte vad besökaren kan läsa in, utan skriver CSP-avvikelser i webbläsarkonsolen. Kontrollera därför konsolen på både development och produktion efter varje release som ändrar resurser eller formuläret. Byt först till den skarpa headern `Content-Security-Policy` efter minst en release utan CSP-varningar; behåll då exakt samma regelvärde och testa formuläret med Turnstile.
+
 ## Bygga och kontrollera lokalt
 
 ```bash
 scripts/build-site.sh
 ```
+
+Licensmanifesten uppdateras vid behov med `python3 tools/license_manifests.py`. Ändra inte manifestfilerna för hand.
 
 Skriptet gör så här:
 - Tar bort gamla `dist/` och skapar en ny.
@@ -66,6 +78,9 @@ Skriptet gör så här:
   7. Filer som data pekar på finns: rikesfiler (`file`), bilder (`image.file`) och ikoner (`icon` och `CAT_ICON`).
   8. Varje `sources`-id i händelserna finns i `sources.json`, och varje händelse som en fun fact pekar på finns i `events.json`.
   9. Varje rike som ett krig anger i `empires` (#76) finns i `data/empires/index.json`, och bara krig har fältet.
+  10. Filerna i `data/genererat/` stämmer med källfilerna.
+  11. `data/licenses.json` och `images/licenses.json` stämmer med källregistret och händelsernas bilduppgifter.
+  12. `data/version.json` finns och versionsnumret följer `X.Y.Z` eller `X.Y.Z-dev`.
 
 Provkör den byggda sidan:
 
@@ -134,18 +149,33 @@ Formulärets serverfunktion `functions/api/feedback.js` (beslut 2026-10-30, [fee
 
 Jobbet **"Bygg och validera dist/"** kör också testerna för förslagens serverfunktion (`node --test 'tests/*.test.mjs'`, Node 22, inga beroenden).
 
+Jobbet **"Starta formulärets Pages Function som Cloudflare"** (#663) kör `scripts/pages-function-check.sh`. Skriptet startar `functions/api/feedback.js` med `wrangler pages dev dist` (Cloudflares egen körmiljö, workerd) och skickar ett anrop till `/api/feedback`. Utan nycklar ska svaret vara 503 `disabled`; startar funktionen inte är kontrollen röd. Skälet: Cloudflare stoppar **hela** publiceringen om funktionen inte startar, och koden som funktionen importerar (`js/model.js`, `js/i18n.js`) körs annars bara i node och i webbläsaren. Efter #634 misslyckades publiceringen av `main` 21 gånger i rad medan alla andra kontroller var gröna (#662). wrangler installeras i en tillfällig mapp med exakt version, som Playwright, och används bara här. Lokalt: `bash scripts/pages-function-check.sh` (kräver Node och nätet för npm första gången).
+
+Kontrollen **"Cloudflare Pages"** kommer från Cloudflare, inte från Actions. Är den röd på `main` publiceras dev inte, även om allt annat är grönt; titta då på den först.
+
 Bara pull requests mot `production` får dessutom kontrollen **"Release kommer från main"**. Den underkänner pull requesten om
 - den inte kommer från grenen `main` i samma repo, eller
 - `production` har ändringar som saknas i `main`, till exempel efter ett nödläge (se [Rollback](#rollback-till-en-tidigare-release)). Merge-commitarna som varje release ger i `production` är tillåtna, så länge de bara för in det som finns i `main` (`scripts/production-i-main.sh`). Kontrollen skriver också ut vilka ändringar som släpps.
 
 `.github/workflows/release.yml`, **Skapa release**, körs för hand från grenen `production` (Actions → Skapa release → Run workflow, "Use workflow from: production", versionsnummer `vX.Y.Z`). Den bygger och validerar `production`, kontrollerar att numret har rätt form och inte redan finns, kontrollerar med `scripts/production-i-main.sh` att `production` bara innehåller det som finns i `main`, och skapar sedan taggen och en GitHub Release med automatiska anteckningar. Den ändrar inget innehåll i `production` och publicerar inget; publiceringen har redan skett när release-PR:en slogs ihop.
 
+### Kontroll efter publicering (#400)
+
+`.github/workflows/production-check.yml`, **Kontrollera produktionen**, anropas automatiskt när **Skapa release** är klar och kan även köras för hand under Actions. Jobbet läser bara `https://historiagloben.se` och ändrar ingenting. Det
+
+1. väntar i högst fem minuter på att `js/main.js` på webbplatsen är exakt samma fil som på grenen `production`
+2. kontrollerar att HTML, CSS, JavaScript och JSON svarar med `Cache-Control: no-cache`
+3. kör samma grundfunktioner i `tests/webblasare.mjs` mot den skarpa adressen, i dator- och mobilbredd
+4. sparar skärmbilderna som artefakten `skarmbilder-produktion` i 14 dagar.
+
+Webbläsartestet väljer den publicerade sidan med `BASE_URL=https://historiagloben.se/`; utan den variabeln fungerar det som förut mot en lokal port. Om cachekontrollen misslyckas trots `_headers` ska Cloudflares **Browser Cache TTL** stå på **Respect Existing Headers**.
+
 ### Webbläsartest (#339)
 
-`.github/workflows/browser-test.yml`, **Webbläsartest**, körs vid samma tillfällen som valideringen (push till `main`, pull requests mot `main` och `production`). Jobbet **"Öppna sidan i Chromium"**:
+`.github/workflows/browser-test.yml`, **Webbläsartest**, körs vid samma tillfällen som valideringen (push till `main`, pull requests mot `main` och `production`). Vid push till `main` och pull requests mot `main` körs bara jobbet **"Öppna sidan i Chromium"**. En release-PR mot `production` kör samma test parallellt i **Chromium, Firefox och WebKit** (#401), så att även Firefox och Safaris webbläsarmotor provas före release. Varje jobb:
 
 1. bygger `dist/` med `scripts/build-site.sh`
-2. installerar Playwright 1.63.0 (exakt version) och bara Chromium i en tillfällig mapp utanför repot, så att repot inte får någon `package.json` och `dist/` inte påverkas
+2. installerar Playwright 1.63.0 (exakt version) och den aktuella webbläsarmotorn i en tillfällig mapp utanför repot, så att repot inte får någon `package.json` och `dist/` inte påverkas
 3. startar `python3 -m http.server` i `dist/`
 4. kör `tests/webblasare.mjs`, som öppnar sidan i datorbredd (1400 × 900) och mobilbredd (400 × 800)
 
@@ -157,9 +187,23 @@ Kontrollerna, i båda bredderna:
 - ett rike och en väg syns: i Platt vy år 1420 slår testet av och på Riken och Resor och handelsvägar och kontrollerar att kartan ändras
 - ingen horisontell scroll, före och efter att menyerna har öppnats
 
-Testet väntar på att sidan når ett visst läge (en meny syns, årtalet ändras, kartan står still), inte på fasta tider, så att det inte ska bli rött av en slump. Jobbet tar cirka 3 minuter och avbryts efter 10.
+Testet väntar på att sidan når ett visst läge (en meny syns, årtalet ändras, kartan står still), inte på fasta tider, så att det inte ska bli rött av en slump. Hela sviten tar 6–10 minuter. Jobbet avbryts efter 20 minuter, och steget som installerar Playwright avbryts efter 5 (#617).
 
-**Skärmbilderna** sparas som artefakten `skarmbilder` (14 dagar): öppna körningen under Actions (eller "Details" vid kontrollen i pull requesten) och ladda ner artefakten längst ned på sidan. Bilderna heter `dator-…` och `mobil-…`, i den ordning testet tar dem; en kontroll som misslyckas ger en bild som börjar på `dator-FEL-` eller `mobil-FEL-`. Loggen visar varje kontroll som `OK` eller `FEL` med ett kort mått (till exempel hur många pixlar som ändras när rikena slås på).
+Apt-paketen som Playwright installerar med `--with-deps` (mest typsnitt) sparas i en egen cache (`apt-debs-…`) och läggs tillbaka i apt:s arkiv före installationen, så att de inte laddas ner från Ubuntus spegel varje gång (#684). Cachen fylls stegvis: varje körning sparar de paket den hann hämta, även när installationen stoppades av tidsgränsen, så en långsam spegel kan ge några röda körningar i följd efter en ny Playwright- eller Ubuntu-version, men varje omkörning kommer längre tills alla paket finns i cachen.
+
+#### Avbruten eller röd: tre olika fall (#617)
+
+En körning som inte blir grön kan ha tre helt olika orsaker. Titta på statusen och på hur länge körningen höll på innan du ändrar något:
+
+| Fall | Så ser det ut | Vad du gör |
+| --- | --- | --- |
+| **En nyare push till samma gren** | `cancelled` efter 0–10 minuter, och en nyare körning finns för samma gren (`concurrency: cancel-in-progress`) | Inget. Det är avsikten; titta på den nyaste körningen. |
+| **Tidsgränsen** | `cancelled` efter cirka 20 minuter för hela jobbet, eller steget "Installera Playwright …" stoppat efter cirka 5 minuter | Ingen kontroll har fallerat. Har installationen stoppats (oftast `apt` som hämtar typsnittspaket långsamt, vilket numera bara kan hända när apt-cachen saknas, #684): **kör om körningen en gång** ("Re-run jobs"). Stoppas den igen, eller tar själva testet mer än 20 minuter, är det ett eget fel som ska bli ett issue. |
+| **Ett riktigt fel** | `failure`, och loggen visar `FEL` vid en kontroll | Följ regeln om röd kontroll i [AGENTS.md](../AGENTS.md#röd-kontroll-eller-slut-på-tid-samma-regel-för-alla-agenter-beslut-2026-11-05-skärpt-samma-dag): hitta den första felande kontrollen. |
+
+Blir sviten för långsam igen kan den delas i två parallella jobb med `ENDAST` (#587); det är inte gjort ännu.
+
+**Skärmbilderna** sparas i 14 dagar som `skarmbilder-chromium`, `skarmbilder-firefox` och `skarmbilder-webkit` (bara Chromium finns i vanliga körningar): öppna körningen under Actions (eller "Details" vid kontrollen i pull requesten) och ladda ner artefakten längst ned på sidan. Bilderna heter `dator-…` och `mobil-…`, i den ordning testet tar dem; en kontroll som misslyckas ger en bild som börjar på `dator-FEL-` eller `mobil-FEL-`. Loggen visar varje kontroll som `OK` eller `FEL` med ett kort mått (till exempel hur många pixlar som ändras när rikena slås på).
 
 Mallen `.github/PULL_REQUEST_TEMPLATE/release.md` är releasechecklistan. Den används när release-PR:en öppnas med `?template=release.md` (se nedan).
 
@@ -188,11 +232,13 @@ Godkännanden är satta till 0 eftersom projektet har en ägare, och GitHub låt
 4. Vänta tills **"Bygg och validera dist/"** och **"Release kommer från main"** är gröna, och bocka av checklistan.
 5. Slå ihop med **Create a merge commit** (det enda sättet som är tillåtet mot `production`). Då bygger Cloudflare Pages `production` och publicerar historiagloben.se, oftast inom någon minut.
 6. Kontrollera i Cloudflare → Deployments att produktionsbygget blev klart, och öppna historiagloben.se.
-7. Kör Actions → **Skapa release** från grenen `production` med versionsnumret. Det skapar taggen `vX.Y.Z` och en GitHub Release.
+7. Kör Actions → **Skapa release** från grenen `production` med versionsnumret. Det skapar taggen `vX.Y.Z` och en GitHub Release och kör därefter **Kontrollera produktionen** automatiskt.
 
 Inget annat än en sammanslagen release-PR uppdaterar historiagloben.se: `production` går inte att pusha till direkt, och sammanslagningar till `main` bygger bara förhandsversionen.
 
 ### Versionsnummer vX.Y.Z
+
+`data/version.json` visar versionen i Om källorna. På `main` används en utvecklingsversion med suffixet `-dev` och tomt `released`-datum. När en release förbereds uppdateras filen till `X.Y.Z` och datumet då den publiceras; efteråt får `main` nästa `X.Y.Z-dev`. Release-PR:ens checklista påminner om båda ändringarna.
 
 Taggarna skrivs `vX.Y.Z` med gemener och tre tal (semantisk versionering):
 - **X (huvudversion):** versionen i versionsplanen, till exempel `v3.0.0` när version 3 (Krig och slag) släpps.

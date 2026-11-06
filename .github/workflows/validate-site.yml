@@ -23,11 +23,45 @@ jobs:
           python-version: '3.12'
       - name: Bygg dist/ och kör valideringen
         run: bash scripts/build-site.sh
+      - name: Kontrollera att JSON Schema stoppar ett medvetet fel
+        run: python3 -I tests/validate-schema-test.py
+      - name: Kontrollera att redigeringsfilerna för händelser stoppar medvetna fel (#394)
+        run: python3 -I tests/dela-data-test.py
+      - name: Testa täckningsrapporten med en liten testdata (#563)
+        run: python3 -I tests/tackning-test.py
+      - name: Översätt samtidigt - inga nya oöversatta texter och inga inaktuella översättningar (#675)
+        run: python3 -I tools/oversattning.py --check
+      - name: Kontrollera att texterna per språk och spärren stoppar medvetna fel (#675)
+        run: python3 -I tests/oversattning-test.py
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
       - name: Testa formulärets serverfunktion (functions/api/feedback.js)
         run: node --test 'tests/*.test.mjs'
+
+  pages-function:
+    name: Starta formulärets Pages Function som Cloudflare
+    # #663: Cloudflare stoppar hela publiceringen om functions/api/feedback.js inte startar i Workers-miljön.
+    # Efter #634 hände det i 21 sammanslagningar utan att någon annan kontroll blev röd (#662).
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Cacha npm
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: wrangler-${{ runner.os }}-${{ hashFiles('scripts/pages-function-check.sh') }}
+      - name: Bygg dist/
+        run: bash scripts/build-site.sh
+      - name: Starta funktionen med wrangler och anropa /api/feedback
+        run: bash scripts/pages-function-check.sh
 
   from-main:
     name: Release kommer från main

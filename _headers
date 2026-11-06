@@ -2,6 +2,9 @@
 # Sidan har inget byggsteg, så filnamnen ändras inte mellan releaser. Webbläsaren ska därför alltid
 # fråga servern om filen har ändrats (no-cache betyder "kontrollera först", inte "spara inte").
 # Annars kan en ny index.html blandas med gamla JS-moduler och sidan går sönder efter en release.
+/*
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
 /
   Cache-Control: no-cache
 /index.html
@@ -12,3 +15,4 @@
   Cache-Control: no-cache
 /data/*
   Cache-Control: no-cache
+

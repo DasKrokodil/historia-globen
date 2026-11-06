@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/icon.svg" width="112" height="112" alt="A conductor on a podium, baton raised, in front of an orchestra seated in a semicircle">
+  <img src="icon.svg" width="112" height="112" alt="A conductor on a podium, baton raised, in front of an orchestra seated in a semicircle">
 </p>
 
 # Dirigenten och orkestern
@@ -59,17 +59,26 @@ flowchart TD
 
 ## What a run looks like
 
-1. You type `/orkester` (or just describe a change).
+1. You type `/orkester` or just describe a change. A change request becomes an issue
+   (or updates an existing one) and starts the orchestra within your scope, even if
+   no run is active or the previous idle watch ended. Asking for changes also asks
+   for them to be resolved, unless you explicitly say not to start or to only record
+   or discuss them ([chat intake](ORCHESTRA.md#turn-chat-requests-into-work)).
 2. The conductor fetches the issue queue, chooses the highest-priority startable work,
    claims it and starts up to your configured number of workers in parallel.
 3. While they work, the conductor runs your intake hooks, for example turning incoming
    reports into new issues.
-4. Each worker plans briefly, implements, runs the checks that matter and hands back.
-5. The conductor reviews the combined diff and evidence, pushes, posts the result on
-   the issue and closes it, then gives the free worker the next issue.
+4. Each worker plans briefly, implements and runs the checks that matter. A finished
+   handoff uses `integration-ready`: the issue stays in In progress with its integration
+   owner while waiting, and the worker slot is freed.
+5. The conductor reviews the combined diff and evidence, delivers it (a push to main,
+   or a pull request if your project merges through PRs), posts the result on the
+   issue and closes it once the change is on main. Available workers can take the next
+   independent issue while a finished handoff waits.
 6. When the queue is empty, the conductor reviews everything delivered in the session
    (with workers for parts if that helps); findings become new issues and the loop
-   continues. With nothing left, an optional idle watch waits for new issues.
+   continues. With nothing left, an optional idle watch waits for new issues; a runtime
+   that cannot wait runs one bounded pass and says so.
 7. Anything only you can decide waits on its issue, not in your chat. Everything else
    keeps moving.
 
@@ -102,14 +111,15 @@ flowchart TD
 
 ```sh
 git subtree add --prefix=.orchestra/shared \
-  https://github.com/solwation/dirigenten-och-orkestern.git v0.6.0 --squash
+  https://github.com/solwation/dirigenten-och-orkestern.git v0.8.2 --squash
 cp .orchestra/shared/PROJECT.example.md .orchestra/project.md
 ```
 
 Fill in `.orchestra/project.md`, point your agent's entry file (`AGENTS.md`,
 `CLAUDE.md`, …) at it and at `.orchestra/shared/ORCHESTRA.md`, and ask for a change.
-Optionally add a thin `/orkester` command that does the same. Pinning, updates and
-the upstream release check are in [INSTALL.md](INSTALL.md).
+Optionally add a thin `/orkester` command that does the same (entry files and a
+copyable adapter are in [INSTALL.md](INSTALL.md#connect-agent-entry-points)). Pinning,
+updates and the upstream release check are in [INSTALL.md](INSTALL.md).
 
 ## What's inside
 
@@ -120,8 +130,8 @@ the upstream release check are in [INSTALL.md](INSTALL.md).
 | [COORDINATION.md](COORDINATION.md) | Bounded passes and queue sessions over open issues |
 | [ISSUE-WORKFLOW.md](ISSUE-WORKFLOW.md) | GitHub labels and issue state via Issueflow |
 | [PROJECT.example.md](PROJECT.example.md) | Template for your project policy and hooks |
-| [INSTALL.md](INSTALL.md) | Install, update and release discovery |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | Improving the package and maintainer checks |
+| [INSTALL.md](INSTALL.md) | Install, agent entry points, updates and release discovery |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Improving the package, field reports, maintainer checks and releases |
 
 Changes are listed in [CHANGELOG.md](CHANGELOG.md). MIT licensed; see
 [LICENSE.md](LICENSE.md).

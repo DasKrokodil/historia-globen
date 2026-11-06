@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historia-globen: fun facts",
+  "type": "object",
+  "required": ["schema", "funfacts"],
+  "properties": {
+    "schema": { "type": "string", "pattern": "^historia-globen/funfacts@1$" },
+    "notes": { "type": "string" },
+    "funfacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "events", "show", "review", "text"],
+        "properties": {
+          "id": { "type": "string", "pattern": ".+" },
+          "events": { "type": "array", "items": { "type": "string", "pattern": ".+" } },
+          "show": { "type": "array", "items": { "type": "integer" } },
+          "review": { "type": "string", "enum": ["draft", "source-checked", "two-sources"] },
+          "text": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } }
+        }
+      }
+    }
+  }
+}

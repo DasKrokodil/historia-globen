@@ -1,0 +1,405 @@
+{
+  "schema": "historia-globen/tur@1",
+  "version": 1,
+  "id": "forsta-varldskriget",
+  "title": {
+    "sv": "Första världskriget på fyra kontinenter",
+    "en": "The First World War on four continents"
+  },
+  "summary": {
+    "sv": "Från skotten i Sarajevo 1914 till vapenstilleståndet 1918, i Europa, Asien, Afrika och Amerika."
+  },
+  "war": "forsta-varldskriget",
+  "review": "source-checked",
+  "steps": [
+    {
+      "id": "sarajevo",
+      "at": 1914,
+      "camera": {
+        "lat": 43.9,
+        "lon": 18.4,
+        "zoom": 1.7
+      },
+      "chapter": {
+        "sv": "Hur kriget började"
+      },
+      "title": {
+        "sv": "Sarajevo, 28 juni 1914"
+      },
+      "text": {
+        "sv": "Den bosnienserbiske studenten Gavrilo Princip skjuter Österrike-Ungerns tronföljare Franz Ferdinand och hans hustru Sophie. Mordet utlöser julikrisen."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "skotten-i-sarajevo",
+      "sources": [
+        "wp-sarajevo-assassination",
+        "wp-latin-bridge",
+        "wp-world-war-i",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "belgrad",
+      "at": 1914,
+      "camera": {
+        "lat": 44.8,
+        "lon": 20.5,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "Belgrad, 28 juli 1914"
+      },
+      "text": {
+        "sv": "En månad efter skotten förklarar Österrike-Ungern krig mot Serbien. I början av augusti förklarar Tyskland krig mot Ryssland och Frankrike, och Storbritannien går in i kriget när Tyskland invaderar Belgien."
+      },
+      "question": {
+        "sv": "Hur kunde ett mord i en enda stad leda till att flera stormakter förklarade krig mot varandra?"
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "forsta-varldskriget",
+      "sources": [
+        "wp-world-war-i",
+        "wp-belgrade",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "tannenberg",
+      "at": 1914,
+      "camera": {
+        "lat": 53.8,
+        "lon": 20.5,
+        "zoom": 1.6
+      },
+      "chapter": {
+        "sv": "1914: kriget sprids"
+      },
+      "title": {
+        "sv": "Ostpreussen, slutet av augusti 1914"
+      },
+      "text": {
+        "sv": "En tysk armé omringar och krossar nästan hela den ryska 2:a armén. Slaget utkämpas nära Allenstein men får namn efter Tannenberg."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "slaget-vid-tannenberg-1914",
+      "sources": [
+        "wp-tannenberg-1914",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "marne",
+      "at": 1914,
+      "camera": {
+        "lat": 49.0,
+        "lon": 3.4,
+        "zoom": 1.7
+      },
+      "title": {
+        "sv": "Marne, september 1914"
+      },
+      "text": {
+        "sv": "Franska och brittiska trupper stoppar den tyska framryckningen omkring fyra mil från Paris. Tysklands plan att snabbt besegra Frankrike misslyckas, och västfronten fastnar i ett skyttegravskrig som varar i fyra år."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "forsta-slaget-vid-marne",
+      "sources": [
+        "wp-marne-1914",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "qingdao",
+      "at": 1914,
+      "camera": {
+        "lat": 36.1,
+        "lon": 120.4,
+        "zoom": 1.5
+      },
+      "title": {
+        "sv": "Qingdao, augusti–november 1914"
+      },
+      "text": {
+        "sv": "Samtidigt i Kina belägrar japanska och brittiska styrkor den tyska hamnstaden Qingdao. Det är krigets enda stora landslag i Asien och Stilla havet."
+      },
+      "question": {
+        "sv": "Varför stred man om en tysk hamnstad i Kina, i ett krig som började i Europa?"
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "belagringen-av-tsingtao",
+      "sources": [
+        "wp-tsingtao-1914",
+        "wikidata",
+        "wp-marne-1914",
+        "wp-world-war-i"
+      ]
+    },
+    {
+      "id": "tanga",
+      "at": 1914,
+      "camera": {
+        "lat": -5.1,
+        "lon": 39.1,
+        "zoom": 1.5
+      },
+      "title": {
+        "sv": "Tanga, 3–5 november 1914"
+      },
+      "text": {
+        "sv": "En brittisk-indisk styrka försöker inta hamnen Tanga i Tyska Östafrika men slås tillbaka av en mindre tysk styrka under Paul von Lettow-Vorbeck. Det är det första stora slaget i fälttåget i Östafrika."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "slaget-vid-tanga",
+      "sources": [
+        "wp-tanga-1914",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "gallipoli",
+      "at": 1915,
+      "camera": {
+        "lat": 40.2,
+        "lon": 26.3,
+        "zoom": 1.7
+      },
+      "chapter": {
+        "sv": "1915–1916: stora slag på många fronter"
+      },
+      "title": {
+        "sv": "Gallipoli, 1915"
+      },
+      "text": {
+        "sv": "De allierade försöker ta kontroll över sunden till Konstantinopel. Trupperna som landstiger på halvön i april dras tillbaka i januari 1916, efter cirka 250 000 döda, sårade och tillfångatagna på vardera sidan. Landstigningsdagen 25 april är i dag Anzac Day i Australien och Nya Zeeland."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "gallipolifalttaget",
+      "sources": [
+        "wp-gallipoli",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "verdun",
+      "at": 1916,
+      "camera": {
+        "lat": 49.2,
+        "lon": 5.4,
+        "zoom": 1.7
+      },
+      "title": {
+        "sv": "Verdun, februari–december 1916"
+      },
+      "text": {
+        "sv": "Tyska trupper anfaller de franska försvarsverken kring Verdun. Det blir krigets längsta slag och slutar med fransk seger."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "slaget-vid-verdun",
+      "sources": [
+        "wp-verdun-1916",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "kut",
+      "at": 1916,
+      "camera": {
+        "lat": 32.5,
+        "lon": 45.8,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "Kut, 29 april 1916"
+      },
+      "text": {
+        "sv": "Medan slaget vid Verdun pågår kapitulerar en brittisk-indisk garnison i Kut, söder om Bagdad, efter nästan fem månaders osmansk belägring. Många av fångarna dör under marschen till fångenskap i Aleppo."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "belagringen-av-kut",
+      "sources": [
+        "wp-kut-1916",
+        "wikidata",
+        "wp-verdun-1916"
+      ]
+    },
+    {
+      "id": "jylland",
+      "at": 1916,
+      "camera": {
+        "lat": 56.7,
+        "lon": 5.9,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "Nordsjön utanför Jylland, 31 maj–1 juni 1916"
+      },
+      "text": {
+        "sv": "Den brittiska och den tyska flottan möts i krigets största sjöslag. 14 brittiska och 11 tyska fartyg sänks. Båda sidor hävdar seger, men den tyska flottan undviker sedan nya stora sjöslag."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "slaget-vid-jylland",
+      "sources": [
+        "wp-jutland",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "somme",
+      "at": 1916,
+      "camera": {
+        "lat": 50.0,
+        "lon": 2.7,
+        "zoom": 1.7
+      },
+      "title": {
+        "sv": "Somme, juli–november 1916"
+      },
+      "text": {
+        "sv": "Brittiska och franska arméer anfaller de tyska linjerna vid Somme. Över tre miljoner soldater deltar, och mer än en miljon dödas eller såras. Stridsvagnar används för första gången i september."
+      },
+      "question": {
+        "sv": "Över tre miljoner soldater deltog vid Somme. Vad tror du att det betydde för familjerna hemma?"
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "slaget-vid-somme",
+      "sources": [
+        "wp-somme-1916",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "washington",
+      "at": 1917,
+      "camera": {
+        "lat": 38.9,
+        "lon": -77.0,
+        "zoom": 1.5
+      },
+      "chapter": {
+        "sv": "1917–1918: USA kommer in, Ryssland lämnar"
+      },
+      "title": {
+        "sv": "Washington, 6 april 1917"
+      },
+      "text": {
+        "sv": "USA:s kongress förklarar Tyskland krig. Tyskland hade återupptagit det oinskränkta ubåtskriget, och Zimmermanntelegrammet, ett hemligt tyskt erbjudande till Mexiko, hade gjort amerikanerna upprörda."
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "usa-gar-in-i-forsta-varldskriget",
+      "sources": [
+        "wp-us-entry-ww1",
+        "wp-us-capitol",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "brest-litovsk",
+      "at": 1918,
+      "camera": {
+        "lat": 52.1,
+        "lon": 23.7,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "Brest-Litovsk, 3 mars 1918"
+      },
+      "text": {
+        "sv": "Sovjetryssland sluter separatfred med centralmakterna och lämnar kriget. Ryssland förlorar bland annat Ukraina, Polen, Belarus och de baltiska länderna."
+      },
+      "question": {
+        "sv": "Inom ett år gick USA in i kriget och Ryssland lämnade det. Hur kan det ha förändrat kriget?"
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "freden-i-brest-litovsk",
+      "sources": [
+        "wp-brest-litovsk",
+        "wp-us-entry-ww1",
+        "wikidata"
+      ]
+    },
+    {
+      "id": "compiegne",
+      "at": 1918,
+      "camera": {
+        "lat": 49.4,
+        "lon": 2.9,
+        "zoom": 1.7
+      },
+      "chapter": {
+        "sv": "Slutet"
+      },
+      "title": {
+        "sv": "Compiègne, 11 november 1918"
+      },
+      "text": {
+        "sv": "Vapenstilleståndet skrivs under i en järnvägsvagn i skogen vid Compiègne och träder i kraft klockan 11. Striderna upphör, och kriget är slut. Freden sluts i Versailles den 28 juni 1919."
+      },
+      "question": {
+        "sv": "Freden slöts i Versailles mer än ett halvår efter vapenstilleståndet. Varför kan det ta tid att sluta fred?"
+      },
+      "layers": [
+        "events",
+        "wars",
+        "areas"
+      ],
+      "open": "vapenstillestandet-1918",
+      "sources": [
+        "wp-armistice-1918",
+        "wp-glade-armistice",
+        "wikidata"
+      ]
+    }
+  ]
+}

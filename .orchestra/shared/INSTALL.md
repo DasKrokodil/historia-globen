@@ -11,14 +11,68 @@ Install into a clean working tree (requires Git's `subtree` command):
 
 ```sh
 git subtree add --prefix=.orchestra/shared \
-  https://github.com/solwation/dirigenten-och-orkestern.git v0.6.0 --squash
+  https://github.com/solwation/dirigenten-och-orkestern.git v0.8.2 --squash
 ```
 
 Copy the project example to `.orchestra/project.md`, fill it in, then link the host's
 agent entry points to that policy and `.orchestra/shared/ORCHESTRA.md`. A slash command
-is only a thin adapter: read host policy, read core, pass user scope (an empty scope
-requests a bounded pass). Do not copy the
-core into a second prompt. Keep project configuration outside `.orchestra/shared`.
+is only a thin adapter: read host policy, read core, pass user scope (for an empty
+scope see the [read map](ORCHESTRA.md#read-map)). Do not copy the core into a second
+prompt. Keep project configuration outside `.orchestra/shared`.
+
+### Connect agent entry points
+
+Each agent reads its own instruction file; add the entry snippet below to the one your
+agent uses (or to several). Names checked against each vendor's documentation:
+
+| Agent | Entry file | Notes |
+| --- | --- | --- |
+| Claude Code | `CLAUDE.md` | Reads `AGENTS.md` only when no `CLAUDE.md` exists; otherwise add `@AGENTS.md` to `CLAUDE.md` to share one file ([docs](https://code.claude.com/docs/en/memory#agents-md)) |
+| Codex | `AGENTS.md` | [docs](https://developers.openai.com/codex/guides/agents-md) |
+| Gemini CLI | `GEMINI.md` | `AGENTS.md` only if `context.fileName` is configured ([docs](https://geminicli.com/docs/cli/gemini-md/)) |
+| Cursor | `AGENTS.md`, or `.cursor/rules/orchestra.mdc` | A rule needs `alwaysApply: true` in its frontmatter to apply to every chat ([docs](https://cursor.com/docs/context/rules)) |
+| GitHub Copilot | `.github/copilot-instructions.md` | Also reads `AGENTS.md` ([docs](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions)) |
+
+Vendors rename files and add fallbacks; if your version ignores an entry file, check
+its current documentation. Copyable entry snippet:
+
+```md
+This repository uses the orchestra workflow.
+Project policy: read `.orchestra/project.md` first.
+Workflow core: follow `.orchestra/shared/ORCHESTRA.md`, starting from its read map.
+Apply its chat intake rule to change requests, including when no run is active or
+the previous idle watch has ended.
+```
+
+The shared tree's own `.claude/commands/` is not read by any client once installed
+under `.orchestra/shared`, so a consumer copies an adapter. For Claude Code, save as
+`.claude/commands/orkester.md`:
+
+```md
+---
+description: Run the orchestra on this repository
+argument-hint: "[scope or issue number]"
+---
+
+Requested scope: $ARGUMENTS
+
+Read `.orchestra/project.md`, then read the core through the read map in
+`.orchestra/shared/ORCHESTRA.md`. Pass the requested scope on to the conductor; for an
+empty scope follow the host policy.
+```
+
+For clients without commands, paste this prompt, or write it as a prompt file:
+
+```md
+Run the orchestra. Requested scope: <scope, or empty>
+
+Read `.orchestra/project.md`, then read the core through the read map in
+`.orchestra/shared/ORCHESTRA.md`. Pass the requested scope on to the conductor; for an
+empty scope follow the host policy.
+```
+
+Keep rules such as timers, labels and question handling out of these files: they live
+in the core and the host policy.
 
 Record the release and resolved upstream commit in the host policy. The installed
 subtree stays pinned: [update discovery](#check-for-upstream-updates) proposes changes
@@ -39,13 +93,38 @@ An ordinary flattening rebase may lose the history used for later subtree update
 To roll back, restore the last reviewed shared tree and host pin in a normal commit;
 record why. Do not rewrite published history or move release tags.
 
+## Adopt the integration-ready handoff
+
+When updating from a release before this handoff was added, review the imported
+[handoff procedure](ORCHESTRA.md#handoff-for-integration) and the resolved
+[Issueflow guide](ISSUE-WORKFLOW.md) together. Existing active-work labels and custom
+active-work overrides remain supported; `integration-ready` is a separate waiting
+status. A custom active-work label does not replace it. Use a dashboard version that
+recognizes the status before adopting it; the public Issueflow guide defines the
+supported transitions and timing.
+
+Remove host/adapter rules that send finished handoffs back to Backlog or discard their
+integration owner. Configure the integration queue in the host policy: preserve owner,
+branch/checkout, exact revision, evidence and next action; waiting uses no active slot.
+Keep host permissions, priority constraints and publication/closure gates unchanged.
+A shared update does not authorize changing another repository or adopting its rules.
+
+Reconcile existing work from evidence, not its age: a genuinely finished, checked
+handoff gets `integration-ready` with its documented owner; active implementation or
+integration uses the active-work label; paused, rejected or unfinished work follows
+the guide's correction/pause rules. Do not bulk-mark every old paused issue ready.
+Check parent summaries and open PRs, then walk through handoff, integration,
+correction, pause and reopening before recording the new pin. Preserve old worktrees
+until their work is integrated or otherwise preserved. Follow the normal reviewed
+subtree update/rollback procedure above; no automatic issue migration runs.
+
 ## Check for upstream updates
 
 The conductor checks for newer stable upstream versions when starting or resuming
 orchestra work. Reuse a successful check for the same upstream and installed pin for
 up to 24 hours; an explicit update request or a suspected orchestra bug forces a fresh
 check. Do this once per conductor, not per worker, issue or queue poll. A host may set
-a different cadence. Reading these instructions alone does not start a queue or watcher.
+a different cadence.
 
 Read the installed release and commit from the host policy. Discover stable releases
 and version tags from the configured official upstream; do not assume GitHub's latest

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historia-globen: rikesregister",
+  "type": "object",
+  "required": ["schema", "groups"],
+  "properties": {
+    "schema": { "type": "string", "pattern": "^historia-globen/empires-index@1$" },
+    "notes": { "type": "string" },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "color", "from", "to", "polities"],
+        "properties": {
+          "id": { "type": "string", "pattern": ".+" },
+          "name": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
+          "color": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+          "from": { "type": "integer" },
+          "to": { "type": "integer" },
+          "file": { "type": "string", "pattern": "^data/empires/.+\\.json$" },
+          "capitals": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name", "at", "sources", "review"],
+              "properties": {
+                "name": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
+                "wikidata": { "type": "string", "pattern": "^Q[0-9]+$" },
+                "at": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2 },
+                "polity": { "type": "string", "pattern": ".+" },
+                "from": { "type": "integer" },
+                "to": { "type": "integer" },
+                "note": { "type": "object", "required": ["sv"] },
+                "sources": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": ".+" } },
+                "review": { "type": "string", "enum": ["draft", "source-checked", "two-sources"] }
+              }
+            }
+          },
+          "polities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "name", "sources", "review"],
+              "properties": {
+                "id": { "type": "string", "pattern": ".+" },
+                "name": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
+                "sources": { "type": "array", "items": { "type": "string", "pattern": ".+" } },
+                "review": { "type": "string", "enum": ["draft", "source-checked", "two-sources"] }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -466,5 +466,929 @@
     },
     "credit": "AI-genererad med ChatGPT, 2026-10-30",
     "prompt": "Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: Upproret i Goma inleder kriget — Goma i provinsen Nordkivu, östra Kongo, 1998 CE. What happened (show only this, do not add details): Den 2 augusti 1998 gör banyamulengesoldater i Goma uppror mot president Kabila, med stöd av Rwanda. Samma månad bildas rebellgruppen RCD med stöd av Rwanda och Uganda, och den tar snabbt kontroll över stora delar av östra Kongo, bland annat städerna Bukavu och Uvira. Den 23 augusti faller Kisangani. I Kinshasa uppviglar regeringen till våld mot tutsier. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details. No flags, banners or insignia."
+  },
+  {
+    "id": "fn-grundas",
+    "file": "fn-grundas.jpg",
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "FN-stadgan i en utställning vid FN:s högkvarter i New York, utlånad från USA:s nationalarkiv. Nutida fotografi från 2025, inte från 1945. Licens: CC BY 4.0."
+    },
+    "credit": "Megs / Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "source": "commons-bild-fn-grundas"
+  },
+  {
+    "id": "manskliga-rattigheter-1948",
+    "file": "manskliga-rattigheter-1948.jpg",
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "Eleanor Roosevelt med en affisch av den allmänna förklaringen om de mänskliga rättigheterna, Lake Success i New York, november 1949, ett år efter att förklaringen antogs. Licens: CC BY 2.0."
+    },
+    "credit": "FDR Presidential Library & Museum / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-manskliga-rattigheter-1948"
+  },
+  {
+    "id": "jordbavningen-i-valdivia-1960",
+    "file": "jordbavningen-i-valdivia-1960.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Jordbävningsskador på trähus i Valdivia, Chile, 1960. Licens: Public domain."
+    },
+    "credit": "Pierre St. Amand / NOAA via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-jordbavningen-i-valdivia-1960"
+  },
+  {
+    "id": "gagarin-vostok-1",
+    "file": "gagarin-vostok-1.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Jurij Gagarin, 12 april 1961. Licens: CC BY 4.0 (Mos.ru)."
+    },
+    "credit": "TASS / Mos.ru via Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "source": "commons-bild-gagarin-vostok-1"
+  },
+  {
+    "id": "kubakrisen",
+    "file": "kubakrisen.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Ett av de första spaningsfotona av robotbaser under bygge på Kuba, som visades för president Kennedy på morgonen den 16 oktober 1962. Licens: Public domain."
+    },
+    "credit": "Okänd U-2-pilot / John F. Kennedy Presidential Library via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-kubakrisen"
+  },
+  {
+    "id": "militarkuppen-i-chile-1973",
+    "file": "militarkuppen-i-chile-1973.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Bombningen av presidentpalatset La Moneda i Santiago den 11 september 1973. Licens: CC BY 3.0 CL."
+    },
+    "credit": "Biblioteca del Congreso Nacional de Chile / Wikimedia Commons",
+    "license": "CC BY 3.0 CL",
+    "source": "commons-bild-militarkuppen-i-chile-1973"
+  },
+  {
+    "id": "smittkoppor-utrotas",
+    "file": "smittkoppor-utrotas.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Smittkoppsvirus i elektronmikroskop, förstorat cirka 370 000 gånger. Bild från 1975. Licens: Public domain."
+    },
+    "credit": "CDC / Fred Murphy och Sylvia Whitfield via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-smittkoppor-utrotas"
+  },
+  {
+    "id": "berlinmurens-fall",
+    "file": "berlinmurens-fall.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Checkpoint Charlie i Berlin natten då muren öppnades, 10 november 1989. Licens: CC BY-SA 3.0 DE."
+    },
+    "credit": "Bundesarchiv, Bild 183-1989-1110-018 / Klaus Oberst / Wikimedia Commons",
+    "license": "CC BY-SA 3.0 DE",
+    "source": "commons-bild-berlinmurens-fall"
+  },
+  {
+    "id": "sovjetunionens-upplosning",
+    "file": "sovjetunionens-upplosning.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Leonid Kravtjuk, Stanislav Sjusjkevitj och Boris Jeltsin vid undertecknandet av Belovezjavtalet den 8 december 1991. Licens: CC BY-SA 3.0."
+    },
+    "credit": "RIA Novosti archive, image #848095 / U. Ivanov / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-sovjetunionens-upplosning"
+  },
+  {
+    "id": "sydafrikas-forsta-fria-val",
+    "file": "sydafrikas-forsta-fria-val.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Nelson Mandela röstar i valet i april 1994, vid Ohlange School i Inanda nära Durban. Licens: CC BY-SA 3.0."
+    },
+    "credit": "Paul Weinberg / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-sydafrikas-forsta-fria-val"
+  },
+  {
+    "id": "attackerna-11-september-2001",
+    "file": "attackerna-11-september-2001.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Rök stiger från World Trade Centers torn i New York den 11 september 2001. Licens: CC BY 2.0."
+    },
+    "credit": "Michael Foran / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-attackerna-11-september-2001"
+  },
+  {
+    "id": "tsunamin-i-indiska-oceanen-2004",
+    "file": "tsunamin-i-indiska-oceanen-2004.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "En förstörd by nära Sumatras kust i Indonesien, fotograferad från luften den 2 januari 2005, en vecka efter tsunamin. Licens: Public domain."
+    },
+    "credit": "Philip A. McDaniel, U.S. Navy / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-tsunamin-i-indiska-oceanen-2004"
+  },
+  {
+    "id": "finanskrisen-2008",
+    "file": "finanskrisen-2008.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Lehman Brothers huvudkontor i New York den 15 september 2008, dagen då banken begärde sig i konkurs. Licens: CC BY 2.0."
+    },
+    "credit": "Robert Scoble / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-finanskrisen-2008"
+  },
+  {
+    "id": "arabiska-varen",
+    "file": "arabiska-varen.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Demonstranter möter polisen på Avenue Habib Bourguiba i Tunis den 20 januari 2011. Licens: CC BY 2.0."
+    },
+    "credit": "Chris Belsten / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-arabiska-varen"
+  },
+  {
+    "id": "covid-19-pandemin",
+    "file": "covid-19-pandemin.png",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Viruset SARS-CoV-2 i en vetenskaplig illustration från USA:s smittskyddsmyndighet CDC, januari 2020. Inte ett fotografi. Licens: Public domain."
+    },
+    "credit": "Alissa Eckert och Dan Higgins, CDC / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-covid-19-pandemin"
+  },
+  {
+    "id": "slaveriet-avskaffas-i-usa",
+    "file": "slaveriet-avskaffas-i-usa.jpg",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Firandet i representanthuset när kongressen antog det trettonde tillägget. Tryck i Harper's Weekly den 18 februari 1865. Licens: Public domain."
+    },
+    "credit": "Harper's Weekly / Internet Archive via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaveriet-avskaffas-i-usa"
+  },
+  {
+    "id": "meijirestaurationen",
+    "file": "meijirestaurationen.jpg",
+    "kind": "historisk",
+    "style": "japan-ukiyoe",
+    "caption": {
+      "sv": "Kejsarens tåg till Tokyo korsar floden Rokugo, hösten 1868. Träsnitt av Tsukioka Yoshitoshi från samma år. Licens: Public domain."
+    },
+    "credit": "Tsukioka Yoshitoshi / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-meijirestaurationen"
+  },
+  {
+    "id": "suezkanalen-oppnas",
+    "file": "suezkanalen-oppnas.jpg",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Invigningen av Suezkanalen den 17 november 1869. Bild av Édouard Riou från samma år. Licens: Public domain."
+    },
+    "credit": "Édouard Riou / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-suezkanalen-oppnas"
+  },
+  {
+    "id": "krakatau-1883",
+    "file": "krakatau-1883.jpg",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Utbrottet på Krakatau 1883, fotograferat av en okänd fotograf. Det bevarade exemplaret är ett foto av ett foto. Licens: Public domain."
+    },
+    "credit": "Okänd fotograf / KITLV, Leidens universitetsbibliotek via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-krakatau-1883"
+  },
+  {
+    "id": "berlinkonferensen",
+    "file": "berlinkonferensen.jpg",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Delegaterna vid Berlinkonferensen. Teckning av Adalbert von Roessler i tidskriften Über Land und Meer, 1884. Licens: Public domain."
+    },
+    "credit": "Adalbert von Roessler, Über Land und Meer / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-berlinkonferensen"
+  },
+  {
+    "id": "kvinnlig-rostratt-nya-zeeland",
+    "file": "kvinnlig-rostratt-nya-zeeland.jpg",
+    "kind": "historisk",
+    "style": "stilla-havet-gravyr",
+    "caption": {
+      "sv": "Namninsamlingen för kvinnlig rösträtt från 1893, fotograferad i Nya Zeelands riksarkiv långt senare. Licens: CC BY-SA 2.0."
+    },
+    "credit": "Archives New Zealand / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-kvinnlig-rostratt-nya-zeeland"
+  },
+  {
+    "id": "olympiska-spelen-1896",
+    "file": "olympiska-spelen-1896.jpg",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Öppningen av de första moderna olympiska spelen i Aten 1896. Foto av okänd fotograf, återgivet i en fransk tidskrift 1928. Licens: Public domain."
+    },
+    "credit": "Okänd fotograf / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-olympiska-spelen-1896"
+  },
+  {
+    "id": "titanic-sjunker",
+    "file": "titanic-sjunker.jpg",
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "Titanic lämnar Southampton den 10 april 1912, fem dagar före förlisningen. Foto av F. G. O. Stuart. Licens: Public domain."
+    },
+    "credit": "Francis Godolphin Osbourne Stuart / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-titanic-sjunker"
+  },
+  {
+    "id": "oktoberrevolutionen",
+    "file": "oktoberrevolutionen.jpg",
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "Vid Vinterpalatset i Petrograd efter att det hade intagits, 26 oktober 1917 enligt den gamla kalendern (7 november). Foto av Pjotr Novitskij. Licens: Public domain."
+    },
+    "credit": "Pjotr Novitskij / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-oktoberrevolutionen"
+  },
+  {
+    "id": "penicillinet-upptacks",
+    "file": "penicillinet-upptacks.jpg",
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "Alexander Fleming i sitt laboratorium på St Mary's Hospital i London under andra världskriget, alltså mer än tio år efter upptäckten 1928. Licens: Public domain (brittiskt statligt verk)."
+    },
+    "credit": "Ministry of Information / Imperial War Museum via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-penicillinet-upptacks"
+  },
+  {
+    "id": "borskraschen-1929",
+    "file": "borskraschen-1929.jpg",
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "Folkmassor utanför New York-börsen på svarta torsdagen, 24 oktober 1929. Licens: Public domain."
+    },
+    "credit": "Associated Press / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-borskraschen-1929"
+  },
+  {
+    "id": "fotbolls-vm-1930",
+    "file": "fotbolls-vm-1930.jpg",
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "Estadio Centenario i Montevideo 1930. Foto av okänd fotograf. Licens: Public domain."
+    },
+    "credit": "Okänd fotograf / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-fotbolls-vm-1930"
+  },
+  {
+    "id": "saltmarschen",
+    "file": "saltmarschen.jpg",
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "Mahatma Gandhi under saltmarschen i mars 1930. Foto av okänd fotograf. Licens: Public domain."
+    },
+    "credit": "Okänd fotograf / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-saltmarschen"
+  },
+  {
+    "id": "dna-strukturen",
+    "file": "dna-strukturen.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Modellen av DNA-molekylen som Crick och Watson byggde 1953, fotograferad i Science Museum i London i nutid. Licens: Public domain."
+    },
+    "credit": "Alkivar / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-dna-strukturen"
+  },
+  {
+    "id": "keelingkurvan",
+    "file": "keelingkurvan.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Charles David Keeling och John Chin vid Mauna Loa-observatoriet 1997, nästan 40 år efter de första mätningarna. Licens: Public domain."
+    },
+    "credit": "John Miller, NOAA / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-keelingkurvan"
+  },
+  {
+    "id": "berlinmuren-byggs",
+    "file": "berlinmuren-byggs.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Östtyska byggnadsarbetare bygger Berlinmuren den 20 november 1961. Licens: Public domain."
+    },
+    "credit": "U.S. National Archives / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-berlinmuren-byggs"
+  },
+  {
+    "id": "marschen-till-washington",
+    "file": "marschen-till-washington.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Marschens ledare går från Washingtonmonumentet mot Lincolnmonumentet den 28 augusti 1963. Licens: Public domain."
+    },
+    "credit": "Rowland Scherman, U.S. Information Agency / National Archives via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-marschen-till-washington"
+  },
+  {
+    "id": "kulturrevolutionen",
+    "file": "kulturrevolutionen.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Ett citat ur Mao Zedongs lilla röda bok, målat på en husvägg i Zhuji under kulturrevolutionen. Nutida foto från 2005. Licens: CC BY 1.0."
+    },
+    "credit": "Shizhao / Wikimedia Commons",
+    "license": "CC BY 1.0",
+    "source": "commons-bild-kulturrevolutionen"
+  },
+  {
+    "id": "montrealprotokollet",
+    "file": "montrealprotokollet.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Ozonhålet över Antarktis den 15 oktober 1987, uppmätt av satelliten NOAA-9, samma höst som Montrealprotokollet antogs. Licens: Public domain."
+    },
+    "credit": "NOAA / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-montrealprotokollet"
+  },
+  {
+    "id": "lanse-aux-meadows",
+    "file": "lanse-aux-meadows.png",
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Grunden till det största nordiska huset i L'Anse aux Meadows på Newfoundland, fotograferad 2010. Nutida foto. Licens: CC BY-SA 3.0."
+    },
+    "credit": "Clinton Pierce / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-lanse-aux-meadows"
+  },
+  {
+    "id": "polynesier-nar-aotearoa",
+    "file": "polynesier-nar-aotearoa.png",
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Tidiga maoriföremål från fyndplatsen Wairau Bar, i Canterbury Museum i Christchurch. Nutida museifoto från 2016. Licens: Public domain."
+    },
+    "credit": "Szilas / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-polynesier-nar-aotearoa"
+  },
+  {
+    "id": "stora-zimbabwe",
+    "file": "stora-zimbabwe.png",
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Den stora inhägnaden i ruinerna av Stora Zimbabwe, fotograferad 1997. Nutida foto. Licens: Public domain."
+    },
+    "credit": "Jan Derk / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-stora-zimbabwe"
+  },
+  {
+    "id": "marco-polos-resa",
+    "file": "marco-polos-resa.png",
+    "kind": "historisk",
+    "style": "kina-tusch",
+    "caption": {
+      "sv": "Marco Polo på resa. Miniatyr ur en senare handskrift av hans reseskildring, inte från resan. Licens: Public domain."
+    },
+    "credit": "Okänd konstnär / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-marco-polos-resa"
+  },
+  {
+    "id": "zheng-hes-resor",
+    "file": "zheng-hes-resor.png",
+    "kind": "historisk",
+    "style": "kina-tusch",
+    "caption": {
+      "sv": "Sjökort över Zheng Hes resor ur Wubei zhi av Mao Yuanyi, träsnitt i en utgåva från 1600-talet. Senare än resorna. Licens: Public domain."
+    },
+    "credit": "Mao Yuanyi / Library of Congress via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-zheng-hes-resor"
+  },
+  {
+    "id": "konstantinopels-fall",
+    "file": "konstantinopels-fall.png",
+    "kind": "historisk",
+    "style": "miniatyr",
+    "caption": {
+      "sv": "Belägringen av Konstantinopel i en fransk handskrift, Jean Chartiers krönika om Karl VII, målad omkring 1460 och tillskriven Philippe de Mazerolles. Licens: Public domain."
+    },
+    "credit": "Philippe de Mazerolles (tillskriven) / Bibliothèque nationale de France via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-konstantinopels-fall"
+  },
+  {
+    "id": "vasco-da-gama-nar-indien",
+    "file": "vasco-da-gama-nar-indien.png",
+    "kind": "historisk",
+    "style": "miniatyr",
+    "caption": {
+      "sv": "Vasco da Gamas ankomst till Calicut 1498, målad av Alfredo Roque Gameiro omkring 1900. Senare bild. Licens: Public domain."
+    },
+    "credit": "Alfredo Roque Gameiro / Biblioteca Nacional de Portugal via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-vasco-da-gama-nar-indien"
+  },
+  {
+    "id": "luthers-teser",
+    "file": "luthers-teser.png",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Första sidan av de 95 teserna i en tryckt utgåva från Basel, 1517. Licens: Public domain."
+    },
+    "credit": "Martin Luther / e-rara via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-luthers-teser"
+  },
+  {
+    "id": "magellans-jordenruntsegling",
+    "file": "magellans-jordenruntsegling.png",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Magellans resa i en allegorisk bild av Johannes Stradanus från omkring 1592. Senare bild. Licens: Public domain."
+    },
+    "credit": "Johannes Stradanus / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-magellans-jordenruntsegling"
+  },
+  {
+    "id": "kopernikus-de-revolutionibus",
+    "file": "kopernikus-de-revolutionibus.png",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Kopernikus bild av solsystemet med solen i mitten, ur De revolutionibus (1543). Licens: Public domain."
+    },
+    "credit": "Nicolaus Copernicus / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-kopernikus-de-revolutionibus"
+  },
+  {
+    "id": "galileo-sidereus-nuncius",
+    "file": "galileo-sidereus-nuncius.png",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Två teckningar av månen med skuggor och kratrar, ur Galileos Sidereus nuncius. Licens: CC BY 4.0."
+    },
+    "credit": "Wellcome Collection / Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "source": "commons-bild-galileo-sidereus-nuncius"
+  },
+  {
+    "id": "newtons-principia",
+    "file": "newtons-principia.png",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Titelsidan till första upplagan av Newtons Principia, 1687. Licens: Public domain."
+    },
+    "credit": "Isaac Newton / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-newtons-principia"
+  },
+  {
+    "id": "cook-nar-australien",
+    "file": "cook-nar-australien.png",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Människor i en kanot i Botany Bay, tecknade av Tupaia, som reste med Cook, i april 1770. Licens: Public domain."
+    },
+    "credit": "Tupaia / British Library via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-cook-nar-australien"
+  },
+  {
+    "id": "forsta-flottan-sydney",
+    "file": "forsta-flottan-sydney.png",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Första flottan seglar in i Port Jackson den 27 januari 1788. Lavering av William Bradley, som var med, ur hans resedagbok från omkring 1802. Licens: Public domain."
+    },
+    "credit": "William Bradley / State Library of New South Wales via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-forsta-flottan-sydney"
+  },
+  {
+    "id": "stormningen-av-bastiljen",
+    "file": "stormningen-av-bastiljen.png",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Stormningen av Bastiljen, målning av en okänd konstnär i Versailles samlingar. Licens: Public domain."
+    },
+    "credit": "Okänd konstnär / Château de Versailles via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-stormningen-av-bastiljen"
+  },
+  {
+    "id": "jenners-vaccin",
+    "file": "jenners-vaccin.png",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Edward Jenner. Mezzotint av John Raphael Smith från 1800. Licens: CC BY 4.0."
+    },
+    "credit": "John Raphael Smith / Wellcome Collection via Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "source": "commons-bild-jenners-vaccin"
+  },
+  {
+    "id": "tambora-1815",
+    "file": "tambora-1815.png",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Kratern på vulkanen Tambora på Sumbawa, fotograferad 2017. Nutida foto. Licens: CC BY 4.0."
+    },
+    "credit": "Tisquesusa / Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "source": "commons-bild-tambora-1815"
+  },
+  {
+    "id": "forsta-jarnvagen-mellan-stader",
+    "file": "forsta-jarnvagen-mellan-stader.png",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Invigningen av järnvägen mellan Liverpool och Manchester 1830. Tryck efter I. Shaw junior. Licens: Public domain."
+    },
+    "credit": "I. Shaw junior / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-forsta-jarnvagen-mellan-stader"
+  },
+  {
+    "id": "waitangifordraget",
+    "file": "waitangifordraget.png",
+    "kind": "historisk",
+    "style": "stilla-havet-gravyr",
+    "caption": {
+      "sv": "Waitangiarket, ett av exemplaren av Waitangifördraget från 1840. Licens: Public domain."
+    },
+    "credit": "William Hobson, James Freeman, James Busby, Henry och Edward Williams / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-waitangifordraget"
+  },
+  {
+    "id": "om-arternas-uppkomst",
+    "file": "om-arternas-uppkomst.png",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Titelsidan till första upplagan av Darwins Om arternas uppkomst, John Murray 1859. Licens: Public domain."
+    },
+    "credit": "John Murray / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-om-arternas-uppkomst"
+  },
+  {
+    "id": "jordbrukets-borjan",
+    "file": "jordbrukets-borjan.png",
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Utgrävningarna i Jarmo i norra Irak, en av de tidiga jordbruksbyarna i Bördiga halvmånen, fotograferade 2021. Nutida foto. Licens: CC BY-SA 4.0."
+    },
+    "credit": "Osama Shukir Muhammed Amin / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-jordbrukets-borjan"
+  },
+  {
+    "id": "kilskriften",
+    "file": "kilskriften.png",
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Lertavla med tidig skrift från Uruk III-perioden, slutet av 3000-talet f.Kr., i Louvren. Nutida museifoto. Licens: CC BY 3.0."
+    },
+    "credit": "Mbzt / Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "source": "commons-bild-kilskriften"
+  },
+  {
+    "id": "egypten-enas",
+    "file": "egypten-enas.png",
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Narmerpaletten från Hierakonpolis. Den visar kung Narmer som slår ner en fiende. Nutida foto från 2002. Licens: CC0."
+    },
+    "credit": "Gary Todd / Wikimedia Commons",
+    "license": "CC0",
+    "source": "commons-bild-egypten-enas"
+  },
+  {
+    "id": "caral",
+    "file": "caral.png",
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Den stora pyramiden och den runda platsen i Caral i Peru. Nutida foto. Licens: CC BY-SA 2.0."
+    },
+    "credit": "Jon Gudorf / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-caral"
+  },
+  {
+    "id": "stonehenge",
+    "file": "stonehenge.png",
+    "kind": "historisk",
+    "style": "grotta",
+    "caption": {
+      "sv": "Stonehenge, fotograferat 2007. Nutida foto. Licens: CC BY 2.0."
+    },
+    "credit": "garethwiscombe / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-stonehenge"
+  },
+  {
+    "id": "mohenjo-daro",
+    "file": "mohenjo-daro.png",
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Det stora badet i Mohenjo-daro, fotograferat 2014. Nutida foto. Licens: CC BY-SA 3.0."
+    },
+    "credit": "Saqib Qayyum / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-mohenjo-daro"
+  },
+  {
+    "id": "hammurabis-lagar",
+    "file": "hammurabis-lagar.png",
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Stelen med Hammurabis lagar i Louvren. Nutida museifoto. Licens: CC BY 2.0."
+    },
+    "credit": "Fred Romero / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-hammurabis-lagar"
+  },
+  {
+    "id": "vulkanutbrottet-pa-thera",
+    "file": "vulkanutbrottet-pa-thera.png",
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Vid utgrävningsplatsen Akrotiri på Santorini, staden som begravdes av utbrottet. Nutida foto från 2012. Licens: CC BY-SA 3.0."
+    },
+    "credit": "Norbert Nagel / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-vulkanutbrottet-pa-thera"
+  },
+  {
+    "id": "lapitafolket-nar-samoa",
+    "file": "lapitafolket-nar-samoa.png",
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Lapitakeramik i Vanuatus kulturcentrum i Port Vila. Kärlen kommer från Vanuatu, inte från Samoa. Nutida museifoto. Licens: CC BY-SA 3.0."
+    },
+    "credit": "Torbenbrinker / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-lapitafolket-nar-samoa"
+  },
+  {
+    "id": "demokratin-i-aten",
+    "file": "demokratin-i-aten.png",
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Pnyx i Aten, där folkförsamlingen möttes, med Akropolis i bakgrunden. Nutida foto från 2018. Licens: CC0."
+    },
+    "credit": "George E. Koronaios / Wikimedia Commons",
+    "license": "CC0",
+    "source": "commons-bild-demokratin-i-aten"
+  },
+  {
+    "id": "zhang-qian-sidenvagen",
+    "file": "zhang-qian-sidenvagen.png",
+    "kind": "historisk",
+    "style": "kina-tusch",
+    "caption": {
+      "sv": "Zhang Qians resa västerut, väggmålning i Mogaogrottorna i Dunhuang från 600- eller 700-talet. Senare bild. Licens: Public domain."
+    },
+    "credit": "Okänd konstnär / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-zhang-qian-sidenvagen"
+  },
+  {
+    "id": "caesar-mordas",
+    "file": "caesar-mordas.png",
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Mordet på Julius Caesar, målning av Vincenzo Camuccini från 1804–1805. Senare bild. Licens: Public domain."
+    },
+    "credit": "Vincenzo Camuccini / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-caesar-mordas"
+  },
+  {
+    "id": "vesuvius-79",
+    "file": "vesuvius-79.png",
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Pompejis och Herculaneums undergång, målning av John Martin från 1822. Senare bild. Licens: Public domain."
+    },
+    "credit": "John Martin / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-vesuvius-79"
+  },
+  {
+    "id": "aksum-blir-kristet",
+    "file": "aksum-blir-kristet.png",
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Ezanas sten i Aksum, med inskrift på grekiska, sabeiska och ge'ez om kungens omvändelse. Nutida foto från 2011. Licens: CC BY-SA 2.0."
+    },
+    "credit": "Rod Waddington / Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "source": "commons-bild-aksum-blir-kristet"
+  },
+  {
+    "id": "vastromerska-rikets-fall",
+    "file": "vastromerska-rikets-fall.png",
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Guldmynt (solidus) med Romulus Augustulus, den siste västromerske kejsaren, präglat 475–476. Licens: CC0."
+    },
+    "credit": "American Numismatic Society / Wikimedia Commons",
+    "license": "CC0",
+    "source": "commons-bild-vastromerska-rikets-fall"
+  },
+  {
+    "id": "karl-den-store-krons",
+    "file": "karl-den-store-krons.png",
+    "kind": "historisk",
+    "style": "tidig-medeltid",
+    "caption": {
+      "sv": "Karl den store kröns till kejsare i Rom. Miniatyr av Jean Fouquet i Grandes Chroniques de France, omkring 1455–1460. Senare bild. Licens: Public domain."
+    },
+    "credit": "Jean Fouquet / Bibliothèque nationale de France via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-karl-den-store-krons"
+  },
+  {
+    "id": "mayastadernas-nedgang",
+    "file": "mayastadernas-nedgang.png",
+    "kind": "historisk",
+    "style": "tidig-medeltid",
+    "caption": {
+      "sv": "Stora torget i Tikal, fotograferat 2009. Nutida foto. Licens: CC BY 2.0."
+    },
+    "credit": "Francisco Anzola / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-mayastadernas-nedgang"
+  },
+  {
+    "id": "angkor-wat",
+    "file": "angkor-wat.png",
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Angkor Wat, fotograferat 2005. Nutida foto. Licens: CC BY-SA 4.0."
+    },
+    "credit": "Bjørn Christian Tørrissen / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-angkor-wat"
+  },
+  {
+    "id": "magna-carta",
+    "file": "magna-carta.png",
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Magna Carta från 1215, ett av fyra bevarade exemplar, i British Library. Licens: Public domain."
+    },
+    "credit": "British Library via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-magna-carta"
+  },
+  {
+    "id": "mandela-friges",
+    "file": "mandela-friges.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Nelson Mandela och USA:s president George H. W. Bush i Vita huset den 25 juni 1990, fyra månader efter frigivningen. Inte från själva frigivningen. Licens: Public domain.",
+      "en": "Nelson Mandela and US President George H. W. Bush in the White House on 25 June 1990, four months after his release. Not from the release itself. License: Public domain.",
+      "de": "Nelson Mandela und US-Präsident George H. W. Bush im Weißen Haus am 25. Juni 1990, vier Monate nach seiner Freilassung. Nicht von der Freilassung selbst. Lizenz: Public Domain.",
+      "es": "Nelson Mandela y el presidente de Estados Unidos George H. W. Bush en la Casa Blanca el 25 de junio de 1990, cuatro meses después de su liberación. No es de la liberación misma. Licencia: dominio público.",
+      "fr": "Nelson Mandela et le président des États-Unis George H. W. Bush à la Maison-Blanche le 25 juin 1990, quatre mois après sa libération. Pas de la libération elle-même. Licence : domaine public."
+    },
+    "credit": "George Bush Presidential Library and Museum / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-mandela-friges"
+  },
+  {
+    "id": "folkmordet-i-rwanda",
+    "file": "folkmordet-i-rwanda.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Kvarlevor och kläder efter människor som dödades i kyrkan i Ntarama under folkmordet. Platsen är i dag en minnesplats. Foto från 2006. Licens: CC BY 2.0.",
+      "en": "Remains and clothing of people killed in the church at Ntarama during the genocide. The site is now a memorial. Photo from 2006. License: CC BY 2.0.",
+      "de": "Überreste und Kleidung von Menschen, die während des Völkermords in der Kirche von Ntarama getötet wurden. Der Ort ist heute eine Gedenkstätte. Foto von 2006. Lizenz: CC BY 2.0.",
+      "es": "Restos y ropa de personas asesinadas en la iglesia de Ntarama durante el genocidio. El lugar es hoy un memorial. Foto de 2006. Licencia: CC BY 2.0.",
+      "fr": "Restes et vêtements de personnes tuées dans l'église de Ntarama pendant le génocide. Le lieu est aujourd'hui un mémorial. Photo de 2006. Licence : CC BY 2.0."
+    },
+    "credit": "Scott Chacon / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-folkmordet-i-rwanda"
+  },
+  {
+    "id": "parisavtalet",
+    "file": "parisavtalet.jpg",
+    "kind": "historisk",
+    "style": "rymdalder",
+    "caption": {
+      "sv": "Delegationsledarna vid FN:s klimatmöte COP21 i Paris den 30 november 2015, mötets första dag. Avtalet antogs den 12 december. Licens: CC BY 2.0.",
+      "en": "Heads of delegation at the UN climate conference COP21 in Paris on 30 November 2015, the first day of the conference. The agreement was adopted on 12 December. License: CC BY 2.0.",
+      "de": "Die Delegationsleiter bei der UN-Klimakonferenz COP21 in Paris am 30. November 2015, dem ersten Tag der Konferenz. Das Abkommen wurde am 12. Dezember angenommen. Lizenz: CC BY 2.0.",
+      "es": "Los jefes de delegación en la conferencia de la ONU sobre el clima COP21 en París el 30 de noviembre de 2015, primer día de la conferencia. El acuerdo se adoptó el 12 de diciembre. Licencia: CC BY 2.0.",
+      "fr": "Les chefs de délégation à la conférence de l'ONU sur le climat COP21 à Paris le 30 novembre 2015, premier jour de la conférence. L'accord a été adopté le 12 décembre. Licence : CC BY 2.0."
+    },
+    "credit": "Presidencia de la República Mexicana / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-parisavtalet"
   }
 ]

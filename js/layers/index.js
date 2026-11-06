@@ -9,12 +9,14 @@ import { entry as routes } from './lines.js';
 import { entry as discovery } from './discovery.js';
 import { entry as borders } from './borders.js';
 import { entry as wars } from './wars.js';
+import { entry as images } from './images.js';
 
 // Rader i Lager som inte är lager på kartan
-const funfacts = () => ({ id: 'funfacts', name: 'Samtidigt-kortet', group: 'people',
-  menu: { on: true, aria: 'Visa Samtidigt-kortet', note: 'fun facts och annat som hände samtidigt' } });
+const funfacts = ({ data }) => ({ id: 'funfacts', name: 'Samtidigt-kortet', group: 'people',
+  menu: { on: true, aria: 'Visa Samtidigt-kortet', note: 'romb på tidslinjen · fun facts och annat som hände samtidigt' },
+  marks: s => !s.focus && s.layers.funfacts ? data.funfacts.map(f => ({ type: 'funfact', at: (f.show[0] + f.show[1]) / 2, label: 'Samtidigt' })) : [] });
 const keep = () => ({ id: 'keep', name: 'Behåll mina lager i fokus', group: 'settings',
   menu: { on: false, note: 'annars dämpas riken och religioner som inte hör till det man följer' } });
 
 /** Händelserna först: deras markörer läggs på klotet före de andra lagrens. */
-export const LAYERS = [events, funfacts, areas, religions, routes, discovery, borders, keep, wars];
+export const LAYERS = [events, funfacts, areas, religions, routes, images, discovery, borders, keep, wars];

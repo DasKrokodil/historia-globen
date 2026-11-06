@@ -25,6 +25,7 @@ import { ZOOM_LEVELS } from '../ui/zoomlevels.js';
 export function entry({ globe, data, labelsEl, refresh, refreshSoon, showEmpireFacts }) {
   const layer = new AreasLayer();
   layer.setPoints(data.empireGroups); // försvunna länder utan gräns, som en punkt (#72)
+  layer.setCapitals(data.empireGroups); // huvudstäder med årsspann (#474), syns när man följer ett rike
   // Symbol i gruppen i empires/index.json, eller polityFacts.<rike>.symbol för ett rike i gruppen med egen
   // faktaruta (Bysantinska riket). Medaljen står på rikets label-punkt och öppnar faktarutan.
   const empireById = new Map(data.empireGroups.map(g => [g.id, g]));
@@ -52,6 +53,9 @@ export function entry({ globe, data, labelsEl, refresh, refreshSoon, showEmpireF
   return {
     id: 'areas', name: 'Riken', group: 'power', menu: { on: true }, layer, z: Z.areas,
     fade: { own: focus => focus.type === 'empire' },
+    // Rikenas kartnyckel behövs när man följer ett rike, inte på startsidan där Riken är på som standard (#427).
+    // Själva listan öppnas på begäran från Lager (#437), så den täcker aldrig startskärmen.
+    legend: s => ({ areas: s.focus?.type === 'empire', empires: s.layers.areas ? layer.legendItems(data.empireGroups) : [] }),
     enabled: s => s.focus?.type === 'empire' || s.layers.areas,
     apply: s => {
       layer.onlyGroup = s.focus?.type === 'empire' ? s.focus.id : null;
@@ -79,6 +83,7 @@ export class AreasLayer {
     this.polities = polities;
     this.enabled = true;
     this.active = []; // [{ polity, period }]
+    this.highlight = null; // grupp-id från rikesförklaringen (#437)
     this.labelAlpha = 1; // och hur synliga de är (tonas ut vid kraftig zoom)
     this.labelScale = 1; // namnens storlek relativt grundstorleken (1 = som på platta bilden)
     this.symbolOf = () => null; // rikets symbol: (polity) → { symbol, color, name, group } eller null (sätts i main.js)
@@ -94,7 +99,8 @@ export class AreasLayer {
   /**
    * Zoomnivån och det som ska hållas fritt (#358): level = nivå i ZOOM_LEVELS, pxPerImg = skärmpixlar per bildpunkt
    * (4096 i bredd), minMedalPx = 3D-medaljens minsta storlek på skärmen (på globen, 0 i Platt vy) och
-   * keepouts = händelser som alltid har företräde, med plats för etiketten (eventKeepouts i ui/zoomlevels.js).
+   * keepouts = händelser som alltid har företräde, med plats för etiketten (eventKeepouts i ui/zoomlevels.js), och
+   * markers = alla händelsemarkörer som syns ({ lon, lat, r } med r i skärmpixlar), som huvudstädernas namn viker för (#616).
    */
   setView(view) {
     this.view = { ...this.view, ...view };
@@ -237,7 +243,30 @@ export class AreasLayer {
       if (!keep && (v.level < ZOOM_LEVELS.length - 1 || !free(b))) continue;
       take(b); map.set('pt:' + g.id, true);
     }
-    this._lay = { key, map, placed };
+    // Huvudstäder (#474, #616): fyrkanten står alltid på stadens plats, och namnet står till höger om den. Ligger en
+    // händelsemarkör, en etikett eller ett rikesnamn där flyttas namnet till vänster, ovanför eller under. Är alla
+    // sidor upptagna står det till höger som förut. Markörerna (view.markers) är alla händelser som syns, med sin
+    // storlek på skärmen, eftersom en huvudstad ofta har en händelse på samma plats.
+    const capFont = `italic ${12 * sc}px "IM Fell English", Georgia, serif`, cs = 12 * sc, cr = 3.6 * sc;
+    const marks = (v.markers ?? []).map(m => sq(X(m.lon), Y(m.lat), m.r / unit));
+    const capFree = b => free(b) && !marks.some(u => overlaps(u, b));
+    const caps = (this.activeCapitals ?? []).map(c => {
+      const x = X(c.at[0]), y = Y(c.at[1]), name = t(c.name), w = measure(name, capFont);
+      // Sidorna i tur och ordning (höger, vänster, ovanför, under), först tätt intill fyrkanten och sedan längre ut,
+      // så att namnet hamnar strax bortom en markör som ligger på staden
+      const at = g => [
+        { align: 'left', x: x + cr * 2 + g, y, b: { x0: x + cr * 2 + g, x1: x + cr * 2 + g + w, y0: y - cs * 0.55, y1: y + cs * 0.55 } },
+        { align: 'right', x: x - cr * 2 - g, y, b: { x0: x - cr * 2 - g - w, x1: x - cr * 2 - g, y0: y - cs * 0.55, y1: y + cs * 0.55 } },
+        { align: 'center', x, y: y - cr - cs * 0.7 - g, b: box(x, y - cr - cs * 0.7 - g, w, cs) },
+        { align: 'center', x, y: y + cr + cs * 0.7 + g, b: box(x, y + cr + cs * 0.7 + g, w, cs) },
+      ];
+      let side = null;
+      for (let i = 0; i <= 8 && !side; i++) side = at(i * cs * 0.5).find(o => capFree(o.b));
+      side ??= at(0)[0];
+      take(sq(x, y, cr)); take(side.b);
+      return { name, sq: [x, y], ...side };
+    });
+    this._lay = { key, map, placed, caps };
     return map;
   }
 
@@ -250,6 +279,23 @@ export class AreasLayer {
    *  De ritas som en punkt med namn under de år landet fanns enligt källorna (vanished.founded–dissolved). */
   setPoints(groups) {
     this.points = groups.filter(g => g.vanished?.point);
+  }
+
+  /** Huvudstäder (#474): capitals i varje grupp i empires/index.json, med årsspann (from/to, annars gruppens).
+   *  De visas bara när man följer ett rike i Fokus (onlyGroup), så att kartan inte blir plottrig. */
+  setCapitals(groups) {
+    this.capitals = new Map(groups.filter(g => g.capitals?.length).map(g => [g.id, g]));
+  }
+
+  /** Aktiva rikesgrupper för teckenförklaringen (#437), med kolonialvälden först i UI:t. */
+  legendItems(groups) {
+    const activeIds = new Set(this.active.map(({ polity }) => polity.group));
+    for (const group of this.activePoints ?? []) activeIds.add(group.id);
+    return groups.filter(group => activeIds.has(group.id)).map(group => ({
+      group,
+      // Moderlandet är uttryckligt i den aktiva kartperioden (#74), inte en historisk gissning.
+      colonial: this.active.some(({ polity, period }) => polity.group === group.id && !!period.homeland),
+    }));
   }
 
   /** Returnerar de riken som finns just det här året. */
@@ -269,6 +315,12 @@ export class AreasLayer {
       if (period) this.active.push({ polity, period });
     }
     this.influence = influenceAt(this.active, year); // lydriken och vasaller (#75)
+    // Huvudstaden det här året (#474): bara för riket man följer, och bara när en del av riket syns på kartan
+    // (en huvudstad som hör till en viss del, polity, bara när den delen syns)
+    const g = this.onlyGroup && this.capitals?.get(this.onlyGroup);
+    const shown = new Set(this.active.map(({ polity }) => polity.id));
+    this.activeCapitals = g && shown.size ? g.capitals.filter(c => isVisibleReview(c.review)
+      && year >= (c.from ?? g.from) && year <= (c.to ?? g.to) && (!c.polity || shown.has(c.polity))) : [];
     this._rev++; // namnens platser räknas om (#358)
     this.transition.track(prev, this.active, year, smooth);
     return this.active;
@@ -281,7 +333,8 @@ export class AreasLayer {
     ctx.lineJoin = 'round';
     // Under en övergång (#78) ritas gamla och nya läget, var och en med sin alpha; annars är alpha 1
     const items = this.transition.items(this.active);
-    for (const { polity, period, alpha } of items) {
+    for (const { polity, period, alpha: transitionAlpha } of items) {
+      const alpha = transitionAlpha * (!this.highlight || polity.group === this.highlight ? 1 : 0.25);
       ctx.beginPath();
       for (const rings of polygons(period.geometry)) {
         for (const ring of rings) {
@@ -299,10 +352,19 @@ export class AreasLayer {
       ctx.stroke();
     }
     // Inflytandet (#75) ovanpå: glesa prickar, så att ett lydrike som själv är ett rike på kartan syns igenom
-    drawInfluence(ctx, this.influence ?? [], X, Y, k);
+    const influence = this.influence ?? [];
+    ctx.globalAlpha = this.highlight ? 0.25 : 1;
+    drawInfluence(ctx, influence, X, Y, k);
+    // Den valda gruppens lydriken och vasaller ska vara lika tydliga som dess egna områden.
+    if (this.highlight) {
+      ctx.globalAlpha = 1;
+      drawInfluence(ctx, influence.filter(({ polity }) => polity.group === this.highlight), X, Y, k);
+    }
+    ctx.globalAlpha = 1;
     // Huvudlandet i ett utspritt välde (#74): samma färg men tätare fyllning och en kraftig kant
     // med mörk kontur, så att moderlandet syns bland kolonierna. Vilken del det är står i datan (period.homeland).
-    for (const { polity, period, alpha } of items) {
+    for (const { polity, period, alpha: transitionAlpha } of items) {
+      const alpha = transitionAlpha * (!this.highlight || polity.group === this.highlight ? 1 : 0.25);
       if (!period.homeland) continue;
       ctx.globalAlpha = alpha;
       ctx.beginPath();
@@ -343,7 +405,8 @@ export class AreasLayer {
       ctx.fillText(name, x * k, y * k);
     };
     // Bara det läge (period) som gäller nu får namn; ett område som tonas ut (#78) visar bara gränsen
-    for (const { polity, period, alpha } of items) {
+    for (const { polity, period, alpha: transitionAlpha } of items) {
+      const alpha = transitionAlpha * (!this.highlight || polity.group === this.highlight ? 1 : 0.25);
       const d = L.get(akey(polity, period));
       if (!d) continue;
       ctx.globalAlpha = alpha;
@@ -355,6 +418,24 @@ export class AreasLayer {
       if (!d.name) continue;
       if (d.lead) lead(d.lead);
       write(d.name, d.x, d.y);
+    }
+    ctx.globalAlpha = this.labelAlpha;
+    // Huvudstäder (#474): en liten fyrkant i pergament med mörk kant och stadens namn, så att den inte förväxlas
+    // med moderlandets stjärna (#74) eller ringen för försvunna länder utan gräns (#72)
+    for (const c of this._lay?.caps ?? []) {
+      const x = c.sq[0] * k, y = c.sq[1] * k, r = 3.6 * k * this.labelScale;
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = '#f6e7c4';
+      ctx.strokeStyle = 'rgba(16,22,30,0.9)';
+      ctx.lineWidth = 1.6 * k * this.labelScale;
+      ctx.fillRect(x - r, y - r, 2 * r, 2 * r);
+      ctx.strokeRect(x - r, y - r, 2 * r, 2 * r);
+      ctx.globalAlpha = this.labelAlpha;
+      ctx.save();
+      ctx.font = `italic ${12 * k * this.labelScale}px "IM Fell English", Georgia, serif`;
+      ctx.textAlign = c.align; // namnets sida bestäms av _layout() (#616)
+      write(c.name, c.x, c.y);
+      ctx.restore();
     }
     ctx.globalAlpha = this.labelAlpha;
     // Försvunna länder utan gräns (#72): en ring med prick i landets färg och namnet till höger. Området är för

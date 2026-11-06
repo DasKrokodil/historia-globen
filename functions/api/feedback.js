@@ -8,7 +8,7 @@
 //
 // Integritet: funktionen loggar aldrig beskrivning, källa, e-post, token eller IP-adress, och svaren till
 // webbläsaren innehåller varken hemligheter eller personuppgifter.
-import { FEEDBACK_CATEGORY, FIELDS, LIMITS, EVENT_ID, validateFeedback } from '../../js/feedback-rules.js';
+import { FEEDBACK_CATEGORY, FIELDS, LIMITS, EVENT_ID, REPORT_OBJECT_TYPES, validateFeedback } from '../../js/feedback-rules.js';
 import { formatEventTime, t } from '../../js/model.js';
 
 export const MAX_BODY = 10 * 1024;
@@ -119,6 +119,15 @@ export function buildIssue(v, event, now = new Date()) {
       `- **Identifierare:** \`${SITE}#${event.id}\` (ingen länk; sidan har ingen adress per händelse)`,
     );
   }
+  if (v.objectType) {
+    lines.push(
+      '', '### Objekt på sidan',
+      `- **Typ:** ${REPORT_OBJECT_TYPES[v.objectType]}`,
+      `- **Id:** \`${v.objectId}\``,
+      `- **Året i vyn:** ${v.objectYear}`,
+      `- **Adress:** \`${v.pageUrl}\``,
+    );
+  }
   lines.push('', '### Beskrivning', codeBlock(defuse(v.description)));
   lines.push('', '### Källa eller referens', v.source ? codeBlock(defuse(v.source)) : '_Ingen angiven._');
   if (v.email) {
@@ -188,6 +197,9 @@ export async function onRequestPost({ request, env = {} }) {
   // 6. Fälten
   const { errors, value } = validateFeedback(input);
   if (Object.keys(errors).length) return fail(400, 'invalid', { fields: errors });
+  // Samma adress som sidan som öppnade formuläret, utan frågesträng eller fragment. Besökartext
+  // kan inte få funktionen att spara en extern adress eller automatiskt tillagd personuppgift.
+  if (value.pageUrl && new URL(value.pageUrl).origin !== request.headers.get('origin')) return fail(400, 'invalid', { fields: { pageUrl: 'invalid' } });
   // 7. Händelsen: titel och tid kommer ur data/events.json, aldrig från webbläsaren
   let event = null;
   if (value.eventId) {

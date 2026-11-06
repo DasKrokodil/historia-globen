@@ -19,6 +19,7 @@
 //   fade        { name, own(focus) }: lagret dämpas i fokusläget när det inte hör till det man följer (#235)
 //   legend(s)   del av teckenförklaringen, till exempel { items } eller { war }; delarna slås ihop
 //   markers(s)  uppdaterar lagrets 3D-markörer när det är känt vilka lager som är dämpade
+//   marks(s)    små, tillgängliga märken på tidslinjen efter lager och filter (#378)
 //   frame(now, s) varje bildruta (3D-markörernas storlek och plats)
 //   covers()    id för händelser vars medalj lagrets egen 3D-markör täcker; händelsens medalj döljs då
 //   animating() sant så länge lagerbilden behöver ritas om varje bildruta (rikenas övergångar, #78)
@@ -27,6 +28,7 @@
 /** Ritordningen nedifrån och upp. Luckorna gör att ett nytt lager kan läggas in mellan två andra. */
 export const Z = {
   paper: 0,       // upptäcktsvyns papperskarta (#101)
+  images: 5,      // tidsstyrda rasterbilder, till exempel nattljus (#54)
   areas: 10,      // riken
   religions: 20,  // religioner
   borders: 30,    // dagens gränser
@@ -153,8 +155,14 @@ export class LayerRegistry {
   /** 3D-markörerna, när det är känt vilka lager som är dämpade. */
   markers(state) { for (const e of this.entries) e.markers?.(state); }
 
+  /** Tidslinjemärken från de lager som faktiskt är valda just nu. */
+  marks(state) { return this.entries.flatMap(e => e.marks?.(state) ?? []); }
+
   /** Varje bildruta. */
   frame(now, state) { for (const e of this.entries) e.frame?.(now, state); }
+
+  /** Har något 3D-lager en tidsstyrd bildruta även när kameran står still? */
+  frameAnimating(state) { return this.entries.some(e => e.frameAnimating?.(state)); }
 
   /** Händelser vars medalj täcks av ett lagers egen 3D-markör (religionens symbol där den uppstod, #271). */
   coveredEvents() {

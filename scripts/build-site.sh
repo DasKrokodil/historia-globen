@@ -8,14 +8,18 @@
 #   img/                  sidans ikoner och markörernas symboler (img/icons/<namn>.svg, namnet kommer ur
 #                         events.json och js/ui/funfact.js och hämtas med fetch)
 #   data/*.json           filerna som js/model.js och js/ui/layers.js (vyer.json, #357) laddar med getJSON (events.json läses också av functions/api/feedback.js)
+#   data/licenses.json    licensuppgifter ur sources.json, genererad av tools/license_manifests.py (#393)
 #   data/genererat/       händelser och riken uppdelade i mindre filer (#337), som tools/dela_data.py skriver ur
 #                         data/events.json och data/empires/index.json; validate-site.py kontrollerar att de stämmer
 #   data/empires/         index.json och rikesfilerna som index.json pekar på (fältet file)
 #   data/routes/          index.json och filerna med vägar och resor som index.json listar (fältet files, #38)
+#   data/turer/           index.json och en fil per guidad tur som index.json listar (#47)
+#   data/ui/              gränssnittets texter: sprak.json och en fil per språk (#63)
 #   images/events/        bilderna som events.json pekar på (image.file)
 #   images/karta/         upptäcktsvyns bilder som data/upptackt.json pekar på (decorations[].file, #101)
 #   _headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
 #   LICENSE, data/LICENSE licenserna för kod (GPL-3.0) och data (CC BY 4.0) följer med de publicerade filerna
+#   robots.txt, sitemap.xml indexeringsfiler för startsidan (#467)
 #
 # Interna filer (.claude/, .orchestra/, .github/, docs/, tools/, scripts/, tests/, data/utkast/, images/incoming/,
 # CLAUDE.md, README.md) kopieras aldrig. functions/ (formulärets Pages Function, docs/feedback.md) kopieras inte
@@ -47,6 +51,8 @@ copy index.html
 copy css/style.css
 copy LICENSE
 copy data/LICENSE
+copy robots.txt
+copy sitemap.xml
 
 # Cache-regler för Cloudflare Pages: webbläsaren kontrollerar alltid om sidans filer har ändrats
 copy _headers
@@ -64,10 +70,21 @@ while IFS= read -r f; do copy "$f"; done < <(find js -type f -name '*.js' | sort
 ls img/icons/*.svg >/dev/null 2>&1 || fail "inga ikoner i img/icons/"
 for f in img/icons/*.svg; do copy "$f"; done
 
-# Datafiler som js/model.js laddar, och lagrens grupper och vyer (vyer.json, js/ui/layers.js, #357)
-for f in events funfacts sources land borders styles religions religions-polities upptackt vyer; do
+# Datafiler som js/model.js och UI-modulerna laddar, inklusive introduktionen (#363)
+for f in events funfacts intro sources land borders styles religions religions-polities upptackt bildlager vyer version; do
   copy "data/$f.json"
 done
+copy data/licenses.json
+copy images/licenses.json
+
+# Gränssnittets språk (#63): sprak.json och en fil per språk som js/i18n.js laddar
+copy data/ui/sprak.json
+while IFS= read -r f; do copy "data/ui/$f.json"; done < <(python3 -I - <<'PY'
+import json
+for l in json.load(open('data/ui/sprak.json'))['languages']:
+    print(l['id'])
+PY
+)
 
 # Uppdelade filer (#337): alla filer som tools/dela_data.py skriver
 ls data/genererat/*.json >/dev/null 2>&1 || fail "inga filer i data/genererat/ (kör python3 tools/dela_data.py)"
@@ -93,6 +110,15 @@ for f in json.load(open('data/routes/index.json')).get('files', []):
 PY
 )
 
+# Guidade turer (#47): index.json och en fil per tur som index.json listar
+copy data/turer/index.json
+while IFS= read -r f; do copy "data/turer/$f.json"; done < <(python3 -I - <<'PY'
+import json
+for t in json.load(open('data/turer/index.json')).get('tours', []):
+    print(t)
+PY
+)
+
 # Händelsernas bilder
 while IFS= read -r f; do copy "$f"; done < <(python3 -I - <<'PY'
 import json
@@ -108,6 +134,15 @@ import json
 for d in json.load(open('data/upptackt.json')).get('decorations', []):
     if d.get('file'):
         print(d['file'])
+PY
+)
+
+# Tidsstyrda rasterbilder (#54)
+while IFS= read -r f; do copy "$f"; done < <(python3 -I - <<'PY'
+import json
+for layer in json.load(open('data/bildlager.json')).get('layers', []):
+    if layer.get('file'):
+        print(layer['file'])
 PY
 )
 

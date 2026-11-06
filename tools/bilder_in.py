@@ -6,8 +6,9 @@ Bilden beskärs till 4:3, skalas till 800 × 600 pixlar och sparas som
 images/events/<id>.webp, helst under 150 kB.
 
 Finns bildloggen images/incoming/bildlogg.json (en lista med id, kind, style,
-caption, credit och prompt per bild) fylls fältet image i data/events.json i för
-de bilder som konverterades. En platshållare ersätts. Illustrationer får licensen
+caption, credit och prompt per bild) fylls fältet image i för de bilder som
+konverterades, i händelsens redigeringsfil data/handelser/<period>.json (#394). Kör sedan
+python3 tools/dela_data.py, som bygger data/events.json och data/genererat/. En platshållare ersätts. Illustrationer får licensen
 CC BY 4.0, som övrig data. Bilder som inte finns i loggen får image ifyllt för hand.
 
 Kör från projektets rot:
@@ -72,9 +73,9 @@ def image_field(entry, styles):
 
 
 def fill_events(ids, log):
-    """Lägger in eller byter raden "image" i varje händelse, utan att formatera om filen."""
-    path = ROOT / 'data/events.json'
-    raw = path.read_text()
+    """Lägger in eller byter raden "image" i varje händelse i redigeringsfilerna, utan att formatera om dem."""
+    files = sorted((ROOT / 'data/handelser').glob('*.json'))
+    raws = {f: f.read_text(encoding='utf-8') for f in files}
     styles = {s['id'] for s in json.loads((ROOT / 'data/styles.json').read_text())['styles']}
     by_id = {e['id']: e for e in log}
     for eid in ids:
@@ -82,22 +83,34 @@ def fill_events(ids, log):
             print(f'  {eid}: finns inte i bildloggen, fyll i image för hand')
             continue
         line = '      "image": ' + json.dumps(image_field(by_id[eid], styles), ensure_ascii=False, separators=(', ', ': ')) + ',\n'
-        start = raw.find(f'{{ "id": "{eid}"')
-        if start < 0:
-            print(f'  {eid}: ingen händelse med det id:t')
+        pattern = re.compile(r'\{\s*"id":\s*"' + re.escape(eid) + '"')
+        found = [(f, m.start()) for f, raw in raws.items() for m in [pattern.search(raw)] if m]
+        if not found:
+            print(f'  {eid}: ingen händelse med det id:t i data/handelser/')
             continue
-        end = raw.find('\n\n', start)
-        end = len(raw) if end < 0 else end
+        f, start = found[0]
+        raw = raws[f]
+        # Händelsen slutar där nästa händelse eller listans slut börjar. Redigeringsfilerna
+        # har inga tomrader mellan händelserna, så en tomrad duger inte som gräns: då
+        # hamnade bilden på en senare händelse (rättat 2026-11-06, #453).
+        nxt = re.compile(r'\n\s*\{\s*"id":|\n\s*\]').search(raw, start + 1)
+        end = len(raw) if not nxt else nxt.start()
         block = raw[start:end]
         if '\n      "image": ' in block:
             block = re.sub(r'\n      "image": .*\n', '\n' + line, block, count=1)
         else:
             m = re.search(r'\n(      "(wikidata|sources)": )', block)
+            if not m:
+                print(f'  {eid}: hittar inte var image ska stå i {f.relative_to(ROOT)}, fyll i image för hand')
+                continue
             block = block[:m.start() + 1] + line + block[m.start() + 1:]
-        raw = raw[:start] + block + raw[end:]
-        print(f'  {eid}: image ifylld')
-    json.loads(raw)  # kontrollera att filen fortfarande är giltig JSON
-    path.write_text(raw)
+        raws[f] = raw[:start] + block + raw[end:]
+        print(f'  {eid}: image ifylld i {f.relative_to(ROOT)}')
+    for f, raw in raws.items():
+        json.loads(raw)  # kontrollera att filen fortfarande är giltig JSON
+        if raw != f.read_text(encoding='utf-8'):
+            f.write_text(raw, encoding='utf-8')
+    print('Kör python3 tools/dela_data.py så att data/events.json och data/genererat/ byggs om.')
 
 
 def main():

@@ -1,7 +1,10 @@
 // Gemensam modell: språk, kategorier, tidsformat och laddning av data.
 // All data ligger i data/*.json (beslut: data skild från kod).
 
-export const LANG = 'sv';
+// Språket väljs i js/i18n.js (#63): adressen, det sparade valet eller webbläsaren, annars svenska.
+// Gränssnittets texter hämtas med ui('nyckel') ur data/ui/<språk>.json.
+import { LANG, ui, hasUi } from './i18n.js';
+export { LANG, ui };
 const FALLBACK = ['en', 'sv'];
 
 /** Plockar text på aktuellt språk, annars engelska, annars svenska. */
@@ -27,36 +30,39 @@ export const CATEGORIES = [
   { id: 'sport',          name: { sv: 'Sport' },                          color: '#f28c45', count: { sv: ['sporthändelse', 'sporthändelser'] } },
   { id: 'ekonomi',        name: { sv: 'Ekonomi och handel' },             color: '#a9bd5e', count: { sv: ['händelse i ekonomin', 'händelser i ekonomin'] } },
   { id: 'halsa',          name: { sv: 'Hälsa och epidemier' },            color: '#d8d46e', count: { sv: ['hälsohändelse', 'hälsohändelser'] } },
-  { id: 'klimat',         name: { sv: 'Klimat och naturkatastrofer' },    color: '#7aa4e6', count: { sv: ['klimathändelse', 'klimathändelser'] } },
+  { id: 'klimat',         name: { sv: 'Klimat' },                         color: '#7aa4e6', count: { sv: ['klimathändelse', 'klimathändelser'] } },
+  // Katastrofer (#554, beslut 2026-11-03): natur- och teknikkatastrofer, svält. Inte epidemier (halsa) eller krig.
+  // Violett, eftersom den skiljer sig från krig och de andra färgerna även vid simulerad färgblindhet.
+  { id: 'katastrofer',    name: { sv: 'Katastrofer' },                    color: '#c256f5', count: { sv: ['katastrof', 'katastrofer'] } },
   { id: 'rymden',         name: { sv: 'Rymden' },                         color: '#cfcbff', count: { sv: ['rymdhändelse', 'rymdhändelser'] } },
 ];
+// Kategorierna på andra språk (#63): svenskan står ovan, övriga språk i data/ui/<språk>.json (cat.<id> och cat.<id>.count)
+for (const c of CATEGORIES) {
+  if (hasUi(`cat.${c.id}`)) c.name[LANG] = ui(`cat.${c.id}`);
+  if (hasUi(`cat.${c.id}.count`)) c.count[LANG] = ui(`cat.${c.id}.count`);
+}
 export const CAT = Object.fromEntries(CATEGORIES.map(c => [c.id, c]));
 
 // Granskningsstatus (källpolicy). Bara kontrollerade uppgifter visas som standard.
 // Nivån säger hur väl källorna är kontrollerade; ingen människogranskning (#252).
+// Texterna står i data/ui/<språk>.json (review.<status>), label är texten på valt språk.
 export const REVIEW = {
-  'draft':          { sv: 'Utkast',             cls: 'draft' },
-  'source-checked': { sv: 'Källkontrollerad',   cls: 'checked' },
-  'two-sources':    { sv: 'Två källor stämmer', cls: 'two' },
+  'draft':          { label: ui('review.draft'),          cls: 'draft' },
+  'source-checked': { label: ui('review.source-checked'), cls: 'checked' },
+  'two-sources':    { label: ui('review.two-sources'),    cls: 'two' },
 };
 // Statusraden säger vad statusen gäller (#196): "Fun facten: källkontrollerad".
-// subject = Fun facten, Kriget, Riket, Händelsen, Religionen. Förklaringen visas som tooltip.
-export const REVIEW_SUBJECT_HELP = {
-  'Fun facten': 'Statusen gäller själva jämförelsen i kortet. Varje händelse har en egen status i sin faktaruta.',
-  'Kriget': 'Statusen gäller krigets berättelse i kortet. Varje händelse har en egen status i sin faktaruta.',
-  'Riket': 'Statusen gäller rikets faktaruta och berättelse. Varje händelse har en egen status i sin faktaruta.',
-  'Religionen': 'Statusen gäller religionens faktaruta. Varje händelse har en egen status i sin faktaruta.',
-  'Landet': 'Statusen gäller landets faktaruta och berättelse. Årtal, föregångare och efterträdare har en egen status, som står vid dem.',
-  'Händelsen': 'Statusen gäller just den här händelsen. Samtidigt-kortet och fun facten har en egen status.',
-};
+// subject = Fun facten, Kriget, Riket, Händelsen, Religionen … (den svenska formen är nyckeln; texten på valt
+// språk står i review.subject.<subject>). Förklaringen visas som tooltip (review.subjectHelp.<subject>).
+const SUBJECTS_WITH_HELP = ['Fun facten', 'Kriget', 'Riket', 'Religionen', 'Landet', 'Händelsen'];
+export const REVIEW_SUBJECT_HELP = Object.fromEntries(SUBJECTS_WITH_HELP.map(s => [s, ui(`review.subjectHelp.${s}`)]));
 // Vad statusarna betyder (#310), samma betydelse som källpolicyn i CLAUDE.md. Visas bakom (i)-knappen i faktarutan.
-export const REVIEW_HELP = [
-  { status: 'source-checked', text: 'årtal, plats och påståenden är kontrollerade mot källan.' },
-  { status: 'two-sources', text: 'dessutom jämförda med en andra, oberoende källa.' },
-];
+export const REVIEW_HELP = ['source-checked', 'two-sources'].map(status => ({ status, text: ui(`review.help.${status}`) }));
 export function reviewLabel(status, subject) {
   const rv = REVIEW[status] ?? REVIEW.draft;
-  return `${subject}: ${rv.sv.charAt(0).toLowerCase()}${rv.sv.slice(1)}`;
+  const key = `review.subject.${subject}`, translated = ui(key);
+  const subj = LANG === 'sv' || translated === key ? subject : translated;
+  return ui('review.line', { subject: subj, status: rv.label.charAt(0).toLowerCase() + rv.label.slice(1) });
 }
 export const settings = { showDrafts: false };
 export const isVisibleReview = r => settings.showDrafts || r === 'source-checked' || r === 'two-sources';
@@ -99,15 +105,19 @@ export function styleFor(e, doc) {
 export const isBCE = y => y <= 0;
 export const bce = y => 1 - y;
 
+// Tideräkningens förkortningar på valt språk: f.Kr./e.Kr., BC/AD … (data/ui/<språk>.json)
+const BCE_TXT = ui('time.bce'), CE_TXT = ui('time.ce');
+export { BCE_TXT, CE_TXT };
+
 /** Kort årtal för listor: "551 f.Kr.", "793", "1325". */
 export function formatYear(y) {
-  return isBCE(y) ? `${bce(y)} f.Kr.` : `${y}`;
+  return isBCE(y) ? `${bce(y)} ${BCE_TXT}` : `${y}`;
 }
 
 /** Stort årtal i huvudet: [siffra, epok]. */
 export function yearParts(y) {
-  if (isBCE(y)) return [String(bce(y)), 'f.Kr.'];
-  if (y < 1000) return [String(y), 'e.Kr.'];
+  if (isBCE(y)) return [String(bce(y)), BCE_TXT];
+  if (y < 1000) return [String(y), CE_TXT];
   return [String(y), ''];
 }
 
@@ -124,7 +134,50 @@ export function parseYear(text, defaultEra = 'ce') {
   return isBc ? 1 - n : n;
 }
 
-const MONTHS = ['januari','februari','mars','april','maj','juni','juli','augusti','september','oktober','november','december'];
+function isValidDate(y, m, d) {
+  if (!Number.isInteger(y) || !Number.isInteger(m) || !Number.isInteger(d)) return false;
+  if (m < 1 || m > 12) return false;
+  const maxDays = [31, (y % 4 === 0 && (y % 100 !== 0 || y % 400 === 0)) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  return d >= 1 && d <= maxDays[m - 1];
+}
+
+export function parseYearInput(text, defaultEra = 'ce', now = new Date()) {
+  const value = String(text ?? '').trim();
+  if (!value) return { type: 'invalid', year: null, date: null, error: ui('time.error.input') };
+
+  const iso = /^\d{4}-\d{2}-\d{2}$/.exec(value);
+  if (iso) {
+    const [y, mo, d] = value.split('-').map(Number);
+    if (!isValidDate(y, mo, d)) return { type: 'invalid', year: null, date: null, error: ui('time.error.date') };
+    return { type: 'date', year: y, date: value };
+  }
+
+  const full = /^\d{8}$/.exec(value);
+  if (full) {
+    const y = Number(value.slice(0, 4));
+    const mo = Number(value.slice(4, 6));
+    const d = Number(value.slice(6, 8));
+    if (!isValidDate(y, mo, d)) return { type: 'invalid', year: null, date: null, error: ui('time.error.date') };
+    return { type: 'date', year: y, date: `${y}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}` };
+  }
+
+  const short = /^\d{6}$/.exec(value);
+  if (short) {
+    const yy = Number(value.slice(0, 2));
+    const mo = Number(value.slice(2, 4));
+    const d = Number(value.slice(4, 6));
+    const currentYear = now.getFullYear();
+    const year = yy <= currentYear % 100 ? 2000 + yy : 1900 + yy;
+    if (!isValidDate(year, mo, d)) return { type: 'invalid', year: null, date: null, error: ui('time.error.date') };
+    return { type: 'date', year, date: `${year}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}` };
+  }
+
+  const year = parseYear(value, defaultEra);
+  if (year != null) return { type: 'year', year, date: null };
+  return { type: 'invalid', year: null, date: null, error: ui('time.error.input') };
+}
+
+const MONTHS = ui('time.months'); // januari … december på valt språk
 
 /** Datum ur data ("2026-10-30") som text: "30 oktober 2026". */
 export function formatDate(iso) {
@@ -135,25 +188,28 @@ export function formatDate(iso) {
 /** Tid för en händelse enligt dess precision och EDTF-markering. */
 export function formatEventTime(e) {
   const edtf = e.edtf || '';
-  if (e.ongoing) return `${formatYear(e.start)}–pågår`; // pågående krig (#223)
-  const approx = edtf.includes('~') ? 'cirka ' : '';
+  if (e.ongoing) return ui('time.ongoing', { start: formatYear(e.start) }); // pågående krig (#223)
+  const approx = edtf.includes('~') ? ui('time.approx') : '';
   const day = /^(-?\d{4})-(\d{2})-(\d{2})$/.exec(edtf);
   if (day && e.start === e.end) {
     return `${Number(day[3])} ${MONTHS[Number(day[2]) - 1]} ${formatYear(e.start)}`;
   }
-  if (edtf.endsWith('/..')) return `sedan ${formatYear(e.start)}`;
-  if (edtf.startsWith('../')) return `till ${approx}${formatYear(e.end)}`;
+  if (edtf.endsWith('/..')) return ui('time.since', { start: formatYear(e.start) });
+  if (edtf.startsWith('../')) return ui('time.until', { end: approx + formatYear(e.end) });
   if (e.start === e.end) return approx + formatYear(e.start);
-  if (isBCE(e.start) && isBCE(e.end)) return `${approx}${bce(e.start)}–${bce(e.end)} f.Kr.`;
-  if (isBCE(e.start)) return `${approx}${bce(e.start)} f.Kr.–${e.end} e.Kr.`;
+  if (isBCE(e.start) && isBCE(e.end)) return `${approx}${bce(e.start)}–${bce(e.end)} ${BCE_TXT}`;
+  if (isBCE(e.start)) return `${approx}${bce(e.start)} ${BCE_TXT}–${e.end} ${CE_TXT}`;
   return `${approx}${e.start}–${e.end}`;
 }
+
+/** Pågående institutioner hör hemma i panelens egen, hopfällda grupp först efter ett sekel (#508). */
+export const isLongRunning = (e, year) => /\/\.\.$/.test(e.edtf ?? '') && year - e.start >= 100;
 
 // ---------- Delar av år (#204) ----------
 // I fokusläget för korta krig räknar tidslinjen i dagar. Året är då ett decimaltal: året plus den
 // andel av året som har gått, så att 1 januari 1879 är 1879,0 och 2 juli 1879 ungefär 1879,5.
 // Datumen läses ur händelsernas edtf (proleptisk gregoriansk kalender, astronomiska år som i datan).
-export const MONTHS_SHORT = ['jan','feb','mar','apr','maj','jun','jul','aug','sep','okt','nov','dec'];
+export const MONTHS_SHORT = ui('time.monthsShort'); // jan … dec på valt språk
 function utcMs(y, m, d) { const t = new Date(0); t.setUTCFullYear(y, m, d); return t.getTime(); } // fungerar även före år 100
 const yearMs = y => [utcMs(y, 0, 1), utcMs(y + 1, 0, 1)];
 function msToYear(ms) {
@@ -223,22 +279,51 @@ async function getJSON(path) {
 
 const isPlain = v => v != null && typeof v === 'object' && !Array.isArray(v);
 /**
- * Lägger fälten i src på target, och slår ihop objekt på djupet (texter per språk, #337). En fil med bara
+ * Lägger fälten i src på target, och slår ihop objekt på djupet (texter per språk, #337, #675). En fil med bara
  * engelska texter ({ title: { en } }) kan då läggas ovanpå en med svenska utan att de svenska försvinner,
- * och t() väljer språk som förut. Listor (källor, berättelsens parter) ersätts i stället för att slås ihop.
+ * och t() väljer språk som förut. Ett objekt ovanpå en lista ({ "2": { label: { en } } }) slås ihop med posten
+ * på den platsen i listan, så att en språkfil kan översätta texter i en lista (tools/dela_data.py). Annars
+ * ersätts listor (källor, berättelsens parter).
  */
 export function mergeTexts(target, src) {
   for (const [k, v] of Object.entries(src)) {
     if (isPlain(v) && isPlain(target[k])) mergeTexts(target[k], v);
-    else target[k] = v;
+    else if (isPlain(v) && Array.isArray(target[k])) {
+      for (const [i, part] of Object.entries(v)) {
+        if (isPlain(part) && isPlain(target[k][i])) mergeTexts(target[k][i], part);
+        else target[k][i] = part;
+      }
+    } else target[k] = v;
   }
   return target;
+}
+
+// Språkfilerna (#675): tools/dela_data.py skriver svenskan i grundfilerna och varje annat språk i en egen fil
+// ovanpå (handelser-fkr.en.json …), listade i fältet translations i handelser.json. Sidan laddar bara det valda
+// språket och engelska, som är reservspråket i t(). På svenska laddas inga språkfiler, eftersom varje text som
+// delas upp har svenska. Kan en språkfil inte laddas visas svenskan i stället.
+const TEXT_LANGS = LANG === 'sv' ? [] : [...new Set([LANG, ...FALLBACK])].filter(l => l !== 'sv');
+let translations = {};
+function languageFiles(file) {
+  const stem = file.replace(/^.*\//, '').replace(/\.json$/, '');
+  return Promise.all(TEXT_LANGS.filter(l => translations[l]?.includes(stem)).map(l =>
+    getJSON(file.replace(/\.json$/, `.${l}.json`))
+      .catch(err => { console.warn(`Texterna på ${l} kunde inte laddas (${file})`, err); return null; })));
+}
+/** Lägger språkfilernas texter (doc[key] = { id: texter }) på posterna; target(id) ger posten. */
+function mergeLanguages(docs, key, target) {
+  for (const doc of docs) {
+    for (const [id, fields] of Object.entries(doc?.[key] ?? {})) {
+      const t = target(id);
+      if (t) mergeTexts(t, fields);
+    }
+  }
 }
 
 let DATA = null; // det loadAll() returnerade; de senare laddningarna fyller i samma objekt
 
 export async function loadAll() {
-  const [events, funfacts, land, empires, styles, discovery] = await Promise.all([
+  const [events, funfacts, land, empires, styles, discovery, imageLayers] = await Promise.all([
     getJSON('data/genererat/handelser.json'),
     getJSON('data/funfacts.json'),
     getJSON('data/land.json'),
@@ -246,8 +331,16 @@ export async function loadAll() {
     getJSON('data/styles.json'),
     // Upptäcktsvyn (#101): liten fil; saknas den fungerar sidan ändå, utan upptäcktsvyn
     getJSON('data/upptackt.json').catch(err => { console.warn('Upptäcktsvyn kunde inte laddas', err); return null; }),
+    getJSON('data/bildlager.json').catch(err => { console.warn('Bildlagren kunde inte laddas', err); return { layers: [] }; }),
   ]);
   const byId = Object.fromEntries(events.events.map(e => [e.id, e]));
+  // Språkfilerna för händelserna och rikena (#675) läggs på innan något annat räknas ut
+  translations = events.translations ?? {};
+  const groupsById = Object.fromEntries(empires.groups.map(g => [g.id, g]));
+  const [eventLangs, empireLangs] = await Promise.all([
+    languageFiles('data/genererat/handelser.json'), languageFiles('data/genererat/riken.json')]);
+  mergeLanguages(eventLangs, 'events', id => byId[id]);
+  mergeLanguages(empireLangs, 'groups', id => groupsById[id]);
   // Pågående (#223): end i datan är året då läget senast kontrollerades; det räknas till i år enligt datorns klocka
   // Det gäller också andra händelser som pågår, med öppet slut i edtf ("1096/..", till exempel Oxford, #229)
   for (const e of events.events) if (e.ongoing || /\/\.\.$/.test(e.edtf ?? '')) e.end = Math.max(e.end, new Date().getFullYear());
@@ -260,11 +353,10 @@ export async function loadAll() {
   for (const e of events.events) e._battles?.sort((a, b) => a.start - b.start || (a.edtf < b.edtf ? -1 : 1));
   // Krig och riken (#76): kriget anger rikena i empires (grupp-id i empires/index.json). Slagen ärver dem via
   // partOf (e._war._empires). Varje rike får sina krig i tidsordning i g._wars.
-  const groupById = Object.fromEntries(empires.groups.map(g => [g.id, g]));
   for (const g of empires.groups) g._wars = [];
   for (const e of events.events) {
     if (e.kind !== 'war' || !Array.isArray(e.empires)) continue;
-    e._empires = e.empires.map(id => groupById[id]).filter(Boolean);
+    e._empires = e.empires.map(id => groupsById[id]).filter(Boolean);
     for (const g of e._empires) g._wars.push(e);
   }
   for (const g of empires.groups) g._wars.sort((a, b) => a.start - b.start || a.end - b.end);
@@ -277,7 +369,7 @@ export async function loadAll() {
     // Rikena ligger i en fil per rike (R1): indexet vid start, själva gränserna med loadEmpire(), faktarutorna med loadEmpireFacts()
     empireGroups: empires.groups, polities: empires.groups.flatMap(g => g.polities.map(p => ({ ...p, group: g.id }))),
     // Dagens gränser laddas när lagret slås på (loadBorders)
-    borders: null, styles, discovery,
+    borders: null, styles, discovery, imageLayers,
   };
   return DATA;
 }
@@ -304,8 +396,9 @@ function periodOf(e) {
 const periodFiles = new Map();
 function loadPeriod(p) {
   if (!periodFiles.has(p.id)) {
-    periodFiles.set(p.id, getJSON(p.file).then(doc => {
+    periodFiles.set(p.id, Promise.all([getJSON(p.file), languageFiles(p.file)]).then(([doc, langs]) => {
       for (const [id, fields] of Object.entries(doc.events)) if (DATA.byId[id]) mergeTexts(DATA.byId[id], fields);
+      mergeLanguages(langs, 'events', id => DATA.byId[id]);
       // Alla händelser i perioden räknas som klara, också en som saknas i filen, så att ingen väntar i en evig loop
       for (const e of DATA.events) if (periodOf(e) === p) e._full = true;
     }).catch(err => { periodFiles.delete(p.id); throw err; }));
@@ -313,7 +406,7 @@ function loadPeriod(p) {
   return periodFiles.get(p.id);
 }
 /**
- * Händelsernas långa fält (summary, note, story, image, sources, wikidata) för de här händelserna. Filerna per
+ * Händelsernas långa fält (summary, note, story, image, sources, wikidata, evidence) för de här händelserna. Filerna per
  * period laddas en gång; händelserna får fälten i samma objekt och _full = true. Ger ett löfte.
  */
 export function loadEventDetails(events) {
@@ -340,8 +433,10 @@ export function needDetails(events = [], { sources = true } = {}) {
 /** Rikenas faktarutor (data/genererat/riken-fakta.json): fyller i facts i varje grupp som har hasFacts. */
 let empireFactsPromise = null;
 export function loadEmpireFacts() {
-  empireFactsPromise ??= getJSON('data/genererat/riken-fakta.json').then(doc => {
+  const file = 'data/genererat/riken-fakta.json';
+  empireFactsPromise ??= Promise.all([getJSON(file), languageFiles(file)]).then(([doc, langs]) => {
     for (const g of DATA.empireGroups) if (doc.facts[g.id]) g.facts = doc.facts[g.id];
+    mergeLanguages(langs, 'facts', id => DATA.empireGroups.find(g => g.id === id)?.facts);
   }).catch(err => { empireFactsPromise = null; throw err; });
   return empireFactsPromise;
 }

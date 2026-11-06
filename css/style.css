@@ -6,7 +6,8 @@
   --night: #0b1219;        /* bakgrund, natthimmel */
   --night-2: #121c26;      /* paneler */
   --night-3: #1b2833;      /* kort, hover */
-  --line: #2b3a46;         /* linjer */
+  --line: #2b3a46;         /* linjer och avdelare */
+  --control-line: #5e7485; /* kontrollramar: minst 3:1 mot panelernas mörka bakgrund (#406) */
   --parchment: #ecdfc2;    /* text, som pergament */
   --parchment-dim: #a9a08c;/* sekundär text */
   --brass: #d6b06a;        /* accent: mässing */
@@ -55,7 +56,7 @@
 }
 
 html, body { height: 100%; }
-/* Webbläsarens egen zoom av hela sidan är avstängd: globen har en egen zoom, och en inzoomad sida gick inte att zooma ut på iPad (#191) */
+/* Hindra dubbeltryckszoom och tryckfördröjning utan att blockera nypzoom eller panorering (#404). */
 html { touch-action: manipulation; }
 body {
   background: var(--night);
@@ -86,10 +87,15 @@ body {
 .glabel {
   position: absolute; left: 0; top: 0;
   transform: translate(-50%, -100%);
+  box-sizing: border-box; min-height: 24px;
+  display: inline-flex; align-items: center;
   font-size: 12px; font-weight: 500;
   color: var(--parchment);
   background: color-mix(in srgb, var(--night) 78%, transparent);
-  border: 1px solid var(--line);
+  /* Egen, ljusare ram: etiketten ligger även över ljust land och pergament. */
+  --label-border: #a9a08c;
+  --label-hover-border: var(--brass);
+  border: 1px solid var(--label-border);
   border-radius: 6px;
   padding: 2px 7px;
   white-space: nowrap;
@@ -126,9 +132,13 @@ body {
 .glabel { font-family: inherit; }
 .glabel:focus-visible, .gcluster:focus-visible, .globe-canvas:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
 .globe-canvas:focus-visible { outline-offset: -3px; }
-.glabel-hover { z-index: 1; border-color: var(--brass-deep); }
+.glabel-hover { z-index: 1; border-color: var(--label-hover-border); }
 .globe-canvas.on-marker { cursor: pointer; }
 .glabel .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
+@media (max-width: 760px) {
+  /* Etiketten får samma 44 px träffyta som övriga mobilkontroller utan att täcka kartan visuellt. */
+  .glabel::after { content: ""; position: absolute; inset: -10px -4px; }
+}
 
 /* ---------- huvud ---------- */
 .masthead {
@@ -137,6 +147,12 @@ body {
   left: var(--gut);
   pointer-events: none;
   max-width: min(520px, 60vw);
+  /* Samma mörka platta som i Platt vy: rubrik, år och sammanhang ska vara läsbara
+     även när globen är inzoomad över ljust land. */
+  background: color-mix(in srgb, var(--night) 82%, transparent);
+  border-radius: var(--r);
+  padding: 2px 10px 6px;
+  margin: -2px 0 0 -10px;
 }
 .brand {
   margin: 0;
@@ -193,14 +209,13 @@ body {
 .jump-input {
   flex: 1 1 0; min-width: 0; height: 38px; padding: 0 10px;
   font: 500 16px/1 var(--f-mono); color: var(--parchment);
-  background: var(--night); border: 1px solid var(--line); border-radius: 8px;
+  background: var(--night); border: 1px solid var(--control-line); border-radius: 8px;
 }
 .jump-input:focus { border-color: var(--brass); outline: none; }
-.jump-era { display: flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
 .jump-era-btn, .jump-go, .jump-epoch {
   font: 500 12px/1 var(--f-mono); color: var(--parchment); background: var(--night); border: 0; cursor: pointer;
 }
-.jump-era-btn { padding: 0 9px; }
+.jump-era-btn { padding: 0 10px; border: 1px solid var(--control-line); border-radius: 8px; }
 .jump-era-btn[aria-pressed="true"] { background: var(--brass); color: var(--night); }
 .jump-go { padding: 0 12px; border-radius: 8px; background: var(--brass); color: var(--night); font-weight: 600; }
 .jump-msg { min-height: 0; margin: 0; font: 400 12px/1.4 var(--f-body); color: var(--danger); }
@@ -208,11 +223,23 @@ body {
 .jump-epochs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; }
 .jump-epoch {
   display: flex; flex-direction: column; gap: 4px; align-items: flex-start; text-align: left;
-  padding: 8px 10px; min-height: 44px; border: 1px solid var(--line); border-radius: 8px;
+  padding: 8px 10px; min-height: 44px; border: 1px solid var(--control-line); border-radius: 8px;
 }
 .jump-epoch:hover { border-color: var(--brass-deep); }
 .jump-epoch-name { font: 400 12px/1.25 var(--f-body); }
 .jump-epoch-year { font: 500 11px/1 var(--f-mono); color: var(--brass); }
+/* Datumresultatet (#551, #590): raderna är knappar som öppnar händelsen */
+.jump-date-result p { margin: 10px 0 6px; font: 500 12px/1.4 var(--f-mono); color: var(--parchment-dim); }
+.jump-date-result ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+.jump-date-result li { font: 400 13px/1.35 var(--f-body); color: var(--parchment-dim); }
+.jump-date-event {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; min-height: 44px; padding: 6px 10px;
+  font: 400 13px/1.3 var(--f-body); color: var(--parchment); text-align: left;
+  background: var(--night); border: 1px solid var(--control-line); border-radius: 8px; cursor: pointer;
+}
+.jump-date-event::after { content: "›"; flex: none; color: var(--brass); font-size: 16px; }
+.jump-date-event:hover { border-color: var(--brass-deep); }
+@media (max-width: 760px) { .jump-pop.has-date-result .jump-epochs { display: none; } }
 .segment-note {
   margin: 6px 0 0;
   font-family: var(--f-mono);
@@ -229,7 +256,7 @@ body {
   right: var(--gut-r);
   display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end;
 }
-/* Knapparna i två grupper (#245): Utforska (Samtidigt, Lager, Fokus) och Visa (Platt vy, Källor, Hjälp).
+/* Knapparna i två grupper (#245, #516): Utforska (Samtidigt, Lager, Fokus, Ett år, en plats) och Visa (Platt vy, Källor, Hjälp).
    Varje grupp har en tunn mässingsram med gruppens namn ingraverat i ramens överkant. */
 .action-group {
   position: relative;
@@ -249,7 +276,7 @@ body {
   font: 500 13px/1 var(--f-body);
   color: var(--parchment);
   background: var(--night-2);
-  border: 1px solid var(--line);
+  border: 1px solid var(--control-line);
   border-radius: 999px;
   padding: 8px 12px;
   cursor: pointer;
@@ -261,6 +288,36 @@ body {
   padding: 2px 5px; border-radius: 999px;
   background: var(--brass); color: var(--night);
   font: 600 11px/1 var(--f-mono);
+}
+
+/* ---------- presentationsläge (#488) ----------
+   Aktiveras bara av ?presentation=1. Normalvyn får inga ändrade variabler eller mått. */
+.presentation-exit { display: none; align-items: center; min-height: 44px; text-decoration: none; }
+.presentation-mode .presentation-exit { display: inline-flex; }
+.presentation-mode .top-actions { gap: 12px; }
+@media (min-width: 761px) {
+  /* Raden bryts innan den når årtalet uppe till vänster (#64: knappen Dela gjorde raden längre) */
+  .top-actions { max-width: calc(100% - var(--gut-r) - 200px); }
+  .presentation-mode .top-actions .chip-btn,
+  .presentation-mode .top-actions .presentation-exit { min-height: 44px; padding: 10px 15px; font-size: 15px; }
+  .presentation-mode .top-actions .action-label { font-size: 10.5px; }
+  .presentation-mode .masthead .year-big { font-size: 54px; }
+  .presentation-mode .masthead .segment-note { font-size: 13px; }
+  .presentation-mode .timebar .step,
+  .presentation-mode .timebar .play { min-width: 56px; height: 40px; font-size: 14px; }
+  .presentation-mode .timebar .track { height: 62px; }
+  .presentation-mode .timebar .tick { font-size: 12px; }
+  .presentation-mode #detail { width: min(460px, calc(100vw - 48px)); max-height: 55vh; padding: 20px 22px; }
+  .presentation-mode #detail h3 { font-size: 25px; }
+  .presentation-mode #detail p { font-size: 16px; line-height: 1.55; }
+  .presentation-mode #funfact { width: min(440px, calc(100vw - 48px)); max-height: calc(100dvh - 164px - 176px); padding: 18px 20px 16px; }
+  .presentation-mode #funfact .ff-text { font-size: 22px; }
+  .presentation-mode .panel { width: min(420px, calc(100vw - 48px)); max-height: 52vh; }
+  .presentation-mode .panel .event-btn .ttl { font-size: 17px; }
+}
+@media (min-width: 1600px) {
+  .presentation-mode #detail { width: min(520px, calc(100vw - 64px)); }
+  .presentation-mode #funfact { width: min(480px, calc(100vw - 64px)); }
 }
 
 :focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
@@ -297,7 +354,7 @@ body {
 .focus-more { width: 100%; text-align: left; background: none; border: 0; border-top: 1px solid var(--line); border-radius: 0; margin-top: 6px; color: var(--brass); font: 500 13px/1.2 var(--f-body); }
 .layer-heading.first { border-top: 0; padding-top: 2px; }
 .layer-note.pad { padding: 6px 10px; }
-.focus-search { display: block; width: calc(100% - 20px); margin: 4px 10px 6px; padding: 8px 10px; background: var(--night); color: var(--parchment); border: 1px solid var(--line); border-radius: 8px; font: 400 14px/1.2 var(--f-body); }
+.focus-search { display: block; width: calc(100% - 20px); margin: 4px 10px 6px; padding: 8px 10px; background: var(--night); color: var(--parchment); border: 1px solid var(--control-line); border-radius: 8px; font: 400 14px/1.2 var(--f-body); }
 .focus-search:focus-visible { outline: 2px solid var(--brass); outline-offset: 1px; }
 /* Fokus (#311): huvudet (sökruta, flikar, sortering) ligger still och listan rullar under det */
 .focus-menu { width: min(400px, calc(100vw - 32px)); display: flex; flex-direction: column; overflow: hidden; padding: 6px 0 0; }
@@ -306,13 +363,36 @@ body {
 .focus-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 0 6px 6px; }
 .focus-menu:focus { outline: none; }
 /* Flikarna i en rad; blir de för breda rullar raden i sidled inuti menyn i stället för att bryta */
-.focus-tabs, .focus-sort { display: flex; gap: 4px; margin: 0 4px 4px; overflow-x: auto; scrollbar-width: none; padding: 4px; }
-.focus-tabs::-webkit-scrollbar, .focus-sort::-webkit-scrollbar { display: none; }
+.focus-tabs, .focus-sort { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 4px 4px; padding: 4px; }
 .focus-tabs .chip-btn, .focus-sort .chip-btn { flex: none; white-space: nowrap; padding: 6px 7px; font-size: 12.5px; }
 .focus-sort { align-items: center; margin-bottom: 0; }
 .focus-sort .chip-btn { padding: 4px 8px; font-size: 11.5px; background: transparent; }
 .focus-sort .chip-btn[aria-pressed="true"] { background: var(--night-3); color: var(--brass); border-color: var(--brass-deep); }
 .focus-sort-label { flex: none; margin-right: 2px; font: 600 10.5px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--parchment-dim); }
+/* Fokusgrupper (#507): bara en innehållsgrupp är öppen samtidigt. */
+.focus-group { border-top: 1px solid var(--line); }
+.focus-group-toggle {
+  display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 40px; padding: 9px 10px;
+  color: var(--brass); background: transparent; border: 0; font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-align: left; text-transform: uppercase; cursor: pointer;
+}
+.focus-group-toggle:hover { background: var(--night-3); }
+.focus-group-count { color: var(--parchment-dim); }
+.focus-group-chev { width: 7px; height: 7px; margin-right: 3px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg) translateY(-2px); transition: transform .16s ease; }
+.focus-group-toggle[aria-expanded="true"] .focus-group-chev { transform: rotate(225deg) translate(-1px, -1px); }
+.focus-age { padding: 9px 10px 4px; color: var(--parchment-dim); font: 500 10.5px/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; }
+@media (max-width: 760px) { .focus-group-toggle { min-height: 44px; } }
+.focus-active {
+  display: flex; align-items: center; gap: 10px; margin: 0 4px 4px; padding: 8px 10px;
+  background: var(--night-3); border: 1px solid var(--line); border-radius: 8px;
+}
+.focus-active-text { flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; font: 11.5px/1.35 var(--f-mono); color: var(--parchment-dim); }
+.focus-active-text strong { color: var(--parchment); }
+.focus-clear {
+  flex: none; min-height: 32px; padding: 5px 9px; color: var(--brass); background: transparent;
+  border: 1px solid var(--control-line); border-radius: 999px; font: 600 11.5px/1 var(--f-body); cursor: pointer;
+}
+.focus-clear:hover { background: var(--night-2); border-color: var(--brass); }
+@media (max-width: 760px) { .focus-clear { min-height: 44px; } }
 .focus-item .focus-name { flex: 1 1 0; min-width: 0; overflow-wrap: break-word; } /* långa namn bryts inom raden, inte under färgen */
 .focus-also { color: var(--brass); }
 .focus-note { max-width: 320px; } /* förklaring under rubrikerna i Fokus (#138) */
@@ -324,12 +404,32 @@ body {
 .view-chip {
   display: inline-flex; align-items: center; min-height: 32px; padding: 6px 12px;
   font: 500 12.5px/1 var(--f-body); color: var(--parchment);
-  background: transparent; border: 1px solid var(--line); border-radius: 999px; cursor: pointer;
+  background: transparent; border: 1px solid var(--control-line); border-radius: 999px; cursor: pointer;
 }
 .view-chip:hover { background: var(--night-3); border-color: var(--brass-deep); }
 .view-chip[aria-pressed="true"] { background: var(--brass); border-color: var(--brass); color: var(--night); }
 .view-custom { cursor: default; border-style: dashed; border-color: var(--brass-deep); color: var(--brass); font-style: italic; }
 .view-custom[hidden] { display: none; }
+.layer-customize {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: calc(100% - 20px); min-height: 36px; margin: 0 10px 6px; padding: 7px 12px;
+  font: 500 12.5px/1 var(--f-body); color: var(--brass); background: var(--night-3);
+  border: 1px solid var(--control-line); border-radius: 8px; cursor: pointer;
+}
+.layer-customize:hover { border-color: var(--brass-deep); }
+.layer-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+.layer-action { min-height: 44px; padding: 6px 8px; color: var(--parchment); background: var(--night-3); border: 1px solid var(--control-line); border-radius: 8px; font: 500 12.5px/1.2 var(--f-body); cursor: pointer; }
+.layer-action:hover { border-color: var(--brass-deep); }
+.layer-action-status { grid-column: 1 / -1; margin: 0; color: var(--parchment-dim); font-size: 12px; line-height: 1.35; }
+.layer-view-status { margin: 6px 0 0; color: var(--parchment-dim); font-size: 12.5px; line-height: 1.4; }
+.panel-enable-events { min-height: 44px; margin: 0 10px 12px; }
+.layer-customize-chev {
+  width: 6px; height: 6px; border: solid currentColor; border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg) translateY(-2px); transition: transform .16s ease;
+}
+.layer-customize[aria-expanded="true"] .layer-customize-chev { transform: rotate(225deg) translate(-1px, -1px); }
+.layer-custom[hidden] { display: none; }
+@media (max-width: 760px) { .layer-customize { min-height: 44px; } }
 
 /* ---------- panel: "Samtidigt i världen" som utfällbar meny (#112) ---------- */
 .panel {
@@ -366,7 +466,7 @@ body {
   font: 500 11.5px/1 var(--f-body);
   color: var(--parchment);
   background: transparent;
-  border: 1px solid var(--line);
+  border: 1px solid var(--control-line);
   border-radius: 999px;
   padding: 5px 9px 5px 7px;
   cursor: pointer;
@@ -441,17 +541,27 @@ body {
   margin: -4px -6px 0 8px;
   width: 30px; height: 30px; border-radius: 50%;
   font: 400 18px/1 var(--f-body);
-  color: var(--parchment); background: var(--night-3); border: 1px solid var(--line);
+  color: var(--parchment); background: var(--night-3); border: 1px solid var(--control-line);
   cursor: pointer;
 }
 .detail h3 { margin: 0 0 2px; font: 400 19px/1.2 var(--f-display); text-wrap: balance; }
 .detail .meta { font: 400 11.5px/1.4 var(--f-mono); color: var(--card-accent, var(--brass)); }
 .detail p { margin: 8px 0; line-height: 1.5; max-width: 65ch; }
 .detail .src { font-size: 12.5px; color: var(--card-dim, var(--parchment-dim)); }
+.detail .evidence-ref { margin-left: 2px; font: 500 10px/1 var(--f-mono); }
+.detail .evidence-sources { margin-top: 12px; border-top: 1px solid var(--card-line, var(--line)); padding-top: 8px; }
+.detail .evidence-sources h4 { margin: 0 0 5px; color: var(--card-accent, var(--brass)); }
+.detail .evidence-group h5 { margin: 8px 0 2px; font: 500 10px/1.2 var(--f-mono); letter-spacing: .05em; text-transform: uppercase; }
+.detail .evidence-group ol { margin: 0; padding-left: 20px; }
 .detail a, .detail .link-btn { color: var(--card-accent, var(--brass)); }
 .detail .review-badge, .detail .war-link, .detail .war-list .meta { color: var(--card-dim); }
 .detail .war-list h4 { color: var(--card-accent); }
 .detail-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 6px; }
+/* Rikets fördjupning är hopfällbar, så att den korta orienteringen ryms i mobilens första läge (#359). */
+.facts-section { margin: 10px 0; border-top: 1px solid var(--line); padding-top: 8px; }
+.facts-section > summary { cursor: pointer; color: var(--card-accent, var(--brass)); font: 600 12px/1.2 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; }
+.facts-section > summary:focus-visible { outline: 2px solid var(--card-accent, var(--brass)); outline-offset: 3px; border-radius: 3px; }
+.facts-section > :last-child { margin-bottom: 0; }
 
 .review-badge {
   display: inline-flex; align-items: center; gap: 6px;
@@ -465,7 +575,7 @@ body {
 .review-badge.draft::before { background: var(--danger); }
 /* (i) vid granskningsstatusen i faktarutan (#310): fäller ut vad statusarna betyder */
 .review-info {
-  position: relative; flex: none; width: 18px; height: 18px; margin-left: -4px; padding: 0; border-radius: 50%;
+  position: relative; flex: none; width: 24px; height: 24px; margin-left: -4px; padding: 0; border-radius: 50%;
   display: inline-grid; place-items: center;
   font: italic 600 11px/1 var(--f-display); color: var(--card-dim, var(--parchment-dim));
   background: none; border: 1px solid currentColor; cursor: pointer;
@@ -484,6 +594,7 @@ body {
 .review-help b { font-weight: 600; }
 
 .link-btn {
+  display: inline-flex; align-items: center; min-height: 24px;
   font: 500 12.5px/1 var(--f-body);
   color: var(--brass);
   background: none; border: 0; padding: 4px 0;
@@ -540,7 +651,7 @@ body {
 .ff-story-map { display: block; margin-top: 6px; font: 400 12.5px/1.4 var(--f-body); color: #6b5a3a; }
 .ff-story .ff-events:empty { display: none; }
 .ff-events { display: flex; flex-wrap: wrap; gap: 6px; }
-.ff-has-pics .ff-events { display: none; } /* bildrutorna har namn och Läs mer, så knapparna behövs inte (#190) */
+.ff-has-pics .ff-events { display: flex; } /* även reserv- och bildkort behåller hela händelselistan (#508) */
 .ff-chip {
   display: inline-flex; align-items: center; gap: 6px;
   font: 500 12px/1 var(--f-body);
@@ -582,7 +693,15 @@ body {
 .ff-pic.no-img .ff-cap { top: 0; justify-content: center; align-items: center; padding: 8px; background: none; }
 .ff-name { align-self: stretch; font: 500 12.5px/1.2 var(--f-body); color: var(--parchment); text-shadow: 0 1px 2px rgba(0,0,0,.6); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
 .ff-pic.no-img .ff-name { align-self: center; text-align: center; color: var(--card-ink); text-shadow: none; font-family: var(--f-display); font-size: 14px; }
+.ff-pic.ff-reserve { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 8px; background: linear-gradient(145deg, color-mix(in srgb, var(--ff-reserve-color) 72%, var(--night-2)), color-mix(in srgb, var(--ff-reserve-color) 38%, var(--night))); }
+.ff-reserve-top { display: flex; align-items: center; gap: 6px; }
+.ff-reserve-icon { width: 30px; height: 30px; object-fit: contain; background: none; opacity: .88; }
+.ff-reserve-year { font: 600 13px/1 var(--f-mono); color: var(--card-ink); }
+.ff-reserve-category { font: 600 9px/1 var(--f-mono); letter-spacing: .07em; text-transform: uppercase; color: var(--card-ink); opacity: .8; }
+.ff-pic.ff-reserve .ff-cap { position: static; align-items: center; gap: 4px; padding: 0; background: none; }
+.ff-pic.ff-reserve .ff-name { align-self: center; text-align: center; color: var(--card-ink); text-shadow: none; font-family: var(--f-display); font-size: 14px; }
 .ff-symbol.ff-pic { height: 96px; }
+.ff-symbol.ff-reserve { height: 132px; } /* samma bildradshöjd som övriga reserv- och bildkort (#542) */
 .ff-symbol .ff-sym-icon { position: absolute; left: 50%; top: 44%; width: 56px; height: 56px; transform: translate(-50%, -50%); object-fit: contain; opacity: .8; background: none; }
 .ff-symbol.no-img .ff-cap { top: auto; justify-content: flex-end; align-items: flex-end; padding: 14px 7px 6px; }
 .ff-more { padding: 4px 8px; border-radius: 999px; font: 600 11px/1 var(--f-body); color: #22190c; background: var(--brass); white-space: nowrap; }
@@ -592,6 +711,7 @@ body {
   position: absolute; z-index: 14;
   top: 84px; right: var(--gut-r); /* help.js lägger den under knapparna */
   box-sizing: border-box; width: min(340px, calc(100vw - 32px));
+  overflow-y: auto; overscroll-behavior: contain;
   padding: 12px 14px 12px 16px;
   background: color-mix(in srgb, var(--night-2) 96%, transparent);
   border: 1px solid var(--brass-deep); border-radius: var(--r);
@@ -622,10 +742,95 @@ body {
 .help-support a { display: block; width: fit-content; margin-top: 4px; padding: 2px 0; font: 600 13px/1.4 var(--f-body); color: var(--brass); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, var(--brass) 45%, transparent); }
 .help-support a:hover { color: var(--parchment); text-decoration-color: currentColor; }
 .help-support a:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; border-radius: 2px; }
+.help-intro { margin: 8px 0 0; border-top: 1px solid var(--line); padding-top: 8px; font: 400 12px/1.4 var(--f-body); }
+.help-intro .link-btn { font-size: 12.5px; }
 .hm { flex: none; width: 32px; height: 32px; }
 .hm-ring { fill: var(--medal); stroke: var(--brass); stroke-width: 2.4; }
 .hm-track { fill: none; stroke: color-mix(in srgb, var(--brass) 28%, transparent); stroke-width: 2.2; }
 .hm-num { font: 600 9.5px var(--f-mono); fill: var(--parchment); }
+
+/* ---------- introduktionen (#363) ---------- */
+.intro-dialog { position: fixed; z-index: 50; inset: 0; display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) var(--gut-r) max(16px, env(safe-area-inset-bottom, 0px)) var(--gut); background: rgba(3, 8, 13, .72); }
+.intro-dialog[hidden] { display: none; }
+.intro-box { box-sizing: border-box; width: min(480px, 100%); max-height: calc(100dvh - 32px); overflow-y: auto; padding: 18px; border: 1px solid var(--brass-deep); border-radius: var(--r); background: var(--night-2); box-shadow: 0 16px 42px rgba(0, 0, 0, .55); animation: intro-in .24s ease-out; }
+.intro-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.intro-progress { margin: 0; font: 500 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+.intro-head .panel-x { flex: none; }
+.intro-title { margin: 10px 0 0; font: 400 25px/1.1 var(--f-display); color: var(--parchment); }
+.intro-text { margin: 8px 0 0; font: 400 15px/1.45 var(--f-body); color: var(--parchment-dim); }
+.intro-event { margin-top: 14px; padding: 13px 14px; border: 1px solid var(--control-line); border-radius: 10px; background: color-mix(in srgb, var(--night) 72%, transparent); }
+.intro-event-label { margin: 0; font: 500 10.5px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+.intro-event-title { margin: 6px 0 0; font: 400 20px/1.15 var(--f-display); color: var(--parchment); }
+.intro-event-meta { margin: 5px 0 0; font: 400 12px/1.4 var(--f-mono); color: var(--parchment-dim); }
+.intro-funfact { margin: 12px 0 0; padding-top: 12px; border-top: 1px solid var(--line); font: 400 14px/1.5 var(--f-body); color: var(--parchment); }
+.intro-actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; min-height: 38px; margin-top: 18px; }
+.intro-actions .link-btn:first-child { margin-right: auto; }
+.intro-choices { display: grid; gap: 8px; margin-top: 16px; }
+.intro-choice { min-height: 42px; padding: 9px 12px; border: 1px solid var(--control-line); border-radius: 8px; background: var(--night); color: var(--parchment); font: 600 13px/1.25 var(--f-body); cursor: pointer; text-align: left; }
+.intro-choice:hover { border-color: var(--brass); }
+.intro-choice.primary { border-color: var(--brass); background: var(--brass); color: var(--night); }
+.intro-choice:focus-visible, .intro-actions button:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
+@keyframes intro-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+html.calm .intro-box { animation: none; }
+@media (prefers-reduced-motion: reduce) { .intro-box { animation: none; } }
+
+/* ---------- guidad tur (#47) ---------- */
+/* Kortet står där Samtidigt-kortet brukar stå; under turen döljs Samtidigt-kortet, så att de inte krockar */
+.tour-card {
+  box-sizing: border-box; position: absolute; z-index: 14;
+  left: var(--gut); bottom: 140px; width: min(380px, calc(100vw - 32px));
+  max-height: calc(100dvh - 140px - 150px); overflow-y: auto;
+  padding: 14px 16px 12px;
+  background: color-mix(in srgb, var(--night-2) 96%, transparent); color: var(--parchment);
+  border: 1px solid var(--brass-deep); border-radius: var(--r);
+  backdrop-filter: blur(6px); box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+}
+.tour-card[hidden] { display: none; }
+.app.touring .funfact, .app.touring .ff-tab { display: none; }
+.app:has(.pause-note:not([hidden])) .tour-card { bottom: 186px; max-height: calc(100dvh - 186px - 150px); }
+.tour-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.tour-progress { margin: 0; font: 500 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+.tour-head .panel-x { position: relative; float: none; margin: -4px -6px 0 0; flex: none; }
+.tour-name { margin: 6px 0 0; font: 500 11.5px/1.3 var(--f-mono); color: var(--parchment-dim); }
+.tour-title { margin: 6px 0 0; font: 400 22px/1.15 var(--f-display); color: var(--parchment); }
+.tour-text { margin: 8px 0 0; font: 400 15px/1.45 var(--f-body); color: var(--parchment); }
+.tour-chapter { margin: 10px 0 0; font: 500 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+.tour-chapter[hidden], .tour-question[hidden], .tour-status[hidden] { display: none; }
+/* Vad källorna säger om steget (#499): samma ord och markering som slutkortet (#500) */
+.tour-status { margin: 6px 0 0; font: 600 12.5px/1.3 var(--f-body); color: var(--parchment); }
+.tour-status::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 7px; border-radius: 50%; vertical-align: 1px; background: var(--brass); }
+.tour-status.takeaway-omtvistat::before { background: none; border: 2px solid var(--brass); width: 6px; height: 6px; }
+.tour-status.takeaway-okant::before { background: none; border: 2px dashed var(--parchment-dim); width: 6px; height: 6px; }
+/* Frågan att fundera på (#247): en egen ruta, så att den inte läses som en uppgift */
+.tour-question { margin: 10px 0 0; padding: 8px 10px; border-left: 2px solid var(--brass); background: color-mix(in srgb, var(--brass) 10%, transparent); font: 400 14px/1.4 var(--f-body); color: var(--parchment); }
+.tour-question-label { font-weight: 600; color: var(--brass); }
+.story-tour { display: block; width: 100%; margin: 4px 0 8px; padding: 9px 12px; border: 1px solid var(--card-accent); border-radius: 8px; background: none; color: var(--card-ink); font: 600 13px/1.3 var(--f-body); text-align: left; cursor: pointer; }
+.story-tour:hover { background: color-mix(in srgb, var(--card-accent) 14%, transparent); }
+.tour-links { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 10px; }
+.tour-links .link-btn[hidden] { display: none; }
+.tour-actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 14px; }
+.tour-actions .chip-btn { margin-right: auto; }
+.tour-actions .chip-btn[hidden] { display: none; }
+.tour-next { min-height: 36px; padding: 8px 14px; border: 1px solid var(--brass); border-radius: 999px; background: var(--brass); color: var(--night); font: 600 13px/1 var(--f-body); cursor: pointer; }
+.tour-end { min-height: 36px; padding: 8px 14px; border: 1px solid var(--control-line); border-radius: 999px; background: transparent; color: var(--parchment); font: 500 13px/1 var(--f-body); cursor: pointer; }
+.tour-end:hover { border-color: var(--brass-deep); }
+.tour-end[hidden] { display: none; }
+.tour-next:focus-visible, .tour-end:focus-visible, .tour-pick:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
+.tour-menu { width: min(360px, calc(100vw - 32px)); }
+.tour-list { list-style: none; margin: 0; padding: 0; }
+.tour-pick { display: grid; gap: 4px; width: 100%; min-height: 44px; padding: 9px 10px; border: 0; border-radius: 8px; background: none; color: var(--parchment); text-align: left; cursor: pointer; }
+.tour-pick:hover { background: color-mix(in srgb, var(--brass) 14%, transparent); }
+.tour-pick-title { font: 400 18px/1.15 var(--f-display); }
+.tour-pick-meta { font: 400 13px/1.35 var(--f-body); color: var(--parchment-dim); }
+.tour-pick-meta[hidden] { display: none; }
+@media (max-width: 760px) {
+  .tour-card { left: var(--gut); right: var(--gut-r); width: auto; bottom: 136px; padding: 12px 14px 10px; max-height: calc(100dvh - 136px - 176px); }
+  .app:has(.pause-note:not([hidden])) .tour-card { bottom: 196px; max-height: calc(100dvh - 196px - 176px); }
+  .tour-title { font-size: 19px; }
+  .tour-text { font-size: 15px; }
+  .tour-links .link-btn { min-height: 44px; }
+  .tour-next, .tour-end, .tour-actions .chip-btn { min-height: 44px; }
+}
 
 /* ---------- tidslinjen ---------- */
 .timebar {
@@ -639,7 +844,7 @@ body {
   font: 500 12px/1 var(--f-mono);
   color: var(--parchment);
   background: var(--night-2);
-  border: 1px solid var(--line);
+  border: 1px solid var(--control-line);
   border-radius: 8px;
   min-width: 44px; height: 32px;
   cursor: pointer;
@@ -660,12 +865,17 @@ body {
 .seg:last-child { border-right: 1px solid var(--line); border-radius: 0 4px 4px 0; }
 .seg:nth-child(even) { background: var(--night-3); }
 .track-dots, .track-ff { position: absolute; left: 0; right: 0; top: 0; height: 30px; pointer-events: none; }
+.tdot, .tspan, .tff, .troute { appearance: none; border: 0; padding: 0; cursor: pointer; pointer-events: auto; }
 .tdot { position: absolute; top: 15px; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; }
+.tdot.route-stop { box-shadow: 0 0 0 1px var(--parchment); }
 .tspan { position: absolute; top: 16px; height: 4px; border-radius: 2px; opacity: .55; }
 .tff {
   position: absolute; top: 2px; width: 9px; height: 9px; margin-left: -4.5px;
   background: var(--parchment); transform: rotate(45deg); border-radius: 1px;
 }
+.troute { position: absolute; top: 10px; width: 3px; height: 16px; margin-left: -1.5px; border-radius: 2px; }
+.tdot:focus-visible, .tspan:focus-visible, .tff:focus-visible, .troute:focus-visible { outline: 2px solid var(--parchment); outline-offset: 3px; z-index: 2; }
+.timeline-mark-note { margin: -2px 0 0; min-height: 16px; font: 400 11px/1.3 var(--f-mono); color: var(--parchment-dim); }
 .thumb {
   position: absolute; top: 4px; width: 0; height: 28px;
   pointer-events: none;
@@ -689,6 +899,7 @@ body {
 .tick.first { transform: none; }
 .tick.first::before { left: 0; }
 .tick.lvl2, .tick.lvl3 { display: none; }
+.tick.tick-hidden { visibility: hidden; } /* krockar med ett viktigare årtal (#63) */
 @media (min-width: 600px) { .tick.lvl2 { display: block; } }
 @media (min-width: 900px) { .tick.lvl3 { display: block; } }
 
@@ -744,11 +955,6 @@ body {
 .flat-labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 .flat-canvas:focus-visible { outline: 2px solid var(--brass); outline-offset: -3px; }
 .app:has(.flat-view:not([hidden])) .labels { visibility: hidden; } /* globens etiketter hör inte till kartan */
-/* Årtalet uppe till vänster får en mörk platta, så att det syns mot pergamentfärgat land */
-.app:has(.flat-view:not([hidden])) .masthead {
-  background: color-mix(in srgb, var(--night) 82%, transparent);
-  border-radius: var(--r); padding: 2px 10px 6px; margin: -2px 0 0 -10px;
-}
 .flat-zoom {
   position: absolute; right: var(--gut-r); top: 12px;
   display: flex; flex-direction: column; gap: 6px;
@@ -764,6 +970,7 @@ body {
   cursor: pointer;
 }
 .flat-zbtn:hover { border-color: var(--brass); color: var(--brass); }
+.flat-poster { width: auto; min-width: 40px; padding: 0 10px; font-size: 13px; }
 @media (max-width: 760px) { .flat-zbtn { width: 44px; height: 44px; } }
 
 /* ---------- källor ---------- */
@@ -799,11 +1006,13 @@ body {
 .check-row { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
 /* Grupper, granskningsläge och sökning (#141) */
 .src-intro { color: var(--parchment-dim); }
+.sheet-body .src-version { color: var(--parchment-dim); font-size: .85rem; margin: 24px 0 0; overflow-wrap: anywhere; text-align: center; }
+.src-version a { color: var(--brass); }
 .src-groups { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr)); gap: 8px; margin: 10px 0 12px; }
 .src-group {
   display: flex; flex-direction: column; gap: 5px; min-width: 0;
   text-align: left; font: inherit; color: var(--parchment); cursor: pointer;
-  background: var(--night-3); border: 1px solid var(--line); border-radius: 8px; padding: 9px 10px;
+  background: var(--night-3); border: 1px solid var(--control-line); border-radius: 8px; padding: 9px 10px;
 }
 .src-group:hover { border-color: var(--brass-deep); }
 .src-group[aria-pressed="true"] { border-color: var(--brass); box-shadow: inset 0 0 0 1px var(--brass); }
@@ -821,10 +1030,24 @@ body {
 .src-search label { font: 500 11px/1 var(--f-mono); text-transform: uppercase; letter-spacing: .05em; color: var(--parchment-dim); }
 .src-search input {
   flex: 1; min-width: 0; font: inherit; font-size: 16px; color: var(--parchment);
-  background: var(--night); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px;
+  background: var(--night); border: 1px solid var(--control-line); border-radius: 8px; padding: 8px 10px;
 }
 .src-search input::placeholder { color: var(--parchment-dim); opacity: .8; }
 .src-search input:focus { outline: none; border-color: var(--brass); }
+/* Sammanfattningen överst och statusfiltret i Om källorna (#517) */
+.src-summary dl { margin: 6px 0 4px; display: grid; gap: 8px; }
+.src-level { padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--night-3); }
+.src-level dt { display: flex; align-items: center; gap: 6px; font: 400 16px/1.2 var(--f-display); color: var(--parchment); }
+.src-level dt i { width: 9px; height: 9px; border-radius: 2px; display: inline-block; flex: none; }
+.src-level dd { margin: 3px 0 0; font-size: 13.5px; line-height: 1.45; color: var(--parchment-dim); }
+.src-level dd em { color: var(--parchment); }
+.src-level-uncertain { border-style: dashed; }
+.src-status { margin-top: 8px; }
+.src-status select {
+  min-width: 0; max-width: 100%; font: inherit; font-size: 16px; color: var(--parchment);
+  background: var(--night); border: 1px solid var(--control-line); border-radius: 8px; padding: 7px 8px;
+}
+.src-status select:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
 .sheet-body .src-hits { font: 500 11.5px/1.4 var(--f-mono); color: var(--parchment-dim); margin: 8px 0 4px; }
 .src-section h4 { font: 400 18px/1.2 var(--f-display); color: var(--parchment); margin: 16px 0 4px; }
 .src-sub { font: 500 11px/1.2 var(--f-mono); color: var(--parchment-dim); text-transform: uppercase; letter-spacing: .05em; margin: 12px 0 2px; }
@@ -865,6 +1088,18 @@ details.used-by summary:hover { color: var(--parchment); }
   background: color-mix(in srgb, var(--night-2) 94%, transparent);
   border: 1px solid var(--brass-deep); border-radius: 999px;
 }
+.pause-stop {
+  font: 500 12px/1 var(--f-mono); color: var(--parchment); background: transparent;
+  border: 1px solid var(--control-line); border-radius: 999px; padding: 6px 12px; cursor: pointer; white-space: nowrap;
+}
+.pause-stop:hover { border-color: var(--brass-deep); }
+.pause-stop[hidden] { display: none; }
+/* Resans not i pausraden (#647): rubriken syns, texten fälls ut på en egen rad */
+.pause-more[hidden] { display: none; }
+.pause-more summary { color: var(--brass); cursor: pointer; white-space: nowrap; }
+.pause-more[open] { flex-basis: 100%; order: 1; font-weight: 400; color: var(--parchment-dim); }
+.pause-more[open] summary { margin-bottom: 4px; }
+.pause-note:has(.pause-more[open]) { border-radius: var(--r); max-height: 40vh; overflow-y: auto; }
 .pause-go {
   font: 600 12px/1 var(--f-mono); color: var(--night); background: var(--brass);
   border: 1px solid var(--brass); border-radius: 999px; padding: 6px 12px; cursor: pointer; white-space: nowrap;
@@ -897,6 +1132,9 @@ details.used-by summary:hover { color: var(--parchment); }
 @media (min-width: 1100px) { .pause-finish { display: none; } }
 @media (max-width: 760px) { .pause-finish { padding: 6px 8px; } }
 .next-pause[hidden], .pause-next { display: none; }
+/* Nedräkningen vid Samtidigt-kortet (#578) */
+.pause-countdown { color: var(--brass); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pause-countdown[hidden] { display: none; }
 .pause-next { color: var(--parchment-dim); }
 @media (max-width: 1099px) {
   .next-pause { display: none; }
@@ -918,6 +1156,14 @@ details.used-by summary:hover { color: var(--parchment); }
 }
 .focus-label { font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
 .focus-title { font: 400 16px/1.2 var(--f-display); }
+.focus-state { font: 400 11px/1 var(--f-mono); color: var(--parchment-dim); white-space: nowrap; }
+.focus-action {
+  font: 600 12px/1 var(--f-mono); color: var(--night); background: var(--brass);
+  border: 1px solid var(--brass); border-radius: 999px; padding: 7px 11px; cursor: pointer; white-space: nowrap;
+}
+.focus-action:hover { background: var(--brass-light); }
+/* Fokusåtgärden samlar uppspelningen i samma rad, så tidsraden inte visar två primära knappar. */
+.app.focusing #btn-play { display: none; }
 
 .focus-moved { flex-basis: 100%; text-align: center; font: 400 12px/1.4 var(--f-mono); color: var(--parchment-dim); }
 .focus-moved .link-btn { font: inherit; white-space: nowrap; }
@@ -945,6 +1191,14 @@ details.used-by summary:hover { color: var(--parchment); }
   .ff-pics { margin: -12px -14px 8px; }
   .ff-pic.ff-pic { height: 74px; }
   .ff-name { -webkit-line-clamp: 2; font-size: 11px; line-height: 1.15; } /* alla namn ska vara läsbara */
+  .ff-pic.ff-reserve { display: block; padding: 0; }
+  .ff-reserve-top { position: absolute; left: 4px; top: 3px; gap: 3px; }
+  .ff-reserve-icon { width: 16px; height: 16px; }
+  .ff-reserve-year { font-size: 9px; }
+  .ff-reserve-category { display: none; }
+  .ff-pic.ff-reserve .ff-cap { position: absolute; inset: 21px 0 0; justify-content: center; padding: 1px 2px; background: color-mix(in srgb, var(--night) 72%, transparent); }
+  .ff-pic.ff-reserve .ff-name { font-size: 10px; line-height: 1.05; -webkit-line-clamp: 2; }
+  .ff-pic.ff-reserve .ff-more { display: none; }
   .ff-cap { padding: 12px 5px 4px; gap: 3px; }
   .ff-more { padding: 3px 6px; font-size: 10.5px; }
   /* Bilderna har egna Läs mer-knappar: knapparna under texten behövs inte i smal skärm, så kortet blir inte högre än förut (#190) */
@@ -979,13 +1233,16 @@ details.used-by summary:hover { color: var(--parchment); }
   .pause-note { border-radius: var(--r); justify-content: space-between; width: auto; }
   .focus-bar {
     left: var(--gut); right: var(--gut-r); transform: none; max-width: none;
-    flex-wrap: nowrap; justify-content: space-between; gap: 8px;
+    flex-wrap: wrap; justify-content: space-between; gap: 8px;
     border-radius: var(--r); padding: 6px 6px 6px 12px;
   }
-  .app.focus-moved-on .focus-bar { flex-wrap: wrap; }
+  /* Raden bryter när knapparna inte ryms (till exempel "Fortsätt" och "Tillbaka till hela tiden"), i stället för
+     att sticka ut åt höger (#647). */
   .app.focus-moved-on .detail-card { bottom: 256px; max-height: 36vh; }
   .focus-label { display: none; }
-  .focus-title { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .focus-title { flex: 1 1 64px; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .focus-state { font-size: 10px; }
+  .focus-action { padding: 7px 10px; font-size: 12px; }
   .focus-bar .chip-btn { white-space: nowrap; padding: 7px 10px; font-size: 12px; }
   /* Datumet i fokusläget för korta krig (#289) är bredare och har nedstaplar (j i "jun"): mindre och med luft,
      så att det inte når fokusraden under. Året får bryta till en egen rad om det inte ryms. */
@@ -1006,8 +1263,9 @@ details.used-by summary:hover { color: var(--parchment); }
 .calm *, .calm *::before, .calm *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
 
 /* ---------- bild i faktarutan (#129) ---------- */
-.detail-fig { position: relative; margin: -14px -16px 10px; }
-.detail-fig img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r) var(--r) 0 0; background: var(--night-3); }
+/* Bilden kommer efter rubrik och datumrad (#605) och går ut till kortets kanter */
+.detail-fig { position: relative; margin: 10px -16px 10px; }
+.detail-fig img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: var(--night-3); }
 .detail-fig figcaption { padding: 5px 12px 0; font: 400 11px/1.35 var(--f-mono); color: var(--card-dim); }
 .fig-caption { display: block; color: var(--card-ink); font-style: italic; }
 .fig-credit a { color: var(--card-accent); }
@@ -1017,9 +1275,17 @@ details.used-by summary:hover { color: var(--parchment); }
   font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase;
   color: #fff; background: var(--danger);
 }
-/* Krysset ligger ovanpå bilden: det tar ingen plats, så att bilden går ända upp */
+/* Krysset tar ingen plats; rubriken lämnar plats åt det */
 .detail-card .detail-close { position: sticky; z-index: 2; float: none; display: block; margin: -4px -6px -26px auto; }
 .detail-card .detail-close + h3 { padding-right: 30px; }
+/* Kort markering i datumraden när händelsen har raden Historisk osäkerhet (#606) */
+.unc-mark {
+  font: inherit; color: var(--card-accent); background: none; border: 0; padding: 0 0 0 2px; cursor: pointer;
+  text-decoration: underline dotted; text-underline-offset: 3px; position: relative;
+}
+.unc-mark::after { content: ""; position: absolute; inset: -12px -6px; } /* större tryckyta */
+.unc-mark:focus-visible { outline: 2px solid var(--card-accent); outline-offset: 2px; border-radius: 3px; }
+.uncertainty-row:focus { outline: 2px solid var(--card-accent); outline-offset: 3px; border-radius: 3px; }
 @media (max-width: 760px) { .detail-fig img { aspect-ratio: 16 / 9; } }
 
 /* ---------- ramar efter tidsålder (#129) ----------
@@ -1082,6 +1348,18 @@ details.used-by summary:hover { color: var(--parchment); }
 .story-label { font: 600 10.5px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--card-accent); margin-bottom: 6px; }
 .story h4 { margin: 12px 0 2px; font: 600 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--card-accent); }
 .story p { margin: 4px 0 6px; }
+/* Det viktigaste att ta med sig (#500): tre rubriker efter vad källorna säger, en källa per punkt */
+.takeaway-box { margin: 14px 0 8px; padding: 10px 12px 4px; border: 1px solid var(--card-line); border-radius: 8px; }
+.takeaway-box h4 { margin-top: 0; }
+.takeaway-head { margin: 10px 0 4px; font: 600 13px/1.3 var(--f-body); color: var(--card-ink); }
+.takeaway-head::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 7px; border-radius: 50%; vertical-align: 1px; background: var(--card-accent); }
+.takeaway-omtvistat::before { background: none; border: 2px solid var(--card-accent); width: 6px; height: 6px; }
+.takeaway-okant::before { background: none; border: 2px dashed var(--card-dim); width: 6px; height: 6px; }
+.takeaways { margin: 0 0 6px; padding-left: 18px; }
+.takeaways li { margin: 0 0 7px; }
+.takeaway-src { display: block; margin-top: 2px; font: 400 11.5px/1.35 var(--f-mono); color: var(--card-dim); }
+.takeaway-src::before { content: "Källa: "; }
+.takeaway-src a { color: inherit; }
 .parties { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .parties strong { font-size: 13px; }
 .parties p { font-size: 13px; line-height: 1.45; }
@@ -1103,7 +1381,7 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-facts.lineage dd .link-btn { font-size: inherit; }
 .lineage-note { margin: 4px 0 8px; font-size: 12.5px; line-height: 1.4; color: var(--card-dim); }
 .detail .war-list li .link-btn[data-year] { font-family: var(--f-mono); }
-.info-btn { margin-left: auto; padding: 2px 8px; border: 1px solid var(--line); border-radius: 999px; background: none; color: var(--brass); font: 500 11px/1.4 var(--f-mono); cursor: pointer; }
+.info-btn { min-width: 24px; min-height: 24px; margin-left: auto; padding: 2px 8px; border: 1px solid var(--control-line); border-radius: 999px; background: none; color: var(--brass); font: 500 11px/1.4 var(--f-mono); cursor: pointer; }
 .info-btn:hover { background: var(--night-3); }
 
 /* ---------- fokusraden med knappen Fakta (#170) ---------- */
@@ -1151,6 +1429,9 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-legend .rl-note { display: flex; align-items: center; gap: 7px; margin: 5px 0 0; font: 400 11px/1.3 var(--f-mono); color: var(--parchment-dim); }
 .religion-legend .rl-unsure { background: rgba(236, 223, 194, .25); border: 1px dashed var(--parchment-dim); box-sizing: border-box; }
 .religion-legend .rl-inherited { background: rgba(236, 223, 194, .15); border: 1px dotted var(--parchment-dim); box-sizing: border-box; }
+.religion-legend .rl-areas { margin-top: 2px; }
+.religion-legend .rl-soft { background: color-mix(in srgb, var(--parchment-dim) 32%, transparent); border: 1px solid color-mix(in srgb, var(--parchment-dim) 55%, transparent); filter: blur(.35px); }
+.religion-legend .rl-influence { border: 1px dashed var(--parchment-dim); box-sizing: border-box; background: radial-gradient(var(--parchment-dim) 1px, transparent 1.5px) 0 0 / 4px 4px; }
 /* krigsskådeplatsen i fokusläget (#236): skraffering och hel kantlinje som på kartan, och dämpade lager (#235) */
 .religion-legend .rl-war { margin-top: 2px; }
 .religion-legend ul + .rl-war, .religion-legend .rl-note + .rl-war { margin-top: 6px; padding-top: 4px; border-top: 1px solid var(--line); }
@@ -1176,7 +1457,7 @@ details.used-by summary:hover { color: var(--parchment); }
 }
 .religion-legend .rl-hint-close:hover { background: var(--night-2); }
 .religion-legend :is(.rl-hint-close, .rl-about):focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
-/* Upptäcktsvyn (#101): perspektivraden syns alltid, också när förklaringen är hopfälld; krediten för kartbilderna */
+/* Upptäcktsvyn (#375): perspektivet och kartkrediten fälls ihop med förklaringen. */
 .religion-legend .rl-disc {
   margin: 2px 0 5px; padding: 5px 8px; border-left: 2px solid var(--brass-deep); background: var(--night-3);
   border-radius: 0 var(--r) var(--r) 0; font: 400 11.5px/1.38 var(--f-body); color: var(--parchment);
@@ -1228,6 +1509,9 @@ details.used-by summary:hover { color: var(--parchment); }
 /* ---------- korten ovanför fokusraden (#183) ---------- */
 /* main.js mäter fokusraden (--focus-top) så att Samtidigt-kortet och faktarutan alltid ligger ovanför den,
    oavsett om raden "Tiden flyttades" eller pausraden (eller båda) syns. */
+/* main.js mäter också pausraden (--pause-top): fokusraden ligger ovanför den även när den är flera rader hög (#647).
+   Fler klasser än reglerna med fasta avstånd ovan, så att den här vinner i alla bredder. */
+.app.app.app.focusing.pause-var .focus-bar { bottom: calc(var(--pause-top) + 8px); }
 .app.app.focusing.focus-var :is(.funfact, .ff-tab, .detail-card) { bottom: calc(var(--focus-top) + 8px); }
 .app.app.focusing.focus-var :is(.funfact, .ff-tab) { max-height: calc(100dvh - var(--focus-top) - 8px - 150px); }
 @media (max-width: 760px) {
@@ -1315,6 +1599,24 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-legend li[aria-pressed="true"] { box-shadow: inset 2px 0 0 var(--brass); }
 .religion-legend li[data-religion]:focus-visible { outline: 2px solid var(--brass); outline-offset: 0; }
 .religion-legend .rl-sym-note { display: block; }
+/* Rikesförklaringen öppnas uttryckligen från Lager (#437); i övrigt återanvänder den religionernas kompakta ruta. */
+.empire-legend { position: absolute; }
+.empire-legend .el-close { position: absolute; top: 2px; right: 5px; min-width: 28px; min-height: 28px; border: 0; border-radius: 4px; background: none; color: var(--brass); font: 400 18px/1 var(--f-body); cursor: pointer; }
+.empire-legend .el-close:hover { background: var(--night-3); }
+.empire-legend .el-toggle { padding-right: 24px; }
+.empire-legend .el-heading { margin: 3px 0 3px; color: var(--parchment-dim); font: 500 10.5px/1.2 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; }
+.empire-legend .el-more { margin-top: 6px; padding-top: 5px; border-top: 1px solid var(--line); }
+.empire-legend .el-more summary { cursor: pointer; color: var(--brass); font: 400 11px/1.35 var(--f-mono); }
+.empire-legend .el-more ul { margin-top: 4px; }
+.empire-legend li[data-empire] { cursor: pointer; border-radius: 4px; margin: 0 -4px; padding: 1px 4px; }
+.empire-legend li[data-empire]:hover, .empire-legend li.on { background: var(--night-3); }
+.empire-legend li[data-empire][aria-pressed="true"] { box-shadow: inset 2px 0 0 var(--brass); }
+.empire-legend li[data-empire]:focus-visible, .empire-legend :is(.el-close, .el-more summary):focus-visible { outline: 2px solid var(--brass); outline-offset: 0; }
+.empire-legend .el-star { width: 16px; color: var(--brass); text-align: center; font-size: 15px; line-height: 1; }
+.empire-legend .el-note { display: block; }
+@media (max-width: 760px) {
+  .empire-legend .el-close { top: 0; min-width: 36px; min-height: 36px; }
+}
 .religion-tip {
   position: absolute; z-index: 11; display: flex; align-items: center; gap: 6px; max-width: 240px; pointer-events: none;
   background: color-mix(in srgb, var(--night-2) 94%, transparent); border: 1px solid var(--brass-deep); border-radius: 8px;
@@ -1327,6 +1629,22 @@ details.used-by summary:hover { color: var(--parchment); }
 /* ---------- besökarnas förslag (docs/feedback.md) ---------- */
 .help-feedback { margin: 8px 0 0; border-top: 1px solid var(--line); padding-top: 6px; font: 400 12px/1.4 var(--f-body); color: var(--parchment-dim); }
 .help-feedback .link-btn { font-size: 12.5px; padding: 2px 0; }
+
+/* Språkväljaren (#63): en chip-knapp i gruppen Visa, med en egen pil så att den liknar de andra knapparna */
+.lang-pick { display: inline-flex; }
+.lang-select {
+  appearance: none; -webkit-appearance: none;
+  padding-right: 26px;
+  background-image: linear-gradient(45deg, transparent 50%, var(--brass) 50%), linear-gradient(135deg, var(--brass) 50%, transparent 50%);
+  background-position: calc(100% - 14px) 52%, calc(100% - 9px) 52%;
+  background-size: 5px 5px, 5px 5px; background-repeat: no-repeat;
+}
+.top-actions .lang-select { padding-right: 26px; } /* mobilens .top-actions .chip-btn har mindre utfyllnad */
+.more-menu .lang-pick { display: flex; }
+.more-menu .lang-pick .lang-select { flex: 1; min-width: 0; text-align: left; }
+.lang-select:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.lang-select option { color: var(--parchment); background: var(--night-2); }
+.help-lang { margin: 6px 0 0; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; font: 400 12px/1.4 var(--f-body); color: var(--parchment-dim); }
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .feedback-card {
   z-index: 18; width: min(380px, calc(100vw - var(--gut) - var(--gut-r)));
@@ -1351,7 +1669,7 @@ details.used-by summary:hover { color: var(--parchment); }
   box-sizing: border-box; width: 100%; max-width: 100%;
   padding: 8px 10px; border-radius: 8px;
   font: 400 16px/1.35 var(--f-body); /* 16 px: mobilens webbläsare zoomar inte in vid fokus */
-  color: var(--parchment); background: var(--night); border: 1px solid var(--line);
+  color: var(--parchment); background: var(--night); border: 1px solid var(--control-line);
 }
 .fb-field textarea { resize: vertical; min-height: 96px; }
 .fb-field select:focus, .fb-field input:focus, .fb-field textarea:focus { outline: 2px solid var(--brass); outline-offset: 1px; border-color: var(--brass); }
@@ -1412,6 +1730,21 @@ details.used-by summary:hover { color: var(--parchment); }
 /* Datorn: knappen Visa och platsraden syns inte, och menyn Visa är osynlig (knapparna står i gruppen som förut). */
 .more-toggle { display: none; }
 .more-menu { display: contents; }
+/* Mer (#651): Källor, Hjälp, Dela och Språk i en liten meny under knappen Mer i datorn */
+.extra-wrap { position: relative; display: flex; align-items: center; }
+.extra-toggle { display: inline-flex; align-items: center; gap: 6px; }
+.extra-dots::before { content: "\22EF"; font-size: 15px; line-height: 0; }
+.extra-open .extra-toggle { border-color: var(--brass); color: var(--brass); }
+.extra-menu {
+  display: none; position: absolute; z-index: 17; top: calc(100% + 8px); right: 0;
+  flex-direction: column; align-items: stretch; gap: 4px; min-width: 190px; padding: 6px;
+  background: color-mix(in srgb, var(--night-2) 96%, transparent); border: 1px solid var(--line); border-radius: var(--r);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .5);
+}
+.extra-open .extra-menu { display: flex; }
+.extra-menu .chip-btn { text-align: left; }
+.extra-menu .lang-pick { display: flex; }
+.extra-menu .lang-pick .lang-select { flex: 1; min-width: 0; text-align: left; }
 .place-row { display: none; }
 #detail > .sheet-handle { display: none; }
 @media (max-width: 760px) {
@@ -1426,25 +1759,44 @@ details.used-by summary:hover { color: var(--parchment); }
   .segment-note, .year-readout:has(.year-jump.fine) + .segment-note {
     margin: 3px 0 0; font-size: 10px; letter-spacing: .05em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
+  /* Mobilmenyn (#530): bara Samtidigt och Meny i raden överst. Resten ligger i en nedfällbar panel under Meny. */
   .top-actions { flex-direction: row; flex-wrap: nowrap; align-items: center; gap: 3px; top: calc(env(safe-area-inset-top, 0px) + 6px); }
-  .action-group, .action-group:first-child, .action-group:last-child { border: 0; border-radius: 0; padding: 0; gap: 3px; flex-wrap: nowrap; max-width: none; }
-  .action-label { display: none; }
   /* 40 px synligt, 46 px tryckyta (::after räknas från knappens insida, innanför ramen) */
-  .action-group .chip-btn { position: relative; height: 38px; padding: 0 8px; font-size: 12.5px; white-space: nowrap; }
-  .action-group .chip-btn::after { content: ""; position: absolute; inset: -4px -1px; }
+  .top-actions .chip-btn { position: relative; height: 38px; padding: 0 9px; font-size: 12.5px; white-space: nowrap; }
+  .top-actions .chip-btn::after { content: ""; position: absolute; inset: -4px -1px; }
+  .top-actions .count { margin-left: 2px; }
   .more-toggle { display: inline-flex; align-items: center; gap: 6px; }
   .more-chev { width: 6px; height: 6px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg) translateY(-2px); }
   .more-open .more-chev { transform: rotate(-135deg) translateY(-1px); }
-  .more-open .more-toggle, .action-group:has(#btn-flat[aria-pressed="true"]) .more-toggle { border-color: var(--brass); color: var(--brass); }
+  .more-open .more-toggle, .top-actions:has(#btn-flat[aria-pressed="true"], #btn-discovery[aria-pressed="true"]) .more-toggle { border-color: var(--brass); color: var(--brass); }
   .more-menu {
     display: none; position: absolute; z-index: 17; top: calc(100% + 8px); right: 0;
-    flex-direction: column; gap: 4px; min-width: 168px; padding: 6px;
+    flex-direction: column; gap: 10px; width: 260px; max-width: calc(100vw - 2 * var(--gut-r)); padding: 8px;
+    max-height: calc(100dvh - 180px); overflow-y: auto; overscroll-behavior: contain;
     background: color-mix(in srgb, var(--night-2) 96%, transparent); border: 1px solid var(--line); border-radius: var(--r);
     box-shadow: 0 8px 28px rgba(0, 0, 0, .5);
   }
   .more-open .more-menu { display: flex; }
+  .more-menu .action-group, .more-menu .action-group:first-child, .more-menu .action-group:last-child {
+    flex-direction: column; align-items: stretch; gap: 4px; flex-wrap: nowrap; max-width: none; padding: 0; border: 0; border-radius: 0;
+  }
+  /* Rubrikerna Vy och Utforska står över sina knappar (#651) */
+  .more-menu .action-label { display: block; position: static; padding: 0 4px 2px; background: none; }
+  .more-menu .action-group + .action-group { padding-top: 8px; border-top: 1px solid var(--line); }
   .more-menu .chip-btn { height: 44px; text-align: left; }
   .more-menu .chip-btn::after { inset: 0; }
+  /* Vy: tre knappar bredvid varandra överst i menyn */
+  .more-menu .view-mode { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .more-menu .view-mode .action-label { grid-column: 1 / -1; }
+  .more-menu .view-mode .chip-btn { height: auto; min-height: 48px; padding: 6px 4px; text-align: center; white-space: normal; line-height: 1.15; hyphens: manual; }
+  /* Mer: knappen behövs inte i mobilen, Källor, Hjälp, Dela och Språk står som en rad längst ner */
+  .extra-toggle { display: none !important; }
+  .extra-menu {
+    display: flex; position: static; flex-direction: row; flex-wrap: wrap; gap: 4px; min-width: 0;
+    padding: 8px 0 0; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: none; box-shadow: none;
+  }
+  .extra-menu .chip-btn { flex: 1 1 auto; text-align: center; }
+  .extra-menu .lang-pick { flex: 1 1 100%; }
 
   /* Tidslinjen: knapparna 34 px synligt och 44 px tryckyta, lägre band med årtalen */
   .timebar { padding-top: 6px; padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 6px); }
@@ -1455,6 +1807,11 @@ details.used-by summary:hover { color: var(--parchment); }
   .controls .play { flex: 0 0 46px; max-width: none; }
   .controls .speed { flex: 0 0 50px; max-width: none; overflow: visible; }
   .track { height: 48px; }
+  /* Ett krig kan ha många namn på kort avstånd. På mobil visar vi namnet närmast
+     reglaget; alla band behåller full beskrivning i titel och tillgänglighetsnamn. */
+  .chap-label:not(.chap-label-current) { display: none; }
+  .chap-label-current { position: absolute; left: 0; width: max-content; max-width: calc(100vw - 24px); }
+  .chap-label-flip .chap-label-current { right: 0; left: auto; }
 
   /* Fokusraden direkt ovanför tidslinjen, knapparna med 44 px tryckyta */
   .focus-bar { bottom: 104px; }
@@ -1469,6 +1826,10 @@ details.used-by summary:hover { color: var(--parchment); }
   .app:has(.pause-note:not([hidden])) { --ff-b: 170px; }
   .app.focusing { --ff-b: 158px; }
   .app.focusing:has(.pause-note:not([hidden])) { --ff-b: 226px; }
+  /* Den uppmätta fokusraden (#183) gäller före de fasta avstånden ovan, också när pausraden syns (#627).
+     Regeln med :has() ovan är lika specifik som den i #239 och står senare, så den vann annars, och arket
+     hamnade bakom fokusraden när krigets slutkort öppnades med raden "Tiden flyttades". */
+  .app.app.app.focusing.focus-var { --ff-b: calc(var(--focus-top) + 8px); }
 
   /* Stängknappar och handtag: minst 44 × 44 px tryckyta */
   .panel-x::after, #detail .detail-close::after { content: ""; position: absolute; inset: -8px; }
@@ -1509,7 +1870,7 @@ details.used-by summary:hover { color: var(--parchment); }
   /* Krysset ligger i handtagets rad, till höger */
   #detail .detail-close { position: sticky; top: 7px; z-index: 4; margin: -37px -6px 7px auto; }
   #detail .detail-close + * { margin-top: 0; }
-  #detail .detail-fig { margin-top: 0; }
+  #detail .detail-fig { margin-top: 8px; }
   /* Halvt läge: rubriken och texten först. Bilden (med sin bildtext) syns i helt läge. */
   #detail[data-sheet="half"] .detail-fig { display: none; }
   /* (i) och Rapportera faktafel: 44 px tryckyta utan att ytorna går in i varandra när raden bryts */
@@ -1523,20 +1884,35 @@ details.used-by summary:hover { color: var(--parchment); }
   #detail[data-sheet="closed"] { cursor: pointer; padding-bottom: 10px; }
   #detail[data-sheet="closed"] h3 { padding-right: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-  /* Platsraden (#312): överst i faktarutan, fäller ihop rutan och visar markören på globen */
+  /* Platsraden (#312): under datumraden (#605), fäller ihop rutan och visar markören på globen. Platsen
+     står redan i datumraden, så knappen säger bara "Visa på globen" och har platsen i sitt namn (#607). */
   #detail .place-row {
-    display: flex; align-items: center; gap: 7px; width: 100%; min-height: 44px; margin: 0 0 8px; padding: 0;
-    background: none; border: 0; border-bottom: 1px solid color-mix(in srgb, var(--card-dim) 35%, transparent);
+    display: inline-flex; align-items: center; gap: 7px; width: auto; min-height: 44px; margin: 0; padding: 0;
+    background: none; border: 0;
     color: var(--card-accent); font: 500 12px/1.2 var(--f-mono); text-align: left; cursor: pointer;
   }
   #detail .place-row:focus-visible { outline: 2px solid var(--card-accent); outline-offset: 2px; border-radius: 4px; }
   .place-pin { flex: none; width: 8px; height: 8px; border: 1.5px solid currentColor; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); margin: 0 2px 2px; }
-  .place-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--card-ink); }
   .place-go { flex: none; text-decoration: underline; text-underline-offset: 3px; }
 }
 /* Mycket smala skärmar (360 px): knapparna och årtalet lite mindre, så att raden överst ryms */
 @media (max-width: 370px) {
-  .action-group .chip-btn { padding: 0 7px; }
-  .top-actions, .action-group, .action-group:first-child, .action-group:last-child { gap: 2px; }
+  .top-actions > .chip-btn { padding: 0 7px; }
+  .top-actions { gap: 2px; }
   .year-big, .year-jump.fine .year-big { font-size: 26px; }
 }
+
+
+/* Taggar i faktarutan (#555), till exempel "Framsteg": en liten ram i kortets accentfärg, utan fyllning, så att
+   den inte ser ut som ett betyg eller en kategorifärg. Fälls ut med förklaringen. */
+.tag-marks { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 2px; }
+.tag-mark { max-width: 100%; }
+.tag-mark summary {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 24px; padding: 2px 9px;
+  border: 1px solid var(--card-accent, var(--brass)); border-radius: 999px; cursor: pointer; list-style: none;
+  font: 500 11px/1.2 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--card-accent, var(--brass));
+}
+.tag-mark summary::-webkit-details-marker { display: none; }
+.tag-mark summary::after { content: "i"; font: italic 600 10px/1 var(--f-display); opacity: .8; }
+.tag-mark summary:focus-visible { outline: 2px solid var(--card-accent, var(--brass)); outline-offset: 2px; }
+.tag-mark p { margin: 6px 0 0; font-size: 13px; line-height: 1.45; overflow-wrap: anywhere; }

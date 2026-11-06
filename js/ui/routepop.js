@@ -26,10 +26,13 @@ export class RoutePop {
     Object.assign(this, { pop, srcById, byId });
     this.route = null;
     this.onEvent = () => {};
+    this.onReport = null;
     pop.addEventListener('click', e => {
       if (e.target.closest('[data-close]')) this.hide();
       const ev = e.target.closest('[data-event]');
       if (ev) { this.hide(); this.onEvent(ev.dataset.event); }
+      const report = e.target.closest('[data-report]');
+      if (report) this.onReport?.({ type: 'route', id: report.dataset.report, label: t(this.route.title), year: Math.round(this.route.start) }, report);
     });
     // Escape stänger rutan (Platt vy stängs först vid nästa Escape)
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !pop.hidden) this.hide(); });
@@ -57,7 +60,8 @@ export class RoutePop {
       ${route.note ? `<p class="rp-note-box"><strong>${esc(t(route.note.title))}</strong> ${esc(t(route.note.text))}</p>` : ''}
       ${links.length ? `<p class="rp-src">Källor: ${links.join(', ')}</p>` : ''}
       <p class="rp-note">${esc(reviewLabel(route.review, route.kind === 'trade' ? 'Vägen' : 'Resan'))}</p>
-      ${ev ? `<button type="button" class="info-btn rp-more" data-event="${esc(ev.id)}">Läs mer om ${esc(t(ev.title))}</button>` : ''}`;
+      ${ev ? `<button type="button" class="info-btn rp-more" data-event="${esc(ev.id)}">Läs mer om ${esc(t(ev.title))}</button>` : ''}
+      ${this.onReport ? `<button type="button" class="link-btn report-btn" data-report="${esc(route.id)}" aria-haspopup="dialog" aria-controls="feedback">Rapportera faktafel</button>` : ''}`;
     this.pop.setAttribute('aria-label', t(route.title));
     this.pop.hidden = false;
     this.pop.scrollTop = 0;

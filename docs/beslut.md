@@ -1,8 +1,126 @@
 # Beslutslogg
 
-Beslut som påverkar arkitektur, datamodell, källor, licenser, kategorier eller utseende. Nya beslut läggs till sist, med datum, beslut och kort motivering, i samma pull request som ändringen.
+**Den här loggen är fryst (beslut 2026-11-03).** Nya beslut skrivs som en egen fil i [beslut/](beslut/README.md), så att pull requests inte krockar i den här filen. Pull requests som redan var öppna den 2026-11-03 får lägga sin rad här en sista gång.
+
+Beslut som påverkar arkitektur, datamodell, källor, licenser, kategorier eller utseende, fram till och med 2026-11-03.
 
 Beslut 1–10 i texten (till exempel "beslut 1" om den platta bilden) kommer från planeringsdokumentet i Rikards Claude-projekt. De viktigaste är upprepade i [CLAUDE.md](../CLAUDE.md).
+
+## Ämnesindex
+
+Korta ingångar till tabellen nedan, en rad per beslut i datumordning inom varje grupp. Sök på datumet och ett ord ur raden för att hitta hela beslutet. Ett senare beslut kan ersätta ett tidigare; det är tabellens text som gäller.
+
+**Arkitektur och rendering**
+- 2026-10-28 – Lagerbilden höjs till 4096×2048 (#21)
+- 2026-10-30 – Platt vy ritar markörer som eget lager
+- 2026-10-31 – Lagerregister och gemensamt tillstånd (#338)
+- 2026-10-31 – Datan laddas i delar (#337)
+
+**Källor och granskning**
+- 2026-10-28 – Cliopatria används som den är
+- 2026-10-28 – Ny granskningsnivå `two-sources` (#16)
+- 2026-10-29 – NC-källor får användas som länkade källor
+- 2026-10-29 – Statusraden säger vad granskningen gäller (#196)
+- 2026-10-29 – Utkast från massimport i `data/utkast/`
+- 2026-10-30 – Nivån `human-reviewed` tas bort (#252)
+
+**Licenser och bilder**
+- 2026-10-29 – Bilder med stil efter tidsålder (#129)
+- 2026-10-29 – Fem hållna AI-illustrationer används ändå (#147)
+- 2026-10-29 – Krig, sjukdom och död får visas i bilder
+- 2026-10-29 – Samtidigt-kortet visar alltid bilder (#190)
+- 2026-10-29 – Bilder från Library of Congress (#127)
+- 2026-10-30 – Riktiga personers ansikten får visas (#299)
+- 2026-10-30 – Nya bildstilar i `styles.json`
+
+**Utseende och UI**
+- 2026-10-28 – Fun facts blir eget lager
+- 2026-10-29 – Ny layout: globen får hela skärmen
+- 2026-10-29 – "Samtidigt" i tre nivåer
+- 2026-10-30 – Knapparna grupperas i Utforska och Visa
+- 2026-10-30 – En ikonfamilj för markörerna (#242)
+- 2026-10-30 – Frivilligt stöd via Ko-fi-länk
+- 2026-10-30 – Platt vy är en kartvy för skärmar (#292)
+- 2026-10-30 – Tidsreglaget visar krig som en prick (#298)
+- 2026-10-31 – Lager i grupper och förinställda vyer (#357)
+- 2026-10-31 – Mindre trängsel på kartan, tre zoomnivåer (#358)
+- 2026-10-31 – Kompakt rad och layout i mobilen (#361, #312)
+
+**Fokusläget och uppspelning**
+- 2026-10-29 – Fokusläget blir egen funktion bakom Fokus
+- 2026-10-29 – Fokusmenyn visar bara aktuell tidsepok (#121)
+- 2026-10-29 – Årtal i Fokus som inte vilseleder (#138)
+- 2026-10-30 – Fokusläget dämpar andra lager (#235)
+- 2026-10-30 – Uppspelningen pausar bara vid det man följer
+
+**Riken**
+- 2026-10-29 – Bysantinska riket i Romarrikets grupp
+- 2026-10-29 – En fil per rike i `data/empires/`
+- 2026-10-29 – Faktaruta för riken (#170)
+- 2026-10-29 – Rikets berättelse under uppspelningen (#171)
+- 2026-10-31 – Tysk-romerska riket sammanhängande 1459–1806 (#336)
+- 2026-10-31 – Utspridda kolonialvälden med markerat moderland (#74)
+- 2026-10-31 – Försvunna länder med fältet `vanished` (#72)
+- 2026-10-31 – Osäkra gränser och inflytande (#73, #75)
+- 2026-10-31 – Riken kan ha en symbol (#301)
+- 2026-10-31 – Symboler för rikena från R2–R5 (#345)
+- 2026-10-31 – Rikenas övergångar tonas över varandra (#78)
+- 2026-10-31 – Sverige efter stormaktstiden (#70)
+
+**Religioner**
+- 2026-10-28 – Religioner som riken med statsreligion
+- 2026-10-28 – Alla religioner över hela tidslinjen (#92)
+- 2026-10-29 – Religionens årtal ur rikets faktaruta
+- 2026-10-29 – Religioners grundande som händelser (#123)
+- 2026-10-29 – Faktaruta och punkt för religioner (#90)
+- 2026-10-29 – Klick på religionsområde visar rikets namn (#194)
+- 2026-10-30 – Religionslagret ärver religion (#269)
+- 2026-10-30 – Knappen "Läs mer om <religion>" (#270)
+- 2026-10-30 – Religionerna får egna symboler (#271)
+- 2026-10-30 – Religionslagret slås på utan faktaruta
+
+**Krig**
+- 2026-10-28 – Krig som händelser med `kind: "war"`
+- 2026-10-28 – Bara `major`-händelser som punkter
+- 2026-10-29 – Krigsområdet ritas som i en kartbok (#111)
+- 2026-10-29 – Krigsfokus med berättelse i `story` (#122)
+- 2026-10-29 – Fokus i delar av år för korta krig (#204)
+- 2026-10-29 – Krigsområdet delas i krigsskådeplatser (#211)
+- 2026-10-30 – Pågående krig med `ongoing` (#223)
+- 2026-10-30 – Kapitel på tidslinjen bara ur data (#244)
+- 2026-10-31 – Krig kopplas till riken med `empires`
+
+**Vägar och upptäcktsvyn**
+- 2026-10-30 – Lagertypen linje: vägar och resor i `data/routes/`
+- 2026-10-31 – Upptäcktsvyn med gammal kartstil (#101)
+
+**Publicering och CI**
+- 2026-10-30 – Två miljöer: `main` och `production`
+- 2026-10-30 – Releaseflödet skärps, flödet "Skapa release"
+- 2026-10-31 – Webbläsartest i GitHub med Playwright (#339)
+- 2026-10-31 – `Cache-Control: no-cache` via `_headers`
+
+**Formuläret för besökarnas förslag**
+- 2026-10-30 – Arkitekturundantag: Cloudflare Pages Function
+- 2026-10-30 – Förslag som issues i privat repo
+- 2026-10-30 – Cloudflare Turnstile som spamskydd
+- 2026-10-30 – E-post frivillig, raderas senast efter 12 månader
+- 2026-10-30 – Integritetstexten godkänd
+
+**Arbetssätt och orkestern**
+- 2026-10-28 – GitHub Issues som idélista och backlog
+- 2026-10-29 – Dirigenten och orkestern installeras som försök (#145)
+- 2026-10-29 – Dirigenten och orkestern blir permanent (#159)
+- 2026-10-31 – Externa granskningar i `docs/granskningar/`
+- 2026-10-31 – Codex får ta issues enligt `AGENTS.md`
+
+**Versionsplan**
+- 2026-10-28 – Versionsplan med fyra faser och två spår
+- 2026-10-28 – Ny Version 14: Vetenskap och medicin
+- 2026-10-29 – Ny Version 15: Temavyer
+- 2026-10-31 – Ny ordning i versionsplanen (4.2–9)
+
+## Beslut
 
 | Datum | Beslut | Motivering |
 |---|---|---|
@@ -87,3 +205,47 @@ Beslut 1–10 i texten (till exempel "beslut 1" om den platta bilden) kommer fr�
 | 2026-10-31 | Datan laddas i delar (#337). Vid start laddas bara det som behövs för att visa globen: ett händelseindex utan de långa fälten, rikenas register utan faktarutor, fun facts, grundkartan, bildstilar och upptäcktsvyns lilla fil. Händelsernas långa fält (`summary`, `note`, `story`, `image`, `sources`, `wikidata`) ligger i en fil per tidsperiod efter startår och laddas när händelserna syns, när en faktaruta öppnas eller när man följer ett krig. Källregistret laddas vid första klick som behöver det, rikenas faktarutor vid första faktarutan om ett rike eller när man följer ett rike, och dagens gränser när lagret slås på. Källfilerna (`data/events.json`, `data/empires/index.json`) är fortfarande det man redigerar; `tools/dela_data.py` skriver de uppdelade filerna i `data/genererat/`, som checkas in, och `scripts/validate-site.py` stoppar publiceringen om de inte stämmer med källan. Inget byggsteg (punkt 1): skriptet körs för hand, som de andra i `tools/`. Texter per språk förbereds bara: texterna slås ihop på djupet (`mergeTexts`), så att en fil per språk kan läggas ovanpå senare utan att `t()` ändras (förslaget står i docs/datamodell.md). | Cirka 2 MB data laddades vid start, mer än hälften sådant som bara behövs vid klick. Att behålla källfilerna gör att inget arbetssätt för data och källkontroll ändras, och kontrollen i validate-site gör att ingen kan glömma att köra skriptet. |
 | 2026-10-31 | Mobilen (#361, #312): i smal skärm (högst 760 px) står årtalet och knapparna Samtidigt, Lager, Fokus och Visa i en kompakt rad överst, där Visa är en meny med Platt vy, Källor och Hjälp. Klotet får nästan hela bredden, tidslinjen är lägre, och faktarutan (också krigets berättelse och rutorna om riken och religioner) är ett ark nedifrån med samma tre lägen som Samtidigt-kortet (litet, halvt, helt). När arket står halvt lyfts klotet så att den valda markören syns ovanför arket, och en platsrad överst i faktarutan ("Plats · visa på globen") fäller ihop rutan och visar markören. Alla knappar har minst 44 × 44 px tryckyta i 400 px bredd. Datorn är oförändrad. Samtidigt i världen, Lager och Fokus förblir menyer under raden överst. | UX-granskningen av v4.0.0: i 400 px konkurrerade globen, knapparna, tidslinjen och korten om höjden, faktarutan täckte 92 procent av klotet och flera knappar var bara 30–34 px höga. Nu tar raden överst cirka 66 px i stället för 141, och i 400 × 800 syns 97 procent av klotet med en faktaruta öppen. Menyerna blev inte ark, eftersom man väljer i dem och stänger dem, och Fokus-menyn byggs om i #311. |
 | 2026-10-31 | Sidans filer (HTML, `js/`, `css/`, `data/`) skickas med `Cache-Control: no-cache` via `_headers` i Cloudflare Pages. | Utan byggsteg byter filerna inte namn mellan releaser. Efter v4.1.0 blandade en mobil ny `index.html` med gamla JS-moduler, och globen startade inte. no-cache gör att webbläsaren alltid frågar servern först, och oförändrade filer kommer ändå snabbt (304). |
+| 2026-10-31 | Ny ordning i versionsplanen: 4.2 Stabilitet och tillgänglighet, 4.3 Teknisk grund, 5.0 Guidade berättelser (mindre första release), 5.1 Global täckning, 5.2 Sök, delning och introduktion, 6 Skolpilot, 7 Människans långa historia, 8 Jordens historia, 9 Atlas och jämförelse. Flöden i nutid, rymden och översättningar blir experiment senare. Vetenskap, medicin, teknik och temavyer blir parallella innehållspaket. GitHub-milstolparna är huvudkällan för planen. | Ur en analys av milstolparna: stabilitet, sök, delning och skolbruk ger mest nytta och kom för sent. Tekniska förutsättningar (centralt tillstånd, bildlager) låg efter funktionerna som behöver dem. Experimenten är dyra och svagt kopplade till historiskt lärande. |
+| 2026-10-31 | Externa granskningar (till exempel från Codex) lämnas i `docs/granskningar/` med en `handoff.json` (status `ready_for_triage` → `triaged`). Varje session och `/orkester` läser den vid start, jämför rapporten med kod, dokumentation och issues och föreslår en plan. Inget genomförs innan Rikard har godkänt planen. | Molnsessioner når inte Rikards dator, men de når repot. Godkännandet först gör att rapporterna inte styr arbetet på egen hand. Rapporterna är publika och får inte innehålla personuppgifter. |
+| 2026-10-31 | Codex får ta issues och öppna pull requests, enligt `AGENTS.md` (pekar på CLAUDE.md och `.orchestra/project.md`). Codex tar i första hand issues utan historiska fakta, markerar dem med `codex: pågår` och bygger på grenar `codex/issue-*`. Orkestern hoppar över dem, och Claude Code granskar Codex pull requests innan Rikard slår ihop. | Fler kan arbeta parallellt utan krockar. Källpolicyn gäller lika för alla, och faktaarbete stannar tills vidare hos orkestern, där dirigenten stickprovar källorna. |
+| 2026-10-31 | Orkesterns resurspolicy: en arbetare som standard (två eller tre bara för oberoende leveranser utan gemensamma centrala filer), normalt två till tre pull requests per pass (högst fyra), testnivåer efter risk (riktad, komponent, full), paus vid väsentlig rättning tidigt i passet, och kontextstyrning med `.orchestra/context-map.md` i stället för att läsa all dokumentation först. Dirigentens granskning och källkontroll är oförändrade. | Ur Codex granskning av orkestern (docs/granskningar/2026-10-31-orkester-tokenanalys.md): den obligatoriska startläsningen var cirka 54 000 tokens per agent, och parallella arbetare ökade integrationsarbete och granskningskö. Försöket följs upp under 10–20 issues. |
+| 2026-10-31 | Lager-menyn har två nivåer (#380): första nivån visar de fem färdiga vyerna och knappen "Anpassa själv"; nivå två innehåller de enskilda lagren, kategorierna och inställningarna. Om nivå två är öppen minns sidan bara under den aktuella flikens besök. | UX-granskningen visade att hela listan fortfarande var tung, särskilt i mobilen. De flesta kan börja med en färdig vy, medan alla tidigare val finns kvar ett steg bort. |
+| 2026-10-31 | Fokus visar aktiva sökord, typfilter och avvikande sortering i en rad över listan, med resultatantal och knappen "Rensa allt" (#381). Rensningen återställer sökning, fliken Alla och sorteringen Relevans, även de sparade valen. | Fokus minns flik och sortering och behåller sökningen när menyn stängs. Utan en synlig sammanfattning kunde besökaren tro att innehåll saknades. |
+| 2026-10-31 | Kontrollramar använder den separata CSS-variabeln `--control-line` (#406), med minst 3:1 kontrast mot de mörka panelytorna. `--line` behåller sin mörkare färg för avdelare, tabellrader och andra dekorativa linjer. | Tillgänglighetskravet gäller gränser som visar en interaktiv kontroll. En global ljusare `--line` skulle göra observatoriets avdelare onödigt framträdande. |
+| 2026-10-31 | Efter utvärderingen av Codex första sju leveranser (#415–#421, alla ihopslagna, fem med rättning efter granskning): Codex får fler avgränsade issues i 4.2 och 4.3, AGENTS.md förbjuder ändringar utanför issuet (gemensamma CSS-variabler, globala regler, borttagna regler) och Codex provar faktaarbete i #353, där Claude Code kontrollerar varje källa. Dirigenten rapporterar nya `codex: redo` i varje pass. | Felen granskningen hittade kom nästan alltid från ändringar utöver uppgiften. Kvaliteten i övrigt var god och rättningarna snabba. |
+| 2026-10-31 | Claude Code är dirigent även för Codex: Claude Codes granskningar och svar i pull requests och issues är order till Codex, och Codex kommentarer är förslag och frågor till Claude Code. Order kan inte upphäva CLAUDE.md eller källpolicyn, och bara Rikard slår ihop. | Rikard vill att arbetet ska flyta utan att han behöver vara med i varje steg. En tydlig rollfördelning gör att Codex inte väntar eller gissar. |
+| 2026-11-01 | Säkerhetsheaders (#392): Cloudflare Pages skickar `Content-Security-Policy-Report-Only` för `/*`. Regeln tillåter den egna webbplatsen, three.js från jsDelivr, Google Fonts och Cloudflare Turnstile när förslagsformuläret används; den har `frame-ancestors 'none'`. `Permissions-Policy` stänger av kamera, mikrofon, plats och betalningar. Byt först till skarp `Content-Security-Policy` efter en release utan CSP-varningar i konsolen. | Rikards beslut: externa resurser behålls enligt arkitekturbeslut 6, men deras ursprung begränsas och observeras innan regeln börjar blockera något. |
+| 2026-11-01 | Codex får köra orkestern (`$orkester`) på issues med `codex: redo`: högst två arbetare samtidigt och bara för oberoende issues, högst tre pull requests per pass, egen gren och hela webbläsartestet per arbetare. Claude Code granskar varje pull request och Rikard slår ihop. | Snabbare genomflöde utan att granskningen blir flaskhals eller att parallella pull requests krockar. |
+| 2026-11-01 | Tidsfönstret (#434): händelser som ligger nära men inte på det valda året tonas ned till högst 45 procents opacitet, utan sken, och får etiketten `slut <år>` eller `börjar <år>`; orden ligger i `data/vyer.json` och året formateras av `model.js`. Krigsområden ritas bara medan kriget pågår. Fokuslägets redan utkämpade slag behåller sin svagare visning och krigets egen tidslinje. | I tidsfönstret såg avslutade krig ut att pågå samtidigt som verkligt pågående krig. Tillägget gör riktningen i tiden synlig utan att göra fönstret mindre eller ändra Fokus. |
+| 2026-11-01 | Codex publicerar synpunkter på issues med `codex: synpunkter` direkt på GitHub utan att fråga först, kontrollerar att kommentaren syns, tar bort etiketten och fortsätter. | Rikard vill att Codex inte stannar och väntar på bekräftelse för kommentarer; synpunkter är förslag och ändrar ingenting i sig. |
+| 2026-11-01 | Ändringar som bara rör dokumentation (AGENTS.md, CLAUDE.md, README.md, `docs/`, `.orchestra/project.md`) kräver inget lokalt webbläsartest av Codex eller orkesterns arbetare; diff och länkar räcker. Webbläsartestet i GitHub körs som förut för alla pull requests. Den som kör testet lokalt startar sin egen server och kör testerna en i taget. | Testet öppnar bara sidan, som inte påverkas av dokumentation. Det sparar tid i varje pass, och Codex fältrapport (#412) visade att samtidiga testkörningar utan egen server krånglade. |
+| 2026-11-01 | Claude Code får skapa egna issues: buggar, tydliga brister och små förbättringar direkt (enkla får `codex: redo`), allt som kräver beslut med `beslut-krävs` i milstolpen Senare. Codex skapar inga egna issues utan skriver fynd som kommentar eller fältrapport. Claude Code gör en UX-genomgång av dev.historiagloben.se en gång om dagen när något nytt har slagits ihop och alltid inför en release, med rapport i release-PR:en (#150, del C). | Testerna fångar inte allt; i #442 var testerna gröna men knappen gick inte att hitta. Fynden ska bli issues utan att Rikard behöver be om varje, men det som kräver beslut ska inte påbörjas utan honom. |
+| 2026-11-01 | Rikeslagret får en teckenförklaring på begäran (#437): **Vilket rike?** i Lager visar aktiva riken, med kolonialvälden först (`Rike · kolonier`) och övriga i en hopfällbar del. Färg, befintlig symbol eller mässingsstjärna förklarar områdena; pekning, tangentbord och tryck lyfter fram ett rike och dämpar resten. Ingen kamerafiltrering och ingen ruta automatiskt på startskärmen. | Kolonier var svåra att koppla till moderlandet, men en ständig ruta skulle krocka med de separata kartförklaringarna i fokusläget (#427–#428). Aktiva grupper är en kort, stabil lista utan projektionsberoende. |
+| 2026-11-01 | JSON Schema för befintliga centrala datafiler (#391) ligger i `schemas/`: händelser, källor, rikesregistret, vägar/resor och fun facts. `scripts/validate-site.py` har en liten egen kontroll för just `type`, `required`, `properties`, `items`, `enum`, `pattern` och `minimum`/`maximum`; inget externt Python-paket införs. Ett negativt test säkerställer att en händelse som saknar ett obligatoriskt fält stoppas. | Schemana gör samma grundregler tillgängliga för byggkontroll, editorer och framtida bidragsformulär utan att lägga till ett beroende eller ett nytt byggsteg. |
+| 2026-11-02 | Faktarutan skiljer källkontroll från historisk osäkerhet (#364). Källkontroll kommer fortsatt ur `review`; en separat rad visas bara när befintliga data anger ungefärlig eller osäker datering (`edtf`), precision grövre än år, ungefärlig plats eller att källorna skiljer sig. Texterna ligger i `data/vyer.json`, och Om källorna förklarar skillnaden. | En kontrollerad källa gör inte alltid den historiska uppgiften säker. Inga nya grader av säkerhet eller ny händelsedata införs. |
+| 2026-11-02 | Codex kör orkestern löpande på kön `codex: redo`, utan nytt kommando, och stannar när kön är tom. Högst 4 öppna pull requests och högst 2 arbetare samtidigt, och ingen tar ett issue som ändrar samma filer som en öppen pull request. Är fyra pull requests öppna gör Codex bara synpunkter och fältrapporter. Fakta, bilder och arkitektur får `codex: redo` bara av Claude Code. Codex delas i Luna (förbereder, bygger inte) och Terra (bygger), och signalen "Klar för Claude Code-granskning" startar granskningen. Före varje pull request testar Codex också beteendet (fokus, animationer och hur många poster en dataregel slår på). | Över 20 pull requests visade att Codex klarar avgränsade issues, men att gröna tester inte fångar beteendefel (#442, #450, #493). Flaskhalsen är Claude Codes granskning och användningsgränsen, så antalet öppna pull requests begränsas i stället för antalet pass. |
+| 2026-11-02 | Dirigentens arbetssätt (#492): Claude Code granskar bara de Codex-pull requests som har kommentaren "Klar för Claude Code-granskning", och skriver "godkänd" eller minimala arbetsorder i pull requesten. `codex: redo` sätts bara på avgränsade issues utan olösta beslut, fakta, bilder eller arkitektur, och tas bort när ett issue blir beroende av ett Claude-spår. Eget arbete märks med `orkester: pågår`. Modellnivå för Claude Code: Sonnet medium för triage och normal granskning, Sonnet high för större gränssnitts-, tidslinje- och renderingsändringar, Opus för arkitektur, fakta, källpolicy och datamodell. | Granskningen är flaskhalsen och användningsgränsen är begränsad. En tydlig signal och en modell efter uppgiftens svårighet sparar användning utan att sänka kraven på fakta och arkitektur. |
+| 2026-11-02 | Codex får bygga tre ändringar parallellt: högst 3 arbetare, och dirigenten (planering, utdelning och rapporter) räknas inte som en av dem. Gränsen på 4 öppna pull requests ligger kvar, och en ändring som byggs räknas som öppen, så att inte fler än fyra väntar på granskning eller byggs samtidigt. Ändrar beslutet 2026-11-02 om högst två arbetare. | Med dirigenten som en av två arbetare byggde Codex i praktiken en ändring i taget och arbetet stod stilla. Gränsen på fyra öppna pull requests skyddar fortfarande Claude Codes granskning och användningsgränsen. |
+| 2026-11-02 | Dirigenten och orkestern uppdateras från uppströms commit `84fc833` till release v0.7.0 (`2bd00217`) via `git subtree pull --squash` (#496). `.orchestra/project.md` får raden Väntan (*Wait mechanism*) som den nya mallen frågar efter, och uppdateringar slås ihop med Create a merge commit så att subtree-historiken bevaras. Dirigenten kontrollerar uppströms en gång per dygn och föreslår uppgraderingar som issues. Fältrapporter till uppströms skickas som issue i uppströms repo med deras mall, inte som pull request, och bara när underhållaren har bett om det (upstreams `CONTRIBUTING.md`). | Den nya versionen beskriver PR-läge och Codex-ingång och har en ren tagg att hänvisa till. Upstream tar inte emot fältrapporter som filer eftersom `git subtree` kopierar varje fil till alla som använder paketet. |
+| 2026-11-02 | Planen struktureras om efter en extern genomgång. #389 delas: uppdelning av `main.js` och centralt tillstånd stannar i 4.3, tillståndet i adressen blir #501 i 5.2 med delbara länkar (#64). Milstolparna delas: experimenten i tre, "Senare" i tre, "Teman: temamotor" (#398) blir förutsättning och "Paket: Temavyer och innehåll" en samlingsrubrik, bilder får "Bilder: batchar", och "Riken" heter "R7 och restarbete". 4.2 får ett exit-test i milstolpens beskrivning (tillgänglighet, upptäcktsvy, resefokus, tidslinje, mobilbredd, inga konsolfel). | Adressformatet hör till delning och sök, och ska inte blockera den tekniska grunden. Mindre, tydligare milstolpar gör att köerna och releaserna går att utvärdera. |
+| 2026-11-02 | Resor kan följas i Fokus (#376). `stop: true` används bara på redan källgranskade platser med datum: Columbus första resa: Palos de la Frontera (3 augusti 1492), Guanahaní (12 oktober 1492), La Navidad (25 december 1492; särskild text om Santa María och fortet), Rincónbukten (13 januari 1493), Lissabon (4 mars 1493) och Palos hemkomst (15 mars 1493); Zheng Hes första resa: Nanjing avfärd (hösten 1405), Palembang (1407, på hemresan) och Nanjing hemkomst (2 oktober 1407). Pauserna kan stängas av i Lager. Dagprecision används endast när resans egen data har dagsdatum; Zheng Hes resa går årsvis, och resans befintliga not om oense källor visas i pausrutan. | Claudes källgranskning för #376 låser urvalet och förbjuder falsk precision eller nya fakta. |
+| 2026-11-02 | Startsidan får grundläggande indexeringsmetadata (#467): beskrivande titel och metabeskrivning, canonical-adress, Open Graph- och Twitter-text utan bild, `robots.txt`, en sitemap för startsidan, avgränsad JSON-LD för webbplats och data samt en `noscript`-text med länk till källregistret. | Det gör innehållet tydligare för sökmotorer och delning utan nya rutter, externa resurser eller påståenden om data som inte går att belägga. |
+| 2026-11-02 | Kontrasten för kartetiketter och upptäcktsvyns dimtext rättas efter instrumentmätning (#505): etikettens egen ramvariabel är ljus nog mot ljust land och pergament, och `Terra incognita` ritas med 82 % av det befintliga bläcket i stället för 60 %. | Etiketterna är knappar ovanpå både globen och Platt vy, och dimtexten ska vara läsbar utan att den åldrade kartstilen eller projektets gemensamma färger ändras. |
+| 2026-11-02 | Platt vy kan spara en A4-affisch i liggande PNG (#485). Den komponerar samma `baseCanvas` och `overlayCanvas` som används på klotet, och lägger fyrsiffrigt årtal, rubrik, kort förklaring, en lista med högst åtta aktiva händelser samt källrad, `historiagloben.se` och licens under kartan. Händelselistan är minst 48 px och delas i två kolumner vid fler än fyra händelser. Urvalet ligger i den rena lokala funktionen `selectPosterEvents(year, events)`: `top` före `major`, sedan datans stabila ordning, men öppna tidsintervall som redan startat minst 100 år före det valda året utesluts. Varje rad använder händelsens vanliga tidsformat och plats. Texter ligger i `data/vyer.json` och nedladdningen använder `canvas.toBlob()` med årsbaserat filnamn. PDF, A3 och källor per händelse väntar till senare. | En PNG fungerar direkt i webbläsaren utan nytt beroende eller server. DOM-etiketterna på kartan kan inte exporteras korrekt med canvasarna, så händelserna listas i stället tydligt under kartan. Den rena urvalsfunktionen kan återanvändas av #483 och #489. |
+| 2026-11-02 | Codex granskar först. En annan Codex-körning än byggaren granskar varje pull request (diff, filkrockar, test, krav, dokumentation) och skriver "Codex-granskning: godkänd" eller minimala arbetsorder. Därefter skriver Codex "Klar för Claude Code-granskning", och Claude Code granskar bara det som kräver dirigentens bedömning: källpolicy, arkitektur och synligt resultat. Fakta-, data- och källärenden granskas alltid fullt av Claude Code. Granskningsvyn för människor (#62) stängs, eftersom ingen människa granskar uppgifter i efterhand (#252). | Rikard har gott om Codex-tokens men begränsat med Claude Code-tokens den här veckan. Den första granskningen flyttas till Codex, och dirigenten sparas till det som kräver bedömning. |
+| 2026-11-02 | Startsidan har en frivillig introduktion i tre stilla steg (#363): ett befintligt exempel, en befintlig samtida händelse på annan plats och sedan valen Utforska fritt, Följ en berättelse och Gör ett uppdrag. Stegen ligger i `data/intro.json` och får endast peka på befintliga händelse- och fun-fact-id:n; inga historiska påståenden dupliceras i kod eller ny data. Den visas en gång via `hg-intro-seen` i `localStorage` (try/catch), kan startas om från Hjälp, har dialogfokus och Escape och animeras inte med reducerad rörelse. | Introduktionen förklarar idén om samtidighet innan de många vanliga kontrollerna konkurrerar om uppmärksamheten, utan att flytta kamera eller år automatiskt eller lägga till fakta som måste källgranskas på nytt. |
+| 2026-11-02 | Fokusmenyn delar den långa Alla-listan i hopfällbara grupper (#507): Krig, Riken, Försvunna länder, Religioner och Resor visar totalt antal, börjar stängda och bara en grupp är öppen åt gången. Den öppna gruppen visar åtta närmaste poster, med *Visa alla* för resten. Rubrikerna har `aria-expanded` och nås med Enter/mellanslag och pil upp/ned. Valet *Gruppera efter: Tidsålder* använder de globala, regionslösa intervallen och namnen i `data/styles.json`; den synliga kontrolltexten ligger i `data/vyer.json`. Flikraden behåller intern sidscroll i mobilbredd. | Det kortar menyn utan att dölja innehåll eller lägga in ny historisk data. Tidsåldrarna återanvänder redan beslutade intervall, medan världsdelar väntar eftersom de kräver en regel för gränsfall. |
+| 2026-11-02 | Tre flödesregler skrivs in i AGENTS.md, CLAUDE.md och `.orchestra/project.md`: (1) händelsedriven kögenomgång efter varje ny, uppdaterad eller ihopslagen pull request, med förberedelsearbete för nästa blockerade ärende, (2) omedelbar handoff till den separata Codex-granskningen i samma tur som en pull request öppnas eller uppdateras, (3) ingen passiv `codex: pågår`: etiketten kräver en aktiv arbetare, ett pågående test eller en publicering, eller en dokumenterad extern spärr. | Köer och granskningar ska inte stå still i väntan på nästa heartbeat, och en etikett som inte betyder pågående arbete döljer att kapacitet står oanvänd. |
+| 2026-11-02 | Efter ett uttryckligt årshopp eller när Samtidigt-listan öppnas kan globen lugnt vända sig mot den första panelrelevanta händelsen, men bara om markören ligger på baksidan (#515). Samma nuvarande panelordning används tills #508 låser rangordningen. Rotation sker aldrig under uppspelning, i Fokus eller Platt vy, efter nylig manuell styrning eller med reducerad rörelse; manuell styrning avbryter flygningen direkt. | I mobil kunde listan visa en händelse vars markör låg bakom klotet. Villkoren visar platsen utan onödig rörelse eller konkurrens med besökarens egen navigering. |
+| 2026-11-02 | Blind-spots-rundan i UX-genomgången (den separata, självkritiska analysen av tomma, delvis tomma och blandade lägen, reservlösningar, urval mot full lista och övergångar) görs av Codex, som skriver en daterad rapport i `docs/granskningar/`. Claude Code läser rapporten och gör issues av fynden, men gör inte själv analysen. | Codex har gott om tokens och Claude Code är begränsat den här veckan. Rundan är tidskrävande men kräver inget dirigentbeslut förrän fynden ska bli issues. |
+| 2026-11-02 | Introduktionen **Ett år, en plats** startas frivilligt från en egen knapp under Utforska (#516). Ingen popup öppnas vid första besöket och `hg-intro-seen` används inte. Starten går till 1889, som ligger i `data/intro.json` tillsammans med knapp- och stegtexter; när rutan stängs eller hoppas över behålls sedan årets och vyns läge. Hjälp innehåller inte längre någon länk till introduktionen. Dialogens fokus, Escape och stöd för reducerad rörelse är oförändrade. | En oväntad modal med ett annat år än globen gjorde första mötet svårt att förstå. Den frivilliga knappen gör aktiviteten lätt att hitta utan att avbryta utforskandet. |
+| 2026-11-02 | Samtidigt-listan behåller världsdelarna, visar högst fem rangordnade träffar per världsdel med Visa fler och lägger öppna spann som har pågått i minst 100 år i en egen hopfälld rad. Samma regel döljer deras markörer tills de väljs. Samtidigt-kortet behåller textlistan även vid blandade bild- och reservkort. | Det gör samtidigheten lättare att överblicka utan att dölja antal eller ändra historiska data; Oxford tränger inte undan nya händelser. |
+| 2026-11-03 | Hjälpen **Så använder du globen** öppnas bara när besökaren väljer Hjälp (#527). `hg-help-seen` används inte längre; hjälpens innehåll, tangentbordsfokus, Escape och stöd för reducerad rörelse är oförändrade. | En hjälpruta före besökarens första val avbryter utforskandet. Den finns fortsatt kvar på samma plats när hjälp behövs. |
+| 2026-11-03 | Tidslinjemärken (#378) kommer från lagrens valfria `marks(state)` efter samma lager- och kategorifilter som kartan. Händelser är cirklar, Samtidigt romber och resors start/slut korta lodräta streck. I resefokus läggs cirklar för redan källbelagda stopp till. Märken är nåbara med tangentbord och visar sin text vid fokus eller tryck. Upptäcktsprickar väntar på #377. | Ett gemensamt register gör att tidslinjen följer Lager utan en parallell, ofiltrerad lista och återanvänder endast befintlig data. |
+| 2026-11-03 | Presentationsläget (#488) aktiveras med den delbara adressparametern `?presentation=1` och sparas aldrig. En avgränsad klass förstorar de centrala kontrollerna, Samtidigt och faktarutan för projektor, med egna brytpunkter för 1280 × 720 och 1920 × 1080. En synlig länk lämnar läget genom att ta bort parametern. Platt vy, Samtidigt, faktaruta, år och uppspelning är fortsatt nåbara; Lugn rörelse är oförändrad. Nya turpilar väntar på #47. | En adressparameter gör läget delbart och tillfälligt utan att en global CSS-zoom orsakar överlapp eller lämnar ett val för andra besökare. |
+| 2026-11-03 | Knappen **Visste du?** i Samtidigt-kortet (#495) väljer bara redan visbara fun facts och flyttar tidslinjen till kortets första visningsår. Urvalet är deterministiskt per knapptryckning och jämnar uttryckligen ut turerna mellan de världsdelar som fun factens befintliga händelser ligger i: minst valda världsdel väljs först, med stabil seed som skiljekriterium. En fun fact kan representera flera världsdelar, men räknas på den världsdel som valdes för just den turen. Valet sparas inte. | Funktionen ska ge överraskningar utan nya historiska påståenden eller att den största datamängden i en världsdel styr resultatet. |
+| 2026-11-03 | Källor per påstående (#383): en händelse kan valfritt ha `evidence` för `summary`, `date`, `location`, `image` och `uncertainty`. Varje post har en befintlig `source` och rollen `date`, `text`, `map`, `image` eller `uncertainty`; den måste också finnas i händelsens vanliga `sources`. Faktarutan visar då hänvisningar efter påståendet och grupperar alla källor efter roll, medan händelser utan `evidence` behåller den befintliga källraden oförändrad. Först byggs endast kod- och schemastödet med en testfixtur; verkliga hänvisningar läggs först efter separat källgranskning. | Det gör det möjligt att följa en uppgift till rätt källa utan att blanda ihop roll, granskningsstatus och historisk osäkerhet eller ändra befintligt innehåll. |
+| 2026-11-03 | Experimentet **Min dag i historien** (#483) ligger som en liten prototyp i Hjälp. Besökaren skriver ett år eller ett datum, tidslinjen hoppar till året och kortet listar redan källgranskade händelser; ett helt datum matchar bara händelser med dagprecision. Uppgiften sparas inte och skickas ingenstans. Datumurvalet ligger i `js/date-events.js`, återanvänder affischens regel att öppna intervall som pågått minst 100 år är bakgrund, och kan återanvändas av #489. Texterna ligger i `data/vyer.json`. | Prototypen gör en personlig ingång till samtidighet utan konto, ny historisk data eller en separat tjänst. |
+| 2026-11-03 | **Visste du?** (#540) hoppar över de fem senast visade fun facts när den valda världsdelen har andra kandidater; när alla där har visats börjar rotationen om. Regionsbalansen räknas fortfarande före denna rotationsregel. | Färre upprepningar gör utforskandet mer varierat utan att låta mängden data i en världsdel styra urvalet. |
+| 2026-11-03 | Fokusflikarna (#543) visar hela sin egen grupp, så att räknaren i rubriken motsvarar listans rader. Alla behåller de hopfällbara grupperna som översikt; deras räknare gäller hela gruppen och Visa alla visar resten. | Religioner såg ut att innehålla krig när en förkortad lista och en totalräknare tolkades som ett gemensamt filter. |
+| 2026-11-03 | Triage av Codex roadmap-rapporter (#521 och #546): version 5.1 delas i tre milstolpar, **5.1a** redigeringsformat (#394), **5.1b** kärnhändelser (#452) och bilder (#453) i batchar om högst 20 per PR, och **5.1c** massimport (#61). #377 (dimman över riken) flyttas från 4.2 till R7, efter #407. #363 stängs som levererad (#512, #516). Handoff-filen sätts till `triaged`. | 5.1 var den dyraste och mest blandade milstolpen, och massimport får inte starta före formatet. #377 beror på att USA och andra stater finns i rikesdatan och ska inte blockera 4.2-releasen. |

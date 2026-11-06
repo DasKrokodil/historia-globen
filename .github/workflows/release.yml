@@ -73,3 +73,10 @@ jobs:
           git push origin "refs/tags/$VERSION"
           gh release create "$VERSION" --verify-tag --title "$VERSION" --generate-notes
           echo "Release $VERSION skapad för production $(git rev-parse --short HEAD)."
+
+  production-check:
+    name: Kontrollera den publicerade webbplatsen
+    needs: release
+    permissions:
+      contents: read
+    uses: ./.github/workflows/production-check.yml
