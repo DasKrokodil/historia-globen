@@ -1308,6 +1308,12 @@
     {"id": "commons-bild-berlinmuren-byggs", "title": "Berlinmuren byggs, 20 november 1961 (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:Berlin_Wall_1961-11-20.jpg", "license": "Public domain", "checked": "2026-11-05"},
     {"id": "commons-bild-marschen-till-washington", "title": "Marschens ledare, 28 augusti 1963 (NARA 542010) (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:Civil_Rights_March_on_Washington%2C_D.C._%28Leaders_marching_from_the_Washington_Monument_to_the_Lincoln_Memorial%29_-_NARA_-_542010.jpg", "license": "Public domain", "checked": "2026-11-05"},
     {"id": "commons-bild-kulturrevolutionen", "title": "Maocitat på en husvägg i Zhuji, foto 2005 (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:Quotations_From_Chairman_Mao_Tse-Tung_on_wall.JPG", "license": "CC BY 1.0", "checked": "2026-11-05"},
-    {"id": "commons-bild-montrealprotokollet", "title": "Ozonhålet över Antarktis, 15 oktober 1987 (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:Ozone_Hole%2C_1987_%2850700749751%29.jpg", "license": "Public domain", "checked": "2026-11-05"}
+    {"id": "commons-bild-montrealprotokollet", "title": "Ozonhålet över Antarktis, 15 oktober 1987 (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:Ozone_Hole%2C_1987_%2850700749751%29.jpg", "license": "Public domain", "checked": "2026-11-05"},
+    { "id": "wp-dutch-republic", "title": "Dutch Republic – Wikipedia", "url": "https://en.wikipedia.org/wiki/Dutch_Republic", "license": "CC BY-SA 4.0", "checked": "2026-11-06" },
+    { "id": "wp-netherlands", "title": "Netherlands – Wikipedia", "url": "https://en.wikipedia.org/wiki/Netherlands", "license": "CC BY-SA 4.0", "checked": "2026-11-06" },
+    { "id": "wp-karachi", "title": "Karachi – Wikipedia", "url": "https://en.wikipedia.org/wiki/Karachi", "license": "CC BY-SA 4.0", "checked": "2026-11-06" },
+    { "id": "wp-islamabad", "title": "Islamabad – Wikipedia", "url": "https://en.wikipedia.org/wiki/Islamabad", "license": "CC BY-SA 4.0", "checked": "2026-11-06" },
+    { "id": "wp-kwabulawayo", "title": "Bulawayo (Zulu empire) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Bulawayo_(Zulu_empire)", "license": "CC BY-SA 4.0", "checked": "2026-11-06" },
+    { "id": "wp-umgungundlovu", "title": "uMgungundlovu – Wikipedia", "url": "https://en.wikipedia.org/wiki/UMgungundlovu", "license": "CC BY-SA 4.0", "checked": "2026-11-06" }
   ]
 }

@@ -106,7 +106,7 @@ images/events/        bilder till händelser (historiska bilder och märkta illu
 images/karta/         upptäcktsvyns detaljer ur gamla kartor (havsmonster och kompassros, public domain)
 images/incoming/      nya bilder innan de konverteras
 tools/                hjälpskript som körs för hand (Python): riken, religioner, bildpromptar, bildkonvertering och licensmanifest
-docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar; docs/bilder/ har skärmbilderna i README; docs/granskningar/ tar emot externa granskningar
+docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar, omstridda gränser och Sveriges hållning (omstridda-granser.md, #644); docs/bilder/ har skärmbilderna i README; docs/granskningar/ tar emot externa granskningar
 .orchestra/           arbetsflödet dirigenten och orkestern (MIT-licens)
 data/handelser/       händelserna, en redigeringsfil per period; här redigeras händelser (#394)
 data/events.json      alla händelser i en fil, byggd ur data/handelser/ (redigeras inte)
