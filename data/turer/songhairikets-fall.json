@@ -1,0 +1,250 @@
+{
+  "schema": "historia-globen/tur@1",
+  "version": 1,
+  "id": "songhairikets-fall",
+  "title": {
+    "sv": "Hur föll Songhairiket?"
+  },
+  "summary": {
+    "sv": "Från striderna om tronen på 1580-talet till Marockos erövring 1591 och vad som levde vidare, och vems röster som finns kvar."
+  },
+  "empire": "songhairiket",
+  "review": "source-checked",
+  "steps": [
+    {
+      "id": "tronstriden",
+      "at": 1588,
+      "camera": {
+        "lat": 16.27,
+        "lon": -0.04,
+        "zoom": 1.4
+      },
+      "chapter": {
+        "sv": "Kris"
+      },
+      "title": {
+        "sv": "Strid om tronen, 1588"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "Efter Askia Daouds död 1583 försvagas riket av strider om tronen. 1588 blir hans son Ishaq kung, samtidigt som en av bröderna tågar mot huvudstaden Gao med en upprorsarmé. Ishaq vinner, men armén har förlorat många soldater och ledare."
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-songhai-empire",
+        "wp-battle-tondibi",
+        "wp-askia-ishaq-ii"
+      ]
+    },
+    {
+      "id": "taghaza",
+      "at": 1589,
+      "camera": {
+        "lat": 21.0,
+        "lon": -3.0,
+        "zoom": 1.0
+      },
+      "chapter": {
+        "sv": "Grannen i norr"
+      },
+      "title": {
+        "sv": "Saltet i Taghaza, 1589"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "Marocko har slagit tillbaka Portugal 1578, men kostnaderna har nästan tömt statskassan. Sultan Ahmad al-Mansur kräver intäkterna från saltgruvan Taghaza i Sahara, och Ishaq vägrar. Enligt källan hade sultanen fått höra av en kunglig slav som flytt från Taghaza att Songhai var splittrat och försvagat."
+      },
+      "question": {
+        "sv": "Varför kan det vara farligt för ett rike när grannarna får veta att det är splittrat?"
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-askia-ishaq-ii",
+        "wp-pashalik-of-timbuktu",
+        "wp-battle-tondibi"
+      ]
+    },
+    {
+      "id": "tondibi",
+      "at": 1591,
+      "camera": {
+        "lat": 16.95,
+        "lon": -0.36,
+        "zoom": 1.6
+      },
+      "chapter": {
+        "sv": "Erövringen"
+      },
+      "title": {
+        "sv": "Slaget vid Tondibi, 1591"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "Den 13 mars 1591 möts arméerna vid Tondibi, norr om Gao. Marockanerna har arkebuser och kanoner, vilket Songhai saknar. Slaget tar ungefär två timmar och slutar med att Songhais armé besegras."
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "open": "slaget-vid-tondibi",
+      "sources": [
+        "wp-battle-tondibi"
+      ]
+    },
+    {
+      "id": "armeernas-storlek",
+      "at": 1591,
+      "camera": {
+        "lat": 16.95,
+        "lon": -0.36,
+        "zoom": 1.4
+      },
+      "chapter": {
+        "sv": "Det vi inte vet"
+      },
+      "title": {
+        "sv": "Hur stora var arméerna?"
+      },
+      "status": "okant",
+      "text": {
+        "sv": "Källorna skiljer sig. Den marockanska hären anges till omkring 4 000 man i en källa och omkring 20 000 i en annan. Uppgifterna om Songhais armé går från knappt 28 000 till 80 000 man. Alla är överens om att Songhai var fler."
+      },
+      "question": {
+        "sv": "Varför tror du att uppgifter om hur stora arméer var ofta skiljer sig så mycket?"
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-battle-tondibi",
+        "wp-askia-ishaq-ii",
+        "wp-pashalik-of-timbuktu"
+      ]
+    },
+    {
+      "id": "stader",
+      "at": 1591,
+      "camera": {
+        "lat": 16.77,
+        "lon": -3.0,
+        "zoom": 1.4
+      },
+      "chapter": {
+        "sv": "Städerna"
+      },
+      "title": {
+        "sv": "Gao, Timbuktu och Djenné"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "Ishaq låter tömma huvudstaden Gao, och invånarna har redan lämnat staden när den plundras. Timbuktu intas i maj 1591 och Djenné 1592. Alla tre handelsstäderna plundras."
+      },
+      "question": {
+        "sv": "Vad tror du att det betydde för handeln i området att alla tre städerna plundrades?"
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-battle-tondibi",
+        "wp-askia-ishaq-ii",
+        "wp-pashalik-of-timbuktu"
+      ]
+    },
+    {
+      "id": "ishaq",
+      "at": 1592,
+      "camera": {
+        "lat": 16.27,
+        "lon": -0.04,
+        "zoom": 1.2
+      },
+      "chapter": {
+        "sv": "Härskaren"
+      },
+      "title": {
+        "sv": "Kungens slut, 1592"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "Ishaq ber om fred, men sultanen skickar i stället förstärkningar och en ny befälhavare. Efter ett nytt nederlag i oktober 1591 flyr Ishaq till Dendi, där han avsätts. I april 1592 dödas han i landsflykt."
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-askia-ishaq-ii"
+      ]
+    },
+    {
+      "id": "efterspelet",
+      "at": 1618,
+      "camera": {
+        "lat": 15.0,
+        "lon": 0.0,
+        "zoom": 1.1
+      },
+      "chapter": {
+        "sv": "Efterspelet"
+      },
+      "title": {
+        "sv": "Det som levde vidare"
+      },
+      "status": "belagt",
+      "text": {
+        "sv": "Marocko lyckas inte styra det stora området, som splittras i dussintals mindre riken. Songhai lever vidare i den enda provinsen som finns kvar, Dendi, i ytterligare två och ett halvt sekel. Från 1612 utses Timbuktus pashor på plats i stället för från Marocko, och 1618 släpper sultanen den direkta kontrollen."
+      },
+      "question": {
+        "sv": "Kan man säga att ett rike har fallit om dess kungar fortsätter att regera någon annanstans?"
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-battle-tondibi",
+        "wp-songhai-empire",
+        "wp-pashalik-of-timbuktu"
+      ]
+    },
+    {
+      "id": "kronikorna",
+      "at": 1655,
+      "camera": {
+        "lat": 16.77,
+        "lon": -3.0,
+        "zoom": 1.4
+      },
+      "chapter": {
+        "sv": "Vanliga människor"
+      },
+      "title": {
+        "sv": "Vems röster finns kvar?"
+      },
+      "status": "okant",
+      "text": {
+        "sv": "Det mesta vi vet om Songhais fall kommer från två krönikor från Timbuktu, skrivna på 1600-talet. Den viktigaste, Tarikh al-Sudan, skrevs omkring 1655 av al-Sa'di, som arbetade för den marockanska förvaltningen. I källorna som turen bygger på står inget om hur bönder, fiskare och andra vanliga människor upplevde erövringen."
+      },
+      "question": {
+        "sv": "Vad kan det betyda för berättelsen att krönikören arbetade för dem som hade erövrat landet?"
+      },
+      "layers": [
+        "events",
+        "areas"
+      ],
+      "sources": [
+        "wp-tarikh-al-sudan",
+        "wp-battle-tondibi"
+      ]
+    }
+  ]
+}
