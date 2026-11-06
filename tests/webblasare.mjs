@@ -1361,6 +1361,32 @@ async function run(browser, vp) {
     }
   });
 
+  // Fokus-menyn hade religionerna bara första gången den öppnades, när lagret Religioner inte hade öppnats (#402-uppdelningen)
+  await check('Fokus-menyn har religionerna också andra gången den öppnas', async () => {
+    const counts = [];
+    try {
+      for (let i = 0; i < 2; i++) {
+        await clickView('#btn-focus');
+        await visible('#focus-menu');
+        await page.click('#focus-menu [data-tab="Religioner"]');
+        await page.fill('#focus-menu .focus-search', 'Kristendom');
+        await page.locator('#focus-menu .focus-item[data-key="religion:kristendom"]').waitFor({ state: 'visible', timeout: T.step })
+          .catch(() => { throw new Error(`Kristendom saknas i Fokus-menyn gång ${i + 1}`); });
+        counts.push(await page.locator('#focus-menu .focus-item').count());
+        await page.keyboard.press('Escape');
+        await hidden('#focus-menu');
+      }
+      return `Kristendom finns båda gångerna (${counts.join(' och ')} träffar)`;
+    } finally {
+      if (await page.isVisible('#focus-menu')) await page.keyboard.press('Escape');
+      await page.evaluate(() => localStorage.removeItem('hg-focus-tab'));
+      await clickView('#btn-focus');
+      await page.fill('#focus-menu .focus-search', '');
+      await page.click('#focus-menu [data-tab="Alla"]');
+      await page.keyboard.press('Escape');
+    }
+  });
+
   await check('Tillbaka återställer tid och lager för alla Fokus-typer', async () => {
     const previousYear = await yearNumber();
     const layerNames = ['events', 'routes'];
