@@ -697,6 +697,44 @@ GROUPS = {
     'surinam': ('Surinam', 'Suriname', [
         ('Republic of Suriname', 'surinam', 'Surinam', '#c0703a', {'en': 'Suriname'}),
     ]),
+    # Nutida stater, sjunde omgången (#644)
+    'tadzjikistan': ('Tadzjikistan', 'Tajikistan', [
+        ('Republic of Tajikistan', 'tadzjikistan', 'Tadzjikistan', '#5a9ac0', {'en': 'Tajikistan'}),
+    ]),
+    'nicaragua': ('Nicaragua', 'Nicaragua', [
+        ('Republic of Nicaragua', 'nicaragua', 'Nicaragua', '#4a8ab0', {'en': 'Nicaragua'}),
+    ]),
+    'eritrea': ('Eritrea', 'Eritrea', [
+        ('State of Eritrea', 'eritrea', 'Eritrea', '#6aa04a', {'en': 'Eritrea'}),
+    ]),
+    'kuba': ('Kuba', 'Cuba', [
+        (['Republic of Cuba', 'Communist Cuba'], 'kuba', 'Kuba', '#c05050', {'en': 'Cuba', 'wikidata': 'Q241'}),
+    ]),
+    # Cliopatria kallar Grekland 1822–1940 "First Hellenic Republic", fast Wikidata bara använder namnet för 1822–1833;
+    # posterna slås därför ihop till Grekland (Q41)
+    'grekland': ('Grekland', 'Greece', [
+        (['First Hellenic Republic', 'Kingdom of Greece', 'Greek junta', 'Third Hellenic Republic'], 'grekland', 'Grekland',
+         '#b05a8a', {'en': 'Greece', 'wikidata': 'Q41'}),
+    ]),
+    'benin': ('Benin', 'Benin', [
+        ('Republic of Benin', 'benin', 'Benin', '#c08a3a', {'en': 'Benin'}),
+    ]),
+    'honduras': ('Honduras', 'Honduras', [
+        ('Honduras', 'honduras', 'Honduras', '#c0704a', {'en': 'Honduras'}),
+    ]),
+    'island': ('Island', 'Iceland', [
+        ('Kingdom of Iceland', 'kungariket-island', 'Kungariket Island', '#5a8ab0', {'en': 'Kingdom of Iceland'}),
+        ('Republic of Iceland', 'island', 'Island', '#5a8ab0', {'en': 'Iceland'}),
+    ]),
+    # Cliopatria kallar Bulgarien 1880–1944 "Principality of Bulgaria" (furstendömet fanns till 1908 enligt Wikidata),
+    # och anger folkrepublikens id också för republiken; posterna slås ihop till Bulgarien (Q219)
+    'bulgarien': ('Bulgarien', 'Bulgaria', [
+        (['Principality of Bulgaria', 'Kingdom of Bulgaria', "People's Republic of Bulgaria", 'Republic of Bulgaria'],
+         'bulgarien', 'Bulgarien', '#4aa070', {'en': 'Bulgaria', 'wikidata': 'Q219'}),
+    ]),
+    'guatemala': ('Guatemala', 'Guatemala', [
+        ('Guatemala', 'guatemala', 'Guatemala', '#8a6ab0', {'en': 'Guatemala'}),
+    ]),
 }
 
 # Huvudlandet i utspridda välden (#74): moderlandet ritas med kraftigare kant och en stjärna och får
@@ -1031,6 +1069,21 @@ def main():
     groups_old = {g['id']: g for g in json.loads(old.read_text())['groups']} if old.exists() else {}
     # Faktarutor, symboler och polityFacts (KEEP) skrivs för hand och läggs sist i gruppen
     kept = {k: {f: g[f] for f in KEEP if f in g} for k, g in groups_old.items()}
+    # Namnens översättningar (de, es, fr …) skrivs inte här utan står i datan (tools/riken_namn.py, #676). De
+    # bevaras när filerna byggs om, så länge det svenska namnet är detsamma (annars är översättningen inaktuell)
+    old_names = {}
+    for k, g in groups_old.items():
+        old_names[('group', k)] = g.get('name', {})
+        f = out / f'{k}.json'
+        if f.exists():
+            for op in json.loads(f.read_text()).get('polities', []):
+                old_names[('polity', k, op['id'])] = op.get('name', {})
+
+    def with_old(name, key):
+        old = old_names.get(key, {})
+        if old.get('sv') != name['sv']:
+            return name
+        return {**name, **{lang: v for lang, v in old.items() if lang not in name}}
     # Försvunna länder (#72): årtal, föregångare och efterträdare skrivs också för hand
     vanished = {k: g['vanished'] for k, g in groups_old.items() if 'vanished' in g}
     # Osäkra gränser (#73): skrivs för hand, med källa som säger att gränsen var osäker eller flytande
@@ -1102,7 +1155,8 @@ def main():
                 continue
             first = cname[0] if isinstance(cname, list) else cname
             wd = opts.get('wikidata') or by_name[first][0]['properties'].get('Wikidata')
-            polity = {'id': pid, 'group': gid, 'name': {'sv': psv, 'en': opts.get('en', (first or '').strip('()'))}, 'wikidata': wd,
+            pname = with_old({'sv': psv, 'en': opts.get('en', (first or '').strip('()'))}, ('polity', gid, pid))
+            polity = {'id': pid, 'group': gid, 'name': pname, 'wikidata': wd,
                       'color': color, 'sources': ['cliopatria'] if first else ['natural-earth-omstridda'],
                       'review': 'source-checked', 'periods': merged}
             if isinstance(cname, list):
@@ -1117,7 +1171,7 @@ def main():
             polities.append(polity)
         doc = {'schema': 'historia-globen/areas@1', 'group': gid, 'polities': polities}
         (out / f'{gid}.json').write_text(json.dumps(doc, ensure_ascii=False, separators=(',', ':')))
-        index.append({'id': gid, 'name': {'sv': sv, 'en': en}, 'color': polities[0]['color'],
+        index.append({'id': gid, 'name': with_old({'sv': sv, 'en': en}, ('group', gid)), 'color': polities[0]['color'],
                       'from': min(q['start'] for p in polities for q in p['periods']),
                       'to': max(q['end'] for p in polities for q in p['periods']),
                       'file': f'data/empires/{gid}.json',
