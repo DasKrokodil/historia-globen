@@ -8,6 +8,7 @@
 import { t, isVisibleReview } from '../model.js';
 import { MAX_YEAR } from '../timeline.js';
 import { routeStops as stopsForRoute } from '../layers/lines.js';
+import { hasTag } from '../layers/events.js';
 import { stopDate } from './story.js';
 
 export function createPlayback(app) {
@@ -193,7 +194,7 @@ export function createPlayback(app) {
     // Pausa när ett krig bryter ut, om det är valt i lagermenyn (#114)
     if (!focus && timeline.playing && layers.pause.wars && eventsOn) {
       const war = data.events.find(e => e.kind === 'war' && e.start > lastYear && e.start <= year
-        && panel.filters.has(e.category) && isVisibleReview(e.review));
+        && panel.filters.has(e.category) && hasTag(e, state.tag) && isVisibleReview(e.review));
       if (war) { timeline.pause('Pausad: ett krig bryter ut'); timeline.year = war.start; app.store.setSelected(war.id); panel.showDetail(war); }
     }
     lastYear = year;

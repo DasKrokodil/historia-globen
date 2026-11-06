@@ -8,6 +8,7 @@ import { applyStatic, setupLangPicker, takeReturnYear, LANG_INFO } from './i18n.
 import { Globe } from './globe.js';
 import { Timeline, setupYearJump } from './timeline.js';
 import { LAYERS } from './layers/index.js';
+import { hasTag } from './layers/events.js';
 import { Panel } from './ui/panel.js';
 import { FunFacts } from './ui/funfact.js';
 import { SourcesDialog } from './ui/sources.js';
@@ -124,7 +125,7 @@ async function start() {
   const panel = new Panel({
     root: $('panel'), list: $('event-list'), filters: $('filters'), chips: $('panel-filters'), detail: $('detail'),
     sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'), close: $('panel-close'),
-  }, data, { empireLegend: views?.empireLegend, uncertainty: views?.uncertainty, panel: views?.panel });
+  }, data, { empireLegend: views?.empireLegend, uncertainty: views?.uncertainty, panel: views?.panel, tags: views?.tags });
   const ff = new FunFacts({
     root: $('funfact'), text: $('ff-text'), events: $('ff-events'), review: $('ff-review'),
     pager: $('ff-pager'), next: $('ff-next'), srcBtn: $('ff-sources'),
@@ -160,7 +161,10 @@ async function start() {
 
   // Lagerväljaren: vilka lager som syns. Raderna och startläget kommer från registret.
   const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu'),
-    views: views && { ...views, controlled: registry.viewLayers(views.groups) } });
+    views: views && { ...views, controlled: registry.viewLayers(views.groups),
+      tagCount: tag => data.events.filter(e => hasTag(e, tag) && isVisibleReview(e.review)).length } });
+  // En vy med tagg (#555), till exempel Framsteg, visar bara händelser med taggen
+  layers.onTag = tag => { store.setTag(tag); panel.tag = tag; app.refresh(); };
   panel.onEnableEvents = () => {
     layers.set('events', true);
     layers.onChange('events', true);
