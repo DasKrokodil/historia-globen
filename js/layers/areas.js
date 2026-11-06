@@ -22,7 +22,7 @@ import { ZOOM_LEVELS } from '../ui/zoomlevels.js';
  * sig deras tid (en fil per rike, R1). Rikenas symboler (#301) är klickbara 3D-medaljer (empiremarks.js) som öppnar
  * faktarutan. Med Lugn rörelse (#246) stängs övergångarna (#78) av.
  */
-export function entry({ globe, data, labelsEl, refresh, refreshSoon, showEmpireFacts }) {
+export function entry({ globe, data, labelsEl, refreshSoon, showEmpireFacts }) {
   const layer = new AreasLayer();
   layer.setPoints(data.empireGroups); // försvunna länder utan gräns, som en punkt (#72)
   layer.setCapitals(data.empireGroups); // huvudstäder med årsspann (#474), syns när man följer ett rike
@@ -38,7 +38,9 @@ export function entry({ globe, data, labelsEl, refresh, refreshSoon, showEmpireF
   layer.onGlyph = refreshSoon;
   const marks = new EmpireMarkers(globe, labelsEl);
   marks.onPick = m => showEmpireFacts(m.group, m.own ? m.polity : null);
-  // Rikena laddas när året närmar sig deras tid. När filen har kommit ritas allt om.
+  // Rikena laddas när året närmar sig deras tid. När filen har kommit ritas allt om, men högst en gång per
+  // bildruta: vid ett långt hopp (till exempel till andra världskriget) kommer över hundra filer nästan samtidigt,
+  // och en hel omritning per fil låste sidan i över 20 sekunder utan grafikkort (#692).
   const loads = new Set();
   const ensure = year => {
     if (!layer.enabled) return;
@@ -46,7 +48,7 @@ export function entry({ globe, data, labelsEl, refresh, refreshSoon, showEmpireF
     for (const g of data.empireGroups) {
       if (loads.has(g.id) || year < g.from - pad || year > g.to + pad) continue;
       loads.add(g.id);
-      loadEmpire(g).then(ps => { layer.add(ps); refresh(); }).catch(err => { console.error(err); loads.delete(g.id); });
+      loadEmpire(g).then(ps => { layer.add(ps); refreshSoon(); }).catch(err => { console.error(err); loads.delete(g.id); });
     }
   };
   let lastYear = 0;
