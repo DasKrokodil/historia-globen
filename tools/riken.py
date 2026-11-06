@@ -50,7 +50,11 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # förenklingen är finare, annars försvinner Gaza och gränserna mot Västbanken hamnar fel
              'israel': (0.03, 0.02, 0.02), 'palestina': (0.03, 0.02, 0.02),
              # Nutida stater (#644): Danmark med Grönland, Kina och Indonesien med många öar
-             'danmark': (0.3, 0.05, 0.08), 'kina': (0.3, 0.05, 0.08), 'indonesien': (0.2, 0.05, 0.05)}
+             'danmark': (0.3, 0.05, 0.08), 'kina': (0.3, 0.05, 0.08), 'indonesien': (0.2, 0.05, 0.05),
+             # Gambia (cirka 30 km bred längs floden) och Libanon är smala: finare förenkling för dem och grannarna Senegal och
+             # Syrien, annars täcker grannarnas förenklade gräns en stor del av landet
+             'gambia': (0.05, 0.02, 0.02), 'libanon': (0.05, 0.02, 0.02),
+             'senegal': (0.05, 0.02, 0.02), 'syrien': (0.05, 0.005, 0.02)}
 
 # grupp: (svenskt namn, engelskt namn, [(Cliopatria-namn, id, svenskt namn, färg)])
 GROUPS = {
@@ -90,7 +94,9 @@ GROUPS = {
         ('(British Empire)', 'brittiska-imperiet', 'Brittiska imperiet', '#c2557a',
          {'homeland': ['Kingdom of Great Britain'], 'minus': ['Republic of Botswana', 'Ghana', 'Guyana', ('Sultanate of Oman', 1973),
                                                                          'Malawi', 'United Arab Emirates', 'Second Republic of Austria',
-                                                                         'Lesotho', 'Solomon Islands']}),
+                                                                         'Lesotho', 'Solomon Islands', 'Republic of Fiji',
+                                                                         'Commonwealth of The Bahamas', 'State of Qatar',
+                                                                         'Republic of The Gambia']}),
     ]),
     # R2 Antiken (#68)
     'egypten': ('Egypten: gamla och nya riket', 'Egypt: Old and New Kingdom', [
@@ -548,9 +554,11 @@ GROUPS = {
     ]),
     # Frankrike efter kolonialväldet (som slutar 1957 i gruppen franska-kolonialvaldet)
     'frankrike': ('Frankrike', 'France', [
-        # Cliopatria räknar Algeriet och Djibouti till Femte republiken 1961–2023, också de år då de är egna stater i Cliopatria
+        # Cliopatria räknar Algeriet, Djibouti och Kap Verde till Femte republiken 1961–2023, också de år då de är egna stater i
+        # Cliopatria. Perioden delas när Kap Verde blir självständigt (1976), annars slås ändringen ihop med 1963–1975
         ('French Fifth Republic', 'femte-republiken', 'Frankrike', '#3a5fa0',
-         {'en': 'France', 'minus': ["People's Democratic Republic of Algeria", 'Republic of Djibouti']}),
+         {'en': 'France', 'minus': ["People's Democratic Republic of Algeria", 'Republic of Djibouti', 'Republic of Cabo Verde'],
+          'splits': (1976,)}),
     ]),
     # Nutida stater, tredje omgången (#644). Spanien, Norge, Japan och Marocko väntar: de överlappar riken vi har
     # (Spanska imperiet, Sverige-Norge, Japanska imperiet) eller behöver noten om Västsahara
@@ -887,6 +895,39 @@ GROUPS = {
     ]),
     'el-salvador': ('El Salvador', 'El Salvador', [
         ('Republic of El Salvador', 'el-salvador', 'El Salvador', '#5a6ab0', {'en': 'El Salvador'}),
+    ]),
+    # Nutida stater, tolfte omgången (#644). Östtimor väntar: Cliopatria räknar landet till Indonesien till och med 2005
+    'fiji': ('Fiji', 'Fiji', [
+        ('Republic of Fiji', 'fiji', 'Fiji', '#4a9ab0', {'en': 'Fiji'}),
+    ]),
+    'slovenien': ('Slovenien', 'Slovenia', [
+        ('Republic of Slovenia', 'slovenien', 'Slovenien', '#4a7ab0', {'en': 'Slovenia'}),
+    ]),
+    'bahamas': ('Bahamas', 'The Bahamas', [
+        ('Commonwealth of The Bahamas', 'bahamas', 'Bahamas', '#3aa0b0', {'en': 'The Bahamas'}),
+    ]),
+    # Wikidatas svenska etikett är Swaziland; Eswatini är dess svenska alias och Cliopatrias namn
+    'eswatini': ('Eswatini', 'Eswatini', [
+        ('Eswatini', 'eswatini', 'Eswatini', '#5a8a4a', {'en': 'Eswatini'}),
+    ]),
+    'vanuatu': ('Vanuatu', 'Vanuatu', [
+        ('Vanuatu', 'vanuatu', 'Vanuatu', '#a07a3a', {'en': 'Vanuatu'}),
+    ]),
+    'jamaica': ('Jamaica', 'Jamaica', [
+        ('Jamaica', 'jamaica', 'Jamaica', '#4aa060', {'en': 'Jamaica'}),
+    ]),
+    'qatar': ('Qatar', 'Qatar', [
+        ('State of Qatar', 'qatar', 'Qatar', '#8a3a5a', {'en': 'Qatar'}),
+    ]),
+    'gambia': ('Gambia', 'The Gambia', [
+        ('Republic of The Gambia', 'gambia', 'Gambia', '#c07a4a', {'en': 'The Gambia'}),
+    ]),
+    # Cliopatria anger Q139708 (Franska mandatet för Syrien och Libanon) också efter 1944; rätt id är Q822
+    'libanon': ('Libanon', 'Lebanon', [
+        ('Lebanon', 'libanon', 'Libanon', '#3a8a5a', {'en': 'Lebanon', 'wikidata': 'Q822'}),
+    ]),
+    'kap-verde': ('Kap Verde', 'Cape Verde', [
+        ('Republic of Cabo Verde', 'kap-verde', 'Kap Verde', '#3a6aa0', {'en': 'Cape Verde'}),
     ]),
 }
 
