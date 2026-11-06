@@ -1,0 +1,8 @@
+{"note":"Genereras av tools/dela_data.py ur data/events.json. Redigera inte här, utan i källfilen, och kör skriptet igen.",
+"period":"1980-",
+"lang":"en",
+"events":{
+"mandela-friges":{"image":{"caption":{"en":"Nelson Mandela and US President George H. W. Bush in the White House on 25 June 1990, four months after his release. Not from the release itself. License: Public domain."}}},
+"folkmordet-i-rwanda":{"image":{"caption":{"en":"Remains and clothing of people killed in the church at Ntarama during the genocide. The site is now a memorial. Photo from 2006. License: CC BY 2.0."}}},
+"parisavtalet":{"image":{"caption":{"en":"Heads of delegation at the UN climate conference COP21 in Paris on 30 November 2015, the first day of the conference. The agreement was adopted on 12 December. License: CC BY 2.0."}}}
+}}

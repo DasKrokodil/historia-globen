@@ -1,0 +1,8 @@
+{"note":"Genereras av tools/dela_data.py ur data/events.json. Redigera inte här, utan i källfilen, och kör skriptet igen.",
+"period":"1980-",
+"lang":"de",
+"events":{
+"mandela-friges":{"image":{"caption":{"de":"Nelson Mandela und US-Präsident George H. W. Bush im Weißen Haus am 25. Juni 1990, vier Monate nach seiner Freilassung. Nicht von der Freilassung selbst. Lizenz: Public Domain."}}},
+"folkmordet-i-rwanda":{"image":{"caption":{"de":"Überreste und Kleidung von Menschen, die während des Völkermords in der Kirche von Ntarama getötet wurden. Der Ort ist heute eine Gedenkstätte. Foto von 2006. Lizenz: CC BY 2.0."}}},
+"parisavtalet":{"image":{"caption":{"de":"Die Delegationsleiter bei der UN-Klimakonferenz COP21 in Paris am 30. November 2015, dem ersten Tag der Konferenz. Das Abkommen wurde am 12. Dezember angenommen. Lizenz: CC BY 2.0."}}}
+}}
