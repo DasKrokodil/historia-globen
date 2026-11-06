@@ -10,6 +10,8 @@
 // Miljövariabler (alla valfria):
 //   BASE_URL=<adress>    testa en redan publicerad sida i stället, till exempel https://historiagloben.se/
 //   BROWSER=<motor>       chromium (standard), firefox eller webkit
+//   HEADLESS=0           öppna webbläsaren med fönster (i Actions kör Firefox så i Xvfb, eftersom det huvudlösa
+//                        läget saknar GL-drivrutin, #702)
 //   SKARMBILDER=<mapp>   var skärmbilderna sparas (standard: <tmp>/historia-globen-webblasartest)
 //   THREE_LOCAL=<fil>    lokal kopia av three.module.js (three@0.160.0) som ersätter jsdelivr. För miljöer utan
 //                        nät till jsdelivr, till exempel molnmiljön. Google Fonts avbryts då också.
@@ -2655,15 +2657,16 @@ async function runPresentation(browser) {
 }
 
 const t0 = Date.now();
-// Ingen av webbläsarna har ett grafikkort i GitHub Actions. Chromium ritar WebGL med SwiftShader. Firefox vägrar
-// annars skapa WebGL med en mjukvarudrivrutin ("Exhausted GL driver options", #702); webgl.force-enabled tillåter
-// det, och WebGL körs i samma process, eftersom GPU-processen inte startar utan grafikkort. Bara testmiljön ändras.
+// Ingen av webbläsarna har ett grafikkort i GitHub Actions. Chromium ritar WebGL med SwiftShader. Firefox hittar
+// ingen GL-drivrutin i huvudlöst läge ("Exhausted GL driver options", #702), så i Actions körs det med fönster i
+// Xvfb med Mesas mjukvarudrivrutin (HEADLESS=0, browser-test.yml). webgl.force-enabled hindrar att Firefox spärrar
+// mjukvarudrivrutinen, och WebGL körs i samma process, eftersom GPU-processen inte startar utan grafikkort.
 const LAUNCH = {
   chromium: { args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader'] },
   firefox: { firefoxUserPrefs: { 'webgl.force-enabled': true, 'webgl.disabled': false, 'webgl.out-of-process': false } },
   webkit: {},
 };
-const browser = await browserType.launch(LAUNCH[BROWSER]);
+const browser = await browserType.launch({ ...LAUNCH[BROWSER], headless: process.env.HEADLESS !== '0' });
 let failed = 0;
 try {
   for (const vp of VIEWPORTS) {

@@ -104,6 +104,11 @@ jobs:
           else
             "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps "$BROWSER"
           fi
+          # Firefox hittar ingen GL-drivrutin i huvudlöst läge (#702). Det körs i stället med fönster i en virtuell
+          # skärm (Xvfb) och ritar WebGL med Mesas mjukvarudrivrutin (llvmpipe). Paketen sparas i apt-cachen nedan.
+          if [ "$BROWSER" = firefox ]; then
+            sudo apt-get install -y --no-install-recommends xvfb xauth libgl1-mesa-dri libglx-mesa0 libegl-mesa0
+          fi
 
       # Sparas direkt efter installationen, och även när den stoppades av tidsgränsen, så att nästa
       # körning kommer längre. Nyckeln bygger på filnamnen: samma paket som förut sparas inte igen,
@@ -141,7 +146,13 @@ jobs:
         env:
           BROWSER: ${{ matrix.browser.id }}
           SKARMBILDER: skarmbilder
-        run: NODE_PATH="$RUNNER_TEMP/pw/node_modules" node tests/webblasare.mjs "$PORT"
+        # Firefox körs med fönster i Xvfb (HEADLESS=0), se installationssteget (#702)
+        run: |
+          if [ "$BROWSER" = firefox ]; then
+            HEADLESS=0 NODE_PATH="$RUNNER_TEMP/pw/node_modules" xvfb-run -a -s '-screen 0 1920x1080x24' node tests/webblasare.mjs "$PORT"
+          else
+            NODE_PATH="$RUNNER_TEMP/pw/node_modules" node tests/webblasare.mjs "$PORT"
+          fi
 
       - name: Spara skärmbilderna
         if: always()
