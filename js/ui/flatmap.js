@@ -192,6 +192,9 @@ export class FlatMap {
   /** Skärmpixlar per bildpixel. Zoom 1 täcker ytan. */
   get scale() { return Math.max(this.w / IMG_W, this.h / IMG_H) * this.zoom; }
 
+  /** Markörens storlek på skärmen i Platt vy (px), som när den ritas (#616: huvudstädernas namn viker för den). */
+  markerPx(u) { return medalSize(u, u.baseScale * WORLD * this.scale).px; }
+
   _local(e) { const r = this.canvas.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
 
   _pan(dx, dy) {

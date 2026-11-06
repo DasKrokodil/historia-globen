@@ -9,13 +9,25 @@
     {
       "license": "CC BY 2.0",
       "sourceIds": [
+        "commons-bild-arabiska-varen",
+        "commons-bild-attackerna-11-september-2001",
+        "commons-bild-finanskrisen-2008",
+        "commons-bild-manskliga-rattigheter-1948",
         "commons-bild-muhammeds-forsta-uppenbarelse"
+      ]
+    },
+    {
+      "license": "CC BY 3.0 CL",
+      "sourceIds": [
+        "commons-bild-militarkuppen-i-chile-1973"
       ]
     },
     {
       "license": "CC BY 4.0",
       "sourceIds": [
         "cliopatria",
+        "commons-bild-fn-grundas",
+        "commons-bild-gagarin-vostok-1",
         "pmc-pecnerova-2017",
         "ucdp-brd-261",
         "ucdp-prio-acd-261"
@@ -88,7 +100,15 @@
     {
       "license": "CC BY-SA 3.0",
       "sourceIds": [
-        "commons-bild-slaget-vid-adwa"
+        "commons-bild-slaget-vid-adwa",
+        "commons-bild-sovjetunionens-upplosning",
+        "commons-bild-sydafrikas-forsta-fria-val"
+      ]
+    },
+    {
+      "license": "CC BY-SA 3.0 DE",
+      "sourceIds": [
+        "commons-bild-berlinmurens-fall"
       ]
     },
     {
@@ -1252,6 +1272,7 @@
         "commons-bild-belagringen-av-jerusalem-1099",
         "commons-bild-blockaden-av-biafra",
         "commons-bild-cervantes-dor",
+        "commons-bild-covid-19-pandemin",
         "commons-bild-darwin-fods",
         "commons-bild-haitis-sjalvstandighet",
         "commons-bild-hawaiis-monarki-stortas",
@@ -1262,8 +1283,10 @@
         "commons-bild-invasionen-av-afghanistan-2001",
         "commons-bild-invasionen-av-irak-2003",
         "commons-bild-israel-utropas-1948",
+        "commons-bild-jordbavningen-i-valdivia-1960",
         "commons-bild-khorramshahr-aterorovras-1982",
         "commons-bild-korsfastelsen",
+        "commons-bild-kubakrisen",
         "commons-bild-landstigningen-vid-inchon",
         "commons-bild-lincoln-fods",
         "commons-bild-mexikos-grundlag-1917",
@@ -1294,10 +1317,12 @@
         "commons-bild-slaget-vid-waterloo",
         "commons-bild-slaget-vid-yarmuk",
         "commons-bild-slaget-vid-zama",
+        "commons-bild-smittkoppor-utrotas",
         "commons-bild-tenochtitlans-fall",
         "commons-bild-tetoffensiven",
         "commons-bild-texas-sjalvstandighet",
         "commons-bild-tredje-slaget-vid-panipat",
+        "commons-bild-tsunamin-i-indiska-oceanen-2004",
         "commons-bild-tyfonen-kamikaze-1281",
         "commons-bodh-gaya-1810",
         "commons-catalan-atlas-mansa-musa",

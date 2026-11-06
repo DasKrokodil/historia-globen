@@ -376,6 +376,7 @@
       "location": {"type": "Point", "coordinates": [-122.4164, 37.7775]}, "place": {"sv": "San Francisco, USA"},
       "title": {"sv": "FN-stadgan skrivs under och FN grundas"},
       "summary": {"sv": "Den 26 juni 1945, sista dagen av en konferens i San Francisco med delegater från 50 allierade länder, skriver 50 av de 51 första medlemsländerna under FN-stadgan. Stadgan träder i kraft den 24 oktober 1945, och då finns Förenta nationerna."},
+      "image": {"file": "images/events/fn-grundas.webp", "kind": "historisk", "style": "affisch", "caption": {"sv": "FN-stadgan i en utställning vid FN:s högkvarter i New York, utlånad från USA:s nationalarkiv. Nutida fotografi från 2025, inte från 1945. Licens: CC BY 4.0."}, "credit": "Megs / Wikimedia Commons", "license": "CC BY 4.0", "source": "commons-bild-fn-grundas"},
       "wikidata": "Q171328", "sources": ["wp-charter-of-the-united-nations", "wp-uncio", "wikidata"], "review": "two-sources" },
 
     {"id": "titanic-sjunker", "category": "katastrofer", "icon": "ship", "start": 1912, "end": 1912, "precision": 11, "edtf": "1912-04-15",

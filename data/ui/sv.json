@@ -28,5 +28,19 @@
   "share.title": "Kopiera en länk till den här vyn",
   "share.copied": "Länken är kopierad",
   "share.manual": "Kopiera länken",
-  "share.prompt": "Kopiera länken till den här vyn:"
+  "share.prompt": "Kopiera länken till den här vyn:",
+  "search.button": "Sök",
+  "search.label": "Sök i globen",
+  "search.placeholder": "till exempel Pompeji, Rom eller Columbus",
+  "search.note": "Sökningen gäller globens egna händelser, riken och resor.",
+  "search.hint": "Skriv namnet på en händelse, ett rike, en resa eller en plats.",
+  "search.none": "Inget i globens innehåll matchar ”{q}”.",
+  "search.one": "1 träff",
+  "search.count": "{n} träffar",
+  "search.many": "Fler än {n} träffar. Skriv fler ord för att begränsa.",
+  "search.type.event": "Händelse",
+  "search.type.war": "Krig",
+  "search.type.empire": "Rike",
+  "search.type.route": "Resa",
+  "search.mapData": "kartdata {span}"
 }
