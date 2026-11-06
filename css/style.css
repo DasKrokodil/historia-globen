@@ -1564,6 +1564,14 @@ details.used-by summary:hover { color: var(--parchment); }
   #funfact.ff-s-half .ff-pic.ff-pic { height: 52px; }
   #funfact.ff-s-half .ff-pics { margin-bottom: 6px; }
   #funfact.ff-s-half .ff-foot { margin-top: 6px; }
+  /* Knappraden (Fun facten, Källor, Nästa, Visste du?) står fast längst ned i halvöppet läge, och texten och
+     chipsen rullar ovanför, så att Källor alltid syns utan att man rullar inne i kortet (#706). Bakgrunden täcker
+     det som rullar under, och den negativa marginalen når ned över kortets nedre utfyllnad. */
+  #funfact.ff-s-half .ff-foot {
+    position: sticky; bottom: -12px; z-index: 1;
+    margin: 6px -14px -12px; padding: 6px 14px 10px;
+    background: var(--parchment); box-shadow: 0 -6px 8px -6px rgba(34,25,12,.25);
+  }
   /* hel: allt syns, kortet går upp till rubriken och rullar inuti */
   #funfact.ff-s-full, #funfact.ff-dragging { max-height: calc(100dvh - var(--ff-b) - 104px); overflow-y: auto; z-index: 16; }
   #funfact.ff-s-full .ff-text { display: block; -webkit-line-clamp: unset; }

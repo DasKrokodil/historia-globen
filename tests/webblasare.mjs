@@ -611,6 +611,46 @@ async function run(browser, vp) {
     return `arket slutar vid ${r.detailBottom} px, fokusraden börjar vid ${r.barTop} px${r.moved ? ' (med raden Tiden flyttades)' : ''}`;
   });
 
+  // #706: i mobil hamnade Samtidigt-kortets knapprad (Källor, Nästa) under kortets nederkant, bakom tidslinjen.
+  // I halvöppet läge ska Källor och Nästa ligga helt inne i kortets synliga yta, och kortet ska sluta ovanför
+  // uppspelningsraden, i 400 × 800 och i den lägre 360 × 640.
+  await check('Samtidigt-kortets knapprad syns ovanför tidslinjen i mobil (#706)', async () => {
+    if (vp.width > 760) return 'bara i smal skärm';
+    await visible('#funfact');
+    const measure = () => page.evaluate(() => {
+      const box = id => document.getElementById(id).getBoundingClientRect();
+      const ff = document.getElementById('funfact');
+      if (!ff.classList.contains('ff-s-half')) return { state: ff.className };
+      const f = box('funfact'), play = box('btn-play'), track = box('track');
+      const bad = ['ff-sources', 'ff-next'].filter(id => {
+        const r = box(id);
+        return !r.width || r.top < f.top - 0.5 || r.bottom > f.bottom + 0.5 || r.bottom > play.top || r.bottom > track.top;
+      });
+      return { bad, cardBottom: Math.round(f.bottom), playTop: Math.round(play.top), sources: Math.round(box('ff-sources').bottom) };
+    });
+    const out = [];
+    const size = page.viewportSize();
+    try {
+      for (const [w, h] of [[size.width, size.height], [360, 640]]) {
+        if (w !== page.viewportSize().width || h !== page.viewportSize().height) {
+          await page.setViewportSize({ width: w, height: h });
+          await page.waitForFunction(([w, h]) => innerWidth === w && innerHeight === h, [w, h], { timeout: T.step });
+          await page.waitForTimeout(300); // låt kortets plats räknas om efter den nya höjden
+        }
+        const r = await measure();
+        if (r.state) throw new Error(`kortet är inte halvöppet i ${w} × ${h} (${r.state})`);
+        if (r.bad.length) throw new Error(`${r.bad.join(' och ')} syns inte i ${w} × ${h}: kortet slutar vid ${r.cardBottom} px, uppspelningsraden börjar vid ${r.playTop} px`);
+        if (r.cardBottom > r.playTop) throw new Error(`kortet täcker uppspelningsraden i ${w} × ${h} (${r.cardBottom} > ${r.playTop} px)`);
+        await shot(`706-knapprad-${w}x${h}`);
+        out.push(`${w} × ${h}: Källor slutar vid ${r.sources} px, kortet vid ${r.cardBottom}, uppspelningen börjar vid ${r.playTop}`);
+      }
+    } finally {
+      await page.setViewportSize(size);
+      await page.waitForFunction(([w, h]) => innerWidth === w && innerHeight === h, [size.width, size.height], { timeout: T.step }).catch(() => {});
+    }
+    return out.join('; ');
+  });
+
   await check('Samtidigt-kortet går till nästa händelse', async () => {
     await visible('#funfact');
     if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
