@@ -874,5 +874,245 @@
     "credit": "NOAA / Wikimedia Commons",
     "license": "Public domain",
     "source": "commons-bild-montrealprotokollet"
+  },
+  {
+    "id": "lanse-aux-meadows",
+    "file": "lanse-aux-meadows.png",
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Grunden till det största nordiska huset i L'Anse aux Meadows på Newfoundland, fotograferad 2010. Nutida foto. Licens: CC BY-SA 3.0."
+    },
+    "credit": "Clinton Pierce / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-lanse-aux-meadows"
+  },
+  {
+    "id": "polynesier-nar-aotearoa",
+    "file": "polynesier-nar-aotearoa.png",
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Tidiga maoriföremål från fyndplatsen Wairau Bar, i Canterbury Museum i Christchurch. Nutida museifoto från 2016. Licens: Public domain."
+    },
+    "credit": "Szilas / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-polynesier-nar-aotearoa"
+  },
+  {
+    "id": "stora-zimbabwe",
+    "file": "stora-zimbabwe.png",
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Den stora inhägnaden i ruinerna av Stora Zimbabwe, fotograferad 1997. Nutida foto. Licens: Public domain."
+    },
+    "credit": "Jan Derk / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-stora-zimbabwe"
+  },
+  {
+    "id": "marco-polos-resa",
+    "file": "marco-polos-resa.png",
+    "kind": "historisk",
+    "style": "kina-tusch",
+    "caption": {
+      "sv": "Marco Polo på resa. Miniatyr ur en senare handskrift av hans reseskildring, inte från resan. Licens: Public domain."
+    },
+    "credit": "Okänd konstnär / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-marco-polos-resa"
+  },
+  {
+    "id": "zheng-hes-resor",
+    "file": "zheng-hes-resor.png",
+    "kind": "historisk",
+    "style": "kina-tusch",
+    "caption": {
+      "sv": "Sjökort över Zheng Hes resor ur Wubei zhi av Mao Yuanyi, träsnitt i en utgåva från 1600-talet. Senare än resorna. Licens: Public domain."
+    },
+    "credit": "Mao Yuanyi / Library of Congress via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-zheng-hes-resor"
+  },
+  {
+    "id": "konstantinopels-fall",
+    "file": "konstantinopels-fall.png",
+    "kind": "historisk",
+    "style": "miniatyr",
+    "caption": {
+      "sv": "Belägringen av Konstantinopel i en fransk handskrift, Jean Chartiers krönika om Karl VII, målad omkring 1460 och tillskriven Philippe de Mazerolles. Licens: Public domain."
+    },
+    "credit": "Philippe de Mazerolles (tillskriven) / Bibliothèque nationale de France via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-konstantinopels-fall"
+  },
+  {
+    "id": "vasco-da-gama-nar-indien",
+    "file": "vasco-da-gama-nar-indien.png",
+    "kind": "historisk",
+    "style": "miniatyr",
+    "caption": {
+      "sv": "Vasco da Gamas ankomst till Calicut 1498, målad av Alfredo Roque Gameiro omkring 1900. Senare bild. Licens: Public domain."
+    },
+    "credit": "Alfredo Roque Gameiro / Biblioteca Nacional de Portugal via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-vasco-da-gama-nar-indien"
+  },
+  {
+    "id": "luthers-teser",
+    "file": "luthers-teser.png",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Första sidan av de 95 teserna i en tryckt utgåva från Basel, 1517. Licens: Public domain."
+    },
+    "credit": "Martin Luther / e-rara via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-luthers-teser"
+  },
+  {
+    "id": "magellans-jordenruntsegling",
+    "file": "magellans-jordenruntsegling.png",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Magellans resa i en allegorisk bild av Johannes Stradanus från omkring 1592. Senare bild. Licens: Public domain."
+    },
+    "credit": "Johannes Stradanus / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-magellans-jordenruntsegling"
+  },
+  {
+    "id": "kopernikus-de-revolutionibus",
+    "file": "kopernikus-de-revolutionibus.png",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Kopernikus bild av solsystemet med solen i mitten, ur De revolutionibus (1543). Licens: Public domain."
+    },
+    "credit": "Nicolaus Copernicus / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-kopernikus-de-revolutionibus"
+  },
+  {
+    "id": "galileo-sidereus-nuncius",
+    "file": "galileo-sidereus-nuncius.png",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Två teckningar av månen med skuggor och kratrar, ur Galileos Sidereus nuncius. Licens: CC BY 4.0."
+    },
+    "credit": "Wellcome Collection / Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "source": "commons-bild-galileo-sidereus-nuncius"
+  },
+  {
+    "id": "newtons-principia",
+    "file": "newtons-principia.png",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Titelsidan till första upplagan av Newtons Principia, 1687. Licens: Public domain."
+    },
+    "credit": "Isaac Newton / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-newtons-principia"
+  },
+  {
+    "id": "cook-nar-australien",
+    "file": "cook-nar-australien.png",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Människor i en kanot i Botany Bay, tecknade av Tupaia, som reste med Cook, i april 1770. Licens: Public domain."
+    },
+    "credit": "Tupaia / British Library via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-cook-nar-australien"
+  },
+  {
+    "id": "forsta-flottan-sydney",
+    "file": "forsta-flottan-sydney.png",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Första flottan seglar in i Port Jackson den 27 januari 1788. Lavering av William Bradley, som var med, ur hans resedagbok från omkring 1802. Licens: Public domain."
+    },
+    "credit": "William Bradley / State Library of New South Wales via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-forsta-flottan-sydney"
+  },
+  {
+    "id": "stormningen-av-bastiljen",
+    "file": "stormningen-av-bastiljen.png",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Stormningen av Bastiljen, målning av en okänd konstnär i Versailles samlingar. Licens: Public domain."
+    },
+    "credit": "Okänd konstnär / Château de Versailles via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-stormningen-av-bastiljen"
+  },
+  {
+    "id": "jenners-vaccin",
+    "file": "jenners-vaccin.png",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Edward Jenner. Mezzotint av John Raphael Smith från 1800. Licens: CC BY 4.0."
+    },
+    "credit": "John Raphael Smith / Wellcome Collection via Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "source": "commons-bild-jenners-vaccin"
+  },
+  {
+    "id": "tambora-1815",
+    "file": "tambora-1815.png",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Kratern på vulkanen Tambora på Sumbawa, fotograferad 2017. Nutida foto. Licens: CC BY 4.0."
+    },
+    "credit": "Tisquesusa / Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "source": "commons-bild-tambora-1815"
+  },
+  {
+    "id": "forsta-jarnvagen-mellan-stader",
+    "file": "forsta-jarnvagen-mellan-stader.png",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Invigningen av järnvägen mellan Liverpool och Manchester 1830. Tryck efter I. Shaw junior. Licens: Public domain."
+    },
+    "credit": "I. Shaw junior / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-forsta-jarnvagen-mellan-stader"
+  },
+  {
+    "id": "waitangifordraget",
+    "file": "waitangifordraget.png",
+    "kind": "historisk",
+    "style": "stilla-havet-gravyr",
+    "caption": {
+      "sv": "Waitangiarket, ett av exemplaren av Waitangifördraget från 1840. Licens: Public domain."
+    },
+    "credit": "William Hobson, James Freeman, James Busby, Henry och Edward Williams / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-waitangifordraget"
+  },
+  {
+    "id": "om-arternas-uppkomst",
+    "file": "om-arternas-uppkomst.png",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Titelsidan till första upplagan av Darwins Om arternas uppkomst, John Murray 1859. Licens: Public domain."
+    },
+    "credit": "John Murray / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-om-arternas-uppkomst"
   }
 ]

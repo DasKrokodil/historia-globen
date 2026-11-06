@@ -258,6 +258,21 @@
       "source": null
     },
     {
+      "eventId": "cook-nar-australien",
+      "eventTitle": "James Cook når Australiens östkust",
+      "file": "images/events/cook-nar-australien.webp",
+      "kind": "historisk",
+      "credit": "Tupaia / British Library via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-cook-nar-australien",
+        "title": "Människor i en kanot, Botany Bay, april 1770 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:People_in_a_canoe,_Botany_Bay,_April_1770.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
       "eventId": "covid-19-pandemin",
       "eventTitle": "Covid-19-pandemin",
       "file": "images/events/covid-19-pandemin.webp",
@@ -366,6 +381,36 @@
       }
     },
     {
+      "eventId": "forsta-flottan-sydney",
+      "eventTitle": "Första flottan når Sydney",
+      "file": "images/events/forsta-flottan-sydney.webp",
+      "kind": "historisk",
+      "credit": "William Bradley / State Library of New South Wales via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-forsta-flottan-sydney",
+        "title": "Första flottan seglar in i Port Jackson (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:First_Fleet_entering_Sydney_1788_Bradley.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "forsta-jarnvagen-mellan-stader",
+      "eventTitle": "Den första järnvägen mellan två städer",
+      "file": "images/events/forsta-jarnvagen-mellan-stader.webp",
+      "kind": "historisk",
+      "credit": "I. Shaw junior / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-forsta-jarnvagen-mellan-stader",
+        "title": "Invigningen av Liverpool and Manchester Railway (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Opening_of_the_Liverpool_and_Manchester_Railway.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
       "eventId": "fotbolls-vm-1930",
       "eventTitle": "Det första fotbolls-VM",
       "file": "images/events/fotbolls-vm-1930.webp",
@@ -393,6 +438,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:%D0%9A%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82_%D0%AE%D1%80%D0%B8%D0%B9_%D0%93%D0%B0%D0%B3%D0%B0%D1%80%D0%B8%D0%BD_%28cropped%29.jpg",
         "license": "CC BY 4.0",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "galileo-sidereus-nuncius",
+      "eventTitle": "Galileo riktar teleskopet mot himlen",
+      "file": "images/events/galileo-sidereus-nuncius.webp",
+      "kind": "historisk",
+      "credit": "Wellcome Collection / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-galileo-sidereus-nuncius",
+        "title": "Två teckningar av månen, Galileo (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:2_diagrams_of_moon,_Galileo,_17th_Century_Wellcome_L0009590.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-06"
       }
     },
     {
@@ -612,6 +672,21 @@
       }
     },
     {
+      "eventId": "jenners-vaccin",
+      "eventTitle": "Edward Jenner och det första vaccinet",
+      "file": "images/events/jenners-vaccin.webp",
+      "kind": "historisk",
+      "credit": "John Raphael Smith / Wellcome Collection via Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-jenners-vaccin",
+        "title": "Edward Jenner, mezzotint av J. R. Smith, 1800 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Edward_Jenner._Mezzotint_by_J._R._Smith,_1800,_after_himself_Wellcome_V0003069.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-06"
+      }
+    },
+    {
       "eventId": "jesu-fodelse",
       "eventTitle": "Jesus föds",
       "file": "images/events/jesu-fodelse.webp",
@@ -697,6 +772,36 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "konstantinopels-fall",
+      "eventTitle": "Konstantinopels fall",
+      "file": "images/events/konstantinopels-fall.webp",
+      "kind": "historisk",
+      "credit": "Philippe de Mazerolles (tillskriven) / Bibliothèque nationale de France via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-konstantinopels-fall",
+        "title": "Belägringen av Konstantinopel, BnF fr. 2691 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Siege_constantinople_bnf_fr2691.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "kopernikus-de-revolutionibus",
+      "eventTitle": "Kopernikus: jorden kretsar kring solen",
+      "file": "images/events/kopernikus-de-revolutionibus.webp",
+      "kind": "historisk",
+      "credit": "Nicolaus Copernicus / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kopernikus-de-revolutionibus",
+        "title": "Kopernikus heliocentriska modell ur De revolutionibus (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Copernican_heliocentrism.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
     },
     {
       "eventId": "korsfastelsen",
@@ -789,6 +894,21 @@
       }
     },
     {
+      "eventId": "lanse-aux-meadows",
+      "eventTitle": "Nordbor i Amerika: L'Anse aux Meadows",
+      "file": "images/events/lanse-aux-meadows.webp",
+      "kind": "historisk",
+      "credit": "Clinton Pierce / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-lanse-aux-meadows",
+        "title": "L'Anse aux Meadows, grunden till det största huset (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:LanseAuxMeadows_LargeBuilding.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-06"
+      }
+    },
+    {
       "eventId": "lei-aurea-1888",
       "eventTitle": "Brasilien avskaffar slaveriet",
       "file": "images/events/lei-aurea-1888.webp",
@@ -828,6 +948,21 @@
       "source": null
     },
     {
+      "eventId": "luthers-teser",
+      "eventTitle": "Luthers 95 teser",
+      "file": "images/events/luthers-teser.webp",
+      "kind": "historisk",
+      "credit": "Martin Luther / e-rara via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-luthers-teser",
+        "title": "De 95 teserna, tryck från Basel 1517 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ninety-five_Theses_(Basel).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
       "eventId": "machu-picchu",
       "eventTitle": "Machu Picchu byggs",
       "file": "images/events/machu-picchu.webp",
@@ -835,6 +970,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "magellans-jordenruntsegling",
+      "eventTitle": "Den första seglingen jorden runt",
+      "file": "images/events/magellans-jordenruntsegling.webp",
+      "kind": "historisk",
+      "credit": "Johannes Stradanus / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-magellans-jordenruntsegling",
+        "title": "Magellans resa, allegori av Stradanus (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Magellan_expedition_by_Stradanus.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
     },
     {
       "eventId": "mammutar-wrangel",
@@ -873,6 +1023,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Eleanor_Roosevelt_UDHR.jpg",
         "license": "CC BY 2.0",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "marco-polos-resa",
+      "eventTitle": "Marco Polo reser till Kublai khan",
+      "file": "images/events/marco-polos-resa.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-marco-polos-resa",
+        "title": "Marco Polo på resa, miniatyr (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Marco_Polo_traveling.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-06"
       }
     },
     {
@@ -1038,6 +1203,21 @@
       "source": null
     },
     {
+      "eventId": "newtons-principia",
+      "eventTitle": "Newtons Principia",
+      "file": "images/events/newtons-principia.webp",
+      "kind": "historisk",
+      "credit": "Isaac Newton / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-newtons-principia",
+        "title": "Titelsidan till Principia, 1687 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Newton%27s_Principia_title_page.png",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
       "eventId": "nintendo",
       "eventTitle": "Nintendo grundas",
       "file": "images/events/nintendo.webp",
@@ -1104,6 +1284,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ouverture_des_premiers_jeux_olympiques_%C3%A0_Ath%C3%A8nes%2C_en_1896.jpg",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "om-arternas-uppkomst",
+      "eventTitle": "Darwins Om arternas uppkomst",
+      "file": "images/events/om-arternas-uppkomst.webp",
+      "kind": "historisk",
+      "credit": "John Murray / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-om-arternas-uppkomst",
+        "title": "Titelsidan till Om arternas uppkomst, 1859 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Origin_of_Species_title_page.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
       }
     },
     {
@@ -1182,6 +1377,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Professor_Alexander_Fleming_at_work_in_his_laboratory_at_St_Mary%27s_Hospital%2C_London%2C_during_the_Second_World_War._D17801_%28cropped%29.jpg",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "polynesier-nar-aotearoa",
+      "eventTitle": "Polynesier bosätter sig på Aotearoa (Nya Zeeland)",
+      "file": "images/events/polynesier-nar-aotearoa.webp",
+      "kind": "historisk",
+      "credit": "Szilas / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-polynesier-nar-aotearoa",
+        "title": "Tidiga maoriföremål från Wairau Bar (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Early_Maori_objects_from_Wairau_Bar,_Canterbury_Museum,_2016-01-27.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
       }
     },
     {
@@ -1677,6 +1887,36 @@
       }
     },
     {
+      "eventId": "stora-zimbabwe",
+      "eventTitle": "Stora Zimbabwe, en stad av sten",
+      "file": "images/events/stora-zimbabwe.webp",
+      "kind": "historisk",
+      "credit": "Jan Derk / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-stora-zimbabwe",
+        "title": "Den stora inhägnaden i Stora Zimbabwe (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Great-Zimbabwe.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "stormningen-av-bastiljen",
+      "eventTitle": "Bastiljen stormas",
+      "file": "images/events/stormningen-av-bastiljen.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär / Château de Versailles via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-stormningen-av-bastiljen",
+        "title": "Stormningen av Bastiljen, okänd konstnär (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Anonymous_-_Prise_de_la_Bastille.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
       "eventId": "suezkanalen-oppnas",
       "eventTitle": "Suezkanalen öppnas",
       "file": "images/events/suezkanalen-oppnas.webp",
@@ -1719,6 +1959,21 @@
         "url": "https://www.loc.gov/pictures/item/2017658158/",
         "license": "No known restrictions on publication",
         "checked": "2026-10-29"
+      }
+    },
+    {
+      "eventId": "tambora-1815",
+      "eventTitle": "Tambora och året utan sommar",
+      "file": "images/events/tambora-1815.webp",
+      "kind": "historisk",
+      "credit": "Tisquesusa / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-tambora-1815",
+        "title": "Tamboras krater, panorama (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Panorama_Mount_Tambora_caldera.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-06"
       }
     },
     {
@@ -1869,6 +2124,36 @@
       "source": null
     },
     {
+      "eventId": "vasco-da-gama-nar-indien",
+      "eventTitle": "Vasco da Gama når Indien sjövägen",
+      "file": "images/events/vasco-da-gama-nar-indien.webp",
+      "kind": "historisk",
+      "credit": "Alfredo Roque Gameiro / Biblioteca Nacional de Portugal via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-vasco-da-gama-nar-indien",
+        "title": "Vasco da Gamas ankomst till Calicut (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:A_chegada_de_Vasco_da_Gama_a_Calicute_em_1498.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "waitangifordraget",
+      "eventTitle": "Waitangifördraget",
+      "file": "images/events/waitangifordraget.webp",
+      "kind": "historisk",
+      "credit": "William Hobson, James Freeman, James Busby, Henry och Edward Williams / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-waitangifordraget",
+        "title": "Waitangifördraget, Waitangiarket (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Treatyofwaitangi.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
+    },
+    {
       "eventId": "wright",
       "eventTitle": "Bröderna Wright flyger",
       "file": "images/events/wright.webp",
@@ -1885,6 +2170,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "zheng-hes-resor",
+      "eventTitle": "Zheng Hes skattflottor",
+      "file": "images/events/zheng-hes-resor.webp",
+      "kind": "historisk",
+      "credit": "Mao Yuanyi / Library of Congress via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-zheng-hes-resor",
+        "title": "Sjökort över Zheng Hes resor ur Wubei zhi (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Wu_bei_zhi_LOC_2004633695-20.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-06"
+      }
     }
   ]
 }
