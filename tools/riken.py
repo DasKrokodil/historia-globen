@@ -44,7 +44,7 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              'usa': (0.3, 0.05, 0.08),
              # Kanada, Ryssland och Australien med långa kuster och många öar
              'kanada': (0.3, 0.05, 0.08), 'australien': (0.3, 0.05, 0.08),
-             # Ryssland: perioderna slås aldrig ihop, så att Krim (cirka 0,2 procent av ytan) syns från 2014
+             # Ryssland: perioderna slås aldrig ihop, så att små ändringar (som Krim, cirka 0,2 procent av ytan) inte försvinner
              'ryska-federationen': (0.3, 0.0, 0.08)}
 
 # grupp: (svenskt namn, engelskt namn, [(Cliopatria-namn, id, svenskt namn, färg)])
@@ -512,6 +512,47 @@ EXTEND = {
 }
 
 
+# Omstridda gränser i nutid (beslut 2026-11-03, #644, docs/omstridda-granser.md): områden som Cliopatria räknar
+# till ett rike men som enligt Sveriges officiella hållning (UD) hör till ett annat. Området är skillnaden mellan två
+# gränser i Cliopatria (`area`: (namn, år) minus (namn, år)). Från året `from` tas området bort ur grupperna i
+# `remove` och läggs till grupperna i `add`. Ytan (areaKm2) räknas då fram ur den nya gränsen.
+DISPUTED = {
+    # Krim och Sevastopol: Cliopatria räknar halvön till Ryssland från 2014 och till Ukraina bara till och med 2023.
+    # Sverige erkänner inte annekteringen (UD, uttalande 30 september 2022), så halvön ritas som Ukraina.
+    'krim': {'area': (('Ukraine', 2013), ('Ukraine', 2024)), 'from': 2014,
+             'remove': ['ryska-federationen'], 'add': ['ukraina']},
+}
+
+
+def disputed_areas(by_name):
+    """Områdena i DISPUTED som geometrier: {namn: geometri}."""
+    def at(name, y):
+        for f in by_name.get(name, []):
+            if f['properties']['FromYear'] <= y <= f['properties']['ToYear']:
+                return shape(f['geometry']).buffer(0)
+        raise SystemExit(f'DISPUTED: {name} saknas år {y} i Cliopatria')
+    return {k: at(*d['area'][0]).difference(at(*d['area'][1])) for k, d in DISPUTED.items()}
+
+
+def apply_disputed(items, gid, areas):
+    """Klipper bort eller lägger till områdena i DISPUTED i en dels perioder (start, slut, geometri, yta)."""
+    for key, d in DISPUTED.items():
+        op = 'remove' if gid in d['remove'] else 'add' if gid in d['add'] else None
+        if not op:
+            continue
+        out = []
+        for a, b, g, ar in items:
+            spans = [(a, b)] if (b < d['from'] or a >= d['from']) else [(a, d['from'] - 1), (d['from'], b)]
+            for s, e in spans:
+                if s < d['from']:
+                    out.append((s, e, g, ar))
+                    continue
+                ng = g.difference(areas[key]) if op == 'remove' else unary_union([g, areas[key]])
+                out.append((s, e, ng, km2(ng)))
+        items = out
+    return items
+
+
 def km2(g):
     """Ytan i km2 på en sfär (Lamberts ytriktiga cylinderprojektion)."""
     r = 6371.0088
@@ -682,6 +723,7 @@ def main():
         if p['Type'] == 'POLITY':
             by_name.setdefault(p['Name'], []).append(f)
     rels = relations(src)
+    disputed = disputed_areas(by_name)  # omstridda gränser enligt Sveriges hållning (#644)
     # Riken med eget namn i GROUPS, så att ett lydrike som också är ett eget rike på kartan får samma namn (#75)
     known = {}
     for _gid, (_sv, _en, _members, *_o) in GROUPS.items():
@@ -726,7 +768,7 @@ def main():
             feats = None
             if gid in EXTEND and EXTEND[gid]['polity'] == cname:
                 feats = extend(by_name, EXTEND[gid])
-            for start, end, raw, area in member_periods(by_name, cname, opts.get('years'), feats):
+            for start, end, raw, area in apply_disputed(member_periods(by_name, cname, opts.get('years'), feats), gid, disputed):
                 core.append((start, end, raw))
                 g = raw.simplify(tol, preserve_topology=True)
                 if g.geom_type == 'MultiPolygon':
@@ -830,7 +872,10 @@ def main():
              'minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva '
              'är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. '
              'Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) '
-             'och ger polity.uncertainBorder i rikets fil.')
+             'och ger polity.uncertainBorder i rikets fil. '
+             'Omstridda gränser i nutid (#644): följer Sveriges officiella hållning enligt UD (DISPUTED i tools/riken.py, '
+             'docs/omstridda-granser.md). Krim och Sevastopol räknas till Ukraina även från 2014, och inte till Ryska federationen; '
+             'där är areaKm2 räknad ur den nya gränsen.')
     (out / 'index.json').write_text(json.dumps({'schema': 'historia-globen/empires-index@1', 'notes': notes, 'groups': index},
                                                ensure_ascii=False, indent=1))
 

@@ -1314,6 +1314,8 @@
     { "id": "wp-karachi", "title": "Karachi – Wikipedia", "url": "https://en.wikipedia.org/wiki/Karachi", "license": "CC BY-SA 4.0", "checked": "2026-11-06" },
     { "id": "wp-islamabad", "title": "Islamabad – Wikipedia", "url": "https://en.wikipedia.org/wiki/Islamabad", "license": "CC BY-SA 4.0", "checked": "2026-11-06" },
     { "id": "wp-kwabulawayo", "title": "Bulawayo (Zulu empire) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Bulawayo_(Zulu_empire)", "license": "CC BY-SA 4.0", "checked": "2026-11-06" },
-    { "id": "wp-umgungundlovu", "title": "uMgungundlovu – Wikipedia", "url": "https://en.wikipedia.org/wiki/UMgungundlovu", "license": "CC BY-SA 4.0", "checked": "2026-11-06" }
+    { "id": "wp-umgungundlovu", "title": "uMgungundlovu – Wikipedia", "url": "https://en.wikipedia.org/wiki/UMgungundlovu", "license": "CC BY-SA 4.0", "checked": "2026-11-06" },
+    { "id": "ud-ukraina", "title": "Ukraina – Sveriges förbindelser med omvärlden, Utrikesdepartementet (regeringen.se)", "url": "https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/europa-och-centralasien/ukraina/", "license": "Regeringskansliet (bara länkad, ingen text kopierad)", "checked": "2026-11-06" },
+    { "id": "ud-annekteringar-ukraina-2022", "title": "Sverige erkänner inte, och kommer inte att erkänna, Rysslands illegala annekteringar av ukrainskt territorium – uttalande av Utrikesdepartementet 30 september 2022 (regeringen.se)", "url": "https://www.regeringen.se/uttalanden/20222/09/sverige-erkanner-inte-och-kommer-inte-att-erkanna-rysslands-illegala-annekteringar-av-ukrainskt-territorium/", "license": "Regeringskansliet (bara länkad, ingen text kopierad)", "checked": "2026-11-06" }
   ]
 }
