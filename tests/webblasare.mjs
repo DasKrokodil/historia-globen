@@ -495,6 +495,32 @@ async function run(browser, vp) {
     return 'tre steg med år, lager och paus; Nästa, Fortsätt, Föregående och Avsluta fungerar';
   });
 
+  await check('slutkortet visar det viktigaste att ta med sig med källa per punkt (#500)', async () => {
+    const startYear = Number(await page.getAttribute('#track', 'aria-valuenow'));
+    await clickView('#btn-focus');
+    await page.fill('#focus-menu input', 'Första världskriget');
+    await page.click('#focus-menu [data-key="war:forsta-varldskriget"]');
+    // Fokusläget flyttar först tiden till krigets början; först därefter går End till krigets slut
+    await page.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '1914', null, { timeout: T.step });
+    const box = await page.locator('#track').boundingBox();
+    await page.mouse.click(box.x + box.width - 1, box.y + box.height / 2); // längst till höger: krigets slut
+    await page.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '1918', null, { timeout: T.step });
+    await page.click('#focus-action');
+    await visible('.takeaway-box');
+    const heads = await page.$$eval('.takeaway-head', h => h.map(x => x.textContent.trim()));
+    const want = ['Det här vet vi från källorna', 'Här är forskare inte överens', 'Det här vet vi inte säkert'];
+    if (heads.join('|') !== want.join('|')) throw new Error(`rubrikerna är ${heads.join(', ')}`);
+    const items = await page.$$eval('.takeaways li', l => l.map(li => !!li.querySelector('.takeaway-src a')));
+    if (!items.length || items.includes(false)) throw new Error('en punkt saknar egen källa');
+    await page.click('#focus-exit');
+    await page.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+    // Lämna sidan som den var för nästa kontroll: tom sökruta i Fokus och samma år som före kontrollen
+    await page.$eval('#focus-menu input', el => { el.value = ''; el.dispatchEvent(new Event('input', { bubbles: true })); });
+    if (await page.isVisible('#detail')) await page.click('#detail [data-close]');
+    await jumpTo(startYear);
+    return `${items.length} punkter under tre rubriker, var och en med källa`;
+  });
+
   await check('Samtidigt-kortet går till nästa händelse', async () => {
     await visible('#funfact');
     if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
@@ -577,7 +603,8 @@ async function run(browser, vp) {
     const cards = page.locator('#ff-pics .ff-pic');
     const reserve = page.locator('#ff-pics .ff-pic.ff-reserve');
     const image = page.locator('#ff-pics .ff-pic img:not(.ff-reserve-icon)');
-    if (await cards.count() < 3 || await reserve.count() < 2 || !await image.count()) throw new Error('1879 saknar blandade bild- och reservkort');
+    // Minst ett kort av varje sort räcker för att pröva blandningen; fler bilder i datan (#453) får inte fälla testet.
+    if (await cards.count() < 2 || !await reserve.count() || !await image.count()) throw new Error('1879 saknar blandade bild- och reservkort');
     const label = await reserve.first().getAttribute('aria-label');
     if (!/Krig och konflikter, 1879, Anglo-zuluiska kriget/.test(label ?? '')) throw new Error('reservkortet saknar kategori, år och titel i sitt namn');
     const missing = await reserve.evaluateAll(nodes => nodes.some(node => ['.ff-reserve-icon', '.ff-reserve-year', '.ff-reserve-category', '.ff-name'].some(selector => !node.querySelector(selector))));
@@ -1358,6 +1385,32 @@ async function run(browser, vp) {
       await setPause('route', routePauseWasOn);
       await page.keyboard.press('Escape');
       await jumpTo(previousYear);
+    }
+  });
+
+  // Fokus-menyn hade religionerna bara första gången den öppnades, när lagret Religioner inte hade öppnats (#402-uppdelningen)
+  await check('Fokus-menyn har religionerna också andra gången den öppnas', async () => {
+    const counts = [];
+    try {
+      for (let i = 0; i < 2; i++) {
+        await clickView('#btn-focus');
+        await visible('#focus-menu');
+        await page.click('#focus-menu [data-tab="Religioner"]');
+        await page.fill('#focus-menu .focus-search', 'Kristendom');
+        await page.locator('#focus-menu .focus-item[data-key="religion:kristendom"]').waitFor({ state: 'visible', timeout: T.step })
+          .catch(() => { throw new Error(`Kristendom saknas i Fokus-menyn gång ${i + 1}`); });
+        counts.push(await page.locator('#focus-menu .focus-item').count());
+        await page.keyboard.press('Escape');
+        await hidden('#focus-menu');
+      }
+      return `Kristendom finns båda gångerna (${counts.join(' och ')} träffar)`;
+    } finally {
+      if (await page.isVisible('#focus-menu')) await page.keyboard.press('Escape');
+      await page.evaluate(() => localStorage.removeItem('hg-focus-tab'));
+      await clickView('#btn-focus');
+      await page.fill('#focus-menu .focus-search', '');
+      await page.click('#focus-menu [data-tab="Alla"]');
+      await page.keyboard.press('Escape');
     }
   });
 

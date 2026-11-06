@@ -884,6 +884,7 @@ html.calm .intro-box { animation: none; }
 .tick.first { transform: none; }
 .tick.first::before { left: 0; }
 .tick.lvl2, .tick.lvl3 { display: none; }
+.tick.tick-hidden { visibility: hidden; } /* krockar med ett viktigare årtal (#63) */
 @media (min-width: 600px) { .tick.lvl2 { display: block; } }
 @media (min-width: 900px) { .tick.lvl3 { display: block; } }
 
@@ -1319,6 +1320,18 @@ details.used-by summary:hover { color: var(--parchment); }
 .story-label { font: 600 10.5px/1 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--card-accent); margin-bottom: 6px; }
 .story h4 { margin: 12px 0 2px; font: 600 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--card-accent); }
 .story p { margin: 4px 0 6px; }
+/* Det viktigaste att ta med sig (#500): tre rubriker efter vad källorna säger, en källa per punkt */
+.takeaway-box { margin: 14px 0 8px; padding: 10px 12px 4px; border: 1px solid var(--card-line); border-radius: 8px; }
+.takeaway-box h4 { margin-top: 0; }
+.takeaway-head { margin: 10px 0 4px; font: 600 13px/1.3 var(--f-body); color: var(--card-ink); }
+.takeaway-head::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 7px; border-radius: 50%; vertical-align: 1px; background: var(--card-accent); }
+.takeaway-omtvistat::before { background: none; border: 2px solid var(--card-accent); width: 6px; height: 6px; }
+.takeaway-okant::before { background: none; border: 2px dashed var(--card-dim); width: 6px; height: 6px; }
+.takeaways { margin: 0 0 6px; padding-left: 18px; }
+.takeaways li { margin: 0 0 7px; }
+.takeaway-src { display: block; margin-top: 2px; font: 400 11.5px/1.35 var(--f-mono); color: var(--card-dim); }
+.takeaway-src::before { content: "Källa: "; }
+.takeaway-src a { color: inherit; }
 .parties { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .parties strong { font-size: 13px; }
 .parties p { font-size: 13px; line-height: 1.45; }

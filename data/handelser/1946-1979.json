@@ -417,6 +417,7 @@
       "location": {"type": "Point", "coordinates": [13.44111, 52.50444]}, "place": {"sv": "Berlin, Tyskland"},
       "title": {"sv": "Berlinmuren byggs"},
       "summary": {"sv": "Den 13 augusti 1961 börjar Östtysklands regering bygga Berlinmuren. Regimen kallar den en antifascistisk skyddsvall, men huvudsyftet är att hindra östtyskar från att fly till väst. Muren och gränsen runt Västberlin blir 155 kilometer lång. Mellan 136 och över 200 människor dödas av östtyska myndigheter vid gränsen innan muren öppnas 1989."},
+      "image": {"file": "images/events/keelingkurvan.webp", "kind": "historisk", "style": "rymdalder", "caption": {"sv": "Charles David Keeling och John Chin vid Mauna Loa-observatoriet 1997, nästan 40 år efter de första mätningarna. Licens: Public domain."}, "credit": "John Miller, NOAA / Wikimedia Commons", "license": "Public domain", "source": "commons-bild-keelingkurvan"},
       "wikidata": "Q5086", "sources": ["wp-berlin-wall", "wikidata"], "review": "two-sources" },
     {"id": "marschen-till-washington", "category": "civilisationer", "start": 1963, "end": 1963, "precision": 11, "edtf": "1963-08-28",
       "location": {"type": "Point", "coordinates": [-77.0501, 38.8893]}, "place": {"sv": "Lincolnmonumentet, Washington, D.C., USA"},
@@ -427,6 +428,7 @@
       "location": {"type": "Point", "coordinates": [116.391083, 39.907333]}, "locationPrecision": "country", "place": {"sv": "Kina"},
       "title": {"sv": "Kulturrevolutionen i Kina"},
       "summary": {"sv": "I maj 1966 startar kommunistpartiets ordförande Mao Zedong kulturrevolutionen. Han uppmanar unga människor att \"bombardera högkvarteret\", och många bildar grupper av rödgardister över hela Kina. Uppskattningarna av hur många som dödas varierar från hundratusentals till miljoner. Kulturrevolutionen tar slut när Mao dör 1976 och de fyras gäng grips."},
+      "image": {"file": "images/events/marschen-till-washington.webp", "kind": "historisk", "style": "rymdalder", "caption": {"sv": "Marschens ledare går från Washingtonmonumentet mot Lincolnmonumentet den 28 augusti 1963. Licens: Public domain."}, "credit": "Rowland Scherman, U.S. Information Agency / National Archives via Wikimedia Commons", "license": "Public domain", "source": "commons-bild-marschen-till-washington"},
       "wikidata": "Q8690", "sources": ["wp-cultural-revolution", "wp-tiananmen", "wikidata"], "review": "two-sources" }
   ]
 }
