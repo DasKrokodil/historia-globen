@@ -20,11 +20,11 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 | 5. Norra Cypern | Självständigheten erkänns inte (FN:s säkerhetsråds resolution 541/1983) | Egen stat 1976–2024 | inget ännu | Hela ön som Cypern, med not (svar 2) |
 | 6. Abchazien och Sydossetien | Sverige stöder Georgiens territoriella integritet | "Russian-occupied territories", räknas till Ryssland, 1992–2024 | inget ännu (`ryska-federationen` tar inte med dem) | **Avviker** när Georgien läggs in |
 | 7. Transnistrien | UD beskriver Transnistrien som en region i Moldavien; ingen uttalad hållning om statusen hittad | Samma post som fall 6 | inget ännu | Som Moldavien, med not (svar 3) |
-| 8. Kosovo | Diplomatiska förbindelser sedan självständighetsförklaringen 2008, ambassad i Pristina | Egen stat 2000–2024 | inget ännu | Sveriges hållning före 2008 utredd, se fall 8 (svar 4) |
+| 8. Kosovo | Diplomatiska förbindelser sedan självständighetsförklaringen 2008, ambassad i Pristina | Egen stat 2000–2024 | inget ännu | Egen stat från 2008, omstritt 2000–2007 (svar 4) |
 | 9. Västsahara | Stöder FN-processen och Marockos autonomiplan som grund för förhandlingar; ingen uttalad hållning om vem området tillhör | Tomt (ingen stat) | inget ännu | Stämmer, bara en not |
 | 10. Taiwan | Inga diplomatiska förbindelser, handelskontor i Taipei, regeringen använder namnet Taiwan; ingen uttalad hållning om statusen hittad | Republiken Kina, egen stat | inget ännu | Cliopatrias gräns med not (svar 5) |
 | 11. Kashmir | Ingen uttalad hållning hittad; UD skriver "indiska unionsterritoriet Jammu och Kashmir" och "den Pakistan-kontrollerade delen av Kashmir" | Delat mellan Indien, Pakistan och Kina | `indien`, `pakistan` | Cliopatrias linjer med not (svar 6) |
-| 12. Nagorno-Karabach | Azerbajdzjan återupprättade sin kontroll hösten 2023; den armeniska befolkningen flydde | Armenien, även 2024 | inget ännu | Visas som omstritt (svar 7) |
+| 12. Nagorno-Karabach | Azerbajdzjan återupprättade sin kontroll hösten 2023; den armeniska befolkningen flydde | Armenien, även 2024 | inget ännu | Omstritt till 2022, Azerbajdzjan från 2023 (svar 7) |
 | 13. Somaliland | Ingen text om Somaliland på UD:s sida om Somalia | Somalia | inget ännu | Stämmer, inget att ändra |
 
 ## Fallen ett och ett
@@ -45,7 +45,7 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 - **Sveriges hållning:** Sverige erkände Staten Palestina 30 oktober 2014. UD skriver att EU:s avtal med Israel gäller staten Israel inom 1967 års gränser och inte Västbanken, Östra Jerusalem, Gaza eller Golanhöjderna, att dessa är ockuperade områden, och att EU och Sverige anser att bosättningarna på Västbanken och i Östra Jerusalem strider mot folkrätten.
 - **Källor:** [Palestina, regeringen.se](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/mellanostern-och-nordafrika/palestina/) och [Handel med Israel och Palestina, regeringen.se](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/mellanostern-och-nordafrika/israel/handel-med-israel-och-palestina/), kontrollerade 2026-11-06.
 - **Cliopatria:** Västbanken och Östra Jerusalem hör till Israel (State of Israel) 2013–2024, och Gaza hör inte till någon stat. Den enda palestinska posten är "Palestinians" år 1948.
-- **Beslut (svar 1):** gränsen hämtas ur Natural Earth. Cliopatria har ingen gräns för Palestina eller för 1967 års linje, så en sådan gräns måste hämtas ur en annan källa.
+- **Beslut (svar 1):** gränsen hämtas ur Natural Earth, och Palestina ritas som stat från 30 oktober 2014. Cliopatria har ingen gräns för Palestina eller för 1967 års linje, så en sådan gräns måste hämtas ur en annan källa.
 
 ### 4. Golanhöjderna
 - **Sveriges hållning:** samma källa som fall 3: Golan räknas som ockuperat område och ingår inte i Israel inom 1967 års gränser.
@@ -79,7 +79,7 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
   - I redogörelsen för OSSE 2007 (skrivelse 2007/08:82, 6 mars 2008) skriver regeringen att förhandlingarna om "Kosovos framtida status" pågick under 2007, och att Sverige och EU ville ha kvar OSSE i Kosovo oavsett hur statusprocessen slutade. Källa: [Regeringens skrivelse 2007/08:82](https://www.regeringen.se/contentassets/6afb120c37f446ffbafb25572fd52357/redogorelse-for-verksamheten-inom-organisationen-for-sakerhet-och-samarbete-i-europa-osse-under-ar-2007-skr.-20070882), regeringen.se, kontrollerad 2026-11-06.
   - Riksdagens webbplats (där regeringens skrivelse om EU 2008 ska nämna erkännandet) går inte att nå från molnet, så datumet för Sveriges erkännande är inte kontrollerat.
 - **Cliopatria:** "Kosovo" är en egen stat redan från 2000.
-- **Förslag:** Kosovo som egen stat från självständighetsförklaringen 2008. Åren 2000–2007 visas inte som egen stat utan som omstritt område, med noten "Kosovo förvaltades av FN, och statusen var inte avgjord. Sverige förhandlade med FN:s förvaltning (UNMIK) och väntade på statusprocessen" (samma visning som Nagorno-Karabach, svar 7). Rikard bekräftar.
+- **Förslag:** Kosovo som egen stat från självständighetsförklaringen 2008. Åren 2000–2007 visas inte som egen stat utan som omstritt område, med noten "Kosovo förvaltades av FN, och statusen var inte avgjord. Sverige förhandlade med FN:s förvaltning (UNMIK) och väntade på statusprocessen" (samma visning som Nagorno-Karabach, svar 7). **Godkänt av Rikard 2026-11-06.**
 
 ### 9. Västsahara
 - **Sveriges hållning:** Sverige vill se en rättvis, hållbar och ömsesidigt godtagbar lösning enligt FN:s säkerhetsrådsresolutioner och FN-stadgan, stöder FN:s sändebud, och uttrycker stöd för Marockos autonomiplan som en trovärdig grund för förhandlingar i ljuset av säkerhetsrådets resolution 2797. UD säger inte vem området tillhör.
@@ -103,7 +103,7 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 - **Sveriges hållning:** UD skriver att Azerbajdzjan hösten 2023 genomförde en militär operation i Nagorno-Karabach och återupprättade sin kontroll över området, att regionens armeniska befolkning flydde till Armenien, och att parterna enades om ett utkast till fredsavtal 13 mars 2025.
 - **Källor:** [Azerbajdzjan](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/europa-och-centralasien/azerbajdzjan/) och [Armenien](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/europa-och-centralasien/armenien/), regeringen.se, kontrollerade 2026-11-06.
 - **Cliopatria:** en punkt vid Stepanakert hör till Armenien 2013–2024, alltså även efter 2023.
-- **Beslut (svar 7):** området visas som omstritt, inte som Armenien. Öppet: om det gäller också efter hösten 2023.
+- **Beslut (svar 7):** området visas som omstritt, inte som Armenien, till och med 2022, och räknas till Azerbajdzjan från 2023.
 
 ### 13. Somaliland
 - **Sveriges hållning:** UD:s sida om Somalia nämner inte Somaliland.
@@ -123,13 +123,13 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 
 ## Rikards svar (2026-11-06)
 
-1. **Israel, Palestina och Golan:** ja till Natural Earth för gränserna. *Öppet:* ska Palestina ritas som stat först från Sveriges erkännande 30 oktober 2014, och områdena 1967–2014 som ockuperade utan stat?
+1. **Israel, Palestina och Golan:** ja till Natural Earth för gränserna. Palestina ritas som stat från Sveriges erkännande 30 oktober 2014 (svar 2026-11-06).
 2. **Norra Cypern:** ritas som Cypern, med not.
 3. **Transnistrien:** ritas som Moldavien, med not.
-4. **Kosovo:** Rikard frågade vad Sverige sa före 2008. Svaret och förslaget står i fall 8; Rikard bekräftar.
+4. **Kosovo:** Rikard frågade vad Sverige sa före 2008 (svaret står i fall 8) och godkände förslaget: egen stat från 2008, åren 2000–2007 som omstritt område med not om FN:s förvaltning.
 5. **Taiwan:** okej (Cliopatrias gräns, namnet Taiwan, med not).
 6. **Kashmir:** ja (Cliopatrias linjer, med not).
-7. **Nagorno-Karabach:** visas som omstritt. *Öppet:* gäller det också efter hösten 2023, när UD skriver att Azerbajdzjan återupprättade kontrollen, eller ska området då räknas till Azerbajdzjan?
+7. **Nagorno-Karabach:** visas som omstritt till och med 2022 och räknas till Azerbajdzjan från 2023, när UD skriver att Azerbajdzjan återupprättade kontrollen.
 
 Krim rättades först, som Rikard bad om.
 
@@ -137,6 +137,6 @@ Krim rättades först, som Rikard bad om.
 
 1. ~~Rikard godkänner listan och svarar på frågorna.~~ Klart 2026-11-06.
 2. ~~Krim rättas (fall 1).~~ Klart 2026-11-06.
-3. Nästa: Israel inom 1967 års gränser och Golan (svar 1, gränsen ur Natural Earth), och noterna för `israel`, `syrien`, `indien` och `pakistan` (svar 6). Palestina när den öppna frågan i svar 1 är besvarad.
+3. Nästa: Israel inom 1967 års gränser och Golan (svar 1, gränsen ur Natural Earth), och noterna för `israel`, `syrien`, `indien` och `pakistan` (svar 6). Palestina som stat från 2014.
 4. Därefter staterna i omgångar om cirka tio, störst lucka först enligt `tools/tackning_riken.py`; varje land i listan ovan får sin not när det läggs in.
 5. Hållningarna kontrolleras igen vid varje release som rör nutida gränser, och kontrolldatumet uppdateras.
