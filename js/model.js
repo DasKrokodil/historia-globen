@@ -74,8 +74,11 @@ export const REGIONS = ['Europa', 'Asien', 'Afrika', 'Amerika', 'Oceanien'];
 export function region(lat, lon) {
   if (lat > 50 && (lon < -168 || lon > 160)) return 'Asien'; // Sibiriens östspets och Wrangelön vid datumlinjen
   if (lon < -125 && lat < 35) return 'Oceanien'; // Hawaii, Midway och Stilla havet (Kalifornien ligger öster om -125)
+  if (lon < -105 && lat < -10) return 'Oceanien'; // östra Polynesien med Rapa Nui; geografin går före politiken (#630)
   if (lon < -25) return 'Amerika';
-  if ((lat < -10 && lon > 110) || (lat < 0 && lon > 130) || lon > 160) return 'Oceanien';
+  // Mikronesien (Guam, Marianerna, Palau, Pohnpei) ligger öster om 130° Ö och söder om 22° N; Filippinerna,
+  // Taiwan och Japan ligger väster eller norr om det (#630)
+  if ((lat < -10 && lon > 110) || (lat < 22 && lon > 130) || lon > 160) return 'Oceanien';
   const africa = lon >= -20 && lon < 52 && lat > -36 && (
     lon < -1.5 ? lat < 36 :
     lon <= 11.5 ? lat < 37.5 :

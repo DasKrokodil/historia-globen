@@ -84,4 +84,10 @@ assert '| 1 | ' in gaps and '| alla |' in gaps
 shares = tackning.land_shares(ROOT / 'data' / 'land.json')
 assert shares and set(shares) == set(tackning.REGIONS) and abs(sum(shares.values()) - 1) < 1e-9
 assert all(v > 0 for v in shares.values())
-print('tackning-test: ok (räkning, markeringar, andelar, luckor och samma rapport vid samma indata)')
+# Världsindelningen (#630): Mikronesien och Rapa Nui räknas till Oceanien, grannarna flyttar inte
+for name, lat, lon, want in [('Guam', 13.47, 144.75, 'Oceanien'), ('Saipan', 15.18, 145.75, 'Oceanien'),
+                             ('Nan Madol', 6.84, 158.33, 'Oceanien'), ('Rapa Nui', -27.11, -109.36, 'Oceanien'),
+                             ('Tokyo', 35.68, 139.69, 'Asien'), ('Manila', 14.6, 120.98, 'Asien'),
+                             ('Lima', -12.05, -77.04, 'Amerika'), ('Honolulu', 21.31, -157.86, 'Oceanien')]:
+    assert tackning.region(lat, lon) == want, f'{name}: {tackning.region(lat, lon)}, väntat {want}'
+print('tackning-test: ok (räkning, markeringar, andelar, världsdelar, luckor och samma rapport vid samma indata)')
