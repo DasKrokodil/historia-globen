@@ -32444,6 +32444,317 @@
    }
   },
   {
+   "id": "kimek-kipchak",
+   "name": {
+    "sv": "Kimek-Kipchak confederation",
+    "en": "Kimek-Kipchak confederation",
+    "de": "Kimek-Kipchak confederation",
+    "es": "Confederación Kimek-Kipchak",
+    "fr": "Khanat kimek"
+   },
+   "color": "#b89a4a",
+   "from": 750,
+   "to": 1235,
+   "file": "data/empires/kimek-kipchak.json",
+   "polities": [
+    {
+     "id": "kimek-kipchak",
+     "name": {
+      "sv": "Kimek-Kipchak confederation",
+      "en": "Kimek-Kipchak confederation",
+      "de": "Kimek-Kipchak confederation",
+      "es": "Confederación Kimek-Kipchak",
+      "fr": "Khanat kimek"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "ghaznaviderna",
+   "name": {
+    "sv": "Ghaznaviderna",
+    "en": "Ghaznavid Empire",
+    "de": "Ghaznawiden",
+    "es": "dinastía gaznávida",
+    "fr": "Ghaznévides"
+   },
+   "color": "#4a9a6a",
+   "from": 962,
+   "to": 1209,
+   "file": "data/empires/ghaznaviderna.json",
+   "polities": [
+    {
+     "id": "ghaznaviderna",
+     "name": {
+      "sv": "Ghaznaviderna",
+      "en": "Ghaznavid Empire",
+      "de": "Ghaznawiden",
+      "es": "dinastía gaznávida",
+      "fr": "Ghaznévides"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "seldjukiska-riket",
+   "name": {
+    "sv": "Seldjukiska riket",
+    "en": "Great Seljuk Empire",
+    "de": "Reich der Großseldschuken",
+    "es": "Imperio selyúcida",
+    "fr": "Empire seldjoukide"
+   },
+   "color": "#c07a4a",
+   "from": 1040,
+   "to": 1201,
+   "file": "data/empires/seldjukiska-riket.json",
+   "polities": [
+    {
+     "id": "seldjukiska-riket",
+     "name": {
+      "sv": "Seldjukiska riket",
+      "en": "Great Seljuk Empire",
+      "de": "Reich der Großseldschuken",
+      "es": "Imperio selyúcida",
+      "fr": "Empire seldjoukide"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "liaodynastin",
+   "name": {
+    "sv": "Liaodynastin",
+    "en": "Liao dynasty",
+    "de": "Liao-Dynastie",
+    "es": "Dinastía Liao",
+    "fr": "dynastie liao"
+   },
+   "color": "#6a8ac0",
+   "from": 911,
+   "to": 1125,
+   "file": "data/empires/liaodynastin.json",
+   "polities": [
+    {
+     "id": "liaodynastin",
+     "name": {
+      "sv": "Liaodynastin",
+      "en": "Liao dynasty",
+      "de": "Liao-Dynastie",
+      "es": "Dinastía Liao",
+      "fr": "dynastie liao"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "shrivijaya",
+   "name": {
+    "sv": "Shrivijaya",
+    "en": "Srivijaya",
+    "de": "Srivijaya",
+    "es": "Srivijaya",
+    "fr": "Sriwijaya"
+   },
+   "color": "#4aa0a0",
+   "from": 674,
+   "to": 1293,
+   "file": "data/empires/shrivijaya.json",
+   "polities": [
+    {
+     "id": "shrivijaya",
+     "name": {
+      "sv": "Shrivijaya",
+      "en": "Srivijaya",
+      "de": "Srivijaya",
+      "es": "Srivijaya",
+      "fr": "Sriwijaya"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "republiken-novgorod",
+   "name": {
+    "sv": "Republiken Novgorod",
+    "en": "Novgorod Republic",
+    "de": "Republik Nowgorod",
+    "es": "República de Nóvgorod",
+    "fr": "République de Novgorod"
+   },
+   "color": "#9a6ab0",
+   "from": 1056,
+   "to": 1481,
+   "file": "data/empires/republiken-novgorod.json",
+   "polities": [
+    {
+     "id": "republiken-novgorod",
+     "name": {
+      "sv": "Republiken Novgorod",
+      "en": "Novgorod Republic",
+      "de": "Republik Nowgorod",
+      "es": "República de Nóvgorod",
+      "fr": "République de Novgorod"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kungariket-ungern",
+   "name": {
+    "sv": "Kungariket Ungern",
+    "en": "Kingdom of Hungary",
+    "de": "Königreich Ungarn",
+    "es": "Reino de Hungría",
+    "fr": "royaume de Hongrie"
+   },
+   "color": "#c05a4a",
+   "from": 1000,
+   "to": 1546,
+   "file": "data/empires/kungariket-ungern.json",
+   "polities": [
+    {
+     "id": "kungariket-ungern",
+     "name": {
+      "sv": "Kungariket Ungern",
+      "en": "Kingdom of Hungary",
+      "de": "Königreich Ungarn",
+      "es": "Reino de Hungría",
+      "fr": "royaume de Hongrie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kungariket-frankrike",
+   "name": {
+    "sv": "Kungariket Frankrike",
+    "en": "Kingdom of France",
+    "de": "Königreich Frankreich",
+    "es": "Reino de Francia",
+    "fr": "royaume de France"
+   },
+   "color": "#4a6ac0",
+   "from": 990,
+   "to": 1791,
+   "file": "data/empires/kungariket-frankrike.json",
+   "polities": [
+    {
+     "id": "kungariket-frankrike",
+     "name": {
+      "sv": "Kungariket Frankrike",
+      "en": "Kingdom of France",
+      "de": "Königreich Frankreich",
+      "es": "Reino de Francia",
+      "fr": "royaume de France"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "influence": [
+    {
+     "polity": "kungariket-frankrike",
+     "name": {
+      "en": "Duchy of Aquitaine"
+     },
+     "relation": "allegiance",
+     "from": 990,
+     "to": 1138
+    }
+   ]
+  },
+  {
+   "id": "kungariket-england",
+   "name": {
+    "sv": "Kungariket England",
+    "en": "Kingdom of England",
+    "de": "Königreich England",
+    "es": "Reino de Inglaterra",
+    "fr": "royaume d'Angleterre"
+   },
+   "color": "#c04a6a",
+   "from": 936,
+   "to": 1708,
+   "file": "data/empires/kungariket-england.json",
+   "polities": [
+    {
+     "id": "kungariket-england",
+     "name": {
+      "sv": "Kungariket England",
+      "en": "Kingdom of England",
+      "de": "Königreich England",
+      "es": "Reino de Inglaterra",
+      "fr": "royaume d'Angleterre"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "norgesvaldet",
+   "name": {
+    "sv": "Norgesväldet",
+    "en": "Old Kingdom of Norway",
+    "de": "Königreich Norwegen",
+    "es": "Reino de Noruega",
+    "fr": "royaume de Norvège (872-1397)"
+   },
+   "color": "#4a8a9a",
+   "from": 866,
+   "to": 1401,
+   "file": "data/empires/norgesvaldet.json",
+   "polities": [
+    {
+     "id": "norgesvaldet",
+     "name": {
+      "sv": "Norgesväldet",
+      "en": "Old Kingdom of Norway",
+      "de": "Königreich Norwegen",
+      "es": "Reino de Noruega",
+      "fr": "royaume de Norvège (872-1397)"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
    "id": "andorra",
    "name": {
     "sv": "Andorra",
