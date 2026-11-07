@@ -1,0 +1,6 @@
+{"note":"Genereras av tools/dela_data.py ur data/events.json. Redigera inte här, utan i källfilen, och kör skriptet igen.",
+"period":"fkr",
+"lang":"de",
+"events":{
+"mammutar-wrangel":{"note":{"title":{"de":"Zum Zeitraum"},"text":{"de":"Die Quellen geben nur an, wann die letzten Mammuts starben, um 2000 v. Chr. (vor 4 000 Jahren). Die Mammuts hatten da bereits etwa 6 000 Jahre isoliert auf der Insel gelebt. Das Startjahr 2999 v. Chr. ist keine Angabe aus den Quellen, sondern eine untere Grenze für die Anzeige, damit das Ereignis zur Zeit der Pyramiden sichtbar ist."}}}
+}}

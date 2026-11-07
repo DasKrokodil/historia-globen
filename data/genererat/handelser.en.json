@@ -2,7 +2,7 @@
 "lang":"en",
 "events":{
 "cheopspyramiden":{"place":{"en":"Giza, Egypt"},"title":{"en":"The Great Pyramid of Khufu is built"}},
-"mammutar-wrangel":{"place":{"en":"Wrangel Island, Siberia"},"title":{"en":"The last woolly mammoths"}},
+"mammutar-wrangel":{"place":{"en":"Wrangel Island, Siberia"},"title":{"en":"The last woolly mammoths"},"note":{"title":{"en":"About the time span"}}},
 "olympiska-spelen":{"place":{"en":"Olympia, Greece"},"title":{"en":"The ancient Olympic Games"}},
 "perserkrigen":{"place":{"en":"Ionia in western Asia Minor (began at Miletus, in present-day Turkey)"},"title":{"en":"The Persian Wars"},"note":{"title":{"en":"About the sources"}}},
 "joniska-upproret":{"place":{"en":"Miletus and Ionia in western Asia Minor, in present-day Turkey"},"title":{"en":"The Ionian Revolt"}},

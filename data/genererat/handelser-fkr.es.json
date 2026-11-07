@@ -1,0 +1,6 @@
+{"note":"Genereras av tools/dela_data.py ur data/events.json. Redigera inte här, utan i källfilen, och kör skriptet igen.",
+"period":"fkr",
+"lang":"es",
+"events":{
+"mammutar-wrangel":{"note":{"title":{"es":"Sobre el período"},"text":{"es":"Las fuentes solo indican cuándo murieron los últimos mamuts, hacia 2000 a. C. (hace 4 000 años). Para entonces los mamuts llevaban unos 6 000 años aislados en la isla. El año de inicio, 2999 a. C., no es un dato de las fuentes, sino un límite inferior para la visualización, de modo que el suceso aparezca en la época de las pirámides."}}}
+}}
