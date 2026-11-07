@@ -61,6 +61,8 @@ export function createAddress(app) {
       if (s.focus !== focusNow) {
         if (s.focus && focusExists(s.focus)) {
           try { await app.startFocus(s.focus); } catch (err) { console.warn('Fokus i länken kunde inte öppnas', err); }
+          // En lektion som började medan fokuset laddades äger året och kameran; den gamla adressen skriver inte över dem (#795)
+          if (app.lesson?.active) return;
           timeline.year = s.year; // fokus kan ha flyttat året till sin start
         } else if (state.focus) app.endFocus();
       }

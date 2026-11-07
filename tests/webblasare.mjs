@@ -2625,13 +2625,16 @@ async function run(browser, vp) {
       // Ett fokus som fortfarande laddas när lektionen börjar får inte släppa låset när det blir klart
       await open(`${BASE}?ny=5`);
       slowEmpires = true;
-      await lessonPage.evaluate(() => { location.hash = '#y=1942&f=empire:romarriket'; });
+      await lessonPage.evaluate(() => { location.hash = '#y=1942&f=empire:romarriket&c=-30,-120,3'; });
       await lessonPage.waitForTimeout(150);
       await lessonPage.evaluate(() => { location.hash = '#t=andra-varldskriget&m=lektion'; });
       await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
       await lessonPage.waitForTimeout(EMPIRE_DELAY + 1500); // fokuset blir klart under tiden
       slowEmpires = false;
       if (await lessonPage.isVisible('#focus-bar')) throw new Error('ett fokus som laddades när lektionen började visades i lektionen');
+      // Steg 1 ska visa lektionens första år och kamera, inte den gamla adressens (året 1942 och kameran -30,-120)
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`steg 1 visade ${(await lessonPage.textContent('#year-big')).trim()} i stället för 1939 när ett fokus blev klart i lektionen`);
+      if (/c=-30,-120,/.test(await lessonPage.evaluate(() => location.hash))) throw new Error('den gamla adressens kamera flyttade globen i lektionens steg 1');
       await lessonPage.focus('#track');
       await lessonPage.keyboard.press('Home');
       await lessonPage.waitForTimeout(300);
