@@ -1647,6 +1647,14 @@
     {"id": "smithsonian-washington-teeth", "title": "George Washington Didn't Have Wooden Teeth, They Were Ivory – Smithsonian Magazine", "url": "https://www.smithsonianmag.com/smart-news/george-washington-didnt-have-wooden-teeth-they-were-ivory-180953273/", "license": "© Smithsonian Magazine (bara länkad, ingen text kopierad)", "checked": "2026-11-07"},
     {"id": "history-marie-antoinette", "title": "Did Marie-Antoinette Really Say 'Let Them Eat Cake'? – HISTORY", "url": "https://www.history.com/articles/did-marie-antoinette-really-say-let-them-eat-cake", "license": "© HISTORY / A&E Television Networks (bara länkad, ingen text kopierad)", "checked": "2026-11-07"},
     {"id": "wp-napoleon", "title": "Napoleon – Wikipedia", "url": "https://en.wikipedia.org/wiki/Napoleon", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
-    {"id": "wp-napoleon-complex", "title": "Napoleon complex – Wikipedia", "url": "https://en.wikipedia.org/wiki/Napoleon_complex", "license": "CC BY-SA 4.0", "checked": "2026-11-07"}
+    {"id": "wp-napoleon-complex", "title": "Napoleon complex – Wikipedia", "url": "https://en.wikipedia.org/wiki/Napoleon_complex", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-agadez-mosque", "title": "Agadez Mosque – Wikipedia", "url": "https://en.wikipedia.org/wiki/Agadez_Mosque", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-harar", "title": "Harar – Wikipedia", "url": "https://en.wikipedia.org/wiki/Harar", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-timbuktu", "title": "Timbuktu – Wikipedia (platsens koordinater)", "url": "https://en.wikipedia.org/wiki/Timbuktu", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-dodo", "title": "Dodo – Wikipedia", "url": "https://en.wikipedia.org/wiki/Dodo", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-mauritius", "title": "Mauritius – Wikipedia (platsens koordinater)", "url": "https://en.wikipedia.org/wiki/Mauritius", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-pico-do-fogo", "title": "Pico do Fogo – Wikipedia", "url": "https://en.wikipedia.org/wiki/Pico_do_Fogo", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-rodrigues-solitaire", "title": "Rodrigues solitaire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Rodrigues_solitaire", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-rodrigues", "title": "Rodrigues – Wikipedia (platsens koordinater)", "url": "https://en.wikipedia.org/wiki/Rodrigues", "license": "CC BY-SA 4.0", "checked": "2026-11-07"}
   ]
 }
