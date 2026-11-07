@@ -1,6 +1,6 @@
 {
  "schema": "historia-globen/empires-index@1",
- "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen. Kolonialvälden och moderna imperier (R5, #71): parts listar Cliopatria-poster som är ihopslagna år för år till ett rike (Tyska riket med German Africa, Etiopiska kejsardömet med Ethiopia till 1974); då är areaKm2 summan av posternas ytor. homeland (#74) är moderlandet i ett utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då homeland.name, moderlandets namn. Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i Cliopatria och har ingen fil, bara en punkt (vanished.point). Sverige (#70): Cliopatrias \"Swedish Empire\" 1612–1814 är delad i två delar med samma gränser, Svenska stormaktsväldet till och med 1721 (freden i Nystad) och Sverige 1722–1814. Inflytande (#75): polity.influence är områden som enligt Cliopatrias relationsposter (typ RELATION, \"Allegiance of A to B\" och \"Vassalage of A to B\") lydde under riket utan att höra till det: relationens område minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) och ger polity.uncertainBorder i rikets fil. Omstridda gränser i nutid (#644): följer Sveriges officiella hållning enligt UD (DISPUTED i tools/riken.py, docs/omstridda-granser.md). Krim och Sevastopol räknas till Ukraina även från 2014, och inte till Ryska federationen. Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel från 1967; Staten Palestina (Västbanken med Östra Jerusalem och Gaza) visas från 2014, då Sverige erkände den. De gränserna kommer ur Natural Earth (ne_10m_admin_0_disputed_areas 5.1.1, public domain), och gruppen har då borderSource. Där är areaKm2 räknad ur den nya gränsen.",
+ "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen. Kolonialvälden och moderna imperier (R5, #71): parts listar Cliopatria-poster som är ihopslagna år för år till ett rike (Tyska riket med German Africa, Etiopiska kejsardömet med Ethiopia till 1974); då är areaKm2 summan av posternas ytor. homeland (#74) är moderlandet i ett utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då homeland.name, moderlandets namn. Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i Cliopatria och har ingen fil, bara en punkt (vanished.point). Sverige (#70): Cliopatrias \"Swedish Empire\" 1612–1814 är delad i två delar med samma gränser, Svenska stormaktsväldet till och med 1721 (freden i Nystad) och Sverige 1722–1814. Inflytande (#75): polity.influence är områden som enligt Cliopatrias relationsposter (typ RELATION, \"Allegiance of A to B\" och \"Vassalage of A to B\") lydde under riket utan att höra till det: relationens område minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) och ger polity.uncertainBorder i rikets fil. Omstridda gränser i nutid (#644): följer Sveriges officiella hållning enligt UD (DISPUTED i tools/riken.py, docs/omstridda-granser.md). Krim och Sevastopol räknas till Ukraina även från 2014, och inte till Ryska federationen. Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel från 1967; Staten Palestina (Västbanken med Östra Jerusalem och Gaza) visas från 2014, då Sverige erkände den. De gränserna kommer ur Natural Earth (ne_10m_admin_0_disputed_areas 5.1.1, public domain), och gruppen har då borderSource. Där är areaKm2 räknad ur den nya gränsen. Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth (ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.",
  "groups": [
   {
    "id": "romarriket",
@@ -28856,6 +28856,558 @@
      "wikidata"
     ],
     "review": "source-checked"
+   }
+  },
+  {
+   "id": "saint-kitts-och-nevis",
+   "name": {
+    "sv": "Saint Kitts och Nevis",
+    "en": "Saint Kitts and Nevis",
+    "de": "St. Kitts und Nevis",
+    "es": "San Cristóbal y Nieves",
+    "fr": "Saint-Christophe-et-Niévès"
+   },
+   "color": "#c05a4a",
+   "from": 1983,
+   "to": 2024,
+   "file": "data/empires/saint-kitts-och-nevis.json",
+   "polities": [
+    {
+     "id": "saint-kitts-och-nevis",
+     "name": {
+      "sv": "Saint Kitts och Nevis",
+      "en": "Saint Kitts and Nevis",
+      "de": "St. Kitts und Nevis",
+      "es": "San Cristóbal y Nieves",
+      "fr": "Saint-Christophe-et-Niévès"
+     },
+     "sources": [
+      "natural-earth-lander"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "borderSource": "Natural Earth",
+   "facts": {
+    "mapNote": {
+     "sv": "Landet är för litet för kartans gränser och visas som en punkt. Gränsen är dagens land. Kartan visar landet från självständigheten från Storbritannien 19 september 1983 (Wikidata och Wikipedia). Källorna skiljer sig: Wikidata anger 27 februari 1967, då landet enligt Wikipedia blev en med Storbritannien associerad stat. Cliopatrias gräns för Saint Kitts ligger på fel ö (Saint Croix) och används inte.",
+     "en": "The country is too small for the map's borders and is shown as a point. The border is that of the present-day country. The map shows the country from independence from the United Kingdom on 19 September 1983 (Wikidata and Wikipedia). The sources differ: Wikidata gives 27 February 1967, when according to Wikipedia the country became a state associated with the United Kingdom. Cliopatria's border for Saint Kitts lies on the wrong island (Saint Croix) and is not used.",
+     "de": "Das Land ist für die Grenzen der Karte zu klein und wird als Punkt gezeigt. Die Grenze zeigt das heutige Land. Die Karte zeigt das Land ab der Unabhängigkeit vom Vereinigten Königreich am 19. September 1983 (Wikidata und Wikipedia). Die Quellen weichen voneinander ab: Wikidata nennt den 27. Februar 1967, als das Land laut Wikipedia ein mit dem Vereinigten Königreich assoziierter Staat wurde. Cliopatrias Grenze für Saint Kitts liegt auf der falschen Insel (Saint Croix) und wird nicht verwendet.",
+     "es": "El país es demasiado pequeño para las fronteras del mapa y se muestra como un punto. La frontera es la del país actual. El mapa muestra el país desde la independencia de el Reino Unido el 19 de septiembre de 1983 (Wikidata y Wikipedia). Las fuentes difieren: Wikidata da el 27 de febrero de 1967, cuando según Wikipedia el país pasó a ser un Estado asociado al Reino Unido. La frontera de Cliopatria para San Cristóbal está en la isla equivocada (Saint Croix) y no se usa.",
+     "fr": "Le pays est trop petit pour les frontières de la carte et est montré comme un point. La frontière correspond au pays actuel. La carte montre le pays à partir de l'indépendance vis-à-vis du Royaume-Uni le 19 septembre 1983 (Wikidata et Wikipédia). Les sources divergent : Wikidata donne le 27 février 1967, date à laquelle, selon Wikipédia, le pays est devenu un État associé au Royaume-Uni. La frontière de Cliopatria pour Saint-Christophe se trouve sur la mauvaise île (Sainte-Croix) et n'est pas utilisée."
+    },
+    "sources": [
+     "natural-earth-lander",
+     "wikidata",
+     "wp-land-saint-kitts-och-nevis"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "mikronesiska-federationen",
+   "name": {
+    "sv": "Mikronesiska federationen",
+    "en": "Federated States of Micronesia",
+    "de": "Föderierte Staaten von Mikronesien",
+    "es": "Estados Federados de Micronesia",
+    "fr": "États fédérés de Micronésie"
+   },
+   "color": "#4a8ab0",
+   "from": 1986,
+   "to": 2024,
+   "file": "data/empires/mikronesiska-federationen.json",
+   "polities": [
+    {
+     "id": "mikronesiska-federationen",
+     "name": {
+      "sv": "Mikronesiska federationen",
+      "en": "Federated States of Micronesia",
+      "de": "Föderierte Staaten von Mikronesien",
+      "es": "Estados Federados de Micronesia",
+      "fr": "États fédérés de Micronésie"
+     },
+     "sources": [
+      "natural-earth-lander"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "borderSource": "Natural Earth",
+   "facts": {
+    "mapNote": {
+     "sv": "Landet är för litet för kartans gränser och visas som en punkt. Gränsen är dagens land. Kartan visar landet från avtalet om fri association med USA 3 november 1986 (Wikidata och Wikipedia). Cliopatria har bara ön Pohnpei, och den gränsen används inte.",
+     "en": "The country is too small for the map's borders and is shown as a point. The border is that of the present-day country. The map shows the country from the Compact of Free Association with the United States on 3 November 1986 (Wikidata and Wikipedia). Cliopatria only has the island of Pohnpei, and that border is not used.",
+     "de": "Das Land ist für die Grenzen der Karte zu klein und wird als Punkt gezeigt. Die Grenze zeigt das heutige Land. Die Karte zeigt das Land ab dem Vertrag über die freie Assoziierung mit den USA am 3. November 1986 (Wikidata und Wikipedia). Cliopatria hat nur die Insel Pohnpei, und diese Grenze wird nicht verwendet.",
+     "es": "El país es demasiado pequeño para las fronteras del mapa y se muestra como un punto. La frontera es la del país actual. El mapa muestra el país desde el Pacto de Libre Asociación con Estados Unidos el 3 de noviembre de 1986 (Wikidata y Wikipedia). Cliopatria solo tiene la isla de Pohnpei, y esa frontera no se usa.",
+     "fr": "Le pays est trop petit pour les frontières de la carte et est montré comme un point. La frontière correspond au pays actuel. La carte montre le pays à partir de le traité de libre association avec les États-Unis du 3 novembre 1986 (Wikidata et Wikipédia). Cliopatria n'a que l'île de Pohnpei, et cette frontière n'est pas utilisée."
+    },
+    "sources": [
+     "natural-earth-lander",
+     "wikidata",
+     "wp-land-mikronesiska-federationen"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "kiribati",
+   "name": {
+    "sv": "Kiribati",
+    "en": "Kiribati",
+    "de": "Kiribati",
+    "es": "Kiribati",
+    "fr": "Kiribati"
+   },
+   "color": "#c0904a",
+   "from": 1979,
+   "to": 2024,
+   "file": "data/empires/kiribati.json",
+   "polities": [
+    {
+     "id": "kiribati",
+     "name": {
+      "sv": "Kiribati",
+      "en": "Kiribati",
+      "de": "Kiribati",
+      "es": "Kiribati",
+      "fr": "Kiribati"
+     },
+     "sources": [
+      "natural-earth-lander"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "borderSource": "Natural Earth",
+   "facts": {
+    "mapNote": {
+     "sv": "Landet är för litet för kartans gränser och visas som en punkt. Gränsen är dagens land. Kartan visar landet från självständigheten från Storbritannien 12 juli 1979 (Wikidata och Wikipedia).",
+     "en": "The country is too small for the map's borders and is shown as a point. The border is that of the present-day country. The map shows the country from independence from the United Kingdom on 12 July 1979 (Wikidata and Wikipedia).",
+     "de": "Das Land ist für die Grenzen der Karte zu klein und wird als Punkt gezeigt. Die Grenze zeigt das heutige Land. Die Karte zeigt das Land ab der Unabhängigkeit vom Vereinigten Königreich am 12. Juli 1979 (Wikidata und Wikipedia).",
+     "es": "El país es demasiado pequeño para las fronteras del mapa y se muestra como un punto. La frontera es la del país actual. El mapa muestra el país desde la independencia de el Reino Unido el 12 de julio de 1979 (Wikidata y Wikipedia).",
+     "fr": "Le pays est trop petit pour les frontières de la carte et est montré comme un point. La frontière correspond au pays actuel. La carte montre le pays à partir de l'indépendance vis-à-vis du Royaume-Uni le 12 juillet 1979 (Wikidata et Wikipédia)."
+    },
+    "sources": [
+     "natural-earth-lander",
+     "wikidata",
+     "wp-land-kiribati"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "komorerna",
+   "name": {
+    "sv": "Komorerna",
+    "en": "Comoros",
+    "de": "Komoren",
+    "es": "Comoras",
+    "fr": "Comores"
+   },
+   "color": "#4a9a6a",
+   "from": 1975,
+   "to": 2024,
+   "file": "data/empires/komorerna.json",
+   "polities": [
+    {
+     "id": "komorerna",
+     "name": {
+      "sv": "Komorerna",
+      "en": "Comoros",
+      "de": "Komoren",
+      "es": "Comoras",
+      "fr": "Comores"
+     },
+     "sources": [
+      "natural-earth-lander"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "borderSource": "Natural Earth",
+   "facts": {
+    "mapNote": {
+     "sv": "Landet är för litet för kartans gränser och visas som en punkt. Gränsen är dagens land. Kartan visar landet från självständigheten från Frankrike 6 juli 1975 (Wikidata och Wikipedia).",
+     "en": "The country is too small for the map's borders and is shown as a point. The border is that of the present-day country. The map shows the country from independence from France on 6 July 1975 (Wikidata and Wikipedia).",
+     "de": "Das Land ist für die Grenzen der Karte zu klein und wird als Punkt gezeigt. Die Grenze zeigt das heutige Land. Die Karte zeigt das Land ab der Unabhängigkeit von Frankreich am 6. Juli 1975 (Wikidata und Wikipedia).",
+     "es": "El país es demasiado pequeño para las fronteras del mapa y se muestra como un punto. La frontera es la del país actual. El mapa muestra el país desde la independencia de Francia el 6 de julio de 1975 (Wikidata y Wikipedia).",
+     "fr": "Le pays est trop petit pour les frontières de la carte et est montré comme un point. La frontière correspond au pays actuel. La carte montre le pays à partir de l'indépendance vis-à-vis de la France le 6 juillet 1975 (Wikidata et Wikipédia)."
+    },
+    "sources": [
+     "natural-earth-lander",
+     "wikidata",
+     "wp-land-komorerna"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "liechtenstein",
+   "name": {
+    "sv": "Liechtenstein",
+    "en": "Liechtenstein",
+    "de": "Liechtenstein",
+    "es": "Liechtenstein",
+    "fr": "Liechtenstein"
+   },
+   "color": "#4a6ab0",
+   "from": 1806,
+   "to": 2024,
+   "file": "data/empires/liechtenstein.json",
+   "polities": [
+    {
+     "id": "liechtenstein",
+     "name": {
+      "sv": "Liechtenstein",
+      "en": "Liechtenstein",
+      "de": "Liechtenstein",
+      "es": "Liechtenstein",
+      "fr": "Liechtenstein"
+     },
+     "sources": [
+      "natural-earth-lander"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "borderSource": "Natural Earth",
+   "facts": {
+    "mapNote": {
+     "sv": "Landet är för litet för kartans gränser och visas som en punkt. Gränsen är dagens land. Kartan visar landet från självständigheten som furstendöme 12 juli 1806 (Wikidata och Wikipedia). Cliopatria har Liechtenstein 1721–1814, men den gränsen används inte.",
+     "en": "The country is too small for the map's borders and is shown as a point. The border is that of the present-day country. The map shows the country from independence as a principality on 12 July 1806 (Wikidata and Wikipedia). Cliopatria has Liechtenstein in 1721–1814, but that border is not used.",
+     "de": "Das Land ist für die Grenzen der Karte zu klein und wird als Punkt gezeigt. Die Grenze zeigt das heutige Land. Die Karte zeigt das Land ab der Unabhängigkeit als Fürstentum am 12. Juli 1806 (Wikidata und Wikipedia). Cliopatria hat Liechtenstein für 1721–1814, aber diese Grenze wird nicht verwendet.",
+     "es": "El país es demasiado pequeño para las fronteras del mapa y se muestra como un punto. La frontera es la del país actual. El mapa muestra el país desde la independencia como principado el 12 de julio de 1806 (Wikidata y Wikipedia). Cliopatria tiene Liechtenstein en 1721–1814, pero esa frontera no se usa.",
+     "fr": "Le pays est trop petit pour les frontières de la carte et est montré comme un point. La frontière correspond au pays actuel. La carte montre le pays à partir de l'indépendance comme principauté le 12 juillet 1806 (Wikidata et Wikipédia). Cliopatria a le Liechtenstein de 1721 à 1814, mais cette frontière n'est pas utilisée."
+    },
+    "sources": [
+     "natural-earth-lander",
+     "wikidata",
+     "wp-land-liechtenstein"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "maldiverna",
+   "name": {
+    "sv": "Maldiverna",
+    "en": "Maldives",
+    "de": "Malediven",
+    "es": "Maldivas",
+    "fr": "Maldives"
+   },
+   "color": "#c04a5a",
+   "from": 1965,
+   "to": 2024,
+   "file": "data/empires/maldiverna.json",
+   "polities": [
+    {
+     "id": "maldiverna",
+     "name": {
+      "sv": "Maldiverna",
+      "en": "Maldives",
+      "de": "Malediven",
+      "es": "Maldivas",
+      "fr": "Maldives"
+     },
+     "sources": [
+      "natural-earth-lander"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "borderSource": "Natural Earth",
+   "facts": {
+    "mapNote": {
+     "sv": "Landet är för litet för kartans gränser och visas som en punkt. Gränsen är dagens land. Kartan visar landet från självständigheten från Storbritannien 26 juli 1965 (Wikidata och Wikipedia).",
+     "en": "The country is too small for the map's borders and is shown as a point. The border is that of the present-day country. The map shows the country from independence from the United Kingdom on 26 July 1965 (Wikidata and Wikipedia).",
+     "de": "Das Land ist für die Grenzen der Karte zu klein und wird als Punkt gezeigt. Die Grenze zeigt das heutige Land. Die Karte zeigt das Land ab der Unabhängigkeit vom Vereinigten Königreich am 26. Juli 1965 (Wikidata und Wikipedia).",
+     "es": "El país es demasiado pequeño para las fronteras del mapa y se muestra como un punto. La frontera es la del país actual. El mapa muestra el país desde la independencia de el Reino Unido el 26 de julio de 1965 (Wikidata y Wikipedia).",
+     "fr": "Le pays est trop petit pour les frontières de la carte et est montré comme un point. La frontière correspond au pays actuel. La carte montre le pays à partir de l'indépendance vis-à-vis du Royaume-Uni le 26 juillet 1965 (Wikidata et Wikipédia)."
+    },
+    "sources": [
+     "natural-earth-lander",
+     "wikidata",
+     "wp-land-maldiverna"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "marshalloarna",
+   "name": {
+    "sv": "Marshallöarna",
+    "en": "Marshall Islands",
+    "de": "Marshallinseln",
+    "es": "Islas Marshall",
+    "fr": "Îles Marshall"
+   },
+   "color": "#3a7ac0",
+   "from": 1986,
+   "to": 2024,
+   "file": "data/empires/marshalloarna.json",
+   "polities": [
+    {
+     "id": "marshalloarna",
+     "name": {
+      "sv": "Marshallöarna",
+      "en": "Marshall Islands",
+      "de": "Marshallinseln",
+      "es": "Islas Marshall",
+      "fr": "Îles Marshall"
+     },
+     "sources": [
+      "natural-earth-lander"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "borderSource": "Natural Earth",
+   "facts": {
+    "mapNote": {
+     "sv": "Landet är för litet för kartans gränser och visas som en punkt. Gränsen är dagens land. Kartan visar landet från avtalet om fri association med USA 21 oktober 1986 (Wikidata och Wikipedia).",
+     "en": "The country is too small for the map's borders and is shown as a point. The border is that of the present-day country. The map shows the country from the Compact of Free Association with the United States on 21 October 1986 (Wikidata and Wikipedia).",
+     "de": "Das Land ist für die Grenzen der Karte zu klein und wird als Punkt gezeigt. Die Grenze zeigt das heutige Land. Die Karte zeigt das Land ab dem Vertrag über die freie Assoziierung mit den USA am 21. Oktober 1986 (Wikidata und Wikipedia).",
+     "es": "El país es demasiado pequeño para las fronteras del mapa y se muestra como un punto. La frontera es la del país actual. El mapa muestra el país desde el Pacto de Libre Asociación con Estados Unidos el 21 de octubre de 1986 (Wikidata y Wikipedia).",
+     "fr": "Le pays est trop petit pour les frontières de la carte et est montré comme un point. La frontière correspond au pays actuel. La carte montre le pays à partir de le traité de libre association avec les États-Unis du 21 octobre 1986 (Wikidata et Wikipédia)."
+    },
+    "sources": [
+     "natural-earth-lander",
+     "wikidata",
+     "wp-land-marshalloarna"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "nauru",
+   "name": {
+    "sv": "Nauru",
+    "en": "Nauru",
+    "de": "Nauru",
+    "es": "Nauru",
+    "fr": "Nauru"
+   },
+   "color": "#3a5a9a",
+   "from": 1968,
+   "to": 2024,
+   "file": "data/empires/nauru.json",
+   "polities": [
+    {
+     "id": "nauru",
+     "name": {
+      "sv": "Nauru",
+      "en": "Nauru",
+      "de": "Nauru",
+      "es": "Nauru",
+      "fr": "Nauru"
+     },
+     "sources": [
+      "natural-earth-lander"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "borderSource": "Natural Earth",
+   "facts": {
+    "mapNote": {
+     "sv": "Landet är för litet för kartans gränser och visas som en punkt. Gränsen är dagens land. Kartan visar landet från självständigheten från Australien 31 januari 1968 (Wikidata och Wikipedia).",
+     "en": "The country is too small for the map's borders and is shown as a point. The border is that of the present-day country. The map shows the country from independence from Australia on 31 January 1968 (Wikidata and Wikipedia).",
+     "de": "Das Land ist für die Grenzen der Karte zu klein und wird als Punkt gezeigt. Die Grenze zeigt das heutige Land. Die Karte zeigt das Land ab der Unabhängigkeit von Australien am 31. Januar 1968 (Wikidata und Wikipedia).",
+     "es": "El país es demasiado pequeño para las fronteras del mapa y se muestra como un punto. La frontera es la del país actual. El mapa muestra el país desde la independencia de Australia el 31 de enero de 1968 (Wikidata y Wikipedia).",
+     "fr": "Le pays est trop petit pour les frontières de la carte et est montré comme un point. La frontière correspond au pays actuel. La carte montre le pays à partir de l'indépendance vis-à-vis de l'Australie le 31 janvier 1968 (Wikidata et Wikipédia)."
+    },
+    "sources": [
+     "natural-earth-lander",
+     "wikidata",
+     "wp-land-nauru"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "samoa",
+   "name": {
+    "sv": "Samoa",
+    "en": "Samoa",
+    "de": "Samoa",
+    "es": "Samoa",
+    "fr": "Samoa"
+   },
+   "color": "#b04a4a",
+   "from": 1962,
+   "to": 2024,
+   "file": "data/empires/samoa.json",
+   "polities": [
+    {
+     "id": "samoa",
+     "name": {
+      "sv": "Samoa",
+      "en": "Samoa",
+      "de": "Samoa",
+      "es": "Samoa",
+      "fr": "Samoa"
+     },
+     "sources": [
+      "natural-earth-lander"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "borderSource": "Natural Earth",
+   "facts": {
+    "mapNote": {
+     "sv": "Landet är för litet för kartans gränser och visas som en punkt. Gränsen är dagens land. Kartan visar landet från självständigheten från Nya Zeeland 1 januari 1962 (Wikidata och Wikipedia).",
+     "en": "The country is too small for the map's borders and is shown as a point. The border is that of the present-day country. The map shows the country from independence from New Zealand on 1 January 1962 (Wikidata and Wikipedia).",
+     "de": "Das Land ist für die Grenzen der Karte zu klein und wird als Punkt gezeigt. Die Grenze zeigt das heutige Land. Die Karte zeigt das Land ab der Unabhängigkeit von Neuseeland am 1. Januar 1962 (Wikidata und Wikipedia).",
+     "es": "El país es demasiado pequeño para las fronteras del mapa y se muestra como un punto. La frontera es la del país actual. El mapa muestra el país desde la independencia de Nueva Zelanda el 1 de enero de 1962 (Wikidata y Wikipedia).",
+     "fr": "Le pays est trop petit pour les frontières de la carte et est montré comme un point. La frontière correspond au pays actuel. La carte montre le pays à partir de l'indépendance vis-à-vis de la Nouvelle-Zélande le 1er janvier 1962 (Wikidata et Wikipédia)."
+    },
+    "sources": [
+     "natural-earth-lander",
+     "wikidata",
+     "wp-land-samoa"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "san-marino",
+   "name": {
+    "sv": "San Marino",
+    "en": "San Marino",
+    "de": "San Marino",
+    "es": "San Marino",
+    "fr": "Saint-Marin"
+   },
+   "color": "#5a9ac0",
+   "from": 1291,
+   "to": 2024,
+   "file": "data/empires/san-marino.json",
+   "polities": [
+    {
+     "id": "san-marino",
+     "name": {
+      "sv": "San Marino",
+      "en": "San Marino",
+      "de": "San Marino",
+      "es": "San Marino",
+      "fr": "Saint-Marin"
+     },
+     "sources": [
+      "natural-earth-lander"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "borderSource": "Natural Earth",
+   "facts": {
+    "mapNote": {
+     "sv": "Landet är för litet för kartans gränser och visas som en punkt. Gränsen är dagens land. Kartan visar landet från självständigheten från Kyrkostaten 1291 (Wikipedia). Källorna skiljer sig: Wikidata anger det traditionella grundandet 3 september 301, som Wikipedia också nämner. Cliopatria har San Marino bara 1797–1799.",
+     "en": "The country is too small for the map's borders and is shown as a point. The border is that of the present-day country. The map shows the country from independence from the Papal States in 1291 (Wikipedia). The sources differ: Wikidata gives the traditional founding on 3 September 301, which Wikipedia also mentions. Cliopatria has San Marino only in 1797–1799.",
+     "de": "Das Land ist für die Grenzen der Karte zu klein und wird als Punkt gezeigt. Die Grenze zeigt das heutige Land. Die Karte zeigt das Land ab der Unabhängigkeit vom Kirchenstaat 1291 (Wikipedia). Die Quellen weichen voneinander ab: Wikidata nennt die traditionelle Gründung am 3. September 301, die auch Wikipedia erwähnt. Cliopatria hat San Marino nur für 1797–1799.",
+     "es": "El país es demasiado pequeño para las fronteras del mapa y se muestra como un punto. La frontera es la del país actual. El mapa muestra el país desde la independencia de los Estados Pontificios en 1291 (Wikipedia). Las fuentes difieren: Wikidata da la fundación tradicional el 3 de septiembre de 301, que Wikipedia también menciona. Cliopatria solo tiene San Marino en 1797–1799.",
+     "fr": "Le pays est trop petit pour les frontières de la carte et est montré comme un point. La frontière correspond au pays actuel. La carte montre le pays à partir de l'indépendance vis-à-vis des États pontificaux en 1291 (Wikipédia). Les sources divergent : Wikidata donne la fondation traditionnelle du 3 septembre 301, que Wikipédia mentionne aussi. Cliopatria n'a Saint-Marin que de 1797 à 1799."
+    },
+    "sources": [
+     "natural-earth-lander",
+     "wikidata",
+     "wp-land-san-marino"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "tonga",
+   "name": {
+    "sv": "Tonga",
+    "en": "Tonga",
+    "de": "Tonga",
+    "es": "Tonga",
+    "fr": "Tonga"
+   },
+   "color": "#c04a4a",
+   "from": 1970,
+   "to": 2024,
+   "file": "data/empires/tonga.json",
+   "polities": [
+    {
+     "id": "tonga",
+     "name": {
+      "sv": "Tonga",
+      "en": "Tonga",
+      "de": "Tonga",
+      "es": "Tonga",
+      "fr": "Tonga"
+     },
+     "sources": [
+      "natural-earth-lander"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "borderSource": "Natural Earth",
+   "facts": {
+    "mapNote": {
+     "sv": "Landet är för litet för kartans gränser och visas som en punkt. Gränsen är dagens land. Kartan visar landet från självständigheten från Storbritannien 4 juni 1970 (Wikidata och Wikipedia). Enligt Wikipedia enades Tonga omkring 1845 och blev ett brittiskt protektorat 1900.",
+     "en": "The country is too small for the map's borders and is shown as a point. The border is that of the present-day country. The map shows the country from independence from the United Kingdom on 4 June 1970 (Wikidata and Wikipedia). According to Wikipedia, Tonga was unified around 1845 and became a British protected state in 1900.",
+     "de": "Das Land ist für die Grenzen der Karte zu klein und wird als Punkt gezeigt. Die Grenze zeigt das heutige Land. Die Karte zeigt das Land ab der Unabhängigkeit vom Vereinigten Königreich am 4. Juni 1970 (Wikidata und Wikipedia). Laut Wikipedia wurde Tonga um 1845 geeint und 1900 ein britisches Protektorat.",
+     "es": "El país es demasiado pequeño para las fronteras del mapa y se muestra como un punto. La frontera es la del país actual. El mapa muestra el país desde la independencia de el Reino Unido el 4 de junio de 1970 (Wikidata y Wikipedia). Según Wikipedia, Tonga se unificó hacia 1845 y pasó a ser un protectorado británico en 1900.",
+     "fr": "Le pays est trop petit pour les frontières de la carte et est montré comme un point. La frontière correspond au pays actuel. La carte montre le pays à partir de l'indépendance vis-à-vis du Royaume-Uni le 4 juin 1970 (Wikidata et Wikipédia). Selon Wikipédia, les Tonga ont été unifiées vers 1845 et sont devenues un protectorat britannique en 1900."
+    },
+    "sources": [
+     "natural-earth-lander",
+     "wikidata",
+     "wp-land-tonga"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "tuvalu",
+   "name": {
+    "sv": "Tuvalu",
+    "en": "Tuvalu",
+    "de": "Tuvalu",
+    "es": "Tuvalu",
+    "fr": "Tuvalu"
+   },
+   "color": "#4aa0b0",
+   "from": 1978,
+   "to": 2024,
+   "file": "data/empires/tuvalu.json",
+   "polities": [
+    {
+     "id": "tuvalu",
+     "name": {
+      "sv": "Tuvalu",
+      "en": "Tuvalu",
+      "de": "Tuvalu",
+      "es": "Tuvalu",
+      "fr": "Tuvalu"
+     },
+     "sources": [
+      "natural-earth-lander"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "borderSource": "Natural Earth",
+   "facts": {
+    "mapNote": {
+     "sv": "Landet är för litet för kartans gränser och visas som en punkt. Gränsen är dagens land. Kartan visar landet från självständigheten från Storbritannien 1 oktober 1978 (Wikidata och Wikipedia).",
+     "en": "The country is too small for the map's borders and is shown as a point. The border is that of the present-day country. The map shows the country from independence from the United Kingdom on 1 October 1978 (Wikidata and Wikipedia).",
+     "de": "Das Land ist für die Grenzen der Karte zu klein und wird als Punkt gezeigt. Die Grenze zeigt das heutige Land. Die Karte zeigt das Land ab der Unabhängigkeit vom Vereinigten Königreich am 1. Oktober 1978 (Wikidata und Wikipedia).",
+     "es": "El país es demasiado pequeño para las fronteras del mapa y se muestra como un punto. La frontera es la del país actual. El mapa muestra el país desde la independencia de el Reino Unido el 1 de octubre de 1978 (Wikidata y Wikipedia).",
+     "fr": "Le pays est trop petit pour les frontières de la carte et est montré comme un point. La frontière correspond au pays actuel. La carte montre le pays à partir de l'indépendance vis-à-vis du Royaume-Uni le 1er octobre 1978 (Wikidata et Wikipédia)."
+    },
+    "sources": [
+     "natural-earth-lander",
+     "wikidata",
+     "wp-land-tuvalu"
+    ],
+    "review": "two-sources"
    }
   }
  ]
