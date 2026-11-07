@@ -31,5 +31,11 @@
 "aksums-mynt":{"place":{"es":"Aksum (hoy Etiopía)"},"title":{"es":"Aksum empieza a acuñar su propia moneda"}},
 "antoniusklostret":{"place":{"es":"Los montes del mar Rojo, en el desierto Oriental, Egipto"},"title":{"es":"Se funda el monasterio de San Antonio en el desierto Oriental"}},
 "tsunamin-365-alexandria":{"place":{"es":"Alejandría y el delta del Nilo (epicentro cerca de Creta)"},"title":{"es":"El tsunami del 365 golpea Alejandría"}},
-"lydenburghuvudena":{"place":{"es":"Lydenburg, en Mpumalanga, Sudáfrica"},"title":{"es":"Las cabezas de Lydenburg"}}
+"lydenburghuvudena":{"place":{"es":"Lydenburg, en Mpumalanga, Sudáfrica"},"title":{"es":"Las cabezas de Lydenburg"}},
+"agadez-mosken":{"place":{"es":"Agadez, Níger"},"title":{"es":"Se construye la mezquita de Agadez"}},
+"harar-adals-huvudstad":{"place":{"es":"Harar, Etiopía"},"title":{"es":"Harar se convierte en la capital del sultanato de Adal"}},
+"tarikh-al-sudan":{"place":{"es":"Tombuctú, Malí"},"title":{"es":"El Tarikh al-Sudan, la crónica de Songhai"}},
+"dronten-sista-gangen":{"place":{"es":"Mauricio, en el océano Índico"},"title":{"es":"Último avistamiento del dodo"}},
+"fogo-utbrottet-1680":{"place":{"es":"Pico do Fogo, en la isla de Fogo, Cabo Verde"},"title":{"es":"Gran erupción del volcán Fogo"}},
+"rodriguessolitaren-dor-ut":{"place":{"es":"Rodrigues, en el océano Índico (Mauricio)"},"title":{"es":"Se extingue el solitario de Rodrigues"},"note":{"title":{"es":"Datación incierta"}}}
 }}
