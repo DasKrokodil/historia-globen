@@ -1,0 +1,6 @@
+{"note":"Genereras av tools/dela_data.py ur data/events.json. Redigera inte här, utan i källfilen, och kör skriptet igen.",
+"period":"fkr",
+"lang":"fr",
+"events":{
+"mammutar-wrangel":{"note":{"title":{"fr":"À propos de la période"},"text":{"fr":"Les sources indiquent seulement quand les derniers mammouths sont morts, vers 2000 av. J.-C. (il y a 4 000 ans). À ce moment-là, les mammouths vivaient isolés sur l'île depuis environ 6 000 ans. L'année de début, 2999 av. J.-C., n'est pas une donnée des sources mais une limite inférieure pour l'affichage, afin que l'événement apparaisse à l'époque des pyramides."}}}
+}}

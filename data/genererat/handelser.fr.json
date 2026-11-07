@@ -1,0 +1,5 @@
+{"note":"Genereras av tools/dela_data.py ur data/events.json. Redigera inte här, utan i källfilen, och kör skriptet igen.",
+"lang":"fr",
+"events":{
+"mammutar-wrangel":{"note":{"title":{"fr":"À propos de la période"}}}
+}}
