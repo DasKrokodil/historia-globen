@@ -10,6 +10,8 @@
 // Miljövariabler (alla valfria):
 //   BASE_URL=<adress>    testa en redan publicerad sida i stället, till exempel https://historiagloben.se/
 //   BROWSER=<motor>       chromium (standard), firefox eller webkit
+//   HEADLESS=0           öppna webbläsaren med fönster (i Actions kör Firefox så i Xvfb, eftersom det huvudlösa
+//                        läget saknar GL-drivrutin, #702)
 //   SKARMBILDER=<mapp>   var skärmbilderna sparas (standard: <tmp>/historia-globen-webblasartest)
 //   THREE_LOCAL=<fil>    lokal kopia av three.module.js (three@0.160.0) som ersätter jsdelivr. För miljöer utan
 //                        nät till jsdelivr, till exempel molnmiljön. Google Fonts avbryts då också.
@@ -87,6 +89,17 @@ function installPixelHelpers() {
   return window.__hgTestPixels;
 }
 
+// Felraden för en kontroll (#702): första raden i felet, vad Playwright väntade på och raden i testet där det
+// hände. Förr syntes bara "page.waitForFunction: Timeout 15000ms exceeded.", och det gick inte att se vilken väntan
+// i kontrollen som hängde utan skärmbilderna.
+function failNote(e) {
+  const lines = String(e?.message ?? e).replace(/\u001b\[\d+m/g, '').split('\n');
+  const waiting = lines.find(l => /^\s*-\s*waiting for /.test(l))?.replace(/^\s*-\s*/, '').trim();
+  // Hjälparna (visible, hidden …) ligger också i filen, så de tre första raderna visas: hjälparen och kontrollen
+  const here = [...new Set(String(e?.stack ?? '').split('\n').map(l => l.match(/webblasare\.mjs:(\d+):\d+/)?.[1]).filter(Boolean))].slice(0, 3);
+  return [lines[0], waiting && `(${waiting})`, here.length && `[rad ${here.join(', ')}]`].filter(Boolean).join(' ');
+}
+
 async function run(browser, vp) {
   const results = [];
   const errors = [];
@@ -103,10 +116,14 @@ async function run(browser, vp) {
     if (m.type() !== 'error') return;
     const url = m.location()?.url || '';
     if (isFont(url)) return;
+    // WebKit skriver en hämtning som avbryts av omladdningen som "TypeError: Load failed" i konsolen (#702).
+    // Bara exakt det meddelandet, och bara medan språktestet laddar om sidan, räknas bort.
+    if (reloading && /^TypeError: Load failed$/.test(m.text())) return;
     errors.push(`konsol: ${m.text()}${url ? ` (${url})` : ''}`);
   });
   // Medan språktestet laddar om sidan (#63) avbryter webbläsaren hämtningar som pågår, till exempel ikoner. WebKit
-  // rapporterar det som fel ("Load request cancelled", "… due to access control checks"); det är omladdningen,
+  // rapporterar det som fel ("Load request cancelled", "… due to access control checks", i konsolen "TypeError: Load
+  // failed"); det är omladdningen,
   // inte ett fel på sidan. Bara avbrutna hämtningar under omladdningen räknas bort (v5.0.0).
   let reloading = false;
   const cancelled = text => /cancel|abort|access control checks/i.test(text ?? '');
@@ -147,7 +164,15 @@ async function run(browser, vp) {
       const note = await fn();
       results.push({ name, ok: true, ms: Date.now() - t0, note });
     } catch (e) {
-      results.push({ name, ok: false, ms: Date.now() - t0, note: String(e.message).split('\n')[0] });
+      // Läget i sidan när kontrollen föll (#702): vilket element som har fokus och vilka paneler som är öppna
+      const state = await page.evaluate(ids => {
+        const a = document.activeElement;
+        const focus = a ? `${a.tagName.toLowerCase()}${a.id ? `#${a.id}` : ''}${a.className && typeof a.className === 'string' ? `.${a.className.trim().split(/\s+/).join('.')}` : ''}` : 'inget';
+        const open = ids.filter(id => { const el = document.getElementById(id); return el && !el.hidden && el.getClientRects().length; });
+        const menu = document.querySelector('.top-actions')?.classList.contains('more-open') ? ', Meny öppen' : '';
+        return `läge: år ${document.getElementById('year-big')?.textContent.trim()}, fokus ${focus}, öppna: ${open.join(' ') || 'inga'}${menu}`;
+      }, ['jump-pop', 'help', 'layer-menu', 'focus-menu', 'empire-legend', 'detail', 'panel', 'sources-dialog', 'search-pop', 'flat-view', 'tour-card']).catch(() => '');
+      results.push({ name, ok: false, ms: Date.now() - t0, note: [failNote(e), state].filter(Boolean).join(' · ') });
       await shot(`FEL-${name.replace(/[^a-zåäö0-9]+/gi, '-')}`).catch(() => {});
       await page.keyboard.press('Escape').catch(() => {});
     }
@@ -2636,9 +2661,16 @@ async function runPresentation(browser) {
 }
 
 const t0 = Date.now();
-const browser = await browserType.launch(BROWSER === 'chromium'
-  ? { args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader'] }
-  : {});
+// Ingen av webbläsarna har ett grafikkort i GitHub Actions. Chromium ritar WebGL med SwiftShader. Firefox hittar
+// ingen GL-drivrutin i huvudlöst läge ("Exhausted GL driver options", #702), så i Actions körs det med fönster i
+// Xvfb med Mesas mjukvarudrivrutin (HEADLESS=0, browser-test.yml). webgl.force-enabled hindrar att Firefox spärrar
+// mjukvarudrivrutinen, och WebGL körs i samma process, eftersom GPU-processen inte startar utan grafikkort.
+const LAUNCH = {
+  chromium: { args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader'] },
+  firefox: { firefoxUserPrefs: { 'webgl.force-enabled': true, 'webgl.disabled': false, 'webgl.out-of-process': false } },
+  webkit: {},
+};
+const browser = await browserType.launch({ ...LAUNCH[BROWSER], headless: process.env.HEADLESS !== '0' });
 let failed = 0;
 try {
   for (const vp of VIEWPORTS) {
