@@ -11997,14 +11997,31 @@
   {
    "id": "svenska-stormaktsvaldet",
    "name": {
-    "sv": "Sverige: stormaktsväldet och efter",
-    "en": "Sweden: the Swedish Empire and after"
+    "sv": "Sverige",
+    "en": "Sweden",
+    "de": "Schweden",
+    "es": "Suecia",
+    "fr": "Suède"
    },
    "color": "#3d8fd1",
-   "from": 1612,
+   "from": 980,
    "to": 2024,
    "file": "data/empires/svenska-stormaktsvaldet.json",
    "polities": [
+    {
+     "id": "sverige-medeltiden",
+     "name": {
+      "sv": "Sverige",
+      "en": "Sweden",
+      "de": "Schweden",
+      "es": "Suecia",
+      "fr": "Suède"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
     {
      "id": "svenska-stormaktsvaldet",
      "name": {
@@ -12020,7 +12037,10 @@
      "id": "sverige-1722",
      "name": {
       "sv": "Sverige",
-      "en": "Sweden"
+      "en": "Sweden",
+      "de": "Schweden",
+      "es": "Suecia",
+      "fr": "Suède"
      },
      "sources": [
       "cliopatria"
@@ -12042,7 +12062,10 @@
      "id": "sverige-1905",
      "name": {
       "sv": "Sverige",
-      "en": "Kingdom of Sweden"
+      "en": "Kingdom of Sweden",
+      "de": "Schweden",
+      "es": "Suecia",
+      "fr": "Suède"
      },
      "sources": [
       "cliopatria"
@@ -12427,6 +12450,7 @@
       18.069,
       59.329
      ],
+     "from": 1612,
      "sources": [
       "wp-swedish-empire",
       "wikidata"
@@ -33046,6 +33070,186 @@
       "de": "Sultanat der Mameluken",
       "es": "sultanato mameluco de Egipto",
       "fr": "sultanat mamelouk d'Égypte"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "konungariket-danmark",
+   "name": {
+    "sv": "Konungariket Danmark",
+    "en": "Kingdom of Denmark",
+    "de": "Königreich Dänemark",
+    "es": "Reino de Dinamarca",
+    "fr": "royaume de Danemark"
+   },
+   "color": "#c05a6a",
+   "from": 936,
+   "to": 1406,
+   "file": "data/empires/konungariket-danmark.json",
+   "polities": [
+    {
+     "id": "konungariket-danmark",
+     "name": {
+      "sv": "Konungariket Danmark",
+      "en": "Kingdom of Denmark",
+      "de": "Königreich Dänemark",
+      "es": "Reino de Dinamarca",
+      "fr": "royaume de Danemark"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "tibetanska-imperiet",
+   "name": {
+    "sv": "Tibetanska imperiet",
+    "en": "Tibetan Empire",
+    "de": "Tibetische Monarchie",
+    "es": "Imperio tibetano",
+    "fr": "Empire du Tibet"
+   },
+   "color": "#b0704a",
+   "from": 623,
+   "to": 849,
+   "file": "data/empires/tibetanska-imperiet.json",
+   "polities": [
+    {
+     "id": "tibetanska-imperiet",
+     "name": {
+      "sv": "Tibetanska imperiet",
+      "en": "Tibetan Empire",
+      "de": "Tibetische Monarchie",
+      "es": "Imperio tibetano",
+      "fr": "Empire du Tibet"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "moskvariket",
+   "name": {
+    "sv": "Moskvariket",
+    "en": "Grand Principality of Moscow",
+    "de": "Großfürstentum Moskau",
+    "es": "Principado de Moscú",
+    "fr": "grande-principauté de Moscou"
+   },
+   "color": "#8a5ab0",
+   "from": 1294,
+   "to": 1546,
+   "file": "data/empires/moskvariket.json",
+   "polities": [
+    {
+     "id": "moskvariket",
+     "name": {
+      "sv": "Moskvariket",
+      "en": "Grand Principality of Moscow",
+      "de": "Großfürstentum Moskau",
+      "es": "Principado de Moscú",
+      "fr": "grande-principauté de Moscou"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "storfurstendomet-litauen",
+   "name": {
+    "sv": "Storfurstendömet Litauen",
+    "en": "Grand Duchy of Lithuania",
+    "de": "Großfürstentum Litauen",
+    "es": "Gran Ducado de Lituania",
+    "fr": "grand-duché de Lituanie"
+   },
+   "color": "#5aa07a",
+   "from": 1220,
+   "to": 1449,
+   "file": "data/empires/storfurstendomet-litauen.json",
+   "polities": [
+    {
+     "id": "storfurstendomet-litauen",
+     "name": {
+      "sv": "Storfurstendömet Litauen",
+      "en": "Grand Duchy of Lithuania",
+      "de": "Großfürstentum Litauen",
+      "es": "Gran Ducado de Lituania",
+      "fr": "grand-duché de Lituanie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kastilianska-kronan",
+   "name": {
+    "sv": "Kastilianska kronan",
+    "en": "Crown of Castile",
+    "de": "Kastilien",
+    "es": "Corona de Castilla",
+    "fr": "couronne de Castille"
+   },
+   "color": "#c0a04a",
+   "from": 1236,
+   "to": 1515,
+   "file": "data/empires/kastilianska-kronan.json",
+   "polities": [
+    {
+     "id": "kastilianska-kronan",
+     "name": {
+      "sv": "Kastilianska kronan",
+      "en": "Crown of Castile",
+      "de": "Kastilien",
+      "es": "Corona de Castilla",
+      "fr": "couronne de Castille"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "uiguriska-khaganatet",
+   "name": {
+    "sv": "Uyghur Khaganate",
+    "en": "Uyghur Khaganate",
+    "de": "Uigurisches Kaganat",
+    "es": "Kanato uigur",
+    "fr": "Khaganat ouïgour"
+   },
+   "color": "#4a8ac0",
+   "from": 750,
+   "to": 849,
+   "file": "data/empires/uiguriska-khaganatet.json",
+   "polities": [
+    {
+     "id": "uiguriska-khaganatet",
+     "name": {
+      "sv": "Uyghur Khaganate",
+      "en": "Uyghur Khaganate",
+      "de": "Uigurisches Kaganat",
+      "es": "Kanato uigur",
+      "fr": "Khaganat ouïgour"
      },
      "sources": [
       "cliopatria"
