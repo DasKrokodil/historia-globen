@@ -146,8 +146,17 @@ export class TourPlayer {
     if (had && refocus) this.button.focus({ preventScroll: true });
   }
 
-  /** Startar turen med id. Besökarens lager, fokus och kamera sparas, så att Avsluta kan återställa dem. */
-  start(id, opener = null) {
+  /** Var turen är: { id, step } (stegets id) eller null. Adressen skriver det som t och s (#736). */
+  get position() { return this.tour ? { id: this.tour.id, step: this.step?.id ?? null } : null; }
+
+  /** Stegets plats i turen (0 när id saknas eller inte finns). */
+  stepIndex(stepId) { return Math.max(0, this.tour?.steps.findIndex(x => x.id === stepId) ?? 0); }
+
+  /**
+   * Startar turen med id, vid steget stepId om det finns (en länk med t och s, #736), annars vid första steget.
+   * Besökarens lager, fokus och kamera sparas, så att Avsluta kan återställa dem. Ger false för en okänd tur.
+   */
+  start(id, opener = null, stepId = null) {
     const tour = this.tours.find(x => x.id === id);
     if (!tour) return false;
     const { app } = this;
@@ -159,7 +168,7 @@ export class TourPlayer {
     this.name.textContent = t(tour.title);
     this.card.hidden = false;
     app.root.classList.add('touring');
-    this.go(0);
+    this.go(this.stepIndex(stepId));
     requestAnimationFrame(() => this.next.focus({ preventScroll: true }));
     return true;
   }
