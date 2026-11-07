@@ -31,5 +31,15 @@
 "aksums-mynt":{"place":{"fr":"Aksoum (aujourd'hui Éthiopie)"},"title":{"fr":"Aksoum commence à frapper ses propres monnaies"}},
 "antoniusklostret":{"place":{"fr":"Les montagnes de la mer Rouge, dans le désert Arabique, Égypte"},"title":{"fr":"Fondation du monastère Saint-Antoine dans le désert Arabique"}},
 "tsunamin-365-alexandria":{"place":{"fr":"Alexandrie et le delta du Nil (épicentre près de la Crète)"},"title":{"fr":"Le tsunami de 365 frappe Alexandrie"}},
-"lydenburghuvudena":{"place":{"fr":"Lydenburg, dans le Mpumalanga, Afrique du Sud"},"title":{"fr":"Les têtes de Lydenburg"}}
+"lydenburghuvudena":{"place":{"fr":"Lydenburg, dans le Mpumalanga, Afrique du Sud"},"title":{"fr":"Les têtes de Lydenburg"}},
+"explorer-1":{"place":{"fr":"Cap Canaveral, Floride, États-Unis"},"title":{"fr":"Explorer 1, premier satellite des États-Unis"},"note":{"title":{"fr":"À propos de la date"}}},
+"tereshkova-vostok-6":{"place":{"fr":"Atterrissage à l'ouest de Barnaoul, dans l'Altaï, Union soviétique (aujourd'hui Russie)"},"title":{"fr":"Valentina Terechkova devient la première femme dans l'espace"}},
+"asterix-frankrikes-forsta-satellit":{"place":{"fr":"Hammaguir, Algérie"},"title":{"fr":"Astérix, premier satellite français"}},
+"ohsumi-japans-forsta-satellit":{"place":{"fr":"Centre spatial de Kagoshima (aujourd'hui Uchinoura), Japon"},"title":{"fr":"Ohsumi, premier satellite japonais"}},
+"dong-fang-hong-1":{"place":{"fr":"Centre de lancement de satellites de Jiuquan, Chine"},"title":{"fr":"Dong Fang Hong 1, premier satellite chinois"}},
+"saljut-1":{"place":{"fr":"Baïkonour, Kazakhstan (alors Union soviétique)"},"title":{"fr":"Saliout 1, première station spatiale du monde"}},
+"prospero-black-arrow":{"place":{"fr":"Woomera, Australie-Méridionale, Australie"},"title":{"fr":"Prospero, le satellite britannique sur une fusée britannique"}},
+"aryabhata-indiens-forsta-satellit":{"place":{"fr":"Kapoustine Iar, oblast d'Astrakhan, Union soviétique (aujourd'hui Russie)"},"title":{"fr":"Aryabhata, premier satellite de l'Inde"}},
+"esa-bildas":{"place":{"fr":"Paris, France (siège de l'ESA)"},"title":{"fr":"Création de l'Agence spatiale européenne (ESA)"},"note":{"title":{"fr":"À propos de la date"}}},
+"ariane-1-forsta-uppskjutningen":{"place":{"fr":"Kourou, Guyane"},"title":{"fr":"Lancement de la première fusée Ariane"}}
 }}

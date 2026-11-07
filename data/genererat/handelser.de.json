@@ -31,5 +31,15 @@
 "aksums-mynt":{"place":{"de":"Aksum (heute Äthiopien)"},"title":{"de":"Aksum beginnt eigene Münzen zu prägen"}},
 "antoniusklostret":{"place":{"de":"Das Rotmeergebirge in der Ostwüste, Ägypten"},"title":{"de":"Das Antoniuskloster in der Ostwüste wird gegründet"}},
 "tsunamin-365-alexandria":{"place":{"de":"Alexandria und das Nildelta (Zentrum des Bebens bei Kreta)"},"title":{"de":"Der Tsunami von 365 trifft Alexandria"}},
-"lydenburghuvudena":{"place":{"de":"Lydenburg in Mpumalanga, Südafrika"},"title":{"de":"Die Köpfe von Lydenburg"}}
+"lydenburghuvudena":{"place":{"de":"Lydenburg in Mpumalanga, Südafrika"},"title":{"de":"Die Köpfe von Lydenburg"}},
+"explorer-1":{"place":{"de":"Cape Canaveral, Florida, USA"},"title":{"de":"Explorer 1, der erste Satellit der USA"},"note":{"title":{"de":"Zum Datum"}}},
+"tereshkova-vostok-6":{"place":{"de":"Landung westlich von Barnaul im Altai, Sowjetunion (heute Russland)"},"title":{"de":"Valentina Tereschkowa wird die erste Frau im Weltraum"}},
+"asterix-frankrikes-forsta-satellit":{"place":{"de":"Hammaguir, Algerien"},"title":{"de":"Astérix, der erste Satellit Frankreichs"}},
+"ohsumi-japans-forsta-satellit":{"place":{"de":"Kagoshima Space Center (heute Uchinoura), Japan"},"title":{"de":"Ohsumi, der erste Satellit Japans"}},
+"dong-fang-hong-1":{"place":{"de":"Kosmodrom Jiuquan, China"},"title":{"de":"Dong Fang Hong 1, der erste Satellit Chinas"}},
+"saljut-1":{"place":{"de":"Baikonur, Kasachstan (damals Sowjetunion)"},"title":{"de":"Saljut 1, die erste Raumstation der Welt"}},
+"prospero-black-arrow":{"place":{"de":"Woomera, South Australia, Australien"},"title":{"de":"Prospero, der britische Satellit mit eigener Rakete"}},
+"aryabhata-indiens-forsta-satellit":{"place":{"de":"Kapustin Jar, Oblast Astrachan, Sowjetunion (heute Russland)"},"title":{"de":"Aryabhata, der erste Satellit Indiens"}},
+"esa-bildas":{"place":{"de":"Paris, Frankreich (Hauptsitz der ESA)"},"title":{"de":"Die Europäische Weltraumorganisation ESA wird gegründet"},"note":{"title":{"de":"Zum Datum"}}},
+"ariane-1-forsta-uppskjutningen":{"place":{"de":"Kourou, Französisch-Guayana"},"title":{"de":"Die erste Ariane-Rakete startet"}}
 }}
