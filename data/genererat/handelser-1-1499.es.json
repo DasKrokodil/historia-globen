@@ -1,0 +1,19 @@
+{"note":"Genereras av tools/dela_data.py ur data/events.json. Redigera inte här, utan i källfilen, och kör skriptet igen.",
+"period":"1-1499",
+"lang":"es",
+"events":{
+"hagia-sofia-byggs-532":{"image":{"caption":{"es":"Santa Sofía en Estambul. Foto actual (2013). Detalle. Licencia: CC BY-SA 3.0."}}},
+"sagan-om-genji":{"image":{"caption":{"es":"Fragmento de un rollo ilustrado (emaki) del siglo XII de La historia de Genji. Detalle. Licencia: Public domain."}}},
+"moai-rapa-nui":{"image":{"caption":{"es":"Moáis de Ahu Tongariki. Foto actual (2006). Detalle. Licencia: CC BY-SA 3.0."}}},
+"lalibelas-klippkyrkor":{"image":{"caption":{"es":"Bete Giyorgis, una de las iglesias excavadas en la roca de Lalibela. Foto actual (2018). Detalle. Licencia: CC BY 3.0."}}},
+"stora-mosken-i-djenne":{"image":{"caption":{"es":"La Gran Mezquita de Djenné. Foto actual (2003). Detalle. Licencia: CC BY-SA 3.0."}}},
+"teotihuacan-solpyramiden":{"image":{"caption":{"es":"La Calzada de los Muertos y la Pirámide del Sol en Teotihuacán. Foto actual (2020). Detalle. Licencia: CC BY-SA 4.0."}}},
+"tiwanaku":{"image":{"caption":{"es":"La Puerta del Sol de Tiwanaku. Foto actual. Detalle. Licencia: Public domain."}}},
+"chichen-itza":{"image":{"caption":{"es":"El Castillo (la pirámide de Kukulcán) en Chichén Itzá. Foto actual (2009). Detalle. Licencia: CC BY-SA 4.0."}}},
+"chan-chan":{"image":{"caption":{"es":"Chan Chan. Foto actual (2023). Detalle. Licencia: CC BY-SA 4.0."}}},
+"mesa-verdes-klippbostader":{"image":{"caption":{"es":"Cliff Palace en Mesa Verde. Fotografía de Gustaf Nordenskiöld de 1891. Detalle. Licencia: Public domain."}}},
+"haamonga-a-maui":{"image":{"caption":{"es":"Haʻamonga ʻa Maui en Tonga. Foto actual (2008). Detalle. Licencia: CC BY-SA 3.0."}}},
+"nan-madol-byggs":{"image":{"caption":{"es":"Nan Madol. Foto actual. Detalle. Licencia: Public domain."}}},
+"kievrus-kristnas":{"image":{"caption":{"es":"La cristianización de la Rus de Kiev en una pintura de Klavdi Lébedev (antes de 1916), no es una imagen de la época. Detalle. Licencia: Public domain."}}},
+"mosken-i-cordoba":{"image":{"caption":{"es":"La Mezquita de Córdoba vista desde el aire. Foto actual (2010). Detalle. Licencia: CC BY-SA 2.0."}}}
+}}

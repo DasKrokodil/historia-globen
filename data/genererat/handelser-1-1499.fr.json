@@ -1,0 +1,19 @@
+{"note":"Genereras av tools/dela_data.py ur data/events.json. Redigera inte här, utan i källfilen, och kör skriptet igen.",
+"period":"1-1499",
+"lang":"fr",
+"events":{
+"hagia-sofia-byggs-532":{"image":{"caption":{"fr":"Sainte-Sophie à Istanbul. Photo actuelle (2013). Détail. Licence : CC BY-SA 3.0."}}},
+"sagan-om-genji":{"image":{"caption":{"fr":"Fragment d’un rouleau illustré (emaki) du XIIᵉ siècle du Dit du Genji. Détail. Licence : Public domain."}}},
+"moai-rapa-nui":{"image":{"caption":{"fr":"Moaï d’Ahu Tongariki. Photo actuelle (2006). Détail. Licence : CC BY-SA 3.0."}}},
+"lalibelas-klippkyrkor":{"image":{"caption":{"fr":"Bete Giyorgis, l’une des églises rupestres de Lalibela. Photo actuelle (2018). Détail. Licence : CC BY 3.0."}}},
+"stora-mosken-i-djenne":{"image":{"caption":{"fr":"La grande mosquée de Djenné. Photo actuelle (2003). Détail. Licence : CC BY-SA 3.0."}}},
+"teotihuacan-solpyramiden":{"image":{"caption":{"fr":"L’allée des Morts et la pyramide du Soleil à Teotihuacán. Photo actuelle (2020). Détail. Licence : CC BY-SA 4.0."}}},
+"tiwanaku":{"image":{"caption":{"fr":"La porte du Soleil de Tiwanaku. Photo actuelle. Détail. Licence : Public domain."}}},
+"chichen-itza":{"image":{"caption":{"fr":"El Castillo (la pyramide de Kukulcán) à Chichén Itzá. Photo actuelle (2009). Détail. Licence : CC BY-SA 4.0."}}},
+"chan-chan":{"image":{"caption":{"fr":"Chan Chan. Photo actuelle (2023). Détail. Licence : CC BY-SA 4.0."}}},
+"mesa-verdes-klippbostader":{"image":{"caption":{"fr":"Cliff Palace à Mesa Verde. Photographie de Gustaf Nordenskiöld de 1891. Détail. Licence : Public domain."}}},
+"haamonga-a-maui":{"image":{"caption":{"fr":"Haʻamonga ʻa Maui aux Tonga. Photo actuelle (2008). Détail. Licence : CC BY-SA 3.0."}}},
+"nan-madol-byggs":{"image":{"caption":{"fr":"Nan Madol. Photo actuelle. Détail. Licence : Public domain."}}},
+"kievrus-kristnas":{"image":{"caption":{"fr":"La christianisation de la Rus’ de Kiev dans un tableau de Klavdi Lebedev (avant 1916), pas une image d’époque. Détail. Licence : Public domain."}}},
+"mosken-i-cordoba":{"image":{"caption":{"fr":"La mosquée de Cordoue vue du ciel. Photo actuelle (2010). Détail. Licence : CC BY-SA 2.0."}}}
+}}
