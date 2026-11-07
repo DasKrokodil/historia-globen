@@ -111,7 +111,7 @@ Rikard sa ja till planen och till alla fem rekommendationerna: resten av 5.2 vä
 | A3 lärarfält i turformatet | #737 | `redo` (Claude Code) |
 | A4 utskrift | #738 | efter #736 och #737 |
 | B1 lektion 1, åk 7–9 | #739 | efter #737 |
-| B2 lektion 2, åk 4–6 | #740 | flyttad till efter piloten (2026-11-07) |
+| B2 lektion 2, åk 4–6 | #740 | åter i piloten, byggd i PR #750 (2026-11-07) |
 | C1 Samtidighetsjakten | #741 | efter #736 |
 | C2 Källdetektiven | #742 | efter #738 och #739 |
 | E1 pilotpaket | #743 | efter #738, #739 och #741 |
@@ -122,3 +122,5 @@ Rikard sa ja till planen och till alla fem rekommendationerna: resten av 5.2 vä
 ## Uppföljning 2026-11-07
 
 Rikard flyttade lektion 2 för åk 4–6 (#740, paket B2) till efter piloten. Piloten görs bara med lektion 1 (#739). Inget annat paket berodde på B2. #740 ligger nu i "Senare: innehåll och media". Beslut: `docs/beslut/2026-11-07-lektion-2-efter-piloten.md`.
+
+Samma dag, senare: lektion 2 blev färdigbyggd i PR #750 innan flytten nådde sessionen som byggde den, och Rikard valde att behålla den i piloten. #740 är tillbaka i Version 6. Beslut: `docs/beslut/2026-11-07-lektion-2-i-piloten.md`, som ersätter `2026-11-07-lektion-2-efter-piloten.md`.
