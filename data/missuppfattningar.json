@@ -1,0 +1,34 @@
+{
+  "schema": "historia-globen/missuppfattningar@1",
+  "note": "Vanliga historiska missuppfattningar (#838, beslut 2026-11-07): vad många tror (claim), vad källorna säger (truth) och var missuppfattningen kom ifrån (origin). Appen läser ännu inte filen; visningen i faktarutan byggs efter skolpiloten. events pekar på befintliga händelser; saknas händelse anges year. Är källorna oense skrivs det öppet i truth.",
+  "misconceptions": [
+    {
+      "id": "napoleon-var-kort",
+      "events": ["napoleonkrigen"],
+      "claim": {
+        "sv": "Napoleon var ovanligt kort.",
+        "en": "Napoleon was unusually short.",
+        "de": "Napoleon war ungewöhnlich klein.",
+        "es": "Napoleón era de una estatura inusualmente baja.",
+        "fr": "Napoléon était d'une taille exceptionnellement petite."
+      },
+      "truth": {
+        "sv": "Napoleon var ungefär 167–168 cm lång, alltså nära genomsnittet för sin tid. Siffran ”5 fot 2 tum” gäller franskt mått från tiden före metersystemet; i engelskt mått är samma längd nästan 5 fot 6 tum. Källorna anger längden något olika (cirka 168 cm respektive cirka 1,67 m).",
+        "en": "Napoleon was about 167–168 cm tall, close to average for his time. The figure “5 feet 2 inches” is in French measure from before the metric system; in imperial measure the same height is just under 5 feet 6 inches. The sources give the height slightly differently (about 168 cm and about 1.67 m).",
+        "de": "Napoleon war etwa 167–168 cm groß, also nahe am Durchschnitt seiner Zeit. Die Angabe „5 Fuß 2 Zoll“ gilt im französischen Maß aus der Zeit vor dem metrischen System; im englischen Maß ist dieselbe Körpergröße knapp 5 Fuß 6 Zoll. Die Quellen geben die Größe leicht unterschiedlich an (etwa 168 cm bzw. etwa 1,67 m).",
+        "es": "Napoleón medía unos 167–168 cm, es decir, cerca de la media de su época. La cifra «5 pies 2 pulgadas» corresponde a la medida francesa anterior al sistema métrico; en medida inglesa la misma estatura son casi 5 pies 6 pulgadas. Las fuentes dan la estatura de forma ligeramente distinta (unos 168 cm y unos 1,67 m).",
+        "fr": "Napoléon mesurait environ 167–168 cm, soit près de la moyenne de son époque. Le chiffre « 5 pieds 2 pouces » est exprimé en mesure française d'avant le système métrique ; en mesure anglaise, la même taille fait presque 5 pieds 6 pouces. Les sources donnent la taille de façon légèrement différente (environ 168 cm et environ 1,67 m)."
+      },
+      "origin": {
+        "sv": "Brittiska karikatyrtecknare, framför allt James Gillray, framställde upprepat Napoleon som liten för att håna honom och hans erövringsplaner. Den brittiska pressen kallade honom ”Little Boney”, och en av Gillrays karikatyrer från 1803 visar honom som kort. Begreppet ”Napoleonkomplex”, om kortvuxna män som uppfattas som aggressiva, är uppkallat efter honom.",
+        "en": "British cartoonists, above all James Gillray, repeatedly depicted Napoleon as small in order to mock him and his ambitions of conquest. The British press called him “Little Boney”, and one of Gillray's caricatures from 1803 shows him as short. The term “Napoleon complex”, for short men perceived as aggressive, is named after him.",
+        "de": "Britische Karikaturisten, vor allem James Gillray, stellten Napoleon immer wieder als klein dar, um ihn und seine Eroberungspläne zu verspotten. Die britische Presse nannte ihn „Little Boney“, und eine von Gillrays Karikaturen aus dem Jahr 1803 zeigt ihn als klein von Statur. Der Begriff „Napoleon-Komplex“ für kleinwüchsige Männer, die als aggressiv wahrgenommen werden, ist nach ihm benannt.",
+        "es": "Los caricaturistas británicos, sobre todo James Gillray, representaron a Napoleón una y otra vez como bajo para burlarse de él y de sus planes de conquista. La prensa británica lo llamaba «Little Boney», y una de las caricaturas de Gillray de 1803 lo muestra de baja estatura. El término «complejo de Napoleón», para los hombres de baja estatura que se perciben como agresivos, lleva su nombre.",
+        "fr": "Des caricaturistes britanniques, surtout James Gillray, ont représenté Napoléon à maintes reprises comme petit pour se moquer de lui et de ses projets de conquête. La presse britannique l'appelait « Little Boney », et une caricature de Gillray de 1803 le montre de petite taille. Le terme « complexe de Napoléon », pour les hommes de petite taille perçus comme agressifs, porte son nom."
+      },
+      "originKinds": ["satire"],
+      "sources": ["wp-napoleon", "wp-napoleon-complex"],
+      "review": "source-checked"
+    }
+  ]
+}
