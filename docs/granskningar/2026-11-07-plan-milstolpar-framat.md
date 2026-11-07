@@ -126,3 +126,28 @@ Med högst fyra öppna pull requests per person ryms detta. **När det är fullt
 ## Om du säger ja
 
 Jag skapar issuena i omgångar efter spåren ovan, sätter `redo` på T1, T3, T12, C0 och V1 direkt (inga krockar), och resten när deras villkor är uppfyllda. Byggorderna skrivs i issuena, inte som separata kommentarer.
+
+## Genomfört (2026-11-07)
+
+Rikard sa ja till att skapa issuena. Den nya milstolpen "Täckning: händelser och balans" är skapad (milstolpe 31). 31 nya issues är skapade och kopplade som delissues där det finns en förälder. Beslut 1–4 gäller som rekommenderat i planen.
+
+| Uppgift | Issue | `redo` |
+|---|---|---|
+| T1 webbläsartest | #708 (befintligt) | ja |
+| T3 prestandamätning | #752 | ja |
+| T4 underlag Idag i historien | #753 | nej, väntar på besked |
+| T5, T6, T7 intervall (#569) | #754, #755, #756 | nej, efter piloten |
+| T10 utskrift | #757 | nej, efter #738 |
+| T11 blind-spots Version 6 | #758 | nej, före release |
+| T12 benchmark | #759 | ja |
+| C0 källdriven lista | #760 | ja |
+| C1–C7 täckning | #761–#767 | nej, efter C0 (C7 även efter beslut om #396) |
+| C8–C10 rymd, medicin, vetenskap | #84, #85, #86 (befintliga, byggorder tillagd) | ja |
+| C12 fun facts, tre omgångar | #768–#770 | nej, startar efter C0 om inget krockar |
+| C13 bilder, per världsdel | #771–#774 | nej, delar upp #299 |
+| V1 förstudie tidsmodell | #775 | ja |
+| Översättning till tyska per period | #776–#782 (delissues till #677) | bara #776 |
+
+Befintliga issues #15, #299, #396, #555 och #571 fick förarbete som kommentar. Gamla milstolpetexter ("Milstolpe: Version 10/12/14") är borttagna ur #15, #84, #85 och #86.
+
+Spanska (#678) och franska (#679) delas per period på samma sätt när tyskan är på väg. `data/oversattning.json` ändras av nästan alla datauppgifter; vid ombasering körs `python3 tools/oversattning.py` om.
