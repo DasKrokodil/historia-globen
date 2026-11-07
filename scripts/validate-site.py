@@ -395,7 +395,7 @@ validate_schema_file('data/turer/index.json', tours_index or {}, 'tours-index.sc
 for path, tour in tours:
     validate_schema_file(path, tour, 'tour.schema.json')
 
-# 8c. Missuppfattningar (#838): filen publiceras ännu inte (appen läser den inte), så den läses ur repot.
+# 8c. Missuppfattningar (#838): filen publiceras (scripts/build-site.sh, sedan #858) och appen läser den; här kontrolleras den ur repot.
 misc_path = ROOT / 'data' / 'missuppfattningar.json'
 if misc_path.is_file():
     try:
