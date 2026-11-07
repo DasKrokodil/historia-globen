@@ -1592,6 +1592,22 @@
     { "id": "whe-chinese-diamond-sutra", "title": "Chinese Diamond Sutra – World History Encyclopedia (bild och text från International Dunhuang Project, 2013)", "url": "https://www.worldhistory.org/image/1426/chinese-diamond-sutra/", "license": "Public domain", "checked": "2026-11-07" },
     { "id": "wp-mogao-caves", "title": "Mogao Caves – Wikipedia (koordinaterna)", "url": "https://en.wikipedia.org/wiki/Mogao_Caves", "license": "CC BY-SA 4.0", "checked": "2026-11-07" },
     {"id": "wp-history-of-sweden-800-1521", "title": "History of Sweden (800–1521) – Wikipedia", "url": "https://en.wikipedia.org/wiki/History_of_Sweden_(800%E2%80%931521)", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
-    {"id": "wp-stockholm", "title": "Stockholm – Wikipedia (historia: första omnämnandet 1252, officiell huvudstad 1634)", "url": "https://en.wikipedia.org/wiki/Stockholm", "license": "CC BY-SA 4.0", "checked": "2026-11-07"}
+    {"id": "wp-stockholm", "title": "Stockholm – Wikipedia (historia: första omnämnandet 1252, officiell huvudstad 1634)", "url": "https://en.wikipedia.org/wiki/Stockholm", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-independence-i-culture", "title": "Independence I culture – Wikipedia", "url": "https://en.wikipedia.org/wiki/Independence_I_culture", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-saqqaq-culture", "title": "Saqqaq culture – Wikipedia", "url": "https://en.wikipedia.org/wiki/Saqqaq_culture", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-ortoiroid-people", "title": "Ortoiroid people – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ortoiroid_people", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-dorset-culture", "title": "Dorset culture – Wikipedia", "url": "https://en.wikipedia.org/wiki/Dorset_culture", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-norton-tradition", "title": "Norton tradition – Wikipedia", "url": "https://en.wikipedia.org/wiki/Norton_tradition", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-kuntur-wasi", "title": "Kuntur Wasi – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kuntur_Wasi", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-paso-de-la-amada", "title": "Paso de la Amada – Wikipedia", "url": "https://en.wikipedia.org/wiki/Paso_de_la_Amada", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-san-bartolo-maya-site", "title": "San Bartolo (Maya site) – Wikipedia", "url": "https://en.wikipedia.org/wiki/San_Bartolo_(Maya_site)", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-temple-of-the-feathered-serpent", "title": "Temple of the Feathered Serpent, Teotihuacan – Wikipedia", "url": "https://en.wikipedia.org/wiki/Temple_of_the_Feathered_Serpent,_Teotihuacan", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-kinich-yax-kuk-mo", "title": "Kʼinich Yax Kʼukʼ Moʼ – Wikipedia", "url": "https://en.wikipedia.org/wiki/K%CA%BCinich_Yax_K%CA%BCuk%CA%BC_Mo%CA%BC", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-tierra-blanca-joven-eruption", "title": "Tierra Blanca Joven eruption – Wikipedia", "url": "https://en.wikipedia.org/wiki/Tierra_Blanca_Joven_eruption", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-trepanning", "title": "Trepanning – Wikipedia (Paracaskulturen)", "url": "https://en.wikipedia.org/wiki/Trepanning", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-puquios", "title": "Puquios – Wikipedia", "url": "https://en.wikipedia.org/wiki/Puquios", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-takalik-abaj", "title": "Takalik Abaj – Wikipedia", "url": "https://en.wikipedia.org/wiki/Takalik_Abaj", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-napoleon", "title": "Napoleon – Wikipedia", "url": "https://en.wikipedia.org/wiki/Napoleon", "license": "CC BY-SA 4.0", "checked": "2026-11-07"},
+    {"id": "wp-napoleon-complex", "title": "Napoleon complex – Wikipedia", "url": "https://en.wikipedia.org/wiki/Napoleon_complex", "license": "CC BY-SA 4.0", "checked": "2026-11-07"}
   ]
 }
