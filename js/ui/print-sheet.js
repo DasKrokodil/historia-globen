@@ -6,6 +6,11 @@
 // stegen med frågor. Lärarbladet: årskurs, tid, förkunskaper, lärarinstruktion, kopplingen till läroplanen med
 // källa, frågorna, exit ticket och länken till turen (#t=<id>, #736). Har lektionen Källdetektiven
 // (lesson.sourceDetective, #742) skrivs dess frågor på ett eget elevblad mellan de två, och lärarbladet får dem också.
+//
+// Tillgänglighet och papper (#757): varje blad är en märkt sektion med en egen rubrik på nivå 1 ("Elevblad <titel>"
+// och "Lärarblad <titel>", och "Källdetektiven <titel>" när lektionen har den), därefter nivå 2, så att läsordning och rubriker blir rätta när utskriften sparas som
+// taggad PDF. Skrivrader och namnrad är dekoration och göms för hjälpmedel. Allt är svart på vitt, och ingenting
+// beror på färg. Länkar står som text, eftersom papper inte går att klicka på.
 import { t, loadSources } from '../model.js';
 import { ui } from '../i18n.js';
 
@@ -19,6 +24,7 @@ const el = (tag, cls, text) => {
 /** Tomma rader att skriva på. */
 const lines = n => {
   const box = el('div', 'print-lines');
+  box.setAttribute('aria-hidden', 'true'); // dekoration: papperet har rader, en PDF-läsare behöver inte höra dem
   for (let i = 0; i < n; i++) box.append(el('span', 'print-line'));
   return box;
 };
@@ -49,18 +55,25 @@ const detective = tour => (tour.lesson?.sourceDetective ?? []).map(d => {
 /** Stegets rubrik som rad: "Steg 9: Stalingrad, 2 februari 1943". */
 const stepLabel = (step, n) => ui('print.step', { n, title: t(step.title) || '' }).replace(/:\s*$/, '');
 
-function head(tour, kind) {
+function head(tour, kind, id) {
   const h = el('header', 'print-head');
-  h.append(el('p', 'print-kind', kind), el('h1', 'print-title', t(tour.title)));
+  // Bladets sort och turens titel i samma rubrik, så att de två bladen inte har samma h1
+  const title = el('h1', 'print-heading');
+  title.id = id;
+  title.append(el('span', 'print-kind', kind), ' ', el('span', 'print-title', t(tour.title)));
+  h.append(title);
   if (tour.summary) h.append(el('p', 'print-summary', t(tour.summary)));
   return h;
 }
 
 function studentSheet(tour, srcById) {
   const page = el('section', 'print-page print-student');
-  page.append(head(tour, ui('print.student')));
+  page.setAttribute('aria-labelledby', 'print-student-title');
+  page.append(head(tour, ui('print.student'), 'print-student-title'));
   const name = el('p', 'print-name', `${ui('print.name')}: `);
-  name.append(el('span', 'print-blank'));
+  const blank = el('span', 'print-blank');
+  blank.setAttribute('aria-hidden', 'true');
+  name.append(blank);
   page.append(name);
   const list = el('ol', 'print-questions');
   for (const { step, n } of questions(tour)) {
@@ -93,9 +106,12 @@ function sourceBox(items, srcById) {
 /** Källdetektiven (#742): ett eget elevblad, så att elevbladet för turen får plats på ett A4 och uppdraget kan delas ut för sig. */
 function detectiveSheet(tour, cases, srcById) {
   const page = el('section', 'print-page print-detective');
-  page.append(head(tour, ui('print.detective')));
+  page.setAttribute('aria-labelledby', 'print-detective-title');
+  page.append(head(tour, ui('print.detective'), 'print-detective-title'));
   const name = el('p', 'print-name', `${ui('print.name')}: `);
-  name.append(el('span', 'print-blank'));
+  const blank = el('span', 'print-blank');
+  blank.setAttribute('aria-hidden', 'true');
+  name.append(blank);
   page.append(name, el('p', 'print-detective-intro', ui('print.detectiveIntro')));
   for (const { step, n, questions: qs } of cases) {
     const item = el('div', 'print-detective-case');
@@ -111,7 +127,8 @@ function detectiveSheet(tour, cases, srcById) {
 function teacherSheet(tour, srcById) {
   const { lesson } = tour;
   const page = el('section', 'print-page print-teacher');
-  page.append(head(tour, ui('print.teacher')));
+  page.setAttribute('aria-labelledby', 'print-teacher-title');
+  page.append(head(tour, ui('print.teacher'), 'print-teacher-title'));
   const facts = el('dl', 'print-facts');
   const fact = (label, value) => { facts.append(el('dt', null, label), el('dd', null, value)); };
   fact(ui('print.gradesLabel'), gradeText(lesson.grades));
@@ -141,7 +158,7 @@ function teacherSheet(tour, srcById) {
   page.append(qs);
   const cases = detective(tour);
   if (cases.length) {
-    const det = el('div', 'print-block');
+    const det = el('div', 'print-block print-detective-teacher');
     det.append(el('h2', null, ui('print.detective')), el('p', null, ui('print.detectiveTeacher')));
     const dl = el('ol', 'print-questions-short');
     for (const { n, questions: dq } of cases) dl.append(el('li', null, `${ui('print.stepShort', { n })}: ${dq.map(q => t(q)).join(' ')}`));

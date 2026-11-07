@@ -2480,6 +2480,32 @@ async function run(browser, vp) {
     });
   }
   if (vp.name === 'dator') {
+    // Mätningarna i utskriftsvyn (#757): körs i sidan med print-media påslaget
+    const printAudit = () => {
+      const root = document.getElementById('print-sheet');
+      const heads = [...root.querySelectorAll('h1, h2, h3, h4')];
+      const levels = heads.map(h => Number(h.tagName[1]));
+      const h1s = heads.filter(h => h.tagName === 'H1').map(h => h.textContent.trim());
+      const texts = [...root.querySelectorAll('*')].filter(e => e.children.length === 0 && e.textContent.trim());
+      const css = (e, p) => getComputedStyle(e).getPropertyValue(p);
+      const avoid = ['.print-questions > li', '.print-exit', '.print-sources li'].flatMap(s => [...root.querySelectorAll(s)]);
+      return {
+        h1: h1s.length,
+        h1Same: new Set(h1s).size !== h1s.length,
+        skippedHeading: levels.some((l, i) => l > (levels[i - 1] ?? 0) + 1),
+        unlabelled: [...root.querySelectorAll('.print-page')].filter(s => !document.getElementById(s.getAttribute('aria-labelledby') ?? '')?.textContent.trim()).length,
+        visibleLines: [...root.querySelectorAll('.print-lines, .print-blank')].filter(e => e.getAttribute('aria-hidden') !== 'true').length,
+        colors: [...new Set(texts.map(e => `${css(e, 'color')} på ${css(e, 'background-color')}`))],
+        smallest: Math.min(...texts.map(e => parseFloat(css(e, 'font-size')) * 0.75)),
+        markers: [...root.querySelectorAll('.print-questions, .print-questions-short')].filter(l => css(l, 'list-style-type') !== 'none').length,
+        splits: avoid.filter(e => !/avoid/.test(css(e, 'break-inside'))).length + heads.filter(h => h.tagName === 'H2' && !/avoid/.test(css(h, 'break-after'))).length,
+        wide: [...root.querySelectorAll('*')].filter(e => e.clientWidth > 0 && e.scrollWidth > e.clientWidth + 1).length,
+        urls: root.querySelectorAll('.print-src-url, .print-link').length,
+        // Bladens höjd och papperets bredd mäts i A4:s tryckbara bredd (se testet nedan)
+        heights: [...root.querySelectorAll('.print-page')].map(s => Math.ceil(s.getBoundingClientRect().height)),
+        paperWidth: document.documentElement.scrollWidth,
+      };
+    };
     // Utskrift av en lektionstur (#738): knappen bara i en tur med lärarfält, och i utskrift syns bara elevbladet
     // och lärarbladet. Webbläsarens utskriftsdialog ersätts, så att testet inte väntar på den.
     await check('en lektionstur skriver ut elevblad och lärarblad (#738)', async () => {
@@ -2508,13 +2534,47 @@ async function run(browser, vp) {
           pages: document.querySelectorAll('#print-sheet .print-page').length,
           questions: document.querySelectorAll('#print-sheet .print-student .print-questions > li').length,
           detective: document.querySelectorAll('#print-sheet .print-detective .print-detective-case').length,
+          detectiveHeading: document.querySelector('#print-sheet .print-detective h1')?.textContent.trim() ?? '',
           sheet: getComputedStyle(document.getElementById('print-sheet')).display,
           app: getComputedStyle(document.getElementById('app')).display,
           link: document.querySelector('#print-sheet .print-link')?.textContent ?? '',
           teacher: document.querySelector('#print-sheet .print-teacher')?.textContent ?? '',
         }));
+        // Mätningen görs i A4:s tryckbara yta, 210 mm minus marginalerna 2 × 15 mm = 180 mm = 680 px bred och
+        // 297 mm minus 2 × 11 mm = 275 mm = 1039 px hög, så att ett blad som är för brett eller för högt larmar innan det
+        // spiller över, och svaret blir detsamma på alla maskiner (ett fönster på 1400 px skulle inte hitta något)
+        const A4_WIDTH = 680;
+        const A4_HEIGHT = 1039;
+        const viewport = printPage.viewportSize();
+        await printPage.setViewportSize({ width: A4_WIDTH, height: viewport?.height ?? 900 });
+        // Höjden mäts först när webbtypsnitten har laddats, annars mäts reservtypsnittet (#757)
+        await printPage.evaluate(() => document.fonts.ready);
+        Object.assign(got, await printPage.evaluate(printAudit));
+        if (viewport) await printPage.setViewportSize(viewport);
+        // Sidbrytning: hela bladen ryms på ett A4 var (Chromium kan skriva PDF; Firefox och WebKit kan inte)
+        const pdfPages = BROWSER === 'chromium'
+          ? (await printPage.pdf({ format: 'A4', preferCSSPageSize: true })).toString('latin1').match(/\/Type\s*\/Page[^s]/g)?.length ?? 0
+          : got.pages;
         await printPage.emulateMedia({ media: 'screen' });
+        // Utskriften (#757): läsordning och rubriker för hjälpmedel, svart på vitt utan färg, läsbar textstorlek och
+        // sidbrytning som inte delar ett svarsfält
+        if (got.h1 !== got.pages || got.skippedHeading) throw new Error(`rubrikerna är fel i utskriften: ${got.h1} h1 för ${got.pages} blad, hopp i nivåerna: ${got.skippedHeading}`);
+        if (got.h1Same) throw new Error('två blad har samma rubrik');
+        if (got.unlabelled) throw new Error(`${got.unlabelled} blad saknar märkning (aria-labelledby)`);
+        if (got.visibleLines) throw new Error('skrivraderna syns för hjälpmedel i stället för att vara dekoration');
+        if (got.colors.length !== 1) throw new Error(`utskriften har fler färger än svart på vitt: ${got.colors.join(' ')}`);
+        if (got.smallest < 8) throw new Error(`minsta texten i utskriften är ${got.smallest.toFixed(1)} pt, minst 8 pt krävs`);
+        if (got.markers) throw new Error('listornas siffror säger emot stegnumren på bladen');
+        if (got.splits) throw new Error(`${got.splits} svarsfält eller grupper får delas av en sidbrytning`);
+        if (got.wide) throw new Error(`${got.wide} element är bredare än utskriftsytan`);
+        if (got.urls < 2) throw new Error('adresser står inte som text på bladen (papper går inte att klicka på)');
+        if (got.paperWidth > A4_WIDTH) throw new Error(`utskriften är ${got.paperWidth} px bred, A4 rymmer ${A4_WIDTH} px`);
+        // Minst 3 % luft: texten kan variera något med typsnitt och webbläsare
+        const maxHeight = Math.floor(A4_HEIGHT * 0.97);
+        if (got.heights.some(h => h > maxHeight)) throw new Error(`ett blad är ${Math.max(...got.heights)} px högt, högst ${maxHeight} px av A4:s ${A4_HEIGHT} px (${got.heights.join(', ')})`);
+        if (pdfPages !== got.pages) throw new Error(`utskriften blev ${pdfPages} A4-sidor i stället för ett blad per sida (${got.pages} blad)`);
         if (got.pages !== 3) throw new Error(`${got.pages} blad i stället för elevblad, Källdetektiven och lärarblad`);
+        if (!/^Källdetektiven /.test(got.detectiveHeading)) throw new Error(`Källdetektiv-bladets rubrik är "${got.detectiveHeading}"`);
         if (got.questions !== 5) throw new Error(`elevbladet har ${got.questions} frågor, turen har 5`);
         if (got.detective !== 2) throw new Error(`Källdetektiven har ${got.detective} händelser, lektionen har 2 (#742)`);
         if (got.sheet === 'none' || got.app !== 'none') throw new Error(`i utskrift: bladen ${got.sheet}, sidan ${got.app}`);
@@ -2525,6 +2585,75 @@ async function run(browser, vp) {
         await printPage.close();
       }
       return 'ingen knapp utan lärarfält; tre blad (elevblad, Källdetektiven, lärarblad), fem frågor, bara bladen i utskrift, länk och Lgr22 med källa';
+    });
+    // Höjden på bladen (#757, #742): alla fem språken och båda lektionerna, med webbtypsnitten och med reservtypsnittet.
+    // Engelska, tyska, spanska och franska är längre än svenska, och utan webbtypsnitten byts typsnittet mot ett bredare
+    // (DejaVu Sans på Linux), så ett mått på svenska med webbtypsnitt säger inget om de andra fallen.
+    await check('elevbladet och lärarbladet ryms på en A4-sida i alla språk, med och utan webbtypsnitt (#757)', async () => {
+      const A4_WIDTH = 680;
+      const A4_HEIGHT = 1039;
+      const LANGS = ['sv', 'en', 'de', 'es', 'fr'];
+      const TOURS = ['andra-varldskriget', 'vikingatiden-och-varlden'];
+      const measure = async (lang, tour, fallback) => {
+        const pg = await context.newPage();
+        try {
+          if (THREE_LOCAL) {
+            const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+            await pg.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+          }
+          if (fallback) await pg.route(u => isFont(u.href), r => r.abort());
+          await pg.goto(`${BASE}?ny=1&lang=${lang}#t=${tour}`);
+          await pg.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          await pg.waitForSelector('#tour-print', { state: 'visible', timeout: T.load });
+          await pg.evaluate(() => { window.print = () => { window.__printed = true; }; });
+          await pg.click('#tour-print');
+          await pg.waitForFunction(() => window.__printed, null, { timeout: T.step });
+          await pg.emulateMedia({ media: 'print' });
+          // Reservtypsnittet är DejaVu Sans, så att mätningen blir densamma på alla maskiner (annars väljer
+          // webbläsaren själv något bland systemets typsnitt)
+          if (fallback) await pg.addStyleTag({ content: '@media print { #print-sheet, #print-sheet * { font-family: "DejaVu Sans", sans-serif !important; } }' });
+          await pg.setViewportSize({ width: A4_WIDTH, height: 900 });
+          await pg.evaluate(() => document.fonts.ready);
+          const got = await pg.evaluate(() => ({
+            lang: document.documentElement.lang,
+            heights: [...document.querySelectorAll('#print-sheet .print-page')].map(s => Math.ceil(s.getBoundingClientRect().height)),
+            h1: document.querySelectorAll('#print-sheet h1').length,
+            webFonts: [...document.fonts].filter(f => f.status === 'loaded').map(f => f.family),
+            bodyFont: getComputedStyle(document.querySelector('#print-sheet .print-q')).fontFamily,
+          }));
+          return got;
+        } finally {
+          await pg.close();
+        }
+      };
+      const limit = { web: Math.floor(A4_HEIGHT * 0.97), fallback: A4_HEIGHT - 1 };
+      const rows = [];
+      for (const fallback of [false, true]) {
+        // Utan nät (THREE_LOCAL) blockeras webbtypsnitten av den vanliga routen och går inte att mäta
+        if (!fallback && THREE_LOCAL && !(await measure('sv', TOURS[0], false)).webFonts.includes('Instrument Sans')) continue;
+        for (const tour of TOURS) {
+          // Andra världskriget är det längsta bladet och mäts på alla språk; vikingatiden är cirka 90 px lägre och
+          // mäts på det längsta språket (tyska) med webbtypsnitt också på engelska, så att testet inte tar för lång tid
+          const langs = tour === TOURS[0] ? LANGS : fallback ? ['de'] : ['en', 'de'];
+          const results = [];
+          for (const lang of langs) results.push(await measure(lang, tour, fallback));
+          results.forEach((got, i) => {
+            const lang = langs[i];
+            if (got.lang !== lang) throw new Error(`språket blev ${got.lang} i stället för ${lang}`);
+            const used = got.webFonts.includes('Instrument Sans');
+            if (!fallback && !used) throw new Error(`${tour} ${lang}: webbtypsnitten laddades inte, så höjden mäter fel typsnitt (${got.bodyFont})`);
+            if (fallback && (used || !got.bodyFont.startsWith('"DejaVu Sans"'))) throw new Error(`${tour} ${lang}: reservmätningen använder fel typsnitt (${got.bodyFont}, webbtypsnitt: ${used})`);
+            const max = Math.max(...got.heights);
+            const lim = limit[fallback ? 'fallback' : 'web'];
+            // Andra världskriget har Källdetektiven (#742) och därmed tre blad, vikingatiden har två; varje blad har en h1
+            const sheets = tour === TOURS[0] ? 3 : 2;
+            if (got.heights.length !== sheets || got.h1 !== sheets) throw new Error(`${tour} ${lang}: ${got.heights.length} blad och ${got.h1} h1 i stället för ${sheets}`);
+            if (max > lim) throw new Error(`${tour} ${lang} ${fallback ? 'med reservtypsnitt' : 'med webbtypsnitt'}: ett blad är ${max} px högt, högst ${lim} px av A4:s ${A4_HEIGHT} px (${got.heights.join(', ')})`);
+            rows.push(`${fallback ? 'reserv' : 'web'} ${tour.slice(0, 4)} ${lang} ${got.heights.join('/')}`);
+          });
+        }
+      }
+      return `${rows.length} mätningar inom gränsen: ${rows.join('; ')}`;
     });
   }
   // Sök och följ (#651, tidigare Sök #570): en händelse öppnas på sitt år, ett rike börjar följas, och tomt resultat syns tydligt
@@ -2561,6 +2690,79 @@ async function run(browser, vp) {
     await hidden('#focus-menu');
     if (await page.locator('#more-menu').isVisible() && await page.isVisible('#more-toggle')) await page.click('#more-toggle').catch(() => {});
     return 'Pompeji öppnas år 79; Bysantinska ger Rom i Fokus; nonsens ger "Inget …"; Escape stänger';
+  });
+
+  // Vanliga missuppfattningar (#838): faktarutan för en händelse med en missuppfattning visar påståendet, vad
+  // källorna säger och källan, och ursprunget ligger i en hopfälld rad. En händelse utan missuppfattning får ingen ruta.
+  await check('faktarutan visar vanlig missuppfattning med källa och hopfälld förklaring (#838)', async () => {
+    if (await page.locator('#focus-bar').isVisible()) { await page.click('#focus-exit'); await hidden('#focus-bar'); }
+    const openSearch = async () => {
+      if (await page.isHidden('#focus-menu')) await clickView('#btn-focus');
+      await visible('#focus-menu');
+    };
+    await openSearch();
+    await page.click('#focus-menu [data-tab="Alla"]');
+    await page.fill('#focus-menu .focus-search', 'machu picchu');
+    await page.waitForSelector('#focus-menu [data-key^="event:"]', { timeout: T.step });
+    await page.press('#focus-menu .focus-search', 'Enter');
+    await hidden('#focus-menu');
+    await visible('#detail');
+    await page.waitForSelector('#detail .detail-myth', { timeout: T.step });
+    const myth = page.locator('#detail .detail-myth').first();
+    const text = (await myth.textContent()).replace(/\s+/g, ' ');
+    if (!/Bingham/.test(text)) throw new Error(`missuppfattningen nämner inte Bingham: ${text.slice(0, 120)}`);
+    if (!await myth.locator('a[href^="http"]').count()) throw new Error('missuppfattningen saknar källänk');
+    if (await myth.locator('details.myth-origin').evaluate(d => d.open)) throw new Error('ursprunget ska vara hopfällt från början');
+    await myth.locator('summary').click();
+    if (!await myth.locator('details.myth-origin').evaluate(d => d.open)) throw new Error('raden Varifrån kom det? öppnades inte');
+    await shot('3-missuppfattning-i-faktarutan');
+    await page.keyboard.press('Escape');
+    await openSearch();
+    await page.fill('#focus-menu .focus-search', 'pompeji');
+    await page.waitForSelector('#focus-menu [data-key^="event:"]', { timeout: T.step });
+    await page.press('#focus-menu .focus-search', 'Enter');
+    await hidden('#focus-menu');
+    await visible('#detail');
+    if (await page.locator('#detail .detail-myth').count()) throw new Error('Pompeji har ingen missuppfattning men fick en ruta');
+    await page.keyboard.press('Escape');
+    return 'Machu Picchu visar påstående, källa och hopfälld förklaring; Pompeji får ingen ruta';
+  });
+
+  // Missuppfattningsfilen går inte att ladda (#838, rättning efter granskningen av #858): filen efterfrågas högst en gång
+  // (förut om och om igen, med växande konsolfel), faktarutan ritas ändå med sin egen källrad och får ingen missuppfattning.
+  await check('faktarutan ritas med källrad när missuppfattningsfilen inte kan laddas (#838)', async () => {
+    const blockedPage = await context.newPage();
+    const msgs = [];
+    let calls = 0;
+    blockedPage.on('console', m => { if ((m.type() === 'error' || m.type() === 'warning') && !isFont(m.location()?.url)) msgs.push(m.text()); });
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await blockedPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      }
+      await blockedPage.route(u => isFont(u.href), r => r.abort());
+      await blockedPage.route('**/missuppfattningar.json*', r => { calls++; r.abort(); });
+      await blockedPage.goto(BASE);
+      await blockedPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (await blockedPage.isHidden('#btn-focus') && await blockedPage.isVisible('#more-toggle')) await blockedPage.click('#more-toggle');
+      await blockedPage.click('#btn-focus');
+      await blockedPage.click('#focus-menu [data-tab="Alla"]');
+      await blockedPage.fill('#focus-menu .focus-search', 'machu picchu');
+      await blockedPage.waitForSelector('#focus-menu [data-key^="event:"]', { timeout: T.step });
+      await blockedPage.press('#focus-menu .focus-search', 'Enter');
+      await blockedPage.waitForSelector('#detail .src', { timeout: T.step });
+      // Tid nog för upprepade omladdningar att visa sig (förut cirka två anrop i sekunden)
+      await blockedPage.waitForTimeout(4000);
+      if (calls !== 1) throw new Error(`missuppfattningsfilen efterfrågades ${calls} gånger, högst 1 tillåts`);
+      if (await blockedPage.locator('#detail .detail-myth').count()) throw new Error('missuppfattningsruta visas trots att filen saknas');
+      if (!await blockedPage.locator('#detail .src').count()) throw new Error('händelsens källrad saknas');
+      const mine = msgs.filter(t => /issuppfattningarna/.test(t));
+      if (mine.length > 1) throw new Error(`felet loggades ${mine.length} gånger: ${mine.join(' | ')}`);
+      if (msgs.length > 2) throw new Error(`upprepade konsolmeddelanden: ${msgs.slice(0, 5).join(' | ')}`);
+    } finally {
+      await blockedPage.close();
+    }
+    return 'filen efterfrågas en gång, källraden syns, ingen missuppfattningsruta, felet loggas en gång';
   });
 
   // Sök och följ med bara tangentbordet (#708): Enter öppnar, sökrutan får fokus (dator), pil ner når listan,

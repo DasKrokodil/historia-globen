@@ -1,6 +1,6 @@
 {
   "schema": "historia-globen/missuppfattningar@1",
-  "note": "Vanliga historiska missuppfattningar (#838, beslut 2026-11-07): vad många tror (claim), vad källorna säger (truth) och var missuppfattningen kom ifrån (origin). Appen läser ännu inte filen; visningen i faktarutan byggs efter skolpiloten. events pekar på befintliga händelser; saknas händelse anges year. Är källorna oense skrivs det öppet i truth.",
+  "note": "Vanliga historiska missuppfattningar (#838, beslut 2026-11-07): vad många tror (claim), vad källorna säger (truth) och var missuppfattningen kom ifrån (origin). Faktarutan visar posterna för händelserna i events (#838); poster utan events visas inte än. events pekar på befintliga händelser; saknas händelse anges year. Är källorna oense skrivs det öppet i truth.",
   "misconceptions": [
     {
       "id": "napoleon-var-kort",
@@ -37,7 +37,7 @@
         "history-napoleon-short",
         "nationalpost-napoleon-short"
       ],
-      "review": "two-sources"
+      "review": "source-checked"
     },
     {
       "id": "kinesiska-muren-syns-fran-manen",
@@ -293,7 +293,7 @@
         "wp-moai",
         "snopes-moai"
       ],
-      "review": "two-sources"
+      "review": "source-checked"
     },
     {
       "id": "tasmanska-aboriginer-dog-ut-1876",
@@ -458,11 +458,11 @@
         "fr": "La ville a été construite par des Africains. La source désigne les Shona (Karanga) comme bâtisseurs. La construction a commencé au XIe siècle et s'est poursuivie pendant plus de 300 ans. Que les ruines soient d'origine africaine n'est devenu un consensus chez les chercheurs que dans les années 1950."
       },
       "origin": {
-        "sv": "Under kolonialtiden ansåg rhodesier det otänkbart att inhemska afrikaner hade byggt ruinerna. Teorier som tillskrev bygget judar, araber, fenicier eller vem som helst utom shonafolket präglade forskningen under hela 1900-talet. Enligt källan pressade Rhodesias vita regering arkeologer att förneka att afrikaner byggt ruinerna, eftersom ett erkännande hade undergrävt regeringens motivering att den hade ett ”civilisationsuppdrag”.",
-        "en": "During the colonial era, Rhodesians found it inconceivable that indigenous Africans had built the ruins. Theories ascribing the construction to Jews, Arabs, Phoenicians or anyone but the Shona dominated the historiography throughout the 20th century. According to the source, the white government of Rhodesia pressured archaeologists to deny that Africans had built the ruins, because acknowledging it would have dismantled its “civilising mission” rationale.",
-        "de": "In der Kolonialzeit hielten Rhodesier es für undenkbar, dass einheimische Afrikaner die Ruinen gebaut hatten. Theorien, die den Bau Juden, Arabern, Phöniziern oder allen außer den Shona zuschrieben, prägten die Forschung das gesamte 20. Jahrhundert hindurch. Laut der Quelle drängte Rhodesiens weiße Regierung Archäologen, zu leugnen, dass Afrikaner die Ruinen gebaut hatten, weil ein Eingeständnis ihre Begründung einer „Zivilisierungsmission“ untergraben hätte.",
-        "es": "Durante la era colonial, los rodesianos consideraban inconcebible que africanos autóctonos hubieran construido las ruinas. Las teorías que atribuían la construcción a judíos, árabes, fenicios o a cualquiera menos a los shona dominaron la historiografía durante todo el siglo XX. Según la fuente, el gobierno blanco de Rodesia presionó a los arqueólogos para que negaran que los africanos hubieran construido las ruinas, porque reconocerlo habría socavado su justificación de una «misión civilizadora».",
-        "fr": "À l'époque coloniale, les Rhodésiens trouvaient inconcevable que des Africains autochtones aient construit les ruines. Les théories attribuant la construction aux Juifs, aux Arabes, aux Phéniciens ou à n'importe qui sauf aux Shona ont dominé l'historiographie tout au long du XXe siècle. Selon la source, le gouvernement blanc de Rhodésie a fait pression sur les archéologues pour qu'ils nient que des Africains aient construit les ruines, car le reconnaître aurait sapé sa justification d'une « mission civilisatrice »."
+        "sv": "Under kolonialtiden ansåg rhodesier det otänkbart att inhemska afrikaner hade byggt ruinerna. Att motbevisa teorier som tillskrev bygget judar, araber, fenicier eller vem som helst utom shonafolket präglade forskningen under hela 1900-talet. Enligt källan pressade kolonialregeringen arkeologer att förneka att afrikaner byggt ruinerna, eftersom ett erkännande hade undergrävt regeringens motivering att den hade ett ”civilisationsuppdrag”.",
+        "en": "During the colonial era, Rhodesians found it inconceivable that indigenous Africans had built the ruins. Refuting theories that ascribed the construction to Jews, Arabs, Phoenicians or anyone but the Shona dominated research throughout the 20th century. According to the source, the colonial government pressured archaeologists to deny that Africans had built the ruins, because acknowledging it would have undermined its “civilising mission” rationale.",
+        "de": "In der Kolonialzeit hielten Rhodesier es für undenkbar, dass einheimische Afrikaner die Ruinen gebaut hatten. Die Widerlegung von Theorien, die den Bau Juden, Arabern, Phöniziern oder allen außer den Shona zuschrieben, prägte die Forschung das gesamte 20. Jahrhundert hindurch. Laut der Quelle drängte die Kolonialregierung Archäologen, zu leugnen, dass Afrikaner die Ruinen gebaut hatten, weil ein Eingeständnis ihre Begründung einer „Zivilisierungsmission“ untergraben hätte.",
+        "es": "Durante la era colonial, los rodesianos consideraban inconcebible que africanos autóctonos hubieran construido las ruinas. Refutar las teorías que atribuían la construcción a judíos, árabes, fenicios o a cualquiera menos a los shona dominó la investigación durante todo el siglo XX. Según la fuente, el gobierno colonial presionó a los arqueólogos para que negaran que los africanos hubieran construido las ruinas, porque reconocerlo habría socavado su justificación de una «misión civilizadora».",
+        "fr": "À l'époque coloniale, les Rhodésiens trouvaient inconcevable que des Africains autochtones aient construit les ruines. Réfuter les théories attribuant la construction aux Juifs, aux Arabes, aux Phéniciens ou à n'importe qui sauf aux Shona a dominé la recherche tout au long du XXe siècle. Selon la source, le gouvernement colonial a fait pression sur les archéologues pour qu'ils nient que des Africains aient construit les ruines, car le reconnaître aurait sapé sa justification d'une « mission civilisatrice »."
       },
       "originKinds": [
         "propaganda"
