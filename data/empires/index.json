@@ -12075,10 +12075,26 @@
    ],
    "facts": {
     "summary": {
-     "sv": "Under stormaktstiden, 1611–1721, var Sverige en europeisk stormakt som behärskade stora delar av Östersjöområdet. Den slutade när Sverige förlorade stora nordiska kriget. 1814–1905 var Sverige i union med Norge, och sedan 1905 är landet ett eget kungarike.",
-     "en": "During the Swedish Empire period, 1611–1721, Sweden was a European great power that controlled large parts of the Baltic region. It ended when Sweden lost the Great Northern War. In 1814–1905 Sweden was in union with Norway, and since 1905 the country has been a kingdom of its own."
+     "sv": "Sverige växte under vikingatiden och medeltiden gradvis samman till ett rike. Under stormaktstiden, 1611–1721, var Sverige en europeisk stormakt som behärskade stora delar av Östersjöområdet. Den slutade när Sverige förlorade stora nordiska kriget. 1814–1905 var Sverige i union med Norge, och sedan 1905 är landet ett eget kungarike.",
+     "en": "Sweden gradually came together as one realm during the Viking Age and the Middle Ages. During the Swedish Empire period, 1611–1721, Sweden was a European great power that controlled large parts of the Baltic region. It ended when Sweden lost the Great Northern War. In 1814–1905 Sweden was in union with Norway, and since 1905 the country has been a kingdom of its own."
     },
     "items": [
+     {
+      "label": {
+       "sv": "Före stormaktstiden",
+       "en": "Before the Swedish Empire period",
+       "de": "Vor der Großmachtzeit",
+       "es": "Antes de la época del Imperio sueco",
+       "fr": "Avant l'époque de l'Empire suédois"
+      },
+      "text": {
+       "sv": "Under århundradena efter cirka 800 växte Sverige gradvis samman till ett rike. Olof Skötkonung, som levde till omkring 1020, var den förste kristne kungen och den förste som veterligen styrde över de olika folken. Kalmarunionen mellan de skandinaviska länderna bildades 1397 och varade tills Gustav Vasa bröt den när han tog makten i befrielsekriget, som slutade 1523.",
+       "en": "In the centuries after about 800 Sweden gradually came together as one realm. Olof Skötkonung, who lived until about 1020, was the first Christian king and the first known to have ruled over the different peoples. The Kalmar Union between the Scandinavian countries was formed in 1397 and lasted until Gustav Vasa broke it when he took power in the War of Liberation, which ended in 1523.",
+       "de": "In den Jahrhunderten nach etwa 800 wuchs Schweden allmählich zu einem Reich zusammen. Olof Skötkonung, der bis etwa 1020 lebte, war der erste christliche König und der erste, von dem bekannt ist, dass er über die verschiedenen Völker herrschte. Die Kalmarer Union zwischen den skandinavischen Ländern wurde 1397 gegründet und bestand, bis Gustav Vasa sie brach, als er im Befreiungskrieg, der 1523 endete, die Macht übernahm.",
+       "es": "En los siglos posteriores a alrededor del año 800, Suecia se fue uniendo poco a poco en un solo reino. Olof Skötkonung, que vivió hasta alrededor de 1020, fue el primer rey cristiano y el primero del que se sabe que gobernó sobre los distintos pueblos. La Unión de Kalmar entre los países escandinavos se formó en 1397 y duró hasta que Gustav Vasa la rompió al tomar el poder en la guerra de liberación, que terminó en 1523.",
+       "fr": "Au cours des siècles qui suivirent l'an 800 environ, la Suède s'unifia peu à peu en un seul royaume. Olof Skötkonung, qui vécut jusque vers 1020, fut le premier roi chrétien et le premier dont on sait qu'il régna sur les différents peuples. L'Union de Kalmar entre les pays scandinaves fut formée en 1397 et dura jusqu'à ce que Gustav Vasa la rompe en prenant le pouvoir lors de la guerre de libération, qui se termina en 1523."
+      }
+     },
      {
       "label": {
        "sv": "När och var det uppstod",
@@ -12125,8 +12141,8 @@
        "en": "Capital"
       },
       "text": {
-       "sv": "Stockholm.",
-       "en": "Stockholm."
+       "sv": "Stockholm, officiell huvudstad från 1634. Staden nämns första gången i skrift 1252.",
+       "en": "Stockholm, the official capital from 1634. The city is first mentioned in writing in 1252."
       }
      },
      {
@@ -12425,8 +12441,8 @@
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger stormaktstiden till 1611–1721; den slutade med freden i Nystad 1721. Kartan (Cliopatria) kallar Sverige \"Swedish Empire\" ända till 1814. Här heter riket därför Svenska stormaktsväldet till och med 1721 och Sverige 1722–1814, med kartdatans gränser, alltså Sverige med Finland och Pommern efter stormaktstiden. Unionen med Norge visas 1815–1904 (källorna: 1814–1905) och Sverige från 1905.",
-     "en": "The sources give the Swedish Empire period as 1611–1721; it ended with the Peace of Nystad in 1721. The map (Cliopatria) calls Sweden “Swedish Empire” all the way to 1814. Here the realm is therefore called the Swedish Empire up to and including 1721 and Sweden 1722–1814, with the map data's borders, that is Sweden with Finland and Pomerania after the Swedish Empire period. The union with Norway is shown 1815–1904 (the sources: 1814–1905) and Sweden from 1905."
+     "sv": "Kartan visar Sverige från 980. Åren 1402–1501 räknar kartdatan (Cliopatria) området till Kalmarunionen, så där visas inget Sverige. Källorna anger stormaktstiden till 1611–1721; den slutade med freden i Nystad 1721. Kartan (Cliopatria) kallar Sverige \"Swedish Empire\" ända till 1814. Här heter riket därför Svenska stormaktsväldet till och med 1721 och Sverige 1722–1814, med kartdatans gränser, alltså Sverige med Finland och Pommern efter stormaktstiden. Unionen med Norge visas 1815–1904 (källorna: 1814–1905) och Sverige från 1905.",
+     "en": "The map shows Sweden from 980. In 1402–1501 the map data (Cliopatria) counts the area as part of the Kalmar Union, so no Sweden is shown there. The sources give the Swedish Empire period as 1611–1721; it ended with the Peace of Nystad in 1721. The map (Cliopatria) calls Sweden “Swedish Empire” all the way to 1814. Here the realm is therefore called the Swedish Empire up to and including 1721 and Sweden 1722–1814, with the map data's borders, that is Sweden with Finland and Pomerania after the Swedish Empire period. The union with Norway is shown 1815–1904 (the sources: 1814–1905) and Sweden from 1905."
     },
     "sources": [
      "wp-swedish-empire",
@@ -12434,7 +12450,9 @@
      "wp-three-crowns",
      "wp-union-sweden-norway",
      "wd-union-sweden-norway",
-     "wp-sweden"
+     "wp-sweden",
+     "wp-history-of-sweden-800-1521",
+     "wp-stockholm"
     ],
     "review": "two-sources"
    },
@@ -12450,9 +12468,9 @@
       18.069,
       59.329
      ],
-     "from": 1612,
+     "from": 1634,
      "sources": [
-      "wp-swedish-empire",
+      "wp-stockholm",
       "wikidata"
      ],
      "review": "two-sources"
