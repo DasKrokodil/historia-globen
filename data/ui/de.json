@@ -497,5 +497,9 @@
   "hunt.region": "Sie haben schon ein Ereignis aus {region}. Suchen Sie auf einem anderen Kontinent.",
   "hunt.already": "Dieses Ereignis ist schon in der Jagd.",
   "hunt.place": "Das Ereignis hat keinen Punkt auf dem Globus und kann nicht zählen.",
-  "hunt.hidden": "Das Ereignis kann nicht zählen."
+  "hunt.hidden": "Das Ereignis kann nicht zählen.",
+  "lesson.band": "Unterrichtsmodus: {title}",
+  "lesson.exit": "Ganzen Globus anzeigen",
+  "lesson.next": "Mit einer Aufgabe fortfahren",
+  "lesson.hunt": "Gleichzeitigkeitsjagd: {title}"
 }

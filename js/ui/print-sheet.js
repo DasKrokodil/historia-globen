@@ -4,7 +4,7 @@
 //
 // Elevbladet: turens titel, plats för namn, stegens frågor med plats för svar, exit ticket och källorna för
 // stegen med frågor. Lärarbladet: årskurs, tid, förkunskaper, lärarinstruktion, kopplingen till läroplanen med
-// källa, frågorna, exit ticket och länken till turen (#t=<id>, #736). Har lektionen Källdetektiven
+// källa, frågorna, exit ticket och länken till lektionen (#t=<id>&m=lektion, #795). Har lektionen Källdetektiven
 // (lesson.sourceDetective, #742) skrivs dess frågor på ett eget elevblad mellan de två, och lärarbladet får dem också.
 //
 // Tillgänglighet och papper (#757): varje blad är en märkt sektion med en egen rubrik på nivå 1 ("Elevblad <titel>"
@@ -33,7 +33,8 @@ const lines = n => {
 const gradeText = g => (g === 'gy' ? ui('print.gy') : String(g).replace('-', '–'));
 
 /** Länken till turen, så att läraren kan öppna den direkt (#736). */
-export const tourLink = tour => `${location.origin}${location.pathname}#t=${tour.id}`;
+/** Länken som läraren delar: turen som lektion (#795). Bladen skrivs bara ut för turer med lärarfält. */
+export const tourLink = tour => `${location.origin}${location.pathname}#t=${tour.id}&m=lektion`;
 
 /** En källa som rad: titel och adress (utskrivet papper har inga klickbara länkar). */
 function sourceItem(src, id) {

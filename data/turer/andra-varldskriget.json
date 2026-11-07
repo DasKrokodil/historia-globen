@@ -115,7 +115,11 @@
           }
         ]
       }
-    ]
+    ],
+    "lock": {
+      "years": [1939, 1945],
+      "layers": ["events", "wars", "areas"]
+    }
   },
   "steps": [
     {

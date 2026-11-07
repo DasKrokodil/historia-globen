@@ -66,6 +66,7 @@ export class Timeline extends EventTarget {
     // när ett krigs slutkort ännu inte har visats (#232). Annars blir knappen "Spela igen".
     this.hasMore = () => false;
     this.focus = null; // { from, to, fine }: tidslinjen inzoomad på ett spann (fokusläge, #109)
+    this.focusLocked = false; // lektionsläget (#795) låser spannet: ett datum i årshoppet släpper det inte
     // fine: ett kort krig (#204). Då är året ett decimaltal avrundat till hela dagar, och skalan,
     // stegen och farten räknas i dagar och månader.
     // Hastighet i år per sekund (#164). Det gamla sparade värdet ('hg-speed', ×-faktor) ignoreras.
@@ -565,10 +566,17 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
     const y = parsed.year;
     if (y < MIN_YEAR || y > MAX_YEAR) { clearResult(); msg.textContent = `Välj ett år mellan ${formatYear(MIN_YEAR)} och ${formatYear(MAX_YEAR)}.`; return; }
     if (parsed.type === 'date') {
+      // Under en lektion (#795) gäller låset även datum: ett datum utanför intervallet avvisas som ett år gör
+      const f = timeline.focus;
+      if (timeline.focusLocked && f && (y < f.from || y > f.to)) {
+        clearResult();
+        msg.textContent = `Året ligger utanför det du följer nu (${timeline.format(f.from)}–${timeline.format(f.to)}).`;
+        return;
+      }
       const visible = events.filter(event => isVisibleReview(event.review));
       const found = selectEventsForDate(parsed.date, visible);
       timeline.pause();
-      timeline.setFocus(null);
+      if (!timeline.focusLocked) timeline.setFocus(null);
       timeline.year = y;
       showDateResult(parsed.date, y, found);
       onJump?.(y);

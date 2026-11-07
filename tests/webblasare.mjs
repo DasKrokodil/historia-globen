@@ -2479,6 +2479,201 @@ async function run(browser, vp) {
       return 's=tanger ger steg 2 år 1325; adressen följer turen och Bakåt går till steget innan; Avsluta tar bort t; ?tur= flyttas in i hashen; okänd tur ger år 1500';
     });
   }
+  // Lektionsläget (#795): en länk med m=lektion startar turen med menyerna dolda och bandet överst. Låset håller vid
+  // direktlänk, omladdning och Bakåt/Framåt, tangentbordet når "Visa hela globen", slutkortet står kvar efter sista
+  // steget och utgången behåller året och ger den vanliga sidan. Kontrollen körs i dator- och mobilbredd.
+  await check('lektionsläget låser menyerna och har en utgång som behåller året (#795)', async () => {
+    const lessonPage = await context.newPage();
+    const lessonErrors = [];
+    lessonPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) lessonErrors.push(m.text()); });
+    lessonPage.on('pageerror', e => lessonErrors.push(e.message));
+    const lp = sel => lessonPage.locator(sel);
+    let slowEmpires = false;
+    const EMPIRE_DELAY = 2500;
+    const progress = () => lessonPage.textContent('#tour-progress').then(x => x.trim());
+    const shown = sel => lessonPage.evaluate(s => { const el = document.querySelector(s); return !!el && el.getClientRects().length > 0; }, sel);
+    const open = async url => {
+      await lessonPage.goto(url);
+      await lessonPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+    };
+    const hashHas = text => lessonPage.waitForFunction(t => location.hash.includes(t), text, { timeout: T.step });
+    const locked = async () => {
+      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      if (!/^Lektionsläge: /.test((await lp('#lesson-band-title').textContent()).trim())) throw new Error('bandet saknar "Lektionsläge:"');
+      if ((await lp('#lesson-band').getAttribute('aria-labelledby')) !== 'lesson-band-title') throw new Error('bandet är ingen märkt landmärke');
+      for (const sel of ['#btn-layers', '#btn-focus', '#btn-globe', '#btn-flat', '#btn-discovery', '#btn-tour', '#filters', '#tour-close', '#tour-end']) {
+        if (await shown(sel)) throw new Error(`${sel} syns i lektionsläget`);
+      }
+      // Knappen ligger i Mer-menyn och har ingen yta medan den är stängd: kontrollera själva regeln, inte om den syns
+      if (await lessonPage.evaluate(() => getComputedStyle(document.getElementById('btn-hunt')).display) !== 'none') throw new Error('#btn-hunt är inte dold i lektionsläget');
+      if (await lessonPage.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error('lektionsläget ger horisontell scroll');
+    };
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lessonPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lessonPage.route(u => isFont(u.href), r => r.abort());
+      }
+      // Rikesfilerna kan göras långsamma, som på ett långsamt skolnät (fokus som laddas när lektionen börjar)
+      await lessonPage.route(u => /data\/empires\//.test(u.href), async r => {
+        if (slowEmpires) await new Promise(res => setTimeout(res, EMPIRE_DELAY));
+        await r.continue().catch(() => {});
+      });
+      // Direktlänk: bandet, låsta menyer, första steget och året 1939
+      await open(`${BASE}?ny=1#t=andra-varldskriget&m=lektion`);
+      await locked();
+      await lessonPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      if (!/^Steg 1 av 14$/.test(await progress())) throw new Error(`lektionen öppnade ${await progress()}`);
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('lektionen börjar inte 1939');
+      // Tidslinjen går inte att flytta utanför lektionens år
+      await lessonPage.click('#year-jump');
+      await lessonPage.fill('#jump-input', '1500');
+      await lessonPage.press('#jump-input', 'Enter');
+      await lessonPage.waitForFunction(() => /utanför/.test(document.getElementById('jump-msg').textContent), null, { timeout: T.step });
+      if ((await lessonPage.textContent('#year-big')).trim() === '1500') throw new Error('året 1500 gick att välja i en lektion om 1939–1945');
+      // Samma sak för ett datum i årshoppet: utanför intervallet avvisas, inom intervallet fungerar och låset ligger kvar
+      const jumpTo = async v => {
+        await lessonPage.fill('#jump-input', v);
+        await lessonPage.press('#jump-input', 'Enter');
+        await lessonPage.waitForTimeout(300);
+      };
+      await jumpTo('1066-10-14');
+      if (!/utanför/.test(await lessonPage.textContent('#jump-msg'))) throw new Error('datumet 1066-10-14 avvisades inte i en lektion om 1939–1945');
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`datumet 1066-10-14 flyttade året till ${(await lessonPage.textContent('#year-big')).trim()}`);
+      await jumpTo('1944-06-06');
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1944') throw new Error('ett datum inom lektionens år fungerade inte');
+      await lessonPage.keyboard.press('Escape');
+      await lessonPage.click('#year-jump');
+      await jumpTo('1500');
+      if (!/utanför/.test(await lessonPage.textContent('#jump-msg')) || !['1939', '1940', '1941', '1942', '1943', '1944', '1945'].includes((await lessonPage.textContent('#year-big')).trim())) throw new Error('ett datum inom intervallet släppte tidslåset');
+      if (!(await lessonPage.isVisible('#lesson-band'))) throw new Error('bandet försvann efter ett datum i årshoppet');
+      await lessonPage.keyboard.press('Escape');
+      // Omladdning mitt i lektionen ger samma läge och steg
+      await lessonPage.click('#tour-next');
+      await lessonPage.click('#tour-next');
+      await hashHas('s=storbritannien');
+      await hashHas('m=lektion');
+      await lessonPage.reload();
+      await lessonPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await locked();
+      await lessonPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      if (!/^Steg 3 av 14$/.test(await progress())) throw new Error(`omladdningen öppnade ${await progress()}`);
+      // Bakåt och Framåt släpper inte låset
+      await lessonPage.click('#tour-next');
+      await hashHas('s=barbarossa');
+      await lessonPage.goBack();
+      await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('3 av 14'), null, { timeout: T.step });
+      await locked();
+      await lessonPage.goForward();
+      await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('4 av 14'), null, { timeout: T.step });
+      await locked();
+      // Tangentbordet når "Visa hela globen" (bandet ligger före kortet i tabbordningen)
+      await lessonPage.focus('#tour-next');
+      let reached = false;
+      for (let i = 0; i < 60 && !reached; i++) {
+        await lessonPage.keyboard.press('Shift+Tab');
+        reached = await lessonPage.evaluate(() => document.activeElement?.id === 'lesson-exit');
+      }
+      if (!reached) throw new Error('Tab når inte "Visa hela globen"');
+      // Turens slut: slutkortet står kvar, Escape avslutar inte, och det finns ingen Klar-knapp som tömmer läget
+      for (let i = 0; i < 10; i++) await lessonPage.click('#tour-next');
+      await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('14 av 14'), null, { timeout: T.step });
+      await lessonPage.waitForSelector('#tour-next', { state: 'hidden', timeout: T.step });
+      await lessonPage.focus('#tour-back');
+      await lessonPage.keyboard.press('Escape');
+      if (!(await lessonPage.isVisible('#tour-card')) || !(await lessonPage.isVisible('#lesson-band'))) throw new Error('Escape avslutade lektionen');
+      const last = (await lessonPage.textContent('#year-big')).trim();
+      // Utgången: året står kvar, läget och turen slutar, menyerna är tillbaka och fokus hamnar på något synligt
+      await lessonPage.focus('#lesson-exit');
+      await lessonPage.keyboard.press('Enter');
+      await lessonPage.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
+      await lessonPage.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+      if ((await lessonPage.textContent('#year-big')).trim() !== last) throw new Error('"Visa hela globen" ändrade året');
+      if (await lessonPage.isVisible('#more-toggle')) await lessonPage.click('#more-toggle'); // i mobilen ligger knapparna i menyn
+      for (const sel of ['#btn-layers', '#btn-focus', '#btn-globe']) if (!(await shown(sel))) throw new Error(`${sel} kom inte tillbaka`);
+      await lessonPage.waitForFunction(() => !/[?&#]m=|t=/.test(location.hash), null, { timeout: T.step });
+      const focusOk = await lessonPage.evaluate(() => { const a = document.activeElement; return !!a && a !== document.body && a.getClientRects().length > 0; });
+      if (!focusOk) throw new Error('fokus hamnade på ingenting efter "Visa hela globen"');
+      // Tidslinjen är fri igen
+      await lessonPage.click('#year-jump');
+      await lessonPage.fill('#jump-input', '1500');
+      await lessonPage.press('#jump-input', 'Enter');
+      await lessonPage.waitForFunction(() => document.getElementById('year-big').textContent.trim() === '1500', null, { timeout: T.step });
+      // Vikingatiden (åk 4–6) har samma läge; m=lektion utan en lektionstur, och utan tur, gör ingenting
+      await open(`${BASE}?ny=1#t=vikingatiden-och-varlden&m=lektion`);
+      await locked();
+      if ((await lessonPage.textContent('#year-big')).trim() !== '793') throw new Error('vikingalektionen börjar inte 793');
+      await open(`${BASE}?ny=1#t=tre-platser-1325&m=lektion`);
+      await lessonPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      if (await lessonPage.isVisible('#lesson-band')) throw new Error('en tur utan lärarfält startade lektionsläge');
+      await open(`${BASE}?ny=1#y=1500&m=lektion`);
+      if (await lessonPage.isVisible('#lesson-band') || await lessonPage.isVisible('#tour-card')) throw new Error('m=lektion utan tur gav ett tomt läge');
+      // Ett fokus som redan var på tar inte bort låset när lektionslänken öppnas i samma flik
+      await open(`${BASE}?ny=3#y=1942&f=war:andra-varldskriget`);
+      await lessonPage.waitForSelector('#focus-bar:not([hidden])', { state: 'attached', timeout: T.load });
+      await hashHas('c='); // fokuset är klart och har skrivit adressen (på en belastad maskin tar det flera sekunder)
+      await lessonPage.evaluate(() => { location.hash = '#t=andra-varldskriget&m=lektion'; });
+      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('1 av 14'), null, { timeout: T.step });
+      await lessonPage.focus('#track');
+      await lessonPage.keyboard.press('Home');
+      await lessonPage.waitForTimeout(300);
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`Home på reglaget gav ${(await lessonPage.textContent('#year-big')).trim()} i stället för 1939 efter ett fokus och lektionslänken`);
+      await lessonPage.click('#year-jump');
+      await jumpTo('1500');
+      if (!/utanför/.test(await lessonPage.textContent('#jump-msg')) || (await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('lektionslänken efter ett fokus lämnade tidslinjen olåst');
+      // Ett fokus som fortfarande laddas när lektionen börjar får inte släppa låset när det blir klart
+      await open(`${BASE}?ny=5`);
+      slowEmpires = true;
+      await lessonPage.evaluate(() => { location.hash = '#y=1942&f=empire:romarriket&c=-30,-120,3'; });
+      await lessonPage.waitForTimeout(150);
+      await lessonPage.evaluate(() => { location.hash = '#t=andra-varldskriget&m=lektion'; });
+      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      await lessonPage.waitForTimeout(EMPIRE_DELAY + 1500); // fokuset blir klart under tiden
+      slowEmpires = false;
+      if (await lessonPage.isVisible('#focus-bar')) throw new Error('ett fokus som laddades när lektionen började visades i lektionen');
+      // Steg 1 ska visa lektionens första år och kamera, inte den gamla adressens (året 1942 och kameran -30,-120)
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`steg 1 visade ${(await lessonPage.textContent('#year-big')).trim()} i stället för 1939 när ett fokus blev klart i lektionen`);
+      if (/c=-30,-120,/.test(await lessonPage.evaluate(() => location.hash))) throw new Error('den gamla adressens kamera flyttade globen i lektionens steg 1');
+      await lessonPage.focus('#track');
+      await lessonPage.keyboard.press('Home');
+      await lessonPage.waitForTimeout(300);
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`reglaget gick till ${(await lessonPage.textContent('#year-big')).trim()} när ett fokus blev klart i lektionen`);
+      await lessonPage.click('#year-jump');
+      await jumpTo('1066-10-14');
+      if (!/utanför/.test(await lessonPage.textContent('#jump-msg')) || (await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('datumet 1066-10-14 godtogs efter ett fokus som laddades när lektionen började');
+      await lessonPage.keyboard.press('Escape');
+      // Samtidighetsjakten (år 1500) krockar med låset: knappen är dold, och ett u= utanför lektionens år ignoreras
+      await open(`${BASE}?ny=4#t=andra-varldskriget&m=lektion&u=samtidighetsjakten-1500`);
+      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      await lessonPage.waitForTimeout(500);
+      if (await shown('#btn-hunt')) throw new Error('Samtidighetsjakten syns i lektionsläget');
+      if (await lessonPage.isVisible('#hunt')) throw new Error('u= utanför lektionens år öppnade jakten i lektionsläget');
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('u= flyttade året i lektionsläget');
+      if (/u=/.test(await lessonPage.evaluate(() => location.hash))) throw new Error('adressen behöll u= som ignorerades');
+      // Samma flik: en vanlig sida och sedan lektionslänken med u=, och en jakt som redan pågår när lektionen börjar
+      await open(`${BASE}?ny=6#y=1600`);
+      await lessonPage.evaluate(() => { location.hash = '#t=andra-varldskriget&m=lektion&u=samtidighetsjakten-1500'; });
+      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      await lessonPage.waitForTimeout(800);
+      if (await lessonPage.isVisible('#hunt')) throw new Error('jakten öppnades av en lektionslänk i samma flik');
+      await open(`${BASE}?ny=7#y=1500&u=samtidighetsjakten-1500`);
+      await lessonPage.waitForSelector('#hunt:not([hidden])', { state: 'attached', timeout: T.step });
+      await lessonPage.evaluate(() => { location.hash = '#t=andra-varldskriget&m=lektion&u=samtidighetsjakten-1500'; });
+      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      await lessonPage.waitForTimeout(800);
+      if (await lessonPage.isVisible('#hunt')) throw new Error('en jakt som pågick stod kvar när lektionen började');
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('året flyttades av jakten i lektionsläget');
+      // Bakåt ut ur lektionen öppnar jakten igen
+      await lessonPage.goBack();
+      await lessonPage.waitForSelector('#hunt:not([hidden])', { state: 'attached', timeout: T.step });
+      if (await lessonPage.isVisible('#lesson-band')) throw new Error('Bakåt lämnade bandet kvar');
+      if (lessonErrors.length) throw new Error(`lektionsläget gav konsolfel: ${lessonErrors.join('; ')}`);
+    } finally {
+      await lessonPage.close();
+    }
+    return 'direktlänk, omladdning och Bakåt/Framåt behåller låset; året låst till 1939–1945; Tab når utgången; slutkortet står kvar; utgången behåller året; utan lektionstur eller tur inget läge';
+  });
   if (vp.name === 'dator') {
     // Mätningarna i utskriftsvyn (#757): körs i sidan med print-media påslaget
     const printAudit = () => {
@@ -2578,7 +2773,7 @@ async function run(browser, vp) {
         if (got.questions !== 5) throw new Error(`elevbladet har ${got.questions} frågor, turen har 5`);
         if (got.detective !== 2) throw new Error(`Källdetektiven har ${got.detective} händelser, lektionen har 2 (#742)`);
         if (got.sheet === 'none' || got.app !== 'none') throw new Error(`i utskrift: bladen ${got.sheet}, sidan ${got.app}`);
-        if (!got.link.endsWith('#t=andra-varldskriget')) throw new Error(`lärarbladets länk är ${got.link}`);
+        if (!got.link.endsWith('#t=andra-varldskriget&m=lektion')) throw new Error(`lärarbladets länk är ${got.link}`);
         if (!/Lgr22/.test(got.teacher) || !/Skolverket/.test(got.teacher)) throw new Error('lärarbladet saknar kopplingen till Lgr22 med källa');
         if (printErrors.length) throw new Error(`utskriften gav konsolfel: ${printErrors.join('; ')}`);
       } finally {

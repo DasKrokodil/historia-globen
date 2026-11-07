@@ -497,5 +497,9 @@
   "hunt.region": "Tu as déjà un événement pour la zone {region}. Cherche sur un autre continent.",
   "hunt.already": "Cet événement est déjà dans la chasse.",
   "hunt.place": "L'événement n'a pas de point sur le globe et ne peut pas compter.",
-  "hunt.hidden": "L'événement ne peut pas compter."
+  "hunt.hidden": "L'événement ne peut pas compter.",
+  "lesson.band": "Mode leçon : {title}",
+  "lesson.exit": "Afficher tout le globe",
+  "lesson.next": "Poursuivre avec une tâche",
+  "lesson.hunt": "Chasse au même moment : {title}"
 }
