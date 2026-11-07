@@ -1723,7 +1723,8 @@
     {
       "license": "Public domain (USA:s federala myndighet)",
       "sourceIds": [
-        "commons-bild-ghanas-sjalvstandighet"
+        "commons-bild-ghanas-sjalvstandighet",
+        "nasa-great-wall"
       ]
     },
     {
@@ -1760,6 +1761,45 @@
       "license": "Skolverket (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "skolverket-lgr22-historia"
+      ]
+    },
+    {
+      "license": "© HISTORY / A&E Television Networks (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "history-flat-earth",
+        "history-machu-picchu",
+        "history-marie-antoinette",
+        "history-napoleon-short",
+        "history-pyramids",
+        "history-salem-burning",
+        "history-sphinx",
+        "history-vikings-horns"
+      ]
+    },
+    {
+      "license": "© Mount Vernon Ladies Association (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "mountvernon-wooden-teeth"
+      ]
+    },
+    {
+      "license": "© Postmedia Network (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "nationalpost-napoleon-short"
+      ]
+    },
+    {
+      "license": "© Smithsonian Magazine (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "smithsonian-machu-picchu",
+        "smithsonian-marco-polo",
+        "smithsonian-washington-teeth"
+      ]
+    },
+    {
+      "license": "© Snopes (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "snopes-moai"
       ]
     },
     {
