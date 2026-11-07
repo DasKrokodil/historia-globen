@@ -239,7 +239,11 @@ GROUPS = {
     ]),
     # Cliopatria kallar Sverige "Swedish Empire" ända till 1814, men stormaktstiden slutade med freden i Nystad 1721
     # (wp-swedish-empire). Samma Cliopatria-post delas därför i två delar med olika namn (Rikards val A i #70).
-    'svenska-stormaktsvaldet': ('Sverige: stormaktsväldet och efter', 'Sweden: the Swedish Empire and after', [
+    # Gruppen heter Sverige och börjar med medeltidens kungarike (#645, Rikards beslut 2026-11-07): Cliopatrias Kingdom of Sweden
+    # finns 980–1401 och 1502–1611 (Kalmarunionen däremellan), samma post som Sverige från 1905. Gruppens id står kvar, så att
+    # länkar och filnamn inte ändras.
+    'svenska-stormaktsvaldet': ('Sverige', 'Sweden', [
+        ('Kingdom of Sweden', 'sverige-medeltiden', 'Sverige', '#3d8fd1', {'years': (980, 1611), 'en': 'Sweden', 'wikidata': 'Q34'}),
         ('Swedish Empire', 'svenska-stormaktsvaldet', 'Svenska stormaktsväldet', '#3d8fd1', {'years': (1612, 1721)}),
         ('Swedish Empire', 'sverige-1722', 'Sverige', '#3d8fd1', {'years': (1722, 1814), 'en': 'Sweden', 'wikidata': 'Q34'}),
         # #556: unionen med Norge och Sverige efter 1905, så att gruppen går "och efter" (Kingdom of Sweden finns från 980 i Cliopatria)
@@ -1112,6 +1116,28 @@ GROUPS = {
     ]),
     'mamluksultanatet': ('Mamluksultanatet', 'Mamluk Sultanate', [
         ('Mamluk Sultanate', 'mamluksultanatet', 'Mamluksultanatet', '#a0804a', {'en': 'Mamluk Sultanate'}),
+    ]),
+    # Medeltidens luckor, tredje omgången (#645, Rikards beslut 2026-11-07): Danmark som eget rike med Wikidatas svenska namn
+    # (Q756617, riket sedan 965; nutidens Danmark är gruppen danmark), Tibetanska imperiet, Moskvariket, Litauen, Kastilien och
+    # Uiguriska khaganatet, som saknar svenskt namn på Wikidata och har det engelska. Väntar: Tibetans och Avar Khaganate (Cliopatrias
+    # Wikidata-id är folkgrupper, inte riken) och Yenisei Kyrgyz (namn saknas på tre språk).
+    'konungariket-danmark': ('Konungariket Danmark', 'Kingdom of Denmark', [
+        ('Kingdom of Denmark', 'konungariket-danmark', 'Konungariket Danmark', '#c05a6a', {'en': 'Kingdom of Denmark'}),
+    ]),
+    'tibetanska-imperiet': ('Tibetanska imperiet', 'Tibetan Empire', [
+        ('Tibetan Empire', 'tibetanska-imperiet', 'Tibetanska imperiet', '#b0704a', {'en': 'Tibetan Empire'}),
+    ]),
+    'moskvariket': ('Moskvariket', 'Grand Principality of Moscow', [
+        ('Grand Principality of Moscow', 'moskvariket', 'Moskvariket', '#8a5ab0', {'en': 'Grand Principality of Moscow'}),
+    ]),
+    'storfurstendomet-litauen': ('Storfurstendömet Litauen', 'Grand Duchy of Lithuania', [
+        ('Grand Duchy of Lithuania', 'storfurstendomet-litauen', 'Storfurstendömet Litauen', '#5aa07a', {'en': 'Grand Duchy of Lithuania'}),
+    ]),
+    'kastilianska-kronan': ('Kastilianska kronan', 'Crown of Castile', [
+        ('Crown of Castile', 'kastilianska-kronan', 'Kastilianska kronan', '#c0a04a', {'en': 'Crown of Castile'}),
+    ]),
+    'uiguriska-khaganatet': ('Uyghur Khaganate', 'Uyghur Khaganate', [
+        ('Uyghur Khaganate', 'uiguriska-khaganatet', 'Uyghur Khaganate', '#4a8ac0', {'en': 'Uyghur Khaganate'}),
     ]),
     # Små stater ur Natural Earth (#722, Rikards beslut 2026-11-07): Cliopatria saknar dem i nutid eller har fel gräns
     # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth
