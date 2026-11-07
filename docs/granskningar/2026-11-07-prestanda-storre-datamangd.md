@@ -47,4 +47,4 @@ Hur många markörer som ligger på samma år, ur datan (utan slag i krig som in
 - Klonerna saknar detaljfiler, krig, riken och religioner, och klustras på en jämn spridning kring originalen, vilket är mer glest än verklig skevhet mot Europa.
 - Bildfrekvensen mättes under dragning med Playwrights mus (en ny position var 16:e ms), så den innehåller verktygets egen kostnad. Jämför celler med varandra, inte med verkliga värden.
 - Mätt i en delad molnmaskin med en körning à tre varv; absoluta tider varierar. Ingen CPU-strypning och inget riktigt grafikkort. Mjukvarurendering är medvetet det svåra fallet.
-- Listan i Samtidigt visar högst 25 rader (kolumnen visar taket, inte antalet), så den säger inget om listans kostnad.
+- Kolumnen "Rader i listan" är 25 i alla celler, så listan verkar vara begränsad till 25 rader (inte kontrollerat i koden). Då säger kolumnen inget om listans kostnad.
