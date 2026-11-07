@@ -4,14 +4,14 @@
   "custom": { "sv": "Anpassad", "en": "Custom", "de": "Angepasst", "es": "Personalizada", "fr": "Personnalisée" },
   "customize": { "sv": "Anpassa själv", "en": "Customize", "de": "Selbst anpassen", "es": "Personalizar", "fr": "Personnaliser" },
   "eventWindow": {
-    "past": { "sv": "slut", "en": "ended" },
-    "future": { "sv": "börjar", "en": "starts" }
+    "past": { "sv": "slut", "en": "ended", "de": "endete" },
+    "future": { "sv": "börjar", "en": "starts", "de": "beginnt" }
   },
   "menu": {
-    "label": { "sv": "Meny", "en": "Menu" }
+    "label": { "sv": "Meny", "en": "Menu", "de": "Menü" }
   },
   "funfacts": {
-    "surprise": { "sv": "Visste du?", "en": "Did you know?" }
+    "surprise": { "sv": "Visste du?", "en": "Did you know?", "de": "Wussten Sie schon?" }
   },
   "panel": {
     "summary": { "sv": "{count} träffar: {inside} pågår, {near} nära", "en": "{count} matches: {inside} ongoing, {near} nearby", "de": "{count} Treffer: {inside} laufend, {near} in der Nähe", "es": "{count} resultados: {inside} en curso, {near} cerca", "fr": "{count} résultats : {inside} en cours, {near} à proximité" },
@@ -49,33 +49,33 @@
     }
   },
   "poster": {
-    "button": { "sv": "Affisch", "en": "Poster" },
-    "title": { "sv": "Historia-globen", "en": "History globe" },
-    "legend": { "sv": "Världskarta med utvalda händelser som pågår detta år.", "en": "World map with selected events active this year." },
-    "sources": { "sv": "Källor: Historia-globen, Om källorna", "en": "Sources: Historia-globen, About the sources" },
-    "website": { "sv": "historiagloben.se", "en": "historiagloben.se" },
-    "license": { "sv": "Data: CC BY 4.0", "en": "Data: CC BY 4.0" },
-    "empty": { "sv": "Inga aktiva händelser att lista för detta år.", "en": "No active events to list for this year." },
-    "filename": { "sv": "historia-globen", "en": "historia-globen" },
-    "error": { "sv": "Kunde inte skapa affischen. Försök igen.", "en": "Could not create the poster. Try again." }
+    "button": { "sv": "Affisch", "en": "Poster", "de": "Plakat" },
+    "title": { "sv": "Historia-globen", "en": "History globe", "de": "Historia-globen" },
+    "legend": { "sv": "Världskarta med utvalda händelser som pågår detta år.", "en": "World map with selected events active this year.", "de": "Weltkarte mit ausgewählten Ereignissen, die in diesem Jahr laufen." },
+    "sources": { "sv": "Källor: Historia-globen, Om källorna", "en": "Sources: Historia-globen, About the sources", "de": "Quellen: Historia-globen, Über die Quellen" },
+    "website": { "sv": "historiagloben.se", "en": "historiagloben.se", "de": "historiagloben.se" },
+    "license": { "sv": "Data: CC BY 4.0", "en": "Data: CC BY 4.0", "de": "Daten: CC BY 4.0" },
+    "empty": { "sv": "Inga aktiva händelser att lista för detta år.", "en": "No active events to list for this year.", "de": "Für dieses Jahr gibt es keine laufenden Ereignisse zum Auflisten." },
+    "filename": { "sv": "historia-globen", "en": "historia-globen", "de": "historia-globen" },
+    "error": { "sv": "Kunde inte skapa affischen. Försök igen.", "en": "Could not create the poster. Try again.", "de": "Das Plakat konnte nicht erstellt werden. Versuchen Sie es erneut." }
   },
   "sourceVersion": {
-    "version": { "sv": "Version", "en": "Version" },
-    "development": { "sv": "utvecklingsversion", "en": "development version" },
-    "releases": { "sv": "releaser", "en": "releases" }
+    "version": { "sv": "Version", "en": "Version", "de": "Version" },
+    "development": { "sv": "utvecklingsversion", "en": "development version", "de": "Entwicklungsversion" },
+    "releases": { "sv": "releaser", "en": "releases", "de": "Releases" }
   },
   "jump": {
-    "title": { "sv": "Min dag i historien", "en": "My day in history" },
-    "copy": { "sv": "Skriv ett år eller ett datum för att hoppa till det året och se redan källgranskade händelser. Uppgiften stannar i din webbläsare.", "en": "Enter a year or a date to jump to that year and see already source-checked events. The entry stays in your browser." },
-    "label": { "sv": "År eller datum", "en": "Year or date" },
-    "placeholder": { "sv": "Till exempel 1986, 19860426, 860426 eller 1986-04-26", "en": "For example 1986, 19860426, 860426 or 1986-04-26" },
-    "help": { "sv": "00–26 tolkas som 2000–2026, 27–99 som 1927–1999. Månad 01–12 och dag måste vara giltiga. Ogiltigt datum ger ett felmeddelande i fältet.", "en": "00–26 is read as 2000–2026, 27–99 as 1927–1999. Month 01–12 and day must be valid. Invalid dates show an error in the field." },
-    "submit": { "sv": "Gå", "en": "Go" },
-    "invalid": { "sv": "Skriv ett år eller ett giltigt datum: ÅÅÅÅ, ÅÅÅÅMMDD, ÅÅMMDD eller ÅÅÅÅ-MM-DD.", "en": "Enter a year or a valid date: YYYY, YYYYMMDD, YYMMDD or YYYY-MM-DD." },
-    "yearResult": { "sv": "{year}: {count} händelser", "en": "{year}: {count} events" },
-    "dateResult": { "sv": "{date}: {count} händelser med dagsdatum", "en": "{date}: {count} events with a day date" },
-    "empty": { "sv": "Inga händelser i det här urvalet.", "en": "No events in this selection." },
-    "more": { "sv": "Visar de första {count}.", "en": "Showing the first {count}." }
+    "title": { "sv": "Min dag i historien", "en": "My day in history", "de": "Mein Tag in der Geschichte" },
+    "copy": { "sv": "Skriv ett år eller ett datum för att hoppa till det året och se redan källgranskade händelser. Uppgiften stannar i din webbläsare.", "en": "Enter a year or a date to jump to that year and see already source-checked events. The entry stays in your browser.", "de": "Geben Sie ein Jahr oder ein Datum ein, um zu diesem Jahr zu springen und bereits quellengeprüfte Ereignisse zu sehen. Die Angabe bleibt in Ihrem Browser." },
+    "label": { "sv": "År eller datum", "en": "Year or date", "de": "Jahr oder Datum" },
+    "placeholder": { "sv": "Till exempel 1986, 19860426, 860426 eller 1986-04-26", "en": "For example 1986, 19860426, 860426 or 1986-04-26", "de": "Zum Beispiel 1986, 19860426, 860426 oder 1986-04-26" },
+    "help": { "sv": "00–26 tolkas som 2000–2026, 27–99 som 1927–1999. Månad 01–12 och dag måste vara giltiga. Ogiltigt datum ger ett felmeddelande i fältet.", "en": "00–26 is read as 2000–2026, 27–99 as 1927–1999. Month 01–12 and day must be valid. Invalid dates show an error in the field.", "de": "00–26 wird als 2000–2026 gelesen, 27–99 als 1927–1999. Monat 01–12 und Tag müssen gültig sein. Ein ungültiges Datum führt zu einer Fehlermeldung im Feld." },
+    "submit": { "sv": "Gå", "en": "Go", "de": "Los" },
+    "invalid": { "sv": "Skriv ett år eller ett giltigt datum: ÅÅÅÅ, ÅÅÅÅMMDD, ÅÅMMDD eller ÅÅÅÅ-MM-DD.", "en": "Enter a year or a valid date: YYYY, YYYYMMDD, YYMMDD or YYYY-MM-DD.", "de": "Geben Sie ein Jahr oder ein gültiges Datum ein: JJJJ, JJJJMMTT, JJMMTT oder JJJJ-MM-TT." },
+    "yearResult": { "sv": "{year}: {count} händelser", "en": "{year}: {count} events", "de": "{year}: {count} Ereignisse" },
+    "dateResult": { "sv": "{date}: {count} händelser med dagsdatum", "en": "{date}: {count} events with a day date", "de": "{date}: {count} Ereignisse mit Tagesdatum" },
+    "empty": { "sv": "Inga händelser i det här urvalet.", "en": "No events in this selection.", "de": "Keine Ereignisse in dieser Auswahl." },
+    "more": { "sv": "Visar de första {count}.", "en": "Showing the first {count}.", "de": "Die ersten {count} werden angezeigt." }
   },
   "uncertainty": {
     "label": { "sv": "Historisk osäkerhet", "en": "Historical uncertainty", "de": "Historische Unsicherheit", "es": "Incertidumbre histórica", "fr": "Incertitude historique" },
@@ -89,42 +89,42 @@
     "markTitle": { "sv": "Visa vad som är osäkert", "en": "Show what is uncertain", "de": "Zeigen, was unsicher ist", "es": "Mostrar qué es incierto", "fr": "Montrer ce qui est incertain" }
   },
   "sourcesSummary": {
-    "title": { "sv": "Så läser du statusen", "en": "How to read the status" },
+    "title": { "sv": "Så läser du statusen", "en": "How to read the status", "de": "So lesen Sie den Status" },
     "checked": {
-      "label": { "sv": "Källkontrollerad", "en": "Source checked" },
-      "text": { "sv": "Uppgiften har jämförts med en källa som har öppnats och lästs.", "en": "The claim has been compared with a source that was opened and read." }
+      "label": { "sv": "Källkontrollerad", "en": "Source checked", "de": "Quellengeprüft" },
+      "text": { "sv": "Uppgiften har jämförts med en källa som har öppnats och lästs.", "en": "The claim has been compared with a source that was opened and read.", "de": "Die Angabe wurde mit einer Quelle verglichen, die geöffnet und gelesen wurde." }
     },
     "two": {
-      "label": { "sv": "Två källor stämmer", "en": "Two sources agree" },
-      "text": { "sv": "Årtal och plats har också jämförts med en andra, oberoende källa, och de stämmer.", "en": "Year and place have also been compared with a second, independent source, and they agree." }
+      "label": { "sv": "Två källor stämmer", "en": "Two sources agree", "de": "Zwei Quellen stimmen überein" },
+      "text": { "sv": "Årtal och plats har också jämförts med en andra, oberoende källa, och de stämmer.", "en": "Year and place have also been compared with a second, independent source, and they agree.", "de": "Jahr und Ort wurden außerdem mit einer zweiten, unabhängigen Quelle verglichen und stimmen überein." }
     },
     "uncertain": {
-      "label": { "sv": "Historien kan ändå vara osäker", "en": "History can still be uncertain" },
-      "text": { "sv": "Det gäller oavsett de två första. Källorna kan sakna detaljer, skilja sig åt eller bara ge ett ungefärligt år eller en ungefärlig plats. Då står det i faktarutan.", "en": "This applies regardless of the first two. The sources can lack details, disagree, or give only an approximate year or place. The fact box then says so." },
-      "example": { "sv": "Exempel: två kontrollerade källor kan ändå ange olika årtal.", "en": "Example: two checked sources can still give different years." }
+      "label": { "sv": "Historien kan ändå vara osäker", "en": "History can still be uncertain", "de": "Die Geschichte kann dennoch unsicher sein" },
+      "text": { "sv": "Det gäller oavsett de två första. Källorna kan sakna detaljer, skilja sig åt eller bara ge ett ungefärligt år eller en ungefärlig plats. Då står det i faktarutan.", "en": "This applies regardless of the first two. The sources can lack details, disagree, or give only an approximate year or place. The fact box then says so.", "de": "Das gilt unabhängig von den ersten beiden. Die Quellen können Einzelheiten auslassen, voneinander abweichen oder nur ein ungefähres Jahr oder einen ungefähren Ort nennen. Dann steht das im Faktenfeld." },
+      "example": { "sv": "Exempel: två kontrollerade källor kan ändå ange olika årtal.", "en": "Example: two checked sources can still give different years.", "de": "Beispiel: Zwei geprüfte Quellen können dennoch unterschiedliche Jahreszahlen nennen." }
     },
-    "filter": { "sv": "Status", "en": "Status" },
-    "all": { "sv": "Alla", "en": "All" },
-    "draft": { "sv": "Ej färdiggranskad (utkast)", "en": "Not yet checked (draft)" },
-    "filtered": { "sv": "med statusen {status}", "en": "with the status {status}" }
+    "filter": { "sv": "Status", "en": "Status", "de": "Status" },
+    "all": { "sv": "Alla", "en": "All", "de": "Alle" },
+    "draft": { "sv": "Ej färdiggranskad (utkast)", "en": "Not yet checked (draft)", "de": "Nicht fertig geprüft (Entwurf)" },
+    "filtered": { "sv": "med statusen {status}", "en": "with the status {status}", "de": "mit dem Status {status}" }
   },
   "empireLegend": {
-    "show": { "sv": "Vilket rike?", "en": "Which empire?" },
-    "title": { "sv": "Riken", "en": "Empires" },
-    "colonial": { "sv": "Kolonialvälden", "en": "Colonial empires" },
-    "colonies": { "sv": "kolonier", "en": "colonies" },
-    "more": { "sv": "Fler riken ({count})", "en": "More empires ({count})" },
-    "highlight": { "sv": "Peka eller tryck för att lyfta fram riket på kartan.", "en": "Point or tap to highlight the empire on the map." },
-    "softEdge": { "sv": "Mjuk kant: källorna säger att gränsen är osäker.", "en": "Soft edge: the sources say the boundary is uncertain." },
-    "influence": { "sv": "Glesa prickar med streckad kant: lydriken och vasaller enligt Cliopatria, inte rikets kärnområde.", "en": "Sparse dots with a dashed border: tributaries and vassals according to Cliopatria, not the empire's core area." }
+    "show": { "sv": "Vilket rike?", "en": "Which empire?", "de": "Welches Reich?" },
+    "title": { "sv": "Riken", "en": "Empires", "de": "Reiche" },
+    "colonial": { "sv": "Kolonialvälden", "en": "Colonial empires", "de": "Kolonialreiche" },
+    "colonies": { "sv": "kolonier", "en": "colonies", "de": "Kolonien" },
+    "more": { "sv": "Fler riken ({count})", "en": "More empires ({count})", "de": "Weitere Reiche ({count})" },
+    "highlight": { "sv": "Peka eller tryck för att lyfta fram riket på kartan.", "en": "Point or tap to highlight the empire on the map.", "de": "Zeigen oder tippen Sie, um das Reich auf der Karte hervorzuheben." },
+    "softEdge": { "sv": "Mjuk kant: källorna säger att gränsen är osäker.", "en": "Soft edge: the sources say the boundary is uncertain.", "de": "Weicher Rand: Die Quellen sagen, dass die Grenze unsicher ist." },
+    "influence": { "sv": "Glesa prickar med streckad kant: lydriken och vasaller enligt Cliopatria, inte rikets kärnområde.", "en": "Sparse dots with a dashed border: tributaries and vassals according to Cliopatria, not the empire's core area.", "de": "Lockere Punkte mit gestricheltem Rand: Tributärstaaten und Vasallen laut Cliopatria, nicht das Kerngebiet des Reiches." }
   },
   "tags": {
     "framsteg": {
       "label": { "sv": "Framsteg", "en": "Progress", "de": "Fortschritt", "es": "Progreso", "fr": "Progrès" },
-      "markLabel": { "sv": "Framsteg, visa vad märkningen betyder", "en": "Progress, show what the mark means" },
-      "about": { "sv": "Händelser som de flesta ser som en förbättring för människors liv. Många framsteg hade också baksidor.", "en": "Events that most people see as an improvement in people's lives. Many advances also had downsides." },
-      "empty": { "sv": "Inga händelser är markerade som framsteg ännu.", "en": "No events are marked as progress yet." },
-      "none": { "sv": "Inga framsteg inom {within} från {at}. Prickarna under tidslinjen visar var det finns framsteg.", "en": "No progress within {within} of {at}. The dots under the timeline show where there is progress." }
+      "markLabel": { "sv": "Framsteg, visa vad märkningen betyder", "en": "Progress, show what the mark means", "de": "Fortschritt, zeigen, was die Markierung bedeutet" },
+      "about": { "sv": "Händelser som de flesta ser som en förbättring för människors liv. Många framsteg hade också baksidor.", "en": "Events that most people see as an improvement in people's lives. Many advances also had downsides.", "de": "Ereignisse, die die meisten Menschen als Verbesserung für das Leben der Menschen sehen. Viele Fortschritte hatten auch Schattenseiten." },
+      "empty": { "sv": "Inga händelser är markerade som framsteg ännu.", "en": "No events are marked as progress yet.", "de": "Noch sind keine Ereignisse als Fortschritt markiert." },
+      "none": { "sv": "Inga framsteg inom {within} från {at}. Prickarna under tidslinjen visar var det finns framsteg.", "en": "No progress within {within} of {at}. The dots under the timeline show where there is progress.", "de": "Kein Fortschritt innerhalb von {within} ab {at}. Die Punkte unter der Zeitleiste zeigen, wo es Fortschritte gibt." }
     }
   },
   "groups": [
