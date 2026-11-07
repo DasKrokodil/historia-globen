@@ -1265,6 +1265,8 @@ async function run(browser, vp) {
       await mark.waitFor({ state: 'visible', timeout: T.step });
       const name = await mark.getAttribute('aria-label');
       if (!name || !name.startsWith('Framsteg')) throw new Error(`märkningen saknar namn för skärmläsare (${name})`);
+      // Vänta tills faktarutan är färdigladdad, annars ritas den om och stänger märkningen
+      await tagPage.waitForFunction(() => !document.querySelector('#detail .detail-loading'), null, { timeout: T.step });
       await mark.focus();
       await tagPage.keyboard.press('Enter');
       const about = tagPage.locator('#detail .tag-mark[data-tag="framsteg"] p');

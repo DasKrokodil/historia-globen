@@ -528,7 +528,7 @@ export class Panel {
   /** Faktarutan är ett eget kort (#112). show = false markerar händelsen utan att visa kortet. */
   showDetail(e, show = true) {
     this.selectedId = e?.id ?? null;
-    if (!e || !show) { this.shown = null; this.detail.hidden = true; return; }
+    if (!e || !show) { this.shown = null; delete this.detail.dataset.eventId; this.detail.hidden = true; return; }
     const pending = this._whenLoaded(needDetails([e]), () => this.showDetail(e, show)), loading = pending && !e._full;
     // Wikidata länkas till händelsens egen post
     const srcs = (e.sources ?? []).map(id => id === 'wikidata' && e.wikidata
@@ -537,6 +537,10 @@ export class Panel {
     const evidence = evidenceView(e, srcs);
     // Kortets ram följer händelsens tidsålder, med eller utan bild (#129)
     const st = styleFor(e, this.styles);
+    // En omritning för samma händelse (när detaljfilen har laddats) behåller öppna märkningar
+    const keepOpen = this.detail.dataset.eventId === e.id
+      ? [...this.detail.querySelectorAll('details.tag-mark[open]')].map(d => d.dataset.tag) : [];
+    this.detail.dataset.eventId = e.id;
     this.detail.className = `detail detail-card frame-${st.frame}`;
     this.detail.dataset.style = st.variant?.id ?? st.style.id;
     // Rubrik och datumrad först, sedan bilden (#605), så att man ser vad händelsen heter utan att rulla.
@@ -563,6 +567,7 @@ export class Panel {
         ${reviewRow(e.review, 'Händelsen')}
         ${this.onReport ? reportBtn({ type: 'event', id: e.id, label: t(e.title) }) : ''}
       </div>`;
+    for (const tag of keepOpen) this.detail.querySelector(`details.tag-mark[data-tag="${CSS.escape(tag)}"]`)?.setAttribute('open', '');
     this.detail.scrollTop = 0;
     this.detail.hidden = false;
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
