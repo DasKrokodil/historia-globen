@@ -239,5 +239,22 @@
   "quiz.right": "Rätt!",
   "quiz.wrong": "Inte riktigt. Rätt svar: {answer}",
   "quiz.score": "Rätt på {right} av {total}",
-  "quiz.empty": "Det finns inga frågor just nu."
+  "quiz.empty": "Det finns inga frågor just nu.",
+  "print.button": "Skriv ut elev- och lärarblad",
+  "print.student": "Elevblad",
+  "print.teacher": "Lärarblad",
+  "print.name": "Namn",
+  "print.step": "Steg {n}: {title}",
+  "print.stepShort": "Steg {n}",
+  "print.exit": "Exit ticket",
+  "print.sources": "Källor",
+  "print.gy": "Gymnasiet",
+  "print.gradesLabel": "Årskurs",
+  "print.time": "Tid",
+  "print.minutes": "{n} minuter",
+  "print.prereq": "Förkunskaper",
+  "print.link": "Länk till turen",
+  "print.instruction": "Så gör du",
+  "print.curriculum": "Koppling till läroplanen",
+  "print.questions": "Frågorna i turen"
 }

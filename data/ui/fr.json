@@ -456,5 +456,22 @@
   "quiz.right": "Bonne réponse !",
   "quiz.wrong": "Pas tout à fait. La bonne réponse : {answer}",
   "quiz.score": "{right} sur {total} correctes",
-  "quiz.empty": "Il n'y a pas de questions pour le moment."
+  "quiz.empty": "Il n'y a pas de questions pour le moment.",
+  "print.button": "Imprimer les fiches élève et enseignant",
+  "print.student": "Fiche élève",
+  "print.teacher": "Fiche enseignant",
+  "print.name": "Nom",
+  "print.step": "Étape {n} : {title}",
+  "print.stepShort": "Étape {n}",
+  "print.exit": "Ticket de sortie",
+  "print.sources": "Sources",
+  "print.gy": "Lycée",
+  "print.gradesLabel": "Classes",
+  "print.time": "Durée",
+  "print.minutes": "{n} minutes",
+  "print.prereq": "Prérequis",
+  "print.link": "Lien vers la visite",
+  "print.instruction": "Comment l'utiliser",
+  "print.curriculum": "Lien avec le programme",
+  "print.questions": "Les questions de la visite"
 }

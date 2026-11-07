@@ -8,6 +8,8 @@
 // annars hoppar tidslinjen. Avsluta återställer besökarens lager, fokus och kamera och lämnar året där turen var.
 import { t, isVisibleReview } from '../model.js';
 import { tourProblems } from '../tour-format.js';
+import { printLesson } from './print-sheet.js';
+import { ui } from '../i18n.js';
 
 /** Längsta tid (sekunder) som uppspelningen får ta mellan två steg; längre avstånd blir ett hopp. */
 const PLAY_SECONDS = 4;
@@ -80,6 +82,11 @@ export class TourPlayer {
     this.pauseStop?.addEventListener('click', () => this.end());
     this.read.addEventListener('click', () => { const id = this.step?.open; if (id) app.select(id, false); });
     this.srcBtn.addEventListener('click', () => { const ids = this.step?.sources ?? []; app.openSources(ids); });
+    // Skriv ut (#738): bara i en lektionstur, alltså en tur med lärarfält (lesson, #737)
+    if (this.printBtn) {
+      this.printBtn.textContent = ui('print.button');
+      this.printBtn.addEventListener('click', () => printLesson(this.tour, app.printRoot));
+    }
     this.card.addEventListener('keydown', e => { if (e.key === 'Escape') { e.stopPropagation(); this.end(); } });
 
     const { timeline } = app;
@@ -209,6 +216,7 @@ export class TourPlayer {
     this.status.className = `tour-status${step.status ? ` takeaway-${step.status}` : ''}`;
     this.status.hidden = !step.status;
     this.read.hidden = !step.open;
+    if (this.printBtn) this.printBtn.hidden = !this.tour.lesson;
     this.back.hidden = this.index === 0;
     if (this.endBtn) this.endBtn.hidden = this.last; // sista steget: Klar avslutar
     if (this.pauseStop) this.pauseStop.hidden = false;

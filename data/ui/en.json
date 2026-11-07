@@ -456,5 +456,22 @@
   "quiz.right": "Correct!",
   "quiz.wrong": "Not quite. The right answer: {answer}",
   "quiz.score": "{right} of {total} correct",
-  "quiz.empty": "There are no questions right now."
+  "quiz.empty": "There are no questions right now.",
+  "print.button": "Print student and teacher sheets",
+  "print.student": "Student sheet",
+  "print.teacher": "Teacher sheet",
+  "print.name": "Name",
+  "print.step": "Step {n}: {title}",
+  "print.stepShort": "Step {n}",
+  "print.exit": "Exit ticket",
+  "print.sources": "Sources",
+  "print.gy": "Upper secondary",
+  "print.gradesLabel": "School years",
+  "print.time": "Time",
+  "print.minutes": "{n} minutes",
+  "print.prereq": "Prior knowledge",
+  "print.link": "Link to the tour",
+  "print.instruction": "How to use it",
+  "print.curriculum": "Link to the curriculum",
+  "print.questions": "The questions in the tour"
 }

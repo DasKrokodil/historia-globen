@@ -2437,6 +2437,52 @@ async function run(browser, vp) {
       return 's=tanger ger steg 2 år 1325; adressen följer turen och Bakåt går till steget innan; Avsluta tar bort t; ?tur= flyttas in i hashen; okänd tur ger år 1500';
     });
   }
+  if (vp.name === 'dator') {
+    // Utskrift av en lektionstur (#738): knappen bara i en tur med lärarfält, och i utskrift syns bara elevbladet
+    // och lärarbladet. Webbläsarens utskriftsdialog ersätts, så att testet inte väntar på den.
+    await check('en lektionstur skriver ut elevblad och lärarblad (#738)', async () => {
+      const printPage = await context.newPage();
+      const printErrors = [];
+      printPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) printErrors.push(m.text()); });
+      printPage.on('pageerror', e => printErrors.push(e.message));
+      try {
+        if (THREE_LOCAL) {
+          const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+          await printPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+          await printPage.route(u => isFont(u.href), r => r.abort());
+        }
+        await printPage.goto(`${BASE}#t=tre-platser-1325`);
+        await printPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await printPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+        if (await printPage.isVisible('#tour-print')) throw new Error('en tur utan lärarfält har knappen Skriv ut');
+        await printPage.goto(`${BASE}?ny=1#t=andra-varldskriget`);
+        await printPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await printPage.waitForSelector('#tour-print', { state: 'visible', timeout: T.step });
+        await printPage.evaluate(() => { window.print = () => { window.__printed = true; }; });
+        await printPage.click('#tour-print');
+        await printPage.waitForFunction(() => window.__printed, null, { timeout: T.step });
+        await printPage.emulateMedia({ media: 'print' });
+        const got = await printPage.evaluate(() => ({
+          pages: document.querySelectorAll('#print-sheet .print-page').length,
+          questions: document.querySelectorAll('#print-sheet .print-student .print-questions > li').length,
+          sheet: getComputedStyle(document.getElementById('print-sheet')).display,
+          app: getComputedStyle(document.getElementById('app')).display,
+          link: document.querySelector('#print-sheet .print-link')?.textContent ?? '',
+          teacher: document.querySelector('#print-sheet .print-teacher')?.textContent ?? '',
+        }));
+        await printPage.emulateMedia({ media: 'screen' });
+        if (got.pages !== 2) throw new Error(`${got.pages} blad i stället för elevblad och lärarblad`);
+        if (got.questions !== 5) throw new Error(`elevbladet har ${got.questions} frågor, turen har 5`);
+        if (got.sheet === 'none' || got.app !== 'none') throw new Error(`i utskrift: bladen ${got.sheet}, sidan ${got.app}`);
+        if (!got.link.endsWith('#t=andra-varldskriget')) throw new Error(`lärarbladets länk är ${got.link}`);
+        if (!/Lgr22/.test(got.teacher) || !/Skolverket/.test(got.teacher)) throw new Error('lärarbladet saknar kopplingen till Lgr22 med källa');
+        if (printErrors.length) throw new Error(`utskriften gav konsolfel: ${printErrors.join('; ')}`);
+      } finally {
+        await printPage.close();
+      }
+      return 'ingen knapp utan lärarfält; två blad, fem frågor, bara bladen i utskrift, länk och Lgr22 med källa';
+    });
+  }
   // Sök och följ (#651, tidigare Sök #570): en händelse öppnas på sitt år, ett rike börjar följas, och tomt resultat syns tydligt
   await check('Sök och följ hittar händelser och riken', async () => {
     if (await page.locator('#focus-bar').isVisible()) { await page.click('#focus-exit'); await hidden('#focus-bar'); }

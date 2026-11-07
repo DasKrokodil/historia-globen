@@ -456,5 +456,22 @@
   "quiz.right": "Richtig!",
   "quiz.wrong": "Nicht ganz. Die richtige Antwort: {answer}",
   "quiz.score": "{right} von {total} richtig",
-  "quiz.empty": "Im Moment gibt es keine Fragen."
+  "quiz.empty": "Im Moment gibt es keine Fragen.",
+  "print.button": "Schüler- und Lehrerblatt drucken",
+  "print.student": "Schülerblatt",
+  "print.teacher": "Lehrerblatt",
+  "print.name": "Name",
+  "print.step": "Schritt {n}: {title}",
+  "print.stepShort": "Schritt {n}",
+  "print.exit": "Exit Ticket",
+  "print.sources": "Quellen",
+  "print.gy": "Gymnasium",
+  "print.gradesLabel": "Klassen",
+  "print.time": "Zeit",
+  "print.minutes": "{n} Minuten",
+  "print.prereq": "Vorkenntnisse",
+  "print.link": "Link zur Tour",
+  "print.instruction": "So gehen Sie vor",
+  "print.curriculum": "Bezug zum Lehrplan",
+  "print.questions": "Die Fragen der Tour"
 }
