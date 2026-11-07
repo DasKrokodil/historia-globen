@@ -456,5 +456,22 @@
   "quiz.right": "¡Correcto!",
   "quiz.wrong": "No exactamente. La respuesta correcta: {answer}",
   "quiz.score": "{right} de {total} correctas",
-  "quiz.empty": "Ahora mismo no hay preguntas."
+  "quiz.empty": "Ahora mismo no hay preguntas.",
+  "print.button": "Imprimir hojas del alumnado y del profesorado",
+  "print.student": "Hoja del alumnado",
+  "print.teacher": "Hoja del profesorado",
+  "print.name": "Nombre",
+  "print.step": "Paso {n}: {title}",
+  "print.stepShort": "Paso {n}",
+  "print.exit": "Exit ticket",
+  "print.sources": "Fuentes",
+  "print.gy": "Bachillerato",
+  "print.gradesLabel": "Cursos",
+  "print.time": "Tiempo",
+  "print.minutes": "{n} minutos",
+  "print.prereq": "Conocimientos previos",
+  "print.link": "Enlace al recorrido",
+  "print.instruction": "Cómo usarlo",
+  "print.curriculum": "Vínculo con el currículo",
+  "print.questions": "Las preguntas del recorrido"
 }

@@ -375,6 +375,8 @@
     <div class="tour-links">
       <button id="tour-read" class="link-btn" type="button" aria-controls="detail"></button>
       <button id="tour-sources" class="link-btn" type="button"></button>
+      <!-- Skriv ut (#738): elevblad och lärarblad ur turens lärarfält, bara i lektionsturer -->
+      <button id="tour-print" class="link-btn" type="button" hidden></button>
     </div>
     <div class="tour-actions">
       <button id="tour-back" class="chip-btn" type="button"></button>
@@ -452,5 +454,8 @@
 </div>
 
 <script type="module" src="js/main.js"></script>
+  <!-- Utskriften av en lektionstur (#738): js/ui/print-sheet.js ritar elevbladet och lärarbladet här, och bara
+       utskriften visar dem (@media print i css/style.css) -->
+  <div id="print-sheet" class="print-sheet" hidden></div>
 </body>
 </html>
