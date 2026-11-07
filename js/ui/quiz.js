@@ -83,7 +83,8 @@ export class Quiz {
       b.addEventListener('click', () => this.answer(e.id));
       return b;
     }));
-    requestAnimationFrame(() => this.options.querySelector('button')?.focus({ preventScroll: true }));
+    // Direkt, inte i nästa bildruta: rutan är redan synlig, och fokus ska stå på första svaret när frågan visas
+    this.options.querySelector('button')?.focus({ preventScroll: true });
   }
 
   /** Svaret: rätt eller fel, alla årtal, fun facten och källorna. Svarsknapparna låses. */
