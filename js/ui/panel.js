@@ -385,7 +385,6 @@ export class Panel {
         ${reviewRow(war.review, 'Kriget')}
         ${this.onReport ? reportBtn({ type: 'war', id: war.id, label: t(war.title) }) : ''}
       </div>`;
-    for (const tag of keepOpen) this.detail.querySelector(`details.tag-mark[data-tag="${CSS.escape(tag)}"]`)?.setAttribute('open', '');
     this.detail.scrollTop = 0;
     this.detail.hidden = false;
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
@@ -568,6 +567,7 @@ export class Panel {
         ${reviewRow(e.review, 'Händelsen')}
         ${this.onReport ? reportBtn({ type: 'event', id: e.id, label: t(e.title) }) : ''}
       </div>`;
+    for (const tag of keepOpen) this.detail.querySelector(`details.tag-mark[data-tag="${CSS.escape(tag)}"]`)?.setAttribute('open', '');
     this.detail.scrollTop = 0;
     this.detail.hidden = false;
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
