@@ -49,7 +49,7 @@
 "vita-hastens-tempel":{"place":{"fr":"Luoyang, dans le Henan, Chine"},"title":{"fr":"Le temple du Cheval blanc, selon la tradition le premier temple bouddhiste de Chine"}},
 "antiokia-jordbavningen-115":{"place":{"fr":"Antioche (actuelle Antakya), Turquie"},"title":{"fr":"Le séisme d'Antioche"}},
 "zhang-hengs-seismoskop":{"place":{"fr":"La cour des Han à Luoyang, Chine"},"title":{"fr":"Le sismoscope de Zhang Heng"}},
-"antoninska-pesten":{"place":{"fr":"Séleucie du Tigre (premiers signalements), puis l'Empire romain"},"title":{"fr":"La peste antonine"}},
+"antoninska-pesten":{"place":{"fr":"Séleucie du Tigre (premiers signalements), puis l'Empire romain"},"title":{"fr":"La peste antonine"},"note":{"title":{"fr":"La source se contredit"}}},
 "nalanda":{"place":{"fr":"Nalanda, dans le Bihar, Inde"},"title":{"fr":"Nalanda, un centre d'enseignement bouddhique"}},
-"aryabhatiya":{"place":{"fr":"Kusumapura (Pataliputra), près de l'actuelle Patna, dans le Bihar, Inde"},"title":{"fr":"L'Aryabhatiya, l'ouvrage d'Aryabhata sur l'astronomie et les mathématiques"},"note":{"title":{"fr":"À propos du lieu"}}}
+"aryabhatiya":{"place":{"fr":"Kusumapura (Pataliputra), près de l'actuelle Patna, dans le Bihar, Inde"},"title":{"fr":"L'Aryabhatiya, l'ouvrage d'Aryabhata sur l'astronomie et les mathématiques"},"note":{"title":{"fr":"Les sources divergent"}}}
 }}

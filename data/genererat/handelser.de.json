@@ -49,7 +49,7 @@
 "vita-hastens-tempel":{"place":{"de":"Luoyang in Henan, China"},"title":{"de":"Der Tempel des Weißen Pferdes, nach der Überlieferung Chinas erster buddhistischer Tempel"}},
 "antiokia-jordbavningen-115":{"place":{"de":"Antiochia (heute Antakya), Türkei"},"title":{"de":"Das Erdbeben von Antiochia"}},
 "zhang-hengs-seismoskop":{"place":{"de":"Der Han-Hof in Luoyang, China"},"title":{"de":"Zhang Hengs Seismoskop"}},
-"antoninska-pesten":{"place":{"de":"Seleukeia am Tigris (zuerst gemeldet), dann das Römische Reich"},"title":{"de":"Die Antoninische Pest"}},
+"antoninska-pesten":{"place":{"de":"Seleukeia am Tigris (zuerst gemeldet), dann das Römische Reich"},"title":{"de":"Die Antoninische Pest"},"note":{"title":{"de":"Die Quelle widerspricht sich"}}},
 "nalanda":{"place":{"de":"Nalanda in Bihar, Indien"},"title":{"de":"Nalanda, eine buddhistische Lehrstätte"}},
-"aryabhatiya":{"place":{"de":"Kusumapura (Pataliputra), nahe dem heutigen Patna in Bihar, Indien"},"title":{"de":"Das Aryabhatiya, Aryabhatas Werk über Astronomie und Mathematik"},"note":{"title":{"de":"Zum Ort"}}}
+"aryabhatiya":{"place":{"de":"Kusumapura (Pataliputra), nahe dem heutigen Patna in Bihar, Indien"},"title":{"de":"Das Aryabhatiya, Aryabhatas Werk über Astronomie und Mathematik"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}}
 }}

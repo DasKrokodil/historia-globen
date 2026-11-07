@@ -49,7 +49,7 @@
 "vita-hastens-tempel":{"place":{"es":"Luoyang, en Henan, China"},"title":{"es":"El templo del Caballo Blanco, según la tradición el primer templo budista de China"}},
 "antiokia-jordbavningen-115":{"place":{"es":"Antioquía (actual Antakya), Turquía"},"title":{"es":"El terremoto de Antioquía"}},
 "zhang-hengs-seismoskop":{"place":{"es":"La corte Han en Luoyang, China"},"title":{"es":"El sismoscopio de Zhang Heng"}},
-"antoninska-pesten":{"place":{"es":"Seleucia del Tigris (primeros informes), luego el Imperio romano"},"title":{"es":"La peste antonina"}},
+"antoninska-pesten":{"place":{"es":"Seleucia del Tigris (primeros informes), luego el Imperio romano"},"title":{"es":"La peste antonina"},"note":{"title":{"es":"La fuente se contradice"}}},
 "nalanda":{"place":{"es":"Nalanda, en Bihar, India"},"title":{"es":"Nalanda, un centro budista de estudios"}},
-"aryabhatiya":{"place":{"es":"Kusumapura (Pataliputra), cerca de la actual Patna, en Bihar, India"},"title":{"es":"El Aryabhatiya, la obra de Aryabhata sobre astronomía y matemáticas"},"note":{"title":{"es":"Sobre el lugar"}}}
+"aryabhatiya":{"place":{"es":"Kusumapura (Pataliputra), cerca de la actual Patna, en Bihar, India"},"title":{"es":"El Aryabhatiya, la obra de Aryabhata sobre astronomía y matemáticas"},"note":{"title":{"es":"Las fuentes difieren"}}}
 }}
