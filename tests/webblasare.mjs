@@ -2480,6 +2480,32 @@ async function run(browser, vp) {
     });
   }
   if (vp.name === 'dator') {
+    // Mätningarna i utskriftsvyn (#757): körs i sidan med print-media påslaget
+    const printAudit = () => {
+      const root = document.getElementById('print-sheet');
+      const heads = [...root.querySelectorAll('h1, h2, h3, h4')];
+      const levels = heads.map(h => Number(h.tagName[1]));
+      const h1s = heads.filter(h => h.tagName === 'H1').map(h => h.textContent.trim());
+      const texts = [...root.querySelectorAll('*')].filter(e => e.children.length === 0 && e.textContent.trim());
+      const css = (e, p) => getComputedStyle(e).getPropertyValue(p);
+      const avoid = ['.print-questions > li', '.print-exit', '.print-sources li'].flatMap(s => [...root.querySelectorAll(s)]);
+      return {
+        h1: h1s.length,
+        h1Same: new Set(h1s).size !== h1s.length,
+        skippedHeading: levels.some((l, i) => l > (levels[i - 1] ?? 0) + 1),
+        unlabelled: [...root.querySelectorAll('.print-page')].filter(s => !document.getElementById(s.getAttribute('aria-labelledby') ?? '')?.textContent.trim()).length,
+        visibleLines: [...root.querySelectorAll('.print-lines, .print-blank')].filter(e => e.getAttribute('aria-hidden') !== 'true').length,
+        colors: [...new Set(texts.map(e => `${css(e, 'color')} på ${css(e, 'background-color')}`))],
+        smallest: Math.min(...texts.map(e => parseFloat(css(e, 'font-size')) * 0.75)),
+        markers: [...root.querySelectorAll('.print-questions, .print-questions-short')].filter(l => css(l, 'list-style-type') !== 'none').length,
+        splits: avoid.filter(e => !/avoid/.test(css(e, 'break-inside'))).length + heads.filter(h => h.tagName === 'H2' && !/avoid/.test(css(h, 'break-after'))).length,
+        wide: [...root.querySelectorAll('*')].filter(e => e.clientWidth > 0 && e.scrollWidth > e.clientWidth + 1).length,
+        urls: root.querySelectorAll('.print-src-url, .print-link').length,
+        // Bladens höjd och papperets bredd mäts i A4:s tryckbara bredd (se testet nedan)
+        heights: [...root.querySelectorAll('.print-page')].map(s => Math.ceil(s.getBoundingClientRect().height)),
+        paperWidth: document.documentElement.scrollWidth,
+      };
+    };
     // Utskrift av en lektionstur (#738): knappen bara i en tur med lärarfält, och i utskrift syns bara elevbladet
     // och lärarbladet. Webbläsarens utskriftsdialog ersätts, så att testet inte väntar på den.
     await check('en lektionstur skriver ut elevblad och lärarblad (#738)', async () => {
@@ -2512,8 +2538,40 @@ async function run(browser, vp) {
           link: document.querySelector('#print-sheet .print-link')?.textContent ?? '',
           teacher: document.querySelector('#print-sheet .print-teacher')?.textContent ?? '',
         }));
+        // Mätningen görs i A4:s tryckbara yta, 210 mm minus marginalerna 2 × 15 mm = 180 mm = 680 px bred och
+        // 297 mm minus 2 × 11 mm = 275 mm = 1039 px hög, så att ett blad som är för brett eller för högt larmar innan det
+        // spiller över, och svaret blir detsamma på alla maskiner (ett fönster på 1400 px skulle inte hitta något)
+        const A4_WIDTH = 680;
+        const A4_HEIGHT = 1039;
+        const viewport = printPage.viewportSize();
+        await printPage.setViewportSize({ width: A4_WIDTH, height: viewport?.height ?? 900 });
+        // Höjden mäts först när webbtypsnitten har laddats, annars mäts reservtypsnittet (#757)
+        await printPage.evaluate(() => document.fonts.ready);
+        Object.assign(got, await printPage.evaluate(printAudit));
+        if (viewport) await printPage.setViewportSize(viewport);
+        // Sidbrytning: hela bladen ryms på ett A4 var (Chromium kan skriva PDF; Firefox och WebKit kan inte)
+        const pdfPages = BROWSER === 'chromium'
+          ? (await printPage.pdf({ format: 'A4', preferCSSPageSize: true })).toString('latin1').match(/\/Type\s*\/Page[^s]/g)?.length ?? 0
+          : got.pages;
         await printPage.emulateMedia({ media: 'screen' });
-        if (got.pages !== 2) throw new Error(`${got.pages} blad i stället för elevblad och lärarblad`);
+        // Utskriften (#757): läsordning och rubriker för hjälpmedel, svart på vitt utan färg, läsbar textstorlek och
+        // sidbrytning som inte delar ett svarsfält
+        if (got.h1 !== got.pages || got.skippedHeading) throw new Error(`rubrikerna är fel i utskriften: ${got.h1} h1 för ${got.pages} blad, hopp i nivåerna: ${got.skippedHeading}`);
+        if (got.h1Same) throw new Error('elevbladet och lärarbladet har samma rubrik');
+        if (got.unlabelled) throw new Error(`${got.unlabelled} blad saknar märkning (aria-labelledby)`);
+        if (got.visibleLines) throw new Error('skrivraderna syns för hjälpmedel i stället för att vara dekoration');
+        if (got.colors.length !== 1) throw new Error(`utskriften har fler färger än svart på vitt: ${got.colors.join(' ')}`);
+        if (got.smallest < 8) throw new Error(`minsta texten i utskriften är ${got.smallest.toFixed(1)} pt, minst 8 pt krävs`);
+        if (got.markers) throw new Error('listornas siffror säger emot stegnumren på bladen');
+        if (got.splits) throw new Error(`${got.splits} svarsfält eller grupper får delas av en sidbrytning`);
+        if (got.wide) throw new Error(`${got.wide} element är bredare än utskriftsytan`);
+        if (got.urls < 2) throw new Error('adresser står inte som text på bladen (papper går inte att klicka på)');
+        if (got.paperWidth > A4_WIDTH) throw new Error(`utskriften är ${got.paperWidth} px bred, A4 rymmer ${A4_WIDTH} px`);
+        // Minst 3 % luft: texten kan variera något med typsnitt och webbläsare
+        const maxHeight = Math.floor(A4_HEIGHT * 0.97);
+        if (got.heights.some(h => h > maxHeight)) throw new Error(`ett blad är ${Math.max(...got.heights)} px högt, högst ${maxHeight} px av A4:s ${A4_HEIGHT} px (${got.heights.join(', ')})`);
+        if (pdfPages !== got.pages) throw new Error(`utskriften blev ${pdfPages} A4-sidor i stället för ett blad per sida (${got.pages} blad)`);
+        if (got.pages < 2) throw new Error(`${got.pages} blad i stället för elevblad och lärarblad`);
         if (got.questions !== 5) throw new Error(`elevbladet har ${got.questions} frågor, turen har 5`);
         if (got.sheet === 'none' || got.app !== 'none') throw new Error(`i utskrift: bladen ${got.sheet}, sidan ${got.app}`);
         if (!got.link.endsWith('#t=andra-varldskriget')) throw new Error(`lärarbladets länk är ${got.link}`);
@@ -2523,6 +2581,72 @@ async function run(browser, vp) {
         await printPage.close();
       }
       return 'ingen knapp utan lärarfält; två blad, fem frågor, bara bladen i utskrift, länk och Lgr22 med källa';
+    });
+    // Höjden på bladen (#757): alla fem språken och båda lektionerna, med webbtypsnitten och med reservtypsnittet.
+    // Engelska, tyska, spanska och franska är längre än svenska, och utan webbtypsnitten byts typsnittet mot ett bredare
+    // (DejaVu Sans på Linux), så ett mått på svenska med webbtypsnitt säger inget om de andra fallen.
+    await check('elevbladet och lärarbladet ryms på en A4-sida i alla språk, med och utan webbtypsnitt (#757)', async () => {
+      const A4_WIDTH = 680;
+      const A4_HEIGHT = 1039;
+      const LANGS = ['sv', 'en', 'de', 'es', 'fr'];
+      const TOURS = ['andra-varldskriget', 'vikingatiden-och-varlden'];
+      const measure = async (lang, tour, fallback) => {
+        const pg = await context.newPage();
+        try {
+          if (THREE_LOCAL) {
+            const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+            await pg.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+          }
+          if (fallback) await pg.route(u => isFont(u.href), r => r.abort());
+          await pg.goto(`${BASE}?ny=1&lang=${lang}#t=${tour}`);
+          await pg.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          await pg.waitForSelector('#tour-print', { state: 'visible', timeout: T.load });
+          await pg.evaluate(() => { window.print = () => { window.__printed = true; }; });
+          await pg.click('#tour-print');
+          await pg.waitForFunction(() => window.__printed, null, { timeout: T.step });
+          await pg.emulateMedia({ media: 'print' });
+          // Reservtypsnittet är DejaVu Sans, så att mätningen blir densamma på alla maskiner (annars väljer
+          // webbläsaren själv något bland systemets typsnitt)
+          if (fallback) await pg.addStyleTag({ content: '@media print { #print-sheet, #print-sheet * { font-family: "DejaVu Sans", sans-serif !important; } }' });
+          await pg.setViewportSize({ width: A4_WIDTH, height: 900 });
+          await pg.evaluate(() => document.fonts.ready);
+          const got = await pg.evaluate(() => ({
+            lang: document.documentElement.lang,
+            heights: [...document.querySelectorAll('#print-sheet .print-page')].map(s => Math.ceil(s.getBoundingClientRect().height)),
+            webFonts: [...document.fonts].filter(f => f.status === 'loaded').map(f => f.family),
+            bodyFont: getComputedStyle(document.querySelector('#print-sheet .print-q')).fontFamily,
+          }));
+          return got;
+        } finally {
+          await pg.close();
+        }
+      };
+      const limit = { web: Math.floor(A4_HEIGHT * 0.97), fallback: A4_HEIGHT - 1 };
+      const rows = [];
+      for (const fallback of [false, true]) {
+        // Utan nät (THREE_LOCAL) blockeras webbtypsnitten av den vanliga routen och går inte att mäta
+        if (!fallback && THREE_LOCAL && !(await measure('sv', TOURS[0], false)).webFonts.includes('Instrument Sans')) continue;
+        for (const tour of TOURS) {
+          // Andra världskriget är det längsta bladet och mäts på alla språk; vikingatiden är cirka 90 px lägre och
+          // mäts på det längsta språket (tyska) med webbtypsnitt också på engelska, så att testet inte tar för lång tid
+          const langs = tour === TOURS[0] ? LANGS : fallback ? ['de'] : ['en', 'de'];
+          const results = [];
+          for (const lang of langs) results.push(await measure(lang, tour, fallback));
+          results.forEach((got, i) => {
+            const lang = langs[i];
+            if (got.lang !== lang) throw new Error(`språket blev ${got.lang} i stället för ${lang}`);
+            const used = got.webFonts.includes('Instrument Sans');
+            if (!fallback && !used) throw new Error(`${tour} ${lang}: webbtypsnitten laddades inte, så höjden mäter fel typsnitt (${got.bodyFont})`);
+            if (fallback && (used || !got.bodyFont.startsWith('"DejaVu Sans"'))) throw new Error(`${tour} ${lang}: reservmätningen använder fel typsnitt (${got.bodyFont}, webbtypsnitt: ${used})`);
+            const max = Math.max(...got.heights);
+            const lim = limit[fallback ? 'fallback' : 'web'];
+            if (got.heights.length !== 2) throw new Error(`${tour} ${lang}: ${got.heights.length} blad i stället för två`);
+            if (max > lim) throw new Error(`${tour} ${lang} ${fallback ? 'med reservtypsnitt' : 'med webbtypsnitt'}: ett blad är ${max} px högt, högst ${lim} px av A4:s ${A4_HEIGHT} px (${got.heights.join(', ')})`);
+            rows.push(`${fallback ? 'reserv' : 'web'} ${tour.slice(0, 4)} ${lang} ${got.heights.join('/')}`);
+          });
+        }
+      }
+      return `${rows.length} mätningar inom gränsen: ${rows.join('; ')}`;
     });
   }
   // Sök och följ (#651, tidigare Sök #570): en händelse öppnas på sitt år, ett rike börjar följas, och tomt resultat syns tydligt
