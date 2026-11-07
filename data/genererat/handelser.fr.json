@@ -1,5 +1,7 @@
 {"note":"Genereras av tools/dela_data.py ur data/events.json. Redigera inte här, utan i källfilen, och kör skriptet igen.",
 "lang":"fr",
 "events":{
-"mammutar-wrangel":{"note":{"title":{"fr":"À propos de la période"}}}
+"mammutar-wrangel":{"note":{"title":{"fr":"À propos de la période"}}},
+"borobudur-byggs":{"place":{"fr":"Borobudur, Java central, Indonésie"},"title":{"fr":"Borobudur est construit à Java"},"note":{"title":{"fr":"Les sources divergent"}}},
+"diamantsutran-trycks":{"place":{"fr":"Trouvé dans les grottes de Mogao, près de Dunhuang, Chine"},"title":{"fr":"Le Sūtra du Diamant est imprimé"}}
 }}

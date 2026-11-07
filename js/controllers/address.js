@@ -6,10 +6,13 @@
 //   (bakåt/framåt) blir det bara vid större steg: nytt fokus, ändrade lager eller kategorier, eller ett årshopp
 //   som har stått still en stund. Uppspelning och vridning av globen ersätter den nuvarande posten.
 // - Bakåt och framåt (popstate) läser hashen och ställer in vyn igen.
+// - En guidad tur i länken (t och s, eller den äldre ?tur=<id>) startar turen vid rätt steg i stället för att
+//   ställa in vyn (#736). Medan turen pågår skriver adressen turens id och steg, så att Dela ger en länk till
+//   steget och Bakåt går till föregående steg. När turen avslutas försvinner t och s ur adressen.
 // - Knappen Dela kopierar länken, eller öppnar telefonens delningsmeny där den finns.
 
 import { toJSON } from '../state.js';
-import { encodeHash, decodeHash, isNewStep } from '../url-state.js';
+import { encodeHash, decodeHash, decodeTour, isNewStep } from '../url-state.js';
 import { ui } from '../i18n.js';
 
 const POLL_MS = 700;
@@ -17,10 +20,15 @@ const POLL_MS = 700;
 export function createAddress(app) {
   const { state, globe, timeline, layers, panel, data } = app;
   const allCategories = [...new Set(data.events.map(e => e.category))].sort();
-  let applying = false, written = null, seen = null;
+  let applying = false, written = null, writtenHash = '', seenHash = '';
 
   const current = () => toJSON(state, globe.view);
-  const hashOf = json => encodeHash(json, allCategories);
+  const position = () => app.tour?.position ?? null;
+  const hashOf = (json, tour = null) => encodeHash(json, allCategories, tour);
+  /** Sidans adress utan den äldre ?tur= (turen står i hashen när den väl har startat). */
+  const search = () => { const q = new URLSearchParams(location.search); q.delete('tur'); const t = q.toString(); return t ? `?${t}` : ''; };
+  /** Det som nu står i adressen räknas som skrivet, så att det inte skrivs en gång till. */
+  function settle() { written = current(); writtenHash = seenHash = hashOf(written, position()); }
 
   /** Finns det man följer i datan? (en gammal länk kan peka på något som har bytt namn) */
   function focusExists(key) {
@@ -55,47 +63,62 @@ export function createAddress(app) {
       app.refresh();
     } finally {
       applying = false;
-      written = seen = current();
+      settle();
     }
   }
 
+  /** Startar turen i en länk ({ id, step } från decodeTour). Ger false när turen inte finns. */
+  function applyTour(tl) {
+    const tour = app.tour;
+    if (!tl || !tour) return false;
+    if (tour.active && tour.position?.id === tl.id) { tour.go(tour.stepIndex(tl.step)); return true; }
+    return tour.start(tl.id, null, tl.step);
+  }
+
   function write() {
-    if (applying || app.tour?.active) return;
-    const cur = current();
-    const hash = hashOf(cur);
-    if (written && hash === hashOf(written)) return;
-    if (!timeline.playing && (!seen || hash !== hashOf(seen))) { seen = cur; return; } // vänta tills vyn står still
-    const url = `${location.pathname}${location.search}${hash}`;
-    if (isNewStep(written, cur, { playing: timeline.playing })) history.pushState(null, '', url);
+    if (applying) return;
+    const cur = current(), pos = position();
+    const hash = hashOf(cur, pos);
+    if (hash === writtenHash) return;
+    if (!timeline.playing && hash !== seenHash) { seenHash = hash; return; } // vänta tills vyn står still
+    const url = `${location.pathname}${search()}${hash}`;
+    // Ett nytt steg i turen, eller att turen börjar eller slutar, blir en egen post (Bakåt går till steget innan)
+    const tourStep = new URLSearchParams(writtenHash.slice(1)), newTour = (tourStep.get('t') ?? '') !== (pos?.id ?? '') || (tourStep.get('s') ?? '') !== (pos?.step ?? '');
+    if (newTour || isNewStep(written, cur, { playing: timeline.playing })) history.pushState(null, '', url);
     else history.replaceState(null, '', url);
-    written = seen = cur;
+    written = cur; writtenHash = seenHash = hash;
   }
 
   /** Läser adressen vid start. Ger true om en giltig länk ställde in vyn. */
   async function start({ read = true } = {}) {
-    const s = read ? decodeHash(location.hash) : null;
+    // En tur i länken går före en delad vy; finns turen inte läses resten av länken som vanligt
+    const touring = read && applyTour(decodeTour(location.hash, location.search));
+    const s = read && !touring ? decodeHash(location.hash) : null;
     if (s) await apply(s);
     // Startläget får också en adress, så att Bakåt efter första steget kommer tillbaka hit
-    written = seen = current();
-    history.replaceState(null, '', `${location.pathname}${location.search}${hashOf(written)}`);
+    settle();
+    history.replaceState(null, '', `${location.pathname}${search()}${writtenHash}`);
     setInterval(write, POLL_MS);
     addEventListener('popstate', () => {
+      const tl = decodeTour(location.hash);
+      if (tl && applyTour(tl)) { settle(); return; }
+      if (app.tour?.active) app.tour.end();
       const t = decodeHash(location.hash);
-      if (t) apply(t);
+      if (t) apply(t); else settle();
     });
-    return !!s;
+    return touring || !!s;
   }
 
   /** Länken till vyn som den ser ut nu. */
   function link() {
-    return `${location.origin}${location.pathname}${location.search}${hashOf(current())}`;
+    return `${location.origin}${location.pathname}${search()}${hashOf(current(), position())}`;
   }
 
   /** Knappen Dela (#64): delningsmenyn i telefonen, annars kopiera länken. status(text) visar resultatet. */
   async function share(status) {
     const url = link();
     history.replaceState(null, '', url);
-    written = seen = current();
+    settle();
     if (navigator.share && matchMedia('(pointer: coarse)').matches) {
       try { await navigator.share({ title: document.title, url }); return; } catch (err) { if (err?.name === 'AbortError') return; }
     }

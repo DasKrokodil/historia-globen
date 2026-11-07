@@ -100,6 +100,7 @@
       "license": "CC BY-NC-SA 4.0 (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "whe-abbasid-dynasty",
+        "whe-borobudur",
         "whe-buddha",
         "whe-carolingian-dynasty",
         "whe-charlemagne",
@@ -358,6 +359,7 @@
         "wp-bodh-gaya",
         "wp-bois-caiman",
         "wp-bolivia",
+        "wp-borobudur",
         "wp-borodino",
         "wp-botany-bay",
         "wp-bougainville-conflict",
@@ -507,6 +509,7 @@
         "wp-derafsh-kaviani",
         "wp-dhaka",
         "wp-dhauli",
+        "wp-diamond-sutra",
         "wp-dingo",
         "wp-dirk-hartog",
         "wp-dissolution-of-czechoslovakia",
@@ -931,6 +934,7 @@
         "wp-moa",
         "wp-moai",
         "wp-moche-culture",
+        "wp-mogao-caves",
         "wp-mohenjo-daro",
         "wp-mohi",
         "wp-mokuohai",
@@ -1664,6 +1668,7 @@
         "natural-earth-countries",
         "natural-earth-lander",
         "natural-earth-omstridda",
+        "whe-chinese-diamond-sutra",
         "wilber-1886"
       ]
     },
@@ -1707,6 +1712,12 @@
         "ud-taiwan",
         "ud-ukraina",
         "ud-vastsahara"
+      ]
+    },
+    {
+      "license": "Skolverket (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "skolverket-lgr22-historia"
       ]
     },
     {
