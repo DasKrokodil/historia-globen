@@ -521,6 +521,46 @@ async function run(browser, vp) {
     return 'ingen automatisk popup; tre steg, år 1889, Escape och reducerad rörelse fungerar';
   });
 
+  // Samtidighetsjakten (#741): starta från Mer, lägg händelser i jakten från faktarutan, samma världsdel ger besked,
+  // tre världsdelar ger frågan och källorna, uppdraget står i adressen, Escape avslutar och fokus kommer tillbaka
+  await check('Samtidighetsjakten räknar världsdelar och år ur datan (#741)', async () => {
+    try { return await huntCheck(); } catch (err) { if (await page.isVisible('#hunt')) await page.click('#hunt-end'); throw err; }
+  });
+  async function huntCheck() {
+    await clickView('#btn-hunt');
+    await visible('#hunt');
+    if ((await year()) !== '1500') throw new Error(`jakten började på ${await year()}, inte 1500`);
+    if (!/^0 /.test((await page.textContent('#hunt-progress')).trim())) throw new Error('jakten börjar inte på noll');
+    // Som en elev: öppna händelsen i Samtidigt och tryck på Lägg till i jakten i faktarutan
+    const add = async id => {
+      if (await page.isHidden('#panel')) await clickView('#btn-panel');
+      await page.locator(`#event-list .event-btn[data-id="${id}"]`).first().click();
+      await page.waitForSelector('#detail [data-hunt]', { state: 'visible', timeout: T.step });
+      await page.click('#detail [data-hunt]');
+      return (await page.textContent('#hunt-message')).trim();
+    };
+    await add('columbus');
+    await add('bartolomeu-dias-rundar-afrika');
+    const same = await add('spanska-erovringen-av-aztekriket');
+    if (!/redan/.test(same)) throw new Error(`två händelser från Amerika godtogs: ${same}`);
+    await add('vasco-da-gama-nar-indien');
+    await visible('#hunt-done');
+    if (await page.locator('#hunt-list li').count() !== 3) throw new Error('jakten har inte tre händelser');
+    await page.waitForFunction(() => document.querySelectorAll('#hunt-sources li a').length > 0, null, { timeout: T.step });
+    const wide = await page.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1);
+    if (wide) throw new Error('jakten ger horisontell scroll');
+    await page.waitForFunction(() => location.hash.includes('u=samtidighetsjakten-1500'), null, { timeout: T.step });
+    if (await page.isVisible('#panel-close')) await page.click('#panel-close');
+    await page.focus('#hunt-end');
+    await page.keyboard.press('Escape');
+    await hidden('#hunt');
+    const back = await page.evaluate(() => document.activeElement?.id);
+    if (!['btn-hunt', 'btn-more', 'more-toggle'].includes(back)) throw new Error(`fokus gick till ${back} efter Escape`);
+    await page.waitForFunction(() => !location.hash.includes('u='), null, { timeout: T.step });
+    if (await page.isVisible('#detail')) await page.keyboard.press('Escape');
+    return 'år 1500; Amerika två gånger ger besked; tre världsdelar ger fråga och källor; u= i adressen och bort efter Escape';
+  }
+
   // Quizet (#65): tre svar ur datan, rätt eller fel med årtal och källor, nästa fråga, bara tangentbord och Escape
   await check('quizet ställer frågor ur fun facts och går att svara på med tangentbordet (#65)', async () => {
     // Fallerar kontrollen stängs quizet, så att rutan inte täcker sidan för kontrollerna efter

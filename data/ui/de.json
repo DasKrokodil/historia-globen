@@ -473,5 +473,21 @@
   "print.link": "Link zur Tour",
   "print.instruction": "So gehen Sie vor",
   "print.curriculum": "Bezug zum Lehrplan",
-  "print.questions": "Die Fragen der Tour"
+  "print.questions": "Die Fragen der Tour",
+  "top.hunt": "Gleichzeitigkeitsjagd",
+  "top.huntTitle": "Finde Ereignisse auf verschiedenen Kontinenten zur gleichen Zeit",
+  "hunt.close": "Jagd beenden",
+  "hunt.reflect": "Zum Nachdenken:",
+  "hunt.sources": "Quellen",
+  "hunt.end": "Jagd beenden",
+  "hunt.add": "Zur Jagd hinzufügen",
+  "hunt.added": "Zur Jagd hinzugefügt ✓",
+  "hunt.years": "Jahre {from}–{to}",
+  "hunt.progress": "{n} von {count} Kontinenten",
+  "hunt.ok": "{title} zählt: {region}.",
+  "hunt.time": "{title} liegt außerhalb der Jahre {from}–{to}.",
+  "hunt.region": "Du hast schon ein Ereignis aus {region}. Suche auf einem anderen Kontinent.",
+  "hunt.already": "Dieses Ereignis ist schon in der Jagd.",
+  "hunt.place": "Das Ereignis hat keinen Punkt auf dem Globus und kann nicht zählen.",
+  "hunt.hidden": "Das Ereignis kann nicht zählen."
 }

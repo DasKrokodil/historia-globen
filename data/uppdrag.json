@@ -1,0 +1,34 @@
+{
+  "schema": "historia-globen/uppdrag@1",
+  "note": "Elevuppdrag (#741): Samtidighetsjakten. Uppdragen påstår inga fakta; sidan kontrollerar ur händelserna att år och världsdel stämmer (js/uppdrag-rules.js).",
+  "missions": [
+    {
+      "id": "samtidighetsjakten-1500",
+      "kind": "hunt",
+      "year": 1500,
+      "window": 25,
+      "count": 3,
+      "title": {
+        "sv": "Samtidighetsjakten: år 1500",
+        "en": "The same-time hunt: the year 1500",
+        "de": "Die Gleichzeitigkeitsjagd: das Jahr 1500",
+        "es": "La caza de la simultaneidad: el año 1500",
+        "fr": "La chasse au même moment : l'an 1500"
+      },
+      "task": {
+        "sv": "Hitta tre händelser på tre olika kontinenter omkring år 1500 (1475–1525). Öppna en händelse på globen eller i Samtidigt och tryck på Lägg till i jakten.",
+        "en": "Find three events on three different continents around the year 1500 (1475–1525). Open an event on the globe or in Meanwhile and press Add to the hunt.",
+        "de": "Finde drei Ereignisse auf drei verschiedenen Kontinenten um das Jahr 1500 (1475–1525). Öffne ein Ereignis auf dem Globus oder unter Gleichzeitig und drücke auf Zur Jagd hinzufügen.",
+        "es": "Encuentra tres acontecimientos en tres continentes distintos hacia el año 1500 (1475–1525). Abre un acontecimiento en el globo o en Al mismo tiempo y pulsa Añadir a la caza.",
+        "fr": "Trouve trois événements sur trois continents différents vers l'an 1500 (1475–1525). Ouvre un événement sur le globe ou dans Au même moment et appuie sur Ajouter à la chasse."
+      },
+      "reflection": {
+        "sv": "Dina tre händelser hände ungefär samtidigt. Kände människorna på de olika platserna till varandra? Hur skulle du kunna ta reda på det? Titta i källorna nedan.",
+        "en": "Your three events happened at about the same time. Did the people in the different places know about each other? How could you find out? Look at the sources below.",
+        "de": "Deine drei Ereignisse geschahen ungefähr gleichzeitig. Wussten die Menschen an den verschiedenen Orten voneinander? Wie könntest du das herausfinden? Sieh dir die Quellen unten an.",
+        "es": "Tus tres acontecimientos ocurrieron más o menos al mismo tiempo. ¿Se conocían las personas de los distintos lugares? ¿Cómo podrías averiguarlo? Mira las fuentes de abajo.",
+        "fr": "Tes trois événements se sont produits à peu près au même moment. Les gens de ces différents lieux se connaissaient-ils ? Comment pourrais-tu le savoir ? Regarde les sources ci-dessous."
+      }
+    }
+  ]
+}

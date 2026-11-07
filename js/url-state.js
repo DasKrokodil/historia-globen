@@ -10,6 +10,7 @@
 //   k     kategorierna som syns; saknas k syns alla kategorier
 //   t     en guidad tur som pågår (tur-id i data/turer/, #736); en länk med t startar turen
 //   s     turens steg (stegets id); saknas s börjar turen vid första steget
+//   u     ett elevuppdrag som pågår (uppdragets id i data/uppdrag.json, #741); en länk med u startar uppdraget
 //
 // En länk till en tur behöver bara t, till exempel #t=vikingatiden-och-varlden. Den äldre formen ?tur=<id>
 // fungerar också. Medan turen pågår skriver sidan y, c, l, k, t och s för det steg som visas.
@@ -29,7 +30,7 @@ const num = x => String(Math.round(x * 10000) / 10000);
  * Hashen för ett tillstånd från toJSON(). allCategories är alla kategorier som finns i datan: syns alla,
  * skrivs k inte ut, så att länken blir kort och fortsätter att visa alla när en ny kategori kommer till.
  */
-export function encodeHash(json, allCategories = [], tour = null) {
+export function encodeHash(json, allCategories = [], tour = null, mission = null) {
   const parts = [`y=${num(json.year)}`];
   if (json.camera) parts.push(`c=${[json.camera.lat, json.camera.lon, json.camera.zoom].map(num).join(',')}`);
   if (json.focus) parts.push(`f=${json.focus}`);
@@ -40,7 +41,14 @@ export function encodeHash(json, allCategories = [], tour = null) {
     parts.push(`t=${tour.id}`);
     if (tour.step && ID.test(tour.step)) parts.push(`s=${tour.step}`);
   }
+  if (mission && ID.test(mission)) parts.push(`u=${mission}`);
   return `#${parts.join('&')}`;
+}
+
+/** Elevuppdraget i en hash ("#…&u=<id>", #741), eller null. Id med fel tecken räknas som saknade. */
+export function decodeMission(hash) {
+  const id = new URLSearchParams(String(hash ?? '').replace(/^#/, '')).get('u');
+  return id && ID.test(id) ? id : null;
 }
 
 /**

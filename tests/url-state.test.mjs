@@ -82,3 +82,12 @@ test('en guidad tur i adressen: t och s skrivs och läses (#736)', async () => {
   // En hash med tur går fortfarande att läsa som vy
   assert.equal(decodeHash(hash).year, 1325);
 });
+
+test('ett elevuppdrag i adressen: u skrivs och läses (#741)', async () => {
+  const { decodeMission } = await import('../js/url-state.js');
+  const hash = encodeHash(base, ['krig', 'kultur'], null, 'samtidighetsjakten-1500');
+  assert.ok(hash.endsWith('&u=samtidighetsjakten-1500'));
+  assert.equal(decodeMission(hash), 'samtidighetsjakten-1500');
+  assert.equal(decodeMission('#y=1500'), null);
+  assert.equal(decodeMission('#u=Fel!'), null);
+});

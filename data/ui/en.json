@@ -473,5 +473,21 @@
   "print.link": "Link to the tour",
   "print.instruction": "How to use it",
   "print.curriculum": "Link to the curriculum",
-  "print.questions": "The questions in the tour"
+  "print.questions": "The questions in the tour",
+  "top.hunt": "Same-time hunt",
+  "top.huntTitle": "Find events on different continents at the same time",
+  "hunt.close": "End the hunt",
+  "hunt.reflect": "Something to think about:",
+  "hunt.sources": "Sources",
+  "hunt.end": "End the hunt",
+  "hunt.add": "Add to the hunt",
+  "hunt.added": "Added to the hunt ✓",
+  "hunt.years": "Years {from}–{to}",
+  "hunt.progress": "{n} of {count} continents",
+  "hunt.ok": "{title} counts: {region}.",
+  "hunt.time": "{title} is outside the years {from}–{to}.",
+  "hunt.region": "You already have an event from {region}. Look on another continent.",
+  "hunt.already": "This event is already in the hunt.",
+  "hunt.place": "The event has no point on the globe and cannot count.",
+  "hunt.hidden": "The event cannot count."
 }

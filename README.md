@@ -89,6 +89,8 @@ js/date-events.js     återanvändbart urval av händelser för år eller exakt 
 js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg, från Utforska (#363, #516)
 js/ui/quiz.js         quizet "Vad hände samtidigt?" under Mer, med frågor ur befintliga fun facts (#65)
 js/ui/print-sheet.js  utskrift av en lektionstur: elevblad och lärarblad ur turens lärarfält (#738)
+js/ui/uppdrag.js      elevuppdraget Samtidighetsjakten under Mer, med knappen i faktarutan (#741)
+js/uppdrag-rules.js   jaktens regler: år, världsdel och vad som räknas, delas med testerna (#741)
 js/quiz-rules.js      quizets regler: frågor och säkert felaktiga svar, delas med testerna (#65)
 js/ui/viewmode.js     vyväljaren: Glob, Platt karta och Upptäcktsresor (#651)
 js/ui/tour.js         guidade turer: spelar upp en tur ur data/turer/ steg för steg (knappen Turer, #47)
@@ -116,6 +118,7 @@ data/handelser/       händelserna, en redigeringsfil per period; här redigeras
 data/events.json      alla händelser i en fil, byggd ur data/handelser/ (redigeras inte)
 data/funfacts.json    fun facts, kopplade till händelser
 data/intro.json       introduktionens startår, texter och referenser till befintliga händelser/fun facts (#363, #516)
+data/uppdrag.json     elevuppdragen (Samtidighetsjakten): år, spann, antal världsdelar och texter (#741)
 data/turer/           guidade turer: index.json och en fil per tur med steg (år, kamera, text, lager, händelse, källor) (#47)
 data/sources.json     källregister
 data/version.json     versionsnummer och länk till releaserna

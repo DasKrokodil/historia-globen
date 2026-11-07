@@ -256,5 +256,15 @@
   "print.link": "Länk till turen",
   "print.instruction": "Så gör du",
   "print.curriculum": "Koppling till läroplanen",
-  "print.questions": "Frågorna i turen"
+  "print.questions": "Frågorna i turen",
+  "hunt.add": "Lägg till i jakten",
+  "hunt.added": "Tillagd i jakten ✓",
+  "hunt.years": "År {from}–{to}",
+  "hunt.progress": "{n} av {count} världsdelar",
+  "hunt.ok": "{title} räknas: {region}.",
+  "hunt.time": "{title} ligger utanför åren {from}–{to}.",
+  "hunt.region": "Du har redan en händelse från {region}. Leta på en annan kontinent.",
+  "hunt.already": "Den här händelsen finns redan i jakten.",
+  "hunt.place": "Händelsen har ingen punkt på globen och kan inte räknas.",
+  "hunt.hidden": "Händelsen kan inte räknas."
 }
