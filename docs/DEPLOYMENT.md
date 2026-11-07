@@ -226,6 +226,7 @@ Godkännanden är satta till 0 eftersom projektet har en ägare, och GitHub låt
 
 1. Kontrollera att `main` är grön i Actions och att förhandsversionen (dev.historiagloben.se) ser rätt ut i dator och mobil.
 2. Välj versionsnummer (se nedan).
+   Innehåller releasen nya eller omgjorda översättningar: låt Codex göra den större språkgranskningen med en starkare modell och skriv rapporten i release-PR:en (beslut 2026-11-07, [oversattningsgranskning-vid-release](beslut/2026-11-07-oversattningsgranskning-vid-release.md)).
 3. Öppna release-PR:en med checklistan:
    `https://github.com/DasKrokodil/historia-globen/compare/production...main?expand=1&template=release.md`
    Sätt rubriken till `Release vX.Y.Z` och fyll i "Nytt sedan förra releasen".
