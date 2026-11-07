@@ -18,6 +18,7 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 - `handelser/` och `events.json` – händelsernas redigeringsfiler och fält, inklusive bilder (`image`).
 - `utkast/` – utkast från massimport som appen inte läser.
 - `funfacts.json` – fun facts kopplade till händelser.
+- `missuppfattningar.json` (#838) – vanliga historiska missuppfattningar.
 - `sources.json` – källregistret.
 - `empires/` – riken: registret, faktarutor och rikenas fält.
 - `routes/` (#38) – vägar och resor med etapper.
@@ -125,6 +126,28 @@ Filerna i `data/utkast/` har samma format som `events.json` (`schema`, `notes`, 
 `events` pekar på händelserna som jämförs, och fun facten ärver deras källor. `show` är spannet då kortet visas. Siffror i texten ska gå att räkna fram ur händelsernas årtal.
 
 Korten "När ett krig bröt ut" lagras inte här. De byggs i koden ur händelserna, inom 5 år från krigets start.
+
+## `missuppfattningar.json`: vanliga missuppfattningar (#838)
+
+Vad många tror, vad källorna säger och var missuppfattningen kom ifrån (beslut 2026-11-07, `docs/beslut/2026-11-07-missuppfattningar-838.md`). Appen läser ännu inte filen; visningen i faktarutan byggs efter skolpiloten. Schema: `schemas/missuppfattning.schema.json`.
+
+```json
+{ "id": "napoleon-var-kort", "events": ["napoleonkrigen"],
+  "claim": { "sv": "Napoleon var ovanligt kort." }, "truth": { "sv": "Napoleon var ungefär 167–168 cm …" },
+  "origin": { "sv": "Brittiska karikatyrtecknare … " }, "originKinds": ["satire"],
+  "sources": ["wp-napoleon", "wp-napoleon-complex"], "review": "source-checked" }
+```
+
+| Fält | Betydelse |
+|---|---|
+| `id` | Läsbart, unikt id |
+| `events` | Valfritt: händelser i `events.json` som missuppfattningen hör till. Saknas händelse är `year` obligatoriskt |
+| `year`, `location` | Valfritt: år (astronomiskt) och GeoJSON-punkt för missuppfattningar utan händelse på globen |
+| `claim`, `truth`, `origin` | Texter per språk: vad många tror, vad källorna säger och var det kom ifrån. Är källorna oense skrivs det öppet i `truth` |
+| `originKinds` | Hur den uppstod, minst ett av `satire`, `propaganda`, `misreading`, `media`, `folk`, `other`. Eget fält, ingen ny kategori |
+| `sources`, `review` | Som för händelser. Bara sådant historiker är överens om; helst forskning eller referenslitteratur som källa |
+
+`scripts/validate-site.py` kontrollerar schemat och att `events` och `sources` finns. Texterna ingår i `tools/oversattning.py`.
 
 ## `sources.json`: källregister
 

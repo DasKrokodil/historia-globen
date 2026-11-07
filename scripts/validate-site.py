@@ -395,6 +395,27 @@ validate_schema_file('data/turer/index.json', tours_index or {}, 'tours-index.sc
 for path, tour in tours:
     validate_schema_file(path, tour, 'tour.schema.json')
 
+# 8c. Missuppfattningar (#838): filen publiceras ännu inte (appen läser den inte), så den läses ur repot.
+misc_path = ROOT / 'data' / 'missuppfattningar.json'
+if misc_path.is_file():
+    try:
+        misc = json.loads(misc_path.read_text(encoding='utf-8'))
+    except ValueError as e:
+        misc = None
+        err(f'data/missuppfattningar.json: går inte att läsa ({e})')
+    if misc is not None:
+        validate_schema_file('data/missuppfattningar.json', misc, 'missuppfattning.schema.json')
+        for m in misc.get('misconceptions', []):
+            mid = m.get('id', '?')
+            if not m.get('events') and not isinstance(m.get('year'), int):
+                err(f'data/missuppfattningar.json ({mid}): saknar både events och year')
+            for i in m.get('events', []):
+                if i not in ev_ids:
+                    err(f'data/missuppfattningar.json ({mid}): händelsen {i} finns inte i events.json')
+            for s in m.get('sources', []):
+                if s not in src_ids:
+                    err(f'data/missuppfattningar.json ({mid}): källan {s} finns inte i sources.json')
+
 # 9. Krigets riken (#76): empires är grupp-id i data/empires/index.json
 group_ids = {g.get('id') for g in (empires or {}).get('groups', [])}
 for e in events['events']:
