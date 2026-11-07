@@ -24,13 +24,21 @@
         "commons-bild-mayastadernas-nedgang",
         "commons-bild-muhammeds-forsta-uppenbarelse",
         "commons-bild-parisavtalet",
-        "commons-bild-stonehenge"
+        "commons-bild-stonehenge",
+        "commons-bild-terrakottaarmen"
+      ]
+    },
+    {
+      "license": "CC BY 2.5",
+      "sourceIds": [
+        "commons-bild-sydney-harbour-bridge-invigs"
       ]
     },
     {
       "license": "CC BY 3.0",
       "sourceIds": [
-        "commons-bild-kilskriften"
+        "commons-bild-kilskriften",
+        "commons-bild-lalibelas-klippkyrkor"
       ]
     },
     {
@@ -118,17 +126,23 @@
         "commons-bild-aksum-blir-kristet",
         "commons-bild-caral",
         "commons-bild-kvinnlig-rostratt-nya-zeeland",
+        "commons-bild-mosken-i-cordoba",
         "commons-bild-star-wars"
       ]
     },
     {
       "license": "CC BY-SA 3.0",
       "sourceIds": [
+        "commons-bild-gobekli-tepe",
+        "commons-bild-haamonga-a-maui",
+        "commons-bild-hagia-sofia-byggs-532",
         "commons-bild-lanse-aux-meadows",
         "commons-bild-lapitafolket-nar-samoa",
+        "commons-bild-moai-rapa-nui",
         "commons-bild-mohenjo-daro",
         "commons-bild-slaget-vid-adwa",
         "commons-bild-sovjetunionens-upplosning",
+        "commons-bild-stora-mosken-i-djenne",
         "commons-bild-sydafrikas-forsta-fria-val",
         "commons-bild-vulkanutbrottet-pa-thera"
       ]
@@ -143,10 +157,15 @@
       "license": "CC BY-SA 4.0",
       "sourceIds": [
         "commons-bild-angkor-wat",
+        "commons-bild-chan-chan",
+        "commons-bild-chichen-itza",
         "commons-bild-guru-nanak",
         "commons-bild-jordbrukets-borjan",
+        "commons-bild-nazcalinjerna",
         "commons-bild-operation-focus",
         "commons-bild-slaget-vid-salamis",
+        "commons-bild-teotihuacan-solpyramiden",
+        "commons-bild-tikal-vaxer-fram",
         "wikipedia-religion",
         "wp-1789-sydney-smallpox",
         "wp-1791-slave-rebellion",
@@ -1543,6 +1562,7 @@
         "commons-bild-forsta-flottan-sydney",
         "commons-bild-forsta-jarnvagen-mellan-stader",
         "commons-bild-fotbolls-vm-1930",
+        "commons-bild-fyren-pa-faros",
         "commons-bild-haitis-sjalvstandighet",
         "commons-bild-hawaiis-monarki-stortas",
         "commons-bild-ibn-battuta-resa",
@@ -1556,6 +1576,7 @@
         "commons-bild-karl-den-store-krons",
         "commons-bild-keelingkurvan",
         "commons-bild-khorramshahr-aterorovras-1982",
+        "commons-bild-kievrus-kristnas",
         "commons-bild-konstantinopels-fall",
         "commons-bild-kopernikus-de-revolutionibus",
         "commons-bild-korsfastelsen",
@@ -1570,10 +1591,12 @@
         "commons-bild-marco-polos-resa",
         "commons-bild-marschen-till-washington",
         "commons-bild-meijirestaurationen",
+        "commons-bild-mesa-verdes-klippbostader",
         "commons-bild-mexikos-grundlag-1917",
         "commons-bild-montrealprotokollet",
         "commons-bild-moresnet-blir-belgiskt",
         "commons-bild-myall-creek-massakern",
+        "commons-bild-nan-madol-byggs",
         "commons-bild-nanjingfordraget",
         "commons-bild-newtons-principia",
         "commons-bild-nintendo",
@@ -1585,6 +1608,7 @@
         "commons-bild-pakistan-kapitulerar-i-dhaka",
         "commons-bild-penicillinet-upptacks",
         "commons-bild-polynesier-nar-aotearoa",
+        "commons-bild-sagan-om-genji",
         "commons-bild-saltmarschen",
         "commons-bild-shakespeare-dor",
         "commons-bild-sjalvstandighetsforklaringen",
@@ -1615,6 +1639,7 @@
         "commons-bild-tetoffensiven",
         "commons-bild-texas-sjalvstandighet",
         "commons-bild-titanic-sjunker",
+        "commons-bild-tiwanaku",
         "commons-bild-tredje-slaget-vid-panipat",
         "commons-bild-tsunamin-i-indiska-oceanen-2004",
         "commons-bild-tyfonen-kamikaze-1281",

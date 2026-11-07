@@ -300,6 +300,21 @@
       }
     },
     {
+      "eventId": "chan-chan",
+      "eventTitle": "Chan Chan, chimúfolkets huvudstad",
+      "file": "images/events/chan-chan.webp",
+      "kind": "historisk",
+      "credit": "Draceane / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-chan-chan",
+        "title": "Chan Chan (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Chan_Chan,_2023_(32).jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-07"
+      }
+    },
+    {
       "eventId": "cheopspyramiden",
       "eventTitle": "Cheopspyramiden byggs",
       "file": "images/events/cheopspyramiden.webp",
@@ -307,6 +322,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "chichen-itza",
+      "eventTitle": "Chichén Itzá blir mayafolkets maktcentrum",
+      "file": "images/events/chichen-itza.webp",
+      "kind": "historisk",
+      "credit": "Daniel Schwen / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-chichen-itza",
+        "title": "El Castillo (Kukulcáns pyramid) i Chichén Itzá (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Chichen_Itza_3.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-07"
+      }
     },
     {
       "eventId": "columbus",
@@ -531,6 +561,21 @@
       }
     },
     {
+      "eventId": "fyren-pa-faros",
+      "eventTitle": "Fyren på Faros byggs",
+      "file": "images/events/fyren-pa-faros.webp",
+      "kind": "historisk",
+      "credit": "Hermann Thiersch / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-fyren-pa-faros",
+        "title": "Fyren på Faros, rekonstruktionsteckning av arkeologen Hermann Thiersch från 1909, inte en samtida bild (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lighthouse_-_Thiersch.png",
+        "license": "Public domain",
+        "checked": "2026-11-07"
+      }
+    },
+    {
       "eventId": "gagarin-vostok-1",
       "eventTitle": "Jurij Gagarin blir första människan i rymden",
       "file": "images/events/gagarin-vostok-1.webp",
@@ -576,6 +621,21 @@
       }
     },
     {
+      "eventId": "gobekli-tepe",
+      "eventTitle": "Göbekli Tepe",
+      "file": "images/events/gobekli-tepe.webp",
+      "kind": "historisk",
+      "credit": "Teomancimit / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-gobekli-tepe",
+        "title": "Göbekli Tepe (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Göbekli_Tepe,_Urfa.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-07"
+      }
+    },
+    {
       "eventId": "guru-nanak",
       "eventTitle": "Guru Nanak grundar sikhismen",
       "file": "images/events/guru-nanak.webp",
@@ -607,6 +667,36 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "haamonga-a-maui",
+      "eventTitle": "Trilitonen Haʻamonga ʻa Maui byggs",
+      "file": "images/events/haamonga-a-maui.webp",
+      "kind": "historisk",
+      "credit": "Tauʻolunga / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-haamonga-a-maui",
+        "title": "Haʻamonga ʻa Maui på Tonga (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Haʻamonga.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "hagia-sofia-byggs-532",
+      "eventTitle": "Hagia Sofia byggs",
+      "file": "images/events/hagia-sofia-byggs-532.webp",
+      "kind": "historisk",
+      "credit": "Arild Vågen / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-hagia-sofia-byggs-532",
+        "title": "Hagia Sofia i Istanbul (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Hagia_Sophia_Mars_2013.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-07"
+      }
     },
     {
       "eventId": "haitis-sjalvstandighet",
@@ -906,6 +996,21 @@
       }
     },
     {
+      "eventId": "kievrus-kristnas",
+      "eventTitle": "Kievriket blir kristet",
+      "file": "images/events/kievrus-kristnas.webp",
+      "kind": "historisk",
+      "credit": "Klavdij Lebedev / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kievrus-kristnas",
+        "title": "Kristnandet av Kievrus i en målning av Klavdij Lebedev (före 1916), inte en samtida bild (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lebedev_baptism.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-07"
+      }
+    },
+    {
       "eventId": "kilskriften",
       "eventTitle": "Skriften uppstår: kilskrift i Uruk",
       "file": "images/events/kilskriften.webp",
@@ -1041,6 +1146,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:The_1893_Women%27s_Suffrage_Petition_%2816734429368%29.jpg",
         "license": "CC BY-SA 2.0",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "lalibelas-klippkyrkor",
+      "eventTitle": "Klippkyrkorna i Lalibela huggs ut",
+      "file": "images/events/lalibelas-klippkyrkor.webp",
+      "kind": "historisk",
+      "credit": "Sailko / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-lalibelas-klippkyrkor",
+        "title": "Bete Giyorgis, en av klippkyrkorna i Lalibela (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lalibela,_san_giorgio,_esterno_07.jpg",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-07"
       }
     },
     {
@@ -1296,6 +1416,21 @@
       }
     },
     {
+      "eventId": "mesa-verdes-klippbostader",
+      "eventTitle": "Klippbostäderna i Mesa Verde",
+      "file": "images/events/mesa-verdes-klippbostader.webp",
+      "kind": "historisk",
+      "credit": "Gustaf Nordenskiöld / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-mesa-verdes-klippbostader",
+        "title": "Cliff Palace i Mesa Verde (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mesa-Verde---Cliff-Palace-in_1891_-_edit1.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-07"
+      }
+    },
+    {
       "eventId": "mexikos-grundlag-1917",
       "eventTitle": "Mexikos grundlag antas",
       "file": "images/events/mexikos-grundlag-1917.webp",
@@ -1333,6 +1468,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "moai-rapa-nui",
+      "eventTitle": "Rapa Nui och moai-statyerna",
+      "file": "images/events/moai-rapa-nui.webp",
+      "kind": "historisk",
+      "credit": "Rivi / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-moai-rapa-nui",
+        "title": "Moaier vid Ahu Tongariki (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ahu_Tongariki.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-07"
+      }
     },
     {
       "eventId": "mohenjo-daro",
@@ -1380,6 +1530,21 @@
       }
     },
     {
+      "eventId": "mosken-i-cordoba",
+      "eventTitle": "Stora moskén i Córdoba byggs",
+      "file": "images/events/mosken-i-cordoba.webp",
+      "kind": "historisk",
+      "credit": "Toni Castillo Quero / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-mosken-i-cordoba",
+        "title": "Moskén i Córdoba sedd från luften (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mezquita_de_Córdoba_desde_el_aire_(Córdoba,_España).jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-07"
+      }
+    },
+    {
       "eventId": "muhammeds-forsta-uppenbarelse",
       "eventTitle": "Islams början: Muhammeds första uppenbarelse",
       "file": "images/events/muhammeds-forsta-uppenbarelse.webp",
@@ -1410,6 +1575,21 @@
       }
     },
     {
+      "eventId": "nan-madol-byggs",
+      "eventTitle": "Stenstaden Nan Madol börjar byggas",
+      "file": "images/events/nan-madol-byggs.webp",
+      "kind": "historisk",
+      "credit": "NOAA / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-nan-madol-byggs",
+        "title": "Nan Madol (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Nan_madol.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-07"
+      }
+    },
+    {
       "eventId": "nanjing-blir-tianjing-1853",
       "eventTitle": "Taiping intar Nanjing",
       "file": "images/events/nanjing-blir-tianjing-1853.webp",
@@ -1431,6 +1611,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:The_Signing_of_the_Treaty_of_Nanking.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "nazcalinjerna",
+      "eventTitle": "Nazcalinjerna",
+      "file": "images/events/nazcalinjerna.webp",
+      "kind": "historisk",
+      "credit": "Diego Delso / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-nazcalinjerna",
+        "title": "Nazcalinjerna i Peru (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Líneas_de_Nazca,_Nazca,_Perú,_2015-07-29,_DD_58.JPG",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-07"
       }
     },
     {
@@ -1657,6 +1852,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "sagan-om-genji",
+      "eventTitle": "Sagan om Genji skrivs",
+      "file": "images/events/sagan-om-genji.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-sagan-om-genji",
+        "title": "Fragment av en bildrulle (emaki) till Sagan om Genji från 1100-talet (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Genji_emaki_01003_002.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-07"
+      }
     },
     {
       "eventId": "saltmarschen",
@@ -2157,6 +2367,21 @@
       }
     },
     {
+      "eventId": "stora-mosken-i-djenne",
+      "eventTitle": "Den första stora moskén i Djenné byggs",
+      "file": "images/events/stora-mosken-i-djenne.webp",
+      "kind": "historisk",
+      "credit": "Andy Gilham / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-stora-mosken-i-djenne",
+        "title": "Stora moskén i Djenné (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Great_Mosque_of_Djenné_1.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-07"
+      }
+    },
+    {
       "eventId": "stora-zimbabwe",
       "eventTitle": "Stora Zimbabwe, en stad av sten",
       "file": "images/events/stora-zimbabwe.webp",
@@ -2214,6 +2439,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Mandela_voting_in_1994.jpg",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "sydney-harbour-bridge-invigs",
+      "eventTitle": "Sydney Harbour Bridge invigs",
+      "file": "images/events/sydney-harbour-bridge-invigs.webp",
+      "kind": "historisk",
+      "credit": "Greg O'Beirne / Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "source": {
+        "id": "commons-bild-sydney-harbour-bridge-invigs",
+        "title": "Sydney Harbour Bridge (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:SydneyHarbourBridge1_gobeirne.jpg",
+        "license": "CC BY 2.5",
+        "checked": "2026-11-07"
       }
     },
     {
@@ -2280,6 +2520,36 @@
       }
     },
     {
+      "eventId": "teotihuacan-solpyramiden",
+      "eventTitle": "Solpyramiden i Teotihuacan",
+      "file": "images/events/teotihuacan-solpyramiden.webp",
+      "kind": "historisk",
+      "credit": "Burkhard Mücke / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-teotihuacan-solpyramiden",
+        "title": "Dödens aveny och Solpyramiden i Teotihuacán (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:2020-02-11_Teotihuacan_la_Avenida_de_los_Muertos_y_la_Pirámide_del_Sol.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "terrakottaarmen",
+      "eventTitle": "Terrakottaarmén",
+      "file": "images/events/terrakottaarmen.webp",
+      "kind": "historisk",
+      "credit": "xiquinhosilva / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-terrakottaarmen",
+        "title": "Terrakottaarmén i Xi’an (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:51714-Terracota-Army.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-07"
+      }
+    },
+    {
       "eventId": "tetoffensiven",
       "eventTitle": "Tetoffensiven",
       "file": "images/events/tetoffensiven.webp",
@@ -2310,6 +2580,21 @@
       }
     },
     {
+      "eventId": "tikal-vaxer-fram",
+      "eventTitle": "Tikal växer fram som mayastad",
+      "file": "images/events/tikal-vaxer-fram.webp",
+      "kind": "historisk",
+      "credit": "Mundo Maya / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-tikal-vaxer-fram",
+        "title": "Stora torget (Plaza Mayor) i Tikal (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tikal_3.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-07"
+      }
+    },
+    {
       "eventId": "titanic-sjunker",
       "eventTitle": "Titanic sjunker",
       "file": "images/events/titanic-sjunker.webp",
@@ -2322,6 +2607,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:RMS_Titanic_3.jpg",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "tiwanaku",
+      "eventTitle": "Tiwanaku vid Titicacasjön",
+      "file": "images/events/tiwanaku.webp",
+      "kind": "historisk",
+      "credit": "Mhwater / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-tiwanaku",
+        "title": "Solporten i Tiwanaku (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Zonnepoort_tiwanaku.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-07"
       }
     },
     {

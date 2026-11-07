@@ -2,5 +2,10 @@
 "period":"fkr",
 "lang":"fr",
 "events":{
-"mammutar-wrangel":{"note":{"title":{"fr":"À propos de la période"},"text":{"fr":"Les sources indiquent seulement quand les derniers mammouths sont morts, vers 2000 av. J.-C. (il y a 4 000 ans). À ce moment-là, les mammouths vivaient isolés sur l'île depuis environ 6 000 ans. L'année de début, 2999 av. J.-C., n'est pas une donnée des sources mais une limite inférieure pour l'affichage, afin que l'événement apparaisse à l'époque des pyramides."}}}
+"mammutar-wrangel":{"note":{"title":{"fr":"À propos de la période"},"text":{"fr":"Les sources indiquent seulement quand les derniers mammouths sont morts, vers 2000 av. J.-C. (il y a 4 000 ans). À ce moment-là, les mammouths vivaient isolés sur l'île depuis environ 6 000 ans. L'année de début, 2999 av. J.-C., n'est pas une donnée des sources mais une limite inférieure pour l'affichage, afin que l'événement apparaisse à l'époque des pyramides."}}},
+"gobekli-tepe":{"image":{"caption":{"fr":"Göbekli Tepe. Photo actuelle (2011). Détail. Licence : CC BY-SA 3.0."}}},
+"terrakottaarmen":{"image":{"caption":{"fr":"L’armée de terre cuite à Xi’an. Photo actuelle (2012). Détail. Licence : CC BY 2.0."}}},
+"nazcalinjerna":{"image":{"caption":{"fr":"Les lignes de Nazca au Pérou. Photo actuelle (2015). Détail. Licence : CC BY-SA 4.0."}}},
+"tikal-vaxer-fram":{"image":{"caption":{"fr":"La grande place (Plaza Mayor) de Tikal. Photo actuelle (2007). Détail. Licence : CC BY-SA 4.0."}}},
+"fyren-pa-faros":{"image":{"caption":{"fr":"Le phare de Pharos, dessin de reconstitution de l’archéologue Hermann Thiersch de 1909, pas une image d’époque. Détail. Licence : Public domain."}}}
 }}
