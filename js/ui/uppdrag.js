@@ -29,7 +29,7 @@ const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls)
 export class Hunt {
   /**
    * els: rutans delar i index.html (root, title, task, years, progress, list, message, done, reflection, sources,
-   *      closeBtn, endBtn). missions: från loadMissions. app: { timeline, byId, srcById, onChange, fallbackFocus }.
+   *      closeBtn, endBtn). missions: från loadMissions. app: { timeline, byId, srcById, onChange, fallbackFocus, lesson (lektionsläget, #795) }.
    */
   constructor(els, missions, app) {
     Object.assign(this, els, { missions, app });
@@ -47,6 +47,9 @@ export class Hunt {
   start(id = null, opener = null) {
     const m = id ? this.missions.find(x => x.id === id) : this.missions[0];
     if (!m) return false;
+    // I en lektion (#795) gäller bara uppdrag inom lektionens år, som i slutkortet (js/ui/lesson.js): jakten flyttar året
+    const years = this.app.lesson?.active ? this.app.lesson.lock?.years : null;
+    if (years && (m.year < years[0] || m.year > years[1])) return false;
     this.mission = m; this.found = []; this.opener = opener;
     this.app.timeline.pause();
     this.app.timeline.year = m.year;

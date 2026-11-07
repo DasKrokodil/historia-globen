@@ -66,6 +66,9 @@
       "de": "Wähle zwei Ereignisse aus der Tour, die ungefähr gleichzeitig auf verschiedenen Kontinenten geschahen. Was geschah, und woher wissen wir das?",
       "es": "Elige dos acontecimientos del recorrido que ocurrieron más o menos al mismo tiempo en continentes distintos. ¿Qué pasó y cómo lo sabemos?",
       "fr": "Choisis deux événements de la visite qui se sont produits à peu près au même moment sur des continents différents. Que s'est-il passé, et comment le savons-nous ?"
+    },
+    "lock": {
+      "years": [793, 1068]
     }
   },
   "steps": [

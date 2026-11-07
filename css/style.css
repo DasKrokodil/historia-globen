@@ -823,6 +823,36 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 }
 .tour-card[hidden] { display: none; }
 .app.touring .funfact, .app.touring .ff-tab { display: none; }
+/* ---------- lektionsläget (#795) ----------
+   Bandet överst och menyerna som läraren inte vill att eleverna ska nå. Turens egna knappar står kvar;
+   utgången är "Visa hela globen" i bandet, så Avsluta i kortet och pausraden döljs. */
+.lesson-band {
+  position: absolute; z-index: 16; top: 0; left: 0; right: 0;
+  box-sizing: border-box; min-height: 38px; padding: calc(env(safe-area-inset-top, 0px) + 4px) var(--gut-r) 4px var(--gut);
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  background: color-mix(in srgb, var(--night-2) 96%, transparent); border-bottom: 1px solid var(--brass-deep);
+}
+.lesson-band[hidden] { display: none; }
+.lesson-band-title { margin: 0; font: 500 12px/1.25 var(--f-mono); letter-spacing: .06em; color: var(--brass); overflow-wrap: anywhere; }
+.lesson-exit { flex: none; min-height: 30px; padding: 4px 12px; border: 1px solid var(--brass); border-radius: 999px; background: transparent; color: var(--parchment); font: 500 12.5px/1 var(--f-body); cursor: pointer; }
+.lesson-exit:hover { background: color-mix(in srgb, var(--brass) 18%, transparent); }
+.lesson-exit:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
+.lesson-exit[hidden] { display: none; }
+.app.lesson .masthead { top: calc(env(safe-area-inset-top, 0px) + 52px); }
+.app.lesson .top-actions { top: calc(env(safe-area-inset-top, 0px) + 56px); }
+.app.lesson .view-mode, .app.lesson #btn-layers, .app.lesson #btn-focus, .app.lesson #btn-tour, .app.lesson #btn-intro,
+.app.lesson #filters, .app.lesson #panel-filters, .app.lesson .focus-btn, .app.lesson [data-follow-war],
+.app.lesson #btn-hunt, .app.lesson #tour-print, .app.lesson #tour-close, .app.lesson #tour-end, .app.lesson #pause-stop, .app.lesson .story-tour { display: none !important; }
+.tour-lesson-end { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--control-line); }
+.tour-lesson-end[hidden] { display: none; }
+.tour-lesson-end-label { margin: 0; font: 500 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+@media (max-width: 760px) {
+  .lesson-band { gap: 8px; }
+  .lesson-band-title { font-size: 11px; }
+  .lesson-exit { min-height: 44px; padding: 6px 12px; margin: -4px 0; }
+  .app.lesson .masthead { top: calc(env(safe-area-inset-top, 0px) + 62px); }
+  .app.lesson .top-actions { top: calc(env(safe-area-inset-top, 0px) + 66px); }
+}
 .app:has(.pause-note:not([hidden])) .tour-card { bottom: 186px; max-height: calc(100dvh - 186px - 150px); }
 .tour-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .tour-progress { margin: 0; font: 500 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }

@@ -494,5 +494,9 @@
   "hunt.region": "Ya tienes un acontecimiento de {region}. Busca en otro continente.",
   "hunt.already": "Este acontecimiento ya está en la caza.",
   "hunt.place": "El acontecimiento no tiene un punto en el globo y no puede contar.",
-  "hunt.hidden": "El acontecimiento no puede contar."
+  "hunt.hidden": "El acontecimiento no puede contar.",
+  "lesson.band": "Modo lección: {title}",
+  "lesson.exit": "Mostrar todo el globo",
+  "lesson.next": "Continuar con una tarea",
+  "lesson.hunt": "Caza de la simultaneidad: {title}"
 }

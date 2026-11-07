@@ -100,6 +100,7 @@ export function createFocus(app) {
       f = { type, id, title: `${t(r.name)} · ${religionSpan(r, first)}`, short: t(r.name), from, to,
         center: first ? [first._lat, first._lon] : geoCenter([st[0].geometry]), zoom: 1.3 };
     }
+    if (app.lesson?.active) return; // en lektion började medan fokuset laddades (#795): låset går före
     // Året stannar om det ligger inom spannet; annars flyttas det till starten och flytten visas (#167)
     const prevYear = timeline.year, prevText = timeline.format(prevYear), keepYear = prevYear >= f.from && prevYear <= f.to;
     if (state.focus) endFocus(false);

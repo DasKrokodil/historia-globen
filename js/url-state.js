@@ -11,6 +11,8 @@
 //   t     en guidad tur som pågår (tur-id i data/turer/, #736); en länk med t startar turen
 //   s     turens steg (stegets id); saknas s börjar turen vid första steget
 //   u     ett elevuppdrag som pågår (uppdragets id i data/uppdrag.json, #741); en länk med u startar uppdraget
+//   m     läget: bara m=lektion finns (#795). Tillsammans med t startar länken turen som lektion med låst
+//         lagerval (lesson.lock i turen); utan en tur som är en lektionstur gör m ingenting
 //
 // En länk till en tur behöver bara t, till exempel #t=vikingatiden-och-varlden. Den äldre formen ?tur=<id>
 // fungerar också. Medan turen pågår skriver sidan y, c, l, k, t och s för det steg som visas.
@@ -24,13 +26,14 @@
 import { STATE_VERSION, fromJSON } from './state.js';
 
 const ID = /^[a-z0-9-]+$/;
+export const LESSON_MODE = 'lektion';
 const num = x => String(Math.round(x * 10000) / 10000);
 
 /**
  * Hashen för ett tillstånd från toJSON(). allCategories är alla kategorier som finns i datan: syns alla,
  * skrivs k inte ut, så att länken blir kort och fortsätter att visa alla när en ny kategori kommer till.
  */
-export function encodeHash(json, allCategories = [], tour = null, mission = null) {
+export function encodeHash(json, allCategories = [], tour = null, mission = null, mode = null) {
   const parts = [`y=${num(json.year)}`];
   if (json.camera) parts.push(`c=${[json.camera.lat, json.camera.lon, json.camera.zoom].map(num).join(',')}`);
   if (json.focus) parts.push(`f=${json.focus}`);
@@ -42,6 +45,7 @@ export function encodeHash(json, allCategories = [], tour = null, mission = null
     if (tour.step && ID.test(tour.step)) parts.push(`s=${tour.step}`);
   }
   if (mission && ID.test(mission)) parts.push(`u=${mission}`);
+  if (mode === LESSON_MODE && tour?.id) parts.push(`m=${mode}`); // läget hör till en tur
   return `#${parts.join('&')}`;
 }
 
@@ -49,6 +53,11 @@ export function encodeHash(json, allCategories = [], tour = null, mission = null
 export function decodeMission(hash) {
   const id = new URLSearchParams(String(hash ?? '').replace(/^#/, '')).get('u');
   return id && ID.test(id) ? id : null;
+}
+
+/** Läget i en hash ("#…&m=lektion", #795): 'lektion' eller null. Okända lägen räknas som saknade. */
+export function decodeMode(hash) {
+  return new URLSearchParams(String(hash ?? '').replace(/^#/, '')).get('m') === LESSON_MODE ? LESSON_MODE : null;
 }
 
 /**

@@ -73,6 +73,12 @@
     </div>
   </div>
 
+  <!-- Lektionsläget (#795): bandet överst när en lektionslänk (#t=<tur>&m=lektion) har startat turen (js/ui/lesson.js) -->
+  <section id="lesson-band" class="lesson-band" aria-labelledby="lesson-band-title" hidden>
+    <p id="lesson-band-title" class="lesson-band-title"></p>
+    <button id="lesson-exit" class="lesson-exit" type="button" data-i18n="lesson.exit">Visa hela globen</button>
+  </section>
+
   <header class="masthead">
     <h1 class="brand">Historia-globen</h1>
     <div class="year-readout">
@@ -398,6 +404,11 @@
       <button id="tour-sources" class="link-btn" type="button"></button>
       <!-- Skriv ut (#738): elevblad och lärarblad ur turens lärarfält, bara i lektionsturer -->
       <button id="tour-print" class="link-btn" type="button" hidden></button>
+    </div>
+    <!-- Slutkortet i en lektion (#795): länkar till lektionens uppdrag -->
+    <div id="tour-lesson-end" class="tour-lesson-end" hidden>
+      <p class="tour-lesson-end-label" data-i18n="lesson.next">Fortsätt med ett uppdrag</p>
+      <div id="tour-lesson-end-list" class="tour-links"></div>
     </div>
     <div class="tour-actions">
       <button id="tour-back" class="chip-btn" type="button"></button>

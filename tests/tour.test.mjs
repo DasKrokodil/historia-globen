@@ -3,6 +3,8 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFileSync } from 'node:fs';
 import { tourProblems, TOUR_VERSION } from '../js/tour-format.js';
+import { isVisibleReview } from '../js/model.js';
+import { eventRegion } from '../js/uppdrag-rules.js';
 
 const read = p => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url), 'utf8'));
 const step = (over = {}) => ({ id: 'a', at: 1200, camera: { lat: 0, lon: 0, zoom: 1.4 }, text: { sv: 'Text.' }, layers: ['events'], sources: ['s1'], ...over });
@@ -58,10 +60,30 @@ test('lärarfälten för en lektionstur kontrolleras (#737)', () => {
   assert.match(tourProblems(tour({ lesson: [] }), known).join(), /ska vara ett objekt/);
 });
 
+test('lektionsläget (lesson.lock) kontrolleras och får inte ge tomma lägen (#795)', () => {
+  const lesson = (lock) => ({
+    grades: '7-9', minutes: 30, curriculum: [{ text: { sv: 'Kopplad till Lgr22.' }, sources: ['s1'] }],
+    teacher: { sv: 'Instruktion.' }, exitTicket: { sv: 'Fråga.' }, lock,
+  });
+  const k = { ...known, regionsIn: (a, b) => (a === 1200 && b === 1300 ? 3 : 1) };
+  assert.deepEqual(tourProblems(tour({ lesson: lesson({ years: [1200, 1300], layers: ['events'], escape: false }) }), k), []);
+  assert.deepEqual(tourProblems(tour({ lesson: lesson({}) }), k), []); // utan lås gör läget bara att menyerna döljs
+  const all = tourProblems(tour({ lesson: lesson({ years: [1250, 1300], layers: ['finns-inte'], escape: 'nej' }) }), k).join('\n');
+  for (const part of ['utanför years', 'från 1 världsdelar', 'lagret finns-inte', 'escape ska vara']) assert.match(all, new RegExp(part), `saknar ${part}`);
+  assert.match(tourProblems(tour({ lesson: lesson({ years: [1300, 1200] }) }), k).join(), /från före till/);
+  assert.match(tourProblems(tour({ lesson: lesson({ layers: [] }) }), k).join(), /layers ska vara/);
+  assert.match(tourProblems(tour({ lesson: lesson({ years: [1200.5, 1300] }) }), k).join(), /hela år/); // heltal (#795)
+  assert.match(tourProblems(tour({ lesson: lesson([]) }), k).join(), /lesson\.lock ska vara ett objekt/);
+});
+
 test('en tur utan steg eller med fel typ', () => {
   assert.equal(tourProblems(null).length, 1);
   assert.match(tourProblems(tour({ steps: [] })).join(), /inga steg/);
 });
+
+/** Antal världsdelar med synliga händelser som överlappar [från, till] (för lesson.lock.years, #795). */
+const allEvents = read('data/events.json').events;
+const regionsIn = (from, to) => new Set(allEvents.filter(e => isVisibleReview(e.review) && e.end >= from && e.start <= to).map(eventRegion).filter(Boolean)).size;
 
 test('turerna i data/turer/ följer formatet och pekar på befintliga händelser och källor', () => {
   const index = read('data/turer/index.json');
@@ -75,6 +97,15 @@ test('turerna i data/turer/ följer formatet och pekar på befintliga händelser
   for (const id of index.tours) {
     const t = read(`data/turer/${id}.json`);
     assert.equal(t.id, id, 'filnamnet och id ska vara samma');
-    assert.deepEqual(tourProblems(t, { events, sources, layers, empires }), []);
+    assert.deepEqual(tourProblems(t, { events, sources, layers, empires, regionsIn }), []);
+  }
+});
+
+test('lektionsturerna har lås, och intervallet har händelser från minst två världsdelar (#795)', () => {
+  for (const id of ['andra-varldskriget', 'vikingatiden-och-varlden']) {
+    const t = read(`data/turer/${id}.json`);
+    const years = t.lesson?.lock?.years;
+    assert.ok(Array.isArray(years), `${id} saknar lesson.lock.years`);
+    assert.ok(regionsIn(years[0], years[1]) >= 2, `${id}: färre än två världsdelar i intervallet`);
   }
 });
