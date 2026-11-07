@@ -1045,6 +1045,41 @@ GROUPS = {
     'osttimor': ('Östtimor', 'Timor-Leste', [
         ('East Timor', 'osttimor', 'Östtimor', '#c0804a', {'en': 'Timor-Leste', 'prepend': (2002, 2005)}),
     ]),
+    # Medeltidens luckor, första omgången (#645): de tio största luckorna 1000–1200 enligt tools/tackning_riken.py, med
+    # undantag av Tibetans (Cliopatrias post pekar på folkgruppen Tibetaner, Q187985, inte på en stat; kvar till nästa omgång).
+    # Svenska namn är Wikidatas svenska etiketter; Kimek-Kipchak saknar svenskt namn och får Cliopatrias engelska.
+    # Cliopatria anger fel Wikidata-id för Kingdom of France (Q207162, Bourbonska restaurationen; rätt är Q70972) och Old Kingdom of
+    # Norway (Q202266, Margareta I; rätt är Q2196956, Norgesväldet), kontrollerat mot Wikidata 2026-11-07.
+    'kimek-kipchak': ('Kimek-Kipchak confederation', 'Kimek-Kipchak confederation', [
+        ('Kimek-Kipchak confederation', 'kimek-kipchak', 'Kimek-Kipchak confederation', '#b89a4a', {'en': 'Kimek-Kipchak confederation'}),
+    ]),
+    'ghaznaviderna': ('Ghaznaviderna', 'Ghaznavid Empire', [
+        ('Ghaznavid Empire', 'ghaznaviderna', 'Ghaznaviderna', '#4a9a6a', {'en': 'Ghaznavid Empire'}),
+    ]),
+    'seldjukiska-riket': ('Seldjukiska riket', 'Great Seljuk Empire', [
+        ('Great Seljuk Empire', 'seldjukiska-riket', 'Seldjukiska riket', '#c07a4a', {'en': 'Great Seljuk Empire'}),
+    ]),
+    'liaodynastin': ('Liaodynastin', 'Liao dynasty', [
+        ('Liao Dynasty', 'liaodynastin', 'Liaodynastin', '#6a8ac0', {'en': 'Liao dynasty'}),
+    ]),
+    'shrivijaya': ('Shrivijaya', 'Srivijaya', [
+        ('Srivijaya', 'shrivijaya', 'Shrivijaya', '#4aa0a0', {'en': 'Srivijaya'}),
+    ]),
+    'republiken-novgorod': ('Republiken Novgorod', 'Novgorod Republic', [
+        ('Novgorod Republic', 'republiken-novgorod', 'Republiken Novgorod', '#9a6ab0', {'en': 'Novgorod Republic'}),
+    ]),
+    'kungariket-ungern': ('Kungariket Ungern', 'Kingdom of Hungary', [
+        ('Kingdom of Hungary', 'kungariket-ungern', 'Kungariket Ungern', '#c05a4a', {'en': 'Kingdom of Hungary'}),
+    ]),
+    'kungariket-frankrike': ('Kungariket Frankrike', 'Kingdom of France', [
+        ('Kingdom of France', 'kungariket-frankrike', 'Kungariket Frankrike', '#4a6ac0', {'en': 'Kingdom of France', 'wikidata': 'Q70972'}),
+    ]),
+    'kungariket-england': ('Kungariket England', 'Kingdom of England', [
+        ('Kingdom of England', 'kungariket-england', 'Kungariket England', '#c04a6a', {'en': 'Kingdom of England'}),
+    ]),
+    'norgesvaldet': ('Norgesväldet', 'Old Kingdom of Norway', [
+        ('Old Kingdom of Norway', 'norgesvaldet', 'Norgesväldet', '#4a8a9a', {'en': 'Old Kingdom of Norway', 'wikidata': 'Q2196956'}),
+    ]),
     # Små stater ur Natural Earth (#722, Rikards beslut 2026-11-07): Cliopatria saknar dem i nutid eller har fel gräns
     # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth
     # (tools/ne-omstridda-omraden.geojson, tools/ne_omstridda.py), från självständigheten enligt Wikidata och Wikipedia
