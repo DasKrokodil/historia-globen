@@ -4,6 +4,7 @@
 //   overlayCanvas – lagrens bild, ritas om när året ändras
 // Klickbara markörer och bågar ligger som 3D-objekt ovanpå.
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+import { GlobeDetail } from './globe-detail.js';
 
 export { THREE };
 export const R = 1;
@@ -20,6 +21,41 @@ export function latLonToVec3(lat, lon, r = R) {
      r * Math.cos(phi),
      r * Math.sin(phi) * Math.sin(theta),
   );
+}
+
+const landPaths = new WeakMap();
+
+/**
+ * Ritar grundkartan (hav, gradnät, land) på en ekvirektangulär bild som är W × H stor. Delas av hela bilden
+ * (Globe.drawBase) och av detaljutsnittet vid inzoomning (globe-detail.js), som ritar samma karta i en mycket
+ * större "tänkt" bild och bara behåller utsnittet. Linjernas tjocklek anges i bildpunkter (grid, equator, coast);
+ * utan val är de samma som förut, så hela bilden ser ut som alltid.
+ */
+export function paintBase(ctx, W, H, land, widths = {}) {
+  const { grid = 1.5, equator = 2, coast = 1.6 * W / land.width } = widths;
+  const X = lon => (lon + 180) / 360 * W, Y = lat => (90 - lat) / 180 * H;
+
+  const sea = ctx.createLinearGradient(0, 0, 0, H);
+  sea.addColorStop(0, '#1b3b55'); sea.addColorStop(0.5, '#15354f'); sea.addColorStop(1, '#1b3b55');
+  ctx.fillStyle = sea; ctx.fillRect(0, 0, W, H);
+
+  // Gradnät var 15:e grad
+  ctx.strokeStyle = 'rgba(214,190,140,0.16)'; ctx.lineWidth = grid;
+  for (let lon = -180; lon <= 180; lon += 15) { ctx.beginPath(); ctx.moveTo(X(lon), 0); ctx.lineTo(X(lon), H); ctx.stroke(); }
+  for (let lat = -75; lat <= 75; lat += 15) { ctx.beginPath(); ctx.moveTo(0, Y(lat)); ctx.lineTo(W, Y(lat)); ctx.stroke(); }
+  ctx.strokeStyle = 'rgba(214,176,106,0.35)'; ctx.lineWidth = equator;
+  ctx.beginPath(); ctx.moveTo(0, Y(0)); ctx.lineTo(W, Y(0)); ctx.stroke();
+
+  // Land: färdigprojicerad path (klippt vid datumlinjen) i 4096x2048
+  let path = landPaths.get(land);
+  if (!path) landPaths.set(land, path = new Path2D(land.path));
+  ctx.save();
+  ctx.scale(W / land.width, H / land.height);
+  ctx.fillStyle = '#cdb88d';
+  ctx.fill(path);
+  ctx.strokeStyle = 'rgba(80,58,25,0.55)'; ctx.lineWidth = coast * land.width / W;
+  ctx.stroke(path);
+  ctx.restore();
 }
 
 export class Globe {
@@ -58,6 +94,8 @@ export class Globe {
       new THREE.MeshBasicMaterial({ map: this.overlayTex, transparent: true, depthWrite: false }),
     );
     this.group.add(this.baseMesh, this.overlayMesh);
+    // Skarpt utsnitt vid inzoomning, ritas om när rörelsen har stannat
+    this.detail = new GlobeDetail(this, { paintBase, allowed: () => this.detailAllowed() });
 
     // Atmosfär: svagt sken runt kanten
     const atmo = new THREE.Mesh(
@@ -100,29 +138,7 @@ export class Globe {
   drawBase(land) {
     this._land = land;
     const c = this.baseCanvas, ctx = c.getContext('2d');
-    const W = c.width, H = c.height;
-    const X = lon => (lon + 180) / 360 * W, Y = lat => (90 - lat) / 180 * H;
-
-    const sea = ctx.createLinearGradient(0, 0, 0, H);
-    sea.addColorStop(0, '#1b3b55'); sea.addColorStop(0.5, '#15354f'); sea.addColorStop(1, '#1b3b55');
-    ctx.fillStyle = sea; ctx.fillRect(0, 0, W, H);
-
-    // Gradnät var 15:e grad
-    ctx.strokeStyle = 'rgba(214,190,140,0.16)'; ctx.lineWidth = 1.5;
-    for (let lon = -180; lon <= 180; lon += 15) { ctx.beginPath(); ctx.moveTo(X(lon), 0); ctx.lineTo(X(lon), H); ctx.stroke(); }
-    for (let lat = -75; lat <= 75; lat += 15) { ctx.beginPath(); ctx.moveTo(0, Y(lat)); ctx.lineTo(W, Y(lat)); ctx.stroke(); }
-    ctx.strokeStyle = 'rgba(214,176,106,0.35)'; ctx.lineWidth = 2;
-    ctx.beginPath(); ctx.moveTo(0, Y(0)); ctx.lineTo(W, Y(0)); ctx.stroke();
-
-    // Land: färdigprojicerad path (klippt vid datumlinjen) i 4096x2048
-    const path = new Path2D(land.path);
-    ctx.save();
-    ctx.scale(W / land.width, H / land.height);
-    ctx.fillStyle = '#cdb88d';
-    ctx.fill(path);
-    ctx.strokeStyle = 'rgba(80,58,25,0.55)'; ctx.lineWidth = 1.6;
-    ctx.stroke(path);
-    ctx.restore();
+    paintBase(ctx, c.width, c.height, land);
     this.baseTex.needsUpdate = true;
     this.invalidate();
   }
@@ -176,6 +192,9 @@ export class Globe {
     this._flatView = open;
     this._setTextureSize();
   }
+
+  /** Utsnittet får användas om inget annat ställer sig i vägen. main.js byter ut den (upptäcktsvyn). */
+  detailAllowed() { return true; }
 
   /** Lugn rörelse stannar också eventuell utrullning och ber om en sista, stilla bild. */
   setCalm(on) { this.calm = on; this.invalidate(); }
@@ -397,6 +416,7 @@ export class Globe {
     for (const canvas of [this.baseCanvas, this.overlayCanvas]) { canvas.width = width; canvas.height = width / 2; }
     this.fadeCanvas = null;
     if (this._land) this.drawBase(this._land);
+    this.detail?.reset();
     this.onTextureSizeChange?.(width, width / 2);
     return true;
   }
@@ -434,6 +454,8 @@ export class Globe {
     const frameAnimating = !this.calm && this.frameCallbacks.some(f => f.animating?.());
     if (!moving && !this._needsRender && !frameAnimating) return;
     this._needsRender = false;
+    const sig = `${this.group.rotation.x}|${this.group.rotation.y}|${this.camera.position.z}|${this.viewShiftPx}|${this.viewLiftPx}`;
+    if (sig !== this._viewSig) { this._viewSig = sig; this.detail.touch(); }
     this.group.updateMatrixWorld();
     for (const { cb } of this.frameCallbacks) cb(t);
     this.renderer.render(this.scene, this.camera);

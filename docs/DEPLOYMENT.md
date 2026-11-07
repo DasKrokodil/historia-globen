@@ -31,6 +31,7 @@ Listan bygger på referenserna i koden:
 | `js/**/*.js` (20 moduler) | ES-modulerna | `index.html` → `js/main.js` → `import` |
 | `img/favicon.svg`, `img/favicon-32.png`, `img/apple-touch-icon.png` | sidans ikoner | `index.html` |
 | `img/icons/*.svg` | markörernas och korten symboler, hämtas med `fetch` efter namn | `icon` i `data/events.json`, `symbol` i `data/religions.json` (#271), `CAT_ICON` och standardikonen `star` i `js/ui/funfact.js`, `index.html` |
+| `data/land-10m.json` | laddas första gången det skarpa utsnittet vid inzoomning används | `js/globe-detail.js` |
 | `data/events.json`, `funfacts.json`, `sources.json`, `land.json`, `borders.json`, `styles.json`, `empires/index.json` | laddas vid start | `loadAll()` i `js/model.js` |
 | `data/licenses.json` | maskinläsbar sammanställning av källregistrets licensuppgifter | `tools/license_manifests.py`, genererad från `data/sources.json` (#393) |
 | `data/version.json` | aktuell versionsetikett, releasedatum och länk till releaserna | versionsraden i Om källorna (#552) |

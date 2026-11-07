@@ -66,6 +66,7 @@ js/layers/index.js    lagerlistan: alla lager som anmäler sig i registret (#338
 js/model.js           språk, kategorier, tidsformat, laddning av data
 js/i18n.js            språkval och gränssnittets texter på valt språk (#63)
 js/globe.js           3D-globen (three.js), ekvirektangulär rendering
+js/globe-detail.js    skarpt utsnitt av kartan vid inzoomning
 js/timeline.js        tidsreglage, segmenterad tidsskala, nuvarande år
 js/layers/events.js   lager: händelser som punkter
 js/layers/areas.js    lager: riken som områden som ändras över tid
@@ -117,7 +118,8 @@ data/sources.json     källregister
 data/version.json     versionsnummer och länk till releaserna
 data/licenses.json    genererat register över källornas licensuppgifter
 images/licenses.json  genererat register över händelsebildernas licenser (#393)
-data/land.json        grundkarta (Natural Earth)
+data/land.json        grundkarta (Natural Earth 1:50m)
+data/land-10m.json    finare kust (Natural Earth 1:10m), laddas först när det skarpa utsnittet används; byggs med tools/land_10m.mjs
 tools/riken.py        bygger rikesfilerna ur Cliopatria
 tools/riken_namn.py   hämtar rikenas namn på tyska, spanska och franska ur Wikidata; riken.py bevarar dem (#676, #644)
 tools/ne_omstridda.py tar ut omstridda områden ur Natural Earth till tools/ne-omstridda-omraden.geojson, som riken.py läser (#644)
@@ -189,7 +191,7 @@ Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna]
 
 - **Koden** är licensierad under [GNU GPL v3.0](LICENSE). Du får använda, ändra och sprida den, men det du sprider vidare måste också vara öppet under GPL.
 - **Datan** i `data/` (händelser, fun facts och källregister) är licensierad under [CC BY 4.0](data/LICENSE). Ange "Historia-globen" som källa vid användning.
-- **Grundkartan** i `data/land.json` och **dagens landsgränser** i `data/borders.json` bygger på [Natural Earth](https://www.naturalearthdata.com/) (public domain) via world-atlas.
+- **Grundkartan** i `data/land.json` (1:50m), den finare kusten i `data/land-10m.json` (1:10m, bara för det skarpa utsnittet vid inzoomning) och **dagens landsgränser** i `data/borders.json` bygger på [Natural Earth](https://www.naturalearthdata.com/) (public domain) via world-atlas.
 - **Rikenas utbredning** i `data/empires/` är ett förenklat utdrag ur [Cliopatria](https://github.com/Seshat-Global-History-Databank/cliopatria) från Seshat Global History Databank, licensierat under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ändringar: bara de riken som listas i `data/empires/index.json` är med, geometrin är förenklad och perioder med nästan samma gräns är sammanslagna (`tools/riken.py`).
 - **Nattljus 2016** i `images/lager/nattljus-2016.jpg` kommer från [NASA Earth Observatory: Black Marble](https://science.nasa.gov/earth/earth-observatory/earth-at-night/maps/) och är **public domain i USA enligt NASA:s riktlinjer för bilder**. NASA:s logotyp och märken är skyddade; bilden innehåller ingen NASA-logotyp. Bilden är NASA:s globala JPEG i 3600 × 1800, utan innehållsliga ändringar.
 - **Faktarutorna om riken** (`facts` i `data/empires/index.json`) är egna korta sammanfattningar av Wikipedias artiklar om rikena (CC BY-SA). Medeltidens riken (#69) är dessutom kontrollerade mot World History Encyclopedia (CC BY-NC-SA, bara länkad, ingen text kopierad), och de tidigmoderna rikena (#70) mot World History Encyclopedia eller Wikidata (CC0). Kolonialvälden och moderna imperier (#71) bygger på Wikipedia, för det nederländska och tyska väldet, Japan och Etiopien kompletterat med World History Encyclopedia (bara länkad). Artiklarna länkas från rutorna och från källregistret.

@@ -493,7 +493,7 @@ Kör `python3 tools/oversattning.py` efter varje ändring i innehållet och chec
 
 ## `land.json` och `borders.json`: kartor
 
-Färdigprojicerade SVG-banor i 4096 × 2048 (`path`, `width`, `height`) från Natural Earth: grundkartan (1:50m) och dagens landsgränser. Grundkartan laddas vid start; dagens gränser först när lagret slås på (#337).
+Färdigprojicerade SVG-banor i 4096 × 2048 (`path`, `width`, `height`) från Natural Earth: grundkartan (1:50m) och dagens landsgränser. Grundkartan laddas vid start; dagens gränser först när lagret slås på (#337). `land-10m.json` är samma kustkarta i 1:10m (cirka 5 MB, en decimal): den används bara av det skarpa utsnittet vid inzoomning och laddas första gången det behövs; saknas den används `land.json`. Byggs med `tools/land_10m.mjs`.
 
 ## `bildlager.json`: tidsstyrda rasterbilder (#54)
 

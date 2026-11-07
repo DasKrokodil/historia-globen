@@ -38,6 +38,7 @@ js/search-index.js    sökningens index och matchning (#570)
 js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
 js/state.js           det gemensamma tillståndet (år, fokus, lager, filter) som lagren läser (#338), med åtgärder, prenumeration och JSON (#403)
 js/globe.js           3D-globen, kamera, styrning, ekvirektangulära canvasar, bågar
+js/globe-detail.js    skarpt utsnitt av kartan vid inzoomning: samma ritning i högre upplösning för det som syns
 js/timeline.js        tidsreglage, segmenterad skala, uppspelning
 js/layers/registry.js lagerregistret: ritordning, Lager-menyn, uppdatering och toning (#338)
 js/layers/index.js    listan över lagren i Lager-menyns ordning; ett nytt lager läggs till här (#338)
@@ -68,6 +69,7 @@ data/sources.json     källregister
 data/version.json     versionsnummer och länk till releaserna
 data/licenses.json    genererat register över källornas licensuppgifter (#393)
 data/land.json        grundkarta: Natural Earth 1:50m, färdigprojicerad SVG-path i 4096×2048
+data/land-10m.json    finare kust: Natural Earth 1:10m, samma format; laddas först när utsnittet vid inzoomning används (tools/land_10m.mjs)
 data/empires/         riken: index.json och en fil per rike, byggs med tools/riken.py ur Cliopatria
 data/routes/          vägar och resor: index.json listar filerna, en fil per resa eller väg (#38)
 data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar (#337), med en fil per språk ovanpå (#675); skrivs av tools/dela_data.py, redigeras inte

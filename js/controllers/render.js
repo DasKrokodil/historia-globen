@@ -48,12 +48,16 @@ export function createRender(app) {
   // I fokusläget dämpas påslagna lager som inte hör till det man följer (#235); "Behåll mina lager" visar dem som vanligt.
   // Under en övergång för riken (#78) ritas bara lagerbilden om, en gång per bildruta, tills övergången är klar;
   // annars ritas inget mellan refresh.
+  globe.detail.setLayers((ctx, W, H, drawFaded) => registry.draw(ctx, W, H, state, drawFaded));
+  // Upptäcktsvyns papperskarta och dimma är bilder i helbildens storlek: där används inget utsnitt
+  globe.detailAllowed = () => !registry.get('discovery')?.enabled;
   let overlayRaf = 0;
   function drawOverlay() {
     cancelAnimationFrame(overlayRaf); overlayRaf = 0;
     const ctx = globe.overlayContext();
     registry.draw(ctx, globe.overlayCanvas.width, globe.overlayCanvas.height, state, (draw, alpha) => globe.drawFaded(draw, alpha));
     globe.commitOverlay();
+    globe.detail.layersChanged(); // det skarpa utsnittet vid inzoomning ritas om när det blir stilla
     flatMap.draw(); // Platt vy ritas om med samma bilder (gör inget när den är stängd)
     if (registry.animating()) overlayRaf = requestAnimationFrame(drawOverlay);
   }
