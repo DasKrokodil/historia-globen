@@ -31,5 +31,11 @@
 "aksums-mynt":{"place":{"de":"Aksum (heute Äthiopien)"},"title":{"de":"Aksum beginnt eigene Münzen zu prägen"}},
 "antoniusklostret":{"place":{"de":"Das Rotmeergebirge in der Ostwüste, Ägypten"},"title":{"de":"Das Antoniuskloster in der Ostwüste wird gegründet"}},
 "tsunamin-365-alexandria":{"place":{"de":"Alexandria und das Nildelta (Zentrum des Bebens bei Kreta)"},"title":{"de":"Der Tsunami von 365 trifft Alexandria"}},
-"lydenburghuvudena":{"place":{"de":"Lydenburg in Mpumalanga, Südafrika"},"title":{"de":"Die Köpfe von Lydenburg"}}
+"lydenburghuvudena":{"place":{"de":"Lydenburg in Mpumalanga, Südafrika"},"title":{"de":"Die Köpfe von Lydenburg"}},
+"agadez-mosken":{"place":{"de":"Agadez, Niger"},"title":{"de":"Die Moschee von Agadez wird gebaut"}},
+"harar-adals-huvudstad":{"place":{"de":"Harar, Äthiopien"},"title":{"de":"Harar wird Hauptstadt des Sultanats Adal"}},
+"tarikh-al-sudan":{"place":{"de":"Timbuktu, Mali"},"title":{"de":"Die Tarikh al-Sudan, die Chronik von Songhai"}},
+"dronten-sista-gangen":{"place":{"de":"Mauritius im Indischen Ozean"},"title":{"de":"Der Dodo wird zum letzten Mal gesehen"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
+"fogo-utbrottet-1680":{"place":{"de":"Pico do Fogo auf der Insel Fogo, Kap Verde"},"title":{"de":"Großer Ausbruch des Vulkans Fogo"}},
+"rodriguessolitaren-dor-ut":{"place":{"de":"Rodrigues im Indischen Ozean (Mauritius)"},"title":{"de":"Der Rodrigues-Solitär stirbt aus"},"note":{"title":{"de":"Unsichere Datierung"}}}
 }}
