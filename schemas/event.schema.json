@@ -30,6 +30,15 @@
           "title": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
           "summary": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
           "sources": { "type": "array", "items": { "type": "string", "pattern": ".+" } },
+          "note": {
+            "type": "object",
+            "required": ["kind", "title"],
+            "properties": {
+              "kind": { "type": "string", "enum": ["disagreement", "single-source", "calendar", "date", "place", "sources", "other"] },
+              "title": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
+              "text": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } }
+            }
+          },
           "tags": { "type": "array", "uniqueItems": true, "minItems": 1, "items": { "type": "string", "enum": ["framsteg"] } },
           "evidence": {
             "type": "object",

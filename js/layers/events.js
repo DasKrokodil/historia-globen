@@ -11,7 +11,7 @@ import { ui } from '../i18n.js';
 //   tid        – nedre bågen utanför ringen är en liten tidslinje: hela bågen lyser när händelsen pågår vid
 //                året man står på, vänstra delen när den redan har hänt, högra delen när den kommer senare
 //   betydelse  – en mässingspunkt uppe till höger för top och major
-//   osäkerhet  – bågen är streckad när årtalet är osäkert (edtf med ~ eller ?, eller rutan "Källorna skiljer sig")
+//   osäkerhet  – bågen är streckad när årtalet är osäkert (edtf med ~ eller ?, eller anteckningen är av typen disagreement, #613)
 // Progressiv detalj: liten på skärmen (under cirka 30 px) ritas bara medaljen med symbol och punkt, större
 // ritas hela medaljen med tidsbågen. Samma betydelse står i etikettens aria-label och title (describeMarker).
 const BRASS = '#d6b06a', GROUND = '#10202c', INK = '#0b1219', GOLD = '#f1d98a', TRACK = 'rgba(214,176,106,0.35)';
@@ -39,7 +39,7 @@ export function hasTag(e, tag) {
 
 /** Hur markören ska se ut: tidsläge (now, past, future), betydelse och osäkerhet. */
 export function markerInfo(e, when = 'now') {
-  const unsure = /[~?]/.test(e.edtf ?? '') || (e.note?.title?.sv ?? e.note?.title) === 'Källorna skiljer sig';
+  const unsure = /[~?]/.test(e.edtf ?? '') || e.note?.kind === 'disagreement';
   return { when, major: !!(e.top || e.major), unsure };
 }
 
