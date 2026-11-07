@@ -1994,9 +1994,9 @@ details.used-by summary:hover { color: var(--parchment); }
   .print-step { margin: 0; font: 500 8.5pt/1.3 var(--f-mono); }
   .print-q { margin: 1pt 0 0; font-weight: 600; }
   .print-lines { margin-top: 1pt; }
-  .print-line { display: block; height: 13pt; border-bottom: .75pt solid var(--print-line); }
+  .print-line { display: block; height: 12.5pt; border-bottom: .75pt solid var(--print-line); }
   .print-exit { break-inside: avoid; }
-  .print-sources ul, .print-sources-inline { margin: 2pt 0 0; padding-left: 14pt; font-size: 8pt; line-height: 1.15; }
+  .print-sources ul, .print-sources-inline { margin: 2pt 0 0; padding-left: 14pt; font-size: 8pt; line-height: 1.1; }
   .print-sources ul { columns: 2; column-gap: 14pt; }
   .print-sources li { break-inside: avoid; }
   .print-sources h2 { break-after: avoid; }
