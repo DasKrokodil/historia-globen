@@ -6,8 +6,8 @@
 // stegen med frågor. Lärarbladet: årskurs, tid, förkunskaper, lärarinstruktion, kopplingen till läroplanen med
 // källa, frågorna, exit ticket och länken till turen (#t=<id>, #736).
 //
-// Tillgänglighet och papper (#757): varje blad är en märkt sektion med en egen rubrik på nivå 1 ("Elevblad: <titel>"
-// och "Lärarblad: <titel>"), därefter nivå 2, så att läsordning och rubriker blir rätta när utskriften sparas som
+// Tillgänglighet och papper (#757): varje blad är en märkt sektion med en egen rubrik på nivå 1 ("Elevblad <titel>"
+// och "Lärarblad <titel>"), därefter nivå 2, så att läsordning och rubriker blir rätta när utskriften sparas som
 // taggad PDF. Skrivrader och namnrad är dekoration och göms för hjälpmedel. Allt är svart på vitt, och ingenting
 // beror på färg. Länkar står som text, eftersom papper inte går att klicka på.
 import { t, loadSources } from '../model.js';

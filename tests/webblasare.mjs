@@ -2501,6 +2501,9 @@ async function run(browser, vp) {
         splits: avoid.filter(e => !/avoid/.test(css(e, 'break-inside'))).length + heads.filter(h => h.tagName === 'H2' && !/avoid/.test(css(h, 'break-after'))).length,
         wide: [...root.querySelectorAll('*')].filter(e => e.clientWidth > 0 && e.scrollWidth > e.clientWidth + 1).length,
         urls: root.querySelectorAll('.print-src-url, .print-link').length,
+        // Bladens höjd och papperets bredd mäts i A4:s tryckbara bredd (se testet nedan)
+        heights: [...root.querySelectorAll('.print-page')].map(s => Math.ceil(s.getBoundingClientRect().height)),
+        paperWidth: document.documentElement.scrollWidth,
       };
     };
     // Utskrift av en lektionstur (#738): knappen bara i en tur med lärarfält, och i utskrift syns bara elevbladet
@@ -2535,15 +2538,23 @@ async function run(browser, vp) {
           link: document.querySelector('#print-sheet .print-link')?.textContent ?? '',
           teacher: document.querySelector('#print-sheet .print-teacher')?.textContent ?? '',
         }));
+        // Mätningen görs i A4:s tryckbara yta, 210 mm minus marginalerna 2 × 15 mm = 180 mm = 680 px bred och
+        // 297 mm minus 2 × 11 mm = 275 mm = 1039 px hög, så att ett blad som är för brett eller för högt larmar innan det
+        // spiller över, och svaret blir detsamma på alla maskiner (ett fönster på 1400 px skulle inte hitta något)
+        const A4_WIDTH = 680;
+        const A4_HEIGHT = 1039;
+        const viewport = printPage.viewportSize();
+        await printPage.setViewportSize({ width: A4_WIDTH, height: viewport?.height ?? 900 });
         Object.assign(got, await printPage.evaluate(printAudit));
+        if (viewport) await printPage.setViewportSize(viewport);
         // Sidbrytning: hela bladen ryms på ett A4 var (Chromium kan skriva PDF; Firefox och WebKit kan inte)
         const pdfPages = BROWSER === 'chromium'
           ? (await printPage.pdf({ format: 'A4', preferCSSPageSize: true })).toString('latin1').match(/\/Type\s*\/Page[^s]/g)?.length ?? 0
-          : 2;
+          : got.pages;
         await printPage.emulateMedia({ media: 'screen' });
         // Utskriften (#757): läsordning och rubriker för hjälpmedel, svart på vitt utan färg, läsbar textstorlek och
         // sidbrytning som inte delar ett svarsfält
-        if (got.h1 !== 2 || got.skippedHeading) throw new Error(`rubrikerna är fel i utskriften: ${got.h1} h1, hopp i nivåerna: ${got.skippedHeading}`);
+        if (got.h1 !== got.pages || got.skippedHeading) throw new Error(`rubrikerna är fel i utskriften: ${got.h1} h1 för ${got.pages} blad, hopp i nivåerna: ${got.skippedHeading}`);
         if (got.h1Same) throw new Error('elevbladet och lärarbladet har samma rubrik');
         if (got.unlabelled) throw new Error(`${got.unlabelled} blad saknar märkning (aria-labelledby)`);
         if (got.visibleLines) throw new Error('skrivraderna syns för hjälpmedel i stället för att vara dekoration');
@@ -2553,8 +2564,12 @@ async function run(browser, vp) {
         if (got.splits) throw new Error(`${got.splits} svarsfält eller grupper får delas av en sidbrytning`);
         if (got.wide) throw new Error(`${got.wide} element är bredare än utskriftsytan`);
         if (got.urls < 2) throw new Error('adresser står inte som text på bladen (papper går inte att klicka på)');
-        if (pdfPages !== 2) throw new Error(`utskriften blev ${pdfPages} A4-sidor i stället för ett blad per sida`);
-        if (got.pages !== 2) throw new Error(`${got.pages} blad i stället för elevblad och lärarblad`);
+        if (got.paperWidth > A4_WIDTH) throw new Error(`utskriften är ${got.paperWidth} px bred, A4 rymmer ${A4_WIDTH} px`);
+        // Minst 3 % luft: texten kan variera något med typsnitt och webbläsare
+        const maxHeight = Math.floor(A4_HEIGHT * 0.97);
+        if (got.heights.some(h => h > maxHeight)) throw new Error(`ett blad är ${Math.max(...got.heights)} px högt, högst ${maxHeight} px av A4:s ${A4_HEIGHT} px (${got.heights.join(', ')})`);
+        if (pdfPages !== got.pages) throw new Error(`utskriften blev ${pdfPages} A4-sidor i stället för ett blad per sida (${got.pages} blad)`);
+        if (got.pages < 2) throw new Error(`${got.pages} blad i stället för elevblad och lärarblad`);
         if (got.questions !== 5) throw new Error(`elevbladet har ${got.questions} frågor, turen har 5`);
         if (got.sheet === 'none' || got.app !== 'none') throw new Error(`i utskrift: bladen ${got.sheet}, sidan ${got.app}`);
         if (!got.link.endsWith('#t=andra-varldskriget')) throw new Error(`lärarbladets länk är ${got.link}`);
