@@ -14,6 +14,7 @@
 // ritas två gånger ovanpå varandra.
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 
+const FINE_LAND = 'data/land-10m.json'; // kustkartan 1:10m, bara för utsnittet (laddas första gången det används)
 const DEG = Math.PI / 180;
 const DELAY = 220;          // ms efter sista rörelsen eller ändringen innan utsnittet ritas
 const MIN_GAIN = 1.5;       // utsnittet används först när det är minst så mycket skarpare än helbilden
@@ -67,6 +68,21 @@ export class GlobeDetail {
     this.timer = 0;
     this.fade = null;
     this.lastDrawMs = 0;
+    this.fineLand = null;     // 1:10m när den har laddats; tills dess (och om den inte går att läsa) ritas 1:50m
+    this.fineRequested = false;
+  }
+
+  /** Hämtar den finare kustkartan första gången utsnittet behövs. Misslyckas hämtningen används 1:50m som förut. */
+  _loadFineLand() {
+    if (this.fineRequested) return;
+    this.fineRequested = true;
+    fetch(FINE_LAND)
+      .then(res => { if (!res.ok) throw new Error(`${res.status}`); return res.json(); })
+      .then(land => {
+        this.fineLand = land;
+        if (this.region) { this._drawBase(); this.globe.invalidate(); } // byt kusten under utsnittet som redan syns
+      })
+      .catch(err => console.warn('Den finare kustkartan kunde inte laddas, grundkartan används', err));
   }
 
   /** Lagrens ritfunktion: (ctx, W, H, drawFaded) => void, samma anrop som registry.draw. */
@@ -127,6 +143,7 @@ export class GlobeDetail {
   _settle() {
     const want = this._wanted();
     if (!want) { this._hide(); return; }
+    this._loadFineLand();
     if (!this._covers(want)) this._redrawRegion(want);
     else if (this.layersDirty) this._drawOverlay();
   }
@@ -184,7 +201,7 @@ export class GlobeDetail {
     const c = this.region, t = c.texelPerCss;
     const ctx = this.baseCanvas.getContext('2d');
     this._paint(ctx, (cx, W, H) => {
-      const land = this.globe._land;
+      const land = this.fineLand ?? this.globe._land;
       // paintBase ritar kustlinjen i land-bildens enheter; coast anges där i bildpunkter på bilden W × H
       this.paintBase(cx, W, H, land, { grid: LINE_PX.grid * t, equator: LINE_PX.equator * t, coast: LINE_PX.coast * t });
     });
