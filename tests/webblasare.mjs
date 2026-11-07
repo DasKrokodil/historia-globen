@@ -2561,6 +2561,44 @@ async function run(browser, vp) {
     return 'Pompeji öppnas år 79; Bysantinska ger Rom i Fokus; nonsens ger "Inget …"; Escape stänger';
   });
 
+  // Sök och följ med bara tangentbordet (#708): Enter öppnar, sökrutan får fokus (dator), pil ner når listan,
+  // Escape stänger och fokus går tillbaka till knappen som öppnade panelen (i mobil: Meny, som bär knappen)
+  await check('Sök och följ med tangentbord: fokus in, pil ner, Escape och fokus tillbaka', async () => {
+    if (await page.locator('#focus-bar').isVisible()) { await page.click('#focus-exit'); await hidden('#focus-bar'); }
+    if (await page.isVisible('#detail')) await page.keyboard.press('Escape');
+    const narrow = vp.width <= 760;
+    if (narrow) {
+      await page.click('#more-toggle');
+      await visible('#btn-focus');
+    }
+    await page.locator('#btn-focus').focus();
+    await page.keyboard.press('Enter');
+    await visible('#focus-menu');
+    if (await page.getAttribute('#btn-focus', 'aria-expanded') !== 'true') throw new Error('aria-expanded blir inte true på Sök och följ');
+    const where = await page.evaluate(() => {
+      const a = document.activeElement;
+      return { inMenu: document.getElementById('focus-menu').contains(a), search: a?.classList.contains('focus-search') };
+    });
+    if (!where.inMenu) throw new Error('fokus flyttas inte in i Sök och följ');
+    const fine = await page.evaluate(() => matchMedia('(hover: hover) and (pointer: fine)').matches);
+    if (fine && !where.search) throw new Error('sökrutan får inte fokus när panelen öppnas med tangentbordet');
+    // Pil ner från sökrutan når listan (en grupprubrik eller en träff)
+    await page.locator('#focus-menu .focus-search').focus();
+    await page.keyboard.press('ArrowDown');
+    const inList = await page.evaluate(() => {
+      const a = document.activeElement;
+      return !!a && document.getElementById('focus-menu').contains(a) && !a.classList.contains('focus-search') && (a.hasAttribute('data-group') || a.hasAttribute('data-key'));
+    });
+    if (!inList) throw new Error('pil ner från sökrutan når inte listan');
+    await page.keyboard.press('Escape');
+    await hidden('#focus-menu');
+    if (await page.getAttribute('#btn-focus', 'aria-expanded') !== 'false') throw new Error('aria-expanded blir inte false på Sök och följ');
+    const back = await page.evaluate(() => document.activeElement?.id || document.activeElement?.tagName);
+    if (!(narrow ? ['btn-focus', 'more-toggle'] : ['btn-focus']).includes(back)) throw new Error(`Escape lämnar fokus på ${back}, inte på knappen som öppnade panelen`);
+    if (narrow && await page.isVisible('#more-menu')) await page.click('#more-toggle').catch(() => {});
+    return `Enter öppnar, ${fine ? 'sökrutan har fokus, ' : ''}pil ner når listan, Escape stänger och fokus går till ${back}`;
+  });
+
   await check('faktarutan skiljer källkontroll från osäkerhet', async () => {
     if (await page.locator('#focus-bar').isVisible()) {
       await page.click('#focus-exit');
@@ -2688,8 +2726,30 @@ async function runReflow(browser) {
         if (frame.outside.length) throw new Error(`kontroller utanför skärmen: ${frame.outside.join(', ')}`);
         if (frame.scroll > frame.width) throw new Error(`sidan är ${frame.scroll}px bred i en yta på ${frame.width}px`);
 
+        // Tangentbord (#708): tidslinjen, årtalet, Meny/knapparna och Samtidigt nås med Tab och ligger då i bild
+        // Tab börjar efter globen, så att fokus som blev kvar från förra zoomsteget inte avgör ordningen
+        await page.locator('#globe-canvas').focus();
+        const needed =new Set(z.width > 760
+          ? ['year-jump', 'btn-panel', 'btn-layers', 'btn-focus', 'btn-play', 'track']
+          : ['year-jump', 'btn-panel', 'more-toggle', 'btn-play', 'track']);
+        const reached = new Set();
+        const offscreen = new Set();
+        for (let i = 0; i < 60 && reached.size < needed.size; i++) {
+          await page.keyboard.press('Tab');
+          const hit = await page.evaluate(() => {
+            const a = document.activeElement;
+            const r = a?.getBoundingClientRect();
+            return a && a !== document.body ? { id: a.id, out: !r || r.width < 1 || r.left < 0 || r.right > innerWidth || r.bottom < 0 || r.top > innerHeight } : null;
+          });
+          if (hit?.id && needed.has(hit.id)) { reached.add(hit.id); if (hit.out) offscreen.add(hit.id); }
+        }
+        const missing = [...needed].filter(id => !reached.has(id));
+        if (missing.length) throw new Error(`nås inte med Tab vid ${z.percent} %: ${missing.join(', ')}`);
+        if (offscreen.size) throw new Error(`fokuserad kontroll utanför bild vid ${z.percent} %: ${[...offscreen].join(', ')}`);
+        await page.evaluate(() => document.activeElement?.blur());
+
         await page.click('#btn-panel');
-        const panelRoom = await page.locator('#event-list').evaluate(el => el.clientHeight);
+        const panelRoom =await page.locator('#event-list').evaluate(el => el.clientHeight);
         if (panelRoom < 1) throw new Error('Samtidigt-listan saknar rullbar yta');
         await page.keyboard.press('Escape');
 
