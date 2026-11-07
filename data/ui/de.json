@@ -164,6 +164,13 @@
   "top.sourcesTitle": "Über die Quellen: Quellenrichtlinie und Quellenverzeichnis",
   "top.sources": "Quellen",
   "top.help": "Hilfe",
+  "top.quiz": "Quiz",
+  "top.quizTitle": "Was geschah zur gleichen Zeit? Fragen aus Fun Facts",
+  "quiz.close": "Quiz schließen",
+  "quiz.title": "Was geschah zur gleichen Zeit?",
+  "quiz.event": "Das Ereignis",
+  "quiz.sources": "Quellen",
+  "quiz.next": "Nächste Frage",
   "help.title": "So benutzt du den Globus",
   "help.close": "Hilfe schließen",
   "help.s1": "Globus ziehen",
@@ -444,5 +451,10 @@
   "ff.pictureCard": "Bildkarte",
   "ff.readMore": "Mehr lesen ›",
   "ff.readMoreAbout": "Mehr über {title} lesen",
-  "ff.pager": "{n} von {total}"
+  "ff.pager": "{n} von {total}",
+  "quiz.question": "Welches dieser Ereignisse geschah zur gleichen Zeit?",
+  "quiz.right": "Richtig!",
+  "quiz.wrong": "Nicht ganz. Die richtige Antwort: {answer}",
+  "quiz.score": "{right} von {total} richtig",
+  "quiz.empty": "Im Moment gibt es keine Fragen."
 }

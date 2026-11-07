@@ -164,6 +164,13 @@
   "top.sourcesTitle": "About the sources: source policy and source register",
   "top.sources": "Sources",
   "top.help": "Help",
+  "top.quiz": "Quiz",
+  "top.quizTitle": "What happened at the same time? Questions from fun facts",
+  "quiz.close": "Close the quiz",
+  "quiz.title": "What happened at the same time?",
+  "quiz.event": "The event",
+  "quiz.sources": "Sources",
+  "quiz.next": "Next question",
   "help.title": "How to use the globe",
   "help.close": "Close help",
   "help.s1": "Drag the globe",
@@ -444,5 +451,10 @@
   "ff.pictureCard": "Picture card",
   "ff.readMore": "Read more ›",
   "ff.readMoreAbout": "Read more about {title}",
-  "ff.pager": "{n} of {total}"
+  "ff.pager": "{n} of {total}",
+  "quiz.question": "Which of these events happened at the same time?",
+  "quiz.right": "Correct!",
+  "quiz.wrong": "Not quite. The right answer: {answer}",
+  "quiz.score": "{right} of {total} correct",
+  "quiz.empty": "There are no questions right now."
 }

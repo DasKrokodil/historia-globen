@@ -770,6 +770,21 @@ body {
 .intro-choice:hover { border-color: var(--brass); }
 .intro-choice.primary { border-color: var(--brass); background: var(--brass); color: var(--night); }
 .intro-choice:focus-visible, .intro-actions button:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
+/* Quiz (#65): samma dialog som introduktionen. Efter svaret visas årtalen, rätt svar och fun factens källor. */
+.quiz-option { display: grid; gap: 3px; }
+.quiz-option-title { font: 600 13px/1.25 var(--f-body); }
+.quiz-option-time { font: 400 11.5px/1.3 var(--f-mono); color: var(--parchment-dim); }
+.quiz-option:disabled { cursor: default; opacity: .78; }
+.quiz-option.is-answer { opacity: 1; border-color: var(--brass); box-shadow: inset 0 0 0 1px var(--brass); }
+.quiz-option.is-wrong { opacity: 1; border-style: dashed; }
+.quiz-option.is-answer .quiz-option-title::before { content: "✓ "; color: var(--brass); }
+.quiz-option.is-wrong .quiz-option-title::before { content: "✗ "; }
+.quiz-result { margin-top: 14px; }
+.quiz-verdict { margin: 0; font: 400 20px/1.2 var(--f-display); color: var(--parchment); }
+.quiz-verdict.is-right { color: var(--brass); }
+.quiz-sources-label { margin: 12px 0 0; font: 500 10.5px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+.quiz-sources { margin: 6px 0 0; padding-left: 18px; font: 400 12.5px/1.45 var(--f-body); color: var(--parchment-dim); overflow-wrap: anywhere; }
+.quiz-sources a { color: var(--parchment); }
 @keyframes intro-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 html.calm .intro-box { animation: none; }
 @media (prefers-reduced-motion: reduce) { .intro-box { animation: none; } }

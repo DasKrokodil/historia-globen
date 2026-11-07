@@ -164,6 +164,13 @@
   "top.sourcesTitle": "Sobre las fuentes: política de fuentes y registro de fuentes",
   "top.sources": "Fuentes",
   "top.help": "Ayuda",
+  "top.quiz": "Quiz",
+  "top.quizTitle": "¿Qué pasó al mismo tiempo? Preguntas a partir de curiosidades",
+  "quiz.close": "Cerrar el quiz",
+  "quiz.title": "¿Qué pasó al mismo tiempo?",
+  "quiz.event": "El acontecimiento",
+  "quiz.sources": "Fuentes",
+  "quiz.next": "Siguiente pregunta",
   "help.title": "Cómo usar el globo",
   "help.close": "Cerrar la ayuda",
   "help.s1": "Arrastra el globo",
@@ -444,5 +451,10 @@
   "ff.pictureCard": "Tarjeta de imagen",
   "ff.readMore": "Leer más ›",
   "ff.readMoreAbout": "Leer más sobre {title}",
-  "ff.pager": "{n} de {total}"
+  "ff.pager": "{n} de {total}",
+  "quiz.question": "¿Cuál de estos acontecimientos ocurrió al mismo tiempo?",
+  "quiz.right": "¡Correcto!",
+  "quiz.wrong": "No exactamente. La respuesta correcta: {answer}",
+  "quiz.score": "{right} de {total} correctas",
+  "quiz.empty": "Ahora mismo no hay preguntas."
 }

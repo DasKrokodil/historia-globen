@@ -234,5 +234,10 @@
   "ff.pictureCard": "Bildkort",
   "ff.readMore": "Läs mer ›",
   "ff.readMoreAbout": "Läs mer om {title}",
-  "ff.pager": "{n} av {total}"
+  "ff.pager": "{n} av {total}",
+  "quiz.question": "Vilken av de här händelserna hände samtidigt?",
+  "quiz.right": "Rätt!",
+  "quiz.wrong": "Inte riktigt. Rätt svar: {answer}",
+  "quiz.score": "Rätt på {right} av {total}",
+  "quiz.empty": "Det finns inga frågor just nu."
 }
