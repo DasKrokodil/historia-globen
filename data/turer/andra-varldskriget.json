@@ -67,11 +67,11 @@
         "event": "slaget-om-storbritannien",
         "questions": [
           {
-            "sv": "Rutan i faktarutan nämner två sätt att räkna hur länge slaget pågick. Vilka är de, och vem räknar på vilket sätt?",
-            "en": "The box in the fact box mentions two ways of counting how long the battle lasted. What are they, and who counts which way?",
-            "de": "Der Kasten im Faktenfeld nennt zwei Arten zu zählen, wie lange die Schlacht dauerte. Welche sind es, und wer zählt auf welche Weise?",
-            "es": "El recuadro de la ficha menciona dos formas de contar cuánto duró la batalla. ¿Cuáles son y quién cuenta de cada manera?",
-            "fr": "L'encadré de la fiche mentionne deux façons de compter la durée de la bataille. Lesquelles, et qui compte de quelle façon ?"
+            "sv": "Den extra rutan i faktarutan nämner två sätt att räkna hur länge slaget pågick. Vilka är de, och vem räknar på vilket sätt?",
+            "en": "The extra box in the fact box mentions two ways of counting how long the battle lasted. What are they, and who counts which way?",
+            "de": "Der zusätzliche Kasten im Faktenfeld nennt zwei Arten zu zählen, wie lange die Schlacht dauerte. Welche sind es, und wer zählt auf welche Weise?",
+            "es": "El recuadro adicional de la ficha menciona dos formas de contar cuánto duró la batalla. ¿Cuáles son y quién cuenta de cada manera?",
+            "fr": "L'encadré supplémentaire de la fiche mentionne deux façons de compter la durée de la bataille. Lesquelles, et qui compte de quelle façon ?"
           },
           {
             "sv": "Vad räknar de tyska historikerna in i slaget som de brittiska källorna inte gör?",
@@ -93,11 +93,11 @@
         "event": "slaget-vid-stalingrad",
         "questions": [
           {
-            "sv": "Rutan om källorna i faktarutan nämner två datum då slaget började. Vilka är de, och vilken källa anger vilket?",
-            "en": "The box about the sources in the fact box mentions two dates on which the battle began. What are they, and which source gives which?",
-            "de": "Der Kasten zu den Quellen im Faktenfeld nennt zwei Daten, an denen die Schlacht begann. Welche sind es, und welche Quelle nennt welches?",
-            "es": "El recuadro sobre las fuentes en la ficha menciona dos fechas en las que comenzó la batalla. ¿Cuáles son y qué fuente da cada una?",
-            "fr": "L'encadré sur les sources dans la fiche mentionne deux dates de début de la bataille. Lesquelles, et quelle source donne laquelle ?"
+            "sv": "Den extra rutan i faktarutan nämner två datum då slaget började. Vilka är de, och vilken källa anger vilket?",
+            "en": "The extra box in the fact box mentions two dates on which the battle began. What are they, and which source gives which?",
+            "de": "Der zusätzliche Kasten im Faktenfeld nennt zwei Daten, an denen die Schlacht begann. Welche sind es, und welche Quelle nennt welches?",
+            "es": "El recuadro adicional de la ficha menciona dos fechas en las que comenzó la batalla. ¿Cuáles son y qué fuente da cada una?",
+            "fr": "L'encadré supplémentaire de la fiche mentionne deux dates de début de la bataille. Lesquelles, et quelle source donne laquelle ?"
           },
           {
             "sv": "Vad är källorna överens om?",
