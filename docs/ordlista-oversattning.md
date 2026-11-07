@@ -55,7 +55,7 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 3. Ortnamn som saknar etablerat namn behåller originalstavningen (inte translittererat på nytt).
 4. En term som redan är översatt i en annan fil översätts likadant överallt. Slå upp den här först; saknas den, lägg till den i samma pull request.
 5. **Kontrollera ett namn som inte står här** mot Wikipedias artikel på målspråket (länken "språk" från den engelska artikeln) innan det används, och skriv "namn kontrollerat mot Wikipedia" i pull requesten om valet inte är självklart. Wikidata-API:et ger 429 vid många anrop: hämta färre och vänta.
-6. Namnen nedan är etablerade former som ska användas direkt, men **granskaren kontrollerar dem mot Wikipedia** när de används första gången i en pull request.
+6. **Tabellen i avsnitt 9 är preliminär.** Namnen är förslag som ännu inte är kontrollerade mot en öppnad källa på målspråket, och de får inte kopieras vidare som facit. Den som översätter ett rike kontrollerar namnet mot Wikipedia-artikeln på spanska eller franska (språklänken från den engelska artikeln, eller en källa som Wikipedia hänvisar till), skriver kontrollen i pull requesten och sätter datum och källa i kolumnen "Kontrollerad" i samma pull request. Stämmer inte förslaget rättas raden.
 
 ## 5. Gränssnittets begrepp (finns redan i `data/ui/`, ändras inte)
 
@@ -138,40 +138,41 @@ Bildstilarnas namn (`data/styles.json`), vyernas namn (`data/vyer.json`) och rel
 
 Titel och epitet skrivs med liten bokstav i löpande text (`el rey Luis XIV`, `le roi Louis XIV`), men `Papa` och `Pape` med versal när det står i stället för namnet. Härskarnamn: etablerat namn där det finns (`Luis XIV`, `Louis XIV`, `Carlomagno`, `Charlemagne`, `Alejandro Magno`, `Alexandre le Grand`).
 
-## 9. Riken och stater (etablerade former, kontrolleras mot Wikipedia vid första användning)
+## 9. Riken och stater (preliminära förslag, ännu inte kontrollerade)
 
-| Engelska (ur `data/empires/index.json`) | Spanska | Franska |
-|---|---|---|
-| Roman Kingdom | Reino de Roma | Royaume de Rome |
-| Roman Republic | República romana | République romaine |
-| Roman Empire | Imperio romano | Empire romain |
-| Western Roman Empire | Imperio romano de Occidente | Empire romain d'Occident |
-| Eastern Roman Empire | Imperio romano de Oriente | Empire romain d'Orient |
-| Byzantine Empire | Imperio bizantino | Empire byzantin |
-| Ottoman Empire | Imperio otomano | Empire ottoman |
-| Mongol Empire | Imperio mongol | Empire mongol |
-| Holy Roman Empire | Sacro Imperio Romano Germánico | Saint-Empire romain germanique |
-| Abbasid Caliphate | Califato abasí | Califat abbasside |
-| Kingdom of Aksum | Reino de Aksum | Royaume d'Aksoum |
-| Empire of Alexander the Great | Imperio de Alejandro Magno | Empire d'Alexandre le Grand |
-| Confederate States of America | Estados Confederados de América | États confédérés d'Amérique |
-| Kingdom of Prussia / Prussia | Reino de Prusia / Prusia | Royaume de Prusse / Prusse |
-| Russian Federation | Federación de Rusia | Fédération de Russie |
-| Soviet Union | Unión Soviética | Union soviétique |
-| Kalmar Union | Unión de Kalmar | Union de Kalmar |
-| Austria-Hungary | Austria-Hungría | Autriche-Hongrie |
-| British Empire | Imperio británico | Empire britannique |
-| Spanish Empire | Imperio español | Empire espagnol |
-| Mughal Empire | Imperio mogol | Empire moghol |
-| Inca Empire | Imperio inca | Empire inca |
-| Aztec Empire | Imperio azteca | Empire aztèque |
-| Mali Empire | Imperio de Malí | Empire du Mali |
-| Han dynasty | dinastía Han | dynastie Han |
-| Ming dynasty | dinastía Ming | dynastie Ming |
-| Qing dynasty | dinastía Qing | dynastie Qing |
-| Carthage | Cartago | Carthage |
+| Engelska (ur `data/empires/index.json`) | Spanska | Franska | Kontrollerad |
+|---|---|---|---|
+| Roman Kingdom | Reino de Roma | Royaume de Rome | – |
+| Roman Republic | República romana | République romaine | – |
+| Roman Empire | Imperio romano | Empire romain | – |
+| Western Roman Empire | Imperio romano de Occidente | Empire romain d'Occident | – |
+| Eastern Roman Empire | Imperio romano de Oriente | Empire romain d'Orient | – |
+| Byzantine Empire | Imperio bizantino | Empire byzantin | – |
+| Ottoman Empire | Imperio otomano | Empire ottoman | – |
+| Mongol Empire | Imperio mongol | Empire mongol | – |
+| Holy Roman Empire | Sacro Imperio Romano Germánico | Saint-Empire romain germanique | – |
+| Abbasid Caliphate | Califato abasí | Califat abbasside | – |
+| Kingdom of Aksum | Reino de Aksum | Royaume d'Aksoum | – |
+| Empire of Alexander the Great | Imperio de Alejandro Magno | Empire d'Alexandre le Grand | – |
+| Confederate States of America | Estados Confederados de América | États confédérés d'Amérique | – |
+| Kingdom of Prussia / Prussia | Reino de Prusia / Prusia | Royaume de Prusse / Prusse | – |
+| Russian Federation | Federación de Rusia | Fédération de Russie | – |
+| Soviet Union | Unión Soviética | Union soviétique | – |
+| Kalmar Union | Unión de Kalmar | Union de Kalmar | – |
+| Austria-Hungary | Austria-Hungría | Autriche-Hongrie | – |
+| British Empire | Imperio británico | Empire britannique | – |
+| Spanish Empire | Imperio español | Empire espagnol | – |
+| Mughal Empire | Imperio mogol | Empire moghol | – |
+| Inca Empire | Imperio inca | Empire inca | – |
+| Aztec Empire | Imperio azteca | Empire aztèque | – |
+| Mali Empire | Imperio de Malí | Empire du Mali | – |
+| Han dynasty | dinastía Han | dynastie Han | – |
+| Ming dynasty | dinastía Ming | dynastie Ming | – |
+| Qing dynasty | dinastía Qing | dynastie Qing | – |
+| Carthage | Cartago | Carthage | – |
 
-Riken som inte står här: följ regel 1–5 i avsnitt 4. Lägg till det i tabellen i samma pull request så att nästa omgång använder samma namn.
+Kolumnen "Kontrollerad" är `–` tills någon har öppnat en källa på målspråket och jämfört. Då skrivs datum och källa där (till exempel `2026-11-12, es.wikipedia`). Riken som inte står här: följ regel 1–5 i avsnitt 4. Lägg till det i tabellen i samma pull request så att nästa omgång använder samma namn.
+
 
 ## 10. Kontrollera innan en pull request öppnas
 
