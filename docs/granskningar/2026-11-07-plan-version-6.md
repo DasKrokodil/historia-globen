@@ -1,6 +1,6 @@
 # Plan för Version 6: Skolpilot (2026-11-07)
 
-Förslag från Claude Code (dirigent, Rikards konto). **Inget är byggt och inga issues är skapade.** Rikard godkänner planen och besluten i slutet först.
+Från Claude Code (dirigent, Rikards konto). **Godkänd av Rikard 2026-11-07** med alla rekommendationer i slutet; se "Genomfört" sist och `docs/beslut/2026-11-07-skolpilot-version-6.md`.
 
 ## Målet
 
@@ -99,3 +99,22 @@ Med högst fyra öppna pull requests per person ryms steg 1 och 2 utan väntan. 
 5. **Flytta #365, #469 och #476** ur milstolpen Version 6 till "efter piloten" (Senare)?
 
 När planen är godkänd skapar Claude Code issuena (A2, A3, A4, B1, B2, C1, C2, E1 och E2 med `utanför-kod`), delar #66 och #250 i de nya issuena, skriver byggordrar och sätter `redo` på dem som saknar beroenden.
+
+## Genomfört (2026-11-07)
+
+Rikard sa ja till planen och till alla fem rekommendationerna: resten av 5.2 väntar, spärren för quizet är borttagen, piloten börjar med åk 7–9, lärarbladet skrivs ut ur sidan, och #365, #469 och #476 är flyttade ur milstolpen.
+
+| Paket | Issue | Status |
+|---|---|---|
+| A1 quiz | #65 | `redo` (Codex) |
+| A2 turlänk | #736 | `redo` (Codex) |
+| A3 lärarfält i turformatet | #737 | `redo` (Claude Code) |
+| A4 utskrift | #738 | efter #736 och #737 |
+| B1 lektion 1, åk 7–9 | #739 | efter #737 |
+| B2 lektion 2, åk 4–6 | #740 | efter #737 |
+| C1 Samtidighetsjakten | #741 | efter #736 |
+| C2 Källdetektiven | #742 | efter #738 och #739 |
+| E1 pilotpaket | #743 | efter #738, #739 och #741 |
+| E2 pilotlektionen | #744 | Rikard, `utanför-kod` |
+
+#737–#740, #743 och #744 är delissues till #66; #741 och #742 till #250. #365 ligger i "Senare: teknik", #469 i "Experiment: Lekar och tankeexperiment" och #476 i "Senare: beslut krävs".
