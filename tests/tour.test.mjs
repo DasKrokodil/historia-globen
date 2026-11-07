@@ -39,6 +39,25 @@ test('rikens fall: status per steg och riket kontrolleras (#499)', () => {
   for (const part of ['riket atlantis', 'okänd status kanske']) assert.match(all, new RegExp(part), `saknar ${part}`);
 });
 
+test('lärarfälten för en lektionstur kontrolleras (#737)', () => {
+  const lesson = (over = {}) => ({
+    grades: '7-9', minutes: 30,
+    curriculum: [{ text: { sv: 'Kopplad till Lgr22.' }, sources: ['s1'] }],
+    teacher: { sv: 'Instruktion.' }, exitTicket: { sv: 'Fråga.' }, ...over,
+  });
+  assert.deepEqual(tourProblems(tour({ lesson: lesson() }), known), []);
+  assert.deepEqual(tourProblems(tour({ lesson: lesson({ prerequisites: { sv: 'Inga.' } }) }), known), []);
+  const all = tourProblems(tour({ lesson: lesson({
+    grades: '10', minutes: 5, curriculum: [{ text: { en: 'x' }, sources: ['okand'] }],
+    teacher: undefined, exitTicket: 'Fråga', prerequisites: 'Inga',
+  }) }), known).join('\n');
+  for (const part of ['okänd årskurs 10', 'minutes ska vara', 'texten saknas', 'källan okand', 'lärarinstruktionen saknas', 'exit ticket saknas', 'förkunskaperna ska vara']) {
+    assert.match(all, new RegExp(part), `saknar ${part}`);
+  }
+  assert.match(tourProblems(tour({ lesson: lesson({ curriculum: [] }) }), known).join(), /läroplanen saknas/);
+  assert.match(tourProblems(tour({ lesson: [] }), known).join(), /ska vara ett objekt/);
+});
+
 test('en tur utan steg eller med fel typ', () => {
   assert.equal(tourProblems(null).length, 1);
   assert.match(tourProblems(tour({ steps: [] })).join(), /inga steg/);

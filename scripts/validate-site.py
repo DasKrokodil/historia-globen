@@ -121,7 +121,9 @@ def schema_errors(value, schema, path='$', root=None):
         for name, child in schema.get('properties', {}).items():
             if name in value:
                 found += schema_errors(value[name], child, f'{path}.{name}', root)
-    elif isinstance(value, list) and 'items' in schema:
+    elif isinstance(value, list) and len(value) < schema.get('minItems', 0):
+        found.append(f"{path}: ska ha minst {schema['minItems']} post{'er' if schema['minItems'] > 1 else ''}")
+    if isinstance(value, list) and 'items' in schema:
         for i, item in enumerate(value):
             found += schema_errors(item, schema['items'], f'{path}[{i}]', root)
     return found
@@ -357,6 +359,10 @@ for tid in (tours_index or {}).get('tours', []):
         err(f"{path}: kriget {tour['war']} finns inte i events.json")
     if tour.get('empire') and tour['empire'] not in {g.get('id') for g in (empires or {}).get('groups', [])}:
         err(f"{path}: riket {tour['empire']} finns inte i data/empires/index.json")
+    for c in (tour.get('lesson') or {}).get('curriculum', []):  # lärarfälten (#737)
+        for src in c.get('sources', []):
+            if src not in src_ids:
+                err(f'{path} (lesson): källan {src} finns inte i sources.json')
     for i, step in enumerate(tour.get('steps', [])):
         where = f"{path} (steg {i + 1}, {step.get('id', '?')})"
         if step.get('open') and step['open'] not in ev_ids:
