@@ -10,8 +10,8 @@ const plural = (key, n, vars = {}) => String(ui(key)[n === 1 ? 0 : 1]).replace(/
 const loadingHtml = () => `<p class="detail-loading" role="status">${esc(ui('detail.loading'))}</p>`;
 /** Världsdelens namn på valt språk; REGIONS i model.js är id:n (svenska). */
 export const regionName = r => ui(`region.${r}`);
-/** Rutan "Källorna skiljer sig" känns igen på den svenska rubriken, som inte ändras av en översättning. */
-export const sourcesDisagree = e => (e.note?.title?.sv ?? e.note?.title) === 'Källorna skiljer sig';
+/** Anteckningen är av typen disagreement (källorna skiljer sig, #613). Typen avgör, inte rubrikens ordval. */
+export const sourcesDisagree = e => e.note?.kind === 'disagreement';
 /** Källraden. pending = källregistret eller händelsens källor laddas fortfarande (#337): då står ingen rad alls. */
 const srcLine = (srcs, pending) => pending ? '' : `<div class="src">${esc(ui('detail.source'))} ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || esc(ui('detail.sourceMissing'))}</div>`;
 const EVIDENCE_FIELDS = ['summary', 'date', 'location', 'image', 'uncertainty'];
