@@ -4,7 +4,9 @@
   "misconceptions": [
     {
       "id": "napoleon-var-kort",
-      "events": ["napoleonkrigen"],
+      "events": [
+        "napoleonkrigen"
+      ],
       "claim": {
         "sv": "Napoleon var ovanligt kort.",
         "en": "Napoleon was unusually short.",
@@ -26,8 +28,160 @@
         "es": "Los caricaturistas británicos, sobre todo James Gillray, representaron a Napoleón una y otra vez como bajo para burlarse de él y de sus planes de conquista. La prensa británica lo llamaba «Little Boney», y una de las caricaturas de Gillray de 1803 lo muestra de baja estatura. El término «complejo de Napoleón», para los hombres de baja estatura que se perciben como agresivos, lleva su nombre.",
         "fr": "Des caricaturistes britanniques, surtout James Gillray, ont représenté Napoléon à maintes reprises comme petit pour se moquer de lui et de ses projets de conquête. La presse britannique l'appelait « Little Boney », et une caricature de Gillray de 1803 le montre de petite taille. Le terme « complexe de Napoléon », pour les hommes de petite taille perçus comme agressifs, porte son nom."
       },
-      "originKinds": ["satire"],
-      "sources": ["wp-napoleon", "wp-napoleon-complex"],
+      "originKinds": [
+        "satire"
+      ],
+      "sources": [
+        "wp-napoleon",
+        "wp-napoleon-complex"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "kinesiska-muren-syns-fran-manen",
+      "year": 1754,
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          116.564,
+          40.431
+        ]
+      },
+      "locationPrecision": "region",
+      "claim": {
+        "sv": "Kinesiska muren syns med blotta ögat från rymden eller från månen.",
+        "en": "The Great Wall of China can be seen with the naked eye from space or from the Moon.",
+        "de": "Die Chinesische Mauer ist mit bloßem Auge aus dem Weltraum oder vom Mond aus zu sehen.",
+        "es": "La Gran Muralla china se ve a simple vista desde el espacio o desde la Luna.",
+        "fr": "La Grande Muraille de Chine est visible à l'œil nu depuis l'espace ou depuis la Lune."
+      },
+      "truth": {
+        "sv": "Från månen går muren inte att se med blotta ögat. Från omloppsbana är bilden oklar: muren är lång men för smal, och eftersom den är byggd av lokala material smälter den in i omgivningen. Astronauter har gett olika besked: Gene Cernan och Ed Lu har uppgett att den syns, medan Kinas första astronaut Yang Liwei sade att han inte kunde se den. Myten om månen anses grundligt motbevisad.",
+        "en": "From the Moon the wall cannot be seen with the naked eye. From orbit the picture is unclear: the wall is long but too narrow, and because it is made of local materials it blends into its surroundings. Astronauts have given differing accounts: Gene Cernan and Ed Lu have said it is visible, while China's first astronaut Yang Liwei said he could not see it. The myth about the Moon is considered thoroughly debunked.",
+        "de": "Vom Mond aus ist die Mauer mit bloßem Auge nicht zu sehen. Aus der Erdumlaufbahn ist das Bild unklar: Die Mauer ist lang, aber zu schmal, und weil sie aus lokalen Materialien gebaut ist, verschmilzt sie mit ihrer Umgebung. Astronauten haben unterschiedliche Auskünfte gegeben: Gene Cernan und Ed Lu haben angegeben, sie sei sichtbar, während Chinas erster Astronaut Yang Liwei sagte, er habe sie nicht sehen können. Der Mythos vom Mond gilt als gründlich widerlegt.",
+        "es": "Desde la Luna la muralla no se ve a simple vista. Desde la órbita la imagen no es clara: la muralla es larga pero demasiado estrecha y, como está hecha de materiales locales, se confunde con el entorno. Los astronautas han dado versiones distintas: Gene Cernan y Ed Lu han dicho que se ve, mientras que Yang Liwei, el primer astronauta de China, dijo que no pudo verla. El mito sobre la Luna se considera completamente desmentido.",
+        "fr": "Depuis la Lune, la muraille n'est pas visible à l'œil nu. Depuis l'orbite, l'image est incertaine : la muraille est longue mais trop étroite et, comme elle est construite en matériaux locaux, elle se fond dans le paysage. Les astronautes ont donné des avis différents : Gene Cernan et Ed Lu ont dit qu'elle est visible, tandis que Yang Liwei, le premier astronaute chinois, a dit qu'il n'avait pas pu la voir. Le mythe concernant la Lune est considéré comme entièrement réfuté."
+      },
+      "origin": {
+        "sv": "En av de tidigaste kända hänvisningarna till myten om murens synlighet från månen är ett brev från 1754 av den engelske antikvarien William Stukeley. Myten lever kvar i populärkulturen.",
+        "en": "One of the earliest known references to the myth of the wall's visibility from the Moon is a letter written in 1754 by the English antiquary William Stukeley. The myth lives on in popular culture.",
+        "de": "Einer der frühesten bekannten Verweise auf den Mythos von der Sichtbarkeit der Mauer vom Mond aus ist ein Brief des englischen Altertumsforschers William Stukeley aus dem Jahr 1754. Der Mythos lebt in der Populärkultur fort.",
+        "es": "Una de las primeras referencias conocidas al mito de la visibilidad de la muralla desde la Luna es una carta escrita en 1754 por el anticuario inglés William Stukeley. El mito sigue vivo en la cultura popular.",
+        "fr": "L'une des premières références connues au mythe de la visibilité de la muraille depuis la Lune est une lettre écrite en 1754 par l'antiquaire anglais William Stukeley. Le mythe perdure dans la culture populaire."
+      },
+      "originKinds": [
+        "folk"
+      ],
+      "sources": [
+        "wp-great-wall"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "haxor-brandes-i-salem",
+      "year": 1692,
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -70.896,
+          42.522
+        ]
+      },
+      "claim": {
+        "sv": "Häxor brändes på bål i Salem.",
+        "en": "Witches were burned at the stake in Salem.",
+        "de": "In Salem wurden Hexen auf dem Scheiterhaufen verbrannt.",
+        "es": "En Salem se quemó a las brujas en la hoguera.",
+        "fr": "À Salem, les sorcières furent brûlées sur le bûcher."
+      },
+      "truth": {
+        "sv": "Under häxprocesserna i Massachusetts (februari 1692 till maj 1693) anklagades över 200 personer och 30 dömdes. Nitton av dem hängdes (fjorton kvinnor och fem män). Ytterligare en man, Giles Corey, dog under tortyr efter att ha vägrat svara på åtalet, och minst fem dog i fängelserna utan rättegång. Ingen brändes: idén att häxor i Amerika brändes är enligt källan falsk.",
+        "en": "In the witch trials in Massachusetts (February 1692 to May 1693) more than 200 people were accused and 30 were convicted. Nineteen of them were hanged (fourteen women and five men). One other man, Giles Corey, died under torture for refusing to enter a plea, and at least five died in jail without trial. No one was burned: according to the source, the idea that witches in America were burned is false.",
+        "de": "Bei den Hexenprozessen in Massachusetts (Februar 1692 bis Mai 1693) wurden mehr als 200 Menschen angeklagt und 30 verurteilt. Neunzehn von ihnen wurden gehängt (vierzehn Frauen und fünf Männer). Ein weiterer Mann, Giles Corey, starb unter der Folter, weil er sich weigerte, auf die Anklage zu antworten, und mindestens fünf starben ohne Prozess im Gefängnis. Niemand wurde verbrannt: Die Vorstellung, in Amerika seien Hexen verbrannt worden, ist laut der Quelle falsch.",
+        "es": "En los juicios por brujería de Massachusetts (de febrero de 1692 a mayo de 1693) se acusó a más de 200 personas y se condenó a 30. Diecinueve fueron ahorcadas (catorce mujeres y cinco hombres). Otro hombre, Giles Corey, murió bajo tortura por negarse a declarar, y al menos cinco murieron en la cárcel sin juicio. Nadie fue quemado: según la fuente, la idea de que en América se quemaba a las brujas es falsa.",
+        "fr": "Lors des procès en sorcellerie du Massachusetts (de février 1692 à mai 1693), plus de 200 personnes furent accusées et 30 condamnées. Dix-neuf furent pendues (quatorze femmes et cinq hommes). Un autre homme, Giles Corey, mourut sous la torture pour avoir refusé de plaider, et au moins cinq moururent en prison sans procès. Personne ne fut brûlé : selon la source, l'idée que l'on brûlait les sorcières en Amérique est fausse."
+      },
+      "origin": {
+        "sv": "Många litterära och konstnärliga skildringar av häxprocesserna har tagit sig friheter med fakta, bland annat den populära men felaktiga idén att häxor i Amerika brändes.",
+        "en": "Many literary and artistic interpretations of the witch trials have taken liberties with the facts, including the popular but false idea that witches in America were burned.",
+        "de": "Viele literarische und künstlerische Darstellungen der Hexenprozesse haben sich Freiheiten gegenüber den Tatsachen genommen, darunter die verbreitete, aber falsche Vorstellung, in Amerika seien Hexen verbrannt worden.",
+        "es": "Muchas interpretaciones literarias y artísticas de los juicios por brujería se han tomado libertades con los hechos, entre ellas la idea popular pero falsa de que en América se quemaba a las brujas.",
+        "fr": "De nombreuses interprétations littéraires et artistiques des procès en sorcellerie ont pris des libertés avec les faits, notamment l'idée populaire mais fausse que l'on brûlait les sorcières en Amérique."
+      },
+      "originKinds": [
+        "media"
+      ],
+      "sources": [
+        "wp-salem-witch-trials"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "cheopspyramiden-byggdes-av-slavar",
+      "events": [
+        "cheopspyramiden"
+      ],
+      "claim": {
+        "sv": "Cheopspyramiden byggdes av slavar.",
+        "en": "The Great Pyramid was built by slaves.",
+        "de": "Die Cheops-Pyramide wurde von Sklaven gebaut.",
+        "es": "La Gran Pirámide fue construida por esclavos.",
+        "fr": "La grande pyramide de Khéops fut construite par des esclaves."
+      },
+      "truth": {
+        "sv": "Fynd vid arbetarläger nära Giza tyder på att pyramiden byggdes av tusentals utskrivna arbetare (”conscript labourers”), inte av slavar. Arbetsgrafitti tyder på att de som släpade block var indelade i grupper om 40 man, med fyra undergrupper som vardera hade en ”föreståndare för tio”.",
+        "en": "Discoveries at the workers' camps near Giza suggest that the pyramid was built by thousands of conscript labourers, not by slaves. Worker graffiti suggest that the haulers were divided into groups of 40 men, made up of four sub-units that each had an “Overseer of Ten”.",
+        "de": "Funde in den Arbeitersiedlungen bei Gizeh deuten darauf hin, dass die Pyramide von Tausenden dienstverpflichteten Arbeitern („conscript labourers“) gebaut wurde, nicht von Sklaven. Graffiti der Arbeiter deuten darauf hin, dass die Zieher in Gruppen von 40 Männern eingeteilt waren, bestehend aus vier Untergruppen, die jeweils einen „Aufseher über Zehn“ hatten.",
+        "es": "Los hallazgos en los campamentos de trabajadores cercanos a Guiza indican que la pirámide fue construida por miles de trabajadores reclutados («conscript labourers»), no por esclavos. Los grafitis de los trabajadores indican que quienes arrastraban los bloques estaban divididos en grupos de 40 hombres, formados por cuatro subunidades que tenían cada una un «supervisor de diez».",
+        "fr": "Les découvertes faites dans les camps d'ouvriers près de Gizeh indiquent que la pyramide fut construite par des milliers d'ouvriers réquisitionnés (« conscript labourers »), et non par des esclaves. Les graffitis des ouvriers indiquent que ceux qui halaient les blocs étaient répartis en groupes de 40 hommes, composés de quatre sous-unités ayant chacune un « chef de dix »."
+      },
+      "origin": {
+        "sv": "Antikens greker trodde att slavar användes. Den grekiske historikern Diodorus Siculus, som besökte Egypten mellan 60 och 56 f.Kr., förstärkte kopplingen mellan pyramidbyggande och slaveri.",
+        "en": "The ancient Greeks believed that slave labour was used. The Greek historian Diodorus Siculus, who visited Egypt between 60 and 56 BC, strengthened the connection between pyramid building and slavery.",
+        "de": "Die alten Griechen glaubten, es seien Sklaven eingesetzt worden. Der griechische Historiker Diodor von Sizilien, der Ägypten zwischen 60 und 56 v. Chr. besuchte, verstärkte die Verbindung zwischen dem Pyramidenbau und der Sklaverei.",
+        "es": "Los antiguos griegos creían que se había empleado mano de obra esclava. El historiador griego Diodoro Sículo, que visitó Egipto entre los años 60 y 56 a. C., reforzó la relación entre la construcción de pirámides y la esclavitud.",
+        "fr": "Les Grecs de l'Antiquité croyaient que l'on avait employé de la main-d'œuvre servile. L'historien grec Diodore de Sicile, qui visita l'Égypte entre 60 et 56 av. J.-C., renforça le lien entre la construction des pyramides et l'esclavage."
+      },
+      "originKinds": [
+        "other"
+      ],
+      "sources": [
+        "wp-great-pyramid"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "vikingar-hade-horn-pa-hjalmen",
+      "events": [
+        "lindisfarne"
+      ],
+      "claim": {
+        "sv": "Vikingakrigare bar hjälmar med horn.",
+        "en": "Viking warriors wore helmets with horns.",
+        "de": "Wikingerkrieger trugen Helme mit Hörnern.",
+        "es": "Los guerreros vikingos llevaban cascos con cuernos.",
+        "fr": "Les guerriers vikings portaient des casques à cornes."
+      },
+      "truth": {
+        "sv": "Det finns inga belägg för att vikingar bar hjälmar med horn. Ingen bevarad hjälm har horn, och ingen avbildning av krigarnas hjälmar visar horn. Undantaget är två eller tre avbildningar av (rituella) hjälmar med utskott som kan föreställa korpar, ormar eller horn. Historiker tror därför att vikingakrigare inte bar hornhjälmar; om sådana användes i rituella sammanhang är obevisat.",
+        "en": "There is no evidence that Vikings wore horned helmets. No preserved helmet has horns, and no depiction of warriors' helmets shows horns. The exception is two or three representations of (ritual) helmets with protrusions that may be stylised ravens, snakes or horns. Historians therefore believe that Viking warriors did not wear horned helmets; whether such helmets were used for ritual purposes remains unproven.",
+        "de": "Es gibt keinen Beleg dafür, dass Wikinger Hörnerhelme trugen. Kein erhaltener Helm hat Hörner, und keine Darstellung von Kriegerhelmen zeigt Hörner. Die Ausnahme sind zwei oder drei Darstellungen von (rituellen) Helmen mit Fortsätzen, die stilisierte Raben, Schlangen oder Hörner sein können. Historiker glauben daher, dass Wikingerkrieger keine Hörnerhelme trugen; ob solche Helme für rituelle Zwecke verwendet wurden, ist unbewiesen.",
+        "es": "No hay pruebas de que los vikingos llevaran cascos con cuernos. Ningún casco conservado tiene cuernos y ninguna representación de los cascos de los guerreros los muestra. La excepción son dos o tres representaciones de cascos (rituales) con protuberancias que pueden ser cuervos, serpientes o cuernos estilizados. Por eso los historiadores creen que los guerreros vikingos no llevaban cascos con cuernos; si se usaron con fines rituales no está demostrado.",
+        "fr": "Rien ne prouve que les Vikings portaient des casques à cornes. Aucun casque conservé n'a de cornes, et aucune représentation des casques de guerriers n'en montre. L'exception tient à deux ou trois représentations de casques (rituels) munis de protubérances qui peuvent être des corbeaux, des serpents ou des cornes stylisés. Les historiens pensent donc que les guerriers vikings ne portaient pas de casques à cornes ; leur usage à des fins rituelles n'est pas démontré."
+      },
+      "origin": {
+        "sv": "Hornen dök första gången upp som kostymdetalj på 1800-talet. Missuppfattningen spreds delvis av 1800-talets entusiaster i Götiska förbundet, som grundades i Stockholm 1811.",
+        "en": "The horns first appeared as a costume element in the 19th century. The misconception was partly promulgated by 19th-century enthusiasts of the Götiska Förbundet (Gothic Society), founded in Stockholm in 1811.",
+        "de": "Die Hörner tauchten im 19. Jahrhundert erstmals als Kostümdetail auf. Die falsche Vorstellung wurde teilweise von Enthusiasten des Götiska Förbundet (Gotischer Bund) im 19. Jahrhundert verbreitet, der 1811 in Stockholm gegründet wurde.",
+        "es": "Los cuernos aparecieron por primera vez como elemento de disfraz en el siglo XIX. La idea errónea fue difundida en parte por los entusiastas del siglo XIX del Götiska Förbundet (Liga Gótica), fundado en Estocolmo en 1811.",
+        "fr": "Les cornes sont apparues pour la première fois comme élément de costume au XIXe siècle. L'idée fausse a été en partie propagée par des passionnés du XIXe siècle du Götiska Förbundet (Ligue gothique), fondé à Stockholm en 1811."
+      },
+      "originKinds": [
+        "other"
+      ],
+      "sources": [
+        "wp-vikings"
+      ],
       "review": "source-checked"
     }
   ]
