@@ -1986,6 +1986,8 @@ details.used-by summary:hover { color: var(--parchment); }
   .print-lines { margin-top: 2pt; }
   .print-line { display: block; height: 13pt; border-bottom: .75pt solid var(--print-line); }
   .print-exit { break-inside: avoid; }
+  .print-detective-intro { margin: 0 0 4pt; }
+  .print-detective-case { margin: 0 0 6pt; break-inside: avoid; }
   .print-sources ul, .print-sources-inline { margin: 2pt 0 0; padding-left: 14pt; font-size: 7.5pt; line-height: 1.2; }
   .print-sources ul { columns: 2; column-gap: 14pt; }
   .print-sources li { break-inside: avoid; }

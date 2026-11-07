@@ -2507,14 +2507,16 @@ async function run(browser, vp) {
         const got = await printPage.evaluate(() => ({
           pages: document.querySelectorAll('#print-sheet .print-page').length,
           questions: document.querySelectorAll('#print-sheet .print-student .print-questions > li').length,
+          detective: document.querySelectorAll('#print-sheet .print-detective .print-detective-case').length,
           sheet: getComputedStyle(document.getElementById('print-sheet')).display,
           app: getComputedStyle(document.getElementById('app')).display,
           link: document.querySelector('#print-sheet .print-link')?.textContent ?? '',
           teacher: document.querySelector('#print-sheet .print-teacher')?.textContent ?? '',
         }));
         await printPage.emulateMedia({ media: 'screen' });
-        if (got.pages !== 2) throw new Error(`${got.pages} blad i stället för elevblad och lärarblad`);
+        if (got.pages !== 3) throw new Error(`${got.pages} blad i stället för elevblad, Källdetektiven och lärarblad`);
         if (got.questions !== 5) throw new Error(`elevbladet har ${got.questions} frågor, turen har 5`);
+        if (got.detective !== 2) throw new Error(`Källdetektiven har ${got.detective} händelser, lektionen har 2 (#742)`);
         if (got.sheet === 'none' || got.app !== 'none') throw new Error(`i utskrift: bladen ${got.sheet}, sidan ${got.app}`);
         if (!got.link.endsWith('#t=andra-varldskriget')) throw new Error(`lärarbladets länk är ${got.link}`);
         if (!/Lgr22/.test(got.teacher) || !/Skolverket/.test(got.teacher)) throw new Error('lärarbladet saknar kopplingen till Lgr22 med källa');
@@ -2522,7 +2524,7 @@ async function run(browser, vp) {
       } finally {
         await printPage.close();
       }
-      return 'ingen knapp utan lärarfält; två blad, fem frågor, bara bladen i utskrift, länk och Lgr22 med källa';
+      return 'ingen knapp utan lärarfält; tre blad (elevblad, Källdetektiven, lärarblad), fem frågor, bara bladen i utskrift, länk och Lgr22 med källa';
     });
   }
   // Sök och följ (#651, tidigare Sök #570): en händelse öppnas på sitt år, ett rike börjar följas, och tomt resultat syns tydligt

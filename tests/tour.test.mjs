@@ -58,6 +58,34 @@ test('lärarfälten för en lektionstur kontrolleras (#737)', () => {
   assert.match(tourProblems(tour({ lesson: [] }), known).join(), /ska vara ett objekt/);
 });
 
+test('Källdetektiven: händelser som ett steg öppnar, med 1–4 frågor (#742)', () => {
+  const lesson = sd => ({
+    grades: '7-9', minutes: 30, curriculum: [{ text: { sv: 'Kopplad till Lgr22.' }, sources: ['s1'] }],
+    teacher: { sv: 'Instruktion.' }, exitTicket: { sv: 'Fråga.' }, sourceDetective: sd,
+  });
+  const steps = [step(), step({ id: 'b', open: 'e1' })];
+  assert.deepEqual(tourProblems(tour({ steps, lesson: lesson([{ event: 'e1', questions: [{ sv: 'Vad säger källorna?' }] }]) }), known), []);
+  const k = { ...known, events: new Set(['e1', 'e2']) };
+  const all = [
+    tourProblems(tour({ steps, lesson: lesson([{ event: 'e2', questions: [{ sv: 'X?' }] }]) }), k),
+    tourProblems(tour({ steps, lesson: lesson([{ event: 'okand', questions: [] }]) }), k),
+    tourProblems(tour({ steps, lesson: lesson([{ event: 'e1', questions: [{ en: 'X?' }] }]) }), k),
+    tourProblems(tour({ steps, lesson: lesson([]) }), k),
+  ].flat().join('\n');
+  for (const part of ['öppnas inte i något steg', 'händelsen okand finns inte', '1–4 frågor', 'text per språk', '1–2 händelser']) {
+    assert.match(all, new RegExp(part), `saknar ${part}`);
+  }
+});
+
+test('Källdetektivens händelser har en anteckning om källorna (note.kind, #742)', () => {
+  const byId = new Map(read('data/events.json').events.map(e => [e.id, e]));
+  for (const id of read('data/turer/index.json').tours) {
+    for (const d of read(`data/turer/${id}.json`).lesson?.sourceDetective ?? []) {
+      assert.ok(byId.get(d.event)?.note?.kind, `${id}: ${d.event} saknar note.kind`);
+    }
+  }
+});
+
 test('en tur utan steg eller med fel typ', () => {
   assert.equal(tourProblems(null).length, 1);
   assert.match(tourProblems(tour({ steps: [] })).join(), /inga steg/);

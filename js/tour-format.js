@@ -12,6 +12,10 @@
 //           curriculum kopplingen till läroplanen, text per språk med källa (Skolverket); skrivs
 //                      "kopplad till Lgr22", aldrig "godkänd av Skolverket"
 //           prerequisites, teacher, exitTicket  förkunskaper, lärarinstruktion och exit ticket, text per språk
+//           sourceDetective valfritt: elevuppdraget Källdetektiven (#742), [{ event, questions: [text, ...] }]
+//                      med 1–2 händelser som har en anteckning om källorna (note.kind, #613) och som ett
+//                      steg i turen öppnar (open); 1–4 frågor per händelse, som bara frågar efter det
+//                      anteckningen säger
 // Ett steg: { id, at, camera: { lat, lon, zoom }, title?, chapter?, question?, text, layers: [lager-id], open?, sources: [käll-id] }
 //   chapter valfritt kapitelnamn per språk, visas ovanför rubriken (berättelseläget, #247)
 //   question valfri fråga att fundera på, per språk; den påstår inget som stegets källor inte säger
@@ -48,7 +52,7 @@ export function tourProblems(tour, known = {}) {
   if (!TOUR_REVIEW.includes(tour.review)) say(`okänd granskningsstatus ${tour.review}.`);
   if (tour.war != null && (typeof tour.war !== 'string' || (known.events && !known.events.has(tour.war)))) say(`kriget ${tour.war} finns inte.`);
   if (tour.empire != null && (typeof tour.empire !== 'string' || (known.empires && !known.empires.has(tour.empire)))) say(`riket ${tour.empire} finns inte.`);
-  if (tour.lesson != null) lessonProblems(tour.lesson, known).forEach(say);
+  if (tour.lesson != null) lessonProblems(tour.lesson, known, tour.steps).forEach(say);
   if (!Array.isArray(tour.steps) || !tour.steps.length) { say('har inga steg.'); return out; }
   const ids = new Set();
   tour.steps.forEach((s, i) => {
@@ -76,7 +80,7 @@ export function tourProblems(tour, known = {}) {
 }
 
 /** Kontrollerar lärarfälten (lesson, #737). Returnerar problemen utan turens namn. */
-function lessonProblems(l, known) {
+function lessonProblems(l, known, steps) {
   if (!l || typeof l !== 'object' || Array.isArray(l)) return ['lärarfälten (lesson) ska vara ett objekt.'];
   const out = [];
   if (!LESSON_GRADES.includes(l.grades)) out.push(`lesson: okänd årskurs ${l.grades} (${LESSON_GRADES.join(', ')}).`);
@@ -91,5 +95,22 @@ function lessonProblems(l, known) {
   if (!isText(l.teacher)) out.push('lesson: lärarinstruktionen saknas (teacher.sv).');
   if (!isText(l.exitTicket)) out.push('lesson: exit ticket saknas (exitTicket.sv).');
   if (l.prerequisites != null && !isText(l.prerequisites)) out.push('lesson: förkunskaperna ska vara text per språk.');
+  if (l.sourceDetective != null) detectiveProblems(l.sourceDetective, steps, known).forEach(p => out.push(p));
+  return out;
+}
+
+/** Källdetektiven (#742): 1–2 händelser som turens steg öppnar, med 1–4 frågor per språk vardera. */
+function detectiveProblems(list, steps, known) {
+  if (!Array.isArray(list) || !list.length || list.length > 2) return ['lesson: källdetektiven (sourceDetective) ska vara en lista med 1–2 händelser.'];
+  const opened = new Set((Array.isArray(steps) ? steps : []).map(s => s?.open).filter(Boolean));
+  const out = [];
+  list.forEach((d, i) => {
+    const where = `lesson: källdetektiven ${i + 1}`;
+    if (!d || typeof d.event !== 'string') { out.push(`${where}: händelsen saknas (event).`); return; }
+    if (known.events && !known.events.has(d.event)) out.push(`${where}: händelsen ${d.event} finns inte.`);
+    else if (!opened.has(d.event)) out.push(`${where}: händelsen ${d.event} öppnas inte i något steg (open).`);
+    if (!Array.isArray(d.questions) || !d.questions.length || d.questions.length > 4) out.push(`${where}: frågorna ska vara en lista med 1–4 frågor.`);
+    else if (!d.questions.every(isText)) out.push(`${where}: frågorna ska vara text per språk.`);
+  });
   return out;
 }
