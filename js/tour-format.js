@@ -12,6 +12,11 @@
 //           curriculum kopplingen till läroplanen, text per språk med källa (Skolverket); skrivs
 //                      "kopplad till Lgr22", aldrig "godkänd av Skolverket"
 //           prerequisites, teacher, exitTicket  förkunskaper, lärarinstruktion och exit ticket, text per språk
+//           lock       valfritt: lektionsläget (#795, länken #t=<id>&m=lektion): { years?, layers?, escape? }
+//                      years   [från, till]: tidslinjen stannar i intervallet (alla steg ligger inom det och det har
+//                              händelser från minst två världsdelar)
+//                      layers  lager-id som är på hela lektionen; saknas fältet används stegens lager
+//                      escape  false döljer "Visa hela globen" (standard true)
 // Ett steg: { id, at, camera: { lat, lon, zoom }, title?, chapter?, question?, text, layers: [lager-id], open?, sources: [käll-id] }
 //   chapter valfritt kapitelnamn per språk, visas ovanför rubriken (berättelseläget, #247)
 //   question valfri fråga att fundera på, per språk; den påstår inget som stegets källor inte säger
@@ -48,7 +53,7 @@ export function tourProblems(tour, known = {}) {
   if (!TOUR_REVIEW.includes(tour.review)) say(`okänd granskningsstatus ${tour.review}.`);
   if (tour.war != null && (typeof tour.war !== 'string' || (known.events && !known.events.has(tour.war)))) say(`kriget ${tour.war} finns inte.`);
   if (tour.empire != null && (typeof tour.empire !== 'string' || (known.empires && !known.empires.has(tour.empire)))) say(`riket ${tour.empire} finns inte.`);
-  if (tour.lesson != null) lessonProblems(tour.lesson, known).forEach(say);
+  if (tour.lesson != null) lessonProblems(tour.lesson, known, tour).forEach(say);
   if (!Array.isArray(tour.steps) || !tour.steps.length) { say('har inga steg.'); return out; }
   const ids = new Set();
   tour.steps.forEach((s, i) => {
@@ -76,7 +81,7 @@ export function tourProblems(tour, known = {}) {
 }
 
 /** Kontrollerar lärarfälten (lesson, #737). Returnerar problemen utan turens namn. */
-function lessonProblems(l, known) {
+function lessonProblems(l, known, tour) {
   if (!l || typeof l !== 'object' || Array.isArray(l)) return ['lärarfälten (lesson) ska vara ett objekt.'];
   const out = [];
   if (!LESSON_GRADES.includes(l.grades)) out.push(`lesson: okänd årskurs ${l.grades} (${LESSON_GRADES.join(', ')}).`);
@@ -91,5 +96,34 @@ function lessonProblems(l, known) {
   if (!isText(l.teacher)) out.push('lesson: lärarinstruktionen saknas (teacher.sv).');
   if (!isText(l.exitTicket)) out.push('lesson: exit ticket saknas (exitTicket.sv).');
   if (l.prerequisites != null && !isText(l.prerequisites)) out.push('lesson: förkunskaperna ska vara text per språk.');
+  if (l.lock != null) lockProblems(l.lock, known, tour).forEach(p => out.push(p));
+  return out;
+}
+
+/**
+ * Kontrollerar lektionsläget (lesson.lock, #795). Reglerna ska hindra tomma lägen: alla stegens år ligger i
+ * intervallet, lagren finns, och intervallet har händelser från minst två världsdelar (sidans poäng är
+ * samtidighet). Det sista kontrolleras när known.regionsIn(från, till) finns: en funktion som ger antalet
+ * världsdelar med synliga händelser i intervallet (testerna och validate-site.py ger den).
+ */
+function lockProblems(k, known, tour) {
+  if (!k || typeof k !== 'object' || Array.isArray(k)) return ['lesson.lock ska vara ett objekt.'];
+  const out = [];
+  if (k.years != null) {
+    const y = k.years;
+    if (!Array.isArray(y) || y.length !== 2 || !y.every(isNum) || y[0] >= y[1]) out.push('lesson.lock: years ska vara [från, till] med från före till.');
+    else {
+      for (const s of tour?.steps ?? []) if (isNum(s?.at) && (s.at < y[0] || s.at > y[1])) out.push(`lesson.lock: steget ${s.id} (${s.at}) ligger utanför years.`);
+      if (known.regionsIn) {
+        const n = known.regionsIn(y[0], y[1]);
+        if (n < 2) out.push(`lesson.lock: intervallet ${y[0]}–${y[1]} har händelser från ${n} världsdelar, minst två krävs.`);
+      }
+    }
+  }
+  if (k.layers != null) {
+    if (!Array.isArray(k.layers) || !k.layers.length) out.push('lesson.lock: layers ska vara en lista med lager-id.');
+    else for (const id of k.layers) if (typeof id !== 'string' || (known.layers && !known.layers.has(id))) out.push(`lesson.lock: lagret ${id} finns inte.`);
+  }
+  if (k.escape != null && typeof k.escape !== 'boolean') out.push('lesson.lock: escape ska vara true eller false.');
   return out;
 }

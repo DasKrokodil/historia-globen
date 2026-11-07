@@ -489,5 +489,9 @@
   "hunt.region": "You already have an event from {region}. Look on another continent.",
   "hunt.already": "This event is already in the hunt.",
   "hunt.place": "The event has no point on the globe and cannot count.",
-  "hunt.hidden": "The event cannot count."
+  "hunt.hidden": "The event cannot count.",
+  "lesson.band": "Lesson mode: {title}",
+  "lesson.exit": "Show the whole globe",
+  "lesson.next": "Continue with a task",
+  "lesson.hunt": "Same-time hunt: {title}"
 }

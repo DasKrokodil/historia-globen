@@ -87,7 +87,8 @@ export class TourPlayer {
       this.printBtn.textContent = ui('print.button');
       this.printBtn.addEventListener('click', () => printLesson(this.tour, app.printRoot));
     }
-    this.card.addEventListener('keydown', e => { if (e.key === 'Escape') { e.stopPropagation(); this.end(); } });
+    // Escape i en lektion avslutar inte turen: utgången är "Visa hela globen" i bandet (#795)
+    this.card.addEventListener('keydown', e => { if (e.key === 'Escape') { e.stopPropagation(); if (!app.lesson?.active) this.end(); } });
 
     const { timeline } = app;
     // Fortsätt i pausraden och spelknappen: nästa steg. Är det nära i tiden spelas tiden fram dit (change nedan).
@@ -188,7 +189,7 @@ export class TourPlayer {
     this.target = null;
     const step = this.step;
     timeline.pause();
-    this.setLayers(step.layers);
+    this.setLayers(app.lesson?.layers ?? step.layers); // en lektion kan låsa lagren för hela turen (#795)
     timeline.year = step.at;
     // Faktarutan först (den flyttar kameran till händelsen), sedan stegets egen kamera
     // I smal skärm markeras händelsen bara på globen (krigets händelser syns annars inte utzoomat), och
@@ -221,6 +222,11 @@ export class TourPlayer {
     if (this.endBtn) this.endBtn.hidden = this.last; // sista steget: Klar avslutar
     if (this.pauseStop) this.pauseStop.hidden = false;
     this.next.textContent = this.last ? t(this.labels.done) : `${t(this.labels.next)} →`;
+    // I en lektion står slutkortet kvar efter sista steget; utgången är "Visa hela globen" i bandet (#795)
+    const stay = this.last && !!app.lesson?.active;
+    if (stay && document.activeElement === this.next) this.back.focus({ preventScroll: true });
+    this.next.hidden = stay;
+    app.lesson?.renderEnd(this.last);
     // Pausraden visar turen och läses upp; Fortsätt där går till nästa steg (beforeplay ovan)
     const note = fill(t(this.labels.paused), { title: t(this.tour.title) });
     const say = [this.progress.textContent, t(step.chapter), t(step.title), this.status.hidden ? '' : this.status.textContent, t(step.text), t(step.question)].filter(Boolean).join('. ');
@@ -255,6 +261,8 @@ export class TourPlayer {
   end() {
     if (!this.tour) return;
     const { app } = this, saved = this.saved;
+    app.lesson?.leave(); // en tur som slutar tar lektionsläget med sig (#795)
+    this.next.hidden = false;
     this.tour = null; this.target = null; this.saved = null;
     this.card.hidden = true;
     if (this.pauseStop) this.pauseStop.hidden = true;

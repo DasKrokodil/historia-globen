@@ -9,10 +9,13 @@
 // - En guidad tur i länken (t och s, eller den äldre ?tur=<id>) startar turen vid rätt steg i stället för att
 //   ställa in vyn (#736). Medan turen pågår skriver adressen turens id och steg, så att Dela ger en länk till
 //   steget och Bakåt går till föregående steg. När turen avslutas försvinner t och s ur adressen.
+// - Lektionsläget (m=lektion, #795) hör till en tur: en länk med t och m=lektion startar turen som lektion (js/ui/lesson.js).
+//   Medan läget pågår skriver adressen m=lektion, så att omladdning, Dela och Bakåt/Framåt ger samma läge. Bakåt till en
+//   adress utan m (eller utan tur) avslutar läget; Framåt startar det igen.
 // - Knappen Dela kopierar länken, eller öppnar telefonens delningsmeny där den finns.
 
 import { toJSON } from '../state.js';
-import { encodeHash, decodeHash, decodeTour, decodeMission, isNewStep } from '../url-state.js';
+import { encodeHash, decodeHash, decodeTour, decodeMission, decodeMode, isNewStep, LESSON_MODE } from '../url-state.js';
 import { ui } from '../i18n.js';
 
 const POLL_MS = 700;
@@ -25,7 +28,8 @@ export function createAddress(app) {
   const current = () => toJSON(state, globe.view);
   const position = () => app.tour?.position ?? null;
   const mission = () => app.hunt?.missionId ?? null; // elevuppdraget som pågår (#741)
-  const hashOf = (json, tour = null) => encodeHash(json, allCategories, tour, mission());
+  const mode = () => (app.lesson?.active ? LESSON_MODE : null); // lektionsläget (#795)
+  const hashOf = (json, tour = null) => encodeHash(json, allCategories, tour, mission(), mode());
   /** Sidans adress utan den äldre ?tur= (turen står i hashen när den väl har startat). */
   const search = () => { const q = new URLSearchParams(location.search); q.delete('tur'); const t = q.toString(); return t ? `?${t}` : ''; };
   /** Det som nu står i adressen räknas som skrivet, så att det inte skrivs en gång till. */
@@ -68,12 +72,24 @@ export function createAddress(app) {
     }
   }
 
-  /** Startar turen i en länk ({ id, step } från decodeTour). Ger false när turen inte finns. */
-  function applyTour(tl) {
-    const tour = app.tour;
+  /**
+   * Startar turen i en länk ({ id, step } från decodeTour), som lektion när länken har m=lektion och turen är en
+   * lektionstur (#795). Läget börjar före turen, så att första steget redan ligger inom låset. Ger false när turen
+   * inte finns. Utan m, eller för en tur som inte är en lektion, blir det en vanlig tur.
+   */
+  function applyTour(tl, lessonWanted = false) {
+    const tour = app.tour, lesson = app.lesson;
     if (!tl || !tour) return false;
-    if (tour.active && tour.position?.id === tl.id) { tour.go(tour.stepIndex(tl.step)); return true; }
-    return tour.start(tl.id, null, tl.step);
+    const asLesson = lessonWanted && !!lesson?.canStart(tl.id);
+    if (tour.active && tour.position?.id === tl.id) {
+      if (asLesson !== !!lesson?.active) { if (asLesson) lesson.enter(tl.id); else lesson.leave(); }
+      tour.go(tour.stepIndex(tl.step));
+      return true;
+    }
+    if (asLesson) lesson.enter(tl.id); else if (lesson?.active) lesson.leave();
+    const ok = tour.start(tl.id, null, tl.step);
+    if (!ok && asLesson) lesson.leave();
+    return ok;
   }
 
   function write() {
@@ -85,7 +101,8 @@ export function createAddress(app) {
     const url = `${location.pathname}${search()}${hash}`;
     // Ett nytt steg i turen, eller att turen börjar eller slutar, blir en egen post (Bakåt går till steget innan)
     const tourStep = new URLSearchParams(writtenHash.slice(1)), newTour = (tourStep.get('t') ?? '') !== (pos?.id ?? '') || (tourStep.get('s') ?? '') !== (pos?.step ?? '')
-      || (tourStep.get('u') ?? '') !== (mission() ?? ''); // ett uppdrag som börjar eller slutar är också ett eget steg
+      || (tourStep.get('u') ?? '') !== (mission() ?? '') // ett uppdrag som börjar eller slutar är också ett eget steg
+      || (tourStep.get('m') ?? '') !== (mode() ?? ''); // och lektionsläget
     if (newTour || isNewStep(written, cur, { playing: timeline.playing })) history.pushState(null, '', url);
     else history.replaceState(null, '', url);
     written = cur; writtenHash = seenHash = hash;
@@ -94,7 +111,7 @@ export function createAddress(app) {
   /** Läser adressen vid start. Ger true om en giltig länk ställde in vyn. */
   async function start({ read = true } = {}) {
     // En tur i länken går före en delad vy; finns turen inte läses resten av länken som vanligt
-    const touring = read && applyTour(decodeTour(location.hash, location.search));
+    const touring = read && applyTour(decodeTour(location.hash, location.search), !!decodeMode(location.hash));
     const s = read && !touring ? decodeHash(location.hash) : null;
     if (s) await apply(s);
     // Ett elevuppdrag i länken (u, #741) startar efter vyn, så att uppdragets år gäller
@@ -110,8 +127,8 @@ export function createAddress(app) {
       if (m && m !== mission()) app.hunt?.start(m);
       else if (!m && app.hunt?.active) app.hunt.end(false);
       const tl = decodeTour(location.hash);
-      if (tl && applyTour(tl)) { settle(); return; }
-      if (app.tour?.active) app.tour.end();
+      if (tl && applyTour(tl, !!decodeMode(location.hash))) { settle(); return; }
+      if (app.tour?.active) app.tour.end(); // tar lektionsläget med sig (js/ui/tour.js)
       const t = decodeHash(location.hash);
       if (t) apply(t); else settle();
     });

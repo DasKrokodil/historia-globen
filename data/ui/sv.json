@@ -266,5 +266,9 @@
   "hunt.region": "Du har redan en händelse från {region}. Leta på en annan kontinent.",
   "hunt.already": "Den här händelsen finns redan i jakten.",
   "hunt.place": "Händelsen har ingen punkt på globen och kan inte räknas.",
-  "hunt.hidden": "Händelsen kan inte räknas."
+  "hunt.hidden": "Händelsen kan inte räknas.",
+  "lesson.band": "Lektionsläge: {title}",
+  "lesson.exit": "Visa hela globen",
+  "lesson.next": "Fortsätt med ett uppdrag",
+  "lesson.hunt": "Samtidighetsjakten: {title}"
 }

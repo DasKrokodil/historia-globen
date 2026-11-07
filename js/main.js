@@ -20,6 +20,7 @@ import { Quiz } from './ui/quiz.js';
 import { Hunt, loadMissions } from './ui/uppdrag.js';
 import { Intro, loadIntro } from './ui/intro.js';
 import { TourPlayer, loadTours } from './ui/tour.js';
+import { LessonMode } from './ui/lesson.js';
 import { FlatMap } from './ui/flatmap.js';
 import { downloadPoster } from './ui/poster.js';
 import { Feedback } from './ui/feedback.js';
@@ -273,7 +274,10 @@ async function start() {
     ensureReligions: facts.ensureReligions, setReligions: facts.setReligions, showReligionFacts: facts.showReligionFacts,
     showEmpireFacts: facts.showEmpireFacts, showAboutReligions: facts.showAboutReligions });
   const focusCtl = createFocus(app);
-  Object.assign(app, { startFocus: focusCtl.startFocus, endFocus: focusCtl.endFocus, founding: focusCtl.founding, focusMenu: focusCtl.focusMenu });
+  // Fokus (att följa ett krig, rike, en religion eller resa) är låst i lektionsläget (#795): inget når det, men
+  // en länk i en faktaruta eller en gammal adress ska inte kunna släppa låset heller
+  const startFocus = key => (app.lesson?.active ? undefined : focusCtl.startFocus(key));
+  Object.assign(app, { startFocus, endFocus: focusCtl.endFocus, founding: focusCtl.founding, focusMenu: focusCtl.focusMenu });
   const render = createRender(app);
   Object.assign(app, { render, refresh: render.refresh, syncNameScale: render.syncNameScale, storyFor: render.storyFor });
 
@@ -286,7 +290,8 @@ async function start() {
   panel.onFocus = id => app.startFocus(`war:${id}`);
   // Riken i kriget (#76) öppnar rikets faktaruta (utan faktaruta följs riket). Ett försvunnet lands
   // efterträdare eller föregångare som finns som rike (#72, follow) börjar följas direkt.
-  panel.onEmpire = (id, follow = false) => (!follow && app.showEmpireFacts(id)) || app.startFocus(`empire:${id}`);
+  // I lektionsläget (#795) följs ingenting: ett rike öppnar bara sin faktaruta
+  panel.onEmpire = (id, follow = false) => ((!follow || app.lesson?.active) && app.showEmpireFacts(id)) || app.startFocus(`empire:${id}`);
   $('focus-exit').addEventListener('click', e => app.endFocus(e));
   // Knappen Fakta i fokusraden öppnar rikets eller religionens faktaruta igen (#170)
   $('focus-facts').addEventListener('click', () => {
@@ -528,6 +533,7 @@ async function start() {
     printBtn: $('tour-print'),
   }, toursData, {
     printRoot: $('print-sheet'),
+    get lesson() { return app.lesson; }, // lektionsläget (#795) skapas efter spelaren
     timeline, globe, flatMap, layers, narrow, root: $('app'), events: data.byId,
     layerIds: new Set(registry.entries.map(e => e.id)), controlled: registry.viewLayers(views?.groups), empires: new Set(data.empireGroups.map(g => g.id)),
     select: (id, jump) => app.select(id, jump),
@@ -539,6 +545,10 @@ async function start() {
     fallbackFocus: () => $('track'),
   });
   app.tour = tour;
+  // Lektionsläget (#795): en lektionslänk (m=lektion) startar turen med menyerna dolda och bandet överst
+  app.lesson = new LessonMode({
+    band: $('lesson-band'), title: $('lesson-band-title'), exit: $('lesson-exit'), endLinks: $('tour-lesson-end'), endList: $('tour-lesson-end-list'),
+  }, { root: $('app'), timeline, tour, hunt, closeMenus: () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); help.close(false); } });
   // Berättelseläget (#247): krigets första kort får "Följ berättelsen" när en tur berättar om kriget
   panel.tourFor = id => { const x = tour.forWar(id); return x && { id: x.id, label: tour.storyLabel(x) }; };
   // Rikens fall (#499): rikets faktaruta får en knapp när en tur följer rikets fall
