@@ -36,7 +36,7 @@ MIN_AREA = 0.02  # öar mindre än så här (kvadratgrader, cirka 200 km2) tas b
 # Stora, utspridda imperier förenklas hårdare så att filen blir lagom stor: grupp -> (TOL, MERGE, MIN_AREA)
 # Små stater som visas som punkter, med gränsen ur Natural Earth (#722)
 SMALL_STATES = ('saint-kitts-och-nevis', 'mikronesiska-federationen', 'kiribati', 'komorerna', 'liechtenstein',
-                'maldiverna', 'marshalloarna', 'nauru', 'samoa', 'san-marino', 'tonga', 'tuvalu')
+                'maldiverna', 'marshalloarna', 'nauru', 'samoa', 'san-marino', 'tonga', 'tuvalu', 'andorra', 'monaco')
 OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              'spanska-imperiet': (0.3, 0.08, 0.08), 'portugisiska-imperiet': (0.3, 0.08, 0.08),
              'ryska-imperiet': (0.3, 0.05, 0.08),
@@ -1049,6 +1049,18 @@ GROUPS = {
     # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth
     # (tools/ne-omstridda-omraden.geojson, tools/ne_omstridda.py), från självständigheten enligt Wikidata och Wikipedia
     # (docs/datamodell.md), och landet visas som en punkt med namn (point) på huvudstaden enligt Wikidata (label)
+    # Andorra och Monaco (#719, Rikards beslut 2026-11-07): som de små staterna, en punkt på huvudstaden, men med
+    # Cliopatrias årtal. Gränsen är dagens land i Natural Earth; grannarnas förenklade gränser täcker annars Andorra.
+    # Monaco har Cliopatrias gräns till och med 1847 (164 km²) och Natural Earths från 1848, eftersom Cliopatrias
+    # gräns från 1848 ligger väster om Monaco (7,15–7,23° öst; Natural Earth 7,37–7,44° öst)
+    'andorra': ('Andorra', 'Andorra', [
+        ('Principality of Andorra', 'andorra', 'Andorra', '#c0603a', {'en': 'Andorra', 'ne': 'andorra', 'point': True,
+                                                                     'label': (1.522, 42.507)}),
+    ]),
+    'monaco': ('Monaco', 'Monaco', [
+        (['Principality of Monaco', 'Kingdom of Monaco'], 'monaco', 'Monaco', '#c04a5a',
+         {'en': 'Monaco', 'wikidata': 'Q235', 'ne': 'monaco', 'ne_from': 1848, 'point': True, 'label': (7.42, 43.731)}),
+    ]),
     'saint-kitts-och-nevis': ('Saint Kitts och Nevis', 'Saint Kitts and Nevis', [
         (None, 'saint-kitts-och-nevis', 'Saint Kitts och Nevis', '#c05a4a', {'en': 'Saint Kitts and Nevis', 'wikidata': 'Q763', 'years': (1983, 2024), 'ne': 'saint-kitts-och-nevis', 'point': True,
                   'label': (-62.734, 17.298)}),
@@ -1517,6 +1529,10 @@ def main():
                 base = [(*opts['years'], g0, km2(g0) if opts.get('ne') else 0)]
             else:
                 base = member_periods(by_name, cname, opts.get('years'), feats)
+                # Cliopatrias årtal men gränsen ur Natural Earth från året ne_from (Andorra och Monaco, #719)
+                if opts.get('ne'):
+                    g1 = ne[opts['ne']]
+                    base = [(a, b, g1, km2(g1)) if a >= opts.get('ne_from', a) else (a, b, g, ar) for a, b, g, ar in base]
             # prepend: år före Cliopatrias första år, utan egen gräns; gränsen läggs till ur DISPUTED (Östtimor, #644)
             if opts.get('prepend'):
                 base = [(*opts['prepend'], Polygon(), 0)] + base
@@ -1565,7 +1581,8 @@ def main():
             pname = with_old({'sv': psv, 'en': opts.get('en', (first or '').strip('()'))}, ('polity', gid, pid))
             polity = {'id': pid, 'group': gid, 'name': pname, 'wikidata': wd,
                       'color': color,
-                      'sources': ['cliopatria'] if first else ['natural-earth-lander'] if opts.get('ne') else ['natural-earth-omstridda'],
+                      'sources': (['cliopatria', 'natural-earth-lander'] if opts.get('ne') else ['cliopatria']) if first
+                                 else ['natural-earth-lander'] if opts.get('ne') else ['natural-earth-omstridda'],
                       'review': 'source-checked', 'periods': merged}
             if opts.get('point'):
                 polity['point'] = True  # för litet för kartan: visas som en punkt med namn (#722)
@@ -1588,6 +1605,10 @@ def main():
                       'polities': [{'id': p['id'], 'name': p['name'], 'sources': p['sources'], 'review': p['review']} for p in polities]})
         if not any(m[0] for m in members):
             index[-1]['borderSource'] = 'Natural Earth'  # gränsen kommer inte från Cliopatria (#644)
+        elif all(isinstance(m[-1], dict) and m[-1].get('ne') for m in members):
+            # Cliopatrias årtal med gränsen ur Natural Earth (#719), från ett visst år när ne_from finns
+            index[-1]['borderSource'] = ('Cliopatria / Natural Earth' if any(m[-1].get('ne_from') for m in members)
+                                         else 'Natural Earth')
         if home:
             index[-1]['homeland'] = {'name': home['name']}
         if gid in vanished:

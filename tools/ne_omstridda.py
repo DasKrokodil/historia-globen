@@ -45,7 +45,7 @@ COUNTRIES = {'azerbajdzjan': 'AZE'}
 # Små stater (#722), ur samma fil men förenklade till bara 0,002 grader och avrundade till 0,001 grad
 SMALL = {'saint-kitts-och-nevis': 'KNA', 'mikronesiska-federationen': 'FSM', 'kiribati': 'KIR', 'komorerna': 'COM',
          'liechtenstein': 'LIE', 'maldiverna': 'MDV', 'marshalloarna': 'MHL', 'nauru': 'NRU', 'samoa': 'WSM',
-         'san-marino': 'SMR', 'tonga': 'TON', 'tuvalu': 'TUV'}
+         'san-marino': 'SMR', 'tonga': 'TON', 'tuvalu': 'TUV', 'andorra': 'AND', 'monaco': 'MCO'}
 
 
 def rnd(o):

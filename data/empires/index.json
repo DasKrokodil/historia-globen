@@ -28859,6 +28859,98 @@
    }
   },
   {
+   "id": "andorra",
+   "name": {
+    "sv": "Andorra",
+    "en": "Andorra",
+    "de": "Andorra",
+    "es": "Andorra",
+    "fr": "Andorre"
+   },
+   "color": "#c0603a",
+   "from": 1815,
+   "to": 2024,
+   "file": "data/empires/andorra.json",
+   "polities": [
+    {
+     "id": "andorra",
+     "name": {
+      "sv": "Andorra",
+      "en": "Andorra",
+      "de": "Andorra",
+      "es": "Andorra",
+      "fr": "Andorre"
+     },
+     "sources": [
+      "cliopatria",
+      "natural-earth-lander"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "borderSource": "Natural Earth",
+   "facts": {
+    "mapNote": {
+     "sv": "Landet är för litet för kartans gränser och visas som en punkt på huvudstaden. Årtalen kommer från Cliopatria, som har Andorra från 1815. Gränsen är dagens land ur Natural Earth, eftersom grannarnas förenklade gränser annars täcker nästan hela landet.",
+     "en": "The country is too small for the map's borders and is shown as a point on the capital. The years come from Cliopatria, which has Andorra from 1815. The border is that of the present-day country from Natural Earth, since the simplified borders of the neighbouring countries would otherwise cover almost the whole country.",
+     "de": "Das Land ist für die Grenzen der Karte zu klein und wird als Punkt auf der Hauptstadt gezeigt. Die Jahreszahlen stammen von Cliopatria, das Andorra ab 1815 enthält. Die Grenze zeigt das heutige Land nach Natural Earth, da die vereinfachten Grenzen der Nachbarländer sonst fast das ganze Land bedecken würden.",
+     "es": "El país es demasiado pequeño para las fronteras del mapa y se muestra como un punto en la capital. Los años proceden de Cliopatria, que tiene Andorra desde 1815. La frontera es la del país actual según Natural Earth, ya que las fronteras simplificadas de los países vecinos cubrirían casi todo el país.",
+     "fr": "Le pays est trop petit pour les frontières de la carte et est montré comme un point sur la capitale. Les années proviennent de Cliopatria, qui a l'Andorre à partir de 1815. La frontière correspond au pays actuel selon Natural Earth, car les frontières simplifiées des pays voisins couvriraient sinon presque tout le pays."
+    },
+    "sources": [
+     "cliopatria",
+     "natural-earth-lander"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "monaco",
+   "name": {
+    "sv": "Monaco",
+    "en": "Monaco",
+    "de": "Monaco",
+    "es": "Mónaco",
+    "fr": "Monaco"
+   },
+   "color": "#c04a5a",
+   "from": 1642,
+   "to": 2024,
+   "file": "data/empires/monaco.json",
+   "polities": [
+    {
+     "id": "monaco",
+     "name": {
+      "sv": "Monaco",
+      "en": "Monaco",
+      "de": "Monaco",
+      "es": "Mónaco",
+      "fr": "Monaco"
+     },
+     "sources": [
+      "cliopatria",
+      "natural-earth-lander"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "borderSource": "Cliopatria / Natural Earth",
+   "facts": {
+    "mapNote": {
+     "sv": "Landet är för litet för kartans gränser och visas som en punkt på huvudstaden. Årtalen kommer från Cliopatria, som har Monaco 1642–1793, 1814–1939 och från 1945. Gränsen till och med 1847 är Cliopatrias (164 km²). Från 1848 är den dagens land ur Natural Earth, eftersom Cliopatrias gräns från 1848 ligger väster om Monaco.",
+     "en": "The country is too small for the map's borders and is shown as a point on the capital. The years come from Cliopatria, which has Monaco in 1642–1793, 1814–1939 and from 1945. The border up to 1847 is Cliopatria's (164 km²). From 1848 it is that of the present-day country from Natural Earth, since Cliopatria's border from 1848 lies west of Monaco.",
+     "de": "Das Land ist für die Grenzen der Karte zu klein und wird als Punkt auf der Hauptstadt gezeigt. Die Jahreszahlen stammen von Cliopatria, das Monaco für 1642–1793, 1814–1939 und ab 1945 enthält. Die Grenze bis 1847 ist die von Cliopatria (164 km²). Ab 1848 zeigt sie das heutige Land nach Natural Earth, da Cliopatrias Grenze ab 1848 westlich von Monaco liegt.",
+     "es": "El país es demasiado pequeño para las fronteras del mapa y se muestra como un punto en la capital. Los años proceden de Cliopatria, que tiene Mónaco en 1642–1793, 1814–1939 y desde 1945. La frontera hasta 1847 es la de Cliopatria (164 km²). Desde 1848 es la del país actual según Natural Earth, ya que la frontera de Cliopatria desde 1848 está al oeste de Mónaco.",
+     "fr": "Le pays est trop petit pour les frontières de la carte et est montré comme un point sur la capitale. Les années proviennent de Cliopatria, qui a Monaco de 1642 à 1793, de 1814 à 1939 et à partir de 1945. La frontière jusqu'en 1847 est celle de Cliopatria (164 km²). À partir de 1848, elle correspond au pays actuel selon Natural Earth, car la frontière de Cliopatria à partir de 1848 se trouve à l'ouest de Monaco."
+    },
+    "sources": [
+     "cliopatria",
+     "natural-earth-lander"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
    "id": "saint-kitts-och-nevis",
    "name": {
     "sv": "Saint Kitts och Nevis",
