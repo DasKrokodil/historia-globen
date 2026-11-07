@@ -229,10 +229,12 @@ Vyn står i adressen efter `#`, så att en kopierad länk öppnar samma vy och B
 | `f` | Det man följer i Fokus: `war`, `empire`, `religion` eller `route`, kolon och id |
 | `l` | Lagren som är på (id i lagerregistret); `l=` betyder inga lager, saknas `l` behålls sidans val |
 | `k` | Kategorierna som syns; saknas `k` syns alla, så att länken visar en ny kategori när den kommer till |
+| `t` | En guidad tur som pågår (tur-id i `data/turer/`, #736). En länk med `t` startar turen; `#t=<id>` räcker |
+| `s` | Turens steg (stegets id); saknas `s` börjar turen vid första steget |
 
-Lugn rörelse står inte i länken, eftersom det är besökarens egen inställning. Okända fält hoppas över, och en trasig länk (till exempel ett krig som inte finns) ger det vanliga startläget utan fel. En tur i adressen (`?tur=`) går före hashen.
+Lugn rörelse står inte i länken, eftersom det är besökarens egen inställning. Okända fält hoppas över, och en trasig länk (till exempel ett krig som inte finns) ger det vanliga startläget utan fel. En tur i adressen (`t`, eller den äldre formen `?tur=<id>`) går före resten av länken; finns turen inte gäller resten av länken som vanligt. `?tur=` flyttas in i hashen när turen har startat.
 
-`js/controllers/address.js` läser hashen vid start och ställer in lagren, kategorierna, året, fokus och sist kameran. Därefter läses tillståndet var 0,7 sekund och skrivs med `history.replaceState`; en ny post i historiken (`pushState`) blir det bara vid ett nytt fokus, ändrade lager eller kategorier, eller ett årshopp som har stått still en stund (`isNewStep()`). Uppspelning och vridning av globen ersätter den nuvarande posten. `popstate` (Bakåt, Framåt eller en ändrad hash) ställer in vyn igen. Knappen **Dela** under Mer kopierar länken, eller öppnar delningsmenyn på pekskärmar som har en.
+`js/controllers/address.js` läser hashen vid start och ställer in lagren, kategorierna, året, fokus och sist kameran. Därefter läses tillståndet var 0,7 sekund och skrivs med `history.replaceState`; en ny post i historiken (`pushState`) blir det bara vid ett nytt fokus, ändrade lager eller kategorier, eller ett årshopp som har stått still en stund (`isNewStep()`). Uppspelning och vridning av globen ersätter den nuvarande posten. `popstate` (Bakåt, Framåt eller en ändrad hash) ställer in vyn igen. Medan en tur pågår skrivs också `t` och `s`, och varje nytt steg blir en egen post, så att Bakåt går till steget innan och Dela ger en länk till steget; när turen avslutas försvinner `t` och `s`. Knappen **Dela** under Mer kopierar länken, eller öppnar delningsmenyn på pekskärmar som har en.
 
 ## Sök (#570)
 
@@ -372,5 +374,5 @@ En tur är data i `data/turer/` (datamodell.md) och spelas av `TourPlayer` i `js
 - **Avsluta** (×, Klar eller Escape i kortet) återställer besökarens lager, fokus och kamera som de var när turen startade och lämnar året där turen var.
 - **Berättelseläget (#247):** stegets `chapter` visas ovanför rubriken och `question` i en egen ruta under texten ("Att fundera på:"), och båda läses upp med steget. En tur med `war` ger knappen "Följ berättelsen" i krigets första kort (`Panel.showStory`, läget `intro`, via `panel.tourFor` och `panel.onTour` i `main.js`). Turen avslutar då fokusläget och återställer det när turen avslutas.
 - **Rikens fall (#499):** stegets `status` visas som en rad under rubriken med samma ord och markering som slutkortets punkter (#500). En tur med `empire` ger knappen "Följ fallet" i rikets faktaruta (`Panel.showFacts` med `empireId`, via `panel.empireTourFor` i `main.js`).
-- **Start:** knappen Turer under Utforska öppnar listan, och adressen `?tur=<id>` startar en tur direkt. En tur som inte klarar `tourProblems()` eller har `review: draft` visas inte; felen skrivs som varningar i konsolen.
+- **Start:** knappen Turer under Utforska öppnar listan, och adressen `#t=<id>` (med valfritt steg `&s=<steg-id>`, #736) eller den äldre `?tur=<id>` startar en tur direkt. En tur som inte klarar `tourProblems()` eller har `review: draft` visas inte; felen skrivs som varningar i konsolen.
 

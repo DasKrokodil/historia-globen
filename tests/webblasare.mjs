@@ -2354,6 +2354,55 @@ async function run(browser, vp) {
       return 'år 1630 och trettioåriga kriget ur länken; Bakåt efter Tillbaka ger kriget igen; trasig länk ger startläget';
     });
   }
+  if (vp.name === 'dator') {
+    // En länk till en guidad tur (#736): t och s i adressen startar turen vid rätt steg, adressen följer turen,
+    // Bakåt går till steget innan, Avsluta tar bort turen ur adressen, och en okänd tur ger en vanlig vy
+    await check('en länk startar en guidad tur vid rätt steg (#736)', async () => {
+      const tourPage = await context.newPage();
+      const tourErrors = [];
+      tourPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) tourErrors.push(m.text()); });
+      tourPage.on('pageerror', e => tourErrors.push(e.message));
+      const progress = () => tourPage.textContent('#tour-progress').then(x => x.trim());
+      const hashHas = text => tourPage.waitForFunction(t => location.hash.includes(t), text, { timeout: T.step });
+      try {
+        if (THREE_LOCAL) {
+          const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+          await tourPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+          await tourPage.route(u => isFont(u.href), r => r.abort());
+        }
+        await tourPage.goto(`${BASE}#t=tre-platser-1325&s=tanger`);
+        await tourPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tourPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+        if ((await progress()) !== 'Steg 2 av 3') throw new Error(`länken med s=tanger öppnade ${await progress()}`);
+        const y = (await tourPage.textContent('#year-big')).trim();
+        if (y !== '1325') throw new Error(`steget tanger står på ${y}, inte 1325`);
+        await tourPage.click('#tour-next');
+        await hashHas('s=tenochtitlan');
+        await tourPage.goBack();
+        await tourPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('2 av 3'), null, { timeout: T.step });
+        await tourPage.click('#tour-close');
+        await tourPage.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+        await tourPage.waitForFunction(() => !location.hash.includes('t='), null, { timeout: T.step });
+        // Den äldre formen ?tur=<id> startar vid första steget och flyttas in i hashen
+        await tourPage.goto(`${BASE}?tur=tre-platser-1325`);
+        await tourPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tourPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+        if ((await progress()) !== 'Steg 1 av 3') throw new Error(`?tur= öppnade ${await progress()}`);
+        if (await tourPage.evaluate(() => location.search.includes('tur='))) throw new Error('?tur= ligger kvar i adressen');
+        await hashHas('t=tre-platser-1325');
+        // En okänd tur hoppas över, och resten av länken gäller
+        await tourPage.goto(`${BASE}?ny=1#y=1500&t=finns-inte`);
+        await tourPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        if (await tourPage.locator('#tour-card').isVisible()) throw new Error('en okänd tur öppnade turens kort');
+        const y2 = (await tourPage.textContent('#year-big')).trim();
+        if (y2 !== '1500') throw new Error(`länken med okänd tur gav året ${y2}, inte 1500`);
+        if (tourErrors.length) throw new Error(`turlänken gav konsolfel: ${tourErrors.join('; ')}`);
+      } finally {
+        await tourPage.close();
+      }
+      return 's=tanger ger steg 2 år 1325; adressen följer turen och Bakåt går till steget innan; Avsluta tar bort t; ?tur= flyttas in i hashen; okänd tur ger år 1500';
+    });
+  }
   // Sök och följ (#651, tidigare Sök #570): en händelse öppnas på sitt år, ett rike börjar följas, och tomt resultat syns tydligt
   await check('Sök och följ hittar händelser och riken', async () => {
     if (await page.locator('#focus-bar').isVisible()) { await page.click('#focus-exit'); await hidden('#focus-bar'); }

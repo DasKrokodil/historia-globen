@@ -517,14 +517,11 @@ async function start() {
   panel.empireTourFor = id => { const x = tour.forEmpire(id); return x && { id: x.id, label: tour.storyLabel(x, 'fall') }; };
   panel.onTour = (id, btn) => tour.start(id, btn);
   tour.onOpen = () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); };
-  // Turen i adressen (?tur=<id>) startar direkt, till exempel från en lektion eller ett test
-  const tourParam = new URLSearchParams(location.search).get('tur');
-  if (tourParam) tour.start(tourParam);
-
-  // Tillståndet i adressen (#501) och knappen Dela (#64). En tur i adressen går före en delad vy.
+  // Tillståndet i adressen (#501) och knappen Dela (#64). En tur i adressen (t och s, eller ?tur=<id>) startar
+  // direkt vid rätt steg och går före en delad vy (#736), till exempel från en lektion eller ett test.
   const address = createAddress(app);
   app.address = address;
-  await address.start({ read: !tourParam });
+  await address.start();
   const shareBtn = $('btn-share');
   let shareTimer = 0;
   shareBtn.addEventListener('click', () => address.share(text => {

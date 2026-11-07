@@ -63,3 +63,22 @@ test('ny post i historiken bara vid större steg', () => {
   assert.equal(isNewStep(base, { ...base, layers: ['events'] }), true);
   assert.equal(isNewStep(base, { ...base, filters: ['krig'] }), true);
 });
+
+test('en guidad tur i adressen: t och s skrivs och läses (#736)', async () => {
+  const { decodeTour } = await import('../js/url-state.js');
+  const hash = encodeHash(base, ['krig', 'kultur'], { id: 'tre-platser-1325', step: 'tanger' });
+  assert.equal(hash, '#y=1325&c=34,-50,1.6&l=areas,events&t=tre-platser-1325&s=tanger');
+  assert.deepEqual(decodeTour(hash), { id: 'tre-platser-1325', step: 'tanger' });
+  // Bara t räcker för en länk till turen; då börjar den vid första steget
+  assert.deepEqual(decodeTour('#t=vikingatiden-och-varlden'), { id: 'vikingatiden-och-varlden', step: null });
+  // Den äldre formen ?tur=<id> fungerar, men t i hashen går före
+  assert.deepEqual(decodeTour('', '?tur=andra-varldskriget'), { id: 'andra-varldskriget', step: null });
+  assert.deepEqual(decodeTour('#t=a&s=b', '?tur=c'), { id: 'a', step: 'b' });
+  // Fel tecken räknas som saknade, och utan tur skrivs inget t
+  assert.equal(decodeTour('#t=<script>'), null);
+  assert.deepEqual(decodeTour('#t=a&s=B!'), { id: 'a', step: null });
+  assert.equal(decodeTour('#y=1325'), null);
+  assert.ok(!encodeHash(base, [], null).includes('t='));
+  // En hash med tur går fortfarande att läsa som vy
+  assert.equal(decodeHash(hash).year, 1325);
+});
