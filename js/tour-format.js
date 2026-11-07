@@ -5,6 +5,13 @@
 // En tur:  { schema, version, id, title, summary?, war?, review, steps: [steg, ...] }
 //   war     valfritt: kriget (händelse-id) som turen berättar om; krigets första kort får då "Följ berättelsen" (#247)
 //   empire  valfritt: riket (grupp-id i data/empires/index.json) vars fall turen följer; rikets faktaruta får då en knapp (#499)
+//   lesson  valfritt: lärarfält för en lektionstur (skolpiloten, #737):
+//           { grades, minutes, curriculum: [{ text, sources }], prerequisites?, teacher, exitTicket }
+//           grades     årskurs: F-3, 4-6, 7-9 eller gy
+//           minutes    lektionens längd i minuter (heltal 10–120)
+//           curriculum kopplingen till läroplanen, text per språk med källa (Skolverket); skrivs
+//                      "kopplad till Lgr22", aldrig "godkänd av Skolverket"
+//           prerequisites, teacher, exitTicket  förkunskaper, lärarinstruktion och exit ticket, text per språk
 // Ett steg: { id, at, camera: { lat, lon, zoom }, title?, chapter?, question?, text, layers: [lager-id], open?, sources: [käll-id] }
 //   chapter valfritt kapitelnamn per språk, visas ovanför rubriken (berättelseläget, #247)
 //   question valfri fråga att fundera på, per språk; den påstår inget som stegets källor inte säger
@@ -19,6 +26,7 @@
 export const TOUR_VERSION = 1;
 export const TOUR_REVIEW = ['draft', 'source-checked', 'two-sources'];
 export const STEP_STATUS = ['belagt', 'omtvistat', 'okant'];
+export const LESSON_GRADES = ['F-3', '4-6', '7-9', 'gy'];
 const ID = /^[a-z0-9-]+$/;
 
 const isText = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.sv === 'string' && v.sv.trim() !== '';
@@ -40,6 +48,7 @@ export function tourProblems(tour, known = {}) {
   if (!TOUR_REVIEW.includes(tour.review)) say(`okänd granskningsstatus ${tour.review}.`);
   if (tour.war != null && (typeof tour.war !== 'string' || (known.events && !known.events.has(tour.war)))) say(`kriget ${tour.war} finns inte.`);
   if (tour.empire != null && (typeof tour.empire !== 'string' || (known.empires && !known.empires.has(tour.empire)))) say(`riket ${tour.empire} finns inte.`);
+  if (tour.lesson != null) lessonProblems(tour.lesson, known).forEach(say);
   if (!Array.isArray(tour.steps) || !tour.steps.length) { say('har inga steg.'); return out; }
   const ids = new Set();
   tour.steps.forEach((s, i) => {
@@ -63,5 +72,24 @@ export function tourProblems(tour, known = {}) {
     if (!Array.isArray(s.sources) || !s.sources.length) say(`${where}: källor saknas (sources).`);
     else for (const id of s.sources) if (known.sources && !known.sources.has(id)) say(`${where}: källan ${id} finns inte.`);
   });
+  return out;
+}
+
+/** Kontrollerar lärarfälten (lesson, #737). Returnerar problemen utan turens namn. */
+function lessonProblems(l, known) {
+  if (!l || typeof l !== 'object' || Array.isArray(l)) return ['lärarfälten (lesson) ska vara ett objekt.'];
+  const out = [];
+  if (!LESSON_GRADES.includes(l.grades)) out.push(`lesson: okänd årskurs ${l.grades} (${LESSON_GRADES.join(', ')}).`);
+  if (!Number.isInteger(l.minutes) || l.minutes < 10 || l.minutes > 120) out.push('lesson: minutes ska vara ett heltal 10–120.');
+  if (!Array.isArray(l.curriculum) || !l.curriculum.length) out.push('lesson: kopplingen till läroplanen saknas (curriculum).');
+  else l.curriculum.forEach((c, i) => {
+    const where = `lesson: läroplanskoppling ${i + 1}`;
+    if (!c || !isText(c.text)) out.push(`${where}: texten saknas (text.sv).`);
+    if (!Array.isArray(c?.sources) || !c.sources.length) out.push(`${where}: källor saknas (sources).`);
+    else for (const id of c.sources) if (known.sources && !known.sources.has(id)) out.push(`${where}: källan ${id} finns inte.`);
+  });
+  if (!isText(l.teacher)) out.push('lesson: lärarinstruktionen saknas (teacher.sv).');
+  if (!isText(l.exitTicket)) out.push('lesson: exit ticket saknas (exitTicket.sv).');
+  if (l.prerequisites != null && !isText(l.prerequisites)) out.push('lesson: förkunskaperna ska vara text per språk.');
   return out;
 }
