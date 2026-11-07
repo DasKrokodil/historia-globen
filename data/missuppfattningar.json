@@ -4,7 +4,9 @@
   "misconceptions": [
     {
       "id": "napoleon-var-kort",
-      "events": ["napoleonkrigen"],
+      "events": [
+        "napoleonkrigen"
+      ],
       "claim": {
         "sv": "Napoleon var ovanligt kort.",
         "en": "Napoleon was unusually short.",
@@ -17,17 +19,611 @@
         "en": "Napoleon was about 167–168 cm tall, close to average for his time. The figure “5 feet 2 inches” is in French measure from before the metric system; in imperial measure the same height is just under 5 feet 6 inches. The sources give the height slightly differently (about 168 cm and about 1.67 m).",
         "de": "Napoleon war etwa 167–168 cm groß, also nahe am Durchschnitt seiner Zeit. Die Angabe „5 Fuß 2 Zoll“ gilt im französischen Maß aus der Zeit vor dem metrischen System; im englischen Maß ist dieselbe Körpergröße knapp 5 Fuß 6 Zoll. Die Quellen geben die Größe leicht unterschiedlich an (etwa 168 cm bzw. etwa 1,67 m).",
         "es": "Napoleón medía unos 167–168 cm, es decir, cerca de la media de su época. La cifra «5 pies 2 pulgadas» corresponde a la medida francesa anterior al sistema métrico; en medida inglesa la misma estatura son casi 5 pies 6 pulgadas. Las fuentes dan la estatura de forma ligeramente distinta (unos 168 cm y unos 1,67 m).",
-        "fr": "Napoléon mesurait environ 167–168 cm, soit près de la moyenne de son époque. Le chiffre « 5 pieds 2 pouces » est exprimé en mesure française d'avant le système métrique ; en mesure anglaise, la même taille fait presque 5 pieds 6 pouces. Les sources donnent la taille de façon légèrement différente (environ 168 cm et environ 1,67 m)."
+        "fr": "Napoléon mesurait environ 167–168 cm, soit près de la moyenne de son époque. Le chiffre « 5 pieds 2 pouces » est exprimé en mesure française d'avant le système métrique ; en mesure anglaise, la même taille fait presque 5 pieds 6 pouces. Les sources donnent la taille de façon légèrement différente (environ 168 cm et environ 1,67 m)."
       },
       "origin": {
         "sv": "Brittiska karikatyrtecknare, framför allt James Gillray, framställde upprepat Napoleon som liten för att håna honom och hans erövringsplaner. Den brittiska pressen kallade honom ”Little Boney”, och en av Gillrays karikatyrer från 1803 visar honom som kort. Begreppet ”Napoleonkomplex”, om kortvuxna män som uppfattas som aggressiva, är uppkallat efter honom.",
         "en": "British cartoonists, above all James Gillray, repeatedly depicted Napoleon as small in order to mock him and his ambitions of conquest. The British press called him “Little Boney”, and one of Gillray's caricatures from 1803 shows him as short. The term “Napoleon complex”, for short men perceived as aggressive, is named after him.",
         "de": "Britische Karikaturisten, vor allem James Gillray, stellten Napoleon immer wieder als klein dar, um ihn und seine Eroberungspläne zu verspotten. Die britische Presse nannte ihn „Little Boney“, und eine von Gillrays Karikaturen aus dem Jahr 1803 zeigt ihn als klein von Statur. Der Begriff „Napoleon-Komplex“ für kleinwüchsige Männer, die als aggressiv wahrgenommen werden, ist nach ihm benannt.",
         "es": "Los caricaturistas británicos, sobre todo James Gillray, representaron a Napoleón una y otra vez como bajo para burlarse de él y de sus planes de conquista. La prensa británica lo llamaba «Little Boney», y una de las caricaturas de Gillray de 1803 lo muestra de baja estatura. El término «complejo de Napoleón», para los hombres de baja estatura que se perciben como agresivos, lleva su nombre.",
-        "fr": "Des caricaturistes britanniques, surtout James Gillray, ont représenté Napoléon à maintes reprises comme petit pour se moquer de lui et de ses projets de conquête. La presse britannique l'appelait « Little Boney », et une caricature de Gillray de 1803 le montre de petite taille. Le terme « complexe de Napoléon », pour les hommes de petite taille perçus comme agressifs, porte son nom."
+        "fr": "Des caricaturistes britanniques, surtout James Gillray, ont représenté Napoléon à maintes reprises comme petit pour se moquer de lui et de ses projets de conquête. La presse britannique l'appelait « Little Boney », et une caricature de Gillray de 1803 le montre de petite taille. Le terme « complexe de Napoléon », pour les hommes de petite taille perçus comme agressifs, porte son nom."
       },
-      "originKinds": ["satire"],
-      "sources": ["wp-napoleon", "wp-napoleon-complex"],
+      "originKinds": [
+        "satire"
+      ],
+      "sources": [
+        "wp-napoleon",
+        "wp-napoleon-complex"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "kinesiska-muren-syns-fran-manen",
+      "year": 1754,
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          116.564,
+          40.431
+        ]
+      },
+      "locationPrecision": "region",
+      "claim": {
+        "sv": "Kinesiska muren syns med blotta ögat från rymden eller från månen.",
+        "en": "The Great Wall of China can be seen with the naked eye from space or from the Moon.",
+        "de": "Die Chinesische Mauer ist mit bloßem Auge aus dem Weltraum oder vom Mond aus zu sehen.",
+        "es": "La Gran Muralla china se ve a simple vista desde el espacio o desde la Luna.",
+        "fr": "La Grande Muraille de Chine est visible à l'œil nu depuis l'espace ou depuis la Lune."
+      },
+      "truth": {
+        "sv": "Från månen går muren inte att se med blotta ögat. Från omloppsbana är bilden oklar: muren är lång men för smal, och eftersom den är byggd av lokala material smälter den in i omgivningen. Astronauter har gett olika besked: Gene Cernan och Ed Lu har uppgett att den syns, medan Kinas första astronaut Yang Liwei sade att han inte kunde se den. Myten om månen anses grundligt motbevisad.",
+        "en": "From the Moon the wall cannot be seen with the naked eye. From orbit the picture is unclear: the wall is long but too narrow, and because it is made of local materials it blends into its surroundings. Astronauts have given differing accounts: Gene Cernan and Ed Lu have said it is visible, while China's first astronaut Yang Liwei said he could not see it. The myth about the Moon is considered thoroughly debunked.",
+        "de": "Vom Mond aus ist die Mauer mit bloßem Auge nicht zu sehen. Aus der Erdumlaufbahn ist das Bild unklar: Die Mauer ist lang, aber zu schmal, und weil sie aus lokalen Materialien gebaut ist, verschmilzt sie mit ihrer Umgebung. Astronauten haben unterschiedliche Auskünfte gegeben: Gene Cernan und Ed Lu haben angegeben, sie sei sichtbar, während Chinas erster Astronaut Yang Liwei sagte, er habe sie nicht sehen können. Der Mythos vom Mond gilt als gründlich widerlegt.",
+        "es": "Desde la Luna la muralla no se ve a simple vista. Desde la órbita la imagen no es clara: la muralla es larga pero demasiado estrecha y, como está hecha de materiales locales, se confunde con el entorno. Los astronautas han dado versiones distintas: Gene Cernan y Ed Lu han dicho que se ve, mientras que Yang Liwei, el primer astronauta de China, dijo que no pudo verla. El mito sobre la Luna se considera completamente desmentido.",
+        "fr": "Depuis la Lune, la muraille n'est pas visible à l'œil nu. Depuis l'orbite, l'image est incertaine : la muraille est longue mais trop étroite et, comme elle est construite en matériaux locaux, elle se fond dans le paysage. Les astronautes ont donné des avis différents : Gene Cernan et Ed Lu ont dit qu'elle est visible, tandis que Yang Liwei, le premier astronaute chinois, a dit qu'il n'avait pas pu la voir. Le mythe concernant la Lune est considéré comme entièrement réfuté."
+      },
+      "origin": {
+        "sv": "En av de tidigaste kända hänvisningarna till myten om murens synlighet från månen är ett brev från 1754 av den engelske antikvarien William Stukeley. Myten lever kvar i populärkulturen.",
+        "en": "One of the earliest known references to the myth of the wall's visibility from the Moon is a letter written in 1754 by the English antiquary William Stukeley. The myth lives on in popular culture.",
+        "de": "Einer der frühesten bekannten Verweise auf den Mythos von der Sichtbarkeit der Mauer vom Mond aus ist ein Brief des englischen Altertumsforschers William Stukeley aus dem Jahr 1754. Der Mythos lebt in der Populärkultur fort.",
+        "es": "Una de las primeras referencias conocidas al mito de la visibilidad de la muralla desde la Luna es una carta escrita en 1754 por el anticuario inglés William Stukeley. El mito sigue vivo en la cultura popular.",
+        "fr": "L'une des premières références connues au mythe de la visibilité de la muraille depuis la Lune est une lettre écrite en 1754 par l'antiquaire anglais William Stukeley. Le mythe perdure dans la culture populaire."
+      },
+      "originKinds": [
+        "folk"
+      ],
+      "sources": [
+        "wp-great-wall"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "haxor-brandes-i-salem",
+      "year": 1692,
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -70.896,
+          42.522
+        ]
+      },
+      "claim": {
+        "sv": "Häxor brändes på bål i Salem.",
+        "en": "Witches were burned at the stake in Salem.",
+        "de": "In Salem wurden Hexen auf dem Scheiterhaufen verbrannt.",
+        "es": "En Salem se quemó a las brujas en la hoguera.",
+        "fr": "À Salem, les sorcières furent brûlées sur le bûcher."
+      },
+      "truth": {
+        "sv": "Under häxprocesserna i Massachusetts (februari 1692 till maj 1693) anklagades över 200 personer och 30 dömdes. Nitton av dem hängdes (fjorton kvinnor och fem män). Ytterligare en man, Giles Corey, dog under tortyr efter att ha vägrat svara på åtalet, och minst fem dog i fängelserna utan rättegång. Ingen brändes: idén att häxor i Amerika brändes är enligt källan falsk.",
+        "en": "In the witch trials in Massachusetts (February 1692 to May 1693) more than 200 people were accused and 30 were convicted. Nineteen of them were hanged (fourteen women and five men). One other man, Giles Corey, died under torture for refusing to enter a plea, and at least five died in jail without trial. No one was burned: according to the source, the idea that witches in America were burned is false.",
+        "de": "Bei den Hexenprozessen in Massachusetts (Februar 1692 bis Mai 1693) wurden mehr als 200 Menschen angeklagt und 30 verurteilt. Neunzehn von ihnen wurden gehängt (vierzehn Frauen und fünf Männer). Ein weiterer Mann, Giles Corey, starb unter der Folter, weil er sich weigerte, auf die Anklage zu antworten, und mindestens fünf starben ohne Prozess im Gefängnis. Niemand wurde verbrannt: Die Vorstellung, in Amerika seien Hexen verbrannt worden, ist laut der Quelle falsch.",
+        "es": "En los juicios por brujería de Massachusetts (de febrero de 1692 a mayo de 1693) se acusó a más de 200 personas y se condenó a 30. Diecinueve fueron ahorcadas (catorce mujeres y cinco hombres). Otro hombre, Giles Corey, murió bajo tortura por negarse a declarar, y al menos cinco murieron en la cárcel sin juicio. Nadie fue quemado: según la fuente, la idea de que en América se quemaba a las brujas es falsa.",
+        "fr": "Lors des procès en sorcellerie du Massachusetts (de février 1692 à mai 1693), plus de 200 personnes furent accusées et 30 condamnées. Dix-neuf furent pendues (quatorze femmes et cinq hommes). Un autre homme, Giles Corey, mourut sous la torture pour avoir refusé de plaider, et au moins cinq moururent en prison sans procès. Personne ne fut brûlé : selon la source, l'idée que l'on brûlait les sorcières en Amérique est fausse."
+      },
+      "origin": {
+        "sv": "Många litterära och konstnärliga skildringar av häxprocesserna har tagit sig friheter med fakta, bland annat den populära men felaktiga idén att häxor i Amerika brändes.",
+        "en": "Many literary and artistic interpretations of the witch trials have taken liberties with the facts, including the popular but false idea that witches in America were burned.",
+        "de": "Viele literarische und künstlerische Darstellungen der Hexenprozesse haben sich Freiheiten gegenüber den Tatsachen genommen, darunter die verbreitete, aber falsche Vorstellung, in Amerika seien Hexen verbrannt worden.",
+        "es": "Muchas interpretaciones literarias y artísticas de los juicios por brujería se han tomado libertades con los hechos, entre ellas la idea popular pero falsa de que en América se quemaba a las brujas.",
+        "fr": "De nombreuses interprétations littéraires et artistiques des procès en sorcellerie ont pris des libertés avec les faits, notamment l'idée populaire mais fausse que l'on brûlait les sorcières en Amérique."
+      },
+      "originKinds": [
+        "media"
+      ],
+      "sources": [
+        "wp-salem-witch-trials"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "cheopspyramiden-byggdes-av-slavar",
+      "events": [
+        "cheopspyramiden"
+      ],
+      "claim": {
+        "sv": "Cheopspyramiden byggdes av slavar.",
+        "en": "The Great Pyramid was built by slaves.",
+        "de": "Die Cheops-Pyramide wurde von Sklaven gebaut.",
+        "es": "La Gran Pirámide fue construida por esclavos.",
+        "fr": "La grande pyramide de Khéops fut construite par des esclaves."
+      },
+      "truth": {
+        "sv": "Fynd vid arbetarläger nära Giza tyder på att pyramiden byggdes av tusentals utskrivna arbetare (”conscript labourers”), inte av slavar. Arbetsgrafitti tyder på att de som släpade block var indelade i grupper om 40 man, med fyra undergrupper som vardera hade en ”föreståndare för tio”.",
+        "en": "Discoveries at the workers' camps near Giza suggest that the pyramid was built by thousands of conscript labourers, not by slaves. Worker graffiti suggest that the haulers were divided into groups of 40 men, made up of four sub-units that each had an “Overseer of Ten”.",
+        "de": "Funde in den Arbeitersiedlungen bei Gizeh deuten darauf hin, dass die Pyramide von Tausenden dienstverpflichteten Arbeitern („conscript labourers“) gebaut wurde, nicht von Sklaven. Graffiti der Arbeiter deuten darauf hin, dass die Zieher in Gruppen von 40 Männern eingeteilt waren, bestehend aus vier Untergruppen, die jeweils einen „Aufseher über Zehn“ hatten.",
+        "es": "Los hallazgos en los campamentos de trabajadores cercanos a Guiza indican que la pirámide fue construida por miles de trabajadores reclutados («conscript labourers»), no por esclavos. Los grafitis de los trabajadores indican que quienes arrastraban los bloques estaban divididos en grupos de 40 hombres, formados por cuatro subunidades que tenían cada una un «supervisor de diez».",
+        "fr": "Les découvertes faites dans les camps d'ouvriers près de Gizeh indiquent que la pyramide fut construite par des milliers d'ouvriers réquisitionnés (« conscript labourers »), et non par des esclaves. Les graffitis des ouvriers indiquent que ceux qui halaient les blocs étaient répartis en groupes de 40 hommes, composés de quatre sous-unités ayant chacune un « chef de dix »."
+      },
+      "origin": {
+        "sv": "Antikens greker trodde att slavar användes. Den grekiske historikern Diodorus Siculus, som besökte Egypten mellan 60 och 56 f.Kr., förstärkte kopplingen mellan pyramidbyggande och slaveri.",
+        "en": "The ancient Greeks believed that slave labour was used. The Greek historian Diodorus Siculus, who visited Egypt between 60 and 56 BC, strengthened the connection between pyramid building and slavery.",
+        "de": "Die alten Griechen glaubten, es seien Sklaven eingesetzt worden. Der griechische Historiker Diodor von Sizilien, der Ägypten zwischen 60 und 56 v. Chr. besuchte, verstärkte die Verbindung zwischen dem Pyramidenbau und der Sklaverei.",
+        "es": "Los antiguos griegos creían que se había empleado mano de obra esclava. El historiador griego Diodoro Sículo, que visitó Egipto entre los años 60 y 56 a. C., reforzó la relación entre la construcción de pirámides y la esclavitud.",
+        "fr": "Les Grecs de l'Antiquité croyaient que l'on avait employé de la main-d'œuvre servile. L'historien grec Diodore de Sicile, qui visita l'Égypte entre 60 et 56 av. J.-C., renforça le lien entre la construction des pyramides et l'esclavage."
+      },
+      "originKinds": [
+        "other"
+      ],
+      "sources": [
+        "wp-great-pyramid"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "vikingar-hade-horn-pa-hjalmen",
+      "events": [
+        "lindisfarne"
+      ],
+      "claim": {
+        "sv": "Vikingakrigare bar hjälmar med horn.",
+        "en": "Viking warriors wore helmets with horns.",
+        "de": "Wikingerkrieger trugen Helme mit Hörnern.",
+        "es": "Los guerreros vikingos llevaban cascos con cuernos.",
+        "fr": "Les guerriers vikings portaient des casques à cornes."
+      },
+      "truth": {
+        "sv": "Det finns inga belägg för att vikingar bar hjälmar med horn. Ingen bevarad hjälm har horn, och ingen avbildning av krigarnas hjälmar visar horn. Undantaget är två eller tre avbildningar av (rituella) hjälmar med utskott som kan föreställa korpar, ormar eller horn. Historiker tror därför att vikingakrigare inte bar hornhjälmar; om sådana användes i rituella sammanhang är obevisat.",
+        "en": "There is no evidence that Vikings wore horned helmets. No preserved helmet has horns, and no depiction of warriors' helmets shows horns. The exception is two or three representations of (ritual) helmets with protrusions that may be stylised ravens, snakes or horns. Historians therefore believe that Viking warriors did not wear horned helmets; whether such helmets were used for ritual purposes remains unproven.",
+        "de": "Es gibt keinen Beleg dafür, dass Wikinger Hörnerhelme trugen. Kein erhaltener Helm hat Hörner, und keine Darstellung von Kriegerhelmen zeigt Hörner. Die Ausnahme sind zwei oder drei Darstellungen von (rituellen) Helmen mit Fortsätzen, die stilisierte Raben, Schlangen oder Hörner sein können. Historiker glauben daher, dass Wikingerkrieger keine Hörnerhelme trugen; ob solche Helme für rituelle Zwecke verwendet wurden, ist unbewiesen.",
+        "es": "No hay pruebas de que los vikingos llevaran cascos con cuernos. Ningún casco conservado tiene cuernos y ninguna representación de los cascos de los guerreros los muestra. La excepción son dos o tres representaciones de cascos (rituales) con protuberancias que pueden ser cuervos, serpientes o cuernos estilizados. Por eso los historiadores creen que los guerreros vikingos no llevaban cascos con cuernos; si se usaron con fines rituales no está demostrado.",
+        "fr": "Rien ne prouve que les Vikings portaient des casques à cornes. Aucun casque conservé n'a de cornes, et aucune représentation des casques de guerriers n'en montre. L'exception tient à deux ou trois représentations de casques (rituels) munis de protubérances qui peuvent être des corbeaux, des serpents ou des cornes stylisés. Les historiens pensent donc que les guerriers vikings ne portaient pas de casques à cornes ; leur usage à des fins rituelles n'est pas démontré."
+      },
+      "origin": {
+        "sv": "Hornen dök första gången upp som kostymdetalj på 1800-talet. Missuppfattningen spreds delvis av 1800-talets entusiaster i Götiska förbundet, som grundades i Stockholm 1811.",
+        "en": "The horns first appeared as a costume element in the 19th century. The misconception was partly promulgated by 19th-century enthusiasts of the Götiska förbundet, founded in Stockholm in 1811.",
+        "de": "Die Hörner tauchten im 19. Jahrhundert erstmals als Kostümdetail auf. Die falsche Vorstellung wurde teilweise von Enthusiasten des Götiska förbundet im 19. Jahrhundert verbreitet, der 1811 in Stockholm gegründet wurde.",
+        "es": "Los cuernos aparecieron por primera vez como elemento de disfraz en el siglo XIX. La idea errónea fue difundida en parte por los entusiastas del siglo XIX del Götiska förbundet, fundado en Estocolmo en 1811.",
+        "fr": "Les cornes sont apparues pour la première fois comme élément de costume au XIXe siècle. L'idée fausse a été en partie propagée par des passionnés du XIXe siècle du Götiska förbundet, fondé à Stockholm en 1811."
+      },
+      "originKinds": [
+        "other"
+      ],
+      "sources": [
+        "wp-vikings"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "machu-picchu-upptacktes-av-bingham",
+      "events": [
+        "machu-picchu"
+      ],
+      "claim": {
+        "sv": "Machu Picchu var en förlorad stad som Hiram Bingham upptäckte 1911.",
+        "en": "Machu Picchu was a lost city that Hiram Bingham discovered in 1911.",
+        "de": "Machu Picchu war eine verlorene Stadt, die Hiram Bingham 1911 entdeckte.",
+        "es": "Machu Picchu era una ciudad perdida que Hiram Bingham descubrió en 1911.",
+        "fr": "Le Machu Picchu était une cité perdue que Hiram Bingham découvrit en 1911."
+      },
+      "truth": {
+        "sv": "Bingham besökte platsen 1911, men han leddes dit av en bybo, Melchor Arteaga, och ruinerna var delvis i bruk: bönder använde de rensade terrasserna som grönsaksland. Agustín Lizárraga hade skrivit sitt namn och årtalet 1902 på ett tempel, och Bingham antecknade själv först att Lizárraga var upptäckaren. Kartor nämner platsen redan 1874, och den tyske ingenjören Augusto Berns kan ha återupptäckt och utnyttjat den i slutet av 1800-talet.",
+        "en": "Bingham visited the site in 1911, but he was led there by a villager, Melchor Arteaga, and the ruins were partly in use: farmers used the cleared terraces as vegetable gardens. Agustín Lizárraga had written his name and the date 1902 on a temple, and Bingham himself first noted that Lizárraga was the discoverer. Maps mention the site as early as 1874, and the German engineer Augusto Berns may have rediscovered and exploited it in the late 19th century.",
+        "de": "Bingham besuchte die Stätte 1911, wurde aber von einem Dorfbewohner, Melchor Arteaga, dorthin geführt, und die Ruinen wurden teilweise genutzt: Bauern verwendeten die freigelegten Terrassen als Gemüsegärten. Agustín Lizárraga hatte seinen Namen und die Jahreszahl 1902 auf einen Tempel geschrieben, und Bingham notierte selbst zunächst, Lizárraga sei der Entdecker. Karten erwähnen die Stätte schon 1874, und der deutsche Ingenieur Augusto Berns hat sie möglicherweise Ende des 19. Jahrhunderts wiederentdeckt und ausgebeutet.",
+        "es": "Bingham visitó el lugar en 1911, pero lo guió hasta allí un lugareño, Melchor Arteaga, y las ruinas estaban en parte en uso: los campesinos utilizaban las terrazas despejadas como huertos. Agustín Lizárraga había escrito su nombre y la fecha 1902 en un templo, y el propio Bingham anotó al principio que Lizárraga era el descubridor. Los mapas mencionan el lugar ya en 1874, y el ingeniero alemán Augusto Berns pudo haberlo redescubierto y explotado a finales del siglo XIX.",
+        "fr": "Bingham visita le site en 1911, mais il y fut conduit par un villageois, Melchor Arteaga, et les ruines étaient en partie utilisées : des paysans se servaient des terrasses dégagées comme potagers. Agustín Lizárraga avait écrit son nom et la date de 1902 sur un temple, et Bingham nota lui-même d'abord que Lizárraga en était le découvreur. Des cartes mentionnent le site dès 1874, et l'ingénieur allemand Augusto Berns l'a peut-être redécouvert et exploité à la fin du XIXe siècle."
+      },
+      "origin": {
+        "sv": "Platsen kallas ofta ”inkarikets förlorade stad”. Bingham erkände först Lizárraga som upptäckare i sina tidiga skrifter, men tonade gradvis ner hans roll, och i sin sista version av berättelsen, Lost City of the Incas (1952), hävdade han att han själv hade hittat platsen.",
+        "en": "The site is often called the “Lost City of the Incas”. Bingham at first acknowledged Lizárraga as the discoverer in his early writings, but he gradually downplayed Lizárraga's role, and in his final version of the story, Lost City of the Incas (1952), he claimed to have found the site himself.",
+        "de": "Die Stätte wird oft „Verlorene Stadt der Inka“ genannt. Bingham erkannte Lizárraga in seinen frühen Schriften zunächst als Entdecker an, spielte dessen Rolle aber nach und nach herunter, und in seiner letzten Fassung der Geschichte, Lost City of the Incas (1952), behauptete er, die Stätte selbst gefunden zu haben.",
+        "es": "El lugar suele llamarse la «Ciudad Perdida de los Incas». Bingham reconoció al principio a Lizárraga como descubridor en sus primeros escritos, pero fue restándole importancia poco a poco, y en la versión final de la historia, Lost City of the Incas (1952), afirmó haber encontrado él mismo el lugar.",
+        "fr": "Le site est souvent appelé la « cité perdue des Incas ». Bingham reconnut d'abord Lizárraga comme le découvreur dans ses premiers écrits, mais il minimisa peu à peu son rôle, et dans la version finale de l'histoire, Lost City of the Incas (1952), il affirma avoir trouvé lui-même le site."
+      },
+      "originKinds": [
+        "other"
+      ],
+      "sources": [
+        "wp-machu-picchu"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "quechua-var-inkarnas-sprak",
+      "events": [
+        "pachacuti-inkariket"
+      ],
+      "claim": {
+        "sv": "Quechua var inkarnas ursprungliga språk.",
+        "en": "Quechua was the original language of the Incas.",
+        "de": "Quechua war die ursprüngliche Sprache der Inka.",
+        "es": "El quechua era la lengua original de los incas.",
+        "fr": "Le quechua était la langue d'origine des Incas."
+      },
+      "truth": {
+        "sv": "Quechua hade varit ett gemensamt språk (lingua franca) i flera områden före inkarnas expansion, var redan varierat innan inkariket växte fram och var inte inkarnas eget ursprungliga språk. Inkarnas eget språk tros ha varit nära besläktat med eller en dialekt av puquina. Inkarna lämnade ändå ett språkligt arv: de spred quechua till många områden där det talas än i dag, bland annat Ecuador, södra Bolivia och södra Colombia.",
+        "en": "Quechua had been a lingua franca in several areas before the Inca expansion, was already diverse before the rise of the Incas, and was not the Incas' own original language. The Incas' own language is thought to have been closely related to or a dialect of Puquina. The Incas did leave a linguistic legacy: they introduced Quechua to many areas where it is still widely spoken today, including Ecuador, southern Bolivia and southern Colombia.",
+        "de": "Quechua war schon vor der Expansion der Inka in mehreren Gebieten eine Verkehrssprache (Lingua franca), war bereits vor dem Aufstieg der Inka vielfältig und war nicht die eigene ursprüngliche Sprache der Inka. Die eigene Sprache der Inka war vermutlich eng mit dem Puquina verwandt oder ein Dialekt davon. Die Inka hinterließen dennoch ein sprachliches Erbe: Sie brachten das Quechua in viele Gebiete, in denen es heute noch weit verbreitet ist, darunter Ecuador, Südbolivien und Südkolumbien.",
+        "es": "El quechua ya era una lengua franca en varias zonas antes de la expansión inca, ya era diverso antes del ascenso de los incas y no era la lengua original de los propios incas. Se cree que la lengua propia de los incas estaba estrechamente emparentada con el puquina o era un dialecto de este. Aun así, los incas dejaron un legado lingüístico: introdujeron el quechua en muchas zonas donde todavía se habla ampliamente, entre ellas Ecuador, el sur de Bolivia y el sur de Colombia.",
+        "fr": "Le quechua était déjà une lingua franca dans plusieurs régions avant l'expansion inca, était déjà diversifié avant l'essor des Incas et n'était pas la langue d'origine des Incas eux-mêmes. On pense que la langue propre des Incas était étroitement apparentée au puquina ou en était un dialecte. Les Incas ont pourtant laissé un héritage linguistique : ils ont introduit le quechua dans de nombreuses régions où il est encore largement parlé, notamment l'Équateur, le sud de la Bolivie et le sud de la Colombie."
+      },
+      "origin": {
+        "sv": "Quechua kallas ofta ”inkaspråket”, och källan beskriver detta som en vanlig missuppfattning om quechuas historia. Källan anger inte var benämningen kommer ifrån.",
+        "en": "Quechua is frequently called the “Inca language”, and the source describes this as one of several common misconceptions about the history of Quechua. The source does not say where the label comes from.",
+        "de": "Quechua wird häufig „Sprache der Inka“ genannt, und die Quelle beschreibt dies als eines von mehreren verbreiteten Missverständnissen über die Geschichte des Quechua. Woher die Bezeichnung stammt, sagt die Quelle nicht.",
+        "es": "El quechua se llama con frecuencia la «lengua de los incas», y la fuente lo describe como una de varias ideas erróneas comunes sobre la historia del quechua. La fuente no indica de dónde viene esa denominación.",
+        "fr": "Le quechua est souvent appelé la « langue des Incas », et la source décrit cela comme l'une des nombreuses idées fausses courantes sur l'histoire du quechua. La source n'indique pas d'où vient cette appellation."
+      },
+      "originKinds": [
+        "other"
+      ],
+      "sources": [
+        "wp-inca-empire"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "moai-ar-bara-huvuden",
+      "events": [
+        "moai-rapa-nui"
+      ],
+      "claim": {
+        "sv": "Påskölns moai-statyer är bara huvuden.",
+        "en": "The moai statues of Easter Island are just heads.",
+        "de": "Die Moai-Statuen der Osterinsel sind nur Köpfe.",
+        "es": "Las estatuas moái de la isla de Pascua son solo cabezas.",
+        "fr": "Les statues moaï de l'île de Pâques ne sont que des têtes."
+      },
+      "truth": {
+        "sv": "Moai är helkroppsstatyer med kraftig bål och armar i lågrelief. Huvudet är överdrivet stort och utgör tre åttondelar av statyns storlek, och med undantag för en knäande moai har statyerna inga tydligt synliga ben.",
+        "en": "Moai are whole-body statues with heavy torsos and arms carved in bas relief. The head is overly large and accounts for three-eighths of the size of the whole statue, and except for one kneeling moai the statues have no clearly visible legs.",
+        "de": "Moai sind Ganzkörperstatuen mit kräftigem Rumpf und im Flachrelief gearbeiteten Armen. Der Kopf ist übergroß und macht drei Achtel der Größe der ganzen Statue aus, und bis auf einen knienden Moai haben die Statuen keine deutlich sichtbaren Beine.",
+        "es": "Los moái son estatuas de cuerpo entero, con torsos robustos y brazos tallados en bajorrelieve. La cabeza es desproporcionadamente grande y supone tres octavos del tamaño de toda la estatua, y, salvo un moái arrodillado, las estatuas no tienen piernas claramente visibles.",
+        "fr": "Les moaï sont des statues en pied, au torse massif et aux bras sculptés en bas-relief. La tête est démesurée et représente les trois huitièmes de la taille de la statue entière, et, à l'exception d'un moaï agenouillé, les statues n'ont pas de jambes clairement visibles."
+      },
+      "origin": {
+        "sv": "I populärlitteratur kallas de ofta ”Easter Island heads”, dels för att huvudena är oproportionerligt stora, dels för att många bilder av de resta statyerna visar dem på sluttningarna vid Rano Raraku, där många är nedgrävda till axlarna.",
+        "en": "In popular literature they are often called “Easter Island heads”, partly because the heads are disproportionately large and partly because many images of upright moai show the statues on the slopes of Rano Raraku, where many are buried to their shoulders.",
+        "de": "In der Populärliteratur werden sie oft „Osterinsel-Köpfe“ („Easter Island heads“) genannt, teils weil die Köpfe unverhältnismäßig groß sind, teils weil viele Bilder aufrecht stehender Moai die Statuen an den Hängen des Rano Raraku zeigen, wo viele bis zu den Schultern vergraben sind.",
+        "es": "En la literatura popular suelen llamarse «cabezas de la isla de Pascua» («Easter Island heads»), en parte porque las cabezas son desproporcionadamente grandes y en parte porque muchas imágenes de moáis erguidos muestran las estatuas en las laderas del Rano Raraku, donde muchas están enterradas hasta los hombros.",
+        "fr": "Dans la littérature populaire, on les appelle souvent « têtes de l'île de Pâques » (« Easter Island heads »), en partie parce que les têtes sont disproportionnées et en partie parce que de nombreuses images de moaï dressés montrent les statues sur les pentes du Rano Raraku, où beaucoup sont enterrées jusqu'aux épaules."
+      },
+      "originKinds": [
+        "media"
+      ],
+      "sources": [
+        "wp-moai"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "tasmanska-aboriginer-dog-ut-1876",
+      "events": [
+        "svarta-linjen"
+      ],
+      "year": 1876,
+      "claim": {
+        "sv": "Tasmaniens aboriginer dog ut när Truganini dog 1876.",
+        "en": "Tasmania's Aboriginal people became extinct when Truganini died in 1876.",
+        "de": "Die Aborigines Tasmaniens starben aus, als Truganini 1876 starb.",
+        "es": "Los aborígenes de Tasmania se extinguieron cuando murió Truganini en 1876.",
+        "fr": "Les Aborigènes de Tasmanie se sont éteints à la mort de Truganini en 1876."
+      },
+      "truth": {
+        "sv": "Truganini, en kvinna ur Nuenonne-folket, beskrevs länge men felaktigt som den sista tasmanska aboriginen. En stor gemenskap tasmanska aboriginer fortsatte att födas på Cape Barren Island och andra öar i Furneauxgruppen. De kallades ”Islanders” och härstammade från barn till aboriginska kvinnor och vita säljägare. Berättelsen att Truganini var den sista har avvisats av forskare och av dagens tasmanska aboriginska gemenskap.",
+        "en": "Truganini, a woman of the Nuenonne people, was long but incorrectly described as the last Aboriginal Tasmanian. A substantial community of Aboriginal Tasmanians continued to be born on Cape Barren Island and other islands in the Furneaux Group. They were called the Islanders and were descended from the children of Aboriginal women and white sealers. The narrative that Truganini was the last Aboriginal Tasmanian has been rejected by scholars and by the contemporary Aboriginal Tasmanian community.",
+        "de": "Truganini, eine Frau des Nuenonne-Volkes, wurde lange, aber fälschlich als die letzte Aborigine Tasmaniens bezeichnet. Eine große Gemeinschaft tasmanischer Aborigines wurde weiterhin auf Cape Barren Island und anderen Inseln der Furneaux-Gruppe geboren. Sie wurden „Islanders“ genannt und stammten von Kindern aboriginer Frauen und weißer Robbenjäger ab. Die Erzählung, Truganini sei die letzte tasmanische Aborigine gewesen, wird von der Wissenschaft und von der heutigen tasmanischen Aborigine-Gemeinschaft zurückgewiesen.",
+        "es": "Truganini, una mujer del pueblo nuenonne, fue descrita durante mucho tiempo, pero erróneamente, como la última aborigen de Tasmania. Una comunidad considerable de aborígenes tasmanos siguió naciendo en la isla Cape Barren y en otras islas del grupo Furneaux. Se los llamaba los Islanders y descendían de hijos de mujeres aborígenes y balleneros blancos. La narrativa de que Truganini fue la última aborigen tasmana ha sido rechazada por los estudiosos y por la comunidad aborigen tasmana actual.",
+        "fr": "Truganini, une femme du peuple nuenonne, a longtemps été décrite, à tort, comme la dernière Aborigène de Tasmanie. Une communauté importante d'Aborigènes tasmaniens a continué à naître sur Cape Barren Island et sur d'autres îles du groupe Furneaux. On les appelait les Islanders ; ils descendaient d'enfants de femmes aborigènes et de chasseurs de phoques blancs. Le récit selon lequel Truganini était la dernière Aborigène tasmanienne a été rejeté par les chercheurs et par la communauté aborigène tasmanienne actuelle."
+      },
+      "origin": {
+        "sv": "När Truganini dog förklarade Tasmaniens regering öns aboriginska befolkning utdöd. Berättelsen att hon var den sista hade redan före hennes död förstärkts av den mycket lästa boken The Last of the Tasmanians (1870). Folkmordsforskaren Tom Lawson menar att utrotningsberättelsen stärkte bilden av det brittiska imperiets makt. Islanders identitet avfärdades länge på grund av blandad härkomst, och historikern Lyndall Ryans bok The Aboriginal Tasmanians (1981) var bland de första historieböcker som ifrågasatte myten.",
+        "en": "When Truganini died, the Tasmanian government declared the island's Aboriginal population extinct. The narrative that she was the last had been reinforced before her death by the widely read 1870 book The Last of the Tasmanians. The genocide scholar Tom Lawson argues that the extinction narrative reinforced the supposed power of the British Empire. The Islanders' claims of Aboriginal identity were widely dismissed because of their mixed descent, and the historian Lyndall Ryan's 1981 book The Aboriginal Tasmanians was among the first works of history to challenge the myth.",
+        "de": "Als Truganini starb, erklärte die Regierung Tasmaniens die Aborigine-Bevölkerung der Insel für ausgestorben. Die Erzählung, sie sei die Letzte gewesen, war schon vor ihrem Tod durch das viel gelesene Buch The Last of the Tasmanians (1870) verstärkt worden. Der Genozidforscher Tom Lawson argumentiert, die Aussterbeerzählung habe die vermeintliche Macht des Britischen Empire bekräftigt. Die Identitätsansprüche der Islanders wurden wegen ihrer gemischten Abstammung lange zurückgewiesen, und das Buch The Aboriginal Tasmanians (1981) der Historikerin Lyndall Ryan gehörte zu den ersten geschichtswissenschaftlichen Werken, die den Mythos in Frage stellten.",
+        "es": "Cuando murió Truganini, el gobierno de Tasmania declaró extinguida la población aborigen de la isla. La narrativa de que ella era la última ya se había reforzado antes de su muerte con el libro muy leído The Last of the Tasmanians (1870). El estudioso del genocidio Tom Lawson sostiene que la narrativa de la extinción reforzó el supuesto poder del Imperio británico. Las reivindicaciones de identidad aborigen de los Islanders se descartaron durante mucho tiempo por su ascendencia mixta, y el libro The Aboriginal Tasmanians (1981) de la historiadora Lyndall Ryan fue una de las primeras obras de historia en cuestionar el mito.",
+        "fr": "À la mort de Truganini, le gouvernement de Tasmanie déclara éteinte la population aborigène de l'île. Le récit selon lequel elle était la dernière avait déjà été renforcé avant sa mort par le livre très lu The Last of the Tasmanians (1870). Le spécialiste du génocide Tom Lawson soutient que le récit de l'extinction renforçait la puissance supposée de l'Empire britannique. Les revendications d'identité aborigène des Islanders furent longtemps rejetées en raison de leur ascendance mixte, et le livre The Aboriginal Tasmanians (1981) de l'historienne Lyndall Ryan fut l'une des premières œuvres d'histoire à remettre en cause le mythe."
+      },
+      "originKinds": [
+        "other"
+      ],
+      "sources": [
+        "wp-truganini"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "medeltidens-manniskor-trodde-jorden-var-platt",
+      "events": [
+        "columbus"
+      ],
+      "claim": {
+        "sv": "Människor i medeltiden trodde att jorden var platt, och Columbus visade att den var rund.",
+        "en": "People in the Middle Ages believed the Earth was flat, and Columbus showed that it was round.",
+        "de": "Die Menschen im Mittelalter glaubten, die Erde sei flach, und Kolumbus zeigte, dass sie rund ist.",
+        "es": "En la Edad Media la gente creía que la Tierra era plana, y Colón demostró que era redonda.",
+        "fr": "Au Moyen Âge, on croyait que la Terre était plate, et Colomb a montré qu'elle était ronde."
+      },
+      "truth": {
+        "sv": "Det fanns aldrig någon period av ”platt jord-mörker” bland lärda. Grekernas kunskap om att jorden är rund föll aldrig i glömska, och enligt Stephen Jay Gould accepterade alla stora medeltida lärda jordens rundhet som ett fastställt faktum. Historikerna David Lindberg och Ronald Numbers menar att knappt någon kristen medeltida lärd inte kände till att jorden är rund och ungefär hur stor den är. På 1490-talet gällde striden inte jordens form utan dess storlek och var Asiens östkust låg.",
+        "en": "There never was a period of “flat Earth darkness” among scholars. Greek knowledge of sphericity never faded, and according to Stephen Jay Gould all major medieval scholars accepted the Earth's roundness as an established fact. The historians David Lindberg and Ronald Numbers point out that there was scarcely a Christian scholar of the Middle Ages who did not acknowledge the Earth's sphericity and even know its approximate circumference. The issue in the 1490s was not the shape of the Earth but its size and the position of the east coast of Asia.",
+        "de": "Unter Gelehrten gab es nie eine Zeit der „Dunkelheit der flachen Erde“. Das griechische Wissen um die Kugelgestalt der Erde geriet nie in Vergessenheit, und laut Stephen Jay Gould akzeptierten alle bedeutenden mittelalterlichen Gelehrten die Kugelgestalt als feststehende Tatsache. Die Historiker David Lindberg und Ronald Numbers weisen darauf hin, dass es kaum einen christlichen Gelehrten des Mittelalters gab, der die Kugelgestalt der Erde nicht anerkannte und nicht sogar ihren ungefähren Umfang kannte. In den 1490er Jahren ging es nicht um die Form der Erde, sondern um ihre Größe und die Lage der Ostküste Asiens.",
+        "es": "Nunca hubo entre los eruditos un período de «oscuridad de la Tierra plana». El conocimiento griego de la esfericidad nunca se desvaneció y, según Stephen Jay Gould, todos los grandes eruditos medievales aceptaban la redondez de la Tierra como un hecho establecido. Los historiadores David Lindberg y Ronald Numbers señalan que apenas hubo un erudito cristiano de la Edad Media que no reconociera la esfericidad de la Tierra y que incluso no conociera su circunferencia aproximada. En la década de 1490 la cuestión no era la forma de la Tierra, sino su tamaño y la posición de la costa oriental de Asia.",
+        "fr": "Il n'y a jamais eu de période d'« obscurité de la Terre plate » chez les savants. La connaissance grecque de la sphéricité n'a jamais disparu et, selon Stephen Jay Gould, tous les grands savants médiévaux acceptaient la rotondité de la Terre comme un fait établi. Les historiens David Lindberg et Ronald Numbers soulignent qu'il y avait à peine un savant chrétien du Moyen Âge qui ne reconnaissait pas la sphéricité de la Terre et n'en connaissait même pas la circonférence approximative. Dans les années 1490, la question n'était pas la forme de la Terre, mais sa taille et la position de la côte orientale de l'Asie."
+      },
+      "origin": {
+        "sv": "Historikern Jeffrey Burton Russell skriver myten framför allt på John William Drapers, Andrew Dickson Whites och Washington Irvings historieverk, och menar att den blomstrade mest mellan 1870 och 1920 i spåren av striderna om evolutionen. Irvings starkt romantiserade Columbus-biografi från 1828 misstogs av många för ett vetenskapligt verk och innehöll en i hög grad påhittad skildring av hur en kommission invände mot Columbus med hänvisning till Bibeln.",
+        "en": "The historian Jeffrey Burton Russell ascribes the popularisation of the myth to histories by John William Draper, Andrew Dickson White and Washington Irving, and says it flourished most between 1870 and 1920 amid the struggles over evolution. Irving's highly romanticized 1828 biography of Columbus was mistaken by many for a scholarly work and gave a largely fictional account of a commission raising scriptural objections to Columbus.",
+        "de": "Der Historiker Jeffrey Burton Russell schreibt die Verbreitung des Mythos den Geschichtswerken von John William Draper, Andrew Dickson White und Washington Irving zu und sagt, er habe zwischen 1870 und 1920 im Zuge der Auseinandersetzungen um die Evolution seine Blütezeit gehabt. Irvings stark romantisierte Kolumbus-Biografie von 1828 wurde von vielen für ein wissenschaftliches Werk gehalten und enthielt eine weitgehend erfundene Schilderung, wie eine Kommission unter Berufung auf die Bibel Einwände gegen Kolumbus erhob.",
+        "es": "El historiador Jeffrey Burton Russell atribuye la popularización del mito a las historias de John William Draper, Andrew Dickson White y Washington Irving, y afirma que floreció sobre todo entre 1870 y 1920 en el contexto de las disputas sobre la evolución. La biografía de Colón de Irving de 1828, muy novelada, fue tomada por muchos por una obra académica y ofrecía un relato en gran parte ficticio de una comisión que planteaba objeciones bíblicas a Colón.",
+        "fr": "L'historien Jeffrey Burton Russell attribue la popularisation du mythe aux histoires de John William Draper, d'Andrew Dickson White et de Washington Irving, et dit qu'il a surtout prospéré entre 1870 et 1920, dans le contexte des querelles sur l'évolution. La biographie de Colomb de 1828 par Irving, très romancée, fut prise par beaucoup pour un ouvrage savant et donnait un récit en grande partie fictif d'une commission élevant des objections bibliques contre Colomb."
+      },
+      "originKinds": [
+        "media"
+      ],
+      "sources": [
+        "wp-flat-earth-myth"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "marie-antoinette-lat-dem-ata-kakor",
+      "year": 1765,
+      "claim": {
+        "sv": "Marie Antoinette sa ”Låt dem äta kakor”.",
+        "en": "Marie Antoinette said “Let them eat cake”.",
+        "de": "Marie Antoinette sagte: „Dann sollen sie doch Kuchen essen.“",
+        "es": "María Antonieta dijo: «Que coman pasteles».",
+        "fr": "Marie-Antoinette a dit : « Qu'ils mangent de la brioche »."
+      },
+      "truth": {
+        "sv": "Det finns inga belägg för att hon någonsin sa det, och frasen betraktas i dag som en journalistisk kliché. Enligt traditionen yttrades den av ”en stor prinsessa” när hon fick höra att bönderna saknade bröd, och på franska nämns brioche, ett smör- och äggrikt bröd som ansågs vara lyx.",
+        "en": "There is no evidence that she ever said it, and the phrase is now generally regarded as a journalistic cliché. According to tradition it was spoken by “a great princess” on being told that the peasants had no bread, and in French it mentions brioche, a bread enriched with butter and eggs that was considered a luxury.",
+        "de": "Es gibt keinen Beleg dafür, dass sie es je gesagt hat, und der Satz gilt heute allgemein als journalistisches Klischee. Der Überlieferung nach sprach ihn „eine große Prinzessin“ aus, als man ihr sagte, die Bauern hätten kein Brot, und im Französischen ist von Brioche die Rede, einem mit Butter und Eiern angereicherten Brot, das als Luxus galt.",
+        "es": "No hay pruebas de que ella llegara a decirlo, y hoy la frase se considera en general un cliché periodístico. Según la tradición la pronunció «una gran princesa» al saber que los campesinos no tenían pan, y en francés se menciona la brioche, un pan enriquecido con mantequilla y huevos que se consideraba un lujo.",
+        "fr": "Rien ne prouve qu'elle l'ait jamais dite, et la phrase est aujourd'hui généralement considérée comme un cliché journalistique. Selon la tradition, elle fut prononcée par « une grande princesse » à qui l'on disait que les paysans n'avaient plus de pain, et en français il y est question de brioche, un pain enrichi de beurre et d'œufs, considéré comme un produit de luxe."
+      },
+      "origin": {
+        "sv": "Frasen går att spåra till Jean-Jacques Rousseaus Bekännelser 1765, 24 år före franska revolutionen, när Marie Antoinette var nio år gammal och aldrig hade varit i Frankrike. Den tillskrevs henne först decennier efter hennes död.",
+        "en": "The phrase can be traced back to Jean-Jacques Rousseau's Confessions in 1765, 24 years before the French Revolution, when Marie Antoinette was nine years old and had never been to France. It was not attributed to her until decades after her death.",
+        "de": "Der Satz lässt sich bis zu Jean-Jacques Rousseaus Bekenntnissen im Jahr 1765 zurückverfolgen, 24 Jahre vor der Französischen Revolution, als Marie Antoinette neun Jahre alt war und noch nie in Frankreich gewesen war. Ihr zugeschrieben wurde er erst Jahrzehnte nach ihrem Tod.",
+        "es": "La frase se remonta a las Confesiones de Jean-Jacques Rousseau en 1765, 24 años antes de la Revolución francesa, cuando María Antonieta tenía nueve años y nunca había estado en Francia. No se le atribuyó hasta décadas después de su muerte.",
+        "fr": "La phrase remonte aux Confessions de Jean-Jacques Rousseau en 1765, 24 ans avant la Révolution française, alors que Marie-Antoinette avait neuf ans et n'était jamais venue en France. Elle ne lui a été attribuée que des décennies après sa mort."
+      },
+      "originKinds": [
+        "media"
+      ],
+      "sources": [
+        "wp-let-them-eat-cake"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "sfinxens-nasa-skots-av-napoleon",
+      "year": 1798,
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          31.138,
+          29.975
+        ]
+      },
+      "claim": {
+        "sv": "Sfinxens näsa sköts bort av Napoleons trupper.",
+        "en": "The Sphinx's nose was shot off by Napoleon's troops.",
+        "de": "Die Nase der Sphinx wurde von Napoleons Truppen weggeschossen.",
+        "es": "La nariz de la Esfinge fue destruida a cañonazos por las tropas de Napoleón.",
+        "fr": "Le nez du Sphinx a été emporté par les tirs des troupes de Napoléon."
+      },
+      "truth": {
+        "sv": "Näsan förstördes inte av kanoneld från Napoleons trupper under fälttåget i Egypten 1798. Sfinxen är dokumenterat skadad sedan minst 900-talet, och undersökningar av ansiktet visar märken efter stavar eller mejslar som hamrats in vid näsryggen och under näsborren, vilket tyder på en avsiktlig handling. Källorna nämner också arabiska författare som skyllde skadan på bildstormande angrepp och andra som skyllde på mamlukerna på 1300-talet.",
+        "en": "The nose was not destroyed by cannonfire from Napoleon's troops during his 1798 Egyptian campaign. The Sphinx has been documented as damaged since at least the 10th century, and examinations of the face show marks made by rods or chisels hammered in at the bridge of the nose and below the nostril, which points to a deliberate act. The sources also mention Arab authors who blamed the damage on iconoclastic attacks and others who blamed the Mamluks in the 14th century.",
+        "de": "Die Nase wurde nicht durch Kanonenfeuer von Napoleons Truppen während seines Ägyptenfeldzugs 1798 zerstört. Die Sphinx ist nachweislich seit mindestens dem 10. Jahrhundert beschädigt, und Untersuchungen des Gesichts zeigen Spuren von Stangen oder Meißeln, die am Nasenrücken und unter dem Nasenloch eingeschlagen wurden, was auf eine absichtliche Tat hindeutet. Die Quellen erwähnen auch arabische Autoren, die die Beschädigung bilderstürmerischen Angriffen zuschrieben, und andere, die im 14. Jahrhundert die Mamelucken verantwortlich machten.",
+        "es": "La nariz no fue destruida por el fuego de cañón de las tropas de Napoleón durante su campaña de Egipto de 1798. La Esfinge está documentada como dañada desde al menos el siglo X, y los exámenes del rostro muestran marcas de varas o cinceles clavados en el puente de la nariz y debajo de la fosa nasal, lo que apunta a un acto deliberado. Las fuentes mencionan también a autores árabes que culpaban del daño a ataques iconoclastas y a otros que culpaban a los mamelucos en el siglo XIV.",
+        "fr": "Le nez n'a pas été détruit par les tirs de canon des troupes de Napoléon pendant sa campagne d'Égypte de 1798. Le Sphinx est documenté comme endommagé depuis au moins le Xe siècle, et l'examen du visage montre des marques de barres ou de ciseaux enfoncés à la racine du nez et sous la narine, ce qui indique un acte délibéré. Les sources mentionnent aussi des auteurs arabes qui attribuaient les dégâts à des attaques iconoclastes et d'autres qui en rendaient responsables les Mamelouks au XIVe siècle."
+      },
+      "origin": {
+        "sv": "Den mest populära legenden säger att näsan förstördes av kanonkulor som avfyrades av Napoleon Bonapartes armé. Källan kallar detta en populär myt.",
+        "en": "The most popular legend of its destruction claims that it was destroyed by cannonballs fired by the army of Napoleon Bonaparte. The source calls this a popular myth.",
+        "de": "Die populärste Legende über die Zerstörung besagt, sie sei durch Kanonenkugeln der Armee Napoleon Bonapartes erfolgt. Die Quelle nennt dies einen populären Mythos.",
+        "es": "La leyenda más popular sobre su destrucción afirma que fue causada por balas de cañón disparadas por el ejército de Napoleón Bonaparte. La fuente lo califica de mito popular.",
+        "fr": "La légende la plus répandue sur sa destruction prétend qu'elle serait due à des boulets de canon tirés par l'armée de Napoléon Bonaparte. La source qualifie cela de mythe populaire."
+      },
+      "originKinds": [
+        "folk"
+      ],
+      "sources": [
+        "wp-great-sphinx"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "stora-zimbabwe-byggdes-av-utomstaende",
+      "events": [
+        "stora-zimbabwe"
+      ],
+      "claim": {
+        "sv": "Stora Zimbabwe kan inte ha byggts av afrikaner utan av fenicier, araber eller andra utomstående.",
+        "en": "Great Zimbabwe cannot have been built by Africans but by Phoenicians, Arabs or other outsiders.",
+        "de": "Groß-Simbabwe kann nicht von Afrikanern gebaut worden sein, sondern von Phöniziern, Arabern oder anderen Außenstehenden.",
+        "es": "Gran Zimbabue no pudo ser construido por africanos, sino por fenicios, árabes u otros foráneos.",
+        "fr": "Le Grand Zimbabwe ne peut pas avoir été construit par des Africains, mais par des Phéniciens, des Arabes ou d'autres étrangers."
+      },
+      "truth": {
+        "sv": "Staden byggdes av afrikaner. Källan nämner shonafolket (karanga) som byggare. Bygget började på 1000-talet och pågick i över 300 år. Att ruinerna är afrikanskt byggda blev konsensus bland forskare först på 1950-talet.",
+        "en": "The city was built by Africans. The source names the Shona (Karanga) as the builders. Construction began in the 11th century and continued for over 300 years. That the ruins are of African origin only became scholarly consensus in the 1950s.",
+        "de": "Die Stadt wurde von Afrikanern gebaut. Die Quelle nennt die Shona (Karanga) als Erbauer. Der Bau begann im 11. Jahrhundert und dauerte über 300 Jahre. Dass die Ruinen afrikanischen Ursprungs sind, wurde erst in den 1950er Jahren Konsens unter Wissenschaftlern.",
+        "es": "La ciudad fue construida por africanos. La fuente nombra a los shona (karanga) como constructores. La construcción comenzó en el siglo XI y continuó durante más de 300 años. Que las ruinas son de origen africano solo se convirtió en consenso entre los estudiosos en la década de 1950.",
+        "fr": "La ville a été construite par des Africains. La source désigne les Shona (Karanga) comme bâtisseurs. La construction a commencé au XIe siècle et s'est poursuivie pendant plus de 300 ans. Que les ruines soient d'origine africaine n'est devenu un consensus chez les chercheurs que dans les années 1950."
+      },
+      "origin": {
+        "sv": "Under kolonialtiden ansåg rhodesier det otänkbart att inhemska afrikaner hade byggt ruinerna. Teorier som tillskrev bygget judar, araber, fenicier eller vem som helst utom shonafolket präglade forskningen under hela 1900-talet. Enligt källan pressade Rhodesias vita regering arkeologer att förneka att afrikaner byggt ruinerna, eftersom ett erkännande hade undergrävt regeringens motivering att den hade ett ”civilisationsuppdrag”.",
+        "en": "During the colonial era, Rhodesians found it inconceivable that indigenous Africans had built the ruins. Theories ascribing the construction to Jews, Arabs, Phoenicians or anyone but the Shona dominated the historiography throughout the 20th century. According to the source, the white government of Rhodesia pressured archaeologists to deny that Africans had built the ruins, because acknowledging it would have dismantled its “civilising mission” rationale.",
+        "de": "In der Kolonialzeit hielten Rhodesier es für undenkbar, dass einheimische Afrikaner die Ruinen gebaut hatten. Theorien, die den Bau Juden, Arabern, Phöniziern oder allen außer den Shona zuschrieben, prägten die Forschung das gesamte 20. Jahrhundert hindurch. Laut der Quelle drängte Rhodesiens weiße Regierung Archäologen, zu leugnen, dass Afrikaner die Ruinen gebaut hatten, weil ein Eingeständnis ihre Begründung einer „Zivilisierungsmission“ untergraben hätte.",
+        "es": "Durante la era colonial, los rodesianos consideraban inconcebible que africanos autóctonos hubieran construido las ruinas. Las teorías que atribuían la construcción a judíos, árabes, fenicios o a cualquiera menos a los shona dominaron la historiografía durante todo el siglo XX. Según la fuente, el gobierno blanco de Rodesia presionó a los arqueólogos para que negaran que los africanos hubieran construido las ruinas, porque reconocerlo habría socavado su justificación de una «misión civilizadora».",
+        "fr": "À l'époque coloniale, les Rhodésiens trouvaient inconcevable que des Africains autochtones aient construit les ruines. Les théories attribuant la construction aux Juifs, aux Arabes, aux Phéniciens ou à n'importe qui sauf aux Shona ont dominé l'historiographie tout au long du XXe siècle. Selon la source, le gouvernement blanc de Rhodésie a fait pression sur les archéologues pour qu'ils nient que des Africains aient construit les ruines, car le reconnaître aurait sapé sa justification d'une « mission civilisatrice »."
+      },
+      "originKinds": [
+        "propaganda"
+      ],
+      "sources": [
+        "wp-great-zimbabwe"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "marco-polo-tog-med-pasta-fran-kina",
+      "events": [
+        "marco-polos-resa"
+      ],
+      "claim": {
+        "sv": "Marco Polo tog med sig pasta från Kina till Italien.",
+        "en": "Marco Polo brought pasta from China to Italy.",
+        "de": "Marco Polo brachte Pasta aus China nach Italien mit.",
+        "es": "Marco Polo llevó la pasta de China a Italia.",
+        "fr": "Marco Polo a rapporté les pâtes de Chine en Italie."
+      },
+      "truth": {
+        "sv": "Pasta hade uppfunnits i Italien långt före Marco Polos resor till Asien. I sin bok beskriver han en mat som liknar ”lasagne”, men han använder en term som han redan kände till.",
+        "en": "Pasta had already been invented in Italy a long time before Marco Polo's travels to Asia. In his book he describes a food similar to “lasagna”, but he uses a term with which he was already familiar.",
+        "de": "Pasta war in Italien lange vor Marco Polos Reisen nach Asien erfunden worden. In seinem Buch beschreibt er ein Gericht, das „Lasagne“ ähnelt, benutzt dafür aber einen Begriff, der ihm schon vertraut war.",
+        "es": "La pasta ya se había inventado en Italia mucho antes de los viajes de Marco Polo a Asia. En su libro describe un alimento parecido a la «lasaña», pero utiliza un término que ya conocía.",
+        "fr": "Les pâtes avaient été inventées en Italie bien avant les voyages de Marco Polo en Asie. Dans son livre, il décrit un aliment semblable aux « lasagnes », mais il emploie un terme qu'il connaissait déjà."
+      },
+      "origin": {
+        "sv": "Legenden härstammar enligt källan från Macaroni Journal, som gavs ut av en livsmedelsbranschorganisation som ville öka användningen av pasta i USA.",
+        "en": "According to the source, the legend originates with the Macaroni Journal, published by a food industry association with the goal of promoting the use of pasta in the United States.",
+        "de": "Laut der Quelle stammt die Legende aus dem Macaroni Journal, das von einem Lebensmittelverband herausgegeben wurde, der den Verzehr von Pasta in den USA fördern wollte.",
+        "es": "Según la fuente, la leyenda procede del Macaroni Journal, publicado por una asociación de la industria alimentaria con el objetivo de promover el consumo de pasta en Estados Unidos.",
+        "fr": "Selon la source, la légende vient du Macaroni Journal, publié par une association de l'industrie alimentaire dans le but de promouvoir la consommation de pâtes aux États-Unis."
+      },
+      "originKinds": [
+        "media"
+      ],
+      "sources": [
+        "wp-marco-polo"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "washingtons-tander-var-av-tra",
+      "year": 1789,
+      "claim": {
+        "sv": "George Washington hade tänder av trä.",
+        "en": "George Washington had wooden teeth.",
+        "de": "George Washington hatte Zähne aus Holz.",
+        "es": "George Washington tenía dientes de madera.",
+        "fr": "George Washington avait des dents en bois."
+      },
+      "truth": {
+        "sv": "Washingtons tandproteser innehöll inget trä. De tillverkades av bland annat mässing, bly, guld, djurtänder, flodhästelfenben och människotänder som köpts av slavar. När han tillträdde som president den 30 april 1789 hade han bara en egen tand kvar.",
+        "en": "Washington's dentures contained no wood. They were made of materials including brass, lead, gold, animal teeth, hippopotamus ivory and human teeth purchased from slaves. When he was inaugurated as president on 30 April 1789 he had only one natural tooth left.",
+        "de": "Washingtons Zahnprothesen enthielten kein Holz. Sie bestanden unter anderem aus Messing, Blei, Gold, Tierzähnen, Nilpferd-Elfenbein und Menschenzähnen, die von Sklaven gekauft worden waren. Als er am 30. April 1789 als Präsident vereidigt wurde, hatte er nur noch einen natürlichen Zahn.",
+        "es": "Las dentaduras de Washington no contenían madera. Estaban hechas de materiales como latón, plomo, oro, dientes de animales, marfil de hipopótamo y dientes humanos comprados a esclavos. Cuando tomó posesión como presidente el 30 de abril de 1789, solo le quedaba un diente natural.",
+        "fr": "Les prothèses dentaires de Washington ne contenaient pas de bois. Elles étaient faites de matériaux comme le laiton, le plomb, l'or, des dents d'animaux, de l'ivoire d'hippopotame et des dents humaines achetées à des esclaves. Lors de son investiture comme président le 30 avril 1789, il ne lui restait qu'une seule dent naturelle."
+      },
+      "origin": {
+        "sv": "Missuppfattningen var allmänt accepterad bland 1800-talets historiker och stod som fakta i skolböcker långt in på 1900-talet. Ett möjligt ursprung är att elfenbensproteser snabbt blev missfärgade och kan ha sett ut som trä. Washingtons tandläkare John Greenwood skrev 1798 att en protes var ”mycket svart” och rådde till grundligare rengöring.",
+        "en": "The misconception was widely accepted by 19th-century historians and appeared as fact in school textbooks until well into the 20th century. A possible origin is that ivory teeth quickly became stained and may have had the appearance of wood. Washington's dentist John Greenwood wrote in 1798 that a set was “very black” and advised more thorough cleaning.",
+        "de": "Die falsche Vorstellung wurde von Historikern des 19. Jahrhunderts weithin akzeptiert und stand bis weit ins 20. Jahrhundert als Tatsache in Schulbüchern. Ein möglicher Ursprung ist, dass Elfenbeinzähne schnell Flecken bekamen und für Beobachter wie Holz ausgesehen haben können. Washingtons Zahnarzt John Greenwood schrieb 1798, ein Gebiss sei „sehr schwarz“ gewesen, und riet zu gründlicherer Reinigung.",
+        "es": "La idea errónea fue ampliamente aceptada por los historiadores del siglo XIX y aparecía como un hecho en los libros de texto hasta bien entrado el siglo XX. Un posible origen es que los dientes de marfil se manchaban rápidamente y podían parecer de madera a los observadores. El dentista de Washington, John Greenwood, escribió en 1798 que una dentadura estaba «muy negra» y aconsejó una limpieza más a fondo.",
+        "fr": "L'idée fausse était largement acceptée par les historiens du XIXe siècle et figurait comme un fait dans les manuels scolaires jusque bien avant dans le XXe siècle. Une origine possible est que les dents en ivoire se tachaient vite et pouvaient avoir l'apparence du bois aux yeux des observateurs. Le dentiste de Washington, John Greenwood, écrivit en 1798 qu'un dentier était « très noir » et conseilla un nettoyage plus soigneux."
+      },
+      "originKinds": [
+        "misreading"
+      ],
+      "sources": [
+        "wp-george-washingtons-teeth"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "svarta-taj-mahal",
+      "events": [
+        "taj-mahal"
+      ],
+      "claim": {
+        "sv": "Shah Jahan planerade en svart Taj Mahal på andra sidan floden.",
+        "en": "Shah Jahan planned a Black Taj Mahal across the river.",
+        "de": "Shah Jahan plante ein Schwarzes Taj Mahal auf der anderen Flussseite.",
+        "es": "Shah Jahan planeó un Taj Mahal negro al otro lado del río.",
+        "fr": "Shah Jahan avait prévu un Taj Mahal noir de l'autre côté du fleuve."
+      },
+      "truth": {
+        "sv": "Påståendet om ett svart mausoleum har inget stöd. Ruinerna av svärtad marmor på andra sidan Yamuna, i Mehtab Bagh, som tycktes stödja det visade sig vid utgrävningar på 1990-talet vara missfärgade vita stenar som hade blivit svarta. Arkeologer som 2006 rekonstruerade en del av bassängen i Mehtab Bagh kunde se en mörk spegelbild av det vita mausoleet, vilket källan kallar en mer trovärdig förklaring till idén om ett svart mausoleum och passar Shah Jahans förkärlek för symmetri.",
+        "en": "The claim of a black mausoleum is not supported. Ruins of blackened marble across the Yamuna in Mehtab Bagh that seemed to support it were shown by excavations in the 1990s to be discoloured white stones that had turned black. Archaeologists who in 2006 reconstructed part of the pool in Mehtab Bagh could clearly see a dark reflection of the white mausoleum, which the source calls a more credible theory for the origin of the black mausoleum and which suits Shah Jahan's obsession with symmetry.",
+        "de": "Die Behauptung eines schwarzen Mausoleums ist nicht belegt. Ruinen aus geschwärztem Marmor jenseits der Yamuna in Mehtab Bagh, die sie zu stützen schienen, erwiesen sich bei Ausgrabungen in den 1990er Jahren als verfärbte weiße Steine, die schwarz geworden waren. Archäologen, die 2006 einen Teil des Beckens in Mehtab Bagh rekonstruierten, konnten darin deutlich ein dunkles Spiegelbild des weißen Mausoleums sehen, was die Quelle als plausiblere Erklärung für die Idee eines schwarzen Mausoleums bezeichnet und was zu Shah Jahans Symmetriebesessenheit passt.",
+        "es": "La afirmación de un mausoleo negro carece de respaldo. Las ruinas de mármol ennegrecido al otro lado del Yamuna, en Mehtab Bagh, que parecían apoyarla, resultaron en las excavaciones de la década de 1990 ser piedras blancas descoloridas que se habían vuelto negras. Los arqueólogos que en 2006 reconstruyeron parte del estanque de Mehtab Bagh pudieron ver claramente un reflejo oscuro del mausoleo blanco, lo que la fuente considera una teoría más creíble sobre el origen del mausoleo negro y que encaja con la obsesión de Shah Jahan por la simetría.",
+        "fr": "L'affirmation d'un mausolée noir n'est pas étayée. Les ruines de marbre noirci situées de l'autre côté de la Yamuna, à Mehtab Bagh, qui semblaient la soutenir, se sont révélées lors de fouilles dans les années 1990 être des pierres blanches décolorées devenues noires. Les archéologues qui ont reconstitué en 2006 une partie du bassin de Mehtab Bagh ont pu y voir nettement un reflet sombre du mausolée blanc, ce que la source considère comme une théorie plus crédible sur l'origine du mausolée noir et qui s'accorde avec l'obsession de Shah Jahan pour la symétrie."
+      },
+      "origin": {
+        "sv": "Idén går tillbaka på fantasifulla skrifter av den europeiske resenären och juvelhandlaren Jean-Baptiste Tavernier, som besökte Agra 1665. Det antyddes att Shah Jahans son Aurangzeb avsatte honom innan det svarta mausoleet hann byggas. Källan kallar det en långvarig myt.",
+        "en": "The idea originates from fanciful writings of Jean-Baptiste Tavernier, a European traveller and gem merchant who visited Agra in 1665. It was suggested that Shah Jahan's son Aurangzeb overthrew him before it could be built. The source calls it a longstanding myth.",
+        "de": "Die Idee geht auf fantasievolle Schriften des europäischen Reisenden und Edelsteinhändlers Jean-Baptiste Tavernier zurück, der 1665 Agra besuchte. Es wurde angedeutet, dass Shah Jahans Sohn Aurangzeb ihn gestürzt habe, bevor das Mausoleum gebaut werden konnte. Die Quelle nennt dies einen lange gehegten Mythos.",
+        "es": "La idea se origina en los escritos fantasiosos de Jean-Baptiste Tavernier, viajero europeo y comerciante de gemas que visitó Agra en 1665. Se sugirió que el hijo de Shah Jahan, Aurangzeb, lo derrocó antes de que pudiera construirse. La fuente lo califica de mito de larga data.",
+        "fr": "L'idée provient des écrits fantaisistes de Jean-Baptiste Tavernier, voyageur européen et marchand de pierres précieuses qui visita Agra en 1665. On a suggéré que le fils de Shah Jahan, Aurangzeb, l'avait renversé avant que le mausolée puisse être construit. La source parle d'un mythe de longue date."
+      },
+      "originKinds": [
+        "other"
+      ],
+      "sources": [
+        "wp-taj-mahal"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "el-dorado-var-en-riktig-guldstad",
+      "year": 1537,
+      "claim": {
+        "sv": "El Dorado var en riktig stad av guld i Sydamerika.",
+        "en": "El Dorado was a real city of gold in South America.",
+        "de": "El Dorado war eine real existierende Stadt aus Gold in Südamerika.",
+        "es": "El Dorado fue una ciudad de oro real en Sudamérica.",
+        "fr": "L'Eldorado était une véritable cité d'or en Amérique du Sud."
+      },
+      "truth": {
+        "sv": "Källan kallar El Dorado en mytisk guldstad. Legenden började i spanska berättelser från 1500-talet om en härskare, El Dorado (”den gyllene”), som sades täcka sig med guldstoft och tvätta av sig det i en helig sjö. Namnet kom med tiden att gälla även en förlorad stad eller ett rike av enorm rikedom. Spanska expeditioner flyttade den förmodade platsen från högländerna i Colombia till Amazonas och Guyana, och en förmodad insjö, Lake Parime, som stod på kartor under 1600-talet avfärdades senare av upptäcktsresande och geografer. Tron på El Dorado som verklig plats minskade.",
+        "en": "The source calls El Dorado a mythical city of gold. The legend originated in 16th-century Spanish accounts of a ruler, El Dorado (“the Golden One”), who was said to cover himself in gold dust and then wash it off in a sacred lake. Over time the name came to refer also to a lost city or kingdom of immense wealth. Expeditions shifted the supposed location from the Colombian highlands to the Amazon and the Guianas, and a supposed inland lake, Lake Parime, which appeared on maps in the 17th century, was later rejected by explorers and geographers. Belief in El Dorado as a real place declined.",
+        "de": "Die Quelle nennt El Dorado eine mythische Stadt aus Gold. Die Legende entstand in spanischen Berichten des 16. Jahrhunderts über einen Herrscher namens El Dorado („der Vergoldete“), der sich mit Goldstaub bedeckt und ihn dann in einem heiligen See abgewaschen haben soll. Mit der Zeit bezeichnete der Name auch eine verlorene Stadt oder ein Reich von unermesslichem Reichtum. Expeditionen verlegten den vermuteten Ort vom Hochland Kolumbiens an den Amazonas und nach Guayana, und ein vermuteter Binnensee, der Lake Parime, der im 17. Jahrhundert auf Karten verzeichnet war, wurde später von Entdeckern und Geographen verworfen. Der Glaube an El Dorado als realen Ort nahm ab.",
+        "es": "La fuente califica a El Dorado de ciudad mítica de oro. La leyenda se originó en relatos españoles del siglo XVI sobre un gobernante, El Dorado («el Dorado»), que se cubría de polvo de oro y luego se lo lavaba en un lago sagrado. Con el tiempo, el nombre pasó a designar también una ciudad o un reino perdido de inmensa riqueza. Las expediciones desplazaron el lugar supuesto desde las tierras altas de Colombia hacia el Amazonas y las Guayanas, y un supuesto lago interior, el Lake Parime, que aparecía en los mapas en el siglo XVII, fue rechazado más tarde por exploradores y geógrafos. La creencia en El Dorado como lugar real fue disminuyendo.",
+        "fr": "La source qualifie l'Eldorado de cité d'or mythique. La légende est née dans des récits espagnols du XVIe siècle sur un souverain, El Dorado (« le Doré »), qui se couvrait de poudre d'or avant de s'en laver dans un lac sacré. Avec le temps, le nom a aussi désigné une cité ou un royaume perdu d'une richesse immense. Les expéditions ont déplacé l'emplacement supposé des hauts plateaux de Colombie vers l'Amazonie et les Guyanes, et un lac intérieur supposé, le Lake Parime, qui figurait sur les cartes au XVIIe siècle, a été rejeté plus tard par des explorateurs et des géographes. La croyance en l'Eldorado comme lieu réel a décliné."
+      },
+      "origin": {
+        "sv": "Legenden förknippas med muiscafolket i dagens Colombia. Senare berättelser kopplade den till installationsceremonin för en ny zipa, med offergåvor av guld vid sjön Guatavita. Muisca var skickliga guldsmeder, och spanska expeditioner under Gonzalo Jiménez de Quesada nådde och erövrade deras område 1537. Senare gjordes försök att tömma Lake Guatavita på skatter, och Muiscaflotten finns i dag på Museo del Oro i Bogotá.",
+        "en": "The legend is associated with the Muisca, an indigenous people of present-day Colombia. Later accounts linked the story to the installation ceremony of a new zipa, involving offerings of gold at Lake Guatavita. The Muisca were skilled goldsmiths, and Spanish expeditions under Gonzalo Jiménez de Quesada reached and conquered their territory in 1537. Later attempts were made to drain Lake Guatavita in search of treasure, and the Muisca raft is now held by the Museo del Oro in Bogotá.",
+        "de": "Die Legende wird mit den Muisca verbunden, einem indigenen Volk im heutigen Kolumbien. Spätere Berichte brachten die Geschichte mit der Einsetzungszeremonie eines neuen Zipa in Verbindung, bei der Gold am See Guatavita geopfert wurde. Die Muisca waren geschickte Goldschmiede, und spanische Expeditionen unter Gonzalo Jiménez de Quesada erreichten ihr Gebiet und eroberten es 1537. Später wurde versucht, den Lake Guatavita auf der Suche nach Schätzen trockenzulegen, und das Muisca-Floß befindet sich heute im Museo del Oro in Bogotá.",
+        "es": "La leyenda se asocia con los muiscas, un pueblo indígena de la actual Colombia. Relatos posteriores vincularon la historia con la ceremonia de investidura de un nuevo zipa, con ofrendas de oro en el lago Guatavita. Los muiscas eran hábiles orfebres, y las expediciones españolas al mando de Gonzalo Jiménez de Quesada alcanzaron y conquistaron su territorio en 1537. Más tarde se intentó desecar el lago Guatavita en busca de tesoros, y la balsa muisca se conserva hoy en el Museo del Oro de Bogotá.",
+        "fr": "La légende est associée aux Muiscas, un peuple autochtone de l'actuelle Colombie. Des récits ultérieurs ont rattaché l'histoire à la cérémonie d'investiture d'un nouveau zipa, avec des offrandes d'or au lac Guatavita. Les Muiscas étaient d'habiles orfèvres, et des expéditions espagnoles menées par Gonzalo Jiménez de Quesada atteignirent et conquirent leur territoire en 1537. Plus tard, on tenta d'assécher le lac Guatavita à la recherche de trésors, et le radeau muisca est aujourd'hui conservé au Museo del Oro de Bogotá."
+      },
+      "originKinds": [
+        "folk"
+      ],
+      "sources": [
+        "wp-el-dorado"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "moriori-var-ett-formaoriskt-folk",
+      "events": [
+        "moriori-pa-chathamoarna"
+      ],
+      "claim": {
+        "sv": "Moriori var ett förmaoriskt, kanske melanesiskt, folk som levde på Nya Zeeland före maorierna.",
+        "en": "The Moriori were a pre-Māori, possibly Melanesian, people who lived in New Zealand before the Māori.",
+        "de": "Die Moriori waren ein vor-māorisches, möglicherweise melanesisches Volk, das vor den Māori in Neuseeland lebte.",
+        "es": "Los moriori eran un pueblo premaorí, quizá melanesio, que vivía en Nueva Zelanda antes que los maoríes.",
+        "fr": "Les Moriori étaient un peuple pré-maori, peut-être mélanésien, qui vivait en Nouvelle-Zélande avant les Maoris."
+      },
+      "truth": {
+        "sv": "Moriori är polynesier som kom från Nya Zeelands fastland senast omkring år 1500, möjligen redan i mitten av 1400-talet, sannolikt med viss tidigare invandring direkt från Östpolynesien. Deras kultur och språk utvecklades därefter åt ett eget håll. Hypotesen att de var förmaoriska bosättare på fastlandet har avfärdats av arkeologer sedan början av 1900-talet. Moriori är inte utdöda: 2023 registrerades 1 806 moriori, de flesta bosatta utanför Chathamöarna.",
+        "en": "The Moriori are Polynesians who came from the New Zealand mainland by at least 1500 AD, and possibly around the mid-15th century, likely with some earlier immigration directly from East Polynesia. Their culture and language then diverged. The hypothesis that they were pre-Māori settlers of the mainland has been discredited by archaeologists since the early 20th century. The Moriori are not extinct: 1,806 Moriori were recorded in 2023, most of whom did not live on the Chatham Islands.",
+        "de": "Die Moriori sind Polynesier, die spätestens um 1500 n. Chr. vom neuseeländischen Festland kamen, möglicherweise schon Mitte des 15. Jahrhunderts, wahrscheinlich mit etwas früherer Einwanderung direkt aus Ostpolynesien. Ihre Kultur und Sprache entwickelten sich danach eigenständig. Die Hypothese, sie seien vor-māorische Siedler des Festlands gewesen, wird von Archäologen seit dem frühen 20. Jahrhundert verworfen. Die Moriori sind nicht ausgestorben: 2023 wurden 1.806 Moriori erfasst, die meisten davon außerhalb der Chatham-Inseln.",
+        "es": "Los moriori son polinesios que llegaron desde el continente neozelandés como muy tarde hacia el año 1500 d. C., posiblemente ya a mediados del siglo XV, probablemente con alguna inmigración anterior directamente desde la Polinesia oriental. Su cultura y su lengua se diferenciaron después. La hipótesis de que fueran colonos premaoríes del continente es rechazada por los arqueólogos desde principios del siglo XX. Los moriori no están extinguidos: en 2023 se registraron 1806 moriori, la mayoría de los cuales no vivía en las islas Chatham.",
+        "fr": "Les Moriori sont des Polynésiens venus du continent néo-zélandais au plus tard vers l'an 1500, peut-être dès le milieu du XVe siècle, probablement avec une immigration plus ancienne venue directement de Polynésie orientale. Leur culture et leur langue ont ensuite divergé. L'hypothèse selon laquelle ils auraient été des colons pré-maoris du continent est écartée par les archéologues depuis le début du XXe siècle. Les Moriori ne sont pas éteints : 1 806 Moriori ont été recensés en 2023, la plupart ne vivant pas aux îles Chatham."
+      },
+      "origin": {
+        "sv": "I slutet av 1800-talet föreslog framstående antropologer att moriori var förmaoriska bosättare på Nya Zeelands fastland, möjligen med melanesiskt ursprung. Hypotesen har avfärdats sedan början av 1900-talet men åberopades enligt källan av kritiker av uppgörelsen kring Waitangifördraget ända in på 2000-talet.",
+        "en": "During the late 19th century some prominent anthropologists proposed that the Moriori were pre-Māori settlers of mainland New Zealand, possibly of Melanesian origin. The hypothesis has been discredited since the early 20th century but, according to the source, continued to be referred to by critics of the Treaty of Waitangi settlement process into the 21st century.",
+        "de": "Im späten 19. Jahrhundert vermuteten einige prominente Anthropologen, die Moriori seien vor-māorische Siedler des neuseeländischen Festlands gewesen, möglicherweise melanesischen Ursprungs. Die Hypothese ist seit dem frühen 20. Jahrhundert widerlegt, wurde laut der Quelle aber von Kritikern des Siedlungsverfahrens zum Vertrag von Waitangi bis ins 21. Jahrhundert angeführt.",
+        "es": "A finales del siglo XIX, algunos antropólogos destacados propusieron que los moriori eran colonos premaoríes del continente neozelandés, posiblemente de origen melanesio. La hipótesis está desacreditada desde principios del siglo XX pero, según la fuente, seguía siendo invocada hasta el siglo XXI por críticos del proceso de acuerdos del Tratado de Waitangi.",
+        "fr": "À la fin du XIXe siècle, certains anthropologues éminents ont proposé que les Moriori étaient des colons pré-maoris du continent néo-zélandais, peut-être d'origine mélanésienne. L'hypothèse est discréditée depuis le début du XXe siècle mais, selon la source, elle continuait d'être invoquée jusqu'au XXIe siècle par des critiques du processus de règlement du traité de Waitangi."
+      },
+      "originKinds": [
+        "other"
+      ],
+      "sources": [
+        "wp-moriori"
+      ],
       "review": "source-checked"
     }
   ]
