@@ -28,9 +28,11 @@ jobs:
   browser:
     name: Öppna sidan i ${{ matrix.browser.name }}
     runs-on: ubuntu-latest
-    # Chromium tar cirka 10 minuter; 10 räckte inte längre (#617). Firefox och WebKit (bara på release-PR:en) är
-    # långsammare utan grafikkort: Firefox nådde 20 minuter utan att bli klar inför v5.0.0, så de får 45.
-    timeout-minutes: ${{ matrix.browser.id == 'chromium' && 20 || 45 }}
+    # Chromium tog cirka 10 minuter; 10 räckte inte längre (#617), och 20 räcker inte heller: sviten tar cirka 18
+    # minuter på main (2026-11-07) och växer med varje ny kontroll, så de får 30 tills sviten delats i parallella
+    # jobb (docs/beslut/2026-11-07-chromium-tidsgrans-30-minuter.md). Firefox och WebKit (bara på release-PR:en)
+    # är långsammare utan grafikkort: Firefox nådde 20 minuter utan att bli klar inför v5.0.0, så de får 45.
+    timeout-minutes: ${{ matrix.browser.id == 'chromium' && 30 || 45 }}
     strategy:
       fail-fast: false
       matrix:
