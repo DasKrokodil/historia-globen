@@ -5,6 +5,11 @@
 // Elevbladet: turens titel, plats för namn, stegens frågor med plats för svar, exit ticket och källorna för
 // stegen med frågor. Lärarbladet: årskurs, tid, förkunskaper, lärarinstruktion, kopplingen till läroplanen med
 // källa, frågorna, exit ticket och länken till turen (#t=<id>, #736).
+//
+// Tillgänglighet och papper (#757): varje blad är en märkt sektion med en egen rubrik på nivå 1 ("Elevblad: <titel>"
+// och "Lärarblad: <titel>"), därefter nivå 2, så att läsordning och rubriker blir rätta när utskriften sparas som
+// taggad PDF. Skrivrader och namnrad är dekoration och göms för hjälpmedel. Allt är svart på vitt, och ingenting
+// beror på färg. Länkar står som text, eftersom papper inte går att klicka på.
 import { t, loadSources } from '../model.js';
 import { ui } from '../i18n.js';
 
@@ -18,6 +23,7 @@ const el = (tag, cls, text) => {
 /** Tomma rader att skriva på. */
 const lines = n => {
   const box = el('div', 'print-lines');
+  box.setAttribute('aria-hidden', 'true'); // dekoration: papperet har rader, en PDF-läsare behöver inte höra dem
   for (let i = 0; i < n; i++) box.append(el('span', 'print-line'));
   return box;
 };
@@ -39,18 +45,25 @@ function sourceItem(src, id) {
 /** Frågorna i turen, i stegens ordning: [{ step, n }] där n är stegets nummer. */
 const questions = tour => tour.steps.map((step, i) => ({ step, n: i + 1 })).filter(x => x.step.question);
 
-function head(tour, kind) {
+function head(tour, kind, id) {
   const h = el('header', 'print-head');
-  h.append(el('p', 'print-kind', kind), el('h1', 'print-title', t(tour.title)));
+  // Bladets sort och turens titel i samma rubrik, så att de två bladen inte har samma h1
+  const title = el('h1', 'print-heading');
+  title.id = id;
+  title.append(el('span', 'print-kind', kind), ' ', el('span', 'print-title', t(tour.title)));
+  h.append(title);
   if (tour.summary) h.append(el('p', 'print-summary', t(tour.summary)));
   return h;
 }
 
 function studentSheet(tour, srcById) {
   const page = el('section', 'print-page print-student');
-  page.append(head(tour, ui('print.student')));
+  page.setAttribute('aria-labelledby', 'print-student-title');
+  page.append(head(tour, ui('print.student'), 'print-student-title'));
   const name = el('p', 'print-name', `${ui('print.name')}: `);
-  name.append(el('span', 'print-blank'));
+  const blank = el('span', 'print-blank');
+  blank.setAttribute('aria-hidden', 'true');
+  name.append(blank);
   page.append(name);
   const list = el('ol', 'print-questions');
   for (const { step, n } of questions(tour)) {
@@ -78,7 +91,8 @@ function studentSheet(tour, srcById) {
 function teacherSheet(tour, srcById) {
   const { lesson } = tour;
   const page = el('section', 'print-page print-teacher');
-  page.append(head(tour, ui('print.teacher')));
+  page.setAttribute('aria-labelledby', 'print-teacher-title');
+  page.append(head(tour, ui('print.teacher'), 'print-teacher-title'));
   const facts = el('dl', 'print-facts');
   const fact = (label, value) => { facts.append(el('dt', null, label), el('dd', null, value)); };
   fact(ui('print.gradesLabel'), gradeText(lesson.grades));

@@ -2480,6 +2480,29 @@ async function run(browser, vp) {
     });
   }
   if (vp.name === 'dator') {
+    // Mätningarna i utskriftsvyn (#757): körs i sidan med print-media påslaget
+    const printAudit = () => {
+      const root = document.getElementById('print-sheet');
+      const heads = [...root.querySelectorAll('h1, h2, h3, h4')];
+      const levels = heads.map(h => Number(h.tagName[1]));
+      const h1s = heads.filter(h => h.tagName === 'H1').map(h => h.textContent.trim());
+      const texts = [...root.querySelectorAll('*')].filter(e => e.children.length === 0 && e.textContent.trim());
+      const css = (e, p) => getComputedStyle(e).getPropertyValue(p);
+      const avoid = ['.print-questions > li', '.print-exit', '.print-sources li'].flatMap(s => [...root.querySelectorAll(s)]);
+      return {
+        h1: h1s.length,
+        h1Same: new Set(h1s).size !== h1s.length,
+        skippedHeading: levels.some((l, i) => l > (levels[i - 1] ?? 0) + 1),
+        unlabelled: [...root.querySelectorAll('.print-page')].filter(s => !document.getElementById(s.getAttribute('aria-labelledby') ?? '')?.textContent.trim()).length,
+        visibleLines: [...root.querySelectorAll('.print-lines, .print-blank')].filter(e => e.getAttribute('aria-hidden') !== 'true').length,
+        colors: [...new Set(texts.map(e => `${css(e, 'color')} på ${css(e, 'background-color')}`))],
+        smallest: Math.min(...texts.map(e => parseFloat(css(e, 'font-size')) * 0.75)),
+        markers: [...root.querySelectorAll('.print-questions, .print-questions-short')].filter(l => css(l, 'list-style-type') !== 'none').length,
+        splits: avoid.filter(e => !/avoid/.test(css(e, 'break-inside'))).length + heads.filter(h => h.tagName === 'H2' && !/avoid/.test(css(h, 'break-after'))).length,
+        wide: [...root.querySelectorAll('*')].filter(e => e.clientWidth > 0 && e.scrollWidth > e.clientWidth + 1).length,
+        urls: root.querySelectorAll('.print-src-url, .print-link').length,
+      };
+    };
     // Utskrift av en lektionstur (#738): knappen bara i en tur med lärarfält, och i utskrift syns bara elevbladet
     // och lärarbladet. Webbläsarens utskriftsdialog ersätts, så att testet inte väntar på den.
     await check('en lektionstur skriver ut elevblad och lärarblad (#738)', async () => {
@@ -2512,7 +2535,25 @@ async function run(browser, vp) {
           link: document.querySelector('#print-sheet .print-link')?.textContent ?? '',
           teacher: document.querySelector('#print-sheet .print-teacher')?.textContent ?? '',
         }));
+        Object.assign(got, await printPage.evaluate(printAudit));
+        // Sidbrytning: hela bladen ryms på ett A4 var (Chromium kan skriva PDF; Firefox och WebKit kan inte)
+        const pdfPages = BROWSER === 'chromium'
+          ? (await printPage.pdf({ format: 'A4', preferCSSPageSize: true })).toString('latin1').match(/\/Type\s*\/Page[^s]/g)?.length ?? 0
+          : 2;
         await printPage.emulateMedia({ media: 'screen' });
+        // Utskriften (#757): läsordning och rubriker för hjälpmedel, svart på vitt utan färg, läsbar textstorlek och
+        // sidbrytning som inte delar ett svarsfält
+        if (got.h1 !== 2 || got.skippedHeading) throw new Error(`rubrikerna är fel i utskriften: ${got.h1} h1, hopp i nivåerna: ${got.skippedHeading}`);
+        if (got.h1Same) throw new Error('elevbladet och lärarbladet har samma rubrik');
+        if (got.unlabelled) throw new Error(`${got.unlabelled} blad saknar märkning (aria-labelledby)`);
+        if (got.visibleLines) throw new Error('skrivraderna syns för hjälpmedel i stället för att vara dekoration');
+        if (got.colors.length !== 1) throw new Error(`utskriften har fler färger än svart på vitt: ${got.colors.join(' ')}`);
+        if (got.smallest < 8) throw new Error(`minsta texten i utskriften är ${got.smallest.toFixed(1)} pt, minst 8 pt krävs`);
+        if (got.markers) throw new Error('listornas siffror säger emot stegnumren på bladen');
+        if (got.splits) throw new Error(`${got.splits} svarsfält eller grupper får delas av en sidbrytning`);
+        if (got.wide) throw new Error(`${got.wide} element är bredare än utskriftsytan`);
+        if (got.urls < 2) throw new Error('adresser står inte som text på bladen (papper går inte att klicka på)');
+        if (pdfPages !== 2) throw new Error(`utskriften blev ${pdfPages} A4-sidor i stället för ett blad per sida`);
         if (got.pages !== 2) throw new Error(`${got.pages} blad i stället för elevblad och lärarblad`);
         if (got.questions !== 5) throw new Error(`elevbladet har ${got.questions} frågor, turen har 5`);
         if (got.sheet === 'none' || got.app !== 'none') throw new Error(`i utskrift: bladen ${got.sheet}, sidan ${got.app}`);
