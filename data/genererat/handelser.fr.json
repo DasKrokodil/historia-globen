@@ -35,7 +35,7 @@
 "agadez-mosken":{"place":{"fr":"Agadez, Niger"},"title":{"fr":"La mosquée d'Agadez est construite"}},
 "harar-adals-huvudstad":{"place":{"fr":"Harar, Éthiopie"},"title":{"fr":"Harar devient la capitale du sultanat d'Adal"}},
 "tarikh-al-sudan":{"place":{"fr":"Tombouctou, Mali"},"title":{"fr":"Le Tarikh al-Sudan, la chronique du Songhaï"}},
-"dronten-sista-gangen":{"place":{"fr":"Maurice, dans l'océan Indien"},"title":{"fr":"Le dodo est vu pour la dernière fois"}},
+"dronten-sista-gangen":{"place":{"fr":"Maurice, dans l'océan Indien"},"title":{"fr":"Le dodo est vu pour la dernière fois"},"note":{"title":{"fr":"Les sources divergent"}}},
 "fogo-utbrottet-1680":{"place":{"fr":"Pico do Fogo, sur l'île de Fogo, Cap-Vert"},"title":{"fr":"Grande éruption du volcan Fogo"}},
 "rodriguessolitaren-dor-ut":{"place":{"fr":"Rodrigues, dans l'océan Indien (Maurice)"},"title":{"fr":"Le solitaire de Rodrigues disparaît"},"note":{"title":{"fr":"Datation incertaine"}}}
 }}
