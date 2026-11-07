@@ -66,6 +66,7 @@ js/layers/index.js    lagerlistan: alla lager som anmäler sig i registret (#338
 js/model.js           språk, kategorier, tidsformat, laddning av data
 js/i18n.js            språkval och gränssnittets texter på valt språk (#63)
 js/globe.js           3D-globen (three.js), ekvirektangulär rendering
+js/globe-detail.js    skarpt utsnitt av kartan vid inzoomning
 js/timeline.js        tidsreglage, segmenterad tidsskala, nuvarande år
 js/layers/events.js   lager: händelser som punkter
 js/layers/areas.js    lager: riken som områden som ändras över tid
