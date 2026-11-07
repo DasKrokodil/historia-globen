@@ -164,6 +164,13 @@
   "top.sourcesTitle": "À propos des sources : politique des sources et registre des sources",
   "top.sources": "Sources",
   "top.help": "Aide",
+  "top.quiz": "Quiz",
+  "top.quizTitle": "Que s'est-il passé au même moment ? Des questions tirées des anecdotes",
+  "quiz.close": "Fermer le quiz",
+  "quiz.title": "Que s'est-il passé au même moment ?",
+  "quiz.event": "L'événement",
+  "quiz.sources": "Sources",
+  "quiz.next": "Question suivante",
   "help.title": "Comment utiliser le globe",
   "help.close": "Fermer l'aide",
   "help.s1": "Faites tourner le globe",
@@ -444,5 +451,10 @@
   "ff.pictureCard": "Carte illustrée",
   "ff.readMore": "Lire la suite ›",
   "ff.readMoreAbout": "En savoir plus sur {title}",
-  "ff.pager": "{n} sur {total}"
+  "ff.pager": "{n} sur {total}",
+  "quiz.question": "Lequel de ces événements s'est produit au même moment ?",
+  "quiz.right": "Bonne réponse !",
+  "quiz.wrong": "Pas tout à fait. La bonne réponse : {answer}",
+  "quiz.score": "{right} sur {total} correctes",
+  "quiz.empty": "Il n'y a pas de questions pour le moment."
 }

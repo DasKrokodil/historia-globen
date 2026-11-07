@@ -521,6 +521,40 @@ async function run(browser, vp) {
     return 'ingen automatisk popup; tre steg, år 1889, Escape och reducerad rörelse fungerar';
   });
 
+  // Quizet (#65): tre svar ur datan, rätt eller fel med årtal och källor, nästa fråga, bara tangentbord och Escape
+  await check('quizet ställer frågor ur fun facts och går att svara på med tangentbordet (#65)', async () => {
+    // Fallerar kontrollen stängs quizet, så att rutan inte täcker sidan för kontrollerna efter
+    try { return await quizCheck(); } catch (err) { if (await page.isVisible('#quiz')) await page.keyboard.press('Escape'); throw err; }
+  });
+  async function quizCheck() {
+    await clickView('#btn-quiz');
+    await visible('#quiz');
+    if ((await page.textContent('#quiz-event-title')).trim() === '') throw new Error('frågan saknar händelse');
+    if (await page.locator('#quiz-options button').count() !== 3) throw new Error('frågan har inte tre svar');
+    const wide = await page.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1);
+    if (wide) throw new Error('quizet ger horisontell scroll');
+    // Fokus står på första svaret; Enter svarar
+    const onOption = await page.waitForFunction(() => document.activeElement?.classList.contains('quiz-option'), null, { timeout: 2000 }).then(() => true, () => false);
+    if (!onOption) throw new Error('fokus står inte på ett svar när frågan öppnas');
+    await page.keyboard.press('Enter');
+    await visible('#quiz-result');
+    if (!(await page.textContent('#quiz-verdict')).trim()) throw new Error('svaret säger inte rätt eller fel');
+    if (await page.locator('#quiz-options .is-answer').count() !== 1) throw new Error('rätt svar markeras inte');
+    if (await page.locator('#quiz-options .quiz-option-time:visible').count() !== 3) throw new Error('årtalen visas inte efter svaret');
+    await page.waitForFunction(() => document.querySelectorAll('#quiz-sources li a').length > 0, null, { timeout: T.step });
+    if (!/ av 1|1 /.test(await page.textContent('#quiz-score'))) throw new Error(`poängen visar ${await page.textContent('#quiz-score')}`);
+    const onNext = await page.evaluate(() => document.activeElement?.id === 'quiz-next');
+    if (!onNext) throw new Error('fokus går inte till Nästa fråga efter svaret');
+    await page.keyboard.press('Enter');
+    await hidden('#quiz-result');
+    if (await page.locator('#quiz-options button:disabled').count()) throw new Error('nästa fråga har låsta svar');
+    await page.keyboard.press('Escape');
+    await hidden('#quiz');
+    const back = await page.evaluate(() => document.activeElement?.id);
+    if (!['btn-quiz', 'btn-more', 'more-toggle'].includes(back)) throw new Error(`fokus gick till ${back} efter Escape`);
+    return 'tre svar, Enter svarar, årtal och källor efter svaret, Nästa fråga, Escape och fokus tillbaka';
+  }
+
   await check('en guidad tur går att spela steg för steg och återställer lagren (#47)', async () => {
     const layersOn = () => page.evaluate(() => [...document.querySelectorAll('#layer-menu input[data-layer]')].filter(i => i.checked).map(i => i.dataset.layer).sort().join(','));
     const before = await layersOn();

@@ -16,6 +16,7 @@ import { LayerMenu, loadViews } from './ui/layers.js';
 import { ReligionLegend, EmpireLegend } from './ui/legend.js';
 import { RoutePop } from './ui/routepop.js';
 import { Help } from './ui/help.js';
+import { Quiz } from './ui/quiz.js';
 import { Intro, loadIntro } from './ui/intro.js';
 import { TourPlayer, loadTours } from './ui/tour.js';
 import { FlatMap } from './ui/flatmap.js';
@@ -492,6 +493,16 @@ async function start() {
   introButton.hidden = !intro.ready;
   introButton.textContent = introData?.labels?.start ? t(introData.labels.start) : introButton.textContent;
   introButton.addEventListener('click', () => intro.open(introButton));
+
+  // Quiz (#65): frågor ur befintliga fun facts, startas från Mer. Knappen döljs om datan inte räcker till en fråga.
+  const quizButton = $('btn-quiz');
+  const quiz = new Quiz({
+    root: $('quiz'), closeBtn: $('quiz-close'), score: $('quiz-score'), event: $('quiz-event'), eventTitle: $('quiz-event-title'),
+    eventMeta: $('quiz-event-meta'), question: $('quiz-question'), options: $('quiz-options'), result: $('quiz-result'),
+    verdict: $('quiz-verdict'), funfact: $('quiz-funfact'), sources: $('quiz-sources'), next: $('quiz-next'),
+  }, data, { fallbackFocus: () => $('btn-more') });
+  quizButton.hidden = !quiz.ready;
+  quizButton.addEventListener('click', () => { help.close(false); quiz.open(quizButton); });
 
   // Guidade turer (#47): en tur är data i data/turer/, och spelaren styr tidslinjen, kameran, Lager och faktarutan
   const tour = new TourPlayer({
