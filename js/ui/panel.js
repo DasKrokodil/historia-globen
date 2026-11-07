@@ -1,7 +1,7 @@
 // "Samtidigt i världen": lista över synliga händelser per världsdel, kategorifilter
 // (i lagermenyn, #120, och som chips ovanför listan, #311) och faktarutan.
 import { buildAreaCurve } from './areacurve.js';
-import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, isVisibleReview, needDetails } from '../model.js';
+import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, isVisibleReview, needDetails, misconceptionsFor } from '../model.js';
 import { ui, LANG } from '../i18n.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -14,6 +14,26 @@ export const regionName = r => ui(`region.${r}`);
 export const sourcesDisagree = e => e.note?.kind === 'disagreement';
 /** Källraden. pending = källregistret eller händelsens källor laddas fortfarande (#337): då står ingen rad alls. */
 const srcLine = (srcs, pending) => pending ? '' : `<div class="src">${esc(ui('detail.source'))} ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || esc(ui('detail.sourceMissing'))}</div>`;
+/**
+ * Vanliga missuppfattningar som hör till händelsen (#838, beslut 2026-11-07): vad många tror, vad källorna säger,
+ * var missuppfattningen kom ifrån (hopfälld) och källorna. Texterna ligger i data/missuppfattningar.json.
+ * Tom text när händelsen saknar missuppfattningar eller när källregistret ännu inte har laddats (pending).
+ */
+export function mythsHtml(list, srcById, pending = false) {
+  if (pending) return '';
+  return (list ?? []).map(m => {
+    const rv = REVIEW[m.review] ?? REVIEW.draft;
+    const srcs = (m.sources ?? []).map(id => srcById?.[id]).filter(Boolean);
+    return `<aside class="detail-note detail-myth" data-myth="${esc(m.id)}">
+      <h4>${esc(ui('detail.myth.title'))}</h4>
+      <p class="myth-claim"><b>${esc(ui('detail.myth.claim'))}</b> ${esc(t(m.claim))}</p>
+      <p class="myth-truth"><b>${esc(ui('detail.myth.truth'))}</b> ${esc(t(m.truth))}</p>
+      <details class="myth-origin"><summary>${esc(ui('detail.myth.origin'))}</summary><p>${esc(t(m.origin))}</p></details>
+      <div class="src">${esc(ui('detail.source'))} ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || esc(ui('detail.sourceMissing'))}</div>
+      <p class="myth-review"><span class="review-badge ${rv.cls}">${esc(reviewLabel(m.review, 'Missuppfattningen'))}</span></p>
+    </aside>`;
+  }).join('');
+}
 const EVIDENCE_FIELDS = ['summary', 'date', 'location', 'image', 'uncertainty'];
 // Det viktigaste att ta med sig (#500, Rikards beslut 2026-11-03): krigets story.takeaways, grupperade efter
 // vad källorna säger. Rubrikerna är vanlig svenska, så att osäkerheten förklaras i ord och inte med en symbol.
@@ -529,7 +549,7 @@ export class Panel {
   showDetail(e, show = true) {
     this.selectedId = e?.id ?? null;
     if (!e || !show) { this.shown = null; delete this.detail.dataset.eventId; this.detail.hidden = true; return; }
-    const pending = this._whenLoaded(needDetails([e]), () => this.showDetail(e, show)), loading = pending && !e._full;
+    const pending = this._whenLoaded(needDetails([e], { misconceptions: true }), () => this.showDetail(e, show)), loading = pending && !e._full;
     // Wikidata länkas till händelsens egen post
     const srcs = (e.sources ?? []).map(id => id === 'wikidata' && e.wikidata
       ? { id, title: `Wikidata ${e.wikidata}`, url: `https://www.wikidata.org/wiki/${e.wikidata}` }
@@ -556,6 +576,7 @@ export class Panel {
       ${figure(e, this.srcById, evidence.marker('image'))}
       ${loading ? loadingHtml() : `<p>${esc(t(e.summary))}${evidence.marker('summary')}</p>`}
       ${e.note ? `<aside class="detail-note"><h4>${esc(t(e.note.title))}</h4><p>${esc(t(e.note.text))}</p></aside>` : ''}
+      ${loading ? '' : mythsHtml(misconceptionsFor(e.id), this.srcById, pending)}
       ${unc}
       ${e._war ? `<p class="war-link">${esc(ui('detail.partOf'))} <button type="button" class="link-btn" data-goto="${esc(e._war.id)}">${esc(t(e._war.title))}</button></p>` : ''}
       ${e.kind === 'war' ? `<button type="button" class="chip-btn focus-btn" data-focus="${esc(e.id)}">▶ ${esc(ui('detail.followWar'))}</button>` : ''}
