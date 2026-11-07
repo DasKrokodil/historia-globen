@@ -18,10 +18,12 @@
       "precision": 9,
       "note": {
         "title": {
-          "sv": "Källorna skiljer sig"
+          "sv": "Källorna skiljer sig",
+          "en": "The sources differ"
         },
         "text": {
-          "sv": "I Wikipedia (efter Dreyer 2007 och Mingkrönikorna) dateras resan till 1405–1407. World History Encyclopedia skriver att de tre första resorna gjordes 1404, 1408 och 1409. Om flottan verkligen lade till i Quilon är osäkert: kungen av Quilon följde med till Kina 1407, men ingen berättelse bekräftar besöket. Enligt Mills (1970) låg flottan kanske i Calicut från december 1406 till april 1407."
+          "sv": "I Wikipedia (efter Dreyer 2007 och Mingkrönikorna) dateras resan till 1405–1407. World History Encyclopedia skriver att de tre första resorna gjordes 1404, 1408 och 1409. Om flottan verkligen lade till i Quilon är osäkert: kungen av Quilon följde med till Kina 1407, men ingen berättelse bekräftar besöket. Enligt Mills (1970) låg flottan kanske i Calicut från december 1406 till april 1407.",
+          "en": "Wikipedia (following Dreyer 2007 and the Ming chronicles) dates the voyage to 1405–1407. World History Encyclopedia writes that the first three voyages were made in 1404, 1408 and 1409. Whether the fleet really called at Quilon is uncertain: the king of Quilon accompanied it to China in 1407, but no account confirms the visit. According to Mills (1970) the fleet may have been at Calicut from December 1406 to April 1407."
         }
       },
       "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
@@ -36,7 +38,8 @@
             {
               "at": [118.8, 32.1],
               "name": {
-                "sv": "Nanjing"
+                "sv": "Nanjing",
+                "en": "Nanjing"
               },
               "edtf": "1405-23",
               "stop": true
@@ -44,13 +47,15 @@
             {
               "at": [121.3, 31.5],
               "name": {
-                "sv": "Liujiagang"
+                "sv": "Liujiagang",
+                "en": "Liujiagang"
               }
             },
             {
               "at": [119.6, 25.9],
               "name": {
-                "sv": "Taipingankarplatsen vid Changle"
+                "sv": "Taipingankarplatsen vid Changle",
+                "en": "The Taiping anchorage at Changle"
               }
             }
           ],
@@ -65,55 +70,64 @@
             {
               "at": [109.1, 13.9],
               "name": {
-                "sv": "Champa"
+                "sv": "Champa",
+                "en": "Champa"
               }
             },
             {
               "at": [110.0, -7.5],
               "name": {
-                "sv": "Java"
+                "sv": "Java",
+                "en": "Java"
               }
             },
             {
               "at": [102.3, 2.2],
               "name": {
-                "sv": "Malacka"
+                "sv": "Malacka",
+                "en": "Malacca"
               }
             },
             {
               "at": [98.7, 3.6],
               "name": {
-                "sv": "Aru"
+                "sv": "Aru",
+                "en": "Aru"
               }
             },
             {
               "at": [97.1, 5.2],
               "name": {
-                "sv": "Semudera"
+                "sv": "Semudera",
+                "en": "Semudera"
               }
             },
             {
               "at": [95.3, 5.6],
               "name": {
-                "sv": "Lambri"
+                "sv": "Lambri",
+                "en": "Lambri"
               }
             },
             {
               "at": [81.0, 7.0],
               "name": {
-                "sv": "Ceylon (västkusten)"
+                "sv": "Ceylon (västkusten)",
+                "en": "Ceylon (west coast)"
               }
             },
             {
               "at": [76.6, 8.9],
               "name": {
-                "sv": "Quilon (osäkert om flottan lade till)"
+                "sv": "Quilon (osäkert om flottan lade till)",
+                "en": "Quilon (uncertain whether the fleet called there)"
               }
             },
             {
               "at": [75.8, 11.2],
               "name": {
-                "sv": "Calicut"
+                "sv": "Calicut",
+                "en": "Calicut"
               },
               "edtf": "1406-12/1407-04?"
             }
@@ -130,24 +144,28 @@
             {
               "at": [102.3, 2.2],
               "name": {
-                "sv": "Malacka"
+                "sv": "Malacka",
+                "en": "Malacca"
               }
             },
             {
               "at": [104.8, -3.0],
               "name": {
-                "sv": "Palembang (slaget mot Chen Zuyi)"
+                "sv": "Palembang (slaget mot Chen Zuyi)",
+                "en": "Palembang (the battle against Chen Zuyi)"
               },
               "edtf": "1407",
               "dateLabel": {
-                "sv": "1407, på hemresan"
+                "sv": "1407, på hemresan",
+                "en": "1407, on the return journey"
               },
               "stop": true
             },
             {
               "at": [118.8, 32.1],
               "name": {
-                "sv": "Nanjing"
+                "sv": "Nanjing",
+                "en": "Nanjing"
               },
               "date": "1407-10-02",
               "stop": true
@@ -175,10 +193,12 @@
       "precision": 9,
       "note": {
         "title": {
-          "sv": "Källorna skiljer sig"
+          "sv": "Källorna skiljer sig",
+          "en": "The sources differ"
         },
         "text": {
-          "sv": "Avresan anges som femte året under Yongle, alltså slutet av 1407 eller kanske början av 1408. World History Encyclopedia daterar resan till 1408 och skriver att flottan löste en tvist på Java på hemvägen 1408, medan Wikipedia säger att hemkomsten var sommaren 1409. Det är också omstritt om Zheng He själv var med: Duyvendak (1938) och Mills (1970) menar att han stannade i Kina, Dreyer (2007) att han var med. Siam och Java kan ha besökts av mindre eskadrar innan flottan samlades i Malacka. Ordningen mellan Aru, Semudera och Lambri är här ritad efter geografin. Fei Xin berättar om ett stopp vid Pulau Sembilan i Malackasundet 1409, men Wikipedia länkar platsen till Similanöarna i Andamansjön, så den är inte utritad."
+          "sv": "Avresan anges som femte året under Yongle, alltså slutet av 1407 eller kanske början av 1408. World History Encyclopedia daterar resan till 1408 och skriver att flottan löste en tvist på Java på hemvägen 1408, medan Wikipedia säger att hemkomsten var sommaren 1409. Det är också omstritt om Zheng He själv var med: Duyvendak (1938) och Mills (1970) menar att han stannade i Kina, Dreyer (2007) att han var med. Siam och Java kan ha besökts av mindre eskadrar innan flottan samlades i Malacka. Ordningen mellan Aru, Semudera och Lambri är här ritad efter geografin. Fei Xin berättar om ett stopp vid Pulau Sembilan i Malackasundet 1409, men Wikipedia länkar platsen till Similanöarna i Andamansjön, så den är inte utritad.",
+          "en": "The departure is given as the fifth year of Yongle, that is the end of 1407 or perhaps the beginning of 1408. World History Encyclopedia dates the voyage to 1408 and writes that the fleet settled a dispute on Java on the way home in 1408, while Wikipedia says that the return was in the summer of 1409. It is also disputed whether Zheng He himself took part: Duyvendak (1938) and Mills (1970) hold that he stayed in China, Dreyer (2007) that he went along. Siam and Java may have been visited by smaller squadrons before the fleet assembled at Malacca. The order between Aru, Semudera and Lambri is drawn here according to geography. Fei Xin tells of a stop at Pulau Sembilan in the Strait of Malacca in 1409, but Wikipedia links the place to the Similan Islands in the Andaman Sea, so it is not drawn."
         }
       },
       "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
@@ -194,20 +214,23 @@
             {
               "at": [118.8, 32.1],
               "name": {
-                "sv": "Nanjing"
+                "sv": "Nanjing",
+                "en": "Nanjing"
               },
               "edtf": "1407?"
             },
             {
               "at": [121.3, 31.5],
               "name": {
-                "sv": "Liujiagang"
+                "sv": "Liujiagang",
+                "en": "Liujiagang"
               }
             },
             {
               "at": [119.6, 25.9],
               "name": {
-                "sv": "Changle"
+                "sv": "Changle",
+                "en": "Changle"
               }
             }
           ],
@@ -222,61 +245,71 @@
             {
               "at": [109.1, 13.9],
               "name": {
-                "sv": "Champa"
+                "sv": "Champa",
+                "en": "Champa"
               }
             },
             {
               "at": [100.6, 14.3],
               "name": {
-                "sv": "Siam"
+                "sv": "Siam",
+                "en": "Siam"
               }
             },
             {
               "at": [110.0, -7.5],
               "name": {
-                "sv": "Java"
+                "sv": "Java",
+                "en": "Java"
               }
             },
             {
               "at": [102.3, 2.2],
               "name": {
-                "sv": "Malacka"
+                "sv": "Malacka",
+                "en": "Malacca"
               }
             },
             {
               "at": [98.7, 3.6],
               "name": {
-                "sv": "Aru"
+                "sv": "Aru",
+                "en": "Aru"
               }
             },
             {
               "at": [97.1, 5.2],
               "name": {
-                "sv": "Semudera"
+                "sv": "Semudera",
+                "en": "Semudera"
               }
             },
             {
               "at": [95.3, 5.6],
               "name": {
-                "sv": "Lambri"
+                "sv": "Lambri",
+                "en": "Lambri"
               }
             },
             {
               "at": [76.6, 8.9],
               "name": {
-                "sv": "Quilon"
+                "sv": "Quilon",
+                "en": "Quilon"
               }
             },
             {
               "at": [76.3, 9.9],
               "name": {
-                "sv": "Cochin"
+                "sv": "Cochin",
+                "en": "Cochin"
               }
             },
             {
               "at": [75.8, 11.2],
               "name": {
-                "sv": "Calicut (kungen insätts)"
+                "sv": "Calicut (kungen insätts)",
+                "en": "Calicut (the king is installed)"
               }
             }
           ],
@@ -292,7 +325,8 @@
             {
               "at": [118.8, 32.1],
               "name": {
-                "sv": "Nanjing"
+                "sv": "Nanjing",
+                "en": "Nanjing"
               },
               "edtf": "1409-22"
             }
@@ -319,10 +353,12 @@
       "precision": 9,
       "note": {
         "title": {
-          "sv": "Källorna skiljer sig"
+          "sv": "Källorna skiljer sig",
+          "en": "The sources differ"
         },
         "text": {
-          "sv": "De flesta forskare placerar striden på Ceylon på hemresan 1411, men Dreyer (2007) tror att den skedde på utresan 1410. De kinesiska källorna säger inte när under resan den inträffade. World History Encyclopedia daterar resan till 1409 men anger inget hemkomstår."
+          "sv": "De flesta forskare placerar striden på Ceylon på hemresan 1411, men Dreyer (2007) tror att den skedde på utresan 1410. De kinesiska källorna säger inte när under resan den inträffade. World History Encyclopedia daterar resan till 1409 men anger inget hemkomstår.",
+          "en": "Most scholars place the battle on Ceylon on the return journey in 1411, but Dreyer (2007) believes that it took place on the outward journey in 1410. The Chinese sources do not say when during the voyage it occurred. World History Encyclopedia dates the voyage to 1409 but gives no year of return."
         }
       },
       "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
@@ -338,21 +374,24 @@
             {
               "at": [118.8, 32.1],
               "name": {
-                "sv": "Nanjing"
+                "sv": "Nanjing",
+                "en": "Nanjing"
               },
               "edtf": "1409"
             },
             {
               "at": [121.3, 31.5],
               "name": {
-                "sv": "Liujiagang"
+                "sv": "Liujiagang",
+                "en": "Liujiagang"
               },
               "edtf": "1409-10/1409-11"
             },
             {
               "at": [119.6, 25.9],
               "name": {
-                "sv": "Changle"
+                "sv": "Changle",
+                "en": "Changle"
               },
               "edtf": "1409-11/1410-01"
             }
@@ -369,7 +408,8 @@
             {
               "at": [109.1, 13.9],
               "name": {
-                "sv": "Champa (inom tio dagar)"
+                "sv": "Champa (inom tio dagar)",
+                "en": "Champa (within ten days)"
               },
               "edtf": "1410-01/1410-02"
             }
@@ -386,44 +426,51 @@
             {
               "at": [110.0, -7.5],
               "name": {
-                "sv": "Java"
+                "sv": "Java",
+                "en": "Java"
               }
             },
             {
               "at": [102.3, 2.2],
               "name": {
-                "sv": "Malacka"
+                "sv": "Malacka",
+                "en": "Malacca"
               }
             },
             {
               "at": [97.1, 5.2],
               "name": {
-                "sv": "Semudera"
+                "sv": "Semudera",
+                "en": "Semudera"
               }
             },
             {
               "at": [80.2, 6.0],
               "name": {
-                "sv": "Galle, Ceylon"
+                "sv": "Galle, Ceylon",
+                "en": "Galle, Ceylon"
               },
               "edtf": "1410"
             },
             {
               "at": [76.6, 8.9],
               "name": {
-                "sv": "Quilon"
+                "sv": "Quilon",
+                "en": "Quilon"
               }
             },
             {
               "at": [76.3, 9.9],
               "name": {
-                "sv": "Cochin"
+                "sv": "Cochin",
+                "en": "Cochin"
               }
             },
             {
               "at": [75.8, 11.2],
               "name": {
-                "sv": "Calicut"
+                "sv": "Calicut",
+                "en": "Calicut"
               }
             }
           ],
@@ -439,14 +486,16 @@
             {
               "at": [79.9, 6.9],
               "name": {
-                "sv": "Kotte, Ceylon (striden mot Alakeshvara)"
+                "sv": "Kotte, Ceylon (striden mot Alakeshvara)",
+                "en": "Kotte, Ceylon (the battle against Alakeshvara)"
               },
               "edtf": "1411?"
             },
             {
               "at": [118.8, 32.1],
               "name": {
-                "sv": "Nanjing"
+                "sv": "Nanjing",
+                "en": "Nanjing"
               },
               "date": "1411-07-06"
             }
@@ -473,10 +522,12 @@
       "precision": 9,
       "note": {
         "title": {
-          "sv": "Källorna skiljer sig"
+          "sv": "Källorna skiljer sig",
+          "en": "The sources differ"
         },
         "text": {
-          "sv": "Enligt Wikipedia (efter Mingkrönikorna och Dreyer 2007) var Hormuz resans mål längst bort. World History Encyclopedia skriver att flottan dessutom seglade till Aden och upp i Röda havet till Jidda, varifrån en grupp reste till Mecka. Wikipedia nämner Aden först på den femte resan och Mecka på den sjunde. Källan räknar Sumatras hamnar i ordningen Lambri, Lide, Aru och Semudera; här är de ritade efter geografin, och Lide är inte utritad eftersom platsen inte är identifierad i källan. Jiayile, Bila och Sunla är inte heller utritade."
+          "sv": "Enligt Wikipedia (efter Mingkrönikorna och Dreyer 2007) var Hormuz resans mål längst bort. World History Encyclopedia skriver att flottan dessutom seglade till Aden och upp i Röda havet till Jidda, varifrån en grupp reste till Mecka. Wikipedia nämner Aden först på den femte resan och Mecka på den sjunde. Källan räknar Sumatras hamnar i ordningen Lambri, Lide, Aru och Semudera; här är de ritade efter geografin, och Lide är inte utritad eftersom platsen inte är identifierad i källan. Jiayile, Bila och Sunla är inte heller utritade.",
+          "en": "According to Wikipedia (following the Ming chronicles and Dreyer 2007) Hormuz was the voyage's farthest destination. World History Encyclopedia writes that the fleet also sailed to Aden and up the Red Sea to Jeddah, from where a group travelled to Mecca. Wikipedia mentions Aden only on the fifth voyage and Mecca on the seventh. The source lists the ports of Sumatra in the order Lambri, Lide, Aru and Semudera; here they are drawn according to geography, and Lide is not drawn because the place is not identified in the source. Jiayile, Bila and Sunla are not drawn either."
         }
       },
       "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
@@ -492,14 +543,16 @@
             {
               "at": [118.8, 32.1],
               "name": {
-                "sv": "Nanjing"
+                "sv": "Nanjing",
+                "en": "Nanjing"
               },
               "edtf": "1413-23?"
             },
             {
               "at": [119.6, 25.9],
               "name": {
-                "sv": "Fujian (avresa)"
+                "sv": "Fujian (avresa)",
+                "en": "Fujian (departure)"
               },
               "edtf": "1413-12/1414-01"
             }
@@ -516,73 +569,85 @@
             {
               "at": [109.1, 13.9],
               "name": {
-                "sv": "Champa"
+                "sv": "Champa",
+                "en": "Champa"
               }
             },
             {
               "at": [102.3, 6.1],
               "name": {
-                "sv": "Kelantan"
+                "sv": "Kelantan",
+                "en": "Kelantan"
               }
             },
             {
               "at": [103.3, 3.8],
               "name": {
-                "sv": "Pahang"
+                "sv": "Pahang",
+                "en": "Pahang"
               }
             },
             {
               "at": [102.3, 2.2],
               "name": {
-                "sv": "Malacka"
+                "sv": "Malacka",
+                "en": "Malacca"
               }
             },
             {
               "at": [104.8, -3.0],
               "name": {
-                "sv": "Palembang"
+                "sv": "Palembang",
+                "en": "Palembang"
               }
             },
             {
               "at": [110.0, -7.5],
               "name": {
-                "sv": "Java"
+                "sv": "Java",
+                "en": "Java"
               }
             },
             {
               "at": [98.7, 3.6],
               "name": {
-                "sv": "Aru"
+                "sv": "Aru",
+                "en": "Aru"
               }
             },
             {
               "at": [97.1, 5.2],
               "name": {
-                "sv": "Semudera"
+                "sv": "Semudera",
+                "en": "Semudera"
               }
             },
             {
               "at": [95.3, 5.6],
               "name": {
-                "sv": "Lambri"
+                "sv": "Lambri",
+                "en": "Lambri"
               }
             },
             {
               "at": [81.0, 7.0],
               "name": {
-                "sv": "Ceylon"
+                "sv": "Ceylon",
+                "en": "Ceylon"
               }
             },
             {
               "at": [76.3, 9.9],
               "name": {
-                "sv": "Cochin"
+                "sv": "Cochin",
+                "en": "Cochin"
               }
             },
             {
               "at": [75.8, 11.2],
               "name": {
-                "sv": "Calicut"
+                "sv": "Calicut",
+                "en": "Calicut"
               }
             }
           ],
@@ -598,13 +663,15 @@
             {
               "at": [73.5, 4.2],
               "name": {
-                "sv": "Liushan (Maldiverna och Lackadiverna)"
+                "sv": "Liushan (Maldiverna och Lackadiverna)",
+                "en": "Liushan (the Maldives and Laccadives)"
               }
             },
             {
               "at": [56.5, 27.1],
               "name": {
-                "sv": "Hormuz"
+                "sv": "Hormuz",
+                "en": "Hormuz"
               }
             }
           ],
@@ -620,21 +687,24 @@
             {
               "at": [95.3, 5.6],
               "name": {
-                "sv": "Lambri (Sekandar tas till fånga)"
+                "sv": "Lambri (Sekandar tas till fånga)",
+                "en": "Lambri (Sekandar is taken prisoner)"
               },
               "edtf": "1415"
             },
             {
               "at": [97.1, 5.2],
               "name": {
-                "sv": "Semudera (strid mot Sekandar)"
+                "sv": "Semudera (strid mot Sekandar)",
+                "en": "Semudera (battle against Sekandar)"
               },
               "edtf": "1415"
             },
             {
               "at": [118.8, 32.1],
               "name": {
-                "sv": "Nanjing"
+                "sv": "Nanjing",
+                "en": "Nanjing"
               },
               "date": "1415-08-12"
             }
@@ -661,10 +731,12 @@
       "precision": 9,
       "note": {
         "title": {
-          "sv": "Källorna skiljer sig"
+          "sv": "Källorna skiljer sig",
+          "en": "The sources differ"
         },
         "text": {
-          "sv": "Ordningen Hormuz, Lasa, Aden, Mogadishu, Brava, Zhubu och Malindi är den troligaste enligt Wikipedia, inte säker. Lasa och Zhubu är inte utritade eftersom platserna inte är identifierade i källan, och Shaliwanni (kanske Cannanore) inte heller. World History Encyclopedia skriver om resorna fem till sju tillsammans och nämner Mogadishu, Malindi och Mombasa, och att flottan nådde Zanzibar; Mombasa och Zanzibar finns inte med i Wikipedias lista. Källan säger bara att flottan kom tillbaka till Kina, inte till vilken hamn."
+          "sv": "Ordningen Hormuz, Lasa, Aden, Mogadishu, Brava, Zhubu och Malindi är den troligaste enligt Wikipedia, inte säker. Lasa och Zhubu är inte utritade eftersom platserna inte är identifierade i källan, och Shaliwanni (kanske Cannanore) inte heller. World History Encyclopedia skriver om resorna fem till sju tillsammans och nämner Mogadishu, Malindi och Mombasa, och att flottan nådde Zanzibar; Mombasa och Zanzibar finns inte med i Wikipedias lista. Källan säger bara att flottan kom tillbaka till Kina, inte till vilken hamn.",
+          "en": "The order Hormuz, Lasa, Aden, Mogadishu, Brava, Zhubu and Malindi is the most likely according to Wikipedia, not certain. Lasa and Zhubu are not drawn because the places are not identified in the source, nor is Shaliwanni (perhaps Cannanore). World History Encyclopedia writes about voyages five to seven together and mentions Mogadishu, Malindi and Mombasa, and that the fleet reached Zanzibar; Mombasa and Zanzibar are not in Wikipedia's list. The source says only that the fleet came back to China, not to which port."
         }
       },
       "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
@@ -680,68 +752,79 @@
             {
               "at": [118.7, 24.9],
               "name": {
-                "sv": "Quanzhou (rökelseoffer)"
+                "sv": "Quanzhou (rökelseoffer)",
+                "en": "Quanzhou (incense offering)"
               },
               "date": "1417-05-31"
             },
             {
               "at": [109.1, 13.9],
               "name": {
-                "sv": "Champa"
+                "sv": "Champa",
+                "en": "Champa"
               }
             },
             {
               "at": [103.3, 3.8],
               "name": {
-                "sv": "Pahang"
+                "sv": "Pahang",
+                "en": "Pahang"
               }
             },
             {
               "at": [110.0, -7.5],
               "name": {
-                "sv": "Java"
+                "sv": "Java",
+                "en": "Java"
               }
             },
             {
               "at": [104.8, -3.0],
               "name": {
-                "sv": "Palembang"
+                "sv": "Palembang",
+                "en": "Palembang"
               }
             },
             {
               "at": [102.3, 2.2],
               "name": {
-                "sv": "Malacka"
+                "sv": "Malacka",
+                "en": "Malacca"
               }
             },
             {
               "at": [97.1, 5.2],
               "name": {
-                "sv": "Semudera"
+                "sv": "Semudera",
+                "en": "Semudera"
               }
             },
             {
               "at": [95.3, 5.6],
               "name": {
-                "sv": "Lambri"
+                "sv": "Lambri",
+                "en": "Lambri"
               }
             },
             {
               "at": [81.0, 7.0],
               "name": {
-                "sv": "Ceylon"
+                "sv": "Ceylon",
+                "en": "Ceylon"
               }
             },
             {
               "at": [76.3, 9.9],
               "name": {
-                "sv": "Cochin"
+                "sv": "Cochin",
+                "en": "Cochin"
               }
             },
             {
               "at": [75.8, 11.2],
               "name": {
-                "sv": "Calicut"
+                "sv": "Calicut",
+                "en": "Calicut"
               }
             }
           ],
@@ -757,38 +840,44 @@
             {
               "at": [73.5, 4.2],
               "name": {
-                "sv": "Liushan (Maldiverna och Lackadiverna)"
+                "sv": "Liushan (Maldiverna och Lackadiverna)",
+                "en": "Liushan (the Maldives and Laccadives)"
               }
             },
             {
               "at": [56.5, 27.1],
               "name": {
-                "sv": "Hormuz"
+                "sv": "Hormuz",
+                "en": "Hormuz"
               }
             },
             {
               "at": [45.0, 12.8],
               "name": {
-                "sv": "Aden"
+                "sv": "Aden",
+                "en": "Aden"
               },
               "edtf": "1419-01/1419-03"
             },
             {
               "at": [45.3, 2.0],
               "name": {
-                "sv": "Mogadishu"
+                "sv": "Mogadishu",
+                "en": "Mogadishu"
               }
             },
             {
               "at": [44.0, 1.1],
               "name": {
-                "sv": "Brava"
+                "sv": "Brava",
+                "en": "Brava"
               }
             },
             {
               "at": [40.1, -3.2],
               "name": {
-                "sv": "Malindi"
+                "sv": "Malindi",
+                "en": "Malindi"
               }
             }
           ],
@@ -804,7 +893,8 @@
             {
               "at": [118.8, 32.1],
               "name": {
-                "sv": "Kina (källan anger inte hamnen; flottans bas var Nanjing)"
+                "sv": "Kina (källan anger inte hamnen; flottans bas var Nanjing)",
+                "en": "China (the source does not give the port; the fleet's base was Nanjing)"
               },
               "date": "1419-08-08"
             }
@@ -831,10 +921,12 @@
       "precision": 9,
       "note": {
         "title": {
-          "sv": "Källorna skiljer sig"
+          "sv": "Källorna skiljer sig",
+          "en": "The sources differ"
         },
         "text": {
-          "sv": "Källan anger inte avresedagen eller hamnarna i Kina, och vilka eskadrar som for vart är bara delvis känt. Enligt Mingshi besökte Zheng He själv Ganbali i södra Indien; det är det enda av de tolv länderna väster om Sumatra som uttryckligen sägs ha fått besök av honom. Eskadern till Aden leddes troligen av Zhou Man. Några kinesiska skepp var kvar i Arabien: Rasulidsultanen tog emot en kinesisk delegation i Ta'izz i februari 1423. World History Encyclopedia skriver om resorna fem till sju tillsammans och nämner också Mombasa och Zanzibar, som inte finns med i Wikipedias lista."
+          "sv": "Källan anger inte avresedagen eller hamnarna i Kina, och vilka eskadrar som for vart är bara delvis känt. Enligt Mingshi besökte Zheng He själv Ganbali i södra Indien; det är det enda av de tolv länderna väster om Sumatra som uttryckligen sägs ha fått besök av honom. Eskadern till Aden leddes troligen av Zhou Man. Några kinesiska skepp var kvar i Arabien: Rasulidsultanen tog emot en kinesisk delegation i Ta'izz i februari 1423. World History Encyclopedia skriver om resorna fem till sju tillsammans och nämner också Mombasa och Zanzibar, som inte finns med i Wikipedias lista.",
+          "en": "The source does not give the day of departure or the ports in China, and which squadrons went where is only partly known. According to the Mingshi, Zheng He himself visited Ganbali in southern India; it is the only one of the twelve countries west of Sumatra that is expressly said to have been visited by him. The squadron to Aden was probably led by Zhou Man. Some Chinese ships remained in Arabia: the Rasulid sultan received a Chinese delegation in Ta'izz in February 1423. World History Encyclopedia writes about voyages five to seven together and also mentions Mombasa and Zanzibar, which are not in Wikipedia's list."
         }
       },
       "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
@@ -850,44 +942,51 @@
             {
               "at": [118.8, 32.1],
               "name": {
-                "sv": "Nanjing (avresehamnen anges inte)"
+                "sv": "Nanjing (avresehamnen anges inte)",
+                "en": "Nanjing (the port of departure is not given)"
               },
               "edtf": "1421?"
             },
             {
               "at": [102.3, 2.2],
               "name": {
-                "sv": "Malacka"
+                "sv": "Malacka",
+                "en": "Malacca"
               }
             },
             {
               "at": [98.7, 3.6],
               "name": {
-                "sv": "Aru"
+                "sv": "Aru",
+                "en": "Aru"
               }
             },
             {
               "at": [97.1, 5.2],
               "name": {
-                "sv": "Semudera (flottan delas i eskadrar)"
+                "sv": "Semudera (flottan delas i eskadrar)",
+                "en": "Semudera (the fleet splits into squadrons)"
               }
             },
             {
               "at": [95.3, 5.6],
               "name": {
-                "sv": "Lambri"
+                "sv": "Lambri",
+                "en": "Lambri"
               }
             },
             {
               "at": [81.0, 7.0],
               "name": {
-                "sv": "Ceylon"
+                "sv": "Ceylon",
+                "en": "Ceylon"
               }
             },
             {
               "at": [75.8, 11.2],
               "name": {
-                "sv": "Calicut"
+                "sv": "Calicut",
+                "en": "Calicut"
               }
             }
           ],
@@ -903,7 +1002,8 @@
             {
               "at": [56.5, 27.1],
               "name": {
-                "sv": "Hormuz (en stor eskader från Calicut)"
+                "sv": "Hormuz (en stor eskader från Calicut)",
+                "en": "Hormuz (a large squadron from Calicut)"
               }
             }
           ],
@@ -919,19 +1019,22 @@
             {
               "at": [73.5, 4.2],
               "name": {
-                "sv": "Liushan (Maldiverna och Lackadiverna)"
+                "sv": "Liushan (Maldiverna och Lackadiverna)",
+                "en": "Liushan (the Maldives and Laccadives)"
               }
             },
             {
               "at": [45.3, 2.0],
               "name": {
-                "sv": "Mogadishu"
+                "sv": "Mogadishu",
+                "en": "Mogadishu"
               }
             },
             {
               "at": [44.0, 1.1],
               "name": {
-                "sv": "Brava"
+                "sv": "Brava",
+                "en": "Brava"
               }
             }
           ],
@@ -947,13 +1050,15 @@
             {
               "at": [54.0, 18.0],
               "name": {
-                "sv": "Dhofar"
+                "sv": "Dhofar",
+                "en": "Dhofar"
               }
             },
             {
               "at": [45.0, 12.8],
               "name": {
-                "sv": "Aden (eskadern under Zhou Man)"
+                "sv": "Aden (eskadern under Zhou Man)",
+                "en": "Aden (the squadron under Zhou Man)"
               }
             }
           ],
@@ -969,25 +1074,29 @@
             {
               "at": [75.8, 11.2],
               "name": {
-                "sv": "Calicut (eskadrarna samlas)"
+                "sv": "Calicut (eskadrarna samlas)",
+                "en": "Calicut (the squadrons assemble)"
               }
             },
             {
               "at": [97.1, 5.2],
               "name": {
-                "sv": "Semudera (hela flottan samlas)"
+                "sv": "Semudera (hela flottan samlas)",
+                "en": "Semudera (the whole fleet assembles)"
               }
             },
             {
               "at": [100.6, 14.3],
               "name": {
-                "sv": "Siam (troligen på hemvägen)"
+                "sv": "Siam (troligen på hemvägen)",
+                "en": "Siam (probably on the way home)"
               }
             },
             {
               "at": [118.8, 32.1],
               "name": {
-                "sv": "Hemkomst (hamnen anges inte; flottans bas var Nanjing)"
+                "sv": "Hemkomst (hamnen anges inte; flottans bas var Nanjing)",
+                "en": "Homecoming (the port is not given; the fleet's base was Nanjing)"
               },
               "date": "1422-09-03"
             }
@@ -1014,10 +1123,12 @@
       "precision": 11,
       "note": {
         "title": {
-          "sv": "Källorna skiljer sig"
+          "sv": "Källorna skiljer sig",
+          "en": "The sources differ"
         },
         "text": {
-          "sv": "Xia Xiyang nämner åtta mål, medan Mingshi och andra källor säger att flottan besökte minst sjutton länder och Gong Zhen tjugo. Datumet den 28 maj 1433 vid Kunlunhavet (Côn Sơn) kan enligt Dreyer (2007) i stället vara dagen då flottan lämnade Malacka. När Hong Baos eskader skildes från flottan är omstritt. Om Zheng Hes död skiljer sig källorna: World History Encyclopedia skriver att han dog i Calicut 1433, Wikipedia att han dog 1433 under eller strax efter resan, troligen i Calicut, eller enligt Mills (1970) först 1435 i Nanjing."
+          "sv": "Xia Xiyang nämner åtta mål, medan Mingshi och andra källor säger att flottan besökte minst sjutton länder och Gong Zhen tjugo. Datumet den 28 maj 1433 vid Kunlunhavet (Côn Sơn) kan enligt Dreyer (2007) i stället vara dagen då flottan lämnade Malacka. När Hong Baos eskader skildes från flottan är omstritt. Om Zheng Hes död skiljer sig källorna: World History Encyclopedia skriver att han dog i Calicut 1433, Wikipedia att han dog 1433 under eller strax efter resan, troligen i Calicut, eller enligt Mills (1970) först 1435 i Nanjing.",
+          "en": "Xia Xiyang mentions eight destinations, while the Mingshi and other sources say that the fleet visited at least seventeen countries and Gong Zhen twenty. The date of 28 May 1433 at the Kunlun Sea (Côn Sơn) may, according to Dreyer (2007), instead be the day the fleet left Malacca. When Hong Bao's squadron separated from the fleet is disputed. On Zheng He's death the sources differ: World History Encyclopedia writes that he died in Calicut in 1433, Wikipedia that he died in 1433 during or shortly after the voyage, probably in Calicut, or according to Mills (1970) only in 1435 in Nanjing."
         }
       },
       "sources": ["wp-ming-treasure-voyages", "wp-zheng-he", "whe-seven-voyages-zheng-he"],
@@ -1032,14 +1143,16 @@
             {
               "at": [118.8, 32.1],
               "name": {
-                "sv": "Longwan, Nanjing"
+                "sv": "Longwan, Nanjing",
+                "en": "Longwan, Nanjing"
               },
               "date": "1431-01-19"
             },
             {
               "at": [121.3, 31.5],
               "name": {
-                "sv": "Liujiagang"
+                "sv": "Liujiagang",
+                "en": "Liujiagang"
               },
               "date": "1431-02-03"
             }
@@ -1056,7 +1169,8 @@
             {
               "at": [119.6, 25.9],
               "name": {
-                "sv": "Changle"
+                "sv": "Changle",
+                "en": "Changle"
               },
               "date": "1431-04-08"
             }
@@ -1073,14 +1187,16 @@
             {
               "at": [119.6, 25.9],
               "name": {
-                "sv": "Wuhumen, Minflodens mynning"
+                "sv": "Wuhumen, Minflodens mynning",
+                "en": "Wuhumen, mouth of the Min River"
               },
               "date": "1432-01-12"
             },
             {
               "at": [109.1, 13.9],
               "name": {
-                "sv": "Vijaya, Champa"
+                "sv": "Vijaya, Champa",
+                "en": "Vijaya, Champa"
               },
               "date": "1432-01-27"
             }
@@ -1097,7 +1213,8 @@
             {
               "at": [112.7, -7.2],
               "name": {
-                "sv": "Surabaya, Java"
+                "sv": "Surabaya, Java",
+                "en": "Surabaya, Java"
               },
               "date": "1432-03-07"
             }
@@ -1114,7 +1231,8 @@
             {
               "at": [104.8, -3.0],
               "name": {
-                "sv": "Palembang"
+                "sv": "Palembang",
+                "en": "Palembang"
               },
               "date": "1432-07-24"
             }
@@ -1131,7 +1249,8 @@
             {
               "at": [102.3, 2.2],
               "name": {
-                "sv": "Malacka"
+                "sv": "Malacka",
+                "en": "Malacca"
               },
               "date": "1432-08-03"
             }
@@ -1148,7 +1267,8 @@
             {
               "at": [97.1, 5.2],
               "name": {
-                "sv": "Semudera"
+                "sv": "Semudera",
+                "en": "Semudera"
               },
               "date": "1432-09-12"
             }
@@ -1165,14 +1285,16 @@
             {
               "at": [93.8, 7.0],
               "name": {
-                "sv": "Cuilanxu (troligen Stora Nikobaren)"
+                "sv": "Cuilanxu (troligen Stora Nikobaren)",
+                "en": "Cuilanxu (probably Great Nicobar)"
               },
               "date": "1432-11-14"
             },
             {
               "at": [80.0, 6.5],
               "name": {
-                "sv": "Beruwala, Ceylon"
+                "sv": "Beruwala, Ceylon",
+                "en": "Beruwala, Ceylon"
               },
               "date": "1432-11-28"
             }
@@ -1189,7 +1311,8 @@
             {
               "at": [75.8, 11.2],
               "name": {
-                "sv": "Calicut"
+                "sv": "Calicut",
+                "en": "Calicut"
               },
               "date": "1432-12-10"
             }
@@ -1206,7 +1329,8 @@
             {
               "at": [56.5, 27.1],
               "name": {
-                "sv": "Hormuz"
+                "sv": "Hormuz",
+                "en": "Hormuz"
               },
               "date": "1433-01-17"
             }
@@ -1223,7 +1347,8 @@
             {
               "at": [75.8, 11.2],
               "name": {
-                "sv": "Calicut"
+                "sv": "Calicut",
+                "en": "Calicut"
               },
               "date": "1433-03-31"
             }
@@ -1240,7 +1365,8 @@
             {
               "at": [97.1, 5.2],
               "name": {
-                "sv": "Semudera"
+                "sv": "Semudera",
+                "en": "Semudera"
               },
               "date": "1433-04-25"
             }
@@ -1257,7 +1383,8 @@
             {
               "at": [102.3, 2.2],
               "name": {
-                "sv": "Malacka"
+                "sv": "Malacka",
+                "en": "Malacca"
               },
               "date": "1433-05-09"
             }
@@ -1274,7 +1401,8 @@
             {
               "at": [106.6, 8.7],
               "name": {
-                "sv": "Kunlunhavet (vid Côn Sơn)"
+                "sv": "Kunlunhavet (vid Côn Sơn)",
+                "en": "The Kunlun Sea (near Côn Sơn)"
               },
               "date": "1433-05-28",
               "edtf": "1433-05-28?"
@@ -1282,7 +1410,8 @@
             {
               "at": [109.1, 13.9],
               "name": {
-                "sv": "Vijaya, Champa"
+                "sv": "Vijaya, Champa",
+                "en": "Vijaya, Champa"
               },
               "date": "1433-06-13"
             }
@@ -1299,7 +1428,8 @@
             {
               "at": [121.2, 31.6],
               "name": {
-                "sv": "Taicang"
+                "sv": "Taicang",
+                "en": "Taicang"
               },
               "date": "1433-07-07"
             }
@@ -1316,13 +1446,15 @@
             {
               "at": [91.8, 22.3],
               "name": {
-                "sv": "Chittagong, Bengalen (Hong Baos eskader)"
+                "sv": "Chittagong, Bengalen (Hong Baos eskader)",
+                "en": "Chittagong, Bengal (Hong Bao's squadron)"
               }
             },
             {
               "at": [75.8, 11.2],
               "name": {
-                "sv": "Calicut (efter att flottan seglat mot Hormuz)"
+                "sv": "Calicut (efter att flottan seglat mot Hormuz)",
+                "en": "Calicut (after the fleet had sailed for Hormuz)"
               }
             }
           ],
@@ -1338,7 +1470,8 @@
             {
               "at": [39.8, 21.4],
               "name": {
-                "sv": "Mecka (sju man ur Hong Baos eskader)"
+                "sv": "Mecka (sju man ur Hong Baos eskader)",
+                "en": "Mecca (seven men from Hong Bao's squadron)"
               }
             }
           ],

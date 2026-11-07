@@ -14,7 +14,7 @@
       "name": "English",
       "beta": "beta",
       "auto": false,
-      "complete": false,
+      "complete": true,
       "translatedBy": "Claude Code",
       "translatedAt": "2026-11-05",
       "reviewedBy": null,

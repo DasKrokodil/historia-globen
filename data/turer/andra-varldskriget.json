@@ -7,7 +7,8 @@
     "en": "The Second World War in Europe and the Pacific"
   },
   "summary": {
-    "sv": "Från anfallet på Polen 1939 till Japans kapitulation 1945, i Europa, Nordafrika och Stilla havet."
+    "sv": "Från anfallet på Polen 1939 till Japans kapitulation 1945, i Europa, Nordafrika och Stilla havet.",
+    "en": "From the attack on Poland in 1939 to Japan's surrender in 1945, in Europe, North Africa and the Pacific."
   },
   "war": "andra-varldskriget",
   "review": "source-checked",
@@ -21,13 +22,16 @@
         "zoom": 1.6
       },
       "chapter": {
-        "sv": "1939–1940: kriget i Europa börjar"
+        "sv": "1939–1940: kriget i Europa börjar",
+        "en": "1939–1940: the war in Europe begins"
       },
       "title": {
-        "sv": "Polen, 1 september 1939"
+        "sv": "Polen, 1 september 1939",
+        "en": "Poland, 1 September 1939"
       },
       "text": {
-        "sv": "Tyskland anfaller Polen tillsammans med Slovakien. Bland de första striderna är beskjutningen av Westerplatte vid Danzig. Två dagar senare förklarar Storbritannien och Frankrike krig mot Tyskland."
+        "sv": "Tyskland anfaller Polen tillsammans med Slovakien. Bland de första striderna är beskjutningen av Westerplatte vid Danzig. Två dagar senare förklarar Storbritannien och Frankrike krig mot Tyskland.",
+        "en": "Germany attacks Poland together with Slovakia. Among the first fighting is the shelling of Westerplatte at Danzig. Two days later Britain and France declare war on Germany."
       },
       "layers": [
         "events",
@@ -50,10 +54,12 @@
         "zoom": 1.6
       },
       "title": {
-        "sv": "Frankrike, maj–juni 1940"
+        "sv": "Frankrike, maj–juni 1940",
+        "en": "France, May–June 1940"
       },
       "text": {
-        "sv": "Den 10 maj anfaller Tyskland Nederländerna, Belgien, Luxemburg och Frankrike. Paris intas den 14 juni, och vapenstilleståndet som skrevs under vid Compiègne börjar gälla den 25 juni."
+        "sv": "Den 10 maj anfaller Tyskland Nederländerna, Belgien, Luxemburg och Frankrike. Paris intas den 14 juni, och vapenstilleståndet som skrevs under vid Compiègne börjar gälla den 25 juni.",
+        "en": "On 10 May Germany attacks the Netherlands, Belgium, Luxembourg and France. Paris is taken on 14 June, and the armistice signed at Compiègne takes effect on 25 June."
       },
       "layers": [
         "events",
@@ -76,13 +82,16 @@
         "zoom": 1.6
       },
       "title": {
-        "sv": "Storbritannien, sommaren och hösten 1940"
+        "sv": "Storbritannien, sommaren och hösten 1940",
+        "en": "Britain, summer and autumn 1940"
       },
       "text": {
-        "sv": "Det tyska flygvapnet anfaller Storbritannien men tar inte herraväldet i luften. Hitler skjuter upp den planerade invasionen och ställer till slut in den."
+        "sv": "Det tyska flygvapnet anfaller Storbritannien men tar inte herraväldet i luften. Hitler skjuter upp den planerade invasionen och ställer till slut in den.",
+        "en": "The German air force attacks Britain but does not gain air superiority. Hitler postpones the planned invasion and finally cancels it."
       },
       "question": {
-        "sv": "Tyskland tog Frankrike på några veckor, men lyckades inte i luften över Storbritannien. Vad gjorde det svårare att anfalla en ö?"
+        "sv": "Tyskland tog Frankrike på några veckor, men lyckades inte i luften över Storbritannien. Vad gjorde det svårare att anfalla en ö?",
+        "en": "Germany took France in a few weeks, but did not succeed in the air over Britain. What made it harder to attack an island?"
       },
       "layers": [
         "events",
@@ -105,13 +114,16 @@
         "zoom": 1.5
       },
       "chapter": {
-        "sv": "1941: Sovjetunionen och USA dras in"
+        "sv": "1941: Sovjetunionen och USA dras in",
+        "en": "1941: the Soviet Union and the United States are drawn in"
       },
       "title": {
-        "sv": "Sovjetunionen, 22 juni 1941"
+        "sv": "Sovjetunionen, 22 juni 1941",
+        "en": "The Soviet Union, 22 June 1941"
       },
       "text": {
-        "sv": "Tyskland och flera av dess europeiska förbundna anfaller Sovjetunionen med mer än 3,8 miljoner soldater. Det är den största militära offensiven i historien och öppnar östfronten."
+        "sv": "Tyskland och flera av dess europeiska förbundna anfaller Sovjetunionen med mer än 3,8 miljoner soldater. Det är den största militära offensiven i historien och öppnar östfronten.",
+        "en": "Germany and several of its European allies attack the Soviet Union with more than 3.8 million soldiers. It is the largest military offensive in history and opens the Eastern Front."
       },
       "layers": [
         "events",
@@ -135,13 +147,16 @@
         "zoom": 1.4
       },
       "title": {
-        "sv": "Pearl Harbor, 7 december 1941"
+        "sv": "Pearl Harbor, 7 december 1941",
+        "en": "Pearl Harbor, 7 December 1941"
       },
       "text": {
-        "sv": "Samma år i Stilla havet: japanska flygplan från sex hangarfartyg anfaller den amerikanska Stillahavsflottan. USA förklarar krig mot Japan dagen efter, och Tyskland förklarar sedan krig mot USA."
+        "sv": "Samma år i Stilla havet: japanska flygplan från sex hangarfartyg anfaller den amerikanska Stillahavsflottan. USA förklarar krig mot Japan dagen efter, och Tyskland förklarar sedan krig mot USA.",
+        "en": "The same year in the Pacific: Japanese aircraft from six aircraft carriers attack the American Pacific Fleet. The United States declares war on Japan the next day, and Germany then declares war on the United States."
       },
       "question": {
-        "sv": "Barbarossa och Pearl Harbor hände samma år, långt från varandra. Vad kan det ha betytt att både Sovjetunionen och USA nu var med i kriget?"
+        "sv": "Barbarossa och Pearl Harbor hände samma år, långt från varandra. Vad kan det ha betytt att både Sovjetunionen och USA nu var med i kriget?",
+        "en": "Barbarossa and Pearl Harbor happened in the same year, far from each other. What might it have meant that both the Soviet Union and the United States were now in the war?"
       },
       "layers": [
         "events",
@@ -165,13 +180,16 @@
         "zoom": 1.3
       },
       "chapter": {
-        "sv": "1942–1943: axelmakterna stoppas"
+        "sv": "1942–1943: axelmakterna stoppas",
+        "en": "1942–1943: the Axis powers are stopped"
       },
       "title": {
-        "sv": "Midway, 4–7 juni 1942"
+        "sv": "Midway, 4–7 juni 1942",
+        "en": "Midway, 4–7 June 1942"
       },
       "text": {
-        "sv": "Den amerikanska flottan besegrar en japansk flotta nära Midway. Japan förlorar fyra hangarfartyg, och dess framryckning i Stilla havet stoppas."
+        "sv": "Den amerikanska flottan besegrar en japansk flotta nära Midway. Japan förlorar fyra hangarfartyg, och dess framryckning i Stilla havet stoppas.",
+        "en": "The American navy defeats a Japanese fleet near Midway. Japan loses four aircraft carriers, and its advance in the Pacific is halted."
       },
       "layers": [
         "events",
@@ -193,10 +211,12 @@
         "zoom": 1.4
       },
       "title": {
-        "sv": "Guadalcanal, 7 augusti 1942"
+        "sv": "Guadalcanal, 7 augusti 1942",
+        "en": "Guadalcanal, 7 August 1942"
       },
       "text": {
-        "sv": "Allierade trupper, mest amerikanska marinsoldater, landstiger på Guadalcanal. Det blir de allierades första stora offensiv på land mot Japan, med strider både på ön och till sjöss."
+        "sv": "Allierade trupper, mest amerikanska marinsoldater, landstiger på Guadalcanal. Det blir de allierades första stora offensiv på land mot Japan, med strider både på ön och till sjöss.",
+        "en": "Allied troops, mostly American marines, land on Guadalcanal. It becomes the Allies' first major land offensive against Japan, with fighting both on the island and at sea."
       },
       "layers": [
         "events",
@@ -218,10 +238,12 @@
         "zoom": 1.6
       },
       "title": {
-        "sv": "El Alamein, oktober 1942"
+        "sv": "El Alamein, oktober 1942",
+        "en": "El Alamein, October 1942"
       },
       "text": {
-        "sv": "Under tiden i Nordafrika anfaller den brittiska åttonde armén under Bernard Montgomery den tysk-italienska pansararmén vid El Alamein. Axelmakternas styrkor måste dra sig tillbaka ur Egypten och Libyen."
+        "sv": "Under tiden i Nordafrika anfaller den brittiska åttonde armén under Bernard Montgomery den tysk-italienska pansararmén vid El Alamein. Axelmakternas styrkor måste dra sig tillbaka ur Egypten och Libyen.",
+        "en": "Meanwhile in North Africa the British Eighth Army under Bernard Montgomery attacks the German-Italian Panzer Army at El Alamein. The Axis forces have to withdraw from Egypt and Libya."
       },
       "layers": [
         "events",
@@ -244,13 +266,16 @@
         "zoom": 1.6
       },
       "title": {
-        "sv": "Stalingrad, 2 februari 1943"
+        "sv": "Stalingrad, 2 februari 1943",
+        "en": "Stalingrad, 2 February 1943"
       },
       "text": {
-        "sv": "I november 1942 omringar Röda armén den tyska sjätte armén vid Volga, och när striderna tar slut den 2 februari 1943 är den utplånad. Slaget ses allmänt som vändpunkten i kriget i Europa. En vecka senare drar Japan tillbaka sina sista styrkor från Guadalcanal."
+        "sv": "I november 1942 omringar Röda armén den tyska sjätte armén vid Volga, och när striderna tar slut den 2 februari 1943 är den utplånad. Slaget ses allmänt som vändpunkten i kriget i Europa. En vecka senare drar Japan tillbaka sina sista styrkor från Guadalcanal.",
+        "en": "In November 1942 the Red Army surrounds the German Sixth Army on the Volga, and when the fighting ends on 2 February 1943 it has been wiped out. The battle is widely seen as the turning point of the war in Europe. A week later Japan withdraws its last forces from Guadalcanal."
       },
       "question": {
-        "sv": "Varför tror du att ett slag om en enda stad kan ses som en vändpunkt i ett helt krig?"
+        "sv": "Varför tror du att ett slag om en enda stad kan ses som en vändpunkt i ett helt krig?",
+        "en": "Why do you think a battle for a single city can be seen as a turning point in a whole war?"
       },
       "layers": [
         "events",
@@ -273,13 +298,16 @@
         "zoom": 1.7
       },
       "chapter": {
-        "sv": "1944–1945: kriget i Europa slutar"
+        "sv": "1944–1945: kriget i Europa slutar",
+        "en": "1944–1945: the war in Europe ends"
       },
       "title": {
-        "sv": "Normandie, 6 juni 1944"
+        "sv": "Normandie, 6 juni 1944",
+        "en": "Normandy, 6 June 1944"
       },
       "text": {
-        "sv": "Allierade trupper, bland dem amerikanska, brittiska och kanadensiska, landsätts från luften och från havet på fem avsnitt av Normandies kust. Det är den största landstigningen från havet i historien och början på befrielsen av Frankrike och Västeuropa."
+        "sv": "Allierade trupper, bland dem amerikanska, brittiska och kanadensiska, landsätts från luften och från havet på fem avsnitt av Normandies kust. Det är den största landstigningen från havet i historien och början på befrielsen av Frankrike och Västeuropa.",
+        "en": "Allied troops, among them American, British and Canadian, are landed from the air and from the sea on five sectors of the Normandy coast. It is the largest seaborne landing in history and the beginning of the liberation of France and Western Europe."
       },
       "layers": [
         "events",
@@ -301,13 +329,16 @@
         "zoom": 1.7
       },
       "title": {
-        "sv": "Auschwitz, 27 januari 1945"
+        "sv": "Auschwitz, 27 januari 1945",
+        "en": "Auschwitz, 27 January 1945"
       },
       "text": {
-        "sv": "Sovjetiska trupper befriar Auschwitz. Minst 1,1 miljoner människor dog i lägret, de flesta judar. Det blev en symbol för Förintelsen, där omkring sex miljoner judar mördades."
+        "sv": "Sovjetiska trupper befriar Auschwitz. Minst 1,1 miljoner människor dog i lägret, de flesta judar. Det blev en symbol för Förintelsen, där omkring sex miljoner judar mördades.",
+        "en": "Soviet troops liberate Auschwitz. At least 1.1 million people died in the camp, most of them Jews. It became a symbol of the Holocaust, in which about six million Jews were murdered."
       },
       "question": {
-        "sv": "Den 27 januari är i dag en minnesdag för Förintelsens offer. Varför tror du att man har valt just den dagen?"
+        "sv": "Den 27 januari är i dag en minnesdag för Förintelsens offer. Varför tror du att man har valt just den dagen?",
+        "en": "27 January is today a day of remembrance for the victims of the Holocaust. Why do you think that particular day was chosen?"
       },
       "layers": [
         "events",
@@ -330,10 +361,12 @@
         "zoom": 1.7
       },
       "title": {
-        "sv": "Berlin, 8 maj 1945"
+        "sv": "Berlin, 8 maj 1945",
+        "en": "Berlin, 8 May 1945"
       },
       "text": {
-        "sv": "Tysklands högsta militära ledning skriver under en villkorslös kapitulation i Karlshorst i Berlin, dagen efter en första kapitulation i Reims. Kriget i Europa är slut, men mot Japan fortsätter det."
+        "sv": "Tysklands högsta militära ledning skriver under en villkorslös kapitulation i Karlshorst i Berlin, dagen efter en första kapitulation i Reims. Kriget i Europa är slut, men mot Japan fortsätter det.",
+        "en": "Germany's supreme military command signs an unconditional surrender in Karlshorst in Berlin, the day after a first surrender in Reims. The war in Europe is over, but against Japan it continues."
       },
       "layers": [
         "events",
@@ -357,13 +390,16 @@
         "zoom": 1.6
       },
       "chapter": {
-        "sv": "1945: kriget mot Japan slutar"
+        "sv": "1945: kriget mot Japan slutar",
+        "en": "1945: the war against Japan ends"
       },
       "title": {
-        "sv": "Hiroshima och Nagasaki, 6 och 9 augusti 1945"
+        "sv": "Hiroshima och Nagasaki, 6 och 9 augusti 1945",
+        "en": "Hiroshima and Nagasaki, 6 and 9 August 1945"
       },
       "text": {
-        "sv": "USA fäller atombomber över Hiroshima och Nagasaki. Mellan 150 000 och 246 000 människor dödas, de flesta civila. Mellan bomberna förklarar Sovjetunionen krig mot Japan och anfaller Manchuriet."
+        "sv": "USA fäller atombomber över Hiroshima och Nagasaki. Mellan 150 000 och 246 000 människor dödas, de flesta civila. Mellan bomberna förklarar Sovjetunionen krig mot Japan och anfaller Manchuriet.",
+        "en": "The United States drops atomic bombs on Hiroshima and Nagasaki. Between 150,000 and 246,000 people are killed, most of them civilians. Between the bombs the Soviet Union declares war on Japan and attacks Manchuria."
       },
       "layers": [
         "events",
@@ -385,13 +421,16 @@
         "zoom": 1.6
       },
       "title": {
-        "sv": "Tokyobukten, 2 september 1945"
+        "sv": "Tokyobukten, 2 september 1945",
+        "en": "Tokyo Bay, 2 September 1945"
       },
       "text": {
-        "sv": "Japan och nio allierade länder skriver under kapitulationen ombord på USS Missouri. Andra världskriget är slut."
+        "sv": "Japan och nio allierade länder skriver under kapitulationen ombord på USS Missouri. Andra världskriget är slut.",
+        "en": "Japan and nine Allied countries sign the surrender aboard USS Missouri. The Second World War is over."
       },
       "question": {
-        "sv": "Kriget i Europa slutade i maj, men mot Japan först i september. Vad betydde det för dem som fortfarande stred?"
+        "sv": "Kriget i Europa slutade i maj, men mot Japan först i september. Vad betydde det för dem som fortfarande stred?",
+        "en": "The war in Europe ended in May, but against Japan only in September. What did that mean for those who were still fighting?"
       },
       "layers": [
         "events",

@@ -18,10 +18,12 @@
       "precision": 7,
       "note": {
         "title": {
-          "sv": "Källorna skiljer sig"
+          "sv": "Källorna skiljer sig",
+          "en": "The sources differ"
         },
         "text": {
-          "sv": "Om början: Wikipedias artikel om handeln i Indiska oceanen låter Eudoxos från Kyzikos inleda den direkta handeln 130 f.Kr., artikeln om kryddhandeln säger att grekerna i Egypten lärde sig monsunseglingen i slutet av 100-talet f.Kr., medan artikeln om handeln mellan Rom och Indien skriver att den södra vägen över Röda havet kom i gång först omkring år 1, efter att Rom erövrat Egypten. Om slutet: Wikipedia sätter slutet vid den arabiska erövringen av Egypten 639–640, medan World History Encyclopedia skriver att den bysantinska sjövägen tog slut redan när Bysans förlorade Egypten till sasaniderna. Linjen visas därför från 130 f.Kr. till 640, med osäkra ändar. Var Myos Hormos låg är omstritt; här används Quseir al-Qadim, som Wikipedia håller för troligast."
+          "sv": "Om början: Wikipedias artikel om handeln i Indiska oceanen låter Eudoxos från Kyzikos inleda den direkta handeln 130 f.Kr., artikeln om kryddhandeln säger att grekerna i Egypten lärde sig monsunseglingen i slutet av 100-talet f.Kr., medan artikeln om handeln mellan Rom och Indien skriver att den södra vägen över Röda havet kom i gång först omkring år 1, efter att Rom erövrat Egypten. Om slutet: Wikipedia sätter slutet vid den arabiska erövringen av Egypten 639–640, medan World History Encyclopedia skriver att den bysantinska sjövägen tog slut redan när Bysans förlorade Egypten till sasaniderna. Linjen visas därför från 130 f.Kr. till 640, med osäkra ändar. Var Myos Hormos låg är omstritt; här används Quseir al-Qadim, som Wikipedia håller för troligast.",
+          "en": "About the beginning: Wikipedia's article on trade in the Indian Ocean has Eudoxus of Cyzicus begin the direct trade in 130 BC, the article on the spice trade says that the Greeks in Egypt learned monsoon sailing at the end of the 2nd century BC, while the article on trade between Rome and India writes that the southern route across the Red Sea got going only around the year 1, after Rome had conquered Egypt. About the end: Wikipedia puts the end at the Arab conquest of Egypt in 639–640, while World History Encyclopedia writes that the Byzantine sea route ended as early as when Byzantium lost Egypt to the Sasanians. The line is therefore shown from 130 BC to 640, with uncertain ends. Where Myos Hormos lay is disputed; here Quseir al-Qadim is used, which Wikipedia considers the most likely."
         }
       },
       "sources": ["wp-indian-ocean-trade", "wp-indo-roman-trade", "wp-spice-trade", "whe-pepper-trade-power-shifts", "wikidata"],
@@ -81,10 +83,12 @@
       "precision": 8,
       "note": {
         "title": {
-          "sv": "Om vägen"
+          "sv": "Om vägen",
+          "en": "About the route"
         },
         "text": {
-          "sv": "Malackas grundande sätts traditionellt till omkring 1400, men även tidigare år har föreslagits. Källorna säger att varorna gick från Röda havet till Egypten men inte vilken väg genom Egypten, så linjen har ett avbrott mellan Jidda och Alexandria."
+          "sv": "Malackas grundande sätts traditionellt till omkring 1400, men även tidigare år har föreslagits. Källorna säger att varorna gick från Röda havet till Egypten men inte vilken väg genom Egypten, så linjen har ett avbrott mellan Jidda och Alexandria.",
+          "en": "The founding of Malacca is traditionally set at around 1400, but earlier years have also been proposed. The sources say that the goods went from the Red Sea to Egypt but not by which route through Egypt, so the line has a break between Jeddah and Alexandria."
         }
       },
       "sources": ["wp-malacca-sultanate", "wp-spice-trade", "wp-indian-ocean-trade", "wp-kozhikode", "whe-indian-ocean-trade-before-conquest", "whe-pepper-trade-power-shifts", "wikidata"],
@@ -164,10 +168,12 @@
       "precision": 7,
       "note": {
         "title": {
-          "sv": "Källorna skiljer sig"
+          "sv": "Källorna skiljer sig",
+          "en": "The sources differ"
         },
         "text": {
-          "sv": "Wikipedias artikel om Sofala säger att Kilwas sultan Suleiman Hassan tog Sofala på 1180-talet, och artikeln om Kilwasultanatet sätter hans regering till omkring 1178–1195 (enligt krönikan från 1170 och i 18 år). Artikeln om Swahilikusten skriver i stället att Kilwa tog över guldhandeln från Banadir först på 1200-talet. Även Ibn Battutas resa är osäkert daterad: källan anger 1330 eller 1332. Kilwas fartyg seglade också till Indien, men källorna nämner ingen bestämd hamn där, så den sträckan är inte ritad."
+          "sv": "Wikipedias artikel om Sofala säger att Kilwas sultan Suleiman Hassan tog Sofala på 1180-talet, och artikeln om Kilwasultanatet sätter hans regering till omkring 1178–1195 (enligt krönikan från 1170 och i 18 år). Artikeln om Swahilikusten skriver i stället att Kilwa tog över guldhandeln från Banadir först på 1200-talet. Även Ibn Battutas resa är osäkert daterad: källan anger 1330 eller 1332. Kilwas fartyg seglade också till Indien, men källorna nämner ingen bestämd hamn där, så den sträckan är inte ritad.",
+          "en": "Wikipedia's article on Sofala says that Sultan Suleiman Hassan of Kilwa took Sofala in the 1180s, and the article on the Kilwa Sultanate sets his reign at about 1178–1195 (according to the chronicle from 1170 and for 18 years). The article on the Swahili Coast instead writes that Kilwa took over the gold trade from Banadir only in the 13th century. The dating of Ibn Battuta's journey is also uncertain: the source gives 1330 or 1332. Kilwa's ships also sailed to India, but the sources name no specific port there, so that stretch is not drawn."
         }
       },
       "sources": ["wp-kilwa-sultanate", "wp-sofala", "wp-swahili-coast", "wp-ibn-battuta", "whe-indian-ocean-trade-before-conquest", "wikidata"],
@@ -227,10 +233,12 @@
       "precision": 9,
       "note": {
         "title": {
-          "sv": "Om vägen"
+          "sv": "Om vägen",
+          "en": "About the route"
         },
         "text": {
-          "sv": "Linjen visar den vanliga utresan, den inre vägen genom Moçambiquekanalen, och den yttre hemvägen öster om Madagaskar som alla hemvändande flottor skulle ta 1525–1579. Slutåret 1650 är slutet på den period för vilken källan räknar avresorna (1 033 fartyg från Lisabon 1497–1650); vägen runt Godahoppsudden användes sedan av holländare och engelsmän fram till Suezkanalen 1869. Portugiserna förlorade Malacka till holländarna 1641."
+          "sv": "Linjen visar den vanliga utresan, den inre vägen genom Moçambiquekanalen, och den yttre hemvägen öster om Madagaskar som alla hemvändande flottor skulle ta 1525–1579. Slutåret 1650 är slutet på den period för vilken källan räknar avresorna (1 033 fartyg från Lisabon 1497–1650); vägen runt Godahoppsudden användes sedan av holländare och engelsmän fram till Suezkanalen 1869. Portugiserna förlorade Malacka till holländarna 1641.",
+          "en": "The line shows the usual outward voyage, the inner route through the Mozambique Channel, and the outer return route east of Madagascar that all returning fleets were to take in 1525–1579. The end year 1650 is the end of the period for which the source counts the departures (1,033 ships from Lisbon in 1497–1650); the route around the Cape of Good Hope was then used by the Dutch and the English until the Suez Canal in 1869. The Portuguese lost Malacca to the Dutch in 1641."
         }
       },
       "sources": ["wp-portuguese-india-armadas", "wp-cape-route", "wp-spice-trade", "wp-malacca-sultanate", "wikidata"],

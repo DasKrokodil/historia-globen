@@ -133,10 +133,53 @@ def main():
     errors, reminders = with_copy(edit('data/routes/cook.json', change_both))
     assert not errors and any('inte är registrerad' in r for r in reminders), (errors, reminders)
 
+    # Översätt en text som fortfarande saknar ett språk (vilket språk beror på hur långt översättningen har kommit)
+    chosen = {}
+
     def translate(doc):
-        doc['events'][0]['title']['en'] = 'A translated title'
+        for e in doc['events']:
+            if e.get('review') == 'draft':
+                continue
+            missing_langs = [lang for lang in ('en', 'de', 'es', 'fr') if not e['title'].get(lang)]
+            if missing_langs:
+                chosen['lang'] = missing_langs[0]
+                e['title'][missing_langs[0]] = 'A translated title'
+                return
     errors, reminders = with_copy(edit('data/handelser/1980-.json', translate))
-    assert not errors and any('färre oöversatta på en' in r for r in reminders), (errors, reminders)
+    if chosen:
+        assert not errors and any(f'färre oöversatta på {chosen["lang"]}' in r for r in reminders), (errors, reminders)
+
+    # Samma översättning till två olika svenska texter är tillåtet så länge båda svenska texterna finns kvar
+    # (till exempel "Kartago" och "Karthago", som båda blir "Carthage"); en översättning vars svenska text har
+    # ändrats är inaktuell, även när en annan post har samma översättning (Codex-fynd i #724)
+    def both(sv1, sv2):
+        def add(doc):
+            r = doc['routes'][0]
+            r['t1'] = {'sv': sv1, 'en': 'Paris', 'de': 'Paris', 'es': 'Paris', 'fr': 'Paris'}
+            r['t2'] = {'sv': sv2, 'en': 'Paris', 'de': 'Paris', 'es': 'Paris', 'fr': 'Paris'}
+        return add
+
+    def two_phase(first, second):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            shutil.copytree(ROOT / 'data', root / 'data')
+            first(root)
+            errors, reminders, status = oversattning.compare(root, accept_stale=True)
+            (root / 'data' / 'oversattning.json').write_text(oversattning.dump(status), encoding='utf-8')
+            second(root)
+            return oversattning.compare(root)[:2]
+
+    def change_second(doc):
+        doc['routes'][0]['t2']['sv'] = 'Berlin'
+    errors, _ = two_phase(edit('data/routes/cook.json', both('Paris', 'Paris')),
+                          edit('data/routes/cook.json', change_second))
+    assert any('inaktuell' in e for e in errors), errors
+
+    def add_third(doc):
+        doc['routes'][0]['t3'] = {'sv': 'Berlin', 'en': 'Paris', 'de': 'Paris', 'es': 'Paris', 'fr': 'Paris'}
+    errors, _ = two_phase(edit('data/routes/cook.json', both('Paris', 'Paris')),
+                          edit('data/routes/cook.json', add_third))
+    assert not any('inaktuell' in e for e in errors), errors
 
     print('oversattning-test: ok (uppdelning per språk, ny text utan översättning, utkast, inaktuell och '
           'uppdaterad översättning, ny översättning)')

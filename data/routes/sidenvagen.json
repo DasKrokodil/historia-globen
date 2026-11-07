@@ -45,37 +45,43 @@
             {
               "at": [108.9, 34.3],
               "name": {
-                "sv": "Chang'an (Xi'an)"
+                "sv": "Chang'an (Xi'an)",
+                "en": "Chang'an (Xi'an)"
               }
             },
             {
               "at": [103.8, 36.1],
               "name": {
-                "sv": "Lanzhou"
+                "sv": "Lanzhou",
+                "en": "Lanzhou"
               }
             },
             {
               "at": [102.6, 37.9],
               "name": {
-                "sv": "Wuwei"
+                "sv": "Wuwei",
+                "en": "Wuwei"
               }
             },
             {
               "at": [100.5, 38.9],
               "name": {
-                "sv": "Zhangye"
+                "sv": "Zhangye",
+                "en": "Zhangye"
               }
             },
             {
               "at": [98.5, 39.7],
               "name": {
-                "sv": "Jiuquan"
+                "sv": "Jiuquan",
+                "en": "Jiuquan"
               }
             },
             {
               "at": [95.8, 40.5],
               "name": {
-                "sv": "Anxi (Guazhou)"
+                "sv": "Anxi (Guazhou)",
+                "en": "Anxi (Guazhou)"
               }
             }
           ],
@@ -134,25 +140,29 @@
             {
               "at": [94.7, 40.1],
               "name": {
-                "sv": "Dunhuang"
+                "sv": "Dunhuang",
+                "en": "Dunhuang"
               }
             },
             {
               "at": [93.9, 40.4],
               "name": {
-                "sv": "Jadeporten (Yumenpasset)"
+                "sv": "Jadeporten (Yumenpasset)",
+                "en": "Jade Gate (Yumen Pass)"
               }
             },
             {
               "at": [89.8, 40.5],
               "name": {
-                "sv": "Loulan"
+                "sv": "Loulan",
+                "en": "Loulan"
               }
             },
             {
               "at": [86.2, 41.8],
               "name": {
-                "sv": "Korla"
+                "sv": "Korla",
+                "en": "Korla"
               }
             }
           ],
@@ -170,25 +180,29 @@
             {
               "at": [86.2, 41.8],
               "name": {
-                "sv": "Korla"
+                "sv": "Korla",
+                "en": "Korla"
               }
             },
             {
               "at": [82.9, 41.6],
               "name": {
-                "sv": "Kucha"
+                "sv": "Kucha",
+                "en": "Kucha"
               }
             },
             {
               "at": [80.2, 41.2],
               "name": {
-                "sv": "Aksu"
+                "sv": "Aksu",
+                "en": "Aksu"
               }
             },
             {
               "at": [76.0, 39.5],
               "name": {
-                "sv": "Kashgar"
+                "sv": "Kashgar",
+                "en": "Kashgar"
               }
             }
           ],
@@ -207,31 +221,36 @@
             {
               "at": [95.8, 40.5],
               "name": {
-                "sv": "Anxi (Guazhou)"
+                "sv": "Anxi (Guazhou)",
+                "en": "Anxi (Guazhou)"
               }
             },
             {
               "at": [93.5, 42.8],
               "name": {
-                "sv": "Kumul (Hami)"
+                "sv": "Kumul (Hami)",
+                "en": "Kumul (Hami)"
               }
             },
             {
               "at": [89.2, 43.0],
               "name": {
-                "sv": "Turpan"
+                "sv": "Turpan",
+                "en": "Turpan"
               }
             },
             {
               "at": [86.6, 42.0],
               "name": {
-                "sv": "Karasahr"
+                "sv": "Karasahr",
+                "en": "Karasahr"
               }
             },
             {
               "at": [86.2, 41.8],
               "name": {
-                "sv": "Korla"
+                "sv": "Korla",
+                "en": "Korla"
               }
             }
           ],
@@ -249,73 +268,85 @@
             {
               "at": [95.8, 40.5],
               "name": {
-                "sv": "Anxi (Guazhou)"
+                "sv": "Anxi (Guazhou)",
+                "en": "Anxi (Guazhou)"
               }
             },
             {
               "at": [94.7, 40.1],
               "name": {
-                "sv": "Dunhuang"
+                "sv": "Dunhuang",
+                "en": "Dunhuang"
               }
             },
             {
               "at": [88.9, 39.2],
               "name": {
-                "sv": "Miran"
+                "sv": "Miran",
+                "en": "Miran"
               }
             },
             {
               "at": [88.2, 39.0],
               "name": {
-                "sv": "Qarkilik (Ruoqiang)"
+                "sv": "Qarkilik (Ruoqiang)",
+                "en": "Qarkilik (Ruoqiang)"
               }
             },
             {
               "at": [85.5, 38.1],
               "name": {
-                "sv": "Qarqan (Qiemo)"
+                "sv": "Qarqan (Qiemo)",
+                "en": "Qarqan (Qiemo)"
               }
             },
             {
               "at": [82.8, 37.8],
               "name": {
-                "sv": "Niya"
+                "sv": "Niya",
+                "en": "Niya"
               }
             },
             {
               "at": [81.7, 36.9],
               "name": {
-                "sv": "Keriya"
+                "sv": "Keriya",
+                "en": "Keriya"
               }
             },
             {
               "at": [79.9, 37.1],
               "name": {
-                "sv": "Khotan"
+                "sv": "Khotan",
+                "en": "Khotan"
               }
             },
             {
               "at": [78.3, 37.6],
               "name": {
-                "sv": "Pishan (Guma)"
+                "sv": "Pishan (Guma)",
+                "en": "Pishan (Guma)"
               }
             },
             {
               "at": [77.4, 37.9],
               "name": {
-                "sv": "Karghalik (Yecheng)"
+                "sv": "Karghalik (Yecheng)",
+                "en": "Karghalik (Yecheng)"
               }
             },
             {
               "at": [77.2, 38.4],
               "name": {
-                "sv": "Yarkant"
+                "sv": "Yarkant",
+                "en": "Yarkant"
               }
             },
             {
               "at": [76.0, 39.5],
               "name": {
-                "sv": "Kashgar"
+                "sv": "Kashgar",
+                "en": "Kashgar"
               }
             }
           ],
@@ -374,25 +405,29 @@
             {
               "at": [76.0, 39.5],
               "name": {
-                "sv": "Kashgar"
+                "sv": "Kashgar",
+                "en": "Kashgar"
               }
             },
             {
               "at": [75.4, 40.6],
               "name": {
-                "sv": "Torugartpasset"
+                "sv": "Torugartpasset",
+                "en": "Torugart Pass"
               }
             },
             {
               "at": [70.9, 40.5],
               "name": {
-                "sv": "Kokand i Ferganadalen"
+                "sv": "Kokand i Ferganadalen",
+                "en": "Kokand in the Fergana Valley"
               }
             },
             {
               "at": [62.2, 37.7],
               "name": {
-                "sv": "Merv"
+                "sv": "Merv",
+                "en": "Merv"
               }
             }
           ],
@@ -412,37 +447,43 @@
             {
               "at": [76.0, 39.5],
               "name": {
-                "sv": "Kashgar"
+                "sv": "Kashgar",
+                "en": "Kashgar"
               }
             },
             {
               "at": [73.9, 39.7],
               "name": {
-                "sv": "Irkeshtam"
+                "sv": "Irkeshtam",
+                "en": "Irkeshtam"
               }
             },
             {
               "at": [73.0, 39.7],
               "name": {
-                "sv": "Alajdalen"
+                "sv": "Alajdalen",
+                "en": "The Alay Valley"
               }
             },
             {
               "at": [67.3, 37.2],
               "name": {
-                "sv": "Termez"
+                "sv": "Termez",
+                "en": "Termez"
               }
             },
             {
               "at": [66.9, 36.8],
               "name": {
-                "sv": "Balkh"
+                "sv": "Balkh",
+                "en": "Balkh"
               }
             },
             {
               "at": [62.2, 37.7],
               "name": {
-                "sv": "Merv"
+                "sv": "Merv",
+                "en": "Merv"
               }
             }
           ],
@@ -461,31 +502,36 @@
             {
               "at": [62.2, 37.7],
               "name": {
-                "sv": "Merv"
+                "sv": "Merv",
+                "en": "Merv"
               }
             },
             {
               "at": [61.2, 36.5],
               "name": {
-                "sv": "Sarakhs"
+                "sv": "Sarakhs",
+                "en": "Sarakhs"
               }
             },
             {
               "at": [59.6, 36.3],
               "name": {
-                "sv": "Mashhad"
+                "sv": "Mashhad",
+                "en": "Mashhad"
               }
             },
             {
               "at": [58.8, 36.2],
               "name": {
-                "sv": "Nishapur"
+                "sv": "Nishapur",
+                "en": "Nishapur"
               }
             },
             {
               "at": [51.4, 35.6],
               "name": {
-                "sv": "Ray"
+                "sv": "Ray",
+                "en": "Ray"
               }
             }
           ],
@@ -504,25 +550,29 @@
             {
               "at": [51.4, 35.6],
               "name": {
-                "sv": "Ray"
+                "sv": "Ray",
+                "en": "Ray"
               }
             },
             {
               "at": [48.5, 34.8],
               "name": {
-                "sv": "Hamadan"
+                "sv": "Hamadan",
+                "en": "Hamadan"
               }
             },
             {
               "at": [44.6, 33.1],
               "name": {
-                "sv": "Ktesifon"
+                "sv": "Ktesifon",
+                "en": "Ctesiphon"
               }
             },
             {
               "at": [36.2, 36.2],
               "name": {
-                "sv": "Antiokia"
+                "sv": "Antiokia",
+                "en": "Antioch"
               }
             }
           ],
@@ -544,19 +594,22 @@
             {
               "at": [51.4, 35.6],
               "name": {
-                "sv": "Ray"
+                "sv": "Ray",
+                "en": "Ray"
               }
             },
             {
               "at": [48.5, 34.8],
               "name": {
-                "sv": "Hamadan"
+                "sv": "Hamadan",
+                "en": "Hamadan"
               }
             },
             {
               "at": [44.4, 33.3],
               "name": {
-                "sv": "Bagdad"
+                "sv": "Bagdad",
+                "en": "Baghdad"
               }
             }
           ],

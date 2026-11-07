@@ -54,7 +54,7 @@
           "path": [[2.1, 6.25],[1.5, 4.8],[-4.0, 3.0],[-10.0, 4.0],[-18.0, 8.0],[-30.0, 11.5],[-45.0, 13.0],[-55.0, 13.3],[-59.5, 13.5],[-61.1, 13.55],[-63.0, 14.0],[-68.0, 15.3],[-73.0, 16.5],[-76.0, 17.5],[-76.8, 17.92]],
           "uncertain": true,
           "places": [
-            { "at": [-76.8, 17.92], "name": { "sv": "Kingston på Jamaica", "en": "Kingston, Jamaica" } }
+            { "at": [-76.8, 17.92], "name": { "sv": "Kingston på Jamaica", "en": "Kingston in Jamaica" } }
           ],
           "sources": ["wp-atlantic-slave-trade", "wp-triangular-trade"]
         },
