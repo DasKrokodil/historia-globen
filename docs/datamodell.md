@@ -524,6 +524,10 @@ En guidad tur är data, inte kod (Rikards beslut 2026-11-01, docs/beslut/2026-11
 - **Jämförelser mellan steg** ("samtidigt", "en vecka senare", "medan … pågår") behöver källor för båda leden (källpolicyn punkt 5): steget får då också den andra händelsens källa i `sources`.
 - Kontrolleras av `js/tour-format.js` (i webbläsaren och i `tests/tour.test.mjs`), `scripts/validate-site.py` (filer, händelser, källor, schema) och webbläsartestet.
 
+## `uppdrag.json`: elevuppdrag (#741)
+
+`uppdrag.json` (`schema: historia-globen/uppdrag@1`) listar elevuppdragen i `missions`. Ett uppdrag har `id`, `kind` (än så länge bara `hunt`, Samtidighetsjakten), `year`, `window` (år åt varje håll, 0–100), `count` (antal världsdelar, 2–5) och texterna `title`, `task` och `reflection` på alla fem språk. Texterna påstår inga historiska fakta: de beskriver uppgiften och ställer en fråga, och sidan kontrollerar ur händelserna att år och världsdel stämmer. Kontrolleras av `missionProblems()` i `js/uppdrag-rules.js` och `tests/uppdrag.test.mjs`, som också kontrollerar att varje uppdrag går att klara med datan (minst `count` världsdelar har synliga händelser inom åren).
+
 ## `vyer.json`: grupper och förinställda vyer i Lager (#357)
 
 Ingen fakta, bara hur Lager är ordnat. Namnen står per språk som andra texter (`t()`).

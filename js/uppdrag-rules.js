@@ -1,0 +1,53 @@
+// Elevuppdrag (#741, ur idésamlingen #250): Samtidighetsjakten. "Hitta händelser på olika kontinenter omkring
+// år X." Eleven lägger händelser i jakten, och reglerna här avgör ur datan om de räknas. Inga nya fakta.
+// Filen använder bara region() ur js/model.js och testas i node (tests/uppdrag.test.mjs).
+//
+// En händelse räknas när den syns (isVisible), har en punkt på globen, dess spann överlappar
+// [year − window, year + window] och dess världsdel inte redan finns i jakten.
+import { region } from './model.js';
+
+export const MISSION_ID = /^[a-z0-9-]+$/;
+
+/** Uppdragets år som [från, till]. */
+export const span = m => [m.year - m.window, m.year + m.window];
+
+/** Händelsens världsdel ur dess punkt (samma indelning som Samtidigt-panelen), eller null. */
+export function eventRegion(e) {
+  const lat = e._lat ?? (e.location?.type === 'Point' ? e.location.coordinates[1] : NaN);
+  const lon = e._lon ?? (e.location?.type === 'Point' ? e.location.coordinates[0] : NaN);
+  return Number.isFinite(lat) && Number.isFinite(lon) ? region(lat, lon) : null;
+}
+
+/**
+ * Får händelsen e läggas i jakten? found är händelserna som redan finns där.
+ * Ger { ok: true, region } eller { ok: false, reason } där reason är hidden, place, time, already eller region.
+ */
+export function checkHunt(e, mission, found, isVisible) {
+  if (!e || !isVisible(e.review)) return { ok: false, reason: 'hidden' };
+  if (found.some(x => x.id === e.id)) return { ok: false, reason: 'already' };
+  const r = eventRegion(e);
+  if (!r) return { ok: false, reason: 'place' };
+  const [from, to] = span(mission);
+  if (e.end < from || e.start > to) return { ok: false, reason: 'time' };
+  if (found.some(x => eventRegion(x) === r)) return { ok: false, reason: 'region', region: r };
+  return { ok: true, region: r };
+}
+
+/** Är jakten klar? */
+export const huntDone = (mission, found) => found.length >= mission.count;
+
+const isText = v => !!v && typeof v === 'object' && typeof v.sv === 'string' && v.sv.trim() !== '';
+
+/** Kontrollerar ett uppdrag i data/uppdrag.json. Ger en lista med problem (tom när uppdraget är helt). */
+export function missionProblems(m) {
+  const out = [];
+  const name = m?.id ?? '?';
+  if (!m || typeof m !== 'object') return ['Uppdraget är inte ett objekt.'];
+  if (typeof m.id !== 'string' || !MISSION_ID.test(m.id)) out.push(`${name}: id saknas eller har fel tecken.`);
+  if (m.kind !== 'hunt') out.push(`${name}: okänd sort ${m.kind}.`);
+  if (!Number.isInteger(m.year)) out.push(`${name}: året ska vara ett heltal.`);
+  if (!Number.isInteger(m.window) || m.window < 0 || m.window > 100) out.push(`${name}: window ska vara 0–100 år.`);
+  if (!Number.isInteger(m.count) || m.count < 2 || m.count > 5) out.push(`${name}: count ska vara 2–5 världsdelar.`);
+  for (const k of ['title', 'task', 'reflection']) if (!isText(m[k])) out.push(`${name}: ${k} saknas (${k}.sv).`);
+  return out;
+}
