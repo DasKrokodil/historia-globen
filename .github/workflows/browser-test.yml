@@ -1,6 +1,8 @@
 # Webbläsartest (#339, #401, docs/DEPLOYMENT.md): bygger dist/, startar en lokal webbserver och öppnar sidan
 # med Playwright i datorbredd (1400 × 900) och mobilbredd (400 × 800). Vanliga körningar använder Chromium;
-# release-PR mot production använder dessutom Firefox och WebKit. Testskriptet är tests/webblasare.mjs.
+# release-PR mot production använder dessutom Firefox och WebKit, liksom en pull request mot main med etiketten
+# alla-webbläsare (#702), så att en rättning för Firefox eller WebKit kan provas före releasen. Etiketten gäller
+# från nästa push, inte i det ögonblick den sätts. Testskriptet är tests/webblasare.mjs.
 # Playwright används bara här i testerna (Rikards godkännande 2026-10-31); sidan själv får inga nya beroenden.
 # Körs vid push till main och vid pull requests mot main och production, som validate-site.yml.
 name: Webbläsartest
@@ -32,7 +34,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        browser: ${{ fromJSON(github.event_name == 'pull_request' && github.base_ref == 'production' && '[{"id":"chromium","name":"Chromium"},{"id":"firefox","name":"Firefox"},{"id":"webkit","name":"WebKit"}]' || '[{"id":"chromium","name":"Chromium"}]') }}
+        browser: ${{ fromJSON(github.event_name == 'pull_request' && (github.base_ref == 'production' || contains(github.event.pull_request.labels.*.name, 'alla-webbläsare')) && '[{"id":"chromium","name":"Chromium"},{"id":"firefox","name":"Firefox"},{"id":"webkit","name":"WebKit"}]' || '[{"id":"chromium","name":"Chromium"}]') }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -102,6 +104,11 @@ jobs:
           else
             "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps "$BROWSER"
           fi
+          # Firefox hittar ingen GL-drivrutin i huvudlöst läge (#702). Det körs i stället med fönster i en virtuell
+          # skärm (Xvfb) och ritar WebGL med Mesas mjukvarudrivrutin (llvmpipe). Paketen sparas i apt-cachen nedan.
+          if [ "$BROWSER" = firefox ]; then
+            sudo apt-get install -y --no-install-recommends xvfb xauth libgl1-mesa-dri libglx-mesa0 libegl-mesa0
+          fi
 
       # Sparas direkt efter installationen, och även när den stoppades av tidsgränsen, så att nästa
       # körning kommer längre. Nyckeln bygger på filnamnen: samma paket som förut sparas inte igen,
@@ -139,7 +146,13 @@ jobs:
         env:
           BROWSER: ${{ matrix.browser.id }}
           SKARMBILDER: skarmbilder
-        run: NODE_PATH="$RUNNER_TEMP/pw/node_modules" node tests/webblasare.mjs "$PORT"
+        # Firefox körs med fönster i Xvfb (HEADLESS=0), se installationssteget (#702)
+        run: |
+          if [ "$BROWSER" = firefox ]; then
+            HEADLESS=0 NODE_PATH="$RUNNER_TEMP/pw/node_modules" xvfb-run -a -s '-screen 0 1920x1080x24' node tests/webblasare.mjs "$PORT"
+          else
+            NODE_PATH="$RUNNER_TEMP/pw/node_modules" node tests/webblasare.mjs "$PORT"
+          fi
 
       - name: Spara skärmbilderna
         if: always()
