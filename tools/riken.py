@@ -34,6 +34,9 @@ MERGE = 0.02   # slå ihop perioder där gränsen ändras mindre än så här st
 MIN_AREA = 0.02  # öar mindre än så här (kvadratgrader, cirka 200 km2) tas bort
 
 # Stora, utspridda imperier förenklas hårdare så att filen blir lagom stor: grupp -> (TOL, MERGE, MIN_AREA)
+# Små stater som visas som punkter, med gränsen ur Natural Earth (#722)
+SMALL_STATES = ('saint-kitts-och-nevis', 'mikronesiska-federationen', 'kiribati', 'komorerna', 'liechtenstein',
+                'maldiverna', 'marshalloarna', 'nauru', 'samoa', 'san-marino', 'tonga', 'tuvalu', 'andorra', 'monaco')
 OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              'spanska-imperiet': (0.3, 0.08, 0.08), 'portugisiska-imperiet': (0.3, 0.08, 0.08),
              'ryska-imperiet': (0.3, 0.05, 0.08),
@@ -65,7 +68,9 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              'saint-vincent-och-grenadinerna': (0.02, 0.02, 0.001), 'grenada': (0.02, 0.02, 0.001),
              'seychellerna': (0.02, 0.02, 0.001), 'palau': (0.02, 0.02, 0.001),
              # Östtimor (femtonde omgången) blir annars en triangel
-             'osttimor': (0.03, 0.02, 0.005)}
+             'osttimor': (0.03, 0.02, 0.005),
+             # Små stater ur Natural Earth (#722): nästan ingen förenkling, och alla öar behålls
+             **{g: (0.002, 0.02, 0) for g in SMALL_STATES}}
 
 # grupp: (svenskt namn, engelskt namn, [(Cliopatria-namn, id, svenskt namn, färg)])
 GROUPS = {
@@ -1040,6 +1045,70 @@ GROUPS = {
     'osttimor': ('Östtimor', 'Timor-Leste', [
         ('East Timor', 'osttimor', 'Östtimor', '#c0804a', {'en': 'Timor-Leste', 'prepend': (2002, 2005)}),
     ]),
+    # Små stater ur Natural Earth (#722, Rikards beslut 2026-11-07): Cliopatria saknar dem i nutid eller har fel gräns
+    # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth
+    # (tools/ne-omstridda-omraden.geojson, tools/ne_omstridda.py), från självständigheten enligt Wikidata och Wikipedia
+    # (docs/datamodell.md), och landet visas som en punkt med namn (point) på huvudstaden enligt Wikidata (label)
+    # Andorra och Monaco (#719, Rikards beslut 2026-11-07): som de små staterna, en punkt på huvudstaden, men med
+    # Cliopatrias årtal. Gränsen är dagens land i Natural Earth; grannarnas förenklade gränser täcker annars Andorra.
+    # Monaco har Cliopatrias gräns till och med 1847 (164 km²) och Natural Earths från 1848, eftersom Cliopatrias
+    # gräns från 1848 ligger väster om Monaco (7,15–7,23° öst; Natural Earth 7,37–7,44° öst)
+    'andorra': ('Andorra', 'Andorra', [
+        ('Principality of Andorra', 'andorra', 'Andorra', '#c0603a', {'en': 'Andorra', 'ne': 'andorra', 'point': True,
+                                                                     'label': (1.522, 42.507)}),
+    ]),
+    'monaco': ('Monaco', 'Monaco', [
+        (['Principality of Monaco', 'Kingdom of Monaco'], 'monaco', 'Monaco', '#c04a5a',
+         {'en': 'Monaco', 'wikidata': 'Q235', 'ne': 'monaco', 'ne_from': 1848, 'point': True, 'label': (7.42, 43.731)}),
+    ]),
+    'saint-kitts-och-nevis': ('Saint Kitts och Nevis', 'Saint Kitts and Nevis', [
+        (None, 'saint-kitts-och-nevis', 'Saint Kitts och Nevis', '#c05a4a', {'en': 'Saint Kitts and Nevis', 'wikidata': 'Q763', 'years': (1983, 2024), 'ne': 'saint-kitts-och-nevis', 'point': True,
+                  'label': (-62.734, 17.298)}),
+    ]),
+    'mikronesiska-federationen': ('Mikronesiska federationen', 'Federated States of Micronesia', [
+        (None, 'mikronesiska-federationen', 'Mikronesiska federationen', '#4a8ab0', {'en': 'Federated States of Micronesia', 'wikidata': 'Q702', 'years': (1986, 2024), 'ne': 'mikronesiska-federationen', 'point': True,
+                  'label': (158.185, 6.918)}),
+    ]),
+    'kiribati': ('Kiribati', 'Kiribati', [
+        (None, 'kiribati', 'Kiribati', '#c0904a', {'en': 'Kiribati', 'wikidata': 'Q710', 'years': (1979, 2024), 'ne': 'kiribati', 'point': True,
+                  'label': (172.967, 1.333)}),
+    ]),
+    'komorerna': ('Komorerna', 'Comoros', [
+        (None, 'komorerna', 'Komorerna', '#4a9a6a', {'en': 'Comoros', 'wikidata': 'Q970', 'years': (1975, 2024), 'ne': 'komorerna', 'point': True,
+                  'label': (43.254, -11.704)}),
+    ]),
+    'liechtenstein': ('Liechtenstein', 'Liechtenstein', [
+        (None, 'liechtenstein', 'Liechtenstein', '#4a6ab0', {'en': 'Liechtenstein', 'wikidata': 'Q347', 'years': (1806, 2024), 'ne': 'liechtenstein', 'point': True,
+                  'label': (9.522, 47.141)}),
+    ]),
+    'maldiverna': ('Maldiverna', 'Maldives', [
+        (None, 'maldiverna', 'Maldiverna', '#c04a5a', {'en': 'Maldives', 'wikidata': 'Q826', 'years': (1965, 2024), 'ne': 'maldiverna', 'point': True,
+                  'label': (73.508, 4.175)}),
+    ]),
+    'marshalloarna': ('Marshallöarna', 'Marshall Islands', [
+        (None, 'marshalloarna', 'Marshallöarna', '#3a7ac0', {'en': 'Marshall Islands', 'wikidata': 'Q709', 'years': (1986, 2024), 'ne': 'marshalloarna', 'point': True,
+                  'label': (171.38, 7.092)}),
+    ]),
+    'nauru': ('Nauru', 'Nauru', [
+        (None, 'nauru', 'Nauru', '#3a5a9a', {'en': 'Nauru', 'wikidata': 'Q697', 'years': (1968, 2024), 'ne': 'nauru', 'point': True,
+                  'label': (166.921, -0.548)}),
+    ]),
+    'samoa': ('Samoa', 'Samoa', [
+        (None, 'samoa', 'Samoa', '#b04a4a', {'en': 'Samoa', 'wikidata': 'Q683', 'years': (1962, 2024), 'ne': 'samoa', 'point': True,
+                  'label': (-171.833, -13.833)}),
+    ]),
+    'san-marino': ('San Marino', 'San Marino', [
+        (None, 'san-marino', 'San Marino', '#5a9ac0', {'en': 'San Marino', 'wikidata': 'Q238', 'years': (1291, 2024), 'ne': 'san-marino', 'point': True,
+                  'label': (12.448, 43.932)}),
+    ]),
+    'tonga': ('Tonga', 'Tonga', [
+        (None, 'tonga', 'Tonga', '#c04a4a', {'en': 'Tonga', 'wikidata': 'Q678', 'years': (1970, 2024), 'ne': 'tonga', 'point': True,
+                  'label': (-175.202, -21.134)}),
+    ]),
+    'tuvalu': ('Tuvalu', 'Tuvalu', [
+        (None, 'tuvalu', 'Tuvalu', '#4aa0b0', {'en': 'Tuvalu', 'wikidata': 'Q672', 'years': (1978, 2024), 'ne': 'tuvalu', 'point': True,
+                  'label': (179.117, -8.505)}),
+    ]),
 }
 
 # Huvudlandet i utspridda välden (#74): moderlandet ritas med kraftigare kant och en stjärna och får
@@ -1152,6 +1221,12 @@ DISPUTED = {
 }
 
 
+def ne_shapes():
+    """Områdena och länderna i tools/ne-omstridda-omraden.geojson (Natural Earth): {id: geometri}."""
+    return {f['properties']['id']: shape(f['geometry']).buffer(0)
+            for f in json.loads((ROOT / 'tools/ne-omstridda-omraden.geojson').read_text())['features']}
+
+
 def disputed_areas(by_name):
     """Områdena i DISPUTED som geometrier: {namn: geometri}."""
     def at(name, y):
@@ -1159,8 +1234,7 @@ def disputed_areas(by_name):
             if f['properties']['FromYear'] <= y <= f['properties']['ToYear']:
                 return shape(f['geometry']).buffer(0)
         raise SystemExit(f'DISPUTED: {name} saknas år {y} i Cliopatria')
-    ne = {f['properties']['id']: shape(f['geometry']).buffer(0)
-          for f in json.loads((ROOT / 'tools/ne-omstridda-omraden.geojson').read_text())['features']}
+    ne = ne_shapes()
     def area(a):
         if a[0] == 'ne':
             return unary_union([ne[i] for i in a[1]])
@@ -1251,7 +1325,7 @@ def extend(by_name, ext):
 
 
 # Koordinaterna avrundas till 0.1 grad, utom för små länder där gränsen annars hamnar fel (#644)
-DECIMALS = {'israel': 2, 'palestina': 2}
+DECIMALS = {'israel': 2, 'palestina': 2, **{g: 3 for g in SMALL_STATES}}
 
 
 def rnd(o, nd=1):
@@ -1386,6 +1460,7 @@ def main():
             by_name.setdefault(p['Name'], []).append(f)
     rels = relations(src)
     disputed = disputed_areas(by_name)  # omstridda gränser enligt Sveriges hållning (#644)
+    ne = ne_shapes()  # små stater ur Natural Earth (#722)
     # Riken med eget namn i GROUPS, så att ett lydrike som också är ett eget rike på kartan får samma namn (#75)
     known = {}
     for _gid, (_sv, _en, _members, *_o) in GROUPS.items():
@@ -1448,8 +1523,16 @@ def main():
             if gid in EXTEND and EXTEND[gid]['polity'] == cname:
                 feats = extend(by_name, EXTEND[gid])
             # En del utan Cliopatria-namn (None) får hela sin gräns ur DISPUTED (Palestina, #644)
-            base = ([(*opts['years'], Polygon(), 0)] if cname is None
-                    else member_periods(by_name, cname, opts.get('years'), feats))
+            # eller, med `ne`, ur ett land i Natural Earth (små stater, #722)
+            if cname is None:
+                g0 = ne[opts['ne']] if opts.get('ne') else Polygon()
+                base = [(*opts['years'], g0, km2(g0) if opts.get('ne') else 0)]
+            else:
+                base = member_periods(by_name, cname, opts.get('years'), feats)
+                # Cliopatrias årtal men gränsen ur Natural Earth från året ne_from (Andorra och Monaco, #719)
+                if opts.get('ne'):
+                    g1 = ne[opts['ne']]
+                    base = [(a, b, g1, km2(g1)) if a >= opts.get('ne_from', a) else (a, b, g, ar) for a, b, g, ar in base]
             # prepend: år före Cliopatrias första år, utan egen gräns; gränsen läggs till ur DISPUTED (Östtimor, #644)
             if opts.get('prepend'):
                 base = [(*opts['prepend'], Polygon(), 0)] + base
@@ -1464,8 +1547,10 @@ def main():
                     continue
                 # Namnet skrivs där den största delen av riket ligger
                 c = (max(g.geoms, key=lambda q: q.area) if g.geom_type == 'MultiPolygon' else g).representative_point()
+                # label i GROUPS ersätter den uträknade punkten (små stater: huvudstaden, #722)
+                lab = list(opts['label']) if opts.get('label') else [round(c.x, 1), round(c.y, 1)]
                 q = {'start': start, 'end': end, 'areaKm2': round(area),
-                     'label': [round(c.x, 1), round(c.y, 1)], '_shape': g,
+                     'label': lab, '_shape': g,
                      'geometry': {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], DECIMALS.get(gid, 1))}}
                 # Huvudlandet (#74): den del av riket som är moderlandet. Den ritas kraftigare och får rikets namn.
                 if home and 'homeland' in opts:
@@ -1495,8 +1580,12 @@ def main():
             wd = opts.get('wikidata') or by_name[first][0]['properties'].get('Wikidata')
             pname = with_old({'sv': psv, 'en': opts.get('en', (first or '').strip('()'))}, ('polity', gid, pid))
             polity = {'id': pid, 'group': gid, 'name': pname, 'wikidata': wd,
-                      'color': color, 'sources': ['cliopatria'] if first else ['natural-earth-omstridda'],
+                      'color': color,
+                      'sources': (['cliopatria', 'natural-earth-lander'] if opts.get('ne') else ['cliopatria']) if first
+                                 else ['natural-earth-lander'] if opts.get('ne') else ['natural-earth-omstridda'],
                       'review': 'source-checked', 'periods': merged}
+            if opts.get('point'):
+                polity['point'] = True  # för litet för kartan: visas som en punkt med namn (#722)
             if isinstance(cname, list):
                 polity['parts'] = cname  # Cliopatria-namnen som slogs ihop
             if home and 'homeland' in opts:
@@ -1516,6 +1605,10 @@ def main():
                       'polities': [{'id': p['id'], 'name': p['name'], 'sources': p['sources'], 'review': p['review']} for p in polities]})
         if not any(m[0] for m in members):
             index[-1]['borderSource'] = 'Natural Earth'  # gränsen kommer inte från Cliopatria (#644)
+        elif all(isinstance(m[-1], dict) and m[-1].get('ne') for m in members):
+            # Cliopatrias årtal med gränsen ur Natural Earth (#719), från ett visst år när ne_from finns
+            index[-1]['borderSource'] = ('Cliopatria / Natural Earth' if any(m[-1].get('ne_from') for m in members)
+                                         else 'Natural Earth')
         if home:
             index[-1]['homeland'] = {'name': home['name']}
         if gid in vanished:
@@ -1569,7 +1662,9 @@ def main():
              'docs/omstridda-granser.md). Krim och Sevastopol räknas till Ukraina även från 2014, och inte till Ryska federationen. '
              'Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel från 1967; Staten Palestina '
              '(Västbanken med Östra Jerusalem och Gaza) visas från 2014, då Sverige erkände den. De gränserna kommer ur Natural Earth '
-             '(ne_10m_admin_0_disputed_areas 5.1.1, public domain), och gruppen har då borderSource. Där är areaKm2 räknad ur den nya gränsen.')
+             '(ne_10m_admin_0_disputed_areas 5.1.1, public domain), och gruppen har då borderSource. Där är areaKm2 räknad ur den nya gränsen. '
+             'Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth '
+             '(ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.')
     (out / 'index.json').write_text(json.dumps({'schema': 'historia-globen/empires-index@1', 'notes': notes, 'groups': index},
                                                ensure_ascii=False, indent=1))
 

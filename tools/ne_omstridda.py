@@ -12,6 +12,10 @@ också Azerbajdzjans gräns ur ne_10m_admin_0_countries (samma version), efterso
 Nagorno-Karabach och omkringliggande områden till Armenien: det omstridda området är den del av Cliopatrias
 Armenien som ligger inom Azerbajdzjans gräns i Natural Earth (DISPUTED i tools/riken.py).
 
+Små stater som Cliopatria saknar eller har fel gräns för (#722, Rikards beslut 2026-11-07) tas också ur
+ne_10m_admin_0_countries (SMALL nedan). De förenklas nästan inte, så att atollerna finns kvar, och visas som
+punkter på kartan.
+
 Kör från projektets rot, med de uppackade shapefilerna:
     python3 tools/ne_omstridda.py <ne_10m_admin_0_disputed_areas.shp> <ne_10m_admin_0_countries.shp>
 Kräver pyshp och shapely (pip install pyshp shapely).
@@ -38,6 +42,10 @@ AREAS = {
 }
 # Länders gränser ur ne_10m_admin_0_countries (ADM0_A3), förenklade till 0,01 grad
 COUNTRIES = {'azerbajdzjan': 'AZE'}
+# Små stater (#722), ur samma fil men förenklade till bara 0,002 grader och avrundade till 0,001 grad
+SMALL = {'saint-kitts-och-nevis': 'KNA', 'mikronesiska-federationen': 'FSM', 'kiribati': 'KIR', 'komorerna': 'COM',
+         'liechtenstein': 'LIE', 'maldiverna': 'MDV', 'marshalloarna': 'MHL', 'nauru': 'NRU', 'samoa': 'WSM',
+         'san-marino': 'SMR', 'tonga': 'TON', 'tuvalu': 'TUV', 'andorra': 'AND', 'monaco': 'MCO'}
 
 
 def rnd(o):
@@ -67,9 +75,10 @@ def main():
         fields = [f[0] for f in r.fields[1:]]
         for s in r.shapeRecords():
             a = dict(zip(fields, s.record))
-            for key, a3 in COUNTRIES.items():
+            for key, a3 in {**COUNTRIES, **SMALL}.items():
                 if a['ADM0_A3'] == a3:
-                    m = mapping(shape(s.shape.__geo_interface__).buffer(0).simplify(0.01, preserve_topology=True))
+                    tol = 0.002 if key in SMALL else 0.01
+                    m = mapping(shape(s.shape.__geo_interface__).buffer(0).simplify(tol, preserve_topology=True))
                     feats.append({'type': 'Feature', 'properties': {'id': key, 'name': a['NAME'], 'note': 'ne_10m_admin_0_countries'},
                                   'geometry': {'type': m['type'], 'coordinates': rnd(m['coordinates'])}})
     doc = {'type': 'FeatureCollection',

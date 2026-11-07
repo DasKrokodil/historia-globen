@@ -150,7 +150,7 @@ export class AreasLayer {
    * skulle täcka något som redan står där (ett större rike, de viktigaste händelsernas markörer, eller den valda
    * händelsen och Samtidigt-kortets händelser med sina etiketter, view.keepouts) flyttas uppåt eller nedåt med ett streck, eller döljs. Övriga händelseetiketter
    * viker i stället för rikena (placedBoxes). Samma princip som etiketterna (placeLabels i ui/clusters.js):
-   * en gemensam lista med upptagna rutor. Returnerar Map från akey (och 'pt:' + grupp för försvunna länder) till
+   * en gemensam lista med upptagna rutor. Returnerar Map från akey (och 'pt:' + grupp för försvunna länder, 'sp:' + rike för små stater som punkt, #722) till
    * { px, py, medal, star, name, x, y, lead }. Räknas om bara när året, nivån eller storleken har ändrats.
    */
   _layout() {
@@ -173,7 +173,14 @@ export class AreasLayer {
       if (o.w) used.push({ x0: x - o.w / 2 / unit, x1: x + o.w / 2 / unit, y0: y - off - o.h / unit, y1: y - off });
     }
     const keep = !!this.onlyGroup; // fokusläge för ett rike: allt som syns hör till riket och visas alltid
-    const cands = this.active.map(a => ({ ...a, area: a.period.areaKm2 ?? 0 }))
+    // Små stater (#722, polity.point): punkten står alltid på label-punkten och tas först, så att namnen viker för den
+    const DOT = 3.5 * sc;
+    const dots = this.active.filter(a => a.polity.point).map(({ polity, period }) => {
+      const x = X(period.label[0]), y = Y(period.label[1]);
+      take(sq(x, y, DOT * 1.6));
+      return { polity, x, y };
+    });
+    const cands = this.active.filter(a => !a.polity.point).map(a => ({ ...a, area: a.period.areaKm2 ?? 0 }))
       .sort((a, b) => b.area - a.area);
     const limit = keep ? Infinity : (ZOOM_LEVELS[v.level] ?? ZOOM_LEVELS[0]).names;
     const offsets = [-1.05, 1.15, -2.2, 2.3, -3.35, 3.45];
@@ -245,6 +252,17 @@ export class AreasLayer {
       const b = { x0: x - r * 1.9, x1: x + r * 2.8 + w, y0: y - size * 0.55, y1: y + size * 0.55 };
       if (!keep && (v.level < ZOOM_LEVELS.length - 1 || !free(b))) continue;
       take(b); map.set('pt:' + g.id, true);
+    }
+    // Små staters namn (#722) till höger om punkten, annars till vänster, från zoomnivån världsdel och när det finns
+    // plats (alltid i Fokus). Namnet får inte gå över kartans kant vid 180° (Tuvalu), där bilden tar slut
+    for (const { polity, x, y } of dots) {
+      const w = measure(t(polity.name), font), g = DOT * 2.4;
+      const right = { x0: x + g, x1: x + g + w, y0: y - size * 0.55, y1: y + size * 0.55 };
+      const left = { x0: x - g - w, x1: x - g, y0: right.y0, y1: right.y1 };
+      const fits = b => b.x0 >= 0 && b.x1 <= 2048;
+      const nb = [right, left].filter(fits).find(b => keep || (v.level >= 1 && free(b)));
+      if (nb) take(nb);
+      map.set('sp:' + polity.id, { x, y, r: DOT, named: !!nb, left: nb === left });
     }
     // Huvudstäder (#474, #616): fyrkanten står alltid på stadens plats, och namnet står till höger om den. Ligger en
     // händelsemarkör, en etikett eller ett rikesnamn där flyttas namnet till vänster, ovanför eller under. Är alla
@@ -455,6 +473,24 @@ export class AreasLayer {
       ctx.lineWidth = 1.2 * k * this.labelScale; ctx.strokeStyle = 'rgba(16,22,30,0.85)'; ctx.stroke();
       ctx.textAlign = 'left';
       write(t(g.name), (x + r * 2.8) / k, y / k);
+      ctx.textAlign = 'center';
+    }
+    // Små stater (#722): en fylld punkt i landets färg med pergamentring och mörk kontur, så att den inte förväxlas med
+    // ringen för försvunna länder (#72), huvudstadens fyrkant (#474) eller moderlandets stjärna (#74)
+    for (const { polity, alpha: transitionAlpha } of items) {
+      const d = polity.point && L.get('sp:' + polity.id);
+      if (!d) continue;
+      const alpha = transitionAlpha * (!this.highlight || polity.group === this.highlight ? 1 : 0.25);
+      const x = d.x * k, y = d.y * k, r = d.r * k;
+      ctx.globalAlpha = alpha;
+      ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = polity.color; ctx.fill();
+      ctx.lineWidth = 3.2 * k * this.labelScale; ctx.strokeStyle = 'rgba(16,22,30,0.85)'; ctx.stroke();
+      ctx.lineWidth = 1.4 * k * this.labelScale; ctx.strokeStyle = '#f6e7c4'; ctx.stroke();
+      if (!d.named) continue;
+      ctx.globalAlpha = this.labelAlpha * alpha;
+      ctx.textAlign = d.left ? 'right' : 'left';
+      write(t(polity.name), d.x + (d.left ? -1 : 1) * d.r * 2.4, d.y);
       ctx.textAlign = 'center';
     }
     ctx.restore();
