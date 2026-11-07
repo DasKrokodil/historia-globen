@@ -43,10 +43,23 @@ export class LessonMode {
     this.title.textContent = ui('lesson.band', { title: t(tour.title) });
     this.band.hidden = false;
     this.exit.hidden = this.lock?.escape === false;
-    const years = this.lock?.years;
-    if (years) timeline.setFocus({ from: years[0], to: years[1], fine: false });
+    this.applyLock();
     this.app.closeMenus?.(); // menyer som stod öppna när länken öppnades
     return true;
+  }
+
+  /**
+   * Lägger tidslåset (lock.years). Anropas av enter, och igen av TourPlayer.start efter att ett fokus som var på har
+   * släppts (endFocus nollställer annars tidslinjens spann). timeline.focusLocked hindrar årshoppets datum från
+   * att släppa låset.
+   */
+  applyLock() {
+    const years = this.lock?.years;
+    if (!years) return;
+    const { timeline } = this.app;
+    timeline.focusLocked = true;
+    const f = timeline.focus;
+    if (!f || f.fine || f.from !== years[0] || f.to !== years[1]) timeline.setFocus({ from: years[0], to: years[1], fine: false });
   }
 
   /** Slutar läget utan att röra turen. Året står kvar. */
@@ -58,6 +71,7 @@ export class LessonMode {
     root.classList.remove('lesson');
     this.band.hidden = true;
     this.endLinks.hidden = true;
+    timeline.focusLocked = false;
     if (hadYears) timeline.setFocus(null);
   }
 

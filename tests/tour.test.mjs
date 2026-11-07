@@ -72,6 +72,7 @@ test('lektionsläget (lesson.lock) kontrolleras och får inte ge tomma lägen (#
   for (const part of ['utanför years', 'från 1 världsdelar', 'lagret finns-inte', 'escape ska vara']) assert.match(all, new RegExp(part), `saknar ${part}`);
   assert.match(tourProblems(tour({ lesson: lesson({ years: [1300, 1200] }) }), k).join(), /från före till/);
   assert.match(tourProblems(tour({ lesson: lesson({ layers: [] }) }), k).join(), /layers ska vara/);
+  assert.match(tourProblems(tour({ lesson: lesson({ years: [1200.5, 1300] }) }), k).join(), /hela år/); // heltal (#795)
   assert.match(tourProblems(tour({ lesson: lesson([]) }), k).join(), /lesson\.lock ska vara ett objekt/);
 });
 

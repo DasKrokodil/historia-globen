@@ -171,7 +171,7 @@ export class TourPlayer {
     if (!this.tour) {
       this.saved = { layers: Object.fromEntries(app.controlled.map(l => [l, !!app.layers.on[l]])), focus: app.focusKey(), camera: app.globe.view };
     }
-    if (app.focusKey()) app.endFocus(false);
+    if (app.focusKey()) { app.endFocus(false); if (app.lesson?.active) app.lesson.applyLock(); } // endFocus släpper tidslåset (#795)
     this.tour = tour; this.opener = opener; this.target = null;
     this.name.textContent = t(tour.title);
     this.card.hidden = false;

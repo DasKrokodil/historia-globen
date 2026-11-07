@@ -104,14 +104,17 @@ function lessonProblems(l, known, tour) {
  * Kontrollerar lektionsläget (lesson.lock, #795). Reglerna ska hindra tomma lägen: alla stegens år ligger i
  * intervallet, lagren finns, och intervallet har händelser från minst två världsdelar (sidans poäng är
  * samtidighet). Det sista kontrolleras när known.regionsIn(från, till) finns: en funktion som ger antalet
- * världsdelar med synliga händelser i intervallet (testerna och validate-site.py ger den).
+ * världsdelar med synliga händelser i intervallet. Bara tests/tour.test.mjs ger den (regionsIn där räknar händelser
+ * som överlappar intervallet, inte bara de som börjar i det). scripts/validate-site.py gör inte kontrollen, för
+ * världsdelen räknas ur koordinaterna med region() i js/model.js och en kopia i Python skulle glida isär; en ny
+ * lektionstur med tomt intervall fångas därför av node --test 'tests/*.test.mjs', inte av valideringen av sidan.
  */
 function lockProblems(k, known, tour) {
   if (!k || typeof k !== 'object' || Array.isArray(k)) return ['lesson.lock ska vara ett objekt.'];
   const out = [];
   if (k.years != null) {
     const y = k.years;
-    if (!Array.isArray(y) || y.length !== 2 || !y.every(isNum) || y[0] >= y[1]) out.push('lesson.lock: years ska vara [från, till] med från före till.');
+    if (!Array.isArray(y) || y.length !== 2 || !y.every(Number.isInteger) || y[0] >= y[1]) out.push('lesson.lock: years ska vara [från, till], hela år (astronomisk årsräkning) med från före till.');
     else {
       for (const s of tour?.steps ?? []) if (isNum(s?.at) && (s.at < y[0] || s.at > y[1])) out.push(`lesson.lock: steget ${s.id} (${s.at}) ligger utanför years.`);
       if (known.regionsIn) {
