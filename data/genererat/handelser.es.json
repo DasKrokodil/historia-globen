@@ -2,6 +2,20 @@
 "lang":"es",
 "events":{
 "mammutar-wrangel":{"note":{"title":{"es":"Sobre el período"}}},
+"independence-i-kulturen":{"place":{"es":"Fiordo Independence, en Peary Land, norte de Groenlandia"},"title":{"es":"La cultura Independence I en el norte de Groenlandia"},"note":{"title":{"es":"Las fuentes difieren"}}},
+"saqqaqkulturen":{"place":{"es":"Saqqaq, Groenlandia, el asentamiento que da nombre a la cultura"},"title":{"es":"La cultura Saqqaq en Groenlandia"}},
+"ortoiroiderna-nar-antillerna":{"place":{"es":"Ortoire, en Trinidad, el yacimiento que da nombre a este pueblo"},"title":{"es":"Los ortoiroides se desplazan a las Antillas"}},
+"nortontraditionen":{"place":{"es":"La costa de Alaska en el estrecho de Bering (punto: Norton Sound)"},"title":{"es":"La tradición Norton: lámparas de aceite y vasijas de barro en el estrecho de Bering"}},
+"kuntur-wasi":{"place":{"es":"El cerro La Copa, en la región de Cajamarca, sierra norte del Perú"},"title":{"es":"Se construye el centro ceremonial de Kuntur Wasi"}},
+"paso-de-la-amada-bollplan":{"place":{"es":"Paso de la Amada, en Chiapas, México"},"title":{"es":"El juego de pelota más antiguo conocido de Mesoamérica"}},
+"dorsetkulturen":{"place":{"es":"Kinngait (Cape Dorset), en Nunavut, Canadá"},"title":{"es":"La cultura Dorset en el Ártico norteamericano"},"note":{"title":{"es":"Datación incierta"}}},
+"trepanation-i-paracaskulturen":{"place":{"es":"La península de Paracas, en la región de Ica (hoy Perú)"},"title":{"es":"La trepanación en la cultura Paracas"},"note":{"title":{"es":"Las fuentes difieren"}}},
+"takalik-abaj":{"place":{"es":"Tak'alik Ab'aj, Guatemala"},"title":{"es":"La ciudad comercial de Tak'alik Ab'aj"}},
+"san-bartolos-vaggmalningar":{"place":{"es":"San Bartolo, en Petén, norte de Guatemala"},"title":{"es":"Los murales de San Bartolo"}},
 "borobudur-byggs":{"place":{"es":"Borobudur, Java Central, Indonesia"},"title":{"es":"Se construye Borobudur en Java"},"note":{"title":{"es":"Las fuentes difieren"}}},
-"diamantsutran-trycks":{"place":{"es":"Hallado en las cuevas de Mogao, cerca de Dunhuang, China"},"title":{"es":"Se imprime el Sutra del Diamante"}}
+"diamantsutran-trycks":{"place":{"es":"Hallado en las cuevas de Mogao, cerca de Dunhuang, China"},"title":{"es":"Se imprime el Sutra del Diamante"}},
+"befjadrade-ormens-tempel":{"place":{"es":"Teotihuacan, Estado de México, México"},"title":{"es":"El Templo de la Serpiente Emplumada en Teotihuacan"}},
+"copans-kungaatt-grundas":{"place":{"es":"Copán, en la actual Honduras"},"title":{"es":"Kʼinich Yax Kʼukʼ Moʼ funda la dinastía real de Copán"},"note":{"title":{"es":"Las fuentes difieren"}}},
+"ilopango-utbrottet":{"place":{"es":"Lago de Ilopango, El Salvador"},"title":{"es":"La erupción del Ilopango"},"note":{"title":{"es":"Datación incierta"}}},
+"nazcas-puquios":{"place":{"es":"Los acueductos de Cantalloc, cerca de Nazca, Perú"},"title":{"es":"Los acueductos subterráneos de Nazca (puquios)"},"note":{"title":{"es":"Las fuentes difieren"}}}
 }}
