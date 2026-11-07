@@ -390,6 +390,23 @@ export function loadSources() {
   return sourcesPromise;
 }
 
+/**
+ * Missuppfattningarna (data/missuppfattningar.json, #838), första gången en faktaruta visas. Bara de som är
+ * kontrollerade (inte draft) behålls. En post hör till faktarutan för varje händelse i sitt fält events;
+ * poster utan händelse visas inte än.
+ */
+let misconceptionsPromise = null;
+export const misconceptionsReady = () => !!DATA?.misconceptionsLoaded;
+export function loadMisconceptions() {
+  misconceptionsPromise ??= getJSON('data/missuppfattningar.json').then(doc => {
+    DATA.misconceptions = (doc.misconceptions ?? []).filter(m => isVisibleReview(m.review));
+    DATA.misconceptionsLoaded = true;
+  }).catch(err => { misconceptionsPromise = null; throw err; });
+  return misconceptionsPromise;
+}
+/** Missuppfattningarna som hör till en händelse (tom lista innan de har laddats). */
+export const misconceptionsFor = id => (DATA?.misconceptions ?? []).filter(m => m.events?.includes(id));
+
 /** Perioden en händelse hör till efter sitt startår (samma regel som period_of i tools/dela_data.py). */
 function periodOf(e) {
   let p = DATA.periods[0];
@@ -427,10 +444,13 @@ export function loadAllEventDetails() {
  * Det som saknas för att visa de här händelserna i en faktaruta: deras långa fält och källregistret.
  * Ger null om allt redan finns (då kan anroparen rita klart direkt), annars ett löfte.
  */
-export function needDetails(events = [], { sources = true } = {}) {
+export function needDetails(events = [], { sources = true, misconceptions = false } = {}) {
   const missing = events.some(e => e && !e._full);
-  if (!missing && (!sources || sourcesReady())) return null;
-  return Promise.all([missing ? loadEventDetails(events) : null, sources ? loadSources() : null]);
+  const needMisc = misconceptions && !misconceptionsReady();
+  if (!missing && !needMisc && (!sources || sourcesReady())) return null;
+  return Promise.all([missing ? loadEventDetails(events) : null, sources ? loadSources() : null,
+    // Faktarutan ska ritas även om missuppfattningarna inte kan laddas
+    needMisc ? loadMisconceptions().catch(err => console.warn('Missuppfattningarna kunde inte laddas', err)) : null]);
 }
 
 /** Rikenas faktarutor (data/genererat/riken-fakta.json): fyller i facts i varje grupp som har hasFacts. */
