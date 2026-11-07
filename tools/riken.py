@@ -1080,6 +1080,39 @@ GROUPS = {
     'norgesvaldet': ('Norgesväldet', 'Old Kingdom of Norway', [
         ('Old Kingdom of Norway', 'norgesvaldet', 'Norgesväldet', '#4a8a9a', {'en': 'Old Kingdom of Norway', 'wikidata': 'Q2196956'}),
     ]),
+    # Medeltidens luckor, andra omgången (#645): Nordafrikas och Främre Orientens kalifat och dynastier, Polen, Bulgarien, Nubien
+    # och Kara-Khitan. Svenska namn är Wikidatas svenska etiketter. Danmark (Cliopatrias Danish Realm) väntar: Cliopatrias Wikidata-id
+    # Q756617 är dagens Danmark. Kingdom of Poland har Q577867, som Wikidata daterar 1025–1385 medan Cliopatrias post sträcker sig 962–1449.
+    'fatimiderna': ('Fatimider', 'Fatimid Caliphate', [
+        ('Fatimid Caliphate', 'fatimiderna', 'Fatimider', '#8aa04a', {'en': 'Fatimid Caliphate'}),
+    ]),
+    'almoravider': ('Almoravider', 'Almoravid dynasty', [
+        ('Almoravid Dynasty', 'almoravider', 'Almoravider', '#b07a3a', {'en': 'Almoravid dynasty'}),
+    ]),
+    'ayyubiderna': ('Ayyubiderna', 'Ayyubid dynasty', [
+        ('Ayyubid Sultanate', 'ayyubiderna', 'Ayyubiderna', '#5a9ab0', {'en': 'Ayyubid dynasty'}),
+    ]),
+    'almohader': ('Almohader', 'Almohad Caliphate', [
+        ('Almohad Caliphate', 'almohader', 'Almohader', '#a05a8a', {'en': 'Almohad Caliphate'}),
+    ]),
+    'kalifatet-cordoba': ('Kalifatet Córdoba', 'Caliphate of Córdoba', [
+        ('Caliphate of Córdoba', 'kalifatet-cordoba', 'Kalifatet Córdoba', '#7a9a3a', {'en': 'Caliphate of Córdoba'}),
+    ]),
+    'forsta-bulgariska-riket': ('Första bulgariska riket', 'First Bulgarian Empire', [
+        ('First Bulgarian Empire', 'forsta-bulgariska-riket', 'Första bulgariska riket', '#3a9a5a', {'en': 'First Bulgarian Empire'}),
+    ]),
+    'kungariket-polen': ('Kungariket Polen', 'Kingdom of Poland', [
+        ('Kingdom of Poland', 'kungariket-polen', 'Kungariket Polen', '#c07a8a', {'en': 'Kingdom of Poland'}),
+    ]),
+    'makuria': ('Makuria', 'Makuria', [
+        ('Makuria', 'makuria', 'Makuria', '#b08a5a', {'en': 'Makuria'}),
+    ]),
+    'kara-khitan': ('Kara-Khitan', 'Qara Khitai', [
+        ('Kara-Khitans', 'kara-khitan', 'Kara-Khitan', '#5a7ab0', {'en': 'Qara Khitai'}),
+    ]),
+    'mamluksultanatet': ('Mamluksultanatet', 'Mamluk Sultanate', [
+        ('Mamluk Sultanate', 'mamluksultanatet', 'Mamluksultanatet', '#a0804a', {'en': 'Mamluk Sultanate'}),
+    ]),
     # Små stater ur Natural Earth (#722, Rikards beslut 2026-11-07): Cliopatria saknar dem i nutid eller har fel gräns
     # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth
     # (tools/ne-omstridda-omraden.geojson, tools/ne_omstridda.py), från självständigheten enligt Wikidata och Wikipedia

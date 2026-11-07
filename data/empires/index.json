@@ -6301,8 +6301,8 @@
     {
      "polity": "abbasidkalifatet",
      "name": {
-      "sv": "Ayyubidernas sultanat",
-      "en": "Ayyubid Sultanate"
+      "sv": "Ayyubiderna",
+      "en": "Ayyubid dynasty"
      },
      "relation": "allegiance",
      "from": 1202,
@@ -32746,6 +32746,306 @@
       "de": "Königreich Norwegen",
       "es": "Reino de Noruega",
       "fr": "royaume de Norvège (872-1397)"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "fatimiderna",
+   "name": {
+    "sv": "Fatimider",
+    "en": "Fatimid Caliphate",
+    "de": "Fatimidenreich",
+    "es": "Califato fatimí",
+    "fr": "Califat fatimide"
+   },
+   "color": "#8aa04a",
+   "from": 911,
+   "to": 1176,
+   "file": "data/empires/fatimiderna.json",
+   "polities": [
+    {
+     "id": "fatimiderna",
+     "name": {
+      "sv": "Fatimider",
+      "en": "Fatimid Caliphate",
+      "de": "Fatimidenreich",
+      "es": "Califato fatimí",
+      "fr": "Califat fatimide"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "almoravider",
+   "name": {
+    "sv": "Almoravider",
+    "en": "Almoravid dynasty",
+    "de": "Almoraviden",
+    "es": "Imperio almorávide",
+    "fr": "Almoravides"
+   },
+   "color": "#b07a3a",
+   "from": 1056,
+   "to": 1205,
+   "file": "data/empires/almoravider.json",
+   "polities": [
+    {
+     "id": "almoravider",
+     "name": {
+      "sv": "Almoravider",
+      "en": "Almoravid dynasty",
+      "de": "Almoraviden",
+      "es": "Imperio almorávide",
+      "fr": "Almoravides"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "ayyubiderna",
+   "name": {
+    "sv": "Ayyubiderna",
+    "en": "Ayyubid dynasty",
+    "de": "Ayyubiden",
+    "es": "dinastía ayubí",
+    "fr": "Ayyoubides"
+   },
+   "color": "#5a9ab0",
+   "from": 1177,
+   "to": 1249,
+   "file": "data/empires/ayyubiderna.json",
+   "polities": [
+    {
+     "id": "ayyubiderna",
+     "name": {
+      "sv": "Ayyubiderna",
+      "en": "Ayyubid dynasty",
+      "de": "Ayyubiden",
+      "es": "dinastía ayubí",
+      "fr": "Ayyoubides"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "almohader",
+   "name": {
+    "sv": "Almohader",
+    "en": "Almohad Caliphate",
+    "de": "Almohaden-Kalifat",
+    "es": "Imperio almohade",
+    "fr": "califat almohade"
+   },
+   "color": "#a05a8a",
+   "from": 1139,
+   "to": 1343,
+   "file": "data/empires/almohader.json",
+   "polities": [
+    {
+     "id": "almohader",
+     "name": {
+      "sv": "Almohader",
+      "en": "Almohad Caliphate",
+      "de": "Almohaden-Kalifat",
+      "es": "Imperio almohade",
+      "fr": "califat almohade"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kalifatet-cordoba",
+   "name": {
+    "sv": "Kalifatet Córdoba",
+    "en": "Caliphate of Córdoba",
+    "de": "Kalifat von Córdoba",
+    "es": "Califato de Córdoba",
+    "fr": "califat de Cordoue"
+   },
+   "color": "#7a9a3a",
+   "from": 936,
+   "to": 1071,
+   "file": "data/empires/kalifatet-cordoba.json",
+   "polities": [
+    {
+     "id": "kalifatet-cordoba",
+     "name": {
+      "sv": "Kalifatet Córdoba",
+      "en": "Caliphate of Córdoba",
+      "de": "Kalifat von Córdoba",
+      "es": "Califato de Córdoba",
+      "fr": "califat de Cordoue"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "forsta-bulgariska-riket",
+   "name": {
+    "sv": "Första bulgariska riket",
+    "en": "First Bulgarian Empire",
+    "de": "Erstes Bulgarisches Reich",
+    "es": "Primer Imperio búlgaro",
+    "fr": "Premier Empire bulgare"
+   },
+   "color": "#3a9a5a",
+   "from": 682,
+   "to": 1017,
+   "file": "data/empires/forsta-bulgariska-riket.json",
+   "polities": [
+    {
+     "id": "forsta-bulgariska-riket",
+     "name": {
+      "sv": "Första bulgariska riket",
+      "en": "First Bulgarian Empire",
+      "de": "Erstes Bulgarisches Reich",
+      "es": "Primer Imperio búlgaro",
+      "fr": "Premier Empire bulgare"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kungariket-polen",
+   "name": {
+    "sv": "Kungariket Polen",
+    "en": "Kingdom of Poland",
+    "de": "Königreich Polen",
+    "es": "Reino de Polonia",
+    "fr": "Royaume de Pologne"
+   },
+   "color": "#c07a8a",
+   "from": 962,
+   "to": 1449,
+   "file": "data/empires/kungariket-polen.json",
+   "polities": [
+    {
+     "id": "kungariket-polen",
+     "name": {
+      "sv": "Kungariket Polen",
+      "en": "Kingdom of Poland",
+      "de": "Königreich Polen",
+      "es": "Reino de Polonia",
+      "fr": "Royaume de Pologne"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "makuria",
+   "name": {
+    "sv": "Makuria",
+    "en": "Makuria",
+    "de": "Makuria",
+    "es": "Makuria",
+    "fr": "Makurie"
+   },
+   "color": "#b08a5a",
+   "from": 347,
+   "to": 1414,
+   "file": "data/empires/makuria.json",
+   "polities": [
+    {
+     "id": "makuria",
+     "name": {
+      "sv": "Makuria",
+      "en": "Makuria",
+      "de": "Makuria",
+      "es": "Makuria",
+      "fr": "Makurie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kara-khitan",
+   "name": {
+    "sv": "Kara-Khitan",
+    "en": "Qara Khitai",
+    "de": "Kara Kitai",
+    "es": "Kanato de Kara-Kitai",
+    "fr": "Kara-Khitans"
+   },
+   "color": "#5a7ab0",
+   "from": 1126,
+   "to": 1219,
+   "file": "data/empires/kara-khitan.json",
+   "polities": [
+    {
+     "id": "kara-khitan",
+     "name": {
+      "sv": "Kara-Khitan",
+      "en": "Qara Khitai",
+      "de": "Kara Kitai",
+      "es": "Kanato de Kara-Kitai",
+      "fr": "Kara-Khitans"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "mamluksultanatet",
+   "name": {
+    "sv": "Mamluksultanatet",
+    "en": "Mamluk Sultanate",
+    "de": "Sultanat der Mameluken",
+    "es": "sultanato mameluco de Egipto",
+    "fr": "sultanat mamelouk d'Égypte"
+   },
+   "color": "#a0804a",
+   "from": 1241,
+   "to": 1518,
+   "file": "data/empires/mamluksultanatet.json",
+   "polities": [
+    {
+     "id": "mamluksultanatet",
+     "name": {
+      "sv": "Mamluksultanatet",
+      "en": "Mamluk Sultanate",
+      "de": "Sultanat der Mameluken",
+      "es": "sultanato mameluco de Egipto",
+      "fr": "sultanat mamelouk d'Égypte"
      },
      "sources": [
       "cliopatria"
