@@ -117,7 +117,7 @@ docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källa
 data/handelser/       händelserna, en redigeringsfil per period; här redigeras händelser (#394)
 data/events.json      alla händelser i en fil, byggd ur data/handelser/ (redigeras inte)
 data/funfacts.json    fun facts, kopplade till händelser
-data/missuppfattningar.json  vanliga historiska missuppfattningar och var de kom ifrån (#838); appen läser den ännu inte
+data/missuppfattningar.json  vanliga historiska missuppfattningar och var de kom ifrån (#838); visas i faktarutan för händelserna i events
 data/intro.json       introduktionens startår, texter och referenser till befintliga händelser/fun facts (#363, #516)
 data/uppdrag.json     elevuppdragen (Samtidighetsjakten): år, spann, antal världsdelar och texter (#741)
 data/turer/           guidade turer: index.json och en fil per tur med steg (år, kamera, text, lager, händelse, källor) (#47)

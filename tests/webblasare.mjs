@@ -2617,6 +2617,42 @@ async function run(browser, vp) {
     return 'Pompeji öppnas år 79; Bysantinska ger Rom i Fokus; nonsens ger "Inget …"; Escape stänger';
   });
 
+  // Vanliga missuppfattningar (#838): faktarutan för en händelse med en missuppfattning visar påståendet, vad
+  // källorna säger och källan, och ursprunget ligger i en hopfälld rad. En händelse utan missuppfattning får ingen ruta.
+  await check('faktarutan visar vanlig missuppfattning med källa och hopfälld förklaring (#838)', async () => {
+    if (await page.locator('#focus-bar').isVisible()) { await page.click('#focus-exit'); await hidden('#focus-bar'); }
+    const openSearch = async () => {
+      if (await page.isHidden('#focus-menu')) await clickView('#btn-focus');
+      await visible('#focus-menu');
+    };
+    await openSearch();
+    await page.click('#focus-menu [data-tab="Alla"]');
+    await page.fill('#focus-menu .focus-search', 'machu picchu');
+    await page.waitForSelector('#focus-menu [data-key^="event:"]', { timeout: T.step });
+    await page.press('#focus-menu .focus-search', 'Enter');
+    await hidden('#focus-menu');
+    await visible('#detail');
+    await page.waitForSelector('#detail .detail-myth', { timeout: T.step });
+    const myth = page.locator('#detail .detail-myth').first();
+    const text = (await myth.textContent()).replace(/\s+/g, ' ');
+    if (!/Bingham/.test(text)) throw new Error(`missuppfattningen nämner inte Bingham: ${text.slice(0, 120)}`);
+    if (!await myth.locator('a[href^="http"]').count()) throw new Error('missuppfattningen saknar källänk');
+    if (await myth.locator('details.myth-origin').evaluate(d => d.open)) throw new Error('ursprunget ska vara hopfällt från början');
+    await myth.locator('summary').click();
+    if (!await myth.locator('details.myth-origin').evaluate(d => d.open)) throw new Error('raden Varifrån kom det? öppnades inte');
+    await shot('3-missuppfattning-i-faktarutan');
+    await page.keyboard.press('Escape');
+    await openSearch();
+    await page.fill('#focus-menu .focus-search', 'pompeji');
+    await page.waitForSelector('#focus-menu [data-key^="event:"]', { timeout: T.step });
+    await page.press('#focus-menu .focus-search', 'Enter');
+    await hidden('#focus-menu');
+    await visible('#detail');
+    if (await page.locator('#detail .detail-myth').count()) throw new Error('Pompeji har ingen missuppfattning men fick en ruta');
+    await page.keyboard.press('Escape');
+    return 'Machu Picchu visar påstående, källa och hopfälld förklaring; Pompeji får ingen ruta';
+  });
+
   // Sök och följ med bara tangentbordet (#708): Enter öppnar, sökrutan får fokus (dator), pil ner når listan,
   // Escape stänger och fokus går tillbaka till knappen som öppnade panelen (i mobil: Meny, som bär knappen)
   await check('Sök och följ med tangentbord: fokus in, pil ner, Escape och fokus tillbaka', async () => {
