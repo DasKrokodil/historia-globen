@@ -16,6 +16,7 @@
           "events": { "type": "array", "items": { "type": "string", "pattern": ".+" } },
           "year": { "type": "integer" },
           "location": { "type": "object", "required": ["type", "coordinates"] },
+          "locationPrecision": { "type": "string", "enum": ["region", "country"] },
           "claim": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
           "truth": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },
           "origin": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } },

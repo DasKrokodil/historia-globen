@@ -209,6 +209,7 @@
         "wp-afghanistan",
         "wp-afonso-i-of-kongo",
         "wp-african-union",
+        "wp-agadez-mosque",
         "wp-agaja",
         "wp-ain-jalut",
         "wp-aksum",
@@ -523,6 +524,7 @@
         "wp-dissolution-of-the-soviet-union",
         "wp-djenne-djenno",
         "wp-dmt",
+        "wp-dodo",
         "wp-dodowa",
         "wp-dolores-hidalgo",
         "wp-dominion-of-fiji",
@@ -552,6 +554,7 @@
         "wp-eiffel-tower",
         "wp-eight-deer",
         "wp-el-alamein-2",
+        "wp-el-dorado",
         "wp-el-mirador",
         "wp-electorate-saxony",
         "wp-ellen-johnson-sirleaf",
@@ -606,6 +609,7 @@
         "wp-flags-confederate-states",
         "wp-flags-mughal-empire",
         "wp-flagstaff-war",
+        "wp-flat-earth-myth",
         "wp-fort-jesus",
         "wp-fort-sumter-1861",
         "wp-francia",
@@ -623,6 +627,7 @@
         "wp-garuda",
         "wp-gautama-buddha",
         "wp-genpei-war",
+        "wp-george-washingtons-teeth",
         "wp-german-colonial-empire",
         "wp-german-empire",
         "wp-german-surrender",
@@ -645,6 +650,8 @@
         "wp-great-mosque-kilwa",
         "wp-great-northern-war",
         "wp-great-pyramid",
+        "wp-great-sphinx",
+        "wp-great-wall",
         "wp-great-zimbabwe",
         "wp-greco-persian-wars",
         "wp-grito-de-dolores",
@@ -676,6 +683,7 @@
         "wp-hanno",
         "wp-hansan-island",
         "wp-hanseatic-league",
+        "wp-harar",
         "wp-harvard",
         "wp-hatepe-eruption",
         "wp-hatshepsut",
@@ -875,6 +883,7 @@
         "wp-lei-aurea",
         "wp-leif-erikson",
         "wp-leipzig-1813",
+        "wp-let-them-eat-cake",
         "wp-lexington-concord",
         "wp-liberation-of-kherson",
         "wp-liberation-of-kuwait",
@@ -925,6 +934,7 @@
         "wp-marrakesh",
         "wp-mascapaicha",
         "wp-mauna-loa-observatory",
+        "wp-mauritius",
         "wp-maurya-empire",
         "wp-may-1958-crisis",
         "wp-may-revolution",
@@ -1100,6 +1110,7 @@
         "wp-peru",
         "wp-philippeville",
         "wp-pichincha",
+        "wp-pico-do-fogo",
         "wp-piilani",
         "wp-pillars-of-hercules",
         "wp-pinjarra-massacre",
@@ -1162,6 +1173,8 @@
         "wp-rinderpest-1890s",
         "wp-robotyne",
         "wp-rocroi",
+        "wp-rodrigues",
+        "wp-rodrigues-solitaire",
         "wp-roi-mata",
         "wp-roman-empire",
         "wp-roman-kingdom",
@@ -1186,6 +1199,7 @@
         "wp-safavid-shia",
         "wp-saint-domingue-expedition",
         "wp-sakoku",
+        "wp-salem-witch-trials",
         "wp-salt-march",
         "wp-samoa",
         "wp-san-bartolo-maya-site",
@@ -1338,6 +1352,7 @@
         "wp-tianjing-incident",
         "wp-tierra-blanca-joven-eruption",
         "wp-tikal",
+        "wp-timbuktu",
         "wp-time-in-samoa",
         "wp-timurid-empire",
         "wp-titanic",
@@ -1366,6 +1381,7 @@
         "wp-treaty-triple-alliance",
         "wp-trepanning",
         "wp-triangular-trade",
+        "wp-truganini",
         "wp-tsardom-of-russia",
         "wp-tsingtao-1914",
         "wp-tudor-crown",
@@ -1420,6 +1436,7 @@
         "wp-victorian-gold-rush",
         "wp-vietnam",
         "wp-vietnam-war",
+        "wp-vikings",
         "wp-viti-levu",
         "wp-vitoria",
         "wp-vladimir-putin",
@@ -1714,7 +1731,8 @@
     {
       "license": "Public domain (USA:s federala myndighet)",
       "sourceIds": [
-        "commons-bild-ghanas-sjalvstandighet"
+        "commons-bild-ghanas-sjalvstandighet",
+        "nasa-great-wall"
       ]
     },
     {
@@ -1751,6 +1769,45 @@
       "license": "Skolverket (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "skolverket-lgr22-historia"
+      ]
+    },
+    {
+      "license": "© HISTORY / A&E Television Networks (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "history-flat-earth",
+        "history-machu-picchu",
+        "history-marie-antoinette",
+        "history-napoleon-short",
+        "history-pyramids",
+        "history-salem-burning",
+        "history-sphinx",
+        "history-vikings-horns"
+      ]
+    },
+    {
+      "license": "© Mount Vernon Ladies Association (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "mountvernon-wooden-teeth"
+      ]
+    },
+    {
+      "license": "© Postmedia Network (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "nationalpost-napoleon-short"
+      ]
+    },
+    {
+      "license": "© Smithsonian Magazine (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "smithsonian-machu-picchu",
+        "smithsonian-marco-polo",
+        "smithsonian-washington-teeth"
+      ]
+    },
+    {
+      "license": "© Snopes (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "snopes-moai"
       ]
     },
     {
