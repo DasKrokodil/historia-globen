@@ -1,0 +1,6 @@
+{"note":"Genereras av tools/dela_data.py ur data/events.json. Redigera inte här, utan i källfilen, och kör skriptet igen.",
+"period":"1900-1945",
+"lang":"es",
+"events":{
+"sydney-harbour-bridge-invigs":{"image":{"caption":{"es":"El Sydney Harbour Bridge. Foto actual (2006). Detalle. Licencia: CC BY 2.5."}}}
+}}
