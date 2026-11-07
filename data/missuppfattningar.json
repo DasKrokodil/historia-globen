@@ -320,6 +320,211 @@
         "wp-truganini"
       ],
       "review": "source-checked"
+    },
+    {
+      "id": "medeltidens-manniskor-trodde-jorden-var-platt",
+      "events": [
+        "columbus"
+      ],
+      "claim": {
+        "sv": "Människor i medeltiden trodde att jorden var platt, och Columbus visade att den var rund.",
+        "en": "People in the Middle Ages believed the Earth was flat, and Columbus showed that it was round.",
+        "de": "Die Menschen im Mittelalter glaubten, die Erde sei flach, und Kolumbus zeigte, dass sie rund ist.",
+        "es": "En la Edad Media la gente creía que la Tierra era plana, y Colón demostró que era redonda.",
+        "fr": "Au Moyen Âge, on croyait que la Terre était plate, et Colomb a montré qu'elle était ronde."
+      },
+      "truth": {
+        "sv": "Det fanns aldrig någon period av ”platt jord-mörker” bland lärda. Grekernas kunskap om att jorden är rund föll aldrig i glömska, och enligt Stephen Jay Gould accepterade alla stora medeltida lärda jordens rundhet som ett fastställt faktum. Historikerna David Lindberg och Ronald Numbers menar att knappt någon kristen medeltida lärd inte kände till att jorden är rund och ungefär hur stor den är. På 1490-talet gällde striden inte jordens form utan dess storlek och var Asiens östkust låg.",
+        "en": "There never was a period of “flat Earth darkness” among scholars. Greek knowledge of sphericity never faded, and according to Stephen Jay Gould all major medieval scholars accepted the Earth's roundness as an established fact. The historians David Lindberg and Ronald Numbers point out that there was scarcely a Christian scholar of the Middle Ages who did not acknowledge the Earth's sphericity and even know its approximate circumference. The issue in the 1490s was not the shape of the Earth but its size and the position of the east coast of Asia.",
+        "de": "Unter Gelehrten gab es nie eine Zeit der „Dunkelheit der flachen Erde“. Das griechische Wissen um die Kugelgestalt der Erde geriet nie in Vergessenheit, und laut Stephen Jay Gould akzeptierten alle bedeutenden mittelalterlichen Gelehrten die Kugelgestalt als feststehende Tatsache. Die Historiker David Lindberg und Ronald Numbers weisen darauf hin, dass es kaum einen christlichen Gelehrten des Mittelalters gab, der die Kugelgestalt der Erde nicht anerkannte und nicht sogar ihren ungefähren Umfang kannte. In den 1490er Jahren ging es nicht um die Form der Erde, sondern um ihre Größe und die Lage der Ostküste Asiens.",
+        "es": "Nunca hubo entre los eruditos un período de «oscuridad de la Tierra plana». El conocimiento griego de la esfericidad nunca se desvaneció y, según Stephen Jay Gould, todos los grandes eruditos medievales aceptaban la redondez de la Tierra como un hecho establecido. Los historiadores David Lindberg y Ronald Numbers señalan que apenas hubo un erudito cristiano de la Edad Media que no reconociera la esfericidad de la Tierra y que incluso no conociera su circunferencia aproximada. En la década de 1490 la cuestión no era la forma de la Tierra, sino su tamaño y la posición de la costa oriental de Asia.",
+        "fr": "Il n'y a jamais eu de période d'« obscurité de la Terre plate » chez les savants. La connaissance grecque de la sphéricité n'a jamais disparu et, selon Stephen Jay Gould, tous les grands savants médiévaux acceptaient la rotondité de la Terre comme un fait établi. Les historiens David Lindberg et Ronald Numbers soulignent qu'il y avait à peine un savant chrétien du Moyen Âge qui ne reconnaissait pas la sphéricité de la Terre et n'en connaissait même pas la circonférence approximative. Dans les années 1490, la question n'était pas la forme de la Terre, mais sa taille et la position de la côte orientale de l'Asie."
+      },
+      "origin": {
+        "sv": "Historikern Jeffrey Burton Russell skriver myten framför allt på John William Drapers, Andrew Dickson Whites och Washington Irvings historieverk, och menar att den blomstrade mest mellan 1870 och 1920 i spåren av striderna om evolutionen. Irvings starkt romantiserade Columbus-biografi från 1828 misstogs av många för ett vetenskapligt verk och innehöll en i hög grad påhittad skildring av hur en kommission invände mot Columbus med hänvisning till Bibeln.",
+        "en": "The historian Jeffrey Burton Russell ascribes the popularisation of the myth to histories by John William Draper, Andrew Dickson White and Washington Irving, and says it flourished most between 1870 and 1920 amid the struggles over evolution. Irving's highly romanticized 1828 biography of Columbus was mistaken by many for a scholarly work and gave a largely fictional account of a commission raising scriptural objections to Columbus.",
+        "de": "Der Historiker Jeffrey Burton Russell schreibt die Verbreitung des Mythos den Geschichtswerken von John William Draper, Andrew Dickson White und Washington Irving zu und sagt, er habe zwischen 1870 und 1920 im Zuge der Auseinandersetzungen um die Evolution seine Blütezeit gehabt. Irvings stark romantisierte Kolumbus-Biografie von 1828 wurde von vielen für ein wissenschaftliches Werk gehalten und enthielt eine weitgehend erfundene Schilderung, wie eine Kommission unter Berufung auf die Bibel Einwände gegen Kolumbus erhob.",
+        "es": "El historiador Jeffrey Burton Russell atribuye la popularización del mito a las historias de John William Draper, Andrew Dickson White y Washington Irving, y afirma que floreció sobre todo entre 1870 y 1920 en el contexto de las disputas sobre la evolución. La biografía de Colón de Irving de 1828, muy novelada, fue tomada por muchos por una obra académica y ofrecía un relato en gran parte ficticio de una comisión que planteaba objeciones bíblicas a Colón.",
+        "fr": "L'historien Jeffrey Burton Russell attribue la popularisation du mythe aux histoires de John William Draper, d'Andrew Dickson White et de Washington Irving, et dit qu'il a surtout prospéré entre 1870 et 1920, dans le contexte des querelles sur l'évolution. La biographie de Colomb de 1828 par Irving, très romancée, fut prise par beaucoup pour un ouvrage savant et donnait un récit en grande partie fictif d'une commission élevant des objections bibliques contre Colomb."
+      },
+      "originKinds": [
+        "media"
+      ],
+      "sources": [
+        "wp-flat-earth-myth"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "marie-antoinette-lat-dem-ata-kakor",
+      "year": 1765,
+      "claim": {
+        "sv": "Marie Antoinette sa ”Låt dem äta kakor”.",
+        "en": "Marie Antoinette said “Let them eat cake”.",
+        "de": "Marie Antoinette sagte: „Dann sollen sie doch Kuchen essen.“",
+        "es": "María Antonieta dijo: «Que coman pasteles».",
+        "fr": "Marie-Antoinette a dit : « Qu'ils mangent de la brioche »."
+      },
+      "truth": {
+        "sv": "Det finns inga belägg för att hon någonsin sa det, och frasen betraktas i dag som en journalistisk kliché. Enligt traditionen yttrades den av ”en stor prinsessa” när hon fick höra att bönderna saknade bröd, och på franska nämns brioche, ett smör- och äggrikt bröd som ansågs vara lyx.",
+        "en": "There is no evidence that she ever said it, and the phrase is now generally regarded as a journalistic cliché. According to tradition it was spoken by “a great princess” on being told that the peasants had no bread, and in French it mentions brioche, a bread enriched with butter and eggs that was considered a luxury.",
+        "de": "Es gibt keinen Beleg dafür, dass sie es je gesagt hat, und der Satz gilt heute allgemein als journalistisches Klischee. Der Überlieferung nach sprach ihn „eine große Prinzessin“ aus, als man ihr sagte, die Bauern hätten kein Brot, und im Französischen ist von Brioche die Rede, einem mit Butter und Eiern angereicherten Brot, das als Luxus galt.",
+        "es": "No hay pruebas de que ella llegara a decirlo, y hoy la frase se considera en general un cliché periodístico. Según la tradición la pronunció «una gran princesa» al saber que los campesinos no tenían pan, y en francés se menciona la brioche, un pan enriquecido con mantequilla y huevos que se consideraba un lujo.",
+        "fr": "Rien ne prouve qu'elle l'ait jamais dite, et la phrase est aujourd'hui généralement considérée comme un cliché journalistique. Selon la tradition, elle fut prononcée par « une grande princesse » à qui l'on disait que les paysans n'avaient plus de pain, et en français il y est question de brioche, un pain enrichi de beurre et d'œufs, considéré comme un produit de luxe."
+      },
+      "origin": {
+        "sv": "Frasen går att spåra till Jean-Jacques Rousseaus Bekännelser 1765, 24 år före franska revolutionen, när Marie Antoinette var nio år gammal och aldrig hade varit i Frankrike. Den tillskrevs henne först decennier efter hennes död.",
+        "en": "The phrase can be traced back to Jean-Jacques Rousseau's Confessions in 1765, 24 years before the French Revolution, when Marie Antoinette was nine years old and had never been to France. It was not attributed to her until decades after her death.",
+        "de": "Der Satz lässt sich bis zu Jean-Jacques Rousseaus Bekenntnissen im Jahr 1765 zurückverfolgen, 24 Jahre vor der Französischen Revolution, als Marie Antoinette neun Jahre alt war und noch nie in Frankreich gewesen war. Ihr zugeschrieben wurde er erst Jahrzehnte nach ihrem Tod.",
+        "es": "La frase se remonta a las Confesiones de Jean-Jacques Rousseau en 1765, 24 años antes de la Revolución francesa, cuando María Antonieta tenía nueve años y nunca había estado en Francia. No se le atribuyó hasta décadas después de su muerte.",
+        "fr": "La phrase remonte aux Confessions de Jean-Jacques Rousseau en 1765, 24 ans avant la Révolution française, alors que Marie-Antoinette avait neuf ans et n'était jamais venue en France. Elle ne lui a été attribuée que des décennies après sa mort."
+      },
+      "originKinds": [
+        "media"
+      ],
+      "sources": [
+        "wp-let-them-eat-cake"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "sfinxens-nasa-skots-av-napoleon",
+      "year": 1798,
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          31.138,
+          29.975
+        ]
+      },
+      "claim": {
+        "sv": "Sfinxens näsa sköts bort av Napoleons trupper.",
+        "en": "The Sphinx's nose was shot off by Napoleon's troops.",
+        "de": "Die Nase der Sphinx wurde von Napoleons Truppen weggeschossen.",
+        "es": "La nariz de la Esfinge fue destruida a cañonazos por las tropas de Napoleón.",
+        "fr": "Le nez du Sphinx a été emporté par les tirs des troupes de Napoléon."
+      },
+      "truth": {
+        "sv": "Näsan förstördes inte av kanoneld från Napoleons trupper under fälttåget i Egypten 1798. Sfinxen är dokumenterat skadad sedan minst 900-talet, och undersökningar av ansiktet visar märken efter stavar eller mejslar som hamrats in vid näsryggen och under näsborren, vilket tyder på en avsiktlig handling. Källorna nämner också arabiska författare som skyllde skadan på bildstormande angrepp och andra som skyllde på mamlukerna på 1300-talet.",
+        "en": "The nose was not destroyed by cannonfire from Napoleon's troops during his 1798 Egyptian campaign. The Sphinx has been documented as damaged since at least the 10th century, and examinations of the face show marks made by rods or chisels hammered in at the bridge of the nose and below the nostril, which points to a deliberate act. The sources also mention Arab authors who blamed the damage on iconoclastic attacks and others who blamed the Mamluks in the 14th century.",
+        "de": "Die Nase wurde nicht durch Kanonenfeuer von Napoleons Truppen während seines Ägyptenfeldzugs 1798 zerstört. Die Sphinx ist nachweislich seit mindestens dem 10. Jahrhundert beschädigt, und Untersuchungen des Gesichts zeigen Spuren von Stangen oder Meißeln, die am Nasenrücken und unter dem Nasenloch eingeschlagen wurden, was auf eine absichtliche Tat hindeutet. Die Quellen erwähnen auch arabische Autoren, die die Beschädigung bilderstürmerischen Angriffen zuschrieben, und andere, die im 14. Jahrhundert die Mamelucken verantwortlich machten.",
+        "es": "La nariz no fue destruida por el fuego de cañón de las tropas de Napoleón durante su campaña de Egipto de 1798. La Esfinge está documentada como dañada desde al menos el siglo X, y los exámenes del rostro muestran marcas de varas o cinceles clavados en el puente de la nariz y debajo de la fosa nasal, lo que apunta a un acto deliberado. Las fuentes mencionan también a autores árabes que culpaban del daño a ataques iconoclastas y a otros que culpaban a los mamelucos en el siglo XIV.",
+        "fr": "Le nez n'a pas été détruit par les tirs de canon des troupes de Napoléon pendant sa campagne d'Égypte de 1798. Le Sphinx est documenté comme endommagé depuis au moins le Xe siècle, et l'examen du visage montre des marques de barres ou de ciseaux enfoncés à la racine du nez et sous la narine, ce qui indique un acte délibéré. Les sources mentionnent aussi des auteurs arabes qui attribuaient les dégâts à des attaques iconoclastes et d'autres qui en rendaient responsables les Mamelouks au XIVe siècle."
+      },
+      "origin": {
+        "sv": "Den mest populära legenden säger att näsan förstördes av kanonkulor som avfyrades av Napoleon Bonapartes armé. Källan kallar detta en populär myt.",
+        "en": "The most popular legend of its destruction claims that it was destroyed by cannonballs fired by the army of Napoleon Bonaparte. The source calls this a popular myth.",
+        "de": "Die populärste Legende über die Zerstörung besagt, sie sei durch Kanonenkugeln der Armee Napoleon Bonapartes erfolgt. Die Quelle nennt dies einen populären Mythos.",
+        "es": "La leyenda más popular sobre su destrucción afirma que fue causada por balas de cañón disparadas por el ejército de Napoleón Bonaparte. La fuente lo califica de mito popular.",
+        "fr": "La légende la plus répandue sur sa destruction prétend qu'elle serait due à des boulets de canon tirés par l'armée de Napoléon Bonaparte. La source qualifie cela de mythe populaire."
+      },
+      "originKinds": [
+        "folk"
+      ],
+      "sources": [
+        "wp-great-sphinx"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "stora-zimbabwe-byggdes-av-utomstaende",
+      "events": [
+        "stora-zimbabwe"
+      ],
+      "claim": {
+        "sv": "Stora Zimbabwe kan inte ha byggts av afrikaner utan av fenicier, araber eller andra utomstående.",
+        "en": "Great Zimbabwe cannot have been built by Africans but by Phoenicians, Arabs or other outsiders.",
+        "de": "Groß-Simbabwe kann nicht von Afrikanern gebaut worden sein, sondern von Phöniziern, Arabern oder anderen Außenstehenden.",
+        "es": "Gran Zimbabue no pudo ser construido por africanos, sino por fenicios, árabes u otros foráneos.",
+        "fr": "Le Grand Zimbabwe ne peut pas avoir été construit par des Africains, mais par des Phéniciens, des Arabes ou d'autres étrangers."
+      },
+      "truth": {
+        "sv": "Staden byggdes av afrikaner. Källan nämner shonafolket (karanga) som byggare. Bygget började på 1000-talet och pågick i över 300 år. Att ruinerna är afrikanskt byggda blev konsensus bland forskare först på 1950-talet.",
+        "en": "The city was built by Africans. The source names the Shona (Karanga) as the builders. Construction began in the 11th century and continued for over 300 years. That the ruins are of African origin only became scholarly consensus in the 1950s.",
+        "de": "Die Stadt wurde von Afrikanern gebaut. Die Quelle nennt die Shona (Karanga) als Erbauer. Der Bau begann im 11. Jahrhundert und dauerte über 300 Jahre. Dass die Ruinen afrikanischen Ursprungs sind, wurde erst in den 1950er Jahren Konsens unter Wissenschaftlern.",
+        "es": "La ciudad fue construida por africanos. La fuente nombra a los shona (karanga) como constructores. La construcción comenzó en el siglo XI y continuó durante más de 300 años. Que las ruinas son de origen africano solo se convirtió en consenso entre los estudiosos en la década de 1950.",
+        "fr": "La ville a été construite par des Africains. La source désigne les Shona (Karanga) comme bâtisseurs. La construction a commencé au XIe siècle et s'est poursuivie pendant plus de 300 ans. Que les ruines soient d'origine africaine n'est devenu un consensus chez les chercheurs que dans les années 1950."
+      },
+      "origin": {
+        "sv": "Under kolonialtiden ansåg rhodesier det otänkbart att inhemska afrikaner hade byggt ruinerna. Teorier som tillskrev bygget judar, araber, fenicier eller vem som helst utom shonafolket präglade forskningen under hela 1900-talet. Enligt källan pressade Rhodesias vita regering arkeologer att förneka att afrikaner byggt ruinerna, eftersom ett erkännande hade undergrävt regeringens motivering att den hade ett ”civilisationsuppdrag”.",
+        "en": "During the colonial era, Rhodesians found it inconceivable that indigenous Africans had built the ruins. Theories ascribing the construction to Jews, Arabs, Phoenicians or anyone but the Shona dominated the historiography throughout the 20th century. According to the source, the white government of Rhodesia pressured archaeologists to deny that Africans had built the ruins, because acknowledging it would have dismantled its “civilising mission” rationale.",
+        "de": "In der Kolonialzeit hielten Rhodesier es für undenkbar, dass einheimische Afrikaner die Ruinen gebaut hatten. Theorien, die den Bau Juden, Arabern, Phöniziern oder allen außer den Shona zuschrieben, prägten die Forschung das gesamte 20. Jahrhundert hindurch. Laut der Quelle drängte Rhodesiens weiße Regierung Archäologen, zu leugnen, dass Afrikaner die Ruinen gebaut hatten, weil ein Eingeständnis ihre Begründung einer „Zivilisierungsmission“ untergraben hätte.",
+        "es": "Durante la era colonial, los rodesianos consideraban inconcebible que africanos autóctonos hubieran construido las ruinas. Las teorías que atribuían la construcción a judíos, árabes, fenicios o a cualquiera menos a los shona dominaron la historiografía durante todo el siglo XX. Según la fuente, el gobierno blanco de Rodesia presionó a los arqueólogos para que negaran que los africanos hubieran construido las ruinas, porque reconocerlo habría socavado su justificación de una «misión civilizadora».",
+        "fr": "À l'époque coloniale, les Rhodésiens trouvaient inconcevable que des Africains autochtones aient construit les ruines. Les théories attribuant la construction aux Juifs, aux Arabes, aux Phéniciens ou à n'importe qui sauf aux Shona ont dominé l'historiographie tout au long du XXe siècle. Selon la source, le gouvernement blanc de Rhodésie a fait pression sur les archéologues pour qu'ils nient que des Africains aient construit les ruines, car le reconnaître aurait sapé sa justification d'une « mission civilisatrice »."
+      },
+      "originKinds": [
+        "propaganda"
+      ],
+      "sources": [
+        "wp-great-zimbabwe"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "marco-polo-tog-med-pasta-fran-kina",
+      "events": [
+        "marco-polos-resa"
+      ],
+      "claim": {
+        "sv": "Marco Polo tog med sig pasta från Kina till Italien.",
+        "en": "Marco Polo brought pasta from China to Italy.",
+        "de": "Marco Polo brachte Pasta aus China nach Italien mit.",
+        "es": "Marco Polo llevó la pasta de China a Italia.",
+        "fr": "Marco Polo a rapporté les pâtes de Chine en Italie."
+      },
+      "truth": {
+        "sv": "Pasta hade uppfunnits i Italien långt före Marco Polos resor till Asien. I sin bok beskriver han en mat som liknar ”lasagne”, men han använder en term som han redan kände till.",
+        "en": "Pasta had already been invented in Italy a long time before Marco Polo's travels to Asia. In his book he describes a food similar to “lasagna”, but he uses a term with which he was already familiar.",
+        "de": "Pasta war in Italien lange vor Marco Polos Reisen nach Asien erfunden worden. In seinem Buch beschreibt er ein Gericht, das „Lasagne“ ähnelt, benutzt dafür aber einen Begriff, der ihm schon vertraut war.",
+        "es": "La pasta ya se había inventado en Italia mucho antes de los viajes de Marco Polo a Asia. En su libro describe un alimento parecido a la «lasaña», pero utiliza un término que ya conocía.",
+        "fr": "Les pâtes avaient été inventées en Italie bien avant les voyages de Marco Polo en Asie. Dans son livre, il décrit un aliment semblable aux « lasagnes », mais il emploie un terme qu'il connaissait déjà."
+      },
+      "origin": {
+        "sv": "Legenden härstammar enligt källan från Macaroni Journal, som gavs ut av en livsmedelsbranschorganisation som ville öka användningen av pasta i USA.",
+        "en": "According to the source, the legend originates with the Macaroni Journal, published by a food industry association with the goal of promoting the use of pasta in the United States.",
+        "de": "Laut der Quelle stammt die Legende aus dem Macaroni Journal, das von einem Lebensmittelverband herausgegeben wurde, der den Verzehr von Pasta in den USA fördern wollte.",
+        "es": "Según la fuente, la leyenda procede del Macaroni Journal, publicado por una asociación de la industria alimentaria con el objetivo de promover el consumo de pasta en Estados Unidos.",
+        "fr": "Selon la source, la légende vient du Macaroni Journal, publié par une association de l'industrie alimentaire dans le but de promouvoir la consommation de pâtes aux États-Unis."
+      },
+      "originKinds": [
+        "media"
+      ],
+      "sources": [
+        "wp-marco-polo"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "washingtons-tander-var-av-tra",
+      "year": 1789,
+      "claim": {
+        "sv": "George Washington hade tänder av trä.",
+        "en": "George Washington had wooden teeth.",
+        "de": "George Washington hatte Zähne aus Holz.",
+        "es": "George Washington tenía dientes de madera.",
+        "fr": "George Washington avait des dents en bois."
+      },
+      "truth": {
+        "sv": "Washingtons tandproteser innehöll inget trä. De tillverkades av bland annat mässing, bly, guld, djurtänder, flodhästelfenben och människotänder som köpts av slavar. När han tillträdde som president den 30 april 1789 hade han bara en egen tand kvar.",
+        "en": "Washington's dentures contained no wood. They were made of materials including brass, lead, gold, animal teeth, hippopotamus ivory and human teeth purchased from slaves. When he was inaugurated as president on 30 April 1789 he had only one natural tooth left.",
+        "de": "Washingtons Zahnprothesen enthielten kein Holz. Sie bestanden unter anderem aus Messing, Blei, Gold, Tierzähnen, Nilpferd-Elfenbein und Menschenzähnen, die von Sklaven gekauft worden waren. Als er am 30. April 1789 als Präsident vereidigt wurde, hatte er nur noch einen natürlichen Zahn.",
+        "es": "Las dentaduras de Washington no contenían madera. Estaban hechas de materiales como latón, plomo, oro, dientes de animales, marfil de hipopótamo y dientes humanos comprados a esclavos. Cuando tomó posesión como presidente el 30 de abril de 1789, solo le quedaba un diente natural.",
+        "fr": "Les prothèses dentaires de Washington ne contenaient pas de bois. Elles étaient faites de matériaux comme le laiton, le plomb, l'or, des dents d'animaux, de l'ivoire d'hippopotame et des dents humaines achetées à des esclaves. Lors de son investiture comme président le 30 avril 1789, il ne lui restait qu'une seule dent naturelle."
+      },
+      "origin": {
+        "sv": "Missuppfattningen var allmänt accepterad bland 1800-talets historiker och stod som fakta i skolböcker långt in på 1900-talet. Ett möjligt ursprung är att elfenbensproteser snabbt blev missfärgade och kan ha sett ut som trä. Washingtons tandläkare John Greenwood skrev 1798 att en protes var ”mycket svart” och rådde till grundligare rengöring.",
+        "en": "The misconception was widely accepted by 19th-century historians and appeared as fact in school textbooks until well into the 20th century. A possible origin is that ivory teeth quickly became stained and may have had the appearance of wood. Washington's dentist John Greenwood wrote in 1798 that a set was “very black” and advised more thorough cleaning.",
+        "de": "Die falsche Vorstellung wurde von Historikern des 19. Jahrhunderts weithin akzeptiert und stand bis weit ins 20. Jahrhundert als Tatsache in Schulbüchern. Ein möglicher Ursprung ist, dass Elfenbeinzähne schnell Flecken bekamen und für Beobachter wie Holz ausgesehen haben können. Washingtons Zahnarzt John Greenwood schrieb 1798, ein Gebiss sei „sehr schwarz“ gewesen, und riet zu gründlicherer Reinigung.",
+        "es": "La idea errónea fue ampliamente aceptada por los historiadores del siglo XIX y aparecía como un hecho en los libros de texto hasta bien entrado el siglo XX. Un posible origen es que los dientes de marfil se manchaban rápidamente y podían parecer de madera a los observadores. El dentista de Washington, John Greenwood, escribió en 1798 que una dentadura estaba «muy negra» y aconsejó una limpieza más a fondo.",
+        "fr": "L'idée fausse était largement acceptée par les historiens du XIXe siècle et figurait comme un fait dans les manuels scolaires jusque bien avant dans le XXe siècle. Une origine possible est que les dents en ivoire se tachaient vite et pouvaient avoir l'apparence du bois aux yeux des observateurs. Le dentiste de Washington, John Greenwood, écrivit en 1798 qu'un dentier était « très noir » et conseilla un nettoyage plus soigneux."
+      },
+      "originKinds": [
+        "misreading"
+      ],
+      "sources": [
+        "wp-george-washingtons-teeth"
+      ],
+      "review": "source-checked"
     }
   ]
 }
