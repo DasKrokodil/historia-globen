@@ -129,7 +129,7 @@ Korten "När ett krig bröt ut" lagras inte här. De byggs i koden ur händelser
 
 ## `missuppfattningar.json`: vanliga missuppfattningar (#838)
 
-Vad många tror, vad källorna säger och var missuppfattningen kom ifrån (beslut 2026-11-07, `docs/beslut/2026-11-07-missuppfattningar-838.md`). Appen läser ännu inte filen; visningen i faktarutan byggs efter skolpiloten. Schema: `schemas/missuppfattning.schema.json`.
+Vad många tror, vad källorna säger och var missuppfattningen kom ifrån (beslut 2026-11-07, `docs/beslut/2026-11-07-missuppfattningar-838.md`). Faktarutan för en händelse visar de missuppfattningar som pekar på den i `events` (rubrik "Vanlig missuppfattning": vad många tror, vad källorna säger, en hopfälld rad om var den kom ifrån, källor och granskningsnivå). Poster utan `events` visas inte än, och poster med `review: "draft"` visas aldrig. Filen laddas första gången en faktaruta visas (`loadMisconceptions()` i `js/model.js`). Schema: `schemas/missuppfattning.schema.json`.
 
 ```json
 { "id": "napoleon-var-kort", "events": ["napoleonkrigen"],

@@ -1,6 +1,6 @@
 {
   "schema": "historia-globen/missuppfattningar@1",
-  "note": "Vanliga historiska missuppfattningar (#838, beslut 2026-11-07): vad många tror (claim), vad källorna säger (truth) och var missuppfattningen kom ifrån (origin). Appen läser ännu inte filen; visningen i faktarutan byggs efter skolpiloten. events pekar på befintliga händelser; saknas händelse anges year. Är källorna oense skrivs det öppet i truth.",
+  "note": "Vanliga historiska missuppfattningar (#838, beslut 2026-11-07): vad många tror (claim), vad källorna säger (truth) och var missuppfattningen kom ifrån (origin). Faktarutan visar posterna för händelserna i events (#838); poster utan events visas inte än. events pekar på befintliga händelser; saknas händelse anges year. Är källorna oense skrivs det öppet i truth.",
   "misconceptions": [
     {
       "id": "napoleon-var-kort",
