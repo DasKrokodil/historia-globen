@@ -57,5 +57,15 @@
 "tarikh-al-sudan":{"place":{"fr":"Tombouctou, Mali"},"title":{"fr":"Le Tarikh al-Sudan, la chronique du Songhaï"}},
 "dronten-sista-gangen":{"place":{"fr":"Maurice, dans l'océan Indien"},"title":{"fr":"Le dodo est vu pour la dernière fois"},"note":{"title":{"fr":"Les sources divergent"}}},
 "fogo-utbrottet-1680":{"place":{"fr":"Pico do Fogo, sur l'île de Fogo, Cap-Vert"},"title":{"fr":"Grande éruption du volcan Fogo"}},
-"rodriguessolitaren-dor-ut":{"place":{"fr":"Rodrigues, dans l'océan Indien (Maurice)"},"title":{"fr":"Le solitaire de Rodrigues disparaît"},"note":{"title":{"fr":"Datation incertaine"}}}
+"rodriguessolitaren-dor-ut":{"place":{"fr":"Rodrigues, dans l'océan Indien (Maurice)"},"title":{"fr":"Le solitaire de Rodrigues disparaît"},"note":{"title":{"fr":"Datation incertaine"}}},
+"explorer-1":{"place":{"fr":"Cap Canaveral, Floride, États-Unis"},"title":{"fr":"Explorer 1, premier satellite des États-Unis"},"note":{"title":{"fr":"À propos de la date"}}},
+"tereshkova-vostok-6":{"place":{"fr":"Atterrissage à l'ouest de Barnaoul, dans l'Altaï, Union soviétique (aujourd'hui Russie)"},"title":{"fr":"Valentina Terechkova devient la première femme dans l'espace"}},
+"asterix-frankrikes-forsta-satellit":{"place":{"fr":"Hammaguir, Algérie"},"title":{"fr":"Astérix, premier satellite français"}},
+"ohsumi-japans-forsta-satellit":{"place":{"fr":"Centre spatial de Kagoshima (aujourd'hui Uchinoura), Japon"},"title":{"fr":"Ohsumi, premier satellite japonais"}},
+"dong-fang-hong-1":{"place":{"fr":"Centre de lancement de satellites de Jiuquan, Chine"},"title":{"fr":"Dong Fang Hong 1, premier satellite chinois"}},
+"saljut-1":{"place":{"fr":"Baïkonour, Kazakhstan (alors Union soviétique)"},"title":{"fr":"Saliout 1, première station spatiale du monde"}},
+"prospero-black-arrow":{"place":{"fr":"Woomera, Australie-Méridionale, Australie"},"title":{"fr":"Prospero, le satellite britannique sur une fusée britannique"}},
+"aryabhata-indiens-forsta-satellit":{"place":{"fr":"Kapoustine Iar, oblast d'Astrakhan, Union soviétique (aujourd'hui Russie)"},"title":{"fr":"Aryabhata, premier satellite de l'Inde"}},
+"esa-bildas":{"place":{"fr":"Paris, France (siège de l'ESA)"},"title":{"fr":"Création de l'Agence spatiale européenne (ESA)"},"note":{"title":{"fr":"À propos de la date"}}},
+"ariane-1-forsta-uppskjutningen":{"place":{"fr":"Kourou, Guyane"},"title":{"fr":"Lancement de la première fusée Ariane"}}
 }}
