@@ -124,3 +124,7 @@ Rikard sa ja till planen och till alla fem rekommendationerna: resten av 5.2 vä
 Rikard flyttade lektion 2 för åk 4–6 (#740, paket B2) till efter piloten. Piloten görs bara med lektion 1 (#739). Inget annat paket berodde på B2. #740 ligger nu i "Senare: innehåll och media". Beslut: `docs/beslut/2026-11-07-lektion-2-efter-piloten.md`.
 
 Samma dag, senare: lektion 2 blev färdigbyggd i PR #750 innan flytten nådde sessionen som byggde den, och Rikard valde att behålla den i piloten. #740 är tillbaka i Version 6. Beslut: `docs/beslut/2026-11-07-lektion-2-i-piloten.md`, som ersätter `2026-11-07-lektion-2-efter-piloten.md`.
+
+## Uppföljning 2026-11-07, kväll
+
+Rikard gör ingen pilot nu. #744 (pilotlektionen) är stängd, #743 är ett lärarpaket utan observationsprotokoll och release 6.0.0 (#862) görs utan pilot. Version 5.2 är nästa version. Beslut: `docs/beslut/2026-11-07-ingen-pilot-nu.md`.
