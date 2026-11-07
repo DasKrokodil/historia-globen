@@ -559,6 +559,7 @@ export class Panel {
         `<li><button type="button" class="link-btn" data-goto="${esc(b.id)}">${esc(t(b.title))}</button> <span class="meta">${esc(formatEventTime(b))}</span></li>`).join('')}</ol></div>` : ''}
       ${empireList(e._empires ?? e._war?._empires)}
       ${evidence.sources || srcLine(srcs, pending)}
+      ${(() => { const h = this.huntFor?.(e); return h ? `<button type="button" class="chip-btn hunt-add" data-hunt${h.disabled ? ' disabled' : ''}>${esc(h.label)}</button>` : ''; })()}
       <div class="detail-actions">
         ${reviewRow(e.review, 'Händelsen')}
         ${this.onReport ? reportBtn({ type: 'event', id: e.id, label: t(e.title) }) : ''}
@@ -569,6 +570,12 @@ export class Panel {
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
     this.detail.querySelector('[data-focus]')?.addEventListener('click', ev => this.onFocus(ev.currentTarget.dataset.focus));
     this.detail.querySelector('[data-show-place]')?.addEventListener('click', () => this.onShowPlace(e));
+    // Samtidighetsjakten (#741): lägg händelsen i jakten; knappen visar resultatet
+    this.detail.querySelector('[data-hunt]')?.addEventListener('click', ev => {
+      this.onHunt?.(e);
+      const h = this.huntFor?.(e);
+      if (h) { ev.currentTarget.textContent = h.label; ev.currentTarget.disabled = h.disabled; }
+    });
     // Markeringen i datumraden visar förklaringen och flyttar fokus dit (#606)
     this.detail.querySelector('[data-unc-mark]')?.addEventListener('click', () => {
       const row = this.detail.querySelector('#detail-uncertainty');

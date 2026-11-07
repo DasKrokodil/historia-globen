@@ -132,6 +132,8 @@
           <button id="btn-sources" class="chip-btn" type="button" title="Om källorna: källpolicy och källregister" data-i18n-title="top.sourcesTitle" data-i18n="top.sources">Källor</button>
           <button id="btn-help" class="chip-btn" type="button" aria-expanded="false" aria-controls="help" data-i18n="top.help">Hjälp</button>
           <!-- Quiz (#65): "Vad hände samtidigt som …?" ur befintliga fun facts (js/ui/quiz.js, js/quiz-rules.js) -->
+          <!-- Samtidighetsjakten (#741): ett elevuppdrag ur data/uppdrag.json (js/ui/uppdrag.js, js/uppdrag-rules.js) -->
+          <button id="btn-hunt" class="chip-btn" type="button" aria-controls="hunt" hidden title="Hitta händelser på olika kontinenter samtidigt" data-i18n-title="top.huntTitle" data-i18n="top.hunt">Samtidighetsjakten</button>
           <button id="btn-quiz" class="chip-btn" type="button" aria-controls="quiz" hidden title="Vad hände samtidigt? Frågor ur fun facts" data-i18n-title="top.quizTitle" data-i18n="top.quiz">Quiz</button>
           <!-- Dela (#64): länken till vyn som den ser ut nu, med år, kamera, fokus, lager och kategorier (#501) -->
           <button id="btn-share" class="chip-btn" type="button" title="Kopiera en länk till den här vyn" data-i18n-title="share.title" data-i18n="share.button">Dela</button>
@@ -185,6 +187,25 @@
         <button id="intro-next" class="focus-action" type="button"></button>
       </div>
     </div>
+  </aside>
+
+  <!-- Samtidighetsjakten (#741): uppgiften, hittade världsdelar och, när jakten är klar, en fråga och källorna -->
+  <aside id="hunt" class="help-card hunt-card" aria-labelledby="hunt-title" hidden>
+    <div class="help-head">
+      <h2 id="hunt-title" class="help-title" tabindex="-1"></h2>
+      <button id="hunt-close" class="panel-x" type="button" aria-label="Avsluta jakten" data-i18n-aria-label="hunt.close">×</button>
+    </div>
+    <p id="hunt-task" class="hunt-task"></p>
+    <p class="hunt-meta"><span id="hunt-years"></span> · <span id="hunt-progress" aria-live="polite"></span></p>
+    <ul id="hunt-list" class="hunt-list"></ul>
+    <p id="hunt-message" class="hunt-message" aria-live="polite"></p>
+    <div id="hunt-done" class="hunt-done" hidden>
+      <p class="hunt-reflect-label" data-i18n="hunt.reflect">Att fundera på:</p>
+      <p id="hunt-reflection" class="hunt-reflection"></p>
+      <p class="hunt-reflect-label" data-i18n="hunt.sources">Källor</p>
+      <ul id="hunt-sources" class="quiz-sources"></ul>
+    </div>
+    <button id="hunt-end" class="chip-btn hunt-end" type="button" data-i18n="hunt.end">Avsluta jakten</button>
   </aside>
 
   <!-- Quiz (#65): samma dialog som introduktionen. Frågan, svaren och källorna skrivs av js/ui/quiz.js. -->

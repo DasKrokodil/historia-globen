@@ -773,6 +773,24 @@ body {
 .intro-choice:hover { border-color: var(--brass); }
 .intro-choice.primary { border-color: var(--brass); background: var(--brass); color: var(--night); }
 .intro-choice:focus-visible, .intro-actions button:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
+/* Samtidighetsjakten (#741): rutan under knapparna (som Hjälp) och knappen i faktarutan */
+.hunt-card { z-index: 13; }
+.hunt-card .help-title:focus { outline: none; }
+.hunt-card .help-title:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.hunt-task { margin: 6px 0 0; font: 400 13.5px/1.45 var(--f-body); color: var(--parchment); }
+.hunt-meta { margin: 8px 0 0; font: 500 11px/1.3 var(--f-mono); letter-spacing: .04em; color: var(--brass); }
+.hunt-list { margin: 8px 0 0; padding-left: 18px; font: 400 13px/1.4 var(--f-body); color: var(--parchment); }
+.hunt-list li { margin-bottom: 3px; }
+.hunt-region { font: 600 11px/1.3 var(--f-mono); color: var(--brass); text-transform: uppercase; letter-spacing: .06em; }
+.hunt-time { font: 400 11.5px/1.3 var(--f-mono); color: var(--parchment-dim); }
+.hunt-message { margin: 8px 0 0; min-height: 1em; font: 400 12.5px/1.4 var(--f-body); color: var(--parchment-dim); }
+.hunt-message.is-ok { color: var(--ok); }
+.hunt-done { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); }
+.hunt-reflect-label { margin: 8px 0 0; font: 500 10.5px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+.hunt-reflection { margin: 4px 0 0; font: 400 14px/1.45 var(--f-body); color: var(--parchment); }
+.hunt-end { margin-top: 10px; }
+.hunt-add { display: block; margin: 10px 0 0; }
+
 /* Quiz (#65): samma dialog som introduktionen. Efter svaret visas årtalen, rätt svar och fun factens källor. */
 .quiz-option { display: grid; gap: 3px; }
 .quiz-option-title { font: 600 13px/1.25 var(--f-body); }

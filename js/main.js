@@ -17,6 +17,7 @@ import { ReligionLegend, EmpireLegend } from './ui/legend.js';
 import { RoutePop } from './ui/routepop.js';
 import { Help } from './ui/help.js';
 import { Quiz } from './ui/quiz.js';
+import { Hunt, loadMissions } from './ui/uppdrag.js';
 import { Intro, loadIntro } from './ui/intro.js';
 import { TourPlayer, loadTours } from './ui/tour.js';
 import { FlatMap } from './ui/flatmap.js';
@@ -503,6 +504,20 @@ async function start() {
   }, data, { fallbackFocus: () => $('btn-more') });
   quizButton.hidden = !quiz.ready;
   quizButton.addEventListener('click', () => { help.close(false); quiz.open(quizButton); });
+
+  // Samtidighetsjakten (#741): ett elevuppdrag. Knappen i faktarutan finns bara medan jakten pågår.
+  const huntButton = $('btn-hunt');
+  const refreshDetail = () => { if (panel.selectedId && !$('detail').hidden) panel.showDetail(data.byId[panel.selectedId]); };
+  const hunt = new Hunt({
+    root: $('hunt'), title: $('hunt-title'), task: $('hunt-task'), years: $('hunt-years'), progress: $('hunt-progress'),
+    list: $('hunt-list'), message: $('hunt-message'), done: $('hunt-done'), reflection: $('hunt-reflection'),
+    sources: $('hunt-sources'), closeBtn: $('hunt-close'), endBtn: $('hunt-end'),
+  }, await loadMissions(), { timeline, byId: data.byId, srcById: data.srcById, onChange: refreshDetail, fallbackFocus: () => $('btn-more') });
+  app.hunt = hunt;
+  panel.huntFor = e => hunt.buttonFor(e);
+  panel.onHunt = e => hunt.add(e);
+  huntButton.hidden = !hunt.ready;
+  huntButton.addEventListener('click', () => { help.close(false); hunt.start(null, huntButton); });
 
   // Guidade turer (#47): en tur är data i data/turer/, och spelaren styr tidslinjen, kameran, Lager och faktarutan
   const tour = new TourPlayer({

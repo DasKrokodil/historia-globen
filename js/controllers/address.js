@@ -12,7 +12,7 @@
 // - Knappen Dela kopierar länken, eller öppnar telefonens delningsmeny där den finns.
 
 import { toJSON } from '../state.js';
-import { encodeHash, decodeHash, decodeTour, isNewStep } from '../url-state.js';
+import { encodeHash, decodeHash, decodeTour, decodeMission, isNewStep } from '../url-state.js';
 import { ui } from '../i18n.js';
 
 const POLL_MS = 700;
@@ -24,7 +24,8 @@ export function createAddress(app) {
 
   const current = () => toJSON(state, globe.view);
   const position = () => app.tour?.position ?? null;
-  const hashOf = (json, tour = null) => encodeHash(json, allCategories, tour);
+  const mission = () => app.hunt?.missionId ?? null; // elevuppdraget som pågår (#741)
+  const hashOf = (json, tour = null) => encodeHash(json, allCategories, tour, mission());
   /** Sidans adress utan den äldre ?tur= (turen står i hashen när den väl har startat). */
   const search = () => { const q = new URLSearchParams(location.search); q.delete('tur'); const t = q.toString(); return t ? `?${t}` : ''; };
   /** Det som nu står i adressen räknas som skrivet, så att det inte skrivs en gång till. */
@@ -83,7 +84,8 @@ export function createAddress(app) {
     if (!timeline.playing && hash !== seenHash) { seenHash = hash; return; } // vänta tills vyn står still
     const url = `${location.pathname}${search()}${hash}`;
     // Ett nytt steg i turen, eller att turen börjar eller slutar, blir en egen post (Bakåt går till steget innan)
-    const tourStep = new URLSearchParams(writtenHash.slice(1)), newTour = (tourStep.get('t') ?? '') !== (pos?.id ?? '') || (tourStep.get('s') ?? '') !== (pos?.step ?? '');
+    const tourStep = new URLSearchParams(writtenHash.slice(1)), newTour = (tourStep.get('t') ?? '') !== (pos?.id ?? '') || (tourStep.get('s') ?? '') !== (pos?.step ?? '')
+      || (tourStep.get('u') ?? '') !== (mission() ?? ''); // ett uppdrag som börjar eller slutar är också ett eget steg
     if (newTour || isNewStep(written, cur, { playing: timeline.playing })) history.pushState(null, '', url);
     else history.replaceState(null, '', url);
     written = cur; writtenHash = seenHash = hash;
@@ -95,18 +97,25 @@ export function createAddress(app) {
     const touring = read && applyTour(decodeTour(location.hash, location.search));
     const s = read && !touring ? decodeHash(location.hash) : null;
     if (s) await apply(s);
+    // Ett elevuppdrag i länken (u, #741) startar efter vyn, så att uppdragets år gäller
+    const missionId = read ? decodeMission(location.hash) : null;
+    const hunting = !!missionId && !!app.hunt?.start(missionId);
     // Startläget får också en adress, så att Bakåt efter första steget kommer tillbaka hit
     settle();
     history.replaceState(null, '', `${location.pathname}${search()}${writtenHash}`);
     setInterval(write, POLL_MS);
     addEventListener('popstate', () => {
+      // Elevuppdraget följer adressen: Bakåt till innan jakten avslutar den, Framåt startar den igen (#741)
+      const m = decodeMission(location.hash);
+      if (m && m !== mission()) app.hunt?.start(m);
+      else if (!m && app.hunt?.active) app.hunt.end(false);
       const tl = decodeTour(location.hash);
       if (tl && applyTour(tl)) { settle(); return; }
       if (app.tour?.active) app.tour.end();
       const t = decodeHash(location.hash);
       if (t) apply(t); else settle();
     });
-    return touring || !!s;
+    return touring || hunting || !!s;
   }
 
   /** Länken till vyn som den ser ut nu. */
