@@ -21,13 +21,26 @@ Datum: 2026-11-07. Syftet är idéer att inspireras av för skolpiloten (version
 | 11 | [TeachingHistory.org](https://teachinghistory.org/) | Skolmaterial | CC BY-NC-SA 3.0 | Gratis |
 | 12 | [Skolverket](https://www.skolverket.se/) | Skolmaterial | Ej undersökt | Gratis |
 
+**Direkta länkar till det som verifierades** (öppnade 2026-11-07), så att licens- och skolpåståendena går att kontrollera:
+
+| Påstående | Sida |
+| --- | --- |
+| Skolverkets nya läro- och kursplaner, remiss 9 november 2026–20 januari 2027 | https://www.skolverket.se/om-skolverket/nyheter-och-pressmeddelanden/nyheter/nyheter/2026-11-04-manga-forandringar-i-de-nya-laro--och-kursplanerna |
+| Gapminder: CC BY 4.0 för "free material" | https://www.gapminder.org/free-material/ |
+| Our World in Data: CC BY på egna diagram, tredje part kan ha andra villkor | https://ourworldindata.org/faqs |
+| Seshat: CC BY-SA 4.0, konto för nedladdning | https://seshat-db.com/terms/current/ |
+| OpenHistoricalMap: CC0 med undantag | https://www.openhistoricalmap.org/copyright |
+| TeachingHistory.org: CC BY-NC-SA 3.0 | https://teachinghistory.org/about/ |
+| GeoGuessr Pro: pris, annonsfritt | https://www.geoguessr.com/pro |
+| TimeMaps: lärarnoter och "currently free" | https://timemaps.com/timemaps-for-education/ |
+
 ## Historieatlaser och tidslinjer
 
 ### 1. Chronas (chronas.org)
 - **Såg:** "Interactive Historical Map", metabeskrivning: "Explore world history through an interactive map spanning 5000 years". Vänsterspalt med ikoner (bland annat lager och sök), en tidslinje längst ned med årtal och epokband (Ancient, Classical, Early Medieval, High Medieval …), en länk "Let us know on GitHub" och en länk till "Classic version". Kartans underlag anges som "Relief: Natural Earth".
 - **Kunde inte kontrollera:** själva kartinnehållet. Sidan visade "Error Loading Data. Unable to connect to the server" i vår session (dataservern ligger troligen på en värd som inte är tillåten här). Licens och koddetaljer syns inte på landningssidan.
 - **Passar:** epokbanden som rubriker i tidslinjen, och att sidan har en synlig väg till felrapport.
-- **Passar inte:** verkar kräva en egen server för data, vilket går emot vårt beslut om inget bygg- och serversteg.
+- **Passar inte (hypotes, inte kontrollerat):** att sidan visade ett laddningsfel här kan bero på att den hämtar data från en server, men det är inte belagt; felet kan lika gärna bero på vår sessions nätverk. Jag drar därför ingen slutsats om arkitekturen.
 
 ### 2. GeaCron (geacron.com)
 - **Såg:** "World History Maps & Timelines", "Interactive World History Atlas since 3000 BC", "Kingdoms, Battles, Expeditions. Comparative History, Political, Military, Art, Science, Literature, Religion, Philosophy. Maps based on vector database". Längst ned: "Copyright © 2011 – geacron.com – All Rights Reserved", länkar till villkor och integritet, samt en cookiebanner.
@@ -38,7 +51,7 @@ Datum: 2026-11-07. Syftet är idéer att inspireras av för skolpiloten (version
 ### 3. Histography (histography.io)
 - **Såg:** "Interactive timeline that spans across 14 billion years of history, from the Big Bang to 2015". Introtexten: "every dot is a historic event from Wikipedia", "Resize the bottom bar to view any time period or era". Epoknamn som genvägar (The Beginning, Earth Formation, … Stone Age, Bronze Age, Iron Age, Middle Ages, Renaissance, Industrial Age, Information Age), en knapp "Feeling lucky" och en meny för "Editorial stories". Sidan är märkt [BETA] och skapad av Matan Stauber. I vår session hann sidan inte visa tidslinjen (laddningsskärm).
 - **Kunde inte kontrollera:** licens och hur händelserna rent praktiskt visas när man rullar.
-- **Passar:** epoker som snabbknappar bredvid tidslinjen, och en slumpknapp. Vi har redan "Visste du?" som slumpar en fun fact; samma idé kan slumpa en tidsperiod.
+- **Passar:** epoker som snabbknappar bredvid tidslinjen, och en slumpknapp. Vi har redan "Visste du?", som väljer en balanserad fun fact (inte ren slump, `pickBalancedFunFact` i `js/ui/funfact.js`); samma idé kan väljas för en tidsperiod.
 - **Passar inte:** bygger på stora mängder Wikipedia-händelser utan vår källkontroll.
 
 ### 4. TimeMaps (timemaps.com)
@@ -96,9 +109,9 @@ Datum: 2026-11-07. Syftet är idéer att inspireras av för skolpiloten (version
 - **Passar inte:** CC BY-NC-SA, så bara länkar och idéer, ingen text.
 
 ### 12. Skolverket (skolverket.se)
-- **Såg:** nyheten **2026-11-04 "Många förändringar i de nya läro- och kursplanerna"**: nya läro- och kursplaner för grundskolan föreslås, "kursplanerna är mer ämnesspecifika och konkreta", och **remissperioden pågår mellan den 9 november och den 20 januari 2027**. Startsidan har kategorier som Undervisning, Prov och bedömning och Statistik.
+- **Såg:** nyheten **2026-11-04 "Många förändringar i de nya läro- och kursplanerna"**: nya läro- och kursplaner för grundskolan föreslås, "kursplanerna är mer ämnesspecifika och konkreta", och förslagen skickas på remiss. **Remissperioden börjar den 9 november 2026** (två dagar efter rapportdatumet) **och pågår till den 20 januari 2027**, enligt nyheten. Startsidan har kategorier som Undervisning, Prov och bedömning och Statistik.
 - **Kunde inte kontrollera:** exakt vad förslaget säger om historia, och när de nya planerna börjar gälla.
-- **Passar:** bevakning. Utskriften (#738) och lektionsplanerna hänvisar till Lgr22; om kursplanen för historia ändras kan hänvisningarna bli inaktuella.
+- **Passar:** bevakning. Lgr22-hänvisningarna ligger i turdatan (`data/turer/vikingatiden-och-varlden.json` och `data/turer/andra-varldskriget.json`, 10 träffar vardera) och utskriften (#738) läser dem därifrån; om kursplanen för historia ändras kan de bli inaktuella.
 - **Passar inte:** inget att återanvända; det är källan till kraven.
 
 ## Sidor som inte gick att öppna
@@ -108,7 +121,7 @@ Datum: 2026-11-07. Syftet är idéer att inspireras av för skolpiloten (version
 - **Pleiades (pleiades.stoa.org):** öppnades och licensen läst (CC BY 3.0, "Using, sharing, and remixing … is permitted"), men ingen närmare undersökning gjordes, så den ingår inte bland de 12.
 
 ## Förslag till issues (triageras av Claude Code, skapas inte här)
-1. **Bevaka Skolverkets nya kursplaner** före skolpiloten (#743, #744): kontrollera vad som ändras i historia när remissen är klar (20 januari 2027) och om Lgr22-hänvisningarna i utskriften (#738) behöver uppdateras. Konkret, ingen ny funktion.
+1. **Bevaka Skolverkets nya kursplaner** före skolpiloten (#743, #744): kontrollera vad som ändras i historia när remissen är avslutad (20 januari 2027) och om Lgr22-hänvisningarna i de två turerna (och därmed utskriften, #738) behöver uppdateras. Konkret, ingen ny funktion.
 2. **"Så här citerar du"** vid händelse eller affisch (idén från Gapminder och Our World in Data): en kopierbar källhänvisning. Kräver beslut av Rikard, eftersom det ändrar hur sidan fungerar för besökaren.
 3. **Epoker som snabbknappar** vid tidslinjen (idén från Histography och Chronas): till exempel Stenåldern, Bronsåldern, Medeltiden. Kräver beslut. Hör ihop med #298 (läsbar tidslinje) och eventuell tidsmodell (#396).
 4. **Missuppfattningsquiz i quizet** ("Vad tror du kom först?" med facit, idén från Gapminder): kräver beslut, ligger nära #65.
