@@ -122,13 +122,18 @@ export function createAddress(app) {
     history.replaceState(null, '', `${location.pathname}${search()}${writtenHash}`);
     setInterval(write, POLL_MS);
     addEventListener('popstate', () => {
-      // Elevuppdraget följer adressen: Bakåt till innan jakten avslutar den, Framåt startar den igen (#741)
-      const m = decodeMission(location.hash);
-      if (m && m !== mission()) app.hunt?.start(m);
-      else if (!m && app.hunt?.active) app.hunt.end(false);
+      // Turen och lektionsläget först, sedan elevuppdraget: i en lektion (#795) avgör låset om jakten får börja, och
+      // Bakåt ut ur lektionen ska kunna öppna jakten igen
+      const followMission = () => {
+        // Elevuppdraget följer adressen: Bakåt till innan jakten avslutar den, Framåt startar den igen (#741)
+        const m = decodeMission(location.hash);
+        if (m && m !== mission()) app.hunt?.start(m);
+        else if (!m && app.hunt?.active) app.hunt.end(false);
+      };
       const tl = decodeTour(location.hash);
-      if (tl && applyTour(tl, !!decodeMode(location.hash))) { settle(); return; }
+      if (tl && applyTour(tl, !!decodeMode(location.hash))) { followMission(); settle(); return; }
       if (app.tour?.active) app.tour.end(); // tar lektionsläget med sig (js/ui/tour.js)
+      followMission();
       const t = decodeHash(location.hash);
       if (t) apply(t); else settle();
     });

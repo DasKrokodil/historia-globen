@@ -44,6 +44,9 @@ export class LessonMode {
     this.band.hidden = false;
     this.exit.hidden = this.lock?.escape === false;
     this.applyLock();
+    // En jakt som redan pågår och hör till ett år utanför låset avslutas, annars står rutan kvar för ett annat år
+    const years = this.lock?.years, hunt = this.app.hunt;
+    if (years && hunt?.active && (hunt.mission.year < years[0] || hunt.mission.year > years[1])) hunt.end(false);
     this.app.closeMenus?.(); // menyer som stod öppna när länken öppnades
     return true;
   }
