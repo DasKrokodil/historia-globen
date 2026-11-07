@@ -12,6 +12,10 @@
 //           curriculum kopplingen till läroplanen, text per språk med källa (Skolverket); skrivs
 //                      "kopplad till Lgr22", aldrig "godkänd av Skolverket"
 //           prerequisites, teacher, exitTicket  förkunskaper, lärarinstruktion och exit ticket, text per språk
+//           sourceDetective valfritt: elevuppdraget Källdetektiven (#742), [{ event, questions: [text, ...] }]
+//                      med 1–2 händelser som har en anteckning om källorna (note.kind, #613) och som ett
+//                      steg i turen öppnar (open); 1–4 frågor per händelse, som bara frågar efter det
+//                      anteckningen säger
 //           lock       valfritt: lektionsläget (#795, länken #t=<id>&m=lektion): { years?, layers?, escape? }
 //                      years   [från, till]: tidslinjen stannar i intervallet (alla steg ligger inom det och det har
 //                              händelser från minst två världsdelar)
@@ -96,7 +100,24 @@ function lessonProblems(l, known, tour) {
   if (!isText(l.teacher)) out.push('lesson: lärarinstruktionen saknas (teacher.sv).');
   if (!isText(l.exitTicket)) out.push('lesson: exit ticket saknas (exitTicket.sv).');
   if (l.prerequisites != null && !isText(l.prerequisites)) out.push('lesson: förkunskaperna ska vara text per språk.');
+  if (l.sourceDetective != null) detectiveProblems(l.sourceDetective, tour.steps, known).forEach(p => out.push(p));
   if (l.lock != null) lockProblems(l.lock, known, tour).forEach(p => out.push(p));
+  return out;
+}
+
+/** Källdetektiven (#742): 1–2 händelser som turens steg öppnar, med 1–4 frågor per språk vardera. */
+function detectiveProblems(list, steps, known) {
+  if (!Array.isArray(list) || !list.length || list.length > 2) return ['lesson: källdetektiven (sourceDetective) ska vara en lista med 1–2 händelser.'];
+  const opened = new Set((Array.isArray(steps) ? steps : []).map(s => s?.open).filter(Boolean));
+  const out = [];
+  list.forEach((d, i) => {
+    const where = `lesson: källdetektiven ${i + 1}`;
+    if (!d || typeof d.event !== 'string') { out.push(`${where}: händelsen saknas (event).`); return; }
+    if (known.events && !known.events.has(d.event)) out.push(`${where}: händelsen ${d.event} finns inte.`);
+    else if (!opened.has(d.event)) out.push(`${where}: händelsen ${d.event} öppnas inte i något steg (open).`);
+    if (!Array.isArray(d.questions) || !d.questions.length || d.questions.length > 4) out.push(`${where}: frågorna ska vara en lista med 1–4 frågor.`);
+    else if (!d.questions.every(isText)) out.push(`${where}: frågorna ska vara text per språk.`);
+  });
   return out;
 }
 

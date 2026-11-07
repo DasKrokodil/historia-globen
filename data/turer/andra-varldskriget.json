@@ -62,6 +62,60 @@
       "es": "Nombra dos cosas del recorrido que ocurrieron el mismo año en distintas partes del mundo. ¿Por qué se llama a la guerra una guerra mundial?",
       "fr": "Cite deux choses de la visite qui se sont produites la même année dans différentes parties du monde. Pourquoi appelle-t-on cette guerre une guerre mondiale ?"
     },
+    "sourceDetective": [
+      {
+        "event": "slaget-om-storbritannien",
+        "questions": [
+          {
+            "sv": "Den extra rutan i faktarutan nämner två sätt att räkna hur länge slaget pågick. Vilka är de, och vem räknar på vilket sätt?",
+            "en": "The extra box in the fact box mentions two ways of counting how long the battle lasted. What are they, and who counts which way?",
+            "de": "Der zusätzliche Kasten im Faktenfeld nennt zwei Arten zu zählen, wie lange die Schlacht dauerte. Welche sind es, und wer zählt auf welche Weise?",
+            "es": "El recuadro adicional de la ficha menciona dos formas de contar cuánto duró la batalla. ¿Cuáles son y quién cuenta de cada manera?",
+            "fr": "L'encadré supplémentaire de la fiche mentionne deux façons de compter la durée de la bataille. Lesquelles, et qui compte de quelle façon ?"
+          },
+          {
+            "sv": "Vad räknar de tyska historikerna in i slaget som de brittiska källorna inte gör?",
+            "en": "What do the German historians include in the battle that the British sources do not?",
+            "de": "Was rechnen die deutschen Historiker zur Schlacht, was die britischen Quellen nicht dazurechnen?",
+            "es": "¿Qué incluyen los historiadores alemanes en la batalla que las fuentes británicas no incluyen?",
+            "fr": "Qu'est-ce que les historiens allemands incluent dans la bataille, contrairement aux sources britanniques ?"
+          },
+          {
+            "sv": "Varför tror du att två länder kan räkna samma slag på olika sätt?",
+            "en": "Why do you think two countries can count the same battle in different ways?",
+            "de": "Warum können zwei Länder Ihrer Meinung nach dieselbe Schlacht unterschiedlich zählen?",
+            "es": "¿Por qué cree usted que dos países pueden contar la misma batalla de maneras distintas?",
+            "fr": "Pourquoi, selon vous, deux pays peuvent-ils compter la même bataille de façons différentes ?"
+          }
+        ]
+      },
+      {
+        "event": "slaget-vid-stalingrad",
+        "questions": [
+          {
+            "sv": "Den extra rutan i faktarutan nämner två datum då slaget började. Vilka är de, och vilken källa anger vilket?",
+            "en": "The extra box in the fact box mentions two dates on which the battle began. What are they, and which source gives which?",
+            "de": "Der zusätzliche Kasten im Faktenfeld nennt zwei Daten, an denen die Schlacht begann. Welche sind es, und welche Quelle nennt welches?",
+            "es": "El recuadro adicional de la ficha menciona dos fechas en las que comenzó la batalla. ¿Cuáles son y qué fuente da cada una?",
+            "fr": "L'encadré supplémentaire de la fiche mentionne deux dates de début de la bataille. Lesquelles, et quelle source donne laquelle ?"
+          },
+          {
+            "sv": "Vad är källorna överens om?",
+            "en": "What do the sources agree on?",
+            "de": "Worin stimmen die Quellen überein?",
+            "es": "¿En qué coinciden las fuentes?",
+            "fr": "Sur quoi les sources sont-elles d'accord ?"
+          },
+          {
+            "sv": "Vad hände vid vart och ett av startdatumen, enligt rutan? Vilket datum tycker du passar bäst som början på slaget, och varför?",
+            "en": "According to the box, what happened on each of the start dates? Which date do you think fits best as the start of the battle, and why?",
+            "de": "Was geschah laut dem Kasten an jedem der beiden Anfangsdaten? Welches Datum passt Ihrer Meinung nach am besten als Beginn der Schlacht, und warum?",
+            "es": "Según el recuadro, ¿qué ocurrió en cada una de las fechas de inicio? ¿Qué fecha cree usted que encaja mejor como comienzo de la batalla, y por qué?",
+            "fr": "D'après l'encadré, que s'est-il passé à chacune des dates de début ? Quelle date vous semble la mieux convenir comme début de la bataille, et pourquoi ?"
+          }
+        ]
+      }
+    ],
     "lock": {
       "years": [1939, 1945],
       "layers": ["events", "wars", "areas"]

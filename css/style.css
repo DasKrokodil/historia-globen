@@ -2026,6 +2026,13 @@ details.used-by summary:hover { color: var(--parchment); }
   .print-lines { margin-top: 1pt; }
   .print-line { display: block; height: 12.5pt; border-bottom: .75pt solid var(--print-line); }
   .print-exit { break-inside: avoid; }
+  .print-detective-intro { margin: 0 0 4pt; }
+  .print-detective-case { margin: 0 0 6pt; break-inside: avoid; }
+  /* Källdetektiven på lärarbladet (#742): tre till fyra frågor till på ett blad som redan är fullt; 8 pt som källorna,
+     annars ryms inte lärarbladet på ett A4 på tyska, spanska och franska */
+  .print-detective-teacher { font-size: 8pt; line-height: 1.2; }
+  .print-detective-teacher h2 { margin: 3pt 0 2pt; font-size: 9.5pt; }
+  .print-detective-teacher li { margin-bottom: 2pt !important; }
   .print-sources ul, .print-sources-inline { margin: 2pt 0 0; padding-left: 14pt; font-size: 8pt; line-height: 1.1; }
   .print-sources ul { columns: 2; column-gap: 14pt; }
   .print-sources li { break-inside: avoid; }

@@ -2728,6 +2728,8 @@ async function run(browser, vp) {
         const got = await printPage.evaluate(() => ({
           pages: document.querySelectorAll('#print-sheet .print-page').length,
           questions: document.querySelectorAll('#print-sheet .print-student .print-questions > li').length,
+          detective: document.querySelectorAll('#print-sheet .print-detective .print-detective-case').length,
+          detectiveHeading: document.querySelector('#print-sheet .print-detective h1')?.textContent.trim() ?? '',
           sheet: getComputedStyle(document.getElementById('print-sheet')).display,
           app: getComputedStyle(document.getElementById('app')).display,
           link: document.querySelector('#print-sheet .print-link')?.textContent ?? '',
@@ -2752,7 +2754,7 @@ async function run(browser, vp) {
         // Utskriften (#757): läsordning och rubriker för hjälpmedel, svart på vitt utan färg, läsbar textstorlek och
         // sidbrytning som inte delar ett svarsfält
         if (got.h1 !== got.pages || got.skippedHeading) throw new Error(`rubrikerna är fel i utskriften: ${got.h1} h1 för ${got.pages} blad, hopp i nivåerna: ${got.skippedHeading}`);
-        if (got.h1Same) throw new Error('elevbladet och lärarbladet har samma rubrik');
+        if (got.h1Same) throw new Error('två blad har samma rubrik');
         if (got.unlabelled) throw new Error(`${got.unlabelled} blad saknar märkning (aria-labelledby)`);
         if (got.visibleLines) throw new Error('skrivraderna syns för hjälpmedel i stället för att vara dekoration');
         if (got.colors.length !== 1) throw new Error(`utskriften har fler färger än svart på vitt: ${got.colors.join(' ')}`);
@@ -2766,8 +2768,10 @@ async function run(browser, vp) {
         const maxHeight = Math.floor(A4_HEIGHT * 0.97);
         if (got.heights.some(h => h > maxHeight)) throw new Error(`ett blad är ${Math.max(...got.heights)} px högt, högst ${maxHeight} px av A4:s ${A4_HEIGHT} px (${got.heights.join(', ')})`);
         if (pdfPages !== got.pages) throw new Error(`utskriften blev ${pdfPages} A4-sidor i stället för ett blad per sida (${got.pages} blad)`);
-        if (got.pages < 2) throw new Error(`${got.pages} blad i stället för elevblad och lärarblad`);
+        if (got.pages !== 3) throw new Error(`${got.pages} blad i stället för elevblad, Källdetektiven och lärarblad`);
+        if (!/^Källdetektiven /.test(got.detectiveHeading)) throw new Error(`Källdetektiv-bladets rubrik är "${got.detectiveHeading}"`);
         if (got.questions !== 5) throw new Error(`elevbladet har ${got.questions} frågor, turen har 5`);
+        if (got.detective !== 2) throw new Error(`Källdetektiven har ${got.detective} händelser, lektionen har 2 (#742)`);
         if (got.sheet === 'none' || got.app !== 'none') throw new Error(`i utskrift: bladen ${got.sheet}, sidan ${got.app}`);
         if (!got.link.endsWith('#t=andra-varldskriget&m=lektion')) throw new Error(`lärarbladets länk är ${got.link}`);
         if (!/Lgr22/.test(got.teacher) || !/Skolverket/.test(got.teacher)) throw new Error('lärarbladet saknar kopplingen till Lgr22 med källa');
@@ -2775,9 +2779,9 @@ async function run(browser, vp) {
       } finally {
         await printPage.close();
       }
-      return 'ingen knapp utan lärarfält; två blad, fem frågor, bara bladen i utskrift, länk och Lgr22 med källa';
+      return 'ingen knapp utan lärarfält; tre blad (elevblad, Källdetektiven, lärarblad), fem frågor, bara bladen i utskrift, länk och Lgr22 med källa';
     });
-    // Höjden på bladen (#757): alla fem språken och båda lektionerna, med webbtypsnitten och med reservtypsnittet.
+    // Höjden på bladen (#757, #742): alla fem språken och båda lektionerna, med webbtypsnitten och med reservtypsnittet.
     // Engelska, tyska, spanska och franska är längre än svenska, och utan webbtypsnitten byts typsnittet mot ett bredare
     // (DejaVu Sans på Linux), så ett mått på svenska med webbtypsnitt säger inget om de andra fallen.
     await check('elevbladet och lärarbladet ryms på en A4-sida i alla språk, med och utan webbtypsnitt (#757)', async () => {
@@ -2808,6 +2812,7 @@ async function run(browser, vp) {
           const got = await pg.evaluate(() => ({
             lang: document.documentElement.lang,
             heights: [...document.querySelectorAll('#print-sheet .print-page')].map(s => Math.ceil(s.getBoundingClientRect().height)),
+            h1: document.querySelectorAll('#print-sheet h1').length,
             webFonts: [...document.fonts].filter(f => f.status === 'loaded').map(f => f.family),
             bodyFont: getComputedStyle(document.querySelector('#print-sheet .print-q')).fontFamily,
           }));
@@ -2835,7 +2840,9 @@ async function run(browser, vp) {
             if (fallback && (used || !got.bodyFont.startsWith('"DejaVu Sans"'))) throw new Error(`${tour} ${lang}: reservmätningen använder fel typsnitt (${got.bodyFont}, webbtypsnitt: ${used})`);
             const max = Math.max(...got.heights);
             const lim = limit[fallback ? 'fallback' : 'web'];
-            if (got.heights.length !== 2) throw new Error(`${tour} ${lang}: ${got.heights.length} blad i stället för två`);
+            // Andra världskriget har Källdetektiven (#742) och därmed tre blad, vikingatiden har två; varje blad har en h1
+            const sheets = tour === TOURS[0] ? 3 : 2;
+            if (got.heights.length !== sheets || got.h1 !== sheets) throw new Error(`${tour} ${lang}: ${got.heights.length} blad och ${got.h1} h1 i stället för ${sheets}`);
             if (max > lim) throw new Error(`${tour} ${lang} ${fallback ? 'med reservtypsnitt' : 'med webbtypsnitt'}: ett blad är ${max} px högt, högst ${lim} px av A4:s ${A4_HEIGHT} px (${got.heights.join(', ')})`);
             rows.push(`${fallback ? 'reserv' : 'web'} ${tour.slice(0, 4)} ${lang} ${got.heights.join('/')}`);
           });
