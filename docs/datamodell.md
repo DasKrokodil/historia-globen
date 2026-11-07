@@ -142,7 +142,7 @@ Vad många tror, vad källorna säger och var missuppfattningen kom ifrån (besl
 |---|---|
 | `id` | Läsbart, unikt id |
 | `events` | Valfritt: händelser i `events.json` som missuppfattningen hör till. Saknas händelse är `year` obligatoriskt |
-| `year`, `location` | Valfritt: år (astronomiskt) och GeoJSON-punkt för missuppfattningar utan händelse på globen |
+| `year`, `location`, `locationPrecision` | Valfritt: för missuppfattningar utan händelse på globen. `year` (astronomiskt) är året som bäst placerar den i tiden: händelsen den gäller, eller när den första gången är belagd (kinesiska muren: 1754, brevet där myten först nämns). `location` är en GeoJSON-punkt och `locationPrecision` (`region` eller `country`) anges när platsen är ungefärlig |
 | `claim`, `truth`, `origin` | Texter per språk: vad många tror, vad källorna säger och var det kom ifrån. Är källorna oense skrivs det öppet i `truth` |
 | `originKinds` | Hur den uppstod, minst ett av `satire`, `propaganda`, `misreading`, `media`, `folk`, `other`. Eget fält, ingen ny kategori |
 | `sources`, `review` | Som för händelser. Bara sådant historiker är överens om; helst forskning eller referenslitteratur som källa |
