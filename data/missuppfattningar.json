@@ -183,6 +183,143 @@
         "wp-vikings"
       ],
       "review": "source-checked"
+    },
+    {
+      "id": "machu-picchu-upptacktes-av-bingham",
+      "events": [
+        "machu-picchu"
+      ],
+      "claim": {
+        "sv": "Machu Picchu var en förlorad stad som Hiram Bingham upptäckte 1911.",
+        "en": "Machu Picchu was a lost city that Hiram Bingham discovered in 1911.",
+        "de": "Machu Picchu war eine verlorene Stadt, die Hiram Bingham 1911 entdeckte.",
+        "es": "Machu Picchu era una ciudad perdida que Hiram Bingham descubrió en 1911.",
+        "fr": "Le Machu Picchu était une cité perdue que Hiram Bingham découvrit en 1911."
+      },
+      "truth": {
+        "sv": "Bingham besökte platsen 1911, men han leddes dit av en bybo, Melchor Arteaga, och ruinerna var delvis i bruk: bönder använde de rensade terrasserna som grönsaksland. Agustín Lizárraga hade skrivit sitt namn och årtalet 1902 på ett tempel, och Bingham antecknade själv först att Lizárraga var upptäckaren. Kartor nämner platsen redan 1874, och den tyske ingenjören Augusto Berns kan ha återupptäckt och utnyttjat den i slutet av 1800-talet.",
+        "en": "Bingham visited the site in 1911, but he was led there by a villager, Melchor Arteaga, and the ruins were partly in use: farmers used the cleared terraces as vegetable gardens. Agustín Lizárraga had written his name and the date 1902 on a temple, and Bingham himself first noted that Lizárraga was the discoverer. Maps mention the site as early as 1874, and the German engineer Augusto Berns may have rediscovered and exploited it in the late 19th century.",
+        "de": "Bingham besuchte die Stätte 1911, wurde aber von einem Dorfbewohner, Melchor Arteaga, dorthin geführt, und die Ruinen wurden teilweise genutzt: Bauern verwendeten die freigelegten Terrassen als Gemüsegärten. Agustín Lizárraga hatte seinen Namen und die Jahreszahl 1902 auf einen Tempel geschrieben, und Bingham notierte selbst zunächst, Lizárraga sei der Entdecker. Karten erwähnen die Stätte schon 1874, und der deutsche Ingenieur Augusto Berns hat sie möglicherweise Ende des 19. Jahrhunderts wiederentdeckt und ausgebeutet.",
+        "es": "Bingham visitó el lugar en 1911, pero lo guió hasta allí un lugareño, Melchor Arteaga, y las ruinas estaban en parte en uso: los campesinos utilizaban las terrazas despejadas como huertos. Agustín Lizárraga había escrito su nombre y la fecha 1902 en un templo, y el propio Bingham anotó al principio que Lizárraga era el descubridor. Los mapas mencionan el lugar ya en 1874, y el ingeniero alemán Augusto Berns pudo haberlo redescubierto y explotado a finales del siglo XIX.",
+        "fr": "Bingham visita le site en 1911, mais il y fut conduit par un villageois, Melchor Arteaga, et les ruines étaient en partie utilisées : des paysans se servaient des terrasses dégagées comme potagers. Agustín Lizárraga avait écrit son nom et la date de 1902 sur un temple, et Bingham nota lui-même d'abord que Lizárraga en était le découvreur. Des cartes mentionnent le site dès 1874, et l'ingénieur allemand Augusto Berns l'a peut-être redécouvert et exploité à la fin du XIXe siècle."
+      },
+      "origin": {
+        "sv": "Platsen kallas ofta ”inkarikets förlorade stad”. Bingham erkände först Lizárraga som upptäckare i sina tidiga skrifter, men tonade gradvis ner hans roll, och i sin sista version av berättelsen, Lost City of the Incas (1952), hävdade han att han själv hade hittat platsen.",
+        "en": "The site is often called the “Lost City of the Incas”. Bingham at first acknowledged Lizárraga as the discoverer in his early writings, but he gradually downplayed Lizárraga's role, and in his final version of the story, Lost City of the Incas (1952), he claimed to have found the site himself.",
+        "de": "Die Stätte wird oft „Verlorene Stadt der Inka“ genannt. Bingham erkannte Lizárraga in seinen frühen Schriften zunächst als Entdecker an, spielte dessen Rolle aber nach und nach herunter, und in seiner letzten Fassung der Geschichte, Lost City of the Incas (1952), behauptete er, die Stätte selbst gefunden zu haben.",
+        "es": "El lugar suele llamarse la «Ciudad Perdida de los Incas». Bingham reconoció al principio a Lizárraga como descubridor en sus primeros escritos, pero fue restándole importancia poco a poco, y en la versión final de la historia, Lost City of the Incas (1952), afirmó haber encontrado él mismo el lugar.",
+        "fr": "Le site est souvent appelé la « cité perdue des Incas ». Bingham reconnut d'abord Lizárraga comme le découvreur dans ses premiers écrits, mais il minimisa peu à peu son rôle, et dans la version finale de l'histoire, Lost City of the Incas (1952), il affirma avoir trouvé lui-même le site."
+      },
+      "originKinds": [
+        "other"
+      ],
+      "sources": [
+        "wp-machu-picchu"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "quechua-var-inkarnas-sprak",
+      "events": [
+        "pachacuti-inkariket"
+      ],
+      "claim": {
+        "sv": "Quechua var inkarnas ursprungliga språk.",
+        "en": "Quechua was the original language of the Incas.",
+        "de": "Quechua war die ursprüngliche Sprache der Inka.",
+        "es": "El quechua era la lengua original de los incas.",
+        "fr": "Le quechua était la langue d'origine des Incas."
+      },
+      "truth": {
+        "sv": "Quechua hade varit ett gemensamt språk (lingua franca) i flera områden före inkarnas expansion, var redan varierat innan inkariket växte fram och var inte inkarnas eget ursprungliga språk. Inkarnas eget språk tros ha varit nära besläktat med eller en dialekt av puquina. Inkarna lämnade ändå ett språkligt arv: de spred quechua till många områden där det talas än i dag, bland annat Ecuador, södra Bolivia och södra Colombia.",
+        "en": "Quechua had been a lingua franca in several areas before the Inca expansion, was already diverse before the rise of the Incas, and was not the Incas' own original language. The Incas' own language is thought to have been closely related to or a dialect of Puquina. The Incas did leave a linguistic legacy: they introduced Quechua to many areas where it is still widely spoken today, including Ecuador, southern Bolivia and southern Colombia.",
+        "de": "Quechua war schon vor der Expansion der Inka in mehreren Gebieten eine Verkehrssprache (Lingua franca), war bereits vor dem Aufstieg der Inka vielfältig und war nicht die eigene ursprüngliche Sprache der Inka. Die eigene Sprache der Inka war vermutlich eng mit dem Puquina verwandt oder ein Dialekt davon. Die Inka hinterließen dennoch ein sprachliches Erbe: Sie brachten das Quechua in viele Gebiete, in denen es heute noch weit verbreitet ist, darunter Ecuador, Südbolivien und Südkolumbien.",
+        "es": "El quechua ya era una lengua franca en varias zonas antes de la expansión inca, ya era diverso antes del ascenso de los incas y no era la lengua original de los propios incas. Se cree que la lengua propia de los incas estaba estrechamente emparentada con el puquina o era un dialecto de este. Aun así, los incas dejaron un legado lingüístico: introdujeron el quechua en muchas zonas donde todavía se habla ampliamente, entre ellas Ecuador, el sur de Bolivia y el sur de Colombia.",
+        "fr": "Le quechua était déjà une lingua franca dans plusieurs régions avant l'expansion inca, était déjà diversifié avant l'essor des Incas et n'était pas la langue d'origine des Incas eux-mêmes. On pense que la langue propre des Incas était étroitement apparentée au puquina ou en était un dialecte. Les Incas ont pourtant laissé un héritage linguistique : ils ont introduit le quechua dans de nombreuses régions où il est encore largement parlé, notamment l'Équateur, le sud de la Bolivie et le sud de la Colombie."
+      },
+      "origin": {
+        "sv": "Quechua kallas ofta ”inkaspråket”, och källan beskriver detta som en vanlig missuppfattning om quechuas historia. Källan anger inte var benämningen kommer ifrån.",
+        "en": "Quechua is frequently called the “Inca language”, and the source describes this as one of several common misconceptions about the history of Quechua. The source does not say where the label comes from.",
+        "de": "Quechua wird häufig „Sprache der Inka“ genannt, und die Quelle beschreibt dies als eines von mehreren verbreiteten Missverständnissen über die Geschichte des Quechua. Woher die Bezeichnung stammt, sagt die Quelle nicht.",
+        "es": "El quechua se llama con frecuencia la «lengua de los incas», y la fuente lo describe como una de varias ideas erróneas comunes sobre la historia del quechua. La fuente no indica de dónde viene esa denominación.",
+        "fr": "Le quechua est souvent appelé la « langue des Incas », et la source décrit cela comme l'une des nombreuses idées fausses courantes sur l'histoire du quechua. La source n'indique pas d'où vient cette appellation."
+      },
+      "originKinds": [
+        "other"
+      ],
+      "sources": [
+        "wp-inca-empire"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "moai-ar-bara-huvuden",
+      "events": [
+        "moai-rapa-nui"
+      ],
+      "claim": {
+        "sv": "Påskölns moai-statyer är bara huvuden.",
+        "en": "The moai statues of Easter Island are just heads.",
+        "de": "Die Moai-Statuen der Osterinsel sind nur Köpfe.",
+        "es": "Las estatuas moái de la isla de Pascua son solo cabezas.",
+        "fr": "Les statues moaï de l'île de Pâques ne sont que des têtes."
+      },
+      "truth": {
+        "sv": "Moai är helkroppsstatyer med kraftig bål och armar i lågrelief. Huvudet är överdrivet stort och utgör tre åttondelar av statyns storlek, och med undantag för en knäande moai har statyerna inga tydligt synliga ben.",
+        "en": "Moai are whole-body statues with heavy torsos and arms carved in bas relief. The head is overly large and accounts for three-eighths of the size of the whole statue, and except for one kneeling moai the statues have no clearly visible legs.",
+        "de": "Moai sind Ganzkörperstatuen mit kräftigem Rumpf und im Flachrelief gearbeiteten Armen. Der Kopf ist übergroß und macht drei Achtel der Größe der ganzen Statue aus, und bis auf einen knienden Moai haben die Statuen keine deutlich sichtbaren Beine.",
+        "es": "Los moái son estatuas de cuerpo entero, con torsos robustos y brazos tallados en bajorrelieve. La cabeza es desproporcionadamente grande y supone tres octavos del tamaño de toda la estatua, y, salvo un moái arrodillado, las estatuas no tienen piernas claramente visibles.",
+        "fr": "Les moaï sont des statues en pied, au torse massif et aux bras sculptés en bas-relief. La tête est démesurée et représente les trois huitièmes de la taille de la statue entière, et, à l'exception d'un moaï agenouillé, les statues n'ont pas de jambes clairement visibles."
+      },
+      "origin": {
+        "sv": "I populärlitteratur kallas de ofta ”Easter Island heads”, dels för att huvudena är oproportionerligt stora, dels för att många bilder av de resta statyerna visar dem på sluttningarna vid Rano Raraku, där många är nedgrävda till axlarna.",
+        "en": "In popular literature they are often called “Easter Island heads”, partly because the heads are disproportionately large and partly because many images of upright moai show the statues on the slopes of Rano Raraku, where many are buried to their shoulders.",
+        "de": "In der Populärliteratur werden sie oft „Osterinsel-Köpfe“ („Easter Island heads“) genannt, teils weil die Köpfe unverhältnismäßig groß sind, teils weil viele Bilder aufrecht stehender Moai die Statuen an den Hängen des Rano Raraku zeigen, wo viele bis zu den Schultern vergraben sind.",
+        "es": "En la literatura popular suelen llamarse «cabezas de la isla de Pascua» («Easter Island heads»), en parte porque las cabezas son desproporcionadamente grandes y en parte porque muchas imágenes de moáis erguidos muestran las estatuas en las laderas del Rano Raraku, donde muchas están enterradas hasta los hombros.",
+        "fr": "Dans la littérature populaire, on les appelle souvent « têtes de l'île de Pâques » (« Easter Island heads »), en partie parce que les têtes sont disproportionnées et en partie parce que de nombreuses images de moaï dressés montrent les statues sur les pentes du Rano Raraku, où beaucoup sont enterrées jusqu'aux épaules."
+      },
+      "originKinds": [
+        "media"
+      ],
+      "sources": [
+        "wp-moai"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "tasmanska-aboriginer-dog-ut-1876",
+      "events": [
+        "svarta-linjen"
+      ],
+      "year": 1876,
+      "claim": {
+        "sv": "Tasmaniens aboriginer dog ut när Truganini dog 1876.",
+        "en": "Tasmania's Aboriginal people became extinct when Truganini died in 1876.",
+        "de": "Die Aborigines Tasmaniens starben aus, als Truganini 1876 starb.",
+        "es": "Los aborígenes de Tasmania se extinguieron cuando murió Truganini en 1876.",
+        "fr": "Les Aborigènes de Tasmanie se sont éteints à la mort de Truganini en 1876."
+      },
+      "truth": {
+        "sv": "Truganini, en kvinna ur Nuenonne-folket, beskrevs länge men felaktigt som den sista tasmanska aboriginen. En stor gemenskap tasmanska aboriginer fortsatte att födas på Cape Barren Island och andra öar i Furneauxgruppen. De kallades ”Islanders” och härstammade från barn till aboriginska kvinnor och vita säljägare. Berättelsen att Truganini var den sista har avvisats av forskare och av dagens tasmanska aboriginska gemenskap.",
+        "en": "Truganini, a woman of the Nuenonne people, was long but incorrectly described as the last Aboriginal Tasmanian. A substantial community of Aboriginal Tasmanians continued to be born on Cape Barren Island and other islands in the Furneaux Group. They were called the Islanders and were descended from the children of Aboriginal women and white sealers. The narrative that Truganini was the last Aboriginal Tasmanian has been rejected by scholars and by the contemporary Aboriginal Tasmanian community.",
+        "de": "Truganini, eine Frau des Nuenonne-Volkes, wurde lange, aber fälschlich als die letzte Aborigine Tasmaniens bezeichnet. Eine große Gemeinschaft tasmanischer Aborigines wurde weiterhin auf Cape Barren Island und anderen Inseln der Furneaux-Gruppe geboren. Sie wurden „Islanders“ genannt und stammten von Kindern aboriginer Frauen und weißer Robbenjäger ab. Die Erzählung, Truganini sei die letzte tasmanische Aborigine gewesen, wird von der Wissenschaft und von der heutigen tasmanischen Aborigine-Gemeinschaft zurückgewiesen.",
+        "es": "Truganini, una mujer del pueblo nuenonne, fue descrita durante mucho tiempo, pero erróneamente, como la última aborigen de Tasmania. Una comunidad considerable de aborígenes tasmanos siguió naciendo en la isla Cape Barren y en otras islas del grupo Furneaux. Se los llamaba los Islanders y descendían de hijos de mujeres aborígenes y balleneros blancos. La narrativa de que Truganini fue la última aborigen tasmana ha sido rechazada por los estudiosos y por la comunidad aborigen tasmana actual.",
+        "fr": "Truganini, une femme du peuple nuenonne, a longtemps été décrite, à tort, comme la dernière Aborigène de Tasmanie. Une communauté importante d'Aborigènes tasmaniens a continué à naître sur Cape Barren Island et sur d'autres îles du groupe Furneaux. On les appelait les Islanders ; ils descendaient d'enfants de femmes aborigènes et de chasseurs de phoques blancs. Le récit selon lequel Truganini était la dernière Aborigène tasmanienne a été rejeté par les chercheurs et par la communauté aborigène tasmanienne actuelle."
+      },
+      "origin": {
+        "sv": "När Truganini dog förklarade Tasmaniens regering öns aboriginska befolkning utdöd. Berättelsen att hon var den sista hade redan före hennes död förstärkts av den mycket lästa boken The Last of the Tasmanians (1870). Folkmordsforskaren Tom Lawson menar att utrotningsberättelsen stärkte bilden av det brittiska imperiets makt. Islanders identitet avfärdades länge på grund av blandad härkomst, och historikern Lyndall Ryans bok The Aboriginal Tasmanians (1981) var bland de första historieverken som ifrågasatte myten.",
+        "en": "When Truganini died, the Tasmanian government declared the island's Aboriginal population extinct. The narrative that she was the last had been reinforced before her death by the widely read 1870 book The Last of the Tasmanians. The genocide scholar Tom Lawson argues that the extinction narrative reinforced the supposed power of the British Empire. The Islanders' claims of Aboriginal identity were widely dismissed because of their mixed descent, and the historian Lyndall Ryan's 1981 book The Aboriginal Tasmanians was among the first works of history to challenge the myth.",
+        "de": "Als Truganini starb, erklärte die Regierung Tasmaniens die Aborigine-Bevölkerung der Insel für ausgestorben. Die Erzählung, sie sei die Letzte gewesen, war schon vor ihrem Tod durch das viel gelesene Buch The Last of the Tasmanians (1870) verstärkt worden. Der Genozidforscher Tom Lawson argumentiert, die Aussterbeerzählung habe die vermeintliche Macht des Britischen Empire bekräftigt. Die Identitätsansprüche der Islanders wurden wegen ihrer gemischten Abstammung lange zurückgewiesen, und das Buch The Aboriginal Tasmanians (1981) der Historikerin Lyndall Ryan gehörte zu den ersten geschichtswissenschaftlichen Werken, die den Mythos in Frage stellten.",
+        "es": "Cuando murió Truganini, el gobierno de Tasmania declaró extinguida la población aborigen de la isla. La narrativa de que ella era la última ya se había reforzado antes de su muerte con el libro muy leído The Last of the Tasmanians (1870). El estudioso del genocidio Tom Lawson sostiene que la narrativa de la extinción reforzó el supuesto poder del Imperio británico. Las reivindicaciones de identidad aborigen de los Islanders se descartaron durante mucho tiempo por su ascendencia mixta, y el libro The Aboriginal Tasmanians (1981) de la historiadora Lyndall Ryan fue una de las primeras obras de historia en cuestionar el mito.",
+        "fr": "À la mort de Truganini, le gouvernement de Tasmanie déclara éteinte la population aborigène de l'île. Le récit selon lequel elle était la dernière avait déjà été renforcé avant sa mort par le livre très lu The Last of the Tasmanians (1870). Le spécialiste du génocide Tom Lawson soutient que le récit de l'extinction renforçait la puissance supposée de l'Empire britannique. Les revendications d'identité aborigène des Islanders furent longtemps rejetées en raison de leur ascendance mixte, et le livre The Aboriginal Tasmanians (1981) de l'historienne Lyndall Ryan fut l'une des premières œuvres d'histoire à remettre en cause le mythe."
+      },
+      "originKinds": [
+        "other"
+      ],
+      "sources": [
+        "wp-truganini"
+      ],
+      "review": "source-checked"
     }
   ]
 }
