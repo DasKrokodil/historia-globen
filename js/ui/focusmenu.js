@@ -3,8 +3,8 @@
 // Överst ligger en sökruta, flikar och sortering (#240, #311); de ligger kvar medan listan under rullar.
 // - Sökningen letar i alla namn en post har (svenska, engelska och för riken namnen på rikets delar,
 //   till exempel "Bysantinska riket" i Rom), även delar av namn och utan att bry sig om accenter.
-// - Flikarna: Alla, Händelser, Krig, Riken, Försvunna länder, Religioner, Resor. Fliken och sorteringen sparas i
-//   localStorage. Sök och följ (#651): Sök (#570) ingår här. Händelser har ingen lista att bläddra i; de hittas
+// - Flikarna: Alla, Händelser, Krig, Riken, Försvunna länder, Religioner, Resor. Menyn öppnas alltid med Alla;
+//   bara sorteringen sparas i localStorage (#709). Sök och följ (#651): Sök (#570) ingår här. Händelser har ingen lista att bläddra i; de hittas
 //   när man skriver (searchEvents, ur js/search-index.js) och öppnas i stället för att följas.
 // - Sorteringen: Relevans visar det som pågår nära året man står på, närmast först, och resten bakom
 //   "Visa alla" (#121); Försvunna länder visas där alltid hela, i tidsordning (#72). Kronologiskt och
@@ -13,8 +13,8 @@
 //   den första träffen), Escape stänger. På dator får sökrutan fokus när menyn öppnas.
 import { ui } from '../i18n.js';
 
-// Flikarnas och sorteringens id är svenska ord, eftersom de sparas i localStorage och gruppernas id (focus.js) är
-// desamma. Det som visas hämtas med ui() på valt språk (#671).
+// Flikarnas och sorteringens id är svenska ord, eftersom sorteringens sparas i localStorage och flikarnas är
+// desamma som gruppernas id (focus.js). Det som visas hämtas med ui() på valt språk (#671).
 const EVENTS = 'Händelser';
 const TABS = ['Alla', EVENTS, 'Krig', 'Riken', 'Försvunna länder', 'Religioner', 'Resor'];
 const TAB_KEY = { Alla: 'all', [EVENTS]: 'events', Krig: 'wars', Riken: 'empires', 'Försvunna länder': 'vanished', Religioner: 'religions', Resor: 'routes' };
@@ -45,7 +45,7 @@ export class FocusMenu {
     this.tab = 'Alla';
     this.sort = 'relevans';
     try {
-      const v = localStorage.getItem('hg-focus-tab'); if (TABS.includes(v)) this.tab = v;
+      localStorage.removeItem('hg-focus-tab'); // fliken sparas inte längre (#709); städa bort ett gammalt val
       const s = localStorage.getItem('hg-focus-sort'); if (SORTS.includes(s)) this.sort = s;
     } catch { /* utan lagring */ }
     // Huvudet byggs en gång, så att fältet behåller markören medan listan ritas om
@@ -65,13 +65,13 @@ export class FocusMenu {
     const choose = (attr, key, prop) => {
       for (const b of menu.querySelectorAll(`[${attr}]`)) b.addEventListener('click', () => {
         this[prop] = b.getAttribute(attr);
-        try { localStorage.setItem(key, this[prop]); } catch { /* utan lagring */ }
+        if (key) try { localStorage.setItem(key, this[prop]); } catch { /* utan lagring */ }
         for (const x of menu.querySelectorAll(`[${attr}]`)) x.setAttribute('aria-pressed', String(x === b));
         this.body.scrollTop = 0;
         this.render();
       });
     };
-    choose('data-tab', 'hg-focus-tab', 'tab');
+    choose('data-tab', null, 'tab'); // fliken minns vi inte (#709)
     choose('data-sort', 'hg-focus-sort', 'sort');
     menu.querySelector('[data-group-age]').addEventListener('click', e => {
       this.groupByAge = !this.groupByAge;
@@ -100,7 +100,6 @@ export class FocusMenu {
     for (const b of this.menu.querySelectorAll('[data-sort]')) b.setAttribute('aria-pressed', String(b.dataset.sort === this.sort));
     this.menu.querySelector('[data-group-age]')?.setAttribute('aria-pressed', 'false');
     try {
-      localStorage.removeItem('hg-focus-tab');
       localStorage.removeItem('hg-focus-sort');
     } catch { /* utan lagring */ }
     this.body.scrollTop = 0;
