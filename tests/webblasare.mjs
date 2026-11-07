@@ -2597,6 +2597,43 @@ async function run(browser, vp) {
     return 'Machu Picchu visar påstående, källa och hopfälld förklaring; Pompeji får ingen ruta';
   });
 
+  // Missuppfattningsfilen går inte att ladda (#838, rättning efter granskningen av #858): filen efterfrågas högst en gång
+  // (förut om och om igen, med växande konsolfel), faktarutan ritas ändå med sin egen källrad och får ingen missuppfattning.
+  await check('faktarutan ritas med källrad när missuppfattningsfilen inte kan laddas (#838)', async () => {
+    const blockedPage = await context.newPage();
+    const msgs = [];
+    let calls = 0;
+    blockedPage.on('console', m => { if ((m.type() === 'error' || m.type() === 'warning') && !isFont(m.location()?.url)) msgs.push(m.text()); });
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await blockedPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      }
+      await blockedPage.route(u => isFont(u.href), r => r.abort());
+      await blockedPage.route('**/missuppfattningar.json*', r => { calls++; r.abort(); });
+      await blockedPage.goto(BASE);
+      await blockedPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (await blockedPage.isHidden('#btn-focus') && await blockedPage.isVisible('#more-toggle')) await blockedPage.click('#more-toggle');
+      await blockedPage.click('#btn-focus');
+      await blockedPage.click('#focus-menu [data-tab="Alla"]');
+      await blockedPage.fill('#focus-menu .focus-search', 'machu picchu');
+      await blockedPage.waitForSelector('#focus-menu [data-key^="event:"]', { timeout: T.step });
+      await blockedPage.press('#focus-menu .focus-search', 'Enter');
+      await blockedPage.waitForSelector('#detail .src', { timeout: T.step });
+      // Tid nog för upprepade omladdningar att visa sig (förut cirka två anrop i sekunden)
+      await blockedPage.waitForTimeout(4000);
+      if (calls !== 1) throw new Error(`missuppfattningsfilen efterfrågades ${calls} gånger, högst 1 tillåts`);
+      if (await blockedPage.locator('#detail .detail-myth').count()) throw new Error('missuppfattningsruta visas trots att filen saknas');
+      if (!await blockedPage.locator('#detail .src').count()) throw new Error('händelsens källrad saknas');
+      const mine = msgs.filter(t => /issuppfattningarna/.test(t));
+      if (mine.length > 1) throw new Error(`felet loggades ${mine.length} gånger: ${mine.join(' | ')}`);
+      if (msgs.length > 2) throw new Error(`upprepade konsolmeddelanden: ${msgs.slice(0, 5).join(' | ')}`);
+    } finally {
+      await blockedPage.close();
+    }
+    return 'filen efterfrågas en gång, källraden syns, ingen missuppfattningsruta, felet loggas en gång';
+  });
+
   // Sök och följ med bara tangentbordet (#708): Enter öppnar, sökrutan får fokus (dator), pil ner når listan,
   // Escape stänger och fokus går tillbaka till knappen som öppnade panelen (i mobil: Meny, som bär knappen)
   await check('Sök och följ med tangentbord: fokus in, pil ner, Escape och fokus tillbaka', async () => {

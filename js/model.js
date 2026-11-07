@@ -401,7 +401,13 @@ export function loadMisconceptions() {
   misconceptionsPromise ??= getJSON('data/missuppfattningar.json').then(doc => {
     DATA.misconceptions = (doc.misconceptions ?? []).filter(m => isVisibleReview(m.review));
     DATA.misconceptionsLoaded = true;
-  }).catch(err => { misconceptionsPromise = null; throw err; });
+  }).catch(err => {
+    // Går filen inte att ladda räknas den som färdig med en tom lista: ingen ny laddning vid varje omritning,
+    // och felet loggas en gång. Faktarutan ritas ändå med händelsens egen källrad.
+    console.warn('Missuppfattningarna kunde inte laddas', err);
+    DATA.misconceptions = [];
+    DATA.misconceptionsLoaded = true;
+  });
   return misconceptionsPromise;
 }
 /** Missuppfattningarna som hör till en händelse (tom lista innan de har laddats). */
@@ -449,8 +455,8 @@ export function needDetails(events = [], { sources = true, misconceptions = fals
   const needMisc = misconceptions && !misconceptionsReady();
   if (!missing && !needMisc && (!sources || sourcesReady())) return null;
   return Promise.all([missing ? loadEventDetails(events) : null, sources ? loadSources() : null,
-    // Faktarutan ska ritas även om missuppfattningarna inte kan laddas
-    needMisc ? loadMisconceptions().catch(err => console.warn('Missuppfattningarna kunde inte laddas', err)) : null]);
+    // loadMisconceptions misslyckas aldrig: faktarutan ritas även om filen inte kan laddas
+    needMisc ? loadMisconceptions() : null]);
 }
 
 /** Rikenas faktarutor (data/genererat/riken-fakta.json): fyller i facts i varje grupp som har hasFacts. */
