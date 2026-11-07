@@ -1,5 +1,7 @@
 {"note":"Genereras av tools/dela_data.py ur data/events.json. Redigera inte här, utan i källfilen, och kör skriptet igen.",
 "lang":"de",
 "events":{
-"mammutar-wrangel":{"note":{"title":{"de":"Zum Zeitraum"}}}
+"mammutar-wrangel":{"note":{"title":{"de":"Zum Zeitraum"}}},
+"borobudur-byggs":{"place":{"de":"Borobudur, Zentraljava, Indonesien"},"title":{"de":"Borobudur wird auf Java gebaut"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
+"diamantsutran-trycks":{"place":{"de":"Gefunden in den Mogao-Grotten bei Dunhuang, China"},"title":{"de":"Das Diamant-Sutra wird gedruckt"}}
 }}
