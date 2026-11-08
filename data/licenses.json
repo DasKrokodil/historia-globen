@@ -456,6 +456,7 @@
         "wp-chungju-1592",
         "wp-cities-silk-road",
         "wp-classic-maya-collapse",
+        "wp-classical-antiquity",
         "wp-cleisthenes",
         "wp-cleopatra",
         "wp-cliff-palace",
@@ -1341,6 +1342,7 @@
         "wp-suez-canal",
         "wp-suhrawardy-udyan",
         "wp-sunpu-castle",
+        "wp-sv-antiken",
         "wp-swahili-coast",
         "wp-sweden",
         "wp-swedish-calendar",
@@ -1595,7 +1597,8 @@
         "wd-vietnam",
         "wd-yinxu",
         "wd-yugoslavia",
-        "wikidata"
+        "wikidata",
+        "wikidata-classical-antiquity"
       ]
     },
     {
