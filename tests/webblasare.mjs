@@ -161,10 +161,12 @@ async function run(browser, vp) {
     if (m.type() !== 'error') return;
     const url = m.location()?.url || '';
     if (isFont(url)) return;
-    // WebKit skriver en hämtning som avbryts av omladdningen som "TypeError: Load failed" i konsolen (#702).
-    // Bara exakt det meddelandet, och bara medan språktestet laddar om sidan, räknas bort.
-    if (reloading && /^TypeError: Load failed$/.test(m.text())) return;
-    pushConsole(errors, m, t => `konsol: ${t}${url ? ` (${url})` : ''}`);
+    // En hämtning som avbryts av omladdningen skrivs som ett fel i konsolen: WebKit "TypeError: Load failed" (#702),
+    // Firefox "TypeError: NetworkError when attempting to fetch resource." (#888). Bara exakt de meddelandena, och bara
+    // medan språktestet laddar om sidan, räknas bort. Övriga fel visar vilken kontroll som pågick när de kom.
+    if (reloading && /^TypeError: (Load failed|NetworkError when attempting to fetch resource\.)$/.test(m.text())) return;
+    const during = currentCheck;
+    pushConsole(errors, m, t => `konsol: ${t}${url ? ` (${url})` : ''}${during ? ` [under: ${during.slice(0, 60)}]` : ''}`);
   });
   // Medan språktestet laddar om sidan (#63) avbryter webbläsaren hämtningar som pågår, till exempel ikoner. WebKit
   // rapporterar det som fel ("Load request cancelled", "… due to access control checks", i konsolen "TypeError: Load
@@ -201,9 +203,11 @@ async function run(browser, vp) {
   };
   const visible = sel => page.waitForSelector(sel, { state: 'visible', timeout: T.step });
   const hidden = sel => page.waitForSelector(sel, { state: 'hidden', timeout: T.step });
+  let currentCheck = '';
   const check = async (name, fn) => {
     if (!wanted(name)) { skipped++; return; }
     if (!ALLTID.includes(name)) matched++;
+    currentCheck = name;
     const t0 = Date.now();
     try {
       const note = await fn();
