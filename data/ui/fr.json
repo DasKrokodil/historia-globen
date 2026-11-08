@@ -501,5 +501,8 @@
   "lesson.band": "Mode leçon : {title}",
   "lesson.exit": "Afficher tout le globe",
   "lesson.next": "Poursuivre avec une tâche",
-  "lesson.hunt": "Chasse au même moment : {title}"
+  "lesson.hunt": "Chasse au même moment : {title}",
+  "tour.lessonMeta": "Leçon · classes {grades} · {n} min",
+  "tour.lessonStart": "Commencer comme leçon",
+  "tour.lessonStartLabel": "Commencer comme leçon : {title}"
 }

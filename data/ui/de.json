@@ -501,5 +501,8 @@
   "lesson.band": "Unterrichtsmodus: {title}",
   "lesson.exit": "Ganzen Globus anzeigen",
   "lesson.next": "Mit einer Aufgabe fortfahren",
-  "lesson.hunt": "Gleichzeitigkeitsjagd: {title}"
+  "lesson.hunt": "Gleichzeitigkeitsjagd: {title}",
+  "tour.lessonMeta": "Unterrichtsstunde · Klassen {grades} · {n} Min.",
+  "tour.lessonStart": "Als Unterricht starten",
+  "tour.lessonStartLabel": "Als Unterricht starten: {title}"
 }
