@@ -466,6 +466,7 @@
   "quiz.score": "{right} of {total} correct",
   "quiz.empty": "There are no questions right now.",
   "print.button": "Print student and teacher sheets",
+  "print.sourcesFailed": "The sources could not be loaded, so the sheets were not printed. Check your connection and press the button again.",
   "print.student": "Student sheet",
   "print.teacher": "Teacher sheet",
   "print.name": "Name",

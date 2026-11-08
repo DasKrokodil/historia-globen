@@ -466,6 +466,7 @@
   "quiz.score": "{right} de {total} correctas",
   "quiz.empty": "Ahora mismo no hay preguntas.",
   "print.button": "Imprimir hojas del alumnado y del profesorado",
+  "print.sourcesFailed": "No se pudieron cargar las fuentes, por lo que no se imprimieron las hojas. Compruebe su conexión y pulse el botón de nuevo.",
   "print.student": "Hoja del alumnado",
   "print.teacher": "Hoja del profesorado",
   "print.name": "Nombre",

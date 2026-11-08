@@ -85,7 +85,15 @@ export class TourPlayer {
     // Skriv ut (#738): bara i en lektionstur, alltså en tur med lärarfält (lesson, #737)
     if (this.printBtn) {
       this.printBtn.textContent = ui('print.button');
-      this.printBtn.addEventListener('click', () => printLesson(this.tour, app.printRoot));
+      // Går inte källregistret att ladda skrivs inget ut; beskedet står kvar och en ny tryckning försöker igen (#879)
+      this.printBtn.addEventListener('click', async () => {
+        if (this.printStatus) this.printStatus.hidden = true;
+        const result = await printLesson(this.tour, app.printRoot);
+        if (result === 'sources' && this.printStatus) {
+          this.printStatus.textContent = ui('print.sourcesFailed');
+          this.printStatus.hidden = false;
+        }
+      });
     }
     // Escape i en lektion avslutar inte turen: utgången är "Visa hela globen" i bandet (#795)
     this.card.addEventListener('keydown', e => { if (e.key === 'Escape') { e.stopPropagation(); if (!app.lesson?.active) this.end(); } });
@@ -238,6 +246,7 @@ export class TourPlayer {
     this.status.hidden = !step.status;
     this.read.hidden = !step.open;
     if (this.printBtn) this.printBtn.hidden = !this.tour.lesson;
+    if (this.printStatus) this.printStatus.hidden = true;
     this.back.hidden = this.index === 0;
     if (this.endBtn) this.endBtn.hidden = this.last; // sista steget: Klar avslutar
     if (this.pauseStop) this.pauseStop.hidden = false;

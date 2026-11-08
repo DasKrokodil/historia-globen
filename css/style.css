@@ -876,6 +876,8 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .story-tour:hover { background: color-mix(in srgb, var(--card-accent) 14%, transparent); }
 .tour-links { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 10px; }
 .tour-links .link-btn[hidden] { display: none; }
+.tour-print-status { margin: 6px 0 0; font-size: 13px; line-height: 1.4; color: var(--danger); }
+.tour-print-status[hidden] { display: none; }
 .tour-actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 14px; }
 .tour-actions .chip-btn { margin-right: auto; }
 .tour-actions .chip-btn[hidden] { display: none; }
