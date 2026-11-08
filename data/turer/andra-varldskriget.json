@@ -20,7 +20,7 @@
         "text": {
           "sv": "Kopplad till Lgr22, historia i årskurs 7–9, Imperialism och världskrig cirka 1850–1950: de båda världskrigen och deras orsaker och konsekvenser.",
           "en": "Linked to Lgr22 (the Swedish compulsory school curriculum), history in years 7–9, Imperialism and world wars c. 1850–1950: the two world wars and their causes and consequences.",
-          "de": "Bezogen auf Lgr22 (den schwedischen Lehrplan der Grundschule), Geschichte in den Klassen 7–9, Imperialismus und Weltkriege ca. 1850–1950: die beiden Weltkriege, ihre Ursachen und Folgen.",
+          "de": "Bezogen auf Lgr22 (den schwedischen Lehrplan der Pflichtschule), Geschichte in den Klassen 7–9, Imperialismus und Weltkriege ca. 1850–1950: die beiden Weltkriege, ihre Ursachen und Folgen.",
           "es": "Vinculado a Lgr22 (el currículo sueco de la escuela obligatoria), historia en los cursos 7–9, Imperialismo y guerras mundiales, c. 1850–1950: las dos guerras mundiales y sus causas y consecuencias.",
           "fr": "En lien avec Lgr22 (le programme suédois de l'école obligatoire), histoire en classes 7 à 9, Impérialisme et guerres mondiales, v. 1850–1950 : les deux guerres mondiales, leurs causes et leurs conséquences."
         },
@@ -58,9 +58,9 @@
     "exitTicket": {
       "sv": "Nämn två saker i turen som hände samma år på olika håll i världen. Varför kallas kriget ett världskrig?",
       "en": "Name two things in the tour that happened in the same year in different parts of the world. Why is the war called a world war?",
-      "de": "Nenne zwei Dinge aus der Tour, die im selben Jahr an verschiedenen Orten der Welt geschahen. Warum nennt man den Krieg einen Weltkrieg?",
-      "es": "Nombra dos cosas del recorrido que ocurrieron el mismo año en distintas partes del mundo. ¿Por qué se llama a la guerra una guerra mundial?",
-      "fr": "Cite deux choses de la visite qui se sont produites la même année dans différentes parties du monde. Pourquoi appelle-t-on cette guerre une guerre mondiale ?"
+      "de": "Nennen Sie zwei Dinge aus der Tour, die im selben Jahr an verschiedenen Orten der Welt geschahen. Warum nennt man den Krieg einen Weltkrieg?",
+      "es": "Nombre dos cosas del recorrido que ocurrieron el mismo año en distintas partes del mundo. ¿Por qué se llama a la guerra una guerra mundial?",
+      "fr": "Citez deux choses de la visite qui se sont produites la même année dans différentes parties du monde. Pourquoi appelle-t-on cette guerre une guerre mondiale ?"
     },
     "sourceDetective": [
       {
