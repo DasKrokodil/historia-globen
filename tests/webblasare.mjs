@@ -2827,6 +2827,41 @@ async function run(browser, vp) {
     }
     return 'två lektioner märkta (årskurs och tid), Starta som lektion ger bandet, steg 1 och 1939, m=lektion i adressen; vanliga turer utan knapp';
   });
+  // #879: går källregistret inte att ladda skrivs inga blad med tekniska källid ut; ett besked visas och en ny tryckning
+  // försöker igen. Källfilen svarar 503 första gången och sedan som vanligt.
+  await check('utskriften väntar på källregistret och visar besked när det inte laddas (#879)', async () => {
+    const pp = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await pp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await pp.route(u => isFont(u.href), r => r.abort());
+      }
+      let failing = true;
+      await pp.route(u => /data\/sources\.json/.test(u.href), r => (failing ? r.fulfill({ status: 503, body: 'fel' }) : r.continue()));
+      await pp.goto(`${BASE}?ny=21#t=andra-varldskriget`);
+      await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await pp.waitForSelector('#tour-print', { state: 'visible', timeout: T.step });
+      await pp.evaluate(() => { window.__prints = 0; window.print = () => { window.__prints++; }; });
+      await pp.click('#tour-print');
+      await pp.waitForSelector('#tour-print-status', { state: 'visible', timeout: T.step });
+      if (!/gick inte att ladda/.test(await pp.textContent('#tour-print-status'))) throw new Error('beskedet säger inte att källorna inte gick att ladda');
+      const failed = await pp.evaluate(() => ({ prints: window.__prints, pages: document.querySelectorAll('#print-sheet .print-page').length }));
+      if (failed.prints || failed.pages) throw new Error(`blad skrevs ut utan källregistret (${failed.prints} utskrifter, ${failed.pages} blad)`);
+      failing = false;
+      await pp.click('#tour-print');
+      await pp.waitForFunction(() => window.__prints === 1, null, { timeout: T.step });
+      const ok = await pp.evaluate(() => ({
+        hidden: document.getElementById('tour-print-status').hidden,
+        titles: [...document.querySelectorAll('#print-sheet .print-src-title')].map(e => e.textContent.trim()),
+      }));
+      if (!ok.hidden) throw new Error('beskedet stod kvar efter ett lyckat nytt försök');
+      if (!ok.titles.length || ok.titles.some(x => /^[a-z0-9-]+$/.test(x))) throw new Error(`bladen har källor utan titel: ${ok.titles.join(', ')}`);
+    } finally {
+      await pp.close();
+    }
+    return 'källfilen 503: inget skrivs ut och beskedet visas; nytt försök skriver ut med källtitlar';
+  });
   if (vp.name === 'dator') {
     // Mätningarna i utskriftsvyn (#757): körs i sidan med print-media påslaget
     const printAudit = () => {

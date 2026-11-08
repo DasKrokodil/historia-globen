@@ -466,6 +466,7 @@
   "quiz.score": "{right} sur {total} correctes",
   "quiz.empty": "Il n'y a pas de questions pour le moment.",
   "print.button": "Imprimer les fiches élève et enseignant",
+  "print.sourcesFailed": "Les sources n'ont pas pu être chargées, les fiches n'ont donc pas été imprimées. Vérifiez votre connexion et appuyez de nouveau sur le bouton.",
   "print.student": "Fiche élève",
   "print.teacher": "Fiche enseignant",
   "print.name": "Nom",

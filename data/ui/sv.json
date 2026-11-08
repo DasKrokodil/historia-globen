@@ -248,6 +248,7 @@
   "quiz.score": "Rätt på {right} av {total}",
   "quiz.empty": "Det finns inga frågor just nu.",
   "print.button": "Skriv ut elev- och lärarblad",
+  "print.sourcesFailed": "Källorna gick inte att ladda, så bladen skrevs inte ut. Kontrollera anslutningen och tryck på knappen igen.",
   "print.student": "Elevblad",
   "print.teacher": "Lärarblad",
   "print.name": "Namn",

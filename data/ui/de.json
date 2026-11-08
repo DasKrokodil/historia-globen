@@ -466,6 +466,7 @@
   "quiz.score": "{right} von {total} richtig",
   "quiz.empty": "Im Moment gibt es keine Fragen.",
   "print.button": "Schüler- und Lehrerblatt drucken",
+  "print.sourcesFailed": "Die Quellen konnten nicht geladen werden, daher wurden die Blätter nicht gedruckt. Prüfen Sie Ihre Verbindung und drücken Sie die Schaltfläche erneut.",
   "print.student": "Schülerblatt",
   "print.teacher": "Lehrerblatt",
   "print.name": "Name",
