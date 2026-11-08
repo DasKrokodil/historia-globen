@@ -723,6 +723,125 @@ async function run(browser, vp) {
     return `${measured} par (${SURFACES.map(x => x.id).join(', ')} × ${CONTROLS.length} knappar) klickbara med riktig pekning; ${skipped} fanns inte i bredden`;
   });
 
+  // Kombinationsmatris, del 2 (#891): fel som kommer efter att sidan har fungerat, i den övergång besökaren gör, och
+  // skolflödet fråga → underlag → svar → återgång med riktig pekning. Enskilda prov för bild (#884), källregister vid
+  // utskrift (#879) och turfil vid sidladdning (#877) finns redan; här prövas att felet mitt i sessionen ger besked och
+  // att sidan kommer tillbaka när felet är över, utan omladdning. Egen sida med pekning (hasTouch) för varje prov.
+  const touchPage = async () => {
+    const tctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, deviceScaleFactor: 1, hasTouch: true });
+    const tp = await tctx.newPage();
+    const errs = [];
+    tp.on('pageerror', e => errs.push(e.message));
+    if (THREE_LOCAL) {
+      const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+      await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      await tp.route(u => isFont(u.href), r => r.abort());
+    }
+    return { tp, tctx, errs };
+  };
+  // Mäter vad som ligger överst mitt på elementet och trycker sedan med pekning; felet säger vad som täckte.
+  const tapReal = async (pg, selector, what) => {
+    const cover = await pg.evaluate(sel => {
+      const b = document.querySelector(sel);
+      if (!b) return 'finns inte';
+      const r = b.getBoundingClientRect();
+      const el = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
+      if (el && b.contains(el)) return null;
+      return el ? `${el.tagName.toLowerCase()}${el.id ? `#${el.id}` : ''}${typeof el.className === 'string' && el.className ? `.${el.className.trim().split(/\s+/).join('.')}` : ''}` : 'ingenting';
+    }, selector);
+    if (cover) throw new Error(`${what} nås inte: ${cover}`);
+    await pg.tap(selector, { timeout: T.step });
+  };
+  await check('kombinationsmatris: fel mitt i en session ger besked och sidan återhämtar sig (#891)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    const notes = [];
+    try {
+      // 1. Källregistret svarar 503 först efter att sidan har fungerat: Om källorna ger besked, och nästa öppning går igenom
+      await tp.goto(`${BASE}?ny=mf1#y=1943`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      const openSources = async () => {
+        if (!(await tp.isVisible('#btn-sources'))) {
+          if (await tp.isVisible('#more-toggle')) await tp.tap('#more-toggle'); else if (await tp.isVisible('#btn-more')) await tp.tap('#btn-more');
+        }
+        await tapReal(tp, '#btn-sources', 'Källor');
+      };
+      await tp.route('**/data/sources.json*', r => r.fulfill({ status: 503, body: 'nere' }));
+      await openSources();
+      await tp.waitForFunction(() => /kunde inte laddas/.test(document.getElementById('sources-dialog')?.textContent ?? ''), null, { timeout: T.step });
+      await tp.unroute('**/data/sources.json*');
+      await tapReal(tp, '#sources-close', 'Stäng i Om källorna');
+      await tp.waitForSelector('#sources-dialog', { state: 'hidden', timeout: T.step });
+      await openSources();
+      await tp.waitForFunction(() => document.querySelectorAll('#sources-dialog a[href^="http"]').length > 20, null, { timeout: T.load });
+      await tapReal(tp, '#sources-close', 'Stäng i Om källorna');
+      notes.push('källregistret: besked vid 503, listan vid nästa öppning');
+      // 2. En händelsebild som felar i ett lektionssteg, på mobil: raden syns, och turen går vidare utan att kortet har tappats bort
+      await tp.route(u => /images\/events\/slaget-vid-stalingrad\.webp/.test(u.href), r => r.fulfill({ status: 404, body: '' }));
+      await tp.goto(`${BASE}?ny=mf2#t=andra-varldskriget&m=lektion&s=stalingrad`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      await tp.getByRole('button', { name: /Läs om händelsen/ }).first().tap({ timeout: T.step });
+      await tp.waitForSelector('#detail:not([hidden])', { state: 'visible', timeout: T.step });
+      if (await tp.evaluate(() => document.getElementById('detail').dataset.sheet === 'half')) {
+        await tp.focus('#detail-handle');
+        await tp.keyboard.press('ArrowUp');
+      }
+      await tp.waitForSelector('#detail .detail-fig.is-missing', { state: 'attached', timeout: T.step });
+      await tapReal(tp, '#detail .detail-close', 'Stäng i faktarutan');
+      await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      if (!(await tp.isVisible('#tour-card'))) throw new Error('turkortet försvann efter ett bildfel i faktarutan');
+      notes.push('bildfel i lektionssteget: raden syns och Stäng ger tillbaka kortet');
+      // 3. Samma utfällda faktaruta i lärarens version, där bandet är högre: Mer/Meny får inte täcka Stäng (#891, del 2)
+      await tp.goto(`${BASE}?ny=mf4#t=andra-varldskriget&m=lektion&r=lararen&s=stalingrad`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      await tp.getByRole('button', { name: /Läs om händelsen/ }).first().tap({ timeout: T.step });
+      await tp.waitForSelector('#detail:not([hidden])', { state: 'visible', timeout: T.step });
+      if (await tp.evaluate(() => document.getElementById('detail').dataset.sheet === 'half')) {
+        await tp.focus('#detail-handle');
+        await tp.keyboard.press('ArrowUp');
+      }
+      await tapReal(tp, '#detail .detail-close', 'Stäng i den utfällda faktarutan (lärarens lektionsläge)');
+      await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      notes.push('utfälld faktaruta: Stäng nås i elevens och lärarens lektionsläge');
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return notes.join('; ');
+    } finally {
+      await tctx.close();
+    }
+  });
+  // Skolflödet (#742, #862): fråga → underlag → svar → återgång, med pekning i samma vy, utan att något täcker eller tappas.
+  await check('kombinationsmatris: skolflödet fråga, underlag, svar och återgång med pekning (#891)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    try {
+      await tp.goto(`${BASE}?ny=mf3#t=andra-varldskriget&m=lektion&s=storbritannien`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      const stepOf = () => tp.evaluate(() => (document.getElementById('tour-progress')?.textContent ?? '').trim());
+      const first = await stepOf();
+      // Fråga: stegets "Att fundera på" syns på kortet
+      if (!(await tp.isVisible('#tour-question'))) throw new Error('stegets fråga saknas på kortet');
+      // Underlag: Läs om händelsen öppnar faktarutan ovanpå kortet, med Stäng nåbar
+      await tp.getByRole('button', { name: /Läs om händelsen/ }).first().tap({ timeout: T.step });
+      await tp.waitForSelector('#detail:not([hidden])', { state: 'visible', timeout: T.step });
+      const note = await tp.evaluate(() => document.querySelector('#detail')?.textContent ?? '');
+      if (note.trim().length < 80) throw new Error('underlaget i faktarutan är tomt');
+      // Svar: Stäng ger tillbaka frågan på samma steg
+      await tapReal(tp, '#detail .detail-close', 'Stäng i faktarutan');
+      await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      if ((await stepOf()) !== first) throw new Error(`steget byttes av underlaget: "${first}" → "${await stepOf()}"`);
+      // Återgång: Nästa och Föregående med pekning, och steget är det man kom från
+      await tapReal(tp, '#tour-next', 'Nästa');
+      await tp.waitForFunction(s => (document.getElementById('tour-progress')?.textContent ?? '').trim() !== s, first, { timeout: T.step });
+      await tapReal(tp, '#tour-back', 'Föregående');
+      await tp.waitForFunction(s => (document.getElementById('tour-progress')?.textContent ?? '').trim() === s, first, { timeout: T.step });
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `fråga → underlag (${note.trim().length} tecken) → Stäng → Nästa → Föregående tillbaka på "${first}", allt med pekning`;
+    } finally {
+      await tctx.close();
+    }
+  });
+
   // #884: en bild som svarar 404 ska ge en kort rad i faktarutan, inte en tom bildyta som ser trasig ut.
   await check('en bild som inte laddas ersätts av en rad i faktarutan (#884)', async () => {
     const ip = await context.newPage();

@@ -2021,6 +2021,9 @@ details.used-by summary:hover { color: var(--parchment); }
   #detail[data-sheet="full"], #detail.sheet-dragging { max-height: calc(100dvh - var(--ff-b) - 72px - env(safe-area-inset-top, 0px)); z-index: 16; }
   /* Under en tur (och i lektionsläget) öppnas faktarutan ovanpå turkortet (z-index 14), annars täcker kortet rubrik, handtag och Stäng (#862, F7). Lektionsbandet (16) ligger kvar överst. */
   .app.touring #detail { z-index: 15; }
+  /* I lektionsläget ligger Mer/Meny under lektionsbandet (66 px, med lärarens knapp 96 px, höjd 38 px). Det helt utfällda arket börjar under dem, så att Meny inte täcker Stäng (#891, del 2). */
+  .app.lesson #detail[data-sheet="full"], .app.lesson #detail.sheet-dragging { max-height: calc(100dvh - var(--ff-b) - 112px - env(safe-area-inset-top, 0px)); }
+  .app.lesson-teacher #detail[data-sheet="full"], .app.lesson-teacher #detail.sheet-dragging { max-height: calc(100dvh - var(--ff-b) - 142px - env(safe-area-inset-top, 0px)); }
   #detail.sheet-dragging { overflow: hidden; transition: none; }
   #detail[data-sheet="closed"]:not(.sheet-dragging) > :not(.sheet-handle, .detail-close, h3) { display: none; }
   #detail[data-sheet="closed"] { cursor: pointer; padding-bottom: 10px; }
