@@ -32,7 +32,9 @@ jobs:
     # minuter på main (2026-11-07) och växer med varje ny kontroll, så de får 30 tills sviten delats i parallella
     # jobb (docs/beslut/2026-11-07-chromium-tidsgrans-30-minuter.md). Firefox och WebKit (bara på release-PR:en)
     # är långsammare utan grafikkort: Firefox nådde 20 minuter utan att bli klar inför v5.0.0, så de får 45.
-    timeout-minutes: ${{ matrix.browser.id == 'chromium' && 30 || 45 }}
+    # 2026-11-08: sviten tar 25–28 minuter och körningar avbröts vid 30 (#907, #658), så Chromium får också 45
+    # tills sviten delats (#864; docs/beslut/2026-11-08-chromium-tidsgrans-45-minuter.md).
+    timeout-minutes: 45
     strategy:
       fail-fast: false
       matrix:
