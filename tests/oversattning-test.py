@@ -129,7 +129,10 @@ def main():
     def change_both(doc):
         text = first_translated(doc)
         text['sv'] += ' (ändrad)'
-        text['en'] += ' (changed)'
+        # Alla språk som redan är översatta uppdateras, så att testet inte beror på hur långt översättningen har kommit
+        for lang in ('en', 'de', 'es', 'fr'):
+            if text.get(lang):
+                text[lang] += ' (changed)'
     errors, reminders = with_copy(edit('data/routes/cook.json', change_both))
     assert not errors and any('inte är registrerad' in r for r in reminders), (errors, reminders)
 
