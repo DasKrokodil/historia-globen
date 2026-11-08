@@ -3,7 +3,7 @@
 **Datum:** 2026-11-08. **Beslut:** DasKrokodil godkände rekommendationens förslag 1–5 i #965 (i chatten, 2026-11-08).
 
 1. **Placering:** knapparna sitter i intervallformuläret ("Välj ett tidsintervall" i årshoppet), som en grupp per indelning ovanför fälten Från och Till. De är en genväg till ett intervall (`range.set`), inte ett nytt läge, så lägeskontraktet (#893), adressen `y`/`y2` och Bakåt/Framåt gäller utan nytt fält.
-2. **Båda indelningarna syns**, var och en med eget namn och egen förenklingstext (`name`, `simplification`). Överlappande Lgr22-perioder går bra, eftersom varje knapp väljer ett eget intervall.
+2. **Alla indelningar syns** (Lgr22, Nordens forntid och, efter ihopslagningen med #845 del 2b, antiken), var och en med eget namn och egen förenklingstext (`name`, `simplification`). Överlappande Lgr22-perioder går bra, eftersom varje knapp väljer ett eget intervall.
 3. **Stenåldern** (12 000 f.Kr.) börjar före tidslinjen (`MIN_YEAR` −2999). Knappen väljer 3000–1700 f.Kr. och säger öppet "börjar före tidslinjens början" (som #892/#942). Tidslinjen förlängs inte här (hör till #396).
 4. **Epoknamnet visas inte efter valet** och adressen får inget epokfält. Intervallet står redan som år på raden under årtalet.
 5. **"Från cirka 1900 till i dag"** går till `MAX_YEAR` och märks "till i dag".

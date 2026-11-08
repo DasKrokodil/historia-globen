@@ -19,7 +19,7 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 - `utkast/` – utkast från massimport som appen inte läser.
 - `funfacts.json` – fun facts kopplade till händelser.
 - `missuppfattningar.json` (#838) – vanliga historiska missuppfattningar.
-- `perioder.json` (#845, #476) – epoker och perioder, som indelningar med årtal och källa; indelningarna `lgr22` och `norden-forntid`.
+- `perioder.json` (#845, #476) – epoker och perioder, som indelningar med årtal och källa; indelningarna `lgr22`, `norden-forntid` och `antiken`.
 - `teman.json` (#398) – teman som namngivna urval av befintliga händelser; fastställt format, filen skapas i bygget.
 - `sources.json` – källregistret.
 - `empires/` – riken: registret, faktarutor och rikenas fält.
@@ -153,7 +153,9 @@ Namngivna epoker som data, så att tidsålderstext, bildstilar och snabbknappar 
 
 **`lgr22` (Del 1):** fem epoker, med de ungefärliga årtal som Skolverkets kursplan i historia (Lgr22, gäller från 2022-07-01) anger i centralt innehåll: cirka 800–1500, 1500–1800 och 1800–1900 (åk 4–6, Norden) och cirka 1850–1950 och 1900 till nutid (åk 7–9). De överlappar eftersom de hör till olika stadier, och det finns ingen epok före år 800. Läroplanen nämner stenålder, bronsålder, järnålder, antiken m.fl. utan årtal, så de ligger inte i `lgr22`.
 
-**`norden-forntid` (Del 2a):** de tre nordiska åldrarna med Historiska museets årtal (öppnade 2026-11-08): stenålder 12 000–1700 f.Kr., bronsålder 1700–500 f.Kr. och järnålder 500 f.Kr.–550 e.Kr. (`-11999`/`-1699`, `-1699`/`-499`, `-499`/`550`). Årtal med fler än fyra siffror skrivs `Y-11999~` i `edtf`. Järnålderns egen sida på museet anger 1100 e.Kr. som slut, och oenigheten står i periodens `note`; nivån är `source-checked`. Indelningen är nordisk och märks så. **Del 2b** (antiken, jordbrukets början m.fl.) läggs inte in förrän en andra, bättre källa har öppnats.
+**`norden-forntid` (Del 2a):** de tre nordiska åldrarna med Historiska museets årtal (öppnade 2026-11-08): stenålder 12 000–1700 f.Kr., bronsålder 1700–500 f.Kr. och järnålder 500 f.Kr.–550 e.Kr. (`-11999`/`-1699`, `-1699`/`-499`, `-499`/`550`). Årtal med fler än fyra siffror skrivs `Y-11999~` i `edtf`. Järnålderns egen sida på museet anger 1100 e.Kr. som slut, och oenigheten står i periodens `note`; nivån är `source-checked`. Indelningen är nordisk och märks så. **Del 2b** (jordbrukets början, högkulturer, industrialisering m.fl.) läggs inte in förrän fler källor har öppnats.
+
+**`antiken` (Del 2b, första delen):** antiken som egen indelning med en period, cirka 800 f.Kr.–500 e.Kr. (`-799`/`500`, `-0799~/0500~`). Källor: svenska Wikipedia (som hänvisar till Nationalencyklopedin), engelska Wikipedia och Wikidata (CC0), öppnade 2026-11-08. Källorna är oense om slutet (cirka 300, 476, 500 eller 600), och det står i periodens `note`; nivån är `source-checked`, inte `two-sources`. Indelningen märks som ett europeiskt begrepp om Medelhavsvärlden.
 
 ## `teman.json`: teman (#398)
 

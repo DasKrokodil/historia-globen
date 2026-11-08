@@ -90,3 +90,30 @@ test('Del 2a: Historiska museets källor är bara länkade och kontrollerade 202
     assert.equal(src.checked, '2026-11-08');
   }
 });
+
+const antiken = doc.divisions.find(d => d.id === 'antiken');
+
+test('Del 2b: antiken har en egen indelning, cirka 800 f.Kr.–500 e.Kr. (astronomiska år), märkt som europeiskt begrepp och förenkling', () => {
+  // sv.wikipedia (hänvisar till Nationalencyklopedin) och Wikidata/en.wikipedia, öppnade 2026-11-08. 800 f.Kr. = 1 − 800 = −799.
+  assert.ok(antiken);
+  for (const key of ['name', 'simplification']) for (const l of LANGS) assert.ok(antiken[key][l]?.length > 10, `${key}.${l}`);
+  assert.match(antiken.simplification.sv, /europeiskt begrepp/);
+  assert.match(antiken.simplification.sv, /förenkling/);
+  assert.deepEqual(antiken.periods.map(p => [p.id, p.start, p.end]), [['antiken', -799, 500]]);
+});
+
+test('Del 2b: antiken har EDTF som stämmer, tre öppnade källor, nivån source-checked och oenigheten om slutet öppet i note', () => {
+  const srcIds = new Set(sources.map(s => s.id));
+  const [p] = antiken.periods;
+  assert.equal(p.edtf, `${edtfYear(p.start)}~/${edtfYear(p.end)}~`);
+  assert.deepEqual(p.sources, ['wp-sv-antiken', 'wp-classical-antiquity', 'wikidata-classical-antiquity']);
+  assert.ok(p.sources.every(s => srcIds.has(s)));
+  assert.equal(p.review, 'source-checked', 'källorna är oense om slutet, så inte two-sources');
+  for (const l of LANGS) { assert.ok(p.name[l].length > 5, `name.${l}`); assert.match(p.note[l], /476/, `note.${l}`); }
+  assert.match(p.note.sv, /Källorna skiljer sig/);
+  for (const id of p.sources) {
+    const src = sources.find(s => s.id === id);
+    assert.equal(src.checked, '2026-11-08', id);
+    assert.match(src.license, /^(CC BY-SA 4\.0|CC0)$/, id);
+  }
+});
