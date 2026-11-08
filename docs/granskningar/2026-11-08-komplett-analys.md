@@ -227,3 +227,7 @@ Chromium/SwiftShader, 1400 × 900 och 400 × 800, lokal server för `dist/`, thr
 - Blandad bildpresentation och grundvyn granskades visuellt i skärmbilderna. Saknad bild som data är inget fel i sig. Övriga blind-spots-fynd och felinjektioner återanvänds uttryckligen från #871; de har inte alla reproducerats på nytt här.
 
 Inga historiska källnivåer höjdes. Geometriska mätningar och registerkopplingar ersätter inte källkontroll av enskilda påståenden. Efter ändringar behöver rättnings-PR:erna egna bevis på den nya app-committen.
+
+## Fördjupning på nytt uppdrag
+
+[Plan, backlog och ny UI/UX-runda 2026-11-08](2026-11-08-plan-backlog-uiux.md) kompletterar denna analys. Den innehåller en ny köinventering och ett nytt verifierat menyövergångsfel. Läs rapporterna tillsammans; den senare är nu ingången i handoff.json.
