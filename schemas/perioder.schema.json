@@ -30,6 +30,7 @@
                 "edtf": { "type": "string", "pattern": ".+" },
                 "grades": { "type": "string" },
                 "name": { "$ref": "#/$defs/text" },
+                "note": { "$ref": "#/$defs/text" },
                 "sources": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": ".+" } },
                 "review": { "type": "string", "enum": ["draft", "source-checked", "two-sources"] }
               }
