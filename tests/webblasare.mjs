@@ -159,11 +159,6 @@ async function waitDiag(pg, label, sink, selector, timeout) {
   }
 }
 
-// Adressen är redo när start() i js/controllers/address.js har kört klart (#888): den skriver då startlägets hash och
-// lyssnar på popstate. Laddningsrutan döljs tidigare (js/main.js), så en hash-ändring som sätts direkt efter den går
-// förlorad i en långsam motor (WebKit i mobil): lyssnaren finns inte än, och startens egen skrivning tar sedan bort ändringen.
-const addressReady = pg => pg.waitForFunction(() => location.hash.length > 1, null, { timeout: 15000 });
-
 async function run(browser, vp) {
   const results = [];
   const errors = [];
@@ -2951,7 +2946,6 @@ async function run(browser, vp) {
       if (await lessonPage.isVisible('#focus-bar')) throw new Error('utgången återställde ett gammalt fokus');
       // Ett fokus som fortfarande laddas när lektionen börjar får inte släppa låset när det blir klart
       await open(`${BASE}?ny=5`);
-      await addressReady(lessonPage);
       slowEmpires = true;
       await lessonPage.evaluate(() => { location.hash = '#y=1942&f=empire:romarriket&c=-30,-120,3'; });
       await lessonPage.waitForTimeout(150);
@@ -3043,7 +3037,6 @@ async function run(browser, vp) {
       const wantYear = await yearOf();
       // Ett fokus som laddas, och en turlänk i samma flik innan det blivit klart
       await open(`${BASE}?ny=12`);
-      await addressReady(tp);
       slow = true;
       await tp.evaluate(() => { location.hash = '#y=1942&f=empire:romarriket&c=-30,-120,3'; });
       await tp.waitForTimeout(150);
@@ -3115,11 +3108,24 @@ async function run(browser, vp) {
       if (await tp.isVisible('#focus-bar')) throw new Error('startens fokus visades ovanpå lektionen');
       const year = Number((await tp.textContent('#year-big')).trim());
       if (!(year >= 1939 && year <= 1945)) throw new Error(`året blev ${year}, utanför lektionens 1939–1945`);
+      // 3. Samma fönster med en vanlig vy i stället för en tur (#953): en hash som ändras direkt efter laddningsrutan, medan
+      //    startens fokus fortfarande hämtas, ska gälla. Laddningsrutan döljs före address.start(), så ingen väntan på adressen
+      //    står mellan öppningen och ändringen; då fanns det ingen popstate-lyssnare och startens skrivning tog bort ändringen.
+      slow = true;
+      await open(`${BASE}?ny=83#y=1474&f=empire:romarriket&c=-30,-120,3`);
+      await tp.evaluate(() => { location.hash = '#y=1500'; });
+      await tp.waitForTimeout(DELAY + 1500); // startens fokus blir klart under tiden
+      slow = false;
+      const h3 = await hash();
+      if (!/y=1500/.test(h3) || /f=/.test(h3)) throw new Error(`adressen skrevs över med startens fokus: ${h3}`);
+      if (await tp.isVisible('#focus-bar')) throw new Error('startens fokus visades trots att vyn byttes medan det laddades');
+      const year3 = (await tp.textContent('#year-big')).trim();
+      if (year3 !== '1500') throw new Error(`året blev ${year3} i stället för 1500 när startens fokus blev klart`);
       if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
     } finally {
       await tp.close();
     }
-    return 'Fokus under en tur avslutar turen utan att det gamla fokuset kommer tillbaka; en lektionslänk medan startens fokus laddas gäller';
+    return 'Fokus under en tur avslutar turen utan att det gamla fokuset kommer tillbaka; en lektionslänk eller en vanlig hashändring medan startens fokus laddas gäller';
   });
   // #755: tidsintervallet. En delad länk med y2, Tillbaka till ett år, valet med tangentbordet (årsfält, pil upp, Enter) och
   // lägeskontraktet: Fokus och uppspelning stänger intervallet, och under en tur går det inte att välja.
