@@ -195,6 +195,7 @@
   "image.placeholder": "Platshållare",
   "image.missing": "Bilden kunde inte laddas",
   "review.info": "Vad betyder granskningsstatusen?",
+  "review.explain": "Kontrollen gäller källorna, inte om historien är säker.",
   "story.why": "Varför kriget började",
   "story.parties": "Parterna",
   "story.hint": "Tryck på ▶ för att följa kriget.",

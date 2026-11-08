@@ -413,6 +413,7 @@
   "image.placeholder": "Placeholder",
   "image.missing": "The image could not be loaded",
   "review.info": "What does the review status mean?",
+  "review.explain": "The check is about the sources, not about how certain the history is.",
   "story.why": "Why the war began",
   "story.parties": "The sides",
   "story.hint": "Press ▶ to follow the war.",

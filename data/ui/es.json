@@ -413,6 +413,7 @@
   "image.placeholder": "Imagen provisional",
   "image.missing": "No se pudo cargar la imagen",
   "review.info": "¿Qué significa el estado de revisión?",
+  "review.explain": "La revisión se refiere a las fuentes, no a la certeza de lo ocurrido.",
   "story.why": "Por qué empezó la guerra",
   "story.parties": "Los bandos",
   "story.hint": "Pulse ▶ para seguir la guerra.",
