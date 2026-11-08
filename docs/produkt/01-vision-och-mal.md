@@ -1,10 +1,27 @@
 # 01. Vision och mål
 
-**Status:** utkast 2026-11-08, att godkännas av DasKrokodil. Visionen och avgränsningarna är hämtade ur [CLAUDE.md](../../CLAUDE.md) och beslutsfilerna; målen och måtten är **förslag** som inte har beslutats.
+**Status:** 2026-11-08. Inriktningen nedan kommer från DasKrokodil själv (beslut [2026-11-08-produktinriktning.md](../beslut/2026-11-08-produktinriktning.md)). Målen M1–M8 och prioritetsordningen är min tolkning av hens beskrivning och ska bekräftas.
+
+## Varför projektet finns
+
+Historia-globen föddes ur skaparglädje: DasKrokodil ville bygga något, för att det var kul. Inspirationen kommer från spel där man lär sig saker *passivt* medan man spelar: Age of Empires, Age of Mythology, Civilization och Europa Universalis. Man tar in historia för att man utforskar, inte för att någon undervisar.
+
+Det är ett hobbyprojekt med öppen källkod. Det har inget kommersiellt syfte, och ersättningen räcker med ett tack, en high five eller en kopp kaffe. Det ska vara **öppet och fritt**.
 
 ## Syftet i en mening
 
-Historia-globen låter vem som helst dra i tiden på en jordglob och se vad som hände **samtidigt** på olika håll i världen, med varje uppgift belagd i en öppen källa.
+Historia-globen låter vem som helst dra i tiden på en jordglob och se vad som hände **samtidigt** på olika håll i världen, utforskande och lekfullt, med varje uppgift belagd i en öppen källa.
+
+## Vem det är för
+
+- **Alla "normala människor med ett intresse" för historia.** Det är huvudgruppen och det är den som vinner vid konflikt.
+- **Från förskoleklass till gymnasiet:** det ska finnas något för alla åldrar under hela skoltiden.
+- **Skolan är en "happy little accident":** projektet växte så att det går att använda i skolan, och den som vill får göra det. Det är **inte en läroplattform**, och skolan är inte det som styr projektet.
+- **Inte akademiker.** DasKrokodil vill inte dras in i akademiska, historiska eller politiska diskussioner och har varken tid eller lust för det. Det betyder inte att kvaliteten är oviktig (källorna syns), men sidan vänder sig inte till forskare.
+
+## Plattformar
+
+De flesta antas läsa på **mobil och surfplatta (iPad)**, några på dator. Allt ska fungera på alla de plattformarna och i alla vanliga webbläsare. Det är ett krav, inte ett önskemål. "Alla webbläsare" bör preciseras (se [Öppna frågor](#öppna-frågor)).
 
 ## Problemet vi löser
 
@@ -12,52 +29,69 @@ Historia lärs oftast ut per land eller per epok, så sambanden går förlorade:
 
 ## Det vi erbjuder som andra inte gör (kärnan)
 
-1. **Samtidighet som första fråga.** "Vad pågår på andra håll just nu?" är ingången, inte en bieffekt.
-2. **Källan syns.** Varje händelse och fun fact har en källa och en granskningsnivå, och när källorna är oense står det öppet.
-3. **Öppet.** Kod under GPL-3.0, data under CC BY 4.0, ingen inloggning, ingen spårning.
-4. **Samma innehåll i flera former.** Glob, platt karta, guidade turer, quiz och utskrift bygger på samma data, och på sikt kan samma bild visas på en fysisk glob.
+1. **Samtidighet som första fråga.** "Vad pågår på andra håll just nu?" är ingången.
+2. **Utforska, inte läsa.** Man lär sig genom att dra, klicka och följa, som i ett strategispel.
+3. **Källan syns.** Varje händelse och fun fact har en källa och en granskningsnivå, och när källorna är oense står det öppet. Det är också hur sidan vill lära barn och unga **källkritik**: genom att visa var uppgiften kommer ifrån.
+4. **Öppet.** Kod under GPL-3.0, data under CC BY 4.0, ingen inloggning, ingen spårning, inget kommersiellt.
 
 ## Mål
 
-Förslag på mål med tecken att leta efter. Inget statistikskript körs på sidan (beslut 2026-11-06, #466); den enda besöksstatistiken är Cloudflare Pages egen, som visar trafik men inte vad besökaren förstår eller gör. Tecknen är därför främst kontrollerbara i data, test, granskningar och riktiga observationer (se [07-valideringsplan.md](07-valideringsplan.md)).
+Mål med tecken att leta efter. Inget statistikskript körs på sidan (beslut 2026-11-06, #466); den enda besöksstatistiken är Cloudflare Pages egen, som visar trafik men inte vad besökaren förstår. Tecknen är därför främst kontrollerbara i data, test, granskningar och sådana observationer som kommer till oss (se [07-valideringsplan.md](07-valideringsplan.md)).
 
 | # | Mål | Tecken på att vi lyckas | Hur vi ser det |
 |---|---|---|---|
-| M1 | **Förstå samtidighet på under en minut.** En förstagångsbesökare ser ett samband och förstår vad globen gör. | Ingången (introduktion, Samtidigt-kort) fungerar på dator och mobil utan förklaring. | UX-genomgång med nybörjarlinsen; webbläsartestet |
-| M2 | **Pålitligt innehåll.** Inget påhittat. | Alla synliga uppgifter har källa; oenighet visas; ingen fakta ur minnet. | Källkontroll, `tools/`-kontroller, faktagranskning |
-| M3 | **Användbart i klassrummet.** En lärare kan ta en tur eller en lektion och använda den utan förberedelse utöver bladen. | Lektion 1 (åk 7–9) och 2 (åk 4–6) fungerar från delad länk till utskrivet blad. | Lärarlinsen; blind-spots-runda för lektionsläget |
-| M4 | **Global bredd.** Innehållet har inte slagsida mot Europa. | Täckning per världsdel, period och kategori är synlig och glapp åtgärdas. | `python3 tools/tackning.py`, täckningsrapporten |
-| M5 | **Tillgängligt för alla.** Tangentbord, skärmläsare, zoom och lugn rörelse fungerar. | Inga kända blockerande tillgänglighetsfel öppna vid release. | Tillgänglighetslinsen; test av tangentbord och zoom |
-| M6 | **Hållbart att underhålla.** Två personer och flera agenter kan bygga vidare utan att krocka. | Inget byggsteg, data skild från kod, få centrala filer som alla ärenden berör. | Arkitekturlinsen; kökontroller |
-| M7 | **På flera språk.** Svenska, engelska, tyska, spanska och franska utan att fakta ändras i översättningen. | Antalet oöversatta texter ökar aldrig. | Översättningsspärren (`tools/oversattning.py`) |
+| M1 | **Förstå samtidighet på under en minut.** En förstagångsbesökare, ung eller gammal, ser ett samband och vill fortsätta utforska. | Ingången (introduktion, Samtidigt-kort) fungerar på mobil, surfplatta och dator utan förklaring. | UX-genomgång; webbläsartestet |
+| M2 | **Pålitligt innehåll och synliga källor.** Inget påhittat, och besökaren kan se var uppgiften kommer ifrån (källkritik som metod). | Alla synliga uppgifter har källa; oenighet visas; ingen fakta ur minnet. | Källkontroll, `tools/`-kontroller |
+| M3 | **Går att använda i skolan, för den som vill.** Förskoleklass till gymnasiet. Ingen läroplattform. | Turer, lektionsläge och utskrift fungerar som tillval utan att styra utvecklingen. | Lärarlinsen vid skolrelease |
+| M4 | **Global bredd, och tydligt att det är ett urval.** Inte slagsida mot Europa. | Täckning per världsdel, period och kategori är synlig och glapp åtgärdas. "Om urvalet" finns. | `python3 tools/tackning.py` |
+| M5 | **Fungerar överallt:** mobil, surfplatta, dator, alla vanliga webbläsare; tangentbord, zoom, lugn rörelse. | Inga kända blockerande fel i någon av plattformarna vid release. | Webbläsartest (tre motorer vid release), enhetskontroll, tillgänglighetslinsen |
+| M6 | **Hållbart för en ensam redaktör.** Underhållet får inte ta bort glädjen. | Inget byggsteg, data skild från kod, få centrala filer; dokumentationen hålls lätt. | Arkitekturlinsen; kökontroller |
+| M7 | **På flera språk** utan att fakta ändras. | Antalet oöversatta texter ökar aldrig. | Översättningsspärren |
+| M8 | **Det ska vara kul.** Att bygga och att använda. | Nya idéer får plats; inget i processen känns som ett jobb. | DasKrokodils egen bedömning |
 
 ## Avgränsningar: det här är sidan inte
 
-- Inget lärplattformssystem (LMS), inga konton, ingen elevdata eller betygsättning.
-- Ingen egen backend (enda undantaget är formuläret för förslag, beslut 2026-10-30).
-- Inget spel i första hand: quizet och jakten är lärverktyg, inte en tävling.
-- Ingen tredjepartsstatistik eller spårning.
-- Ingen uppgift utan källa, och ingen avbildning av profeten Muhammed.
-- Ingen heltäckande historieskrivning: globen visar urval, och urvalet ska vara tydligt (se fråga 2 under [Öppna frågor](#öppna-frågor)).
+- **Ingen läroplattform:** inga konton, ingen elevdata, inga betyg, ingen uppföljning av klasser.
+- **Ingen akademisk målgrupp** och ingen ambition att delta i akademiska, historiska eller politiska diskussioner.
+- **Inget kommersiellt:** ingen reklam, ingen försäljning, inget krav på inloggning.
+- **Inga aktiva fältstudier.** Projektet söker inte upp användare eller lärare. Input som kommer till oss tas gärna emot och diskuteras.
+- **Ingen egen backend** (enda undantaget är formuläret för förslag, beslut 2026-10-30).
+- **Ingen tredjepartsstatistik eller spårning.**
+- **Ingen fysisk glob i fokus nu.** Den ursprungliga idén parkeras; en nedskalad variant kan göras i framtiden. Webben går först, och läsbarhet på mobil och surfplatta går före hänsyn till en framtida hårdvara.
+- **Ingen uppgift utan källa**, och ingen avbildning av profeten Muhammed.
+
+## Redaktionella linjer
+
+- **Ensam redaktör.** DasKrokodil gör urvalet själv, utan en redaktion. Det ska framgå öppet: globen visar ett **urval**, och saker kommer med utan att redaktören tar ställning i varje fråga. Det är inte ett ställningstagande att något finns med.
+- **Politiska och omstridda frågor** (gränser, statusfrågor) följer **Sveriges officiella hållning (UD)**, med källa per fall ([omstridda-granser.md](../omstridda-granser.md)). Syftet är att ägaren personligen inte ska kunna anklagas för ett politiskt ställningstagande: det är inte hens, det är den svenska statens hållning, och det står öppet.
+- **Källkritik som pedagogisk idé.** Att visa källan, osäkerheten och oenigheten är en del av erbjudandet, inte bara en kvalitetskontroll.
 
 ## Principer vi väger mot varandra
 
-Ordnade efter vad som vinner vid konflikt. Ordningen är en **tolkning** av besluten och bör bekräftas.
+Ordnade efter vad som vinner vid konflikt (min tolkning, bekräfta):
 
-1. Källbelagt före fullständigt. 2. Begripligt före avancerat. 3. Tillgängligt före effektfullt. 4. Enkelt att underhålla före smart. 5. Öppet före bekvämt (licenser, inga låsta tjänster).
+1. Källbelagt före fullständigt. 2. Begripligt och roligt att utforska före avancerat. 3. Fungerar på mobil och surfplatta före effektfullt på dator. 4. Tillgängligt före effektfullt. 5. Enkelt att underhålla före smart. 6. Öppet före bekvämt.
+
+## Beslutade frågor (2026-11-08)
+
+Svar från DasKrokodil på de öppna frågorna i första utkastet:
+
+1. **Primär målgrupp:** alla med ett intresse för historia ("normala människor"). Skolan är en bonus, inte styrande.
+2. **Urval:** ensam redaktör, tydligt att det är ett urval, ingen ställning i enskilda frågor.
+3. **Gymnasiet och yngre:** förskoleklass till gymnasiet, hela skoltiden.
+4. **Fysisk glob:** parkerad; webben först.
+5. **Domän:** historiagloben.se används redan (README och DEPLOYMENT). Kvar är namnfrågan, se nedan.
 
 ## Öppna frågor
 
-Sådant som visionen inte svarar på än och som DasKrokodil behöver avgöra (de kan bli egna issues med `beslut-krävs` och rekommendation):
+1. **Namnet.** CLAUDE.md frågar om projektet ska få en egen .se-domän (det har den redan: historiagloben.se) och om namnet "Historia-globen" ska behållas eller bli ett internationellt namn. Frågan är alltså bara det andra: ska sidan heta något som fungerar på alla fem språken (till exempel ett namn utan översättning), eller behålla det svenska "Historia-globen"? Inget behöver avgöras nu; det är ett varumärkesval och påverkar bara titel, domän och delningsbilder. Se #914.
+2. **Förskoleklass–åk 3.** Barn som ännu inte läser flytande kan inte använda det mesta som är text. Ska det finnas en väg för dem (till exempel upplästa texter, bildvägar, eller "tillsammans med en vuxen"), eller räcker "för den som kan läsa, och för vuxna att visa barn"? Se #917.
+3. **"Alla webbläsare" och surfplatta.** Vilka versioner och enheter räknas? Förslag: de senaste två versionerna av Chrome, Safari (iOS/iPadOS), Firefox och Edge. Se #917.
+4. **Källkritik som uttalat mål.** Ska sidan *aktivt* lära ut det (till exempel genom Källdetektiven, #742, och en förklaring i faktarutan, #786), eller räcker det att källorna syns? Se #914.
+5. **Kravspecifikation.** Frågan om en kravspecifikation (PRS) är obesvarad.
 
-1. **Primär målgrupp.** Skolan (årskurs 4–9) har fått mest byggtid, men visionen börjar hos den nyfikna allmänheten. Vilken ska vinna vid konflikt? (Se [02](02-anvandare-och-intressenter.md).)
-2. **Urval mot full lista.** Hur tydligt ska det vara att globen visar ett urval, och vem avgör vad som ingår?
-3. **Gymnasiet.** Ska äldre elever (16–19) vara en målgrupp eller räcker "äldre elever" i lektion 1?
-4. **Fysisk glob.** Hur mycket ska webbversionens beslut styras av den, och när?
-5. **Namn och domän** (listas redan i CLAUDE.md under öppna frågor).
+## Att kontrollera vid uppdatering (varje release)
 
-## Att kontrollera vid uppdatering
-
-- [ ] Stämmer målen fortfarande med versionsplanen i CLAUDE.md?
-- [ ] Har ett beslut ändrat en avgränsning, och står det i beslutsfilerna?
+- [ ] Stämmer målen och avgränsningarna fortfarande? Har en ny idé, målgrupp eller ett nytt mål tillkommit?
+- [ ] Har ett beslut ändrat något? Skriv det i `docs/beslut/` först.
 - [ ] Har något "antagande" bekräftats eller motsagts?

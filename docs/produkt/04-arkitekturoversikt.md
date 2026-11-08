@@ -124,7 +124,7 @@ Ordnade efter vikt för projektet. "Hur vi säkrar det" är vad som finns idag.
 | **Begriplighet och underhållbarhet** | Två personer och många agenter | Inget byggsteg, data skild från kod, lagermodulernas gemensamma gränssnitt, kontextkarta | Några centrala filer berörs av nästan alla ärenden (R2) |
 | **Prestanda på svag enhet** | Skoldatorer, surfplattor, mobiler | Lättare mobilrendering (#390), data uppdelad och laddad vid behov (#337), skarpt utsnitt bara vid inzoomning | Större datamängd kan slå mot start (prestandarapport 2026-11-07) |
 | **Tillgänglighet** | Skolan och lagen; vår egen princip | Tangentbord, ARIA, kontrast, träffytor, lugn rörelse | Ingen skärmläsarattest (R5) |
-| **Portabilitet** | Fysisk glob, andra skärmar | Ekvirektangulär bild som kärna | Beroende av three.js och WebGL |
+| **Plattformsbredd** | De flesta läser på mobil och iPad, några på dator; alla vanliga webbläsare (beslut 2026-11-08). Fysisk glob är parkerad | Lättare mobilrendering, ekvirektangulär bild, webbläsartest | Beroende av three.js och WebGL; surfplatta och vilka webbläsarversioner som räknas är inte definierat (R9) |
 | **Integritet och säkerhet** | Elever och lärare | Ingen spårning, skarp CSP, origin-kontroll och storleksgräns i formulärfunktionen | Externa tjänsters inställningar kan inte bevisas från repot |
 | **Driftsäkerhet och release** | En trasig release i skolan är dyr | no-cache-regler, production-gren, rollback, releasekontroll | Firefox/WebKit-prov var röda vid analysen 2026-11-08 |
 | **Internationalisering** | Fem språk | `ui()` och data per språk; spärr mot att oöversatt ökar | Stora kvarvarande oöversatta mängder; nyckeltest ≠ full översättning |
@@ -146,6 +146,7 @@ Hämtade ur analyserna, inte nya fynd. Verifiera mot koden innan du agerar på d
 | R5 | **Tillgänglighet bevisad bara delvis** | komplett analys; helhetsanalys | Skärmläsare och full tangentbordssekvens ej attesterade | Gör en riktad attest; se [06](06-granskningsperspektiv.md#7-tillgänglighet) |
 | R6 | **Webbläsarbredd i test** | komplett analys (Firefox, WebKit röda) | Release utan tre motorer är inte bevisad | Åtgärda rotorsaker per motor |
 | R7 | **Datamängd mot prestanda** | prestandastudie 2026-11-07 | Långsam start när massimporten växer | Fortsätt dela och ladda sent |
+| R9 | **Plattformsstöd ej definierat** | DasKrokodils krav 2026-11-08; `docs/produkt/05` | "Alla webbläsare" och "iPad" är krav, men det finns ingen stödmatris, och surfplattebredder (768–1024 px) har inte provats särskilt | Definiera stödmatris (#917), lägg iPad-bredd i webbläsartestet |
 | R8 | **Översättningsskuld** | översättningsspärren | Besökare på andra språk ser blandad text | Omgångar, engelska först |
 
 ## Att kontrollera vid uppdatering

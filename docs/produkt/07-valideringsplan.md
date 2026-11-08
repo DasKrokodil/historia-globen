@@ -1,6 +1,6 @@
-# 07. Valideringsplan: från antaganden till observationer (utkast)
+# 07. Valideringsplan: från antaganden till observationer (passiv)
 
-**Status:** utkast 2026-11-08, **förslag** som DasKrokodil ska godkänna. Ingen skolpilot görs (beslut 2026-11-07), så planen är avsiktligt liten och billig. Den ersätter inte en pilot; den gör att antagandena i [02](02-anvandare-och-intressenter.md), [05](05-ux-oversikt.md) och [06](06-granskningsperspektiv.md) kan bytas mot något riktigt, steg för steg.
+**Status:** omarbetad 2026-11-08 efter DasKrokodils besked: projektet **söker inte aktivt upp** lärare, elever eller andra användare och gör inga fältstudier. Input som kommer till oss tas gärna emot och diskuteras. Planen är därför **passiv**: den säger hur vi tar tillvara det som kommer, och innehåller protokoll att använda om ett tillfälle uppstår. Antagandena i [02](02-anvandare-och-intressenter.md), [05](05-ux-oversikt.md) och [06](06-granskningsperspektiv.md) förblir antaganden tills dess.
 
 ## Vad vi har och inte har
 
@@ -22,9 +22,9 @@ Ordningen följer hur mycket det skulle ändra om antagandet är fel.
 | V7 | Urvalet förstås och uppfattas som rimligt | Historiker och intresserade frågar efter det | Fråga i T1; se [08](08-urvalsriktlinje.md) | M2, M4 |
 | V8 | Besökare med skärmläsare eller bara tangentbord kan genomföra huvudflödena | Tillgänglighet är bevisad bara delvis | Riktad attest (T6) | M5 |
 
-## Test: små och billiga
+## Protokoll om ett tillfälle uppstår (ingen aktiv rekrytering)
 
-Varje test är 20–45 minuter och görs med **3–5 personer**, vilket brukar räcka för att hitta de största hindren. Gör ett test, rätta, gör nästa.
+Om någon ändå kommer till oss (en lärare som hör av sig, en vän som vill titta, ett barn i släkten) kan följande användas. Varje test är 20–45 minuter och görs med **3–5 personer**, vilket brukar räcka för att hitta de största hindren. Gör ett test, rätta, gör nästa.
 
 | Test | Vem | Uppgift | Vad vi observerar |
 |---|---|---|---|
@@ -52,12 +52,17 @@ Varje test är 20–45 minuter och görs med **3–5 personer**, vilket brukar r
 - **Cloudflare Pages statistik** (trafik, sidor, länder) kan visa var sidan används, men inte vad besökaren förstår.
 - **En fråga vid varje lärarkontakt:** "Vad hindrade dig från att använda det?" Skriv ned svaret.
 
-## Frågor till DasKrokodil
+## Passiv insamling (det vi faktiskt gör)
 
-1. Vem kan rekrytera lärare och några vuxna testpersoner (nätverk, skolor, kollegor)?
-2. Är det okej att försöka få en lärare i taget i stället för en pilot (beslutet 2026-11-07 gäller pilotlektionen, inte enskilda lärarkontakter)?
-3. Vem gör testen: DasKrokodil själv, Einzbeng eller en extern person? Agenter kan förbereda protokoll och sammanfatta, men inte sitta med.
-4. Ska resultaten vara offentliga i repot (anonyma) eller sparas privat?
+1. **Ta emot all input** som kommer: faktafel-länken, förslagsformuläret, mejl, kommentarer, samtal. Skriv ned den med datum i `docs/granskningar/observationer/` (anonymt) när den säger något om hur sidan upplevs.
+2. **Ägarens egen användning** räknas som observation, märkt som ägarens.
+3. **Agenternas granskningar** (UX-genomgång, blind-spots, linserna) fortsätter och är **hypoteser**, aldrig ersättning för en riktig användare.
+4. **Cloudflare Pages statistik** visar trafik, inte förståelse.
+
+## Beslutat 2026-11-08
+
+- Ingen aktiv rekrytering och ingen pilot. Resultaten sparas anonymt i repot om de finns.
+- Frågorna om vem som rekryterar och vem som sitter med faller därför. Se #915.
 
 ## Att kontrollera vid uppdatering
 

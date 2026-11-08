@@ -31,7 +31,9 @@ Aktörerna (A–I) står i [02](02-anvandare-och-intressenter.md). Status: **fin
 | UC21 | A | Läsa ett kurerat regionkort | Region → kort med gränskälla och källor | Regionkort (#579) | planerad: 6.2.0 |
 | UC22 | A | Se människans och jordens långa historia | Tidslinje i nivåer, forntida kartor | Version 7 och 8 | planerad, senare |
 | UC23 | A, B | Jämföra två tider eller se historiska kartor | Jämför två tider (#248), historiska kartor (#249) | Version 9 | planerad, senare |
-| UC24 | I | Se globen på en fysisk glob | Den platta bilden skickas till en globskärm | Beslut 1, hårdvaruspår H1–H3 | planerad, utanför repot |
+| UC24 | I | Se globen på en fysisk glob | Den platta bilden skickas till en globskärm | Beslut 1, hårdvaruspår H1–H3 | **parkerad** (beslut 2026-11-08) |
+| UC25 | J, A | Barn utforskar tillsammans med en vuxen | Vuxen och barn tittar på globen och bilder tillsammans | (ingen egen funktion) | **ej adresserat**; öppen fråga, #917 |
+| UC26 | C, D, E | Lära sig källkritik | Läsa var uppgiften kommer ifrån, se oenighet och osäkerhet, öva i Källdetektiven | Källor, granskningsnivåer, missuppfattningar, Källdetektiven (#742, att verifiera), faktarutans förklaring (#786, planerad) | delvis; ska bli ett uttalat mål (#914) |
 
 ### Användningsfall vi **inte** stöder (avgränsning)
 

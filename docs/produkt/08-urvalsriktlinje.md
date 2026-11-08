@@ -1,6 +1,6 @@
 # 08. Urvalsriktlinje: vad är värt en plats på globen? (utkast)
 
-**Status:** utkast 2026-11-08, **förslag** som DasKrokodil ska godkänna. Kriterierna och balansmålen nedan är mina förslag. Det som redan är beslutat är markerat med beslutets datum. Riktlinjen innehåller inga historiska uppgifter; den säger hur vi väljer, inte vad som hände.
+**Status:** utkast 2026-11-08, **förslag** som DasKrokodil ska godkänna. Omarbetat efter DasKrokodils besked samma dag: ensam redaktör, tydligt att det är ett urval, ingen ställning i enskilda frågor, ingen akademisk granskning. Kriterierna och balansmålen nedan är mina förslag. Det som redan är beslutat är markerat med beslutets datum. Riktlinjen innehåller inga historiska uppgifter; den säger hur vi väljer, inte vad som hände.
 
 ## Varför den behövs
 
@@ -44,12 +44,19 @@ Förslag på regel: **varje täckningsrunda** redovisar måtten och rekommendera
 
 ## Öppenhet mot besökaren
 
-Förslag: en kort text under **Källor** ("Om urvalet") som säger att globen visar ett urval, vilka kriterier som gäller, vad som är känt saknas, och hur man föreslår något (Rapportera faktafel, förslagsformuläret). Texten skrivs på svenska först och översätts samtidigt, enligt språkregeln.
+Förslag: en kort text under **Källor** ("Om urvalet") som säger:
+
+- att globen visar ett **urval**, gjort av **en person** (DasKrokodil), utan redaktion;
+- att saker kommer med utan att redaktören tar ställning i enskilda frågor, och att något finns med är inget ställningstagande;
+- att omstridda gränser och statusfrågor följer **Sveriges officiella hållning (UD)**, med källa;
+- vad som är känt saknas, och hur man föreslår något (Rapportera faktafel, förslagsformuläret). Texten skrivs på svenska först och översätts samtidigt, enligt språkregeln.
 
 ## Vem avgör, och hur ändras listan
 
+- **DasKrokodil är ensam redaktör** och bestämmer. Det finns ingen redaktion och inget externt granskningsorgan.
 - **Förslag** kan komma från vem som helst (besökare, agenter, Einzbeng). Ett förslag blir ett issue med motivering mot A–F.
 - **DasKrokodil** godkänner listor över nya omgångar, som för kärnhändelserna. Dirigenten (Claude Code på DasKrokodils konto) triagerar.
+- Ensam redaktör betyder att kriterierna ska vara **få och lätta att tillämpa**; de är ett stöd, inte en process.
 - **Ändrar vi kriterierna** skrivs ett beslut i `docs/beslut/`.
 
 ## Öppna frågor
@@ -57,7 +64,7 @@ Förslag: en kort text under **Källor** ("Om urvalet") som säger att globen vi
 1. Ska kriterium B kräva **två** oberoende referenser, eller räcker en etablerad referenslista?
 2. Hur stor del av ytan ska vi lägga på det som är viktigt *lokalt* för en region men okänt utanför den?
 3. Ska vi publicera "Om urvalet" som del av Källor, och vilka luckor ska vi erkänna öppet?
-4. Vem är rätt person att bedöma balans och omstridda urval utöver DasKrokodil (till exempel en historiker som granskar)?
+4. ~~Extern bedömare av balans~~ Faller: DasKrokodil är ensam redaktör och söker inte aktivt upp någon (beslut 2026-11-08).
 
 ## Att kontrollera vid uppdatering
 

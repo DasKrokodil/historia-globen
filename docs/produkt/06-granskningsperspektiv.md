@@ -29,6 +29,8 @@ Text att klistra in i en granskningsorder till en agent:
 
 ● alltid · ○ när det berörs.
 
+Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10 vid UX-genomgång och nya funktioner (som "intresserad"), och 9 när något byggs för yngre barn.
+
 ---
 
 ## 1. Senior UX/UI-designer
@@ -79,6 +81,8 @@ Text att klistra in i en granskningsorder till en agent:
 ---
 
 ## 3. Historielärare med pedagogisk utbildning
+
+*Skolan är en bonus, inte styrande (beslut 2026-11-08). Linsen används när något byggs för skolan, inte som standard.*
 
 **Blicken:** kan jag använda det imorgon, med en hel klass, utan att förlora kontrollen eller trovärdigheten? Främjar det lärande, eller är det bara en snygg leksak?
 
@@ -194,6 +198,8 @@ Text att klistra in i en granskningsorder till en agent:
 
 ## 8. Historiker och källgranskare
 
+*Ingen akademisk målgrupp (beslut 2026-11-08). Linsen är en källkritisk kontroll av innehållet, inte ett sätt att föra akademiska eller politiska diskussioner. Omstridda frågor följer Sveriges hållning (UD).*
+
 **Blicken:** är det sant, balanserat och ärligt om sin osäkerhet?
 
 **Frågor**
@@ -210,6 +216,41 @@ Text att klistra in i en granskningsorder till en agent:
 **Bevis att samla in:** stickprov mot öppnade källsidor; jämför översatta texters siffror med svenskan; täckningsmått.
 
 **Vad linsen har sagt hittills:** källpolicy och granskningsnivåer är dokumenterade och i bruk; en tysk betydelseändring hittades i språkgranskningen inför release (2026-11-08).
+
+---
+
+## 9. Barn i förskoleklass–åk 3, med en vuxen bredvid
+
+**Blicken:** kan ett barn som inte läser flytande ha glädje av det här tillsammans med en vuxen?
+
+**Frågor**
+- **Bild före text:** bär bilder, symboler och markörer upplevelsen utan att man måste läsa?
+- **Tid och språk:** förstår barnet något av "f.Kr." eller "1325"? Finns det ett annat sätt att känna "länge sedan" (till exempel mammutar, pyramider)?
+- **Kontroller:** få val, stora träffytor, inget som går sönder av ett oavsiktligt tryck, tydlig väg tillbaka.
+- **Vuxenstöd:** kan en vuxen snabbt visa något häftigt (en tur, ett samtidigt-kort)?
+- **Innehåll:** krig, död och sjukdom: är det rimligt att barnet möter det här utan förvarning?
+
+**Brukar säga (hypoteser):** "Mammuten!" "Vad står det?" "Kan jag trycka där?"
+
+**Vad linsen har sagt hittills:** ingenting; ingen väg för gruppen finns byggd (öppen fråga #917).
+
+---
+
+## 10. Spelaren (uppvuxen med Age of Empires, Civilization, Europa Universalis)
+
+**Blicken:** känns det som att utforska, eller som att läsa en lektion? Det är DasKrokodils egen bakgrund och den främsta inspirationskällan.
+
+**Frågor**
+- **Lekfullhet:** finns det en vilja att "bara en minut till": nästa händelse, nästa rike, nästa samband?
+- **Direkt feedback:** händer det något när man drar i tiden eller klickar, och är det belönande?
+- **Karta och tid tillsammans:** känns kartan levande när tiden går, som i ett strategispel?
+- **Djup utan tvång:** kan man gräva (riken, krig, religioner) men aldrig tvingas?
+- **Överblick:** hittar jag, ser jag vad som är nytt, och förstår jag symbolerna utan manual?
+- **Ton:** kul och nyfiken, inte pekpinne.
+
+**Brukar säga (hypoteser):** "Det här vill jag ha ett läge för i mitt spel." "Kan jag se vem som härskade var 1100?"
+
+**Vad linsen har sagt hittills:** inget observerat; linsen är ägarens egen riktpunkt.
 
 ---
 
