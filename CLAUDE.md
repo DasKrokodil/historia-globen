@@ -239,7 +239,7 @@ Regler:
 
 ## Öppna frågor (Rikard bestämmer)
 
-- Ska projektet få en egen .se-domän, och behålls namnet Historia-globen eller blir det ett internationellt namn?
+- ~~Domän och namn~~ Besvarat 2026-11-08: historiagloben.se används och räcker tills vidare; om stort intresse visar sig öppnas andra domäner och namn per språk (plan i docs/produkt/10-namn-och-domaner.md, beslut i docs/beslut/2026-11-08-produktinriktning.md).
 - Vilket fördjupningsläge kommer först (till exempel andra världskriget)?
 
 ## Beslutslogg

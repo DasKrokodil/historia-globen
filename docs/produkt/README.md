@@ -14,6 +14,7 @@ Det här är de dokument som svarar på *varför*, *för vem* och *vad som är g
 | [06-granskningsperspektiv.md](06-granskningsperspektiv.md) | Hur skulle en senior UX-designer, arkitekt, historielärare, elev och historieintresserad titta på sidan? | Varje granskning, analys och release |
 | [07-valideringsplan.md](07-valideringsplan.md) | Hur ersätter vi antagandena med riktiga observationer? (utkast) | Planering av användartest, lärarkontakt, release |
 | [08-urvalsriktlinje.md](08-urvalsriktlinje.md) | Vad är värt en plats på globen, och hur motiverar vi urvalet? (utkast) | Nytt innehåll, täckningsrunda, "varför just den här?" |
+| [10-namn-och-domaner.md](10-namn-och-domaner.md) | Hur kan sidan få namn och domäner på andra språk om intresset visar sig? Plan, inte beslut | Intresse utanför Sverige, nytt språk |
 | [09-kravspecifikation.md](09-kravspecifikation.md) | Vad ska sidan uppfylla och hur ser vi det? Krav med id, prioritet, bevis och status (utkast) | Nytt issue, release, "är det här klart?" |
 
 ## Så hålls dokumenten levande

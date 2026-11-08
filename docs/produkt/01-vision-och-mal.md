@@ -1,6 +1,6 @@
 # 01. Vision och mål
 
-**Status:** 2026-11-08. Inriktningen nedan kommer från DasKrokodil själv (beslut [2026-11-08-produktinriktning.md](../beslut/2026-11-08-produktinriktning.md)). Målen M1–M8 och prioritetsordningen är min tolkning av hens beskrivning och ska bekräftas.
+**Status:** 2026-11-08. Inriktningen nedan kommer från DasKrokodil själv (beslut [2026-11-08-produktinriktning.md](../beslut/2026-11-08-produktinriktning.md)). Målen M1–M9 och prioritetsordningen är min tolkning av hens beskrivning och **bekräftades av DasKrokodil 2026-11-08**.
 
 ## Varför projektet finns
 
@@ -95,16 +95,19 @@ Svar från DasKrokodil på de öppna frågorna i första utkastet:
 2. **Urval:** ensam redaktör, tydligt att det är ett urval, ingen ställning i enskilda frågor.
 3. **Gymnasiet och yngre:** förskoleklass till gymnasiet, hela skoltiden.
 4. **Fysisk glob:** parkerad; webben först.
-5. **Domän:** historiagloben.se används redan (README och DEPLOYMENT). Kvar är namnfrågan, se nedan.
+5. **Domän:** historiagloben.se används redan (README och DEPLOYMENT). Namnfrågan: se punkt 11.
 6. **Källkritik:** ska läras ut **aktivt** (M9). Hur avgörs i #926.
 7. **Barn före läsning:** räcker att vuxna visar barn. Barnen kan själva snurra och trycka och se färger och vad som händer. Ingen egen läsfri väg byggs.
 8. **Webbläsare och plattformar:** stödmatrisen ovan gäller.
 9. **Kravspecifikation (PRS):** ska skrivas ([09-kravspecifikation.md](09-kravspecifikation.md)).
+10. **Mål:** M1–M9 stämmer.
+11. **Namn och domän:** historiagloben.se räcker tills vidare. Om stort intresse visar sig öppnas andra domäner och namn per språk; en plan finns i [10-namn-och-domaner.md](10-namn-och-domaner.md).
+12. **Beslut 1** (ekvirektangulär rendering) består. Små förbättringar görs löpande som egna issues när ett konkret problem dyker upp.
+13. **Svenska som andraspråk** är ingen prioritet nu, men läggs som framtida användare.
 
 ## Öppna frågor
 
-1. **Namnet.** CLAUDE.md frågar om projektet ska få en egen .se-domän (det har den redan: historiagloben.se) och om namnet "Historia-globen" ska behållas eller bli ett internationellt namn. Frågan är alltså bara det andra: ska sidan heta något som fungerar på alla fem språken (till exempel ett namn utan översättning), eller behålla det svenska "Historia-globen"? Inget behöver avgöras nu; det är ett varumärkesval och påverkar bara titel, domän och delningsbilder. Se #914.
-2. **Hur källkritik lärs ut** (#926) och **idén om koppling till nutiden** (#927) är öppna beslut om utförande, inte om mål.
+1. **Hur källkritik lärs ut** (#926) och **idén om koppling till nutiden** (#927) är öppna beslut om utförande, inte om mål.
 
 ## Att kontrollera vid uppdatering (varje release)
 

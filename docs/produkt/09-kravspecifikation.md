@@ -1,6 +1,6 @@
 # 09. Kravspecifikation (PRS, produktnivå)
 
-**Status:** utkast 2026-11-08. DasKrokodil har bestämt att en kravspecifikation ska skrivas. Det här är första versionen. Krav märkta **Beslutat** kommer från CLAUDE.md, beslutsfilerna eller DasKrokodils besked 2026-11-08 och hänvisar till sin källa i stället för att kopiera den. Krav märkta **Förslag** är mina och ska godkännas. Kolumnen *Läge* är **ej verifierad** överallt där jag inte har sett ett bevis; den fylls i vid varje release (se [README](README.md#så-hålls-dokumenten-levande)).
+**Status:** utkast 2026-11-08 (målen M1–M9 bekräftade samma dag). DasKrokodil har bestämt att en kravspecifikation ska skrivas. Det här är första versionen. Krav märkta **Beslutat** kommer från CLAUDE.md, beslutsfilerna eller DasKrokodils besked 2026-11-08 och hänvisar till sin källa i stället för att kopiera den. Krav märkta **Förslag** är mina och ska godkännas. Kolumnen *Läge* är **ej verifierad** överallt där jag inte har sett ett bevis; den fylls i vid varje release (se [README](README.md#så-hålls-dokumenten-levande)).
 
 Det här är en *produktkravsspecifikation*: den säger **vad** sidan ska uppfylla och **hur vi ser att den gör det**, inte hur den är byggd ([arkitektur.md](../arkitektur.md)) och inte vilka uppgifter som ska göras (issues).
 
@@ -140,6 +140,7 @@ Stödmatris (beslut 2026-11-08): de **senaste två versionerna** av Chrome, Safa
 | K-DRI-04 | three.js 0.160.0 ska vara enda externa beroende; inga andra utan DasKrokodils ok. | Arkitektur 6 | M | G | Beslutat | Ok |
 | K-DRI-05 | Ingen publicering till `main` utan pull request; `production` uppdateras bara via release-PR efter releasekontroll och DasKrokodils godkännande. | docs/DEPLOYMENT.md | M | S | Beslutat | Ok |
 | K-DRI-06 | Produktdokumentationen i `docs/produkt/` ska gås igenom och uppdateras vid varje release. | DasKrokodil 2026-11-08; releasemallen | M | B | Beslutat | Ny |
+| K-DRI-08 | Förbättringar av rendering (skarpare zoom, mobilminne, kartprojektion i Platt vy) ska göras som små, egna issues när ett konkret problem visar sig, utan att ändra beslut 1. | DasKrokodil 2026-11-08; [04](04-arkitekturoversikt.md) | B | G, M | Beslutat | Ny |
 | K-DRI-07 | Dokumentationen ska hållas lätt så att den inte tar glädjen ur ett ensamt hobbyprojekt (M6, M8). | M6, M8 | B | G | Förslag | Ej verifierat |
 
 ## K-UTS. Utseende (M8)

@@ -17,6 +17,7 @@ Huvudgruppen är "normala människor med ett intresse för historia"; skolan är
 | G | Bidragsgivare och granskare (faktafel, förslag) | Sekundär | Ja: Rapportera faktafel, förslagsformulär |
 | H | Besökare med funktionsnedsättning | Tvärgående | Delvis: tangentbord, lugn rörelse, kontrast; ingen skärmläsarattest |
 | I | Besökare vid fysisk glob | **Parkerad** (beslut 2026-11-08) | Arkitekturen tillåter det, men inget byggs för det nu |
+| K | Elev eller vuxen med svenska som andraspråk | **Framtid**, ingen prioritet nu (beslut 2026-11-08) | Delvis: fem språk finns, men ingen enklare svenska |
 | J | Barn i förskoleklass–åk 3 (med vuxen) | Sekundär: "något för alla" | Delvis: ingen egen väg; vuxna visar, barn utforskar själva (beslut 2026-11-08) |
 
 ### Persona-mall
@@ -83,6 +84,10 @@ Tvärgående krav, inte en egen grupp: tangentbord, skärmläsare, kontrast, zoo
 #### I. Besökare vid fysisk glob (parkerad)
 
 Den ursprungliga idén parkeras (beslut 2026-11-08). En nedskalad variant kan göras i framtiden. Webben går först, och läsbarhet på mobil och surfplatta går före hänsyn till en framtida hårdvara. Beslut 1 (ekvirektangulär rendering) består, eftersom Platt vy och affischen också bygger på den.
+
+#### K. Elev eller vuxen med svenska som andraspråk (framtid)
+
+Ingen prioritet nu (DasKrokodil 2026-11-08), men noterad. Antagande: gruppen drar nytta av fem språk, korta meningar och bilder; enklare svenska är inte byggt. Tas upp igen om input visar behov (#917).
 
 #### J. Barn i förskoleklass–åk 3 (med vuxen)
 

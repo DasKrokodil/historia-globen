@@ -144,7 +144,7 @@ Beslut 1 (allt ritas först på en ekvirektangulär bild) motiverades delvis av 
 | **Möjliga försämringar** | – | Risk för nya buggar i ett fungerande system, sämre jämn prestanda på svaga enheter, och ett längre arbete som tar glädje och tid från ensam redaktör |
 | **Vad beslutet kostar oss idag** | Fast upplösning (4096 × 2048) och minnesvikt på mobil; skarpt utsnitt är en omväg | – |
 
-**Bedömning:** behåll beslut 1 som det är. Den fysiska globen är inte längre ett skäl att *kräva* det, men beslutet bär Platt vy, affischen och lagren, och det finns inget uppmätt problem som motiverar en omskrivning. Det som kan förbättras (skarpare zoom, mobilminne, projektion i Platt vy) går att göra **utan** att släppa beslutet, som egna små issues om ett konkret problem visar sig. Ändra regeln först om en mätning visar att den bitmappen är flaskhalsen. DasKrokodil avgör; CLAUDE.md är oförändrad.
+**Bedömning:** behåll beslut 1 som det är. Den fysiska globen är inte längre ett skäl att *kräva* det, men beslutet bär Platt vy, affischen och lagren, och det finns inget uppmätt problem som motiverar en omskrivning. Det som kan förbättras (skarpare zoom, mobilminne, projektion i Platt vy) går att göra **utan** att släppa beslutet, som egna små issues om ett konkret problem visar sig. Ändra regeln först om en mätning visar att den bitmappen är flaskhalsen. **Beslutat 2026-11-08:** beslut 1 består, och förbättringarna görs som små issues löpande när ett konkret problem dyker upp. CLAUDE.md är oförändrad.
 
 ## Kända arkitekturrisker
 

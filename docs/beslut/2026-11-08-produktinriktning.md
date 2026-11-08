@@ -19,7 +19,11 @@
 14. **Stödmatris:** de senaste två versionerna av Chrome, Safari (iOS/iPadOS), Firefox och Edge; iPad liggande och stående.
 15. **En kravspecifikation (PRS)** skrivs ([09-kravspecifikation.md](../produkt/09-kravspecifikation.md)).
 16. **Framtidsidé:** koppla historia till senare händelser och vår nutid (#927).
-17. **Produktdokumentationen** i `docs/produkt/` hålls uppdaterad **vid varje release** (punkt i releasemallen), för att se nya intressenter, användare och mål.
+17. **Mål M1–M9** bekräftade.
+18. **Namn och domän:** historiagloben.se räcker tills vidare; andra domäner och namn per språk övervägs om stort intresse visar sig ([10-namn-och-domaner.md](../produkt/10-namn-och-domaner.md)).
+19. **Beslut 1 består** (ekvirektangulär rendering); små förbättringar görs löpande som egna issues när problem dyker upp.
+20. **Svenska som andraspråk** är en framtida användare, ingen prioritet nu.
+21. **Produktdokumentationen** i `docs/produkt/` hålls uppdaterad **vid varje release** (punkt i releasemallen), för att se nya intressenter, användare och mål.
 
 ## Varför
 Projektet är ett hobbyprojekt med en ensam ägare. Mål, målgrupper och avgränsningar ska spegla det, så att inte en läroplattform eller en akademisk ambition smyger sig in och tar glädjen ur arbetet.
