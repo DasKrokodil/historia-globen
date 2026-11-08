@@ -286,8 +286,12 @@ export class TourPlayer {
     }
   }
 
-  /** Avslutar turen: lagren, fokus och kameran blir som innan, och året står kvar där turen var. */
-  end() {
+  /**
+   * Avslutar turen: lagren, fokus och kameran blir som innan, och året står kvar där turen var.
+   * restoreFocus: false (lektionens utgång, #881) återställer inte ett fokus som var på före turen, eftersom
+   * fokuset flyttar året till sin start och utgången ska behålla lektionens år.
+   */
+  end({ restoreFocus = true } = {}) {
     if (!this.tour) return;
     const { app } = this, saved = this.saved;
     app.lesson?.leave(); // en tur som slutar tar lektionsläget med sig (#795)
@@ -305,7 +309,7 @@ export class TourPlayer {
         app.layers.set(id, on);
         app.layers.onChange(id, on);
       }
-      if (saved.focus) app.startFocus(saved.focus);
+      if (saved.focus && restoreFocus) app.startFocus(saved.focus);
       if (saved.camera) { app.globe.flyTo(saved.camera.lat, saved.camera.lon); app.globe.setZoom(saved.camera.zoom); }
     }
     const back = this.opener?.isConnected && this.opener.offsetParent !== null ? this.opener : null;

@@ -2745,6 +2745,18 @@ async function run(browser, vp) {
       await lessonPage.click('#year-jump');
       await jumpTo('1500');
       if (!/utanför/.test(await lessonPage.textContent('#jump-msg')) || (await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('lektionslänken efter ett fokus lämnade tidslinjen olåst');
+      // "Visa hela globen" återställer inte ett gammalt fokus och byter inte året (#881)
+      await open(`${BASE}?ny=14#y=1916&f=war:forsta-varldskriget`);
+      await lessonPage.waitForSelector('#focus-bar:not([hidden])', { state: 'attached', timeout: T.load });
+      await hashHas('c=');
+      await lessonPage.evaluate(() => { location.hash = '#t=andra-varldskriget&m=lektion'; });
+      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('1 av 14'), null, { timeout: T.step });
+      await lessonPage.click('#lesson-exit');
+      await lessonPage.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
+      await lessonPage.waitForTimeout(1500); // ett återställt fokus laddas och flyttar året efter en stund
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`utgången gav året ${(await lessonPage.textContent('#year-big')).trim()} i stället för lektionens 1939`);
+      if (await lessonPage.isVisible('#focus-bar')) throw new Error('utgången återställde ett gammalt fokus');
       // Ett fokus som fortfarande laddas när lektionen börjar får inte släppa låset när det blir klart
       await open(`${BASE}?ny=5`);
       slowEmpires = true;
