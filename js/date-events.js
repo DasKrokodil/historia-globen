@@ -18,3 +18,15 @@ export function selectEventsForDate(date, events) {
     return /^\d{4}-\d\d-\d\d$/.test(from) && /^\d{4}-\d\d-\d\d$/.test(to) && date >= from && date <= to;
   }));
 }
+
+// Urval för ett intervall (#569 del 1, #754). En händelse ingår om dess spann överlappar [from, to].
+// Varje träff är en kopia med `partial`: true när händelsen börjar före eller slutar efter intervallet
+// (listan ska då märka den "pågår före/efter intervallet"). Öppna spann som började mer än 100 år före
+// intervallets slut är bakgrund och ingår inte, om inte `options.background` är sant.
+export function selectEventsForRange(events, from, to, options = {}) {
+  if (!Number.isFinite(from) || !Number.isFinite(to)) return [];
+  if (from > to) [from, to] = [to, from];
+  return ordered(events.filter(event => event.start <= to && event.end >= from
+    && (options.background || !isLongRunningBackgroundEvent(event, to))))
+    .map(event => ({ ...event, partial: event.start < from || event.end > to }));
+}
