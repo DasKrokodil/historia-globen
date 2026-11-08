@@ -212,6 +212,24 @@ Mallen `.github/PULL_REQUEST_TEMPLATE/release.md` är releasechecklistan. Den an
 
 Workflowen underkänns om något steg misslyckas.
 
+#### Firefox och WebKit i testet (#888)
+
+Firefox och WebKit går inte att ladda ner i molnmiljön där agenterna arbetar, så de provas bara i CI: sätt etiketten **`alla-webbläsare`** på en pull request mot `main` (gäller från nästa push) eller kör en release-PR. Lokalt kör du Chromium. Körningen 2026-11-08 (PR #923) gick från sju fel i Firefox och sex i WebKit till grönt i alla tre motorerna; varje fel hade en egen orsak, och ingen kontroll är avstängd eller överhoppad:
+
+| Motor | Första felet | Orsak | Rättning |
+|---|---|---|---|
+| Firefox | `inga fel i konsolen`, texten `JSHandle@object` | `console.error(err)` ger ett handtag som text, och handtaget går inte att läsa efter att sidan navigerat | `Error`-argument görs om till text i sidan (`addInitScript` i `tests/webblasare.mjs`) |
+| Firefox | samma, efter läsbar text: `NetworkError when attempting to fetch resource.` och `AbortError: The operation was aborted.` | en hämtning som avbröts av omladdning eller navigering; konsolfelen kom under språkbytets omladdning (markerade `[under: …]`) | `ABORTED_FETCH` räknas bort, bara de exakta meddelandena och bara medan sidan navigerar |
+| Firefox | A4-kontrollen: "webbtypsnitten laddades inte" | `document.fonts` skriver familjenamnet med citattecken i Firefox | jämförelsen tar bort citattecken |
+| Firefox | A4-kontrollen: det tyska lärarbladet i reservtypsnitt 1040 px mot A4:s 1039 px | ett riktigt mått (1037 px i Chromium, alltså 1 px marginal) | lärarbladets listor 2,5 pt i stället för 4 pt ([beslut](beslut/2026-11-08-lararblad-a4-marginal.md), #934) |
+| Firefox | fokusraden mot pausraden | fast väntan på 100 ms på `ResizeObserver` | väntan på tillståndet |
+| WebKit | turlänk: året 1325 i stället för 1500 | testet läste året direkt efter att laddningsrutan försvunnit, innan adressen ställts in | väntan på året |
+| WebKit | A4: "reservmätningen använder fel typsnitt" | WebKit skriver `DejaVu Sans, sans-serif` utan citattecken | jämförelsen tar bort citattecken |
+| WebKit | `TypeError: Load failed` och `Fetch API cannot load … due to access control checks` | hämtningar som avbryts av navigering skrivs som konsol- eller sidfel | `ABORTED_FETCH` och `cancelled()`, bara medan sidan navigerar |
+| WebKit (mobil) | tur och lektion startade inte medan ett fokus laddades | laddningsrutan döljs före `address.start()` (`js/main.js`), och `popstate` registreras först efter `await apply(s)`: testet satte hashen innan lyssnaren fanns | `addressReady()` väntar på att adressen är redo; själva appfönstret ligger hos #893 |
+
+**Att tänka på när en kontroll är röd i bara en motor:** läs först texten (konsolfel görs läsbara i testet, och en väntan som tar slut visar adress, kortets tillstånd och konsolfelen), och sök efter en motorskillnad i hur något *skrivs* (typsnittsnamn, felmeddelanden) innan du misstänker appen. Räkna bara bort de exakta meddelandena för avbruten hämtning, och bara medan testet navigerar; ett annat konsolfel ska fortfarande fälla kontrollen. Det finns ett fynd i appen som testet inte döljer, ett litet fönster vid start där en vybyte kan gå förlorad (kommentar i #893).
+
 ### Inställningar i GitHub
 
 Det här går inte att lägga i repot. Rikard gjorde det under Settings → Rules den 30 oktober 2026, med två rulesets:
