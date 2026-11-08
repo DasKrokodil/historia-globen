@@ -139,6 +139,17 @@ async function run(browser, vp) {
   const errors = [];
   const webglWarnings = [];
   const context = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, deviceScaleFactor: 1 });
+  // Firefox ger "JSHandle@object" som text för console.error(err) (#888), och handtaget går inte alltid att läsa i efterhand
+  // (sidan kan ha navigerat). Därför görs Error-argument om till text i sidan, innan de når webbläsarens konsol: "Namn:
+  // meddelande", samma form som WebKit och Chromium redan ger. Strängar och andra argument passerar oförändrade.
+  await context.addInitScript(() => {
+    for (const level of ['error', 'warn']) {
+      const original = console[level];
+      console[level] = function (...args) {
+        return original.apply(this, args.map(a => (a instanceof Error ? `${a.name}: ${a.message}` : a)));
+      };
+    }
+  });
   const page = await context.newPage();
   let threeOk = false;
 
@@ -2589,9 +2600,12 @@ async function run(browser, vp) {
         // En okänd tur hoppas över, och resten av länken gäller
         await tourPage.goto(`${BASE}?ny=1#y=1500&t=finns-inte`);
         await tourPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
-        if (await tourPage.locator('#tour-card').isVisible()) throw new Error('en okänd tur öppnade turens kort');
+        // Adressen ställs in efter att laddningsrutan har försvunnit; WebKit i CI hann inte före avläsningen (#888).
+        // Vänta på året, och kontrollera sedan att turens kort inte öppnades.
+        await tourPage.waitForFunction(() => document.getElementById('year-big').textContent.trim() === '1500', null, { timeout: T.step }).catch(() => {});
         const y2 = (await tourPage.textContent('#year-big')).trim();
         if (y2 !== '1500') throw new Error(`länken med okänd tur gav året ${y2}, inte 1500`);
+        if (await tourPage.locator('#tour-card').isVisible()) throw new Error('en okänd tur öppnade turens kort');
         if (tourErrors.length) throw new Error(`turlänken gav konsolfel: ${tourErrors.join('; ')}`);
       } finally {
         await tourPage.close();
@@ -2605,7 +2619,12 @@ async function run(browser, vp) {
   await check('lektionsläget låser menyerna och har en utgång som behåller året (#795)', async () => {
     const lessonPage = await context.newPage();
     const lessonErrors = [];
-    lessonPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(lessonErrors, m); });
+    let navigating = false; // som i #865-kontrollen: bara "TypeError: Load failed" under navigering räknas bort (#888)
+    lessonPage.on('console', m => {
+      if (m.type() !== 'error' || isFont(m.location()?.url)) return;
+      if (navigating && /^TypeError: Load failed$/.test(m.text())) return;
+      pushConsole(lessonErrors, m);
+    });
     lessonPage.on('pageerror', e => lessonErrors.push(e.message));
     const lp = sel => lessonPage.locator(sel);
     let slowEmpires = false;
@@ -2613,8 +2632,11 @@ async function run(browser, vp) {
     const progress = () => lessonPage.textContent('#tour-progress').then(x => x.trim());
     const shown = sel => lessonPage.evaluate(s => { const el = document.querySelector(s); return !!el && el.getClientRects().length > 0; }, sel);
     const open = async url => {
-      await lessonPage.goto(url);
-      await lessonPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      navigating = true;
+      try {
+        await lessonPage.goto(url);
+        await lessonPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      } finally { navigating = false; }
     };
     const hashHas = text => lessonPage.waitForFunction(t => location.hash.includes(t), text, { timeout: T.step });
     const locked = async () => {
@@ -2773,7 +2795,8 @@ async function run(browser, vp) {
       await lessonPage.evaluate(() => { location.hash = '#y=1942&f=empire:romarriket&c=-30,-120,3'; });
       await lessonPage.waitForTimeout(150);
       await lessonPage.evaluate(() => { location.hash = '#t=andra-varldskriget&m=lektion'; });
-      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      // Med rikesfiler som svarar efter 2,5 s var 15 s för kort i WebKit i CI (#888); bandet ska ändå komma, så vänta längre
+      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.load });
       await lessonPage.waitForTimeout(EMPIRE_DELAY + 1500); // fokuset blir klart under tiden
       slowEmpires = false;
       if (await lessonPage.isVisible('#focus-bar')) throw new Error('ett fokus som laddades när lektionen började visades i lektionen');
@@ -2824,7 +2847,15 @@ async function run(browser, vp) {
   await check('en tur som startar medan ett fokus laddas behåller sitt första år och sin kamera (#865)', async () => {
     const tp = await context.newPage();
     const errors = [];
-    tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(errors, m); });
+    // Turens första steg hämtar många rikesfiler, och testet navigerar bort direkt efteråt. WebKit loggar hämtningar som
+    // avbryts av navigeringen som "TypeError: Load failed" (#702, #888). Bara exakt det meddelandet, och bara medan
+    // sidan navigerar, räknas bort; samma regel som vid omladdningen i språktestet.
+    let navigating = false;
+    tp.on('console', m => {
+      if (m.type() !== 'error' || isFont(m.location()?.url)) return;
+      if (navigating && /^TypeError: Load failed$/.test(m.text())) return;
+      pushConsole(errors, m);
+    });
     tp.on('pageerror', e => errors.push(e.message));
     let slow = false;
     const DELAY = 2500;
@@ -2839,7 +2870,10 @@ async function run(browser, vp) {
         if (slow) await new Promise(res => setTimeout(res, DELAY));
         await r.continue().catch(() => {});
       });
-      const open = async url => { await tp.goto(url); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); };
+      const open = async url => {
+        navigating = true;
+        try { await tp.goto(url); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); } finally { navigating = false; }
+      };
       // Så ser steg 1 ut utan någon gammal adress
       await open(`${BASE}?ny=11#t=forsta-varldskriget`);
       await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
@@ -3088,6 +3122,8 @@ async function run(browser, vp) {
       const A4_HEIGHT = 1039;
       const LANGS = ['sv', 'en', 'de', 'es', 'fr'];
       const TOURS = ['andra-varldskriget', 'vikingatiden-och-varlden'];
+      // Firefox kan skriva familjenamnet med citattecken i document.fonts (#888): jämför utan dem
+      const hasWebFont = fonts => fonts.some(f => f.replace(/"/g, '') === 'Instrument Sans');
       const measure = async (lang, tour, fallback) => {
         const pg = await context.newPage();
         try {
@@ -3113,6 +3149,7 @@ async function run(browser, vp) {
             heights: [...document.querySelectorAll('#print-sheet .print-page')].map(s => Math.ceil(s.getBoundingClientRect().height)),
             h1: document.querySelectorAll('#print-sheet h1').length,
             webFonts: [...document.fonts].filter(f => f.status === 'loaded').map(f => f.family),
+            allFonts: [...document.fonts].map(f => `${f.family}:${f.status}`).join(' '),
             bodyFont: getComputedStyle(document.querySelector('#print-sheet .print-q')).fontFamily,
           }));
           return got;
@@ -3124,7 +3161,7 @@ async function run(browser, vp) {
       const rows = [];
       for (const fallback of [false, true]) {
         // Utan nät (THREE_LOCAL) blockeras webbtypsnitten av den vanliga routen och går inte att mäta
-        if (!fallback && THREE_LOCAL && !(await measure('sv', TOURS[0], false)).webFonts.includes('Instrument Sans')) continue;
+        if (!fallback && THREE_LOCAL && !hasWebFont((await measure('sv', TOURS[0], false)).webFonts)) continue;
         for (const tour of TOURS) {
           // Andra världskriget är det längsta bladet och mäts på alla språk; vikingatiden är cirka 90 px lägre och
           // mäts på det längsta språket (tyska) med webbtypsnitt också på engelska, så att testet inte tar för lång tid
@@ -3134,9 +3171,10 @@ async function run(browser, vp) {
           results.forEach((got, i) => {
             const lang = langs[i];
             if (got.lang !== lang) throw new Error(`språket blev ${got.lang} i stället för ${lang}`);
-            const used = got.webFonts.includes('Instrument Sans');
-            if (!fallback && !used) throw new Error(`${tour} ${lang}: webbtypsnitten laddades inte, så höjden mäter fel typsnitt (${got.bodyFont})`);
-            if (fallback && (used || !got.bodyFont.startsWith('"DejaVu Sans"'))) throw new Error(`${tour} ${lang}: reservmätningen använder fel typsnitt (${got.bodyFont}, webbtypsnitt: ${used})`);
+            const used = hasWebFont(got.webFonts);
+            if (!fallback && !used) throw new Error(`${tour} ${lang}: webbtypsnitten laddades inte, så höjden mäter fel typsnitt (${got.bodyFont}; laddade enligt document.fonts: ${got.webFonts.join(', ') || 'inga'}; alla: ${got.allFonts})`);
+            // WebKit skriver DejaVu Sans, sans-serif utan citattecken, Chromium med (#888): jämför utan dem
+            if (fallback && (used || !got.bodyFont.replace(/"/g, '').startsWith('DejaVu Sans'))) throw new Error(`${tour} ${lang}: reservmätningen använder fel typsnitt (${got.bodyFont}, webbtypsnitt: ${used})`);
             const max = Math.max(...got.heights);
             const lim = limit[fallback ? 'fallback' : 'web'];
             // Andra världskriget har Källdetektiven (#742) och därmed tre blad, vikingatiden har två; varje blad har en h1
