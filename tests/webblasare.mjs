@@ -2677,6 +2677,9 @@ async function run(browser, vp) {
       for (let i = 0; i < 10; i++) await lessonPage.click('#tour-next');
       await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('14 av 14'), null, { timeout: T.step });
       await lessonPage.waitForSelector('#tour-next', { state: 'hidden', timeout: T.step });
+      // Skärmläsaren hör även sista steget och att lektionen är slut (#878)
+      await lessonPage.waitForFunction(() => /sista steget i lektionen/.test(document.getElementById('screen-reader-status')?.textContent ?? ''), null, { timeout: T.step });
+      if (!/14 av 14/.test(await lessonPage.textContent('#screen-reader-status'))) throw new Error('uppläsningen av sista steget saknade stegets nummer');
       await lessonPage.focus('#tour-back');
       await lessonPage.keyboard.press('Escape');
       if (!(await lessonPage.isVisible('#tour-card')) || !(await lessonPage.isVisible('#lesson-band'))) throw new Error('Escape avslutade lektionen');

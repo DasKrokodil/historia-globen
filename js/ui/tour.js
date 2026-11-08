@@ -259,8 +259,12 @@ export class TourPlayer {
     // Pausraden visar turen och läses upp; Fortsätt där går till nästa steg (beforeplay ovan)
     const note = fill(t(this.labels.paused), { title: t(this.tour.title) });
     const say = [this.progress.textContent, t(step.chapter), t(step.title), this.status.hidden ? '' : this.status.textContent, t(step.text), t(step.question)].filter(Boolean).join('. ');
-    if (this.last) timeline.pause();
-    else timeline.pause(note, true, say);
+    if (this.last) {
+      // Slutkortet har ingen pausrad, men skärmläsaren ska höra steget och att det var det sista (#878)
+      timeline.pause();
+      const end = app.lesson?.active ? ui('lesson.endAnnounce', { exit: ui('lesson.exit') }) : ui('tour.endAnnounce');
+      timeline.announce(`${say}. ${end}`);
+    } else timeline.pause(note, true, say);
   }
 
   /** Smal skärm: kortet täcker globens nedre del, så klotet lyfts och stegets plats hamnar mitt i den fria ytan
