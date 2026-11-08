@@ -18,6 +18,8 @@
   --ok: #8fc48e;
   --medal: #10202c;        /* markörernas botten (#242), samma som GROUND i layers/events.js */
   --gold-dot: #f1d98a;     /* markörernas punkt för betydelse */
+  --z-panel: 15;           /* Samtidigt-panelen och andra sidopaneler (#887) */
+  --z-topbar: 17;          /* knapparna överst och deras öppna menyer ligger över sidopanelerna, annars tar panelen emot klicken (#887) */
   --print-ink: #111;       /* utskriften av en lektionstur (#738): svart text på vitt papper */
   --print-paper: #fff;
   --print-line: #666;      /* skrivrader och avdelare på papperet */
@@ -254,7 +256,7 @@ body {
 
 .top-actions {
   position: absolute;
-  z-index: 15;
+  z-index: var(--z-topbar);
   top: calc(env(safe-area-inset-top, 0px) + 18px);
   right: var(--gut-r);
   display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end;
@@ -437,7 +439,7 @@ body {
 /* ---------- panel: "Samtidigt i världen" som utfällbar meny (#112) ---------- */
 .panel {
   position: absolute;
-  z-index: 15;
+  z-index: var(--z-panel);
   top: calc(env(safe-area-inset-top, 0px) + 64px);
   right: var(--gut-r);
   width: var(--panel-w);

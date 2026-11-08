@@ -49,7 +49,8 @@ export function createFocus(app) {
     return false;
   }
 
-  async function startFocus(key) {
+  /** opts.stale(): ger true när något annat har tagit över medan fokuset laddades (en nyare adress eller en tur, #865). */
+  async function startFocus(key, opts = {}) {
     const [type, id] = key.split(':');
     let f;
     if (type === 'war') {
@@ -100,7 +101,7 @@ export function createFocus(app) {
       f = { type, id, title: `${t(r.name)} · ${religionSpan(r, first)}`, short: t(r.name), from, to,
         center: first ? [first._lat, first._lon] : geoCenter([st[0].geometry]), zoom: 1.3 };
     }
-    if (app.lesson?.active) return; // en lektion började medan fokuset laddades (#795): låset går före
+    if (app.lesson?.active || opts.stale?.()) return; // en lektion (#795) eller en tur eller nyare adress (#865) tog över medan fokuset laddades
     // Året stannar om det ligger inom spannet; annars flyttas det till starten och flytten visas (#167)
     const prevYear = timeline.year, prevText = timeline.format(prevYear), keepYear = prevYear >= f.from && prevYear <= f.to;
     if (state.focus) endFocus(false);
