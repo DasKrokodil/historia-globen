@@ -554,5 +554,7 @@
   "range.partial": "partly within the range",
   "range.uncertain": "uncertain date",
   "range.partialCount": ["{count} also continues before or after the range", "{count} also continue before or after the range"],
-  "range.empty": "Nothing in the data during {range}."
+  "range.empty": "Nothing in the data during {range}.",
+  "range.areasAt": "Areas are shown for the year {year}",
+  "range.capped": "The globe shows the {shown} most important of {total} markers. The rest are in the list."
 }

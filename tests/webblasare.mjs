@@ -3144,6 +3144,8 @@ async function run(browser, vp) {
       if (await text('#year-big') !== '1914–1918') throw new Error(`årtalet visar ${await text('#year-big')} i stället för 1914–1918`);
       if (!(await text('#range-bar-text')).startsWith('1914–1918 · ')) throw new Error(`raden visar ${await text('#range-bar-text')}`);
       if (!(await text('#panel-sub')).includes('1914–1918')) throw new Error(`listan säger inte intervallet: ${await text('#panel-sub')}`);
+      // #756: riken visas för slutåret, med en synlig etikett (Riken är på som standard), och intervallet når händelselagret
+      if (!(await text('#range-areas')).includes('1918')) throw new Error(`etiketten säger inte slutåret: ${await text('#range-areas')}`);
       await hashHas(/y2=1918/);
       // 2. Tillbaka till ett år går till slutåret
       await tp.click('#range-exit');

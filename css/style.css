@@ -263,6 +263,8 @@ body {
 }
 .range-bar[hidden] { display: none; }
 .range-exit { min-height: 32px; }
+.range-note { flex-basis: 100%; color: var(--parchment-dim); }
+.range-note[hidden] { display: none; }
 .year-jump.is-range .year-big { font-size: clamp(34px, 5vw, 56px); }
 .range-band {
   position: absolute; top: 11px; height: 14px; border-radius: 4px; pointer-events: none;

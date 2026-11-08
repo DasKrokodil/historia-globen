@@ -4,7 +4,7 @@ import { THREE, latLonToVec3, R } from '../globe.js';
 import { CAT, formatYear, isLongRunning, isVisibleReview, t } from '../model.js';
 import { Z } from './registry.js';
 import { ui } from '../i18n.js';
-import { selectEventsForRange } from '../date-events.js';
+import { selectEventsForRange, markersToHide, DEFAULT_RANGE_MARKER_LIMIT } from '../date-events.js';
 
 // Ikonfamiljen (#242): alla markörer är samma mässingsmedalj. Mörk botten, mässingsring och en inre
 // cirkel i kategorins färg; bara symbolen i mitten (img/icons/, egna teckningar) skiljer. Händelser
@@ -129,7 +129,7 @@ export function entry({ globe, data }) {
     id: 'events', name: ui('layer.events'), group: 'people', menu: { on: true, note: ui('layer.eventsNote') }, layer, z: Z.events,
     enabled: s => s.layers.events,
     update: s => layer.update({ year: s.year, window: s.window, filters: s.layers.events ? s.filters : none,
-      selectedId: s.selectedId, highlight: s.highlight, focusId: s.focusWar?.id, span: s.span, tag: s.tag }),
+      selectedId: s.selectedId, highlight: s.highlight, focusId: s.focusWar?.id, span: s.span, tag: s.tag, range: s.range }),
     marks: s => layer.marks(s),
     frame: (now, s) => layer.frame(now, s.selectedId),
     frameAnimating: s => !s.calm && layer.hasSelected(s.selectedId),
@@ -144,6 +144,9 @@ export class EventsLayer {
     this.state = new Map(); // id -> { activity, inside, dist, when, fought, opacity }
     this.sprites = [];
     this.byId = new Map(); // händelse-id -> sprite
+    // Markörgränsen i intervalläget (#756): en inställning, inte ett fast tal. Infinity stänger av den.
+    this.rangeMarkerLimit = DEFAULT_RANGE_MARKER_LIMIT;
+    this.capped = null; // { shown, total } när gränsen döljer markörer i intervallet, annars null
     for (const e of events) {
       const [lon, lat] = e.location.coordinates;
       e._lat = lat; e._lon = lon;
@@ -191,6 +194,7 @@ export class EventsLayer {
    */
   update({ year, window, filters, selectedId, highlight, focusId = null, span = e => [e.start, e.end], tag = null, range = null }) {
     const visible = [];
+    const lit = []; // markörer som visas, för markörgränsen i intervallet (#756)
     const inRange = range ? new Map(selectEventsForRange(this.events, range.from, range.to).map(h => [h.id, h.partial])) : null;
     for (const s of this.sprites) {
       const e = s.userData.event;
@@ -224,9 +228,23 @@ export class EventsLayer {
       s.userData.active = activity > 0; // klustringen döljer markörer som ingår i ett kluster
       s.material.opacity = opacity;
       s.userData.baseScale = (s.userData.big ? 0.078 : 0.045 + 0.018 * activity);
-      if (activity > 0) this._paint(s);
+      if (activity > 0) { this._paint(s); lit.push({ id: e.id, s, top: !!e.top, major: !!e.major, partial, pinned: e.id === selectedId || highlight.has(e.id) }); }
       // Panelen räknar även gamla öppna spann, men markören ritas först när posten väljs.
       if ((activity > 0 || longRunning) && okFilter) visible.push({ e, activity, inside, dist, longRunning, partial });
+    }
+    // Markörgränsen (#756): i intervalläget visas högst rangeMarkerLimit markörer, de viktigaste först (valda och
+    // markerade, top, major). De som döljs finns kvar i listan (visible) men får ingen markör eller sken på kartan.
+    this.capped = null;
+    if (range) {
+      const hide = markersToHide(lit, this.rangeMarkerLimit);
+      if (hide.size) {
+        for (const { id, s } of lit) {
+          if (!hide.has(id)) continue;
+          s.visible = false; s.userData.active = false; s.userData.activity = 0;
+          this.state.set(id, { ...this.state.get(id), activity: 0 });
+        }
+        this.capped = { shown: lit.length - hide.size, total: lit.length };
+      }
     }
     visible.sort((a, b) => (b.inside - a.inside) || (a.dist - b.dist) || (a.e.start - b.e.start));
     return visible;

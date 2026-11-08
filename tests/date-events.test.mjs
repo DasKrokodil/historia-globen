@@ -2,7 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { selectEventsForRange, selectEventsForYear } from '../js/date-events.js';
+import { selectEventsForRange, selectEventsForYear, markersToHide, DEFAULT_RANGE_MARKER_LIMIT } from '../js/date-events.js';
 
 const events = JSON.parse(readFileSync(new URL('../data/events.json', import.meta.url))).events;
 const ev = (id, start, end, extra = {}) => ({ id, start, end, ...extra });
@@ -72,3 +72,37 @@ for (const [name, from, to, expected] of [
     assert.equal(result.filter(e => e.partial).length, result.filter(e => e.start < from || e.end > to).length);
   });
 }
+
+// Markörgränsen i intervalläget (#756)
+const m = (id, extra = {}) => ({ id, top: false, major: false, partial: false, pinned: false, ...extra });
+
+test('markörgränsen: under gränsen döljs inget, och ingen gräns döljer inget', () => {
+  const items = [m('a'), m('b'), m('c')];
+  assert.equal(markersToHide(items, 3).size, 0);
+  assert.equal(markersToHide(items, 10).size, 0);
+  for (const none of [Infinity, null, undefined, 0, NaN]) assert.equal(markersToHide(items, none).size, 0, `gräns ${none}`);
+});
+
+test('markörgränsen: de viktigaste behålls först (valda, top, major, övriga) och hela före delvis inom intervallet', () => {
+  const items = [m('vanlig-1'), m('delvis', { partial: true }), m('major', { major: true }), m('vanlig-2'), m('top', { top: true }), m('vald', { pinned: true })];
+  assert.deepEqual([...markersToHide(items, 3)].sort(), ['delvis', 'vanlig-1', 'vanlig-2'].sort());
+  // Fyra platser: den första vanliga kommer med (ursprungsordning), den delvis inom intervallet kommer sist
+  assert.deepEqual([...markersToHide(items, 4)].sort(), ['delvis', 'vanlig-2']);
+  assert.deepEqual([...markersToHide(items, 5)], ['delvis']);
+});
+
+test('markörgränsen: valda och markerade döljs aldrig, även när de är fler än gränsen', () => {
+  const items = [m('a', { pinned: true }), m('b', { pinned: true }), m('c', { top: true })];
+  assert.deepEqual([...markersToHide(items, 1)], ['c']);
+});
+
+test('markörgränsen: intervallet 1900–1999 i datan hålls under förinställda gränsen med de viktigaste först', () => {
+  const picked = selectEventsForRange(events, 1900, 1999);
+  const items = picked.map(e => m(e.id, { top: !!e.top, major: !!e.major, partial: e.partial }));
+  const hide = markersToHide(items, 50);
+  assert.equal(items.length - hide.size, Math.min(50, items.length));
+  // Alla top och major som ryms (färre än gränsen) visas
+  const important = items.filter(i => i.top || i.major);
+  if (important.length <= 50) assert.ok(important.every(i => !hide.has(i.id)), 'top och major ska visas före övriga');
+  assert.ok(DEFAULT_RANGE_MARKER_LIMIT >= 250 && DEFAULT_RANGE_MARKER_LIMIT <= 300, 'förinställningen följer prestandarapporten (#752)');
+});
