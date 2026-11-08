@@ -3402,6 +3402,11 @@ async function run(browser, vp) {
     const text = (await page.textContent('#detail .uncertainty-row')).replace(/\s+/g, ' ').trim();
     if (!/Historisk osäkerhet:.*dateringen är ungefärlig/.test(text)) throw new Error(`osäkerhetsraden saknar ungefärlig datering: ${text}`);
     if (!(await page.locator('#detail .review-badge').count())) throw new Error('faktarutan saknar en separat rad för källkontroll');
+    // Kontrollen och osäkerheten skiljs åt med en kort förklaring som syns direkt i rutan (#786)
+    const explain = page.locator('#detail .review-explain');
+    await explain.waitFor({ state: 'visible', timeout: T.step });
+    const explainText = (await explain.textContent()).trim();
+    if (explainText.length < 15 || /^review\./.test(explainText)) throw new Error(`förklaringen under granskningsmärket saknas eller är en rå textnyckel: ${explainText}`);
     // Rubrik och datumrad före bilden (#605), platsen en gång (#607) och markeringen i datumraden (#606)
     const order = await page.evaluate(() => {
       const d = document.getElementById('detail');

@@ -588,6 +588,9 @@ body {
 .review-info::after { content: ""; position: absolute; inset: -9px; } /* större tryckyta i mobil */
 .review-info:hover, .review-info[aria-expanded="true"] { color: var(--card-accent, var(--brass)); }
 .review-info:focus-visible { outline: 2px solid var(--card-accent, var(--brass)); outline-offset: 2px; }
+/* Förklaringen står direkt under märket (#786); Rapportera faktafel flyttas efter den */
+.review-explain { flex: 1 0 100%; order: 1; margin: 0; font: 400 12px/1.4 var(--f-body); color: var(--card-dim, var(--parchment-dim)); }
+.detail-actions .report-btn { order: 2; }
 .review-help {
   flex: 1 0 100%; order: 9; box-sizing: border-box; margin: 2px 0 0; padding: 6px 10px 4px;
   border-left: 2px solid var(--card-accent, var(--brass)); border-radius: 0 6px 6px 0;
@@ -1983,6 +1986,7 @@ details.used-by summary:hover { color: var(--parchment); }
   #detail[data-sheet="half"] .detail-fig { display: none; }
   /* (i) och Rapportera faktafel: 44 px tryckyta utan att ytorna går in i varandra när raden bryts */
   #detail .detail-actions { min-height: 44px; gap: 22px 10px; }
+  #detail .review-explain { margin-top: -12px; }
   #detail .review-info::after { inset: -14px; }
   #detail .report-btn { position: relative; padding: 10px 0; }
   #detail .report-btn::after { content: ""; position: absolute; inset: -6px -4px; }

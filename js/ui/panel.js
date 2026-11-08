@@ -160,11 +160,14 @@ const reportBtn = ({ type, id, label }) => `<button type="button" class="link-bt
 /**
  * Granskningsstatusen nedtill i faktarutan, med en liten (i)-knapp (#310) som fäller ut vad statusarna betyder
  * och en knapp till Om källorna. Förklaringen ligger sist i raden och tar en egen rad.
+ * Under märket står en kort rad som skiljer kontrollen av källorna från hur säker historien är (#786), så att
+ * "två källor stämmer" inte läses som "säker historia" bredvid raden Historisk osäkerhet.
  */
 const reviewRow = (status, subj) => {
   const rv = REVIEW[status] ?? REVIEW.draft;
   return `<span class="review-badge ${rv.cls}" title="${esc(REVIEW_SUBJECT_HELP[subj])}">${esc(reviewLabel(status, subj))}</span>
     <button type="button" class="review-info" data-review-info aria-expanded="false" aria-controls="review-help" aria-label="${esc(ui('review.info'))}" title="${esc(ui('review.info'))}">i</button>
+    <p class="review-explain">${esc(ui('review.explain'))}</p>
     <div id="review-help" class="review-help" hidden>
       <ul>${REVIEW_HELP.map(h => `<li><b>${esc(REVIEW[h.status].label)}:</b> ${esc(h.text)}</li>`).join('')}</ul>
       <button type="button" class="link-btn" data-review-sources>${esc(ui('sources.title'))}</button>

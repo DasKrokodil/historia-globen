@@ -413,6 +413,7 @@
   "image.placeholder": "Image provisoire",
   "image.missing": "L'image n'a pas pu être chargée",
   "review.info": "Que signifie le statut de vérification ?",
+  "review.explain": "La vérification porte sur les sources, pas sur la certitude des faits.",
   "story.why": "Pourquoi la guerre a commencé",
   "story.parties": "Les camps",
   "story.hint": "Appuyez sur ▶ pour suivre la guerre.",
