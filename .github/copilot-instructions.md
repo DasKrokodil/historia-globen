@@ -21,7 +21,7 @@ Rikard (GitHub `DasKrokodil`) äger projektet. Andreas (`Einzbeng`) är medarbet
 Flera agenter hos två personer arbetar parallellt (Claude Code, Codex och du). Ett issue får bara ha en ägare. Etiketterna är gemensamma för alla agenter (beslut 2026-11-06).
 
 1. **Ta bara issues med etiketten `redo`**, eller ett issue som Rikard har pekat ut. Etiketten sätts av Claude Code (dirigenten). Ta dem i milstolpens ordning (lägst versionsnummer först).
-2. **Ta aldrig** issues med `utanför-kod` eller `beslut-krävs`, och inte heller `data`, `faktafel`, `källkontroll`, bilder eller rikesarbete (de är Claude Codes) om Rikard inte ber om det.
+2. **Ta aldrig** issues med `utanför-kod` eller `beslut-krävs`, och inte heller `data`, `faktafel`, `källkontroll`, bilder eller rikesarbete (de är Claude Codes) om Rikard inte ber om det. Undantag (beslut 2026-11-08): issues med etiketten `översättning` får du ta även när de också har `data`, så länge du bara översätter eller granskar och inte skriver eller ändrar fakta.
 3. **Kontrollera att ingen annan har tagit issuet, direkt före du börjar:** etiketten `pågår` (eller en gammal `codex: pågår`, `orkester: pågår`, `copilot: pågår`), en tilldelad person, en öppen pull request som skriver `Closes #N` eller `Del av #N`, eller en gren `*/issue-<N>-*`. Är något av det sant: ta det inte, välj nästa.
 4. **Ta issuet:** skriv en kommentar med konto ("Copilot (DasKrokodil) tar det här"), sätt `pågår`, ta bort `redo` och tilldela issuet personen vars konto du kör på. Läs issuet en gång till direkt efteråt: har någon annan hunnit före gäller den första kommentaren; kom du sist, backa genast (ta bort din tilldelning och skriv en kommentar).
 5. **Bygg på grenen** `copilot/issue-<N>-<kort-namn>`, utgå från senaste `main`.
