@@ -159,6 +159,11 @@ async function waitDiag(pg, label, sink, selector, timeout) {
   }
 }
 
+// Adressen är redo när start() i js/controllers/address.js har kört klart (#888): den skriver då startlägets hash och
+// lyssnar på popstate. Laddningsrutan döljs tidigare (js/main.js), så en hash-ändring som sätts direkt efter den går
+// förlorad i en långsam motor (WebKit i mobil): lyssnaren finns inte än, och startens egen skrivning tar sedan bort ändringen.
+const addressReady = pg => pg.waitForFunction(() => location.hash.length > 1, null, { timeout: 15000 });
+
 async function run(browser, vp) {
   const results = [];
   const errors = [];
@@ -2822,6 +2827,7 @@ async function run(browser, vp) {
       if (!/utanför/.test(await lessonPage.textContent('#jump-msg')) || (await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('lektionslänken efter ett fokus lämnade tidslinjen olåst');
       // Ett fokus som fortfarande laddas när lektionen börjar får inte släppa låset när det blir klart
       await open(`${BASE}?ny=5`);
+      await addressReady(lessonPage);
       slowEmpires = true;
       await lessonPage.evaluate(() => { location.hash = '#y=1942&f=empire:romarriket&c=-30,-120,3'; });
       await lessonPage.waitForTimeout(150);
@@ -2911,6 +2917,7 @@ async function run(browser, vp) {
       const wantYear = await yearOf();
       // Ett fokus som laddas, och en turlänk i samma flik innan det blivit klart
       await open(`${BASE}?ny=12`);
+      await addressReady(tp);
       slow = true;
       await tp.evaluate(() => { location.hash = '#y=1942&f=empire:romarriket&c=-30,-120,3'; });
       await tp.waitForTimeout(150);
