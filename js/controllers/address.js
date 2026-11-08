@@ -24,6 +24,7 @@ export function createAddress(app) {
   const { state, globe, timeline, layers, panel, data } = app;
   const allCategories = [...new Set(data.events.map(e => e.category))].sort();
   let applying = false, written = null, writtenHash = '', seenHash = '';
+  let version = 0; // räknas upp för varje apply(): en som har blivit överspelad av en nyare adress skriver inte längre (#865)
 
   const current = () => toJSON(state, globe.view);
   const position = () => app.tour?.position ?? null;
@@ -45,6 +46,7 @@ export function createAddress(app) {
 
   /** Ställer in vyn efter en läst hash (decodeHash). */
   async function apply(s) {
+    const mine = ++version;
     applying = true;
     try {
       if (s.layers) {
@@ -60,17 +62,18 @@ export function createAddress(app) {
       const focusNow = state.focus ? `${state.focus.type}:${state.focus.id}` : null;
       if (s.focus !== focusNow) {
         if (s.focus && focusExists(s.focus)) {
-          try { await app.startFocus(s.focus); } catch (err) { console.warn('Fokus i länken kunde inte öppnas', err); }
-          // En lektion som började medan fokuset laddades äger året och kameran; den gamla adressen skriver inte över dem (#795)
-          if (app.lesson?.active) return;
+          try { await app.startFocus(s.focus, { stale: () => mine !== version || !!app.tour?.active }); } catch (err) { console.warn('Fokus i länken kunde inte öppnas', err); }
+          // Medan fokuset laddades kan en nyare adress ha tagit över, eller en tur (och därmed en lektion, #795) ha börjat.
+          // Då äger den året och kameran, och den gamla adressen skriver inte över dem (#865)
+          if (mine !== version || app.tour?.active) return;
           timeline.year = s.year; // fokus kan ha flyttat året till sin start
         } else if (state.focus) app.endFocus();
       }
       if (s.camera) { globe.flyTo(s.camera.lat, s.camera.lon, 600); globe.setZoom(s.camera.zoom); }
       app.refresh();
     } finally {
-      applying = false;
-      settle();
+      // En nyare apply() har då redan tagit över (applying och settle är dess)
+      if (mine === version) { applying = false; settle(); }
     }
   }
 

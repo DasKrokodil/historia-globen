@@ -276,7 +276,7 @@ async function start() {
   const focusCtl = createFocus(app);
   // Fokus (att följa ett krig, rike, en religion eller resa) är låst i lektionsläget (#795): inget når det, men
   // en länk i en faktaruta eller en gammal adress ska inte kunna släppa låset heller
-  const startFocus = key => (app.lesson?.active ? undefined : focusCtl.startFocus(key));
+  const startFocus = (key, opts) => (app.lesson?.active ? undefined : focusCtl.startFocus(key, opts));
   Object.assign(app, { startFocus, endFocus: focusCtl.endFocus, founding: focusCtl.founding, focusMenu: focusCtl.focusMenu });
   const render = createRender(app);
   Object.assign(app, { render, refresh: render.refresh, syncNameScale: render.syncNameScale, storyFor: render.storyFor });

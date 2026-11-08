@@ -2702,6 +2702,52 @@ async function run(browser, vp) {
     }
     return 'direktlänk, omladdning och Bakåt/Framåt behåller låset; året låst till 1939–1945; Tab når utgången; slutkortet står kvar; utgången behåller året; utan lektionstur eller tur inget läge';
   });
+  // #865: en gammal adress som väntar på att ett fokus ska laddas får inte skriva över året och kameran när en vanlig
+  // tur har startat under tiden (apply() i js/controllers/address.js). Rikesfilerna görs långsamma, som på ett skolnät.
+  await check('en tur som startar medan ett fokus laddas behåller sitt första år och sin kamera (#865)', async () => {
+    const tp = await context.newPage();
+    const errors = [];
+    tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    tp.on('pageerror', e => errors.push(e.message));
+    let slow = false;
+    const DELAY = 2500;
+    const yearOf = () => tp.textContent('#year-big').then(x => x.trim());
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      await tp.route(u => /data\/empires\//.test(u.href), async r => {
+        if (slow) await new Promise(res => setTimeout(res, DELAY));
+        await r.continue().catch(() => {});
+      });
+      const open = async url => { await tp.goto(url); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); };
+      // Så ser steg 1 ut utan någon gammal adress
+      await open(`${BASE}?ny=11#t=forsta-varldskriget`);
+      await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      const wantYear = await yearOf();
+      // Ett fokus som laddas, och en turlänk i samma flik innan det blivit klart
+      await open(`${BASE}?ny=12`);
+      slow = true;
+      await tp.evaluate(() => { location.hash = '#y=1942&f=empire:romarriket&c=-30,-120,3'; });
+      await tp.waitForTimeout(150);
+      await tp.evaluate(() => { location.hash = '#t=forsta-varldskriget'; });
+      await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      await tp.waitForTimeout(DELAY + 1500); // det gamla fokuset blir klart under tiden
+      slow = false;
+      if (await yearOf() !== wantYear) throw new Error(`steg 1 visade ${await yearOf()} i stället för ${wantYear} när den gamla adressens fokus blev klart`);
+      if (/c=-30,-120,/.test(await tp.evaluate(() => location.hash))) throw new Error('den gamla adressens kamera flyttade globen i turens steg 1');
+      if (await tp.isVisible('#focus-bar')) throw new Error('det gamla fokuset visades ovanpå turen');
+      // Regression: ett vanligt fokus via adressen och Bakåt/Framåt fungerar som förut
+      await open(`${BASE}?ny=13#y=1942&f=war:andra-varldskriget`);
+      await tp.waitForSelector('#focus-bar:not([hidden])', { state: 'attached', timeout: T.load });
+      if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
+    } finally {
+      await tp.close();
+    }
+    return 'turens första år och kamera står kvar när ett gammalt fokus blir klart; vanligt fokus via adressen fungerar';
+  });
   // #862 F7: i mobil öppnades faktarutan bakom turkortet, så att kortets text täckte rubrik, handtag och Stäng.
   // Prövar att faktarutans stängknapp är det som träffas mitt på knappen (inte kortet) och att Stäng fungerar.
   await check('faktarutan öppnas ovanpå lektionskortet och går att stänga (#862)', async () => {
