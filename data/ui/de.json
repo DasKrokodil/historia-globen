@@ -511,6 +511,8 @@
   "lesson.retry": "Erneut versuchen",
   "lesson.next": "Mit einer Aufgabe fortfahren",
   "lesson.hunt": "Gleichzeitigkeitsjagd: {title}",
+  "lesson.endAnnounce": "Das war der letzte Schritt der Lektion. Verwenden Sie „{exit}“, um die Lektion zu verlassen.",
+  "tour.endAnnounce": "Das war der letzte Schritt der Tour.",
   "tour.lessonMeta": "Unterrichtsstunde · Klassen {grades} · {n} Min.",
   "tour.lessonStart": "Als Unterricht starten",
   "tour.lessonStartLabel": "Als Unterricht starten: {title}"
