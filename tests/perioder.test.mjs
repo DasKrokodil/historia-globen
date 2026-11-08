@@ -117,3 +117,20 @@ test('Del 2b: antiken har EDTF som stämmer, tre öppnade källor, nivån source
     assert.match(src.license, /^(CC BY-SA 4\.0|CC0)$/, id);
   }
 });
+
+const industri = doc.divisions.find(d => d.id === 'industrialiseringen');
+
+test('Del 2b: industrialiseringen är en egen indelning, cirka 1760–1840, märkt som förenkling och med omdiskuterade gränser öppet i note', () => {
+  // en.wikipedia (Industrial Revolution), öppnad 2026-11-08: "c. 1760 – c. 1840", "start and end ... debated among historians".
+  assert.ok(industri);
+  for (const key of ['name', 'simplification']) for (const l of LANGS) assert.ok(industri[key][l]?.length > 10, `${key}.${l}`);
+  assert.match(industri.simplification.sv, /förenkling/);
+  const [p] = industri.periods;
+  assert.deepEqual([p.id, p.start, p.end], ['industrialiseringen', 1760, 1840]);
+  assert.equal(p.edtf, `${edtfYear(p.start)}~/${edtfYear(p.end)}~`);
+  assert.deepEqual(p.sources, ['wp-industrial-revolution']);
+  assert.equal(sources.find(s => s.id === 'wp-industrial-revolution').checked, '2026-11-08');
+  assert.equal(p.review, 'source-checked');
+  for (const l of LANGS) { assert.ok(p.name[l].length > 5, `name.${l}`); assert.match(p.note[l], /1760/, `note.${l}`); }
+  assert.match(p.note.sv, /diskuteras/);
+});
