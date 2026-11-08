@@ -2757,6 +2757,9 @@ async function run(browser, vp) {
       for (let i = 0; i < 10; i++) await lessonPage.click('#tour-next');
       await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('14 av 14'), null, { timeout: T.step });
       await lessonPage.waitForSelector('#tour-next', { state: 'hidden', timeout: T.step });
+      // Skärmläsaren hör även sista steget och att lektionen är slut (#878)
+      await lessonPage.waitForFunction(() => /sista steget i lektionen/.test(document.getElementById('screen-reader-status')?.textContent ?? ''), null, { timeout: T.step });
+      if (!/14 av 14/.test(await lessonPage.textContent('#screen-reader-status'))) throw new Error('uppläsningen av sista steget saknade stegets nummer');
       await lessonPage.focus('#tour-back');
       await lessonPage.keyboard.press('Escape');
       if (!(await lessonPage.isVisible('#tour-card')) || !(await lessonPage.isVisible('#lesson-band'))) throw new Error('Escape avslutade lektionen');
@@ -2825,6 +2828,18 @@ async function run(browser, vp) {
       await lessonPage.click('#year-jump');
       await jumpTo('1500');
       if (!/utanför/.test(await lessonPage.textContent('#jump-msg')) || (await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('lektionslänken efter ett fokus lämnade tidslinjen olåst');
+      // "Visa hela globen" återställer inte ett gammalt fokus och byter inte året (#881)
+      await open(`${BASE}?ny=14#y=1916&f=war:forsta-varldskriget`);
+      await lessonPage.waitForSelector('#focus-bar:not([hidden])', { state: 'attached', timeout: T.load });
+      await hashHas('c=');
+      await lessonPage.evaluate(() => { location.hash = '#t=andra-varldskriget&m=lektion'; });
+      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('1 av 14'), null, { timeout: T.step });
+      await lessonPage.click('#lesson-exit');
+      await lessonPage.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
+      await lessonPage.waitForTimeout(1500); // ett återställt fokus laddas och flyttar året efter en stund
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`utgången gav året ${(await lessonPage.textContent('#year-big')).trim()} i stället för lektionens 1939`);
+      if (await lessonPage.isVisible('#focus-bar')) throw new Error('utgången återställde ett gammalt fokus');
       // Ett fokus som fortfarande laddas när lektionen börjar får inte släppa låset när det blir klart
       await open(`${BASE}?ny=5`);
       await addressReady(lessonPage);
@@ -2937,6 +2952,90 @@ async function run(browser, vp) {
     }
     return 'turens första år och kamera står kvar när ett gammalt fokus blir klart; vanligt fokus via adressen fungerar';
   });
+  // #885: läraren får en väg till elev- och lärarbladen i lektionsläget (r=lararen i länken eller Starta som lektion i
+  // Turer-menyn); eleven i den vanliga lektionslänken ser ingen utskriftsknapp. Utskriften rör inte steget.
+  await check('läraren når elev- och lärarbladen i lektionsläget, eleven inte (#885)', async () => {
+    const tp = await context.newPage();
+    const errs = [];
+    tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errs.push(m.text()); });
+    tp.on('pageerror', e => errs.push(e.message));
+    const shown = sel => tp.evaluate(s => { const el = document.querySelector(s); return !!el && el.getClientRects().length > 0; }, sel);
+    const open = async url => { await tp.goto(url); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); await tp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step }); await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step }); };
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      // Eleven i den vanliga lektionslänken: ingen utskriftsknapp någonstans
+      await open(`${BASE}?ny=31#t=andra-varldskriget&m=lektion`);
+      if (await shown('#lesson-print') || await shown('#tour-print')) throw new Error('eleven ser en utskriftsknapp i den vanliga lektionslänken');
+      // Läraren: knappen i bandet, med namn, och utskriften skapar de tre bladen utan att lämna steget
+      await open(`${BASE}?ny=32#t=andra-varldskriget&m=lektion&r=lararen`);
+      if (!(await shown('#lesson-print'))) throw new Error('läraren ser ingen utskriftsknapp i bandet');
+      if (!/Skriv ut/.test((await tp.textContent('#lesson-print')).trim())) throw new Error('knappen saknar ett läsbart namn');
+      await tp.evaluate(() => { window.__prints = 0; window.print = () => { window.__prints++; }; });
+      await tp.click('#tour-next'); await tp.click('#tour-next'); // till steg 3, så att vi ser att steget står kvar
+      const before = { step: (await tp.textContent('#tour-progress')).trim(), year: (await tp.textContent('#year-big')).trim() };
+      await tp.click('#lesson-print');
+      await tp.waitForFunction(() => window.__prints === 1, null, { timeout: T.step });
+      const got = await tp.evaluate(() => ({ pages: document.querySelectorAll('#print-sheet .print-page').length, focus: document.activeElement?.id, hash: location.hash }));
+      if (got.pages < 2) throw new Error(`utskriften gav ${got.pages} blad`);
+      const after = { step: (await tp.textContent('#tour-progress')).trim(), year: (await tp.textContent('#year-big')).trim() };
+      if (after.step !== before.step || after.year !== before.year) throw new Error(`steget ändrades av utskriften: ${before.step}/${before.year} → ${after.step}/${after.year}`);
+      if (got.focus !== 'lesson-print') throw new Error(`fokus gick till ${got.focus} efter utskriften`);
+      // Rollen skrivs aldrig i adressen: Dela och omladdning ger inte eleven knappen
+      if (/[#&]r=/.test(got.hash)) throw new Error(`adressen har fått rollen: ${got.hash}`);
+      if (!/m=lektion/.test(got.hash)) throw new Error('adressen tappade m=lektion');
+      await tp.reload();
+      await tp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.load });
+      if (await shown('#lesson-print')) throw new Error('knappen finns kvar efter omladdning utan r= i adressen');
+      if (errs.length) throw new Error(`konsolfel: ${errs.join('; ')}`);
+    } finally {
+      await tp.close();
+    }
+    return 'eleven ser ingen knapp; r=lararen ger knappen i bandet, tre blad skrivs ut, steget och året står kvar, fokus kommer tillbaka och rollen skrivs aldrig i adressen';
+  });
+  // #930: Kopiera lärarlänk i turkortet (den fria vyn) ger lektionslänken med r=lararen; den hamnar aldrig i adressen,
+  // och länken öppnar lektionen med lärarens utskriftsknapp i bandet.
+  await check('Kopiera lärarlänk ger en länk som öppnar lektionen med utskriftsknappen (#930)', async () => {
+    const cp = await context.newPage();
+    const errs = [];
+    cp.on('pageerror', e => errs.push(e.message));
+    const shown = sel => cp.evaluate(s => { const el = document.querySelector(s); return !!el && el.getClientRects().length > 0; }, sel);
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await cp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await cp.route(u => isFont(u.href), r => r.abort());
+      }
+      const open = async url => { await cp.goto(url); await cp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); await cp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step }); };
+      // En tur utan lärarfält har ingen knapp
+      await open(`${BASE}?ny=51#t=tre-platser-1325`);
+      if (await shown('#tour-copy-teacher')) throw new Error('en tur utan lärarfält har Kopiera lärarlänk');
+      // En lektionstur i den fria vyn har den, och urklippet får lärarlänken
+      await open(`${BASE}?ny=52#t=andra-varldskriget`);
+      if (!(await shown('#tour-copy-teacher'))) throw new Error('en lektionstur saknar Kopiera lärarlänk');
+      if (!/lärarlänk/i.test(await cp.textContent('#tour-copy-teacher'))) throw new Error('knappen har fel namn');
+      await cp.evaluate(() => { window.__copied = null; Object.defineProperty(navigator, 'clipboard', { value: { writeText: async t => { window.__copied = t; } }, configurable: true }); });
+      await cp.click('#tour-copy-teacher');
+      await cp.waitForFunction(() => window.__copied, null, { timeout: T.step });
+      const got = await cp.evaluate(() => ({ copied: window.__copied, status: document.getElementById('tour-print-status').textContent.trim(), statusShown: !document.getElementById('tour-print-status').hidden, role: document.getElementById('tour-print-status').getAttribute('role'), hash: location.hash }));
+      if (!/#t=andra-varldskriget&m=lektion&r=lararen$/.test(got.copied)) throw new Error(`urklippet har fel länk: ${got.copied}`);
+      if (!got.statusShown || !/kopierad/.test(got.status) || got.role !== 'status') throw new Error(`bekräftelsen saknas eller annonseras inte: "${got.status}"`);
+      if (/[#&]r=/.test(got.hash)) throw new Error(`adressen har fått rollen: ${got.hash}`);
+      // Lärarlänken öppnar lektionen med utskriftsknappen
+      await cp.goto(got.copied);
+      await cp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await cp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      if (!(await shown('#lesson-print'))) throw new Error('lärarlänken gav ingen utskriftsknapp i bandet');
+      if (await shown('#tour-copy-teacher')) throw new Error('Kopiera lärarlänk syns i lektionsläget');
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+    } finally {
+      await cp.close();
+    }
+    return 'ingen knapp i en tur utan lärarfält; lektionsturen kopierar länken med r=lararen, bekräftar med role=status och lämnar adressen utan roll; länken öppnar lektionen med utskriftsknappen';
+  });
   // #862 F7: i mobil öppnades faktarutan bakom turkortet, så att kortets text täckte rubrik, handtag och Stäng.
   // Prövar att faktarutans stängknapp är det som träffas mitt på knappen (inte kortet) och att Stäng fungerar.
   await check('faktarutan öppnas ovanpå lektionskortet och går att stänga (#862)', async () => {
@@ -3001,6 +3100,7 @@ async function run(browser, vp) {
       await mp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
       if (!/^Steg 1 av 14$/.test((await mp.textContent('#tour-progress')).trim())) throw new Error('lektionen startade inte vid steg 1');
       if ((await mp.textContent('#year-big')).trim() !== '1939') throw new Error('lektionen börjar inte 1939');
+      if (!(await mp.isVisible('#lesson-print'))) throw new Error('Starta som lektion i menyn ger läraren ingen utskriftsknapp i bandet (#885)');
       await mp.waitForFunction(() => location.hash.includes('m=lektion'), null, { timeout: T.step }).catch(() => { throw new Error('adressen saknar m=lektion efter knappen'); });
       // Den vanliga starten gör fortfarande en vanlig tur utan band
       await mp.click('#lesson-exit');

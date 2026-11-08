@@ -511,7 +511,12 @@
   "lesson.retry": "Intentar de nuevo",
   "lesson.next": "Continuar con una tarea",
   "lesson.hunt": "Caza de la simultaneidad: {title}",
+  "lesson.endAnnounce": "Este fue el último paso de la lección. Use «{exit}» para salir de la lección.",
+  "tour.endAnnounce": "Este fue el último paso del recorrido.",
   "tour.lessonMeta": "Lección · cursos {grades} · {n} min",
   "tour.lessonStart": "Empezar como lección",
+  "tour.teacherLinkCopy": "Copiar enlace para docentes",
+  "tour.teacherLinkCopied": "El enlace para docentes se ha copiado",
+  "tour.teacherLinkPrompt": "Copie el enlace para docentes de esta lección:",
   "tour.lessonStartLabel": "Empezar como lección: {title}"
 }

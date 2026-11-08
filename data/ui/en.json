@@ -511,7 +511,12 @@
   "lesson.retry": "Try again",
   "lesson.next": "Continue with a task",
   "lesson.hunt": "Same-time hunt: {title}",
+  "lesson.endAnnounce": "This was the last step of the lesson. Use “{exit}” to leave the lesson.",
+  "tour.endAnnounce": "This was the last step of the tour.",
   "tour.lessonMeta": "Lesson · years {grades} · {n} min",
   "tour.lessonStart": "Start as a lesson",
+  "tour.teacherLinkCopy": "Copy teacher link",
+  "tour.teacherLinkCopied": "The teacher link is copied",
+  "tour.teacherLinkPrompt": "Copy the teacher link to this lesson:",
   "tour.lessonStartLabel": "Start as a lesson: {title}"
 }

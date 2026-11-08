@@ -92,6 +92,31 @@ test('ett elevuppdrag i adressen: u skrivs och läses (#741)', async () => {
   assert.equal(decodeMission('#u=Fel!'), null);
 });
 
+test('lärarens väg: r=lararen läses men skrivs aldrig i adressen (#885)', async () => {
+  const { decodeRole, decodeMode } = await import('../js/url-state.js');
+  const tour = { id: 'andra-varldskriget', step: null };
+  assert.equal(decodeRole('#t=andra-varldskriget&m=lektion&r=lararen'), 'lararen');
+  assert.equal(decodeMode('#t=andra-varldskriget&m=lektion&r=lararen'), 'lektion');
+  for (const bad of ['#t=x&m=lektion', '#r=larare', '#r=Lararen', '#r=', '', null, undefined]) assert.equal(decodeRole(bad), null, String(bad));
+  // Adressen som skrivs har ingen roll, så att Dela och en omladdning aldrig ger eleven utskriftsknappen
+  assert.ok(!encodeHash(base, [], tour, null, 'lektion').includes('r='));
+});
+
+test('lärarlänken är lektionslänken plus r=lararen, och elevlänken har ingen roll (#930)', async () => {
+  globalThis.location = { origin: 'https://exempel.se', pathname: '/' };
+  const { tourLink, teacherLink } = await import('../js/ui/print-sheet.js');
+  const { decodeRole, decodeMode, decodeTour } = await import('../js/url-state.js');
+  const tour = { id: 'andra-varldskriget' };
+  assert.equal(tourLink(tour), 'https://exempel.se/#t=andra-varldskriget&m=lektion');
+  assert.equal(teacherLink(tour), 'https://exempel.se/#t=andra-varldskriget&m=lektion&r=lararen');
+  const hash = '#' + teacherLink(tour).split('#')[1];
+  assert.equal(decodeRole(hash), 'lararen');
+  assert.equal(decodeMode(hash), 'lektion');
+  assert.equal(decodeTour(hash).id, 'andra-varldskriget');
+  assert.equal(decodeRole('#' + tourLink(tour).split('#')[1]), null);
+  delete globalThis.location;
+});
+
 test('lektionsläget i adressen: m=lektion hör till en tur (#795)', async () => {
   const { decodeMode, decodeTour } = await import('../js/url-state.js');
   const tour = { id: 'andra-varldskriget', step: 'polen' };
