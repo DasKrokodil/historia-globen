@@ -74,7 +74,7 @@ Ingången för alla ovan. Kommer från en delad länk eller sökning, har inget 
 
 #### G. Bidragsgivare och granskare
 
-Rapporterar faktafel eller föreslår innehåll via faktarutans länk eller förslagsformuläret (avstängt som standard i production). Behöver en väg som inte kräver GitHub-konto och en rimlig förväntan på svar.
+*Välkomna att föreslå och hjälpa till, men projektet är DasKrokodils och han bestämmer ensam (se [01](01-vision-och-mal.md#hur-projektet-styrs)).* Rapporterar faktafel eller föreslår innehåll via faktarutans länk eller förslagsformuläret (avstängt som standard i production). Behöver en väg som inte kräver GitHub-konto och en rimlig förväntan på svar.
 
 #### H. Besökare med funktionsnedsättning
 
@@ -108,7 +108,7 @@ Vem påverkas av, eller kan påverka, projektet. "Vad de bryr sig om" är det vi
 | **Översättare och språkgranskare** | Kvalitet i fyra språk | Rätt betydelse, termer, tilltal | Ordlistan, översättningsregeln, granskning vid release |
 | **Plattformar** (GitHub, Cloudflare Pages, jsDelivr/three.js) | Drift och leverans | Villkor, tillgänglighet, kostnad | Ett enda externt beroende; no-cache-regler; rollback |
 | **Framtida hårdvarupartner** | Fysisk glob (parkerad) | Bildformat, upplösning, läsbarhet | Inget nu; den platta bilden finns kvar |
-| **Kommande bidragsgivare / öppen källkod-communityt** | Potentiella medhjälpare | Begriplig dokumentation, licens | README, CONTENT-LICENSE, dessa dokument |
+| **Kommande bidragsgivare / öppen källkod-communityt** | Potentiella medhjälpare; **föreslår, bestämmer inte** (beslut 2026-11-08) | Begriplig dokumentation, licens | README (Bidra), CONTENT-LICENSE, dessa dokument. Förslag välkomnas, men DasKrokodil bestämmer ensam |
 
 ## Konflikter mellan intressenter (att hålla koll på)
 

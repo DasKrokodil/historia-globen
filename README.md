@@ -193,6 +193,8 @@ Hur kontrollen går till står i [docs/kallor.md](docs/kallor.md).
 
 Hittar du ett faktafel, öppna ett issue och ange vilken uppgift det gäller och en källa som visar det rätta. Nya händelser tas emot på samma sätt: med källa, plats och årtal.
 
+**Åsikter, förslag och hjälp är välkomna, och det är roligt när något engagerar.** Men det här är DasKrokodils hobbyprojekt, och det ska inte råda någon tvekan om det: DasKrokodil bestämmer vad som görs, vad som tas med och vad som inte görs, och slår själv ihop alla ändringar. Ett förslag eller en pull request är ett erbjudande, inte ett krav, och det kan få ett nej utan närmare motivering. Det gäller också om det är välgjort. Vill du ha något annorlunda är du välkommen att göra en egen kopia (koden är öppen under GPL-3.0).
+
 ## Licenser
 
 Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna](THIRD-PARTY-NOTICES.md) och de maskinläsbara manifesten `data/licenses.json` och `images/licenses.json`.

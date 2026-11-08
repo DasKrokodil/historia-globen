@@ -60,6 +60,16 @@ Mål med tecken att leta efter. Inget statistikskript körs på sidan (beslut 20
 - **Ingen fysisk glob i fokus nu.** Den ursprungliga idén parkeras; en nedskalad variant kan göras i framtiden. Webben går först, och läsbarhet på mobil och surfplatta går före hänsyn till en framtida hårdvara.
 - **Ingen uppgift utan källa**, och ingen avbildning av profeten Muhammed.
 
+## Hur projektet styrs
+
+**Det här är DasKrokodils hobbyprojekt, och det ska inte råda någon tvekan om det** (beslut 2026-11-08).
+
+- **Input och hjälp är välkomna.** Åsikter, förslag och bidrag tas emot gärna, och det är roligt när något engagerar.
+- **Men ingen annan styr.** DasKrokodil bestämmer vad som görs, vad som tas med och vad som inte görs, och slår själv ihop allt. Ett förslag är ett erbjudande, inte ett krav, och ett nej behöver inte motiveras.
+- **Medarbetare och agenter** (Einzbeng, Claude Code, Codex, Copilot) arbetar *åt* projektet, enligt arbetssättet i CLAUDE.md; de bestämmer inte inriktningen.
+- **Den som vill ha något annorlunda** kan göra en egen kopia (koden är öppen).
+- **Texten för utomstående** står under Bidra i README.
+
 ## Redaktionella linjer
 
 - **Ensam redaktör.** DasKrokodil gör urvalet själv, utan en redaktion. Det ska framgå öppet: globen visar ett **urval**, och saker kommer med utan att redaktören tar ställning i varje fråga. Det är inte ett ställningstagande att något finns med.
