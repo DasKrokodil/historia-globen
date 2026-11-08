@@ -4,7 +4,9 @@ Skapad 2026-11-07 (#808). Gäller `es` och `fr`; tyskan har egna regler i issuen
 
 Beslutet om tilltal står i [docs/beslut/2026-11-07-artigt-tilltal.md](beslut/2026-11-07-artigt-tilltal.md).
 
-## 1. Tilltal (beslut Rikard 2026-11-07)
+## 1. Tilltal (beslut Rikard 2026-11-07, preciserat 2026-11-08)
+
+**Undantag sedan 2026-11-08:** texter för elever upp till 13 år (Samtidighetsjakten, lektion 2 åk 4–6 och uppdragstexterna) har du-form i alla språk (`du`, `tú`, `tu`). Texter för äldre elever (lektion 1 åk 7–9) och för vuxna läsare har artigt tilltal enligt tabellen. Se [beslutet](beslut/2026-11-08-tilltal-efter-alder.md).
 
 Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 
