@@ -117,6 +117,11 @@ function failNote(e) {
   return [lines[0], waiting && `(${waiting})`, here.length && `[rad ${here.join(', ')}]`].filter(Boolean).join(' ');
 }
 
+// En hämtning som avbryts av en omladdning eller navigering skrivs som ett fel i konsolen: WebKit "TypeError: Load failed"
+// (#702), Firefox "TypeError: NetworkError when attempting to fetch resource." (#888). Bara exakt de meddelandena, och bara
+// medan sidan navigerar, räknas bort; de syns inte för en besökare som lämnar sidan.
+const ABORTED_FETCH = /^TypeError: (Load failed|NetworkError when attempting to fetch resource\.)$/;
+
 // Konsolmeddelanden (#888): när console.error får ett objekt (till exempel ett Error) ger Firefox texten
 // "JSHandle@object" i m.text(), och loggen visade bara det. Texten sparas först som förut, och när meddelandet
 // innehåller ett handtag byts den ut mot en läsbar rad: felets namn och meddelande, eller objektet som JSON.
@@ -164,7 +169,7 @@ async function run(browser, vp) {
     // En hämtning som avbryts av omladdningen skrivs som ett fel i konsolen: WebKit "TypeError: Load failed" (#702),
     // Firefox "TypeError: NetworkError when attempting to fetch resource." (#888). Bara exakt de meddelandena, och bara
     // medan språktestet laddar om sidan, räknas bort. Övriga fel visar vilken kontroll som pågick när de kom.
-    if (reloading && /^TypeError: (Load failed|NetworkError when attempting to fetch resource\.)$/.test(m.text())) return;
+    if (reloading && ABORTED_FETCH.test(m.text())) return;
     const during = currentCheck;
     pushConsole(errors, m, t => `konsol: ${t}${url ? ` (${url})` : ''}${during ? ` [under: ${during.slice(0, 60)}]` : ''}`);
   });
@@ -2626,7 +2631,7 @@ async function run(browser, vp) {
     let navigating = false; // som i #865-kontrollen: bara "TypeError: Load failed" under navigering räknas bort (#888)
     lessonPage.on('console', m => {
       if (m.type() !== 'error' || isFont(m.location()?.url)) return;
-      if (navigating && /^TypeError: Load failed$/.test(m.text())) return;
+      if (navigating && ABORTED_FETCH.test(m.text())) return;
       pushConsole(lessonErrors, m);
     });
     lessonPage.on('pageerror', e => lessonErrors.push(e.message));
@@ -2642,6 +2647,8 @@ async function run(browser, vp) {
         await lessonPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       } finally { navigating = false; }
     };
+    // reload, Bakåt och Framåt avbryter också hämtningar som pågår (#888): markera navigeringen som i open()
+    const nav = async go => { navigating = true; try { return await go(); } finally { navigating = false; } };
     const hashHas = text => lessonPage.waitForFunction(t => location.hash.includes(t), text, { timeout: T.step });
     const locked = async () => {
       await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
@@ -2699,7 +2706,7 @@ async function run(browser, vp) {
       await lessonPage.click('#tour-next');
       await hashHas('s=storbritannien');
       await hashHas('m=lektion');
-      await lessonPage.reload();
+      await nav(() => lessonPage.reload());
       await lessonPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await locked();
       await lessonPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
@@ -2707,10 +2714,10 @@ async function run(browser, vp) {
       // Bakåt och Framåt släpper inte låset
       await lessonPage.click('#tour-next');
       await hashHas('s=barbarossa');
-      await lessonPage.goBack();
+      await nav(() => lessonPage.goBack());
       await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('3 av 14'), null, { timeout: T.step });
       await locked();
-      await lessonPage.goForward();
+      await nav(() => lessonPage.goForward());
       await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('4 av 14'), null, { timeout: T.step });
       await locked();
       // Tangentbordet når "Visa hela globen" (bandet ligger före kortet i tabbordningen)
@@ -2837,7 +2844,7 @@ async function run(browser, vp) {
       if (await lessonPage.isVisible('#hunt')) throw new Error('en jakt som pågick stod kvar när lektionen började');
       if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('året flyttades av jakten i lektionsläget');
       // Bakåt ut ur lektionen öppnar jakten igen
-      await lessonPage.goBack();
+      await nav(() => lessonPage.goBack());
       await lessonPage.waitForSelector('#hunt:not([hidden])', { state: 'attached', timeout: T.step });
       if (await lessonPage.isVisible('#lesson-band')) throw new Error('Bakåt lämnade bandet kvar');
       if (lessonErrors.length) throw new Error(`lektionsläget gav konsolfel: ${lessonErrors.join('; ')}`);
@@ -2857,7 +2864,7 @@ async function run(browser, vp) {
     let navigating = false;
     tp.on('console', m => {
       if (m.type() !== 'error' || isFont(m.location()?.url)) return;
-      if (navigating && /^TypeError: Load failed$/.test(m.text())) return;
+      if (navigating && ABORTED_FETCH.test(m.text())) return;
       pushConsole(errors, m);
     });
     tp.on('pageerror', e => errors.push(e.message));
