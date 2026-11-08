@@ -548,6 +548,8 @@
   "range.bounds": "Choose years between {min} and {max}.",
   "range.same": "From and to are the same year. Choose two different years, or use the year jump for a single year.",
   "range.blocked": "A time range cannot be chosen during a tour, a lesson or the Simultaneity hunt. End it first.",
+  "range.preset.clipped": "starts before the start of the timeline",
+  "range.preset.today": "to today",
   "range.at": "during {range}",
   "range.segment": "Time range",
   "range.count": ["{count} event", "{count} events"],

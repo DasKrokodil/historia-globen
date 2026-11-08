@@ -40,6 +40,7 @@ js/date-events.js     återanvändbart urval av händelser för år eller exakt 
 js/state.js           det gemensamma tillståndet (år, fokus, lager, filter) som lagren läser (#338), med åtgärder, prenumeration och JSON (#403), och lägeskontraktet (#893)
 js/globe.js           3D-globen, kamera, styrning, ekvirektangulära canvasar, bågar
 js/globe-detail.js    skarpt utsnitt av kartan vid inzoomning: samma ritning i högre upplösning för det som syns
+js/period-range.js    epok som intervall: periodToRange klipper vid tidslinjens början och går till i dag för öppna perioder (#965)
 js/timeline.js        tidsreglage, segmenterad skala, uppspelning
 js/layers/registry.js lagerregistret: ritordning, Lager-menyn, uppdatering och toning (#338)
 js/layers/index.js    listan över lagren i Lager-menyns ordning; ett nytt lager läggs till här (#338)
@@ -71,7 +72,7 @@ data/handelser/       händelserna, en redigeringsfil per period (fkr.json, 1-14
 data/events.json      alla händelser i en fil, byggs av tools/dela_data.py ur data/handelser/; redigeras inte
 data/funfacts.json    fun facts (kopplade till händelse-id)
 data/missuppfattningar.json vanliga historiska missuppfattningar: påstående, vad källorna säger och ursprung (#838); visas i faktarutan för händelserna i `events`
-data/perioder.json    epoker i två indelningar: Lgr22 (fem perioder) och Nordens forntid (stenålder, bronsålder, järnålder enligt Historiska museet), med årtal, källa och förenklingstext; läses inte av appen än (#845, #476)
+data/perioder.json    epoker i två indelningar: Lgr22 (fem perioder) och Nordens forntid (stenålder, bronsålder, järnålder enligt Historiska museet), med årtal, källa och förenklingstext; epokknapparna i intervallformuläret läser den (#845, #965)
 data/intro.json       introduktionens steg och referenser till befintliga händelser/fun facts (#363)
 data/uppdrag.json     elevuppdragen (Samtidighetsjakten): år, spann, antal världsdelar och texter (#741)
 data/turer/           guidade turer: index.json och en fil per tur (#47, beslut 2026-11-01)

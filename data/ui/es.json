@@ -548,6 +548,8 @@
   "range.bounds": "Elija años entre {min} y {max}.",
   "range.same": "Desde y hasta son el mismo año. Elija dos años distintos o use el salto de año para un solo año.",
   "range.blocked": "No se puede elegir un intervalo de tiempo durante un recorrido, una lección o la búsqueda de simultaneidad. Termínelo primero.",
+  "range.preset.clipped": "comienza antes del inicio de la línea de tiempo",
+  "range.preset.today": "hasta hoy",
   "range.at": "durante {range}",
   "range.segment": "Intervalo de tiempo",
   "range.count": ["{count} acontecimiento", "{count} acontecimientos"],
