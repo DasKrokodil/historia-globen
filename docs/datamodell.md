@@ -136,7 +136,7 @@ Namngivna epoker som data, så att tidsålderstext, bildstilar och snabbknappar 
 ```json
 { "id": "lgr22", "name": { "sv": "Skolans epoker (enligt Lgr22)", "en": "…" }, "simplification": { "sv": "Indelningen … är en förenkling …" },
   "periods": [{ "id": "norden-800-1500", "start": 800, "end": 1500, "edtf": "0800~/1500~", "grades": "4–6",
-    "name": { "sv": "Kulturmöten och statsbildning i Norden", "en": "…" }, "sources": ["skolverket-lgr22-historia"], "review": "source-checked" }] }
+    "name": { "sv": "Norden, cirka 800–1500", "en": "…" }, "sources": ["skolverket-lgr22-historia"], "review": "source-checked" }] }
 ```
 
 | Fält | Betydelse |
@@ -147,7 +147,7 @@ Namngivna epoker som data, så att tidsålderstext, bildstilar och snabbknappar 
 | `start`, `end` | Astronomiskt år (som `events`). En period som pågår till nutid har `open: true` i stället för `end` |
 | `edtf` | Osäkerhet som i `events`: `0800~/1500~` (ungefärliga gränser) och `1900~/..` för en öppen period |
 | `grades` | Valfritt: årskurser i läroplanen (`4–6`, `7–9`) |
-| `name` | Namn på fem språk. I `lgr22` är det Skolverkets egna rubriker (svenska) och deras översättningar; en översättning ändrar aldrig årtalen |
+| `name` | Namn på fem språk. I `lgr22` är det våra egna korta formuleringar (inte Skolverkets rubriker, `docs/beslut/2026-11-08-epoknamn-egna-formuleringar.md`) med årtalen i namnet; en översättning ändrar aldrig årtalen |
 | `sources`, `review` | Som för händelser. Gränserna står i läroplanstexten; ingen text är kopierad |
 
 **`lgr22` (Del 1):** fem epoker, med de ungefärliga årtal som Skolverkets kursplan i historia (Lgr22, gäller från 2022-07-01) anger i centralt innehåll: cirka 800–1500, 1500–1800 och 1800–1900 (åk 4–6, Norden) och cirka 1850–1950 och 1900 till nutid (åk 7–9). De överlappar eftersom de hör till olika stadier, och det finns ingen epok före år 800. **Del 2** (stenålder, bronsålder, järnålder, antiken m.fl., som läroplanen nämner utan årtal) läggs inte in förrän en andra källa har öppnats och DasKrokodil har godkänt den.
