@@ -3,6 +3,7 @@
 import { buildAreaCurve } from './areacurve.js';
 import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, isVisibleReview, needDetails, misconceptionsFor } from '../model.js';
 import { ui, LANG } from '../i18n.js';
+import { MIN_YEAR } from '../timeline.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 // Gränssnittets texter hämtas med ui() ur data/ui/<språk>.json (#670). Ett antal [en, flera] väljs med plural().
@@ -95,6 +96,9 @@ function sourceLink(source, target = false) {
   return `<li${target}><a href="${esc(source.url)}" target="_blank" rel="noopener">${esc(source.title)}</a></li>`;
 }
 
+/** Börjar händelsen före tidslinjens första år (#942)? Reglaget kan då inte stå på dess första år. */
+export const beforeTimelineStart = e => Number.isFinite(e?.start) && e.start < MIN_YEAR;
+
 /** Källornas kontrollnivå och den historiska osäkerheten är olika saker (#364). */
 export const uncertaintyRow = (e, copy = {}, evidence = '') => {
   const reasons = [];
@@ -106,13 +110,17 @@ export const uncertaintyRow = (e, copy = {}, evidence = '') => {
   if (sourcesDisagree(e)) reasons.push(t(copy.sourcesDisagree));
   return reasons.length ? `<p class="uncertainty-row" id="detail-uncertainty" tabindex="-1"><b>${esc(t(copy.label))}:</b> ${esc([...new Set(reasons)].join(' · '))}${evidence}</p>` : '';
 };
+/** Är händelsens datum osäkert (ungefärligt, osäkert, grov precision eller oense källor), med samma regler som uncertaintyRow? */
+export const uncertainDate = e => {
+  const edtf = e.edtf ?? '';
+  return edtf.includes('~') || edtf.includes('?') || (e.precision != null && e.precision < 9) || sourcesDisagree(e);
+};
 /**
  * Kort markering i datumraden (#606) efter det som är osäkert: datumet (ungefärligt, osäkert, grov precision eller
  * oense källor, samma regler som uncertaintyRow) eller platsen. Den leder till raden Historisk osäkerhet.
  */
 const uncertaintyMark = (e, what, copy = {}) => {
-  const edtf = e.edtf ?? '';
-  const date = edtf.includes('~') || edtf.includes('?') || (e.precision != null && e.precision < 9) || sourcesDisagree(e);
+  const date = uncertainDate(e);
   if (!(what === 'date' ? date : !!e.locationPrecision)) return '';
   return ` <button type="button" class="unc-mark" data-unc-mark aria-controls="detail-uncertainty" title="${esc(t(copy.markTitle))}">${esc(t(copy.mark))}</button>`;
 };
@@ -160,11 +168,14 @@ const reportBtn = ({ type, id, label }) => `<button type="button" class="link-bt
 /**
  * Granskningsstatusen nedtill i faktarutan, med en liten (i)-knapp (#310) som fäller ut vad statusarna betyder
  * och en knapp till Om källorna. Förklaringen ligger sist i raden och tar en egen rad.
+ * Under märket står en kort rad som skiljer kontrollen av källorna från hur säker historien är (#786), så att
+ * "två källor stämmer" inte läses som "säker historia" bredvid raden Historisk osäkerhet.
  */
 const reviewRow = (status, subj) => {
   const rv = REVIEW[status] ?? REVIEW.draft;
   return `<span class="review-badge ${rv.cls}" title="${esc(REVIEW_SUBJECT_HELP[subj])}">${esc(reviewLabel(status, subj))}</span>
     <button type="button" class="review-info" data-review-info aria-expanded="false" aria-controls="review-help" aria-label="${esc(ui('review.info'))}" title="${esc(ui('review.info'))}">i</button>
+    <p class="review-explain">${esc(ui('review.explain'))}</p>
     <div id="review-help" class="review-help" hidden>
       <ul>${REVIEW_HELP.map(h => `<li><b>${esc(REVIEW[h.status].label)}:</b> ${esc(h.text)}</li>`).join('')}</ul>
       <button type="button" class="link-btn" data-review-sources>${esc(ui('sources.title'))}</button>
@@ -299,7 +310,12 @@ export class Panel {
     if (open) this.onOpen();
   }
 
-  /** labels (valfritt): { at, bare, within } i stället för "år 1879", "1879" och "±10 år", till exempel i fokusläget för korta krig (#204). */
+  /**
+   * labels (valfritt): { at, bare, within } i stället för "år 1879", "1879" och "±10 år", till exempel i fokusläget för korta krig (#204).
+   * labels.range (#755): listan gäller ett tidsintervall. Händelser som bara delvis ligger inom det märks "delvis inom
+   * intervallet", och osäkra datum (samma regler som uncertaintyRow) märks "osäkert datum", så att mängden inte ser
+   * mer exakt ut än den är (förstudien till #569).
+   */
   render(visible, year, window, eventsOn = true, labels = null) {
     if (!eventsOn) {
       this.count.textContent = '0';
@@ -333,8 +349,15 @@ export class Panel {
     const parts = [];
     parts.push(inside ? plural('panel.inside', inside, { at }) : ui('panel.noneAt', { at }));
     if (near) parts.push(ui('panel.near', { count: near, within }));
+    const range = !!labels?.range;
+    const partialCount = range ? visible.filter(v => v.partial).length : 0;
+    if (partialCount) parts.push(plural('range.partialCount', partialCount, { count: partialCount }));
+    // I intervallet finns inget "nära": raden säger hur många som pågår under intervallet och hur många som sticker ut
+    if (range) this.toggle.setAttribute('aria-label', `${parts.join(', ')}.`);
     const filtersOff = emptyCause({ visibleCount: visible.length, filters: this.filters }) === 'filters';
-    this.sub.textContent = visible.length ? `${summaryText}. ${parts.join(', ')}.` : ui(filtersOff && !(this.tag && this.tags[this.tag]) ? 'panel.filtersOff' : 'panel.empty', { within, at: bare });
+    this.sub.textContent = visible.length ? (range ? `${parts.join(', ')}.` : `${summaryText}. ${parts.join(', ')}.`)
+      : range && !filtersOff ? ui('range.empty', { range: bare })
+      : ui(filtersOff && !(this.tag && this.tags[this.tag]) ? 'panel.filtersOff' : 'panel.empty', { within, at: bare });
     const tagCopy = this.tag && this.tags[this.tag];
     if (!visible.length && tagCopy) {
       // Vyn med tagg (#555): säg om ingen händelse har taggen ännu, eller om det bara är tomt kring året
@@ -371,10 +394,12 @@ export class Panel {
     const old = [];
     for (const v of visible) (v.longRunning ? old : groups.get(v.e._region ??= region(v.e._lat, v.e._lon))).push(v);
     const rank = (a, b) => (b.e.top - a.e.top) || (b.e.major - a.e.major) || (b.inside - a.inside) || (Math.abs(a.e.start - year) - Math.abs(b.e.start - year)) || t(a.e.title).localeCompare(t(b.e.title), LANG);
-    const row = ({ e, inside }, name = '') => `
-          <li class="event-item${inside ? '' : ' is-near'}${e.id === this.selectedId ? ' is-selected' : ''}">
-            <button type="button" class="event-btn" data-id="${esc(e.id)}" aria-label="${esc(`${formatEventTime(e)}, ${t(e.title)}${name ? `, ${regionName(name)}` : ''}, ${reviewLabel(e.review, 'Händelsen')}`)}"${e.id === this.selectedId ? ' aria-current="true"' : ''}>
-              <span class="dot" style="background:${CAT[e.category]?.color}"></span><span class="ttl">${esc(t(e.title))}</span><span class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))}</span>
+    // I intervallet (#755): "delvis inom intervallet" och "osäkert datum" efter tiden och platsen
+    const notes = (e, partial) => range ? [partial && ui('range.partial'), uncertainDate(e) && ui('range.uncertain')].filter(Boolean) : [];
+    const row = ({ e, inside, partial }, name = '') => `
+          <li class="event-item${inside ? '' : ' is-near'}${partial ? ' is-partial' : ''}${e.id === this.selectedId ? ' is-selected' : ''}">
+            <button type="button" class="event-btn" data-id="${esc(e.id)}" aria-label="${esc([`${formatEventTime(e)}, ${t(e.title)}${name ? `, ${regionName(name)}` : ''}`, ...notes(e, partial), reviewLabel(e.review, 'Händelsen')].join(', '))}"${e.id === this.selectedId ? ' aria-current="true"' : ''}>
+              <span class="dot" style="background:${CAT[e.category]?.color}"></span><span class="ttl">${esc(t(e.title))}</span><span class="meta">${esc([formatEventTime(e), t(e.place), ...notes(e, partial)].join(' · '))}</span>
             </button>
           </li>`;
     this.list.innerHTML = [...groups].filter(([, vs]) => vs.length).map(([name, vs]) => {
@@ -615,6 +640,7 @@ export class Panel {
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <h3>${esc(t(e.title))}</h3>
       <div class="meta">${esc(formatEventTime(e))}${evidence.marker('date')}${unc ? uncertaintyMark(e, 'date', this.uncertainty) : ''} · ${esc(t(e.place))}${evidence.marker('location')}${unc ? uncertaintyMark(e, 'place', this.uncertainty) : ''} · ${esc(t(CAT[e.category]?.name))}</div>
+      ${beforeTimelineStart(e) ? `<p class="scale-note">${esc(ui('detail.beforeScale', { year: formatYear(MIN_YEAR) }))}</p>` : ''}
       ${tagMarks(e, this.tags)}
       ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(ui('detail.showPlaceLabel', { place: t(e.place) }))}"><span class="place-pin" aria-hidden="true"></span><span class="place-go">${esc(ui('detail.showPlace'))}</span></button>` : ''}
       ${figure(e, this.srcById, evidence.marker('image'))}

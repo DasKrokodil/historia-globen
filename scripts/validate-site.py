@@ -416,6 +416,37 @@ if misc_path.is_file():
                 if s not in src_ids:
                     err(f'data/missuppfattningar.json ({mid}): källan {s} finns inte i sources.json')
 
+# 8d. Perioder och epoker (#845, #476): filen läses inte av appen än; här kontrolleras den ur repot.
+per_path = ROOT / 'data' / 'perioder.json'
+if per_path.is_file():
+    try:
+        per = json.loads(per_path.read_text(encoding='utf-8'))
+    except ValueError as e:
+        per = None
+        err(f'data/perioder.json: går inte att läsa ({e})')
+    if per is not None:
+        validate_schema_file('data/perioder.json', per, 'perioder.schema.json')
+        seen_div, seen_per = set(), set()
+        for d in per.get('divisions', []):
+            did = d.get('id', '?')
+            if did in seen_div:
+                err(f'data/perioder.json: indelningen {did} finns två gånger')
+            seen_div.add(did)
+            for p in d.get('periods', []):
+                pid = p.get('id', '?')
+                if (did, pid) in seen_per:
+                    err(f'data/perioder.json ({did}/{pid}): id finns två gånger')
+                seen_per.add((did, pid))
+                if p.get('open') and 'end' in p:
+                    err(f'data/perioder.json ({did}/{pid}): en öppen period (open) ska inte ha end')
+                if not p.get('open') and 'end' not in p:
+                    err(f'data/perioder.json ({did}/{pid}): saknar end (eller open: true)')
+                if 'end' in p and isinstance(p.get('start'), int) and p['end'] < p['start']:
+                    err(f'data/perioder.json ({did}/{pid}): end ligger före start')
+                for src in p.get('sources', []):
+                    if src not in src_ids:
+                        err(f'data/perioder.json ({did}/{pid}): källan {src} finns inte i sources.json')
+
 # 9. Krigets riken (#76): empires är grupp-id i data/empires/index.json
 group_ids = {g.get('id') for g in (empires or {}).get('groups', [])}
 for e in events['events']:

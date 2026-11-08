@@ -133,3 +133,26 @@ test('lektionsläget i adressen: m=lektion hör till en tur (#795)', async () =>
   // Hashen går fortfarande att läsa som vy
   assert.equal(decodeHash(hash).year, 1325);
 });
+
+// Tidsintervallet (#755): y2 är slutåret
+test('ett tidsintervall står som y och y2, och en länk utan y2 är ett år som förut', () => {
+  const hash = encodeHash({ ...base, yearEnd: 1418 });
+  assert.equal(hash, '#y=1325&y2=1418&c=34,-50,1.6&l=areas,events&k=krig,kultur');
+  assert.equal(decodeHash(hash).yearEnd, 1418);
+  assert.equal(decodeHash('#y=-499&y2=-399').yearEnd, -399, 'före vår tideräkning');
+  assert.equal(decodeHash('#y=1325').yearEnd, undefined, 'utan y2 är det ett år');
+  assert.equal(encodeHash(base).includes('y2='), false);
+  // Ett slutår som inte ligger efter året, eller inte är ett tal, tas bort; året gäller ändå
+  for (const bad of ['#y=1918&y2=1914', '#y=1914&y2=1914', '#y=1914&y2=abc', '#y=1914&y2=']) {
+    const s = decodeHash(bad);
+    assert.equal(s.year, Number(new URLSearchParams(bad.slice(1)).get('y')), bad);
+    assert.equal(s.yearEnd, undefined, bad);
+  }
+});
+
+test('att välja eller stänga ett intervall är en egen post i historiken', () => {
+  assert.equal(isNewStep(base, { ...base, yearEnd: 1418 }), true);
+  assert.equal(isNewStep({ ...base, yearEnd: 1418 }, base), true);
+  assert.equal(isNewStep({ ...base, yearEnd: 1418 }, { ...base, yearEnd: 1418 }), false);
+  assert.equal(isNewStep({ ...base, yearEnd: 1418 }, { ...base, yearEnd: 1420 }), true);
+});

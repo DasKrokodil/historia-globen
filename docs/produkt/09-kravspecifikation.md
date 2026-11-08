@@ -42,7 +42,7 @@ Det här är en *produktkravsspecifikation*: den säger **vad** sidan ska uppfyl
 | ID | Krav | Källa | Prio | Bevis | Status | Läge |
 |---|---|---|---|---|---|---|
 | K-KÄL-01 | Sidan ska aktivt lära ut källkritik, inte bara visa källor. | DasKrokodil 2026-11-08, M9 | M | G, O | Beslutat | Delvis |
-| K-KÄL-02 | Besökaren ska kunna se vad granskningsnivåerna betyder (faktarutans förklaring). | #786, #926 | B | G | Beslutat | Ej |
+| K-KÄL-02 | Besökaren ska kunna se vad granskningsnivåerna betyder (faktarutans förklaring). | #786, #926 | B | G | Beslutat | Delvis: raden "Kontrollen gäller källorna, inte om historien är säker" finns direkt i faktarutan (#786); (i)-knappen förklarar nivåerna |
 | K-KÄL-03 | Källkritiska inslag ska finnas för flera åldrar, med olika nivå: först för elever som gått ut mellanstadiet (#938), sedan gymnasiet och vuxna med intresse. | #926, #938 | B | G | Beslutat | Delvis: första nivån (turen) finns |
 | K-KÄL-04 | Källkritiska inslag ska ha nyfiken, lekfull ton och aldrig pekpinne. | M8, #926 | B | G | Beslutat | Ej verifierat |
 | K-KÄL-05 | Källkritik ska vävas in i befintliga ytor först (förklaring, fyra återkommande frågor, "Sant eller myt?", en tur); ett eget läge kan komma senare. | #926 | B | G | Beslutat | Delvis: turen "Hur vet vi det här?" finns (#938); fyra frågor och "Sant eller myt?" återstår |

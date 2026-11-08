@@ -15,7 +15,7 @@ Historia-globen är en snurrbar jordglob i webbläsaren. Man drar i tiden och se
 
 1. **Inget byggsteg.** Vanliga ES-moduler som webbläsaren läser direkt. Inga ramverk (React m.fl.), ingen bundler, ingen server-backend. Det ska gå att köra med `python3 -m http.server`. Undantag: functions/api/feedback.js, beslut 2026-10-30 (besökarnas förslag, se docs/feedback.md).
 2. **Data skild från kod.** All innehållsdata ligger i `data/*.json`. Hårdkoda aldrig händelser, texter eller årtal i JS.
-3. **Ett år styr allt.** `Timeline` äger nuvarande år och skickar `change`, och i fokusläget för korta krig räknas året i delar av år (månader och dagar, #204). Lager och paneler lyssnar och ritar om.
+3. **Ett år styr allt.** `Timeline` äger nuvarande år och skickar `change`, och i fokusläget för korta krig räknas året i delar av år (månader och dagar, #204). Lager och paneler lyssnar och ritar om. Ett tidsintervall (#755) är året plus ett valfritt slutår (`state.range`); det utesluter Fokus och uppspelning (docs/arkitektur.md, "Tidsintervallet").
 4. **Ekvirektangulär rendering (beslut 1).** Allt som ritas på klotet ritas först på en ekvirektangulär canvas (`baseCanvas` 4096×2048 för grundkartan, `overlayCanvas` 4096×2048 för lager) som läggs på sfären. Klickbara markörer och bågar ligger som 3D-objekt ovanpå. Skälet: samma platta bild visas som karta i "Platt vy" och ska kunna skickas till en fysisk globskärm. Bryt inte detta.
 5. **Lager som moduler (beslut 2).** Fem lagertyper: punkt (händelser), linje (handelsvägar, migration, fronter), område (riken, utbredning), bildlager (nattljus, klimat) och tur (guidade fördjupningar som data). Varje lager har samma gränssnitt: `update(state)` som returnerar det som syns, och `drawOverlay(ctx, W, H)`. Varje lager anmäler sig i lagerregistret (`js/layers/registry.js`, #338) med en post från sin egen fil.
 6. **three.js** laddas som ES-modul från `https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js`. Exakt version, ändra bara medvetet. Inga andra externa beroenden utan att fråga.
@@ -30,13 +30,14 @@ AGENTS.md             regler för Codex och andra agenter; pekar på CLAUDE.md
 _headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
 css/style.css
 js/main.js            startar allt och kopplar ihop delarna
-js/controllers/       main.js uppdelad i val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402) och adressen (#501)
+js/controllers/       main.js uppdelad i val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402), adressen (#501) och tidsintervallet (range.js, #755)
 js/model.js           språk, kategorier, granskningsstatus, tidsformat, laddning
 js/i18n.js            språkval och gränssnittets texter: ui('nyckel') ur data/ui/<språk>.json och data-i18n i index.html (#63)
 js/url-state.js       adressformatet för delbara länkar och Bakåt/Framåt (#501, #64)
 js/search-index.js    sökningens index och matchning (#570)
+js/place-search.js    "Vad hände här?": platsförslag och händelser inom 300 km, i tidsordning (#15)
 js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
-js/state.js           det gemensamma tillståndet (år, fokus, lager, filter) som lagren läser (#338), med åtgärder, prenumeration och JSON (#403)
+js/state.js           det gemensamma tillståndet (år, fokus, lager, filter) som lagren läser (#338), med åtgärder, prenumeration och JSON (#403), och lägeskontraktet (#893)
 js/globe.js           3D-globen, kamera, styrning, ekvirektangulära canvasar, bågar
 js/globe-detail.js    skarpt utsnitt av kartan vid inzoomning: samma ritning i högre upplösning för det som syns
 js/timeline.js        tidsreglage, segmenterad skala, uppspelning
@@ -70,6 +71,7 @@ data/handelser/       händelserna, en redigeringsfil per period (fkr.json, 1-14
 data/events.json      alla händelser i en fil, byggs av tools/dela_data.py ur data/handelser/; redigeras inte
 data/funfacts.json    fun facts (kopplade till händelse-id)
 data/missuppfattningar.json vanliga historiska missuppfattningar: påstående, vad källorna säger och ursprung (#838); visas i faktarutan för händelserna i `events`
+data/perioder.json    epoker enligt Lgr22 (fem perioder med årtal, källa och förenklingstext); läses inte av appen än (#845, #476)
 data/intro.json       introduktionens steg och referenser till befintliga händelser/fun facts (#363)
 data/uppdrag.json     elevuppdragen (Samtidighetsjakten): år, spann, antal världsdelar och texter (#741)
 data/turer/           guidade turer: index.json och en fil per tur (#47, beslut 2026-11-01)
@@ -219,8 +221,9 @@ Rikard gillar stilen. Behåll den:
 | 6.0.0 Skolpaketet | Quiz (#65), turlänk (#736), lärarfält i turerna (#737), utskrift av elev- och lärarblad (#738), lektion 1 åk 7–9 (#739) och lektion 2 åk 4–6 (#740), Samtidighetsjakten (#741), Källdetektiven (#742), lektionsläget (#795) och lärarpaket (#743). Ingen pilot med lärare och klass görs nu (#744 stängd, beslut 2026-11-07); släpps som 6.0.0 (#862, plan i docs/granskningar/2026-11-07-plan-version-6.md) |
 | 6.0.1 Rättningar efter skolreleasen | Fynd ur blind-spots-rundan (#871, #877–#884), lärarens väg till bladen (#885), Samtidigt mot Mer/Meny (#887), tomma filter (#886), webbläsartestet (#864, #891, Firefox och WebKit i release-körningen #888), adressens kapplöpning (#865) och de fem händelserna före tidslinjens start (#892) |
 | 6.1.0 Tidsintervall, plats och epoker | Ersätter "Version 5.2" (beslut 2026-11-08, docs/beslut/2026-11-08-version-6-1-0.md): tidsintervall (#569 i #754–#756), "Vad hände här?" (#15), faktarutans förklaring (#786) och epoker enligt svenska läroplanen (#845, #476, listan godkänns först). Lägeskontraktet (#893) ska vara avgjort före #755; sök och delbara länkar släpptes redan i v5.0.0 |
-| 6.2.0 Regionkort | Regionkort (#579): kurerade kort per region, med gränskälla, licens och källor godkända före bygge |
-| 7 Människans långa historia | Tidsmodell för ungefärliga datum, tidslinje i nivåer (#49), människoarter (#11) |
+| 6.2.0 Teman | Temamotorn (#398, `data/teman.json`, tema som grupp i Fokus) med teknik (#105) som första tema (beslut 2026-11-08, docs/beslut/2026-11-08-teman-fore-version-7.md). Formatet skrivs först; bygget efter lägeskontraktet (#893), som räknar "tema" som ett läge. Epoker (#845) och teman ska inte bli två format |
+| 6.3.0 Regionkort | Regionkort (#579): kurerade kort per region, med gränskälla, licens och källor godkända före bygge (var 6.2.0 före 2026-11-08) |
+| 7 Människans långa historia | Tidsmodell för ungefärliga datum, tidslinje i nivåer (#49), människoarter (#11). Inte ett tema och bygger inte på temamotorn; blockeras av besluten a–d i tidsmodellens förstudie |
 | 8 Jordens historia | Eget läge med geologisk tidslinje och forntida kartor (#12, #51–#53) |
 | 9 Atlas och jämförelse | Jämför två tider (#248), historiska kartor (#249), skolatlasens bildlager (#8, #9, #55) |
 
@@ -229,7 +232,7 @@ Parallella spår (milstolpar utan versionsnummer, görs bredvid huvudversionerna
 - **Språk: översättning** (#63, #670–#679): gränssnittets texter en del i taget, sedan innehållet per period, engelska först (beslut 2026-11-06).
 - **Riken:** R1–R7 är klara; nu pågår milstolpen "Riken: global täckning" (#556, #644–#646).
 - **Hårdvara** (H1–H3): anteckningar, planeringen sker i Rikards Claude-projekt.
-- **Experiment och senare:** experimenten är delade i "Historiska datum och utskrift", "Flöden och rörelse", "Lekar och tankeexperiment" och "Rymden". "Senare" är delad i "beslut krävs", "teknik" och "innehåll och media". "Teman: temamotor" (#398) är förutsättningen för temavyerna, och "Paket: Temavyer och innehåll" är en samlingsrubrik, inte en arbetsmilstolpe. Bilder görs i "Bilder: batchar".
+- **Experiment och senare:** experimenten är delade i "Historiska datum och utskrift", "Flöden och rörelse", "Lekar och tankeexperiment" och "Rymden". "Senare" är delad i "beslut krävs", "teknik" och "innehåll och media". "Teman: temamotor" (#398) är förutsättningen för temavyerna och är sedan 2026-11-08 version 6.2.0, och "Paket: Temavyer och innehåll" är en samlingsrubrik, inte en arbetsmilstolpe. Bilder görs i "Bilder: batchar".
 
 Regler:
 - **Varje version slutar med att Rikard utvärderar** innan nästa börjar.

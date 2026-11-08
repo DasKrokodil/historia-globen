@@ -245,6 +245,31 @@ body {
 .jump-date-event::after { content: "›"; flex: none; color: var(--brass); font-size: 16px; }
 .jump-date-event:hover { border-color: var(--brass-deep); }
 @media (max-width: 760px) { .jump-pop.has-date-result .jump-epochs { display: none; } }
+/* Tidsintervallet (#755): formuläret med två årsfält och stegknappar, raden med det aktiva intervallet och bandet på reglaget */
+.range-open { display: block; margin-top: 10px; min-height: 32px; text-align: left; }
+.range-row { display: grid; grid-template-columns: 3.2em 38px minmax(0, 1fr) 38px auto; gap: 6px; align-items: stretch; margin-top: 8px; }
+.range-label { align-self: center; font: 500 12px/1 var(--f-mono); color: var(--parchment-dim); }
+.range-step {
+  min-width: 38px; height: 38px; padding: 0; border: 1px solid var(--control-line); border-radius: 8px;
+  font: 500 18px/1 var(--f-mono); color: var(--parchment); background: var(--night); cursor: pointer;
+}
+.range-step:hover { border-color: var(--brass-deep); }
+.range-step:focus-visible, .range-input:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 1px; }
+.range-actions { display: flex; gap: 12px; align-items: center; margin-top: 12px; }
+.range-actions .jump-go { min-height: 38px; }
+.range-bar {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin: 4px 0 0; pointer-events: auto;
+  font: 500 12px/1.4 var(--f-mono); color: var(--parchment); text-shadow: 0 1px 4px var(--night);
+}
+.range-bar[hidden] { display: none; }
+.range-exit { min-height: 32px; }
+.year-jump.is-range .year-big { font-size: clamp(34px, 5vw, 56px); }
+.range-band {
+  position: absolute; top: 11px; height: 14px; border-radius: 4px; pointer-events: none;
+  background: color-mix(in srgb, var(--brass) 35%, transparent); border: 1px solid var(--brass);
+}
+.range-band[hidden] { display: none; }
+.event-item.is-partial .ttl { color: var(--parchment-dim); }
 .segment-note {
   margin: 6px 0 0;
   font-family: var(--f-mono);
@@ -588,6 +613,9 @@ body {
 .review-info::after { content: ""; position: absolute; inset: -9px; } /* större tryckyta i mobil */
 .review-info:hover, .review-info[aria-expanded="true"] { color: var(--card-accent, var(--brass)); }
 .review-info:focus-visible { outline: 2px solid var(--card-accent, var(--brass)); outline-offset: 2px; }
+/* Förklaringen står direkt under märket (#786); Rapportera faktafel flyttas efter den */
+.review-explain { flex: 1 0 100%; order: 1; margin: 0; font: 400 12px/1.4 var(--f-body); color: var(--card-dim, var(--parchment-dim)); }
+.detail-actions .report-btn { order: 2; }
 .review-help {
   flex: 1 0 100%; order: 9; box-sizing: border-box; margin: 2px 0 0; padding: 6px 10px 4px;
   border-left: 2px solid var(--card-accent, var(--brass)); border-radius: 0 6px 6px 0;
@@ -1459,6 +1487,7 @@ details.used-by summary:hover { color: var(--parchment); }
 @media (max-width: 760px) { .parties { grid-template-columns: 1fr; gap: 2px; } }
 
 /* Faktaruta i faktarutan, till exempel "Om år 0" (#123) */
+.scale-note { margin: 4px 0 8px; font: 400 11.5px/1.4 var(--f-mono); color: var(--card-dim); }
 .detail-note { margin: 10px 0; padding: 8px 10px; border-left: 3px solid var(--card-accent); background: color-mix(in srgb, var(--card-accent) 10%, transparent); border-radius: 0 6px 6px 0; }
 .detail-note h4 { margin: 0 0 2px; font: 600 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--card-accent); }
 .detail-note p { margin: 0; font-size: 13.5px; line-height: 1.45; }
@@ -1983,6 +2012,7 @@ details.used-by summary:hover { color: var(--parchment); }
   #detail[data-sheet="half"] .detail-fig { display: none; }
   /* (i) och Rapportera faktafel: 44 px tryckyta utan att ytorna går in i varandra när raden bryts */
   #detail .detail-actions { min-height: 44px; gap: 22px 10px; }
+  #detail .review-explain { margin-top: -12px; }
   #detail .review-info::after { inset: -14px; }
   #detail .report-btn { position: relative; padding: 10px 0; }
   #detail .report-btn::after { content: ""; position: absolute; inset: -6px -4px; }

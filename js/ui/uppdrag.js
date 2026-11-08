@@ -50,6 +50,7 @@ export class Hunt {
     // I en lektion (#795) gäller bara uppdrag inom lektionens år, som i slutkortet (js/ui/lesson.js): jakten flyttar året
     const years = this.app.lesson?.active ? this.app.lesson.lock?.years : null;
     if (years && (m.year < years[0] || m.year > years[1])) return false;
+    if (this.app.store && !this.app.store.enter('jakt')) return false; // läget Jakt (#893, MODE_RULES i js/state.js)
     this.mission = m; this.found = []; this.opener = opener;
     this.app.timeline.pause();
     this.app.timeline.year = m.year;
@@ -65,6 +66,7 @@ export class Hunt {
   /** Avslutar jakten. Fokus tillbaka till knappen som startade den (eller Mer). */
   end(refocus = true) {
     if (!this.mission) return;
+    this.app.store?.leave(['jakt']);
     this.mission = null; this.found = [];
     this.root.hidden = true;
     this.app.onChange?.();

@@ -117,11 +117,69 @@ function failNote(e) {
   return [lines[0], waiting && `(${waiting})`, here.length && `[rad ${here.join(', ')}]`].filter(Boolean).join(' ');
 }
 
+// En hämtning som avbryts av en omladdning eller navigering skrivs som ett fel i konsolen: WebKit "TypeError: Load failed"
+// (#702), Firefox "TypeError: NetworkError when attempting to fetch resource." eller "AbortError: The operation was aborted."
+// (#888). Bara exakt de meddelandena, och bara
+// medan sidan navigerar, räknas bort; de syns inte för en besökare som lämnar sidan.
+const ABORTED_FETCH = /^(TypeError: (Load failed|NetworkError when attempting to fetch resource\.)|AbortError: The operation was aborted\.\s*)$/;
+
+// Konsolmeddelanden (#888): när console.error får ett objekt (till exempel ett Error) ger Firefox texten
+// "JSHandle@object" i m.text(), och loggen visade bara det. Texten sparas först som förut, och när meddelandet
+// innehåller ett handtag byts den ut mot en läsbar rad: felets namn och meddelande, eller objektet som JSON.
+// Filtreringen på texten (till exempel "Load failed") görs fortfarande på m.text().
+function pushConsole(sink, m, format = t => t) {
+  const i = sink.push(format(m.text())) - 1;
+  if (!/JSHandle@/.test(m.text())) return;
+  const describe = v => {
+    if (v instanceof Error) return `${v.name}: ${v.message}`;
+    if (v && typeof v === 'object') { try { return JSON.stringify(v); } catch { return String(v); } }
+    return String(v);
+  };
+  Promise.all(m.args().map(a => a.evaluate(describe).catch(() => String(a))))
+    .then(parts => { sink[i] = format(parts.join(' ')); })
+    .catch(() => {});
+}
+
+// Läget i sidan när en väntan på en tur eller ett lektionsband tar slut (#888): adress, om kortet och bandet syns och vilka
+// konsolfel som kommit, så att en körning i en motor jag inte kan köra själv visar vad som hände.
+async function waitDiag(pg, label, sink, selector, timeout) {
+  try {
+    await pg.waitForSelector(selector, { state: 'visible', timeout });
+  } catch (e) {
+    const st = await pg.evaluate(() => ({
+      hash: location.hash,
+      ready: document.readyState,
+      card: document.getElementById('tour-card')?.hidden,
+      band: document.getElementById('lesson-band')?.hidden,
+      touring: document.querySelectorAll('.touring').length,
+      focusBar: !document.getElementById('focus-bar')?.hidden,
+      hgGammal: !!window.__hgGammal,
+    })).catch(err => ({ fel: err.message }));
+    throw new Error(`${label}: ${selector} syntes inte inom ${timeout / 1000} s; läge ${JSON.stringify(st)}; konsol: ${sink.join(' | ') || 'inga fel'}`);
+  }
+}
+
+// Adressen är redo när start() i js/controllers/address.js har kört klart (#888): den skriver då startlägets hash och
+// lyssnar på popstate. Laddningsrutan döljs tidigare (js/main.js), så en hash-ändring som sätts direkt efter den går
+// förlorad i en långsam motor (WebKit i mobil): lyssnaren finns inte än, och startens egen skrivning tar sedan bort ändringen.
+const addressReady = pg => pg.waitForFunction(() => location.hash.length > 1, null, { timeout: 15000 });
+
 async function run(browser, vp) {
   const results = [];
   const errors = [];
   const webglWarnings = [];
   const context = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, deviceScaleFactor: 1 });
+  // Firefox ger "JSHandle@object" som text för console.error(err) (#888), och handtaget går inte alltid att läsa i efterhand
+  // (sidan kan ha navigerat). Därför görs Error-argument om till text i sidan, innan de når webbläsarens konsol: "Namn:
+  // meddelande", samma form som WebKit och Chromium redan ger. Strängar och andra argument passerar oförändrade.
+  await context.addInitScript(() => {
+    for (const level of ['error', 'warn']) {
+      const original = console[level];
+      console[level] = function (...args) {
+        return original.apply(this, args.map(a => (a instanceof Error ? `${a.name}: ${a.message}` : a)));
+      };
+    }
+  });
   const page = await context.newPage();
   let threeOk = false;
 
@@ -133,10 +191,12 @@ async function run(browser, vp) {
     if (m.type() !== 'error') return;
     const url = m.location()?.url || '';
     if (isFont(url)) return;
-    // WebKit skriver en hämtning som avbryts av omladdningen som "TypeError: Load failed" i konsolen (#702).
-    // Bara exakt det meddelandet, och bara medan språktestet laddar om sidan, räknas bort.
-    if (reloading && /^TypeError: Load failed$/.test(m.text())) return;
-    errors.push(`konsol: ${m.text()}${url ? ` (${url})` : ''}`);
+    // En hämtning som avbryts av omladdningen skrivs som ett fel i konsolen: WebKit "TypeError: Load failed" (#702),
+    // Firefox "TypeError: NetworkError when attempting to fetch resource." (#888). Bara exakt de meddelandena, och bara
+    // medan språktestet laddar om sidan, räknas bort. Övriga fel visar vilken kontroll som pågick när de kom.
+    if (reloading && ABORTED_FETCH.test(m.text())) return;
+    const during = currentCheck;
+    pushConsole(errors, m, t => `konsol: ${t}${url ? ` (${url})` : ''}${during ? ` [under: ${during.slice(0, 60)}]` : ''}`);
   });
   // Medan språktestet laddar om sidan (#63) avbryter webbläsaren hämtningar som pågår, till exempel ikoner. WebKit
   // rapporterar det som fel ("Load request cancelled", "… due to access control checks", i konsolen "TypeError: Load
@@ -173,9 +233,11 @@ async function run(browser, vp) {
   };
   const visible = sel => page.waitForSelector(sel, { state: 'visible', timeout: T.step });
   const hidden = sel => page.waitForSelector(sel, { state: 'hidden', timeout: T.step });
+  let currentCheck = '';
   const check = async (name, fn) => {
     if (!wanted(name)) { skipped++; return; }
     if (!ALLTID.includes(name)) matched++;
+    currentCheck = name;
     const t0 = Date.now();
     try {
       const note = await fn();
@@ -604,6 +666,66 @@ async function run(browser, vp) {
       if (await page.isVisible('#hunt')) await page.click('#hunt-end').catch(() => {});
       if (await page.isVisible('#panel-close')) await page.click('#panel-close').catch(() => {});
     }
+  });
+
+  // Kombinationsmatris (#891): varje meny och verktyg ovanpå varje yta som redan kan vara öppen. Isolerade prov är
+  // gröna medan en kedja är röd, och isVisible() godkänner en knapp som ligger bakom något annat. Därför mäts vad som
+  // faktiskt ligger överst mitt på knappen (elementFromPoint), och sedan klickas den med riktig pekning (ingen force).
+  // Varje par får en ny sida, så att inget ärvs från föregående par. Kör i ett eget jobb (tests/jobb.json).
+  await check('kombinationsmatris: menyer och verktyg ovanpå öppna ytor (#891)', async () => {
+    const SURFACES = [
+      { id: 'Samtidigt', hash: '#y=1889', setup: async p => { await p.click('#btn-panel'); await p.waitForSelector('#panel', { state: 'visible', timeout: T.step }); } },
+      { id: 'faktaruta', hash: '#y=1889', setup: async p => {
+        await p.click('#btn-panel');
+        await p.locator('#event-list .event-btn').first().click({ timeout: T.step });
+        await p.waitForSelector('#detail', { state: 'visible', timeout: T.step });
+        if (await p.isVisible('#panel-close')) await p.click('#panel-close');
+      } },
+      { id: 'tur', hash: '#t=forsta-varldskriget', setup: async p => { await p.waitForSelector('#tour-card', { state: 'visible', timeout: T.step }); } },
+    ];
+    // [knapp, det som öppnas]. Öppnas ingenting av dessa räknas klicket som missat.
+    const CONTROLS = [
+      ['btn-layers', ['#layer-menu']], ['btn-focus', ['#focus-menu']], ['btn-help', ['#help']],
+      ['btn-sources', ['#sources-dialog']], ['btn-quiz', ['#quiz']], ['btn-hunt', ['#hunt']],
+    ];
+    const problems = [];
+    let measured = 0, skipped = 0, n = 0;
+    for (const surface of SURFACES) {
+      for (const [btn, opens] of CONTROLS) {
+        const mp = await context.newPage();
+        try {
+          if (THREE_LOCAL) {
+            const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+            await mp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+            await mp.route(u => isFont(u.href), r => r.abort());
+          }
+          await mp.goto(`${BASE}?ny=m${n++}${surface.hash}`);
+          await mp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          await surface.setup(mp);
+          // Knappen kan ligga i Mer/Meny: öppna den som en besökare gör
+          if (!(await mp.isVisible(`#${btn}`))) {
+            if (await mp.isVisible('#more-toggle')) await mp.click('#more-toggle'); else if (await mp.isVisible('#btn-more')) await mp.click('#btn-more');
+          }
+          if (!(await mp.isVisible(`#${btn}`))) { skipped++; continue; } // finns inte i den här bredden eller i det här läget
+          measured++;
+          const cover = await mp.evaluate(id => {
+            const b = document.getElementById(id), r = b.getBoundingClientRect();
+            const el = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
+            if (el && b.contains(el)) return null;
+            return el ? `${el.tagName.toLowerCase()}${el.id ? `#${el.id}` : ''}${el.className && typeof el.className === 'string' ? `.${el.className.trim().split(/\s+/).join('.')}` : ''}` : 'ingenting';
+          }, btn);
+          if (cover) { problems.push(`${surface.id} → ${btn}: täcks av ${cover}`); continue; }
+          try { await mp.click(`#${btn}`, { timeout: 5000 }); } catch (e) { problems.push(`${surface.id} → ${btn}: riktigt klick gick inte (${String(e.message).split('\n')[0]})`); continue; }
+          await mp.waitForTimeout(400);
+          const opened = await mp.evaluate(sels => sels.some(sel => { const el = document.querySelector(sel); return el && !el.hidden && el.getClientRects().length > 0; }), opens);
+          if (!opened) problems.push(`${surface.id} → ${btn}: klicket öppnade inte ${opens.join(' eller ')}`);
+        } finally {
+          await mp.close();
+        }
+      }
+    }
+    if (problems.length) throw new Error(`${problems.length} av ${measured} par felar: ${problems.join(' | ')}`);
+    return `${measured} par (${SURFACES.map(x => x.id).join(', ')} × ${CONTROLS.length} knappar) klickbara med riktig pekning; ${skipped} fanns inte i bredden`;
   });
 
   // #884: en bild som svarar 404 ska ge en kort rad i faktarutan, inte en tom bildyta som ser trasig ut.
@@ -1369,7 +1491,7 @@ async function run(browser, vp) {
     // Test-fixturen: samma sida i en ny flik, där Apollo 11 har taggen framsteg
     const tagPage = await context.newPage();
     const tagErrors = [];
-    tagPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) tagErrors.push(m.text()); });
+    tagPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(tagErrors, m); });
     tagPage.on('pageerror', e => tagErrors.push(e.message));
     try {
       if (THREE_LOCAL) {
@@ -1544,6 +1666,50 @@ async function run(browser, vp) {
     if (r.y257.includes('hanriket')) throw new Error('dimman lyfts över Hanriket fast det aldrig gränsade till ett hemrike');
     if (r.y700.includes('persiska-riket')) throw new Error('dimman lyfts över Persiska riket innan det fanns');
     return `257 f.Kr.: ${r.y257.join(', ')}`;
+  });
+
+  // Vad hände här? (#15): fliken Plats i Sök och följ
+  await check('fliken Plats: sök en plats, se händelserna nära den i tidsordning och öppna en (#15)', async () => {
+    await clickView('#btn-focus');
+    await visible('#focus-menu');
+    try {
+      await page.click('#focus-menu [data-tab="Plats"]');
+      if (!/plats/i.test(await page.getAttribute('#focus-menu .focus-search', 'placeholder'))) throw new Error('sökrutan fick inte platstext');
+      if (!(await page.textContent('#focus-menu .focus-body')).includes('bland händelserna')) throw new Error('raden om att bara platser i datan hittas saknas');
+      await page.fill('#focus-menu .focus-search', 'zzzzqq');
+      await page.waitForSelector('#focus-menu .focus-body .layer-note:has-text("Ingen plats")', { timeout: T.step });
+      await page.fill('#focus-menu .focus-search', 'rom');
+      await page.waitForSelector('#focus-menu [data-place]', { timeout: T.step });
+      // Enter i sökrutan väljer första förslaget (tangentbord)
+      await page.press('#focus-menu .focus-search', 'Enter');
+      await page.waitForSelector('#focus-menu [data-place-reset]', { timeout: T.step });
+      const head = await page.textContent('#focus-menu .focus-active-text');
+      if (!/händelse(r)? inom 300 km från/.test(head)) throw new Error(`rubriken saknar urvalet: "${head}"`);
+      const rows = await page.locator('#focus-menu [data-key]').evaluateAll(els => els.map(e => ({ key: e.dataset.key, text: e.textContent })));
+      const n = Number(/^(\d+)/.exec(head.trim())?.[1]);
+      if (!rows.length || rows.length !== n) throw new Error(`rubriken säger ${n} men listan har ${rows.length} rader`);
+      if (rows.some(r => !r.key.startsWith('event:'))) throw new Error('en rad är inte en händelse');
+      if (await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error('horisontell scroll i Plats');
+      // Ett klick öppnar händelsen och flyttar tiden, som Sök gör
+      const first = rows[0].key.slice(6);
+      await page.locator('#focus-menu [data-key]').first().click();
+      await hidden('#focus-menu');
+      await visible('#detail');
+      if (!(await page.textContent('#detail')).length) throw new Error('faktarutan är tom');
+      // Tillbaka: Välj en annan plats rensar
+      await clickView('#btn-focus');
+      await visible('#focus-menu');
+      await page.click('#focus-menu [data-tab="Plats"]');
+      await page.fill('#focus-menu .focus-search', 'rom');
+      await page.locator('#focus-menu [data-place]').first().click();
+      await page.click('#focus-menu [data-place-reset]');
+      if (await page.inputValue('#focus-menu .focus-search')) throw new Error('"Välj en annan plats" rensade inte sökrutan');
+      if (await page.locator('#focus-menu [data-key]').count()) throw new Error('listan låg kvar efter "Välj en annan plats"');
+      return `Rom: "${head.trim()}", ${rows.length} rader i tidsordning, Enter väljer första förslaget, ${first} öppnas`;
+    } finally {
+      if (await page.isVisible('#focus-menu')) await page.keyboard.press('Escape');
+      if (await page.isVisible('#detail')) await page.keyboard.press('Escape');
+    }
   });
 
   await check('Fokus öppnas och följer ett rike', async () => {
@@ -1742,8 +1908,13 @@ async function run(browser, vp) {
       if (await overlap()) throw new Error('fokusraden ligger över pausraden');
       await page.click('#pause-more summary');
       await page.waitForFunction(() => document.getElementById('pause-more').open, null, { timeout: T.step });
-      await page.waitForTimeout(100); // låt ResizeObserver flytta fokusraden
-      if (await overlap()) throw new Error('fokusraden ligger över pausraden när noten är utfälld');
+      // ResizeObserver flyttar fokusraden efter att noten har fällts ut (#888: en fast väntan på 100 ms räckte inte i
+      // Firefox i CI). Vänta på tillståndet i stället: raderna ska sluta överlappa inom T.step, annars är det ett fel.
+      await page.waitForFunction(() => {
+        const a = document.getElementById('focus-bar').getBoundingClientRect();
+        const b = document.getElementById('pause-note').getBoundingClientRect();
+        return !(a.bottom > b.top + 1 && a.top < b.bottom - 1 && a.right > b.left && a.left < b.right);
+      }, null, { timeout: T.step }).catch(() => { throw new Error('fokusraden ligger över pausraden när noten är utfälld'); });
       await page.click('#pause-more summary');
       const pauseText = (await page.textContent('#pause-text')).replace(/\s+/g, ' ').trim();
       await page.waitForFunction(text => document.getElementById('screen-reader-status')?.textContent.includes(text), pauseText, { timeout: T.step });
@@ -2502,7 +2673,7 @@ async function run(browser, vp) {
     await check('en delad länk återskapar år och fokus', async () => {
       const linkPage = await context.newPage();
       const linkErrors = [];
-      linkPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) linkErrors.push(m.text()); });
+      linkPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(linkErrors, m); });
       linkPage.on('pageerror', e => linkErrors.push(e.message));
       try {
         if (THREE_LOCAL) {
@@ -2539,7 +2710,7 @@ async function run(browser, vp) {
     await check('en länk startar en guidad tur vid rätt steg (#736)', async () => {
       const tourPage = await context.newPage();
       const tourErrors = [];
-      tourPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) tourErrors.push(m.text()); });
+      tourPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(tourErrors, m); });
       tourPage.on('pageerror', e => tourErrors.push(e.message));
       const progress = () => tourPage.textContent('#tour-progress').then(x => x.trim());
       const hashHas = text => tourPage.waitForFunction(t => location.hash.includes(t), text, { timeout: T.step });
@@ -2572,9 +2743,12 @@ async function run(browser, vp) {
         // En okänd tur hoppas över, och resten av länken gäller
         await tourPage.goto(`${BASE}?ny=1#y=1500&t=finns-inte`);
         await tourPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
-        if (await tourPage.locator('#tour-card').isVisible()) throw new Error('en okänd tur öppnade turens kort');
+        // Adressen ställs in efter att laddningsrutan har försvunnit; WebKit i CI hann inte före avläsningen (#888).
+        // Vänta på året, och kontrollera sedan att turens kort inte öppnades.
+        await tourPage.waitForFunction(() => document.getElementById('year-big').textContent.trim() === '1500', null, { timeout: T.step }).catch(() => {});
         const y2 = (await tourPage.textContent('#year-big')).trim();
         if (y2 !== '1500') throw new Error(`länken med okänd tur gav året ${y2}, inte 1500`);
+        if (await tourPage.locator('#tour-card').isVisible()) throw new Error('en okänd tur öppnade turens kort');
         if (tourErrors.length) throw new Error(`turlänken gav konsolfel: ${tourErrors.join('; ')}`);
       } finally {
         await tourPage.close();
@@ -2588,17 +2762,27 @@ async function run(browser, vp) {
   await check('lektionsläget låser menyerna och har en utgång som behåller året (#795)', async () => {
     const lessonPage = await context.newPage();
     const lessonErrors = [];
-    lessonPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) lessonErrors.push(m.text()); });
-    lessonPage.on('pageerror', e => lessonErrors.push(e.message));
+    let navigating = false; // som i #865-kontrollen: bara "TypeError: Load failed" under navigering räknas bort (#888)
+    lessonPage.on('console', m => {
+      if (m.type() !== 'error' || isFont(m.location()?.url)) return;
+      if (navigating && ABORTED_FETCH.test(m.text())) return;
+      pushConsole(lessonErrors, m);
+    });
+    lessonPage.on('pageerror', e => { if (!(navigating && cancelled(e.message))) lessonErrors.push(e.message); }); // avbruten hämtning under navigering (#888)
     const lp = sel => lessonPage.locator(sel);
     let slowEmpires = false;
     const EMPIRE_DELAY = 2500;
     const progress = () => lessonPage.textContent('#tour-progress').then(x => x.trim());
     const shown = sel => lessonPage.evaluate(s => { const el = document.querySelector(s); return !!el && el.getClientRects().length > 0; }, sel);
     const open = async url => {
-      await lessonPage.goto(url);
-      await lessonPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      navigating = true;
+      try {
+        await lessonPage.goto(url);
+        await lessonPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      } finally { navigating = false; }
     };
+    // reload, Bakåt och Framåt avbryter också hämtningar som pågår (#888): markera navigeringen som i open()
+    const nav = async go => { navigating = true; try { return await go(); } finally { navigating = false; } };
     const hashHas = text => lessonPage.waitForFunction(t => location.hash.includes(t), text, { timeout: T.step });
     const locked = async () => {
       await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
@@ -2656,7 +2840,7 @@ async function run(browser, vp) {
       await lessonPage.click('#tour-next');
       await hashHas('s=storbritannien');
       await hashHas('m=lektion');
-      await lessonPage.reload();
+      await nav(() => lessonPage.reload());
       await lessonPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await locked();
       await lessonPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
@@ -2664,10 +2848,10 @@ async function run(browser, vp) {
       // Bakåt och Framåt släpper inte låset
       await lessonPage.click('#tour-next');
       await hashHas('s=barbarossa');
-      await lessonPage.goBack();
+      await nav(() => lessonPage.goBack());
       await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('3 av 14'), null, { timeout: T.step });
       await locked();
-      await lessonPage.goForward();
+      await nav(() => lessonPage.goForward());
       await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('4 av 14'), null, { timeout: T.step });
       await locked();
       // Tangentbordet når "Visa hela globen" (bandet ligger före kortet i tabbordningen)
@@ -2767,11 +2951,13 @@ async function run(browser, vp) {
       if (await lessonPage.isVisible('#focus-bar')) throw new Error('utgången återställde ett gammalt fokus');
       // Ett fokus som fortfarande laddas när lektionen börjar får inte släppa låset när det blir klart
       await open(`${BASE}?ny=5`);
+      await addressReady(lessonPage);
       slowEmpires = true;
       await lessonPage.evaluate(() => { location.hash = '#y=1942&f=empire:romarriket&c=-30,-120,3'; });
       await lessonPage.waitForTimeout(150);
       await lessonPage.evaluate(() => { location.hash = '#t=andra-varldskriget&m=lektion'; });
-      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      // Med rikesfiler som svarar efter 2,5 s var 15 s för kort i WebKit i CI (#888); 90 s räckte inte heller, så läget visas
+      await waitDiag(lessonPage, 'lektionen startade inte medan ett fokus laddades', lessonErrors, '#lesson-band', 40000);
       await lessonPage.waitForTimeout(EMPIRE_DELAY + 1500); // fokuset blir klart under tiden
       slowEmpires = false;
       if (await lessonPage.isVisible('#focus-bar')) throw new Error('ett fokus som laddades när lektionen började visades i lektionen');
@@ -2808,7 +2994,7 @@ async function run(browser, vp) {
       if (await lessonPage.isVisible('#hunt')) throw new Error('en jakt som pågick stod kvar när lektionen började');
       if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('året flyttades av jakten i lektionsläget');
       // Bakåt ut ur lektionen öppnar jakten igen
-      await lessonPage.goBack();
+      await nav(() => lessonPage.goBack());
       await lessonPage.waitForSelector('#hunt:not([hidden])', { state: 'attached', timeout: T.step });
       if (await lessonPage.isVisible('#lesson-band')) throw new Error('Bakåt lämnade bandet kvar');
       if (lessonErrors.length) throw new Error(`lektionsläget gav konsolfel: ${lessonErrors.join('; ')}`);
@@ -2822,8 +3008,18 @@ async function run(browser, vp) {
   await check('en tur som startar medan ett fokus laddas behåller sitt första år och sin kamera (#865)', async () => {
     const tp = await context.newPage();
     const errors = [];
-    tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
-    tp.on('pageerror', e => errors.push(e.message));
+    // Turens första steg hämtar många rikesfiler, och testet navigerar bort direkt efteråt. WebKit loggar hämtningar som
+    // avbryts av navigeringen som "TypeError: Load failed" (#702, #888). Bara exakt det meddelandet, och bara medan
+    // sidan navigerar, räknas bort; samma regel som vid omladdningen i språktestet.
+    let navigating = false;
+    tp.on('console', m => {
+      if (m.type() !== 'error' || isFont(m.location()?.url)) return;
+      if (navigating && ABORTED_FETCH.test(m.text())) return;
+      pushConsole(errors, m);
+    });
+    // WebKit skriver en avbruten hämtning som sidfel ("Fetch API cannot load … due to access control checks"): samma regel som
+    // i huvudhanteraren, bara medan sidan navigerar (#888)
+    tp.on('pageerror', e => { if (!(navigating && cancelled(e.message))) errors.push(e.message); });
     let slow = false;
     const DELAY = 2500;
     const yearOf = () => tp.textContent('#year-big').then(x => x.trim());
@@ -2837,18 +3033,22 @@ async function run(browser, vp) {
         if (slow) await new Promise(res => setTimeout(res, DELAY));
         await r.continue().catch(() => {});
       });
-      const open = async url => { await tp.goto(url); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); };
+      const open = async url => {
+        navigating = true;
+        try { await tp.goto(url); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); } finally { navigating = false; }
+      };
       // Så ser steg 1 ut utan någon gammal adress
       await open(`${BASE}?ny=11#t=forsta-varldskriget`);
       await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
       const wantYear = await yearOf();
       // Ett fokus som laddas, och en turlänk i samma flik innan det blivit klart
       await open(`${BASE}?ny=12`);
+      await addressReady(tp);
       slow = true;
       await tp.evaluate(() => { location.hash = '#y=1942&f=empire:romarriket&c=-30,-120,3'; });
       await tp.waitForTimeout(150);
       await tp.evaluate(() => { location.hash = '#t=forsta-varldskriget'; });
-      await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      await waitDiag(tp, 'turen startade inte medan ett fokus laddades', errors, '#tour-card', 40000);
       await tp.waitForTimeout(DELAY + 1500); // det gamla fokuset blir klart under tiden
       slow = false;
       if (await yearOf() !== wantYear) throw new Error(`steg 1 visade ${await yearOf()} i stället för ${wantYear} när den gamla adressens fokus blev klart`);
@@ -2862,6 +3062,150 @@ async function run(browser, vp) {
       await tp.close();
     }
     return 'turens första år och kamera står kvar när ett gammalt fokus blir klart; vanligt fokus via adressen fungerar';
+  });
+  // #893 (lägeskontraktet): övergångar mellan lägen. Två kedjor som saknade gemensam ordning före kontraktet:
+  // 1. Fokus som börjar under en tur avslutar turen (MODE_RULES i js/state.js), och turens utgång lämnar det nya fokuset
+  //    i fred i stället för att återställa fokuset från före turen.
+  // 2. En vy som byts medan startens fokus laddas (fyndet från #888): popstate lyssnas på före startens apply(), så att
+  //    lektionslänken gäller och det gamla fokuset inte skriver över adressen när det blir klart.
+  await check('lägeskontraktet: Fokus avslutar en tur, och en vy som byts medan startens fokus laddas gäller (#893)', async () => {
+    const tp = await context.newPage();
+    const errors = [];
+    tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    tp.on('pageerror', e => errors.push(e.message));
+    let slow = false;
+    const DELAY = 2500;
+    const hash = () => tp.evaluate(() => location.hash);
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      await tp.route(u => /data\/empires\//.test(u.href), async r => {
+        if (slow) await new Promise(res => setTimeout(res, DELAY));
+        await r.continue().catch(() => {});
+      });
+      const open = async url => { await tp.goto(url); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); };
+      // 1. Ett fokus, sedan en tur (som avslutar fokuset), sedan ett nytt fokus ur Fokus-menyn
+      await open(`${BASE}?ny=81#y=1916&f=war:forsta-varldskriget`);
+      await tp.waitForSelector('#focus-bar:not([hidden])', { state: 'attached', timeout: T.load });
+      await tp.evaluate(() => { location.hash = '#t=tre-platser-1325'; });
+      await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      if (await tp.isVisible('#focus-bar')) throw new Error('fokuset stod kvar när turen började');
+      await tp.evaluate(() => document.getElementById('btn-focus').click()); // menyknappen ligger under Meny i mobilen
+      await tp.fill('#focus-menu input', 'Koreakriget');
+      await tp.evaluate(() => document.querySelector('#focus-menu [data-key="war:koreakriget"]').click());
+      await tp.waitForSelector('#focus-bar:not([hidden])', { state: 'attached', timeout: T.step });
+      await tp.waitForTimeout(1500); // en återställning av det gamla fokuset skulle hinna börja
+      if (await tp.isVisible('#tour-card')) throw new Error('turen fortsatte ovanpå fokuset');
+      if (!(await tp.textContent('#focus-title')).includes('Korea')) throw new Error(`fokusraden visar ${await tp.textContent('#focus-title')} i stället för Koreakriget`);
+      const h1 = await hash();
+      if (!/f=war:koreakriget/.test(h1) || /[#&]t=/.test(h1)) throw new Error(`adressen blev ${h1}`);
+      // 2. En delad länk med ett långsamt fokus, och en lektionslänk i samma flik innan fokuset är klart
+      slow = true;
+      await open(`${BASE}?ny=82#y=1474&f=empire:romarriket&c=-30,-120,3`);
+      await tp.evaluate(() => { location.hash = '#t=andra-varldskriget&m=lektion'; });
+      await tp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      await tp.waitForTimeout(DELAY + 1500); // det gamla fokuset blir klart under tiden
+      slow = false;
+      const h2 = await hash();
+      if (!/t=andra-varldskriget/.test(h2) || !/m=lektion/.test(h2)) throw new Error(`adressen skrevs över med startens vy: ${h2}`);
+      if (!(await tp.isVisible('#tour-card'))) throw new Error('turens kort försvann när startens fokus blev klart');
+      if (await tp.isVisible('#focus-bar')) throw new Error('startens fokus visades ovanpå lektionen');
+      const year = Number((await tp.textContent('#year-big')).trim());
+      if (!(year >= 1939 && year <= 1945)) throw new Error(`året blev ${year}, utanför lektionens 1939–1945`);
+      if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
+    } finally {
+      await tp.close();
+    }
+    return 'Fokus under en tur avslutar turen utan att det gamla fokuset kommer tillbaka; en lektionslänk medan startens fokus laddas gäller';
+  });
+  // #755: tidsintervallet. En delad länk med y2, Tillbaka till ett år, valet med tangentbordet (årsfält, pil upp, Enter) och
+  // lägeskontraktet: Fokus och uppspelning stänger intervallet, och under en tur går det inte att välja.
+  await check('tidsintervallet: delad länk, tangentbord, Tillbaka till ett år, och Fokus och uppspelning stänger det (#755)', async () => {
+    const tp = await context.newPage();
+    const errors = [];
+    tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    tp.on('pageerror', e => errors.push(e.message));
+    const text = sel => tp.textContent(sel).then(x => x.trim());
+    const hashHas = (re, want = true) => tp.waitForFunction(([src, w]) => new RegExp(src).test(location.hash) === w, [re.source, want], { timeout: T.step });
+    const shown = sel => tp.evaluate(q => { const el = document.querySelector(q); return !!el && !el.hidden && el.getClientRects().length > 0; }, sel);
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      // 1. Den delade länken öppnar intervallet
+      await tp.goto(`${BASE}?ny=91#y=1914&y2=1918`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
+      if (await text('#year-big') !== '1914–1918') throw new Error(`årtalet visar ${await text('#year-big')} i stället för 1914–1918`);
+      if (!(await text('#range-bar-text')).startsWith('1914–1918 · ')) throw new Error(`raden visar ${await text('#range-bar-text')}`);
+      if (!(await text('#panel-sub')).includes('1914–1918')) throw new Error(`listan säger inte intervallet: ${await text('#panel-sub')}`);
+      await hashHas(/y2=1918/);
+      // 2. Tillbaka till ett år går till slutåret
+      await tp.click('#range-exit');
+      await tp.waitForSelector('#range-bar', { state: 'hidden', timeout: T.step });
+      if (await text('#year-big') !== '1918') throw new Error(`Tillbaka till ett år gav ${await text('#year-big')}, inte 1918`);
+      await hashHas(/y2=/, false);
+      // 3. Tangentbordet: årshoppet, länken till intervallet, årsfälten med pil upp och Enter
+      await tp.focus('#year-jump');
+      await tp.keyboard.press('Enter');
+      await tp.waitForSelector('#jump-pop', { state: 'visible', timeout: T.step });
+      await tp.focus('#range-open');
+      await tp.keyboard.press('Enter');
+      await tp.waitForSelector('#range-pop', { state: 'visible', timeout: T.step });
+      if (await tp.evaluate(() => document.activeElement?.id) !== 'range-from') throw new Error('fältet Från fick inte fokus när formuläret öppnades');
+      await tp.fill('#range-from', '1939');
+      await tp.keyboard.press('ArrowUp');
+      if (await tp.inputValue('#range-from') !== '1940') throw new Error(`pil upp gav ${await tp.inputValue('#range-from')} i stället för 1940`);
+      await tp.fill('#range-to', '1945');
+      await tp.keyboard.press('Enter');
+      await tp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
+      if (await text('#year-big') !== '1940–1945') throw new Error(`formuläret gav ${await text('#year-big')}`);
+      if (await tp.evaluate(() => document.activeElement?.id) !== 'range-exit') throw new Error('fokus hamnade inte på Tillbaka till ett år');
+      await hashHas(/y=1940&y2=1945/);
+      // f.Kr. med stegknappen över gränsen: 1 f.Kr. + 1 år = 1 e.Kr.
+      await tp.evaluate(() => { document.getElementById('year-jump').click(); document.getElementById('range-open').click(); });
+      await tp.fill('#range-from', '1');
+      await tp.evaluate(() => { const b = document.querySelector('#range-pop .range-row .jump-era-btn'); if (b.getAttribute('aria-pressed') !== 'true') b.click(); });
+      await tp.click('#range-pop .range-row .range-step:nth-of-type(2)');
+      const after = await tp.evaluate(() => [document.getElementById('range-from').value, document.querySelector('#range-pop .range-row .jump-era-btn').getAttribute('aria-pressed')]);
+      if (after.join() !== '1,false') throw new Error(`1 f.Kr. + 1 år gav ${after.join(' ')} i stället för 1 e.Kr.`);
+      await tp.keyboard.press('Escape');
+      await tp.waitForSelector('#range-pop', { state: 'hidden', timeout: T.step });
+      // 4. Fokus stänger intervallet
+      await tp.evaluate(() => document.getElementById('btn-focus').click());
+      await tp.fill('#focus-menu input', 'Koreakriget');
+      await tp.evaluate(() => document.querySelector('#focus-menu [data-key="war:koreakriget"]').click());
+      await tp.waitForSelector('#focus-bar:not([hidden])', { state: 'attached', timeout: T.step });
+      if (await shown('#range-bar')) throw new Error('intervallet stod kvar när Fokus började');
+      await hashHas(/f=war:koreakriget/);
+      if (/y2=/.test(await tp.evaluate(() => location.hash))) throw new Error('adressen har både fokus och intervall');
+      // Ett intervall i adressen avslutar Fokus
+      await tp.evaluate(() => { location.hash = '#y=1914&y2=1918'; });
+      await tp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
+      if (await shown('#focus-bar')) throw new Error('Fokus stod kvar när intervallet valdes');
+      // 5. Uppspelningen stänger intervallet
+      await tp.evaluate(() => document.getElementById('btn-play').click());
+      await tp.waitForSelector('#range-bar', { state: 'hidden', timeout: T.step });
+      await tp.evaluate(() => document.getElementById('btn-play').click()); // pausa
+      // 6. Under en tur går intervallet inte att välja
+      await tp.evaluate(() => { location.hash = '#t=tre-platser-1325'; });
+      await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      await tp.evaluate(() => { document.getElementById('year-jump').click(); document.getElementById('range-open').click(); });
+      await tp.fill('#range-from', '1300');
+      await tp.fill('#range-to', '1350');
+      await tp.click('#range-pop .jump-go');
+      if (!(await text('#range-msg'))) throw new Error('formuläret sa inget när intervallet inte gick att välja under turen');
+      if (await shown('#range-bar')) throw new Error('ett intervall valdes under turen');
+      if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
+    } finally {
+      await tp.close();
+    }
+    return 'länken med y2, Tillbaka till slutåret, årsfält med tangentbord och f.Kr.-gränsen; Fokus och uppspelning stänger intervallet, och en tur stoppar det';
   });
   // #885: läraren får en väg till elev- och lärarbladen i lektionsläget (r=lararen i länken eller Starta som lektion i
   // Turer-menyn); eleven i den vanliga lektionslänken ser ingen utskriftsknapp. Utskriften rör inte steget.
@@ -3021,6 +3365,57 @@ async function run(browser, vp) {
     }
     return 'två lektioner märkta (årskurs och tid), Starta som lektion ger bandet, steg 1 och 1939, m=lektion i adressen; vanliga turer utan knapp';
   });
+  // #942: händelser som börjar före tidslinjens början (−2999) får en rad i faktarutan; en vanlig händelse får ingen.
+  await check('händelser före tidslinjens början får en rad i faktarutan (#942)', async () => {
+    const ap = await context.newPage();
+    const errs = [];
+    ap.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await ap.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await ap.route(u => isFont(u.href), r => r.abort());
+      }
+      let loads = 0;
+      const open = async (query, hash = '') => {
+        await ap.goto(`${BASE}?ny=9${loads++}${hash}`);
+        await ap.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        if (await ap.isHidden('#focus-menu')) {
+          if (await ap.isHidden('#btn-focus') && await ap.isVisible('#more-toggle')) await ap.click('#more-toggle');
+          await ap.click('#btn-focus');
+        }
+        await ap.waitForSelector('#focus-menu', { state: 'visible', timeout: T.step });
+        await ap.click('#focus-menu [data-tab="Alla"]');
+        await ap.fill('#focus-menu .focus-search', query);
+        await ap.waitForSelector('#focus-menu [data-key^="event:"]', { timeout: T.step });
+        await ap.press('#focus-menu .focus-search', 'Enter');
+        await ap.waitForSelector('#detail:not([hidden])', { state: 'visible', timeout: T.step });
+        if (await ap.evaluate(() => document.getElementById('detail').dataset.sheet === 'half')) { await ap.focus('#detail-handle'); await ap.keyboard.press('ArrowUp'); }
+      };
+      const note = () => ap.evaluate(() => {
+        const n = document.querySelector('#detail .scale-note');
+        const close = document.querySelector('#detail .detail-close');
+        const r = n?.getBoundingClientRect(), c = close?.getBoundingClientRect();
+        return { text: n?.textContent.trim() ?? '', shown: !!n && n.getClientRects().length > 0,
+          overlapsClose: !!(r && c && r.left < c.right && r.right > c.left && r.top < c.bottom && r.bottom > c.top),
+          wide: document.scrollingElement.scrollWidth > innerWidth + 1 };
+      });
+      const names = { kilskriften: 'kilskrift i Uruk', 'gobekli-tepe': 'Göbekli Tepe', stonehenge: 'Stonehenge', 'egypten-enas': 'Egypten enas', 'jordbrukets-borjan': 'Jordbruket börjar' };
+      for (const [id, q] of Object.entries(names)) {
+        await open(q);
+        const got = await note();
+        if (!got.shown || !/3000 f\.Kr\./.test(got.text)) throw new Error(`${id}: raden saknas eller är fel ("${got.text}")`);
+        if (got.overlapsClose) throw new Error(`${id}: raden täcker Stäng`);
+        if (got.wide) throw new Error(`${id}: raden ger horisontell scroll`);
+      }
+      await open('Eiffeltornet');
+      if ((await note()).shown) throw new Error('en vanlig händelse (Eiffeltornet) har fått raden');
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+    } finally {
+      await ap.close();
+    }
+    return 'kilskriften, Göbekli Tepe, Stonehenge, Egypten enas och jordbrukets början har raden (3000 f.Kr.) utan att täcka Stäng; Eiffeltornet har ingen';
+  });
   // #879: går källregistret inte att ladda skrivs inga blad med tekniska källid ut; ett besked visas och en ny tryckning
   // försöker igen. Källfilen svarar 503 första gången och sedan som vanligt.
   await check('utskriften väntar på källregistret och visar besked när det inte laddas (#879)', async () => {
@@ -3088,7 +3483,7 @@ async function run(browser, vp) {
     await check('en lektionstur skriver ut elevblad och lärarblad (#738)', async () => {
       const printPage = await context.newPage();
       const printErrors = [];
-      printPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) printErrors.push(m.text()); });
+      printPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(printErrors, m); });
       printPage.on('pageerror', e => printErrors.push(e.message));
       try {
         if (THREE_LOCAL) {
@@ -3171,6 +3566,8 @@ async function run(browser, vp) {
       const A4_HEIGHT = 1039;
       const LANGS = ['sv', 'en', 'de', 'es', 'fr'];
       const TOURS = ['andra-varldskriget', 'vikingatiden-och-varlden'];
+      // Firefox kan skriva familjenamnet med citattecken i document.fonts (#888): jämför utan dem
+      const hasWebFont = fonts => fonts.some(f => f.replace(/"/g, '') === 'Instrument Sans');
       const measure = async (lang, tour, fallback) => {
         const pg = await context.newPage();
         try {
@@ -3196,6 +3593,7 @@ async function run(browser, vp) {
             heights: [...document.querySelectorAll('#print-sheet .print-page')].map(s => Math.ceil(s.getBoundingClientRect().height)),
             h1: document.querySelectorAll('#print-sheet h1').length,
             webFonts: [...document.fonts].filter(f => f.status === 'loaded').map(f => f.family),
+            allFonts: [...document.fonts].map(f => `${f.family}:${f.status}`).join(' '),
             bodyFont: getComputedStyle(document.querySelector('#print-sheet .print-q')).fontFamily,
           }));
           return got;
@@ -3207,7 +3605,7 @@ async function run(browser, vp) {
       const rows = [];
       for (const fallback of [false, true]) {
         // Utan nät (THREE_LOCAL) blockeras webbtypsnitten av den vanliga routen och går inte att mäta
-        if (!fallback && THREE_LOCAL && !(await measure('sv', TOURS[0], false)).webFonts.includes('Instrument Sans')) continue;
+        if (!fallback && THREE_LOCAL && !hasWebFont((await measure('sv', TOURS[0], false)).webFonts)) continue;
         for (const tour of TOURS) {
           // Andra världskriget är det längsta bladet och mäts på alla språk; vikingatiden är cirka 90 px lägre och
           // mäts på det längsta språket (tyska) med webbtypsnitt också på engelska, så att testet inte tar för lång tid
@@ -3217,9 +3615,10 @@ async function run(browser, vp) {
           results.forEach((got, i) => {
             const lang = langs[i];
             if (got.lang !== lang) throw new Error(`språket blev ${got.lang} i stället för ${lang}`);
-            const used = got.webFonts.includes('Instrument Sans');
-            if (!fallback && !used) throw new Error(`${tour} ${lang}: webbtypsnitten laddades inte, så höjden mäter fel typsnitt (${got.bodyFont})`);
-            if (fallback && (used || !got.bodyFont.startsWith('"DejaVu Sans"'))) throw new Error(`${tour} ${lang}: reservmätningen använder fel typsnitt (${got.bodyFont}, webbtypsnitt: ${used})`);
+            const used = hasWebFont(got.webFonts);
+            if (!fallback && !used) throw new Error(`${tour} ${lang}: webbtypsnitten laddades inte, så höjden mäter fel typsnitt (${got.bodyFont}; laddade enligt document.fonts: ${got.webFonts.join(', ') || 'inga'}; alla: ${got.allFonts})`);
+            // WebKit skriver DejaVu Sans, sans-serif utan citattecken, Chromium med (#888): jämför utan dem
+            if (fallback && (used || !got.bodyFont.replace(/"/g, '').startsWith('DejaVu Sans'))) throw new Error(`${tour} ${lang}: reservmätningen använder fel typsnitt (${got.bodyFont}, webbtypsnitt: ${used})`);
             const max = Math.max(...got.heights);
             const lim = limit[fallback ? 'fallback' : 'web'];
             // Andra världskriget har Källdetektiven (#742) och därmed tre blad, vikingatiden har två; varje blad har en h1
@@ -3402,6 +3801,11 @@ async function run(browser, vp) {
     const text = (await page.textContent('#detail .uncertainty-row')).replace(/\s+/g, ' ').trim();
     if (!/Historisk osäkerhet:.*dateringen är ungefärlig/.test(text)) throw new Error(`osäkerhetsraden saknar ungefärlig datering: ${text}`);
     if (!(await page.locator('#detail .review-badge').count())) throw new Error('faktarutan saknar en separat rad för källkontroll');
+    // Kontrollen och osäkerheten skiljs åt med en kort förklaring som syns direkt i rutan (#786)
+    const explain = page.locator('#detail .review-explain');
+    await explain.waitFor({ state: 'visible', timeout: T.step });
+    const explainText = (await explain.textContent()).trim();
+    if (explainText.length < 15 || /^review\./.test(explainText)) throw new Error(`förklaringen under granskningsmärket saknas eller är en rå textnyckel: ${explainText}`);
     // Rubrik och datumrad före bilden (#605), platsen en gång (#607) och markeringen i datumraden (#606)
     const order = await page.evaluate(() => {
       const d = document.getElementById('detail');
@@ -3517,7 +3921,7 @@ async function runReflow(browser) {
   const context = await browser.newContext({ viewport: { width: 700, height: 450 }, deviceScaleFactor: 1 });
   const page = await context.newPage();
   const errors = [];
-  page.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url || '')) errors.push(`konsol: ${m.text()}`); });
+  page.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url || '')) pushConsole(errors, m, t => `konsol: ${t}`); });
   page.on('pageerror', e => errors.push(`sidfel: ${e.message}`));
   if (THREE_LOCAL) {
     const body = fs.readFileSync(THREE_LOCAL, 'utf8');
@@ -3662,7 +4066,7 @@ async function runPresentation(browser) {
     const context = await browser.newContext({ viewport: vp, deviceScaleFactor: 1, reducedMotion: vp.name === 'presentation-mobil' ? 'reduce' : 'no-preference' });
     const page = await context.newPage();
     const errors = [];
-    page.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url || '')) errors.push(m.text()); });
+    page.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url || '')) pushConsole(errors, m); });
     page.on('pageerror', e => errors.push(e.message));
     if (THREE_LOCAL) {
       const body = fs.readFileSync(THREE_LOCAL, 'utf8');
