@@ -1546,6 +1546,50 @@ async function run(browser, vp) {
     return `257 f.Kr.: ${r.y257.join(', ')}`;
   });
 
+  // Vad hände här? (#15): fliken Plats i Sök och följ
+  await check('fliken Plats: sök en plats, se händelserna nära den i tidsordning och öppna en (#15)', async () => {
+    await clickView('#btn-focus');
+    await visible('#focus-menu');
+    try {
+      await page.click('#focus-menu [data-tab="Plats"]');
+      if (!/plats/i.test(await page.getAttribute('#focus-menu .focus-search', 'placeholder'))) throw new Error('sökrutan fick inte platstext');
+      if (!(await page.textContent('#focus-menu .focus-body')).includes('bland händelserna')) throw new Error('raden om att bara platser i datan hittas saknas');
+      await page.fill('#focus-menu .focus-search', 'zzzzqq');
+      await page.waitForSelector('#focus-menu .focus-body .layer-note:has-text("Ingen plats")', { timeout: T.step });
+      await page.fill('#focus-menu .focus-search', 'rom');
+      await page.waitForSelector('#focus-menu [data-place]', { timeout: T.step });
+      // Enter i sökrutan väljer första förslaget (tangentbord)
+      await page.press('#focus-menu .focus-search', 'Enter');
+      await page.waitForSelector('#focus-menu [data-place-reset]', { timeout: T.step });
+      const head = await page.textContent('#focus-menu .focus-active-text');
+      if (!/händelse(r)? inom 300 km från/.test(head)) throw new Error(`rubriken saknar urvalet: "${head}"`);
+      const rows = await page.locator('#focus-menu [data-key]').evaluateAll(els => els.map(e => ({ key: e.dataset.key, text: e.textContent })));
+      const n = Number(/^(\d+)/.exec(head.trim())?.[1]);
+      if (!rows.length || rows.length !== n) throw new Error(`rubriken säger ${n} men listan har ${rows.length} rader`);
+      if (rows.some(r => !r.key.startsWith('event:'))) throw new Error('en rad är inte en händelse');
+      if (await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error('horisontell scroll i Plats');
+      // Ett klick öppnar händelsen och flyttar tiden, som Sök gör
+      const first = rows[0].key.slice(6);
+      await page.locator('#focus-menu [data-key]').first().click();
+      await hidden('#focus-menu');
+      await visible('#detail');
+      if (!(await page.textContent('#detail')).length) throw new Error('faktarutan är tom');
+      // Tillbaka: Välj en annan plats rensar
+      await clickView('#btn-focus');
+      await visible('#focus-menu');
+      await page.click('#focus-menu [data-tab="Plats"]');
+      await page.fill('#focus-menu .focus-search', 'rom');
+      await page.locator('#focus-menu [data-place]').first().click();
+      await page.click('#focus-menu [data-place-reset]');
+      if (await page.inputValue('#focus-menu .focus-search')) throw new Error('"Välj en annan plats" rensade inte sökrutan');
+      if (await page.locator('#focus-menu [data-key]').count()) throw new Error('listan låg kvar efter "Välj en annan plats"');
+      return `Rom: "${head.trim()}", ${rows.length} rader i tidsordning, Enter väljer första förslaget, ${first} öppnas`;
+    } finally {
+      if (await page.isVisible('#focus-menu')) await page.keyboard.press('Escape');
+      if (await page.isVisible('#detail')) await page.keyboard.press('Escape');
+    }
+  });
+
   await check('Fokus öppnas och följer ett rike', async () => {
     if (!(await page.locator('#religion-legend').isHidden())) throw new Error('rikesförklaringen syns på startskärmen');
     await clickView('#btn-focus');
