@@ -1,0 +1,295 @@
+{
+  "schema": "historia-globen/tur@1",
+  "version": 1,
+  "id": "hur-vet-vi-det-har",
+  "title": {
+    "sv": "Hur vet vi det här? Sex saker många tror",
+    "en": "How do we know this? Six things many people believe",
+    "de": "Woher wissen wir das? Sechs Dinge, an die viele glauben",
+    "es": "¿Cómo lo sabemos? Seis cosas en las que mucha gente cree",
+    "fr": "Comment le savons-nous ? Six choses auxquelles beaucoup de gens croient"
+  },
+  "summary": {
+    "sv": "Moai, vikingahjälmar, pyramider, Napoleon, Machu Picchu och Marco Polo: sex saker många tror är sanna, och hur du tar reda på var de kommer ifrån.",
+    "en": "Moai, Viking helmets, the pyramids, Napoleon, Machu Picchu and Marco Polo: six things many people believe, and how you can find out where they come from.",
+    "de": "Moai, Wikingerhelme, Pyramiden, Napoleon, Machu Picchu und Marco Polo: sechs Dinge, die viele für wahr halten, und wie du herausfindest, woher sie kommen.",
+    "es": "Moáis, cascos vikingos, pirámides, Napoleón, Machu Picchu y Marco Polo: seis cosas que mucha gente cree, y cómo puedes averiguar de dónde vienen.",
+    "fr": "Moaï, casques vikings, pyramides, Napoléon, Machu Picchu et Marco Polo : six choses auxquelles beaucoup de gens croient, et comment tu peux découvrir d'où elles viennent."
+  },
+  "review": "source-checked",
+  "steps": [
+    {
+      "id": "moai",
+      "at": 1250,
+      "camera": {
+        "lat": -27.114,
+        "lon": -109.364,
+        "zoom": 2.6
+      },
+      "title": {
+        "sv": "Påskön: är moai bara huvuden?",
+        "en": "Easter Island: are the moai just heads?",
+        "de": "Osterinsel: Sind Moai nur Köpfe?",
+        "es": "Isla de Pascua: ¿los moái son solo cabezas?",
+        "fr": "L'île de Pâques : les moaï sont-ils seulement des têtes ?"
+      },
+      "chapter": {
+        "sv": "Bilder kan vilseleda",
+        "en": "Pictures can mislead",
+        "de": "Bilder können täuschen",
+        "es": "Las imágenes pueden engañar",
+        "fr": "Les images peuvent tromper"
+      },
+      "question": {
+        "sv": "Vad visar en bild, och vad visar den inte? Hur kan du ta reda på resten?",
+        "en": "What does a picture show, and what does it leave out? How can you find out the rest?",
+        "de": "Was zeigt ein Bild, und was zeigt es nicht? Wie kannst du den Rest herausfinden?",
+        "es": "¿Qué muestra una imagen y qué no muestra? ¿Cómo puedes averiguar el resto?",
+        "fr": "Que montre une image, et que ne montre-t-elle pas ? Comment peux-tu découvrir le reste ?"
+      },
+      "text": {
+        "sv": "Många tror att Påskölns moai är stora huvuden och inget mer. Men moai är statyer av hela kroppar, med kraftig bål. Huvudet är överdrivet stort, tre åttondelar av hela statyn. På många bilder står statyerna nedgrävda till axlarna, och då syns inte resten.",
+        "en": "Many people think the moai of Easter Island are big heads and nothing more. But moai are statues of whole bodies, with heavy torsos. The head is oversized, three-eighths of the whole statue. In many pictures the statues are buried up to their shoulders, so you cannot see the rest.",
+        "de": "Viele glauben, die Moai der Osterinsel seien große Köpfe und sonst nichts. Doch Moai sind Statuen ganzer Körper mit kräftigem Oberkörper. Der Kopf ist übergroß und macht drei Achtel der ganzen Statue aus. Auf vielen Bildern sind die Statuen bis zu den Schultern eingegraben, und dann sieht man den Rest nicht.",
+        "es": "Mucha gente cree que los moái de la isla de Pascua son grandes cabezas y nada más. Pero los moái son estatuas de cuerpo entero, con un torso robusto. La cabeza es desproporcionada: ocupa tres octavos de toda la estatua. En muchas imágenes las estatuas están enterradas hasta los hombros, y entonces no se ve el resto.",
+        "fr": "Beaucoup de gens croient que les moaï de l'île de Pâques sont de grandes têtes et rien de plus. Mais les moaï sont des statues de corps entiers, avec un torse massif. La tête est démesurée : elle représente trois huitièmes de toute la statue. Sur beaucoup d'images, les statues sont enterrées jusqu'aux épaules, et on ne voit donc pas le reste."
+      },
+      "layers": [
+        "events"
+      ],
+      "open": "moai-rapa-nui",
+      "sources": [
+        "wp-moai",
+        "snopes-moai"
+      ]
+    },
+    {
+      "id": "vikingahjalmar",
+      "at": 793,
+      "camera": {
+        "lat": 55.67,
+        "lon": -1.8,
+        "zoom": 2.2
+      },
+      "title": {
+        "sv": "Lindisfarne 793: hade vikingar horn på hjälmen?",
+        "en": "Lindisfarne 793: did Vikings wear horned helmets?",
+        "de": "Lindisfarne 793: Trugen Wikinger Hörnerhelme?",
+        "es": "Lindisfarne, 793: ¿llevaban los vikingos cascos con cuernos?",
+        "fr": "Lindisfarne, 793 : les Vikings portaient-ils des casques à cornes ?"
+      },
+      "chapter": {
+        "sv": "Gamla bilder, nya berättelser",
+        "en": "Old pictures, new stories",
+        "de": "Alte Bilder, neue Geschichten",
+        "es": "Imágenes antiguas, historias nuevas",
+        "fr": "Images anciennes, histoires nouvelles"
+      },
+      "question": {
+        "sv": "Var kommer bilden ifrån, och hur gammal är den?",
+        "en": "Where does the picture come from, and how old is it?",
+        "de": "Woher stammt das Bild, und wie alt ist es?",
+        "es": "¿De dónde viene la imagen y qué antigüedad tiene?",
+        "fr": "D'où vient l'image, et quel âge a-t-elle ?"
+      },
+      "text": {
+        "sv": "År 793 anföll vikingar klostret Lindisfarne i England. På bilder har vikingar ofta hjälmar med horn. Men det finns inga belägg för att vikingar bar hornhjälmar, och ingen bevarad vikingahjälm har horn. Hornen dök upp som kostymdetalj på 1800-talet, mer än tusen år senare.",
+        "en": "In 793 Vikings attacked the monastery of Lindisfarne in England. In pictures, Vikings often wear helmets with horns. But there is no evidence that Vikings wore horned helmets, and no preserved Viking helmet has horns. The horns appeared as a costume detail in the 19th century, more than a thousand years later.",
+        "de": "Im Jahr 793 griffen Wikinger das Kloster Lindisfarne in England an. Auf Bildern tragen Wikinger oft Helme mit Hörnern. Doch es gibt keine Belege dafür, dass Wikinger Hörnerhelme trugen, und kein erhaltener Wikingerhelm hat Hörner. Die Hörner tauchten im 19. Jahrhundert als Kostümdetail auf, mehr als tausend Jahre später.",
+        "es": "En el año 793 unos vikingos atacaron el monasterio de Lindisfarne, en Inglaterra. En las imágenes, los vikingos suelen llevar cascos con cuernos. Pero no hay pruebas de que los vikingos usaran cascos con cuernos, y ningún casco vikingo conservado tiene cuernos. Los cuernos aparecieron como detalle de vestuario en el siglo XIX, más de mil años después.",
+        "fr": "En 793, des Vikings attaquent le monastère de Lindisfarne, en Angleterre. Sur les images, les Vikings portent souvent des casques à cornes. Mais rien ne prouve que les Vikings portaient des casques à cornes, et aucun casque viking conservé n'en a. Les cornes sont apparues comme détail de costume au XIXe siècle, plus de mille ans plus tard."
+      },
+      "layers": [
+        "events"
+      ],
+      "open": "lindisfarne",
+      "sources": [
+        "wp-vikings",
+        "history-vikings-horns",
+        "wp-lindisfarne"
+      ]
+    },
+    {
+      "id": "cheopspyramiden",
+      "at": -2599,
+      "camera": {
+        "lat": 29.979,
+        "lon": 31.134,
+        "zoom": 2.4
+      },
+      "title": {
+        "sv": "Giza: byggdes Cheopspyramiden av slavar?",
+        "en": "Giza: was the Great Pyramid built by slaves?",
+        "de": "Gizeh: Wurde die Cheops-Pyramide von Sklaven gebaut?",
+        "es": "Guiza: ¿construyeron esclavos la Gran Pirámide?",
+        "fr": "Gizeh : la grande pyramide a-t-elle été construite par des esclaves ?"
+      },
+      "chapter": {
+        "sv": "Vem sa det, och när?",
+        "en": "Who said it, and when?",
+        "de": "Wer hat das gesagt, und wann?",
+        "es": "¿Quién lo dijo y cuándo?",
+        "fr": "Qui l'a dit, et quand ?"
+      },
+      "question": {
+        "sv": "Vem sa det, och hur kunde de veta? Vad kan fynd berätta som en gammal berättelse inte kan?",
+        "en": "Who said it, and how could they know? What can finds tell us that an old story cannot?",
+        "de": "Wer hat das gesagt, und woher konnte er das wissen? Was können Funde erzählen, was eine alte Geschichte nicht kann?",
+        "es": "¿Quién lo dijo y cómo podía saberlo? ¿Qué pueden contarnos los hallazgos que no puede contar una historia antigua?",
+        "fr": "Qui l'a dit, et comment pouvait-il le savoir ? Que peuvent nous apprendre les découvertes qu'une vieille histoire ne peut pas nous apprendre ?"
+      },
+      "text": {
+        "sv": "Många tror att Cheopspyramiden byggdes av slavar. De gamla grekerna trodde det, men de levde långt efter pyramidens tid. Fynd vid arbetarläger nära Giza tyder i stället på att tusentals inkallade arbetare byggde den. Skelett från området visar att arbetarna troligen var egyptiska lantarbetare.",
+        "en": "Many people think the Great Pyramid was built by slaves. The ancient Greeks believed so, but they lived long after the pyramid was built. Finds at workers' camps near Giza instead suggest that thousands of conscripted workers built it. Skeletons from the area show that the workers were probably Egyptian farm labourers.",
+        "de": "Viele glauben, die Cheops-Pyramide sei von Sklaven gebaut worden. Die alten Griechen glaubten das, aber sie lebten lange nach der Zeit der Pyramide. Funde in den Arbeitersiedlungen bei Gizeh deuten stattdessen darauf hin, dass Tausende dienstverpflichtete Arbeiter sie gebaut haben. Skelette aus der Gegend zeigen, dass die Arbeiter wahrscheinlich ägyptische Landarbeiter waren.",
+        "es": "Mucha gente cree que la Gran Pirámide fue construida por esclavos. Los antiguos griegos lo creían, pero vivieron mucho después de la época de la pirámide. Los hallazgos en los campamentos de trabajadores cercanos a Guiza indican, en cambio, que la construyeron miles de trabajadores reclutados. Los esqueletos de la zona muestran que probablemente eran jornaleros agrícolas egipcios.",
+        "fr": "Beaucoup de gens croient que la grande pyramide de Khéops a été construite par des esclaves. Les Grecs de l'Antiquité le croyaient, mais ils vivaient longtemps après l'époque de la pyramide. Les découvertes faites dans les camps d'ouvriers près de Gizeh indiquent plutôt que des milliers d'ouvriers réquisitionnés l'ont construite. Les squelettes de la région montrent qu'il s'agissait probablement de travailleurs agricoles égyptiens."
+      },
+      "layers": [
+        "events"
+      ],
+      "open": "cheopspyramiden",
+      "sources": [
+        "wp-great-pyramid",
+        "history-pyramids"
+      ]
+    },
+    {
+      "id": "napoleon",
+      "at": 1803,
+      "camera": {
+        "lat": 48.0,
+        "lon": 8.0,
+        "zoom": 1.5
+      },
+      "title": {
+        "sv": "Napoleonkrigen: var Napoleon kort?",
+        "en": "The Napoleonic Wars: was Napoleon short?",
+        "de": "Napoleonische Kriege: War Napoleon klein?",
+        "es": "Guerras napoleónicas: ¿era Napoleón bajo?",
+        "fr": "Les guerres napoléoniennes : Napoléon était-il petit ?"
+      },
+      "chapter": {
+        "sv": "Vem ritade bilden, och varför?",
+        "en": "Who drew the picture, and why?",
+        "de": "Wer hat das Bild gezeichnet, und warum?",
+        "es": "¿Quién dibujó la imagen y por qué?",
+        "fr": "Qui a dessiné l'image, et pourquoi ?"
+      },
+      "question": {
+        "sv": "Vem ritade bilden, och varför? Vad ville tecknaren att folk skulle tycka om Napoleon?",
+        "en": "Who drew the picture, and why? What did the cartoonist want people to think about Napoleon?",
+        "de": "Wer hat das Bild gezeichnet, und warum? Was sollten die Leute nach dem Willen des Zeichners über Napoleon denken?",
+        "es": "¿Quién dibujó la imagen y por qué? ¿Qué quería el dibujante que la gente pensara de Napoleón?",
+        "fr": "Qui a dessiné l'image, et pourquoi ? Que voulait le caricaturiste faire penser de Napoléon ?"
+      },
+      "text": {
+        "sv": "Många tror att Napoleon var ovanligt kort. Men han var ungefär 1,67 meter lång, nära genomsnittet för sin tid. Myten kommer till stor del från den brittiske tecknaren James Gillray. Britterna var i krig med Napoleon, och 1803 ritade Gillray honom som liten och arg, ”Little Boney”.",
+        "en": "Many people think Napoleon was unusually short. But he was about 1.67 metres tall, close to the average for his time. The myth comes largely from the British cartoonist James Gillray. Britain was at war with Napoleon, and in 1803 Gillray drew him as small and furious, “Little Boney”.",
+        "de": "Viele glauben, Napoleon sei ungewöhnlich klein gewesen. Doch er war etwa 1,67 Meter groß, nahe am Durchschnitt seiner Zeit. Der Mythos stammt zum großen Teil vom britischen Karikaturisten James Gillray. Großbritannien war im Krieg mit Napoleon, und 1803 zeichnete Gillray ihn klein und wütend, als „Little Boney“.",
+        "es": "Mucha gente cree que Napoleón era de una estatura inusualmente baja. Pero medía unos 1,67 metros, cerca de la media de su época. El mito viene en gran parte del dibujante británico James Gillray. Gran Bretaña estaba en guerra con Napoleón, y en 1803 Gillray lo dibujó pequeño y furioso, como «Little Boney».",
+        "fr": "Beaucoup de gens croient que Napoléon était exceptionnellement petit. Mais il mesurait environ 1,67 m, près de la moyenne de son époque. Le mythe vient en grande partie du caricaturiste britannique James Gillray. La Grande-Bretagne était en guerre contre Napoléon, et en 1803 Gillray l'a dessiné petit et furieux, sous le nom de « Little Boney »."
+      },
+      "layers": [
+        "events"
+      ],
+      "open": "napoleonkrigen",
+      "sources": [
+        "wp-napoleon-complex",
+        "history-napoleon-short",
+        "wp-napoleonic-wars"
+      ]
+    },
+    {
+      "id": "machu-picchu",
+      "at": 1450,
+      "camera": {
+        "lat": -13.163,
+        "lon": -72.546,
+        "zoom": 2.4
+      },
+      "title": {
+        "sv": "Machu Picchu: vem upptäckte staden?",
+        "en": "Machu Picchu: who discovered the city?",
+        "de": "Machu Picchu: Wer hat die Stadt entdeckt?",
+        "es": "Machu Picchu: ¿quién descubrió la ciudad?",
+        "fr": "Le Machu Picchu : qui a découvert la cité ?"
+      },
+      "chapter": {
+        "sv": "Vems berättelse?",
+        "en": "Whose story is it?",
+        "de": "Wessen Geschichte ist das?",
+        "es": "¿De quién es la historia?",
+        "fr": "À qui est cette histoire ?"
+      },
+      "question": {
+        "sv": "Vem kallas upptäckare, och vilka visste redan om platsen? Vems berättelse hörs mest?",
+        "en": "Who is called the discoverer, and who already knew about the place? Whose story is heard the most?",
+        "de": "Wer gilt als Entdecker, und wer kannte den Ort schon? Wessen Geschichte wird am meisten gehört?",
+        "es": "¿A quién se llama descubridor y quién conocía ya el lugar? ¿De quién es la historia que más se oye?",
+        "fr": "Qui est présenté comme le découvreur, et qui connaissait déjà le lieu ? Quelle histoire entend-on le plus ?"
+      },
+      "text": {
+        "sv": "Hiram Bingham kallas ofta upptäckaren av Machu Picchu 1911. Men platsen var känd i trakten. En bybo, Melchor Arteaga, visade honom vägen, och bönder odlade redan grönsaker på terrasserna. Agustín Lizárraga hade skrivit sitt namn och årtalet 1902 på ett tempel.",
+        "en": "Hiram Bingham is often called the discoverer of Machu Picchu in 1911. But the place was known in the area. A villager, Melchor Arteaga, led him there, and farmers were already growing vegetables on the terraces. Agustín Lizárraga had written his name and the year 1902 on a temple.",
+        "de": "Hiram Bingham gilt oft als Entdecker von Machu Picchu im Jahr 1911. Doch der Ort war in der Gegend bekannt. Ein Dorfbewohner, Melchor Arteaga, führte ihn hin, und Bauern bauten auf den Terrassen bereits Gemüse an. Agustín Lizárraga hatte seinen Namen und die Jahreszahl 1902 an einen Tempel geschrieben.",
+        "es": "A Hiram Bingham se le suele llamar el descubridor de Machu Picchu en 1911. Pero el lugar era conocido en la zona. Un aldeano, Melchor Arteaga, lo guio hasta allí, y los campesinos ya cultivaban verduras en las terrazas. Agustín Lizárraga había escrito su nombre y el año 1902 en un templo.",
+        "fr": "Hiram Bingham est souvent présenté comme le découvreur du Machu Picchu en 1911. Mais le lieu était connu dans la région. Un villageois, Melchor Arteaga, l'y a conduit, et des paysans cultivaient déjà des légumes sur les terrasses. Agustín Lizárraga avait écrit son nom et l'année 1902 sur un temple."
+      },
+      "layers": [
+        "events"
+      ],
+      "open": "machu-picchu",
+      "sources": [
+        "wp-machu-picchu",
+        "history-machu-picchu",
+        "smithsonian-machu-picchu"
+      ]
+    },
+    {
+      "id": "marco-polo",
+      "at": 1271,
+      "camera": {
+        "lat": 42.358,
+        "lon": 116.185,
+        "zoom": 1.4
+      },
+      "title": {
+        "sv": "Marco Polo: tog han med pasta från Kina?",
+        "en": "Marco Polo: did he bring pasta from China?",
+        "de": "Marco Polo: Brachte er Pasta aus China mit?",
+        "es": "Marco Polo: ¿llevó la pasta de China?",
+        "fr": "Marco Polo : a-t-il rapporté les pâtes de Chine ?"
+      },
+      "chapter": {
+        "sv": "Vem tjänar på det?",
+        "en": "Who gains from it?",
+        "de": "Wem nützt das?",
+        "es": "¿A quién le conviene?",
+        "fr": "À qui profite-t-elle ?"
+      },
+      "question": {
+        "sv": "Vem skulle tjäna på att berättelsen sprids? Hur kan du ta reda på var en berättelse kommer ifrån?",
+        "en": "Who would gain from spreading the story? How can you find out where a story comes from?",
+        "de": "Wer hätte einen Vorteil davon, dass die Geschichte verbreitet wird? Wie kannst du herausfinden, woher eine Geschichte stammt?",
+        "es": "¿Quién saldría ganando si la historia se difunde? ¿Cómo puedes averiguar de dónde viene una historia?",
+        "fr": "Qui aurait intérêt à ce que l'histoire se répande ? Comment peux-tu découvrir d'où vient une histoire ?"
+      },
+      "text": {
+        "sv": "Många tror att Marco Polo tog med pasta från Kina till Italien. Men pasta fanns i Italien redan långt före hans resor. Enligt Wikipedia kommer berättelsen från en tidskrift som en branschorganisation gav ut för att fler i USA skulle äta pasta. Källorna är inte helt överens: en annan uppgift pekar på en reklam för ett spaghettiföretag.",
+        "en": "Many people think Marco Polo brought pasta from China to Italy. But pasta existed in Italy long before his journeys. According to Wikipedia, the story comes from a magazine published by a food industry association to get more people in the United States to eat pasta. The sources do not fully agree: another account points to an advertisement for a spaghetti company.",
+        "de": "Viele glauben, Marco Polo habe Pasta aus China nach Italien gebracht. Doch Pasta gab es in Italien schon lange vor seinen Reisen. Laut Wikipedia stammt die Geschichte aus einer Zeitschrift, die ein Branchenverband der Lebensmittelindustrie herausgab, damit in den USA mehr Pasta gegessen wird. Die Quellen sind sich nicht ganz einig: Eine andere Angabe verweist auf eine Werbeanzeige für eine Spaghetti-Firma.",
+        "es": "Mucha gente cree que Marco Polo llevó la pasta de China a Italia. Pero la pasta existía en Italia mucho antes de sus viajes. Según Wikipedia, la historia procede de una revista publicada por una asociación del sector alimentario para que en Estados Unidos se comiera más pasta. Las fuentes no coinciden del todo: otra versión apunta a un anuncio de una empresa de espaguetis.",
+        "fr": "Beaucoup de gens croient que Marco Polo a rapporté les pâtes de Chine en Italie. Mais les pâtes existaient en Italie bien avant ses voyages. Selon Wikipédia, l'histoire vient d'un magazine publié par une association de l'industrie alimentaire pour que l'on mange plus de pâtes aux États-Unis. Les sources ne s'accordent pas tout à fait : une autre version désigne une publicité pour une entreprise de spaghettis."
+      },
+      "layers": [
+        "events"
+      ],
+      "open": "marco-polos-resa",
+      "sources": [
+        "wp-marco-polo",
+        "smithsonian-marco-polo"
+      ]
+    }
+  ]
+}
