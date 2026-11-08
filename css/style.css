@@ -840,8 +840,12 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .lesson-exit:hover { background: color-mix(in srgb, var(--brass) 18%, transparent); }
 .lesson-exit:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
 .lesson-exit[hidden] { display: none; }
-.app.lesson .masthead { top: calc(env(safe-area-inset-top, 0px) + 52px); }
-.app.lesson .top-actions { top: calc(env(safe-area-inset-top, 0px) + 56px); }
+#lesson-print { margin-left: auto; }
+.lesson-print-status { flex: 1 1 100%; margin: 0; font: 400 12px/1.35 var(--f-body); color: var(--danger); }
+.lesson-print-status[hidden] { display: none; }
+.app.lesson .masthead, .app.lesson-notice .masthead { top: calc(env(safe-area-inset-top, 0px) + 52px); }
+.app.lesson .top-actions, .app.lesson-notice .top-actions { top: calc(env(safe-area-inset-top, 0px) + 56px); }
+.lesson-notice .lesson-band-title { flex: 1; }
 .app.lesson .view-mode, .app.lesson #btn-layers, .app.lesson #btn-focus, .app.lesson #btn-tour, .app.lesson #btn-intro,
 .app.lesson #filters, .app.lesson #panel-filters, .app.lesson .focus-btn, .app.lesson [data-follow-war],
 .app.lesson #btn-hunt, .app.lesson #tour-print, .app.lesson #tour-close, .app.lesson #tour-end, .app.lesson #pause-stop, .app.lesson .story-tour { display: none !important; }
@@ -854,6 +858,16 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
   .lesson-exit { min-height: 44px; padding: 6px 12px; margin: -4px 0; }
   .app.lesson .masthead { top: calc(env(safe-area-inset-top, 0px) + 62px); }
   .app.lesson .top-actions { top: calc(env(safe-area-inset-top, 0px) + 66px); }
+  /* Förklaringen (#877) är längre än lektionsbandet: texten får en egen rad och knapparna en rad under */
+  .lesson-notice { flex-wrap: wrap; justify-content: flex-end; }
+  .lesson-notice .lesson-band-title { flex: 1 1 100%; }
+  .app.lesson-notice .masthead { top: calc(env(safe-area-inset-top, 0px) + 112px); }
+  .app.lesson-notice .top-actions { top: calc(env(safe-area-inset-top, 0px) + 116px); }
+  /* Lärarens knapp (#885): titeln får en egen rad och knapparna en rad under, som förklaringen ovan */
+  .app.lesson-teacher .lesson-band { flex-wrap: wrap; justify-content: flex-end; }
+  .app.lesson-teacher .lesson-band-title { flex: 1 1 100%; }
+  .app.lesson-teacher .masthead { top: calc(env(safe-area-inset-top, 0px) + 92px); }
+  .app.lesson-teacher .top-actions { top: calc(env(safe-area-inset-top, 0px) + 96px); }
 }
 .app:has(.pause-note:not([hidden])) .tour-card { bottom: 186px; max-height: calc(100dvh - 186px - 150px); }
 .tour-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
@@ -876,6 +890,8 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .story-tour:hover { background: color-mix(in srgb, var(--card-accent) 14%, transparent); }
 .tour-links { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 10px; }
 .tour-links .link-btn[hidden] { display: none; }
+.tour-print-status { margin: 6px 0 0; font-size: 13px; line-height: 1.4; color: var(--danger); }
+.tour-print-status[hidden] { display: none; }
 .tour-actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 14px; }
 .tour-actions .chip-btn { margin-right: auto; }
 .tour-actions .chip-btn[hidden] { display: none; }
@@ -1339,6 +1355,8 @@ details.used-by summary:hover { color: var(--parchment); }
 /* Bilden kommer efter rubrik och datumrad (#605) och går ut till kortets kanter */
 .detail-fig { position: relative; margin: 10px -16px 10px; }
 .detail-fig img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: var(--night-3); }
+.detail-fig.is-missing { margin-top: 6px; margin-bottom: 6px; }
+.fig-missing { margin: 0; padding: 8px 12px; background: var(--night-3); font: 400 12px/1.4 var(--f-mono); color: var(--card-dim); }
 .detail-fig figcaption { padding: 5px 12px 0; font: 400 11px/1.35 var(--f-mono); color: var(--card-dim); }
 .fig-caption { display: block; color: var(--card-ink); font-style: italic; }
 .fig-credit a { color: var(--card-accent); }

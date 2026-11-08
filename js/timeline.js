@@ -452,6 +452,8 @@ export class Timeline extends EventTarget {
     else if (this.status) this.status.textContent = '';
   }
   /** Den här raden finns alltid i DOM:en, så att skärmläsaren säkert får ändringen. */
+  /** Läser upp text för skärmläsare utan att visa en pausrad (till exempel turens slutkort, #878). */
+  announce(text) { this._announce(text); }
   _announce(text) {
     if (!this.status) return;
     const request = (this._announceRequest ?? 0) + 1;
@@ -466,6 +468,9 @@ export class Timeline extends EventTarget {
     const p = this.toPos(this._year);
     this.thumb.style.left = `${p * 100}%`;
     this._showNearestStoryLabel();
+    // Gränserna följer det man kan välja: fokusspannet (lektionens år, ett krig) eller hela skalan (#883)
+    this.track.setAttribute('aria-valuemin', String(this.focus ? this.focus.from : MIN_YEAR));
+    this.track.setAttribute('aria-valuemax', String(this.focus ? this.focus.to : MAX_YEAR));
     this.track.setAttribute('aria-valuenow', String(this._year));
     this.track.setAttribute('aria-valuetext', this.format(this._year));
     this._labelPlay(); // i slutet heter knappen "Spela igen"

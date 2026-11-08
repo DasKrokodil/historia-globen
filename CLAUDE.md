@@ -65,7 +65,7 @@ js/ui/feedback.js     formuläret för besökarnas förslag (avstängt som stand
 js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med functions/)
 functions/api/feedback.js  Cloudflare Pages Function som skapar issues i ett privat repo (enda undantaget från punkt 1)
 tests/                tester för functions/ med node:test (node --test 'tests/*.test.mjs')
-tests/webblasare.mjs  webbläsartest med Playwright, körs i GitHub Actions för varje PR (#339)
+tests/webblasare.mjs  webbläsartest med Playwright, körs i GitHub Actions för varje PR (#339); delas i tre Chromium-jobb med BREDD, ENDAST och UTAN (tests/urval.mjs, tests/jobb.json, #864)
 data/handelser/       händelserna, en redigeringsfil per period (fkr.json, 1-1499.json … 1946-1979.json, 1980-.json); här redigeras händelser (#394)
 data/events.json      alla händelser i en fil, byggs av tools/dela_data.py ur data/handelser/; redigeras inte
 data/funfacts.json    fun facts (kopplade till händelse-id)
@@ -95,7 +95,7 @@ images/karta/         kartbilder till upptäcktsvyn (public domain, ur gamla kar
 images/incoming/      Rikards nya bilder, innan de konverteras
 tools/                hjälpskript som körs för hand; tools/license_manifests.py genererar licensmanifesten, och dela_data.py körs efter ändring i data/handelser/ eller empires/index.json
 docs/                 dokumentation: produkt (vision, användare, användningsfall, UX, granskningslinser i docs/produkt/), arkitektur, datamodell, beslutslogg, källarbete, bildpromptar, publicering (DEPLOYMENT.md), besökarnas förslag (feedback.md), externa granskningar (granskningar/)
-scripts/              build-site.sh kopierar webbplatsens filer till dist/ och kör validate-site.py (publicering, ingen kodändring); pages-function-check.sh startar formulärets funktion som Cloudflare (#663)
+scripts/              build-site.sh kopierar webbplatsens filer till dist/ och kör validate-site.py (publicering, ingen kodändring); pages-function-check.sh startar formulärets funktion som Cloudflare (#663); kontrolltackning.mjs bevisar att varje webbläsarkontroll ligger i exakt ett CI-jobb (#864)
 .orchestra/           dirigenten och orkestern: project.md (projektets policy) och shared/ (fäst version, redigeras inte)
 ```
 

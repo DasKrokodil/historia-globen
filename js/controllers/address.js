@@ -15,7 +15,7 @@
 // - Knappen Dela kopierar länken, eller öppnar telefonens delningsmeny där den finns.
 
 import { toJSON } from '../state.js';
-import { encodeHash, decodeHash, decodeTour, decodeMission, decodeMode, isNewStep, LESSON_MODE } from '../url-state.js';
+import { encodeHash, decodeHash, decodeTour, decodeMission, decodeMode, decodeRole, isNewStep, LESSON_MODE } from '../url-state.js';
 import { ui } from '../i18n.js';
 
 const POLL_MS = 700;
@@ -82,16 +82,17 @@ export function createAddress(app) {
    * lektionstur (#795). Läget börjar före turen, så att första steget redan ligger inom låset. Ger false när turen
    * inte finns. Utan m, eller för en tur som inte är en lektion, blir det en vanlig tur.
    */
-  function applyTour(tl, lessonWanted = false) {
+  function applyTour(tl, lessonWanted = false, teacher = false) {
     const tour = app.tour, lesson = app.lesson;
     if (!tl || !tour) return false;
     const asLesson = lessonWanted && !!lesson?.canStart(tl.id);
+    if (lessonWanted && !asLesson) lesson?.explain(tl.id); // länken ville ha en lektion men blev en vanlig tur eller ingen alls (#877)
     if (tour.active && tour.position?.id === tl.id) {
-      if (asLesson !== !!lesson?.active) { if (asLesson) lesson.enter(tl.id); else lesson.leave(); }
+      if (asLesson !== !!lesson?.active) { if (asLesson) lesson.enter(tl.id, { teacher }); else lesson.leave(); }
       tour.go(tour.stepIndex(tl.step));
       return true;
     }
-    if (asLesson) lesson.enter(tl.id); else if (lesson?.active) lesson.leave();
+    if (asLesson) lesson.enter(tl.id, { teacher }); else if (lesson?.active) lesson.leave();
     const ok = tour.start(tl.id, null, tl.step);
     if (!ok && asLesson) lesson.leave();
     return ok;
@@ -116,7 +117,7 @@ export function createAddress(app) {
   /** Läser adressen vid start. Ger true om en giltig länk ställde in vyn. */
   async function start({ read = true } = {}) {
     // En tur i länken går före en delad vy; finns turen inte läses resten av länken som vanligt
-    const touring = read && applyTour(decodeTour(location.hash, location.search), !!decodeMode(location.hash));
+    const touring = read && applyTour(decodeTour(location.hash, location.search), !!decodeMode(location.hash), !!decodeRole(location.hash));
     const s = read && !touring ? decodeHash(location.hash) : null;
     if (s) await apply(s);
     // Ett elevuppdrag i länken (u, #741) startar efter vyn, så att uppdragets år gäller

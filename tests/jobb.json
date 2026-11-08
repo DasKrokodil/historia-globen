@@ -1,0 +1,5 @@
+[
+  { "id": "tung", "namn": "tung (lektion och utskrift)", "bredd": "dator", "endast": "lektion|skriver ut|ryms på en A4", "utan": "" },
+  { "id": "dator", "namn": "dator, övrigt", "bredd": "dator", "endast": "", "utan": "lektion|skriver ut|ryms på en A4" },
+  { "id": "mobil", "namn": "mobil", "bredd": "mobil", "endast": "", "utan": "" }
+]

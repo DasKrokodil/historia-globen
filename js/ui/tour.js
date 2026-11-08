@@ -28,10 +28,10 @@ export async function loadTours() {
       console.warn(`Turen ${id} kunde inte laddas`, err);
       return null;
     })));
-    return { labels: index.labels ?? {}, tours: tours.filter(Boolean) };
+    return { labels: index.labels ?? {}, tours: tours.filter(Boolean), ids: index.tours ?? [], failed: false };
   } catch (err) {
     console.warn('Turerna kunde inte laddas', err);
-    return { labels: {}, tours: [] };
+    return { labels: {}, tours: [], ids: [], failed: true };
   }
 }
 
@@ -85,7 +85,15 @@ export class TourPlayer {
     // Skriv ut (#738): bara i en lektionstur, alltså en tur med lärarfält (lesson, #737)
     if (this.printBtn) {
       this.printBtn.textContent = ui('print.button');
-      this.printBtn.addEventListener('click', () => printLesson(this.tour, app.printRoot));
+      // Går inte källregistret att ladda skrivs inget ut; beskedet står kvar och en ny tryckning försöker igen (#879)
+      this.printBtn.addEventListener('click', async () => {
+        if (this.printStatus) this.printStatus.hidden = true;
+        const result = await printLesson(this.tour, app.printRoot);
+        if (result === 'sources' && this.printStatus) {
+          this.printStatus.textContent = ui('print.sourcesFailed');
+          this.printStatus.hidden = false;
+        }
+      });
     }
     // Escape i en lektion avslutar inte turen: utgången är "Visa hela globen" i bandet (#795)
     this.card.addEventListener('keydown', e => { if (e.key === 'Escape') { e.stopPropagation(); if (!app.lesson?.active) this.end(); } });
@@ -146,7 +154,7 @@ export class TourPlayer {
         go.addEventListener('click', () => {
           this.closeMenu(false);
           const { lesson } = this.app;
-          lesson?.enter(tour.id);
+          lesson?.enter(tour.id, { teacher: true }); // den som väljer Starta som lektion i menyn är läraren (#885)
           if (!this.start(tour.id, this.button)) lesson?.leave();
         });
         row.append(info, go);
@@ -238,6 +246,7 @@ export class TourPlayer {
     this.status.hidden = !step.status;
     this.read.hidden = !step.open;
     if (this.printBtn) this.printBtn.hidden = !this.tour.lesson;
+    if (this.printStatus) this.printStatus.hidden = true;
     this.back.hidden = this.index === 0;
     if (this.endBtn) this.endBtn.hidden = this.last; // sista steget: Klar avslutar
     if (this.pauseStop) this.pauseStop.hidden = false;
@@ -250,8 +259,12 @@ export class TourPlayer {
     // Pausraden visar turen och läses upp; Fortsätt där går till nästa steg (beforeplay ovan)
     const note = fill(t(this.labels.paused), { title: t(this.tour.title) });
     const say = [this.progress.textContent, t(step.chapter), t(step.title), this.status.hidden ? '' : this.status.textContent, t(step.text), t(step.question)].filter(Boolean).join('. ');
-    if (this.last) timeline.pause();
-    else timeline.pause(note, true, say);
+    if (this.last) {
+      // Slutkortet har ingen pausrad, men skärmläsaren ska höra steget och att det var det sista (#878)
+      timeline.pause();
+      const end = app.lesson?.active ? ui('lesson.endAnnounce', { exit: ui('lesson.exit') }) : ui('tour.endAnnounce');
+      timeline.announce(`${say}. ${end}`);
+    } else timeline.pause(note, true, say);
   }
 
   /** Smal skärm: kortet täcker globens nedre del, så klotet lyfts och stegets plats hamnar mitt i den fria ytan

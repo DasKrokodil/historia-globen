@@ -12,6 +12,7 @@
 // globen" avslutar läget och turen och behåller året.
 import { t } from '../model.js';
 import { ui } from '../i18n.js';
+import { printLesson } from './print-sheet.js';
 
 export class LessonMode {
   /**
@@ -21,7 +22,36 @@ export class LessonMode {
   constructor(els, app) {
     Object.assign(this, els, { app });
     this.tour = null;
+    this.teacher = false; // läraren har en knapp för elev- och lärarblad i bandet (#885); eleven i den vanliga länken har ingen
     this.exit.addEventListener('click', () => this.exitToGlobe());
+    this.printBtn?.addEventListener('click', () => this.print());
+    // Adressen skrivs om till den vanliga vyn när länken inte blev en lektion, så länken sparas här (explain)
+    this.retry?.addEventListener('click', () => { if (this.noticeUrl) history.replaceState(null, '', this.noticeUrl); location.reload(); });
+    this.noticeClose?.addEventListener('click', () => this.hideNotice());
+  }
+
+  /** Varför en lektionslänk inte kan startas (#877): 'fetch' (turen gick inte att hämta), 'noLesson' eller 'unknown'. */
+  whyNot(id) {
+    const info = this.app.toursData ?? {}, loaded = this.app.tour?.tours ?? [];
+    if (loaded.find(x => x.id === id)) return 'noLesson';
+    return info.failed || (info.ids ?? []).includes(id) ? 'fetch' : 'unknown';
+  }
+
+  /** Förklarar i bandet att länken inte blev en lektion, med Försök igen när det var ett hämtfel. */
+  explain(id) {
+    if (!this.notice) return;
+    const why = this.whyNot(id);
+    this.noticeText.textContent = ui(`lesson.notice${why === 'fetch' ? 'Fetch' : why === 'noLesson' ? 'NoLesson' : 'Unknown'}`);
+    this.retry.hidden = why !== 'fetch';
+    this.noticeUrl = location.href;
+    this.notice.hidden = false;
+    this.app.root.classList.add('lesson-notice');
+  }
+
+  hideNotice() {
+    if (!this.notice || this.notice.hidden) return;
+    this.notice.hidden = true;
+    this.app.root.classList.remove('lesson-notice');
   }
 
   get active() { return !!this.tour; }
@@ -32,17 +62,39 @@ export class LessonMode {
   /** Kan turen id köras som lektion? Bara turer med lärarfält (lesson) kan det. */
   canStart(id) { return !!this.app.tour?.tours.find(x => x.id === id)?.lesson; }
 
+  /** Knappen för elev- och lärarblad syns bara för läraren (#885). */
+  showTeacherTools() {
+    if (this.printBtn) { this.printBtn.hidden = !this.teacher; this.printBtn.textContent = ui('print.button'); }
+    if (this.printStatus) this.printStatus.hidden = true;
+    this.app.root.classList.toggle('lesson-teacher', this.teacher); // bandet blir högre i smal skärm (css)
+  }
+
+  /** Skriver ut bladen ur steget läraren står i; lektionen, steget och året rörs inte. Går inte källorna att ladda skrivs inget ut (#879). */
+  async print() {
+    if (!this.tour || !this.teacher) return;
+    if (this.printStatus) this.printStatus.hidden = true;
+    const result = await printLesson(this.tour, this.app.printRoot);
+    if (result === 'sources' && this.printStatus) {
+      this.printStatus.textContent = ui('print.sourcesFailed');
+      this.printStatus.hidden = false;
+    }
+    this.printBtn?.focus({ preventScroll: true });
+  }
+
   /** Börjar läget för turen id (före tour.start). Ger false när turen inte är en lektionstur. */
-  enter(id) {
+  enter(id, { teacher = false } = {}) {
     const tour = this.app.tour?.tours.find(x => x.id === id);
     if (!tour?.lesson) return false;
     if (this.tour && this.tour.id !== tour.id) this.leave();
+    this.teacher = teacher || (this.tour?.id === tour.id && this.teacher); // Bakåt/Framåt i samma lektion behåller rollen
     this.tour = tour;
+    this.hideNotice();
     const { root, timeline } = this.app;
     root.classList.add('lesson');
     this.title.textContent = ui('lesson.band', { title: t(tour.title) });
     this.band.hidden = false;
     this.exit.hidden = this.lock?.escape === false;
+    this.showTeacherTools();
     this.applyLock();
     // En jakt som redan pågår och hör till ett år utanför låset avslutas, annars står rutan kvar för ett annat år
     const years = this.lock?.years, hunt = this.app.hunt;
@@ -71,6 +123,8 @@ export class LessonMode {
     const { root, timeline } = this.app;
     const hadYears = !!this.lock?.years;
     this.tour = null;
+    this.teacher = false;
+    this.showTeacherTools();
     root.classList.remove('lesson');
     this.band.hidden = true;
     this.endLinks.hidden = true;

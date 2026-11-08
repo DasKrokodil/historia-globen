@@ -3,6 +3,10 @@
 # release-PR mot production använder dessutom Firefox och WebKit, liksom en pull request mot main med etiketten
 # alla-webbläsare (#702), så att en rättning för Firefox eller WebKit kan provas före releasen. Etiketten gäller
 # från nästa push, inte i det ögonblick den sätts. Testskriptet är tests/webblasare.mjs.
+# Chromium körs i tre parallella jobb (#864): tung (lektion och utskrift), dator övrigt och mobil. Jobben står i
+# tests/jobb.json och styrs med BREDD, ENDAST och UTAN; scripts/kontrolltackning.mjs stoppar om en kontroll skulle
+# ligga i noll eller flera jobb. Firefox och WebKit körs som förut i ett jobb vardera, se beslutet
+# docs/beslut/2026-11-08-webblasartestet-tre-jobb-864.md.
 # Playwright används bara här i testerna (Rikards godkännande 2026-10-31); sidan själv får inga nya beroenden.
 # Körs vid push till main och vid pull requests mot main och production, som validate-site.yml.
 name: Webbläsartest
@@ -25,20 +29,48 @@ env:
   PORT: '8000'
 
 jobs:
-  browser:
-    name: Öppna sidan i ${{ matrix.browser.name }}
+  # Bygger jobblistan ur tests/jobb.json och kontrollerar att varje kontroll ligger i exakt ett jobb (#864).
+  planera:
+    name: Planera webbläsartestets jobb
     runs-on: ubuntu-latest
-    # Chromium tog cirka 10 minuter; 10 räckte inte längre (#617), och 20 räcker inte heller: sviten tar cirka 18
-    # minuter på main (2026-11-07) och växer med varje ny kontroll, så de får 30 tills sviten delats i parallella
-    # jobb (docs/beslut/2026-11-07-chromium-tidsgrans-30-minuter.md). Firefox och WebKit (bara på release-PR:en)
-    # är långsammare utan grafikkort: Firefox nådde 20 minuter utan att bli klar inför v5.0.0, så de får 45.
-    # 2026-11-08: sviten tar 25–28 minuter och körningar avbröts vid 30 (#907, #658), så Chromium får också 45
-    # tills sviten delats (#864; docs/beslut/2026-11-08-chromium-tidsgrans-45-minuter.md).
-    timeout-minutes: 45
+    timeout-minutes: 5
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Varje kontroll i exakt ett jobb
+        run: node scripts/kontrolltackning.mjs
+      - name: Bygg jobblistan
+        id: plan
+        env:
+          ALLA: ${{ github.event_name == 'pull_request' && (github.base_ref == 'production' || contains(github.event.pull_request.labels.*.name, 'alla-webbläsare')) }}
+        run: |
+          # Chromium: ett jobb per post i tests/jobb.json. Firefox och WebKit (bara när ALLA är true): hela sviten i ett jobb.
+          matrix=$(node -e '
+            const jobb = JSON.parse(require("fs").readFileSync("tests/jobb.json", "utf8"));
+            const m = jobb.map(j => ({ browser: "chromium", browserName: "Chromium", jobb: j.id, label: `Chromium, ${j.namn}`, bredd: j.bredd, endast: j.endast, utan: j.utan, timeout: 25 }));
+            if (process.env.ALLA === "true") for (const [id, name] of [["firefox", "Firefox"], ["webkit", "WebKit"]]) m.push({ browser: id, browserName: name, jobb: "allt", label: name, bredd: "", endast: "", utan: "", timeout: 45 });
+            console.log(JSON.stringify(m));
+          ')
+          echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
+          echo "$matrix"
+
+  browser:
+    needs: planera
+    name: Öppna sidan i ${{ matrix.test.label }}
+    runs-on: ubuntu-latest
+    # Chromium delades i tre jobb (#864): varje jobb får 25 minuter (mål cirka 15). Före delningen tog allt i ett
+    # jobb 24 minuter på main och 30 räckte inte alltid (#863, docs/beslut/2026-11-07-chromium-tidsgrans-30-minuter.md).
+    # Firefox och WebKit (bara på release-PR:en) är långsammare utan grafikkort: Firefox nådde 20 minuter utan att bli
+    # klar inför v5.0.0, så de får 45 och körs i ett jobb vardera.
+    timeout-minutes: ${{ matrix.test.timeout }}
     strategy:
       fail-fast: false
       matrix:
-        browser: ${{ fromJSON(github.event_name == 'pull_request' && (github.base_ref == 'production' || contains(github.event.pull_request.labels.*.name, 'alla-webbläsare')) && '[{"id":"chromium","name":"Chromium"},{"id":"firefox","name":"Firefox"},{"id":"webkit","name":"WebKit"}]' || '[{"id":"chromium","name":"Chromium"}]') }}
+        test: ${{ fromJSON(needs.planera.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -56,7 +88,7 @@ jobs:
           path: |
             ~/.cache/ms-playwright
             ~/.npm
-          key: playwright-${{ runner.os }}-${{ matrix.browser.id }}-${{ env.PLAYWRIGHT_VERSION }}-v1
+          key: playwright-${{ runner.os }}-${{ matrix.test.browser }}-${{ env.PLAYWRIGHT_VERSION }}-v1
 
       - name: Bygg dist/
         run: bash scripts/build-site.sh
@@ -85,21 +117,21 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ${{ runner.temp }}/apt-debs
-          key: apt-debs-${{ steps.apt.outputs.dist }}-${{ matrix.browser.id }}-${{ env.PLAYWRIGHT_VERSION }}-v2-
-          restore-keys: apt-debs-${{ steps.apt.outputs.dist }}-${{ matrix.browser.id }}-${{ env.PLAYWRIGHT_VERSION }}-v2-
+          key: apt-debs-${{ steps.apt.outputs.dist }}-${{ matrix.test.browser }}-${{ env.PLAYWRIGHT_VERSION }}-v2-
+          restore-keys: apt-debs-${{ steps.apt.outputs.dist }}-${{ matrix.test.browser }}-${{ env.PLAYWRIGHT_VERSION }}-v2-
 
       - name: Lägg tillbaka apt-paketen
         run: |
           sudo find "$RUNNER_TEMP/apt-debs" -maxdepth 1 -name '*.deb' -exec cp -t /var/cache/apt/archives/ {} +
           echo "$(find "$RUNNER_TEMP/apt-debs" -maxdepth 1 -name '*.deb' | wc -l) paket ur cachen"
 
-      - name: Installera Playwright och ${{ matrix.browser.name }} (utanför repot)
+      - name: Installera Playwright och ${{ matrix.test.browserName }} (utanför repot)
         # Egen gräns (#617): steget tar normalt under en minut. Utan apt-cachen (första körningen
         # efter en ny nyckel) hämtas typsnitten från spegeln och kan hänga; då ska installationen
         # bli röd, inte testet stå som avbrutet.
         timeout-minutes: 5
         env:
-          BROWSER: ${{ matrix.browser.id }}
+          BROWSER: ${{ matrix.test.browser }}
         run: |
           # Installeras i en tillfällig mapp, så att repot inte får någon package.json och dist/ inte påverkas
           npm install --prefix "$RUNNER_TEMP/pw" --no-save --no-audit --no-fund "playwright@$PLAYWRIGHT_VERSION"
@@ -125,7 +157,7 @@ jobs:
           find /var/cache/apt/archives -maxdepth 1 -name '*.deb' -exec cp -t "$RUNNER_TEMP/apt-debs" {} +
           n=$(find "$RUNNER_TEMP/apt-debs" -maxdepth 1 -name '*.deb' | wc -l)
           sum=$(find "$RUNNER_TEMP/apt-debs" -maxdepth 1 -name '*.deb' -printf '%f\n' | sort | sha256sum | cut -c1-16)
-          key="apt-debs-${{ steps.apt.outputs.dist }}-${{ matrix.browser.id }}-$PLAYWRIGHT_VERSION-v2-$sum"
+          key="apt-debs-${{ steps.apt.outputs.dist }}-${{ matrix.test.browser }}-$PLAYWRIGHT_VERSION-v2-$sum"
           echo "count=$n" >> "$GITHUB_OUTPUT"
           echo "key=$key" >> "$GITHUB_OUTPUT"
           if [ "$key" = "${{ steps.apt-cache.outputs.cache-matched-key }}" ]; then
@@ -148,8 +180,12 @@ jobs:
 
       - name: Kör webbläsartestet (tests/webblasare.mjs)
         env:
-          BROWSER: ${{ matrix.browser.id }}
+          BROWSER: ${{ matrix.test.browser }}
           SKARMBILDER: skarmbilder
+          # Jobbets urval (#864), ur tests/jobb.json; tomma för Firefox och WebKit, som kör hela sviten
+          BREDD: ${{ matrix.test.bredd }}
+          ENDAST: ${{ matrix.test.endast }}
+          UTAN: ${{ matrix.test.utan }}
         # Firefox körs med fönster i Xvfb (HEADLESS=0), se installationssteget (#702)
         run: |
           if [ "$BROWSER" = firefox ]; then
@@ -162,7 +198,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: skarmbilder-${{ matrix.browser.id }}
+          name: skarmbilder-${{ matrix.test.browser }}-${{ matrix.test.jobb }}
           path: skarmbilder/
           if-no-files-found: warn
           retention-days: 14

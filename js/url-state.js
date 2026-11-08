@@ -27,6 +27,8 @@ import { STATE_VERSION, fromJSON } from './state.js';
 
 const ID = /^[a-z0-9-]+$/;
 export const LESSON_MODE = 'lektion';
+/** Lärarens väg i lektionsläget (#885): `r=lararen` i en lektionslänk ger knappen för elev- och lärarblad. Skrivs aldrig tillbaka till adressen. */
+export const TEACHER_ROLE = 'lararen';
 const num = x => String(Math.round(x * 10000) / 10000);
 
 /**
@@ -56,6 +58,11 @@ export function decodeMission(hash) {
 }
 
 /** Läget i en hash ("#…&m=lektion", #795): 'lektion' eller null. Okända lägen räknas som saknade. */
+/** Läraren i en lektionslänk (`r=lararen`, #885), annars null. Eleven i den vanliga länken får ingen utskriftsknapp. */
+export function decodeRole(hash) {
+  return new URLSearchParams(String(hash ?? '').replace(/^#/, '')).get('r') === TEACHER_ROLE ? TEACHER_ROLE : null;
+}
+
 export function decodeMode(hash) {
   return new URLSearchParams(String(hash ?? '').replace(/^#/, '')).get('m') === LESSON_MODE ? LESSON_MODE : null;
 }
