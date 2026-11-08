@@ -137,3 +137,15 @@ test('lektionsturerna har lås, och intervallet har händelser från minst två 
     assert.ok(regionsIn(years[0], years[1]) >= 2, `${id}: färre än två världsdelar i intervallet`);
   }
 });
+
+test('turen Hur vet vi det här? (#938) har sex steg med kapitel, fråga och text på alla fem språken', () => {
+  const t = read('data/turer/hur-vet-vi-det-har.json');
+  const langs = ['sv', 'en', 'de', 'es', 'fr'];
+  const full = v => langs.every(l => typeof v?.[l] === 'string' && v[l].trim() !== '');
+  assert.equal(t.steps.length, 6);
+  assert.ok(full(t.title) && full(t.summary), 'titel och sammanfattning på alla språk');
+  for (const s of t.steps) {
+    assert.ok(full(s.title) && full(s.chapter) && full(s.question) && full(s.text), `${s.id}: titel, kapitel, fråga och text på alla språk`);
+    assert.ok(s.open && s.sources.length >= 2, `${s.id}: öppnar en händelse och har minst två källor`);
+  }
+});
