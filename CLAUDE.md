@@ -220,8 +220,9 @@ Rikard gillar stilen. Behåll den:
 | 6.0.0 Skolpaketet | Quiz (#65), turlänk (#736), lärarfält i turerna (#737), utskrift av elev- och lärarblad (#738), lektion 1 åk 7–9 (#739) och lektion 2 åk 4–6 (#740), Samtidighetsjakten (#741), Källdetektiven (#742), lektionsläget (#795) och lärarpaket (#743). Ingen pilot med lärare och klass görs nu (#744 stängd, beslut 2026-11-07); släpps som 6.0.0 (#862, plan i docs/granskningar/2026-11-07-plan-version-6.md) |
 | 6.0.1 Rättningar efter skolreleasen | Fynd ur blind-spots-rundan (#871, #877–#884), lärarens väg till bladen (#885), Samtidigt mot Mer/Meny (#887), tomma filter (#886), webbläsartestet (#864, #891, Firefox och WebKit i release-körningen #888), adressens kapplöpning (#865) och de fem händelserna före tidslinjens start (#892) |
 | 6.1.0 Tidsintervall, plats och epoker | Ersätter "Version 5.2" (beslut 2026-11-08, docs/beslut/2026-11-08-version-6-1-0.md): tidsintervall (#569 i #754–#756), "Vad hände här?" (#15), faktarutans förklaring (#786) och epoker enligt svenska läroplanen (#845, #476, listan godkänns först). Lägeskontraktet (#893) ska vara avgjort före #755; sök och delbara länkar släpptes redan i v5.0.0 |
-| 6.2.0 Regionkort | Regionkort (#579): kurerade kort per region, med gränskälla, licens och källor godkända före bygge |
-| 7 Människans långa historia | Tidsmodell för ungefärliga datum, tidslinje i nivåer (#49), människoarter (#11) |
+| 6.2.0 Teman | Temamotorn (#398, `data/teman.json`, tema som grupp i Fokus) med teknik (#105) som första tema (beslut 2026-11-08, docs/beslut/2026-11-08-teman-fore-version-7.md). Formatet skrivs först; bygget efter lägeskontraktet (#893), som räknar "tema" som ett läge. Epoker (#845) och teman ska inte bli två format |
+| 6.3.0 Regionkort | Regionkort (#579): kurerade kort per region, med gränskälla, licens och källor godkända före bygge (var 6.2.0 före 2026-11-08) |
+| 7 Människans långa historia | Tidsmodell för ungefärliga datum, tidslinje i nivåer (#49), människoarter (#11). Inte ett tema och bygger inte på temamotorn; blockeras av besluten a–d i tidsmodellens förstudie |
 | 8 Jordens historia | Eget läge med geologisk tidslinje och forntida kartor (#12, #51–#53) |
 | 9 Atlas och jämförelse | Jämför två tider (#248), historiska kartor (#249), skolatlasens bildlager (#8, #9, #55) |
 
@@ -230,7 +231,7 @@ Parallella spår (milstolpar utan versionsnummer, görs bredvid huvudversionerna
 - **Språk: översättning** (#63, #670–#679): gränssnittets texter en del i taget, sedan innehållet per period, engelska först (beslut 2026-11-06).
 - **Riken:** R1–R7 är klara; nu pågår milstolpen "Riken: global täckning" (#556, #644–#646).
 - **Hårdvara** (H1–H3): anteckningar, planeringen sker i Rikards Claude-projekt.
-- **Experiment och senare:** experimenten är delade i "Historiska datum och utskrift", "Flöden och rörelse", "Lekar och tankeexperiment" och "Rymden". "Senare" är delad i "beslut krävs", "teknik" och "innehåll och media". "Teman: temamotor" (#398) är förutsättningen för temavyerna, och "Paket: Temavyer och innehåll" är en samlingsrubrik, inte en arbetsmilstolpe. Bilder görs i "Bilder: batchar".
+- **Experiment och senare:** experimenten är delade i "Historiska datum och utskrift", "Flöden och rörelse", "Lekar och tankeexperiment" och "Rymden". "Senare" är delad i "beslut krävs", "teknik" och "innehåll och media". "Teman: temamotor" (#398) är förutsättningen för temavyerna och är sedan 2026-11-08 version 6.2.0, och "Paket: Temavyer och innehåll" är en samlingsrubrik, inte en arbetsmilstolpe. Bilder görs i "Bilder: batchar".
 
 Regler:
 - **Varje version slutar med att Rikard utvärderar** innan nästa börjar.

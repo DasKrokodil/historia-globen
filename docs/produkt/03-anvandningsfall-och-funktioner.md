@@ -28,7 +28,7 @@ Aktörerna (A–I) står i [02](02-anvandare-och-intressenter.md). Status: **fin
 | UC18 | A, B | Välja ett tidsintervall i stället för ett år | Markera spann på tidslinjen | Tidsintervall (#569, #754–#756) | planerad: 6.1.0 |
 | UC19 | A, B | Se vad som hände här | Klicka en plats → händelser där över tid | "Vad hände här?" (#15) | planerad: 6.1.0 |
 | UC20 | A, B | Bläddra efter epok enligt läroplanen | Epokband på tidslinjen | Epoker (#845, #476) | planerad: 6.1.0, listan godkänns först |
-| UC21 | A | Läsa ett kurerat regionkort | Region → kort med gränskälla och källor | Regionkort (#579) | planerad: 6.2.0 |
+| UC21 | A | Läsa ett kurerat regionkort | Region → kort med gränskälla och källor | Regionkort (#579) | planerad: 6.3.0 |
 | UC22 | A | Se människans och jordens långa historia | Tidslinje i nivåer, forntida kartor | Version 7 och 8 | planerad, senare |
 | UC23 | A, B | Jämföra två tider eller se historiska kartor | Jämför två tider (#248), historiska kartor (#249) | Version 9 | planerad, senare |
 | UC24 | I | Se globen på en fysisk glob | Den platta bilden skickas till en globskärm | Beslut 1, hårdvaruspår H1–H3 | **parkerad** (beslut 2026-11-08) |
