@@ -39,6 +39,10 @@ export function createState() {
 
     // Lager som dämpas i fokusläget (#235), räknas av registret
     faded: new Set(),
+
+    // Lägena som pågår ovanpå Utforska (#893), i den ordning de började: [{ mode, snapshot }]. Ändras bara med
+    // store.enter och store.leave; reglerna står i MODE_RULES nedan.
+    modes: [],
   };
 }
 
@@ -67,15 +71,142 @@ export function snapshot(state) {
 export const STATE_VERSION = 1;
 const FOCUS_TYPES = ['war', 'empire', 'religion', 'route'];
 
+// ---------------------------------------------------------------------------------------------------------
+// Lägeskontraktet (#893, beslut docs/beslut/2026-11-08-lagen.md)
+//
+// Besökaren är alltid i Utforska, och ovanpå det i noll eller flera lägen: Fokus, Tur, Lektion, Jakt och (från #755)
+// Intervall. Varje läge börjar med store.enter(läge, ögonblicksbild) och slutar med store.leave([...lägen]).
+// Tabellen MODE_RULES nedan säger vad som händer när ett läge börjar medan ett annat pågår, och vad en utgång
+// får återställa. Samma tabell står i docs/arkitektur.md och prövas i tests/state.test.mjs.
+//
+// Tre regler:
+// 1. Ett läge som börjar avslutar eller stoppas av de lägen som tabellen säger; resten pågår samtidigt.
+// 2. En utgång återställer bara ur ögonblicksbilder från de lägen som själva slutar (aldrig ur ett annat läge), och
+//    bara de fält som alla lägen som slutar tillåter. Det läge som avslutade dem tar över sina egna fält.
+// 3. Den som laddar något innan ett läge börjar (till exempel ett rike i Fokus) tar en biljett (ticket) och får bara
+//    börja läget om biljetten fortfarande gäller (current): ingen nyare begäran om samma läge och inget läge som
+//    krockar har börjat under tiden.
+
+/** Lägena utöver Utforska, som alltid ligger underst. */
+export const MODES = ['fokus', 'tur', 'lektion', 'jakt', 'intervall'];
+
+/**
+ * Lägenas regler.
+ * - when[annat läge]: vad som händer när läget börjar medan det andra pågår:
+ *   'avslutar' (det andra slutar först), 'stoppas' (läget börjar inte), 'samtidigt' (båda pågår) eller
+ *   'villkor' (beror på år eller tur och kontrolleras i lägets egen modul; förklaringen står i docs/arkitektur.md).
+ * - restore: vad en utgång återställer ur ögonblicksbilden från när läget började. Året står alltid kvar.
+ * - takes: vad läget tar över när det avslutar ett annat läge; de fälten återställs då inte.
+ * - planned: läget byggs i ett senare issue; reglerna gäller redan.
+ */
+export const MODE_RULES = {
+  fokus: {
+    when: { tur: 'avslutar', lektion: 'stoppas', jakt: 'samtidigt', intervall: 'avslutar' },
+    restore: [], takes: ['focus', 'camera'],
+  },
+  tur: {
+    when: { fokus: 'avslutar', lektion: 'samtidigt', jakt: 'samtidigt', intervall: 'avslutar' },
+    restore: ['layers', 'focus', 'camera'], takes: ['layers', 'focus', 'camera'],
+  },
+  lektion: {
+    // Lektionen börjar före sin tur (js/ui/lesson.js); en jakt utanför lektionens år avslutas
+    when: { fokus: 'avslutar', tur: 'samtidigt', jakt: 'villkor', intervall: 'avslutar' },
+    restore: ['layers', 'camera'], takes: ['layers', 'focus', 'camera'], // aldrig fokus: utgången behåller lektionens år (#881)
+  },
+  jakt: {
+    // I en lektion bara uppdrag inom lektionens år (#741, #795)
+    when: { fokus: 'samtidigt', tur: 'samtidigt', lektion: 'villkor', intervall: 'avslutar' },
+    restore: [], takes: [],
+  },
+  intervall: {
+    planned: '#755',
+    when: { fokus: 'avslutar', tur: 'stoppas', lektion: 'stoppas', jakt: 'stoppas' },
+    restore: [], takes: ['focus'],
+  },
+};
+
+/** Vad som händer när läget mode börjar medan other pågår ('samtidigt' när tabellen inte säger något). */
+export function modeRelation(mode, other) {
+  return MODE_RULES[mode]?.when?.[other] ?? 'samtidigt';
+}
+
+/**
+ * Vad en utgång återställer (regel 2). active: de pågående lägena [{ mode, snapshot }] i den ordning de började;
+ * leaving: lägena som slutar nu; takenBy: läget som avslutade dem, eller null när besökaren själv lämnade.
+ * Ger ett objekt med de fält ur ögonblicksbilden som ska återställas (tomt när inget ska det).
+ */
+export function exitRestore(active, leaving, takenBy = null) {
+  const going = active.filter(x => leaving.includes(x.mode) && x.snapshot);
+  const outer = going[0]; // det läge som började först har bilden från före alla de andra
+  if (!outer) return {};
+  const taken = new Set(takenBy ? MODE_RULES[takenBy]?.takes ?? [] : []);
+  // Det strängaste läget bestämmer: ett fält återställs bara när alla lägen som slutar (och har en bild) tillåter det
+  const fields = (MODE_RULES[outer.mode]?.restore ?? [])
+    .filter(f => going.every(x => (MODE_RULES[x.mode]?.restore ?? []).includes(f)) && !taken.has(f));
+  return Object.fromEntries(fields.filter(f => outer.snapshot[f] !== undefined).map(f => [f, outer.snapshot[f]]));
+}
+
 /**
  * Ett lager med tillståndet och dess åtgärder. Varje åtgärd ändrar state och meddelar prenumeranterna
- * med { type, state }, där type är 'year', 'focus', 'selected', 'layers', 'filters', 'tag' eller 'calm'.
+ * med { type, state }, där type är 'year', 'focus', 'selected', 'layers', 'filters', 'tag', 'calm' eller 'mode'.
  */
 export function createStore(state = createState()) {
   const subscribers = new Set();
   const notify = type => { for (const fn of [...subscribers]) fn({ type, state }); };
+  // Lägeskontraktet (#893): hur varje läge avslutas i gränssnittet, och räknare för biljetterna (regel 3)
+  const exits = {};
+  let epoch = 0;
+  const seq = {}, enteredAt = {};
+  const isActive = mode => state.modes.some(x => x.mode === mode);
+  const bump = mode => { seq[mode] = (seq[mode] ?? 0) + 1; };
   return {
     state,
+    /** Det översta läget som pågår, eller 'utforska'. */
+    get mode() { return state.modes.at(-1)?.mode ?? 'utforska'; },
+    /** Pågår läget? */
+    active: isActive,
+    /** fn(takenBy) avslutar läget i gränssnittet när ett annat läge som avslutar det börjar (MODE_RULES). */
+    onExit(mode, fn) { exits[mode] = fn; },
+    /** Får läget börja nu? Nej när ett läge som pågår stoppar det. */
+    canEnter(mode) { return !state.modes.some(x => x.mode !== mode && modeRelation(mode, x.mode) === 'stoppas'); },
+    /**
+     * Läget börjar. snapshot är ögonblicksbilden från före läget (år, lager, fokus, kamera, kategorier), eller null.
+     * Lägen som det avslutar slutar först, genom sina onExit. Pågår läget redan behålls den första bilden (till
+     * exempel Bakåt och Framåt i samma tur). Ger false när ett annat läge stoppar det.
+     */
+    enter(mode, snapshot = null) {
+      if (!this.canEnter(mode)) return false;
+      for (const x of [...state.modes]) {
+        if (x.mode === mode || modeRelation(mode, x.mode) !== 'avslutar') continue;
+        exits[x.mode]?.(mode);
+        if (isActive(x.mode)) this.leave([x.mode], mode); // om gränssnittet inte lämnade läget själv
+      }
+      epoch++; enteredAt[mode] = epoch; bump(mode);
+      if (!isActive(mode)) state.modes.push({ mode, snapshot: snapshot ?? null });
+      notify('mode');
+      return true;
+    },
+    /**
+     * Lägena slutar (de som inte pågår hoppas över). takenBy: läget som avslutade dem, eller null när besökaren
+     * själv lämnade. Ger det som ska återställas ur ögonblicksbilden (exitRestore, regel 2).
+     */
+    leave(modes, takenBy = null) {
+      const list = [].concat(modes);
+      for (const m of list) bump(m); // en utgång är också en nyare begäran: en biljett från före den gäller inte
+      if (!list.some(isActive)) return {};
+      const restore = exitRestore(state.modes, list, takenBy);
+      state.modes = state.modes.filter(x => !list.includes(x.mode));
+      epoch++;
+      notify('mode');
+      return restore;
+    },
+    /** En biljett för att börja läget när det som behövs har laddats (regel 3). */
+    ticket(mode) { bump(mode); return { mode, seq: seq[mode], epoch }; },
+    /** Gäller biljetten? Nej när läget har begärts, börjat eller slutat igen, eller ett läge som krockar har börjat. */
+    current(ticket) {
+      if (seq[ticket.mode] !== ticket.seq) return false;
+      return !MODES.some(m => m !== ticket.mode && modeRelation(ticket.mode, m) !== 'samtidigt' && (enteredAt[m] ?? 0) > ticket.epoch);
+    },
     /** fn({ type, state }) anropas efter varje ändring. Returnerar en funktion som avslutar prenumerationen. */
     subscribe(fn) {
       subscribers.add(fn);

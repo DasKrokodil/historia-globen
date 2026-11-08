@@ -49,8 +49,13 @@ export function createFocus(app) {
     return false;
   }
 
-  /** opts.stale(): ger true när något annat har tagit över medan fokuset laddades (en nyare adress eller en tur, #865). */
-  async function startFocus(key, opts = {}) {
+  /**
+   * Börjar läget Fokus (#893). Fokuset börjar bara om biljetten fortfarande gäller när det har laddats: ingen nyare
+   * begäran om Fokus (en annan länk, Bakåt, Avsluta) och ingen tur, lektion eller intervall har börjat under tiden
+   * (#865). Ger true när fokuset började.
+   */
+  async function startFocus(key) {
+    const ticket = app.store.ticket('fokus');
     const [type, id] = key.split(':');
     let f;
     if (type === 'war') {
@@ -65,7 +70,7 @@ export function createFocus(app) {
         center: [pts.reduce((s, e) => s + e._lat, 0) / pts.length, pts.reduce((s, e) => s + e._lon, 0) / pts.length], zoom: 2.2 };
     } else if (type === 'route') {
       const route = (await loadRoutes()).find(r => r.id === id && r.kind === 'voyage');
-      if (!route) return;
+      if (!route) return false;
       // Dagar används bara när själva resans spann har dagprecision. Zheng Hes första resa
       // har medvetet bara år/månad utom vid hemkomsten (#376).
       const fine = edtfHasDays(route.edtf);
@@ -101,10 +106,12 @@ export function createFocus(app) {
       f = { type, id, title: `${t(r.name)} · ${religionSpan(r, first)}`, short: t(r.name), from, to,
         center: first ? [first._lat, first._lon] : geoCenter([st[0].geometry]), zoom: 1.3 };
     }
-    if (app.lesson?.active || opts.stale?.()) return; // en lektion (#795) eller en tur eller nyare adress (#865) tog över medan fokuset laddades
+    // Något annat tog över medan fokuset laddades, eller ett läge som stoppar Fokus pågår (lektionen, #795)
+    if (!app.store.current(ticket) || !app.store.canEnter('fokus')) return false;
+    if (state.focus) endFocus(false);
+    app.store.enter('fokus'); // avslutar en tur som pågår (MODE_RULES i js/state.js); turens lager återställs, inte dess fokus
     // Året stannar om det ligger inom spannet; annars flyttas det till starten och flytten visas (#167)
     const prevYear = timeline.year, prevText = timeline.format(prevYear), keepYear = prevYear >= f.from && prevYear <= f.to;
-    if (state.focus) endFocus(false);
     app.store.setFocus(f, { war: type === 'war' ? data.byId[id] : null, route: type === 'route' ? f.route : null });
     app.playback.clearRouteStops();
     app.applyLayers();
@@ -130,6 +137,7 @@ export function createFocus(app) {
     if (type === 'religion' && !app.showReligionFacts(id, false) && first) app.select(first.id, false);
     // Rikets faktaruta visas när man börjar följa det (#170)
     if (type === 'empire') app.showEmpireFacts(id);
+    return true;
   }
   /** Raden i fokusraden när tiden flyttades till fokusets start (#167), med en väg tillbaka. */
   let movedBack = null;
@@ -152,6 +160,7 @@ export function createFocus(app) {
     app.refresh();
   });
   function endFocus(redraw = true) {
+    app.store.leave(['fokus']);
     app.store.setFocus(null);
     app.playback.reset(); showMoved(null);
     app.applyLayers();

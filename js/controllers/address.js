@@ -13,6 +13,10 @@
 //   Medan läget pågår skriver adressen m=lektion, så att omladdning, Dela och Bakåt/Framåt ger samma läge. Bakåt till en
 //   adress utan m (eller utan tur) avslutar läget; Framåt startar det igen.
 // - Knappen Dela kopierar länken, eller öppnar telefonens delningsmeny där den finns.
+// - Versionsräknaren (#865, #893): varje inställning av vyen (start, länk, Bakåt/Framåt) får ett nytt nummer, och bara
+//   den senaste får skriva år och kamera efter en väntan. Medan den pågår skrivs inget i adressen. Bakåt och Framåt
+//   lyssnas på redan innan startens egen inställning är klar, så att en vy som byts medan ett fokus laddas inte går
+//   förlorad. Vilka lägen som får börja står i lägeskontraktet (MODE_RULES i js/state.js).
 
 import { toJSON } from '../state.js';
 import { encodeHash, decodeHash, decodeTour, decodeMission, decodeMode, decodeRole, isNewStep, LESSON_MODE } from '../url-state.js';
@@ -23,8 +27,10 @@ const POLL_MS = 700;
 export function createAddress(app) {
   const { state, globe, timeline, layers, panel, data } = app;
   const allCategories = [...new Set(data.events.map(e => e.category))].sort();
-  let applying = false, written = null, writtenHash = '', seenHash = '';
-  let version = 0; // räknas upp för varje apply(): en som har blivit överspelad av en nyare adress skriver inte längre (#865)
+  let written = null, writtenHash = '', seenHash = '';
+  // version räknas upp för varje inställning av vyen; done är den senaste som är klar. Skiljer de sig pågår en
+  // inställning, och då skrivs inget i adressen. En överspelad inställning skriver inte längre (#865, #893).
+  let version = 0, done = 0;
 
   const current = () => toJSON(state, globe.view);
   const position = () => app.tour?.position ?? null;
@@ -47,7 +53,7 @@ export function createAddress(app) {
   /** Ställer in vyn efter en läst hash (decodeHash). */
   async function apply(s) {
     const mine = ++version;
-    applying = true;
+    app.store.ticket('fokus'); // adressen är en nyare begäran om Fokus, också när den inte har något: ett äldre fokus som laddas börjar inte
     try {
       if (s.layers) {
         const want = new Set(s.layers);
@@ -62,18 +68,20 @@ export function createAddress(app) {
       const focusNow = state.focus ? `${state.focus.type}:${state.focus.id}` : null;
       if (s.focus !== focusNow) {
         if (s.focus && focusExists(s.focus)) {
-          try { await app.startFocus(s.focus, { stale: () => mine !== version || !!app.tour?.active }); } catch (err) { console.warn('Fokus i länken kunde inte öppnas', err); }
-          // Medan fokuset laddades kan en nyare adress ha tagit över, eller en tur (och därmed en lektion, #795) ha börjat.
-          // Då äger den året och kameran, och den gamla adressen skriver inte över dem (#865)
-          if (mine !== version || app.tour?.active) return;
+          let started = false;
+          try { started = await app.startFocus(s.focus); } catch (err) { console.warn('Fokus i länken kunde inte öppnas', err); }
+          // Medan fokuset laddades kan en nyare adress ha tagit över, eller ett läge som krockar (en tur, en lektion) ha
+          // börjat; då började fokuset inte (lägeskontraktet, #893). Den nya ägaren har året och kameran, och den gamla
+          // adressen skriver inte över dem (#865)
+          if (mine !== version || !started) return;
           timeline.year = s.year; // fokus kan ha flyttat året till sin start
         } else if (state.focus) app.endFocus();
       }
       if (s.camera) { globe.flyTo(s.camera.lat, s.camera.lon, 600); globe.setZoom(s.camera.zoom); }
       app.refresh();
     } finally {
-      // En nyare apply() har då redan tagit över (applying och settle är dess)
-      if (mine === version) { applying = false; settle(); }
+      // En nyare inställning har annars redan tagit över (done och settle är dess)
+      if (mine === version) { done = mine; settle(); }
     }
   }
 
@@ -100,16 +108,17 @@ export function createAddress(app) {
 
   /** force: skriv nu, utan att vänta tills vyn står still (flush, #882). */
   function write(force = false) {
-    if (applying) return;
+    if (done !== version) return; // en inställning av vyen pågår
     const cur = current(), pos = position();
     const hash = hashOf(cur, pos);
     if (hash === writtenHash) return;
-    if (!force && !timeline.playing && hash !== seenHash) { seenHash = hash; return; } // vänta tills vyn står still
-    const url = `${location.pathname}${search()}${hash}`;
     // Ett nytt steg i turen, eller att turen börjar eller slutar, blir en egen post (Bakåt går till steget innan)
     const tourStep = new URLSearchParams(writtenHash.slice(1)), newTour = (tourStep.get('t') ?? '') !== (pos?.id ?? '') || (tourStep.get('s') ?? '') !== (pos?.step ?? '')
       || (tourStep.get('u') ?? '') !== (mission() ?? '') // ett uppdrag som börjar eller slutar är också ett eget steg
       || (tourStep.get('m') ?? '') !== (mode() ?? ''); // och lektionsläget
+    // Vänta tills vyn står still, utom när ett läge eller turens steg har bytts: det skrivs direkt (#882, #893)
+    if (!force && !newTour && !timeline.playing && hash !== seenHash) { seenHash = hash; return; }
+    const url = `${location.pathname}${search()}${hash}`;
     if (newTour || isNewStep(written, cur, { playing: timeline.playing })) history.pushState(null, '', url);
     else history.replaceState(null, '', url);
     written = cur; writtenHash = seenHash = hash;
@@ -117,17 +126,8 @@ export function createAddress(app) {
 
   /** Läser adressen vid start. Ger true om en giltig länk ställde in vyn. */
   async function start({ read = true } = {}) {
-    // En tur i länken går före en delad vy; finns turen inte läses resten av länken som vanligt
-    const touring = read && applyTour(decodeTour(location.hash, location.search), !!decodeMode(location.hash), !!decodeRole(location.hash));
-    const s = read && !touring ? decodeHash(location.hash) : null;
-    if (s) await apply(s);
-    // Ett elevuppdrag i länken (u, #741) startar efter vyn, så att uppdragets år gäller
-    const missionId = read ? decodeMission(location.hash) : null;
-    const hunting = !!missionId && !!app.hunt?.start(missionId);
-    // Startläget får också en adress, så att Bakåt efter första steget kommer tillbaka hit
-    settle();
-    history.replaceState(null, '', `${location.pathname}${search()}${writtenHash}`);
-    setInterval(write, POLL_MS);
+    // Bakåt, Framåt och en ändrad hash lyssnas på före startens egen inställning: ett fokus i länken kan ta tid att
+    // ladda, och en vy som byts under tiden ska gälla (fyndet från #888 i #893)
     addEventListener('popstate', () => {
       // Turen och lektionsläget först, sedan elevuppdraget: i en lektion (#795) avgör låset om jakten får börja, och
       // Bakåt ut ur lektionen ska kunna öppna jakten igen
@@ -138,12 +138,30 @@ export function createAddress(app) {
         else if (!m && app.hunt?.active) app.hunt.end(false);
       };
       const tl = decodeTour(location.hash);
-      if (tl && applyTour(tl, !!decodeMode(location.hash))) { followMission(); settle(); return; }
+      if (tl) {
+        const mine = ++version; // turen tar över från en inställning som pågår
+        if (applyTour(tl, !!decodeMode(location.hash))) { followMission(); done = mine; settle(); return; }
+        done = mine;
+      }
       if (app.tour?.active) app.tour.end(); // tar lektionsläget med sig (js/ui/tour.js)
       followMission();
       const t = decodeHash(location.hash);
-      if (t) apply(t); else settle();
+      if (t) apply(t); else { done = ++version; settle(); }
     });
+    // En tur i länken går före en delad vy; finns turen inte läses resten av länken som vanligt
+    const touring = read && applyTour(decodeTour(location.hash, location.search), !!decodeMode(location.hash), !!decodeRole(location.hash));
+    const s = read && !touring ? decodeHash(location.hash) : null;
+    const before = version;
+    if (s) await apply(s);
+    setInterval(write, POLL_MS);
+    // Har Bakåt eller en ändrad hash tagit över medan startens inställning pågick, äger den adressen nu
+    if (version !== before + (s ? 1 : 0)) return touring || !!s;
+    // Ett elevuppdrag i länken (u, #741) startar efter vyn, så att uppdragets år gäller
+    const missionId = read ? decodeMission(location.hash) : null;
+    const hunting = !!missionId && !!app.hunt?.start(missionId);
+    // Startläget får också en adress, så att Bakåt efter första steget kommer tillbaka hit
+    settle();
+    history.replaceState(null, '', `${location.pathname}${search()}${writtenHash}`);
     return touring || hunting || !!s;
   }
 

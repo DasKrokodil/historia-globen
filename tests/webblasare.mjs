@@ -2967,6 +2967,64 @@ async function run(browser, vp) {
     }
     return 'turens första år och kamera står kvar när ett gammalt fokus blir klart; vanligt fokus via adressen fungerar';
   });
+  // #893 (lägeskontraktet): övergångar mellan lägen. Två kedjor som saknade gemensam ordning före kontraktet:
+  // 1. Fokus som börjar under en tur avslutar turen (MODE_RULES i js/state.js), och turens utgång lämnar det nya fokuset
+  //    i fred i stället för att återställa fokuset från före turen.
+  // 2. En vy som byts medan startens fokus laddas (fyndet från #888): popstate lyssnas på före startens apply(), så att
+  //    lektionslänken gäller och det gamla fokuset inte skriver över adressen när det blir klart.
+  await check('lägeskontraktet: Fokus avslutar en tur, och en vy som byts medan startens fokus laddas gäller (#893)', async () => {
+    const tp = await context.newPage();
+    const errors = [];
+    tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    tp.on('pageerror', e => errors.push(e.message));
+    let slow = false;
+    const DELAY = 2500;
+    const hash = () => tp.evaluate(() => location.hash);
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      await tp.route(u => /data\/empires\//.test(u.href), async r => {
+        if (slow) await new Promise(res => setTimeout(res, DELAY));
+        await r.continue().catch(() => {});
+      });
+      const open = async url => { await tp.goto(url); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); };
+      // 1. Ett fokus, sedan en tur (som avslutar fokuset), sedan ett nytt fokus ur Fokus-menyn
+      await open(`${BASE}?ny=81#y=1916&f=war:forsta-varldskriget`);
+      await tp.waitForSelector('#focus-bar:not([hidden])', { state: 'attached', timeout: T.load });
+      await tp.evaluate(() => { location.hash = '#t=tre-platser-1325'; });
+      await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      if (await tp.isVisible('#focus-bar')) throw new Error('fokuset stod kvar när turen började');
+      await tp.evaluate(() => document.getElementById('btn-focus').click()); // menyknappen ligger under Meny i mobilen
+      await tp.fill('#focus-menu input', 'Koreakriget');
+      await tp.evaluate(() => document.querySelector('#focus-menu [data-key="war:koreakriget"]').click());
+      await tp.waitForSelector('#focus-bar:not([hidden])', { state: 'attached', timeout: T.step });
+      await tp.waitForTimeout(1500); // en återställning av det gamla fokuset skulle hinna börja
+      if (await tp.isVisible('#tour-card')) throw new Error('turen fortsatte ovanpå fokuset');
+      if (!(await tp.textContent('#focus-title')).includes('Korea')) throw new Error(`fokusraden visar ${await tp.textContent('#focus-title')} i stället för Koreakriget`);
+      const h1 = await hash();
+      if (!/f=war:koreakriget/.test(h1) || /[#&]t=/.test(h1)) throw new Error(`adressen blev ${h1}`);
+      // 2. En delad länk med ett långsamt fokus, och en lektionslänk i samma flik innan fokuset är klart
+      slow = true;
+      await open(`${BASE}?ny=82#y=1474&f=empire:romarriket&c=-30,-120,3`);
+      await tp.evaluate(() => { location.hash = '#t=andra-varldskriget&m=lektion'; });
+      await tp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      await tp.waitForTimeout(DELAY + 1500); // det gamla fokuset blir klart under tiden
+      slow = false;
+      const h2 = await hash();
+      if (!/t=andra-varldskriget/.test(h2) || !/m=lektion/.test(h2)) throw new Error(`adressen skrevs över med startens vy: ${h2}`);
+      if (!(await tp.isVisible('#tour-card'))) throw new Error('turens kort försvann när startens fokus blev klart');
+      if (await tp.isVisible('#focus-bar')) throw new Error('startens fokus visades ovanpå lektionen');
+      const year = Number((await tp.textContent('#year-big')).trim());
+      if (!(year >= 1939 && year <= 1945)) throw new Error(`året blev ${year}, utanför lektionens 1939–1945`);
+      if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
+    } finally {
+      await tp.close();
+    }
+    return 'Fokus under en tur avslutar turen utan att det gamla fokuset kommer tillbaka; en lektionslänk medan startens fokus laddas gäller';
+  });
   // #885: läraren får en väg till elev- och lärarbladen i lektionsläget (r=lararen i länken eller Starta som lektion i
   // Turer-menyn); eleven i den vanliga lektionslänken ser ingen utskriftsknapp. Utskriften rör inte steget.
   await check('läraren når elev- och lärarbladen i lektionsläget, eleven inte (#885)', async () => {

@@ -275,9 +275,20 @@ async function start() {
     ensureReligions: facts.ensureReligions, setReligions: facts.setReligions, showReligionFacts: facts.showReligionFacts,
     showEmpireFacts: facts.showEmpireFacts, showAboutReligions: facts.showAboutReligions });
   const focusCtl = createFocus(app);
-  // Fokus (att följa ett krig, rike, en religion eller resa) är låst i lektionsläget (#795): inget når det, men
-  // en länk i en faktaruta eller en gammal adress ska inte kunna släppa låset heller
-  const startFocus = (key, opts) => (app.lesson?.active ? undefined : focusCtl.startFocus(key, opts));
+  // Ögonblicksbilden från före ett läge (#893): det som en utgång kan återställa (MODE_RULES i js/state.js)
+  app.modeSnapshot = () => {
+    const controlled = registry.viewLayers(views?.groups);
+    return {
+      year: timeline.year, // står alltid kvar vid utgången, men finns med så att bilden är hel
+      layers: Object.fromEntries(controlled.map(l => [l, !!layers.on[l]])),
+      focus: state.focus ? `${state.focus.type}:${state.focus.id}` : null,
+      camera: globe.view,
+      filters: [...panel.filters],
+    };
+  };
+  // Fokus (att följa ett krig, rike, en religion eller resa) stoppas av lektionsläget (#795) och av de andra lägen som
+  // tabellen MODE_RULES i js/state.js säger (#893): en länk i en faktaruta eller en gammal adress kan inte släppa låset
+  const startFocus = key => (store.canEnter('fokus') ? focusCtl.startFocus(key) : Promise.resolve(false));
   Object.assign(app, { startFocus, endFocus: focusCtl.endFocus, founding: focusCtl.founding, focusMenu: focusCtl.focusMenu });
   const render = createRender(app);
   Object.assign(app, { render, refresh: render.refresh, syncNameScale: render.syncNameScale, storyFor: render.storyFor });
@@ -525,7 +536,7 @@ async function start() {
     root: $('hunt'), title: $('hunt-title'), task: $('hunt-task'), years: $('hunt-years'), progress: $('hunt-progress'),
     list: $('hunt-list'), message: $('hunt-message'), done: $('hunt-done'), reflection: $('hunt-reflection'),
     sources: $('hunt-sources'), closeBtn: $('hunt-close'), endBtn: $('hunt-end'),
-  }, await loadMissions(), { timeline, byId: data.byId, srcById: data.srcById, onChange: refreshDetail, fallbackFocus: () => $('btn-more'), get lesson() { return app.lesson; } });
+  }, await loadMissions(), { timeline, byId: data.byId, srcById: data.srcById, onChange: refreshDetail, fallbackFocus: () => $('btn-more'), store, get lesson() { return app.lesson; } });
   app.hunt = hunt;
   panel.huntFor = e => hunt.buttonFor(e);
   panel.onHunt = e => hunt.add(e);
@@ -551,15 +562,21 @@ async function start() {
     mark: id => { panel.showDetail(null); store.setSelected(id); app.refresh(); },
     focusKey: () => (state.focus ? `${state.focus.type}:${state.focus.id}` : null),
     startFocus: key => app.startFocus(key), endFocus: redraw => app.endFocus(redraw),
+    store, snapshot: () => app.modeSnapshot(),
     openSources: ids => sources.open(() => ids),
     fallbackFocus: () => $('track'),
   });
   app.tour = tour;
+  // Lägeskontraktet (#893): så avslutas varje läge när ett annat läge som avslutar det börjar (MODE_RULES i js/state.js)
+  store.onExit('fokus', () => app.endFocus(false));
+  store.onExit('tur', takenBy => tour.end({ takenBy }));
+  store.onExit('lektion', takenBy => tour.end({ takenBy })); // lektionen hör till sin tur och slutar med den
+  store.onExit('jakt', () => hunt.end(false));
   // Lektionsläget (#795): en lektionslänk (m=lektion) startar turen med menyerna dolda och bandet överst
   app.lesson = new LessonMode({
     band: $('lesson-band'), title: $('lesson-band-title'), exit: $('lesson-exit'), printBtn: $('lesson-print'), printStatus: $('lesson-print-status'),
     notice: $('lesson-notice'), noticeText: $('lesson-notice-text'), retry: $('lesson-retry'), noticeClose: $('lesson-notice-close'), endLinks: $('tour-lesson-end'), endList: $('tour-lesson-end-list'),
-  }, { root: $('app'), printRoot: $('print-sheet'), timeline, tour, hunt, toursData, closeMenus: () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); help.close(false); } });
+  }, { root: $('app'), printRoot: $('print-sheet'), timeline, tour, hunt, toursData, store, snapshot: () => app.modeSnapshot(), closeMenus: () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); help.close(false); } });
   // Berättelseläget (#247): krigets första kort får "Följ berättelsen" när en tur berättar om kriget
   panel.tourFor = id => { const x = tour.forWar(id); return x && { id: x.id, label: tour.storyLabel(x) }; };
   // Rikens fall (#499): rikets faktaruta får en knapp när en tur följer rikets fall

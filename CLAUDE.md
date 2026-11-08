@@ -37,7 +37,7 @@ js/url-state.js       adressformatet för delbara länkar och Bakåt/Framåt (#5
 js/search-index.js    sökningens index och matchning (#570)
 js/place-search.js    "Vad hände här?": platsförslag och händelser inom 300 km, i tidsordning (#15)
 js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
-js/state.js           det gemensamma tillståndet (år, fokus, lager, filter) som lagren läser (#338), med åtgärder, prenumeration och JSON (#403)
+js/state.js           det gemensamma tillståndet (år, fokus, lager, filter) som lagren läser (#338), med åtgärder, prenumeration och JSON (#403), och lägeskontraktet (#893)
 js/globe.js           3D-globen, kamera, styrning, ekvirektangulära canvasar, bågar
 js/globe-detail.js    skarpt utsnitt av kartan vid inzoomning: samma ritning i högre upplösning för det som syns
 js/timeline.js        tidsreglage, segmenterad skala, uppspelning

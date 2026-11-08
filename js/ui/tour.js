@@ -53,7 +53,7 @@ export class TourPlayer {
       for (const p of problems) console.warn(p);
       return !problems.length && isVisibleReview(tour.review);
     });
-    this.tour = null; this.index = 0; this.target = null; this.saved = null; this.opener = null;
+    this.tour = null; this.index = 0; this.target = null; this.opener = null;
     this.button.hidden = !this.tours.length;
     if (!this.tours.length) return;
 
@@ -216,10 +216,11 @@ export class TourPlayer {
     const tour = this.tours.find(x => x.id === id);
     if (!tour) return false;
     const { app } = this;
-    if (!this.tour) {
-      this.saved = { layers: Object.fromEntries(app.controlled.map(l => [l, !!app.layers.on[l]])), focus: app.focusKey(), camera: app.globe.view };
-    }
-    if (app.focusKey()) { app.endFocus(false); if (app.lesson?.active) app.lesson.applyLock(); } // endFocus släpper tidslåset (#795)
+    // Läget Tur börjar (#893): ögonblicksbilden tas bara när ingen tur pågår, och ett fokus slutar (MODE_RULES i js/state.js)
+    const hadFocus = !!app.focusKey();
+    if (app.store) app.store.enter('tur', this.tour ? null : app.snapshot());
+    else if (hadFocus) app.endFocus(false);
+    if (hadFocus && app.lesson?.active) app.lesson.applyLock(); // endFocus släpper tidslåset (#795)
     this.tour = tour; this.opener = opener; this.target = null;
     this.name.textContent = t(tour.title);
     this.card.hidden = false;
@@ -312,31 +313,31 @@ export class TourPlayer {
   }
 
   /**
-   * Avslutar turen: lagren, fokus och kameran blir som innan, och året står kvar där turen var.
-   * restoreFocus: false (lektionens utgång, #881) återställer inte ett fokus som var på före turen, eftersom
-   * fokuset flyttar året till sin start och utgången ska behålla lektionens år.
+   * Avslutar turen, och lektionen med den (#795). Året står kvar där turen var. Vad som blir som innan avgör
+   * lägeskontraktet (#893, exitRestore i js/state.js): efter en vanlig tur lagren, fokus och kameran; efter en lektion
+   * lagren och kameran men inte fokus, eftersom fokuset flyttar året och utgången ska behålla lektionens år (#881).
+   * takenBy: läget som avslutade turen (till exempel 'fokus'); det tar då över sina egna delar.
    */
-  end({ restoreFocus = true } = {}) {
+  end({ takenBy = null } = {}) {
     if (!this.tour) return;
-    const { app } = this, saved = this.saved;
+    const { app } = this;
+    const restore = app.store?.leave(['tur', 'lektion'], takenBy) ?? {};
     app.lesson?.leave(); // en tur som slutar tar lektionsläget med sig (#795)
     this.next.hidden = false;
-    this.tour = null; this.target = null; this.saved = null;
+    this.tour = null; this.target = null;
     this.card.hidden = true;
     if (this.pauseStop) this.pauseStop.hidden = true;
     app.root.classList.remove('touring');
     app.globe.setViewLift(0);
     app.timeline.pause();
     app.select(null, false);
-    if (saved) {
-      for (const [id, on] of Object.entries(saved.layers)) {
-        if (!!app.layers.on[id] === on) continue;
-        app.layers.set(id, on);
-        app.layers.onChange(id, on);
-      }
-      if (saved.focus && restoreFocus) app.startFocus(saved.focus);
-      if (saved.camera) { app.globe.flyTo(saved.camera.lat, saved.camera.lon); app.globe.setZoom(saved.camera.zoom); }
+    for (const [id, on] of Object.entries(restore.layers ?? {})) {
+      if (!!app.layers.on[id] === on) continue;
+      app.layers.set(id, on);
+      app.layers.onChange(id, on);
     }
+    if (restore.focus) app.startFocus(restore.focus);
+    if (restore.camera) { app.globe.flyTo(restore.camera.lat, restore.camera.lon); app.globe.setZoom(restore.camera.zoom); }
     const back = this.opener?.isConnected && this.opener.offsetParent !== null ? this.opener : null;
     (back ?? app.fallbackFocus?.())?.focus({ preventScroll: true });
     this.opener = null;

@@ -241,7 +241,37 @@ Lugn rörelse står inte i länken, eftersom det är besökarens egen inställni
 
 `js/controllers/address.js` läser hashen vid start och ställer in lagren, kategorierna, året, fokus och sist kameran. Därefter läses tillståndet var 0,7 sekund och skrivs med `history.replaceState`; en ny post i historiken (`pushState`) blir det bara vid ett nytt fokus, ändrade lager eller kategorier, eller ett årshopp som har stått still en stund (`isNewStep()`). Uppspelning och vridning av globen ersätter den nuvarande posten. `popstate` (Bakåt, Framåt eller en ändrad hash) ställer in vyn igen. Medan en tur pågår skrivs också `t` och `s`, och varje nytt steg blir en egen post, så att Bakåt går till steget innan och Dela ger en länk till steget; när turen avslutas försvinner `t` och `s` (och `m`, som ändras tillsammans med turen). Språkbytet (`setupLangPicker`, `js/i18n.js`) anropar `address.flush()` före omladdningen, så att steget i en tur eller lektion som just har bytts hinner skrivas i adressen (#882); annars skrivs det först när vyn har stått still. Knappen **Dela** under Mer kopierar länken, eller öppnar delningsmenyn på pekskärmar som har en.
 
-**Ordningen när adresser överlappar (#865):** ett fokus i en länk hämtas först vid behov, så `apply()` väntar på `startFocus`. Varje `apply()` får ett löpnummer, och när fokuset är klart får varken `apply()` eller `startFocus` ställa in året, kameran eller fokusraden om en nyare adress har tagit över eller en tur (eller lektion) har börjat under tiden; då äger den nyare vyn tillståndet. Kontrollen skickas som `stale` till `startFocus`, så att fokusmenyn och turens återställning inte påverkas.
+**Ordningen när adresser överlappar (#865, #893):** ett fokus i en länk hämtas först vid behov, så `apply()` väntar på `startFocus`. Varje inställning av vyen (start, länk, Bakåt/Framåt, en tur i adressen) får ett löpnummer (`version`), och bara den senaste får ställa in året och kameran efter väntan; medan en inställning pågår (`done !== version`) skrivs inget i adressen. Det ersätter den tidigare flaggan `applying`. Varje `apply()` tar också en biljett för Fokus (lägeskontraktet nedan), så att ett äldre fokus som laddas inte börjar när en nyare adress har tagit över, inte heller när den nyare adressen saknar fokus. `startFocus` ger `true` bara när fokuset faktiskt började. Lyssnaren på `popstate` kopplas **före** startens egen `apply()`, så att en vy som byts medan ett fokus i länken laddas gäller (fyndet från #888). Ett byte av läge eller turens steg skrivs i adressen vid nästa avläsning, utan att vänta tills vyn står still.
+
+## Lägen och övergångar (#893)
+
+Besökaren är alltid i **Utforska**, och ovanpå det i noll eller flera lägen: **Fokus**, **Tur**, **Lektion**, **Jakt** och (från #755) **Intervall**. Lägena står i `state.modes` i `js/state.js` som `[{ mode, snapshot }]`, i den ordning de började, och ändras bara med `store.enter(läge, ögonblicksbild)` och `store.leave([...lägen], takenBy)`. Ögonblicksbilden (`app.modeSnapshot()` i `js/main.js`) har år, lager, fokus, kamera och kategorier från före läget. Beslut: [docs/beslut/2026-11-08-lagen.md](beslut/2026-11-08-lagen.md).
+
+**Uteslutningstabellen** (`MODE_RULES` i `js/state.js`, prövas i `tests/state.test.mjs`). Raden är läget som börjar, kolumnen läget som redan pågår:
+
+| Börjar ↓ / pågår → | Fokus | Tur | Lektion | Jakt | Intervall |
+|---|---|---|---|---|---|
+| **Fokus** | – | avslutar | stoppas | samtidigt | avslutar |
+| **Tur** | avslutar | – | samtidigt | samtidigt | avslutar |
+| **Lektion** | avslutar | samtidigt | – | villkor¹ | avslutar |
+| **Jakt** | samtidigt | samtidigt | villkor² | – | avslutar |
+| **Intervall** (#755) | avslutar | stoppas | stoppas | stoppas | – |
+
+*avslutar*: det andra läget slutar först, genom den funktion som är anmäld med `store.onExit` (main.js). *stoppas*: läget börjar inte (`store.canEnter` ger `false`). *samtidigt*: båda pågår. ¹ En jakt vars år ligger utanför lektionens låsta år avslutas (`js/ui/lesson.js`). ² I en lektion börjar bara uppdrag inom lektionens år (`js/ui/uppdrag.js`). Lektionen börjar alltid före eller under sin tur och slutar med den. Intervallets rad gäller redan, men läget byggs i #755; där läggs också att intervallet pausar uppspelningen.
+
+**Vad en utgång återställer** (`exitRestore`): bara ur ögonblicksbilder från de lägen som själva slutar, aldrig ur ett annat läge. Bilden är den från läget som började först bland dem som slutar, och ett fält återställs bara när alla lägen som slutar tillåter det (det strängaste bestämmer). Året står alltid kvar.
+
+| Läge | Utgången återställer | Tar över när det avslutar ett annat läge |
+|---|---|---|
+| Fokus | inget | fokus, kamera |
+| Tur | lager, fokus, kamera | lager, fokus, kamera |
+| Lektion | lager, kamera (aldrig fokus, eftersom fokus flyttar året och utgången behåller lektionens år, #881) | lager, fokus, kamera |
+| Jakt | inget | inget |
+| Intervall | inget | fokus |
+
+Exempel: en vanlig tur som avslutas ger tillbaka lager, fokus och kamera; "Visa hela globen" i en lektion ger tillbaka lager och kamera men inte fokus; Fokus som börjar under en tur avslutar turen, och då blir bara lagren som innan.
+
+**Biljetter för det som laddas:** `startFocus` tar en biljett (`store.ticket('fokus')`) innan riket, religionen eller resan hämtas, och börjar läget bara om biljetten fortfarande gäller (`store.current`): ingen nyare begäran om Fokus (en annan länk, Bakåt, Avsluta) och inget läge som inte är *samtidigt* med Fokus har börjat under tiden. Det ersätter de tidigare särskilda kontrollerna (`stale` från adressen och lektionsspärren i `startFocus`).
 
 ## Sök (#570)
 
