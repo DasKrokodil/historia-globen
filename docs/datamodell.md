@@ -19,6 +19,7 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 - `utkast/` – utkast från massimport som appen inte läser.
 - `funfacts.json` – fun facts kopplade till händelser.
 - `missuppfattningar.json` (#838) – vanliga historiska missuppfattningar.
+- `perioder.json` (#845, #476) – epoker och perioder, som indelningar med årtal och källa; än så länge indelningen `lgr22`.
 - `sources.json` – källregistret.
 - `empires/` – riken: registret, faktarutor och rikenas fält.
 - `routes/` (#38) – vägar och resor med etapper.
@@ -126,6 +127,29 @@ Filerna i `data/utkast/` har samma format som `events.json` (`schema`, `notes`, 
 `events` pekar på händelserna som jämförs, och fun facten ärver deras källor. `show` är spannet då kortet visas. Siffror i texten ska gå att räkna fram ur händelsernas årtal.
 
 Korten "När ett krig bröt ut" lagras inte här. De byggs i koden ur händelserna, inom 5 år från krigets start.
+
+## `perioder.json`: epoker och perioder (#845, #476)
+
+Namngivna epoker som data, så att tidsålderstext, bildstilar och snabbknappar vid tidslinjen kan läsa samma uppgifter (beslut 2026-11-02 på #476, listan godkänd 2026-11-08, `docs/beslut/2026-11-08-epoker-lgr22.md`). En fil kan ha flera **indelningar** (`divisions`); regionala indelningar läggs till som egna indelningar senare. Än så länge finns bara `lgr22`: epoker enligt den svenska kursplanen i historia. Filen läses inte av appen än och publiceras inte (`scripts/build-site.sh`); den läggs till där när snabbknapparna byggs efter intervallet (#755). Schema: `schemas/perioder.schema.json`; `scripts/validate-site.py` kontrollerar den, och översättningsspärren (`tools/oversattning.py`) räknar texterna.
+
+```json
+{ "id": "lgr22", "name": { "sv": "Skolans epoker (enligt Lgr22)", "en": "…" }, "simplification": { "sv": "Indelningen … är en förenkling …" },
+  "periods": [{ "id": "norden-800-1500", "start": 800, "end": 1500, "edtf": "0800~/1500~", "grades": "4–6",
+    "name": { "sv": "Kulturmöten och statsbildning i Norden", "en": "…" }, "sources": ["skolverket-lgr22-historia"], "review": "source-checked" }] }
+```
+
+| Fält | Betydelse |
+|---|---|
+| `divisions[].id`, `name` | Indelningens id och namn på fem språk |
+| `divisions[].simplification` | Obligatorisk text på fem språk som säger öppet att indelningen är en förenkling (svensk, europacentrerad, överlappande perioder, ungefärliga årtal). Ska visas bredvid knapparna |
+| `periods[].id` | Läsbart id, unikt i indelningen |
+| `start`, `end` | Astronomiskt år (som `events`). En period som pågår till nutid har `open: true` i stället för `end` |
+| `edtf` | Osäkerhet som i `events`: `0800~/1500~` (ungefärliga gränser) och `1900~/..` för en öppen period |
+| `grades` | Valfritt: årskurser i läroplanen (`4–6`, `7–9`) |
+| `name` | Namn på fem språk. I `lgr22` är det Skolverkets egna rubriker (svenska) och deras översättningar; en översättning ändrar aldrig årtalen |
+| `sources`, `review` | Som för händelser. Gränserna står i läroplanstexten; ingen text är kopierad |
+
+**`lgr22` (Del 1):** fem epoker, med de ungefärliga årtal som Skolverkets kursplan i historia (Lgr22, gäller från 2022-07-01) anger i centralt innehåll: cirka 800–1500, 1500–1800 och 1800–1900 (åk 4–6, Norden) och cirka 1850–1950 och 1900 till nutid (åk 7–9). De överlappar eftersom de hör till olika stadier, och det finns ingen epok före år 800. **Del 2** (stenålder, bronsålder, järnålder, antiken m.fl., som läroplanen nämner utan årtal) läggs inte in förrän en andra källa har öppnats och DasKrokodil har godkänt den.
 
 ## `missuppfattningar.json`: vanliga missuppfattningar (#838)
 

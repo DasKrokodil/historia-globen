@@ -1,0 +1,115 @@
+{
+  "schema": "historia-globen/perioder@1",
+  "note": "Epoker enligt den svenska kursplanen i historia (Lgr22, gäller från 2022-07-01), beslut DasKrokodil 2026-11-08 (#845, #476). Rubrikerna och de ungefärliga årtalen är Skolverkets egna, ur centralt innehåll per årskurs; ingen text är kopierad. Perioderna överlappar eftersom de hör till olika stadier. Epoknamn som läroplanen nämner utan årtal (stenålder, antiken m.fl.) saknas med flit tills en andra källa har öppnats (Del 2). Filen läses inte av appen än; snabbknapparna byggs efter intervallet (#755).",
+  "divisions": [
+    {
+      "id": "lgr22",
+      "name": {
+        "sv": "Skolans epoker (enligt Lgr22)",
+        "en": "School periods (according to Lgr22)",
+        "de": "Epochen im Schulunterricht (nach Lgr22)",
+        "es": "Épocas escolares (según Lgr22)",
+        "fr": "Périodes scolaires (selon Lgr22)"
+      },
+      "simplification": {
+        "sv": "Indelningen följer den svenska kursplanen i historia (Lgr22) och är en förenkling: den är svensk och europacentrerad, perioderna överlappar och årtalen är ungefärliga. I andra delar av världen börjar och slutar epoker vid andra tider.",
+        "en": "The division follows the Swedish history syllabus (Lgr22) and is a simplification: it is Swedish and Eurocentric, the periods overlap and the years are approximate. In other parts of the world, periods begin and end at other times.",
+        "de": "Die Einteilung folgt dem schwedischen Lehrplan für Geschichte (Lgr22) und ist eine Vereinfachung: Sie ist schwedisch und eurozentrisch, die Zeiträume überschneiden sich und die Jahreszahlen sind ungefähr. In anderen Teilen der Welt beginnen und enden Epochen zu anderen Zeiten.",
+        "es": "La división sigue el plan de estudios sueco de historia (Lgr22) y es una simplificación: es sueca y eurocéntrica, los períodos se solapan y los años son aproximados. En otras partes del mundo, las épocas comienzan y terminan en otros momentos.",
+        "fr": "Cette division suit le programme suédois d’histoire (Lgr22) et constitue une simplification : elle est suédoise et eurocentrée, les périodes se chevauchent et les années sont approximatives. Dans d’autres régions du monde, les périodes commencent et finissent à d’autres moments."
+      },
+      "periods": [
+        {
+          "id": "norden-800-1500",
+          "start": 800,
+          "end": 1500,
+          "edtf": "0800~/1500~",
+          "grades": "4–6",
+          "name": {
+            "sv": "Kulturmöten och statsbildning i Norden",
+            "en": "Cultural encounters and state formation in the Nordic countries",
+            "de": "Kulturbegegnungen und Staatsbildung im Norden",
+            "es": "Encuentros culturales y formación de Estados en los países nórdicos",
+            "fr": "Rencontres culturelles et formation des États dans les pays nordiques"
+          },
+          "sources": [
+            "skolverket-lgr22-historia"
+          ],
+          "review": "source-checked"
+        },
+        {
+          "id": "norden-1500-1800",
+          "start": 1500,
+          "end": 1800,
+          "edtf": "1500~/1800~",
+          "grades": "4–6",
+          "name": {
+            "sv": "Maktförhållanden och levnadsvillkor i Norden",
+            "en": "Power relations and living conditions in the Nordic countries",
+            "de": "Machtverhältnisse und Lebensbedingungen im Norden",
+            "es": "Relaciones de poder y condiciones de vida en los países nórdicos",
+            "fr": "Rapports de pouvoir et conditions de vie dans les pays nordiques"
+          },
+          "sources": [
+            "skolverket-lgr22-historia"
+          ],
+          "review": "source-checked"
+        },
+        {
+          "id": "norden-1800-1900",
+          "start": 1800,
+          "end": 1900,
+          "edtf": "1800~/1900~",
+          "grades": "4–6",
+          "name": {
+            "sv": "Folkökning, ändrade maktförhållanden och emigration",
+            "en": "Population growth, changing power relations and emigration",
+            "de": "Bevölkerungswachstum, veränderte Machtverhältnisse und Auswanderung",
+            "es": "Crecimiento demográfico, cambios en las relaciones de poder y emigración",
+            "fr": "Croissance démographique, évolution des rapports de pouvoir et émigration"
+          },
+          "sources": [
+            "skolverket-lgr22-historia"
+          ],
+          "review": "source-checked"
+        },
+        {
+          "id": "imperialism-varldskrig-1850-1950",
+          "start": 1850,
+          "end": 1950,
+          "edtf": "1850~/1950~",
+          "grades": "7–9",
+          "name": {
+            "sv": "Imperialism och världskrig",
+            "en": "Imperialism and world wars",
+            "de": "Imperialismus und Weltkriege",
+            "es": "Imperialismo y guerras mundiales",
+            "fr": "Impérialisme et guerres mondiales"
+          },
+          "sources": [
+            "skolverket-lgr22-historia"
+          ],
+          "review": "source-checked"
+        },
+        {
+          "id": "demokratisering-globalisering-1900-",
+          "start": 1900,
+          "open": true,
+          "edtf": "1900~/..",
+          "grades": "7–9",
+          "name": {
+            "sv": "Demokratisering och ökad globalisering",
+            "en": "Democratisation and increased globalisation",
+            "de": "Demokratisierung und zunehmende Globalisierung",
+            "es": "Democratización y creciente globalización",
+            "fr": "Démocratisation et mondialisation croissante"
+          },
+          "sources": [
+            "skolverket-lgr22-historia"
+          ],
+          "review": "source-checked"
+        }
+      ]
+    }
+  ]
+}
