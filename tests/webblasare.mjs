@@ -2674,6 +2674,43 @@ async function run(browser, vp) {
     }
     return 'direktlänk, omladdning och Bakåt/Framåt behåller låset; året låst till 1939–1945; Tab når utgången; slutkortet står kvar; utgången behåller året; utan lektionstur eller tur inget läge';
   });
+  // #862 F7: i mobil öppnades faktarutan bakom turkortet, så att kortets text täckte rubrik, handtag och Stäng.
+  // Prövar att faktarutans stängknapp är det som träffas mitt på knappen (inte kortet) och att Stäng fungerar.
+  await check('faktarutan öppnas ovanpå lektionskortet och går att stänga (#862)', async () => {
+    const dp = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await dp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await dp.route(u => isFont(u.href), r => r.abort());
+      }
+      await dp.goto(`${BASE}?ny=8#t=andra-varldskriget&m=lektion&s=storbritannien`);
+      await dp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await dp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      await dp.getByRole('button', { name: /Läs om händelsen/ }).first().click({ timeout: T.step });
+      await dp.waitForSelector('#detail:not([hidden])', { state: 'visible', timeout: T.step });
+      const hit = await dp.evaluate(() => {
+        const close = document.querySelector('#detail .detail-close');
+        if (!close) return { error: 'faktarutan saknar stängknapp' };
+        const b = close.getBoundingClientRect();
+        const el = document.elementFromPoint(b.x + b.width / 2, b.y + b.height / 2);
+        const handle = document.querySelector('#detail .sheet-handle');
+        const hb = handle && handle.getClientRects().length ? handle.getBoundingClientRect() : null;
+        const topAtHandle = hb ? document.elementFromPoint(hb.x + hb.width / 2, hb.y + hb.height / 2) : null;
+        return { onClose: !!el && close.contains(el), top: el && (el.id || el.className || el.tagName),
+          handleCovered: !!hb && !handle.contains(topAtHandle) };
+      });
+      if (hit.error) throw new Error(hit.error);
+      if (!hit.onClose) throw new Error(`faktarutans Stäng är övertäckt av ${hit.top}`);
+      if (hit.handleCovered) throw new Error('faktarutans handtag är övertäckt');
+      await dp.click('#detail .detail-close', { timeout: T.step });
+      await dp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      if (!(await dp.isVisible('#tour-card'))) throw new Error('turkortet försvann när faktarutan stängdes');
+    } finally {
+      await dp.close();
+    }
+    return 'Läs om händelsen: Stäng och handtag nås, och Stäng ger tillbaka turkortet';
+  });
   if (vp.name === 'dator') {
     // Mätningarna i utskriftsvyn (#757): körs i sidan med print-media påslaget
     const printAudit = () => {
