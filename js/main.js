@@ -4,6 +4,7 @@
 // omritningen, uppspelningens pauser, krigets berättelse och etiketterna. Här skapas delarna och kopplas ihop.
 import { loadAll, loadReligionPolities, loadRoutes, t, formatYear, formatEventTime, isVisibleReview, CAT } from './model.js';
 import { buildIndex, search as searchIndex } from './search-index.js';
+import { placeSuggestions, eventsNear, RADIUS_KM } from './place-search.js';
 import { applyStatic, setupLangPicker, takeReturnYear, LANG_INFO } from './i18n.js';
 import { Globe } from './globe.js';
 import { Timeline, setupYearJump } from './timeline.js';
@@ -448,6 +449,13 @@ async function start() {
       sub: [formatEventTime(it.ref), it.place].filter(Boolean).join(' · '), color: CAT[it.ref.category]?.color ?? 'var(--brass)',
     }));
   };
+  // Vad hände här? (#15): fliken Plats söker i platsnamnen som redan finns i händelserna och listar händelserna inom radien
+  app.focusMenu.radiusKm = RADIUS_KM;
+  app.focusMenu.searchPlaces = q => placeSuggestions(data.events, q, { t, visible: isVisibleReview });
+  app.focusMenu.eventsNear = place => eventsNear(data.events, place, { visible: isVisibleReview, t }).map(({ event: e, approximate }) => ({
+    key: `event:${e.id}`, label: t(e.title), approximate,
+    sub: [formatEventTime(e), t(e.place)].filter(Boolean).join(' · '), color: CAT[e.category]?.color ?? 'var(--brass)',
+  }));
   const follow = app.focusMenu.onPick;
   app.focusMenu.onPick = key => {
     if (!key.startsWith('event:')) return follow(key);
