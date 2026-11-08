@@ -85,7 +85,7 @@ Ordnade efter vad som vinner vid konflikt (min tolkning, bekräfta):
 
 ## Idéer för framtiden
 
-- **Koppla historia till det som hände senare och till vår nutid**, så att man förstår syftet med att lära sig historia: att förstå sin samtid (#927). Ingen brådska; kräver ändring av datamodellen och ett källbelagt samband per koppling.
+- **Koppla historia till det som hände senare och till vår nutid**, så att man förstår syftet med att lära sig historia: att förstå sin samtid (#927). **Sparad som idé** (beslut 2026-11-08): tidigast efter 6.1.0 och när datamodellen ses över, med ett pilotfall först; varje samband har källa.
 
 ## Beslutade frågor (2026-11-08)
 

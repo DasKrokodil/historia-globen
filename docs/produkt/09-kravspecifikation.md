@@ -42,9 +42,11 @@ Det här är en *produktkravsspecifikation*: den säger **vad** sidan ska uppfyl
 | ID | Krav | Källa | Prio | Bevis | Status | Läge |
 |---|---|---|---|---|---|---|
 | K-KÄL-01 | Sidan ska aktivt lära ut källkritik, inte bara visa källor. | DasKrokodil 2026-11-08, M9 | M | G, O | Beslutat | Delvis |
-| K-KÄL-02 | Besökaren ska kunna se vad granskningsnivåerna betyder (faktarutans förklaring). | #786 | B | G | Förslag | Ej |
-| K-KÄL-03 | Källkritiska inslag ska finnas för flera åldrar (åk 4–6, åk 7+), med olika nivå. | #926 | B | G | Förslag | Ej |
-| K-KÄL-04 | Källkritiska inslag ska ha nyfiken, lekfull ton och aldrig pekpinne. | M8, #926 | B | G | Förslag | Ej verifierat |
+| K-KÄL-02 | Besökaren ska kunna se vad granskningsnivåerna betyder (faktarutans förklaring). | #786, #926 | B | G | Beslutat | Ej |
+| K-KÄL-03 | Källkritiska inslag ska finnas för flera åldrar, först åk 4–9, med olika nivå. | #926 | B | G | Beslutat | Ej |
+| K-KÄL-04 | Källkritiska inslag ska ha nyfiken, lekfull ton och aldrig pekpinne. | M8, #926 | B | G | Beslutat | Ej verifierat |
+| K-KÄL-05 | Källkritik ska vävas in i befintliga ytor först (förklaring, fyra återkommande frågor, "Sant eller myt?", en tur); ett eget läge kan komma senare. | #926 | B | G | Beslutat | Ej |
+| K-KÄL-06 | En besökare ska kunna svara på "var kommer det här ifrån?" utan att leta. | #926 | B | G, O | Beslutat | Ej verifierat |
 
 ## K-KÄR. Kärnfunktion och utforskande (M1, UC1–UC10)
 
