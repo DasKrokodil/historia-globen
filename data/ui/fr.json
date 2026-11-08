@@ -554,5 +554,7 @@
   "range.partial": "en partie dans l’intervalle",
   "range.uncertain": "date incertaine",
   "range.partialCount": ["{count} se poursuit aussi avant ou après l’intervalle", "{count} se poursuivent aussi avant ou après l’intervalle"],
-  "range.empty": "Rien dans les données pendant {range}."
+  "range.empty": "Rien dans les données pendant {range}.",
+  "range.areasAt": "Les zones sont affichées pour l’année {year}",
+  "range.capped": "Le globe affiche les {shown} marqueurs les plus importants sur {total}. Les autres figurent dans la liste."
 }

@@ -554,5 +554,7 @@
   "range.partial": "teilweise im Zeitraum",
   "range.uncertain": "unsicheres Datum",
   "range.partialCount": ["{count} läuft auch vor oder nach dem Zeitraum", "{count} laufen auch vor oder nach dem Zeitraum"],
-  "range.empty": "Nichts in den Daten im Zeitraum {range}."
+  "range.empty": "Nichts in den Daten im Zeitraum {range}.",
+  "range.areasAt": "Gebiete werden für das Jahr {year} angezeigt",
+  "range.capped": "Der Globus zeigt die {shown} wichtigsten von {total} Markierungen. Der Rest steht in der Liste."
 }

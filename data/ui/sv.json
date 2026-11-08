@@ -330,5 +330,7 @@
   "range.partial": "delvis inom intervallet",
   "range.uncertain": "osäkert datum",
   "range.partialCount": ["{count} pågår också före eller efter intervallet", "{count} pågår också före eller efter intervallet"],
-  "range.empty": "Inget i datan under {range}."
+  "range.empty": "Inget i datan under {range}.",
+  "range.areasAt": "Områden visas för år {year}",
+  "range.capped": "Globen visar de {shown} viktigaste av {total} markörerna. Resten finns i listan."
 }

@@ -111,6 +111,12 @@ export function createRange(app) {
   exitBtn.type = 'button'; exitBtn.id = 'range-exit'; exitBtn.className = 'link-btn range-exit';
   exitBtn.textContent = ui('range.exit');
   bar.append(barText, ' ', exitBtn);
+  // Två rader till under raden (#756): vilket år riken och religionerna visas för, och hur många markörer gränsen döljer
+  const areasNote = document.createElement('span');
+  areasNote.id = 'range-areas'; areasNote.className = 'range-note'; areasNote.hidden = true;
+  const capNote = document.createElement('span');
+  capNote.id = 'range-capped'; capNote.className = 'range-note'; capNote.hidden = true;
+  bar.append(areasNote, capNote);
   $('year-segment').after(bar);
 
   function openForm() {
@@ -181,13 +187,21 @@ export function createRange(app) {
   timeline.addEventListener('playstate', () => { if (timeline.playing && state.range) close(); });
   timeline.addEventListener('change', () => { if (state.range && !setting && timeline.year !== state.range.from) close(); });
 
-  /** Raden och årtalet i huvudet. count: händelser som syns i intervallet. Anropas av omritningen. */
-  function render(count) {
+  /**
+   * Raden och årtalet i huvudet. count: händelser som syns i intervallet. Anropas av omritningen.
+   * areasYear: året riken och religionerna ritas för (slutåret), eller null när inget av lagren syns (#756).
+   * capped: { shown, total } när markörgränsen döljer markörer, annars null; listan har ändå alla.
+   */
+  function render(count, { areasYear = null, capped = null } = {}) {
     const r = state.range;
     bar.hidden = !r;
     $('year-jump').classList.toggle('is-range', !!r);
     if (!r) return;
     barText.textContent = `${rangeText(r.from, r.to)} · ${plural('range.count', count, { count })}`;
+    areasNote.hidden = areasYear == null;
+    areasNote.textContent = areasYear == null ? '' : ui('range.areasAt', { year: formatYear(areasYear) });
+    capNote.hidden = !capped;
+    capNote.textContent = capped ? ui('range.capped', { shown: capped.shown, total: capped.total }) : '';
   }
 
   return { set, close, render, openForm, get active() { return !!state.range; } };
