@@ -17,7 +17,7 @@ Huvudgruppen är "normala människor med ett intresse för historia"; skolan är
 | G | Bidragsgivare och granskare (faktafel, förslag) | Sekundär | Ja: Rapportera faktafel, förslagsformulär |
 | H | Besökare med funktionsnedsättning | Tvärgående | Delvis: tangentbord, lugn rörelse, kontrast; ingen skärmläsarattest |
 | I | Besökare vid fysisk glob | **Parkerad** (beslut 2026-11-08) | Arkitekturen tillåter det, men inget byggs för det nu |
-| J | Barn i förskoleklass–åk 3 (med vuxen) | Sekundär: "något för alla" | Nej: ingen väg för barn som inte läser flytande (öppen fråga, #917) |
+| J | Barn i förskoleklass–åk 3 (med vuxen) | Sekundär: "något för alla" | Delvis: ingen egen väg; vuxna visar, barn utforskar själva (beslut 2026-11-08) |
 
 ### Persona-mall
 
@@ -89,7 +89,7 @@ Den ursprungliga idén parkeras (beslut 2026-11-08). En nedskalad variant kan g�
 - **Mål:** titta, peka och upptäcka tillsammans med en vuxen; häftiga bilder och djur (mammutar!).
 - **Förkunskap:** läser ännu inte flytande; tidsbegrepp som "f.Kr." är obegripliga.
 - **Behöver:** bilder före text, stora träffytor, få val, en vuxen som kan visa. Ingenting är byggt för gruppen i dag.
-- **Öppen fråga:** ska det finnas en egen väg (till exempel upplästa texter), eller räcker det att vuxna visar barn? Se #917.
+- **Beslutat 2026-11-08:** det räcker att vuxna visar barn. Barnen kan själva snurra, trycka och se färger och vad som händer. Ingen egen läsfri väg byggs.
 
 ## Intressenter
 

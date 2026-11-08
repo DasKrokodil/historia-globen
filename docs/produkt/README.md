@@ -2,7 +2,7 @@
 
 Det här är de dokument som svarar på *varför*, *för vem* och *vad som är gott nog*. De kompletterar [arkitektur.md](../arkitektur.md) och [datamodell.md](../datamodell.md), som svarar på *hur*. De är ramar att granska mot, inte regler som stoppar arbete: avviker något från dem ska det bli ett medvetet beslut i [docs/beslut/](../beslut/README.md), inte en tyst drift.
 
-**Läget:** första versionen skrevs 2026-11-08 mot `main` (commit `103792b`, version 6.1.0-dev). Allt som beskriver **användare, deras behov och hur de upplever sidan är antaganden**, eftersom ingen användarstudie har gjorts (ingen skolpilot, beslut 2026-11-07). Det är markerat i varje dokument. När vi har riktiga observationer ersätter de antagandena.
+**Läget:** första versionen skrevs 2026-11-08 (inriktningen bekräftades av DasKrokodil samma dag, se [beslutet](../beslut/2026-11-08-produktinriktning.md)) mot `main` (commit `103792b`, version 6.1.0-dev). Allt som beskriver **användare, deras behov och hur de upplever sidan är antaganden**, eftersom ingen användarstudie har gjorts (ingen skolpilot, beslut 2026-11-07). Det är markerat i varje dokument. När vi har riktiga observationer ersätter de antagandena.
 
 | Dokument | Svarar på | Läses när |
 |---|---|---|
@@ -14,6 +14,7 @@ Det här är de dokument som svarar på *varför*, *för vem* och *vad som är g
 | [06-granskningsperspektiv.md](06-granskningsperspektiv.md) | Hur skulle en senior UX-designer, arkitekt, historielärare, elev och historieintresserad titta på sidan? | Varje granskning, analys och release |
 | [07-valideringsplan.md](07-valideringsplan.md) | Hur ersätter vi antagandena med riktiga observationer? (utkast) | Planering av användartest, lärarkontakt, release |
 | [08-urvalsriktlinje.md](08-urvalsriktlinje.md) | Vad är värt en plats på globen, och hur motiverar vi urvalet? (utkast) | Nytt innehåll, täckningsrunda, "varför just den här?" |
+| [09-kravspecifikation.md](09-kravspecifikation.md) | Vad ska sidan uppfylla och hur ser vi det? Krav med id, prioritet, bevis och status (utkast) | Nytt issue, release, "är det här klart?" |
 
 ## Så hålls dokumenten levande
 

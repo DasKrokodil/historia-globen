@@ -232,7 +232,7 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 
 **Brukar säga (hypoteser):** "Mammuten!" "Vad står det?" "Kan jag trycka där?"
 
-**Vad linsen har sagt hittills:** ingenting; ingen väg för gruppen finns byggd (öppen fråga #917).
+**Vad linsen har sagt hittills:** ingenting. Beslutat 2026-11-08: det räcker att vuxna visar barn, och barn får själva snurra och trycka. Linsen prövar alltså om utforskandet är roligt och ofarligt, inte om det går att läsa.
 
 ---
 

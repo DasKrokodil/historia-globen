@@ -21,7 +21,7 @@ Historia-globen låter vem som helst dra i tiden på en jordglob och se vad som 
 
 ## Plattformar
 
-De flesta antas läsa på **mobil och surfplatta (iPad)**, några på dator. Allt ska fungera på alla de plattformarna och i alla vanliga webbläsare. Det är ett krav, inte ett önskemål. "Alla webbläsare" bör preciseras (se [Öppna frågor](#öppna-frågor)).
+De flesta antas läsa på **mobil och surfplatta (iPad)**, några på dator. Allt ska fungera på alla de plattformarna och i alla vanliga webbläsare. Det är ett krav, inte ett önskemål. **Stödmatris (beslut 2026-11-08):** de senaste två versionerna av Chrome, Safari (iOS och iPadOS), Firefox och Edge; iPad i både liggande och stående läge.
 
 ## Problemet vi löser
 
@@ -31,7 +31,7 @@ Historia lärs oftast ut per land eller per epok, så sambanden går förlorade:
 
 1. **Samtidighet som första fråga.** "Vad pågår på andra håll just nu?" är ingången.
 2. **Utforska, inte läsa.** Man lär sig genom att dra, klicka och följa, som i ett strategispel.
-3. **Källan syns.** Varje händelse och fun fact har en källa och en granskningsnivå, och när källorna är oense står det öppet. Det är också hur sidan vill lära barn och unga **källkritik**: genom att visa var uppgiften kommer ifrån.
+3. **Källan syns, och sidan lär ut källkritik aktivt** (beslut 2026-11-08). Varje händelse och fun fact har en källa och en granskningsnivå, och när källorna är oense står det öppet. Det är också så sidan lär barn och unga källkritik: genom att visa var uppgiften kommer ifrån, och genom att aktivt förklara hur man bedömer en källa (hur, se #926).
 4. **Öppet.** Kod under GPL-3.0, data under CC BY 4.0, ingen inloggning, ingen spårning, inget kommersiellt.
 
 ## Mål
@@ -47,6 +47,7 @@ Mål med tecken att leta efter. Inget statistikskript körs på sidan (beslut 20
 | M5 | **Fungerar överallt:** mobil, surfplatta, dator, alla vanliga webbläsare; tangentbord, zoom, lugn rörelse. | Inga kända blockerande fel i någon av plattformarna vid release. | Webbläsartest (tre motorer vid release), enhetskontroll, tillgänglighetslinsen |
 | M6 | **Hållbart för en ensam redaktör.** Underhållet får inte ta bort glädjen. | Inget byggsteg, data skild från kod, få centrala filer; dokumentationen hålls lätt. | Arkitekturlinsen; kökontroller |
 | M7 | **På flera språk** utan att fakta ändras. | Antalet oöversatta texter ökar aldrig. | Översättningsspärren |
+| M9 | **Lär ut källkritik aktivt.** Barn och unga lär sig fråga *vem säger det, hur vet vi, finns fler källor, är de överens*. | Källkritiska inslag finns i flera ytor och för flera åldrar. | Granskning mot linserna; hur: #926 |
 | M8 | **Det ska vara kul.** Att bygga och att använda. | Nya idéer får plats; inget i processen känns som ett jobb. | DasKrokodils egen bedömning |
 
 ## Avgränsningar: det här är sidan inte
@@ -82,6 +83,10 @@ Ordnade efter vad som vinner vid konflikt (min tolkning, bekräfta):
 
 1. Källbelagt före fullständigt. 2. Begripligt och roligt att utforska före avancerat. 3. Fungerar på mobil och surfplatta före effektfullt på dator. 4. Tillgängligt före effektfullt. 5. Enkelt att underhålla före smart. 6. Öppet före bekvämt.
 
+## Idéer för framtiden
+
+- **Koppla historia till det som hände senare och till vår nutid**, så att man förstår syftet med att lära sig historia: att förstå sin samtid (#927). Ingen brådska; kräver ändring av datamodellen och ett källbelagt samband per koppling.
+
 ## Beslutade frågor (2026-11-08)
 
 Svar från DasKrokodil på de öppna frågorna i första utkastet:
@@ -91,14 +96,15 @@ Svar från DasKrokodil på de öppna frågorna i första utkastet:
 3. **Gymnasiet och yngre:** förskoleklass till gymnasiet, hela skoltiden.
 4. **Fysisk glob:** parkerad; webben först.
 5. **Domän:** historiagloben.se används redan (README och DEPLOYMENT). Kvar är namnfrågan, se nedan.
+6. **Källkritik:** ska läras ut **aktivt** (M9). Hur avgörs i #926.
+7. **Barn före läsning:** räcker att vuxna visar barn. Barnen kan själva snurra och trycka och se färger och vad som händer. Ingen egen läsfri väg byggs.
+8. **Webbläsare och plattformar:** stödmatrisen ovan gäller.
+9. **Kravspecifikation (PRS):** ska skrivas ([09-kravspecifikation.md](09-kravspecifikation.md)).
 
 ## Öppna frågor
 
 1. **Namnet.** CLAUDE.md frågar om projektet ska få en egen .se-domän (det har den redan: historiagloben.se) och om namnet "Historia-globen" ska behållas eller bli ett internationellt namn. Frågan är alltså bara det andra: ska sidan heta något som fungerar på alla fem språken (till exempel ett namn utan översättning), eller behålla det svenska "Historia-globen"? Inget behöver avgöras nu; det är ett varumärkesval och påverkar bara titel, domän och delningsbilder. Se #914.
-2. **Förskoleklass–åk 3.** Barn som ännu inte läser flytande kan inte använda det mesta som är text. Ska det finnas en väg för dem (till exempel upplästa texter, bildvägar, eller "tillsammans med en vuxen"), eller räcker "för den som kan läsa, och för vuxna att visa barn"? Se #917.
-3. **"Alla webbläsare" och surfplatta.** Vilka versioner och enheter räknas? Förslag: de senaste två versionerna av Chrome, Safari (iOS/iPadOS), Firefox och Edge. Se #917.
-4. **Källkritik som uttalat mål.** Ska sidan *aktivt* lära ut det (till exempel genom Källdetektiven, #742, och en förklaring i faktarutan, #786), eller räcker det att källorna syns? Se #914.
-5. **Kravspecifikation.** Frågan om en kravspecifikation (PRS) är obesvarad.
+2. **Hur källkritik lärs ut** (#926) och **idén om koppling till nutiden** (#927) är öppna beslut om utförande, inte om mål.
 
 ## Att kontrollera vid uppdatering (varje release)
 

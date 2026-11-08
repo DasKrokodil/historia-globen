@@ -133,6 +133,19 @@ Ordnade efter vikt för projektet. "Hur vi säkrar det" är vad som finns idag.
 
 Sammanfattning av CLAUDE.md: 1) inget byggsteg, 2) data skild från kod, 3) ett år styr allt, 4) ekvirektangulär rendering, 5) lager som moduler, 6) three.js som enda externa beroende. Beslut som motiverar dem finns i [docs/beslut/](../beslut/README.md) och den frysta [beslut.md](../beslut.md).
 
+## Beslut 1 när den fysiska globen är parkerad
+
+Beslut 1 (allt ritas först på en ekvirektangulär bild) motiverades delvis av en framtida fysisk glob. Frågan från DasKrokodil 2026-11-08: blir något bättre eller sämre om vi släpper det kravet? Den här bedömningen är gjord ur dokumentationen och koden, **inte uppmätt**.
+
+| | Om vi behöll beslut 1 | Om vi släppte det |
+|---|---|---|
+| **Det som redan hänger på det** | Platt vy, A4-affischen, det skarpa utsnittet vid inzoomning (`globe-detail.js`) och alla lager (`drawOverlay`) använder samma bild. Det fungerar och är testat | Alla lager och Platt vy skulle behöva skrivas om. Stor kostnad utan synlig vinst för besökaren |
+| **Möjliga förbättringar** | – | Skarpare linjer och etiketter vid kraftig zoom (vektor eller finare rutor i stället för en bild), lägre minnesanvändning på mobil (i dag används 2048 × 1024 på stående mobil som lösning, #390), och en bättre kartprojektion i Platt vy (Mercator eller liknande i stället för ekvirektangulär, som sträcker polerna) |
+| **Möjliga försämringar** | – | Risk för nya buggar i ett fungerande system, sämre jämn prestanda på svaga enheter, och ett längre arbete som tar glädje och tid från ensam redaktör |
+| **Vad beslutet kostar oss idag** | Fast upplösning (4096 × 2048) och minnesvikt på mobil; skarpt utsnitt är en omväg | – |
+
+**Bedömning:** behåll beslut 1 som det är. Den fysiska globen är inte längre ett skäl att *kräva* det, men beslutet bär Platt vy, affischen och lagren, och det finns inget uppmätt problem som motiverar en omskrivning. Det som kan förbättras (skarpare zoom, mobilminne, projektion i Platt vy) går att göra **utan** att släppa beslutet, som egna små issues om ett konkret problem visar sig. Ändra regeln först om en mätning visar att den bitmappen är flaskhalsen. DasKrokodil avgör; CLAUDE.md är oförändrad.
+
 ## Kända arkitekturrisker
 
 Hämtade ur analyserna, inte nya fynd. Verifiera mot koden innan du agerar på dem.
@@ -146,7 +159,7 @@ Hämtade ur analyserna, inte nya fynd. Verifiera mot koden innan du agerar på d
 | R5 | **Tillgänglighet bevisad bara delvis** | komplett analys; helhetsanalys | Skärmläsare och full tangentbordssekvens ej attesterade | Gör en riktad attest; se [06](06-granskningsperspektiv.md#7-tillgänglighet) |
 | R6 | **Webbläsarbredd i test** | komplett analys (Firefox, WebKit röda) | Release utan tre motorer är inte bevisad | Åtgärda rotorsaker per motor |
 | R7 | **Datamängd mot prestanda** | prestandastudie 2026-11-07 | Långsam start när massimporten växer | Fortsätt dela och ladda sent |
-| R9 | **Plattformsstöd ej definierat** | DasKrokodils krav 2026-11-08; `docs/produkt/05` | "Alla webbläsare" och "iPad" är krav, men det finns ingen stödmatris, och surfplattebredder (768–1024 px) har inte provats särskilt | Definiera stödmatris (#917), lägg iPad-bredd i webbläsartestet |
+| R9 | **Plattformsstöd bara delvis bevisat** | DasKrokodils krav 2026-11-08; `docs/produkt/05` | Stödmatris beslutad 2026-11-08 (senaste två versionerna av Chrome, Safari iOS/iPadOS, Firefox, Edge; iPad liggande och stående), men surfplattebredder (768–1024 px) har inte provats särskilt | Lägg iPad-bredd och Safari i webbläsartestet (#917) |
 | R8 | **Översättningsskuld** | översättningsspärren | Besökare på andra språk ser blandad text | Omgångar, engelska först |
 
 ## Att kontrollera vid uppdatering
