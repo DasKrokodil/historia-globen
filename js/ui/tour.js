@@ -28,10 +28,10 @@ export async function loadTours() {
       console.warn(`Turen ${id} kunde inte laddas`, err);
       return null;
     })));
-    return { labels: index.labels ?? {}, tours: tours.filter(Boolean) };
+    return { labels: index.labels ?? {}, tours: tours.filter(Boolean), ids: index.tours ?? [], failed: false };
   } catch (err) {
     console.warn('Turerna kunde inte laddas', err);
-    return { labels: {}, tours: [] };
+    return { labels: {}, tours: [], ids: [], failed: true };
   }
 }
 

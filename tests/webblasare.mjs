@@ -2642,6 +2642,25 @@ async function run(browser, vp) {
       if (await lessonPage.isVisible('#lesson-band')) throw new Error('en tur utan lärarfält startade lektionsläge');
       await open(`${BASE}?ny=1#y=1500&m=lektion`);
       if (await lessonPage.isVisible('#lesson-band') || await lessonPage.isVisible('#tour-card')) throw new Error('m=lektion utan tur gav ett tomt läge');
+      // En lektionslänk som inte går att starta förklaras i stället för att tyst bli en vanlig glob (#877)
+      const noticeText = async () => (await lessonPage.isVisible('#lesson-notice')) ? (await lessonPage.textContent('#lesson-notice-text')).trim() : '';
+      await open(`${BASE}?ny=11#t=finns-inte&m=lektion`);
+      await lessonPage.waitForSelector('#lesson-notice', { state: 'visible', timeout: T.step });
+      if (!/finns inte/.test(await noticeText()) || await lessonPage.isVisible('#lesson-retry') || await lessonPage.isVisible('#lesson-band')) throw new Error(`okänd lektion förklarades som "${await noticeText()}"`);
+      await open(`${BASE}?ny=12#t=tre-platser-1325&m=lektion`);
+      await lessonPage.waitForSelector('#lesson-notice', { state: 'visible', timeout: T.step });
+      if (!/ingen lektion/.test(await noticeText()) || await lessonPage.isVisible('#lesson-band')) throw new Error(`tur utan lärarfält förklarades som "${await noticeText()}"`);
+      await lessonPage.click('#lesson-notice-close');
+      if (await lessonPage.isVisible('#lesson-notice')) throw new Error('förklaringen gick inte att stänga');
+      await lessonPage.route('**/data/turer/index.json', r => r.fulfill({ status: 503, body: 'nere' }));
+      await open(`${BASE}?ny=13#t=vikingatiden-och-varlden&m=lektion`);
+      await lessonPage.waitForSelector('#lesson-notice', { state: 'visible', timeout: T.step });
+      if (!/kunde inte hämtas/.test(await noticeText()) || !(await lessonPage.isVisible('#lesson-retry')) || await lessonPage.isVisible('#lesson-band')) throw new Error(`hämtfel förklarades som "${await noticeText()}"`);
+      await lessonPage.unroute('**/data/turer/index.json');
+      lessonErrors.splice(0, lessonErrors.length, ...lessonErrors.filter(e => !/503/.test(e))); // det väntade felet från den spärrade turfilen
+      await lessonPage.click('#lesson-retry');
+      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.load });
+      if (await lessonPage.isVisible('#lesson-notice')) throw new Error('förklaringen låg kvar efter Försök igen');
       // Ett fokus som redan var på tar inte bort låset när lektionslänken öppnas i samma flik
       await open(`${BASE}?ny=3#y=1942&f=war:andra-varldskriget`);
       await lessonPage.waitForSelector('#focus-bar:not([hidden])', { state: 'attached', timeout: T.load });

@@ -86,6 +86,7 @@ export function createAddress(app) {
     const tour = app.tour, lesson = app.lesson;
     if (!tl || !tour) return false;
     const asLesson = lessonWanted && !!lesson?.canStart(tl.id);
+    if (lessonWanted && !asLesson) lesson?.explain(tl.id); // länken ville ha en lektion men blev en vanlig tur eller ingen alls (#877)
     if (tour.active && tour.position?.id === tl.id) {
       if (asLesson !== !!lesson?.active) { if (asLesson) lesson.enter(tl.id); else lesson.leave(); }
       tour.go(tour.stepIndex(tl.step));
