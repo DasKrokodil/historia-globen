@@ -561,6 +561,34 @@ async function run(browser, vp) {
     return 'år 1500; Amerika två gånger ger besked; tre världsdelar ger fråga och källor; u= i adressen och bort efter Escape';
   }
 
+  // Menyn över en öppen Samtidigt-panel (#887): knapparna i Mer/Meny ska ta emot klicket, inte panelen.
+  // isVisible() räcker inte, så vi mäter vad som ligger överst mitt på knappen.
+  await check('Mer/Meny ligger över en öppen Samtidigt-panel (#887)', async () => {
+    try {
+      if (await page.isHidden('#panel')) await page.click('#btn-panel');
+      await visible('#panel');
+      if (await page.isVisible('#more-toggle')) await page.click('#more-toggle'); else await page.click('#btn-more');
+      const blocked = await page.evaluate(ids => ids.filter(id => {
+        const b = document.getElementById(id);
+        if (!b || !b.getClientRects().length) return false;
+        const r = b.getBoundingClientRect();
+        const el = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
+        return !(el && b.contains(el));
+      }), ['btn-hunt', 'btn-quiz', 'btn-sources', 'btn-help']);
+      if (blocked.length) throw new Error(`panelen tar emot klicket i stället för ${blocked.join(', ')}`);
+      // Och ett riktigt klick (utan force) startar jakten
+      await page.click('#btn-hunt');
+      await visible('#hunt');
+      if (await page.isVisible('#panel-close')) await page.click('#panel-close');
+      await page.click('#hunt-end');
+      await hidden('#hunt');
+      return 'Källor, Hjälp, Quiz och Samtidighetsjakten når klicket med Samtidigt öppen';
+    } finally {
+      if (await page.isVisible('#hunt')) await page.click('#hunt-end').catch(() => {});
+      if (await page.isVisible('#panel-close')) await page.click('#panel-close').catch(() => {});
+    }
+  });
+
   // Quizet (#65): tre svar ur datan, rätt eller fel med årtal och källor, nästa fråga, bara tangentbord och Escape
   await check('quizet ställer frågor ur fun facts och går att svara på med tangentbordet (#65)', async () => {
     // Fallerar kontrollen stängs quizet, så att rutan inte täcker sidan för kontrollerna efter
