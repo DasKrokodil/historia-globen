@@ -132,6 +132,26 @@ export class TourPlayer {
       b.append(name, meta);
       b.addEventListener('click', () => { this.closeMenu(false); this.start(tour.id, this.button); });
       li.append(b);
+      // En lektionstur (en tur med lärarfält) märks med årskurs och tid, och kan startas som lektion (#889).
+      // Allt kommer ur turens lesson-fält; lektionsläget är detsamma som länken m=lektion ger (#795).
+      if (tour.lesson) { // lektionsläget skapas efter spelaren, så bara lärarfältet avgör här (som canStart)
+        const row = document.createElement('div'); row.className = 'tour-lesson-row';
+        const info = document.createElement('span'); info.className = 'tour-lesson-meta';
+        const grades = tour.lesson.grades === 'gy' ? ui('print.gy') : String(tour.lesson.grades).replace('-', '–');
+        info.textContent = ui('tour.lessonMeta', { grades, n: tour.lesson.minutes });
+        const go = document.createElement('button');
+        go.type = 'button'; go.className = 'tour-lesson-start'; go.dataset.tour = tour.id;
+        go.textContent = ui('tour.lessonStart');
+        go.setAttribute('aria-label', ui('tour.lessonStartLabel', { title: t(tour.title) }));
+        go.addEventListener('click', () => {
+          this.closeMenu(false);
+          const { lesson } = this.app;
+          lesson?.enter(tour.id);
+          if (!this.start(tour.id, this.button)) lesson?.leave();
+        });
+        row.append(info, go);
+        li.append(row);
+      }
       return li;
     }));
   }

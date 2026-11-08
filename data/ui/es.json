@@ -501,5 +501,8 @@
   "lesson.band": "Modo lección: {title}",
   "lesson.exit": "Mostrar todo el globo",
   "lesson.next": "Continuar con una tarea",
-  "lesson.hunt": "Caza de la simultaneidad: {title}"
+  "lesson.hunt": "Caza de la simultaneidad: {title}",
+  "tour.lessonMeta": "Lección · cursos {grades} · {n} min",
+  "tour.lessonStart": "Empezar como lección",
+  "tour.lessonStartLabel": "Empezar como lección: {title}"
 }

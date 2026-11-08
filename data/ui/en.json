@@ -501,5 +501,8 @@
   "lesson.band": "Lesson mode: {title}",
   "lesson.exit": "Show the whole globe",
   "lesson.next": "Continue with a task",
-  "lesson.hunt": "Same-time hunt: {title}"
+  "lesson.hunt": "Same-time hunt: {title}",
+  "tour.lessonMeta": "Lesson · years {grades} · {n} min",
+  "tour.lessonStart": "Start as a lesson",
+  "tour.lessonStartLabel": "Start as a lesson: {title}"
 }

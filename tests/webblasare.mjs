@@ -2711,6 +2711,42 @@ async function run(browser, vp) {
     }
     return 'Läs om händelsen: Stäng och handtag nås, och Stäng ger tillbaka turkortet';
   });
+  // #889: lektionerna märks i Turer-menyn och startas som lektion med en knapp; vanliga turer får ingen sådan knapp
+  await check('Turer-menyn märker lektionerna och startar dem som lektion (#889)', async () => {
+    const mp = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await mp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await mp.route(u => isFont(u.href), r => r.abort());
+      }
+      await mp.goto(`${BASE}?ny=9`);
+      await mp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (await mp.isHidden('#btn-tour') && await mp.isVisible('#more-toggle')) await mp.click('#more-toggle');
+      if (await mp.isHidden('#btn-tour') && await mp.isVisible('#btn-more')) await mp.click('#btn-more');
+      await mp.click('#btn-tour');
+      await mp.waitForSelector('#tour-menu:not([hidden])', { state: 'visible', timeout: T.step });
+      const rows = await mp.evaluate(() => [...document.querySelectorAll('#tour-menu .tour-lesson-row')].map(r => ({
+        meta: r.querySelector('.tour-lesson-meta')?.textContent.trim(), tour: r.querySelector('.tour-lesson-start')?.dataset.tour,
+        label: r.querySelector('.tour-lesson-start')?.getAttribute('aria-label') })));
+      if (rows.length !== 2) throw new Error(`${rows.length} lektioner märkta i menyn, väntade 2`);
+      const ww = rows.find(r => r.tour === 'andra-varldskriget');
+      if (!ww || !/Lektion · årskurs 7–9 · \d+ min/.test(ww.meta) || !/Starta som lektion: /.test(ww.label)) throw new Error(`lektionen för andra världskriget märks fel: ${JSON.stringify(ww)}`);
+      if (await mp.locator('#tour-menu .tour-lesson-start[data-tour="forsta-varldskriget"]').count()) throw new Error('en vanlig tur har fått knappen Starta som lektion');
+      await mp.click('#tour-menu .tour-lesson-start[data-tour="andra-varldskriget"]');
+      await mp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      await mp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      if (!/^Steg 1 av 14$/.test((await mp.textContent('#tour-progress')).trim())) throw new Error('lektionen startade inte vid steg 1');
+      if ((await mp.textContent('#year-big')).trim() !== '1939') throw new Error('lektionen börjar inte 1939');
+      await mp.waitForFunction(() => location.hash.includes('m=lektion'), null, { timeout: T.step }).catch(() => { throw new Error('adressen saknar m=lektion efter knappen'); });
+      // Den vanliga starten gör fortfarande en vanlig tur utan band
+      await mp.click('#lesson-exit');
+      await mp.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
+    } finally {
+      await mp.close();
+    }
+    return 'två lektioner märkta (årskurs och tid), Starta som lektion ger bandet, steg 1 och 1939, m=lektion i adressen; vanliga turer utan knapp';
+  });
   if (vp.name === 'dator') {
     // Mätningarna i utskriftsvyn (#757): körs i sidan med print-media påslaget
     const printAudit = () => {
