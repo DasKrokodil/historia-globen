@@ -479,7 +479,7 @@ async function start() {
   panel.onReport = report;
   routePop.onReport = report;
   timeline.init(takeReturnYear() ?? 1325); // året finns kvar efter byte av språk
-  setupLangPicker($('lang-select'), () => timeline.year);
+  setupLangPicker($('lang-select'), () => timeline.year, () => app.address?.flush()); // adressen skapas längre ned; anropet sker först vid byte
   globe.flyTo(34, -50, 1600);
   globe.autoRotate = false;
 
