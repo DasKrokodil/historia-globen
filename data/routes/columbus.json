@@ -6,11 +6,13 @@
       "category": "upptackter",
       "title": {
         "sv": "Columbus första resa",
-        "en": "Columbus's first voyage"
+        "en": "Columbus's first voyage",
+        "de": "Kolumbus' erste Reise"
       },
       "summary": {
         "sv": "Tre skepp lämnar Palos i augusti 1492, fyller på förråden på Kanarieöarna och korsar Atlanten på fem veckor. Den 12 oktober går expeditionen i land på en ö i Bahamas som invånarna kallade Guanahaní. Columbus seglar vidare till Kuba och Hispaniola, där Santa María går på grund på juldagen och fortet La Navidad byggs. Hemresan går över Azorerna och Lissabon tillbaka till Palos i mars 1493.",
-        "en": "Three ships leave Palos in August 1492, resupply in the Canary Islands and cross the Atlantic in five weeks. On 12 October the expedition lands on an island in the Bahamas that its inhabitants called Guanahani. Columbus sails on to Cuba and Hispaniola, where the Santa María runs aground on Christmas Day and the fort of La Navidad is built. The return goes by way of the Azores and Lisbon back to Palos in March 1493."
+        "en": "Three ships leave Palos in August 1492, resupply in the Canary Islands and cross the Atlantic in five weeks. On 12 October the expedition lands on an island in the Bahamas that its inhabitants called Guanahani. Columbus sails on to Cuba and Hispaniola, where the Santa María runs aground on Christmas Day and the fort of La Navidad is built. The return goes by way of the Azores and Lisbon back to Palos in March 1493.",
+        "de": "Drei Schiffe verlassen Palos im August 1492, füllen auf den Kanarischen Inseln ihre Vorräte auf und überqueren den Atlantik in fünf Wochen. Am 12. Oktober geht die Expedition auf einer Insel der Bahamas an Land, die die Bewohner Guanahaní nannten. Kolumbus segelt weiter nach Kuba und Hispaniola, wo die Santa María am Weihnachtstag auf Grund läuft und das Fort La Navidad gebaut wird. Die Heimreise führt über die Azoren und Lissabon zurück nach Palos im März 1493."
       },
       "start": 1492,
       "end": 1493,
@@ -20,11 +22,13 @@
       "note": {
         "title": {
           "sv": "Källorna skiljer sig",
-          "en": "The sources differ"
+          "en": "The sources differ",
+          "de": "Die Quellen unterscheiden sich"
         },
         "text": {
           "sv": "Vilken ö Guanahaní var är omstritt. Dagens San Salvador i Bahamas räknas som troligast, men Rum Cay, Samana Cay, Plana Cays, Grand Turk, Cat Island och Mayaguana har också föreslagits. Nästa ö, Santa María de la Concepción, är Rum Cay enligt Morison men Samana Cay enligt nyare studier. Wikipedia säger att Pinta lagades på Gran Canaria, Encyclopædia Britannica (1911) säger Teneriffa. Ankomsten till Azorerna anges till natten mot den 17 februari (Wikipedia) eller den 18 februari (Britannica), och avfärden till den 23 respektive 24 februari.",
-          "en": "Which island Guanahani was is disputed. Present-day San Salvador in the Bahamas is considered the most likely, but Rum Cay, Samana Cay, the Plana Cays, Grand Turk, Cat Island and Mayaguana have also been proposed. The next island, Santa María de la Concepción, is Rum Cay according to Morison but Samana Cay according to more recent studies. Wikipedia says that the Pinta was repaired on Gran Canaria, Encyclopædia Britannica (1911) says Tenerife. The arrival at the Azores is given as the night before 17 February (Wikipedia) or 18 February (Britannica), and the departure as 23 and 24 February respectively."
+          "en": "Which island Guanahani was is disputed. Present-day San Salvador in the Bahamas is considered the most likely, but Rum Cay, Samana Cay, the Plana Cays, Grand Turk, Cat Island and Mayaguana have also been proposed. The next island, Santa María de la Concepción, is Rum Cay according to Morison but Samana Cay according to more recent studies. Wikipedia says that the Pinta was repaired on Gran Canaria, Encyclopædia Britannica (1911) says Tenerife. The arrival at the Azores is given as the night before 17 February (Wikipedia) or 18 February (Britannica), and the departure as 23 and 24 February respectively.",
+          "de": "Welche Insel Guanahaní war, ist umstritten. Das heutige San Salvador auf den Bahamas gilt als am wahrscheinlichsten, aber auch Rum Cay, Samana Cay, Plana Cays, Grand Turk, Cat Island und Mayaguana sind vorgeschlagen worden. Die nächste Insel, Santa María de la Concepción, ist laut Morison Rum Cay, laut neueren Studien aber Samana Cay. Wikipedia sagt, die Pinta sei auf Gran Canaria repariert worden, die Encyclopædia Britannica (1911) sagt Teneriffa. Die Ankunft auf den Azoren wird auf die Nacht zum 17. Februar (Wikipedia) oder den 18. Februar (Britannica) datiert, die Abfahrt auf den 23. beziehungsweise 24. Februar."
         }
       },
       "sources": [
@@ -78,7 +82,8 @@
               ],
               "name": {
                 "sv": "Palos de la Frontera",
-                "en": "Palos de la Frontera"
+                "en": "Palos de la Frontera",
+                "de": "Palos de la Frontera"
               },
               "date": "1492-08-03",
               "stop": true
@@ -90,7 +95,8 @@
               ],
               "name": {
                 "sv": "Gran Canaria",
-                "en": "Gran Canaria"
+                "en": "Gran Canaria",
+                "de": "Gran Canaria"
               }
             },
             {
@@ -100,7 +106,8 @@
               ],
               "name": {
                 "sv": "San Sebastián de La Gomera",
-                "en": "San Sebastián de La Gomera"
+                "en": "San Sebastián de La Gomera",
+                "de": "San Sebastián de La Gomera"
               },
               "edtf": "1492-09-02/1492-09-06"
             }
@@ -150,7 +157,8 @@
               ],
               "name": {
                 "sv": "Guanahaní (troligen San Salvador)",
-                "en": "Guanahani (probably San Salvador)"
+                "en": "Guanahani (probably San Salvador)",
+                "de": "Guanahaní (wahrscheinlich San Salvador)"
               },
               "date": "1492-10-12",
               "stop": true
@@ -202,7 +210,8 @@
               ],
               "name": {
                 "sv": "Santa María de la Concepción (Rum Cay eller Samana Cay)",
-                "en": "Santa María de la Concepción (Rum Cay or Samana Cay)"
+                "en": "Santa María de la Concepción (Rum Cay or Samana Cay)",
+                "de": "Santa María de la Concepción (Rum Cay oder Samana Cay)"
               }
             },
             {
@@ -212,7 +221,8 @@
               ],
               "name": {
                 "sv": "Fernandina (Long Island)",
-                "en": "Fernandina (Long Island)"
+                "en": "Fernandina (Long Island)",
+                "de": "Fernandina (Long Island)"
               }
             },
             {
@@ -222,7 +232,8 @@
               ],
               "name": {
                 "sv": "Isabela (Crooked Island)",
-                "en": "Isabela (Crooked Island)"
+                "en": "Isabela (Crooked Island)",
+                "de": "Isabela (Crooked Island)"
               }
             }
           ],
@@ -287,13 +298,15 @@
               ],
               "name": {
                 "sv": "La Navidad",
-                "en": "La Navidad"
+                "en": "La Navidad",
+                "de": "La Navidad"
               },
               "date": "1492-12-25",
               "stop": true,
               "text": {
                 "sv": "25 december 1492: Santa María går på grund utanför Hispaniola. Fortet La Navidad byggs av vraket från den 26 december.",
-                "en": "25 December 1492: the Santa María runs aground off Hispaniola. The fort La Navidad is built from the wreck from 26 December."
+                "en": "25 December 1492: the Santa María runs aground off Hispaniola. The fort La Navidad is built from the wreck from 26 December.",
+                "de": "25. Dezember 1492: Die Santa María läuft vor Hispaniola auf Grund. Das Fort La Navidad wird ab dem 26. Dezember aus dem Wrack gebaut."
               }
             }
           ],
@@ -357,7 +370,8 @@
               ],
               "name": {
                 "sv": "Rincónbukten, Samanáhalvön",
-                "en": "Rincón Bay, Samaná Peninsula"
+                "en": "Rincón Bay, Samaná Peninsula",
+                "de": "Rincón-Bucht, Halbinsel Samaná"
               },
               "date": "1493-01-13",
               "stop": true
@@ -407,7 +421,8 @@
               ],
               "name": {
                 "sv": "Santa Maria, Azorerna",
-                "en": "Santa Maria, Azores"
+                "en": "Santa Maria, Azores",
+                "de": "Santa Maria, Azoren"
               },
               "edtf": "1493-02-17/1493-02-23"
             }
@@ -449,7 +464,8 @@
               ],
               "name": {
                 "sv": "Lissabon",
-                "en": "Lisbon"
+                "en": "Lisbon",
+                "de": "Lissabon"
               },
               "date": "1493-03-04",
               "stop": true
@@ -504,7 +520,8 @@
               ],
               "name": {
                 "sv": "Palos de la Frontera",
-                "en": "Palos de la Frontera"
+                "en": "Palos de la Frontera",
+                "de": "Palos de la Frontera"
               },
               "date": "1493-03-15",
               "stop": true
@@ -524,11 +541,13 @@
       "category": "upptackter",
       "title": {
         "sv": "Columbus andra resa",
-        "en": "Columbus's second voyage"
+        "en": "Columbus's second voyage",
+        "de": "Kolumbus' zweite Reise"
       },
       "summary": {
         "sv": "En stor flotta på 17 fartyg med nybyggare lämnar Cádiz i september 1493. Den når Dominica i november och seglar genom Små Antillerna och förbi Puerto Rico till Hispaniola, där La Navidad är nedbränt. Kolonin La Isabela grundas. Under 1494 utforskar Columbus Kubas sydkust och Jamaica. Han lämnar Hispaniola i mars 1496 och är tillbaka i Cádiz i juni.",
-        "en": "A large fleet of 17 ships carrying settlers leaves Cádiz in September 1493. It reaches Dominica in November and sails through the Lesser Antilles and past Puerto Rico to Hispaniola, where La Navidad has been burned. The colony of La Isabela is founded. In 1494 Columbus explores the south coast of Cuba and Jamaica. He leaves Hispaniola in March 1496 and is back in Cádiz in June."
+        "en": "A large fleet of 17 ships carrying settlers leaves Cádiz in September 1493. It reaches Dominica in November and sails through the Lesser Antilles and past Puerto Rico to Hispaniola, where La Navidad has been burned. The colony of La Isabela is founded. In 1494 Columbus explores the south coast of Cuba and Jamaica. He leaves Hispaniola in March 1496 and is back in Cádiz in June.",
+        "de": "Eine große Flotte aus 17 Schiffen mit Siedlern verlässt Cádiz im September 1493. Sie erreicht Dominica im November und segelt durch die Kleinen Antillen und an Puerto Rico vorbei nach Hispaniola, wo La Navidad niedergebrannt ist. Die Kolonie La Isabela wird gegründet. Im Jahr 1494 erkundet Kolumbus die Südküste Kubas und Jamaika. Er verlässt Hispaniola im März 1496 und ist im Juni wieder in Cádiz."
       },
       "start": 1493,
       "end": 1496,
@@ -537,11 +556,13 @@
       "note": {
         "title": {
           "sv": "Källorna skiljer sig",
-          "en": "The sources differ"
+          "en": "The sources differ",
+          "de": "Die Quellen unterscheiden sich"
         },
         "text": {
           "sv": "Avfärden från Cádiz anges till den 25 september 1493 i Wikipedias text men till den 24 september i samma artikels faktaruta och i Encyclopædia Britannica (1911). Den exakta vägen genom Små Antillerna är omdiskuterad. Under utforskningen 1494 når Columbus Jamaica den 5 maj enligt Wikipedia men den 14 maj enligt Britannica. Wikipedia säger att han var tillbaka på Hispaniola den 20 augusti; Britannica säger att han nådde ön Mona den 24 september och ankrade vid Isabela den 29 september. Uppehållet på Kanarieöarna (El Hierro) och vägen tillbaka över Jamaica nämns bara av Britannica, och uppehållen på Guadeloupe och vid Odemira på hemvägen bara av Wikipedia.",
-          "en": "The departure from Cádiz is given as 25 September 1493 in Wikipedia's text but as 24 September in the same article's fact box and in Encyclopædia Britannica (1911). The exact route through the Lesser Antilles is debated. During the exploration in 1494 Columbus reaches Jamaica on 5 May according to Wikipedia but on 14 May according to Britannica. Wikipedia says that he was back on Hispaniola on 20 August; Britannica says that he reached the island of Mona on 24 September and anchored at Isabela on 29 September. The stop in the Canary Islands (El Hierro) and the route back via Jamaica are mentioned only by Britannica, and the stops at Guadeloupe and at Odemira on the way home only by Wikipedia."
+          "en": "The departure from Cádiz is given as 25 September 1493 in Wikipedia's text but as 24 September in the same article's fact box and in Encyclopædia Britannica (1911). The exact route through the Lesser Antilles is debated. During the exploration in 1494 Columbus reaches Jamaica on 5 May according to Wikipedia but on 14 May according to Britannica. Wikipedia says that he was back on Hispaniola on 20 August; Britannica says that he reached the island of Mona on 24 September and anchored at Isabela on 29 September. The stop in the Canary Islands (El Hierro) and the route back via Jamaica are mentioned only by Britannica, and the stops at Guadeloupe and at Odemira on the way home only by Wikipedia.",
+          "de": "Die Abfahrt von Cádiz wird im Text von Wikipedia auf den 25. September 1493 datiert, im Infokasten desselben Artikels und in der Encyclopædia Britannica (1911) aber auf den 24. September. Der genaue Weg durch die Kleinen Antillen ist umstritten. Bei der Erkundung 1494 erreicht Kolumbus Jamaika laut Wikipedia am 5. Mai, laut Britannica aber am 14. Mai. Wikipedia sagt, er sei am 20. August wieder auf Hispaniola gewesen; Britannica sagt, er habe die Insel Mona am 24. September erreicht und am 29. September bei Isabela geankert. Den Halt auf den Kanarischen Inseln (El Hierro) und den Rückweg über Jamaika erwähnt nur Britannica, und die Halte bei Guadeloupe und bei Odemira auf der Heimreise nur Wikipedia."
         }
       },
       "sources": [
@@ -591,7 +612,8 @@
               ],
               "name": {
                 "sv": "Cádiz",
-                "en": "Cádiz"
+                "en": "Cádiz",
+                "de": "Cádiz"
               },
               "edtf": "1493-09-24/1493-09-25"
             },
@@ -602,7 +624,8 @@
               ],
               "name": {
                 "sv": "El Hierro, Kanarieöarna",
-                "en": "El Hierro, Canary Islands"
+                "en": "El Hierro, Canary Islands",
+                "de": "El Hierro, Kanarische Inseln"
               },
               "date": "1493-10-13"
             }
@@ -648,7 +671,8 @@
               ],
               "name": {
                 "sv": "Dominica",
-                "en": "Dominica"
+                "en": "Dominica",
+                "de": "Dominica"
               },
               "date": "1493-11-03"
             }
@@ -730,7 +754,8 @@
               ],
               "name": {
                 "sv": "Marie-Galante",
-                "en": "Marie-Galante"
+                "en": "Marie-Galante",
+                "de": "Marie-Galante"
               },
               "date": "1493-11-03"
             },
@@ -741,7 +766,8 @@
               ],
               "name": {
                 "sv": "Guadeloupe",
-                "en": "Guadeloupe"
+                "en": "Guadeloupe",
+                "de": "Guadeloupe"
               },
               "edtf": "1493-11-04/1493-11-10"
             },
@@ -752,7 +778,8 @@
               ],
               "name": {
                 "sv": "Santa Cruz (Saint Croix)",
-                "en": "Santa Cruz (Saint Croix)"
+                "en": "Santa Cruz (Saint Croix)",
+                "de": "Santa Cruz (Saint Croix)"
               },
               "date": "1493-11-14"
             },
@@ -763,7 +790,8 @@
               ],
               "name": {
                 "sv": "Añascobukten, Puerto Rico",
-                "en": "Añasco Bay, Puerto Rico"
+                "en": "Añasco Bay, Puerto Rico",
+                "de": "Añasco-Bucht, Puerto Rico"
               },
               "date": "1493-11-19"
             }
@@ -833,7 +861,8 @@
               ],
               "name": {
                 "sv": "Samanábukten",
-                "en": "Samaná Bay"
+                "en": "Samaná Bay",
+                "de": "Samaná-Bucht"
               },
               "date": "1493-11-23"
             },
@@ -844,7 +873,8 @@
               ],
               "name": {
                 "sv": "Monte Cristi",
-                "en": "Monte Cristi"
+                "en": "Monte Cristi",
+                "de": "Monte Cristi"
               }
             },
             {
@@ -854,7 +884,8 @@
               ],
               "name": {
                 "sv": "La Navidad (nedbränt)",
-                "en": "La Navidad (burned down)"
+                "en": "La Navidad (burned down)",
+                "de": "La Navidad (niedergebrannt)"
               },
               "date": "1493-11-28"
             }
@@ -891,7 +922,8 @@
               ],
               "name": {
                 "sv": "La Isabela",
-                "en": "La Isabela"
+                "en": "La Isabela",
+                "de": "La Isabela"
               },
               "date": "1494-01-02"
             }
@@ -965,7 +997,8 @@
               ],
               "name": {
                 "sv": "Discovery Bay, Jamaica",
-                "en": "Discovery Bay, Jamaica"
+                "en": "Discovery Bay, Jamaica",
+                "de": "Discovery Bay, Jamaika"
               },
               "edtf": "1494-05-05/1494-05-14"
             },
@@ -976,7 +1009,8 @@
               ],
               "name": {
                 "sv": "Jardines de la Reina, Kuba",
-                "en": "Jardines de la Reina, Cuba"
+                "en": "Jardines de la Reina, Cuba",
+                "de": "Jardines de la Reina, Kuba"
               }
             },
             {
@@ -986,7 +1020,8 @@
               ],
               "name": {
                 "sv": "La Evangelista (Isla de la Juventud)",
-                "en": "La Evangelista (Isla de la Juventud)"
+                "en": "La Evangelista (Isla de la Juventud)",
+                "de": "La Evangelista (Isla de la Juventud)"
               }
             }
           ],
@@ -1087,7 +1122,8 @@
               ],
               "name": {
                 "sv": "Isla de Mona",
-                "en": "Isla de Mona"
+                "en": "Isla de Mona",
+                "de": "Isla de Mona"
               },
               "date": "1494-09-24"
             },
@@ -1098,7 +1134,8 @@
               ],
               "name": {
                 "sv": "La Isabela",
-                "en": "La Isabela"
+                "en": "La Isabela",
+                "de": "La Isabela"
               },
               "edtf": "1494-08-20/1494-09-29"
             }
@@ -1184,7 +1221,8 @@
               ],
               "name": {
                 "sv": "La Isabela",
-                "en": "La Isabela"
+                "en": "La Isabela",
+                "de": "La Isabela"
               },
               "date": "1496-03-10"
             },
@@ -1195,7 +1233,8 @@
               ],
               "name": {
                 "sv": "Guadeloupe",
-                "en": "Guadeloupe"
+                "en": "Guadeloupe",
+                "de": "Guadeloupe"
               },
               "edtf": "1496-04-10/1496-04-20"
             }
@@ -1265,7 +1304,8 @@
               ],
               "name": {
                 "sv": "Kusten vid Odemira, Portugal",
-                "en": "The coast at Odemira, Portugal"
+                "en": "The coast at Odemira, Portugal",
+                "de": "Küste bei Odemira, Portugal"
               },
               "date": "1496-06-08"
             },
@@ -1276,7 +1316,8 @@
               ],
               "name": {
                 "sv": "Cádiz",
-                "en": "Cádiz"
+                "en": "Cádiz",
+                "de": "Cádiz"
               },
               "date": "1496-06-11"
             }
@@ -1295,11 +1336,13 @@
       "category": "upptackter",
       "title": {
         "sv": "Columbus tredje resa",
-        "en": "Columbus's third voyage"
+        "en": "Columbus's third voyage",
+        "de": "Kolumbus' dritte Reise"
       },
       "summary": {
         "sv": "Sex fartyg lämnar Sanlúcar i maj 1498. Tre seglar direkt till Hispaniola, medan Columbus tar en sydligare väg över Kap Verde. Han når Trinidad i slutet av juli och går i land på Sydamerikas fastland vid Pariahalvön i nuvarande Venezuela. På Hispaniola möts han av uppror bland nybyggarna. År 1500 avsätts han som guvernör och skickas i kedjor tillbaka till Spanien.",
-        "en": "Six ships leave Sanlúcar in May 1498. Three sail straight to Hispaniola, while Columbus takes a more southerly route by way of Cape Verde. He reaches Trinidad at the end of July and lands on the South American mainland at the Paria Peninsula in present-day Venezuela. On Hispaniola he finds the settlers in revolt. In 1500 he is removed as governor and sent back to Spain in chains."
+        "en": "Six ships leave Sanlúcar in May 1498. Three sail straight to Hispaniola, while Columbus takes a more southerly route by way of Cape Verde. He reaches Trinidad at the end of July and lands on the South American mainland at the Paria Peninsula in present-day Venezuela. On Hispaniola he finds the settlers in revolt. In 1500 he is removed as governor and sent back to Spain in chains.",
+        "de": "Sechs Schiffe verlassen Sanlúcar im Mai 1498. Drei segeln direkt nach Hispaniola, während Kolumbus einen südlicheren Weg über die Kapverden nimmt. Er erreicht Trinidad Ende Juli und geht auf dem südamerikanischen Festland an der Halbinsel Paria im heutigen Venezuela an Land. Auf Hispaniola empfängt ihn ein Aufstand unter den Siedlern. Im Jahr 1500 wird er als Gouverneur abgesetzt und in Ketten nach Spanien zurückgeschickt."
       },
       "start": 1498,
       "end": 1500,
@@ -1308,11 +1351,13 @@
       "note": {
         "title": {
           "sv": "Källorna skiljer sig",
-          "en": "The sources differ"
+          "en": "The sources differ",
+          "de": "Die Quellen unterscheiden sich"
         },
         "text": {
           "sv": "Wikipedia säger att Columbus kom tillbaka till Hispaniola den 19 augusti 1498; Encyclopædia Britannica (1911) säger att han nådde Santo Domingo den 31 augusti. På väg ut nämner Wikipedia Kanarieöarna och Britannica ön Gomera. Källorna anger inget datum för hemresan utöver att Columbus sattes i kedjor i början av oktober 1500. Han var tillbaka i Spanien före den 17 december 1500, då han enligt Britannica togs emot vid hovet. Wikipedias faktaruta låter resan sluta den 23 augusti 1500, när Bobadilla kom till Santo Domingo.",
-          "en": "Wikipedia says that Columbus came back to Hispaniola on 19 August 1498; Encyclopædia Britannica (1911) says that he reached Santo Domingo on 31 August. On the way out Wikipedia mentions the Canary Islands and Britannica the island of Gomera. The sources give no date for the return journey beyond that Columbus was put in chains in early October 1500. He was back in Spain before 17 December 1500, when, according to Britannica, he was received at court. Wikipedia's fact box has the voyage end on 23 August 1500, when Bobadilla came to Santo Domingo."
+          "en": "Wikipedia says that Columbus came back to Hispaniola on 19 August 1498; Encyclopædia Britannica (1911) says that he reached Santo Domingo on 31 August. On the way out Wikipedia mentions the Canary Islands and Britannica the island of Gomera. The sources give no date for the return journey beyond that Columbus was put in chains in early October 1500. He was back in Spain before 17 December 1500, when, according to Britannica, he was received at court. Wikipedia's fact box has the voyage end on 23 August 1500, when Bobadilla came to Santo Domingo.",
+          "de": "Wikipedia sagt, Kolumbus sei am 19. August 1498 nach Hispaniola zurückgekehrt; die Encyclopædia Britannica (1911) sagt, er habe Santo Domingo am 31. August erreicht. Auf der Hinfahrt nennt Wikipedia die Kanarischen Inseln und Britannica die Insel Gomera. Die Quellen nennen kein Datum für die Heimreise, außer dass Kolumbus Anfang Oktober 1500 in Ketten gelegt wurde. Er war vor dem 17. Dezember 1500 wieder in Spanien, als er laut Britannica am Hof empfangen wurde. Im Infokasten von Wikipedia endet die Reise am 23. August 1500, als Bobadilla nach Santo Domingo kam."
         }
       },
       "sources": [
@@ -1373,7 +1418,8 @@
               ],
               "name": {
                 "sv": "Sanlúcar de Barrameda",
-                "en": "Sanlúcar de Barrameda"
+                "en": "Sanlúcar de Barrameda",
+                "de": "Sanlúcar de Barrameda"
               },
               "date": "1498-05-30"
             },
@@ -1384,7 +1430,8 @@
               ],
               "name": {
                 "sv": "Porto Santo",
-                "en": "Porto Santo"
+                "en": "Porto Santo",
+                "de": "Porto Santo"
               }
             },
             {
@@ -1394,7 +1441,8 @@
               ],
               "name": {
                 "sv": "Madeira",
-                "en": "Madeira"
+                "en": "Madeira",
+                "de": "Madeira"
               }
             },
             {
@@ -1404,7 +1452,8 @@
               ],
               "name": {
                 "sv": "La Gomera, Kanarieöarna",
-                "en": "La Gomera, Canary Islands"
+                "en": "La Gomera, Canary Islands",
+                "de": "La Gomera, Kanarische Inseln"
               }
             },
             {
@@ -1414,7 +1463,8 @@
               ],
               "name": {
                 "sv": "Kap Verde",
-                "en": "Cape Verde"
+                "en": "Cape Verde",
+                "de": "Kapverden"
               },
               "edtf": "../1498-07-05"
             }
@@ -1468,7 +1518,8 @@
               ],
               "name": {
                 "sv": "Trinidad",
-                "en": "Trinidad"
+                "en": "Trinidad",
+                "de": "Trinidad"
               },
               "date": "1498-07-31"
             }
@@ -1538,7 +1589,8 @@
               ],
               "name": {
                 "sv": "Punta de Arenal (Icacos Point)",
-                "en": "Punta de Arenal (Icacos Point)"
+                "en": "Punta de Arenal (Icacos Point)",
+                "de": "Punta de Arenal (Icacos Point)"
               },
               "date": "1498-08-02"
             },
@@ -1549,7 +1601,8 @@
               ],
               "name": {
                 "sv": "Pariahalvön, Sydamerikas fastland",
-                "en": "Paria Peninsula, the South American mainland"
+                "en": "Paria Peninsula, the South American mainland",
+                "de": "Halbinsel Paria, südamerikanisches Festland"
               },
               "date": "1498-08-05"
             },
@@ -1560,7 +1613,8 @@
               ],
               "name": {
                 "sv": "Margarita",
-                "en": "Margarita"
+                "en": "Margarita",
+                "de": "Margarita"
               },
               "date": "1498-08-14"
             }
@@ -1606,7 +1660,8 @@
               ],
               "name": {
                 "sv": "Santo Domingo, Hispaniola",
-                "en": "Santo Domingo, Hispaniola"
+                "en": "Santo Domingo, Hispaniola",
+                "de": "Santo Domingo, Hispaniola"
               },
               "edtf": "1498-08-19/1498-08-31"
             }
@@ -1672,7 +1727,8 @@
               ],
               "name": {
                 "sv": "Santo Domingo",
-                "en": "Santo Domingo"
+                "en": "Santo Domingo",
+                "de": "Santo Domingo"
               },
               "edtf": "1500-10"
             },
@@ -1683,7 +1739,8 @@
               ],
               "name": {
                 "sv": "Cádiz",
-                "en": "Cádiz"
+                "en": "Cádiz",
+                "de": "Cádiz"
               }
             }
           ],
@@ -1701,11 +1758,13 @@
       "category": "upptackter",
       "title": {
         "sv": "Columbus fjärde resa",
-        "en": "Columbus's fourth voyage"
+        "en": "Columbus's fourth voyage",
+        "de": "Kolumbus' vierte Reise"
       },
       "summary": {
         "sv": "Columbus sista resa börjar i Cádiz i maj 1502 med fyra fartyg. Målet är en sjöväg västerut till Asien. Han följer Centralamerikas kust från Honduras till Panama utan att hitta något sund och försöker grunda en bosättning vid floden Belén. Med skeppen sönderätna av skeppsmask strandar han på Jamaica i juni 1503 och blir kvar där i ett år. I november 1504 är han tillbaka i Sanlúcar.",
-        "en": "Columbus's last voyage starts in Cádiz in May 1502 with four ships. The goal is a sea route west to Asia. He follows the coast of Central America from Honduras to Panama without finding a strait and tries to found a settlement on the Belén River. With his ships eaten through by shipworm he is stranded on Jamaica in June 1503 and remains there for a year. In November 1504 he is back in Sanlúcar."
+        "en": "Columbus's last voyage starts in Cádiz in May 1502 with four ships. The goal is a sea route west to Asia. He follows the coast of Central America from Honduras to Panama without finding a strait and tries to found a settlement on the Belén River. With his ships eaten through by shipworm he is stranded on Jamaica in June 1503 and remains there for a year. In November 1504 he is back in Sanlúcar.",
+        "de": "Kolumbus' letzte Reise beginnt im Mai 1502 mit vier Schiffen in Cádiz. Das Ziel ist ein Seeweg nach Westen nach Asien. Er folgt der Küste Mittelamerikas von Honduras bis Panama, ohne eine Meerenge zu finden, und versucht, am Fluss Belén eine Siedlung zu gründen. Mit von Schiffswürmern zerfressenen Schiffen strandet er im Juni 1503 auf Jamaika und bleibt dort ein Jahr. Im November 1504 ist er wieder in Sanlúcar."
       },
       "start": 1502,
       "end": 1504,
@@ -1714,11 +1773,13 @@
       "note": {
         "title": {
           "sv": "Källorna skiljer sig",
-          "en": "The sources differ"
+          "en": "The sources differ",
+          "de": "Die Quellen unterscheiden sich"
         },
         "text": {
           "sv": "Avfärden från Cádiz anges till den 9 maj 1502 (Wikipedia och Encyclopædia Britannica 1911), men andra berättelser ger datum mellan den 6 och 11 maj, och faktarutan i Wikipedias artikel om resorna säger den 12 maj. Britannica skriver att den första ön, Martinino, troligen var Saint Lucia, medan Wikipedia säger Martinique. Kap Gracias a Dios rundades den 14 september (Wikipedia) eller den 12 september (Britannica). Almirantebukten nåddes den 5 oktober enligt artikeln om den fjärde resan men den 16 oktober enligt artikeln om alla resorna. Ankomsten till Saint Ann's Bay på Jamaica anges till den 25 juni 1503 i Wikipedias text men till den 23 juni i Britannica och i tidslinjen i artikeln om den fjärde resan. Avfärden från Hispaniola 1504 anges till den 11 eller 12 september.",
-          "en": "The departure from Cádiz is given as 9 May 1502 (Wikipedia and Encyclopædia Britannica 1911), but other accounts give dates between 6 and 11 May, and the fact box in Wikipedia's article on the voyages says 12 May. Britannica writes that the first island, Martinino, was probably Saint Lucia, while Wikipedia says Martinique. Cape Gracias a Dios was rounded on 14 September (Wikipedia) or 12 September (Britannica). Almirante Bay was reached on 5 October according to the article on the fourth voyage but on 16 October according to the article on all the voyages. The arrival at Saint Ann's Bay in Jamaica is given as 25 June 1503 in Wikipedia's text but as 23 June in Britannica and in the timeline in the article on the fourth voyage. The departure from Hispaniola in 1504 is given as 11 or 12 September."
+          "en": "The departure from Cádiz is given as 9 May 1502 (Wikipedia and Encyclopædia Britannica 1911), but other accounts give dates between 6 and 11 May, and the fact box in Wikipedia's article on the voyages says 12 May. Britannica writes that the first island, Martinino, was probably Saint Lucia, while Wikipedia says Martinique. Cape Gracias a Dios was rounded on 14 September (Wikipedia) or 12 September (Britannica). Almirante Bay was reached on 5 October according to the article on the fourth voyage but on 16 October according to the article on all the voyages. The arrival at Saint Ann's Bay in Jamaica is given as 25 June 1503 in Wikipedia's text but as 23 June in Britannica and in the timeline in the article on the fourth voyage. The departure from Hispaniola in 1504 is given as 11 or 12 September.",
+          "de": "Die Abfahrt von Cádiz wird auf den 9. Mai 1502 datiert (Wikipedia und Encyclopædia Britannica 1911), aber andere Berichte nennen Daten zwischen dem 6. und 11. Mai, und der Infokasten im Wikipedia-Artikel über die Reisen nennt den 12. Mai. Britannica schreibt, die erste Insel, Martinino, sei wahrscheinlich Saint Lucia gewesen, während Wikipedia Martinique sagt. Kap Gracias a Dios wurde am 14. September (Wikipedia) oder am 12. September (Britannica) umrundet. Die Almirante-Bucht wurde laut dem Artikel über die vierte Reise am 5. Oktober erreicht, laut dem Artikel über alle Reisen aber am 16. Oktober. Die Ankunft in Saint Ann's Bay auf Jamaika wird im Text von Wikipedia auf den 25. Juni 1503 datiert, in Britannica und in der Zeittafel im Artikel über die vierte Reise aber auf den 23. Juni. Die Abfahrt von Hispaniola 1504 wird auf den 11. oder 12. September datiert."
         }
       },
       "sources": [
@@ -1772,7 +1833,8 @@
               ],
               "name": {
                 "sv": "Cádiz",
-                "en": "Cádiz"
+                "en": "Cádiz",
+                "de": "Cádiz"
               },
               "edtf": "1502-05-06/1502-05-12"
             },
@@ -1783,7 +1845,8 @@
               ],
               "name": {
                 "sv": "Arzila (Asilah), Marocko",
-                "en": "Arzila (Asilah), Morocco"
+                "en": "Arzila (Asilah), Morocco",
+                "de": "Arzila (Asilah), Marokko"
               }
             },
             {
@@ -1793,7 +1856,8 @@
               ],
               "name": {
                 "sv": "Gran Canaria",
-                "en": "Gran Canaria"
+                "en": "Gran Canaria",
+                "de": "Gran Canaria"
               },
               "date": "1502-05-20"
             },
@@ -1804,7 +1868,8 @@
               ],
               "name": {
                 "sv": "El Hierro",
-                "en": "El Hierro"
+                "en": "El Hierro",
+                "de": "El Hierro"
               },
               "edtf": "1502-05-25/1502-05-26"
             }
@@ -1851,7 +1916,8 @@
               ],
               "name": {
                 "sv": "Martinique (enligt Britannica troligen Saint Lucia)",
-                "en": "Martinique (according to Britannica probably Saint Lucia)"
+                "en": "Martinique (according to Britannica probably Saint Lucia)",
+                "de": "Martinique (laut Britannica wahrscheinlich Saint Lucia)"
               },
               "edtf": "1502-06-15/1502-06-16"
             }
@@ -1906,7 +1972,8 @@
               ],
               "name": {
                 "sv": "Santo Domingo (nekades hamn)",
-                "en": "Santo Domingo (harbour refused)"
+                "en": "Santo Domingo (harbour refused)",
+                "de": "Santo Domingo (Hafen verweigert)"
               },
               "date": "1502-06-29"
             },
@@ -1917,7 +1984,8 @@
               ],
               "name": {
                 "sv": "Azua",
-                "en": "Azua"
+                "en": "Azua",
+                "de": "Azua"
               },
               "edtf": "1502-07-03/1502-07-14"
             }
@@ -2000,7 +2068,8 @@
               ],
               "name": {
                 "sv": "Guanaja (Isla de Pinos)",
-                "en": "Guanaja (Isla de Pinos)"
+                "en": "Guanaja (Isla de Pinos)",
+                "de": "Guanaja (Isla de Pinos)"
               },
               "date": "1502-07-30"
             }
@@ -2110,7 +2179,8 @@
               ],
               "name": {
                 "sv": "Puerto Castilla vid Trujillo, Honduras",
-                "en": "Puerto Castilla near Trujillo, Honduras"
+                "en": "Puerto Castilla near Trujillo, Honduras",
+                "de": "Puerto Castilla bei Trujillo, Honduras"
               },
               "edtf": "1502-08-14/1502-08-17"
             },
@@ -2121,7 +2191,8 @@
               ],
               "name": {
                 "sv": "Kap Gracias a Dios",
-                "en": "Cape Gracias a Dios"
+                "en": "Cape Gracias a Dios",
+                "de": "Kap Gracias a Dios"
               },
               "edtf": "1502-09-12/1502-09-14"
             },
@@ -2132,7 +2203,8 @@
               ],
               "name": {
                 "sv": "Puerto Limón, Costa Rica",
-                "en": "Puerto Limón, Costa Rica"
+                "en": "Puerto Limón, Costa Rica",
+                "de": "Puerto Limón, Costa Rica"
               },
               "date": "1502-09-25"
             },
@@ -2143,7 +2215,8 @@
               ],
               "name": {
                 "sv": "Almirantebukten, Bocas del Toro",
-                "en": "Almirante Bay, Bocas del Toro"
+                "en": "Almirante Bay, Bocas del Toro",
+                "de": "Almirante-Bucht, Bocas del Toro"
               },
               "edtf": "1502-10-05/1502-10-16"
             },
@@ -2154,7 +2227,8 @@
               ],
               "name": {
                 "sv": "Portobelo",
-                "en": "Portobelo"
+                "en": "Portobelo",
+                "de": "Portobelo"
               },
               "date": "1502-11-02"
             },
@@ -2165,7 +2239,8 @@
               ],
               "name": {
                 "sv": "Nombre de Dios",
-                "en": "Nombre de Dios"
+                "en": "Nombre de Dios",
+                "de": "Nombre de Dios"
               },
               "date": "1502-11-10"
             }
@@ -2208,7 +2283,8 @@
               ],
               "name": {
                 "sv": "Belénfloden (Veragua), Panama",
-                "en": "The Belén River (Veragua), Panama"
+                "en": "The Belén River (Veragua), Panama",
+                "de": "Fluss Belén (Veragua), Panama"
               },
               "date": "1503-01-06"
             }
@@ -2275,7 +2351,8 @@
               ],
               "name": {
                 "sv": "Caymanöarna (Las Tortugas)",
-                "en": "The Cayman Islands (Las Tortugas)"
+                "en": "The Cayman Islands (Las Tortugas)",
+                "de": "Kaimaninseln (Las Tortugas)"
               },
               "date": "1503-05-10"
             },
@@ -2286,7 +2363,8 @@
               ],
               "name": {
                 "sv": "Jardines de la Reina, Kuba",
-                "en": "Jardines de la Reina, Cuba"
+                "en": "Jardines de la Reina, Cuba",
+                "de": "Jardines de la Reina, Kuba"
               },
               "edtf": "1503-05-12/1503-05-20"
             },
@@ -2297,7 +2375,8 @@
               ],
               "name": {
                 "sv": "Saint Ann's Bay, Jamaica",
-                "en": "Saint Ann's Bay, Jamaica"
+                "en": "Saint Ann's Bay, Jamaica",
+                "de": "Saint Ann's Bay, Jamaika"
               },
               "edtf": "1503-06-23/1503-06-25"
             }
@@ -2368,7 +2447,8 @@
               ],
               "name": {
                 "sv": "Saint Ann's Bay (räddningen)",
-                "en": "Saint Ann's Bay (the rescue)"
+                "en": "Saint Ann's Bay (the rescue)",
+                "de": "Saint Ann's Bay (die Rettung)"
               },
               "edtf": "1504-06-28/1504-06-29"
             },
@@ -2379,7 +2459,8 @@
               ],
               "name": {
                 "sv": "Santo Domingo",
-                "en": "Santo Domingo"
+                "en": "Santo Domingo",
+                "de": "Santo Domingo"
               },
               "edtf": "1504-08-03/1504-08-13"
             }
@@ -2445,7 +2526,8 @@
               ],
               "name": {
                 "sv": "Santo Domingo",
-                "en": "Santo Domingo"
+                "en": "Santo Domingo",
+                "de": "Santo Domingo"
               },
               "edtf": "1504-09-11/1504-09-12"
             },
@@ -2456,7 +2538,8 @@
               ],
               "name": {
                 "sv": "Sanlúcar de Barrameda",
-                "en": "Sanlúcar de Barrameda"
+                "en": "Sanlúcar de Barrameda",
+                "de": "Sanlúcar de Barrameda"
               },
               "date": "1504-11-07"
             }
