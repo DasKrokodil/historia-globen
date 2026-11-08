@@ -3479,6 +3479,47 @@ async function run(browser, vp) {
     await shot('8-slut');
   });
 
+  // #882: Nästa och ett språkbyte i samma ögonblick (före adressens fördröjda skrivning) ska behålla steget. Utan
+  // address.flush() före omladdningen stod steget före Nästa kvar i adressen och turen började om på steg 1.
+  await check('språkbyte direkt efter Nästa behåller steget i lektionen (#882)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      await lp.goto(`${BASE}?ny=71#t=andra-varldskriget&m=lektion`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      if (!/^Steg 1 av 14$/.test((await lp.textContent('#tour-progress')).trim())) throw new Error('lektionen började inte på steg 1');
+      // Nästa och språkbytet i samma evaluate: adressens 700 ms-tick hinner inte skriva steget emellan
+      await lp.evaluate(() => {
+        window.__hgGammal = true;
+        document.getElementById('tour-next').click();
+        const sel = document.getElementById('lang-select');
+        sel.value = 'en';
+        sel.dispatchEvent(new Event('change'));
+      });
+      await lp.waitForFunction(() => {
+        const l = document.getElementById('loading');
+        return !window.__hgGammal && document.documentElement.lang === 'en' && !!l && (l.hidden || getComputedStyle(l).display === 'none')
+          && !!document.getElementById('lang-select')?.options.length;
+      }, null, { timeout: T.load });
+      await lp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      const got = await lp.evaluate(() => ({ progress: document.getElementById('tour-progress').textContent.trim(), hash: location.hash }));
+      if (!/\b2 of 14\b/.test(got.progress)) throw new Error(`steget tappades: "${got.progress}" i stället för steg 2 (${got.hash})`);
+      if (/[?&#]s=polen\b/.test(got.hash) || !/m=lektion/.test(got.hash)) throw new Error(`adressen efter omladdningen är fel: ${got.hash}`);
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `Nästa och byte till engelska i samma ögonblick: omladdningen står på "${got.progress}" med läget kvar`;
+    } finally {
+      await lp.evaluate(() => { try { localStorage.setItem('hg-lang', 'sv'); } catch { /* ingen lagring */ } }).catch(() => {});
+      await lp.close();
+    }
+  });
+
   // Språkbytet laddar om sidan även när adressen har en #-del (url-state.js, #501). Med location.assign() till
   // samma adress laddades sidan inte om: valet sparades men texterna stod kvar på svenska. Körs sist, eftersom
   // sidan laddas om, och återställer svenska efteråt.
