@@ -2659,7 +2659,7 @@ async function run(browser, vp) {
       if (navigating && ABORTED_FETCH.test(m.text())) return;
       pushConsole(lessonErrors, m);
     });
-    lessonPage.on('pageerror', e => lessonErrors.push(e.message));
+    lessonPage.on('pageerror', e => { if (!(navigating && cancelled(e.message))) lessonErrors.push(e.message); }); // avbruten hämtning under navigering (#888)
     const lp = sel => lessonPage.locator(sel);
     let slowEmpires = false;
     const EMPIRE_DELAY = 2500;
@@ -2908,7 +2908,9 @@ async function run(browser, vp) {
       if (navigating && ABORTED_FETCH.test(m.text())) return;
       pushConsole(errors, m);
     });
-    tp.on('pageerror', e => errors.push(e.message));
+    // WebKit skriver en avbruten hämtning som sidfel ("Fetch API cannot load … due to access control checks"): samma regel som
+    // i huvudhanteraren, bara medan sidan navigerar (#888)
+    tp.on('pageerror', e => { if (!(navigating && cancelled(e.message))) errors.push(e.message); });
     let slow = false;
     const DELAY = 2500;
     const yearOf = () => tp.textContent('#year-big').then(x => x.trim());
