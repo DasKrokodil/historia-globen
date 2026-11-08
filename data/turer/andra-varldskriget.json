@@ -192,11 +192,17 @@
       },
       "title": {
         "sv": "Storbritannien, sommaren och hösten 1940",
-        "en": "Britain, summer and autumn 1940"
+        "en": "Britain, summer and autumn 1940",
+        "de": "Großbritannien, Sommer und Herbst 1940",
+        "es": "Gran Bretaña, verano y otoño de 1940",
+        "fr": "Grande-Bretagne, été et automne 1940"
       },
       "text": {
         "sv": "Det tyska flygvapnet anfaller Storbritannien men tar inte herraväldet i luften. Hitler skjuter upp den planerade invasionen och ställer till slut in den.",
-        "en": "The German air force attacks Britain but does not gain air superiority. Hitler postpones the planned invasion and finally cancels it."
+        "en": "The German air force attacks Britain but does not gain air superiority. Hitler postpones the planned invasion and finally cancels it.",
+        "de": "Die deutsche Luftwaffe greift Großbritannien an, erringt aber nicht die Luftherrschaft. Hitler verschiebt die geplante Invasion und sagt sie schließlich ab.",
+        "es": "La fuerza aérea alemana ataca Gran Bretaña, pero no logra la superioridad aérea. Hitler aplaza la invasión prevista y finalmente la cancela.",
+        "fr": "L'aviation allemande attaque la Grande-Bretagne mais n'obtient pas la maîtrise de l'air. Hitler reporte l'invasion prévue et finit par l'annuler."
       },
       "question": {
         "sv": "Tyskland tog Frankrike på några veckor, men lyckades inte i luften över Storbritannien. Vad gjorde det svårare att anfalla en ö?",
@@ -376,11 +382,17 @@
       },
       "title": {
         "sv": "Stalingrad, 2 februari 1943",
-        "en": "Stalingrad, 2 February 1943"
+        "en": "Stalingrad, 2 February 1943",
+        "de": "Stalingrad, 2. Februar 1943",
+        "es": "Stalingrado, 2 de febrero de 1943",
+        "fr": "Stalingrad, 2 février 1943"
       },
       "text": {
         "sv": "I november 1942 omringar Röda armén den tyska sjätte armén vid Volga, och när striderna tar slut den 2 februari 1943 är den utplånad. Slaget ses allmänt som vändpunkten i kriget i Europa. En vecka senare drar Japan tillbaka sina sista styrkor från Guadalcanal.",
-        "en": "In November 1942 the Red Army surrounds the German Sixth Army on the Volga, and when the fighting ends on 2 February 1943 it has been wiped out. The battle is widely seen as the turning point of the war in Europe. A week later Japan withdraws its last forces from Guadalcanal."
+        "en": "In November 1942 the Red Army surrounds the German Sixth Army on the Volga, and when the fighting ends on 2 February 1943 it has been wiped out. The battle is widely seen as the turning point of the war in Europe. A week later Japan withdraws its last forces from Guadalcanal.",
+        "de": "Im November 1942 schließt die Rote Armee die deutsche 6. Armee an der Wolga ein, und als die Kämpfe am 2. Februar 1943 enden, ist sie vernichtet. Die Schlacht gilt allgemein als Wendepunkt des Krieges in Europa. Eine Woche später zieht Japan seine letzten Truppen von Guadalcanal ab.",
+        "es": "En noviembre de 1942 el Ejército Rojo rodea al VI Ejército alemán en el Volga, y cuando los combates terminan el 2 de febrero de 1943 ha sido aniquilado. La batalla se considera en general el punto de inflexión de la guerra en Europa. Una semana después Japón retira sus últimas fuerzas de Guadalcanal.",
+        "fr": "En novembre 1942, l'Armée rouge encercle la VIe armée allemande sur la Volga, et lorsque les combats prennent fin le 2 février 1943, elle est anéantie. La bataille est généralement considérée comme le tournant de la guerre en Europe. Une semaine plus tard, le Japon retire ses dernières forces de Guadalcanal."
       },
       "question": {
         "sv": "Varför tror du att ett slag om en enda stad kan ses som en vändpunkt i ett helt krig?",
