@@ -2902,6 +2902,46 @@ async function run(browser, vp) {
     }
     return 'eleven ser ingen knapp; r=lararen ger knappen i bandet, tre blad skrivs ut, steget och året står kvar, fokus kommer tillbaka och rollen skrivs aldrig i adressen';
   });
+  // #930: Kopiera lärarlänk i turkortet (den fria vyn) ger lektionslänken med r=lararen; den hamnar aldrig i adressen,
+  // och länken öppnar lektionen med lärarens utskriftsknapp i bandet.
+  await check('Kopiera lärarlänk ger en länk som öppnar lektionen med utskriftsknappen (#930)', async () => {
+    const cp = await context.newPage();
+    const errs = [];
+    cp.on('pageerror', e => errs.push(e.message));
+    const shown = sel => cp.evaluate(s => { const el = document.querySelector(s); return !!el && el.getClientRects().length > 0; }, sel);
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await cp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await cp.route(u => isFont(u.href), r => r.abort());
+      }
+      const open = async url => { await cp.goto(url); await cp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); await cp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step }); };
+      // En tur utan lärarfält har ingen knapp
+      await open(`${BASE}?ny=51#t=tre-platser-1325`);
+      if (await shown('#tour-copy-teacher')) throw new Error('en tur utan lärarfält har Kopiera lärarlänk');
+      // En lektionstur i den fria vyn har den, och urklippet får lärarlänken
+      await open(`${BASE}?ny=52#t=andra-varldskriget`);
+      if (!(await shown('#tour-copy-teacher'))) throw new Error('en lektionstur saknar Kopiera lärarlänk');
+      if (!/lärarlänk/i.test(await cp.textContent('#tour-copy-teacher'))) throw new Error('knappen har fel namn');
+      await cp.evaluate(() => { window.__copied = null; Object.defineProperty(navigator, 'clipboard', { value: { writeText: async t => { window.__copied = t; } }, configurable: true }); });
+      await cp.click('#tour-copy-teacher');
+      await cp.waitForFunction(() => window.__copied, null, { timeout: T.step });
+      const got = await cp.evaluate(() => ({ copied: window.__copied, status: document.getElementById('tour-print-status').textContent.trim(), statusShown: !document.getElementById('tour-print-status').hidden, role: document.getElementById('tour-print-status').getAttribute('role'), hash: location.hash }));
+      if (!/#t=andra-varldskriget&m=lektion&r=lararen$/.test(got.copied)) throw new Error(`urklippet har fel länk: ${got.copied}`);
+      if (!got.statusShown || !/kopierad/.test(got.status) || got.role !== 'status') throw new Error(`bekräftelsen saknas eller annonseras inte: "${got.status}"`);
+      if (/[#&]r=/.test(got.hash)) throw new Error(`adressen har fått rollen: ${got.hash}`);
+      // Lärarlänken öppnar lektionen med utskriftsknappen
+      await cp.goto(got.copied);
+      await cp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await cp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      if (!(await shown('#lesson-print'))) throw new Error('lärarlänken gav ingen utskriftsknapp i bandet');
+      if (await shown('#tour-copy-teacher')) throw new Error('Kopiera lärarlänk syns i lektionsläget');
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+    } finally {
+      await cp.close();
+    }
+    return 'ingen knapp i en tur utan lärarfält; lektionsturen kopierar länken med r=lararen, bekräftar med role=status och lämnar adressen utan roll; länken öppnar lektionen med utskriftsknappen';
+  });
   // #862 F7: i mobil öppnades faktarutan bakom turkortet, så att kortets text täckte rubrik, handtag och Stäng.
   // Prövar att faktarutans stängknapp är det som träffas mitt på knappen (inte kortet) och att Stäng fungerar.
   await check('faktarutan öppnas ovanpå lektionskortet och går att stänga (#862)', async () => {

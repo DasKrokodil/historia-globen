@@ -848,7 +848,7 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .lesson-notice .lesson-band-title { flex: 1; }
 .app.lesson .view-mode, .app.lesson #btn-layers, .app.lesson #btn-focus, .app.lesson #btn-tour, .app.lesson #btn-intro,
 .app.lesson #filters, .app.lesson #panel-filters, .app.lesson .focus-btn, .app.lesson [data-follow-war],
-.app.lesson #btn-hunt, .app.lesson #tour-print, .app.lesson #tour-close, .app.lesson #tour-end, .app.lesson #pause-stop, .app.lesson .story-tour { display: none !important; }
+.app.lesson #btn-hunt, .app.lesson #tour-print, .app.lesson #tour-copy-teacher, .app.lesson #tour-close, .app.lesson #tour-end, .app.lesson #pause-stop, .app.lesson .story-tour { display: none !important; }
 .tour-lesson-end { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--control-line); }
 .tour-lesson-end[hidden] { display: none; }
 .tour-lesson-end-label { margin: 0; font: 500 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
@@ -891,6 +891,7 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .tour-links { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 10px; }
 .tour-links .link-btn[hidden] { display: none; }
 .tour-print-status { margin: 6px 0 0; font-size: 13px; line-height: 1.4; color: var(--danger); }
+.tour-print-status.is-ok { color: var(--ok); }
 .tour-print-status[hidden] { display: none; }
 .tour-actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 14px; }
 .tour-actions .chip-btn { margin-right: auto; }

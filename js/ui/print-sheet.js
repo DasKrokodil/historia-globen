@@ -12,6 +12,7 @@
 // taggad PDF. Skrivrader och namnrad är dekoration och göms för hjälpmedel. Allt är svart på vitt, och ingenting
 // beror på färg. Länkar står som text, eftersom papper inte går att klicka på.
 import { t, loadSources } from '../model.js';
+import { TEACHER_ROLE } from '../url-state.js';
 import { ui } from '../i18n.js';
 
 const el = (tag, cls, text) => {
@@ -35,6 +36,8 @@ const gradeText = g => (g === 'gy' ? ui('print.gy') : String(g).replace('-', '�
 /** Länken till turen, så att läraren kan öppna den direkt (#736). */
 /** Länken som läraren delar: turen som lektion (#795). Bladen skrivs bara ut för turer med lärarfält. */
 export const tourLink = tour => `${location.origin}${location.pathname}#t=${tour.id}&m=lektion`;
+/** Lektionslänken med lärarens väg till bladen (#885, #930). Står aldrig på bladen (A4, #757) och skrivs aldrig i adressen. */
+export const teacherLink = tour => `${tourLink(tour)}&r=${TEACHER_ROLE}`;
 
 /** En källa som rad: titel och adress (utskrivet papper har inga klickbara länkar). */
 function sourceItem(src, id) {

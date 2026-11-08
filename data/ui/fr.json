@@ -515,5 +515,8 @@
   "tour.endAnnounce": "C’était la dernière étape de la visite.",
   "tour.lessonMeta": "Leçon · classes {grades} · {n} min",
   "tour.lessonStart": "Commencer comme leçon",
+  "tour.teacherLinkCopy": "Copier le lien enseignant",
+  "tour.teacherLinkCopied": "Le lien enseignant a été copié",
+  "tour.teacherLinkPrompt": "Copiez le lien enseignant de cette leçon :",
   "tour.lessonStartLabel": "Commencer comme leçon : {title}"
 }
