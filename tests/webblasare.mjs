@@ -3414,9 +3414,9 @@ async function run(browser, vp) {
       await tp.goto(`${BASE}?ny=92#y=1400`);
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await openForm();
-      // Tre grupper med rubrik och förenklingstext, nio knappar
+      // Fyra grupper med rubrik och förenklingstext (Lgr22, Nordens forntid, antiken, industrialiseringen), tio knappar
       const groups = await tp.evaluate(() => [...document.querySelectorAll('.range-preset-group')].map(g => [g.querySelector('.range-preset-head').textContent.length > 3, g.querySelector('.range-preset-note').textContent.length > 20, g.querySelectorAll('button.range-preset').length]));
-      if (JSON.stringify(groups) !== JSON.stringify([[true, true, 5], [true, true, 3], [true, true, 1]])) throw new Error(`grupperna ser ut så här: ${JSON.stringify(groups)}`);
+      if (JSON.stringify(groups) !== JSON.stringify([[true, true, 5], [true, true, 3], [true, true, 1], [true, true, 1]])) throw new Error(`grupperna ser ut så här: ${JSON.stringify(groups)}`);
       // Rymmer sig i bredden och har tryckyta på minst 44 px
       const fit = await tp.evaluate(() => {
         const pop = document.getElementById('range-pop').getBoundingClientRect();
