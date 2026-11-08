@@ -125,12 +125,14 @@ export function medalTexture(icon, color, { when, major, unsure }, full) {
 export function entry({ globe, data }) {
   const layer = new EventsLayer(globe, data.events);
   const none = new Set();
+  // Ett tema i Fokus (#398) visar bara temats händelser, oavsett kategorier och vyns tagg; avslaget lager visar inget
+  const themeOf = s => (s.focus?.type === 'theme' && s.layers.events ? s.focus.eventIds : null);
   return {
     id: 'events', name: ui('layer.events'), group: 'people', menu: { on: true, note: ui('layer.eventsNote') }, layer, z: Z.events,
     enabled: s => s.layers.events,
     update: s => layer.update({ year: s.year, window: s.window, filters: s.layers.events ? s.filters : none,
-      selectedId: s.selectedId, highlight: s.highlight, focusId: s.focusWar?.id, span: s.span, tag: s.tag, range: s.range }),
-    marks: s => layer.marks(s),
+      selectedId: s.selectedId, highlight: s.highlight, focusId: s.focusWar?.id, span: s.span, tag: s.tag, range: s.range, theme: themeOf(s) }),
+    marks: s => layer.marks({ ...s, theme: themeOf(s) }),
     frame: (now, s) => layer.frame(now, s.selectedId),
     frameAnimating: s => !s.calm && layer.hasSelected(s.selectedId),
     drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
@@ -169,10 +171,10 @@ export class EventsLayer {
 
   /** Märkena är samma granskade och filtrerade händelser som lagret kan visa.
    * Fokusets egna berättelse- och resemarkeringar läggs ovanpå dem av sina lager. */
-  marks({ filters, on, tag = null }) {
+  marks({ filters, on, tag = null, theme = null }) {
     if (!on.events) return [];
     return this.events
-      .filter(e => isVisibleReview(e.review) && filters.has(e.category) && hasTag(e, tag) && (!e.partOf || e.top))
+      .filter(e => isVisibleReview(e.review) && (theme ? theme.has(e.id) : filters.has(e.category) && hasTag(e, tag) && (!e.partOf || e.top)))
       .map(e => ({ type: 'event', at: e.start, until: e.end, color: CAT[e.category]?.color ?? '#fff',
         label: `${t(e.title)} · ${e.start === e.end ? formatYear(e.start) : `${formatYear(e.start)}–${formatYear(e.end)}`}` }));
   }
@@ -192,7 +194,7 @@ export class EventsLayer {
    * ritas svagare. Inget tidsfönster runt året används.
    * Returnerar händelserna som syns, de pågående först.
    */
-  update({ year, window, filters, selectedId, highlight, focusId = null, span = e => [e.start, e.end], tag = null, range = null }) {
+  update({ year, window, filters, selectedId, highlight, focusId = null, span = e => [e.start, e.end], tag = null, range = null, theme = null }) {
     const visible = [];
     const lit = []; // markörer som visas, för markörgränsen i intervallet (#756)
     const inRange = range ? new Map(selectEventsForRange(this.events, range.from, range.to).map(h => [h.id, h.partial])) : null;
@@ -201,7 +203,8 @@ export class EventsLayer {
       // Händelser i ett krig: utzoomat syns bara den viktigaste (top). I fokusläge
       // syns krigets alla händelser. Valda händelser syns alltid.
       const onMap = !e.partOf || e.top || e.partOf === focusId || e.id === selectedId;
-      const okFilter = onMap && filters.has(e.category) && hasTag(e, tag) && isVisibleReview(e.review);
+      // Ett tema (#398) väljer själv sina händelser: kategorierna, taggen och krigens urval gäller inte
+      const okFilter = theme ? theme.has(e.id) && isVisibleReview(e.review) : onMap && filters.has(e.category) && hasTag(e, tag) && isVisibleReview(e.review);
       // Händelserna i Samtidigt-kortet syns alltid, så att kortets bågar har markörer i båda ändar,
       // också när lagret Händelser är avslaget eller kategorin filtrerad bort. De räknas inte i listan.
       const [s0, s1] = span(e);
