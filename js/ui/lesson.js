@@ -17,7 +17,7 @@ import { printLesson } from './print-sheet.js';
 export class LessonMode {
   /**
    * els: bandet och dess delar i index.html (band, title, exit, endLinks, endList).
-   * app: { root, timeline, tour, closeMenus } från main.js.
+   * app: { root, timeline, tour, closeMenus, store, snapshot } från main.js.
    */
   constructor(els, app) {
     Object.assign(this, els, { app });
@@ -87,6 +87,8 @@ export class LessonMode {
     if (!tour?.lesson) return false;
     if (this.tour && this.tour.id !== tour.id) this.leave();
     this.teacher = teacher || (this.tour?.id === tour.id && this.teacher); // Bakåt/Framåt i samma lektion behåller rollen
+    // Läget Lektion börjar (#893) och avslutar ett fokus (MODE_RULES i js/state.js); bilden tas bara första gången
+    this.app.store?.enter('lektion', this.tour ? null : this.app.snapshot?.() ?? null);
     this.tour = tour;
     this.hideNotice();
     const { root, timeline } = this.app;
@@ -122,6 +124,7 @@ export class LessonMode {
     if (!this.tour) return;
     const { root, timeline } = this.app;
     const hadYears = !!this.lock?.years;
+    this.app.store?.leave(['lektion']); // turen fortsätter; har den slutat har den redan lämnat lektionen (js/ui/tour.js)
     this.tour = null;
     this.teacher = false;
     this.showTeacherTools();
@@ -154,8 +157,8 @@ export class LessonMode {
   /** "Visa hela globen": läget och turen slutar, året behålls och sidan blir den vanliga. */
   exitToGlobe() {
     if (!this.tour) return;
-    const { tour } = this.app;
-    this.leave();
-    tour.end({ restoreFocus: false }); // utgången går till fri glob med lektionens år, inte till ett gammalt fokus (#881)
+    // Turen och lektionen slutar tillsammans; lektionens regel återställer aldrig fokus, så utgången går till fri glob
+    // med lektionens år och inte till ett gammalt fokus (#881, MODE_RULES i js/state.js)
+    this.app.tour.end();
   }
 }
