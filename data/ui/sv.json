@@ -173,6 +173,7 @@
   "detail.loading": "Laddar…",
   "detail.source": "Källa:",
   "detail.sourceMissing": "saknas",
+  "detail.beforeScale": "Händelsen börjar före tidslinjens början ({year}), så reglaget kan inte visa dess första år.",
   "detail.evidence.ref": "Källa {n}",
   "detail.evidence.date": "Datum",
   "detail.evidence.text": "Text",

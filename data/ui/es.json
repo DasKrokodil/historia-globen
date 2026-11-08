@@ -391,6 +391,7 @@
   "detail.loading": "Cargando…",
   "detail.source": "Fuente:",
   "detail.sourceMissing": "falta",
+  "detail.beforeScale": "El acontecimiento comienza antes del inicio de la línea de tiempo ({year}), por lo que el control no puede mostrar su primer año.",
   "detail.evidence.ref": "Fuente {n}",
   "detail.evidence.date": "Fecha",
   "detail.evidence.text": "Texto",

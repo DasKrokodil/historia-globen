@@ -391,6 +391,7 @@
   "detail.loading": "Chargement…",
   "detail.source": "Source :",
   "detail.sourceMissing": "manquante",
+  "detail.beforeScale": "L'événement commence avant le début de la frise ({year}), le curseur ne peut donc pas afficher sa première année.",
   "detail.evidence.ref": "Source {n}",
   "detail.evidence.date": "Date",
   "detail.evidence.text": "Texte",
