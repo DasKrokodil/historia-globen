@@ -183,3 +183,12 @@ Kolumnen "Kontrollerad" är `–` tills någon har öppnat en källa på målspr
 3. Århundraden är omräknade rätt (avsnitt 2).
 4. Namn följer avsnitt 4 och 9; nya termer är tillagda i den här filen.
 5. `python3 tools/dela_data.py` och `python3 tools/oversattning.py` är körda, och `node --test 'tests/*.test.mjs'` är grönt.
+
+## 11. Epokknapparna (#965)
+
+Nya termer i gränssnittet för epokknapparna i intervallformuläret. Tidslinjen heter redan `frise chronologique` i franskan; spanskan och tyskan följer gränssnittet.
+
+| Svenska | Tyska | Spanska | Franska |
+|---|---|---|---|
+| börjar före tidslinjens början | beginnt vor dem Beginn der Zeitleiste | comienza antes del inicio de la línea de tiempo | commence avant le début de la frise chronologique |
+| till i dag | bis heute | hasta hoy | jusqu’à aujourd’hui |

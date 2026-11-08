@@ -548,6 +548,8 @@
   "range.bounds": "Wählen Sie Jahre zwischen {min} und {max}.",
   "range.same": "Von und Bis sind dasselbe Jahr. Wählen Sie zwei verschiedene Jahre oder nutzen Sie den Jahressprung für ein einzelnes Jahr.",
   "range.blocked": "Während einer Tour, einer Unterrichtsstunde oder der Gleichzeitigkeitsjagd kann kein Zeitraum gewählt werden. Beenden Sie sie zuerst.",
+  "range.preset.clipped": "beginnt vor dem Beginn der Zeitleiste",
+  "range.preset.today": "bis heute",
   "range.at": "im Zeitraum {range}",
   "range.segment": "Zeitraum",
   "range.count": ["{count} Ereignis", "{count} Ereignisse"],

@@ -391,6 +391,20 @@ export function loadSources() {
 }
 
 /**
+ * Epokerna (#845, #965): indelningarna i data/perioder.json (Lgr22 och Nordens forntid) som snabbknappar i intervallformuläret.
+ * Laddas första gången formuläret öppnas, inte vid start. Går filen inte att ladda blir listan tom och knapparna uteblir;
+ * formuläret med årsfälten fungerar ändå.
+ */
+let perioderPromise = null;
+export function loadPerioder() {
+  perioderPromise ??= getJSON('data/perioder.json').then(doc => doc.divisions ?? []).catch(err => {
+    console.warn('Epokerna kunde inte laddas', err);
+    return [];
+  });
+  return perioderPromise;
+}
+
+/**
  * Missuppfattningarna (data/missuppfattningar.json, #838), första gången en faktaruta visas. Bara de som är
  * kontrollerade (inte draft) behålls. En post hör till faktarutan för varje händelse i sitt fält events;
  * poster utan händelse visas inte än.

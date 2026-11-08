@@ -3341,6 +3341,75 @@ async function run(browser, vp) {
     }
     return 'länken med y2, Tillbaka till slutåret, årsfält med tangentbord och f.Kr.-gränsen; Fokus och uppspelning stänger intervallet, och en tur stoppar det';
   });
+  // #965: epokknapparna i intervallformuläret (#845 del 3): ett klick väljer intervallet, adressen och Bakåt följer med,
+  // knapparna går att nå med tangentbordet, rymmer sig i bredden, och stoppas under en tur (samma spärr som formuläret).
+  await check('epokknapparna i intervallformuläret väljer ett intervall med ett klick (#965)', async () => {
+    const tp = await context.newPage();
+    const errors = [];
+    tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    tp.on('pageerror', e => errors.push(e.message));
+    const text = sel => tp.textContent(sel).then(x => x.trim());
+    const hashHas = (re, want = true) => tp.waitForFunction(([src, w]) => new RegExp(src).test(location.hash) === w, [re.source, want], { timeout: T.step });
+    const openForm = async () => {
+      await tp.evaluate(() => { const pop = document.getElementById('jump-pop'); if (pop.hidden) document.getElementById('year-jump').click(); document.getElementById('range-open').click(); });
+      await tp.waitForSelector('#range-pop', { state: 'visible', timeout: T.step });
+      await tp.waitForSelector('#range-presets .range-preset', { state: 'attached', timeout: T.step });
+    };
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      await tp.goto(`${BASE}?ny=92#y=1400`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await openForm();
+      // Tre grupper med rubrik och förenklingstext, nio knappar
+      const groups = await tp.evaluate(() => [...document.querySelectorAll('.range-preset-group')].map(g => [g.querySelector('.range-preset-head').textContent.length > 3, g.querySelector('.range-preset-note').textContent.length > 20, g.querySelectorAll('button.range-preset').length]));
+      if (JSON.stringify(groups) !== JSON.stringify([[true, true, 5], [true, true, 3], [true, true, 1]])) throw new Error(`grupperna ser ut så här: ${JSON.stringify(groups)}`);
+      // Rymmer sig i bredden och har tryckyta på minst 44 px
+      const fit = await tp.evaluate(() => {
+        const pop = document.getElementById('range-pop').getBoundingClientRect();
+        const bad = [...document.querySelectorAll('.range-preset')].filter(b => { const r = b.getBoundingClientRect(); return r.height < 43.5 || r.right > innerWidth + 1 || r.left < -1; }).length;
+        return { bad, over: document.documentElement.scrollWidth > innerWidth + 1, popRight: pop.right <= innerWidth + 1 };
+      });
+      if (fit.bad || fit.over || !fit.popRight) throw new Error(`knapparna ryms inte eller är för låga: ${JSON.stringify(fit)}`);
+      // Tangentbord: fokus på en knapp och Enter
+      await tp.focus('[data-period="norden-1500-1800"]');
+      await tp.keyboard.press('Enter');
+      await tp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
+      if (await text('#year-big') !== '1500–1800') throw new Error(`epoken gav ${await text('#year-big')}`);
+      if (!(await text('#range-bar-text')).startsWith('1500–1800 · ')) throw new Error(`raden visar ${await text('#range-bar-text')}`);
+      await hashHas(/y=1500&y2=1800/);
+      if (await tp.evaluate(() => document.activeElement?.id) !== 'range-exit') throw new Error('fokus hamnade inte på Tillbaka till ett år');
+      if (await tp.evaluate(() => !document.getElementById('range-pop').hidden)) throw new Error('formuläret stod kvar öppet');
+      // Bakåt återställer
+      await tp.goBack();
+      await hashHas(/y2=/, false);
+      await tp.waitForSelector('#range-bar', { state: 'hidden', timeout: T.step });
+      // Stenåldern börjar före tidslinjen och säger det; 1900 till nutid går till i dag
+      await openForm();
+      const stone = await text('[data-period="nordisk-stenalder"] .range-preset-years');
+      if (!stone.startsWith('3000–1700 f.Kr.') || stone.split(' · ').length !== 2) throw new Error(`stenåldern säger ${stone}`);
+      const today = await text('[data-period="demokratisering-globalisering-1900-"] .range-preset-years');
+      if (!/^1900–\d{4} · /.test(today)) throw new Error(`1900 till nutid säger ${today}`);
+      await tp.click('[data-period="nordisk-stenalder"]');
+      await tp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
+      await hashHas(/y=-2999&y2=-1699/);
+      await tp.click('#range-exit');
+      // Under en tur är knapparna inaktiva och formuläret säger varför
+      await tp.evaluate(() => { location.hash = '#t=tre-platser-1325'; });
+      await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      await openForm();
+      const dis = await tp.evaluate(() => [...document.querySelectorAll('.range-preset')].every(b => b.disabled));
+      if (!dis) throw new Error('epokknapparna var inte inaktiva under en tur');
+      if (!(await text('#range-msg'))) throw new Error('formuläret sa inget om varför knapparna var inaktiva');
+      if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
+    } finally {
+      await tp.close();
+    }
+    return 'nio knappar i tre grupper, tangentbord, adress och Bakåt, stenålder och nutid märkta, inaktiva under en tur';
+  });
   // #885: läraren får en väg till elev- och lärarbladen i lektionsläget (r=lararen i länken eller Starta som lektion i
   // Turer-menyn); eleven i den vanliga lektionslänken ser ingen utskriftsknapp. Utskriften rör inte steget.
   await check('läraren når elev- och lärarbladen i lektionsläget, eleven inte (#885)', async () => {

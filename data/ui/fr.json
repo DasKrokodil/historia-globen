@@ -548,6 +548,8 @@
   "range.bounds": "Choisissez des années entre {min} et {max}.",
   "range.same": "Du et au sont la même année. Choisissez deux années différentes ou utilisez le saut d’année pour une seule année.",
   "range.blocked": "Impossible de choisir un intervalle de temps pendant une visite, une leçon ou la chasse à la simultanéité. Terminez-la d’abord.",
+  "range.preset.clipped": "commence avant le début de la frise chronologique",
+  "range.preset.today": "jusqu’à aujourd’hui",
   "range.at": "pendant {range}",
   "range.segment": "Intervalle de temps",
   "range.count": ["{count} événement", "{count} événements"],

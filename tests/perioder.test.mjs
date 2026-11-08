@@ -1,5 +1,5 @@
 // Epoker (#845, #476): formen på data/perioder.json, årtalen i Lgr22 (kursplanen) och de nordiska åldrarna (Historiska museet).
-// Körs med node --test 'tests/*.test.mjs'. Filen läses inte av appen än (snabbknapparna byggs efter #755).
+// Körs med node --test 'tests/*.test.mjs'. Appen läser filen i epokknapparna (#965); knapparnas intervall testas i tests/period-range.test.mjs.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';

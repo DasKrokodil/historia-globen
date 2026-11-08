@@ -7,7 +7,7 @@
 #   css/style.css         stilmallen (inga url() till lokala filer)
 #   img/                  sidans ikoner och markörernas symboler (img/icons/<namn>.svg, namnet kommer ur
 #                         events.json och js/ui/funfact.js och hämtas med fetch)
-#   data/*.json           filerna (inklusive land-10m.json för det skarpa utsnittet) som js/model.js och js/ui/layers.js (vyer.json, #357) laddar med getJSON (events.json läses också av functions/api/feedback.js)
+#   data/*.json           filerna (perioder.json för epokknapparna, #965) (inklusive land-10m.json för det skarpa utsnittet) som js/model.js och js/ui/layers.js (vyer.json, #357) laddar med getJSON (events.json läses också av functions/api/feedback.js)
 #   data/licenses.json    licensuppgifter ur sources.json, genererad av tools/license_manifests.py (#393)
 #   data/genererat/       händelser och riken uppdelade i mindre filer (#337), som tools/dela_data.py skriver ur
 #                         data/events.json och data/empires/index.json; validate-site.py kontrollerar att de stämmer
@@ -71,7 +71,7 @@ ls img/icons/*.svg >/dev/null 2>&1 || fail "inga ikoner i img/icons/"
 for f in img/icons/*.svg; do copy "$f"; done
 
 # Datafiler som js/model.js och UI-modulerna laddar, inklusive introduktionen (#363) och elevuppdragen (#741)
-for f in events funfacts missuppfattningar intro uppdrag sources land land-10m borders styles religions religions-polities upptackt bildlager vyer version; do
+for f in events funfacts missuppfattningar perioder intro uppdrag sources land land-10m borders styles religions religions-polities upptackt bildlager vyer version; do
   copy "data/$f.json"
 done
 copy data/licenses.json
