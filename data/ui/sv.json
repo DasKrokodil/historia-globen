@@ -289,5 +289,8 @@
   "lesson.hunt": "Samtidighetsjakten: {title}",
   "tour.lessonMeta": "Lektion · årskurs {grades} · {n} min",
   "tour.lessonStart": "Starta som lektion",
+  "tour.teacherLinkCopy": "Kopiera lärarlänk",
+  "tour.teacherLinkCopied": "Lärarlänken är kopierad",
+  "tour.teacherLinkPrompt": "Kopiera lärarlänken till den här lektionen:",
   "tour.lessonStartLabel": "Starta som lektion: {title}"
 }

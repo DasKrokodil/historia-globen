@@ -513,5 +513,8 @@
   "lesson.hunt": "Same-time hunt: {title}",
   "tour.lessonMeta": "Lesson · years {grades} · {n} min",
   "tour.lessonStart": "Start as a lesson",
+  "tour.teacherLinkCopy": "Copy teacher link",
+  "tour.teacherLinkCopied": "The teacher link is copied",
+  "tour.teacherLinkPrompt": "Copy the teacher link to this lesson:",
   "tour.lessonStartLabel": "Start as a lesson: {title}"
 }
