@@ -21,6 +21,8 @@ Ersätter "läs allt först". Dirigent och arbetare läser **kärnan**, issuet o
 | Bilder (`images/`, fältet `image`) | CLAUDE.md: Bilder; [docs/bildpromptar.md](../docs/bildpromptar.md) vid illustrationer |
 | Publicering, cache, CI, release (`.github/`, `scripts/`, `_headers`) | [docs/DEPLOYMENT.md](../docs/DEPLOYMENT.md); docs/arkitektur.md: Publicering, Testa |
 | Formuläret för förslag (`functions/`, `js/ui/feedback.js`) | [docs/feedback.md](../docs/feedback.md) |
+| UX-genomgång, blind-spots, arkitekturanalys, täckningsrunda, benchmark, release-rapport | [docs/produkt/06-granskningsperspektiv.md](../docs/produkt/06-granskningsperspektiv.md) (de linser som berörs) och [docs/produkt/05-ux-oversikt.md](../docs/produkt/05-ux-oversikt.md) (flöden och lägen) |
+| Nytt issue som tillför eller prioriterar en funktion, nytt mål eller ny målgrupp | [docs/produkt/01-vision-och-mal.md](../docs/produkt/01-vision-och-mal.md), [02](../docs/produkt/02-anvandare-och-intressenter.md) och [03](../docs/produkt/03-anvandningsfall-och-funktioner.md) |
 | Bara dokumentation | Kärnan och de dokument som ändras |
 | Arkitektur, datamodell, kategorier, licenser, nya beroenden | Hela berörda avsnitt i docs/arkitektur.md eller docs/datamodell.md och sök i docs/beslut/ och i den frysta docs/beslut.md; det är alltid en fråga till Rikard först |
 

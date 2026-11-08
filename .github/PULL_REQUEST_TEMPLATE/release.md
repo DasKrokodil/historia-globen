@@ -12,6 +12,7 @@
 - [ ] `main` är grön i Actions (senaste push-körningen av "Validera webbplatsen").
 - [ ] Förhandsversionen av `main` (dev.historiagloben.se) är kontrollerad i dator och mobil: globen snurrar, tidslinjen går att dra, uppspelning, Samtidigt, Platt vy och Källor fungerar, inga synliga fel.
 - [ ] **UX-genomgång av Claude Code** (#150, del C): samma flöden som webbläsartestet (Samtidigt och nästa händelse, en händelse, byte av vy i Lager, sökning i Fokus, ett krig till slutkortet, bildlagret, Platt vy, Källor) på dev.historiagloben.se i dator och mobil. Rapport: <!-- vad som fungerade, fynd och issues (#…), eller "inga fynd" -->
+- [ ] **Produktdokumentationen** (`docs/produkt/`) är genomgången och uppdaterad: nya intressenter, användare, mål, funktioner och risker, och datum skrivet överst i dokument som kontrollerats (docs/produkt/README.md).
 - [ ] Inga utkast (`review: draft`) eller platshållarbilder som inte ska ut.
 - [ ] Kontrollerna "Bygg och validera dist/" och "Release kommer från main" är gröna på den här PR:en.
 - [ ] Versionsnumret är valt (vX.Y.Z, se docs/DEPLOYMENT.md) och skrivet i rubriken.

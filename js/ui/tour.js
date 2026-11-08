@@ -280,8 +280,12 @@ export class TourPlayer {
     // Pausraden visar turen och läses upp; Fortsätt där går till nästa steg (beforeplay ovan)
     const note = fill(t(this.labels.paused), { title: t(this.tour.title) });
     const say = [this.progress.textContent, t(step.chapter), t(step.title), this.status.hidden ? '' : this.status.textContent, t(step.text), t(step.question)].filter(Boolean).join('. ');
-    if (this.last) timeline.pause();
-    else timeline.pause(note, true, say);
+    if (this.last) {
+      // Slutkortet har ingen pausrad, men skärmläsaren ska höra steget och att det var det sista (#878)
+      timeline.pause();
+      const end = app.lesson?.active ? ui('lesson.endAnnounce', { exit: ui('lesson.exit') }) : ui('tour.endAnnounce');
+      timeline.announce(`${say}. ${end}`);
+    } else timeline.pause(note, true, say);
   }
 
   /** Smal skärm: kortet täcker globens nedre del, så klotet lyfts och stegets plats hamnar mitt i den fria ytan
@@ -307,8 +311,12 @@ export class TourPlayer {
     }
   }
 
-  /** Avslutar turen: lagren, fokus och kameran blir som innan, och året står kvar där turen var. */
-  end() {
+  /**
+   * Avslutar turen: lagren, fokus och kameran blir som innan, och året står kvar där turen var.
+   * restoreFocus: false (lektionens utgång, #881) återställer inte ett fokus som var på före turen, eftersom
+   * fokuset flyttar året till sin start och utgången ska behålla lektionens år.
+   */
+  end({ restoreFocus = true } = {}) {
     if (!this.tour) return;
     const { app } = this, saved = this.saved;
     app.lesson?.leave(); // en tur som slutar tar lektionsläget med sig (#795)
@@ -326,7 +334,7 @@ export class TourPlayer {
         app.layers.set(id, on);
         app.layers.onChange(id, on);
       }
-      if (saved.focus) app.startFocus(saved.focus);
+      if (saved.focus && restoreFocus) app.startFocus(saved.focus);
       if (saved.camera) { app.globe.flyTo(saved.camera.lat, saved.camera.lon); app.globe.setZoom(saved.camera.zoom); }
     }
     const back = this.opener?.isConnected && this.opener.offsetParent !== null ? this.opener : null;

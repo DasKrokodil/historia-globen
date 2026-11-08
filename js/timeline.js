@@ -452,6 +452,8 @@ export class Timeline extends EventTarget {
     else if (this.status) this.status.textContent = '';
   }
   /** Den här raden finns alltid i DOM:en, så att skärmläsaren säkert får ändringen. */
+  /** Läser upp text för skärmläsare utan att visa en pausrad (till exempel turens slutkort, #878). */
+  announce(text) { this._announce(text); }
   _announce(text) {
     if (!this.status) return;
     const request = (this._announceRequest ?? 0) + 1;

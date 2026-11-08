@@ -287,6 +287,8 @@
   "lesson.retry": "Försök igen",
   "lesson.next": "Fortsätt med ett uppdrag",
   "lesson.hunt": "Samtidighetsjakten: {title}",
+  "lesson.endAnnounce": "Detta var sista steget i lektionen. Använd ”{exit}” för att lämna lektionen.",
+  "tour.endAnnounce": "Detta var sista steget i turen.",
   "tour.lessonMeta": "Lektion · årskurs {grades} · {n} min",
   "tour.lessonStart": "Starta som lektion",
   "tour.teacherLinkCopy": "Kopiera lärarlänk",
