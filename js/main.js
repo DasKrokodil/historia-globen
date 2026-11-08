@@ -547,8 +547,9 @@ async function start() {
   app.tour = tour;
   // Lektionsläget (#795): en lektionslänk (m=lektion) startar turen med menyerna dolda och bandet överst
   app.lesson = new LessonMode({
-    band: $('lesson-band'), title: $('lesson-band-title'), exit: $('lesson-exit'), endLinks: $('tour-lesson-end'), endList: $('tour-lesson-end-list'),
-  }, { root: $('app'), timeline, tour, hunt, closeMenus: () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); help.close(false); } });
+    band: $('lesson-band'), title: $('lesson-band-title'), exit: $('lesson-exit'),
+    notice: $('lesson-notice'), noticeText: $('lesson-notice-text'), retry: $('lesson-retry'), noticeClose: $('lesson-notice-close'), endLinks: $('tour-lesson-end'), endList: $('tour-lesson-end-list'),
+  }, { root: $('app'), timeline, tour, hunt, toursData, closeMenus: () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); help.close(false); } });
   // Berättelseläget (#247): krigets första kort får "Följ berättelsen" när en tur berättar om kriget
   panel.tourFor = id => { const x = tour.forWar(id); return x && { id: x.id, label: tour.storyLabel(x) }; };
   // Rikens fall (#499): rikets faktaruta får en knapp när en tur följer rikets fall

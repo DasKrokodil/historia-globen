@@ -22,6 +22,33 @@ export class LessonMode {
     Object.assign(this, els, { app });
     this.tour = null;
     this.exit.addEventListener('click', () => this.exitToGlobe());
+    // Adressen skrivs om till den vanliga vyn när länken inte blev en lektion, så länken sparas här (explain)
+    this.retry?.addEventListener('click', () => { if (this.noticeUrl) history.replaceState(null, '', this.noticeUrl); location.reload(); });
+    this.noticeClose?.addEventListener('click', () => this.hideNotice());
+  }
+
+  /** Varför en lektionslänk inte kan startas (#877): 'fetch' (turen gick inte att hämta), 'noLesson' eller 'unknown'. */
+  whyNot(id) {
+    const info = this.app.toursData ?? {}, loaded = this.app.tour?.tours ?? [];
+    if (loaded.find(x => x.id === id)) return 'noLesson';
+    return info.failed || (info.ids ?? []).includes(id) ? 'fetch' : 'unknown';
+  }
+
+  /** Förklarar i bandet att länken inte blev en lektion, med Försök igen när det var ett hämtfel. */
+  explain(id) {
+    if (!this.notice) return;
+    const why = this.whyNot(id);
+    this.noticeText.textContent = ui(`lesson.notice${why === 'fetch' ? 'Fetch' : why === 'noLesson' ? 'NoLesson' : 'Unknown'}`);
+    this.retry.hidden = why !== 'fetch';
+    this.noticeUrl = location.href;
+    this.notice.hidden = false;
+    this.app.root.classList.add('lesson-notice');
+  }
+
+  hideNotice() {
+    if (!this.notice || this.notice.hidden) return;
+    this.notice.hidden = true;
+    this.app.root.classList.remove('lesson-notice');
   }
 
   get active() { return !!this.tour; }
@@ -38,6 +65,7 @@ export class LessonMode {
     if (!tour?.lesson) return false;
     if (this.tour && this.tour.id !== tour.id) this.leave();
     this.tour = tour;
+    this.hideNotice();
     const { root, timeline } = this.app;
     root.classList.add('lesson');
     this.title.textContent = ui('lesson.band', { title: t(tour.title) });
