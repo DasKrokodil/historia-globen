@@ -76,7 +76,9 @@
   <!-- Lektionsläget (#795): bandet överst när en lektionslänk (#t=<tur>&m=lektion) har startat turen (js/ui/lesson.js) -->
   <section id="lesson-band" class="lesson-band" aria-labelledby="lesson-band-title" hidden>
     <p id="lesson-band-title" class="lesson-band-title"></p>
+    <button id="lesson-print" class="lesson-exit" type="button" hidden></button>
     <button id="lesson-exit" class="lesson-exit" type="button" data-i18n="lesson.exit">Visa hela globen</button>
+    <p id="lesson-print-status" class="lesson-print-status" role="status" hidden></p>
   </section>
   <!-- En lektionslänk som inte gick att starta (#877): förklaring i stället för en tyst, vanlig glob -->
   <section id="lesson-notice" class="lesson-band lesson-notice" role="alert" hidden>
