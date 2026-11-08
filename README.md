@@ -120,6 +120,7 @@ data/handelser/       händelserna, en redigeringsfil per period; här redigeras
 data/events.json      alla händelser i en fil, byggd ur data/handelser/ (redigeras inte)
 data/funfacts.json    fun facts, kopplade till händelser
 data/missuppfattningar.json  vanliga historiska missuppfattningar och var de kom ifrån (#838); visas i faktarutan för händelserna i events
+data/perioder.json         epoker enligt Lgr22 (fem perioder med årtal, källa och förenklingstext); läses inte av appen än (#845, #476)
 data/intro.json       introduktionens startår, texter och referenser till befintliga händelser/fun facts (#363, #516)
 data/uppdrag.json     elevuppdragen (Samtidighetsjakten): år, spann, antal världsdelar och texter (#741)
 data/turer/           guidade turer: index.json och en fil per tur med steg (år, kamera, text, lager, händelse, källor) (#47)
