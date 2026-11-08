@@ -22,6 +22,16 @@
 //                        kod 1, så att ett stavfel inte ger grönt. "sidan svarar" och "globen laddas" körs alltid, eftersom
 //                        de öppnar sidan och väntar in globen. För felsökning (#587): kontrollerna är inte alltid
 //                        oberoende av varandra, så kör hela sviten en gång innan pull requesten lämnas in.
+//   UTAN=<text>          (#864) kör allt utom kontroller vars namn innehåller texten (samma regler som ENDAST: flera
+//                        alternativ med |, versaler spelar ingen roll). Anges både ENDAST och UTAN körs det som matchar
+//                        ENDAST men inte UTAN (först väljs in, sedan tas bort). "sidan svarar", "globen laddas" och
+//                        "inga fel i konsolen" tas aldrig bort av UTAN. Hela avsnitten (zoom och omflödning, reducerad
+//                        rörelse, presentationsläge) tas bort om UTAN matchar avsnittets namn.
+//   BREDD=<dator|mobil>  (#864) kör bara den bredden (flera med |, till exempel BREDD="dator|mobil"). Avsnitten zoom och
+//                        omflödning, reducerad rörelse och presentationsläge har egna fönsterstorlekar och hör till
+//                        datorjobbet: de körs när BREDD saknas eller innehåller dator. Okänt värde avslutar testet med kod 1.
+//   Utan UTAN och BREDD är beteendet som förut. CI delar sviten i tre jobb med dem (tests/jobb.json, docs/beslut/
+//   2026-11-08-webblasartestet-tre-jobb-864.md); scripts/kontrolltackning.mjs bevisar att varje kontroll ligger i exakt ett jobb.
 // Playwright hämtas med require, så NODE_PATH fungerar (till exempel NODE_PATH=/opt/node22/lib/node_modules).
 //
 // Kontrollerna (samma i båda bredderna):
@@ -34,6 +44,7 @@ import { createRequire } from 'node:module';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { list, urval, bredder, ALLTID } from './urval.mjs';
 
 const require = createRequire(import.meta.url);
 const playwright = require('playwright');
@@ -42,10 +53,14 @@ const { PNG } = require('playwright-core/lib/utilsBundle');
 const PORT = Number(process.argv[2] || 8000);
 const BROWSER = process.env.BROWSER || 'chromium';
 // ENDAST (#587): kör bara kontroller vars namn innehåller någon av texterna. Utan ENDAST körs allt som förut.
-const ENDAST = (process.env.ENDAST || '').split('|').map(t => t.trim().toLowerCase()).filter(Boolean);
-// 'sidan svarar' och 'globen laddas' öppnar sidan och väntar in globen: alla andra kontroller bygger på dem, så de körs alltid.
-const ALLTID = ['sidan svarar', 'globen laddas'];
-const wanted = name => !ENDAST.length || ALLTID.includes(name) || ENDAST.some(t => name.toLowerCase().includes(t));
+const ENDAST = list(process.env.ENDAST);
+// ALLTID: 'sidan svarar' och 'globen laddas' öppnar sidan och väntar in globen, så de körs alltid (tests/urval.mjs).
+// UTAN (#864): tar bort kontroller ur urvalet; ENDAST väljer in först, UTAN tar bort sedan. 'inga fel i konsolen' skrivs
+// efter kontrollerna och går inte genom wanted, så den körs alltid.
+const UTAN = list(process.env.UTAN);
+const wanted = urval({ endast: process.env.ENDAST, utan: process.env.UTAN });
+// BREDD (#864): kör bara de bredder som anges. Utan BREDD körs båda.
+const BREDDER = list(process.env.BREDD);
 let matched = 0;
 let skipped = 0;
 const browserType = { chromium: playwright.chromium, firefox: playwright.firefox, webkit: playwright.webkit }[BROWSER];
@@ -59,10 +74,12 @@ const FONT_HOSTS = ['fonts.googleapis.com', 'fonts.gstatic.com']; // avbrutna ty
 const ROUTE_YEAR = 1420; // år med vägar och resor (Zheng He, handelsvägar) och riken
 const T = { load: 90000, step: 15000 };
 
-const VIEWPORTS = [
+const ALLA_VIEWPORTS = [
   { name: 'dator', width: 1400, height: 900 },
   { name: 'mobil', width: 400, height: 800 },
 ];
+const { kor: KOR_BREDDER, medAvsnitt: MED_AVSNITT } = bredder(process.env.BREDD); // kastar vid okänd BREDD
+const VIEWPORTS = ALLA_VIEWPORTS.filter(v => KOR_BREDDER.includes(v.name));
 
 fs.mkdirSync(OUT, { recursive: true });
 const isFont = url => { try { return FONT_HOSTS.includes(new URL(url).hostname); } catch { return false; } };
@@ -3518,29 +3535,30 @@ try {
     }
   }
   console.log('\nzoom och omflödning');
-  if (wanted('zoom och omflödning')) matched++; else skipped++;
-  for (const r of wanted('zoom och omflödning') ? await runReflow(browser) : []) {
+  if (MED_AVSNITT && wanted('zoom och omflödning')) matched++; else skipped++;
+  for (const r of MED_AVSNITT && wanted('zoom och omflödning') ? await runReflow(browser) : []) {
     if (!r.ok) failed++;
     console.log(`  ${r.ok ? 'OK  ' : 'FEL '} ${r.name}${r.note ? `: ${r.note}` : ''}${r.ms ? ` (${(r.ms / 1000).toFixed(1)} s)` : ''}`);
   }
   console.log('\nreducerad rörelse');
-  if (wanted('reducerad rörelse')) matched++; else skipped++;
-  for (const r of wanted('reducerad rörelse') ? await runReducedMotion(browser) : []) {
+  if (MED_AVSNITT && wanted('reducerad rörelse')) matched++; else skipped++;
+  for (const r of MED_AVSNITT && wanted('reducerad rörelse') ? await runReducedMotion(browser) : []) {
     if (!r.ok) failed++;
     console.log(`  ${r.ok ? 'OK  ' : 'FEL '} ${r.name}${r.note ? `: ${r.note}` : ''}`);
   }
   console.log('\npresentationsläge');
-  if (wanted('presentationsläge')) matched++; else skipped++;
-  for (const r of wanted('presentationsläge') ? await runPresentation(browser) : []) {
+  if (MED_AVSNITT && wanted('presentationsläge')) matched++; else skipped++;
+  for (const r of MED_AVSNITT && wanted('presentationsläge') ? await runPresentation(browser) : []) {
     if (!r.ok) failed++;
     console.log(`  ${r.ok ? 'OK  ' : 'FEL '} ${r.name}${r.note ? `: ${r.note}` : ''}${r.ms ? ` (${(r.ms / 1000).toFixed(1)} s)` : ''}`);
   }
 } finally {
   await browser.close();
 }
-if (ENDAST.length) {
-  console.log(`\nENDAST="${ENDAST.join('|')}": ${matched} kontroller och avsnitt kördes, ${skipped} hoppades över.`);
-  if (!matched) { console.log('FEL ENDAST matchade ingen kontroll. Kontrollera stavningen.'); failed++; }
+if (ENDAST.length || UTAN.length || BREDDER.length) {
+  const urval = [ENDAST.length && `ENDAST="${ENDAST.join('|')}"`, UTAN.length && `UTAN="${UTAN.join('|')}"`, BREDDER.length && `BREDD="${BREDDER.join('|')}"`].filter(Boolean).join(' ');
+  console.log(`\n${urval}: ${matched} kontroller och avsnitt kördes, ${skipped} hoppades över.`);
+  if (!matched) { console.log('FEL Urvalet (ENDAST, UTAN, BREDD) matchade ingen kontroll. Kontrollera stavningen.'); failed++; }
 }
 console.log(`\n${failed ? `${failed} kontroller misslyckades` : 'Alla kontroller gick igenom'} på ${((Date.now() - t0) / 1000).toFixed(0)} s. Skärmbilder: ${OUT}`);
 process.exit(failed ? 1 : 0);
