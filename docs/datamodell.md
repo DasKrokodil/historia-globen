@@ -19,7 +19,7 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 - `utkast/` – utkast från massimport som appen inte läser.
 - `funfacts.json` – fun facts kopplade till händelser.
 - `missuppfattningar.json` (#838) – vanliga historiska missuppfattningar.
-- `perioder.json` (#845, #476) – epoker och perioder, som indelningar med årtal och källa; indelningarna `lgr22`, `norden-forntid` och `antiken`.
+- `perioder.json` (#845, #476) – epoker och perioder, som indelningar med årtal och källa; indelningarna `lgr22`, `norden-forntid`, `antiken` och `industrialiseringen`.
 - `teman.json` (#398) – teman som namngivna urval av befintliga händelser; fastställt format, filen skapas i bygget.
 - `sources.json` – källregistret.
 - `empires/` – riken: registret, faktarutor och rikenas fält.
@@ -156,6 +156,8 @@ Namngivna epoker som data, så att tidsålderstext, bildstilar och snabbknappar 
 **`norden-forntid` (Del 2a):** de tre nordiska åldrarna med Historiska museets årtal (öppnade 2026-11-08): stenålder 12 000–1700 f.Kr., bronsålder 1700–500 f.Kr. och järnålder 500 f.Kr.–550 e.Kr. (`-11999`/`-1699`, `-1699`/`-499`, `-499`/`550`). Årtal med fler än fyra siffror skrivs `Y-11999~` i `edtf`. Järnålderns egen sida på museet anger 1100 e.Kr. som slut, och oenigheten står i periodens `note`; nivån är `source-checked`. Indelningen är nordisk och märks så. **Del 2b** (jordbrukets början, högkulturer, industrialisering m.fl.) läggs inte in förrän fler källor har öppnats.
 
 **`antiken` (Del 2b, första delen):** antiken som egen indelning med en period, cirka 800 f.Kr.–500 e.Kr. (`-799`/`500`, `-0799~/0500~`). Källor: svenska Wikipedia (som hänvisar till Nationalencyklopedin), engelska Wikipedia och Wikidata (CC0), öppnade 2026-11-08. Källorna är oense om slutet (cirka 300, 476, 500 eller 600), och det står i periodens `note`; nivån är `source-checked`, inte `two-sources`. Indelningen märks som ett europeiskt begrepp om Medelhavsvärlden.
+
+**`industrialiseringen` (Del 2b, andra delen):** industrialiseringen som egen indelning med en period, cirka 1760–1840 (`1760`/`1840`, `1760~/1840~`). Källa: engelska Wikipedia (Industrial Revolution, CC BY-SA 4.0), öppnad 2026-11-08, som anger cirka 1760–cirka 1840 och säger att början och slutet är omdiskuterade; det står i periodens `note`, och nivån är `source-checked`. Indelningen märks som främst europeisk och nordamerikansk (Lgr22 behandlar den för Europa och Sverige). **Högkulturer** läggs inte in än: tidslinjen börjar 3000 f.Kr., så Uruk-perioden (4000–3100 f.Kr.) ligger helt utanför och Egypten har bara ett startår (enandet cirka 3150 f.Kr.); bara Indusdalen (cirka 3300–1700 f.Kr.) skulle få en knapp. Revolutioner och kolonisation blir teman eller turer (#398), inte epoker.
 
 ## `teman.json`: teman (#398)
 

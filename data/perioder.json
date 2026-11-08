@@ -1,6 +1,6 @@
 {
   "schema": "historia-globen/perioder@1",
-  "note": "Epoker enligt den svenska kursplanen i historia (Lgr22, gäller från 2022-07-01), beslut DasKrokodil 2026-11-08 (#845, #476). Bara de ungefärliga årtalen och stadiet (årskurserna) är hämtade ur Skolverkets centrala innehåll; periodnamnen är våra egna korta formuleringar, och ingen text är kopierad (beslut 2026-11-08, docs/beslut/2026-11-08-epoknamn-egna-formuleringar.md). Perioderna överlappar eftersom de hör till olika stadier. Epoknamn som läroplanen nämner utan årtal (stenålder, antiken m.fl.) ligger inte i lgr22. Del 2a (2026-11-08) är de tre nordiska åldrarna i en egen indelning, norden-forntid, med Historiska museets årtal; Del 2b börjar med antiken i en egen indelning, antiken (källorna är oense om slutet); jordbruk, högkulturer och industrialisering väntar på fler öppnade källor. Filen läses inte av appen än; snabbknapparna byggs efter intervallet (#755).",
+  "note": "Epoker enligt den svenska kursplanen i historia (Lgr22, gäller från 2022-07-01), beslut DasKrokodil 2026-11-08 (#845, #476). Bara de ungefärliga årtalen och stadiet (årskurserna) är hämtade ur Skolverkets centrala innehåll; periodnamnen är våra egna korta formuleringar, och ingen text är kopierad (beslut 2026-11-08, docs/beslut/2026-11-08-epoknamn-egna-formuleringar.md). Perioderna överlappar eftersom de hör till olika stadier. Epoknamn som läroplanen nämner utan årtal (stenålder, antiken m.fl.) ligger inte i lgr22. Del 2a (2026-11-08) är de tre nordiska åldrarna i en egen indelning, norden-forntid, med Historiska museets årtal; Del 2b börjar med antiken i en egen indelning, antiken (källorna är oense om slutet); industrialiseringen (2026-11-08) är en egen indelning med källorna oense om början och slut; jordbruk och högkulturer väntar (tidslinjen börjar 3000 f.Kr., så Uruk-perioden ligger utanför, och Egypten har bara ett startår). Filen läses inte av appen än; snabbknapparna byggs efter intervallet (#755).",
   "divisions": [
     {
       "id": "lgr22",
@@ -231,6 +231,49 @@
             "wp-sv-antiken",
             "wp-classical-antiquity",
             "wikidata-classical-antiquity"
+          ],
+          "review": "source-checked"
+        }
+      ]
+    },
+    {
+      "id": "industrialiseringen",
+      "name": {
+        "sv": "Industrialiseringen (främst Europa och Nordamerika)",
+        "en": "Industrialisation (mainly Europe and North America)",
+        "de": "Industrialisierung (vor allem Europa und Nordamerika)",
+        "es": "Industrialización (sobre todo Europa y América del Norte)",
+        "fr": "Industrialisation (surtout l’Europe et l’Amérique du Nord)"
+      },
+      "simplification": {
+        "sv": "Industrialiseringen började i Storbritannien och spreds till Europa och USA, och Lgr22 behandlar den för Europa och Sverige. Årtalen är ungefärliga och historiker är inte överens om exakt när den började och slutade. Andra delar av världen industrialiserades vid andra tider, så indelningen är en förenkling.",
+        "en": "Industrialisation began in Britain and spread to Europe and the United States, and Lgr22 treats it for Europe and Sweden. The years are approximate, and historians do not agree on exactly when it began and ended. Other parts of the world industrialised at other times, so the division is a simplification.",
+        "de": "Die Industrialisierung begann in Großbritannien und breitete sich nach Europa und in die USA aus; Lgr22 behandelt sie für Europa und Schweden. Die Jahreszahlen sind ungefähr, und die Historiker sind sich nicht einig, wann sie genau begann und endete. Andere Teile der Welt industrialisierten sich zu anderen Zeiten, daher ist die Einteilung eine Vereinfachung.",
+        "es": "La industrialización comenzó en Gran Bretaña y se extendió a Europa y a Estados Unidos, y Lgr22 la trata para Europa y Suecia. Los años son aproximados, y los historiadores no coinciden en cuándo empezó y terminó exactamente. Otras partes del mundo se industrializaron en otros momentos, así que la división es una simplificación.",
+        "fr": "L’industrialisation a commencé en Grande-Bretagne et s’est étendue à l’Europe et aux États-Unis, et Lgr22 la traite pour l’Europe et la Suède. Les années sont approximatives, et les historiens ne s’accordent pas sur le moment exact de son début et de sa fin. D’autres régions du monde se sont industrialisées à d’autres moments ; cette division est donc une simplification."
+      },
+      "periods": [
+        {
+          "id": "industrialiseringen",
+          "start": 1760,
+          "end": 1840,
+          "edtf": "1760~/1840~",
+          "name": {
+            "sv": "Industrialiseringen, cirka 1760–1840",
+            "en": "Industrialisation, c. 1760–1840",
+            "de": "Industrialisierung, um 1760–1840",
+            "es": "Industrialización, hacia 1760–1840",
+            "fr": "Industrialisation, vers 1760–1840"
+          },
+          "note": {
+            "sv": "Början och slutet diskuteras bland historiker. Engelska Wikipedia anger cirka 1760 till cirka 1840 (början i Storbritannien, spridd till Europa och USA omkring 1840) och säger att den exakta början och slutet är omdiskuterade. Här används de årtalen.",
+            "en": "The start and end are debated among historians. English Wikipedia gives about 1760 to about 1840 (beginning in Britain, spread to Europe and the United States by about 1840) and says the precise start and end are debated. Those years are used here.",
+            "de": "Beginn und Ende werden unter Historikern diskutiert. Die englische Wikipedia nennt etwa 1760 bis etwa 1840 (Beginn in Großbritannien, um 1840 in Europa und den USA verbreitet) und sagt, der genaue Beginn und das genaue Ende seien umstritten. Hier werden diese Jahreszahlen verwendet.",
+            "es": "El comienzo y el final se debaten entre los historiadores. La Wikipedia en inglés indica de hacia 1760 a hacia 1840 (comienzo en Gran Bretaña, extendida a Europa y Estados Unidos hacia 1840) y dice que el comienzo y el final exactos se debaten. Aquí se usan esos años.",
+            "fr": "Le début et la fin sont débattus parmi les historiens. Wikipédia en anglais indique de 1760 environ à 1840 environ (début en Grande-Bretagne, étendue à l’Europe et aux États-Unis vers 1840) et dit que le début et la fin exacts sont débattus. Ces années sont utilisées ici."
+          },
+          "sources": [
+            "wp-industrial-revolution"
           ],
           "review": "source-checked"
         }
