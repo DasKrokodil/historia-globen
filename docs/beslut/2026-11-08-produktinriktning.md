@@ -23,7 +23,10 @@
 18. **Namn och domän:** historiagloben.se räcker tills vidare; andra domäner och namn per språk övervägs om stort intresse visar sig ([10-namn-och-domaner.md](../produkt/10-namn-och-domaner.md)).
 19. **Beslut 1 består** (ekvirektangulär rendering); små förbättringar görs löpande som egna issues när problem dyker upp.
 20. **Svenska som andraspråk** är en framtida användare, ingen prioritet nu.
-21. **Produktdokumentationen** i `docs/produkt/` hålls uppdaterad **vid varje release** (punkt i releasemallen), för att se nya intressenter, användare och mål.
+21. **Urvalsriktlinjen** ([08](../produkt/08-urvalsriktlinje.md), svar på #916): kriterierna A–F gäller. Kriterium B: en etablerad referenslista räcker för kärnhändelser, två oberoende referenser krävs för allt annat. Något som är viktigt lokalt men okänt utanför regionen får komma med om det täcker ett glapp (kriterium D). Texten "Om urvalet" publiceras under Källor (svenska först, översatt samtidigt). Ingen extern bedömare, och ingen aktiv sökning efter någon; den som själv hör av sig är välkommen.
+22. **Projektrisker** (svar på #918): ingen reservpublicerare utses; det är en accepterad risk att inget publiceras om DasKrokodil är borta. Kostnader och villkor för Cloudflare, GitHub och jsDelivr ska dokumenteras. Integritets- och licensöversikten ska läsas juridiskt en gång, av någon som kan reglerna för skolor, innan sidan marknadsförs till lärare.
+23. **Dokumentationsluckor** (svar på #919): projektordlista och testöversikt skrivs först; prestandabudgeten väntar tills en verklig svag enhet kan mätas (ingen aktiv rekrytering för enhetsprov). Claude Code skriver utkasten, och DasKrokodil godkänner.
+24. **Produktdokumentationen** i `docs/produkt/` hålls uppdaterad **vid varje release** (punkt i releasemallen), för att se nya intressenter, användare och mål.
 
 ## Varför
 Projektet är ett hobbyprojekt med en ensam ägare. Mål, målgrupper och avgränsningar ska spegla det, så att inte en läroplattform eller en akademisk ambition smyger sig in och tar glädjen ur arbetet.

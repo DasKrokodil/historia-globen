@@ -159,6 +159,7 @@ Hämtade ur analyserna, inte nya fynd. Verifiera mot koden innan du agerar på d
 | R5 | **Tillgänglighet bevisad bara delvis** | komplett analys; helhetsanalys | Skärmläsare och full tangentbordssekvens ej attesterade | Gör en riktad attest; se [06](06-granskningsperspektiv.md#7-tillgänglighet) |
 | R6 | **Webbläsarbredd i test** | komplett analys (Firefox, WebKit röda) | Release utan tre motorer är inte bevisad | Åtgärda rotorsaker per motor |
 | R7 | **Datamängd mot prestanda** | prestandastudie 2026-11-07 | Långsam start när massimporten växer | Fortsätt dela och ladda sent |
+| R10 | **En beslutsfattare, ingen reserv** | DasKrokodil 2026-11-08 (#918) | Om DasKrokodil är borta kan ingen publicera eller slå ihop | **Accepterad risk**: ingen reservpublicerare utses |
 | R9 | **Plattformsstöd bara delvis bevisat** | DasKrokodils krav 2026-11-08; `docs/produkt/05` | Stödmatris beslutad 2026-11-08 (senaste två versionerna av Chrome, Safari iOS/iPadOS, Firefox, Edge; iPad liggande och stående), men surfplattebredder (768–1024 px) har inte provats särskilt | Lägg iPad-bredd och Safari i webbläsartestet (#917) |
 | R8 | **Översättningsskuld** | översättningsspärren | Besökare på andra språk ser blandad text | Omgångar, engelska först |
 

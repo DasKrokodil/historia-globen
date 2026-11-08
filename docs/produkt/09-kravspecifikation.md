@@ -33,7 +33,7 @@ Det här är en *produktkravsspecifikation*: den säger **vad** sidan ska uppfyl
 | K-INN-09 | Profeten Muhammed avbildas aldrig. | CLAUDE.md: Bilder 4 | M | G | Beslutat | Ej verifierat |
 | K-INN-10 | Bildlicenser ska vara förenliga med projektets licenser och stå i bildtexten. | CLAUDE.md: Bilder 1, Licenser | M | S | Beslutat | Ej verifierat |
 | K-INN-11 | Innehållet ska ha bredd över världsdelar; täckning per världsdel, period och kategori ska mätas vid varje täckningsrunda. | M4; beslut 2026-11-03, 2026-11-07 | B | S, M | Beslutat | Delvis (skev balans kända 2026-11-07) |
-| K-INN-12 | Sidan ska säga öppet att den visar ett **urval** gjort av en ensam redaktör ("Om urvalet"). | M4; [08](08-urvalsriktlinje.md) | M | G | Förslag | Ej |
+| K-INN-12 | Sidan ska säga öppet att den visar ett **urval** gjort av en ensam redaktör ("Om urvalet"). | M4; [08](08-urvalsriktlinje.md); #916 | M | G | Beslutat | Ej |
 
 ## K-KÄL. Källkritik som mål (M9)
 
@@ -118,6 +118,7 @@ Stödmatris (beslut 2026-11-08): de **senaste två versionerna** av Chrome, Safa
 | K-INT-03 | Sidan ska ha en skarp Content-Security-Policy. | #707 | M | S | Beslutat | Ej verifierat |
 | K-INT-04 | Förslagsformuläret ska skydda mot spam och begränsa storlek och ursprung. | docs/feedback.md | B | T | Beslutat | Ej verifierat |
 | K-INT-05 | Inget kommersiellt: ingen reklam eller försäljning. | DasKrokodil 2026-11-08 | M | B | Beslutat | Ok |
+| K-INT-07 | Integritets- och licensöversikten ska läsas juridiskt en gång, av någon som kan reglerna för skolor, innan sidan marknadsförs till lärare. | #918 | B | B | Beslutat | Ej |
 | K-INT-06 | Sidan ska vara öppen för all input från besökare (förslag, åsikter, hjälp), men DasKrokodil bestämmer ensam. | DasKrokodil 2026-11-08 | M | B | Beslutat | Ok (README: Bidra) |
 
 ## K-PRE. Prestanda (M5, M6)
@@ -140,6 +141,7 @@ Stödmatris (beslut 2026-11-08): de **senaste två versionerna** av Chrome, Safa
 | K-DRI-04 | three.js 0.160.0 ska vara enda externa beroende; inga andra utan DasKrokodils ok. | Arkitektur 6 | M | G | Beslutat | Ok |
 | K-DRI-05 | Ingen publicering till `main` utan pull request; `production` uppdateras bara via release-PR efter releasekontroll och DasKrokodils godkännande. | docs/DEPLOYMENT.md | M | S | Beslutat | Ok |
 | K-DRI-06 | Produktdokumentationen i `docs/produkt/` ska gås igenom och uppdateras vid varje release. | DasKrokodil 2026-11-08; releasemallen | M | B | Beslutat | Ny |
+| K-DRI-09 | Kostnader och villkor för Cloudflare, GitHub och jsDelivr ska vara dokumenterade. | #918 | B | B | Beslutat | Ej |
 | K-DRI-08 | Förbättringar av rendering (skarpare zoom, mobilminne, kartprojektion i Platt vy) ska göras som små, egna issues när ett konkret problem visar sig, utan att ändra beslut 1. | DasKrokodil 2026-11-08; [04](04-arkitekturoversikt.md) | B | G, M | Beslutat | Ny |
 | K-DRI-07 | Dokumentationen ska hållas lätt så att den inte tar glädjen ur ett ensamt hobbyprojekt (M6, M8). | M6, M8 | B | G | Förslag | Ej verifierat |
 

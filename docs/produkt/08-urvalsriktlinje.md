@@ -1,6 +1,6 @@
 # 08. Urvalsriktlinje: vad är värt en plats på globen? (utkast)
 
-**Status:** utkast 2026-11-08, **förslag** som DasKrokodil ska godkänna. Omarbetat efter DasKrokodils besked samma dag: ensam redaktör, tydligt att det är ett urval, ingen ställning i enskilda frågor, ingen akademisk granskning. Kriterierna och balansmålen nedan är mina förslag. Det som redan är beslutat är markerat med beslutets datum. Riktlinjen innehåller inga historiska uppgifter; den säger hur vi väljer, inte vad som hände.
+**Status:** **godkänd 2026-11-08** (DasKrokodils svar på #916: kriterierna A–F, regionalt viktigt om det täcker ett glapp, och "Om urvalet" publiceras). Texten under Öppenhet mot besökaren är fortfarande ett utkast tills den skrivs och översätts. Omarbetat efter DasKrokodils besked samma dag: ensam redaktör, tydligt att det är ett urval, ingen ställning i enskilda frågor, ingen akademisk granskning. Kriterierna och balansmålen nedan är mina förslag. Det som redan är beslutat är markerat med beslutets datum. Riktlinjen innehåller inga historiska uppgifter; den säger hur vi väljer, inte vad som hände.
 
 ## Varför den behövs
 
@@ -22,7 +22,7 @@ En händelse, ett rike eller en fun fact bör uppfylla **A och B**, och **minst 
 | | Kriterium | Hur det avgörs |
 |---|---|---|
 | **A** | **Belagd.** Går att källbelägga i öppen källa med årtal och plats. | Källpolicyn; `review` är minst `source-checked` |
-| **B** | **Betydelse.** Den nämns i minst två oberoende referensverk, läroplanen eller etablerade tidslinjer, inte bara en källa. | Bedömningen skrivs i issuet, med källorna |
+| **B** | **Betydelse.** Kärnhändelser: en etablerad referenslista räcker. Allt annat: minst två oberoende referensverk, läroplanen eller etablerade tidslinjer. | Bedömningen skrivs i issuet, med källorna |
 | **C** | **Samtidighetsvärde.** Den bidrar till ett oväntat eller lärorikt samband med något på ett annat håll. | Finns en fun fact, en tur eller en jämförelse som använder den? |
 | **D** | **Täcker ett glapp.** Den fyller en tom eller tunn cell (period, världsdel eller kategori). | `tools/tackning.py` |
 | **E** | **Undervisningsvärde.** Den hör till kursplanens centrala innehåll eller ingår i en tur eller lektion. | Skolverkets öppna text (inte minnet) |
@@ -59,12 +59,12 @@ Förslag: en kort text under **Källor** ("Om urvalet") som säger:
 - Ensam redaktör betyder att kriterierna ska vara **få och lätta att tillämpa**; de är ett stöd, inte en process.
 - **Ändrar vi kriterierna** skrivs ett beslut i `docs/beslut/`.
 
-## Öppna frågor
+## Beslutade frågor (2026-11-08)
 
-1. Ska kriterium B kräva **två** oberoende referenser, eller räcker en etablerad referenslista?
-2. Hur stor del av ytan ska vi lägga på det som är viktigt *lokalt* för en region men okänt utanför den?
-3. Ska vi publicera "Om urvalet" som del av Källor, och vilka luckor ska vi erkänna öppet?
-4. ~~Extern bedömare av balans~~ Faller: DasKrokodil är ensam redaktör och söker inte aktivt upp någon (beslut 2026-11-08).
+1. Kriterium B: en etablerad referenslista räcker för kärnhändelser; två för allt annat.
+2. Regionalt viktigt men okänt utanför regionen: får komma med om det täcker ett glapp (kriterium D).
+3. "Om urvalet" publiceras under Källor.
+4. Ingen extern bedömare och ingen aktiv sökning efter någon; den som själv hör av sig är välkommen.
 
 ## Att kontrollera vid uppdatering
 
