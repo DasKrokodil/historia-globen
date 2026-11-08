@@ -405,6 +405,7 @@
   "detail.followWar": "Seguir la guerra despacio",
   "detail.battles": "Batallas y acontecimientos de la guerra",
   "image.placeholder": "Imagen provisional",
+  "image.missing": "No se pudo cargar la imagen",
   "review.info": "¿Qué significa el estado de revisión?",
   "story.why": "Por qué empezó la guerra",
   "story.parties": "Los bandos",

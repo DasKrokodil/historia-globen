@@ -1339,6 +1339,8 @@ details.used-by summary:hover { color: var(--parchment); }
 /* Bilden kommer efter rubrik och datumrad (#605) och går ut till kortets kanter */
 .detail-fig { position: relative; margin: 10px -16px 10px; }
 .detail-fig img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; background: var(--night-3); }
+.detail-fig.is-missing { margin-top: 6px; margin-bottom: 6px; }
+.fig-missing { margin: 0; padding: 8px 12px; background: var(--night-3); font: 400 12px/1.4 var(--f-mono); color: var(--card-dim); }
 .detail-fig figcaption { padding: 5px 12px 0; font: 400 11px/1.35 var(--f-mono); color: var(--card-dim); }
 .fig-caption { display: block; color: var(--card-ink); font-style: italic; }
 .fig-credit a { color: var(--card-accent); }

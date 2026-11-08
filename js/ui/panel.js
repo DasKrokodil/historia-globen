@@ -137,6 +137,23 @@ export function figure(e, srcById, evidence = '') {
   </figure>`;
 }
 
+/**
+ * En bild som inte gick att hämta (404 eller nätfel) ersätts av en kort rad, så att faktarutan inte står med en
+ * tom bildyta som ser trasig ut (#884). Bildtexten och kreditraden står kvar. Anropas från error-händelsen, som inte bubblar.
+ */
+export function markBrokenImage(img) {
+  const fig = img?.closest?.('.detail-fig');
+  if (!fig || fig.classList.contains('is-missing')) return false;
+  fig.classList.add('is-missing');
+  img.hidden = true;
+  const note = document.createElement('p');
+  note.className = 'fig-missing';
+  note.setAttribute('role', 'status');
+  note.textContent = ui('image.missing');
+  img.after(note);
+  return true;
+}
+
 /** Diskret knapp "Rapportera faktafel" nedtill i faktarutan, bredvid granskningsstatusen. */
 const reportBtn = ({ type, id, label }) => `<button type="button" class="link-btn report-btn" data-report-type="${esc(type)}" data-report-id="${esc(id)}" data-report-label="${esc(label)}" aria-haspopup="dialog" aria-controls="feedback">${esc(ui('detail.report'))}</button>`;
 
@@ -206,6 +223,8 @@ export class Panel {
     this.tag = null;
     this.tagCounts = new Map();
     for (const e of events) for (const tag of (isVisibleReview(e.review) && Array.isArray(e.tags) ? e.tags : [])) this.tagCounts.set(tag, (this.tagCounts.get(tag) ?? 0) + 1);
+    // Bilden i faktarutan som inte laddas (#884): error bubblar inte, så lyssnaren fångar på vägen ned
+    detail.addEventListener('error', ev => { if (ev.target?.tagName === 'IMG') markBrokenImage(ev.target); }, true);
     this.onSelect = () => {};
     this.onFilter = () => {};
     this.onSources = () => {};
