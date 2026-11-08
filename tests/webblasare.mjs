@@ -2603,6 +2603,12 @@ async function run(browser, vp) {
       await open(`${BASE}?ny=1#t=vikingatiden-och-varlden&m=lektion`);
       await locked();
       if ((await lessonPage.textContent('#year-big')).trim() !== '793') throw new Error('vikingalektionen börjar inte 793');
+      // Reglagets ARIA-gränser följer lektionens lås (#883) och återställs när man lämnar lektionen
+      const ariaBounds = () => lessonPage.evaluate(() => { const t = document.getElementById('track'); return [t.getAttribute('aria-valuemin'), t.getAttribute('aria-valuemax')].join('..'); });
+      if ((await ariaBounds()) !== '793..1068') throw new Error(`reglagets ARIA-gränser i vikingalektionen var ${await ariaBounds()} i stället för 793..1068`);
+      await lessonPage.click('#lesson-exit');
+      await lessonPage.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuemin') === '-2999', null, { timeout: T.step });
+      if ((await ariaBounds()).startsWith('793')) throw new Error('ARIA-gränserna låg kvar efter Visa hela globen');
       await open(`${BASE}?ny=1#t=tre-platser-1325&m=lektion`);
       await lessonPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
       if (await lessonPage.isVisible('#lesson-band')) throw new Error('en tur utan lärarfält startade lektionsläge');
