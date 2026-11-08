@@ -2393,6 +2393,11 @@ async function run(browser, vp) {
       const row = document.querySelector('.src-version');
       return row && !row.hidden;
     }, null, { timeout: T.step });
+    // Om urvalet (#916): rubriken och de fem styckena finns, och ingen rå textnyckel syns
+    const urval = page.locator('.src-urval');
+    await urval.waitFor({ state: 'visible', timeout: T.step });
+    if (await urval.locator('p').count() !== 5) throw new Error('Om urvalet har inte fem stycken');
+    if (/sources\.urval/.test(await urval.textContent())) throw new Error('Om urvalet visar en rå textnyckel');
     const version = await page.evaluate(() => fetch('data/version.json').then(response => response.json()));
     const versionRow = page.locator('.src-version');
     const versionText = (await versionRow.textContent()).replace(/\s+/g, ' ').trim();

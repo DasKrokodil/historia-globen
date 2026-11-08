@@ -33,7 +33,7 @@ Det här är en *produktkravsspecifikation*: den säger **vad** sidan ska uppfyl
 | K-INN-09 | Profeten Muhammed avbildas aldrig. | CLAUDE.md: Bilder 4 | M | G | Beslutat | Ej verifierat |
 | K-INN-10 | Bildlicenser ska vara förenliga med projektets licenser och stå i bildtexten. | CLAUDE.md: Bilder 1, Licenser | M | S | Beslutat | Ej verifierat |
 | K-INN-11 | Innehållet ska ha bredd över världsdelar; täckning per världsdel, period och kategori ska mätas vid varje täckningsrunda. | M4; beslut 2026-11-03, 2026-11-07 | B | S, M | Beslutat | Delvis (skev balans kända 2026-11-07) |
-| K-INN-12 | Sidan ska säga öppet att den visar ett **urval** gjort av en ensam redaktör ("Om urvalet"). | M4; [08](08-urvalsriktlinje.md); #916 | M | G | Beslutat | Ej |
+| K-INN-12 | Sidan ska säga öppet att den visar ett **urval** gjort av en ensam redaktör ("Om urvalet"). | M4; [08](08-urvalsriktlinje.md); #916 | M | G | Beslutat | Ok: texten finns i Om källorna på alla fem språk (2026-11-08) |
 
 ## K-KÄL. Källkritik som mål (M9)
 
