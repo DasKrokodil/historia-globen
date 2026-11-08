@@ -2843,6 +2843,50 @@ async function run(browser, vp) {
     }
     return 'turens första år och kamera står kvar när ett gammalt fokus blir klart; vanligt fokus via adressen fungerar';
   });
+  // #885: läraren får en väg till elev- och lärarbladen i lektionsläget (r=lararen i länken eller Starta som lektion i
+  // Turer-menyn); eleven i den vanliga lektionslänken ser ingen utskriftsknapp. Utskriften rör inte steget.
+  await check('läraren når elev- och lärarbladen i lektionsläget, eleven inte (#885)', async () => {
+    const tp = await context.newPage();
+    const errs = [];
+    tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errs.push(m.text()); });
+    tp.on('pageerror', e => errs.push(e.message));
+    const shown = sel => tp.evaluate(s => { const el = document.querySelector(s); return !!el && el.getClientRects().length > 0; }, sel);
+    const open = async url => { await tp.goto(url); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); await tp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step }); await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step }); };
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      // Eleven i den vanliga lektionslänken: ingen utskriftsknapp någonstans
+      await open(`${BASE}?ny=31#t=andra-varldskriget&m=lektion`);
+      if (await shown('#lesson-print') || await shown('#tour-print')) throw new Error('eleven ser en utskriftsknapp i den vanliga lektionslänken');
+      // Läraren: knappen i bandet, med namn, och utskriften skapar de tre bladen utan att lämna steget
+      await open(`${BASE}?ny=32#t=andra-varldskriget&m=lektion&r=lararen`);
+      if (!(await shown('#lesson-print'))) throw new Error('läraren ser ingen utskriftsknapp i bandet');
+      if (!/Skriv ut/.test((await tp.textContent('#lesson-print')).trim())) throw new Error('knappen saknar ett läsbart namn');
+      await tp.evaluate(() => { window.__prints = 0; window.print = () => { window.__prints++; }; });
+      await tp.click('#tour-next'); await tp.click('#tour-next'); // till steg 3, så att vi ser att steget står kvar
+      const before = { step: (await tp.textContent('#tour-progress')).trim(), year: (await tp.textContent('#year-big')).trim() };
+      await tp.click('#lesson-print');
+      await tp.waitForFunction(() => window.__prints === 1, null, { timeout: T.step });
+      const got = await tp.evaluate(() => ({ pages: document.querySelectorAll('#print-sheet .print-page').length, focus: document.activeElement?.id, hash: location.hash }));
+      if (got.pages < 2) throw new Error(`utskriften gav ${got.pages} blad`);
+      const after = { step: (await tp.textContent('#tour-progress')).trim(), year: (await tp.textContent('#year-big')).trim() };
+      if (after.step !== before.step || after.year !== before.year) throw new Error(`steget ändrades av utskriften: ${before.step}/${before.year} → ${after.step}/${after.year}`);
+      if (got.focus !== 'lesson-print') throw new Error(`fokus gick till ${got.focus} efter utskriften`);
+      // Rollen skrivs aldrig i adressen: Dela och omladdning ger inte eleven knappen
+      if (/[#&]r=/.test(got.hash)) throw new Error(`adressen har fått rollen: ${got.hash}`);
+      if (!/m=lektion/.test(got.hash)) throw new Error('adressen tappade m=lektion');
+      await tp.reload();
+      await tp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.load });
+      if (await shown('#lesson-print')) throw new Error('knappen finns kvar efter omladdning utan r= i adressen');
+      if (errs.length) throw new Error(`konsolfel: ${errs.join('; ')}`);
+    } finally {
+      await tp.close();
+    }
+    return 'eleven ser ingen knapp; r=lararen ger knappen i bandet, tre blad skrivs ut, steget och året står kvar, fokus kommer tillbaka och rollen skrivs aldrig i adressen';
+  });
   // #862 F7: i mobil öppnades faktarutan bakom turkortet, så att kortets text täckte rubrik, handtag och Stäng.
   // Prövar att faktarutans stängknapp är det som träffas mitt på knappen (inte kortet) och att Stäng fungerar.
   await check('faktarutan öppnas ovanpå lektionskortet och går att stänga (#862)', async () => {
@@ -2907,6 +2951,7 @@ async function run(browser, vp) {
       await mp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
       if (!/^Steg 1 av 14$/.test((await mp.textContent('#tour-progress')).trim())) throw new Error('lektionen startade inte vid steg 1');
       if ((await mp.textContent('#year-big')).trim() !== '1939') throw new Error('lektionen börjar inte 1939');
+      if (!(await mp.isVisible('#lesson-print'))) throw new Error('Starta som lektion i menyn ger läraren ingen utskriftsknapp i bandet (#885)');
       await mp.waitForFunction(() => location.hash.includes('m=lektion'), null, { timeout: T.step }).catch(() => { throw new Error('adressen saknar m=lektion efter knappen'); });
       // Den vanliga starten gör fortfarande en vanlig tur utan band
       await mp.click('#lesson-exit');

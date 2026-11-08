@@ -154,7 +154,7 @@ export class TourPlayer {
         go.addEventListener('click', () => {
           this.closeMenu(false);
           const { lesson } = this.app;
-          lesson?.enter(tour.id);
+          lesson?.enter(tour.id, { teacher: true }); // den som väljer Starta som lektion i menyn är läraren (#885)
           if (!this.start(tour.id, this.button)) lesson?.leave();
         });
         row.append(info, go);

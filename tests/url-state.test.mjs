@@ -92,6 +92,16 @@ test('ett elevuppdrag i adressen: u skrivs och läses (#741)', async () => {
   assert.equal(decodeMission('#u=Fel!'), null);
 });
 
+test('lärarens väg: r=lararen läses men skrivs aldrig i adressen (#885)', async () => {
+  const { decodeRole, decodeMode } = await import('../js/url-state.js');
+  const tour = { id: 'andra-varldskriget', step: null };
+  assert.equal(decodeRole('#t=andra-varldskriget&m=lektion&r=lararen'), 'lararen');
+  assert.equal(decodeMode('#t=andra-varldskriget&m=lektion&r=lararen'), 'lektion');
+  for (const bad of ['#t=x&m=lektion', '#r=larare', '#r=Lararen', '#r=', '', null, undefined]) assert.equal(decodeRole(bad), null, String(bad));
+  // Adressen som skrivs har ingen roll, så att Dela och en omladdning aldrig ger eleven utskriftsknappen
+  assert.ok(!encodeHash(base, [], tour, null, 'lektion').includes('r='));
+});
+
 test('lektionsläget i adressen: m=lektion hör till en tur (#795)', async () => {
   const { decodeMode, decodeTour } = await import('../js/url-state.js');
   const tour = { id: 'andra-varldskriget', step: 'polen' };

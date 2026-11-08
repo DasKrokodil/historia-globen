@@ -234,6 +234,7 @@ Vyn står i adressen efter `#`, så att en kopierad länk öppnar samma vy och B
 | `t` | En guidad tur som pågår (tur-id i `data/turer/`, #736). En länk med `t` startar turen; `#t=<id>` räcker |
 | `s` | Turens steg (stegets id); saknas `s` börjar turen vid första steget |
 | `m` | Läget (#795): bara `m=lektion` finns. Tillsammans med `t` startar länken en lektionstur i lektionsläge; utan `t`, eller för en tur utan lärarfält, gör `m` ingenting |
+| `r` | Rollen (#885): bara `r=lararen` finns, och bara i en lektionslänk. Läraren får knappen "Skriv ut elev- och lärarblad" i bandet; eleven i den vanliga länken får ingen. Rollen läses bara vid start och skrivs **aldrig** tillbaka till adressen, så Dela, omladdning och Bakåt ger inte eleven knappen. "Starta som lektion" i Turer-menyn ger också läraren knappen |
 
 Lugn rörelse står inte i länken, eftersom det är besökarens egen inställning. Okända fält hoppas över, och en trasig länk (till exempel ett krig som inte finns) ger det vanliga startläget utan fel. En tur i adressen (`t`, eller den äldre formen `?tur=<id>`) går före resten av länken; finns turen inte gäller resten av länken som vanligt. `?tur=` flyttas in i hashen när turen har startat.
 

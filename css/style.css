@@ -840,6 +840,9 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .lesson-exit:hover { background: color-mix(in srgb, var(--brass) 18%, transparent); }
 .lesson-exit:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
 .lesson-exit[hidden] { display: none; }
+#lesson-print { margin-left: auto; }
+.lesson-print-status { flex: 1 1 100%; margin: 0; font: 400 12px/1.35 var(--f-body); color: var(--danger); }
+.lesson-print-status[hidden] { display: none; }
 .app.lesson .masthead, .app.lesson-notice .masthead { top: calc(env(safe-area-inset-top, 0px) + 52px); }
 .app.lesson .top-actions, .app.lesson-notice .top-actions { top: calc(env(safe-area-inset-top, 0px) + 56px); }
 .lesson-notice .lesson-band-title { flex: 1; }
@@ -860,6 +863,11 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
   .lesson-notice .lesson-band-title { flex: 1 1 100%; }
   .app.lesson-notice .masthead { top: calc(env(safe-area-inset-top, 0px) + 112px); }
   .app.lesson-notice .top-actions { top: calc(env(safe-area-inset-top, 0px) + 116px); }
+  /* Lärarens knapp (#885): titeln får en egen rad och knapparna en rad under, som förklaringen ovan */
+  .app.lesson-teacher .lesson-band { flex-wrap: wrap; justify-content: flex-end; }
+  .app.lesson-teacher .lesson-band-title { flex: 1 1 100%; }
+  .app.lesson-teacher .masthead { top: calc(env(safe-area-inset-top, 0px) + 92px); }
+  .app.lesson-teacher .top-actions { top: calc(env(safe-area-inset-top, 0px) + 96px); }
 }
 .app:has(.pause-note:not([hidden])) .tour-card { bottom: 186px; max-height: calc(100dvh - 186px - 150px); }
 .tour-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
