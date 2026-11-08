@@ -87,8 +87,8 @@ Vem påverkas av, eller kan påverka, projektet. "Vad de bryr sig om" är det vi
 
 | Intressent | Roll | Bryr sig om | Vad vi behöver från dem / till dem |
 |---|---|---|---|
-| **DasKrokodil** (Rikard) | Ägare, projektledare, beslutar, slår ihop och publicerar | Sanning, utseende, att det blir klart och begripligt; inte själv utvecklare | Beslut, godkännande, prioritet; vi ger korta svenska förklaringar |
-| **Einzbeng** (Andreas) | Medarbetare med egna agenter | Att kunna bidra utan att krocka | Tydliga regler i CLAUDE.md/AGENTS.md; han slår inte ihop |
+| **DasKrokodil** | Ägare, projektledare, beslutar, slår ihop och publicerar | Sanning, utseende, att det blir klart och begripligt; inte själv utvecklare | Beslut, godkännande, prioritet; vi ger korta svenska förklaringar |
+| **Einzbeng** | Medarbetare med egna agenter | Att kunna bidra utan att krocka | Tydliga regler i CLAUDE.md/AGENTS.md; han slår inte ihop |
 | **Agenter** (Claude Code, Codex, Copilot) | Arbetare och granskare | Tydliga issues, filgränser, testbara krav | Kontextkarta, kökontroll, granskning med kommentar |
 | **Lärare och skolor** | Användare och förmedlare | Tid, läroplan, tillgänglighet på skoldatorer och nät | Lärarpaket, stabil länk, kunna lita på innehållet |
 | **Elever och vårdnadshavare** | Användare; integritet | Att det är säkert, begripligt och inte spårar | Ingen elevdata, ingen tredjepartsstatistik |

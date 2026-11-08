@@ -12,6 +12,8 @@ Det här är de dokument som svarar på *varför*, *för vem* och *vad som är g
 | [04-arkitekturoversikt.md](04-arkitekturoversikt.md) | Hur hänger systemet ihop, i bilder, och vad är riskerna? | Arkitekturanalys, nytt lager, nytt beroende |
 | [05-ux-oversikt.md](05-ux-oversikt.md) | Hur är sidan upplagd, vilka flöden och lägen finns, vad är känd UX-skuld? | UX-genomgång, UI-ändring |
 | [06-granskningsperspektiv.md](06-granskningsperspektiv.md) | Hur skulle en senior UX-designer, arkitekt, historielärare, elev och historieintresserad titta på sidan? | Varje granskning, analys och release |
+| [07-valideringsplan.md](07-valideringsplan.md) | Hur ersätter vi antagandena med riktiga observationer? (utkast) | Planering av användartest, lärarkontakt, release |
+| [08-urvalsriktlinje.md](08-urvalsriktlinje.md) | Vad är värt en plats på globen, och hur motiverar vi urvalet? (utkast) | Nytt innehåll, täckningsrunda, "varför just den här?" |
 
 ## Så hålls dokumenten levande
 

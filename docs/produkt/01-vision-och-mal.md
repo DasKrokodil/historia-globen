@@ -19,7 +19,7 @@ Historia lärs oftast ut per land eller per epok, så sambanden går förlorade:
 
 ## Mål
 
-Förslag på mål med tecken att leta efter. Vi har ingen besöksstatistik (beslut 2026-11-06, ingen tredjepartsstatistik), så tecknen är kontrollerbara i data, test och granskningar, inte i mätpaneler.
+Förslag på mål med tecken att leta efter. Inget statistikskript körs på sidan (beslut 2026-11-06, #466); den enda besöksstatistiken är Cloudflare Pages egen, som visar trafik men inte vad besökaren förstår eller gör. Tecknen är därför främst kontrollerbara i data, test, granskningar och riktiga observationer (se [07-valideringsplan.md](07-valideringsplan.md)).
 
 | # | Mål | Tecken på att vi lyckas | Hur vi ser det |
 |---|---|---|---|

@@ -1,8 +1,8 @@
-# Produktdokumentation och granskningslinser (docs/produkt/)
+# FÖRSLAG: Produktdokumentation och granskningslinser (docs/produkt/)
 
-**Datum:** 2026-11-08
+**Datum:** 2026-11-08 (förslag, väntar på DasKrokodils godkännande; ändra rubriken till ett beslut när det är godkänt)
 
-## Beslut
+## Förslag
 Projektet får en levande produktdokumentation i `docs/produkt/`: vision och mål, användare och intressenter, användningsfall och funktioner, arkitekturöversikt i bilder, UX-översikt och granskningsperspektiv (linser). Granskningar, analyser och releaser tar på sig de linser som berörs, och dokumenten uppdateras i samma pull request som ändringen. Innehållet om användare och upplevelser är antaganden tills det finns riktiga observationer, och är markerat så.
 
 ## Varför
