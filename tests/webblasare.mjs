@@ -117,6 +117,23 @@ function failNote(e) {
   return [lines[0], waiting && `(${waiting})`, here.length && `[rad ${here.join(', ')}]`].filter(Boolean).join(' ');
 }
 
+// Konsolmeddelanden (#888): när console.error får ett objekt (till exempel ett Error) ger Firefox texten
+// "JSHandle@object" i m.text(), och loggen visade bara det. Texten sparas först som förut, och när meddelandet
+// innehåller ett handtag byts den ut mot en läsbar rad: felets namn och meddelande, eller objektet som JSON.
+// Filtreringen på texten (till exempel "Load failed") görs fortfarande på m.text().
+function pushConsole(sink, m, format = t => t) {
+  const i = sink.push(format(m.text())) - 1;
+  if (!/JSHandle@/.test(m.text())) return;
+  const describe = v => {
+    if (v instanceof Error) return `${v.name}: ${v.message}`;
+    if (v && typeof v === 'object') { try { return JSON.stringify(v); } catch { return String(v); } }
+    return String(v);
+  };
+  Promise.all(m.args().map(a => a.evaluate(describe).catch(() => String(a))))
+    .then(parts => { sink[i] = format(parts.join(' ')); })
+    .catch(() => {});
+}
+
 async function run(browser, vp) {
   const results = [];
   const errors = [];
@@ -136,7 +153,7 @@ async function run(browser, vp) {
     // WebKit skriver en hämtning som avbryts av omladdningen som "TypeError: Load failed" i konsolen (#702).
     // Bara exakt det meddelandet, och bara medan språktestet laddar om sidan, räknas bort.
     if (reloading && /^TypeError: Load failed$/.test(m.text())) return;
-    errors.push(`konsol: ${m.text()}${url ? ` (${url})` : ''}`);
+    pushConsole(errors, m, t => `konsol: ${t}${url ? ` (${url})` : ''}`);
   });
   // Medan språktestet laddar om sidan (#63) avbryter webbläsaren hämtningar som pågår, till exempel ikoner. WebKit
   // rapporterar det som fel ("Load request cancelled", "… due to access control checks", i konsolen "TypeError: Load
@@ -1369,7 +1386,7 @@ async function run(browser, vp) {
     // Test-fixturen: samma sida i en ny flik, där Apollo 11 har taggen framsteg
     const tagPage = await context.newPage();
     const tagErrors = [];
-    tagPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) tagErrors.push(m.text()); });
+    tagPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(tagErrors, m); });
     tagPage.on('pageerror', e => tagErrors.push(e.message));
     try {
       if (THREE_LOCAL) {
@@ -2497,7 +2514,7 @@ async function run(browser, vp) {
     await check('en delad länk återskapar år och fokus', async () => {
       const linkPage = await context.newPage();
       const linkErrors = [];
-      linkPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) linkErrors.push(m.text()); });
+      linkPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(linkErrors, m); });
       linkPage.on('pageerror', e => linkErrors.push(e.message));
       try {
         if (THREE_LOCAL) {
@@ -2534,7 +2551,7 @@ async function run(browser, vp) {
     await check('en länk startar en guidad tur vid rätt steg (#736)', async () => {
       const tourPage = await context.newPage();
       const tourErrors = [];
-      tourPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) tourErrors.push(m.text()); });
+      tourPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(tourErrors, m); });
       tourPage.on('pageerror', e => tourErrors.push(e.message));
       const progress = () => tourPage.textContent('#tour-progress').then(x => x.trim());
       const hashHas = text => tourPage.waitForFunction(t => location.hash.includes(t), text, { timeout: T.step });
@@ -2583,7 +2600,7 @@ async function run(browser, vp) {
   await check('lektionsläget låser menyerna och har en utgång som behåller året (#795)', async () => {
     const lessonPage = await context.newPage();
     const lessonErrors = [];
-    lessonPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) lessonErrors.push(m.text()); });
+    lessonPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(lessonErrors, m); });
     lessonPage.on('pageerror', e => lessonErrors.push(e.message));
     const lp = sel => lessonPage.locator(sel);
     let slowEmpires = false;
@@ -2802,7 +2819,7 @@ async function run(browser, vp) {
   await check('en tur som startar medan ett fokus laddas behåller sitt första år och sin kamera (#865)', async () => {
     const tp = await context.newPage();
     const errors = [];
-    tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(errors, m); });
     tp.on('pageerror', e => errors.push(e.message));
     let slow = false;
     const DELAY = 2500;
@@ -2983,7 +3000,7 @@ async function run(browser, vp) {
     await check('en lektionstur skriver ut elevblad och lärarblad (#738)', async () => {
       const printPage = await context.newPage();
       const printErrors = [];
-      printPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) printErrors.push(m.text()); });
+      printPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(printErrors, m); });
       printPage.on('pageerror', e => printErrors.push(e.message));
       try {
         if (THREE_LOCAL) {
@@ -3371,7 +3388,7 @@ async function runReflow(browser) {
   const context = await browser.newContext({ viewport: { width: 700, height: 450 }, deviceScaleFactor: 1 });
   const page = await context.newPage();
   const errors = [];
-  page.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url || '')) errors.push(`konsol: ${m.text()}`); });
+  page.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url || '')) pushConsole(errors, m, t => `konsol: ${t}`); });
   page.on('pageerror', e => errors.push(`sidfel: ${e.message}`));
   if (THREE_LOCAL) {
     const body = fs.readFileSync(THREE_LOCAL, 'utf8');
@@ -3516,7 +3533,7 @@ async function runPresentation(browser) {
     const context = await browser.newContext({ viewport: vp, deviceScaleFactor: 1, reducedMotion: vp.name === 'presentation-mobil' ? 'reduce' : 'no-preference' });
     const page = await context.newPage();
     const errors = [];
-    page.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url || '')) errors.push(m.text()); });
+    page.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url || '')) pushConsole(errors, m); });
     page.on('pageerror', e => errors.push(e.message));
     if (THREE_LOCAL) {
       const body = fs.readFileSync(THREE_LOCAL, 'utf8');
