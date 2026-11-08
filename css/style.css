@@ -2073,4 +2073,7 @@ details.used-by summary:hover { color: var(--parchment); }
   .print-src-label { margin: 4pt 0 0 !important; font: 500 8pt/1.2 var(--f-mono); text-transform: uppercase; letter-spacing: .06em; }
   .print-curriculum { margin: 0; padding-left: 16pt; }
   .print-curriculum > li, .print-questions-short > li { margin-bottom: 4pt; }
+  /* Lärarbladet (#888): på tyska i reservtypsnittet (DejaVu Sans) mätte det 1037 px i Chromium och 1040 px i Firefox mot
+     A4:s 1039 px, alltså på gränsen. Lite tätare listor ger marginal i båda; elevbladen är orörda */
+  .print-teacher .print-curriculum > li, .print-teacher .print-questions-short > li { margin-bottom: 2.5pt; }
 }
