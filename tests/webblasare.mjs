@@ -606,6 +606,66 @@ async function run(browser, vp) {
     }
   });
 
+  // Kombinationsmatris (#891): varje meny och verktyg ovanpå varje yta som redan kan vara öppen. Isolerade prov är
+  // gröna medan en kedja är röd, och isVisible() godkänner en knapp som ligger bakom något annat. Därför mäts vad som
+  // faktiskt ligger överst mitt på knappen (elementFromPoint), och sedan klickas den med riktig pekning (ingen force).
+  // Varje par får en ny sida, så att inget ärvs från föregående par. Kör i ett eget jobb (tests/jobb.json).
+  await check('kombinationsmatris: menyer och verktyg ovanpå öppna ytor (#891)', async () => {
+    const SURFACES = [
+      { id: 'Samtidigt', hash: '#y=1889', setup: async p => { await p.click('#btn-panel'); await p.waitForSelector('#panel', { state: 'visible', timeout: T.step }); } },
+      { id: 'faktaruta', hash: '#y=1889', setup: async p => {
+        await p.click('#btn-panel');
+        await p.locator('#event-list .event-btn').first().click({ timeout: T.step });
+        await p.waitForSelector('#detail', { state: 'visible', timeout: T.step });
+        if (await p.isVisible('#panel-close')) await p.click('#panel-close');
+      } },
+      { id: 'tur', hash: '#t=forsta-varldskriget', setup: async p => { await p.waitForSelector('#tour-card', { state: 'visible', timeout: T.step }); } },
+    ];
+    // [knapp, det som öppnas]. Öppnas ingenting av dessa räknas klicket som missat.
+    const CONTROLS = [
+      ['btn-layers', ['#layer-menu']], ['btn-focus', ['#focus-menu']], ['btn-help', ['#help']],
+      ['btn-sources', ['#sources-dialog']], ['btn-quiz', ['#quiz']], ['btn-hunt', ['#hunt']],
+    ];
+    const problems = [];
+    let measured = 0, skipped = 0, n = 0;
+    for (const surface of SURFACES) {
+      for (const [btn, opens] of CONTROLS) {
+        const mp = await context.newPage();
+        try {
+          if (THREE_LOCAL) {
+            const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+            await mp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+            await mp.route(u => isFont(u.href), r => r.abort());
+          }
+          await mp.goto(`${BASE}?ny=m${n++}${surface.hash}`);
+          await mp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          await surface.setup(mp);
+          // Knappen kan ligga i Mer/Meny: öppna den som en besökare gör
+          if (!(await mp.isVisible(`#${btn}`))) {
+            if (await mp.isVisible('#more-toggle')) await mp.click('#more-toggle'); else if (await mp.isVisible('#btn-more')) await mp.click('#btn-more');
+          }
+          if (!(await mp.isVisible(`#${btn}`))) { skipped++; continue; } // finns inte i den här bredden eller i det här läget
+          measured++;
+          const cover = await mp.evaluate(id => {
+            const b = document.getElementById(id), r = b.getBoundingClientRect();
+            const el = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
+            if (el && b.contains(el)) return null;
+            return el ? `${el.tagName.toLowerCase()}${el.id ? `#${el.id}` : ''}${el.className && typeof el.className === 'string' ? `.${el.className.trim().split(/\s+/).join('.')}` : ''}` : 'ingenting';
+          }, btn);
+          if (cover) { problems.push(`${surface.id} → ${btn}: täcks av ${cover}`); continue; }
+          try { await mp.click(`#${btn}`, { timeout: 5000 }); } catch (e) { problems.push(`${surface.id} → ${btn}: riktigt klick gick inte (${String(e.message).split('\n')[0]})`); continue; }
+          await mp.waitForTimeout(400);
+          const opened = await mp.evaluate(sels => sels.some(sel => { const el = document.querySelector(sel); return el && !el.hidden && el.getClientRects().length > 0; }), opens);
+          if (!opened) problems.push(`${surface.id} → ${btn}: klicket öppnade inte ${opens.join(' eller ')}`);
+        } finally {
+          await mp.close();
+        }
+      }
+    }
+    if (problems.length) throw new Error(`${problems.length} av ${measured} par felar: ${problems.join(' | ')}`);
+    return `${measured} par (${SURFACES.map(x => x.id).join(', ')} × ${CONTROLS.length} knappar) klickbara med riktig pekning; ${skipped} fanns inte i bredden`;
+  });
+
   // #884: en bild som svarar 404 ska ge en kort rad i faktarutan, inte en tom bildyta som ser trasig ut.
   await check('en bild som inte laddas ersätts av en rad i faktarutan (#884)', async () => {
     const ip = await context.newPage();
