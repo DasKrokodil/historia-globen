@@ -245,6 +245,31 @@ body {
 .jump-date-event::after { content: "›"; flex: none; color: var(--brass); font-size: 16px; }
 .jump-date-event:hover { border-color: var(--brass-deep); }
 @media (max-width: 760px) { .jump-pop.has-date-result .jump-epochs { display: none; } }
+/* Tidsintervallet (#755): formuläret med två årsfält och stegknappar, raden med det aktiva intervallet och bandet på reglaget */
+.range-open { display: block; margin-top: 10px; min-height: 32px; text-align: left; }
+.range-row { display: grid; grid-template-columns: 3.2em 38px minmax(0, 1fr) 38px auto; gap: 6px; align-items: stretch; margin-top: 8px; }
+.range-label { align-self: center; font: 500 12px/1 var(--f-mono); color: var(--parchment-dim); }
+.range-step {
+  min-width: 38px; height: 38px; padding: 0; border: 1px solid var(--control-line); border-radius: 8px;
+  font: 500 18px/1 var(--f-mono); color: var(--parchment); background: var(--night); cursor: pointer;
+}
+.range-step:hover { border-color: var(--brass-deep); }
+.range-step:focus-visible, .range-input:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 1px; }
+.range-actions { display: flex; gap: 12px; align-items: center; margin-top: 12px; }
+.range-actions .jump-go { min-height: 38px; }
+.range-bar {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin: 4px 0 0; pointer-events: auto;
+  font: 500 12px/1.4 var(--f-mono); color: var(--parchment); text-shadow: 0 1px 4px var(--night);
+}
+.range-bar[hidden] { display: none; }
+.range-exit { min-height: 32px; }
+.year-jump.is-range .year-big { font-size: clamp(34px, 5vw, 56px); }
+.range-band {
+  position: absolute; top: 11px; height: 14px; border-radius: 4px; pointer-events: none;
+  background: color-mix(in srgb, var(--brass) 35%, transparent); border: 1px solid var(--brass);
+}
+.range-band[hidden] { display: none; }
+.event-item.is-partial .ttl { color: var(--parchment-dim); }
 .segment-note {
   margin: 6px 0 0;
   font-family: var(--f-mono);

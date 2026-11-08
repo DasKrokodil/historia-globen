@@ -35,6 +35,7 @@ import { createFacts } from './controllers/facts.js';
 import { createFocus } from './controllers/focus.js';
 import { createRender } from './controllers/render.js';
 import { createPlayback } from './controllers/playback.js';
+import { createRange } from './controllers/range.js';
 import { createLabels } from './controllers/labels.js';
 import { createAddress } from './controllers/address.js';
 
@@ -150,7 +151,7 @@ async function start() {
   });
   setupYearJump(timeline, {
     button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'),
-    events: data.events, copy: views?.jump ?? {}, onJump: () => app.orientToPanelHighlight(),
+    events: data.events, copy: views?.jump ?? {}, onJump: () => { app.range?.close(); app.orientToPanelHighlight(); }, // ett hopp till ett år stänger intervallet (#755)
     onSelect: id => app.select(id, false), // raderna i datumresultatet (#590); året är redan rätt
   });
   // Samma direkta årshopp som Min dag i historien och Hoppa till år använder: stoppa
@@ -297,6 +298,8 @@ async function start() {
   Object.assign(app, { labelText: labels.labelText, fillLabel: labels.fillLabel });
 
   app.playback = createPlayback(app);
+  // Tidsintervallet (#755): läget 'intervall' i lägeskontraktet, med formuläret i årshoppet och raden under årtalet
+  app.range = createRange(app);
 
   panel.onSelect = (...a) => app.select(...a);
   panel.onFocus = id => app.startFocus(`war:${id}`);

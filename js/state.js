@@ -14,6 +14,9 @@ export function createState() {
     wholeYear: 0,     // hela året, som riken, religioner och fun facts använder
     fine: false,      // fokusläget för ett kort krig: tiden räknas i dagar (#204)
     window: 0,        // hur många år runt året som räknas som "samtidigt" (tidslinjens fönster)
+    // Tidsintervallet (#569, #755): { from, to } eller null. from är året (year), to är slutåret. Läget 'intervall' i
+    // lägeskontraktet (MODE_RULES nedan); det utesluter Fokus och uppspelning.
+    range: null,
     span: e => [e.start, e.end], // en händelses tid som [början, slut], i fokusläget för korta krig datum ur edtf
     playing: false,   // spelade tidslinjen när omritningen började
 
@@ -74,8 +77,8 @@ const FOCUS_TYPES = ['war', 'empire', 'religion', 'route'];
 // ---------------------------------------------------------------------------------------------------------
 // Lägeskontraktet (#893, beslut docs/beslut/2026-11-08-lagen.md)
 //
-// Besökaren är alltid i Utforska, och ovanpå det i noll eller flera lägen: Fokus, Tur, Lektion, Jakt och (från #755)
-// Intervall. Varje läge börjar med store.enter(läge, ögonblicksbild) och slutar med store.leave([...lägen]).
+// Besökaren är alltid i Utforska, och ovanpå det i noll eller flera lägen: Fokus, Tur, Lektion, Jakt och Intervall
+// (tidsintervallet, #755, js/controllers/range.js). Varje läge börjar med store.enter(läge, ögonblicksbild) och slutar med store.leave([...lägen]).
 // Tabellen MODE_RULES nedan säger vad som händer när ett läge börjar medan ett annat pågår, och vad en utgång
 // får återställa. Samma tabell står i docs/arkitektur.md och prövas i tests/state.test.mjs.
 //
@@ -97,7 +100,6 @@ export const MODES = ['fokus', 'tur', 'lektion', 'jakt', 'intervall'];
  *   'villkor' (beror på år eller tur och kontrolleras i lägets egen modul; förklaringen står i docs/arkitektur.md).
  * - restore: vad en utgång återställer ur ögonblicksbilden från när läget började. Året står alltid kvar.
  * - takes: vad läget tar över när det avslutar ett annat läge; de fälten återställs då inte.
- * - planned: läget byggs i ett senare issue; reglerna gäller redan.
  */
 export const MODE_RULES = {
   fokus: {
@@ -119,7 +121,7 @@ export const MODE_RULES = {
     restore: [], takes: [],
   },
   intervall: {
-    planned: '#755',
+    // Uppspelning och dragning i tidslinjen stänger också intervallet (js/controllers/range.js); de är inga lägen
     when: { fokus: 'avslutar', tur: 'stoppas', lektion: 'stoppas', jakt: 'stoppas' },
     restore: [], takes: ['focus'],
   },
@@ -148,7 +150,7 @@ export function exitRestore(active, leaving, takenBy = null) {
 
 /**
  * Ett lager med tillståndet och dess åtgärder. Varje åtgärd ändrar state och meddelar prenumeranterna
- * med { type, state }, där type är 'year', 'focus', 'selected', 'layers', 'filters', 'tag', 'calm' eller 'mode'.
+ * med { type, state }, där type är 'year', 'focus', 'selected', 'layers', 'filters', 'tag', 'calm', 'range' eller 'mode'.
  */
 export function createStore(state = createState()) {
   const subscribers = new Set();
@@ -248,12 +250,18 @@ export function createStore(state = createState()) {
       state.calm = !!on;
       notify('calm');
     },
+    /** Tidsintervallet (#755): { from, to } med from < to, eller null för ett enskilt år. */
+    setRange(range) {
+      state.range = range ? { from: Math.min(range.from, range.to), to: Math.max(range.from, range.to) } : null;
+      notify('range');
+    },
   };
 }
 
 /**
- * Tillståndet som JSON-vänligt objekt: år, kamera, fokus, lager, kategorier och Lugn rörelse.
- * camera = { lat, lon, zoom } från globen (Globe.view), eller null.
+ * Tillståndet som JSON-vänligt objekt: år, kamera, fokus, lager, kategorier och Lugn rörelse, och slutåret
+ * (yearEnd) när ett tidsintervall är valt (#755). camera = { lat, lon, zoom } från globen (Globe.view), eller null.
+ * yearEnd är ett valfritt tillägg: utan det är tillståndet ett år som förut, så STATE_VERSION är oförändrad.
  */
 export function toJSON(state, camera = null) {
   const round = (x, n) => Math.round(x * 10 ** n) / 10 ** n;
@@ -265,6 +273,7 @@ export function toJSON(state, camera = null) {
     layers: Object.keys(state.layers).filter(k => state.layers[k]).sort(),
     filters: [...state.filters].sort(),
     calm: !!state.calm,
+    ...(state.range ? { yearEnd: Math.round(state.range.to) } : {}),
   };
 }
 
@@ -296,5 +305,8 @@ export function fromJSON(value) {
     const clean = x => Number(x.toFixed(6)); // utan flyttalsbrus från omräkningen
     camera = { lat: clean(Math.max(-90, Math.min(90, lat))), lon: clean(((((lon + 180) % 360) + 360) % 360) - 180), zoom: clean(Math.max(0.8, Math.min(3.2, zoom))) };
   }
-  return { v: STATE_VERSION, year: doc.year, camera, focus, layers: words(doc.layers, 'Lagren'), filters: words(doc.filters, 'Kategorierna'), calm: !!doc.calm };
+  // Slutåret (#755) är valfritt: saknas det, är det inget tal eller inte efter året, öppnas tillståndet som ett år
+  const yearEnd = typeof doc.yearEnd === 'number' && Number.isFinite(doc.yearEnd) && Math.round(doc.yearEnd) > doc.year ? Math.round(doc.yearEnd) : null;
+  return { v: STATE_VERSION, year: doc.year, camera, focus, layers: words(doc.layers, 'Lagren'), filters: words(doc.filters, 'Kategorierna'), calm: !!doc.calm,
+    ...(yearEnd != null ? { yearEnd } : {}) };
 }

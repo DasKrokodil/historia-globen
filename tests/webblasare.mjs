@@ -3025,6 +3025,92 @@ async function run(browser, vp) {
     }
     return 'Fokus under en tur avslutar turen utan att det gamla fokuset kommer tillbaka; en lektionslänk medan startens fokus laddas gäller';
   });
+  // #755: tidsintervallet. En delad länk med y2, Tillbaka till ett år, valet med tangentbordet (årsfält, pil upp, Enter) och
+  // lägeskontraktet: Fokus och uppspelning stänger intervallet, och under en tur går det inte att välja.
+  await check('tidsintervallet: delad länk, tangentbord, Tillbaka till ett år, och Fokus och uppspelning stänger det (#755)', async () => {
+    const tp = await context.newPage();
+    const errors = [];
+    tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    tp.on('pageerror', e => errors.push(e.message));
+    const text = sel => tp.textContent(sel).then(x => x.trim());
+    const hashHas = (re, want = true) => tp.waitForFunction(([src, w]) => new RegExp(src).test(location.hash) === w, [re.source, want], { timeout: T.step });
+    const shown = sel => tp.evaluate(q => { const el = document.querySelector(q); return !!el && !el.hidden && el.getClientRects().length > 0; }, sel);
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      // 1. Den delade länken öppnar intervallet
+      await tp.goto(`${BASE}?ny=91#y=1914&y2=1918`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
+      if (await text('#year-big') !== '1914–1918') throw new Error(`årtalet visar ${await text('#year-big')} i stället för 1914–1918`);
+      if (!(await text('#range-bar-text')).startsWith('1914–1918 · ')) throw new Error(`raden visar ${await text('#range-bar-text')}`);
+      if (!(await text('#panel-sub')).includes('1914–1918')) throw new Error(`listan säger inte intervallet: ${await text('#panel-sub')}`);
+      await hashHas(/y2=1918/);
+      // 2. Tillbaka till ett år går till slutåret
+      await tp.click('#range-exit');
+      await tp.waitForSelector('#range-bar', { state: 'hidden', timeout: T.step });
+      if (await text('#year-big') !== '1918') throw new Error(`Tillbaka till ett år gav ${await text('#year-big')}, inte 1918`);
+      await hashHas(/y2=/, false);
+      // 3. Tangentbordet: årshoppet, länken till intervallet, årsfälten med pil upp och Enter
+      await tp.focus('#year-jump');
+      await tp.keyboard.press('Enter');
+      await tp.waitForSelector('#jump-pop', { state: 'visible', timeout: T.step });
+      await tp.focus('#range-open');
+      await tp.keyboard.press('Enter');
+      await tp.waitForSelector('#range-pop', { state: 'visible', timeout: T.step });
+      if (await tp.evaluate(() => document.activeElement?.id) !== 'range-from') throw new Error('fältet Från fick inte fokus när formuläret öppnades');
+      await tp.fill('#range-from', '1939');
+      await tp.keyboard.press('ArrowUp');
+      if (await tp.inputValue('#range-from') !== '1940') throw new Error(`pil upp gav ${await tp.inputValue('#range-from')} i stället för 1940`);
+      await tp.fill('#range-to', '1945');
+      await tp.keyboard.press('Enter');
+      await tp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
+      if (await text('#year-big') !== '1940–1945') throw new Error(`formuläret gav ${await text('#year-big')}`);
+      if (await tp.evaluate(() => document.activeElement?.id) !== 'range-exit') throw new Error('fokus hamnade inte på Tillbaka till ett år');
+      await hashHas(/y=1940&y2=1945/);
+      // f.Kr. med stegknappen över gränsen: 1 f.Kr. + 1 år = 1 e.Kr.
+      await tp.evaluate(() => { document.getElementById('year-jump').click(); document.getElementById('range-open').click(); });
+      await tp.fill('#range-from', '1');
+      await tp.evaluate(() => { const b = document.querySelector('#range-pop .range-row .jump-era-btn'); if (b.getAttribute('aria-pressed') !== 'true') b.click(); });
+      await tp.click('#range-pop .range-row .range-step:nth-of-type(2)');
+      const after = await tp.evaluate(() => [document.getElementById('range-from').value, document.querySelector('#range-pop .range-row .jump-era-btn').getAttribute('aria-pressed')]);
+      if (after.join() !== '1,false') throw new Error(`1 f.Kr. + 1 år gav ${after.join(' ')} i stället för 1 e.Kr.`);
+      await tp.keyboard.press('Escape');
+      await tp.waitForSelector('#range-pop', { state: 'hidden', timeout: T.step });
+      // 4. Fokus stänger intervallet
+      await tp.evaluate(() => document.getElementById('btn-focus').click());
+      await tp.fill('#focus-menu input', 'Koreakriget');
+      await tp.evaluate(() => document.querySelector('#focus-menu [data-key="war:koreakriget"]').click());
+      await tp.waitForSelector('#focus-bar:not([hidden])', { state: 'attached', timeout: T.step });
+      if (await shown('#range-bar')) throw new Error('intervallet stod kvar när Fokus började');
+      await hashHas(/f=war:koreakriget/);
+      if (/y2=/.test(await tp.evaluate(() => location.hash))) throw new Error('adressen har både fokus och intervall');
+      // Ett intervall i adressen avslutar Fokus
+      await tp.evaluate(() => { location.hash = '#y=1914&y2=1918'; });
+      await tp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
+      if (await shown('#focus-bar')) throw new Error('Fokus stod kvar när intervallet valdes');
+      // 5. Uppspelningen stänger intervallet
+      await tp.evaluate(() => document.getElementById('btn-play').click());
+      await tp.waitForSelector('#range-bar', { state: 'hidden', timeout: T.step });
+      await tp.evaluate(() => document.getElementById('btn-play').click()); // pausa
+      // 6. Under en tur går intervallet inte att välja
+      await tp.evaluate(() => { location.hash = '#t=tre-platser-1325'; });
+      await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      await tp.evaluate(() => { document.getElementById('year-jump').click(); document.getElementById('range-open').click(); });
+      await tp.fill('#range-from', '1300');
+      await tp.fill('#range-to', '1350');
+      await tp.click('#range-pop .jump-go');
+      if (!(await text('#range-msg'))) throw new Error('formuläret sa inget när intervallet inte gick att välja under turen');
+      if (await shown('#range-bar')) throw new Error('ett intervall valdes under turen');
+      if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
+    } finally {
+      await tp.close();
+    }
+    return 'länken med y2, Tillbaka till slutåret, årsfält med tangentbord och f.Kr.-gränsen; Fokus och uppspelning stänger intervallet, och en tur stoppar det';
+  });
   // #885: läraren får en väg till elev- och lärarbladen i lektionsläget (r=lararen i länken eller Starta som lektion i
   // Turer-menyn); eleven i den vanliga lektionslänken ser ingen utskriftsknapp. Utskriften rör inte steget.
   await check('läraren når elev- och lärarbladen i lektionsläget, eleven inte (#885)', async () => {
