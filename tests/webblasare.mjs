@@ -1759,8 +1759,13 @@ async function run(browser, vp) {
       if (await overlap()) throw new Error('fokusraden ligger över pausraden');
       await page.click('#pause-more summary');
       await page.waitForFunction(() => document.getElementById('pause-more').open, null, { timeout: T.step });
-      await page.waitForTimeout(100); // låt ResizeObserver flytta fokusraden
-      if (await overlap()) throw new Error('fokusraden ligger över pausraden när noten är utfälld');
+      // ResizeObserver flyttar fokusraden efter att noten har fällts ut (#888: en fast väntan på 100 ms räckte inte i
+      // Firefox i CI). Vänta på tillståndet i stället: raderna ska sluta överlappa inom T.step, annars är det ett fel.
+      await page.waitForFunction(() => {
+        const a = document.getElementById('focus-bar').getBoundingClientRect();
+        const b = document.getElementById('pause-note').getBoundingClientRect();
+        return !(a.bottom > b.top + 1 && a.top < b.bottom - 1 && a.right > b.left && a.left < b.right);
+      }, null, { timeout: T.step }).catch(() => { throw new Error('fokusraden ligger över pausraden när noten är utfälld'); });
       await page.click('#pause-more summary');
       const pauseText = (await page.textContent('#pause-text')).replace(/\s+/g, ' ').trim();
       await page.waitForFunction(text => document.getElementById('screen-reader-status')?.textContent.includes(text), pauseText, { timeout: T.step });
