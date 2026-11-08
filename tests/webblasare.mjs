@@ -118,9 +118,10 @@ function failNote(e) {
 }
 
 // En hämtning som avbryts av en omladdning eller navigering skrivs som ett fel i konsolen: WebKit "TypeError: Load failed"
-// (#702), Firefox "TypeError: NetworkError when attempting to fetch resource." (#888). Bara exakt de meddelandena, och bara
+// (#702), Firefox "TypeError: NetworkError when attempting to fetch resource." eller "AbortError: The operation was aborted."
+// (#888). Bara exakt de meddelandena, och bara
 // medan sidan navigerar, räknas bort; de syns inte för en besökare som lämnar sidan.
-const ABORTED_FETCH = /^TypeError: (Load failed|NetworkError when attempting to fetch resource\.)$/;
+const ABORTED_FETCH = /^(TypeError: (Load failed|NetworkError when attempting to fetch resource\.)|AbortError: The operation was aborted\.\s*)$/;
 
 // Konsolmeddelanden (#888): när console.error får ett objekt (till exempel ett Error) ger Firefox texten
 // "JSHandle@object" i m.text(), och loggen visade bara det. Texten sparas först som förut, och när meddelandet
