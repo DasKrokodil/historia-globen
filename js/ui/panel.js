@@ -192,6 +192,12 @@ function tagMarks(e, tags) {
   return marks.length ? `<div class="tag-marks">${marks.join('')}</div>` : '';
 }
 
+/** Varför listan är tom (#886): 'filters' när alla kategorier är avstängda, annars 'year' (inget kring året). */
+export function emptyCause({ visibleCount, filters }) {
+  if (visibleCount > 0) return null;
+  return filters.size === 0 ? 'filters' : 'year';
+}
+
 export class Panel {
   constructor({ root, list, filters, chips, detail, sub, count, toggle, close }, { events, srcById, styles }, { empireLegend = {}, uncertainty = {}, panel = {}, tags = {} } = {}) {
     Object.assign(this, { root, list, filtersEl: filters, detail, sub, count, toggle, srcById, styles, empireLegend, uncertainty });
@@ -219,6 +225,7 @@ export class Panel {
     // Visa bara kategorier som har händelser, i den fasta ordningen. Samma chips finns på två ställen:
     // under Lager (#120) och ovanför listan i panelen (#311). Båda styr samma filter, så de följs åt.
     const used = new Set(events.map(e => e.category));
+    this.allCategories = used;
     this.filters = new Set(used);
     const boxes = [filters, chips].filter(Boolean);
     for (const c of CATEGORIES.filter(c => used.has(c.id))) {
@@ -307,7 +314,8 @@ export class Panel {
     const parts = [];
     parts.push(inside ? plural('panel.inside', inside, { at }) : ui('panel.noneAt', { at }));
     if (near) parts.push(ui('panel.near', { count: near, within }));
-    this.sub.textContent = visible.length ? `${summaryText}. ${parts.join(', ')}.` : ui('panel.empty', { within, at: bare });
+    const filtersOff = emptyCause({ visibleCount: visible.length, filters: this.filters }) === 'filters';
+    this.sub.textContent = visible.length ? `${summaryText}. ${parts.join(', ')}.` : ui(filtersOff && !(this.tag && this.tags[this.tag]) ? 'panel.filtersOff' : 'panel.empty', { within, at: bare });
     const tagCopy = this.tag && this.tags[this.tag];
     if (!visible.length && tagCopy) {
       // Vyn med tagg (#555): säg om ingen händelse har taggen ännu, eller om det bara är tomt kring året
@@ -316,6 +324,23 @@ export class Panel {
       note.textContent = this.tagCounts.get(this.tag) ? (tagCopy.none ?? '').replace('{within}', within).replace('{at}', bare) : tagCopy.empty;
       this.sub.textContent = note.textContent;
       this.list.replaceChildren(note);
+      return;
+    }
+    if (filtersOff) {
+      // Alla kategorier av (#886): det är filtret som döljer händelserna, så dragning i tidslinjen hjälper inte
+      const help = document.createElement('p');
+      help.className = 'empty-note';
+      help.textContent = ui('panel.filtersOffHelp');
+      const reset = document.createElement('button');
+      reset.type = 'button';
+      reset.className = 'link-btn panel-show-all-categories';
+      reset.textContent = ui('panel.showAllCategories');
+      reset.addEventListener('click', () => {
+        this.setFilters(this.allCategories);
+        // Knappen försvinner när listan ritas om: fokus till första kategorin, som ligger kvar
+        (this.root.querySelector('.filter[data-cat]') ?? this.toggle).focus({ preventScroll: true });
+      });
+      this.list.replaceChildren(help, reset);
       return;
     }
     if (!visible.length) {

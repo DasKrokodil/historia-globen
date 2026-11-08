@@ -171,12 +171,14 @@ function teacherSheet(tour, srcById) {
 
 /**
  * Ritar elevbladet (och Källdetektiven) och lärarbladet för turen i root (#print-sheet) och öppnar webbläsarens utskrift.
- * Bladen tas bort efter utskriften. Ger false för en tur utan lärarfält.
+ * Bladen tas bort efter utskriften. Ger false för en tur utan lärarfält och 'sources' när källregistret inte gick att
+ * ladda: då skrivs inget ut, eftersom blad med källor utan titel och adress ser färdiga ut men inte går att använda (#879).
+ * Ett nytt anrop försöker ladda registret igen.
  */
 export async function printLesson(tour, root, { print = () => window.print() } = {}) {
   if (!tour?.lesson || !root) return false;
-  let srcById = {};
-  try { srcById = await loadSources(); } catch { /* utan källregistret skrivs källornas id ut */ }
+  let srcById;
+  try { srcById = await loadSources(); } catch { return 'sources'; }
   const cases = detective(tour);
   const sheets = [studentSheet(tour, srcById)];
   if (cases.length) sheets.push(detectiveSheet(tour, cases, srcById));

@@ -78,6 +78,12 @@
     <p id="lesson-band-title" class="lesson-band-title"></p>
     <button id="lesson-exit" class="lesson-exit" type="button" data-i18n="lesson.exit">Visa hela globen</button>
   </section>
+  <!-- En lektionslänk som inte gick att starta (#877): förklaring i stället för en tyst, vanlig glob -->
+  <section id="lesson-notice" class="lesson-band lesson-notice" role="alert" hidden>
+    <p id="lesson-notice-text" class="lesson-band-title"></p>
+    <button id="lesson-retry" class="lesson-exit" type="button" hidden data-i18n="lesson.retry">Försök igen</button>
+    <button id="lesson-notice-close" class="lesson-exit" type="button" data-i18n="common.close">Stäng</button>
+  </section>
 
   <header class="masthead">
     <h1 class="brand">Historia-globen</h1>
@@ -405,6 +411,7 @@
       <!-- Skriv ut (#738): elevblad och lärarblad ur turens lärarfält, bara i lektionsturer -->
       <button id="tour-print" class="link-btn" type="button" hidden></button>
     </div>
+    <p id="tour-print-status" class="tour-print-status" role="status" hidden></p>
     <!-- Slutkortet i en lektion (#795): länkar till lektionens uppdrag -->
     <div id="tour-lesson-end" class="tour-lesson-end" hidden>
       <p class="tour-lesson-end-label" data-i18n="lesson.next">Fortsätt med ett uppdrag</p>

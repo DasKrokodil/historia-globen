@@ -18,6 +18,8 @@
   --ok: #8fc48e;
   --medal: #10202c;        /* markörernas botten (#242), samma som GROUND i layers/events.js */
   --gold-dot: #f1d98a;     /* markörernas punkt för betydelse */
+  --z-panel: 15;           /* Samtidigt-panelen och andra sidopaneler (#887) */
+  --z-topbar: 17;          /* knapparna överst och deras öppna menyer ligger över sidopanelerna, annars tar panelen emot klicken (#887) */
   --print-ink: #111;       /* utskriften av en lektionstur (#738): svart text på vitt papper */
   --print-paper: #fff;
   --print-line: #666;      /* skrivrader och avdelare på papperet */
@@ -254,7 +256,7 @@ body {
 
 .top-actions {
   position: absolute;
-  z-index: 15;
+  z-index: var(--z-topbar);
   top: calc(env(safe-area-inset-top, 0px) + 18px);
   right: var(--gut-r);
   display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end;
@@ -437,7 +439,7 @@ body {
 /* ---------- panel: "Samtidigt i världen" som utfällbar meny (#112) ---------- */
 .panel {
   position: absolute;
-  z-index: 15;
+  z-index: var(--z-panel);
   top: calc(env(safe-area-inset-top, 0px) + 64px);
   right: var(--gut-r);
   width: var(--panel-w);
@@ -838,8 +840,9 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .lesson-exit:hover { background: color-mix(in srgb, var(--brass) 18%, transparent); }
 .lesson-exit:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
 .lesson-exit[hidden] { display: none; }
-.app.lesson .masthead { top: calc(env(safe-area-inset-top, 0px) + 52px); }
-.app.lesson .top-actions { top: calc(env(safe-area-inset-top, 0px) + 56px); }
+.app.lesson .masthead, .app.lesson-notice .masthead { top: calc(env(safe-area-inset-top, 0px) + 52px); }
+.app.lesson .top-actions, .app.lesson-notice .top-actions { top: calc(env(safe-area-inset-top, 0px) + 56px); }
+.lesson-notice .lesson-band-title { flex: 1; }
 .app.lesson .view-mode, .app.lesson #btn-layers, .app.lesson #btn-focus, .app.lesson #btn-tour, .app.lesson #btn-intro,
 .app.lesson #filters, .app.lesson #panel-filters, .app.lesson .focus-btn, .app.lesson [data-follow-war],
 .app.lesson #btn-hunt, .app.lesson #tour-print, .app.lesson #tour-close, .app.lesson #tour-end, .app.lesson #pause-stop, .app.lesson .story-tour { display: none !important; }
@@ -852,6 +855,11 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
   .lesson-exit { min-height: 44px; padding: 6px 12px; margin: -4px 0; }
   .app.lesson .masthead { top: calc(env(safe-area-inset-top, 0px) + 62px); }
   .app.lesson .top-actions { top: calc(env(safe-area-inset-top, 0px) + 66px); }
+  /* Förklaringen (#877) är längre än lektionsbandet: texten får en egen rad och knapparna en rad under */
+  .lesson-notice { flex-wrap: wrap; justify-content: flex-end; }
+  .lesson-notice .lesson-band-title { flex: 1 1 100%; }
+  .app.lesson-notice .masthead { top: calc(env(safe-area-inset-top, 0px) + 112px); }
+  .app.lesson-notice .top-actions { top: calc(env(safe-area-inset-top, 0px) + 116px); }
 }
 .app:has(.pause-note:not([hidden])) .tour-card { bottom: 186px; max-height: calc(100dvh - 186px - 150px); }
 .tour-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
@@ -874,6 +882,8 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .story-tour:hover { background: color-mix(in srgb, var(--card-accent) 14%, transparent); }
 .tour-links { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 10px; }
 .tour-links .link-btn[hidden] { display: none; }
+.tour-print-status { margin: 6px 0 0; font-size: 13px; line-height: 1.4; color: var(--danger); }
+.tour-print-status[hidden] { display: none; }
 .tour-actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 14px; }
 .tour-actions .chip-btn { margin-right: auto; }
 .tour-actions .chip-btn[hidden] { display: none; }
