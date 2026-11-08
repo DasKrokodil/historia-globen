@@ -606,6 +606,59 @@ async function run(browser, vp) {
     }
   });
 
+  // #884: en bild som svarar 404 ska ge en kort rad i faktarutan, inte en tom bildyta som ser trasig ut.
+  await check('en bild som inte laddas ersätts av en rad i faktarutan (#884)', async () => {
+    const ip = await context.newPage();
+    const errs = [];
+    ip.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await ip.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await ip.route(u => isFont(u.href), r => r.abort());
+      }
+      let broken = true;
+      await ip.route(u => /images\/events\/slaget-vid-stalingrad\.webp/.test(u.href), r => (broken ? r.fulfill({ status: 404, body: '' }) : r.continue()));
+      let loads = 0;
+      const openEvent = async (year, id) => {
+        await ip.goto(`${BASE}?ny=22${loads++}#y=${year}`); // ny sida varje gång, så att adressen inte bara byter fragment
+        await ip.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        if (await ip.isHidden('#panel')) await ip.click('#btn-panel');
+        await ip.locator(`#event-list .event-btn[data-id="${id}"]`).first().click({ timeout: T.step });
+      };
+      await openEvent(1943, 'slaget-vid-stalingrad');
+      // I mobilens halva läge är bilden dold och hämtas inte (loading=lazy); fäll ut kortet som en användare (pil upp på handtaget)
+      if (await ip.evaluate(() => document.getElementById('detail').dataset.sheet === 'half')) {
+        await ip.focus('#detail-handle');
+        await ip.keyboard.press('ArrowUp');
+      }
+      await ip.waitForSelector('#detail .detail-fig.is-missing', { state: 'attached', timeout: T.step });
+      const got = await ip.evaluate(() => {
+        const fig = document.querySelector('#detail .detail-fig');
+        const img = fig.querySelector('img');
+        const note = fig.querySelector('.fig-missing');
+        return { imgShown: img.getClientRects().length > 0, note: note?.textContent.trim() ?? '', noteShown: !!note && note.getClientRects().length > 0, height: Math.round(fig.getBoundingClientRect().height), caption: !!fig.querySelector('.fig-caption')?.textContent.trim() };
+      });
+      if (got.imgShown) throw new Error('den trasiga bilden visas fortfarande');
+      if (!got.noteShown || !/kunde inte laddas/.test(got.note)) throw new Error(`raden saknas eller är fel: "${got.note}"`);
+      if (got.height > 160) throw new Error(`figuren är ${got.height} px hög och ser fortfarande ut som en bildyta`);
+      if (!got.caption) throw new Error('bildtexten försvann');
+      // Samma händelse när bilden finns: den visas som förut
+      broken = false;
+      await openEvent(1943, 'slaget-vid-stalingrad');
+      if (await ip.evaluate(() => document.getElementById('detail').dataset.sheet === 'half')) {
+        await ip.focus('#detail-handle');
+        await ip.keyboard.press('ArrowUp');
+      }
+      await ip.waitForSelector('#detail .detail-fig img', { state: 'visible', timeout: T.step });
+      await ip.waitForFunction(() => { const i = document.querySelector('#detail .detail-fig img'); return i && i.complete && i.naturalWidth > 0; }, null, { timeout: T.step });
+      if (await ip.locator('#detail .detail-fig.is-missing').count()) throw new Error('en bild som laddas märktes som saknad');
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `404 ger raden "${got.note}" (figuren ${got.height} px, bildtexten kvar); en bild som laddas visas som förut`;
+    } finally {
+      await ip.close();
+    }
+  });
   // Quizet (#65): tre svar ur datan, rätt eller fel med årtal och källor, nästa fråga, bara tangentbord och Escape
   await check('quizet ställer frågor ur fun facts och går att svara på med tangentbordet (#65)', async () => {
     // Fallerar kontrollen stängs quizet, så att rutan inte täcker sidan för kontrollerna efter

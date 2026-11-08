@@ -405,6 +405,7 @@
   "detail.followWar": "Suivre la guerre lentement",
   "detail.battles": "Batailles et événements de la guerre",
   "image.placeholder": "Image provisoire",
+  "image.missing": "L'image n'a pas pu être chargée",
   "review.info": "Que signifie le statut de vérification ?",
   "story.why": "Pourquoi la guerre a commencé",
   "story.parties": "Les camps",
