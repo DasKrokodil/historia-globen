@@ -8,29 +8,68 @@
 //   f     det man följer i Fokus: <typ>:<id>, typ = war, empire, religion eller route
 //   l     lagren som är på (id i lagerregistret), kommaseparerade; "l=" betyder inga lager
 //   k     kategorierna som syns; saknas k syns alla kategorier
+//   t     en guidad tur som pågår (tur-id i data/turer/, #736); en länk med t startar turen
+//   s     turens steg (stegets id); saknas s börjar turen vid första steget
+//   u     ett elevuppdrag som pågår (uppdragets id i data/uppdrag.json, #741); en länk med u startar uppdraget
+//   m     läget: bara m=lektion finns (#795). Tillsammans med t startar länken turen som lektion med låst
+//         lagerval (lesson.lock i turen); utan en tur som är en lektionstur gör m ingenting
+//
+// En länk till en tur behöver bara t, till exempel #t=vikingatiden-och-varlden. Den äldre formen ?tur=<id>
+// fungerar också. Medan turen pågår skriver sidan y, c, l, k, t och s för det steg som visas.
 //
 // Lugn rörelse står inte i länken: det är besökarens egen inställning för tillgänglighet och ska inte
 // ändras av någon annans länk.
 //
-// Bara y krävs. Okända fält hoppas över, så att en länk från en senare version ändå öppnas så gott det går.
+// Bara y krävs (eller t, för en tur). Okända fält hoppas över, så att en länk från en senare version ändå öppnas så gott det går.
 // Filen har inga importer från webbläsaren och testas i node (tests/url-state.test.mjs).
 
 import { STATE_VERSION, fromJSON } from './state.js';
 
+const ID = /^[a-z0-9-]+$/;
+export const LESSON_MODE = 'lektion';
 const num = x => String(Math.round(x * 10000) / 10000);
 
 /**
  * Hashen för ett tillstånd från toJSON(). allCategories är alla kategorier som finns i datan: syns alla,
  * skrivs k inte ut, så att länken blir kort och fortsätter att visa alla när en ny kategori kommer till.
  */
-export function encodeHash(json, allCategories = []) {
+export function encodeHash(json, allCategories = [], tour = null, mission = null, mode = null) {
   const parts = [`y=${num(json.year)}`];
   if (json.camera) parts.push(`c=${[json.camera.lat, json.camera.lon, json.camera.zoom].map(num).join(',')}`);
   if (json.focus) parts.push(`f=${json.focus}`);
   parts.push(`l=${(json.layers ?? []).join(',')}`);
   const all = allCategories.length && allCategories.every(c => json.filters.includes(c));
   if (!all) parts.push(`k=${(json.filters ?? []).join(',')}`);
+  if (tour?.id && ID.test(tour.id)) {
+    parts.push(`t=${tour.id}`);
+    if (tour.step && ID.test(tour.step)) parts.push(`s=${tour.step}`);
+  }
+  if (mission && ID.test(mission)) parts.push(`u=${mission}`);
+  if (mode === LESSON_MODE && tour?.id) parts.push(`m=${mode}`); // läget hör till en tur
   return `#${parts.join('&')}`;
+}
+
+/** Elevuppdraget i en hash ("#…&u=<id>", #741), eller null. Id med fel tecken räknas som saknade. */
+export function decodeMission(hash) {
+  const id = new URLSearchParams(String(hash ?? '').replace(/^#/, '')).get('u');
+  return id && ID.test(id) ? id : null;
+}
+
+/** Läget i en hash ("#…&m=lektion", #795): 'lektion' eller null. Okända lägen räknas som saknade. */
+export function decodeMode(hash) {
+  return new URLSearchParams(String(hash ?? '').replace(/^#/, '')).get('m') === LESSON_MODE ? LESSON_MODE : null;
+}
+
+/**
+ * Turen i en hash ("#…&t=<id>&s=<steg>", #736) eller i den äldre formen ?tur=<id> (search). Ger { id, step }
+ * eller null. step är null när länken inte anger något steg. Id med fel tecken räknas som saknade.
+ */
+export function decodeTour(hash, search = '') {
+  const params = new URLSearchParams(String(hash ?? '').replace(/^#/, ''));
+  const id = params.get('t') ?? new URLSearchParams(String(search ?? '')).get('tur');
+  if (!id || !ID.test(id)) return null;
+  const step = params.get('s');
+  return { id, step: step && ID.test(step) ? step : null };
 }
 
 /**

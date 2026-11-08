@@ -1,0 +1,79 @@
+# Gemensam rekommendation efter v5.0.0 (2026-11-06)
+
+Claude Code (dirigent, Rikards konto) har jämfört Codex helhetsanalys ([PR #703](https://github.com/DasKrokodil/historia-globen/pull/703), `docs/granskningar/2026-11-06-helhetsanalys.md`) med koden på `main` (`e35e79e`), de öppna issues och milstolparna, och gjort en egen kontroll i webbläsaren (Chromium/Playwright, 400×800 och 360×640, ny profil utan sparade val). Rikard godkände planen samma dag; se "Triage genomförd" sist.
+
+## Vad Codex har rätt i (bekräftat)
+
+| Codex fynd | Kontroll | Bedömning |
+| --- | --- | --- |
+| Fynd 1: mobilkortet krockar med tidslinjen | **Bekräftat.** I 400×800 ligger Samtidigt-kortets knapprad (Fun facten, Källor, Nästa, Visste du?) på 682–714 px och uppspelningsraden börjar på 706 px; i 360×640 hamnar hela knappraden bakom tidslinjen (575–608 mot 546–580). Kortets innehåll är högre än kortet, så knappraden ligger under kortets nederkant och syns bara om man rullar inne i kortet. Källor-knappen syns alltså inte i startläget på en vanlig mobil. | Viktigaste fyndet. Nytt fel, inget öppet issue. |
+| P0.1: låsning utan grafikkort | Finns redan som #692. | Instämmer, högsta tekniska prioritet. |
+| #702: Firefox/WebKit i release-testet | Finns redan. | Instämmer: skilj "motorn startade inte" från "produkten gör fel". |
+| P0.3: CSP är bara Report-Only | Stämmer, men planen finns redan i docs/DEPLOYMENT.md: byt till skarp CSP efter en release utan CSP-varningar. | Inte helt liten: på produktionen lägger Cloudflare in sitt statistikskript (Web Analytics, `static.cloudflareinsights.com`), som bryter mot regeln. Skarp CSP skulle blockera det. Det kräver ett beslut, kopplat till #466. |
+| Strategin: stabilisera, sedan skolpilot, djup tid senare | Stämmer med CLAUDE.md:s versionsplan. | Instämmer. |
+| 5.2 har blivit en säck | 13 öppna i 5.2, varav 10 är översättning (#63, #670–#679). | Instämmer. Se förslag nedan. |
+
+## Var Codex behöver justeras
+
+1. **Fynd 2 (sökningen öppnas med "Försvunna länder") gäller inte en ny besökare.** I en ny webbläsare öppnas Sök och följ med "Alla" och utan aktiv filterrad. Fliken sparas i `localStorage` (`js/ui/focusmenu.js`), så Codex webbläsare mindes ett tidigare val. Det finns ett litet verkligt problem kvar: ett sparat filter följer med till nästa besök. Raden "Filter: …" och knappen för att återställa visas, så det är inte dolt. Låg prioritet; kan lösas genom att bara minnas sorteringen, inte fliken.
+2. **Krigsdominansen är mindre än siffran säger.** 438 av 761 händelser har kategorin krig, men 355 av dem är slag inne i ett krig (`partOf`) som bara syns i fokusläget. Av de 406 händelser som syns utzoomat är 83 krig (cirka 20 %), och civilisationer är störst (133). Balansfrågan är ändå verklig: `manniskan` har 1, `natur` 4, `rymden` 3 och `klimat` 5. Den mäts redan med `tools/tackning.py` (täckningsrapporterna 2026-11-05 och 2026-11-06), och perspektivlinserna finns som #384.
+3. **Tillgänglighetsflödet i CI (P1.2) finns till stor del redan.** `tests/webblasare.mjs` testar Enter, mellanslag, Escape, fokusåterkomst och reducerad rörelse för Meny, Lager, hjälpen, introduktionen och faktarutan. Det som saknas är 200 % zoom och Sök och följ-panelens fokusåterkomst. Det är ett litet tillägg, inte ett nytt spår.
+4. **Delbara länkar (P1.1) är redan byggda** (#64, #501, släppta i v5.0.0): adressen bär år, fokus, lager, filter och kamera, och språket går med `?lang=`. Kvar är att kontrollera att en lärares delade länk öppnar i samma språk, och att skriva lärarbladet (hör till Version 6, #250/#66).
+5. **Fynd 3 och 4 har redan issues:** #571 (förenkla kartkontrollerna för nya besökare, `beslut-krävs`), #365 (källkritisk karta) och #613 (fält för historisk osäkerhet, `beslut-krävs`). Fynd 4:s förslag att skilja "källorna är jämförda" från "dateringen är ungefärlig" hänger direkt på beslutet i #613.
+
+## Det Codex inte tog upp
+
+- **Översättningen är den största pågående arbetsmängden** (#63, #670–#679) och bör få en egen milstolpe, så att 5.2 blir bara sök, delning och introduktion (#15, #569, #579).
+- **Två beslut blockerar** och bör tas före nya data: #613 (osäkerhet som eget fält) och #630 (världsindelningen för Mikronesien och Rapa Nui).
+- **Riken: global täckning** (#644, PR #705 öppen) pågår och är oberoende av stabiliseringen; den kan fortsätta parallellt.
+- **Möjligt renderingsfel i mobil:** i den lokala kontrollen syntes en svart rektangel över globen i båda mobilbredderna. Det kan vara headless-webbläsarens mjukvaru-WebGL och inte ett fel på riktiga telefoner. Kontrolleras på riktig mobil vid nästa UX-genomgång innan något issue skapas.
+
+## Gemensam prioritering
+
+### Nu (stabilisering, före nya funktioner)
+
+1. **Nytt issue: Samtidigt-kortets knapprad döljs av tidslinjen i mobil** (bugg, `utseende`, kan få `redo`). Kortets innehåll ska rymmas i halvöppet läge eller kortet ska skjuta upp, och webbläsartestet ska kontrollera att Källor, Nästa och uppspelningsraden inte överlappar i 360×640 och 400×800. Liten–medel. Passar Claude Code eller Codex.
+2. **#692 låsning utan grafikkort.** Stor. Claude Code (rendering, Sonnet high).
+3. **#702 webbläsartestet i Firefox/WebKit.** Medel. Codex.
+4. **Skarp CSP** efter beslut om Cloudflare Web Analytics (#707, #466).
+
+### Nästa
+
+5. **Beslut av Rikard:** #613 och #571 (påverkar Fynd 3 och 4), och #630.
+6. **Dela upp 5.2:** flytta översättningsissues till en egen milstolpe "Språk".
+7. **Tillägg i webbläsartestet:** 200 % zoom och fokusåterkomst för Sök och följ. Liten. Codex.
+8. **Fortsatt översättning** enligt beslutet 2026-11-06 (engelska först) och rikenas täckning (#644–#646), parallellt.
+
+### Sedan
+
+9. **Skolpilot (Version 6):** lärarblad och två elevuppdrag utan konto (#250, #66), testat av en riktig lärare.
+10. **Innehållsbalans:** mål per perspektiv och världsdel med `tools/tackning.py` innan fler krig importeras; #384 som grund.
+
+### Bygg inte ännu
+
+Vi instämmer med Codex: inget LMS, inga konton, inga topplistor, ingen djup tid eller temamotor innan stabiliseringen och skolpiloten är klara.
+
+## Triage genomförd (2026-11-06)
+
+Rikard godkände planen. `handoff.json` har status `triaged`.
+
+**Nya issues:** #706 (mobilkortets knapprad, `redo`), #707 (skarp CSP och Cloudflare Web Analytics, `beslut-krävs`), #708 (200 % zoom och fokus i Sök och följ i webbläsartestet, väntar på #706 och #702), #709 (Sök och följ minns fliken, `beslut-krävs`).
+
+**Redo att ta nu:** #706 (vilken agent som helst), #692 (byggorder skriven; passar Claude Code), #671 (sedan tidigare).
+
+**Köordning med villkor (ändrar samma filer):**
+- `tests/webblasare.mjs`: #706 → #702 → #708.
+- `data/ui/` och `js/ui/funfact.js`: #671 och #706 → #670 → #672 → #673 → #674.
+- `data/oversattning.json` och `data/genererat/`: PR #705 (rikena) → första omgången av #676 (engelska, bara Claude Code; Codex korsgranskar).
+
+**Rikards beslut (samma dag), alla enligt dirigentens rekommendation:**
+- #707: Cloudflare Web Analytics stängs av, CSP blir skarp (`redo`). #466 stängd, beslutet från 2026-11-02 står fast.
+- #709: Sök och följ minns bara sorteringen (väntar på #671).
+- #613: anteckningstyper `note.kind` (Claude Code; väntar på PR #705), milstolpe Version 6.
+- #571: inget bygge; Rikard gör ett användartest efter #706 (etikett `användartest`).
+- #630: Mikronesien och Rapa Nui räknas till Oceanien (`redo`).
+- Beslutsfiler i `docs/beslut/`: `2026-11-06-anteckningstyper-613.md`, `2026-11-06-ingen-tredjepartsstatistik-skarp-csp.md`, `2026-11-06-varldsdelar-geografi-630.md`.
+
+**Milstolpar:** Rikard skapade två nya, och issuena är flyttade: "Version 5.1d: Stabilisering" (#692, #702, #706, #707, #708; exit-test: 360 × 640 och 400 × 800 utan överlapp, tangentbord och zoom, mätt hopp utan grafikkort) och ett parallellt spår "Språk: översättning" (#63, #670–#679). Då blir Version 5.2 bara sök, delning och introduktion (#15, #569, #579). #630 och #709 ligger också i 5.1d.
+
+**Att kontrollera:** den svarta rutan över globen i mobil i headless-testet ska jämföras med en riktig telefon vid nästa UX-genomgång innan ett issue skapas.

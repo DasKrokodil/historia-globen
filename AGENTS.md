@@ -114,3 +114,14 @@ Claude Code leder arbetet på Rikards uppdrag (beslut 2026-10-31). **Granskninga
 ## Granskningar
 
 Granskningar (rapporter, inte kod) lämnas enligt [docs/granskningar/README.md](docs/granskningar/README.md): rapporten och `handoff.json` på en egen gren `codex/granskning-*`, som pull request mot `main`, utan andra ändringar.
+
+### Granskar du åt Rikard eller Claude Code: lämna alltid en kommentar (beslut 2026-11-07)
+
+Ett granskningsuppdrag är inte klart förrän resultatet syns där det efterfrågades. Det gäller en granskning av en pull request, ett issue eller en fil, och alla agenter (Codex, Copilot och Claude Code på Andreas konto).
+
+1. **Skriv en kommentar i pull requesten eller issuet** när du är klar, också när du inte hittade något. Börja med "Codex-granskning: godkänd" eller "Codex-granskning: synpunkter" (motsvarande för Copilot och Claude Code), så att kökontrollen kan se att granskningen är gjord.
+2. **Skapade du en fil** (rapport, lista, skript, skärmbild eller liknande): skriv sökvägen i kommentaren, och på vilken gren och i vilken pull request filen ligger. En fil som bara finns i din arbetskatalog eller i ett lokalt tillstånd räknas inte som levererad.
+3. **Alternativt** får du lämna synpunkterna som kommentarer direkt i pull requesten (rad- eller granskningskommentarer). Då räcker det att summera dem i en kommentar: antal synpunkter och om någon blockerar sammanslagning.
+4. Skriv kort vad du kontrollerade (till exempel diff, källor, översättningar, tester) och vad du inte kunde kontrollera.
+5. Ändra inga filer i pull requesten under en granskning, om uppdraget inte säger det. Förslag på ändringar skrivs som kommentarer.
+6. Ingen kommentar, ingen granskning: Claude Code räknar en granskning utan kommentar som inte gjord.

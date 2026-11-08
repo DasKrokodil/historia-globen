@@ -63,3 +63,48 @@ test('ny post i historiken bara vid större steg', () => {
   assert.equal(isNewStep(base, { ...base, layers: ['events'] }), true);
   assert.equal(isNewStep(base, { ...base, filters: ['krig'] }), true);
 });
+
+test('en guidad tur i adressen: t och s skrivs och läses (#736)', async () => {
+  const { decodeTour } = await import('../js/url-state.js');
+  const hash = encodeHash(base, ['krig', 'kultur'], { id: 'tre-platser-1325', step: 'tanger' });
+  assert.equal(hash, '#y=1325&c=34,-50,1.6&l=areas,events&t=tre-platser-1325&s=tanger');
+  assert.deepEqual(decodeTour(hash), { id: 'tre-platser-1325', step: 'tanger' });
+  // Bara t räcker för en länk till turen; då börjar den vid första steget
+  assert.deepEqual(decodeTour('#t=vikingatiden-och-varlden'), { id: 'vikingatiden-och-varlden', step: null });
+  // Den äldre formen ?tur=<id> fungerar, men t i hashen går före
+  assert.deepEqual(decodeTour('', '?tur=andra-varldskriget'), { id: 'andra-varldskriget', step: null });
+  assert.deepEqual(decodeTour('#t=a&s=b', '?tur=c'), { id: 'a', step: 'b' });
+  // Fel tecken räknas som saknade, och utan tur skrivs inget t
+  assert.equal(decodeTour('#t=<script>'), null);
+  assert.deepEqual(decodeTour('#t=a&s=B!'), { id: 'a', step: null });
+  assert.equal(decodeTour('#y=1325'), null);
+  assert.ok(!encodeHash(base, [], null).includes('t='));
+  // En hash med tur går fortfarande att läsa som vy
+  assert.equal(decodeHash(hash).year, 1325);
+});
+
+test('ett elevuppdrag i adressen: u skrivs och läses (#741)', async () => {
+  const { decodeMission } = await import('../js/url-state.js');
+  const hash = encodeHash(base, ['krig', 'kultur'], null, 'samtidighetsjakten-1500');
+  assert.ok(hash.endsWith('&u=samtidighetsjakten-1500'));
+  assert.equal(decodeMission(hash), 'samtidighetsjakten-1500');
+  assert.equal(decodeMission('#y=1500'), null);
+  assert.equal(decodeMission('#u=Fel!'), null);
+});
+
+test('lektionsläget i adressen: m=lektion hör till en tur (#795)', async () => {
+  const { decodeMode, decodeTour } = await import('../js/url-state.js');
+  const tour = { id: 'andra-varldskriget', step: 'polen' };
+  const hash = encodeHash(base, ['krig', 'kultur'], tour, null, 'lektion');
+  assert.equal(hash, '#y=1325&c=34,-50,1.6&l=areas,events&t=andra-varldskriget&s=polen&m=lektion');
+  assert.equal(decodeMode(hash), 'lektion');
+  assert.deepEqual(decodeTour(hash), tour);
+  // Utan tur skrivs inget m, så att läget aldrig står ensamt i en adress (inga tomma lägen)
+  assert.ok(!encodeHash(base, [], null, null, 'lektion').includes('m='));
+  // Okända lägen och fel tecken räknas som saknade
+  for (const bad of ['#y=1&m=annat', '#m=Lektion', '#m=', '#y=1325', '', null, undefined]) assert.equal(decodeMode(bad), null, String(bad));
+  // Lektionen och elevuppdraget kan stå tillsammans
+  assert.ok(encodeHash(base, [], tour, 'samtidighetsjakten-1500', 'lektion').endsWith('&u=samtidighetsjakten-1500&m=lektion'));
+  // Hashen går fortfarande att läsa som vy
+  assert.equal(decodeHash(hash).year, 1325);
+});

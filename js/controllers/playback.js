@@ -10,6 +10,7 @@ import { MAX_YEAR } from '../timeline.js';
 import { routeStops as stopsForRoute } from '../layers/lines.js';
 import { hasTag } from '../layers/events.js';
 import { stopDate } from './story.js';
+import { ui } from '../i18n.js';
 
 export function createPlayback(app) {
   const { $, state, data, timeline, panel, layers, ff } = app;
@@ -29,11 +30,11 @@ export function createPlayback(app) {
     stopping = true;
     if (stop === 'end') {
       endShown = true; finishing = false; // knappen blir "Spela igen" (#232)
-      timeline.pause(focusWar.ongoing ? 'Pausad: läget i dag' : 'Pausad: kriget är slut', true); app.store.setSelected(focusWar.id); panel.showStory(focusWar, 'summary');
+      timeline.pause(ui(focusWar.ongoing ? 'play.pausedToday' : 'play.pausedWarEnd'), true); app.store.setSelected(focusWar.id); panel.showStory(focusWar, 'summary');
     } else {
       // I smal skärm öppnas inte panelen, så att kartan syns; händelsen markeras på globen
       shownStops.add(stop.id);
-      timeline.pause('Pausad vid en stor händelse i kriget', true); app.store.setSelected(stop.id); panel.showDetail(stop, matchMedia('(min-width: 761px)').matches);
+      timeline.pause(ui('play.pausedMajor'), true); app.store.setSelected(stop.id); panel.showDetail(stop, matchMedia('(min-width: 761px)').matches);
       // Tiden står på händelsens år, i ett kort krig på dess dag (#204, #224), också när flera
       // stopp kom i samma steg eller tiden redan hade hunnit förbi händelsen.
       timeline.year = timeline.spanOf(stop)[0];
@@ -47,8 +48,8 @@ export function createPlayback(app) {
     const focusRoute = state.focusRoute;
     stopping = true;
     const place = stop.place;
-    const text = place.text ? `Pausad: ${t(place.text)} · ${t(focusRoute.title)}`
-      : `Pausad vid ${t(place.name)} · ${stopDate(place)} · ${t(focusRoute.title)}`;
+    const text = place.text ? `${ui('play.pausedText', { text: t(place.text) })} · ${t(focusRoute.title)}`
+      : `${ui('play.pausedAt', { name: t(place.name) })} · ${stopDate(place)} · ${t(focusRoute.title)}`;
     // Noten finns redan i resedatan och ska synas vid varje stopp, så att osäkerheten inte tappas bort.
     // Rubriken syns i pausraden och texten fälls ut, så att raden inte blir så hög att den krockar (#647).
     // Skärmläsaren får hela noten.
@@ -85,12 +86,12 @@ export function createPlayback(app) {
   function showNextPause() {
     const { focusWar, focusRoute } = state;
     const n = nextPause();
-    const text = !n ? '' : n === 'end' ? (focusWar.ongoing ? 'läget i dag' : 'när kriget är slut')
+    const text = !n ? '' : n === 'end' ? ui(focusWar.ongoing ? 'play.nextToday' : 'play.nextWarEnd')
       : focusRoute ? `${t(n.place.name)} (${stopDate(n.place)})` : `${t(n.title)} (${timeline.format(timeline.spanOf(n)[0])})`;
-    for (const [el, pre] of [[$('next-pause'), 'Nästa paus: '], [$('pause-next'), 'Nästa: ']]) {
+    for (const [el, key] of [[$('next-pause'), 'play.nextPause'], [$('pause-next'), 'play.next']]) {
       el.hidden = !text;
-      el.textContent = text ? pre + text : '';
-      el.title = text ? `Nästa paus: ${text}` : '';
+      el.textContent = text ? ui(key, { text }) : '';
+      el.title = text ? ui('play.nextPause', { text }) : '';
     }
     showWarPlay(focusWar ? n : null);
     timeline.refreshPlayLabel();
@@ -104,11 +105,11 @@ export function createPlayback(app) {
     // Efter en automatisk paus ska eleven fortsätta där berättelsen stannade. "Spela klart"
     // erbjuds först när ett krigsstopp redan har visats, så starten alltid heter "Spela".
     const finish = !running && !timeline.resumable && !timeline.atEnd && state.focusWar && shownStops.size > 0 && next && next !== 'end' && !finishing;
-    const label = running ? 'Pausa' : timeline.resumable ? 'Fortsätt' : timeline.atEnd ? 'Spela igen' : finish ? 'Spela klart' : 'Spela';
+    const label = ui(running ? 'play.pause' : timeline.resumable ? 'play.resume' : timeline.atEnd ? 'play.again' : finish ? 'play.finishLabel' : 'play.play');
     action.dataset.action = running ? 'pause' : finish ? 'finish' : 'play';
     action.textContent = `${running ? 'Ⅱ' : '▶'} ${label}`;
-    action.setAttribute('aria-label', `${label} tiden i fokusläget`);
-    $('focus-state').textContent = `${timeline.format(timeline.year)} · ${running ? 'Spelar' : 'Står still'}`;
+    action.setAttribute('aria-label', ui('play.focusActionLabel', { action: label }));
+    $('focus-state').textContent = `${timeline.format(timeline.year)} · ${ui(running ? 'play.playing' : 'play.still')}`;
   }
   /** Raden vid spelknappen när man följer ett krig (#244): vilka pauser som är på (valen i Lager) och
    *  "Spela klart", som syns så länge det finns något att hoppa över före slutet. I smal skärm står
@@ -126,14 +127,14 @@ export function createPlayback(app) {
       for (const [cls, txt] of [['wp-long', long], ['wp-short', short]]) {
         const sp = document.createElement('span'); sp.className = cls; sp.textContent = txt; el.append(sp);
       }
-      if (!on) el.append(' (av)');
-      el.title = `Pausar ${what}: ${on ? 'på' : 'av'}. Ändras under Lager.`;
+      if (!on) el.append(` (${ui('play.off')})`);
+      el.title = ui('play.pausesAt', { what, state: ui(on ? 'play.on' : 'play.off') });
     };
-    item($('wp-major'), layers.pause.major, 'Krigets händelser', 'Krig', 'vid krigets stora händelser');
-    item($('wp-ff'), layers.pause.focusFunfacts, 'Samtidigt', 'Samtidigt', 'vid Samtidigt-kortet');
-    const pauses = `Pauser: krigets händelser ${layers.pause.major ? 'på' : 'av'}, Samtidigt ${layers.pause.focusFunfacts ? 'på' : 'av'}.`;
+    item($('wp-major'), layers.pause.major, ui('play.wpMajor'), ui('play.wpMajorShort'), ui('play.wpMajorWhat'));
+    item($('wp-ff'), layers.pause.focusFunfacts, ui('play.wpFf'), ui('play.wpFf'), ui('play.wpFfWhat'));
+    const pauses = ui('play.pausesState', { major: ui(layers.pause.major ? 'play.on' : 'play.off'), ff: ui(layers.pause.focusFunfacts ? 'play.on' : 'play.off') });
     for (const b of [$('wp-finish'), $('pause-finish')]) {
-      b.title = `Spela klart: till krigets slut utan pauser vid stora händelser. Slutkortet visas. ${pauses}`;
+      b.title = `${ui('play.finishTitle')} ${pauses}`;
       b.setAttribute('aria-label', b.title);
     }
   }
@@ -183,19 +184,19 @@ export function createPlayback(app) {
     // I fokus på en religion stannar uppspelningen vid händelserna när den grundades (#123)
     if (focus?.type === 'religion' && timeline.playing) {
       const hit = app.founding(focus.id).find(e => e.start > lastYear && e.start <= year);
-      if (hit) { timeline.pause('Pausad vid religionens grundande'); app.store.setSelected(hit.id); panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }
+      if (hit) { timeline.pause(ui('play.pausedFounding')); app.store.setSelected(hit.id); panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }
     }
     // I fokus på ett rike stannar uppspelningen vid rikets nyckelår, och kortet säger varför
     // riket växer eller krymper (#171). Valet finns i Lager.
     if (focus?.type === 'empire' && timeline.playing && layers.pause.empire) {
       const hit = app.storyFor(focus.id).find(c => c.year > lastYear && c.year <= year);
-      if (hit) { timeline.pause(`Pausad vid ${hit.label}: ${hit.title || 'rikets nyckelår'}`); timeline.year = hit.year; }
+      if (hit) { timeline.pause(ui('play.pausedKeyYear', { label: hit.label, title: hit.title || ui('play.keyYear') })); timeline.year = hit.year; }
     }
     // Pausa när ett krig bryter ut, om det är valt i lagermenyn (#114)
     if (!focus && timeline.playing && layers.pause.wars && eventsOn) {
       const war = data.events.find(e => e.kind === 'war' && e.start > lastYear && e.start <= year
         && panel.filters.has(e.category) && hasTag(e, state.tag) && isVisibleReview(e.review));
-      if (war) { timeline.pause('Pausad: ett krig bryter ut'); timeline.year = war.start; app.store.setSelected(war.id); panel.showDetail(war); }
+      if (war) { timeline.pause(ui('play.pausedWarStart')); timeline.year = war.start; app.store.setSelected(war.id); panel.showDetail(war); }
     }
     lastYear = year;
   }
@@ -253,8 +254,8 @@ export function createPlayback(app) {
     if (timeline.playing && on && !ff.minimized && !finishing) {
       const auto = !!layers.pause.ffAuto;
       const secs = auto ? readingSeconds(ff.announcement()) : 0;
-      const tail = auto ? ` Fortsätter själv om ${secs} sekunder.` : '';
-      timeline.pause('Pausad vid ett nytt Samtidigt-kort', false, `Pausad vid ett nytt Samtidigt-kort. ${ff.announcement()}${tail}`);
+      const tail = auto ? ` ${ui('play.autoIn', { secs })}` : '';
+      timeline.pause(ui('play.pausedFf'), false, `${ui('play.pausedFf')}. ${ff.announcement()}${tail}`);
       if (auto) startCountdown(secs);
     }
   };
@@ -271,7 +272,7 @@ export function createPlayback(app) {
   }
   function showCountdown() {
     countdownEl.hidden = !countdown;
-    countdownEl.textContent = countdown ? `Fortsätter om ${countdown.left} …` : '';
+    countdownEl.textContent = countdown ? ui('play.countdown', { secs: countdown.left }) : '';
   }
   function stopCountdown() {
     if (!countdown) return;

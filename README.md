@@ -66,6 +66,7 @@ js/layers/index.js    lagerlistan: alla lager som anmäler sig i registret (#338
 js/model.js           språk, kategorier, tidsformat, laddning av data
 js/i18n.js            språkval och gränssnittets texter på valt språk (#63)
 js/globe.js           3D-globen (three.js), ekvirektangulär rendering
+js/globe-detail.js    skarpt utsnitt av kartan vid inzoomning
 js/timeline.js        tidsreglage, segmenterad tidsskala, nuvarande år
 js/layers/events.js   lager: händelser som punkter
 js/layers/areas.js    lager: riken som områden som ändras över tid
@@ -86,8 +87,14 @@ js/url-state.js       adressformatet för delbara länkar och Bakåt/Framåt (#5
 js/search-index.js    sökningens index och matchning (#570)
 js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
 js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg, från Utforska (#363, #516)
+js/ui/quiz.js         quizet "Vad hände samtidigt?" under Mer, med frågor ur befintliga fun facts (#65)
+js/ui/print-sheet.js  utskrift av en lektionstur: elevblad och lärarblad ur turens lärarfält (#738)
+js/ui/uppdrag.js      elevuppdraget Samtidighetsjakten under Mer, med knappen i faktarutan (#741)
+js/uppdrag-rules.js   jaktens regler: år, världsdel och vad som räknas, delas med testerna (#741)
+js/quiz-rules.js      quizets regler: frågor och säkert felaktiga svar, delas med testerna (#65)
 js/ui/viewmode.js     vyväljaren: Glob, Platt karta och Upptäcktsresor (#651)
 js/ui/tour.js         guidade turer: spelar upp en tur ur data/turer/ steg för steg (knappen Turer, #47)
+js/ui/lesson.js       lektionsläget: länken m=lektion döljer menyerna, låser år och lager och visar bandet med "Visa hela globen" (#795)
 js/tour-format.js     turformatets kontroll, delas med testerna (#47)
 js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering (knappen Platt vy)
 js/ui/poster.js       A4-affisch som PNG från Platt vy (knappen Affisch)
@@ -111,13 +118,16 @@ docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källa
 data/handelser/       händelserna, en redigeringsfil per period; här redigeras händelser (#394)
 data/events.json      alla händelser i en fil, byggd ur data/handelser/ (redigeras inte)
 data/funfacts.json    fun facts, kopplade till händelser
+data/missuppfattningar.json  vanliga historiska missuppfattningar och var de kom ifrån (#838); visas i faktarutan för händelserna i events
 data/intro.json       introduktionens startår, texter och referenser till befintliga händelser/fun facts (#363, #516)
+data/uppdrag.json     elevuppdragen (Samtidighetsjakten): år, spann, antal världsdelar och texter (#741)
 data/turer/           guidade turer: index.json och en fil per tur med steg (år, kamera, text, lager, händelse, källor) (#47)
 data/sources.json     källregister
 data/version.json     versionsnummer och länk till releaserna
 data/licenses.json    genererat register över källornas licensuppgifter
 images/licenses.json  genererat register över händelsebildernas licenser (#393)
-data/land.json        grundkarta (Natural Earth)
+data/land.json        grundkarta (Natural Earth 1:50m)
+data/land-10m.json    finare kust (Natural Earth 1:10m), laddas först när det skarpa utsnittet används; byggs med tools/land_10m.mjs
 tools/riken.py        bygger rikesfilerna ur Cliopatria
 tools/riken_namn.py   hämtar rikenas namn på tyska, spanska och franska ur Wikidata; riken.py bevarar dem (#676, #644)
 tools/ne_omstridda.py tar ut omstridda områden ur Natural Earth till tools/ne-omstridda-omraden.geojson, som riken.py läser (#644)
@@ -127,6 +137,7 @@ tools/tackning.py     skriver täckningsrapporten med luckor per period, världs
 tools/tackningsrapport.py  skriver docs/tackningsrapport.md med täckningen per världsdel, århundrade och kategori
 tools/religioner.py   bygger religionslagret (data/religions.json) ur Cliopatria och faktarutornas texter, med arv av religion
 tools/religioner_riken.py  bygger rikenas gränser för religionslagrets klickruta ur Cliopatria
+tools/matning_hopp.mjs mäter hur länge sidan inte svarar vid ett långt hopp i tiden (Playwright, #692)
 tools/license_manifests.py  genererar data/licenses.json och images/licenses.json; validate-site.py kontrollerar att de är aktuella
 data/empires/         riken med utbredning per period, en fil per rike och index.json (Cliopatria)
 data/borders.json     dagens landsgränser (Natural Earth)
@@ -188,11 +199,13 @@ Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna]
 
 - **Koden** är licensierad under [GNU GPL v3.0](LICENSE). Du får använda, ändra och sprida den, men det du sprider vidare måste också vara öppet under GPL.
 - **Datan** i `data/` (händelser, fun facts och källregister) är licensierad under [CC BY 4.0](data/LICENSE). Ange "Historia-globen" som källa vid användning.
-- **Grundkartan** i `data/land.json` och **dagens landsgränser** i `data/borders.json` bygger på [Natural Earth](https://www.naturalearthdata.com/) (public domain) via world-atlas.
+- **Grundkartan** i `data/land.json` (1:50m), den finare kusten i `data/land-10m.json` (1:10m, bara för det skarpa utsnittet vid inzoomning) och **dagens landsgränser** i `data/borders.json` bygger på [Natural Earth](https://www.naturalearthdata.com/) (public domain) via world-atlas.
 - **Rikenas utbredning** i `data/empires/` är ett förenklat utdrag ur [Cliopatria](https://github.com/Seshat-Global-History-Databank/cliopatria) från Seshat Global History Databank, licensierat under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ändringar: bara de riken som listas i `data/empires/index.json` är med, geometrin är förenklad och perioder med nästan samma gräns är sammanslagna (`tools/riken.py`).
 - **Nattljus 2016** i `images/lager/nattljus-2016.jpg` kommer från [NASA Earth Observatory: Black Marble](https://science.nasa.gov/earth/earth-observatory/earth-at-night/maps/) och är **public domain i USA enligt NASA:s riktlinjer för bilder**. NASA:s logotyp och märken är skyddade; bilden innehåller ingen NASA-logotyp. Bilden är NASA:s globala JPEG i 3600 × 1800, utan innehållsliga ändringar.
 - **Faktarutorna om riken** (`facts` i `data/empires/index.json`) är egna korta sammanfattningar av Wikipedias artiklar om rikena (CC BY-SA). Medeltidens riken (#69) är dessutom kontrollerade mot World History Encyclopedia (CC BY-NC-SA, bara länkad, ingen text kopierad), och de tidigmoderna rikena (#70) mot World History Encyclopedia eller Wikidata (CC0). Kolonialvälden och moderna imperier (#71) bygger på Wikipedia, för det nederländska och tyska väldet, Japan och Etiopien kompletterat med World History Encyclopedia (bara länkad). Artiklarna länkas från rutorna och från källregistret.
-- **Omstridda gränser i nutid** (#644) följer Sveriges officiella hållning enligt Utrikesdepartementets sidor på regeringen.se (bara länkade, ingen text kopierad). Fallen och källorna står i [docs/omstridda-granser.md](docs/omstridda-granser.md). Där Cliopatria saknar gränsen (Västbanken, Östra Jerusalem, Gaza och Golanhöjderna, och Staten Palestina från 2014) kommer den ur Natural Earths omstridda områden (`ne_10m_admin_0_disputed_areas` 5.1.1, public domain), uttagna med `tools/ne_omstridda.py`.
+- **Missuppfattningarna** (`data/missuppfattningar.json`, #838) är egna korta sammanfattningar av Wikipedias artiklar (CC BY-SA). Posterna på nivån `two-sources` är dessutom kontrollerade mot en andra källa: NASA (public domain), HISTORY, Smithsonian Magazine, Snopes, Mount Vernon och National Post. De är bara länkade, ingen text är kopierad, och de står i källregistret med licensen "bara länkad".
+- **Lektionsturerna** (skolpiloten, #737, #739) kopplas till Skolverkets kursplan i historia (Lgr22) med egna korta formuleringar; kursplanen är bara länkad, ingen text kopierad.
+- **Omstridda gränser i nutid** (#644) följer Sveriges officiella hållning enligt Utrikesdepartementets sidor på regeringen.se (bara länkade, ingen text kopierad). Fallen och källorna står i [docs/omstridda-granser.md](docs/omstridda-granser.md). Där Cliopatria saknar gränsen (Västbanken, Östra Jerusalem, Gaza och Golanhöjderna, och Staten Palestina från 2014) kommer den ur Natural Earths omstridda områden (`ne_10m_admin_0_disputed_areas` 5.1.1, public domain), uttagna med `tools/ne_omstridda.py`. Tolv små stater som Cliopatria saknar (#722), och Andorra och Monaco (#719, med Cliopatrias årtal), har dagens gräns ur Natural Earths länder (`ne_10m_admin_0_countries` 5.1.1, public domain), med samma skript, och årtalen för självständigheten ur Wikidata (CC0) och Wikipedia (CC BY-SA, bara länkad).
 - **Religionerna** i `data/religions.json` använder gränser från samma Cliopatria-data, sammanslagna per religion och förenklade. Varje rikes religion kommer från faktarutan på rikets Wikipedia-sida (CC BY-SA), och sidorna listas i filen. Årtalen för när en del riken blev kristna kommer från Wikipedia och länkas från källregistret. Ändringar: varje rikes religion räknas fram ur faktarutans text, och ett område behåller sin religion när riket som följer saknar religion i faktarutan (`tools/religioner.py`). Klickrutan använder varje rikes egen, förenklade gräns ur samma Cliopatria-data (`data/religions-polities.json`, `tools/religioner_riken.py`).
 - **Utkasten om slag** i `data/utkast/hced.json` kommer från [Historical Conflict Event Dataset](https://whgazetteer.org/datasets/1415/places) (Charles Miller, 2022, Harvard Dataverse, https://doi.org/10.7910/DVN/6ZFC0V) via World Historical Gazetteer. Datasetet har licensen [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/), och WHG:s egna tillägg har [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ändringar: ett urval, omräknade årtal och egna texter (`tools/hced.py`). Utkasten visas inte på globen förrän de är källkontrollerade.
 - **Dödssiffror i krigens berättelser** kommer delvis från [UCDP Battle-related Deaths Dataset](https://ucdp.uu.se/downloads/) (Uppsala Conflict Data Program, version 26.1; Davies, Pettersson och Öberg 2026, *Journal of Peace Research* 63(4)), licensierat under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ändringar: summerade per krig och återgivna i egna texter.

@@ -30,11 +30,21 @@ SIMPLIFY = 0.05
 
 
 def our_names():
-    names = set()
+    """{Cliopatria-namn: [(från, till), ...]}: åren då vi använder posten. En del med `years` i GROUPS använder bara
+    de åren (Etiopiska kejsardömet tar till exempel Ethiopia bara till och med 1974); utan `years` gäller alla år."""
+    names = {}
     for _gid, (_sv, _en, members, *_o) in GROUPS.items():
-        for cname, *_rest in members:
-            names.update(n for n in (cname if isinstance(cname, list) else [cname]) if n)
+        for cname, *rest in members:
+            years = (rest[-1] if rest and isinstance(rest[-1], dict) else {}).get('years', (-99999, 99999))
+            for n in (cname if isinstance(cname, list) else [cname]):
+                if n:
+                    names.setdefault(n, []).append(years)
     return names
+
+
+def covered(ours, name, year):
+    """Använder vi Cliopatria-posten `name` år `year`?"""
+    return any(a <= year <= b for a, b in ours.get(name, ()))
 
 
 def continent(lon, lat):
@@ -69,12 +79,12 @@ def main():
         if not alive:
             continue
         allu = unary_union([g for _n, g in alive])
-        mine = unary_union([g for n, g in alive if n in ours]) if any(n in ours for n, _g in alive) else None
+        mine = unary_union([g for n, g in alive if covered(ours, n, y)]) if any(covered(ours, n, y) for n, _g in alive) else None
         a_all = km2(allu)
         a_mine = km2(mine.intersection(allu)) if mine is not None else 0
         rows.append((y, a_all, a_mine))
         for n, g in alive:
-            if n in ours:
+            if covered(ours, n, y):
                 continue
             rest = g.difference(mine) if mine is not None else g
             a = km2(rest) if not rest.is_empty else 0

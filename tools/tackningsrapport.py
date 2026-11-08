@@ -23,9 +23,12 @@ def region(lat, lon):
         return 'Asien'
     if lon < -125 and lat < 35:
         return 'Oceanien'
+    if lon < -105 and lat < -10:  # östra Polynesien med Rapa Nui (#630)
+        return 'Oceanien'
     if lon < -25:
         return 'Amerika'
-    if (lat < -10 and lon > 110) or (lat < 0 and lon > 130) or lon > 160:
+    # Mikronesien öster om 130° Ö och söder om 22° N (#630)
+    if (lat < -10 and lon > 110) or (lat < 22 and lon > 130) or lon > 160:
         return 'Oceanien'
     if lon < -1.5:
         africa_north = lat < 36

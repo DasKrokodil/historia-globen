@@ -1,14 +1,16 @@
 {
   "schema": "historia-globen/upptackt@1",
-  "title": { "sv": "Upptäcktsvy", "en": "Discovery view" },
+  "title": { "sv": "Upptäcktsvy", "en": "Discovery view", "de": "Entdeckungsansicht" },
   "notes": "Upptäcktsvyn (#101): ett läge i Lager med gammal kartstil. Allt ritas på lagerbilden (beslut 1) av js/layers/discovery.js. perspective är raden som förklarar vad 'upptäckt' betyder här. paper är den åldrade papperskartan som täcker grundkartan medan vyn är på: grain = papperskornens styrka (0–1), stains = antal fläckar, stainStrength = fläckarnas styrka, seed = fröet som bestämmer var korn och fläckar hamnar, waterLines = vattenlinjer längs kusten (count = antal band, widthDeg = det bredaste bandets bredd i grader, opacity), coastPx = bläckkustens bredd i bildpunkter på lagerbilden, vignette = mörkare kanter mot polerna (0–1), vignetteSides = hur stor del av den som gäller mot datumlinjen, rhumb = portolanlinjer ut från varje dekoration med rhumb: true (directions = antal riktningar, avrundas till en multipel av 8; lengthDeg = linjernas längd i grader; opacity; widthPx = bredd i bildpunkter). home är vyns utgångspunkt i Europa: empires = grupp-id i data/empires/index.json för de europeiska rikena, där dimman är lyft för varje period som har börjat, och neighborDeg = hur nära (i grader) ett annat rikes område ska ha legat ett hemrikes område under samma år för att räknas som granne; då lyfts dimman över grannen från det året, för varje period som har börjat (grannarnas grannar räknas inte). fog är dimman som täcker kartan: den lyfts i en korridor (corridorDeg grader bred) längs varje etapp i data/routes som har börjat, så långt som linjelagret har ritat den, och förblir lyft senare år. När en lyft korridor når ett rikes område i data/empires (någon period, före eller under rikets tid) lyfts dimman över hela riket, för varje period som har börjat (#377, regel A). opacity är dimmans täckning (0–1; nära 1 döljer det okända helt), soften hur mycket bredare korridorens mjuka kant är, grain papperskornen i dimman, hatch styrkan på bläckskrafferingen längs dimmans kant (0 = ingen), hatchDeg skrafferingsbandets bredd i grader och hatchSpacingDeg avståndet mellan strecken i grader. labels är texterna i dimman (at = [longitud, latitud], size = textens höjd i grader). decorations är bilder ur gamla kartor (public domain) mitt i öppna hav: file, at = [longitud, latitud] för bildens mitt, width = bredd i grader, fade = tonas bort när en lyft korridor kommer nära (inom bildens radie), rhumb = portolanlinjer ut från bildens mitt (kompassrosor), source = id i sources.json. Färgerna står som CSS-variabler (--discovery-fog, --discovery-ink, --discovery-sea, --discovery-land, --discovery-stain, --discovery-edge, --discovery-rhumb-half, --discovery-rhumb-quarter).",
   "perspective": {
     "sv": "Vyn ser världen från Europa. Dimman är lyft över de europeiska rikena i datan, till exempel Rom och Makedonien med Alexanders erövringar, och över rikena som gränsade till dem. Resten lyfts när resorna och vägarna i datan når dit, och när en resa når ett rike lyfts dimman över hela riket. ”Upptäckt” betyder här att resor från Europa och Kina kom fram: platserna var redan bebodda och kända av dem som bodde där, och därför syns händelserna även i dimman.",
-    "en": "The view sees the world from Europe. The fog is lifted over the European states in the data, for example Rome and Macedon with Alexander's conquests, and over the states that bordered them. The rest lifts when the voyages and routes in the data get there, and when a voyage reaches a state, the fog lifts over the whole state. “Discovery” here means that voyages from Europe and China arrived: the places were already inhabited and known to the people who lived there, which is why the events show even in the fog."
+    "en": "The view sees the world from Europe. The fog is lifted over the European states in the data, for example Rome and Macedon with Alexander's conquests, and over the states that bordered them. The rest lifts when the voyages and routes in the data get there, and when a voyage reaches a state, the fog lifts over the whole state. “Discovery” here means that voyages from Europe and China arrived: the places were already inhabited and known to the people who lived there, which is why the events show even in the fog.",
+    "de": "Die Ansicht betrachtet die Welt von Europa aus. Der Nebel ist über den europäischen Reichen in den Daten gelichtet, zum Beispiel über Rom und Makedonien mit den Eroberungen Alexanders, und über den Reichen, die an sie grenzten. Der Rest lichtet sich, wenn die Reisen und Wege in den Daten dort ankommen, und wenn eine Reise ein Reich erreicht, lichtet sich der Nebel über dem ganzen Reich. „Entdeckung“ bedeutet hier, dass Reisen aus Europa und China ankamen: Die Orte waren schon bewohnt und denen bekannt, die dort lebten, und deshalb sind die Ereignisse auch im Nebel sichtbar."
   },
   "credit": {
     "sv": "Kartbilder: havsmonster ur Olaus Magnus Carta marina (1539) och en kompassros ur Guillaume Brouscons världskarta (1543). Public domain, via Wikimedia Commons.",
-    "en": "Map images: sea monsters from Olaus Magnus's Carta marina (1539) and a compass rose from Guillaume Brouscon's world chart (1543). Public domain, via Wikimedia Commons."
+    "en": "Map images: sea monsters from Olaus Magnus's Carta marina (1539) and a compass rose from Guillaume Brouscon's world chart (1543). Public domain, via Wikimedia Commons.",
+    "de": "Kartenbilder: Seeungeheuer aus Olaus Magnus’ Carta marina (1539) und eine Kompassrose aus Guillaume Brouscons Weltkarte (1543). Gemeinfrei, über Wikimedia Commons."
   },
   "paper": {
     "grain": 0.22,
@@ -38,18 +40,18 @@
     "hatchDeg": 1.2,
     "hatchSpacingDeg": 0.6,
     "labels": [
-      { "text": { "sv": "Terra incognita" }, "at": [-100, 47], "size": 4.2 },
-      { "text": { "sv": "Terra incognita" }, "at": [-60, -12], "size": 4.2 },
-      { "text": { "sv": "Terra incognita" }, "at": [134, -25], "size": 3.6 },
-      { "text": { "sv": "Terra incognita" }, "at": [20, -72], "size": 4.2 },
-      { "text": { "sv": "Terra incognita" }, "at": [100, 62], "size": 4.2 }
+      { "text": { "sv": "Terra incognita", "en": "Terra incognita", "de": "Terra incognita" }, "at": [-100, 47], "size": 4.2 },
+      { "text": { "sv": "Terra incognita", "en": "Terra incognita", "de": "Terra incognita" }, "at": [-60, -12], "size": 4.2 },
+      { "text": { "sv": "Terra incognita", "en": "Terra incognita", "de": "Terra incognita" }, "at": [134, -25], "size": 3.6 },
+      { "text": { "sv": "Terra incognita", "en": "Terra incognita", "de": "Terra incognita" }, "at": [20, -72], "size": 4.2 },
+      { "text": { "sv": "Terra incognita", "en": "Terra incognita", "de": "Terra incognita" }, "at": [100, 62], "size": 4.2 }
     ]
   },
   "decorations": [
-    { "id": "kompassros-atlanten", "file": "images/karta/kompassros.webp", "at": [-42, 40], "width": 18, "fade": false, "rhumb": true, "title": { "sv": "Kompassros" }, "source": "commons-karta-brouscon-kompassros" },
-    { "id": "kompassros-indiska-oceanen", "file": "images/karta/kompassros.webp", "at": [82, -32], "width": 17, "fade": false, "rhumb": true, "title": { "sv": "Kompassros" }, "source": "commons-karta-brouscon-kompassros" },
-    { "id": "sjoorm-stilla-havet", "file": "images/karta/sjoorm.webp", "at": [-152, 32], "width": 26, "fade": true, "title": { "sv": "Sjöorm" }, "source": "commons-karta-carta-marina-sjoorm" },
-    { "id": "ziphius-sydatlanten", "file": "images/karta/ziphius.webp", "at": [-18, -34], "width": 26, "fade": true, "title": { "sv": "Ziphius" }, "source": "commons-karta-carta-marina-ziphius" },
-    { "id": "havsmonster-sodra-stilla-havet", "file": "images/karta/havsmonster.webp", "at": [-120, -38], "width": 17, "fade": true, "title": { "sv": "Havsmonster och hummer" }, "source": "commons-karta-carta-marina-havsmonster" }
+    { "id": "kompassros-atlanten", "file": "images/karta/kompassros.webp", "at": [-42, 40], "width": 18, "fade": false, "rhumb": true, "title": { "sv": "Kompassros", "en": "Compass rose", "de": "Kompassrose" }, "source": "commons-karta-brouscon-kompassros" },
+    { "id": "kompassros-indiska-oceanen", "file": "images/karta/kompassros.webp", "at": [82, -32], "width": 17, "fade": false, "rhumb": true, "title": { "sv": "Kompassros", "en": "Compass rose", "de": "Kompassrose" }, "source": "commons-karta-brouscon-kompassros" },
+    { "id": "sjoorm-stilla-havet", "file": "images/karta/sjoorm.webp", "at": [-152, 32], "width": 26, "fade": true, "title": { "sv": "Sjöorm", "en": "Sea serpent", "de": "Seeschlange" }, "source": "commons-karta-carta-marina-sjoorm" },
+    { "id": "ziphius-sydatlanten", "file": "images/karta/ziphius.webp", "at": [-18, -34], "width": 26, "fade": true, "title": { "sv": "Ziphius", "en": "Ziphius", "de": "Ziphius" }, "source": "commons-karta-carta-marina-ziphius" },
+    { "id": "havsmonster-sodra-stilla-havet", "file": "images/karta/havsmonster.webp", "at": [-120, -38], "width": 17, "fade": true, "title": { "sv": "Havsmonster och hummer", "en": "Sea monster and lobster", "de": "Seeungeheuer und Hummer" }, "source": "commons-karta-carta-marina-havsmonster" }
   ]
 }

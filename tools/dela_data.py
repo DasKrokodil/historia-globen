@@ -42,8 +42,8 @@ import json
 import sys
 from pathlib import Path
 
-# Fälten som flyttas till periodfilerna. note stannar med bara sin rubrik i indexet, eftersom markören
-# visar "osäker" när rubriken är "Källorna skiljer sig" (js/layers/events.js); hela noten ligger i periodfilen.
+# Fälten som flyttas till periodfilerna. note stannar med bara sin typ (kind) och rubrik i indexet, eftersom markören
+# visar "osäker" när typen är disagreement (js/layers/events.js, #613); hela noten ligger i periodfilen.
 DETAIL = ['summary', 'note', 'story', 'image', 'sources', 'wikidata', 'evidence']
 
 # Perioderna efter händelsens start (astronomiskt år). from = första året i perioden, None = från början.
@@ -209,7 +209,7 @@ def build_from(events, empires, langs=(BASE_LANG,)):
     for e in events:
         light = {k: v for k, v in e.items() if k not in DETAIL}
         if isinstance(e.get('note'), dict) and 'title' in e['note']:
-            light['note'] = {'title': e['note']['title']}
+            light['note'] = {k: e['note'][k] for k in ('kind', 'title') if k in e['note']}
         index.append(light)
         details[period_of(e['start'])][e['id']] = {k: e[k] for k in DETAIL if k in e}
     index_base, index_extra = split_items({e['id']: e for e in index}, langs)

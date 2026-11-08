@@ -121,7 +121,9 @@ def schema_errors(value, schema, path='$', root=None):
         for name, child in schema.get('properties', {}).items():
             if name in value:
                 found += schema_errors(value[name], child, f'{path}.{name}', root)
-    elif isinstance(value, list) and 'items' in schema:
+    elif isinstance(value, list) and len(value) < schema.get('minItems', 0):
+        found.append(f"{path}: ska ha minst {schema['minItems']} post{'er' if schema['minItems'] > 1 else ''}")
+    if isinstance(value, list) and 'items' in schema:
         for i, item in enumerate(value):
             found += schema_errors(item, schema['items'], f'{path}[{i}]', root)
     return found
@@ -357,6 +359,10 @@ for tid in (tours_index or {}).get('tours', []):
         err(f"{path}: kriget {tour['war']} finns inte i events.json")
     if tour.get('empire') and tour['empire'] not in {g.get('id') for g in (empires or {}).get('groups', [])}:
         err(f"{path}: riket {tour['empire']} finns inte i data/empires/index.json")
+    for c in (tour.get('lesson') or {}).get('curriculum', []):  # lärarfälten (#737)
+        for src in c.get('sources', []):
+            if src not in src_ids:
+                err(f'{path} (lesson): källan {src} finns inte i sources.json')
     for i, step in enumerate(tour.get('steps', [])):
         where = f"{path} (steg {i + 1}, {step.get('id', '?')})"
         if step.get('open') and step['open'] not in ev_ids:
@@ -388,6 +394,27 @@ validate_schema_file('data/funfacts.json', funfacts, 'funfact.schema.json')
 validate_schema_file('data/turer/index.json', tours_index or {}, 'tours-index.schema.json')
 for path, tour in tours:
     validate_schema_file(path, tour, 'tour.schema.json')
+
+# 8c. Missuppfattningar (#838): filen publiceras (scripts/build-site.sh, sedan #858) och appen läser den; här kontrolleras den ur repot.
+misc_path = ROOT / 'data' / 'missuppfattningar.json'
+if misc_path.is_file():
+    try:
+        misc = json.loads(misc_path.read_text(encoding='utf-8'))
+    except ValueError as e:
+        misc = None
+        err(f'data/missuppfattningar.json: går inte att läsa ({e})')
+    if misc is not None:
+        validate_schema_file('data/missuppfattningar.json', misc, 'missuppfattning.schema.json')
+        for m in misc.get('misconceptions', []):
+            mid = m.get('id', '?')
+            if not m.get('events') and not isinstance(m.get('year'), int):
+                err(f'data/missuppfattningar.json ({mid}): saknar både events och year')
+            for i in m.get('events', []):
+                if i not in ev_ids:
+                    err(f'data/missuppfattningar.json ({mid}): händelsen {i} finns inte i events.json')
+            for s in m.get('sources', []):
+                if s not in src_ids:
+                    err(f'data/missuppfattningar.json ({mid}): källan {s} finns inte i sources.json')
 
 # 9. Krigets riken (#76): empires är grupp-id i data/empires/index.json
 group_ids = {g.get('id') for g in (empires or {}).get('groups', [])}

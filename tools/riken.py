@@ -34,6 +34,9 @@ MERGE = 0.02   # slå ihop perioder där gränsen ändras mindre än så här st
 MIN_AREA = 0.02  # öar mindre än så här (kvadratgrader, cirka 200 km2) tas bort
 
 # Stora, utspridda imperier förenklas hårdare så att filen blir lagom stor: grupp -> (TOL, MERGE, MIN_AREA)
+# Små stater som visas som punkter, med gränsen ur Natural Earth (#722)
+SMALL_STATES = ('saint-kitts-och-nevis', 'mikronesiska-federationen', 'kiribati', 'komorerna', 'liechtenstein',
+                'maldiverna', 'marshalloarna', 'nauru', 'samoa', 'san-marino', 'tonga', 'tuvalu', 'andorra', 'monaco')
 OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              'spanska-imperiet': (0.3, 0.08, 0.08), 'portugisiska-imperiet': (0.3, 0.08, 0.08),
              'ryska-imperiet': (0.3, 0.05, 0.08),
@@ -50,7 +53,24 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # förenklingen är finare, annars försvinner Gaza och gränserna mot Västbanken hamnar fel
              'israel': (0.03, 0.02, 0.02), 'palestina': (0.03, 0.02, 0.02),
              # Nutida stater (#644): Danmark med Grönland, Kina och Indonesien med många öar
-             'danmark': (0.3, 0.05, 0.08), 'kina': (0.3, 0.05, 0.08), 'indonesien': (0.2, 0.05, 0.05)}
+             'danmark': (0.3, 0.05, 0.08), 'kina': (0.3, 0.05, 0.08), 'indonesien': (0.2, 0.05, 0.05),
+             # Gambia (cirka 30 km bred längs floden) och Libanon är smala: finare förenkling för dem och grannarna Senegal och
+             # Syrien, annars täcker grannarnas förenklade gräns en stor del av landet
+             'gambia': (0.05, 0.02, 0.02), 'libanon': (0.05, 0.02, 0.02),
+             'senegal': (0.05, 0.02, 0.02), 'syrien': (0.05, 0.005, 0.02),
+             # Luxemburg och Singapore är små
+             'luxemburg': (0.03, 0.02, 0.005), 'singapore': (0.02, 0.02, 0.005),
+             # Malaysias förenklade gräns täckte annars en del av Singapore över Johorsundet
+             'malaysia': (0.03, 0.02, 0.02),
+             # Små önationer (fjortonde omgången): finare förenkling och små öar behålls, annars blir öarna trianglar
+             'malta': (0.02, 0.02, 0.001), 'barbados': (0.02, 0.02, 0.001), 'dominica': (0.02, 0.02, 0.001),
+             'saint-lucia': (0.02, 0.02, 0.001), 'antigua-och-barbuda': (0.02, 0.02, 0.001),
+             'saint-vincent-och-grenadinerna': (0.02, 0.02, 0.001), 'grenada': (0.02, 0.02, 0.001),
+             'seychellerna': (0.02, 0.02, 0.001), 'palau': (0.02, 0.02, 0.001),
+             # Östtimor (femtonde omgången) blir annars en triangel
+             'osttimor': (0.03, 0.02, 0.005),
+             # Små stater ur Natural Earth (#722): nästan ingen förenkling, och alla öar behålls
+             **{g: (0.002, 0.02, 0) for g in SMALL_STATES}}
 
 # grupp: (svenskt namn, engelskt namn, [(Cliopatria-namn, id, svenskt namn, färg)])
 GROUPS = {
@@ -89,7 +109,19 @@ GROUPS = {
         # är egna länder de åren i Cliopatria (#644)
         ('(British Empire)', 'brittiska-imperiet', 'Brittiska imperiet', '#c2557a',
          {'homeland': ['Kingdom of Great Britain'], 'minus': ['Republic of Botswana', 'Ghana', 'Guyana', ('Sultanate of Oman', 1973),
-                                                                         'Malawi', 'United Arab Emirates', 'Second Republic of Austria']}),
+                                                                         'Malawi', 'United Arab Emirates', 'Second Republic of Austria',
+                                                                         'Lesotho', 'Solomon Islands', 'Republic of Fiji',
+                                                                         'Commonwealth of The Bahamas', 'State of Qatar',
+                                                                         'Republic of The Gambia', 'Sultanate of Brunei',
+                                                                         'Kingdom of Bahrain', 'Republic of Cyprus', 'Malta',
+                                                                         'Barbados', 'Commonwealth of Dominica', 'Saint Lucia',
+                                                                         'Antigua and Barbuda', 'Saint Vincent', 'Grenada',
+                                                                         'Seychelles'],
+          # Perioderna delas när öländerna blir egna länder i Cliopatria (Malta, Barbados och Antigua och Barbuda 1967,
+          # Saint Vincent 1969, Grenada och Seychellerna 1976, Dominica och Saint Lucia 1979, Brunei 1987), annars slås
+          # ändringen ihop med åren före. 1919: Cliopatria räknar norra Moçambique till imperiet bara 1918, och det
+          # ska inte ligga kvar över Portugisiska imperiet 1919–1921 (#644)
+          'splits': (1919, 1967, 1969, 1976, 1979, 1987)}),
     ]),
     # R2 Antiken (#68)
     'egypten': ('Egypten: gamla och nya riket', 'Egypt: Old and New Kingdom', [
@@ -187,10 +219,19 @@ GROUPS = {
         ('Qing Dynasty', 'qingdynastin', 'Qingdynastin', '#d6a433'),
     ]),
     'spanska-imperiet': ('Spanska imperiet', 'Spanish Empire', [
-        ('(Spanish Empire)', 'spanska-imperiet', 'Spanska imperiet', '#d2602e', {'homeland': ['Kingdom of Spain', 'Iberian Union']}),
+        # Cliopatria räknar Dominikanska republiken till imperiet 1865, fast den är eget land det året (#644)
+        ('(Spanish Empire)', 'spanska-imperiet', 'Spanska imperiet', '#d2602e',
+         {'homeland': ['Kingdom of Spain', 'Iberian Union'], 'minus': [('Dominican Republic', 1865)]}),
     ]),
     'portugisiska-imperiet': ('Portugisiska imperiet', 'Portuguese Empire', [
-        ('(Portuguese Empire)', 'portugisiska-imperiet', 'Portugisiska imperiet', '#2e7d5b', {'homeland': ['Kingdom of Portugal']}),
+        # 1911–1975 (#644): Cliopatrias Portuguese Republic (1911–1925) och Estado Novo (1926–1975) omfattar både
+        # Portugal och kolonierna. Estado Novo 1979–2024 i Cliopatria är bara Cabinda, som också ligger i Angola, och
+        # tas inte med. Guinea-Bissau (eget land från 1973 i Cliopatria) och Indien (Goa från 1961) klipps bort
+        (['(Portuguese Empire)', 'Portuguese Republic', 'Estado Novo'], 'portugisiska-imperiet', 'Portugisiska imperiet',
+         '#2e7d5b', {'homeland': ['Kingdom of Portugal', 'Portuguese Republic', 'Estado Novo'], 'years': (1502, 1975),
+                     'wikidata': 'Q200464', 'minus': ['Republic of Guinea-Bissau', ('Republic of India', 1961)],
+                     # Goa till Indien 1961 och Guinea-Bissau eget land 1973 är små ändringar som annars slås ihop
+                     'splits': (1961, 1973)}),
     ]),
     'ryska-imperiet': ('Ryssland: tsardömet och kejsardömet', 'Russia: Tsardom and Empire', [
         ('Tsardom of Russia', 'ryska-tsardomet', 'Ryska tsardömet', '#7a5fa6'),
@@ -198,7 +239,11 @@ GROUPS = {
     ]),
     # Cliopatria kallar Sverige "Swedish Empire" ända till 1814, men stormaktstiden slutade med freden i Nystad 1721
     # (wp-swedish-empire). Samma Cliopatria-post delas därför i två delar med olika namn (Rikards val A i #70).
-    'svenska-stormaktsvaldet': ('Sverige: stormaktsväldet och efter', 'Sweden: the Swedish Empire and after', [
+    # Gruppen heter Sverige och börjar med medeltidens kungarike (#645, Rikards beslut 2026-11-07): Cliopatrias Kingdom of Sweden
+    # finns 980–1401 och 1502–1611 (Kalmarunionen däremellan), samma post som Sverige från 1905. Gruppens id står kvar, så att
+    # länkar och filnamn inte ändras.
+    'svenska-stormaktsvaldet': ('Sverige', 'Sweden', [
+        ('Kingdom of Sweden', 'sverige-medeltiden', 'Sverige', '#3d8fd1', {'years': (980, 1611), 'en': 'Sweden', 'wikidata': 'Q34'}),
         ('Swedish Empire', 'svenska-stormaktsvaldet', 'Svenska stormaktsväldet', '#3d8fd1', {'years': (1612, 1721)}),
         ('Swedish Empire', 'sverige-1722', 'Sverige', '#3d8fd1', {'years': (1722, 1814), 'en': 'Sweden', 'wikidata': 'Q34'}),
         # #556: unionen med Norge och Sverige efter 1905, så att gruppen går "och efter" (Kingdom of Sweden finns från 980 i Cliopatria)
@@ -228,7 +273,9 @@ GROUPS = {
     'nederlandska-kolonialvaldet': ('Nederländska kolonialväldet', 'Dutch colonial empire', [
         ('(Dutch Republic)', 'nederlandska-republiken', 'Nederländska republiken', '#e0912c', {'homeland': ['Dutch Republic']}),
         ('(Batavian Republic)', 'bataviska-republiken', 'Bataviska republiken', '#e0912c', {'homeland': ['Batavian Republic']}),
-        ('(Netherlands)', 'nederlanderna', 'Nederländerna', '#e0912c', {'years': (1811, 1949), 'homeland': ['Netherlands']}),
+        # Cliopatria räknar Luxemburg till Nederländerna till och med 1914, också efter 1890 då Luxemburg är eget land (#644)
+        ('(Netherlands)', 'nederlanderna', 'Nederländerna', '#e0912c', {'years': (1811, 1949), 'homeland': ['Netherlands'],
+                                                                         'minus': ['Luxembourg'], 'splits': (1890,)}),
     ]),
     'tyska-riket': ('Tyska riket', 'German Empire', [
         (['German Empire', 'German Africa'], 'tyska-riket', 'Tyska riket', '#7a5aa0', {'en': 'German Empire', 'homeland': ['German Empire']}),
@@ -244,7 +291,8 @@ GROUPS = {
          {'en': 'Ethiopian Empire', 'years': (1272, 1974)}),
     ]),
     'sovjetunionen': ('Sovjetunionen', 'Soviet Union', [
-        ('Union of Soviet Socialist Republics', 'sovjetunionen', 'Sovjetunionen', '#9a2a3a'),
+        # Cliopatria räknar Litauen till Sovjetunionen till och med 1991, fast Litauen är eget land från 1990 (#644)
+        ('Union of Soviet Socialist Republics', 'sovjetunionen', 'Sovjetunionen', '#9a2a3a', {'minus': ['Republic of Lithuania'], 'splits': (1990,)}),
     ]),
     # R6 Försvunna länder (#72). Österrike-Ungern och Sovjetunionen ovan hör också dit. Årtal, föregångare
     # och efterträdare (vanished) skrivs för hand i index.json och behålls, som facts.
@@ -281,9 +329,10 @@ GROUPS = {
     'usa': ('USA', 'United States', [
         # Cliopatria räknar Japan till USA 1947–1966 och Okinawa till och med 2005, också de år då Japan är eget land
         # i Cliopatria (från 1953); de åren klipps Japan bort (#644)
-        ('United States of America', 'usa', 'USA', '#4a7ab8', {'en': 'United States', 'minus': ['Japan', 'Republic of the Philippines', 'Republic of Liberia'],
-                                                       # Liberia eget land 1848, Filippinerna 1947, Japan 1953, Okinawa till Japan 1973 (Cliopatria)
-                                                       'splits': (1848, 1947, 1953, 1973)}),
+        ('United States of America', 'usa', 'USA', '#4a7ab8', {'en': 'United States', 'minus': ['Japan', 'Republic of the Philippines', 'Republic of Liberia', 'Palau'],
+                                                       # Liberia eget land 1848, Filippinerna 1947, Japan 1953, Okinawa till Japan 1973, Palau
+                                                       # 1996 (Cliopatria)
+                                                       'splits': (1848, 1947, 1953, 1973, 1996)}),
     ]),
     'amerikas-konfedererade-stater': ('Amerikas konfedererade stater', 'Confederate States of America', [
         ('Confederate States of America', 'amerikas-konfedererade-stater', 'Amerikas konfedererade stater', '#8c7f6a'),
@@ -470,7 +519,7 @@ GROUPS = {
     'kina': ('Kina', 'China', [
         ('Republic of China', 'republiken-kina', 'Republiken Kina', '#c8423c',
          {'en': 'Republic of China', 'wikidata': 'Q13426199', 'years': (1912, 1949)}),
-        ("People's Republic of China", 'folkrepubliken-kina', 'Kina', '#c8423c', {'en': "People's Republic of China"}),
+        ("People's Republic of China", 'folkrepubliken-kina', 'Kina', '#c8423c', {'en': 'China'}),
     ]),
     # Taiwan (#644, Rikards svar 5): Cliopatrias Republiken Kina efter 1949, under namnet Taiwan som regeringen använder
     'taiwan': ('Taiwan', 'Taiwan', [
@@ -544,9 +593,11 @@ GROUPS = {
     ]),
     # Frankrike efter kolonialväldet (som slutar 1957 i gruppen franska-kolonialvaldet)
     'frankrike': ('Frankrike', 'France', [
-        # Cliopatria räknar Algeriet och Djibouti till Femte republiken 1961–2023, också de år då de är egna stater i Cliopatria
+        # Cliopatria räknar Algeriet, Djibouti och Kap Verde till Femte republiken 1961–2023, också de år då de är egna stater i
+        # Cliopatria. Perioden delas när Kap Verde blir självständigt (1976), annars slås ändringen ihop med 1963–1975
         ('French Fifth Republic', 'femte-republiken', 'Frankrike', '#3a5fa0',
-         {'en': 'French Fifth Republic', 'minus': ["People's Democratic Republic of Algeria", 'Republic of Djibouti']}),
+         {'en': 'France', 'minus': ["People's Democratic Republic of Algeria", 'Republic of Djibouti', 'Republic of Cabo Verde'],
+          'splits': (1976,)}),
     ]),
     # Nutida stater, tredje omgången (#644). Spanien, Norge, Japan och Marocko väntar: de överlappar riken vi har
     # (Spanska imperiet, Sverige-Norge, Japanska imperiet) eller behöver noten om Västsahara
@@ -585,7 +636,8 @@ GROUPS = {
     # (unionen med Sverige slutar 1904) och Japan 1953 (Japanska imperiet slutar 1945; Cliopatria saknar 1946–1952)
     'spanien': ('Spanien', 'Spain', [
         ('Second Spanish Republic', 'andra-spanska-republiken', 'Andra spanska republiken', '#d07a3a', {'en': 'Second Spanish Republic'}),
-        ('Francoist Spain', 'spanien-under-franco', 'Spanien under Franco', '#d07a3a', {'en': 'Francoist Spain'}),
+        ('Francoist Spain', 'spanien-under-franco', 'Spanien under Franco', '#d07a3a',
+         {'en': 'Francoist Spain', 'minus': ['Equatorial Guinea']}),
         ('Kingdom of Spain', 'spanien', 'Spanien', '#d07a3a', {'en': 'Spain', 'years': (1976, 2024)}),
     ]),
     # Cliopatria anger Q199841 (Sydjemen) för Jemen; rätt id är Q805
@@ -614,7 +666,8 @@ GROUPS = {
         ('Federated Republic of Germany', 'tyskland', 'Tyskland', '#c8b04a', {'en': 'Germany'}),
     ]),
     'malaysia': ('Malaysia', 'Malaysia', [
-        ('Malaysia', 'malaysia', 'Malaysia', '#d08a4a', {'en': 'Malaysia'}),
+        # Cliopatria har Singapore i Malaysia 1963–1966; perioden delas 1967, annars slås den ihop med åren efter
+        ('Malaysia', 'malaysia', 'Malaysia', '#d08a4a', {'en': 'Malaysia', 'splits': (1967,)}),
     ]),
     # Cliopatria anger Q974 (Kongo-Kinshasa) för Kongo-Brazzaville; rätt id är Q971
     'kongo-brazzaville': ('Kongo-Brazzaville', 'Republic of the Congo', [
@@ -775,6 +828,381 @@ GROUPS = {
     'irland': ('Irland', 'Ireland', [
         (['Irish Free State', 'Éire'], 'irland', 'Irland', '#5aa060', {'en': 'Ireland', 'wikidata': 'Q27'}),
     ]),
+    # Nutida stater, nionde omgången (#644). Azerbajdzjan väntar på lösningen för Nagorno-Karabach (tas med Armenien)
+    'sierra-leone': ('Sierra Leone', 'Sierra Leone', [
+        ('Sierra Leone', 'sierra-leone', 'Sierra Leone', '#c06a3a', {'en': 'Sierra Leone'}),
+    ]),
+    'sri-lanka': ('Sri Lanka', 'Sri Lanka', [
+        ('Sri Lanka', 'sri-lanka', 'Sri Lanka', '#c05a5a', {'en': 'Sri Lanka'}),
+    ]),
+    'lettland': ('Lettland', 'Latvia', [
+        ('Republic of Latvia', 'lettland', 'Lettland', '#a04a5a', {'en': 'Latvia'}),
+    ]),
+    # Cliopatria kallar Litauen 1919–1939 "Kingdom of Lithuania" med id:t för det medeltida kungariket (Q1656775);
+    # posterna slås ihop till Litauen (Q37)
+    'litauen': ('Litauen', 'Lithuania', [
+        (['Kingdom of Lithuania', 'Republic of Lithuania'], 'litauen', 'Litauen', '#4aa0a0', {'en': 'Lithuania', 'wikidata': 'Q37'}),
+    ]),
+    'togo': ('Togo', 'Togo', [
+        ('Togo', 'togo', 'Togo', '#5aa070', {'en': 'Togo'}),
+    ]),
+    'costa-rica': ('Costa Rica', 'Costa Rica', [
+        ('Republic of Costa Rica', 'costa-rica', 'Costa Rica', '#c07a4a', {'en': 'Costa Rica'}),
+    ]),
+    'dominikanska-republiken': ('Dominikanska republiken', 'Dominican Republic', [
+        ('Dominican Republic', 'dominikanska-republiken', 'Dominikanska republiken', '#3a8a7a', {'en': 'Dominican Republic'}),
+    ]),
+    # Bara från 1992; Cliopatrias Independent State of Croatia 1941–1944 är inte med
+    'kroatien': ('Kroatien', 'Croatia', [
+        ('Republic of Croatia', 'kroatien', 'Kroatien', '#c04a6a', {'en': 'Croatia'}),
+    ]),
+    'bosnien-och-hercegovina': ('Bosnien och Hercegovina', 'Bosnia and Herzegovina', [
+        ('Bosnia and Herzegovina', 'bosnien-och-hercegovina', 'Bosnien och Hercegovina', '#4a7ac0', {'en': 'Bosnia and Herzegovina'}),
+    ]),
+    'estland': ('Estland', 'Estonia', [
+        (['Estonia', 'Republic of Estonia'], 'estland', 'Estland', '#3a8ab0', {'en': 'Estonia', 'wikidata': 'Q191'}),
+    ]),
+    # Nutida stater, tionde omgången (#644)
+    'azerbajdzjan': ('Azerbajdzjan', 'Azerbaijan', [
+        ('Republic of Azerbaijan', 'azerbajdzjan', 'Azerbajdzjan', '#3a9ab0', {'en': 'Azerbaijan'}),
+    ]),
+    'armenien': ('Armenien', 'Armenia', [
+        ('Republic of Armenia', 'armenien', 'Armenien', '#c06a4a', {'en': 'Armenia'}),
+    ]),
+    # Bara från 1918: Cliopatrias "Georgia" har också med ett medeltida rike (947–1009). Cliopatria anger Q4962
+    # (en förgreningssida); rätt id är Q230
+    'georgien': ('Georgien', 'Georgia', [
+        ('Georgia', 'georgien', 'Georgien', '#a04a7a', {'en': 'Georgia', 'wikidata': 'Q230', 'years': (1918, 2024)}),
+    ]),
+    # Cliopatria anger Q33946 (Tjeckoslovakien) för Slovakien; rätt id är Q214
+    'slovakien': ('Slovakien', 'Slovakia', [
+        ('Slovakia', 'slovakien', 'Slovakien', '#4aa070', {'en': 'Slovakia', 'wikidata': 'Q214'}),
+    ]),
+    'bhutan': ('Bhutan', 'Bhutan', [
+        ('Kingdom of Bhutan', 'bhutan', 'Bhutan', '#c0703a', {'en': 'Bhutan'}),
+    ]),
+    # Från 1648: före dess räknar Cliopatria Edsförbundet också till Tysk-romerska riket
+    'schweiz': ('Schweiz', 'Switzerland', [
+        ('Swiss Confederation', 'schweiz', 'Schweiz', '#c04040', {'en': 'Switzerland', 'years': (1648, 2024)}),
+    ]),
+    # Från 1950: före dess ingår Nederländerna i nederländska kolonialväldet
+    'nederlanderna': ('Nederländerna', 'Netherlands', [
+        ('Netherlands', 'nederlanderna', 'Nederländerna', '#d0803a', {'en': 'Netherlands', 'years': (1950, 2024)}),
+    ]),
+    'salomonoarna': ('Salomonöarna', 'Solomon Islands', [
+        ('Solomon Islands', 'salomonoarna', 'Salomonöarna', '#4a8ac0', {'en': 'Solomon Islands'}),
+    ]),
+    'guinea-bissau': ('Guinea-Bissau', 'Guinea-Bissau', [
+        ('Republic of Guinea-Bissau', 'guinea-bissau', 'Guinea-Bissau', '#c0a04a', {'en': 'Guinea-Bissau'}),
+    ]),
+    'lesotho': ('Lesotho', 'Lesotho', [
+        ('Lesotho', 'lesotho', 'Lesotho', '#6a5ab0', {'en': 'Lesotho'}),
+    ]),
+    # Nutida stater, elfte omgången (#644)
+    # Storbritannien från 2000, när Brittiska imperiet slutar (gruppen brittiska-imperiet, där Kingdom of Great Britain är
+    # moderlandet). Cliopatria anger Q23666 (ön Storbritannien); här Q145, Förenade kungariket
+    'storbritannien': ('Storbritannien', 'United Kingdom', [
+        ('Kingdom of Great Britain', 'storbritannien', 'Storbritannien', '#c2557a',
+         {'en': 'United Kingdom', 'wikidata': 'Q145', 'years': (2000, 2024),
+          # Cliopatria räknar Oman, Qatar och Förenade arabemiraten till Storbritannien 2000–2023, samtidigt som de är
+          # egna länder i Cliopatria (år 2024 har posten bara de brittiska öarna)
+          'minus': ['Sultanate of Oman', 'State of Qatar', 'United Arab Emirates', 'Kingdom of Bahrain']}),
+    ]),
+    'belgien': ('Belgien', 'Belgium', [
+        ('Kingdom of Belgium', 'belgien', 'Belgien', '#a04a7a', {'en': 'Belgium'}),
+    ]),
+    'ekvatorialguinea': ('Ekvatorialguinea', 'Equatorial Guinea', [
+        ('Equatorial Guinea', 'ekvatorialguinea', 'Ekvatorialguinea', '#c05a5a', {'en': 'Equatorial Guinea'}),
+    ]),
+    # Cliopatria anger Q467864 (Socialistiska folkrepubliken Albanien) också efter 1991; rätt id är Q222
+    'albanien': ('Albanien', 'Albania', [
+        ('Republic of Albania', 'albanien', 'Albanien', '#c04a4a', {'en': 'Albania', 'wikidata': 'Q222'}),
+    ]),
+    'moldavien': ('Moldavien', 'Moldova', [
+        ('Republic of Moldova', 'moldavien', 'Moldavien', '#5a7ab0', {'en': 'Moldova'}),
+    ]),
+    'nordmakedonien': ('Nordmakedonien', 'North Macedonia', [
+        ('Former Yugoslav Republic of Macedonia', 'nordmakedonien', 'Nordmakedonien', '#d0803a', {'en': 'North Macedonia'}),
+    ]),
+    'burundi': ('Burundi', 'Burundi', [
+        ('Republic of Burundi', 'burundi', 'Burundi', '#4aa070', {'en': 'Burundi'}),
+    ]),
+    'belize': ('Belize', 'Belize', [
+        ('Belize', 'belize', 'Belize', '#4a8ab0', {'en': 'Belize'}),
+    ]),
+    'djibouti': ('Djibouti', 'Djibouti', [
+        ('Republic of Djibouti', 'djibouti', 'Djibouti', '#5aa0a0', {'en': 'Djibouti'}),
+    ]),
+    'el-salvador': ('El Salvador', 'El Salvador', [
+        ('Republic of El Salvador', 'el-salvador', 'El Salvador', '#5a6ab0', {'en': 'El Salvador'}),
+    ]),
+    # Nutida stater, tolfte omgången (#644). Östtimor väntar: Cliopatria räknar landet till Indonesien till och med 2005
+    'fiji': ('Fiji', 'Fiji', [
+        ('Republic of Fiji', 'fiji', 'Fiji', '#4a9ab0', {'en': 'Fiji'}),
+    ]),
+    'slovenien': ('Slovenien', 'Slovenia', [
+        ('Republic of Slovenia', 'slovenien', 'Slovenien', '#4a7ab0', {'en': 'Slovenia'}),
+    ]),
+    'bahamas': ('Bahamas', 'The Bahamas', [
+        ('Commonwealth of The Bahamas', 'bahamas', 'Bahamas', '#3aa0b0', {'en': 'The Bahamas'}),
+    ]),
+    # Wikidatas svenska etikett är Swaziland; Eswatini är dess svenska alias och Cliopatrias namn
+    'eswatini': ('Eswatini', 'Eswatini', [
+        ('Eswatini', 'eswatini', 'Eswatini', '#5a8a4a', {'en': 'Eswatini'}),
+    ]),
+    'vanuatu': ('Vanuatu', 'Vanuatu', [
+        ('Vanuatu', 'vanuatu', 'Vanuatu', '#a07a3a', {'en': 'Vanuatu'}),
+    ]),
+    'jamaica': ('Jamaica', 'Jamaica', [
+        ('Jamaica', 'jamaica', 'Jamaica', '#4aa060', {'en': 'Jamaica'}),
+    ]),
+    'qatar': ('Qatar', 'Qatar', [
+        ('State of Qatar', 'qatar', 'Qatar', '#8a3a5a', {'en': 'Qatar'}),
+    ]),
+    'gambia': ('Gambia', 'The Gambia', [
+        ('Republic of The Gambia', 'gambia', 'Gambia', '#c07a4a', {'en': 'The Gambia'}),
+    ]),
+    # Cliopatria anger Q139708 (Franska mandatet för Syrien och Libanon) också efter 1944; rätt id är Q822
+    'libanon': ('Libanon', 'Lebanon', [
+        ('Lebanon', 'libanon', 'Libanon', '#3a8a5a', {'en': 'Lebanon', 'wikidata': 'Q822'}),
+    ]),
+    'kap-verde': ('Kap Verde', 'Cape Verde', [
+        ('Republic of Cabo Verde', 'kap-verde', 'Kap Verde', '#3a6aa0', {'en': 'Cape Verde'}),
+    ]),
+    # Nutida stater, trettonde omgången (#644)
+    # Kosovo som stat från självständighetsförklaringen 2008 (Rikards beslut, fall 8 i docs/omstridda-granser.md);
+    # Cliopatria har Kosovo redan från 2000, och 2000–2007 visas området utan stat
+    'kosovo': ('Kosovo', 'Kosovo', [
+        ('Kosovo', 'kosovo', 'Kosovo', '#4a6ab0', {'en': 'Kosovo', 'years': (2008, 2024)}),
+    ]),
+    # Hela ön ritas som Cypern (Rikards beslut, fall 5): Norra Cypern läggs till ur DISPUTED
+    'cypern': ('Cypern', 'Cyprus', [
+        ('Republic of Cyprus', 'cypern', 'Cypern', '#c08a3a', {'en': 'Cyprus'}),
+    ]),
+    # Bara från 2006: Cliopatrias Montenegro har också furstendömet och kungariket 1853–1915
+    'montenegro': ('Montenegro', 'Montenegro', [
+        ('Montenegro', 'montenegro', 'Montenegro', '#b04a4a', {'en': 'Montenegro', 'years': (2006, 2024)}),
+    ]),
+    # Bara från 1987, Cliopatrias nutida post (Cliopatria har sultanatet 1363–1889 och inget 1890–1986). Cliopatria anger
+    # Q887803 (det historiska sultanatet); rätt id för landet är Q921
+    'brunei': ('Brunei', 'Brunei', [
+        ('Sultanate of Brunei', 'brunei', 'Brunei', '#c0a03a', {'en': 'Brunei', 'wikidata': 'Q921', 'years': (1987, 2024)}),
+    ]),
+    'trinidad-och-tobago': ('Trinidad och Tobago', 'Trinidad and Tobago', [
+        ('Republic of Trinidad and Tobago', 'trinidad-och-tobago', 'Trinidad och Tobago', '#b04a5a', {'en': 'Trinidad and Tobago'}),
+    ]),
+    'mauritius': ('Mauritius', 'Mauritius', [
+        ('Mauritius', 'mauritius', 'Mauritius', '#5a6ab0', {'en': 'Mauritius'}),
+    ]),
+    # Cliopatria anger Q2719360 (det medeltida hertigdömet); rätt id är Q32
+    'luxemburg': ('Luxemburg', 'Luxembourg', [
+        ('Luxembourg', 'luxemburg', 'Luxemburg', '#5a9ac0', {'en': 'Luxembourg', 'wikidata': 'Q32'}),
+    ]),
+    'sao-tome-och-principe': ('São Tomé och Príncipe', 'São Tomé and Príncipe', [
+        ('São Tomé and Príncipe', 'sao-tome-och-principe', 'São Tomé och Príncipe', '#4aa070', {'en': 'São Tomé and Príncipe'}),
+    ]),
+    'bahrain': ('Bahrain', 'Bahrain', [
+        ('Kingdom of Bahrain', 'bahrain', 'Bahrain', '#b04a6a', {'en': 'Bahrain'}),
+    ]),
+    'singapore': ('Singapore', 'Singapore', [
+        ('Republic of Singapore', 'singapore', 'Singapore', '#c05a5a', {'en': 'Singapore'}),
+    ]),
+    # Nutida stater, fjortonde omgången (#644). Saint Kitts och Nevis väntar: Cliopatrias "Saint Kitts" ligger på ön
+    # Saint Croix i Amerikanska Jungfruöarna, och Mikronesiska federationen har bara ön Pohnpei i Cliopatria. Andorra väntar:
+    # Spaniens och Frankrikes förenklade gränser täcker nästan hela landet
+    'malta': ('Malta', 'Malta', [
+        ('Malta', 'malta', 'Malta', '#c04a4a', {'en': 'Malta'}),
+    ]),
+    'barbados': ('Barbados', 'Barbados', [
+        ('Barbados', 'barbados', 'Barbados', '#3a6ab0', {'en': 'Barbados'}),
+    ]),
+    'dominica': ('Dominica', 'Dominica', [
+        ('Commonwealth of Dominica', 'dominica', 'Dominica', '#4a9a5a', {'en': 'Dominica'}),
+    ]),
+    'saint-lucia': ('Saint Lucia', 'Saint Lucia', [
+        ('Saint Lucia', 'saint-lucia', 'Saint Lucia', '#4a8ab0', {'en': 'Saint Lucia'}),
+    ]),
+    'antigua-och-barbuda': ('Antigua och Barbuda', 'Antigua and Barbuda', [
+        ('Antigua and Barbuda', 'antigua-och-barbuda', 'Antigua och Barbuda', '#c05a4a', {'en': 'Antigua and Barbuda'}),
+    ]),
+    'saint-vincent-och-grenadinerna': ('Saint Vincent och Grenadinerna', 'Saint Vincent and the Grenadines', [
+        ('Saint Vincent', 'saint-vincent-och-grenadinerna', 'Saint Vincent och Grenadinerna', '#5aa07a',
+         {'en': 'Saint Vincent and the Grenadines'}),
+    ]),
+    'grenada': ('Grenada', 'Grenada', [
+        ('Grenada', 'grenada', 'Grenada', '#c08a3a', {'en': 'Grenada'}),
+    ]),
+    'seychellerna': ('Seychellerna', 'Seychelles', [
+        ('Seychelles', 'seychellerna', 'Seychellerna', '#3a8a9a', {'en': 'Seychelles'}),
+    ]),
+    'palau': ('Palau', 'Palau', [
+        ('Palau', 'palau', 'Palau', '#5a7ac0', {'en': 'Palau'}),
+    ]),
+    # Nutida stater, femtonde omgången (#644). Etiopien efter kejsardömet: Cliopatrias Ethiopia från 1975
+    # (Etiopiska kejsardömet tar posten till och med 1974)
+    'etiopien': ('Etiopien', 'Ethiopia', [
+        ('Ethiopia', 'etiopien', 'Etiopien', '#5a9a4a', {'en': 'Ethiopia', 'years': (1975, 2024)}),
+    ]),
+    # Östtimor (Rikards beslut om nutida omstridda gränser, #556): självständigt från 2002 (UD, FN:s UNTAET).
+    # Cliopatria har landet från 2006 och räknar det till Indonesien 1976–2005; åren 2002–2005 får gränsen ur
+    # DISPUTED ('osttimor'), och 1976–2001 räknas området inte till Indonesien
+    'osttimor': ('Östtimor', 'Timor-Leste', [
+        ('East Timor', 'osttimor', 'Östtimor', '#c0804a', {'en': 'Timor-Leste', 'prepend': (2002, 2005)}),
+    ]),
+    # Medeltidens luckor, första omgången (#645): de tio största luckorna 1000–1200 enligt tools/tackning_riken.py, med
+    # undantag av Tibetans (Cliopatrias post pekar på folkgruppen Tibetaner, Q187985, inte på en stat; kvar till nästa omgång).
+    # Svenska namn är Wikidatas svenska etiketter; Kimek-Kipchak saknar svenskt namn och får Cliopatrias engelska.
+    # Cliopatria anger fel Wikidata-id för Kingdom of France (Q207162, Bourbonska restaurationen; rätt är Q70972) och Old Kingdom of
+    # Norway (Q202266, Margareta I; rätt är Q2196956, Norgesväldet), kontrollerat mot Wikidata 2026-11-07.
+    'kimek-kipchak': ('Kimek-Kipchak confederation', 'Kimek-Kipchak confederation', [
+        ('Kimek-Kipchak confederation', 'kimek-kipchak', 'Kimek-Kipchak confederation', '#b89a4a', {'en': 'Kimek-Kipchak confederation'}),
+    ]),
+    'ghaznaviderna': ('Ghaznaviderna', 'Ghaznavid Empire', [
+        ('Ghaznavid Empire', 'ghaznaviderna', 'Ghaznaviderna', '#4a9a6a', {'en': 'Ghaznavid Empire'}),
+    ]),
+    'seldjukiska-riket': ('Seldjukiska riket', 'Great Seljuk Empire', [
+        ('Great Seljuk Empire', 'seldjukiska-riket', 'Seldjukiska riket', '#c07a4a', {'en': 'Great Seljuk Empire'}),
+    ]),
+    'liaodynastin': ('Liaodynastin', 'Liao dynasty', [
+        ('Liao Dynasty', 'liaodynastin', 'Liaodynastin', '#6a8ac0', {'en': 'Liao dynasty'}),
+    ]),
+    'shrivijaya': ('Shrivijaya', 'Srivijaya', [
+        ('Srivijaya', 'shrivijaya', 'Shrivijaya', '#4aa0a0', {'en': 'Srivijaya'}),
+    ]),
+    'republiken-novgorod': ('Republiken Novgorod', 'Novgorod Republic', [
+        ('Novgorod Republic', 'republiken-novgorod', 'Republiken Novgorod', '#9a6ab0', {'en': 'Novgorod Republic'}),
+    ]),
+    'kungariket-ungern': ('Kungariket Ungern', 'Kingdom of Hungary', [
+        ('Kingdom of Hungary', 'kungariket-ungern', 'Kungariket Ungern', '#c05a4a', {'en': 'Kingdom of Hungary'}),
+    ]),
+    'kungariket-frankrike': ('Kungariket Frankrike', 'Kingdom of France', [
+        ('Kingdom of France', 'kungariket-frankrike', 'Kungariket Frankrike', '#4a6ac0', {'en': 'Kingdom of France', 'wikidata': 'Q70972'}),
+    ]),
+    'kungariket-england': ('Kungariket England', 'Kingdom of England', [
+        ('Kingdom of England', 'kungariket-england', 'Kungariket England', '#c04a6a', {'en': 'Kingdom of England'}),
+    ]),
+    'norgesvaldet': ('Norgesväldet', 'Old Kingdom of Norway', [
+        ('Old Kingdom of Norway', 'norgesvaldet', 'Norgesväldet', '#4a8a9a', {'en': 'Old Kingdom of Norway', 'wikidata': 'Q2196956'}),
+    ]),
+    # Medeltidens luckor, andra omgången (#645): Nordafrikas och Främre Orientens kalifat och dynastier, Polen, Bulgarien, Nubien
+    # och Kara-Khitan. Svenska namn är Wikidatas svenska etiketter. Danmark (Cliopatrias Danish Realm) väntar: Cliopatrias Wikidata-id
+    # Q756617 är dagens Danmark. Kingdom of Poland har Q577867, som Wikidata daterar 1025–1385 medan Cliopatrias post sträcker sig 962–1449.
+    'fatimiderna': ('Fatimider', 'Fatimid Caliphate', [
+        ('Fatimid Caliphate', 'fatimiderna', 'Fatimider', '#8aa04a', {'en': 'Fatimid Caliphate'}),
+    ]),
+    'almoravider': ('Almoravider', 'Almoravid dynasty', [
+        ('Almoravid Dynasty', 'almoravider', 'Almoravider', '#b07a3a', {'en': 'Almoravid dynasty'}),
+    ]),
+    'ayyubiderna': ('Ayyubiderna', 'Ayyubid dynasty', [
+        ('Ayyubid Sultanate', 'ayyubiderna', 'Ayyubiderna', '#5a9ab0', {'en': 'Ayyubid dynasty'}),
+    ]),
+    'almohader': ('Almohader', 'Almohad Caliphate', [
+        ('Almohad Caliphate', 'almohader', 'Almohader', '#a05a8a', {'en': 'Almohad Caliphate'}),
+    ]),
+    'kalifatet-cordoba': ('Kalifatet Córdoba', 'Caliphate of Córdoba', [
+        ('Caliphate of Córdoba', 'kalifatet-cordoba', 'Kalifatet Córdoba', '#7a9a3a', {'en': 'Caliphate of Córdoba'}),
+    ]),
+    'forsta-bulgariska-riket': ('Första bulgariska riket', 'First Bulgarian Empire', [
+        ('First Bulgarian Empire', 'forsta-bulgariska-riket', 'Första bulgariska riket', '#3a9a5a', {'en': 'First Bulgarian Empire'}),
+    ]),
+    'kungariket-polen': ('Kungariket Polen', 'Kingdom of Poland', [
+        ('Kingdom of Poland', 'kungariket-polen', 'Kungariket Polen', '#c07a8a', {'en': 'Kingdom of Poland'}),
+    ]),
+    'makuria': ('Makuria', 'Makuria', [
+        ('Makuria', 'makuria', 'Makuria', '#b08a5a', {'en': 'Makuria'}),
+    ]),
+    'kara-khitan': ('Kara-Khitan', 'Qara Khitai', [
+        ('Kara-Khitans', 'kara-khitan', 'Kara-Khitan', '#5a7ab0', {'en': 'Qara Khitai'}),
+    ]),
+    'mamluksultanatet': ('Mamluksultanatet', 'Mamluk Sultanate', [
+        ('Mamluk Sultanate', 'mamluksultanatet', 'Mamluksultanatet', '#a0804a', {'en': 'Mamluk Sultanate'}),
+    ]),
+    # Medeltidens luckor, tredje omgången (#645, Rikards beslut 2026-11-07): Danmark som eget rike med Wikidatas svenska namn
+    # (Q756617, riket sedan 965; nutidens Danmark är gruppen danmark), Tibetanska imperiet, Moskvariket, Litauen, Kastilien och
+    # Uiguriska khaganatet, som saknar svenskt namn på Wikidata och har det engelska. Väntar: Tibetans och Avar Khaganate (Cliopatrias
+    # Wikidata-id är folkgrupper, inte riken) och Yenisei Kyrgyz (namn saknas på tre språk).
+    'konungariket-danmark': ('Konungariket Danmark', 'Kingdom of Denmark', [
+        ('Kingdom of Denmark', 'konungariket-danmark', 'Konungariket Danmark', '#c05a6a', {'en': 'Kingdom of Denmark'}),
+    ]),
+    'tibetanska-imperiet': ('Tibetanska imperiet', 'Tibetan Empire', [
+        ('Tibetan Empire', 'tibetanska-imperiet', 'Tibetanska imperiet', '#b0704a', {'en': 'Tibetan Empire'}),
+    ]),
+    'moskvariket': ('Moskvariket', 'Grand Principality of Moscow', [
+        ('Grand Principality of Moscow', 'moskvariket', 'Moskvariket', '#8a5ab0', {'en': 'Grand Principality of Moscow'}),
+    ]),
+    'storfurstendomet-litauen': ('Storfurstendömet Litauen', 'Grand Duchy of Lithuania', [
+        ('Grand Duchy of Lithuania', 'storfurstendomet-litauen', 'Storfurstendömet Litauen', '#5aa07a', {'en': 'Grand Duchy of Lithuania'}),
+    ]),
+    'kastilianska-kronan': ('Kastilianska kronan', 'Crown of Castile', [
+        ('Crown of Castile', 'kastilianska-kronan', 'Kastilianska kronan', '#c0a04a', {'en': 'Crown of Castile'}),
+    ]),
+    'uiguriska-khaganatet': ('Uyghur Khaganate', 'Uyghur Khaganate', [
+        ('Uyghur Khaganate', 'uiguriska-khaganatet', 'Uyghur Khaganate', '#4a8ac0', {'en': 'Uyghur Khaganate'}),
+    ]),
+    # Små stater ur Natural Earth (#722, Rikards beslut 2026-11-07): Cliopatria saknar dem i nutid eller har fel gräns
+    # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth
+    # (tools/ne-omstridda-omraden.geojson, tools/ne_omstridda.py), från självständigheten enligt Wikidata och Wikipedia
+    # (docs/datamodell.md), och landet visas som en punkt med namn (point) på huvudstaden enligt Wikidata (label)
+    # Andorra och Monaco (#719, Rikards beslut 2026-11-07): som de små staterna, en punkt på huvudstaden, men med
+    # Cliopatrias årtal. Gränsen är dagens land i Natural Earth; grannarnas förenklade gränser täcker annars Andorra.
+    # Monaco har Cliopatrias gräns till och med 1847 (164 km²) och Natural Earths från 1848, eftersom Cliopatrias
+    # gräns från 1848 ligger väster om Monaco (7,15–7,23° öst; Natural Earth 7,37–7,44° öst)
+    'andorra': ('Andorra', 'Andorra', [
+        ('Principality of Andorra', 'andorra', 'Andorra', '#c0603a', {'en': 'Andorra', 'ne': 'andorra', 'point': True,
+                                                                     'label': (1.522, 42.507)}),
+    ]),
+    'monaco': ('Monaco', 'Monaco', [
+        (['Principality of Monaco', 'Kingdom of Monaco'], 'monaco', 'Monaco', '#c04a5a',
+         {'en': 'Monaco', 'wikidata': 'Q235', 'ne': 'monaco', 'ne_from': 1848, 'point': True, 'label': (7.42, 43.731)}),
+    ]),
+    'saint-kitts-och-nevis': ('Saint Kitts och Nevis', 'Saint Kitts and Nevis', [
+        (None, 'saint-kitts-och-nevis', 'Saint Kitts och Nevis', '#c05a4a', {'en': 'Saint Kitts and Nevis', 'wikidata': 'Q763', 'years': (1983, 2024), 'ne': 'saint-kitts-och-nevis', 'point': True,
+                  'label': (-62.734, 17.298)}),
+    ]),
+    'mikronesiska-federationen': ('Mikronesiska federationen', 'Federated States of Micronesia', [
+        (None, 'mikronesiska-federationen', 'Mikronesiska federationen', '#4a8ab0', {'en': 'Federated States of Micronesia', 'wikidata': 'Q702', 'years': (1986, 2024), 'ne': 'mikronesiska-federationen', 'point': True,
+                  'label': (158.185, 6.918)}),
+    ]),
+    'kiribati': ('Kiribati', 'Kiribati', [
+        (None, 'kiribati', 'Kiribati', '#c0904a', {'en': 'Kiribati', 'wikidata': 'Q710', 'years': (1979, 2024), 'ne': 'kiribati', 'point': True,
+                  'label': (172.967, 1.333)}),
+    ]),
+    'komorerna': ('Komorerna', 'Comoros', [
+        (None, 'komorerna', 'Komorerna', '#4a9a6a', {'en': 'Comoros', 'wikidata': 'Q970', 'years': (1975, 2024), 'ne': 'komorerna', 'point': True,
+                  'label': (43.254, -11.704)}),
+    ]),
+    'liechtenstein': ('Liechtenstein', 'Liechtenstein', [
+        (None, 'liechtenstein', 'Liechtenstein', '#4a6ab0', {'en': 'Liechtenstein', 'wikidata': 'Q347', 'years': (1806, 2024), 'ne': 'liechtenstein', 'point': True,
+                  'label': (9.522, 47.141)}),
+    ]),
+    'maldiverna': ('Maldiverna', 'Maldives', [
+        (None, 'maldiverna', 'Maldiverna', '#c04a5a', {'en': 'Maldives', 'wikidata': 'Q826', 'years': (1965, 2024), 'ne': 'maldiverna', 'point': True,
+                  'label': (73.508, 4.175)}),
+    ]),
+    'marshalloarna': ('Marshallöarna', 'Marshall Islands', [
+        (None, 'marshalloarna', 'Marshallöarna', '#3a7ac0', {'en': 'Marshall Islands', 'wikidata': 'Q709', 'years': (1986, 2024), 'ne': 'marshalloarna', 'point': True,
+                  'label': (171.38, 7.092)}),
+    ]),
+    'nauru': ('Nauru', 'Nauru', [
+        (None, 'nauru', 'Nauru', '#3a5a9a', {'en': 'Nauru', 'wikidata': 'Q697', 'years': (1968, 2024), 'ne': 'nauru', 'point': True,
+                  'label': (166.921, -0.548)}),
+    ]),
+    'samoa': ('Samoa', 'Samoa', [
+        (None, 'samoa', 'Samoa', '#b04a4a', {'en': 'Samoa', 'wikidata': 'Q683', 'years': (1962, 2024), 'ne': 'samoa', 'point': True,
+                  'label': (-171.833, -13.833)}),
+    ]),
+    'san-marino': ('San Marino', 'San Marino', [
+        (None, 'san-marino', 'San Marino', '#5a9ac0', {'en': 'San Marino', 'wikidata': 'Q238', 'years': (1291, 2024), 'ne': 'san-marino', 'point': True,
+                  'label': (12.448, 43.932)}),
+    ]),
+    'tonga': ('Tonga', 'Tonga', [
+        (None, 'tonga', 'Tonga', '#c04a4a', {'en': 'Tonga', 'wikidata': 'Q678', 'years': (1970, 2024), 'ne': 'tonga', 'point': True,
+                  'label': (-175.202, -21.134)}),
+    ]),
+    'tuvalu': ('Tuvalu', 'Tuvalu', [
+        (None, 'tuvalu', 'Tuvalu', '#4aa0b0', {'en': 'Tuvalu', 'wikidata': 'Q672', 'years': (1978, 2024), 'ne': 'tuvalu', 'point': True,
+                  'label': (179.117, -8.505)}),
+    ]),
 }
 
 # Huvudlandet i utspridda välden (#74): moderlandet ritas med kraftigare kant och en stjärna och får
@@ -859,7 +1287,38 @@ DISPUTED = {
     # Staten Palestina, som Sverige erkände 30 oktober 2014 (UD, Palestina): Västbanken med Östra Jerusalem och Gaza
     'palestina': {'area': ('ne', ['vastbanken', 'ostra-jerusalem', 'gaza']), 'from': 2014,
                   'remove': [], 'add': ['palestina']},
+    # Nagorno-Karabach (Rikards beslut 2026-11-06): omstritt till och med 2022, Azerbajdzjan från 2023, då UD skriver
+    # att Azerbajdzjan återupprättade kontrollen. Cliopatria räknar området och omkringliggande områden till Armenien;
+    # det omstridda området är den del av Cliopatrias Armenien som ligger inom Azerbajdzjans gräns i Natural Earth
+    'karabach-armenien': {'area': ('ne-snitt', 'azerbajdzjan', ('Republic of Armenia', 2000)), 'from': 1992,
+                          'remove': ['armenien'], 'add': []},
+    'karabach-azerbajdzjan': {'area': ('ne-snitt', 'azerbajdzjan', ('Republic of Armenia', 2000)), 'from': 2023,
+                              'remove': [], 'add': ['azerbajdzjan']},
+    # Abchazien och Sydossetien ritas som Georgien (Rikards beslut; UD: Sverige stöder Georgiens territoriella integritet)
+    'abchazien-sydossetien': {'area': ('ne', ['abchazien', 'sydossetien']), 'from': 1992,
+                              'remove': [], 'add': ['georgien']},
+    # Transnistrien ritas som Moldavien (Rikards beslut; UD beskriver Transnistrien som en region i Moldavien)
+    'transnistrien': {'area': ('ne', ['transnistrien']), 'from': 1992, 'remove': [], 'add': ['moldavien']},
+    # Norra Cypern ritas som Cypern (Rikards beslut; UD: Sverige erkänner inte Norra Cypern, FN:s resolution 541/1983).
+    # Cliopatria har hela ön som Republiken Cypern till och med 1975 och Norra Cypern som egen stat från 1976; området är
+    # Cyperns gräns 1970 minus gränsen 2000
+    'norra-cypern': {'area': (('Republic of Cyprus', 1970), ('Republic of Cyprus', 2000)), 'from': 1976,
+                     'remove': [], 'add': ['cypern']},
+    # Östtimor: Sverige erkände aldrig Indonesiens ockupation 1975 (UD, Östtimor), och landet blev självständigt
+    # 20 maj 2002 efter FN:s förvaltning från oktober 1999 (FN, UNTAET). Cliopatria räknar området till Indonesien
+    # 1976–2005; det är Indonesiens gräns 2005 minus gränsen 2006. Det räknas inte till Indonesien och visas utan
+    # stat 1976–2001 (som Golanhöjderna), och som Östtimor från 2002
+    'osttimor-indonesien': {'area': (('Republic of Indonesia', 2005), ('Republic of Indonesia', 2006)), 'from': 1976,
+                            'remove': ['indonesien'], 'add': []},
+    'osttimor': {'area': (('Republic of Indonesia', 2005), ('Republic of Indonesia', 2006)), 'from': 2002,
+                 'remove': [], 'add': ['osttimor']},
 }
+
+
+def ne_shapes():
+    """Områdena och länderna i tools/ne-omstridda-omraden.geojson (Natural Earth): {id: geometri}."""
+    return {f['properties']['id']: shape(f['geometry']).buffer(0)
+            for f in json.loads((ROOT / 'tools/ne-omstridda-omraden.geojson').read_text())['features']}
 
 
 def disputed_areas(by_name):
@@ -869,10 +1328,14 @@ def disputed_areas(by_name):
             if f['properties']['FromYear'] <= y <= f['properties']['ToYear']:
                 return shape(f['geometry']).buffer(0)
         raise SystemExit(f'DISPUTED: {name} saknas år {y} i Cliopatria')
-    ne = {f['properties']['id']: shape(f['geometry']).buffer(0)
-          for f in json.loads((ROOT / 'tools/ne-omstridda-omraden.geojson').read_text())['features']}
-    return {k: unary_union([ne[i] for i in d['area'][1]]) if d['area'][0] == 'ne'
-            else at(*d['area'][0]).difference(at(*d['area'][1])) for k, d in DISPUTED.items()}
+    ne = ne_shapes()
+    def area(a):
+        if a[0] == 'ne':
+            return unary_union([ne[i] for i in a[1]])
+        if a[0] == 'ne-snitt':  # ett land i Natural Earth snittat med en Cliopatria-post ett visst år
+            return ne[a[1]].intersection(at(*a[2]))
+        return at(*a[0]).difference(at(*a[1]))
+    return {k: area(d['area']) for k, d in DISPUTED.items()}
 
 
 def apply_disputed(items, gid, areas):
@@ -956,7 +1419,7 @@ def extend(by_name, ext):
 
 
 # Koordinaterna avrundas till 0.1 grad, utom för små länder där gränsen annars hamnar fel (#644)
-DECIMALS = {'israel': 2, 'palestina': 2}
+DECIMALS = {'israel': 2, 'palestina': 2, **{g: 3 for g in SMALL_STATES}}
 
 
 def rnd(o, nd=1):
@@ -1091,6 +1554,7 @@ def main():
             by_name.setdefault(p['Name'], []).append(f)
     rels = relations(src)
     disputed = disputed_areas(by_name)  # omstridda gränser enligt Sveriges hållning (#644)
+    ne = ne_shapes()  # små stater ur Natural Earth (#722)
     # Riken med eget namn i GROUPS, så att ett lydrike som också är ett eget rike på kartan får samma namn (#75)
     known = {}
     for _gid, (_sv, _en, _members, *_o) in GROUPS.items():
@@ -1153,8 +1617,19 @@ def main():
             if gid in EXTEND and EXTEND[gid]['polity'] == cname:
                 feats = extend(by_name, EXTEND[gid])
             # En del utan Cliopatria-namn (None) får hela sin gräns ur DISPUTED (Palestina, #644)
-            base = ([(*opts['years'], Polygon(), 0)] if cname is None
-                    else member_periods(by_name, cname, opts.get('years'), feats))
+            # eller, med `ne`, ur ett land i Natural Earth (små stater, #722)
+            if cname is None:
+                g0 = ne[opts['ne']] if opts.get('ne') else Polygon()
+                base = [(*opts['years'], g0, km2(g0) if opts.get('ne') else 0)]
+            else:
+                base = member_periods(by_name, cname, opts.get('years'), feats)
+                # Cliopatrias årtal men gränsen ur Natural Earth från året ne_from (Andorra och Monaco, #719)
+                if opts.get('ne'):
+                    g1 = ne[opts['ne']]
+                    base = [(a, b, g1, km2(g1)) if a >= opts.get('ne_from', a) else (a, b, g, ar) for a, b, g, ar in base]
+            # prepend: år före Cliopatrias första år, utan egen gräns; gränsen läggs till ur DISPUTED (Östtimor, #644)
+            if opts.get('prepend'):
+                base = [(*opts['prepend'], Polygon(), 0)] + base
             if opts.get('minus'):
                 base = minus_others(base, opts['minus'], by_name)
             for start, end, raw, area in apply_disputed(base, gid, disputed):
@@ -1166,8 +1641,10 @@ def main():
                     continue
                 # Namnet skrivs där den största delen av riket ligger
                 c = (max(g.geoms, key=lambda q: q.area) if g.geom_type == 'MultiPolygon' else g).representative_point()
+                # label i GROUPS ersätter den uträknade punkten (små stater: huvudstaden, #722)
+                lab = list(opts['label']) if opts.get('label') else [round(c.x, 1), round(c.y, 1)]
                 q = {'start': start, 'end': end, 'areaKm2': round(area),
-                     'label': [round(c.x, 1), round(c.y, 1)], '_shape': g,
+                     'label': lab, '_shape': g,
                      'geometry': {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], DECIMALS.get(gid, 1))}}
                 # Huvudlandet (#74): den del av riket som är moderlandet. Den ritas kraftigare och får rikets namn.
                 if home and 'homeland' in opts:
@@ -1197,8 +1674,12 @@ def main():
             wd = opts.get('wikidata') or by_name[first][0]['properties'].get('Wikidata')
             pname = with_old({'sv': psv, 'en': opts.get('en', (first or '').strip('()'))}, ('polity', gid, pid))
             polity = {'id': pid, 'group': gid, 'name': pname, 'wikidata': wd,
-                      'color': color, 'sources': ['cliopatria'] if first else ['natural-earth-omstridda'],
+                      'color': color,
+                      'sources': (['cliopatria', 'natural-earth-lander'] if opts.get('ne') else ['cliopatria']) if first
+                                 else ['natural-earth-lander'] if opts.get('ne') else ['natural-earth-omstridda'],
                       'review': 'source-checked', 'periods': merged}
+            if opts.get('point'):
+                polity['point'] = True  # för litet för kartan: visas som en punkt med namn (#722)
             if isinstance(cname, list):
                 polity['parts'] = cname  # Cliopatria-namnen som slogs ihop
             if home and 'homeland' in opts:
@@ -1218,6 +1699,10 @@ def main():
                       'polities': [{'id': p['id'], 'name': p['name'], 'sources': p['sources'], 'review': p['review']} for p in polities]})
         if not any(m[0] for m in members):
             index[-1]['borderSource'] = 'Natural Earth'  # gränsen kommer inte från Cliopatria (#644)
+        elif all(isinstance(m[-1], dict) and m[-1].get('ne') for m in members):
+            # Cliopatrias årtal med gränsen ur Natural Earth (#719), från ett visst år när ne_from finns
+            index[-1]['borderSource'] = ('Cliopatria / Natural Earth' if any(m[-1].get('ne_from') for m in members)
+                                         else 'Natural Earth')
         if home:
             index[-1]['homeland'] = {'name': home['name']}
         if gid in vanished:
@@ -1271,7 +1756,9 @@ def main():
              'docs/omstridda-granser.md). Krim och Sevastopol räknas till Ukraina även från 2014, och inte till Ryska federationen. '
              'Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel från 1967; Staten Palestina '
              '(Västbanken med Östra Jerusalem och Gaza) visas från 2014, då Sverige erkände den. De gränserna kommer ur Natural Earth '
-             '(ne_10m_admin_0_disputed_areas 5.1.1, public domain), och gruppen har då borderSource. Där är areaKm2 räknad ur den nya gränsen.')
+             '(ne_10m_admin_0_disputed_areas 5.1.1, public domain), och gruppen har då borderSource. Där är areaKm2 räknad ur den nya gränsen. '
+             'Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth '
+             '(ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.')
     (out / 'index.json').write_text(json.dumps({'schema': 'historia-globen/empires-index@1', 'notes': notes, 'groups': index},
                                                ensure_ascii=False, indent=1))
 

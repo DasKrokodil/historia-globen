@@ -73,6 +73,12 @@
     </div>
   </div>
 
+  <!-- Lektionsläget (#795): bandet överst när en lektionslänk (#t=<tur>&m=lektion) har startat turen (js/ui/lesson.js) -->
+  <section id="lesson-band" class="lesson-band" aria-labelledby="lesson-band-title" hidden>
+    <p id="lesson-band-title" class="lesson-band-title"></p>
+    <button id="lesson-exit" class="lesson-exit" type="button" data-i18n="lesson.exit">Visa hela globen</button>
+  </section>
+
   <header class="masthead">
     <h1 class="brand">Historia-globen</h1>
     <div class="year-readout">
@@ -131,6 +137,10 @@
         <div id="extra-menu" class="extra-menu" role="group" aria-label="Mer" data-i18n-aria-label="top.more">
           <button id="btn-sources" class="chip-btn" type="button" title="Om källorna: källpolicy och källregister" data-i18n-title="top.sourcesTitle" data-i18n="top.sources">Källor</button>
           <button id="btn-help" class="chip-btn" type="button" aria-expanded="false" aria-controls="help" data-i18n="top.help">Hjälp</button>
+          <!-- Quiz (#65): "Vad hände samtidigt som …?" ur befintliga fun facts (js/ui/quiz.js, js/quiz-rules.js) -->
+          <!-- Samtidighetsjakten (#741): ett elevuppdrag ur data/uppdrag.json (js/ui/uppdrag.js, js/uppdrag-rules.js) -->
+          <button id="btn-hunt" class="chip-btn" type="button" aria-controls="hunt" hidden title="Hitta händelser på olika kontinenter samtidigt" data-i18n-title="top.huntTitle" data-i18n="top.hunt">Samtidighetsjakten</button>
+          <button id="btn-quiz" class="chip-btn" type="button" aria-controls="quiz" hidden title="Vad hände samtidigt? Frågor ur fun facts" data-i18n-title="top.quizTitle" data-i18n="top.quiz">Quiz</button>
           <!-- Dela (#64): länken till vyn som den ser ut nu, med år, kamera, fokus, lager och kategorier (#501) -->
           <button id="btn-share" class="chip-btn" type="button" title="Kopiera en länk till den här vyn" data-i18n-title="share.title" data-i18n="share.button">Dela</button>
           <!-- Språkväljaren (#63): språken i data/ui/sprak.json, byte laddar om sidan och behåller året (js/i18n.js) -->
@@ -181,6 +191,52 @@
         <button id="intro-back" class="link-btn" type="button"></button>
         <button id="intro-skip" class="link-btn" type="button"></button>
         <button id="intro-next" class="focus-action" type="button"></button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Samtidighetsjakten (#741): uppgiften, hittade världsdelar och, när jakten är klar, en fråga och källorna -->
+  <aside id="hunt" class="help-card hunt-card" aria-labelledby="hunt-title" hidden>
+    <div class="help-head">
+      <h2 id="hunt-title" class="help-title" tabindex="-1"></h2>
+      <button id="hunt-close" class="panel-x" type="button" aria-label="Avsluta jakten" data-i18n-aria-label="hunt.close">×</button>
+    </div>
+    <p id="hunt-task" class="hunt-task"></p>
+    <p class="hunt-meta"><span id="hunt-years"></span> · <span id="hunt-progress" aria-live="polite"></span></p>
+    <ul id="hunt-list" class="hunt-list"></ul>
+    <p id="hunt-message" class="hunt-message" aria-live="polite"></p>
+    <div id="hunt-done" class="hunt-done" hidden>
+      <p class="hunt-reflect-label" data-i18n="hunt.reflect">Att fundera på:</p>
+      <p id="hunt-reflection" class="hunt-reflection"></p>
+      <p class="hunt-reflect-label" data-i18n="hunt.sources">Källor</p>
+      <ul id="hunt-sources" class="quiz-sources"></ul>
+    </div>
+    <button id="hunt-end" class="chip-btn hunt-end" type="button" data-i18n="hunt.end">Avsluta jakten</button>
+  </aside>
+
+  <!-- Quiz (#65): samma dialog som introduktionen. Frågan, svaren och källorna skrivs av js/ui/quiz.js. -->
+  <aside id="quiz" class="intro-dialog quiz-dialog" role="dialog" aria-modal="true" aria-labelledby="quiz-title" hidden>
+    <div class="quiz-box">
+      <div class="intro-head">
+        <p id="quiz-score" class="intro-progress" aria-live="polite"></p>
+        <button id="quiz-close" class="panel-x" type="button" aria-label="Stäng quizet" data-i18n-aria-label="quiz.close">×</button>
+      </div>
+      <h2 id="quiz-title" class="intro-title" data-i18n="quiz.title">Vad hände samtidigt?</h2>
+      <div id="quiz-event" class="intro-event">
+        <p class="intro-event-label" data-i18n="quiz.event">Händelsen</p>
+        <p id="quiz-event-title" class="intro-event-title"></p>
+        <p id="quiz-event-meta" class="intro-event-meta"></p>
+      </div>
+      <p id="quiz-question" class="intro-text"></p>
+      <div id="quiz-options" class="intro-choices" role="group" aria-labelledby="quiz-question"></div>
+      <div id="quiz-result" class="quiz-result" aria-live="polite" hidden>
+        <p id="quiz-verdict" class="quiz-verdict"></p>
+        <p id="quiz-funfact" class="intro-funfact"></p>
+        <p class="quiz-sources-label" data-i18n="quiz.sources">Källor</p>
+        <ul id="quiz-sources" class="quiz-sources"></ul>
+      </div>
+      <div class="intro-actions">
+        <button id="quiz-next" class="focus-action" type="button" data-i18n="quiz.next" hidden>Nästa fråga</button>
       </div>
     </div>
   </aside>
@@ -346,6 +402,13 @@
     <div class="tour-links">
       <button id="tour-read" class="link-btn" type="button" aria-controls="detail"></button>
       <button id="tour-sources" class="link-btn" type="button"></button>
+      <!-- Skriv ut (#738): elevblad och lärarblad ur turens lärarfält, bara i lektionsturer -->
+      <button id="tour-print" class="link-btn" type="button" hidden></button>
+    </div>
+    <!-- Slutkortet i en lektion (#795): länkar till lektionens uppdrag -->
+    <div id="tour-lesson-end" class="tour-lesson-end" hidden>
+      <p class="tour-lesson-end-label" data-i18n="lesson.next">Fortsätt med ett uppdrag</p>
+      <div id="tour-lesson-end-list" class="tour-links"></div>
     </div>
     <div class="tour-actions">
       <button id="tour-back" class="chip-btn" type="button"></button>
@@ -355,7 +418,7 @@
   </section>
 
   <div id="focus-bar" class="focus-bar" hidden>
-    <span class="focus-label" data-i18n="top.focus">Fokus</span> <span id="focus-title" class="focus-title"></span>
+    <span class="focus-label" data-i18n="focus.label">Fokus</span> <span id="focus-title" class="focus-title"></span>
     <span id="focus-state" class="focus-state"></span>
     <button id="focus-action" class="focus-action" type="button" data-i18n="focus.play">&#9654; Spela</button>
     <button id="focus-facts" class="chip-btn" type="button" hidden aria-controls="detail" data-i18n="focus.facts">Fakta</button>
@@ -423,5 +486,8 @@
 </div>
 
 <script type="module" src="js/main.js"></script>
+  <!-- Utskriften av en lektionstur (#738): js/ui/print-sheet.js ritar elevbladet och lärarbladet här, och bara
+       utskriften visar dem (@media print i css/style.css) -->
+  <div id="print-sheet" class="print-sheet" hidden></div>
 </body>
 </html>

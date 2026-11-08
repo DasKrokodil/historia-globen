@@ -10,6 +10,8 @@
 // Miljövariabler (alla valfria):
 //   BASE_URL=<adress>    testa en redan publicerad sida i stället, till exempel https://historiagloben.se/
 //   BROWSER=<motor>       chromium (standard), firefox eller webkit
+//   HEADLESS=0           öppna webbläsaren med fönster (i Actions kör Firefox så i Xvfb, eftersom det huvudlösa
+//                        läget saknar GL-drivrutin, #702)
 //   SKARMBILDER=<mapp>   var skärmbilderna sparas (standard: <tmp>/historia-globen-webblasartest)
 //   THREE_LOCAL=<fil>    lokal kopia av three.module.js (three@0.160.0) som ersätter jsdelivr. För miljöer utan
 //                        nät till jsdelivr, till exempel molnmiljön. Google Fonts avbryts då också.
@@ -67,19 +69,36 @@ const isFont = url => { try { return FONT_HOSTS.includes(new URL(url).hostname);
 
 // Körs i sidan: jämför den platta kartans pixlar (#flat-canvas) med en sparad bild.
 // Används för att se att ett lager faktiskt ritar något: lagret av → spara → lagret på → räkna ändrade pixlar.
-const PIXELS = `(() => {
-  const c = document.getElementById('flat-canvas');
-  const d = c.getContext('2d').getImageData(0, 0, c.width, c.height).data;
-  return d;
-})()`;
-const DIFF = `((a, b) => {
-  if (!a || !b || a.length !== b.length) return Infinity;
-  let n = 0;
-  for (let i = 0; i < a.length; i += 4) {
-    if (Math.abs(a[i] - b[i]) + Math.abs(a[i + 1] - b[i + 1]) + Math.abs(a[i + 2] - b[i + 2]) > 30) n++;
-  }
-  return n;
-})`;
+// Hjälpen läggs i window.__hgTestPixels av en vanlig funktion (inte en textsträng), eftersom en sträng måste köras
+// med eval, och det stoppar sidans skarpa Content-Security-Policy (#707) när testet körs mot den publicerade sidan.
+function installPixelHelpers() {
+  window.__hgTestPixels ??= {
+    now() {
+      const c = document.getElementById('flat-canvas');
+      return c.getContext('2d').getImageData(0, 0, c.width, c.height).data;
+    },
+    diff(a, b) {
+      if (!a || !b || a.length !== b.length) return Infinity;
+      let n = 0;
+      for (let i = 0; i < a.length; i += 4) {
+        if (Math.abs(a[i] - b[i]) + Math.abs(a[i + 1] - b[i + 1]) + Math.abs(a[i + 2] - b[i + 2]) > 30) n++;
+      }
+      return n;
+    },
+  };
+  return window.__hgTestPixels;
+}
+
+// Felraden för en kontroll (#702): första raden i felet, vad Playwright väntade på och raden i testet där det
+// hände. Förr syntes bara "page.waitForFunction: Timeout 15000ms exceeded.", och det gick inte att se vilken väntan
+// i kontrollen som hängde utan skärmbilderna.
+function failNote(e) {
+  const lines = String(e?.message ?? e).replace(/\u001b\[\d+m/g, '').split('\n');
+  const waiting = lines.find(l => /^\s*-\s*waiting for /.test(l))?.replace(/^\s*-\s*/, '').trim();
+  // Hjälparna (visible, hidden …) ligger också i filen, så de tre första raderna visas: hjälparen och kontrollen
+  const here = [...new Set(String(e?.stack ?? '').split('\n').map(l => l.match(/webblasare\.mjs:(\d+):\d+/)?.[1]).filter(Boolean))].slice(0, 3);
+  return [lines[0], waiting && `(${waiting})`, here.length && `[rad ${here.join(', ')}]`].filter(Boolean).join(' ');
+}
 
 async function run(browser, vp) {
   const results = [];
@@ -97,10 +116,14 @@ async function run(browser, vp) {
     if (m.type() !== 'error') return;
     const url = m.location()?.url || '';
     if (isFont(url)) return;
+    // WebKit skriver en hämtning som avbryts av omladdningen som "TypeError: Load failed" i konsolen (#702).
+    // Bara exakt det meddelandet, och bara medan språktestet laddar om sidan, räknas bort.
+    if (reloading && /^TypeError: Load failed$/.test(m.text())) return;
     errors.push(`konsol: ${m.text()}${url ? ` (${url})` : ''}`);
   });
   // Medan språktestet laddar om sidan (#63) avbryter webbläsaren hämtningar som pågår, till exempel ikoner. WebKit
-  // rapporterar det som fel ("Load request cancelled", "… due to access control checks"); det är omladdningen,
+  // rapporterar det som fel ("Load request cancelled", "… due to access control checks", i konsolen "TypeError: Load
+  // failed"); det är omladdningen,
   // inte ett fel på sidan. Bara avbrutna hämtningar under omladdningen räknas bort (v5.0.0).
   let reloading = false;
   const cancelled = text => /cancel|abort|access control checks/i.test(text ?? '');
@@ -141,7 +164,15 @@ async function run(browser, vp) {
       const note = await fn();
       results.push({ name, ok: true, ms: Date.now() - t0, note });
     } catch (e) {
-      results.push({ name, ok: false, ms: Date.now() - t0, note: String(e.message).split('\n')[0] });
+      // Läget i sidan när kontrollen föll (#702): vilket element som har fokus och vilka paneler som är öppna
+      const state = await page.evaluate(ids => {
+        const a = document.activeElement;
+        const focus = a ? `${a.tagName.toLowerCase()}${a.id ? `#${a.id}` : ''}${a.className && typeof a.className === 'string' ? `.${a.className.trim().split(/\s+/).join('.')}` : ''}` : 'inget';
+        const open = ids.filter(id => { const el = document.getElementById(id); return el && !el.hidden && el.getClientRects().length; });
+        const menu = document.querySelector('.top-actions')?.classList.contains('more-open') ? ', Meny öppen' : '';
+        return `läge: år ${document.getElementById('year-big')?.textContent.trim()}, fokus ${focus}, öppna: ${open.join(' ') || 'inga'}${menu}`;
+      }, ['jump-pop', 'help', 'layer-menu', 'focus-menu', 'empire-legend', 'detail', 'panel', 'sources-dialog', 'search-pop', 'flat-view', 'tour-card']).catch(() => '');
+      results.push({ name, ok: false, ms: Date.now() - t0, note: [failNote(e), state].filter(Boolean).join(' · ') });
       await shot(`FEL-${name.replace(/[^a-zåäö0-9]+/gi, '-')}`).catch(() => {});
       await page.keyboard.press('Escape').catch(() => {});
     }
@@ -168,12 +199,15 @@ async function run(browser, vp) {
     await page.waitForFunction(v => document.getElementById('year-big').textContent.trim() === v, String(y < 1 ? 1 - y : y), { timeout: T.step });
   };
   // Väntar tills den platta kartan står still (två bilder i rad nästan lika) och sparar den som jämförelsebild.
-  const settleFlat = () => page.waitForFunction(`(() => {
-    const now = ${PIXELS}, prev = window.__hgTestPrev;
-    window.__hgTestPrev = now;
-    if (prev && ${DIFF}(prev, now) < 20) { window.__hgTestBase = now; return true; }
-    return false;
-  })()`, null, { polling: 300, timeout: T.step });
+  const settleFlat = async () => {
+    await page.evaluate(installPixelHelpers);
+    await page.waitForFunction(() => {
+      const px = window.__hgTestPixels, now = px.now(), prev = window.__hgTestPrev;
+      window.__hgTestPrev = now;
+      if (prev && px.diff(prev, now) < 20) { window.__hgTestBase = now; return true; }
+      return false;
+    }, null, { polling: 300, timeout: T.step });
+  };
   const layerRow = name => `#layer-menu input[data-layer="${name}"]`;
   const setLayer = async (name, on) => {
     if (await page.isHidden('#layer-menu')) { await clickView('#btn-layers'); await visible('#layer-menu'); }
@@ -194,8 +228,11 @@ async function run(browser, vp) {
     await settleFlat();
     await setLayer(name, true);
     await page.mouse.move(1, 1);
-    const h = await page.waitForFunction(`(() => { const n = ${DIFF}(window.__hgTestBase, ${PIXELS}); return n >= ${min} && n; })()`,
-      null, { polling: 300, timeout: T.step });
+    await page.evaluate(installPixelHelpers);
+    const h = await page.waitForFunction(min => {
+      const px = window.__hgTestPixels, n = px.diff(window.__hgTestBase, px.now());
+      return n >= min && n;
+    }, min, { polling: 300, timeout: T.step });
     return h.jsonValue();
   };
 
@@ -484,6 +521,80 @@ async function run(browser, vp) {
     return 'ingen automatisk popup; tre steg, år 1889, Escape och reducerad rörelse fungerar';
   });
 
+  // Samtidighetsjakten (#741): starta från Mer, lägg händelser i jakten från faktarutan, samma världsdel ger besked,
+  // tre världsdelar ger frågan och källorna, uppdraget står i adressen, Escape avslutar och fokus kommer tillbaka
+  await check('Samtidighetsjakten räknar världsdelar och år ur datan (#741)', async () => {
+    try { return await huntCheck(); } catch (err) { if (await page.isVisible('#hunt')) await page.click('#hunt-end'); throw err; }
+  });
+  async function huntCheck() {
+    await clickView('#btn-hunt');
+    await visible('#hunt');
+    if ((await year()) !== '1500') throw new Error(`jakten började på ${await year()}, inte 1500`);
+    if (!/^0 /.test((await page.textContent('#hunt-progress')).trim())) throw new Error('jakten börjar inte på noll');
+    // Som en elev: öppna händelsen i Samtidigt och tryck på Lägg till i jakten i faktarutan
+    const add = async id => {
+      if (await page.isHidden('#panel')) await clickView('#btn-panel');
+      await page.locator(`#event-list .event-btn[data-id="${id}"]`).first().click();
+      await page.waitForSelector('#detail [data-hunt]', { state: 'visible', timeout: T.step });
+      await page.click('#detail [data-hunt]');
+      return (await page.textContent('#hunt-message')).trim();
+    };
+    await add('columbus');
+    await add('bartolomeu-dias-rundar-afrika');
+    const same = await add('spanska-erovringen-av-aztekriket');
+    if (!/redan/.test(same)) throw new Error(`två händelser från Amerika godtogs: ${same}`);
+    await add('vasco-da-gama-nar-indien');
+    await visible('#hunt-done');
+    if (await page.locator('#hunt-list li').count() !== 3) throw new Error('jakten har inte tre händelser');
+    await page.waitForFunction(() => document.querySelectorAll('#hunt-sources li a').length > 0, null, { timeout: T.step });
+    const wide = await page.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1);
+    if (wide) throw new Error('jakten ger horisontell scroll');
+    await page.waitForFunction(() => location.hash.includes('u=samtidighetsjakten-1500'), null, { timeout: T.step });
+    if (await page.isVisible('#panel-close')) await page.click('#panel-close');
+    await page.focus('#hunt-end');
+    await page.keyboard.press('Escape');
+    await hidden('#hunt');
+    const back = await page.evaluate(() => document.activeElement?.id);
+    if (!['btn-hunt', 'btn-more', 'more-toggle'].includes(back)) throw new Error(`fokus gick till ${back} efter Escape`);
+    await page.waitForFunction(() => !location.hash.includes('u='), null, { timeout: T.step });
+    if (await page.isVisible('#detail')) await page.keyboard.press('Escape');
+    return 'år 1500; Amerika två gånger ger besked; tre världsdelar ger fråga och källor; u= i adressen och bort efter Escape';
+  }
+
+  // Quizet (#65): tre svar ur datan, rätt eller fel med årtal och källor, nästa fråga, bara tangentbord och Escape
+  await check('quizet ställer frågor ur fun facts och går att svara på med tangentbordet (#65)', async () => {
+    // Fallerar kontrollen stängs quizet, så att rutan inte täcker sidan för kontrollerna efter
+    try { return await quizCheck(); } catch (err) { if (await page.isVisible('#quiz')) await page.keyboard.press('Escape'); throw err; }
+  });
+  async function quizCheck() {
+    await clickView('#btn-quiz');
+    await visible('#quiz');
+    if ((await page.textContent('#quiz-event-title')).trim() === '') throw new Error('frågan saknar händelse');
+    if (await page.locator('#quiz-options button').count() !== 3) throw new Error('frågan har inte tre svar');
+    const wide = await page.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1);
+    if (wide) throw new Error('quizet ger horisontell scroll');
+    // Fokus står på första svaret; Enter svarar
+    const onOption = await page.waitForFunction(() => document.activeElement?.classList.contains('quiz-option'), null, { timeout: 2000 }).then(() => true, () => false);
+    if (!onOption) throw new Error('fokus står inte på ett svar när frågan öppnas');
+    await page.keyboard.press('Enter');
+    await visible('#quiz-result');
+    if (!(await page.textContent('#quiz-verdict')).trim()) throw new Error('svaret säger inte rätt eller fel');
+    if (await page.locator('#quiz-options .is-answer').count() !== 1) throw new Error('rätt svar markeras inte');
+    if (await page.locator('#quiz-options .quiz-option-time:visible').count() !== 3) throw new Error('årtalen visas inte efter svaret');
+    await page.waitForFunction(() => document.querySelectorAll('#quiz-sources li a').length > 0, null, { timeout: T.step });
+    if (!/ av 1|1 /.test(await page.textContent('#quiz-score'))) throw new Error(`poängen visar ${await page.textContent('#quiz-score')}`);
+    const onNext = await page.evaluate(() => document.activeElement?.id === 'quiz-next');
+    if (!onNext) throw new Error('fokus går inte till Nästa fråga efter svaret');
+    await page.keyboard.press('Enter');
+    await hidden('#quiz-result');
+    if (await page.locator('#quiz-options button:disabled').count()) throw new Error('nästa fråga har låsta svar');
+    await page.keyboard.press('Escape');
+    await hidden('#quiz');
+    const back = await page.evaluate(() => document.activeElement?.id);
+    if (!['btn-quiz', 'btn-more', 'more-toggle'].includes(back)) throw new Error(`fokus gick till ${back} efter Escape`);
+    return 'tre svar, Enter svarar, årtal och källor efter svaret, Nästa fråga, Escape och fokus tillbaka';
+  }
+
   await check('en guidad tur går att spela steg för steg och återställer lagren (#47)', async () => {
     const layersOn = () => page.evaluate(() => [...document.querySelectorAll('#layer-menu input[data-layer]')].filter(i => i.checked).map(i => i.dataset.layer).sort().join(','));
     const before = await layersOn();
@@ -609,6 +720,46 @@ async function run(browser, vp) {
     if (await page.isVisible('#detail')) await page.click('#detail [data-close]');
     await jumpTo(startYear);
     return `arket slutar vid ${r.detailBottom} px, fokusraden börjar vid ${r.barTop} px${r.moved ? ' (med raden Tiden flyttades)' : ''}`;
+  });
+
+  // #706: i mobil hamnade Samtidigt-kortets knapprad (Källor, Nästa) under kortets nederkant, bakom tidslinjen.
+  // I halvöppet läge ska Källor och Nästa ligga helt inne i kortets synliga yta, och kortet ska sluta ovanför
+  // uppspelningsraden, i 400 × 800 och i den lägre 360 × 640.
+  await check('Samtidigt-kortets knapprad syns ovanför tidslinjen i mobil (#706)', async () => {
+    if (vp.width > 760) return 'bara i smal skärm';
+    await visible('#funfact');
+    const measure = () => page.evaluate(() => {
+      const box = id => document.getElementById(id).getBoundingClientRect();
+      const ff = document.getElementById('funfact');
+      if (!ff.classList.contains('ff-s-half')) return { state: ff.className };
+      const f = box('funfact'), play = box('btn-play'), track = box('track');
+      const bad = ['ff-sources', 'ff-next'].filter(id => {
+        const r = box(id);
+        return !r.width || r.top < f.top - 0.5 || r.bottom > f.bottom + 0.5 || r.bottom > play.top || r.bottom > track.top;
+      });
+      return { bad, cardBottom: Math.round(f.bottom), playTop: Math.round(play.top), sources: Math.round(box('ff-sources').bottom) };
+    });
+    const out = [];
+    const size = page.viewportSize();
+    try {
+      for (const [w, h] of [[size.width, size.height], [360, 640]]) {
+        if (w !== page.viewportSize().width || h !== page.viewportSize().height) {
+          await page.setViewportSize({ width: w, height: h });
+          await page.waitForFunction(([w, h]) => innerWidth === w && innerHeight === h, [w, h], { timeout: T.step });
+          await page.waitForTimeout(300); // låt kortets plats räknas om efter den nya höjden
+        }
+        const r = await measure();
+        if (r.state) throw new Error(`kortet är inte halvöppet i ${w} × ${h} (${r.state})`);
+        if (r.bad.length) throw new Error(`${r.bad.join(' och ')} syns inte i ${w} × ${h}: kortet slutar vid ${r.cardBottom} px, uppspelningsraden börjar vid ${r.playTop} px`);
+        if (r.cardBottom > r.playTop) throw new Error(`kortet täcker uppspelningsraden i ${w} × ${h} (${r.cardBottom} > ${r.playTop} px)`);
+        await shot(`706-knapprad-${w}x${h}`);
+        out.push(`${w} × ${h}: Källor slutar vid ${r.sources} px, kortet vid ${r.cardBottom}, uppspelningen börjar vid ${r.playTop}`);
+      }
+    } finally {
+      await page.setViewportSize(size);
+      await page.waitForFunction(([w, h]) => innerWidth === w && innerHeight === h, [size.width, size.height], { timeout: T.step }).catch(() => {});
+    }
+    return out.join('; ');
   });
 
   await check('Samtidigt-kortet går till nästa händelse', async () => {
@@ -1154,6 +1305,8 @@ async function run(browser, vp) {
       await mark.waitFor({ state: 'visible', timeout: T.step });
       const name = await mark.getAttribute('aria-label');
       if (!name || !name.startsWith('Framsteg')) throw new Error(`märkningen saknar namn för skärmläsare (${name})`);
+      // Vänta tills faktarutan är färdigladdad, annars ritas den om och stänger märkningen
+      await tagPage.waitForFunction(() => !document.querySelector('#detail .detail-loading'), null, { timeout: T.step });
       await mark.focus();
       await tagPage.keyboard.press('Enter');
       const about = tagPage.locator('#detail .tag-mark[data-tag="framsteg"] p');
@@ -2277,6 +2430,464 @@ async function run(browser, vp) {
       return 'år 1630 och trettioåriga kriget ur länken; Bakåt efter Tillbaka ger kriget igen; trasig länk ger startläget';
     });
   }
+  if (vp.name === 'dator') {
+    // En länk till en guidad tur (#736): t och s i adressen startar turen vid rätt steg, adressen följer turen,
+    // Bakåt går till steget innan, Avsluta tar bort turen ur adressen, och en okänd tur ger en vanlig vy
+    await check('en länk startar en guidad tur vid rätt steg (#736)', async () => {
+      const tourPage = await context.newPage();
+      const tourErrors = [];
+      tourPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) tourErrors.push(m.text()); });
+      tourPage.on('pageerror', e => tourErrors.push(e.message));
+      const progress = () => tourPage.textContent('#tour-progress').then(x => x.trim());
+      const hashHas = text => tourPage.waitForFunction(t => location.hash.includes(t), text, { timeout: T.step });
+      try {
+        if (THREE_LOCAL) {
+          const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+          await tourPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+          await tourPage.route(u => isFont(u.href), r => r.abort());
+        }
+        await tourPage.goto(`${BASE}#t=tre-platser-1325&s=tanger`);
+        await tourPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tourPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+        if ((await progress()) !== 'Steg 2 av 3') throw new Error(`länken med s=tanger öppnade ${await progress()}`);
+        const y = (await tourPage.textContent('#year-big')).trim();
+        if (y !== '1325') throw new Error(`steget tanger står på ${y}, inte 1325`);
+        await tourPage.click('#tour-next');
+        await hashHas('s=tenochtitlan');
+        await tourPage.goBack();
+        await tourPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('2 av 3'), null, { timeout: T.step });
+        await tourPage.click('#tour-close');
+        await tourPage.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+        await tourPage.waitForFunction(() => !location.hash.includes('t='), null, { timeout: T.step });
+        // Den äldre formen ?tur=<id> startar vid första steget och flyttas in i hashen
+        await tourPage.goto(`${BASE}?tur=tre-platser-1325`);
+        await tourPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tourPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+        if ((await progress()) !== 'Steg 1 av 3') throw new Error(`?tur= öppnade ${await progress()}`);
+        if (await tourPage.evaluate(() => location.search.includes('tur='))) throw new Error('?tur= ligger kvar i adressen');
+        await hashHas('t=tre-platser-1325');
+        // En okänd tur hoppas över, och resten av länken gäller
+        await tourPage.goto(`${BASE}?ny=1#y=1500&t=finns-inte`);
+        await tourPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        if (await tourPage.locator('#tour-card').isVisible()) throw new Error('en okänd tur öppnade turens kort');
+        const y2 = (await tourPage.textContent('#year-big')).trim();
+        if (y2 !== '1500') throw new Error(`länken med okänd tur gav året ${y2}, inte 1500`);
+        if (tourErrors.length) throw new Error(`turlänken gav konsolfel: ${tourErrors.join('; ')}`);
+      } finally {
+        await tourPage.close();
+      }
+      return 's=tanger ger steg 2 år 1325; adressen följer turen och Bakåt går till steget innan; Avsluta tar bort t; ?tur= flyttas in i hashen; okänd tur ger år 1500';
+    });
+  }
+  // Lektionsläget (#795): en länk med m=lektion startar turen med menyerna dolda och bandet överst. Låset håller vid
+  // direktlänk, omladdning och Bakåt/Framåt, tangentbordet når "Visa hela globen", slutkortet står kvar efter sista
+  // steget och utgången behåller året och ger den vanliga sidan. Kontrollen körs i dator- och mobilbredd.
+  await check('lektionsläget låser menyerna och har en utgång som behåller året (#795)', async () => {
+    const lessonPage = await context.newPage();
+    const lessonErrors = [];
+    lessonPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) lessonErrors.push(m.text()); });
+    lessonPage.on('pageerror', e => lessonErrors.push(e.message));
+    const lp = sel => lessonPage.locator(sel);
+    let slowEmpires = false;
+    const EMPIRE_DELAY = 2500;
+    const progress = () => lessonPage.textContent('#tour-progress').then(x => x.trim());
+    const shown = sel => lessonPage.evaluate(s => { const el = document.querySelector(s); return !!el && el.getClientRects().length > 0; }, sel);
+    const open = async url => {
+      await lessonPage.goto(url);
+      await lessonPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+    };
+    const hashHas = text => lessonPage.waitForFunction(t => location.hash.includes(t), text, { timeout: T.step });
+    const locked = async () => {
+      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      if (!/^Lektionsläge: /.test((await lp('#lesson-band-title').textContent()).trim())) throw new Error('bandet saknar "Lektionsläge:"');
+      if ((await lp('#lesson-band').getAttribute('aria-labelledby')) !== 'lesson-band-title') throw new Error('bandet är ingen märkt landmärke');
+      for (const sel of ['#btn-layers', '#btn-focus', '#btn-globe', '#btn-flat', '#btn-discovery', '#btn-tour', '#filters', '#tour-close', '#tour-end']) {
+        if (await shown(sel)) throw new Error(`${sel} syns i lektionsläget`);
+      }
+      // Knappen ligger i Mer-menyn och har ingen yta medan den är stängd: kontrollera själva regeln, inte om den syns
+      if (await lessonPage.evaluate(() => getComputedStyle(document.getElementById('btn-hunt')).display) !== 'none') throw new Error('#btn-hunt är inte dold i lektionsläget');
+      if (await lessonPage.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error('lektionsläget ger horisontell scroll');
+    };
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lessonPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lessonPage.route(u => isFont(u.href), r => r.abort());
+      }
+      // Rikesfilerna kan göras långsamma, som på ett långsamt skolnät (fokus som laddas när lektionen börjar)
+      await lessonPage.route(u => /data\/empires\//.test(u.href), async r => {
+        if (slowEmpires) await new Promise(res => setTimeout(res, EMPIRE_DELAY));
+        await r.continue().catch(() => {});
+      });
+      // Direktlänk: bandet, låsta menyer, första steget och året 1939
+      await open(`${BASE}?ny=1#t=andra-varldskriget&m=lektion`);
+      await locked();
+      await lessonPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      if (!/^Steg 1 av 14$/.test(await progress())) throw new Error(`lektionen öppnade ${await progress()}`);
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('lektionen börjar inte 1939');
+      // Tidslinjen går inte att flytta utanför lektionens år
+      await lessonPage.click('#year-jump');
+      await lessonPage.fill('#jump-input', '1500');
+      await lessonPage.press('#jump-input', 'Enter');
+      await lessonPage.waitForFunction(() => /utanför/.test(document.getElementById('jump-msg').textContent), null, { timeout: T.step });
+      if ((await lessonPage.textContent('#year-big')).trim() === '1500') throw new Error('året 1500 gick att välja i en lektion om 1939–1945');
+      // Samma sak för ett datum i årshoppet: utanför intervallet avvisas, inom intervallet fungerar och låset ligger kvar
+      const jumpTo = async v => {
+        await lessonPage.fill('#jump-input', v);
+        await lessonPage.press('#jump-input', 'Enter');
+        await lessonPage.waitForTimeout(300);
+      };
+      await jumpTo('1066-10-14');
+      if (!/utanför/.test(await lessonPage.textContent('#jump-msg'))) throw new Error('datumet 1066-10-14 avvisades inte i en lektion om 1939–1945');
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`datumet 1066-10-14 flyttade året till ${(await lessonPage.textContent('#year-big')).trim()}`);
+      await jumpTo('1944-06-06');
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1944') throw new Error('ett datum inom lektionens år fungerade inte');
+      await lessonPage.keyboard.press('Escape');
+      await lessonPage.click('#year-jump');
+      await jumpTo('1500');
+      if (!/utanför/.test(await lessonPage.textContent('#jump-msg')) || !['1939', '1940', '1941', '1942', '1943', '1944', '1945'].includes((await lessonPage.textContent('#year-big')).trim())) throw new Error('ett datum inom intervallet släppte tidslåset');
+      if (!(await lessonPage.isVisible('#lesson-band'))) throw new Error('bandet försvann efter ett datum i årshoppet');
+      await lessonPage.keyboard.press('Escape');
+      // Omladdning mitt i lektionen ger samma läge och steg
+      await lessonPage.click('#tour-next');
+      await lessonPage.click('#tour-next');
+      await hashHas('s=storbritannien');
+      await hashHas('m=lektion');
+      await lessonPage.reload();
+      await lessonPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await locked();
+      await lessonPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      if (!/^Steg 3 av 14$/.test(await progress())) throw new Error(`omladdningen öppnade ${await progress()}`);
+      // Bakåt och Framåt släpper inte låset
+      await lessonPage.click('#tour-next');
+      await hashHas('s=barbarossa');
+      await lessonPage.goBack();
+      await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('3 av 14'), null, { timeout: T.step });
+      await locked();
+      await lessonPage.goForward();
+      await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('4 av 14'), null, { timeout: T.step });
+      await locked();
+      // Tangentbordet når "Visa hela globen" (bandet ligger före kortet i tabbordningen)
+      await lessonPage.focus('#tour-next');
+      let reached = false;
+      for (let i = 0; i < 60 && !reached; i++) {
+        await lessonPage.keyboard.press('Shift+Tab');
+        reached = await lessonPage.evaluate(() => document.activeElement?.id === 'lesson-exit');
+      }
+      if (!reached) throw new Error('Tab når inte "Visa hela globen"');
+      // Turens slut: slutkortet står kvar, Escape avslutar inte, och det finns ingen Klar-knapp som tömmer läget
+      for (let i = 0; i < 10; i++) await lessonPage.click('#tour-next');
+      await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('14 av 14'), null, { timeout: T.step });
+      await lessonPage.waitForSelector('#tour-next', { state: 'hidden', timeout: T.step });
+      await lessonPage.focus('#tour-back');
+      await lessonPage.keyboard.press('Escape');
+      if (!(await lessonPage.isVisible('#tour-card')) || !(await lessonPage.isVisible('#lesson-band'))) throw new Error('Escape avslutade lektionen');
+      const last = (await lessonPage.textContent('#year-big')).trim();
+      // Utgången: året står kvar, läget och turen slutar, menyerna är tillbaka och fokus hamnar på något synligt
+      await lessonPage.focus('#lesson-exit');
+      await lessonPage.keyboard.press('Enter');
+      await lessonPage.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
+      await lessonPage.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+      if ((await lessonPage.textContent('#year-big')).trim() !== last) throw new Error('"Visa hela globen" ändrade året');
+      if (await lessonPage.isVisible('#more-toggle')) await lessonPage.click('#more-toggle'); // i mobilen ligger knapparna i menyn
+      for (const sel of ['#btn-layers', '#btn-focus', '#btn-globe']) if (!(await shown(sel))) throw new Error(`${sel} kom inte tillbaka`);
+      await lessonPage.waitForFunction(() => !/[?&#]m=|t=/.test(location.hash), null, { timeout: T.step });
+      const focusOk = await lessonPage.evaluate(() => { const a = document.activeElement; return !!a && a !== document.body && a.getClientRects().length > 0; });
+      if (!focusOk) throw new Error('fokus hamnade på ingenting efter "Visa hela globen"');
+      // Tidslinjen är fri igen
+      await lessonPage.click('#year-jump');
+      await lessonPage.fill('#jump-input', '1500');
+      await lessonPage.press('#jump-input', 'Enter');
+      await lessonPage.waitForFunction(() => document.getElementById('year-big').textContent.trim() === '1500', null, { timeout: T.step });
+      // Vikingatiden (åk 4–6) har samma läge; m=lektion utan en lektionstur, och utan tur, gör ingenting
+      await open(`${BASE}?ny=1#t=vikingatiden-och-varlden&m=lektion`);
+      await locked();
+      if ((await lessonPage.textContent('#year-big')).trim() !== '793') throw new Error('vikingalektionen börjar inte 793');
+      await open(`${BASE}?ny=1#t=tre-platser-1325&m=lektion`);
+      await lessonPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      if (await lessonPage.isVisible('#lesson-band')) throw new Error('en tur utan lärarfält startade lektionsläge');
+      await open(`${BASE}?ny=1#y=1500&m=lektion`);
+      if (await lessonPage.isVisible('#lesson-band') || await lessonPage.isVisible('#tour-card')) throw new Error('m=lektion utan tur gav ett tomt läge');
+      // Ett fokus som redan var på tar inte bort låset när lektionslänken öppnas i samma flik
+      await open(`${BASE}?ny=3#y=1942&f=war:andra-varldskriget`);
+      await lessonPage.waitForSelector('#focus-bar:not([hidden])', { state: 'attached', timeout: T.load });
+      await hashHas('c='); // fokuset är klart och har skrivit adressen (på en belastad maskin tar det flera sekunder)
+      await lessonPage.evaluate(() => { location.hash = '#t=andra-varldskriget&m=lektion'; });
+      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('1 av 14'), null, { timeout: T.step });
+      await lessonPage.focus('#track');
+      await lessonPage.keyboard.press('Home');
+      await lessonPage.waitForTimeout(300);
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`Home på reglaget gav ${(await lessonPage.textContent('#year-big')).trim()} i stället för 1939 efter ett fokus och lektionslänken`);
+      await lessonPage.click('#year-jump');
+      await jumpTo('1500');
+      if (!/utanför/.test(await lessonPage.textContent('#jump-msg')) || (await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('lektionslänken efter ett fokus lämnade tidslinjen olåst');
+      // Ett fokus som fortfarande laddas när lektionen börjar får inte släppa låset när det blir klart
+      await open(`${BASE}?ny=5`);
+      slowEmpires = true;
+      await lessonPage.evaluate(() => { location.hash = '#y=1942&f=empire:romarriket&c=-30,-120,3'; });
+      await lessonPage.waitForTimeout(150);
+      await lessonPage.evaluate(() => { location.hash = '#t=andra-varldskriget&m=lektion'; });
+      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      await lessonPage.waitForTimeout(EMPIRE_DELAY + 1500); // fokuset blir klart under tiden
+      slowEmpires = false;
+      if (await lessonPage.isVisible('#focus-bar')) throw new Error('ett fokus som laddades när lektionen började visades i lektionen');
+      // Steg 1 ska visa lektionens första år och kamera, inte den gamla adressens (året 1942 och kameran -30,-120)
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`steg 1 visade ${(await lessonPage.textContent('#year-big')).trim()} i stället för 1939 när ett fokus blev klart i lektionen`);
+      if (/c=-30,-120,/.test(await lessonPage.evaluate(() => location.hash))) throw new Error('den gamla adressens kamera flyttade globen i lektionens steg 1');
+      await lessonPage.focus('#track');
+      await lessonPage.keyboard.press('Home');
+      await lessonPage.waitForTimeout(300);
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`reglaget gick till ${(await lessonPage.textContent('#year-big')).trim()} när ett fokus blev klart i lektionen`);
+      await lessonPage.click('#year-jump');
+      await jumpTo('1066-10-14');
+      if (!/utanför/.test(await lessonPage.textContent('#jump-msg')) || (await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('datumet 1066-10-14 godtogs efter ett fokus som laddades när lektionen började');
+      await lessonPage.keyboard.press('Escape');
+      // Samtidighetsjakten (år 1500) krockar med låset: knappen är dold, och ett u= utanför lektionens år ignoreras
+      await open(`${BASE}?ny=4#t=andra-varldskriget&m=lektion&u=samtidighetsjakten-1500`);
+      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      await lessonPage.waitForTimeout(500);
+      if (await shown('#btn-hunt')) throw new Error('Samtidighetsjakten syns i lektionsläget');
+      if (await lessonPage.isVisible('#hunt')) throw new Error('u= utanför lektionens år öppnade jakten i lektionsläget');
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('u= flyttade året i lektionsläget');
+      if (/u=/.test(await lessonPage.evaluate(() => location.hash))) throw new Error('adressen behöll u= som ignorerades');
+      // Samma flik: en vanlig sida och sedan lektionslänken med u=, och en jakt som redan pågår när lektionen börjar
+      await open(`${BASE}?ny=6#y=1600`);
+      await lessonPage.evaluate(() => { location.hash = '#t=andra-varldskriget&m=lektion&u=samtidighetsjakten-1500'; });
+      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      await lessonPage.waitForTimeout(800);
+      if (await lessonPage.isVisible('#hunt')) throw new Error('jakten öppnades av en lektionslänk i samma flik');
+      await open(`${BASE}?ny=7#y=1500&u=samtidighetsjakten-1500`);
+      await lessonPage.waitForSelector('#hunt:not([hidden])', { state: 'attached', timeout: T.step });
+      await lessonPage.evaluate(() => { location.hash = '#t=andra-varldskriget&m=lektion&u=samtidighetsjakten-1500'; });
+      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      await lessonPage.waitForTimeout(800);
+      if (await lessonPage.isVisible('#hunt')) throw new Error('en jakt som pågick stod kvar när lektionen började');
+      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('året flyttades av jakten i lektionsläget');
+      // Bakåt ut ur lektionen öppnar jakten igen
+      await lessonPage.goBack();
+      await lessonPage.waitForSelector('#hunt:not([hidden])', { state: 'attached', timeout: T.step });
+      if (await lessonPage.isVisible('#lesson-band')) throw new Error('Bakåt lämnade bandet kvar');
+      if (lessonErrors.length) throw new Error(`lektionsläget gav konsolfel: ${lessonErrors.join('; ')}`);
+    } finally {
+      await lessonPage.close();
+    }
+    return 'direktlänk, omladdning och Bakåt/Framåt behåller låset; året låst till 1939–1945; Tab når utgången; slutkortet står kvar; utgången behåller året; utan lektionstur eller tur inget läge';
+  });
+  // #862 F7: i mobil öppnades faktarutan bakom turkortet, så att kortets text täckte rubrik, handtag och Stäng.
+  // Prövar att faktarutans stängknapp är det som träffas mitt på knappen (inte kortet) och att Stäng fungerar.
+  await check('faktarutan öppnas ovanpå lektionskortet och går att stänga (#862)', async () => {
+    const dp = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await dp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await dp.route(u => isFont(u.href), r => r.abort());
+      }
+      await dp.goto(`${BASE}?ny=8#t=andra-varldskriget&m=lektion&s=storbritannien`);
+      await dp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await dp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      await dp.getByRole('button', { name: /Läs om händelsen/ }).first().click({ timeout: T.step });
+      await dp.waitForSelector('#detail:not([hidden])', { state: 'visible', timeout: T.step });
+      const hit = await dp.evaluate(() => {
+        const close = document.querySelector('#detail .detail-close');
+        if (!close) return { error: 'faktarutan saknar stängknapp' };
+        const b = close.getBoundingClientRect();
+        const el = document.elementFromPoint(b.x + b.width / 2, b.y + b.height / 2);
+        const handle = document.querySelector('#detail .sheet-handle');
+        const hb = handle && handle.getClientRects().length ? handle.getBoundingClientRect() : null;
+        const topAtHandle = hb ? document.elementFromPoint(hb.x + hb.width / 2, hb.y + hb.height / 2) : null;
+        return { onClose: !!el && close.contains(el), top: el && (el.id || el.className || el.tagName),
+          handleCovered: !!hb && !handle.contains(topAtHandle) };
+      });
+      if (hit.error) throw new Error(hit.error);
+      if (!hit.onClose) throw new Error(`faktarutans Stäng är övertäckt av ${hit.top}`);
+      if (hit.handleCovered) throw new Error('faktarutans handtag är övertäckt');
+      await dp.click('#detail .detail-close', { timeout: T.step });
+      await dp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      if (!(await dp.isVisible('#tour-card'))) throw new Error('turkortet försvann när faktarutan stängdes');
+    } finally {
+      await dp.close();
+    }
+    return 'Läs om händelsen: Stäng och handtag nås, och Stäng ger tillbaka turkortet';
+  });
+  if (vp.name === 'dator') {
+    // Mätningarna i utskriftsvyn (#757): körs i sidan med print-media påslaget
+    const printAudit = () => {
+      const root = document.getElementById('print-sheet');
+      const heads = [...root.querySelectorAll('h1, h2, h3, h4')];
+      const levels = heads.map(h => Number(h.tagName[1]));
+      const h1s = heads.filter(h => h.tagName === 'H1').map(h => h.textContent.trim());
+      const texts = [...root.querySelectorAll('*')].filter(e => e.children.length === 0 && e.textContent.trim());
+      const css = (e, p) => getComputedStyle(e).getPropertyValue(p);
+      const avoid = ['.print-questions > li', '.print-exit', '.print-sources li'].flatMap(s => [...root.querySelectorAll(s)]);
+      return {
+        h1: h1s.length,
+        h1Same: new Set(h1s).size !== h1s.length,
+        skippedHeading: levels.some((l, i) => l > (levels[i - 1] ?? 0) + 1),
+        unlabelled: [...root.querySelectorAll('.print-page')].filter(s => !document.getElementById(s.getAttribute('aria-labelledby') ?? '')?.textContent.trim()).length,
+        visibleLines: [...root.querySelectorAll('.print-lines, .print-blank')].filter(e => e.getAttribute('aria-hidden') !== 'true').length,
+        colors: [...new Set(texts.map(e => `${css(e, 'color')} på ${css(e, 'background-color')}`))],
+        smallest: Math.min(...texts.map(e => parseFloat(css(e, 'font-size')) * 0.75)),
+        markers: [...root.querySelectorAll('.print-questions, .print-questions-short')].filter(l => css(l, 'list-style-type') !== 'none').length,
+        splits: avoid.filter(e => !/avoid/.test(css(e, 'break-inside'))).length + heads.filter(h => h.tagName === 'H2' && !/avoid/.test(css(h, 'break-after'))).length,
+        wide: [...root.querySelectorAll('*')].filter(e => e.clientWidth > 0 && e.scrollWidth > e.clientWidth + 1).length,
+        urls: root.querySelectorAll('.print-src-url, .print-link').length,
+        // Bladens höjd och papperets bredd mäts i A4:s tryckbara bredd (se testet nedan)
+        heights: [...root.querySelectorAll('.print-page')].map(s => Math.ceil(s.getBoundingClientRect().height)),
+        paperWidth: document.documentElement.scrollWidth,
+      };
+    };
+    // Utskrift av en lektionstur (#738): knappen bara i en tur med lärarfält, och i utskrift syns bara elevbladet
+    // och lärarbladet. Webbläsarens utskriftsdialog ersätts, så att testet inte väntar på den.
+    await check('en lektionstur skriver ut elevblad och lärarblad (#738)', async () => {
+      const printPage = await context.newPage();
+      const printErrors = [];
+      printPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) printErrors.push(m.text()); });
+      printPage.on('pageerror', e => printErrors.push(e.message));
+      try {
+        if (THREE_LOCAL) {
+          const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+          await printPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+          await printPage.route(u => isFont(u.href), r => r.abort());
+        }
+        await printPage.goto(`${BASE}#t=tre-platser-1325`);
+        await printPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await printPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+        if (await printPage.isVisible('#tour-print')) throw new Error('en tur utan lärarfält har knappen Skriv ut');
+        await printPage.goto(`${BASE}?ny=1#t=andra-varldskriget`);
+        await printPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await printPage.waitForSelector('#tour-print', { state: 'visible', timeout: T.step });
+        await printPage.evaluate(() => { window.print = () => { window.__printed = true; }; });
+        await printPage.click('#tour-print');
+        await printPage.waitForFunction(() => window.__printed, null, { timeout: T.step });
+        await printPage.emulateMedia({ media: 'print' });
+        const got = await printPage.evaluate(() => ({
+          pages: document.querySelectorAll('#print-sheet .print-page').length,
+          questions: document.querySelectorAll('#print-sheet .print-student .print-questions > li').length,
+          detective: document.querySelectorAll('#print-sheet .print-detective .print-detective-case').length,
+          detectiveHeading: document.querySelector('#print-sheet .print-detective h1')?.textContent.trim() ?? '',
+          sheet: getComputedStyle(document.getElementById('print-sheet')).display,
+          app: getComputedStyle(document.getElementById('app')).display,
+          link: document.querySelector('#print-sheet .print-link')?.textContent ?? '',
+          teacher: document.querySelector('#print-sheet .print-teacher')?.textContent ?? '',
+        }));
+        // Mätningen görs i A4:s tryckbara yta, 210 mm minus marginalerna 2 × 15 mm = 180 mm = 680 px bred och
+        // 297 mm minus 2 × 11 mm = 275 mm = 1039 px hög, så att ett blad som är för brett eller för högt larmar innan det
+        // spiller över, och svaret blir detsamma på alla maskiner (ett fönster på 1400 px skulle inte hitta något)
+        const A4_WIDTH = 680;
+        const A4_HEIGHT = 1039;
+        const viewport = printPage.viewportSize();
+        await printPage.setViewportSize({ width: A4_WIDTH, height: viewport?.height ?? 900 });
+        // Höjden mäts först när webbtypsnitten har laddats, annars mäts reservtypsnittet (#757)
+        await printPage.evaluate(() => document.fonts.ready);
+        Object.assign(got, await printPage.evaluate(printAudit));
+        if (viewport) await printPage.setViewportSize(viewport);
+        // Sidbrytning: hela bladen ryms på ett A4 var (Chromium kan skriva PDF; Firefox och WebKit kan inte)
+        const pdfPages = BROWSER === 'chromium'
+          ? (await printPage.pdf({ format: 'A4', preferCSSPageSize: true })).toString('latin1').match(/\/Type\s*\/Page[^s]/g)?.length ?? 0
+          : got.pages;
+        await printPage.emulateMedia({ media: 'screen' });
+        // Utskriften (#757): läsordning och rubriker för hjälpmedel, svart på vitt utan färg, läsbar textstorlek och
+        // sidbrytning som inte delar ett svarsfält
+        if (got.h1 !== got.pages || got.skippedHeading) throw new Error(`rubrikerna är fel i utskriften: ${got.h1} h1 för ${got.pages} blad, hopp i nivåerna: ${got.skippedHeading}`);
+        if (got.h1Same) throw new Error('två blad har samma rubrik');
+        if (got.unlabelled) throw new Error(`${got.unlabelled} blad saknar märkning (aria-labelledby)`);
+        if (got.visibleLines) throw new Error('skrivraderna syns för hjälpmedel i stället för att vara dekoration');
+        if (got.colors.length !== 1) throw new Error(`utskriften har fler färger än svart på vitt: ${got.colors.join(' ')}`);
+        if (got.smallest < 8) throw new Error(`minsta texten i utskriften är ${got.smallest.toFixed(1)} pt, minst 8 pt krävs`);
+        if (got.markers) throw new Error('listornas siffror säger emot stegnumren på bladen');
+        if (got.splits) throw new Error(`${got.splits} svarsfält eller grupper får delas av en sidbrytning`);
+        if (got.wide) throw new Error(`${got.wide} element är bredare än utskriftsytan`);
+        if (got.urls < 2) throw new Error('adresser står inte som text på bladen (papper går inte att klicka på)');
+        if (got.paperWidth > A4_WIDTH) throw new Error(`utskriften är ${got.paperWidth} px bred, A4 rymmer ${A4_WIDTH} px`);
+        // Minst 3 % luft: texten kan variera något med typsnitt och webbläsare
+        const maxHeight = Math.floor(A4_HEIGHT * 0.97);
+        if (got.heights.some(h => h > maxHeight)) throw new Error(`ett blad är ${Math.max(...got.heights)} px högt, högst ${maxHeight} px av A4:s ${A4_HEIGHT} px (${got.heights.join(', ')})`);
+        if (pdfPages !== got.pages) throw new Error(`utskriften blev ${pdfPages} A4-sidor i stället för ett blad per sida (${got.pages} blad)`);
+        if (got.pages !== 3) throw new Error(`${got.pages} blad i stället för elevblad, Källdetektiven och lärarblad`);
+        if (!/^Källdetektiven /.test(got.detectiveHeading)) throw new Error(`Källdetektiv-bladets rubrik är "${got.detectiveHeading}"`);
+        if (got.questions !== 5) throw new Error(`elevbladet har ${got.questions} frågor, turen har 5`);
+        if (got.detective !== 2) throw new Error(`Källdetektiven har ${got.detective} händelser, lektionen har 2 (#742)`);
+        if (got.sheet === 'none' || got.app !== 'none') throw new Error(`i utskrift: bladen ${got.sheet}, sidan ${got.app}`);
+        if (!got.link.endsWith('#t=andra-varldskriget&m=lektion')) throw new Error(`lärarbladets länk är ${got.link}`);
+        if (!/Lgr22/.test(got.teacher) || !/Skolverket/.test(got.teacher)) throw new Error('lärarbladet saknar kopplingen till Lgr22 med källa');
+        if (printErrors.length) throw new Error(`utskriften gav konsolfel: ${printErrors.join('; ')}`);
+      } finally {
+        await printPage.close();
+      }
+      return 'ingen knapp utan lärarfält; tre blad (elevblad, Källdetektiven, lärarblad), fem frågor, bara bladen i utskrift, länk och Lgr22 med källa';
+    });
+    // Höjden på bladen (#757, #742): alla fem språken och båda lektionerna, med webbtypsnitten och med reservtypsnittet.
+    // Engelska, tyska, spanska och franska är längre än svenska, och utan webbtypsnitten byts typsnittet mot ett bredare
+    // (DejaVu Sans på Linux), så ett mått på svenska med webbtypsnitt säger inget om de andra fallen.
+    await check('elevbladet och lärarbladet ryms på en A4-sida i alla språk, med och utan webbtypsnitt (#757)', async () => {
+      const A4_WIDTH = 680;
+      const A4_HEIGHT = 1039;
+      const LANGS = ['sv', 'en', 'de', 'es', 'fr'];
+      const TOURS = ['andra-varldskriget', 'vikingatiden-och-varlden'];
+      const measure = async (lang, tour, fallback) => {
+        const pg = await context.newPage();
+        try {
+          if (THREE_LOCAL) {
+            const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+            await pg.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+          }
+          if (fallback) await pg.route(u => isFont(u.href), r => r.abort());
+          await pg.goto(`${BASE}?ny=1&lang=${lang}#t=${tour}`);
+          await pg.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          await pg.waitForSelector('#tour-print', { state: 'visible', timeout: T.load });
+          await pg.evaluate(() => { window.print = () => { window.__printed = true; }; });
+          await pg.click('#tour-print');
+          await pg.waitForFunction(() => window.__printed, null, { timeout: T.step });
+          await pg.emulateMedia({ media: 'print' });
+          // Reservtypsnittet är DejaVu Sans, så att mätningen blir densamma på alla maskiner (annars väljer
+          // webbläsaren själv något bland systemets typsnitt)
+          if (fallback) await pg.addStyleTag({ content: '@media print { #print-sheet, #print-sheet * { font-family: "DejaVu Sans", sans-serif !important; } }' });
+          await pg.setViewportSize({ width: A4_WIDTH, height: 900 });
+          await pg.evaluate(() => document.fonts.ready);
+          const got = await pg.evaluate(() => ({
+            lang: document.documentElement.lang,
+            heights: [...document.querySelectorAll('#print-sheet .print-page')].map(s => Math.ceil(s.getBoundingClientRect().height)),
+            h1: document.querySelectorAll('#print-sheet h1').length,
+            webFonts: [...document.fonts].filter(f => f.status === 'loaded').map(f => f.family),
+            bodyFont: getComputedStyle(document.querySelector('#print-sheet .print-q')).fontFamily,
+          }));
+          return got;
+        } finally {
+          await pg.close();
+        }
+      };
+      const limit = { web: Math.floor(A4_HEIGHT * 0.97), fallback: A4_HEIGHT - 1 };
+      const rows = [];
+      for (const fallback of [false, true]) {
+        // Utan nät (THREE_LOCAL) blockeras webbtypsnitten av den vanliga routen och går inte att mäta
+        if (!fallback && THREE_LOCAL && !(await measure('sv', TOURS[0], false)).webFonts.includes('Instrument Sans')) continue;
+        for (const tour of TOURS) {
+          // Andra världskriget är det längsta bladet och mäts på alla språk; vikingatiden är cirka 90 px lägre och
+          // mäts på det längsta språket (tyska) med webbtypsnitt också på engelska, så att testet inte tar för lång tid
+          const langs = tour === TOURS[0] ? LANGS : fallback ? ['de'] : ['en', 'de'];
+          const results = [];
+          for (const lang of langs) results.push(await measure(lang, tour, fallback));
+          results.forEach((got, i) => {
+            const lang = langs[i];
+            if (got.lang !== lang) throw new Error(`språket blev ${got.lang} i stället för ${lang}`);
+            const used = got.webFonts.includes('Instrument Sans');
+            if (!fallback && !used) throw new Error(`${tour} ${lang}: webbtypsnitten laddades inte, så höjden mäter fel typsnitt (${got.bodyFont})`);
+            if (fallback && (used || !got.bodyFont.startsWith('"DejaVu Sans"'))) throw new Error(`${tour} ${lang}: reservmätningen använder fel typsnitt (${got.bodyFont}, webbtypsnitt: ${used})`);
+            const max = Math.max(...got.heights);
+            const lim = limit[fallback ? 'fallback' : 'web'];
+            // Andra världskriget har Källdetektiven (#742) och därmed tre blad, vikingatiden har två; varje blad har en h1
+            const sheets = tour === TOURS[0] ? 3 : 2;
+            if (got.heights.length !== sheets || got.h1 !== sheets) throw new Error(`${tour} ${lang}: ${got.heights.length} blad och ${got.h1} h1 i stället för ${sheets}`);
+            if (max > lim) throw new Error(`${tour} ${lang} ${fallback ? 'med reservtypsnitt' : 'med webbtypsnitt'}: ett blad är ${max} px högt, högst ${lim} px av A4:s ${A4_HEIGHT} px (${got.heights.join(', ')})`);
+            rows.push(`${fallback ? 'reserv' : 'web'} ${tour.slice(0, 4)} ${lang} ${got.heights.join('/')}`);
+          });
+        }
+      }
+      return `${rows.length} mätningar inom gränsen: ${rows.join('; ')}`;
+    });
+  }
   // Sök och följ (#651, tidigare Sök #570): en händelse öppnas på sitt år, ett rike börjar följas, och tomt resultat syns tydligt
   await check('Sök och följ hittar händelser och riken', async () => {
     if (await page.locator('#focus-bar').isVisible()) { await page.click('#focus-exit'); await hidden('#focus-bar'); }
@@ -2311,6 +2922,117 @@ async function run(browser, vp) {
     await hidden('#focus-menu');
     if (await page.locator('#more-menu').isVisible() && await page.isVisible('#more-toggle')) await page.click('#more-toggle').catch(() => {});
     return 'Pompeji öppnas år 79; Bysantinska ger Rom i Fokus; nonsens ger "Inget …"; Escape stänger';
+  });
+
+  // Vanliga missuppfattningar (#838): faktarutan för en händelse med en missuppfattning visar påståendet, vad
+  // källorna säger och källan, och ursprunget ligger i en hopfälld rad. En händelse utan missuppfattning får ingen ruta.
+  await check('faktarutan visar vanlig missuppfattning med källa och hopfälld förklaring (#838)', async () => {
+    if (await page.locator('#focus-bar').isVisible()) { await page.click('#focus-exit'); await hidden('#focus-bar'); }
+    const openSearch = async () => {
+      if (await page.isHidden('#focus-menu')) await clickView('#btn-focus');
+      await visible('#focus-menu');
+    };
+    await openSearch();
+    await page.click('#focus-menu [data-tab="Alla"]');
+    await page.fill('#focus-menu .focus-search', 'machu picchu');
+    await page.waitForSelector('#focus-menu [data-key^="event:"]', { timeout: T.step });
+    await page.press('#focus-menu .focus-search', 'Enter');
+    await hidden('#focus-menu');
+    await visible('#detail');
+    await page.waitForSelector('#detail .detail-myth', { timeout: T.step });
+    const myth = page.locator('#detail .detail-myth').first();
+    const text = (await myth.textContent()).replace(/\s+/g, ' ');
+    if (!/Bingham/.test(text)) throw new Error(`missuppfattningen nämner inte Bingham: ${text.slice(0, 120)}`);
+    if (!await myth.locator('a[href^="http"]').count()) throw new Error('missuppfattningen saknar källänk');
+    if (await myth.locator('details.myth-origin').evaluate(d => d.open)) throw new Error('ursprunget ska vara hopfällt från början');
+    await myth.locator('summary').click();
+    if (!await myth.locator('details.myth-origin').evaluate(d => d.open)) throw new Error('raden Varifrån kom det? öppnades inte');
+    await shot('3-missuppfattning-i-faktarutan');
+    await page.keyboard.press('Escape');
+    await openSearch();
+    await page.fill('#focus-menu .focus-search', 'pompeji');
+    await page.waitForSelector('#focus-menu [data-key^="event:"]', { timeout: T.step });
+    await page.press('#focus-menu .focus-search', 'Enter');
+    await hidden('#focus-menu');
+    await visible('#detail');
+    if (await page.locator('#detail .detail-myth').count()) throw new Error('Pompeji har ingen missuppfattning men fick en ruta');
+    await page.keyboard.press('Escape');
+    return 'Machu Picchu visar påstående, källa och hopfälld förklaring; Pompeji får ingen ruta';
+  });
+
+  // Missuppfattningsfilen går inte att ladda (#838, rättning efter granskningen av #858): filen efterfrågas högst en gång
+  // (förut om och om igen, med växande konsolfel), faktarutan ritas ändå med sin egen källrad och får ingen missuppfattning.
+  await check('faktarutan ritas med källrad när missuppfattningsfilen inte kan laddas (#838)', async () => {
+    const blockedPage = await context.newPage();
+    const msgs = [];
+    let calls = 0;
+    blockedPage.on('console', m => { if ((m.type() === 'error' || m.type() === 'warning') && !isFont(m.location()?.url)) msgs.push(m.text()); });
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await blockedPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      }
+      await blockedPage.route(u => isFont(u.href), r => r.abort());
+      await blockedPage.route('**/missuppfattningar.json*', r => { calls++; r.abort(); });
+      await blockedPage.goto(BASE);
+      await blockedPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (await blockedPage.isHidden('#btn-focus') && await blockedPage.isVisible('#more-toggle')) await blockedPage.click('#more-toggle');
+      await blockedPage.click('#btn-focus');
+      await blockedPage.click('#focus-menu [data-tab="Alla"]');
+      await blockedPage.fill('#focus-menu .focus-search', 'machu picchu');
+      await blockedPage.waitForSelector('#focus-menu [data-key^="event:"]', { timeout: T.step });
+      await blockedPage.press('#focus-menu .focus-search', 'Enter');
+      await blockedPage.waitForSelector('#detail .src', { timeout: T.step });
+      // Tid nog för upprepade omladdningar att visa sig (förut cirka två anrop i sekunden)
+      await blockedPage.waitForTimeout(4000);
+      if (calls !== 1) throw new Error(`missuppfattningsfilen efterfrågades ${calls} gånger, högst 1 tillåts`);
+      if (await blockedPage.locator('#detail .detail-myth').count()) throw new Error('missuppfattningsruta visas trots att filen saknas');
+      if (!await blockedPage.locator('#detail .src').count()) throw new Error('händelsens källrad saknas');
+      const mine = msgs.filter(t => /issuppfattningarna/.test(t));
+      if (mine.length > 1) throw new Error(`felet loggades ${mine.length} gånger: ${mine.join(' | ')}`);
+      if (msgs.length > 2) throw new Error(`upprepade konsolmeddelanden: ${msgs.slice(0, 5).join(' | ')}`);
+    } finally {
+      await blockedPage.close();
+    }
+    return 'filen efterfrågas en gång, källraden syns, ingen missuppfattningsruta, felet loggas en gång';
+  });
+
+  // Sök och följ med bara tangentbordet (#708): Enter öppnar, sökrutan får fokus (dator), pil ner når listan,
+  // Escape stänger och fokus går tillbaka till knappen som öppnade panelen (i mobil: Meny, som bär knappen)
+  await check('Sök och följ med tangentbord: fokus in, pil ner, Escape och fokus tillbaka', async () => {
+    if (await page.locator('#focus-bar').isVisible()) { await page.click('#focus-exit'); await hidden('#focus-bar'); }
+    if (await page.isVisible('#detail')) await page.keyboard.press('Escape');
+    const narrow = vp.width <= 760;
+    if (narrow) {
+      await page.click('#more-toggle');
+      await visible('#btn-focus');
+    }
+    await page.locator('#btn-focus').focus();
+    await page.keyboard.press('Enter');
+    await visible('#focus-menu');
+    if (await page.getAttribute('#btn-focus', 'aria-expanded') !== 'true') throw new Error('aria-expanded blir inte true på Sök och följ');
+    const where = await page.evaluate(() => {
+      const a = document.activeElement;
+      return { inMenu: document.getElementById('focus-menu').contains(a), search: a?.classList.contains('focus-search') };
+    });
+    if (!where.inMenu) throw new Error('fokus flyttas inte in i Sök och följ');
+    const fine = await page.evaluate(() => matchMedia('(hover: hover) and (pointer: fine)').matches);
+    if (fine && !where.search) throw new Error('sökrutan får inte fokus när panelen öppnas med tangentbordet');
+    // Pil ner från sökrutan når listan (en grupprubrik eller en träff)
+    await page.locator('#focus-menu .focus-search').focus();
+    await page.keyboard.press('ArrowDown');
+    const inList = await page.evaluate(() => {
+      const a = document.activeElement;
+      return !!a && document.getElementById('focus-menu').contains(a) && !a.classList.contains('focus-search') && (a.hasAttribute('data-group') || a.hasAttribute('data-key'));
+    });
+    if (!inList) throw new Error('pil ner från sökrutan når inte listan');
+    await page.keyboard.press('Escape');
+    await hidden('#focus-menu');
+    if (await page.getAttribute('#btn-focus', 'aria-expanded') !== 'false') throw new Error('aria-expanded blir inte false på Sök och följ');
+    const back = await page.evaluate(() => document.activeElement?.id || document.activeElement?.tagName);
+    if (!(narrow ? ['btn-focus', 'more-toggle'] : ['btn-focus']).includes(back)) throw new Error(`Escape lämnar fokus på ${back}, inte på knappen som öppnade panelen`);
+    if (narrow && await page.isVisible('#more-menu')) await page.click('#more-toggle').catch(() => {});
+    return `Enter öppnar, ${fine ? 'sökrutan har fokus, ' : ''}pil ner når listan, Escape stänger och fokus går till ${back}`;
   });
 
   await check('faktarutan skiljer källkontroll från osäkerhet', async () => {
@@ -2440,8 +3162,30 @@ async function runReflow(browser) {
         if (frame.outside.length) throw new Error(`kontroller utanför skärmen: ${frame.outside.join(', ')}`);
         if (frame.scroll > frame.width) throw new Error(`sidan är ${frame.scroll}px bred i en yta på ${frame.width}px`);
 
+        // Tangentbord (#708): tidslinjen, årtalet, Meny/knapparna och Samtidigt nås med Tab och ligger då i bild
+        // Tab börjar efter globen, så att fokus som blev kvar från förra zoomsteget inte avgör ordningen
+        await page.locator('#globe-canvas').focus();
+        const needed =new Set(z.width > 760
+          ? ['year-jump', 'btn-panel', 'btn-layers', 'btn-focus', 'btn-play', 'track']
+          : ['year-jump', 'btn-panel', 'more-toggle', 'btn-play', 'track']);
+        const reached = new Set();
+        const offscreen = new Set();
+        for (let i = 0; i < 60 && reached.size < needed.size; i++) {
+          await page.keyboard.press('Tab');
+          const hit = await page.evaluate(() => {
+            const a = document.activeElement;
+            const r = a?.getBoundingClientRect();
+            return a && a !== document.body ? { id: a.id, out: !r || r.width < 1 || r.left < 0 || r.right > innerWidth || r.bottom < 0 || r.top > innerHeight } : null;
+          });
+          if (hit?.id && needed.has(hit.id)) { reached.add(hit.id); if (hit.out) offscreen.add(hit.id); }
+        }
+        const missing = [...needed].filter(id => !reached.has(id));
+        if (missing.length) throw new Error(`nås inte med Tab vid ${z.percent} %: ${missing.join(', ')}`);
+        if (offscreen.size) throw new Error(`fokuserad kontroll utanför bild vid ${z.percent} %: ${[...offscreen].join(', ')}`);
+        await page.evaluate(() => document.activeElement?.blur());
+
         await page.click('#btn-panel');
-        const panelRoom = await page.locator('#event-list').evaluate(el => el.clientHeight);
+        const panelRoom =await page.locator('#event-list').evaluate(el => el.clientHeight);
         if (panelRoom < 1) throw new Error('Samtidigt-listan saknar rullbar yta');
         await page.keyboard.press('Escape');
 
@@ -2584,9 +3328,16 @@ async function runPresentation(browser) {
 }
 
 const t0 = Date.now();
-const browser = await browserType.launch(BROWSER === 'chromium'
-  ? { args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader'] }
-  : {});
+// Ingen av webbläsarna har ett grafikkort i GitHub Actions. Chromium ritar WebGL med SwiftShader. Firefox hittar
+// ingen GL-drivrutin i huvudlöst läge ("Exhausted GL driver options", #702), så i Actions körs det med fönster i
+// Xvfb med Mesas mjukvarudrivrutin (HEADLESS=0, browser-test.yml). webgl.force-enabled hindrar att Firefox spärrar
+// mjukvarudrivrutinen, och WebGL körs i samma process, eftersom GPU-processen inte startar utan grafikkort.
+const LAUNCH = {
+  chromium: { args: ['--use-gl=swiftshader', '--enable-unsafe-swiftshader'] },
+  firefox: { firefoxUserPrefs: { 'webgl.force-enabled': true, 'webgl.disabled': false, 'webgl.out-of-process': false } },
+  webkit: {},
+};
+const browser = await browserType.launch({ ...LAUNCH[BROWSER], headless: process.env.HEADLESS !== '0' });
 let failed = 0;
 try {
   for (const vp of VIEWPORTS) {

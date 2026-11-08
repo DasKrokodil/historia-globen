@@ -12,6 +12,11 @@ Inaktuella översättningar: data/oversattning.json har också ett register med 
 och av översättningen för varje översatt text ("svenska:översättning"). Ändras den svenska texten men inte
 översättningen står översättningen kvar i registret med den gamla svenskan, och då är den inaktuell: den
 skrevs för en annan svensk text.
+Registret räknar hur många gånger varje par förekommer ("svenska:översättning*N" när N är fler än en). Samma
+översättning till två olika svenska texter är tillåtet ("Kartago" och "Karthago" blir båda "Carthage"). En
+översättning räknas som inaktuell när en svensk text som den står registrerad för förekommer färre gånger än förut
+och samma översättning nu står på en ny svensk text, det vill säga när en post har fått ny svenska utan ny
+översättning, även om en annan post har kvar det gamla paret.
 
   python3 tools/oversattning.py           kontrollerar, och skriver om baslinjen och registret om allt stämmer
   python3 tools/oversattning.py --check   skriver ingenting, avslutas med kod 1 om något inte stämmer
@@ -30,6 +35,7 @@ Undantag, bara med Rikards ok: --tillat-okning skriver en högre baslinje (till 
 import hashlib
 import json
 import sys
+from collections import Counter
 from pathlib import Path
 
 LANGS_FILE = 'data/ui/sprak.json'
@@ -41,7 +47,7 @@ BASE_LANG = 'sv'
 FILES = [
     'data/handelser/*.json', 'data/empires/*.json', 'data/routes/*.json', 'data/turer/*.json',
     'data/funfacts.json', 'data/religions.json', 'data/intro.json', 'data/upptackt.json', 'data/vyer.json',
-    'data/bildlager.json', 'data/styles.json',
+    'data/bildlager.json', 'data/styles.json', 'data/missuppfattningar.json',
 ]
 NOTE = ('Genereras av tools/oversattning.py (#675). baseline: oöversatta texter per fil och språk, som bara får '
         'minska. register: kontrollsummor "svenska:översättning" per språk, som visar när en översättning har '
@@ -90,11 +96,11 @@ def data_files(root):
 
 
 def scan(root):
-    """{fil: {språk: antal oöversatta}}, {språk: {par}}, [(fil, plats, språk, svenska-summa, översättnings-summa)]."""
+    """{fil: {språk: antal oöversatta}}, {språk: Counter av "svenska:översättning"}, [(fil, plats, språk, sv, tr)]."""
     root = Path(root)
     langs = read_langs(root)
     others = [lang for lang in langs if lang != BASE_LANG]
-    counts, pairs, found = {}, {lang: set() for lang in others}, []
+    counts, pairs, found = {}, {lang: Counter() for lang in others}, []
     for rel in data_files(root):
         doc = json.loads((root / rel).read_text(encoding='utf-8'))
         per = {lang: 0 for lang in others}
@@ -103,7 +109,7 @@ def scan(root):
             for lang in others:
                 if lang in text and text[lang]:
                     tr = short_hash(text[lang])
-                    pairs[lang].add(f'{sv}:{tr}')
+                    pairs[lang][f'{sv}:{tr}'] += 1
                     found.append((rel, path, lang, sv, tr))
                 else:
                     per[lang] += 1
@@ -130,6 +136,16 @@ def load_status(root):
     return json.loads(f.read_text(encoding='utf-8'))
 
 
+def parse_entry(entry):
+    """"svenska:översättning" eller "svenska:översättning*N" i registret -> (par, antal)."""
+    pair, _, n = entry.partition('*')
+    return pair, int(n) if n else 1
+
+
+def entry_str(pair, n):
+    return pair if n == 1 else f'{pair}*{n}'
+
+
 def compare(root, accept_stale=False):
     """(fel, påminnelser, ny status). Fel stoppar alltid; påminnelser stoppar bara vid --check."""
     counts, pairs, found = scan(root)
@@ -152,25 +168,49 @@ def compare(root, accept_stale=False):
             if counts.get(rel, {}).get(lang, 0) == 0 and old:
                 reminders.append(f'{rel}: inga oöversatta på {lang} längre (baslinjen är {old})')
 
-    # Inaktuella: översättningen finns i registret, men med en annan svensk text
-    known_tr = {lang: {p.split(':')[1]: p.split(':')[0] for p in register.get(lang, [])} for lang in pairs}
-    stale = set()
+    # Inaktuella: översättningen finns i registret, men med en svensk text som har ändrats. Registret räknar hur
+    # många gånger varje par förekommer, så att en ändring syns även när en annan post har samma par. Samma
+    # översättning till två olika svenska texter är tillåten ("Kartago" och "Karthago" blir båda "Carthage"): den är
+    # inaktuell bara när någon av de svenska texter som översättningen står registrerad för förekommer färre gånger
+    # än förut (en post har fått ny svenska utan ny översättning).
+    reg = {lang: Counter() for lang in pairs}
+    for lang in pairs:
+        for e in register.get(lang, []):
+            pair, n = parse_entry(e)
+            reg[lang][pair] += n
+    sv_reg = {lang: Counter() for lang in pairs}
+    sv_now = {lang: Counter() for lang in pairs}
+    known_tr = {lang: {} for lang in pairs}
+    for lang in pairs:
+        for pair, n in reg[lang].items():
+            old_sv, old_tr = pair.split(':')
+            sv_reg[lang][old_sv] += n
+            known_tr[lang].setdefault(old_tr, set()).add(old_sv)
+        for pair, n in pairs[lang].items():
+            sv_now[lang][pair.split(':')[0]] += n
+    stale, flagged = set(), set()
     for rel, path, lang, sv, tr in found:
         pair = f'{sv}:{tr}'
-        if pair in register.get(lang, []):
+        if pair in reg[lang]:
             continue
-        if tr in known_tr.get(lang, {}) and not accept_stale:
+        olds = known_tr.get(lang, {}).get(tr, set())
+        changed = any(sv_now[lang][old_sv] < sv_reg[lang][old_sv] for old_sv in olds)
+        if changed and not accept_stale:
             stale.add((lang, pair))
             errors.append(f'{rel} {path}: översättningen till {lang} är inaktuell; den svenska texten har ändrats '
                           f'efter översättningen. Uppdatera översättningen i samma pull request.')
         else:
+            flagged.add(lang)
             reminders.append(f'{rel} {path}: ny översättning till {lang} som inte är registrerad')
-    for lang, regs in register.items():
-        gone = set(regs) - pairs.get(lang, set())
+    for lang in pairs:
+        gone = set(reg[lang]) - set(pairs[lang])
         if gone:
             reminders.append(f'registret har {len(gone)} gamla poster för {lang}')
+        elif reg[lang] != pairs[lang] and lang not in flagged:
+            reminders.append(f'registret har andra antal poster för {lang}')
 
-    new_pairs = {lang: sorted(p for p in ps if (lang, p) not in stale) for lang, ps in pairs.items()}
+    new_pairs = {lang: [entry_str(p, n) for p, n in sorted(pairs[lang].items()) if (lang, p) not in stale]
+                 for lang in pairs}
     new_status = {'note': NOTE, 'languages': sorted(pairs), 'baseline': {rel: dict(sorted(per.items())) for rel, per in sorted(counts.items())},
                   'register': {lang: ps for lang, ps in sorted(new_pairs.items()) if ps}}
     return errors, reminders, new_status

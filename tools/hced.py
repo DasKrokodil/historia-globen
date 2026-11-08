@@ -66,29 +66,17 @@ DUP_KM = 25
 FAR_KM = 50  # varna om datasetets punkt och WHG:s punkt skiljer sig mer än så här
 
 
-def region(lat, lon):
-    """Samma regler som region() i js/model.js."""
-    if lat > 50 and (lon < -168 or lon > 160):
-        return 'Asien'
-    if lon < -120 and lat < 30:
-        return 'Oceanien'
-    if lon < -25:
-        return 'Amerika'
-    if (lat < -10 and lon > 110) or (lat < 0 and lon > 130) or lon > 160:
-        return 'Oceanien'
-    if lon < -1.5:
-        lim = lat < 36
-    elif lon <= 11.5:
-        lim = lat < 37.5
-    elif lon <= 32.5:
-        lim = lat < 33.5
-    else:
-        lim = lat < 31.5 and lon < 32.5 + (30 - lat) * 0.62
-    if lon >= -20 and lon < 52 and lat > -36 and lim:
-        return 'Afrika'
-    if lat >= 35 and (lon < 28.9 or (lat >= 41 and lon < 60 and not (lon > 40 and lat < 44.5))):
-        return 'Europa'
-    return 'Asien'
+def _load_region():
+    """region() ur tools/tackningsrapport.py, som följer region() i js/model.js (#630), så att reglerna inte glider isär."""
+    import importlib.util
+    from pathlib import Path
+    spec = importlib.util.spec_from_file_location('tackningsrapport', Path(__file__).resolve().parent / 'tackningsrapport.py')
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.region
+
+
+region = _load_region()
 
 
 def era(year):

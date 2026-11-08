@@ -1,6 +1,8 @@
 # Webbläsartest (#339, #401, docs/DEPLOYMENT.md): bygger dist/, startar en lokal webbserver och öppnar sidan
 # med Playwright i datorbredd (1400 × 900) och mobilbredd (400 × 800). Vanliga körningar använder Chromium;
-# release-PR mot production använder dessutom Firefox och WebKit. Testskriptet är tests/webblasare.mjs.
+# release-PR mot production använder dessutom Firefox och WebKit, liksom en pull request mot main med etiketten
+# alla-webbläsare (#702), så att en rättning för Firefox eller WebKit kan provas före releasen. Etiketten gäller
+# från nästa push, inte i det ögonblick den sätts. Testskriptet är tests/webblasare.mjs.
 # Playwright används bara här i testerna (Rikards godkännande 2026-10-31); sidan själv får inga nya beroenden.
 # Körs vid push till main och vid pull requests mot main och production, som validate-site.yml.
 name: Webbläsartest
@@ -26,13 +28,15 @@ jobs:
   browser:
     name: Öppna sidan i ${{ matrix.browser.name }}
     runs-on: ubuntu-latest
-    # Chromium tar cirka 10 minuter; 10 räckte inte längre (#617). Firefox och WebKit (bara på release-PR:en) är
-    # långsammare utan grafikkort: Firefox nådde 20 minuter utan att bli klar inför v5.0.0, så de får 45.
-    timeout-minutes: ${{ matrix.browser.id == 'chromium' && 20 || 45 }}
+    # Chromium tog cirka 10 minuter; 10 räckte inte längre (#617), och 20 räcker inte heller: sviten tar cirka 18
+    # minuter på main (2026-11-07) och växer med varje ny kontroll, så de får 30 tills sviten delats i parallella
+    # jobb (docs/beslut/2026-11-07-chromium-tidsgrans-30-minuter.md). Firefox och WebKit (bara på release-PR:en)
+    # är långsammare utan grafikkort: Firefox nådde 20 minuter utan att bli klar inför v5.0.0, så de får 45.
+    timeout-minutes: ${{ matrix.browser.id == 'chromium' && 30 || 45 }}
     strategy:
       fail-fast: false
       matrix:
-        browser: ${{ fromJSON(github.event_name == 'pull_request' && github.base_ref == 'production' && '[{"id":"chromium","name":"Chromium"},{"id":"firefox","name":"Firefox"},{"id":"webkit","name":"WebKit"}]' || '[{"id":"chromium","name":"Chromium"}]') }}
+        browser: ${{ fromJSON(github.event_name == 'pull_request' && (github.base_ref == 'production' || contains(github.event.pull_request.labels.*.name, 'alla-webbläsare')) && '[{"id":"chromium","name":"Chromium"},{"id":"firefox","name":"Firefox"},{"id":"webkit","name":"WebKit"}]' || '[{"id":"chromium","name":"Chromium"}]') }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -102,6 +106,11 @@ jobs:
           else
             "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps "$BROWSER"
           fi
+          # Firefox hittar ingen GL-drivrutin i huvudlöst läge (#702). Det körs i stället med fönster i en virtuell
+          # skärm (Xvfb) och ritar WebGL med Mesas mjukvarudrivrutin (llvmpipe). Paketen sparas i apt-cachen nedan.
+          if [ "$BROWSER" = firefox ]; then
+            sudo apt-get install -y --no-install-recommends xvfb xauth libgl1-mesa-dri libglx-mesa0 libegl-mesa0
+          fi
 
       # Sparas direkt efter installationen, och även när den stoppades av tidsgränsen, så att nästa
       # körning kommer längre. Nyckeln bygger på filnamnen: samma paket som förut sparas inte igen,
@@ -139,7 +148,13 @@ jobs:
         env:
           BROWSER: ${{ matrix.browser.id }}
           SKARMBILDER: skarmbilder
-        run: NODE_PATH="$RUNNER_TEMP/pw/node_modules" node tests/webblasare.mjs "$PORT"
+        # Firefox körs med fönster i Xvfb (HEADLESS=0), se installationssteget (#702)
+        run: |
+          if [ "$BROWSER" = firefox ]; then
+            HEADLESS=0 NODE_PATH="$RUNNER_TEMP/pw/node_modules" xvfb-run -a -s '-screen 0 1920x1080x24' node tests/webblasare.mjs "$PORT"
+          else
+            NODE_PATH="$RUNNER_TEMP/pw/node_modules" node tests/webblasare.mjs "$PORT"
+          fi
 
       - name: Spara skärmbilderna
         if: always()

@@ -1,0 +1,144 @@
+{
+  "appCommit": "87ed68e271038a3ff74eabb6baa15078b1f22406",
+  "date": "2026-11-08",
+  "browser": "Chromium with SwiftShader",
+  "fonts": "Google Fonts blocked; local fallback",
+  "threeVersion": "0.160.0 local response",
+  "repoTest": {
+    "seconds": 184,
+    "selectedReported": 26,
+    "skippedReported": 108,
+    "failures": 2,
+    "failingCase": "Samtidighetsjakten: pointer interception while Samtidigt is open",
+    "consoleChecks": "passed at both widths"
+  },
+  "huntTransitionProbes": [
+    {
+      "width": 1400,
+      "withPanel": false,
+      "menu": {
+        "menu": "top-actions",
+        "extra": "extra-wrap extra-open",
+        "huntVisible": 31,
+        "huntHidden": false,
+        "focus": "btn-sources"
+      }
+    },
+    {
+      "width": 1400,
+      "withPanel": false,
+      "result": {
+        "opened": true,
+        "year": "1500"
+      }
+    },
+    {
+      "width": 1400,
+      "withPanel": true,
+      "menu": {
+        "menu": "top-actions",
+        "extra": "extra-wrap extra-open",
+        "huntVisible": 31,
+        "huntHidden": false,
+        "focus": "btn-sources"
+      }
+    },
+    {
+      "width": 1400,
+      "withPanel": true,
+      "result": {
+        "error": "locator.click: Timeout 3000ms exceeded.\nCall log:\n  - waiting for locator('#btn-hunt')\n    - locator resolved to <button id=\"btn-hunt\" type=\"button\" class=\"chip-btn\" aria-controls=\"hunt\" data-i18n=\"top.hunt\" data-i18n-title=\"top.huntTitle\" title=\"Hitta händelser på olika kontinenter samtidigt\">Samtidighetsjakten</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"panel-head\">…</div> from <aside id=\"panel\" class=\"panel open\" aria-label=\"Samtidigt i världen\" data-i18n-aria-label=\"panel.title\">…</aside> subtree intercepts pointer events\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"panel-head\">…</div> from <aside id=\"panel\" class=\"panel open\" aria-label=\"Samtidigt i världen\" data-i18n-aria-label=\"panel.title\">…</aside> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    5 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <div class=\"panel-head\">…</div> from <aside id=\"panel\" class=\"panel open\" aria-label=\"Samtidigt i världen\" data-i18n-aria-label=\"panel.title\">…</aside> subtree intercepts pointer events\n    - retrying click action\n      - waiting 500ms"
+      }
+    },
+    {
+      "width": 1400,
+      "errors": []
+    },
+    {
+      "width": 400,
+      "withPanel": false,
+      "menu": {
+        "menu": "top-actions more-open",
+        "extra": "extra-wrap",
+        "huntVisible": 44,
+        "huntHidden": false,
+        "focus": "btn-globe"
+      }
+    },
+    {
+      "width": 400,
+      "withPanel": false,
+      "result": {
+        "opened": true,
+        "year": "1500"
+      }
+    },
+    {
+      "width": 400,
+      "withPanel": true,
+      "menu": {
+        "menu": "top-actions more-open",
+        "extra": "extra-wrap",
+        "huntVisible": 44,
+        "huntHidden": false,
+        "focus": "btn-globe"
+      }
+    },
+    {
+      "width": 400,
+      "withPanel": true,
+      "result": {
+        "error": "locator.click: Timeout 3000ms exceeded.\nCall log:\n  - waiting for locator('#btn-hunt')\n    - locator resolved to <button id=\"btn-hunt\" type=\"button\" class=\"chip-btn\" aria-controls=\"hunt\" data-i18n=\"top.hunt\" data-i18n-title=\"top.huntTitle\" title=\"Hitta händelser på olika kontinenter samtidigt\">Samtidighetsjakten</button>\n  - attempting click action\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <span class=\"ttl\">Berlinkonferensen om Afrika</span> from <aside id=\"panel\" class=\"panel open\" aria-label=\"Samtidigt i världen\" data-i18n-aria-label=\"panel.title\">…</aside> subtree intercepts pointer events\n    - retrying click action\n    - waiting 20ms\n    2 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <span class=\"ttl\">Berlinkonferensen om Afrika</span> from <aside id=\"panel\" class=\"panel open\" aria-label=\"Samtidigt i världen\" data-i18n-aria-label=\"panel.title\">…</aside> subtree intercepts pointer events\n    - retrying click action\n      - waiting 100ms\n    5 × waiting for element to be visible, enabled and stable\n      - element is visible, enabled and stable\n      - scrolling into view if needed\n      - done scrolling\n      - <span class=\"ttl\">Berlinkonferensen om Afrika</span> from <aside id=\"panel\" class=\"panel open\" aria-label=\"Samtidigt i världen\" data-i18n-aria-label=\"panel.title\">…</aside> subtree intercepts pointer events"
+      }
+    },
+    {
+      "width": 400,
+      "errors": []
+    }
+  ],
+  "extraDesktop": [
+    {
+      "width": 1400,
+      "emptyFilters": {
+        "rows": 0,
+        "text": "Dra i tidslinjen eller tryck på uppspelning för att hitta nästa händelse. Prickarna under tidslinjen visar var det finns data.",
+        "count": "0",
+        "active": 0
+      }
+    },
+    {
+      "width": 1400,
+      "warEnd": {
+        "year": "1953",
+        "detail": "\n      ×\n      När kriget är slut\n      Koreakriget\n      1950–1953 · Koreahalvön och haven runt den (började vid 38:e breddgraden)\n      \n      Hur k",
+        "pause": true
+      }
+    }
+  ],
+  "extraMobile": [
+    {
+      "width": 400,
+      "emptyFilters": {
+        "rows": 0,
+        "text": "Dra i tidslinjen eller tryck på uppspelning för att hitta nästa händelse. Prickarna under tidslinjen visar var det finns data.",
+        "count": "0",
+        "active": 0
+      }
+    },
+    {
+      "width": 400,
+      "warEnd": {
+        "year": "1953",
+        "detail": "\n      ×\n      När kriget är slut\n      Koreakriget\n      1950–1953 · Koreahalvön och haven runt den (började vid 38:e breddgraden)\n      \n      Hur k",
+        "pause": true
+      }
+    }
+  ],
+  "nightLightPixelProbe": {
+    "status": "timeout",
+    "timeoutMs": 30000,
+    "rootCause": "not established",
+    "passed": false
+  },
+  "screenshots": "Inspected locally; not embedded or uploaded in this report."
+}

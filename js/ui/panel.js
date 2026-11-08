@@ -1,35 +1,58 @@
 // "Samtidigt i världen": lista över synliga händelser per världsdel, kategorifilter
 // (i lagermenyn, #120, och som chips ovanför listan, #311) och faktarutan.
 import { buildAreaCurve } from './areacurve.js';
-import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, isVisibleReview, needDetails } from '../model.js';
+import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, isVisibleReview, needDetails, misconceptionsFor } from '../model.js';
+import { ui, LANG } from '../i18n.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const LOADING = '<p class="detail-loading" role="status">Laddar…</p>';
+// Gränssnittets texter hämtas med ui() ur data/ui/<språk>.json (#670). Ett antal [en, flera] väljs med plural().
+const plural = (key, n, vars = {}) => String(ui(key)[n === 1 ? 0 : 1]).replace(/\{(\w+)\}/g, (m, k) => (k === 'count' ? n : vars[k] ?? m));
+const loadingHtml = () => `<p class="detail-loading" role="status">${esc(ui('detail.loading'))}</p>`;
+/** Världsdelens namn på valt språk; REGIONS i model.js är id:n (svenska). */
+export const regionName = r => ui(`region.${r}`);
+/** Anteckningen är av typen disagreement (källorna skiljer sig, #613). Typen avgör, inte rubrikens ordval. */
+export const sourcesDisagree = e => e.note?.kind === 'disagreement';
 /** Källraden. pending = källregistret eller händelsens källor laddas fortfarande (#337): då står ingen rad alls. */
-const srcLine = (srcs, pending) => pending ? '' : `<div class="src">Källa: ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || 'saknas'}</div>`;
+const srcLine = (srcs, pending) => pending ? '' : `<div class="src">${esc(ui('detail.source'))} ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || esc(ui('detail.sourceMissing'))}</div>`;
+/**
+ * Vanliga missuppfattningar som hör till händelsen (#838, beslut 2026-11-07): vad många tror, vad källorna säger,
+ * var missuppfattningen kom ifrån (hopfälld) och källorna. Texterna ligger i data/missuppfattningar.json.
+ * Tom text när händelsen saknar missuppfattningar eller när källregistret ännu inte har laddats (pending).
+ */
+export function mythsHtml(list, srcById, pending = false) {
+  if (pending) return '';
+  return (list ?? []).map(m => {
+    const rv = REVIEW[m.review] ?? REVIEW.draft;
+    const srcs = (m.sources ?? []).map(id => srcById?.[id]).filter(Boolean);
+    return `<aside class="detail-note detail-myth" data-myth="${esc(m.id)}">
+      <h4>${esc(ui('detail.myth.title'))}</h4>
+      <p class="myth-claim"><b>${esc(ui('detail.myth.claim'))}</b> ${esc(t(m.claim))}</p>
+      <p class="myth-truth"><b>${esc(ui('detail.myth.truth'))}</b> ${esc(t(m.truth))}</p>
+      <details class="myth-origin"><summary>${esc(ui('detail.myth.origin'))}</summary><p>${esc(t(m.origin))}</p></details>
+      <div class="src">${esc(ui('detail.source'))} ${srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || esc(ui('detail.sourceMissing'))}</div>
+      <p class="myth-review"><span class="review-badge ${rv.cls}">${esc(reviewLabel(m.review, 'Missuppfattningen'))}</span></p>
+    </aside>`;
+  }).join('');
+}
 const EVIDENCE_FIELDS = ['summary', 'date', 'location', 'image', 'uncertainty'];
 // Det viktigaste att ta med sig (#500, Rikards beslut 2026-11-03): krigets story.takeaways, grupperade efter
 // vad källorna säger. Rubrikerna är vanlig svenska, så att osäkerheten förklaras i ord och inte med en symbol.
-const TAKEAWAY_GROUPS = [
-  ['belagt', 'Det här vet vi från källorna'],
-  ['omtvistat', 'Här är forskare inte överens'],
-  ['okant', 'Det här vet vi inte säkert'],
-];
+const TAKEAWAY_GROUPS = ['belagt', 'omtvistat', 'okant'];
 /** Punkterna under sina rubriker, var och en med sin egen källa. Tom text när kriget saknar punkter. */
 function takeawaysHtml(items, srcById, pending) {
   if (!items?.length) return '';
-  const groups = TAKEAWAY_GROUPS.map(([status, title]) => {
+  const groups = TAKEAWAY_GROUPS.map(status => {
+    const title = ui(`story.takeaway.${status}`);
     const own = items.filter(x => x.status === status);
     if (!own.length) return '';
     return `<h5 class="takeaway-head takeaway-${status}">${esc(title)}</h5><ul class="takeaways">${own.map(x => `<li>${esc(t(x.text))}${
       pending ? '' : `<span class="takeaway-src">${(x.sources ?? []).map(id => srcById[id]).filter(Boolean)
         .map(src => `<a href="${esc(src.url)}" target="_blank" rel="noopener">${esc(src.title)}</a>`).join(', ')}</span>`}</li>`).join('')}</ul>`;
   }).join('');
-  return groups && `<section class="takeaway-box" aria-label="Det viktigaste att ta med sig"><h4>Det viktigaste att ta med sig</h4>${groups}</section>`;
+  const head = esc(ui('story.takeaways'));
+  return groups && `<section class="takeaway-box" aria-label="${head}"><h4>${head}</h4>${groups}</section>`;
 }
-const EVIDENCE_ROLES = [
-  ['date', 'Datum'], ['text', 'Text'], ['map', 'Karta'], ['image', 'Bild'], ['uncertainty', 'Osäkerhet']
-];
+const EVIDENCE_ROLES = ['date', 'text', 'map', 'image', 'uncertainty'];
 
 /**
  * Källor per påstående (#383). Saknas evidence lämnas den vanliga källraden helt
@@ -41,7 +64,7 @@ export function evidenceView(e, srcs) {
   const fieldRefs = field => Array.isArray(refs[field]) ? refs[field] : [];
   const byId = new Map(srcs.map(s => [s.id, s]));
   const numbers = new Map();
-  const grouped = new Map(EVIDENCE_ROLES.map(([role]) => [role, []]));
+  const grouped = new Map(EVIDENCE_ROLES.map(role => [role, []]));
   let next = 1;
   for (const field of EVIDENCE_FIELDS) for (const ref of fieldRefs(field)) {
     const source = byId.get(ref.source);
@@ -52,19 +75,19 @@ export function evidenceView(e, srcs) {
   }
   if (!numbers.size) return { marker: () => '', sources: '' };
   const marker = field => fieldRefs(field).map(ref => numbers.has(ref.source)
-    ? `<sup class="evidence-ref"><a href="#evidence-${numbers.get(ref.source)}" aria-label="Källa ${numbers.get(ref.source)}">[${numbers.get(ref.source)}]</a></sup>` : '').join('');
+    ? `<sup class="evidence-ref"><a href="#evidence-${numbers.get(ref.source)}" aria-label="${esc(ui('detail.evidence.ref', { n: numbers.get(ref.source) }))}">[${numbers.get(ref.source)}]</a></sup>` : '').join('');
   const assigned = new Set(numbers.keys());
   const printed = new Set();
-  const sections = EVIDENCE_ROLES.map(([role, label]) => {
+  const sections = EVIDENCE_ROLES.map(role => {
     const rows = grouped.get(role);
-    return rows.length ? `<section class="evidence-group"><h5>${label}</h5><ol>${rows.map(source => {
+    return rows.length ? `<section class="evidence-group"><h5>${esc(ui(`detail.evidence.${role}`))}</h5><ol>${rows.map(source => {
       const target = !printed.has(source.id); printed.add(source.id);
       return sourceLink(source, target);
     }).join('')}</ol></section>` : '';
   }).join('');
   const unassigned = srcs.filter(s => !assigned.has(s.id));
-  const other = unassigned.length ? `<section class="evidence-group"><h5>Övriga källor</h5><ol>${unassigned.map(sourceLink).join('')}</ol></section>` : '';
-  return { marker, sources: `<section class="src evidence-sources"><h4>Alla källor</h4>${sections}${other}</section>` };
+  const other = unassigned.length ? `<section class="evidence-group"><h5>${esc(ui('detail.evidence.other'))}</h5><ol>${unassigned.map(sourceLink).join('')}</ol></section>` : '';
+  return { marker, sources: `<section class="src evidence-sources"><h4>${esc(ui('detail.evidence.all'))}</h4>${sections}${other}</section>` };
 }
 
 function sourceLink(source, target = false) {
@@ -80,7 +103,7 @@ export const uncertaintyRow = (e, copy = {}, evidence = '') => {
   if (edtf.includes('?')) reasons.push(t(copy.uncertain));
   if (e.precision != null && e.precision < 9) reasons.push(t(copy.precision));
   if (e.locationPrecision) reasons.push(t(copy.place));
-  if (t(e.note?.title) === 'Källorna skiljer sig') reasons.push(t(copy.sourcesDisagree));
+  if (sourcesDisagree(e)) reasons.push(t(copy.sourcesDisagree));
   return reasons.length ? `<p class="uncertainty-row" id="detail-uncertainty" tabindex="-1"><b>${esc(t(copy.label))}:</b> ${esc([...new Set(reasons)].join(' · '))}${evidence}</p>` : '';
 };
 /**
@@ -89,9 +112,9 @@ export const uncertaintyRow = (e, copy = {}, evidence = '') => {
  */
 const uncertaintyMark = (e, what, copy = {}) => {
   const edtf = e.edtf ?? '';
-  const date = edtf.includes('~') || edtf.includes('?') || (e.precision != null && e.precision < 9) || t(e.note?.title) === 'Källorna skiljer sig';
+  const date = edtf.includes('~') || edtf.includes('?') || (e.precision != null && e.precision < 9) || sourcesDisagree(e);
   if (!(what === 'date' ? date : !!e.locationPrecision)) return '';
-  return ` <button type="button" class="unc-mark" data-unc-mark aria-controls="detail-uncertainty" title="${esc(t(copy.markTitle) || 'Visa vad som är osäkert')}">${esc(t(copy.mark) || 'osäkert')}</button>`;
+  return ` <button type="button" class="unc-mark" data-unc-mark aria-controls="detail-uncertainty" title="${esc(t(copy.markTitle))}">${esc(t(copy.mark))}</button>`;
 };
 
 /**
@@ -107,7 +130,7 @@ export function figure(e, srcById, evidence = '') {
   const license = src ? `<a href="${esc(src.url)}" target="_blank" rel="noopener">${esc(img.license ?? src.license)}</a>` : esc(img.license ?? '');
   const credit = [img.credit && esc(img.credit), license].filter(Boolean).join(' · ');
   return `<figure class="detail-fig${img.placeholder ? ' is-placeholder' : ''}">
-    ${img.placeholder ? '<span class="fig-badge">Platshållare</span>' : ''}
+    ${img.placeholder ? `<span class="fig-badge">${esc(ui('image.placeholder'))}</span>` : ''}
     <img src="${esc(img.file)}" alt="${esc(t(img.caption))}" loading="lazy" width="800" height="600">
     <figcaption><span class="fig-caption">${esc(t(img.caption))}</span>${evidence}
       <span class="fig-credit">${credit}</span></figcaption>
@@ -115,7 +138,7 @@ export function figure(e, srcById, evidence = '') {
 }
 
 /** Diskret knapp "Rapportera faktafel" nedtill i faktarutan, bredvid granskningsstatusen. */
-const reportBtn = ({ type, id, label }) => `<button type="button" class="link-btn report-btn" data-report-type="${esc(type)}" data-report-id="${esc(id)}" data-report-label="${esc(label)}" aria-haspopup="dialog" aria-controls="feedback">Rapportera faktafel</button>`;
+const reportBtn = ({ type, id, label }) => `<button type="button" class="link-btn report-btn" data-report-type="${esc(type)}" data-report-id="${esc(id)}" data-report-label="${esc(label)}" aria-haspopup="dialog" aria-controls="feedback">${esc(ui('detail.report'))}</button>`;
 
 /**
  * Granskningsstatusen nedtill i faktarutan, med en liten (i)-knapp (#310) som fäller ut vad statusarna betyder
@@ -124,10 +147,10 @@ const reportBtn = ({ type, id, label }) => `<button type="button" class="link-bt
 const reviewRow = (status, subj) => {
   const rv = REVIEW[status] ?? REVIEW.draft;
   return `<span class="review-badge ${rv.cls}" title="${esc(REVIEW_SUBJECT_HELP[subj])}">${esc(reviewLabel(status, subj))}</span>
-    <button type="button" class="review-info" data-review-info aria-expanded="false" aria-controls="review-help" aria-label="Vad betyder granskningsstatusen?" title="Vad betyder granskningsstatusen?">i</button>
+    <button type="button" class="review-info" data-review-info aria-expanded="false" aria-controls="review-help" aria-label="${esc(ui('review.info'))}" title="${esc(ui('review.info'))}">i</button>
     <div id="review-help" class="review-help" hidden>
       <ul>${REVIEW_HELP.map(h => `<li><b>${esc(REVIEW[h.status].label)}:</b> ${esc(h.text)}</li>`).join('')}</ul>
-      <button type="button" class="link-btn" data-review-sources>Om källorna</button>
+      <button type="button" class="link-btn" data-review-sources>${esc(ui('sources.title'))}</button>
     </div>`;
 };
 
@@ -135,7 +158,7 @@ const reviewRow = (status, subj) => {
  * Riken i kriget (#76): rikena i krigets empires, som knappar med rikets färg. Ett klick öppnar rikets faktaruta.
  * Slag och händelser i kriget visar sitt krigs riken (de ärver kopplingen via partOf).
  */
-const empireList = groups => groups?.length ? `<div class="war-list empire-list"><h4>Riken i kriget</h4><ul>${groups.map(g =>
+const empireList = groups => groups?.length ? `<div class="war-list empire-list"><h4>${esc(ui('detail.empiresInWar'))}</h4><ul>${groups.map(g =>
   `<li><button type="button" class="link-btn" data-empire="${esc(g.id)}"><span class="swatch" style="background:${esc(g.color)}"></span>${esc(t(g.name))}</button></li>`).join('')}</ul></div>` : '';
 
 /**
@@ -149,9 +172,9 @@ function lineageHtml(v) {
   }).join(', ');
   const rv = REVIEW[v.review] ?? REVIEW.draft;
   return `<dl class="religion-facts lineage">
-      <dt>Bildades och upplöstes</dt><dd>${esc(formatEventTime({ start: v.founded, end: v.dissolved, edtf: '' }))}</dd>
-      ${v.predecessors?.length ? `<dt>Föregångare</dt><dd>${names(v.predecessors)}</dd>` : ''}
-      ${v.successors?.length ? `<dt>Blev</dt><dd>${names(v.successors)}</dd>` : ''}
+      <dt>${esc(ui('facts.lineage.span'))}</dt><dd>${esc(formatEventTime({ start: v.founded, end: v.dissolved, edtf: '' }))}</dd>
+      ${v.predecessors?.length ? `<dt>${esc(ui('facts.lineage.predecessors'))}</dt><dd>${names(v.predecessors)}</dd>` : ''}
+      ${v.successors?.length ? `<dt>${esc(ui('facts.lineage.successors'))}</dt><dd>${names(v.successors)}</dd>` : ''}
     </dl>
     ${v.note ? `<p class="lineage-note">${esc(t(v.note))}</p>` : ''}
     <p class="lineage-note"><span class="review-badge ${rv.cls}">${esc(reviewLabel(v.review, 'Årtal och efterträdare'))}</span></p>`;
@@ -250,7 +273,7 @@ export class Panel {
     if (open) this.onOpen();
   }
 
-  /** labels (valfritt): { at, within } i stället för "år 1879" och "±10 år", till exempel i fokusläget för korta krig (#204). */
+  /** labels (valfritt): { at, bare, within } i stället för "år 1879", "1879" och "±10 år", till exempel i fokusläget för korta krig (#204). */
   render(visible, year, window, eventsOn = true, labels = null) {
     if (!eventsOn) {
       this.count.textContent = '0';
@@ -278,33 +301,35 @@ export class Panel {
     const summaryText = summary.replace('{count}', visible.length).replace('{inside}', inside).replace('{near}', near);
     this.count.textContent = String(visible.length);
     this.toggle.setAttribute('aria-label', summaryText);
-    const at = labels?.at ?? `år ${formatYear(year)}`, within = labels?.within ?? `±${Math.round(window)} år`;
+    // at = "år 1879" eller "den 3 maj 1940" (fokusläget för korta krig, #204); bare = samma tid utan "år"/"den"
+    const at = labels?.at ?? ui('panel.atYear', { year: formatYear(year) }), bare = labels?.bare ?? formatYear(year);
+    const within = labels?.within ?? plural('time.withinYears', Math.round(window), { n: Math.round(window) });
     const parts = [];
-    parts.push(inside ? `${inside} ${inside === 1 ? 'händelse pågår' : 'händelser pågår'} ${at}` : `Inget pågår exakt ${at}`);
-    if (near) parts.push(`${near} till inom ${within}`);
-    this.sub.textContent = visible.length ? `${summaryText}. ${parts.join(', ')}.` : `Inget i datan inom ${within} från ${at.replace(/^(år|den) /, '')}.`;
+    parts.push(inside ? plural('panel.inside', inside, { at }) : ui('panel.noneAt', { at }));
+    if (near) parts.push(ui('panel.near', { count: near, within }));
+    this.sub.textContent = visible.length ? `${summaryText}. ${parts.join(', ')}.` : ui('panel.empty', { within, at: bare });
     const tagCopy = this.tag && this.tags[this.tag];
     if (!visible.length && tagCopy) {
       // Vyn med tagg (#555): säg om ingen händelse har taggen ännu, eller om det bara är tomt kring året
       const note = document.createElement('p');
       note.className = 'empty-note tag-empty';
-      note.textContent = this.tagCounts.get(this.tag) ? (tagCopy.none ?? '').replace('{within}', within).replace('{at}', at.replace(/^(år|den) /, '')) : tagCopy.empty;
+      note.textContent = this.tagCounts.get(this.tag) ? (tagCopy.none ?? '').replace('{within}', within).replace('{at}', bare) : tagCopy.empty;
       this.sub.textContent = note.textContent;
       this.list.replaceChildren(note);
       return;
     }
     if (!visible.length) {
-      this.list.innerHTML = `<p class="empty-note">Dra i tidslinjen eller tryck på uppspelning för att hitta nästa händelse. Prickarna under tidslinjen visar var det finns data.</p>`;
+      this.list.innerHTML = `<p class="empty-note">${esc(ui('panel.emptyHelp'))}</p>`;
       return;
     }
     // Grupperat per världsdel, i fast ordning, så att man ser vad som händer på olika håll
     const groups = new Map(REGIONS.map(r => [r, []]));
     const old = [];
     for (const v of visible) (v.longRunning ? old : groups.get(v.e._region ??= region(v.e._lat, v.e._lon))).push(v);
-    const rank = (a, b) => (b.e.top - a.e.top) || (b.e.major - a.e.major) || (b.inside - a.inside) || (Math.abs(a.e.start - year) - Math.abs(b.e.start - year)) || t(a.e.title).localeCompare(t(b.e.title), 'sv');
+    const rank = (a, b) => (b.e.top - a.e.top) || (b.e.major - a.e.major) || (b.inside - a.inside) || (Math.abs(a.e.start - year) - Math.abs(b.e.start - year)) || t(a.e.title).localeCompare(t(b.e.title), LANG);
     const row = ({ e, inside }, name = '') => `
           <li class="event-item${inside ? '' : ' is-near'}${e.id === this.selectedId ? ' is-selected' : ''}">
-            <button type="button" class="event-btn" data-id="${esc(e.id)}" aria-label="${esc(`${formatEventTime(e)}, ${t(e.title)}${name ? `, ${name}` : ''}, ${reviewLabel(e.review, 'Händelsen')}`)}"${e.id === this.selectedId ? ' aria-current="true"' : ''}>
+            <button type="button" class="event-btn" data-id="${esc(e.id)}" aria-label="${esc(`${formatEventTime(e)}, ${t(e.title)}${name ? `, ${regionName(name)}` : ''}, ${reviewLabel(e.review, 'Händelsen')}`)}"${e.id === this.selectedId ? ' aria-current="true"' : ''}>
               <span class="dot" style="background:${CAT[e.category]?.color}"></span><span class="ttl">${esc(t(e.title))}</span><span class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))}</span>
             </button>
           </li>`;
@@ -312,8 +337,8 @@ export class Panel {
       vs.sort(rank); const open = this.expandedRegions.has(name), shown = open ? vs : vs.slice(0, 5), rest = vs.length - shown.length;
       return `
       <section class="region-group">
-        <h3 class="region-head">${esc(name)} <span class="region-count">${vs.length}</span></h3>
-        <ol>${shown.map(v => row(v, name)).join('')}</ol>${vs.length > 5 ? `<button type="button" class="link-btn panel-more" data-region="${esc(name)}" aria-expanded="${open}" aria-label="${esc(open ? `${copy('showLess')} i ${name}` : copy('showMore').replace('{count}', rest).replace('{region}', name))}">${esc(open ? copy('showLess') : copy('showMore').replace('{count}', rest).replace('{region}', name))}</button>` : ''}
+        <h3 class="region-head">${esc(regionName(name))} <span class="region-count">${vs.length}</span></h3>
+        <ol>${shown.map(v => row(v, name)).join('')}</ol>${vs.length > 5 ? `<button type="button" class="link-btn panel-more" data-region="${esc(name)}" aria-expanded="${open}" aria-label="${esc(open ? ui('panel.showLessIn', { label: copy('showLess'), region: regionName(name) }) : copy('showMore').replace('{count}', rest).replace('{region}', regionName(name)))}">${esc(open ? copy('showLess') : copy('showMore').replace('{count}', rest).replace('{region}', regionName(name)))}</button>` : ''}
       </section>`;
     }).join('') + (old.length ? `<section class="region-group long-running"><button type="button" class="link-btn panel-more" data-long aria-expanded="${this.longOpen}">${esc(copy('longRunning').replace('{count}', old.length))}</button>${this.longOpen ? `<ol>${old.sort(rank).map(v => row(v)).join('')}</ol>` : ''}</section>` : '');
     // Riktiga knappar: Enter och mellanslag fungerar av sig själva
@@ -336,8 +361,8 @@ export class Panel {
   _loading(e) {
     this.selectedId = e.id;
     this.detail.className = `detail detail-card frame-${styleFor(e, this.styles).frame}`;
-    this.detail.innerHTML = `<button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
-      <h3>${esc(t(e.title))}</h3><div class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))}</div>${LOADING}`;
+    this.detail.innerHTML = `<button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
+      <h3>${esc(t(e.title))}</h3><div class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))}</div>${loadingHtml()}`;
     this.detail.hidden = false;
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
   }
@@ -356,21 +381,21 @@ export class Panel {
     this.detail.className = `detail detail-card frame-${styleFor(war, this.styles).frame}`;
     const srcs = (s.sources ?? []).map(id => this.srcById[id]).filter(Boolean);
     const body = mode === 'intro' ? `
-      <h4>Varför kriget började</h4><p>${esc(t(s.intro))}</p>
-      <h4>Parterna</h4>
+      <h4>${esc(ui('story.why'))}</h4><p>${esc(t(s.intro))}</p>
+      <h4>${esc(ui('story.parties'))}</h4>
       <div class="parties">${s.parties.map(p => `<div><strong>${esc(t(p.name))}</strong><p>${esc(t(p.members))}</p></div>`).join('')}</div>
       ${empireList(war._empires)}
-      <p class="story-hint">Tryck på ▶ för att följa kriget.</p>${(() => { const tour = this.tourFor?.(war.id); return tour ? `<button type="button" class="story-tour" data-tour="${esc(tour.id)}">${esc(tour.label)}</button>` : ''; })()}` : war.ongoing ? `
-      <h4>Läget i dag</h4><p>${esc(t(s.outcome))}</p>
-      <h4>Döda hittills, enligt uppskattningar</h4><p>${esc(t(s.casualties))}</p>
+      <p class="story-hint">${esc(ui('story.hint'))}</p>${(() => { const tour = this.tourFor?.(war.id); return tour ? `<button type="button" class="story-tour" data-tour="${esc(tour.id)}">${esc(tour.label)}</button>` : ''; })()}` : war.ongoing ? `
+      <h4>${esc(ui('story.today'))}</h4><p>${esc(t(s.outcome))}</p>
+      <h4>${esc(ui('story.deadSoFar'))}</h4><p>${esc(t(s.casualties))}</p>
       ${takeawaysHtml(s.takeaways, this.srcById, pending)}` : `
-      <h4>Hur kriget slutade</h4><p>${esc(t(s.outcome))}</p>
-      <h4>Döda</h4><p>${esc(t(s.casualties))}</p>
+      <h4>${esc(ui('story.outcome'))}</h4><p>${esc(t(s.outcome))}</p>
+      <h4>${esc(ui('story.dead'))}</h4><p>${esc(t(s.casualties))}</p>
       ${takeawaysHtml(s.takeaways, this.srcById, pending)}
       ${empireList(war._empires)}`;
-    const label = mode === 'intro' ? 'Innan kriget börjar' : war.ongoing ? `Läget i dag (kontrollerat ${formatDate(s.asOf)})` : 'När kriget är slut';
+    const label = mode === 'intro' ? ui('story.labelIntro') : war.ongoing ? ui('story.labelToday', { date: formatDate(s.asOf) }) : ui('story.labelEnd');
     this.detail.innerHTML = `
-      <button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
+      <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <div class="story-label">${esc(label)}</div>
       <h3>${esc(t(war.title))}</h3>
       <div class="meta">${esc(formatEventTime(war))} · ${esc(t(war.place))}</div>
@@ -410,8 +435,8 @@ export class Panel {
    * som också är punkten på globen.
    */
   showReligion(r, origin, report = null) {
-    this.showFacts({ kind: 'Religion', name: t(r.name), color: r.color, symbol: symbolImg(r, 'rel-sym rel-sym-h'), facts: r.facts, origin,
-      milestonesTitle: t(r.facts.milestonesTitle) || 'Statsreligion i riken', report });
+    this.showFacts({ kind: 'religion', name: t(r.name), color: r.color, symbol: symbolImg(r, 'rel-sym rel-sym-h'), facts: r.facts, origin,
+      milestonesTitle: t(r.facts.milestonesTitle) || ui('facts.stateReligion'), report });
   }
 
   /**
@@ -424,7 +449,7 @@ export class Panel {
    * föregångare och vad det blev. Efterträdare som finns som riken är knappar som börjar följa det riket.
    */
   showFacts(opts) {
-    const { kind, name, color, symbol = '', facts: f, origin = null, place = origin, milestonesTitle = 'Nyckelår', mapNote = '', curveId = '', wars = [], lineage = null, empireMap = false, empireId = null } = opts;
+    const { kind, name, color, symbol = '', facts: f, origin = null, place = origin, milestonesTitle = ui('facts.milestones'), mapNote = '', curveId = '', wars = [], lineage = null, empireMap = false, empireId = null } = opts;
     const fall = empireId ? this.empireTourFor?.(empireId) : null; // rikets fall som tur (#499)
     // Rikets krig (#76): krig som anger riket i empires, i tidsordning; bara de som syns enligt granskningsstatusen
     const shownWars = wars.filter(w => isVisibleReview(w.review));
@@ -435,32 +460,33 @@ export class Panel {
       if (c && c[0] === curveId) this.setCurve(...c);
     });
     this.curveArgs = null;
-    const subj = kind === 'Rike' ? 'Riket' : kind === 'Försvunnet land' ? 'Landet' : 'Religionen';
+    // kind: 'empire', 'vanished' (försvunnet land) eller 'religion'; namnet som visas står i facts.kind.<kind>
+    const subj = kind === 'empire' ? 'Riket' : kind === 'vanished' ? 'Landet' : 'Religionen';
     const srcs = [...new Set([...(f.sources ?? []), ...(f.milestones ?? []).flatMap(m => m.sources ?? []), ...(lineage?.sources ?? [])])]
       .map(id => this.srcById[id]).filter(Boolean);
     // Riken har ofta mer fördjupning än ryms i det mobila arket. Sammanfattningen
     // står därför alltid först, medan utveckling och kartans underlag öppnas vid behov (#359).
-    const isEmpire = kind === 'Rike' || kind === 'Försvunnet land';
+    const isEmpire = kind === 'empire' || kind === 'vanished';
     const overview = `${lineage ? lineageHtml(lineage) : ''}
       <dl class="religion-facts">${(f.items ?? []).map(it => `<dt>${esc(t(it.label))}</dt><dd>${esc(t(it.text))}</dd>`).join('')}</dl>`;
     // Ett land med bara gräns och en not (kartan före fakta, #644) har inget att visa under Kortfattat
     const hasOverview = !!(lineage || f.items?.length);
     const development = `${curveId ? `<figure class="area-curve" data-curve="${esc(curveId)}" hidden></figure>` : ''}
       ${f.milestones?.length ? `<div class="war-list"><h4>${esc(milestonesTitle)}</h4><ol>${f.milestones.map(m =>
-        `<li><button type="button" class="link-btn" data-year="${Number(m.year)}">${esc(t(m.label) || formatYear(m.year))}</button> ${m.title ? `<b>${esc(t(m.title))}.</b> ` : ''}${esc(t(m.text))}${m.mapNote ? ` <span class="ms-map">Om kartan: ${esc(t(m.mapNote))}</span>` : ''}</li>`).join('')}</ol></div>` : ''}
-      ${shownWars.length ? `<div class="war-list empire-wars"><h4>Krig</h4><ol>${shownWars.map(w =>
-        `<li><span class="meta">${esc(formatEventTime(w))}</span> <button type="button" class="link-btn" data-follow-war="${esc(w.id)}" title="Följ kriget">▶ ${esc(t(w.title))}</button></li>`).join('')}</ol></div>` : ''}`;
+        `<li><button type="button" class="link-btn" data-year="${Number(m.year)}">${esc(t(m.label) || formatYear(m.year))}</button> ${m.title ? `<b>${esc(t(m.title))}.</b> ` : ''}${esc(t(m.text))}${m.mapNote ? ` <span class="ms-map">${esc(ui('facts.aboutMapInline'))} ${esc(t(m.mapNote))}</span>` : ''}</li>`).join('')}</ol></div>` : ''}
+      ${shownWars.length ? `<div class="war-list empire-wars"><h4>${esc(ui('facts.wars'))}</h4><ol>${shownWars.map(w =>
+        `<li><span class="meta">${esc(formatEventTime(w))}</span> <button type="button" class="link-btn" data-follow-war="${esc(w.id)}" title="${esc(ui('facts.followWar'))}">▶ ${esc(t(w.title))}</button></li>`).join('')}</ol></div>` : ''}`;
     const empireMapKey = empireMap ? [this.empireLegend.softEdge, this.empireLegend.influence].filter(Boolean).map(text => `<p class="map-key">${esc(text)}</p>`).join('') : '';
     const report = opts.report ?? null;
-    const sourcesAndMap = `${mapNote ? `<aside class="detail-note"><h4>Om kartan</h4><p>${esc(mapNote)}</p>${empireMapKey}</aside>` : ''}
+    const sourcesAndMap = `${mapNote ? `<aside class="detail-note"><h4>${esc(ui('facts.aboutMap'))}</h4><p>${esc(mapNote)}</p>${empireMapKey}</aside>` : ''}
       ${srcLine(srcs, pending)}
       <div class="detail-actions">${reviewRow(f.review, subj)}${this.onReport && report ? reportBtn(report) : ''}</div>`;
     const body = isEmpire ? `
-      ${hasOverview ? `<details class="facts-section" open><summary>Kortfattat</summary>${overview}</details>` : ''}
-      ${development ? `<details class="facts-section"><summary>Hur riket förändrades</summary>${development}</details>` : ''}
-      <details class="facts-section"${hasOverview ? '' : ' open'}><summary>Källor och karta</summary>${sourcesAndMap}</details>` : `
+      ${hasOverview ? `<details class="facts-section" open><summary>${esc(ui('facts.overview'))}</summary>${overview}</details>` : ''}
+      ${development ? `<details class="facts-section"><summary>${esc(ui('facts.development'))}</summary>${development}</details>` : ''}
+      <details class="facts-section"${hasOverview ? '' : ' open'}><summary>${esc(ui('facts.sourcesMap'))}</summary>${sourcesAndMap}</details>` : `
       ${overview}
-      ${origin ? `<p class="war-link">${symbol ? `Symbolen ${symbol.replace('rel-sym-h', 'rel-sym-in')} på globen visar var religionen uppstod:` : 'Där religionen uppstod:'} <button type="button" class="link-btn" data-goto="${esc(origin.id)}">${esc(t(origin.title))}</button> <span class="meta">${esc(formatEventTime(origin))} · ${esc(t(origin.place))}</span></p>` : ''}
+      ${origin ? `<p class="war-link">${symbol ? ui('facts.originSymbol', { symbol: symbol.replace('rel-sym-h', 'rel-sym-in') }) : esc(ui('facts.origin'))} <button type="button" class="link-btn" data-goto="${esc(origin.id)}">${esc(t(origin.title))}</button> <span class="meta">${esc(formatEventTime(origin))} · ${esc(t(origin.place))}</span></p>` : ''}
       ${development}
       ${sourcesAndMap}`;
     this.selectedId = origin?.id ?? null;
@@ -468,8 +494,8 @@ export class Panel {
     this.detail.className = `detail detail-card${place ? ` frame-${styleFor(place, this.styles).frame}` : ''}`;
     delete this.detail.dataset.style;
     this.detail.innerHTML = `
-      <button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
-      <div class="story-label"><span class="swatch" style="background:${esc(color)}"></span>${esc(kind)}</div>
+      <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
+      <div class="story-label"><span class="swatch" style="background:${esc(color)}"></span>${esc(ui(`facts.kind.${kind}`))}</div>
       <h3>${symbol}${esc(name)}</h3>
       ${t(f.summary) ? `<p>${esc(t(f.summary))}</p>` : ''}
       ${fall ? `<button type="button" class="story-tour" data-tour="${esc(fall.id)}">${esc(fall.label)}</button>` : ''}
@@ -522,8 +548,8 @@ export class Panel {
   /** Faktarutan är ett eget kort (#112). show = false markerar händelsen utan att visa kortet. */
   showDetail(e, show = true) {
     this.selectedId = e?.id ?? null;
-    if (!e || !show) { this.shown = null; this.detail.hidden = true; return; }
-    const pending = this._whenLoaded(needDetails([e]), () => this.showDetail(e, show)), loading = pending && !e._full;
+    if (!e || !show) { this.shown = null; delete this.detail.dataset.eventId; this.detail.hidden = true; return; }
+    const pending = this._whenLoaded(needDetails([e], { misconceptions: true }), () => this.showDetail(e, show)), loading = pending && !e._full;
     // Wikidata länkas till händelsens egen post
     const srcs = (e.sources ?? []).map(id => id === 'wikidata' && e.wikidata
       ? { id, title: `Wikidata ${e.wikidata}`, url: `https://www.wikidata.org/wiki/${e.wikidata}` }
@@ -531,6 +557,10 @@ export class Panel {
     const evidence = evidenceView(e, srcs);
     // Kortets ram följer händelsens tidsålder, med eller utan bild (#129)
     const st = styleFor(e, this.styles);
+    // En omritning för samma händelse (när detaljfilen har laddats) behåller öppna märkningar
+    const keepOpen = this.detail.dataset.eventId === e.id
+      ? [...this.detail.querySelectorAll('details.tag-mark[open]')].map(d => d.dataset.tag) : [];
+    this.detail.dataset.eventId = e.id;
     this.detail.className = `detail detail-card frame-${st.frame}`;
     this.detail.dataset.style = st.variant?.id ?? st.style.id;
     // Rubrik och datumrad först, sedan bilden (#605), så att man ser vad händelsen heter utan att rulla.
@@ -538,31 +568,40 @@ export class Panel {
     // Datumraden får en kort markering när händelsen har raden Historisk osäkerhet (#606).
     const unc = uncertaintyRow(e, this.uncertainty, evidence.marker('uncertainty'));
     this.detail.innerHTML = `
-      <button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
+      <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <h3>${esc(t(e.title))}</h3>
       <div class="meta">${esc(formatEventTime(e))}${evidence.marker('date')}${unc ? uncertaintyMark(e, 'date', this.uncertainty) : ''} · ${esc(t(e.place))}${evidence.marker('location')}${unc ? uncertaintyMark(e, 'place', this.uncertainty) : ''} · ${esc(t(CAT[e.category]?.name))}</div>
       ${tagMarks(e, this.tags)}
-      ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(t(e.place))}: visa på globen"><span class="place-pin" aria-hidden="true"></span><span class="place-go">Visa på globen</span></button>` : ''}
+      ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(ui('detail.showPlaceLabel', { place: t(e.place) }))}"><span class="place-pin" aria-hidden="true"></span><span class="place-go">${esc(ui('detail.showPlace'))}</span></button>` : ''}
       ${figure(e, this.srcById, evidence.marker('image'))}
-      ${loading ? LOADING : `<p>${esc(t(e.summary))}${evidence.marker('summary')}</p>`}
+      ${loading ? loadingHtml() : `<p>${esc(t(e.summary))}${evidence.marker('summary')}</p>`}
       ${e.note ? `<aside class="detail-note"><h4>${esc(t(e.note.title))}</h4><p>${esc(t(e.note.text))}</p></aside>` : ''}
+      ${loading ? '' : mythsHtml(misconceptionsFor(e.id), this.srcById, pending)}
       ${unc}
-      ${e._war ? `<p class="war-link">Del av: <button type="button" class="link-btn" data-goto="${esc(e._war.id)}">${esc(t(e._war.title))}</button></p>` : ''}
-      ${e.kind === 'war' ? `<button type="button" class="chip-btn focus-btn" data-focus="${esc(e.id)}">▶ Följ kriget långsamt</button>` : ''}
-      ${e._battles?.length ? `<div class="war-list"><h4>Slag och händelser i kriget</h4><ol>${e._battles.map(b =>
+      ${e._war ? `<p class="war-link">${esc(ui('detail.partOf'))} <button type="button" class="link-btn" data-goto="${esc(e._war.id)}">${esc(t(e._war.title))}</button></p>` : ''}
+      ${e.kind === 'war' ? `<button type="button" class="chip-btn focus-btn" data-focus="${esc(e.id)}">▶ ${esc(ui('detail.followWar'))}</button>` : ''}
+      ${e._battles?.length ? `<div class="war-list"><h4>${esc(ui('detail.battles'))}</h4><ol>${e._battles.map(b =>
         `<li><button type="button" class="link-btn" data-goto="${esc(b.id)}">${esc(t(b.title))}</button> <span class="meta">${esc(formatEventTime(b))}</span></li>`).join('')}</ol></div>` : ''}
       ${empireList(e._empires ?? e._war?._empires)}
       ${evidence.sources || srcLine(srcs, pending)}
+      ${(() => { const h = this.huntFor?.(e); return h ? `<button type="button" class="chip-btn hunt-add" data-hunt${h.disabled ? ' disabled' : ''}>${esc(h.label)}</button>` : ''; })()}
       <div class="detail-actions">
         ${reviewRow(e.review, 'Händelsen')}
         ${this.onReport ? reportBtn({ type: 'event', id: e.id, label: t(e.title) }) : ''}
       </div>`;
+    for (const tag of keepOpen) this.detail.querySelector(`details.tag-mark[data-tag="${CSS.escape(tag)}"]`)?.setAttribute('open', '');
     this.detail.scrollTop = 0;
     this.detail.hidden = false;
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
     this.detail.querySelector('[data-focus]')?.addEventListener('click', ev => this.onFocus(ev.currentTarget.dataset.focus));
     this.detail.querySelector('[data-show-place]')?.addEventListener('click', () => this.onShowPlace(e));
+    // Samtidighetsjakten (#741): lägg händelsen i jakten; knappen visar resultatet
+    this.detail.querySelector('[data-hunt]')?.addEventListener('click', ev => {
+      this.onHunt?.(e);
+      const h = this.huntFor?.(e);
+      if (h) { ev.currentTarget.textContent = h.label; ev.currentTarget.disabled = h.disabled; }
+    });
     // Markeringen i datumraden visar förklaringen och flyttar fokus dit (#606)
     this.detail.querySelector('[data-unc-mark]')?.addEventListener('click', () => {
       const row = this.detail.querySelector('#detail-uncertainty');

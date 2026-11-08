@@ -1,0 +1,416 @@
+{
+  "schema": "historia-globen/tur@1",
+  "version": 1,
+  "id": "vikingatiden-och-varlden",
+  "title": {
+    "sv": "Vikingatiden och världen samtidigt",
+    "en": "The Viking Age and the world at the same time",
+    "de": "Die Wikingerzeit und die Welt zur gleichen Zeit",
+    "es": "La era vikinga y el mundo al mismo tiempo",
+    "fr": "L'ère viking et le monde au même moment"
+  },
+  "summary": {
+    "sv": "Från Lindisfarne 793 till al-Bakris bok om Ghana omkring 1068: vad hände på andra håll i världen medan vikingarna reste?",
+    "en": "From Lindisfarne in 793 to al-Bakri's book on Ghana around 1068: what happened elsewhere in the world while the Vikings travelled?",
+    "de": "Von Lindisfarne 793 bis zu al-Bakris Buch über Ghana um 1068: Was geschah anderswo auf der Welt, während die Wikinger reisten?",
+    "es": "De Lindisfarne en 793 al libro de al-Bakri sobre Ghana hacia 1068: ¿qué pasaba en otras partes del mundo mientras los vikingos viajaban?",
+    "fr": "De Lindisfarne en 793 au livre d'al-Bakri sur le Ghana vers 1068 : que se passait-il ailleurs dans le monde pendant que les Vikings voyageaient ?"
+  },
+  "review": "source-checked",
+  "lesson": {
+    "grades": "4-6",
+    "minutes": 30,
+    "curriculum": [
+      {
+        "text": {
+          "sv": "Kopplad till Lgr22, historia i årskurs 4–6, Kulturmöten och statsbildning i Norden cirka 800–1500: Nordens kulturmöten med andra delar av världen genom vikingarnas resor.",
+          "en": "Linked to Lgr22 (the Swedish compulsory school curriculum), history in years 4–6, Cultural encounters and state formation in the Nordic region c. 800–1500: the Nordic region's encounters with other parts of the world through the Vikings' journeys.",
+          "de": "Bezogen auf Lgr22 (den schwedischen Lehrplan der Pflichtschule), Geschichte in den Klassen 4–6, Kulturbegegnungen und Staatsbildung im Norden ca. 800–1500: die Begegnungen des Nordens mit anderen Teilen der Welt durch die Reisen der Wikinger.",
+          "es": "Vinculado a Lgr22 (el currículo sueco de la escuela obligatoria), historia en los cursos 4–6, Encuentros culturales y formación de estados en los países nórdicos, c. 800–1500: los encuentros del Norte con otras partes del mundo a través de los viajes de los vikingos.",
+          "fr": "En lien avec Lgr22 (le programme suédois de l'école obligatoire), histoire en classes 4 à 6, Rencontres culturelles et formation des États dans le Nord, v. 800–1500 : les rencontres du Nord avec d'autres parties du monde à travers les voyages des Vikings."
+        },
+        "sources": [
+          "skolverket-lgr22-historia"
+        ]
+      },
+      {
+        "text": {
+          "sv": "Kopplad till Lgr22, historia i årskurs 4–6: vad historiska källor är, till exempel arkeologiska fynd och texter, och hur de kan ge kunskap om det förflutna.",
+          "en": "Linked to Lgr22, history in years 4–6: what historical sources are, for example archaeological finds and texts, and how they can give knowledge about the past.",
+          "de": "Bezogen auf Lgr22, Geschichte in den Klassen 4–6: was historische Quellen sind, zum Beispiel archäologische Funde und Texte, und wie sie Wissen über die Vergangenheit geben können.",
+          "es": "Vinculado a Lgr22, historia en los cursos 4–6: qué son las fuentes históricas, por ejemplo hallazgos arqueológicos y textos, y cómo pueden darnos conocimiento sobre el pasado.",
+          "fr": "En lien avec Lgr22, histoire en classes 4 à 6 : ce que sont les sources historiques, par exemple les découvertes archéologiques et les textes, et comment elles peuvent nous renseigner sur le passé."
+        },
+        "sources": [
+          "skolverket-lgr22-historia"
+        ]
+      }
+    ],
+    "prerequisites": {
+      "sv": "Eleverna har hört talas om vikingarna. Inget annat behövs.",
+      "en": "The students have heard of the Vikings. Nothing else is needed.",
+      "de": "Die Schülerinnen und Schüler haben von den Wikingern gehört. Mehr ist nicht nötig.",
+      "es": "El alumnado ha oído hablar de los vikingos. No hace falta nada más.",
+      "fr": "Les élèves ont entendu parler des Vikings. Rien d'autre n'est nécessaire."
+    },
+    "teacher": {
+      "sv": "Öppna Turer och välj Vikingatiden och världen samtidigt. Visa turen på storskärm (lägg till ?presentation=1 i adressen) eller låt eleverna gå igenom den två och två. Turen har 9 steg i tre kapitel och går mellan Europa, Asien, Afrika, Amerika och Oceanien. Låt eleverna peka ut var på globen varje steg utspelar sig och säga vilken världsdel det är. Fyra steg har en fråga att fundera på (Dunhuang, Island, Newfoundland och Ghanariket). Frågorna handlar om hur vi vet saker: tryckta och skrivna texter, arkeologiska fynd och berättelser som skrevs ner långt senare. Stanna där och låt eleverna prata i par. Förslag på tid: 5 minuter start, 20 minuter tur med frågor och 5 minuter exit ticket.",
+      "en": "Open Tours and choose The Viking Age and the world at the same time. Show the tour on a big screen (add ?presentation=1 to the address) or let the students go through it in pairs. The tour has 9 steps in three chapters and moves between Europe, Asia, Africa, the Americas and Oceania. Ask the students to point out where on the globe each step takes place and say which continent it is. Four steps have a question to think about (Dunhuang, Iceland, Newfoundland and the Ghana Empire). The questions are about how we know things: printed and written texts, archaeological finds and stories that were written down much later. Stop there and let the students talk in pairs. Suggested timing: 5 minutes to start, 20 minutes for the tour and questions, and 5 minutes for the exit ticket.",
+      "de": "Öffnen Sie „Touren“ und wählen Sie „Die Wikingerzeit und die Welt zur gleichen Zeit“. Zeigen Sie die Tour auf einer Großleinwand (fügen Sie ?presentation=1 an die Adresse an) oder lassen Sie die Schülerinnen und Schüler sie zu zweit durchgehen. Die Tour hat 9 Schritte in drei Kapiteln und wechselt zwischen Europa, Asien, Afrika, Amerika und Ozeanien. Lassen Sie die Klasse zeigen, wo auf dem Globus jeder Schritt spielt, und sagen, welcher Kontinent es ist. Vier Schritte haben eine Frage zum Nachdenken (Dunhuang, Island, Neufundland und das Reich Ghana). Die Fragen handeln davon, woher wir etwas wissen: gedruckte und geschriebene Texte, archäologische Funde und Erzählungen, die viel später aufgeschrieben wurden. Halten Sie dort an und lassen Sie die Schülerinnen und Schüler zu zweit sprechen. Vorschlag für die Zeit: 5 Minuten Einstieg, 20 Minuten Tour mit Fragen und 5 Minuten Exit Ticket.",
+      "es": "Abra Recorridos y elija La era vikinga y el mundo al mismo tiempo. Muestre el recorrido en una pantalla grande (añada ?presentation=1 a la dirección) o deje que el alumnado lo recorra en parejas. El recorrido tiene 9 pasos en tres capítulos y alterna entre Europa, Asia, África, América y Oceanía. Pida al alumnado que señale en el globo dónde ocurre cada paso y diga de qué continente se trata. Cuatro pasos tienen una pregunta para pensar (Dunhuang, Islandia, Terranova y el Imperio de Ghana). Las preguntas tratan de cómo sabemos las cosas: textos impresos y escritos, hallazgos arqueológicos y relatos que se escribieron mucho después. Deténgase allí y deje que el alumnado hable en parejas. Tiempo sugerido: 5 minutos de inicio, 20 minutos de recorrido con preguntas y 5 minutos de exit ticket.",
+      "fr": "Ouvrez Visites et choisissez L'ère viking et le monde au même moment. Affichez la visite sur grand écran (ajoutez ?presentation=1 à l'adresse) ou laissez les élèves la parcourir en binômes. La visite compte 9 étapes en trois chapitres et passe de l'Europe à l'Asie, l'Afrique, l'Amérique et l'Océanie. Demandez aux élèves de montrer sur le globe où se déroule chaque étape et de dire de quel continent il s'agit. Quatre étapes ont une question à méditer (Dunhuang, Islande, Terre-Neuve et l'Empire du Ghana). Les questions portent sur la façon dont nous savons les choses : textes imprimés et écrits, découvertes archéologiques et récits mis par écrit bien plus tard. Arrêtez-vous là et laissez les élèves discuter en binômes. Durée suggérée : 5 minutes de démarrage, 20 minutes de visite avec les questions et 5 minutes de ticket de sortie."
+    },
+    "exitTicket": {
+      "sv": "Välj två händelser i turen som hände ungefär samtidigt i olika världsdelar. Vad hände, och hur vet vi det?",
+      "en": "Choose two events in the tour that happened at about the same time on different continents. What happened, and how do we know?",
+      "de": "Wähle zwei Ereignisse aus der Tour, die ungefähr gleichzeitig auf verschiedenen Kontinenten geschahen. Was geschah, und woher wissen wir das?",
+      "es": "Elige dos acontecimientos del recorrido que ocurrieron más o menos al mismo tiempo en continentes distintos. ¿Qué pasó y cómo lo sabemos?",
+      "fr": "Choisis deux événements de la visite qui se sont produits à peu près au même moment sur des continents différents. Que s'est-il passé, et comment le savons-nous ?"
+    },
+    "lock": {
+      "years": [793, 1068]
+    }
+  },
+  "steps": [
+    {
+      "id": "lindisfarne",
+      "at": 793,
+      "camera": {
+        "lat": 55.67,
+        "lon": -1.8,
+        "zoom": 1.8
+      },
+      "chapter": {
+        "sv": "793–874: vikingarna ger sig ut",
+        "en": "793–874: the Vikings set out",
+        "de": "793–874: Die Wikinger brechen auf",
+        "es": "793–874: los vikingos se lanzan al mar",
+        "fr": "793–874 : les Vikings prennent la mer"
+      },
+      "title": {
+        "sv": "Lindisfarne, 8 juni 793",
+        "en": "Lindisfarne, 8 June 793",
+        "de": "Lindisfarne, 8. Juni 793",
+        "es": "Lindisfarne, 8 de junio de 793",
+        "fr": "Lindisfarne, 8 juin 793"
+      },
+      "text": {
+        "sv": "Vikingar anfaller klostret på Lindisfarne i England. Räden räknas ofta som början på vikingatiden.",
+        "en": "Vikings attack the monastery on Lindisfarne in England. The raid is often counted as the beginning of the Viking Age.",
+        "de": "Wikinger überfallen das Kloster auf Lindisfarne in England. Der Überfall gilt oft als Beginn der Wikingerzeit.",
+        "es": "Los vikingos atacan el monasterio de Lindisfarne, en Inglaterra. El ataque suele considerarse el comienzo de la era vikinga.",
+        "fr": "Des Vikings attaquent le monastère de Lindisfarne, en Angleterre. Ce raid est souvent considéré comme le début de l'ère viking."
+      },
+      "layers": [
+        "events",
+        "routes"
+      ],
+      "open": "lindisfarne",
+      "sources": [
+        "wp-lindisfarne",
+        "whe-viking-raids"
+      ]
+    },
+    {
+      "id": "borobudur",
+      "at": 800,
+      "camera": {
+        "lat": -7.608,
+        "lon": 110.204,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "Java, omkring 780–833",
+        "en": "Java, around 780–833",
+        "de": "Java, um 780–833",
+        "es": "Java, hacia 780–833",
+        "fr": "Java, vers 780–833"
+      },
+      "text": {
+        "sv": "Samtidigt på andra sidan jorden bygger man Borobudur på Java i nuvarande Indonesien, i dag världens största buddhistiska tempel. Det finns inga kända uppgifter om när det byggdes. Forskarna har fått jämföra templets bilder i sten med inskrifter från samma tid, och de är inte helt överens om årtalen.",
+        "en": "At the same time, on the other side of the world, Borobudur is being built on Java in present-day Indonesia, today the largest Buddhist temple in the world. There are no known records of when it was built. Scholars have had to compare the temple's pictures in stone with inscriptions from the same period, and they do not fully agree on the years.",
+        "de": "Zur gleichen Zeit, auf der anderen Seite der Erde, wird auf Java im heutigen Indonesien Borobudur gebaut, heute der größte buddhistische Tempel der Welt. Es sind keine Aufzeichnungen darüber bekannt, wann er gebaut wurde. Forschende mussten die Bilder in Stein mit Inschriften aus derselben Zeit vergleichen, und sie sind sich über die Jahre nicht ganz einig.",
+        "es": "Al mismo tiempo, al otro lado del mundo, se construye Borobudur en Java, en la actual Indonesia, hoy el templo budista más grande del mundo. No se conocen registros de cuándo se construyó. Los investigadores han tenido que comparar las imágenes en piedra del templo con inscripciones de la misma época, y no están del todo de acuerdo sobre los años.",
+        "fr": "Au même moment, de l'autre côté du monde, on construit Borobudur à Java, dans l'actuelle Indonésie, aujourd'hui le plus grand temple bouddhique du monde. On ne connaît aucun document indiquant quand il fut construit. Les chercheurs ont dû comparer les images de pierre du temple avec des inscriptions de la même époque, et ils ne sont pas tout à fait d'accord sur les dates."
+      },
+      "status": "omtvistat",
+      "layers": [
+        "events",
+        "routes"
+      ],
+      "open": "borobudur-byggs",
+      "sources": [
+        "wp-borobudur",
+        "whe-borobudur",
+        "wp-lindisfarne"
+      ]
+    },
+    {
+      "id": "diamantsutran",
+      "at": 868,
+      "camera": {
+        "lat": 40.04,
+        "lon": 94.8,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "Dunhuang, 11 maj 868",
+        "en": "Dunhuang, 11 May 868",
+        "de": "Dunhuang, 11. Mai 868",
+        "es": "Dunhuang, 11 de mayo de 868",
+        "fr": "Dunhuang, 11 mai 868"
+      },
+      "text": {
+        "sv": "I Kina blir en tryckt bokrulle med den buddhistiska texten Diamantsutran klar. Den trycktes med träblock och är det äldsta tryck vi känner till som har ett datum. Den hittades många hundra år senare i en igenmurad grotta vid Dunhuang.",
+        "en": "In China a printed scroll with the Buddhist text the Diamond Sutra is completed. It was printed with wooden blocks and is the oldest known print that bears a date. It was found many hundreds of years later in a walled-up cave near Dunhuang.",
+        "de": "In China wird eine gedruckte Buchrolle mit dem buddhistischen Text Diamant-Sutra fertig. Sie wurde mit Holzblöcken gedruckt und ist der älteste bekannte Druck mit einem Datum. Viele hundert Jahre später wurde sie in einer zugemauerten Höhle bei Dunhuang gefunden.",
+        "es": "En China se termina un rollo impreso con el texto budista del Sutra del Diamante. Se imprimió con bloques de madera y es el impreso más antiguo conocido que lleva una fecha. Fue hallado muchos siglos después en una cueva tapiada cerca de Dunhuang.",
+        "fr": "En Chine, un rouleau imprimé portant le texte bouddhique du Sūtra du Diamant est achevé. Il fut imprimé avec des blocs de bois et c'est le plus ancien imprimé connu portant une date. Il fut retrouvé des siècles plus tard dans une grotte murée près de Dunhuang."
+      },
+      "question": {
+        "sv": "Rullen gjordes för att delas ut fritt. Varför kan det ha varit bra att trycka en text i stället för att skriva av den för hand?",
+        "en": "The scroll was made to be given away freely. Why might it have been useful to print a text instead of copying it by hand?",
+        "de": "Die Rolle wurde gemacht, um frei verteilt zu werden. Warum konnte es nützlich sein, einen Text zu drucken, statt ihn von Hand abzuschreiben?",
+        "es": "El rollo se hizo para repartirlo gratuitamente. ¿Por qué podía ser útil imprimir un texto en lugar de copiarlo a mano?",
+        "fr": "Le rouleau fut fait pour être distribué librement. Pourquoi pouvait-il être utile d'imprimer un texte plutôt que de le recopier à la main ?"
+      },
+      "layers": [
+        "events",
+        "routes"
+      ],
+      "open": "diamantsutran-trycks",
+      "sources": [
+        "wp-diamond-sutra",
+        "whe-chinese-diamond-sutra",
+        "wp-mogao-caves"
+      ]
+    },
+    {
+      "id": "island",
+      "at": 874,
+      "camera": {
+        "lat": 64.15,
+        "lon": -21.94,
+        "zoom": 1.8
+      },
+      "title": {
+        "sv": "Island, omkring 874",
+        "en": "Iceland, around 874",
+        "de": "Island, um 874",
+        "es": "Islandia, hacia 874",
+        "fr": "Islande, vers 874"
+      },
+      "text": {
+        "sv": "Enligt isländska berättelser bosätter sig Ingólfr Arnarson från Norge på Island år 874, där Reykjavík ligger i dag. Böckerna som berättar det skrevs två till tre hundra år senare, och arkeologiska fynd tyder på att Island började befolkas något tidigare.",
+        "en": "According to Icelandic accounts, Ingólfr Arnarson from Norway settles in Iceland in 874, where Reykjavík lies today. The books that tell this were written two to three hundred years later, and archaeological finds suggest that people began settling Iceland somewhat earlier.",
+        "de": "Nach isländischen Berichten lässt sich Ingólfr Arnarson aus Norwegen im Jahr 874 auf Island nieder, dort, wo heute Reykjavík liegt. Die Bücher, die das erzählen, wurden zwei- bis dreihundert Jahre später geschrieben, und archäologische Funde deuten darauf hin, dass Island etwas früher besiedelt wurde.",
+        "es": "Según los relatos islandeses, Ingólfr Arnarson, procedente de Noruega, se establece en Islandia en 874, donde hoy está Reikiavik. Los libros que lo cuentan se escribieron entre doscientos y trescientos años después, y los hallazgos arqueológicos indican que Islandia empezó a poblarse algo antes.",
+        "fr": "Selon les récits islandais, Ingólfr Arnarson, venu de Norvège, s'installe en Islande en 874, là où se trouve aujourd'hui Reykjavik. Les livres qui le racontent furent écrits deux à trois cents ans plus tard, et des découvertes archéologiques suggèrent que l'Islande commença à être peuplée un peu plus tôt."
+      },
+      "question": {
+        "sv": "Årtalet 874 skrevs ner flera hundra år senare. Hur kan arkeologiska fynd hjälpa oss att kontrollera det?",
+        "en": "The year 874 was written down several hundred years later. How can archaeological finds help us check it?",
+        "de": "Das Jahr 874 wurde mehrere hundert Jahre später aufgeschrieben. Wie können archäologische Funde helfen, es zu überprüfen?",
+        "es": "El año 874 se escribió varios siglos después. ¿Cómo pueden ayudarnos los hallazgos arqueológicos a comprobarlo?",
+        "fr": "L'année 874 fut écrite plusieurs siècles plus tard. Comment les découvertes archéologiques peuvent-elles nous aider à la vérifier ?"
+      },
+      "layers": [
+        "events",
+        "routes"
+      ],
+      "sources": [
+        "wp-ingolfr-arnarson",
+        "wp-settlement-of-iceland",
+        "whe-vikings-in-iceland"
+      ]
+    },
+    {
+      "id": "kairo",
+      "at": 969,
+      "camera": {
+        "lat": 30.05,
+        "lon": 31.26,
+        "zoom": 1.6
+      },
+      "chapter": {
+        "sv": "Runt år 1000: världen samtidigt",
+        "en": "Around the year 1000: the world at the same time",
+        "de": "Um das Jahr 1000: die Welt zur gleichen Zeit",
+        "es": "Hacia el año 1000: el mundo al mismo tiempo",
+        "fr": "Vers l'an 1000 : le monde au même moment"
+      },
+      "title": {
+        "sv": "Kairo, 969",
+        "en": "Cairo, 969",
+        "de": "Kairo, 969",
+        "es": "El Cairo, 969",
+        "fr": "Le Caire, 969"
+      },
+      "text": {
+        "sv": "Fatimiderna erövrar Egypten och anlägger en ny befäst stad nordost om Fustat. Fyra år senare blir den deras huvudstad. Det är början på Kairo.",
+        "en": "The Fatimids conquer Egypt and lay out a new fortified city north-east of Fustat. Four years later it becomes their capital. This is the beginning of Cairo.",
+        "de": "Die Fatimiden erobern Ägypten und legen nordöstlich von Fustat eine neue befestigte Stadt an. Vier Jahre später wird sie ihre Hauptstadt. Das ist der Anfang von Kairo.",
+        "es": "Los fatimíes conquistan Egipto y trazan una nueva ciudad fortificada al noreste de Fustat. Cuatro años después se convierte en su capital. Es el comienzo de El Cairo.",
+        "fr": "Les Fatimides conquièrent l'Égypte et fondent une nouvelle ville fortifiée au nord-est de Fustat. Quatre ans plus tard, elle devient leur capitale. C'est le début du Caire."
+      },
+      "layers": [
+        "events",
+        "routes"
+      ],
+      "open": "kairo-grundas",
+      "sources": [
+        "wp-cairo",
+        "wp-al-azhar-mosque"
+      ]
+    },
+    {
+      "id": "hawaii",
+      "at": 1000,
+      "camera": {
+        "lat": 20.9,
+        "lon": -156.6,
+        "zoom": 1.4
+      },
+      "title": {
+        "sv": "Hawaii, någon gång 940–1130",
+        "en": "Hawaii, sometime in 940–1130",
+        "de": "Hawaii, irgendwann 940–1130",
+        "es": "Hawái, en algún momento entre 940 y 1130",
+        "fr": "Hawaï, entre 940 et 1130"
+      },
+      "text": {
+        "sv": "Polynesier kommer till Hawaiiöarna. När det skedde är omstritt. Den senaste genomgången av kol-14-dateringar säger omkring 940–1130, men äldre bedömningar har gett mycket tidigare år.",
+        "en": "Polynesians arrive in the Hawaiian Islands. When this happened is disputed. The latest review of radiocarbon dates says about 940–1130, but older estimates have given much earlier years.",
+        "de": "Polynesier kommen auf die Hawaii-Inseln. Wann das geschah, ist umstritten. Die neueste Auswertung von Radiokarbondatierungen nennt etwa 940–1130, ältere Schätzungen nannten aber viel frühere Jahre.",
+        "es": "Los polinesios llegan a las islas de Hawái. Cuándo ocurrió es discutido. La revisión más reciente de dataciones por radiocarbono indica hacia 940–1130, pero estimaciones anteriores dieron años mucho más tempranos.",
+        "fr": "Des Polynésiens arrivent dans les îles Hawaï. La date est discutée. Le réexamen le plus récent des datations au carbone 14 indique vers 940–1130, mais des estimations plus anciennes donnaient des années bien plus précoces."
+      },
+      "status": "omtvistat",
+      "layers": [
+        "events",
+        "routes"
+      ],
+      "open": "polynesier-nar-hawaii",
+      "sources": [
+        "wp-history-of-hawaii",
+        "wp-hawaiian-islands"
+      ]
+    },
+    {
+      "id": "newfoundland",
+      "at": 1021,
+      "camera": {
+        "lat": 51.6,
+        "lon": -55.53,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "Newfoundland, 1021",
+        "en": "Newfoundland, 1021",
+        "de": "Neufundland, 1021",
+        "es": "Terranova, 1021",
+        "fr": "Terre-Neuve, 1021"
+      },
+      "text": {
+        "sv": "Vid L'Anse aux Meadows på Newfoundland finns spår av en nordisk bosättning. Årsringar i trä visar att nordbor var där år 1021. Det är den enda säkert bekräftade nordiska platsen i Nordamerika utanför Grönland.",
+        "en": "At L'Anse aux Meadows on Newfoundland there are traces of a Norse settlement. Tree rings in wood show that Norse people were there in 1021. It is the only confirmed Norse site in North America outside Greenland.",
+        "de": "In L'Anse aux Meadows auf Neufundland gibt es Spuren einer nordischen Siedlung. Jahresringe im Holz zeigen, dass Nordleute im Jahr 1021 dort waren. Es ist der einzige sicher bestätigte nordische Ort in Nordamerika außerhalb Grönlands.",
+        "es": "En L'Anse aux Meadows, en Terranova, hay restos de un asentamiento nórdico. Los anillos de crecimiento de la madera muestran que los nórdicos estuvieron allí en 1021. Es el único lugar nórdico confirmado en Norteamérica fuera de Groenlandia.",
+        "fr": "À L'Anse aux Meadows, à Terre-Neuve, se trouvent les traces d'un établissement nordique. Les cernes du bois montrent que des Scandinaves y étaient en 1021. C'est le seul site nordique attesté avec certitude en Amérique du Nord en dehors du Groenland."
+      },
+      "question": {
+        "sv": "Både nordborna och polynesierna tog sig till platser långt bort på andra sidan havet. Vad behövde man kunna för att hitta fram och komma tillbaka?",
+        "en": "Both the Norse and the Polynesians reached places far away across the sea. What did you need to know to find your way there and back?",
+        "de": "Sowohl die Nordleute als auch die Polynesier erreichten Orte weit jenseits des Meeres. Was musste man können, um den Weg hin und zurück zu finden?",
+        "es": "Tanto los nórdicos como los polinesios llegaron a lugares lejanos al otro lado del mar. ¿Qué había que saber para encontrar el camino de ida y vuelta?",
+        "fr": "Les Scandinaves comme les Polynésiens atteignirent des lieux lointains au-delà des mers. Que fallait-il savoir pour trouver le chemin de l'aller et du retour ?"
+      },
+      "layers": [
+        "events",
+        "routes"
+      ],
+      "open": "lanse-aux-meadows",
+      "sources": [
+        "wp-lanse-aux-meadows",
+        "wp-history-of-hawaii"
+      ]
+    },
+    {
+      "id": "cahokia",
+      "at": 1050,
+      "camera": {
+        "lat": 38.65,
+        "lon": -90.06,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "Cahokia, omkring 1050",
+        "en": "Cahokia, around 1050",
+        "de": "Cahokia, um 1050",
+        "es": "Cahokia, hacia 1050",
+        "fr": "Cahokia, vers 1050"
+      },
+      "text": {
+        "sv": "Längre in i Nordamerika växer staden Cahokia fram, den största staden i Mississippikulturen. Där byggdes upp till 120 jordhögar, och den största, Monks Mound, är omkring 30 meter hög.",
+        "en": "Further inland in North America the city of Cahokia grows up, the largest city of the Mississippian culture. Up to 120 earthen mounds were built there, and the largest, Monks Mound, is about 30 metres high.",
+        "de": "Weiter im Inneren Nordamerikas entsteht die Stadt Cahokia, die größte Stadt der Mississippi-Kultur. Dort wurden bis zu 120 Erdhügel gebaut, und der größte, Monks Mound, ist etwa 30 Meter hoch.",
+        "es": "Más hacia el interior de Norteamérica surge la ciudad de Cahokia, la mayor de la cultura del Misisipi. Allí se construyeron hasta 120 montículos de tierra, y el mayor, Monks Mound, mide unos 30 metros de altura.",
+        "fr": "Plus à l'intérieur de l'Amérique du Nord se développe la ville de Cahokia, la plus grande de la culture du Mississippi. On y construisit jusqu'à 120 tertres de terre, et le plus grand, Monks Mound, mesure environ 30 mètres de haut."
+      },
+      "layers": [
+        "events",
+        "routes"
+      ],
+      "open": "cahokia",
+      "sources": [
+        "wp-cahokia"
+      ]
+    },
+    {
+      "id": "ghana",
+      "at": 1068,
+      "camera": {
+        "lat": 15.77,
+        "lon": -7.97,
+        "zoom": 1.6
+      },
+      "chapter": {
+        "sv": "Källor som berättar",
+        "en": "Sources that tell us",
+        "de": "Quellen, die erzählen",
+        "es": "Fuentes que nos cuentan",
+        "fr": "Des sources qui racontent"
+      },
+      "title": {
+        "sv": "Ghanariket, omkring 1068",
+        "en": "The Ghana Empire, around 1068",
+        "de": "Das Reich Ghana, um 1068",
+        "es": "El Imperio de Ghana, hacia 1068",
+        "fr": "L'Empire du Ghana, vers 1068"
+      },
+      "text": {
+        "sv": "Den lärde al-Bakri från Córdoba blir klar med en bok som beskriver huvudstaden i Ghanariket: två städer på en slätt, en för muslimska köpmän och en för kungen. Han reste aldrig dit själv utan byggde på äldre texter och på människor han träffade.",
+        "en": "The scholar al-Bakri from Córdoba finishes a book that describes the capital of the Ghana Empire: two towns on a plain, one for Muslim merchants and one for the king. He never travelled there himself but relied on older texts and on people he met.",
+        "de": "Der Gelehrte al-Bakri aus Córdoba wird mit einem Buch fertig, das die Hauptstadt des Reiches Ghana beschreibt: zwei Städte auf einer Ebene, eine für muslimische Kaufleute und eine für den König. Er reiste nie selbst dorthin, sondern stützte sich auf ältere Texte und auf Menschen, die er traf.",
+        "es": "El sabio al-Bakri, de Córdoba, termina un libro que describe la capital del Imperio de Ghana: dos ciudades en una llanura, una para los mercaderes musulmanes y otra para el rey. Nunca viajó allí, sino que se basó en textos más antiguos y en personas que conoció.",
+        "fr": "Le savant al-Bakri, originaire de Cordoue, achève un livre qui décrit la capitale de l'Empire du Ghana : deux villes dans une plaine, l'une pour les marchands musulmans et l'autre pour le roi. Il n'y alla jamais lui-même mais s'appuya sur des textes plus anciens et sur des personnes qu'il rencontra."
+      },
+      "question": {
+        "sv": "Al-Bakri reste aldrig till Ghana. Vad gör det för skillnad om den som skriver har sett platsen själv eller bara har hört om den?",
+        "en": "Al-Bakri never travelled to Ghana. What difference does it make whether the writer has seen the place or only heard about it?",
+        "de": "Al-Bakri reiste nie nach Ghana. Welchen Unterschied macht es, ob jemand den Ort selbst gesehen oder nur davon gehört hat?",
+        "es": "Al-Bakri nunca viajó a Ghana. ¿Qué diferencia hay entre que quien escribe haya visto el lugar o solo haya oído hablar de él?",
+        "fr": "Al-Bakri n'est jamais allé au Ghana. Quelle différence cela fait-il que l'auteur ait vu le lieu lui-même ou qu'il en ait seulement entendu parler ?"
+      },
+      "layers": [
+        "events",
+        "routes"
+      ],
+      "open": "al-bakri-beskriver-ghana",
+      "sources": [
+        "wp-koumbi-saleh",
+        "wp-ghana-empire"
+      ]
+    }
+  ]
+}

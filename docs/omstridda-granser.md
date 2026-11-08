@@ -17,15 +17,16 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 | 2. Donetsk, Luhansk, Cherson, Zaporizjzja | Del av Ukraina; annekteringarna 2022 erkänns inte | Ukraina | `ukraina` | Stämmer, bara en not |
 | 3. Västbanken, Östra Jerusalem och Gaza | Ockuperade; Sverige erkände Staten Palestina 30 oktober 2014 | Västbanken och Östra Jerusalem som Israel, Gaza tomt, ingen palestinsk stat | `israel` | **Rättat 2026-11-06:** Palestina från 2014, gränsen ur Natural Earth |
 | 4. Golanhöjderna | Ockuperat område, ingår inte i Israel inom 1967 års gränser | Israel | `israel`, `syrien` | **Rättat 2026-11-06:** inte Israel från 1967 |
-| 5. Norra Cypern | Självständigheten erkänns inte (FN:s säkerhetsråds resolution 541/1983) | Egen stat 1976–2024 | inget ännu | Hela ön som Cypern, med not (svar 2) |
+| 5. Norra Cypern | Självständigheten erkänns inte (FN:s säkerhetsråds resolution 541/1983) | Egen stat 1976–2024 | `cypern` | **Gjort 2026-11-06:** hela ön som Cypern, med not |
 | 6. Abchazien och Sydossetien | Sverige stöder Georgiens territoriella integritet | "Russian-occupied territories", räknas till Ryssland, 1992–2024 | inget ännu (`ryska-federationen` tar inte med dem) | **Avviker** när Georgien läggs in |
 | 7. Transnistrien | UD beskriver Transnistrien som en region i Moldavien; ingen uttalad hållning om statusen hittad | Samma post som fall 6 | inget ännu | Som Moldavien, med not (svar 3) |
-| 8. Kosovo | Diplomatiska förbindelser sedan självständighetsförklaringen 2008, ambassad i Pristina | Egen stat 2000–2024 | inget ännu | Egen stat från 2008, omstritt 2000–2007 (svar 4) |
+| 8. Kosovo | Diplomatiska förbindelser sedan självständighetsförklaringen 2008, ambassad i Pristina | Egen stat 2000–2024 | `kosovo`, `serbien` | **Gjort 2026-11-06:** egen stat från 2008, utan stat 2000–2007, med not |
 | 9. Västsahara | Stöder FN-processen och Marockos autonomiplan som grund för förhandlingar; ingen uttalad hållning om vem området tillhör | Tomt (ingen stat) | inget ännu | Stämmer, bara en not |
 | 10. Taiwan | Inga diplomatiska förbindelser, handelskontor i Taipei, regeringen använder namnet Taiwan; ingen uttalad hållning om statusen hittad | Republiken Kina, egen stat | inget ännu | **Gjort 2026-11-06:** Cliopatrias gräns med not |
 | 11. Kashmir | Ingen uttalad hållning hittad; UD skriver "indiska unionsterritoriet Jammu och Kashmir" och "den Pakistan-kontrollerade delen av Kashmir" | Delat mellan Indien, Pakistan och Kina | `indien`, `pakistan` | **Gjort 2026-11-06:** Cliopatrias linjer med not |
 | 12. Nagorno-Karabach | Azerbajdzjan återupprättade sin kontroll hösten 2023; den armeniska befolkningen flydde | Armenien, även 2024 | inget ännu | Omstritt till 2022, Azerbajdzjan från 2023 (svar 7) |
 | 13. Somaliland | Ingen text om Somaliland på UD:s sida om Somalia | Somalia | inget ännu | Stämmer, inget att ändra |
+| 14. Östtimor | Indonesiens ockupation 1975 erkändes aldrig av Sverige; självständigt 2002 | Indonesien 1976–2005, egen stat från 2006 | `indonesien`, `osttimor` | **Gjort 2026-11-06:** utan stat 1976–2001, Östtimor från 2002, med not |
 
 ## Fallen ett och ett
 
@@ -61,18 +62,21 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 - **Källa:** [Cypern, regeringen.se](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/europa-och-centralasien/cypern/), kontrollerad 2026-11-06.
 - **Cliopatria:** "Turkish Republic of Northern Cyprus" är en egen stat 1976–2024.
 - **Beslut (svar 2):** Norra Cypern läggs inte in som egen stat; hela ön ritas som Cypern med noten att den norra delen inte kontrolleras av regeringen och att Sverige inte erkänner Norra Cypern.
+- **Gjort (2026-11-06):** Cypern är inlagt (trettonde omgången nutida stater). Cliopatria har hela ön som Republiken Cypern till och med 1975; från 1976 läggs Norra Cypern (Cyperns gräns 1970 minus gränsen 2000 i Cliopatria) till Cypern (`DISPUTED` i `tools/riken.py`). Noten i rutan Om kartan finns på alla fem språken, med UD:s sida som källa.
 
 ### 6. Abchazien och Sydossetien
 - **Sveriges hållning:** Sverige stöder Georgiens suveränitet och territoriella integritet och bidrar till EU:s observatörsinsats, som verkar längs de administrativa gränslinjerna mot de georgiska regionerna Abchazien och Sydossetien.
 - **Källa:** [Georgien, regeringen.se](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/europa-och-centralasien/georgien/), kontrollerad 2026-11-06.
 - **Cliopatria:** posten "Russian-occupied territories" (1992–2024) räknas som en del av Ryska federationen (fältet MemberOf). Vår `ryska-federationen` bygger bara på posten "Russian Federation" och tar inte med dem, så kartan visar dem inte som ryska i dag. En punkt i Abchazien (Suchumi) hör inte till någon stat 2013–2024, och en punkt vid Tschinvali hör till Georgien.
 - **Förslag:** när Georgien läggs in ritas Abchazien och Sydossetien som en del av Georgien, med noten "Området kontrolleras inte av Georgiens regering. Sverige stöder Georgiens territoriella integritet, och kartan följer Sveriges officiella hållning enligt UD (kontrollerad …)". Posten "Russian-occupied territories" läggs aldrig till Ryssland.
+- **Gjort (2026-11-06):** Georgien är inlagt (tionde omgången nutida stater, 1918–1921 och från 1992) med Abchazien och Sydossetien ur Natural Earths omstridda områden (`DISPUTED` i `tools/riken.py`), och noten i rutan Om kartan på alla fem språken.
 
 ### 7. Transnistrien
 - **Sveriges hållning:** UD nämner Transnistrien och Gagauzien som regioner i Moldavien (i samband med rysk påverkan), men har ingen uttalad hållning om Transnistriens status på sidan.
 - **Källa:** [Moldavien, regeringen.se](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/europa-och-centralasien/moldavien/), kontrollerad 2026-11-06.
 - **Cliopatria:** Tiraspol ligger i samma post som fall 6, "Russian-occupied territories", som räknas till Ryssland.
 - **Beslut (svar 3):** ritas som Moldavien, med noten att området inte kontrolleras av Moldaviens regering.
+- **Gjort (2026-11-06):** Moldavien är inlagt (elfte omgången nutida stater) med Transnistrien ur Natural Earths omstridda områden, och noten i rutan Om kartan på alla fem språken.
 
 ### 8. Kosovo
 - **Sveriges hållning:** Sverige har diplomatiska förbindelser med Kosovo sedan självständighetsförklaringen 2008 och har en ambassad i Pristina; Kosovo har en ambassad i Stockholm. Ett separat beslut om erkännandet 2008 hittade jag inte på regeringen.se.
@@ -83,6 +87,7 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
   - Riksdagens webbplats (där regeringens skrivelse om EU 2008 ska nämna erkännandet) går inte att nå från molnet, så datumet för Sveriges erkännande är inte kontrollerat.
 - **Cliopatria:** "Kosovo" är en egen stat redan från 2000.
 - **Förslag:** Kosovo som egen stat från självständighetsförklaringen 2008. Åren 2000–2007 visas inte som egen stat utan som omstritt område, med noten "Kosovo förvaltades av FN, och statusen var inte avgjord. Sverige förhandlade med FN:s förvaltning (UNMIK) och väntade på statusprocessen" (samma visning som Nagorno-Karabach, svar 7). **Godkänt av Rikard 2026-11-06.**
+- **Gjort (2026-11-06):** Kosovo är inlagt (trettonde omgången nutida stater) som stat från 2008. Åren 2000–2007 hör området inte till någon stat på kartan (Serbien börjar 2006 hos oss och räknar inte Kosovo). Noten i rutan Om kartan för Kosovo och Serbien finns på alla fem språken, med UD:s sida, samförståndsavtalet med UNMIK och skrivelsen 2007/08:82 som källor.
 
 ### 9. Västsahara
 - **Sveriges hållning:** Sverige vill se en rättvis, hållbar och ömsesidigt godtagbar lösning enligt FN:s säkerhetsrådsresolutioner och FN-stadgan, stöder FN:s sändebud, och uttrycker stöd för Marockos autonomiplan som en trovärdig grund för förhandlingar i ljuset av säkerhetsrådets resolution 2797. UD säger inte vem området tillhör.
@@ -108,12 +113,20 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 - **Källor:** [Azerbajdzjan](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/europa-och-centralasien/azerbajdzjan/) och [Armenien](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/europa-och-centralasien/armenien/), regeringen.se, kontrollerade 2026-11-06.
 - **Cliopatria:** en punkt vid Stepanakert hör till Armenien 2013–2024, alltså även efter 2023.
 - **Beslut (svar 7):** området visas som omstritt, inte som Armenien, till och med 2022, och räknas till Azerbajdzjan från 2023.
+- **Gjort (2026-11-06):** Armenien och Azerbajdzjan är inlagda (tionde omgången). Cliopatria räknar både Nagorno-Karabach och omkringliggande områden till Armenien 1992–2024. Det omstridda området är den del av Cliopatrias Armenien som ligger inom Azerbajdzjans gräns i Natural Earth: det räknas aldrig till Armenien, visas utan stat 1992–2022 och som Azerbajdzjan från 2023. Noten i rutan Om kartan för båda länderna säger det öppet.
 
 ### 13. Somaliland
 - **Sveriges hållning:** UD:s sida om Somalia nämner inte Somaliland.
 - **Källa:** [Somalia, regeringen.se](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/afrika/somalia/), kontrollerad 2026-11-06.
 - **Cliopatria:** en punkt vid Hargeisa hör till Somalia (Federal Republic of Somalia) 2013–2024.
 - **Förslag:** ingen ändring och ingen not, eftersom kartan inte ritar något som UD säger emot.
+
+### 14. Östtimor
+- **Sveriges hållning:** UD skriver att Sverige aldrig erkände Indonesiens ockupation av den forna portugisiska kolonin 1975, att Östtimor blev självständigt 2002 efter ett par år som FN-protektorat, och att Sverige upprättade diplomatiska förbindelser med landet 2002.
+- **Källa:** [Östtimor, regeringen.se](https://www.regeringen.se/sveriges-regering/utrikesdepartementet/sveriges-forbindelser-med-omvarlden/asien-och-oceanien/osttimor/), kontrollerad 2026-11-06.
+- **Andra källan:** FN:s sidor om [UNTAET](https://peacekeeping.un.org/en/mission/past/etimor/etimor.htm) och [bakgrunden](https://peacekeeping.un.org/en/mission/past/etimor/UntaetB.htm) säger att Indonesien tog in Östtimor som provins 1976 och att FN aldrig erkände det, att FN:s övergångsförvaltning UNTAET inrättades 25 oktober 1999, och att Östtimor blev självständigt 20 maj 2002. Kontrollerade 2026-11-06. FN:s medlemslista anger att landet blev medlem 27 september 2002.
+- **Cliopatria:** området hör till Indonesien (Republic of Indonesia) 1976–2005 och är en egen stat (East Timor) från 2006. Wikidata (Q574) anger 28 november 1975 som startdatum. Källorna skiljer sig alltså, och det står i noten.
+- **Gjort (2026-11-06, femtonde omgången nutida stater):** området (Indonesiens gräns 2005 minus gränsen 2006 i Cliopatria) räknas aldrig till Indonesien från 1976, visas utan stat 1976–2001 (som Golanhöjderna) och som Östtimor från 2002 (`DISPUTED` i `tools/riken.py`). Åren 2002–2005 har Östtimor samma gräns. Noten i rutan Om kartan för Östtimor och Indonesien finns på alla fem språken, med UD:s och FN:s sidor som källor. Hållningen är tydlig, så den här gången behövdes ingen fråga till Rikard; väljer han hellre att visa området på annat sätt 1976–2001 ändras bara `DISPUTED`.
 
 ## Frågor till Rikard (2026-11-06, besvarade)
 

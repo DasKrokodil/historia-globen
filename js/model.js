@@ -74,8 +74,11 @@ export const REGIONS = ['Europa', 'Asien', 'Afrika', 'Amerika', 'Oceanien'];
 export function region(lat, lon) {
   if (lat > 50 && (lon < -168 || lon > 160)) return 'Asien'; // Sibiriens östspets och Wrangelön vid datumlinjen
   if (lon < -125 && lat < 35) return 'Oceanien'; // Hawaii, Midway och Stilla havet (Kalifornien ligger öster om -125)
+  if (lon < -105 && lat < -10) return 'Oceanien'; // östra Polynesien med Rapa Nui; geografin går före politiken (#630)
   if (lon < -25) return 'Amerika';
-  if ((lat < -10 && lon > 110) || (lat < 0 && lon > 130) || lon > 160) return 'Oceanien';
+  // Mikronesien (Guam, Marianerna, Palau, Pohnpei) ligger öster om 130° Ö och söder om 22° N; Filippinerna,
+  // Taiwan och Japan ligger väster eller norr om det (#630)
+  if ((lat < -10 && lon > 110) || (lat < 22 && lon > 130) || lon > 160) return 'Oceanien';
   const africa = lon >= -20 && lon < 52 && lat > -36 && (
     lon < -1.5 ? lat < 36 :
     lon <= 11.5 ? lat < 37.5 :
@@ -387,6 +390,29 @@ export function loadSources() {
   return sourcesPromise;
 }
 
+/**
+ * Missuppfattningarna (data/missuppfattningar.json, #838), första gången en faktaruta visas. Bara de som är
+ * kontrollerade (inte draft) behålls. En post hör till faktarutan för varje händelse i sitt fält events;
+ * poster utan händelse visas inte än.
+ */
+let misconceptionsPromise = null;
+export const misconceptionsReady = () => !!DATA?.misconceptionsLoaded;
+export function loadMisconceptions() {
+  misconceptionsPromise ??= getJSON('data/missuppfattningar.json').then(doc => {
+    DATA.misconceptions = (doc.misconceptions ?? []).filter(m => isVisibleReview(m.review));
+    DATA.misconceptionsLoaded = true;
+  }).catch(err => {
+    // Går filen inte att ladda räknas den som färdig med en tom lista: ingen ny laddning vid varje omritning,
+    // och felet loggas en gång. Faktarutan ritas ändå med händelsens egen källrad.
+    console.warn('Missuppfattningarna kunde inte laddas', err);
+    DATA.misconceptions = [];
+    DATA.misconceptionsLoaded = true;
+  });
+  return misconceptionsPromise;
+}
+/** Missuppfattningarna som hör till en händelse (tom lista innan de har laddats). */
+export const misconceptionsFor = id => (DATA?.misconceptions ?? []).filter(m => m.events?.includes(id));
+
 /** Perioden en händelse hör till efter sitt startår (samma regel som period_of i tools/dela_data.py). */
 function periodOf(e) {
   let p = DATA.periods[0];
@@ -424,10 +450,13 @@ export function loadAllEventDetails() {
  * Det som saknas för att visa de här händelserna i en faktaruta: deras långa fält och källregistret.
  * Ger null om allt redan finns (då kan anroparen rita klart direkt), annars ett löfte.
  */
-export function needDetails(events = [], { sources = true } = {}) {
+export function needDetails(events = [], { sources = true, misconceptions = false } = {}) {
   const missing = events.some(e => e && !e._full);
-  if (!missing && (!sources || sourcesReady())) return null;
-  return Promise.all([missing ? loadEventDetails(events) : null, sources ? loadSources() : null]);
+  const needMisc = misconceptions && !misconceptionsReady();
+  if (!missing && !needMisc && (!sources || sourcesReady())) return null;
+  return Promise.all([missing ? loadEventDetails(events) : null, sources ? loadSources() : null,
+    // loadMisconceptions misslyckas aldrig: faktarutan ritas även om filen inte kan laddas
+    needMisc ? loadMisconceptions() : null]);
 }
 
 /** Rikenas faktarutor (data/genererat/riken-fakta.json): fyller i facts i varje grupp som har hasFacts. */

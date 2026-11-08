@@ -1,14 +1,16 @@
 // Bildlager (#54): färdiga, ekvirektangulära rasterbilder som väljs efter år och ritas på lagerbilden.
 // Samma overlayCanvas används av Platt vy, så ingen särskild kartkod behövs där.
 import { Z } from './registry.js';
+import { ui } from '../i18n.js';
+import { t } from '../model.js';
 
 export function entry({ data, refreshSoon }) {
   const imageLayers = data.imageLayers?.layers ?? [];
   const layer = new ImageLayer(imageLayers);
   layer.onLoad = refreshSoon;
   return {
-    id: 'images', name: imageLayers[0]?.name?.sv ?? 'Bildlager', group: 'perspective', layer,
-    menu: { on: false, note: 'NASA Black Marble från 2016' }, z: Z.images,
+    id: 'images', name: imageLayers[0]?.name ? t(imageLayers[0].name) : ui('layer.images'), group: 'perspective', layer,
+    menu: { on: false, note: ui('layer.imagesNote') }, z: Z.images,
     enabled: s => s.layers.images,
     update: s => layer.update(s.wholeYear),
     drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),

@@ -10,30 +10,38 @@ filerna byggs om, så länge det svenska namnet är oförändrat.
 
 Bara namn som saknas fylls i; befintliga ändras inte. Gruppens namn tas från den del som har samma svenska namn
 som gruppen; finns ingen sådan del skrivs gruppen ut som saknad, och dess namn får översättas för hand.
-Wikidata svarar 429 vid många anrop: skriptet hämtar högst 20 id åt gången och väntar och försöker igen.
+Namnen hämtas med Wikidatas frågetjänst (SPARQL, högst 100 id per fråga), eftersom wbgetentities ofta svarar
+429 vid många anrop. En etikett som inte stämmer med det svenska namnet (till exempel ett annat namn på samma
+land) rättas för hand i datan efteråt; skriptet ändrar inte namn som redan finns.
 """
 import json
 import sys
 import time
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 INDEX = ROOT / 'data/empires/index.json'
 LANGS = ('de', 'es', 'fr')
-API = 'https://www.wikidata.org/w/api.php?action=wbgetentities&props=labels&languages=de%7Ces%7Cfr&format=json&ids='
+SPARQL = 'https://query.wikidata.org/sparql'
 HEADERS = {'User-Agent': 'historia-globen-riken-namn/1.0 (hobbyprojekt)'}
 
 
 def labels(ids):
-    out = {}
+    """Etiketterna på tyska, spanska och franska för alla id, med en fråga till Wikidatas frågetjänst (SPARQL).
+    Den har andra gränser än wbgetentities, som ofta svarar 429 vid många anrop."""
     ids = sorted(set(ids))
-    for i in range(0, len(ids), 20):
-        chunk = ids[i:i + 20]
-        for attempt in range(8):
+    out = {q: {} for q in ids}
+    for i in range(0, len(ids), 100):
+        chunk = ids[i:i + 100]
+        query = ('SELECT ?q ?l WHERE { VALUES ?q { ' + ' '.join('wd:' + q for q in chunk) + ' } '
+                 '?q rdfs:label ?l . FILTER(LANG(?l) IN ("de","es","fr")) }')
+        url = SPARQL + '?' + urllib.parse.urlencode({'query': query})
+        for attempt in range(6):
             try:
-                req = urllib.request.Request(API + '%7C'.join(chunk), headers=HEADERS)
-                with urllib.request.urlopen(req, timeout=30) as r:
+                req = urllib.request.Request(url, headers={**HEADERS, 'Accept': 'application/sparql-results+json'})
+                with urllib.request.urlopen(req, timeout=60) as r:
                     data = json.load(r)
                 break
             except Exception as e:  # 429 eller nätfel: vänta och försök igen
@@ -41,9 +49,9 @@ def labels(ids):
                 time.sleep(30 * (attempt + 1))
         else:
             raise SystemExit('Wikidata svarar inte')
-        for q, ent in data['entities'].items():
-            out[q] = {lang: v['value'] for lang, v in ent.get('labels', {}).items() if lang in LANGS}
-        time.sleep(2)
+        for b in data['results']['bindings']:
+            q = b['q']['value'].rsplit('/', 1)[1]
+            out.setdefault(q, {})[b['l']['xml:lang']] = b['l']['value']
     return out
 
 
