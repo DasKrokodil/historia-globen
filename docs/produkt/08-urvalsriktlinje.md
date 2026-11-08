@@ -1,6 +1,6 @@
 # 08. Urvalsriktlinje: vad är värt en plats på globen? (utkast)
 
-**Status:** **godkänd 2026-11-08** (DasKrokodils svar på #916: kriterierna A–F, regionalt viktigt om det täcker ett glapp, och "Om urvalet" publiceras). Texten under Öppenhet mot besökaren är fortfarande ett utkast tills den skrivs och översätts. Omarbetat efter DasKrokodils besked samma dag: ensam redaktör, tydligt att det är ett urval, ingen ställning i enskilda frågor, ingen akademisk granskning. Kriterierna och balansmålen nedan är mina förslag. Det som redan är beslutat är markerat med beslutets datum. Riktlinjen innehåller inga historiska uppgifter; den säger hur vi väljer, inte vad som hände.
+**Status:** **godkänd 2026-11-08** (DasKrokodils svar på #916: kriterierna A–F, regionalt viktigt om det täcker ett glapp, och "Om urvalet" publiceras). Texten "Om urvalet" är skriven och publicerad i Om källorna (svenska och översättningar, 2026-11-08). Omarbetat efter DasKrokodils besked samma dag: ensam redaktör, tydligt att det är ett urval, ingen ställning i enskilda frågor, ingen akademisk granskning. Kriterierna och balansmålen nedan är mina förslag. Det som redan är beslutat är markerat med beslutets datum. Riktlinjen innehåller inga historiska uppgifter; den säger hur vi väljer, inte vad som hände.
 
 ## Varför den behövs
 
@@ -44,7 +44,7 @@ Förslag på regel: **varje täckningsrunda** redovisar måtten och rekommendera
 
 ## Öppenhet mot besökaren
 
-Förslag: en kort text under **Källor** ("Om urvalet") som säger:
+Den publicerade texten "Om urvalet" står under **Källor** (nycklarna `sources.urval.*` i `data/ui/`, `js/ui/sources.js`) och säger:
 
 - att globen visar ett **urval**, gjort av **en person** (DasKrokodil), utan redaktion;
 - att saker kommer med utan att redaktören tar ställning i enskilda frågor, och att något finns med är inget ställningstagande;
