@@ -1629,6 +1629,15 @@
       ]
     },
     {
+      "license": "Historiska museet (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "historiska-bronsalder",
+        "historiska-jarnalder",
+        "historiska-perioder",
+        "historiska-stenalder"
+      ]
+    },
+    {
       "license": "No known restrictions on publication",
       "sourceIds": [
         "loc-eiffel-campanile-1889",

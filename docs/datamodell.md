@@ -19,7 +19,7 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 - `utkast/` – utkast från massimport som appen inte läser.
 - `funfacts.json` – fun facts kopplade till händelser.
 - `missuppfattningar.json` (#838) – vanliga historiska missuppfattningar.
-- `perioder.json` (#845, #476) – epoker och perioder, som indelningar med årtal och källa; än så länge indelningen `lgr22`.
+- `perioder.json` (#845, #476) – epoker och perioder, som indelningar med årtal och källa; indelningarna `lgr22` och `norden-forntid`.
 - `teman.json` (#398) – teman som namngivna urval av befintliga händelser; fastställt format, filen skapas i bygget.
 - `sources.json` – källregistret.
 - `empires/` – riken: registret, faktarutor och rikenas fält.
@@ -148,9 +148,12 @@ Namngivna epoker som data, så att tidsålderstext, bildstilar och snabbknappar 
 | `edtf` | Osäkerhet som i `events`: `0800~/1500~` (ungefärliga gränser) och `1900~/..` för en öppen period |
 | `grades` | Valfritt: årskurser i läroplanen (`4–6`, `7–9`) |
 | `name` | Namn på fem språk. I `lgr22` är det våra egna korta formuleringar (inte Skolverkets rubriker, `docs/beslut/2026-11-08-epoknamn-egna-formuleringar.md`) med årtalen i namnet; en översättning ändrar aldrig årtalen |
-| `sources`, `review` | Som för händelser. Gränserna står i läroplanstexten; ingen text är kopierad |
+| `note` | Valfritt: text på fem språk när källorna är oense (till exempel järnålderns slut), visas bredvid epoken |
+| `sources`, `review` | Som för händelser. Gränserna står i läroplanstexten eller på museets sidor; ingen text är kopierad |
 
-**`lgr22` (Del 1):** fem epoker, med de ungefärliga årtal som Skolverkets kursplan i historia (Lgr22, gäller från 2022-07-01) anger i centralt innehåll: cirka 800–1500, 1500–1800 och 1800–1900 (åk 4–6, Norden) och cirka 1850–1950 och 1900 till nutid (åk 7–9). De överlappar eftersom de hör till olika stadier, och det finns ingen epok före år 800. **Del 2** (stenålder, bronsålder, järnålder, antiken m.fl., som läroplanen nämner utan årtal) läggs inte in förrän en andra källa har öppnats och DasKrokodil har godkänt den.
+**`lgr22` (Del 1):** fem epoker, med de ungefärliga årtal som Skolverkets kursplan i historia (Lgr22, gäller från 2022-07-01) anger i centralt innehåll: cirka 800–1500, 1500–1800 och 1800–1900 (åk 4–6, Norden) och cirka 1850–1950 och 1900 till nutid (åk 7–9). De överlappar eftersom de hör till olika stadier, och det finns ingen epok före år 800. Läroplanen nämner stenålder, bronsålder, järnålder, antiken m.fl. utan årtal, så de ligger inte i `lgr22`.
+
+**`norden-forntid` (Del 2a):** de tre nordiska åldrarna med Historiska museets årtal (öppnade 2026-11-08): stenålder 12 000–1700 f.Kr., bronsålder 1700–500 f.Kr. och järnålder 500 f.Kr.–550 e.Kr. (`-11999`/`-1699`, `-1699`/`-499`, `-499`/`550`). Årtal med fler än fyra siffror skrivs `Y-11999~` i `edtf`. Järnålderns egen sida på museet anger 1100 e.Kr. som slut, och oenigheten står i periodens `note`; nivån är `source-checked`. Indelningen är nordisk och märks så. **Del 2b** (antiken, jordbrukets början m.fl.) läggs inte in förrän en andra, bättre källa har öppnats.
 
 ## `teman.json`: teman (#398)
 
