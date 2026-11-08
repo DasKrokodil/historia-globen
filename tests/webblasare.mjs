@@ -123,6 +123,13 @@ function failNote(e) {
 // medan sidan navigerar, räknas bort; de syns inte för en besökare som lämnar sidan.
 const ABORTED_FETCH = /^(TypeError: (Load failed|NetworkError when attempting to fetch resource\.)|AbortError: The operation was aborted\.\s*)$/;
 
+// Firefox skriver ett typsnitt som navigeringen avbröt som konsolfel utan adress, så isFont(m.location().url) räknar inte bort
+// det (#888, PR #959): turkortets typsnitt (Instrument Sans 600, IM Fell kursiv) hämtas först när kortet visas, och nästa
+// goto avbryter dem. Status 2152398850 är NS_BINDING_ABORTED (0x804B0002), alltså avbruten och inte ett misslyckat nät. Bara
+// exakt det meddelandet, bara från Googles typsnittsvärdar och bara medan sidan navigerar; ett typsnitt som inte kunde
+// hämtas av annat skäl (en annan status) fäller kontrollen som förut.
+const ABORTED_FONT = /^\[JavaScript Error: "downloadable font: download failed \(font-family: "[^"]+" style:\w+ weight:\d+ width:\d+ src index:\d+\): status=2152398850 source: https:\/\/fonts\.(gstatic|googleapis)\.com\/[^"\s]+"\]$/;
+
 // Konsolmeddelanden (#888): när console.error får ett objekt (till exempel ett Error) ger Firefox texten
 // "JSHandle@object" i m.text(), och loggen visade bara det. Texten sparas först som förut, och när meddelandet
 // innehåller ett handtag byts den ut mot en läsbar rad: felets namn och meddelande, eller objektet som JSON.
@@ -3008,7 +3015,7 @@ async function run(browser, vp) {
     let navigating = false;
     tp.on('console', m => {
       if (m.type() !== 'error' || isFont(m.location()?.url)) return;
-      if (navigating && ABORTED_FETCH.test(m.text())) return;
+      if (navigating && (ABORTED_FETCH.test(m.text()) || ABORTED_FONT.test(m.text()))) return;
       pushConsole(errors, m);
     });
     // WebKit skriver en avbruten hämtning som sidfel ("Fetch API cannot load … due to access control checks"): samma regel som
