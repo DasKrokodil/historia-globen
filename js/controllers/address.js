@@ -98,12 +98,13 @@ export function createAddress(app) {
     return ok;
   }
 
-  function write() {
+  /** force: skriv nu, utan att vänta tills vyn står still (flush, #882). */
+  function write(force = false) {
     if (applying) return;
     const cur = current(), pos = position();
     const hash = hashOf(cur, pos);
     if (hash === writtenHash) return;
-    if (!timeline.playing && hash !== seenHash) { seenHash = hash; return; } // vänta tills vyn står still
+    if (!force && !timeline.playing && hash !== seenHash) { seenHash = hash; return; } // vänta tills vyn står still
     const url = `${location.pathname}${search()}${hash}`;
     // Ett nytt steg i turen, eller att turen börjar eller slutar, blir en egen post (Bakåt går till steget innan)
     const tourStep = new URLSearchParams(writtenHash.slice(1)), newTour = (tourStep.get('t') ?? '') !== (pos?.id ?? '') || (tourStep.get('s') ?? '') !== (pos?.step ?? '')
@@ -168,5 +169,11 @@ export function createAddress(app) {
     }
   }
 
-  return { start, link, share };
+  /**
+   * Skriver vyn i adressen nu. Språkbytet (js/i18n.js) laddar om sidan direkt och tar adressen som den står; utan flush
+   * står steget före senaste Nästa kvar (adressen skrivs annars först när vyn har stått still, #882).
+   */
+  function flush() { write(true); }
+
+  return { start, link, share, flush };
 }

@@ -120,9 +120,10 @@ export function takeReturnYear() {
 
 /**
  * Språkväljaren: en <select> med språken. Byte sparar valet, kommer ihåg året och laddar om sidan
- * (?lang= tas bort ur adressen, så att det sparade valet gäller).
+ * (?lang= tas bort ur adressen, så att det sparade valet gäller). beforeReload() anropas först och ska skriva
+ * vyn i adressen (address.flush, #882).
  */
-export function setupLangPicker(select, getYear) {
+export function setupLangPicker(select, getYear, beforeReload) {
   if (!select) return;
   select.replaceChildren(...LANGUAGES.map(l => {
     const o = document.createElement('option');
@@ -133,6 +134,8 @@ export function setupLangPicker(select, getYear) {
   }));
   select.value = LANG;
   select.addEventListener('change', () => {
+    // Adressen skrivs färdig innan den läses nedan, annars tappar omladdningen steget i en tur eller lektion (#882)
+    try { beforeReload?.(); } catch (err) { console.warn('Adressen kunde inte skrivas före språkbytet', err); }
     try {
       localStorage.setItem('hg-lang', select.value);
       const y = getYear?.();

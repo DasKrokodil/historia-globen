@@ -2460,6 +2460,11 @@ async function run(browser, vp) {
       const row = document.querySelector('.src-version');
       return row && !row.hidden;
     }, null, { timeout: T.step });
+    // Om urvalet (#916): rubriken och de fem styckena finns, och ingen rå textnyckel syns
+    const urval = page.locator('.src-urval');
+    await urval.waitFor({ state: 'visible', timeout: T.step });
+    if (await urval.locator('p').count() !== 5) throw new Error('Om urvalet har inte fem stycken');
+    if (/sources\.urval/.test(await urval.textContent())) throw new Error('Om urvalet visar en rå textnyckel');
     const version = await page.evaluate(() => fetch('data/version.json').then(response => response.json()));
     const versionRow = page.locator('.src-version');
     const versionText = (await versionRow.textContent()).replace(/\s+/g, ' ').trim();
@@ -3497,6 +3502,11 @@ async function run(browser, vp) {
     const text = (await page.textContent('#detail .uncertainty-row')).replace(/\s+/g, ' ').trim();
     if (!/Historisk osäkerhet:.*dateringen är ungefärlig/.test(text)) throw new Error(`osäkerhetsraden saknar ungefärlig datering: ${text}`);
     if (!(await page.locator('#detail .review-badge').count())) throw new Error('faktarutan saknar en separat rad för källkontroll');
+    // Kontrollen och osäkerheten skiljs åt med en kort förklaring som syns direkt i rutan (#786)
+    const explain = page.locator('#detail .review-explain');
+    await explain.waitFor({ state: 'visible', timeout: T.step });
+    const explainText = (await explain.textContent()).trim();
+    if (explainText.length < 15 || /^review\./.test(explainText)) throw new Error(`förklaringen under granskningsmärket saknas eller är en rå textnyckel: ${explainText}`);
     // Rubrik och datumrad före bilden (#605), platsen en gång (#607) och markeringen i datumraden (#606)
     const order = await page.evaluate(() => {
       const d = document.getElementById('detail');
@@ -3516,6 +3526,47 @@ async function run(browser, vp) {
     const w = await page.evaluate(() => ({ doc: document.documentElement.scrollWidth, body: document.body.scrollWidth, win: window.innerWidth }));
     if (Math.max(w.doc, w.body) > w.win) throw new Error(`sidan är ${Math.max(w.doc, w.body)} px bred i ett ${w.win} px fönster`);
     await shot('8-slut');
+  });
+
+  // #882: Nästa och ett språkbyte i samma ögonblick (före adressens fördröjda skrivning) ska behålla steget. Utan
+  // address.flush() före omladdningen stod steget före Nästa kvar i adressen och turen började om på steg 1.
+  await check('språkbyte direkt efter Nästa behåller steget i lektionen (#882)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      await lp.goto(`${BASE}?ny=71#t=andra-varldskriget&m=lektion`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      if (!/^Steg 1 av 14$/.test((await lp.textContent('#tour-progress')).trim())) throw new Error('lektionen började inte på steg 1');
+      // Nästa och språkbytet i samma evaluate: adressens 700 ms-tick hinner inte skriva steget emellan
+      await lp.evaluate(() => {
+        window.__hgGammal = true;
+        document.getElementById('tour-next').click();
+        const sel = document.getElementById('lang-select');
+        sel.value = 'en';
+        sel.dispatchEvent(new Event('change'));
+      });
+      await lp.waitForFunction(() => {
+        const l = document.getElementById('loading');
+        return !window.__hgGammal && document.documentElement.lang === 'en' && !!l && (l.hidden || getComputedStyle(l).display === 'none')
+          && !!document.getElementById('lang-select')?.options.length;
+      }, null, { timeout: T.load });
+      await lp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      const got = await lp.evaluate(() => ({ progress: document.getElementById('tour-progress').textContent.trim(), hash: location.hash }));
+      if (!/\b2 of 14\b/.test(got.progress)) throw new Error(`steget tappades: "${got.progress}" i stället för steg 2 (${got.hash})`);
+      if (/[?&#]s=polen\b/.test(got.hash) || !/m=lektion/.test(got.hash)) throw new Error(`adressen efter omladdningen är fel: ${got.hash}`);
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `Nästa och byte till engelska i samma ögonblick: omladdningen står på "${got.progress}" med läget kvar`;
+    } finally {
+      await lp.evaluate(() => { try { localStorage.setItem('hg-lang', 'sv'); } catch { /* ingen lagring */ } }).catch(() => {});
+      await lp.close();
+    }
   });
 
   // Språkbytet laddar om sidan även när adressen har en #-del (url-state.js, #501). Med location.assign() till
