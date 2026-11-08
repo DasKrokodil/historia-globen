@@ -66,6 +66,7 @@ export class Timeline extends EventTarget {
     // när ett krigs slutkort ännu inte har visats (#232). Annars blir knappen "Spela igen".
     this.hasMore = () => false;
     this.focus = null; // { from, to, fine }: tidslinjen inzoomad på ett spann (fokusläge, #109)
+    this.range = null; // tidsintervallet { from, to } (#755), eller null
     this.focusLocked = false; // lektionsläget (#795) låser spannet: ett datum i årshoppet släpper det inte
     // fine: ett kort krig (#204). Då är året ett decimaltal avrundat till hela dagar, och skalan,
     // stegen och farten räknas i dagar och månader.
@@ -129,6 +130,27 @@ export class Timeline extends EventTarget {
   windowYears(y) {
     if (this.focus?.fine) return (this.focus.to - this.focus.from) * 0.03; // några dagar
     return this.focus ? Math.max(1, (this.focus.to - this.focus.from) * 0.03) : yearsAcross(y, 0.012);
+  }
+
+  /**
+   * Tidsintervallet (#755): ett band på reglaget från from till to, eller null. Handtaget står på from (året). Bandet
+   * följer hela skalan; intervallet och Fokus utesluter varandra (lägeskontraktet i js/state.js).
+   */
+  setRange(range) {
+    this.range = range;
+    if (!this._rangeBand) {
+      this._rangeBand = document.createElement('div');
+      this._rangeBand.className = 'range-band';
+      this._rangeBand.setAttribute('aria-hidden', 'true');
+      this.track.prepend(this._rangeBand);
+    }
+    this._rangeBand.hidden = !range;
+    if (range) {
+      const a = this.toPos(range.from), b = this.toPos(range.to);
+      this._rangeBand.style.left = `${a * 100}%`;
+      this._rangeBand.style.width = `${Math.max(0.4, (b - a) * 100)}%`;
+    }
+    this._render();
   }
 
   /** Fokusläge: zooma in tidslinjen på ett spann, eller null för hela tiden. */
@@ -472,7 +494,8 @@ export class Timeline extends EventTarget {
     this.track.setAttribute('aria-valuemin', String(this.focus ? this.focus.from : MIN_YEAR));
     this.track.setAttribute('aria-valuemax', String(this.focus ? this.focus.to : MAX_YEAR));
     this.track.setAttribute('aria-valuenow', String(this._year));
-    this.track.setAttribute('aria-valuetext', this.format(this._year));
+    // Med ett intervall (#755) läser skärmläsaren hela intervallet, inte bara handtagets år
+    this.track.setAttribute('aria-valuetext', this.range ? `${this.format(this.range.from)}–${this.format(this.range.to)}` : this.format(this._year));
     this._labelPlay(); // i slutet heter knappen "Spela igen"
   }
   init(y) { this._year = clampY(y); this._render(); this.dispatchEvent(new CustomEvent('change', { detail: { year: this._year } })); }

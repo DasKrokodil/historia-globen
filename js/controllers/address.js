@@ -12,6 +12,8 @@
 // - Lektionsläget (m=lektion, #795) hör till en tur: en länk med t och m=lektion startar turen som lektion (js/ui/lesson.js).
 //   Medan läget pågår skriver adressen m=lektion, så att omladdning, Dela och Bakåt/Framåt ger samma läge. Bakåt till en
 //   adress utan m (eller utan tur) avslutar läget; Framåt startar det igen.
+// - Ett tidsintervall (#755) står som y (från) och y2 (till). Det ställs in efter året och i stället för ett fokus, eftersom
+//   intervallet och Fokus utesluter varandra; en adress utan y2 stänger ett intervall som är valt.
 // - Knappen Dela kopierar länken, eller öppnar telefonens delningsmeny där den finns.
 // - Versionsräknaren (#865, #893): varje inställning av vyen (start, länk, Bakåt/Framåt) får ett nytt nummer, och bara
 //   den senaste får skriva år och kamera efter en väntan. Medan den pågår skrivs inget i adressen. Bakåt och Framåt
@@ -64,7 +66,11 @@ export function createAddress(app) {
       }
       if (s.filters) panel.setFilters(s.filters.filter(c => allCategories.includes(c)));
       timeline.pause();
+      // Tidsintervallet (#755): en adress med y2 och utan fokus väljer intervallet, annars stängs ett valt intervall
+      const wantRange = s.yearEnd != null && !s.focus;
+      if (!wantRange) app.range?.close({ redraw: false });
       timeline.year = s.year;
+      if (wantRange && !app.range?.set(s.year, s.yearEnd)) app.range?.close({ redraw: false });
       const focusNow = state.focus ? `${state.focus.type}:${state.focus.id}` : null;
       if (s.focus !== focusNow) {
         if (s.focus && focusExists(s.focus)) {
@@ -115,7 +121,8 @@ export function createAddress(app) {
     // Ett nytt steg i turen, eller att turen börjar eller slutar, blir en egen post (Bakåt går till steget innan)
     const tourStep = new URLSearchParams(writtenHash.slice(1)), newTour = (tourStep.get('t') ?? '') !== (pos?.id ?? '') || (tourStep.get('s') ?? '') !== (pos?.step ?? '')
       || (tourStep.get('u') ?? '') !== (mission() ?? '') // ett uppdrag som börjar eller slutar är också ett eget steg
-      || (tourStep.get('m') ?? '') !== (mode() ?? ''); // och lektionsläget
+      || (tourStep.get('m') ?? '') !== (mode() ?? '') // och lektionsläget
+      || (written?.yearEnd ?? null) !== (cur.yearEnd ?? null); // och ett tidsintervall som väljs eller stängs (#755)
     // Vänta tills vyn står still, utom när ett läge eller turens steg har bytts: det skrivs direkt (#882, #893)
     if (!force && !newTour && !timeline.playing && hash !== seenHash) { seenHash = hash; return; }
     const url = `${location.pathname}${search()}${hash}`;

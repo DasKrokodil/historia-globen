@@ -245,7 +245,7 @@ Lugn rörelse står inte i länken, eftersom det är besökarens egen inställni
 
 ## Lägen och övergångar (#893)
 
-Besökaren är alltid i **Utforska**, och ovanpå det i noll eller flera lägen: **Fokus**, **Tur**, **Lektion**, **Jakt** och (från #755) **Intervall**. Lägena står i `state.modes` i `js/state.js` som `[{ mode, snapshot }]`, i den ordning de började, och ändras bara med `store.enter(läge, ögonblicksbild)` och `store.leave([...lägen], takenBy)`. Ögonblicksbilden (`app.modeSnapshot()` i `js/main.js`) har år, lager, fokus, kamera och kategorier från före läget. Beslut: [docs/beslut/2026-11-08-lagen.md](beslut/2026-11-08-lagen.md).
+Besökaren är alltid i **Utforska**, och ovanpå det i noll eller flera lägen: **Fokus**, **Tur**, **Lektion**, **Jakt** och **Intervall** (tidsintervallet, #755). Lägena står i `state.modes` i `js/state.js` som `[{ mode, snapshot }]`, i den ordning de började, och ändras bara med `store.enter(läge, ögonblicksbild)` och `store.leave([...lägen], takenBy)`. Ögonblicksbilden (`app.modeSnapshot()` i `js/main.js`) har år, lager, fokus, kamera och kategorier från före läget. Beslut: [docs/beslut/2026-11-08-lagen.md](beslut/2026-11-08-lagen.md).
 
 **Uteslutningstabellen** (`MODE_RULES` i `js/state.js`, prövas i `tests/state.test.mjs`). Raden är läget som börjar, kolumnen läget som redan pågår:
 
@@ -255,9 +255,9 @@ Besökaren är alltid i **Utforska**, och ovanpå det i noll eller flera lägen:
 | **Tur** | avslutar | – | samtidigt | samtidigt | avslutar |
 | **Lektion** | avslutar | samtidigt | – | villkor¹ | avslutar |
 | **Jakt** | samtidigt | samtidigt | villkor² | – | avslutar |
-| **Intervall** (#755) | avslutar | stoppas | stoppas | stoppas | – |
+| **Intervall** | avslutar | stoppas | stoppas | stoppas | – |
 
-*avslutar*: det andra läget slutar först, genom den funktion som är anmäld med `store.onExit` (main.js). *stoppas*: läget börjar inte (`store.canEnter` ger `false`). *samtidigt*: båda pågår. ¹ En jakt vars år ligger utanför lektionens låsta år avslutas (`js/ui/lesson.js`). ² I en lektion börjar bara uppdrag inom lektionens år (`js/ui/uppdrag.js`). Lektionen börjar alltid före eller under sin tur och slutar med den. Intervallets rad gäller redan, men läget byggs i #755; där läggs också att intervallet pausar uppspelningen.
+*avslutar*: det andra läget slutar först, genom den funktion som är anmäld med `store.onExit` (main.js). *stoppas*: läget börjar inte (`store.canEnter` ger `false`). *samtidigt*: båda pågår. ¹ En jakt vars år ligger utanför lektionens låsta år avslutas (`js/ui/lesson.js`). ² I en lektion börjar bara uppdrag inom lektionens år (`js/ui/uppdrag.js`). Lektionen börjar alltid före eller under sin tur och slutar med den. Uppspelning och dragning i tidslinjen är inga lägen, men de stänger intervallet och går tillbaka till ett år (se Tidsintervallet nedan).
 
 **Vad en utgång återställer** (`exitRestore`): bara ur ögonblicksbilder från de lägen som själva slutar, aldrig ur ett annat läge. Bilden är den från läget som började först bland dem som slutar, och ett fält återställs bara när alla lägen som slutar tillåter det (det strängaste bestämmer). Året står alltid kvar.
 
@@ -270,6 +270,16 @@ Besökaren är alltid i **Utforska**, och ovanpå det i noll eller flera lägen:
 | Intervall | inget | fokus |
 
 Exempel: en vanlig tur som avslutas ger tillbaka lager, fokus och kamera; "Visa hela globen" i en lektion ger tillbaka lager och kamera men inte fokus; Fokus som börjar under en tur avslutar turen, och då blir bara lagren som innan.
+
+### Tidsintervallet (#569, #755)
+
+Besökaren kan välja ett intervall i stället för ett år, till exempel 1914–1918 (beslut [2026-11-07-tidsintervall-569](beslut/2026-11-07-tidsintervall-569.md)). Ett år styr fortfarande allt: året (`state.year`, tidslinjens handtag) är intervallets början, och tillståndet får ett slutår, `state.range = { from, to }` (`store.setRange`). Allt som bara läser året fungerar som förut; fun facts, riken och religioner visar tills vidare intervallets första år (läget vid slutet med etikett är del 3, #756).
+
+- **Urvalet** görs av `selectEventsForRange` i `js/date-events.js` (#754), anropad från händelselagret (`js/layers/events.js`, `update({ range })`). En händelse som bara delvis ligger inom intervallet får `partial` och ritas svagare. Inget tidsfönster runt året används i intervallet. Delar av krig följer kartans vanliga regel (utzoomat bara krigets `top`).
+- **Listan** i Samtidigt (`js/ui/panel.js`, `labels.range`) säger "N händelser pågår under 1914–1918" och hur många som också pågår före eller efter intervallet. Raderna märks "delvis inom intervallet" och "osäkert datum" (samma regler som `uncertaintyRow`), så att mängden inte ser mer exakt ut än den är.
+- **Valet** (`js/controllers/range.js`): länken "Välj ett tidsintervall" i årshoppet öppnar ett formulär med två årsfält (Från, Till), stegknappar (− och +, också pil upp och ned i fältet) och f.Kr.-knappar. Inga handtag på tidslinjen (mobil och pekskärm). Det aktiva intervallet syns som stort årtal ("1914–1918"), en rad under det ("1914–1918 · 23 händelser") med knappen **Tillbaka till ett år** (går till slutåret) och ett band på tidslinjen (`timeline.setRange`).
+- **Lägeskontraktet:** intervallet är läget `intervall`. Det avslutar Fokus när det börjar och kan inte börja under en tur, en lektion eller en jakt; Fokus, en tur eller en jakt som börjar avslutar det. **Uppspelning, dragning i tidslinjen och ett hopp i årshoppet** går också tillbaka till ett år, så att det aldrig finns två rörliga tidsmodeller.
+- **Adressen:** `y=1914&y2=1918` (`js/url-state.js`). `y2` är valfritt i `toJSON`/`fromJSON` (`yearEnd`); en äldre version hoppar över fältet och öppnar länken som året `y`, så `STATE_VERSION` är oförändrad. Ett slutår som inte ligger efter året tas bort. Att välja eller stänga ett intervall är en egen post i historiken (`isNewStep`) och skrivs i adressen direkt.
 
 **Biljetter för det som laddas:** `startFocus` tar en biljett (`store.ticket('fokus')`) innan riket, religionen eller resan hämtas, och börjar läget bara om biljetten fortfarande gäller (`store.current`): ingen nyare begäran om Fokus (en annan länk, Bakåt, Avsluta) och inget läge som inte är *samtidigt* med Fokus har börjat under tiden. Det ersätter de tidigare särskilda kontrollerna (`stale` från adressen och lektionsspärren i `startFocus`).
 

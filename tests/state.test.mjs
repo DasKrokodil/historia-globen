@@ -157,3 +157,24 @@ test('en biljett gäller inte efter en nyare begäran eller när ett läge som k
   store.leave(['fokus']);
   assert.equal(store.current(c), false);
 });
+
+// Tidsintervallet (#755): ett valfritt slutår i tillståndet
+test('tidsintervallet: setRange, toJSON och fromJSON', () => {
+  const store = createStore();
+  const seen = [];
+  store.subscribe(({ type }) => seen.push(type));
+  store.setRange({ from: 1918, to: 1914 });
+  assert.deepEqual(store.state.range, { from: 1914, to: 1918 }, 'från och till sorteras');
+  store.mirror({ year: 1914 });
+  const json = toJSON(store.state);
+  assert.equal(json.yearEnd, 1918);
+  assert.equal(fromJSON(json).yearEnd, 1918);
+  store.setRange(null);
+  assert.equal(store.state.range, null);
+  assert.equal('yearEnd' in toJSON(store.state), false, 'ett år har inget slutår');
+  assert.deepEqual(seen.filter(t => t === 'range').length, 2);
+  // Äldre tillstånd utan slutår, och ett slutår före året, öppnas som ett år
+  assert.equal('yearEnd' in fromJSON({ v: STATE_VERSION, year: 1914 }), false);
+  assert.equal('yearEnd' in fromJSON({ v: STATE_VERSION, year: 1914, yearEnd: 1900 }), false);
+  assert.equal('yearEnd' in fromJSON({ v: STATE_VERSION, year: 1914, yearEnd: 'x' }), false);
+});
