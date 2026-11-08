@@ -139,6 +139,25 @@ function pushConsole(sink, m, format = t => t) {
     .catch(() => {});
 }
 
+// Läget i sidan när en väntan på en tur eller ett lektionsband tar slut (#888): adress, om kortet och bandet syns och vilka
+// konsolfel som kommit, så att en körning i en motor jag inte kan köra själv visar vad som hände.
+async function waitDiag(pg, label, sink, selector, timeout) {
+  try {
+    await pg.waitForSelector(selector, { state: 'visible', timeout });
+  } catch (e) {
+    const st = await pg.evaluate(() => ({
+      hash: location.hash,
+      ready: document.readyState,
+      card: document.getElementById('tour-card')?.hidden,
+      band: document.getElementById('lesson-band')?.hidden,
+      touring: document.querySelectorAll('.touring').length,
+      focusBar: !document.getElementById('focus-bar')?.hidden,
+      hgGammal: !!window.__hgGammal,
+    })).catch(err => ({ fel: err.message }));
+    throw new Error(`${label}: ${selector} syntes inte inom ${timeout / 1000} s; läge ${JSON.stringify(st)}; konsol: ${sink.join(' | ') || 'inga fel'}`);
+  }
+}
+
 async function run(browser, vp) {
   const results = [];
   const errors = [];
@@ -2806,8 +2825,8 @@ async function run(browser, vp) {
       await lessonPage.evaluate(() => { location.hash = '#y=1942&f=empire:romarriket&c=-30,-120,3'; });
       await lessonPage.waitForTimeout(150);
       await lessonPage.evaluate(() => { location.hash = '#t=andra-varldskriget&m=lektion'; });
-      // Med rikesfiler som svarar efter 2,5 s var 15 s för kort i WebKit i CI (#888); bandet ska ändå komma, så vänta längre
-      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.load });
+      // Med rikesfiler som svarar efter 2,5 s var 15 s för kort i WebKit i CI (#888); 90 s räckte inte heller, så läget visas
+      await waitDiag(lessonPage, 'lektionen startade inte medan ett fokus laddades', lessonErrors, '#lesson-band', 40000);
       await lessonPage.waitForTimeout(EMPIRE_DELAY + 1500); // fokuset blir klart under tiden
       slowEmpires = false;
       if (await lessonPage.isVisible('#focus-bar')) throw new Error('ett fokus som laddades när lektionen började visades i lektionen');
@@ -2895,7 +2914,7 @@ async function run(browser, vp) {
       await tp.evaluate(() => { location.hash = '#y=1942&f=empire:romarriket&c=-30,-120,3'; });
       await tp.waitForTimeout(150);
       await tp.evaluate(() => { location.hash = '#t=forsta-varldskriget'; });
-      await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      await waitDiag(tp, 'turen startade inte medan ett fokus laddades', errors, '#tour-card', 40000);
       await tp.waitForTimeout(DELAY + 1500); // det gamla fokuset blir klart under tiden
       slow = false;
       if (await yearOf() !== wantYear) throw new Error(`steg 1 visade ${await yearOf()} i stället för ${wantYear} när den gamla adressens fokus blev klart`);
