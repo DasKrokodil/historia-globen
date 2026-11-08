@@ -156,6 +156,6 @@ export class LessonMode {
     if (!this.tour) return;
     const { tour } = this.app;
     this.leave();
-    tour.end();
+    tour.end({ restoreFocus: false }); // utgången går till fri glob med lektionens år, inte till ett gammalt fokus (#881)
   }
 }
