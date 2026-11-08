@@ -2,5 +2,7 @@
 "period":"1900-1945",
 "lang":"fr",
 "events":{
+"slaget-om-storbritannien":{"note":{"title":{"fr":"À propos de la période"},"text":{"fr":"Les sources britanniques comptent la bataille du 10 juillet au 31 octobre 1940, et c'est ainsi qu'elle est indiquée ici. Les historiens allemands y voient plutôt une seule campagne, de juillet 1940 à mai 1941, y compris les bombardements nocturnes appelés le Blitz."}}},
+"slaget-vid-stalingrad":{"note":{"title":{"fr":"Les sources divergent"},"text":{"fr":"Wikipédia indique du 17 juillet 1942 au 2 février 1943, alors que les premiers combats se déroulaient loin de la ville. D'autres historiens comptent à partir de l'offensive allemande contre la ville, le 23 août 1942, et c'est la date que donne Wikidata. La date de fin, le 2 février 1943, est la même."}}},
 "sydney-harbour-bridge-invigs":{"image":{"caption":{"fr":"Le Sydney Harbour Bridge. Photo actuelle (2006). Détail. Licence : CC BY 2.5."}}}
 }}
