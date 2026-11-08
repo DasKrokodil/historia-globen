@@ -13,7 +13,7 @@ Granskat: `main` på `cf96922` (PR #970 inräknad), jämfört med taggen `v6.0.0
 3. **Samtidigt-märket och intervallraden visar olika antal** (fel UX-2). Det beror på en händelse som pågått länge och som i intervalläget räknas som "1 till inom ±0 år".
 
 Del 1 (språket): **inga Fel** i översättningarna av epokerna, gränssnittet, Om urvalet, Källdetektivens anteckningar eller turerna. Det finns fem Noteringar. Stickproven mot källorna (14 texter) stämde, och epokernas årtal stämmer med Skolverket, Historiska museet, Wikipedia och Wikidata.
-Del 2 (UX): 3 fel och 9 fynd (rangordnade nedan), 9 förslag på issues och 5 förslag på teständringar.
+Del 2 (UX): 4 fel och 10 fynd (rangordnade nedan, två av dem efter DasKrokodils egna klick), 11 förslag på issues och 6 förslag på teständringar.
 
 Före release: rätta punkt 1 och 2 (helst 3), kör webbläsartestet grönt i Chromium, Firefox och WebKit och gör UX-genomgången på dev.historiagloben.se, som jag inte kunde nå.
 
@@ -122,6 +122,24 @@ Det som fungerade utan anmärkning: alla tio epokknappar ger rätt adress och ra
 3. **Antalet grupper ur data:** jämför epokgrupperna med `data/perioder.json` (antal indelningar och perioder) i stället för en hårdkodad lista, så att ny data inte gör testet rött.
 4. **Adressens gränser:** testa `#y=-20000&y2=3000` och kräv att raden och adressen visar samma, klippta intervall.
 5. **Tillgänglighetsnamn:** en aria-snapshot av intervallformuläret och platsfältet. Fältet i Plats ska heta något med "plats", och ingen knapp ska ha samma årtal två gånger.
+
+### Uppföljning 2026-11-08: två fynd från DasKrokodil
+
+DasKrokodil hittade två saker när han klickade igenom sidan. Båda är kontrollerade här.
+
+13. **Fel: reservbilden i Samtidigt-kortet blir för stor och beskärs.** När händelserna i en fun fact saknar bild visar kortet en ruta med kategorins symbol, årtal och namn (`.ff-reserve`). Symbolen ska vara 30 × 30 px (16 px i smal bredd, `css/style.css` rad 748 och 1331). Den vidare regeln `.ff-pic img { width: 100%; height: 100% }` på rad 735 väger tyngre i CSS (klass plus element går före bara klass), så symbolen fyller hela rutan. Uppmätt vid år 1350:
+   - **1280 px:** symbolen är 173 × 173 px i en ruta som är 132 px hög. Den sticker upp 57 px ovanför rutan och beskärs, och årtalet hamnar utanför rutans högra kant.
+   - **484 och 400 px:** symbolen är 221 och 179 px i en ruta som är 52 px hög, och kategorins namn försvinner.
+
+   Felet fanns redan i v6.0.0 (samma mätning mot taggen), så det syns på historiagloben.se i dag. Det är inget nytt fel i 6.1.0, men det syns i varje fun fact där händelserna saknar bild. Det är många, eftersom 625 av 827 händelser saknar bild (#299). *Lins: senior UX ("ser trasigt ut"), elev.* Rättningen är liten: skriv `.ff-pic img.ff-reserve-icon` i reglerna på rad 748 och 1331. Varför testet missade det: kontrollerna av bildkortet mäter rutans storlek, inte om innehållet ryms i rutan.
+14. **Lektionen om andra världskriget har bara en bild.** Av turens 14 steg öppnar 13 en händelse som saknar `image`. Bara Stalingrad har en bild. Det här är det som saknas: anfallet på Polen, Frankrikes fall, slaget om Storbritannien, Operation Barbarossa, Pearl Harbor, Midway, Guadalcanal, El Alamein, D-dagen, Auschwitz befrias, Tysklands kapitulation, Hiroshima och Nagasaki, och Japans kapitulation. Det finns inte heller några filer för dem i `images/events/`. Det är inget fel i koden, för faktarutan visar sin ram utan bild som tänkt. Men lektionen är den mest synliga skolytan, och där blir glappet tydligt. Det täcks av #299 ("Bilder till krig, slag och övriga händelser som saknar bild"). Förslag: ta de 13 händelserna som första batch i #299. Riktiga bilder från Wikimedia Commons eller Library of Congress kommer först, med licens kontrollerad på filsidan (CLAUDE.md, Bilder). Turen "Vikingatiden och världen" (lektion 2) bör räknas på samma sätt.
+
+| Förslag | Etiketter | Rekommendation |
+|---|---|---|
+| Fynd 13: reservsymbolen i Samtidigt-kortet blir för stor | `utseende`, `redo` | Kan rättas före release (en CSS-rad, inga fakta) |
+| Fynd 14: bilder till lektionen om andra världskriget först | kommentar på #299 (`data`, bilder, bara Claude Code) | Ingen ny issue. Lägg turens 13 händelser som första batch i #299, efter releasen |
+
+Förslag på teständring (6): i alla tester av bildkortet ska varje barn till `.ff-pic` ligga inom knappens `getBoundingClientRect` (en marginal på 1 px), både med riktig bild och med reservbild, i dator och i mobil. Lägg också till en kontroll som räknar hur många steg i lektionsturerna som saknar bild och skriver talet i loggen. Den ska inte vara ett fel, men glappet ska synas varje gång.
 
 ## Inte provat
 
