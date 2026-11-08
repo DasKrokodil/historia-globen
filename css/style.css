@@ -1961,6 +1961,8 @@ details.used-by summary:hover { color: var(--parchment); }
   #detail .report-btn { position: relative; padding: 10px 0; }
   #detail .report-btn::after { content: ""; position: absolute; inset: -6px -4px; }
   #detail[data-sheet="full"], #detail.sheet-dragging { max-height: calc(100dvh - var(--ff-b) - 72px - env(safe-area-inset-top, 0px)); z-index: 16; }
+  /* Under en tur (och i lektionsläget) öppnas faktarutan ovanpå turkortet (z-index 14), annars täcker kortet rubrik, handtag och Stäng (#862, F7). Lektionsbandet (16) ligger kvar överst. */
+  .app.touring #detail { z-index: 15; }
   #detail.sheet-dragging { overflow: hidden; transition: none; }
   #detail[data-sheet="closed"]:not(.sheet-dragging) > :not(.sheet-handle, .detail-close, h3) { display: none; }
   #detail[data-sheet="closed"] { cursor: pointer; padding-bottom: 10px; }
