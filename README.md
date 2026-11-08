@@ -194,6 +194,12 @@ Hur kontrollen går till står i [docs/kallor.md](docs/kallor.md).
 
 Hittar du ett faktafel, öppna ett issue och ange vilken uppgift det gäller och en källa som visar det rätta. Nya händelser tas emot på samma sätt: med källa, plats och årtal.
 
+**Sidan är öppen för all slags input.** Åsikter, idéer, förslag och hjälp är välkomna, och det är roligt när något engagerar. Titta gärna in, säg vad du tycker, och hjälp till om du har lust.
+
+Samtidigt är det här DasKrokodils hobbyprojekt, och det ska vara tydligt: det är DasKrokodil som bestämmer vad som görs och vad som tas med, och som slår ihop alla ändringar. Därför går det inte att ta med allt, och ibland blir svaret "inte just nu" eller nej. Det är inget omdöme om förslaget. Vill du ta det åt ett annat håll är du varmt välkommen att göra en egen kopia, eftersom koden är öppen.
+
+Bidrar du med kod eller data publiceras det under projektets licenser (GPL-3.0 för koden, CC BY 4.0 för datan). Att bidra innebär inget medägande i projektet.
+
 ## Licenser
 
 Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna](THIRD-PARTY-NOTICES.md) och de maskinläsbara manifesten `data/licenses.json` och `images/licenses.json`.
@@ -223,4 +229,4 @@ Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna]
 
 Namnet "Historia-globen" omfattas inte av licenserna ovan.
 
-Copyright © 2026 Rikard och projektets bidragsgivare.
+Copyright © 2026 Rikard (DasKrokodil). Projektet är hans; att bidra innebär inget medägande.
