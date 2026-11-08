@@ -521,5 +521,8 @@
   "tour.endAnnounce": "Das war der letzte Schritt der Tour.",
   "tour.lessonMeta": "Unterrichtsstunde · Klassen {grades} · {n} Min.",
   "tour.lessonStart": "Als Unterricht starten",
+  "tour.teacherLinkCopy": "Link für die Lehrkraft kopieren",
+  "tour.teacherLinkCopied": "Der Link für die Lehrkraft wurde kopiert",
+  "tour.teacherLinkPrompt": "Kopieren Sie den Link für die Lehrkraft zu dieser Unterrichtseinheit:",
   "tour.lessonStartLabel": "Als Unterricht starten: {title}"
 }

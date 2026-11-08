@@ -532,6 +532,7 @@ async function start() {
     chapter: $('tour-chapter'), question: $('tour-question'), questionLabel: $('tour-question-label'), questionText: $('tour-question-text'), status: $('tour-status'),
     printBtn: $('tour-print'),
     printStatus: $('tour-print-status'),
+    copyTeacherBtn: $('tour-copy-teacher'),
   }, toursData, {
     printRoot: $('print-sheet'),
     get lesson() { return app.lesson; }, // lektionsläget (#795) skapas efter spelaren
