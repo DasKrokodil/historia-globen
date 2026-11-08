@@ -154,7 +154,7 @@ Namngivna epoker som data, så att tidsålderstext, bildstilar och snabbknappar 
 
 ## `teman.json`: teman (#398)
 
-**Fastställt format (#950, beslut [2026-11-08-temaformat-398.md](beslut/2026-11-08-temaformat-398.md)); filen finns inte än.** Bygget (del 2) skapar filen, schemat `schemas/teman.schema.json`, kontrollen i `scripts/validate-site.py` och temat i Fokus. Ett tema är ett **namngivet urval av befintliga händelser** med en introduktion, till exempel teknik (#105). Temat lägger inte till några fakta: allt historiskt innehåll ligger kvar i händelserna och deras källor.
+**Fastställt format (#950, beslut [2026-11-08-temaformat-398.md](beslut/2026-11-08-temaformat-398.md), frågorna 1–4 på #398 besvarade av DasKrokodil 2026-11-08); filen finns inte än.** Bygget (del 2) skapar filen, schemat `schemas/teman.schema.json`, kontrollen i `scripts/validate-site.py` och temat i Fokus. Ett tema är ett **namngivet urval av befintliga händelser** med en introduktion, till exempel teknik (#105). Temat lägger inte till några fakta: allt historiskt innehåll ligger kvar i händelserna och deras källor.
 
 ### Exempel
 
@@ -215,12 +215,12 @@ Exemplet nedan är en **platshållare**: introduktionen är inte skriven och tem
 2. **Temat börjar** som andra fokus (`startFocus('theme:<id>')` i `js/controllers/focus.js`): fokusets spann går från den tidigaste till den senaste synliga händelsen, inom tidslinjens gränser (`MIN_YEAR`, `MAX_YEAR`). Året stannar om det ligger inom spannet; annars flyttas det till starten och fokusraden säger "Tiden flyttades till …" (#167). Globen zoomar ut till hela jorden och vrids mot den tidigaste händelsen.
 3. **Introduktionen** visas som ett kort när temat börjar, med temats händelser i tidsordning som knappar som öppnar faktarutan (som rikets berättelse, #171). Knappen Fakta i fokusraden öppnar kortet igen.
 4. **Temats vy** slås på om temat har `view`.
-5. **Bara temats händelser syns:** händelselagret, Samtidigt och tidslinjens prickar visar bara temats synliga händelser, på samma sätt som en vys `tag` (#555). Uppspelningen går genom temats spann.
+5. **Bara temats händelser syns:** händelselagret, Samtidigt och tidslinjens prickar visar bara temats synliga händelser, på samma sätt som en vys `tag` (#555). Temat visar alla sina händelser även om en kategori är avstängd; kategorivalet ändras inte och gäller igen när temat slutar (beslut 2026-11-08, fråga 3 på #398). Uppspelningen går genom temats spann.
 6. **Avsluta och "Tillbaka till <året>"** fungerar som för andra fokus. När temat slutar syns alla händelser igen.
 
 ### Temat och lägeskontraktet (#893)
 
-Ett tema är fokus av typen `theme`, så läget är `fokus` och raden Fokus i uteslutningstabellen gäller: en tur, ett intervall eller ett nytt fokus avslutar temat, och i en lektion börjar inget tema. En jakt pågår samtidigt med ett tema; eftersom temat begränsar vilka händelser som syns, prövar del 2 att uppdraget går att klara eller att sidan säger att det inte går. Temat sparar ingen egen ögonblicksbild utöver Fokus: utgången återställer inget, och året står kvar (`exitRestore`). Lagren som temats vy slog på står kvar efter temat (öppen fråga på #398). I adressen står temat som `f=theme:<id>`; en okänd id ger det vanliga startläget, som för andra fokus. I `js/state.js` behövs bara `theme` i `FOCUS_TYPES`; `MODE_RULES` ändras inte.
+Ett tema är fokus av typen `theme`, så läget är `fokus` och raden Fokus i uteslutningstabellen gäller: en tur, ett intervall eller ett nytt fokus avslutar temat, och i en lektion börjar inget tema. En jakt pågår samtidigt med ett tema; eftersom temat begränsar vilka händelser som syns, prövar del 2 att uppdraget går att klara eller att sidan säger att det inte går. Temat sparar ingen egen ögonblicksbild utöver Fokus: utgången återställer inget, och året står kvar (`exitRestore`). Lagren som temats vy slog på står kvar efter temat, som när man lämnar ett krig eller ett rike (beslut 2026-11-08, fråga 1 på #398). I adressen står temat som `f=theme:<id>`; en okänd id ger det vanliga startläget, som för andra fokus. I `js/state.js` behövs bara `theme` i `FOCUS_TYPES`; `MODE_RULES` ändras inte.
 
 ### Teman och epoker (`perioder.json`)
 
@@ -232,7 +232,7 @@ Ett tema får innehålla händelser som börjar före 3000 f.Kr. (`MIN_YEAR = -2
 
 ### Ingår inte i version 1
 
-Ett fält `themes` på händelserna (en lista per tema räcker tills listorna blir för långa), turer eller berättelser i ett tema, egen kamera eller zoom per tema, egna fun facts, teman i teman, ett tema som ändrar kategorifiltret eller året, och bilder för temat.
+Ett fält `themes` på händelserna (en lista per tema räcker tills listorna blir för långa), turer eller berättelser i ett tema, egen kamera eller zoom per tema, egna fun facts, teman i teman, ett tema som ändrar besökarens kategorival eller året, och bilder för temat.
 
 ## `missuppfattningar.json`: vanliga missuppfattningar (#838)
 
