@@ -391,6 +391,7 @@
   "detail.loading": "Loading…",
   "detail.source": "Source:",
   "detail.sourceMissing": "missing",
+  "detail.beforeScale": "The event begins before the start of the timeline ({year}), so the slider cannot show its first year.",
   "detail.evidence.ref": "Source {n}",
   "detail.evidence.date": "Date",
   "detail.evidence.text": "Text",

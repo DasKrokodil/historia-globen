@@ -3,6 +3,7 @@
 import { buildAreaCurve } from './areacurve.js';
 import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, isVisibleReview, needDetails, misconceptionsFor } from '../model.js';
 import { ui, LANG } from '../i18n.js';
+import { MIN_YEAR } from '../timeline.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 // Gränssnittets texter hämtas med ui() ur data/ui/<språk>.json (#670). Ett antal [en, flera] väljs med plural().
@@ -94,6 +95,9 @@ function sourceLink(source, target = false) {
   target = target && source.n != null ? ` id="evidence-${source.n}"` : '';
   return `<li${target}><a href="${esc(source.url)}" target="_blank" rel="noopener">${esc(source.title)}</a></li>`;
 }
+
+/** Börjar händelsen före tidslinjens första år (#942)? Reglaget kan då inte stå på dess första år. */
+export const beforeTimelineStart = e => Number.isFinite(e?.start) && e.start < MIN_YEAR;
 
 /** Källornas kontrollnivå och den historiska osäkerheten är olika saker (#364). */
 export const uncertaintyRow = (e, copy = {}, evidence = '') => {
@@ -618,6 +622,7 @@ export class Panel {
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <h3>${esc(t(e.title))}</h3>
       <div class="meta">${esc(formatEventTime(e))}${evidence.marker('date')}${unc ? uncertaintyMark(e, 'date', this.uncertainty) : ''} · ${esc(t(e.place))}${evidence.marker('location')}${unc ? uncertaintyMark(e, 'place', this.uncertainty) : ''} · ${esc(t(CAT[e.category]?.name))}</div>
+      ${beforeTimelineStart(e) ? `<p class="scale-note">${esc(ui('detail.beforeScale', { year: formatYear(MIN_YEAR) }))}</p>` : ''}
       ${tagMarks(e, this.tags)}
       ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(ui('detail.showPlaceLabel', { place: t(e.place) }))}"><span class="place-pin" aria-hidden="true"></span><span class="place-go">${esc(ui('detail.showPlace'))}</span></button>` : ''}
       ${figure(e, this.srcById, evidence.marker('image'))}

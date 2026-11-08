@@ -391,6 +391,7 @@
   "detail.loading": "Wird geladen…",
   "detail.source": "Quelle:",
   "detail.sourceMissing": "fehlt",
+  "detail.beforeScale": "Das Ereignis beginnt vor dem Anfang der Zeitleiste ({year}), daher kann der Regler sein erstes Jahr nicht anzeigen.",
   "detail.evidence.ref": "Quelle {n}",
   "detail.evidence.date": "Datum",
   "detail.evidence.text": "Text",

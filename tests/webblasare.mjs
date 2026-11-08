@@ -3021,6 +3021,57 @@ async function run(browser, vp) {
     }
     return 'två lektioner märkta (årskurs och tid), Starta som lektion ger bandet, steg 1 och 1939, m=lektion i adressen; vanliga turer utan knapp';
   });
+  // #942: händelser som börjar före tidslinjens början (−2999) får en rad i faktarutan; en vanlig händelse får ingen.
+  await check('händelser före tidslinjens början får en rad i faktarutan (#942)', async () => {
+    const ap = await context.newPage();
+    const errs = [];
+    ap.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await ap.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await ap.route(u => isFont(u.href), r => r.abort());
+      }
+      let loads = 0;
+      const open = async (query, hash = '') => {
+        await ap.goto(`${BASE}?ny=9${loads++}${hash}`);
+        await ap.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        if (await ap.isHidden('#focus-menu')) {
+          if (await ap.isHidden('#btn-focus') && await ap.isVisible('#more-toggle')) await ap.click('#more-toggle');
+          await ap.click('#btn-focus');
+        }
+        await ap.waitForSelector('#focus-menu', { state: 'visible', timeout: T.step });
+        await ap.click('#focus-menu [data-tab="Alla"]');
+        await ap.fill('#focus-menu .focus-search', query);
+        await ap.waitForSelector('#focus-menu [data-key^="event:"]', { timeout: T.step });
+        await ap.press('#focus-menu .focus-search', 'Enter');
+        await ap.waitForSelector('#detail:not([hidden])', { state: 'visible', timeout: T.step });
+        if (await ap.evaluate(() => document.getElementById('detail').dataset.sheet === 'half')) { await ap.focus('#detail-handle'); await ap.keyboard.press('ArrowUp'); }
+      };
+      const note = () => ap.evaluate(() => {
+        const n = document.querySelector('#detail .scale-note');
+        const close = document.querySelector('#detail .detail-close');
+        const r = n?.getBoundingClientRect(), c = close?.getBoundingClientRect();
+        return { text: n?.textContent.trim() ?? '', shown: !!n && n.getClientRects().length > 0,
+          overlapsClose: !!(r && c && r.left < c.right && r.right > c.left && r.top < c.bottom && r.bottom > c.top),
+          wide: document.scrollingElement.scrollWidth > innerWidth + 1 };
+      });
+      const names = { kilskriften: 'kilskrift i Uruk', 'gobekli-tepe': 'Göbekli Tepe', stonehenge: 'Stonehenge', 'egypten-enas': 'Egypten enas', 'jordbrukets-borjan': 'Jordbruket börjar' };
+      for (const [id, q] of Object.entries(names)) {
+        await open(q);
+        const got = await note();
+        if (!got.shown || !/3000 f\.Kr\./.test(got.text)) throw new Error(`${id}: raden saknas eller är fel ("${got.text}")`);
+        if (got.overlapsClose) throw new Error(`${id}: raden täcker Stäng`);
+        if (got.wide) throw new Error(`${id}: raden ger horisontell scroll`);
+      }
+      await open('Eiffeltornet');
+      if ((await note()).shown) throw new Error('en vanlig händelse (Eiffeltornet) har fått raden');
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+    } finally {
+      await ap.close();
+    }
+    return 'kilskriften, Göbekli Tepe, Stonehenge, Egypten enas och jordbrukets början har raden (3000 f.Kr.) utan att täcka Stäng; Eiffeltornet har ingen';
+  });
   // #879: går källregistret inte att ladda skrivs inga blad med tekniska källid ut; ett besked visas och en ny tryckning
   // försöker igen. Källfilen svarar 503 första gången och sedan som vanligt.
   await check('utskriften väntar på källregistret och visar besked när det inte laddas (#879)', async () => {
