@@ -466,6 +466,9 @@ export class Timeline extends EventTarget {
     const p = this.toPos(this._year);
     this.thumb.style.left = `${p * 100}%`;
     this._showNearestStoryLabel();
+    // Gränserna följer det man kan välja: fokusspannet (lektionens år, ett krig) eller hela skalan (#883)
+    this.track.setAttribute('aria-valuemin', String(this.focus ? this.focus.from : MIN_YEAR));
+    this.track.setAttribute('aria-valuemax', String(this.focus ? this.focus.to : MAX_YEAR));
     this.track.setAttribute('aria-valuenow', String(this._year));
     this.track.setAttribute('aria-valuetext', this.format(this._year));
     this._labelPlay(); // i slutet heter knappen "Spela igen"
