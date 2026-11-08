@@ -115,6 +115,7 @@ Stödmatris (beslut 2026-11-08): de **senaste två versionerna** av Chrome, Safa
 
 | ID | Krav | Källa | Prio | Bevis | Status | Läge |
 |---|---|---|---|---|---|---|
+| K-INT-08 | Om Google Fonts och jsDelivr ska behållas eller självhostas avgörs efter den juridiska läsningen (K-INT-07); tills dess lämnas de som de är. | DasKrokodil 2026-11-08 | B | B | Beslutat | Väntar på K-INT-07 |
 | K-INT-01 | Inget statistik- eller spårningsskript ska köras på sidan. | beslut 2026-11-06 | M | S | Beslutat | Ok |
 | K-INT-02 | Kod ska vara GPL-3.0 och data CC BY 4.0; bara förenliga licenser får användas. | CLAUDE.md: Licenser | M | S | Beslutat | Ej verifierat |
 | K-INT-03 | Sidan ska ha en skarp Content-Security-Policy. | #707 | M | S | Beslutat | Ej verifierat |

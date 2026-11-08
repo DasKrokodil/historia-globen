@@ -18,7 +18,7 @@ Belagt i `index.html`, `_headers`, [feedback.md](../feedback.md) och koden. Inge
 **Det som inte sker (belagt):** inget statistik- eller spårningsskript på sidan (beslut 2026-11-06); inga inloggningar eller konton; ingen reklam; `document.cookie` används inte i koden. Sidan sparar val i webbläsarens `localStorage` (till exempel språk `hg-lang`, lugn rörelse `hg-calm`, hastighet och paus) i `try/catch`; inget skickas därifrån.
 
 **Att lägga märke till (till granskaren):**
-- Två tredjepartstjänster (jsDelivr och Google Fonts) får besökarens IP-adress vid varje sidvisning, även om sidan själv inte spårar. Typsnitten har öppen licens (OFL) och three.js är MIT, så de **kan** läggas i repot och serveras från egen adress; det är en möjlig åtgärd som DasKrokodil inte har tagit ställning till. Se även #486 (offline i klassrummet).
+- Två tredjepartstjänster (jsDelivr och Google Fonts) får besökarens IP-adress vid varje sidvisning, även om sidan själv inte spårar. Typsnitten har öppen licens (OFL) och three.js är MIT, så de **kan** läggas i repot och serveras från egen adress. **Beslutat 2026-11-08 (DasKrokodil): den juridiska läsningen (K-INT-07) får bedöma Google Fonts och jsDelivr; inget flyttas nu.** Om bedömningen blir att de bör flyttas blir det ett eget issue. Se även #486 (offline i klassrummet).
 - Skolor som blockerar externa adresser kan få problem att starta sidan, eftersom three.js hämtas från jsDelivr.
 - Förslagsformuläret kan innehålla e-postadress; det lagras i ett **privat** repo, inte i huvudrepot (feedback.md).
 
@@ -50,7 +50,7 @@ Sammanfattning; den fullständiga listan står i [CONTENT-LICENSE.md](../../CONT
 
 Förslag på vad granskningen bör svara på; ordningen är min:
 
-1. Räcker det att sidan inte själv spårar, när jsDelivr och Google Fonts får IP-adressen? Bör de självhostas?
+1. **Google Fonts och jsDelivr (DasKrokodil har lämnat bedömningen hit):** räcker det att sidan inte själv spårar, när de får IP-adressen? Bör de självhostas, och är svaret annorlunda för sidor som används i skolan?
 2. Behövs en integritetstext på sidan (förslagsformuläret har en godkänd integritetstext, men hur är det för sidan i övrigt)?
 3. Är förslagsformulärets hantering av e-post (privat repo, GitHub som tredje part) tillräckligt tydlig för besökaren?
 4. Vad gäller för att en skola använder en sådan här sida med elever 7–13 år?
