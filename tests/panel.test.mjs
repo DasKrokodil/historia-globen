@@ -2,7 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { uncertaintyRow, mythsHtml } from '../js/ui/panel.js';
+import { uncertaintyRow, mythsHtml, emptyCause } from '../js/ui/panel.js';
 
 const events = JSON.parse(readFileSync(new URL('../data/events.json', import.meta.url))).events;
 
@@ -37,4 +37,22 @@ test('missuppfattningen ritas inte medan källorna laddas eller när listan är 
   assert.equal(mythsHtml([myth], srcs, true), '');
   assert.equal(mythsHtml([], srcs), '');
   assert.equal(mythsHtml(undefined, srcs), '');
+});
+
+// Varför listan är tom (#886)
+
+test('tom lista: alla kategorier av ger filters, ett tomt år ger year, och en lista med träffar ger null', () => {
+  assert.equal(emptyCause({ visibleCount: 0, filters: new Set() }), 'filters');
+  assert.equal(emptyCause({ visibleCount: 0, filters: new Set(['krig']) }), 'year');
+  assert.equal(emptyCause({ visibleCount: 3, filters: new Set() }), null);
+  assert.equal(emptyCause({ visibleCount: 3, filters: new Set(['krig']) }), null);
+});
+
+test('texterna för avstängda kategorier finns på alla fem språken, artigt tilltal utom svenska', async () => {
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    const ui = JSON.parse(readFileSync(new URL(`../data/ui/${lang}.json`, import.meta.url)));
+    for (const key of ['panel.filtersOff', 'panel.filtersOffHelp', 'panel.showAllCategories']) {
+      assert.ok(typeof ui[key] === 'string' && ui[key].length > 5, `${lang}: ${key}`);
+    }
+  }
 });
