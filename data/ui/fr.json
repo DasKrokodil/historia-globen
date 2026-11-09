@@ -179,7 +179,7 @@
   "help.s2": "Changez d'année",
   "help.s2t": "Touchez l'année ou faites glisser la frise chronologique.",
   "help.s3": "Suivez un récit",
-  "help.s3t": "Choisissez une guerre, un empire ou une religion sous Focus.",
+  "help.s3t": "Choisissez une guerre, un empire ou une religion sous Chercher et suivre.",
   "help.marks": "Marqueurs, groupes et religions",
   "help.m1": "Tous les événements ont la même médaille en laiton. Le symbole et la couleur intérieure indiquent la catégorie.",
   "help.m2": "L'arc sous la médaille est une petite frise chronologique. Arc entier : en cours à l'année affichée. Partie gauche : déjà passé. Partie droite : à venir. L'arc apparaît quand vous zoomez.",
@@ -188,9 +188,9 @@
   "help.m5": "Groupe : le chiffre est le nombre d'événements, et les couleurs de l'anneau indiquent les catégories. En survolant le groupe avec la souris, ou en y allant avec Tab, vous voyez ce qu'il contient, par exemple « 3 événements de guerre, 2 empires et civilisations ».",
   "help.m6": "Religions (dans Calques) : le symbole dans une zone et à côté de la couleur indique la religion, par exemple une croix pour le christianisme. Une médaille portant le symbole se trouve là où la religion est apparue. Elle apparaît l'année où la religion est née et reste tant que le calque des religions est activé. Cliquez dessus pour lire sur la religion. Pointez une religion dans les listes ou dans la légende pour la mettre en évidence sur la carte.",
   "help.m7": "Empires : une médaille au milieu d'un empire montre son symbole, par exemple l'aigle pour Rome. Pointez-la pour voir le nom et cliquez pour lire sur l'empire. En zoomant, le nom s'affiche sous le symbole.",
-  "help.support": "Historia Globen est gratuit. Si vous souhaitez contribuer à son fonctionnement et à son développement, vous pouvez faire un don volontaire.",
-  "help.kofiLabel": "Soutenir Historia Globen sur Ko-fi (s'ouvre dans un nouvel onglet)",
-  "help.kofi": "Soutenir Historia Globen",
+  "help.support": "Historia-globen est gratuit. Si vous souhaitez contribuer à son fonctionnement et à son développement, vous pouvez faire un don volontaire.",
+  "help.kofiLabel": "Soutenir Historia-globen sur Ko-fi (s'ouvre dans un nouvel onglet)",
+  "help.kofi": "Soutenir Historia-globen",
   "help.feedback": "Il manque quelque chose, ou vous avez trouvé une erreur ?",
   "help.feedbackBtn": "Envoyer une suggestion",
   "intro.close": "Fermer l'introduction",
@@ -450,7 +450,7 @@
   "story.deadSoFar": "Morts jusqu’à présent, selon les estimations",
   "story.outcome": "Comment la guerre s’est terminée",
   "story.dead": "Morts",
-  "story.labelIntro": "Avant le début de la guerre",
+  "story.labelIntro": "Contexte : pourquoi la guerre a commencé",
   "story.labelToday": "La situation aujourd’hui (vérifiée le {date})",
   "story.labelEnd": "Quand la guerre est finie",
   "story.takeaways": "L’essentiel à retenir",
@@ -578,5 +578,6 @@
   "range.partialCount": ["{count} se poursuit aussi avant ou après l’intervalle", "{count} se poursuivent aussi avant ou après l’intervalle"],
   "range.empty": "Rien dans les données pendant {range}.",
   "range.areasAt": "Les zones sont affichées pour l’année {year}",
-  "range.capped": "Le globe affiche les {shown} marqueurs les plus importants sur {total}. Les autres figurent dans la liste."
+  "range.capped": "Le globe affiche les {shown} marqueurs les plus importants sur {total}. Les autres figurent dans la liste.",
+  "time.year1": "1 apr. J.-C."
 }

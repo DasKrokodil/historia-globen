@@ -2,6 +2,7 @@
 // Beslut 4: segmenterad skala där nutiden får mer plats än forntiden.
 import { formatYear, formatDate, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t } from './model.js';
 import { selectEventsForDate } from './date-events.js';
+import { ui } from './i18n.js';
 
 export const MIN_YEAR = -2999;   // 3000 f.Kr.
 // Tidslinjen slutar i dag enligt datorns klocka, men aldrig före 2026 då datan senast kontrollerades (#229)
@@ -201,7 +202,7 @@ export class Timeline extends EventTarget {
       const d = document.createElement('div');
       d.className = `tick lvl${level}` + (y === MIN_YEAR ? ' first' : '');
       d.style.left = `${yearToPos(y) * 100}%`;
-      d.textContent = y === 1 ? '0' : formatYear(y);
+      d.textContent = y === 1 ? ui('time.year1') : formatYear(y);
       d.dataset.level = level;
       this.ticksEl.append(d);
     }

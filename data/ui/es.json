@@ -179,7 +179,7 @@
   "help.s2": "Cambia el año",
   "help.s2t": "Toca el año o arrastra la línea de tiempo.",
   "help.s3": "Sigue un relato",
-  "help.s3t": "Elige una guerra, un imperio o una religión en Enfoque.",
+  "help.s3t": "Elige una guerra, un imperio o una religión en Buscar y seguir.",
   "help.marks": "Marcadores, grupos y religiones",
   "help.m1": "Todos los acontecimientos tienen la misma medalla de latón. El símbolo y el color interior indican la categoría.",
   "help.m2": "El arco bajo la medalla es una pequeña línea de tiempo. Arco completo: en curso en el año en que estás. Parte izquierda: ya ha ocurrido. Parte derecha: llega más tarde. El arco aparece al acercar el zoom.",
@@ -188,9 +188,9 @@
   "help.m5": "Grupo: la cifra es el número de acontecimientos, y los colores del anillo indican las categorías. Con el puntero del ratón sobre el grupo, o al llegar a él con Tab, ves lo que contiene, por ejemplo «3 acontecimientos bélicos, 2 imperios y civilizaciones».",
   "help.m6": "Religiones (en Capas): el símbolo en una zona y junto al color indica la religión, por ejemplo una cruz para el cristianismo. Una medalla con el símbolo está donde surgió la religión. Aparece el año en que surgió y permanece mientras la capa de religiones esté activada. Haz clic en ella para leer sobre la religión. Señala una religión en las listas o en la leyenda para resaltarla en el mapa.",
   "help.m7": "Imperios: una medalla en el centro de un imperio muestra su símbolo, por ejemplo el águila de Roma. Señálala para ver el nombre y haz clic para leer sobre el imperio. Al acercar el zoom, el nombre aparece bajo el símbolo.",
-  "help.support": "Historia Globen es gratuito. Si quieres contribuir a su funcionamiento y desarrollo, puedes hacer una donación voluntaria.",
-  "help.kofiLabel": "Apoyar a Historia Globen en Ko-fi (se abre en una pestaña nueva)",
-  "help.kofi": "Apoyar a Historia Globen",
+  "help.support": "Historia-globen es gratuito. Si quieres contribuir a su funcionamiento y desarrollo, puedes hacer una donación voluntaria.",
+  "help.kofiLabel": "Apoyar a Historia-globen en Ko-fi (se abre en una pestaña nueva)",
+  "help.kofi": "Apoyar a Historia-globen",
   "help.feedback": "¿Echas algo en falta o has encontrado un error?",
   "help.feedbackBtn": "Enviar una sugerencia",
   "intro.close": "Cerrar la introducción",
@@ -450,7 +450,7 @@
   "story.deadSoFar": "Muertos hasta ahora, según estimaciones",
   "story.outcome": "Cómo terminó la guerra",
   "story.dead": "Muertos",
-  "story.labelIntro": "Antes de que empiece la guerra",
+  "story.labelIntro": "Contexto: por qué empezó la guerra",
   "story.labelToday": "La situación hoy (comprobada el {date})",
   "story.labelEnd": "Cuando termina la guerra",
   "story.takeaways": "Lo más importante",
@@ -578,5 +578,6 @@
   "range.partialCount": ["{count} continúa también antes o después del intervalo", "{count} continúan también antes o después del intervalo"],
   "range.empty": "Nada en los datos durante {range}.",
   "range.areasAt": "Las áreas se muestran para el año {year}",
-  "range.capped": "El globo muestra los {shown} marcadores más importantes de {total}. El resto está en la lista."
+  "range.capped": "El globo muestra los {shown} marcadores más importantes de {total}. El resto está en la lista.",
+  "time.year1": "1 d. C."
 }

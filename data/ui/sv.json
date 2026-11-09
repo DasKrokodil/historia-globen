@@ -232,7 +232,7 @@
   "story.deadSoFar": "Döda hittills, enligt uppskattningar",
   "story.outcome": "Hur kriget slutade",
   "story.dead": "Döda",
-  "story.labelIntro": "Innan kriget börjar",
+  "story.labelIntro": "Bakgrund: varför kriget började",
   "story.labelToday": "Läget i dag (kontrollerat {date})",
   "story.labelEnd": "När kriget är slut",
   "story.takeaways": "Det viktigaste att ta med sig",
@@ -354,5 +354,6 @@
   "range.partialCount": ["{count} pågår också före eller efter intervallet", "{count} pågår också före eller efter intervallet"],
   "range.empty": "Inget i datan under {range}.",
   "range.areasAt": "Områden visas för år {year}",
-  "range.capped": "Globen visar de {shown} viktigaste av {total} markörerna. Resten finns i listan."
+  "range.capped": "Globen visar de {shown} viktigaste av {total} markörerna. Resten finns i listan.",
+  "time.year1": "1 e.Kr."
 }

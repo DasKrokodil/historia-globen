@@ -179,7 +179,7 @@
   "help.s2": "Jahr wechseln",
   "help.s2t": "Tippen Sie auf die Jahreszahl oder ziehen Sie an der Zeitleiste.",
   "help.s3": "Einer Geschichte folgen",
-  "help.s3t": "Wählen Sie unter Fokus einen Krieg, ein Reich oder eine Religion.",
+  "help.s3t": "Wählen Sie unter Suchen und folgen einen Krieg, ein Reich oder eine Religion.",
   "help.marks": "Markierungen, Gruppen und Religionen",
   "help.m1": "Alle Ereignisse haben dieselbe Messingmedaille. Symbol und innere Farbe zeigen die Kategorie.",
   "help.m2": "Der Bogen unter der Medaille ist eine kleine Zeitleiste. Ganzer Bogen: dauert im gewählten Jahr an. Linker Teil: ist schon geschehen. Rechter Teil: kommt später. Der Bogen erscheint beim Hineinzoomen.",
@@ -188,9 +188,9 @@
   "help.m5": "Gruppe: Die Zahl ist die Anzahl der Ereignisse, und die Farben des Rings zeigen die Kategorien. Mit dem Mauszeiger über der Gruppe oder wenn Sie sie mit Tab ansteuern, sehen Sie, was sie enthält, zum Beispiel „3 Kriegsereignisse, 2 Reiche und Zivilisationen“.",
   "help.m6": "Religionen (unter Ebenen): Das Symbol in einem Gebiet und neben der Farbe zeigt die Religion, zum Beispiel ein Kreuz für das Christentum. Eine Medaille mit dem Symbol steht dort, wo die Religion entstand. Sie erscheint im Jahr der Entstehung und bleibt, solange die Religionsebene eingeschaltet ist. Klicken Sie darauf, um über die Religion zu lesen. Zeigen Sie auf eine Religion in den Listen oder in der Legende, um sie auf der Karte hervorzuheben.",
   "help.m7": "Reiche: Eine Medaille in der Mitte eines Reiches zeigt sein Symbol, zum Beispiel den Adler für Rom. Zeigen Sie darauf, um den Namen zu sehen, und klicken Sie, um über das Reich zu lesen. Beim Hineinzoomen steht der Name unter dem Symbol.",
-  "help.support": "Historia Globen ist kostenlos. Wenn Sie zu Betrieb und Weiterentwicklung beitragen möchten, können Sie freiwillig etwas spenden.",
-  "help.kofiLabel": "Historia Globen auf Ko-fi unterstützen (öffnet in einem neuen Tab)",
-  "help.kofi": "Historia Globen unterstützen",
+  "help.support": "Historia-globen ist kostenlos. Wenn Sie zu Betrieb und Weiterentwicklung beitragen möchten, können Sie freiwillig etwas spenden.",
+  "help.kofiLabel": "Historia-globen auf Ko-fi unterstützen (öffnet in einem neuen Tab)",
+  "help.kofi": "Historia-globen unterstützen",
   "help.feedback": "Fehlt Ihnen etwas, oder haben Sie einen Fehler gefunden?",
   "help.feedbackBtn": "Vorschlag senden",
   "intro.close": "Einführung schließen",
@@ -450,7 +450,7 @@
   "story.deadSoFar": "Tote bisher, nach Schätzungen",
   "story.outcome": "Wie der Krieg endete",
   "story.dead": "Tote",
-  "story.labelIntro": "Bevor der Krieg beginnt",
+  "story.labelIntro": "Hintergrund: Warum der Krieg begann",
   "story.labelToday": "Die Lage heute (geprüft am {date})",
   "story.labelEnd": "Wenn der Krieg vorbei ist",
   "story.takeaways": "Das Wichtigste zum Mitnehmen",
@@ -578,5 +578,6 @@
   "range.partialCount": ["{count} läuft auch vor oder nach dem Zeitraum", "{count} laufen auch vor oder nach dem Zeitraum"],
   "range.empty": "Nichts in den Daten im Zeitraum {range}.",
   "range.areasAt": "Gebiete werden für das Jahr {year} angezeigt",
-  "range.capped": "Der Globus zeigt die {shown} wichtigsten von {total} Markierungen. Der Rest steht in der Liste."
+  "range.capped": "Der Globus zeigt die {shown} wichtigsten von {total} Markierungen. Der Rest steht in der Liste.",
+  "time.year1": "1 n. Chr."
 }

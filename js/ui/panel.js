@@ -352,12 +352,13 @@ export class Panel {
     const parts = [];
     parts.push(inside ? plural('panel.inside', inside, { at }) : ui('panel.noneAt', { at }));
     if (near) parts.push(ui('panel.near', { count: near, within }));
+    const stop = text => text.endsWith('.') ? text : `${text}.`; // "f.Kr." slutar redan med punkt (#991)
     const partialCount = range ? visible.filter(v => v.partial).length : 0;
     if (partialCount) parts.push(plural('range.partialCount', partialCount, { count: partialCount }));
     // I intervallet finns inget "nära": raden säger hur många som pågår under intervallet och hur många som sticker ut
-    if (range) this.toggle.setAttribute('aria-label', `${parts.join(', ')}.`);
+    if (range) this.toggle.setAttribute('aria-label', stop(parts.join(', ')));
     const filtersOff = emptyCause({ visibleCount: visible.length, filters: this.filters }) === 'filters';
-    this.sub.textContent = visible.length ? (range ? `${parts.join(', ')}.` : `${summaryText}. ${parts.join(', ')}.`)
+    this.sub.textContent = visible.length ? stop(range ? parts.join(', ') : `${summaryText}. ${parts.join(', ')}`)
       : range && !filtersOff ? ui('range.empty', { range: bare })
       : ui(filtersOff && !(this.tag && this.tags[this.tag]) ? 'panel.filtersOff' : 'panel.empty', { within, at: bare });
     const tagCopy = this.tag && this.tags[this.tag];
@@ -459,7 +460,7 @@ export class Panel {
     this.detail.className = `detail detail-card frame-${styleFor(war, this.styles).frame}`;
     const srcs = (s.sources ?? []).map(id => this.srcById[id]).filter(Boolean);
     const body = mode === 'intro' ? `
-      <h4>${esc(ui('story.why'))}</h4><p>${esc(t(s.intro))}</p>
+      <p>${esc(t(s.intro))}</p>
       <h4>${esc(ui('story.parties'))}</h4>
       <div class="parties">${s.parties.map(p => `<div><strong>${esc(t(p.name))}</strong><p>${esc(t(p.members))}</p></div>`).join('')}</div>
       ${empireList(war._empires)}
