@@ -1324,6 +1324,14 @@ details.used-by summary:hover { color: var(--parchment); }
 .app.focus-moved-on .detail-card { bottom: 216px; } /* faktarutan ovanför den högre fokusraden */
 
 /* ---------- smal skärm ---------- */
+@media (min-width: 761px) and (max-width: 1100px) {
+  /* Datorns knappar kan bli flera rader på iPad. Årtalet och dess förklaring får en egen yta under dem (#992).
+     Lektionslägets placering under det egna bandet behålls. Ingen förskjutning i dator- eller mobilbredd. */
+  .app:not(.lesson):not(.lesson-notice) .masthead {
+    top: calc(env(safe-area-inset-top, 0px) + 18px + var(--tablet-actions-height, 98px) + 12px);
+    margin-top: 0;
+  }
+}
 @media (max-width: 760px) {
   .panel { left: var(--gut); right: var(--gut-r); width: auto; max-height: 55vh; }
   .detail-card { left: var(--gut); right: var(--gut-r); width: auto; bottom: 128px; max-height: 45vh; }
