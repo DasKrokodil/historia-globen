@@ -101,6 +101,7 @@
   "time.approx": "vers ",
   "time.ongoing": "{start}–en cours",
   "time.since": "depuis {start}",
+  "jump.today": "Aujourd'hui",
   "time.until": "jusqu'en {end}",
   "time.months": [
     "janvier",

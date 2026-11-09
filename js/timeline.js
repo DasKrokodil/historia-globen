@@ -1,6 +1,6 @@
 // Tidsreglaget äger det nuvarande året (arkitekturprincip 3).
 // Beslut 4: segmenterad skala där nutiden får mer plats än forntiden.
-import { formatYear, formatDate, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t } from './model.js';
+import { formatYear, formatDate, isBCE, bce, BCE_TXT, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t } from './model.js';
 import { selectEventsForDate } from './date-events.js';
 import { ui } from './i18n.js';
 
@@ -8,11 +8,13 @@ export const MIN_YEAR = -2999;   // 3000 f.Kr.
 // Tidslinjen slutar i dag enligt datorns klocka, men aldrig före 2026 då datan senast kontrollerades (#229)
 export const MAX_YEAR = Math.max(2026, new Date().getFullYear());
 
+// Tidslinjens fyra delar är en skala, inte epoker: de heter bara sina årtal (#979). Epoknamnen, med källa och
+// förenklingstext, finns bara i data/perioder.json.
 export const SEGMENTS = [
-  { from: -2999, to: -500, a: 0.00, b: 0.25, name: 'Bronsålder och tidig järnålder' },
-  { from:  -500, to: 1000, a: 0.25, b: 0.50, name: 'Antiken och tidig medeltid' },
-  { from:  1000, to: 1800, a: 0.50, b: 0.75, name: 'Medeltid och tidigmodern tid' },
-  { from:  1800, to: MAX_YEAR, a: 0.75, b: 1.00, name: 'Modern tid' },
+  { from: -2999, to: -500, a: 0.00, b: 0.25 },
+  { from:  -500, to: 1000, a: 0.25, b: 0.50 },
+  { from:  1000, to: 1800, a: 0.50, b: 0.75 },
+  { from:  1800, to: MAX_YEAR, a: 0.75, b: 1.00 },
 ];
 
 // [år, nivå]: 1 = alltid, 2 = från 600 px, 3 = från 900 px
@@ -22,6 +24,15 @@ const TICKS = [
 ];
 
 const clampY = y => Math.max(MIN_YEAR, Math.min(MAX_YEAR, y));
+// Gränsen mellan två segment är ett runt årtal: -500 (astronomiskt) är 501 f.Kr., men segmentet heter 500 f.Kr.
+const nominal = y => (y < 0 && y !== MIN_YEAR ? y + 1 : y);
+/** Skalnamnet för ett segment, bara årtal på valt språk: "3000–500 f.Kr.", "500 f.Kr.–1000", "sedan 1800". */
+export function segmentLabel(s) {
+  const from = nominal(s.from), to = nominal(s.to);
+  if (s.to === MAX_YEAR) return ui('time.since', { start: formatYear(from) });
+  if (isBCE(from) && isBCE(to)) return `${bce(from)}–${bce(to)} ${BCE_TXT}`;
+  return `${formatYear(from)}–${formatYear(to)}`;
+}
 const segFor = y => SEGMENTS.find(s => y <= s.to) ?? SEGMENTS.at(-1);
 const segForPos = p => SEGMENTS.find(s => p <= s.b) ?? SEGMENTS.at(-1);
 
@@ -195,7 +206,7 @@ export class Timeline extends EventTarget {
     }
     for (const s of SEGMENTS) {
       const d = document.createElement('div');
-      d.className = 'seg'; d.style.width = `${(s.b - s.a) * 100}%`; d.title = s.name;
+      d.className = 'seg'; d.style.width = `${(s.b - s.a) * 100}%`; d.title = segmentLabel(s);
       this.segsEl.append(d);
     }
     for (const [y, level] of TICKS) {
@@ -567,18 +578,19 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
     result.removeAttribute('hidden');
     pop.classList.add('has-date-result'); // i mobilen döljs snabbhoppen, så att resultatet tar mindre plats (#590)
   };
-  const chip = (label, y) => {
+  const chip = (label, y, showYear = true) => {
     const b = document.createElement('button');
     b.type = 'button'; b.className = 'jump-epoch';
     const [num, e] = yearParts(y);
     b.innerHTML = `<span class="jump-epoch-name"></span><span class="jump-epoch-year"></span>`;
     b.firstChild.textContent = label; b.lastChild.textContent = `${num} ${e || CE_TXT}`.trim();
+    if (!showYear) b.lastChild.remove(); // segmentets namn är redan årtalen
     b.addEventListener('click', () => jump(y));
     epochs.append(b);
   };
   // gränsåret hör till segmentet före, så varje tidsålder utom den första börjar året efter
-  SEGMENTS.forEach((s, i) => chip(s.name, i ? s.from + 1 : s.from));
-  chip('Idag', MAX_YEAR);
+  SEGMENTS.forEach((s, i) => chip(segmentLabel(s), i ? s.from + 1 : s.from, false));
+  chip(ui('jump.today'), MAX_YEAR);
 
   button.addEventListener('click', () => {
     if (!pop.hidden && result && !result.hidden) {
