@@ -1088,6 +1088,9 @@ async function run(browser, vp) {
       if (await chip.getAttribute('aria-pressed') !== 'false') throw new Error('kategorin gick inte att stänga av');
       const still = await listed();
       if (!still.length || still.some(id => !ids.includes(id))) throw new Error('en avstängd kategori ska inte ändra temats urval');
+      // Konsolfel prövas bara för den första sidladdningen: när testet byter sida längre ned avbryts hämtningar som pågår,
+      // och WebKit loggar dem som "access control checks" (releasekörningen 2026-11-09, #988)
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
       // 3. Avsluta: alla händelser syns igen (kategorin är fortfarande avstängd, så vi slår på den igen)
       await tp.click('#focus-exit');
       await tp.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step });
@@ -1119,7 +1122,6 @@ async function run(browser, vp) {
       await tp.waitForSelector('#focus-menu [data-tab="Resor"]', { state: 'visible', timeout: T.step });
       await tp.waitForFunction(() => document.querySelector('#focus-menu [data-key^="route:"]'), null, { timeout: T.step }).catch(() => {});
       if (await tp.isVisible('#focus-menu [data-tab="Teman"]')) throw new Error('fliken Teman syns trots att det inte finns några teman');
-      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
       return 'länk, urval, avstängd kategori, Fokusmenyn, okänt id och ingen tom flik';
     } finally { await tctx.close(); }
   });
