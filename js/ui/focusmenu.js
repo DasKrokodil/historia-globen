@@ -145,6 +145,7 @@ export class FocusMenu {
   /** Fliken Plats (#15): sök en plats ur datan, välj den och se händelserna inom radien i tidsordning. */
   renderPlace() {
     this.input.placeholder = ui('place.placeholder');
+    this.input.setAttribute('aria-label', ui('place.searchLabel'));
     this.menu.querySelector('.focus-sort').style.display = 'none'; // sortering gäller inte platslistan (alltid i tid)
     const query = this.query.trim();
     const hint = `<div class="layer-note pad">${esc(ui('place.hint'))}</div>`;
@@ -164,7 +165,7 @@ export class FocusMenu {
     } else if (query) {
       this.suggestions = this.searchPlaces(query);
       html += this.suggestions.length ? this.suggestions.map((p, i) => row({ label: p.label }, `data-place="${i}"`)).join('')
-        : `<div class="layer-note pad">${esc(ui('place.noMatch', { query }))}</div>`;
+        : `<div class="layer-note pad" aria-hidden="true">${esc(ui('place.noMatch', { query }))}</div>`;
       live = this.suggestions.length ? ui('focus.results', { count: this.suggestions.length }) : ui('place.noMatch', { query });
     }
     this.body.innerHTML = html;
@@ -182,6 +183,7 @@ export class FocusMenu {
   render() {
     if (this.tab === PLACE) return this.renderPlace();
     this.input.placeholder = ui('focus.placeholder');
+    this.input.setAttribute('aria-label', ui('focus.searchLabel'));
     this.menu.querySelector('.focus-sort').style.display = '';
     const tm = this.time;
     const dist = it => !tm ? 0 : tm.year < it.from ? it.from - tm.year : tm.year > it.to ? tm.year - it.to : 0;

@@ -300,6 +300,7 @@
   "focus.noMatch": "Ningún nombre contiene «{query}».",
   "focus.eventsHint": "Escriba en el buscador para encontrar un acontecimiento, por ejemplo Pompeya.",
   "place.placeholder": "Escriba un lugar",
+  "place.searchLabel": "Buscar un lugar",
   "place.hint": "Aquí solo se encuentran lugares que aparecen entre los acontecimientos.",
   "place.result": ["{count} acontecimiento a menos de {km} km de {place}", "{count} acontecimientos a menos de {km} km de {place}"],
   "place.empty": "Ningún acontecimiento se sitúa a menos de {km} km de {place}. Elija otro lugar.",

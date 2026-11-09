@@ -105,6 +105,7 @@ export function createRange(app) {
   openBtn.type = 'button'; openBtn.id = 'range-open'; openBtn.className = 'link-btn range-open';
   openBtn.textContent = ui('range.open');
   openBtn.setAttribute('aria-controls', 'range-pop');
+  openBtn.setAttribute('aria-expanded', 'false');
   $('jump-msg').after(openBtn);
 
   // ---- Raden med det aktiva intervallet ----
@@ -112,6 +113,8 @@ export function createRange(app) {
   bar.id = 'range-bar'; bar.className = 'range-bar'; bar.hidden = true;
   const barText = document.createElement('span');
   barText.id = 'range-bar-text';
+  barText.setAttribute('aria-live', 'polite');
+  barText.setAttribute('aria-atomic', 'true');
   const exitBtn = document.createElement('button');
   exitBtn.type = 'button'; exitBtn.id = 'range-exit'; exitBtn.className = 'link-btn range-exit';
   exitBtn.textContent = ui('range.exit');
@@ -134,7 +137,7 @@ export function createRange(app) {
       divisions.forEach(div => {
         const group = document.createElement('section');
         group.className = 'range-preset-group'; group.setAttribute('role', 'group');
-        const head = document.createElement('p');
+        const head = document.createElement('h2');
         head.id = `range-preset-${div.id}`; head.className = 'range-preset-head'; head.textContent = t(div.name);
         group.setAttribute('aria-labelledby', head.id);
         const note = document.createElement('p');
@@ -151,6 +154,8 @@ export function createRange(app) {
           years.className = 'range-preset-years';
           const extra = [r.clippedStart && ui('range.preset.clipped'), r.openEnd && ui('range.preset.today')].filter(Boolean);
           years.textContent = [rangeText(r.from, r.to), ...extra].join(' · ');
+          // Namn med årtal läses redan i sin helhet. Övriga knappar behåller den egna årsraden och dess förklaringar.
+          if (/\d/.test(name.textContent)) years.setAttribute('aria-hidden', 'true');
           b.append(name, years);
           b.addEventListener('click', () => choosePreset(r));
           presetButtons.push(b);
@@ -181,6 +186,7 @@ export function createRange(app) {
     msg.textContent = '';
     $('jump-pop').hidden = true; $('year-jump').setAttribute('aria-expanded', 'false');
     pop.hidden = false;
+    openBtn.setAttribute('aria-expanded', 'true');
     fitPop();
     buildPresets();
     syncPresets();
@@ -198,6 +204,7 @@ export function createRange(app) {
   function closeForm(refocus = true) {
     if (pop.hidden) return;
     pop.hidden = true;
+    openBtn.setAttribute('aria-expanded', 'false');
     if (refocus) $('year-jump').focus({ preventScroll: true });
   }
   openBtn.addEventListener('click', openForm);
@@ -266,8 +273,9 @@ export function createRange(app) {
     const r = state.range;
     bar.hidden = !r;
     $('year-jump').classList.toggle('is-range', !!r);
-    if (!r) return;
-    barText.textContent = `${rangeText(r.from, r.to)} · ${plural('range.count', count, { count })}`;
+    if (!r) { barText.textContent = ''; return; }
+    const text = `${rangeText(r.from, r.to)} · ${plural('range.count', count, { count })}`;
+    if (barText.textContent !== text) barText.textContent = text; // samma omritning ska inte köa samma uppläsning igen
     areasNote.hidden = areasYear == null;
     areasNote.textContent = areasYear == null ? '' : ui('range.areasAt', { year: formatYear(areasYear) });
     capNote.hidden = !capped;
