@@ -146,11 +146,19 @@ export class TourPlayer {
       b.append(name, meta);
       b.addEventListener('click', () => { this.closeMenu(false); this.start(tour.id, this.button); });
       li.append(b);
-      // En lektionstur (en tur med lärarfält) märks med årskurs och tid, och kan startas som lektion (#889).
-      // Allt kommer ur turens lesson-fält; lektionsläget är detsamma som länken m=lektion ger (#795).
+      // Varje tur har en synlig startknapp (#1002); rubriken är fortfarande klickbar. En lektionstur märks dessutom
+      // med årskurs och tid, och kan startas som lektion (#889). Allt kommer ur turens lesson-fält; lektionsläget
+      // är detsamma som länken m=lektion ger (#795).
+      const row = document.createElement('div'); row.className = 'tour-lesson-row';
+      const info = document.createElement('span'); info.className = 'tour-lesson-meta';
+      const actions = document.createElement('span'); actions.className = 'tour-actions';
+      const play = document.createElement('button');
+      play.type = 'button'; play.className = 'tour-start-btn'; play.dataset.tour = tour.id;
+      play.textContent = ui('tour.start');
+      play.setAttribute('aria-label', ui('tour.startLabel', { title: t(tour.title) }));
+      play.addEventListener('click', () => { this.closeMenu(false); this.start(tour.id, this.button); });
+      actions.append(play);
       if (tour.lesson) { // lektionsläget skapas efter spelaren, så bara lärarfältet avgör här (som canStart)
-        const row = document.createElement('div'); row.className = 'tour-lesson-row';
-        const info = document.createElement('span'); info.className = 'tour-lesson-meta';
         const grades = tour.lesson.grades === 'gy' ? ui('print.gy') : String(tour.lesson.grades).replace('-', '–');
         info.textContent = ui('tour.lessonMeta', { grades, n: tour.lesson.minutes });
         const go = document.createElement('button');
@@ -163,9 +171,10 @@ export class TourPlayer {
           lesson?.enter(tour.id, { teacher: true }); // den som väljer Starta som lektion i menyn är läraren (#885)
           if (!this.start(tour.id, this.button)) lesson?.leave();
         });
-        row.append(info, go);
-        li.append(row);
+        actions.append(go);
       }
+      row.append(info, actions);
+      li.append(row);
       return li;
     }));
   }
