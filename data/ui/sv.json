@@ -370,5 +370,9 @@
   "how.tour": "Tur: {title}",
   "time.year1": "1 e.Kr.",
   "tip.year": "Dra här för att byta år",
-  "tip.yearClose": "Stäng tipset"
+  "tip.yearClose": "Stäng tipset",
+  "tlegend.title": "Tecken",
+  "tlegend.event": "händelse",
+  "tlegend.funfact": "samband",
+  "tlegend.route": "resa"
 }

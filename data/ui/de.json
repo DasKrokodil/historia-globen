@@ -594,5 +594,9 @@
   "how.tour": "Tour: {title}",
   "time.year1": "1 n. Chr.",
   "tip.year": "Hier ziehen, um das Jahr zu wechseln",
-  "tip.yearClose": "Hinweis schließen"
+  "tip.yearClose": "Hinweis schließen",
+  "tlegend.title": "Zeichen",
+  "tlegend.event": "Ereignis",
+  "tlegend.funfact": "Zusammenhang",
+  "tlegend.route": "Reise"
 }

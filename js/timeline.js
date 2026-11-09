@@ -283,6 +283,7 @@ export class Timeline extends EventTarget {
       const d = document.createElement('button');
       d.type = 'button'; d.className = mark.type === 'funfact' ? 'tff' : mark.type === 'route' ? 'troute' : 'tdot';
       d.setAttribute('aria-label', mark.label); d.title = mark.label;
+      d.tabIndex = -1; // reglaget (#track) är tabbstoppet; markeringarna nås med mus och finger, och Samtidigt i världen är textalternativet (#1003)
       if (mark.type === 'route-stop') d.classList.add('route-stop');
       if (mark.until != null && b - a > 0.004) {
         d.className = 'tspan';

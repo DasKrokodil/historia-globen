@@ -594,5 +594,9 @@
   "how.tour": "Recorrido: {title}",
   "time.year1": "1 d. C.",
   "tip.year": "Arrastra aquí para cambiar de año",
-  "tip.yearClose": "Cerrar el consejo"
+  "tip.yearClose": "Cerrar el consejo",
+  "tlegend.title": "Leyenda",
+  "tlegend.event": "suceso",
+  "tlegend.funfact": "conexión",
+  "tlegend.route": "viaje"
 }

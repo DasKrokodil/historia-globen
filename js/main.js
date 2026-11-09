@@ -538,6 +538,13 @@ async function start() {
     $('year-tip-close').addEventListener('click', dismissTip);
   }
 
+  // Teckenförklaringen under tidslinjen (#1003): öppen som standard, och valet att fälla ihop den sparas
+  const tLegend = $('timeline-legend');
+  try { if (localStorage.getItem('hg-teckenforklaring') === 'hopfalld') tLegend.open = false; } catch { /* utan lagring: öppen */ }
+  tLegend.addEventListener('toggle', () => {
+    try { localStorage.setItem('hg-teckenforklaring', tLegend.open ? 'oppen' : 'hopfalld'); } catch { /* utan lagring */ }
+  });
+
   // Quiz (#65): frågor ur befintliga fun facts, startas från Mer. Knappen döljs om datan inte räcker till en fråga.
   const quizButton = $('btn-quiz');
   const quiz = new Quiz({
