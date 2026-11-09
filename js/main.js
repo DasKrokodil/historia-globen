@@ -517,12 +517,26 @@ async function start() {
     onExplore: () => $('track').focus({ preventScroll: true }),
     onFollow: () => $('btn-focus').click(),
     onTask: () => $('track').focus({ preventScroll: true }),
-    fallbackFocus: () => $('btn-intro'),
+    fallbackFocus: () => $('btn-more'),
   });
   const introButton = $('btn-intro');
   introButton.hidden = !intro.ready;
   introButton.textContent = introData?.labels?.start ? t(introData.labels.start) : introButton.textContent;
   introButton.addEventListener('click', () => intro.open(introButton));
+
+  // Engångstips vid tidslinjen (#996): visas tills besökaren har rört tidslinjen eller stängt det, sedan aldrig igen
+  const yearTip = $('year-tip');
+  const tipSeen = () => { try { return localStorage.getItem('hg-year-tip') === '1'; } catch { return false; } };
+  const dismissTip = () => {
+    yearTip.hidden = true;
+    try { localStorage.setItem('hg-year-tip', '1'); } catch { /* utan lagring: tipset visas igen nästa gång */ }
+  };
+  if (!tipSeen()) {
+    yearTip.hidden = false;
+    $('track').addEventListener('pointerdown', dismissTip, { once: true, capture: true }); // före markeringarnas egen stopPropagation
+    $('track').addEventListener('keydown', dismissTip, { once: true });
+    $('year-tip-close').addEventListener('click', dismissTip);
+  }
 
   // Quiz (#65): frågor ur befintliga fun facts, startas från Mer. Knappen döljs om datan inte räcker till en fråga.
   const quizButton = $('btn-quiz');

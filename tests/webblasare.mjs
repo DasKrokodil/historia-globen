@@ -263,7 +263,7 @@ async function run(browser, vp) {
     const value = Number(document.getElementById('year-big').textContent.trim());
     return document.getElementById('year-era').textContent.trim() === 'f.Kr.' ? 1 - value : value;
   });
-  // Lager, Fokus, Ett år, en plats, Platt vy, Källor och Hjälp ligger i mobilen i menyn Meny (#361, #530):
+  // Lager, Fokus, Kom igång, Platt vy, Källor och Hjälp ligger i mobilen i menyn Meny (#361, #530):
   // öppna den först när knappen inte syns
   // Källor, Hjälp och Dela ligger i datorn bakom knappen Mer (#651)
   const clickView = async sel => {
@@ -372,10 +372,10 @@ async function run(browser, vp) {
     if (vp.width > 760) {
       if (await page.isVisible('#more-toggle')) throw new Error('knappen Meny syns i datorbredd');
       // Källor och Hjälp ligger bakom Mer i datorn (#651)
-      const shown = inMenu.filter(id => !['btn-sources', 'btn-help'].includes(id));
+      const shown = inMenu.filter(id => !['btn-sources', 'btn-help', 'btn-intro'].includes(id));
       for (const id of ['btn-panel', 'btn-more', ...shown]) if (await page.isHidden(`#${id}`)) throw new Error(`#${id} syns inte i datorbredd`);
       await page.click('#btn-more');
-      for (const id of ['btn-sources', 'btn-help', 'btn-share']) if (await page.isHidden(`#${id}`)) throw new Error(`#${id} syns inte under Mer`);
+      for (const id of ['btn-sources', 'btn-help', 'btn-share', 'btn-intro']) if (await page.isHidden(`#${id}`)) throw new Error(`#${id} syns inte under Mer`);
       await page.keyboard.press('Escape');
       if (await page.isVisible('#btn-help')) throw new Error('Escape stänger inte Mer');
       if (!await page.evaluate(() => !!document.getElementById('btn-panel').closest('.action-group'))) throw new Error('Samtidigt står inte i gruppen Utforska i datorn');
@@ -563,6 +563,28 @@ async function run(browser, vp) {
     return `filterknapp, Tjernobyl följer filtret, kontrast ${ratio.toFixed(1)}:1`;
   });
 
+  // #996: engångstipset vid tidslinjen syns vid första besöket, försvinner efter första klicket i tidslinjen och kommer inte tillbaka
+  await check('engångstipset vid tidslinjen försvinner efter första draget och kommer inte tillbaka (#996)', async () => {
+    const fresh = await context.newPage();
+    const errs = [];
+    fresh.on('pageerror', e => errs.push(e.message));
+    try {
+      await fresh.goto(BASE);
+      await fresh.evaluate(() => { try { localStorage.removeItem('hg-year-tip'); } catch { /* */ } });
+      await fresh.reload();
+      await fresh.waitForSelector('#year-tip', { state: 'visible', timeout: T.step });
+      if (!/\S/.test(await fresh.textContent('#year-tip span'))) throw new Error('tipset är tomt');
+      await fresh.locator('#track').click({ timeout: T.step });
+      await fresh.waitForSelector('#year-tip', { state: 'hidden', timeout: T.step });
+      await fresh.reload();
+      await fresh.waitForSelector('#track', { timeout: T.step });
+      await fresh.waitForTimeout(400);
+      if (await fresh.isVisible('#year-tip')) throw new Error('tipset kom tillbaka efter omladdning');
+      if (errs.length) throw new Error(errs.join('; '));
+    } finally { await fresh.close(); }
+    return 'syns första gången, försvinner efter klicket i tidslinjen, kommer inte tillbaka';
+  });
+
   await check('introduktionen startas frivilligt från Utforska', async () => {
     // Samtidigt-provet ovan öppnar listan för Visa fler. Stäng den som en besökare gör så att
     // introduktionsknappen provas utan en avsiktligt överlagrad panel i mobilbredd.
@@ -570,9 +592,11 @@ async function run(browser, vp) {
     if (await page.isVisible('#intro')) throw new Error('introduktionen öppnas automatiskt vid första besöket');
     if (await page.locator('#help-intro').count()) throw new Error('Hjälp innehåller fortfarande en länk till introduktionen');
     const introButton = page.locator('#btn-intro');
+    // Kom igång ligger under Mer: bakom knappen Mer i datorn och i menyn Meny i mobilen (#996)
     if (await introButton.isHidden() && await page.isVisible('#more-toggle')) await page.click('#more-toggle');
+    if (await introButton.isHidden() && await page.isVisible('#btn-more')) await page.click('#btn-more');
     await visible('#btn-intro');
-    if ((await introButton.textContent()).trim() !== 'Ett år, en plats') throw new Error('knappen under Utforska har fel text');
+    if ((await introButton.textContent()).trim() !== 'Kom igång') throw new Error('knappen under Mer har fel text');
     await introButton.click();
     await visible('#intro');
     if ((await year()) !== '1889') throw new Error(`introduktionen startade på ${await year()} i stället för 1889`);
@@ -596,7 +620,7 @@ async function run(browser, vp) {
     await page.keyboard.press('Escape');
     await hidden('#intro');
     // I mobilen ligger knappen i den stängda menyn, och då går fokus till Meny (#530)
-    const focusRestored = await page.evaluate(id => document.activeElement?.id === id, vp.width > 760 ? 'btn-intro' : 'more-toggle');
+    const focusRestored = await page.evaluate(id => document.activeElement?.id === id, vp.width > 760 ? 'btn-more' : 'more-toggle');
     if (!focusRestored) throw new Error('Escape lämnade inte fokus på knappen som öppnade introduktionen');
     await page.emulateMedia({ reducedMotion: 'no-preference' });
     return 'ingen automatisk popup; tre steg, år 1889, Escape och reducerad rörelse fungerar';
@@ -4328,8 +4352,8 @@ async function runReflow(browser) {
         await page.setViewportSize({ width: z.width, height: z.height });
         await page.waitForFunction(([w, h]) => innerWidth === w && innerHeight === h, [z.width, z.height]);
         const frame = await page.evaluate(() => {
-          // I smal skärm ligger Lager, Fokus och Ett år, en plats i menyn Meny (#530); de prövas nedan via menyn
-          const ids = innerWidth > 760 ? ['year-jump', 'btn-panel', 'btn-layers', 'btn-focus', 'btn-intro', 'btn-play', 'btn-speed', 'track']
+          // I smal skärm ligger Lager, Fokus och Kom igång i menyn Meny (#530); de prövas nedan via menyn
+          const ids = innerWidth > 760 ? ['year-jump', 'btn-panel', 'btn-layers', 'btn-focus', 'btn-play', 'btn-speed', 'track']
             : ['year-jump', 'btn-panel', 'more-toggle', 'btn-play', 'btn-speed', 'track'];
           const outside = ids.filter(id => {
             const r = document.getElementById(id)?.getBoundingClientRect();
