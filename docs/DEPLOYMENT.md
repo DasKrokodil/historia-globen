@@ -166,7 +166,7 @@ Bara pull requests mot `production` får dessutom kontrollen **"Release kommer f
 
 1. väntar i högst fem minuter på att `js/main.js` på webbplatsen är exakt samma fil som på grenen `production`
 2. kontrollerar att HTML, CSS, JavaScript och JSON svarar med `Cache-Control: no-cache`
-3. kör samma grundfunktioner i `tests/webblasare.mjs` mot den skarpa adressen, i dator- och mobilbredd
+3. kör ett rökprov ur `tests/webblasare.mjs` mot den skarpa adressen, i datorbredd (`BREDD=dator` och `ENDAST` med listan `ROKPROV` i arbetsflödet: sidan och globen, tidslinje, Samtidigt, Lager, Fokus på rike och krig, Platt vy, Källor och delad länk). Hela sviten tog över 20 minuter och stoppades av tidsgränsen vid v5.0.0, v6.0.0 och v6.1.0; den körs i stället för varje PR. Gränsen är 10 minuter
 4. sparar skärmbilderna som artefakten `skarmbilder-produktion` i 14 dagar.
 
 Webbläsartestet väljer den publicerade sidan med `BASE_URL=https://historiagloben.se/`; utan den variabeln fungerar det som förut mot en lokal port. Om cachekontrollen misslyckas trots `_headers` ska Cloudflares **Browser Cache TTL** stå på **Respect Existing Headers**.
