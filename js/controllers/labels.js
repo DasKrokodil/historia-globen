@@ -78,7 +78,9 @@ export function createLabels(app) {
         ((b.e.id === state.selectedId) - (a.e.id === state.selectedId)) || ((b.e.id === hoverId) - (a.e.id === hoverId)) ||
         (hl.has(b.e.id) - hl.has(a.e.id)) || (b.activity - a.activity));
       // Klustra händelser som ligger nära varandra på skärmen (#26)
-      const items = order.map(v => ({ e: v.e, p: globe.project(v.e._pos), keep: v.e.id === state.selectedId || hl.has(v.e.id) }));
+      // De pågående krigen (högst 3, som i placeLabels) klustras aldrig bort (#1022, mobil): andra markörer klustras i stället
+      const warsNow = new Set(order.filter(v => isWarNow(v.e)).slice(0, 3).map(v => v.e.id));
+      const items = order.map(v => ({ e: v.e, p: globe.project(v.e._pos), keep: v.e.id === state.selectedId || hl.has(v.e.id) || warsNow.has(v.e.id) }));
       const { singles, clusters } = cluster(items.filter(it => it.p.facing > 0.05));
       const clustered = new Set(clusters.flatMap(c => c.members.map(m => m.e.id)));
       // Händelsen där en religion uppstod ligger under religionens symbol (#271): bara symbolen och etiketten syns
