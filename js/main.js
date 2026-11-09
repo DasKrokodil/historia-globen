@@ -38,6 +38,7 @@ import { createPlayback } from './controllers/playback.js';
 import { createRange } from './controllers/range.js';
 import { createLabels } from './controllers/labels.js';
 import { createAddress } from './controllers/address.js';
+import { createJumpBack } from './controllers/jump-back.js';
 
 const $ = id => document.getElementById(id);
 
@@ -136,7 +137,6 @@ async function start() {
     pager: $('ff-pager'), next: $('ff-next'), srcBtn: $('ff-sources'),
     pics: $('ff-pics'), kind: $('ff-kind'), min: $('ff-min'), tab: $('ff-tab'), tabCount: $('ff-tab-count'), handle: $('ff-handle'), status: $('screen-reader-status'),
   }, { funfacts: [...data.funfacts, ...warCards(data.events)], byId: data.byId, srcById: data.srcById, styles: data.styles, surprise: $('ff-surprise') });
-  $('ff-surprise').textContent = t(views?.funfacts?.surprise) || 'Visste du?';
   // Smal skärm (#361): faktarutan som ark nedifrån med tre lägen, och mobilmenyn (#530): Samtidigt och Meny i raden överst
   const detailSheet = new Sheet($('detail'));
   new ViewMenu({ toggle: $('more-toggle'), menu: $('more-menu'), keep: $('btn-panel'), label: t(views?.menu?.label) });
@@ -149,19 +149,12 @@ async function start() {
     pauseGo: $('pause-go'), status: $('screen-reader-status'),
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
+  ff.setSurpriseRange(() => timeline.focus);
   setupYearJump(timeline, {
     button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'),
     events: data.events, copy: views?.jump ?? {}, onJump: () => { app.range?.close(); app.orientToPanelHighlight(); }, // ett hopp till ett år stänger intervallet (#755)
     onSelect: id => app.select(id, false), // raderna i datumresultatet (#590); året är redan rätt
   });
-  // Samma direkta årshopp som Min dag i historien och Hoppa till år använder: stoppa
-  // uppspelningen, flytta Timeline (som äger året) och låt refresh bygga Samtidigt-kortet.
-  ff.onSurprise = fact => {
-    timeline.pause();
-    timeline.year = fact.show[0];
-    app.refresh();
-    app.orientToPanelHighlight();
-  };
 
 
   // Lagerväljaren: vilka lager som syns. Raderna och startläget kommer från registret.
@@ -293,6 +286,13 @@ async function start() {
   Object.assign(app, { startFocus, endFocus: focusCtl.endFocus, founding: focusCtl.founding, focusMenu: focusCtl.focusMenu, showThemeCard: focusCtl.showThemeCard });
   const render = createRender(app);
   Object.assign(app, { render, refresh: render.refresh, syncNameScale: render.syncNameScale, storyFor: render.storyFor });
+  const jumpBack = createJumpBack(app);
+  ff.onSurprise = fact => jumpBack.run(() => {
+    timeline.pause();
+    timeline.year = fact.show[0];
+    app.refresh();
+    app.orientToPanelHighlight();
+  }, $('ff-surprise'));
 
   const labels = createLabels(app);
   Object.assign(app, { labelText: labels.labelText, fillLabel: labels.fillLabel });

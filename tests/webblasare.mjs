@@ -1306,7 +1306,12 @@ async function run(browser, vp) {
   await check('Visste du? väljer ett regionbalanserat kort och hoppar till dess år', async () => {
     const surprise = page.locator('#ff-surprise');
     await surprise.waitFor({ state: 'visible', timeout: T.step });
-    if ((await surprise.textContent()).trim() !== 'Visste du?') throw new Error('Visste du?-texten kommer inte från vyn');
+    const forecast = await surprise.evaluate(async button => {
+      const { formatYear } = await import('./js/model.js');
+      const year = Number(button.dataset.year);
+      return { year, valid: button.dataset.year != null && Number.isFinite(year) && button.textContent.trim() === `Visste du? → ${formatYear(year)}` };
+    });
+    if (!forecast.valid) throw new Error('Visste du?-knappen saknar sitt datahämtade målår');
     const selection = await page.evaluate(async () => {
       const [{ pickBalancedFunFact }, factDoc, eventDoc] = await Promise.all([
         import('./js/ui/funfact.js'), fetch('./data/funfacts.json').then(r => r.json()), fetch('./data/events.json').then(r => r.json()),
@@ -1340,6 +1345,7 @@ async function run(browser, vp) {
       return doc.funfacts.find(fact => fact.id === id);
     });
     if (!chosen || chosen.review === 'draft') throw new Error('knappen valde ingen redan synlig fun fact');
+    if (chosen.show[0] !== forecast.year) throw new Error('hoppet gick inte till det förhandsvisade målåret');
     const expected = String(chosen.show[0] < 1 ? 1 - chosen.show[0] : chosen.show[0]);
     if (await year() !== expected) throw new Error(`tiden hoppade inte till kortets år ${expected}`);
     if (vp.width <= 760) {
@@ -1355,7 +1361,77 @@ async function run(browser, vp) {
       await page.evaluate(() => document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })));
       await hidden('#layer-menu');
     }
-    return `deterministiskt urval i ${selection.available} världsdelar, högst ${selection.mostRepeated} gånger samma fact på tio tryck; kortet hoppade till ${expected}`;
+    await page.keyboard.press('Escape'); // även den tillfälliga återgångsraden städas undan
+    return `deterministiskt urval i ${selection.available} världsdelar, högst ${selection.mostRepeated} gånger samma fact på tio tryck; kortet hoppade till förhandsvisade ${expected}`;
+  });
+
+  await check('Visste du? visar målet och Tillbaka återställer år och kamera på fem språk (#997)', async () => {
+    const savedCalm = await page.evaluate(() => localStorage.getItem('hg-calm'));
+    for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+      const pp = await context.newPage();
+      const errors = [];
+      pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+      pp.on('pageerror', e => errors.push(e.message));
+      try {
+        if (THREE_LOCAL) {
+          await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+          await pp.route(u => isFont(u.href), r => r.abort());
+        }
+        await pp.addInitScript(calm => {
+          localStorage.setItem('hg-calm', calm ? '1' : '0');
+          window.__jumpFlights = [];
+          document.addEventListener('hg:globe-flight', e => window.__jumpFlights.push(e.detail), true);
+        }, lang !== 'sv');
+        await pp.goto(`${BASE}?lang=${lang}#y=1325&c=20,-45,1.6`);
+        await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await pp.waitForFunction(() => window.__jumpFlights.some(f => f.phase === 'end'), null, { timeout: T.step });
+        const state = () => pp.evaluate(async () => (await import('./js/url-state.js')).decodeHash(location.hash));
+        const before = await state();
+        const surprise = pp.locator('#ff-surprise');
+        const target = Number(await surprise.getAttribute('data-year'));
+        const expected = await pp.evaluate(async target => {
+          const { ui } = await import('./js/i18n.js');
+          const { formatYear } = await import('./js/model.js');
+          return { target: ui('ff.surpriseTarget', { year: formatYear(target) }), from: ui('jumpBack.from', { year: formatYear(1325) }) };
+        }, target);
+        if ((await surprise.textContent()).trim() !== expected.target) throw new Error(`${lang}: knappen visar inte det väntade målåret`);
+        await surprise.evaluate(button => button.click());
+        await pp.waitForSelector('#jump-back:not([hidden])', { state: 'visible', timeout: T.step });
+        if ((await state()).year !== target) throw new Error(`${lang}: det visade målåret nåddes inte`);
+        if ((await pp.textContent('#jump-back-text')).trim() !== expected.from) throw new Error(`${lang}: återgångsraden saknar utgångsåret`);
+        const landed = await state();
+        const flightsBeforeReturn = await pp.evaluate(() => window.__jumpFlights.length);
+        await pp.locator('#jump-back-button').click();
+        const returned = await state();
+        if (returned.year !== before.year || JSON.stringify(returned.camera) !== JSON.stringify(before.camera)) throw new Error(`${lang}: år eller kamera återställdes inte: ${JSON.stringify({ before, returned })}`);
+        if (await pp.evaluate(() => document.activeElement?.id) !== 'year-jump') throw new Error(`${lang}: Tillbaka lämnade inte fokus på årskontrollen`);
+        await pp.waitForFunction(({ start, camera }) => window.__jumpFlights.slice(start).some(f => {
+          if (f.phase !== 'end') return false;
+          const lat = f.x * 180 / Math.PI;
+          const lon = (((((Math.PI / 2 - f.y) * 180 / Math.PI - 180) % 360) + 540) % 360) - 180;
+          return Math.abs(lat - camera.lat) < 0.0001 && Math.abs(lon - camera.lon) < 0.0001;
+        }), { start: flightsBeforeReturn, camera: before.camera }, { timeout: T.step });
+        await pp.goBack();
+        await pp.waitForFunction(year => new URLSearchParams(location.hash.slice(1)).get('y') === String(year), landed.year, { timeout: T.step });
+        await pp.goForward();
+        await pp.waitForFunction(year => new URLSearchParams(location.hash.slice(1)).get('y') === String(year), before.year, { timeout: T.step });
+        if (lang === 'sv') {
+          // Även nästa hopp får en retur, som upphör av tid utan att flytta året tillbaka.
+          await surprise.evaluate(button => button.click());
+          await pp.locator('#jump-back-button').focus();
+          await pp.screenshot({ path: path.join(OUT, `${vp.name}-997-tillbaka.png`) });
+          await pp.waitForSelector('#jump-back', { state: 'hidden', timeout: 11000 });
+          if (await pp.evaluate(() => document.activeElement?.id) !== 'year-jump') throw new Error('utgången tid lämnade fokus på en dold knapp');
+        }
+        if (await pp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error(`${lang}: horisontell scroll`);
+        if (lang !== 'sv' && !await pp.evaluate(() => document.documentElement.classList.contains('calm'))) throw new Error(`${lang}: Lugn rörelse förlorades`);
+        if (errors.length) throw new Error(`${lang}: ${errors.join(' | ')}`);
+      } finally {
+        await pp.evaluate(value => { if (value == null) localStorage.removeItem('hg-calm'); else localStorage.setItem('hg-calm', value); }, savedCalm).catch(() => {});
+        await pp.close();
+      }
+    }
+    return 'fem språk: förhandsvisat mål, exakt år och kamera tillbaka, snabb återgång och Bakåt/Framåt, tidsgräns och fokus; Lugn rörelse';
   });
 
   await check('Samtidigt-kortet ger bildlösa händelser en likvärdig reservruta', async () => {

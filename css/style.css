@@ -1327,6 +1327,10 @@ details.used-by summary:hover { color: var(--parchment); }
 /* Fokusåtgärden samlar uppspelningen i samma rad, så tidsraden inte visar två primära knappar. */
 .app.focusing #btn-play { display: none; }
 
+.jump-back { display: flex; align-items: center; gap: 6px; margin-top: 4px; pointer-events: auto; font: 400 12px/1.4 var(--f-mono); color: var(--parchment-dim); }
+.jump-back[hidden] { display: none; }
+.jump-back .link-btn { min-height: 32px; font: inherit; }
+@media (max-width: 760px) { .jump-back .link-btn { min-height: 44px; } }
 .focus-moved { flex-basis: 100%; text-align: center; font: 400 12px/1.4 var(--f-mono); color: var(--parchment-dim); }
 .focus-moved .link-btn { font: inherit; white-space: nowrap; }
 .app.focus-moved-on .focus-bar { border-radius: var(--r); }
