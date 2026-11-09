@@ -118,6 +118,9 @@ export class FocusMenu {
    *  all = gruppen visas alltid hel och i tidsordning när sorteringen är Relevans (Försvunna länder, #72). */
   setGroups(groups) {
     this.groups = groups.map(g => ({ ...g, items: g.items.map(it => ({ ...it, _terms: [...new Set([it.label, ...(it.terms ?? [])])].map(s => [s, norm(s)]) })) }));
+    // Fliken Teman (#398) syns först när det finns minst ett tema; en tom flik ser ut som ett fel
+    const themesTab = this.menu.querySelector('[data-tab="Teman"]');
+    if (themesTab) themesTab.hidden = !this.groups.some(g => g.title === 'Teman' && g.items.length);
     this.render();
   }
 

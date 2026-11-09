@@ -1097,6 +1097,7 @@ async function run(browser, vp) {
       if (await tp.isHidden('#btn-focus') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
       if (await tp.isHidden('#btn-focus') && await tp.isVisible('#btn-more')) await tp.click('#btn-more');
       await tp.click('#btn-focus');
+      if (await tp.isHidden('#focus-menu [data-tab="Teman"]')) await tp.waitForSelector('#focus-menu [data-tab="Teman"]', { state: 'visible', timeout: T.step });
       await tp.click('#focus-menu [data-tab="Teman"]');
       const row = tp.locator('#focus-menu [data-key="theme:testtema"]');
       await row.waitFor({ state: 'visible', timeout: T.step });
@@ -1108,8 +1109,18 @@ async function run(browser, vp) {
       await tp.goto(`${BASE}?ny=tema2#y=120&f=theme:finns-inte`);
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       if (!(await tp.isHidden('#focus-bar'))) throw new Error('ett okänt tema ska inte starta Fokus');
+      // 6. Utan teman (som i dag) syns ingen tom flik Teman
+      await tp.route('**/data/teman.json*', r => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ schema: 'historia-globen/teman@1', themes: [] }) }));
+      await tp.goto(`${BASE}?ny=tema3#y=120`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#btn-more')) await tp.click('#btn-more');
+      await tp.click('#btn-focus');
+      await tp.waitForSelector('#focus-menu [data-tab="Resor"]', { state: 'visible', timeout: T.step });
+      await tp.waitForFunction(() => document.querySelector('#focus-menu [data-key^="route:"]'), null, { timeout: T.step }).catch(() => {});
+      if (await tp.isVisible('#focus-menu [data-tab="Teman"]')) throw new Error('fliken Teman syns trots att det inte finns några teman');
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
-      return 'länk, urval, avstängd kategori, Fokusmenyn och okänt id';
+      return 'länk, urval, avstängd kategori, Fokusmenyn, okänt id och ingen tom flik';
     } finally { await tctx.close(); }
   });
 
