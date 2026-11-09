@@ -1241,6 +1241,15 @@ async function run(browser, vp) {
     if (!/Krig och konflikter, 1879, Anglo-zuluiska kriget/.test(label ?? '')) throw new Error('reservkortet saknar kategori, år och titel i sitt namn');
     const missing = await reserve.evaluateAll(nodes => nodes.some(node => ['.ff-reserve-icon', '.ff-reserve-year', '.ff-reserve-category', '.ff-name'].some(selector => !node.querySelector(selector))));
     if (missing) throw new Error('reservkortet saknar ikon, år, kategori eller titel');
+    // Reservsymbolen får inte växa ur rutan (#975): en regel för alla bilder i .ff-pic gjorde den 173 px i en ruta på 132 px.
+    const spill = await reserve.evaluateAll(nodes => nodes.flatMap(n => {
+      const box = n.getBoundingClientRect();
+      return [...n.querySelectorAll('.ff-reserve-icon, .ff-reserve-year, .ff-reserve-category, .ff-name')].filter(c => c.getClientRects().length).filter(c => {
+        const r = c.getBoundingClientRect();
+        return r.top < box.top - 1 || r.left < box.left - 1 || r.right > box.right + 1 || r.bottom > box.bottom + 1;
+      }).map(c => `${c.className} ${Math.round(c.getBoundingClientRect().width)}×${Math.round(c.getBoundingClientRect().height)} i en ruta på ${Math.round(box.width)}×${Math.round(box.height)}`);
+    }));
+    if (spill.length) throw new Error(`reservkortets innehåll ligger utanför rutan: ${spill.join('; ')}`);
     const heights = await cards.evaluateAll(nodes => nodes.map(node => Math.round(node.getBoundingClientRect().height)));
     if (new Set(heights).size !== 1) throw new Error(`bild- och reservkort har olika höjd: ${heights.join(', ')}`);
     const imageHeight = await image.first().evaluate(el => Math.round(el.closest('.ff-pic').getBoundingClientRect().height));
@@ -3414,9 +3423,11 @@ async function run(browser, vp) {
       await tp.goto(`${BASE}?ny=92#y=1400`);
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await openForm();
-      // Fyra grupper med rubrik och förenklingstext (Lgr22, Nordens forntid, antiken, industrialiseringen), tio knappar
+      // En grupp per indelning i data/perioder.json (i dag fyra), med rubrik och förenklingstext, och en knapp per epok.
+      // Antalet läses ur datan, så att en ny indelning inte gör testet rött (granskningen 2026-11-08).
+      const wanted = await tp.evaluate(() => fetch('data/perioder.json').then(r => r.json()).then(d => d.divisions.map(x => [true, true, x.periods.length])));
       const groups = await tp.evaluate(() => [...document.querySelectorAll('.range-preset-group')].map(g => [g.querySelector('.range-preset-head').textContent.length > 3, g.querySelector('.range-preset-note').textContent.length > 20, g.querySelectorAll('button.range-preset').length]));
-      if (JSON.stringify(groups) !== JSON.stringify([[true, true, 5], [true, true, 3], [true, true, 1], [true, true, 1]])) throw new Error(`grupperna ser ut så här: ${JSON.stringify(groups)}`);
+      if (JSON.stringify(groups) !== JSON.stringify(wanted)) throw new Error(`grupperna ser ut så här: ${JSON.stringify(groups)}`);
       // Rymmer sig i bredden och har tryckyta på minst 44 px
       const fit = await tp.evaluate(() => {
         const pop = document.getElementById('range-pop').getBoundingClientRect();
@@ -3424,6 +3435,16 @@ async function run(browser, vp) {
         return { bad, over: document.documentElement.scrollWidth > innerWidth + 1, popRight: pop.right <= innerWidth + 1 };
       });
       if (fit.bad || fit.over || !fit.popRight) throw new Error(`knapparna ryms inte eller är för låga: ${JSON.stringify(fit)}`);
+      // Formuläret ryms också på höjden, och "Visa intervallet" går att träffa med musen (#973): det rullar i stället för att sluta under skärmen
+      const reach = await tp.evaluate(() => {
+        const pop = document.getElementById('range-pop'), go = pop.querySelector('.jump-go');
+        pop.scrollTop = pop.scrollHeight;
+        const r = go.getBoundingClientRect(), hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+        const out = { popBottom: Math.round(pop.getBoundingClientRect().bottom), height: innerHeight, goBottom: Math.round(r.bottom), reachable: !!hit && (hit === go || go.contains(hit)) };
+        pop.scrollTop = 0;
+        return out;
+      });
+      if (reach.popBottom > reach.height + 1 || !reach.reachable) throw new Error(`"Visa intervallet" nås inte: ${JSON.stringify(reach)}`);
       // Tangentbord: fokus på en knapp och Enter
       await tp.focus('[data-period="norden-1500-1800"]');
       await tp.keyboard.press('Enter');
@@ -3458,7 +3479,39 @@ async function run(browser, vp) {
     } finally {
       await tp.close();
     }
-    return 'nio knappar i tre grupper, tangentbord, adress och Bakåt, stenålder och nutid märkta, inaktiva under en tur';
+    return 'en grupp per indelning i datan, tangentbord, adress och Bakåt, stenålder och nutid märkta, inaktiva under en tur';
+  });
+  // #974: i intervallet räknar märket, intervallraden och panelen samma händelser, och ingen text säger "±0 år" (en händelse som
+  // pågått sedan länge hamnade som "nära" med ±0 år och gav märket ett högre tal än raden).
+  await check('intervallet räknar samma i märket, raden och panelen (#974)', async () => {
+    const tp = await context.newPage();
+    const errors = [];
+    tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    tp.on('pageerror', e => errors.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      for (const hash of ['#y=1914&y2=1918', '#y=1900&y2=2026']) {
+        await tp.goto(`${BASE}?ny=92${hash}`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
+        await tp.waitForFunction(() => /\d/.test(document.getElementById('range-bar-text')?.textContent ?? '') && document.getElementById('panel-sub')?.textContent.length > 5, null, { timeout: T.step });
+        const got = await tp.evaluate(() => ({
+          badge: document.getElementById('panel-count').textContent.trim(),
+          bar: (document.getElementById('range-bar-text').textContent.match(/(\d[\d\s\u00a0]*) händelse/) || [])[1]?.replace(/\D/g, ''),
+          sub: document.getElementById('panel-sub').textContent,
+        }));
+        if (got.badge !== got.bar) throw new Error(`${hash}: märket visar ${got.badge} men raden ${got.bar}`);
+        if (/±\s*0\b/.test(got.sub)) throw new Error(`${hash}: panelen säger ±0 år: ${got.sub}`);
+      }
+      if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
+    } finally {
+      await tp.close();
+    }
+    return 'märket, intervallraden och panelen räknar lika (1914–1918 och 1900–i dag), utan "±0 år"';
   });
   // #885: läraren får en väg till elev- och lärarbladen i lektionsläget (r=lararen i länken eller Starta som lektion i
   // Turer-menyn); eleven i den vanliga lektionslänken ser ingen utskriftsknapp. Utskriften rör inte steget.
