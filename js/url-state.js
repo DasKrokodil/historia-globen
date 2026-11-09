@@ -42,6 +42,7 @@ const clampYear = year => Math.max(MIN_YEAR, Math.min(MAX_YEAR, year));
 export function encodeHash(json, allCategories = [], tour = null, mission = null, mode = null) {
   const parts = [`y=${num(json.year)}`];
   if (json.yearEnd != null) parts.push(`y2=${num(json.yearEnd)}`);
+  if (json.yearEnd != null && json.period && ID.test(json.period)) parts.push(`p=${json.period}`); // epoken som valdes (#980); äldre länkar saknar den
   if (json.camera) parts.push(`c=${[json.camera.lat, json.camera.lon, json.camera.zoom].map(num).join(',')}`);
   if (json.focus) parts.push(`f=${json.focus}`);
   parts.push(`l=${(json.layers ?? []).join(',')}`);
@@ -104,7 +105,7 @@ export function decodeHash(hash) {
   const layers = list('l'), filters = list('k');
   const y2 = params.get('y2') != null && params.get('y2').trim() !== '' ? Number(params.get('y2')) : null;
   const doc = { v: STATE_VERSION, year: clampYear(year), camera, focus: params.get('f') || null, layers: layers ?? [], filters: filters ?? [], calm: false };
-  if (Number.isFinite(y2)) doc.yearEnd = clampYear(Math.round(y2)); // fromJSON jämför efter klippningen: ett tomt intervall blir ett år
+  if (Number.isFinite(y2)) { doc.yearEnd = clampYear(Math.round(y2)); if (params.get('p')) doc.period = params.get('p'); } // fromJSON jämför efter klippningen: ett tomt intervall blir ett år
   let state;
   try { state = fromJSON(doc); } catch {
     // Ett trasigt fält (till exempel ett okänt fokus) tas bort; året och resten gäller ändå
@@ -122,7 +123,7 @@ export function decodeHash(hash) {
 export function isNewStep(prev, next, { playing = false } = {}) {
   if (!prev) return false;
   if (prev.focus !== next.focus) return true;
-  if ((prev.yearEnd ?? null) !== (next.yearEnd ?? null)) return true;
+  if ((prev.yearEnd ?? null) !== (next.yearEnd ?? null) || (prev.period ?? null) !== (next.period ?? null)) return true;
   if (prev.layers.join() !== next.layers.join() || prev.filters.join() !== next.filters.join()) return true;
   return !playing && Math.abs(prev.year - next.year) >= 1;
 }

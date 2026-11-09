@@ -253,7 +253,7 @@ export function createStore(state = createState()) {
     },
     /** Tidsintervallet (#755): { from, to } med from < to, eller null för ett enskilt år. */
     setRange(range) {
-      state.range = range ? { from: Math.min(range.from, range.to), to: Math.max(range.from, range.to) } : null;
+      state.range = range ? { from: Math.min(range.from, range.to), to: Math.max(range.from, range.to), ...(typeof range.period === 'string' && range.period ? { period: range.period } : {}) } : null;
       notify('range');
     },
   };
@@ -274,7 +274,7 @@ export function toJSON(state, camera = null) {
     layers: Object.keys(state.layers).filter(k => state.layers[k]).sort(),
     filters: [...state.filters].sort(),
     calm: !!state.calm,
-    ...(state.range ? { yearEnd: Math.round(state.range.to) } : {}),
+    ...(state.range ? { yearEnd: Math.round(state.range.to), ...(state.range.period ? { period: state.range.period } : {}) } : {}),
   };
 }
 
@@ -309,5 +309,7 @@ export function fromJSON(value) {
   // Slutåret (#755) är valfritt: saknas det, är det inget tal eller inte efter året, öppnas tillståndet som ett år
   const yearEnd = typeof doc.yearEnd === 'number' && Number.isFinite(doc.yearEnd) && Math.round(doc.yearEnd) > doc.year ? Math.round(doc.yearEnd) : null;
   return { v: STATE_VERSION, year: doc.year, camera, focus, layers: words(doc.layers, 'Lagren'), filters: words(doc.filters, 'Kategorierna'), calm: !!doc.calm,
-    ...(yearEnd != null ? { yearEnd } : {}) };
+    ...(yearEnd != null ? { yearEnd } : {}),
+    // Epokens id (#980) hör till intervallet och är bara en etikett; visningen kontrollerar att åren stämmer
+    ...(yearEnd != null && typeof doc.period === 'string' && /^[a-z0-9-]+$/.test(doc.period) ? { period: doc.period } : {}) };
 }

@@ -3775,7 +3775,7 @@ async function run(browser, vp) {
       await tp.keyboard.press('Enter');
       await tp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
       if (await text('#year-big') !== '1500–1800') throw new Error(`epoken gav ${await text('#year-big')}`);
-      if (!(await text('#range-bar-text')).startsWith('1500–1800 · ')) throw new Error(`raden visar ${await text('#range-bar-text')}`);
+      if (!(await text('#range-bar-text')).startsWith('Norden, cirka 1500–1800 · ')) throw new Error(`raden visar ${await text('#range-bar-text')}`);
       await hashHas(/y=1500&y2=1800/);
       if (await tp.evaluate(() => document.activeElement?.id) !== 'range-exit') throw new Error('fokus hamnade inte på Tillbaka till ett år');
       if (await tp.evaluate(() => !document.getElementById('range-pop').hidden)) throw new Error('formuläret stod kvar öppet');
@@ -3792,6 +3792,15 @@ async function run(browser, vp) {
       await tp.click('[data-period="nordisk-stenalder"]');
       await tp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
       await hashHas(/y=-2999&y2=-1699/);
+      // #980: epoken syns i intervallraden och följer med i länken; en länk med andra år visar ingen epok
+      await hashHas(/p=nordisk-stenalder/);
+      const epochBar = await text('#range-bar-text');
+      if (!/^[^\d]+ · 3000–1700 f\.Kr\. · \d+ händelse/.test(epochBar)) throw new Error(`intervallraden visar inte epoken: ${epochBar}`);
+      await tp.evaluate(() => { location.hash = '#y=-2999&y2=-1599&p=nordisk-stenalder'; });
+      await tp.waitForFunction(() => /1600 f\.Kr\./.test(document.getElementById('range-bar-text')?.textContent ?? ''), null, { timeout: T.step });
+      if (/^[^\d]+ · /.test(await text('#range-bar-text'))) throw new Error('en epok visas fast åren inte är epokens');
+      await tp.evaluate(() => { location.hash = '#y=-2999&y2=-1699&p=nordisk-stenalder'; });
+      await tp.waitForFunction(() => /1700 f\.Kr\./.test(document.getElementById('range-bar-text')?.textContent ?? ''), null, { timeout: T.step });
       await tp.click('#range-exit');
       // Under en tur erbjuds inte intervallet eller dess epokknappar
       await tp.evaluate(() => { location.hash = '#t=tre-platser-1325'; });
