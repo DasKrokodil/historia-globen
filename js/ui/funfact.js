@@ -104,13 +104,28 @@ export class FunFacts {
     // Kortets källor räknas fram i main.js (händelsernas källor laddas först när de behövs, #337)
     this.srcBtn.addEventListener('click', () => { const f = this.active[this.index]; if (f) this.onSources(f); });
     this.surprise?.addEventListener('click', () => {
-      const picked = pickBalancedFunFact(this.all, this.byId, this.surpriseCounts, this.surpriseStep++, this.surpriseRecent);
+      const picked = this.nextSurprise;
       if (!picked) return;
+      this.surpriseCounts.set(picked.region, (this.surpriseCounts.get(picked.region) ?? 0) + 1);
+      this.surpriseStep++;
       this.surpriseRecent.push(picked.fact.id);
       if (this.surpriseRecent.length > 5) this.surpriseRecent.shift();
       this.requestedId = picked.fact.id;
+      this._prepareSurprise();
       this.onSurprise(picked.fact, picked.region);
     });
+    this._prepareSurprise();
+  }
+
+  /** Förhandsvalet förbrukar varken regionbalans, steg eller listan över senast visade kort (#997). */
+  _prepareSurprise() {
+    this.nextSurprise = pickBalancedFunFact(this.all, this.byId, new Map(this.surpriseCounts), this.surpriseStep, this.surpriseRecent);
+    if (!this.surprise) return;
+    const fact = this.nextSurprise?.fact;
+    this.surprise.disabled = !fact;
+    this.surprise.textContent = fact ? ui('ff.surpriseTarget', { year: formatYear(fact.show[0]) }) : ui('ff.surprise');
+    if (fact) this.surprise.dataset.year = String(fact.show[0]);
+    else delete this.surprise.dataset.year;
   }
 
   /** themeIds: händelserna i temat man följer (#398), eller null. Då visas bara kort vars händelser alla ingår i temat. */

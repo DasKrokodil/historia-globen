@@ -594,5 +594,8 @@
   "how.tour": "Tour: {title}",
   "time.year1": "1 n. Chr.",
   "tip.year": "Hier ziehen, um das Jahr zu wechseln",
-  "tip.yearClose": "Hinweis schließen"
+  "tip.yearClose": "Hinweis schließen",
+  "ff.surpriseTarget": "Wussten Sie? → {year}",
+  "jumpBack.from": "Aus dem Jahr {year}",
+  "jumpBack.back": "Zurück"
 }

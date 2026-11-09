@@ -227,7 +227,7 @@
   "ff.minLabel": "Plegar la tarjeta Al mismo tiempo",
   "ff.min": "Plegar",
   "common.next": "Siguiente",
-  "ff.surprise": "¿Sabías que…?",
+  "ff.surprise": "¿Sabía que…?",
   "ff.show": "Mostrar la tarjeta Al mismo tiempo",
   "tour.close": "Terminar el recorrido",
   "focus.play": "▶ Reproducir",
@@ -594,5 +594,8 @@
   "how.tour": "Recorrido: {title}",
   "time.year1": "1 d. C.",
   "tip.year": "Arrastra aquí para cambiar de año",
-  "tip.yearClose": "Cerrar el consejo"
+  "tip.yearClose": "Cerrar el consejo",
+  "ff.surpriseTarget": "¿Sabía que…? → {year}",
+  "jumpBack.from": "Desde {year}",
+  "jumpBack.back": "Volver"
 }
