@@ -17,6 +17,7 @@
 | **Tema** | Ett namngivet urval av befintliga händelser (`data/teman.json`) med en introduktion; följs som ett Fokus av typen `theme`. Motorn finns, inget tema än. |
 | **Plats (fliken)** | "Vad hände här?" i Sök och följ: händelser inom 300 km från en plats ur datan, äldst först. |
 | **Fokusläge** | Läget där ett krig, rike eller en religion följs. Övriga lager dämpas, och uppspelningen pausar vid viktiga händelser. |
+| **Förval** | En namngiven kombination av lager, överst i Lager-menyn. Förvalet **Händelser och riken** visar Händelser, Samtidigt-kortet och Riken; inga resor. De synliga namnen är översatta, men förvalens interna id:n och lagerval är oförändrade (#1001). |
 | **Lager** | Menyn där man väljer vad som syns (händelser, riken, religioner, vägar m.m.), kategorier och inställningar. |
 | **Faktaruta** | Rutan som visar en händelse, ett rike eller en religion med text, bild, källor, osäkerhet och granskningsnivå. |
 | **Tur** | En guidad berättelse som spelas steg för steg ur `data/turer/`. |

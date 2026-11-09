@@ -1,6 +1,6 @@
 {
   "about": "Grupperna och de förinställda vyerna i Lager (#357, #380). Varje lager anger sin grupp i lagerregistret (fältet group). En vy slår på lagren i layers och slår av de andra lagren i grupper som inte är inställningar. Stämmer valen inte med någon vy visas custom. De enskilda valen ligger bakom customize. En vy med tag (#555) visar bara händelser med den taggen (fältet tags i händelsen); texterna för taggen står i tags.",
-  "title": { "sv": "Vy", "en": "View", "de": "Ansicht", "es": "Vista", "fr": "Vue" },
+  "title": { "sv": "Förval", "en": "Presets", "de": "Voreinstellungen", "es": "Preajustes", "fr": "Préréglages" },
   "custom": { "sv": "Anpassad", "en": "Custom", "de": "Angepasst", "es": "Personalizada", "fr": "Personnalisée" },
   "customize": { "sv": "Anpassa själv", "en": "Customize", "de": "Selbst anpassen", "es": "Personalizar", "fr": "Personnaliser" },
   "menu": {
@@ -133,7 +133,7 @@
   "views": [
     { "id": "standard", "name": { "sv": "Standard", "en": "Default", "de": "Standard", "es": "Estándar", "fr": "Standard" }, "layers": ["events", "funfacts", "areas", "routes", "wars"] },
     { "id": "bara-kartan", "name": { "sv": "Bara kartan", "en": "Map only", "de": "Nur die Karte", "es": "Solo el mapa", "fr": "Carte seule" }, "layers": [] },
-    { "id": "utforska", "name": { "sv": "Utforska", "en": "Explore", "de": "Entdecken", "es": "Explorar", "fr": "Explorer" }, "layers": ["events", "funfacts", "areas"] },
+    { "id": "utforska", "name": { "sv": "Händelser och riken", "en": "Events and empires", "de": "Ereignisse und Reiche", "es": "Acontecimientos e imperios", "fr": "Événements et empires" }, "layers": ["events", "funfacts", "areas"] },
     { "id": "makt", "name": { "sv": "Makt och gränser", "en": "Power and borders", "de": "Macht und Grenzen", "es": "Poder y fronteras", "fr": "Pouvoir et frontières" }, "layers": ["events", "areas", "religions", "borders", "wars"] },
     { "id": "resor", "name": { "sv": "Resor och handel", "en": "Journeys and trade", "de": "Reisen und Handel", "es": "Viajes y comercio", "fr": "Voyages et commerce" }, "layers": ["events", "routes"] },
     { "id": "framsteg", "name": { "sv": "Framsteg", "en": "Progress", "de": "Fortschritt", "es": "Progreso", "fr": "Progrès" }, "layers": ["events"], "tag": "framsteg" }
