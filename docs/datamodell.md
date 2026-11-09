@@ -20,7 +20,7 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 - `funfacts.json` – fun facts kopplade till händelser.
 - `missuppfattningar.json` (#838) – vanliga historiska missuppfattningar.
 - `perioder.json` (#845, #476) – epoker och perioder, som indelningar med årtal och källa; indelningarna `lgr22`, `norden-forntid`, `antiken` och `industrialiseringen`.
-- `teman.json` (#398) – teman som namngivna urval av befintliga händelser; fastställt format, filen skapas i bygget.
+- `teman.json` (#398) – teman som namngivna urval av befintliga händelser; filen finns sedan bygget (#962), tom tills första temat (teknik, #105) skrivs.
 - `sources.json` – källregistret.
 - `empires/` – riken: registret, faktarutor och rikenas fält.
 - `routes/` (#38) – vägar och resor med etapper.
@@ -161,7 +161,7 @@ Namngivna epoker som data, så att tidsålderstext, bildstilar och snabbknappar 
 
 ## `teman.json`: teman (#398)
 
-**Fastställt format (#950, beslut [2026-11-08-temaformat-398.md](beslut/2026-11-08-temaformat-398.md), frågorna 1–4 på #398 besvarade av DasKrokodil 2026-11-08); filen finns inte än.** Bygget (del 2) skapar filen, schemat `schemas/teman.schema.json`, kontrollen i `scripts/validate-site.py` och temat i Fokus. Ett tema är ett **namngivet urval av befintliga händelser** med en introduktion, till exempel teknik (#105). Temat lägger inte till några fakta: allt historiskt innehåll ligger kvar i händelserna och deras källor.
+**Fastställt format (#950, beslut [2026-11-08-temaformat-398.md](beslut/2026-11-08-temaformat-398.md), frågorna 1–4 på #398 besvarade av DasKrokodil 2026-11-08), byggt i #962:** filen `data/teman.json` (tom lista), schemat `schemas/teman.schema.json`, kontrollen i `scripts/validate-site.py` och temat i Fokus. Ett tema är ett **namngivet urval av befintliga händelser** med en introduktion, till exempel teknik (#105). Temat lägger inte till några fakta: allt historiskt innehåll ligger kvar i händelserna och deras källor.
 
 ### Exempel
 
@@ -209,7 +209,7 @@ Exemplet nedan är en **platshållare**: introduktionen är inte skriven och tem
 | `review` | ja | `draft`, `source-checked` eller `two-sources`, som för händelser. Ett tema med `draft` visas inte. Översättningarna följer reglerna i CLAUDE.md (översätt samtidigt) och räknas av `tools/oversattning.py` |
 | `placeholder` | nej | `true` för ett tema vars texter inte är skrivna. Ett sådant tema måste vara `draft`, och `scripts/validate-site.py` stoppar det i den publicerade filen |
 
-### Regler (kontrolleras av `scripts/validate-site.py` i del 2)
+### Regler (kontrolleras av `scripts/validate-site.py`, schemat i `schemas/teman.schema.json`)
 
 - Varje id i `events` finns i `data/events.json`. En händelse som är `draft` räknas inte: temat visar bara händelser som syns, och minst 5 av dem ska synas.
 - Varje id i `view` finns i `data/vyer.json` och saknar `tag`.

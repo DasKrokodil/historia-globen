@@ -1063,6 +1063,56 @@ async function run(browser, vp) {
     return `arket slutar vid ${r.detailBottom} px, fokusraden börjar vid ${r.barTop} px${r.moved ? ' (med raden Tiden flyttades)' : ''}`;
   });
 
+  // Teman (#398): ett testtema ersätter data/teman.json via route, så inget riktigt tema behövs. Egen sida, eftersom
+  // temana laddas en gång per sidladdning.
+  await check('ett tema väljs i Fokus och via länk, visar bara sina händelser och lämnar kategorivalet (#398)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    const ids = ['sintashta-stridsvagnar', 'fyren-pa-faros', 'dujiangyan', 'cai-lun-papper', 'zhang-hengs-seismoskop'];
+    const tx = v => ({ sv: v, en: v, de: v, es: v, fr: v });
+    const doc = { schema: 'historia-globen/teman@1', themes: [{ id: 'testtema', name: tx('Testtema'), intro: tx('Ett urval för testet.'), events: ids, sources: [], review: 'source-checked' }] };
+    try {
+      await tp.route('**/data/teman.json*', r => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(doc) }));
+      const listed = () => tp.evaluate(() => [...document.querySelectorAll('#event-list .event-btn')].map(b => b.dataset.id));
+      // 1. Länken #f=theme:<id> startar temat; bara temats händelser syns
+      await tp.goto(`${BASE}?ny=tema1#y=120&f=theme:testtema`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Testtema/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
+      await tp.waitForSelector('#detail', { state: 'visible', timeout: T.step });
+      if (!/Ett urval för testet/.test(await tp.textContent('#detail'))) throw new Error('introduktionskortet visar inte temats text');
+      const inside = await listed();
+      if (!inside.length) throw new Error('inga händelser i listan inom temats spann');
+      if (inside.some(id => !ids.includes(id))) throw new Error(`listan visar händelser utanför temat: ${inside.filter(id => !ids.includes(id)).join(', ')}`);
+      // 2. En avstängd kategori döljer inte temats händelser, och kategorivalet ändras inte
+      const chip = tp.locator('#panel-filters [data-cat="vetenskap"]');
+      await chip.evaluate(el => el.click());
+      if (await chip.getAttribute('aria-pressed') !== 'false') throw new Error('kategorin gick inte att stänga av');
+      const still = await listed();
+      if (!still.length || still.some(id => !ids.includes(id))) throw new Error('en avstängd kategori ska inte ändra temats urval');
+      // 3. Avsluta: alla händelser syns igen (kategorin är fortfarande avstängd, så vi slår på den igen)
+      await tp.click('#focus-exit');
+      await tp.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+      await chip.evaluate(el => el.click());
+      await tp.waitForFunction(ids => [...document.querySelectorAll('#event-list .event-btn')].some(b => !ids.includes(b.dataset.id)), ids, { timeout: T.step });
+      // 4. Fokusmenyn: fliken Teman listar temat med antal händelser, och raden startar temat
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#btn-more')) await tp.click('#btn-more');
+      await tp.click('#btn-focus');
+      await tp.click('#focus-menu [data-tab="Teman"]');
+      const row = tp.locator('#focus-menu [data-key="theme:testtema"]');
+      await row.waitFor({ state: 'visible', timeout: T.step });
+      if (!/5 händelser/.test(await row.textContent())) throw new Error(`raden saknar antalet händelser: ${await row.textContent()}`);
+      await row.click();
+      await tp.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Testtema/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
+      if (new URL(tp.url()).hash.indexOf('f=theme:testtema') < 0) await tp.waitForFunction(() => location.hash.includes('f=theme:testtema'), null, { timeout: T.step });
+      // 5. Ett okänt tema i länken ger det vanliga startläget
+      await tp.goto(`${BASE}?ny=tema2#y=120&f=theme:finns-inte`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (!(await tp.isHidden('#focus-bar'))) throw new Error('ett okänt tema ska inte starta Fokus');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return 'länk, urval, avstängd kategori, Fokusmenyn och okänt id';
+    } finally { await tctx.close(); }
+  });
+
   // #706: i mobil hamnade Samtidigt-kortets knapprad (Källor, Nästa) under kortets nederkant, bakom tidslinjen.
   // I halvöppet läge ska Källor och Nästa ligga helt inne i kortets synliga yta, och kortet ska sluta ovanför
   // uppspelningsraden, i 400 × 800 och i den lägre 360 × 640.

@@ -27,7 +27,7 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 - Tangentbord och skärmläsare (#139) – Tab, Enter och tangenter på globen.
 - Mobilen (#361) – layouten i smal skärm.
 - Pekskärmar och zoom (#191) – webbläsarens zoom avstängd, globens egen zoom.
-- Fokusläget – följa ett krig, ett rike eller en religion, och dämpning av andra lager.
+- Fokusläget – följa ett krig, ett rike, en religion, en resa eller ett tema, och dämpning av andra lager.
 - Faktarutan om en religion (#90) – när och hur religionens ruta visas.
 - Faktarutan om ett rike (#170) – samma ruta för riken.
 - Rikets berättelse (#171) – nyckelår som kort under uppspelningen.
@@ -229,7 +229,7 @@ Vyn står i adressen efter `#`, så att en kopierad länk öppnar samma vy och B
 |---|---|
 | `y` | Året, astronomisk årsräkning; decimaltal i fokusläget för korta krig (#204). Det enda som krävs |
 | `c` | Kameran: `lat,lon,zoom`, rättas inom jordens gränser och zoom 0,8–3,2 |
-| `f` | Det man följer i Fokus: `war`, `empire`, `religion` eller `route`, kolon och id |
+| `f` | Det man följer i Fokus: `war`, `empire`, `religion`, `route` eller `theme` (#398), kolon och id |
 | `l` | Lagren som är på (id i lagerregistret); `l=` betyder inga lager, saknas `l` behålls sidans val |
 | `k` | Kategorierna som syns; saknas `k` syns alla, så att länken visar en ny kategori när den kommer till |
 | `t` | En guidad tur som pågår (tur-id i `data/turer/`, #736). En länk med `t` startar turen; `#t=<id>` räcker |
@@ -337,9 +337,9 @@ Startsidan har en beskrivande titel, metabeskrivning, canonical-adress och motsv
 
 ## Fokusläget
 
-Fokus-knappen följer ett krig, ett rike, en religion eller en resa. Tidslinjen visar bara det spannet, globen riktas mot platsen och uppspelningen går långsamt.
+Fokus-knappen följer ett krig, ett rike, en religion, en resa eller ett tema (#398). Tidslinjen visar bara det spannet, globen riktas mot platsen och uppspelningen går långsamt.
 
-**Fokusmenyns flikar (#543).** Varje flik visar bara sin egen grupp: Krig, Riken, Försvunna länder, Religioner eller Resor. På en vald flik visas hela gruppen, så antalet i rubriken motsvarar raderna som visas. Fliken Alla är i stället en hopfällbar översikt; varje grupprubrik räknar alla poster i gruppen och Visa alla öppnar resten. Det finns inga relaterade händelser under Religioner eller de andra enskilda flikarna.
+**Fokusmenyns flikar (#543).** Varje flik visar bara sin egen grupp: Krig, Riken, Försvunna länder, Religioner, Resor eller Teman. På en vald flik visas hela gruppen, så antalet i rubriken motsvarar raderna som visas. Fliken Alla är i stället en hopfällbar översikt; varje grupprubrik räknar alla poster i gruppen och Visa alla öppnar resten. Det finns inga relaterade händelser under Religioner eller de andra enskilda flikarna.
 
 - **Krig:** ett kort med orsak och parter före start, paus vid krigets stora händelser (valbart) och ett kort med utgång och döda i slutet.
 - **Det viktigaste att ta med sig (#500):** har kriget `story.takeaways` visar slutkortet (`Panel.showStory`, läget `summary`) en ruta under dödssiffrorna med punkterna under tre rubriker efter `status` (`takeawaysHtml()` i `js/ui/panel.js`), och varje punkt har sin egen källrad. Krig utan fältet får samma slutkort som förut. `scripts/validate-site.py` kontrollerar att varje punkt har källor som finns.
@@ -347,11 +347,12 @@ Fokus-knappen följer ett krig, ett rike, en religion eller en resa. Tidslinjen 
 - **Korta krig (#204):** ett krig som ryms inom två år (`end − start ≤ 2`) och har datum med dag i `edtf` följs dag för dag. Fokusspannet går från krigets första dag till slutet av dess sista dag, och året är då ett decimaltal som avrundas till hela dagar (`Timeline` med `focus.fine`). `edtfSpan()` i `model.js` gör om `edtf` till [början, slut] i decimalår (en dag täcker hela dygnet, `~` och `?` ignoreras, och går `edtf` inte att läsa blir det hela år). Huvudet visar datumet stort ("22 jan") och året bredvid (i smal skärm mindre, med luft ned till fokusraden och skugga så att raden syns mot landet, #289), skalan visar månader (året vid den första och vid januari), prickarna hamnar på slagens datum, stegknapparna och piltangenterna går i dagar och farten anges i dagar per sekund (hela kriget på cirka en minut vid standardnivån). Händelser och krigsområdet använder datumen (`span` i `EventsLayer.update` och `WarsLayer.update`), medan riken, religioner och Samtidigt-korten får det hela året som förut. Uppspelningen pausar vid händelser med `major`, också den som inleder kriget på första dagen, och tiden stannar på händelsens dag. Slagens etiketter har datum framför namnet. Utanför fokusläget, och för längre krig, är året ett heltal som förut.
 - **Resa (#376):** en `voyage` kan följas i Fokus. Resan är ensam i linjelagret, och pausar (valbart under Lager) bara vid platser med `stop: true`. Pausrutan bygger av platsens redan lagrade namn och datum samt resans namn; en befintlig `note` på resan syns där också. Dagtakt används bara när hela resans `edtf` har dagdatum, som Columbus första resa. För Zheng Hes första resa används årsvis skala: etappernas decimalår är inte belagda som dagar.
 - **Rike:** bara rikets områden syns, och globen riktas mot riket när det var som störst. Har riket en faktaruta (`facts`) visas den när man börjar följa det. Rikets nyckelår visas som kort och pausar uppspelningen (valbart), se Rikets berättelse nedan.
+- **Tema (#398):** ett namngivet urval av befintliga händelser (`data/teman.json`, format i docs/datamodell.md). Ett tema är fokus av typen `theme` (`FOCUS_TYPES` i `js/state.js`) och inget eget läge, så läget är `fokus` och `MODE_RULES` är oförändrad. `startFocus('theme:<id>')` laddar temana (`loadThemes()` i `model.js`, bara teman som inte är draft), tar de händelser som syns och sätter fokusets spann från den tidigaste till den senaste, inom `MIN_YEAR`/`MAX_YEAR`; globen zoomar ut och vrids mot den tidigaste. Urvalet ligger i `state.focus.eventIds`: händelselagret (`themeOf()` i `layers/events.js`: lagret, markörerna och tidslinjens prickar), Samtidigt-listan (`panel.render` får bara de synliga) och Samtidigt-korten (`FunFacts.update`, kort vars händelser alla ingår) visar bara temats händelser. Kategorierna och vyns tagg gäller inte under temat, men `panel.filters` ändras aldrig och gäller igen när temat slutar. Har temat `view` slås den på med `LayerMenu.applyView` och lagren står kvar efteråt. Introduktionskortet (`Panel.showTheme`) visar texten och händelserna i tidsordning som knappar som öppnar faktarutan; en händelse före tidslinjens början märks. Okänt id i länken, eller ett tema utan synliga händelser, ger det vanliga startläget.
 - **Religion:** börjar vid religionens grundande, stannar vid grundhändelserna och visar sedan religionens spridning som statsreligion. Har religionen en faktaruta (`facts`) visas den först; det sker i `startFocus()` och hänger inte på att religionslagret slås på (#308).
 
 Året styr: ligger nuvarande år inom det man följer stannar tiden där (`startFocus` i `controllers/focus.js`). Annars flyttas den till starten, och en rad i fokusraden säger "Tiden flyttades till …" med knappen "Tillbaka till <året>", som lämnar fokus och går till det året (det ligger ju utanför spannet). Krigets berättelse och faktarutorna visas som förut.
 
-Har det man följer en faktaruta (riken och religioner med `facts`) finns knappen Fakta i fokusraden, som öppnar rutan igen.
+Har det man följer en faktaruta (riken och religioner med `facts`, och alltid ett tema med dess introduktionskort) finns knappen Fakta i fokusraden, som öppnar rutan igen.
 
 **En huvudåtgärd (#360):** fokusraden visar namnet, aktuellt år och om tiden spelar eller står still. Där finns en primär knapp för uppspelning: *Spela*, *Pausa*, *Fortsätt*, *Spela klart* efter ett visat krigsstopp eller *Spela igen* när fokusets slut är nått. Den vanliga spelknappen i tidsraden döljs medan Fokus är aktiv, så Fakta och Tillbaka är de enda sekundära åtgärderna. År- och statusdelen är inte en live-region, eftersom den uppdateras vid varje årsbyte under uppspelning; automatiska pauser meddelas i stället av den befintliga `#pause-note`.
 

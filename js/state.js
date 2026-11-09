@@ -73,7 +73,7 @@ export function snapshot(state) {
 
 /** Versionen av JSON-formatet. Höjs om fälten ändras på ett sätt som gamla länkar inte klarar. */
 export const STATE_VERSION = 1;
-const FOCUS_TYPES = ['war', 'empire', 'religion', 'route'];
+const FOCUS_TYPES = ['war', 'empire', 'religion', 'route', 'theme']; // theme (#398): ett tema är fokus, inget eget läge
 
 // ---------------------------------------------------------------------------------------------------------
 // Lägeskontraktet (#893, beslut docs/beslut/2026-11-08-lagen.md)

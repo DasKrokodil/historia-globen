@@ -2128,3 +2128,10 @@ details.used-by summary:hover { color: var(--parchment); }
      A4:s 1039 px, alltså på gränsen. Lite tätare listor ger marginal i båda; elevbladen är orörda */
   .print-teacher .print-curriculum > li, .print-teacher .print-questions-short > li { margin-bottom: 2.5pt; }
 }
+
+/* Temats introduktionskort (#398): händelserna som knappar i tidsordning */
+.theme-events { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.theme-event { all: unset; box-sizing: border-box; cursor: pointer; display: block; width: 100%; padding: 6px 4px; font-size: 13px; line-height: 1.4; border-radius: 4px; }
+.theme-event:hover, .theme-event:focus-visible { background: rgba(255, 255, 255, .08); outline: 1px solid var(--brass, #c9a24b); }
+.theme-event-year { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--card-dim); margin-right: 6px; }
+.theme-event-note { font-style: italic; color: var(--card-dim); }
