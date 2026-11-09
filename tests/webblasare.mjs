@@ -2032,9 +2032,9 @@ async function run(browser, vp) {
       if (await development.getAttribute('open') !== null || await sources.getAttribute('open') !== null) {
         throw new Error('rikets fördjupningsavsnitt ska vara stängda i mobilen');
       }
-      await development.locator('summary').click();
+      await development.locator(':scope > summary').click();
       if (await development.getAttribute('open') === null) throw new Error('Hur riket förändrades gick inte att öppna');
-      await sources.locator('summary').click();
+      await sources.locator(':scope > summary').click();
       if (await sources.getAttribute('open') === null) throw new Error('Källor och karta gick inte att öppna');
     }
     await shot('6-fokus-rike');
@@ -4266,6 +4266,47 @@ async function run(browser, vp) {
     const sub = (await page.textContent('#panel-sub')).trim();
     if (/\.\./.test(sub)) throw new Error(`Samtidigt-raden har två punkter: ${sub}`);
     return sub;
+  });
+
+  // #937: raden "Hur vet vi det här?" under källistan: hopfälld, fyra frågor, länk till turen
+  await check('faktarutan har raden "Hur vet vi det här?" med fyra svar och en länk till turen (#937)', async () => {
+    // Egen uppställning: öppnar Cheopspyramidens faktaruta, så att kontrollen inte beror på vad en tidigare kontroll lämnade kvar
+    if (await page.locator('#focus-bar').isVisible()) {
+      await page.click('#focus-exit');
+      await hidden('#focus-bar');
+    }
+    await setLayer('events', true);
+    await page.keyboard.press('Escape');
+    await hidden('#layer-menu');
+    await page.click('#year-jump');
+    await visible('#jump-input');
+    await page.fill('#jump-input', '2600 f.Kr.');
+    await page.press('#jump-input', 'Enter');
+    await hidden('#jump-pop');
+    if (await page.isHidden('#panel')) await page.click('#btn-panel');
+    await visible('#panel');
+    const pyramid = page.locator('#event-list .event-btn', { hasText: 'Cheopspyramiden' });
+    await pyramid.waitFor({ state: 'visible', timeout: T.step });
+    await pyramid.click();
+    const row = page.locator('#detail details.how-know');
+    await row.waitFor({ state: 'visible', timeout: T.step });
+    if (await row.evaluate(d => d.open)) throw new Error('raden är utfälld från början');
+    const summary = row.locator('summary');
+    const box = await summary.boundingBox();
+    if (!box || box.height < 43) throw new Error(`träffytan är ${box?.height} px hög, minst 44 px krävs`);
+    await summary.focus();
+    await page.keyboard.press('Enter');
+    if (!(await row.evaluate(d => d.open))) throw new Error('raden går inte att fälla ut med tangentbordet');
+    const answers = await row.locator('dd').allTextContents();
+    if ((await row.locator('dt').count()) !== 4 || answers.length !== 4) throw new Error(`raden har ${answers.length} svar, fyra väntades`);
+    if (answers.some(a => !a.trim() || /^(how|review)\./.test(a.trim()))) throw new Error(`ett svar är tomt eller en rå textnyckel: ${answers.join(' | ')}`);
+    if (!(await row.locator('dd a[href]').count())) throw new Error('svaret på "Vem säger det?" saknar länk till källan');
+    const tour = row.locator('[data-tour="hur-vet-vi-det-har"]');
+    await tour.click();
+    await visible('#tour-card');
+    await page.click('#tour-close');
+    await hidden('#tour-card');
+    return answers.join(' | ');
   });
 
   await check('ingen horisontell scroll efteråt', async () => {

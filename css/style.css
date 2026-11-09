@@ -643,6 +643,15 @@ body {
 .review-help li + li { margin-top: 3px; }
 .review-help b { font-weight: 600; }
 
+/* "Hur vet vi det här?" (#937): hopfälld rad under källistan */
+.how-know { margin: 8px 0 0; font: 400 12.5px/1.45 var(--f-body); color: var(--card-ink, var(--parchment)); }
+.how-know summary { display: flex; align-items: center; min-height: 44px; cursor: pointer; font-weight: 600; color: var(--card-accent, var(--brass)); }
+.how-know summary:focus-visible { outline: 2px solid var(--card-accent, var(--brass)); outline-offset: 2px; }
+.how-know dl { margin: 0; padding: 4px 10px; border-left: 2px solid var(--card-accent, var(--brass)); }
+.how-know dt { margin-top: 6px; font-weight: 600; }
+.how-know dd { margin: 0; color: var(--card-dim, var(--parchment-dim)); }
+.how-know .how-tour { min-height: 44px; }
+
 .link-btn {
   display: inline-flex; align-items: center; min-height: 24px;
   font: 500 12.5px/1 var(--f-body);
