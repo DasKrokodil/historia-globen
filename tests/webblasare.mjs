@@ -4255,6 +4255,24 @@ async function run(browser, vp) {
 
   // #937: raden "Hur vet vi det här?" under källistan: hopfälld, fyra frågor, länk till turen
   await check('faktarutan har raden "Hur vet vi det här?" med fyra svar och en länk till turen (#937)', async () => {
+    // Egen uppställning: öppnar Cheopspyramidens faktaruta, så att kontrollen inte beror på vad en tidigare kontroll lämnade kvar
+    if (await page.locator('#focus-bar').isVisible()) {
+      await page.click('#focus-exit');
+      await hidden('#focus-bar');
+    }
+    await setLayer('events', true);
+    await page.keyboard.press('Escape');
+    await hidden('#layer-menu');
+    await page.click('#year-jump');
+    await visible('#jump-input');
+    await page.fill('#jump-input', '2600 f.Kr.');
+    await page.press('#jump-input', 'Enter');
+    await hidden('#jump-pop');
+    if (await page.isHidden('#panel')) await page.click('#btn-panel');
+    await visible('#panel');
+    const pyramid = page.locator('#event-list .event-btn', { hasText: 'Cheopspyramiden' });
+    await pyramid.waitFor({ state: 'visible', timeout: T.step });
+    await pyramid.click();
     const row = page.locator('#detail details.how-know');
     await row.waitFor({ state: 'visible', timeout: T.step });
     if (await row.evaluate(d => d.open)) throw new Error('raden är utfälld från början');
