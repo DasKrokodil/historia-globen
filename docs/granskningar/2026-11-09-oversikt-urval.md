@@ -10,7 +10,7 @@
 4. **Händelser som är del av ett krig (`partOf`) får vara med** (fyra rader).
 5. **Issues skapas för det som saknas:** åtta issues, #1012–#1019 (se Saknas).
 
-Kvar att godkänna: själva listan med 123 rader (stryk eller byt rader) och att Lgr22 och Vital articles är de listor som urvalet bygger på.
+**Godkänt 2026-11-09** (DasKrokodil i pull request #1010): listan med 123 rader och att Lgr22 och Vital articles är de listor som urvalet bygger på. Listan kan uppdateras och ändras senare.
 
 ## Sammanfattning
 
@@ -383,7 +383,7 @@ Hela listan:
 
 ## Öppna frågor till DasKrokodil
 
-Besvarade 2026-11-09: perspektivet, antalet, Oceanien, händelser inom krig och saknas-listan (se överst). Kvar:
+Alla besvarade 2026-11-09: perspektivet, antalet, Oceanien, händelser inom krig, saknas-listan, listorna och de 123 raderna (se överst). Frågorna nedan står kvar som historik; punkt 3 gäller när vyn byggs.
 
 1. **Listorna.** Räcker Lgr22 och Vital articles nivå 3–4, eller ska en tredje lista (till exempel OpenStax *World History*) kontrolleras först i en session där den går att öppna?
 2. **Raderna.** Godkänner du de 123 raderna, eller vill du stryka eller byta några?
