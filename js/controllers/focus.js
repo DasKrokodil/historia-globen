@@ -259,7 +259,11 @@ export function createFocus(app) {
   // Nära = inom fyra gånger det tidslinjen visar runt året (vid 1325 cirka ±150 år)
   const syncMenuTime = () => {
     const year = Math.floor(timeline.year), r = Math.round(timeline.windowYears(year) * 4 / 10) * 10;
-    focusMenu.setTime({ year, from: year - r, to: year + r, label: ui('focus.window', { years: r, year: formatYear(year) }) });
+    const window = ui('focus.window', { years: r, year: formatYear(year) });
+    focusMenu.setTime({
+      year, from: year - r, to: year + r,
+      label: state.range ? `${window}. ${ui('focus.rangeYear')}` : window,
+    });
   };
   // Byts året medan menyn är öppen (stegknapparna, uppspelning, adressen) ritas raden och listan om för det nya året (#993)
   timeline.addEventListener('change', () => { if (!focusMenu.menu.hidden) syncMenuTime(); });

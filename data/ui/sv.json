@@ -71,6 +71,7 @@
   "focus.clearAll": "Rensa allt",
   "focus.nearFirst": "Det som pågår {window}, närmast först. Fönstret är bredare än det globen visar.",
   "focus.window": "inom ±{years} år från {year}",
+  "focus.rangeYear": "Listan följer året, inte tidsintervallet",
   "focus.noMatch": "Inget namn innehåller \"{query}\".",
   "focus.eventsHint": "Skriv i sökrutan för att hitta en händelse, till exempel Pompeji.",
   "place.placeholder": "Skriv en plats",

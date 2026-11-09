@@ -297,6 +297,7 @@
   "focus.clearAll": "Alles zurücksetzen",
   "focus.nearFirst": "Was {window} geschieht, das Nächste zuerst. Das Zeitfenster ist größer als das, was der Globus zeigt.",
   "focus.window": "innerhalb von ±{years} Jahren um {year}",
+  "focus.rangeYear": "Die Liste folgt dem Jahr, nicht dem Zeitraum",
   "focus.noMatch": "Kein Name enthält „{query}“.",
   "focus.eventsHint": "Geben Sie etwas in das Suchfeld ein, um ein Ereignis zu finden, zum Beispiel Pompeji.",
   "place.placeholder": "Geben Sie einen Ort ein",
