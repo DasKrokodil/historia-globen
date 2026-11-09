@@ -4253,6 +4253,21 @@ async function run(browser, vp) {
     return text;
   });
 
+  // #991: sidan motsäger inte sig själv: år 1 heter "1 e.Kr." (inte "0") och listan slutar inte med två punkter
+  await check('tidslinjen skriver 1 e.Kr. i stället för 0 och Samtidigt-raden får inte två punkter (#991)', async () => {
+    const ticks = await page.evaluate(() => [...document.querySelectorAll('#ticks .tick, .ticks .tick')].map(x => x.textContent.trim()));
+    if (ticks.includes('0')) throw new Error(`tidslinjen har en markering "0": ${ticks.join(', ')}`);
+    if (!ticks.includes('1 e.Kr.')) throw new Error(`tidslinjen saknar "1 e.Kr.": ${ticks.join(', ')}`);
+    await page.click('#year-jump');
+    await visible('#jump-input');
+    await page.fill('#jump-input', '2901 f.Kr.');
+    await page.press('#jump-input', 'Enter');
+    await hidden('#jump-pop');
+    const sub = (await page.textContent('#panel-sub')).trim();
+    if (/\.\./.test(sub)) throw new Error(`Samtidigt-raden har två punkter: ${sub}`);
+    return sub;
+  });
+
   // #937: raden "Hur vet vi det här?" under källistan: hopfälld, fyra frågor, länk till turen
   await check('faktarutan har raden "Hur vet vi det här?" med fyra svar och en länk till turen (#937)', async () => {
     // Egen uppställning: öppnar Cheopspyramidens faktaruta, så att kontrollen inte beror på vad en tidigare kontroll lämnade kvar
