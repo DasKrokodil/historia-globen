@@ -1028,8 +1028,10 @@ async function run(browser, vp) {
     if ((await layersOn()) !== 'areas,events') throw new Error(`stegets lager är ${await layersOn()} i stället för areas,events`);
     await page.click('#tour-next');
     if ((await progress()) !== 'Steg 2 av 3') throw new Error('Nästa gick inte till steg 2');
-    // Fortsätt i pausraden går också till nästa steg (tidslinjen äger året och pausar där)
-    await page.click('#pause-go');
+    // En framåtknapp och en avsluta-knapp (#999): pausraden har ingen Fortsätt eller Avsluta, och tidsradens steg- och spelknappar är avstängda
+    for (const sel of ['#pause-go']) if (await page.isVisible(sel)) throw new Error(`${sel} syns i en tur (dubblett av turkortet)`);
+    if (!(await page.isDisabled('#btn-play'))) throw new Error('spelknappen är inte avstängd medan turen styr tiden');
+    await page.click('#tour-next');
     await page.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('3 av 3'), null, { timeout: T.step });
     if ((await year()) !== '1325') throw new Error(`sista steget står på ${await year()} i stället för 1325`);
     if (await page.isVisible('#funfact')) throw new Error('Samtidigt-kortet syns ovanpå turens kort');
@@ -1038,7 +1040,7 @@ async function run(browser, vp) {
     await page.click('#tour-close');
     await hidden('#tour-card');
     if ((await layersOn()) !== before) throw new Error(`lagren återställdes inte: ${await layersOn()} i stället för ${before}`);
-    return 'tre steg med år, lager och paus; Nästa, Fortsätt, Föregående och Avsluta fungerar';
+    return 'tre steg med år, lager och paus; Nästa är enda framåtknappen; Föregående och Avsluta fungerar';
   });
 
   await check('krigets första kort startar berättelsen med kapitel och frågor (#247)', async () => {
