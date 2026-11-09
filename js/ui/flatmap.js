@@ -393,8 +393,9 @@ export class FlatMap {
     const badges = clusters.map(c => dotBox(c.x, c.y, 16));
     const named = singles.filter(it => labeled?.has(it.e.id));
     const seen = new Set();
-    const blocked = empireBlocks(this.obstacles, (lat, lon) => this._toScreen(lat, lon, this.w), 2 * s);
-    const placed = placeLabels(named, { W: this.w, H: this.h, hoverId, markers, badges, blocked, text: this.labelText, pxOf: e => pxOf.get(e.id) });
+    const soft = empireBlocks(this.obstacles, (lat, lon) => this._toScreen(lat, lon, this.w), 2 * s);
+    // Pågående krig får lägga sin etikett över rikesnamn när inget annat ryms (#1022), som på globen
+    const placed = placeLabels(named, { W: this.w, H: this.h, hoverId, markers, badges, soft, priority: it => it.e.kind === 'war' && it.u?.info?.when === 'now', text: this.labelText, pxOf: e => pxOf.get(e.id) });
     for (const { e, text, x, y } of placed) {
       let el = this._labelPool.get(e.id);
       if (!el) {

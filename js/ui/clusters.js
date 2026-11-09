@@ -57,6 +57,9 @@ export function clusterContents(members, CAT, t) {
   return { text, ring: `conic-gradient(${stops.join(', ')})` };
 }
 
+/** Hur många pågående krig som får lägga sin etikett över rikesnamn när det inte finns plats annars (#1022). */
+export const WAR_LABELS = 3;
+
 /** Ruta runt en markör eller klunga på skärmen. */
 export const dotBox = (x, y, r) => ({ x0: x - r, x1: x + r, y0: y - r, y1: y + r });
 const overlaps = (a, b) => a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b.y0;
@@ -68,10 +71,15 @@ const overlaps = (a, b) => a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b
  * Markören under muspekaren (hoverId) får alltid sin etikett. pxOf(e) är markörens storlek på skärmen.
  * Returnerar [{ e, p, text, x, y }] där (x, y) är etikettens nedre mittpunkt.
  */
-export function placeLabels(singles, { W, H, hoverId, markers, badges, blocked = [], text, pxOf }) {
+export function placeLabels(singles, { W, H, hoverId, markers, badges, blocked = [], soft = [], priority = () => false, text, pxOf }) {
   // blocked: rutor där etiketter inte får hamna, till exempel knappar över globen i smal skärm (#289)
+  // soft: rutor som etiketter viker för (rikesnamn och medaljer, #358), men som de pågående krigen får lägga sin etikett över om
+  // ingen annan plats finns (priority(singel), högst WAR_LABELS). Annars täckte rikesnamnen all plats över Europa 1914–1918 och
+  // 1939–1945, och det som pågick fick ingen etikett (#1022). De pågående krigen placeras först, de räknas i taket på 14.
   const placed = [...blocked], out = [];
-  for (const { e, p } of singles.slice(0, 14)) {
+  const urgent = new Set(singles.filter(priority).slice(0, WAR_LABELS));
+  for (const it of [...urgent, ...singles.filter(s => !urgent.has(s))].slice(0, 14)) {
+    const { e, p } = it;
     if ((p.facing ?? 1) < 0.2) continue;
     const label = text(e);
     const w = label.length * 6.6 + 30, h = 22;
@@ -79,15 +87,23 @@ export function placeLabels(singles, { W, H, hoverId, markers, badges, blocked =
     // Skjut etiketten inåt så att hela rutan syns
     const cx = Math.min(Math.max(p.x, w / 2 + 4), Math.max(w / 2 + 4, W - w / 2 - 4));
     const off = Math.max(14, (pxOf(e) ?? 0) / 2 + 3); // ovanför markören, som växer med zoomen (#242)
-    const free = box => box.y0 >= 4 && box.y1 <= H - 4 && (e.id === hoverId || !(placed.some(b => overlaps(box, b)) ||
-      badges.some(b => overlaps(box, b)) || markers.some(m => m.id !== e.id && overlaps(box, m.box))));
+    const free = (box, strict = true) => box.y0 >= 4 && box.y1 <= H - 4 && (e.id === hoverId || !(placed.some(b => overlaps(box, b)) ||
+      badges.some(b => overlaps(box, b)) || markers.some(m => m.id !== e.id && overlaps(box, m.box)) ||
+      (strict && soft.some(b => overlaps(box, b)))));
     // Ovanför markören, eller under den om platsen ovanför är upptagen (#358, till exempel av ett rikes namn)
     const above = { x0: cx - w / 2, x1: cx + w / 2, y0: p.y - off - h, y1: p.y - off };
     const below = { x0: cx - w / 2, x1: cx + w / 2, y0: p.y + off, y1: p.y + off + h };
-    const box = [above, below].find(free);
+    let box = [above, below].find(b => free(b));
+    if (!box && urgent.has(it)) {
+      // Ett pågående krig får lägga etiketten över rikesnamn, och sist bredvid markören eller en rad längre bort (#1022)
+      const side = dx => ({ x0: p.x + dx - (dx < 0 ? w : 0), x1: p.x + dx + (dx < 0 ? 0 : w), y0: p.y - h / 2, y1: p.y + h / 2 });
+      const inside = b => b.x0 >= 4 && b.x1 <= W - 4;
+      box = [above, below, side(-off), side(off), { ...above, y0: above.y0 - h - 2, y1: above.y1 - h - 2 }, { ...below, y0: below.y0 + h + 2, y1: below.y1 + h + 2 }]
+        .find(b => inside(b) && free(b, false));
+    }
     if (!box) continue;
     placed.push(box);
-    out.push({ e, p, text: label, x: cx, y: box.y1 + 2 });
+    out.push({ e, p, text: label, x: (box.x0 + box.x1) / 2, y: box.y1 + 2 });
   }
   return out;
 }
