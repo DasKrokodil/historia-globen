@@ -66,6 +66,8 @@ const ICON_PAUSE = 'M4 2.5h3v11H4zM9 2.5h3v11H9z';
 const ICON_AGAIN = 'M8 2.5V0L4.2 3.6 8 7.2V4.5a3.5 3.5 0 1 1-3.5 3.5h-2A5.5 5.5 0 1 0 8 2.5z';
 const fmtDays = r => { const n = fmtNum(r * DAYS_PER_YEAR); return `${n} ${dayUnit(n)}/s`; };
 
+const DENSITY_LIMIT = 80; // fler händelsemärken än så blir ett täthetsband i översikten (#1000)
+
 export class Timeline extends EventTarget {
   constructor({ track, thumb, segs, ticks, dots, ffMarks, chapters, warMarks, markNote, playBtn, playIcon, stepBtns, speedBtn, pauseNote, pauseText, pauseGo, status }) {
     super();
@@ -276,7 +278,8 @@ export class Timeline extends EventTarget {
 
   /** Märken från lagerregistret (#378): cirkel = händelse, romb = Samtidigt, streck = resa. */
   setMarks(marks = []) {
-    const key = marks.map(mark => [mark.type, mark.at, mark.until ?? '', mark.color ?? '', mark.label ?? ''].join('\u001f')).join('\u001e');
+    const band = !this.focus && !this.range && marks.filter(m => m.type === 'event').length > DENSITY_LIMIT;
+    const key = band + '\u001d' + marks.map(mark => [mark.type, mark.at, mark.until ?? '', mark.color ?? '', mark.label ?? ''].join('\u001f')).join('\u001e');
     if (key === this._marksKey) return;
     this._marksKey = key;
     this._marks = [marks];
@@ -287,7 +290,12 @@ export class Timeline extends EventTarget {
       this.markNote.textContent = mark.label;
       this.markNote.hidden = false;
     };
+    // Översikten (#1000): många händelser blir ett lugnt täthetsband i stället för hundratals knappar.
+    // Romberna (samband) ligger kvar; resornas streck döljs i bandet. Fokus, tur, tema, intervall och
+    // smala filter har färre märken och visar dem som förut.
+    if (band) this._drawDensity(marks.filter(m => m.type === 'event'));
     for (const mark of marks) {
+      if (band && (mark.type === 'event' || mark.type === 'route')) continue;
       const [s0, s1] = mark.until == null ? [mark.at, mark.at] : this.spanOf({ start: mark.at, end: mark.until, edtf: '' });
       if (this.focus && (s1 < this.focus.from || s0 > this.focus.to)) continue;
       const a = this.toPos(s0), b = this.focus?.fine && s1 - s0 <= 1.5 / DAYS_PER_YEAR ? a : this.toPos(s1);
@@ -308,6 +316,24 @@ export class Timeline extends EventTarget {
       d.addEventListener('click', e => { e.stopPropagation(); show(mark); });
       (mark.type === 'funfact' ? this.ffEl : this.dotsEl).append(d);
     }
+  }
+
+  /** Täthetsbandet (#1000): mörkare där det finns många händelser, räknat per del av tidslinjen. */
+  _drawDensity(events) {
+    const N = 120, bins = new Array(N).fill(0);
+    for (const m of events) {
+      const [s0, s1] = m.until == null ? [m.at, m.at] : this.spanOf({ start: m.at, end: m.until, edtf: '' });
+      const a = Math.min(N - 1, Math.max(0, Math.floor(this.toPos(s0) * N)));
+      const b = Math.min(N - 1, Math.max(a, Math.floor(this.toPos(s1) * N)));
+      for (let i = a; i <= Math.min(b, a + 3); i++) bins[i]++; // långa spann ger inte hela bandet
+    }
+    const max = Math.max(1, ...bins);
+    const stops = bins.map((n, i) => `rgba(201,162,75,${(n ? .15 + .75 * Math.sqrt(n / max) : 0).toFixed(2)}) ${(i / N * 100).toFixed(2)}% ${((i + 1) / N * 100).toFixed(2)}%`);
+    const d = document.createElement('div');
+    d.className = 'tdensity';
+    d.setAttribute('aria-hidden', 'true');
+    d.style.background = `linear-gradient(to right, ${stops.join(',')})`;
+    this.dotsEl.append(d);
   }
 
   /**
