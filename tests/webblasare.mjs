@@ -4214,6 +4214,8 @@ async function run(browser, vp) {
     await jumpTo(1916);
     await clickView('#btn-focus');
     await visible('#focus-menu');
+    // Tidigare kontroller kan ha lämnat sökord, flik eller sortering kvar; raden "Det som pågår" visas bara i grundläget
+    if (await page.locator('#focus-menu [data-clear]').count()) await page.click('#focus-menu [data-clear]');
     const note = () => page.locator('#focus-menu .layer-note.pad').first().textContent().then(s => s.replace(/\s+/g, ' '));
     if (!(await note()).includes('1916')) throw new Error(`raden nämner inte 1916: ${await note()}`);
     // Samma väg som tidslinjens stegknappar och adressen: året byts utan att menyn stängs
