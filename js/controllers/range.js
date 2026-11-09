@@ -181,11 +181,20 @@ export function createRange(app) {
     msg.textContent = '';
     $('jump-pop').hidden = true; $('year-jump').setAttribute('aria-expanded', 'false');
     pop.hidden = false;
+    fitPop();
     buildPresets();
     syncPresets();
     fromField.input.focus();
     fromField.input.select?.();
   }
+  /** Formuläret rullar, men får aldrig sluta under skärmens nederkant: knapparna "Visa intervallet" och "Avbryt" ligger längst ner (#973). */
+  function fitPop() {
+    if (pop.hidden) return;
+    pop.style.maxHeight = '';
+    const top = pop.getBoundingClientRect().top;
+    pop.style.maxHeight = `${Math.max(160, Math.floor(innerHeight - top - 12))}px`;
+  }
+  window.addEventListener('resize', fitPop);
   function closeForm(refocus = true) {
     if (pop.hidden) return;
     pop.hidden = true;

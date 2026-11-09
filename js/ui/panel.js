@@ -337,11 +337,14 @@ export class Panel {
       return;
     }
     const inside = visible.filter(v => v.inside).length;
-    const near = visible.length - inside;
+    // I intervallet finns inget "nära" (#974): märket räknar samma händelser som intervallraden, och de som bara pågår sedan länge
+    // ligger kvar i listan men räknas inte som "nära" med ±0 år.
+    const range = !!labels?.range;
+    const near = range ? 0 : visible.length - inside;
     const copy = key => t(this.copy[key]) || key;
     const summary = copy('summary');
     const summaryText = summary.replace('{count}', visible.length).replace('{inside}', inside).replace('{near}', near);
-    this.count.textContent = String(visible.length);
+    this.count.textContent = String(range ? inside : visible.length);
     this.toggle.setAttribute('aria-label', summaryText);
     // at = "år 1879" eller "den 3 maj 1940" (fokusläget för korta krig, #204); bare = samma tid utan "år"/"den"
     const at = labels?.at ?? ui('panel.atYear', { year: formatYear(year) }), bare = labels?.bare ?? formatYear(year);
@@ -349,7 +352,6 @@ export class Panel {
     const parts = [];
     parts.push(inside ? plural('panel.inside', inside, { at }) : ui('panel.noneAt', { at }));
     if (near) parts.push(ui('panel.near', { count: near, within }));
-    const range = !!labels?.range;
     const partialCount = range ? visible.filter(v => v.partial).length : 0;
     if (partialCount) parts.push(plural('range.partialCount', partialCount, { count: partialCount }));
     // I intervallet finns inget "nära": raden säger hur många som pågår under intervallet och hur många som sticker ut
