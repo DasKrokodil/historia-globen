@@ -38,6 +38,7 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 - År är alltid utan avgränsare: `1066`, `2999 a. C.`.
 - Året 0 finns inte i källorna för oss: använd samma visning som svenskan (se `model.js`).
 - Månader skrivs med liten bokstav på båda språken: `14 de julio de 1789`, `14 juillet 1789`.
+- **Datum i gränssnittet (#983):** `formatDate` och datum med dagprecision i `formatEventTime` följer språkets datumformat. Tyska har punkt efter dagen (`4. Juli 1776`), spanska har `de` före månad och år. Svenska och engelska behåller dag–månad–år (`4 juli 1776`, `4 July 1776`); franska följer exemplet ovan. `Intl.DateTimeFormat` ger ordningen och skiljetecknen (engelska med `en-GB`); månadsnamnen hämtas fortfarande ur språkfilen och årtalet följer modellens tideräkning. Inga datum i innehållet ändras.
 
 ## 3. Siffror och tecken
 
