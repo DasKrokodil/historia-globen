@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historia-globen: teman (#398)",
+  "type": "object",
+  "required": ["schema", "themes"],
+  "properties": {
+    "schema": { "type": "string", "pattern": "^historia-globen/teman@1$" },
+    "themes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "intro", "events", "sources", "review"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "name": { "$ref": "#/$defs/text" },
+          "intro": { "$ref": "#/$defs/text" },
+          "events": { "type": "array", "minItems": 5, "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
+          "view": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "sources": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
+          "review": { "enum": ["draft", "source-checked", "two-sources"] },
+          "placeholder": { "type": "boolean" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "text": {
+      "type": "object",
+      "required": ["sv", "en", "de", "es", "fr"],
+      "properties": {
+        "sv": { "type": "string", "pattern": ".+" }, "en": { "type": "string", "pattern": ".+" }, "de": { "type": "string", "pattern": ".+" },
+        "es": { "type": "string", "pattern": ".+" }, "fr": { "type": "string", "pattern": ".+" }
+      }
+    }
+  }
+}

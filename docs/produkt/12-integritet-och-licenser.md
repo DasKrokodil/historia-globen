@@ -60,7 +60,9 @@ Förslag på vad granskningen bör svara på; ordningen är min:
 
 ## Att kontrollera vid uppdatering (varje release)
 
-- [ ] Har en ny extern adress eller tjänst tillkommit (kontrollera `index.html` och CSP i `_headers`)?
-- [ ] Har förslagsformuläret slagits på i production? Uppdatera avsnitt 1.
+- [x] Har en ny extern adress eller tjänst tillkommit (kontrollera `index.html` och CSP i `_headers`)?
+- [x] Har förslagsformuläret slagits på i production? Uppdatera avsnitt 1.
 - [ ] Har en ny datakälla eller bildlicens tillkommit? Uppdatera avsnitt 3 och README:s licensavsnitt.
 - [ ] Har den juridiska läsningen gjorts? Skriv datum, vem och utfall här.
+
+**Genomgång inför v6.1.0 (2026-11-09):** läst. `_headers` är oförändrad sedan v6.0.0, och `index.html` har inga nya externa adresser (bara samma Google Fonts, Ko-fi och GitHub-länkar som förut). 6.1.0 hämtar bara nya filer från egen adress (`data/perioder.json`, `data/teman.json`). Formuläret är inte påslaget i production. Inga nya datakällor eller bildlicenser har lagts in som jag har sett. Jag har inte jämfört `localStorage`-nycklarna mot förra releasen. **Den juridiska läsningen (K-INT-07) är inte gjord** och bockas inte av.

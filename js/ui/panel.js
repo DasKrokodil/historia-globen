@@ -337,11 +337,14 @@ export class Panel {
       return;
     }
     const inside = visible.filter(v => v.inside).length;
-    const near = visible.length - inside;
+    // I intervallet finns inget "nära" (#974): märket räknar samma händelser som intervallraden, och de som bara pågår sedan länge
+    // ligger kvar i listan men räknas inte som "nära" med ±0 år.
+    const range = !!labels?.range;
+    const near = range ? 0 : visible.length - inside;
     const copy = key => t(this.copy[key]) || key;
     const summary = copy('summary');
     const summaryText = summary.replace('{count}', visible.length).replace('{inside}', inside).replace('{near}', near);
-    this.count.textContent = String(visible.length);
+    this.count.textContent = String(range ? inside : visible.length);
     this.toggle.setAttribute('aria-label', summaryText);
     // at = "år 1879" eller "den 3 maj 1940" (fokusläget för korta krig, #204); bare = samma tid utan "år"/"den"
     const at = labels?.at ?? ui('panel.atYear', { year: formatYear(year) }), bare = labels?.bare ?? formatYear(year);
@@ -349,7 +352,6 @@ export class Panel {
     const parts = [];
     parts.push(inside ? plural('panel.inside', inside, { at }) : ui('panel.noneAt', { at }));
     if (near) parts.push(ui('panel.near', { count: near, within }));
-    const range = !!labels?.range;
     const partialCount = range ? visible.filter(v => v.partial).length : 0;
     if (partialCount) parts.push(plural('range.partialCount', partialCount, { count: partialCount }));
     // I intervallet finns inget "nära": raden säger hur många som pågår under intervallet och hur många som sticker ut
@@ -481,6 +483,29 @@ export class Panel {
     this.bindLinks();
     this.bindReviewInfo(); // statusraden med (i) som i händelsens faktaruta (#608)
     this.detail.querySelector('[data-tour]')?.addEventListener('click', ev => this.onTour?.(ev.currentTarget.dataset.tour, ev.currentTarget));
+  }
+
+  /**
+   * Introduktionskortet för ett tema i Fokus (#398): vad temat samlar, och dess händelser i tidsordning som knappar
+   * som öppnar faktarutan. En händelse före tidslinjens början (#942) märks, eftersom reglaget inte når dit.
+   */
+  showTheme(theme, events) {
+    this.selectedId = null;
+    this.detail.className = `detail detail-card frame-${styleFor(events[0], this.styles).frame}`;
+    const srcs = (theme.sources ?? []).map(id => this.srcById[id]).filter(Boolean);
+    const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> ${esc(t(e.title))}${e.start < MIN_YEAR ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
+    this.detail.innerHTML = `
+      <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
+      <div class="story-label">${esc(ui('theme.label'))}</div>
+      <h3>${esc(t(theme.name))}</h3>
+      <div class="story"><p>${esc(t(theme.intro))}</p>
+      <h4>${esc(ui('theme.events', { count: events.length }))}</h4>
+      <ul class="theme-events">${items}</ul></div>
+      ${srcs.length ? srcLine(srcs, false) : ''}`;
+    this.detail.scrollTop = 0;
+    this.detail.hidden = false;
+    this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
+    for (const b of this.detail.querySelectorAll('[data-theme-event]')) b.addEventListener('click', () => this.onThemeEvent?.(b.dataset.themeEvent));
   }
 
   /** Knappen "Rapportera faktafel" skickar bara objektets typ och id till formuläret. */

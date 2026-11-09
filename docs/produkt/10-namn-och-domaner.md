@@ -73,3 +73,5 @@ Passivt, utan att söka upp någon (beslut 2026-11-08): återkommande trafik fr�
 
 - [ ] Syns något intresse utanför Sverige (statistik, mejl, förslag)?
 - [ ] Har en ny domän registrerats? Då ska den stå i DEPLOYMENT.md.
+
+**Genomgång inför v6.1.0 (2026-11-09):** läst. Läget "i dag" stämmer: `canonical` pekar på historiagloben.se och `?lang=` styr språket. Inget är beslutat eller kontrollerat om namn och domäner; planen är fortfarande ett förslag utan brådska.

@@ -39,6 +39,8 @@ Tre frågor som inte kan besvaras ur repot och som DasKrokodil behöver fylla i:
 
 ## Att kontrollera vid uppdatering (varje release)
 
-- [ ] Har en tjänst tillkommit eller tagits bort (nytt beroende kräver DasKrokodils ok)?
+- [x] Har en tjänst tillkommit eller tagits bort (nytt beroende kräver DasKrokodils ok)?
 - [ ] Har en leverantör ändrat villkor eller pris? Skriv datum och vad.
 - [ ] Är kolumnerna *Kostnad* och *Villkor kontrollerade* ifyllda, med datum?
+
+**Genomgång inför v6.1.0 (2026-11-09):** läst. Ingen tjänst har tillkommit eller tagits bort i 6.1.0 (jag jämförde `index.html` och `_headers`: inga nya externa adresser, `_headers` oförändrad). Kolumnerna *Kostnad* och *Villkor kontrollerade* är **fortfarande ofyllda** och ingen leverantörs villkor har öppnats; det kräver DasKrokodil eller en session som når sidorna.

@@ -112,13 +112,14 @@ export class FunFacts {
     });
   }
 
-  update(year, filters) {
+  /** themeIds: händelserna i temat man följer (#398), eller null. Då visas bara kort vars händelser alla ingår i temat. */
+  update(year, filters, themeIds = null) {
     // Rikets berättelse hör till fokusläget och visas även när Samtidigt-lagret är av, först i kortet
     const story = this.story.filter(f => year >= f.show[0] && year <= f.show[1] && isVisibleReview(f.review));
     const active = [...story, ...(!this.enabled ? [] : this.all.filter(f =>
       year >= f.show[0] && year <= f.show[1] &&
       isVisibleReview(f.review) &&
-      f.events.every(id => this.byId[id] && filters.has(this.byId[id].category)))
+      f.events.every(id => this.byId[id] && (themeIds ? themeIds.has(id) : filters.has(this.byId[id].category))))
       // Kort som jämför flera händelser (samtidighet) först, sedan det som började senast, så att det nya syns
       .sort((a, b) => (b.events.length > 1) - (a.events.length > 1) || b.show[0] - a.show[0]))];
     const key = active.map(f => f.id).join('|');

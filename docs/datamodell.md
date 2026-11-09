@@ -20,7 +20,7 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 - `funfacts.json` – fun facts kopplade till händelser.
 - `missuppfattningar.json` (#838) – vanliga historiska missuppfattningar.
 - `perioder.json` (#845, #476) – epoker och perioder, som indelningar med årtal och källa; indelningarna `lgr22`, `norden-forntid`, `antiken` och `industrialiseringen`.
-- `teman.json` (#398) – teman som namngivna urval av befintliga händelser; fastställt format, filen skapas i bygget.
+- `teman.json` (#398) – teman som namngivna urval av befintliga händelser; filen finns sedan bygget (#962), tom tills första temat (teknik, #105) skrivs.
 - `sources.json` – källregistret.
 - `empires/` – riken: registret, faktarutor och rikenas fält.
 - `routes/` (#38) – vägar och resor med etapper.
@@ -157,11 +157,11 @@ Namngivna epoker som data, så att tidsålderstext, bildstilar och snabbknappar 
 
 **`antiken` (Del 2b, första delen):** antiken som egen indelning med en period, cirka 800 f.Kr.–500 e.Kr. (`-799`/`500`, `-0799~/0500~`). Källor: svenska Wikipedia (som hänvisar till Nationalencyklopedin), engelska Wikipedia och Wikidata (CC0), öppnade 2026-11-08. Källorna är oense om slutet (cirka 300, 476, 500 eller 600), och det står i periodens `note`; nivån är `source-checked`, inte `two-sources`. Indelningen märks som ett europeiskt begrepp om Medelhavsvärlden.
 
-**`industrialiseringen` (Del 2b, andra delen):** industrialiseringen som egen indelning med en period, cirka 1760–1840 (`1760`/`1840`, `1760~/1840~`). Källa: engelska Wikipedia (Industrial Revolution, CC BY-SA 4.0), öppnad 2026-11-08, som anger cirka 1760–cirka 1840 och säger att början och slutet är omdiskuterade; det står i periodens `note`, och nivån är `source-checked`. Indelningen märks som främst europeisk och nordamerikansk (Lgr22 behandlar den för Europa och Sverige). **Högkulturer** läggs inte in än: tidslinjen börjar 3000 f.Kr., så Uruk-perioden (4000–3100 f.Kr.) ligger helt utanför och Egypten har bara ett startår (enandet cirka 3150 f.Kr.); bara Indusdalen (cirka 3300–1700 f.Kr.) skulle få en knapp. Revolutioner och kolonisation blir teman eller turer (#398), inte epoker.
+**`industrialiseringen` (Del 2b, andra delen):** den brittiska industriella revolutionen (id `industrialiseringen`; döpt om 2026-11-09, #978) som egen indelning med en period, cirka 1760–1840 (`1760`/`1840`, `1760~/1840~`). Källa: engelska Wikipedia (Industrial Revolution, CC BY-SA 4.0), öppnad 2026-11-08, som anger cirka 1760–cirka 1840 och säger att början och slutet är omdiskuterade; det står i periodens `note`, och nivån är `source-checked`. Indelningen märks som den brittiska revolutionen och inte Sveriges industrialisering, som Lgr22 tar upp senare (granskningen 2026-11-08, #978). **Högkulturer** läggs inte in än: tidslinjen börjar 3000 f.Kr., så Uruk-perioden (4000–3100 f.Kr.) ligger helt utanför och Egypten har bara ett startår (enandet cirka 3150 f.Kr.); bara Indusdalen (cirka 3300–1700 f.Kr.) skulle få en knapp. Revolutioner och kolonisation blir teman eller turer (#398), inte epoker.
 
 ## `teman.json`: teman (#398)
 
-**Fastställt format (#950, beslut [2026-11-08-temaformat-398.md](beslut/2026-11-08-temaformat-398.md), frågorna 1–4 på #398 besvarade av DasKrokodil 2026-11-08); filen finns inte än.** Bygget (del 2) skapar filen, schemat `schemas/teman.schema.json`, kontrollen i `scripts/validate-site.py` och temat i Fokus. Ett tema är ett **namngivet urval av befintliga händelser** med en introduktion, till exempel teknik (#105). Temat lägger inte till några fakta: allt historiskt innehåll ligger kvar i händelserna och deras källor.
+**Fastställt format (#950, beslut [2026-11-08-temaformat-398.md](beslut/2026-11-08-temaformat-398.md), frågorna 1–4 på #398 besvarade av DasKrokodil 2026-11-08), byggt i #962:** filen `data/teman.json` (tom lista), schemat `schemas/teman.schema.json`, kontrollen i `scripts/validate-site.py` och temat i Fokus. Ett tema är ett **namngivet urval av befintliga händelser** med en introduktion, till exempel teknik (#105). Temat lägger inte till några fakta: allt historiskt innehåll ligger kvar i händelserna och deras källor.
 
 ### Exempel
 
@@ -209,7 +209,7 @@ Exemplet nedan är en **platshållare**: introduktionen är inte skriven och tem
 | `review` | ja | `draft`, `source-checked` eller `two-sources`, som för händelser. Ett tema med `draft` visas inte. Översättningarna följer reglerna i CLAUDE.md (översätt samtidigt) och räknas av `tools/oversattning.py` |
 | `placeholder` | nej | `true` för ett tema vars texter inte är skrivna. Ett sådant tema måste vara `draft`, och `scripts/validate-site.py` stoppar det i den publicerade filen |
 
-### Regler (kontrolleras av `scripts/validate-site.py` i del 2)
+### Regler (kontrolleras av `scripts/validate-site.py`, schemat i `schemas/teman.schema.json`)
 
 - Varje id i `events` finns i `data/events.json`. En händelse som är `draft` räknas inte: temat visar bara händelser som syns, och minst 5 av dem ska synas.
 - Varje id i `view` finns i `data/vyer.json` och saknar `tag`.

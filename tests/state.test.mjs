@@ -1,7 +1,7 @@
 // Tillståndets åtgärder, prenumeration och JSON (#403). Körs med node --test 'tests/*.test.mjs'.
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { createStore, toJSON, fromJSON, STATE_VERSION, MODES, MODE_RULES, modeRelation, exitRestore } from '../js/state.js';
+import { createStore, createState, toJSON, fromJSON, STATE_VERSION, MODES, MODE_RULES, modeRelation, exitRestore } from '../js/state.js';
 
 test('åtgärderna ändrar tillståndet och meddelar prenumeranterna', () => {
   const store = createStore();
@@ -177,4 +177,12 @@ test('tidsintervallet: setRange, toJSON och fromJSON', () => {
   assert.equal('yearEnd' in fromJSON({ v: STATE_VERSION, year: 1914 }), false);
   assert.equal('yearEnd' in fromJSON({ v: STATE_VERSION, year: 1914, yearEnd: 1900 }), false);
   assert.equal('yearEnd' in fromJSON({ v: STATE_VERSION, year: 1914, yearEnd: 'x' }), false);
+});
+
+test('fromJSON tar emot ett tema som fokus (#398), och avvisar ett okänt', () => {
+  assert.equal(fromJSON({ v: STATE_VERSION, year: 1, focus: 'theme:teknik' }).focus, 'theme:teknik');
+  assert.equal(fromJSON(toJSON({ ...createState(), year: 1, focus: { type: 'theme', id: 'teknik' } })).focus, 'theme:teknik');
+  assert.throws(() => fromJSON({ v: STATE_VERSION, year: 1, focus: 'tema:teknik' }), /Okänt fokus/);
+  // Ett tema är fokus och inget eget läge: MODE_RULES har ingen post för det
+  assert.equal(Object.hasOwn(MODE_RULES, 'tema'), false);
 });

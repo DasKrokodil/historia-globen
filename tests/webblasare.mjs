@@ -1063,6 +1063,67 @@ async function run(browser, vp) {
     return `arket slutar vid ${r.detailBottom} px, fokusraden börjar vid ${r.barTop} px${r.moved ? ' (med raden Tiden flyttades)' : ''}`;
   });
 
+  // Teman (#398): ett testtema ersätter data/teman.json via route, så inget riktigt tema behövs. Egen sida, eftersom
+  // temana laddas en gång per sidladdning.
+  await check('ett tema väljs i Fokus och via länk, visar bara sina händelser och lämnar kategorivalet (#398)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    const ids = ['sintashta-stridsvagnar', 'fyren-pa-faros', 'dujiangyan', 'cai-lun-papper', 'zhang-hengs-seismoskop'];
+    const tx = v => ({ sv: v, en: v, de: v, es: v, fr: v });
+    const doc = { schema: 'historia-globen/teman@1', themes: [{ id: 'testtema', name: tx('Testtema'), intro: tx('Ett urval för testet.'), events: ids, sources: [], review: 'source-checked' }] };
+    try {
+      await tp.route('**/data/teman.json*', r => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(doc) }));
+      const listed = () => tp.evaluate(() => [...document.querySelectorAll('#event-list .event-btn')].map(b => b.dataset.id));
+      // 1. Länken #f=theme:<id> startar temat; bara temats händelser syns
+      await tp.goto(`${BASE}?ny=tema1#y=120&f=theme:testtema`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Testtema/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
+      await tp.waitForSelector('#detail', { state: 'visible', timeout: T.step });
+      if (!/Ett urval för testet/.test(await tp.textContent('#detail'))) throw new Error('introduktionskortet visar inte temats text');
+      const inside = await listed();
+      if (!inside.length) throw new Error('inga händelser i listan inom temats spann');
+      if (inside.some(id => !ids.includes(id))) throw new Error(`listan visar händelser utanför temat: ${inside.filter(id => !ids.includes(id)).join(', ')}`);
+      // 2. En avstängd kategori döljer inte temats händelser, och kategorivalet ändras inte
+      const chip = tp.locator('#panel-filters [data-cat="vetenskap"]');
+      await chip.evaluate(el => el.click());
+      if (await chip.getAttribute('aria-pressed') !== 'false') throw new Error('kategorin gick inte att stänga av');
+      const still = await listed();
+      if (!still.length || still.some(id => !ids.includes(id))) throw new Error('en avstängd kategori ska inte ändra temats urval');
+      // 3. Avsluta: alla händelser syns igen (kategorin är fortfarande avstängd, så vi slår på den igen)
+      await tp.click('#focus-exit');
+      await tp.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+      await chip.evaluate(el => el.click());
+      await tp.waitForFunction(ids => [...document.querySelectorAll('#event-list .event-btn')].some(b => !ids.includes(b.dataset.id)), ids, { timeout: T.step });
+      // 4. Fokusmenyn: fliken Teman listar temat med antal händelser, och raden startar temat
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#btn-more')) await tp.click('#btn-more');
+      await tp.click('#btn-focus');
+      if (await tp.isHidden('#focus-menu [data-tab="Teman"]')) await tp.waitForSelector('#focus-menu [data-tab="Teman"]', { state: 'visible', timeout: T.step });
+      await tp.click('#focus-menu [data-tab="Teman"]');
+      const row = tp.locator('#focus-menu [data-key="theme:testtema"]');
+      await row.waitFor({ state: 'visible', timeout: T.step });
+      if (!/5 händelser/.test(await row.textContent())) throw new Error(`raden saknar antalet händelser: ${await row.textContent()}`);
+      await row.click();
+      await tp.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Testtema/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
+      if (new URL(tp.url()).hash.indexOf('f=theme:testtema') < 0) await tp.waitForFunction(() => location.hash.includes('f=theme:testtema'), null, { timeout: T.step });
+      // 5. Ett okänt tema i länken ger det vanliga startläget
+      await tp.goto(`${BASE}?ny=tema2#y=120&f=theme:finns-inte`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (!(await tp.isHidden('#focus-bar'))) throw new Error('ett okänt tema ska inte starta Fokus');
+      // 6. Utan teman (som i dag) syns ingen tom flik Teman
+      await tp.route('**/data/teman.json*', r => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ schema: 'historia-globen/teman@1', themes: [] }) }));
+      await tp.goto(`${BASE}?ny=tema3#y=120`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#btn-more')) await tp.click('#btn-more');
+      await tp.click('#btn-focus');
+      await tp.waitForSelector('#focus-menu [data-tab="Resor"]', { state: 'visible', timeout: T.step });
+      await tp.waitForFunction(() => document.querySelector('#focus-menu [data-key^="route:"]'), null, { timeout: T.step }).catch(() => {});
+      if (await tp.isVisible('#focus-menu [data-tab="Teman"]')) throw new Error('fliken Teman syns trots att det inte finns några teman');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return 'länk, urval, avstängd kategori, Fokusmenyn, okänt id och ingen tom flik';
+    } finally { await tctx.close(); }
+  });
+
   // #706: i mobil hamnade Samtidigt-kortets knapprad (Källor, Nästa) under kortets nederkant, bakom tidslinjen.
   // I halvöppet läge ska Källor och Nästa ligga helt inne i kortets synliga yta, och kortet ska sluta ovanför
   // uppspelningsraden, i 400 × 800 och i den lägre 360 × 640.
@@ -1191,6 +1252,15 @@ async function run(browser, vp) {
     if (!/Krig och konflikter, 1879, Anglo-zuluiska kriget/.test(label ?? '')) throw new Error('reservkortet saknar kategori, år och titel i sitt namn');
     const missing = await reserve.evaluateAll(nodes => nodes.some(node => ['.ff-reserve-icon', '.ff-reserve-year', '.ff-reserve-category', '.ff-name'].some(selector => !node.querySelector(selector))));
     if (missing) throw new Error('reservkortet saknar ikon, år, kategori eller titel');
+    // Reservsymbolen får inte växa ur rutan (#975): en regel för alla bilder i .ff-pic gjorde den 173 px i en ruta på 132 px.
+    const spill = await reserve.evaluateAll(nodes => nodes.flatMap(n => {
+      const box = n.getBoundingClientRect();
+      return [...n.querySelectorAll('.ff-reserve-icon, .ff-reserve-year, .ff-reserve-category, .ff-name')].filter(c => c.getClientRects().length).filter(c => {
+        const r = c.getBoundingClientRect();
+        return r.top < box.top - 1 || r.left < box.left - 1 || r.right > box.right + 1 || r.bottom > box.bottom + 1;
+      }).map(c => `${c.className} ${Math.round(c.getBoundingClientRect().width)}×${Math.round(c.getBoundingClientRect().height)} i en ruta på ${Math.round(box.width)}×${Math.round(box.height)}`);
+    }));
+    if (spill.length) throw new Error(`reservkortets innehåll ligger utanför rutan: ${spill.join('; ')}`);
     const heights = await cards.evaluateAll(nodes => nodes.map(node => Math.round(node.getBoundingClientRect().height)));
     if (new Set(heights).size !== 1) throw new Error(`bild- och reservkort har olika höjd: ${heights.join(', ')}`);
     const imageHeight = await image.first().evaluate(el => Math.round(el.closest('.ff-pic').getBoundingClientRect().height));
@@ -3364,9 +3434,11 @@ async function run(browser, vp) {
       await tp.goto(`${BASE}?ny=92#y=1400`);
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await openForm();
-      // Tre grupper med rubrik och förenklingstext, nio knappar
+      // En grupp per indelning i data/perioder.json (i dag fyra), med rubrik och förenklingstext, och en knapp per epok.
+      // Antalet läses ur datan, så att en ny indelning inte gör testet rött (granskningen 2026-11-08).
+      const wanted = await tp.evaluate(() => fetch('data/perioder.json').then(r => r.json()).then(d => d.divisions.map(x => [true, true, x.periods.length])));
       const groups = await tp.evaluate(() => [...document.querySelectorAll('.range-preset-group')].map(g => [g.querySelector('.range-preset-head').textContent.length > 3, g.querySelector('.range-preset-note').textContent.length > 20, g.querySelectorAll('button.range-preset').length]));
-      if (JSON.stringify(groups) !== JSON.stringify([[true, true, 5], [true, true, 3], [true, true, 1]])) throw new Error(`grupperna ser ut så här: ${JSON.stringify(groups)}`);
+      if (JSON.stringify(groups) !== JSON.stringify(wanted)) throw new Error(`grupperna ser ut så här: ${JSON.stringify(groups)}`);
       // Rymmer sig i bredden och har tryckyta på minst 44 px
       const fit = await tp.evaluate(() => {
         const pop = document.getElementById('range-pop').getBoundingClientRect();
@@ -3374,6 +3446,16 @@ async function run(browser, vp) {
         return { bad, over: document.documentElement.scrollWidth > innerWidth + 1, popRight: pop.right <= innerWidth + 1 };
       });
       if (fit.bad || fit.over || !fit.popRight) throw new Error(`knapparna ryms inte eller är för låga: ${JSON.stringify(fit)}`);
+      // Formuläret ryms också på höjden, och "Visa intervallet" går att träffa med musen (#973): det rullar i stället för att sluta under skärmen
+      const reach = await tp.evaluate(() => {
+        const pop = document.getElementById('range-pop'), go = pop.querySelector('.jump-go');
+        pop.scrollTop = pop.scrollHeight;
+        const r = go.getBoundingClientRect(), hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+        const out = { popBottom: Math.round(pop.getBoundingClientRect().bottom), height: innerHeight, goBottom: Math.round(r.bottom), reachable: !!hit && (hit === go || go.contains(hit)) };
+        pop.scrollTop = 0;
+        return out;
+      });
+      if (reach.popBottom > reach.height + 1 || !reach.reachable) throw new Error(`"Visa intervallet" nås inte: ${JSON.stringify(reach)}`);
       // Tangentbord: fokus på en knapp och Enter
       await tp.focus('[data-period="norden-1500-1800"]');
       await tp.keyboard.press('Enter');
@@ -3408,7 +3490,39 @@ async function run(browser, vp) {
     } finally {
       await tp.close();
     }
-    return 'nio knappar i tre grupper, tangentbord, adress och Bakåt, stenålder och nutid märkta, inaktiva under en tur';
+    return 'en grupp per indelning i datan, tangentbord, adress och Bakåt, stenålder och nutid märkta, inaktiva under en tur';
+  });
+  // #974: i intervallet räknar märket, intervallraden och panelen samma händelser, och ingen text säger "±0 år" (en händelse som
+  // pågått sedan länge hamnade som "nära" med ±0 år och gav märket ett högre tal än raden).
+  await check('intervallet räknar samma i märket, raden och panelen (#974)', async () => {
+    const tp = await context.newPage();
+    const errors = [];
+    tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    tp.on('pageerror', e => errors.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      for (const hash of ['#y=1914&y2=1918', '#y=1900&y2=2026']) {
+        await tp.goto(`${BASE}?ny=92${hash}`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
+        await tp.waitForFunction(() => /\d/.test(document.getElementById('range-bar-text')?.textContent ?? '') && document.getElementById('panel-sub')?.textContent.length > 5, null, { timeout: T.step });
+        const got = await tp.evaluate(() => ({
+          badge: document.getElementById('panel-count').textContent.trim(),
+          bar: (document.getElementById('range-bar-text').textContent.match(/(\d[\d\s\u00a0]*) händelse/) || [])[1]?.replace(/\D/g, ''),
+          sub: document.getElementById('panel-sub').textContent,
+        }));
+        if (got.badge !== got.bar) throw new Error(`${hash}: märket visar ${got.badge} men raden ${got.bar}`);
+        if (/±\s*0\b/.test(got.sub)) throw new Error(`${hash}: panelen säger ±0 år: ${got.sub}`);
+      }
+      if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
+    } finally {
+      await tp.close();
+    }
+    return 'märket, intervallraden och panelen räknar lika (1914–1918 och 1900–i dag), utan "±0 år"';
   });
   // #885: läraren får en väg till elev- och lärarbladen i lektionsläget (r=lararen i länken eller Starta som lektion i
   // Turer-menyn); eleven i den vanliga lektionslänken ser ingen utskriftsknapp. Utskriften rör inte steget.

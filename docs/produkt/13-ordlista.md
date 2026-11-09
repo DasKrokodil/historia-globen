@@ -11,6 +11,10 @@
 | **Samtidigt-kortet** | Kortet som lyfter fram ett oväntat samband (fun facts m.m.). Kan pausa uppspelningen. |
 | **Fun fact** | Ett samband mellan två eller flera händelser, till exempel att pyramiderna byggdes medan de sista mammutarna levde. Varje led har källa. |
 | **Sök och följ** | Knappen där man söker och väljer något att **följa**: krig, rike, land, religion eller resa. Läget kallas **fokusläge** (kallades förut Fokus). |
+| **Tidsintervall** | Året plus ett slutår (`y2`): man väljer från och till i årshoppet eller en epok med ett klick. Riken och religioner visas för slutåret. Utesluter Fokus och uppspelning. |
+| **Epok** | Ett namngivet tidsspann ur `data/perioder.json` (Lgr22, Nordens forntid, antiken, industrialiseringen); blir ett tidsintervall. Listar aldrig händelser. |
+| **Tema** | Ett namngivet urval av befintliga händelser (`data/teman.json`) med en introduktion; följs som ett Fokus av typen `theme`. Motorn finns, inget tema än. |
+| **Plats (fliken)** | "Vad hände här?" i Sök och följ: händelser inom 300 km från en plats ur datan, äldst först. |
 | **Fokusläge** | Läget där ett krig, rike eller en religion följs. Övriga lager dämpas, och uppspelningen pausar vid viktiga händelser. |
 | **Lager** | Menyn där man väljer vad som syns (händelser, riken, religioner, vägar m.m.), kategorier och inställningar. |
 | **Faktaruta** | Rutan som visar en händelse, ett rike eller en religion med text, bild, källor, osäkerhet och granskningsnivå. |

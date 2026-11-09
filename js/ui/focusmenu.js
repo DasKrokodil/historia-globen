@@ -3,7 +3,7 @@
 // Överst ligger en sökruta, flikar och sortering (#240, #311); de ligger kvar medan listan under rullar.
 // - Sökningen letar i alla namn en post har (svenska, engelska och för riken namnen på rikets delar,
 //   till exempel "Bysantinska riket" i Rom), även delar av namn och utan att bry sig om accenter.
-// - Flikarna: Alla, Händelser, Krig, Riken, Försvunna länder, Religioner, Resor. Menyn öppnas alltid med Alla;
+// - Flikarna: Alla, Händelser, Krig, Riken, Försvunna länder, Religioner, Resor, Teman (#398). Menyn öppnas alltid med Alla;
 //   bara sorteringen sparas i localStorage (#709). Sök och följ (#651): Sök (#570) ingår här. Händelser har ingen lista att bläddra i; de hittas
 //   när man skriver (searchEvents, ur js/search-index.js) och öppnas i stället för att följas.
 // - Sorteringen: Relevans visar det som pågår nära året man står på, närmast först, och resten bakom
@@ -17,8 +17,8 @@ import { ui } from '../i18n.js';
 // desamma som gruppernas id (focus.js). Det som visas hämtas med ui() på valt språk (#671).
 const EVENTS = 'Händelser';
 const PLACE = 'Plats'; // "Vad hände här?" (#15): händelser nära en plats ur datan
-const TABS = ['Alla', EVENTS, 'Krig', 'Riken', 'Försvunna länder', 'Religioner', 'Resor', PLACE];
-const TAB_KEY = { Alla: 'all', [EVENTS]: 'events', Krig: 'wars', Riken: 'empires', 'Försvunna länder': 'vanished', Religioner: 'religions', Resor: 'routes', [PLACE]: 'place' };
+const TABS = ['Alla', EVENTS, 'Krig', 'Riken', 'Försvunna länder', 'Religioner', 'Resor', 'Teman', PLACE];
+const TAB_KEY = { Alla: 'all', [EVENTS]: 'events', Krig: 'wars', Riken: 'empires', 'Försvunna länder': 'vanished', Religioner: 'religions', Resor: 'routes', Teman: 'themes', [PLACE]: 'place' };
 /** Flikens eller gruppens namn på valt språk; ett okänt id visas som det är. */
 export const tabName = id => (TAB_KEY[id] ? ui(`focus.tab.${TAB_KEY[id]}`) : id);
 const SORTS = ['relevans', 'kronologiskt', 'alfabetiskt'];
@@ -118,6 +118,9 @@ export class FocusMenu {
    *  all = gruppen visas alltid hel och i tidsordning när sorteringen är Relevans (Försvunna länder, #72). */
   setGroups(groups) {
     this.groups = groups.map(g => ({ ...g, items: g.items.map(it => ({ ...it, _terms: [...new Set([it.label, ...(it.terms ?? [])])].map(s => [s, norm(s)]) })) }));
+    // Fliken Teman (#398) syns först när det finns minst ett tema; en tom flik ser ut som ett fel
+    const themesTab = this.menu.querySelector('[data-tab="Teman"]');
+    if (themesTab) themesTab.hidden = !this.groups.some(g => g.title === 'Teman' && g.items.length);
     this.render();
   }
 

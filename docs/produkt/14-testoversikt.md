@@ -1,6 +1,6 @@
 # 14. Testöversikt: vad bevisar kontrollerna, och vad bevisar de inte?
 
-**Status:** utkast 2026-11-08 (#919, DasKrokodil: "ja enligt rekommendationerna"). Underlaget är arbetsflödena i `.github/workflows/`, `scripts/`, `tests/` och [DEPLOYMENT.md](../DEPLOYMENT.md). Jag har läst konfigurationen och kodens egna kommentarer, men inte kört varje kontroll på nytt; "Bevisar" är det kontrollen är gjord för att visa. En **grön** kontroll är bevis för det den testar, aldrig mer: en grön Chromium bevisar inte Safari, och ingen kontroll bevisar att fakta stämmer.
+**Status:** utkast 2026-11-08, genomgånget inför v6.1.0 2026-11-09 (en kontroll tillkom för teman, "ett tema väljs i Fokus…", med ett testtema via `route` och prov av att fliken Teman är dold utan teman) (#919, DasKrokodil: "ja enligt rekommendationerna"). Underlaget är arbetsflödena i `.github/workflows/`, `scripts/`, `tests/` och [DEPLOYMENT.md](../DEPLOYMENT.md). Jag har läst konfigurationen och kodens egna kommentarer, men inte kört varje kontroll på nytt; "Bevisar" är det kontrollen är gjord för att visa. En **grön** kontroll är bevis för det den testar, aldrig mer: en grön Chromium bevisar inte Safari, och ingen kontroll bevisar att fakta stämmer.
 
 ## Automatiska kontroller (GitHub Actions)
 

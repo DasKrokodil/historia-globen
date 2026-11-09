@@ -125,6 +125,9 @@ test('Del 2b: industrialiseringen är en egen indelning, cirka 1760–1840, mär
   assert.ok(industri);
   for (const key of ['name', 'simplification']) for (const l of LANGS) assert.ok(industri[key][l]?.length > 10, `${key}.${l}`);
   assert.match(industri.simplification.sv, /förenkling/);
+  // #978: perioden är den brittiska revolutionen, inte Sveriges industrialisering, och förenklingstexten säger det.
+  for (const l of LANGS) assert.match(industri.name[l], /Storbritannien|Britain|Großbritannien|Gran Bretaña|Grande-Bretagne/, `name.${l}`);
+  assert.match(industri.simplification.sv, /inte Sveriges industrialisering/);
   const [p] = industri.periods;
   assert.deepEqual([p.id, p.start, p.end], ['industrialiseringen', 1760, 1840]);
   assert.equal(p.edtf, `${edtfYear(p.start)}~/${edtfYear(p.end)}~`);

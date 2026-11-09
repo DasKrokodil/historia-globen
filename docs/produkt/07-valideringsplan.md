@@ -69,3 +69,5 @@ Om någon ändå kommer till oss (en lärare som hör av sig, en vän som vill t
 - [ ] Har ett test gjorts? Uppdatera V-tabellen med status och datum.
 - [ ] Har ett antagande i 02, 05 eller 06 bytt status?
 - [ ] Finns ett nytt antagande som borde prövas?
+
+**Genomgång inför v6.1.0 (2026-11-09):** läst. Inget test (T1–T6) har gjorts och ingen observation har kommit in, så V1–V8 är oförändrade och fortfarande obeprövade. Planen är passiv och behöver ingen ändring av 6.1.0.
