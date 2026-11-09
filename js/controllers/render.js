@@ -96,6 +96,7 @@ export function createRender(app) {
     const plural = (key, n) => String(ui(key)[n === 1 ? 0 : 1]).replace('{n}', n);
     const within = fine ? plural('time.withinDays', Math.round(window * 365.25)) : plural('time.withinYears', Math.round(window));
     ff.story = focus?.type === 'empire' ? storyFor(focus.id) : [];
+    ff.setAnnouncements(!range);
     ff.update(wholeYear, panel.filters, focus?.type === 'theme' ? focus.eventIds : null);
     state.highlight = ff.highlightIds();
     const eventsOn = layers.on.events;

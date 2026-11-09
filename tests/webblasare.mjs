@@ -3457,6 +3457,71 @@ async function run(browser, vp) {
     }
     return 'länken med y2, Tillbaka till slutåret, årsfält med tangentbord och f.Kr.-gränsen; Fokus och uppspelning stänger intervallet, och en tur stoppar det';
   });
+  await check('skärmläsare: intervallformuläret och platsfältet på fem språk (#977)', async () => {
+    for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+      const pp = await context.newPage();
+      const errors = [];
+      pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+      pp.on('pageerror', e => errors.push(e.message));
+      try {
+        if (THREE_LOCAL) {
+          await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+          await pp.route(u => isFont(u.href), r => r.abort());
+        }
+        await pp.goto(`${BASE}?lang=${lang}`);
+        await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        const copy = await pp.evaluate(async () => {
+          const { ui } = await import('./js/i18n.js');
+          return { place: ui('place.searchLabel'), search: ui('focus.searchLabel') };
+        });
+        if (await pp.getAttribute('#range-open', 'aria-expanded') !== 'false') throw new Error(`${lang}: intervallet börjar som expanderat`);
+        await pp.click('#year-jump');
+        await pp.click('#range-open');
+        await pp.waitForSelector('.range-preset', { timeout: T.step });
+        if (await pp.getAttribute('#range-open', 'aria-expanded') !== 'true') throw new Error(`${lang}: öppet formulär saknar expanderat läge`);
+        const form = pp.locator('#range-pop');
+        const snapshot = await form.ariaSnapshot();
+        fs.writeFileSync(path.join(OUT, `${vp.name}-977-${lang}-formular.aria.yml`), snapshot);
+        const groups = await pp.locator('.range-preset-group').count();
+        if (!groups || await form.getByRole('heading', { level: 2 }).count() !== groups || !snapshot.includes('[level=2]')) throw new Error(`${lang}: epokgrupperna saknar rubriker`);
+        for (const button of await pp.locator('.range-preset').all()) {
+          const name = await button.ariaSnapshot();
+          const years = name.match(/\d+/g) ?? [];
+          if (new Set(years).size !== years.length) throw new Error(`${lang}: upprepade årtal i ${name}`);
+        }
+        // En knapp utan år i namnet behåller datumen och förklaringen om klippningen.
+        const stone = await pp.locator('[data-period="nordisk-stenalder"]').ariaSnapshot();
+        if (!stone.includes('3000') || !stone.includes('1700')) throw new Error(`${lang}: stenålderns intervall saknas i knappnamnet`);
+        await pp.locator('.range-preset').first().focus();
+        await pp.keyboard.press('Enter');
+        await pp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
+        if (await pp.getAttribute('#range-open', 'aria-expanded') !== 'false') throw new Error(`${lang}: valet stängde inte expanderat läge`);
+        if (await pp.getAttribute('#range-bar-text', 'aria-live') !== 'polite' || await pp.getAttribute('#range-bar-text', 'aria-atomic') !== 'true') throw new Error(`${lang}: intervallets rad är inte live och atomär`);
+        await pp.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+        if ((await pp.textContent('#screen-reader-status')).trim()) throw new Error(`${lang}: Samtidigt-kortet talar över intervallet`);
+        await pp.click('#range-exit');
+        if ((await pp.textContent('#range-bar-text')).trim()) throw new Error(`${lang}: en gammal intervalluppläsning står kvar`);
+        await pp.click('#year-jump');
+        await pp.click('#range-open');
+        await pp.keyboard.press('Escape');
+        if (await pp.getAttribute('#range-open', 'aria-expanded') !== 'false') throw new Error(`${lang}: Escape lämnade expanderat läge`);
+        await pp.evaluate(() => document.getElementById('btn-focus').click());
+        await pp.click('#focus-menu [data-tab="Plats"]');
+        const input = pp.locator('#focus-menu').getByRole('searchbox', { name: copy.place, exact: true });
+        await input.fill('zzzzqq');
+        await pp.waitForFunction(() => document.querySelector('#focus-menu .focus-live')?.textContent.includes('zzzzqq'), null, { timeout: T.step });
+        const place = pp.locator('#focus-menu');
+        fs.writeFileSync(path.join(OUT, `${vp.name}-977-${lang}-plats.aria.yml`), await place.ariaSnapshot());
+        if ((await place.locator('.focus-body').ariaSnapshot()).includes('zzzzqq')) throw new Error(`${lang}: ingen träff läses både i listan och statusen`);
+        if (!(await place.locator('.focus-live').ariaSnapshot()).includes('zzzzqq')) throw new Error(`${lang}: ingen träff saknas i statusen`);
+        await pp.click('#focus-menu [data-tab="Alla"]');
+        if (await pp.getAttribute('#focus-menu .focus-search', 'aria-label') !== copy.search) throw new Error(`${lang}: det vanliga söknamnet återställdes inte`);
+        if (await pp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error(`${lang}: horisontell scroll`);
+        if (errors.length) throw new Error(`${lang}: ${errors.join(' | ')}`);
+      } finally { await pp.close(); }
+    }
+    return 'ARIA-snapshots på fem språk: rubriker, årtal en gång, expanderat läge, tyst kort under intervallet och rätt platsnamn utan dubbelt felbesked';
+  });
   // #965: epokknapparna i intervallformuläret (#845 del 3): ett klick väljer intervallet, adressen och Bakåt följer med,
   // knapparna går att nå med tangentbordet, rymmer sig i bredden, och stoppas under en tur (samma spärr som formuläret).
   await check('epokknapparna i intervallformuläret väljer ett intervall med ett klick (#965)', async () => {

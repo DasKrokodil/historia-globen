@@ -74,6 +74,7 @@
   "focus.noMatch": "Inget namn innehåller \"{query}\".",
   "focus.eventsHint": "Skriv i sökrutan för att hitta en händelse, till exempel Pompeji.",
   "place.placeholder": "Skriv en plats",
+  "place.searchLabel": "Sök en plats",
   "place.hint": "Här hittas bara platser som finns bland händelserna.",
   "place.result": ["{count} händelse inom {km} km från {place}", "{count} händelser inom {km} km från {place}"],
   "place.empty": "Ingen händelse ligger inom {km} km från {place}. Välj en annan plats.",

@@ -78,6 +78,7 @@ export class FunFacts {
     this.onSources = () => {};
     this.onNew = () => {};
     this._announcedKey = '';
+    this.announcementsEnabled = true;
     this.surprise = surprise;
     this.surpriseCounts = new Map();
     this.surpriseStep = 0;
@@ -309,8 +310,17 @@ export class FunFacts {
     return `${this.kind.textContent.trim()}. ${this.text.textContent.trim()}`;
   }
 
+  /** Intervallets egen live-rad får tala utan ett konkurrerande Samtidigt-kort (#977). */
+  setAnnouncements(enabled) {
+    if (this.announcementsEnabled === enabled) return;
+    this.announcementsEnabled = enabled;
+    this._announceRequest = (this._announceRequest ?? 0) + 1; // avbryt även en redan köad bildruta
+    this._announcedKey = '';
+    if (!enabled && this.status) this.status.textContent = '';
+  }
+
   _announce(f) {
-    if (!this.status) return;
+    if (!this.status || !this.announcementsEnabled) return;
     const text = this.announcement();
     const key = `${f.id}:${this.index}:${text}`;
     if (key === this._announcedKey) return;
