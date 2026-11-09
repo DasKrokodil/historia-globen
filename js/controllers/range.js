@@ -219,6 +219,10 @@ export function createRange(app) {
 
   /** Väljer intervallet från–till (from < to). Avslutar Fokus (lägeskontraktet). Ger false när ett annat läge stoppar det. */
   function set(from, to) {
+    if (![from, to].every(Number.isFinite)) return false;
+    from = Math.max(MIN_YEAR, Math.min(MAX_YEAR, from));
+    to = Math.max(MIN_YEAR, Math.min(MAX_YEAR, to));
+    if (from >= to) return false;
     if (!store.enter('intervall')) return false;
     setting = true;
     try {

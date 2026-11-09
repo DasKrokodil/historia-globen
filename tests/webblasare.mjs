@@ -3341,6 +3341,21 @@ async function run(browser, vp) {
         await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
         await tp.route(u => isFont(u.href), r => r.abort());
       }
+      // #976: en handskriven länk utanför tidslinjen klipps i både raden och adressen.
+      await tp.goto(`${BASE}?ny=90#y=-20000&y2=3000`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      const bounds = await tp.evaluate(async () => {
+        const { MIN_YEAR, MAX_YEAR } = await import('./js/timeline.js');
+        const { rangeText } = await import('./js/controllers/range.js');
+        return { min: MIN_YEAR, max: MAX_YEAR, label: rangeText(MIN_YEAR, MAX_YEAR) };
+      });
+      await tp.waitForFunction(([min, max]) => {
+        const p = new URLSearchParams(location.hash.slice(1));
+        return p.get('y') === String(min) && p.get('y2') === String(max);
+      }, [bounds.min, bounds.max], { timeout: T.step });
+      if (!(await text('#range-bar-text')).startsWith(`${bounds.label} · `)) throw new Error(`intervallet klipptes inte: ${await text('#range-bar-text')}`);
+      await tp.click('#range-exit');
+      if (await text('#year-big') !== String(bounds.max)) throw new Error('Tillbaka till ett år gav inte det klippta slutåret');
       // 1. Den delade länken öppnar intervallet
       await tp.goto(`${BASE}?ny=91#y=1914&y2=1918`);
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
