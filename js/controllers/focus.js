@@ -256,11 +256,16 @@ export function createFocus(app) {
     { title: 'Teman', note: ui('focus.note.themes'), items: themeList ? themeItems(themeList) : [], loading: !themeList },
   ];
   focusMenu.setGroups(focusGroups());
-  focusMenu.onOpen = async () => {
-    panel.setOpen(false); layers.close();
-    // Nära = inom fyra gånger det tidslinjen visar runt året (vid 1325 cirka ±150 år)
+  // Nära = inom fyra gånger det tidslinjen visar runt året (vid 1325 cirka ±150 år)
+  const syncMenuTime = () => {
     const year = Math.floor(timeline.year), r = Math.round(timeline.windowYears(year) * 4 / 10) * 10;
     focusMenu.setTime({ year, from: year - r, to: year + r, label: ui('focus.window', { years: r, year: formatYear(year) }) });
+  };
+  // Byts året medan menyn är öppen (stegknapparna, uppspelning, adressen) ritas raden och listan om för det nya året (#993)
+  timeline.addEventListener('change', () => { if (!focusMenu.menu.hidden) syncMenuTime(); });
+  focusMenu.onOpen = async () => {
+    panel.setOpen(false); layers.close();
+    syncMenuTime();
     // Religionerna laddas en gång och sparas, så att de finns kvar nästa gång menyn öppnas, också när lagret
     // Religioner aldrig har öppnats (annars blev fliken tom andra gången)
     const doc = data.religionsDoc ??= await loadReligions();

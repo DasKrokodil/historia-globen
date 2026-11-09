@@ -4233,6 +4233,26 @@ async function run(browser, vp) {
     return text;
   });
 
+  // #993: byts året medan Sök och följ är öppen ska raden "Det som pågår …" och listan följa det nya året
+  await check('Sök och följ följer året när det byts medan menyn är öppen (#993)', async () => {
+    await jumpTo(1916);
+    await clickView('#btn-focus');
+    await visible('#focus-menu');
+    // Tidigare kontroller kan ha lämnat sökord, flik eller sortering kvar; raden "Det som pågår" visas bara i grundläget
+    if (await page.locator('#focus-menu [data-clear]').count()) await page.click('#focus-menu [data-clear]');
+    const note = () => page.locator('#focus-menu .layer-note.pad').first().textContent().then(s => s.replace(/\s+/g, ' '));
+    if (!(await note()).includes('1916')) throw new Error(`raden nämner inte 1916: ${await note()}`);
+    // Samma väg som tidslinjens stegknappar och adressen: året byts utan att menyn stängs
+    await page.evaluate(() => { location.hash = '#y=-500'; });
+    await page.waitForFunction(() => !document.getElementById('focus-menu').hidden && /501 f\.Kr\./.test(document.querySelector('#focus-menu .layer-note.pad')?.textContent ?? ''), null, { timeout: T.step })
+      .catch(async () => { throw new Error(`raden följde inte året: ${await note()}`); });
+    if ((await page.locator('#focus-menu [data-tab][aria-pressed="true"]').getAttribute('data-tab')) !== 'Alla') throw new Error('fliken ändrades när året byttes');
+    const text = await note();
+    await page.keyboard.press('Escape');
+    await hidden('#focus-menu');
+    return text;
+  });
+
   await check('ingen horisontell scroll efteråt', async () => {
     const w = await page.evaluate(() => ({ doc: document.documentElement.scrollWidth, body: document.body.scrollWidth, win: window.innerWidth }));
     if (Math.max(w.doc, w.body) > w.win) throw new Error(`sidan är ${Math.max(w.doc, w.body)} px bred i ett ${w.win} px fönster`);
