@@ -1,6 +1,6 @@
 # 03. Användningsfall och funktioner
 
-**Status:** utkast 2026-11-08, bygger på funktionerna i `index.html`, [arkitektur.md](../arkitektur.md) och versionsplanen i CLAUDE.md. Användningsfallens steg är **antaganden om hur användare går tillväga**, inte observationer.
+**Status:** utkast 2026-11-08, genomgånget inför v6.1.0 2026-11-09 (UC18–UC20 och temamotorn uppdaterade mot `main` `c5935f5`), bygger på funktionerna i `index.html`, [arkitektur.md](../arkitektur.md) och versionsplanen i CLAUDE.md. Användningsfallens steg är **antaganden om hur användare går tillväga**, inte observationer.
 
 ## Användningsfall
 
@@ -25,9 +25,10 @@ Aktörerna (A–I) står i [02](02-anvandare-och-intressenter.md). Status: **fin
 | UC15 | A, D | Korrigera en vanlig missuppfattning | Faktarutan visar vad källorna säger | Missuppfattningar (#838) | finns |
 | UC16 | A, E | Byta språk | Mer → Språk | Fem språk, översättningsspärr | delvis: svenska fullständig, övriga språk i omgångar, engelska först |
 | UC17 | H | Använda sidan utan mus och med skärmläsare | Tab och piltangenter, annonserade etiketter, lugn rörelse | Tangentbord, ARIA, `prefers-reduced-motion` | delvis: ingen skärmläsarattest |
-| UC18 | A, B | Välja ett tidsintervall i stället för ett år | Markera spann på tidslinjen | Tidsintervall (#569, #754–#756) | planerad: 6.1.0 |
-| UC19 | A, B | Se vad som hände här | Klicka en plats → händelser där över tid | "Vad hände här?" (#15) | planerad: 6.1.0 |
-| UC20 | A, B | Bläddra efter epok enligt läroplanen | Epokband på tidslinjen | Epoker (#845, #476) | planerad: 6.1.0, listan godkänns först |
+| UC18 | A, B | Välja ett tidsintervall i stället för ett år | Formuläret "Välj ett tidsintervall" (från och till) i årshoppet; länk med `y2` | Tidsintervall (#569, #754–#756) | finns (6.1.0). Bandet på reglaget och intervall i Fokus finns inte; intervallet utesluter Fokus och uppspelning |
+| UC19 | A, B | Se vad som hände här | Sök och följ → fliken Plats → skriv en plats ur datan → händelser inom 300 km, äldst först | "Vad hände här?" (#15, beslut 2026-11-08) | finns (6.1.0). Klick direkt på globen och plats i intervallet finns inte; bara platser som finns i datan går att hitta |
+| UC20 | A, B | Välja en epok enligt läroplanen | Epokknappar i intervallformuläret: Lgr22, Nordens forntid, antiken, industrialiseringen | Epoker (#845, #476, `data/perioder.json`) | finns (6.1.0). Inget epokband på tidslinjen; högkulturer saknas (tidslinjen börjar 3000 f.Kr.) |
+| UC20b | A, B | Följa ett tema, ett urval händelser som hör ihop | Sök och följ → fliken Teman (syns först när det finns ett tema) → introduktionskort och bara temats händelser | Temamotorn (#398, #984, `data/teman.json`) | **motorn finns, inget tema än** (teknik, #105, kommer i 6.2.0) |
 | UC21 | A | Läsa ett kurerat regionkort | Region → kort med gränskälla och källor | Regionkort (#579) | planerad: 6.3.0 |
 | UC22 | A | Se människans och jordens långa historia | Tidslinje i nivåer, forntida kartor | Version 7 och 8 | planerad, senare |
 | UC23 | A, B | Jämföra två tider eller se historiska kartor | Jämför två tider (#248), historiska kartor (#249) | Version 9 | planerad, senare |

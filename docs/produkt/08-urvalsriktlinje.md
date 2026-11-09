@@ -68,6 +68,8 @@ Den publicerade texten "Om urvalet" står under **Källor** (nycklarna `sources.
 
 ## Att kontrollera vid uppdatering
 
-- [ ] Har täckningsrapporten ändrat vilka glapp som är störst?
-- [ ] Har ett nytt beslut ändrat kriterierna?
-- [ ] Har en granskare (lärare, historiker) ifrågasatt urvalet? Skriv in det i [06](06-granskningsperspektiv.md#8-historiker-och-källgranskare).
+- [x] Har täckningsrapporten ändrat vilka glapp som är störst?
+- [x] Har ett nytt beslut ändrat kriterierna?
+- [x] Har en granskare (lärare, historiker) ifrågasatt urvalet? Skriv in det i [06](06-granskningsperspektiv.md#8-historiker-och-källgranskare).
+
+**Genomgång inför v6.1.0 (2026-11-09):** läst. Kriterierna är oförändrade och ingen har ifrågasatt urvalet. Riktlinjen vill att varje release-PR säger om balansen blivit bättre eller sämre. Med `python3 tools/tackning.py` mot `main` (827 händelser) jämfört med rapporten 2026-11-07 (763 händelser): antiken har vuxit mest, Asien 38→57, Afrika 19→33 och Amerika 19→33 (täckningsrundans omgångar #761–#763), och Europas andel av totalen har sjunkit från 19,5 % till 18,4 %. Tomma celler kvar: Amerika och Oceanien i förhistorien (Europa och Afrika har en var). Jämförelsen är mot 2026-11-07, inte exakt mot taggen v6.0.0, och räknar inte krig mot övrigt eller positivt mot negativt.

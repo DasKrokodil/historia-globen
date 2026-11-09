@@ -16,7 +16,7 @@ Det här är en *produktkravsspecifikation*: den säger **vad** sidan ska uppfyl
 | **Status** | **Beslutat** eller **Förslag**. |
 | **Läge** | **Ok**, **Delvis**, **Ej**, **Ej verifierat**. Läget är daterat överst i varje grupp. |
 
-**Läget 2026-11-08:** utgår från analyserna i `docs/granskningar/` (komplett analys, blind-spots-rapporten) och är **inte** nytt bevis.
+**Läget 2026-11-08 (genomgånget inför v6.1.0 2026-11-09, bara K-PLA-01 och K-PLA-07 ändrade; inget nytt bevis för övriga):** utgår från analyserna i `docs/granskningar/` (komplett analys, blind-spots-rapporten) och är **inte** nytt bevis.
 
 ## K-INN. Innehåll och källor (M2, M4)
 
@@ -41,7 +41,7 @@ Det här är en *produktkravsspecifikation*: den säger **vad** sidan ska uppfyl
 
 | ID | Krav | Källa | Prio | Bevis | Status | Läge |
 |---|---|---|---|---|---|---|
-| K-KÄL-01 | Sidan ska aktivt lära ut källkritik, inte bara visa källor. | DasKrokodil 2026-11-08, M9 | M | G, O | Beslutat | Delvis |
+| K-KÄL-01 | Sidan ska aktivt lära ut källkritik, inte bara visa källor. | DasKrokodil 2026-11-08, M9 | M | G, O | Beslutat | Delvis (körs i release-PR #988; resultatet ej verifierat än) |
 | K-KÄL-02 | Besökaren ska kunna se vad granskningsnivåerna betyder (faktarutans förklaring). | #786, #926 | B | G | Beslutat | Delvis: raden "Kontrollen gäller källorna, inte om historien är säker" finns direkt i faktarutan (#786); (i)-knappen förklarar nivåerna |
 | K-KÄL-03 | Källkritiska inslag ska finnas för flera åldrar, med olika nivå: först för elever som gått ut mellanstadiet (#938), sedan gymnasiet och vuxna med intresse. | #926, #938 | B | G | Beslutat | Delvis: första nivån (turen) finns |
 | K-KÄL-04 | Källkritiska inslag ska ha nyfiken, lekfull ton och aldrig pekpinne. | M8, #926 | B | G | Beslutat | Ej verifierat |
@@ -82,13 +82,13 @@ Stödmatris (beslut 2026-11-08): de **senaste två versionerna** av Chrome, Safa
 
 | ID | Krav | Källa | Prio | Bevis | Status | Läge |
 |---|---|---|---|---|---|---|
-| K-PLA-01 | Sidan ska fungera i stödmatrisens webbläsare. | DasKrokodil 2026-11-08 | M | T | Beslutat | Delvis (Firefox och WebKit röda i releasekörning 2026-11-08) |
+| K-PLA-01 | Sidan ska fungera i stödmatrisens webbläsare. | DasKrokodil 2026-11-08 | M | T | Beslutat | Delvis (Firefox och WebKit gröna i alla tre motorerna 2026-11-08, #923; v6.1.0 prövas i release-PR #988; WebKit är inte Safari) |
 | K-PLA-02 | Sidan ska fungera i mobilbredd (cirka 400 px) utan horisontell scroll. | CLAUDE.md: Utseende | M | T | Beslutat | Ej verifierat |
 | K-PLA-03 | Sidan ska fungera på iPad i liggande och stående läge, inklusive bredder 768–1024 px. | DasKrokodil 2026-11-08 | M | T, G | Beslutat | **Ej provat** |
 | K-PLA-04 | Alla knappar ska ha minst 44 × 44 px träffyta på mobil och minst 24 × 24 px på dator. | #406 | M | G | Beslutat | Ej verifierat |
 | K-PLA-05 | Sidan ska degradera värdigt när grafikaccelerering (WebGL) saknas och inte hänga sig. | #692 | M | T | Beslutat | Ej verifierat |
 | K-PLA-06 | Webbläsarens egen sidzoom ska vara tillåten. | #404 | M | T | Beslutat | Ok |
-| K-PLA-07 | Release ska prövas i tre webbläsarmotorer (Chromium, Firefox, WebKit) innan publicering. | #888 | M | T | Beslutat | Delvis |
+| K-PLA-07 | Release ska prövas i tre webbläsarmotorer (Chromium, Firefox, WebKit) innan publicering. | #888 | M | T | Beslutat | Delvis (alla tre motorerna gröna 2026-11-08, #923; v6.1.0 prövas i release-PR #988, resultat ej verifierat än) |
 
 ## K-TIL. Tillgänglighet (M5)
 

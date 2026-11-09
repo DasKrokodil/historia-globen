@@ -111,6 +111,8 @@ Svar från DasKrokodil på de öppna frågorna i första utkastet:
 
 ## Att kontrollera vid uppdatering (varje release)
 
-- [ ] Stämmer målen och avgränsningarna fortfarande? Har en ny idé, målgrupp eller ett nytt mål tillkommit?
-- [ ] Har ett beslut ändrat något? Skriv det i `docs/beslut/` först.
+- [x] Stämmer målen och avgränsningarna fortfarande? Har en ny idé, målgrupp eller ett nytt mål tillkommit?
+- [x] Har ett beslut ändrat något? Skriv det i `docs/beslut/` först.
 - [ ] Har något "antagande" bekräftats eller motsagts?
+
+**Genomgång inför v6.1.0 (2026-11-09):** läst mot `main` `c5935f5`. Målen, avgränsningarna och principerna står kvar oförändrade; 6.1.0 (tidsintervall, plats, epoker) och temamotorn ändrar inget mål och ingen avgränsning, och inget nytt beslut har tagits som berör dem. Inget "antagande" har bekräftats eller motsagts av en riktig användare. Öppna frågor (#926, #927) är oförändrade i det här dokumentet; jag har inte kontrollerat deras aktuella status på GitHub.

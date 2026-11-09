@@ -52,7 +52,7 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 
 **Bevis att samla in:** skärmbilder (2× upplösning) i 1400×900 och 400×800, konsolloggar, tidtagning på första handlingen, lista över krockar och täckta kontroller.
 
-**Vad linsen har sagt hittills:** 2026-11-06: mobilkortet täcker tidslinjen; sökningen öppnas med ett förvalt filter (helhetsanalys). 2026-11-08: tyst laddningsreserv, faktaruta bakom lektionskort (blind-spots, PR #871).
+**Vad linsen har sagt hittills:** 2026-11-06: mobilkortet täcker tidslinjen; sökningen öppnas med ett förvalt filter (helhetsanalys). 2026-11-08: tyst laddningsreserv, faktaruta bakom lektionskort (blind-spots, PR #871). 2026-11-08 (granskningen inför 6.1.0, `docs/granskningar/2026-11-08-release-6-1-0-granskning.md`): intervallformulärets knappar låg utanför skärmen på datorn, och Samtidigt-märket och intervallraden visade olika antal (rättade i #985); efter ett epokval syns inte vilken epok som valdes, och intervallet erbjuds där det inte går att välja (öppna förslag i granskningen). 2026-11-09: ett tomt tema gav en tom flik Teman, som nu är dold tills det finns ett tema (#987).
 
 ---
 
@@ -192,7 +192,7 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 
 **Bevis att samla in:** automatiska kontroller (axe) kompletterade med manuell tangentbordsgenomgång; skärmläsare (NVDA, VoiceOver); kontrastmätning.
 
-**Vad linsen har sagt hittills:** 2026-11-08: ingen skärmläsarattest, och rimliga delar saknar bevis ("Skärmläsarbeteende kan inte bevisas med enbart DOM och ARIA").
+**Vad linsen har sagt hittills:** 2026-11-08: ingen skärmläsarattest, och rimliga delar saknar bevis ("Skärmläsarbeteende kan inte bevisas med enbart DOM och ARIA"). 2026-11-08 (granskningen inför 6.1.0): epokknapparna lästes med dubbla årtal, rubrikerna var inte rubriker, intervallet lästes inte upp och platsfältet hade fel namn; samlat i #977 och väntar till nästa release. Fortfarande ingen riktig skärmläsare.
 
 ---
 
@@ -215,7 +215,7 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 
 **Bevis att samla in:** stickprov mot öppnade källsidor; jämför översatta texters siffror med svenskan; täckningsmått.
 
-**Vad linsen har sagt hittills:** källpolicy och granskningsnivåer är dokumenterade och i bruk; en tysk betydelseändring hittades i språkgranskningen inför release (2026-11-08).
+**Vad linsen har sagt hittills:** källpolicy och granskningsnivåer är dokumenterade och i bruk; en tysk betydelseändring hittades i språkgranskningen inför release (2026-11-08). 2026-11-08 (granskningen inför 6.1.0): epokernas årtal stämmer med Skolverket, Historiska museet, Wikipedia och Wikidata (stickprov, 14 texter); "Industrialiseringen" var den brittiska revolutionen och döptes om (#978, #986).
 
 ---
 

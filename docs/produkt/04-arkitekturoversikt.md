@@ -50,7 +50,7 @@ flowchart TB
   end
 
   subgraph Styrning
-    CTRL[controllers/<br/>val, fokus, omritning, uppspelning,<br/>berättelse, adress]
+    CTRL[controllers/<br/>val, fokus, omritning, uppspelning,<br/>berättelse, adress,<br/>intervall (range.js)]
     REG[layers/registry.js<br/>ritordning, Lager-menyn, tonar]
   end
 
@@ -165,7 +165,8 @@ Hämtade ur analyserna, inte nya fynd. Verifiera mot koden innan du agerar på d
 
 ## Att kontrollera vid uppdatering
 
-- [ ] Stämmer bilderna med koden? (Pröva särskilt lagerlistan, controllers och miljöerna.)
+- [x] Stämmer bilderna med koden? *2026-11-09: controllers får `range.js` (tidsintervallet, #755). Temat är fokus av typen `theme` i samma controller som Fokus (`focus.js`) och ändrar inte lagerlistan.*
+- [ ] (kvarstår) Stämmer bilderna med koden? (Pröva särskilt lagerlistan, controllers och miljöerna.)
 - [ ] Är risktabellen i takt med senaste analysen? Stäng, flytta eller lägg till.
 - [ ] Har ett beslut ändrat en princip? Då ska CLAUDE.md och beslutsfilen ändras först.
 - [ ] Har ett nytt beroende eller en ny extern tjänst tillkommit? Det kräver DasKrokodils ok och ska in i bild 1.
