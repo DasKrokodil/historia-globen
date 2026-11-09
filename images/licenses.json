@@ -111,6 +111,21 @@
       }
     },
     {
+      "eventId": "batavia-forliser",
+      "eventTitle": "Skeppet Batavia förliser vid Houtman Abrolhos",
+      "file": "images/events/batavia-forliser.webp",
+      "kind": "historisk",
+      "credit": "Aart Dircksz Oossaan / Atlas of Mutual Heritage och Koninklijke Bibliotheek via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-batavia-forliser",
+        "title": "Morden efter Bataviaförlisningen 1629 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:AMH-6776-KB_Massacre_after_the_shipwreck_of_the_Batavia_in_1629.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-09"
+      }
+    },
+    {
       "eventId": "befrielsen-av-kuwait",
       "eventTitle": "Markoffensiven befriar Kuwait",
       "file": "images/events/befrielsen-av-kuwait.webp",
@@ -252,6 +267,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:A_small_temple_beneath_the_Bodhi_tree,_Bodh_Gaya,_c._1810.jpg",
         "license": "Public domain",
         "checked": "2026-10-29"
+      }
+    },
+    {
+      "eventId": "burke-och-wills-expedition",
+      "eventTitle": "Burke och Wills försöker korsa Australien",
+      "file": "images/events/burke-och-wills-expedition.webp",
+      "kind": "historisk",
+      "credit": "Nicholas Chevalier / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-burke-och-wills-expedition",
+        "title": "Burke, Wills och King på väg tillbaka (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Burke_and_wills_nicholas_chevalier-2.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-09"
       }
     },
     {
@@ -1035,6 +1065,36 @@
       "source": null
     },
     {
+      "eventId": "klippkonsten-vid-ubirr",
+      "eventTitle": "Klippmålningarna vid Ubirr",
+      "file": "images/events/klippkonsten-vid-ubirr.webp",
+      "kind": "historisk",
+      "credit": "Dietmar Rabich / Wikimedia Commons, CC BY-SA 4.0",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-klippkonsten-vid-ubirr",
+        "title": "Klippmålning vid Ubirr (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kakadu_(AU),_Kakadu_National_Park,_Ubirr_Rock_Art_--_2019_--_4169.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-09"
+      }
+    },
+    {
+      "eventId": "kokodafalttaget",
+      "eventTitle": "Kokodafälttåget",
+      "file": "images/events/kokodafalttaget.webp",
+      "kind": "historisk",
+      "credit": "Damien Parer / Australian War Memorial via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kokodafalttaget",
+        "title": "Australiska 39:e bataljonen efter Kokodakampanjen (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Australian_39th_Battalion_after_the_Kokoda_Track_campaign_1942_(AWM_013289).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-09"
+      }
+    },
+    {
       "eventId": "konfucius",
       "eventTitle": "Konfucius lever",
       "file": "images/events/konfucius.webp",
@@ -1206,6 +1266,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:PortVilaLapita.jpg",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "latte-stenar-pa-marianerna",
+      "eventTitle": "Chamorrofolket börjar resa latte-stenar",
+      "file": "images/events/latte-stenar-pa-marianerna.webp",
+      "kind": "historisk",
+      "credit": "Lance Vanlewen / Wikimedia Commons, CC BY-SA 4.0",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-latte-stenar-pa-marianerna",
+        "title": "Latte-stenar i Latte Stone Park, Guam (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Latte_Stones_in_Latte_Stone_Park,_Guam.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-09"
       }
     },
     {
@@ -1947,6 +2022,21 @@
       "source": null
     },
     {
+      "eventId": "slaget-om-guadalcanal",
+      "eventTitle": "Slaget om Guadalcanal",
+      "file": "images/events/slaget-om-guadalcanal.webp",
+      "kind": "historisk",
+      "credit": "U.S. Navy / Naval History and Heritage Command via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-om-guadalcanal",
+        "title": "Japanskt flyganfall utanför Guadalcanal 12 november 1942 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Japanes_air_attack_on_shipping_off_Guadalcanal,_12_November_1942.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-09"
+      }
+    },
+    {
       "eventId": "slaget-om-kyiv-2022",
       "eventTitle": "Slaget om Kyiv",
       "file": "images/events/slaget-om-kyiv-2022.webp",
@@ -2031,6 +2121,21 @@
       "source": null
     },
     {
+      "eventId": "slaget-vid-gate-pa",
+      "eventTitle": "Slaget vid Gate Pā",
+      "file": "images/events/slaget-vid-gate-pa.webp",
+      "kind": "historisk",
+      "credit": "Archibald Forbes, Arthur Griffiths m.fl. / British Library via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-gate-pa",
+        "title": "Attack vid Gate Pā (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Attack_at_Gate_P%C4%81.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-09"
+      }
+    },
+    {
       "eventId": "slaget-vid-gaugamela",
       "eventTitle": "Slaget vid Gaugamela",
       "file": "images/events/slaget-vid-gaugamela.webp",
@@ -2091,6 +2196,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-kororareka",
+      "eventTitle": "Slaget vid Kororāreka",
+      "file": "images/events/slaget-vid-kororareka.webp",
+      "kind": "historisk",
+      "credit": "George Thomas Clayton m.fl. / Nya Zeelands nationalbibliotek via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-kororareka",
+        "title": "Kororāreka före anfallet 1845 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Koror%C4%81reka_before_the_assault.png",
+        "license": "Public domain",
+        "checked": "2026-11-09"
+      }
+    },
+    {
       "eventId": "slaget-vid-lutzen-1632",
       "eventTitle": "Gustav II Adolf stupar vid Lützen",
       "file": "images/events/slaget-vid-lutzen-1632.webp",
@@ -2142,6 +2262,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Marten's_Poltava.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-rangiriri",
+      "eventTitle": "Slaget vid Rangiriri",
+      "file": "images/events/slaget-vid-rangiriri.webp",
+      "kind": "historisk",
+      "credit": "Charles Heaphy / James Cowan, The New Zealand Wars (1922) via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-rangiriri",
+        "title": "Stormningen av Rangiriri slås tillbaka (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_repulse_of_the_royal_navy_storming_party_rangiriri_pa.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-09"
       }
     },
     {
@@ -2484,6 +2619,36 @@
         "url": "https://commons.wikimedia.org/wiki/File:Panorama_Mount_Tambora_caldera.jpg",
         "license": "CC BY 4.0",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "taraweras-utbrott",
+      "eventTitle": "Vulkanen Tarawera får utbrott",
+      "file": "images/events/taraweras-utbrott.webp",
+      "kind": "historisk",
+      "credit": "Charles Blomfield / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-taraweras-utbrott",
+        "title": "Tarawera under utbrottet 1886 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Charles-Blomfield-Mount-Tarawera-in-eruption-June-10-1886.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-09"
+      }
+    },
+    {
+      "eventId": "tasman-och-maori-i-mohua",
+      "eventTitle": "Tasmans möte med Ngāti Tūmatakōkiri i Mohua",
+      "file": "images/events/tasman-och-maori-i-mohua.webp",
+      "kind": "historisk",
+      "credit": "Isaack Gilsemans / Nationaal Archief via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-tasman-och-maori-i-mohua",
+        "title": "Gilsemans teckning av Mördarbukten 1642 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Gilsemans_1642.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-09"
       }
     },
     {
