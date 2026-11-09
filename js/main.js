@@ -541,8 +541,9 @@ async function start() {
   // Teckenförklaringen under tidslinjen (#1003): öppen som standard, och valet att fälla ihop den sparas
   const tLegend = $('timeline-legend');
   try { if (localStorage.getItem('hg-teckenforklaring') === 'hopfalld') tLegend.open = false; } catch { /* utan lagring: öppen */ }
-  tLegend.addEventListener('toggle', () => {
-    try { localStorage.setItem('hg-teckenforklaring', tLegend.open ? 'oppen' : 'hopfalld'); } catch { /* utan lagring */ }
+  // Sparas i klicket (före ändringen), inte i toggle-händelsen som kommer senare och kan hinna missas vid en omladdning
+  tLegend.querySelector('summary').addEventListener('click', () => {
+    try { localStorage.setItem('hg-teckenforklaring', tLegend.open ? 'hopfalld' : 'oppen'); } catch { /* utan lagring */ }
   });
 
   // Quiz (#65): frågor ur befintliga fun facts, startas från Mer. Knappen döljs om datan inte räcker till en fråga.
