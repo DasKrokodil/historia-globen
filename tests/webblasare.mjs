@@ -2842,6 +2842,11 @@ async function run(browser, vp) {
       });
       fallbackPage.on('pageerror', error => fallbackErrors.push(error.message));
       try {
+        if (THREE_LOCAL) {
+          const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+          await fallbackPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+          await fallbackPage.route(u => isFont(u.href), r => r.abort());
+        }
         await fallbackPage.route('**/data/version.json', route => route.fulfill({ status: 404, body: 'Not found' }));
         await fallbackPage.goto(BASE);
         await fallbackPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
