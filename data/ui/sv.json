@@ -329,6 +329,8 @@
   "tour.endAnnounce": "Detta var sista steget i turen.",
   "tour.lessonMeta": "Lektion · årskurs {grades} · {n} min",
   "tour.lessonStart": "Starta som lektion",
+  "tour.start": "Starta turen",
+  "tour.startLabel": "Starta turen: {title}",
   "tour.teacherLinkCopy": "Kopiera lärarlänk",
   "tour.teacherLinkCopied": "Lärarlänken är kopierad",
   "tour.teacherLinkPrompt": "Kopiera lärarlänken till den här lektionen:",

@@ -553,6 +553,8 @@
   "tour.endAnnounce": "Este fue el último paso del recorrido.",
   "tour.lessonMeta": "Lección · cursos {grades} · {n} min",
   "tour.lessonStart": "Empezar como lección",
+  "tour.start": "Empezar el recorrido",
+  "tour.startLabel": "Empezar el recorrido: {title}",
   "tour.teacherLinkCopy": "Copiar enlace para docentes",
   "tour.teacherLinkCopied": "El enlace para docentes se ha copiado",
   "tour.teacherLinkPrompt": "Copie el enlace para docentes de esta lección:",
