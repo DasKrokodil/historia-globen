@@ -539,6 +539,19 @@ async function run(browser, vp) {
     return 'år, datum, skottdag och ogiltigt datum fungerar; e.Kr. är standard och f.Kr. är en knapp';
   });
 
+  // #979: tidslinjens segment är en skala och heter bara årtal; epoknamnen finns bara i data/perioder.json
+  await check('årshoppets snabbval och tidslinjens segment heter bara årtal (#979)', async () => {
+    if (await page.isHidden('#jump-pop')) await page.click('#year-jump');
+    await visible('#jump-epochs');
+    const names = await page.locator('#jump-epochs .jump-epoch-name').allTextContents();
+    const want = ['3000–500 f.Kr.', '500 f.Kr.–1000', '1000–1800', 'sedan 1800', 'Idag'];
+    if (JSON.stringify(names) !== JSON.stringify(want)) throw new Error(`snabbvalen heter ${JSON.stringify(names)}, väntade ${JSON.stringify(want)}`);
+    const titles = await page.locator('#track-segments .seg[title]').evaluateAll(els => els.map(e => e.title));
+    if (titles.some(x => /ålder|Antiken|Medeltid|Modern/i.test(x))) throw new Error(`segmenten har epoknamn: ${JSON.stringify(titles)}`);
+    await page.keyboard.press('Escape');
+    return `snabbvalen ${names.join(' · ')}; segmenten ${titles.join(' · ')}`;
+  });
+
   await check('datumresultatets rader öppnar händelsen (#590)', async () => {
     if (await page.isHidden('#jump-pop')) await page.click('#year-jump');
     await visible('#jump-input');

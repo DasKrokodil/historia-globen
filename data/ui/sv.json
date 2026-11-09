@@ -19,6 +19,7 @@
   "time.approx": "cirka ",
   "time.ongoing": "{start}–pågår",
   "time.since": "sedan {start}",
+  "jump.today": "Idag",
   "time.until": "till {end}",
   "time.months": ["januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti", "september", "oktober", "november", "december"],
   "time.monthsShort": ["jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec"],

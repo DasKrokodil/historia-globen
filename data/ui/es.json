@@ -101,6 +101,7 @@
   "time.approx": "hacia ",
   "time.ongoing": "{start}–en curso",
   "time.since": "desde {start}",
+  "jump.today": "Hoy",
   "time.until": "hasta {end}",
   "time.months": [
     "enero",
