@@ -123,7 +123,7 @@
 "data/turer/forsta-varldskriget.json":{"de":40,"es":40,"fr":40},
 "data/turer/tre-platser-1325.json":{"de":8,"es":8,"fr":8},
 "data/upptackt.json":{"es":13,"fr":13},
-"data/vyer.json":{"es":51,"fr":51}
+"data/vyer.json":{"es":49,"fr":49}
 },
 "register":{
 "de":[
@@ -177,7 +177,6 @@
 "08625846:ce3c4749",
 "08811368:5012f4a2*3",
 "088f0154:05f4590b",
-"08930db7:7b778064",
 "08adaef2:78728d5e",
 "08d476c2:60a9a673",
 "09090984:09090984*3",
@@ -1202,7 +1201,6 @@
 "c1b2eaa1:e91e5e88",
 "c1ce657d:f27f8a5d",
 "c1dbe5c7:0f000026*3",
-"c28e2de3:fdfe36c5",
 "c2b1f22c:d22eb4d0",
 "c2c96074:e2e9f7a8",
 "c31cec9e:c31cec9e*3",
@@ -1803,7 +1801,6 @@
 "088e3a7e:361642e8",
 "088f0154:e0a8bc8d",
 "0890c9b4:faf6ebcb",
-"08930db7:6050c225",
 "0899cf66:69a32588",
 "089b939b:60f6d4b8",
 "08a118c3:49cf547b",
@@ -7402,7 +7399,6 @@
 "c27f06d1:6c2efb1a",
 "c2839bfb:904efb76",
 "c28adc2b:e8c3ea96",
-"c28e2de3:eaf2b438",
 "c2a077c0:91bb198a",
 "c2b1f22c:485cd588",
 "c2b387fb:0cb3e592",

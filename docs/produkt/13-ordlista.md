@@ -11,6 +11,7 @@
 | **Samtidigt-kortet** | Kortet som lyfter fram ett oväntat samband (fun facts m.m.). Kan pausa uppspelningen. |
 | **Fun fact** | Ett samband mellan två eller flera händelser, till exempel att pyramiderna byggdes medan de sista mammutarna levde. Varje led har källa. |
 | **Sök och följ** | Knappen där man söker och väljer något att **följa**: krig, rike, land, religion eller resa. Läget kallas **fokusläge** (kallades förut Fokus). |
+| **Tidsfönstret** | Raden under årtalet: århundradet och hur många år före och efter året som globen också visar ("1300-talet · visar också det som hände 38 år före och efter"). Bredden följer tidslinjens skala, så antalet år byter med var man står. Etiketter och rader i listan säger riktningen i tid: "4 år före (1912)", "om 2 år (1918)", "21 år senare" (#994, #995). Sök och följ använder ett bredare fönster (fyra gånger så brett) och säger det. |
 | **Tidsintervall** | Året plus ett slutår (`y2`): man väljer från och till i årshoppet eller en epok med ett klick. Riken och religioner visas för slutåret. Utesluter Fokus och uppspelning. |
 | **Epok** | Ett namngivet tidsspann ur `data/perioder.json` (Lgr22, Nordens forntid, antiken, industrialiseringen); blir ett tidsintervall. Listar aldrig händelser. |
 | **Tema** | Ett namngivet urval av befintliga händelser (`data/teman.json`) med en introduktion; följs som ett Fokus av typen `theme`. Motorn finns, inget tema än. |

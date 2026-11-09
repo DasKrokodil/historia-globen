@@ -3684,6 +3684,52 @@ async function run(browser, vp) {
     }
     return 'två lektioner märkta (årskurs och tid), Starta som lektion ger bandet, steg 1 och 1939, m=lektion i adressen; vanliga turer utan knapp';
   });
+  // #994 och #995: raden under årtalet säger århundradet och fönstret i klartext, och det som ligger före eller efter året
+  // säger hur långt ("4 år före (1912)", "21 år senare") i stället för "slut 1912"
+  await check('tidsfönstret i vardagsspråk och riktning i tid på etiketter och i listan (#994, #995)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      let loads = 0;
+      const open = async hash => {
+        await wp.goto(`${BASE}?ny=w${loads++}${hash}`);
+        await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await wp.waitForSelector('#event-list .event-item', { state: 'attached', timeout: T.step });
+      };
+      const row = () => wp.evaluate(() => document.getElementById('year-segment').textContent.trim());
+      const metas = () => wp.evaluate(() => [...document.querySelectorAll('#event-list .event-item .meta')].map(m => m.textContent));
+      const labels = () => wp.evaluate(() => [...document.querySelectorAll('#labels .glabel')].map(l => l.textContent));
+      const want = async (hash, pattern) => {
+        await open(hash);
+        const got = await row();
+        if (!pattern.test(got)) throw new Error(`${hash}: raden under årtalet säger "${got}"`);
+        if (/Bronsålder|Antiken|Medeltid|Modern tid|±/.test(got)) throw new Error(`${hash}: raden har kvar epoknamn eller ±: "${got}"`);
+        return got;
+      };
+      // En sidladdning per år, så att kontrollen inte tar tid från resten av jobbet
+      const rows = [];
+      rows.push(await want('#y=1325', /^1300-talet · visar också det som hände \d+ år före och efter$/));
+      // Listan: det som ligger nära året säger riktning
+      const list = await metas();
+      if (!list.some(m => /^\d+ år (tidigare|senare) · /.test(m))) throw new Error('listan 1325 har ingen rad med "N år tidigare/senare"');
+      // Klotets etiketter: "N år före (år)" och "om N år (år)", aldrig "slut" eller "börjar"
+      rows.push(await want('#y=1916', /^1900-talet · visar också det som hände \d+ år före och efter$/));
+      const shown = await labels();
+      const before = shown.find(l => /Titanic/.test(l));
+      if (before && !/ · 4 år före \(1912\)$/.test(before)) throw new Error(`Titanic 1916 säger "${before}"`);
+      if (shown.some(l => / · (slut|börjar) \d/.test(l))) throw new Error(`etikett med slut/börjar kvar: ${shown.find(l => / · (slut|börjar) \d/.test(l))}`);
+      rows.push(await want('#y=-500', /^500-talet f\.Kr\. · visar också det som hände \d+ år före och efter$/));
+      rows.push(await want('#y=1914&f=war:forsta-varldskriget', /^Följer .+ · visar \d+ (år|dagar?) före och efter$/));
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `${rows[0]} | ${rows[2]} | 1916: ${before ?? '(ingen Titanic-etikett)'}`;
+    } finally { await wp.close(); }
+  });
   // #942: händelser som börjar före tidslinjens början (−2999) får en rad i faktarutan; en vanlig händelse får ingen.
   await check('händelser före tidslinjens början får en rad i faktarutan (#942)', async () => {
     const ap = await context.newPage();

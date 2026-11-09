@@ -117,6 +117,55 @@ export function formatYear(y) {
   return isBCE(y) ? `${bce(y)} ${BCE_TXT}` : `${y}`;
 }
 
+/**
+ * Århundradet ett år ligger i, enligt svenskt bruk (#994): "1300-talet" är 1300–1399 och är det 14:e århundradet;
+ * före vår tideräkning räknas från 1 f.Kr. (astronomiskt år 0), så 2901 f.Kr. ligger i "2900-talet f.Kr.".
+ * År 1–99 (och 99–1 f.Kr.) är det första århundradet. Samma indelning i alla språk, bara skrivsättet skiljer.
+ */
+export function centuryOf(y) {
+  const n = isBCE(y) ? bce(y) : y;
+  return { bce: isBCE(y), c: Math.floor(n / 100) + 1, hundred: Math.floor(n / 100) * 100 };
+}
+
+const ROMAN = [[10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']];
+const roman = n => ROMAN.reduce((out, [v, r]) => { while (n >= v) { out += r; n -= v; } return out; }, '');
+/** Engelskans ordningstal: 1st, 2nd, 3rd, 14th, 21st. Suffixen ligger i språkfilen (time.ordSuffix), tom i övriga språk. */
+function ordinal(n) {
+  const [st, nd, rd, th] = ui('time.ordSuffix');
+  const last = n % 10;
+  return `${n}${n % 100 >= 11 && n % 100 <= 13 ? th : last === 1 ? st : last === 2 ? nd : last === 3 ? rd : th}`;
+}
+
+/** Århundradet för året i ord: "1300-talet", "2900-talet f.Kr.", "14th century", "XIVe siècle". */
+export function formatCentury(y) {
+  const { bce: before, c, hundred } = centuryOf(y);
+  const key = `time.century${c === 1 ? '1' : ''}.${before ? 'bce' : 'ce'}`;
+  // Språket väljer hur numret skrivs (time.centuryStyle): 1300 (sv), 14th (en), 14 (de), XIV (es, fr)
+  const n = { hundred, ordinal: ordinal(c), number: c, roman: roman(c) }[ui('time.centuryStyle')] ?? c;
+  return ui(key, { n });
+}
+
+/** Text ur språkfilen som är en lista [en, flera] ("±1 år", "±3 år"), med {n} ersatt och eventuella andra värden i vars. */
+export function pluralUi(key, n, vars = {}) {
+  return String(ui(key)[n === 1 ? 0 : 1]).replace(/\{(\w+)\}/g, (m, k) => ({ n, ...vars })[k] ?? m);
+}
+
+/**
+ * Hur långt en händelse ligger från året, med riktning (#995). Etiketten på klotet: "4 år före (1912)" för det som är
+ * slut, "om 2 år (1918)" för det som börjar. Året står i parentes och formateras som vanligt (f.Kr. blir rätt).
+ * Astronomiska år räknas rakt av: 1 e.Kr. minus 1 f.Kr. är 1 år, så det finns inget år 0 att räkna bort.
+ */
+export function formatDirection(when, dist, eventYear) {
+  const n = Math.max(1, Math.round(dist));
+  return pluralUi(when === 'past' ? 'time.beforeLabel' : 'time.afterLabel', n, { year: formatYear(eventYear) });
+}
+
+/** Samma avstånd i Samtidigt-panelen: "34 år tidigare", "21 år senare", i dagar i fokusläget för korta krig (#204). */
+export function formatOffset(when, dist, fine = false) {
+  const n = fine ? Math.max(1, Math.round(dist * 365.25)) : Math.max(1, Math.round(dist));
+  return pluralUi(`panel.${when === 'past' ? 'earlier' : 'later'}${fine ? 'Days' : ''}`, n);
+}
+
 /** Stort årtal i huvudet: [siffra, epok]. */
 export function yearParts(y) {
   if (isBCE(y)) return [String(bce(y)), BCE_TXT];
