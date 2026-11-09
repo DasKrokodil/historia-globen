@@ -15,7 +15,7 @@ Historia-globen är en snurrbar jordglob i webbläsaren. Man drar i tiden och se
 
 1. **Inget byggsteg.** Vanliga ES-moduler som webbläsaren läser direkt. Inga ramverk (React m.fl.), ingen bundler, ingen server-backend. Det ska gå att köra med `python3 -m http.server`. Undantag: functions/api/feedback.js, beslut 2026-10-30 (besökarnas förslag, se docs/feedback.md).
 2. **Data skild från kod.** All innehållsdata ligger i `data/*.json`. Hårdkoda aldrig händelser, texter eller årtal i JS.
-3. **Ett år styr allt.** `Timeline` äger nuvarande år och skickar `change`, och i fokusläget för korta krig räknas året i delar av år (månader och dagar, #204). Lager och paneler lyssnar och ritar om. Ett tidsintervall (#755) är året plus ett valfritt slutår (`state.range`); det utesluter Fokus och uppspelning (docs/arkitektur.md, "Tidsintervallet").
+3. **Ett år styr allt.** `Timeline` äger nuvarande år och skickar `change`, och i fokusläget för korta krig räknas året i delar av år (månader och dagar, #204). Lager och paneler lyssnar och ritar om. Ett tidsintervall (#755) är året plus ett valfritt slutår (`state.range`); det utesluter Fokus och uppspelning, och riken och religioner visas för slutåret (`state.areaYear`, #756; docs/arkitektur.md, "Tidsintervallet").
 4. **Ekvirektangulär rendering (beslut 1).** Allt som ritas på klotet ritas först på en ekvirektangulär canvas (`baseCanvas` 4096×2048 för grundkartan, `overlayCanvas` 4096×2048 för lager) som läggs på sfären. Klickbara markörer och bågar ligger som 3D-objekt ovanpå. Skälet: samma platta bild visas som karta i "Platt vy" och ska kunna skickas till en fysisk globskärm. Bryt inte detta.
 5. **Lager som moduler (beslut 2).** Fem lagertyper: punkt (händelser), linje (handelsvägar, migration, fronter), område (riken, utbredning), bildlager (nattljus, klimat) och tur (guidade fördjupningar som data). Varje lager har samma gränssnitt: `update(state)` som returnerar det som syns, och `drawOverlay(ctx, W, H)`. Varje lager anmäler sig i lagerregistret (`js/layers/registry.js`, #338) med en post från sin egen fil.
 6. **three.js** laddas som ES-modul från `https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js`. Exakt version, ändra bara medvetet. Inga andra externa beroenden utan att fråga.
@@ -40,6 +40,7 @@ js/date-events.js     återanvändbart urval av händelser för år eller exakt 
 js/state.js           det gemensamma tillståndet (år, fokus, lager, filter) som lagren läser (#338), med åtgärder, prenumeration och JSON (#403), och lägeskontraktet (#893)
 js/globe.js           3D-globen, kamera, styrning, ekvirektangulära canvasar, bågar
 js/globe-detail.js    skarpt utsnitt av kartan vid inzoomning: samma ritning i högre upplösning för det som syns
+js/period-range.js    epok som intervall: periodToRange klipper vid tidslinjens början och går till i dag för öppna perioder (#965)
 js/timeline.js        tidsreglage, segmenterad skala, uppspelning
 js/layers/registry.js lagerregistret: ritordning, Lager-menyn, uppdatering och toning (#338)
 js/layers/index.js    listan över lagren i Lager-menyns ordning; ett nytt lager läggs till här (#338)
@@ -71,7 +72,8 @@ data/handelser/       händelserna, en redigeringsfil per period (fkr.json, 1-14
 data/events.json      alla händelser i en fil, byggs av tools/dela_data.py ur data/handelser/; redigeras inte
 data/funfacts.json    fun facts (kopplade till händelse-id)
 data/missuppfattningar.json vanliga historiska missuppfattningar: påstående, vad källorna säger och ursprung (#838); visas i faktarutan för händelserna i `events`
-data/perioder.json    epoker enligt Lgr22 (fem perioder med årtal, källa och förenklingstext); läses inte av appen än (#845, #476)
+data/teman.json        teman: namngivna urval av händelser som följs i Fokus (#398); tom tills första temat skrivs (#105)
+data/perioder.json    epoker i fyra indelningar: Lgr22 (fem perioder), Nordens forntid (stenålder, bronsålder, järnålder enligt Historiska museet), antiken och industrialiseringen, med årtal, källa och förenklingstext; epokknapparna i intervallformuläret läser den (#845, #965)
 data/intro.json       introduktionens steg och referenser till befintliga händelser/fun facts (#363)
 data/uppdrag.json     elevuppdragen (Samtidighetsjakten): år, spann, antal världsdelar och texter (#741)
 data/turer/           guidade turer: index.json och en fil per tur (#47, beslut 2026-11-01)

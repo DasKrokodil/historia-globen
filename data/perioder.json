@@ -1,6 +1,6 @@
 {
   "schema": "historia-globen/perioder@1",
-  "note": "Epoker enligt den svenska kursplanen i historia (Lgr22, gäller från 2022-07-01), beslut DasKrokodil 2026-11-08 (#845, #476). Rubrikerna och de ungefärliga årtalen är Skolverkets egna, ur centralt innehåll per årskurs; ingen text är kopierad. Perioderna överlappar eftersom de hör till olika stadier. Epoknamn som läroplanen nämner utan årtal (stenålder, antiken m.fl.) saknas med flit tills en andra källa har öppnats (Del 2). Filen läses inte av appen än; snabbknapparna byggs efter intervallet (#755).",
+  "note": "Epoker enligt den svenska kursplanen i historia (Lgr22, gäller från 2022-07-01), beslut DasKrokodil 2026-11-08 (#845, #476). Bara de ungefärliga årtalen och stadiet (årskurserna) är hämtade ur Skolverkets centrala innehåll; periodnamnen är våra egna korta formuleringar, och ingen text är kopierad (beslut 2026-11-08, docs/beslut/2026-11-08-epoknamn-egna-formuleringar.md). Perioderna överlappar eftersom de hör till olika stadier. Epoknamn som läroplanen nämner utan årtal (stenålder, antiken m.fl.) ligger inte i lgr22. Del 2a (2026-11-08) är de tre nordiska åldrarna i en egen indelning, norden-forntid, med Historiska museets årtal; Del 2b börjar med antiken i en egen indelning, antiken (källorna är oense om slutet); industrialiseringen (2026-11-08) är en egen indelning, döpt om 2026-11-09 till den brittiska industriella revolutionen (#978) med källorna oense om början och slut; jordbruk och högkulturer väntar (tidslinjen börjar 3000 f.Kr., så Uruk-perioden ligger utanför, och Egypten har bara ett startår). Filen läses inte av appen än; snabbknapparna byggs efter intervallet (#755).",
   "divisions": [
     {
       "id": "lgr22",
@@ -26,11 +26,11 @@
           "edtf": "0800~/1500~",
           "grades": "4–6",
           "name": {
-            "sv": "Kulturmöten och statsbildning i Norden",
-            "en": "Cultural encounters and state formation in the Nordic countries",
-            "de": "Kulturbegegnungen und Staatsbildung im Norden",
-            "es": "Encuentros culturales y formación de Estados en los países nórdicos",
-            "fr": "Rencontres culturelles et formation des États dans les pays nordiques"
+            "sv": "Norden, cirka 800–1500",
+            "en": "The Nordic countries, c. 800–1500",
+            "de": "Norden, um 800–1500",
+            "es": "Países nórdicos, hacia 800–1500",
+            "fr": "Pays nordiques, vers 800–1500"
           },
           "sources": [
             "skolverket-lgr22-historia"
@@ -44,11 +44,11 @@
           "edtf": "1500~/1800~",
           "grades": "4–6",
           "name": {
-            "sv": "Maktförhållanden och levnadsvillkor i Norden",
-            "en": "Power relations and living conditions in the Nordic countries",
-            "de": "Machtverhältnisse und Lebensbedingungen im Norden",
-            "es": "Relaciones de poder y condiciones de vida en los países nórdicos",
-            "fr": "Rapports de pouvoir et conditions de vie dans les pays nordiques"
+            "sv": "Norden, cirka 1500–1800",
+            "en": "The Nordic countries, c. 1500–1800",
+            "de": "Norden, um 1500–1800",
+            "es": "Países nórdicos, hacia 1500–1800",
+            "fr": "Pays nordiques, vers 1500–1800"
           },
           "sources": [
             "skolverket-lgr22-historia"
@@ -62,11 +62,11 @@
           "edtf": "1800~/1900~",
           "grades": "4–6",
           "name": {
-            "sv": "Folkökning, ändrade maktförhållanden och emigration",
-            "en": "Population growth, changing power relations and emigration",
-            "de": "Bevölkerungswachstum, veränderte Machtverhältnisse und Auswanderung",
-            "es": "Crecimiento demográfico, cambios en las relaciones de poder y emigración",
-            "fr": "Croissance démographique, évolution des rapports de pouvoir et émigration"
+            "sv": "Norden, cirka 1800–1900",
+            "en": "The Nordic countries, c. 1800–1900",
+            "de": "Norden, um 1800–1900",
+            "es": "Países nórdicos, hacia 1800–1900",
+            "fr": "Pays nordiques, vers 1800–1900"
           },
           "sources": [
             "skolverket-lgr22-historia"
@@ -80,11 +80,11 @@
           "edtf": "1850~/1950~",
           "grades": "7–9",
           "name": {
-            "sv": "Imperialism och världskrig",
-            "en": "Imperialism and world wars",
-            "de": "Imperialismus und Weltkriege",
-            "es": "Imperialismo y guerras mundiales",
-            "fr": "Impérialisme et guerres mondiales"
+            "sv": "Imperier och världskrig, cirka 1850–1950",
+            "en": "Empires and world wars, c. 1850–1950",
+            "de": "Imperien und Weltkriege, um 1850–1950",
+            "es": "Imperios y guerras mundiales, hacia 1850–1950",
+            "fr": "Empires et guerres mondiales, vers 1850–1950"
           },
           "sources": [
             "skolverket-lgr22-historia"
@@ -98,14 +98,182 @@
           "edtf": "1900~/..",
           "grades": "7–9",
           "name": {
-            "sv": "Demokratisering och ökad globalisering",
-            "en": "Democratisation and increased globalisation",
-            "de": "Demokratisierung und zunehmende Globalisierung",
-            "es": "Democratización y creciente globalización",
-            "fr": "Démocratisation et mondialisation croissante"
+            "sv": "Från cirka 1900 till i dag",
+            "en": "From c. 1900 to today",
+            "de": "Von etwa 1900 bis heute",
+            "es": "Desde 1900 aproximadamente hasta hoy",
+            "fr": "De 1900 environ à aujourd’hui"
           },
           "sources": [
             "skolverket-lgr22-historia"
+          ],
+          "review": "source-checked"
+        }
+      ]
+    },
+    {
+      "id": "norden-forntid",
+      "name": {
+        "sv": "Nordens forntid (enligt Historiska museet)",
+        "en": "Prehistory of the Nordic countries (according to the Swedish History Museum)",
+        "de": "Vorgeschichte des Nordens (nach dem Historischen Museum Schwedens)",
+        "es": "Prehistoria de los países nórdicos (según el Museo de Historia de Suecia)",
+        "fr": "Préhistoire des pays nordiques (selon le Musée d’histoire de Suède)"
+      },
+      "simplification": {
+        "sv": "Stenålder, bronsålder och järnålder är nordiska forskningsbegrepp, och årtalen är ungefärliga och följer Historiska museet. Perioderna började och slutade vid andra tider i andra delar av världen, och även inom Norden skiljer sig kulturerna mellan norr och söder. Indelningen är en förenkling, och källorna är inte helt överens om järnålderns slut.",
+        "en": "Stone Age, Bronze Age and Iron Age are Nordic research terms, and the years are approximate and follow the Swedish History Museum. The periods began and ended at other times in other parts of the world, and even within the Nordic countries the cultures differ between north and south. The division is a simplification, and the sources do not fully agree on when the Iron Age ended.",
+        "de": "Steinzeit, Bronzezeit und Eisenzeit sind nordische Forschungsbegriffe, und die Jahreszahlen sind ungefähr und folgen dem Historischen Museum Schwedens. In anderen Teilen der Welt begannen und endeten die Zeiträume zu anderen Zeiten, und auch innerhalb des Nordens unterscheiden sich die Kulturen zwischen Norden und Süden. Die Einteilung ist eine Vereinfachung, und die Quellen sind sich über das Ende der Eisenzeit nicht ganz einig.",
+        "es": "La Edad de Piedra, la Edad del Bronce y la Edad del Hierro son conceptos de investigación nórdicos, y los años son aproximados y siguen al Museo de Historia de Suecia. En otras partes del mundo, los períodos comenzaron y terminaron en otros momentos, y también dentro de los países nórdicos las culturas difieren entre el norte y el sur. La división es una simplificación, y las fuentes no coinciden del todo sobre el final de la Edad del Hierro.",
+        "fr": "L’âge de la pierre, l’âge du bronze et l’âge du fer sont des notions de recherche nordiques, et les années sont approximatives et suivent le Musée d’histoire de Suède. Dans d’autres régions du monde, ces périodes ont commencé et fini à d’autres moments, et même dans les pays nordiques les cultures diffèrent entre le nord et le sud. Cette division est une simplification, et les sources ne s’accordent pas entièrement sur la fin de l’âge du fer."
+      },
+      "periods": [
+        {
+          "id": "nordisk-stenalder",
+          "start": -11999,
+          "end": -1699,
+          "edtf": "Y-11999~/-1699~",
+          "name": {
+            "sv": "Nordisk stenålder",
+            "en": "Nordic Stone Age",
+            "de": "Nordische Steinzeit",
+            "es": "Edad de Piedra nórdica",
+            "fr": "Âge de la pierre nordique"
+          },
+          "sources": [
+            "historiska-stenalder",
+            "historiska-perioder"
+          ],
+          "review": "source-checked"
+        },
+        {
+          "id": "nordisk-bronsalder",
+          "start": -1699,
+          "end": -499,
+          "edtf": "-1699~/-0499~",
+          "name": {
+            "sv": "Nordisk bronsålder",
+            "en": "Nordic Bronze Age",
+            "de": "Nordische Bronzezeit",
+            "es": "Edad del Bronce nórdica",
+            "fr": "Âge du bronze nordique"
+          },
+          "sources": [
+            "historiska-bronsalder",
+            "historiska-perioder"
+          ],
+          "review": "source-checked"
+        },
+        {
+          "id": "nordisk-jarnalder",
+          "start": -499,
+          "end": 550,
+          "edtf": "-0499~/0550~",
+          "name": {
+            "sv": "Nordisk järnålder",
+            "en": "Nordic Iron Age",
+            "de": "Nordische Eisenzeit",
+            "es": "Edad del Hierro nórdica",
+            "fr": "Âge du fer nordique"
+          },
+          "note": {
+            "sv": "Källorna skiljer sig: Historiska museets översikt slutar järnåldern år 550 e.Kr. (och räknar vikingatiden, 793–1050, som en egen period), medan museets sida om järnåldern anger 500 f.Kr.–1100 e.Kr. Här används 550.",
+            "en": "The sources differ: the Swedish History Museum’s overview ends the Iron Age in AD 550 (and treats the Viking Age, 793–1050, as a separate period), while the museum’s page on the Iron Age gives 500 BC–AD 1100. Here 550 is used.",
+            "de": "Die Quellen unterscheiden sich: Die Übersicht des Historischen Museums Schwedens lässt die Eisenzeit im Jahr 550 n. Chr. enden (und behandelt die Wikingerzeit, 793–1050, als eigenen Zeitraum), während die Seite des Museums zur Eisenzeit 500 v. Chr.–1100 n. Chr. angibt. Hier wird 550 verwendet.",
+            "es": "Las fuentes difieren: la visión general del Museo de Historia de Suecia termina la Edad del Hierro en el año 550 d. C. (y trata la época vikinga, 793–1050, como un período aparte), mientras que la página del museo sobre la Edad del Hierro indica 500 a. C.–1100 d. C. Aquí se usa 550.",
+            "fr": "Les sources diffèrent : l’aperçu du Musée d’histoire de Suède fait finir l’âge du fer en 550 apr. J.-C. (et traite l’époque viking, 793–1050, comme une période à part), tandis que la page du musée sur l’âge du fer indique 500 av. J.-C.–1100 apr. J.-C. Ici, 550 est utilisé."
+          },
+          "sources": [
+            "historiska-jarnalder",
+            "historiska-perioder"
+          ],
+          "review": "source-checked"
+        }
+      ]
+    },
+    {
+      "id": "antiken",
+      "name": {
+        "sv": "Antiken (ett europeiskt begrepp)",
+        "en": "Antiquity (a European concept)",
+        "de": "Antike (ein europäischer Begriff)",
+        "es": "Antigüedad (un concepto europeo)",
+        "fr": "Antiquité (une notion européenne)"
+      },
+      "simplification": {
+        "sv": "Antiken är ett europeiskt begrepp om Medelhavsvärlden. Årtalen är ungefärliga: starten, cirka 800 f.Kr., är samstämmig i källorna, men slutet sätts olika, från cirka 300 till cirka 600 e.Kr. Andra delar av världen har egna epoker och egna gränser, så indelningen är en förenkling.",
+        "en": "Antiquity is a European concept about the Mediterranean world. The years are approximate: the start, around 800 BC, is the same in the sources, but the end is placed differently, from about AD 300 to about AD 600. Other parts of the world have their own periods and boundaries, so the division is a simplification.",
+        "de": "Die Antike ist ein europäischer Begriff für die Welt des Mittelmeerraums. Die Jahreszahlen sind ungefähr: Der Beginn, um 800 v. Chr., ist in den Quellen derselbe, das Ende wird jedoch unterschiedlich angesetzt, von etwa 300 bis etwa 600 n. Chr. Andere Teile der Welt haben eigene Epochen und eigene Grenzen, daher ist die Einteilung eine Vereinfachung.",
+        "es": "La Antigüedad es un concepto europeo sobre el mundo mediterráneo. Los años son aproximados: el comienzo, hacia 800 a. C., coincide en las fuentes, pero el final se sitúa de forma distinta, desde hacia 300 hasta hacia 600 d. C. Otras partes del mundo tienen sus propias épocas y sus propios límites, así que la división es una simplificación.",
+        "fr": "L’Antiquité est une notion européenne qui concerne le monde méditerranéen. Les années sont approximatives : le début, vers 800 av. J.-C., est le même dans les sources, mais la fin est placée différemment, de 300 environ à 600 environ apr. J.-C. D’autres régions du monde ont leurs propres périodes et leurs propres limites ; cette division est donc une simplification."
+      },
+      "periods": [
+        {
+          "id": "antiken",
+          "start": -799,
+          "end": 500,
+          "edtf": "-0799~/0500~",
+          "name": {
+            "sv": "Antiken, cirka 800 f.Kr.–500 e.Kr.",
+            "en": "Antiquity, c. 800 BC–AD 500",
+            "de": "Antike, um 800 v. Chr.–500 n. Chr.",
+            "es": "Antigüedad, hacia 800 a. C.–500 d. C.",
+            "fr": "Antiquité, vers 800 av. J.-C.–500 apr. J.-C."
+          },
+          "note": {
+            "sv": "Källorna skiljer sig om slutet. Nationalencyklopedin (enligt svenska Wikipedia) anger cirka 800 f.Kr.–cirka 500 e.Kr.; samma artikel säger att slutet ofta sätts till Västroms fall 476 e.Kr. och kan placeras vid cirka 300 eller 600. Wikidata anger 700-talet f.Kr.–200-talet e.Kr., och engelska Wikipedia har både cirka 300 e.Kr. (infoboxen) och 400-talet e.Kr. (ingressen). Här används 500.",
+            "en": "The sources differ on the end. The Swedish national encyclopaedia, Nationalencyklopedin (according to Swedish Wikipedia), gives about 800 BC to about AD 500; the same article says the end is often placed at the fall of the Western Roman Empire in AD 476 and can be placed at about 300 or 600. Wikidata gives the 8th century BC to the 3rd century AD, and English Wikipedia has both about AD 300 (infobox) and the 5th century AD (lead). Here 500 is used.",
+            "de": "Die Quellen unterscheiden sich beim Ende. Die schwedische Nationalenzyklopädie Nationalencyklopedin (laut schwedischer Wikipedia) nennt etwa 800 v. Chr. bis etwa 500 n. Chr.; derselbe Artikel sagt, das Ende werde oft beim Untergang des Weströmischen Reichs 476 n. Chr. angesetzt und könne bei etwa 300 oder 600 liegen. Wikidata nennt das 8. Jahrhundert v. Chr. bis das 3. Jahrhundert n. Chr., und die englische Wikipedia hat sowohl etwa 300 n. Chr. (Infobox) als auch das 5. Jahrhundert n. Chr. (Einleitung). Hier wird 500 verwendet.",
+            "es": "Las fuentes difieren sobre el final. La enciclopedia nacional sueca, Nationalencyklopedin (según la Wikipedia sueca), indica de hacia 800 a. C. a hacia 500 d. C.; el mismo artículo dice que el final suele situarse en la caída del Imperio romano de Occidente en 476 d. C. y que puede situarse hacia 300 o 600. Wikidata indica del siglo VIII a. C. al siglo III d. C., y la Wikipedia en inglés tiene tanto hacia 300 d. C. (infobox) como el siglo V d. C. (introducción). Aquí se usa 500.",
+            "fr": "Les sources diffèrent sur la fin. L’encyclopédie nationale suédoise, Nationalencyklopedin (selon Wikipédia en suédois), indique de 800 environ av. J.-C. à 500 environ apr. J.-C. ; le même article dit que la fin est souvent placée à la chute de l’Empire romain d’Occident en 476 apr. J.-C. et qu’elle peut l’être vers 300 ou 600. Wikidata indique du VIIIe siècle av. J.-C. au IIIe siècle apr. J.-C., et Wikipédia en anglais a à la fois environ 300 apr. J.-C. (infobox) et le Ve siècle apr. J.-C. (introduction). Ici, 500 est utilisé."
+          },
+          "sources": [
+            "wp-sv-antiken",
+            "wp-classical-antiquity",
+            "wikidata-classical-antiquity"
+          ],
+          "review": "source-checked"
+        }
+      ]
+    },
+    {
+      "id": "industrialiseringen",
+      "name": {
+        "sv": "Den industriella revolutionen (Storbritannien)",
+        "en": "The Industrial Revolution (Britain)",
+        "de": "Die Industrielle Revolution (Großbritannien)",
+        "es": "La Revolución Industrial (Gran Bretaña)",
+        "fr": "La révolution industrielle (Grande-Bretagne)"
+      },
+      "simplification": {
+        "sv": "Det här är den brittiska industriella revolutionen: den började i Storbritannien omkring 1760 och hade enligt källan spridit sig till Europa och USA omkring 1840. Det är inte Sveriges industrialisering, som Lgr22 tar upp senare (den tidiga industrialiseringen i Sverige i perioden cirka 1800–1900 för åk 4–6, och industrialiseringen i Europa och Sverige i åk 7–9 utan årtal). Årtalen är ungefärliga och historiker är inte överens om exakt när den började och slutade. Andra delar av världen industrialiserades vid andra tider, så indelningen är en förenkling.",
+        "en": "This is the British Industrial Revolution: it began in Britain around 1760 and, according to the source, had spread to Europe and the United States by about 1840. It is not Sweden’s industrialisation, which Lgr22 covers later (the early industrialisation of Sweden in the period c. 1800–1900 for grades 4–6, and industrialisation in Europe and Sweden in grades 7–9 without years). The years are approximate, and historians do not agree on exactly when it began and ended. Other parts of the world industrialised at other times, so the division is a simplification.",
+        "de": "Dies ist die britische Industrielle Revolution: Sie begann um 1760 in Großbritannien und hatte sich laut der Quelle um 1840 auf Europa und die USA ausgebreitet. Es ist nicht die Industrialisierung Schwedens, die Lgr22 später behandelt (die frühe Industrialisierung Schwedens im Zeitraum um 1800–1900 für die Klassen 4–6 und die Industrialisierung in Europa und Schweden in den Klassen 7–9 ohne Jahreszahlen). Die Jahreszahlen sind ungefähr, und die Historiker sind sich nicht einig, wann sie genau begann und endete. Andere Teile der Welt industrialisierten sich zu anderen Zeiten, daher ist die Einteilung eine Vereinfachung.",
+        "es": "Esta es la Revolución Industrial británica: comenzó en Gran Bretaña hacia 1760 y, según la fuente, se había extendido a Europa y a Estados Unidos hacia 1840. No es la industrialización de Suecia, que Lgr22 trata más adelante (la temprana industrialización de Suecia en el período de hacia 1800–1900 para los cursos 4–6, y la industrialización en Europa y Suecia en los cursos 7–9 sin años). Los años son aproximados, y los historiadores no coinciden en cuándo empezó y terminó exactamente. Otras partes del mundo se industrializaron en otros momentos, así que la división es una simplificación.",
+        "fr": "Il s’agit de la révolution industrielle britannique : elle a commencé en Grande-Bretagne vers 1760 et, selon la source, s’était étendue à l’Europe et aux États-Unis vers 1840. Ce n’est pas l’industrialisation de la Suède, que Lgr22 traite plus tard (la première industrialisation de la Suède dans la période de 1800 à 1900 environ pour les classes 4 à 6, et l’industrialisation en Europe et en Suède dans les classes 7 à 9, sans années). Les années sont approximatives, et les historiens ne s’accordent pas sur le moment exact de son début et de sa fin. D’autres régions du monde se sont industrialisées à d’autres moments ; cette division est donc une simplification."
+      },
+      "periods": [
+        {
+          "id": "industrialiseringen",
+          "start": 1760,
+          "end": 1840,
+          "edtf": "1760~/1840~",
+          "name": {
+            "sv": "Industriella revolutionen i Storbritannien, cirka 1760–1840",
+            "en": "The Industrial Revolution in Britain, c. 1760–1840",
+            "de": "Industrielle Revolution in Großbritannien, um 1760–1840",
+            "es": "Revolución Industrial en Gran Bretaña, hacia 1760–1840",
+            "fr": "Révolution industrielle en Grande-Bretagne, vers 1760–1840"
+          },
+          "note": {
+            "sv": "Början och slutet diskuteras bland historiker. Engelska Wikipedia anger cirka 1760 till cirka 1840 (början i Storbritannien, spridd till Europa och USA omkring 1840) och säger att den exakta början och slutet är omdiskuterade. Här används de årtalen.",
+            "en": "The start and end are debated among historians. English Wikipedia gives about 1760 to about 1840 (beginning in Britain, spread to Europe and the United States by about 1840) and says the precise start and end are debated. Those years are used here.",
+            "de": "Beginn und Ende werden unter Historikern diskutiert. Die englische Wikipedia nennt etwa 1760 bis etwa 1840 (Beginn in Großbritannien, um 1840 in Europa und den USA verbreitet) und sagt, der genaue Beginn und das genaue Ende seien umstritten. Hier werden diese Jahreszahlen verwendet.",
+            "es": "El comienzo y el final se debaten entre los historiadores. La Wikipedia en inglés indica de hacia 1760 a hacia 1840 (comienzo en Gran Bretaña, extendida a Europa y Estados Unidos hacia 1840) y dice que el comienzo y el final exactos se debaten. Aquí se usan esos años.",
+            "fr": "Le début et la fin sont débattus parmi les historiens. Wikipédia en anglais indique de 1760 environ à 1840 environ (début en Grande-Bretagne, étendue à l’Europe et aux États-Unis vers 1840) et dit que le début et la fin exacts sont débattus. Ces années sont utilisées ici."
+          },
+          "sources": [
+            "wp-industrial-revolution"
           ],
           "review": "source-checked"
         }

@@ -11,7 +11,10 @@
 // Valet görs med två årsfält med f.Kr.-val och stegknappar, inte två handtag på tidslinjen (mobil och pekskärm).
 // Formuläret öppnas från årshoppet ("Välj ett tidsintervall"). Det aktiva intervallet syns som en rad under årtalet
 // ("1914–1918 · 23 händelser") med knappen "Tillbaka till ett år", som går till intervallets slutår.
-import { formatYear, yearParts, parseYear } from '../model.js';
+// Epokknapparna (#845 del 3, #965) sitter överst i formuläret, en grupp per indelning i data/perioder.json. De är genvägar
+// till ett intervall som redan går att välja, inte ett nytt läge: ett klick gör samma sak som att fylla i Från och Till.
+import { formatYear, yearParts, parseYear, loadPerioder, t } from '../model.js';
+import { periodToRange } from '../period-range.js';
 import { MIN_YEAR, MAX_YEAR } from '../timeline.js';
 import { ui } from '../i18n.js';
 
@@ -92,7 +95,9 @@ export function createRange(app) {
   const cancel = document.createElement('button');
   cancel.type = 'button'; cancel.className = 'link-btn'; cancel.textContent = ui('range.cancel');
   actions.append(show, cancel);
-  pop.append(title, fromField.row, toField.row, msg, actions);
+  const presets = document.createElement('div');
+  presets.id = 'range-presets'; presets.className = 'range-presets';
+  pop.append(title, presets, fromField.row, toField.row, msg, actions);
   $('jump-pop').after(pop);
 
   // Länken i årshoppet öppnar formuläret
@@ -111,7 +116,63 @@ export function createRange(app) {
   exitBtn.type = 'button'; exitBtn.id = 'range-exit'; exitBtn.className = 'link-btn range-exit';
   exitBtn.textContent = ui('range.exit');
   bar.append(barText, ' ', exitBtn);
+  // Två rader till under raden (#756): vilket år riken och religionerna visas för, och hur många markörer gränsen döljer
+  const areasNote = document.createElement('span');
+  areasNote.id = 'range-areas'; areasNote.className = 'range-note'; areasNote.hidden = true;
+  const capNote = document.createElement('span');
+  capNote.id = 'range-capped'; capNote.className = 'range-note'; capNote.hidden = true;
+  bar.append(areasNote, capNote);
   $('year-segment').after(bar);
+
+  // ---- Epokknapparna: byggs första gången formuläret öppnas, när data/perioder.json har laddats ----
+  let presetsBuilt = false;
+  const presetButtons = [];
+  function buildPresets() {
+    if (presetsBuilt) return;
+    presetsBuilt = true;
+    loadPerioder().then(divisions => {
+      divisions.forEach(div => {
+        const group = document.createElement('section');
+        group.className = 'range-preset-group'; group.setAttribute('role', 'group');
+        const head = document.createElement('p');
+        head.id = `range-preset-${div.id}`; head.className = 'range-preset-head'; head.textContent = t(div.name);
+        group.setAttribute('aria-labelledby', head.id);
+        const note = document.createElement('p');
+        note.className = 'range-preset-note'; note.textContent = t(div.simplification);
+        const list = document.createElement('div');
+        list.className = 'range-preset-list';
+        div.periods.forEach(period => {
+          const r = periodToRange(period, MIN_YEAR, MAX_YEAR);
+          const b = document.createElement('button');
+          b.type = 'button'; b.className = 'range-preset'; b.dataset.period = period.id;
+          const name = document.createElement('span');
+          name.className = 'range-preset-name'; name.textContent = t(period.name);
+          const years = document.createElement('span');
+          years.className = 'range-preset-years';
+          const extra = [r.clippedStart && ui('range.preset.clipped'), r.openEnd && ui('range.preset.today')].filter(Boolean);
+          years.textContent = [rangeText(r.from, r.to), ...extra].join(' · ');
+          b.append(name, years);
+          b.addEventListener('click', () => choosePreset(r));
+          presetButtons.push(b);
+          list.append(b);
+        });
+        group.append(head, note, list);
+        presets.append(group);
+      });
+      syncPresets();
+    });
+  }
+  /** Knapparna är inaktiva när ett annat läge stoppar intervallet (en tur, en lektion eller en jakt); texten är den vanliga. */
+  function syncPresets() {
+    const blocked = !store.canEnter('intervall');
+    presetButtons.forEach(b => { b.disabled = blocked; });
+    if (blocked) msg.textContent = ui('range.blocked');
+  }
+  function choosePreset(r) {
+    if (!set(r.from, r.to)) { msg.textContent = ui('range.blocked'); return; }
+    closeForm(false);
+    exitBtn.focus({ preventScroll: true });
+  }
 
   function openForm() {
     const r = state.range, y = Math.floor(timeline.year);
@@ -120,9 +181,20 @@ export function createRange(app) {
     msg.textContent = '';
     $('jump-pop').hidden = true; $('year-jump').setAttribute('aria-expanded', 'false');
     pop.hidden = false;
+    fitPop();
+    buildPresets();
+    syncPresets();
     fromField.input.focus();
     fromField.input.select?.();
   }
+  /** Formuläret rullar, men får aldrig sluta under skärmens nederkant: knapparna "Visa intervallet" och "Avbryt" ligger längst ner (#973). */
+  function fitPop() {
+    if (pop.hidden) return;
+    pop.style.maxHeight = '';
+    const top = pop.getBoundingClientRect().top;
+    pop.style.maxHeight = `${Math.max(160, Math.floor(innerHeight - top - 12))}px`;
+  }
+  window.addEventListener('resize', fitPop);
   function closeForm(refocus = true) {
     if (pop.hidden) return;
     pop.hidden = true;
@@ -181,13 +253,21 @@ export function createRange(app) {
   timeline.addEventListener('playstate', () => { if (timeline.playing && state.range) close(); });
   timeline.addEventListener('change', () => { if (state.range && !setting && timeline.year !== state.range.from) close(); });
 
-  /** Raden och årtalet i huvudet. count: händelser som syns i intervallet. Anropas av omritningen. */
-  function render(count) {
+  /**
+   * Raden och årtalet i huvudet. count: händelser som syns i intervallet. Anropas av omritningen.
+   * areasYear: året riken och religionerna ritas för (slutåret), eller null när inget av lagren syns (#756).
+   * capped: { shown, total } när markörgränsen döljer markörer, annars null; listan har ändå alla.
+   */
+  function render(count, { areasYear = null, capped = null } = {}) {
     const r = state.range;
     bar.hidden = !r;
     $('year-jump').classList.toggle('is-range', !!r);
     if (!r) return;
     barText.textContent = `${rangeText(r.from, r.to)} · ${plural('range.count', count, { count })}`;
+    areasNote.hidden = areasYear == null;
+    areasNote.textContent = areasYear == null ? '' : ui('range.areasAt', { year: formatYear(areasYear) });
+    capNote.hidden = !capped;
+    capNote.textContent = capped ? ui('range.capped', { shown: capped.shown, total: capped.total }) : '';
   }
 
   return { set, close, render, openForm, get active() { return !!state.range; } };

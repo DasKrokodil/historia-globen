@@ -40,7 +40,7 @@ export function entry({ globe, labelsEl, refreshSoon, showReligionFacts }) {
     update: s => {
       layer.labelScale = origins.scale = s.labels.scale;
       layer.showNames = s.labels.religionNames;
-      return layer.update({ year: s.wholeYear });
+      return layer.update({ year: s.areaYear }); // i ett tidsintervall slutåret (#756)
     },
     legend: s => ({ items: s.faded.has('religions') ? [] : layer.legendItems() }),
     markers: s => origins.update(layer.stars, layer.enabled && !s.faded.has('religions')),

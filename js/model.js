@@ -391,6 +391,35 @@ export function loadSources() {
 }
 
 /**
+ * Epokerna (#845, #965): indelningarna i data/perioder.json (Lgr22 och Nordens forntid) som snabbknappar i intervallformuläret.
+ * Laddas första gången formuläret öppnas, inte vid start. Går filen inte att ladda blir listan tom och knapparna uteblir;
+ * formuläret med årsfälten fungerar ändå.
+ */
+let perioderPromise = null;
+export function loadPerioder() {
+  perioderPromise ??= getJSON('data/perioder.json').then(doc => doc.divisions ?? []).catch(err => {
+    console.warn('Epokerna kunde inte laddas', err);
+    return [];
+  });
+  return perioderPromise;
+}
+
+/**
+ * Teman (data/teman.json, #398): namngivna urval av befintliga händelser som Fokus följer. Laddas första gången
+ * Fokusmenyn öppnas eller ett tema i adressen börjar. Bara teman som är kontrollerade (inte draft) behålls, och en
+ * fil som saknas eller inte går att läsa ger en tom lista; sidan fungerar ändå.
+ */
+let themesPromise = null;
+export function loadThemes() {
+  themesPromise ??= getJSON('data/teman.json').then(doc => (Array.isArray(doc?.themes) ? doc.themes : [])
+    .filter(th => th && typeof th.id === 'string' && Array.isArray(th.events) && isVisibleReview(th.review))).catch(err => {
+    console.warn('Teman kunde inte laddas', err);
+    return [];
+  });
+  return themesPromise;
+}
+
+/**
  * Missuppfattningarna (data/missuppfattningar.json, #838), första gången en faktaruta visas. Bara de som är
  * kontrollerade (inte draft) behålls. En post hör till faktarutan för varje händelse i sitt fält events;
  * poster utan händelse visas inte än.

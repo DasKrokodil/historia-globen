@@ -18,6 +18,8 @@ Firefox hade sju fel och WebKit sex i CI (körning 42450013701 och 42470069967).
 ## Appen
 Ett fynd är ett riktigt (litet) fönster i appen och inte i testet: `popstate` registreras först efter `await apply(s)` i `start()`, medan laddningsrutan döljs tidigare. Det ligger hos #893 (lägeskontraktet) som kommentar, och ingen appkod är ändrad här.
 
+**Uppdatering 2026-11-08:** fönstret rättades i #893 (`popstate` lyssnas på före startens `apply()`), och #953 tog bort `addressReady()` ur testet och lade till en kontroll för en vanlig hashändring under ett långsamt startfokus ([2026-11-08-adressen-lyssnar-fore-start-953](2026-11-08-adressen-lyssnar-fore-start-953.md)). Punkt 3 ovan gäller därför bara året efter en okänd turlänk och fokusraden mot pausraden.
+
 ## Alternativ som övervägdes
 - **Stänga av Firefox- och WebKit-kontrollerna som är röda:** avvisades; det är förbjudet i projektets regler och skulle dölja riktiga fel.
 - **Längre tidsgränser överallt:** avvisades. 90 s räckte inte för lektionsbandet i WebKit, och orsaken var inte tid (se punkt 3); en väntan på rätt tillstånd löste det.

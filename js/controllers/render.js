@@ -90,12 +90,14 @@ export function createRender(app) {
     const range = state.range;
     const window = range ? 0 : timeline.windowYears(year);
     // Tidslinjen äger året; tillståndet speglar det (#403)
-    app.store.mirror({ year, wholeYear, fine, window, span, playing, filters: panel.filters });
+    // Riken och religioner visas för intervallets slutår (alternativ A i förstudien, #756); utan intervall för året
+    const areaYear = range ? Math.floor(range.to) : wholeYear;
+    app.store.mirror({ year, wholeYear, areaYear, fine, window, span, playing, filters: panel.filters });
     // Singular och plural ur språkfilen ([en, flera]), till exempel "±1 dag" och "±3 dagar"
     const plural = (key, n) => String(ui(key)[n === 1 ? 0 : 1]).replace('{n}', n);
     const within = fine ? plural('time.withinDays', Math.round(window * 365.25)) : plural('time.withinYears', Math.round(window));
     ff.story = focus?.type === 'empire' ? storyFor(focus.id) : [];
-    ff.update(wholeYear, panel.filters);
+    ff.update(wholeYear, panel.filters, focus?.type === 'theme' ? focus.eventIds : null);
     state.highlight = ff.highlightIds();
     const eventsOn = layers.on.events;
     // Alla lager väljer vad som syns (beslut 2), i registrets ordning
@@ -105,7 +107,8 @@ export function createRender(app) {
     const rangeLabel = range && rangeText(range.from, range.to);
     panel.render(visible, wholeYear, window, eventsOn, range ? { at: ui('range.at', { range: rangeLabel }), bare: rangeLabel, within, range }
       : fine ? { at: ui('time.onDate', { date: timeline.format(year) }), bare: timeline.format(year), within } : null);
-    app.range?.render(visible.filter(v => v.inside).length);
+    // Etiketten "Områden visas för år N" (#756) när riken eller religioner syns, och hur många markörer gränsen döljer
+    app.range?.render(visible.filter(v => v.inside).length, { areasYear: areas.enabled || religions.enabled ? areaYear : null, capped: layer.capped });
     // Samma markörer i Platt vy (#313): de som syns på klotet, de i listan får klustras och etikett
     flatMap.setMarkers({ list: layer.sprites.filter(sp => sp.userData.active).map(sp => sp.userData),
       labeled: new Set(visible.map(v => v.e.id)), keep: ff.highlightIds(), selectedId: state.selectedId });

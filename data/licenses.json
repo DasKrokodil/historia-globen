@@ -456,6 +456,7 @@
         "wp-chungju-1592",
         "wp-cities-silk-road",
         "wp-classic-maya-collapse",
+        "wp-classical-antiquity",
         "wp-cleisthenes",
         "wp-cleopatra",
         "wp-cliff-palace",
@@ -766,6 +767,7 @@
         "wp-indian-removal-act",
         "wp-indo-roman-trade",
         "wp-indonesian-revolution",
+        "wp-industrial-revolution",
         "wp-ingolfr-arnarson",
         "wp-instrument-surrender-1971",
         "wp-insulin",
@@ -1341,6 +1343,7 @@
         "wp-suez-canal",
         "wp-suhrawardy-udyan",
         "wp-sunpu-castle",
+        "wp-sv-antiken",
         "wp-swahili-coast",
         "wp-sweden",
         "wp-swedish-calendar",
@@ -1595,7 +1598,8 @@
         "wd-vietnam",
         "wd-yinxu",
         "wd-yugoslavia",
-        "wikidata"
+        "wikidata",
+        "wikidata-classical-antiquity"
       ]
     },
     {
@@ -1626,6 +1630,15 @@
       "license": "Förenta nationerna (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "un-untaet"
+      ]
+    },
+    {
+      "license": "Historiska museet (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "historiska-bronsalder",
+        "historiska-jarnalder",
+        "historiska-perioder",
+        "historiska-stenalder"
       ]
     },
     {
@@ -1811,7 +1824,7 @@
       ]
     },
     {
-      "license": "Skolverket (bara länkad, ingen text kopierad)",
+      "license": "Skolverket (bara länkad; årtal och årskurser hämtade, periodnamnen är egna formuleringar, ingen text kopierad)",
       "sourceIds": [
         "skolverket-lgr22-historia"
       ]

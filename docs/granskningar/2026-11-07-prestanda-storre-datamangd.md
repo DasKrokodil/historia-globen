@@ -48,3 +48,30 @@ Hur många markörer som ligger på samma år, ur datan (utan slag i krig som in
 - Bildfrekvensen mättes under dragning med Playwrights mus (en ny position var 16:e ms), så den innehåller verktygets egen kostnad. Jämför celler med varandra, inte med verkliga värden.
 - Mätt i en delad molnmaskin med en körning à tre varv; absoluta tider varierar. Ingen CPU-strypning och inget riktigt grafikkort. Mjukvarurendering är medvetet det svåra fallet.
 - Kolumnen "Rader i listan" är 25 i alla celler, så listan verkar vara begränsad till 25 rader (inte kontrollerat i koden). Då säger kolumnen inget om listans kostnad.
+
+## Uppföljning 2026-11-08: intervalläget (#756)
+
+Intervalläget (#569) finns nu, så begränsningen "Intervalläget är inte mätt" ovan gäller inte längre. Samma syntetiska 10×-data, dator 1400 × 900, mjukvarurendering, tre varv, bildrutor per sekund under 3 s dragning:
+
+| Läge | Markörer pågår | Bilder/s | Etiketter |
+|---|---|---|---|
+| Ett år (1999) | inte räknat | 5,8–6,7 | 33–34 |
+| Intervall 1900–1999, utan gräns | 1 918 | 5,5–5,7 | 66 |
+| Intervall 1900–1999, gräns 300 (förinställningen) | 300 av 1 918 | 5,6–5,8 | 64–66 |
+
+Slutsats: bildfrekvensen sjunker inte mätbart av ett långt intervall ens med 1 918 pågående händelser, och markörgränsen (300) ändrar den inte heller; flaskhalsen är fortfarande själva klotet. Gränsen är kvar som skydd mot att sprites och minne växer med datan, inte som en åtgärd som syns i bildfrekvensen i dag. Siffrorna är relativa (samma begränsningar som ovan).
+
+## Rättelse 2026-11-08: intervalläget på mobil (#966)
+
+En mätning av intervalläget i mobilbredd (400 × 800, mjukvarurendering, dragning i 3 s, median av tre körningar) visade först att bildfrekvensen sjönk från cirka 56 till cirka 16 bilder/s så fort ett intervall var valt. **Det var ett mätfel, inte en försämring.** Mätningens dragning startar mitt på skärmen, och vid år 1998 och 1999 ligger en etikett (`glabel`) där. Etiketten tar emot dragningen, så globen roterade aldrig och ingen ritning gjordes: 26 anrop till `drawElements` under 3 s, mot 1 082 vid 1990 och 1 668 vid 1969. De 56 bilderna/s är en tom bildruta, inte en glob som ritas.
+
+Med dragningar som verkligen vrider globen (mobil, ett år mot intervall):
+
+| Läge | Bilder/s |
+|---|---|
+| ett år, 1990 | 16,8 |
+| ett år, 1969 | 11,9 |
+| intervall 1989–1990 (7 händelser) | 15,8 |
+| intervall 1900–1999 (111 händelser) | 14,7 |
+
+Intervalläget är alltså inte långsammare än ett år; skillnaden mellan åren (12–17 bilder/s) är större än skillnaden mellan ett år och ett intervall. Slutsatsen i uppföljningen ovan (#756) gäller därmed även mobil, och kriteriet "rimlig bildfrekvens" är uppfyllt i den mätta miljön. Den som mäter bildfrekvens under dragning ska först kontrollera med `document.elementFromPoint` att dragningen börjar på `globe-canvas`, eller räkna anrop till `drawElements`.

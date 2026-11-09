@@ -12,6 +12,7 @@ export function createState() {
     // Tiden
     year: 0,          // tidslinjens år, decimaltal i fokusläget för korta krig (#204)
     wholeYear: 0,     // hela året, som riken, religioner och fun facts använder
+    areaYear: 0,      // året som riken och religioner ritas för: wholeYear, men i ett tidsintervall slutåret (#756)
     fine: false,      // fokusläget för ett kort krig: tiden räknas i dagar (#204)
     window: 0,        // hur många år runt året som räknas som "samtidigt" (tidslinjens fönster)
     // Tidsintervallet (#569, #755): { from, to } eller null. from är året (year), to är slutåret. Läget 'intervall' i
@@ -72,7 +73,7 @@ export function snapshot(state) {
 
 /** Versionen av JSON-formatet. Höjs om fälten ändras på ett sätt som gamla länkar inte klarar. */
 export const STATE_VERSION = 1;
-const FOCUS_TYPES = ['war', 'empire', 'religion', 'route'];
+const FOCUS_TYPES = ['war', 'empire', 'religion', 'route', 'theme']; // theme (#398): ett tema är fokus, inget eget läge
 
 // ---------------------------------------------------------------------------------------------------------
 // Lägeskontraktet (#893, beslut docs/beslut/2026-11-08-lagen.md)
