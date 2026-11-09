@@ -2008,9 +2008,9 @@ async function run(browser, vp) {
       if (await development.getAttribute('open') !== null || await sources.getAttribute('open') !== null) {
         throw new Error('rikets fördjupningsavsnitt ska vara stängda i mobilen');
       }
-      await development.locator('summary').click();
+      await development.locator(':scope > summary').click();
       if (await development.getAttribute('open') === null) throw new Error('Hur riket förändrades gick inte att öppna');
-      await sources.locator('summary').click();
+      await sources.locator(':scope > summary').click();
       if (await sources.getAttribute('open') === null) throw new Error('Källor och karta gick inte att öppna');
     }
     await shot('6-fokus-rike');
