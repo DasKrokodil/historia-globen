@@ -366,5 +366,7 @@
   "how.agree.yes": "Källorna är överens.",
   "how.agree.none": "Ingen oenighet är noterad.",
   "how.agree.differ": "Källorna skiljer sig. Se anteckningen ovan.",
-  "how.tour": "Tur: {title}"
+  "how.tour": "Tur: {title}",
+  "tip.year": "Dra här för att byta år",
+  "tip.yearClose": "Stäng tipset"
 }

@@ -26,7 +26,7 @@
 | **Elevblad / lärarblad** | Utskriften ur en lektions data: eleven får frågor med skrivrader, läraren får årskurs, tid och förkunskaper. |
 | **Samtidighetsjakten** | Elevuppdraget under Mer: hitta händelser på olika kontinenter samma år. Du-form. |
 | **Quiz** | "Vad hände samtidigt?" ur befintliga fun facts. |
-| **Introduktion** | De tre stilla stegen för nya besökare. |
+| **Introduktion** | De tre stilla stegen för nya besökare. Knappen heter "Kom igång" och ligger under Mer (#996). |
 | **Missuppfattning** | Ett vanligt felaktigt påstående, vad källorna säger och ursprunget; visas i faktarutan. |
 | **Mer / Meny** | **Mer** (dator) samlar Källor, Hjälp, Quiz, Jakten, Dela och Språk. **Meny** (mobil) är panelen bakom knappen i raden överst. |
 | **Dela** | Kopierar en länk som bär år, kamera, fokus, lager och kategorier. |

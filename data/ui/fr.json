@@ -590,5 +590,7 @@
   "how.agree.yes": "Les sources concordent.",
   "how.agree.none": "Aucun désaccord n'est noté.",
   "how.agree.differ": "Les sources diffèrent. Voir la note ci-dessus.",
-  "how.tour": "Visite : {title}"
+  "how.tour": "Visite : {title}",
+  "tip.year": "Faites glisser ici pour changer d’année",
+  "tip.yearClose": "Fermer le conseil"
 }

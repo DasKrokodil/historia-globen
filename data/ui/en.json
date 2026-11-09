@@ -590,5 +590,7 @@
   "how.agree.yes": "The sources agree.",
   "how.agree.none": "No disagreement has been noted.",
   "how.agree.differ": "The sources differ. See the note above.",
-  "how.tour": "Tour: {title}"
+  "how.tour": "Tour: {title}",
+  "tip.year": "Drag here to change the year",
+  "tip.yearClose": "Close the tip"
 }
