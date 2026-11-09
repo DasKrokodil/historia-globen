@@ -319,6 +319,9 @@ async function start() {
   panel.onFilter = (...a) => { store.setFilters(panel.filters); app.refresh(...a); };
   ff.onSelect = (...a) => app.select(...a);
   ff.onArcs = pairs => { globe.setArcs(pairs); flatMap.setArcs(pairs); };
+  // På dator och surfplatta får faktarutan ensam vara läsytan. FunFacts behåller
+  // däremot sitt eget hopfällda/öppna val och visar det igen när rutan stängs.
+  panel.onDetailChange = open => ff.setDetailOpen(open);
   // Kortets källor (#337): rikets berättelse har egna, fun facts och krigskort ärver händelsernas, som har laddats
   // när dialogen visar dem (Om källorna laddar alla händelsers källor först)
   ff.onSources = f => sources.open(() => f.kind === 'empire' ? f.sources

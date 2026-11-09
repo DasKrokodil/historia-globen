@@ -1495,12 +1495,24 @@ async function run(browser, vp) {
   await check('en händelse öppnas från Samtidigt', async () => {
     const event = page.locator('#ff-events .ff-chip').first();
     const title = (await event.textContent()).replace(/\s+/g, ' ').trim();
+    if (vp.width > 760) {
+      await page.click('#btn-panel');
+      await visible('#panel');
+    }
     // Samtidigt-kortet kan ligga i en mobilpanel ovanpå globen. Klicka på själva knappen så att
     // testet provar kortets egen händelsehanterare, utan att fastna i panelens övergång.
     await event.evaluate(el => el.click());
     await visible('#detail');
     const detail = (await page.textContent('#detail')).replace(/\s+/g, ' ').trim();
     if (!detail.includes(title)) throw new Error(`faktarutan gäller inte den valda händelsen: ${title}`);
+    if (vp.width > 760) {
+      const layout = await page.evaluate(() => {
+        const panel = document.getElementById('panel').getBoundingClientRect();
+        const detail = document.getElementById('detail').getBoundingClientRect();
+        return { panelOpen: document.getElementById('panel').classList.contains('open'), cardHidden: document.getElementById('funfact').hidden, tabVisible: !document.getElementById('ff-tab').hidden, right: Math.round(detail.right - panel.right) };
+      });
+      if (!layout.panelOpen || !layout.cardHidden || !layout.tabVisible || Math.abs(layout.right) > 1) throw new Error('faktarutan delar inte högersidans läsyta med Samtidigt');
+    }
     await shot('3-handelse-oppnas');
     const calm = page.locator('input[data-calm]');
     if (await calm.isChecked()) await calm.click();
@@ -1512,6 +1524,10 @@ async function run(browser, vp) {
     if (pulseFrames.every(frame => frame.equals(pulseFrames[0]))) throw new Error('den valda markörens puls stannade när globen stod stilla');
     await page.locator('#detail [data-close]').click();
     await hidden('#detail');
+    if (vp.width > 760) {
+      await visible('#funfact');
+      await page.click('#panel-close');
+    }
     return `${title}; vald markör pulserar när globen står stilla`;
   });
 

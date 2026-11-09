@@ -90,6 +90,9 @@ export class FunFacts {
     // Panelen i smal skärm (#239): ihopfällt kort (minimized) visas som stängd panel i stället för en flik.
     // autoClosed: stängd av att man drar i globen. Det sparas inte, och nästa nya kort öppnar panelen igen.
     this.sheet = 'half'; this.autoClosed = false;
+    // På bred skärm delar faktarutan och kortet samma läsyta (#998). Detta är
+    // tillfälligt och ska därför inte skriva över besökarens sparade val ovan.
+    this.detailOpen = false;
     // "Dra upp för mer" vid handtaget första gången panelen visas (#310). Utan lagring visas den varje gång.
     this.hint = this.root.querySelector('#ff-drag-hint');
     this.hintDone = false; this.hintTimer = 0;
@@ -168,6 +171,12 @@ export class FunFacts {
     try { localStorage.setItem('hg-ff-min', on ? '1' : '0'); } catch { /* utan lagring */ }
     this._show();
     if (!narrow.matches) (on ? this.tab : this.min).focus?.();
+  }
+
+  /** Faktarutan ersätter kortet i bred skärm, men aldrig mobilens ark. */
+  setDetailOpen(open) {
+    this.detailOpen = open;
+    this._show();
   }
 
   /** Panelens läge i smal skärm: stängd, halv eller hel (#239). */
@@ -364,10 +373,10 @@ export class FunFacts {
     const f = this.active[this.index];
     // I smal skärm är det ihopfällda kortet en stängd panel, inte en flik (#239)
     const asSheet = narrow.matches;
-    this.tab.hidden = !f || !this.minimized || asSheet;
+    this.tab.hidden = !f || (!this.minimized && !this.detailOpen) || asSheet;
     this.tabCount.textContent = String(this.active.length);
     this._syncSheet();
-    if (!f || (this.minimized && !asSheet)) { this.root.hidden = true; this.root.dataset.funfactId = ''; this._announcedKey = ''; this.onArcs([]); return; }
+    if (!f || (this.minimized && !asSheet) || (this.detailOpen && !asSheet)) { this.root.hidden = true; this.root.dataset.funfactId = ''; this._announcedKey = ''; this.onArcs([]); return; }
     this.root.dataset.funfactId = f.id;
     const story = f.kind === 'empire';
     this.root.classList.toggle('ff-story', story);

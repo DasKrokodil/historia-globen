@@ -265,6 +265,7 @@ export class Panel {
     this.onFocus = () => {};
     this.onEmpire = () => {}; // (rikets id) => rikets faktaruta (#76)
     this.onOpen = () => {};
+    this.onDetailChange = () => {};
     this.onEnableEvents = () => {};
     this.onYear = () => {};
     this.onReport = null; // (objekt, knapp) => öppnar formuläret "Rapportera faktafel" (js/ui/feedback.js)
@@ -459,13 +460,19 @@ export class Panel {
     return !!pending;
   }
 
+  /** Samma signal används av alla slags faktarutor: händelse, rike, religion och berättelse. */
+  setDetailOpen(open) {
+    this.detail.hidden = !open;
+    this.onDetailChange(open);
+  }
+
   /** En tom ruta med händelsens namn medan det som ska stå i den laddas. */
   _loading(e) {
     this.selectedId = e.id;
     this.detail.className = `detail detail-card frame-${styleFor(e, this.styles).frame}`;
     this.detail.innerHTML = `<button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <h3>${esc(t(e.title))}</h3><div class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))}</div>${loadingHtml()}`;
-    this.detail.hidden = false;
+    this.setDetailOpen(true);
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
   }
 
@@ -508,7 +515,7 @@ export class Panel {
         ${this.onReport ? reportBtn({ type: 'war', id: war.id, label: t(war.title) }) : ''}
       </div>`;
     this.detail.scrollTop = 0;
-    this.detail.hidden = false;
+    this.setDetailOpen(true);
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
     this.bindReport(war.start);
     this.bindLinks();
@@ -534,7 +541,7 @@ export class Panel {
       <ul class="theme-events">${items}</ul></div>
       ${srcs.length ? srcLine(srcs, false) : ''}`;
     this.detail.scrollTop = 0;
-    this.detail.hidden = false;
+    this.setDetailOpen(true);
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
     for (const b of this.detail.querySelectorAll('[data-theme-event]')) b.addEventListener('click', () => this.onThemeEvent?.(b.dataset.themeEvent));
   }
@@ -626,7 +633,7 @@ export class Panel {
       ${t(f.summary) ? `<p>${esc(t(f.summary))}</p>` : ''}
       ${fall ? `<button type="button" class="story-tour" data-tour="${esc(fall.id)}">${esc(fall.label)}</button>` : ''}
       ${body}`;
-    this.detail.hidden = false;
+    this.setDetailOpen(true);
     this.detail.scrollTop = 0; // efter hidden, annars behåller kortet förra läget
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
@@ -674,7 +681,7 @@ export class Panel {
   /** Faktarutan är ett eget kort (#112). show = false markerar händelsen utan att visa kortet. */
   showDetail(e, show = true) {
     this.selectedId = e?.id ?? null;
-    if (!e || !show) { this.shown = null; delete this.detail.dataset.eventId; this.detail.hidden = true; return; }
+    if (!e || !show) { this.shown = null; delete this.detail.dataset.eventId; this.setDetailOpen(false); return; }
     const pending = this._whenLoaded(needDetails([e], { misconceptions: true }), () => this.showDetail(e, show)), loading = pending && !e._full;
     // Wikidata länkas till händelsens egen post
     const srcs = (e.sources ?? []).map(id => id === 'wikidata' && e.wikidata
@@ -719,7 +726,7 @@ export class Panel {
       </div>`;
     for (const tag of keepOpen) this.detail.querySelector(`details.tag-mark[data-tag="${CSS.escape(tag)}"]`)?.setAttribute('open', '');
     this.detail.scrollTop = 0;
-    this.detail.hidden = false;
+    this.setDetailOpen(true);
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
     this.detail.querySelector('[data-focus]')?.addEventListener('click', ev => this.onFocus(ev.currentTarget.dataset.focus));
