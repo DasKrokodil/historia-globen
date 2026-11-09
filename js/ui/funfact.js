@@ -373,7 +373,7 @@ export class FunFacts {
     const f = this.active[this.index];
     // I smal skärm är det ihopfällda kortet en stängd panel, inte en flik (#239)
     const asSheet = narrow.matches;
-    this.tab.hidden = !f || !this.minimized || asSheet;
+    this.tab.hidden = !f || (!this.minimized && !this.detailOpen) || asSheet;
     this.tabCount.textContent = String(this.active.length);
     this._syncSheet();
     if (!f || (this.minimized && !asSheet) || (this.detailOpen && !asSheet)) { this.root.hidden = true; this.root.dataset.funfactId = ''; this._announcedKey = ''; this.onArcs([]); return; }

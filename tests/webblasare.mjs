@@ -1509,9 +1509,9 @@ async function run(browser, vp) {
       const layout = await page.evaluate(() => {
         const panel = document.getElementById('panel').getBoundingClientRect();
         const detail = document.getElementById('detail').getBoundingClientRect();
-        return { panelOpen: document.getElementById('panel').classList.contains('open'), cardHidden: document.getElementById('funfact').hidden, right: Math.round(detail.right - panel.right) };
+        return { panelOpen: document.getElementById('panel').classList.contains('open'), cardHidden: document.getElementById('funfact').hidden, tabVisible: !document.getElementById('ff-tab').hidden, right: Math.round(detail.right - panel.right) };
       });
-      if (!layout.panelOpen || !layout.cardHidden || Math.abs(layout.right) > 1) throw new Error('faktarutan delar inte högersidans läsyta med Samtidigt');
+      if (!layout.panelOpen || !layout.cardHidden || !layout.tabVisible || Math.abs(layout.right) > 1) throw new Error('faktarutan delar inte högersidans läsyta med Samtidigt');
     }
     await shot('3-handelse-oppnas');
     const calm = page.locator('input[data-calm]');
