@@ -76,8 +76,16 @@ test('förhandsvisningen av nästa fun fact förbrukar inte regionbalansen (#997
     assert.equal(card.surpriseStep, 0);
     assert.deepEqual(card.surpriseRecent, []);
     card.all = [];
-    card._prepareSurprise();
+    card._prepareSurprise(true);
     assert.equal(card.surprise.disabled, true);
     assert.equal(card.surprise.dataset.year, undefined);
+
+    card.all = [
+      { id: 'outside', events: ['e'], show: [100, 110], review: 'source-checked' },
+      { id: 'inside', events: ['e'], show: [200, 210], review: 'source-checked' },
+    ];
+    card.setSurpriseRange(() => ({ from: 200, to: 250 }));
+    assert.equal(card.nextSurprise.fact.id, 'inside');
+    assert.equal(card.surprise.dataset.year, '200');
   } finally { globalThis.matchMedia = oldMatch; }
 });

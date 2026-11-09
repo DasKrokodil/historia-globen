@@ -149,6 +149,7 @@ async function start() {
     pauseGo: $('pause-go'), status: $('screen-reader-status'),
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
+  ff.setSurpriseRange(() => timeline.focus);
   setupYearJump(timeline, {
     button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'),
     events: data.events, copy: views?.jump ?? {}, onJump: () => { app.range?.close(); app.orientToPanelHighlight(); }, // ett hopp till ett år stänger intervallet (#755)

@@ -111,15 +111,26 @@ export class FunFacts {
       this.surpriseRecent.push(picked.fact.id);
       if (this.surpriseRecent.length > 5) this.surpriseRecent.shift();
       this.requestedId = picked.fact.id;
-      this._prepareSurprise();
+      this._prepareSurprise(true);
       this.onSurprise(picked.fact, picked.region);
     });
     this._prepareSurprise();
   }
 
+  /** Begränsa Visste du?-målet när tidslinjen följer ett fokus, så att visat år alltid kan nås (#997). */
+  setSurpriseRange(getRange) {
+    this.surpriseRange = getRange;
+    this._prepareSurprise(true);
+  }
+
   /** Förhandsvalet förbrukar varken regionbalans, steg eller listan över senast visade kort (#997). */
-  _prepareSurprise() {
-    this.nextSurprise = pickBalancedFunFact(this.all, this.byId, new Map(this.surpriseCounts), this.surpriseStep, this.surpriseRecent);
+  _prepareSurprise(force = false) {
+    const range = this.surpriseRange?.() ?? null;
+    const rangeKey = range ? `${range.from}:${range.to}` : '';
+    if (!force && rangeKey === this.surpriseRangeKey) return;
+    this.surpriseRangeKey = rangeKey;
+    const choices = range ? this.all.filter(fact => fact.show[0] >= range.from && fact.show[0] <= range.to) : this.all;
+    this.nextSurprise = pickBalancedFunFact(choices, this.byId, new Map(this.surpriseCounts), this.surpriseStep, this.surpriseRecent);
     if (!this.surprise) return;
     const fact = this.nextSurprise?.fact;
     this.surprise.disabled = !fact;
@@ -130,6 +141,7 @@ export class FunFacts {
 
   /** themeIds: händelserna i temat man följer (#398), eller null. Då visas bara kort vars händelser alla ingår i temat. */
   update(year, filters, themeIds = null) {
+    this._prepareSurprise();
     // Rikets berättelse hör till fokusläget och visas även när Samtidigt-lagret är av, först i kortet
     const story = this.story.filter(f => year >= f.show[0] && year <= f.show[1] && isVisibleReview(f.review));
     const active = [...story, ...(!this.enabled ? [] : this.all.filter(f =>
