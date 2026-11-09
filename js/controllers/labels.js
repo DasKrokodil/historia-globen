@@ -25,6 +25,8 @@ export function createLabels(app) {
     if (!focus && !state.range && (st?.when === 'past' || st?.when === 'future')) text += ` · ${formatDirection(st.when, state.wholeYear, st.when === 'past' ? e.end : e.start)}`;
     return text;
   }
+  /** Ett krig som pågår det här året (inte ett som bara ligger i tidsfönstret): dess etikett går före rikesnamnen (#1022). */
+  const isWarNow = e => e.kind === 'war' && layer.state.get(e.id)?.when === 'now';
   function fillLabel(el, e, text) {
     if (el._text !== text) { // texten byts när fokusläget för ett kort krig börjar eller slutar
       el._text = text;
@@ -129,9 +131,9 @@ export function createLabels(app) {
           if (r.width) blocked.push({ x0: r.left - c.left - 4, x1: r.right - c.left + 4, y0: r.top - c.top - 4, y1: r.bottom - c.top + 4 });
         }
       }
-      blocked.push(...globeEmpireBlocks(areas, globe)); // rikesnamn och medaljer (#358)
+      const soft = globeEmpireBlocks(areas, globe); // rikesnamn och medaljer (#358): etiketterna viker, de pågående krigen i nödfall inte (#1022)
       const seen = new Set();
-      for (const { e, p, text, x, y } of placeLabels(singles, { W, H, hoverId, markers, badges, blocked, text: labelText, pxOf })) {
+      for (const { e, p, text, x, y } of placeLabels(singles, { W, H, hoverId, markers, badges, blocked, soft, priority: ({ e }) => isWarNow(e), text: labelText, pxOf })) {
         let el = pool.get(e.id);
         if (!el) {
           el = document.createElement('button');
