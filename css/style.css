@@ -1021,6 +1021,7 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .track-dots, .track-ff { position: absolute; left: 0; right: 0; top: 0; height: 30px; pointer-events: none; }
 .tdot, .tspan, .tff, .troute { appearance: none; border: 0; padding: 0; cursor: pointer; pointer-events: auto; }
 .tdot { position: absolute; top: 15px; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; }
+.tdensity { position: absolute; left: 0; right: 0; top: 16px; height: 4px; border-radius: 2px; pointer-events: none; }
 .tdot.route-stop { box-shadow: 0 0 0 1px var(--parchment); }
 .tspan { position: absolute; top: 16px; height: 4px; border-radius: 2px; opacity: .55; }
 .tff {

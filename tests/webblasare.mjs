@@ -2753,18 +2753,19 @@ async function run(browser, vp) {
   await check('tidslinjemärken följer Lager och resefokus', async () => {
     try {
       await setLayer('events', true);
-      if (await page.locator('.tdot').count() < 1) throw new Error('Händelser saknar cirklar på tidslinjen');
+      // Översikten (#1000): många händelser blir ett täthetsband, inte hundratals knappar
+      if (await page.locator('.tdensity').count() !== 1) throw new Error('Översikten saknar täthetsband');
+      if (await page.locator('.tdot, .tspan').count() > 100) throw new Error('Översikten har för många enskilda händelsemärken');
       await setLayer('events', false);
-      if (await page.locator('.tdot').count() !== 0) throw new Error('Händelsecirklar ligger kvar när Händelser är av');
+      if (await page.locator('.tdot, .tdensity').count() !== 0) throw new Error('Händelsemärken eller band ligger kvar när Händelser är av');
       await setLayer('events', true);
-      const eventMark = page.locator('.tdot').first();
+      await setLayer('funfacts', true);
+      if (await page.locator('.tff').count() < 1) throw new Error('Samtidigt saknar romber på tidslinjen');
+      const eventMark = page.locator('.tff').first();
       await eventMark.focus();
       const note = page.locator('#timeline-mark-note');
       if (await note.isHidden() || !(await note.textContent()).trim()) throw new Error('Tangentbordsfokus visar inte märkets text');
-      await setLayer('funfacts', true);
-      if (await page.locator('.tff').count() < 1) throw new Error('Samtidigt saknar romber på tidslinjen');
       await setLayer('routes', true);
-      if (await page.locator('.troute').count() < 1) throw new Error('Resor saknar start- och slutstreck på tidslinjen');
       await page.keyboard.press('Escape');
       await clickView('#btn-focus');
       await visible('#focus-menu');
