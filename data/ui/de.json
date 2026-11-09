@@ -578,5 +578,17 @@
   "range.partialCount": ["{count} läuft auch vor oder nach dem Zeitraum", "{count} laufen auch vor oder nach dem Zeitraum"],
   "range.empty": "Nichts in den Daten im Zeitraum {range}.",
   "range.areasAt": "Gebiete werden für das Jahr {year} angezeigt",
-  "range.capped": "Der Globus zeigt die {shown} wichtigsten von {total} Markierungen. Der Rest steht in der Liste."
+  "range.capped": "Der Globus zeigt die {shown} wichtigsten von {total} Markierungen. Der Rest steht in der Liste.",
+  "how.title": "Woher wissen wir das?",
+  "how.q.who": "Wer sagt das?",
+  "how.q.how": "Woher wissen wir es?",
+  "how.q.more": "Gibt es weitere Quellen?",
+  "how.q.agree": "Stimmen die Quellen überein?",
+  "how.level.draft": "Entwurf: Die Quellen sind noch nicht geprüft.",
+  "how.more.one": "Nein, nur eine Quelle.",
+  "how.more.many": "Ja, {n} Quellen.",
+  "how.agree.yes": "Die Quellen stimmen überein.",
+  "how.agree.none": "Es ist keine Uneinigkeit vermerkt.",
+  "how.agree.differ": "Die Quellen weichen voneinander ab. Siehe die Anmerkung oben.",
+  "how.tour": "Tour: {title}"
 }

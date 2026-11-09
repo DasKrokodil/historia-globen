@@ -183,6 +183,29 @@ const reviewRow = (status, subj) => {
 };
 
 /**
+ * "Hur vet vi det här?" (#937): en hopfälld rad under källistan med de fyra frågorna och svaret för just den här
+ * uppgiften. Bara befintliga fält visas: källorna, granskningsnivån och anteckningen när den är av typen disagreement.
+ * Samma uppbyggnad för händelse, rike och religion. tour = { id, label } länkar till turen om hur vi vet.
+ */
+export const howWeKnowRow = (srcs, status, disagree, tour = null) => {
+  if (!srcs?.length && !status) return '';
+  const rv = REVIEW[status] ?? REVIEW.draft;
+  const level = status === 'draft' || !REVIEW[status] ? ui('how.level.draft') : `${rv.label}: ${ui(`review.help.${status}`)}`;
+  const more = srcs.length > 1 ? ui('how.more.many', { n: srcs.length }) : ui('how.more.one');
+  const agree = disagree ? ui('how.agree.differ') : status === 'two-sources' ? ui('how.agree.yes') : ui('how.agree.none');
+  const links = srcs.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ') || esc(ui('detail.sourceMissing'));
+  return `<details class="how-know${disagree ? ' is-differ' : ''}"><summary>${esc(ui('how.title'))}</summary>
+    <dl>
+      <dt>${esc(ui('how.q.who'))}</dt><dd>${links}</dd>
+      <dt>${esc(ui('how.q.how'))}</dt><dd>${esc(level)}</dd>
+      <dt>${esc(ui('how.q.more'))}</dt><dd>${esc(more)}</dd>
+      <dt>${esc(ui('how.q.agree'))}</dt><dd>${esc(agree)}</dd>
+    </dl>
+    ${tour ? `<button type="button" class="link-btn how-tour" data-tour="${esc(tour.id)}">${esc(ui('how.tour', { title: tour.label }))}</button>` : ''}
+  </details>`;
+};
+
+/**
  * Riken i kriget (#76): rikena i krigets empires, som knappar med rikets färg. Ett klick öppnar rikets faktaruta.
  * Slag och händelser i kriget visar sitt krigs riken (de ärver kopplingen via partOf).
  */
@@ -581,6 +604,7 @@ export class Panel {
     const report = opts.report ?? null;
     const sourcesAndMap = `${mapNote ? `<aside class="detail-note"><h4>${esc(ui('facts.aboutMap'))}</h4><p>${esc(mapNote)}</p>${empireMapKey}</aside>` : ''}
       ${srcLine(srcs, pending)}
+      ${pending ? '' : howWeKnowRow(srcs, f.review, f.note?.kind === 'disagreement', this.howTour?.())}
       <div class="detail-actions">${reviewRow(f.review, subj)}${this.onReport && report ? reportBtn(report) : ''}</div>`;
     const body = isEmpire ? `
       ${hasOverview ? `<details class="facts-section" open><summary>${esc(ui('facts.overview'))}</summary>${overview}</details>` : ''}
@@ -686,6 +710,7 @@ export class Panel {
         `<li><button type="button" class="link-btn" data-goto="${esc(b.id)}">${esc(t(b.title))}</button> <span class="meta">${esc(formatEventTime(b))}</span></li>`).join('')}</ol></div>` : ''}
       ${empireList(e._empires ?? e._war?._empires)}
       ${evidence.sources || srcLine(srcs, pending)}
+      ${pending ? '' : howWeKnowRow(srcs, e.review, sourcesDisagree(e), this.howTour?.())}
       ${(() => { const h = this.huntFor?.(e); return h ? `<button type="button" class="chip-btn hunt-add" data-hunt${h.disabled ? ' disabled' : ''}>${esc(h.label)}</button>` : ''; })()}
       <div class="detail-actions">
         ${reviewRow(e.review, 'Händelsen')}
@@ -710,6 +735,7 @@ export class Panel {
       row?.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
       row?.focus({ preventScroll: true });
     });
+    this.detail.querySelector('[data-tour]')?.addEventListener('click', ev => this.onTour?.(ev.currentTarget.dataset.tour, ev.currentTarget));
     this.bindReport(e.start);
     this.bindLinks();
     this.bindReviewInfo();

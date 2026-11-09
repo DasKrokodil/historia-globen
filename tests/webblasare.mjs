@@ -4209,6 +4209,29 @@ async function run(browser, vp) {
     return text;
   });
 
+  // #937: raden "Hur vet vi det här?" under källistan: hopfälld, fyra frågor, länk till turen
+  await check('faktarutan har raden "Hur vet vi det här?" med fyra svar och en länk till turen (#937)', async () => {
+    const row = page.locator('#detail details.how-know');
+    await row.waitFor({ state: 'visible', timeout: T.step });
+    if (await row.evaluate(d => d.open)) throw new Error('raden är utfälld från början');
+    const summary = row.locator('summary');
+    const box = await summary.boundingBox();
+    if (!box || box.height < 43) throw new Error(`träffytan är ${box?.height} px hög, minst 44 px krävs`);
+    await summary.focus();
+    await page.keyboard.press('Enter');
+    if (!(await row.evaluate(d => d.open))) throw new Error('raden går inte att fälla ut med tangentbordet');
+    const answers = await row.locator('dd').allTextContents();
+    if ((await row.locator('dt').count()) !== 4 || answers.length !== 4) throw new Error(`raden har ${answers.length} svar, fyra väntades`);
+    if (answers.some(a => !a.trim() || /^(how|review)\./.test(a.trim()))) throw new Error(`ett svar är tomt eller en rå textnyckel: ${answers.join(' | ')}`);
+    if (!(await row.locator('dd a[href]').count())) throw new Error('svaret på "Vem säger det?" saknar länk till källan');
+    const tour = row.locator('[data-tour="hur-vet-vi-det-har"]');
+    await tour.click();
+    await visible('#tour-card');
+    await page.click('#tour-close');
+    await hidden('#tour-card');
+    return answers.join(' | ');
+  });
+
   await check('ingen horisontell scroll efteråt', async () => {
     const w = await page.evaluate(() => ({ doc: document.documentElement.scrollWidth, body: document.body.scrollWidth, win: window.innerWidth }));
     if (Math.max(w.doc, w.body) > w.win) throw new Error(`sidan är ${Math.max(w.doc, w.body)} px bred i ett ${w.win} px fönster`);

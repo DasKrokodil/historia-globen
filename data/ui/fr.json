@@ -578,5 +578,17 @@
   "range.partialCount": ["{count} se poursuit aussi avant ou après l’intervalle", "{count} se poursuivent aussi avant ou après l’intervalle"],
   "range.empty": "Rien dans les données pendant {range}.",
   "range.areasAt": "Les zones sont affichées pour l’année {year}",
-  "range.capped": "Le globe affiche les {shown} marqueurs les plus importants sur {total}. Les autres figurent dans la liste."
+  "range.capped": "Le globe affiche les {shown} marqueurs les plus importants sur {total}. Les autres figurent dans la liste.",
+  "how.title": "Comment le savons-nous ?",
+  "how.q.who": "Qui le dit ?",
+  "how.q.how": "Comment le savons-nous ?",
+  "how.q.more": "Y a-t-il d'autres sources ?",
+  "how.q.agree": "Les sources concordent-elles ?",
+  "how.level.draft": "Brouillon : les sources ne sont pas encore vérifiées.",
+  "how.more.one": "Non, une seule source.",
+  "how.more.many": "Oui, {n} sources.",
+  "how.agree.yes": "Les sources concordent.",
+  "how.agree.none": "Aucun désaccord n'est noté.",
+  "how.agree.differ": "Les sources diffèrent. Voir la note ci-dessus.",
+  "how.tour": "Visite : {title}"
 }

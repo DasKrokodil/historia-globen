@@ -354,5 +354,17 @@
   "range.partialCount": ["{count} pågår också före eller efter intervallet", "{count} pågår också före eller efter intervallet"],
   "range.empty": "Inget i datan under {range}.",
   "range.areasAt": "Områden visas för år {year}",
-  "range.capped": "Globen visar de {shown} viktigaste av {total} markörerna. Resten finns i listan."
+  "range.capped": "Globen visar de {shown} viktigaste av {total} markörerna. Resten finns i listan.",
+  "how.title": "Hur vet vi det här?",
+  "how.q.who": "Vem säger det?",
+  "how.q.how": "Hur vet vi?",
+  "how.q.more": "Finns det fler källor?",
+  "how.q.agree": "Är källorna överens?",
+  "how.level.draft": "Utkast: källorna är inte kontrollerade än.",
+  "how.more.one": "Nej, bara en källa.",
+  "how.more.many": "Ja, {n} källor.",
+  "how.agree.yes": "Källorna är överens.",
+  "how.agree.none": "Ingen oenighet är noterad.",
+  "how.agree.differ": "Källorna skiljer sig. Se anteckningen ovan.",
+  "how.tour": "Tur: {title}"
 }

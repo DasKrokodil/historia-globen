@@ -587,6 +587,7 @@ async function start() {
   // Rikens fall (#499): rikets faktaruta får en knapp när en tur följer rikets fall
   panel.empireTourFor = id => { const x = tour.forEmpire(id); return x && { id: x.id, label: tour.storyLabel(x, 'fall') }; };
   panel.onTour = (id, btn) => tour.start(id, btn);
+  panel.howTour = () => { const x = tour.tours?.find(y => y.id === 'hur-vet-vi-det-har'); return x ? { id: x.id, label: t(x.title) } : null; };
   tour.onOpen = () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); };
   // Tillståndet i adressen (#501) och knappen Dela (#64). En tur i adressen (t och s, eller ?tur=<id>) startar
   // direkt vid rätt steg och går före en delad vy (#736), till exempel från en lektion eller ett test.

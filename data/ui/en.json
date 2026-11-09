@@ -578,5 +578,17 @@
   "range.partialCount": ["{count} also continues before or after the range", "{count} also continue before or after the range"],
   "range.empty": "Nothing in the data during {range}.",
   "range.areasAt": "Areas are shown for the year {year}",
-  "range.capped": "The globe shows the {shown} most important of {total} markers. The rest are in the list."
+  "range.capped": "The globe shows the {shown} most important of {total} markers. The rest are in the list.",
+  "how.title": "How do we know this?",
+  "how.q.who": "Who says so?",
+  "how.q.how": "How do we know?",
+  "how.q.more": "Are there more sources?",
+  "how.q.agree": "Do the sources agree?",
+  "how.level.draft": "Draft: the sources have not been checked yet.",
+  "how.more.one": "No, only one source.",
+  "how.more.many": "Yes, {n} sources.",
+  "how.agree.yes": "The sources agree.",
+  "how.agree.none": "No disagreement has been noted.",
+  "how.agree.differ": "The sources differ. See the note above.",
+  "how.tour": "Tour: {title}"
 }
