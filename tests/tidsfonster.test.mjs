@@ -30,17 +30,22 @@ test('första århundradet e.Kr. är år 1–99, och 100-talet börjar år 100',
 });
 
 test('etiketten säger riktning och avstånd med årtalet i parentes', () => {
-  assert.equal(formatDirection('past', 1916 - 1912, 1912), '4 år före (1912)');
-  assert.equal(formatDirection('future', 1942 - 1939, 1942), 'om 3 år (1942)');
-  assert.equal(formatDirection('past', 1, 1915), '1 år före (1915)');
+  assert.equal(formatDirection('past', 1916, 1912), '4 år före (1912)');
+  assert.equal(formatDirection('future', 1939, 1942), 'om 3 år (1942)');
+  assert.equal(formatDirection('past', 1916, 1915), '1 år före (1915)');
 });
 
 test('avståndet över år 0 räknas rätt: 1 e.Kr. ligger ett år efter 1 f.Kr.', () => {
   // Astronomiskt år 1 minus år 0 (1 f.Kr.) är 1, inte 2
-  assert.equal(formatDirection('past', 1 - 0, 0), '1 år före (1 f.Kr.)');
+  assert.equal(formatDirection('past', 1, 0), '1 år före (1 f.Kr.)');
   // 2 f.Kr. (år -1) sett från 1 e.Kr. (år 1) är 2 år bort
-  assert.equal(formatDirection('past', 1 - -1, -1), '2 år före (2 f.Kr.)');
-  assert.equal(formatDirection('future', 0 - -2, 0), 'om 2 år (1 f.Kr.)');
+  assert.equal(formatDirection('past', 1, -1), '2 år före (2 f.Kr.)');
+  assert.equal(formatDirection('future', -2, 0), 'om 2 år (1 f.Kr.)');
+});
+
+test('årsbråkdelar räknas bort: kriget som slutade augusti 2021 är 5 år före 2026 enligt årtalen', () => {
+  assert.equal(formatDirection('past', 2026, 2021), '5 år före (2021)');
+  assert.equal(formatDirection('past', 2026.4, 2021), '5 år före (2021)');
 });
 
 test('panelen skriver "N år tidigare" och "N år senare", och dagar i fokusläget för korta krig', () => {

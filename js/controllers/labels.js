@@ -22,7 +22,7 @@ export function createLabels(app) {
     // Utanför Fokus säger tidsfönstrets händelser hur långt före eller efter året de ligger: "4 år före (1912)" eller
     // "om 2 år (1918)" (#995). Orden står i språkfilen, och model.js räknar avståndet och formaterar året så att även f.Kr. blir rätt (#434).
     const st = layer.state.get(e.id);
-    if (!focus && (st?.when === 'past' || st?.when === 'future')) text += ` · ${formatDirection(st.when, st.dist, st.when === 'past' ? e.end : e.start)}`;
+    if (!focus && !state.range && (st?.when === 'past' || st?.when === 'future')) text += ` · ${formatDirection(st.when, state.wholeYear, st.when === 'past' ? e.end : e.start)}`;
     return text;
   }
   function fillLabel(el, e, text) {

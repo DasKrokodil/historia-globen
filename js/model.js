@@ -151,18 +151,20 @@ export function pluralUi(key, n, vars = {}) {
 }
 
 /**
- * Hur långt en händelse ligger från året, med riktning (#995). Etiketten på klotet: "4 år före (1912)" för det som är
+ * Hur långt en händelse ligger från året (hela år), med riktning (#995). Etiketten på klotet: "4 år före (1912)" för det som är
  * slut, "om 2 år (1918)" för det som börjar. Året står i parentes och formateras som vanligt (f.Kr. blir rätt).
  * Astronomiska år räknas rakt av: 1 e.Kr. minus 1 f.Kr. är 1 år, så det finns inget år 0 att räkna bort.
  */
-export function formatDirection(when, dist, eventYear) {
-  const n = Math.max(1, Math.round(dist));
+export function formatDirection(when, year, eventYear) {
+  // Hela år mellan årtalet på tidslinjen och årtalet i parentes, så att siffran alltid går att räkna efter. Spannen med månader
+  // ger bråkdelar i dist (Afghanistankriget slutade 2021-08, alltså 4,3 år före 2026), men etiketten säger "5 år före (2021)".
+  const n = Math.max(1, Math.abs(Math.floor(year) - eventYear));
   return pluralUi(when === 'past' ? 'time.beforeLabel' : 'time.afterLabel', n, { year: formatYear(eventYear) });
 }
 
-/** Samma avstånd i Samtidigt-panelen: "34 år tidigare", "21 år senare", i dagar i fokusläget för korta krig (#204). */
-export function formatOffset(when, dist, fine = false) {
-  const n = fine ? Math.max(1, Math.round(dist * 365.25)) : Math.max(1, Math.round(dist));
+/** Samma avstånd i Samtidigt-panelen: "34 år tidigare", "21 år senare". `amount` är hela år, och i fokusläget för korta krig (fine, #204) år som bråkdel som blir dagar. */
+export function formatOffset(when, amount, fine = false) {
+  const n = fine ? Math.max(1, Math.round(amount * 365.25)) : Math.max(1, Math.round(amount));
   return pluralUi(`panel.${when === 'past' ? 'earlier' : 'later'}${fine ? 'Days' : ''}`, n);
 }
 

@@ -2676,9 +2676,9 @@ async function run(browser, vp) {
     await afghanistan.waitFor({ state: 'visible', timeout: T.step });
     await afghanistan.click();
     await page.waitForFunction(() => [...document.querySelectorAll('#flat-labels .glabel')]
-      .some(el => /Kriget i Afghanistan.*slut 2021/.test(el.textContent)), null, { timeout: T.step });
+      .some(el => /Kriget i Afghanistan.* · 5 år före \(2021\)/.test(el.textContent)), null, { timeout: T.step });
     const label = await page.locator('#flat-labels .glabel').filter({ hasText: 'Kriget i Afghanistan' }).textContent();
-    if (!label.includes('slut 2021')) throw new Error(`Afghanistan saknar slutetikett: ${label}`);
+    if (!label.includes('5 år före (2021)')) throw new Error(`Afghanistan saknar slutetikett: ${label}`);
     await shot('6-tidsfonster-2026');
     const n = await layerDraws('wars', 200);
     return `${label.trim()}; ${n} pixlar från det pågående krigets område`;

@@ -399,7 +399,12 @@ export class Panel {
     // I intervallet (#755): "delvis inom intervallet" och "osäkert datum" efter tiden och platsen
     const notes = (e, partial) => range ? [partial && ui('range.partial'), uncertainDate(e) && ui('range.uncertain')].filter(Boolean) : [];
     // Det som bara ligger nära året säger hur långt före eller efter det ligger (#995): "21 år senare", "34 år tidigare"
-    const offset = ({ inside, longRunning, when, dist }) => !range && !inside && !longRunning && (when === 'past' || when === 'future') ? [formatOffset(when, dist, !!labels?.fine)] : [];
+    // Hela år räknas ur årtalen som listan visar (fokusläget för korta krig räknar dagar ur dist), så att siffran går att räkna efter
+    const offset = ({ e, inside, longRunning, when, dist }) => {
+      if (range || inside || longRunning || (when !== 'past' && when !== 'future')) return [];
+      const fine = !!labels?.fine, whole = Math.floor(year);
+      return [formatOffset(when, fine ? dist : when === 'past' ? whole - e.end : e.start - whole, fine)];
+    };
     const row = (v, name = '') => { const { e, inside, partial } = v; return `
           <li class="event-item${inside ? '' : ' is-near'}${partial ? ' is-partial' : ''}${e.id === this.selectedId ? ' is-selected' : ''}">
             <button type="button" class="event-btn" data-id="${esc(e.id)}" aria-label="${esc([...offset(v), `${formatEventTime(e)}, ${t(e.title)}${name ? `, ${regionName(name)}` : ''}`, ...notes(e, partial), reviewLabel(e.review, 'Händelsen')].join(', '))}"${e.id === this.selectedId ? ' aria-current="true"' : ''}>
