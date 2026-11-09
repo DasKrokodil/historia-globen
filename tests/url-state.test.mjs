@@ -2,6 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { encodeHash, decodeHash, isNewStep } from '../js/url-state.js';
+import { MIN_YEAR, MAX_YEAR } from '../js/timeline.js';
 
 const base = { v: 1, year: 1325, camera: { lat: 34, lon: -50, zoom: 1.6 }, focus: null, layers: ['areas', 'events'], filters: ['krig', 'kultur'], calm: false };
 
@@ -147,6 +148,25 @@ test('ett tidsintervall står som y och y2, och en länk utan y2 är ett år som
     const s = decodeHash(bad);
     assert.equal(s.year, Number(new URLSearchParams(bad.slice(1)).get('y')), bad);
     assert.equal(s.yearEnd, undefined, bad);
+  }
+});
+
+test('år i länkar klipps till tidslinjen innan intervallet kontrolleras (#976)', () => {
+  for (const [hash, year, yearEnd] of [
+    ['#y=-20000&y2=3000', MIN_YEAR, MAX_YEAR],
+    [`#y=${MIN_YEAR - 10}&y2=1500`, MIN_YEAR, 1500],
+    [`#y=1500&y2=${MAX_YEAR + 10}`, 1500, MAX_YEAR],
+    [`#y=${MIN_YEAR - 10}&y2=${MIN_YEAR - 1}`, MIN_YEAR, undefined],
+    [`#y=${MAX_YEAR + 1}&y2=${MAX_YEAR + 10}`, MAX_YEAR, undefined],
+    [`#y=${MIN_YEAR}&y2=${MAX_YEAR}`, MIN_YEAR, MAX_YEAR],
+    ['#y=-20000', MIN_YEAR, undefined],
+    [`#y=${MAX_YEAR + 10}`, MAX_YEAR, undefined],
+  ]) {
+    const s = decodeHash(hash);
+    assert.equal(s.year, year, hash);
+    assert.equal(s.yearEnd, yearEnd, hash);
+    assert.equal(decodeHash(encodeHash(s)).year, year, 'länken behåller det klippta året');
+    assert.equal(decodeHash(encodeHash(s)).yearEnd, yearEnd, 'länken behåller det klippta slutåret');
   }
 });
 
