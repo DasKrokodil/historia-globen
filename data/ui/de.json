@@ -579,5 +579,7 @@
   "range.empty": "Nichts in den Daten im Zeitraum {range}.",
   "range.areasAt": "Gebiete werden für das Jahr {year} angezeigt",
   "range.capped": "Der Globus zeigt die {shown} wichtigsten von {total} Markierungen. Der Rest steht in der Liste.",
-  "time.year1": "1 n. Chr."
+  "time.year1": "1 n. Chr.",
+  "tip.year": "Hier ziehen, um das Jahr zu wechseln",
+  "tip.yearClose": "Hinweis schließen"
 }

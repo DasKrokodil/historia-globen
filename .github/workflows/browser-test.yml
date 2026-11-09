@@ -3,7 +3,7 @@
 # release-PR mot production använder dessutom Firefox och WebKit, liksom en pull request mot main med etiketten
 # alla-webbläsare (#702), så att en rättning för Firefox eller WebKit kan provas före releasen. Etiketten gäller
 # från nästa push, inte i det ögonblick den sätts. Testskriptet är tests/webblasare.mjs.
-# Chromium körs i tre parallella jobb (#864): tung (lektion och utskrift), dator övrigt och mobil. Jobben står i
+# Chromium körs i parallella jobb (#864, #1005): tung (lektion och utskrift), dator övrigt, dator länkar och intervall, mobil och kombinationsmatris. Jobben står i
 # tests/jobb.json och styrs med BREDD, ENDAST och UTAN; scripts/kontrolltackning.mjs stoppar om en kontroll skulle
 # ligga i noll eller flera jobb. Firefox och WebKit körs som förut i ett jobb vardera, se beslutet
 # docs/beslut/2026-11-08-webblasartestet-tre-jobb-864.md.
@@ -62,7 +62,7 @@ jobs:
     needs: planera
     name: Öppna sidan i ${{ matrix.test.label }}
     runs-on: ubuntu-latest
-    # Chromium delades i tre jobb (#864): varje jobb får 25 minuter (mål cirka 15). Före delningen tog allt i ett
+    # Chromium delades i tre jobb (#864) och sedan i fyra (#1005): varje jobb får 25 minuter (mål cirka 15). Före delningen tog allt i ett
     # jobb 24 minuter på main och 30 räckte inte alltid (#863, docs/beslut/2026-11-07-chromium-tidsgrans-30-minuter.md).
     # Firefox och WebKit (bara på release-PR:en) är långsammare utan grafikkort: Firefox nådde 20 minuter utan att bli
     # klar inför v5.0.0, så de får 45 och körs i ett jobb vardera.

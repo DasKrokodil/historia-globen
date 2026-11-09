@@ -42,7 +42,7 @@ Mer-menyn (Källor, Hjälp, Quiz, Samtidighetsjakten, Dela, Språk) samlar det s
 
 Antagna "lyckade vägar". Varje flöde är också en testplan: den som granskar bör faktiskt gå flödet på dator och mobil.
 
-1. **Första besöket:** öppna → se globen och Samtidigt-kortet → (introduktion) → dra i tiden → klicka en händelse → läs → Källor.
+1. **Första besöket:** öppna → se globen och Samtidigt-kortet → (Kom igång, under Mer, och ett engångstips vid tidslinjen) → dra i tiden → klicka en händelse → läs → Källor.
 2. **Utforska ett år:** skriv ett år → Samtidigt i världen per världsdel → välj → faktaruta.
 3. **Följ ett krig:** Sök och följ → välj krig → uppspelning pausar vid viktiga händelser → slutkort → avsluta och komma tillbaka dit man var.
 4. **Tur:** Turer → välj → steg med fråga att fundera på → slutkort med det viktigaste.

@@ -579,5 +579,7 @@
   "range.empty": "Nada en los datos durante {range}.",
   "range.areasAt": "Las áreas se muestran para el año {year}",
   "range.capped": "El globo muestra los {shown} marcadores más importantes de {total}. El resto está en la lista.",
-  "time.year1": "1 d. C."
+  "time.year1": "1 d. C.",
+  "tip.year": "Arrastra aquí para cambiar de año",
+  "tip.yearClose": "Cerrar el consejo"
 }

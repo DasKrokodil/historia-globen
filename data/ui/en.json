@@ -579,5 +579,7 @@
   "range.empty": "Nothing in the data during {range}.",
   "range.areasAt": "Areas are shown for the year {year}",
   "range.capped": "The globe shows the {shown} most important of {total} markers. The rest are in the list.",
-  "time.year1": "1 AD"
+  "time.year1": "1 AD",
+  "tip.year": "Drag here to change the year",
+  "tip.yearClose": "Close the tip"
 }

@@ -579,5 +579,7 @@
   "range.empty": "Rien dans les données pendant {range}.",
   "range.areasAt": "Les zones sont affichées pour l’année {year}",
   "range.capped": "Le globe affiche les {shown} marqueurs les plus importants sur {total}. Les autres figurent dans la liste.",
-  "time.year1": "1 apr. J.-C."
+  "time.year1": "1 apr. J.-C.",
+  "tip.year": "Faites glisser ici pour changer d’année",
+  "tip.yearClose": "Fermer le conseil"
 }
