@@ -1,7 +1,7 @@
 // Etiketter och klungor på globen (#26, #142, #242, #243, #313; #402, del av #389): texten för en händelses
 // etikett (samma på globen och i Platt vy), hovring, religionernas lilla ruta före klick (#271) och
 // placeringen i varje bildruta utan överlapp.
-import { CAT, t, formatYear, formatEventTime, edtfSpan, dayParts } from '../model.js';
+import { CAT, t, formatYear, formatEventTime, formatDirection, edtfSpan, dayParts } from '../model.js';
 import { markerInfo, describeMarker } from '../layers/events.js';
 import { cluster, clusterContents, placeLabels, dotBox } from '../ui/clusters.js';
 import { globeEmpireBlocks } from '../ui/zoomlevels.js';
@@ -11,7 +11,7 @@ const UI_OVER_GLOBE = '.brand, #year-jump, #year-segment, .top-actions > .chip-b
 const UI_BOTTOM = '.timebar .controls > *, #war-play, #pause-note, #focus-bar';
 
 export function createLabels(app) {
-  const { $, state, views, registry, globe, ff, relLegend } = app;
+  const { $, state, registry, globe, ff, relLegend } = app;
   const layer = registry.get('events'), areas = registry.get('areas'), religions = registry.get('religions');
 
   // Etikettens text och beskrivning, samma på globen och i Platt vy (#313).
@@ -19,11 +19,10 @@ export function createLabels(app) {
   function labelText(e) {
     const focus = state.focus;
     let text = !e.partOf ? t(e.title) : `${focus?.fine ? dayParts(edtfSpan(e)[0])[0] : formatYear(e.start)} · ${t(e.title)}`;
-    // Utanför Fokus visar tidsfönstrets händelser när de slutade eller börjar. Orden kommer ur data/vyer.json,
-    // medan model.js formaterar året så att även f.Kr. blir rätt (#434).
-    const when = layer.state.get(e.id)?.when;
-    const prefix = !focus && views?.eventWindow?.[when];
-    if (prefix) text += ` · ${prefix} ${formatYear(when === 'past' ? e.end : e.start)}`;
+    // Utanför Fokus säger tidsfönstrets händelser hur långt före eller efter året de ligger: "4 år före (1912)" eller
+    // "om 2 år (1918)" (#995). Orden står i språkfilen, och model.js räknar avståndet och formaterar året så att även f.Kr. blir rätt (#434).
+    const st = layer.state.get(e.id);
+    if (!focus && !state.range && (st?.when === 'past' || st?.when === 'future')) text += ` · ${formatDirection(st.when, state.wholeYear, st.when === 'past' ? e.end : e.start)}`;
     return text;
   }
   function fillLabel(el, e, text) {

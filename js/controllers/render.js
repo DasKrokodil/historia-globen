@@ -2,9 +2,8 @@
 // som syns (beslut 2), ritar lagerbilden (beslut 1) och uppdaterar listan, teckenförklaringarna och årtalet.
 // Sist får uppspelningen (playback.js) se om något ska pausa. Här finns också namnens storlek efter zoom
 // (#154, #271, #301, #358) och rikets berättelse för Samtidigt-kortet (#171).
-import { loadEventDetails } from '../model.js';
+import { loadEventDetails, formatCentury, pluralUi } from '../model.js';
 import { ui } from '../i18n.js';
-import { segmentName } from '../timeline.js';
 import { ZOOM_LEVELS, zoomLevel, pxPerImg, zoomView, eventKeepouts } from '../ui/zoomlevels.js';
 import { empireStory } from '../ui/funfact.js';
 import { rangeParts, rangeText } from './range.js';
@@ -106,7 +105,7 @@ export function createRender(app) {
     prefetchDetails();
     const rangeLabel = range && rangeText(range.from, range.to);
     panel.render(visible, wholeYear, window, eventsOn, range ? { at: ui('range.at', { range: rangeLabel }), bare: rangeLabel, within, range }
-      : fine ? { at: ui('time.onDate', { date: timeline.format(year) }), bare: timeline.format(year), within } : null);
+      : fine ? { at: ui('time.onDate', { date: timeline.format(year) }), bare: timeline.format(year), within, fine: true } : null);
     // Etiketten "Områden visas för år N" (#756) när riken eller religioner syns, och hur många markörer gränsen döljer
     app.range?.render(visible.filter(v => v.inside).length, { areasYear: areas.enabled || religions.enabled ? areaYear : null, capped: layer.capped });
     // Samma markörer i Platt vy (#313): de som syns på klotet, de i listan får klustras och etikett
@@ -137,7 +136,8 @@ export function createRender(app) {
     $('year-era').textContent = era;
     $('year-jump').classList.toggle('fine', fine);
     $('year-segment').textContent = range ? ui('range.segment')
-      : `${focus ? ui('focus.segment', { name: focus.short }) : segmentName(year)} · ${ui('time.shows', { within })}`;
+      : focus ? pluralUi(fine ? 'time.followDays' : 'time.followYears', fine ? Math.round(window * 365.25) : Math.round(window), { name: focus.short })
+      : pluralUi('time.windowYears', Math.round(window), { where: formatCentury(year) });
     // Pauserna i uppspelningen: krigets och resans stopp, grundanden, rikets nyckelår och krig som bryter ut
     app.playback.check({ year, fine, span, playing, eventsOn });
     $('app').classList.toggle('has-detail', !$('detail').hidden);

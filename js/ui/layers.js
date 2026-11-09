@@ -19,7 +19,6 @@ export async function loadViews() {
     const doc = await getJSON('data/vyer.json');
     return {
       title: t(doc.title), custom: t(doc.custom), customize: t(doc.customize),
-      eventWindow: Object.fromEntries(Object.entries(doc.eventWindow ?? {}).map(([when, text]) => [when, t(text)])),
       panel: Object.fromEntries(Object.entries(doc.panel ?? {}).map(([id, text]) => [id, t(text)])),
       poster: Object.fromEntries(Object.entries(doc.poster ?? {}).map(([id, text]) => [id, t(text)])),
       jump: Object.fromEntries(Object.entries(doc.jump ?? {}).map(([id, text]) => [id, t(text)])),

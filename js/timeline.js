@@ -39,7 +39,6 @@ export function yearsAcross(y, fraction) {
   const s = segFor(clampY(y));
   return (s.to - s.from) / (s.b - s.a) * fraction;
 }
-export const segmentName = y => segFor(clampY(y)).name;
 
 /** Uppspelningens nivåer i år per sekund. */
 const SPEEDS = [1, 5, 25, 100];

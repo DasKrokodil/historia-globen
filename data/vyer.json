@@ -3,10 +3,6 @@
   "title": { "sv": "Vy", "en": "View", "de": "Ansicht", "es": "Vista", "fr": "Vue" },
   "custom": { "sv": "Anpassad", "en": "Custom", "de": "Angepasst", "es": "Personalizada", "fr": "Personnalisée" },
   "customize": { "sv": "Anpassa själv", "en": "Customize", "de": "Selbst anpassen", "es": "Personalizar", "fr": "Personnaliser" },
-  "eventWindow": {
-    "past": { "sv": "slut", "en": "ended", "de": "endete" },
-    "future": { "sv": "börjar", "en": "starts", "de": "beginnt" }
-  },
   "menu": {
     "label": { "sv": "Meny", "en": "Menu", "de": "Menü" }
   },

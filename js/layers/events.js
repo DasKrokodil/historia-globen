@@ -233,7 +233,7 @@ export class EventsLayer {
       s.userData.baseScale = (s.userData.big ? 0.078 : 0.045 + 0.018 * activity);
       if (activity > 0) { this._paint(s); lit.push({ id: e.id, s, top: !!e.top, major: !!e.major, partial, pinned: e.id === selectedId || highlight.has(e.id) }); }
       // Panelen räknar även gamla öppna spann, men markören ritas först när posten väljs.
-      if ((activity > 0 || longRunning) && okFilter) visible.push({ e, activity, inside, dist, longRunning, partial });
+      if ((activity > 0 || longRunning) && okFilter) visible.push({ e, activity, inside, dist, when, longRunning, partial });
     }
     // Markörgränsen (#756): i intervalläget visas högst rangeMarkerLimit markörer, de viktigaste först (valda och
     // markerade, top, major). De som döljs finns kvar i listan (visible) men får ingen markör eller sken på kartan.
