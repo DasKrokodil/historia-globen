@@ -374,5 +374,9 @@
   "ff.surprise": "Visste du?",
   "ff.surpriseTarget": "Visste du? → {year}",
   "jumpBack.from": "Från {year}",
-  "jumpBack.back": "Tillbaka"
+  "jumpBack.back": "Tillbaka",
+  "tlegend.title": "Tecken",
+  "tlegend.event": "händelse",
+  "tlegend.funfact": "samband",
+  "tlegend.route": "resa"
 }

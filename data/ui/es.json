@@ -597,5 +597,9 @@
   "tip.yearClose": "Cerrar el consejo",
   "ff.surpriseTarget": "¿Sabía que…? → {year}",
   "jumpBack.from": "Desde {year}",
-  "jumpBack.back": "Volver"
+  "jumpBack.back": "Volver",
+  "tlegend.title": "Leyenda",
+  "tlegend.event": "suceso",
+  "tlegend.funfact": "conexión",
+  "tlegend.route": "viaje"
 }

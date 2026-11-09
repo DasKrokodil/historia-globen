@@ -616,6 +616,42 @@ async function run(browser, vp) {
     return `filterknapp, Tjernobyl följer filtret, kontrast ${ratio.toFixed(1)}:1`;
   });
 
+  // #1003: markeringarna ligger utanför tabbordningen, och teckenförklaringen syns, täcker inga knappar och minns att den fälldes ihop
+  await check('tidslinjens markeringar är utanför tabbordningen och teckenförklaringen går att fälla ihop (#1003)', async () => {
+    await page.waitForSelector('#track-dots > *, #track-ff > *', { state: 'attached', timeout: T.step });
+    const bad = await page.evaluate(() => [...document.querySelectorAll('.tdot, .tspan, .tff, .troute')].filter(m => m.tabIndex !== -1).length);
+    if (bad) throw new Error(`${bad} markeringar har tabbstopp`);
+    const marks = await page.evaluate(() => document.querySelectorAll('.tdot, .tspan, .tff, .troute').length);
+    await visible('#timeline-legend');
+    const texts = (await page.textContent('#timeline-legend')).replace(/\s+/g, ' ').trim();
+    if (!/händelse/.test(texts) || !/samband/.test(texts) || !/resa/.test(texts)) throw new Error(`teckenförklaringen saknar tecken: ${texts}`);
+    const covered = await page.evaluate(() => [...document.querySelectorAll('.timebar .step, #btn-play')].filter(b => {
+      const r = b.getBoundingClientRect();
+      const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+      return !(hit === b || b.contains(hit));
+    }).length);
+    if (covered) throw new Error('teckenförklaringen eller något annat täcker steg- eller spelknapparna');
+    // Ihopfällningen och omladdningen provas på en egen sida, så att den delade sidans tillstånd inte ändras för kontrollerna efter
+    const fresh = await context.newPage();
+    try {
+      await fresh.goto(BASE);
+      await fresh.evaluate(() => { try { localStorage.removeItem('hg-teckenforklaring'); } catch { /* */ } });
+      await fresh.reload();
+      await fresh.waitForSelector('#timeline-legend summary', { state: 'visible', timeout: T.step });
+      await fresh.click('#timeline-legend summary');
+      if (await fresh.getAttribute('#timeline-legend', 'open') !== null) throw new Error('teckenförklaringen fälldes inte ihop');
+      await fresh.reload();
+      await fresh.waitForSelector('#timeline-legend summary', { state: 'visible', timeout: T.step });
+      if (await fresh.getAttribute('#timeline-legend', 'open') !== null) throw new Error('valet att fälla ihop sparades inte');
+      await fresh.click('#timeline-legend summary');
+      if (await fresh.getAttribute('#timeline-legend', 'open') === null) throw new Error('teckenförklaringen öppnades inte igen');
+      await fresh.reload();
+      await fresh.waitForSelector('#timeline-legend summary', { state: 'visible', timeout: T.step });
+      if (await fresh.getAttribute('#timeline-legend', 'open') === null) throw new Error('valet att öppna sparades inte');
+    } finally { await fresh.close(); }
+    return `${marks} markeringar utan tabbstopp; tecknen syns, täcker inga knappar och valet sparas`;
+  });
+
   // #996: engångstipset vid tidslinjen syns vid första besöket, försvinner efter första klicket i tidslinjen och kommer inte tillbaka
   await check('engångstipset vid tidslinjen försvinner efter första draget och kommer inte tillbaka (#996)', async () => {
     const fresh = await context.newPage();
@@ -1028,8 +1064,10 @@ async function run(browser, vp) {
     if ((await layersOn()) !== 'areas,events') throw new Error(`stegets lager är ${await layersOn()} i stället för areas,events`);
     await page.click('#tour-next');
     if ((await progress()) !== 'Steg 2 av 3') throw new Error('Nästa gick inte till steg 2');
-    // Fortsätt i pausraden går också till nästa steg (tidslinjen äger året och pausar där)
-    await page.click('#pause-go');
+    // En framåtknapp och en avsluta-knapp (#999): pausraden har ingen Fortsätt eller Avsluta, och tidsradens steg- och spelknappar är avstängda
+    for (const sel of ['#pause-go']) if (await page.isVisible(sel)) throw new Error(`${sel} syns i en tur (dubblett av turkortet)`);
+    if (!(await page.isDisabled('#btn-play'))) throw new Error('spelknappen är inte avstängd medan turen styr tiden');
+    await page.click('#tour-next');
     await page.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('3 av 3'), null, { timeout: T.step });
     if ((await year()) !== '1325') throw new Error(`sista steget står på ${await year()} i stället för 1325`);
     if (await page.isVisible('#funfact')) throw new Error('Samtidigt-kortet syns ovanpå turens kort');
@@ -1038,7 +1076,7 @@ async function run(browser, vp) {
     await page.click('#tour-close');
     await hidden('#tour-card');
     if ((await layersOn()) !== before) throw new Error(`lagren återställdes inte: ${await layersOn()} i stället för ${before}`);
-    return 'tre steg med år, lager och paus; Nästa, Fortsätt, Föregående och Avsluta fungerar';
+    return 'tre steg med år, lager och paus; Nästa är enda framåtknappen; Föregående och Avsluta fungerar';
   });
 
   await check('krigets första kort startar berättelsen med kapitel och frågor (#247)', async () => {

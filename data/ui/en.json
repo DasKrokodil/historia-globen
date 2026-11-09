@@ -597,5 +597,9 @@
   "tip.yearClose": "Close the tip",
   "ff.surpriseTarget": "Did you know? → {year}",
   "jumpBack.from": "From {year}",
-  "jumpBack.back": "Back"
+  "jumpBack.back": "Back",
+  "tlegend.title": "Key",
+  "tlegend.event": "event",
+  "tlegend.funfact": "connection",
+  "tlegend.route": "journey"
 }

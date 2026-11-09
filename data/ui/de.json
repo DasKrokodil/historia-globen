@@ -597,5 +597,9 @@
   "tip.yearClose": "Hinweis schließen",
   "ff.surpriseTarget": "Wussten Sie? → {year}",
   "jumpBack.from": "Aus dem Jahr {year}",
-  "jumpBack.back": "Zurück"
+  "jumpBack.back": "Zurück",
+  "tlegend.title": "Zeichen",
+  "tlegend.event": "Ereignis",
+  "tlegend.funfact": "Zusammenhang",
+  "tlegend.route": "Reise"
 }

@@ -537,6 +537,14 @@ async function start() {
     $('year-tip-close').addEventListener('click', dismissTip);
   }
 
+  // Teckenförklaringen under tidslinjen (#1003): öppen som standard, och valet att fälla ihop den sparas
+  const tLegend = $('timeline-legend');
+  try { if (localStorage.getItem('hg-teckenforklaring') === 'hopfalld') tLegend.open = false; } catch { /* utan lagring: öppen */ }
+  // Sparas i klicket (före ändringen), inte i toggle-händelsen som kommer senare och kan hinna missas vid en omladdning
+  tLegend.querySelector('summary').addEventListener('click', () => {
+    try { localStorage.setItem('hg-teckenforklaring', tLegend.open ? 'hopfalld' : 'oppen'); } catch { /* utan lagring */ }
+  });
+
   // Quiz (#65): frågor ur befintliga fun facts, startas från Mer. Knappen döljs om datan inte räcker till en fråga.
   const quizButton = $('btn-quiz');
   const quiz = new Quiz({
@@ -565,7 +573,7 @@ async function start() {
   const tour = new TourPlayer({
     button: $('btn-tour'), menu: $('tour-menu'), menuTitle: $('tour-menu-title'), list: $('tour-list'),
     card: $('tour-card'), progress: $('tour-progress'), name: $('tour-name'), title: $('tour-title'), text: $('tour-text'),
-    read: $('tour-read'), srcBtn: $('tour-sources'), back: $('tour-back'), next: $('tour-next'), closeBtn: $('tour-close'), endBtn: $('tour-end'), pauseStop: $('pause-stop'),
+    read: $('tour-read'), srcBtn: $('tour-sources'), back: $('tour-back'), next: $('tour-next'), closeBtn: $('tour-close'), endBtn: $('tour-end'),
     chapter: $('tour-chapter'), question: $('tour-question'), questionLabel: $('tour-question-label'), questionText: $('tour-question-text'), status: $('tour-status'),
     printBtn: $('tour-print'),
     printStatus: $('tour-print-status'),
