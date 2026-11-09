@@ -594,5 +594,9 @@
   "how.tour": "Visite : {title}",
   "time.year1": "1 apr. J.-C.",
   "tip.year": "Faites glisser ici pour changer d’année",
-  "tip.yearClose": "Fermer le conseil"
+  "tip.yearClose": "Fermer le conseil",
+  "tlegend.title": "Légende",
+  "tlegend.event": "événement",
+  "tlegend.funfact": "lien",
+  "tlegend.route": "voyage"
 }
