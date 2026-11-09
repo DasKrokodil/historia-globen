@@ -582,8 +582,7 @@ body {
   backdrop-filter: blur(6px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
 }
-/* Med listan öppen i bred skärm hamnar faktarutan till vänster om den */
-@media (min-width: 761px) { .app.panel-open .detail-card { right: calc(var(--gut-r) + var(--panel-w) + 12px); } }
+/* I bred skärm använder faktarutan alltid högersidans läsyta, även när listan är öppen. */
 .detail-close, .panel-x {
   position: sticky; top: 0; float: right;
   margin: -4px -6px 0 8px;
