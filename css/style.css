@@ -18,8 +18,14 @@
   --ok: #8fc48e;
   --medal: #10202c;        /* markörernas botten (#242), samma som GROUND i layers/events.js */
   --gold-dot: #f1d98a;     /* markörernas punkt för betydelse */
+  /* Lagerordning för ytorna (#894), lägst först. Siffrorna är oförändrade; namnen gör ordningen läsbar.
+     kort < tur < panel (och faktaruta över turkort) < band (lektionsbandet, utfällda ark) < meny. */
+  --z-kort: 13;            /* faktarutan, jaktkortet och andra kort som ligger på kartan */
+  --z-turkort: 14;         /* turkortet, ovanför faktarutan i vila */
   --z-panel: 15;           /* Samtidigt-panelen och andra sidopaneler (#887) */
-  --z-topbar: 17;          /* knapparna överst och deras öppna menyer ligger över sidopanelerna, annars tar panelen emot klicken (#887) */
+  --z-kort-over-tur: 15;   /* faktarutan öppnas ovanpå turkortet under en tur och i lektionsläget (#862, F7) */
+  --z-band: 16;            /* lektionsbandet och helt utfällda ark på mobil: över panelerna, under menyerna */
+  --z-meny: 17;            /* knapparna överst och deras öppna menyer ligger över sidopanelerna, annars tar panelen emot klicken (#887) */
   --print-ink: #111;       /* utskriften av en lektionstur (#738): svart text på vitt papper */
   --print-paper: #fff;
   --print-line: #666;      /* skrivrader och avdelare på papperet */
@@ -299,7 +305,7 @@ body {
 
 .top-actions {
   position: absolute;
-  z-index: var(--z-topbar);
+  z-index: var(--z-meny);
   top: calc(env(safe-area-inset-top, 0px) + 18px);
   right: var(--gut-r);
   display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end;
@@ -566,7 +572,7 @@ body {
 /* Faktarutan: ett eget kort som öppnas när man klickar på en händelse */
 .detail-card {
   position: absolute;
-  z-index: 13;
+  z-index: var(--z-kort);
   right: var(--gut-r);
   bottom: 132px;
   width: min(360px, calc(100vw - 32px));
@@ -830,7 +836,7 @@ body {
 .intro-choice.primary { border-color: var(--brass); background: var(--brass); color: var(--night); }
 .intro-choice:focus-visible, .intro-actions button:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
 /* Samtidighetsjakten (#741): rutan under knapparna (som Hjälp) och knappen i faktarutan */
-.hunt-card { z-index: 13; }
+.hunt-card { z-index: var(--z-kort); }
 .hunt-card .help-title:focus { outline: none; }
 .hunt-card .help-title:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
 .hunt-task { margin: 6px 0 0; font: 400 13.5px/1.45 var(--f-body); color: var(--parchment); }
@@ -869,7 +875,7 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 /* ---------- guidad tur (#47) ---------- */
 /* Kortet står där Samtidigt-kortet brukar stå; under turen döljs Samtidigt-kortet, så att de inte krockar */
 .tour-card {
-  box-sizing: border-box; position: absolute; z-index: 14;
+  box-sizing: border-box; position: absolute; z-index: var(--z-turkort);
   left: var(--gut); bottom: 140px; width: min(380px, calc(100vw - 32px));
   max-height: calc(100dvh - 140px - 150px); overflow-y: auto;
   padding: 14px 16px 12px;
@@ -886,7 +892,7 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
    Bandet överst och menyerna som läraren inte vill att eleverna ska nå. Turens egna knappar står kvar;
    utgången är "Visa hela globen" i bandet, så Avsluta i kortet och pausraden döljs. */
 .lesson-band {
-  position: absolute; z-index: 16; top: 0; left: 0; right: 0;
+  position: absolute; z-index: var(--z-band); top: 0; left: 0; right: 0;
   box-sizing: border-box; min-height: 38px; padding: calc(env(safe-area-inset-top, 0px) + 4px) var(--gut-r) 4px var(--gut);
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
   background: color-mix(in srgb, var(--night-2) 96%, transparent); border-bottom: 1px solid var(--brass-deep);
@@ -1758,7 +1764,7 @@ details.used-by summary:hover { color: var(--parchment); }
     background: var(--parchment); box-shadow: 0 -6px 8px -6px rgba(34,25,12,.25);
   }
   /* hel: allt syns, kortet går upp till rubriken och rullar inuti */
-  #funfact.ff-s-full, #funfact.ff-dragging { max-height: calc(100dvh - var(--ff-b) - 104px); overflow-y: auto; z-index: 16; }
+  #funfact.ff-s-full, #funfact.ff-dragging { max-height: calc(100dvh - var(--ff-b) - 104px); overflow-y: auto; z-index: var(--z-band); }
   #funfact.ff-s-full .ff-text { display: block; -webkit-line-clamp: unset; }
   #funfact.ff-s-full .ff-pic.ff-pic { height: 120px; }
   #funfact.ff-s-full .ff-events { display: flex; }
@@ -1929,7 +1935,7 @@ details.used-by summary:hover { color: var(--parchment); }
 .extra-dots::before { content: "\22EF"; font-size: 15px; line-height: 0; }
 .extra-open .extra-toggle { border-color: var(--brass); color: var(--brass); }
 .extra-menu {
-  display: none; position: absolute; z-index: 17; top: calc(100% + 8px); right: 0;
+  display: none; position: absolute; z-index: var(--z-meny); top: calc(100% + 8px); right: 0;
   flex-direction: column; align-items: stretch; gap: 4px; min-width: 190px; padding: 6px;
   background: color-mix(in srgb, var(--night-2) 96%, transparent); border: 1px solid var(--line); border-radius: var(--r);
   box-shadow: 0 8px 28px rgba(0, 0, 0, .5);
@@ -1963,7 +1969,7 @@ details.used-by summary:hover { color: var(--parchment); }
   .more-open .more-chev { transform: rotate(-135deg) translateY(-1px); }
   .more-open .more-toggle, .top-actions:has(#btn-flat[aria-pressed="true"], #btn-discovery[aria-pressed="true"]) .more-toggle { border-color: var(--brass); color: var(--brass); }
   .more-menu {
-    display: none; position: absolute; z-index: 17; top: calc(100% + 8px); right: 0;
+    display: none; position: absolute; z-index: var(--z-meny); top: calc(100% + 8px); right: 0;
     flex-direction: column; gap: 10px; width: 260px; max-width: calc(100vw - 2 * var(--gut-r)); padding: 8px;
     max-height: calc(100dvh - 180px); overflow-y: auto; overscroll-behavior: contain;
     background: color-mix(in srgb, var(--night-2) 96%, transparent); border: 1px solid var(--line); border-radius: var(--r);
@@ -2072,9 +2078,9 @@ details.used-by summary:hover { color: var(--parchment); }
   #detail .review-info::after { inset: -14px; }
   #detail .report-btn { position: relative; padding: 10px 0; }
   #detail .report-btn::after { content: ""; position: absolute; inset: -6px -4px; }
-  #detail[data-sheet="full"], #detail.sheet-dragging { max-height: calc(100dvh - var(--ff-b) - 72px - env(safe-area-inset-top, 0px)); z-index: 16; }
-  /* Under en tur (och i lektionsläget) öppnas faktarutan ovanpå turkortet (z-index 14), annars täcker kortet rubrik, handtag och Stäng (#862, F7). Lektionsbandet (16) ligger kvar överst. */
-  .app.touring #detail { z-index: 15; }
+  #detail[data-sheet="full"], #detail.sheet-dragging { max-height: calc(100dvh - var(--ff-b) - 72px - env(safe-area-inset-top, 0px)); z-index: var(--z-band); }
+  /* Under en tur (och i lektionsläget) öppnas faktarutan ovanpå turkortet (--z-turkort), annars täcker kortet rubrik, handtag och Stäng (#862, F7). Lektionsbandet (--z-band) ligger kvar överst. */
+  .app.touring #detail { z-index: var(--z-kort-over-tur); }
   /* I lektionsläget ligger Mer/Meny under lektionsbandet (66 px, med lärarens knapp 96 px, höjd 38 px). Det helt utfällda arket börjar under dem, så att Meny inte täcker Stäng (#891, del 2). */
   .app.lesson #detail[data-sheet="full"], .app.lesson #detail.sheet-dragging { max-height: calc(100dvh - var(--ff-b) - 112px - env(safe-area-inset-top, 0px)); }
   .app.lesson-teacher #detail[data-sheet="full"], .app.lesson-teacher #detail.sheet-dragging { max-height: calc(100dvh - var(--ff-b) - 142px - env(safe-area-inset-top, 0px)); }
