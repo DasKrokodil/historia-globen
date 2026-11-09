@@ -168,7 +168,7 @@ export function createRange(app) {
           // Namn med årtal läses redan i sin helhet. Övriga knappar behåller den egna årsraden och dess förklaringar.
           if (/\d/.test(name.textContent)) years.setAttribute('aria-hidden', 'true');
           b.append(name, years);
-          b.addEventListener('click', () => choosePreset(r));
+          b.addEventListener('click', () => choosePreset(r, period.id));
           presetButtons.push(b);
           list.append(b);
         });
@@ -184,8 +184,8 @@ export function createRange(app) {
     presetButtons.forEach(b => { b.disabled = blocked; });
     if (blocked) msg.textContent = ui('range.blocked');
   }
-  function choosePreset(r) {
-    if (!set(r.from, r.to)) { msg.textContent = ui('range.blocked'); return; }
+  function choosePreset(r, periodId) {
+    if (!set(r.from, r.to, periodId)) { msg.textContent = ui('range.blocked'); return; }
     closeForm(false);
     exitBtn.focus({ preventScroll: true });
   }
@@ -236,8 +236,21 @@ export function createRange(app) {
     exitBtn.focus({ preventScroll: true });
   });
 
+  /** Epoken bakom intervallet (#980), bara när åren fortfarande är epokens egna: en länk med p= men andra år visar ingen epok. */
+  let periodsById = null;
+  function periodOf(r) {
+    const hit = r.period && periodsById?.get(r.period);
+    if (!hit) return null;
+    const pr = periodToRange(hit.period, MIN_YEAR, MAX_YEAR);
+    return pr.from === r.from && pr.to === r.to ? hit : null;
+  }
+  loadPerioder().then(divisions => {
+    periodsById = new Map(divisions.flatMap(d => d.periods.map(period => [period.id, { period, div: d }])));
+    if (state.range?.period) { barText.textContent = ''; app.refresh(); }
+  }).catch(() => {});
+
   /** Väljer intervallet från–till (from < to). Avslutar Fokus (lägeskontraktet). Ger false när ett annat läge stoppar det. */
-  function set(from, to) {
+  function set(from, to, period = null) {
     if (![from, to].every(Number.isFinite)) return false;
     from = Math.max(MIN_YEAR, Math.min(MAX_YEAR, from));
     to = Math.max(MIN_YEAR, Math.min(MAX_YEAR, to));
@@ -246,7 +259,7 @@ export function createRange(app) {
     setting = true;
     try {
       timeline.pause();
-      store.setRange({ from, to });
+      store.setRange({ from, to, period });
       timeline.year = from;
       timeline.setRange(state.range);
     } finally { setting = false; }
@@ -287,7 +300,12 @@ export function createRange(app) {
     bar.hidden = !r;
     $('year-jump').classList.toggle('is-range', !!r);
     if (!r) { barText.textContent = ''; return; }
-    const text = `${rangeText(r.from, r.to)} · ${plural('range.count', count, { count })}`;
+    const epoch = periodOf(r);
+    bar.title = epoch ? t(epoch.div.simplification) : ''; // förenklingen (till exempel att stenåldern börjar tidigare) syns som förklaring
+    const epochName = epoch ? t(epoch.period.name) : '';
+    // Namn som redan har samma årtal ("Norden, cirka 1500–1800") upprepas inte med åren
+    const years = rangeText(r.from, r.to);
+    const text = `${epochName ? `${epochName} · ` : ''}${epochName.includes(years) ? '' : `${years} · `}${plural('range.count', count, { count })}`;
     if (barText.textContent !== text) barText.textContent = text; // samma omritning ska inte köa samma uppläsning igen
     areasNote.hidden = areasYear == null;
     areasNote.textContent = areasYear == null ? '' : ui('range.areasAt', { year: formatYear(areasYear) });

@@ -135,6 +135,16 @@ test('lektionsläget i adressen: m=lektion hör till en tur (#795)', async () =>
   assert.equal(decodeHash(hash).year, 1325);
 });
 
+// Epoken (#980) följer med intervallet som p=, men bara tillsammans med y2
+test('epoken står som p= bredvid y2, och p= utan y2 eller med fel tecken tas bort', () => {
+  const hash = encodeHash({ ...base, year: -2999, yearEnd: -1699, period: 'nordisk-stenalder' });
+  assert.match(hash, /y2=-1699&p=nordisk-stenalder/);
+  assert.equal(decodeHash(hash).period, 'nordisk-stenalder');
+  assert.equal(decodeHash('#y=1325&p=nordisk-stenalder').period, undefined, 'p= utan y2 hör inte till något intervall');
+  assert.equal(decodeHash('#y=1325&y2=1418&p=BAD ID').period, undefined);
+  assert.equal(encodeHash({ ...base, period: 'x' }).includes('p='), false);
+});
+
 // Tidsintervallet (#755): y2 är slutåret
 test('ett tidsintervall står som y och y2, och en länk utan y2 är ett år som förut', () => {
   const hash = encodeHash({ ...base, yearEnd: 1418 });

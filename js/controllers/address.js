@@ -70,7 +70,7 @@ export function createAddress(app) {
       const wantRange = s.yearEnd != null && !s.focus;
       if (!wantRange) app.range?.close({ redraw: false });
       timeline.year = s.year;
-      if (wantRange && !app.range?.set(s.year, s.yearEnd)) app.range?.close({ redraw: false });
+      if (wantRange && !app.range?.set(s.year, s.yearEnd, s.period ?? null)) app.range?.close({ redraw: false });
       const focusNow = state.focus ? `${state.focus.type}:${state.focus.id}` : null;
       if (s.focus !== focusNow) {
         if (s.focus && focusExists(s.focus)) {
@@ -122,7 +122,7 @@ export function createAddress(app) {
     const tourStep = new URLSearchParams(writtenHash.slice(1)), newTour = (tourStep.get('t') ?? '') !== (pos?.id ?? '') || (tourStep.get('s') ?? '') !== (pos?.step ?? '')
       || (tourStep.get('u') ?? '') !== (mission() ?? '') // ett uppdrag som börjar eller slutar är också ett eget steg
       || (tourStep.get('m') ?? '') !== (mode() ?? '') // och lektionsläget
-      || (written?.yearEnd ?? null) !== (cur.yearEnd ?? null); // och ett tidsintervall som väljs eller stängs (#755)
+      || (written?.yearEnd ?? null) !== (cur.yearEnd ?? null) || (written?.period ?? null) !== (cur.period ?? null); // och ett tidsintervall som väljs eller stängs (#755)
     // Vänta tills vyn står still, utom när ett läge eller turens steg har bytts: det skrivs direkt (#882, #893)
     if (!force && !newTour && !timeline.playing && hash !== seenHash) { seenHash = hash; return; }
     const url = `${location.pathname}${search()}${hash}`;
