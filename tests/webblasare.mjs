@@ -3487,6 +3487,8 @@ async function run(browser, vp) {
       if (!(await text('#range-areas')).includes('1918')) throw new Error(`etiketten säger inte slutåret: ${await text('#range-areas')}`);
       await hashHas(/y2=1918/);
       // #981: Fokus listar fortfarande nära startåret, inte hela intervallet.
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#btn-more')) await tp.click('#btn-more');
       await tp.click('#btn-focus');
       await tp.waitForSelector('#focus-menu:not([hidden])', { state: 'visible', timeout: T.step });
       if (!(await text('#focus-menu .layer-note')).includes('Listan följer året, inte tidsintervallet')) throw new Error('Fokus förklarar inte att listan följer året under ett intervall');
@@ -3625,6 +3627,7 @@ async function run(browser, vp) {
     tp.on('pageerror', e => errors.push(e.message));
     const text = sel => tp.textContent(sel).then(x => x.trim());
     const hashHas = (re, want = true) => tp.waitForFunction(([src, w]) => new RegExp(src).test(location.hash) === w, [re.source, want], { timeout: T.step });
+    const shown = sel => tp.evaluate(q => { const el = document.querySelector(q); return !!el && !el.hidden && el.getClientRects().length > 0; }, sel);
     const openForm = async () => {
       await tp.evaluate(() => { const pop = document.getElementById('jump-pop'); if (pop.hidden) document.getElementById('year-jump').click(); document.getElementById('range-open').click(); });
       await tp.waitForSelector('#range-pop', { state: 'visible', timeout: T.step });
