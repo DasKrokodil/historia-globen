@@ -631,13 +631,24 @@ async function run(browser, vp) {
       return !(hit === b || b.contains(hit));
     }).length);
     if (covered) throw new Error('teckenförklaringen eller något annat täcker steg- eller spelknapparna');
-    await page.click('#timeline-legend summary');
-    if (await page.getAttribute('#timeline-legend', 'open') !== null) throw new Error('teckenförklaringen fälldes inte ihop');
-    await page.reload();
-    await page.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
-    if (await page.getAttribute('#timeline-legend', 'open') !== null) throw new Error('valet att fälla ihop sparades inte');
-    await page.click('#timeline-legend summary');
-    if (await page.getAttribute('#timeline-legend', 'open') === null) throw new Error('teckenförklaringen öppnades inte igen');
+    // Ihopfällningen och omladdningen provas på en egen sida, så att den delade sidans tillstånd inte ändras för kontrollerna efter
+    const fresh = await context.newPage();
+    try {
+      await fresh.goto(BASE);
+      await fresh.evaluate(() => { try { localStorage.removeItem('hg-teckenforklaring'); } catch { /* */ } });
+      await fresh.reload();
+      await fresh.waitForSelector('#timeline-legend summary', { state: 'visible', timeout: T.step });
+      await fresh.click('#timeline-legend summary');
+      if (await fresh.getAttribute('#timeline-legend', 'open') !== null) throw new Error('teckenförklaringen fälldes inte ihop');
+      await fresh.reload();
+      await fresh.waitForSelector('#timeline-legend summary', { state: 'visible', timeout: T.step });
+      if (await fresh.getAttribute('#timeline-legend', 'open') !== null) throw new Error('valet att fälla ihop sparades inte');
+      await fresh.click('#timeline-legend summary');
+      if (await fresh.getAttribute('#timeline-legend', 'open') === null) throw new Error('teckenförklaringen öppnades inte igen');
+      await fresh.reload();
+      await fresh.waitForSelector('#timeline-legend summary', { state: 'visible', timeout: T.step });
+      if (await fresh.getAttribute('#timeline-legend', 'open') === null) throw new Error('valet att öppna sparades inte');
+    } finally { await fresh.close(); }
     return `${marks} markeringar utan tabbstopp; tecknen syns, täcker inga knappar och valet sparas`;
   });
 
