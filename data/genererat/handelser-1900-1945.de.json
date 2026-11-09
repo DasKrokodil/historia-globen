@@ -3,6 +3,8 @@
 "lang":"de",
 "events":{
 "slaget-om-storbritannien":{"note":{"title":{"de":"Zum Zeitraum"},"text":{"de":"Britische Quellen zählen die Schlacht vom 10. Juli bis zum 31. Oktober 1940, und so wird sie hier angegeben. Deutsche Historiker sehen sie dagegen als einen einzigen Feldzug von Juli 1940 bis Mai 1941, einschließlich der nächtlichen Bombardierungen, die als Blitz bekannt sind."}}},
+"slaget-om-guadalcanal":{"image":{"caption":{"de":"Japanischer Luftangriff auf amerikanische Schiffe vor Guadalcanal am 12. November 1942, während der Seeschlacht von Guadalcanal. Der Rauch im Hintergrund stammt von einem japanischen Flugzeug, das gerade in den Kreuzer USS San Francisco gestürzt war. Foto von der USS President Adams, U.S. Navy (80-G-32366). Lizenz: Public domain."}}},
 "slaget-vid-stalingrad":{"note":{"title":{"de":"Die Quellen weichen voneinander ab"},"text":{"de":"Wikipedia nennt den Zeitraum vom 17. Juli 1942 bis 2. Februar 1943, als die ersten Kämpfe weit außerhalb der Stadt stattfanden. Andere Historiker zählen ab der deutschen Offensive gegen die Stadt am 23. August 1942, und dieses Datum nennt Wikidata. Das Enddatum, der 2. Februar 1943, ist dasselbe."}}},
+"kokodafalttaget":{"image":{"caption":{"de":"Soldaten des australischen 39. Bataillons bei einem Appell nach wochenlangen Kämpfen im dichten Dschungel während der Kokoda-Kampagne, 6. September 1942. Foto von Damien Parer, Australian War Memorial (AWM 013289). Lizenz: Public domain."}}},
 "sydney-harbour-bridge-invigs":{"image":{"caption":{"de":"Die Sydney Harbour Bridge. Heutiges Foto (2006). Ausschnitt. Lizenz: CC BY 2.5."}}}
 }}

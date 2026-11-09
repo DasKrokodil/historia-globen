@@ -3,6 +3,8 @@
 "lang":"es",
 "events":{
 "slaget-om-storbritannien":{"note":{"title":{"es":"Sobre el período"},"text":{"es":"Las fuentes británicas cuentan la batalla del 10 de julio al 31 de octubre de 1940, y así se indica aquí. Los historiadores alemanes, en cambio, la ven como una única campaña desde julio de 1940 hasta mayo de 1941, incluidos los bombardeos nocturnos conocidos como el Blitz."}}},
+"slaget-om-guadalcanal":{"image":{"caption":{"es":"Ataque aéreo japonés contra barcos estadounidenses frente a Guadalcanal el 12 de noviembre de 1942, durante la batalla naval de Guadalcanal. El humo del fondo procede de un avión japonés que acababa de estrellarse contra el crucero USS San Francisco. Foto tomada desde el USS President Adams, U.S. Navy (80-G-32366). Licencia: Public domain."}}},
 "slaget-vid-stalingrad":{"note":{"title":{"es":"Las fuentes difieren"},"text":{"es":"Wikipedia indica del 17 de julio de 1942 al 2 de febrero de 1943, cuando los primeros combates se libraron muy lejos de la ciudad. Otros historiadores cuentan desde la ofensiva alemana contra la ciudad el 23 de agosto de 1942, y esa es la fecha que da Wikidata. La fecha de fin, el 2 de febrero de 1943, es la misma."}}},
+"kokodafalttaget":{"image":{"caption":{"es":"Soldados del 39.º Batallón australiano formados tras semanas de combates en la densa jungla durante la campaña de Kokoda, 6 de septiembre de 1942. Foto de Damien Parer, Australian War Memorial (AWM 013289). Licencia: Public domain."}}},
 "sydney-harbour-bridge-invigs":{"image":{"caption":{"es":"El Sydney Harbour Bridge. Foto actual (2006). Detalle. Licencia: CC BY 2.5."}}}
 }}

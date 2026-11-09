@@ -1,0 +1,10 @@
+{"note":"Genereras av tools/dela_data.py ur data/events.json. Redigera inte här, utan i källfilen, och kör skriptet igen.",
+"period":"1800-1899",
+"lang":"fr",
+"events":{
+"slaget-vid-kororareka":{"image":{"caption":{"fr":"Kororāreka (aujourd’hui Russell) vue de la mer avant l’attaque de 1845, avec trois navires au premier plan. Image de 1845 de la Bibliothèque nationale de Nouvelle-Zélande. Licence : Public domain."}}},
+"slaget-vid-rangiriri":{"image":{"caption":{"fr":"Le groupe d’assaut de la Royal Navy est repoussé au pā de Rangiriri le 20 novembre 1863. Dessin de Charles Heaphy, tiré de The New Zealand Wars (1922) de James Cowan. Licence : Public domain."}}},
+"slaget-vid-gate-pa":{"image":{"caption":{"fr":"Soldats britanniques et Maoris au combat à Gate Pā en 1864. Illustration postérieure, publiée en 1895 dans un livre britannique (Archibald Forbes, Arthur Griffiths et d’autres). Licence : Public domain."}}},
+"burke-och-wills-expedition":{"image":{"caption":{"fr":"Burke, Wills et King sur le chemin du retour du golfe de Carpentarie. Gravure de Nicholas Chevalier, avant 1868. Licence : Public domain."}}},
+"taraweras-utbrott":{"image":{"caption":{"fr":"Le volcan Tarawera pendant l’éruption du 10 juin 1886. Peinture de Charles Blomfield, d’après des témoignages oculaires. Licence : Public domain."}}}
+}}
