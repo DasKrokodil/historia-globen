@@ -137,6 +137,6 @@ Detaljerna finns i [01, avsnitt 8](01-inventering.md#8-där-dokumentationen-och-
 ## Nästa steg
 
 - **Frågor till en riktig lärare:** åtta stycken finns sist i [03](03-pedagog.md#frågor-att-ta-med-till-en-riktig-lärare). Frågorna 1, 2 och 8 avgör mest av prioriteringen ovan.
-- **Issues:** när DasKrokodil har läst rapporten kan Lista 1 bli ett eller två issues med `redo` (text och CSS, inga fakta). Lista 2 blir issues med `beslut-krävs` och en "Rekommendation till DasKrokodil" enligt arbetssättet i CLAUDE.md. Punkterna A, C och E kommenteras på #893. Inget är skapat än.
+- **Issues (uppdaterat 2026-11-09):** Lista 1 blev #991–#1003 i milstolpen "UI/UX uppdatering", som enligt beslut 2026-11-09 kommer direkt efter 6.1.0 ([docs/beslut/2026-11-09-ui-ux-efter-6-1-0.md](../beslut/2026-11-09-ui-ux-efter-6-1-0.md)). Punkt 1 om epoknamnen kommenterades på #979. Del 3 av #1000 (färre markeringar) väntar på beslut. Lista 2 är inte gjord till issues än.
 - **Produktdokumenten** ([05](../produkt/05-ux-oversikt.md), [06](../produkt/06-granskningsperspektiv.md) "Vad linsen har sagt hittills", [13](../produkt/13-ordlista.md)) bör uppdateras i samma pull request som besluten, inte nu.
 - **Rapporten ligger i `docs/ux-review/`**, som uppdraget bad om. Projektets vanliga plats för granskningar är `docs/granskningar/`. Om rapporten ska ligga kvar här kan en rad i [docs/granskningar/README.md](../granskningar/README.md) peka hit.
