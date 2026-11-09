@@ -5,182 +5,182 @@ nr,id,titel_sv,varldsdel,period,ar,kategori,partOf,stodtyp,stod,lista
 4,egypten-enas,Egypten enas under Narmer,Afrika,forhistoria,ca 3100 f.Kr.,civilisationer,,direkt,VA3 Ancient Egypt,forslag
 5,caral,"Caral, en av Amerikas äldsta städer",Amerika,antiken,ca 2600 f.Kr.,civilisationer,,direkt,VA4 Caral–Supe civilization; VA3 Andean civilizations,forslag
 6,cheopspyramiden,Cheopspyramiden byggs,Afrika,antiken,ca 2600 f.Kr.,kultur,,direkt,VA3 Ancient Egypt; VA4 Old Kingdom of Egypt,forslag
-7,kermariket,Kermariket i Nubien,Afrika,antiken,ca 2500 f.Kr.,civilisationer,,direkt,VA4 Nubia; VA4 Kingdom of Kush,forslag
-8,mohenjo-daro,"Mohenjo-daro, en av Induskulturens storstäder",Asien,antiken,ca 2500 f.Kr.,civilisationer,,direkt,VA3 Indus Valley Civilisation; VA4 Mohenjo-daro,forslag
-9,hammurabis-lagar,Hammurabis lagar,Asien,antiken,ca 1753 f.Kr.,civilisationer,,direkt,VA3 Hammurabi; VA4 Babylonia,forslag
-10,lapitakulturen-i-bismarckarkipelagen,Lapitakulturen dyker upp i Bismarckarkipelagen,Oceanien,antiken,ca 1600 f.Kr.,kultur,,område,VA4 History of Oceania; VA4 Early human migrations,forslag
-11,nok-kulturen,Nok-kulturen och dess terrakottaskulpturer,Afrika,antiken,ca 1500 f.Kr.,kultur,,direkt,VA4 Nok culture,forslag
-12,olmekerna-san-lorenzo,Olmekernas San Lorenzo och kolossalhuvudena,Amerika,antiken,ca 1400 f.Kr.,civilisationer,,direkt,VA4 Olmecs; VA3 Mesoamerica,forslag
-13,orakelben-skrift,"Orakelbenen, Kinas äldsta bevarade skrift",Asien,antiken,ca 1254 f.Kr.,kultur,,direkt,VA4 Shang dynasty; VA3 Writing,forslag
-14,chavin-de-huantar,Tempelplatsen Chavín de Huántar,Amerika,antiken,ca 1200 f.Kr.,religion,,direkt,VA4 Chavín culture,forslag
-15,feniciska-alfabetet,Det feniciska alfabetet,Asien,antiken,ca 1050 f.Kr.,kultur,,direkt,VA3 Phoenicia; VA3 Alphabet,forslag
-16,karthago-grundas,Kartago grundas,Afrika,antiken,ca 814 f.Kr.,civilisationer,,direkt,VA4 Ancient Carthage,forslag
-17,buddha,Buddha grundar buddhismen,Asien,antiken,600 f.Kr.,religion,,direkt,VA3 The Buddha; VA3 Buddhism,forslag
-18,konfucius,Konfucius lever,Asien,antiken,ca 551 f.Kr.,religion,,direkt,VA3 Confucius,forslag
-19,demokratin-i-aten,Kleisthenes och demokratin i Aten,Europa,antiken,508 f.Kr.,civilisationer,,direkt,VA4 Classical Athens; VA3 Democracy; Lgr22 åk 7–9 «Antiken»,forslag
-20,monte-alban-grundas,Monte Albán grundas,Amerika,antiken,ca 500 f.Kr.,civilisationer,,direkt,VA4 Zapotec civilization,forslag
-21,perserkrigen,Perserkrigen,Europa,antiken,ca 499 f.Kr.,krig,,direkt,VA4 Greco-Persian Wars; VA3 Achaemenid Empire,forslag
-22,tikal-vaxer-fram,Tikal växer fram som mayastad,Amerika,antiken,ca 400 f.Kr.,civilisationer,,direkt,VA4 Tikal; VA3 Maya civilization,forslag
-23,alexanders-faltag,Alexander den stores fälttåg,Europa,antiken,336 f.Kr.,krig,,direkt,VA3 Alexander the Great; VA4 Hellenistic period,forslag
-24,asokas-inskrifter,Asokas inskrifter,Asien,antiken,268 f.Kr.,religion,,direkt,VA3 Ashoka; VA4 Maurya Empire,forslag
-25,qins-enandekrig,Qins enandekrig,Asien,antiken,230 f.Kr.,krig,,direkt,VA3 Qin Shi Huang; VA4 Qin dynasty; VA4 Warring States period,forslag
-26,liu-bang-blir-kejsare,Liu Bang blir kejsare och Handynastin grundas,Asien,antiken,202 f.Kr.,krig,chu-han-kriget,direkt,VA3 Han dynasty,forslag
-27,zhang-qian-sidenvagen,Zhang Qians resa öppnar Sidenvägen,Asien,antiken,138 f.Kr.,ekonomi,,direkt,VA3 Silk Road,forslag
-28,teotihuacan,Teotihuacan,Amerika,antiken,ca 100 f.Kr.,civilisationer,,direkt,VA4 Teotihuacan,forslag
-29,kleopatra,Kleopatra,Afrika,antiken,ca 69 f.Kr.,civilisationer,,direkt,VA3 Cleopatra; VA4 Ptolemaic Kingdom,forslag
-30,jesu-fodelse,Jesus föds,Asien,antiken,ca 6 f.Kr.,religion,,direkt,VA3 Jesus; VA3 Christianity,forslag
-31,cai-lun-papper,Cai Lun förbättrar papperet,Asien,antiken,105,vetenskap,,direkt,VA3 Paper,forslag
-32,aksum-blir-kristet,Kung Ezana gör Aksum kristet,Afrika,antiken,ca 320,religion,,direkt,VA4 Kingdom of Aksum,forslag
-33,tiwanaku,Tiwanaku vid Titicacasjön,Amerika,antiken,ca 375,civilisationer,,direkt,VA4 Tiwanaku,forslag
-34,nalanda,"Nalanda, buddhistiskt lärosäte",Asien,antiken,ca 427,kultur,,direkt,VA3 Gupta Empire,forslag
-35,vastromerska-rikets-fall,Västromerska riket faller,Europa,antiken,476,civilisationer,,direkt,VA4 Fall of the Western Roman Empire,forslag
-36,muhammeds-forsta-uppenbarelse,Islams början: Muhammeds första uppenbarelse,Asien,medeltid,ca 610,religion,,direkt,VA3 Muhammad; VA3 Islam,forslag
-37,arabiska-erovringarna,De arabiska erövringarna,Asien,medeltid,622,krig,,direkt,VA4 Early Muslim conquests,forslag
-38,chichen-itza,Chichén Itzá blir mayafolkets maktcentrum,Amerika,medeltid,ca 750,civilisationer,,direkt,VA4 Chichen Itza,forslag
-39,visdomens-hus-bagdad,Visdomens hus i Bagdad,Asien,medeltid,ca 754,vetenskap,,direkt,VA3 Islamic Golden Age; VA4 Abbasid Caliphate,forslag
-40,lindisfarne,Vikingar plundrar Lindisfarne,Europa,medeltid,793,krig,,direkt,VA3 Viking Age; Lgr22 åk 4–6 «vikingars resor»,forslag
-41,karl-den-store-krons,Karl den store kröns till kejsare,Europa,medeltid,800,civilisationer,,direkt,VA3 Charlemagne; VA3 Holy Roman Empire; VA4 Carolingian Empire,forslag
-42,chan-chan,"Chan Chan, chimúfolkets huvudstad",Amerika,medeltid,ca 850,civilisationer,,direkt,VA4 Chimor,forslag
-43,diamantsutran-trycks,Diamantsutran trycks,Asien,medeltid,868,kultur,,direkt,VA3 Printing; VA3 Tang dynasty,forslag
-44,polynesier-nar-hawaii,Polynesier når Hawaii,Oceanien,medeltid,ca 940,upptackter,,område,VA4 History of Oceania; VA4 Early human migrations,forslag
-45,kairo-grundas,Fatimiderna grundar Kairo,Afrika,medeltid,969,civilisationer,,direkt,VA4 Fatimid Caliphate,forslag
-46,lanse-aux-meadows,Nordbor i Amerika: L'Anse aux Meadows,Amerika,medeltid,1021,upptackter,,direkt,VA3 Viking Age; Lgr22 åk 4–6 «vikingars resor»,forslag
-47,cahokia,Cahokia och Monks Mound,Amerika,medeltid,ca 1050,civilisationer,,direkt,VA4 Cahokia; VA4 Mississippian period (archaeology),forslag
-48,al-bakri-beskriver-ghana,Al-Bakri beskriver Ghanarikets huvudstad,Afrika,medeltid,ca 1068,civilisationer,,direkt,VA4 Ghana Empire,forslag
-49,korstagen,Korstågen,Europa,medeltid,1095,krig,,direkt,VA3 Crusades,forslag
-50,angkor-wat,Angkor Wat byggs,Asien,medeltid,1113,kultur,,direkt,VA4 Khmer Empire,forslag
-51,hansan-vaxer-fram,Hansan växer fram,Europa,medeltid,ca 1159,ekonomi,,direkt,VA4 Hanseatic League; Lgr22 åk 4–6 «medeltidens handelssystem»,forslag
-52,stora-zimbabwe,"Stora Zimbabwe, en stad av sten",Afrika,medeltid,ca 1201,civilisationer,,direkt,VA4 Great Zimbabwe,forslag
-53,mongolernas-erovringar,Mongolernas erövringar,Asien,medeltid,1209,krig,,direkt,VA3 Mongol Empire; VA3 Genghis Khan,forslag
-54,moai-rapa-nui,Rapa Nui och moai-statyerna,Oceanien,medeltid,ca 1250,kultur,,område,VA4 History of Oceania,forslag
-55,polynesier-nar-aotearoa,Polynesier bosätter sig på Aotearoa (Nya Zeeland),Oceanien,medeltid,ca 1250,upptackter,,område,VA4 History of Oceania; VA4 Early human migrations,forslag
-56,salomoniska-dynastin-tar-makten,Yekuno Amlak grundar den salomoniska dynastin,Afrika,medeltid,1270,civilisationer,,direkt,VA4 Ethiopian Empire,forslag
-57,osmanska-riket,Osmanska riket,Europa,medeltid,ca 1299,civilisationer,,direkt,VA3 Ottoman Empire,forslag
-58,mansa-musa-kairo,Mansa Musa i Kairo,Afrika,medeltid,1324,religion,,direkt,VA3 Mansa Musa; VA3 Mali Empire,forslag
-59,tenochtitlan,Tenochtitlan,Amerika,medeltid,ca 1325,civilisationer,,direkt,VA3 Aztecs; VA4 Tenochtitlan,forslag
-60,digerdoden,Digerdöden,Europa,medeltid,1346,halsa,,direkt,VA3 Black Death,forslag
-61,ming,Mingdynastin,Asien,medeltid,1368,civilisationer,,direkt,VA4 Ming dynasty,forslag
-62,kungadomet-kongo-grundas,Kungadömet Kongo grundas,Afrika,medeltid,ca 1390,civilisationer,,direkt,VA4 Kingdom of Kongo,forslag
-63,pachacuti-inkariket,Pachacuti gör Cusco till Inkariket,Amerika,medeltid,ca 1438,civilisationer,,direkt,VA3 Inca Empire,forslag
-64,gutenberg,Gutenbergs tryckpress,Europa,medeltid,ca 1440,vetenskap,,direkt,VA3 Johannes Gutenberg; VA3 Printing,forslag
-65,konstantinopels-fall,Konstantinopels fall,Europa,medeltid,1453,civilisationer,,direkt,VA4 Fall of Constantinople,forslag
-66,guru-nanak,Guru Nanak grundar sikhismen,Asien,medeltid,1469,religion,,direkt,VA3 Sikhism,forslag
-67,columbus,Columbus når Amerika,Amerika,medeltid,1492,upptackter,,direkt,VA3 Christopher Columbus; VA3 European colonization of the Americas; Lgr22 åk 7–9 «Europeisk kolonisation»,forslag
-68,askia-muhammad-tar-makten,Askia Muhammad tar makten i Songhairiket,Afrika,medeltid,1493,civilisationer,,direkt,VA4 Songhai Empire,forslag
-69,vasco-da-gama-nar-indien,Vasco da Gama når Indien sjövägen,Asien,medeltid,1498,upptackter,,direkt,VA3 Age of Discovery; VA4 Portuguese Empire,forslag
-70,luthers-teser,Luthers 95 teser,Europa,tidigmodern,1517,religion,,direkt,VA3 Martin Luther; VA3 Reformation; Lgr22 åk 4–6 «Reformationen»,forslag
-71,atlantiska-slavhandeln,Den transatlantiska slavhandeln,Afrika,tidigmodern,1519,ekonomi,,direkt,VA4 Atlantic slave trade; Lgr22 åk 7–9 «slavhandel»,forslag
-72,magellans-jordenruntsegling,Den första seglingen jorden runt,Europa,tidigmodern,1519,upptackter,,direkt,VA4 Magellan expedition,forslag
-73,spanska-erovringen-av-aztekriket,Spanska erövringen av Aztekriket,Amerika,tidigmodern,1519,krig,,direkt,VA4 Spanish conquest of the Aztec Empire,forslag
-74,gustav-vasa,Gustav Vasa väljs till kung,Europa,tidigmodern,1523,civilisationer,,direkt,Lgr22 åk 4–6 «framväxten av en stark kungamakt i Sverige»,forslag
-75,forsta-slaget-vid-panipat,Första slaget vid Panipat,Asien,tidigmodern,1526,krig,,direkt,VA3 Mughal Empire,forslag
-76,spanska-erovringen-av-inkariket,Spanska erövringen av Inkariket,Amerika,tidigmodern,1532,krig,,direkt,VA4 Spanish conquest of the Inca Empire,forslag
-77,kopernikus-de-revolutionibus,Kopernikus: jorden kretsar kring solen,Europa,tidigmodern,1543,vetenskap,,direkt,VA3 Nicolaus Copernicus; VA3 Scientific Revolution,forslag
-78,jamestown-1607,Engelsmännen grundar Jamestown,Amerika,tidigmodern,1607,civilisationer,,direkt,VA4 British colonization of the Americas,forslag
-79,trettioariga-kriget,Trettioåriga kriget,Europa,tidigmodern,1618,krig,,direkt,VA4 Thirty Years' War; Lgr22 åk 4–6 «Det svenska Östersjöväldet»,forslag
-80,sakoku-japan-stanger,Japan stänger sig (sakoku),Asien,tidigmodern,1633,civilisationer,,direkt,VA4 Edo period; VA4 Tokugawa shogunate,forslag
-81,kapkolonin-1652,Nederländarna grundar Kapkolonin,Afrika,tidigmodern,1652,civilisationer,,direkt,VA4 Dutch East India Company; Lgr22 åk 7–9 «Europeisk kolonisation»,forslag
-82,stora-nordiska-kriget,Stora nordiska kriget,Europa,tidigmodern,1700,krig,,direkt,VA4 Great Northern War; Lgr22 åk 4–6 «Det svenska Östersjöväldet»,forslag
-83,asanteriket-grundas,Asanteriket växer fram,Afrika,tidigmodern,1701,civilisationer,,direkt,VA4 Asante Empire,forslag
-84,watt-separat-kondensor,Watt kommer på den separata kondensorn,Europa,tidigmodern,1765,vetenskap,,direkt,VA3 Industrial Revolution; VA3 Steam engine; Lgr22 åk 7–9 «Industrialiseringen i Europa»,forslag
-85,amerikanska-frihetskriget,Amerikanska frihetskriget,Amerika,tidigmodern,1775,krig,,direkt,VA3 American Revolution; VA4 American Revolutionary War; Lgr22 åk 7–9 «Revolutioner»,forslag
-86,forsta-flottan-sydney,Första flottan når Sydney,Oceanien,tidigmodern,1788,civilisationer,,direkt,VA4 History of Australia; VA3 British Empire,forslag
-87,stormningen-av-bastiljen,Bastiljen stormas,Europa,tidigmodern,1789,civilisationer,,direkt,VA3 French Revolution; Lgr22 åk 7–9 «Revolutioner»,forslag
-88,haitiska-revolutionen,Haitiska revolutionen,Amerika,tidigmodern,1791,krig,,direkt,VA4 Haitian Revolution; Lgr22 åk 7–9 «Revolutioner»,forslag
-89,napoleonkrigen,Napoleonkrigen,Europa,1800,1803,krig,,direkt,VA3 Napoleon; VA4 Napoleonic Wars,forslag
-90,sokotokalifatet-grundas,Usman dan Fodio grundar Sokotokalifatet,Afrika,1800,1804,religion,,direkt,VA4 Sokoto Caliphate,forslag
-91,slavhandeln-forbjuds-1807,Storbritannien förbjuder slavhandeln,Europa,1800,1807,ekonomi,,direkt,VA4 Abolitionism,forslag
-92,spanskamerikanska-sjalvstandighetskrigen,De spanskamerikanska självständighetskrigen,Amerika,1800,1808,krig,,direkt,VA3 Simón Bolívar; VA4 Spanish American wars of independence,forslag
-93,brasiliens-sjalvstandighet,Brasilien förklarar sig självständigt,Amerika,1800,1822,civilisationer,,direkt,VA4 Empire of Brazil,forslag
-94,forsta-opiumkriget,Första opiumkriget,Asien,1800,1839,krig,,direkt,VA4 First Opium War,forslag
-95,waitangifordraget,Waitangifördraget,Oceanien,1800,1840,civilisationer,,område,VA4 History of Oceania; VA4 Colonization,forslag
-96,kommunistiska-manifestet,Kommunistiska manifestet ges ut,Europa,1800,1848,ekonomi,,direkt,VA3 Communism; Lgr22 åk 7–9 «politiska ideologier»,forslag
-97,indiska-upproret-1857,Indiska upproret 1857,Asien,1800,1857,krig,,direkt,VA4 Indian Rebellion of 1857,forslag
-98,om-arternas-uppkomst,Darwins Om arternas uppkomst,Europa,1800,1859,vetenskap,,direkt,VA3 Charles Darwin,forslag
-99,amerikanska-inbordeskriget,Amerikanska inbördeskriget,Amerika,1800,1861,krig,,direkt,VA4 American Civil War; VA3 Abraham Lincoln,forslag
-100,meijirestaurationen,Meijirestaurationen i Japan,Asien,1800,1868,civilisationer,,direkt,VA4 Meiji Restoration,forslag
-101,anglo-zuluiska-kriget,Anglo-zuluiska kriget,Afrika,1800,1879,krig,,direkt,VA4 Anglo-Zulu War,forslag
-102,berlinkonferensen,Berlinkonferensen om Afrika,Europa,1800,1884,civilisationer,,direkt,VA3 Scramble for Africa; Lgr22 åk 7–9 «imperialism»,forslag
-103,kongofristaten,"Kongofristaten, Leopold II:s privata koloni",Afrika,1800,1885,civilisationer,,direkt,VA4 Congo Free State,forslag
-104,kvinnlig-rostratt-nya-zeeland,Kvinnor får rösta i Nya Zeeland,Oceanien,1800,1893,civilisationer,,direkt,Lgr22 åk 7–9 «kampen för allmän rösträtt för kvinnor och män»; VA4 Women's history,forslag
-105,forsta-italiensk-etiopiska-kriget,Första italiensk-etiopiska kriget,Afrika,1800,1895,krig,,direkt,VA3 Scramble for Africa; VA4 Ethiopian Empire,forslag
-106,wright,Bröderna Wright flyger,Amerika,1900,1903,vetenskap,,direkt,VA3 Aircraft; VA4 History of aviation,forslag
-107,herero-och-nama-folkmordet,Folkmordet på herero och nama,Afrika,1900,1904,krig,,direkt,VA3 Genocide; Lgr22 åk 7–9 «folkmord»,forslag
-108,mexikanska-revolutionen,Mexikanska revolutionen,Amerika,1900,1910,krig,,direkt,VA4 Mexican Revolution,forslag
-109,forsta-varldskriget,Första världskriget,Europa,1900,1914,krig,,direkt,VA3 World War I; Lgr22 åk 7–9 «De båda världskrigen»,forslag
-110,oktoberrevolutionen,Oktoberrevolutionen i Ryssland,Europa,1900,1917,civilisationer,,direkt,VA4 Russian Revolution; VA3 Soviet Union; Lgr22 åk 7–9 «Revolutioner»,forslag
-111,spanska-sjukan,Spanska sjukan,Amerika,1900,1918,halsa,,direkt,VA4 Spanish flu,forslag
-112,penicillinet-upptacks,Penicillinet upptäcks,Europa,1900,1928,halsa,,direkt,VA3 Antibiotic,forslag
-113,borskraschen-1929,Börskraschen på Wall Street,Amerika,1900,1929,ekonomi,,direkt,VA4 Wall Street crash of 1929; VA3 Great Depression,forslag
-114,saltmarschen,Gandhis saltmarsch,Asien,1900,1930,civilisationer,,direkt,VA3 Mahatma Gandhi; VA4 Indian independence movement,forslag
-115,andra-varldskriget,Andra världskriget,Europa,1900,1939,krig,,direkt,VA3 World War II; Lgr22 åk 7–9 «De båda världskrigen»,forslag
-116,attacken-mot-pearl-harbor,Attacken mot Pearl Harbor,Oceanien,1900,1941,krig,andra-varldskriget,direkt,VA4 Attack on Pearl Harbor,forslag
-117,atombomberna-hiroshima-nagasaki,Atombomberna mot Hiroshima och Nagasaki,Asien,1900,1945,krig,andra-varldskriget,direkt,VA4 Atomic bombings of Hiroshima and Nagasaki,forslag
-118,auschwitz-befrias,Auschwitz befrias,Europa,1900,1945,krig,andra-varldskriget,direkt,VA4 The Holocaust; Lgr22 åk 7–9 «Förintelsen»,forslag
-119,fn-grundas,FN-stadgan skrivs under och FN grundas,Amerika,1900,1945,civilisationer,,direkt,VA3 United Nations,forslag
-120,indonesiens-sjalvstandighet,Indonesien utropar sin självständighet,Asien,1900,1945,civilisationer,,direkt,VA4 Indonesian National Revolution; VA3 Decolonization,forslag
-121,indiens-sjalvstandighet,Indien blir självständigt,Asien,1900,1947,civilisationer,,direkt,VA4 Partition of India; VA3 Decolonization,forslag
-122,arabisk-israeliska-kriget-1948,Arabisk-israeliska kriget 1948,Asien,1900,1948,krig,,direkt,VA4 Arab–Israeli conflict,forslag
-123,manskliga-rattigheter-1948,FN antar förklaringen om de mänskliga rättigheterna,Europa,1900,1948,civilisationer,,direkt,VA3 Human rights; Lgr22 åk 1–3 «Mänskliga rättigheter»,forslag
-124,folkrepubliken-kina-utropas,Folkrepubliken Kina utropas,Asien,1900,1949,civilisationer,,direkt,VA4 Chinese Civil War; VA4 History of the People's Republic of China,forslag
-125,koreakriget,Koreakriget,Asien,1900,1950,krig,,direkt,VA4 Korean War,forslag
-126,kubanska-revolutionen,Kubanska revolutionen,Amerika,1900,1953,civilisationer,,direkt,VA4 Cuban Revolution,forslag
-127,algeriska-frihetskriget,Algeriska frihetskriget,Afrika,1900,1954,krig,,direkt,VA4 Algerian War,forslag
-128,vietnamkriget,Vietnamkriget,Asien,1900,ca 1955,krig,,direkt,VA4 Vietnam War,forslag
-129,ghanas-sjalvstandighet,Ghana blir självständigt,Afrika,1900,1957,civilisationer,,direkt,VA3 Decolonization,forslag
-130,sputnik,"Sputnik 1, första satelliten",Asien,1900,1957,rymden,,direkt,VA4 Space Race; VA3 Satellite,forslag
-131,afrikas-ar-1960,Afrikas år: 17 kolonier blir självständiga,Afrika,1900,1960,civilisationer,,direkt,VA3 Decolonization,forslag
-132,berlinmuren-byggs,Berlinmuren byggs,Europa,1900,1961,civilisationer,,direkt,VA4 Berlin Wall; VA3 Cold War; Lgr22 åk 7–9 «Kalla krigets konflikter»,forslag
-133,kubakrisen,Kubakrisen,Amerika,1900,1962,civilisationer,,direkt,VA4 Cuban Missile Crisis; Lgr22 åk 7–9 «Kalla krigets konflikter»,forslag
-134,marschen-till-washington,"Marschen till Washington och ""I Have a Dream""",Amerika,1900,1963,civilisationer,,direkt,VA4 Civil rights movement,forslag
-135,biafrakriget,Biafrakriget (nigerianska inbördeskriget),Afrika,1900,1967,krig,,direkt,VA4 Nigerian Civil War,forslag
-136,apollo-11,Apollo 11 landar på månen,Amerika,1900,1969,rymden,,direkt,VA4 Moon landing,forslag
-137,smittkoppor-utrotas,Smittkopporna utrotas,Afrika,1900,1977,halsa,,direkt,VA3 Smallpox,forslag
-138,berlinmurens-fall,Berlinmuren faller,Europa,1900,1989,civilisationer,,direkt,VA4 Revolutions of 1989; VA4 Berlin Wall; Lgr22 åk 7–9 «det kalla krigets slut»,forslag
-139,www,Webben uppfinns,Europa,1900,1989,vetenskap,,direkt,VA3 Internet; VA3 Information Age,forslag
-140,sovjetunionens-upplosning,Sovjetunionen upplöses,Europa,1900,1991,civilisationer,,direkt,VA4 Dissolution of the Soviet Union,forslag
-141,folkmordet-i-rwanda,Folkmordet i Rwanda,Afrika,1900,1994,krig,,direkt,VA4 Rwandan genocide,forslag
-142,sydafrikas-forsta-fria-val,Sydafrikas första fria val: apartheid tar slut,Afrika,1900,1994,civilisationer,,direkt,VA4 Apartheid; VA3 Nelson Mandela,forslag
-143,andra-kongokriget,Andra Kongokriget,Afrika,1900,1998,krig,,direkt,VA4 Second Congo War,forslag
-144,attackerna-11-september-2001,Terrorattackerna den 11 september,Amerika,2000,2001,krig,,direkt,VA4 September 11 attacks; VA4 War on terror,forslag
-145,irakkriget,Irakkriget,Asien,2000,2003,krig,,direkt,VA4 Iraq War,forslag
-146,tsunamin-i-indiska-oceanen-2004,Tsunamin i Indiska oceanen,Asien,2000,2004,katastrofer,,direkt,VA4 2004 Indian Ocean earthquake and tsunami,forslag
-147,finanskrisen-2008,Finanskrisen,Amerika,2000,2007,ekonomi,,direkt,VA4 2008 financial crisis,forslag
-148,arabiska-varen,Arabiska våren,Afrika,2000,2010,civilisationer,,direkt,VA4 Arab Spring,forslag
-149,parisavtalet,Parisavtalet om klimatet,Europa,2000,2015,klimat,,direkt,VA3 Climate change,forslag
-150,covid-19-pandemin,Covid-19-pandemin,Asien,2000,2019,halsa,,direkt,VA4 COVID-19 pandemic,forslag
+7,mohenjo-daro,"Mohenjo-daro, en av Induskulturens storstäder",Asien,antiken,ca 2500 f.Kr.,civilisationer,,direkt,VA3 Indus Valley Civilisation; VA4 Mohenjo-daro,forslag
+8,hammurabis-lagar,Hammurabis lagar,Asien,antiken,ca 1753 f.Kr.,civilisationer,,direkt,VA3 Hammurabi; VA4 Babylonia,forslag
+9,lapitakulturen-i-bismarckarkipelagen,Lapitakulturen dyker upp i Bismarckarkipelagen,Oceanien,antiken,ca 1600 f.Kr.,kultur,,område,VA4 History of Oceania; VA4 Early human migrations,forslag
+10,nok-kulturen,Nok-kulturen och dess terrakottaskulpturer,Afrika,antiken,ca 1500 f.Kr.,kultur,,direkt,VA4 Nok culture,forslag
+11,olmekerna-san-lorenzo,Olmekernas San Lorenzo och kolossalhuvudena,Amerika,antiken,ca 1400 f.Kr.,civilisationer,,direkt,VA4 Olmecs; VA3 Mesoamerica,forslag
+12,feniciska-alfabetet,Det feniciska alfabetet,Asien,antiken,ca 1050 f.Kr.,kultur,,direkt,VA3 Phoenicia; VA3 Alphabet,forslag
+13,karthago-grundas,Kartago grundas,Afrika,antiken,ca 814 f.Kr.,civilisationer,,direkt,VA4 Ancient Carthage,forslag
+14,buddha,Buddha grundar buddhismen,Asien,antiken,600 f.Kr.,religion,,direkt,VA3 The Buddha; VA3 Buddhism,forslag
+15,konfucius,Konfucius lever,Asien,antiken,ca 551 f.Kr.,religion,,direkt,VA3 Confucius,forslag
+16,demokratin-i-aten,Kleisthenes och demokratin i Aten,Europa,antiken,508 f.Kr.,civilisationer,,direkt,VA4 Classical Athens; VA3 Democracy; Lgr22 åk 7–9 «Antiken»,forslag
+17,perserkrigen,Perserkrigen,Europa,antiken,ca 499 f.Kr.,krig,,direkt,VA4 Greco-Persian Wars; VA3 Achaemenid Empire,forslag
+18,tikal-vaxer-fram,Tikal växer fram som mayastad,Amerika,antiken,ca 400 f.Kr.,civilisationer,,direkt,VA4 Tikal; VA3 Maya civilization,forslag
+19,alexanders-faltag,Alexander den stores fälttåg,Europa,antiken,336 f.Kr.,krig,,direkt,VA3 Alexander the Great; VA4 Hellenistic period,forslag
+20,asokas-inskrifter,Asokas inskrifter,Asien,antiken,268 f.Kr.,religion,,direkt,VA3 Ashoka; VA4 Maurya Empire,forslag
+21,qins-enandekrig,Qins enandekrig,Asien,antiken,230 f.Kr.,krig,,direkt,VA3 Qin Shi Huang; VA4 Qin dynasty; VA4 Warring States period,forslag
+22,liu-bang-blir-kejsare,Liu Bang blir kejsare och Handynastin grundas,Asien,antiken,202 f.Kr.,krig,chu-han-kriget,direkt,VA3 Han dynasty,forslag
+23,zhang-qian-sidenvagen,Zhang Qians resa öppnar Sidenvägen,Asien,antiken,138 f.Kr.,ekonomi,,direkt,VA3 Silk Road,forslag
+24,teotihuacan,Teotihuacan,Amerika,antiken,ca 100 f.Kr.,civilisationer,,direkt,VA4 Teotihuacan,forslag
+25,kleopatra,Kleopatra,Afrika,antiken,ca 69 f.Kr.,civilisationer,,direkt,VA3 Cleopatra; VA4 Ptolemaic Kingdom,forslag
+26,jesu-fodelse,Jesus föds,Asien,antiken,ca 6 f.Kr.,religion,,direkt,VA3 Jesus; VA3 Christianity,forslag
+27,aksum-blir-kristet,Kung Ezana gör Aksum kristet,Afrika,antiken,ca 320,religion,,direkt,VA4 Kingdom of Aksum,forslag
+28,vastromerska-rikets-fall,Västromerska riket faller,Europa,antiken,476,civilisationer,,direkt,VA4 Fall of the Western Roman Empire,forslag
+29,muhammeds-forsta-uppenbarelse,Islams början: Muhammeds första uppenbarelse,Asien,medeltid,ca 610,religion,,direkt,VA3 Muhammad; VA3 Islam,forslag
+30,arabiska-erovringarna,De arabiska erövringarna,Asien,medeltid,622,krig,,direkt,VA4 Early Muslim conquests,forslag
+31,chichen-itza,Chichén Itzá blir mayafolkets maktcentrum,Amerika,medeltid,ca 750,civilisationer,,direkt,VA4 Chichen Itza,forslag
+32,visdomens-hus-bagdad,Visdomens hus i Bagdad,Asien,medeltid,ca 754,vetenskap,,direkt,VA3 Islamic Golden Age; VA4 Abbasid Caliphate,forslag
+33,lindisfarne,Vikingar plundrar Lindisfarne,Europa,medeltid,793,krig,,direkt,VA3 Viking Age; Lgr22 åk 4–6 «vikingars resor»,forslag
+34,karl-den-store-krons,Karl den store kröns till kejsare,Europa,medeltid,800,civilisationer,,direkt,VA3 Charlemagne; VA3 Holy Roman Empire; VA4 Carolingian Empire,forslag
+35,diamantsutran-trycks,Diamantsutran trycks,Asien,medeltid,868,kultur,,direkt,VA3 Printing; VA3 Tang dynasty,forslag
+36,polynesier-nar-hawaii,Polynesier når Hawaii,Oceanien,medeltid,ca 940,upptackter,,område,VA4 History of Oceania; VA4 Early human migrations,forslag
+37,lanse-aux-meadows,Nordbor i Amerika: L'Anse aux Meadows,Amerika,medeltid,1021,upptackter,,direkt,VA3 Viking Age; Lgr22 åk 4–6 «vikingars resor»,forslag
+38,al-bakri-beskriver-ghana,Al-Bakri beskriver Ghanarikets huvudstad,Afrika,medeltid,ca 1068,civilisationer,,direkt,VA4 Ghana Empire,forslag
+39,korstagen,Korstågen,Europa,medeltid,1095,krig,,direkt,VA3 Crusades,forslag
+40,angkor-wat,Angkor Wat byggs,Asien,medeltid,1113,kultur,,direkt,VA4 Khmer Empire,forslag
+41,hansan-vaxer-fram,Hansan växer fram,Europa,medeltid,ca 1159,ekonomi,,direkt,VA4 Hanseatic League; Lgr22 åk 4–6 «medeltidens handelssystem»,forslag
+42,stora-zimbabwe,"Stora Zimbabwe, en stad av sten",Afrika,medeltid,ca 1201,civilisationer,,direkt,VA4 Great Zimbabwe,forslag
+43,mongolernas-erovringar,Mongolernas erövringar,Asien,medeltid,1209,krig,,direkt,VA3 Mongol Empire; VA3 Genghis Khan,forslag
+44,moai-rapa-nui,Rapa Nui och moai-statyerna,Oceanien,medeltid,ca 1250,kultur,,område,VA4 History of Oceania,forslag
+45,polynesier-nar-aotearoa,Polynesier bosätter sig på Aotearoa (Nya Zeeland),Oceanien,medeltid,ca 1250,upptackter,,område,VA4 History of Oceania; VA4 Early human migrations,forslag
+46,osmanska-riket,Osmanska riket,Europa,medeltid,ca 1299,civilisationer,,direkt,VA3 Ottoman Empire,forslag
+47,mansa-musa-kairo,Mansa Musa i Kairo,Afrika,medeltid,1324,religion,,direkt,VA3 Mansa Musa; VA3 Mali Empire,forslag
+48,tenochtitlan,Tenochtitlan,Amerika,medeltid,ca 1325,civilisationer,,direkt,VA3 Aztecs; VA4 Tenochtitlan,forslag
+49,digerdoden,Digerdöden,Europa,medeltid,1346,halsa,,direkt,VA3 Black Death,forslag
+50,ming,Mingdynastin,Asien,medeltid,1368,civilisationer,,direkt,VA4 Ming dynasty,forslag
+51,kungadomet-kongo-grundas,Kungadömet Kongo grundas,Afrika,medeltid,ca 1390,civilisationer,,direkt,VA4 Kingdom of Kongo,forslag
+52,pachacuti-inkariket,Pachacuti gör Cusco till Inkariket,Amerika,medeltid,ca 1438,civilisationer,,direkt,VA3 Inca Empire,forslag
+53,gutenberg,Gutenbergs tryckpress,Europa,medeltid,ca 1440,vetenskap,,direkt,VA3 Johannes Gutenberg; VA3 Printing,forslag
+54,konstantinopels-fall,Konstantinopels fall,Europa,medeltid,1453,civilisationer,,direkt,VA4 Fall of Constantinople,forslag
+55,guru-nanak,Guru Nanak grundar sikhismen,Asien,medeltid,1469,religion,,direkt,VA3 Sikhism,forslag
+56,columbus,Columbus når Amerika,Amerika,medeltid,1492,upptackter,,direkt,VA3 Christopher Columbus; VA3 European colonization of the Americas; Lgr22 åk 7–9 «Europeisk kolonisation»,forslag
+57,vasco-da-gama-nar-indien,Vasco da Gama når Indien sjövägen,Asien,medeltid,1498,upptackter,,direkt,VA3 Age of Discovery; VA4 Portuguese Empire,forslag
+58,luthers-teser,Luthers 95 teser,Europa,tidigmodern,1517,religion,,direkt,VA3 Martin Luther; VA3 Reformation; Lgr22 åk 4–6 «Reformationen»,forslag
+59,atlantiska-slavhandeln,Den transatlantiska slavhandeln,Afrika,tidigmodern,1519,ekonomi,,direkt,VA4 Atlantic slave trade; Lgr22 åk 7–9 «slavhandel»,forslag
+60,spanska-erovringen-av-aztekriket,Spanska erövringen av Aztekriket,Amerika,tidigmodern,1519,krig,,direkt,VA4 Spanish conquest of the Aztec Empire,forslag
+61,gustav-vasa,Gustav Vasa väljs till kung,Europa,tidigmodern,1523,civilisationer,,direkt,Lgr22 åk 4–6 «framväxten av en stark kungamakt i Sverige»,forslag
+62,forsta-slaget-vid-panipat,Första slaget vid Panipat,Asien,tidigmodern,1526,krig,,direkt,VA3 Mughal Empire,forslag
+63,spanska-erovringen-av-inkariket,Spanska erövringen av Inkariket,Amerika,tidigmodern,1532,krig,,direkt,VA4 Spanish conquest of the Inca Empire,forslag
+64,kopernikus-de-revolutionibus,Kopernikus: jorden kretsar kring solen,Europa,tidigmodern,1543,vetenskap,,direkt,VA3 Nicolaus Copernicus; VA3 Scientific Revolution,forslag
+65,trettioariga-kriget,Trettioåriga kriget,Europa,tidigmodern,1618,krig,,direkt,VA4 Thirty Years' War; Lgr22 åk 4–6 «Det svenska Östersjöväldet»,forslag
+66,sakoku-japan-stanger,Japan stänger sig (sakoku),Asien,tidigmodern,1633,civilisationer,,direkt,VA4 Edo period; VA4 Tokugawa shogunate,forslag
+67,kapkolonin-1652,Nederländarna grundar Kapkolonin,Afrika,tidigmodern,1652,civilisationer,,direkt,VA4 Dutch East India Company; Lgr22 åk 7–9 «Europeisk kolonisation»,forslag
+68,stora-nordiska-kriget,Stora nordiska kriget,Europa,tidigmodern,1700,krig,,direkt,VA4 Great Northern War; Lgr22 åk 4–6 «Det svenska Östersjöväldet»,forslag
+69,asanteriket-grundas,Asanteriket växer fram,Afrika,tidigmodern,1701,civilisationer,,direkt,VA4 Asante Empire,forslag
+70,watt-separat-kondensor,Watt kommer på den separata kondensorn,Europa,tidigmodern,1765,vetenskap,,direkt,VA3 Industrial Revolution; VA3 Steam engine; Lgr22 åk 7–9 «Industrialiseringen i Europa»,forslag
+71,amerikanska-frihetskriget,Amerikanska frihetskriget,Amerika,tidigmodern,1775,krig,,direkt,VA3 American Revolution; VA4 American Revolutionary War; Lgr22 åk 7–9 «Revolutioner»,forslag
+72,forsta-flottan-sydney,Första flottan når Sydney,Oceanien,tidigmodern,1788,civilisationer,,direkt,VA4 History of Australia; VA3 British Empire,forslag
+73,stormningen-av-bastiljen,Bastiljen stormas,Europa,tidigmodern,1789,civilisationer,,direkt,VA3 French Revolution; Lgr22 åk 7–9 «Revolutioner»,forslag
+74,haitiska-revolutionen,Haitiska revolutionen,Amerika,tidigmodern,1791,krig,,direkt,VA4 Haitian Revolution; Lgr22 åk 7–9 «Revolutioner»,forslag
+75,napoleonkrigen,Napoleonkrigen,Europa,1800,1803,krig,,direkt,VA3 Napoleon; VA4 Napoleonic Wars,forslag
+76,sokotokalifatet-grundas,Usman dan Fodio grundar Sokotokalifatet,Afrika,1800,1804,religion,,direkt,VA4 Sokoto Caliphate,forslag
+77,slavhandeln-forbjuds-1807,Storbritannien förbjuder slavhandeln,Europa,1800,1807,ekonomi,,direkt,VA4 Abolitionism,forslag
+78,spanskamerikanska-sjalvstandighetskrigen,De spanskamerikanska självständighetskrigen,Amerika,1800,1808,krig,,direkt,VA3 Simón Bolívar; VA4 Spanish American wars of independence,forslag
+79,forsta-opiumkriget,Första opiumkriget,Asien,1800,1839,krig,,direkt,VA4 First Opium War,forslag
+80,waitangifordraget,Waitangifördraget,Oceanien,1800,1840,civilisationer,,område,VA4 History of Oceania; VA4 Colonization,forslag
+81,kommunistiska-manifestet,Kommunistiska manifestet ges ut,Europa,1800,1848,ekonomi,,direkt,VA3 Communism; Lgr22 åk 7–9 «politiska ideologier»,forslag
+82,om-arternas-uppkomst,Darwins Om arternas uppkomst,Europa,1800,1859,vetenskap,,direkt,VA3 Charles Darwin,forslag
+83,amerikanska-inbordeskriget,Amerikanska inbördeskriget,Amerika,1800,1861,krig,,direkt,VA4 American Civil War; VA3 Abraham Lincoln,forslag
+84,meijirestaurationen,Meijirestaurationen i Japan,Asien,1800,1868,civilisationer,,direkt,VA4 Meiji Restoration,forslag
+85,berlinkonferensen,Berlinkonferensen om Afrika,Europa,1800,1884,civilisationer,,direkt,VA3 Scramble for Africa; Lgr22 åk 7–9 «imperialism»,forslag
+86,kvinnlig-rostratt-nya-zeeland,Kvinnor får rösta i Nya Zeeland,Oceanien,1800,1893,civilisationer,,direkt,Lgr22 åk 7–9 «kampen för allmän rösträtt för kvinnor och män»; VA4 Women's history,forslag
+87,forsta-italiensk-etiopiska-kriget,Första italiensk-etiopiska kriget,Afrika,1800,1895,krig,,direkt,VA3 Scramble for Africa; VA4 Ethiopian Empire,forslag
+88,wright,Bröderna Wright flyger,Amerika,1900,1903,vetenskap,,direkt,VA3 Aircraft; VA4 History of aviation,forslag
+89,herero-och-nama-folkmordet,Folkmordet på herero och nama,Afrika,1900,1904,krig,,direkt,VA3 Genocide; Lgr22 åk 7–9 «folkmord»,forslag
+90,forsta-varldskriget,Första världskriget,Europa,1900,1914,krig,,direkt,VA3 World War I; Lgr22 åk 7–9 «De båda världskrigen»,forslag
+91,oktoberrevolutionen,Oktoberrevolutionen i Ryssland,Europa,1900,1917,civilisationer,,direkt,VA4 Russian Revolution; VA3 Soviet Union; Lgr22 åk 7–9 «Revolutioner»,forslag
+92,spanska-sjukan,Spanska sjukan,Amerika,1900,1918,halsa,,direkt,VA4 Spanish flu,forslag
+93,penicillinet-upptacks,Penicillinet upptäcks,Europa,1900,1928,halsa,,direkt,VA3 Antibiotic,forslag
+94,borskraschen-1929,Börskraschen på Wall Street,Amerika,1900,1929,ekonomi,,direkt,VA4 Wall Street crash of 1929; VA3 Great Depression,forslag
+95,saltmarschen,Gandhis saltmarsch,Asien,1900,1930,civilisationer,,direkt,VA3 Mahatma Gandhi; VA4 Indian independence movement,forslag
+96,andra-varldskriget,Andra världskriget,Europa,1900,1939,krig,,direkt,VA3 World War II; Lgr22 åk 7–9 «De båda världskrigen»,forslag
+97,attacken-mot-pearl-harbor,Attacken mot Pearl Harbor,Oceanien,1900,1941,krig,andra-varldskriget,direkt,VA4 Attack on Pearl Harbor,forslag
+98,atombomberna-hiroshima-nagasaki,Atombomberna mot Hiroshima och Nagasaki,Asien,1900,1945,krig,andra-varldskriget,direkt,VA4 Atomic bombings of Hiroshima and Nagasaki,forslag
+99,auschwitz-befrias,Auschwitz befrias,Europa,1900,1945,krig,andra-varldskriget,direkt,VA4 The Holocaust; Lgr22 åk 7–9 «Förintelsen»,forslag
+100,fn-grundas,FN-stadgan skrivs under och FN grundas,Amerika,1900,1945,civilisationer,,direkt,VA3 United Nations,forslag
+101,indonesiens-sjalvstandighet,Indonesien utropar sin självständighet,Asien,1900,1945,civilisationer,,direkt,VA4 Indonesian National Revolution; VA3 Decolonization,forslag
+102,indiens-sjalvstandighet,Indien blir självständigt,Asien,1900,1947,civilisationer,,direkt,VA4 Partition of India; VA3 Decolonization,forslag
+103,arabisk-israeliska-kriget-1948,Arabisk-israeliska kriget 1948,Asien,1900,1948,krig,,direkt,VA4 Arab–Israeli conflict,forslag
+104,manskliga-rattigheter-1948,FN antar förklaringen om de mänskliga rättigheterna,Europa,1900,1948,civilisationer,,direkt,VA3 Human rights; Lgr22 åk 1–3 «Mänskliga rättigheter»,forslag
+105,folkrepubliken-kina-utropas,Folkrepubliken Kina utropas,Asien,1900,1949,civilisationer,,direkt,VA4 Chinese Civil War; VA4 History of the People's Republic of China,forslag
+106,koreakriget,Koreakriget,Asien,1900,1950,krig,,direkt,VA4 Korean War,forslag
+107,vietnamkriget,Vietnamkriget,Asien,1900,ca 1955,krig,,direkt,VA4 Vietnam War,forslag
+108,ghanas-sjalvstandighet,Ghana blir självständigt,Afrika,1900,1957,civilisationer,,direkt,VA3 Decolonization,forslag
+109,sputnik,"Sputnik 1, första satelliten",Asien,1900,1957,rymden,,direkt,VA4 Space Race; VA3 Satellite,forslag
+110,afrikas-ar-1960,Afrikas år: 17 kolonier blir självständiga,Afrika,1900,1960,civilisationer,,direkt,VA3 Decolonization,forslag
+111,berlinmuren-byggs,Berlinmuren byggs,Europa,1900,1961,civilisationer,,direkt,VA4 Berlin Wall; VA3 Cold War; Lgr22 åk 7–9 «Kalla krigets konflikter»,forslag
+112,kubakrisen,Kubakrisen,Amerika,1900,1962,civilisationer,,direkt,VA4 Cuban Missile Crisis; Lgr22 åk 7–9 «Kalla krigets konflikter»,forslag
+113,apollo-11,Apollo 11 landar på månen,Amerika,1900,1969,rymden,,direkt,VA4 Moon landing,forslag
+114,smittkoppor-utrotas,Smittkopporna utrotas,Afrika,1900,1977,halsa,,direkt,VA3 Smallpox,forslag
+115,berlinmurens-fall,Berlinmuren faller,Europa,1900,1989,civilisationer,,direkt,VA4 Revolutions of 1989; VA4 Berlin Wall; Lgr22 åk 7–9 «det kalla krigets slut»,forslag
+116,www,Webben uppfinns,Europa,1900,1989,vetenskap,,direkt,VA3 Internet; VA3 Information Age,forslag
+117,sovjetunionens-upplosning,Sovjetunionen upplöses,Europa,1900,1991,civilisationer,,direkt,VA4 Dissolution of the Soviet Union,forslag
+118,folkmordet-i-rwanda,Folkmordet i Rwanda,Afrika,1900,1994,krig,,direkt,VA4 Rwandan genocide,forslag
+119,sydafrikas-forsta-fria-val,Sydafrikas första fria val: apartheid tar slut,Afrika,1900,1994,civilisationer,,direkt,VA4 Apartheid; VA3 Nelson Mandela,forslag
+120,attackerna-11-september-2001,Terrorattackerna den 11 september,Amerika,2000,2001,krig,,direkt,VA4 September 11 attacks; VA4 War on terror,forslag
+121,arabiska-varen,Arabiska våren,Afrika,2000,2010,civilisationer,,direkt,VA4 Arab Spring,forslag
+122,parisavtalet,Parisavtalet om klimatet,Europa,2000,2015,klimat,,direkt,VA3 Climate change,forslag
+123,covid-19-pandemin,Covid-19-pandemin,Asien,2000,2019,halsa,,direkt,VA4 COVID-19 pandemic,forslag
+,kermariket,Kermariket i Nubien,Afrika,antiken,ca 2500 f.Kr.,civilisationer,,direkt,VA4 Nubia; VA4 Kingdom of Kush,reserv
 ,ramses-krig-mot-hettiterna,Ramses II:s krig mot hettiterna,Asien,antiken,ca 1275 f.Kr.,krig,,direkt,VA3 Ramesses II; VA4 Hittites,reserv
+,orakelben-skrift,"Orakelbenen, Kinas äldsta bevarade skrift",Asien,antiken,ca 1254 f.Kr.,kultur,,direkt,VA4 Shang dynasty; VA3 Writing,reserv
+,chavin-de-huantar,Tempelplatsen Chavín de Huántar,Amerika,antiken,ca 1200 f.Kr.,religion,,direkt,VA4 Chavín culture,reserv
 ,olympiska-spelen,De antika olympiska spelen,Europa,antiken,ca 776 f.Kr.,sport,,direkt,VA3 Ancient Greece; Lgr22 åk 7–9 «Antiken»,reserv
 ,piye-erovrar-egypten,Piye från Kush erövrar Egypten,Afrika,antiken,ca 728 f.Kr.,krig,,direkt,VA4 Kingdom of Kush,reserv
 ,lydiska-mynt,Lydierna präglar några av världens första mynt,Europa,antiken,ca 700 f.Kr.,ekonomi,,direkt,VA4 Lydia,reserv
 ,mahavira,"Mahavira, jainismens 24:e tirthankara",Asien,antiken,ca 599 f.Kr.,religion,,direkt,VA3 Jainism,reserv
+,monte-alban-grundas,Monte Albán grundas,Amerika,antiken,ca 500 f.Kr.,civilisationer,,direkt,VA4 Zapotec civilization,reserv
 ,sokrates,Sokrates lever,Europa,antiken,ca 470 f.Kr.,kultur,,direkt,VA3 Socrates,reserv
 ,puniska-krigen,De puniska krigen,Europa,antiken,264 f.Kr.,krig,,direkt,VA4 Punic Wars,reserv
 ,caesar-mordas,Julius Caesar mördas,Europa,antiken,44 f.Kr.,civilisationer,,direkt,VA3 Julius Caesar; VA4 Roman Republic,reserv
 ,vesuvius-79,Vesuvius begraver Pompeji,Europa,antiken,79,katastrofer,,direkt,VA4 Pompeii,reserv
+,cai-lun-papper,Cai Lun förbättrar papperet,Asien,antiken,105,vetenskap,,direkt,VA3 Paper,reserv
+,tiwanaku,Tiwanaku vid Titicacasjön,Amerika,antiken,ca 375,civilisationer,,direkt,VA4 Tiwanaku,reserv
+,nalanda,"Nalanda, buddhistiskt lärosäte",Asien,antiken,ca 427,kultur,,direkt,VA3 Gupta Empire,reserv
 ,hagia-sofia-byggs-532,Hagia Sofia byggs,Europa,medeltid,532,kultur,,direkt,VA3 Byzantine Empire,reserv
 ,wari-riket,Wari-riket i Anderna,Amerika,medeltid,ca 600,civilisationer,,direkt,VA4 Wari culture,reserv
 ,mosken-i-cordoba,Stora moskén i Córdoba byggs,Europa,medeltid,785,religion,,direkt,VA4 Al-Andalus; VA4 Umayyad state of Córdoba,reserv
+,chan-chan,"Chan Chan, chimúfolkets huvudstad",Amerika,medeltid,ca 850,civilisationer,,direkt,VA4 Chimor,reserv
 ,chaco-canyon,De stora husen i Chaco Canyon,Amerika,medeltid,ca 900,kultur,,direkt,VA4 Ancestral Puebloans,reserv
+,kairo-grundas,Fatimiderna grundar Kairo,Afrika,medeltid,969,civilisationer,,direkt,VA4 Fatimid Caliphate,reserv
 ,kievrus-kristnas,Kievriket blir kristet,Europa,medeltid,ca 988,religion,,direkt,VA4 Kievan Rus',reserv
 ,sagan-om-genji,Sagan om Genji skrivs,Asien,medeltid,ca 1000,kultur,,direkt,VA4 Heian period,reserv
+,cahokia,Cahokia och Monks Mound,Amerika,medeltid,ca 1050,civilisationer,,direkt,VA4 Cahokia; VA4 Mississippian period (archaeology),reserv
 ,marrakech-grundas,Marrakech grundas av almoraviderna,Afrika,medeltid,ca 1070,civilisationer,,direkt,VA4 Almoravid dynasty,reserv
+,salomoniska-dynastin-tar-makten,Yekuno Amlak grundar den salomoniska dynastin,Afrika,medeltid,1270,civilisationer,,direkt,VA4 Ethiopian Empire,reserv
 ,machu-picchu,Machu Picchu byggs,Amerika,medeltid,ca 1450,kultur,,direkt,VA4 Machu Picchu,reserv
+,askia-muhammad-tar-makten,Askia Muhammad tar makten i Songhairiket,Afrika,medeltid,1493,civilisationer,,direkt,VA4 Songhai Empire,reserv
+,magellans-jordenruntsegling,Den första seglingen jorden runt,Europa,tidigmodern,1519,upptackter,,direkt,VA4 Magellan expedition,reserv
 ,andra-slaget-vid-panipat,Andra slaget vid Panipat,Asien,tidigmodern,1556,krig,,direkt,VA3 Akbar,reserv
 ,imjinkriget,Imjinkriget,Asien,tidigmodern,1592,krig,,direkt,VA4 Imjin War,reserv
+,jamestown-1607,Engelsmännen grundar Jamestown,Amerika,tidigmodern,1607,civilisationer,,direkt,VA4 British colonization of the Americas,reserv
 ,newtons-principia,Newtons Principia,Europa,tidigmodern,1687,vetenskap,,direkt,VA3 Isaac Newton; VA3 Scientific Revolution,reserv
 ,slaget-vid-plassey,Slaget vid Plassey,Asien,tidigmodern,1757,krig,,direkt,VA4 East India Company,reserv
 ,jenners-vaccin,Edward Jenner och det första vaccinet,Europa,tidigmodern,1796,halsa,,direkt,VA3 Vaccine; VA3 Smallpox,reserv
+,brasiliens-sjalvstandighet,Brasilien förklarar sig självständigt,Amerika,1800,1822,civilisationer,,direkt,VA4 Empire of Brazil,reserv
 ,taipingupproret,Taipingupproret,Asien,1800,1850,krig,,direkt,VA4 Taiping Rebellion,reserv
+,indiska-upproret-1857,Indiska upproret 1857,Asien,1800,1857,krig,,direkt,VA4 Indian Rebellion of 1857,reserv
 ,paraguaykriget,Paraguaykriget (trippelallianskriget),Amerika,1800,1864,krig,,direkt,VA4 Paraguayan War,reserv
 ,telefonen,Bell får patent på telefonen,Amerika,1800,1876,vetenskap,,direkt,VA3 Telephone,reserv
+,anglo-zuluiska-kriget,Anglo-zuluiska kriget,Afrika,1800,1879,krig,,direkt,VA4 Anglo-Zulu War,reserv
+,kongofristaten,"Kongofristaten, Leopold II:s privata koloni",Afrika,1800,1885,civilisationer,,direkt,VA4 Congo Free State,reserv
 ,curie-polonium-radium,Marie och Pierre Curie upptäcker polonium och radium,Europa,1800,1898,vetenskap,,direkt,VA3 Marie Curie,reserv
+,mexikanska-revolutionen,Mexikanska revolutionen,Amerika,1900,1910,krig,,direkt,VA4 Mexican Revolution,reserv
 ,slaget-vid-stalingrad,Slaget vid Stalingrad,Europa,1900,1942,krig,,direkt,VA4 Battle of Stalingrad,reserv
 ,dna-strukturen,DNA-molekylens dubbelspiral,Europa,1900,1953,vetenskap,,direkt,VA3 DNA,reserv
+,kubanska-revolutionen,Kubanska revolutionen,Amerika,1900,1953,civilisationer,,direkt,VA4 Cuban Revolution,reserv
+,algeriska-frihetskriget,Algeriska frihetskriget,Afrika,1900,1954,krig,,direkt,VA4 Algerian War,reserv
 ,gagarin-vostok-1,Jurij Gagarin blir första människan i rymden,Europa,1900,1961,rymden,,direkt,VA4 Space Race; VA3 Spaceflight,reserv
+,marschen-till-washington,"Marschen till Washington och ""I Have a Dream""",Amerika,1900,1963,civilisationer,,direkt,VA4 Civil rights movement,reserv
 ,kulturrevolutionen,Kulturrevolutionen i Kina,Asien,1900,1966,civilisationer,,direkt,VA4 Cultural Revolution,reserv
+,biafrakriget,Biafrakriget (nigerianska inbördeskriget),Afrika,1900,1967,krig,,direkt,VA4 Nigerian Civil War,reserv
 ,bangladeshs-befrielsekrig,Bangladeshs befrielsekrig,Asien,1900,1971,krig,,direkt,VA4 Bangladesh Liberation War,reserv
 ,iran-irak-kriget,Kriget mellan Iran och Irak,Asien,1900,1980,krig,,direkt,VA4 Iran–Iraq War,reserv
 ,tjernobylkatastrofen,Tjernobylkatastrofen,Europa,1900,1986,katastrofer,,direkt,VA4 Chernobyl disaster,reserv
 ,gulfkriget,Gulfkriget,Asien,1900,1990,krig,,direkt,VA4 Gulf War,reserv
+,andra-kongokriget,Andra Kongokriget,Afrika,1900,1998,krig,,direkt,VA4 Second Congo War,reserv
 ,euron-infors,Euron införs,Europa,1900,1999,ekonomi,,direkt,VA4 European integration; VA3 European Union,reserv
+,irakkriget,Irakkriget,Asien,2000,2003,krig,,direkt,VA4 Iraq War,reserv
+,tsunamin-i-indiska-oceanen-2004,Tsunamin i Indiska oceanen,Asien,2000,2004,katastrofer,,direkt,VA4 2004 Indian Ocean earthquake and tsunami,reserv
+,finanskrisen-2008,Finanskrisen,Amerika,2000,2007,ekonomi,,direkt,VA4 2008 financial crisis,reserv
