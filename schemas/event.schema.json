@@ -39,6 +39,7 @@
               "text": { "type": "object", "required": ["sv"], "properties": { "sv": { "type": "string", "pattern": ".+" } } }
             }
           },
+          "significance": { "type": "integer", "enum": [1] },
           "tags": { "type": "array", "uniqueItems": true, "minItems": 1, "items": { "type": "string", "enum": ["framsteg"] } },
           "evidence": {
             "type": "object",
