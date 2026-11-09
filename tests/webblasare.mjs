@@ -3562,6 +3562,13 @@ async function run(browser, vp) {
       // #756: riken visas för slutåret, med en synlig etikett (Riken är på som standard), och intervallet når händelselagret
       if (!(await text('#range-areas')).includes('1918')) throw new Error(`etiketten säger inte slutåret: ${await text('#range-areas')}`);
       await hashHas(/y2=1918/);
+      // #981: Fokus listar fortfarande nära startåret, inte hela intervallet.
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#btn-more')) await tp.click('#btn-more');
+      await tp.click('#btn-focus');
+      await tp.waitForSelector('#focus-menu:not([hidden])', { state: 'visible', timeout: T.step });
+      if (!(await text('#focus-menu .layer-note')).includes('Listan följer året, inte tidsintervallet')) throw new Error('Fokus förklarar inte att listan följer året under ett intervall');
+      await tp.keyboard.press('Escape');
       // 2. Tillbaka till ett år går till slutåret
       await tp.click('#range-exit');
       await tp.waitForSelector('#range-bar', { state: 'hidden', timeout: T.step });
@@ -3609,20 +3616,18 @@ async function run(browser, vp) {
       await tp.evaluate(() => document.getElementById('btn-play').click());
       await tp.waitForSelector('#range-bar', { state: 'hidden', timeout: T.step });
       await tp.evaluate(() => document.getElementById('btn-play').click()); // pausa
-      // 6. Under en tur går intervallet inte att välja
+      // 6. Under en tur erbjuds inget tidsintervall
       await tp.evaluate(() => { location.hash = '#t=tre-platser-1325'; });
       await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
-      await tp.evaluate(() => { document.getElementById('year-jump').click(); document.getElementById('range-open').click(); });
-      await tp.fill('#range-from', '1300');
-      await tp.fill('#range-to', '1350');
-      await tp.click('#range-pop .jump-go');
-      if (!(await text('#range-msg'))) throw new Error('formuläret sa inget när intervallet inte gick att välja under turen');
+      await tp.click('#year-jump');
+      if (await shown('#range-open')) throw new Error('intervallänken syns under turen');
+      if (await shown('#range-pop')) throw new Error('intervallformuläret syns under turen');
       if (await shown('#range-bar')) throw new Error('ett intervall valdes under turen');
       if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
     } finally {
       await tp.close();
     }
-    return 'länken med y2, Tillbaka till slutåret, årsfält med tangentbord och f.Kr.-gränsen; Fokus och uppspelning stänger intervallet, och en tur stoppar det';
+    return 'länken med y2, Tillbaka till slutåret, årsfält med tangentbord och f.Kr.-gränsen; Fokus och uppspelning stänger intervallet, och en tur döljer valet';
   });
   await check('skärmläsare: intervallformuläret och platsfältet på fem språk (#977)', async () => {
     for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
@@ -3698,6 +3703,7 @@ async function run(browser, vp) {
     tp.on('pageerror', e => errors.push(e.message));
     const text = sel => tp.textContent(sel).then(x => x.trim());
     const hashHas = (re, want = true) => tp.waitForFunction(([src, w]) => new RegExp(src).test(location.hash) === w, [re.source, want], { timeout: T.step });
+    const shown = sel => tp.evaluate(q => { const el = document.querySelector(q); return !!el && !el.hidden && el.getClientRects().length > 0; }, sel);
     const openForm = async () => {
       await tp.evaluate(() => { const pop = document.getElementById('jump-pop'); if (pop.hidden) document.getElementById('year-jump').click(); document.getElementById('range-open').click(); });
       await tp.waitForSelector('#range-pop', { state: 'visible', timeout: T.step });
@@ -3757,18 +3763,16 @@ async function run(browser, vp) {
       await tp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
       await hashHas(/y=-2999&y2=-1699/);
       await tp.click('#range-exit');
-      // Under en tur är knapparna inaktiva och formuläret säger varför
+      // Under en tur erbjuds inte intervallet eller dess epokknappar
       await tp.evaluate(() => { location.hash = '#t=tre-platser-1325'; });
       await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
-      await openForm();
-      const dis = await tp.evaluate(() => [...document.querySelectorAll('.range-preset')].every(b => b.disabled));
-      if (!dis) throw new Error('epokknapparna var inte inaktiva under en tur');
-      if (!(await text('#range-msg'))) throw new Error('formuläret sa inget om varför knapparna var inaktiva');
+      await tp.click('#year-jump');
+      if (await shown('#range-open') || await shown('#range-pop')) throw new Error('tidsintervallet erbjuds fortfarande under en tur');
       if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
     } finally {
       await tp.close();
     }
-    return 'en grupp per indelning i datan, tangentbord, adress och Bakåt, stenålder och nutid märkta, inaktiva under en tur';
+    return 'en grupp per indelning i datan, tangentbord, adress och Bakåt, stenålder och nutid märkta; intervallet erbjuds inte under en tur';
   });
   // #974: i intervallet räknar märket, intervallraden och panelen samma händelser, och ingen text säger "±0 år" (en händelse som
   // pågått sedan länge hamnade som "nära" med ±0 år och gav märket ett högre tal än raden).

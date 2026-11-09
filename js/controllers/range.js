@@ -108,6 +108,17 @@ export function createRange(app) {
   openBtn.setAttribute('aria-expanded', 'false');
   $('jump-msg').after(openBtn);
 
+  /** Länken erbjuds bara när lägeskontraktet faktiskt tillåter ett intervall (#981). */
+  function syncAvailability() {
+    const blocked = !store.canEnter('intervall');
+    openBtn.hidden = blocked;
+    if (blocked) closeForm(false);
+  }
+  // En tur, lektion eller jakt kan börja efter den vanliga omritningen (till exempel från en länk i adressen).
+  // Följ därför själva lägesändringen, inte bara nästa render.
+  store.subscribe(({ type }) => { if (type === 'mode') syncAvailability(); });
+  syncAvailability();
+
   // ---- Raden med det aktiva intervallet ----
   const bar = document.createElement('p');
   bar.id = 'range-bar'; bar.className = 'range-bar'; bar.hidden = true;
@@ -180,6 +191,7 @@ export function createRange(app) {
   }
 
   function openForm() {
+    if (!store.canEnter('intervall')) return;
     const r = state.range, y = Math.floor(timeline.year);
     fromField.value = r ? r.from : y;
     toField.value = r ? r.to : Math.min(MAX_YEAR, y + 10);
@@ -270,6 +282,7 @@ export function createRange(app) {
    * capped: { shown, total } när markörgränsen döljer markörer, annars null; listan har ändå alla.
    */
   function render(count, { areasYear = null, capped = null } = {}) {
+    syncAvailability();
     const r = state.range;
     bar.hidden = !r;
     $('year-jump').classList.toggle('is-range', !!r);

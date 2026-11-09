@@ -297,6 +297,7 @@
   "focus.clearAll": "Tout effacer",
   "focus.nearFirst": "Ce qui se passe {window}, le plus proche d'abord. La fenêtre est plus large que ce que le globe affiche.",
   "focus.window": "à ±{years} ans de {year}",
+  "focus.rangeYear": "La liste suit l’année, pas l’intervalle de temps",
   "focus.noMatch": "Aucun nom ne contient « {query} ».",
   "focus.eventsHint": "Tapez dans le champ de recherche pour trouver un événement, par exemple Pompéi.",
   "place.placeholder": "Saisissez un lieu",

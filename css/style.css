@@ -247,6 +247,7 @@ body {
 @media (max-width: 760px) { .jump-pop.has-date-result .jump-epochs { display: none; } }
 /* Tidsintervallet (#755): formuläret med två årsfält och stegknappar, raden med det aktiva intervallet och bandet på reglaget */
 .range-open { display: block; margin-top: 10px; min-height: 32px; text-align: left; }
+.range-open[hidden] { display: none; }
 .range-row { display: grid; grid-template-columns: 3.2em 38px minmax(0, 1fr) 38px auto; gap: 6px; align-items: stretch; margin-top: 8px; }
 .range-label { align-self: center; font: 500 12px/1 var(--f-mono); color: var(--parchment-dim); }
 .range-step {

@@ -297,6 +297,7 @@
   "focus.clearAll": "Clear all",
   "focus.nearFirst": "What is going on {window}, nearest first. The window is wider than what the globe shows.",
   "focus.window": "within ±{years} years of {year}",
+  "focus.rangeYear": "The list follows the year, not the time range",
   "focus.noMatch": "No name contains \"{query}\".",
   "focus.eventsHint": "Type in the search box to find an event, for example Pompeii.",
   "place.placeholder": "Type a place",
