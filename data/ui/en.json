@@ -578,5 +578,7 @@
   "range.partialCount": ["{count} also continues before or after the range", "{count} also continue before or after the range"],
   "range.empty": "Nothing in the data during {range}.",
   "range.areasAt": "Areas are shown for the year {year}",
-  "range.capped": "The globe shows the {shown} most important of {total} markers. The rest are in the list."
+  "range.capped": "The globe shows the {shown} most important of {total} markers. The rest are in the list.",
+  "tip.year": "Drag here to change the year",
+  "tip.yearClose": "Close the tip"
 }

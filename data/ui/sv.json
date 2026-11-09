@@ -354,5 +354,7 @@
   "range.partialCount": ["{count} pågår också före eller efter intervallet", "{count} pågår också före eller efter intervallet"],
   "range.empty": "Inget i datan under {range}.",
   "range.areasAt": "Områden visas för år {year}",
-  "range.capped": "Globen visar de {shown} viktigaste av {total} markörerna. Resten finns i listan."
+  "range.capped": "Globen visar de {shown} viktigaste av {total} markörerna. Resten finns i listan.",
+  "tip.year": "Dra här för att byta år",
+  "tip.yearClose": "Stäng tipset"
 }

@@ -32,6 +32,6 @@
     "explore": { "sv": "Utforska fritt", "en": "Explore freely", "fr": "Explorer librement", "de": "Frei erkunden", "es": "Explorar libremente" },
     "follow": { "sv": "Följ en berättelse", "en": "Follow a story", "fr": "Suivre un récit", "de": "Einer Geschichte folgen", "es": "Seguir una historia" },
     "task": { "sv": "Gör ett uppdrag", "en": "Do a task", "fr": "Faire une mission", "de": "Eine Aufgabe lösen", "es": "Hacer una misión" },
-    "start": { "sv": "Ett år, en plats", "en": "One year, one place", "fr": "Une année, un lieu", "de": "Ein Jahr, ein Ort", "es": "Un año, un lugar" }
+    "start": { "sv": "Kom igång", "en": "Get started", "fr": "Commencer", "de": "Los geht's", "es": "Empezar" }
   }
 }
