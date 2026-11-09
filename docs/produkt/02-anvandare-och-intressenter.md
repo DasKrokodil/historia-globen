@@ -126,4 +126,6 @@ Vem påverkas av, eller kan påverka, projektet. "Vad de bryr sig om" är det vi
 
 - [ ] Har en granskning eller användarkontakt gett en observation som ersätter ett antagande ovan? Skriv datum och källa.
 - [ ] Finns det en användare eller intressent som inte står här (till exempel en förälder, ett bibliotek, ett museum)?
-- [ ] Stämmer "idag byggt för?" med funktionerna i [03](03-anvandningsfall-och-funktioner.md)?
+- [x] Stämmer "idag byggt för?" med funktionerna i [03](03-anvandningsfall-och-funktioner.md)?
+
+**Genomgång inför v6.1.0 (2026-11-09):** läst mot `main` `c5935f5`. Inga nya observationer från riktiga användare, så personorna är fortfarande antaganden. "Idag byggt för?" för A och B stämmer fortfarande, men A får nu också tidsintervall, epoker och fliken Plats, och B kan välja en epok enligt läroplanen i intervallformuläret (UC18–UC20 i [03](03-anvandningsfall-och-funktioner.md)); tabellraderna är inte ändrade. Ingen ny användare eller intressent har tillkommit som jag känner till.
