@@ -8,7 +8,7 @@
 // annars hoppar tidslinjen. Avsluta återställer besökarens lager, fokus och kamera och lämnar året där turen var.
 import { t, isVisibleReview } from '../model.js';
 import { tourProblems } from '../tour-format.js';
-import { printLesson } from './print-sheet.js';
+import { printLesson, teacherLink } from './print-sheet.js';
 import { ui } from '../i18n.js';
 
 /** Längsta tid (sekunder) som uppspelningen får ta mellan två steg; längre avstånd blir ett hopp. */
@@ -28,10 +28,10 @@ export async function loadTours() {
       console.warn(`Turen ${id} kunde inte laddas`, err);
       return null;
     })));
-    return { labels: index.labels ?? {}, tours: tours.filter(Boolean) };
+    return { labels: index.labels ?? {}, tours: tours.filter(Boolean), ids: index.tours ?? [], failed: false };
   } catch (err) {
     console.warn('Turerna kunde inte laddas', err);
-    return { labels: {}, tours: [] };
+    return { labels: {}, tours: [], ids: [], failed: true };
   }
 }
 
@@ -53,7 +53,7 @@ export class TourPlayer {
       for (const p of problems) console.warn(p);
       return !problems.length && isVisibleReview(tour.review);
     });
-    this.tour = null; this.index = 0; this.target = null; this.saved = null; this.opener = null;
+    this.tour = null; this.index = 0; this.target = null; this.opener = null;
     this.button.hidden = !this.tours.length;
     if (!this.tours.length) return;
 
@@ -85,7 +85,21 @@ export class TourPlayer {
     // Skriv ut (#738): bara i en lektionstur, alltså en tur med lärarfält (lesson, #737)
     if (this.printBtn) {
       this.printBtn.textContent = ui('print.button');
-      this.printBtn.addEventListener('click', () => printLesson(this.tour, app.printRoot));
+      // Går inte källregistret att ladda skrivs inget ut; beskedet står kvar och en ny tryckning försöker igen (#879)
+      this.printBtn.addEventListener('click', async () => {
+        if (this.printStatus) this.printStatus.hidden = true;
+        const result = await printLesson(this.tour, app.printRoot);
+        if (result === 'sources' && this.printStatus) {
+          this.printStatus.textContent = ui('print.sourcesFailed');
+          this.printStatus.classList.remove('is-ok');
+          this.printStatus.hidden = false;
+        }
+      });
+    }
+    // Kopiera lärarlänk (#930): som Dela, men länken har r=lararen; den hamnar aldrig i adressen
+    if (this.copyTeacherBtn) {
+      this.copyTeacherBtn.textContent = ui('tour.teacherLinkCopy');
+      this.copyTeacherBtn.addEventListener('click', () => this.copyTeacherLink());
     }
     // Escape i en lektion avslutar inte turen: utgången är "Visa hela globen" i bandet (#795)
     this.card.addEventListener('keydown', e => { if (e.key === 'Escape') { e.stopPropagation(); if (!app.lesson?.active) this.end(); } });
@@ -132,6 +146,26 @@ export class TourPlayer {
       b.append(name, meta);
       b.addEventListener('click', () => { this.closeMenu(false); this.start(tour.id, this.button); });
       li.append(b);
+      // En lektionstur (en tur med lärarfält) märks med årskurs och tid, och kan startas som lektion (#889).
+      // Allt kommer ur turens lesson-fält; lektionsläget är detsamma som länken m=lektion ger (#795).
+      if (tour.lesson) { // lektionsläget skapas efter spelaren, så bara lärarfältet avgör här (som canStart)
+        const row = document.createElement('div'); row.className = 'tour-lesson-row';
+        const info = document.createElement('span'); info.className = 'tour-lesson-meta';
+        const grades = tour.lesson.grades === 'gy' ? ui('print.gy') : String(tour.lesson.grades).replace('-', '–');
+        info.textContent = ui('tour.lessonMeta', { grades, n: tour.lesson.minutes });
+        const go = document.createElement('button');
+        go.type = 'button'; go.className = 'tour-lesson-start'; go.dataset.tour = tour.id;
+        go.textContent = ui('tour.lessonStart');
+        go.setAttribute('aria-label', ui('tour.lessonStartLabel', { title: t(tour.title) }));
+        go.addEventListener('click', () => {
+          this.closeMenu(false);
+          const { lesson } = this.app;
+          lesson?.enter(tour.id, { teacher: true }); // den som väljer Starta som lektion i menyn är läraren (#885)
+          if (!this.start(tour.id, this.button)) lesson?.leave();
+        });
+        row.append(info, go);
+        li.append(row);
+      }
       return li;
     }));
   }
@@ -164,14 +198,29 @@ export class TourPlayer {
    * Startar turen med id, vid steget stepId om det finns (en länk med t och s, #736), annars vid första steget.
    * Besökarens lager, fokus och kamera sparas, så att Avsluta kan återställa dem. Ger false för en okänd tur.
    */
+  /** Kopierar lektionslänken med lärarens väg till bladen (#930), som Dela: urklipp, annars en ruta att kopiera ur. */
+  async copyTeacherLink() {
+    if (!this.tour?.lesson) return;
+    const url = teacherLink(this.tour), note = this.printStatus;
+    const say = (text, ok) => { if (!note) return; note.textContent = text; note.classList.toggle('is-ok', ok); note.hidden = false; };
+    try {
+      await navigator.clipboard.writeText(url);
+      say(ui('tour.teacherLinkCopied'), true);
+    } catch {
+      say(ui('share.manual'), false);
+      window.prompt(ui('tour.teacherLinkPrompt'), url);
+    }
+  }
+
   start(id, opener = null, stepId = null) {
     const tour = this.tours.find(x => x.id === id);
     if (!tour) return false;
     const { app } = this;
-    if (!this.tour) {
-      this.saved = { layers: Object.fromEntries(app.controlled.map(l => [l, !!app.layers.on[l]])), focus: app.focusKey(), camera: app.globe.view };
-    }
-    if (app.focusKey()) { app.endFocus(false); if (app.lesson?.active) app.lesson.applyLock(); } // endFocus släpper tidslåset (#795)
+    // Läget Tur börjar (#893): ögonblicksbilden tas bara när ingen tur pågår, och ett fokus slutar (MODE_RULES i js/state.js)
+    const hadFocus = !!app.focusKey();
+    if (app.store) app.store.enter('tur', this.tour ? null : app.snapshot());
+    else if (hadFocus) app.endFocus(false);
+    if (hadFocus && app.lesson?.active) app.lesson.applyLock(); // endFocus släpper tidslåset (#795)
     this.tour = tour; this.opener = opener; this.target = null;
     this.name.textContent = t(tour.title);
     this.card.hidden = false;
@@ -218,6 +267,8 @@ export class TourPlayer {
     this.status.hidden = !step.status;
     this.read.hidden = !step.open;
     if (this.printBtn) this.printBtn.hidden = !this.tour.lesson;
+    if (this.copyTeacherBtn) this.copyTeacherBtn.hidden = !this.tour.lesson;
+    if (this.printStatus) this.printStatus.hidden = true;
     this.back.hidden = this.index === 0;
     if (this.endBtn) this.endBtn.hidden = this.last; // sista steget: Klar avslutar
     if (this.pauseStop) this.pauseStop.hidden = false;
@@ -230,8 +281,12 @@ export class TourPlayer {
     // Pausraden visar turen och läses upp; Fortsätt där går till nästa steg (beforeplay ovan)
     const note = fill(t(this.labels.paused), { title: t(this.tour.title) });
     const say = [this.progress.textContent, t(step.chapter), t(step.title), this.status.hidden ? '' : this.status.textContent, t(step.text), t(step.question)].filter(Boolean).join('. ');
-    if (this.last) timeline.pause();
-    else timeline.pause(note, true, say);
+    if (this.last) {
+      // Slutkortet har ingen pausrad, men skärmläsaren ska höra steget och att det var det sista (#878)
+      timeline.pause();
+      const end = app.lesson?.active ? ui('lesson.endAnnounce', { exit: ui('lesson.exit') }) : ui('tour.endAnnounce');
+      timeline.announce(`${say}. ${end}`);
+    } else timeline.pause(note, true, say);
   }
 
   /** Smal skärm: kortet täcker globens nedre del, så klotet lyfts och stegets plats hamnar mitt i den fria ytan
@@ -257,28 +312,32 @@ export class TourPlayer {
     }
   }
 
-  /** Avslutar turen: lagren, fokus och kameran blir som innan, och året står kvar där turen var. */
-  end() {
+  /**
+   * Avslutar turen, och lektionen med den (#795). Året står kvar där turen var. Vad som blir som innan avgör
+   * lägeskontraktet (#893, exitRestore i js/state.js): efter en vanlig tur lagren, fokus och kameran; efter en lektion
+   * lagren och kameran men inte fokus, eftersom fokuset flyttar året och utgången ska behålla lektionens år (#881).
+   * takenBy: läget som avslutade turen (till exempel 'fokus'); det tar då över sina egna delar.
+   */
+  end({ takenBy = null } = {}) {
     if (!this.tour) return;
-    const { app } = this, saved = this.saved;
+    const { app } = this;
+    const restore = app.store?.leave(['tur', 'lektion'], takenBy) ?? {};
     app.lesson?.leave(); // en tur som slutar tar lektionsläget med sig (#795)
     this.next.hidden = false;
-    this.tour = null; this.target = null; this.saved = null;
+    this.tour = null; this.target = null;
     this.card.hidden = true;
     if (this.pauseStop) this.pauseStop.hidden = true;
     app.root.classList.remove('touring');
     app.globe.setViewLift(0);
     app.timeline.pause();
     app.select(null, false);
-    if (saved) {
-      for (const [id, on] of Object.entries(saved.layers)) {
-        if (!!app.layers.on[id] === on) continue;
-        app.layers.set(id, on);
-        app.layers.onChange(id, on);
-      }
-      if (saved.focus) app.startFocus(saved.focus);
-      if (saved.camera) { app.globe.flyTo(saved.camera.lat, saved.camera.lon); app.globe.setZoom(saved.camera.zoom); }
+    for (const [id, on] of Object.entries(restore.layers ?? {})) {
+      if (!!app.layers.on[id] === on) continue;
+      app.layers.set(id, on);
+      app.layers.onChange(id, on);
     }
+    if (restore.focus) app.startFocus(restore.focus);
+    if (restore.camera) { app.globe.flyTo(restore.camera.lat, restore.camera.lon); app.globe.setZoom(restore.camera.zoom); }
     const back = this.opener?.isConnected && this.opener.offsetParent !== null ? this.opener : null;
     (back ?? app.fallbackFocus?.())?.focus({ preventScroll: true });
     this.opener = null;

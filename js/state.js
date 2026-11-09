@@ -12,8 +12,12 @@ export function createState() {
     // Tiden
     year: 0,          // tidslinjens år, decimaltal i fokusläget för korta krig (#204)
     wholeYear: 0,     // hela året, som riken, religioner och fun facts använder
+    areaYear: 0,      // året som riken och religioner ritas för: wholeYear, men i ett tidsintervall slutåret (#756)
     fine: false,      // fokusläget för ett kort krig: tiden räknas i dagar (#204)
     window: 0,        // hur många år runt året som räknas som "samtidigt" (tidslinjens fönster)
+    // Tidsintervallet (#569, #755): { from, to } eller null. from är året (year), to är slutåret. Läget 'intervall' i
+    // lägeskontraktet (MODE_RULES nedan); det utesluter Fokus och uppspelning.
+    range: null,
     span: e => [e.start, e.end], // en händelses tid som [början, slut], i fokusläget för korta krig datum ur edtf
     playing: false,   // spelade tidslinjen när omritningen började
 
@@ -39,6 +43,10 @@ export function createState() {
 
     // Lager som dämpas i fokusläget (#235), räknas av registret
     faded: new Set(),
+
+    // Lägena som pågår ovanpå Utforska (#893), i den ordning de började: [{ mode, snapshot }]. Ändras bara med
+    // store.enter och store.leave; reglerna står i MODE_RULES nedan.
+    modes: [],
   };
 }
 
@@ -65,17 +73,143 @@ export function snapshot(state) {
 
 /** Versionen av JSON-formatet. Höjs om fälten ändras på ett sätt som gamla länkar inte klarar. */
 export const STATE_VERSION = 1;
-const FOCUS_TYPES = ['war', 'empire', 'religion', 'route'];
+const FOCUS_TYPES = ['war', 'empire', 'religion', 'route', 'theme']; // theme (#398): ett tema är fokus, inget eget läge
+
+// ---------------------------------------------------------------------------------------------------------
+// Lägeskontraktet (#893, beslut docs/beslut/2026-11-08-lagen.md)
+//
+// Besökaren är alltid i Utforska, och ovanpå det i noll eller flera lägen: Fokus, Tur, Lektion, Jakt och Intervall
+// (tidsintervallet, #755, js/controllers/range.js). Varje läge börjar med store.enter(läge, ögonblicksbild) och slutar med store.leave([...lägen]).
+// Tabellen MODE_RULES nedan säger vad som händer när ett läge börjar medan ett annat pågår, och vad en utgång
+// får återställa. Samma tabell står i docs/arkitektur.md och prövas i tests/state.test.mjs.
+//
+// Tre regler:
+// 1. Ett läge som börjar avslutar eller stoppas av de lägen som tabellen säger; resten pågår samtidigt.
+// 2. En utgång återställer bara ur ögonblicksbilder från de lägen som själva slutar (aldrig ur ett annat läge), och
+//    bara de fält som alla lägen som slutar tillåter. Det läge som avslutade dem tar över sina egna fält.
+// 3. Den som laddar något innan ett läge börjar (till exempel ett rike i Fokus) tar en biljett (ticket) och får bara
+//    börja läget om biljetten fortfarande gäller (current): ingen nyare begäran om samma läge och inget läge som
+//    krockar har börjat under tiden.
+
+/** Lägena utöver Utforska, som alltid ligger underst. */
+export const MODES = ['fokus', 'tur', 'lektion', 'jakt', 'intervall'];
+
+/**
+ * Lägenas regler.
+ * - when[annat läge]: vad som händer när läget börjar medan det andra pågår:
+ *   'avslutar' (det andra slutar först), 'stoppas' (läget börjar inte), 'samtidigt' (båda pågår) eller
+ *   'villkor' (beror på år eller tur och kontrolleras i lägets egen modul; förklaringen står i docs/arkitektur.md).
+ * - restore: vad en utgång återställer ur ögonblicksbilden från när läget började. Året står alltid kvar.
+ * - takes: vad läget tar över när det avslutar ett annat läge; de fälten återställs då inte.
+ */
+export const MODE_RULES = {
+  fokus: {
+    when: { tur: 'avslutar', lektion: 'stoppas', jakt: 'samtidigt', intervall: 'avslutar' },
+    restore: [], takes: ['focus', 'camera'],
+  },
+  tur: {
+    when: { fokus: 'avslutar', lektion: 'samtidigt', jakt: 'samtidigt', intervall: 'avslutar' },
+    restore: ['layers', 'focus', 'camera'], takes: ['layers', 'focus', 'camera'],
+  },
+  lektion: {
+    // Lektionen börjar före sin tur (js/ui/lesson.js); en jakt utanför lektionens år avslutas
+    when: { fokus: 'avslutar', tur: 'samtidigt', jakt: 'villkor', intervall: 'avslutar' },
+    restore: ['layers', 'camera'], takes: ['layers', 'focus', 'camera'], // aldrig fokus: utgången behåller lektionens år (#881)
+  },
+  jakt: {
+    // I en lektion bara uppdrag inom lektionens år (#741, #795)
+    when: { fokus: 'samtidigt', tur: 'samtidigt', lektion: 'villkor', intervall: 'avslutar' },
+    restore: [], takes: [],
+  },
+  intervall: {
+    // Uppspelning och dragning i tidslinjen stänger också intervallet (js/controllers/range.js); de är inga lägen
+    when: { fokus: 'avslutar', tur: 'stoppas', lektion: 'stoppas', jakt: 'stoppas' },
+    restore: [], takes: ['focus'],
+  },
+};
+
+/** Vad som händer när läget mode börjar medan other pågår ('samtidigt' när tabellen inte säger något). */
+export function modeRelation(mode, other) {
+  return MODE_RULES[mode]?.when?.[other] ?? 'samtidigt';
+}
+
+/**
+ * Vad en utgång återställer (regel 2). active: de pågående lägena [{ mode, snapshot }] i den ordning de började;
+ * leaving: lägena som slutar nu; takenBy: läget som avslutade dem, eller null när besökaren själv lämnade.
+ * Ger ett objekt med de fält ur ögonblicksbilden som ska återställas (tomt när inget ska det).
+ */
+export function exitRestore(active, leaving, takenBy = null) {
+  const going = active.filter(x => leaving.includes(x.mode) && x.snapshot);
+  const outer = going[0]; // det läge som började först har bilden från före alla de andra
+  if (!outer) return {};
+  const taken = new Set(takenBy ? MODE_RULES[takenBy]?.takes ?? [] : []);
+  // Det strängaste läget bestämmer: ett fält återställs bara när alla lägen som slutar (och har en bild) tillåter det
+  const fields = (MODE_RULES[outer.mode]?.restore ?? [])
+    .filter(f => going.every(x => (MODE_RULES[x.mode]?.restore ?? []).includes(f)) && !taken.has(f));
+  return Object.fromEntries(fields.filter(f => outer.snapshot[f] !== undefined).map(f => [f, outer.snapshot[f]]));
+}
 
 /**
  * Ett lager med tillståndet och dess åtgärder. Varje åtgärd ändrar state och meddelar prenumeranterna
- * med { type, state }, där type är 'year', 'focus', 'selected', 'layers', 'filters', 'tag' eller 'calm'.
+ * med { type, state }, där type är 'year', 'focus', 'selected', 'layers', 'filters', 'tag', 'calm', 'range' eller 'mode'.
  */
 export function createStore(state = createState()) {
   const subscribers = new Set();
   const notify = type => { for (const fn of [...subscribers]) fn({ type, state }); };
+  // Lägeskontraktet (#893): hur varje läge avslutas i gränssnittet, och räknare för biljetterna (regel 3)
+  const exits = {};
+  let epoch = 0;
+  const seq = {}, enteredAt = {};
+  const isActive = mode => state.modes.some(x => x.mode === mode);
+  const bump = mode => { seq[mode] = (seq[mode] ?? 0) + 1; };
   return {
     state,
+    /** Det översta läget som pågår, eller 'utforska'. */
+    get mode() { return state.modes.at(-1)?.mode ?? 'utforska'; },
+    /** Pågår läget? */
+    active: isActive,
+    /** fn(takenBy) avslutar läget i gränssnittet när ett annat läge som avslutar det börjar (MODE_RULES). */
+    onExit(mode, fn) { exits[mode] = fn; },
+    /** Får läget börja nu? Nej när ett läge som pågår stoppar det. */
+    canEnter(mode) { return !state.modes.some(x => x.mode !== mode && modeRelation(mode, x.mode) === 'stoppas'); },
+    /**
+     * Läget börjar. snapshot är ögonblicksbilden från före läget (år, lager, fokus, kamera, kategorier), eller null.
+     * Lägen som det avslutar slutar först, genom sina onExit. Pågår läget redan behålls den första bilden (till
+     * exempel Bakåt och Framåt i samma tur). Ger false när ett annat läge stoppar det.
+     */
+    enter(mode, snapshot = null) {
+      if (!this.canEnter(mode)) return false;
+      for (const x of [...state.modes]) {
+        if (x.mode === mode || modeRelation(mode, x.mode) !== 'avslutar') continue;
+        exits[x.mode]?.(mode);
+        if (isActive(x.mode)) this.leave([x.mode], mode); // om gränssnittet inte lämnade läget själv
+      }
+      epoch++; enteredAt[mode] = epoch; bump(mode);
+      if (!isActive(mode)) state.modes.push({ mode, snapshot: snapshot ?? null });
+      notify('mode');
+      return true;
+    },
+    /**
+     * Lägena slutar (de som inte pågår hoppas över). takenBy: läget som avslutade dem, eller null när besökaren
+     * själv lämnade. Ger det som ska återställas ur ögonblicksbilden (exitRestore, regel 2).
+     */
+    leave(modes, takenBy = null) {
+      const list = [].concat(modes);
+      for (const m of list) bump(m); // en utgång är också en nyare begäran: en biljett från före den gäller inte
+      if (!list.some(isActive)) return {};
+      const restore = exitRestore(state.modes, list, takenBy);
+      state.modes = state.modes.filter(x => !list.includes(x.mode));
+      epoch++;
+      notify('mode');
+      return restore;
+    },
+    /** En biljett för att börja läget när det som behövs har laddats (regel 3). */
+    ticket(mode) { bump(mode); return { mode, seq: seq[mode], epoch }; },
+    /** Gäller biljetten? Nej när läget har begärts, börjat eller slutat igen, eller ett läge som krockar har börjat. */
+    current(ticket) {
+      if (seq[ticket.mode] !== ticket.seq) return false;
+      return !MODES.some(m => m !== ticket.mode && modeRelation(ticket.mode, m) !== 'samtidigt' && (enteredAt[m] ?? 0) > ticket.epoch);
+    },
     /** fn({ type, state }) anropas efter varje ändring. Returnerar en funktion som avslutar prenumerationen. */
     subscribe(fn) {
       subscribers.add(fn);
@@ -117,12 +251,18 @@ export function createStore(state = createState()) {
       state.calm = !!on;
       notify('calm');
     },
+    /** Tidsintervallet (#755): { from, to } med from < to, eller null för ett enskilt år. */
+    setRange(range) {
+      state.range = range ? { from: Math.min(range.from, range.to), to: Math.max(range.from, range.to) } : null;
+      notify('range');
+    },
   };
 }
 
 /**
- * Tillståndet som JSON-vänligt objekt: år, kamera, fokus, lager, kategorier och Lugn rörelse.
- * camera = { lat, lon, zoom } från globen (Globe.view), eller null.
+ * Tillståndet som JSON-vänligt objekt: år, kamera, fokus, lager, kategorier och Lugn rörelse, och slutåret
+ * (yearEnd) när ett tidsintervall är valt (#755). camera = { lat, lon, zoom } från globen (Globe.view), eller null.
+ * yearEnd är ett valfritt tillägg: utan det är tillståndet ett år som förut, så STATE_VERSION är oförändrad.
  */
 export function toJSON(state, camera = null) {
   const round = (x, n) => Math.round(x * 10 ** n) / 10 ** n;
@@ -134,6 +274,7 @@ export function toJSON(state, camera = null) {
     layers: Object.keys(state.layers).filter(k => state.layers[k]).sort(),
     filters: [...state.filters].sort(),
     calm: !!state.calm,
+    ...(state.range ? { yearEnd: Math.round(state.range.to) } : {}),
   };
 }
 
@@ -165,5 +306,8 @@ export function fromJSON(value) {
     const clean = x => Number(x.toFixed(6)); // utan flyttalsbrus från omräkningen
     camera = { lat: clean(Math.max(-90, Math.min(90, lat))), lon: clean(((((lon + 180) % 360) + 360) % 360) - 180), zoom: clean(Math.max(0.8, Math.min(3.2, zoom))) };
   }
-  return { v: STATE_VERSION, year: doc.year, camera, focus, layers: words(doc.layers, 'Lagren'), filters: words(doc.filters, 'Kategorierna'), calm: !!doc.calm };
+  // Slutåret (#755) är valfritt: saknas det, är det inget tal eller inte efter året, öppnas tillståndet som ett år
+  const yearEnd = typeof doc.yearEnd === 'number' && Number.isFinite(doc.yearEnd) && Math.round(doc.yearEnd) > doc.year ? Math.round(doc.yearEnd) : null;
+  return { v: STATE_VERSION, year: doc.year, camera, focus, layers: words(doc.layers, 'Lagren'), filters: words(doc.filters, 'Kategorierna'), calm: !!doc.calm,
+    ...(yearEnd != null ? { yearEnd } : {}) };
 }

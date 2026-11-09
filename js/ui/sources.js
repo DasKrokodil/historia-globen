@@ -2,6 +2,7 @@
 // Källorna grupperas efter vad de används till (#141). Grupperna räknas fram ur datan:
 // vilka händelser, fun facts, riken, religioner, kartlager och bilder som pekar på varje källa.
 import { t, settings, loadReligions, loadForSources } from '../model.js';
+import { ui } from '../i18n.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 // Sökningen bryr sig inte om stora bokstäver eller accenter (å, ä, ö räknas som a, a, o)
@@ -164,6 +165,14 @@ export class SourcesDialog {
         <li>Osäkerhet visas öppet, till exempel "cirka" eller ett spann. Om källorna är oense står det i faktarutan.</li>
         <li>En fun fact som jämför två saker har källa för båda leden.</li>
       </ol>
+      <section class="src-urval" aria-labelledby="src-urval-title">
+        <h3 id="src-urval-title">${esc(ui('sources.urval.title'))}</h3>
+        <p>${esc(ui('sources.urval.p1'))}</p>
+        <p>${esc(ui('sources.urval.p2'))}</p>
+        <p>${esc(ui('sources.urval.p3'))}</p>
+        <p>${esc(ui('sources.urval.p4'))}</p>
+        <p>${esc(ui('sources.urval.p5'))}</p>
+      </section>
       <h3>Läget just nu</h3>
       <p class="src-total">${total(religionsDoc)}</p>
       <h3>Källregister</h3>

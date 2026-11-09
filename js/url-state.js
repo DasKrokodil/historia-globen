@@ -4,6 +4,8 @@
 //   #y=1325&c=34,-50,1.6&f=war:hundraarskriget&l=areas,events&k=krig,kultur
 //
 //   y     året (decimaltal i fokusläget för korta krig, #204)
+//   y2    slutåret när ett tidsintervall är valt (#755): y=1914&y2=1918 är 1914–1918. En äldre version hoppar över y2
+//         och öppnar länken som året y
 //   c     kameran: lat,lon,zoom
 //   f     det man följer i Fokus: <typ>:<id>, typ = war, empire, religion eller route
 //   l     lagren som är på (id i lagerregistret), kommaseparerade; "l=" betyder inga lager
@@ -27,6 +29,8 @@ import { STATE_VERSION, fromJSON } from './state.js';
 
 const ID = /^[a-z0-9-]+$/;
 export const LESSON_MODE = 'lektion';
+/** Lärarens väg i lektionsläget (#885): `r=lararen` i en lektionslänk ger knappen för elev- och lärarblad. Skrivs aldrig tillbaka till adressen. */
+export const TEACHER_ROLE = 'lararen';
 const num = x => String(Math.round(x * 10000) / 10000);
 
 /**
@@ -35,6 +39,7 @@ const num = x => String(Math.round(x * 10000) / 10000);
  */
 export function encodeHash(json, allCategories = [], tour = null, mission = null, mode = null) {
   const parts = [`y=${num(json.year)}`];
+  if (json.yearEnd != null) parts.push(`y2=${num(json.yearEnd)}`);
   if (json.camera) parts.push(`c=${[json.camera.lat, json.camera.lon, json.camera.zoom].map(num).join(',')}`);
   if (json.focus) parts.push(`f=${json.focus}`);
   parts.push(`l=${(json.layers ?? []).join(',')}`);
@@ -56,6 +61,11 @@ export function decodeMission(hash) {
 }
 
 /** Läget i en hash ("#…&m=lektion", #795): 'lektion' eller null. Okända lägen räknas som saknade. */
+/** Läraren i en lektionslänk (`r=lararen`, #885), annars null. Eleven i den vanliga länken får ingen utskriftsknapp. */
+export function decodeRole(hash) {
+  return new URLSearchParams(String(hash ?? '').replace(/^#/, '')).get('r') === TEACHER_ROLE ? TEACHER_ROLE : null;
+}
+
 export function decodeMode(hash) {
   return new URLSearchParams(String(hash ?? '').replace(/^#/, '')).get('m') === LESSON_MODE ? LESSON_MODE : null;
 }
@@ -90,7 +100,9 @@ export function decodeHash(hash) {
   const c = params.get('c')?.split(',').map(Number);
   if (c?.length === 3 && c.every(Number.isFinite)) camera = { lat: c[0], lon: c[1], zoom: c[2] };
   const layers = list('l'), filters = list('k');
+  const y2 = params.get('y2') != null && params.get('y2').trim() !== '' ? Number(params.get('y2')) : null;
   const doc = { v: STATE_VERSION, year, camera, focus: params.get('f') || null, layers: layers ?? [], filters: filters ?? [], calm: false };
+  if (Number.isFinite(y2)) doc.yearEnd = y2; // fromJSON tar bort ett slutår som inte ligger efter året
   let state;
   try { state = fromJSON(doc); } catch {
     // Ett trasigt fält (till exempel ett okänt fokus) tas bort; året och resten gäller ändå
@@ -101,13 +113,14 @@ export function decodeHash(hash) {
 }
 
 /**
- * Ska ändringen få en egen post i webbläsarens historik (bakåt/framåt)? Ja när fokus, lagren eller kategorierna
- * ändras, eller när året har hoppat (inte under uppspelning). Annars, till exempel när kameran vrids eller
+ * Ska ändringen få en egen post i webbläsarens historik (bakåt/framåt)? Ja när fokus, tidsintervallet (#755), lagren
+ * eller kategorierna ändras, eller när året har hoppat (inte under uppspelning). Annars, till exempel när kameran vrids eller
  * tiden spelas upp, ersätts den nuvarande posten, så att bakåt inte stegar genom varje bildruta.
  */
 export function isNewStep(prev, next, { playing = false } = {}) {
   if (!prev) return false;
   if (prev.focus !== next.focus) return true;
+  if ((prev.yearEnd ?? null) !== (next.yearEnd ?? null)) return true;
   if (prev.layers.join() !== next.layers.join() || prev.filters.join() !== next.filters.join()) return true;
   return !playing && Math.abs(prev.year - next.year) >= 1;
 }

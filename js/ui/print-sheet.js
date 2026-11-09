@@ -12,6 +12,7 @@
 // taggad PDF. Skrivrader och namnrad är dekoration och göms för hjälpmedel. Allt är svart på vitt, och ingenting
 // beror på färg. Länkar står som text, eftersom papper inte går att klicka på.
 import { t, loadSources } from '../model.js';
+import { TEACHER_ROLE } from '../url-state.js';
 import { ui } from '../i18n.js';
 
 const el = (tag, cls, text) => {
@@ -35,6 +36,8 @@ const gradeText = g => (g === 'gy' ? ui('print.gy') : String(g).replace('-', '�
 /** Länken till turen, så att läraren kan öppna den direkt (#736). */
 /** Länken som läraren delar: turen som lektion (#795). Bladen skrivs bara ut för turer med lärarfält. */
 export const tourLink = tour => `${location.origin}${location.pathname}#t=${tour.id}&m=lektion`;
+/** Lektionslänken med lärarens väg till bladen (#885, #930). Står aldrig på bladen (A4, #757) och skrivs aldrig i adressen. */
+export const teacherLink = tour => `${tourLink(tour)}&r=${TEACHER_ROLE}`;
 
 /** En källa som rad: titel och adress (utskrivet papper har inga klickbara länkar). */
 function sourceItem(src, id) {
@@ -171,12 +174,14 @@ function teacherSheet(tour, srcById) {
 
 /**
  * Ritar elevbladet (och Källdetektiven) och lärarbladet för turen i root (#print-sheet) och öppnar webbläsarens utskrift.
- * Bladen tas bort efter utskriften. Ger false för en tur utan lärarfält.
+ * Bladen tas bort efter utskriften. Ger false för en tur utan lärarfält och 'sources' när källregistret inte gick att
+ * ladda: då skrivs inget ut, eftersom blad med källor utan titel och adress ser färdiga ut men inte går att använda (#879).
+ * Ett nytt anrop försöker ladda registret igen.
  */
 export async function printLesson(tour, root, { print = () => window.print() } = {}) {
   if (!tour?.lesson || !root) return false;
-  let srcById = {};
-  try { srcById = await loadSources(); } catch { /* utan källregistret skrivs källornas id ut */ }
+  let srcById;
+  try { srcById = await loadSources(); } catch { return 'sources'; }
   const cases = detective(tour);
   const sheets = [studentSheet(tour, srcById)];
   if (cases.length) sheets.push(detectiveSheet(tour, cases, srcById));

@@ -47,7 +47,7 @@ BASE_LANG = 'sv'
 FILES = [
     'data/handelser/*.json', 'data/empires/*.json', 'data/routes/*.json', 'data/turer/*.json',
     'data/funfacts.json', 'data/religions.json', 'data/intro.json', 'data/upptackt.json', 'data/vyer.json',
-    'data/bildlager.json', 'data/styles.json', 'data/missuppfattningar.json',
+    'data/bildlager.json', 'data/styles.json', 'data/missuppfattningar.json', 'data/perioder.json', 'data/teman.json',
 ]
 NOTE = ('Genereras av tools/oversattning.py (#675). baseline: oöversatta texter per fil och språk, som bara får '
         'minska. register: kontrollsummor "svenska:översättning" per språk, som visar när en översättning har '

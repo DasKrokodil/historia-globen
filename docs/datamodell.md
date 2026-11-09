@@ -19,6 +19,8 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 - `utkast/` – utkast från massimport som appen inte läser.
 - `funfacts.json` – fun facts kopplade till händelser.
 - `missuppfattningar.json` (#838) – vanliga historiska missuppfattningar.
+- `perioder.json` (#845, #476) – epoker och perioder, som indelningar med årtal och källa; indelningarna `lgr22`, `norden-forntid`, `antiken` och `industrialiseringen`.
+- `teman.json` (#398) – teman som namngivna urval av befintliga händelser; filen finns sedan bygget (#962), tom tills första temat (teknik, #105) skrivs.
 - `sources.json` – källregistret.
 - `empires/` – riken: registret, faktarutor och rikenas fält.
 - `routes/` (#38) – vägar och resor med etapper.
@@ -126,6 +128,118 @@ Filerna i `data/utkast/` har samma format som `events.json` (`schema`, `notes`, 
 `events` pekar på händelserna som jämförs, och fun facten ärver deras källor. `show` är spannet då kortet visas. Siffror i texten ska gå att räkna fram ur händelsernas årtal.
 
 Korten "När ett krig bröt ut" lagras inte här. De byggs i koden ur händelserna, inom 5 år från krigets start.
+
+## `perioder.json`: epoker och perioder (#845, #476)
+
+Namngivna epoker som data, så att tidsålderstext, bildstilar och snabbknappar vid tidslinjen kan läsa samma uppgifter (beslut 2026-11-02 på #476, listan godkänd 2026-11-08, `docs/beslut/2026-11-08-epoker-lgr22.md`). En fil kan ha flera **indelningar** (`divisions`); regionala indelningar läggs till som egna indelningar senare. Än så länge finns bara `lgr22`: epoker enligt den svenska kursplanen i historia. Appen läser filen första gången intervallformuläret öppnas (`loadPerioder()` i `js/model.js`) och visar epokerna som snabbknappar (#965, se `docs/arkitektur.md`, Tidsintervallet); den publiceras med bygget (`scripts/build-site.sh`). Schema: `schemas/perioder.schema.json`; `scripts/validate-site.py` kontrollerar den, och översättningsspärren (`tools/oversattning.py`) räknar texterna.
+
+```json
+{ "id": "lgr22", "name": { "sv": "Skolans epoker (enligt Lgr22)", "en": "…" }, "simplification": { "sv": "Indelningen … är en förenkling …" },
+  "periods": [{ "id": "norden-800-1500", "start": 800, "end": 1500, "edtf": "0800~/1500~", "grades": "4–6",
+    "name": { "sv": "Norden, cirka 800–1500", "en": "…" }, "sources": ["skolverket-lgr22-historia"], "review": "source-checked" }] }
+```
+
+| Fält | Betydelse |
+|---|---|
+| `divisions[].id`, `name` | Indelningens id och namn på fem språk |
+| `divisions[].simplification` | Obligatorisk text på fem språk som säger öppet att indelningen är en förenkling (svensk, europacentrerad, överlappande perioder, ungefärliga årtal). Ska visas bredvid knapparna |
+| `periods[].id` | Läsbart id, unikt i indelningen |
+| `start`, `end` | Astronomiskt år (som `events`). En period som pågår till nutid har `open: true` i stället för `end` |
+| `edtf` | Osäkerhet som i `events`: `0800~/1500~` (ungefärliga gränser) och `1900~/..` för en öppen period |
+| `grades` | Valfritt: årskurser i läroplanen (`4–6`, `7–9`) |
+| `name` | Namn på fem språk. I `lgr22` är det våra egna korta formuleringar (inte Skolverkets rubriker, `docs/beslut/2026-11-08-epoknamn-egna-formuleringar.md`) med årtalen i namnet; en översättning ändrar aldrig årtalen |
+| `note` | Valfritt: text på fem språk när källorna är oense (till exempel järnålderns slut), visas bredvid epoken |
+| `sources`, `review` | Som för händelser. Gränserna står i läroplanstexten eller på museets sidor; ingen text är kopierad |
+
+**`lgr22` (Del 1):** fem epoker, med de ungefärliga årtal som Skolverkets kursplan i historia (Lgr22, gäller från 2022-07-01) anger i centralt innehåll: cirka 800–1500, 1500–1800 och 1800–1900 (åk 4–6, Norden) och cirka 1850–1950 och 1900 till nutid (åk 7–9). De överlappar eftersom de hör till olika stadier, och det finns ingen epok före år 800. Läroplanen nämner stenålder, bronsålder, järnålder, antiken m.fl. utan årtal, så de ligger inte i `lgr22`.
+
+**`norden-forntid` (Del 2a):** de tre nordiska åldrarna med Historiska museets årtal (öppnade 2026-11-08): stenålder 12 000–1700 f.Kr., bronsålder 1700–500 f.Kr. och järnålder 500 f.Kr.–550 e.Kr. (`-11999`/`-1699`, `-1699`/`-499`, `-499`/`550`). Årtal med fler än fyra siffror skrivs `Y-11999~` i `edtf`. Järnålderns egen sida på museet anger 1100 e.Kr. som slut, och oenigheten står i periodens `note`; nivån är `source-checked`. Indelningen är nordisk och märks så. **Del 2b** (jordbrukets början, högkulturer, industrialisering m.fl.) läggs inte in förrän fler källor har öppnats.
+
+**`antiken` (Del 2b, första delen):** antiken som egen indelning med en period, cirka 800 f.Kr.–500 e.Kr. (`-799`/`500`, `-0799~/0500~`). Källor: svenska Wikipedia (som hänvisar till Nationalencyklopedin), engelska Wikipedia och Wikidata (CC0), öppnade 2026-11-08. Källorna är oense om slutet (cirka 300, 476, 500 eller 600), och det står i periodens `note`; nivån är `source-checked`, inte `two-sources`. Indelningen märks som ett europeiskt begrepp om Medelhavsvärlden.
+
+**`industrialiseringen` (Del 2b, andra delen):** den brittiska industriella revolutionen (id `industrialiseringen`; döpt om 2026-11-09, #978) som egen indelning med en period, cirka 1760–1840 (`1760`/`1840`, `1760~/1840~`). Källa: engelska Wikipedia (Industrial Revolution, CC BY-SA 4.0), öppnad 2026-11-08, som anger cirka 1760–cirka 1840 och säger att början och slutet är omdiskuterade; det står i periodens `note`, och nivån är `source-checked`. Indelningen märks som den brittiska revolutionen och inte Sveriges industrialisering, som Lgr22 tar upp senare (granskningen 2026-11-08, #978). **Högkulturer** läggs inte in än: tidslinjen börjar 3000 f.Kr., så Uruk-perioden (4000–3100 f.Kr.) ligger helt utanför och Egypten har bara ett startår (enandet cirka 3150 f.Kr.); bara Indusdalen (cirka 3300–1700 f.Kr.) skulle få en knapp. Revolutioner och kolonisation blir teman eller turer (#398), inte epoker.
+
+## `teman.json`: teman (#398)
+
+**Fastställt format (#950, beslut [2026-11-08-temaformat-398.md](beslut/2026-11-08-temaformat-398.md), frågorna 1–4 på #398 besvarade av DasKrokodil 2026-11-08), byggt i #962:** filen `data/teman.json` (tom lista), schemat `schemas/teman.schema.json`, kontrollen i `scripts/validate-site.py` och temat i Fokus. Ett tema är ett **namngivet urval av befintliga händelser** med en introduktion, till exempel teknik (#105). Temat lägger inte till några fakta: allt historiskt innehåll ligger kvar i händelserna och deras källor.
+
+### Exempel
+
+Exemplet nedan är en **platshållare**: introduktionen är inte skriven och temat är `draft`, så det skulle inte visas. Händelserna är befintliga id i `data/events.json`, från sex världsdelar. Det riktiga teknikurvalet och introduktionen görs i #105.
+
+```json
+{
+  "schema": "historia-globen/teman@1",
+  "themes": [
+    {
+      "id": "teknik",
+      "name": { "sv": "Teknik", "en": "Technology", "de": "Technik", "es": "Tecnología", "fr": "Technologie" },
+      "intro": {
+        "sv": "PLATSHÅLLARE: introduktionen skrivs i #105.",
+        "en": "PLACEHOLDER: the introduction is written in #105.",
+        "de": "PLATZHALTER: Die Einleitung wird in #105 geschrieben.",
+        "es": "MARCADOR: la introducción se escribe en #105.",
+        "fr": "ESPACE RÉSERVÉ : l’introduction est rédigée dans #105."
+      },
+      "events": [
+        "sintashta-stridsvagnar", "fyren-pa-faros", "dujiangyan", "cai-lun-papper", "zhang-hengs-seismoskop",
+        "nazcas-puquios", "gutenberg", "watt-separat-kondensor", "telegraflinjen-genom-australien", "telefonen",
+        "wright", "www"
+      ],
+      "view": "utforska",
+      "sources": [],
+      "review": "draft",
+      "placeholder": true
+    }
+  ]
+}
+```
+
+### Fält
+
+| Fält | Krävs | Betydelse |
+|---|---|---|
+| `schema` | ja | `historia-globen/teman@1` |
+| `themes[].id` | ja | Läsbart id, små bokstäver och bindestreck, unikt i filen. Står i länken (`f=theme:<id>`) och ändras inte efter att temat har publicerats |
+| `name` | ja | Temats namn på alla fem språk (`sv`, `en`, `de`, `es`, `fr`) |
+| `intro` | ja | Introduktionen på alla fem språk, högst cirka 400 tecken. Den säger vad temat samlar och varför. Påstår den något historiskt som inte står i temats händelser, ska det ha källa i `sources` |
+| `events` | ja | Händelse-id, minst 5 och utan dubbletter. Ordningen i filen spelar ingen roll: Fokus visar händelserna i tidsordning |
+| `view` | nej | Id på en vy i `data/vyer.json` som slås på när temat börjar. En vy med `tag` (#555) är inte tillåten, eftersom taggen och temat båda väljer händelser och tillsammans kan visa ingenting. Saknas `view` behålls besökarens lager |
+| `sources` | ja | Källor för påståenden i `intro` (id i `sources.json`), som för händelser. Tom lista när introduktionen bara beskriver urvalet |
+| `review` | ja | `draft`, `source-checked` eller `two-sources`, som för händelser. Ett tema med `draft` visas inte. Översättningarna följer reglerna i CLAUDE.md (översätt samtidigt) och räknas av `tools/oversattning.py` |
+| `placeholder` | nej | `true` för ett tema vars texter inte är skrivna. Ett sådant tema måste vara `draft`, och `scripts/validate-site.py` stoppar det i den publicerade filen |
+
+### Regler (kontrolleras av `scripts/validate-site.py`, schemat i `schemas/teman.schema.json`)
+
+- Varje id i `events` finns i `data/events.json`. En händelse som är `draft` räknas inte: temat visar bara händelser som syns, och minst 5 av dem ska synas.
+- Varje id i `view` finns i `data/vyer.json` och saknar `tag`.
+- `name` och `intro` har alla fem språk; en översättning ändrar aldrig fakta.
+- **Varning, inte fel:** färre än tre världsdelar bland de synliga händelserna (`region()` i `js/model.js`), eftersom varje paket ska ha innehåll från flera världsdelar (CLAUDE.md, Versionsplan); och händelser som börjar före tidslinjens början (se nedan).
+
+### Hur ett tema väljs i Fokus
+
+1. **Fokusmenyn** får fliken **Teman** bredvid Krig, Riken, Försvunna länder, Religioner och Resor (#543), och temana syns i fliken Alla och i sökningen (#311), som söker i `name` på alla språk. Raden visar namnet, antalet synliga händelser och spannet ("12 händelser · 2200 f.Kr.–1989").
+2. **Temat börjar** som andra fokus (`startFocus('theme:<id>')` i `js/controllers/focus.js`): fokusets spann går från den tidigaste till den senaste synliga händelsen, inom tidslinjens gränser (`MIN_YEAR`, `MAX_YEAR`). Året stannar om det ligger inom spannet; annars flyttas det till starten och fokusraden säger "Tiden flyttades till …" (#167). Globen zoomar ut till hela jorden och vrids mot den tidigaste händelsen.
+3. **Introduktionen** visas som ett kort när temat börjar, med temats händelser i tidsordning som knappar som öppnar faktarutan (som rikets berättelse, #171). Knappen Fakta i fokusraden öppnar kortet igen.
+4. **Temats vy** slås på om temat har `view`.
+5. **Bara temats händelser syns:** händelselagret, Samtidigt och tidslinjens prickar visar bara temats synliga händelser, på samma sätt som en vys `tag` (#555). Temat visar alla sina händelser även om en kategori är avstängd; kategorivalet ändras inte och gäller igen när temat slutar (beslut 2026-11-08, fråga 3 på #398). Uppspelningen går genom temats spann.
+6. **Avsluta och "Tillbaka till <året>"** fungerar som för andra fokus. När temat slutar syns alla händelser igen.
+
+### Temat och lägeskontraktet (#893)
+
+Ett tema är fokus av typen `theme`, så läget är `fokus` och raden Fokus i uteslutningstabellen gäller: en tur, ett intervall eller ett nytt fokus avslutar temat, och i en lektion börjar inget tema. En jakt pågår samtidigt med ett tema; eftersom temat begränsar vilka händelser som syns, prövar del 2 att uppdraget går att klara eller att sidan säger att det inte går. Temat sparar ingen egen ögonblicksbild utöver Fokus: utgången återställer inget, och året står kvar (`exitRestore`). Lagren som temats vy slog på står kvar efter temat, som när man lämnar ett krig eller ett rike (beslut 2026-11-08, fråga 1 på #398). I adressen står temat som `f=theme:<id>`; en okänd id ger det vanliga startläget, som för andra fokus. I `js/state.js` behövs bara `theme` i `FOCUS_TYPES`; `MODE_RULES` ändras inte.
+
+### Teman och epoker (`perioder.json`)
+
+Båda är ett namngivet urval med text på fem språk och källor, och de delar fältnamnen `id`, `name`, `sources` och `review`. De är ändå två filer: en epok väljer ett **tidsspann** och blir ett tidsintervall (läget `intervall`), ett tema väljer en **lista med händelser** och blir ett fokus. Lägena utesluter varandra enligt kontraktet, så en besökare kan inte råka ha båda på. Ett tema om en period är ett tema vars händelser ligger i perioden; en epok listar aldrig händelser. Får en epok en introduktion heter fältet `intro`, som här.
+
+### Händelser före tidslinjens början (#892, #942)
+
+Ett tema får innehålla händelser som börjar före 3000 f.Kr. (`MIN_YEAR = -2999`). Fokusets spann börjar då vid −2999; händelsen nås från temats lista i introduktionskortet, och faktarutan märker den med "Händelsen börjar före tidslinjens början" (#942). Validatorn varnar men stoppar inte. Att tidslinjen går längre bak hör till #396 (Version 7).
+
+### Ingår inte i version 1
+
+Ett fält `themes` på händelserna (en lista per tema räcker tills listorna blir för långa), turer eller berättelser i ett tema, egen kamera eller zoom per tema, egna fun facts, teman i teman, ett tema som ändrar besökarens kategorival eller året, och bilder för temat.
 
 ## `missuppfattningar.json`: vanliga missuppfattningar (#838)
 
@@ -541,6 +655,7 @@ En guidad tur är data, inte kod (Rikards beslut 2026-11-01, docs/beslut/2026-11
 - **Källpolicyn gäller varje steg:** texten får bara säga det som stegets källor stöder, och siffror och årtal ska stämma med händelserna. Den första turen (`tre-platser-1325`) säger bara det som redan står i de tre händelserna och deras källor; osäkerhet (`1325~` för Tenochtitlan) skrivs ut ("omkring 1325").
 - **Andra världskriget (`andra-varldskriget`, #13):** 14 steg med Europa, Nordafrika och Stilla havet om vartannat, från anfallet på Polen till Japans kapitulation. Varje steg öppnar en befintlig händelse i kriget och har dess källor, och texten säger bara det som står i händelsen. Där källorna skiljer sig om datum (Stalingrad, El Alamein, D-dagen, Tysklands kapitulation; se händelsernas `note`) nämner steget bara det datum som källorna är överens om.
 - **Första världskriget (`forsta-varldskriget`, #48):** 14 steg på fyra kontinenter, från skotten i Sarajevo till vapenstilleståndet vid Compiègne. Steget om krigsutbrottet öppnar kriget självt och bygger på krigets `story`. Där källorna skiljer sig om första eller sista dagen (Tannenberg, Marne, Gallipoli, Somme) nämner steget bara det som källorna är överens om.
+- **Hur vet vi det här? (`hur-vet-vi-det-har`, #938):** en källkritisk tur på sex steg för elever som har gått ut mellanstadiet, med du-form i alla språk (beslut 2026-11-08). Varje steg öppnar en händelse och tar upp en vanlig missuppfattning ur `data/missuppfattningar.json` (#838): Påskölns moai, vikingarnas hjälmar, Cheopspyramiden, Napoleons längd, Machu Picchu och Marco Polos pasta. Kapitlet är frågan som steget lär ut ("Vem sa det, och när?", "Vem ritade bilden, och varför?") och `question` ställer den till eleven. Texten säger bara det som stegets källor säger; steget om Marco Polo nämner öppet att källorna inte är helt överens om var myten började. Turen har ingen `lesson`.
 - **Berättelseläget (#247, Rikards val A 2026-11-05):** en tur kan ha `war` (krigets händelse-id), och då får krigets första kort knappen "Följ berättelsen". Ett steg kan ha `chapter` (kapitlets namn per språk, visas ovanför rubriken) och `question` (en fråga att fundera på, per språk). Kapitelnamnen beskriver bara vad stegen handlar om. Frågan påstår inget som stegets källor inte säger, och siffror eller datum i den ska stå i stegets eller händelsens källor. Första och andra världskriget har kapitel och frågor.
 - **Rikens fall (#499, pilot):** en tur kan ha `empire` (grupp-id i `data/empires/index.json`), och då får rikets faktaruta knappen "Följ fallet". Ett steg kan ha `status` med samma ord som slutkortet (#500): `belagt` ("Det här vet vi från källorna"), `omtvistat` ("Här är forskare inte överens") eller `okant` ("Det här vet vi inte säkert"). Piloten har tre turer: Västromerska riket (`vastroms-fall`), Hanriket (`hanrikets-fall`) och Songhairiket (`songhairikets-fall`). Mayastäderna sparas till uppföljningen #531. Inga röster eller citat hittas på. Där källan bara berättar om eliten säger steget det (Hanriket: ämbetsmännen i Luoyang), och där källan saknar en uppgift får turen ingen rad om den (Hanriket har ingen rad om att forskare är oense, eftersom källan inte säger något sådant). Där källorna anger olika siffror säger steget det öppet (Songhai: arméernas storlek).
 - **Lektionsturer (#737, skolpiloten):** en tur kan ha `lesson` med lärarfält. `grades` är årskursen (`F-3`, `4-6`, `7-9` eller `gy`), `minutes` lektionens längd (heltal 10–120), `curriculum` en lista med kopplingar till läroplanen (`text` per språk och `sources`, minst en källa, i praktiken Skolverkets kursplan), `teacher` lärarinstruktionen, `exitTicket` frågan eleverna svarar på i slutet och valfri `prerequisites` (förkunskaper). Kopplingen skrivs "kopplad till Lgr22", aldrig "godkänd av Skolverket" (docs/beslut/2026-11-07-lararfalt-i-turer.md). Den första lektionen (#739) är turen om andra världskriget för årskurs 7–9, med kopplingar till Skolverkets kursplan i historia (`skolverket-lgr22-historia`) och turens befintliga frågor. Den andra lektionen (#740) är en ny tur, `vikingatiden-och-varlden`, för årskurs 4–6: nio steg 793–1068 på fem kontinenter, byggda av befintliga händelser och vägar och två nya händelser i Asien (`borobudur-byggs` och `diamantsutran-trycks`). Frågorna handlar om hur vi vet saker (tryck, arkeologi och berättelser som skrevs ner senare). Lärarfälten visas inte i själva turen; de skrivs ut på lärarbladet och elevbladet (#738). **Lektionsläget (#795):** valfritt `lesson.lock` styr länken `#t=<tur-id>&m=lektion`: `years` (`[från, till]`, hela år i astronomisk årsräkning) begränsar tidslinjen och alla stegens `at` ska ligga inom intervallet, `layers` (lista med lager-id) är på hela lektionen och ersätter stegens lager (saknas fältet används stegens lager), och `escape: false` döljer "Visa hela globen" (standard: visas). Intervallet i `years` ska ha synliga händelser från minst två världsdelar, så att låset aldrig ger ett tomt läge (kontrolleras i `tests/tour.test.mjs`). Saknas `lock` döljs bara menyerna och bandet visas. De två lektionerna har `years` (1939–1945 och 793–1068), och andra världskriget låser också lagren (Händelser, Krig, Områden). Frågorna till eleverna är stegens `question`, och samma källpolicy gäller dem. Valfritt `sourceDetective` (#742) är elevuppdraget Källdetektiven: en lista med 1–2 poster `{ event, questions }`, där `event` är en händelse som ett steg i turen öppnar (`open`) och som har en anteckning om källorna (`note.kind`), och `questions` 1–4 frågor per språk. Frågorna frågar bara efter det som anteckningen säger. Lektion 1 använder slaget om Storbritannien (två sätt att räkna slagets längd) och slaget vid Stalingrad (två startdatum).

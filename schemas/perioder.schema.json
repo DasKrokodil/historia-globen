@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historia-globen: perioder och epoker (#845, #476)",
+  "type": "object",
+  "required": ["schema", "divisions"],
+  "properties": {
+    "schema": { "type": "string", "pattern": "^historia-globen/perioder@1$" },
+    "note": { "type": "string" },
+    "divisions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "simplification", "periods"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "name": { "$ref": "#/$defs/text" },
+          "simplification": { "$ref": "#/$defs/text" },
+          "periods": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["id", "start", "edtf", "name", "sources", "review"],
+              "properties": {
+                "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+                "start": { "type": "integer" },
+                "end": { "type": "integer" },
+                "open": { "type": "boolean" },
+                "edtf": { "type": "string", "pattern": ".+" },
+                "grades": { "type": "string" },
+                "name": { "$ref": "#/$defs/text" },
+                "note": { "$ref": "#/$defs/text" },
+                "sources": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": ".+" } },
+                "review": { "type": "string", "enum": ["draft", "source-checked", "two-sources"] }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "text": {
+      "type": "object",
+      "required": ["sv", "en", "de", "es", "fr"],
+      "properties": {
+        "sv": { "type": "string", "pattern": ".+" }, "en": { "type": "string", "pattern": ".+" }, "de": { "type": "string", "pattern": ".+" },
+        "es": { "type": "string", "pattern": ".+" }, "fr": { "type": "string", "pattern": ".+" }
+      }
+    }
+  }
+}

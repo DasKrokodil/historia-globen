@@ -7,6 +7,7 @@ import { ui } from '../i18n.js';
 import { segmentName } from '../timeline.js';
 import { ZOOM_LEVELS, zoomLevel, pxPerImg, zoomView, eventKeepouts } from '../ui/zoomlevels.js';
 import { empireStory } from '../ui/funfact.js';
+import { rangeParts, rangeText } from './range.js';
 
 export function createRender(app) {
   const { $, state, data, views, registry, globe, flatMap, timeline, panel, ff, layers, relLegend, empireLegend, empireLegendButton, routePop } = app;
@@ -85,21 +86,29 @@ export function createRender(app) {
     // Spelade det när ritningen började? Ett nytt Samtidigt-kort kan pausa nedan, men krigets
     // stopp ska ändå visas, annars börjar Fortsätt om från krigets början (#224)
     const playing = timeline.playing;
-    const window = timeline.windowYears(year);
+    // Med ett tidsintervall (#755) gäller hela intervallet och inget tidsfönster runt året
+    const range = state.range;
+    const window = range ? 0 : timeline.windowYears(year);
     // Tidslinjen äger året; tillståndet speglar det (#403)
-    app.store.mirror({ year, wholeYear, fine, window, span, playing, filters: panel.filters });
+    // Riken och religioner visas för intervallets slutår (alternativ A i förstudien, #756); utan intervall för året
+    const areaYear = range ? Math.floor(range.to) : wholeYear;
+    app.store.mirror({ year, wholeYear, areaYear, fine, window, span, playing, filters: panel.filters });
     // Singular och plural ur språkfilen ([en, flera]), till exempel "±1 dag" och "±3 dagar"
     const plural = (key, n) => String(ui(key)[n === 1 ? 0 : 1]).replace('{n}', n);
     const within = fine ? plural('time.withinDays', Math.round(window * 365.25)) : plural('time.withinYears', Math.round(window));
     ff.story = focus?.type === 'empire' ? storyFor(focus.id) : [];
-    ff.update(wholeYear, panel.filters);
+    ff.update(wholeYear, panel.filters, focus?.type === 'theme' ? focus.eventIds : null);
     state.highlight = ff.highlightIds();
     const eventsOn = layers.on.events;
     // Alla lager väljer vad som syns (beslut 2), i registrets ordning
     visible = registry.update(state).events;
     timeline.setMarks(registry.marks(state));
     prefetchDetails();
-    panel.render(visible, wholeYear, window, eventsOn, fine ? { at: ui('time.onDate', { date: timeline.format(year) }), bare: timeline.format(year), within } : null);
+    const rangeLabel = range && rangeText(range.from, range.to);
+    panel.render(visible, wholeYear, window, eventsOn, range ? { at: ui('range.at', { range: rangeLabel }), bare: rangeLabel, within, range }
+      : fine ? { at: ui('time.onDate', { date: timeline.format(year) }), bare: timeline.format(year), within } : null);
+    // Etiketten "Områden visas för år N" (#756) när riken eller religioner syns, och hur många markörer gränsen döljer
+    app.range?.render(visible.filter(v => v.inside).length, { areasYear: areas.enabled || religions.enabled ? areaYear : null, capped: layer.capped });
     // Samma markörer i Platt vy (#313): de som syns på klotet, de i listan får klustras och etikett
     flatMap.setMarkers({ list: layer.sprites.filter(sp => sp.userData.active).map(sp => sp.userData),
       labeled: new Set(visible.map(v => v.e.id)), keep: ff.highlightIds(), selectedId: state.selectedId });
@@ -123,11 +132,12 @@ export function createRender(app) {
     drawOverlay();
 
     // Korta krig: "22 jan" stort och året där tideräkningen annars står (#204)
-    const [num, era] = timeline.formatParts(year);
+    const [num, era] = range ? rangeParts(range.from, range.to) : timeline.formatParts(year);
     $('year-big').textContent = num;
     $('year-era').textContent = era;
     $('year-jump').classList.toggle('fine', fine);
-    $('year-segment').textContent = `${focus ? ui('focus.segment', { name: focus.short }) : segmentName(year)} · ${ui('time.shows', { within })}`;
+    $('year-segment').textContent = range ? ui('range.segment')
+      : `${focus ? ui('focus.segment', { name: focus.short }) : segmentName(year)} · ${ui('time.shows', { within })}`;
     // Pauserna i uppspelningen: krigets och resans stopp, grundanden, rikets nyckelår och krig som bryter ut
     app.playback.check({ year, fine, span, playing, eventsOn });
     $('app').classList.toggle('has-detail', !$('detail').hidden);

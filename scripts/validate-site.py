@@ -416,6 +416,105 @@ if misc_path.is_file():
                 if s not in src_ids:
                     err(f'data/missuppfattningar.json ({mid}): källan {s} finns inte i sources.json')
 
+# 8d. Perioder och epoker (#845, #476): filen läses inte av appen än; här kontrolleras den ur repot.
+per_path = ROOT / 'data' / 'perioder.json'
+if per_path.is_file():
+    try:
+        per = json.loads(per_path.read_text(encoding='utf-8'))
+    except ValueError as e:
+        per = None
+        err(f'data/perioder.json: går inte att läsa ({e})')
+    if per is not None:
+        validate_schema_file('data/perioder.json', per, 'perioder.schema.json')
+        seen_div, seen_per = set(), set()
+        for d in per.get('divisions', []):
+            did = d.get('id', '?')
+            if did in seen_div:
+                err(f'data/perioder.json: indelningen {did} finns två gånger')
+            seen_div.add(did)
+            for p in d.get('periods', []):
+                pid = p.get('id', '?')
+                if (did, pid) in seen_per:
+                    err(f'data/perioder.json ({did}/{pid}): id finns två gånger')
+                seen_per.add((did, pid))
+                if p.get('open') and 'end' in p:
+                    err(f'data/perioder.json ({did}/{pid}): en öppen period (open) ska inte ha end')
+                if not p.get('open') and 'end' not in p:
+                    err(f'data/perioder.json ({did}/{pid}): saknar end (eller open: true)')
+                if 'end' in p and isinstance(p.get('start'), int) and p['end'] < p['start']:
+                    err(f'data/perioder.json ({did}/{pid}): end ligger före start')
+                for src in p.get('sources', []):
+                    if src not in src_ids:
+                        err(f'data/perioder.json ({did}/{pid}): källan {src} finns inte i sources.json')
+
+# 8e. Teman (#398): filen publiceras (scripts/build-site.sh) och Fokus läser den. Ett tema är ett urval av befintliga
+# händelser; regler och format står i docs/datamodell.md (teman.json). Varningar stoppar inte bygget.
+VISIBLE = {'source-checked', 'two-sources'}
+EARLIEST_YEAR = -2999  # MIN_YEAR i js/timeline.js
+
+
+def region_of(lat, lon):
+    """Samma indelning som region() i js/model.js."""
+    if lat > 50 and (lon < -168 or lon > 160): return 'Asien'
+    if lon < -125 and lat < 35: return 'Oceanien'
+    if lon < -105 and lat < -10: return 'Oceanien'
+    if lon < -25: return 'Amerika'
+    if (lat < -10 and lon > 110) or (lat < 22 and lon > 130) or lon > 160: return 'Oceanien'
+    if -20 <= lon < 52 and lat > -36:
+        if lon < -1.5: africa = lat < 36
+        elif lon <= 11.5: africa = lat < 37.5
+        elif lon <= 32.5: africa = lat < 33.5
+        else: africa = lat < 31.5 and lon < 32.5 + (30 - lat) * 0.62
+        if africa: return 'Afrika'
+    if lat >= 35 and (lon < 28.9 or (lat >= 41 and lon < 60 and not (lon > 40 and lat < 44.5))): return 'Europa'
+    return 'Asien'
+
+
+themes_doc = load('data/teman.json') if (DIST / 'data/teman.json').is_file() else None
+if themes_doc is not None:
+    validate_schema_file('data/teman.json', themes_doc, 'teman.schema.json')
+    views_doc = load('data/vyer.json') if (DIST / 'data/vyer.json').is_file() else None
+    view_by_id = {v.get('id'): v for v in (views_doc or {}).get('views', [])}
+    ev_by_id = {e['id']: e for e in events['events']}
+    seen_themes = set()
+    for th in themes_doc.get('themes', []):
+        tid = th.get('id', '?')
+        where = f'data/teman.json ({tid})'
+        if tid in seen_themes:
+            err(f'{where}: id finns två gånger')
+        seen_themes.add(tid)
+        if th.get('placeholder'):
+            if th.get('review') != 'draft':
+                err(f'{where}: ett tema med placeholder måste vara draft')
+            err(f'{where}: platshållare (placeholder) får inte finnas i den publicerade filen')
+        for s in th.get('sources', []):
+            if s not in src_ids:
+                err(f'{where}: källan {s} finns inte i sources.json')
+        if th.get('view') is not None:
+            v = view_by_id.get(th['view'])
+            if v is None:
+                err(f"{where}: vyn {th['view']} finns inte i data/vyer.json")
+            elif v.get('tag'):
+                err(f"{where}: vyn {th['view']} har en tagg (tag), vilket inte är tillåtet i ett tema")
+        ids = th.get('events', [])
+        if len(set(ids)) != len(ids):
+            err(f'{where}: events har dubbletter')
+        shown = []
+        for i in ids:
+            e = ev_by_id.get(i)
+            if e is None:
+                err(f'{where}: händelsen {i} finns inte i events.json')
+            elif e.get('review') in VISIBLE:
+                shown.append(e)
+        if len(shown) < 5:
+            err(f'{where}: minst 5 av händelserna ska synas (källkontrollerade), men det är {len(shown)}')
+        regions = {region_of(e['location']['coordinates'][1], e['location']['coordinates'][0]) for e in shown}
+        if len(regions) < 3:
+            print(f"validate-site: VARNING: {where}: bara {len(regions)} världsdel(ar) bland de synliga händelserna (minst 3 önskas)", file=sys.stderr)
+        before = [e['id'] for e in shown if e.get('start', 0) < EARLIEST_YEAR]
+        if before:
+            print(f"validate-site: VARNING: {where}: börjar före tidslinjens början: {', '.join(before)}", file=sys.stderr)
+
 # 9. Krigets riken (#76): empires är grupp-id i data/empires/index.json
 group_ids = {g.get('id') for g in (empires or {}).get('groups', [])}
 for e in events['events']:

@@ -3,7 +3,7 @@
 // Överst ligger en sökruta, flikar och sortering (#240, #311); de ligger kvar medan listan under rullar.
 // - Sökningen letar i alla namn en post har (svenska, engelska och för riken namnen på rikets delar,
 //   till exempel "Bysantinska riket" i Rom), även delar av namn och utan att bry sig om accenter.
-// - Flikarna: Alla, Händelser, Krig, Riken, Försvunna länder, Religioner, Resor. Menyn öppnas alltid med Alla;
+// - Flikarna: Alla, Händelser, Krig, Riken, Försvunna länder, Religioner, Resor, Teman (#398). Menyn öppnas alltid med Alla;
 //   bara sorteringen sparas i localStorage (#709). Sök och följ (#651): Sök (#570) ingår här. Händelser har ingen lista att bläddra i; de hittas
 //   när man skriver (searchEvents, ur js/search-index.js) och öppnas i stället för att följas.
 // - Sorteringen: Relevans visar det som pågår nära året man står på, närmast först, och resten bakom
@@ -16,8 +16,9 @@ import { ui } from '../i18n.js';
 // Flikarnas och sorteringens id är svenska ord, eftersom sorteringens sparas i localStorage och flikarnas är
 // desamma som gruppernas id (focus.js). Det som visas hämtas med ui() på valt språk (#671).
 const EVENTS = 'Händelser';
-const TABS = ['Alla', EVENTS, 'Krig', 'Riken', 'Försvunna länder', 'Religioner', 'Resor'];
-const TAB_KEY = { Alla: 'all', [EVENTS]: 'events', Krig: 'wars', Riken: 'empires', 'Försvunna länder': 'vanished', Religioner: 'religions', Resor: 'routes' };
+const PLACE = 'Plats'; // "Vad hände här?" (#15): händelser nära en plats ur datan
+const TABS = ['Alla', EVENTS, 'Krig', 'Riken', 'Försvunna länder', 'Religioner', 'Resor', 'Teman', PLACE];
+const TAB_KEY = { Alla: 'all', [EVENTS]: 'events', Krig: 'wars', Riken: 'empires', 'Försvunna länder': 'vanished', Religioner: 'religions', Resor: 'routes', Teman: 'themes', [PLACE]: 'place' };
 /** Flikens eller gruppens namn på valt språk; ett okänt id visas som det är. */
 export const tabName = id => (TAB_KEY[id] ? ui(`focus.tab.${TAB_KEY[id]}`) : id);
 const SORTS = ['relevans', 'kronologiskt', 'alfabetiskt'];
@@ -35,6 +36,9 @@ export class FocusMenu {
     this.onPick = () => {};
     this.onOpen = () => {};
     this.searchEvents = () => []; // (sökord) → händelser som träffar: [{ key: 'event:<id>', label, sub, color }]
+    this.searchPlaces = () => []; // (sökord) → platser ur datan: [{ label, lat, lon }] (#15)
+    this.eventsNear = () => []; // ({ label, lat, lon }) → händelser nära platsen, äldst först: [{ key, label, sub, color, approximate }]
+    this.place = null; // den valda platsen på fliken Plats
     this.groups = [];
     this.time = null;
     this.showAll = false;
@@ -61,7 +65,7 @@ export class FocusMenu {
     this.body = menu.querySelector('.focus-body');
     this.live = menu.querySelector('.focus-live');
     this.input = menu.querySelector('.focus-search');
-    this.input.addEventListener('input', () => { this.query = this.input.value; this.body.scrollTop = 0; this.render(); });
+    this.input.addEventListener('input', () => { this.query = this.input.value; if (this.tab === PLACE) this.place = null; this.body.scrollTop = 0; this.render(); });
     const choose = (attr, key, prop) => {
       for (const b of menu.querySelectorAll(`[${attr}]`)) b.addEventListener('click', () => {
         this[prop] = b.getAttribute(attr);
@@ -91,6 +95,7 @@ export class FocusMenu {
     this.query = '';
     this.input.value = '';
     this.tab = 'Alla';
+    this.place = null;
     this.sort = 'relevans';
     this.showAll = false;
     this.showAllGroups.clear();
@@ -113,6 +118,9 @@ export class FocusMenu {
    *  all = gruppen visas alltid hel och i tidsordning när sorteringen är Relevans (Försvunna länder, #72). */
   setGroups(groups) {
     this.groups = groups.map(g => ({ ...g, items: g.items.map(it => ({ ...it, _terms: [...new Set([it.label, ...(it.terms ?? [])])].map(s => [s, norm(s)]) })) }));
+    // Fliken Teman (#398) syns först när det finns minst ett tema; en tom flik ser ut som ett fel
+    const themesTab = this.menu.querySelector('[data-tab="Teman"]');
+    if (themesTab) themesTab.hidden = !this.groups.some(g => g.title === 'Teman' && g.items.length);
     this.render();
   }
 
@@ -134,7 +142,47 @@ export class FocusMenu {
     return hit[0] === it.label ? it : { ...it, also: hit[0] };
   }
 
+  /** Fliken Plats (#15): sök en plats ur datan, välj den och se händelserna inom radien i tidsordning. */
+  renderPlace() {
+    this.input.placeholder = ui('place.placeholder');
+    this.menu.querySelector('.focus-sort').style.display = 'none'; // sortering gäller inte platslistan (alltid i tid)
+    const query = this.query.trim();
+    const hint = `<div class="layer-note pad">${esc(ui('place.hint'))}</div>`;
+    const plural = (key, n, vars) => String(ui(key)[n === 1 ? 0 : 1]).replace(/\{(\w+)\}/g, (m, k) => (k === 'count' ? n : vars[k] ?? m));
+    const row = (it, attr) => `<button type="button" class="layer-row focus-item" ${attr}>
+        <span class="swatch" style="background:${esc(it.color ?? 'var(--brass)')}"></span><span class="focus-name">${esc(it.label)}</span>
+        ${it.sub ? `<span class="layer-note">${esc(it.sub)}${it.approximate ? ` · ${esc(ui('place.approx'))}` : ''}</span>` : ''}</button>`;
+    let html = hint, live = '';
+    if (this.place) {
+      const hits = this.eventsNear(this.place);
+      const km = this.radiusKm ?? 300;
+      const head = hits.length ? plural('place.result', hits.length, { km, place: this.place.label }) : ui('place.empty', { km, place: this.place.label });
+      html += `<div class="focus-active"><span class="focus-active-text"><strong>${esc(head)}</strong></span>
+        <button type="button" class="focus-clear" data-place-reset>${esc(ui('place.other'))}</button></div>`
+        + hits.map(h => row(h, `data-key="${esc(h.key)}"`)).join('');
+      live = head;
+    } else if (query) {
+      this.suggestions = this.searchPlaces(query);
+      html += this.suggestions.length ? this.suggestions.map((p, i) => row({ label: p.label }, `data-place="${i}"`)).join('')
+        : `<div class="layer-note pad">${esc(ui('place.noMatch', { query }))}</div>`;
+      live = this.suggestions.length ? ui('focus.results', { count: this.suggestions.length }) : ui('place.noMatch', { query });
+    }
+    this.body.innerHTML = html;
+    this.live.textContent = live;
+    this.body.querySelector('[data-place-reset]')?.addEventListener('click', () => {
+      this.place = null; this.query = ''; this.input.value = ''; this.render(); this.input.focus({ preventScroll: true });
+    });
+    for (const b of this.body.querySelectorAll('[data-place]')) b.addEventListener('click', () => {
+      this.place = this.suggestions[Number(b.dataset.place)]; this.body.scrollTop = 0; this.render();
+      (this.body.querySelector('[data-place-reset]') ?? this.input).focus({ preventScroll: true });
+    });
+    for (const b of this.body.querySelectorAll('[data-key]')) b.addEventListener('click', () => { this.close(); this.onPick(b.dataset.key); });
+  }
+
   render() {
+    if (this.tab === PLACE) return this.renderPlace();
+    this.input.placeholder = ui('focus.placeholder');
+    this.menu.querySelector('.focus-sort').style.display = '';
     const tm = this.time;
     const dist = it => !tm ? 0 : tm.year < it.from ? it.from - tm.year : tm.year > it.to ? tm.year - it.to : 0;
     const near = it => !tm || (it.to >= tm.from && it.from <= tm.to);
@@ -242,7 +290,7 @@ export class FocusMenu {
     const go = el => { if (el) { e.preventDefault(); el.focus(); el.scrollIntoView({ block: 'nearest' }); } };
     if (t === this.input) {
       if (e.key === 'ArrowDown') go(headings[0] ?? rows[0]);
-      else if (e.key === 'Enter') { e.preventDefault(); rows.find(b => b.dataset.key)?.click(); }
+      else if (e.key === 'Enter') { e.preventDefault(); rows.find(b => b.dataset.key || b.dataset.place !== undefined)?.click(); }
       return;
     }
     const h = headings.indexOf(t);

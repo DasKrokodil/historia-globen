@@ -4,7 +4,9 @@ Skapad 2026-11-07 (#808). Gäller `es` och `fr`; tyskan har egna regler i issuen
 
 Beslutet om tilltal står i [docs/beslut/2026-11-07-artigt-tilltal.md](beslut/2026-11-07-artigt-tilltal.md).
 
-## 1. Tilltal (beslut Rikard 2026-11-07)
+## 1. Tilltal (beslut Rikard 2026-11-07, preciserat 2026-11-08)
+
+**Undantag sedan 2026-11-08:** texter för elever upp till 13 år (Samtidighetsjakten, lektion 2 åk 4–6 och uppdragstexterna) har du-form i alla språk (`du`, `tú`, `tu`). Texter för äldre elever (lektion 1 åk 7–9) och för vuxna läsare har artigt tilltal enligt tabellen. Se [beslutet](beslut/2026-11-08-tilltal-efter-alder.md).
 
 Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 
@@ -181,3 +183,12 @@ Kolumnen "Kontrollerad" är `–` tills någon har öppnat en källa på målspr
 3. Århundraden är omräknade rätt (avsnitt 2).
 4. Namn följer avsnitt 4 och 9; nya termer är tillagda i den här filen.
 5. `python3 tools/dela_data.py` och `python3 tools/oversattning.py` är körda, och `node --test 'tests/*.test.mjs'` är grönt.
+
+## 11. Epokknapparna (#965)
+
+Nya termer i gränssnittet för epokknapparna i intervallformuläret. Tidslinjen heter redan `frise chronologique` i franskan; spanskan och tyskan följer gränssnittet.
+
+| Svenska | Tyska | Spanska | Franska |
+|---|---|---|---|
+| börjar före tidslinjens början | beginnt vor dem Beginn der Zeitleiste | comienza antes del inicio de la línea de tiempo | commence avant le début de la frise chronologique |
+| till i dag | bis heute | hasta hoy | jusqu’à aujourd’hui |

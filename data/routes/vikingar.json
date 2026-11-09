@@ -6,11 +6,13 @@
       "category": "upptackter",
       "title": {
         "sv": "Ingólfr Arnarson bosätter sig på Island",
-        "en": "Ingólfr Arnarson settles in Iceland"
+        "en": "Ingólfr Arnarson settles in Iceland",
+        "de": "Ingólfr Arnarson lässt sich auf Island nieder"
       },
       "summary": {
         "sv": "Enligt Landnámabók lämnar Ingólfr Arnarson västra Norge efter en blodsfejd, tillsammans med sin fosterbror Hjörleifr. När Island syns kastar Ingólfr sina högsätesstolpar i havet och lovar att bosätta sig där gudarna låter dem flyta i land. Hjörleifr slår sig ner vid Hjörleifshöfði men dödas av sina trälar, som Ingólfr sedan jagar ner på Västmannaöarna. När stolparna till slut hittas i en vik grundar Ingólfr sin gård där, i det som blev Reykjavík, enligt traditionen år 874. Han räknas som Islands förste nordiske nybyggare.",
-        "en": "According to the Book of Settlements, Ingólfr Arnarson leaves western Norway after a blood feud, together with his foster brother Hjörleifr. When Iceland comes into sight, Ingólfr throws his high-seat pillars into the sea and vows to settle wherever the gods bring them ashore. Hjörleifr settles at Hjörleifshöfði but is killed by his slaves, whom Ingólfr later hunts down in the Westman Islands. When the pillars are finally found in a bay, Ingólfr builds his farm there, in what became Reykjavík, by tradition in 874. He is counted as the first Norse settler of Iceland."
+        "en": "According to the Book of Settlements, Ingólfr Arnarson leaves western Norway after a blood feud, together with his foster brother Hjörleifr. When Iceland comes into sight, Ingólfr throws his high-seat pillars into the sea and vows to settle wherever the gods bring them ashore. Hjörleifr settles at Hjörleifshöfði but is killed by his slaves, whom Ingólfr later hunts down in the Westman Islands. When the pillars are finally found in a bay, Ingólfr builds his farm there, in what became Reykjavík, by tradition in 874. He is counted as the first Norse settler of Iceland.",
+        "de": "Laut dem Landnámabók verlässt Ingólfr Arnarson nach einer Blutfehde zusammen mit seinem Ziehbruder Hjörleifr den Westen Norwegens. Als Island in Sicht kommt, wirft Ingólfr seine Hochsitzpfeiler ins Meer und gelobt, sich dort niederzulassen, wo die Götter sie an Land treiben lassen. Hjörleifr lässt sich bei Hjörleifshöfði nieder, wird aber von seinen Knechten getötet, die Ingólfr später auf den Westmännerinseln aufspürt. Als die Pfeiler schließlich in einer Bucht gefunden werden, gründet Ingólfr dort seinen Hof, im späteren Reykjavík, nach der Überlieferung im Jahr 874. Er gilt als erster nordischer Siedler Islands."
       },
       "start": 874,
       "end": 874,
@@ -19,11 +21,13 @@
       "note": {
         "title": {
           "sv": "Om årtalet",
-          "en": "About the year"
+          "en": "About the year",
+          "de": "Zum Jahr"
         },
         "text": {
           "sv": "Årtalet 874 kommer från Landnámabók och Íslendingabók, som skrevs två till tre hundra år senare. Enligt berättelsen letade trälarna i tre år efter stolparna, så själva överfarten kan ha skett några år tidigare. Arkeologiska fynd tyder på att Island började befolkas något före 874. Linjen ritas därför år 874 och är streckad. Att Ingólfr kom från Rivedal i Sunnfjord står bara i den ena källan (Wikipedia).",
-          "en": "The year 874 comes from the Book of Settlements and the Book of Icelanders, written two to three centuries later. According to the story the slaves searched for the pillars for three years, so the crossing itself may have taken place a few years earlier. Archaeological finds suggest that settlement of Iceland began somewhat before 874. The line is therefore drawn in 874 and dashed. That Ingólfr came from Rivedal in Sunnfjord is stated in only one of the sources (Wikipedia)."
+          "en": "The year 874 comes from the Book of Settlements and the Book of Icelanders, written two to three centuries later. According to the story the slaves searched for the pillars for three years, so the crossing itself may have taken place a few years earlier. Archaeological finds suggest that settlement of Iceland began somewhat before 874. The line is therefore drawn in 874 and dashed. That Ingólfr came from Rivedal in Sunnfjord is stated in only one of the sources (Wikipedia).",
+          "de": "Das Jahr 874 stammt aus dem Landnámabók und dem Íslendingabók, die zwei- bis dreihundert Jahre später verfasst wurden. Der Erzählung nach suchten die Knechte drei Jahre lang nach den Pfeilern, sodass die Überfahrt selbst einige Jahre früher stattgefunden haben kann. Archäologische Funde deuten darauf hin, dass Island etwas vor 874 besiedelt wurde. Die Linie wird deshalb im Jahr 874 gezeichnet und ist gestrichelt. Dass Ingólfr aus Rivedal in Sunnfjord kam, steht nur in der einen Quelle (Wikipedia)."
         }
       },
       "sources": [
@@ -74,7 +78,8 @@
               ],
               "name": {
                 "sv": "Rivedal i Sunnfjord",
-                "en": "Rivedal in Sunnfjord"
+                "en": "Rivedal in Sunnfjord",
+                "de": "Rivedal in Sunnfjord"
               }
             },
             {
@@ -84,7 +89,8 @@
               ],
               "name": {
                 "sv": "Hjörleifshöfði",
-                "en": "Hjörleifshöfði"
+                "en": "Hjörleifshöfði",
+                "de": "Hjörleifshöfði"
               }
             }
           ],
@@ -141,7 +147,8 @@
               ],
               "name": {
                 "sv": "Västmannaöarna",
-                "en": "Westman Islands"
+                "en": "Westman Islands",
+                "de": "Westmännerinseln"
               }
             },
             {
@@ -151,7 +158,8 @@
               ],
               "name": {
                 "sv": "Reykjavík",
-                "en": "Reykjavík"
+                "en": "Reykjavík",
+                "de": "Reykjavík"
               },
               "edtf": "0874~"
             }
@@ -171,11 +179,13 @@
       "category": "upptackter",
       "title": {
         "sv": "Erik Röde till Grönland",
-        "en": "Erik the Red to Greenland"
+        "en": "Erik the Red to Greenland",
+        "de": "Erik der Rote nach Grönland"
       },
       "summary": {
         "sv": "Omkring 982 döms Erik Röde fredlös från Island i tre år efter dråp. Från Breiðafjörður, där han bor, seglar han västerut mot ett land som andra nordbor sett men inte lyckats bosätta, rundar Grönlands sydspets och utforskar västkusten under exilåren. Han kallar landet Grönland för att locka nybyggare. Tillbaka på Island samlar han kolonister, och sommaren 985 eller 986 seglar 25 skepp mot Grönland, varav 14 kommer fram. Erik bygger gården Brattahlíð i Österbygden, där han blir hövding.",
-        "en": "Around 982 Erik the Red is outlawed from Iceland for three years after killings. From Breiðafjörður, where he lives, he sails west towards a land other Norsemen had seen but failed to settle, rounds the southern tip of Greenland and explores the west coast during his exile. He names the land Greenland to attract settlers. Back in Iceland he gathers colonists, and in the summer of 985 or 986 a fleet of 25 ships sails for Greenland, of which 14 arrive. Erik builds the farm of Brattahlíð in the Eastern Settlement, where he becomes chieftain."
+        "en": "Around 982 Erik the Red is outlawed from Iceland for three years after killings. From Breiðafjörður, where he lives, he sails west towards a land other Norsemen had seen but failed to settle, rounds the southern tip of Greenland and explores the west coast during his exile. He names the land Greenland to attract settlers. Back in Iceland he gathers colonists, and in the summer of 985 or 986 a fleet of 25 ships sails for Greenland, of which 14 arrive. Erik builds the farm of Brattahlíð in the Eastern Settlement, where he becomes chieftain.",
+        "de": "Um 982 wird Erik der Rote nach einem Totschlag für drei Jahre als Friedloser aus Island verbannt. Von Breiðafjörður, wo er wohnt, segelt er nach Westen auf ein Land zu, das andere Nordmänner gesehen, aber nicht besiedelt hatten, umrundet die Südspitze Grönlands und erkundet während der Jahre im Exil die Westküste. Er nennt das Land Grönland, um Siedler anzulocken. Zurück auf Island sammelt er Kolonisten, und im Sommer 985 oder 986 segeln 25 Schiffe nach Grönland, von denen 14 ankommen. Erik baut den Hof Brattahlíð in der Ostsiedlung, wo er Häuptling wird."
       },
       "start": 982,
       "end": 986,
@@ -184,11 +194,13 @@
       "note": {
         "title": {
           "sv": "Källorna skiljer sig",
-          "en": "The sources differ"
+          "en": "The sources differ",
+          "de": "Die Quellen unterscheiden sich"
         },
         "text": {
           "sv": "Allt bygger på sagorna (främst Erik Rödes saga), som skrevs ned långt senare. Wikipedias artikel om Erik Röde och World History Encyclopedia anger att kolonisterna kom 985, medan Wikipedias artikel om Leif Eriksson anger 986. Siffran 25 skepp, varav 14 kom fram, står bara i Wikipedia. Att resorna började i Breiðafjörður är en slutsats av att Erik bodde där (på Brokey och Öxney) när han dömdes; källorna säger inte exakt var han lade ut.",
-          "en": "Everything rests on the sagas (mainly the Saga of Erik the Red), written down much later. Wikipedia's article on Erik the Red and World History Encyclopedia say the colonists came in 985, while Wikipedia's article on Leif Erikson says 986. The figure of 25 ships, 14 of which arrived, appears only in Wikipedia. That the voyages started in Breiðafjörður is inferred from Erik living there (on Brokey and Öxney) when he was outlawed; the sources do not say exactly where he set sail."
+          "en": "Everything rests on the sagas (mainly the Saga of Erik the Red), written down much later. Wikipedia's article on Erik the Red and World History Encyclopedia say the colonists came in 985, while Wikipedia's article on Leif Erikson says 986. The figure of 25 ships, 14 of which arrived, appears only in Wikipedia. That the voyages started in Breiðafjörður is inferred from Erik living there (on Brokey and Öxney) when he was outlawed; the sources do not say exactly where he set sail.",
+          "de": "Alles beruht auf den Sagas (vor allem der Saga von Erik dem Roten), die viel später niedergeschrieben wurden. Der Wikipedia-Artikel über Erik den Roten und die World History Encyclopedia geben an, dass die Kolonisten 985 kamen, während der Wikipedia-Artikel über Leif Eriksson 986 angibt. Die Zahl von 25 Schiffen, von denen 14 ankamen, steht nur in Wikipedia. Dass die Reise in Breiðafjörður begann, ist ein Schluss daraus, dass Erik dort (auf Brokey und Öxney) wohnte, als er verurteilt wurde; die Quellen sagen nicht genau, wo er ablegte."
         }
       },
       "sources": [
@@ -263,7 +275,8 @@
               ],
               "name": {
                 "sv": "Brokey i Breiðafjörður",
-                "en": "Brokey in Breiðafjörður"
+                "en": "Brokey in Breiðafjörður",
+                "de": "Brokey in Breiðafjörður"
               }
             },
             {
@@ -273,7 +286,8 @@
               ],
               "name": {
                 "sv": "Grönlands sydspets (Kap Farvel)",
-                "en": "Southern tip of Greenland (Cape Farewell)"
+                "en": "Southern tip of Greenland (Cape Farewell)",
+                "de": "Südspitze Grönlands (Kap Farvel)"
               }
             }
           ],
@@ -334,7 +348,8 @@
               ],
               "name": {
                 "sv": "Breiðafjörður",
-                "en": "Breiðafjörður"
+                "en": "Breiðafjörður",
+                "de": "Breiðafjörður"
               }
             },
             {
@@ -344,7 +359,8 @@
               ],
               "name": {
                 "sv": "Brattahlíð (Qassiarsuk)",
-                "en": "Brattahlíð (Qassiarsuk)"
+                "en": "Brattahlíð (Qassiarsuk)",
+                "de": "Brattahlíð (Qassiarsuk)"
               },
               "edtf": "0985~"
             }
@@ -364,11 +380,13 @@
       "category": "upptackter",
       "title": {
         "sv": "Leif Eriksson till Vinland",
-        "en": "Leif Erikson to Vinland"
+        "en": "Leif Erikson to Vinland",
+        "de": "Leif Eriksson nach Vinland"
       },
       "summary": {
         "sv": "Omkring år 1000 seglar Leif Eriksson, son till Erik Röde, från Grönland västerut mot ett land som enligt Grönlänningasagan hade setts av Bjarni Herjólfsson. Han passerar ett stenigt land, Helluland (troligen Baffinön eller norra Labrador), och ett skogsland, Markland (troligen Labrador), och övervintrar i ett frodigt land som han kallar Vinland. Där bygger besättningen hus, Leifsbúðir. På våren seglar Leif hem till Grönland med timmer och druvor. Lämningarna vid L'Anse aux Meadows på Newfoundland är de enda säkra spåren av nordbor i Nordamerika utanför Grönland, och det är omstritt om just de är Leifs läger.",
-        "en": "Around the year 1000 Leif Erikson, son of Erik the Red, sails west from Greenland towards a land that, according to the Saga of the Greenlanders, had been sighted by Bjarni Herjólfsson. He passes a rocky land, Helluland (probably Baffin Island or northern Labrador), and a forested land, Markland (probably Labrador), and winters in a fertile land he names Vinland. There the crew builds houses, Leifsbúðir. In spring Leif sails home to Greenland with timber and grapes. The remains at L'Anse aux Meadows in Newfoundland are the only certain traces of the Norse in North America outside Greenland, and whether they are Leif's camp is debated."
+        "en": "Around the year 1000 Leif Erikson, son of Erik the Red, sails west from Greenland towards a land that, according to the Saga of the Greenlanders, had been sighted by Bjarni Herjólfsson. He passes a rocky land, Helluland (probably Baffin Island or northern Labrador), and a forested land, Markland (probably Labrador), and winters in a fertile land he names Vinland. There the crew builds houses, Leifsbúðir. In spring Leif sails home to Greenland with timber and grapes. The remains at L'Anse aux Meadows in Newfoundland are the only certain traces of the Norse in North America outside Greenland, and whether they are Leif's camp is debated.",
+        "de": "Um das Jahr 1000 segelt Leif Eriksson, Sohn Eriks des Roten, von Grönland nach Westen auf ein Land zu, das laut der Grönländersaga von Bjarni Herjólfsson gesehen worden war. Er passiert ein steiniges Land, Helluland (wahrscheinlich die Baffininsel oder das nördliche Labrador), und ein Waldland, Markland (wahrscheinlich Labrador), und überwintert in einem fruchtbaren Land, das er Vinland nennt. Dort baut die Besatzung Häuser, Leifsbúðir. Im Frühling segelt Leif mit Bauholz und Trauben heim nach Grönland. Die Überreste bei L'Anse aux Meadows auf Neufundland sind die einzigen sicheren Spuren von Nordmännern in Nordamerika außerhalb Grönlands, und es ist umstritten, ob gerade sie Leifs Lager sind."
       },
       "start": 1000,
       "end": 1001,
@@ -377,11 +395,13 @@
       "note": {
         "title": {
           "sv": "Källorna skiljer sig",
-          "en": "The sources differ"
+          "en": "The sources differ",
+          "de": "Die Quellen unterscheiden sich"
         },
         "text": {
           "sv": "Resan är bara känd från de två Vinlandssagorna, som skrevs ned på 1200-talet och inte stämmer med varandra. Enligt Erik Rödes saga hittade Leif Vinland när han blåste ur kurs på väg från Norge till Grönland; enligt Grönlänningasagan, som linjen följer, var det Bjarni Herjólfsson som först såg landet. Om L'Anse aux Meadows är Leifsbúðir är omstritt: World History Encyclopedia ser ingen tvekan, medan Wikipedia skriver att platsen kan vara Leifsbúðir. Dateringarna skiljer sig också: 980–1020 enligt World History Encyclopedia, 990–1050 med kol-14 och träd som fälldes 1021 enligt Wikipedia. Året 1021 visar att nordbor var där då, inte när Leif kom.",
-          "en": "The voyage is known only from the two Vinland sagas, written down in the 13th century, which do not agree. According to the Saga of Erik the Red, Leif found Vinland when he was blown off course on his way from Norway to Greenland; according to the Saga of the Greenlanders, which the line follows, Bjarni Herjólfsson saw the land first. Whether L'Anse aux Meadows is Leifsbúðir is debated: World History Encyclopedia has no doubt, while Wikipedia says the site could be Leifsbúðir. The datings differ too: 980–1020 according to World History Encyclopedia, 990–1050 by radiocarbon and trees felled in 1021 according to Wikipedia. The year 1021 shows that the Norse were there then, not when Leif arrived."
+          "en": "The voyage is known only from the two Vinland sagas, written down in the 13th century, which do not agree. According to the Saga of Erik the Red, Leif found Vinland when he was blown off course on his way from Norway to Greenland; according to the Saga of the Greenlanders, which the line follows, Bjarni Herjólfsson saw the land first. Whether L'Anse aux Meadows is Leifsbúðir is debated: World History Encyclopedia has no doubt, while Wikipedia says the site could be Leifsbúðir. The datings differ too: 980–1020 according to World History Encyclopedia, 990–1050 by radiocarbon and trees felled in 1021 according to Wikipedia. The year 1021 shows that the Norse were there then, not when Leif arrived.",
+          "de": "Die Reise ist nur aus den beiden Vinland-Sagas bekannt, die im 13. Jahrhundert niedergeschrieben wurden und nicht miteinander übereinstimmen. Laut der Saga von Erik dem Roten fand Leif Vinland, als er auf dem Weg von Norwegen nach Grönland vom Kurs abkam; laut der Grönländersaga, der die Linie folgt, war es Bjarni Herjólfsson, der das Land zuerst sah. Ob L'Anse aux Meadows Leifsbúðir ist, ist umstritten: Die World History Encyclopedia hat keinen Zweifel, während Wikipedia schreibt, der Ort könne Leifsbúðir sein. Auch die Datierungen unterscheiden sich: 980–1020 laut World History Encyclopedia, 990–1050 mit Kohlenstoff-14 und im Jahr 1021 gefällten Bäumen laut Wikipedia. Das Jahr 1021 zeigt, dass Nordmänner damals dort waren, nicht, wann Leif ankam."
         }
       },
       "sources": [
@@ -485,7 +505,8 @@
               ],
               "name": {
                 "sv": "Brattahlíð",
-                "en": "Brattahlíð"
+                "en": "Brattahlíð",
+                "de": "Brattahlíð"
               }
             },
             {
@@ -495,7 +516,8 @@
               ],
               "name": {
                 "sv": "Vinland (kanske L'Anse aux Meadows)",
-                "en": "Vinland (perhaps L'Anse aux Meadows)"
+                "en": "Vinland (perhaps L'Anse aux Meadows)",
+                "de": "Vinland (vielleicht L'Anse aux Meadows)"
               }
             }
           ],
@@ -550,7 +572,8 @@
               ],
               "name": {
                 "sv": "Brattahlíð",
-                "en": "Brattahlíð"
+                "en": "Brattahlíð",
+                "de": "Brattahlíð"
               }
             }
           ],
@@ -568,11 +591,13 @@
       "category": "ekonomi",
       "title": {
         "sv": "Vägen från varjagerna till grekerna",
-        "en": "The route from the Varangians to the Greeks"
+        "en": "The route from the Varangians to the Greeks",
+        "de": "Der Weg von den Warägern zu den Griechen"
       },
       "summary": {
         "sv": "En handelsväg mellan Skandinavien, Kievriket och Bysans. Från handelsplatser som Birka och Gotland gick färden över Östersjön, in i Finska viken och via Neva och Ladoga upp längs Volchov förbi Staraja Ladoga och Novgorod. Över sjön Ilmen och längs Lovat nådde man vattendelaren, där båtarna drogs över land till Dnepr. Nedför Dnepr passerade man Kiev och de farliga forsarna, där nomader ofta anföll, och följde sedan Svarta havets västkust till Konstantinopel. Vägen kom troligen till kring år 800 och var viktigast från 900-talet till början av 1000-talet. Längs vägarna österut kom det mesta av det silver som fanns i Västeuropa.",
-        "en": "A trade route between Scandinavia, Kievan Rus' and Byzantium. From trading places such as Birka and Gotland it crossed the Baltic, entered the Gulf of Finland and went by the Neva and Lake Ladoga up the Volkhov past Staraya Ladoga and Novgorod. Across Lake Ilmen and up the Lovat it reached the watershed, where boats were hauled overland to the Dnieper. Down the Dnieper it passed Kiev and the dangerous rapids, where nomads often attacked, and then followed the western shore of the Black Sea to Constantinople. The route probably arose around 800 and was most important from the 10th to the early 11th century. Most of the silver coinage in Western Europe arrived from the East along such routes."
+        "en": "A trade route between Scandinavia, Kievan Rus' and Byzantium. From trading places such as Birka and Gotland it crossed the Baltic, entered the Gulf of Finland and went by the Neva and Lake Ladoga up the Volkhov past Staraya Ladoga and Novgorod. Across Lake Ilmen and up the Lovat it reached the watershed, where boats were hauled overland to the Dnieper. Down the Dnieper it passed Kiev and the dangerous rapids, where nomads often attacked, and then followed the western shore of the Black Sea to Constantinople. The route probably arose around 800 and was most important from the 10th to the early 11th century. Most of the silver coinage in Western Europe arrived from the East along such routes.",
+        "de": "Ein Handelsweg zwischen Skandinavien, der Kiewer Rus und Byzanz. Von Handelsplätzen wie Birka und Gotland führte die Fahrt über die Ostsee, in den Finnischen Meerbusen und über die Newa und den Ladogasee den Wolchow aufwärts, vorbei an Staraja Ladoga und Nowgorod. Über den Ilmensee und entlang der Lowat erreichte man die Wasserscheide, wo die Boote über Land zum Dnepr gezogen wurden. Den Dnepr abwärts passierte man Kiew und die gefährlichen Stromschnellen, wo Nomaden oft angriffen, und folgte dann der Westküste des Schwarzen Meeres nach Konstantinopel. Der Weg entstand wahrscheinlich um das Jahr 800 und war vom 10. Jahrhundert bis zum Anfang des 11. Jahrhunderts am wichtigsten. Auf den Wegen nach Osten kam das meiste Silber, das es in Westeuropa gab."
       },
       "start": 800,
       "end": 1033,
@@ -581,11 +606,13 @@
       "note": {
         "title": {
           "sv": "Om tiden och vägen",
-          "en": "About the dates and the route"
+          "en": "About the dates and the route",
+          "de": "Zu Zeit und Weg"
         },
         "text": {
           "sv": "Vägen nämns först i Nestorskrönikan från början av 1100-talet och beskrivs av kejsar Konstantin VII på 900-talet. Att den kom till i slutet av 700-talet eller början av 800-talet är en uppskattning, och slutåret 1033 motsvarar Wikipedias \"första tredjedelen av 1000-talet\", då vägen var som viktigast; handel fortsatte även senare. Sträckan mellan Lovat och Dnepr, med flera båtdrag, är osäker och ritas streckad.",
-          "en": "The route is first named in the Primary Chronicle of the early 12th century and described by Emperor Constantine VII in the 10th century. That it arose in the late 8th or early 9th century is an estimate, and the end year 1033 stands for Wikipedia's \"first third of the 11th century\", when the route was most important; trade continued later too. The stretch between the Lovat and the Dnieper, with several portages, is uncertain and drawn dashed."
+          "en": "The route is first named in the Primary Chronicle of the early 12th century and described by Emperor Constantine VII in the 10th century. That it arose in the late 8th or early 9th century is an estimate, and the end year 1033 stands for Wikipedia's \"first third of the 11th century\", when the route was most important; trade continued later too. The stretch between the Lovat and the Dnieper, with several portages, is uncertain and drawn dashed.",
+          "de": "Der Weg wird zuerst in der Nestorchronik vom Anfang des 12. Jahrhunderts erwähnt und von Kaiser Konstantin VII. im 10. Jahrhundert beschrieben. Dass er Ende des 8. oder Anfang des 9. Jahrhunderts entstand, ist eine Schätzung, und das Endjahr 1033 entspricht dem „ersten Drittel des 11. Jahrhunderts“ bei Wikipedia, als der Weg am wichtigsten war; Handel gab es auch später. Die Strecke zwischen Lowat und Dnepr mit mehreren Bootsschleppen ist unsicher und wird gestrichelt gezeichnet."
         }
       },
       "sources": [
@@ -654,7 +681,8 @@
               ],
               "name": {
                 "sv": "Birka",
-                "en": "Birka"
+                "en": "Birka",
+                "de": "Birka"
               }
             },
             {
@@ -664,7 +692,8 @@
               ],
               "name": {
                 "sv": "Ladoga",
-                "en": "Lake Ladoga"
+                "en": "Lake Ladoga",
+                "de": "Ladoga"
               }
             },
             {
@@ -674,7 +703,8 @@
               ],
               "name": {
                 "sv": "Staraja Ladoga",
-                "en": "Staraya Ladoga"
+                "en": "Staraya Ladoga",
+                "de": "Staraja Ladoga"
               }
             },
             {
@@ -684,7 +714,8 @@
               ],
               "name": {
                 "sv": "Novgorod",
-                "en": "Novgorod"
+                "en": "Novgorod",
+                "de": "Nowgorod"
               }
             }
           ],
@@ -725,7 +756,8 @@
               ],
               "name": {
                 "sv": "Lovat",
-                "en": "Lovat river"
+                "en": "Lovat river",
+                "de": "Lowat"
               }
             },
             {
@@ -735,7 +767,8 @@
               ],
               "name": {
                 "sv": "Smolensk",
-                "en": "Smolensk"
+                "en": "Smolensk",
+                "de": "Smolensk"
               }
             }
           ],
@@ -819,7 +852,8 @@
               ],
               "name": {
                 "sv": "Kiev (Kyiv)",
-                "en": "Kiev (Kyiv)"
+                "en": "Kiev (Kyiv)",
+                "de": "Kiew (Kyjiw)"
               }
             },
             {
@@ -829,7 +863,8 @@
               ],
               "name": {
                 "sv": "Dneprforsarna",
-                "en": "Dnieper rapids"
+                "en": "Dnieper rapids",
+                "de": "Dnepr-Stromschnellen"
               }
             },
             {
@@ -839,7 +874,8 @@
               ],
               "name": {
                 "sv": "Sulina (Donaudeltat)",
-                "en": "Sulina (Danube Delta)"
+                "en": "Sulina (Danube Delta)",
+                "de": "Sulina (Donaudelta)"
               }
             },
             {
@@ -849,7 +885,8 @@
               ],
               "name": {
                 "sv": "Constantia (Constanța)",
-                "en": "Constantia (Constanța)"
+                "en": "Constantia (Constanța)",
+                "de": "Constantia (Constanța)"
               }
             },
             {
@@ -859,7 +896,8 @@
               ],
               "name": {
                 "sv": "Konstantinopel (Miklagård)",
-                "en": "Constantinople (Miklagarðr)"
+                "en": "Constantinople (Miklagarðr)",
+                "de": "Konstantinopel (Miklagard)"
               }
             }
           ],

@@ -59,8 +59,8 @@ AGENTS.md             regler för Codex och andra agenter; pekar på CLAUDE.md
 _headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
 css/style.css
 js/main.js            startar allt och kopplar ihop registret, tidslinjen och panelerna
-js/controllers/       main.js uppdelad: val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402) och adressen (#501)
-js/state.js           det gemensamma tillståndet som lagren läser (år, fokus, filter, valda lager, #338), åtgärder och JSON (#403)
+js/controllers/       main.js uppdelad: val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402), adressen (#501) och tidsintervallet (range.js, #755)
+js/state.js           det gemensamma tillståndet som lagren läser (år, fokus, filter, valda lager, #338), åtgärder och JSON (#403), och lägeskontraktet med uteslutningstabellen (#893)
 js/layers/registry.js lagerregistret: rader i Lager, ritordning, dämpning i fokus, teckenförklaring (#338)
 js/layers/index.js    lagerlistan: alla lager som anmäler sig i registret (#338)
 js/model.js           språk, kategorier, tidsformat, laddning av data
@@ -85,6 +85,7 @@ js/ui/sources.js      sidan Om källorna (knappen Källor)
 js/ui/help.js         kort hjälp i tre steg för nya besökare (knappen Hjälp)
 js/url-state.js       adressformatet för delbara länkar och Bakåt/Framåt (#501, #64)
 js/search-index.js    sökningens index och matchning (#570)
+js/place-search.js    "Vad hände här?": platsförslag och händelser inom 300 km, i tidsordning (#15)
 js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
 js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg, från Utforska (#363, #516)
 js/ui/quiz.js         quizet "Vad hände samtidigt?" under Mer, med frågor ur befintliga fun facts (#65)
@@ -119,6 +120,8 @@ data/handelser/       händelserna, en redigeringsfil per period; här redigeras
 data/events.json      alla händelser i en fil, byggd ur data/handelser/ (redigeras inte)
 data/funfacts.json    fun facts, kopplade till händelser
 data/missuppfattningar.json  vanliga historiska missuppfattningar och var de kom ifrån (#838); visas i faktarutan för händelserna i events
+data/teman.json            teman: namngivna urval av händelser som följs i Fokus (#398); tom tills första temat skrivs (#105)
+data/perioder.json         epoker i fyra indelningar: Lgr22 (fem perioder), Nordens forntid (stenålder, bronsålder, järnålder enligt Historiska museet), antiken och industrialiseringen, med årtal, källa och förenklingstext; epokknapparna i intervallformuläret läser den (#845, #965)
 data/intro.json       introduktionens startår, texter och referenser till befintliga händelser/fun facts (#363, #516)
 data/uppdrag.json     elevuppdragen (Samtidighetsjakten): år, spann, antal världsdelar och texter (#741)
 data/turer/           guidade turer: index.json och en fil per tur med steg (år, kamera, text, lager, händelse, källor) (#47)
@@ -155,8 +158,9 @@ tools/hced.py         gör om Historical Conflict Event Dataset till utkast i da
 scripts/build-site.sh kopierar webbplatsens filer till dist/ för publicering och kör kontrollerna (docs/DEPLOYMENT.md)
 scripts/validate-site.py  kontrollerar dist/: JSON, filreferenser och att inga interna filer följer med
 scripts/pages-function-check.sh  startar formulärets Pages Function med wrangler, som Cloudflare gör (#663)
+scripts/kontrolltackning.mjs     bevisar att varje webbläsarkontroll körs i exakt ett CI-jobb (#864)
 functions/api/feedback.js  Cloudflare Pages Function för besökarnas förslag (publiceras från repots rot, inte via dist/)
-tests/                tester för serverfunktionen och etikettkontrollen (node --test 'tests/*.test.mjs') och webbläsartestet tests/webblasare.mjs (Playwright, #339)
+tests/                tester för serverfunktionen och etikettkontrollen (node --test 'tests/*.test.mjs') och webbläsartestet tests/webblasare.mjs (Playwright, #339), som delas i tre jobb enligt tests/jobb.json (#864)
 .github/workflows/    GitHub Actions: bygger och kontrollerar dist/ vid push till main och PR mot main och production; browser-test.yml öppnar sidan i Chromium; release.yml skapar tagg och GitHub Release; etikettkontroll.yml (logik i .github/scripts/etikettkontroll.cjs) varnar när ett issue har flera ägare (etiketter eller tilldelning) eller både redo och pågår, städar etiketter efter en sammanslagen PR och påminner om ett pågår som legat orört i 7 dagar (#588)
 ```
 
@@ -193,6 +197,12 @@ Hur kontrollen går till står i [docs/kallor.md](docs/kallor.md).
 
 Hittar du ett faktafel, öppna ett issue och ange vilken uppgift det gäller och en källa som visar det rätta. Nya händelser tas emot på samma sätt: med källa, plats och årtal.
 
+**Sidan är öppen för all slags input.** Åsikter, idéer, förslag och hjälp är välkomna, och det är roligt när något engagerar. Titta gärna in, säg vad du tycker, och hjälp till om du har lust.
+
+Samtidigt är det här DasKrokodils hobbyprojekt, och det ska vara tydligt: det är DasKrokodil som bestämmer vad som görs och vad som tas med, och som slår ihop alla ändringar. Därför går det inte att ta med allt, och ibland blir svaret "inte just nu" eller nej. Det är inget omdöme om förslaget. Vill du ta det åt ett annat håll är du varmt välkommen att göra en egen kopia, eftersom koden är öppen.
+
+Bidrar du med kod eller data publiceras det under projektets licenser (GPL-3.0 för koden, CC BY 4.0 för datan). Att bidra innebär inget medägande i projektet.
+
 ## Licenser
 
 Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna](THIRD-PARTY-NOTICES.md) och de maskinläsbara manifesten `data/licenses.json` och `images/licenses.json`.
@@ -203,6 +213,7 @@ Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna]
 - **Rikenas utbredning** i `data/empires/` är ett förenklat utdrag ur [Cliopatria](https://github.com/Seshat-Global-History-Databank/cliopatria) från Seshat Global History Databank, licensierat under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ändringar: bara de riken som listas i `data/empires/index.json` är med, geometrin är förenklad och perioder med nästan samma gräns är sammanslagna (`tools/riken.py`).
 - **Nattljus 2016** i `images/lager/nattljus-2016.jpg` kommer från [NASA Earth Observatory: Black Marble](https://science.nasa.gov/earth/earth-observatory/earth-at-night/maps/) och är **public domain i USA enligt NASA:s riktlinjer för bilder**. NASA:s logotyp och märken är skyddade; bilden innehåller ingen NASA-logotyp. Bilden är NASA:s globala JPEG i 3600 × 1800, utan innehållsliga ändringar.
 - **Faktarutorna om riken** (`facts` i `data/empires/index.json`) är egna korta sammanfattningar av Wikipedias artiklar om rikena (CC BY-SA). Medeltidens riken (#69) är dessutom kontrollerade mot World History Encyclopedia (CC BY-NC-SA, bara länkad, ingen text kopierad), och de tidigmoderna rikena (#70) mot World History Encyclopedia eller Wikidata (CC0). Kolonialvälden och moderna imperier (#71) bygger på Wikipedia, för det nederländska och tyska väldet, Japan och Etiopien kompletterat med World History Encyclopedia (bara länkad). Artiklarna länkas från rutorna och från källregistret.
+- **Herodotos text** (Macaulays översättning, bok 9, [Project Gutenberg](https://www.gutenberg.org/ebooks/2456)) är public domain och används bara som länkad källa för siffrorna i anteckningen om slaget vid Plataiai (#941); ingen text är kopierad.
 - **Missuppfattningarna** (`data/missuppfattningar.json`, #838) är egna korta sammanfattningar av Wikipedias artiklar (CC BY-SA). Posterna på nivån `two-sources` är dessutom kontrollerade mot en andra källa: NASA (public domain), HISTORY, Smithsonian Magazine, Snopes, Mount Vernon och National Post. De är bara länkade, ingen text är kopierad, och de står i källregistret med licensen "bara länkad".
 - **Lektionsturerna** (skolpiloten, #737, #739) kopplas till Skolverkets kursplan i historia (Lgr22) med egna korta formuleringar; kursplanen är bara länkad, ingen text kopierad.
 - **Omstridda gränser i nutid** (#644) följer Sveriges officiella hållning enligt Utrikesdepartementets sidor på regeringen.se (bara länkade, ingen text kopierad). Fallen och källorna står i [docs/omstridda-granser.md](docs/omstridda-granser.md). Där Cliopatria saknar gränsen (Västbanken, Östra Jerusalem, Gaza och Golanhöjderna, och Staten Palestina från 2014) kommer den ur Natural Earths omstridda områden (`ne_10m_admin_0_disputed_areas` 5.1.1, public domain), uttagna med `tools/ne_omstridda.py`. Tolv små stater som Cliopatria saknar (#722), och Andorra och Monaco (#719, med Cliopatrias årtal), har dagens gräns ur Natural Earths länder (`ne_10m_admin_0_countries` 5.1.1, public domain), med samma skript, och årtalen för självständigheten ur Wikidata (CC0) och Wikipedia (CC BY-SA, bara länkad).
@@ -222,4 +233,4 @@ Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna]
 
 Namnet "Historia-globen" omfattas inte av licenserna ovan.
 
-Copyright © 2026 Rikard och projektets bidragsgivare.
+Copyright © 2026 Rikard (DasKrokodil). Projektet är hans; att bidra innebär inget medägande.

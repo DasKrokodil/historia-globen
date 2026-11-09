@@ -68,10 +68,10 @@ export function entry({ globe, data, labelsEl, refreshSoon, showEmpireFacts }) {
       layer.labelScale = marks.scale = s.labels.scale;
       layer.labelAlpha = s.labels.alpha;
       layer.showNames = s.labels.empireNames;
-      ensure(s.wholeYear);
+      ensure(s.areaYear); // i ett tidsintervall slutåret (#756)
       // Övergången (#78) är mjuk när tiden spelas upp eller flyttas lite, annars visas nya läget direkt
-      const out = layer.update({ year: s.wholeYear, smooth: s.playing || Math.abs(s.wholeYear - lastYear) <= MAX_JUMP_YEARS });
-      lastYear = s.wholeYear;
+      const out = layer.update({ year: s.areaYear, smooth: s.playing || Math.abs(s.areaYear - lastYear) <= MAX_JUMP_YEARS });
+      lastYear = s.areaYear;
       return out;
     },
     markers: s => marks.update(layer.marks(), layer.enabled && !s.faded.has('areas')),
