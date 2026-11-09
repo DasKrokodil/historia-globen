@@ -453,6 +453,59 @@ async function run(browser, vp) {
     return 'ingen automatisk hjälp; öppning, Escape, fokus och reducerad rörelse fungerar';
   });
 
+  if (vp.name === 'dator') {
+    await check('surfplattans topprad täcker inte årtalet eller förklaringen (#992)', async () => {
+      const pp = await context.newPage();
+      const errors = [];
+      pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+      pp.on('pageerror', e => errors.push(e.message));
+      const layout = async () => {
+        await pp.waitForFunction(() => {
+          if (innerWidth <= 760 || innerWidth > 1100) return true;
+          const header = document.querySelector('.masthead'), actions = document.querySelector('.top-actions');
+          return parseFloat(getComputedStyle(header).getPropertyValue('--tablet-actions-height')) === actions.getBoundingClientRect().height
+            && header.getBoundingClientRect().top >= actions.getBoundingClientRect().bottom;
+        }, null, { timeout: T.step });
+        const m = await pp.evaluate(() => {
+          const rect = selector => { const r = document.querySelector(selector).getBoundingClientRect(); return { left: r.left, top: r.top, right: r.right, bottom: r.bottom, height: r.height }; };
+          return { width: innerWidth, height: innerHeight, year: rect('#year-jump'), note: rect('#year-segment'), actions: rect('.top-actions'), scroll: document.documentElement.scrollWidth };
+        });
+        const overlaps = (a, b) => a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
+        if (overlaps(m.year, m.actions) || overlaps(m.note, m.actions)) throw new Error(`knapparna täcker år eller förklaring: ${JSON.stringify(m)}`);
+        if ([m.year, m.note].some(r => r.left < 0 || r.top < 0 || r.right > m.width || r.bottom > m.height) || m.scroll > m.width) throw new Error(`text utanför skärmen eller horisontell scroll: ${JSON.stringify(m)}`);
+        return m;
+      };
+      try {
+        if (THREE_LOCAL) {
+          await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+          await pp.route(u => isFont(u.href), r => r.abort());
+        }
+        await pp.goto(BASE);
+        await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        for (const [width, height] of [[768, 1024], [820, 1180], [1024, 768], [1400, 900], [400, 800], [761, 1024], [1100, 768], [1101, 768]]) {
+          await pp.setViewportSize({ width, height });
+          await layout();
+          await pp.screenshot({ path: path.join(OUT, `992-${width}x${height}.png`) });
+        }
+        // Längre knappar på andra språk och en senare fontomflödning får också ändra reserverad höjd.
+        for (const lang of ['en', 'de', 'es', 'fr']) {
+          await pp.setViewportSize({ width: 820, height: 1180 });
+          await pp.goto(`${BASE}?lang=${lang}`);
+          await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          await layout();
+          await pp.screenshot({ path: path.join(OUT, `992-820x1180-${lang}.png`) });
+        }
+        const before = (await layout()).actions.height;
+        const font = await pp.addStyleTag({ content: '.top-actions .chip-btn { font-size: 18px !important; }' });
+        await pp.waitForFunction(height => document.querySelector('.top-actions').getBoundingClientRect().height > height, before, { timeout: T.step });
+        await layout();
+        await font.evaluate(node => node.remove());
+        await layout();
+        if (errors.length) throw new Error(errors.join(' | '));
+      } finally { await pp.close(); }
+      return 'tre iPad-format, dator, mobil och brytpunkternas kanter utan överlapp eller scroll; fem språk och fontomflödning';
+    });
+  }
   await check('årshoppet accepterar år, datum och felmeddelanden', async () => {
     // Öppna årshoppet bara när det är stängt: ett datumresultat kan lämna rutan öppen, och då stänger ett klick
     // på årtalet den i stället (föll i WebKit i mobilbredd inför v5.0.0).

@@ -54,7 +54,7 @@ Antagna "lyckade vägar". Varje flöde är också en testplan: den som granskar 
 
 | Läge | Bredd | Särdrag |
 |---|---|---|
-| Surfplatta (iPad) | 768–1024 px (**ej provat särskilt**) | Faller över mobilbrytpunkten (≤ 760 px) och får datorns layout. Eftersom många antas läsa på iPad bör liggande och stående läge prövas |
+| Surfplatta (iPad) | 768–1024 px | Toppraden är provad automatiskt i 768×1024, 820×1180 och 1024×768 (#992). Årtalet och förklaringsraden ligger under knapparna i bredder 761–1100 px, även när knappraden bryts. Övriga flöden och verklig iPad är inte fullständigt provade |
 | Dator | ≥ 761 px (testat 1400×900) | Faktaruta vid sidan, tre knappgrupper, menyer fälls ned |
 | Mobil | ≤ 760 px (testat 400×800) | Bara Samtidigt och Meny i raden överst; faktaruta och Samtidigt-kort som ark med tre lägen; globen lyfts när arket är halvt; 44 px träffytor |
 | Platt vy | båda | Karta med zoom och panorering; samma bild som kan skickas till en fysisk glob |
@@ -93,7 +93,7 @@ Det här är pekare, inte en backlog. Källan är den daterade rapporten; fynden
 | Tyst laddningsreserv, slutsteg utan uppläsningssignal | Skärmläsare och laddning | blind-spots-rapport F2, F3 |
 | Mobilkortet täcker tidslinjen i startläget | Kortet och kontrollerna konkurrerar | helhetsanalys 2026-11-06 (kontrollera om åtgärdat) |
 | Reservpresentation vid bildfel | Bildyta och kredit finns kvar utan bild | blind-spots-rapport F8 |
-| Surfplatta (iPad) inte särskilt provad | Stående iPad (768–820 px) får datorns layout; kontrollera trängsel och träffytor | beslut 2026-11-08; R9 i [04](04-arkitekturoversikt.md) |
+| Surfplatta: övriga flöden återstår | Toppradens överlapp är åtgärdat och provat i tre iPad-format (#992); övrig trängsel och träffytor behöver fortfarande prövas | beslut 2026-11-08; R9 i [04](04-arkitekturoversikt.md), #992 |
 | Intervallformuläret för skärmläsare | Dubbla årtal i epokknappar, rubriker som `<p>`, ingen uppläsning när intervallet väljs, platsfältets `aria-label` | #977, granskningen inför 6.1.0 (PR #972); väntar till nästa release |
 | Länk med år utanför tidslinjen | `#y=-20000&y2=3000` ger ett intervall som inte finns | #976, samma granskning; väntar till nästa release |
 | Datumformat på de, es och fr | "4 Juli 1776" skrivs på svenskt vis | #983; väntar till nästa release |

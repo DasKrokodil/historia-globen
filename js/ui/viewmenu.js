@@ -35,6 +35,13 @@ export class ViewMenu {
     }
     narrow.addEventListener('change', () => { this.set(false); this.place(); });
     this.place();
+    // Surfplattans årtalsblock ligger under knappradens verkliga höjd (#992), även efter radbrytning och fontladdning.
+    const masthead = this.root.parentElement.querySelector('.masthead');
+    if (masthead) {
+      const reserve = () => masthead.style.setProperty('--tablet-actions-height', `${this.root.getBoundingClientRect().height}px`);
+      new ResizeObserver(reserve).observe(this.root);
+      reserve();
+    }
   }
 
   get isOpen() { return this.root.classList.contains('more-open'); }
