@@ -232,11 +232,25 @@ export function parseYearInput(text, defaultEra = 'ce', now = new Date()) {
 }
 
 const MONTHS = ui('time.months'); // januari … december på valt språk
+// Engelskan behåller dag–månad–år. Intl ger språkets skiljetecken och ordning; månad och år kommer från vår modell.
+const calendarDate = new Intl.DateTimeFormat(LANG === 'en' ? 'en-GB' : LANG, {
+  day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
+});
+function formatCalendarDate(year, month, day, yearText) {
+  const date = new Date(0);
+  date.setUTCFullYear(year, month - 1, day); // Date.UTC behandlar annars år 0–99 som 1900–1999
+  return calendarDate.formatToParts(date).map(part => {
+    if (part.type === 'month') return MONTHS[month - 1];
+    if (part.type === 'year') return yearText;
+    return part.value;
+  }).join('');
+}
 
 /** Datum ur data ("2026-10-30") som text: "30 oktober 2026". */
 export function formatDate(iso) {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
-  return m ? `${Number(m[3])} ${MONTHS[Number(m[2]) - 1]} ${m[1]}` : (iso || '');
+  return m && isValidDate(Number(m[1]), Number(m[2]), Number(m[3]))
+    ? formatCalendarDate(Number(m[1]), Number(m[2]), Number(m[3]), m[1]) : (iso || '');
 }
 
 /** Tid för en händelse enligt dess precision och EDTF-markering. */
@@ -245,8 +259,8 @@ export function formatEventTime(e) {
   if (e.ongoing) return ui('time.ongoing', { start: formatYear(e.start) }); // pågående krig (#223)
   const approx = edtf.includes('~') ? ui('time.approx') : '';
   const day = /^(-?\d{4})-(\d{2})-(\d{2})$/.exec(edtf);
-  if (day && e.start === e.end) {
-    return `${Number(day[3])} ${MONTHS[Number(day[2]) - 1]} ${formatYear(e.start)}`;
+  if (day && e.start === e.end && isValidDate(Number(day[1]), Number(day[2]), Number(day[3]))) {
+    return formatCalendarDate(Number(day[1]), Number(day[2]), Number(day[3]), formatYear(e.start));
   }
   if (edtf.endsWith('/..')) return ui('time.since', { start: formatYear(e.start) });
   if (edtf.startsWith('../')) return ui('time.until', { end: approx + formatYear(e.end) });
