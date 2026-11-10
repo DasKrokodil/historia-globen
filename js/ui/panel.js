@@ -4,6 +4,7 @@ import { buildAreaCurve } from './areacurve.js';
 import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, isVisibleReview, needDetails, misconceptionsFor } from '../model.js';
 import { ui, LANG } from '../i18n.js';
 import { MIN_YEAR } from '../timeline.js';
+import { eventCitation } from './citation.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 // Gränssnittets texter hämtas med ui() ur data/ui/<språk>.json (#670). Ett antal [en, flera] väljs med plural().
@@ -722,6 +723,7 @@ export class Panel {
       ${(() => { const h = this.huntFor?.(e); return h ? `<button type="button" class="chip-btn hunt-add" data-hunt${h.disabled ? ' disabled' : ''}>${esc(h.label)}</button>` : ''; })()}
       <div class="detail-actions">
         ${reviewRow(e.review, 'Händelsen')}
+        ${loading ? '' : `<button type="button" class="link-btn" data-citation>${esc(ui('citation.copy'))}</button><span data-citation-status role="status" aria-live="polite"></span>`}
         ${this.onReport ? reportBtn({ type: 'event', id: e.id, label: t(e.title) }) : ''}
       </div>`;
     for (const tag of keepOpen) this.detail.querySelector(`details.tag-mark[data-tag="${CSS.escape(tag)}"]`)?.setAttribute('open', '');
@@ -744,6 +746,17 @@ export class Panel {
       row?.focus({ preventScroll: true });
     });
     this.detail.querySelector('[data-tour]')?.addEventListener('click', ev => this.onTour?.(ev.currentTarget.dataset.tour, ev.currentTarget));
+    this.detail.querySelector('[data-citation]')?.addEventListener('click', async () => {
+      const status = this.detail.querySelector('[data-citation-status]');
+      const citation = eventCitation(e, srcs);
+      try {
+        await navigator.clipboard.writeText(citation);
+        if (status) status.textContent = ui('citation.copied');
+      } catch {
+        if (status) status.textContent = ui('citation.manual');
+        window.prompt(ui('citation.prompt'), citation);
+      }
+    });
     this.bindReport(e.start);
     this.bindLinks();
     this.bindReviewInfo();

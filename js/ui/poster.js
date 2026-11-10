@@ -3,6 +3,7 @@
 
 import { formatEventTime, formatYear, t } from '../model.js';
 import { selectEventsForYear } from '../date-events.js';
+import { posterCitation } from './citation.js';
 
 const WIDTH = 3508;  // A4 liggande, 300 dpi
 const HEIGHT = 2480;
@@ -31,8 +32,21 @@ function drawText(ctx, text, x, y, size, weight = '400', align = 'left') {
   ctx.fillText(text, x, y);
 }
 
+function drawWrappedText(ctx, text, x, y, width, size, lineHeight) {
+  const words = text.split(/\s+/);
+  const lines = [];
+  let line = '';
+  for (const word of words) {
+    const next = line ? `${line} ${word}` : word;
+    if (line && ctx.measureText(next).width > width) { lines.push(line); line = word; } else line = next;
+  }
+  if (line) lines.push(line);
+  lines.forEach((row, index) => drawText(ctx, row, x, y + index * lineHeight, size));
+  return lines.length;
+}
+
 /** Skapar affischbilden, men laddar inte ned den. Exporteras för att kunna testas utan DOM-etiketter. */
-export function createPoster({ baseCanvas, overlayCanvas, year, events, labels }) {
+export function createPoster({ baseCanvas, overlayCanvas, year, events, labels, srcById = {} }) {
   const canvas = document.createElement('canvas');
   canvas.width = WIDTH; canvas.height = HEIGHT;
   const ctx = canvas.getContext('2d');
@@ -58,7 +72,7 @@ export function createPoster({ baseCanvas, overlayCanvas, year, events, labels }
   const listTop = y + 70;
   const columnCount = listed.length > 4 ? 2 : 1;
   const rows = Math.max(1, Math.ceil(listed.length / columnCount));
-  const listBottom = HEIGHT - 142;
+  const listBottom = HEIGHT - 230;
   const rowHeight = Math.floor((listBottom - listTop) / rows);
   const columnWidth = (WIDTH - MARGIN * 2) / columnCount;
   ctx.fillStyle = COLORS.text;
@@ -74,10 +88,13 @@ export function createPoster({ baseCanvas, overlayCanvas, year, events, labels }
   }
   if (!listed.length) drawText(ctx, t(labels.empty), MARGIN, listTop + 48, 48);
 
+  ctx.fillStyle = COLORS.muted;
+  ctx.font = `400 18px Instrument Sans, sans-serif`;
+  const citationLines = drawWrappedText(ctx, posterCitation(listed, srcById), MARGIN, HEIGHT - 174, WIDTH - MARGIN * 2, 18, 24);
+  const divider = HEIGHT - 174 + citationLines * 24 + 16;
   ctx.strokeStyle = COLORS.line;
   ctx.lineWidth = 2;
-  ctx.beginPath(); ctx.moveTo(MARGIN, HEIGHT - 82); ctx.lineTo(WIDTH - MARGIN, HEIGHT - 82); ctx.stroke();
-  ctx.fillStyle = COLORS.muted;
+  ctx.beginPath(); ctx.moveTo(MARGIN, divider); ctx.lineTo(WIDTH - MARGIN, divider); ctx.stroke();
   drawText(ctx, t(labels.sources), MARGIN, HEIGHT - 42, 22);
   drawText(ctx, t(labels.website), WIDTH / 2, HEIGHT - 42, 22, '400', 'center');
   drawText(ctx, t(labels.license), WIDTH - MARGIN, HEIGHT - 42, 22, '400', 'right');
