@@ -34,6 +34,14 @@
   --z-poppa: 20;           /* årtalshoppets ruta under tidsreglaget */
   --z-ark: 20;             /* helsidesark: Om källorna */
   --z-dialog: 50;          /* modala dialoger: introduktionen och quizet, överst av allt */
+  /* Kartans ytor (#894, steg 3), i stigande ordning inom appens staplingskontext.
+     Fliken och klickrutorna har samma nivå men olika ansvar; lokala lager inuti ytorna lämnas kvar. */
+  --z-kartforklaring: 5;  /* religionernas och rikenas teckenförklaring */
+  --z-tipp: 11;           /* ledtext vid hovring över kartan */
+  --z-kortflik: 12;       /* Samtidigt-kortets hopfällda flik */
+  --z-kartruta: 12;       /* klickrutor för religioner samt vägar och resor */
+  --z-tidslinje: 13;      /* tidsreglaget, över kartans klickrutor */
+  --z-fokus: 14;          /* fokusfältet, över tidsreglaget */
   --print-ink: #111;       /* utskriften av en lektionstur (#738): svart text på vitt papper */
   --print-paper: #fff;
   --print-line: #666;      /* skrivrader och avdelare på papperet */
@@ -708,7 +716,7 @@ body {
 .ff-year { font: 500 11px/1 var(--f-mono); color: #6b5a3a; }
 .ff-handle { display: none; } /* handtaget finns bara i smal skärm (#239) */
 .ff-tab {
-  position: absolute; z-index: 12;
+  position: absolute; z-index: var(--z-kortflik);
   left: var(--gut); bottom: 140px;
   font: 500 13px/1 var(--f-body); color: #22190c;
   background: var(--parchment); border: 0; border-radius: 999px;
@@ -998,7 +1006,7 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 /* ---------- tidslinjen ---------- */
 .timebar {
   position: absolute;
-  z-index: 13; left: 0; right: 0; bottom: 0;
+  z-index: var(--z-tidslinje); left: 0; right: 0; bottom: 0;
   padding: 10px var(--gut-r) calc(env(safe-area-inset-bottom, 0px) + 12px) var(--gut);
   background: linear-gradient(to top, var(--night) 55%, transparent);
 }
@@ -1323,7 +1331,7 @@ details.used-by summary:hover { color: var(--parchment); }
   .pause-next:not([hidden]) { display: block; flex: 1 1 0; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 }
 .focus-bar {
-  position: absolute; z-index: 14;
+  position: absolute; z-index: var(--z-fokus);
   left: 50%; transform: translateX(-50%);
   bottom: 118px;
   display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center;
@@ -1610,7 +1618,7 @@ details.used-by summary:hover { color: var(--parchment); }
 /* Uppe till vänster under rubriken (legend.js lägger top och begränsar listans höjd), så att den aldrig hamnar
    på Samtidigt-kortet nere till vänster eller faktarutan till höger (#193). */
 .religion-legend {
-  position: absolute; left: var(--gut); top: 140px; z-index: 5; max-width: 230px; box-sizing: border-box;
+  position: absolute; left: var(--gut); top: 140px; z-index: var(--z-kartforklaring); max-width: 230px; box-sizing: border-box;
   background: color-mix(in srgb, var(--night-2) 88%, transparent); border: 1px solid var(--line);
   border-radius: var(--r); padding: 4px 10px 6px; font: 400 12px/1.35 var(--f-body);
 }
@@ -1671,7 +1679,7 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-legend:has(.rl-disc) { max-width: 260px; }
 .layer-sub .rel-about { display: block; margin: 6px 10px 2px; padding: 4px 10px; border-color: var(--brass-deep); }
 .religion-pop {
-  position: absolute; z-index: 12; width: min(260px, calc(100% - 16px)); box-sizing: border-box;
+  position: absolute; z-index: var(--z-kartruta); width: min(260px, calc(100% - 16px)); box-sizing: border-box;
   background: var(--night-2); border: 1px solid var(--brass-deep); border-radius: var(--r);
   padding: 10px 34px 10px 12px; font: 400 13px/1.4 var(--f-body); box-shadow: 0 6px 24px rgba(0, 0, 0, .5);
 }
@@ -1830,7 +1838,7 @@ details.used-by summary:hover { color: var(--parchment); }
   .empire-legend .el-close { top: 0; min-width: 36px; min-height: 36px; }
 }
 .religion-tip {
-  position: absolute; z-index: 11; display: flex; align-items: center; gap: 6px; max-width: 240px; pointer-events: none;
+  position: absolute; z-index: var(--z-tipp); display: flex; align-items: center; gap: 6px; max-width: 240px; pointer-events: none;
   background: color-mix(in srgb, var(--night-2) 94%, transparent); border: 1px solid var(--brass-deep); border-radius: 8px;
   padding: 4px 9px; font: 400 13px/1.25 var(--f-body); box-shadow: 0 4px 14px rgba(0, 0, 0, .45);
 }
