@@ -5,7 +5,7 @@
 // lagerbilden av AreasLayer.drawOverlay (beslut 1); 3D-markören täcker den. Pekar man på markören visas rikets namn,
 // och klick öppnar rikets faktaruta. En osynlig knapp ligger över markören, så att den går att nå med tangentbordet.
 import { THREE, latLonToVec3, R } from '../globe.js';
-import { medalTexture } from './events.js';
+import { medalTexture, flagTexture } from './events.js';
 import { frameMedals } from './origins.js';
 
 const INFO = { when: 'now', major: false, unsure: false };
@@ -28,6 +28,13 @@ export class EmpireMarkers {
     for (const m of show ? marks : []) {
       now.add(m.key);
       const it = this.items.get(m.key) ?? this._make(m);
+      const visual = `${m.kind}:${m.symbol}`;
+      if (it.visual !== visual) {
+        it.sprite.material.map = m.kind === 'flag' ? flagTexture(m.symbol) : medalTexture(m.symbol, m.color, INFO, false);
+        it.sprite.material.needsUpdate = true;
+        it.visual = visual;
+        it.button.setAttribute('aria-label', `${m.name}: rikets ${m.kind === 'flag' ? 'flagga' : 'symbol'}. Öppnar faktarutan om riket.`);
+      }
       it.mark = m;
       if (it.lon !== m.lon || it.lat !== m.lat) {
         it.sprite.position.copy(latLonToVec3(m.lat, m.lon, R * 1.014));
@@ -40,14 +47,14 @@ export class EmpireMarkers {
 
   _make(m) {
     const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ transparent: true, depthWrite: false,
-      map: medalTexture(m.symbol, m.color, INFO, false) }));
+      map: m.kind === 'flag' ? flagTexture(m.symbol) : medalTexture(m.symbol, m.color, INFO, false) }));
     sprite.renderOrder = 2; // ovanpå händelsernas medaljer
     this.globe.markerGroup.add(sprite);
     const button = document.createElement('button');
     button.type = 'button'; button.className = 'gorigin gempire'; button.hidden = true;
-    button.setAttribute('aria-label', `${m.name}: rikets symbol. Öppnar faktarutan om riket.`);
+    button.setAttribute('aria-label', `${m.name}: rikets ${m.kind === 'flag' ? 'flagga' : 'symbol'}. Öppnar faktarutan om riket.`);
     button.title = `${m.name}. Klicka för att läsa mer.`;
-    const it = { sprite, button, mark: m, lon: null, lat: null };
+    const it = { sprite, button, mark: m, visual: `${m.kind}:${m.symbol}`, lon: null, lat: null };
     button.addEventListener('click', () => this.onPick(it.mark));
     this.labelsEl.append(button);
     this.items.set(m.key, it);

@@ -261,7 +261,7 @@ religions = load('data/religions.json') if (DIST / 'data/religions.json').is_fil
 for r in (religions or {}).get('religions', []):
     if r.get('symbol'):
         icons.setdefault(r['symbol'], f"data/religions.json ({r['id']}, symbol)")
-# Rikenas symboler (#301): symbol i varje grupp och i polityFacts i data/empires/index.json
+# Rikenas symboler (#301) och tidsstyrda flaggor (#462).
 empires_idx = load('data/empires/index.json') if (DIST / 'data/empires/index.json').is_file() else None
 for g in (empires_idx or {}).get('groups', []):
     if g.get('symbol'):
@@ -269,6 +269,8 @@ for g in (empires_idx or {}).get('groups', []):
     for pid, pf in (g.get('polityFacts') or {}).items():
         if pf.get('symbol'):
             icons.setdefault(pf['symbol'], f"data/empires/index.json ({g['id']}, polityFacts.{pid}.symbol)")
+    for fl in g.get('flags', []):
+        exists(f"img/flags/{fl.get('file', '')}.svg", f"flaggan {fl.get('file', '')} (data/empires/index.json, {g['id']})")
 for name, by in sorted(icons.items()):
     exists(f'img/icons/{name}.svg', f'ikonen {name} ({by})')
 # Upptäcktsvyns bilder (#101)

@@ -8,7 +8,7 @@
 // det året (areaKm2), och namn och medaljer som skulle täcka varandra eller de viktigaste händelserna flyttas undan
 // eller döljs (_layout). Riket man följer i Fokus visas alltid.
 import { t, isVisibleReview, loadEmpire } from '../model.js';
-import { glyph } from './events.js';
+import { glyph, flag, drawFlag } from './events.js';
 import { drawMedal, ORIGIN_R } from './religions.js';
 import { softEdge, influenceAt, drawInfluence } from './area-style.js';
 import { AreaTransition, MAX_JUMP_YEARS } from './area-transition.js';
@@ -27,14 +27,16 @@ export function entry({ globe, data, labelsEl, refreshSoon, showEmpireFacts }) {
   const layer = new AreasLayer();
   layer.setPoints(data.empireGroups); // försvunna länder utan gräns, som en punkt (#72)
   layer.setCapitals(data.empireGroups); // huvudstäder med årsspann (#474), syns när man följer ett rike
-  // Symbol i gruppen i empires/index.json, eller polityFacts.<rike>.symbol för ett rike i gruppen med egen
-  // faktaruta (Bysantinska riket). Medaljen står på rikets label-punkt och öppnar faktarutan.
+  // Flagga som gäller året i empires/index.json går före rikets symbol. Saknas belagd flagga används symbolen,
+  // även för ett rike i gruppen med egen faktaruta (Bysantinska riket).
   const empireById = new Map(data.empireGroups.map(g => [g.id, g]));
-  layer.symbolOf = polity => {
+  layer.markOf = (polity, year) => {
     const g = empireById.get(polity.group);
     const own = g?.polityFacts?.[polity.id];
+    const currentFlag = (own?.flags ?? g?.flags ?? []).find(f => year >= f.from && year <= f.to);
+    if (currentFlag) return { symbol: currentFlag.file, kind: 'flag', color: polity.color, name: t(polity.name), group: g.id, own: !!own?.facts };
     const symbol = own?.symbol ?? g?.symbol;
-    return symbol ? { symbol, color: polity.color, name: t(polity.name), group: g.id, own: !!own?.facts } : null;
+    return symbol ? { symbol, kind: 'symbol', color: polity.color, name: t(polity.name), group: g.id, own: !!own?.facts } : null;
   };
   layer.onGlyph = refreshSoon;
   const marks = new EmpireMarkers(globe, labelsEl);
@@ -89,7 +91,8 @@ export class AreasLayer {
     this.highlight = null; // grupp-id från rikesförklaringen (#437)
     this.labelAlpha = 1; // och hur synliga de är (tonas ut vid kraftig zoom)
     this.labelScale = 1; // namnens storlek relativt grundstorleken (1 = som på platta bilden)
-    this.symbolOf = () => null; // rikets symbol: (polity) → { symbol, color, name, group } eller null (sätts i main.js)
+    this.markOf = () => null; // rikets markör: (polity, year) → { symbol, kind, color, name, group } eller null
+    this.year = 0;
     this.showNames = true; // namnen under symbolerna (false utzoomat på globen, #301)
     this.onGlyph = () => {}; // anropas när en symbol har laddats, så att lagerbilden ritas om
     this.transition = new AreaTransition(); // mjuk övergång när ett område byter period (#78)
@@ -119,6 +122,13 @@ export class AreasLayer {
     const gl = glyph(name);
     if (!gl.ready && !gl._areas) { gl._areas = true; gl.waiting.push(() => this.onGlyph()); }
     return gl.ready ? gl.img : null;
+  }
+
+  _flag(name) {
+    if (!/^[\w-]+$/.test(name ?? '')) return null;
+    const fl = flag(name);
+    if (!fl.ready && !fl._areas) { fl._areas = true; fl.waiting.push(() => this.onGlyph()); }
+    return fl.ready ? fl.img : null;
   }
 
   /**
@@ -188,7 +198,7 @@ export class AreasLayer {
       if (rank >= limit) return; // för litet för den här zoomnivån: bara området syns
       const px = X(period.label[0]), py = Y(period.label[1]);
       const name = t(polity.name), w = measure(name, font);
-      const sym = this.symbolOf(polity);
+      const sym = this.markOf(polity, this.year);
       const d = { px, py, medal: null, star: false, name: null, x: px, y: py, lead: null };
       if (sym) {
         // Medaljen står på label-punkten. Är platsen upptagen flyttas den lite inom området (rutan runt det); ryms den
@@ -321,6 +331,7 @@ export class AreasLayer {
 
   /** Returnerar de riken som finns just det här året. */
   update({ year, smooth = false }) {
+    this.year = year;
     const prev = this.active;
     this.active = [];
     this.activePoints = [];
@@ -432,7 +443,8 @@ export class AreasLayer {
       if (!d) continue;
       ctx.globalAlpha = alpha;
       // Rike med symbol (#301): medaljen på label-punkten
-      if (d.medal) drawMedal(ctx, d.px * k, d.py * k, R, polity.color, this._glyph(d.medal.symbol));
+      if (d.medal?.kind === 'flag') drawFlag(ctx, d.px * k, d.py * k, R, this._flag(d.medal.symbol));
+      else if (d.medal) drawMedal(ctx, d.px * k, d.py * k, R, polity.color, this._glyph(d.medal.symbol));
       // Huvudland (#74) utan symbol: mässingsstjärnan i moderlandet
       if (d.star) star(ctx, d.px * k, d.py * k, 7 * k * this.labelScale);
       ctx.globalAlpha = this.labelAlpha * alpha;

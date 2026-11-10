@@ -33,6 +33,20 @@ export function glyph(name) {
   return gl;
 }
 
+// Flaggor är egna, bredare SVG:er. De laddas separat så att en flagga aldrig av misstag
+// används som en händelseikon. Filerna är projektets förenklade teckningar av belagda flaggor.
+const flags = new Map(); // namn -> { img, ready, waiting: [textur] }
+export function flag(name) {
+  if (flags.has(name)) return flags.get(name);
+  const fl = { img: new Image(), ready: false, waiting: [] };
+  flags.set(name, fl);
+  fetch(`img/flags/${name}.svg`).then(r => r.text()).then(svg => {
+    fl.img.onload = () => { fl.ready = true; for (const w of fl.waiting) w(); fl.waiting = []; };
+    fl.img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+  }).catch(err => console.warn(`Flaggan ${name} kunde inte laddas`, err));
+  return fl;
+}
+
 /** Vyn Översikt (#868) är ingen tagg i datan utan fältet significance: händelserna ur den godkända listan har det satt till 1. */
 export const OVERVIEW_TAG = 'oversikt';
 
@@ -120,6 +134,41 @@ export function medalTexture(icon, color, { when, major, unsure }, full) {
   if (icon && !glyph(icon).ready) glyph(icon).waiting.push(draw);
   medalCache.set(key, tex);
   return tex;
+}
+
+// Rikenas flaggor (#462): en liten rektangel med mörk baksida och tunn mässingsram, inte en medalj.
+// Samma canvas används på klotet och i Platt vy, så att uttrycket är konsekvent i båda projektionerna.
+const flagCache = new Map();
+export function flagTexture(name) {
+  if (flagCache.has(name)) return flagCache.get(name);
+  const c = document.createElement('canvas'); c.width = c.height = 128;
+  const g = c.getContext('2d');
+  const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
+  const draw = () => {
+    g.clearRect(0, 0, 128, 128);
+    const x = 8, y = 31, w = 112, h = 66;
+    g.fillStyle = 'rgba(11,18,25,0.92)';
+    g.fillRect(x - 3, y - 3, w + 6, h + 6);
+    const fl = flag(name);
+    if (fl.ready) g.drawImage(fl.img, x, y, w, h);
+    g.lineWidth = 3; g.strokeStyle = BRASS;
+    g.strokeRect(x - 1.5, y - 1.5, w + 3, h + 3);
+    tex.needsUpdate = true;
+  };
+  draw();
+  if (!flag(name).ready) flag(name).waiting.push(draw);
+  flagCache.set(name, tex);
+  return tex;
+}
+
+/** Ritar samma flagga på områdeslagrets canvas. */
+export function drawFlag(ctx, x, y, r, img) {
+  const w = r * 2.28, h = r * 1.34;
+  ctx.fillStyle = 'rgba(11,18,25,0.92)';
+  ctx.fillRect(x - w / 2 - 1.5, y - h / 2 - 1.5, w + 3, h + 3);
+  if (img) ctx.drawImage(img, x - w / 2, y - h / 2, w, h);
+  ctx.lineWidth = Math.max(1, r * 0.12); ctx.strokeStyle = BRASS;
+  ctx.strokeRect(x - w / 2, y - h / 2, w, h);
 }
 
 /**

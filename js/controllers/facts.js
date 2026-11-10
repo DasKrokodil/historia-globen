@@ -1,6 +1,6 @@
 // Faktarutorna om religioner (#90, #308) och riken (#170, #72, #301), och religionslagrets laddning
 // (#402, del av #389). Uppgifterna står i religions.json och empires/index.json; här väljs bara vad som visas.
-import { loadReligions, loadEmpire, loadEmpireFacts, t, symbolUrl, symbolImg, formatEventTime } from '../model.js';
+import { loadReligions, loadEmpire, loadEmpireFacts, t, symbolUrl, symbolImg, flagImg, formatEventTime } from '../model.js';
 import { ui } from '../i18n.js';
 
 export const formatYearSpan = (a, b) => formatEventTime({ start: a, end: b, edtf: '' });
@@ -85,14 +85,15 @@ export function createFacts(app) {
     // Osäker gräns (#73) gäller gruppen; inflytandet (#75) står per rike, så ett rike med egen ruta (#301) visar bara sitt
     const note = [t(facts.mapNote), own ? '' : t(g.uncertainBorder?.note),
       influenceNote(own ? { influence: g.influence?.filter(a => a.polity === polity.id) } : g)].filter(Boolean).join(' ');
-    const sym = own?.symbol ? { symbol: own.symbol } : g;
+    const flag = (own?.flags ?? g.flags ?? []).find(f => timeline.year >= f.from && timeline.year <= f.to);
+    const sym = flag ? flagImg(flag, 'rel-sym rel-sym-h') : symbolImg(own?.symbol ? { symbol: own.symbol } : g, 'rel-sym rel-sym-h');
     const curveId = own ? `${g.id}:${polity.id}` : g.file ? g.id : '';
     // Rikets krig (#76); ett rike med egen ruta visar krigen under sin egen tid
     const wars = own ? (g._wars ?? []).filter(w => w.end >= from && w.start <= to) : g._wars;
     // Ett försvunnet land (#72) har årtal, föregångare och efterträdare; ett land utan gräns visas som en punkt
     const lineage = g.vanished && !own ? { ...g.vanished, groups: data.empireGroups } : null;
     panel.showFacts({ kind: lineage ? 'vanished' : 'empire', name: t(own ? polity.name : g.name), color: g.color, facts, place, curveId, empireId: own ? null : g.id,
-      symbol: symbolImg(sym, 'rel-sym rel-sym-h'), wars, lineage,
+      symbol: sym, wars, lineage,
       empireMap: !!g.file,
       report: { type: lineage ? 'vanished-country' : 'empire', id: own ? polity.id : g.id, label: t(own ? polity.name : g.name), year: Math.round(timeline.year) },
       mapNote: g.file ? `${ui('facts.mapNote', { source: g.borderSource ?? 'Cliopatria', span: formatYearSpan(from, to) })}${note ? ` ${note}` : ''}` : note });
