@@ -1,7 +1,12 @@
 {"note":"Genereras av tools/dela_data.py ur data/empires/index.json. Redigera inte här, utan i källfilen, och kör skriptet igen.",
 "lang":"fr",
 "groups":{
+"osmanska-riket":{"flags":{"0":{"label":{"fr":"Drapeau ottoman à étoile à huit branches"}},"1":{"label":{"fr":"Drapeau ottoman à étoile et croissant"}}}},
+"brittiska-imperiet":{"flags":{"0":{"label":{"fr":"Drapeau de l'Union britannique"}}}},
 "qingdynastin":{"flags":{"0":{"label":{"fr":"Drapeau au dragon triangulaire des Qing"}},"1":{"label":{"fr":"Drapeau au dragon rectangulaire des Qing"}}}},
+"ryska-imperiet":{"flags":{"0":{"label":{"fr":"Drapeau impérial russe noir-jaune-blanc"}},"1":{"label":{"fr":"Drapeau impérial russe blanc-bleu-rouge"}}}},
+"svenska-stormaktsvaldet":{"flags":{"0":{"label":{"fr":"Drapeau suédois de l'Union"}},"1":{"label":{"fr":"Drapeau suédois bleu et jaune"}}}},
 "franska-kolonialvaldet":{"flags":{"0":{"label":{"fr":"Drapeau royal blanc français"}},"1":{"label":{"fr":"Tricolore français"}}}},
+"tyska-riket":{"flags":{"0":{"label":{"fr":"Drapeau impérial allemand noir-blanc-rouge"}}}},
 "etiopiska-kejsardomet":{"flags":{"0":{"label":{"fr":"Drapeau impérial éthiopien"}},"1":{"label":{"fr":"Drapeau impérial éthiopien"}}}}
 }}
