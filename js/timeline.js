@@ -56,15 +56,15 @@ export function yearsAcross(y, fraction) {
 const SPEEDS = [1, 5, 25, 100];
 // Under 10 år/s visas en decimal, annars heltal, så att knappen blir kort (till exempel "17 år/s" i stället för "17,17 år/s")
 const fmtNum = r => String(r < 10 ? Math.round(r * 10) / 10 : Math.round(r)).replace('.', ',');
-const fmtRate = r => `${fmtNum(r)} år/s`;
+const fmtRate = r => ui('time.rateYears', { rate: fmtNum(r) });
 // I fokusläget för korta krig (#204) räknas farten och stegen i dagar
 const DAYS_PER_YEAR = 365.25;
-const dayUnit = n => (n === '1' ? 'dag' : 'dagar');
+const dayUnit = n => ui('time.dayNames')[n === '1' ? 0 : 1];
 // Spelknappens ikoner: spela, pausa och spela igen (pil runt, #232)
 const ICON_PLAY = 'M4 2.5v11l9-5.5z';
 const ICON_PAUSE = 'M4 2.5h3v11H4zM9 2.5h3v11H9z';
 const ICON_AGAIN = 'M8 2.5V0L4.2 3.6 8 7.2V4.5a3.5 3.5 0 1 1-3.5 3.5h-2A5.5 5.5 0 1 0 8 2.5z';
-const fmtDays = r => { const n = fmtNum(r * DAYS_PER_YEAR); return `${n} ${dayUnit(n)}/s`; };
+const fmtDays = r => { const n = fmtNum(r * DAYS_PER_YEAR); return ui('time.rateDays', { rate: n, unit: dayUnit(n) }); };
 
 const DENSITY_LIMIT = 80; // fler händelsemärken än så blir ett täthetsband i översikten (#1000)
 
@@ -425,17 +425,17 @@ export class Timeline extends EventTarget {
     // Dagar: i smal skärm står bara "d/s" (CSS), så att knappen får plats
     if (fine) {
       const n = fmtNum(r * DAYS_PER_YEAR);
-      this.speedBtn.innerHTML = `${n} <span class="unit-long">${dayUnit(n)}</span><span class="unit-short">d</span>/s`;
+      this.speedBtn.innerHTML = `${n} <span class="unit-long">${dayUnit(n)}</span><span class="unit-short">${ui('time.dayShort')}</span>/s`;
     }
-    this.speedBtn.setAttribute('aria-label', `Uppspelningshastighet: ${t}. Tryck för att byta.`);
-    this.speedBtn.title = `Uppspelningshastighet: ${t} (så många ${fine ? 'dagar' : 'år'} av historien går varje sekund). Tryck för att byta.`;
+    this.speedBtn.setAttribute('aria-label', ui('time.speedLabel', { rate: t }));
+    this.speedBtn.title = ui('time.speedHelp', { rate: t, unit: ui(fine ? 'time.dayNames' : 'time.yearNames')[1] });
   }
   /** Stegknapparnas namn: år, eller dagar i fokusläget för korta krig. */
   _labelSteps() {
     for (const b of this.stepBtns) {
       const n = Number(b.dataset.step), a = Math.abs(n);
-      const unit = this.focus?.fine ? (a === 1 ? 'dag' : 'dagar') : 'år';
-      b.setAttribute('aria-label', `${a} ${unit} ${n < 0 ? 'bakåt' : 'framåt'}`);
+      const unit = ui(this.focus?.fine ? 'time.dayNames' : 'time.yearNames')[a === 1 ? 0 : 1];
+      b.setAttribute('aria-label', ui('time.step', { n: a, unit, direction: ui(n < 0 ? 'time.backward' : 'time.forward') }));
       b.title = b.getAttribute('aria-label');
     }
   }
@@ -447,11 +447,11 @@ export class Timeline extends EventTarget {
    *  eller "Spela upp tiden". Knappen i pausraden byter text på samma sätt. */
   _labelPlay() {
     const again = this.atEnd;
-    const t = this.playing ? 'Pausa' : again ? 'Spela igen' : this._resume ? 'Fortsätt' : 'Spela upp tiden';
+    const t = ui(this.playing ? 'time.pause' : again ? 'time.replay' : this._resume ? 'time.resume' : 'time.play');
     this.playIcon.setAttribute('d', this.playing ? ICON_PAUSE : again ? ICON_AGAIN : ICON_PLAY);
     this.playBtn.setAttribute('aria-label', t);
     this.playBtn.title = t;
-    if (this.pauseGo) this.pauseGo.textContent = again ? '\u21BB Spela igen' : '\u25B6 Fortsätt';
+    if (this.pauseGo) this.pauseGo.textContent = `${again ? '\u21BB' : '\u25B6'} ${ui(again ? 'time.replay' : 'time.resume')}`;
     this.dispatchEvent(new CustomEvent('playstate'));
   }
   /** Läs om knappens läge, till exempel när slutkortet har visats utan att året ändrades. */
@@ -543,7 +543,7 @@ export class Timeline extends EventTarget {
 
 /** "Hoppa till år": tryck på årtalet, skriv ett år (med f.Kr./e.Kr.) eller ett datum (#140, #551).
  *  Raderna i datumresultatet är knappar som stänger årshoppet och öppnar händelsen (`onSelect(id)`, #590). */
-export function setupYearJump(timeline, { button, pop, input, msg, epochs, events = [], copy = {}, onJump, onSelect }) {
+export function setupYearJump(timeline, { button, pop, input, msg, epochs, events = [], onJump, onSelect }) {
   const result = pop.querySelector('#jump-date-result');
   const summary = pop.querySelector('#jump-date-summary');
   const list = pop.querySelector('#jump-date-events');
@@ -569,7 +569,7 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
     timeline.year = y;
     // I fokusläget för korta krig hamnar ett år inom kriget på krigets första dag det året (#204)
     if (Math.floor(timeline.year) !== y) { // fokusläget håller året inom spannet
-      msg.textContent = `Året ligger utanför det du följer nu (${timeline.format(timeline.focus.from)}–${timeline.format(timeline.focus.to)}).`;
+      msg.textContent = ui('jump.outsideFocus', { from: timeline.format(timeline.focus.from), to: timeline.format(timeline.focus.to) });
       return;
     }
     close(); button.focus();
@@ -577,10 +577,9 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
   };
   const showDateResult = (date, year, found) => {
     if (!result || !summary || !list) return;
-    const { yearResult, dateResult, empty, more } = copy;
-    const template = date ? t(dateResult) : t(yearResult);
-    // Datumet på svenska, "26 april 1986", som i resten av sidan (#590)
-    summary.textContent = template.replace('{date}', date ? formatDate(date) : '').replace('{year}', formatYear(year)).replace('{count}', String(found.length));
+    summary.textContent = ui(date ? 'jump.dateResult' : 'jump.yearResult', {
+      date: date ? formatDate(date) : '', year: formatYear(year), count: found.length,
+    });
     list.replaceChildren(...found.slice(0, 5).map(event => {
       const item = document.createElement('li');
       if (!onSelect) { item.textContent = t(event.title); return item; }
@@ -594,11 +593,11 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
     }));
     if (!found.length) {
       const item = document.createElement('li');
-      item.textContent = t(empty);
+      item.textContent = ui('jump.empty');
       list.append(item);
     } else if (found.length > 5) {
       const item = document.createElement('li');
-      item.textContent = t(more).replace('{count}', String(5));
+      item.textContent = ui('jump.more', { count: 5 });
       list.append(item);
     }
     result.hidden = false;
@@ -632,13 +631,13 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
     const parsed = parseYearInput(input.value, era === 'bce' ? 'bce' : 'ce');
     if (parsed.type === 'invalid') { clearResult(); msg.textContent = parsed.error; return; }
     const y = parsed.year;
-    if (y < MIN_YEAR || y > MAX_YEAR) { clearResult(); msg.textContent = `Välj ett år mellan ${formatYear(MIN_YEAR)} och ${formatYear(MAX_YEAR)}.`; return; }
+    if (y < MIN_YEAR || y > MAX_YEAR) { clearResult(); msg.textContent = ui('jump.outsideBounds', { from: formatYear(MIN_YEAR), to: formatYear(MAX_YEAR) }); return; }
     if (parsed.type === 'date') {
       // Under en lektion (#795) gäller låset även datum: ett datum utanför intervallet avvisas som ett år gör
       const f = timeline.focus;
       if (timeline.focusLocked && f && (y < f.from || y > f.to)) {
         clearResult();
-        msg.textContent = `Året ligger utanför det du följer nu (${timeline.format(f.from)}–${timeline.format(f.to)}).`;
+        msg.textContent = ui('jump.outsideFocus', { from: timeline.format(f.from), to: timeline.format(f.to) });
         return;
       }
       const visible = events.filter(event => isVisibleReview(event.review));
@@ -649,7 +648,7 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
       showDateResult(parsed.date, y, found);
       onJump?.(y);
       if (Math.floor(timeline.year) !== y) {
-        msg.textContent = `Året ligger utanför det du följer nu (${timeline.format(timeline.focus.from)}–${timeline.format(timeline.focus.to)}).`;
+        msg.textContent = ui('jump.outsideFocus', { from: timeline.format(timeline.focus.from), to: timeline.format(timeline.focus.to) });
         return;
       }
       return;
