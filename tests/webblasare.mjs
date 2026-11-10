@@ -2007,6 +2007,22 @@ async function run(browser, vp) {
     if ((await toggle.textContent()).trim() !== 'Upptäcktsvy') throw new Error('upptäcktsvyn saknar sin datahämtade rubrik');
     if (await body.isHidden()) await toggle.click();
     await visible('#religion-legend #rl-body');
+    const coverage = page.locator('#religion-legend .rl-coverage');
+    await coverage.waitFor({ state: 'visible', timeout: T.step });
+    const jump = async value => {
+      if (await page.isHidden('#jump-input')) await page.click('#year-jump');
+      await page.fill('#jump-input', value);
+      await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
+      await page.waitForFunction(want => document.querySelector('#year-big')?.textContent.trim() === want, value, { timeout: T.step });
+      await coverage.waitFor({ state: 'visible', timeout: T.step });
+    };
+    await jump('1500');
+    const earlyCoverage = (await coverage.textContent()).trim();
+    if (!/\d+ %/.test(earlyCoverage)) throw new Error(`mätaren saknar avrundad procent: ${earlyCoverage}`);
+    await jump('1900');
+    await page.waitForFunction(before => document.querySelector('#religion-legend .rl-coverage')?.textContent.trim() !== before, earlyCoverage, { timeout: T.step });
+    const note = await page.textContent('#religion-legend .rl-coverage-note');
+    if (!/inte vad människor faktiskt kände till/.test(note ?? '')) throw new Error('mätaren förklarar inte sin begränsning');
     await toggle.click();
     await hidden('#religion-legend #rl-body');
     if (await page.evaluate(() => sessionStorage.getItem('hg-discovery-legend-open')) !== '0') {

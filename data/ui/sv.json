@@ -157,6 +157,8 @@
   "layer.imagesNote": "NASA Black Marble från 2016",
   "layer.discovery": "Upptäcktsresor",
   "layer.discoveryNote": "gammal kartstil med segelskepp, havsmonster och dimma som resorna lyfter",
+  "discovery.coverage": "Andel av jordens yta som resorna och rikena i vår data har nått: {percent} %",
+  "discovery.coverageNote": "Följer den synliga dimman och visar inte vad människor faktiskt kände till. Datan är ännu ofullständig.",
   "layer.keep": "Behåll mina lager i fokus",
   "layer.keepNote": "annars dämpas riken och religioner som inte hör till det man följer",
   "layer.factsAbout": "Fakta om {name}",
