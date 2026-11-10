@@ -1,7 +1,12 @@
 {"note":"Genereras av tools/dela_data.py ur data/empires/index.json. Redigera inte här, utan i källfilen, och kör skriptet igen.",
 "lang":"es",
 "groups":{
+"osmanska-riket":{"flags":{"0":{"label":{"es":"Bandera otomana de estrella de ocho puntas"}},"1":{"label":{"es":"Bandera otomana de estrella y media luna"}}}},
+"brittiska-imperiet":{"flags":{"0":{"label":{"es":"Bandera de la Unión Británica"}}}},
 "qingdynastin":{"flags":{"0":{"label":{"es":"Bandera de dragón triangular de la dinastía Qing"}},"1":{"label":{"es":"Bandera de dragón rectangular de la dinastía Qing"}}}},
+"ryska-imperiet":{"flags":{"0":{"label":{"es":"Bandera imperial rusa negra, amarilla y blanca"}},"1":{"label":{"es":"Bandera imperial rusa blanca, azul y roja"}}}},
+"svenska-stormaktsvaldet":{"flags":{"0":{"label":{"es":"Bandera sueca de la Unión"}},"1":{"label":{"es":"Bandera sueca azul y amarilla"}}}},
 "franska-kolonialvaldet":{"flags":{"0":{"label":{"es":"Bandera real blanca francesa"}},"1":{"label":{"es":"Tricolor francés"}}}},
+"tyska-riket":{"flags":{"0":{"label":{"es":"Bandera imperial alemana negra, blanca y roja"}}}},
 "etiopiska-kejsardomet":{"flags":{"0":{"label":{"es":"Bandera imperial etíope"}},"1":{"label":{"es":"Bandera imperial etíope"}}}}
 }}

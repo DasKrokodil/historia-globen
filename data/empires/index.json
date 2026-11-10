@@ -2271,6 +2271,10 @@
     ],
     "review": "source-checked"
    },
+   "flags": [
+    { "file": "ottoman-eight-point-star", "from": 1793, "to": 1843, "label": { "sv": "Osmanska rikets åttuddiga stjärnflagga", "en": "Ottoman eight-pointed-star flag", "de": "Osmanische Flagge mit achtzackigem Stern", "es": "Bandera otomana de estrella de ocho puntas", "fr": "Drapeau ottoman à étoile à huit branches" }, "sources": ["wp-flags-ottoman-empire"], "review": "source-checked" },
+    { "file": "ottoman-five-point-star", "from": 1844, "to": 1922, "label": { "sv": "Osmanska rikets stjärn- och halvmåneflagga", "en": "Ottoman star-and-crescent flag", "de": "Osmanische Stern-und-Mondsichel-Flagge", "es": "Bandera otomana de estrella y media luna", "fr": "Drapeau ottoman à étoile et croissant" }, "sources": ["wp-flags-ottoman-empire"], "review": "source-checked" }
+   ],
    "symbol": "tughra",
    "capitals": [
     {
@@ -3071,6 +3075,9 @@
     ],
     "review": "source-checked"
    },
+   "flags": [
+    { "file": "britain-union-flag", "from": 1801, "to": 1999, "label": { "sv": "Storbritanniens unionsflagga", "en": "British Union Flag", "de": "Britische Unionsflagge", "es": "Bandera de la Unión Británica", "fr": "Drapeau de l'Union britannique" }, "sources": ["wp-list-uk-flags"], "review": "source-checked" }
+   ],
    "symbol": "imperial-crown",
    "capitals": [
     {
@@ -11932,6 +11939,10 @@
     ],
     "review": "two-sources"
    },
+   "flags": [
+    { "file": "russia-black-yellow-white", "from": 1858, "to": 1895, "label": { "sv": "Ryska imperiets svart-gul-vita flagga", "en": "Russian imperial black-yellow-white flag", "de": "Schwarz-gelb-weiße Flagge des Russischen Reiches", "es": "Bandera imperial rusa negra, amarilla y blanca", "fr": "Drapeau impérial russe noir-jaune-blanc" }, "sources": ["wp-black-yellow-white-russia"], "review": "source-checked" },
+    { "file": "russia-white-blue-red", "from": 1896, "to": 1916, "label": { "sv": "Ryska imperiets vit-blå-röda flagga", "en": "Russian imperial white-blue-red flag", "de": "Weiß-blau-rote Flagge des Russischen Reiches", "es": "Bandera imperial rusa blanca, azul y roja", "fr": "Drapeau impérial russe blanc-bleu-rouge" }, "sources": ["wp-flag-russia"], "review": "source-checked" }
+   ],
    "symbol": "double-eagle",
    "capitals": [
     {
@@ -12474,6 +12485,10 @@
     ],
     "review": "two-sources"
    },
+   "flags": [
+    { "file": "sweden-union-badge", "from": 1844, "to": 1905, "label": { "sv": "Sveriges unionsflagga", "en": "Swedish union flag", "de": "Schwedische Unionsflagge", "es": "Bandera sueca de la Unión", "fr": "Drapeau suédois de l'Union" }, "sources": ["wp-list-flags-sweden"], "review": "source-checked" },
+    { "file": "sweden-blue-yellow", "from": 1906, "to": 2024, "label": { "sv": "Sveriges blågula flagga", "en": "Swedish blue-and-yellow flag", "de": "Schwedische blau-gelbe Flagge", "es": "Bandera sueca azul y amarilla", "fr": "Drapeau suédois bleu et jaune" }, "sources": ["wp-list-flags-sweden"], "review": "source-checked" }
+   ],
    "symbol": "three-crowns",
    "capitals": [
     {
@@ -13981,6 +13996,9 @@
     ],
     "review": "source-checked"
    },
+   "flags": [
+    { "file": "german-empire-tricolour", "from": 1871, "to": 1918, "label": { "sv": "Tyska rikets svart-vit-röda flagga", "en": "German imperial black-white-red flag", "de": "Schwarz-weiß-rote Flagge des Deutschen Reiches", "es": "Bandera imperial alemana negra, blanca y roja", "fr": "Drapeau impérial allemand noir-blanc-rouge" }, "sources": ["wp-flags-german-empire"], "review": "source-checked" }
+   ],
    "symbol": "heraldic-eagle",
    "capitals": [
     {

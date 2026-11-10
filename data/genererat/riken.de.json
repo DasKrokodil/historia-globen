@@ -1,7 +1,12 @@
 {"note":"Genereras av tools/dela_data.py ur data/empires/index.json. Redigera inte här, utan i källfilen, och kör skriptet igen.",
 "lang":"de",
 "groups":{
+"osmanska-riket":{"flags":{"0":{"label":{"de":"Osmanische Flagge mit achtzackigem Stern"}},"1":{"label":{"de":"Osmanische Stern-und-Mondsichel-Flagge"}}}},
+"brittiska-imperiet":{"flags":{"0":{"label":{"de":"Britische Unionsflagge"}}}},
 "qingdynastin":{"flags":{"0":{"label":{"de":"Dreieckige Drachenflagge der Qing"}},"1":{"label":{"de":"Rechteckige Drachenflagge der Qing"}}}},
+"ryska-imperiet":{"flags":{"0":{"label":{"de":"Schwarz-gelb-weiße Flagge des Russischen Reiches"}},"1":{"label":{"de":"Weiß-blau-rote Flagge des Russischen Reiches"}}}},
+"svenska-stormaktsvaldet":{"flags":{"0":{"label":{"de":"Schwedische Unionsflagge"}},"1":{"label":{"de":"Schwedische blau-gelbe Flagge"}}}},
 "franska-kolonialvaldet":{"flags":{"0":{"label":{"de":"Französische königlich-weiße Flagge"}},"1":{"label":{"de":"Französische Trikolore"}}}},
+"tyska-riket":{"flags":{"0":{"label":{"de":"Schwarz-weiß-rote Flagge des Deutschen Reiches"}}}},
 "etiopiska-kejsardomet":{"flags":{"0":{"label":{"de":"Kaiserliche Flagge Äthiopiens"}},"1":{"label":{"de":"Kaiserliche Flagge Äthiopiens"}}}}
 }}
