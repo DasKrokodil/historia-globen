@@ -5,7 +5,7 @@
 import { loadAll, loadAllEventDetails, loadReligionPolities, loadRoutes, loadSources, t, formatYear, formatEventTime, isVisibleReview, CAT } from './model.js';
 import { buildIndex, search as searchIndex } from './search-index.js';
 import { placeSuggestions, eventsNear, RADIUS_KM } from './place-search.js';
-import { applyStatic, setupLangPicker, takeReturnYear, LANG_INFO } from './i18n.js';
+import { applyStatic, setupLangPicker, takeReturnYear, LANG_INFO, ui } from './i18n.js';
 import { Globe } from './globe.js';
 import { Timeline, setupYearJump } from './timeline.js';
 import { LAYERS } from './layers/index.js';
@@ -97,9 +97,9 @@ async function start() {
   const posterButton = $('flat-poster');
   posterButton.hidden = !poster;
   if (poster) {
-    posterButton.textContent = t(poster.button);
-    posterButton.title = t(poster.button);
-    posterButton.setAttribute('aria-label', t(poster.button));
+    posterButton.textContent = ui('poster.button');
+    posterButton.title = ui('poster.button');
+    posterButton.setAttribute('aria-label', ui('poster.button'));
   }
 
   // Det gemensamma tillståndet och lagerregistret (#338)
@@ -141,7 +141,7 @@ async function start() {
   const detailSheet = new Sheet($('detail'));
   new ViewMenu({ toggle: $('more-toggle'), menu: $('more-menu'), keep: $('btn-panel'), label: t(views?.menu?.label) });
   new ExtraMenu({ toggle: $('btn-more'), menu: $('extra-menu') });
-  const sources = new SourcesDialog({ root: $('sources-dialog'), body: $('sources-body'), close: $('sources-close'), openBtn: $('btn-sources') }, data, { sourceVersion: views?.sourceVersion, summary: views?.sourcesSummary });
+  const sources = new SourcesDialog({ root: $('sources-dialog'), body: $('sources-body'), close: $('sources-close'), openBtn: $('btn-sources') }, data);
 
   const timeline = new Timeline({
     track: $('track'), thumb: $('thumb'), segs: $('track-segments'), ticks: $('ticks'),
@@ -152,7 +152,7 @@ async function start() {
   ff.setSurpriseRange(() => timeline.focus);
   setupYearJump(timeline, {
     button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'),
-    events: data.events, copy: views?.jump ?? {}, onJump: () => { app.range?.close(); app.orientToPanelHighlight(); }, // ett hopp till ett år stänger intervallet (#755)
+    events: data.events, onJump: () => { app.range?.close(); app.orientToPanelHighlight(); }, // ett hopp till ett år stänger intervallet (#755)
     onSelect: id => app.select(id, false), // raderna i datumresultatet (#590); året är redan rätt
   });
 
@@ -420,11 +420,11 @@ async function start() {
       await Promise.all([loadSources(), loadAllEventDetails()]);
       await downloadPoster({
         baseCanvas: globe.baseCanvas, overlayCanvas: globe.overlayCanvas,
-        year: Math.floor(timeline.year), events: data.events.filter(event => isVisibleReview(event.review)), labels: poster, srcById: data.srcById,
+        year: Math.floor(timeline.year), events: data.events.filter(event => isVisibleReview(event.review)), srcById: data.srcById,
       });
     } catch (err) {
       console.error(err);
-      window.alert(t(poster.error));
+      window.alert(ui('poster.error'));
     } finally {
       posterButton.disabled = false;
     }

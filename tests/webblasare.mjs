@@ -3170,6 +3170,85 @@ async function run(browser, vp) {
     return 'Spela klart når slutkortet';
   });
 
+  await check('tidslinjen, årshoppet, Platt vy, affischen och källorna på fem språk (#672)', async () => {
+    const copies = {
+      sv: ['år/s', 'Källregister', 'Affisch'], en: ['yr/s', 'Source register', 'Poster'],
+      de: ['J./s', 'Quellenverzeichnis', 'Plakat'], es: ['años/s', 'Registro de fuentes', 'Póster'],
+      fr: ['ans/s', 'Registre des sources', 'Affiche'],
+    };
+    for (const [lang, [rateUnit, register, poster]] of Object.entries(copies)) {
+      const pp = await context.newPage();
+      const errors = [];
+      pp.on('pageerror', e => errors.push(e.message));
+      pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+      try {
+        if (THREE_LOCAL) {
+          await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+          await pp.route(u => isFont(u.href), r => r.abort());
+        }
+        await pp.goto(`${BASE}?lang=${lang}`);
+        await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        const copy = await pp.evaluate(async () => {
+          const { ui } = await import('./js/i18n.js');
+          return { play: ui('time.play'), pause: ui('time.pause'), bounds: ui('jump.outsideBounds', {
+            from: (await import('./js/model.js')).formatYear((await import('./js/timeline.js')).MIN_YEAR),
+            to: (await import('./js/model.js')).formatYear((await import('./js/timeline.js')).MAX_YEAR),
+          }), day: ui('time.dayShort'), noMatch: ui('sources.noMatch', { query: ui('sources.query', { query: 'zzzz672nomatch' }), where: '' }) };
+        });
+        if (!(await pp.textContent('#btn-speed')).includes(rateUnit)) throw new Error(`${lang}: hastigheten saknar ${rateUnit}`);
+        if (await pp.getAttribute('#btn-play', 'aria-label') !== copy.play) throw new Error(`${lang}: spelknappens namn`);
+        const pauseLabel = await pp.evaluate(() => {
+          const button = document.getElementById('btn-play');
+          button.click(); const label = button.getAttribute('aria-label'); button.click(); return label;
+        });
+        if (pauseLabel !== copy.pause) throw new Error(`${lang}: pausknappens namn`);
+        await pp.click('#year-jump'); await pp.fill('#jump-input', '9999'); await pp.press('#jump-input', 'Enter');
+        if ((await pp.textContent('#jump-msg')).trim() !== copy.bounds) throw new Error(`${lang}: årshoppets feltext`);
+        await pp.keyboard.press('Escape');
+        // Ett kort krig visar dagar i stället för år; bara gränssnittet provas, ingen fakta ändras.
+        await pp.evaluate(async () => {
+          const { events } = await (await fetch('data/genererat/handelser.json')).json();
+          const war = events.find(e => e.id === 'sexdagarskriget');
+          // Delade fokuslänkar kräver också y; ett ensamt f ignoreras av decodeHash().
+          location.hash = `#y=${Math.floor(war.start)}&f=war:${war.id}`;
+        });
+        await pp.waitForSelector('#focus-bar:not([hidden])', { timeout: T.load });
+        await pp.waitForFunction(() => document.querySelector('#btn-speed .unit-short'), null, { timeout: T.step });
+        if (await pp.textContent('#btn-speed .unit-short') !== copy.day) throw new Error(`${lang}: dagförkortningen`);
+        await pp.evaluate(() => document.getElementById('btn-sources').click());
+        await pp.waitForSelector('#sources-dialog', { state: 'visible', timeout: T.step });
+        await pp.waitForSelector('.src-group[data-group="events"]', { timeout: T.load });
+        if (!await pp.locator('#sources-body h3').filter({ hasText: register }).count()) throw new Error(`${lang}: källregistrets rubrik`);
+        await pp.fill('#src-q', 'zzzz672nomatch');
+        if ((await pp.textContent('.src-hits')).trim() !== copy.noMatch) throw new Error(`${lang}: tomt sökresultat`);
+        await pp.fill('#src-q', '');
+        await pp.waitForSelector('.src-version:not([hidden])', { timeout: T.step });
+        const raw = await pp.locator('#sources-body').innerText();
+        if (/sources(?:Summary)?\.[a-z]|sourceVersion\./.test(raw)) throw new Error(`${lang}: rå gränssnittsnyckel`);
+        await pp.screenshot({ path: path.join(OUT, `${vp.name}-672-${lang}-kallor.png`) });
+        if (await pp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error(`${lang}: horisontell scroll`);
+        await pp.click('#sources-close');
+        await pp.evaluate(() => document.getElementById('btn-flat').click());
+        await pp.waitForSelector('#flat-poster', { state: 'visible', timeout: T.step });
+        if ((await pp.textContent('#flat-poster')).trim() !== poster) throw new Error(`${lang}: affischknappen`);
+        const labels = await pp.evaluate(async () => {
+          const { createPoster } = await import('./js/ui/poster.js');
+          const { ui } = await import('./js/i18n.js');
+          const drawn = [], original = CanvasRenderingContext2D.prototype.fillText;
+          CanvasRenderingContext2D.prototype.fillText = function (text, ...args) { drawn.push(String(text)); return original.call(this, text, ...args); };
+          try {
+            const blank = document.createElement('canvas'); blank.width = blank.height = 1;
+            createPoster({ baseCanvas: blank, overlayCanvas: blank, year: 1325, events: [] });
+          } finally { CanvasRenderingContext2D.prototype.fillText = original; }
+          return { drawn, expected: ['title', 'legend', 'sources', 'website', 'license', 'empty'].map(key => ui(`poster.${key}`)) };
+        });
+        for (const label of labels.expected) if (!labels.drawn.includes(label)) throw new Error(`${lang}: affischen saknar ${label}`);
+        if (errors.length) throw new Error(`${lang}: ${errors.join(' | ')}`);
+      } finally { await pp.close(); }
+    }
+    return 'fem språk: hastighet och spelknapp, årshoppets fel, dagläge, källor/sökning och affischens ritade etiketter; ingen rå nyckel eller sidscroll';
+  });
+
   await check('Källor öppnas', async () => {
     await clickView('#btn-sources');
     await visible('#sources-dialog');

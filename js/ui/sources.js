@@ -10,23 +10,21 @@ const norm = s => String(s ?? '').toLowerCase().normalize('NFD').replace(/[̀-ͯ
 const short = (s, n = 70) => (s.length > n ? `${s.slice(0, n - 1).trimEnd()}…` : s);
 
 const GROUPS = [
-  { id: 'events', label: 'Händelser och fun facts' },
-  { id: 'empires', label: 'Riken' },
-  { id: 'religions', label: 'Religioner' },
-  { id: 'maps', label: 'Kartdata' },
-  { id: 'images', label: 'Bilder' },
-  { id: 'other', label: 'Övriga källor' },
+  { id: 'events', label: ui('sources.group.events') },
+  { id: 'empires', label: ui('sources.group.empires') },
+  { id: 'religions', label: ui('sources.group.religions') },
+  { id: 'maps', label: ui('sources.group.maps') },
+  { id: 'images', label: ui('sources.group.images') },
+  { id: 'other', label: ui('sources.group.other') },
 ];
 const LEVELS = [
-  { key: 'checked', review: 'source-checked', label: 'källkontrollerade' },
-  { key: 'two', review: 'two-sources', label: 'två källor' },
-  { key: 'draft', review: 'draft', label: 'utkast' },
+  { key: 'checked', review: 'source-checked', label: ui('sources.level.checked') },
+  { key: 'two', review: 'two-sources', label: ui('sources.level.two') },
+  { key: 'draft', review: 'draft', label: ui('sources.level.draft') },
 ];
-const KINDS = {
-  illustration: { one: 'illustration', many: 'illustrationer', label: 'Illustration' },
-  historisk: { one: 'historisk bild', many: 'historiska bilder', label: 'Historisk bild' },
-};
-const kindOf = k => KINDS[k] ?? { one: String(k ?? 'bild'), many: String(k ?? 'bilder'), label: String(k ?? 'Bild') };
+const imageKind = key => ({ one: ui(`sources.kind.${key}.names`)[0], many: ui(`sources.kind.${key}.names`)[1], label: ui(`sources.kind.${key}.label`) });
+const KINDS = { illustration: imageKind('illustration'), historisk: imageKind('historisk') };
+const kindOf = k => KINDS[k] ?? { one: ui('sources.noun.image')[0], many: ui('sources.noun.image')[1], label: ui('sources.image') };
 const MAX_USES = 8;   // fler användningar än så fälls ihop
 
 async function loadVersion() {
@@ -48,43 +46,43 @@ function collect({ sources, events, funfacts, polities, empireGroups = [], land,
     }
   };
   for (const e of events) add('events', [...(e.sources ?? []), ...(e.story?.sources ?? [])], t(e.title), e.review);
-  for (const f of funfacts) add('events', f.sources ?? [], `Fun fact: ${short(t(f.text))}`, f.review);
+  for (const f of funfacts) add('events', f.sources ?? [], ui('sources.funfact', { text: short(t(f.text)) }), f.review);
   for (const p of polities) add('empires', p.sources ?? [], t(p.name), p.review);
   // Faktarutan om riket (#170) och dess nyckelår
   for (const g of empireGroups) {
     // Försvunna länder (#72): årtal, föregångare och efterträdare har egna källor och egen status
-    if (g.vanished) add('empires', g.vanished.sources ?? [], `${t(g.name)}: årtal och efterträdare`, g.vanished.review);
+    if (g.vanished) add('empires', g.vanished.sources ?? [], ui('sources.successors', { name: t(g.name) }), g.vanished.review);
     // Osäker gräns (#73): källan som säger att gränsen var osäker
-    if (g.uncertainBorder) add('empires', g.uncertainBorder.sources ?? [], `${t(g.name)}: osäker gräns (mjuk kant)`, g.uncertainBorder.review);
+    if (g.uncertainBorder) add('empires', g.uncertainBorder.sources ?? [], ui('sources.uncertainBorder', { name: t(g.name) }), g.uncertainBorder.review);
     if (!g.facts) continue;
-    add('empires', g.facts.sources ?? [], `${t(g.name)}: faktarutan`, g.facts.review);
+    add('empires', g.facts.sources ?? [], ui('sources.factBox', { name: t(g.name) }), g.facts.review);
     for (const m of g.facts.milestones ?? []) add('empires', m.sources ?? [], `${t(g.name)}: ${t(m.label)}`, g.facts.review);
   }
   if (religionsDoc) {
     const rp = religionsDoc.polities ?? [];
     // Riken med kontrollerat år för kristnandet har en egen källa
-    for (const p of rp.filter(p => p.source)) add('religions', [p.source], `${p.name} (kristnandet)`, 'source-checked');
+    for (const p of rp.filter(p => p.source)) add('religions', [p.source], ui('sources.christianisation', { name: p.name }), 'source-checked');
     // Källor för hela religionsfilen (se notes i data/religions.json): de räknas inte som egna uppgifter
     const whole = (id, label) => add('religions', [id], label, null, false);
-    if (rp.length) whole('cliopatria', 'Religioner: områdena följer rikenas gränser i Cliopatria');
-    if (rp.some(p => p.wikipedia)) whole('wikipedia-religion', 'Religioner: varje rikes religion (faktarutan på Wikipedia)');
-    if (rp.some(p => p.modern)) whole('wp-religion-by-country', 'Religioner: nutida länder från 1900');
+    if (rp.length) whole('cliopatria', ui('sources.religionAreas'));
+    if (rp.some(p => p.wikipedia)) whole('wikipedia-religion', ui('sources.religionWiki'));
+    if (rp.some(p => p.modern)) whole('wp-religion-by-country', ui('sources.religionModern'));
     // Faktarutan om religionen (#90) och dess nyckelår
     for (const r of religionsDoc.religions ?? []) {
       if (!r.facts) continue;
-      add('religions', r.facts.sources ?? [], `${t(r.name)}: faktarutan`, r.facts.review);
+      add('religions', r.facts.sources ?? [], ui('sources.factBox', { name: t(r.name) }), r.facts.review);
       for (const m of r.facts.milestones ?? []) add('religions', m.sources ?? [], `${t(r.name)}: ${t(m.label)}`, r.facts.review);
     }
   }
-  if (land?.source) add('maps', [land.source], 'Grundkartan', null);
-  if (borders?.source) add('maps', [borders.source], 'Dagens gränser', null);
+  if (land?.source) add('maps', [land.source], ui('sources.baseMap'), null);
+  if (borders?.source) add('maps', [borders.source], ui('sources.modernBorders'), null);
   // Upptäcktsvyns kartbilder (#101): havsmonster och kompassrosor ur gamla kartor, public domain
-  for (const d of new Map((discovery?.decorations ?? []).map(d => [d.source, d])).values()) if (d.source) add('maps', [d.source], `Upptäcktsvyn: ${t(d.title)}`, null, false);
+  for (const d of new Map((discovery?.decorations ?? []).map(d => [d.source, d])).values()) if (d.source) add('maps', [d.source], ui('sources.discovery', { title: t(d.title) }), null, false);
   // Bilder (#195): varje bild på globen listas med ursprung och licens, även illustrationer utan extern källa.
   // De räknas inte som uppgifter med granskningsnivå; bara historiska bilder med image.source får en post i källtabellen.
   const shownEvents = events.filter(e => e.image && (settings.showDrafts || e.review !== 'draft'));
   groups.images.images = shownEvents.map(e => ({ event: e, image: e.image }));
-  for (const e of shownEvents) if (e.image.source) add('images', [e.image.source], `Bild: ${t(e.title)}`, null, false);
+  for (const e of shownEvents) if (e.image.source) add('images', [e.image.source], ui('sources.imageUse', { title: t(e.title) }), null, false);
   // Källor som ingen uppgift pekar på just nu (räknas först när religionerna har laddats)
   if (religionsDoc) {
     const used = new Set(GROUPS.flatMap(g => [...groups[g.id].uses.keys()]));
@@ -103,8 +101,8 @@ function collect({ sources, events, funfacts, polities, empireGroups = [], land,
 }
 
 export class SourcesDialog {
-  constructor({ root, body, close, openBtn }, data, { sourceVersion = {}, summary = {} } = {}) {
-    Object.assign(this, { root, body, data, openBtn, sourceVersion, summary });
+  constructor({ root, body, close, openBtn }, data) {
+    Object.assign(this, { root, body, data, openBtn });
     this.versionPromise = null;
     this.onSettings = () => {};
     this.query = '';
@@ -124,12 +122,12 @@ export class SourcesDialog {
   open(highlightIds = null) {
     const token = this.opening = {};
     if (!this.prepared) {
-      this.body.innerHTML = '<p class="detail-loading" role="status">Laddar källorna…</p>';
+      this.body.innerHTML = `<p class="detail-loading" role="status">${esc(ui('sources.loading'))}</p>`;
       this._reveal();
       loadForSources().then(() => {
         this.prepared = true;
         if (this.opening === token && !this.root.hidden) this.open(highlightIds);
-      }).catch(err => { console.error(err); this.body.innerHTML = '<p>Källorna kunde inte laddas.</p>'; });
+      }).catch(err => { console.error(err); this.body.innerHTML = `<p>${esc(ui('sources.loadFailed'))}</p>`; });
       return;
     }
     if (typeof highlightIds === 'function') highlightIds = highlightIds();
@@ -150,20 +148,15 @@ export class SourcesDialog {
         else if (x.review === 'source-checked') counts.checked++;
         else counts.draft++;
       }
-      return `${counts.checked + counts.two} uppgifter har kontrollerad källa, och för ${counts.two} av dem stämmer också en andra källa. ${counts.draft} är utkast.`;
+      return ui('sources.total', { checked: counts.checked + counts.two, two: counts.two, draft: counts.draft });
     };
 
     this.body.innerHTML = `
-      ${highlightIds ? '<p><strong>Källor för den här fun facten.</strong> <button type="button" class="link-btn" data-all>Visa alla källor</button></p>' : ''}
+      ${highlightIds ? `<p><strong>${esc(ui('sources.highlight'))}</strong> <button type="button" class="link-btn" data-all>${esc(ui('sources.showAll'))}</button></p>` : ''}
       ${this.summaryHtml()}
-      <h3>Källpolicy</h3>
+      <h3>${esc(ui('sources.policyTitle'))}</h3>
       <ol>
-        <li>Varje uppgift har minst en källa, med länk och datum då den kontrollerades.</li>
-        <li>Varje uppgift har en granskningsstatus: utkast, källkontrollerad eller två källor stämmer. Utkast visas inte.</li>
-        <li>"Två källor stämmer" betyder att årtal och plats har jämförts med en andra, oberoende källa, till exempel Wikidata, och att de stämmer.</li>
-        <li>Uppgifter som Claude föreslår är utkast tills källan är öppnad och stämmer.</li>
-        <li>Osäkerhet visas öppet, till exempel "cirka" eller ett spann. Om källorna är oense står det i faktarutan.</li>
-        <li>En fun fact som jämför två saker har källa för båda leden.</li>
+        ${[1, 2, 3, 4, 5, 6].map(n => `<li>${esc(ui(`sources.policy${n}`))}</li>`).join('')}
       </ol>
       <section class="src-urval" aria-labelledby="src-urval-title">
         <h3 id="src-urval-title">${esc(ui('sources.urval.title'))}</h3>
@@ -173,24 +166,24 @@ export class SourcesDialog {
         <p>${esc(ui('sources.urval.p4'))}</p>
         <p>${esc(ui('sources.urval.p5'))}</p>
       </section>
-      <h3>Läget just nu</h3>
+      <h3>${esc(ui('sources.current'))}</h3>
       <p class="src-total">${total(religionsDoc)}</p>
-      <h3>Källregister</h3>
-      <p class="src-intro">Källorna är grupperade efter vad de används till, och en källa kan höra till flera grupper. Tryck på en grupp för att bara visa den, eller sök.</p>
-      <div class="src-groups" role="group" aria-label="Grupper"></div>
+      <h3>${esc(ui('sources.register'))}</h3>
+      <p class="src-intro">${esc(ui('sources.intro'))}</p>
+      <div class="src-groups" role="group" aria-label="${esc(ui('sources.groups'))}"></div>
       <div class="src-search">
-        <label for="src-q">Sök</label>
-        <input type="search" id="src-q" autocomplete="off" spellcheck="false" placeholder="Källa eller vad den används till">
+        <label for="src-q">${esc(ui('sources.search'))}</label>
+        <input type="search" id="src-q" autocomplete="off" spellcheck="false" placeholder="${esc(ui('sources.searchPlaceholder'))}">
       </div>
       <div class="src-search src-status">
-        <label for="src-status">${esc(t(this.summary.filter) || 'Status')}</label>
+        <label for="src-status">${esc(ui('sourcesSummary.filter'))}</label>
         <select id="src-status"></select>
       </div>
       <p class="src-hits" aria-live="polite"></p>
       <div class="src-list"></div>
       <div class="check-row">
         <input type="checkbox" id="show-drafts" ${settings.showDrafts ? 'checked' : ''}>
-        <label for="show-drafts">Visa även utkast (för den som kontrollerar källor)</label>
+        <label for="show-drafts">${esc(ui('sources.showDrafts'))}</label>
       </div>
       <p class="src-version" hidden></p>`;
     this.body.querySelector('[data-all]')?.addEventListener('click', () => this.open());
@@ -224,8 +217,11 @@ export class SourcesDialog {
 
   /** Sammanfattningen överst (#517): två granskningsnivåer och historisk osäkerhet, som gäller oavsett nivå. */
   summaryHtml() {
-    const s = this.summary;
-    if (!s?.title) return '';
+    const s = { title: ui('sourcesSummary.title') };
+    for (const key of ['checked', 'two', 'uncertain']) s[key] = {
+      label: ui(`sourcesSummary.${key}.label`), text: ui(`sourcesSummary.${key}.text`),
+    };
+    s.uncertain.example = ui('sourcesSummary.uncertain.example');
     const row = (cls, r, extra = '') => `<div class="src-level ${cls}"><dt>${cls === 'src-level-uncertain' ? '' : `<i class="lv-${cls === 'src-level-two' ? 'two' : 'checked'}" aria-hidden="true"></i>`}${esc(t(r.label))}</dt><dd>${esc(t(r.text))}${extra}</dd></div>`;
     return `<section class="src-summary" aria-labelledby="src-summary-title">
       <h3 id="src-summary-title">${esc(t(s.title))}</h3>
@@ -239,10 +235,9 @@ export class SourcesDialog {
 
   /** Statusfiltrets val: alla, de två nivåerna och utkast bara när det finns utkast. */
   statusOptions(groups) {
-    const s = this.summary;
     const drafts = groups.reduce((n, g) => n + g.counts.draft, 0);
-    const opts = [['', t(s.all) || 'Alla'], ['checked', t(s.checked?.label)], ['two', t(s.two?.label)]];
-    if (drafts || this.status === 'draft') opts.push(['draft', t(s.draft)]);
+    const opts = [['', ui('sourcesSummary.all')], ['checked', ui('sourcesSummary.checked.label')], ['two', ui('sourcesSummary.two.label')]];
+    if (drafts || this.status === 'draft') opts.push(['draft', ui('sourcesSummary.draft')]);
     return opts;
   }
 
@@ -252,12 +247,12 @@ export class SourcesDialog {
       const row = this.body.querySelector('.src-version');
       if (!version || !row) return;
       const development = version.version.endsWith('-dev');
-      row.append(`${this.sourceVersion.version} ${version.version}${development ? ` · ${this.sourceVersion.development}` : ''} · `);
+      row.append(`${ui('sourceVersion.version')} ${version.version}${development ? ` · ${ui('sourceVersion.development')}` : ''} · `);
       const link = document.createElement('a');
       link.href = version.releases;
       link.target = '_blank';
       link.rel = 'noopener';
-      link.textContent = this.sourceVersion.releases;
+      link.textContent = ui('sourceVersion.releases');
       row.append(link);
       row.hidden = false;
     }).catch(err => console.error('Versionsinformationen kunde inte laddas', err));
@@ -296,16 +291,16 @@ export class SourcesDialog {
       const imgKinds = nImg ? Object.entries(g.images.reduce((m, x) => ({ ...m, [x.image.kind]: (m[x.image.kind] ?? 0) + 1 }), {}))
         .map(([k, c]) => plural(c, kindOf(k).one, kindOf(k).many)).join(', ') : '';
       const note = g.id === 'images' && nImg ? imgKinds
-        : g.id === 'images' ? (this.highlight ? 'Inga för den här fun facten' : 'Inga bilder ännu')
-        : g.id === 'religions' && loadingReligions ? 'Laddar…'
-        : g.id === 'other' ? 'Används inte av någon uppgift just nu'
-        : g.items.length ? 'Ingen granskningsnivå per uppgift' : 'Inga uppgifter ännu';
+        : g.id === 'images' ? (this.highlight ? ui('sources.noHighlightImages') : ui('sources.noImages'))
+        : g.id === 'religions' && loadingReligions ? ui('sources.loadingShort')
+        : g.id === 'other' ? ui('sources.unused')
+        : g.items.length ? ui('sources.noReview') : ui('sources.noItems');
       const status = g.reviewed
         ? LEVELS.filter(l => l.key !== 'draft' || g.counts.draft).map(l => `<span class="lv-txt"><i class="lv-${l.key}"></i>${g.counts[l.key]} ${l.label}</span>`).join('')
         : `<span class="lv-txt">${note}</span>`;
       return `<button type="button" class="src-group" data-group="${g.id}" aria-pressed="${this.group === g.id}">
         <span class="src-group-name">${esc(g.label)}</span>
-        <span class="src-group-meta">${g.id === 'images' ? `${plural(nImg, 'bild', 'bilder')}${n ? ` · ${plural(n, 'källa', 'källor')}` : ''}` : `${plural(n, 'källa', 'källor')}${g.items.length ? ` · ${plural(g.items.length, 'uppgift', 'uppgifter')}` : ''}`}</span>
+        <span class="src-group-meta">${g.id === 'images' ? `${plural(nImg, ...ui('sources.noun.image'))}${n ? ` · ${plural(n, ...ui('sources.noun.source'))}` : ''}` : `${plural(n, ...ui('sources.noun.source'))}${g.items.length ? ` · ${plural(g.items.length, ...ui('sources.noun.claim'))}` : ''}`}</span>
         ${bar}
         <span class="src-group-status">${status}</span>
       </button>`;
@@ -335,14 +330,14 @@ export class SourcesDialog {
       const imgRows = this.highlight || status ? [] : (g.images ?? []).map(x => imageRow(x, sources, q, groupHit)).filter(Boolean);
       imgShown += imgRows.length;
       if (!rows.length && !imgRows.length) return '';
-      const imgTable = imgRows.length ? `<h5 class="src-sub">Bilder på globen <span class="src-n">${imgRows.length}</span></h5>
+      const imgTable = imgRows.length ? `<h5 class="src-sub">${esc(ui('sources.imagesOnGlobe'))} <span class="src-n">${imgRows.length}</span></h5>
         <div class="src-table-wrap"><table class="src-table src-images">
-          <thead><tr><th>Händelse</th><th>Sort</th><th>Kredit</th><th>Licens</th></tr></thead>
+          <thead><tr><th>${esc(ui('sources.event'))}</th><th>${esc(ui('sources.kind'))}</th><th>${esc(ui('sources.credit'))}</th><th>${esc(ui('sources.license'))}</th></tr></thead>
           <tbody>${imgRows.join('')}</tbody>
         </table></div>` : '';
-      const srcTable = rows.length ? `${imgRows.length ? '<h5 class="src-sub">Källor för historiska bilder</h5>' : ''}
+      const srcTable = rows.length ? `${imgRows.length ? `<h5 class="src-sub">${esc(ui('sources.imageSources'))}</h5>` : ''}
         <div class="src-table-wrap"><table class="src-table">
-          <thead><tr><th>Källa</th><th>Licens</th><th>Kontrollerad</th></tr></thead>
+          <thead><tr><th>${esc(ui('sources.source'))}</th><th>${esc(ui('sources.license'))}</th><th>${esc(ui('sources.checked'))}</th></tr></thead>
           <tbody>${rows.join('')}</tbody>
         </table></div>` : '';
       return `<section class="src-section" data-group="${g.id}">
@@ -352,11 +347,14 @@ export class SourcesDialog {
     }).filter(Boolean);
 
     const all = sources.filter(pick).length;
-    const where = (this.group ? ` i ${this.groups[this.group].label}` : '')
-      + (status ? ` ${(t(this.summary.filtered) || 'med statusen {status}').replace('{status}', `"${statusLabel}"`)}` : '');
+    const where = (this.group ? ui('sources.inGroup', { group: this.groups[this.group].label }) : '')
+      + (status ? ` ${ui('sourcesSummary.filtered', { status: `"${statusLabel}"` })}` : '');
+    const items = [shown.size || !imgShown ? ui('sources.sourceFraction', { n: shown.size, all }) : '',
+      imgShown ? plural(imgShown, ...ui('sources.noun.image')) : ''].filter(Boolean).join(ui('sources.join'));
     this.body.querySelector('.src-hits').textContent = q || this.group || status
-      ? (shown.size || imgShown ? `Visar ${[shown.size || !imgShown ? `${shown.size} av ${all} källor` : '', imgShown ? `${imgShown} ${imgShown === 1 ? 'bild' : 'bilder'}` : ''].filter(Boolean).join(' och ')}${where}.` : `Ingen källa matchar${q ? ` "${this.query.trim()}"` : ''}${where}.`)
-      : `${all} källor.`;
+      ? (shown.size || imgShown ? ui('sources.showing', { items, where })
+        : ui('sources.noMatch', { query: q ? ui('sources.query', { query: this.query.trim() }) : '', where }))
+      : `${plural(all, ...ui('sources.noun.source'))}.`;
     this.body.querySelector('.src-list').innerHTML = sections.join('');
   }
 
@@ -374,23 +372,23 @@ function usedBy(uses, hits) {
   if (!uses.length) return '';
   if (hits) {
     const rest = uses.length - hits.length;
-    return `<div class="used-by">Används för: <mark>${hits.map(esc).join('</mark>, <mark>')}</mark>${rest ? ` (och ${rest} till)` : ''}</div>`;
+    return `<div class="used-by">${esc(ui('sources.usedFor'))} <mark>${hits.map(esc).join('</mark>, <mark>')}</mark>${rest ? ui('sources.moreUses', { n: rest }) : ''}</div>`;
   }
-  if (uses.length <= MAX_USES) return `<div class="used-by">Används för: ${uses.map(esc).join(', ')}</div>`;
-  return `<details class="used-by"><summary>Används för ${uses.length} uppgifter: ${uses.slice(0, 3).map(esc).join(', ')} …</summary>${uses.map(esc).join(', ')}</details>`;
+  if (uses.length <= MAX_USES) return `<div class="used-by">${esc(ui('sources.usedFor'))} ${uses.map(esc).join(', ')}</div>`;
+  return `<details class="used-by"><summary>${esc(ui('sources.usedSummary', { n: uses.length, items: uses.slice(0, 3).join(', ') }))}</summary>${uses.map(esc).join(', ')}</details>`;
 }
 
 /** En rad i bildlistan: händelse, sort, kredit och licens. Prompten är hopfälld. Null om sökningen inte matchar. */
 function imageRow({ event: e, image: im }, sources, q, groupHit) {
   const kind = kindOf(im.kind);
   const src = im.source ? sources.find(s => s.id === im.source) : null;
-  const hay = [t(e.title), kind.label, kind.one, im.style, im.credit, im.license, im.caption ? t(im.caption) : '', im.prompt, src?.title, im.placeholder ? 'platshållare' : '', e.id];
+  const hay = [t(e.title), kind.label, kind.one, im.style, im.credit, im.license, im.caption ? t(im.caption) : '', im.prompt, src?.title, im.placeholder ? ui('sources.placeholder') : '', e.id];
   if (q && !groupHit && !hay.some(x => norm(x).includes(q))) return '';
-  const creditHtml = src ? `<a href="${esc(src.url)}" target="_blank" rel="noopener">${esc(im.credit || src.title)}</a>` : esc(im.credit || 'Okänt ursprung');
-  const prompt = im.prompt ? `<details class="used-by"><summary>Prompt</summary>${esc(im.prompt)}</details>` : '';
+  const creditHtml = src ? `<a href="${esc(src.url)}" target="_blank" rel="noopener">${esc(im.credit || src.title)}</a>` : esc(im.credit || ui('sources.unknownCredit'));
+  const prompt = im.prompt ? `<details class="used-by"><summary>${esc(ui('sources.prompt'))}</summary>${esc(im.prompt)}</details>` : '';
   return `<tr>
-    <td>${esc(t(e.title))}${im.placeholder ? ' <span class="src-ph">Platshållare</span>' : ''}${prompt}</td>
-    <td>${esc(kind.label)}${im.kind === 'illustration' ? '<div class="used-by">Inte en historisk bild</div>' : ''}</td>
+    <td>${esc(t(e.title))}${im.placeholder ? ` <span class="src-ph">${esc(ui('sources.placeholder'))}</span>` : ''}${prompt}</td>
+    <td>${esc(kind.label)}${im.kind === 'illustration' ? `<div class="used-by">${esc(ui('sources.notHistorical'))}</div>` : ''}</td>
     <td>${creditHtml}</td>
     <td>${esc(im.license || '–')}</td>
   </tr>`;

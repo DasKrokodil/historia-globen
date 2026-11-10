@@ -219,3 +219,13 @@ Nya termer i gränssnittet för epokknapparna i intervallformuläret. Tidslinjen
 |---|---|---|---|
 | börjar före tidslinjens början | beginnt vor dem Beginn der Zeitleiste | comienza antes del inicio de la línea de tiempo | commence avant le début de la frise chronologique |
 | till i dag | bis heute | hasta hoy | jusqu’à aujourd’hui |
+
+## Gränssnittsenheter (#672)
+
+Tidslinjens kompakta hastighetsenheter följer språkfilen; samma numeriska hastighet och uppspelningslogik används i alla språk.
+
+| Enhet | Svenska | Engelska | Tyska | Spanska | Franska |
+|---|---|---|---|---|---|
+| År per sekund | år/s | yr/s | J./s | años/s | ans/s |
+| Dag, singular/plural | dag/dagar | day/days | Tag/Tage | día/días | jour/jours |
+| Kort dagförkortning i mobil | d | d | T | d | j |
