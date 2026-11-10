@@ -33,6 +33,20 @@ export function glyph(name) {
   return gl;
 }
 
+// Flaggor är egna, bredare SVG:er. De laddas separat så att en flagga aldrig av misstag
+// används som en händelseikon. Filerna är projektets förenklade teckningar av belagda flaggor.
+const flags = new Map(); // namn -> { img, ready, waiting: [textur] }
+export function flag(name) {
+  if (flags.has(name)) return flags.get(name);
+  const fl = { img: new Image(), ready: false, waiting: [] };
+  flags.set(name, fl);
+  fetch(`img/flags/${name}.svg`).then(r => r.text()).then(svg => {
+    fl.img.onload = () => { fl.ready = true; for (const w of fl.waiting) w(); fl.waiting = []; };
+    fl.img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+  }).catch(err => console.warn(`Flaggan ${name} kunde inte laddas`, err));
+  return fl;
+}
+
 /** Vyn Översikt (#868) är ingen tagg i datan utan fältet significance: händelserna ur den godkända listan har det satt till 1. */
 export const OVERVIEW_TAG = 'oversikt';
 
@@ -120,6 +134,86 @@ export function medalTexture(icon, color, { when, major, unsure }, full) {
   if (icon && !glyph(icon).ready) glyph(icon).waiting.push(draw);
   medalCache.set(key, tex);
   return tex;
+}
+
+// Rikenas flaggor (#462): ett litet heraldiskt tygmärke. Sköldens egen silhuett gör att
+// rikestecken inte förväxlas med de runda händelsemedaljerna och tar mindre plats än ett platt kort.
+// Samma canvas används på klotet och i Platt vy, så att uttrycket är konsekvent i båda projektionerna.
+const flagCache = new Map();
+
+function flagSeed(name) {
+  return [...name].reduce((n, ch) => (n * 33 + ch.charCodeAt(0)) >>> 0, 5381);
+}
+
+/** En diskret vävd och lätt sliten flagga, klippt till ett litet heraldiskt tygmärke. */
+function flagBadge(ctx, cx, cy, r, img, name) {
+  const seed = flagSeed(name);
+  const left = cx - r * 0.68, right = cx + r * 0.68;
+  const top = cy - r * 0.72, shoulder = cy - r * 0.42;
+  const bottom = cy + r * 0.78;
+  const shield = () => {
+    ctx.beginPath();
+    ctx.moveTo(left, top + r * 0.15);
+    ctx.quadraticCurveTo(cx, top - r * 0.11, right, top + r * 0.15);
+    ctx.lineTo(right, shoulder);
+    ctx.bezierCurveTo(right, cy + r * 0.22, cx + r * 0.42, cy + r * 0.61, cx, bottom);
+    ctx.bezierCurveTo(cx - r * 0.42, cy + r * 0.61, left, cy + r * 0.22, left, shoulder);
+    ctx.closePath();
+  };
+  ctx.save();
+  shield();
+  ctx.fillStyle = GROUND; ctx.fill();
+  ctx.lineWidth = Math.max(1.5, r * 0.13); ctx.strokeStyle = INK; ctx.stroke();
+  shield();
+  ctx.lineWidth = Math.max(1, r * 0.047); ctx.strokeStyle = BRASS; ctx.stroke();
+
+  const w = r * 1.25, h = r * 1.31, x = cx - w / 2, y = cy - r * 0.61;
+  shield();
+  ctx.save(); ctx.clip();
+  if (img) ctx.drawImage(img, x, y, w, h);
+  else { ctx.fillStyle = '#53452d'; ctx.fillRect(x, y, w, h); }
+  // Varptrådar, ojämn färg och några blekta partier ger materialkänsla utan att ändra flaggans motiv.
+  ctx.globalCompositeOperation = 'soft-light';
+  for (let i = 0; i < 13; i++) {
+    const yy = y + (i + 0.5) * h / 13;
+    ctx.fillStyle = i % 2 ? 'rgba(255,244,210,0.17)' : 'rgba(38,28,18,0.13)';
+    ctx.fillRect(x, yy, w, Math.max(0.65, r * 0.018));
+  }
+  const shade = ctx.createLinearGradient(x, y, x + w, y + h);
+  shade.addColorStop(0, 'rgba(255,240,190,0.2)'); shade.addColorStop(0.5, 'rgba(255,255,255,0)'); shade.addColorStop(1, 'rgba(24,14,8,0.28)');
+  ctx.fillStyle = shade; ctx.fillRect(x, y, w, h);
+  ctx.globalCompositeOperation = 'source-over';
+  for (let i = 0; i < 7; i++) {
+    const sx = x + ((seed >>> (i * 3)) & 31) / 31 * w;
+    const sy = y + ((seed >>> (i * 2 + 4)) & 15) / 15 * h;
+    ctx.fillStyle = 'rgba(246,231,196,0.13)'; ctx.fillRect(sx, sy, r * 0.035, r * 0.022);
+  }
+  ctx.restore();
+  shield();
+  ctx.lineWidth = Math.max(1, r * 0.035); ctx.strokeStyle = 'rgba(67,45,24,0.76)'; ctx.stroke();
+  ctx.restore();
+}
+
+export function flagTexture(name) {
+  if (flagCache.has(name)) return flagCache.get(name);
+  const c = document.createElement('canvas'); c.width = c.height = 128;
+  const g = c.getContext('2d');
+  const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
+  const draw = () => {
+    g.clearRect(0, 0, 128, 128);
+    const fl = flag(name);
+    flagBadge(g, 64, 64, 55, fl.ready ? fl.img : null, name);
+    tex.needsUpdate = true;
+  };
+  draw();
+  if (!flag(name).ready) flag(name).waiting.push(draw);
+  flagCache.set(name, tex);
+  return tex;
+}
+
+/** Ritar samma heraldiska tygmärke på områdeslagrets canvas. */
+export function drawFlag(ctx, x, y, r, img, name) {
+  flagBadge(ctx, x, y, r, img, name);
 }
 
 /**

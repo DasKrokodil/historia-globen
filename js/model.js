@@ -630,3 +630,5 @@ export function loadReligionPolities() {
  */
 export const symbolUrl = r => /^[\w-]+$/.test(r?.symbol ?? '') ? `img/icons/${r.symbol}.svg` : null;
 export const symbolImg = (r, cls = 'rel-sym') => symbolUrl(r) ? `<img class="${cls}" src="${symbolUrl(r)}" alt="" width="16" height="16">` : '';
+export const flagUrl = r => /^[\w-]+$/.test(r?.file ?? '') ? `img/flags/${r.file}.svg` : null;
+export const flagImg = (r, cls = 'rel-sym') => flagUrl(r) ? `<img class="${cls}" src="${flagUrl(r)}" alt="" width="16" height="16">` : '';

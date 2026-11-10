@@ -10737,8 +10737,8 @@
        "en": "The symbol on the map"
       },
       "text": {
-       "sv": "Drakflaggan, en blå drake på gul botten med en röd pärla. Den första formen, en trekantig flagga, togs i bruk 1862 och den rektangulära 1889, och den blev Kinas första nationsflagga. Den är alltså belagd bara för rikets sista femtio år.",
-       "en": "The Dragon Flag, a blue dragon on a yellow field with a red pearl. The first form, a triangular flag, came into use in 1862 and the rectangular one in 1889, and it became China's first national flag. It is thus attested only for the empire's last fifty years."
+       "sv": "Drakflaggan, en blå drake på gul botten med en röd pärla. Kartan visar den trekantiga formen 1862–1888 och den rektangulära 1889–1911. Den rektangulära blev Kinas första nationsflagga. Före 1862 visar kartan i stället rikets drakemblem.",
+       "en": "The Dragon Flag, a blue dragon on a yellow field with a red pearl. The map shows the triangular form in 1862–1888 and the rectangular form in 1889–1911. The rectangular version became China's first national flag. Before 1862 the map instead shows the empire's dragon emblem."
       }
      }
     ],
@@ -10892,6 +10892,24 @@
     ],
     "review": "two-sources"
    },
+   "flags": [
+    {
+     "file": "qing-triangular-dragon",
+     "from": 1862,
+     "to": 1888,
+     "label": { "sv": "Qings trekantiga drakflagga", "en": "Qing triangular dragon flag", "de": "Dreieckige Drachenflagge der Qing", "es": "Bandera de dragón triangular de la dinastía Qing", "fr": "Drapeau au dragon triangulaire des Qing" },
+     "sources": ["wp-flag-qing"],
+     "review": "source-checked"
+    },
+    {
+     "file": "qing-rectangular-dragon",
+     "from": 1889,
+     "to": 1911,
+     "label": { "sv": "Qings rektangulära drakflagga", "en": "Qing rectangular dragon flag", "de": "Rechteckige Drachenflagge der Qing", "es": "Bandera de dragón rectangular de la dinastía Qing", "fr": "Drapeau au dragon rectangulaire des Qing" },
+     "sources": ["wp-flag-qing"],
+     "review": "source-checked"
+    }
+   ],
    "symbol": "dragon-flag",
    "capitals": [
     {
@@ -13155,8 +13173,8 @@
        "en": "The symbol on the map"
       },
       "text": {
-       "sv": "Trikoloren, Frankrikes blå, vita och röda flagga. Den infördes 1794 och var flagga för kejsardömena och republikerna. Under bourbonernas restauration 1815–1830 användes i stället den vita kungaflaggan, så för de första femton åren på kartan stämmer inte symbolen.",
-       "en": "The tricolour, France's blue, white and red flag. It was introduced in 1794 and was the flag of the empires and the republics. During the Bourbon Restoration of 1815–1830 the white royal flag was used instead, so for the first fifteen years on the map the symbol does not match."
+       "sv": "Kartan visar Frankrikes vita kungaflagga 1815–1829 och trikoloren från 1830. Trikoloren – blå, vit och röd – infördes 1794 och var flagga för kejsardömena och republikerna. Under bourbonernas restauration användes i stället den vita kungaflaggan.",
+       "en": "The map shows France's royal white flag in 1815–1829 and the tricolour from 1830. The tricolour – blue, white and red – was introduced in 1794 and was the flag of the empires and the republics. During the Bourbon Restoration the white royal flag was used instead."
       }
      }
     ],
@@ -13339,6 +13357,24 @@
     ],
     "review": "source-checked"
    },
+   "flags": [
+    {
+     "file": "france-royal-white",
+     "from": 1815,
+     "to": 1829,
+     "label": { "sv": "Frankrikes vita kungaflagga", "en": "French royal white flag", "de": "Französische königlich-weiße Flagge", "es": "Bandera real blanca francesa", "fr": "Drapeau royal blanc français" },
+     "sources": ["wp-flag-of-france"],
+     "review": "source-checked"
+    },
+    {
+     "file": "france-tricolour",
+     "from": 1830,
+     "to": 1957,
+     "label": { "sv": "Frankrikes trikolor", "en": "French tricolour", "de": "Französische Trikolore", "es": "Tricolor francés", "fr": "Tricolore français" },
+     "sources": ["wp-flag-of-france"],
+     "review": "source-checked"
+    }
+   ],
    "symbol": "tricolour",
    "capitals": [
     {
@@ -14680,8 +14716,8 @@
        "en": "The symbol on the map"
       },
       "text": {
-       "sv": "Juda lejon. Det var en titel för kejsarna av den salomoniska ätten, som räknade sin härkomst från kung Salomo, och en karta från 1683 av Hiob Ludolf beskriver lejonet som det etiopiska kejsardömets kungliga tecken. Det fanns på Etiopiens flagga 1897–1974. Det är alltså belagt bara för en del av rikets tid. På Haile Selassies kejsarfana bär lejonet en stav med kors; korset är inte med på kartans teckning.",
-       "en": "The Lion of Judah. It was a title for the emperors of the Solomonic house, who traced their descent from King Solomon, and a map from 1683 by Hiob Ludolf describes the lion as the Ethiopian empire's royal emblem. It was on Ethiopia's flag in 1897–1974. It is thus attested only for part of the empire's time. On Haile Selassie's imperial banner the lion carries a staff with a cross; the cross is not included in the map's drawing."
+       "sv": "Juda lejon. Det var en titel för kejsarna av den salomoniska ätten, som räknade sin härkomst från kung Salomo, och en karta från 1683 av Hiob Ludolf beskriver lejonet som det etiopiska kejsardömets kungliga tecken. Kartan visar den kejserliga fanan med lejonet 1914–1935 och 1942–1974; däremellan och före 1914 används lejonet som emblem. På Haile Selassies kejsarfana bär lejonet en stav med kors; den förenklade flaggan behåller bara flaggans huvudmotiv.",
+       "en": "The Lion of Judah. It was a title for the emperors of the Solomonic house, who traced their descent from King Solomon, and a map from 1683 by Hiob Ludolf describes the lion as the Ethiopian empire's royal emblem. The map shows the imperial flag with the lion in 1914–1935 and 1942–1974; between those periods and before 1914 it uses the lion as an emblem. On Haile Selassie's imperial banner the lion carries a staff with a cross; the simplified flag keeps only the flag's main motif."
       }
      }
     ],
@@ -14873,6 +14909,24 @@
     ],
     "review": "source-checked"
    },
+   "flags": [
+    {
+     "file": "ethiopia-imperial",
+     "from": 1914,
+     "to": 1935,
+     "label": { "sv": "Etiopiens kejserliga fana", "en": "Ethiopian imperial flag", "de": "Kaiserliche Flagge Äthiopiens", "es": "Bandera imperial etíope", "fr": "Drapeau impérial éthiopien" },
+     "sources": ["wp-flag-of-ethiopia"],
+     "review": "source-checked"
+    },
+    {
+     "file": "ethiopia-imperial",
+     "from": 1942,
+     "to": 1974,
+     "label": { "sv": "Etiopiens kejserliga fana", "en": "Ethiopian imperial flag", "de": "Kaiserliche Flagge Äthiopiens", "es": "Bandera imperial etíope", "fr": "Drapeau impérial éthiopien" },
+     "sources": ["wp-flag-of-ethiopia"],
+     "review": "source-checked"
+    }
+   ],
    "symbol": "judah-lion",
    "capitals": [
     {
