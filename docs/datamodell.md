@@ -164,9 +164,11 @@ Namngivna epoker som data, så att tidsålderstext, bildstilar och snabbknappar 
 
 **Fastställt format (#950, beslut [2026-11-08-temaformat-398.md](beslut/2026-11-08-temaformat-398.md), frågorna 1–4 på #398 besvarade av DasKrokodil 2026-11-08), byggt i #962:** filen `data/teman.json` (tom lista), schemat `schemas/teman.schema.json`, kontrollen i `scripts/validate-site.py` och temat i Fokus. Ett tema är ett **namngivet urval av befintliga händelser** med en introduktion, till exempel teknik (#105). Temat lägger inte till några fakta: allt historiskt innehåll ligger kvar i händelserna och deras källor.
 
+Världsdelsräkningen använder `region()` i `js/model.js`: **Europa, Asien, Afrika, Amerika och Oceanien**. Det är en grov koordinatregel, inte landstillhörighet eller en exakt geografisk gräns. `eventRegion()` i `js/uppdrag-rules.js` anropar redan samma funktion. `tests/region.test.mjs` jämför den med Python-validerarens verkliga `region_of()` i `scripts/validate-site.py`, både på kodens gränser och i ett koordinatnät, så att temakontrollen och gränssnittet inte glider isär (#1114). Samma test verifierar elevuppdragets båda koordinatformat.
+
 ### Exempel
 
-Exemplet nedan är en **platshållare**: introduktionen är inte skriven och temat är `draft`, så det skulle inte visas. Händelserna är befintliga id i `data/events.json`, från sex världsdelar. Det riktiga teknikurvalet och introduktionen görs i #105.
+Exemplet nedan är en **platshållare**: introduktionen är inte skriven och temat är `draft`, så det skulle inte visas. Händelserna är befintliga id i `data/events.json`, från flera av regelns fem världsdelar. Det riktiga teknikurvalet och introduktionen görs i #105.
 
 ```json
 {
