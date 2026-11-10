@@ -148,6 +148,14 @@
       ]
     },
     {
+      "license": "CC BY-SA 3.0 (artikeltexten, märkt fri genbrug; bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "lex-det-norrone-gronland",
+        "lex-gardar",
+        "lex-kgh"
+      ]
+    },
+    {
       "license": "CC BY-SA 3.0 DE",
       "sourceIds": [
         "commons-bild-berlinmurens-fall"
@@ -646,6 +654,7 @@
         "wp-gambier-islands",
         "wp-gangut",
         "wp-garamantes",
+        "wp-gardar-greenland",
         "wp-garuda",
         "wp-gautama-buddha",
         "wp-genpei-war",
@@ -679,6 +688,9 @@
         "wp-great-wall",
         "wp-great-zimbabwe",
         "wp-greco-persian-wars",
+        "wp-greenland-ec-referendum-1982",
+        "wp-greenland-home-rule-referendum-1979",
+        "wp-greenland-self-government-referendum-2008",
         "wp-grito-de-dolores",
         "wp-guadalcanal",
         "wp-guiping",
@@ -706,6 +718,7 @@
         "wp-han-xiongnu-wars",
         "wp-hannibal-alps",
         "wp-hanno",
+        "wp-hans-egede",
         "wp-hansan-island",
         "wp-hanseatic-league",
         "wp-harar",
@@ -717,7 +730,9 @@
         "wp-hawaiian-kingdom",
         "wp-he-whakaputanga",
         "wp-helsingborg-1710",
+        "wp-hemming-of-denmark",
         "wp-henderson-island",
+        "wp-henrik-kauffmann",
         "wp-herero-nama-genocide",
         "wp-hexi-corridor",
         "wp-hierakonpolis",
@@ -729,6 +744,7 @@
         "wp-history-bougainville",
         "wp-history-of-alexandria",
         "wp-history-of-fiji",
+        "wp-history-of-greenland",
         "wp-history-of-guam",
         "wp-history-of-hawaii",
         "wp-history-of-kuwait",
@@ -753,6 +769,7 @@
         "wp-house-of-wisdom",
         "wp-huaca-rajada",
         "wp-hurricane-katrina",
+        "wp-hvalsey-church",
         "wp-ia-drang",
         "wp-ibn-battuta",
         "wp-ichi-no-tani",
@@ -931,6 +948,7 @@
         "wp-lothagam-north-pillar-site",
         "wp-lothal",
         "wp-luis-vaz-de-torres",
+        "wp-lund",
         "wp-luoyang",
         "wp-lutzen",
         "wp-lutzen-1632",
@@ -1084,6 +1102,7 @@
         "wp-nuremberg",
         "wp-nuri",
         "wp-nuuanu",
+        "wp-nuuk",
         "wp-nz-constitution-act-1852",
         "wp-nz-land-confiscations",
         "wp-nzinga",
@@ -1143,6 +1162,7 @@
         "wp-pataliputra",
         "wp-pazyryk-burials",
         "wp-peace-of-callias",
+        "wp-peace-of-lund",
         "wp-peace-westphalia",
         "wp-pearl-harbor",
         "wp-pedro-fernandes-de-queiros",
@@ -1230,6 +1250,7 @@
         "wp-rorkes-drift",
         "wp-round-table-conference-1949",
         "wp-route-varangians-greeks",
+        "wp-royal-greenland-trading-department",
         "wp-rozvi-empire",
         "wp-ruapekapeka",
         "wp-runnymede",
@@ -1358,8 +1379,14 @@
         "wp-suhrawardy-udyan",
         "wp-sunpu-castle",
         "wp-sv-antiken",
+        "wp-sv-forsvenskningen",
+        "wp-sv-skane-lan",
+        "wp-sv-skanes-historia",
+        "wp-sv-skanska-generalguvernementet",
+        "wp-sv-sodra-stambanan",
         "wp-swahili-coast",
         "wp-sweden",
+        "wp-swedification-of-scania",
         "wp-swedish-calendar",
         "wp-swedish-empire",
         "wp-sydney-cove",
@@ -1429,6 +1456,8 @@
         "wp-treaty-fredrikshamn",
         "wp-treaty-nanking",
         "wp-treaty-nystad",
+        "wp-treaty-of-kiel",
+        "wp-treaty-of-roskilde",
         "wp-treaty-of-waitangi",
         "wp-treaty-paris-1783",
         "wp-treaty-paris-1815",
@@ -1469,6 +1498,7 @@
         "wp-unsc-242",
         "wp-unsc-338",
         "wp-unsc-598",
+        "wp-uppakra",
         "wp-uruguay",
         "wp-uruk",
         "wp-us-capitol",
@@ -1524,6 +1554,7 @@
         "wp-western-african-ebola-epidemic",
         "wp-western-highlands-province",
         "wp-western-regions",
+        "wp-western-settlement",
         "wp-westerplatte",
         "wp-white-horse-temple",
         "wp-white-mountain",
@@ -1629,6 +1660,12 @@
       "license": "CC0 1.0 (WHG:s tillägg CC BY 4.0)",
       "sourceIds": [
         "whg-hced"
+      ]
+    },
+    {
+      "license": "Domstolsdokument (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "icj-pcij-ab53"
       ]
     },
     {
@@ -1813,6 +1850,12 @@
         "natural-earth-countries",
         "natural-earth-lander",
         "natural-earth-omstridda",
+        "nf-lund",
+        "nf-lunds-domkyrka",
+        "nf-lunds-universitet",
+        "nf-roskilde",
+        "nf-skane",
+        "nf-snapphanekrig",
         "whe-chinese-diamond-sutra",
         "wilber-1886"
       ]
@@ -1882,6 +1925,12 @@
       ]
     },
     {
+      "license": "Store norske leksikon, märkt fri (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "snl-eirik-raude"
+      ]
+    },
+    {
       "license": "© HISTORY / A&E Television Networks (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "history-flat-earth",
@@ -1892,6 +1941,42 @@
         "history-salem-burning",
         "history-sphinx",
         "history-vikings-horns"
+      ]
+    },
+    {
+      "license": "© Lex (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "lex-erik-den-rode",
+        "lex-forsvarsaftale-1941",
+        "lex-gronlands-forfatningshistorie",
+        "lex-gronlands-forhistorie",
+        "lex-gronlands-historie-1500-1979",
+        "lex-gronlands-historie-efter-1979",
+        "lex-gronlands-historie-kort",
+        "lex-gronlands-selvstyre",
+        "lex-hans-egede",
+        "lex-kielerfreden",
+        "lex-nuuk",
+        "lex-ostgronlandssagen",
+        "lex-saqqaq-kulturen",
+        "lex-thule-kulturen"
+      ]
+    },
+    {
+      "license": "© Lex.dk, begrænset genbrug (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "lex-freden-i-kobenhavn",
+        "lex-lund",
+        "lex-lunds-domkirke",
+        "lex-lunds-historie",
+        "lex-lunds-universitet",
+        "lex-malmo",
+        "lex-oresundsforbindelsen",
+        "lex-roskildefreden",
+        "lex-skane",
+        "lex-skanske-krig",
+        "lex-tabet-af-skane",
+        "lex-uppakra"
       ]
     },
     {
@@ -1918,6 +2003,19 @@
       "license": "© Snopes (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "snopes-moai"
+      ]
+    },
+    {
+      "license": "© Store norske leksikon (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "snl-gronland",
+        "snl-gronlands-historie-til-1500"
+      ]
+    },
+    {
+      "license": "© Store norske leksikon, begrenset gjenbruk (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "snl-skane"
       ]
     },
     {

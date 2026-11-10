@@ -2041,6 +2041,22 @@ async function run(browser, vp) {
     if ((await toggle.textContent()).trim() !== 'Upptäcktsvy') throw new Error('upptäcktsvyn saknar sin datahämtade rubrik');
     if (await body.isHidden()) await toggle.click();
     await visible('#religion-legend #rl-body');
+    const coverage = page.locator('#religion-legend .rl-coverage');
+    await coverage.waitFor({ state: 'visible', timeout: T.step });
+    const jump = async value => {
+      if (await page.isHidden('#jump-input')) await page.click('#year-jump');
+      await page.fill('#jump-input', value);
+      await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
+      await page.waitForFunction(want => document.querySelector('#year-big')?.textContent.trim() === want, value, { timeout: T.step });
+      await coverage.waitFor({ state: 'visible', timeout: T.step });
+    };
+    await jump('1500');
+    const earlyCoverage = (await coverage.textContent()).trim();
+    if (!/\d+ %/.test(earlyCoverage)) throw new Error(`mätaren saknar avrundad procent: ${earlyCoverage}`);
+    await jump('1900');
+    await page.waitForFunction(before => document.querySelector('#religion-legend .rl-coverage')?.textContent.trim() !== before, earlyCoverage, { timeout: T.step });
+    const note = await page.textContent('#religion-legend .rl-coverage-note');
+    if (!/inte vad människor faktiskt kände till/.test(note ?? '')) throw new Error('mätaren förklarar inte sin begränsning');
     await toggle.click();
     await hidden('#religion-legend #rl-body');
     if (await page.evaluate(() => sessionStorage.getItem('hg-discovery-legend-open')) !== '0') {
@@ -2921,6 +2937,34 @@ async function run(browser, vp) {
     if (poster.website !== 'historiagloben.se') throw new Error('affischen saknar webbplatsrad från vydata');
     await jumpTo(ROUTE_YEAR);
     return `${header.readUInt32BE(16)} × ${header.readUInt32BE(20)}; ${poster.ids.length} händelser; ${download.suggestedFilename()}`;
+  });
+
+  await check('källhänvisning kan kopieras från händelsen och finns på affischen (#844)', async () => {
+    if (await page.locator('#detail').isVisible()) await page.locator('#detail [data-close]').click();
+    const event = page.locator('#ff-events .ff-chip').first();
+    await event.evaluate(el => el.click());
+    await page.waitForSelector('#detail [data-citation]', { state: 'visible', timeout: T.step });
+    await page.evaluate(() => { window.__copiedCitation = null; Object.defineProperty(navigator, 'clipboard', { value: { writeText: async text => { window.__copiedCitation = text; } }, configurable: true }); });
+    await page.locator('#detail [data-citation]').click();
+    await page.waitForFunction(() => window.__copiedCitation, null, { timeout: T.step });
+    const citation = await page.evaluate(() => ({
+      text: window.__copiedCitation,
+      status: document.querySelector('#detail [data-citation-status]')?.textContent.trim(),
+      role: document.querySelector('#detail [data-citation-status]')?.getAttribute('role'),
+      overflow: document.documentElement.scrollWidth > innerWidth,
+    }));
+    const posterLine = await page.evaluate(async () => {
+      const [{ posterCitation }, doc] = await Promise.all([import('./js/ui/citation.js'), fetch('data/sources.json').then(response => response.json())]);
+      const source = doc.sources[0];
+      return posterCitation([{ sources: [source.id] }], { [source.id]: source });
+    });
+    if (!citation.text.includes('historiagloben.se') || !citation.text.includes('CC BY 4.0') || !/^.+\(.+\)\./.test(citation.text)) throw new Error(`urklippet saknar händelse, adress eller licens: ${citation.text}`);
+    if (!citation.status || citation.role !== 'status') throw new Error('kopieringen saknar läsbar bekräftelse');
+    if (!posterLine.includes('historiagloben.se') || !posterLine.includes('CC BY 4.0') || !posterLine.includes('naturalearthdata.com')) throw new Error(`affischens källrad saknar källa, adress eller licens: ${posterLine}`);
+    if (citation.overflow) throw new Error('källhänvisningen ger horisontell scroll');
+    await page.locator('#detail [data-close]').click();
+    await jumpTo(ROUTE_YEAR); // lämna sidan i samma läge som före kontrollen, annars felar "en väg syns" efteråt i mobilbredd
+    return 'urklippet har händelse, år, källor, adress och licens; bekräftelsen har role=status och affischen ritar källrad';
   });
 
   await check('ett rike syns', async () => {
