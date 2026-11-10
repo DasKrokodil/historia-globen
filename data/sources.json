@@ -1836,6 +1836,24 @@
     {"id": "wp-treaty-of-roskilde", "title": "Treaty of Roskilde – Wikipedia", "url": "https://en.wikipedia.org/wiki/Treaty_of_Roskilde", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
     {"id": "wp-peace-of-lund", "title": "Treaty of Lund – Wikipedia", "url": "https://en.wikipedia.org/wiki/Treaty_of_Lund", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
     {"id": "wp-lund", "title": "Lund – Wikipedia", "url": "https://en.wikipedia.org/wiki/Lund", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
-    {"id": "wp-uppakra", "title": "Uppåkra – Wikipedia", "url": "https://en.wikipedia.org/wiki/Upp%C3%A5kra", "license": "CC BY-SA 4.0", "checked": "2026-11-10"}
+    {"id": "wp-uppakra", "title": "Uppåkra – Wikipedia", "url": "https://en.wikipedia.org/wiki/Upp%C3%A5kra", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-flag-canada", "title": "Flag of Canada – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Canada", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-flag-argentina", "title": "Flag of Argentina – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Argentina", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-flag-chile", "title": "Flag of Chile – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Chile", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-flag-bolivia", "title": "Flag of Bolivia – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Bolivia", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-flag-colombia", "title": "Flag of Colombia – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Colombia", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-flag-bahamas", "title": "Flag of the Bahamas – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_the_Bahamas", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-flag-jamaica", "title": "Flag of Jamaica – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Jamaica", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-flag-trinidad-and-tobago", "title": "Flag of Trinidad and Tobago – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Trinidad_and_Tobago", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-flag-barbados", "title": "Flag of Barbados – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Barbados", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-flag-antigua-and-barbuda", "title": "Flag of Antigua and Barbuda – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Antigua_and_Barbuda", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-flag-grenada", "title": "Flag of Grenada – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Grenada", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-flag-saint-kitts-and-nevis", "title": "Flag of Saint Kitts and Nevis – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Saint_Kitts_and_Nevis", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-flag-saint-lucia", "title": "Flag of Saint Lucia – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Saint_Lucia", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-flag-costa-rica", "title": "Flag of Costa Rica – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Costa_Rica", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-flag-guatemala", "title": "Flag of Guatemala – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Guatemala", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-flag-uruguay", "title": "Flag of Uruguay – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Uruguay", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-flag-honduras", "title": "Flag of Honduras – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Honduras", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-flag-peru", "title": "Flag of Peru – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Peru", "license": "CC BY-SA 4.0", "checked": "2026-11-10"}
   ]
 }
