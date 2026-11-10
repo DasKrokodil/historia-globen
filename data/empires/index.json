@@ -667,10 +667,10 @@
      "sources": [
       "cliopatria"
      ],
-     "review": "source-checked"
-    }
-   ],
-   "facts": {
+   "review": "source-checked"
+   }
+  ],
+  "facts": {
     "summary": {
      "sv": "Det akemenidiska riket var ett forntida iranskt rike som grundades av Kyros den store. Det var sin tids största rike och sträckte sig från Balkan och Kyrenaika i väster till Indusdalen i öster.",
      "en": "The Achaemenid Empire was an ancient Iranian empire founded by Cyrus the Great. It was the largest empire of its time and stretched from the Balkans and Cyrenaica in the west to the Indus Valley in the east."
@@ -14618,6 +14618,9 @@
     ],
     "review": "source-checked"
    },
+   "flags": [
+    { "file": "japan-hinomaru", "from": 1870, "to": 1945, "label": { "sv": "Japans Hinomaru", "en": "Japanese Hinomaru", "de": "Japanische Hinomaru", "es": "Hinomaru japonés", "fr": "Hinomaru japonais" }, "sources": ["wp-flag-japan"], "review": "source-checked" }
+   ],
    "symbol": "chrysanthemum",
    "capitals": [
     {
@@ -21639,6 +21642,9 @@
     ],
     "review": "source-checked"
    },
+   "flags": [
+    { "file": "india-tricolour", "from": 1947, "to": 2024, "label": { "sv": "Indiens trikolor med Ashoka-chakra", "en": "Indian tricolour with Ashoka Chakra", "de": "Indische Trikolore mit Ashoka-Chakra", "es": "Tricolor de la India con chakra de Ashoka", "fr": "Tricolore indien avec chakra d'Ashoka" }, "sources": ["wp-flag-india"], "review": "source-checked" }
+   ],
    "capitals": [
     {
      "name": {
