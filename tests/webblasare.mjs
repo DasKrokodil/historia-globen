@@ -3157,6 +3157,52 @@ async function run(browser, vp) {
       return 'år 1630 och trettioåriga kriget ur länken; Bakåt efter Tillbaka ger kriget igen; trasig länk ger startläget';
     });
   }
+
+  // Den korta kameradressen ?c=lat,lon,zoom används i äldre länkar. Den ska hamna på
+  // platsen också efter att den vanliga startflygningen har körts (#1056).
+  await check('en kort kameradress stannar på begärd plats', async () => {
+    const cameraPage = await context.newPage();
+    const cameraErrors = [];
+    cameraPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(cameraErrors, m); });
+    cameraPage.on('pageerror', e => cameraErrors.push(e.message));
+    await cameraPage.addInitScript(() => {
+      window.__hgCameraFlights = [];
+      document.addEventListener('hg:globe-flight', event => window.__hgCameraFlights.push(event.detail), true);
+    });
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await cameraPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await cameraPage.route(u => isFont(u.href), r => r.abort());
+      }
+      const targets = [
+        { name: 'Skåne', c: '56,13,3.2' },
+        { name: 'Stockholmstrakten', c: '60,15,2' },
+        { name: 'Nya Zeeland', c: '-41,174,3.2' },
+      ];
+      for (const target of targets) {
+        await cameraPage.goto(`${BASE}?c=${encodeURIComponent(target.c)}`, { waitUntil: 'domcontentloaded', timeout: T.load });
+        await cameraPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        const expected = target.c.split(',').map(Number);
+        await cameraPage.waitForFunction(({ lat, lon, zoom }) => window.__hgCameraFlights.some(f => {
+          if (f.phase !== 'start') return false;
+          const gotLat = f.targetX / Math.PI * 180;
+          const gotLon = ((((Math.PI / 2 - f.targetY) / Math.PI * 180 - 180) % 360) + 540) % 360 - 180;
+          return Math.abs(gotLat - lat) < 0.001 && Math.abs(gotLon - lon) < 0.001;
+        }), { lat: expected[0], lon: expected[1], zoom: expected[2] }, { timeout: T.step });
+        const hash = new URL(cameraPage.url()).hash;
+        if (!hash.includes(`c=${target.c}`) || new URL(cameraPage.url()).searchParams.has('c')) {
+          throw new Error(`${target.name}: kameradressen blev inte en kanonisk hash (${cameraPage.url()})`);
+        }
+        await cameraPage.evaluate(() => { window.__hgCameraFlights = []; });
+      }
+      if (cameraErrors.length) throw new Error(`kameralänken gav konsolfel: ${cameraErrors.join('; ')}`);
+    } finally {
+      await cameraPage.close();
+    }
+    return 'Skåne, Stockholmstrakten och Nya Zeeland följer ?c= i den här bredden';
+  });
+
   if (vp.name === 'dator') {
     // En länk till en guidad tur (#736): t och s i adressen startar turen vid rätt steg, adressen följer turen,
     // Bakåt går till steget innan, Avsluta tar bort turen ur adressen, och en okänd tur ger en vanlig vy
