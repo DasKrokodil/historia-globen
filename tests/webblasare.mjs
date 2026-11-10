@@ -3206,7 +3206,12 @@ async function run(browser, vp) {
         if ((await pp.textContent('#jump-msg')).trim() !== copy.bounds) throw new Error(`${lang}: årshoppets feltext`);
         await pp.keyboard.press('Escape');
         // Ett kort krig visar dagar i stället för år; bara gränssnittet provas, ingen fakta ändras.
-        await pp.evaluate(() => { location.hash = '#f=war:sexdagarskriget'; });
+        await pp.evaluate(async () => {
+          const { events } = await (await fetch('data/genererat/handelser.json')).json();
+          const war = events.find(e => e.id === 'sexdagarskriget');
+          // Delade fokuslänkar kräver också y; ett ensamt f ignoreras av decodeHash().
+          location.hash = `#y=${Math.floor(war.start)}&f=war:${war.id}`;
+        });
         await pp.waitForSelector('#focus-bar:not([hidden])', { timeout: T.load });
         await pp.waitForFunction(() => document.querySelector('#btn-speed .unit-short'), null, { timeout: T.step });
         if (await pp.textContent('#btn-speed .unit-short') !== copy.day) throw new Error(`${lang}: dagförkortningen`);
