@@ -4,10 +4,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { periodToRange } from '../js/period-range.js';
+import { MIN_YEAR as MIN, MAX_YEAR as MAX } from '../js/timeline.js';
 
 const doc = JSON.parse(readFileSync(new URL('../data/perioder.json', import.meta.url)));
 const all = doc.divisions.flatMap(d => d.periods);
-const MIN = -2999, MAX = 2026; // som MIN_YEAR och MAX_YEAR i js/timeline.js (i dag 2026)
 const r = id => periodToRange(all.find(p => p.id === id), MIN, MAX);
 
 test('det finns tio perioder', () => assert.equal(all.length, 10));
@@ -23,8 +23,10 @@ test('vanliga perioder behåller sina årtal och är varken klippta eller öppna
   assert.deepEqual(r('industrialiseringen'), { from: 1760, to: 1840, clippedStart: false, openEnd: false });
 });
 
-test('stenåldern börjar före tidslinjen: klipps vid första året och märks', () => {
-  assert.deepEqual(r('nordisk-stenalder'), { from: MIN, to: -1699, clippedStart: true, openEnd: false });
+test('stenålderns början följer tidslinjens gräns och klipps bara när det behövs', () => {
+  const stone = all.find(p => p.id === 'nordisk-stenalder');
+  const clipped = stone.start < MIN;
+  assert.deepEqual(r(stone.id), { from: clipped ? MIN : stone.start, to: -1699, clippedStart: clipped, openEnd: false });
 });
 
 test('"1900 till nutid" går till i dag och märks öppen', () => {
@@ -37,4 +39,12 @@ test('varje period ger ett intervall som går att välja: från före till, inom
     assert.ok(x.from < x.to, p.id);
     assert.ok(x.from >= MIN && x.to <= MAX, p.id);
   }
+});
+
+// #1100, tillägget i byggordern: upptäck också om Python-validerarens kopia glider isär.
+test('validerarens EARLIEST_YEAR följer tidslinjens MIN_YEAR (#1100)', () => {
+  const source = readFileSync(new URL('../scripts/validate-site.py', import.meta.url), 'utf8');
+  const earliest = /^EARLIEST_YEAR\s*=\s*(-?\d+)\s*(?:#.*)?$/m.exec(source);
+  assert.ok(earliest, 'hittar inte EARLIEST_YEAR i Python-valideraren');
+  assert.equal(Number(earliest[1]), MIN, 'uppdatera EARLIEST_YEAR i scripts/validate-site.py när MIN_YEAR ändras');
 });
