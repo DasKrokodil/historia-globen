@@ -211,6 +211,7 @@ Det som bara behövs vid klick laddas när det behövs, och en gång (`model.js`
 - **Ett rike** (`data/empires/<rike>.json`) laddas när året närmar sig rikets tid (inom 100 år) eller när man väljer det i Fokus. När en fil har kommit ritas sidan om med `refreshSoon`, högst en gång per bildruta: vid ett långt hopp kommer över hundra filer nästan samtidigt, och en hel omritning per fil gjorde att sidan inte svarade på 36 sekunder utan grafikkort (#692).
 - **Religionerna** (`data/religions.json`) laddas när religionslagret slås på, när Fokus-menyn öppnas eller när Om källorna öppnas.
 - **Rikenas gränser i religionslagret** (`data/religions-polities.json`, #194) laddas vid det första klicket på ett religionsområde. Rutan visar "Söker riket på platsen…" tills filen är laddad. Ritningen av lagret använder den inte.
+- **Upptäcktsvyns Europa** (`data/upptackt-europa.json`, `home.regions`, #872) laddas första gången vyn slås på och är lyft från vyns början, före riken och resor.
 - **Upptäcktsvyns bilder** (`images/karta/`, #101) laddas första gången vyn slås på; saknas `data/upptackt.json` fungerar sidan utan upptäcktsvyn.
 - **Vägar och resor** (`data/routes/index.json` och filerna den listar, #38) laddas direkt efter starten utan att sidan väntar på dem (`loadRoutes()` i `model.js`). En fil som saknas eller inte går att läsa hoppas över med en varning i konsolen.
 - **Bilder** i faktarutan laddas när kortet öppnas.

@@ -2085,6 +2085,29 @@ async function run(browser, vp) {
     return `USA 1863: ${r.inne} perioder lyfta; före landet fanns och utan kontakt: inga`;
   });
 
+  // #872: Europa är känt från vyns början. Utan riken och resor är dimman redan lyft över Europa år -2999 (Paris, Uppsala,
+  // Moskva väster om Ural), men inte över Peking, Ankara eller Sibirien. Gränsen kommer ur data/upptackt-europa.json.
+  await check('upptäcktsvyn lyfter dimman över Europa från vyns början (#872)', async () => {
+    const r = await page.evaluate(async () => {
+      const { DiscoveryLayer } = await import('./js/layers/discovery.js');
+      const doc = await (await fetch('data/upptackt.json')).json();
+      const layer = new DiscoveryLayer(doc, null);
+      layer.enabled = true;
+      layer._loadImages = () => {};
+      layer.update({ year: -2999, lines: { routes: [], reached: () => [] } });
+      for (let i = 0; i < 100 && !layer.regions.length; i++) await new Promise(res => setTimeout(res, 100));
+      layer.fogKey = null;
+      layer.update({ year: -2999, lines: { routes: [], reached: () => [] } });
+      const inRing = (pt, ring) => { let c = false; for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) { const [xi, yi] = ring[i], [xj, yj] = ring[j]; if ((yi > pt[1]) !== (yj > pt[1]) && pt[0] < (xj - xi) * (pt[1] - yi) / (yj - yi) + xi) c = !c; } return c; };
+      const inside = pt => layer.lifted.some(g => (g.type === 'Polygon' ? [g.coordinates] : g.coordinates).some(rings => inRing(pt, rings[0]) && !rings.slice(1).some(h => inRing(pt, h))));
+      return { regioner: layer.regions.length, lyfta: layer.lifted.length, paris: inside([2.35, 48.85]), uppsala: inside([17.64, 59.86]), moskva: inside([37.6, 55.75]), peking: inside([116.4, 39.9]), ankara: inside([32.85, 39.93]), sibirien: inside([90, 60]) };
+    });
+    if (!r.regioner) throw new Error('Europa-regionen laddades inte');
+    if (!r.paris || !r.uppsala || !r.moskva) throw new Error(`Europa är inte lyft: ${JSON.stringify(r)}`);
+    if (r.peking || r.ankara || r.sibirien) throw new Error(`dimman är lyft utanför Europa: ${JSON.stringify(r)}`);
+    return `Paris, Uppsala och Moskva lyfta år -2999; Peking, Ankara och Sibirien dolda (${r.lyfta} geometrier)`;
+  });
+
   // Hemriken: vyn ser världen från Europa, så Makedonien (med Alexanders erövringar) och dess grannar syns utan
   // resor. Persiska riket är granne till Makedonien; Hanriket låg aldrig nära ett hemrike och förblir dolt.
   await check('upptäcktsvyn lyfter dimman över hemrikena och deras grannar', async () => {
