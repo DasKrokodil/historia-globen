@@ -2124,6 +2124,9 @@ async function run(browser, vp) {
         before: inside([-78, 38], lifted(1754)),
         mitchellArea: inside([-78, 38], lifted(1755)),
         west: inside([-120, 40], lifted(1767)),
+        usaBefore: inside([-116, 38], lifted(1838)),
+        usa1839: inside([-116, 38], lifted(1839)),
+        usaSource: doc.knowledge?.find(k => k.id === 'usa-1839')?.sources?.[0],
         africaBefore: inside([18, 0], lifted(1574)),
         africa: inside([18, 0], lifted(1575)),
         africaSource: doc.knowledge?.find(k => k.id === 'afrika-1575')?.sources?.[0],
@@ -2143,6 +2146,7 @@ async function run(browser, vp) {
     });
     if (r.source !== 'loc-mitchell-map-1755') throw new Error(`kartkunskapen saknar Mitchell-källan: ${r.source}`);
     if (r.before || !r.mitchellArea || r.west) throw new Error(`fel tids- eller områdesavgränsning: ${JSON.stringify(r)}`);
+    if (r.usaSource !== 'loc-burr-usa-1839' || r.usaBefore || !r.usa1839) throw new Error(`USA:s senare kartkunskap har fel källa eller tid: ${JSON.stringify(r)}`);
     if (r.africaSource !== 'loc-ortelius-africa-1575' || r.africaBefore || !r.africa) throw new Error(`Afrikas källbelagda område har fel källa eller tid: ${JSON.stringify(r)}`);
     if (r.southAmericaSource !== 'loc-gutierrez-americas-1562' || r.southAmericaBefore || !r.southAmerica) throw new Error(`Sydamerikas källbelagda område har fel källa eller tid: ${JSON.stringify(r)}`);
     if (r.asiaSource !== 'loc-ortelius-asia-1579' || r.asiaBefore || !r.asia) throw new Error(`Asiens källbelagda område har fel källa eller tid: ${JSON.stringify(r)}`);

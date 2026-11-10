@@ -53,6 +53,21 @@
       ]}
     },
     {
+      "id": "usa-1839",
+      "from": 1839,
+      "sources": ["loc-burr-usa-1839"],
+      "note": {
+        "sv": "Ungefärligt område som Burrs karta från 1839 visar för USA och delar av grannländerna. Ytan är inte en nutida gräns och säger inte att varje plats var lika väl uppmätt.",
+        "en": "Approximate area shown by Burr's 1839 map for the United States and parts of adjacent countries. It is not a modern boundary and does not say every place was equally surveyed.",
+        "de": "Ungefähres Gebiet, das Burrs Karte von 1839 für die Vereinigten Staaten und Teile der Nachbarländer zeigt. Es ist keine moderne Grenze und besagt nicht, dass jeder Ort gleich gut vermessen war.",
+        "es": "Área aproximada mostrada por el mapa de Burr de 1839 para Estados Unidos y partes de los países vecinos. No es una frontera moderna ni afirma que todos los lugares estuvieran medidos por igual.",
+        "fr": "Zone approximative montrée par la carte de Burr de 1839 pour les États-Unis et une partie des pays voisins. Ce n’est pas une frontière moderne et elle ne signifie pas que tous les lieux étaient relevés avec la même précision."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[-125,49],[-124,42],[-122,37],[-118,33],[-114,32],[-111,31],[-106,31],[-103,29],[-97,26],[-90,29],[-82,25],[-80,30],[-78,35],[-75,39],[-70,42],[-67,45],[-70,47],[-82,47],[-95,49],[-110,49],[-125,49]]]
+      ]}
+    },
+    {
       "id": "afrika-1575",
       "from": 1575,
       "sources": ["loc-ortelius-africa-1575"],
