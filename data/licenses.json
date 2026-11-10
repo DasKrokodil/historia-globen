@@ -712,6 +712,7 @@
         "wp-hawaiian-islands",
         "wp-hawaiian-kingdom",
         "wp-helsingborg-1710",
+        "wp-hemming-of-denmark",
         "wp-henderson-island",
         "wp-herero-nama-genocide",
         "wp-hexi-corridor",
@@ -926,6 +927,7 @@
         "wp-lothagam-north-pillar-site",
         "wp-lothal",
         "wp-luis-vaz-de-torres",
+        "wp-lund",
         "wp-luoyang",
         "wp-lutzen",
         "wp-lutzen-1632",
@@ -1133,6 +1135,7 @@
         "wp-pataliputra",
         "wp-pazyryk-burials",
         "wp-peace-of-callias",
+        "wp-peace-of-lund",
         "wp-peace-westphalia",
         "wp-pearl-harbor",
         "wp-pedro-fernandes-de-queiros",
@@ -1346,8 +1349,14 @@
         "wp-suhrawardy-udyan",
         "wp-sunpu-castle",
         "wp-sv-antiken",
+        "wp-sv-forsvenskningen",
+        "wp-sv-skane-lan",
+        "wp-sv-skanes-historia",
+        "wp-sv-skanska-generalguvernementet",
+        "wp-sv-sodra-stambanan",
         "wp-swahili-coast",
         "wp-sweden",
+        "wp-swedification-of-scania",
         "wp-swedish-calendar",
         "wp-swedish-empire",
         "wp-sydney-cove",
@@ -1417,6 +1426,7 @@
         "wp-treaty-fredrikshamn",
         "wp-treaty-nanking",
         "wp-treaty-nystad",
+        "wp-treaty-of-roskilde",
         "wp-treaty-of-waitangi",
         "wp-treaty-paris-1783",
         "wp-treaty-paris-1815",
@@ -1456,6 +1466,7 @@
         "wp-unsc-242",
         "wp-unsc-338",
         "wp-unsc-598",
+        "wp-uppakra",
         "wp-uruguay",
         "wp-uruk",
         "wp-us-capitol",
@@ -1787,6 +1798,12 @@
         "natural-earth-countries",
         "natural-earth-lander",
         "natural-earth-omstridda",
+        "nf-lund",
+        "nf-lunds-domkyrka",
+        "nf-lunds-universitet",
+        "nf-roskilde",
+        "nf-skane",
+        "nf-snapphanekrig",
         "whe-chinese-diamond-sutra",
         "wilber-1886"
       ]
@@ -1854,6 +1871,23 @@
       ]
     },
     {
+      "license": "© Lex.dk, begrænset genbrug (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "lex-freden-i-kobenhavn",
+        "lex-lund",
+        "lex-lunds-domkirke",
+        "lex-lunds-historie",
+        "lex-lunds-universitet",
+        "lex-malmo",
+        "lex-oresundsforbindelsen",
+        "lex-roskildefreden",
+        "lex-skane",
+        "lex-skanske-krig",
+        "lex-tabet-af-skane",
+        "lex-uppakra"
+      ]
+    },
+    {
       "license": "© Mount Vernon Ladies Association (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "mountvernon-wooden-teeth"
@@ -1877,6 +1911,12 @@
       "license": "© Snopes (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "snopes-moai"
+      ]
+    },
+    {
+      "license": "© Store norske leksikon, begrenset gjenbruk (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "snl-skane"
       ]
     },
     {
