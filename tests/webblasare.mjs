@@ -1525,6 +1525,9 @@ async function run(browser, vp) {
         return { panelOpen: document.getElementById('panel').classList.contains('open'), cardHidden: document.getElementById('funfact').hidden, tabVisible: !document.getElementById('ff-tab').hidden, right: Math.round(detail.right - panel.right) };
       });
       if (!layout.panelOpen || !layout.cardHidden || !layout.tabVisible || Math.abs(layout.right) > 1) throw new Error('faktarutan delar inte högersidans läsyta med Samtidigt');
+      // #1051: rutan ska också ta emot klick. Mäts i punkten mitt i rutan, där listan annars kan ligga över
+      const hit = await page.evaluate(() => { const r = document.getElementById('detail').getBoundingClientRect(); const el = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return !!el?.closest('#detail'); });
+      if (!hit) throw new Error('faktarutan är täckt av Samtidigt-listan och tar inte emot klick (#1051)');
     }
     await shot('3-handelse-oppnas');
     const calm = page.locator('input[data-calm]');
