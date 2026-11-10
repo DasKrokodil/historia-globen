@@ -480,6 +480,7 @@
         "wp-colombia",
         "wp-colombian-peace-process",
         "wp-colony-of-fiji",
+        "wp-colony-of-new-zealand",
         "wp-columbus",
         "wp-columbus-fjarde-resan",
         "wp-confederate-states",
@@ -492,6 +493,7 @@
         "wp-conquest-inca",
         "wp-conquest-jerusalem-637",
         "wp-constantinople",
+        "wp-constitution-act-1986",
         "wp-constitution-mexico",
         "wp-cook-resa-1",
         "wp-cook-resa-2",
@@ -542,6 +544,7 @@
         "wp-dodowa",
         "wp-dolores-hidalgo",
         "wp-dominion-of-fiji",
+        "wp-dominion-of-new-zealand",
         "wp-dong-fang-hong-1",
         "wp-dorset-culture",
         "wp-dr-congo",
@@ -654,6 +657,7 @@
         "wp-ghana-empire",
         "wp-gingindlovu",
         "wp-girnar",
+        "wp-gisborne-nz",
         "wp-glade-armistice",
         "wp-glagolitic-script",
         "wp-glasgow-green",
@@ -711,6 +715,7 @@
         "wp-havana",
         "wp-hawaiian-islands",
         "wp-hawaiian-kingdom",
+        "wp-he-whakaputanga",
         "wp-helsingborg-1710",
         "wp-henderson-island",
         "wp-herero-nama-genocide",
@@ -949,6 +954,8 @@
         "wp-mana-skeleton",
         "wp-mangareva",
         "wp-mansa-musa",
+        "wp-maori-king-movement",
+        "wp-maori-language-act-1987",
         "wp-maratha-empire",
         "wp-march-on-washington",
         "wp-marco-polo",
@@ -1021,6 +1028,7 @@
         "wp-mulifanua",
         "wp-munster",
         "wp-murasaki-shikibu",
+        "wp-musket-wars",
         "wp-muslim-conquest-syria",
         "wp-mussau-island",
         "wp-myall-creek-massacre",
@@ -1076,6 +1084,8 @@
         "wp-nuremberg",
         "wp-nuri",
         "wp-nuuanu",
+        "wp-nz-constitution-act-1852",
+        "wp-nz-land-confiscations",
         "wp-nzinga",
         "wp-obelisk-of-axum",
         "wp-oc-eo",
@@ -1239,6 +1249,7 @@
         "wp-salt-march",
         "wp-salyut-1",
         "wp-samoa",
+        "wp-samuel-marsden",
         "wp-san-bartolo-maya-site",
         "wp-san-lorenzo-tenochtitlan",
         "wp-sandline-affair",
@@ -1337,6 +1348,7 @@
         "wp-stand-watie",
         "wp-star-wars",
         "wp-state-emblem-ussr",
+        "wp-statute-of-westminster-adoption-act-1947",
         "wp-stele-of-piye",
         "wp-stockholm",
         "wp-stonehenge",
@@ -1420,6 +1432,7 @@
         "wp-treaty-of-waitangi",
         "wp-treaty-paris-1783",
         "wp-treaty-paris-1815",
+        "wp-treaty-settlements",
         "wp-treaty-triple-alliance",
         "wp-trepanning",
         "wp-triangular-trade",
@@ -1490,6 +1503,7 @@
         "wp-wagram",
         "wp-wairau-bar",
         "wp-waitangi-northland",
+        "wp-waitangi-tribunal",
         "wp-waitara-nz",
         "wp-wall-street-crash-1929",
         "wp-wandjina",
@@ -1515,6 +1529,7 @@
         "wp-white-mountain",
         "wp-white-wolf-mountain",
         "wp-willem-janszoon",
+        "wp-william-hobson",
         "wp-winter-palace",
         "wp-wittstock",
         "wp-wittstock-battle",
@@ -1641,6 +1656,17 @@
         "historiska-jarnalder",
         "historiska-perioder",
         "historiska-stenalder"
+      ]
+    },
+    {
+      "license": "Lex, begränsad licens (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "lex-dominion",
+        "lex-maori",
+        "lex-maori-sproget",
+        "lex-new-zealand",
+        "lex-new-zealands-historie",
+        "lex-waitangitraktaten"
       ]
     },
     {
@@ -1838,6 +1864,21 @@
       "license": "Skolverket (bara länkad; årtal och årskurser hämtade, periodnamnen är egna formuleringar, ingen text kopierad)",
       "sourceIds": [
         "skolverket-lgr22-historia"
+      ]
+    },
+    {
+      "license": "Store norske leksikon, begränsad licens (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "snl-new-zealand",
+        "snl-new-zealands-befolkning",
+        "snl-new-zealands-historie",
+        "snl-new-zealands-politiske-system"
+      ]
+    },
+    {
+      "license": "Store norske leksikon, fri licens enligt artikelns metadata (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "snl-maori"
       ]
     },
     {
