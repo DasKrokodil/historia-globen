@@ -24,6 +24,7 @@
   --z-turkort: 14;         /* turkortet, ovanför faktarutan i vila */
   --z-panel: 15;           /* Samtidigt-panelen och andra sidopaneler (#887) */
   --z-kort-over-tur: 15;   /* faktarutan öppnas ovanpå turkortet under en tur och i lektionsläget (#862, F7) */
+  --z-detalj: 16;          /* faktarutan över den öppna Samtidigt-panelen i bred skärm: de delar läsyta (#998, #1051) */
   --z-band: 16;            /* lektionsbandet och helt utfällda ark på mobil: över panelerna, under menyerna */
   --z-meny: 17;            /* knapparna överst och deras öppna menyer ligger över sidopanelerna, annars tar panelen emot klicken (#887) */
   --print-ink: #111;       /* utskriften av en lektionstur (#738): svart text på vitt papper */
@@ -588,7 +589,8 @@ body {
   backdrop-filter: blur(6px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
 }
-/* I bred skärm använder faktarutan alltid högersidans läsyta, även när listan är öppen. */
+/* I bred skärm använder faktarutan alltid högersidans läsyta, även när listan är öppen. Då ligger den över listan, annars är den täckt och går inte att klicka på (#1051). */
+@media (min-width: 761px) { .app.panel-open .detail-card { z-index: var(--z-detalj); } }
 .detail-close, .panel-x {
   position: sticky; top: 0; float: right;
   margin: -4px -6px 0 8px;
