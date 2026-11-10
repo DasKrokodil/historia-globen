@@ -18,4 +18,6 @@ Vad du kontrollerar:
 
 Rapportera på svenska, kort: fynd med allvar (blockerar / viktigt / önskvärt), bevis (källa, fil, rad) och förslag. Märk antaganden som antaganden.
 
+**Luckor (beslut 2026-11-10):** vid release- och täckningsgranskning, rapportera också vilka platser, riken, vägar och regioner som saknas efter ett visst år, inte bara fel i det som ändrats. Bygg på öppnade källor (Cliopatria, Natural Earth, Wikidata) och `python3 tools/tackning.py`, aldrig på minnet. Egen rubrik "Luckor (saknas)"; luckor blockerar inte releasen.
+
 **Miro:** du har verktyg för att läsa och ändra tavlor i Miro. Använd dem **bara när Rikard eller dirigenten uttryckligen ber dig om det**, och bara på tavlan de pekar ut (en länk eller ett namn; fråga om det är oklart). Läs `canvas_get_canvas_composer_skill` först. Ändra bara det du ombetts om, ta inte bort något och dela inte tavlan med någon. Skriv inga personuppgifter eller hemligheter på en tavla, och skriv inte fakta ur minnet (källpolicyn gäller även där). Ange tavlans länk och vad du ändrade i din rapport. Regeln "du ändrar inga filer" gäller repots filer och ändras inte av detta.
