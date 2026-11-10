@@ -15,7 +15,7 @@ Licenserna nedan gäller respektive komponent eller datakälla, inte hela Histor
 
 | Material | Användning | Licens och källa |
 |---|---|---|
-| Natural Earth 1:50m och 1:10m | Underlag till grundkartan (1:50m), den finare kusten i det skarpa utsnittet vid inzoomning (1:10m, `data/land-10m.json`) och dagens landsgränser via world-atlas 2.0.2 | Natural Earth-data är [public domain](https://www.naturalearthdata.com/about/terms-of-use/). [world-atlas 2.0.2:s paketmetadata](https://github.com/topojson/world-atlas/blob/v2.0.2/package.json) anger ISC för paketets kod, enligt dess [licensfil](https://github.com/topojson/world-atlas/blob/v2.0.2/LICENSE); koden ingår inte här. |
+| Natural Earth 1:50m och 1:10m | Underlag till grundkartan (1:50m), den finare kusten i det skarpa utsnittet vid inzoomning (1:10m, `data/land-10m.json`) dagens landsgränser via world-atlas 2.0.2 och Europas gräns i upptäcktsvyn (`data/upptackt-europa.json`, 1:50m admin 0 countries, #872) | Natural Earth-data är [public domain](https://www.naturalearthdata.com/about/terms-of-use/). [world-atlas 2.0.2:s paketmetadata](https://github.com/topojson/world-atlas/blob/v2.0.2/package.json) anger ISC för paketets kod, enligt dess [licensfil](https://github.com/topojson/world-atlas/blob/v2.0.2/LICENSE); koden ingår inte här. |
 | Cliopatria | Underlag till rikenas och religionslagrens gränser | [CC BY 4.0](https://github.com/Seshat-Global-History-Databank/cliopatria/blob/main/LICENSE.md); [datasetpost på Zenodo](https://zenodo.org/records/13363121). Projektets urval och bearbetning beskrivs i [README](./README.md#licenser). |
 
 ## Bilder

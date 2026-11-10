@@ -506,7 +506,7 @@ Upptäcktsvyn slås på i Lager. Filen styr allt den visar (ritas av `js/layers/
     "waterLines": { "count": 3, "widthDeg": 1.3, "opacity": 0.14 }, "coastPx": 2.4,
     "vignette": 0.45, "vignetteSides": 0.5,
     "rhumb": { "directions": 32, "lengthDeg": 70, "opacity": 0.42, "widthPx": 1.6 } },
-  "home": { "empires": ["romarriket", "alexanders-rike", "…"], "neighborDeg": 3.5 },
+  "home": { "regions": [{ "id": "europa", "file": "data/upptackt-europa.json" }], "empires": ["romarriket", "alexanders-rike", "…"], "neighborDeg": 3.5 },
   "fog": { "opacity": 0.97, "corridorDeg": 7, "soften": 0.7, "grain": 0.2,
     "hatch": 0.45, "hatchDeg": 1.2, "hatchSpacingDeg": 0.6,
     "labels": [{ "text": { "sv": "Terra incognita" }, "at": [-100, 47], "size": 4.2 }] },
@@ -526,6 +526,7 @@ Upptäcktsvyn slås på i Lager. Filen styr allt den visar (ritas av `js/layers/
 | `paper.coastPx` | Bläckkustens bredd i bildpunkter på lagerbilden (4096 × 2048) |
 | `paper.vignette`, `paper.vignetteSides` | Mörkare kanter mot polerna (0–1), och hur stor del av det som gäller mot datumlinjen |
 | `paper.rhumb` | Portolanlinjer ut från varje dekoration med `rhumb: true`, ovanpå dimman: `directions` = antal riktningar (avrundas till en multipel av 8; huvudvindar i bläck, halvvindar i grönt `--discovery-rhumb-half`, kvartsvindar i rött `--discovery-rhumb-quarter`), `lengthDeg` = längd i grader, `opacity` och `widthPx` |
+| `home.regions` | Regioner som är kända från vyns början och aldrig ligger under dimman (#872): `id` och `file`, en fil med `geometry` (GeoJSON `MultiPolygon`) som laddas första gången vyn slås på. `europa` kommer ur Natural Earth 1:50m (public domain) via `python3 tools/europa_dimma.py <ne_50m_admin_0_countries.geojson> data/upptackt-europa.json`: länder med `CONTINENT = Europe`, utan områden över haven, med Ryssland klippt vid 60° ö.l. (Uralbergen) och utan Turkiet och Kaukasus, som Rom och Alexanders rike lyfter. Filen ligger i listan i `scripts/build-site.sh` |
 | `home.empires` | Vyns utgångspunkt i Europa: grupp-id i `data/empires/index.json` för de europeiska rikena. Dimman är lyft över dem för varje period som har börjat |
 | `home.neighborDeg` | Hur nära, i grader, ett annat rikes område ska ha legat ett hemrikes område under samma år för att räknas som granne. Då lyfts dimman över grannen från det året (grannarnas grannar räknas inte) |
 | `fog.opacity` | Dimmans täckning, 0–1. Nära 1 döljer allt som inte har nåtts; händelsernas markörer syns ändå, eftersom de ligger ovanpå klotet. Färgerna är CSS-variablerna `--discovery-fog` och `--discovery-ink` |

@@ -148,6 +148,7 @@ data/routes/          vägar och resor (lagertyp linje): index.json och en fil p
 data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar, med en fil per språk (genereras, redigeras inte)
 data/oversattning.json baslinjen för oöversatta texter och registret över översättningar (genereras av tools/oversattning.py)
 data/upptackt.json    upptäcktsvyn: perspektivraden, den åldrade kartstilen, dimmans täckning och korridorens bredd, dekorationernas platser
+data/upptackt-europa.json Europa som hemregion i upptäcktsvyn, lyft från början (#872); byggs med tools/europa_dimma.py ur Natural Earth
 data/vyer.json        grupperna och de förinställda vyerna i Lager (#357)
 data/ui/              gränssnittets texter: sprak.json och en fil per språk (#63)
 data/religions.json   religioner över tid: varje rikes religion (Cliopatria + Wikipedia)
