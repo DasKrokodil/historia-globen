@@ -70,6 +70,11 @@ const BASE = target.endsWith('/') ? target : `${target}/`;
 const OUT = path.resolve(process.env.SKARMBILDER || path.join(os.tmpdir(), 'historia-globen-webblasartest'));
 const THREE_URL = 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 const THREE_LOCAL = process.env.THREE_LOCAL || '';
+// #1100: läs samma tidsgränser som sidan använder, även på testernas egna sidor.
+const timelineBounds = page => page.evaluate(async () => {
+  const { MIN_YEAR, MAX_YEAR } = await import('./js/timeline.js');
+  return { min: MIN_YEAR, max: MAX_YEAR };
+});
 const FONT_HOSTS = ['fonts.googleapis.com', 'fonts.gstatic.com']; // avbrutna typsnitt är tillåtna
 const ROUTE_YEAR = 1420; // år med vägar och resor (Zheng He, handelsvägar) och riken
 const T = { load: 90000, step: 15000 };
@@ -645,20 +650,24 @@ async function run(browser, vp) {
     }).length);
     if (covered) throw new Error('teckenförklaringen eller något annat täcker steg- eller spelknapparna');
     // Ihopfällningen och omladdningen provas på en egen sida, så att den delade sidans tillstånd inte ändras för kontrollerna efter
+    // Den statiska details-rutan kan synas innan appen har läst det sparade valet.
     const fresh = await context.newPage();
     try {
       await fresh.goto(BASE);
       await fresh.evaluate(() => { try { localStorage.removeItem('hg-teckenforklaring'); } catch { /* */ } });
       await fresh.reload();
+      await fresh.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await fresh.waitForSelector('#timeline-legend summary', { state: 'visible', timeout: T.step });
       await fresh.click('#timeline-legend summary');
       if (await fresh.getAttribute('#timeline-legend', 'open') !== null) throw new Error('teckenförklaringen fälldes inte ihop');
       await fresh.reload();
+      await fresh.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await fresh.waitForSelector('#timeline-legend summary', { state: 'visible', timeout: T.step });
       if (await fresh.getAttribute('#timeline-legend', 'open') !== null) throw new Error('valet att fälla ihop sparades inte');
       await fresh.click('#timeline-legend summary');
       if (await fresh.getAttribute('#timeline-legend', 'open') === null) throw new Error('teckenförklaringen öppnades inte igen');
       await fresh.reload();
+      await fresh.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await fresh.waitForSelector('#timeline-legend summary', { state: 'visible', timeout: T.step });
       if (await fresh.getAttribute('#timeline-legend', 'open') === null) throw new Error('valet att öppna sparades inte');
     } finally { await fresh.close(); }
@@ -2190,27 +2199,28 @@ async function run(browser, vp) {
     return 'Varje världsdel har en tidsbunden, källbelagd kontrollpunkt; bara kartans dokumenterade område lyfts';
   });
 
-  // #872: Europa är känt från vyns början. Utan riken och resor är dimman redan lyft över Europa år -2999 (Paris, Uppsala,
+  // #872: Europa är känt från vyns början. Utan riken och resor är dimman redan lyft över Europa vid tidslinjens början (Paris, Uppsala,
   // Moskva väster om Ural), men inte över Peking, Ankara eller Sibirien. Gränsen kommer ur data/upptackt-europa.json.
   await check('upptäcktsvyn lyfter dimman över Europa från vyns början (#872)', async () => {
     const r = await page.evaluate(async () => {
       const { DiscoveryLayer } = await import('./js/layers/discovery.js');
+      const { MIN_YEAR } = await import('./js/timeline.js');
       const doc = await (await fetch('data/upptackt.json')).json();
       const layer = new DiscoveryLayer(doc, null);
       layer.enabled = true;
       layer._loadImages = () => {};
-      layer.update({ year: -2999, lines: { routes: [], reached: () => [] } });
+      layer.update({ year: MIN_YEAR, lines: { routes: [], reached: () => [] } });
       for (let i = 0; i < 100 && !layer.regions.length; i++) await new Promise(res => setTimeout(res, 100));
       layer.fogKey = null;
-      layer.update({ year: -2999, lines: { routes: [], reached: () => [] } });
+      layer.update({ year: MIN_YEAR, lines: { routes: [], reached: () => [] } });
       const inRing = (pt, ring) => { let c = false; for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) { const [xi, yi] = ring[i], [xj, yj] = ring[j]; if ((yi > pt[1]) !== (yj > pt[1]) && pt[0] < (xj - xi) * (pt[1] - yi) / (yj - yi) + xi) c = !c; } return c; };
       const inside = pt => layer.lifted.some(g => (g.type === 'Polygon' ? [g.coordinates] : g.coordinates).some(rings => inRing(pt, rings[0]) && !rings.slice(1).some(h => inRing(pt, h))));
-      return { regioner: layer.regions.length, lyfta: layer.lifted.length, paris: inside([2.35, 48.85]), uppsala: inside([17.64, 59.86]), moskva: inside([37.6, 55.75]), peking: inside([116.4, 39.9]), ankara: inside([32.85, 39.93]), sibirien: inside([90, 60]) };
+      return { firstYear: MIN_YEAR, regioner: layer.regions.length, lyfta: layer.lifted.length, paris: inside([2.35, 48.85]), uppsala: inside([17.64, 59.86]), moskva: inside([37.6, 55.75]), peking: inside([116.4, 39.9]), ankara: inside([32.85, 39.93]), sibirien: inside([90, 60]) };
     });
     if (!r.regioner) throw new Error('Europa-regionen laddades inte');
     if (!r.paris || !r.uppsala || !r.moskva) throw new Error(`Europa är inte lyft: ${JSON.stringify(r)}`);
     if (r.peking || r.ankara || r.sibirien) throw new Error(`dimman är lyft utanför Europa: ${JSON.stringify(r)}`);
-    return `Paris, Uppsala och Moskva lyfta år -2999; Peking, Ankara och Sibirien dolda (${r.lyfta} geometrier)`;
+    return `Paris, Uppsala och Moskva lyfta år ${r.firstYear}; Peking, Ankara och Sibirien dolda (${r.lyfta} geometrier)`;
   });
 
   // Hemriken: vyn ser världen från Europa, så Makedonien (med Alexanders erövringar) och dess grannar syns utan
@@ -2648,7 +2658,7 @@ async function run(browser, vp) {
       await setLayer('events', false);
       await setLayer('routes', true);
       await page.keyboard.press('Escape');
-      await jumpTo(-2999);
+      await jumpTo((await timelineBounds(page)).min);
       const beforeFocus = await yearNumber();
       const cameraBeforeFocus = await page.locator('#globe-canvas').screenshot();
       await shot('538-fore-fokus');
@@ -3552,7 +3562,8 @@ async function run(browser, vp) {
       const ariaBounds = () => lessonPage.evaluate(() => { const t = document.getElementById('track'); return [t.getAttribute('aria-valuemin'), t.getAttribute('aria-valuemax')].join('..'); });
       if ((await ariaBounds()) !== '793..1068') throw new Error(`reglagets ARIA-gränser i vikingalektionen var ${await ariaBounds()} i stället för 793..1068`);
       await lessonPage.click('#lesson-exit');
-      await lessonPage.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuemin') === '-2999', null, { timeout: T.step });
+      const { min: firstYear } = await timelineBounds(lessonPage);
+      await lessonPage.waitForFunction(min => document.getElementById('track').getAttribute('aria-valuemin') === String(min), firstYear, { timeout: T.step });
       if ((await ariaBounds()).startsWith('793')) throw new Error('ARIA-gränserna låg kvar efter Visa hela globen');
       await open(`${BASE}?ny=1#t=tre-platser-1325&m=lektion`);
       await lessonPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
@@ -4021,21 +4032,22 @@ async function run(browser, vp) {
       await tp.waitForSelector('#range-bar', { state: 'hidden', timeout: T.step });
       // Stenåldern börjar före tidslinjen och säger det; 1900 till nutid går till i dag
       await openForm();
+      const { min: firstYear } = await timelineBounds(tp);
       const stone = await text('[data-period="nordisk-stenalder"] .range-preset-years');
       if (!stone.startsWith('3000–1700 f.Kr.') || stone.split(' · ').length !== 2) throw new Error(`stenåldern säger ${stone}`);
       const today = await text('[data-period="demokratisering-globalisering-1900-"] .range-preset-years');
       if (!/^1900–\d{4} · /.test(today)) throw new Error(`1900 till nutid säger ${today}`);
       await tp.click('[data-period="nordisk-stenalder"]');
       await tp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
-      await hashHas(/y=-2999&y2=-1699/);
+      await hashHas(new RegExp(`y=${firstYear}&y2=-1699`));
       // #980: epoken syns i intervallraden och följer med i länken; en länk med andra år visar ingen epok
       await hashHas(/p=nordisk-stenalder/);
       const epochBar = await text('#range-bar-text');
       if (!/^[^\d]+ · 3000–1700 f\.Kr\. · \d+ händelse/.test(epochBar)) throw new Error(`intervallraden visar inte epoken: ${epochBar}`);
-      await tp.evaluate(() => { location.hash = '#y=-2999&y2=-1599&p=nordisk-stenalder'; });
+      await tp.evaluate(min => { location.hash = `#y=${min}&y2=-1599&p=nordisk-stenalder`; }, firstYear);
       await tp.waitForFunction(() => /1600 f\.Kr\./.test(document.getElementById('range-bar-text')?.textContent ?? ''), null, { timeout: T.step });
       if (/^[^\d]+ · /.test(await text('#range-bar-text'))) throw new Error('en epok visas fast åren inte är epokens');
-      await tp.evaluate(() => { location.hash = '#y=-2999&y2=-1699&p=nordisk-stenalder'; });
+      await tp.evaluate(min => { location.hash = `#y=${min}&y2=-1699&p=nordisk-stenalder`; }, firstYear);
       await tp.waitForFunction(() => /1700 f\.Kr\./.test(document.getElementById('range-bar-text')?.textContent ?? ''), null, { timeout: T.step });
       await tp.click('#range-exit');
       // Under en tur erbjuds inte intervallet eller dess epokknappar
