@@ -16,16 +16,17 @@ Text att klistra in i en granskningsorder till en agent:
 
 ## Matris: vilken lins när?
 
-| Tillfälle | UX | Arkitekt | Lärare | Elev 10–13 | Elev 13–16 | Intresserad | Tillgänglighet | Historiker |
-|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| UX-genomgång (daglig, före release) | ● | | ○ | ○ | ○ | ● | ● | |
-| Blind-spots-runda | ● | ● | ○ | ○ | ○ | ○ | ● | |
-| Arkitekturanalys | | ● | | | | | ○ | |
-| Skolrelease (lektion, tur, utskrift) | ○ | | ● | ● | ● | | ● | ○ |
-| Nytt innehåll (händelser, riken, fakta) | | | ○ | | | ○ | | ● |
-| Ny funktion | ● | ● | ○ | ○ | ○ | ● | ● | |
-| Täckningsrunda | | | ○ | | | ● | | ● |
-| Release | ● | ● | ● | ○ | ○ | ● | ● | ○ |
+| Tillfälle | UX | Arkitekt | Utvecklare | Produkt | Lärare | Elev 10–13 | Elev 13–16 | Intresserad | Tillgänglighet | Historiker |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| UX-genomgång (daglig, före release) | ● | | | ○ | ○ | ○ | ○ | ● | ● | |
+| Blind-spots-runda | ● | ● | ○ | | ○ | ○ | ○ | ○ | ● | |
+| Arkitekturanalys | | ● | ● | | | | | | ○ | |
+| Planering och triage (milstolpe, versionsplan) | | ○ | | ● | | | | | | |
+| Skolrelease (lektion, tur, utskrift) | ○ | | | ○ | ● | ● | ● | | ● | ○ |
+| Nytt innehåll (händelser, riken, fakta) | | | | | ○ | | | ○ | | ● |
+| Ny funktion | ● | ● | ● | ● | ○ | ○ | ○ | ● | ● | |
+| Täckningsrunda | | | | ○ | ○ | | | ● | | ● |
+| Release | ● | ● | ● | ● | ● | ○ | ○ | ● | ● | ○ |
 
 ● alltid · ○ när det berörs.
 
@@ -254,9 +255,57 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 
 ---
 
+## 11. Senior utvecklare
+
+**Blicken:** kan jag, eller en ny agent eller bidragsgivare, läsa, ändra och testa den här koden utan att något annat går sönder? Lins 2 frågar om beslutet är rätt; den här frågar om koden håller det beslutet. Linserna kompletterar varandra och bör inte ge samma fynd två gånger.
+
+**Frågor**
+- **Läsbarhet:** går en modul att förstå på en kvart? Namn, funktionsstorlek, kommentarer som förklarar varför och inte vad. Finns filer som är för stora eller gör för mycket (`js/main.js` är redan delad, #389)?
+- **Kodens gränser:** läser lagren bara `state` och rör sig inte om varandras interna delar? Finns kopior av samma logik (till exempel regler som delas med testerna, som `quiz-rules.js` och `uppdrag-rules.js`)?
+- **Fel och kantfall:** vad händer när data saknas, är tom eller har oväntat format, när ett nätverksanrop misslyckas eller när två åtgärder kommer i fel ordning (adressens kapplöpning, #865)? Fångas fel, eller sväljs de tyst?
+- **Tester:** vad bevisar `tests/webblasare.mjs` och `node --test` och vad bevisar de inte? Testar de beteende eller bara att något finns? Är ett fel lätt att reproducera med `ENDAST=…`? Täcker de tre webbläsarmotorerna samma sak?
+- **Data och verktyg:** är `tools/`-skripten idempotenta, och går det att köra dem om utan att generera onödiga diffar? Hålls genererade filer (`data/events.json`, `data/genererat/`) i synk, och säger felmeddelandet vad som ska göras?
+- **Prestanda i koden:** onödiga omritningar, minnesläckor vid byte av läge, lyssnare som inte tas bort, tunga loopar per bildruta, canvasstorlekar på mobil.
+- **Beroenden och säkerhet:** exakt three.js-version, inga nya externa beroenden, CSP, inga hemligheter i repot, indata från adress och formulär valideras.
+- **Utvecklarupplevelse:** går projektet att starta med `python3 -m http.server` på en minut? Är `AGENTS.md`, `README.md` och `docs/arkitektur.md` tillräckligt för att en ny agent ska hitta rätt fil och inte krocka med en annan pull request?
+- **Skuld:** är genvägar markerade med issue eller beslutsfil, eller dolda?
+
+**Brukar säga (hypoteser):** "Inget byggsteg är en tillgång så länge modulerna är små och tillståndet är samlat." "Det farligaste är det som testet inte ser: tillståndsövergångar och tomma lägen." "Delade regler mellan sidan och testerna är bra, men bara om de verkligen delas."
+
+**Bevis att samla in:** kodstycken med fil och rad, körd testsvit på samma commit med utfall, en reproduktion i minsta möjliga steg, mått (filstorlek, antal lyssnare, minne) där det påstås.
+
+**Vad linsen har sagt hittills:** inget; linsen är ny (2026-11-10). Arkitekturlinsens fynd om tillståndsövergångar och prov (lins 2) är den naturliga startpunkten.
+
+---
+
+## 12. Senior produktchef (product manager)
+
+**Blicken:** gör vi rätt saker i rätt ordning för rätt människor, och hur vet vi det? Linsen granskar inte skärmar eller kod utan val: vad som byggs, vad som skjuts upp och vad som tas bort. Projektet är DasKrokodils och ett hobbyprojekt; linsen ger underlag och rekommendationer, ingen annan än DasKrokodil bestämmer.
+
+**Frågor**
+- **Mål och mätning:** följer varje pågående issue och milstolpe något av målen M1–M9 i [01-vision-och-mal.md](01-vision-och-mal.md)? Vad är framgångskriteriet, och går det att bedöma utan att spåra besökarna (beslut 2026-11-06)? Vilka mål saknar issues, och vilka issues saknar mål?
+- **Prioritetsordning:** stämmer versionsplanen i `CLAUDE.md` med vad som faktiskt ger mest värde för huvudgruppen (persona A) och ingången (persona F)? Vad ger mest värde för minst insats, och vad är dyrt men litet?
+- **Scope och avgränsning:** är nästa version liten nog att bli klar och utvärderas av DasKrokodil? Finns smygande tillägg, eller issues som egentligen är två?
+- **Beslut och beroenden:** vilka issues väntar på ett beslut (`beslut-krävs`), vad kostar väntan, och finns en rekommendation till varje fråga? Vilka beroenden mellan spår (data, UI, översättning) blockerar parallellt arbete?
+- **Mönster mellan fynd:** återkommer samma fynd i olika granskningar (till exempel "samtidigt" som begrepp)? Är det ett produktval som saknas snarare än flera buggar?
+- **Användarnytta mot underhåll (M6):** vad kostar en ny funktion att hålla vid liv för en ensam redaktör, i data, översättning (fem språk), källkontroll och test?
+- **Risker:** vad är det som skulle få projektet att stanna (licens, källor, tid, en enda redaktör, beroende av en CDN eller en plattform)? Finns en plan eller ett medvetet accepterat läge?
+- **Antaganden och bevis:** vilka bärande antaganden om användare är obeprövade (se [07-valideringsplan.md](07-valideringsplan.md), passiv)? Vad skulle ändra planen om det visade sig fel?
+- **Arbetsflödets kostnad:** går tid och tokens åt till rätt saker? Rätt agent och modellnivå per uppgift, onödig ställtid, omarbete, väntande pull requests.
+- **Konkurrens och inspiration:** vad gör andra historieatlaser, tidslinjer och spel som vi bör lära av eller medvetet välja bort (benchmark, utan kopiering)?
+- **Det som ska bort:** vilka funktioner, knappar eller texter används sannolikt inte och kan tas bort eller samlas?
+
+**Brukar säga (hypoteser):** "Visionen är tydlig men ingången är för bred; välj en förstagångsupplevelse och mät den på mobil." "Skolspåret är en bonus; låt det inte styra ordningen." "Fler lägen och fler lager ger mindre än ett begrepp som är tydligt." "Ett beslut som väntar kostar mer än ett beslut som är lite fel."
+
+**Bevis att samla in:** issues och milstolpar med nummer, beslutsfiler, granskningsrapporter med datum, täckningsmått från `python3 tools/tackning.py`, uppgifter om genomströmning i pull requests (tid till ihopslagning, antal ombaseringar). Skriv det som saknas som luckor, inte som gissningar.
+
+**Vad linsen har sagt hittills:** inget; linsen är ny (2026-11-10). Linsen bygger på att andra linsers fynd samlas, så starta med syntesen i `docs/ux-review/04-syntes.md`.
+
+---
+
 ## Fler linser att lägga till vid behov
 
-Förälder eller hemmapedagog · bibliotekarie eller museipedagog · lärare i andra ämnen (geografi, religionskunskap) · specialpedagog · ungdom som inte intresserar sig för historia · tekniker som sköter skolnätet · journalist eller factcheckare · utvecklare som vill bidra. En ny lins följer samma mall: blick, frågor, hypoteser, bevis, "har sagt hittills".
+Förälder eller hemmapedagog · bibliotekarie eller museipedagog · lärare i andra ämnen (geografi, religionskunskap) · specialpedagog · ungdom som inte intresserar sig för historia · tekniker som sköter skolnätet · journalist eller factcheckare · utvecklare som vill bidra till projektet utifrån (en annan roll än lins 11). En ny lins följer samma mall: blick, frågor, hypoteser, bevis, "har sagt hittills".
 
 ## Att kontrollera vid uppdatering
 
