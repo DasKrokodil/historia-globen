@@ -68,6 +68,36 @@
       ]}
     },
     {
+      "id": "sibirien-1827",
+      "from": 1827,
+      "sources": ["loc-piadyshev-russian-empire-1827"],
+      "note": {
+        "sv": "Ungefärligt område med kartkunskap om Sibirien i Piadyshevs atlas från 1827. Centralasien, Fjärran östern och de arktiska polarområdena räknas inte som fullt kartlagda här.",
+        "en": "Approximate area of mapped knowledge of Siberia in Piadyshev's 1827 atlas. Central Asia, the Far East, and the Arctic polar regions are not treated as fully mapped here.",
+        "de": "Ungefähres Gebiet kartographischen Wissens über Sibirien in Piadyshevs Atlas von 1827. Zentralasien, der Ferne Osten und die arktischen Polarregionen gelten hier nicht als vollständig kartiert.",
+        "es": "Área aproximada de conocimiento cartográfico de Siberia en el atlas de Piadyshev de 1827. Asia Central, el Lejano Oriente y las regiones polares árticas no se consideran plenamente cartografiadas aquí.",
+        "fr": "Zone approximative des connaissances cartographiques sur la Sibérie dans l’atlas de Piadyshev de 1827. L’Asie centrale, l’Extrême-Orient et les régions polaires arctiques ne sont pas considérés comme entièrement cartographiés ici."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[55,55],[70,57],[90,55],[110,55],[125,57],[140,60],[155,62],[170,64],[179,66],[179,72],[165,73],[150,72],[135,72],[120,73],[105,74],[90,72],[75,70],[60,67],[55,55]]]
+      ]}
+    },
+    {
+      "id": "kanada-sydost-1844",
+      "from": 1844,
+      "sources": ["loc-tanner-atlas-1844"],
+      "note": {
+        "sv": "Ungefärligt område för Canada West, Canada East och de atlantiska kolonier som har egna kartor i Tanners atlas från 1844. Det omfattar inte Kanadas nordliga inland eller arktiska övärld.",
+        "en": "Approximate area for Canada West, Canada East, and the Atlantic colonies with their own maps in Tanner's 1844 atlas. It does not include Canada's northern interior or Arctic archipelago.",
+        "de": "Ungefähres Gebiet von Canada West, Canada East und den atlantischen Kolonien, die in Tanners Atlas von 1844 eigene Karten haben. Kanadas nördliches Binnenland und die arktische Inselwelt sind nicht enthalten.",
+        "es": "Área aproximada de Canada West, Canada East y las colonias atlánticas con mapas propios en el atlas de Tanner de 1844. No incluye el interior septentrional de Canadá ni el archipiélago ártico.",
+        "fr": "Zone approximative de Canada West, Canada East et des colonies atlantiques qui disposent de leurs propres cartes dans l’atlas de Tanner de 1844. Elle n’inclut ni l’intérieur nord du Canada ni l’archipel arctique."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[-93,49],[-88,49],[-84,48],[-79,46],[-74,45],[-70,45],[-65,45],[-60,47],[-58,50],[-63,52],[-70,54],[-78,53],[-85,53],[-92,51],[-93,49]]]
+      ]}
+    },
+    {
       "id": "afrika-1575",
       "from": 1575,
       "sources": ["loc-ortelius-africa-1575"],

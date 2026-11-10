@@ -2127,6 +2127,12 @@ async function run(browser, vp) {
         usaBefore: inside([-116, 38], lifted(1838)),
         usa1839: inside([-116, 38], lifted(1839)),
         usaSource: doc.knowledge?.find(k => k.id === 'usa-1839')?.sources?.[0],
+        siberiaBefore: inside([110, 65], lifted(1826)),
+        siberia1827: inside([110, 65], lifted(1827)),
+        siberiaSource: doc.knowledge?.find(k => k.id === 'sibirien-1827')?.sources?.[0],
+        canadaBefore: inside([-61, 48], lifted(1843)),
+        canada1844: inside([-61, 48], lifted(1844)),
+        canadaSource: doc.knowledge?.find(k => k.id === 'kanada-sydost-1844')?.sources?.[0],
         africaBefore: inside([18, 0], lifted(1574)),
         africa: inside([18, 0], lifted(1575)),
         africaSource: doc.knowledge?.find(k => k.id === 'afrika-1575')?.sources?.[0],
@@ -2147,6 +2153,8 @@ async function run(browser, vp) {
     if (r.source !== 'loc-mitchell-map-1755') throw new Error(`kartkunskapen saknar Mitchell-källan: ${r.source}`);
     if (r.before || !r.mitchellArea || r.west) throw new Error(`fel tids- eller områdesavgränsning: ${JSON.stringify(r)}`);
     if (r.usaSource !== 'loc-burr-usa-1839' || r.usaBefore || !r.usa1839) throw new Error(`USA:s senare kartkunskap har fel källa eller tid: ${JSON.stringify(r)}`);
+    if (r.siberiaSource !== 'loc-piadyshev-russian-empire-1827' || r.siberiaBefore || !r.siberia1827) throw new Error(`Sibiriens senare kartkunskap har fel källa eller tid: ${JSON.stringify(r)}`);
+    if (r.canadaSource !== 'loc-tanner-atlas-1844' || r.canadaBefore || !r.canada1844) throw new Error(`Kanadas senare kartkunskap har fel källa eller tid: ${JSON.stringify(r)}`);
     if (r.africaSource !== 'loc-ortelius-africa-1575' || r.africaBefore || !r.africa) throw new Error(`Afrikas källbelagda område har fel källa eller tid: ${JSON.stringify(r)}`);
     if (r.southAmericaSource !== 'loc-gutierrez-americas-1562' || r.southAmericaBefore || !r.southAmerica) throw new Error(`Sydamerikas källbelagda område har fel källa eller tid: ${JSON.stringify(r)}`);
     if (r.asiaSource !== 'loc-ortelius-asia-1579' || r.asiaBefore || !r.asia) throw new Error(`Asiens källbelagda område har fel källa eller tid: ${JSON.stringify(r)}`);

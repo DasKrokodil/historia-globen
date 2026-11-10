@@ -4,7 +4,7 @@
 
 ## Beslut
 
-Upptäcktsvyn får `knowledge`: tidsindelade, källbelagda GeoJSON-ytor som visar vad en samtida karta återger. De första posterna täcker Nordamerika, Sydamerika, Afrika, Asien, Oceanien och Antarktis med separata, daterade kartkällor.
+Upptäcktsvyn får `knowledge`: tidsindelade, källbelagda GeoJSON-ytor som visar vad en samtida karta återger. De första posterna täcker Nordamerika, Sydamerika, Afrika, Asien, Oceanien och Antarktis med separata, daterade kartkällor. Senare källor läggs som egna och snävare poster i stället för att skriva om den äldre kunskapen: Sibirien 1827, USA 1839 och södra/östra Kanada 1844.
 
 ## Varför
 
