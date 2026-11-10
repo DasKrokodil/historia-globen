@@ -14,6 +14,8 @@ källan och har ingen egen expert. Linserna 13 (geograf) och 14 (språk) är til
 
 **Nya roller:** steg 1 analyserar också om milstolpen behöver en expertroll som saknas bland agenterna och linserna. Förslaget skrivs i rapporten; en ny agent skapas först när Rikard har godkänt den.
 
+**Miro (2026-11-10):** alla agenter i `.claude/agents/` har verktyg för att läsa och ändra tavlor i Miro (canvas, sektioner och kommentarer; inte radera, dela eller flytta). De ändrar bara när Rikard eller dirigenten uttryckligen ber om det och bara på den tavla som pekas ut. Orkesterns övriga agenter (`general-purpose`) har redan alla verktyg och följer samma regel.
+
 **Gränser:** agenterna ändrar inga filer och rapporterar bara. Källpolicyn gäller fullt: aldrig fakta ur minnet, och
 språkexperter rättar inte fakta utan flaggar möjliga sakfel till historikern. Agenterna ersätter inte Codex-granskningen
 eller dirigentens slutgranskning. De är ett tidigt steg som flyttar frågorna före bygget.
