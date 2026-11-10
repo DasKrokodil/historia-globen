@@ -12,6 +12,8 @@ språk- och mottagarlandsexpert per översättningsspråk: `sprak-en`, `sprak-de
 källan och har ingen egen expert. Linserna 13 (geograf) och 14 (språk) är tillagda i
 `docs/produkt/06-granskningsperspektiv.md`; lins 8 (historiker) fanns redan och har nu en agent.
 
+**Nya roller:** steg 1 analyserar också om milstolpen behöver en expertroll som saknas bland agenterna och linserna. Förslaget skrivs i rapporten; en ny agent skapas först när Rikard har godkänt den.
+
 **Gränser:** agenterna ändrar inga filer och rapporterar bara. Källpolicyn gäller fullt: aldrig fakta ur minnet, och
 språkexperter rättar inte fakta utan flaggar möjliga sakfel till historikern. Agenterna ersätter inte Codex-granskningen
 eller dirigentens slutgranskning. De är ett tidigt steg som flyttar frågorna före bygget.
