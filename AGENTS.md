@@ -6,6 +6,15 @@ Den här filen är till för agenter som inte läser CLAUDE.md, till exempel Cod
 
 Rikard (GitHub `DasKrokodil`) äger projektet. Han är projektledare, inte utvecklare. Skriv på svenska, kort och tydligt, i issues, kommentarer och pull requests: vad som ändrats, varför och hur han testar det.
 
+## Fortsätt tills uppgiften är klar, och avsluta tydligt (beslut 2026-11-10)
+
+[docs/beslut/2026-11-10-fortsatt-tills-klart.md](docs/beslut/2026-11-10-fortsatt-tills-klart.md)
+
+- **Stanna inte mellan delarna.** Är uppgiften delad i flera steg (till exempel research i flera delar, flera issues i kön eller flera filer) gör du alla delarna i följd tills hela uppgiften är klar. Fråga inte "ska jag fortsätta med nästa del?" och vänta inte på ett ja. Ett ja ligger redan i uppgiften.
+- **Stanna bara av fyra skäl:** (1) allt är klart; (2) ett beslut som är DasKrokodils att fatta saknas och du inte kan välja ett förnuftigt standardval; (3) en regel här eller i CLAUDE.md kräver att du stannar (röd kontroll, fullt antal pull requests, `beslut-krävs`); (4) kvoten, tiden eller kontexten tar slut (då lämnar du över enligt "Röd kontroll eller slut på tid"). Skälet skrivs uttryckligen.
+- **Skriv aldrig en dold fråga.** Avsluta inte med meningar som "nästa steg vore att …", "jag kan också …" eller "säg till om du vill att jag går vidare" utan att det är en riktig fråga. Behöver du ett svar: ställ **en** konkret fråga med ett förslag på svar ("Ska jag använda X? Jag föreslår X eftersom …"). Behöver du inget svar: skriv inget som låter som en fråga.
+- **Sista meddelandet** säger kort på svenska: vad som är klart, vad som inte gjordes och varför, och om något väntar på DasKrokodil (då med frågan). Mellanrapporter i chatten är bra, men de är inget skäl att stanna.
+
 ## Två personer, flera agenter (beslut 2026-11-06)
 
 Andreas (GitHub `Einzbeng`) är medarbetare och kör egna agenter (Codex och Claude Code) vid sidan av Rikards (Claude Code, Codex och Copilot). Reglerna i den här filen gäller alla agenter, oavsett vems konto de kör på. **Dirigent är bara Claude Code på Rikards konto.** Andreas agenter är arbetare: de tar `redo`-issues, triagerar inte, sätter inte `redo` och ger inga order. Bara Rikard slår ihop och sköter publicering, releaser och hemligheter. Kontrollera vems konto du kör på (GitHub-inloggningen) innan du tar ett issue, eftersom det avgör vem issuet tilldelas och vems gräns för öppna pull requests du räknar mot.
