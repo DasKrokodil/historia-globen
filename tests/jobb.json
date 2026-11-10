@@ -1,7 +1,8 @@
 [
   {"id": "tung", "namn": "tung (lektion och utskrift)", "bredd": "dator", "endast": "lektion|skriver ut|ryms på en A4", "utan": ""},
-  {"id": "dator", "namn": "dator, övrigt", "bredd": "dator", "endast": "", "utan": "lektion|skriver ut|ryms på en A4|kombinationsmatris|lägeskontraktet|tidsintervallet: delad länk|krigets stoppkö|en länk startar en guidad tur|tidsfönstret i vardagsspråk|en tur som startar medan|händelser före tidslinjens början|epokknapparna|utskriften väntar"},
+  {"id": "dator", "namn": "dator, övrigt", "bredd": "dator", "endast": "", "utan": "lektion|skriver ut|ryms på en A4|kombinationsmatris|lägeskontraktet|tidsintervallet: delad länk|krigets stoppkö|en länk startar en guidad tur|tidsfönstret i vardagsspråk|en tur som startar medan|händelser före tidslinjens början|epokknapparna|utskriften väntar|tidslinjen, årshoppet, Platt vy, affischen och källorna på fem språk"},
   {"id": "lang", "namn": "dator, länkar och intervall", "bredd": "dator", "endast": "lägeskontraktet|tidsintervallet: delad länk|krigets stoppkö|en länk startar en guidad tur|tidsfönstret i vardagsspråk|en tur som startar medan|händelser före tidslinjens början|epokknapparna|utskriften väntar", "utan": ""},
+  {"id": "sprak", "namn": "dator, fem språk", "bredd": "dator", "endast": "tidslinjen, årshoppet, Platt vy, affischen och källorna på fem språk", "utan": ""},
   {"id": "mobil", "namn": "mobil", "bredd": "mobil", "endast": "", "utan": "kombinationsmatris"},
   {"id": "matris", "namn": "kombinationsmatris", "bredd": "", "endast": "kombinationsmatris", "utan": ""}
 ]
