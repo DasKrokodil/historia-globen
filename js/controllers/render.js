@@ -102,7 +102,7 @@ export function createRender(app) {
     const eventsOn = layers.on.events;
     // Alla lager väljer vad som syns (beslut 2), i registrets ordning
     visible = registry.update(state).events;
-    timeline.setMarks(registry.marks(state));
+    timeline.setMarks(registry.marks(state), { curated: !!state.tag });
     prefetchDetails();
     const rangeLabel = range && rangeText(range.from, range.to);
     panel.render(visible, wholeYear, window, eventsOn, range ? { at: ui('range.at', { range: rangeLabel }), bare: rangeLabel, within, range }
