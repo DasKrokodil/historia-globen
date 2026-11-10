@@ -19,6 +19,10 @@ Datum: 2026-11-10. Underlag: beslutet i `docs/beslut/2026-11-09-lagerordning.md`
 6. **Nya ytor** (intervallet #755, Källdetektiven) anmäler sig i registret från början och får lagernamn; ingen ny yta får egna `close()`-anrop.
 7. **Avslut:** när inga handskrivna anrop och inga globala siffror finns kvar, uppdatera `docs/arkitektur.md` (Moduler, Mindre trängsel på kartan), skriv ett avslutande beslut och föreslå att issuet stängs.
 
+## Numrering mot beslutsfilen
+
+Planens steg och avsnitten i `docs/beslut/2026-11-09-lagerordning.md` räknas olika, eftersom beslutsfilen bara får ett avsnitt när något är gjort: plan 2 (kartans ytor, #1064) = beslutsfilens Steg 3, plan 3 (kontroll mot nya siffror, #1065) = Steg 4, plan 4 (kombinationsmatrisen, #891) = Steg 5, plan 5 (stängregistret) = Steg 6 och följande. Beslutsfilens Steg 2 är menyer och dialoger (#1063), som i planen ligger under steg 1.
+
 ## Färdigvillkor för varje steg
 
 Ingen visuell ändring (skärmbilder dator och mobil), webbläsartestet grönt med oförändrat antal kontroller (#864), inget annat läge sämre.
