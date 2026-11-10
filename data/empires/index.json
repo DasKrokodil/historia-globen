@@ -2272,8 +2272,38 @@
     "review": "source-checked"
    },
    "flags": [
-    { "file": "ottoman-eight-point-star", "from": 1793, "to": 1843, "label": { "sv": "Osmanska rikets åttuddiga stjärnflagga", "en": "Ottoman eight-pointed-star flag", "de": "Osmanische Flagge mit achtzackigem Stern", "es": "Bandera otomana de estrella de ocho puntas", "fr": "Drapeau ottoman à étoile à huit branches" }, "sources": ["wp-flags-ottoman-empire"], "review": "source-checked" },
-    { "file": "ottoman-five-point-star", "from": 1844, "to": 1922, "label": { "sv": "Osmanska rikets stjärn- och halvmåneflagga", "en": "Ottoman star-and-crescent flag", "de": "Osmanische Stern-und-Mondsichel-Flagge", "es": "Bandera otomana de estrella y media luna", "fr": "Drapeau ottoman à étoile et croissant" }, "sources": ["wp-flags-ottoman-empire"], "review": "source-checked" }
+    {
+     "file": "ottoman-eight-point-star",
+     "from": 1793,
+     "to": 1843,
+     "label": {
+      "sv": "Osmanska rikets åttuddiga stjärnflagga",
+      "en": "Ottoman eight-pointed-star flag",
+      "de": "Osmanische Flagge mit achtzackigem Stern",
+      "es": "Bandera otomana de estrella de ocho puntas",
+      "fr": "Drapeau ottoman à étoile à huit branches"
+     },
+     "sources": [
+      "wp-flags-ottoman-empire"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "ottoman-five-point-star",
+     "from": 1844,
+     "to": 1922,
+     "label": {
+      "sv": "Osmanska rikets stjärn- och halvmåneflagga",
+      "en": "Ottoman star-and-crescent flag",
+      "de": "Osmanische Stern-und-Mondsichel-Flagge",
+      "es": "Bandera otomana de estrella y media luna",
+      "fr": "Drapeau ottoman à étoile et croissant"
+     },
+     "sources": [
+      "wp-flags-ottoman-empire"
+     ],
+     "review": "source-checked"
+    }
    ],
    "symbol": "tughra",
    "capitals": [
@@ -3076,7 +3106,22 @@
     "review": "source-checked"
    },
    "flags": [
-    { "file": "britain-union-flag", "from": 1801, "to": 1999, "label": { "sv": "Storbritanniens unionsflagga", "en": "British Union Flag", "de": "Britische Unionsflagge", "es": "Bandera de la Unión Británica", "fr": "Drapeau de l'Union britannique" }, "sources": ["wp-list-uk-flags"], "review": "source-checked" }
+    {
+     "file": "britain-union-flag",
+     "from": 1801,
+     "to": 1999,
+     "label": {
+      "sv": "Storbritanniens unionsflagga",
+      "en": "British Union Flag",
+      "de": "Britische Unionsflagge",
+      "es": "Bandera de la Unión Británica",
+      "fr": "Drapeau de l'Union britannique"
+     },
+     "sources": [
+      "wp-list-uk-flags"
+     ],
+     "review": "source-checked"
+    }
    ],
    "symbol": "imperial-crown",
    "capitals": [
@@ -10904,16 +10949,32 @@
      "file": "qing-triangular-dragon",
      "from": 1862,
      "to": 1888,
-     "label": { "sv": "Qings trekantiga drakflagga", "en": "Qing triangular dragon flag", "de": "Dreieckige Drachenflagge der Qing", "es": "Bandera de dragón triangular de la dinastía Qing", "fr": "Drapeau au dragon triangulaire des Qing" },
-     "sources": ["wp-flag-qing"],
+     "label": {
+      "sv": "Qings trekantiga drakflagga",
+      "en": "Qing triangular dragon flag",
+      "de": "Dreieckige Drachenflagge der Qing",
+      "es": "Bandera de dragón triangular de la dinastía Qing",
+      "fr": "Drapeau au dragon triangulaire des Qing"
+     },
+     "sources": [
+      "wp-flag-qing"
+     ],
      "review": "source-checked"
     },
     {
      "file": "qing-rectangular-dragon",
      "from": 1889,
      "to": 1911,
-     "label": { "sv": "Qings rektangulära drakflagga", "en": "Qing rectangular dragon flag", "de": "Rechteckige Drachenflagge der Qing", "es": "Bandera de dragón rectangular de la dinastía Qing", "fr": "Drapeau au dragon rectangulaire des Qing" },
-     "sources": ["wp-flag-qing"],
+     "label": {
+      "sv": "Qings rektangulära drakflagga",
+      "en": "Qing rectangular dragon flag",
+      "de": "Rechteckige Drachenflagge der Qing",
+      "es": "Bandera de dragón rectangular de la dinastía Qing",
+      "fr": "Drapeau au dragon rectangulaire des Qing"
+     },
+     "sources": [
+      "wp-flag-qing"
+     ],
      "review": "source-checked"
     }
    ],
@@ -11940,8 +12001,38 @@
     "review": "two-sources"
    },
    "flags": [
-    { "file": "russia-black-yellow-white", "from": 1858, "to": 1895, "label": { "sv": "Ryska imperiets svart-gul-vita flagga", "en": "Russian imperial black-yellow-white flag", "de": "Schwarz-gelb-weiße Flagge des Russischen Reiches", "es": "Bandera imperial rusa negra, amarilla y blanca", "fr": "Drapeau impérial russe noir-jaune-blanc" }, "sources": ["wp-black-yellow-white-russia"], "review": "source-checked" },
-    { "file": "russia-white-blue-red", "from": 1896, "to": 1916, "label": { "sv": "Ryska imperiets vit-blå-röda flagga", "en": "Russian imperial white-blue-red flag", "de": "Weiß-blau-rote Flagge des Russischen Reiches", "es": "Bandera imperial rusa blanca, azul y roja", "fr": "Drapeau impérial russe blanc-bleu-rouge" }, "sources": ["wp-flag-russia"], "review": "source-checked" }
+    {
+     "file": "russia-black-yellow-white",
+     "from": 1858,
+     "to": 1895,
+     "label": {
+      "sv": "Ryska imperiets svart-gul-vita flagga",
+      "en": "Russian imperial black-yellow-white flag",
+      "de": "Schwarz-gelb-weiße Flagge des Russischen Reiches",
+      "es": "Bandera imperial rusa negra, amarilla y blanca",
+      "fr": "Drapeau impérial russe noir-jaune-blanc"
+     },
+     "sources": [
+      "wp-black-yellow-white-russia"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "russia-white-blue-red",
+     "from": 1896,
+     "to": 1916,
+     "label": {
+      "sv": "Ryska imperiets vit-blå-röda flagga",
+      "en": "Russian imperial white-blue-red flag",
+      "de": "Weiß-blau-rote Flagge des Russischen Reiches",
+      "es": "Bandera imperial rusa blanca, azul y roja",
+      "fr": "Drapeau impérial russe blanc-bleu-rouge"
+     },
+     "sources": [
+      "wp-flag-russia"
+     ],
+     "review": "source-checked"
+    }
    ],
    "symbol": "double-eagle",
    "capitals": [
@@ -12486,8 +12577,38 @@
     "review": "two-sources"
    },
    "flags": [
-    { "file": "sweden-union-badge", "from": 1844, "to": 1905, "label": { "sv": "Sveriges unionsflagga", "en": "Swedish union flag", "de": "Schwedische Unionsflagge", "es": "Bandera sueca de la Unión", "fr": "Drapeau suédois de l'Union" }, "sources": ["wp-list-flags-sweden"], "review": "source-checked" },
-    { "file": "sweden-blue-yellow", "from": 1906, "to": 2024, "label": { "sv": "Sveriges blågula flagga", "en": "Swedish blue-and-yellow flag", "de": "Schwedische blau-gelbe Flagge", "es": "Bandera sueca azul y amarilla", "fr": "Drapeau suédois bleu et jaune" }, "sources": ["wp-list-flags-sweden"], "review": "source-checked" }
+    {
+     "file": "sweden-union-badge",
+     "from": 1844,
+     "to": 1905,
+     "label": {
+      "sv": "Sveriges unionsflagga",
+      "en": "Swedish union flag",
+      "de": "Schwedische Unionsflagge",
+      "es": "Bandera sueca de la Unión",
+      "fr": "Drapeau suédois de l'Union"
+     },
+     "sources": [
+      "wp-list-flags-sweden"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "sweden-blue-yellow",
+     "from": 1906,
+     "to": 2024,
+     "label": {
+      "sv": "Sveriges blågula flagga",
+      "en": "Swedish blue-and-yellow flag",
+      "de": "Schwedische blau-gelbe Flagge",
+      "es": "Bandera sueca azul y amarilla",
+      "fr": "Drapeau suédois bleu et jaune"
+     },
+     "sources": [
+      "wp-list-flags-sweden"
+     ],
+     "review": "source-checked"
+    }
    ],
    "symbol": "three-crowns",
    "capitals": [
@@ -13377,16 +13498,32 @@
      "file": "france-royal-white",
      "from": 1815,
      "to": 1829,
-     "label": { "sv": "Frankrikes vita kungaflagga", "en": "French royal white flag", "de": "Französische königlich-weiße Flagge", "es": "Bandera real blanca francesa", "fr": "Drapeau royal blanc français" },
-     "sources": ["wp-flag-of-france"],
+     "label": {
+      "sv": "Frankrikes vita kungaflagga",
+      "en": "French royal white flag",
+      "de": "Französische königlich-weiße Flagge",
+      "es": "Bandera real blanca francesa",
+      "fr": "Drapeau royal blanc français"
+     },
+     "sources": [
+      "wp-flag-of-france"
+     ],
      "review": "source-checked"
     },
     {
      "file": "france-tricolour",
      "from": 1830,
      "to": 1957,
-     "label": { "sv": "Frankrikes trikolor", "en": "French tricolour", "de": "Französische Trikolore", "es": "Tricolor francés", "fr": "Tricolore français" },
-     "sources": ["wp-flag-of-france"],
+     "label": {
+      "sv": "Frankrikes trikolor",
+      "en": "French tricolour",
+      "de": "Französische Trikolore",
+      "es": "Tricolor francés",
+      "fr": "Tricolore français"
+     },
+     "sources": [
+      "wp-flag-of-france"
+     ],
      "review": "source-checked"
     }
    ],
@@ -13997,7 +14134,22 @@
     "review": "source-checked"
    },
    "flags": [
-    { "file": "german-empire-tricolour", "from": 1871, "to": 1918, "label": { "sv": "Tyska rikets svart-vit-röda flagga", "en": "German imperial black-white-red flag", "de": "Schwarz-weiß-rote Flagge des Deutschen Reiches", "es": "Bandera imperial alemana negra, blanca y roja", "fr": "Drapeau impérial allemand noir-blanc-rouge" }, "sources": ["wp-flags-german-empire"], "review": "source-checked" }
+    {
+     "file": "german-empire-tricolour",
+     "from": 1871,
+     "to": 1918,
+     "label": {
+      "sv": "Tyska rikets svart-vit-röda flagga",
+      "en": "German imperial black-white-red flag",
+      "de": "Schwarz-weiß-rote Flagge des Deutschen Reiches",
+      "es": "Bandera imperial alemana negra, blanca y roja",
+      "fr": "Drapeau impérial allemand noir-blanc-rouge"
+     },
+     "sources": [
+      "wp-flags-german-empire"
+     ],
+     "review": "source-checked"
+    }
    ],
    "symbol": "heraldic-eagle",
    "capitals": [
@@ -14618,6 +14770,24 @@
     ],
     "review": "source-checked"
    },
+   "flags": [
+    {
+     "file": "japan-hinomaru",
+     "from": 1870,
+     "to": 1945,
+     "label": {
+      "sv": "Japans Hinomaru",
+      "en": "Japanese Hinomaru",
+      "de": "Japanische Hinomaru",
+      "es": "Hinomaru japonés",
+      "fr": "Hinomaru japonais"
+     },
+     "sources": [
+      "wp-flag-japan"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "symbol": "chrysanthemum",
    "capitals": [
     {
@@ -14932,16 +15102,32 @@
      "file": "ethiopia-imperial",
      "from": 1914,
      "to": 1935,
-     "label": { "sv": "Etiopiens kejserliga fana", "en": "Ethiopian imperial flag", "de": "Kaiserliche Flagge Äthiopiens", "es": "Bandera imperial etíope", "fr": "Drapeau impérial éthiopien" },
-     "sources": ["wp-flag-of-ethiopia"],
+     "label": {
+      "sv": "Etiopiens kejserliga fana",
+      "en": "Ethiopian imperial flag",
+      "de": "Kaiserliche Flagge Äthiopiens",
+      "es": "Bandera imperial etíope",
+      "fr": "Drapeau impérial éthiopien"
+     },
+     "sources": [
+      "wp-flag-of-ethiopia"
+     ],
      "review": "source-checked"
     },
     {
      "file": "ethiopia-imperial",
      "from": 1942,
      "to": 1974,
-     "label": { "sv": "Etiopiens kejserliga fana", "en": "Ethiopian imperial flag", "de": "Kaiserliche Flagge Äthiopiens", "es": "Bandera imperial etíope", "fr": "Drapeau impérial éthiopien" },
-     "sources": ["wp-flag-of-ethiopia"],
+     "label": {
+      "sv": "Etiopiens kejserliga fana",
+      "en": "Ethiopian imperial flag",
+      "de": "Kaiserliche Flagge Äthiopiens",
+      "es": "Bandera imperial etíope",
+      "fr": "Drapeau impérial éthiopien"
+     },
+     "sources": [
+      "wp-flag-of-ethiopia"
+     ],
      "review": "source-checked"
     }
    ],
@@ -21639,6 +21825,24 @@
     ],
     "review": "source-checked"
    },
+   "flags": [
+    {
+     "file": "india-tricolour",
+     "from": 1947,
+     "to": 2024,
+     "label": {
+      "sv": "Indiens trikolor med Ashoka-chakra",
+      "en": "Indian tricolour with Ashoka Chakra",
+      "de": "Indische Trikolore mit Ashoka-Chakra",
+      "es": "Tricolor de la India con chakra de Ashoka",
+      "fr": "Tricolore indien avec chakra d'Ashoka"
+     },
+     "sources": [
+      "wp-flag-india"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "capitals": [
     {
      "name": {
@@ -21962,6 +22166,24 @@
       "wikidata"
      ],
      "review": "two-sources"
+    }
+   ],
+   "flags": [
+    {
+     "file": "pakistan-crescent-star",
+     "from": 1947,
+     "to": 2024,
+     "label": {
+      "sv": "Pakistans stjärn- och halvmåneflagga",
+      "en": "Pakistani star-and-crescent flag",
+      "de": "Pakistanische Stern-und-Mondsichel-Flagge",
+      "es": "Bandera pakistaní de estrella y media luna",
+      "fr": "Drapeau pakistanais à étoile et croissant"
+     },
+     "sources": [
+      "wp-flag-pakistan"
+     ],
+     "review": "source-checked"
     }
    ]
   },
@@ -24568,6 +24790,24 @@
      "from": 1991,
      "sources": [
       "wikidata"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "flags": [
+    {
+     "file": "nigeria-green-white-green",
+     "from": 1961,
+     "to": 2024,
+     "label": {
+      "sv": "Nigerias grön-vit-gröna flagga",
+      "en": "Nigerian green-white-green flag",
+      "de": "Nigerianische grün-weiß-grüne Flagge",
+      "es": "Bandera nigeriana verde, blanca y verde",
+      "fr": "Drapeau nigérian vert-blanc-vert"
+     },
+     "sources": [
+      "wp-flag-nigeria"
      ],
      "review": "source-checked"
     }
@@ -27946,7 +28186,25 @@
      "ud-avradan-pakistan"
     ],
     "review": "source-checked"
-   }
+   },
+   "flags": [
+    {
+     "file": "china-five-colour",
+     "from": 1912,
+     "to": 1928,
+     "label": {
+      "sv": "Kinas femfärgsflagga",
+      "en": "Chinese five-colour flag",
+      "de": "Chinesische Fünffarbenflagge",
+      "es": "Bandera china de cinco colores",
+      "fr": "Drapeau chinois à cinq couleurs"
+     },
+     "sources": [
+      "wp-flag-china"
+     ],
+     "review": "source-checked"
+    }
+   ]
   },
   {
    "id": "taiwan",
@@ -28401,6 +28659,40 @@
      },
      "sources": [
       "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "flags": [
+    {
+     "file": "south-africa-1928",
+     "from": 1932,
+     "to": 1993,
+     "label": {
+      "sv": "Sydafrikas flagga från 1928",
+      "en": "South African flag of 1928",
+      "de": "Südafrikanische Flagge von 1928",
+      "es": "Bandera sudafricana de 1928",
+      "fr": "Drapeau sud-africain de 1928"
+     },
+     "sources": [
+      "wp-flag-south-africa"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "south-africa-1994",
+     "from": 1994,
+     "to": 2024,
+     "label": {
+      "sv": "Sydafrikas flagga från 1994",
+      "en": "South African flag of 1994",
+      "de": "Südafrikanische Flagge von 1994",
+      "es": "Bandera sudafricana de 1994",
+      "fr": "Drapeau sud-africain de 1994"
+     },
+     "sources": [
+      "wp-flag-south-africa"
      ],
      "review": "source-checked"
     }
@@ -29621,6 +29913,56 @@
      },
      "sources": [
       "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "flags": [
+    {
+     "file": "ghana-black-star",
+     "from": 1958,
+     "to": 1961,
+     "label": {
+      "sv": "Ghanas flagga med svart stjärna",
+      "en": "Ghanaian flag with black star",
+      "de": "Ghanaische Flagge mit schwarzem Stern",
+      "es": "Bandera ghanesa con estrella negra",
+      "fr": "Drapeau ghanéen à étoile noire"
+     },
+     "sources": [
+      "wp-flag-ghana"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "ghana-white-tricolour",
+     "from": 1962,
+     "to": 1965,
+     "label": {
+      "sv": "Ghanas röd-vit-gröna flagga",
+      "en": "Ghanaian red-white-green flag",
+      "de": "Ghanaische rot-weiß-grüne Flagge",
+      "es": "Bandera ghanesa roja, blanca y verde",
+      "fr": "Drapeau ghanéen rouge-blanc-vert"
+     },
+     "sources": [
+      "wp-flag-ghana"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "ghana-black-star",
+     "from": 1966,
+     "to": 2024,
+     "label": {
+      "sv": "Ghanas flagga med svart stjärna",
+      "en": "Ghanaian flag with black star",
+      "de": "Ghanaische Flagge mit schwarzem Stern",
+      "es": "Bandera ghanesa con estrella negra",
+      "fr": "Drapeau ghanéen à étoile noire"
+     },
+     "sources": [
+      "wp-flag-ghana"
      ],
      "review": "source-checked"
     }

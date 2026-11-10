@@ -8,5 +8,12 @@
 "svenska-stormaktsvaldet":{"flags":{"0":{"label":{"de":"Schwedische Unionsflagge"}},"1":{"label":{"de":"Schwedische blau-gelbe Flagge"}}}},
 "franska-kolonialvaldet":{"flags":{"0":{"label":{"de":"Französische königlich-weiße Flagge"}},"1":{"label":{"de":"Französische Trikolore"}}}},
 "tyska-riket":{"flags":{"0":{"label":{"de":"Schwarz-weiß-rote Flagge des Deutschen Reiches"}}}},
-"etiopiska-kejsardomet":{"flags":{"0":{"label":{"de":"Kaiserliche Flagge Äthiopiens"}},"1":{"label":{"de":"Kaiserliche Flagge Äthiopiens"}}}}
+"japanska-imperiet":{"flags":{"0":{"label":{"de":"Japanische Hinomaru"}}}},
+"etiopiska-kejsardomet":{"flags":{"0":{"label":{"de":"Kaiserliche Flagge Äthiopiens"}},"1":{"label":{"de":"Kaiserliche Flagge Äthiopiens"}}}},
+"indien":{"flags":{"0":{"label":{"de":"Indische Trikolore mit Ashoka-Chakra"}}}},
+"pakistan":{"flags":{"0":{"label":{"de":"Pakistanische Stern-und-Mondsichel-Flagge"}}}},
+"nigeria":{"flags":{"0":{"label":{"de":"Nigerianische grün-weiß-grüne Flagge"}}}},
+"kina":{"flags":{"0":{"label":{"de":"Chinesische Fünffarbenflagge"}}}},
+"sydafrika":{"flags":{"0":{"label":{"de":"Südafrikanische Flagge von 1928"}},"1":{"label":{"de":"Südafrikanische Flagge von 1994"}}}},
+"ghana":{"flags":{"0":{"label":{"de":"Ghanaische Flagge mit schwarzem Stern"}},"1":{"label":{"de":"Ghanaische rot-weiß-grüne Flagge"}},"2":{"label":{"de":"Ghanaische Flagge mit schwarzem Stern"}}}}
 }}
