@@ -87,8 +87,8 @@ export function placeLabels(singles, { W, H, hoverId, markers, badges, blocked =
     // Skjut etiketten inåt så att hela rutan syns
     const cx = Math.min(Math.max(p.x, w / 2 + 4), Math.max(w / 2 + 4, W - w / 2 - 4));
     const off = Math.max(14, (pxOf(e) ?? 0) / 2 + 3); // ovanför markören, som växer med zoomen (#242)
-    const free = (box, strict = true) => box.y0 >= 4 && box.y1 <= H - 4 && (e.id === hoverId || !(placed.some(b => overlaps(box, b)) ||
-      badges.some(b => overlaps(box, b)) || markers.some(m => m.id !== e.id && overlaps(box, m.box)) ||
+    const free = (box, strict = true, mark = true) => box.y0 >= 4 && box.y1 <= H - 4 && (e.id === hoverId || !(placed.some(b => overlaps(box, b)) ||
+      badges.some(b => overlaps(box, b)) || (mark && markers.some(m => m.id !== e.id && overlaps(box, m.box))) ||
       (strict && soft.some(b => overlaps(box, b)))));
     // Ovanför markören, eller under den om platsen ovanför är upptagen (#358, till exempel av ett rikes namn)
     const above = { x0: cx - w / 2, x1: cx + w / 2, y0: p.y - off - h, y1: p.y - off };
@@ -100,6 +100,9 @@ export function placeLabels(singles, { W, H, hoverId, markers, badges, blocked =
       const inside = b => b.x0 >= 4 && b.x1 <= W - 4;
       box = [above, below, side(-off), side(off), { ...above, y0: above.y0 - h - 2, y1: above.y1 - h - 2 }, { ...below, y0: below.y0 + h + 2, y1: below.y1 + h + 2 }]
         .find(b => inside(b) && free(b, false));
+      // Sist av allt: ovanför eller under markören, över grannmarkörer (inte över klungor, knappar eller andra etiketter),
+      // så att det som pågår och är viktigast alltid får en etikett (#1022, mobilbredd 1916)
+      if (!box) box = [above, below].find(b => inside(b) && free(b, false, false));
     }
     if (!box) continue;
     placed.push(box);

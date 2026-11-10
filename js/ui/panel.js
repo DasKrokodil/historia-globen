@@ -257,7 +257,7 @@ export class Panel {
     this.tags = tags ?? {};
     this.tag = null;
     this.tagCounts = new Map();
-    for (const e of events) for (const tag of (isVisibleReview(e.review) && Array.isArray(e.tags) ? e.tags : [])) this.tagCounts.set(tag, (this.tagCounts.get(tag) ?? 0) + 1);
+    for (const e of events) for (const tag of (isVisibleReview(e.review) ? [...(Array.isArray(e.tags) ? e.tags : []), ...(e.significance === 1 ? ['oversikt'] : [])] : [])) this.tagCounts.set(tag, (this.tagCounts.get(tag) ?? 0) + 1);
     // Bilden i faktarutan som inte laddas (#884): error bubblar inte, så lyssnaren fångar på vägen ned
     detail.addEventListener('error', ev => { if (ev.target?.tagName === 'IMG') markBrokenImage(ev.target); }, true);
     this.onSelect = () => {};
