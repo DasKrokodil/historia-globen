@@ -7,7 +7,7 @@
 och dirigenten samlar det i en daterad rapport i `docs/granskningar/`. Rikard får planen före bygget. Ingenting byggs
 och inga issues skapas förrän han har godkänt den.
 
-Nya agenter i `.claude/agents/`: `historiker` (granskar fakta och källor), `geograf` (platser, gränser, täckning) och en
+Nya agenter i `.claude/agents/`: `historiker`, `ux-tillganglighet`, `arkitekt`, `larare` (granskar fakta och källor), `geograf` (platser, gränser, täckning) och en
 språk- och mottagarlandsexpert per översättningsspråk: `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr`. Svenska är
 källan och har ingen egen expert. Linserna 13 (geograf) och 14 (språk) är tillagda i
 `docs/produkt/06-granskningsperspektiv.md`; lins 8 (historiker) fanns redan och har nu en agent.

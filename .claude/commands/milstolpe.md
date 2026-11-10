@@ -24,7 +24,10 @@ skapar inga issues; den skriver bara en rapport. Läs kärnan i [CLAUDE.md](../.
    | `forhistoriker` | rör förhistoria, människoarter, dateringar före skriftens tid eller djup tid; tas tillsammans med `historiker` |
    | `geograf` | rör platser, koordinater, riken, vägar, kartor, projektion eller regional täckning |
    | `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr` | lägger till eller ändrar text som ska översättas; ta bara de språk som berörs |
-   | Linserna 1–7, 9–12 i 06-dokumentet (UX, arkitekt, lärare, elever, intresserad, tillgänglighet, spelare, utvecklare, produktchef) | funktionen eller innehållet berör dem enligt matrisen i 06-dokumentet |
+   | `ux-tillganglighet` | ändrar gränssnitt, tidslinje, paneler, menyer eller mobilvyn (lins 1 och 7) |
+   | `arkitekt` | rör tillstånd, tidslinje, lager, rendering, dataformat, delad kod eller beroenden (lins 2) |
+   | `larare` | rör innehåll, turer, lektioner, skolfunktioner eller begrepp för elever (lins 3 och 6) |
+   | Övriga linser i 06-dokumentet (elever, spelare, utvecklare, produktchef m.fl.) | funktionen berör dem enligt matrisen; körs som `general-purpose` med linsens text, eftersom de saknar egen agentfil |
 
 3. **Saknas en expertroll?** Analysera också om milstolpen kräver en sorts expert som varken finns som agent i
    `.claude/agents/` eller som lins i 06-dokumentet (till exempel arkeolog, religionsvetare, musikhistoriker,
@@ -38,7 +41,7 @@ skapar inga issues; den skriver bara en rapport. Läs kärnan i [CLAUDE.md](../.
 
 ## Steg 2: analys från varje agents perspektiv
 
-Starta de valda agenterna parallellt (Agent-verktyget, `subagent_type` = agentens namn; en linsroll utan eget agentfil
+Starta de valda agenterna parallellt (Agent-verktyget, `subagent_type` = agentens namn; en linsroll utan agentfil
 körs som `general-purpose` med linsens text ur 06-dokumentet). Uppdraget till varje agent, högst cirka 400 ord:
 milstolpens namn, issuenumren, vad som uttryckligen inte ingår, och att den ska gå igenom milstolpens issues från sitt
 perspektiv och svara på:

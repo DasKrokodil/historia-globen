@@ -38,6 +38,8 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 
 ## 1. Senior UX/UI-designer
 
+*Agent: `ux-tillganglighet` (lins 1 och 7), `.claude/agents/ux-tillganglighet.md`.*
+
 **Blicken:** helheten ur ett människocentrerat perspektiv. Är värdet tydligt, är vägen kort, är hierarkin begriplig, och håller utseendet och mönstren ihop?
 
 **Frågor**
@@ -60,6 +62,8 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 ---
 
 ## 2. Senior mjukvaruarkitekt
+
+*Agent: `arkitekt`, `.claude/agents/arkitekt.md`.*
 
 **Blicken:** vad är det som håller på tio år, och vad går sönder först? Är beslutet rätt för storleken, laget och målen, inte för modet.
 
@@ -84,6 +88,8 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 ---
 
 ## 3. Historielärare med pedagogisk utbildning
+
+*Agent: `larare` (lins 3 och 6), `.claude/agents/larare.md`.*
 
 *Skolan är en bonus, inte styrande (beslut 2026-11-08). Linsen används när något byggs för skolan, inte som standard.*
 
