@@ -136,8 +136,8 @@ export function medalTexture(icon, color, { when, major, unsure }, full) {
   return tex;
 }
 
-// Rikenas flaggor (#462): en liten tygvimpel i en mässingsmedalj. Den tar samma plats som
-// rikessymbolerna, i stället för att ligga som ett fristående platt kort bredvid dem.
+// Rikenas flaggor (#462): ett litet heraldiskt tygmärke. Sköldens egen silhuett gör att
+// rikestecken inte förväxlas med de runda händelsemedaljerna och tar mindre plats än ett platt kort.
 // Samma canvas används på klotet och i Platt vy, så att uttrycket är konsekvent i båda projektionerna.
 const flagCache = new Map();
 
@@ -145,22 +145,30 @@ function flagSeed(name) {
   return [...name].reduce((n, ch) => (n * 33 + ch.charCodeAt(0)) >>> 0, 5381);
 }
 
-/** En diskret vävd och lätt sliten yta, klippt till flaggans egen form. */
-function flagMedal(ctx, cx, cy, r, img, name) {
+/** En diskret vävd och lätt sliten flagga, klippt till ett litet heraldiskt tygmärke. */
+function flagBadge(ctx, cx, cy, r, img, name) {
   const seed = flagSeed(name);
+  const left = cx - r * 0.68, right = cx + r * 0.68;
+  const top = cy - r * 0.72, shoulder = cy - r * 0.42;
+  const bottom = cy + r * 0.78;
+  const shield = () => {
+    ctx.beginPath();
+    ctx.moveTo(left, top + r * 0.15);
+    ctx.quadraticCurveTo(cx, top - r * 0.11, right, top + r * 0.15);
+    ctx.lineTo(right, shoulder);
+    ctx.bezierCurveTo(right, cy + r * 0.22, cx + r * 0.42, cy + r * 0.61, cx, bottom);
+    ctx.bezierCurveTo(cx - r * 0.42, cy + r * 0.61, left, cy + r * 0.22, left, shoulder);
+    ctx.closePath();
+  };
   ctx.save();
-  ctx.fillStyle = GROUND;
-  ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.fill();
-  ctx.lineWidth = r * 0.16; ctx.strokeStyle = BRASS; ctx.stroke();
-  ctx.lineWidth = r * 0.045; ctx.strokeStyle = 'rgba(246,231,196,0.48)';
-  ctx.beginPath(); ctx.arc(cx, cy, r * 0.78, 0, Math.PI * 2); ctx.stroke();
+  shield();
+  ctx.fillStyle = GROUND; ctx.fill();
+  ctx.lineWidth = Math.max(1.5, r * 0.13); ctx.strokeStyle = INK; ctx.stroke();
+  shield();
+  ctx.lineWidth = Math.max(1, r * 0.047); ctx.strokeStyle = BRASS; ctx.stroke();
 
-  const w = r * 1.26, h = r * 0.9, x = cx - w / 2, y = cy - h / 2;
-  const wave = r * 0.06;
-  ctx.beginPath();
-  ctx.moveTo(x, y + wave); ctx.quadraticCurveTo(cx, y - wave, x + w, y + wave * 0.55);
-  ctx.lineTo(x + w, y + h - wave); ctx.quadraticCurveTo(cx, y + h + wave, x, y + h - wave * 0.4);
-  ctx.closePath();
+  const w = r * 1.25, h = r * 1.31, x = cx - w / 2, y = cy - r * 0.61;
+  shield();
   ctx.save(); ctx.clip();
   if (img) ctx.drawImage(img, x, y, w, h);
   else { ctx.fillStyle = '#53452d'; ctx.fillRect(x, y, w, h); }
@@ -181,7 +189,8 @@ function flagMedal(ctx, cx, cy, r, img, name) {
     ctx.fillStyle = 'rgba(246,231,196,0.13)'; ctx.fillRect(sx, sy, r * 0.035, r * 0.022);
   }
   ctx.restore();
-  ctx.lineWidth = Math.max(1, r * 0.055); ctx.strokeStyle = 'rgba(67,45,24,0.72)'; ctx.stroke();
+  shield();
+  ctx.lineWidth = Math.max(1, r * 0.035); ctx.strokeStyle = 'rgba(67,45,24,0.76)'; ctx.stroke();
   ctx.restore();
 }
 
@@ -193,7 +202,7 @@ export function flagTexture(name) {
   const draw = () => {
     g.clearRect(0, 0, 128, 128);
     const fl = flag(name);
-    flagMedal(g, 64, 64, 55, fl.ready ? fl.img : null, name);
+    flagBadge(g, 64, 64, 55, fl.ready ? fl.img : null, name);
     tex.needsUpdate = true;
   };
   draw();
@@ -202,9 +211,9 @@ export function flagTexture(name) {
   return tex;
 }
 
-/** Ritar samma tygvimpel i medalj på områdeslagrets canvas. */
+/** Ritar samma heraldiska tygmärke på områdeslagrets canvas. */
 export function drawFlag(ctx, x, y, r, img, name) {
-  flagMedal(ctx, x, y, r, img, name);
+  flagBadge(ctx, x, y, r, img, name);
 }
 
 /**
