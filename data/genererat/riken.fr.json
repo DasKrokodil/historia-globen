@@ -8,5 +8,12 @@
 "svenska-stormaktsvaldet":{"flags":{"0":{"label":{"fr":"Drapeau suédois de l'Union"}},"1":{"label":{"fr":"Drapeau suédois bleu et jaune"}}}},
 "franska-kolonialvaldet":{"flags":{"0":{"label":{"fr":"Drapeau royal blanc français"}},"1":{"label":{"fr":"Tricolore français"}}}},
 "tyska-riket":{"flags":{"0":{"label":{"fr":"Drapeau impérial allemand noir-blanc-rouge"}}}},
-"etiopiska-kejsardomet":{"flags":{"0":{"label":{"fr":"Drapeau impérial éthiopien"}},"1":{"label":{"fr":"Drapeau impérial éthiopien"}}}}
+"japanska-imperiet":{"flags":{"0":{"label":{"fr":"Hinomaru japonais"}}}},
+"etiopiska-kejsardomet":{"flags":{"0":{"label":{"fr":"Drapeau impérial éthiopien"}},"1":{"label":{"fr":"Drapeau impérial éthiopien"}}}},
+"indien":{"flags":{"0":{"label":{"fr":"Tricolore indien avec chakra d'Ashoka"}}}},
+"pakistan":{"flags":{"0":{"label":{"fr":"Drapeau pakistanais à étoile et croissant"}}}},
+"nigeria":{"flags":{"0":{"label":{"fr":"Drapeau nigérian vert-blanc-vert"}}}},
+"kina":{"flags":{"0":{"label":{"fr":"Drapeau chinois à cinq couleurs"}}}},
+"sydafrika":{"flags":{"0":{"label":{"fr":"Drapeau sud-africain de 1928"}},"1":{"label":{"fr":"Drapeau sud-africain de 1994"}}}},
+"ghana":{"flags":{"0":{"label":{"fr":"Drapeau ghanéen à étoile noire"}},"1":{"label":{"fr":"Drapeau ghanéen rouge-blanc-vert"}},"2":{"label":{"fr":"Drapeau ghanéen à étoile noire"}}}}
 }}
