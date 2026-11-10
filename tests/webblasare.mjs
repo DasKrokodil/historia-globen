@@ -2133,18 +2133,30 @@ async function run(browser, vp) {
         canadaBefore: inside([-61, 48], lifted(1843)),
         canada1844: inside([-61, 48], lifted(1844)),
         canadaSource: doc.knowledge?.find(k => k.id === 'kanada-sydost-1844')?.sources?.[0],
-        africaBefore: inside([18, 0], lifted(1574)),
-        africa: inside([18, 0], lifted(1575)),
+        africaBefore: inside([-1, -10], lifted(1574)),
+        africa: inside([-1, -10], lifted(1575)),
+        africaInterior: inside([18, 0], lifted(1844)),
         africaSource: doc.knowledge?.find(k => k.id === 'afrika-1575')?.sources?.[0],
-        southAmericaBefore: inside([-60, -10], lifted(1561)),
-        southAmerica: inside([-60, -10], lifted(1562)),
+        southAmericaBefore: inside([-51, -5], lifted(1561)),
+        southAmerica: inside([-51, -5], lifted(1562)),
+        southAmericaInterior: inside([-60, -10], lifted(1844)),
         southAmericaSource: doc.knowledge?.find(k => k.id === 'sydamerika-1562')?.sources?.[0],
         asiaBefore: inside([75, 30], lifted(1578)),
         asia: inside([75, 30], lifted(1579)),
         asiaSource: doc.knowledge?.find(k => k.id === 'asien-1579')?.sources?.[0],
+        centralAsiaBefore: inside([75, 40], lifted(1838)),
+        centralAsia1839: inside([75, 40], lifted(1839)),
+        centralAsiaSource: doc.knowledge?.find(k => k.id === 'centralasien-1839')?.sources?.[0],
+        farEastBefore: inside([160, 55], lifted(1843)),
+        farEast1844: inside([160, 55], lifted(1844)),
+        farEastSource: doc.knowledge?.find(k => k.id === 'ryska-fjarran-ostern-1844')?.sources?.[0],
         australiaBefore: inside([119, -21], lifted(1658)),
         australia: inside([119, -21], lifted(1659)),
         australiaSource: doc.knowledge?.find(k => k.id === 'australien-vastkust-1659')?.sources?.[0],
+        australiaEastBefore: inside([150, -28], lifted(1807)),
+        australiaEast1808: inside([150, -28], lifted(1808)),
+        australiaInterior: inside([134, -25], lifted(1844)),
+        australiaEastSource: doc.knowledge?.find(k => k.id === 'australien-kuster-1808')?.sources?.[0],
         antarcticaBefore: inside([130, -67], lifted(1843)),
         antarctica: inside([130, -67], lifted(1844)),
         antarcticaSource: doc.knowledge?.find(k => k.id === 'antarktis-wilkes-land-1844')?.sources?.[0],
@@ -2155,10 +2167,13 @@ async function run(browser, vp) {
     if (r.usaSource !== 'loc-burr-usa-1839' || r.usaBefore || !r.usa1839) throw new Error(`USA:s senare kartkunskap har fel källa eller tid: ${JSON.stringify(r)}`);
     if (r.siberiaSource !== 'loc-piadyshev-russian-empire-1827' || r.siberiaBefore || !r.siberia1827) throw new Error(`Sibiriens senare kartkunskap har fel källa eller tid: ${JSON.stringify(r)}`);
     if (r.canadaSource !== 'loc-tanner-atlas-1844' || r.canadaBefore || !r.canada1844) throw new Error(`Kanadas senare kartkunskap har fel källa eller tid: ${JSON.stringify(r)}`);
-    if (r.africaSource !== 'loc-ortelius-africa-1575' || r.africaBefore || !r.africa) throw new Error(`Afrikas källbelagda område har fel källa eller tid: ${JSON.stringify(r)}`);
-    if (r.southAmericaSource !== 'loc-gutierrez-americas-1562' || r.southAmericaBefore || !r.southAmerica) throw new Error(`Sydamerikas källbelagda område har fel källa eller tid: ${JSON.stringify(r)}`);
+    if (r.africaSource !== 'loc-ortelius-africa-1575' || r.africaBefore || !r.africa || r.africaInterior) throw new Error(`Afrikas källbelagda område har fel källa, tid eller för brett inland: ${JSON.stringify(r)}`);
+    if (r.southAmericaSource !== 'loc-gutierrez-americas-1562' || r.southAmericaBefore || !r.southAmerica || r.southAmericaInterior) throw new Error(`Sydamerikas källbelagda område har fel källa, tid eller för brett inland: ${JSON.stringify(r)}`);
     if (r.asiaSource !== 'loc-ortelius-asia-1579' || r.asiaBefore || !r.asia) throw new Error(`Asiens källbelagda område har fel källa eller tid: ${JSON.stringify(r)}`);
+    if (r.centralAsiaSource !== 'loc-berghaus-central-asia-1839' || r.centralAsiaBefore || !r.centralAsia1839) throw new Error(`Centralasiens senare kartkunskap har fel källa eller tid: ${JSON.stringify(r)}`);
+    if (r.farEastSource !== 'loc-russian-asia-1844' || r.farEastBefore || !r.farEast1844) throw new Error(`Ryska Fjärran österns kartkunskap har fel källa eller tid: ${JSON.stringify(r)}`);
     if (r.australiaSource !== 'loc-blaeu-new-holland-1659' || r.australiaBefore || !r.australia) throw new Error(`Australiens källbelagda område har fel källa eller tid: ${JSON.stringify(r)}`);
+    if (r.australiaEastSource !== 'loc-freycinet-new-holland-1808' || r.australiaEastBefore || !r.australiaEast1808 || r.australiaInterior) throw new Error(`Australiens senare kartkunskap har fel källa, tid eller för brett inland: ${JSON.stringify(r)}`);
     if (r.antarcticaSource !== 'loc-wilkes-antarctica-1844' || r.antarcticaBefore || !r.antarctica) throw new Error(`Antarktis källbelagda område har fel källa eller tid: ${JSON.stringify(r)}`);
     return 'Varje världsdel har en tidsbunden, källbelagd kontrollpunkt; bara kartans dokumenterade område lyfts';
   });
