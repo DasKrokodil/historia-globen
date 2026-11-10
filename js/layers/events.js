@@ -33,8 +33,12 @@ export function glyph(name) {
   return gl;
 }
 
-/** Om händelsen har taggen (#555), till exempel 'framsteg'. Utan tagg (null) räknas alla händelser. */
+/** Vyn Översikt (#868) är ingen tagg i datan utan fältet significance: händelserna ur den godkända listan har det satt till 1. */
+export const OVERVIEW_TAG = 'oversikt';
+
+/** Om händelsen har taggen (#555), till exempel 'framsteg', eller hör till Översikt. Utan tagg (null) räknas alla händelser. */
 export function hasTag(e, tag) {
+  if (tag === OVERVIEW_TAG) return e.significance === 1;
   return !tag || (Array.isArray(e.tags) && e.tags.includes(tag));
 }
 

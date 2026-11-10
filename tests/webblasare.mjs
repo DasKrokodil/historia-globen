@@ -1871,6 +1871,37 @@ async function run(browser, vp) {
     }
   });
 
+  // #868: vyn Översikt visar bara händelserna med significance 1. Tidslinjen visar dem som enskilda märken
+  // (inte täthetsbandet), listan innehåller bara dem, och Standard visar allt igen.
+  await check('vyn Översikt visar bara det viktigaste, i listan och på tidslinjen (#868)', async () => {
+    const ids = await page.evaluate(async () => (await (await fetch('data/events.json')).json()).events.filter(e => e.significance === 1).length);
+    if (ids !== 123) throw new Error(`datan har ${ids} händelser med significance 1, väntade 123`);
+    await clickView('#btn-layers');
+    await visible('#layer-menu');
+    const chip = page.locator('#layer-menu .view-chip[data-view="oversikt"]');
+    if (await chip.count() !== 1) throw new Error('vyn Översikt saknas i Lager');
+    await chip.click();
+    await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+    await page.keyboard.press('Escape');
+    await hidden('#layer-menu');
+    await page.waitForFunction(() => document.querySelectorAll('#track-dots .tdot, #track-dots .tspan').length > 0 && !document.querySelector('.tdensity'), null, { timeout: T.step });
+    const marks = await page.locator('#track-dots .tdot, #track-dots .tspan').count();
+    if (marks < 60 || marks > 123) throw new Error(`Översikt har ${marks} märken på tidslinjen, väntade 60–123`);
+    await jumpTo(1969);
+    if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
+    await visible('#panel');
+    const titles = await page.locator('#event-list .event-btn').evaluateAll(b => b.map(x => x.textContent));
+    if (titles.length > 25) throw new Error(`Översikt listar ${titles.length} händelser år 1969, väntade bara det viktigaste`);
+    await page.click('#panel-close');
+    await clickView('#btn-layers');
+    await visible('#layer-menu');
+    await page.click('#layer-menu .view-chip[data-view="standard"]');
+    await page.keyboard.press('Escape');
+    await hidden('#layer-menu');
+    await page.waitForFunction(() => !!document.querySelector('.tdensity'), null, { timeout: T.step });
+    return `${marks} märken på tidslinjen, ${titles.length} i listan år 1969, Standard ger bandet tillbaka`;
+  });
+
   // #555: vyn Framsteg i Lager. Ingen riktig händelse har taggen ännu, så vyn ska säga att den är tom. Med en
   // test-fixtur (taggen läggs på Apollo 11 bara i testet, inte i datan) ska vyn visa just den händelsen och
   // faktarutan ha märkningen med ett namn för skärmläsare.
