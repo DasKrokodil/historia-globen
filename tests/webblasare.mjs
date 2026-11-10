@@ -4080,9 +4080,9 @@ async function run(browser, vp) {
       const shown = await labels();
       const before = shown.find(l => /Titanic/.test(l));
       if (before && !/ · 4 år före \(1912\)$/.test(before)) throw new Error(`Titanic 1916 säger "${before}"`);
-      // #1022: det som pågår går före rikesnamnen. Första världskriget får en etikett i datorbredd (i mobilbredd är markören för
-      // trång, se #1022), och rikesnamnen får inte ta hela platsen över Europa
-      if (vp.width > 760 && !shown.some(l => l === 'Första världskriget')) throw new Error(`år 1916 saknar etikett för första världskriget: ${shown.join(' | ')}`);
+      // #1022: det som pågår går före rikesnamnen. Första världskriget får en etikett i dator- och mobilbredd (i mobilbredd
+      // ligger markören vid kanten, så etiketten får som sista utväg ligga över en grannmarkör), och rikesnamnen får inte ta hela platsen över Europa
+      if (!shown.some(l => l === 'Första världskriget')) throw new Error(`år 1916 saknar etikett för första världskriget: ${shown.join(' | ')}`);
       if (shown.some(l => / · (slut|börjar) \d/.test(l))) throw new Error(`etikett med slut/börjar kvar: ${shown.find(l => / · (slut|börjar) \d/.test(l))}`);
       rows.push(await want('#y=-500', /^500-talet f\.Kr\. · visar också det som hände \d+ år före och efter$/));
       rows.push(await want('#y=1914&f=war:forsta-varldskriget', /^Följer .+ · visar \d+ (år|dagar?) före och efter$/));
