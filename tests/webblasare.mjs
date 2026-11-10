@@ -2893,6 +2893,7 @@ async function run(browser, vp) {
     if (!posterLine.includes('historiagloben.se') || !posterLine.includes('CC BY 4.0') || !posterLine.includes('naturalearthdata.com')) throw new Error(`affischens källrad saknar källa, adress eller licens: ${posterLine}`);
     if (citation.overflow) throw new Error('källhänvisningen ger horisontell scroll');
     await page.locator('#detail [data-close]').click();
+    await jumpTo(ROUTE_YEAR); // lämna sidan i samma läge som före kontrollen, annars felar "en väg syns" efteråt i mobilbredd
     return 'urklippet har händelse, år, källor, adress och licens; bekräftelsen har role=status och affischen ritar källrad';
   });
 
