@@ -277,12 +277,13 @@ export class Timeline extends EventTarget {
   }
 
   /** Märken från lagerregistret (#378): cirkel = händelse, romb = Samtidigt, streck = resa. */
-  setMarks(marks = []) {
-    const band = !this.focus && !this.range && marks.filter(m => m.type === 'event').length > DENSITY_LIMIT;
+  setMarks(marks = [], { curated = false } = {}) {
+    // curated: vyn visar redan ett litet, valt urval (Översikt, Framsteg), och då får alla märken vara enskilda (#868, #1000)
+    const band = !curated && !this.focus && !this.range && marks.filter(m => m.type === 'event').length > DENSITY_LIMIT;
     const key = band + '\u001d' + marks.map(mark => [mark.type, mark.at, mark.until ?? '', mark.color ?? '', mark.label ?? ''].join('\u001f')).join('\u001e');
     if (key === this._marksKey) return;
     this._marksKey = key;
-    this._marks = [marks];
+    this._marks = [marks, { curated }];
     this.dotsEl.replaceChildren();
     this.ffEl.replaceChildren();
     const show = mark => {

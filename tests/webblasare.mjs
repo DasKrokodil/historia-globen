@@ -1525,6 +1525,9 @@ async function run(browser, vp) {
         return { panelOpen: document.getElementById('panel').classList.contains('open'), cardHidden: document.getElementById('funfact').hidden, tabVisible: !document.getElementById('ff-tab').hidden, right: Math.round(detail.right - panel.right) };
       });
       if (!layout.panelOpen || !layout.cardHidden || !layout.tabVisible || Math.abs(layout.right) > 1) throw new Error('faktarutan delar inte högersidans läsyta med Samtidigt');
+      // #1051: rutan ska också ta emot klick. Mäts i punkten mitt i rutan, där listan annars kan ligga över
+      const hit = await page.evaluate(() => { const r = document.getElementById('detail').getBoundingClientRect(); const el = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return !!el?.closest('#detail'); });
+      if (!hit) throw new Error('faktarutan är täckt av Samtidigt-listan och tar inte emot klick (#1051)');
     }
     await shot('3-handelse-oppnas');
     const calm = page.locator('input[data-calm]');
@@ -1871,6 +1874,37 @@ async function run(browser, vp) {
     }
   });
 
+  // #868: vyn Översikt visar bara händelserna med significance 1. Tidslinjen visar dem som enskilda märken
+  // (inte täthetsbandet), listan innehåller bara dem, och Standard visar allt igen.
+  await check('vyn Översikt visar bara det viktigaste, i listan och på tidslinjen (#868)', async () => {
+    const ids = await page.evaluate(async () => (await (await fetch('data/events.json')).json()).events.filter(e => e.significance === 1).length);
+    if (ids !== 123) throw new Error(`datan har ${ids} händelser med significance 1, väntade 123`);
+    await clickView('#btn-layers');
+    await visible('#layer-menu');
+    const chip = page.locator('#layer-menu .view-chip[data-view="oversikt"]');
+    if (await chip.count() !== 1) throw new Error('vyn Översikt saknas i Lager');
+    await chip.click();
+    await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+    await page.keyboard.press('Escape');
+    await hidden('#layer-menu');
+    await page.waitForFunction(() => document.querySelectorAll('#track-dots .tdot, #track-dots .tspan').length > 0 && !document.querySelector('.tdensity'), null, { timeout: T.step });
+    const marks = await page.locator('#track-dots .tdot, #track-dots .tspan').count();
+    if (marks < 60 || marks > 123) throw new Error(`Översikt har ${marks} märken på tidslinjen, väntade 60–123`);
+    await jumpTo(1969);
+    if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
+    await visible('#panel');
+    const titles = await page.locator('#event-list .event-btn').evaluateAll(b => b.map(x => x.textContent));
+    if (titles.length > 25) throw new Error(`Översikt listar ${titles.length} händelser år 1969, väntade bara det viktigaste`);
+    await page.click('#panel-close');
+    await clickView('#btn-layers');
+    await visible('#layer-menu');
+    await page.click('#layer-menu .view-chip[data-view="standard"]');
+    await page.keyboard.press('Escape');
+    await hidden('#layer-menu');
+    await page.waitForFunction(() => !!document.querySelector('.tdensity'), null, { timeout: T.step });
+    return `${marks} märken på tidslinjen, ${titles.length} i listan år 1969, Standard ger bandet tillbaka`;
+  });
+
   // #555: vyn Framsteg i Lager. Ingen riktig händelse har taggen ännu, så vyn ska säga att den är tom. Med en
   // test-fixtur (taggen läggs på Apollo 11 bara i testet, inte i datan) ska vyn visa just den händelsen och
   // faktarutan ha märkningen med ett namn för skärmläsare.
@@ -2065,6 +2099,29 @@ async function run(browser, vp) {
     if (r.fore) throw new Error('dimman lyfts över USA innan landet fanns');
     if (r.langtBort) throw new Error('dimman lyfts över USA fast ingen resa har nått landet');
     return `USA 1863: ${r.inne} perioder lyfta; före landet fanns och utan kontakt: inga`;
+  });
+
+  // #872: Europa är känt från vyns början. Utan riken och resor är dimman redan lyft över Europa år -2999 (Paris, Uppsala,
+  // Moskva väster om Ural), men inte över Peking, Ankara eller Sibirien. Gränsen kommer ur data/upptackt-europa.json.
+  await check('upptäcktsvyn lyfter dimman över Europa från vyns början (#872)', async () => {
+    const r = await page.evaluate(async () => {
+      const { DiscoveryLayer } = await import('./js/layers/discovery.js');
+      const doc = await (await fetch('data/upptackt.json')).json();
+      const layer = new DiscoveryLayer(doc, null);
+      layer.enabled = true;
+      layer._loadImages = () => {};
+      layer.update({ year: -2999, lines: { routes: [], reached: () => [] } });
+      for (let i = 0; i < 100 && !layer.regions.length; i++) await new Promise(res => setTimeout(res, 100));
+      layer.fogKey = null;
+      layer.update({ year: -2999, lines: { routes: [], reached: () => [] } });
+      const inRing = (pt, ring) => { let c = false; for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) { const [xi, yi] = ring[i], [xj, yj] = ring[j]; if ((yi > pt[1]) !== (yj > pt[1]) && pt[0] < (xj - xi) * (pt[1] - yi) / (yj - yi) + xi) c = !c; } return c; };
+      const inside = pt => layer.lifted.some(g => (g.type === 'Polygon' ? [g.coordinates] : g.coordinates).some(rings => inRing(pt, rings[0]) && !rings.slice(1).some(h => inRing(pt, h))));
+      return { regioner: layer.regions.length, lyfta: layer.lifted.length, paris: inside([2.35, 48.85]), uppsala: inside([17.64, 59.86]), moskva: inside([37.6, 55.75]), peking: inside([116.4, 39.9]), ankara: inside([32.85, 39.93]), sibirien: inside([90, 60]) };
+    });
+    if (!r.regioner) throw new Error('Europa-regionen laddades inte');
+    if (!r.paris || !r.uppsala || !r.moskva) throw new Error(`Europa är inte lyft: ${JSON.stringify(r)}`);
+    if (r.peking || r.ankara || r.sibirien) throw new Error(`dimman är lyft utanför Europa: ${JSON.stringify(r)}`);
+    return `Paris, Uppsala och Moskva lyfta år -2999; Peking, Ankara och Sibirien dolda (${r.lyfta} geometrier)`;
   });
 
   // Hemriken: vyn ser världen från Europa, så Makedonien (med Alexanders erövringar) och dess grannar syns utan
@@ -3139,6 +3196,52 @@ async function run(browser, vp) {
       return 'år 1630 och trettioåriga kriget ur länken; Bakåt efter Tillbaka ger kriget igen; trasig länk ger startläget';
     });
   }
+
+  // Den korta kameradressen ?c=lat,lon,zoom används i äldre länkar. Den ska hamna på
+  // platsen också efter att den vanliga startflygningen har körts (#1056).
+  await check('en kort kameradress stannar på begärd plats', async () => {
+    const cameraPage = await context.newPage();
+    const cameraErrors = [];
+    cameraPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(cameraErrors, m); });
+    cameraPage.on('pageerror', e => cameraErrors.push(e.message));
+    await cameraPage.addInitScript(() => {
+      window.__hgCameraFlights = [];
+      document.addEventListener('hg:globe-flight', event => window.__hgCameraFlights.push(event.detail), true);
+    });
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await cameraPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await cameraPage.route(u => isFont(u.href), r => r.abort());
+      }
+      const targets = [
+        { name: 'Skåne', c: '56,13,3.2' },
+        { name: 'Stockholmstrakten', c: '60,15,2' },
+        { name: 'Nya Zeeland', c: '-41,174,3.2' },
+      ];
+      for (const target of targets) {
+        await cameraPage.goto(`${BASE}?c=${encodeURIComponent(target.c)}`, { waitUntil: 'domcontentloaded', timeout: T.load });
+        await cameraPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        const expected = target.c.split(',').map(Number);
+        await cameraPage.waitForFunction(({ lat, lon, zoom }) => window.__hgCameraFlights.some(f => {
+          if (f.phase !== 'start') return false;
+          const gotLat = f.targetX / Math.PI * 180;
+          const gotLon = ((((Math.PI / 2 - f.targetY) / Math.PI * 180 - 180) % 360) + 540) % 360 - 180;
+          return Math.abs(gotLat - lat) < 0.001 && Math.abs(gotLon - lon) < 0.001;
+        }), { lat: expected[0], lon: expected[1], zoom: expected[2] }, { timeout: T.step });
+        const hash = new URL(cameraPage.url()).hash;
+        if (!hash.includes(`c=${target.c}`) || new URL(cameraPage.url()).searchParams.has('c')) {
+          throw new Error(`${target.name}: kameradressen blev inte en kanonisk hash (${cameraPage.url()})`);
+        }
+        await cameraPage.evaluate(() => { window.__hgCameraFlights = []; });
+      }
+      if (cameraErrors.length) throw new Error(`kameralänken gav konsolfel: ${cameraErrors.join('; ')}`);
+    } finally {
+      await cameraPage.close();
+    }
+    return 'Skåne, Stockholmstrakten och Nya Zeeland följer ?c= i den här bredden';
+  });
+
   if (vp.name === 'dator') {
     // En länk till en guidad tur (#736): t och s i adressen startar turen vid rätt steg, adressen följer turen,
     // Bakåt går till steget innan, Avsluta tar bort turen ur adressen, och en okänd tur ger en vanlig vy
@@ -4062,9 +4165,9 @@ async function run(browser, vp) {
       const shown = await labels();
       const before = shown.find(l => /Titanic/.test(l));
       if (before && !/ · 4 år före \(1912\)$/.test(before)) throw new Error(`Titanic 1916 säger "${before}"`);
-      // #1022: det som pågår går före rikesnamnen. Första världskriget får en etikett i datorbredd (i mobilbredd är markören för
-      // trång, se #1022), och rikesnamnen får inte ta hela platsen över Europa
-      if (vp.width > 760 && !shown.some(l => l === 'Första världskriget')) throw new Error(`år 1916 saknar etikett för första världskriget: ${shown.join(' | ')}`);
+      // #1022: det som pågår går före rikesnamnen. Första världskriget får en etikett i dator- och mobilbredd (i mobilbredd
+      // ligger markören vid kanten, så etiketten får som sista utväg ligga över en grannmarkör), och rikesnamnen får inte ta hela platsen över Europa
+      if (!shown.some(l => l === 'Första världskriget')) throw new Error(`år 1916 saknar etikett för första världskriget: ${shown.join(' | ')}`);
       if (shown.some(l => / · (slut|börjar) \d/.test(l))) throw new Error(`etikett med slut/börjar kvar: ${shown.find(l => / · (slut|börjar) \d/.test(l))}`);
       rows.push(await want('#y=-500', /^500-talet f\.Kr\. · visar också det som hände \d+ år före och efter$/));
       rows.push(await want('#y=1914&f=war:forsta-varldskriget', /^Följer .+ · visar \d+ (år|dagar?) före och efter$/));

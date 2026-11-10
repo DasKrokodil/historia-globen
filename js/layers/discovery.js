@@ -158,6 +158,8 @@ export class DiscoveryLayer {
     this.onImage = () => {};  // en bild har laddats klart: lagret behöver ritas om
     this.fogKey = null;
     this.fonts = false;       // typsnittet för "Terra incognita" har laddats (annars ritas texten om när det kommer)
+    this.regions = [];        // hemregioner som alltid är lyfta (home.regions, #872): [{ id, geometry }], laddas första gången lagret slås på
+    this._regionsLoading = false;
     this.empires = new Map(); // rikets grupp-id → { polys: [{ rings, box }], periods: [{ start, end, geometry, polys }] } (#377)
     this.coverage = null;     // heltal: dimfri del av jordytan, mätt ur samma bild som visas (#575)
     this.onCoverage = () => {};
@@ -238,10 +240,23 @@ export class DiscoveryLayer {
     }
   }
 
+  /** Hemregionerna (#872): Europa är känt från vyns början. Filen laddas första gången och dimman räknas om då. */
+  _loadRegions() {
+    if (this._regionsLoading) return;
+    this._regionsLoading = true;
+    for (const r of this.doc?.home?.regions ?? []) {
+      fetch(r.file).then(res => res.json()).then(doc => {
+        this.regions.push({ id: r.id, geometry: doc.geometry });
+        this.fogKey = null; this.onImage();
+      }).catch(err => console.warn(`Upptäcktsvyn: regionen ${r.id} kunde inte laddas`, err));
+    }
+  }
+
   /** state: year och fine som för LinesLayer, lines = linjelagret (vars vägar lyfter dimman). */
   update({ year, fine = false, lines }) {
     if (!this.enabled || !this.doc) return;
     this._loadImages();
+    this._loadRegions();
     const now = fine ? Math.floor(year / FINE_STEP) * FINE_STEP : Math.floor(year);
     const key = `${now}|${fine}|${lines?.routes.length ?? 0}|${this.fonts}`;
     if (key !== this.fogKey) {
@@ -251,7 +266,7 @@ export class DiscoveryLayer {
       // gäller inte det som minns om kontakt längre.
       const nRoutes = lines?.routes.length ?? 0;
       if (nRoutes !== this.nRoutes) { this.nRoutes = nRoutes; for (const e of this.empires.values()) { e.contact = Infinity; e.none = -Infinity; } }
-      this.lifted = [];
+      this.lifted = this.regions.map(r => r.geometry); // hemregionen är känd från början, före alla riken och resor
       for (const e of this.empires.values()) {
         if (!e.periods.some(q => q.start <= now)) continue;
         if (!e.home && now < e.neighbor && !this._contact(e, now, this.reached)) continue;
