@@ -57,7 +57,12 @@ export function entry({ data, refresh, registry }) {
     }
   };
   // Kartbildernas källor kommer ur källregistret, som laddas när vyn slås på (#337)
-  const sourceIds = [...new Set((data.discovery?.decorations ?? []).map(d => d.source))];
+  // Kartkunskap har egna källor: den får inte se ut som om den kom från en
+  // rutt eller ett rike i appens urval (#1072).
+  const sourceIds = [...new Set([
+    ...(data.discovery?.decorations ?? []).map(d => d.source),
+    ...(data.discovery?.knowledge ?? []).flatMap(k => k.sources ?? []),
+  ])];
   const note = data.discovery && {
     title: t(data.discovery.title), perspective: t(data.discovery.perspective), credit: t(data.discovery.credit),
     get sources() { return sourceIds.map(id => data.srcById[id]).filter(Boolean); },
@@ -267,6 +272,10 @@ export class DiscoveryLayer {
       const nRoutes = lines?.routes.length ?? 0;
       if (nRoutes !== this.nRoutes) { this.nRoutes = nRoutes; for (const e of this.empires.values()) { e.contact = Infinity; e.none = -Infinity; } }
       this.lifted = this.regions.map(r => r.geometry); // hemregionen är känd från början, före alla riken och resor
+      // Källbelagd kartkunskap är ett eget lager. Till skillnad från riken
+      // beskriver den vad en samtida karta faktiskt återgav, inte vem som
+      // styrde området eller vilka av våra rutter som råkar finnas i datan.
+      for (const k of this.doc.knowledge ?? []) if (k.from <= now && (k.to ?? Infinity) >= now) this.lifted.push(k.geometry);
       for (const e of this.empires.values()) {
         if (!e.periods.some(q => q.start <= now)) continue;
         if (!e.home && now < e.neighbor && !this._contact(e, now, this.reached)) continue;

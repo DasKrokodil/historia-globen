@@ -499,7 +499,7 @@ Etapper får överlappa i tid (till exempel när en flotta delas); varje pågåe
 Upptäcktsvyn slås på i Lager. Filen styr allt den visar (ritas av `js/layers/discovery.js`):
 
 ```json
-{ "schema": "historia-globen/upptackt@1", "notes": "…",
+{ "schema": "historia-globen/upptackt@2", "notes": "…",
   "perspective": { "sv": "Vyn ser världen från Europa. Dimman är lyft över de europeiska rikena i datan …" },
   "credit": { "sv": "Kartbilder: havsmonster ur Olaus Magnus Carta marina (1539) …" },
   "paper": { "grain": 0.22, "stains": 18, "stainStrength": 0.16, "seed": 1539,
@@ -507,6 +507,9 @@ Upptäcktsvyn slås på i Lager. Filen styr allt den visar (ritas av `js/layers/
     "vignette": 0.45, "vignetteSides": 0.5,
     "rhumb": { "directions": 32, "lengthDeg": 70, "opacity": 0.42, "widthPx": 1.6 } },
   "home": { "regions": [{ "id": "europa", "file": "data/upptackt-europa.json" }], "empires": ["romarriket", "alexanders-rike", "…"], "neighborDeg": 3.5 },
+  "knowledge": [{ "id": "nordamerika-1755", "from": 1755,
+    "geometry": { "type": "MultiPolygon", "coordinates": ["…"] },
+    "sources": ["loc-mitchell-map-1755"], "note": { "sv": "Ungefärlig yta …" } }],
   "fog": { "opacity": 0.97, "corridorDeg": 7, "soften": 0.7, "grain": 0.2,
     "hatch": 0.45, "hatchDeg": 1.2, "hatchSpacingDeg": 0.6,
     "labels": [{ "text": { "sv": "Terra incognita" }, "at": [-100, 47], "size": 4.2 }] },
@@ -529,6 +532,7 @@ Upptäcktsvyn slås på i Lager. Filen styr allt den visar (ritas av `js/layers/
 | `home.regions` | Regioner som är kända från vyns början och aldrig ligger under dimman (#872): `id` och `file`, en fil med `geometry` (GeoJSON `MultiPolygon`) som laddas första gången vyn slås på. `europa` kommer ur Natural Earth 1:50m (public domain) via `python3 tools/europa_dimma.py <ne_50m_admin_0_countries.geojson> data/upptackt-europa.json`: länder med `CONTINENT = Europe`, utan områden över haven, med Ryssland klippt vid 60° ö.l. (Uralbergen) och utan Turkiet och Kaukasus, som Rom och Alexanders rike lyfter. Filen ligger i listan i `scripts/build-site.sh` |
 | `home.empires` | Vyns utgångspunkt i Europa: grupp-id i `data/empires/index.json` för de europeiska rikena. Dimman är lyft över dem för varje period som har börjat |
 | `home.neighborDeg` | Hur nära, i grader, ett annat rikes område ska ha legat ett hemrikes område under samma år för att räknas som granne. Då lyfts dimman över grannen från det året (grannarnas grannar räknas inte) |
+| `knowledge` | Källbelagda områden av kartografisk kunskap (#1072). Varje post har ett stabilt `id`, `from` och valfritt `to`, en GeoJSON-`geometry` (`Polygon` eller `MultiPolygon`), `sources` med id:n i `sources.json` samt en flerspråkig `note`. Geometrin är en försiktig tolkning av vad den samtida kartkällan återger: den får inte användas som nutida gräns, som ägandeyta eller som ett påstående om vad lokalbefolkningen kände till. Dimman lyfts över området under postens tidsintervall. |
 | `fog.opacity` | Dimmans täckning, 0–1. Nära 1 döljer allt som inte har nåtts; händelsernas markörer syns ändå, eftersom de ligger ovanpå klotet. Färgerna är CSS-variablerna `--discovery-fog` och `--discovery-ink` |
 | `fog.corridorDeg` | Bredden i grader på korridoren som lyfts längs varje etapp i `data/routes` som har börjat |
 | `fog.soften` | Hur mycket bredare korridorens mjuka kant är (0,7 = 70 % bredare) |

@@ -2056,7 +2056,7 @@ async function run(browser, vp) {
     await jump('1900');
     await page.waitForFunction(before => document.querySelector('#religion-legend .rl-coverage')?.textContent.trim() !== before, earlyCoverage, { timeout: T.step });
     const note = await page.textContent('#religion-legend .rl-coverage-note');
-    if (!/inte vad människor faktiskt kände till/.test(note ?? '')) throw new Error('mätaren förklarar inte sin begränsning');
+    if (!/inte ett mått på all mänsklig kunskap/.test(note ?? '')) throw new Error('mätaren förklarar inte sin begränsning');
     await toggle.click();
     await hidden('#religion-legend #rl-body');
     if (await page.evaluate(() => sessionStorage.getItem('hg-discovery-legend-open')) !== '0') {
@@ -2079,7 +2079,9 @@ async function run(browser, vp) {
     const r = await page.evaluate(async () => {
       const { DiscoveryLayer } = await import('./js/layers/discovery.js');
       const get = url => fetch(url).then(res => res.json());
-      const [doc, index] = await Promise.all([get('data/upptackt.json'), get('data/empires/index.json')]);
+      const [rawDoc, index] = await Promise.all([get('data/upptackt.json'), get('data/empires/index.json')]);
+      // Provet av regel A ska isolera rikeslogiken från källbelagd kartkunskap.
+      const doc = { ...rawDoc, knowledge: [] };
       const group = index.groups.find(g => g.id === 'usa');
       if (!group) return { missing: true };
       const { polities } = await get(group.file);
@@ -2099,6 +2101,34 @@ async function run(browser, vp) {
     if (r.fore) throw new Error('dimman lyfts över USA innan landet fanns');
     if (r.langtBort) throw new Error('dimman lyfts över USA fast ingen resa har nått landet');
     return `USA 1863: ${r.inne} perioder lyfta; före landet fanns och utan kontakt: inga`;
+  });
+
+  await check('upptäcktsvyn lyfter bara källbelagd kartkunskap under dess tid (#1072)', async () => {
+    const r = await page.evaluate(async () => {
+      const { DiscoveryLayer } = await import('./js/layers/discovery.js');
+      const rawDoc = await (await fetch('data/upptackt.json')).json();
+      const doc = { ...rawDoc, home: { ...rawDoc.home, regions: [] } };
+      const inside = (pt, geometries) => {
+        const inRing = (ring) => { let c = false; for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) { const [xi, yi] = ring[i], [xj, yj] = ring[j]; if ((yi > pt[1]) !== (yj > pt[1]) && pt[0] < (xj - xi) * (pt[1] - yi) / (yj - yi) + xi) c = !c; } return c; };
+        return geometries.some(g => (g.type === 'Polygon' ? [g.coordinates] : g.coordinates).some(rings => inRing(rings[0]) && !rings.slice(1).some(inRing)));
+      };
+      const lifted = year => {
+        const layer = new DiscoveryLayer(doc, null);
+        layer.enabled = true;
+        layer._loadImages = () => {};
+        layer.update({ year, lines: { routes: [], reached: () => [] } });
+        return layer.lifted;
+      };
+      return {
+        source: doc.knowledge?.[0]?.sources?.[0],
+        before: inside([-78, 38], lifted(1754)),
+        mitchellArea: inside([-78, 38], lifted(1755)),
+        west: inside([-120, 40], lifted(1767)),
+      };
+    });
+    if (r.source !== 'loc-mitchell-map-1755') throw new Error(`kartkunskapen saknar Mitchell-källan: ${r.source}`);
+    if (r.before || !r.mitchellArea || r.west) throw new Error(`fel tids- eller områdesavgränsning: ${JSON.stringify(r)}`);
+    return 'Mitchell-källans ungefärliga nordamerikanska område lyfts från 1755, inte före eller långt i väster';
   });
 
   // #872: Europa är känt från vyns början. Utan riken och resor är dimman redan lyft över Europa år -2999 (Paris, Uppsala,
