@@ -66,6 +66,68 @@
       "geometry": {"type": "MultiPolygon", "coordinates": [
         [[[-17,36],[-7,36],[5,37],[18,34],[28,31],[35,30],[35,23],[43,12],[50,11],[49,1],[43,-12],[40,-20],[35,-30],[28,-35],[18,-35],[11,-29],[7,-21],[1,-5],[-5,4],[-8,10],[-16,17],[-17,28],[-17,36]]]
       ]}
+    },
+    {
+      "id": "sydamerika-1562",
+      "from": 1562,
+      "sources": ["loc-gutierrez-americas-1562"],
+      "note": {
+        "sv": "Ungefärlig sydamerikansk yta på Gutiérrez karta över Amerika; den visar kartans geografiska anspråk, inte nutida gränser eller all lokal kunskap.",
+        "en": "Approximate South American area on Gutiérrez's map of the Americas; it shows the map's geographical claim, not modern boundaries or all local knowledge.",
+        "de": "Ungefähre südamerikanische Fläche auf Gutiérrez’ Amerika-Karte; sie zeigt den geografischen Anspruch der Karte, nicht moderne Grenzen oder alles lokale Wissen.",
+        "es": "Área sudamericana aproximada en el mapa de América de Gutiérrez; muestra la pretensión geográfica del mapa, no fronteras modernas ni todo el conocimiento local.",
+        "fr": "Zone sud-américaine approximative sur la carte des Amériques de Gutiérrez ; elle montre l’affirmation géographique de la carte, non des frontières modernes ni toutes les connaissances locales."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[-81,12],[-76,10],[-72,12],[-66,10],[-60,8],[-52,5],[-47,0],[-43,-8],[-39,-15],[-39,-24],[-45,-32],[-53,-38],[-61,-44],[-68,-54],[-74,-53],[-76,-45],[-74,-35],[-79,-22],[-81,-8],[-81,3],[-81,12]]]
+      ]}
+    },
+    {
+      "id": "asien-1579",
+      "from": 1579,
+      "sources": ["loc-ortelius-asia-1579"],
+      "note": {
+        "sv": "Försiktig avgränsning av områden som Ortelius Asienkarta återger. Norra Asien och Korea lämnas utanför, eftersom källan själv är ofullständig där.",
+        "en": "Cautious outline of areas shown by Ortelius's Asia map. Northern Asia and Korea are excluded because the source itself is incomplete there.",
+        "de": "Vorsichtige Abgrenzung der Gebiete auf Ortelius’ Asienkarte. Nordasien und Korea bleiben aus, weil die Quelle dort selbst unvollständig ist.",
+        "es": "Delimitación prudente de las zonas mostradas por el mapa de Asia de Ortelius. Se excluyen el norte de Asia y Corea porque la propia fuente es incompleta allí.",
+        "fr": "Délimitation prudente des zones montrées par la carte d’Asie d’Ortelius. L’Asie du Nord et la Corée sont exclues, car la source elle-même y est incomplète."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[26,40],[35,43],[45,45],[58,53],[74,55],[91,52],[103,47],[113,42],[119,37],[116,31],[108,27],[102,22],[95,20],[88,20],[81,19],[77,24],[72,30],[65,27],[58,25],[50,29],[43,34],[35,36],[26,40]]],
+        [[[117,39],[128,42],[139,39],[143,34],[139,29],[130,25],[121,25],[115,30],[117,39]]],
+        [[[95,6],[105,8],[114,6],[121,1],[120,-5],[113,-7],[106,-5],[100,-1],[95,6]]]
+      ]}
+    },
+    {
+      "id": "australien-vastkust-1659",
+      "from": 1659,
+      "sources": ["loc-blaeu-new-holland-1659"],
+      "note": {
+        "sv": "Endast den västliga del av Nya Holland som Blaeus karta återger. Östra och inre Australien lämnas medvetet okända i detta lager.",
+        "en": "Only the western part of New Holland shown by Blaeu's map. Eastern and inland Australia deliberately remain unknown in this layer.",
+        "de": "Nur der westliche Teil von Neu-Holland, den Blaeus Karte zeigt. Ost- und Binnenaustralien bleiben in dieser Ebene bewusst unbekannt.",
+        "es": "Solo la parte occidental de Nueva Holanda mostrada por el mapa de Blaeu. El este y el interior de Australia permanecen deliberadamente desconocidos en esta capa.",
+        "fr": "Seule la partie occidentale de la Nouvelle-Hollande montrée par la carte de Blaeu. L’est et l’intérieur de l’Australie restent délibérément inconnus dans cette couche."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[113,-13],[117,-14],[119,-18],[118,-23],[114,-27],[114,-31],[118,-34],[122,-34],[123,-30],[120,-26],[120,-20],[121,-15],[117,-12],[113,-13]]]
+      ]}
+    },
+    {
+      "id": "antarktis-wilkes-land-1844",
+      "from": 1844,
+      "sources": ["loc-wilkes-antarctica-1844"],
+      "note": {
+        "sv": "En begränsad kustsektor ur Wilkes expeditionens antarktiska karta, inte en fullständig Antarktis-kontur.",
+        "en": "A limited coastal sector from the Wilkes expedition's Antarctic map, not a complete outline of Antarctica.",
+        "de": "Ein begrenzter Küstenabschnitt aus der Antarktiskarte der Wilkes-Expedition, keine vollständige Kontur der Antarktis.",
+        "es": "Un sector costero limitado del mapa antártico de la expedición Wilkes, no un contorno completo de la Antártida.",
+        "fr": "Un secteur côtier limité de la carte antarctique de l’expédition Wilkes, et non un contour complet de l’Antarctique."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[110,-65],[126,-64],[140,-65],[150,-67],[149,-70],[136,-70],[123,-69],[110,-68],[110,-65]]]
+      ]}
     }
   ],
   "fog": {

@@ -2127,12 +2127,28 @@ async function run(browser, vp) {
         africaBefore: inside([18, 0], lifted(1574)),
         africa: inside([18, 0], lifted(1575)),
         africaSource: doc.knowledge?.find(k => k.id === 'afrika-1575')?.sources?.[0],
+        southAmericaBefore: inside([-60, -10], lifted(1561)),
+        southAmerica: inside([-60, -10], lifted(1562)),
+        southAmericaSource: doc.knowledge?.find(k => k.id === 'sydamerika-1562')?.sources?.[0],
+        asiaBefore: inside([75, 30], lifted(1578)),
+        asia: inside([75, 30], lifted(1579)),
+        asiaSource: doc.knowledge?.find(k => k.id === 'asien-1579')?.sources?.[0],
+        australiaBefore: inside([119, -21], lifted(1658)),
+        australia: inside([119, -21], lifted(1659)),
+        australiaSource: doc.knowledge?.find(k => k.id === 'australien-vastkust-1659')?.sources?.[0],
+        antarcticaBefore: inside([130, -67], lifted(1843)),
+        antarctica: inside([130, -67], lifted(1844)),
+        antarcticaSource: doc.knowledge?.find(k => k.id === 'antarktis-wilkes-land-1844')?.sources?.[0],
       };
     });
     if (r.source !== 'loc-mitchell-map-1755') throw new Error(`kartkunskapen saknar Mitchell-källan: ${r.source}`);
     if (r.before || !r.mitchellArea || r.west) throw new Error(`fel tids- eller områdesavgränsning: ${JSON.stringify(r)}`);
     if (r.africaSource !== 'loc-ortelius-africa-1575' || r.africaBefore || !r.africa) throw new Error(`Afrikas källbelagda område har fel källa eller tid: ${JSON.stringify(r)}`);
-    return 'Mitchell-källans Nordamerika lyfts från 1755 och Ortelius Afrika från 1575; inte före eller långt utanför deras ytor';
+    if (r.southAmericaSource !== 'loc-gutierrez-americas-1562' || r.southAmericaBefore || !r.southAmerica) throw new Error(`Sydamerikas källbelagda område har fel källa eller tid: ${JSON.stringify(r)}`);
+    if (r.asiaSource !== 'loc-ortelius-asia-1579' || r.asiaBefore || !r.asia) throw new Error(`Asiens källbelagda område har fel källa eller tid: ${JSON.stringify(r)}`);
+    if (r.australiaSource !== 'loc-blaeu-new-holland-1659' || r.australiaBefore || !r.australia) throw new Error(`Australiens källbelagda område har fel källa eller tid: ${JSON.stringify(r)}`);
+    if (r.antarcticaSource !== 'loc-wilkes-antarctica-1844' || r.antarcticaBefore || !r.antarctica) throw new Error(`Antarktis källbelagda område har fel källa eller tid: ${JSON.stringify(r)}`);
+    return 'Varje världsdel har en tidsbunden, källbelagd kontrollpunkt; bara kartans dokumenterade område lyfts';
   });
 
   // #872: Europa är känt från vyns början. Utan riken och resor är dimman redan lyft över Europa år -2999 (Paris, Uppsala,

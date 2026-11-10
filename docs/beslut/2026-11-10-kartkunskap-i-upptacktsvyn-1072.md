@@ -4,7 +4,7 @@
 
 ## Beslut
 
-Upptäcktsvyn får `knowledge`: tidsindelade, källbelagda GeoJSON-ytor som visar vad en samtida karta återger. De första posterna utgår från John Mitchells Nordamerikakarta från 1755 och Abraham Ortelius Afrikakarta från 1575.
+Upptäcktsvyn får `knowledge`: tidsindelade, källbelagda GeoJSON-ytor som visar vad en samtida karta återger. De första posterna täcker Nordamerika, Sydamerika, Afrika, Asien, Oceanien och Antarktis med separata, daterade kartkällor.
 
 ## Varför
 
