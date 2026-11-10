@@ -128,6 +128,21 @@
       ]}
     },
     {
+      "id": "baffinbukten-1903",
+      "from": 1903,
+      "sources": ["loc-polar-regions-1903"],
+      "note": {
+        "sv": "Ungefärligt område kring Baffinbukten och Smiths sund som den amerikanska sjöfartskartan från 1903 återger med expeditionsrutter och terräng. Övriga Arktis lämnas utanför.",
+        "en": "Approximate area around Baffin Bay and Smith Sound shown with expedition routes and terrain on the 1903 U.S. nautical chart. The rest of the Arctic is left out.",
+        "de": "Ungefähres Gebiet um die Baffinbucht und den Smithsund, das die amerikanische Seekarte von 1903 mit Expeditionsrouten und Gelände zeigt. Die übrige Arktis bleibt ausgespart.",
+        "es": "Área aproximada alrededor de la bahía de Baffin y el estrecho de Smith mostrada con rutas de expedición y terreno en la carta náutica estadounidense de 1903. El resto del Ártico queda fuera.",
+        "fr": "Zone approximative autour de la baie de Baffin et du détroit de Smith montrée avec des routes d’expédition et le relief sur la carte nautique américaine de 1903. Le reste de l’Arctique est laissé de côté."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[-80,65],[-66,64],[-52,68],[-46,75],[-50,82],[-63,84],[-75,80],[-80,72],[-80,65]]]
+      ]}
+    },
+    {
       "id": "afrika-1575",
       "from": 1575,
       "sources": ["loc-ortelius-africa-1575", "loc-black-world-1840"],
@@ -160,6 +175,42 @@
         [[[-81,12],[-76,10],[-72,12],[-74,0],[-79,-22],[-76,-45],[-74,-53],[-68,-54],[-70,-45],[-72,-30],[-75,-12],[-78,0],[-81,12]]],
         [[[-74,-53],[-68,-54],[-61,-44],[-53,-38],[-45,-32],[-39,-24],[-39,-15],[-44,-13],[-49,-20],[-54,-30],[-61,-36],[-67,-45],[-74,-53]]],
         [[[-81,12],[-76,10],[-72,12],[-66,10],[-60,8],[-52,5],[-47,0],[-43,-8],[-39,-15],[-44,-13],[-50,-8],[-54,-2],[-63,2],[-69,4],[-75,4],[-81,12]]]
+      ]}
+    },
+    {
+      "id": "karibien-1562",
+      "from": 1562,
+      "sources": ["loc-gutierrez-americas-1562"],
+      "note": {
+        "sv": "Större karibiska öar som Gutiérrez karta över Amerika från 1562 återger. Små öar och exakta kuster är medvetet inte påstådda.",
+        "en": "Major Caribbean islands shown by Gutiérrez's 1562 map of the Americas. Small islands and exact coastlines are deliberately not asserted.",
+        "de": "Größere karibische Inseln, die Gutiérrez’ Amerika-Karte von 1562 zeigt. Kleine Inseln und genaue Küstenlinien werden bewusst nicht behauptet.",
+        "es": "Islas caribeñas principales mostradas por el mapa de América de Gutiérrez de 1562. No se afirman deliberadamente las islas pequeñas ni las costas exactas.",
+        "fr": "Principales îles des Caraïbes montrées par la carte des Amériques de Gutiérrez de 1562. Les petites îles et les côtes exactes ne sont délibérément pas affirmées."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[-85,23],[-81,23],[-77,22],[-74,21],[-77,20],[-82,21],[-85,23]]],
+        [[[-75,20],[-71,20],[-68,19],[-70,18],[-74,18],[-75,20]]],
+        [[[-79,19],[-76,19],[-76,17],[-78,17],[-79,19]]],
+        [[[-68,19],[-65,19],[-65,17],[-67,17],[-68,19]]]
+      ]}
+    },
+    {
+      "id": "sodra-stilla-havet-1777",
+      "from": 1777,
+      "sources": ["loc-cook-south-pacific-1777"],
+      "note": {
+        "sv": "Ungefärliga lägen för några ögrupper i södra Stilla havet som Cooks karta från 1777 redovisar med latitud och longitud. Detta gör inte hela oceanen känd.",
+        "en": "Approximate positions of several South Pacific island groups recorded with latitude and longitude on Cook's 1777 chart. This does not make the whole ocean known.",
+        "de": "Ungefähre Lagen einiger südpazifischer Inselgruppen, die Cooks Karte von 1777 mit Breite und Länge verzeichnet. Dadurch wird nicht der ganze Ozean als bekannt dargestellt.",
+        "es": "Posiciones aproximadas de varios grupos de islas del Pacífico Sur registrados con latitud y longitud en la carta de Cook de 1777. Esto no hace conocido todo el océano.",
+        "fr": "Positions approximatives de plusieurs groupes d’îles du Pacifique Sud relevés avec latitude et longitude sur la carte de Cook de 1777. Cela ne rend pas tout l’océan connu."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[-151,-16],[-148,-16],[-148,-19],[-151,-19],[-151,-16]]],
+        [[[-177,-19],[-173,-19],[-173,-23],[-177,-23],[-177,-19]]],
+        [[[-174,-12],[-170,-12],[-170,-16],[-174,-16],[-174,-12]]],
+        [[[176,-15],[180,-15],[180,-19],[176,-19],[176,-15]]]
       ]}
     },
     {
