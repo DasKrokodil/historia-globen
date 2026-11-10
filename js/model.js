@@ -198,6 +198,10 @@ function isValidDate(y, m, d) {
 export function parseYearInput(text, defaultEra = 'ce', now = new Date()) {
   const value = String(text ?? '').trim();
   if (!value) return { type: 'invalid', year: null, date: null, error: ui('time.error.input') };
+  // Årshoppets era väljs uttryckligen, aldrig med ett inledande minustecken (#1075).
+  if (/[-−–]/.test(value) && !/^\d{4}-\d{2}-\d{2}$/.test(value)) return { type: 'invalid', year: null, date: null, error: ui('jump.error.negative') };
+  // Besökarens 0 är modellens astronomiska år 0, alltså 1 f.Kr. i visningen.
+  if (/^0{1,4}$/.test(value)) return { type: 'year', year: 0, date: null };
 
   const iso = /^\d{4}-\d{2}-\d{2}$/.exec(value);
   if (iso) {
@@ -212,7 +216,7 @@ export function parseYearInput(text, defaultEra = 'ce', now = new Date()) {
     const mo = Number(value.slice(4, 6));
     const d = Number(value.slice(6, 8));
     if (!isValidDate(y, mo, d)) return { type: 'invalid', year: null, date: null, error: ui('time.error.date') };
-    return { type: 'date', year: y, date: `${y}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}` };
+    return { type: 'date', year: y, date: `${value.slice(0, 4)}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}` };
   }
 
   const short = /^\d{6}$/.exec(value);

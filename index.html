@@ -105,9 +105,12 @@
       <label class="jump-label" for="jump-input" data-i18n="jump.label">År eller datum</label>
       <div class="jump-row">
         <input id="jump-input" class="jump-input" type="text" inputmode="text" enterkeyhint="go" placeholder="till exempel 1986 eller 1986-04-26" data-i18n-placeholder="jump.placeholder" aria-describedby="jump-msg">
-        <!-- Ett år utan tideräkning är e.Kr. Knappen f.Kr. trycks bara när man menar före vår tideräkning (#591). -->
-        <button type="button" class="jump-era-btn" data-era="bce" aria-pressed="false" title="Året är före vår tideräkning" data-i18n-title="jump.bceTitle" data-i18n="time.bce">f.Kr.</button>
         <button type="submit" class="jump-go" data-i18n="jump.go">Gå</button>
+      </div>
+      <div class="jump-era" role="group" aria-labelledby="jump-era-label">
+        <span id="jump-era-label" data-i18n="jump.era">Tideräkning</span>
+        <button type="button" class="jump-era-btn" data-era="bce" aria-pressed="false" title="Året är före vår tideräkning" data-i18n-title="jump.bceTitle" data-i18n="time.bce">f.Kr.</button>
+        <button type="button" class="jump-era-btn" data-era="ce" aria-pressed="true" data-i18n="time.ce">e.Kr.</button>
       </div>
       <p id="jump-msg" class="jump-msg" role="alert"></p>
       <div id="jump-date-result" class="jump-date-result" hidden aria-live="polite">

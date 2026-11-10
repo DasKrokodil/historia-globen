@@ -754,5 +754,7 @@
   "jump.yearResult": "{year}: {count} acontecimientos",
   "jump.dateResult": "{date}: {count} acontecimientos con fecha exacta",
   "jump.empty": "No hay acontecimientos en esta selección.",
-  "jump.more": "Se muestran los primeros {count}."
+  "jump.more": "Se muestran los primeros {count}.",
+  "jump.era": "Era",
+  "jump.error.negative": "Seleccione a. C. o d. C. con los botones en lugar de utilizar un signo menos."
 }

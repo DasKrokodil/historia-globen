@@ -556,7 +556,6 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
   const setEra = e => {
     era = e;
     for (const b of pop.querySelectorAll('.jump-era-btn')) b.setAttribute('aria-pressed', String(b.dataset.era === era));
-    // e.Kr. är standard och behöver inget val: bara knappen f.Kr. finns, och den slås av och på
   };
   const close = () => { clearResult(); pop.hidden = true; button.setAttribute('aria-expanded', 'false'); };
   const open = () => {
@@ -625,13 +624,16 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
     }
     (pop.hidden ? open() : close());
   });
-  for (const b of pop.querySelectorAll('.jump-era-btn')) b.addEventListener('click', () => { setEra(era === b.dataset.era ? 'ce' : b.dataset.era); input.focus(); });
+  for (const b of pop.querySelectorAll('.jump-era-btn')) b.addEventListener('click', () => { setEra(b.dataset.era); clearResult(); msg.textContent = ''; input.focus(); });
   pop.addEventListener('submit', ev => {
     ev.preventDefault();
     const parsed = parseYearInput(input.value, era === 'bce' ? 'bce' : 'ce');
     if (parsed.type === 'invalid') { clearResult(); msg.textContent = parsed.error; return; }
     const y = parsed.year;
     if (y < MIN_YEAR || y > MAX_YEAR) { clearResult(); msg.textContent = ui('jump.outsideBounds', { from: formatYear(MIN_YEAR), to: formatYear(MAX_YEAR) }); return; }
+    // Datum och en era i texten bestämmer året; knapparna speglar samma tolkning.
+    setEra(isBCE(y) ? 'bce' : 'ce');
+    if (parsed.type === 'year') input.value = String(isBCE(y) ? bce(y) : y);
     if (parsed.type === 'date') {
       // Under en lektion (#795) gäller låset även datum: ett datum utanför intervallet avvisas som ett år gör
       const f = timeline.focus;

@@ -528,20 +528,86 @@ async function run(browser, vp) {
     await openJump();
     await input.fill('19861340'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
     if (!(await page.locator('#jump-msg').textContent()).includes('Ogiltigt datum')) throw new Error('ogiltigt datum visar inte felmeddelande');
+    const beforeInvalidYear = await yearNumber();
     await page.fill('#jump-input', '-2600'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
-    const yText = await page.textContent('#year-big');
-    if (yText.trim() !== '2600') throw new Error(`-2600 hoppade inte till f.Kr. utan ${yText}`);
+    if (await yearNumber() !== beforeInvalidYear || !(await page.textContent('#jump-msg')).trim()) throw new Error('minustecken avvisas inte utan att ändra året (#1075)');
     await openJump();
     await page.fill('#jump-input', '20240229'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
     if (!/29 februari 2024: \d+ händelser med dagsdatum/.test((await page.textContent('#jump-date-summary')) ?? '')) throw new Error('skottdag tolkas inte som giltigt datum');
-    // Bara knappen f.Kr. finns; e.Kr. är standard och kräver inget val (#591)
-    if (await page.locator('#jump-pop .jump-era-btn').count() !== 1) throw new Error('årshoppet har fler tideräkningsknappar än f.Kr.');
+    // Båda erorna kan väljas uttryckligen (#1075).
+    if (await page.locator('#jump-pop .jump-era-btn').count() !== 2) throw new Error('årshoppet saknar ett av de två eravalen');
     await page.click('#year-jump'); if (await page.isHidden('#jump-input')) await openJump();
     await page.click('#jump-pop .jump-era-btn[data-era="bce"]');
-    if (await page.getAttribute('#jump-pop .jump-era-btn', 'aria-pressed') !== 'true') throw new Error('knappen f.Kr. slås inte på');
+    if (await page.getAttribute('#jump-pop .jump-era-btn[data-era="bce"]', 'aria-pressed') !== 'true') throw new Error('knappen f.Kr. slås inte på');
     await page.fill('#jump-input', '500'); await page.locator('#jump-pop').evaluate(form => form.requestSubmit());
     if ((await yearNumber()) !== -499) throw new Error(`500 med f.Kr. gav ${await yearNumber()} i stället för -499`);
-    return 'år, datum, skottdag och ogiltigt datum fungerar; e.Kr. är standard och f.Kr. är en knapp';
+    return 'år, datum och skottdag fungerar; fel och minustecken avvisas, båda erorna kan väljas';
+  });
+
+  await check('årshoppet: aktivt eraval, år 0 och ogiltig inmatning på fem språk (#1075)', async () => {
+    const isolated = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, locale: 'sv-SE', reducedMotion: 'reduce' });
+    try {
+      for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+        const pp = await isolated.newPage();
+        const errors = [];
+        pp.on('pageerror', e => errors.push(e.message));
+        pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+        try {
+          if (THREE_LOCAL) {
+            await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+            await pp.route(u => isFont(u.href), r => r.abort());
+          }
+          await pp.goto(`${BASE}?lang=${lang}#y=1325`);
+          await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          const copy = await pp.evaluate(async () => {
+            const { ui } = await import('./js/i18n.js');
+            return { bce: ui('time.bce'), ce: ui('time.ce'), era: ui('jump.era'), negative: ui('jump.error.negative') };
+          });
+          const era = name => pp.locator(`#jump-pop [data-era="${name}"]`);
+          const chosen = async name => {
+            if (await era(name).getAttribute('aria-pressed') !== 'true' || await era(name === 'ce' ? 'bce' : 'ce').getAttribute('aria-pressed') !== 'false') throw new Error(`${lang}: fel eraval ${name}`);
+          };
+          const open = async () => { if (await pp.isHidden('#jump-pop')) await pp.click('#year-jump'); };
+          const submit = async value => { await pp.fill('#jump-input', value); await pp.locator('#jump-pop').evaluate(form => form.requestSubmit()); };
+          await open();
+          if ((await era('ce').innerText()).trim() !== copy.ce || (await era('bce').innerText()).trim() !== copy.bce) throw new Error(`${lang}: erornas texter`);
+          if ((await pp.textContent('#jump-era-label')).trim() !== copy.era) throw new Error(`${lang}: gruppnamnet`);
+          await chosen('ce');
+          await era('bce').focus(); await pp.keyboard.press('Enter'); await chosen('bce');
+          await era('ce').focus(); await pp.keyboard.press('Space'); await chosen('ce');
+          await submit('0'); await chosen('bce');
+          await pp.waitForFunction(() => /(?:#|&)y=0(?:&|$)/.test(location.hash), null, { timeout: T.step });
+          if (await pp.inputValue('#jump-input') !== '1' || (await pp.textContent('#year-big')).trim() !== '1' || (await pp.textContent('#year-era')).trim() !== copy.bce) throw new Error(`${lang}: 0 normaliserades inte till 1 f.Kr.`);
+          await pp.screenshot({ path: path.join(OUT, `${vp.name}-1075-${lang}-noll.png`) });
+          await open(); await era('bce').click(); await submit('0'); await chosen('bce');
+          if (await pp.inputValue('#jump-input') !== '1') throw new Error(`${lang}: 0 med f.Kr. valt`);
+          await open(); await era('bce').click(); await submit('500');
+          await pp.waitForFunction(() => /(?:#|&)y=-499(?:&|$)/.test(location.hash), null, { timeout: T.step });
+          await open(); await era('ce').click(); await submit('500');
+          await pp.waitForFunction(() => /(?:#|&)y=500(?:&|$)/.test(location.hash), null, { timeout: T.step });
+          await open();
+          for (const bad of ['-500', '−500', '–500', '500.5', '1e3', '500abc', '9999']) {
+            const before = pp.url();
+            await submit(bad);
+            if (!(await pp.textContent('#jump-msg')).trim() || (await pp.textContent('#year-big')).trim() !== '500' || pp.url() !== before || await pp.isHidden('#jump-pop')) throw new Error(`${lang}: ogiltigt ${bad} ändrade året eller saknar fel`);
+            if (/^[-−–]/.test(bad) && (await pp.textContent('#jump-msg')).trim() !== copy.negative) throw new Error(`${lang}: minustecknets feltext`);
+          }
+          await era('bce').click(); await submit('1986-04-26'); await chosen('ce');
+          await pp.waitForSelector('#jump-date-result:not([hidden])', { timeout: T.step });
+          if ((await pp.textContent('#year-big')).trim() !== '1986') throw new Error(`${lang}: datum med f.Kr. valt`);
+          await pp.fill('#jump-input', '0'); await pp.locator('#jump-pop').evaluate(form => form.requestSubmit()); await chosen('bce');
+          await open();
+          await pp.screenshot({ path: path.join(OUT, `${vp.name}-1075-${lang}-era.png`) });
+          const layout = await pp.evaluate(() => {
+            const pop = document.getElementById('jump-pop').getBoundingClientRect();
+            const buttons = [...document.querySelectorAll('#jump-pop .jump-era-btn')].map(b => b.getBoundingClientRect());
+            return document.documentElement.scrollWidth <= innerWidth && pop.left >= 0 && pop.right <= innerWidth && buttons.every(b => b.width >= 24 && b.height >= 44 && b.left >= pop.left && b.right <= pop.right);
+          });
+          if (!layout || errors.length) throw new Error(`${lang}: omflöde, tryckyta eller sidfel: ${errors.join(' | ')}`);
+        } finally { await pp.close(); }
+      }
+    } finally { await isolated.close(); }
+    return 'fem språk: två eror med tangentbord, 0 → 1 f.Kr. från båda erorna, minustecken/skräp/gräns avvisas, datum synkar eran; inga sidfel eller sidscroll';
   });
 
   // #979: tidslinjens segment är en skala och heter bara årtal; epoknamnen finns bara i data/perioder.json

@@ -531,5 +531,7 @@
   "jump.yearResult": "{year}: {count} händelser",
   "jump.dateResult": "{date}: {count} händelser med dagsdatum",
   "jump.empty": "Inga händelser i det här urvalet.",
-  "jump.more": "Visar de första {count}."
+  "jump.more": "Visar de första {count}.",
+  "jump.era": "Tideräkning",
+  "jump.error.negative": "Välj f.Kr. eller e.Kr. med knapparna i stället för minustecken."
 }
