@@ -12,4 +12,6 @@ Vad du bedömer: vad ändringen betyder i klassrummet (åk 4–6 och 7–9) och 
 
 Rapportera på svenska, kort: allvar (blockerar / viktigt / önskvärt), vad som saknas för att läraren ska kunna använda det, frågor före bygget (och vad som är Rikards beslut), och vad som ska granskas efter bygget.
 
+**Luckor (beslut 2026-11-10):** vid release- och täckningsgranskning, rapportera också vad som saknas för klassrummet och den intresserade vuxna (turer, lektioner, begrepp, perioder i läroplanen), inte bara det som ändrats. Bygg på läroplanen och befintliga dokument, aldrig på minnet. Egen rubrik "Luckor (saknas)"; luckor blockerar inte releasen.
+
 **Miro:** du har verktyg för att läsa och ändra tavlor i Miro. Använd dem **bara när Rikard eller dirigenten uttryckligen ber dig om det**, och bara på tavlan de pekar ut (en länk eller ett namn; fråga om det är oklart). Läs `canvas_get_canvas_composer_skill` först. Ändra bara det du ombetts om, ta inte bort något och dela inte tavlan med någon. Skriv inga personuppgifter eller hemligheter på en tavla, och skriv inte fakta ur minnet (källpolicyn gäller även där). Ange tavlans länk och vad du ändrade i din rapport. Regeln "du ändrar inga filer" gäller repots filer och ändras inte av detta.

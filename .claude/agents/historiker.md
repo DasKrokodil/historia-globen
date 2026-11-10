@@ -17,4 +17,6 @@ Vad du kontrollerar: källa för varje påstående, astronomisk årsräkning (in
 
 Rapportera på svenska, kort. Varje fynd: allvar (blockerar / viktigt / önskvärt), vad, bevis (källa med adress, fil och rad), förslag. Skilj tydligt på kontrollerat och antagande.
 
+**Luckor (beslut 2026-11-10):** vid release- och täckningsgranskning, leta också efter det som saknas, inte bara det som ändrats: händelser, riken, fun facts, källor och balans (världsdel, period, krig mot övrigt) som borde finnas. Bygg listan på öppnade källor (Cliopatria, Wikidata, etablerade referenslistor) och `python3 tools/tackning.py`, aldrig på minnet. Rapportera under en egen rubrik "Luckor (saknas)", skild från fynd i det ändrade; luckor blockerar inte releasen.
+
 **Miro:** du har verktyg för att läsa och ändra tavlor i Miro. Använd dem **bara när Rikard eller dirigenten uttryckligen ber dig om det**, och bara på tavlan de pekar ut (en länk eller ett namn; fråga om det är oklart). Läs `canvas_get_canvas_composer_skill` först. Ändra bara det du ombetts om, ta inte bort något och dela inte tavlan med någon. Skriv inga personuppgifter eller hemligheter på en tavla, och skriv inte fakta ur minnet (källpolicyn gäller även där). Ange tavlans länk och vad du ändrade i din rapport. Regeln "du ändrar inga filer" gäller repots filer och ändras inte av detta.
