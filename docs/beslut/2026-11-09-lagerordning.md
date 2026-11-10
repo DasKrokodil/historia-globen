@@ -24,3 +24,9 @@ Sex ytor fick namn utan ändrade värden:
 | `.focus-bar` | `--z-fokus` | 14 |
 
 Mätning i Chromium före bytet, i 1400×900 och 400×800: alla sex ytor är absolut positionerade direkta barn till `#app`, som är fast positionerad och bildar deras gemensamma staplingskontext. Inga mellanliggande föräldrar har transform, filter, isolering eller nedsatt opacitet. Ordningen är fortfarande teckenförklaring < ledtext < flik/klickruta < tidsreglage < fokusfält; vid samma nivå gäller samma DOM-ordning som tidigare. Rikesförklaringen delar `.religion-legend`, och vägarnas klickruta delar `.religion-pop`, så samma namn gäller även dem. Namnen för tidsreglage och fokusfält hålls skilda från kort och turkort trots lika värden, eftersom ansvaret är olika. Lokala lager inuti ytorna är oförändrade.
+
+## Steg 4 (2026-11-10): kontroll mot nya handskrivna lagertal (#1065)
+
+`tests/zindex.test.mjs` läser `css/style.css` och stoppar numeriska `z-index` över 4. Lokala värden 0–4 och namngivna lager via `var(--z-…)` är tillåtna. Felmeddelandet anger väljare och radnummer och hänvisar till lagernamnen i `:root`. Kommentarer och citerade strängar ignoreras; radnumren behålls. Mediaregler, blanksteg och `!important` omfattas.
+
+Kontrollen ligger i det befintliga `node --test 'tests/*.test.mjs'`-steget i `.github/workflows/validate-site.yml`, utan nya beroenden eller ändrade workflows. De sex tidigare globala siffrorna är redan namngivna genom #1064, så tillåtelselistan är tom från början. Ingen CSS eller annan webbplatsfil ändras av detta steg. Ett avsiktligt negativprov med en tillfällig `z-index: 30` ska ge röd kontroll; provet återställs och checkas inte in.
