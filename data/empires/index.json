@@ -10897,7 +10897,7 @@
      "file": "qing-triangular-dragon",
      "from": 1862,
      "to": 1888,
-     "label": { "sv": "Qings trekantiga drakflagga", "en": "Qing triangular dragon flag" },
+     "label": { "sv": "Qings trekantiga drakflagga", "en": "Qing triangular dragon flag", "de": "Dreieckige Drachenflagge der Qing", "es": "Bandera de dragón triangular de la dinastía Qing", "fr": "Drapeau au dragon triangulaire des Qing" },
      "sources": ["wp-flag-qing"],
      "review": "source-checked"
     },
@@ -10905,7 +10905,7 @@
      "file": "qing-rectangular-dragon",
      "from": 1889,
      "to": 1911,
-     "label": { "sv": "Qings rektangulära drakflagga", "en": "Qing rectangular dragon flag" },
+     "label": { "sv": "Qings rektangulära drakflagga", "en": "Qing rectangular dragon flag", "de": "Rechteckige Drachenflagge der Qing", "es": "Bandera de dragón rectangular de la dinastía Qing", "fr": "Drapeau au dragon rectangulaire des Qing" },
      "sources": ["wp-flag-qing"],
      "review": "source-checked"
     }
@@ -13362,7 +13362,7 @@
      "file": "france-royal-white",
      "from": 1815,
      "to": 1829,
-     "label": { "sv": "Frankrikes vita kungaflagga", "en": "French royal white flag" },
+     "label": { "sv": "Frankrikes vita kungaflagga", "en": "French royal white flag", "de": "Französische königlich-weiße Flagge", "es": "Bandera real blanca francesa", "fr": "Drapeau royal blanc français" },
      "sources": ["wp-flag-of-france"],
      "review": "source-checked"
     },
@@ -13370,7 +13370,7 @@
      "file": "france-tricolour",
      "from": 1830,
      "to": 1957,
-     "label": { "sv": "Frankrikes trikolor", "en": "French tricolour" },
+     "label": { "sv": "Frankrikes trikolor", "en": "French tricolour", "de": "Französische Trikolore", "es": "Tricolor francés", "fr": "Tricolore français" },
      "sources": ["wp-flag-of-france"],
      "review": "source-checked"
     }
@@ -14914,7 +14914,7 @@
      "file": "ethiopia-imperial",
      "from": 1914,
      "to": 1935,
-     "label": { "sv": "Etiopiens kejserliga fana", "en": "Ethiopian imperial flag" },
+     "label": { "sv": "Etiopiens kejserliga fana", "en": "Ethiopian imperial flag", "de": "Kaiserliche Flagge Äthiopiens", "es": "Bandera imperial etíope", "fr": "Drapeau impérial éthiopien" },
      "sources": ["wp-flag-of-ethiopia"],
      "review": "source-checked"
     },
@@ -14922,7 +14922,7 @@
      "file": "ethiopia-imperial",
      "from": 1942,
      "to": 1974,
-     "label": { "sv": "Etiopiens kejserliga fana", "en": "Ethiopian imperial flag" },
+     "label": { "sv": "Etiopiens kejserliga fana", "en": "Ethiopian imperial flag", "de": "Kaiserliche Flagge Äthiopiens", "es": "Bandera imperial etíope", "fr": "Drapeau impérial éthiopien" },
      "sources": ["wp-flag-of-ethiopia"],
      "review": "source-checked"
     }

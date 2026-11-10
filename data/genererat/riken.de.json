@@ -1,0 +1,7 @@
+{"note":"Genereras av tools/dela_data.py ur data/empires/index.json. Redigera inte här, utan i källfilen, och kör skriptet igen.",
+"lang":"de",
+"groups":{
+"qingdynastin":{"flags":{"0":{"label":{"de":"Dreieckige Drachenflagge der Qing"}},"1":{"label":{"de":"Rechteckige Drachenflagge der Qing"}}}},
+"franska-kolonialvaldet":{"flags":{"0":{"label":{"de":"Französische königlich-weiße Flagge"}},"1":{"label":{"de":"Französische Trikolore"}}}},
+"etiopiska-kejsardomet":{"flags":{"0":{"label":{"de":"Kaiserliche Flagge Äthiopiens"}},"1":{"label":{"de":"Kaiserliche Flagge Äthiopiens"}}}}
+}}
