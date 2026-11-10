@@ -49,8 +49,6 @@ export function createRender(app) {
   // Under en övergång för riken (#78) ritas bara lagerbilden om, en gång per bildruta, tills övergången är klar;
   // annars ritas inget mellan refresh.
   globe.detail.setLayers((ctx, W, H, drawFaded) => registry.draw(ctx, W, H, state, drawFaded));
-  // Upptäcktsvyns papperskarta och dimma är bilder i helbildens storlek: där används inget utsnitt
-  globe.detailAllowed = () => !registry.get('discovery')?.enabled;
   let overlayRaf = 0;
   function drawOverlay() {
     cancelAnimationFrame(overlayRaf); overlayRaf = 0;
