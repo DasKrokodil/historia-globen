@@ -19049,6 +19049,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"argentina-sun","from":1834,"to":2024,"label":{"sv":"Argentinas solflagga","en":"Argentine Sun flag","de":"Argentinische Sonnenflagge","es":"Bandera argentina con sol","fr":"Drapeau argentin au soleil"},"sources":["wp-flag-argentina"],"review":"source-checked"}],
    "facts": {
     "summary": {
      "sv": "Argentina är en förbundsstat i södra Sydamerika med huvudstaden Buenos Aires. Landet växte fram ur det spanska vicekungadömet Río de la Plata och förklarade sig självständigt 9 juli 1816.",
@@ -19523,6 +19524,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"uruguay-nine-stripes","from":1830,"to":2024,"label":{"sv":"Uruguays niostripiga flagga","en":"Uruguayan nine-stripe flag","de":"Uruguayische Flagge mit neun Streifen","es":"Bandera uruguaya de nueve franjas","fr":"Drapeau uruguayen à neuf bandes"},"sources":["wp-flag-uruguay"],"review":"source-checked"}],
    "facts": {
     "summary": {
      "sv": "Uruguay, officiellt Republiken östra Uruguay, är en republik i sydöstra Sydamerika med huvudstaden Montevideo. Landet blev självständigt 1828, efter en kamp mellan Portugal, Spanien, Förenade provinserna i Río de la Plata och Brasilien.",
@@ -26165,6 +26167,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"canada-maple-leaf","from":1965,"to":2024,"label":{"sv":"Kanadas lönnlövsflagga","en":"Canadian maple leaf flag","de":"Kanadische Ahornblattflagge","es":"Bandera canadiense de la hoja de arce","fr":"Drapeau canadien à feuille d’érable"},"sources":["wp-flag-canada"],"review":"source-checked"}],
    "facts": {
     "summary": {
      "sv": "Kanada är en förbundsstat och konstitutionell monarki i Nordamerika, världens näst största land till ytan, med huvudstaden Ottawa. Landet bildades som dominion 1867 och blev steg för steg självständigt från Storbritannien.",
@@ -26340,6 +26343,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"chile-lone-star","from":1817,"to":2024,"label":{"sv":"Chiles ensamma stjärna","en":"Chile’s lone star flag","de":"Chiles Flagge mit einzelnem Stern","es":"Bandera chilena de la estrella solitaria","fr":"Drapeau chilien à étoile solitaire"},"sources":["wp-flag-chile"],"review":"source-checked"}],
    "facts": {
     "summary": {
      "sv": "Chile är en republik längs Sydamerikas västkust, mellan Anderna och Stilla havet, med huvudstaden Santiago. Landet förklarade sig självständigt från Spanien 1818.",
@@ -26516,6 +26520,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"peru-red-white-red","from":1825,"to":2024,"label":{"sv":"Perus röd-vita flagga","en":"Peruvian red-and-white flag","de":"Peruanische rot-weiße Flagge","es":"Bandera peruana roja y blanca","fr":"Drapeau péruvien rouge et blanc"},"sources":["wp-flag-peru"],"review":"source-checked"}],
    "facts": {
     "summary": {
      "sv": "Peru är en republik i västra Sydamerika med huvudstaden Lima. Här låg Caral–Supe, Amerikas tidigaste civilisation, och Inkariket. Landet utropade sin självständighet från Spanien 1821 och fullbordade den 1824.",
@@ -26699,6 +26704,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"bolivia-tricolour","from":1851,"to":2024,"label":{"sv":"Bolivias röd-gul-gröna trikolor","en":"Bolivian red-yellow-green tricolour","de":"Bolivianische rot-gelb-grüne Trikolore","es":"Tricolor boliviana rojo-amarillo-verde","fr":"Tricolore bolivien rouge-jaune-vert"},"sources":["wp-flag-bolivia"],"review":"source-checked"}],
    "facts": {
     "summary": {
      "sv": "Bolivia är ett land utan kust i centrala Sydamerika. Regeringen sitter i La Paz, medan Sucre är huvudstad enligt grundlagen. Republiken, uppkallad efter Simón Bolívar, utropades 6 augusti 1825.",
@@ -26917,6 +26923,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"colombia-tricolour","from":1861,"to":2024,"label":{"sv":"Colombias gul-blå-röda trikolor","en":"Colombian yellow-blue-red tricolour","de":"Kolumbianische gelb-blau-rote Trikolore","es":"Tricolor colombiana amarillo-azul-rojo","fr":"Tricolore colombien jaune-bleu-rouge"},"sources":["wp-flag-colombia"],"review":"source-checked"}],
    "facts": {
     "summary": {
      "sv": "Colombia är en republik i nordvästra Sydamerika med huvudstaden Bogotá. Landet förklarade sig självständigt 1810 och har bytt namn och styrelseskick flera gånger; dagens namn och centralstyrda republik är från 1886.",
@@ -33720,6 +33727,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"bahamas","from":1973,"to":2024,"label":{"sv":"Bahamas flagga","en":"Flag of the Bahamas","de":"Flagge der Bahamas","es":"Bandera de Bahamas","fr":"Drapeau des Bahamas"},"sources":["wp-flag-bahamas"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -33811,6 +33819,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"jamaica","from":1963,"to":2024,"label":{"sv":"Jamaicas flagga","en":"Flag of Jamaica","de":"Flagge Jamaikas","es":"Bandera de Jamaica","fr":"Drapeau de la Jamaïque"},"sources":["wp-flag-jamaica"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -33857,6 +33866,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"trinidad-and-tobago","from":1963,"to":2024,"label":{"sv":"Trinidad och Tobagos flagga","en":"Flag of Trinidad and Tobago","de":"Flagge von Trinidad und Tobago","es":"Bandera de Trinidad y Tobago","fr":"Drapeau de Trinité-et-Tobago"},"sources":["wp-flag-trinidad-and-tobago"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -33903,6 +33913,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"barbados","from":1967,"to":2024,"label":{"sv":"Barbados flagga","en":"Flag of Barbados","de":"Flagge von Barbados","es":"Bandera de Barbados","fr":"Drapeau de la Barbade"},"sources":["wp-flag-barbados"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -33949,6 +33960,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"antigua-and-barbuda","from":1967,"to":2024,"label":{"sv":"Antigua och Barbudas flagga","en":"Flag of Antigua and Barbuda","de":"Flagge von Antigua und Barbuda","es":"Bandera de Antigua y Barbuda","fr":"Drapeau d’Antigua-et-Barbuda"},"sources":["wp-flag-antigua-and-barbuda"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -33995,6 +34007,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"grenada","from":1976,"to":2024,"label":{"sv":"Grenadas flagga","en":"Flag of Grenada","de":"Flagge Grenadas","es":"Bandera de Granada","fr":"Drapeau de la Grenade"},"sources":["wp-flag-grenada"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -34041,6 +34054,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"saint-kitts-and-nevis","from":1983,"to":2024,"label":{"sv":"Saint Kitts och Nevis flagga","en":"Flag of Saint Kitts and Nevis","de":"Flagge von St. Kitts und Nevis","es":"Bandera de San Cristóbal y Nieves","fr":"Drapeau de Saint-Christophe-et-Niévès"},"sources":["wp-flag-saint-kitts-and-nevis"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -34087,6 +34101,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"saint-lucia","from":2002,"to":2024,"label":{"sv":"Saint Lucias flagga","en":"Flag of Saint Lucia","de":"Flagge von St. Lucia","es":"Bandera de Santa Lucía","fr":"Drapeau de Sainte-Lucie"},"sources":["wp-flag-saint-lucia"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -34133,6 +34148,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"costa-rica","from":1848,"to":2024,"label":{"sv":"Costa Ricas flagga","en":"Flag of Costa Rica","de":"Flagge Costa Ricas","es":"Bandera de Costa Rica","fr":"Drapeau du Costa Rica"},"sources":["wp-flag-costa-rica"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -34179,6 +34195,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"guatemala","from":1871,"to":2024,"label":{"sv":"Guatemalas civilflagga","en":"Guatemalan civil flag","de":"Guatemaltekische Zivilflagge","es":"Bandera civil guatemalteca","fr":"Drapeau civil guatémaltèque"},"sources":["wp-flag-guatemala"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -34225,6 +34242,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"honduras-five-stars","from":1866,"to":2024,"label":{"sv":"Honduras femstjärniga flagga","en":"Honduran five-star flag","de":"Honduranische Flagge mit fünf Sternen","es":"Bandera hondureña de cinco estrellas","fr":"Drapeau hondurien à cinq étoiles"},"sources":["wp-flag-honduras"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
