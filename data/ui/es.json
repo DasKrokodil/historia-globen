@@ -389,6 +389,8 @@
   "layer.imagesNote": "NASA Black Marble de 2016",
   "layer.discovery": "Viajes de descubrimiento",
   "layer.discoveryNote": "estilo de mapa antiguo con veleros, monstruos marinos y niebla que los viajes disipan",
+  "discovery.coverage": "Proporción de la superficie terrestre que los viajes y los imperios de nuestros datos han alcanzado: {percent}%",
+  "discovery.coverageNote": "Sigue la niebla visible y no muestra lo que las personas conocían realmente. Los datos aún están incompletos.",
   "layer.keep": "Mantener mis capas en el modo Enfoque",
   "layer.keepNote": "si no, se atenúan los imperios y religiones que no pertenecen a lo que sigue",
   "layer.factsAbout": "Datos sobre {name}",

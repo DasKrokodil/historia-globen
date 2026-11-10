@@ -389,6 +389,8 @@
   "layer.imagesNote": "NASA Black Marble from 2016",
   "layer.discovery": "Voyages of discovery",
   "layer.discoveryNote": "old map style with sailing ships, sea monsters and fog that the journeys lift",
+  "discovery.coverage": "Share of the Earth's surface reached by journeys and empires in our data: {percent}%",
+  "discovery.coverageNote": "It follows the visible fog and does not show what people actually knew. The data is still incomplete.",
   "layer.keep": "Keep my layers in focus mode",
   "layer.keepNote": "otherwise empires and religions that do not belong to what you follow are dimmed",
   "layer.factsAbout": "Facts about {name}",

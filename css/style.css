@@ -1657,6 +1657,8 @@ details.used-by summary:hover { color: var(--parchment); }
   margin: 2px 0 5px; padding: 5px 8px; border-left: 2px solid var(--brass-deep); background: var(--night-3);
   border-radius: 0 var(--r) var(--r) 0; font: 400 11.5px/1.38 var(--f-body); color: var(--parchment);
 }
+.religion-legend .rl-coverage { margin: 3px 0 2px; color: var(--brass); font: 600 11px/1.35 var(--f-mono); }
+.religion-legend .rl-coverage-note { display: block; margin-top: 0; }
 .religion-legend .rl-credit { display: block; }
 .religion-legend .rl-credit a { color: var(--brass); }
 .religion-legend:has(.rl-disc) { max-width: 260px; }

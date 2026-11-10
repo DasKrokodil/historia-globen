@@ -389,6 +389,8 @@
   "layer.imagesNote": "NASA Black Marble de 2016",
   "layer.discovery": "Grandes découvertes",
   "layer.discoveryNote": "style de carte ancienne avec voiliers, monstres marins et brouillard que les voyages dissipent",
+  "discovery.coverage": "Part de la surface de la Terre atteinte par les voyages et les empires présents dans nos données : {percent} %",
+  "discovery.coverageNote": "Elle suit le brouillard visible et ne montre pas ce que les personnes connaissaient réellement. Les données restent incomplètes.",
   "layer.keep": "Garder mes calques en mode Focus",
   "layer.keepNote": "sinon, les empires et religions qui ne concernent pas ce que vous suivez sont atténués",
   "layer.factsAbout": "Faits sur {name}",

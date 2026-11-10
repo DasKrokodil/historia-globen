@@ -389,6 +389,8 @@
   "layer.imagesNote": "NASA Black Marble von 2016",
   "layer.discovery": "Entdeckungsreisen",
   "layer.discoveryNote": "alter Kartenstil mit Segelschiffen, Seeungeheuern und Nebel, den die Reisen lichten",
+  "discovery.coverage": "Anteil der Erdoberfläche, den Reisen und Reiche in unseren Daten erreicht haben: {percent}%",
+  "discovery.coverageNote": "Er folgt dem sichtbaren Nebel und zeigt nicht, was Menschen tatsächlich wussten. Die Daten sind noch unvollständig.",
   "layer.keep": "Meine Ebenen im Fokusmodus behalten",
   "layer.keepNote": "sonst werden Reiche und Religionen abgeschwächt, die nicht zu dem gehören, dem Sie folgen",
   "layer.factsAbout": "Fakten über {name}",
