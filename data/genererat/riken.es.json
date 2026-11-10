@@ -8,5 +8,12 @@
 "svenska-stormaktsvaldet":{"flags":{"0":{"label":{"es":"Bandera sueca de la Unión"}},"1":{"label":{"es":"Bandera sueca azul y amarilla"}}}},
 "franska-kolonialvaldet":{"flags":{"0":{"label":{"es":"Bandera real blanca francesa"}},"1":{"label":{"es":"Tricolor francés"}}}},
 "tyska-riket":{"flags":{"0":{"label":{"es":"Bandera imperial alemana negra, blanca y roja"}}}},
-"etiopiska-kejsardomet":{"flags":{"0":{"label":{"es":"Bandera imperial etíope"}},"1":{"label":{"es":"Bandera imperial etíope"}}}}
+"japanska-imperiet":{"flags":{"0":{"label":{"es":"Hinomaru japonés"}}}},
+"etiopiska-kejsardomet":{"flags":{"0":{"label":{"es":"Bandera imperial etíope"}},"1":{"label":{"es":"Bandera imperial etíope"}}}},
+"indien":{"flags":{"0":{"label":{"es":"Tricolor de la India con chakra de Ashoka"}}}},
+"pakistan":{"flags":{"0":{"label":{"es":"Bandera pakistaní de estrella y media luna"}}}},
+"nigeria":{"flags":{"0":{"label":{"es":"Bandera nigeriana verde, blanca y verde"}}}},
+"kina":{"flags":{"0":{"label":{"es":"Bandera china de cinco colores"}}}},
+"sydafrika":{"flags":{"0":{"label":{"es":"Bandera sudafricana de 1928"}},"1":{"label":{"es":"Bandera sudafricana de 1994"}}}},
+"ghana":{"flags":{"0":{"label":{"es":"Bandera ghanesa con estrella negra"}},"1":{"label":{"es":"Bandera ghanesa roja, blanca y verde"}},"2":{"label":{"es":"Bandera ghanesa con estrella negra"}}}}
 }}

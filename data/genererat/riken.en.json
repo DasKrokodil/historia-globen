@@ -21,6 +21,7 @@
 "nederlandska-kolonialvaldet":{"capitals":{"0":{"note":{"en":"The Republic had no capital by law; The Hague was the capital in practice."}},"1":{"note":{"en":"Amsterdam is the capital according to the constitution, while the government and the royal house sit in The Hague."}}}},
 "tyska-riket":{"flags":{"0":{"label":{"en":"German imperial black-white-red flag"}}}},
 "osterrike-ungern":{"vanished":{"note":{"en":"The sources list the successors differently. Wikipedia also mentions Italy and the West Ukrainian People's Republic, Wikidata also Romania. Both give 1867–1918."}}},
+"japanska-imperiet":{"flags":{"0":{"label":{"en":"Japanese Hinomaru"}}}},
 "etiopiska-kejsardomet":{"flags":{"0":{"label":{"en":"Ethiopian imperial flag"}},"1":{"label":{"en":"Ethiopian imperial flag"}}}},
 "sovjetunionen":{"vanished":{"note":{"en":"The predecessors are the four republics that formed the union according to Wikipedia. The successors are the fifteen states according to Wikidata; Wikipedia mentions Russia and the other post-Soviet states."}}},
 "kalmarunionen":{"vanished":{"note":{"en":"Predecessors and successors according to Wikipedia; Wikidata does not give them. Both give 1397–1523."}}},
@@ -34,8 +35,13 @@
 "usa":{"capitals":{"0":{"note":{"en":"The years come only from Wikidata; the fact box's source mentions only Washington, D.C."}},"1":{"note":{"en":"The years come only from Wikidata; the fact box's source mentions only Washington, D.C."}}}},
 "amerikas-konfedererade-stater":{"vanished":{"note":{"en":"Wikipedia and Wikidata both give 1861–1865: the formation on 8 February 1861 and the dissolution in May 1865, when most of the forces had surrendered. Wikidata gives the United States as successor but only the Republic of Mississippi as predecessor; according to Wikipedia the Confederacy was formed by southern states that had seceded from the United States."}}},
 "iran":{"capitals":{"0":{"note":{"en":"The fact box's source states that Agha Mohammad Khan, who was crowned shah in 1796, made Tehran the capital, but not in which year."}}}},
-"pakistan":{"capitals":{"1":{"note":{"en":"Capital in practice while Islamabad was being built."}}}},
+"indien":{"flags":{"0":{"label":{"en":"Indian tricolour with Ashoka Chakra"}}}},
+"pakistan":{"capitals":{"1":{"note":{"en":"Capital in practice while Islamabad was being built."}}},"flags":{"0":{"label":{"en":"Pakistani star-and-crescent flag"}}}},
 "marathariket":{"capitals":{"1":{"note":{"en":"The source calls Jinji the de facto capital."}},"2":{"note":{"en":"The king's seat. The Peshwa, the empire's prime minister, sat in Pune in 1728–1818."}}}},
+"nigeria":{"flags":{"0":{"label":{"en":"Nigerian green-white-green flag"}}}},
 "zululand":{"capitals":{"0":{"note":{"en":"Dingane founded his royal kraal here in 1829, the year after he took power by murdering Shaka. The source does not say when it ceased to be the capital; here it is shown until the end of his reign in 1840. Shaka's capital kwaBulawayo (founded around 1820) is not shown, because its location lacks coordinates in Wikidata."}},"1":{"note":{"en":"Cetshwayo founded Ulundi when he became king in 1873. The British took it and razed it to the ground at the Battle of Ulundi on 4 July 1879."}}}},
-"bolivia":{"capitals":{"0":{"note":{"en":"The city was called La Plata when it became the provisional capital in 1826 and was named Sucre in 1839. Sucre is the capital according to the constitution, but the government and parliament have sat in La Paz since the early 20th century."}}}}
+"bolivia":{"capitals":{"0":{"note":{"en":"The city was called La Plata when it became the provisional capital in 1826 and was named Sucre in 1839. Sucre is the capital according to the constitution, but the government and parliament have sat in La Paz since the early 20th century."}}}},
+"kina":{"flags":{"0":{"label":{"en":"Chinese five-colour flag"}}}},
+"sydafrika":{"flags":{"0":{"label":{"en":"South African flag of 1928"}},"1":{"label":{"en":"South African flag of 1994"}}}},
+"ghana":{"flags":{"0":{"label":{"en":"Ghanaian flag with black star"}},"1":{"label":{"en":"Ghanaian red-white-green flag"}},"2":{"label":{"en":"Ghanaian flag with black star"}}}}
 }}
