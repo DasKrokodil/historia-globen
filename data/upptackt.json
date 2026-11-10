@@ -1,13 +1,13 @@
 {
-  "schema": "historia-globen/upptackt@1",
+  "schema": "historia-globen/upptackt@2",
   "title": { "sv": "Upptäcktsvy", "en": "Discovery view", "de": "Entdeckungsansicht" },
   "notes": "Upptäcktsvyn (#101): ett läge i Lager med gammal kartstil. Allt ritas på lagerbilden (beslut 1) av js/layers/discovery.js. perspective är raden som förklarar vad 'upptäckt' betyder här. paper är den åldrade papperskartan som täcker grundkartan medan vyn är på: grain = papperskornens styrka (0–1), stains = antal fläckar, stainStrength = fläckarnas styrka, seed = fröet som bestämmer var korn och fläckar hamnar, waterLines = vattenlinjer längs kusten (count = antal band, widthDeg = det bredaste bandets bredd i grader, opacity), coastPx = bläckkustens bredd i bildpunkter på lagerbilden, vignette = mörkare kanter mot polerna (0–1), vignetteSides = hur stor del av den som gäller mot datumlinjen, rhumb = portolanlinjer ut från varje dekoration med rhumb: true (directions = antal riktningar, avrundas till en multipel av 8; lengthDeg = linjernas längd i grader; opacity; widthPx = bredd i bildpunkter). home är vyns utgångspunkt i Europa: regions = regioner som är kända från vyns början och aldrig ligger under dimman (id, file = GeoJSON-geometri; europa kommer ur Natural Earth 1:50m via tools/europa_dimma.py, utan områden över haven, med Ryssland till Uralbergen och utan Turkiet och Kaukasus; #872), empires = grupp-id i data/empires/index.json för de europeiska rikena, där dimman är lyft för varje period som har börjat, och neighborDeg = hur nära (i grader) ett annat rikes område ska ha legat ett hemrikes område under samma år för att räknas som granne; då lyfts dimman över grannen från det året, för varje period som har börjat (grannarnas grannar räknas inte). fog är dimman som täcker kartan: den lyfts i en korridor (corridorDeg grader bred) längs varje etapp i data/routes som har börjat, så långt som linjelagret har ritat den, och förblir lyft senare år. När en lyft korridor når ett rikes område i data/empires (någon period, före eller under rikets tid) lyfts dimman över hela riket, för varje period som har börjat (#377, regel A). opacity är dimmans täckning (0–1; nära 1 döljer det okända helt), soften hur mycket bredare korridorens mjuka kant är, grain papperskornen i dimman, hatch styrkan på bläckskrafferingen längs dimmans kant (0 = ingen), hatchDeg skrafferingsbandets bredd i grader och hatchSpacingDeg avståndet mellan strecken i grader. labels är texterna i dimman (at = [longitud, latitud], size = textens höjd i grader). decorations är bilder ur gamla kartor (public domain) mitt i öppna hav: file, at = [longitud, latitud] för bildens mitt, width = bredd i grader, fade = tonas bort när en lyft korridor kommer nära (inom bildens radie), rhumb = portolanlinjer ut från bildens mitt (kompassrosor), source = id i sources.json. Färgerna står som CSS-variabler (--discovery-fog, --discovery-ink, --discovery-sea, --discovery-land, --discovery-stain, --discovery-edge, --discovery-rhumb-half, --discovery-rhumb-quarter).",
   "perspective": {
-    "sv": "Vyn ser världen från Europa. Europa är känt från början: dimman ligger aldrig över Europa, och den är lyft över de europeiska rikena i datan, till exempel Rom och Makedonien med Alexanders erövringar, och över rikena som gränsade till dem. Resten lyfts när resorna och vägarna i datan når dit, och när en resa når ett rike lyfts dimman över hela riket. Europa är här länderna som Natural Earth räknar dit, med Ryssland till Uralbergen. ”Upptäckt” betyder här att resor från Europa och Kina kom fram: platserna var redan bebodda och kända av dem som bodde där, och därför syns händelserna även i dimman.",
-    "en": "The view sees the world from Europe. Europe is known from the start: the fog never covers Europe, and it is lifted over the European states in the data, for example Rome and Macedon with Alexander's conquests, and over the states that bordered them. The rest lifts when the voyages and routes in the data get there, and when a voyage reaches a state, the fog lifts over the whole state. Here, Europe means the countries that Natural Earth counts as European, with Russia up to the Ural Mountains. “Discovery” here means that voyages from Europe and China arrived: the places were already inhabited and known to the people who lived there, which is why the events show even in the fog.",
-    "de": "Die Ansicht betrachtet die Welt von Europa aus. Europa ist von Anfang an bekannt: Der Nebel liegt nie über Europa, und er ist über den europäischen Reichen in den Daten gelichtet, zum Beispiel über Rom und Makedonien mit den Eroberungen Alexanders, und über den Reichen, die an sie grenzten. Der Rest lichtet sich, wenn die Reisen und Wege in den Daten dort ankommen, und wenn eine Reise ein Reich erreicht, lichtet sich der Nebel über dem ganzen Reich. Europa sind hier die Länder, die Natural Earth zu Europa zählt, mit Russland bis zum Ural. „Entdeckung“ bedeutet hier, dass Reisen aus Europa und China ankamen: Die Orte waren schon bewohnt und denen bekannt, die dort lebten, und deshalb sind die Ereignisse auch im Nebel sichtbar.",
-    "es": "La vista observa el mundo desde Europa. Europa es conocida desde el principio: la niebla nunca cubre Europa, y está despejada sobre los estados europeos de los datos, por ejemplo Roma y Macedonia con las conquistas de Alejandro, y sobre los estados que lindaban con ellos. El resto se despeja cuando los viajes y las rutas de los datos llegan allí, y cuando un viaje llega a un estado, la niebla se despeja sobre todo el estado. Aquí, Europa son los países que Natural Earth cuenta como europeos, con Rusia hasta los montes Urales. «Descubrimiento» significa aquí que llegaron viajes desde Europa y China: los lugares ya estaban habitados y eran conocidos por quienes vivían allí, y por eso los acontecimientos se ven incluso en la niebla.",
-    "fr": "La vue regarde le monde depuis l’Europe. L’Europe est connue dès le début : le brouillard ne couvre jamais l’Europe, et il est levé sur les États européens des données, par exemple Rome et la Macédoine avec les conquêtes d’Alexandre, et sur les États qui les bordaient. Le reste se lève lorsque les voyages et les routes des données y parviennent, et lorsqu’un voyage atteint un État, le brouillard se lève sur tout l’État. Ici, l’Europe désigne les pays que Natural Earth compte comme européens, avec la Russie jusqu’à l’Oural. « Découverte » signifie ici que des voyages venus d’Europe et de Chine sont arrivés : les lieux étaient déjà habités et connus de ceux qui y vivaient, et c’est pourquoi les événements apparaissent même dans le brouillard."
+    "sv": "Vyn ser världen från Europa och visar källbelagd kartkunskap där sådan har lagts in. Europa är känt från början: dimman ligger aldrig över Europa, och den är lyft över de europeiska rikena i datan, till exempel Rom och Makedonien med Alexanders erövringar, och över rikena som gränsade till dem. Utöver resor och riken lyfts dimman över områden som samtida kartkällor återger. Europa är här länderna som Natural Earth räknar dit, med Ryssland till Uralbergen. Dimman säger inte att andra platser var obebodda eller okända för dem som levde där.",
+    "en": "The view sees the world from Europe and shows sourced cartographic knowledge where it has been added. Europe is known from the start: the fog never covers Europe, and it is lifted over the European states in the data, for example Rome and Macedon with Alexander's conquests, and over the states that bordered them. In addition to journeys and states, the fog lifts over areas shown in contemporary cartographic sources. Here, Europe means the countries that Natural Earth counts as European, with Russia up to the Ural Mountains. The fog does not mean that other places were uninhabited or unknown to the people who lived there.",
+    "de": "Die Ansicht betrachtet die Welt von Europa aus und zeigt quellenbelegte kartographische Kenntnisse, soweit sie hinzugefügt wurden. Europa ist von Anfang an bekannt: Der Nebel liegt nie über Europa, und er ist über den europäischen Reichen in den Daten gelichtet, zum Beispiel über Rom und Makedonien mit den Eroberungen Alexanders, und über den Reichen, die an sie grenzten. Zusätzlich zu Reisen und Reichen lichtet sich der Nebel über Gebieten, die zeitgenössische Karten zeigen. Europa sind hier die Länder, die Natural Earth zu Europa zählt, mit Russland bis zum Ural. Der Nebel bedeutet nicht, dass andere Orte unbewohnt oder den dort lebenden Menschen unbekannt waren.",
+    "es": "La vista observa el mundo desde Europa y muestra conocimiento cartográfico con fuentes allí donde se ha añadido. Europa es conocida desde el principio: la niebla nunca cubre Europa, y está despejada sobre los estados europeos de los datos, por ejemplo Roma y Macedonia con las conquistas de Alejandro, y sobre los estados que lindaban con ellos. Además de los viajes y los estados, la niebla se despeja sobre zonas que muestran fuentes cartográficas contemporáneas. Aquí, Europa son los países que Natural Earth cuenta como europeos, con Rusia hasta los montes Urales. La niebla no significa que otros lugares estuvieran deshabitados o fueran desconocidos para quienes vivían allí.",
+    "fr": "La vue regarde le monde depuis l’Europe et montre les connaissances cartographiques sourcées là où elles ont été ajoutées. L’Europe est connue dès le début : le brouillard ne couvre jamais l’Europe, et il est levé sur les États européens des données, par exemple Rome et la Macédoine avec les conquêtes d’Alexandre, et sur les États qui les bordaient. Outre les voyages et les États, le brouillard se lève sur les zones que montrent des sources cartographiques contemporaines. Ici, l’Europe désigne les pays que Natural Earth compte comme européens, avec la Russie jusqu’à l’Oural. Le brouillard ne signifie pas que les autres lieux étaient inhabités ou inconnus des personnes qui y vivaient."
   },
   "credit": {
     "sv": "Kartbilder: havsmonster ur Olaus Magnus Carta marina (1539) och en kompassros ur Guillaume Brouscons världskarta (1543). Public domain, via Wikimedia Commons.",
@@ -35,6 +35,250 @@
     ],
     "neighborDeg": 3.5
   },
+  "knowledge": [
+    {
+      "id": "nordamerika-1755",
+      "from": 1755,
+      "sources": ["loc-mitchell-map-1755"],
+      "note": {
+        "sv": "Ungefärlig yta som den samtida Mitchell-kartan redovisar; den är medvetet bred och påstår inte moderna eller exakta gränser.",
+        "en": "Approximate area shown by the contemporary Mitchell map; deliberately broad and not a claim about modern or exact boundaries.",
+        "de": "Ungefähres Gebiet der zeitgenössischen Mitchell-Karte; bewusst weit gefasst und keine Aussage über moderne oder genaue Grenzen.",
+        "es": "Área aproximada mostrada por el mapa contemporáneo de Mitchell; deliberadamente amplia y sin pretender señalar fronteras modernas o exactas.",
+        "fr": "Zone approximative montrée par la carte contemporaine de Mitchell ; volontairement large et sans prétendre à des frontières modernes ou exactes."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[-83,25],[-80,29],[-79,33],[-77,36],[-75,40],[-73,43],[-69,46],[-64,48],[-60,49],[-60,53],[-67,55],[-75,55],[-82,52],[-86,49],[-89,47],[-92,46],[-94,43],[-94,39],[-91,35],[-88,31],[-83,25]]],
+        [[[-92,46],[-97,47],[-101,46],[-104,43],[-103,40],[-99,38],[-95,38],[-92,40],[-92,46]]]
+      ]}
+    },
+    {
+      "id": "usa-1839",
+      "from": 1839,
+      "sources": ["loc-burr-usa-1839"],
+      "note": {
+        "sv": "Ungefärligt område som Burrs karta från 1839 visar för USA och delar av grannländerna. Ytan är inte en nutida gräns och säger inte att varje plats var lika väl uppmätt.",
+        "en": "Approximate area shown by Burr's 1839 map for the United States and parts of adjacent countries. It is not a modern boundary and does not say every place was equally surveyed.",
+        "de": "Ungefähres Gebiet, das Burrs Karte von 1839 für die Vereinigten Staaten und Teile der Nachbarländer zeigt. Es ist keine moderne Grenze und besagt nicht, dass jeder Ort gleich gut vermessen war.",
+        "es": "Área aproximada mostrada por el mapa de Burr de 1839 para Estados Unidos y partes de los países vecinos. No es una frontera moderna ni afirma que todos los lugares estuvieran medidos por igual.",
+        "fr": "Zone approximative montrée par la carte de Burr de 1839 pour les États-Unis et une partie des pays voisins. Ce n’est pas une frontière moderne et elle ne signifie pas que tous les lieux étaient relevés avec la même précision."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[-125,49],[-124,42],[-122,37],[-118,33],[-114,32],[-111,31],[-106,31],[-103,29],[-97,26],[-90,29],[-82,25],[-80,30],[-78,35],[-75,39],[-70,42],[-67,45],[-70,47],[-82,47],[-95,49],[-110,49],[-125,49]]]
+      ]}
+    },
+    {
+      "id": "sibirien-1827",
+      "from": 1827,
+      "sources": ["loc-piadyshev-russian-empire-1827"],
+      "note": {
+        "sv": "Ungefärligt område med kartkunskap om Sibirien i Piadyshevs atlas från 1827. Centralasien, Fjärran östern och de arktiska polarområdena räknas inte som fullt kartlagda här.",
+        "en": "Approximate area of mapped knowledge of Siberia in Piadyshev's 1827 atlas. Central Asia, the Far East, and the Arctic polar regions are not treated as fully mapped here.",
+        "de": "Ungefähres Gebiet kartographischen Wissens über Sibirien in Piadyshevs Atlas von 1827. Zentralasien, der Ferne Osten und die arktischen Polarregionen gelten hier nicht als vollständig kartiert.",
+        "es": "Área aproximada de conocimiento cartográfico de Siberia en el atlas de Piadyshev de 1827. Asia Central, el Lejano Oriente y las regiones polares árticas no se consideran plenamente cartografiadas aquí.",
+        "fr": "Zone approximative des connaissances cartographiques sur la Sibérie dans l’atlas de Piadyshev de 1827. L’Asie centrale, l’Extrême-Orient et les régions polaires arctiques ne sont pas considérés comme entièrement cartographiés ici."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[55,55],[70,57],[90,55],[110,55],[125,57],[140,60],[145,64],[143,69],[135,72],[120,73],[105,74],[90,72],[75,70],[60,67],[55,55]]]
+      ]}
+    },
+    {
+      "id": "centralasien-1839",
+      "from": 1839,
+      "sources": ["loc-berghaus-central-asia-1839", "loc-black-world-1840"],
+      "note": {
+        "sv": "Ungefärligt område som Berghaus karta Iran und Turan från 1839 återger. Kartan skiljer stater och större geografiska regioner; den innebär inte att varje del av Centralasien var lika noggrant uppmätt.",
+        "en": "Approximate area shown by Berghaus's 1839 map Iran und Turan. The map distinguishes states and major geographical regions; it does not mean every part of Central Asia was surveyed equally closely.",
+        "de": "Ungefähres Gebiet, das Berghaus’ Karte Iran und Turan von 1839 zeigt. Die Karte unterscheidet Staaten und große geografische Regionen; sie bedeutet nicht, dass jeder Teil Zentralasiens gleich genau vermessen war.",
+        "es": "Área aproximada mostrada por el mapa Iran und Turan de Berghaus de 1839. El mapa distingue estados y grandes regiones geográficas; no significa que cada parte de Asia Central fuera medida con la misma precisión.",
+        "fr": "Zone approximative montrée par la carte Iran und Turan de Berghaus de 1839. La carte distingue les États et les grandes régions géographiques ; elle ne signifie pas que chaque partie de l’Asie centrale ait été relevée avec la même précision."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[47,42],[57,48],[70,52],[85,50],[98,45],[102,39],[95,34],[82,32],[68,34],[56,37],[47,42]]]
+      ]}
+    },
+    {
+      "id": "ryska-fjarran-ostern-1844",
+      "from": 1844,
+      "sources": ["loc-russian-asia-1844"],
+      "note": {
+        "sv": "Ungefärligt område som 1844 års karta över Asiatiska Ryssland återger. Det är en kartkunskapsyta, inte en nutida gräns eller ett påstående om fullständig kartläggning av varje plats.",
+        "en": "Approximate area shown by the 1844 map of Asiatic Russia. It is an area of cartographic knowledge, not a modern boundary or a claim that every place was fully surveyed.",
+        "de": "Ungefähres Gebiet, das die Karte des Asiatischen Russlands von 1844 zeigt. Es ist eine Fläche kartographischen Wissens, keine moderne Grenze und keine Aussage darüber, dass jeder Ort vollständig vermessen war.",
+        "es": "Área aproximada mostrada por el mapa de 1844 de la Rusia asiática. Es un área de conocimiento cartográfico, no una frontera moderna ni una afirmación de que cada lugar estuviera totalmente medido.",
+        "fr": "Zone approximative montrée par la carte de 1844 de la Russie asiatique. Il s’agit d’une zone de connaissance cartographique, non d’une frontière moderne ni d’une affirmation selon laquelle chaque lieu aurait été entièrement relevé."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[135,43],[145,44],[155,48],[165,52],[175,56],[179,60],[179,67],[170,68],[160,66],[150,65],[145,62],[140,58],[135,52],[135,43]]]
+      ]}
+    },
+    {
+      "id": "kanada-sydost-1844",
+      "from": 1844,
+      "sources": ["loc-tanner-atlas-1844"],
+      "note": {
+        "sv": "Ungefärligt område för Canada West, Canada East och de atlantiska kolonier som har egna kartor i Tanners atlas från 1844. Det omfattar inte Kanadas nordliga inland eller arktiska övärld.",
+        "en": "Approximate area for Canada West, Canada East, and the Atlantic colonies with their own maps in Tanner's 1844 atlas. It does not include Canada's northern interior or Arctic archipelago.",
+        "de": "Ungefähres Gebiet von Canada West, Canada East und den atlantischen Kolonien, die in Tanners Atlas von 1844 eigene Karten haben. Kanadas nördliches Binnenland und die arktische Inselwelt sind nicht enthalten.",
+        "es": "Área aproximada de Canada West, Canada East y las colonias atlánticas con mapas propios en el atlas de Tanner de 1844. No incluye el interior septentrional de Canadá ni el archipiélago ártico.",
+        "fr": "Zone approximative de Canada West, Canada East et des colonies atlantiques qui disposent de leurs propres cartes dans l’atlas de Tanner de 1844. Elle n’inclut ni l’intérieur nord du Canada ni l’archipel arctique."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[-93,49],[-88,49],[-84,48],[-79,46],[-74,45],[-70,45],[-65,45],[-60,47],[-58,50],[-63,52],[-70,54],[-78,53],[-85,53],[-92,51],[-93,49]]]
+      ]}
+    },
+    {
+      "id": "baffinbukten-1903",
+      "from": 1903,
+      "sources": ["loc-polar-regions-1903"],
+      "note": {
+        "sv": "Ungefärligt område kring Baffinbukten och Smiths sund som den amerikanska sjöfartskartan från 1903 återger med expeditionsrutter och terräng. Övriga Arktis lämnas utanför.",
+        "en": "Approximate area around Baffin Bay and Smith Sound shown with expedition routes and terrain on the 1903 U.S. nautical chart. The rest of the Arctic is left out.",
+        "de": "Ungefähres Gebiet um die Baffinbucht und den Smithsund, das die amerikanische Seekarte von 1903 mit Expeditionsrouten und Gelände zeigt. Die übrige Arktis bleibt ausgespart.",
+        "es": "Área aproximada alrededor de la bahía de Baffin y el estrecho de Smith mostrada con rutas de expedición y terreno en la carta náutica estadounidense de 1903. El resto del Ártico queda fuera.",
+        "fr": "Zone approximative autour de la baie de Baffin et du détroit de Smith montrée avec des routes d’expédition et le relief sur la carte nautique américaine de 1903. Le reste de l’Arctique est laissé de côté."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[-80,65],[-66,64],[-52,68],[-46,75],[-50,82],[-63,84],[-75,80],[-80,72],[-80,65]]]
+      ]}
+    },
+    {
+      "id": "afrika-1575",
+      "from": 1575,
+      "sources": ["loc-ortelius-africa-1575", "loc-black-world-1840"],
+      "note": {
+        "sv": "Försiktig avgränsning av Afrikas kuster och tydligt återgivna nordliga regioner i Ortelius karta från 1575. Inlandet lämnas delvis i dimma: även kartor från 1840 beskriver särskilt Afrikas inland som spekulativt.",
+        "en": "Conservative outline of Africa's coasts and clearly depicted northern regions in Ortelius's 1575 map. Much of the interior remains fogged: maps as late as 1840 describe Africa's interior as especially speculative.",
+        "de": "Vorsichtige Abgrenzung der afrikanischen Küsten und klar dargestellten nördlichen Regionen auf Ortelius’ Karte von 1575. Große Teile des Binnenlands bleiben im Nebel: Selbst Karten von 1840 beschreiben besonders Afrikas Inneres als spekulativ.",
+        "es": "Delimitación prudente de las costas africanas y de las regiones septentrionales claramente representadas en el mapa de Ortelius de 1575. Gran parte del interior permanece en la niebla: incluso mapas de 1840 describen especialmente el interior de África como especulativo.",
+        "fr": "Délimitation prudente des côtes africaines et des régions septentrionales clairement représentées sur la carte d’Ortelius de 1575. Une grande partie de l’intérieur reste dans le brouillard : même des cartes de 1840 décrivent l’intérieur de l’Afrique comme particulièrement spéculatif."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[-17,36],[-7,36],[5,37],[18,34],[28,31],[35,30],[35,23],[30,22],[24,26],[16,28],[6,31],[-5,31],[-13,28],[-17,36]]],
+        [[[-17,28],[-16,17],[-8,10],[-5,4],[-1,-5],[7,-21],[11,-29],[7,-28],[2,-18],[-3,-5],[-8,7],[-13,15],[-17,28]]],
+        [[[7,-21],[11,-29],[18,-35],[28,-35],[35,-30],[35,-25],[28,-29],[19,-31],[12,-27],[7,-21]]],
+        [[[35,-30],[40,-20],[43,-12],[50,11],[43,12],[38,6],[37,-5],[32,-17],[28,-28],[35,-30]]]
+      ]}
+    },
+    {
+      "id": "sydamerika-1562",
+      "from": 1562,
+      "sources": ["loc-gutierrez-americas-1562", "loc-black-world-1840"],
+      "note": {
+        "sv": "Försiktig avgränsning av Sydamerikas kuster och de tydligt återgivna områdena på Gutiérrez karta över Amerika. Det omfattande inlandet lämnas delvis i dimma, eftersom även kartor från 1840 beskriver Sydamerikas inre som spekulativt.",
+        "en": "Conservative outline of South American coasts and the clearly depicted areas on Gutiérrez's map of the Americas. The extensive interior remains partly fogged, because maps as late as 1840 describe the interior of South America as speculative.",
+        "de": "Vorsichtige Abgrenzung der südamerikanischen Küsten und der klar dargestellten Gebiete auf Gutiérrez’ Amerika-Karte. Das weitläufige Binnenland bleibt teilweise im Nebel, da selbst Karten von 1840 das Innere Südamerikas als spekulativ beschreiben.",
+        "es": "Delimitación prudente de las costas sudamericanas y de las zonas claramente representadas en el mapa de América de Gutiérrez. El extenso interior permanece parcialmente en la niebla, ya que incluso mapas de 1840 describen el interior de Sudamérica como especulativo.",
+        "fr": "Délimitation prudente des côtes sud-américaines et des zones clairement représentées sur la carte des Amériques de Gutiérrez. Le vaste intérieur reste en partie dans le brouillard, car même des cartes de 1840 décrivent l’intérieur de l’Amérique du Sud comme spéculatif."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[-81,12],[-76,10],[-72,12],[-74,0],[-79,-22],[-76,-45],[-74,-53],[-68,-54],[-70,-45],[-72,-30],[-75,-12],[-78,0],[-81,12]]],
+        [[[-74,-53],[-68,-54],[-61,-44],[-53,-38],[-45,-32],[-39,-24],[-39,-15],[-44,-13],[-49,-20],[-54,-30],[-61,-36],[-67,-45],[-74,-53]]],
+        [[[-81,12],[-76,10],[-72,12],[-66,10],[-60,8],[-52,5],[-47,0],[-43,-8],[-39,-15],[-44,-13],[-50,-8],[-54,-2],[-63,2],[-69,4],[-75,4],[-81,12]]]
+      ]}
+    },
+    {
+      "id": "karibien-1562",
+      "from": 1562,
+      "sources": ["loc-gutierrez-americas-1562"],
+      "note": {
+        "sv": "Större karibiska öar som Gutiérrez karta över Amerika från 1562 återger. Små öar och exakta kuster är medvetet inte påstådda.",
+        "en": "Major Caribbean islands shown by Gutiérrez's 1562 map of the Americas. Small islands and exact coastlines are deliberately not asserted.",
+        "de": "Größere karibische Inseln, die Gutiérrez’ Amerika-Karte von 1562 zeigt. Kleine Inseln und genaue Küstenlinien werden bewusst nicht behauptet.",
+        "es": "Islas caribeñas principales mostradas por el mapa de América de Gutiérrez de 1562. No se afirman deliberadamente las islas pequeñas ni las costas exactas.",
+        "fr": "Principales îles des Caraïbes montrées par la carte des Amériques de Gutiérrez de 1562. Les petites îles et les côtes exactes ne sont délibérément pas affirmées."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[-85,23],[-81,23],[-77,22],[-74,21],[-77,20],[-82,21],[-85,23]]],
+        [[[-75,20],[-71,20],[-68,19],[-70,18],[-74,18],[-75,20]]],
+        [[[-79,19],[-76,19],[-76,17],[-78,17],[-79,19]]],
+        [[[-68,19],[-65,19],[-65,17],[-67,17],[-68,19]]]
+      ]}
+    },
+    {
+      "id": "sodra-stilla-havet-1777",
+      "from": 1777,
+      "sources": ["loc-cook-south-pacific-1777"],
+      "note": {
+        "sv": "Ungefärliga lägen för några ögrupper i södra Stilla havet som Cooks karta från 1777 redovisar med latitud och longitud. Detta gör inte hela oceanen känd.",
+        "en": "Approximate positions of several South Pacific island groups recorded with latitude and longitude on Cook's 1777 chart. This does not make the whole ocean known.",
+        "de": "Ungefähre Lagen einiger südpazifischer Inselgruppen, die Cooks Karte von 1777 mit Breite und Länge verzeichnet. Dadurch wird nicht der ganze Ozean als bekannt dargestellt.",
+        "es": "Posiciones aproximadas de varios grupos de islas del Pacífico Sur registrados con latitud y longitud en la carta de Cook de 1777. Esto no hace conocido todo el océano.",
+        "fr": "Positions approximatives de plusieurs groupes d’îles du Pacifique Sud relevés avec latitude et longitude sur la carte de Cook de 1777. Cela ne rend pas tout l’océan connu."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[-151,-16],[-148,-16],[-148,-19],[-151,-19],[-151,-16]]],
+        [[[-177,-19],[-173,-19],[-173,-23],[-177,-23],[-177,-19]]],
+        [[[-174,-12],[-170,-12],[-170,-16],[-174,-16],[-174,-12]]],
+        [[[176,-15],[180,-15],[180,-19],[176,-19],[176,-15]]]
+      ]}
+    },
+    {
+      "id": "asien-1579",
+      "from": 1579,
+      "sources": ["loc-ortelius-asia-1579"],
+      "note": {
+        "sv": "Försiktig avgränsning av områden som Ortelius Asienkarta återger. Norra Asien och Korea lämnas utanför, eftersom källan själv är ofullständig där.",
+        "en": "Cautious outline of areas shown by Ortelius's Asia map. Northern Asia and Korea are excluded because the source itself is incomplete there.",
+        "de": "Vorsichtige Abgrenzung der Gebiete auf Ortelius’ Asienkarte. Nordasien und Korea bleiben aus, weil die Quelle dort selbst unvollständig ist.",
+        "es": "Delimitación prudente de las zonas mostradas por el mapa de Asia de Ortelius. Se excluyen el norte de Asia y Corea porque la propia fuente es incompleta allí.",
+        "fr": "Délimitation prudente des zones montrées par la carte d’Asie d’Ortelius. L’Asie du Nord et la Corée sont exclues, car la source elle-même y est incomplète."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[26,40],[35,43],[45,45],[58,53],[74,55],[91,52],[103,47],[113,42],[119,37],[116,31],[108,27],[102,22],[95,20],[88,20],[81,19],[77,24],[72,30],[65,27],[58,25],[50,29],[43,34],[35,36],[26,40]],[[55,40],[57,48],[70,52],[85,50],[98,45],[102,39],[95,34],[82,32],[68,34],[56,37],[55,40]]],
+        [[[117,39],[128,42],[139,39],[143,34],[139,29],[130,25],[121,25],[115,30],[117,39]]],
+        [[[95,6],[105,8],[114,6],[121,1],[120,-5],[113,-7],[106,-5],[100,-1],[95,6]]]
+      ]}
+    },
+    {
+      "id": "australien-vastkust-1659",
+      "from": 1659,
+      "sources": ["loc-blaeu-new-holland-1659"],
+      "note": {
+        "sv": "Endast den västliga del av Nya Holland som Blaeus karta återger. Östra och inre Australien lämnas medvetet okända i detta lager.",
+        "en": "Only the western part of New Holland shown by Blaeu's map. Eastern and inland Australia deliberately remain unknown in this layer.",
+        "de": "Nur der westliche Teil von Neu-Holland, den Blaeus Karte zeigt. Ost- und Binnenaustralien bleiben in dieser Ebene bewusst unbekannt.",
+        "es": "Solo la parte occidental de Nueva Holanda mostrada por el mapa de Blaeu. El este y el interior de Australia permanecen deliberadamente desconocidos en esta capa.",
+        "fr": "Seule la partie occidentale de la Nouvelle-Hollande montrée par la carte de Blaeu. L’est et l’intérieur de l’Australie restent délibérément inconnus dans cette couche."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[113,-13],[117,-14],[119,-18],[118,-23],[114,-27],[114,-31],[118,-34],[122,-34],[123,-30],[120,-26],[120,-20],[121,-15],[117,-12],[113,-13]]]
+      ]}
+    },
+    {
+      "id": "australien-kuster-1808",
+      "from": 1808,
+      "sources": ["loc-freycinet-new-holland-1808", "loc-black-world-1840"],
+      "note": {
+        "sv": "Ungefärliga kustområden som den franska kartan över Nya Holland från 1808 återger. Det australiska inlandet lämnas i dimma, eftersom det fortfarande beskrevs som till stor del spekulativt i kartor från 1840.",
+        "en": "Approximate coastal areas shown by the 1808 French map of New Holland. The Australian interior remains fogged, since maps of 1840 still describe it as largely speculative.",
+        "de": "Ungefähre Küstengebiete, die die französische Karte von Neuholland von 1808 zeigt. Das australische Binnenland bleibt im Nebel, da Karten von 1840 es noch weitgehend als spekulativ beschreiben.",
+        "es": "Zonas costeras aproximadas mostradas por el mapa francés de Nueva Holanda de 1808. El interior australiano permanece en la niebla, pues los mapas de 1840 aún lo describen como ampliamente especulativo.",
+        "fr": "Zones côtières approximatives montrées par la carte française de la Nouvelle-Hollande de 1808. L’intérieur australien reste dans le brouillard, car les cartes de 1840 le décrivent encore comme largement spéculatif."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[113,-13],[117,-12],[122,-13],[130,-12],[136,-14],[142,-12],[145,-16],[141,-19],[133,-18],[126,-19],[120,-21],[114,-19],[113,-13]]],
+        [[[145,-16],[151,-21],[153,-28],[151,-34],[146,-39],[142,-39],[144,-34],[148,-29],[148,-23],[141,-19],[145,-16]]],
+        [[[113,-31],[118,-34],[125,-35],[134,-38],[142,-39],[146,-39],[142,-43],[134,-40],[125,-39],[117,-37],[113,-33],[113,-31]]],
+        [[[144,-40],[147,-41],[148,-43],[147,-44],[145,-44],[143,-42],[144,-40]]]
+      ]}
+    },
+    {
+      "id": "antarktis-wilkes-land-1844",
+      "from": 1844,
+      "sources": ["loc-wilkes-antarctica-1844"],
+      "note": {
+        "sv": "En begränsad kustsektor ur Wilkes expeditionens antarktiska karta, inte en fullständig Antarktis-kontur.",
+        "en": "A limited coastal sector from the Wilkes expedition's Antarctic map, not a complete outline of Antarctica.",
+        "de": "Ein begrenzter Küstenabschnitt aus der Antarktiskarte der Wilkes-Expedition, keine vollständige Kontur der Antarktis.",
+        "es": "Un sector costero limitado del mapa antártico de la expedición Wilkes, no un contorno completo de la Antártida.",
+        "fr": "Un secteur côtier limité de la carte antarctique de l’expédition Wilkes, et non un contour complet de l’Antarctique."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[110,-65],[126,-64],[140,-65],[150,-67],[149,-70],[136,-70],[123,-69],[110,-68],[110,-65]]]
+      ]}
+    }
+  ],
   "fog": {
     "opacity": 0.97,
     "corridorDeg": 7,

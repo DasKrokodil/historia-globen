@@ -1709,6 +1709,7 @@
     {
       "license": "No known restrictions on publication",
       "sourceIds": [
+        "loc-cook-south-pacific-1777",
         "loc-eiffel-campanile-1889",
         "loc-taj-mahal-photochrom"
       ]
@@ -1846,6 +1847,20 @@
         "eb1911-sweden",
         "eb1911-telephone",
         "herodotos-historier-bok-9",
+        "loc-berghaus-central-asia-1839",
+        "loc-black-world-1840",
+        "loc-blaeu-new-holland-1659",
+        "loc-burr-usa-1839",
+        "loc-freycinet-new-holland-1808",
+        "loc-gutierrez-americas-1562",
+        "loc-mitchell-map-1755",
+        "loc-ortelius-africa-1575",
+        "loc-ortelius-asia-1579",
+        "loc-piadyshev-russian-empire-1827",
+        "loc-polar-regions-1903",
+        "loc-russian-asia-1844",
+        "loc-tanner-atlas-1844",
+        "loc-wilkes-antarctica-1844",
         "natural-earth",
         "natural-earth-countries",
         "natural-earth-lander",
