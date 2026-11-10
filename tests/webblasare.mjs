@@ -2869,6 +2869,33 @@ async function run(browser, vp) {
     return `${header.readUInt32BE(16)} × ${header.readUInt32BE(20)}; ${poster.ids.length} händelser; ${download.suggestedFilename()}`;
   });
 
+  await check('källhänvisning kan kopieras från händelsen och finns på affischen (#844)', async () => {
+    if (await page.locator('#detail').isVisible()) await page.locator('#detail [data-close]').click();
+    const event = page.locator('#ff-events .ff-chip').first();
+    await event.evaluate(el => el.click());
+    await page.waitForSelector('#detail [data-citation]', { state: 'visible', timeout: T.step });
+    await page.evaluate(() => { window.__copiedCitation = null; Object.defineProperty(navigator, 'clipboard', { value: { writeText: async text => { window.__copiedCitation = text; } }, configurable: true }); });
+    await page.locator('#detail [data-citation]').click();
+    await page.waitForFunction(() => window.__copiedCitation, null, { timeout: T.step });
+    const citation = await page.evaluate(() => ({
+      text: window.__copiedCitation,
+      status: document.querySelector('#detail [data-citation-status]')?.textContent.trim(),
+      role: document.querySelector('#detail [data-citation-status]')?.getAttribute('role'),
+      overflow: document.documentElement.scrollWidth > innerWidth,
+    }));
+    const posterLine = await page.evaluate(async () => {
+      const [{ posterCitation }, doc] = await Promise.all([import('./js/ui/citation.js'), fetch('data/sources.json').then(response => response.json())]);
+      const source = doc.sources[0];
+      return posterCitation([{ sources: [source.id] }], { [source.id]: source });
+    });
+    if (!citation.text.includes('historiagloben.se') || !citation.text.includes('CC BY 4.0') || !/^.+\(.+\)\./.test(citation.text)) throw new Error(`urklippet saknar händelse, adress eller licens: ${citation.text}`);
+    if (!citation.status || citation.role !== 'status') throw new Error('kopieringen saknar läsbar bekräftelse');
+    if (!posterLine.includes('historiagloben.se') || !posterLine.includes('CC BY 4.0') || !posterLine.includes('naturalearthdata.com')) throw new Error(`affischens källrad saknar källa, adress eller licens: ${posterLine}`);
+    if (citation.overflow) throw new Error('källhänvisningen ger horisontell scroll');
+    await page.locator('#detail [data-close]').click();
+    return 'urklippet har händelse, år, källor, adress och licens; bekräftelsen har role=status och affischen ritar källrad';
+  });
+
   await check('ett rike syns', async () => {
     const n = await layerDraws('areas', 5000);
     return `${n} pixlar ändras när Riken slås på`;

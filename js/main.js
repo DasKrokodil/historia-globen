@@ -2,7 +2,7 @@
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
 // Ansvaret ligger i js/controllers/ (#402): val av händelse, fokusläget, faktarutor om riken och religioner,
 // omritningen, uppspelningens pauser, krigets berättelse och etiketterna. Här skapas delarna och kopplas ihop.
-import { loadAll, loadReligionPolities, loadRoutes, t, formatYear, formatEventTime, isVisibleReview, CAT } from './model.js';
+import { loadAll, loadAllEventDetails, loadReligionPolities, loadRoutes, loadSources, t, formatYear, formatEventTime, isVisibleReview, CAT } from './model.js';
 import { buildIndex, search as searchIndex } from './search-index.js';
 import { placeSuggestions, eventsNear, RADIUS_KM } from './place-search.js';
 import { applyStatic, setupLangPicker, takeReturnYear, LANG_INFO } from './i18n.js';
@@ -417,9 +417,10 @@ async function start() {
     if (!poster) return;
     posterButton.disabled = true;
     try {
+      await Promise.all([loadSources(), loadAllEventDetails()]);
       await downloadPoster({
         baseCanvas: globe.baseCanvas, overlayCanvas: globe.overlayCanvas,
-        year: Math.floor(timeline.year), events: data.events.filter(event => isVisibleReview(event.review)), labels: poster,
+        year: Math.floor(timeline.year), events: data.events.filter(event => isVisibleReview(event.review)), labels: poster, srcById: data.srcById,
       });
     } catch (err) {
       console.error(err);
