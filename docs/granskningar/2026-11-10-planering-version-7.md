@@ -83,6 +83,8 @@ Alla tre issues ligger rätt i milstolpen. Det som är gammalt är bara raden "M
 
 ## 5. Frågor till DasKrokodil
 
+**Besvarade 2026-11-10: ja enligt rekommendationerna på alla åtta.** Beslutet står i [docs/beslut/2026-11-10-version-7-riktning.md](../beslut/2026-11-10-version-7-riktning.md); agenten `forhistoriker` är skapad.
+
 Alla med rekommendation (ett förslag, inget beslut).
 
 1. **a. Bekräfta alternativ B** (två lägen: människans historia med dagens år, jordens historia med egen tidstyp senare; byggt i tre delar, där bara del 3 ändrar arkitekturen). *Rekommendation: ja.* Beslutet skrivs då som fil i `docs/beslut/` (saknas).

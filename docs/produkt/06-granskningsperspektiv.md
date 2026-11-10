@@ -28,7 +28,7 @@ Text att klistra in i en granskningsorder till en agent:
 | Täckningsrunda | | | | ○ | ○ | | | ● | | ● |
 | Release | ● | ● | ● | ● | ● | ○ | ○ | ● | ● | ○ |
 
-Lins 13 (geograf) tas vid nytt innehåll med platser eller riken, täckningsrundor och kartändringar. Lins 14 (språk) tas när text läggs till eller ändras, och inför varje release. Lins 8 (historiker) tas vid allt nytt innehåll och vid varje täckningsrunda.
+Lins 13 (geograf) tas vid nytt innehåll med platser eller riken, täckningsrundor och kartändringar. Lins 14 (språk) tas när text läggs till eller ändras, och inför varje release. Lins 15 (förhistoriker) tas när innehåll rör förhistoria eller djup tid, tillsammans med lins 8. Lins 8 (historiker) tas vid allt nytt innehåll och vid varje täckningsrunda.
 
 ● alltid · ○ när det berörs.
 
@@ -341,6 +341,27 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 **Bevis att samla in:** originaltext mot översättning, ordlistans regel, skärmbild där texten får plats eller inte.
 
 **Vad linsen har sagt hittills:** inget; linsen är ny (2026-11-10). Tidigare språkgranskning gjordes som AI-korsgranskning mellan agenterna (data/ui/sprak.json); en tysk betydelseändring hittades inför release 2026-11-08.
+
+---
+
+## 15. Förhistoriker (paleoantropolog och arkeolog)
+
+**Blicken:** vad säger forskningen i dag om människoarter, dateringar och vandring, och hur säker är den? Agent: `forhistoriker` (`.claude/agents/forhistoriker.md`). Kompletterar lins 8: historikern kontrollerar att källan stöder påståendet, förhistorikern bedömer forskningsläget.
+
+**Frågor**
+- **Arter:** vilka ingår, på vilken nivå (släkte eller art), och är källornas taxonomi oense?
+- **Dateringar:** spann och metod syns i stället för ett exakt år; `precision` och `edtf` säger samma sak som källan.
+- **Fyndglesheten:** "inga säkra fynd" är inte "ingen var där". Slagsida mot Europa och Levanten.
+- **Vandring:** tolkning med flera vågor och blandning, inte en enda pil.
+- **Evolution:** grenande, inte en stege. Afrika som innehåll och inte bara startpunkt.
+- **Språk:** inget "ras", inget "primitiv"; sakligt om evolution och om Amerikas befolkning.
+- **Bilder:** illustrationer av arter märkta som tolkning.
+
+**Brukar säga (hypoteser):** "Spannen är större än kartan låter påskina." "Artindelningen är en tolkning, inte en fakta." "Nya fynd flyttar dateringar."
+
+**Bevis att samla in:** källtabell per art (spann, referens, oenighet), täckningsmått per världsdel, källsidor öppnade med datum.
+
+**Vad linsen har sagt hittills:** inget; linsen är ny (2026-11-10). Alla nio agenter i planeringen av version 7 efterlyste rollen (`docs/granskningar/2026-11-10-planering-version-7.md`).
 
 ---
 

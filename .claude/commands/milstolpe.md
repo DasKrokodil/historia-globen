@@ -21,6 +21,7 @@ skapar inga issues; den skriver bara en rapport. Läs kärnan i [CLAUDE.md](../.
    | Agent | Behövs när milstolpen… |
    |---|---|
    | `historiker` | lägger till eller ändrar händelser, fun facts, riken, turer, lektioner eller annan text med fakta |
+   | `forhistoriker` | rör förhistoria, människoarter, dateringar före skriftens tid eller djup tid; tas tillsammans med `historiker` |
    | `geograf` | rör platser, koordinater, riken, vägar, kartor, projektion eller regional täckning |
    | `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr` | lägger till eller ändrar text som ska översättas; ta bara de språk som berörs |
    | Linserna 1–7, 9–12 i 06-dokumentet (UX, arkitekt, lärare, elever, intresserad, tillgänglighet, spelare, utvecklare, produktchef) | funktionen eller innehållet berör dem enligt matrisen i 06-dokumentet |
