@@ -148,6 +148,14 @@
       ]
     },
     {
+      "license": "CC BY-SA 3.0 (artikeltexten, märkt fri genbrug; bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "lex-det-norrone-gronland",
+        "lex-gardar",
+        "lex-kgh"
+      ]
+    },
+    {
       "license": "CC BY-SA 3.0 DE",
       "sourceIds": [
         "commons-bild-berlinmurens-fall"
@@ -480,6 +488,7 @@
         "wp-colombia",
         "wp-colombian-peace-process",
         "wp-colony-of-fiji",
+        "wp-colony-of-new-zealand",
         "wp-columbus",
         "wp-columbus-fjarde-resan",
         "wp-confederate-states",
@@ -492,6 +501,7 @@
         "wp-conquest-inca",
         "wp-conquest-jerusalem-637",
         "wp-constantinople",
+        "wp-constitution-act-1986",
         "wp-constitution-mexico",
         "wp-cook-resa-1",
         "wp-cook-resa-2",
@@ -542,6 +552,7 @@
         "wp-dodowa",
         "wp-dolores-hidalgo",
         "wp-dominion-of-fiji",
+        "wp-dominion-of-new-zealand",
         "wp-dong-fang-hong-1",
         "wp-dorset-culture",
         "wp-dr-congo",
@@ -643,6 +654,7 @@
         "wp-gambier-islands",
         "wp-gangut",
         "wp-garamantes",
+        "wp-gardar-greenland",
         "wp-garuda",
         "wp-gautama-buddha",
         "wp-genpei-war",
@@ -654,6 +666,7 @@
         "wp-ghana-empire",
         "wp-gingindlovu",
         "wp-girnar",
+        "wp-gisborne-nz",
         "wp-glade-armistice",
         "wp-glagolitic-script",
         "wp-glasgow-green",
@@ -675,6 +688,9 @@
         "wp-great-wall",
         "wp-great-zimbabwe",
         "wp-greco-persian-wars",
+        "wp-greenland-ec-referendum-1982",
+        "wp-greenland-home-rule-referendum-1979",
+        "wp-greenland-self-government-referendum-2008",
         "wp-grito-de-dolores",
         "wp-guadalcanal",
         "wp-guiping",
@@ -702,6 +718,7 @@
         "wp-han-xiongnu-wars",
         "wp-hannibal-alps",
         "wp-hanno",
+        "wp-hans-egede",
         "wp-hansan-island",
         "wp-hanseatic-league",
         "wp-harar",
@@ -711,8 +728,11 @@
         "wp-havana",
         "wp-hawaiian-islands",
         "wp-hawaiian-kingdom",
+        "wp-he-whakaputanga",
         "wp-helsingborg-1710",
+        "wp-hemming-of-denmark",
         "wp-henderson-island",
+        "wp-henrik-kauffmann",
         "wp-herero-nama-genocide",
         "wp-hexi-corridor",
         "wp-hierakonpolis",
@@ -724,6 +744,7 @@
         "wp-history-bougainville",
         "wp-history-of-alexandria",
         "wp-history-of-fiji",
+        "wp-history-of-greenland",
         "wp-history-of-guam",
         "wp-history-of-hawaii",
         "wp-history-of-kuwait",
@@ -748,6 +769,7 @@
         "wp-house-of-wisdom",
         "wp-huaca-rajada",
         "wp-hurricane-katrina",
+        "wp-hvalsey-church",
         "wp-ia-drang",
         "wp-ibn-battuta",
         "wp-ichi-no-tani",
@@ -926,6 +948,7 @@
         "wp-lothagam-north-pillar-site",
         "wp-lothal",
         "wp-luis-vaz-de-torres",
+        "wp-lund",
         "wp-luoyang",
         "wp-lutzen",
         "wp-lutzen-1632",
@@ -949,6 +972,8 @@
         "wp-mana-skeleton",
         "wp-mangareva",
         "wp-mansa-musa",
+        "wp-maori-king-movement",
+        "wp-maori-language-act-1987",
         "wp-maratha-empire",
         "wp-march-on-washington",
         "wp-marco-polo",
@@ -1021,6 +1046,7 @@
         "wp-mulifanua",
         "wp-munster",
         "wp-murasaki-shikibu",
+        "wp-musket-wars",
         "wp-muslim-conquest-syria",
         "wp-mussau-island",
         "wp-myall-creek-massacre",
@@ -1076,6 +1102,9 @@
         "wp-nuremberg",
         "wp-nuri",
         "wp-nuuanu",
+        "wp-nuuk",
+        "wp-nz-constitution-act-1852",
+        "wp-nz-land-confiscations",
         "wp-nzinga",
         "wp-obelisk-of-axum",
         "wp-oc-eo",
@@ -1133,6 +1162,7 @@
         "wp-pataliputra",
         "wp-pazyryk-burials",
         "wp-peace-of-callias",
+        "wp-peace-of-lund",
         "wp-peace-westphalia",
         "wp-pearl-harbor",
         "wp-pedro-fernandes-de-queiros",
@@ -1220,6 +1250,7 @@
         "wp-rorkes-drift",
         "wp-round-table-conference-1949",
         "wp-route-varangians-greeks",
+        "wp-royal-greenland-trading-department",
         "wp-rozvi-empire",
         "wp-ruapekapeka",
         "wp-runnymede",
@@ -1239,6 +1270,7 @@
         "wp-salt-march",
         "wp-salyut-1",
         "wp-samoa",
+        "wp-samuel-marsden",
         "wp-san-bartolo-maya-site",
         "wp-san-lorenzo-tenochtitlan",
         "wp-sandline-affair",
@@ -1337,6 +1369,7 @@
         "wp-stand-watie",
         "wp-star-wars",
         "wp-state-emblem-ussr",
+        "wp-statute-of-westminster-adoption-act-1947",
         "wp-stele-of-piye",
         "wp-stockholm",
         "wp-stonehenge",
@@ -1346,8 +1379,14 @@
         "wp-suhrawardy-udyan",
         "wp-sunpu-castle",
         "wp-sv-antiken",
+        "wp-sv-forsvenskningen",
+        "wp-sv-skane-lan",
+        "wp-sv-skanes-historia",
+        "wp-sv-skanska-generalguvernementet",
+        "wp-sv-sodra-stambanan",
         "wp-swahili-coast",
         "wp-sweden",
+        "wp-swedification-of-scania",
         "wp-swedish-calendar",
         "wp-swedish-empire",
         "wp-sydney-cove",
@@ -1417,9 +1456,12 @@
         "wp-treaty-fredrikshamn",
         "wp-treaty-nanking",
         "wp-treaty-nystad",
+        "wp-treaty-of-kiel",
+        "wp-treaty-of-roskilde",
         "wp-treaty-of-waitangi",
         "wp-treaty-paris-1783",
         "wp-treaty-paris-1815",
+        "wp-treaty-settlements",
         "wp-treaty-triple-alliance",
         "wp-trepanning",
         "wp-triangular-trade",
@@ -1456,6 +1498,7 @@
         "wp-unsc-242",
         "wp-unsc-338",
         "wp-unsc-598",
+        "wp-uppakra",
         "wp-uruguay",
         "wp-uruk",
         "wp-us-capitol",
@@ -1490,6 +1533,7 @@
         "wp-wagram",
         "wp-wairau-bar",
         "wp-waitangi-northland",
+        "wp-waitangi-tribunal",
         "wp-waitara-nz",
         "wp-wall-street-crash-1929",
         "wp-wandjina",
@@ -1510,11 +1554,13 @@
         "wp-western-african-ebola-epidemic",
         "wp-western-highlands-province",
         "wp-western-regions",
+        "wp-western-settlement",
         "wp-westerplatte",
         "wp-white-horse-temple",
         "wp-white-mountain",
         "wp-white-wolf-mountain",
         "wp-willem-janszoon",
+        "wp-william-hobson",
         "wp-winter-palace",
         "wp-wittstock",
         "wp-wittstock-battle",
@@ -1617,6 +1663,12 @@
       ]
     },
     {
+      "license": "Domstolsdokument (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "icj-pcij-ab53"
+      ]
+    },
+    {
       "license": "FN-dokument (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "un-sres-678"
@@ -1641,6 +1693,17 @@
         "historiska-jarnalder",
         "historiska-perioder",
         "historiska-stenalder"
+      ]
+    },
+    {
+      "license": "Lex, begränsad licens (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "lex-dominion",
+        "lex-maori",
+        "lex-maori-sproget",
+        "lex-new-zealand",
+        "lex-new-zealands-historie",
+        "lex-waitangitraktaten"
       ]
     },
     {
@@ -1787,6 +1850,12 @@
         "natural-earth-countries",
         "natural-earth-lander",
         "natural-earth-omstridda",
+        "nf-lund",
+        "nf-lunds-domkyrka",
+        "nf-lunds-universitet",
+        "nf-roskilde",
+        "nf-skane",
+        "nf-snapphanekrig",
         "whe-chinese-diamond-sutra",
         "wilber-1886"
       ]
@@ -1841,6 +1910,27 @@
       ]
     },
     {
+      "license": "Store norske leksikon, begränsad licens (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "snl-new-zealand",
+        "snl-new-zealands-befolkning",
+        "snl-new-zealands-historie",
+        "snl-new-zealands-politiske-system"
+      ]
+    },
+    {
+      "license": "Store norske leksikon, fri licens enligt artikelns metadata (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "snl-maori"
+      ]
+    },
+    {
+      "license": "Store norske leksikon, märkt fri (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "snl-eirik-raude"
+      ]
+    },
+    {
       "license": "© HISTORY / A&E Television Networks (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "history-flat-earth",
@@ -1851,6 +1941,42 @@
         "history-salem-burning",
         "history-sphinx",
         "history-vikings-horns"
+      ]
+    },
+    {
+      "license": "© Lex (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "lex-erik-den-rode",
+        "lex-forsvarsaftale-1941",
+        "lex-gronlands-forfatningshistorie",
+        "lex-gronlands-forhistorie",
+        "lex-gronlands-historie-1500-1979",
+        "lex-gronlands-historie-efter-1979",
+        "lex-gronlands-historie-kort",
+        "lex-gronlands-selvstyre",
+        "lex-hans-egede",
+        "lex-kielerfreden",
+        "lex-nuuk",
+        "lex-ostgronlandssagen",
+        "lex-saqqaq-kulturen",
+        "lex-thule-kulturen"
+      ]
+    },
+    {
+      "license": "© Lex.dk, begrænset genbrug (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "lex-freden-i-kobenhavn",
+        "lex-lund",
+        "lex-lunds-domkirke",
+        "lex-lunds-historie",
+        "lex-lunds-universitet",
+        "lex-malmo",
+        "lex-oresundsforbindelsen",
+        "lex-roskildefreden",
+        "lex-skane",
+        "lex-skanske-krig",
+        "lex-tabet-af-skane",
+        "lex-uppakra"
       ]
     },
     {
@@ -1877,6 +2003,19 @@
       "license": "© Snopes (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "snopes-moai"
+      ]
+    },
+    {
+      "license": "© Store norske leksikon (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "snl-gronland",
+        "snl-gronlands-historie-til-1500"
+      ]
+    },
+    {
+      "license": "© Store norske leksikon, begrenset gjenbruk (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "snl-skane"
       ]
     },
     {
