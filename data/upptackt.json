@@ -51,6 +51,21 @@
         [[[-83,25],[-80,29],[-79,33],[-77,36],[-75,40],[-73,43],[-69,46],[-64,48],[-60,49],[-60,53],[-67,55],[-75,55],[-82,52],[-86,49],[-89,47],[-92,46],[-94,43],[-94,39],[-91,35],[-88,31],[-83,25]]],
         [[[-92,46],[-97,47],[-101,46],[-104,43],[-103,40],[-99,38],[-95,38],[-92,40],[-92,46]]]
       ]}
+    },
+    {
+      "id": "afrika-1575",
+      "from": 1575,
+      "sources": ["loc-ortelius-africa-1575"],
+      "note": {
+        "sv": "Ungefärlig fastlandsyta som Ortelius karta från 1575 återger; den är inte en nutida gräns och återger inte all lokal kunskap.",
+        "en": "Approximate mainland area shown by Ortelius's 1575 map; it is not a modern boundary and does not represent all local knowledge.",
+        "de": "Ungefähre Festlandsfläche, die Ortelius’ Karte von 1575 zeigt; sie ist keine moderne Grenze und bildet nicht alles lokale Wissen ab.",
+        "es": "Área continental aproximada mostrada por el mapa de Ortelius de 1575; no es una frontera moderna ni representa todo el conocimiento local.",
+        "fr": "Zone continentale approximative montrée par la carte d’Ortelius de 1575 ; ce n’est pas une frontière moderne et elle ne représente pas toutes les connaissances locales."
+      },
+      "geometry": {"type": "MultiPolygon", "coordinates": [
+        [[[-17,36],[-7,36],[5,37],[18,34],[28,31],[35,30],[35,23],[43,12],[50,11],[49,1],[43,-12],[40,-20],[35,-30],[28,-35],[18,-35],[11,-29],[7,-21],[1,-5],[-5,4],[-8,10],[-16,17],[-17,28],[-17,36]]]
+      ]}
     }
   ],
   "fog": {

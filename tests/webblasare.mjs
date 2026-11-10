@@ -2120,15 +2120,19 @@ async function run(browser, vp) {
         return layer.lifted;
       };
       return {
-        source: doc.knowledge?.[0]?.sources?.[0],
+        source: doc.knowledge?.find(k => k.id === 'nordamerika-1755')?.sources?.[0],
         before: inside([-78, 38], lifted(1754)),
         mitchellArea: inside([-78, 38], lifted(1755)),
         west: inside([-120, 40], lifted(1767)),
+        africaBefore: inside([18, 0], lifted(1574)),
+        africa: inside([18, 0], lifted(1575)),
+        africaSource: doc.knowledge?.find(k => k.id === 'afrika-1575')?.sources?.[0],
       };
     });
     if (r.source !== 'loc-mitchell-map-1755') throw new Error(`kartkunskapen saknar Mitchell-källan: ${r.source}`);
     if (r.before || !r.mitchellArea || r.west) throw new Error(`fel tids- eller områdesavgränsning: ${JSON.stringify(r)}`);
-    return 'Mitchell-källans ungefärliga nordamerikanska område lyfts från 1755, inte före eller långt i väster';
+    if (r.africaSource !== 'loc-ortelius-africa-1575' || r.africaBefore || !r.africa) throw new Error(`Afrikas källbelagda område har fel källa eller tid: ${JSON.stringify(r)}`);
+    return 'Mitchell-källans Nordamerika lyfts från 1755 och Ortelius Afrika från 1575; inte före eller långt utanför deras ytor';
   });
 
   // #872: Europa är känt från vyns början. Utan riken och resor är dimman redan lyft över Europa år -2999 (Paris, Uppsala,

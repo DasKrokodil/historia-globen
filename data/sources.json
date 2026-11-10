@@ -2,6 +2,7 @@
   "schema": "historia-globen/sources@1",
   "sources": [
     { "id": "natural-earth", "title": "Natural Earth 1:50m land (via world-atlas 2.0.2)", "url": "https://www.naturalearthdata.com/", "license": "Public domain", "checked": "2026-10-28" },
+    { "id": "loc-ortelius-africa-1575", "title": "Abraham Ortelius: Africae tabula nova, 1575 (Library of Congress)", "url": "https://www.loc.gov/resource/gdcwdl.wdl_17574/", "license": "Public domain", "checked": "2026-11-10" },
     { "id": "loc-mitchell-map-1755", "title": "John Mitchell: A map of the British and French dominions in North America, 1755 (Library of Congress)", "url": "https://www.loc.gov/resource/g3300.np000009/?st=list", "license": "Public domain", "checked": "2026-11-10" },
     { "id": "nasa-black-marble-2016", "title": "NASA Earth Observatory: Black Marble 2016, global nattljusbild (3600 × 1800)", "url": "https://science.nasa.gov/earth/earth-observatory/earth-at-night/maps/", "license": "Public domain i USA enligt NASA:s riktlinjer för bilder", "checked": "2026-11-01" },
     { "id": "nasa-media-guidelines", "title": "NASA: Guidelines for using NASA Images and Media", "url": "https://www.nasa.gov/nasa-brand-center/images-and-media/", "license": "Public domain i USA enligt NASA:s riktlinjer för bilder", "checked": "2026-11-01" },
