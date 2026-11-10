@@ -82,6 +82,8 @@ Det som finns: tangentbord (Tab, Enter, piltangenter på globen), globen som reg
 
 ## Språk och ton
 
+Tidslinjens uppspelning, hastighet och dagsteg, årshoppets meddelanden, Platt vys klungnamn, affischens etiketter och Om källornas gränssnitt hämtar sina texter ur `data/ui/` på alla fem språk (#672). Källors egna titlar, krediter och licensnamn behålls som innehåll.
+
 Fem språk (sv, en, de, es, fr); svenska först, saknas ett språk visas engelska och sedan svenska. **Artigt tilltal** (`Sie`, `usted`, `vous`) i gränssnittet och för vuxna, **du-form** för elever till och med 13 år (beslut 2026-11-08). Fakta skrivs opersonligt. Illustrationer märks alltid; respekt-reglerna för bilder står i CLAUDE.md.
 
 ## Känd UX-skuld

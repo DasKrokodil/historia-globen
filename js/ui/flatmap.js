@@ -17,6 +17,7 @@ import { medalTexture, medalSize, glyph } from '../layers/events.js';
 import { cluster, clusterContents, placeLabels, dotBox } from './clusters.js';
 import { empireBlocks } from './zoomlevels.js';
 import { CAT, t } from '../model.js';
+import { ui } from '../i18n.js';
 
 const IMG_W = 4096, IMG_H = 2048;
 const MAX_ZOOM = 10;
@@ -377,7 +378,7 @@ export class FlatMap {
         const { text, ring } = clusterContents(c.members, CAT, t);
         el.textContent = String(c.members.length);
         el.style.setProperty('--ring', ring);
-        el.setAttribute('aria-label', `${c.members.length} händelser nära varandra: ${text}. Zooma in.`);
+        el.setAttribute('aria-label', ui('flat.clusterLabel', { n: c.members.length, text }));
         el.dataset.contents = text; // syns under klungan vid hovring och fokus (CSS)
         el.title = `${c.members.slice(0, 8).map(m => t(m.e.title)).join(', ')}${c.members.length > 8 ? ' …' : ''}`;
       }
