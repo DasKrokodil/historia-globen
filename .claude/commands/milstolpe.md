@@ -54,6 +54,20 @@ perspektiv och svara på:
 
 Ge varje agent issuenumren och be den läsa dem, eller klistra in issuetexten; språkagenter läste inte issuen när de inte fick den (provkörning 7.0.0). Fakta ur minnet är förbjudet: agenterna öppnar källor eller markerar antagande. Agenterna ändrar inga filer.
 
+## Steg 3: kontextgrupper (beslut 2026-11-10, #1119)
+
+Sortera milstolpens issues i **kontextgrupper**: issues som delar kontext som en agent redan har läst, så att de kan
+göras i samma tråd (ett `/orkester`-pass följer en grupp). Det som avgör är delad kontext, inte antal issues.
+
+1. **Dela efter:** samma filer eller subsystem (till exempel `js/controllers/`, ett lager, en period i
+   `data/handelser/`), samma källor eller region, samma översättningsarbete.
+2. **Blanda inte** fakta/data med gränssnitt i samma grupp: de har olika modellnivå (fakta och data Opus, gränssnitt och
+   rendering Sonnet high, översättning och köstädning Sonnet medium) och verktygsresultaten stör varandra.
+3. **Skriv en rad per grupp:** vilka issues, vilka filer eller källor de delar, modellnivå, ordning (det som delar mest
+   först) och vilka beroenden eller filkrockar som finns mot andra grupper och öppna pull requests.
+4. **Ensamma issues** som inte delar något med något annat blir egna grupper. Skriv det hellre än att tvinga ihop.
+5. Uppskattad kostnad räknas per grupp (se Resultat, punkt 5).
+
 ## Resultat
 
 Dirigenten (du) syntetiserar och skriver en daterad rapport `docs/granskningar/ÅÅÅÅ-MM-DD-planering-<milstolpe>.md`
@@ -61,9 +75,12 @@ Dirigenten (du) syntetiserar och skriver en daterad rapport `docs/granskningar/�
 
 1. Bemanningen från steg 1, och förslagen på nya expertroller (eller "Ingen ny expert behövs").
 2. Stickprovskontrollera agenternas påståenden om repot (beslut, milstolpe, kod) innan de förs in; i provkörningen var ett av dem fel. Varje agents viktigaste fynd, med allvar och bevis, utan att slå ihop motstridiga åsikter i tysthet.
-3. Förslag till ordning, beroenden och filkrockar, och vem (Codex, Claude Code, agent) som bör ta vad.
+3. Förslag till ordning, beroenden och filkrockar, och vem (Codex, Claude Code, agent) som bör ta vad, med issues
+   sorterade i kontextgrupper enligt steg 3.
 4. Öppna frågor till Rikard, med rekommendation enligt CLAUDE.md ("Rekommendation i varje issue som kräver beslut").
-5. Uppskattad kostnad som intervall (enligt tokenbudgeten i `.orchestra/project.md`).
+5. Uppskattad kostnad som intervall (enligt tokenbudgeten i `.orchestra/project.md`), **per kontextgrupp**: startkostnad en
+   gång plus marginalkostnad per issue, uttryckt som procent av veckoanvändningen när miljön visar den (annars noteras
+   att den saknas).
 
 Rapportera kort till Rikard på svenska: bemanning, de tre viktigaste fynden, frågorna som kräver hans beslut och
 rapportens sökväg. Skapa inga issues och sätt inga etiketter förrän Rikard har godkänt planen.
