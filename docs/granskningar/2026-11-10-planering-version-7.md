@@ -127,6 +127,29 @@ Uppskattningen är ett antagande, inte mätt; faktisk förbrukning ska noteras e
 - **Rollen "produktchef" gjordes av dirigenten**, inte av en agent. Det räckte här.
 - Alla agenter märkte antaganden och ändrade inga filer.
 
+## Uppföljning: andra analysen med de nya agenterna (2026-11-10)
+
+Efter att `ux-tillganglighet`, `arkitekt`, `larare` och `forhistoriker` skapats körde jag om analysen av milstolpen oberoende (de fick issuesen #396, #49, #11 och #1085–#1098 och beslutet, men inte den här rapporten). Alla fyra är rapporterade som antaganden där de inte provat något; `forhistoriker` kunde inte öppna nature.com, Crossref eller Europe PMC från sessionen, och Wikidata gav 429, så inga dateringar eller Q-id är verifierade. Dirigentens stickprov mot koden bekräftade att `-2999` är hårdkodat i tester (nio ställen i `tests/webblasare.mjs`, ett i `tests/period-range.test.mjs`), att "Välj ett år mellan" och "år/s" är hårdkodad svenska i `js/timeline.js` och att `SEGMENTS` har fyra segment om 25 %.
+
+**Vad som blev annorlunda**
+- Fingret når inte förhistorien: ett segment på cirka 10 % är cirka 35 px på 400 px (antagande, mäts i #1087). Snabbhoppen blir primär väg, och zoomen (#1091) kan behövas.
+- 100 000 år gäller reglaget, inte vilka arter som tas med; arter som börjar före gränsen behöver öppen start (`../`).
+- Artnivån är omstridd; dateringsmetoden ska stå i kortet; `two-sources` är orealistiskt som mål.
+- Skolan får inget förrän sist: lärarstödet delades så att begrepp och "säkert eller tolkning" kan skrivas tidigt.
+- Epokknapparna (till exempel `nordisk-stenalder`, −11999) ändrar beteende när skalan flyttas.
+- Textalternativ till kartan saknades för skärmläsare.
+
+**Ändringar i issuesen**
+- #1088 delades (nu del 2a med `MIN_YEAR` och segment), etiketterna blev #1101. Krav om fönstertext, delade länkar, epokknappar och mätning av alla segment lades i #1088.
+- #1098 delades (nu del c: turer och Lgr22); begrepp och "säkert/tolkning" blev #1102, tidsmetaforen #1103.
+- Nya issues: #1100 (tester importerar `MIN_YEAR`, `redo`), #1104 (Samtidigt och fokus), #1105 (illustrationer av arter), #1106 (textalternativ till kartan), #1107 (elevens ingång), #1108 (produktdokumenten), #1109 (lärargranskning i stället för pilot). #1104–#1107 och #1109 är `beslut-krävs` med rekommendation.
+- #1085: `redo` borttagen tills ordlistan #1086 är kvitterad; `parseYearInput` tillagd.
+- #1092 och #1093: artnivå som egen leverans, lucklista före data, Afrika som egna händelser. #1094: grenande visning, flera vågor och förutsättningar #1095–#1097. #1089 och #1090: tas i följd.
+
+**Inte ändrat (avgörs av DasKrokodil efter mätningen i #1087):** gränsen på cirka 100 000 år och om zoomen (#1091) flyttas in i 7.0.0.
+
+**Ingen ny agent:** läraren föreslog en rådgivande barnpedagog och arkitekten en mätspecialist för reglaget; bedömningen är att `larare`, `ux-tillganglighet` och `arkitekt` räcker, och en lärargranskning (#1109) täcker barnpedagogiken.
+
 ## Bilaga A: utkast till agentfil `forhistoriker` (skapas först efter ditt ok)
 
 ```
