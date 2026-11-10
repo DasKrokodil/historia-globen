@@ -226,7 +226,7 @@ Rikard gillar stilen. Behåll den:
 | 6.2.0 UI/UX uppdatering | Nästa efter 6.1.0 (beslut 2026-11-09, docs/beslut/2026-11-09-ui-ux-efter-6-1-0.md): rättningarna ur UX-granskningen i `docs/ux-review/` (#991–#1004) och de UX-ärenden som flyttats dit (#571, #868, #894, #937, #977, #979–#981). Målet är att sidan känns lugnare och lättare att förstå: ett tydligt "samtidigt", färre samtidiga ytor och ett ord per sak |
 | 6.3.0 Teman | Temamotorn (#398, `data/teman.json`, tema som grupp i Fokus) med teknik (#105) som första tema (beslut 2026-11-08, docs/beslut/2026-11-08-teman-fore-version-7.md). Formatet skrivs först; bygget efter lägeskontraktet (#893), som räknar "tema" som ett läge. Epoker (#845) och teman ska inte bli två format. Var 6.2.0 före 2026-11-09 |
 | 6.4.0 Regionkort | Regionkort (#579): kurerade kort per region, med gränskälla, licens och källor godkända före bygge (var 6.2.0 före 2026-11-08 och 6.3.0 före 2026-11-09) |
-| 7 Människans långa historia | Tidsmodell för ungefärliga datum, tidslinje i nivåer (#49), människoarter (#11). Inte ett tema och bygger inte på temamotorn; blockeras av besluten a–d i tidsmodellens förstudie |
+| 7 Människans långa historia | Tidsmodell för ungefärliga datum, tidslinje i nivåer (#49), människoarter (#11). Inte ett tema och bygger inte på temamotorn. Riktningen beslutad 2026-11-10 (docs/beslut/2026-11-10-version-7-riktning.md): alternativ B i tre delar, människans läge cirka 100 000 år bakåt, förhistorien högst cirka 10 % av reglaget (mäts först), jordens historia först i version 8 |
 | 8 Jordens historia | Eget läge med geologisk tidslinje och forntida kartor (#12, #51–#53) |
 | 9 Atlas och jämförelse | Jämför två tider (#248), historiska kartor (#249), skolatlasens bildlager (#8, #9, #55) |
 

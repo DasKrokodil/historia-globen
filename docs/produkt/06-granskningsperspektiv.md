@@ -28,6 +28,8 @@ Text att klistra in i en granskningsorder till en agent:
 | Täckningsrunda | | | | ○ | ○ | | | ● | | ● |
 | Release | ● | ● | ● | ● | ● | ○ | ○ | ● | ● | ○ |
 
+Lins 13 (geograf) tas vid nytt innehåll med platser eller riken, täckningsrundor och kartändringar. Lins 14 (språk) tas när text läggs till eller ändras, och inför varje release. Lins 15 (förhistoriker) tas när innehåll rör förhistoria eller djup tid, tillsammans med lins 8. Lins 8 (historiker) tas vid allt nytt innehåll och vid varje täckningsrunda.
+
 ● alltid · ○ när det berörs.
 
 Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10 vid UX-genomgång och nya funktioner (som "intresserad"), och 9 när något byggs för yngre barn.
@@ -35,6 +37,8 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 ---
 
 ## 1. Senior UX/UI-designer
+
+*Agent: `ux-tillganglighet` (lins 1 och 7), `.claude/agents/ux-tillganglighet.md`.*
 
 **Blicken:** helheten ur ett människocentrerat perspektiv. Är värdet tydligt, är vägen kort, är hierarkin begriplig, och håller utseendet och mönstren ihop?
 
@@ -59,6 +63,8 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 
 ## 2. Senior mjukvaruarkitekt
 
+*Agent: `arkitekt`, `.claude/agents/arkitekt.md`.*
+
 **Blicken:** vad är det som håller på tio år, och vad går sönder först? Är beslutet rätt för storleken, laget och målen, inte för modet.
 
 **Frågor**
@@ -82,6 +88,8 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 ---
 
 ## 3. Historielärare med pedagogisk utbildning
+
+*Agent: `larare` (lins 3 och 6), `.claude/agents/larare.md`.*
 
 *Skolan är en bonus, inte styrande (beslut 2026-11-08). Linsen används när något byggs för skolan, inte som standard.*
 
@@ -300,6 +308,66 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 **Bevis att samla in:** issues och milstolpar med nummer, beslutsfiler, granskningsrapporter med datum, täckningsmått från `python3 tools/tackning.py`, uppgifter om genomströmning i pull requests (tid till ihopslagning, antal ombaseringar). Skriv det som saknas som luckor, inte som gissningar.
 
 **Vad linsen har sagt hittills:** inget; linsen är ny (2026-11-10). Linsen bygger på att andra linsers fynd samlas, så starta med syntesen i `docs/ux-review/04-syntes.md`.
+
+---
+
+## 13. Geograf
+
+**Blicken:** stämmer platserna, gränserna och kartan, och är världen representerad rättvist? Agent: `geograf` (`.claude/agents/geograf.md`).
+
+**Frågor**
+- **Koordinater och platsnamn:** ligger platsen rätt (`[longitud, latitud]`), är `locationPrecision` satt när platsen är ungefärlig, och heter platsen lika i alla språk? Historiskt eller nutida namn?
+- **Gränser och riken:** tidsenlig utbredning, inga anakronismer, omstridda områden enligt docs/omstridda-granser.md.
+- **Rendering:** ekvirektangulär projektion, datumgränsen vid 180°, polarområden, ytor över meridianen.
+- **Täckning:** balans mellan världsdelar och regioner, tomma celler, slagsida mot Europa (`python3 tools/tackning.py`).
+- **Vägar och resor:** rimlig geografi (sjövägar över hav, landvägar över land).
+
+**Brukar säga (hypoteser):** "Öppna data har slagsida mot Europa." "Ett rike ritat med nutida gränser blir missvisande."
+
+**Bevis att samla in:** källa med adress (Natural Earth, Cliopatria, Wikidata, GeoNames), koordinat mot karta, täckningsmått.
+
+**Vad linsen har sagt hittills:** inget; linsen är ny (2026-11-10).
+
+---
+
+## 14. Språk- och mottagarlandsexpert (en, de, es, fr)
+
+**Blicken:** läser en modersmålstalare i mottagarlandet texten som naturlig, artig och rätt, och är innehållet begripligt utan svensk förförståelse? Agenter: `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr` (`.claude/agents/`), en per språk. Svenska är källan och har ingen egen expert.
+
+**Frågor**
+- **Språk:** grammatik, idiom, terminologi enligt docs/ordlista-oversattning.md, konsekvent ordval.
+- **Tilltal och typografi:** `Sie`, `usted`, `vous` (du-form till elever upp till 13 år), språkets tidsangivelser, citattecken, tal- och datumformat.
+- **Mottagarlandets perspektiv:** namn och benämningar landet använder, skolans begrepp, känsliga eller omstridda ämnen för just de läsarna, svenska läroplansbegrepp som blir obegripliga.
+- **Utrymme:** längre ord i tyska och franska passar i gränssnittet.
+- **Fakta oförändrade:** årtal, siffror, namn och påståenden är desamma som i svenskan; ett möjligt sakfel flaggas till historikern, inte rättas av språkexperten.
+- **Fullständighet:** inga nya oöversatta texter.
+
+**Brukar säga (hypoteser):** "Spanska för Spanien och Latinamerika kräver neutralt ordval." "Tyskan blir lång och behöver utrymme." "Franska kräver rätt mellanrum före skiljetecken."
+
+**Bevis att samla in:** originaltext mot översättning, ordlistans regel, skärmbild där texten får plats eller inte.
+
+**Vad linsen har sagt hittills:** inget; linsen är ny (2026-11-10). Tidigare språkgranskning gjordes som AI-korsgranskning mellan agenterna (data/ui/sprak.json); en tysk betydelseändring hittades inför release 2026-11-08.
+
+---
+
+## 15. Förhistoriker (paleoantropolog och arkeolog)
+
+**Blicken:** vad säger forskningen i dag om människoarter, dateringar och vandring, och hur säker är den? Agent: `forhistoriker` (`.claude/agents/forhistoriker.md`). Kompletterar lins 8: historikern kontrollerar att källan stöder påståendet, förhistorikern bedömer forskningsläget.
+
+**Frågor**
+- **Arter:** vilka ingår, på vilken nivå (släkte eller art), och är källornas taxonomi oense?
+- **Dateringar:** spann och metod syns i stället för ett exakt år; `precision` och `edtf` säger samma sak som källan.
+- **Fyndglesheten:** "inga säkra fynd" är inte "ingen var där". Slagsida mot Europa och Levanten.
+- **Vandring:** tolkning med flera vågor och blandning, inte en enda pil.
+- **Evolution:** grenande, inte en stege. Afrika som innehåll och inte bara startpunkt.
+- **Språk:** inget "ras", inget "primitiv"; sakligt om evolution och om Amerikas befolkning.
+- **Bilder:** illustrationer av arter märkta som tolkning.
+
+**Brukar säga (hypoteser):** "Spannen är större än kartan låter påskina." "Artindelningen är en tolkning, inte en fakta." "Nya fynd flyttar dateringar."
+
+**Bevis att samla in:** källtabell per art (spann, referens, oenighet), täckningsmått per världsdel, källsidor öppnade med datum.
+
+**Vad linsen har sagt hittills:** inget; linsen är ny (2026-11-10). Alla nio agenter i planeringen av version 7 efterlyste rollen (`docs/granskningar/2026-11-10-planering-version-7.md`).
 
 ---
 

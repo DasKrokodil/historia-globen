@@ -47,6 +47,7 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   först varje pull request ("Codex-granskning: godkänd"). Claude Code granskar därefter bara de som Codex har märkt "Klar för Claude Code-granskning", och bara det som kräver dirigentens bedömning (källpolicy, arkitektur, synligt resultat); fakta, data och källor granskas alltid fullt. `redo`
   sätts aldrig på arkitekturärenden förrän rätt förutsättningar finns, och tas bort om ett issue blir beroende av ett
   annat spår. Dirigentens eget arbete märks som alla andras (`pågår` och tilldelning).
+- **Planering före milstolpe (beslut 2026-11-10):** `/milstolpe <milstolpe>` gör först en kort bemanningsanalys (vilka av agenterna i `.claude/agents/` som behövs: `historiker`, `forhistoriker`, `geograf`, `ux-tillganglighet`, `arkitekt`, `larare`, `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr`, och linserna i docs/produkt/06-granskningsperspektiv.md) och låter sedan de valda agenterna analysera milstolpens issues från sina perspektiv. Resultatet blir en rapport i `docs/granskningar/` till Rikard; inget byggs och inga issues skapas före hans ok.
 - **Blind-spots-rundan (beslut 2026-11-02):** den separata, självkritiska analysen i UX-genomgången görs av Codex och
   skrivs som rapport i `docs/granskningar/`. Dirigenten läser rapporten och gör issues av fynden, men gör inte analysen själv.
 - **Flödesregler (beslut 2026-11-02):** (1) Händelsedriven kögenomgång: efter varje ny, uppdaterad eller ihopslagen pull
