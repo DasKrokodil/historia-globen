@@ -233,6 +233,7 @@ Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna]
 - **Dirigenten och orkestern** i `.orchestra/shared/` kommer från [solwation/dirigenten-och-orkestern](https://github.com/solwation/dirigenten-och-orkestern) och har MIT-licens. Det är instruktioner för AI-agenter, inte en del av sidan.
 - **three.js** laddas från jsDelivr och har MIT-licens. Typsnitten kommer från Google Fonts (SIL Open Font License).
 - Händelsetexterna är egna sammanfattningar. Källorna, ofta Wikipedia (CC BY-SA), länkas från varje uppgift.
+- **Store norske leksikon** (snl.no) och **Lex** (lex.dk, Den Store Danske) används som länkade kontrollkällor för årtal och plats, till exempel för händelserna om Aotearoa/Nya Zeeland (#579). De flesta artiklarna har en begränsad licens; ingen text är kopierad, och artiklarna står i källregistret.
 
 Namnet "Historia-globen" omfattas inte av licenserna ovan.
 
