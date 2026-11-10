@@ -28,6 +28,8 @@ Text att klistra in i en granskningsorder till en agent:
 | Täckningsrunda | | | | ○ | ○ | | | ● | | ● |
 | Release | ● | ● | ● | ● | ● | ○ | ○ | ● | ● | ○ |
 
+Lins 13 (geograf) tas vid nytt innehåll med platser eller riken, täckningsrundor och kartändringar. Lins 14 (språk) tas när text läggs till eller ändras, och inför varje release. Lins 8 (historiker) tas vid allt nytt innehåll och vid varje täckningsrunda.
+
 ● alltid · ○ när det berörs.
 
 Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10 vid UX-genomgång och nya funktioner (som "intresserad"), och 9 när något byggs för yngre barn.
@@ -300,6 +302,45 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 **Bevis att samla in:** issues och milstolpar med nummer, beslutsfiler, granskningsrapporter med datum, täckningsmått från `python3 tools/tackning.py`, uppgifter om genomströmning i pull requests (tid till ihopslagning, antal ombaseringar). Skriv det som saknas som luckor, inte som gissningar.
 
 **Vad linsen har sagt hittills:** inget; linsen är ny (2026-11-10). Linsen bygger på att andra linsers fynd samlas, så starta med syntesen i `docs/ux-review/04-syntes.md`.
+
+---
+
+## 13. Geograf
+
+**Blicken:** stämmer platserna, gränserna och kartan, och är världen representerad rättvist? Agent: `geograf` (`.claude/agents/geograf.md`).
+
+**Frågor**
+- **Koordinater och platsnamn:** ligger platsen rätt (`[longitud, latitud]`), är `locationPrecision` satt när platsen är ungefärlig, och heter platsen lika i alla språk? Historiskt eller nutida namn?
+- **Gränser och riken:** tidsenlig utbredning, inga anakronismer, omstridda områden enligt docs/omstridda-granser.md.
+- **Rendering:** ekvirektangulär projektion, datumgränsen vid 180°, polarområden, ytor över meridianen.
+- **Täckning:** balans mellan världsdelar och regioner, tomma celler, slagsida mot Europa (`python3 tools/tackning.py`).
+- **Vägar och resor:** rimlig geografi (sjövägar över hav, landvägar över land).
+
+**Brukar säga (hypoteser):** "Öppna data har slagsida mot Europa." "Ett rike ritat med nutida gränser blir missvisande."
+
+**Bevis att samla in:** källa med adress (Natural Earth, Cliopatria, Wikidata, GeoNames), koordinat mot karta, täckningsmått.
+
+**Vad linsen har sagt hittills:** inget; linsen är ny (2026-11-10).
+
+---
+
+## 14. Språk- och mottagarlandsexpert (en, de, es, fr)
+
+**Blicken:** läser en modersmålstalare i mottagarlandet texten som naturlig, artig och rätt, och är innehållet begripligt utan svensk förförståelse? Agenter: `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr` (`.claude/agents/`), en per språk. Svenska är källan och har ingen egen expert.
+
+**Frågor**
+- **Språk:** grammatik, idiom, terminologi enligt docs/ordlista-oversattning.md, konsekvent ordval.
+- **Tilltal och typografi:** `Sie`, `usted`, `vous` (du-form till elever upp till 13 år), språkets tidsangivelser, citattecken, tal- och datumformat.
+- **Mottagarlandets perspektiv:** namn och benämningar landet använder, skolans begrepp, känsliga eller omstridda ämnen för just de läsarna, svenska läroplansbegrepp som blir obegripliga.
+- **Utrymme:** längre ord i tyska och franska passar i gränssnittet.
+- **Fakta oförändrade:** årtal, siffror, namn och påståenden är desamma som i svenskan; ett möjligt sakfel flaggas till historikern, inte rättas av språkexperten.
+- **Fullständighet:** inga nya oöversatta texter.
+
+**Brukar säga (hypoteser):** "Spanska för Spanien och Latinamerika kräver neutralt ordval." "Tyskan blir lång och behöver utrymme." "Franska kräver rätt mellanrum före skiljetecken."
+
+**Bevis att samla in:** originaltext mot översättning, ordlistans regel, skärmbild där texten får plats eller inte.
+
+**Vad linsen har sagt hittills:** inget; linsen är ny (2026-11-10). Tidigare språkgranskning gjordes som AI-korsgranskning mellan agenterna (data/ui/sprak.json); en tysk betydelseändring hittades inför release 2026-11-08.
 
 ---
 
