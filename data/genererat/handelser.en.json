@@ -725,6 +725,8 @@
 "kauffmannavtalet":{"place":{"en":"Washington, D.C."},"title":{"en":"The agreement on the defence of Greenland"}},
 "allman-rostratt-for-man-1911":{"place":{"en":"Sweden"},"title":{"en":"The first election with universal male suffrage"}},
 "kvinnor-rostar-1921":{"place":{"en":"Sweden"},"title":{"en":"Women vote for the Riksdag for the first time"}},
+"gulag":{"place":{"en":"The Soviet Union (the administration was in Moscow)"},"title":{"en":"The Gulag, the Soviet system of labour camps"},"note":{"title":{"en":"The sources differ"}}},
+"holodomor":{"place":{"en":"Soviet Ukraine"},"title":{"en":"The Holodomor, the famine in Ukraine"},"note":{"title":{"en":"The sources differ"}}},
 "bangladeshs-befrielsekrig":{"place":{"en":"East Pakistan, today Bangladesh (began in Dhaka)"},"title":{"en":"Bangladesh Liberation War"},"note":{"title":{"en":"About the start of the war"}}},
 "operation-searchlight":{"place":{"en":"Dhaka and other cities in East Pakistan"},"title":{"en":"Operation Searchlight"},"note":{"title":{"en":"The sources differ"}}},
 "bangladeshs-sjalvstandighet-utropas":{"place":{"en":"Dhaka"},"title":{"en":"Bangladesh's independence is proclaimed"},"note":{"title":{"en":"Only one source for the place"}}},
