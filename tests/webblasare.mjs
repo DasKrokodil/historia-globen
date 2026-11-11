@@ -710,7 +710,8 @@ async function run(browser, vp) {
     const bad = await page.evaluate(() => [...document.querySelectorAll('.tdot, .tspan, .tff, .troute')].filter(m => m.tabIndex !== -1).length);
     if (bad) throw new Error(`${bad} markeringar har tabbstopp`);
     const marks = await page.evaluate(() => document.querySelectorAll('.tdot, .tspan, .tff, .troute').length);
-    await visible('#timeline-legend');
+    // I smal skärm döljs raden medan engångstipset visas (#1138); texten finns ändå, och raden syns efter första draget (provas nedan)
+    await page.waitForSelector('#timeline-legend', { state: 'attached', timeout: T.step });
     const texts = (await page.textContent('#timeline-legend')).replace(/\s+/g, ' ').trim();
     if (!/händelse/.test(texts) || !/samband/.test(texts) || !/resa/.test(texts)) throw new Error(`teckenförklaringen saknar tecken: ${texts}`);
     const covered = await page.evaluate(() => [...document.querySelectorAll('.timebar .step, #btn-play')].filter(b => {
@@ -724,7 +725,7 @@ async function run(browser, vp) {
     const fresh = await context.newPage();
     try {
       await fresh.goto(BASE);
-      await fresh.evaluate(() => { try { localStorage.removeItem('hg-teckenforklaring'); } catch { /* */ } });
+      await fresh.evaluate(() => { try { localStorage.removeItem('hg-teckenforklaring'); localStorage.setItem('hg-year-tip', '1'); } catch { /* */ } }); // utan tipset, som annars döljer raden i smal skärm (#1138)
       await fresh.reload();
       await fresh.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await fresh.waitForSelector('#timeline-legend summary', { state: 'visible', timeout: T.step });
@@ -1527,7 +1528,7 @@ async function run(browser, vp) {
           await surprise.evaluate(button => button.click());
           await pp.locator('#jump-back-button').focus();
           await pp.screenshot({ path: path.join(OUT, `${vp.name}-997-tillbaka.png`) });
-          await pp.waitForSelector('#jump-back', { state: 'hidden', timeout: 11000 });
+          await pp.waitForSelector('#jump-back', { state: 'hidden', timeout: 25000 }); // raden ligger kvar i 20 s (#1138)
           if (await pp.evaluate(() => document.activeElement?.id) !== 'year-jump') throw new Error('utgången tid lämnade fokus på en dold knapp');
         }
         if (await pp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error(`${lang}: horisontell scroll`);
@@ -4520,6 +4521,90 @@ async function run(browser, vp) {
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return out.join(', ');
     } finally { await sp.close(); }
+  });
+  // #1138: tillgänglighet. Mäts i den bredd jobbet kör (400 × 800 eller 1400 × 900) på en egen sida med ren lagring.
+  await check('tillgänglighet: namn, fokus, träffytor, aria-invalid och tipset (#1138)', async () => {
+    const ap = await context.newPage();
+    const errs = [];
+    ap.on('pageerror', e => errs.push(e.message));
+    const notes = [];
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await ap.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await ap.route(u => isFont(u.href), r => r.abort());
+      }
+      await ap.goto(`${BASE}?ny=a11y#y=-2600`);
+      await ap.evaluate(() => { try { localStorage.removeItem('hg-year-tip'); } catch { /* */ } });
+      await ap.goto(`${BASE}?ny=a11y2#y=-2600`);
+      await ap.reload();
+      await ap.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      // 5. Tipset överlappar inte teckenförklaringen: antingen står det under raden eller så är raden dold medan tipset visas (smal skärm)
+      await ap.waitForSelector('#year-tip:not([hidden])', { timeout: T.step });
+      const tip = await ap.evaluate(() => {
+        const legend = document.getElementById('timeline-legend'), a = legend.getBoundingClientRect();
+        const text = document.querySelector('#year-tip span').getBoundingClientRect();
+        const items = [...legend.children].map(c => c.getBoundingClientRect());
+        const right = Math.max(...items.map(r => r.right)), left = Math.min(...items.map(r => r.left));
+        const vertical = text.top < a.bottom && text.bottom > a.top, horizontal = text.left < right && text.right > left;
+        return { overlap: vertical && horizontal, hidden: getComputedStyle(legend).visibility === 'hidden', text: [text.left, text.right], legend: [left, right] };
+      });
+      if (vp.width <= 760 && !tip.hidden) throw new Error('teckenförklaringen är kvar under engångstipset i smal skärm');
+      if (tip.overlap && !tip.hidden) throw new Error(`tipset överlappar teckenförklaringen: ${JSON.stringify(tip)}`);
+      // 4. Träffytor: teckenförklaringens knapp har en osynlig yta (::before) på minst 24 px höjd, och fokusramen klipps inte uppåt eller nedåt
+      const hit = await ap.evaluate(() => {
+        const legend = document.getElementById('timeline-legend'), summary = legend.querySelector('summary');
+        const cs = getComputedStyle(summary, '::before'), ls = getComputedStyle(legend);
+        return { w: parseFloat(cs.width), h: parseFloat(cs.height), overflowY: ls.overflowY, overflowX: ls.overflowX };
+      });
+      if (hit.w < 23.5 || hit.h < 23.5) throw new Error(`teckenförklaringens träffyta är ${Math.round(hit.w)} × ${Math.round(hit.h)} px`);
+      if (hit.overflowY !== 'visible') throw new Error(`teckenförklaringen klipper fokusramen i höjd (overflow-y: ${hit.overflowY})`);
+      notes.push(`teckenförklaringens träffyta ${Math.round(hit.w)}×${Math.round(hit.h)}`);
+      // 1 och 6. Intervallformuläret: f.Kr.-knappens namn innehåller det synliga ordet, och fel ger aria-invalid
+      await ap.click('#year-jump');
+      await ap.waitForSelector('#jump-pop:not([hidden])', { timeout: T.step });
+      // 6. Årshoppet
+      await ap.fill('#jump-input', 'abc');
+      await ap.press('#jump-input', 'Enter');
+      await ap.waitForFunction(() => document.getElementById('jump-input').getAttribute('aria-invalid') === 'true' && document.getElementById('jump-msg').textContent.trim(), null, { timeout: T.step });
+      await ap.fill('#jump-input', '19');
+      if (await ap.getAttribute('#jump-input', 'aria-invalid') !== null) throw new Error('årshoppets aria-invalid står kvar efter ändring');
+      await ap.click('#range-open');
+      await ap.waitForSelector('#range-pop:not([hidden])', { timeout: T.step });
+      const names = await ap.evaluate(() => [...document.querySelectorAll('#range-pop .jump-era-btn')].map(b => ({ text: b.textContent.trim(), name: b.getAttribute('aria-label') })));
+      if (names.length !== 2 || names.some(n => !n.name || !n.name.includes(n.text))) throw new Error(`f.Kr.-knappens namn saknar det synliga ordet: ${JSON.stringify(names)}`);
+      await ap.fill('#range-from', 'abc');
+      await ap.press('#range-from', 'Enter');
+      await ap.waitForFunction(() => document.getElementById('range-from').getAttribute('aria-invalid') === 'true', null, { timeout: T.step });
+      if (await ap.getAttribute('#range-to', 'aria-invalid') !== null) throw new Error('Till markerades som fel fast bara Från är ogiltigt');
+      await ap.fill('#range-from', '1914');
+      await ap.fill('#range-to', '1914');
+      await ap.press('#range-to', 'Enter');
+      await ap.waitForFunction(() => document.getElementById('range-from').getAttribute('aria-invalid') === 'true' && document.getElementById('range-to').getAttribute('aria-invalid') === 'true', null, { timeout: T.step });
+      await ap.fill('#range-to', '1918');
+      if (await ap.getAttribute('#range-from', 'aria-invalid') !== null || await ap.getAttribute('#range-to', 'aria-invalid') !== null) throw new Error('intervallets aria-invalid står kvar efter ändring');
+      await ap.press('#range-to', 'Escape');
+      await ap.waitForSelector('#range-pop', { state: 'hidden', timeout: T.step });
+      // 2 och 3. Faktarutan: ingen aria-live på kortet, rubriken går till statusraden, fokus går till Stäng och tillbaka till samma knapp
+      if (await ap.getAttribute('#detail', 'aria-live') !== null) throw new Error('#detail har kvar aria-live');
+      await ap.waitForSelector('#funfact .ff-chip', { state: 'visible', timeout: T.step });
+      const chipId = await ap.evaluate(() => document.querySelector('#funfact .ff-chip').dataset.id);
+      await ap.focus('#funfact .ff-chip');
+      await ap.keyboard.press('Enter');
+      await ap.waitForSelector('#detail:not([hidden])', { timeout: T.step });
+      await ap.waitForFunction(() => document.activeElement?.hasAttribute('data-close') && document.getElementById('detail').contains(document.activeElement), null, { timeout: T.step });
+      const said = await ap.evaluate(() => ({ status: document.getElementById('screen-reader-status').textContent, title: document.querySelector('#detail h3')?.textContent.trim() }));
+      if (!said.title || !said.status.includes(said.title)) throw new Error(`statusraden säger inte rubriken: "${said.status}" mot "${said.title}"`);
+      await ap.keyboard.press('Escape');
+      await ap.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      await ap.waitForFunction(id => document.activeElement?.classList.contains('ff-chip') && document.activeElement.dataset.id === id, chipId, { timeout: T.step })
+        .catch(async () => { throw new Error(`fokus kom inte tillbaka till Samtidigt-kortets knapp: ${await ap.evaluate(() => `${document.activeElement?.tagName}.${document.activeElement?.className}`)}`); });
+      // Kortet läses inte upp igen när rutan stängs: statusraden är oförändrad
+      const after = await ap.evaluate(() => document.getElementById('screen-reader-status').textContent);
+      if (after !== said.status) throw new Error(`statusraden ändrades när faktarutan stängdes: "${after}" mot "${said.status}"`);
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return notes.join('; ');
+    } finally { await ap.close(); }
   });
   // #942: händelser som börjar före tidslinjens början (−2999) får en rad i faktarutan; en vanlig händelse får ingen.
   await check('händelser före tidslinjens början får en rad i faktarutan (#942)', async () => {

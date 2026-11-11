@@ -50,7 +50,7 @@ Antagna "lyckade vägar". Varje flöde är också en testplan: den som granskar 
 6. **Dela:** Dela → länk → mottagaren ser samma vy (adressen bär år, kamera, fokus, lager).
 7. **Rapportera fel:** faktaruta → Rapportera faktafel.
 
-**Visste du? (#997):** knappen visar nästa målår före hoppet. Efter hoppet finns raden ”Från … · Tillbaka” under årtalet; ett tryck återställer året, globens riktning och zoom. Raden försvinner efter åtta sekunder eller nästa handling, medan webbläsarens Bakåt/Framåt också fungerar. Lugn rörelse följer besökarens inställning.
+**Visste du? (#997):** knappen visar nästa målår före hoppet. Efter hoppet finns raden ”Från … · Tillbaka” under årtalet; ett tryck återställer året, globens riktning och zoom. Raden försvinner efter tjugo sekunder eller nästa handling, medan webbläsarens Bakåt/Framåt också fungerar. Lugn rörelse följer besökarens inställning.
 
 ## Skärmstorlekar och lägen
 

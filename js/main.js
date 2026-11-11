@@ -324,7 +324,32 @@ async function start() {
   ff.onArcs = pairs => { globe.setArcs(pairs); flatMap.setArcs(pairs); };
   // På dator och surfplatta får faktarutan ensam vara läsytan. FunFacts behåller
   // däremot sitt eget hopfällda/öppna val och visar det igen när rutan stängs.
-  panel.onDetailChange = open => ff.setDetailOpen(open);
+  // Fokus och skärmläsare (#1138): hela kortet byts via innerHTML, så #detail är inte aria-live (allt lästes om vid varje byte).
+  // I stället säger statusraden rubriken en gång per ny ruta. Kom man från Samtidigt-kortet, som döljs, går fokus till Stäng
+  // och tillbaka till samma knapp när rutan stängs (kortet ritas om, så knappen hittas på id eller händelse-id).
+  let detailTitle = '', cardFocus = null;
+  panel.onDetailChange = open => {
+    const detail = $('detail'), card = $('funfact'), active = document.activeElement;
+    if (open) {
+      if (!cardFocus && card.contains(active)) cardFocus = active.dataset?.id ? { chip: active.dataset.id } : { id: active.id };
+      ff.setDetailOpen(true);
+      if (cardFocus) detail.querySelector('[data-close]')?.focus({ preventScroll: true });
+      const title = detail.querySelector('h3')?.textContent.trim() ?? '';
+      if (title && title !== detailTitle) $('screen-reader-status').textContent = `${ui('detail.label')}: ${title}`;
+      detailTitle = title;
+      return;
+    }
+    const back = cardFocus, wasInDetail = !active || active === document.body || detail.contains(active);
+    ff.setDetailOpen(false);
+    // I smal skärm döljs kortet av klassen has-detail tills omritningen har tagit bort den, så fokus flyttas efter den
+    if (back && wasInDetail) requestAnimationFrame(() => {
+      const now = document.activeElement;
+      if (now && now !== document.body && !detail.contains(now)) return; // besökaren har redan flyttat fokus
+      const own = back.chip ? $('ff-events').querySelector(`.ff-chip[data-id="${CSS.escape(back.chip)}"]`) : back.id && $(back.id);
+      [own, $('ff-next'), $('ff-handle')].find(el => el && !el.hidden && el.getClientRects().length)?.focus({ preventScroll: true });
+    });
+    cardFocus = null; detailTitle = '';
+  };
   // Kortets källor (#337): rikets berättelse har egna, fun facts och krigskort ärver händelsernas, som har laddats
   // när dialogen visar dem (Om källorna laddar alla händelsers källor först)
   ff.onSources = f => sources.open(() => f.kind === 'empire' ? f.sources

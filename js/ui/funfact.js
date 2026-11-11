@@ -376,7 +376,7 @@ export class FunFacts {
     this.tab.hidden = !f || (!this.minimized && !this.detailOpen) || asSheet;
     this.tabCount.textContent = String(this.active.length);
     this._syncSheet();
-    if (!f || (this.minimized && !asSheet) || (this.detailOpen && !asSheet)) { this.root.hidden = true; this.root.dataset.funfactId = ''; this._announcedKey = ''; this.onArcs([]); return; }
+    if (!f || (this.minimized && !asSheet) || (this.detailOpen && !asSheet)) { this.root.hidden = true; this.root.dataset.funfactId = ''; if (!(f && this.detailOpen && !asSheet)) this._announcedKey = ''; /* faktarutan som täcker kortet ska inte få det uppläst igen när den stängs (#1138) */ this.onArcs([]); return; }
     this.root.dataset.funfactId = f.id;
     const story = f.kind === 'empire';
     this.root.classList.toggle('ff-story', story);

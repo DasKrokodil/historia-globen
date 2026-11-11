@@ -51,7 +51,7 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 - **Mobil och touch:** träffytor, tumzon, att kort inte täcker kontroller, ark med tre lägen, orientering.
 - **Visuell kvalitet:** typografi (läsbarhet i brödtext och årtal), kontrast, täthet på kartan, färgkodens hållbarhet.
 - **Mikrotext:** begriplig, kort, konsekvent ton, rätt tilltal per åldersgrupp.
-- **Förutsägbarhet:** inga överraskande hopp av år eller kamera (jfr R1 i [04](04-arkitekturoversikt.md)). Visste du? visar målåret och erbjuder åtta sekunders återgång till år, riktning och zoom (#997); prova även snabb återgång, Bakåt/Framåt och fokus när raden försvinner.
+- **Förutsägbarhet:** inga överraskande hopp av år eller kamera (jfr R1 i [04](04-arkitekturoversikt.md)). Visste du? visar målåret och erbjuder tjugo sekunders återgång till år, riktning och zoom (#997); prova även snabb återgång, Bakåt/Framåt och fokus när raden försvinner.
 
 **Brukar säga (hypoteser):** "Imponerande rik, men många ingångar (Samtidigt, Sök och följ, Turer, Lager, Vy, Mer) för någon som inte vet vad hen söker." "Mobilens lager av kort och ark är lätt att tappa bort sig i." "Tydliga reservlägen behövs, så att tomt inte ser trasigt ut."
 
