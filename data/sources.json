@@ -1216,7 +1216,7 @@
     {"id": "wp-moai", "title": "Moai – Wikipedia", "url": "https://en.wikipedia.org/wiki/Moai", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
     {"id": "wp-goree", "title": "Gorée – Wikipedia", "url": "https://en.wikipedia.org/wiki/Gor%C3%A9e", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
     {"id": "wp-sakoku", "title": "Sakoku – Wikipedia", "url": "https://en.wikipedia.org/wiki/Sakoku", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
-    {"id": "wp-dejima", "title": "Dejima – Wikipedia", "url": "https://en.wikipedia.org/wiki/Dejima", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
+    {"id": "wp-dejima", "title": "Dejima – Wikipedia", "url": "https://en.wikipedia.org/wiki/Dejima", "license": "CC BY-SA 4.0", "checked": "2026-11-11"},
     {"id": "wp-james-watt", "title": "James Watt – Wikipedia", "url": "https://en.wikipedia.org/wiki/James_Watt", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
     {"id": "wp-watt-steam-engine", "title": "Watt steam engine – Wikipedia", "url": "https://en.wikipedia.org/wiki/Watt_steam_engine", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
     {"id": "wp-glasgow-green", "title": "Glasgow Green – Wikipedia", "url": "https://en.wikipedia.org/wiki/Glasgow_Green", "license": "CC BY-SA 4.0", "checked": "2026-11-05"},
@@ -1861,6 +1861,21 @@
     { "id": "wp-swedish-famine-1867-1869", "title": "Swedish famine of 1867–1869 – Wikipedia", "url": "https://en.wikipedia.org/wiki/Swedish_famine_of_1867%E2%80%931869", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
     { "id": "wp-sv-representationsreformen", "title": "Representationsreformen i Sverige – Wikipedia (svenska)", "url": "https://sv.wikipedia.org/wiki/Representationsreformen_i_Sverige", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
     { "id": "wp-sv-kvinnlig-rostratt", "title": "Kvinnlig rösträtt i Sverige – Wikipedia (svenska)", "url": "https://sv.wikipedia.org/wiki/Kvinnlig_r%C3%B6str%C3%A4tt_i_Sverige", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
-    { "id": "wp-1911-swedish-general-election", "title": "1911 Swedish general election – Wikipedia", "url": "https://en.wikipedia.org/wiki/1911_Swedish_general_election", "license": "CC BY-SA 4.0", "checked": "2026-11-11" }
+    { "id": "wp-1911-swedish-general-election", "title": "1911 Swedish general election – Wikipedia", "url": "https://en.wikipedia.org/wiki/1911_Swedish_general_election", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-kunyu-wanguo-quantu", "title": "Kunyu Wanguo Quantu – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kunyu_Wanguo_Quantu", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-tiangong-kaiwu", "title": "Tiangong Kaiwu – Wikipedia", "url": "https://en.wikipedia.org/wiki/Tiangong_Kaiwu", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-song-yingxing", "title": "Song Yingxing – Wikipedia", "url": "https://en.wikipedia.org/wiki/Song_Yingxing", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-jantar-mantar-jaipur", "title": "Jantar Mantar, Jaipur – Wikipedia", "url": "https://en.wikipedia.org/wiki/Jantar_Mantar,_Jaipur", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-hoei-eruption", "title": "Hōei eruption – Wikipedia", "url": "https://en.wikipedia.org/wiki/H%C5%8Dei_eruption", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-mount-fuji", "title": "Mount Fuji – Wikipedia", "url": "https://en.wikipedia.org/wiki/Mount_Fuji", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-great-tenmei-famine", "title": "Great Tenmei famine – Wikipedia", "url": "https://en.wikipedia.org/wiki/Great_Tenmei_famine", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-manila-galleon", "title": "Manila galleon – Wikipedia", "url": "https://en.wikipedia.org/wiki/Manila_galleon", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-khalsa", "title": "Khalsa – Wikipedia", "url": "https://en.wikipedia.org/wiki/Khalsa", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-kabuki", "title": "Kabuki – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kabuki", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-golden-temple", "title": "Golden Temple – Wikipedia", "url": "https://en.wikipedia.org/wiki/Golden_Temple", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-journey-to-the-west", "title": "Journey to the West – Wikipedia", "url": "https://en.wikipedia.org/wiki/Journey_to_the_West", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-francis-xavier", "title": "Francis Xavier – Wikipedia", "url": "https://en.wikipedia.org/wiki/Francis_Xavier", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-bluebuck", "title": "Bluebuck – Wikipedia", "url": "https://en.wikipedia.org/wiki/Bluebuck", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-hatata", "title": "Hatata – Wikipedia", "url": "https://en.wikipedia.org/wiki/Hatata", "license": "CC BY-SA 4.0", "checked": "2026-11-11" }
   ]
 }
