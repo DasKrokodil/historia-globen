@@ -1980,7 +1980,8 @@ details.used-by summary:hover { color: var(--parchment); }
   .year-era, .year-jump.fine .year-era { font-size: 13px; line-height: 1.1; }
   .year-big, .year-era, .segment-note { text-shadow: 0 1px 6px var(--night), 0 0 2px var(--night); } /* läsbart när globen är inzoomad */
   .segment-note, .year-readout:has(.year-jump.fine) + .segment-note {
-    margin: 3px 0 0; font-size: 10px; letter-spacing: .05em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    /* Raden radbryts (#1134): hela meningen ska synas på 400 px, på alla språk, i stället för att klippas med ellips */
+    margin: 3px 0 0; font-size: 10px; letter-spacing: .05em; line-height: 1.35; white-space: normal; overflow-wrap: anywhere;
   }
   /* Mobilmenyn (#530): bara Samtidigt och Meny i raden överst. Resten ligger i en nedfällbar panel under Meny. */
   .top-actions { flex-direction: row; flex-wrap: nowrap; align-items: center; gap: 3px; top: calc(env(safe-area-inset-top, 0px) + 6px); }

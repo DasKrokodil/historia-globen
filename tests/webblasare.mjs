@@ -4479,6 +4479,48 @@ async function run(browser, vp) {
       return `${rows[0]} | ${rows[2]} | 1916: ${before ?? '(ingen Titanic-etikett)'}`;
     } finally { await wp.close(); }
   });
+  // #1134: raden under årtalet radbryts i smal skärm i stället för att klippas med ellips. Längsta texten styr: alla
+  // fem språk, ett f.Kr.-år (längst rubrik) och ett intervall, i 400 px bredd. Körs i mobiljobbet (en egen sida, egen bredd).
+  await check('raden under årtalet ryms på 400 px på fem språk (#1134)', async () => {
+    if (vp.width > 760) return 'körs i mobiljobbet';
+    const sp = await context.newPage();
+    const errs = [];
+    sp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await sp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await sp.route(u => isFont(u.href), r => r.abort());
+      }
+      await sp.setViewportSize({ width: 400, height: 800 });
+      let loads = 0;
+      const out = [];
+      for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+        for (const hash of ['#y=1900', '#y=-2600']) {
+          await sp.goto(`${BASE}?lang=${lang}&ny=s${loads++}${hash}`);
+          await sp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          const m = await sp.evaluate(() => {
+            const e = document.getElementById('year-segment');
+            const r = e.getBoundingClientRect(), cs = getComputedStyle(e);
+            return { text: e.textContent.trim(), sw: e.scrollWidth, cw: e.clientWidth, h: r.height, line: parseFloat(cs.lineHeight), left: r.left, right: r.right,
+              clipped: cs.textOverflow === 'ellipsis' && cs.whiteSpace === 'nowrap', page: document.documentElement.scrollWidth, width: innerWidth };
+          });
+          if (!m.text) throw new Error(`${lang} ${hash}: raden är tom`);
+          if (m.sw > m.cw || m.clipped) throw new Error(`${lang} ${hash}: raden klipps (scrollWidth ${m.sw} > clientWidth ${m.cw}): "${m.text}"`);
+          if (m.left < 0 || m.right > m.width || m.page > m.width) throw new Error(`${lang} ${hash}: raden går utanför skärmen eller sidan scrollar sidled: ${JSON.stringify(m)}`);
+          if (m.h > m.line * 3 + 1) throw new Error(`${lang} ${hash}: raden tar mer än tre rader (${Math.round(m.h)} px): "${m.text}"`);
+          out.push(`${lang}${hash}: ${Math.round(m.h / m.line)} rader`);
+        }
+      }
+      // Intervallet har en kort rad men ska också ryms
+      await sp.goto(`${BASE}?ny=s${loads++}#y=1900&y2=1950`);
+      await sp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      const r = await sp.evaluate(() => { const e = document.getElementById('year-segment'); return { sw: e.scrollWidth, cw: e.clientWidth }; });
+      if (r.sw > r.cw) throw new Error(`intervallet: raden klipps (${r.sw} > ${r.cw})`);
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return out.join(', ');
+    } finally { await sp.close(); }
+  });
   // #942: händelser som börjar före tidslinjens början (−2999) får en rad i faktarutan; en vanlig händelse får ingen.
   await check('händelser före tidslinjens början får en rad i faktarutan (#942)', async () => {
     const ap = await context.newPage();
