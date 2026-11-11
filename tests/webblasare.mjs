@@ -1958,6 +1958,8 @@ async function run(browser, vp) {
     await visible('#layer-menu');
     const chip = page.locator('#layer-menu .view-chip[data-view="oversikt"]');
     if (await chip.count() !== 1) throw new Error('vyn Översikt saknas i Lager');
+    if (await chip.getAttribute('aria-pressed') !== 'true') throw new Error('Översikt är inte vald vid första besöket');
+    if (!/([?&#])g=oversikt(?:&|$)/.test(await page.evaluate(() => location.hash))) throw new Error('delningslänken saknar Översikts urval');
     await chip.click();
     await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
     await page.keyboard.press('Escape');

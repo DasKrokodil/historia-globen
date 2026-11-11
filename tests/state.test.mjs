@@ -43,7 +43,7 @@ test('toJSON och fromJSON går fram och tillbaka', () => {
   const json = toJSON(store.state, { lat: 52.123456, lon: 13.4049, zoom: 2.2 });
   assert.deepEqual(json, {
     v: STATE_VERSION, year: 1944.4322, camera: { lat: 52.12, lon: 13.4, zoom: 2.2 },
-    focus: 'war:andra-varldskriget', layers: ['areas', 'events'], filters: ['krig', 'kultur'], calm: false,
+    focus: 'war:andra-varldskriget', layers: ['areas', 'events'], filters: ['krig', 'kultur'], tag: null, calm: false,
   });
   assert.deepEqual(fromJSON(JSON.stringify(json)), json);
 });

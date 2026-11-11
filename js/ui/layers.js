@@ -38,6 +38,7 @@ export async function loadViews() {
       layerActions: Object.fromEntries(Object.entries(doc.layerActions ?? {}).map(([id, text]) => [id, t(text)])),
       groups: doc.groups.map(g => ({ ...g, name: t(g.name) })),
       views: doc.views.map(v => ({ ...v, name: t(v.name) })),
+      defaultView: doc.defaultView,
     };
   } catch (err) {
     console.warn('Lagrens grupper och vyer kunde inte laddas', err);
@@ -117,6 +118,7 @@ export class LayerMenu {
     tag ??= null;
     if (this.tag === tag) return;
     this.tag = tag;
+    this.syncView();
     this.onTag(tag);
   }
 

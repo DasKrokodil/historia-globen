@@ -52,7 +52,7 @@ export function createState() {
 
 /**
  * De delar av tillståndet som besökaren har valt, som vanliga värden (för delbara länkar, #64).
- * { year, focus: 'war:<id>' | null, layers: [...], filters: [...], calm }
+ * { year, focus: 'war:<id>' | null, layers: [...], filters: [...], tag, calm }
  */
 export function snapshot(state) {
   return {
@@ -273,6 +273,7 @@ export function toJSON(state, camera = null) {
     focus: state.focus ? `${state.focus.type}:${state.focus.id}` : null,
     layers: Object.keys(state.layers).filter(k => state.layers[k]).sort(),
     filters: [...state.filters].sort(),
+    tag: state.tag ?? null,
     calm: !!state.calm,
     ...(state.range ? { yearEnd: Math.round(state.range.to), ...(state.range.period ? { period: state.range.period } : {}) } : {}),
   };
@@ -308,7 +309,8 @@ export function fromJSON(value) {
   }
   // Slutåret (#755) är valfritt: saknas det, är det inget tal eller inte efter året, öppnas tillståndet som ett år
   const yearEnd = typeof doc.yearEnd === 'number' && Number.isFinite(doc.yearEnd) && Math.round(doc.yearEnd) > doc.year ? Math.round(doc.yearEnd) : null;
-  return { v: STATE_VERSION, year: doc.year, camera, focus, layers: words(doc.layers, 'Lagren'), filters: words(doc.filters, 'Kategorierna'), calm: !!doc.calm,
+  const tag = typeof doc.tag === 'string' && /^[a-z0-9-]+$/.test(doc.tag) ? doc.tag : null;
+  return { v: STATE_VERSION, year: doc.year, camera, focus, layers: words(doc.layers, 'Lagren'), filters: words(doc.filters, 'Kategorierna'), tag, calm: !!doc.calm,
     ...(yearEnd != null ? { yearEnd } : {}),
     // Epokens id (#980) hör till intervallet och är bara en etikett; visningen kontrollerar att åren stämmer
     ...(yearEnd != null && typeof doc.period === 'string' && /^[a-z0-9-]+$/.test(doc.period) ? { period: doc.period } : {}) };

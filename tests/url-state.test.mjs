@@ -54,6 +54,15 @@ test('Lugn rörelse står aldrig i länken', () => {
   assert.equal(decodeHash('#y=1&calm=1').calm, false);
 });
 
+test('en förinställd vy med urval följer med i delningslänken (#868)', () => {
+  const hash = encodeHash({ ...base, layers: ['events'], tag: 'oversikt' }, ['krig', 'kultur']);
+  assert.match(hash, /&l=events&g=oversikt$/);
+  const state = decodeHash(hash);
+  assert.deepEqual(state.layers, ['events']);
+  assert.equal(state.tag, 'oversikt');
+  assert.equal(decodeHash('#y=1325&g=OVERSIKT').tag, null, 'ogiltigt urval hoppas över');
+});
+
 test('ny post i historiken bara vid större steg', () => {
   assert.equal(isNewStep(null, base), false);
   assert.equal(isNewStep(base, { ...base, camera: { lat: 0, lon: 0, zoom: 1 } }), false);
@@ -62,6 +71,7 @@ test('ny post i historiken bara vid större steg', () => {
   assert.equal(isNewStep(base, { ...base, year: 1400 }, { playing: true }), false);
   assert.equal(isNewStep(base, { ...base, focus: 'empire:rom' }), true);
   assert.equal(isNewStep(base, { ...base, layers: ['events'] }), true);
+  assert.equal(isNewStep(base, { ...base, tag: 'oversikt' }), true);
   assert.equal(isNewStep(base, { ...base, filters: ['krig'] }), true);
 });
 
