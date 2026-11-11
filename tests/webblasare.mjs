@@ -712,7 +712,7 @@ async function run(browser, vp) {
     const marks = await page.evaluate(() => document.querySelectorAll('.tdot, .tspan, .tff, .troute').length);
     await visible('#timeline-legend');
     const texts = (await page.textContent('#timeline-legend')).replace(/\s+/g, ' ').trim();
-    if (!/händelse/.test(texts) || !/samband/.test(texts) || !/resa/.test(texts)) throw new Error(`teckenförklaringen saknar tecken: ${texts}`);
+    if (!/händelse/.test(texts) || !/Visste du/.test(texts) || !/resa/.test(texts)) throw new Error(`teckenförklaringen saknar tecken: ${texts}`);
     const covered = await page.evaluate(() => [...document.querySelectorAll('.timebar .step, #btn-play')].filter(b => {
       const r = b.getBoundingClientRect();
       const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
@@ -2200,7 +2200,7 @@ async function run(browser, vp) {
     const toggle = legend.locator('.rl-toggle');
     const body = legend.locator('#rl-body');
     await visible('#religion-legend');
-    if ((await toggle.textContent()).trim() !== 'Upptäcktsvy') throw new Error('upptäcktsvyn saknar sin datahämtade rubrik');
+    if ((await toggle.textContent()).trim() !== 'Upptäcktsresor') throw new Error('Upptäcktsresor saknar sin datahämtade rubrik');
     if (await body.isHidden()) await toggle.click();
     await visible('#religion-legend #rl-body');
     const coverage = page.locator('#religion-legend .rl-coverage');

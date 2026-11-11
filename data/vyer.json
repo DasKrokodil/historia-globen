@@ -47,7 +47,7 @@
   },
   "poster": {
     "button": { "sv": "Affisch", "en": "Poster", "de": "Plakat" },
-    "title": { "sv": "Historia-globen", "en": "History globe", "de": "Historia-globen" },
+    "title": { "sv": "Historia-globen", "en": "Historia-globen", "de": "Historia-globen" },
     "legend": { "sv": "Världskarta med utvalda händelser som pågår detta år.", "en": "World map with selected events active this year.", "de": "Weltkarte mit ausgewählten Ereignissen, die in diesem Jahr laufen." },
     "sources": { "sv": "Källor: Historia-globen, Om källorna", "en": "Sources: Historia-globen, About the sources", "de": "Quellen: Historia-globen, Über die Quellen" },
     "website": { "sv": "historiagloben.se", "en": "historiagloben.se", "de": "historiagloben.se" },

@@ -66,7 +66,7 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 | Svenska | Engelska | Spanska | Franska |
 |---|---|---|---|
 | Samtidigt (kortet) | Meanwhile | Al mismo tiempo | Au même moment |
-| Fokus | Focus | Enfoque | Focus |
+| Sök och följ (menyn) / följer (läget) | Search and follow / following | Buscar y seguir / siguiendo | Chercher et suivre / vous suivez |
 | Fakta | Facts | Datos | Faits |
 | Läs mer | Read more | Leer más | Lire la suite |
 | Visa / Dölj | Show / Hide | Mostrar / Ocultar | Afficher / Masquer |
@@ -75,6 +75,16 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 | Bildkort | Picture card | Tarjeta de imagen | Carte illustrée |
 | Grafisk symbol | Graphic symbol | Símbolo gráfico | Symbole graphique |
 | Visste du att …? | Did you know? | ¿Sabía que…? (artigt) | Le saviez-vous ? |
+| Översikt (vy) | Overview | Resumen | Aperçu |
+| Upptäcktsresor (vy och lager; inte kategorin) | Voyages of discovery | Viajes de descubrimiento | Grandes découvertes |
+| Historia-globen (produktnamnet) | Historia-globen | Historia-globen | Historia-globen |
+
+**Ordval enligt #1140 (beslut 2026-11-11, [2026-11-11-ordval-1140](beslut/2026-11-11-ordval-1140.md)).** Tyska kolumnen står här eftersom tabellen saknar den: menyn *Suchen und folgen*, läget *folgen* (etikett *Sie folgen*), *Überblick* (vy), *Entdeckungsreisen* (vy och lager), *Wussten Sie?* (kortet och teckenförklaringen). Reglerna:
+
+- **"Fokus" finns inte i gränssnittet.** Menyn heter Sök och följ, läget heter "följer" (verbet från knappen), och texterna säger "när du följer en händelse". Engelska "Focus"/"focus mode", tyska "Fokus"/"Fokusmodus", spanska "Enfoque"/"modo Enfoque" och franska "Focus"/"mode Focus" används inte längre. Filnamn, funktionsnamn, `f=` i adressen och data-attribut får behålla `focus`.
+- **Ett namn för upptäcktsvyn:** Upptäcktsresor (se tabellen). Kategorin `upptackter` (avsnitt 6: "Upptäcktsresor", *Viajes de exploración*, *Voyages d'exploration*) är en kategori och ändras inte. "Upptäcktsvyn", "discovery view", "Entdeckungsansicht", "vista de exploración" och "vue d'exploration" används inte.
+- **Teckenförklaringens tecken för fun facts** har samma ord som kortet: *Visste du?*, *Did you know?*, *Wussten Sie?*, *¿Sabía que…?*, *Le saviez-vous ?* (inte "samband", *connection*, *Zusammenhang*, *conexión*, *lien*: det som visas är samtidighet, inte orsak och verkan).
+- **Produktnamnet "Historia-globen" översätts aldrig**, inte heller på affischen eller i källhänvisningar (`poster.title`, `citation.*`): en källhänvisning ska vara lik det som står på sidan.
 
 ## 6. Kategorier (`CATEGORIES`, ur `data/ui/`; ändras inte)
 
