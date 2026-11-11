@@ -798,7 +798,8 @@ async function run(browser, vp) {
   await check('engångstipset vid tidslinjen försvinner efter första draget och kommer inte tillbaka (#996)', async () => {
     const fresh = await context.newPage();
     const errs = [];
-    fresh.on('pageerror', e => errs.push(e.message));
+    // WebKit skriver en avbruten hämtning som sidfel ("… due to access control checks"): samma regel som i resten av testet (#996)
+    fresh.on('pageerror', e => { if (!cancelled(e.message)) errs.push(e.message); });
     try {
       await fresh.goto(BASE);
       await fresh.evaluate(() => { try { localStorage.removeItem('hg-year-tip'); } catch { /* */ } });
@@ -3767,8 +3768,8 @@ async function run(browser, vp) {
   await check('en kort kameradress stannar på begärd plats', async () => {
     const cameraPage = await context.newPage();
     const cameraErrors = [];
-    cameraPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(cameraErrors, m); });
-    cameraPage.on('pageerror', e => cameraErrors.push(e.message));
+    cameraPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url) && !cancelled(m.text())) pushConsole(cameraErrors, m); });
+    cameraPage.on('pageerror', e => { if (!cancelled(e.message)) cameraErrors.push(e.message); });
     await cameraPage.addInitScript(() => {
       window.__hgCameraFlights = [];
       document.addEventListener('hg:globe-flight', event => window.__hgCameraFlights.push(event.detail), true);
@@ -4763,6 +4764,8 @@ async function run(browser, vp) {
       const labels = () => wp.evaluate(() => [...document.querySelectorAll('#labels .glabel')].map(l => l.textContent));
       const want = async (hash, pattern) => {
         await open(hash);
+        // Följandet och raden uppdateras efter att sidan har öppnats: vänta in raden (WebKit är långsammare), men kräv fortfarande mönstret
+        await wp.waitForFunction(p => new RegExp(p).test(document.getElementById('year-segment').textContent.trim()), pattern.source, { timeout: 8000 }).catch(() => {});
         const got = await row();
         if (!pattern.test(got)) throw new Error(`${hash}: raden under årtalet säger "${got}"`);
         if (/Bronsålder|Antiken|Medeltid|Modern tid|±/.test(got)) throw new Error(`${hash}: raden har kvar epoknamn eller ±: "${got}"`);
@@ -4837,7 +4840,7 @@ async function run(browser, vp) {
   await check('tillgänglighet: namn, fokus, träffytor, aria-invalid och tipset (#1138)', async () => {
     const ap = await context.newPage();
     const errs = [];
-    ap.on('pageerror', e => errs.push(e.message));
+    ap.on('pageerror', e => { if (!cancelled(e.message)) errs.push(e.message); });
     const notes = [];
     try {
       if (THREE_LOCAL) {
