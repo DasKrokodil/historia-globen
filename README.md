@@ -61,6 +61,7 @@ css/style.css
 js/main.js            startar allt och kopplar ihop registret, tidslinjen och panelerna
 js/controllers/       main.js uppdelad: val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402), adressen (#501), tidsintervallet (range.js, #755) och återgång efter hopp (jump-back.js, #997)
 js/state.js           det gemensamma tillståndet som lagren läser (år, fokus, filter, valda lager, #338), åtgärder och JSON (#403), och lägeskontraktet med uteslutningstabellen (#893)
+js/surfaces.js        stängregistret för ytor: menyerna och sidopanelen anmäler sig i grupper och en öppnad yta stänger sin grupp (#894)
 js/layers/registry.js lagerregistret: rader i Lager, ritordning, dämpning i fokus, teckenförklaring (#338)
 js/layers/index.js    lagerlistan: alla lager som anmäler sig i registret (#338)
 js/model.js           språk, kategorier, tidsformat, laddning av data

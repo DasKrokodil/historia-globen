@@ -38,6 +38,7 @@ js/search-index.js    sökningens index och matchning (#570)
 js/place-search.js    "Vad hände här?": platsförslag och händelser inom 300 km, i tidsordning (#15)
 js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
 js/state.js           det gemensamma tillståndet (år, fokus, lager, filter) som lagren läser (#338), med åtgärder, prenumeration och JSON (#403), och lägeskontraktet (#893)
+js/surfaces.js        stängregistret för ytor: menyerna och sidopanelen anmäler sig i grupper och en öppnad yta stänger sin grupp (#894)
 js/globe.js           3D-globen, kamera, styrning, ekvirektangulära canvasar, bågar
 js/globe-detail.js    skarpt utsnitt av kartan vid inzoomning: samma ritning i högre upplösning för det som syns
 js/period-range.js    epok som intervall: periodToRange klipper vid tidslinjens början och går till i dag för öppna perioder (#965)
