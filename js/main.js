@@ -140,8 +140,8 @@ async function start() {
   }, { funfacts: [...data.funfacts, ...warCards(data.events)], byId: data.byId, srcById: data.srcById, styles: data.styles, surprise: $('ff-surprise') });
   // Smal skärm (#361): faktarutan som ark nedifrån med tre lägen, och mobilmenyn (#530): Samtidigt och Meny i raden överst
   const detailSheet = new Sheet($('detail'));
-  new ViewMenu({ toggle: $('more-toggle'), menu: $('more-menu'), keep: $('btn-panel'), label: t(views?.menu?.label) });
-  new ExtraMenu({ toggle: $('btn-more'), menu: $('extra-menu') });
+  const viewMenu = new ViewMenu({ toggle: $('more-toggle'), menu: $('more-menu'), keep: $('btn-panel'), label: t(views?.menu?.label) });
+  const extraMenu = new ExtraMenu({ toggle: $('btn-more'), menu: $('extra-menu') });
   const sources = new SourcesDialog({ root: $('sources-dialog'), body: $('sources-body'), close: $('sources-close'), openBtn: $('btn-sources') }, data);
 
   const timeline = new Timeline({
@@ -472,6 +472,9 @@ async function start() {
   surfaces.register('panel', 'sidopanel', () => panel.setOpen(false));
   surfaces.register('layers', 'meny', () => layers.close());
   surfaces.register('focus', 'meny', () => app.focusMenu.close());
+  // Mobilens Meny och datorns Mer stängs när en annan meny öppnas, till exempel språklistan (#1167)
+  surfaces.register('viewmenu', 'meny', () => { if (viewMenu.isOpen) viewMenu.set(false); });
+  surfaces.register('extra', 'meny', () => { if (extraMenu.isOpen) extraMenu.set(false); });
   panel.onOpen = () => { surfaces.opened('panel'); app.orientToPanelHighlight(); };
   layers.onOpen = () => surfaces.opened('layers');
 
@@ -523,7 +526,12 @@ async function start() {
   panel.onReport = report;
   routePop.onReport = report;
   timeline.init(takeReturnYear() ?? 1325); // året finns kvar efter byte av språk
-  setupLangPicker($('lang-select'), () => timeline.year, () => app.address?.flush()); // adressen skapas längre ned; anropet sker först vid byte
+  // Språkväljaren i översta raden (#1167). Adressen skapas längre ned; beforeReload anropas först vid byte.
+  const langPicker = setupLangPicker({
+    toggle: $('btn-lang'), menu: $('lang-menu'), getYear: () => timeline.year,
+    beforeReload: () => app.address?.flush(), onOpen: () => surfaces.opened('lang'),
+  });
+  surfaces.register('lang', 'meny', () => langPicker.close());
   globe.flyTo(34, -50, 1600);
   globe.autoRotate = false;
 

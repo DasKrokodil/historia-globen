@@ -30,7 +30,7 @@
 | **Quiz** | "Vad hände samtidigt?" ur befintliga fun facts. |
 | **Introduktion** | De tre stilla stegen för nya besökare. Knappen heter "Kom igång" och ligger under Mer (#996). |
 | **Missuppfattning** | Ett vanligt felaktigt påstående, vad källorna säger och ursprunget; visas i faktarutan. |
-| **Mer / Meny** | **Mer** (dator) samlar Källor, Hjälp, Quiz, Jakten, Dela och Språk. **Meny** (mobil) är panelen bakom knappen i raden överst. |
+| **Mer / Meny** | **Mer** (dator) samlar Källor, Hjälp, Quiz, Jakten och Dela. **Språk** är knappen med jordglob och språkkod (till exempel SV) i raden överst (#1167). **Meny** (mobil) är panelen bakom knappen i raden överst. |
 | **Dela** | Kopierar en länk som bär år, kamera, fokus, lager och kategorier. |
 | **Källor / Om källorna** | Sidan med källpolicy, granskningsnivåer och källregister. |
 | **Granskningsnivå** | `draft` (visas inte), `source-checked` (källan öppnad och kontrollerad), `two-sources` (jämförd med en andra, oberoende källa). |
