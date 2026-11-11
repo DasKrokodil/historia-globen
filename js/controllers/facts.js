@@ -87,13 +87,15 @@ export function createFacts(app) {
       influenceNote(own ? { influence: g.influence?.filter(a => a.polity === polity.id) } : g)].filter(Boolean).join(' ');
     const flag = (own?.flags ?? g.flags ?? []).find(f => timeline.year >= f.from && timeline.year <= f.to);
     const sym = flag ? flagImg(flag, 'rel-sym rel-sym-h') : symbolImg(own?.symbol ? { symbol: own.symbol } : g, 'rel-sym rel-sym-h');
+    // Vad tecknet i rubriken är (#1148): en flagga, en symbol som riket använde eller en modern återgivning
+    const symbolKind = !sym ? null : flag ? (flag.kind ?? 'flag') : 'symbol';
     const curveId = own ? `${g.id}:${polity.id}` : g.file ? g.id : '';
     // Rikets krig (#76); ett rike med egen ruta visar krigen under sin egen tid
     const wars = own ? (g._wars ?? []).filter(w => w.end >= from && w.start <= to) : g._wars;
     // Ett försvunnet land (#72) har årtal, föregångare och efterträdare; ett land utan gräns visas som en punkt
     const lineage = g.vanished && !own ? { ...g.vanished, groups: data.empireGroups } : null;
     panel.showFacts({ kind: lineage ? 'vanished' : 'empire', name: t(own ? polity.name : g.name), color: g.color, facts, place, curveId, empireId: own ? null : g.id,
-      symbol: sym, wars, lineage,
+      symbol: sym, symbolKind, wars, lineage,
       empireMap: !!g.file,
       report: { type: lineage ? 'vanished-country' : 'empire', id: own ? polity.id : g.id, label: t(own ? polity.name : g.name), year: Math.round(timeline.year) },
       mapNote: g.file ? `${ui('facts.mapNote', { source: g.borderSource ?? 'Cliopatria', span: formatYearSpan(from, to) })}${note ? ` ${note}` : ''}` : note });

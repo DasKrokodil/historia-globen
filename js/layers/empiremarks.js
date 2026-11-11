@@ -7,6 +7,10 @@
 import { THREE, latLonToVec3, R } from '../globe.js';
 import { medalTexture, flagTexture } from './events.js';
 import { frameMedals } from './origins.js';
+import { ui } from '../i18n.js';
+
+// Skärmläsartexten säger om markören är en flagga, en symbol eller en modern återgivning (#1148)
+const markLabel = m => ui(`marks.empire.${m.kind === 'flag' ? (m.flagKind ?? 'flag') : 'symbol'}`, { name: m.name });
 
 const INFO = { when: 'now', major: false, unsure: false };
 
@@ -33,7 +37,7 @@ export class EmpireMarkers {
         it.sprite.material.map = m.kind === 'flag' ? flagTexture(m.symbol) : medalTexture(m.symbol, m.color, INFO, false);
         it.sprite.material.needsUpdate = true;
         it.visual = visual;
-        it.button.setAttribute('aria-label', `${m.name}: rikets ${m.kind === 'flag' ? 'flagga' : 'symbol'}. Öppnar faktarutan om riket.`);
+        it.button.setAttribute('aria-label', markLabel(m));
       }
       it.mark = m;
       if (it.lon !== m.lon || it.lat !== m.lat) {
@@ -52,7 +56,7 @@ export class EmpireMarkers {
     this.globe.markerGroup.add(sprite);
     const button = document.createElement('button');
     button.type = 'button'; button.className = 'gorigin gempire'; button.hidden = true;
-    button.setAttribute('aria-label', `${m.name}: rikets ${m.kind === 'flag' ? 'flagga' : 'symbol'}. Öppnar faktarutan om riket.`);
+    button.setAttribute('aria-label', markLabel(m));
     button.title = `${m.name}. Klicka för att läsa mer.`;
     const it = { sprite, button, mark: m, visual: `${m.kind}:${m.symbol}`, lon: null, lat: null };
     button.addEventListener('click', () => this.onPick(it.mark));
