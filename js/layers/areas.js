@@ -34,7 +34,8 @@ export function entry({ globe, data, labelsEl, refreshSoon, showEmpireFacts }) {
     const g = empireById.get(polity.group);
     const own = g?.polityFacts?.[polity.id];
     const currentFlag = (own?.flags ?? g?.flags ?? []).find(f => year >= f.from && year <= f.to);
-    if (currentFlag) return { symbol: currentFlag.file, kind: 'flag', color: polity.color, name: t(polity.name), group: g.id, own: !!own?.facts };
+    // flagKind (#1148): flagga, symbol eller modern återgivning; utan fältet är det en flagga
+    if (currentFlag) return { symbol: currentFlag.file, kind: 'flag', flagKind: currentFlag.kind ?? 'flag', color: polity.color, name: t(polity.name), group: g.id, own: !!own?.facts };
     const symbol = own?.symbol ?? g?.symbol;
     return symbol ? { symbol, kind: 'symbol', color: polity.color, name: t(polity.name), group: g.id, own: !!own?.facts } : null;
   };

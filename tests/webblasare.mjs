@@ -437,6 +437,55 @@ async function run(browser, vp) {
     return 'Samtidigt och Meny i raden; Enter, mellanslag, Escape och fokus; menyn täcker inte årtal eller tidslinje';
   });
 
+  // #1167: språket väljs med en knapp i översta raden (jordglob och kod), inte i Mer. Listan har språkens egna namn,
+  // "beta" för ofärdiga översättningar, tangentbord och stängregistret (en öppnad lista stänger Lager och Meny).
+  await check('språkknappen i översta raden (#1167)', async () => {
+    const btn = page.locator('#btn-lang');
+    await visible('#btn-lang');
+    if ((await btn.textContent()).trim() !== 'SV') throw new Error(`knappen visar "${(await btn.textContent()).trim()}", inte SV`);
+    if (!/Svenska/.test(await btn.getAttribute('aria-label') ?? '')) throw new Error('aria-label säger inte vilket språk som är valt');
+    if (await page.evaluate(() => !!document.querySelector('#extra-menu [data-lang], #lang-select'))) throw new Error('språkvalet ligger kvar i Mer');
+    const row = await page.evaluate(() => {
+      const box = el => el.getBoundingClientRect();
+      const b = box(document.getElementById('btn-lang'));
+      const overlap = (a, c) => a.left < c.right && c.left < a.right && a.top < c.bottom && c.top < a.bottom;
+      const others = [...document.querySelectorAll('.top-actions .chip-btn')].filter(el => el.id !== 'btn-lang' && el.getClientRects().length);
+      return { out: b.left < 0 || b.right > innerWidth, year: overlap(b, box(document.getElementById('year-jump'))),
+        hits: others.filter(el => overlap(b, box(el))).map(el => el.id || el.className) };
+    });
+    if (row.out) throw new Error('språkknappen ligger utanför skärmen');
+    if (row.year) throw new Error('språkknappen täcker årtalet');
+    if (row.hits.length) throw new Error(`språkknappen krockar med ${row.hits.join(', ')}`);
+    // Lager öppet, sedan språklistan: Lager stängs (js/surfaces.js)
+    if (vp.width <= 760) await page.click('#more-toggle');
+    await page.click('#btn-layers');
+    await visible('#layer-menu');
+    await btn.focus();
+    await page.keyboard.press('Enter');
+    await visible('#lang-menu');
+    if (await page.isVisible('#layer-menu')) throw new Error('Lager står kvar när språklistan öppnas');
+    if (await btn.getAttribute('aria-expanded') !== 'true') throw new Error('aria-expanded blir inte true');
+    const list = await page.evaluate(() => [...document.querySelectorAll('#lang-menu [data-lang]')].map(b => ({
+      id: b.dataset.lang, beta: !!b.querySelector('.lang-beta'), current: b.getAttribute('aria-current') === 'true', focus: b === document.activeElement,
+    })));
+    if (list.length !== 5) throw new Error(`listan har ${list.length} språk, inte 5`);
+    const cur = list.find(l => l.current);
+    if (cur?.id !== 'sv' || !cur.focus) throw new Error('svenska är inte markerad och fokuserad när listan öppnas');
+    if (list.filter(l => l.beta).length < 1 || list.find(l => l.id === 'sv').beta) throw new Error('beta-märket saknas eller står på svenska');
+    await page.keyboard.press('ArrowDown');
+    if (await page.evaluate(() => document.activeElement?.dataset.lang) !== list[1].id) throw new Error('pil ned flyttar inte fokus i listan');
+    await shot('1167-sprakknapp');
+    await page.keyboard.press('Escape');
+    await hidden('#lang-menu');
+    if (await page.evaluate(() => document.activeElement?.id !== 'btn-lang')) throw new Error('Escape lämnar inte fokus på språkknappen');
+    // Klick utanför stänger
+    await page.click('#btn-lang');
+    await visible('#lang-menu');
+    await page.evaluate(() => document.body.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true })));
+    await hidden('#lang-menu');
+    return `${list.map(l => l.id + (l.beta ? ' (beta)' : '')).join(', ')}; Enter, pilar, Escape och klick utanför; Lager stängs`;
+  });
+
   await check('hjälpen öppnas bara på begäran', async () => {
     const help = page.locator('#help');
     const helpButton = page.locator('#btn-help');
@@ -1219,6 +1268,59 @@ async function run(browser, vp) {
     if (await page.isVisible('#detail')) await page.click('#detail [data-close]');
     await jumpTo(startYear);
     return `${items.length} punkter under tre rubriker, var och en med källa`;
+  });
+
+  // #1148: faktarutan och markörens skärmläsartext skiljer flagga, symbol och modern återgivning. Japans flagga
+  // görs här till en modern återgivning (bara i testet), Osmanska riket har en vanlig flagga och Rom bara en symbol.
+  await check('rikets tecken: flagga, symbol eller modern återgivning (#1148)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      await lp.route(u => /\/data\/genererat\/riken\.json(\?|$)/.test(u.pathname + u.search), async route => {
+        const res = await route.fetch();
+        const doc = await res.json();
+        for (const f of doc.groups.find(g => g.id === 'japanska-imperiet')?.flags ?? []) f.kind = 'reconstruction';
+        await route.fulfill({ response: res, json: doc });
+      });
+      const open = async (year, id, search) => {
+        await lp.goto(`${BASE}?ny=1148#y=${year}`);
+        await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        if (vp.width <= 760) await lp.click('#more-toggle');
+        await lp.click('#btn-focus');
+        await lp.fill('#focus-menu input', search);
+        await lp.click(`#focus-menu [data-key="empire:${id}"]`);
+        await lp.waitForSelector('#detail h3', { state: 'visible', timeout: T.step });
+        return lp.evaluate(() => {
+          const year = Number(document.getElementById('track').getAttribute('aria-valuenow'));
+          const line = document.querySelector('#detail .symbol-kind');
+          return { year, kind: line?.dataset.symbolKind ?? null, text: line?.textContent ?? '',
+            marks: [...document.querySelectorAll('[aria-label]')].map(el => el.getAttribute('aria-label')).filter(l => /^[^:]+: (rikets|modern återgivning)/.test(l)) };
+        });
+      };
+      const japan = await open(1900, 'japanska-imperiet', 'Japanska');
+      const japanWant = japan.year >= 1870 && japan.year <= 1945 ? 'reconstruction' : 'symbol';
+      if (japan.kind !== japanWant) throw new Error(`Japan ${japan.year}: raden är ${japan.kind}, inte ${japanWant}`);
+      if (japanWant === 'reconstruction' && !/^Modern återgivning/.test(japan.text)) throw new Error(`fel text för modern återgivning: "${japan.text}"`);
+      if (japanWant === 'reconstruction' && !japan.marks.some(l => /modern återgivning av rikets symbol/.test(l))) throw new Error(`markören säger inte modern återgivning: ${japan.marks.join(' | ')}`);
+      const ottoman = await open(1900, 'osmanska-riket', 'Osmanska');
+      const ottoWant = ottoman.year >= 1793 && ottoman.year <= 1922 ? 'flag' : 'symbol';
+      if (ottoman.kind !== ottoWant) throw new Error(`Osmanska riket ${ottoman.year}: raden är ${ottoman.kind}, inte ${ottoWant}`);
+      if (ottoWant === 'flag' && !/^Flagga/.test(ottoman.text)) throw new Error(`fel text för flagga: "${ottoman.text}"`);
+      const rome = await open(100, 'romarriket', 'Rom: kungadöme');
+      if (rome.kind !== 'symbol' || !/inte en flagga/.test(rome.text)) throw new Error(`Rom: raden är ${rome.kind} "${rome.text}", inte symbol`);
+      const han = await open(100, 'hanriket', 'Hanriket');
+      if (han.kind !== null) throw new Error('Hanriket har ingen symbol men får en rad om tecknet');
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `Japan ${japan.year}: ${japan.kind}, Osmanska riket ${ottoman.year}: ${ottoman.kind}, Rom: symbol, Hanriket: ingen rad`;
+    } finally {
+      await lp.close();
+    }
   });
 
   await check('rikets faktaruta startar turen om rikets fall med status per steg (#499)', async () => {
@@ -5138,14 +5240,12 @@ async function run(browser, vp) {
       await lp.evaluate(() => {
         window.__hgGammal = true;
         document.getElementById('tour-next').click();
-        const sel = document.getElementById('lang-select');
-        sel.value = 'en';
-        sel.dispatchEvent(new Event('change'));
+        document.querySelector('#lang-menu [data-lang="en"]').click();
       });
       await lp.waitForFunction(() => {
         const l = document.getElementById('loading');
         return !window.__hgGammal && document.documentElement.lang === 'en' && !!l && (l.hidden || getComputedStyle(l).display === 'none')
-          && !!document.getElementById('lang-select')?.options.length;
+          && document.querySelectorAll('#lang-menu [data-lang]').length > 1;
       }, null, { timeout: T.load });
       await lp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
       const got = await lp.evaluate(() => ({ progress: document.getElementById('tour-progress').textContent.trim(), hash: location.hash }));
@@ -5169,17 +5269,16 @@ async function run(browser, vp) {
   await check('språkbytet laddar om sidan på det nya språket (#63)', async () => {
     if (!(await page.evaluate(() => location.hash))) throw new Error('adressen saknar #-del, så testet prövar inte felet');
     const ready = l => {
-      const s = document.getElementById('lang-select'), loading = document.getElementById('loading');
-      return !window.__hgGammal && document.documentElement.lang === l && s?.options.length > 1 && s.value === l
+      const b = document.getElementById('btn-lang'), loading = document.getElementById('loading');
+      return !window.__hgGammal && document.documentElement.lang === l && document.querySelectorAll('#lang-menu [data-lang]').length > 1
+        && b?.dataset.lang === l
         && !!loading && (loading.hidden || getComputedStyle(loading).display === 'none');
     };
     const pick = async lang => {
       reloading = true;
       await page.evaluate(l => {
         window.__hgGammal = true;
-        const s = document.getElementById('lang-select');
-        s.value = l;
-        s.dispatchEvent(new Event('change'));
+        document.querySelector(`#lang-menu [data-lang="${l}"]`).click();
       }, lang);
       try {
         await page.waitForFunction(ready, lang, { timeout: T.load });
