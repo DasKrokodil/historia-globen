@@ -754,5 +754,7 @@
   "jump.yearResult": "{year}: {count} events",
   "jump.dateResult": "{date}: {count} events with a day date",
   "jump.empty": "No events in this selection.",
-  "jump.more": "Showing the first {count}."
+  "jump.more": "Showing the first {count}.",
+  "jump.era": "Era",
+  "jump.error.negative": "Select BC or AD with the buttons instead of using a minus sign."
 }

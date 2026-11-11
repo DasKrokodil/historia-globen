@@ -754,5 +754,7 @@
   "jump.yearResult": "{year}: {count} Ereignisse",
   "jump.dateResult": "{date}: {count} Ereignisse mit Tagesdatum",
   "jump.empty": "Keine Ereignisse in dieser Auswahl.",
-  "jump.more": "Die ersten {count} werden angezeigt."
+  "jump.more": "Die ersten {count} werden angezeigt.",
+  "jump.era": "Zeitrechnung",
+  "jump.error.negative": "Wählen Sie v. Chr. oder n. Chr. mit den Schaltflächen statt mit einem Minuszeichen."
 }

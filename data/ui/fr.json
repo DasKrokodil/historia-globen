@@ -754,5 +754,7 @@
   "jump.yearResult": "{year} : {count} événements",
   "jump.dateResult": "{date} : {count} événements datés au jour près",
   "jump.empty": "Aucun événement dans cette sélection.",
-  "jump.more": "Les {count} premiers sont affichés."
+  "jump.more": "Les {count} premiers sont affichés.",
+  "jump.era": "Ère",
+  "jump.error.negative": "Choisissez av. J.-C. ou apr. J.-C. avec les boutons plutôt qu’un signe moins."
 }
