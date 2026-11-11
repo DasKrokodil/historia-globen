@@ -144,6 +144,6 @@
     { "id": "makt", "name": { "sv": "Makt och gränser", "en": "Power and borders", "de": "Macht und Grenzen", "es": "Poder y fronteras", "fr": "Pouvoir et frontières" }, "layers": ["events", "areas", "religions", "borders", "wars"] },
     { "id": "resor", "name": { "sv": "Resor och handel", "en": "Journeys and trade", "de": "Reisen und Handel", "es": "Viajes y comercio", "fr": "Voyages et commerce" }, "layers": ["events", "routes"] },
     { "id": "framsteg", "name": { "sv": "Framsteg", "en": "Progress", "de": "Fortschritt", "es": "Progreso", "fr": "Progrès" }, "layers": ["events"], "tag": "framsteg" },
-    { "id": "oversikt", "name": { "sv": "Översikt", "en": "Overview", "de": "Überblick", "es": "Resumen", "fr": "Aperçu" }, "layers": ["events"], "tag": "oversikt" }
+    { "id": "oversikt", "name": { "sv": "Översikt", "en": "Overview", "de": "Überblick", "es": "Resumen", "fr": "Aperçu" }, "layers": ["events", "funfacts", "areas", "routes", "wars"], "tag": "oversikt" }
   ]
 }

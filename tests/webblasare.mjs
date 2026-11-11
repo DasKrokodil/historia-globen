@@ -345,6 +345,10 @@ async function run(browser, vp) {
     if (!THREE_LOCAL && !threeOk) throw new Error('three.js laddades inte från jsdelivr');
     await shot('1-start');
     await shot('538-grundvy');
+    // Startvyn är Översikt (#868). Den delade sidan går över till Standard, så att kontrollerna efter ser alla händelser;
+    // Översikt som startvy provas på en egen sida i kontrollen om vyn Översikt.
+    await page.evaluate(() => document.querySelector('#layer-menu .view-chip[data-view="standard"]')?.click());
+    await page.waitForFunction(() => document.querySelector('#layer-menu .view-chip[data-view="standard"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
     return `år ${await year()}`;
   });
 
@@ -1958,8 +1962,17 @@ async function run(browser, vp) {
     await visible('#layer-menu');
     const chip = page.locator('#layer-menu .view-chip[data-view="oversikt"]');
     if (await chip.count() !== 1) throw new Error('vyn Översikt saknas i Lager');
-    if (await chip.getAttribute('aria-pressed') !== 'true') throw new Error('Översikt är inte vald vid första besöket');
-    if (!/([?&#])g=oversikt(?:&|$)/.test(await page.evaluate(() => location.hash))) throw new Error('delningslänken saknar Översikts urval');
+    // Första besöket provas på en egen sida: den delade sidan har redan bytt vy i kontrollerna före.
+    const first = await context.newPage();
+    try {
+      await first.goto(BASE);
+      await first.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await first.waitForFunction(() => document.querySelector('#layer-menu .view-chip[data-view="oversikt"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+      await first.waitForFunction(() => /([?&#])g=oversikt(?:&|$)/.test(location.hash), null, { timeout: T.step });
+      // Översikt väljer bara händelserna: lagren är som i Standard, så Riken och Samtidigt finns kvar
+      const on = await first.evaluate(() => ['areas', 'funfacts', 'routes', 'wars'].filter(l => document.querySelector(`[data-layer="${l}"]`)?.checked));
+      if (on.length !== 4) throw new Error(`Översikt som startvy ska behålla Standards lager, men bara ${on.join(', ') || 'inga'} är på`);
+    } finally { await first.close(); }
     await chip.click();
     await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
     await page.keyboard.press('Escape');
