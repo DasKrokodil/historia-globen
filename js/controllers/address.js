@@ -193,6 +193,7 @@ export function createAddress(app) {
     // Startläget får också en adress, så att Bakåt efter första steget kommer tillbaka hit
     settle();
     history.replaceState(null, '', `${location.pathname}${search()}${writtenHash}`);
+    legacyCameraInSearch = false; // ?c= är nu borta ur adressen (#1141): flaggan hör till första läsningen och nollställs här, inte i settle(), som apply() anropar före den här raden
     return touring || hunting || !!s;
   }
 

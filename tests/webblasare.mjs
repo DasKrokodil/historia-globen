@@ -759,9 +759,10 @@ async function run(browser, vp) {
     const bad = await page.evaluate(() => [...document.querySelectorAll('.tdot, .tspan, .tff, .troute')].filter(m => m.tabIndex !== -1).length);
     if (bad) throw new Error(`${bad} markeringar har tabbstopp`);
     const marks = await page.evaluate(() => document.querySelectorAll('.tdot, .tspan, .tff, .troute').length);
-    await visible('#timeline-legend');
+    // I smal skärm döljs raden medan engångstipset visas (#1138); texten finns ändå, och raden syns efter första draget (provas nedan)
+    await page.waitForSelector('#timeline-legend', { state: 'attached', timeout: T.step });
     const texts = (await page.textContent('#timeline-legend')).replace(/\s+/g, ' ').trim();
-    if (!/händelse/.test(texts) || !/samband/.test(texts) || !/resa/.test(texts)) throw new Error(`teckenförklaringen saknar tecken: ${texts}`);
+    if (!/händelse/.test(texts) || !/Visste du/.test(texts) || !/resa/.test(texts)) throw new Error(`teckenförklaringen saknar tecken: ${texts}`);
     const covered = await page.evaluate(() => [...document.querySelectorAll('.timebar .step, #btn-play')].filter(b => {
       const r = b.getBoundingClientRect();
       const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
@@ -773,7 +774,7 @@ async function run(browser, vp) {
     const fresh = await context.newPage();
     try {
       await fresh.goto(BASE);
-      await fresh.evaluate(() => { try { localStorage.removeItem('hg-teckenforklaring'); } catch { /* */ } });
+      await fresh.evaluate(() => { try { localStorage.removeItem('hg-teckenforklaring'); localStorage.setItem('hg-year-tip', '1'); } catch { /* */ } }); // utan tipset, som annars döljer raden i smal skärm (#1138)
       await fresh.reload();
       await fresh.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await fresh.waitForSelector('#timeline-legend summary', { state: 'visible', timeout: T.step });
@@ -1730,7 +1731,7 @@ async function run(browser, vp) {
           await surprise.evaluate(button => button.click());
           await pp.locator('#jump-back-button').focus();
           await pp.screenshot({ path: path.join(OUT, `${vp.name}-997-tillbaka.png`) });
-          await pp.waitForSelector('#jump-back', { state: 'hidden', timeout: 11000 });
+          await pp.waitForSelector('#jump-back', { state: 'hidden', timeout: 25000 }); // raden ligger kvar i 20 s (#1138)
           if (await pp.evaluate(() => document.activeElement?.id) !== 'year-jump') throw new Error('utgången tid lämnade fokus på en dold knapp');
         }
         if (await pp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error(`${lang}: horisontell scroll`);
@@ -2213,6 +2214,63 @@ async function run(browser, vp) {
     return `${marks} märken på tidslinjen, ${titles.length} i listan år 1969, Standard ger bandet tillbaka`;
   });
 
+  // #1139: Översikt är ett urval, och Samtidigt säger det överst med en knapp till alla händelser (samma åtgärd som Standard i Lager).
+  // Raden syns också när listan är tom ("Inget ur Översikt …"), och den ryms utan sidscroll.
+  await check('Översikt säger i Samtidigt att det är ett urval, med en knapp till alla händelser (#1139)', async () => {
+    const dataCount = await page.evaluate(async () => (await (await fetch('data/events.json')).json()).events.filter(e => e.significance === 1).length);
+    const expected = dataCount >= 10 ? Math.round(dataCount / 10) * 10 : dataCount;
+    await clickView('#btn-layers');
+    await visible('#layer-menu');
+    await page.click('#layer-menu .view-chip[data-view="oversikt"]');
+    await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+    await page.keyboard.press('Escape');
+    await hidden('#layer-menu');
+    try {
+      await jumpTo(1969);
+      if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
+      await visible('#panel');
+      const note = page.locator('#panel-tag-note');
+      await note.waitFor({ state: 'visible', timeout: T.step });
+      const text = (await page.locator('#panel-tag-text').textContent()).trim();
+      if (text !== `Översikt: ett urval, cirka ${expected} händelser.`) throw new Error(`urvalsraden säger "${text}", väntade cirka ${expected} (${dataCount} i datan)`);
+      const button = page.locator('#panel-tag-all');
+      if ((await button.evaluate(el => el.tagName)) !== 'BUTTON' || (await button.textContent()).trim() !== 'Visa alla') throw new Error('Visa alla är ingen knapp med rätt text');
+      if (!(await button.getAttribute('aria-label'))) throw new Error('knappen saknar tillgängligt namn');
+      // Raden ligger överst i rutan, ovanför kategorierna och listan, och ger ingen sidscroll
+      const order = await page.evaluate(() => {
+        const y = id => document.getElementById(id).getBoundingClientRect().top;
+        return y('panel-tag-note') < y('panel-filters') && y('panel-filters') < y('event-list');
+      });
+      if (!order) throw new Error('urvalsraden ligger inte ovanför kategorierna och listan');
+      if (await page.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error('urvalsraden ger horisontell scroll');
+      const fits = await page.evaluate(() => { const r = document.getElementById('panel-tag-all').getBoundingClientRect(); return r.left >= 0 && r.right <= innerWidth && r.width > 0; });
+      if (!fits) throw new Error('knappen Visa alla ryms inte i bredden');
+      // Tomläget finns kvar och raden står ovanför det
+      await jumpTo(-2849); // 2850 f.Kr.: inget ur Översikt inom ±120 år
+      await page.waitForFunction(() => !!document.querySelector('#event-list .tag-empty'), null, { timeout: T.step });
+      if (!/Inget ur Översikt/.test(await page.locator('#event-list .tag-empty').textContent())) throw new Error('tomläget "Inget ur Översikt" saknas');
+      if (!(await note.isVisible())) throw new Error('urvalsraden försvann i tomläget');
+      // Visa alla: samma vy som Standard i Lager, urvalet släpps och raden försvinner
+      await jumpTo(1969);
+      await button.click();
+      await page.waitForFunction(() => document.getElementById('panel-tag-note').hidden, null, { timeout: T.step });
+      await page.waitForFunction(() => !/([?&#])g=oversikt(?:&|$)/.test(location.hash) && !!document.querySelector('.tdensity'), null, { timeout: T.step });
+      await clickView('#btn-layers');
+      await visible('#layer-menu');
+      if (await page.locator('#layer-menu [data-view="standard"]').getAttribute('aria-pressed') !== 'true') throw new Error('Visa alla gav inte vyn Standard');
+      await page.keyboard.press('Escape');
+      await hidden('#layer-menu');
+      return `raden säger cirka ${expected} (${dataCount} i datan), står ovanför listan och tomläget, och Visa alla ger Standard`;
+    } finally {
+      if (await page.locator('#layer-menu [data-view="standard"]').getAttribute('aria-pressed') !== 'true') {
+        if (await page.locator('#layer-menu').isHidden()) await clickView('#btn-layers');
+        await page.click('#layer-menu .view-chip[data-view="standard"]');
+        await page.keyboard.press('Escape');
+      }
+      if (await page.locator('#panel').evaluate(el => el.classList.contains('open'))) await page.click('#panel-close');
+    }
+  });
+
   // #555: vyn Framsteg i Lager. Ingen riktig händelse har taggen ännu, så vyn ska säga att den är tom. Med en
   // test-fixtur (taggen läggs på Apollo 11 bara i testet, inte i datan) ska vyn visa just den händelsen och
   // faktarutan ha märkningen med ett namn för skärmläsare.
@@ -2346,7 +2404,7 @@ async function run(browser, vp) {
     const toggle = legend.locator('.rl-toggle');
     const body = legend.locator('#rl-body');
     await visible('#religion-legend');
-    if ((await toggle.textContent()).trim() !== 'Upptäcktsvy') throw new Error('upptäcktsvyn saknar sin datahämtade rubrik');
+    if ((await toggle.textContent()).trim() !== 'Upptäcktsresor') throw new Error('Upptäcktsresor saknar sin datahämtade rubrik');
     if (await body.isHidden()) await toggle.click();
     await visible('#religion-legend #rl-body');
     const coverage = page.locator('#religion-legend .rl-coverage');
@@ -4046,6 +4104,53 @@ async function run(browser, vp) {
     }
     return 'direktlänk, omladdning och Bakåt/Framåt behåller låset; året låst till 1939–1945; Tab når utgången; slutkortet står kvar; utgången behåller året; utan lektionstur eller tur inget läge';
   });
+  // #1139: lektionsläget visar alltid alla händelser i lektionens år, också när lektionens lager är exakt Översikts fem lager
+  // (då slår turen inte av något lager, och vyns urval skulle annars ligga kvar). Utgången ("Visa hela globen") ger tillbaka
+  // Översikt som det var före lektionen. Lektionens lager skrivs om i testet så att de blir lika med Översikts.
+  await check('lektionsläget från Översikt visar alla händelser och lämnar inget urval kvar (#1139)', async () => {
+    const lp = await context.newPage();
+    const errors = [];
+    lp.on('pageerror', e => errors.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      const overviewLayers = ['events', 'funfacts', 'areas', 'routes', 'wars'];
+      await lp.route(u => /data\/turer\/andra-varldskriget\.json/.test(u.href), async r => {
+        const res = await r.fetch();
+        const doc = await res.json();
+        doc.lesson.lock.layers = overviewLayers;
+        await r.fulfill({ response: res, json: doc });
+      });
+      // En bar länk till lektionen: första besöket börjar i Översikt, och lektionen slår inte av något lager
+      await lp.goto(`${BASE}?ny=1139#t=andra-varldskriget&m=lektion`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      await lp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      const view = id => lp.evaluate(v => document.querySelector(`#layer-menu [data-view="${v}"]`)?.getAttribute('aria-pressed'), id);
+      await lp.waitForFunction(() => document.querySelector('#layer-menu [data-view="standard"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+      if (await view('oversikt') !== 'false') throw new Error('Översikt är kvar som vy i lektionen');
+      // Samtidigt visar händelser som inte hör till Översikt: urvalet gäller inte i lektionen
+      const ids = await lp.evaluate(() => [...document.querySelectorAll('#event-list .event-btn')].map(b => b.dataset.id));
+      const outside = await lp.evaluate(async list => {
+        const events = (await (await fetch('data/events.json')).json()).events;
+        return list.filter(id => events.find(e => e.id === id)?.significance !== 1);
+      }, ids);
+      if (!ids.length || !outside.length) throw new Error(`lektionen år 1939 visar ${ids.length} händelser och ingen utanför Översikt: urvalet läcker in i lektionen`);
+      if (!await lp.evaluate(() => document.getElementById('panel-tag-note').hidden)) throw new Error('urvalsraden syns i lektionen');
+      if (/[#&]g=/.test(await lp.evaluate(() => location.hash))) throw new Error('adressen har ett urval (g=) i lektionen');
+      // Visa hela globen: lektionen slutar, året står kvar och Översikt är tillbaka som före lektionen
+      await lp.click('#lesson-exit');
+      await lp.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
+      await lp.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+      await lp.waitForFunction(() => /([?&#])g=oversikt(?:&|$)/.test(location.hash), null, { timeout: T.step });
+      if (await lp.evaluate(() => document.getElementById('panel-tag-note').hidden)) throw new Error('urvalsraden saknas när Översikt är tillbaka efter lektionen');
+      if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
+      return `lektionen visar ${ids.length} händelser år 1939, varav ${outside.length} utanför Översikt; utgången ger Översikt tillbaka`;
+    } finally { await lp.close(); }
+  });
   // #865: en gammal adress som väntar på att ett fokus ska laddas får inte skriva över året och kameran när en vanlig
   // tur har startat under tiden (apply() i js/controllers/address.js). Rikesfilerna görs långsamma, som på ett skolnät.
   await check('en tur som startar medan ett fokus laddas behåller sitt första år och sin kamera (#865)', async () => {
@@ -4669,6 +4774,8 @@ async function run(browser, vp) {
       if (!list.some(m => /^\d+ år (tidigare|senare) · /.test(m))) throw new Error('listan 1325 har ingen rad med "N år tidigare/senare"');
       // Klotets etiketter: "N år före (år)" och "om N år (år)", aldrig "slut" eller "börjar"
       rows.push(await want('#y=1916', /^1900-talet · visar också det som hände \d+ år före och efter$/));
+      // Etiketterna ritas om en bildruta efter att raden bytt text: vänta in dem (annars läses de gamla, #1138), men kräv fortfarande att etiketten finns
+      await wp.waitForFunction(() => [...document.querySelectorAll('#labels .glabel')].some(l => l.textContent === 'Första världskriget'), null, { timeout: 8000 }).catch(() => {});
       const shown = await labels();
       const before = shown.find(l => /Titanic/.test(l));
       if (before && !/ · 4 år före \(1912\)$/.test(before)) throw new Error(`Titanic 1916 säger "${before}"`);
@@ -4681,6 +4788,132 @@ async function run(browser, vp) {
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return `${rows[0]} | ${rows[2]} | 1916: ${before ?? '(ingen Titanic-etikett)'}`;
     } finally { await wp.close(); }
+  });
+  // #1134: raden under årtalet radbryts i smal skärm i stället för att klippas med ellips. Längsta texten styr: alla
+  // fem språk, ett f.Kr.-år (längst rubrik) och ett intervall, i 400 px bredd. Körs i mobiljobbet (en egen sida, egen bredd).
+  await check('raden under årtalet ryms på 400 px på fem språk (#1134)', async () => {
+    if (vp.width > 760) return 'körs i mobiljobbet';
+    const sp = await context.newPage();
+    const errs = [];
+    sp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await sp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await sp.route(u => isFont(u.href), r => r.abort());
+      }
+      await sp.setViewportSize({ width: 400, height: 800 });
+      let loads = 0;
+      const out = [];
+      for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+        for (const hash of ['#y=1900', '#y=-2600']) {
+          await sp.goto(`${BASE}?lang=${lang}&ny=s${loads++}${hash}`);
+          await sp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          const m = await sp.evaluate(() => {
+            const e = document.getElementById('year-segment');
+            const r = e.getBoundingClientRect(), cs = getComputedStyle(e);
+            return { text: e.textContent.trim(), sw: e.scrollWidth, cw: e.clientWidth, h: r.height, line: parseFloat(cs.lineHeight), left: r.left, right: r.right,
+              clipped: cs.textOverflow === 'ellipsis' && cs.whiteSpace === 'nowrap', page: document.documentElement.scrollWidth, width: innerWidth };
+          });
+          if (!m.text) throw new Error(`${lang} ${hash}: raden är tom`);
+          if (m.sw > m.cw || m.clipped) throw new Error(`${lang} ${hash}: raden klipps (scrollWidth ${m.sw} > clientWidth ${m.cw}): "${m.text}"`);
+          if (m.left < 0 || m.right > m.width || m.page > m.width) throw new Error(`${lang} ${hash}: raden går utanför skärmen eller sidan scrollar sidled: ${JSON.stringify(m)}`);
+          if (m.h > m.line * 3 + 1) throw new Error(`${lang} ${hash}: raden tar mer än tre rader (${Math.round(m.h)} px): "${m.text}"`);
+          out.push(`${lang}${hash}: ${Math.round(m.h / m.line)} rader`);
+        }
+      }
+      // Intervallet har en kort rad men ska också ryms
+      await sp.goto(`${BASE}?ny=s${loads++}#y=1900&y2=1950`);
+      await sp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      const r = await sp.evaluate(() => { const e = document.getElementById('year-segment'); return { sw: e.scrollWidth, cw: e.clientWidth }; });
+      if (r.sw > r.cw) throw new Error(`intervallet: raden klipps (${r.sw} > ${r.cw})`);
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return out.join(', ');
+    } finally { await sp.close(); }
+  });
+  // #1138: tillgänglighet. Mäts i den bredd jobbet kör (400 × 800 eller 1400 × 900) på en egen sida med ren lagring.
+  await check('tillgänglighet: namn, fokus, träffytor, aria-invalid och tipset (#1138)', async () => {
+    const ap = await context.newPage();
+    const errs = [];
+    ap.on('pageerror', e => errs.push(e.message));
+    const notes = [];
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await ap.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await ap.route(u => isFont(u.href), r => r.abort());
+      }
+      await ap.goto(`${BASE}?ny=a11y#y=-2600`);
+      await ap.evaluate(() => { try { localStorage.removeItem('hg-year-tip'); } catch { /* */ } });
+      await ap.goto(`${BASE}?ny=a11y2#y=-2600`);
+      await ap.reload();
+      await ap.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      // 5. Tipset överlappar inte teckenförklaringen: antingen står det under raden eller så är raden dold medan tipset visas (smal skärm)
+      await ap.waitForSelector('#year-tip:not([hidden])', { timeout: T.step });
+      const tip = await ap.evaluate(() => {
+        const legend = document.getElementById('timeline-legend'), a = legend.getBoundingClientRect();
+        const text = document.querySelector('#year-tip span').getBoundingClientRect();
+        const items = [...legend.children].map(c => c.getBoundingClientRect());
+        const right = Math.max(...items.map(r => r.right)), left = Math.min(...items.map(r => r.left));
+        const vertical = text.top < a.bottom && text.bottom > a.top, horizontal = text.left < right && text.right > left;
+        return { overlap: vertical && horizontal, hidden: getComputedStyle(legend).visibility === 'hidden', text: [text.left, text.right], legend: [left, right] };
+      });
+      if (vp.width <= 760 && !tip.hidden) throw new Error('teckenförklaringen är kvar under engångstipset i smal skärm');
+      if (tip.overlap && !tip.hidden) throw new Error(`tipset överlappar teckenförklaringen: ${JSON.stringify(tip)}`);
+      // 4. Träffytor: teckenförklaringens knapp har en osynlig yta (::before) på minst 24 px höjd, och fokusramen klipps inte uppåt eller nedåt
+      const hit = await ap.evaluate(() => {
+        const legend = document.getElementById('timeline-legend'), summary = legend.querySelector('summary');
+        const cs = getComputedStyle(summary, '::before'), ls = getComputedStyle(legend);
+        return { w: parseFloat(cs.width), h: parseFloat(cs.height), overflowY: ls.overflowY, overflowX: ls.overflowX };
+      });
+      if (hit.w < 23.5 || hit.h < 23.5) throw new Error(`teckenförklaringens träffyta är ${Math.round(hit.w)} × ${Math.round(hit.h)} px`);
+      if (hit.overflowY !== 'visible') throw new Error(`teckenförklaringen klipper fokusramen i höjd (overflow-y: ${hit.overflowY})`);
+      notes.push(`teckenförklaringens träffyta ${Math.round(hit.w)}×${Math.round(hit.h)}`);
+      // 1 och 6. Intervallformuläret: f.Kr.-knappens namn innehåller det synliga ordet, och fel ger aria-invalid
+      await ap.click('#year-jump');
+      await ap.waitForSelector('#jump-pop:not([hidden])', { timeout: T.step });
+      // 6. Årshoppet
+      await ap.fill('#jump-input', 'abc');
+      await ap.press('#jump-input', 'Enter');
+      await ap.waitForFunction(() => document.getElementById('jump-input').getAttribute('aria-invalid') === 'true' && document.getElementById('jump-msg').textContent.trim(), null, { timeout: T.step });
+      await ap.fill('#jump-input', '19');
+      if (await ap.getAttribute('#jump-input', 'aria-invalid') !== null) throw new Error('årshoppets aria-invalid står kvar efter ändring');
+      await ap.click('#range-open');
+      await ap.waitForSelector('#range-pop:not([hidden])', { timeout: T.step });
+      const names = await ap.evaluate(() => [...document.querySelectorAll('#range-pop .jump-era-btn')].map(b => ({ text: b.textContent.trim(), name: b.getAttribute('aria-label') })));
+      if (names.length !== 2 || names.some(n => !n.name || !n.name.includes(n.text))) throw new Error(`f.Kr.-knappens namn saknar det synliga ordet: ${JSON.stringify(names)}`);
+      await ap.fill('#range-from', 'abc');
+      await ap.press('#range-from', 'Enter');
+      await ap.waitForFunction(() => document.getElementById('range-from').getAttribute('aria-invalid') === 'true', null, { timeout: T.step });
+      if (await ap.getAttribute('#range-to', 'aria-invalid') !== null) throw new Error('Till markerades som fel fast bara Från är ogiltigt');
+      await ap.fill('#range-from', '1914');
+      await ap.fill('#range-to', '1914');
+      await ap.press('#range-to', 'Enter');
+      await ap.waitForFunction(() => document.getElementById('range-from').getAttribute('aria-invalid') === 'true' && document.getElementById('range-to').getAttribute('aria-invalid') === 'true', null, { timeout: T.step });
+      await ap.fill('#range-to', '1918');
+      if (await ap.getAttribute('#range-from', 'aria-invalid') !== null || await ap.getAttribute('#range-to', 'aria-invalid') !== null) throw new Error('intervallets aria-invalid står kvar efter ändring');
+      await ap.press('#range-to', 'Escape');
+      await ap.waitForSelector('#range-pop', { state: 'hidden', timeout: T.step });
+      // 2 och 3. Faktarutan: ingen aria-live på kortet, rubriken går till statusraden, fokus går till Stäng och tillbaka till samma knapp
+      if (await ap.getAttribute('#detail', 'aria-live') !== null) throw new Error('#detail har kvar aria-live');
+      await ap.waitForSelector('#funfact .ff-chip', { state: 'visible', timeout: T.step });
+      const chipId = await ap.evaluate(() => document.querySelector('#funfact .ff-chip').dataset.id);
+      await ap.focus('#funfact .ff-chip');
+      await ap.keyboard.press('Enter');
+      await ap.waitForSelector('#detail:not([hidden])', { timeout: T.step });
+      await ap.waitForFunction(() => document.activeElement?.hasAttribute('data-close') && document.getElementById('detail').contains(document.activeElement), null, { timeout: T.step });
+      const said = await ap.evaluate(() => ({ status: document.getElementById('screen-reader-status').textContent, title: document.querySelector('#detail h3')?.textContent.trim() }));
+      if (!said.title || !said.status.includes(said.title)) throw new Error(`statusraden säger inte rubriken: "${said.status}" mot "${said.title}"`);
+      await ap.keyboard.press('Escape');
+      await ap.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      await ap.waitForFunction(id => document.activeElement?.classList.contains('ff-chip') && document.activeElement.dataset.id === id, chipId, { timeout: T.step })
+        .catch(async () => { throw new Error(`fokus kom inte tillbaka till Samtidigt-kortets knapp: ${await ap.evaluate(() => `${document.activeElement?.tagName}.${document.activeElement?.className}`)}`); });
+      // Kortet läses inte upp igen när rutan stängs: statusraden är oförändrad
+      const after = await ap.evaluate(() => document.getElementById('screen-reader-status').textContent);
+      if (after !== said.status) throw new Error(`statusraden ändrades när faktarutan stängdes: "${after}" mot "${said.status}"`);
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return notes.join('; ');
+    } finally { await ap.close(); }
   });
   // #942: händelser som börjar före tidslinjens början (−2999) får en rad i faktarutan; en vanlig händelse får ingen.
   await check('händelser före tidslinjens början får en rad i faktarutan (#942)', async () => {

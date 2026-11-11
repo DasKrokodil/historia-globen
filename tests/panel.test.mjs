@@ -2,7 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { uncertaintyRow, mythsHtml, emptyCause, beforeTimelineStart } from '../js/ui/panel.js';
+import { uncertaintyRow, mythsHtml, emptyCause, beforeTimelineStart, overviewCount } from '../js/ui/panel.js';
 
 const events = JSON.parse(readFileSync(new URL('../data/events.json', import.meta.url))).events;
 
@@ -73,4 +73,14 @@ test('de fem händelserna före −2999 har rad, och en vanlig händelse har ing
     assert.ok(before.includes(id), `${id} ska vara före tidslinjens början`);
   }
   assert.ok(!beforeTimelineStart(events.find(e => e.id === 'eiffeltornet')));
+});
+
+// #1139: raden "Översikt: ett urval, cirka N händelser" räknar antalet ur datan och avrundar till tiotal
+test('antalet i Översikts urvalsrad avrundas till tiotal och räknas ur datan (#1139)', () => {
+  assert.equal(overviewCount(123), 120);
+  assert.equal(overviewCount(126), 130);
+  assert.equal(overviewCount(10), 10);
+  assert.equal(overviewCount(7), 7, 'under tio står det exakta antalet');
+  const n = events.filter(e => e.significance === 1).length;
+  assert.ok(n > 0 && overviewCount(n) % 10 === 0, `datan har ${n} händelser i Översikt`);
 });

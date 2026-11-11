@@ -40,6 +40,15 @@ export function createRange(app) {
   const msg = document.createElement('p');
   msg.id = 'range-msg'; msg.className = 'jump-msg'; msg.setAttribute('role', 'alert');
 
+  /** Fel i formuläret (#1138): meddelandet står i msg (role=alert) och de fält det gäller får aria-invalid tills något ändras. */
+  const inputs = [];
+  function showError(text, ...bad) {
+    msg.textContent = text;
+    for (const f of inputs) {
+      if (text && bad.includes(f)) f.input.setAttribute('aria-invalid', 'true'); else f.input.removeAttribute('aria-invalid');
+    }
+  }
+
   /** Ett årsfält: siffran i fältet och f.Kr.-knappen; value är astronomiskt år. */
   function field(id, label) {
     const row = document.createElement('div');
@@ -58,7 +67,7 @@ export function createRange(app) {
     const era = document.createElement('button');
     era.type = 'button'; era.className = 'jump-era-btn'; era.textContent = ui('time.bce');
     era.title = ui('range.bceTitle'); era.setAttribute('aria-pressed', 'false');
-    era.setAttribute('aria-label', `${label}: ${ui('range.bceTitle')}`);
+    era.setAttribute('aria-label', `${label}: ${ui('time.bce')}`); // det synliga ordet ingår i namnet (WCAG 2.5.3); förklaringen står i title (#1138)
     row.append(lab, minus, input, plus, era);
     const bce = () => era.getAttribute('aria-pressed') === 'true';
     const f = {
@@ -74,16 +83,17 @@ export function createRange(app) {
     const step = d => {
       const y = f.value ?? 0;
       f.value = Math.max(MIN_YEAR, Math.min(MAX_YEAR, y + d)); // över gränsen mellan f.Kr. och e.Kr. (1 f.Kr. + 1 = 1 e.Kr.)
-      msg.textContent = '';
+      showError('');
       input.focus();
     };
     minus.addEventListener('click', () => step(-1));
     plus.addEventListener('click', () => step(1));
-    era.addEventListener('click', () => { era.setAttribute('aria-pressed', String(!bce())); msg.textContent = ''; input.focus(); });
-    input.addEventListener('input', () => { msg.textContent = ''; });
+    era.addEventListener('click', () => { era.setAttribute('aria-pressed', String(!bce())); showError(''); input.focus(); });
+    input.addEventListener('input', () => { showError(''); });
     input.addEventListener('keydown', e => {
       if (e.key === 'ArrowUp' || e.key === 'ArrowDown') { e.preventDefault(); step(e.key === 'ArrowUp' ? 1 : -1); }
     });
+    inputs.push(f);
     return f;
   }
   const fromField = field('range-from', ui('range.from'));
@@ -195,8 +205,8 @@ export function createRange(app) {
     const r = state.range, y = Math.floor(timeline.year);
     fromField.value = r ? r.from : y;
     toField.value = r ? r.to : Math.min(MAX_YEAR, y + 10);
-    msg.textContent = '';
-    $('jump-pop').hidden = true; $('year-jump').setAttribute('aria-expanded', 'false');
+    showError('');
+    app.surfaces.opened('range'); // årshoppet stängs (samma grupp: popover)
     pop.hidden = false;
     openBtn.setAttribute('aria-expanded', 'true');
     fitPop();
@@ -219,6 +229,7 @@ export function createRange(app) {
     openBtn.setAttribute('aria-expanded', 'false');
     if (refocus) $('year-jump').focus({ preventScroll: true });
   }
+  app.surfaces.register('range', 'popover', () => closeForm(false));
   openBtn.addEventListener('click', openForm);
   cancel.addEventListener('click', () => closeForm());
   pop.addEventListener('keydown', e => { if (e.key === 'Escape') { e.stopPropagation(); closeForm(); } });
@@ -226,11 +237,14 @@ export function createRange(app) {
   pop.addEventListener('submit', e => {
     e.preventDefault();
     const a = fromField.value, b = toField.value;
-    if (a == null || b == null) { msg.textContent = ui('time.error.input'); return; }
+    if (a == null || b == null) { showError(ui('time.error.input'), ...[[fromField, a], [toField, b]].filter(([, v]) => v == null).map(([f]) => f)); return; }
     const lo = Math.min(a, b), hi = Math.max(a, b);
-    if (lo < MIN_YEAR || hi > MAX_YEAR) { msg.textContent = ui('range.bounds', { min: formatYear(MIN_YEAR), max: formatYear(MAX_YEAR) }); return; }
-    if (lo === hi) { msg.textContent = ui('range.same'); return; }
-    if (!store.canEnter('intervall')) { msg.textContent = ui('range.blocked'); return; }
+    if (lo < MIN_YEAR || hi > MAX_YEAR) {
+      showError(ui('range.bounds', { min: formatYear(MIN_YEAR), max: formatYear(MAX_YEAR) }), ...[[fromField, a], [toField, b]].filter(([, v]) => v < MIN_YEAR || v > MAX_YEAR).map(([f]) => f));
+      return;
+    }
+    if (lo === hi) { showError(ui('range.same'), fromField, toField); return; }
+    if (!store.canEnter('intervall')) { showError(ui('range.blocked')); return; }
     closeForm(false);
     set(lo, hi);
     exitBtn.focus({ preventScroll: true });

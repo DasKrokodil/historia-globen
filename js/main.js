@@ -151,11 +151,13 @@ async function start() {
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
   ff.setSurpriseRange(() => timeline.focus);
-  setupYearJump(timeline, {
+  const yearJump = setupYearJump(timeline, {
     button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'),
     events: data.events, onJump: () => { app.range?.close(); app.orientToPanelHighlight(); }, // ett hopp till ett år stänger intervallet (#755)
     onSelect: id => app.select(id, false), // raderna i datumresultatet (#590); året är redan rätt
+    onOpen: () => app.surfaces.opened('jump'), // årshoppet och intervallformuläret stänger varandra (#1141)
   });
+  app.surfaces.register('jump', 'popover', () => yearJump.close());
 
 
   // Lagerväljaren: vilka lager som syns. Raderna och startläget kommer från registret.
@@ -166,6 +168,8 @@ async function start() {
   layers.onTag = tag => { store.setTag(tag); panel.tag = tag; app.refresh?.(); };
   // Första besöket börjar i den vy som datan utser. En delad länk ställs in efteråt och får alltid företräde.
   if (views?.defaultView) layers.applyView(views.defaultView);
+  // Raden "Översikt: ett urval … Visa alla" (#1139) gör samma sak som Standard i Lager: alla händelser, samma lager
+  panel.onShowAllEvents = () => layers.applyView('standard');
   panel.onEnableEvents = () => {
     layers.set('events', true);
     layers.onChange('events', true);
@@ -237,7 +241,7 @@ async function start() {
     if (open) empireLegend.onClose();
     else {
       // Menyn ligger ovanpå kartan i mobil. Stäng den först, så att rikesrutan inte öppnas bakom den.
-      layers.close();
+      app.surfaces.closeGroup('meny', 'focus'); // bara Lager-menyn (Fokus-menyn ligger kvar som förut)
       empireLegend.setVisible(true); empireLegendButton.setAttribute('aria-expanded', 'true');
     }
   });
@@ -280,6 +284,7 @@ async function start() {
       layers: Object.fromEntries(controlled.map(l => [l, !!layers.on[l]])),
       focus: state.focus ? `${state.focus.type}:${state.focus.id}` : null,
       camera: globe.view,
+      tag: state.tag ?? null, // vyns urval (till exempel Översikt, #1139): lektionen släpper det och utgången återställer det
       filters: [...panel.filters],
     };
   };
@@ -333,7 +338,32 @@ async function start() {
   ff.onArcs = pairs => { globe.setArcs(pairs); flatMap.setArcs(pairs); };
   // På dator och surfplatta får faktarutan ensam vara läsytan. FunFacts behåller
   // däremot sitt eget hopfällda/öppna val och visar det igen när rutan stängs.
-  panel.onDetailChange = open => ff.setDetailOpen(open);
+  // Fokus och skärmläsare (#1138): hela kortet byts via innerHTML, så #detail är inte aria-live (allt lästes om vid varje byte).
+  // I stället säger statusraden rubriken en gång per ny ruta. Kom man från Samtidigt-kortet, som döljs, går fokus till Stäng
+  // och tillbaka till samma knapp när rutan stängs (kortet ritas om, så knappen hittas på id eller händelse-id).
+  let detailTitle = '', cardFocus = null;
+  panel.onDetailChange = open => {
+    const detail = $('detail'), card = $('funfact'), active = document.activeElement;
+    if (open) {
+      if (!cardFocus && card.contains(active)) cardFocus = active.dataset?.id ? { chip: active.dataset.id } : { id: active.id };
+      ff.setDetailOpen(true);
+      if (cardFocus) detail.querySelector('[data-close]')?.focus({ preventScroll: true });
+      const title = detail.querySelector('h3')?.textContent.trim() ?? '';
+      if (title && title !== detailTitle) $('screen-reader-status').textContent = `${ui('detail.label')}: ${title}`;
+      detailTitle = title;
+      return;
+    }
+    const back = cardFocus, wasInDetail = !active || active === document.body || detail.contains(active);
+    ff.setDetailOpen(false);
+    // I smal skärm döljs kortet av klassen has-detail tills omritningen har tagit bort den, så fokus flyttas efter den
+    if (back && wasInDetail) requestAnimationFrame(() => {
+      const now = document.activeElement;
+      if (now && now !== document.body && !detail.contains(now)) return; // besökaren har redan flyttat fokus
+      const own = back.chip ? $('ff-events').querySelector(`.ff-chip[data-id="${CSS.escape(back.chip)}"]`) : back.id && $(back.id);
+      [own, $('ff-next'), $('ff-handle')].find(el => el && !el.hidden && el.getClientRects().length)?.focus({ preventScroll: true });
+    });
+    cardFocus = null; detailTitle = '';
+  };
   // Kortets källor (#337): rikets berättelse har egna, fun facts och krigskort ärver händelsernas, som har laddats
   // när dialogen visar dem (Om källorna laddar alla händelsers källor först)
   ff.onSources = f => sources.open(() => f.kind === 'empire' ? f.sources
@@ -631,14 +661,14 @@ async function start() {
   app.lesson = new LessonMode({
     band: $('lesson-band'), title: $('lesson-band-title'), exit: $('lesson-exit'), printBtn: $('lesson-print'), printStatus: $('lesson-print-status'),
     notice: $('lesson-notice'), noticeText: $('lesson-notice-text'), retry: $('lesson-retry'), noticeClose: $('lesson-notice-close'), endLinks: $('tour-lesson-end'), endList: $('tour-lesson-end-list'),
-  }, { root: $('app'), printRoot: $('print-sheet'), timeline, tour, hunt, toursData, store, snapshot: () => app.modeSnapshot(), closeMenus: () => { surfaces.closeGroup('sidopanel'); surfaces.closeGroup('meny'); help.close(false); } });
+  }, { root: $('app'), printRoot: $('print-sheet'), timeline, tour, hunt, toursData, store, layers, snapshot: () => app.modeSnapshot(), closeMenus: () => { surfaces.closeAll(); help.close(false); } });
   // Berättelseläget (#247): krigets första kort får "Följ berättelsen" när en tur berättar om kriget
   panel.tourFor = id => { const x = tour.forWar(id); return x && { id: x.id, label: tour.storyLabel(x) }; };
   // Rikens fall (#499): rikets faktaruta får en knapp när en tur följer rikets fall
   panel.empireTourFor = id => { const x = tour.forEmpire(id); return x && { id: x.id, label: tour.storyLabel(x, 'fall') }; };
   panel.onTour = (id, btn) => tour.start(id, btn);
   panel.howTour = () => { const x = tour.tours?.find(y => y.id === 'hur-vet-vi-det-har'); return x ? { id: x.id, label: t(x.title) } : null; };
-  tour.onOpen = () => { surfaces.closeGroup('sidopanel'); surfaces.closeGroup('meny'); };
+  tour.onOpen = () => surfaces.closeAll();
   // Tillståndet i adressen (#501) och knappen Dela (#64). En tur i adressen (t och s, eller ?tur=<id>) startar
   // direkt vid rätt steg och går före en delad vy (#736), till exempel från en lektion eller ett test.
   const address = createAddress(app);

@@ -166,7 +166,7 @@ export function createFocus(app) {
     $('focus-facts').hidden = !focusFacts(f);
     $('focus-bar').hidden = false;
     $('app').classList.add('focusing');
-    panel.setOpen(false); // listan stängs så att det man följer syns
+    app.surfaces.closeGroup('sidopanel'); // listan stängs så att det man följer syns
     timeline.setFocus({ from: f.from, to: f.to, fine: !!f.fine });
     const focusWar = state.focusWar;
     if (focusWar) timeline.setStory(warStory(focusWar, { timeline, focus: f, end: app.playback.warEndOf() }));
@@ -203,8 +203,7 @@ export function createFocus(app) {
     if (f?.type !== 'theme') return;
     app.store.setSelected(null);
     panel.showTheme(f.theme, f.themeEvents);
-    app.surfaces.closeGroup('meny');
-    if (app.narrow.matches) app.surfaces.closeGroup('sidopanel');
+    app.surfaces.closeAll({ narrow: app.narrow.matches });
     $('app').classList.add('has-detail');
   }
   /** Platsens kort (#579): knappen Fakta i fokusraden öppnar det igen. */

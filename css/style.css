@@ -528,6 +528,11 @@ body {
   text-wrap: balance;
 }
 .panel-sub { margin: 6px 40px 0 0; color: var(--parchment-dim); font-size: 13.5px; line-height: 1.4; }
+/* Urvalsmarkeringen överst i Samtidigt när vyn Översikt är på (#1139): en rad som bryter om i smal skärm */
+.panel-tag-note { flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px; margin: 0; padding: 8px 18px; border-bottom: 1px solid var(--line); color: var(--parchment-dim); font-size: 13px; line-height: 1.4; overflow-wrap: anywhere; }
+.panel-tag-note[hidden] { display: none; }
+.panel-tag-note .link-btn { font-size: 13px; }
+@media (max-width: 760px) { .panel-tag-note .link-btn { min-height: 44px; } }
 
 .filters {
   display: flex; flex-wrap: wrap; gap: 6px;
@@ -1051,6 +1056,9 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
   background: var(--parchment); transform: rotate(45deg); border-radius: 1px;
 }
 .troute { position: absolute; top: 10px; width: 3px; height: 16px; margin-left: -1.5px; border-radius: 2px; }
+/* Markeringarna (#1138): de är små (6, 9 och 3 px) men får ingen utökad osynlig träffyta. De stoppar pointerdown (se timeline.js), så en
+   yta på 24 px skulle stjäla drag och klick i reglaget intill varje markering (två befintliga kontroller föll när det prövades).
+   WCAG 2.5.8 godtar det som "likvärdig kontroll": varje markering har ett alternativ i Samtidigt-listan, och reglaget är tabbstoppet (#1003). */
 .tdot:focus-visible, .tspan:focus-visible, .tff:focus-visible, .troute:focus-visible { outline: 2px solid var(--parchment); outline-offset: 3px; z-index: 2; }
 /* Engångstips vid tidslinjen (#996) */
 .year-tip { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 2px 0 0; font: 500 12px/1.3 var(--f-body); color: var(--brass-light, var(--brass)); animation: tip-in .4s ease-out; }
@@ -1063,8 +1071,9 @@ html.calm .year-tip { animation: none; }
 @media (prefers-reduced-motion: reduce) { .year-tip { animation: none; } }
 /* Teckenförklaring under tidslinjen (#1003): samma tecken som på linjen, hopfällbar */
 /* Raden ligger i tidsradens nedre marginal (12 px) och gör den bara 2 px högre: korten ovanför ligger på fasta avstånd från tidsraden */
-.timeline-legend { display: flex; flex-wrap: nowrap; align-items: center; gap: 0 14px; height: 14px; margin: 0 0 -12px; white-space: nowrap; overflow: hidden; font: 400 11px/14px var(--f-mono); color: var(--parchment-dim); }
-.timeline-legend summary { cursor: pointer; color: var(--brass); display: inline-flex; align-items: center; }
+.timeline-legend { display: flex; flex-wrap: nowrap; align-items: center; gap: 0 14px; height: 14px; margin: 0 0 -12px; white-space: nowrap; overflow-x: clip; overflow-y: visible; font: 400 11px/14px var(--f-mono); color: var(--parchment-dim); }
+.timeline-legend summary { position: relative; cursor: pointer; color: var(--brass); display: inline-flex; align-items: center; }
+.timeline-legend summary::before { content: ""; position: absolute; inset: 0 -8px -10px; } /* tryckyta på minst 24 px (#1138), nedåt så att den inte tar yta från reglaget; ramen klipps inte */
 .timeline-legend summary:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; border-radius: 4px; }
 .timeline-legend:not([open]) summary { opacity: .8; }
 .tl-item { display: inline-flex; align-items: center; gap: 5px; }
@@ -1423,7 +1432,10 @@ details.used-by summary:hover { color: var(--parchment); }
   .funfact.ff-open .ff-text { display: block; -webkit-line-clamp: unset; }
   .ff-events { flex-wrap: wrap; gap: 6px; padding: 6px 0; } /* radbrytning i stället för sidscroll, så att inget namn klipps (#190) */
   .ff-chip { white-space: normal; text-align: left; line-height: 1.15; max-width: 100%; }
-  .ff-foot { margin-top: 12px; gap: 24px; padding-bottom: 2px; }
+  .ff-foot { margin-top: 12px; gap: 4px 18px; padding-bottom: 2px; flex-wrap: wrap; }
+  /* Länkarna bryts aldrig mitt i (#1138): det är granskningsraden som får plats efter dem eller ligger på en egen rad, när den inte ryms */
+  .funfact .ff-foot .link-btn { white-space: nowrap; flex: none; }
+  .ff-foot .review-badge { flex: 1 1 90px; min-width: 0; }
   .funfact { padding-bottom: 12px; }
   /* Tryckytor på minst 44 × 44 px: det synliga utseendet är oförändrat, den osynliga ytan ligger i ::after */
   .ff-min, .ff-chip, .funfact .ff-foot .link-btn { position: relative; }
@@ -1996,8 +2008,12 @@ details.used-by summary:hover { color: var(--parchment); }
   .year-big, .year-jump.fine .year-big { font-size: 30px; line-height: 1; }
   .year-era, .year-jump.fine .year-era { font-size: 13px; line-height: 1.1; }
   .year-big, .year-era, .segment-note { text-shadow: 0 1px 6px var(--night), 0 0 2px var(--night); } /* läsbart när globen är inzoomad */
+  /* Engångstipset (#996) och teckenförklaringen delar de sista pixlarna under reglaget och överlappade (#1138). Tipset gör timebar högre, och fokusraden ligger på
+     ett fast avstånd (bottom: 118px), så att flytta ned tipset skulle täcka knapparna. Medan tipset visas döljs därför raden; den kommer tillbaka vid första draget. */
+  .timeline-legend:has(~ .year-tip:not([hidden])) { visibility: hidden; }
   .segment-note, .year-readout:has(.year-jump.fine) + .segment-note {
-    margin: 3px 0 0; font-size: 10px; letter-spacing: .05em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    /* Raden radbryts (#1134): hela meningen ska synas på 400 px, på alla språk, i stället för att klippas med ellips */
+    margin: 3px 0 0; font-size: 10px; letter-spacing: .05em; line-height: 1.35; white-space: normal; overflow-wrap: anywhere;
   }
   /* Mobilmenyn (#530): bara Samtidigt och Meny i raden överst. Resten ligger i en nedfällbar panel under Meny. */
   .top-actions { flex-direction: row; flex-wrap: nowrap; align-items: center; gap: 3px; top: calc(env(safe-area-inset-top, 0px) + 6px); }

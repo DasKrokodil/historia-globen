@@ -3,10 +3,8 @@
 import { formatYear, formatDate, isBCE, bce, BCE_TXT, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t } from './model.js';
 import { selectEventsForDate } from './date-events.js';
 import { ui } from './i18n.js';
-
-export const MIN_YEAR = -2999;   // 3000 f.Kr.
-// Tidslinjen slutar i dag enligt datorns klocka, men aldrig före 2026 då datan senast kontrollerades (#229)
-export const MAX_YEAR = Math.max(2026, new Date().getFullYear());
+import { MIN_YEAR, MAX_YEAR } from './state.js'; // gränserna bor i state.js (#1141), så att url-state.js inte behöver importera hela tidsreglaget
+export { MIN_YEAR, MAX_YEAR };
 
 // Tidslinjens fyra delar är en skala, inte epoker: de heter bara sina årtal (#979). Epoknamnen, med källa och
 // förenklingstext, finns bara i data/perioder.json.
@@ -543,7 +541,7 @@ export class Timeline extends EventTarget {
 
 /** "Hoppa till år": tryck på årtalet, skriv ett år (med f.Kr./e.Kr.) eller ett datum (#140, #551).
  *  Raderna i datumresultatet är knappar som stänger årshoppet och öppnar händelsen (`onSelect(id)`, #590). */
-export function setupYearJump(timeline, { button, pop, input, msg, epochs, events = [], onJump, onSelect }) {
+export function setupYearJump(timeline, { button, pop, input, msg, epochs, events = [], onJump, onSelect, onOpen }) {
   const result = pop.querySelector('#jump-date-result');
   const summary = pop.querySelector('#jump-date-summary');
   const list = pop.querySelector('#jump-date-events');
@@ -552,6 +550,11 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
     summary && (summary.textContent = ''); list && list.replaceChildren();
     pop.classList.remove('has-date-result');
   };
+  // Felet står i msg (role=alert) och fältet får aria-invalid så länge det står kvar (#1138)
+  const showError = text => {
+    msg.textContent = text;
+    if (text) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid');
+  };
   let era = 'ce';
   const setEra = e => {
     era = e;
@@ -559,8 +562,9 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
   };
   const close = () => { clearResult(); pop.hidden = true; button.setAttribute('aria-expanded', 'false'); };
   const open = () => {
-    setEra('ce'); input.value = ''; msg.textContent = ''; clearResult();
+    setEra('ce'); input.value = ''; showError(''); clearResult();
     pop.hidden = false; button.setAttribute('aria-expanded', 'true');
+    onOpen?.();
     input.focus();
   };
   const jump = y => {
@@ -568,7 +572,7 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
     timeline.year = y;
     // I fokusläget för korta krig hamnar ett år inom kriget på krigets första dag det året (#204)
     if (Math.floor(timeline.year) !== y) { // fokusläget håller året inom spannet
-      msg.textContent = ui('jump.outsideFocus', { from: timeline.format(timeline.focus.from), to: timeline.format(timeline.focus.to) });
+      showError(ui('jump.outsideFocus', { from: timeline.format(timeline.focus.from), to: timeline.format(timeline.focus.to) }));
       return;
     }
     close(); button.focus();
@@ -624,13 +628,13 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
     }
     (pop.hidden ? open() : close());
   });
-  for (const b of pop.querySelectorAll('.jump-era-btn')) b.addEventListener('click', () => { setEra(b.dataset.era); clearResult(); msg.textContent = ''; input.focus(); });
+  for (const b of pop.querySelectorAll('.jump-era-btn')) b.addEventListener('click', () => { setEra(b.dataset.era); clearResult(); showError(''); input.focus(); });
   pop.addEventListener('submit', ev => {
     ev.preventDefault();
     const parsed = parseYearInput(input.value, era === 'bce' ? 'bce' : 'ce');
-    if (parsed.type === 'invalid') { clearResult(); msg.textContent = parsed.error; return; }
+    if (parsed.type === 'invalid') { clearResult(); showError(parsed.error); return; }
     const y = parsed.year;
-    if (y < MIN_YEAR || y > MAX_YEAR) { clearResult(); msg.textContent = ui('jump.outsideBounds', { from: formatYear(MIN_YEAR), to: formatYear(MAX_YEAR) }); return; }
+    if (y < MIN_YEAR || y > MAX_YEAR) { clearResult(); showError(ui('jump.outsideBounds', { from: formatYear(MIN_YEAR), to: formatYear(MAX_YEAR) })); return; }
     // Datum och en era i texten bestämmer året; knapparna speglar samma tolkning.
     setEra(isBCE(y) ? 'bce' : 'ce');
     if (parsed.type === 'year') input.value = String(isBCE(y) ? bce(y) : y);
@@ -639,7 +643,7 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
       const f = timeline.focus;
       if (timeline.focusLocked && f && (y < f.from || y > f.to)) {
         clearResult();
-        msg.textContent = ui('jump.outsideFocus', { from: timeline.format(f.from), to: timeline.format(f.to) });
+        showError(ui('jump.outsideFocus', { from: timeline.format(f.from), to: timeline.format(f.to) }));
         return;
       }
       const visible = events.filter(event => isVisibleReview(event.review));
@@ -650,14 +654,15 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
       showDateResult(parsed.date, y, found);
       onJump?.(y);
       if (Math.floor(timeline.year) !== y) {
-        msg.textContent = ui('jump.outsideFocus', { from: timeline.format(timeline.focus.from), to: timeline.format(timeline.focus.to) });
+        showError(ui('jump.outsideFocus', { from: timeline.format(timeline.focus.from), to: timeline.format(timeline.focus.to) }));
         return;
       }
       return;
     }
     jump(y);
   });
-  input.addEventListener('input', () => { msg.textContent = ''; clearResult(); });
+  input.addEventListener('input', () => { showError(''); clearResult(); });
   pop.addEventListener('keydown', ev => { if (ev.key === 'Escape') { close(); button.focus(); } });
   document.addEventListener('pointerdown', ev => { if (!pop.hidden && !pop.contains(ev.target) && !button.contains(ev.target)) close(); });
+  return { close };
 }

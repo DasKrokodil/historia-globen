@@ -2,6 +2,9 @@
 import { formatYear } from '../model.js';
 import { ui } from '../i18n.js';
 
+/** Hur länge raden ligger kvar om ingen annan handling kommer: 20 s (WCAG 2.2.1, #1138; tidigare 8 s). */
+export const JUMP_BACK_MS = 20000;
+
 export function createJumpBack(app, { schedule = setTimeout, cancel = clearTimeout } = {}) {
   const { $, timeline, globe } = app;
   const row = $('jump-back'), text = $('jump-back-text'), button = $('jump-back-button');
@@ -29,7 +32,7 @@ export function createJumpBack(app, { schedule = setTimeout, cancel = clearTimeo
     trigger = source;
     text.textContent = ui('jumpBack.from', { year: formatYear(before.year) });
     row.hidden = false;
-    timer = schedule(clear, 8000);
+    timer = schedule(clear, JUMP_BACK_MS);
   }
 
   button.addEventListener('click', () => {

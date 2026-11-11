@@ -364,7 +364,7 @@
       <label class="layer-row"><input type="checkbox" data-calm> <span data-i18n="layers.calm">Lugn rörelse</span> <span class="layer-note" data-i18n="layers.calmNote">ingen automatisk snurr, globen hoppar i stället för att flyga, inga övergångar · följer webbläsarens inställning för reducerad rörelse</span></label>
       <div class="layer-subheading" data-i18n="layers.pauseAt">Pausa uppspelningen vid</div>
       <label class="layer-row"><input type="checkbox" data-pause="funfacts" checked aria-label="Pausa vid Samtidigt-kortet" data-i18n-aria-label="layers.pFfLabel"> <span data-i18n="layers.pFf">Samtidigt-kortet</span> <span class="layer-note" data-i18n="layers.pFfNote">fun facts och annat som hände samtidigt</span></label>
-      <label class="layer-row"><input type="checkbox" data-pause="focusFunfacts" aria-label="Pausa vid Samtidigt-kortet även i fokusläget" data-i18n-aria-label="layers.pFocusLabel"> <span data-i18n="layers.pFocus">Samtidigt-kortet även i fokusläget</span> <span class="layer-note" data-i18n="layers.pFocusNote">annars pausar Fokus bara vid det man följer</span></label>
+      <label class="layer-row"><input type="checkbox" data-pause="focusFunfacts" aria-label="Pausa vid Samtidigt-kortet även när du följer en händelse" data-i18n-aria-label="layers.pFocusLabel"> <span data-i18n="layers.pFocus">Samtidigt-kortet även när du följer en händelse</span> <span class="layer-note" data-i18n="layers.pFocusNote">annars pausar uppspelningen bara vid det man följer</span></label>
       <label class="layer-row"><input type="checkbox" data-pause="ffAuto" checked aria-label="Fortsätt själv efter Samtidigt-kortet" data-i18n-aria-label="layers.pAutoLabel"> <span data-i18n="layers.pAuto">Fortsätt själv efter Samtidigt-kortet</span> <span class="layer-note" data-i18n="layers.pAutoNote">nedräkning efter textens längd; av = står still tills du trycker Fortsätt</span></label>
       <label class="layer-row"><input type="checkbox" data-pause="wars"> <span data-i18n="layers.pWars">När ett krig bryter ut</span></label>
       <label class="layer-row"><input type="checkbox" data-pause="major" checked> <span data-i18n="layers.pMajor">Stora händelser när man följer ett krig</span></label>
@@ -379,12 +379,14 @@
       <h2 data-i18n="panel.title">Samtidigt i världen</h2>
       <p id="panel-sub" class="panel-sub"></p>
     </div>
+    <!-- Urvalsmarkeringen (#1139): syns bara när vyn Översikt är på; texten och knappen sätts av js/ui/panel.js -->
+    <p id="panel-tag-note" class="panel-tag-note" hidden><span id="panel-tag-text"></span> <button id="panel-tag-all" type="button" class="link-btn"></button></p>
     <!-- Kategorichips (#311): samma filter som Kategorier under Lager, byggs av js/ui/panel.js -->
     <div id="panel-filters" class="filters panel-filters" role="group" aria-label="Kategorier i listan och på globen" data-i18n-aria-label="panel.filters"></div>
     <div id="event-list" class="event-list"></div>
   </aside>
 
-  <section id="detail" class="detail detail-card" hidden aria-live="polite" aria-label="Om händelsen" data-i18n-aria-label="detail.label"></section>
+  <section id="detail" class="detail detail-card" hidden aria-label="Om händelsen" data-i18n-aria-label="detail.label"></section>
 
   <section id="funfact" class="funfact" hidden aria-label="Samtidigt-kortet" data-i18n-aria-label="ff.card">
     <button id="ff-handle" class="ff-handle" type="button" aria-expanded="true" aria-label="Samtidigt-kortet: visa mer"><span class="ff-grip" aria-hidden="true"></span><span class="ff-chev" aria-hidden="true"></span><span id="ff-drag-hint" class="ff-drag-hint" aria-hidden="true" hidden data-i18n="ff.dragHint">Dra upp för mer</span></button>
@@ -440,7 +442,7 @@
   </section>
 
   <div id="focus-bar" class="focus-bar" hidden>
-    <span class="focus-label" data-i18n="focus.label">Fokus</span> <span id="focus-title" class="focus-title"></span>
+    <span class="focus-label" data-i18n="focus.label">Följer</span> <span id="focus-title" class="focus-title"></span>
     <span id="focus-state" class="focus-state"></span>
     <button id="focus-action" class="focus-action" type="button" data-i18n="focus.play">&#9654; Spela</button>
     <button id="focus-facts" class="chip-btn" type="button" hidden aria-controls="detail" data-i18n="focus.facts">Fakta</button>
@@ -492,7 +494,7 @@
     <details id="timeline-legend" class="timeline-legend" open>
       <summary data-i18n="tlegend.title">Tecken</summary>
       <span class="tl-item"><i class="tl-dot" aria-hidden="true"></i><span data-i18n="tlegend.event">händelse</span></span>
-      <span class="tl-item"><i class="tl-diamond" aria-hidden="true"></i><span data-i18n="tlegend.funfact">samband</span></span>
+      <span class="tl-item"><i class="tl-diamond" aria-hidden="true"></i><span data-i18n="tlegend.funfact">Visste du?</span></span>
       <span class="tl-item"><i class="tl-bar" aria-hidden="true"></i><span data-i18n="tlegend.route">resa</span></span>
     </details>
     <p id="timeline-mark-note" class="timeline-mark-note" aria-live="polite" hidden></p>

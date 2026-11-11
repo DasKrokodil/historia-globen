@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createJumpBack } from '../js/controllers/jump-back.js';
+import { createJumpBack, JUMP_BACK_MS } from '../js/controllers/jump-back.js';
 
 test('Tillbaka återställer år och kamera, sparar historiken och lämnar synligt fokus (#997)', () => {
   const oldDocument = globalThis.document, oldWindow = globalThis.window;
@@ -21,8 +21,9 @@ test('Tillbaka återställer år och kamera, sparar historiken och lämnar synli
   let nextTimer = 0;
   const app = { $: id => elements[id], timeline, globe, refresh() {}, address: { flush: () => history.push({ year: timeline.year, camera: { ...globe.view } }) } };
   try {
+    assert.ok(JUMP_BACK_MS >= 15000, 'raden ska ligga kvar minst 15 s (WCAG 2.2.1, #1138)');
     const back = createJumpBack(app, {
-      schedule: (fn, ms) => { assert.equal(ms, 8000); timers.set(++nextTimer, fn); return nextTimer; },
+      schedule: (fn, ms) => { assert.equal(ms, JUMP_BACK_MS); timers.set(++nextTimer, fn); return nextTimer; },
       cancel: id => timers.delete(id),
     });
     const jump = () => { timeline.year = 1500; globe.view = { lat: 20, lon: 80, zoom: 2 }; timeline.dispatchEvent(new Event('change')); };
