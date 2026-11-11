@@ -39,6 +39,7 @@ import { createRange } from './controllers/range.js';
 import { createLabels } from './controllers/labels.js';
 import { createAddress } from './controllers/address.js';
 import { createJumpBack } from './controllers/jump-back.js';
+import { createSurfaces } from './surfaces.js';
 
 const $ = id => document.getElementById(id);
 
@@ -110,7 +111,7 @@ async function start() {
   // Det delade underlaget för controllerna (#402): komponenterna och funktionerna som de kopplas ihop med.
   // Funktionerna fylls i när varje controller skapas längre ner; anropen sker först efter starten.
   const narrow = matchMedia('(max-width: 760px)');
-  const app = { $, data, views, state, store, registry, globe, flatMap, narrow };
+  const app = { $, data, views, state, store, registry, globe, flatMap, narrow, surfaces: createSurfaces() }; // surfaces: stängregistret (#894)
   // Hela tillståndet som JSON (#403): år, kamera, fokus, lager, kategorier och Lugn rörelse. Används av #64/#501.
   app.snapshot = () => toJSON(state, globe.view);
   // Det lagren får när de skapas: klotet, datan och vägar tillbaka till main.js (omritning, faktarutor)
@@ -455,9 +456,13 @@ async function start() {
   // Rikenas namn ritas med IM Fell English, rita om när typsnittet har laddats
   document.fonts?.ready.then(() => app.refresh());
 
-  // Menyerna uppe till höger: bara en åt gången
-  panel.onOpen = () => { layers.close(); app.focusMenu.close(); app.orientToPanelHighlight(); };
-  layers.onOpen = () => { panel.setOpen(false); app.focusMenu.close(); };
+  // Menyerna uppe till höger och sidopanelen: en öppnad yta stänger sin grupp (js/surfaces.js, #894)
+  const { surfaces } = app;
+  surfaces.register('panel', 'sidopanel', () => panel.setOpen(false));
+  surfaces.register('layers', 'meny', () => layers.close());
+  surfaces.register('focus', 'meny', () => app.focusMenu.close());
+  panel.onOpen = () => { surfaces.opened('panel'); app.orientToPanelHighlight(); };
+  layers.onOpen = () => surfaces.opened('layers');
 
   // Sök och följ (#651, tidigare Sök #570): händelserna söks i samma ruta som det man kan följa. En händelse öppnas
   // på sitt år (lagret Händelser och händelsens kategori slås på om de är av); resten börjar följas i Fokus.
@@ -607,14 +612,14 @@ async function start() {
   app.lesson = new LessonMode({
     band: $('lesson-band'), title: $('lesson-band-title'), exit: $('lesson-exit'), printBtn: $('lesson-print'), printStatus: $('lesson-print-status'),
     notice: $('lesson-notice'), noticeText: $('lesson-notice-text'), retry: $('lesson-retry'), noticeClose: $('lesson-notice-close'), endLinks: $('tour-lesson-end'), endList: $('tour-lesson-end-list'),
-  }, { root: $('app'), printRoot: $('print-sheet'), timeline, tour, hunt, toursData, store, snapshot: () => app.modeSnapshot(), closeMenus: () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); help.close(false); } });
+  }, { root: $('app'), printRoot: $('print-sheet'), timeline, tour, hunt, toursData, store, snapshot: () => app.modeSnapshot(), closeMenus: () => { surfaces.closeGroup('sidopanel'); surfaces.closeGroup('meny'); help.close(false); } });
   // Berättelseläget (#247): krigets första kort får "Följ berättelsen" när en tur berättar om kriget
   panel.tourFor = id => { const x = tour.forWar(id); return x && { id: x.id, label: tour.storyLabel(x) }; };
   // Rikens fall (#499): rikets faktaruta får en knapp när en tur följer rikets fall
   panel.empireTourFor = id => { const x = tour.forEmpire(id); return x && { id: x.id, label: tour.storyLabel(x, 'fall') }; };
   panel.onTour = (id, btn) => tour.start(id, btn);
   panel.howTour = () => { const x = tour.tours?.find(y => y.id === 'hur-vet-vi-det-har'); return x ? { id: x.id, label: t(x.title) } : null; };
-  tour.onOpen = () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); };
+  tour.onOpen = () => { surfaces.closeGroup('sidopanel'); surfaces.closeGroup('meny'); };
   // Tillståndet i adressen (#501) och knappen Dela (#64). En tur i adressen (t och s, eller ?tur=<id>) startar
   // direkt vid rätt steg och går före en delad vy (#736), till exempel från en lektion eller ett test.
   const address = createAddress(app);

@@ -171,8 +171,8 @@ export function createFocus(app) {
     if (f?.type !== 'theme') return;
     app.store.setSelected(null);
     panel.showTheme(f.theme, f.themeEvents);
-    layers.close(); focusMenu.close();
-    if (app.narrow.matches) panel.setOpen(false);
+    app.surfaces.closeGroup('meny');
+    if (app.narrow.matches) app.surfaces.closeGroup('sidopanel');
     $('app').classList.add('has-detail');
   }
   /** Raden i fokusraden när tiden flyttades till fokusets start (#167), med en väg tillbaka. */
@@ -268,7 +268,7 @@ export function createFocus(app) {
   // Byts året medan menyn är öppen (stegknapparna, uppspelning, adressen) ritas raden och listan om för det nya året (#993)
   timeline.addEventListener('change', () => { if (!focusMenu.menu.hidden) syncMenuTime(); });
   focusMenu.onOpen = async () => {
-    panel.setOpen(false); layers.close();
+    app.surfaces.opened('focus');
     syncMenuTime();
     // Religionerna laddas en gång och sparas, så att de finns kvar nästa gång menyn öppnas, också när lagret
     // Religioner aldrig har öppnats (annars blev fliken tom andra gången)
