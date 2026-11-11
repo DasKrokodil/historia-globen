@@ -576,6 +576,7 @@ export class Panel {
       <div class="story"><p class="place-type">${esc(of ? ui('place.typeOf', { type, of }) : type)}</p>
       <p>${esc(t(place.intro))}</p>
       <p class="theme-filter-note">${esc(ui('place.borderNote'))}</p>
+      ${place.boundary.note ? `<p class="theme-filter-note">${esc(t(place.boundary.note))}</p>` : ''}
       <p class="theme-filter-note">${esc(ui('place.filters'))}</p>
       <button type="button" class="chip-btn theme-exit" data-end-theme>${esc(ui('place.exit'))}</button>
       <details class="theme-event-list"${matchMedia('(max-width: 760px)').matches ? '' : ' open'}>

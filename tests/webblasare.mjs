@@ -1449,6 +1449,26 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1159: Skåne är ett landskap vars kontur är länet. Kortet säger det, och kustmarginalen drar in Öresundsbron men inte
+  // Freden i Köpenhamn (23,6 km från linjen, marginalen är 20 km).
+  await check('platsen Skåne visar landskapet med länets kontur och rätt händelser vid kusten (#1159)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    try {
+      await tp.goto(`${BASE}?ny=plats-skane#y=1700&f=place:skane`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      const card = await tp.textContent('#detail');
+      if (!/Landskap i Sverige/.test(card)) throw new Error(`kortet saknar typraden "Landskap i Sverige": ${card.slice(0, 120)}`);
+      if (!/Skåne län/.test(card) || !/Östra Karup/.test(card)) throw new Error('kortet säger inte att konturen är länet');
+      const inCard = await tp.evaluate(() => [...document.querySelectorAll('#detail [data-theme-event]')].map(b => b.dataset.themeEvent));
+      if (!inCard.includes('oresundsbron-oppnas')) throw new Error('Öresundsbron saknas bland händelserna inom gränsen');
+      for (const id of ['freden-i-kopenhamn-1660', 'freden-i-roskilde']) if (inCard.includes(id)) throw new Error(`${id} ligger i Danmark men räknas till Skåne`);
+      if (inCard.length < 15) throw new Error(`kortet listar bara ${inCard.length} händelser`);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `${inCard.length} händelser inom gränsen`;
+    } finally { await tctx.close(); }
+  });
+
   // #706: i mobil hamnade Samtidigt-kortets knapprad (Källor, Nästa) under kortets nederkant, bakom tidslinjen.
   // I halvöppet läge ska Källor och Nästa ligga helt inne i kortets synliga yta, och kortet ska sluta ovanför
   // uppspelningsraden, i 400 × 800 och i den lägre 360 × 640.

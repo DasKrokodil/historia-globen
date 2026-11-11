@@ -12,7 +12,7 @@
         "required": ["id", "type", "name", "intro", "view", "boundary", "sources", "review"],
         "properties": {
           "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-          "type": { "enum": ["autonomous", "country"], "description": "Typen visas som en egen rad på kortet; ui() har place.type.<typ> på alla språk." },
+          "type": { "enum": ["autonomous", "country", "landskap"], "description": "Typen visas som en egen rad på kortet; ui() har place.type.<typ> på alla språk." },
           "name": { "$ref": "#/$defs/text" },
           "partOf": { "$ref": "#/$defs/text" },
           "intro": { "$ref": "#/$defs/text" },
@@ -26,10 +26,13 @@
           },
           "boundary": {
             "type": "object",
-            "required": ["source", "ne", "geometry"],
+            "required": ["source", "geometry"],
+            "oneOf": [{ "required": ["ne"] }, { "required": ["admin1"] }],
             "properties": {
               "source": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-              "ne": { "type": "string", "pattern": "^[0-9]+$", "description": "ISO 3166-1 numeriskt id i Natural Earth (tools/platser_gransar.py)." },
+              "ne": { "type": "string", "pattern": "^[0-9]+$", "description": "Land: ISO 3166-1 numeriskt id i Natural Earth (tools/platser_gransar.py)." },
+              "admin1": { "type": "string", "pattern": "^[A-Z]{3}-[0-9]+$", "description": "Län eller delstat: adm1_code i Natural Earth 1:10m admin 1." },
+              "note": { "$ref": "#/$defs/text", "description": "Extra rad på kortet om vad konturen är, när den inte är platsens egen gräns (länet för landskapet Skåne)." },
               "exclude": { "type": "array", "items": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "number" } } },
               "geometry": {
                 "type": "object",

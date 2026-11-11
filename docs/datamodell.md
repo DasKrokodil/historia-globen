@@ -167,11 +167,11 @@ Filen `data/platser.json` (schema `schemas/platser.schema.json`, kontroll i `scr
 | Fält | Betydelse |
 |---|---|
 | `id` | läsbart, unikt (`gronland`, `aotearoa`) |
-| `type` | `autonomous` (självstyrt område) eller `country` (land); visas på kortet och i listan som `place.type.<typ>` i `data/ui/`, så att varje språk och land kan använda sitt eget ord. Nya typer (landskap, delstat) läggs till i schemat och i alla fem språkfilerna |
+| `type` | `autonomous` (självstyrt område), `country` (land) eller `landskap` (landskap i Sverige); visas på kortet och i listan som `place.type.<typ>` i `data/ui/`, så att varje språk och land kan använda sitt eget ord. Nya typer (landskap, delstat) läggs till i schemat och i alla fem språkfilerna |
 | `name`, `intro` | text på alla fem språk. Inledningen beskriver urvalet och påstår inget historiskt |
 | `partOf` | valfri text: vad platsen ingår i; kortet skriver då "Typ i …" |
 | `view` | `center` ([lat, lon]) och `zoom` för kameran; ingen mittpunkt räknas ur gränsen, eftersom Nya Zeeland ligger på båda sidor om datumgränsen |
-| `boundary` | `source` (id i `sources.json`), `ne` (Natural Earth, ISO 3166-1 numeriskt id), valfri `exclude` (rutor [väst, syd, öst, nord] vars polygoner tas bort; Tokelau ur Nya Zeeland) och `geometry` (GeoJSON MultiPolygon i WGS 84). `geometry` skrivs av `python3 tools/platser_gransar.py` ur Natural Earth 1:50m via world-atlas, public domain |
+| `boundary` | `source` (id i `sources.json`), antingen `ne` (land: Natural Earth admin 0, ISO 3166-1 numeriskt id) eller `admin1` (län eller delstat: `adm1_code` i Natural Earth 1:10m admin 1, till exempel `SWE-3429` för Skåne län), valfri `note` (text på fem språk: en extra rad på kortet om vad konturen är när den inte är platsens egen gräns, till exempel länet för landskapet Skåne), valfri `exclude` (rutor [väst, syd, öst, nord] vars polygoner tas bort; Tokelau ur Nya Zeeland) och `geometry` (GeoJSON MultiPolygon i WGS 84). `geometry` skrivs av `python3 tools/platser_gransar.py` ur Natural Earth 1:50m via world-atlas, public domain |
 | `sources`, `review` | som för händelser; `draft` visas inte |
 
 **Händelserna inom gränsen** räknas vid körning av `placeEvents()` i `js/place-geo.js`: händelsens punkt ligger i polygonen, eller inom **20 km** från dess kant (`COAST_MARGIN_KM`), eftersom 1:50m-kusten är grov och Nuuk, Auckland och Golden Bay annars hamnar i havet. `validate-site.py` räknar med samma marginal och kräver minst 5 synliga händelser inom gränsen. Gränsen är **dagens**, inte den som gällde då; kortet säger det på en fast rad (`place.borderNote`).

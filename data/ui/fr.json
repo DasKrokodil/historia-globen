@@ -347,6 +347,7 @@
   "place.label": "Lieu",
   "place.type.autonomous": "Territoire autonome",
   "place.type.country": "Pays",
+  "place.type.landskap": "Province historique",
   "place.typeOf": "{type} en {of}",
   "place.borderNote": "La ligne sur la carte montre la frontière actuelle, et non celle de l’époque.",
   "place.filters": "Tous les événements à l’intérieur de la frontière sont affichés, quelles que soient les catégories choisies.",
