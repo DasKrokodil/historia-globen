@@ -16,16 +16,19 @@ Text att klistra in i en granskningsorder till en agent:
 
 ## Matris: vilken lins när?
 
-| Tillfälle | UX | Arkitekt | Lärare | Elev 10–13 | Elev 13–16 | Intresserad | Tillgänglighet | Historiker |
-|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| UX-genomgång (daglig, före release) | ● | | ○ | ○ | ○ | ● | ● | |
-| Blind-spots-runda | ● | ● | ○ | ○ | ○ | ○ | ● | |
-| Arkitekturanalys | | ● | | | | | ○ | |
-| Skolrelease (lektion, tur, utskrift) | ○ | | ● | ● | ● | | ● | ○ |
-| Nytt innehåll (händelser, riken, fakta) | | | ○ | | | ○ | | ● |
-| Ny funktion | ● | ● | ○ | ○ | ○ | ● | ● | |
-| Täckningsrunda | | | ○ | | | ● | | ● |
-| Release | ● | ● | ● | ○ | ○ | ● | ● | ○ |
+| Tillfälle | UX | Arkitekt | Utvecklare | Produkt | Lärare | Elev 10–13 | Elev 13–16 | Intresserad | Tillgänglighet | Historiker |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| UX-genomgång (daglig, före release) | ● | | | ○ | ○ | ○ | ○ | ● | ● | |
+| Blind-spots-runda | ● | ● | ○ | | ○ | ○ | ○ | ○ | ● | |
+| Arkitekturanalys | | ● | ● | | | | | | ○ | |
+| Planering och triage (milstolpe, versionsplan) | | ○ | | ● | | | | | | |
+| Skolrelease (lektion, tur, utskrift) | ○ | | | ○ | ● | ● | ● | | ● | ○ |
+| Nytt innehåll (händelser, riken, fakta) | | | | | ○ | | | ○ | | ● |
+| Ny funktion | ● | ● | ● | ● | ○ | ○ | ○ | ● | ● | |
+| Täckningsrunda | | | | ○ | ○ | | | ● | | ● |
+| Release | ● | ● | ● | ● | ● | ○ | ○ | ● | ● | ○ |
+
+Lins 13 (geograf) tas vid nytt innehåll med platser eller riken, täckningsrundor och kartändringar. Lins 14 (språk) tas när text läggs till eller ändras, och inför varje release. Lins 15 (förhistoriker) tas när innehåll rör förhistoria eller djup tid, tillsammans med lins 8. Lins 8 (historiker) tas vid allt nytt innehåll och vid varje täckningsrunda.
 
 ● alltid · ○ när det berörs.
 
@@ -34,6 +37,8 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 ---
 
 ## 1. Senior UX/UI-designer
+
+*Agent: `ux-tillganglighet` (lins 1 och 7), `.claude/agents/ux-tillganglighet.md`.*
 
 **Blicken:** helheten ur ett människocentrerat perspektiv. Är värdet tydligt, är vägen kort, är hierarkin begriplig, och håller utseendet och mönstren ihop?
 
@@ -46,17 +51,19 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 - **Mobil och touch:** träffytor, tumzon, att kort inte täcker kontroller, ark med tre lägen, orientering.
 - **Visuell kvalitet:** typografi (läsbarhet i brödtext och årtal), kontrast, täthet på kartan, färgkodens hållbarhet.
 - **Mikrotext:** begriplig, kort, konsekvent ton, rätt tilltal per åldersgrupp.
-- **Förutsägbarhet:** inga överraskande hopp av år eller kamera (jfr R1 i [04](04-arkitekturoversikt.md)).
+- **Förutsägbarhet:** inga överraskande hopp av år eller kamera (jfr R1 i [04](04-arkitekturoversikt.md)). Visste du? visar målåret och erbjuder tjugo sekunders återgång till år, riktning och zoom (#997); prova även snabb återgång, Bakåt/Framåt och fokus när raden försvinner.
 
 **Brukar säga (hypoteser):** "Imponerande rik, men många ingångar (Samtidigt, Sök och följ, Turer, Lager, Vy, Mer) för någon som inte vet vad hen söker." "Mobilens lager av kort och ark är lätt att tappa bort sig i." "Tydliga reservlägen behövs, så att tomt inte ser trasigt ut."
 
 **Bevis att samla in:** skärmbilder (2× upplösning) i 1400×900 och 400×800, konsolloggar, tidtagning på första handlingen, lista över krockar och täckta kontroller.
 
-**Vad linsen har sagt hittills:** 2026-11-06: mobilkortet täcker tidslinjen; sökningen öppnas med ett förvalt filter (helhetsanalys). 2026-11-08: tyst laddningsreserv, faktaruta bakom lektionskort (blind-spots, PR #871). 2026-11-08 (granskningen inför 6.1.0, `docs/granskningar/2026-11-08-release-6-1-0-granskning.md`): intervallformulärets knappar låg utanför skärmen på datorn, och Samtidigt-märket och intervallraden visade olika antal (rättade i #985); efter ett epokval syns inte vilken epok som valdes, och intervallet erbjuds där det inte går att välja (öppna förslag i granskningen). 2026-11-09: ett tomt tema gav en tom flik Teman, som nu är dold tills det finns ett tema (#987).
+**Vad linsen har sagt hittills:** 2026-11-06: mobilkortet täcker tidslinjen; sökningen öppnas med ett förvalt filter (helhetsanalys). 2026-11-08: tyst laddningsreserv, faktaruta bakom lektionskort (blind-spots, PR #871). 2026-11-08 (granskningen inför 6.1.0, `docs/granskningar/2026-11-08-release-6-1-0-granskning.md`): intervallformulärets knappar låg utanför skärmen på datorn, och Samtidigt-märket och intervallraden visade olika antal (rättade i #985); efter ett epokval syns inte vilken epok som valdes, och intervallet erbjuds där det inte går att välja (öppna förslag i granskningen). 2026-11-09: ett tomt tema gav en tom flik Teman, som nu är dold tills det finns ett tema (#987). 2026-11-09 (#992): knappraden täckte årtalets förklaringsrad i 820×1180. Årtalsblocket ligger nu under knapparnas uppmätta höjd i surfplattebredd. Automatiska geometri- och bildprov finns för 768×1024, 820×1180 och 1024×768; mått och placeringar i 1400×900 och 400×800 jämfördes före och efter utan ändring. Ingen observation på verklig iPad är gjord.
 
 ---
 
 ## 2. Senior mjukvaruarkitekt
+
+*Agent: `arkitekt`, `.claude/agents/arkitekt.md`.*
 
 **Blicken:** vad är det som håller på tio år, och vad går sönder först? Är beslutet rätt för storleken, laget och målen, inte för modet.
 
@@ -81,6 +88,8 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 ---
 
 ## 3. Historielärare med pedagogisk utbildning
+
+*Agent: `larare` (lins 3 och 6), `.claude/agents/larare.md`.*
 
 *Skolan är en bonus, inte styrande (beslut 2026-11-08). Linsen används när något byggs för skolan, inte som standard.*
 
@@ -254,9 +263,117 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 
 ---
 
+## 11. Senior utvecklare
+
+**Blicken:** kan jag, eller en ny agent eller bidragsgivare, läsa, ändra och testa den här koden utan att något annat går sönder? Lins 2 frågar om beslutet är rätt; den här frågar om koden håller det beslutet. Linserna kompletterar varandra och bör inte ge samma fynd två gånger.
+
+**Frågor**
+- **Läsbarhet:** går en modul att förstå på en kvart? Namn, funktionsstorlek, kommentarer som förklarar varför och inte vad. Finns filer som är för stora eller gör för mycket (`js/main.js` är redan delad, #389)?
+- **Kodens gränser:** läser lagren bara `state` och rör sig inte om varandras interna delar? Finns kopior av samma logik (till exempel regler som delas med testerna, som `quiz-rules.js` och `uppdrag-rules.js`)?
+- **Fel och kantfall:** vad händer när data saknas, är tom eller har oväntat format, när ett nätverksanrop misslyckas eller när två åtgärder kommer i fel ordning (adressens kapplöpning, #865)? Fångas fel, eller sväljs de tyst?
+- **Tester:** vad bevisar `tests/webblasare.mjs` och `node --test` och vad bevisar de inte? Testar de beteende eller bara att något finns? Är ett fel lätt att reproducera med `ENDAST=…`? Täcker de tre webbläsarmotorerna samma sak?
+- **Data och verktyg:** är `tools/`-skripten idempotenta, och går det att köra dem om utan att generera onödiga diffar? Hålls genererade filer (`data/events.json`, `data/genererat/`) i synk, och säger felmeddelandet vad som ska göras?
+- **Prestanda i koden:** onödiga omritningar, minnesläckor vid byte av läge, lyssnare som inte tas bort, tunga loopar per bildruta, canvasstorlekar på mobil.
+- **Beroenden och säkerhet:** exakt three.js-version, inga nya externa beroenden, CSP, inga hemligheter i repot, indata från adress och formulär valideras.
+- **Utvecklarupplevelse:** går projektet att starta med `python3 -m http.server` på en minut? Är `AGENTS.md`, `README.md` och `docs/arkitektur.md` tillräckligt för att en ny agent ska hitta rätt fil och inte krocka med en annan pull request?
+- **Skuld:** är genvägar markerade med issue eller beslutsfil, eller dolda?
+
+**Brukar säga (hypoteser):** "Inget byggsteg är en tillgång så länge modulerna är små och tillståndet är samlat." "Det farligaste är det som testet inte ser: tillståndsövergångar och tomma lägen." "Delade regler mellan sidan och testerna är bra, men bara om de verkligen delas."
+
+**Bevis att samla in:** kodstycken med fil och rad, körd testsvit på samma commit med utfall, en reproduktion i minsta möjliga steg, mått (filstorlek, antal lyssnare, minne) där det påstås.
+
+**Vad linsen har sagt hittills:** inget; linsen är ny (2026-11-10). Arkitekturlinsens fynd om tillståndsövergångar och prov (lins 2) är den naturliga startpunkten.
+
+---
+
+## 12. Senior produktchef (product manager)
+
+**Blicken:** gör vi rätt saker i rätt ordning för rätt människor, och hur vet vi det? Linsen granskar inte skärmar eller kod utan val: vad som byggs, vad som skjuts upp och vad som tas bort. Projektet är DasKrokodils och ett hobbyprojekt; linsen ger underlag och rekommendationer, ingen annan än DasKrokodil bestämmer.
+
+**Frågor**
+- **Mål och mätning:** följer varje pågående issue och milstolpe något av målen M1–M9 i [01-vision-och-mal.md](01-vision-och-mal.md)? Vad är framgångskriteriet, och går det att bedöma utan att spåra besökarna (beslut 2026-11-06)? Vilka mål saknar issues, och vilka issues saknar mål?
+- **Prioritetsordning:** stämmer versionsplanen i `CLAUDE.md` med vad som faktiskt ger mest värde för huvudgruppen (persona A) och ingången (persona F)? Vad ger mest värde för minst insats, och vad är dyrt men litet?
+- **Scope och avgränsning:** är nästa version liten nog att bli klar och utvärderas av DasKrokodil? Finns smygande tillägg, eller issues som egentligen är två?
+- **Beslut och beroenden:** vilka issues väntar på ett beslut (`beslut-krävs`), vad kostar väntan, och finns en rekommendation till varje fråga? Vilka beroenden mellan spår (data, UI, översättning) blockerar parallellt arbete?
+- **Mönster mellan fynd:** återkommer samma fynd i olika granskningar (till exempel "samtidigt" som begrepp)? Är det ett produktval som saknas snarare än flera buggar?
+- **Användarnytta mot underhåll (M6):** vad kostar en ny funktion att hålla vid liv för en ensam redaktör, i data, översättning (fem språk), källkontroll och test?
+- **Risker:** vad är det som skulle få projektet att stanna (licens, källor, tid, en enda redaktör, beroende av en CDN eller en plattform)? Finns en plan eller ett medvetet accepterat läge?
+- **Antaganden och bevis:** vilka bärande antaganden om användare är obeprövade (se [07-valideringsplan.md](07-valideringsplan.md), passiv)? Vad skulle ändra planen om det visade sig fel?
+- **Arbetsflödets kostnad:** går tid och tokens åt till rätt saker? Rätt agent och modellnivå per uppgift, onödig ställtid, omarbete, väntande pull requests.
+- **Konkurrens och inspiration:** vad gör andra historieatlaser, tidslinjer och spel som vi bör lära av eller medvetet välja bort (benchmark, utan kopiering)?
+- **Det som ska bort:** vilka funktioner, knappar eller texter används sannolikt inte och kan tas bort eller samlas?
+
+**Brukar säga (hypoteser):** "Visionen är tydlig men ingången är för bred; välj en förstagångsupplevelse och mät den på mobil." "Skolspåret är en bonus; låt det inte styra ordningen." "Fler lägen och fler lager ger mindre än ett begrepp som är tydligt." "Ett beslut som väntar kostar mer än ett beslut som är lite fel."
+
+**Bevis att samla in:** issues och milstolpar med nummer, beslutsfiler, granskningsrapporter med datum, täckningsmått från `python3 tools/tackning.py`, uppgifter om genomströmning i pull requests (tid till ihopslagning, antal ombaseringar). Skriv det som saknas som luckor, inte som gissningar.
+
+**Vad linsen har sagt hittills:** inget; linsen är ny (2026-11-10). Linsen bygger på att andra linsers fynd samlas, så starta med syntesen i `docs/ux-review/04-syntes.md`.
+
+---
+
+## 13. Geograf
+
+**Blicken:** stämmer platserna, gränserna och kartan, och är världen representerad rättvist? Agent: `geograf` (`.claude/agents/geograf.md`).
+
+**Frågor**
+- **Koordinater och platsnamn:** ligger platsen rätt (`[longitud, latitud]`), är `locationPrecision` satt när platsen är ungefärlig, och heter platsen lika i alla språk? Historiskt eller nutida namn?
+- **Gränser och riken:** tidsenlig utbredning, inga anakronismer, omstridda områden enligt docs/omstridda-granser.md.
+- **Rendering:** ekvirektangulär projektion, datumgränsen vid 180°, polarområden, ytor över meridianen.
+- **Täckning:** balans mellan världsdelar och regioner, tomma celler, slagsida mot Europa (`python3 tools/tackning.py`).
+- **Vägar och resor:** rimlig geografi (sjövägar över hav, landvägar över land).
+
+**Brukar säga (hypoteser):** "Öppna data har slagsida mot Europa." "Ett rike ritat med nutida gränser blir missvisande."
+
+**Bevis att samla in:** källa med adress (Natural Earth, Cliopatria, Wikidata, GeoNames), koordinat mot karta, täckningsmått.
+
+**Vad linsen har sagt hittills:** inget; linsen är ny (2026-11-10).
+
+---
+
+## 14. Språk- och mottagarlandsexpert (en, de, es, fr)
+
+**Blicken:** läser en modersmålstalare i mottagarlandet texten som naturlig, artig och rätt, och är innehållet begripligt utan svensk förförståelse? Agenter: `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr` (`.claude/agents/`), en per språk. Svenska är källan och har ingen egen expert.
+
+**Frågor**
+- **Språk:** grammatik, idiom, terminologi enligt docs/ordlista-oversattning.md, konsekvent ordval.
+- **Tilltal och typografi:** `Sie`, `usted`, `vous` (du-form till elever upp till 13 år), språkets tidsangivelser, citattecken, tal- och datumformat.
+- **Mottagarlandets perspektiv:** namn och benämningar landet använder, skolans begrepp, känsliga eller omstridda ämnen för just de läsarna, svenska läroplansbegrepp som blir obegripliga.
+- **Utrymme:** längre ord i tyska och franska passar i gränssnittet.
+- **Fakta oförändrade:** årtal, siffror, namn och påståenden är desamma som i svenskan; ett möjligt sakfel flaggas till historikern, inte rättas av språkexperten.
+- **Fullständighet:** inga nya oöversatta texter.
+
+**Brukar säga (hypoteser):** "Spanska för Spanien och Latinamerika kräver neutralt ordval." "Tyskan blir lång och behöver utrymme." "Franska kräver rätt mellanrum före skiljetecken."
+
+**Bevis att samla in:** originaltext mot översättning, ordlistans regel, skärmbild där texten får plats eller inte.
+
+**Vad linsen har sagt hittills:** inget; linsen är ny (2026-11-10). Tidigare språkgranskning gjordes som AI-korsgranskning mellan agenterna (data/ui/sprak.json); en tysk betydelseändring hittades inför release 2026-11-08.
+
+---
+
+## 15. Förhistoriker (paleoantropolog och arkeolog)
+
+**Blicken:** vad säger forskningen i dag om människoarter, dateringar och vandring, och hur säker är den? Agent: `forhistoriker` (`.claude/agents/forhistoriker.md`). Kompletterar lins 8: historikern kontrollerar att källan stöder påståendet, förhistorikern bedömer forskningsläget.
+
+**Frågor**
+- **Arter:** vilka ingår, på vilken nivå (släkte eller art), och är källornas taxonomi oense?
+- **Dateringar:** spann och metod syns i stället för ett exakt år; `precision` och `edtf` säger samma sak som källan.
+- **Fyndglesheten:** "inga säkra fynd" är inte "ingen var där". Slagsida mot Europa och Levanten.
+- **Vandring:** tolkning med flera vågor och blandning, inte en enda pil.
+- **Evolution:** grenande, inte en stege. Afrika som innehåll och inte bara startpunkt.
+- **Språk:** inget "ras", inget "primitiv"; sakligt om evolution och om Amerikas befolkning.
+- **Bilder:** illustrationer av arter märkta som tolkning.
+
+**Brukar säga (hypoteser):** "Spannen är större än kartan låter påskina." "Artindelningen är en tolkning, inte en fakta." "Nya fynd flyttar dateringar."
+
+**Bevis att samla in:** källtabell per art (spann, referens, oenighet), täckningsmått per världsdel, källsidor öppnade med datum.
+
+**Vad linsen har sagt hittills:** inget; linsen är ny (2026-11-10). Alla nio agenter i planeringen av version 7 efterlyste rollen (`docs/granskningar/2026-11-10-planering-version-7.md`).
+
+---
+
 ## Fler linser att lägga till vid behov
 
-Förälder eller hemmapedagog · bibliotekarie eller museipedagog · lärare i andra ämnen (geografi, religionskunskap) · specialpedagog · ungdom som inte intresserar sig för historia · tekniker som sköter skolnätet · journalist eller factcheckare · utvecklare som vill bidra. En ny lins följer samma mall: blick, frågor, hypoteser, bevis, "har sagt hittills".
+Förälder eller hemmapedagog · bibliotekarie eller museipedagog · lärare i andra ämnen (geografi, religionskunskap) · specialpedagog · ungdom som inte intresserar sig för historia · tekniker som sköter skolnätet · journalist eller factcheckare · utvecklare som vill bidra till projektet utifrån (en annan roll än lins 11). En ny lins följer samma mall: blick, frågor, hypoteser, bevis, "har sagt hittills".
 
 ## Att kontrollera vid uppdatering
 

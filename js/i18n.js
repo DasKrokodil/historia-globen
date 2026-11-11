@@ -119,36 +119,87 @@ export function takeReturnYear() {
 }
 
 /**
- * Språkväljaren: en <select> med språken. Byte sparar valet, kommer ihåg året och laddar om sidan
- * (?lang= tas bort ur adressen, så att det sparade valet gäller). beforeReload() anropas först och ska skriva
- * vyn i adressen (address.flush, #882).
+ * Språkväljaren (#63, synlig i översta raden sedan #1167): en knapp med en jordglob och språkets kod (SV, EN …)
+ * som öppnar en kort lista med språkens egna namn. Ofärdiga översättningar har märket "beta" i listan. Inga
+ * flaggor: flaggor är länder, inte språk (beslut i #1167).
+ * Byte sparar valet, kommer ihåg året och laddar om sidan (?lang= tas bort ur adressen, så att det sparade valet
+ * gäller). beforeReload() anropas först och ska skriva vyn i adressen (address.flush, #882). onOpen() anropas när
+ * listan öppnas, så att stängregistret (js/surfaces.js) kan stänga de andra menyerna. Returnerar { close }.
  */
-export function setupLangPicker(select, getYear, beforeReload) {
-  if (!select) return;
-  select.replaceChildren(...LANGUAGES.map(l => {
-    const o = document.createElement('option');
-    o.value = l.id;
-    o.lang = l.id;
-    o.textContent = l.complete ? l.name : `${l.name} (${l.beta ?? 'beta'})`;
-    return o;
-  }));
-  select.value = LANG;
-  select.addEventListener('change', () => {
+export function setupLangPicker({ toggle, menu, getYear, beforeReload, onOpen }) {
+  if (!toggle || !menu) return { close() {} };
+  const wrap = toggle.parentElement;
+  const code = toggle.querySelector('.lang-code');
+  const label = ui('lang.label');
+  if (code) code.textContent = LANG.toUpperCase();
+  toggle.dataset.lang = LANG;
+  toggle.setAttribute('aria-label', `${label}: ${LANG_INFO.name}`);
+  toggle.title = label;
+  menu.setAttribute('aria-label', label);
+  const items = LANGUAGES.map(l => {
+    const li = document.createElement('li');
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'lang-item';
+    b.dataset.lang = l.id;
+    b.lang = l.id;
+    const name = document.createElement('span');
+    name.textContent = l.name;
+    b.append(name);
+    if (!l.complete) {
+      const beta = document.createElement('span');
+      beta.className = 'lang-beta';
+      beta.textContent = l.beta ?? 'beta';
+      b.append(' ', beta);
+    }
+    if (l.id === LANG) b.setAttribute('aria-current', 'true');
+    b.addEventListener('click', () => (l.id === LANG ? set(false, true) : choose(l.id)));
+    li.append(b);
+    return li;
+  });
+  menu.replaceChildren(...items);
+  const buttons = () => [...menu.querySelectorAll('button')];
+
+  const isOpen = () => !menu.hidden;
+  function set(open, refocus = false) {
+    if (open === isOpen()) return;
+    menu.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    wrap.classList.toggle('lang-open', open);
+    if (open) {
+      onOpen?.();
+      (menu.querySelector('[aria-current="true"]') ?? buttons()[0])?.focus({ preventScroll: true });
+    } else if (refocus) toggle.focus({ preventScroll: true });
+  }
+  toggle.addEventListener('click', () => set(!isOpen()));
+  document.addEventListener('pointerdown', e => { if (isOpen() && !wrap.contains(e.target)) set(false); });
+  wrap.addEventListener('focusout', e => { if (isOpen() && e.relatedTarget && !wrap.contains(e.relatedTarget)) set(false); });
+  wrap.addEventListener('keydown', e => {
+    if (!isOpen()) return;
+    if (e.key === 'Escape') { e.stopPropagation(); set(false, true); return; }
+    const list = buttons(), i = list.indexOf(document.activeElement);
+    const to = e.key === 'ArrowDown' ? (i + 1) % list.length : e.key === 'ArrowUp' ? (i - 1 + list.length) % list.length
+      : e.key === 'Home' ? 0 : e.key === 'End' ? list.length - 1 : -1;
+    if (to >= 0 && list.length) { e.preventDefault(); list[to].focus(); }
+  });
+
+  function choose(id) {
     // Adressen skrivs färdig innan den läses nedan, annars tappar omladdningen steget i en tur eller lektion (#882)
     try { beforeReload?.(); } catch (err) { console.warn('Adressen kunde inte skrivas före språkbytet', err); }
     try {
-      localStorage.setItem('hg-lang', select.value);
+      localStorage.setItem('hg-lang', id);
       const y = getYear?.();
       if (Number.isFinite(y)) sessionStorage.setItem(YEAR_KEY, String(y));
     } catch { /* utan lagring: bara adressen bär språket */ }
     const url = new URL(location.href);
     url.searchParams.delete('lang');
     let stored = false;
-    try { stored = localStorage.getItem('hg-lang') === select.value; } catch { /* ingen lagring */ }
-    if (!stored) url.searchParams.set('lang', select.value);
+    try { stored = localStorage.getItem('hg-lang') === id; } catch { /* ingen lagring */ }
+    if (!stored) url.searchParams.set('lang', id);
     // Adressen ändras på plats och sidan laddas om. location.assign() räcker inte: adressen har en #-del
     // (url-state.js, #501), och en adress som bara skiljer sig i #-delen, eller inte alls, laddar inte om sidan.
     history.replaceState(history.state, '', url.href);
     location.reload();
-  });
+  }
+  return { close: () => set(false) };
 }

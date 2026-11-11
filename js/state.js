@@ -6,6 +6,12 @@
 // Det mesta av tillståndet går att spara, till exempel i en delbar länk (#64): snapshot() plockar ut de delarna
 // som vanliga värden. Det som räknas ut vid varje omritning (window, span, labels m.m.) behöver inte sparas.
 
+// Tidslinjens gränser (#1141): de bor här, och inte i timeline.js, så att adressformatet (js/url-state.js) och andra moduler
+// kan läsa dem utan att dra med tidsreglaget, modellen och språkfilerna. timeline.js exporterar dem vidare.
+export const MIN_YEAR = -2999;   // 3000 f.Kr.
+// Tidslinjen slutar i dag enligt datorns klocka, men aldrig före 2026 då datan senast kontrollerades (#229)
+export const MAX_YEAR = Math.max(2026, new Date().getFullYear());
+
 /** Ett nytt, tomt tillstånd. Fälten fylls i av main.js och controllerna, helst via createStore (#403). */
 export function createState() {
   return {
@@ -21,7 +27,7 @@ export function createState() {
     span: e => [e.start, e.end], // en händelses tid som [början, slut], i fokusläget för korta krig datum ur edtf
     playing: false,   // spelade tidslinjen när omritningen började
 
-    // Fokusläget (#109, #113, #376): { type: 'war' | 'empire' | 'religion' | 'route', id, from, to, fine, ... } eller null
+    // Fokusläget (#109, #113, #376): { type: 'war' | 'empire' | 'religion' | 'route' | 'theme', id, from, to, fine, ... } eller null
     focus: null,
     focusWar: null,   // kriget man följer (händelsen), eller null
     focusRoute: null, // resan man följer, eller null
@@ -52,7 +58,7 @@ export function createState() {
 
 /**
  * De delar av tillståndet som besökaren har valt, som vanliga värden (för delbara länkar, #64).
- * { year, focus: 'war:<id>' | null, layers: [...], filters: [...], calm }
+ * { year, focus: 'war:<id>' | null, layers: [...], filters: [...], tag, calm }
  */
 export function snapshot(state) {
   return {
@@ -73,7 +79,7 @@ export function snapshot(state) {
 
 /** Versionen av JSON-formatet. Höjs om fälten ändras på ett sätt som gamla länkar inte klarar. */
 export const STATE_VERSION = 1;
-const FOCUS_TYPES = ['war', 'empire', 'religion', 'route', 'theme']; // theme (#398): ett tema är fokus, inget eget läge
+const FOCUS_TYPES = ['war', 'empire', 'religion', 'route', 'theme', 'place']; // theme (#398) och place (#579): ett tema och en plats är fokus, inget eget läge
 
 // ---------------------------------------------------------------------------------------------------------
 // Lägeskontraktet (#893, beslut docs/beslut/2026-11-08-lagen.md)
@@ -109,12 +115,14 @@ export const MODE_RULES = {
   },
   tur: {
     when: { fokus: 'avslutar', lektion: 'samtidigt', jakt: 'samtidigt', intervall: 'avslutar' },
-    restore: ['layers', 'focus', 'camera'], takes: ['layers', 'focus', 'camera'],
+    restore: ['layers', 'focus', 'camera', 'tag'], takes: ['layers', 'focus', 'camera'],
   },
   lektion: {
-    // Lektionen börjar före sin tur (js/ui/lesson.js); en jakt utanför lektionens år avslutas
+    // Lektionen börjar före sin tur (js/ui/lesson.js); en jakt utanför lektionens år avslutas.
+    // Lektionen visar alltid alla händelser i lektionens år (#1139, beslut 2026-11-11): när den börjar släpps vyns urval
+    // (tag, till exempel Översikt) och utgången återställer urvalet som det var, tillsammans med lagren.
     when: { fokus: 'avslutar', tur: 'samtidigt', jakt: 'villkor', intervall: 'avslutar' },
-    restore: ['layers', 'camera'], takes: ['layers', 'focus', 'camera'], // aldrig fokus: utgången behåller lektionens år (#881)
+    restore: ['layers', 'camera', 'tag'], takes: ['layers', 'focus', 'camera'], // aldrig fokus: utgången behåller lektionens år (#881)
   },
   jakt: {
     // I en lektion bara uppdrag inom lektionens år (#741, #795)
@@ -253,7 +261,7 @@ export function createStore(state = createState()) {
     },
     /** Tidsintervallet (#755): { from, to } med from < to, eller null för ett enskilt år. */
     setRange(range) {
-      state.range = range ? { from: Math.min(range.from, range.to), to: Math.max(range.from, range.to) } : null;
+      state.range = range ? { from: Math.min(range.from, range.to), to: Math.max(range.from, range.to), ...(typeof range.period === 'string' && range.period ? { period: range.period } : {}) } : null;
       notify('range');
     },
   };
@@ -273,8 +281,9 @@ export function toJSON(state, camera = null) {
     focus: state.focus ? `${state.focus.type}:${state.focus.id}` : null,
     layers: Object.keys(state.layers).filter(k => state.layers[k]).sort(),
     filters: [...state.filters].sort(),
+    tag: state.tag ?? null,
     calm: !!state.calm,
-    ...(state.range ? { yearEnd: Math.round(state.range.to) } : {}),
+    ...(state.range ? { yearEnd: Math.round(state.range.to), ...(state.range.period ? { period: state.range.period } : {}) } : {}),
   };
 }
 
@@ -308,6 +317,9 @@ export function fromJSON(value) {
   }
   // Slutåret (#755) är valfritt: saknas det, är det inget tal eller inte efter året, öppnas tillståndet som ett år
   const yearEnd = typeof doc.yearEnd === 'number' && Number.isFinite(doc.yearEnd) && Math.round(doc.yearEnd) > doc.year ? Math.round(doc.yearEnd) : null;
-  return { v: STATE_VERSION, year: doc.year, camera, focus, layers: words(doc.layers, 'Lagren'), filters: words(doc.filters, 'Kategorierna'), calm: !!doc.calm,
-    ...(yearEnd != null ? { yearEnd } : {}) };
+  const tag = typeof doc.tag === 'string' && /^[a-z0-9-]+$/.test(doc.tag) ? doc.tag : null;
+  return { v: STATE_VERSION, year: doc.year, camera, focus, layers: words(doc.layers, 'Lagren'), filters: words(doc.filters, 'Kategorierna'), tag, calm: !!doc.calm,
+    ...(yearEnd != null ? { yearEnd } : {}),
+    // Epokens id (#980) hör till intervallet och är bara en etikett; visningen kontrollerar att åren stämmer
+    ...(yearEnd != null && typeof doc.period === 'string' && /^[a-z0-9-]+$/.test(doc.period) ? { period: doc.period } : {}) };
 }

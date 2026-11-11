@@ -17,6 +17,7 @@ import { medalTexture, medalSize, glyph } from '../layers/events.js';
 import { cluster, clusterContents, placeLabels, dotBox } from './clusters.js';
 import { empireBlocks } from './zoomlevels.js';
 import { CAT, t } from '../model.js';
+import { ui } from '../i18n.js';
 
 const IMG_W = 4096, IMG_H = 2048;
 const MAX_ZOOM = 10;
@@ -377,7 +378,7 @@ export class FlatMap {
         const { text, ring } = clusterContents(c.members, CAT, t);
         el.textContent = String(c.members.length);
         el.style.setProperty('--ring', ring);
-        el.setAttribute('aria-label', `${c.members.length} händelser nära varandra: ${text}. Zooma in.`);
+        el.setAttribute('aria-label', ui('flat.clusterLabel', { n: c.members.length, text }));
         el.dataset.contents = text; // syns under klungan vid hovring och fokus (CSS)
         el.title = `${c.members.slice(0, 8).map(m => t(m.e.title)).join(', ')}${c.members.length > 8 ? ' …' : ''}`;
       }
@@ -393,8 +394,9 @@ export class FlatMap {
     const badges = clusters.map(c => dotBox(c.x, c.y, 16));
     const named = singles.filter(it => labeled?.has(it.e.id));
     const seen = new Set();
-    const blocked = empireBlocks(this.obstacles, (lat, lon) => this._toScreen(lat, lon, this.w), 2 * s);
-    const placed = placeLabels(named, { W: this.w, H: this.h, hoverId, markers, badges, blocked, text: this.labelText, pxOf: e => pxOf.get(e.id) });
+    const soft = empireBlocks(this.obstacles, (lat, lon) => this._toScreen(lat, lon, this.w), 2 * s);
+    // Pågående krig får lägga sin etikett över rikesnamn när inget annat ryms (#1022), som på globen
+    const placed = placeLabels(named, { W: this.w, H: this.h, hoverId, markers, badges, soft, priority: it => it.e.kind === 'war' && it.u?.info?.when === 'now', text: this.labelText, pxOf: e => pxOf.get(e.id) });
     for (const { e, text, x, y } of placed) {
       let el = this._labelPool.get(e.id);
       if (!el) {

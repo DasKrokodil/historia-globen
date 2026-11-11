@@ -27,6 +27,8 @@ def region(lat, lon):
         return 'Oceanien'
     if lon < -25:
         return 'Amerika'
+    if lon < -10 and lat >= 68:  # Grönlands östkust, norr om Island (#1135)
+        return 'Amerika'
     # Mikronesien öster om 130° Ö och söder om 22° N (#630)
     if (lat < -10 and lon > 110) or (lat < 22 and lon > 130) or lon > 160:
         return 'Oceanien'

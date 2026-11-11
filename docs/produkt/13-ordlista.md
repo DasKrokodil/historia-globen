@@ -6,29 +6,33 @@
 
 | Begrepp | Betyder |
 |---|---|
-| **Glob / Platt karta / Upptäcktsresor** | De tre **vyerna** (knapparna under Vy): klotet, samma bild som en platt karta, och upptäcktsvyn med gammal kartstil och dimma. Bara en åt gången. |
+| **Glob / Platt karta / Upptäcktsresor** | De tre **vyerna** (knapparna under Vy): klotet, samma bild som en platt karta, och Upptäcktsresor med gammal kartstil och dimma. Bara en åt gången. Ett namn överallt i gränssnittet: "Upptäcktsresor" (inte "upptäcktsvyn"); kategorin Upptäckter är något annat. |
 | **Samtidigt** | Knappen och panelen **"Samtidigt i världen"**: händelserna vid det valda året, per världsdel. |
-| **Samtidigt-kortet** | Kortet som lyfter fram ett oväntat samband (fun facts m.m.). Kan pausa uppspelningen. |
-| **Fun fact** | Ett samband mellan två eller flera händelser, till exempel att pyramiderna byggdes medan de sista mammutarna levde. Varje led har källa. |
-| **Sök och följ** | Knappen där man söker och väljer något att **följa**: krig, rike, land, religion eller resa. Läget kallas **fokusläge** (kallades förut Fokus). |
-| **Tidsintervall** | Året plus ett slutår (`y2`): man väljer från och till i årshoppet eller en epok med ett klick. Riken och religioner visas för slutåret. Utesluter Fokus och uppspelning. |
+| **Samtidigt-kortet** | Kortet som lyfter fram en oväntad samtidighet (fun facts m.m.). Kan pausa uppspelningen. Heter "Visste du?", och samma ord står på teckenförklaringen under tidslinjen. |
+| **Fun fact** | En samtidighet mellan två eller flera händelser, till exempel att pyramiderna byggdes medan de sista mammutarna levde. Varje led har källa. |
+| **Sök och följ** | Knappen där man söker och väljer något att **följa**: krig, rike, land, religion eller resa. Medan man följer något kallas läget **"följer"** ("när du följer en händelse"); ordet "Fokus" och "fokusläge" används inte i gränssnittet (#1140). I kod, filnamn och adress (`f=`) heter det fortfarande `focus`. |
+| **Tidsfönstret** | Raden under årtalet: århundradet och hur många år före och efter året som globen också visar ("1300-talet · visar också det som hände 38 år före och efter"). Bredden följer tidslinjens skala, så antalet år byter med var man står. Etiketter och rader i listan säger riktningen i tid: "4 år före (1912)", "om 2 år (1918)", "21 år senare" (#994, #995). Sök och följ använder ett bredare fönster (fyra gånger så brett) och säger det. |
+| **Tidsintervall** | Året plus ett slutår (`y2`): man väljer från och till i årshoppet eller en epok med ett klick. Riken och religioner visas för slutåret. Utesluter att följa något och uppspelning. |
 | **Epok** | Ett namngivet tidsspann ur `data/perioder.json` (Lgr22, Nordens forntid, antiken, industrialiseringen); blir ett tidsintervall. Listar aldrig händelser. |
-| **Tema** | Ett namngivet urval av befintliga händelser (`data/teman.json`) med en introduktion; följs som ett Fokus av typen `theme`. Motorn finns, inget tema än. |
+| **Plats** | Ett kort om en platss historia (`data/platser.json`, #579) med dagens gräns som kontur; följs i Sök och följ (`place` i koden). Gruppen i Sök och följ heter Platser, på kortet står typen (till exempel Självstyrt område, Land). Ordet **region** betyder fortsatt världsdel. Skilt från fliken **Plats** ("Vad hände här?", #15), som söker händelser nära en punkt. |
+| **Tema** | Ett namngivet urval av befintliga händelser (`data/teman.json`) med en introduktion; följs i Sök och följ (`focus` av typen `theme` i koden). |
+| **Översikt** | Den förinställda vyn i Lager som är startvy vid ett första besök: ett **urval** av händelser som ofta tas upp i skolan och i uppslagsverk (fältet `significance`, cirka 120), med samma lager som Standard. Inte "de viktigaste" och inte Lgr22. Raden överst i Samtidigt säger "Översikt: ett urval" med knappen Visa alla. Standard visar alla händelser; en lektion visar alltid alla (#1139). |
 | **Plats (fliken)** | "Vad hände här?" i Sök och följ: händelser inom 300 km från en plats ur datan, äldst först. |
-| **Fokusläge** | Läget där ett krig, rike eller en religion följs. Övriga lager dämpas, och uppspelningen pausar vid viktiga händelser. |
+| **Följer (läge)** | Läget där ett krig, rike, en religion, resa eller ett tema följs (kallades förut Fokus och fokusläge). Övriga lager dämpas, och uppspelningen pausar vid viktiga händelser. Bandet överst heter "Följer". |
+| **Förval** | En namngiven kombination av lager, överst i Lager-menyn. Förvalet **Händelser och riken** visar Händelser, Samtidigt-kortet och Riken; inga resor. De synliga namnen är översatta, men förvalens interna id:n och lagerval är oförändrade (#1001). |
 | **Lager** | Menyn där man väljer vad som syns (händelser, riken, religioner, vägar m.m.), kategorier och inställningar. |
 | **Faktaruta** | Rutan som visar en händelse, ett rike eller en religion med text, bild, källor, osäkerhet och granskningsnivå. |
 | **Tur** | En guidad berättelse som spelas steg för steg ur `data/turer/`. |
 | **Berättelseläge** | Turens kapitel och frågor "Att fundera på", som läses upp med steget. |
-| **Slutkort** | Kortet i slutet av en tur eller ett fokus med det viktigaste att ta med sig. |
+| **Slutkort** | Kortet i slutet av en tur eller när man har följt något, med det viktigaste att ta med sig. |
 | **Lektion / lektionsläge** | En tur med lärarfält. Länken med `m=lektion` döljer menyerna, låser år och lager och visar bandet med "Visa hela globen". |
 | **Elevblad / lärarblad** | Utskriften ur en lektions data: eleven får frågor med skrivrader, läraren får årskurs, tid och förkunskaper. |
 | **Samtidighetsjakten** | Elevuppdraget under Mer: hitta händelser på olika kontinenter samma år. Du-form. |
 | **Quiz** | "Vad hände samtidigt?" ur befintliga fun facts. |
-| **Introduktion** | De tre stilla stegen för nya besökare. |
+| **Introduktion** | De tre stilla stegen för nya besökare. Knappen heter "Kom igång" och ligger under Mer (#996). |
 | **Missuppfattning** | Ett vanligt felaktigt påstående, vad källorna säger och ursprunget; visas i faktarutan. |
-| **Mer / Meny** | **Mer** (dator) samlar Källor, Hjälp, Quiz, Jakten, Dela och Språk. **Meny** (mobil) är panelen bakom knappen i raden överst. |
-| **Dela** | Kopierar en länk som bär år, kamera, fokus, lager och kategorier. |
+| **Mer / Meny** | **Mer** (dator) samlar Källor, Hjälp, Quiz, Jakten och Dela. **Språk** är knappen med jordglob och språkkod (till exempel SV) i raden överst (#1167). **Meny** (mobil) är panelen bakom knappen i raden överst. |
+| **Dela** | Kopierar en länk som bär år, kamera, det man följer, lager och kategorier. |
 | **Källor / Om källorna** | Sidan med källpolicy, granskningsnivåer och källregister. |
 | **Granskningsnivå** | `draft` (visas inte), `source-checked` (källan öppnad och kontrollerad), `two-sources` (jämförd med en andra, oberoende källa). |
 

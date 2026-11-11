@@ -11,13 +11,18 @@ permissions:
 env:
   BASE_URL: https://historiagloben.se/
   PLAYWRIGHT_VERSION: '1.63.0' # samma exakta version som det vanliga webbläsartestet
+  # Rökprovet mot produktionen: sidan och globen, tidslinje, Samtidigt, Lager, Fokus (rike och krig), Platt vy, Källor och
+  # delad länk, på datorbredd. ENDAST matchar delar av kontrollernas namn i tests/webblasare.mjs.
+  ROKPROV: >-
+    en händelse öppnas från Samtidigt|tidslinjen går att flytta|Lager öppnas|Fokus öppnas och följer ett rike|Platt vy öppnas|Platt vy stängs|ett rike syns|en väg syns|Källor öppnas|Fokus följer ett krig till slutet|en delad länk återskapar år och fokus|versionsraden döljs|ingen horisontell scroll
 
 jobs:
   production:
     name: Kontrollera historiagloben.se
     runs-on: ubuntu-latest
-    # Hela webbläsartestet tar nu cirka 12 minuter; vid v5.0.0 gick alla steg igenom men jobbet stoppades av gränsen 12.
-    timeout-minutes: 20
+    # Bara ett rökprov (några minuter). Hela sviten tog över 20 minuter och stoppades av gränsen vid v5.0.0, v6.0.0 och
+    # v6.1.0; den körs i stället för varje PR (browser-test.yml).
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
@@ -75,9 +80,11 @@ jobs:
           npm install --prefix "$RUNNER_TEMP/pw" --no-save --no-audit --no-fund "playwright@$PLAYWRIGHT_VERSION"
           "$RUNNER_TEMP/pw/node_modules/.bin/playwright" install --with-deps --only-shell chromium
 
-      - name: Kör grundfunktionerna mot produktionen
+      - name: Kör rökprovet mot produktionen
         env:
           SKARMBILDER: skarmbilder-produktion
+          BREDD: dator
+          ENDAST: ${{ env.ROKPROV }}
         run: NODE_PATH="$RUNNER_TEMP/pw/node_modules" node tests/webblasare.mjs
 
       - name: Spara skärmbilderna

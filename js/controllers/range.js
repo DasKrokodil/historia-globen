@@ -40,6 +40,15 @@ export function createRange(app) {
   const msg = document.createElement('p');
   msg.id = 'range-msg'; msg.className = 'jump-msg'; msg.setAttribute('role', 'alert');
 
+  /** Fel i formuläret (#1138): meddelandet står i msg (role=alert) och de fält det gäller får aria-invalid tills något ändras. */
+  const inputs = [];
+  function showError(text, ...bad) {
+    msg.textContent = text;
+    for (const f of inputs) {
+      if (text && bad.includes(f)) f.input.setAttribute('aria-invalid', 'true'); else f.input.removeAttribute('aria-invalid');
+    }
+  }
+
   /** Ett årsfält: siffran i fältet och f.Kr.-knappen; value är astronomiskt år. */
   function field(id, label) {
     const row = document.createElement('div');
@@ -58,7 +67,7 @@ export function createRange(app) {
     const era = document.createElement('button');
     era.type = 'button'; era.className = 'jump-era-btn'; era.textContent = ui('time.bce');
     era.title = ui('range.bceTitle'); era.setAttribute('aria-pressed', 'false');
-    era.setAttribute('aria-label', `${label}: ${ui('range.bceTitle')}`);
+    era.setAttribute('aria-label', `${label}: ${ui('time.bce')}`); // det synliga ordet ingår i namnet (WCAG 2.5.3); förklaringen står i title (#1138)
     row.append(lab, minus, input, plus, era);
     const bce = () => era.getAttribute('aria-pressed') === 'true';
     const f = {
@@ -74,16 +83,17 @@ export function createRange(app) {
     const step = d => {
       const y = f.value ?? 0;
       f.value = Math.max(MIN_YEAR, Math.min(MAX_YEAR, y + d)); // över gränsen mellan f.Kr. och e.Kr. (1 f.Kr. + 1 = 1 e.Kr.)
-      msg.textContent = '';
+      showError('');
       input.focus();
     };
     minus.addEventListener('click', () => step(-1));
     plus.addEventListener('click', () => step(1));
-    era.addEventListener('click', () => { era.setAttribute('aria-pressed', String(!bce())); msg.textContent = ''; input.focus(); });
-    input.addEventListener('input', () => { msg.textContent = ''; });
+    era.addEventListener('click', () => { era.setAttribute('aria-pressed', String(!bce())); showError(''); input.focus(); });
+    input.addEventListener('input', () => { showError(''); });
     input.addEventListener('keydown', e => {
       if (e.key === 'ArrowUp' || e.key === 'ArrowDown') { e.preventDefault(); step(e.key === 'ArrowUp' ? 1 : -1); }
     });
+    inputs.push(f);
     return f;
   }
   const fromField = field('range-from', ui('range.from'));
@@ -105,13 +115,27 @@ export function createRange(app) {
   openBtn.type = 'button'; openBtn.id = 'range-open'; openBtn.className = 'link-btn range-open';
   openBtn.textContent = ui('range.open');
   openBtn.setAttribute('aria-controls', 'range-pop');
+  openBtn.setAttribute('aria-expanded', 'false');
   $('jump-msg').after(openBtn);
+
+  /** Länken erbjuds bara när lägeskontraktet faktiskt tillåter ett intervall (#981). */
+  function syncAvailability() {
+    const blocked = !store.canEnter('intervall');
+    openBtn.hidden = blocked;
+    if (blocked) closeForm(false);
+  }
+  // En tur, lektion eller jakt kan börja efter den vanliga omritningen (till exempel från en länk i adressen).
+  // Följ därför själva lägesändringen, inte bara nästa render.
+  store.subscribe(({ type }) => { if (type === 'mode') syncAvailability(); });
+  syncAvailability();
 
   // ---- Raden med det aktiva intervallet ----
   const bar = document.createElement('p');
   bar.id = 'range-bar'; bar.className = 'range-bar'; bar.hidden = true;
   const barText = document.createElement('span');
   barText.id = 'range-bar-text';
+  barText.setAttribute('aria-live', 'polite');
+  barText.setAttribute('aria-atomic', 'true');
   const exitBtn = document.createElement('button');
   exitBtn.type = 'button'; exitBtn.id = 'range-exit'; exitBtn.className = 'link-btn range-exit';
   exitBtn.textContent = ui('range.exit');
@@ -134,7 +158,7 @@ export function createRange(app) {
       divisions.forEach(div => {
         const group = document.createElement('section');
         group.className = 'range-preset-group'; group.setAttribute('role', 'group');
-        const head = document.createElement('p');
+        const head = document.createElement('h2');
         head.id = `range-preset-${div.id}`; head.className = 'range-preset-head'; head.textContent = t(div.name);
         group.setAttribute('aria-labelledby', head.id);
         const note = document.createElement('p');
@@ -151,8 +175,10 @@ export function createRange(app) {
           years.className = 'range-preset-years';
           const extra = [r.clippedStart && ui('range.preset.clipped'), r.openEnd && ui('range.preset.today')].filter(Boolean);
           years.textContent = [rangeText(r.from, r.to), ...extra].join(' · ');
+          // Namn med årtal läses redan i sin helhet. Övriga knappar behåller den egna årsraden och dess förklaringar.
+          if (/\d/.test(name.textContent)) years.setAttribute('aria-hidden', 'true');
           b.append(name, years);
-          b.addEventListener('click', () => choosePreset(r));
+          b.addEventListener('click', () => choosePreset(r, period.id));
           presetButtons.push(b);
           list.append(b);
         });
@@ -168,19 +194,21 @@ export function createRange(app) {
     presetButtons.forEach(b => { b.disabled = blocked; });
     if (blocked) msg.textContent = ui('range.blocked');
   }
-  function choosePreset(r) {
-    if (!set(r.from, r.to)) { msg.textContent = ui('range.blocked'); return; }
+  function choosePreset(r, periodId) {
+    if (!set(r.from, r.to, periodId)) { msg.textContent = ui('range.blocked'); return; }
     closeForm(false);
     exitBtn.focus({ preventScroll: true });
   }
 
   function openForm() {
+    if (!store.canEnter('intervall')) return;
     const r = state.range, y = Math.floor(timeline.year);
     fromField.value = r ? r.from : y;
     toField.value = r ? r.to : Math.min(MAX_YEAR, y + 10);
-    msg.textContent = '';
-    $('jump-pop').hidden = true; $('year-jump').setAttribute('aria-expanded', 'false');
+    showError('');
+    app.surfaces.opened('range'); // årshoppet stängs (samma grupp: popover)
     pop.hidden = false;
+    openBtn.setAttribute('aria-expanded', 'true');
     fitPop();
     buildPresets();
     syncPresets();
@@ -198,8 +226,10 @@ export function createRange(app) {
   function closeForm(refocus = true) {
     if (pop.hidden) return;
     pop.hidden = true;
+    openBtn.setAttribute('aria-expanded', 'false');
     if (refocus) $('year-jump').focus({ preventScroll: true });
   }
+  app.surfaces.register('range', 'popover', () => closeForm(false));
   openBtn.addEventListener('click', openForm);
   cancel.addEventListener('click', () => closeForm());
   pop.addEventListener('keydown', e => { if (e.key === 'Escape') { e.stopPropagation(); closeForm(); } });
@@ -207,23 +237,43 @@ export function createRange(app) {
   pop.addEventListener('submit', e => {
     e.preventDefault();
     const a = fromField.value, b = toField.value;
-    if (a == null || b == null) { msg.textContent = ui('time.error.input'); return; }
+    if (a == null || b == null) { showError(ui('time.error.input'), ...[[fromField, a], [toField, b]].filter(([, v]) => v == null).map(([f]) => f)); return; }
     const lo = Math.min(a, b), hi = Math.max(a, b);
-    if (lo < MIN_YEAR || hi > MAX_YEAR) { msg.textContent = ui('range.bounds', { min: formatYear(MIN_YEAR), max: formatYear(MAX_YEAR) }); return; }
-    if (lo === hi) { msg.textContent = ui('range.same'); return; }
-    if (!store.canEnter('intervall')) { msg.textContent = ui('range.blocked'); return; }
+    if (lo < MIN_YEAR || hi > MAX_YEAR) {
+      showError(ui('range.bounds', { min: formatYear(MIN_YEAR), max: formatYear(MAX_YEAR) }), ...[[fromField, a], [toField, b]].filter(([, v]) => v < MIN_YEAR || v > MAX_YEAR).map(([f]) => f));
+      return;
+    }
+    if (lo === hi) { showError(ui('range.same'), fromField, toField); return; }
+    if (!store.canEnter('intervall')) { showError(ui('range.blocked')); return; }
     closeForm(false);
     set(lo, hi);
     exitBtn.focus({ preventScroll: true });
   });
 
+  /** Epoken bakom intervallet (#980), bara när åren fortfarande är epokens egna: en länk med p= men andra år visar ingen epok. */
+  let periodsById = null;
+  function periodOf(r) {
+    const hit = r.period && periodsById?.get(r.period);
+    if (!hit) return null;
+    const pr = periodToRange(hit.period, MIN_YEAR, MAX_YEAR);
+    return pr.from === r.from && pr.to === r.to ? hit : null;
+  }
+  loadPerioder().then(divisions => {
+    periodsById = new Map(divisions.flatMap(d => d.periods.map(period => [period.id, { period, div: d }])));
+    if (state.range?.period) { barText.textContent = ''; app.refresh(); }
+  }).catch(() => {});
+
   /** Väljer intervallet från–till (from < to). Avslutar Fokus (lägeskontraktet). Ger false när ett annat läge stoppar det. */
-  function set(from, to) {
+  function set(from, to, period = null) {
+    if (![from, to].every(Number.isFinite)) return false;
+    from = Math.max(MIN_YEAR, Math.min(MAX_YEAR, from));
+    to = Math.max(MIN_YEAR, Math.min(MAX_YEAR, to));
+    if (from >= to) return false;
     if (!store.enter('intervall')) return false;
     setting = true;
     try {
       timeline.pause();
-      store.setRange({ from, to });
+      store.setRange({ from, to, period });
       timeline.year = from;
       timeline.setRange(state.range);
     } finally { setting = false; }
@@ -259,11 +309,18 @@ export function createRange(app) {
    * capped: { shown, total } när markörgränsen döljer markörer, annars null; listan har ändå alla.
    */
   function render(count, { areasYear = null, capped = null } = {}) {
+    syncAvailability();
     const r = state.range;
     bar.hidden = !r;
     $('year-jump').classList.toggle('is-range', !!r);
-    if (!r) return;
-    barText.textContent = `${rangeText(r.from, r.to)} · ${plural('range.count', count, { count })}`;
+    if (!r) { barText.textContent = ''; return; }
+    const epoch = periodOf(r);
+    bar.title = epoch ? t(epoch.div.simplification) : ''; // förenklingen (till exempel att stenåldern börjar tidigare) syns som förklaring
+    const epochName = epoch ? t(epoch.period.name) : '';
+    // Namn som redan har samma årtal ("Norden, cirka 1500–1800") upprepas inte med åren
+    const years = rangeText(r.from, r.to);
+    const text = `${epochName ? `${epochName} · ` : ''}${epochName.includes(years) ? '' : `${years} · `}${plural('range.count', count, { count })}`;
+    if (barText.textContent !== text) barText.textContent = text; // samma omritning ska inte köa samma uppläsning igen
     areasNote.hidden = areasYear == null;
     areasNote.textContent = areasYear == null ? '' : ui('range.areasAt', { year: formatYear(areasYear) });
     capNote.hidden = !capped;

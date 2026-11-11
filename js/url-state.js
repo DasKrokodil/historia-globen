@@ -7,9 +7,10 @@
 //   y2    slutåret när ett tidsintervall är valt (#755): y=1914&y2=1918 är 1914–1918. En äldre version hoppar över y2
 //         och öppnar länken som året y
 //   c     kameran: lat,lon,zoom
-//   f     det man följer i Fokus: <typ>:<id>, typ = war, empire, religion eller route
+//   f     det man följer i Fokus: <typ>:<id>, typ = war, empire, religion, route eller theme (FOCUS_TYPES i js/state.js)
 //   l     lagren som är på (id i lagerregistret), kommaseparerade; "l=" betyder inga lager
 //   k     kategorierna som syns; saknas k syns alla kategorier
+//   g     händelseurvalet i en förinställd vy, till exempel g=oversikt; saknas g visar alla händelser
 //   t     en guidad tur som pågår (tur-id i data/turer/, #736); en länk med t startar turen
 //   s     turens steg (stegets id); saknas s börjar turen vid första steget
 //   u     ett elevuppdrag som pågår (uppdragets id i data/uppdrag.json, #741); en länk med u startar uppdraget
@@ -25,13 +26,14 @@
 // Bara y krävs (eller t, för en tur). Okända fält hoppas över, så att en länk från en senare version ändå öppnas så gott det går.
 // Filen har inga importer från webbläsaren och testas i node (tests/url-state.test.mjs).
 
-import { STATE_VERSION, fromJSON } from './state.js';
+import { STATE_VERSION, fromJSON, MIN_YEAR, MAX_YEAR } from './state.js';
 
 const ID = /^[a-z0-9-]+$/;
 export const LESSON_MODE = 'lektion';
 /** Lärarens väg i lektionsläget (#885): `r=lararen` i en lektionslänk ger knappen för elev- och lärarblad. Skrivs aldrig tillbaka till adressen. */
 export const TEACHER_ROLE = 'lararen';
 const num = x => String(Math.round(x * 10000) / 10000);
+const clampYear = year => Math.max(MIN_YEAR, Math.min(MAX_YEAR, year));
 
 /**
  * Hashen för ett tillstånd från toJSON(). allCategories är alla kategorier som finns i datan: syns alla,
@@ -40,11 +42,13 @@ const num = x => String(Math.round(x * 10000) / 10000);
 export function encodeHash(json, allCategories = [], tour = null, mission = null, mode = null) {
   const parts = [`y=${num(json.year)}`];
   if (json.yearEnd != null) parts.push(`y2=${num(json.yearEnd)}`);
+  if (json.yearEnd != null && json.period && ID.test(json.period)) parts.push(`p=${json.period}`); // epoken som valdes (#980); äldre länkar saknar den
   if (json.camera) parts.push(`c=${[json.camera.lat, json.camera.lon, json.camera.zoom].map(num).join(',')}`);
   if (json.focus) parts.push(`f=${json.focus}`);
   parts.push(`l=${(json.layers ?? []).join(',')}`);
   const all = allCategories.length && allCategories.every(c => json.filters.includes(c));
   if (!all) parts.push(`k=${(json.filters ?? []).join(',')}`);
+  if (json.tag && ID.test(json.tag)) parts.push(`g=${json.tag}`);
   if (tour?.id && ID.test(tour.id)) {
     parts.push(`t=${tour.id}`);
     if (tour.step && ID.test(tour.step)) parts.push(`s=${tour.step}`);
@@ -101,8 +105,9 @@ export function decodeHash(hash) {
   if (c?.length === 3 && c.every(Number.isFinite)) camera = { lat: c[0], lon: c[1], zoom: c[2] };
   const layers = list('l'), filters = list('k');
   const y2 = params.get('y2') != null && params.get('y2').trim() !== '' ? Number(params.get('y2')) : null;
-  const doc = { v: STATE_VERSION, year, camera, focus: params.get('f') || null, layers: layers ?? [], filters: filters ?? [], calm: false };
-  if (Number.isFinite(y2)) doc.yearEnd = y2; // fromJSON tar bort ett slutår som inte ligger efter året
+  const tag = params.get('g');
+  const doc = { v: STATE_VERSION, year: clampYear(year), camera, focus: params.get('f') || null, layers: layers ?? [], filters: filters ?? [], tag, calm: false };
+  if (Number.isFinite(y2)) { doc.yearEnd = clampYear(Math.round(y2)); if (params.get('p')) doc.period = params.get('p'); } // fromJSON jämför efter klippningen: ett tomt intervall blir ett år
   let state;
   try { state = fromJSON(doc); } catch {
     // Ett trasigt fält (till exempel ett okänt fokus) tas bort; året och resten gäller ändå
@@ -120,7 +125,8 @@ export function decodeHash(hash) {
 export function isNewStep(prev, next, { playing = false } = {}) {
   if (!prev) return false;
   if (prev.focus !== next.focus) return true;
-  if ((prev.yearEnd ?? null) !== (next.yearEnd ?? null)) return true;
+  if ((prev.yearEnd ?? null) !== (next.yearEnd ?? null) || (prev.period ?? null) !== (next.period ?? null)) return true;
+  if ((prev.tag ?? null) !== (next.tag ?? null)) return true;
   if (prev.layers.join() !== next.layers.join() || prev.filters.join() !== next.filters.join()) return true;
   return !playing && Math.abs(prev.year - next.year) >= 1;
 }

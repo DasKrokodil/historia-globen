@@ -31,30 +31,34 @@ Det finns sex "rum" att vara i, och man ska alltid kunna komma tillbaka till huv
 | **Huvudbild** | Alltid | Dra i tiden och i globen, spela | – |
 | **Samtidigt i världen** | Knappen Samtidigt | Läsa per världsdel, välja händelse | Kryss, Escape |
 | **Faktaruta** | Markör, lista eller sökresultat | Läsa, öppna källa, rapportera fel, följa | Kryss, Escape |
-| **Sök och följ** | Knappen Sök och följ | Söka; följa krig, rike, religion, land, resa, tema (fliken Teman syns först när det finns ett); fliken Plats: vad hände här | Val eller Escape |
+| **Sök och följ** | Knappen Sök och följ | Söka; följa krig, rike, religion, land, resa och tema. Teman ligger som första grupp under Alla och har en egen flik när minst ett publicerat tema finns; fliken Plats visar vad som hände nära en plats | Val eller Escape |
 | **Intervallformulär** | Årshoppet → "Välj ett tidsintervall" | Välja från och till, eller en epok med ett klick | Avsluta intervallet, Escape |
 | **Lager och Vy** | Lager, Vy | Välja vad som syns; glob / platt / upptäckt | Utanför-tryck, Escape |
 | **Tur / lektion / quiz / jakt** | Turer, Mer, delad länk | Följa ett förlopp steg för steg | Avsluta, Klar, Escape |
 
-Mer-menyn (Källor, Hjälp, Quiz, Samtidighetsjakten, Dela, Språk) samlar det som inte är kärnflödet.
+Mer-menyn (Källor, Hjälp, Quiz, Samtidighetsjakten, Dela) samlar det som inte är kärnflödet. Språket väljs med en egen knapp i raden överst (jordglob och kod, ofärdiga språk märkta beta), så att den som inte läser svenska hittar den utan att öppna en meny (#1167).
 
 ## Huvudflöden
 
 Antagna "lyckade vägar". Varje flöde är också en testplan: den som granskar bör faktiskt gå flödet på dator och mobil.
 
-1. **Första besöket:** öppna → se globen och Samtidigt-kortet → (introduktion) → dra i tiden → klicka en händelse → läs → Källor.
+1. **Första besöket:** öppna → se globen och Samtidigt-kortet → (Kom igång, under Mer, och ett engångstips vid tidslinjen) → dra i tiden → klicka en händelse → läs → Källor.
 2. **Utforska ett år:** skriv ett år → Samtidigt i världen per världsdel → välj → faktaruta.
 3. **Följ ett krig:** Sök och följ → välj krig → uppspelning pausar vid viktiga händelser → slutkort → avsluta och komma tillbaka dit man var.
 4. **Tur:** Turer → välj → steg med fråga att fundera på → slutkort med det viktigaste.
-5. **Lektion:** lärare delar länken (`m=lektion`) → menyerna är dolda, år och lager låsta → band med "Visa hela globen" → elevblad och lärarblad skrivs ut.
+5. **Lektion:** lärare delar länken (`m=lektion`) → menyerna är dolda, år och lager låsta → band med "Visa hela globen" → elevblad och lärarblad skrivs ut. Lektionen visar alltid alla händelser i lektionens år, aldrig Översikts urval (#1139).
+   - **Lärarstödet (#1139):** en gammal länk utan `g=` visar alla händelser, medan en bar länk (`historiagloben.se` utan hash) börjar i Översikt, ett urval om cirka 120 händelser. Två elever som öppnar "samma" sida kan alltså se olika saker. Be eleverna öppna länken du delar (en lektionslänk visar alltid alla händelser), eller säg att de ska välja Standard i Lager. Raden "Översikt: ett urval, cirka 120 händelser. Visa alla" överst i Samtidigt säger när det är ett urval.
 6. **Dela:** Dela → länk → mottagaren ser samma vy (adressen bär år, kamera, fokus, lager).
 7. **Rapportera fel:** faktaruta → Rapportera faktafel.
+8. **Följ ett tema:** Sök och följ → första gruppen Teman → introduktionskort → välj händelser eller spela genom urvalet → Avsluta temat. På mobil är händelselistan hopfälld; Escape stänger först kortet och därefter temat.
+
+**Visste du? (#997):** knappen visar nästa målår före hoppet. Efter hoppet finns raden ”Från … · Tillbaka” under årtalet; ett tryck återställer året, globens riktning och zoom. Raden försvinner efter tjugo sekunder eller nästa handling, medan webbläsarens Bakåt/Framåt också fungerar. Lugn rörelse följer besökarens inställning.
 
 ## Skärmstorlekar och lägen
 
 | Läge | Bredd | Särdrag |
 |---|---|---|
-| Surfplatta (iPad) | 768–1024 px (**ej provat särskilt**) | Faller över mobilbrytpunkten (≤ 760 px) och får datorns layout. Eftersom många antas läsa på iPad bör liggande och stående läge prövas |
+| Surfplatta (iPad) | 768–1024 px | Toppraden är provad automatiskt i 768×1024, 820×1180 och 1024×768 (#992). Årtalet och förklaringsraden ligger under knapparna i bredder 761–1100 px, även när knappraden bryts. Övriga flöden och verklig iPad är inte fullständigt provade |
 | Dator | ≥ 761 px (testat 1400×900) | Faktaruta vid sidan, tre knappgrupper, menyer fälls ned |
 | Mobil | ≤ 760 px (testat 400×800) | Bara Samtidigt och Meny i raden överst; faktaruta och Samtidigt-kort som ark med tre lägen; globen lyfts när arket är halvt; 44 px träffytor |
 | Platt vy | båda | Karta med zoom och panorering; samma bild som kan skickas till en fysisk glob |
@@ -80,6 +84,8 @@ Det som finns: tangentbord (Tab, Enter, piltangenter på globen), globen som reg
 
 ## Språk och ton
 
+Tidslinjens uppspelning, hastighet och dagsteg, årshoppets meddelanden, Platt vys klungnamn, affischens etiketter och Om källornas gränssnitt hämtar sina texter ur `data/ui/` på alla fem språk (#672). Källors egna titlar, krediter och licensnamn behålls som innehåll.
+
 Fem språk (sv, en, de, es, fr); svenska först, saknas ett språk visas engelska och sedan svenska. **Artigt tilltal** (`Sie`, `usted`, `vous`) i gränssnittet och för vuxna, **du-form** för elever till och med 13 år (beslut 2026-11-08). Fakta skrivs opersonligt. Illustrationer märks alltid; respekt-reglerna för bilder står i CLAUDE.md.
 
 ## Känd UX-skuld
@@ -93,7 +99,7 @@ Det här är pekare, inte en backlog. Källan är den daterade rapporten; fynden
 | Tyst laddningsreserv, slutsteg utan uppläsningssignal | Skärmläsare och laddning | blind-spots-rapport F2, F3 |
 | Mobilkortet täcker tidslinjen i startläget | Kortet och kontrollerna konkurrerar | helhetsanalys 2026-11-06 (kontrollera om åtgärdat) |
 | Reservpresentation vid bildfel | Bildyta och kredit finns kvar utan bild | blind-spots-rapport F8 |
-| Surfplatta (iPad) inte särskilt provad | Stående iPad (768–820 px) får datorns layout; kontrollera trängsel och träffytor | beslut 2026-11-08; R9 i [04](04-arkitekturoversikt.md) |
+| Surfplatta: övriga flöden återstår | Toppradens överlapp är åtgärdat och provat i tre iPad-format (#992); övrig trängsel och träffytor behöver fortfarande prövas | beslut 2026-11-08; R9 i [04](04-arkitekturoversikt.md), #992 |
 | Intervallformuläret för skärmläsare | Dubbla årtal i epokknappar, rubriker som `<p>`, ingen uppläsning när intervallet väljs, platsfältets `aria-label` | #977, granskningen inför 6.1.0 (PR #972); väntar till nästa release |
 | Länk med år utanför tidslinjen | `#y=-20000&y2=3000` ger ett intervall som inte finns | #976, samma granskning; väntar till nästa release |
 | Datumformat på de, es och fr | "4 Juli 1776" skrivs på svenskt vis | #983; väntar till nästa release |

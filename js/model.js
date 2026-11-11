@@ -65,6 +65,15 @@ export function reviewLabel(status, subject) {
   return ui('review.line', { subject: subj, status: rv.label.charAt(0).toLowerCase() + rv.label.slice(1) });
 }
 export const settings = { showDrafts: false };
+/** Vyn Översikt (#868) är ingen tagg i datan utan fältet significance: händelserna ur den godkända listan har det satt till 1. */
+export const OVERVIEW_TAG = 'oversikt';
+/**
+ * Alla taggar en händelse har (#555, #868, #1141): taggarna i datan plus Översikt. Det enda stället som avgör det; Översikt-menyns antal
+ * (panel.js), det som ritas och Lager-vyerna (layers/events.js, som exporterar den vidare) läser alla samma lista.
+ * Ligger i model.js och inte i layers/events.js, som drar in three.js och därför inte går att läsa i node-testerna.
+ */
+export const eventTags = e => [...(Array.isArray(e?.tags) ? e.tags : []), ...(e?.significance === 1 ? [OVERVIEW_TAG] : [])];
+
 export const isVisibleReview = r => settings.showDrafts || r === 'source-checked' || r === 'two-sources';
 
 // ---------- Världsdelar ----------
@@ -76,6 +85,8 @@ export function region(lat, lon) {
   if (lon < -125 && lat < 35) return 'Oceanien'; // Hawaii, Midway och Stilla havet (Kalifornien ligger öster om -125)
   if (lon < -105 && lat < -10) return 'Oceanien'; // östra Polynesien med Rapa Nui; geografin går före politiken (#630)
   if (lon < -25) return 'Amerika';
+  // Grönlands östkust går öster om -25 norr om cirka 69° N; Island slutar vid 66,5° N (Natural Earth 1:10m, #1135)
+  if (lon < -10 && lat >= 68) return 'Amerika';
   // Mikronesien (Guam, Marianerna, Palau, Pohnpei) ligger öster om 130° Ö och söder om 22° N; Filippinerna,
   // Taiwan och Japan ligger väster eller norr om det (#630)
   if ((lat < -10 && lon > 110) || (lat < 22 && lon > 130) || lon > 160) return 'Oceanien';
@@ -117,6 +128,57 @@ export function formatYear(y) {
   return isBCE(y) ? `${bce(y)} ${BCE_TXT}` : `${y}`;
 }
 
+/**
+ * Århundradet ett år ligger i, enligt svenskt bruk (#994): "1300-talet" är 1300–1399 och är det 14:e århundradet;
+ * före vår tideräkning räknas från 1 f.Kr. (astronomiskt år 0), så 2901 f.Kr. ligger i "2900-talet f.Kr.".
+ * År 1–99 (och 99–1 f.Kr.) är det första århundradet. Samma indelning i alla språk, bara skrivsättet skiljer.
+ */
+export function centuryOf(y) {
+  const n = isBCE(y) ? bce(y) : y;
+  return { bce: isBCE(y), c: Math.floor(n / 100) + 1, hundred: Math.floor(n / 100) * 100 };
+}
+
+const ROMAN = [[10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']];
+const roman = n => ROMAN.reduce((out, [v, r]) => { while (n >= v) { out += r; n -= v; } return out; }, '');
+/** Engelskans ordningstal: 1st, 2nd, 3rd, 14th, 21st. Suffixen ligger i språkfilen (time.ordSuffix), tom i övriga språk. */
+function ordinal(n) {
+  const [st, nd, rd, th] = ui('time.ordSuffix');
+  const last = n % 10;
+  return `${n}${n % 100 >= 11 && n % 100 <= 13 ? th : last === 1 ? st : last === 2 ? nd : last === 3 ? rd : th}`;
+}
+
+/** Århundradet för året i ord: "1300-talet", "2900-talet f.Kr.", "14th century", "XIVe siècle". */
+export function formatCentury(y) {
+  const { bce: before, c, hundred } = centuryOf(y);
+  const key = `time.century${c === 1 ? '1' : ''}.${before ? 'bce' : 'ce'}`;
+  // Språket väljer hur numret skrivs (time.centuryStyle): 1300 (sv), 14th (en), 14 (de), XIV (es, fr)
+  const n = { hundred, ordinal: ordinal(c), number: c, roman: roman(c) }[ui('time.centuryStyle')] ?? c;
+  return ui(key, { n });
+}
+
+/** Text ur språkfilen som är en lista [en, flera] ("±1 år", "±3 år"), med {n} ersatt och eventuella andra värden i vars. */
+export function pluralUi(key, n, vars = {}) {
+  return String(ui(key)[n === 1 ? 0 : 1]).replace(/\{(\w+)\}/g, (m, k) => ({ n, ...vars })[k] ?? m);
+}
+
+/**
+ * Hur långt en händelse ligger från året (hela år), med riktning (#995). Etiketten på klotet: "4 år före (1912)" för det som är
+ * slut, "om 2 år (1918)" för det som börjar. Året står i parentes och formateras som vanligt (f.Kr. blir rätt).
+ * Astronomiska år räknas rakt av: 1 e.Kr. minus 1 f.Kr. är 1 år, så det finns inget år 0 att räkna bort.
+ */
+export function formatDirection(when, year, eventYear) {
+  // Hela år mellan årtalet på tidslinjen och årtalet i parentes, så att siffran alltid går att räkna efter. Spannen med månader
+  // ger bråkdelar i dist (Afghanistankriget slutade 2021-08, alltså 4,3 år före 2026), men etiketten säger "5 år före (2021)".
+  const n = Math.max(1, Math.abs(Math.floor(year) - eventYear));
+  return pluralUi(when === 'past' ? 'time.beforeLabel' : 'time.afterLabel', n, { year: formatYear(eventYear) });
+}
+
+/** Samma avstånd i Samtidigt-panelen: "34 år tidigare", "21 år senare". `amount` är hela år, och i fokusläget för korta krig (fine, #204) år som bråkdel som blir dagar. */
+export function formatOffset(when, amount, fine = false) {
+  const n = fine ? Math.max(1, Math.round(amount * 365.25)) : Math.max(1, Math.round(amount));
+  return pluralUi(`panel.${when === 'past' ? 'earlier' : 'later'}${fine ? 'Days' : ''}`, n);
+}
+
 /** Stort årtal i huvudet: [siffra, epok]. */
 export function yearParts(y) {
   if (isBCE(y)) return [String(bce(y)), BCE_TXT];
@@ -147,6 +209,10 @@ function isValidDate(y, m, d) {
 export function parseYearInput(text, defaultEra = 'ce', now = new Date()) {
   const value = String(text ?? '').trim();
   if (!value) return { type: 'invalid', year: null, date: null, error: ui('time.error.input') };
+  // Årshoppets era väljs uttryckligen, aldrig med ett inledande minustecken (#1075).
+  if (/[-−–]/.test(value) && !/^\d{4}-\d{2}-\d{2}$/.test(value)) return { type: 'invalid', year: null, date: null, error: ui('jump.error.negative') };
+  // Besökarens 0 är modellens astronomiska år 0, alltså 1 f.Kr. i visningen.
+  if (/^0{1,4}$/.test(value)) return { type: 'year', year: 0, date: null };
 
   const iso = /^\d{4}-\d{2}-\d{2}$/.exec(value);
   if (iso) {
@@ -161,7 +227,7 @@ export function parseYearInput(text, defaultEra = 'ce', now = new Date()) {
     const mo = Number(value.slice(4, 6));
     const d = Number(value.slice(6, 8));
     if (!isValidDate(y, mo, d)) return { type: 'invalid', year: null, date: null, error: ui('time.error.date') };
-    return { type: 'date', year: y, date: `${y}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}` };
+    return { type: 'date', year: y, date: `${value.slice(0, 4)}-${String(mo).padStart(2, '0')}-${String(d).padStart(2, '0')}` };
   }
 
   const short = /^\d{6}$/.exec(value);
@@ -181,11 +247,25 @@ export function parseYearInput(text, defaultEra = 'ce', now = new Date()) {
 }
 
 const MONTHS = ui('time.months'); // januari … december på valt språk
+// Engelskan behåller dag–månad–år. Intl ger språkets skiljetecken och ordning; månad och år kommer från vår modell.
+const calendarDate = new Intl.DateTimeFormat(LANG === 'en' ? 'en-GB' : LANG, {
+  day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
+});
+function formatCalendarDate(year, month, day, yearText) {
+  const date = new Date(0);
+  date.setUTCFullYear(year, month - 1, day); // Date.UTC behandlar annars år 0–99 som 1900–1999
+  return calendarDate.formatToParts(date).map(part => {
+    if (part.type === 'month') return MONTHS[month - 1];
+    if (part.type === 'year') return yearText;
+    return part.value;
+  }).join('');
+}
 
 /** Datum ur data ("2026-10-30") som text: "30 oktober 2026". */
 export function formatDate(iso) {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
-  return m ? `${Number(m[3])} ${MONTHS[Number(m[2]) - 1]} ${m[1]}` : (iso || '');
+  return m && isValidDate(Number(m[1]), Number(m[2]), Number(m[3]))
+    ? formatCalendarDate(Number(m[1]), Number(m[2]), Number(m[3]), m[1]) : (iso || '');
 }
 
 /** Tid för en händelse enligt dess precision och EDTF-markering. */
@@ -194,8 +274,8 @@ export function formatEventTime(e) {
   if (e.ongoing) return ui('time.ongoing', { start: formatYear(e.start) }); // pågående krig (#223)
   const approx = edtf.includes('~') ? ui('time.approx') : '';
   const day = /^(-?\d{4})-(\d{2})-(\d{2})$/.exec(edtf);
-  if (day && e.start === e.end) {
-    return `${Number(day[3])} ${MONTHS[Number(day[2]) - 1]} ${formatYear(e.start)}`;
+  if (day && e.start === e.end && isValidDate(Number(day[1]), Number(day[2]), Number(day[3]))) {
+    return formatCalendarDate(Number(day[1]), Number(day[2]), Number(day[3]), formatYear(e.start));
   }
   if (edtf.endsWith('/..')) return ui('time.since', { start: formatYear(e.start) });
   if (edtf.startsWith('../')) return ui('time.until', { end: approx + formatYear(e.end) });
@@ -409,6 +489,21 @@ export function loadPerioder() {
  * Fokusmenyn öppnas eller ett tema i adressen börjar. Bara teman som är kontrollerade (inte draft) behålls, och en
  * fil som saknas eller inte går att läsa ger en tom lista; sidan fungerar ändå.
  */
+/**
+ * Platser (data/platser.json, #579): kurerade kort om platsers historia, med dagens gräns som kontur. Laddas första
+ * gången Fokusmenyn öppnas eller en plats i adressen börjar. Bara kontrollerade platser (inte draft) behålls; en
+ * fil som saknas eller inte går att läsa ger en tom lista.
+ */
+let placesPromise = null;
+export function loadPlaces() {
+  placesPromise ??= getJSON('data/platser.json').then(doc => (Array.isArray(doc?.places) ? doc.places : [])
+    .filter(p => p && typeof p.id === 'string' && p.boundary?.geometry && isVisibleReview(p.review))).catch(err => {
+    console.warn('Platser kunde inte laddas', err);
+    return [];
+  });
+  return placesPromise;
+}
+
 let themesPromise = null;
 export function loadThemes() {
   themesPromise ??= getJSON('data/teman.json').then(doc => (Array.isArray(doc?.themes) ? doc.themes : [])
@@ -565,3 +660,5 @@ export function loadReligionPolities() {
  */
 export const symbolUrl = r => /^[\w-]+$/.test(r?.symbol ?? '') ? `img/icons/${r.symbol}.svg` : null;
 export const symbolImg = (r, cls = 'rel-sym') => symbolUrl(r) ? `<img class="${cls}" src="${symbolUrl(r)}" alt="" width="16" height="16">` : '';
+export const flagUrl = r => /^[\w-]+$/.test(r?.file ?? '') ? `img/flags/${r.file}.svg` : null;
+export const flagImg = (r, cls = 'rel-sym') => flagUrl(r) ? `<img class="${cls}" src="${flagUrl(r)}" alt="" width="16" height="16">` : '';

@@ -27,9 +27,13 @@ import { ui } from '../i18n.js';
 const POLL_MS = 700;
 
 export function createAddress(app) {
-  const { state, globe, timeline, layers, panel, data } = app;
+  const { state, globe, timeline, layers, panel, data, views } = app;
   const allCategories = [...new Set(data.events.map(e => e.category))].sort();
   let written = null, writtenHash = '', seenHash = '';
+  // Den äldre, korta formen ?c=lat,lon,zoom används bara vid första läsningen. När den har
+  // översatts till den vanliga hashen tas c bort ur frågesträngen, så att Dela ger en enda
+  // kanonisk adress.
+  let legacyCameraInSearch = false;
   // version räknas upp för varje inställning av vyen; done är den senaste som är klar. Skiljer de sig pågår en
   // inställning, och då skrivs inget i adressen. En överspelad inställning skriver inte längre (#865, #893).
   let version = 0, done = 0;
@@ -40,7 +44,24 @@ export function createAddress(app) {
   const mode = () => (app.lesson?.active ? LESSON_MODE : null); // lektionsläget (#795)
   const hashOf = (json, tour = null) => encodeHash(json, allCategories, tour, mission(), mode());
   /** Sidans adress utan den äldre ?tur= (turen står i hashen när den väl har startat). */
-  const search = () => { const q = new URLSearchParams(location.search); q.delete('tur'); const t = q.toString(); return t ? `?${t}` : ''; };
+  const search = () => {
+    const q = new URLSearchParams(location.search);
+    q.delete('tur');
+    if (legacyCameraInSearch) q.delete('c');
+    const t = q.toString();
+    return t ? `?${t}` : '';
+  };
+  /** Den korta kameradressen från äldre länkar: behåll aktuellt år och vanliga lager. */
+  function legacyCamera() {
+    const c = new URLSearchParams(location.search).get('c');
+    if (!c) return null;
+    // decodeHash har redan samma validering och begränsning av latitud, longitud och zoom
+    // som vanliga delningslänkar. Ett hash-år behövs bara för formatet och tas från startvyn.
+    const view = decodeHash(`#y=${timeline.year}&c=${encodeURIComponent(c)}`);
+    if (!view?.camera) return null;
+    legacyCameraInSearch = true;
+    return view;
+  }
   /** Det som nu står i adressen räknas som skrivet, så att det inte skrivs en gång till. */
   function settle() { written = current(); writtenHash = seenHash = hashOf(written, position()); }
 
@@ -64,13 +85,15 @@ export function createAddress(app) {
           if (!!layers.on[name] !== on) { layers.set(name, on); layers.onChange(name, on); }
         }
       }
+      // Urvalet hör till den förinställda vyn och måste sättas efter lagren: varje enskilt lagerval lämnar annars vyn.
+      layers.setTag(views?.tags?.[s.tag] ? s.tag : null);
       if (s.filters) panel.setFilters(s.filters.filter(c => allCategories.includes(c)));
       timeline.pause();
       // Tidsintervallet (#755): en adress med y2 och utan fokus väljer intervallet, annars stängs ett valt intervall
       const wantRange = s.yearEnd != null && !s.focus;
       if (!wantRange) app.range?.close({ redraw: false });
       timeline.year = s.year;
-      if (wantRange && !app.range?.set(s.year, s.yearEnd)) app.range?.close({ redraw: false });
+      if (wantRange && !app.range?.set(s.year, s.yearEnd, s.period ?? null)) app.range?.close({ redraw: false });
       const focusNow = state.focus ? `${state.focus.type}:${state.focus.id}` : null;
       if (s.focus !== focusNow) {
         if (s.focus && focusExists(s.focus)) {
@@ -122,7 +145,7 @@ export function createAddress(app) {
     const tourStep = new URLSearchParams(writtenHash.slice(1)), newTour = (tourStep.get('t') ?? '') !== (pos?.id ?? '') || (tourStep.get('s') ?? '') !== (pos?.step ?? '')
       || (tourStep.get('u') ?? '') !== (mission() ?? '') // ett uppdrag som börjar eller slutar är också ett eget steg
       || (tourStep.get('m') ?? '') !== (mode() ?? '') // och lektionsläget
-      || (written?.yearEnd ?? null) !== (cur.yearEnd ?? null); // och ett tidsintervall som väljs eller stängs (#755)
+      || (written?.yearEnd ?? null) !== (cur.yearEnd ?? null) || (written?.period ?? null) !== (cur.period ?? null); // och ett tidsintervall som väljs eller stängs (#755)
     // Vänta tills vyn står still, utom när ett läge eller turens steg har bytts: det skrivs direkt (#882, #893)
     if (!force && !newTour && !timeline.playing && hash !== seenHash) { seenHash = hash; return; }
     const url = `${location.pathname}${search()}${hash}`;
@@ -157,7 +180,8 @@ export function createAddress(app) {
     });
     // En tur i länken går före en delad vy; finns turen inte läses resten av länken som vanligt
     const touring = read && applyTour(decodeTour(location.hash, location.search), !!decodeMode(location.hash), !!decodeRole(location.hash));
-    const s = read && !touring ? decodeHash(location.hash) : null;
+    // Den vanliga hashen går före den korta, äldre ?c=-formen om båda finns i en länk.
+    const s = read && !touring ? (decodeHash(location.hash) ?? legacyCamera()) : null;
     const before = version;
     if (s) await apply(s);
     setInterval(write, POLL_MS);
@@ -169,6 +193,7 @@ export function createAddress(app) {
     // Startläget får också en adress, så att Bakåt efter första steget kommer tillbaka hit
     settle();
     history.replaceState(null, '', `${location.pathname}${search()}${writtenHash}`);
+    legacyCameraInSearch = false; // ?c= är nu borta ur adressen (#1141): flaggan hör till första läsningen och nollställs här, inte i settle(), som apply() anropar före den här raden
     return touring || hunting || !!s;
   }
 

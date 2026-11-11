@@ -1,6 +1,6 @@
-# Ordlista och stilregler för översättning till spanska och franska
+# Ordlista och stilregler för översättning
 
-Skapad 2026-11-07 (#808). Gäller `es` och `fr`; tyskan har egna regler i issuen #776–#806. Regeln i [CLAUDE.md](../CLAUDE.md#språk-översätt-samtidigt-beslut-2026-11-06) gäller som förut: en översättning ändrar aldrig fakta (årtal, siffror, namn, platser, påståenden), och svenskan gäller om språken skiljer sig.
+Skapad 2026-11-07 (#808), utökad med engelska och tyska 2026-11-09 (#896). Regeln i [CLAUDE.md](../CLAUDE.md#språk-översätt-samtidigt-beslut-2026-11-06) gäller som förut: en översättning ändrar aldrig fakta (årtal, siffror, namn, platser, påståenden), och svenskan gäller om språken skiljer sig. Reglerna nedan bygger på former som redan används i gränssnittet och innehållet.
 
 Beslutet om tilltal står i [docs/beslut/2026-11-07-artigt-tilltal.md](beslut/2026-11-07-artigt-tilltal.md).
 
@@ -12,6 +12,7 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 
 | Språk | Tilltal | Exempel |
 |---|---|---|
+| Engelska | ingen särskild artighetsform | "Did you know?", "Drag the globe" |
 | Tyska | `Sie` (stor bokstav) | "Wussten Sie?", "Ziehen Sie …" |
 | Spanska | `usted` (verben i tredje person singular, `su`/`sus` för "din") | "¿Sabía que…?", "Arrastre el globo", "Pulse ▶" |
 | Franska | `vous` | "Le saviez-vous ?", "Glissez vers le haut" |
@@ -25,19 +26,20 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 
 ## 2. Tidsangivelser
 
-| | Spanska | Franska |
+| | Engelska | Tyska | Spanska | Franska |
 |---|---|---|
-| f.Kr. | `a. C.` (med mellanrum, "2000 a. C.") | `av. J.-C.` ("2000 av. J.-C.") |
-| e.Kr. | `d. C.` (skrivs bara när det behövs för att undvika missförstånd) | `apr. J.-C.` (samma) |
-| Århundrade | `siglo XVIII` (romerska versaler) | `XVIIIe siècle` (romerska siffror, `e` upphöjt eller vanlig `e`; `1er` för första) |
-| Årtusende | `milenio` | `millénaire` |
-| Årtionde | `década de 1960` | `années 1960` |
+| f.Kr. | `BC` | `v. Chr.` | `a. C.` (med mellanrum, "2000 a. C.") | `av. J.-C.` ("2000 av. J.-C.") |
+| e.Kr. | `AD` | `n. Chr.` | `d. C.` (skrivs bara när det behövs för att undvika missförstånd) | `apr. J.-C.` (samma) |
+| Århundrade | `18th century` | `18. Jahrhundert` | `siglo XVIII` (romerska versaler) | `XVIIIe siècle` (romerska siffror, `e` upphöjt eller vanlig `e`; `1er` för första) |
+| Årtusende | `millennium` | `Jahrtausend` | `milenio` | `millénaire` |
+| Årtionde | `the 1960s` | `die 1960er Jahre` | `década de 1960` | `années 1960` |
 
 **Fälla: svenskt "-tal".** "1700-talet" är det 18:e århundradet, "1800-talet" det 19:e. Räkna om, översätt aldrig ordagrant. "1920-talet" är `los años veinte` / `les années 1920`. Kontrolleras särskilt i release-granskningen (beslut 2026-11-07).
 
 - År är alltid utan avgränsare: `1066`, `2999 a. C.`.
 - Året 0 finns inte i källorna för oss: använd samma visning som svenskan (se `model.js`).
 - Månader skrivs med liten bokstav på båda språken: `14 de julio de 1789`, `14 juillet 1789`.
+- **Datum i gränssnittet (#983):** `formatDate` och datum med dagprecision i `formatEventTime` följer språkets datumformat. Tyska har punkt efter dagen (`4. Juli 1776`), spanska har `de` före månad och år. Svenska och engelska behåller dag–månad–år (`4 juli 1776`, `4 July 1776`); franska följer exemplet ovan. `Intl.DateTimeFormat` ger ordningen och skiljetecknen (engelska med `en-GB`); månadsnamnen hämtas fortfarande ur språkfilen och årtalet följer modellens tideräkning. Inga datum i innehållet ändras.
 
 ## 3. Siffror och tecken
 
@@ -64,7 +66,7 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 | Svenska | Engelska | Spanska | Franska |
 |---|---|---|---|
 | Samtidigt (kortet) | Meanwhile | Al mismo tiempo | Au même moment |
-| Fokus | Focus | Enfoque | Focus |
+| Sök och följ (menyn) / följer (läget) | Search and follow / following | Buscar y seguir / siguiendo | Chercher et suivre / vous suivez |
 | Fakta | Facts | Datos | Faits |
 | Läs mer | Read more | Leer más | Lire la suite |
 | Visa / Dölj | Show / Hide | Mostrar / Ocultar | Afficher / Masquer |
@@ -73,6 +75,16 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 | Bildkort | Picture card | Tarjeta de imagen | Carte illustrée |
 | Grafisk symbol | Graphic symbol | Símbolo gráfico | Symbole graphique |
 | Visste du att …? | Did you know? | ¿Sabía que…? (artigt) | Le saviez-vous ? |
+| Översikt (vy) | Overview | Resumen | Aperçu |
+| Upptäcktsresor (vy och lager; inte kategorin) | Voyages of discovery | Viajes de descubrimiento | Grandes découvertes |
+| Historia-globen (produktnamnet) | Historia-globen | Historia-globen | Historia-globen |
+
+**Ordval enligt #1140 (beslut 2026-11-11, [2026-11-11-ordval-1140](beslut/2026-11-11-ordval-1140.md)).** Tyska kolumnen står här eftersom tabellen saknar den: menyn *Suchen und folgen*, läget *folgen* (etikett *Sie folgen*), *Überblick* (vy), *Entdeckungsreisen* (vy och lager), *Wussten Sie?* (kortet och teckenförklaringen). Reglerna:
+
+- **"Fokus" finns inte i gränssnittet.** Menyn heter Sök och följ, läget heter "följer" (verbet från knappen), och texterna säger "när du följer en händelse". Engelska "Focus"/"focus mode", tyska "Fokus"/"Fokusmodus", spanska "Enfoque"/"modo Enfoque" och franska "Focus"/"mode Focus" används inte längre. Filnamn, funktionsnamn, `f=` i adressen och data-attribut får behålla `focus`.
+- **Ett namn för upptäcktsvyn:** Upptäcktsresor (se tabellen). Kategorin `upptackter` (avsnitt 6: "Upptäcktsresor", *Viajes de exploración*, *Voyages d'exploration*) är en kategori och ändras inte. "Upptäcktsvyn", "discovery view", "Entdeckungsansicht", "vista de exploración" och "vue d'exploration" används inte.
+- **Teckenförklaringens tecken för fun facts** har samma ord som kortet: *Visste du?*, *Did you know?*, *Wussten Sie?*, *¿Sabía que…?*, *Le saviez-vous ?* (inte "samband", *connection*, *Zusammenhang*, *conexión*, *lien*: det som visas är samtidighet, inte orsak och verkan).
+- **Produktnamnet "Historia-globen" översätts aldrig**, inte heller på affischen eller i källhänvisningar (`poster.title`, `citation.*`): en källhänvisning ska vara lik det som står på sidan.
 
 ## 6. Kategorier (`CATEGORIES`, ur `data/ui/`; ändras inte)
 
@@ -184,7 +196,32 @@ Kolumnen "Kontrollerad" är `–` tills någon har öppnat en källa på målspr
 4. Namn följer avsnitt 4 och 9; nya termer är tillagda i den här filen.
 5. `python3 tools/dela_data.py` och `python3 tools/oversattning.py` är körda, och `node --test 'tests/*.test.mjs'` är grönt.
 
-## 11. Epokknapparna (#965)
+## 11. Engelska och tyska: återkommande termer och typografi (#896)
+
+Formerna nedan är hämtade från `data/ui/en.json`, `data/ui/de.json` och de befintliga innehållsfilerna. De ändras inte här; avvikelser rättas i egna översättningsärenden.
+
+| Svenska | Engelska | Tyska | Exempel i data |
+|---|---|---|---|
+| rike | empire | Reich | `review.subject.Riket` i `data/ui/en.json` och `de.json` |
+| kejsardöme / imperium | empire | Kaiserreich / Imperium | rikesnamn i `data/empires/index.json` |
+| kungadöme | kingdom | Königreich | rikesnamn i `data/empires/index.json` |
+| krig | war | Krieg | `cat.krig` i `data/ui/en.json` och `de.json` |
+| slag | battle | Schlacht | händelse- och rikesfält i `data/handelser/` och `data/empires/` |
+| dynasti | dynasty | Dynastie | rikesfält i `data/empires/index.json` |
+| kalifat | caliphate | Kalifat | rikesfält i `data/empires/index.json` |
+
+- **Engelska:** använd brittisk datumordning i gränssnittet, som `4 July 1776` (`en-GB` i `formatDate`). Årtal och mängder skrivs utan tusentalsavgränsare när de är år; övriga tal följer den form som redan finns i texten. Använd dubbla engelska citattecken (`“…”`) när nya citat behövs.
+- **Tyska:** datum skrivs `4. Juli 1776`; punkt efter dag och tusentalspunkt i mängder (`4.000`), men aldrig i årtal. Använd tyska citattecken (`„…“`) i nya löpande citat. Substantiv skrivs med versal; sammansättningar följer etablerad form i måltexten, inte en ordagrann svensk sammansättning.
+- **Namn:** använd etablerat engelskt respektive tyskt namn när ett sådant redan används i datan; annars originalnamnet. Kontrollera ett nytt eller tveksamt namn mot målspråkets etablerade uppslagsverk innan det används och anteckna kontrollen i pull requesten.
+- **Tilltal:** engelskan saknar `du`/`Ni`-motsvarighet. I tyska elevtexter till och med 13 år används `du`; i övriga läsartexter `Sie`, enligt avsnitt 1.
+
+### Att kontrollera i kommande översättningsgranskningar
+
+- `data/ui/de.json` innehåller äldre informellt tilltal; det är den kända avvikelsen i avsnitt 1 och ska inte rättas i denna dokumentationsändring.
+- Kontrollera "empire" mot "kingdom" och `Reich` mot `Königreich` utifrån objektets etablerade namn; den svenska kategorin *Civilisationer och riken* är inte i sig ett namnval för varje enskilt rike.
+- Århundraden får inte översättas som svenska `-tal`: exempelvis blir "1700-talet" `18th century` respektive `18. Jahrhundert`.
+
+## 12. Epokknapparna (#965)
 
 Nya termer i gränssnittet för epokknapparna i intervallformuläret. Tidslinjen heter redan `frise chronologique` i franskan; spanskan och tyskan följer gränssnittet.
 
@@ -192,3 +229,13 @@ Nya termer i gränssnittet för epokknapparna i intervallformuläret. Tidslinjen
 |---|---|---|---|
 | börjar före tidslinjens början | beginnt vor dem Beginn der Zeitleiste | comienza antes del inicio de la línea de tiempo | commence avant le début de la frise chronologique |
 | till i dag | bis heute | hasta hoy | jusqu’à aujourd’hui |
+
+## Gränssnittsenheter (#672)
+
+Tidslinjens kompakta hastighetsenheter följer språkfilen; samma numeriska hastighet och uppspelningslogik används i alla språk.
+
+| Enhet | Svenska | Engelska | Tyska | Spanska | Franska |
+|---|---|---|---|---|---|
+| År per sekund | år/s | yr/s | J./s | años/s | ans/s |
+| Dag, singular/plural | dag/dagar | day/days | Tag/Tage | día/días | jour/jours |
+| Kort dagförkortning i mobil | d | d | T | d | j |

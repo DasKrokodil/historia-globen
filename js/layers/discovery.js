@@ -42,7 +42,10 @@ import { ui } from '../i18n.js';
 export function entry({ data, refresh, registry }) {
   const layer = new DiscoveryLayer(data.discovery, data.land);
   let raf = 0;
-  layer.onImage = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => refresh()); };
+  const scheduleRefresh = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => refresh()); };
+  layer.onImage = scheduleRefresh;
+  // Mätaren läser den färdiga dimbilden. En ny omritning visar dess avrundade andel i förklaringen.
+  layer.onCoverage = scheduleRefresh;
   // Rikenas gränser (#377) laddas när vyn är på och riket har börjat; filerna delas med rikeslagret
   const loads = new Set();
   const ensureEmpires = year => {
@@ -54,7 +57,12 @@ export function entry({ data, refresh, registry }) {
     }
   };
   // Kartbildernas källor kommer ur källregistret, som laddas när vyn slås på (#337)
-  const sourceIds = [...new Set((data.discovery?.decorations ?? []).map(d => d.source))];
+  // Kartkunskap har egna källor: den får inte se ut som om den kom från en
+  // rutt eller ett rike i appens urval (#1072).
+  const sourceIds = [...new Set([
+    ...(data.discovery?.decorations ?? []).map(d => d.source),
+    ...(data.discovery?.knowledge ?? []).flatMap(k => k.sources ?? []),
+  ])];
   const note = data.discovery && {
     title: t(data.discovery.title), perspective: t(data.discovery.perspective), credit: t(data.discovery.credit),
     get sources() { return sourceIds.map(id => data.srcById[id]).filter(Boolean); },
@@ -65,7 +73,7 @@ export function entry({ data, refresh, registry }) {
     enabled: s => s.layers.discovery && !!data.discovery,
     apply: s => { if (s.on.discovery && !sourcesReady()) loadSources().then(() => refresh()).catch(err => console.error(err)); },
     update: s => { if (layer.enabled) ensureEmpires(s.wholeYear ?? Math.floor(s.year)); layer.update({ year: s.year, fine: s.fine, lines: registry.get('routes') }); },
-    legend: () => ({ discovery: layer.enabled ? note : null }),
+    legend: () => ({ discovery: layer.enabled ? { ...note, coverage: layer.coverage } : null }),
     passes: [
       { z: Z.paper, draw: (ctx, W, H) => layer.drawPaper(ctx, W, H) },
       { z: Z.discovery, draw: (ctx, W, H) => layer.drawOverlay(ctx, W, H) },
@@ -155,7 +163,11 @@ export class DiscoveryLayer {
     this.onImage = () => {};  // en bild har laddats klart: lagret behöver ritas om
     this.fogKey = null;
     this.fonts = false;       // typsnittet för "Terra incognita" har laddats (annars ritas texten om när det kommer)
+    this.regions = [];        // hemregioner som alltid är lyfta (home.regions, #872): [{ id, geometry }], laddas första gången lagret slås på
+    this._regionsLoading = false;
     this.empires = new Map(); // rikets grupp-id → { polys: [{ rings, box }], periods: [{ start, end, geometry, polys }] } (#377)
+    this.coverage = null;     // heltal: dimfri del av jordytan, mätt ur samma bild som visas (#575)
+    this.onCoverage = () => {};
   }
 
   /** Ett rikes gränser har laddats (polities ur data/empires/<grupp>.json): dimman räknas om. */
@@ -233,10 +245,23 @@ export class DiscoveryLayer {
     }
   }
 
+  /** Hemregionerna (#872): Europa är känt från vyns början. Filen laddas första gången och dimman räknas om då. */
+  _loadRegions() {
+    if (this._regionsLoading) return;
+    this._regionsLoading = true;
+    for (const r of this.doc?.home?.regions ?? []) {
+      fetch(r.file).then(res => res.json()).then(doc => {
+        this.regions.push({ id: r.id, geometry: doc.geometry });
+        this.fogKey = null; this.onImage();
+      }).catch(err => console.warn(`Upptäcktsvyn: regionen ${r.id} kunde inte laddas`, err));
+    }
+  }
+
   /** state: year och fine som för LinesLayer, lines = linjelagret (vars vägar lyfter dimman). */
   update({ year, fine = false, lines }) {
     if (!this.enabled || !this.doc) return;
     this._loadImages();
+    this._loadRegions();
     const now = fine ? Math.floor(year / FINE_STEP) * FINE_STEP : Math.floor(year);
     const key = `${now}|${fine}|${lines?.routes.length ?? 0}|${this.fonts}`;
     if (key !== this.fogKey) {
@@ -246,7 +271,11 @@ export class DiscoveryLayer {
       // gäller inte det som minns om kontakt längre.
       const nRoutes = lines?.routes.length ?? 0;
       if (nRoutes !== this.nRoutes) { this.nRoutes = nRoutes; for (const e of this.empires.values()) { e.contact = Infinity; e.none = -Infinity; } }
-      this.lifted = [];
+      this.lifted = this.regions.map(r => r.geometry); // hemregionen är känd från början, före alla riken och resor
+      // Källbelagd kartkunskap är ett eget lager. Till skillnad från riken
+      // beskriver den vad en samtida karta faktiskt återgav, inte vem som
+      // styrde området eller vilka av våra rutter som råkar finnas i datan.
+      for (const k of this.doc.knowledge ?? []) if (k.from <= now && (k.to ?? Infinity) >= now) this.lifted.push(k.geometry);
       for (const e of this.empires.values()) {
         if (!e.periods.some(q => q.start <= now)) continue;
         if (!e.home && now < e.neighbor && !this._contact(e, now, this.reached)) continue;
@@ -408,7 +437,33 @@ export class DiscoveryLayer {
       areas(c);
     }
     c.globalCompositeOperation = 'source-over'; c.globalAlpha = 1;
+    const coverage = this._coverage();
+    if (coverage !== this.coverage) { this.coverage = coverage; this.onCoverage(); }
     this.fogDirty = false;
+  }
+
+  /**
+   * Andel av jordytan där den synliga dimman har lyfts. Vi samplar den färdiga dimbilden, inte en separat geometri,
+   * så att rutter, riken och de mjuka korridorkanterna räknas precis som de ritas. Raderna får cosinusviktning:
+   * en pixel nära polen representerar mindre yta än en pixel vid ekvatorn.
+   */
+  _coverage() {
+    const c = this.fogCanvas;
+    if (!c) return null;
+    const { width: w, height: h } = c;
+    const pixels = c.getContext('2d').getImageData(0, 0, w, h).data;
+    const sx = Math.max(1, Math.ceil(w / 360)), sy = Math.max(1, Math.ceil(h / 180));
+    let clear = 0, total = 0;
+    for (let y = 0; y < h; y += sy) {
+      const lat = 90 - (y + sy / 2) / h * 180;
+      const weight = Math.cos(lat * Math.PI / 180);
+      for (let x = 0; x < w; x += sx) {
+        const alpha = pixels[(y * w + x) * 4 + 3] / 255;
+        clear += (1 - alpha) * weight;
+        total += weight;
+      }
+    }
+    return Math.round(clear / total * 100);
   }
 
   /**

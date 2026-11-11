@@ -27,7 +27,8 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
 - **Anspråk:** en kommentar på issuet ("Orkestern (DasKrokodil) tar det här, session <id>"), etiketten `pågår` och
   tilldelning till kontots person medan arbetet pågår (beslut 2026-11-06, samma för alla agenter). `pågår` tas bort när
   pull requesten är öppnad eller arbetet pausas. Dirigent är bara Claude Code på Rikards konto; på Andreas konto
-  (`Einzbeng`) körs orkestern inte som dirigent, och hans Claude Code tar `redo`-issues som arbetare.
+  (`Einzbeng`) körs orkestern inte som dirigent, men hans Claude Code tar `redo`-issues, får sätta `redo` och skapa issues
+  enligt samma regler som Rikards (beslut 2026-11-11).
 - **Integrationskön (shared v0.8.0, "integration-ready"):** i PR-läget är en öppen pull request med `Closes #N` den
   färdiga överlämningen. Ägaren, grenen, commit, bevisen och nästa steg står i pull requesten och dess kommentarer, och
   det är den som leder arbetet som återupptar den (rättar efter granskning, ombaserar). En sådan pull request tar ingen
@@ -36,7 +37,7 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
 - **Codex (beslut 2026-10-31):** Codex tar också issues och öppnar pull requests, enligt [AGENTS.md](../AGENTS.md). Orkestern
   hoppar över issues med etiketten `pågår` eller en tilldelad person, eller en öppen pull request (`*/issue-<N>-*`) som skriver
   `Closes #N` (beslut 2026-11-05 och 2026-11-06: ett issue, en ägare). För Codex pull requests gäller i stället: Codex-förgranskning efter att pull requesten öppnats, därefter Claude Codes beslut ("godkänd" eller arbetsorder) och sist Rikards merge. Samma diff och samma verifieringsbevis återanvänds, ingen del granskas två gånger. Dirigentens granskning "innan pull requesten öppnas" nedan gäller orkesterns egna arbetare.
-  Dirigenten sätter den gemensamma etiketten `redo` (beslut 2026-11-06, ersätter `codex: redo` och `copilot: redo`) på
+  Dirigenten (och sedan 2026-11-11 Rikard, Andreas och hans Claude Code, med dirigentens stickprov) sätter den gemensamma etiketten `redo` (beslut 2026-11-06, ersätter `codex: redo` och `copilot: redo`) på
   issues som någon agent får ta: tydligt avgränsade, utan `beslut-krävs` och utan krock med pågående eller planerat
   arbete. Codex och Copilot tar inte `redo`-issues med fakta, data, källor, bilder eller riken; de tar Claude Code
   (Rikards eller Andreas). Etiketten tas bort när issuet tas. Varje pass och varje planering går igenom den pågående
@@ -47,6 +48,7 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   först varje pull request ("Codex-granskning: godkänd"). Claude Code granskar därefter bara de som Codex har märkt "Klar för Claude Code-granskning", och bara det som kräver dirigentens bedömning (källpolicy, arkitektur, synligt resultat); fakta, data och källor granskas alltid fullt. `redo`
   sätts aldrig på arkitekturärenden förrän rätt förutsättningar finns, och tas bort om ett issue blir beroende av ett
   annat spår. Dirigentens eget arbete märks som alla andras (`pågår` och tilldelning).
+- **Planering före milstolpe (beslut 2026-11-10):** `/milstolpe <milstolpe>` gör först en kort bemanningsanalys (vilka av agenterna i `.claude/agents/` som behövs: `historiker`, `forhistoriker`, `geograf`, `ux-tillganglighet`, `arkitekt`, `larare`, `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr`, och linserna i docs/produkt/06-granskningsperspektiv.md) och låter sedan de valda agenterna analysera milstolpens issues från sina perspektiv. Resultatet blir en rapport i `docs/granskningar/` till Rikard; inget byggs och inga issues skapas före hans ok.
 - **Blind-spots-rundan (beslut 2026-11-02):** den separata, självkritiska analysen i UX-genomgången görs av Codex och
   skrivs som rapport i `docs/granskningar/`. Dirigenten läser rapporten och gör issues av fynden, men gör inte analysen själv.
 - **Flödesregler (beslut 2026-11-02):** (1) Händelsedriven kögenomgång: efter varje ny, uppdaterad eller ihopslagen pull
@@ -56,6 +58,7 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
   dokumenterad extern spärr; annars återupptas, förbereds eller avmarkeras ärendet direkt.
 - **Riskbaserat flöde (beslut 2026-11-03):** Den tidigare kökontrollen efter varje PR är lättviktig och ersätter inte automatiskt en full review. Full review triggas av avslutad batch eller milstolpe, kritisk bugg, större central ändring, releasekandidat eller uttrycklig begäran. Testnivån följer risk: riktad för isolerade ändringar, komponent/integration för relaterade ändringar och full svit inför release eller vid central/riskfylld ändring. Snabbare merge kräver dokumenterad accepterad risk och uppföljning. Release publiceras först efter releasekontroll och Rikards godkännande.
 - **Tokenbudget (beslut 2026-11-03):** Veckoplaner anger intervall, osäkerhet och reserv separat för Codex-förberedelse, Codex-implementation/granskning och Claude Code-triage/slutgranskning. Efter varje avslutat issue noteras faktisk förbrukning och avvikelsen mot uppskattningen, så att kommande veckoplaner kalibreras.
+- **Kontextgrupper (beslut 2026-11-10, #1119, provregel):** issues som delar kontext (samma filer eller subsystem, samma källor eller region, samma översättningsarbete) görs i samma tråd; ett pass följer en grupp och byter inte domän mitt i. Fakta/data och gränssnitt blandas inte. `/milstolpe` sorterar milstolpens issues i grupper (steg 3) med modellnivå per grupp. Tokenbudgeten räknas per grupp: startkostnad en gång plus marginalkostnad per issue, som **procent av veckoanvändningen** när miljön visar den (annars skrivs "saknas" i rapporten). När en tråd stängs lämnas en överlämningsrad i issuet eller pull requesten (beslut, avvikelser, vad som inte gjordes). Reglerna är provregler tills mätningen är gjord: jämför 2–3 pass med issues som delar kontext mot samma issues i separata trådar, och skriv resultatet som en daterad rapport i `docs/granskningar/`. Taket på fyra pull requests per pass och normalstorleken två till tre ändras inte.
 - **Kapacitet:** en arbetare är standard (resurspolicyn nedan). Högst tre arbetare samtidigt, inklusive hjälpare. Dirigenten får göra ett arbete själv, och det
   räknas då som en plats. Webbläsartester (Playwright) körs av en arbetare i taget, var och en med egen port. Kön
   hålls med en gemensam låsfil: `flock <scratchpad>/pw.lock node skript.cjs`. I molnmiljön når webbläsaren inte

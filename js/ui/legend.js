@@ -4,6 +4,7 @@
 // och säger vilka lager som är dämpade, med en knapp för att visa dem som vanligt (#235).
 // I upptäcktsvyn (#101) står där vad "upptäckt" och dimman betyder, och krediten för kartbilderna.
 import { t, CAT, formatYear, symbolImg } from '../model.js';
+import { ui } from '../i18n.js';
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const cleanName = n => String(n).replace(/^\((.*)\)$/, '$1'); // "(Kingdom of France)" → "Kingdom of France"
@@ -87,7 +88,7 @@ export class ReligionLegend {
   /**
    * items från ReligionsLayer.legendItems(). focus (valfritt, fokusläget): war = ett följt krigs områden syns,
    * fadable = namnen på lager som dämpas (eller skulle dämpas) och keep = om de visas som vanligt (#235).
-   * discovery (upptäcktsvyn, #101) = { perspective, credit, sources: [{ title, url }] } eller null.
+   * discovery (upptäcktsvyn, #101) = { perspective, credit, sources: [{ title, url }], coverage } eller null.
    * Finns inget att förklara döljs rutan.
    */
   update(items, focus = {}) {
@@ -101,7 +102,7 @@ export class ReligionLegend {
     if (!items.length && !areas && !war && !fadable.length && !discovery) { this.legend.hidden = true; this.legend.textContent = ''; this._html = ''; return; }
     const unsure = items.some(i => i.unsure), inherited = items.some(i => i.inherited);
     const title = (items.length ? 1 : 0) + (areas ? 1 : 0) + (war ? 1 : 0) + (discovery ? 1 : 0) > 1 ? 'Teckenförklaring'
-      : items.length ? 'Religioner' : areas ? 'Riken' : war ? 'Krigsområden' : discovery ? discovery.title : 'Lager i fokus';
+      : items.length ? 'Religioner' : areas ? 'Riken' : war ? 'Krigsområden' : discovery ? discovery.title : 'Lager medan du följer';
     const open = discovery ? this.discoveryOpen : this.open;
     const religionsHtml = !items.length ? '' : `<ul>${items.map(({ religion: r, sure, unsure: u, inherited: i }) =>
       `<li data-religion="${esc(r.id)}" tabindex="0" role="button" aria-pressed="${this.pinned === r.id}" class="${this.highlight === r.id ? 'on' : ''}" title="Peka eller tryck för att lyfta fram ${esc(t(r.name).toLowerCase())} på kartan"><span class="swatch" style="background:${esc(r.color)}"></span>${symbolImg(r)}<span class="rl-name">${esc(t(r.name))}${
@@ -121,6 +122,8 @@ export class ReligionLegend {
     const hintHtml = !this.hint || !items.length ? '' : `<p class="rl-hint" role="note"><span>Klicka på ett färgat område för att se religion och rike.</span><button type="button" class="rl-hint-close" data-hint-close aria-label="Stäng tipset">×</button></p>`;
     // Upptäcktsvyn (#375): förklaringen och kartkrediten följer samma hopfällbara kropp,
     // så att den inte täcker kartan i mobil. Den korta rubriken ligger kvar i knappen.
+    const coverageHtml = !discovery || discovery.coverage == null ? '' : `<p class="rl-coverage" role="status">${esc(ui('discovery.coverage', { percent: discovery.coverage }))}</p>
+      <p class="rl-note rl-coverage-note">${esc(ui('discovery.coverageNote'))}</p>`;
     const discHtml = !discovery ? '' : `<p class="rl-disc" role="note">${esc(discovery.perspective)}</p>`;
     const creditHtml = !discovery ? '' : `<p class="rl-note rl-credit">${esc(discovery.credit)}${discovery.sources?.length ? ` Filsidor: ${
       discovery.sources.map((s, i) => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${i + 1}<span class="sr-only"> ${esc(s.title)} (öppnas i en ny flik)</span></a>`).join(', ')}.` : ''}</p>`;
@@ -137,7 +140,7 @@ export class ReligionLegend {
       items.length > shown.length ? `<span class="rl-more">+${items.length - shown.length}</span>` : ''}${
       war ? `<span class="rl-dot rl-hatch" style="--war:${esc(CAT.krig.color)}" title="Krigsskådeplats"></span>` : ''}</span>`;
     const html = `<button type="button" class="rl-toggle" aria-expanded="${open}" aria-controls="rl-body"><span class="rl-title">${title}</span><span class="rl-chev" aria-hidden="true"></span>${dotsHtml}</button>${hintHtml}
-      <div id="rl-body" class="rl-body" ${open ? '' : 'hidden'}>${discHtml}${aboutHtml}${religionsHtml}${symbolsHtml}${areasHtml}${warHtml}${creditHtml}${fadeHtml}</div>`;
+      <div id="rl-body" class="rl-body" ${open ? '' : 'hidden'}>${coverageHtml}${discHtml}${aboutHtml}${religionsHtml}${symbolsHtml}${areasHtml}${warHtml}${creditHtml}${fadeHtml}</div>`;
     // Samma innehåll ritas inte om, så att musen och tangentbordets fokus ligger kvar på raden (#271)
     if (html !== this._html) {
       const focused = this.legend.contains(document.activeElement) && document.activeElement.dataset.religion;

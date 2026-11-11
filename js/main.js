@@ -2,10 +2,10 @@
 // tidsreglaget skickar ut året → lagret väljer händelser → globen och panelen ritar om.
 // Ansvaret ligger i js/controllers/ (#402): val av händelse, fokusläget, faktarutor om riken och religioner,
 // omritningen, uppspelningens pauser, krigets berättelse och etiketterna. Här skapas delarna och kopplas ihop.
-import { loadAll, loadReligionPolities, loadRoutes, t, formatYear, formatEventTime, isVisibleReview, CAT } from './model.js';
+import { loadAll, loadAllEventDetails, loadReligionPolities, loadRoutes, loadSources, t, formatYear, formatEventTime, isVisibleReview, CAT } from './model.js';
 import { buildIndex, search as searchIndex } from './search-index.js';
 import { placeSuggestions, eventsNear, RADIUS_KM } from './place-search.js';
-import { applyStatic, setupLangPicker, takeReturnYear, LANG_INFO } from './i18n.js';
+import { applyStatic, setupLangPicker, takeReturnYear, LANG_INFO, ui } from './i18n.js';
 import { Globe } from './globe.js';
 import { Timeline, setupYearJump } from './timeline.js';
 import { LAYERS } from './layers/index.js';
@@ -38,6 +38,8 @@ import { createPlayback } from './controllers/playback.js';
 import { createRange } from './controllers/range.js';
 import { createLabels } from './controllers/labels.js';
 import { createAddress } from './controllers/address.js';
+import { createJumpBack } from './controllers/jump-back.js';
+import { createSurfaces } from './surfaces.js';
 
 const $ = id => document.getElementById(id);
 
@@ -96,9 +98,9 @@ async function start() {
   const posterButton = $('flat-poster');
   posterButton.hidden = !poster;
   if (poster) {
-    posterButton.textContent = t(poster.button);
-    posterButton.title = t(poster.button);
-    posterButton.setAttribute('aria-label', t(poster.button));
+    posterButton.textContent = ui('poster.button');
+    posterButton.title = ui('poster.button');
+    posterButton.setAttribute('aria-label', ui('poster.button'));
   }
 
   // Det gemensamma tillståndet och lagerregistret (#338)
@@ -109,7 +111,7 @@ async function start() {
   // Det delade underlaget för controllerna (#402): komponenterna och funktionerna som de kopplas ihop med.
   // Funktionerna fylls i när varje controller skapas längre ner; anropen sker först efter starten.
   const narrow = matchMedia('(max-width: 760px)');
-  const app = { $, data, views, state, store, registry, globe, flatMap, narrow };
+  const app = { $, data, views, state, store, registry, globe, flatMap, narrow, surfaces: createSurfaces() }; // surfaces: stängregistret (#894)
   // Hela tillståndet som JSON (#403): år, kamera, fokus, lager, kategorier och Lugn rörelse. Används av #64/#501.
   app.snapshot = () => toJSON(state, globe.view);
   // Det lagren får när de skapas: klotet, datan och vägar tillbaka till main.js (omritning, faktarutor)
@@ -136,12 +138,11 @@ async function start() {
     pager: $('ff-pager'), next: $('ff-next'), srcBtn: $('ff-sources'),
     pics: $('ff-pics'), kind: $('ff-kind'), min: $('ff-min'), tab: $('ff-tab'), tabCount: $('ff-tab-count'), handle: $('ff-handle'), status: $('screen-reader-status'),
   }, { funfacts: [...data.funfacts, ...warCards(data.events)], byId: data.byId, srcById: data.srcById, styles: data.styles, surprise: $('ff-surprise') });
-  $('ff-surprise').textContent = t(views?.funfacts?.surprise) || 'Visste du?';
   // Smal skärm (#361): faktarutan som ark nedifrån med tre lägen, och mobilmenyn (#530): Samtidigt och Meny i raden överst
   const detailSheet = new Sheet($('detail'));
-  new ViewMenu({ toggle: $('more-toggle'), menu: $('more-menu'), keep: $('btn-panel'), label: t(views?.menu?.label) });
-  new ExtraMenu({ toggle: $('btn-more'), menu: $('extra-menu') });
-  const sources = new SourcesDialog({ root: $('sources-dialog'), body: $('sources-body'), close: $('sources-close'), openBtn: $('btn-sources') }, data, { sourceVersion: views?.sourceVersion, summary: views?.sourcesSummary });
+  const viewMenu = new ViewMenu({ toggle: $('more-toggle'), menu: $('more-menu'), keep: $('btn-panel'), label: t(views?.menu?.label) });
+  const extraMenu = new ExtraMenu({ toggle: $('btn-more'), menu: $('extra-menu') });
+  const sources = new SourcesDialog({ root: $('sources-dialog'), body: $('sources-body'), close: $('sources-close'), openBtn: $('btn-sources') }, data);
 
   const timeline = new Timeline({
     track: $('track'), thumb: $('thumb'), segs: $('track-segments'), ticks: $('ticks'),
@@ -149,19 +150,14 @@ async function start() {
     pauseGo: $('pause-go'), status: $('screen-reader-status'),
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
-  setupYearJump(timeline, {
+  ff.setSurpriseRange(() => timeline.focus);
+  const yearJump = setupYearJump(timeline, {
     button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'),
-    events: data.events, copy: views?.jump ?? {}, onJump: () => { app.range?.close(); app.orientToPanelHighlight(); }, // ett hopp till ett år stänger intervallet (#755)
+    events: data.events, onJump: () => { app.range?.close(); app.orientToPanelHighlight(); }, // ett hopp till ett år stänger intervallet (#755)
     onSelect: id => app.select(id, false), // raderna i datumresultatet (#590); året är redan rätt
+    onOpen: () => app.surfaces.opened('jump'), // årshoppet och intervallformuläret stänger varandra (#1141)
   });
-  // Samma direkta årshopp som Min dag i historien och Hoppa till år använder: stoppa
-  // uppspelningen, flytta Timeline (som äger året) och låt refresh bygga Samtidigt-kortet.
-  ff.onSurprise = fact => {
-    timeline.pause();
-    timeline.year = fact.show[0];
-    app.refresh();
-    app.orientToPanelHighlight();
-  };
+  app.surfaces.register('jump', 'popover', () => yearJump.close());
 
 
   // Lagerväljaren: vilka lager som syns. Raderna och startläget kommer från registret.
@@ -169,7 +165,11 @@ async function start() {
     views: views && { ...views, controlled: registry.viewLayers(views.groups),
       tagCount: tag => data.events.filter(e => hasTag(e, tag) && isVisibleReview(e.review)).length } });
   // En vy med tagg (#555), till exempel Framsteg, visar bara händelser med taggen
-  layers.onTag = tag => { store.setTag(tag); panel.tag = tag; app.refresh(); };
+  layers.onTag = tag => { store.setTag(tag); panel.tag = tag; app.refresh?.(); };
+  // Första besöket börjar i den vy som datan utser. En delad länk ställs in efteråt och får alltid företräde.
+  if (views?.defaultView) layers.applyView(views.defaultView);
+  // Raden "Översikt: ett urval … Visa alla" (#1139) gör samma sak som Standard i Lager: alla händelser, samma lager
+  panel.onShowAllEvents = () => layers.applyView('standard');
   panel.onEnableEvents = () => {
     layers.set('events', true);
     layers.onChange('events', true);
@@ -241,7 +241,7 @@ async function start() {
     if (open) empireLegend.onClose();
     else {
       // Menyn ligger ovanpå kartan i mobil. Stäng den först, så att rikesrutan inte öppnas bakom den.
-      layers.close();
+      app.surfaces.closeGroup('meny', 'focus'); // bara Lager-menyn (Fokus-menyn ligger kvar som förut)
       empireLegend.setVisible(true); empireLegendButton.setAttribute('aria-expanded', 'true');
     }
   });
@@ -284,15 +284,23 @@ async function start() {
       layers: Object.fromEntries(controlled.map(l => [l, !!layers.on[l]])),
       focus: state.focus ? `${state.focus.type}:${state.focus.id}` : null,
       camera: globe.view,
+      tag: state.tag ?? null, // vyns urval (till exempel Översikt, #1139): lektionen släpper det och utgången återställer det
       filters: [...panel.filters],
     };
   };
   // Fokus (att följa ett krig, rike, en religion eller resa) stoppas av lektionsläget (#795) och av de andra lägen som
   // tabellen MODE_RULES i js/state.js säger (#893): en länk i en faktaruta eller en gammal adress kan inte släppa låset
   const startFocus = key => (store.canEnter('fokus') ? focusCtl.startFocus(key) : Promise.resolve(false));
-  Object.assign(app, { startFocus, endFocus: focusCtl.endFocus, founding: focusCtl.founding, focusMenu: focusCtl.focusMenu, showThemeCard: focusCtl.showThemeCard });
+  Object.assign(app, { startFocus, endFocus: focusCtl.endFocus, founding: focusCtl.founding, focusMenu: focusCtl.focusMenu, showThemeCard: focusCtl.showThemeCard, showPlaceCard: focusCtl.showPlaceCard });
   const render = createRender(app);
   Object.assign(app, { render, refresh: render.refresh, syncNameScale: render.syncNameScale, storyFor: render.storyFor });
+  const jumpBack = createJumpBack(app);
+  ff.onSurprise = fact => jumpBack.run(() => {
+    timeline.pause();
+    timeline.year = fact.show[0];
+    app.refresh();
+    app.orientToPanelHighlight();
+  }, $('ff-surprise'));
 
   const labels = createLabels(app);
   Object.assign(app, { labelText: labels.labelText, fillLabel: labels.fillLabel });
@@ -307,18 +315,55 @@ async function start() {
   // efterträdare eller föregångare som finns som rike (#72, follow) börjar följas direkt.
   // I lektionsläget (#795) följs ingenting: ett rike öppnar bara sin faktaruta
   panel.onEmpire = (id, follow = false) => ((!follow || app.lesson?.active) && app.showEmpireFacts(id)) || app.startFocus(`empire:${id}`);
-  $('focus-exit').addEventListener('click', e => app.endFocus(e));
+  $('focus-exit').addEventListener('click', () => {
+    const theme = state.focus?.type === 'theme' || state.focus?.type === 'place';
+    app.endFocus();
+    if (theme) $('btn-focus').focus({ preventScroll: true });
+  });
   // Knappen Fakta i fokusraden öppnar rikets eller religionens faktaruta igen (#170)
   $('focus-facts').addEventListener('click', () => {
     const focus = state.focus;
     if (focus?.type === 'empire') app.showEmpireFacts(focus.id);
     else if (focus?.type === 'religion') app.showReligionFacts(focus.id, false);
     else if (focus?.type === 'theme') app.showThemeCard();
+    else if (focus?.type === 'place') app.showPlaceCard();
   });
   panel.onThemeEvent = id => app.select(id);
+  panel.onEndTheme = () => {
+    app.endFocus();
+    $('btn-focus').focus({ preventScroll: true });
+  };
   panel.onFilter = (...a) => { store.setFilters(panel.filters); app.refresh(...a); };
   ff.onSelect = (...a) => app.select(...a);
   ff.onArcs = pairs => { globe.setArcs(pairs); flatMap.setArcs(pairs); };
+  // På dator och surfplatta får faktarutan ensam vara läsytan. FunFacts behåller
+  // däremot sitt eget hopfällda/öppna val och visar det igen när rutan stängs.
+  // Fokus och skärmläsare (#1138): hela kortet byts via innerHTML, så #detail är inte aria-live (allt lästes om vid varje byte).
+  // I stället säger statusraden rubriken en gång per ny ruta. Kom man från Samtidigt-kortet, som döljs, går fokus till Stäng
+  // och tillbaka till samma knapp när rutan stängs (kortet ritas om, så knappen hittas på id eller händelse-id).
+  let detailTitle = '', cardFocus = null;
+  panel.onDetailChange = open => {
+    const detail = $('detail'), card = $('funfact'), active = document.activeElement;
+    if (open) {
+      if (!cardFocus && card.contains(active)) cardFocus = active.dataset?.id ? { chip: active.dataset.id } : { id: active.id };
+      ff.setDetailOpen(true);
+      if (cardFocus) detail.querySelector('[data-close]')?.focus({ preventScroll: true });
+      const title = detail.querySelector('h3')?.textContent.trim() ?? '';
+      if (title && title !== detailTitle) $('screen-reader-status').textContent = `${ui('detail.label')}: ${title}`;
+      detailTitle = title;
+      return;
+    }
+    const back = cardFocus, wasInDetail = !active || active === document.body || detail.contains(active);
+    ff.setDetailOpen(false);
+    // I smal skärm döljs kortet av klassen has-detail tills omritningen har tagit bort den, så fokus flyttas efter den
+    if (back && wasInDetail) requestAnimationFrame(() => {
+      const now = document.activeElement;
+      if (now && now !== document.body && !detail.contains(now)) return; // besökaren har redan flyttat fokus
+      const own = back.chip ? $('ff-events').querySelector(`.ff-chip[data-id="${CSS.escape(back.chip)}"]`) : back.id && $(back.id);
+      [own, $('ff-next'), $('ff-handle')].find(el => el && !el.hidden && el.getClientRects().length)?.focus({ preventScroll: true });
+    });
+    cardFocus = null; detailTitle = '';
+  };
   // Kortets källor (#337): rikets berättelse har egna, fun facts och krigskort ärver händelsernas, som har laddats
   // när dialogen visar dem (Om källorna laddar alla händelsers källor först)
   ff.onSources = f => sources.open(() => f.kind === 'empire' ? f.sources
@@ -414,13 +459,14 @@ async function start() {
     if (!poster) return;
     posterButton.disabled = true;
     try {
+      await Promise.all([loadSources(), loadAllEventDetails()]);
       await downloadPoster({
         baseCanvas: globe.baseCanvas, overlayCanvas: globe.overlayCanvas,
-        year: Math.floor(timeline.year), events: data.events.filter(event => isVisibleReview(event.review)), labels: poster,
+        year: Math.floor(timeline.year), events: data.events.filter(event => isVisibleReview(event.review)), srcById: data.srcById,
       });
     } catch (err) {
       console.error(err);
-      window.alert(t(poster.error));
+      window.alert(ui('poster.error'));
     } finally {
       posterButton.disabled = false;
     }
@@ -451,9 +497,16 @@ async function start() {
   // Rikenas namn ritas med IM Fell English, rita om när typsnittet har laddats
   document.fonts?.ready.then(() => app.refresh());
 
-  // Menyerna uppe till höger: bara en åt gången
-  panel.onOpen = () => { layers.close(); app.focusMenu.close(); app.orientToPanelHighlight(); };
-  layers.onOpen = () => { panel.setOpen(false); app.focusMenu.close(); };
+  // Menyerna uppe till höger och sidopanelen: en öppnad yta stänger sin grupp (js/surfaces.js, #894)
+  const { surfaces } = app;
+  surfaces.register('panel', 'sidopanel', () => panel.setOpen(false));
+  surfaces.register('layers', 'meny', () => layers.close());
+  surfaces.register('focus', 'meny', () => app.focusMenu.close());
+  // Mobilens Meny och datorns Mer stängs när en annan meny öppnas, till exempel språklistan (#1167)
+  surfaces.register('viewmenu', 'meny', () => { if (viewMenu.isOpen) viewMenu.set(false); });
+  surfaces.register('extra', 'meny', () => { if (extraMenu.isOpen) extraMenu.set(false); });
+  panel.onOpen = () => { surfaces.opened('panel'); app.orientToPanelHighlight(); };
+  layers.onOpen = () => surfaces.opened('layers');
 
   // Sök och följ (#651, tidigare Sök #570): händelserna söks i samma ruta som det man kan följa. En händelse öppnas
   // på sitt år (lagret Händelser och händelsens kategori slås på om de är av); resten börjar följas i Fokus.
@@ -503,7 +556,12 @@ async function start() {
   panel.onReport = report;
   routePop.onReport = report;
   timeline.init(takeReturnYear() ?? 1325); // året finns kvar efter byte av språk
-  setupLangPicker($('lang-select'), () => timeline.year, () => app.address?.flush()); // adressen skapas längre ned; anropet sker först vid byte
+  // Språkväljaren i översta raden (#1167). Adressen skapas längre ned; beforeReload anropas först vid byte.
+  const langPicker = setupLangPicker({
+    toggle: $('btn-lang'), menu: $('lang-menu'), getYear: () => timeline.year,
+    beforeReload: () => app.address?.flush(), onOpen: () => surfaces.opened('lang'),
+  });
+  surfaces.register('lang', 'meny', () => langPicker.close());
   globe.flyTo(34, -50, 1600);
   globe.autoRotate = false;
 
@@ -517,12 +575,34 @@ async function start() {
     onExplore: () => $('track').focus({ preventScroll: true }),
     onFollow: () => $('btn-focus').click(),
     onTask: () => $('track').focus({ preventScroll: true }),
-    fallbackFocus: () => $('btn-intro'),
+    fallbackFocus: () => $('btn-more'),
   });
   const introButton = $('btn-intro');
   introButton.hidden = !intro.ready;
   introButton.textContent = introData?.labels?.start ? t(introData.labels.start) : introButton.textContent;
   introButton.addEventListener('click', () => intro.open(introButton));
+
+  // Engångstips vid tidslinjen (#996): visas tills besökaren har rört tidslinjen eller stängt det, sedan aldrig igen
+  const yearTip = $('year-tip');
+  const tipSeen = () => { try { return localStorage.getItem('hg-year-tip') === '1'; } catch { return false; } };
+  const dismissTip = () => {
+    yearTip.hidden = true;
+    try { localStorage.setItem('hg-year-tip', '1'); } catch { /* utan lagring: tipset visas igen nästa gång */ }
+  };
+  if (!tipSeen()) {
+    yearTip.hidden = false;
+    $('track').addEventListener('pointerdown', dismissTip, { once: true, capture: true }); // före markeringarnas egen stopPropagation
+    $('track').addEventListener('keydown', dismissTip, { once: true });
+    $('year-tip-close').addEventListener('click', dismissTip);
+  }
+
+  // Teckenförklaringen under tidslinjen (#1003): öppen som standard, och valet att fälla ihop den sparas
+  const tLegend = $('timeline-legend');
+  try { if (localStorage.getItem('hg-teckenforklaring') === 'hopfalld') tLegend.open = false; } catch { /* utan lagring: öppen */ }
+  // Sparas i klicket (före ändringen), inte i toggle-händelsen som kommer senare och kan hinna missas vid en omladdning
+  tLegend.querySelector('summary').addEventListener('click', () => {
+    try { localStorage.setItem('hg-teckenforklaring', tLegend.open ? 'hopfalld' : 'oppen'); } catch { /* utan lagring */ }
+  });
 
   // Quiz (#65): frågor ur befintliga fun facts, startas från Mer. Knappen döljs om datan inte räcker till en fråga.
   const quizButton = $('btn-quiz');
@@ -552,7 +632,7 @@ async function start() {
   const tour = new TourPlayer({
     button: $('btn-tour'), menu: $('tour-menu'), menuTitle: $('tour-menu-title'), list: $('tour-list'),
     card: $('tour-card'), progress: $('tour-progress'), name: $('tour-name'), title: $('tour-title'), text: $('tour-text'),
-    read: $('tour-read'), srcBtn: $('tour-sources'), back: $('tour-back'), next: $('tour-next'), closeBtn: $('tour-close'), endBtn: $('tour-end'), pauseStop: $('pause-stop'),
+    read: $('tour-read'), srcBtn: $('tour-sources'), back: $('tour-back'), next: $('tour-next'), closeBtn: $('tour-close'), endBtn: $('tour-end'),
     chapter: $('tour-chapter'), question: $('tour-question'), questionLabel: $('tour-question-label'), questionText: $('tour-question-text'), status: $('tour-status'),
     printBtn: $('tour-print'),
     printStatus: $('tour-print-status'),
@@ -581,13 +661,14 @@ async function start() {
   app.lesson = new LessonMode({
     band: $('lesson-band'), title: $('lesson-band-title'), exit: $('lesson-exit'), printBtn: $('lesson-print'), printStatus: $('lesson-print-status'),
     notice: $('lesson-notice'), noticeText: $('lesson-notice-text'), retry: $('lesson-retry'), noticeClose: $('lesson-notice-close'), endLinks: $('tour-lesson-end'), endList: $('tour-lesson-end-list'),
-  }, { root: $('app'), printRoot: $('print-sheet'), timeline, tour, hunt, toursData, store, snapshot: () => app.modeSnapshot(), closeMenus: () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); help.close(false); } });
+  }, { root: $('app'), printRoot: $('print-sheet'), timeline, tour, hunt, toursData, store, layers, snapshot: () => app.modeSnapshot(), closeMenus: () => { surfaces.closeAll(); help.close(false); } });
   // Berättelseläget (#247): krigets första kort får "Följ berättelsen" när en tur berättar om kriget
   panel.tourFor = id => { const x = tour.forWar(id); return x && { id: x.id, label: tour.storyLabel(x) }; };
   // Rikens fall (#499): rikets faktaruta får en knapp när en tur följer rikets fall
   panel.empireTourFor = id => { const x = tour.forEmpire(id); return x && { id: x.id, label: tour.storyLabel(x, 'fall') }; };
   panel.onTour = (id, btn) => tour.start(id, btn);
-  tour.onOpen = () => { panel.setOpen(false); layers.close(); app.focusMenu.close(); };
+  panel.howTour = () => { const x = tour.tours?.find(y => y.id === 'hur-vet-vi-det-har'); return x ? { id: x.id, label: t(x.title) } : null; };
+  tour.onOpen = () => surfaces.closeAll();
   // Tillståndet i adressen (#501) och knappen Dela (#64). En tur i adressen (t och s, eller ?tur=<id>) startar
   // direkt vid rätt steg och går före en delad vy (#736), till exempel från en lektion eller ett test.
   const address = createAddress(app);

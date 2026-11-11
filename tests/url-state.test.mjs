@@ -2,6 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { encodeHash, decodeHash, isNewStep } from '../js/url-state.js';
+import { MIN_YEAR, MAX_YEAR } from '../js/state.js';
 
 const base = { v: 1, year: 1325, camera: { lat: 34, lon: -50, zoom: 1.6 }, focus: null, layers: ['areas', 'events'], filters: ['krig', 'kultur'], calm: false };
 
@@ -53,6 +54,15 @@ test('Lugn rörelse står aldrig i länken', () => {
   assert.equal(decodeHash('#y=1&calm=1').calm, false);
 });
 
+test('en förinställd vy med urval följer med i delningslänken (#868)', () => {
+  const hash = encodeHash({ ...base, layers: ['events'], tag: 'oversikt' }, ['krig', 'kultur']);
+  assert.match(hash, /&l=events&g=oversikt$/);
+  const state = decodeHash(hash);
+  assert.deepEqual(state.layers, ['events']);
+  assert.equal(state.tag, 'oversikt');
+  assert.equal(decodeHash('#y=1325&g=OVERSIKT').tag, null, 'ogiltigt urval hoppas över');
+});
+
 test('ny post i historiken bara vid större steg', () => {
   assert.equal(isNewStep(null, base), false);
   assert.equal(isNewStep(base, { ...base, camera: { lat: 0, lon: 0, zoom: 1 } }), false);
@@ -61,6 +71,7 @@ test('ny post i historiken bara vid större steg', () => {
   assert.equal(isNewStep(base, { ...base, year: 1400 }, { playing: true }), false);
   assert.equal(isNewStep(base, { ...base, focus: 'empire:rom' }), true);
   assert.equal(isNewStep(base, { ...base, layers: ['events'] }), true);
+  assert.equal(isNewStep(base, { ...base, tag: 'oversikt' }), true);
   assert.equal(isNewStep(base, { ...base, filters: ['krig'] }), true);
 });
 
@@ -134,6 +145,16 @@ test('lektionsläget i adressen: m=lektion hör till en tur (#795)', async () =>
   assert.equal(decodeHash(hash).year, 1325);
 });
 
+// Epoken (#980) följer med intervallet som p=, men bara tillsammans med y2
+test('epoken står som p= bredvid y2, och p= utan y2 eller med fel tecken tas bort', () => {
+  const hash = encodeHash({ ...base, year: -2999, yearEnd: -1699, period: 'nordisk-stenalder' });
+  assert.match(hash, /y2=-1699&p=nordisk-stenalder/);
+  assert.equal(decodeHash(hash).period, 'nordisk-stenalder');
+  assert.equal(decodeHash('#y=1325&p=nordisk-stenalder').period, undefined, 'p= utan y2 hör inte till något intervall');
+  assert.equal(decodeHash('#y=1325&y2=1418&p=BAD ID').period, undefined);
+  assert.equal(encodeHash({ ...base, period: 'x' }).includes('p='), false);
+});
+
 // Tidsintervallet (#755): y2 är slutåret
 test('ett tidsintervall står som y och y2, och en länk utan y2 är ett år som förut', () => {
   const hash = encodeHash({ ...base, yearEnd: 1418 });
@@ -147,6 +168,25 @@ test('ett tidsintervall står som y och y2, och en länk utan y2 är ett år som
     const s = decodeHash(bad);
     assert.equal(s.year, Number(new URLSearchParams(bad.slice(1)).get('y')), bad);
     assert.equal(s.yearEnd, undefined, bad);
+  }
+});
+
+test('år i länkar klipps till tidslinjen innan intervallet kontrolleras (#976)', () => {
+  for (const [hash, year, yearEnd] of [
+    ['#y=-20000&y2=3000', MIN_YEAR, MAX_YEAR],
+    [`#y=${MIN_YEAR - 10}&y2=1500`, MIN_YEAR, 1500],
+    [`#y=1500&y2=${MAX_YEAR + 10}`, 1500, MAX_YEAR],
+    [`#y=${MIN_YEAR - 10}&y2=${MIN_YEAR - 1}`, MIN_YEAR, undefined],
+    [`#y=${MAX_YEAR + 1}&y2=${MAX_YEAR + 10}`, MAX_YEAR, undefined],
+    [`#y=${MIN_YEAR}&y2=${MAX_YEAR}`, MIN_YEAR, MAX_YEAR],
+    ['#y=-20000', MIN_YEAR, undefined],
+    [`#y=${MAX_YEAR + 10}`, MAX_YEAR, undefined],
+  ]) {
+    const s = decodeHash(hash);
+    assert.equal(s.year, year, hash);
+    assert.equal(s.yearEnd, yearEnd, hash);
+    assert.equal(decodeHash(encodeHash(s)).year, year, 'länken behåller det klippta året');
+    assert.equal(decodeHash(encodeHash(s)).yearEnd, yearEnd, 'länken behåller det klippta slutåret');
   }
 });
 

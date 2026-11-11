@@ -59,8 +59,9 @@ AGENTS.md             regler för Codex och andra agenter; pekar på CLAUDE.md
 _headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
 css/style.css
 js/main.js            startar allt och kopplar ihop registret, tidslinjen och panelerna
-js/controllers/       main.js uppdelad: val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402), adressen (#501) och tidsintervallet (range.js, #755)
+js/controllers/       main.js uppdelad: val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402), adressen (#501), tidsintervallet (range.js, #755) och återgång efter hopp (jump-back.js, #997)
 js/state.js           det gemensamma tillståndet som lagren läser (år, fokus, filter, valda lager, #338), åtgärder och JSON (#403), och lägeskontraktet med uteslutningstabellen (#893)
+js/surfaces.js        stängregistret för ytor: menyerna och sidopanelen anmäler sig i grupper och en öppnad yta stänger sin grupp (#894)
 js/layers/registry.js lagerregistret: rader i Lager, ritordning, dämpning i fokus, teckenförklaring (#338)
 js/layers/index.js    lagerlistan: alla lager som anmäler sig i registret (#338)
 js/model.js           språk, kategorier, tidsformat, laddning av data
@@ -73,6 +74,8 @@ js/layers/areas.js    lager: riken som områden som ändras över tid
 js/layers/area-style.js  mjuk kant för osäkra gränser och prickat inflytande (lydriken)
 js/layers/area-transition.js  mjuk övergång när ett rike byter period, delas eller slås ihop (#78)
 js/layers/borders.js  lager: dagens landsgränser (av som standard)
+js/layers/places.js   lager: konturen av platsen man följer i Fokus (#579)
+js/place-geo.js       vilka händelser som ligger inom en plats gräns, delas med testerna (#579)
 js/layers/religions.js lager: religioner som områden, med symboler i områdena (#271)
 js/layers/origins.js  religionens symbol där den uppstod, som klickbar markör (#271)
 js/layers/empiremarks.js rikenas symboler mitt i områdena, som klickbara markörer (#301)
@@ -107,8 +110,9 @@ js/ui/zoomlevels.js   vad som syns på vilken zoomnivå: tre nivåer och tröske
 js/ui/focusmenu.js    fokusmenyn: välj ett krig, rike eller en religion att följa
 js/ui/routepop.js     klickrutan för vägar och resor
 js/ui/sheet.js        faktarutan som ark nedifrån i mobilen (litet, halvt, helt)
-js/ui/viewmenu.js     mobilmenyn Meny (Lager, Fokus, Ett år, en plats, Turer, Platt vy, Källor, Hjälp, #530)
+js/ui/viewmenu.js     mobilmenyn Meny (Lager, Fokus, Turer, Platt vy, Kom igång, Källor, Hjälp, #530)
 img/icons/            ikoner för händelser och religionernas symboler (egna SVG-teckningar, till exempel treaty.svg för fredsavtal, cross.svg och dharma-wheel.svg, #271)
+img/flags/            förenklade, källbelagda historiska flaggor för rikesmarkörer (#462)
 img/favicon.svg       sidans ikon i webbläsarfliken (och PNG-versioner för äldre webbläsare och hemskärm)
 images/events/        bilder till händelser (historiska bilder och märkta illustrationer)
 images/karta/         upptäcktsvyns detaljer ur gamla kartor (havsmonster och kompassros, public domain)
@@ -120,6 +124,7 @@ data/handelser/       händelserna, en redigeringsfil per period; här redigeras
 data/events.json      alla händelser i en fil, byggd ur data/handelser/ (redigeras inte)
 data/funfacts.json    fun facts, kopplade till händelser
 data/missuppfattningar.json  vanliga historiska missuppfattningar och var de kom ifrån (#838); visas i faktarutan för händelserna i events
+data/platser.json          platser: kort om platsers historia med dagens gräns som kontur, följs i Fokus (#579); gränserna hämtas med tools/platser_gransar.py ur Natural Earth
 data/teman.json            teman: namngivna urval av händelser som följs i Fokus (#398); tom tills första temat skrivs (#105)
 data/perioder.json         epoker i fyra indelningar: Lgr22 (fem perioder), Nordens forntid (stenålder, bronsålder, järnålder enligt Historiska museet), antiken och industrialiseringen, med årtal, källa och förenklingstext; epokknapparna i intervallformuläret läser den (#845, #965)
 data/intro.json       introduktionens startår, texter och referenser till befintliga händelser/fun facts (#363, #516)
@@ -148,6 +153,7 @@ data/routes/          vägar och resor (lagertyp linje): index.json och en fil p
 data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar, med en fil per språk (genereras, redigeras inte)
 data/oversattning.json baslinjen för oöversatta texter och registret över översättningar (genereras av tools/oversattning.py)
 data/upptackt.json    upptäcktsvyn: perspektivraden, den åldrade kartstilen, dimmans täckning och korridorens bredd, dekorationernas platser
+data/upptackt-europa.json Europa som hemregion i upptäcktsvyn, lyft från början (#872); byggs med tools/europa_dimma.py ur Natural Earth
 data/vyer.json        grupperna och de förinställda vyerna i Lager (#357)
 data/ui/              gränssnittets texter: sprak.json och en fil per språk (#63)
 data/religions.json   religioner över tid: varje rikes religion (Cliopatria + Wikipedia)
@@ -160,7 +166,7 @@ scripts/validate-site.py  kontrollerar dist/: JSON, filreferenser och att inga i
 scripts/pages-function-check.sh  startar formulärets Pages Function med wrangler, som Cloudflare gör (#663)
 scripts/kontrolltackning.mjs     bevisar att varje webbläsarkontroll körs i exakt ett CI-jobb (#864)
 functions/api/feedback.js  Cloudflare Pages Function för besökarnas förslag (publiceras från repots rot, inte via dist/)
-tests/                tester för serverfunktionen och etikettkontrollen (node --test 'tests/*.test.mjs') och webbläsartestet tests/webblasare.mjs (Playwright, #339), som delas i tre jobb enligt tests/jobb.json (#864)
+tests/                tester för serverfunktionen, etikettkontrollen och CSS-lagerordningen (#1065) (node --test 'tests/*.test.mjs') och webbläsartestet tests/webblasare.mjs (Playwright, #339), som delas i tre jobb enligt tests/jobb.json (#864)
 .github/workflows/    GitHub Actions: bygger och kontrollerar dist/ vid push till main och PR mot main och production; browser-test.yml öppnar sidan i Chromium; release.yml skapar tagg och GitHub Release; etikettkontroll.yml (logik i .github/scripts/etikettkontroll.cjs) varnar när ett issue har flera ägare (etiketter eller tilldelning) eller både redo och pågår, städar etiketter efter en sammanslagen PR och påminner om ett pågår som legat orört i 7 dagar (#588)
 ```
 
@@ -214,14 +220,16 @@ Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna]
 - **Nattljus 2016** i `images/lager/nattljus-2016.jpg` kommer från [NASA Earth Observatory: Black Marble](https://science.nasa.gov/earth/earth-observatory/earth-at-night/maps/) och är **public domain i USA enligt NASA:s riktlinjer för bilder**. NASA:s logotyp och märken är skyddade; bilden innehåller ingen NASA-logotyp. Bilden är NASA:s globala JPEG i 3600 × 1800, utan innehållsliga ändringar.
 - **Faktarutorna om riken** (`facts` i `data/empires/index.json`) är egna korta sammanfattningar av Wikipedias artiklar om rikena (CC BY-SA). Medeltidens riken (#69) är dessutom kontrollerade mot World History Encyclopedia (CC BY-NC-SA, bara länkad, ingen text kopierad), och de tidigmoderna rikena (#70) mot World History Encyclopedia eller Wikidata (CC0). Kolonialvälden och moderna imperier (#71) bygger på Wikipedia, för det nederländska och tyska väldet, Japan och Etiopien kompletterat med World History Encyclopedia (bara länkad). Artiklarna länkas från rutorna och från källregistret.
 - **Herodotos text** (Macaulays översättning, bok 9, [Project Gutenberg](https://www.gutenberg.org/ebooks/2456)) är public domain och används bara som länkad källa för siffrorna i anteckningen om slaget vid Plataiai (#941); ingen text är kopierad.
+- **Nordiska uppslagsverk** (Platser-piloten, #579): [Lex.dk](https://lex.dk/) (Den Store Danske, med artiklar från danmarkshistorien.dk) och [Store norske leksikon](https://snl.no/) är märkta "begränsad återanvändning" och används bara som länkade källor för årtal och plats; ingen text är kopierad. Nordisk familjebok (andra upplagan, Uggleupplagan, på [Projekt Runeberg](https://runeberg.org/)) är public domain och används också bara som länkad källa med egna sammanfattningar.
 - **Missuppfattningarna** (`data/missuppfattningar.json`, #838) är egna korta sammanfattningar av Wikipedias artiklar (CC BY-SA). Posterna på nivån `two-sources` är dessutom kontrollerade mot en andra källa: NASA (public domain), HISTORY, Smithsonian Magazine, Snopes, Mount Vernon och National Post. De är bara länkade, ingen text är kopierad, och de står i källregistret med licensen "bara länkad".
+- **Grönlands historia** (platser-piloten, #579) är kontrollerad mot Lex (Den Store Danske och Trap Grønland, [lex.dk](https://lex.dk/)), [Store norske leksikon](https://snl.no/) och Internationella domstolens arkiv över Fasta mellanfolkliga domstolens domar ([icj-cij.org](https://icj-cij.org/pcij-series-ab)). De är bara länkade källor, även de Lex-artiklar som är märkta CC BY-SA, och ingen text är kopierad; sammanfattningarna är egna.
 - **Lektionsturerna** (skolpiloten, #737, #739) kopplas till Skolverkets kursplan i historia (Lgr22) med egna korta formuleringar; kursplanen är bara länkad, ingen text kopierad.
 - **Omstridda gränser i nutid** (#644) följer Sveriges officiella hållning enligt Utrikesdepartementets sidor på regeringen.se (bara länkade, ingen text kopierad). Fallen och källorna står i [docs/omstridda-granser.md](docs/omstridda-granser.md). Där Cliopatria saknar gränsen (Västbanken, Östra Jerusalem, Gaza och Golanhöjderna, och Staten Palestina från 2014) kommer den ur Natural Earths omstridda områden (`ne_10m_admin_0_disputed_areas` 5.1.1, public domain), uttagna med `tools/ne_omstridda.py`. Tolv små stater som Cliopatria saknar (#722), och Andorra och Monaco (#719, med Cliopatrias årtal), har dagens gräns ur Natural Earths länder (`ne_10m_admin_0_countries` 5.1.1, public domain), med samma skript, och årtalen för självständigheten ur Wikidata (CC0) och Wikipedia (CC BY-SA, bara länkad).
 - **Religionerna** i `data/religions.json` använder gränser från samma Cliopatria-data, sammanslagna per religion och förenklade. Varje rikes religion kommer från faktarutan på rikets Wikipedia-sida (CC BY-SA), och sidorna listas i filen. Årtalen för när en del riken blev kristna kommer från Wikipedia och länkas från källregistret. Ändringar: varje rikes religion räknas fram ur faktarutans text, och ett område behåller sin religion när riket som följer saknar religion i faktarutan (`tools/religioner.py`). Klickrutan använder varje rikes egen, förenklade gräns ur samma Cliopatria-data (`data/religions-polities.json`, `tools/religioner_riken.py`).
 - **Utkasten om slag** i `data/utkast/hced.json` kommer från [Historical Conflict Event Dataset](https://whgazetteer.org/datasets/1415/places) (Charles Miller, 2022, Harvard Dataverse, https://doi.org/10.7910/DVN/6ZFC0V) via World Historical Gazetteer. Datasetet har licensen [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/), och WHG:s egna tillägg har [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ändringar: ett urval, omräknade årtal och egna texter (`tools/hced.py`). Utkasten visas inte på globen förrän de är källkontrollerade.
 - **Dödssiffror i krigens berättelser** kommer delvis från [UCDP Battle-related Deaths Dataset](https://ucdp.uu.se/downloads/) (Uppsala Conflict Data Program, version 26.1; Davies, Pettersson och Öberg 2026, *Journal of Peace Research* 63(4)), licensierat under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ändringar: summerade per krig och återgivna i egna texter.
 - **Krigens år och intensitet före 1989** (till exempel Algeriet och Biafra) kommer delvis från [UCDP/PRIO Armed Conflict Dataset](https://ucdp.uu.se/downloads/) (Uppsala Conflict Data Program och PRIO, version 26.1; Gleditsch m.fl. 2002, *Journal of Peace Research* 39(5); Davies, Pettersson och Öberg 2026), licensierat under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ändringar: start, slut och intensitet återgivna i egna texter.
-- **Ikonerna** i `img/icons/` och sidans ikon (`img/favicon.svg` med PNG-versioner) är egna teckningar för projektet och licensieras som koden (GPL v3.0).
+- **Ikonerna** i `img/icons/`, flaggorna i `img/flags/` och sidans ikon (`img/favicon.svg` med PNG-versioner) är egna teckningar för projektet och licensieras som koden (GPL v3.0).
 - **Bilder i faktarutan** (`images/events/`):
   - **Historiska bilder** kommer från [Wikimedia Commons](https://commons.wikimedia.org/) (public domain, CC0, CC BY eller CC BY-SA) och från [Library of Congress](https://www.loc.gov/pictures/) (poster märkta "No known restrictions on publication"). Varje bild behåller sin egen licens, som står i bildtexten tillsammans med upphov och länk till filsidan eller arkivposten. Filsidan eller arkivposten finns i källregistret.
   - **Illustrationer** i en tidsålders bildtradition är tydligt märkta "inte en historisk bild" i bildtexten. Verktyg, datum och prompt sparas i händelsens fält `image` (`data/handelser/`). De licensieras under CC BY 4.0 som övrig data, i den mån de alls omfattas av upphovsrätt.
@@ -230,6 +238,7 @@ Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna]
 - **Dirigenten och orkestern** i `.orchestra/shared/` kommer från [solwation/dirigenten-och-orkestern](https://github.com/solwation/dirigenten-och-orkestern) och har MIT-licens. Det är instruktioner för AI-agenter, inte en del av sidan.
 - **three.js** laddas från jsDelivr och har MIT-licens. Typsnitten kommer från Google Fonts (SIL Open Font License).
 - Händelsetexterna är egna sammanfattningar. Källorna, ofta Wikipedia (CC BY-SA), länkas från varje uppgift.
+- **Store norske leksikon** (snl.no) och **Lex** (lex.dk, Den Store Danske) används som länkade kontrollkällor för årtal och plats, till exempel för händelserna om Aotearoa/Nya Zeeland (#579). De flesta artiklarna har en begränsad licens; ingen text är kopierad, och artiklarna står i källregistret.
 
 Namnet "Historia-globen" omfattas inte av licenserna ovan.
 

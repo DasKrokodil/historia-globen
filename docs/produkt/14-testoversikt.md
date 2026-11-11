@@ -16,7 +16,7 @@
 | **Webbläsartest, Firefox och WebKit** | **Release-PR** mot `production`, eller pull request med etiketten `alla-webbläsare` | Samma kontroller i två motorer till | **WebKit är inte Safari**: ett grönt WebKit-prov är en bra indikation, inte ett bevis för Safari på iPad eller iPhone |
 | **Etikettkontroll** | Vid etikettändring | Att regeln "ett issue, en ägare" hålls | – |
 | **Orkesterns versionskontroll** | Dagligen | Att installerad orkesterversion jämförs med upstream | – |
-| **Kontrollera produktionen** (`production-check.yml`) | Efter release, och för hand | Att publicerad `js/main.js` är densamma som i `production`, att `Cache-Control: no-cache` gäller, och att grundfunktionerna fungerar på **historiagloben.se** | Att allt innehåll är rätt; att alla webbläsare fungerar |
+| **Kontrollera produktionen** (`production-check.yml`) | Efter release, och för hand | Att publicerad `js/main.js` är densamma som i `production`, att `Cache-Control: no-cache` gäller, och att ett rökprov av grundfunktionerna (datorbredd) fungerar på **historiagloben.se** | Att allt innehåll är rätt; att alla webbläsare fungerar |
 | **Cloudflare Pages** (Cloudflares egen kontroll) | Varje commit till `main` och `production` | Att Cloudflare kan bygga och publicera | – |
 
 ## Kontroller för hand och med agenter

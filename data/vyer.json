@@ -1,12 +1,9 @@
 {
   "about": "Grupperna och de förinställda vyerna i Lager (#357, #380). Varje lager anger sin grupp i lagerregistret (fältet group). En vy slår på lagren i layers och slår av de andra lagren i grupper som inte är inställningar. Stämmer valen inte med någon vy visas custom. De enskilda valen ligger bakom customize. En vy med tag (#555) visar bara händelser med den taggen (fältet tags i händelsen); texterna för taggen står i tags.",
-  "title": { "sv": "Vy", "en": "View", "de": "Ansicht", "es": "Vista", "fr": "Vue" },
+  "title": { "sv": "Förval", "en": "Presets", "de": "Voreinstellungen", "es": "Preajustes", "fr": "Préréglages" },
   "custom": { "sv": "Anpassad", "en": "Custom", "de": "Angepasst", "es": "Personalizada", "fr": "Personnalisée" },
   "customize": { "sv": "Anpassa själv", "en": "Customize", "de": "Selbst anpassen", "es": "Personalizar", "fr": "Personnaliser" },
-  "eventWindow": {
-    "past": { "sv": "slut", "en": "ended", "de": "endete" },
-    "future": { "sv": "börjar", "en": "starts", "de": "beginnt" }
-  },
+  "defaultView": "oversikt",
   "menu": {
     "label": { "sv": "Meny", "en": "Menu", "de": "Menü" }
   },
@@ -50,7 +47,7 @@
   },
   "poster": {
     "button": { "sv": "Affisch", "en": "Poster", "de": "Plakat" },
-    "title": { "sv": "Historia-globen", "en": "History globe", "de": "Historia-globen" },
+    "title": { "sv": "Historia-globen", "en": "Historia-globen", "de": "Historia-globen" },
     "legend": { "sv": "Världskarta med utvalda händelser som pågår detta år.", "en": "World map with selected events active this year.", "de": "Weltkarte mit ausgewählten Ereignissen, die in diesem Jahr laufen." },
     "sources": { "sv": "Källor: Historia-globen, Om källorna", "en": "Sources: Historia-globen, About the sources", "de": "Quellen: Historia-globen, Über die Quellen" },
     "website": { "sv": "historiagloben.se", "en": "historiagloben.se", "de": "historiagloben.se" },
@@ -125,6 +122,12 @@
       "about": { "sv": "Händelser som de flesta ser som en förbättring för människors liv. Många framsteg hade också baksidor.", "en": "Events that most people see as an improvement in people's lives. Many advances also had downsides.", "de": "Ereignisse, die die meisten Menschen als Verbesserung für das Leben der Menschen sehen. Viele Fortschritte hatten auch Schattenseiten." },
       "empty": { "sv": "Inga händelser är markerade som framsteg ännu.", "en": "No events are marked as progress yet.", "de": "Noch sind keine Ereignisse als Fortschritt markiert." },
       "none": { "sv": "Inga framsteg inom {within} från {at}. Prickarna under tidslinjen visar var det finns framsteg.", "en": "No progress within {within} of {at}. The dots under the timeline show where there is progress.", "de": "Kein Fortschritt innerhalb von {within} ab {at}. Die Punkte unter der Zeitleiste zeigen, wo es Fortschritte gibt." }
+    },
+    "oversikt": {
+      "label": { "sv": "Översikt", "en": "Overview", "de": "Überblick", "es": "Resumen", "fr": "Aperçu" },
+      "about": { "sv": "Ett urval av händelser som ofta tas upp i skolan och i uppslagsverk, så att du kan bläddra i tiden utan att se allt på en gång. Det finns mycket mer: välj Standard i Lager för att se alla händelser.", "en": "A selection of events that often come up in school and in encyclopedias, so that you can browse through time without seeing everything at once. There is much more: choose Default in Layers to see all events.", "de": "Eine Auswahl von Ereignissen, die in der Schule und in Nachschlagewerken oft behandelt werden, damit Sie die Zeit durchblättern können, ohne alles auf einmal zu sehen. Es gibt noch viel mehr: Wählen Sie unter Ebenen die Ansicht Standard, um alle Ereignisse zu sehen.", "es": "Una selección de acontecimientos que se tratan a menudo en la escuela y en las enciclopedias, para poder recorrer el tiempo sin verlo todo a la vez. Hay mucho más: elija Estándar en Capas para ver todos los acontecimientos.", "fr": "Une sélection d’événements souvent abordés à l’école et dans les ouvrages de référence, pour parcourir le temps sans tout voir à la fois. Il y en a bien d’autres : choisissez Standard dans Calques pour voir tous les événements." },
+      "empty": { "sv": "Inga händelser ingår i Översikt ännu.", "en": "No events are part of the Overview yet.", "de": "Noch gehören keine Ereignisse zum Überblick.", "es": "Todavía no hay acontecimientos en el Resumen.", "fr": "Aucun événement ne fait encore partie de l’Aperçu." },
+      "none": { "sv": "Inget ur Översikt inom {within} från {at}. Märkena under tidslinjen visar var det finns något.", "en": "Nothing from the Overview within {within} of {at}. The marks under the timeline show where there is something.", "de": "Nichts aus dem Überblick innerhalb von {within} ab {at}. Die Markierungen unter der Zeitleiste zeigen, wo es etwas gibt.", "es": "Nada del Resumen dentro de {within} desde {at}. Las marcas bajo la línea de tiempo muestran dónde hay algo.", "fr": "Rien de l’Aperçu dans un rayon de {within} autour de {at}. Les repères sous la frise montrent où il y a quelque chose." }
     }
   },
   "groups": [
@@ -137,9 +140,10 @@
   "views": [
     { "id": "standard", "name": { "sv": "Standard", "en": "Default", "de": "Standard", "es": "Estándar", "fr": "Standard" }, "layers": ["events", "funfacts", "areas", "routes", "wars"] },
     { "id": "bara-kartan", "name": { "sv": "Bara kartan", "en": "Map only", "de": "Nur die Karte", "es": "Solo el mapa", "fr": "Carte seule" }, "layers": [] },
-    { "id": "utforska", "name": { "sv": "Utforska", "en": "Explore", "de": "Entdecken", "es": "Explorar", "fr": "Explorer" }, "layers": ["events", "funfacts", "areas"] },
+    { "id": "utforska", "name": { "sv": "Händelser och riken", "en": "Events and empires", "de": "Ereignisse und Reiche", "es": "Acontecimientos e imperios", "fr": "Événements et empires" }, "layers": ["events", "funfacts", "areas"] },
     { "id": "makt", "name": { "sv": "Makt och gränser", "en": "Power and borders", "de": "Macht und Grenzen", "es": "Poder y fronteras", "fr": "Pouvoir et frontières" }, "layers": ["events", "areas", "religions", "borders", "wars"] },
     { "id": "resor", "name": { "sv": "Resor och handel", "en": "Journeys and trade", "de": "Reisen und Handel", "es": "Viajes y comercio", "fr": "Voyages et commerce" }, "layers": ["events", "routes"] },
-    { "id": "framsteg", "name": { "sv": "Framsteg", "en": "Progress", "de": "Fortschritt", "es": "Progreso", "fr": "Progrès" }, "layers": ["events"], "tag": "framsteg" }
+    { "id": "framsteg", "name": { "sv": "Framsteg", "en": "Progress", "de": "Fortschritt", "es": "Progreso", "fr": "Progrès" }, "layers": ["events"], "tag": "framsteg" },
+    { "id": "oversikt", "name": { "sv": "Översikt", "en": "Overview", "de": "Überblick", "es": "Resumen", "fr": "Aperçu" }, "layers": ["events", "funfacts", "areas", "routes", "wars"], "tag": "oversikt" }
   ]
 }

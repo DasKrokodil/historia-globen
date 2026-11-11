@@ -1,7 +1,7 @@
 // Etiketter och klungor på globen (#26, #142, #242, #243, #313; #402, del av #389): texten för en händelses
 // etikett (samma på globen och i Platt vy), hovring, religionernas lilla ruta före klick (#271) och
 // placeringen i varje bildruta utan överlapp.
-import { CAT, t, formatYear, formatEventTime, edtfSpan, dayParts } from '../model.js';
+import { CAT, t, formatYear, formatEventTime, formatDirection, edtfSpan, dayParts } from '../model.js';
 import { markerInfo, describeMarker } from '../layers/events.js';
 import { cluster, clusterContents, placeLabels, dotBox } from '../ui/clusters.js';
 import { globeEmpireBlocks } from '../ui/zoomlevels.js';
@@ -11,7 +11,7 @@ const UI_OVER_GLOBE = '.brand, #year-jump, #year-segment, .top-actions > .chip-b
 const UI_BOTTOM = '.timebar .controls > *, #war-play, #pause-note, #focus-bar';
 
 export function createLabels(app) {
-  const { $, state, views, registry, globe, ff, relLegend } = app;
+  const { $, state, registry, globe, ff, relLegend } = app;
   const layer = registry.get('events'), areas = registry.get('areas'), religions = registry.get('religions');
 
   // Etikettens text och beskrivning, samma på globen och i Platt vy (#313).
@@ -19,13 +19,14 @@ export function createLabels(app) {
   function labelText(e) {
     const focus = state.focus;
     let text = !e.partOf ? t(e.title) : `${focus?.fine ? dayParts(edtfSpan(e)[0])[0] : formatYear(e.start)} · ${t(e.title)}`;
-    // Utanför Fokus visar tidsfönstrets händelser när de slutade eller börjar. Orden kommer ur data/vyer.json,
-    // medan model.js formaterar året så att även f.Kr. blir rätt (#434).
-    const when = layer.state.get(e.id)?.when;
-    const prefix = !focus && views?.eventWindow?.[when];
-    if (prefix) text += ` · ${prefix} ${formatYear(when === 'past' ? e.end : e.start)}`;
+    // Utanför Fokus säger tidsfönstrets händelser hur långt före eller efter året de ligger: "4 år före (1912)" eller
+    // "om 2 år (1918)" (#995). Orden står i språkfilen, och model.js räknar avståndet och formaterar året så att även f.Kr. blir rätt (#434).
+    const st = layer.state.get(e.id);
+    if (!focus && !state.range && (st?.when === 'past' || st?.when === 'future')) text += ` · ${formatDirection(st.when, state.wholeYear, st.when === 'past' ? e.end : e.start)}`;
     return text;
   }
+  /** Ett krig som pågår det här året (inte ett som bara ligger i tidsfönstret): dess etikett går före rikesnamnen (#1022). */
+  const isWarNow = e => e.kind === 'war' && layer.state.get(e.id)?.when === 'now';
   function fillLabel(el, e, text) {
     if (el._text !== text) { // texten byts när fokusläget för ett kort krig börjar eller slutar
       el._text = text;
@@ -77,7 +78,9 @@ export function createLabels(app) {
         ((b.e.id === state.selectedId) - (a.e.id === state.selectedId)) || ((b.e.id === hoverId) - (a.e.id === hoverId)) ||
         (hl.has(b.e.id) - hl.has(a.e.id)) || (b.activity - a.activity));
       // Klustra händelser som ligger nära varandra på skärmen (#26)
-      const items = order.map(v => ({ e: v.e, p: globe.project(v.e._pos), keep: v.e.id === state.selectedId || hl.has(v.e.id) }));
+      // De pågående krigen (högst 3, som i placeLabels) klustras aldrig bort (#1022, mobil): andra markörer klustras i stället
+      const warsNow = new Set(order.filter(v => isWarNow(v.e)).slice(0, 3).map(v => v.e.id));
+      const items = order.map(v => ({ e: v.e, p: globe.project(v.e._pos), keep: v.e.id === state.selectedId || hl.has(v.e.id) || warsNow.has(v.e.id) }));
       const { singles, clusters } = cluster(items.filter(it => it.p.facing > 0.05));
       const clustered = new Set(clusters.flatMap(c => c.members.map(m => m.e.id)));
       // Händelsen där en religion uppstod ligger under religionens symbol (#271): bara symbolen och etiketten syns
@@ -130,9 +133,9 @@ export function createLabels(app) {
           if (r.width) blocked.push({ x0: r.left - c.left - 4, x1: r.right - c.left + 4, y0: r.top - c.top - 4, y1: r.bottom - c.top + 4 });
         }
       }
-      blocked.push(...globeEmpireBlocks(areas, globe)); // rikesnamn och medaljer (#358)
+      const soft = globeEmpireBlocks(areas, globe); // rikesnamn och medaljer (#358): etiketterna viker, de pågående krigen i nödfall inte (#1022)
       const seen = new Set();
-      for (const { e, p, text, x, y } of placeLabels(singles, { W, H, hoverId, markers, badges, blocked, text: labelText, pxOf })) {
+      for (const { e, p, text, x, y } of placeLabels(singles, { W, H, hoverId, markers, badges, blocked, soft, priority: ({ e }) => isWarNow(e), text: labelText, pxOf })) {
         let el = pool.get(e.id);
         if (!el) {
           el = document.createElement('button');

@@ -26,8 +26,7 @@ const LINE_PX = { grid: 1, equator: 1.4, coast: 1.3 };
 export class GlobeDetail {
   /**
    * globe = Globe. paintBase(ctx, W, H, land, widths) ritar grundkartan. layers(ctx, W, H, drawFaded) ritar lagren
-   * (sätts med setLayers). allowed() säger om utsnitt får användas just nu (inte i upptäcktsvyn, vars papperskarta
-   * och dimma är bilder i helbildens storlek).
+   * (sätts med setLayers). allowed() säger om utsnitt får användas just nu, till exempel inte i Platt vy.
    */
   constructor(globe, { paintBase, allowed = () => true }) {
     this.globe = globe;

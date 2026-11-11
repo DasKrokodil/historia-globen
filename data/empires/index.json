@@ -6,7 +6,8 @@
    "id": "romarriket",
    "name": {
     "sv": "Rom: kungadöme, republik, kejsardöme och Bysans",
-    "en": "Rome: kingdom, republic, empire and Byzantium"
+    "en": "Rome: kingdom, republic, empire and Byzantium",
+    "de": "Rom: Königreich, Republik, Kaiserreich und Byzanz"
    },
    "color": "#b8433a",
    "from": -750,
@@ -17,7 +18,8 @@
      "id": "romerska-kungadomet",
      "name": {
       "sv": "Romerska kungadömet",
-      "en": "Roman Kingdom"
+      "en": "Roman Kingdom",
+      "de": "Römisches Königreich"
      },
      "sources": [
       "cliopatria"
@@ -28,7 +30,8 @@
      "id": "romerska-republiken",
      "name": {
       "sv": "Romerska republiken",
-      "en": "Roman Republic"
+      "en": "Roman Republic",
+      "de": "Römische Republik"
      },
      "sources": [
       "cliopatria"
@@ -39,7 +42,8 @@
      "id": "romerska-kejsardomet",
      "name": {
       "sv": "Romerska kejsardömet",
-      "en": "Roman Empire"
+      "en": "Roman Empire",
+      "de": "Römisches Kaiserreich"
      },
      "sources": [
       "cliopatria"
@@ -50,7 +54,8 @@
      "id": "vastromerska-riket",
      "name": {
       "sv": "Västromerska riket",
-      "en": "Western Roman Empire"
+      "en": "Western Roman Empire",
+      "de": "Weströmisches Reich"
      },
      "sources": [
       "cliopatria"
@@ -61,7 +66,8 @@
      "id": "ostromerska-riket",
      "name": {
       "sv": "Östromerska riket",
-      "en": "Eastern Roman Empire"
+      "en": "Eastern Roman Empire",
+      "de": "Oströmisches Reich"
      },
      "sources": [
       "cliopatria"
@@ -72,7 +78,8 @@
      "id": "bysantinska-riket",
      "name": {
       "sv": "Bysantinska riket",
-      "en": "Byzantine Empire"
+      "en": "Byzantine Empire",
+      "de": "Byzantinisches Reich"
      },
      "sources": [
       "cliopatria"
@@ -85,7 +92,8 @@
      "polity": "ostromerska-riket",
      "name": {
       "sv": "Östgoternas rike",
-      "en": "Ostrogothic Kingdom"
+      "en": "Ostrogothic Kingdom",
+      "de": "Ostgotenreich"
      },
      "relation": "allegiance",
      "from": 500,
@@ -95,7 +103,8 @@
      "polity": "bysantinska-riket",
      "name": {
       "sv": "Kyrkostaten",
-      "en": "Papal States"
+      "en": "Papal States",
+      "de": "Kirchenstaat"
      },
      "relation": "allegiance",
      "from": 757,
@@ -105,77 +114,92 @@
    "facts": {
     "summary": {
      "sv": "Rom växte från en stad i mellersta Italien till ett rike runt hela Medelhavet. Gruppen på kartan omfattar kungadömet, republiken, kejsardömet och dess östra fortsättning, Bysantinska riket, som tillsammans spänner över mer än två årtusenden.",
-     "en": "Rome grew from a city in central Italy into an empire around the whole Mediterranean. The group on the map comprises the kingdom, the republic, the empire and its eastern continuation, the Byzantine Empire, which together span more than two millennia."
+     "en": "Rome grew from a city in central Italy into an empire around the whole Mediterranean. The group on the map comprises the kingdom, the republic, the empire and its eastern continuation, the Byzantine Empire, which together span more than two millennia.",
+     "de": "Rom wuchs von einer Stadt in Mittelitalien zu einem Reich rund um das ganze Mittelmeer. Die Gruppe auf der Karte umfasst das Königreich, die Republik, das Kaiserreich und seine östliche Fortsetzung, das Byzantinische Reich, die zusammen mehr als zwei Jahrtausende umspannen."
     },
     "items": [
      {
       "label": {
        "sv": "När och var det uppstod",
-       "en": "When and where it arose"
+       "en": "When and where it arose",
+       "de": "Wann und wo es entstand"
       },
       "text": {
        "sv": "Enligt traditionen grundades Rom cirka 753 f.Kr. vid floden Tibern i mellersta Italien. Kungadömet (cirka 753–509 f.Kr.) följdes av republiken (cirka 509–27 f.Kr.) och av kejsardömet från 27 f.Kr. Om kungatiden vet man lite säkert, eftersom berättelserna till stor del bygger på muntlig tradition.",
-       "en": "According to tradition Rome was founded about 753 BC on the river Tiber in central Italy. The kingdom (about 753–509 BC) was followed by the republic (about 509–27 BC) and by the empire from 27 BC. Little is known with certainty about the time of the kings, since the accounts are largely based on oral tradition."
+       "en": "According to tradition Rome was founded about 753 BC on the river Tiber in central Italy. The kingdom (about 753–509 BC) was followed by the republic (about 509–27 BC) and by the empire from 27 BC. Little is known with certainty about the time of the kings, since the accounts are largely based on oral tradition.",
+       "de": "Der Überlieferung nach wurde Rom um 753 v. Chr. am Fluss Tiber in Mittelitalien gegründet. Auf das Königreich (um 753–509 v. Chr.) folgten die Republik (um 509–27 v. Chr.) und ab 27 v. Chr. das Kaiserreich. Über die Königszeit weiß man wenig Sicheres, da die Berichte großenteils auf mündlicher Überlieferung beruhen."
       }
      },
      {
       "label": {
        "sv": "Hur det slutade",
-       "en": "How it ended"
+       "en": "How it ended",
+       "de": "Wie es endete"
       },
       "text": {
        "sv": "Riket delades flera gånger. Västromerska riket föll 476, när Romulus Augustus avsattes av Odoaker. Östromerska riket, som i efterhand kallats Bysantinska riket, fanns kvar tills osmanerna erövrade Konstantinopel 1453. Invånarna kallade själva sitt rike romerskt.",
-       "en": "The empire was divided several times. The Western Roman Empire fell in 476, when Romulus Augustus was deposed by Odoacer. The Eastern Roman Empire, which has afterwards been called the Byzantine Empire, remained until the Ottomans conquered Constantinople in 1453. The inhabitants themselves called their empire Roman."
+       "en": "The empire was divided several times. The Western Roman Empire fell in 476, when Romulus Augustus was deposed by Odoacer. The Eastern Roman Empire, which has afterwards been called the Byzantine Empire, remained until the Ottomans conquered Constantinople in 1453. The inhabitants themselves called their empire Roman.",
+       "de": "Das Reich wurde mehrmals geteilt. Das Weströmische Reich fiel 476, als Romulus Augustus von Odoaker abgesetzt wurde. Das Oströmische Reich, das im Nachhinein Byzantinisches Reich genannt wurde, bestand fort, bis die Osmanen 1453 Konstantinopel eroberten. Die Einwohner selbst nannten ihr Reich römisch."
       }
      },
      {
       "label": {
        "sv": "Huvudstäder",
-       "en": "Capitals"
+       "en": "Capitals",
+       "de": "Hauptstädte"
       },
       "text": {
        "sv": "Rom. Konstantin den store flyttade kejsarsätet till Bysantion år 330 och döpte om staden till Konstantinopel, som sedan var huvudstad i öster fram till 1453.",
-       "en": "Rome. Constantine the Great moved the imperial seat to Byzantium in 330 and renamed the city Constantinople, which was then the capital in the east until 1453."
+       "en": "Rome. Constantine the Great moved the imperial seat to Byzantium in 330 and renamed the city Constantinople, which was then the capital in the east until 1453.",
+       "de": "Rom. Konstantin der Große verlegte den Kaisersitz 330 nach Byzantion und benannte die Stadt in Konstantinopel um, das danach bis 1453 Hauptstadt im Osten war."
       }
      },
      {
       "label": {
        "sv": "Kända härskare",
-       "en": "Famous rulers"
+       "en": "Famous rulers",
+       "de": "Bekannte Herrscher"
       },
       "text": {
        "sv": "Romulus (den förste kungen enligt traditionen), Augustus (den förste kejsaren, från 27 f.Kr.), Trajanus (98–117), Konstantin den store (306–337, den förste kristne kejsaren) och Justinianus I (527–565) i Bysans.",
-       "en": "Romulus (the first king according to tradition), Augustus (the first emperor, from 27 BC), Trajan (98–117), Constantine the Great (306–337, the first Christian emperor) and Justinian I (527–565) in Byzantium."
+       "en": "Romulus (the first king according to tradition), Augustus (the first emperor, from 27 BC), Trajan (98–117), Constantine the Great (306–337, the first Christian emperor) and Justinian I (527–565) in Byzantium.",
+       "de": "Romulus (der Überlieferung nach der erste König), Augustus (der erste Kaiser, ab 27 v. Chr.), Trajan (98–117), Konstantin der Große (306–337, der erste christliche Kaiser) und Justinian I. (527–565) in Byzanz."
       }
      },
      {
       "label": {
        "sv": "Största utbredning",
-       "en": "Greatest extent"
+       "en": "Greatest extent",
+       "de": "Größte Ausdehnung"
       },
       "text": {
        "sv": "Kejsardömet var som störst under Trajanus, cirka 5 miljoner km² år 117 enligt uppskattningen i Wikipedias faktaruta. Bysantinska riket var som störst under Justinianus I, som en kort tid återtog stora delar av Italien och västra Medelhavets kuster.",
-       "en": "The empire was at its largest under Trajan, about 5 million km² in the year 117 according to the estimate in Wikipedia's fact box. The Byzantine Empire was at its largest under Justinian I, who for a short time recovered large parts of Italy and the coasts of the western Mediterranean."
+       "en": "The empire was at its largest under Trajan, about 5 million km² in the year 117 according to the estimate in Wikipedia's fact box. The Byzantine Empire was at its largest under Justinian I, who for a short time recovered large parts of Italy and the coasts of the western Mediterranean.",
+       "de": "Das Kaiserreich war unter Trajan am größten, etwa 5 Millionen km² im Jahr 117 nach der Schätzung in der Infobox der Wikipedia. Das Byzantinische Reich war unter Justinian I. am größten, der für kurze Zeit große Teile Italiens und der Küsten des westlichen Mittelmeers zurückeroberte."
       }
      },
      {
       "label": {
        "sv": "Språk och religion",
-       "en": "Language and religion"
+       "en": "Language and religion",
+       "de": "Sprache und Religion"
       },
       "text": {
        "sv": "Latin, och med tiden allt mer grekiska. I Bysans ersatte grekiskan latinet som officiellt språk. Romersk polyteism med kejsarkult, och från 380 nicensk kristendom som officiell religion.",
-       "en": "Latin, and with time increasingly Greek. In Byzantium Greek replaced Latin as the official language. Roman polytheism with the imperial cult, and from 380 Nicene Christianity as the official religion."
+       "en": "Latin, and with time increasingly Greek. In Byzantium Greek replaced Latin as the official language. Roman polytheism with the imperial cult, and from 380 Nicene Christianity as the official religion.",
+       "de": "Latein und mit der Zeit immer mehr Griechisch. In Byzanz ersetzte das Griechische das Lateinische als Amtssprache. Römischer Polytheismus mit Kaiserkult und ab 380 das nizänische Christentum als offizielle Religion."
       }
      },
      {
       "label": {
        "sv": "Symbolen på kartan",
-       "en": "The symbol on the map"
+       "en": "The symbol on the map",
+       "de": "Das Symbol auf der Karte"
       },
       "text": {
        "sv": "Örnen, aquila, var ett av Roms mest framträdande tecken, framför allt som legionernas fältstandar. Varje legion hade en örn, och att förlora den räknades som en stor skam. Enligt Plinius den äldre behölls örnen som enda standar efter 104 f.Kr., men andra källor visar att legionerna fortfarande använde andra djur en tid efter det. Kartan visar örnen för hela gruppen utom Bysantinska riket, som har en egen symbol.",
-       "en": "The eagle, the aquila, was one of Rome's most prominent emblems, above all as the legions' field standard. Each legion had one eagle, and losing it was regarded as a great disgrace. According to Pliny the Elder the eagle was kept as the only standard after 104 BC, but other sources show that the legions still used other animals for some time after that. The map shows the eagle for the whole group except the Byzantine Empire, which has a symbol of its own."
+       "en": "The eagle, the aquila, was one of Rome's most prominent emblems, above all as the legions' field standard. Each legion had one eagle, and losing it was regarded as a great disgrace. According to Pliny the Elder the eagle was kept as the only standard after 104 BC, but other sources show that the legions still used other animals for some time after that. The map shows the eagle for the whole group except the Byzantine Empire, which has a symbol of its own.",
+       "de": "Der Adler, die Aquila, war eines der wichtigsten Zeichen Roms, vor allem als Feldzeichen der Legionen. Jede Legion hatte einen Adler, und ihn zu verlieren galt als große Schande. Nach Plinius dem Älteren wurde der Adler nach 104 v. Chr. als einziges Feldzeichen beibehalten, doch andere Quellen zeigen, dass die Legionen danach noch eine Zeit lang andere Tiere verwendeten. Die Karte zeigt den Adler für die ganze Gruppe außer dem Byzantinischen Reich, das ein eigenes Symbol hat."
       }
      }
     ],
@@ -184,15 +208,18 @@
       "year": -508,
       "label": {
        "sv": "cirka 509 f.Kr.",
-       "en": "about 509 BC"
+       "en": "about 509 BC",
+       "de": "um 509 v. Chr."
       },
       "title": {
        "sv": "Republiken införs",
-       "en": "The republic is introduced"
+       "en": "The republic is introduced",
+       "de": "Die Republik wird eingeführt"
       },
       "text": {
        "sv": "Kungarna störtas och republiken införs, enligt den traditionella dateringen. Rom styr då bara området närmast staden.",
-       "en": "The kings are overthrown and the republic is introduced, according to the traditional dating. Rome then rules only the area closest to the city."
+       "en": "The kings are overthrown and the republic is introduced, according to the traditional dating. Rome then rules only the area closest to the city.",
+       "de": "Die Könige werden gestürzt und die Republik wird eingeführt, nach der traditionellen Datierung. Rom beherrscht damals nur das Gebiet nahe der Stadt."
       },
       "sources": [
        "wp-roman-kingdom",
@@ -200,22 +227,26 @@
       ],
       "mapNote": {
        "sv": "På kartan börjar republiken 501 f.Kr., och kungadömet visas parallellt till 482 f.Kr.",
-       "en": "On the map the republic begins in 501 BC, and the kingdom is shown in parallel until 482 BC."
+       "en": "On the map the republic begins in 501 BC, and the kingdom is shown in parallel until 482 BC.",
+       "de": "Auf der Karte beginnt die Republik 501 v. Chr., und das Königreich wird parallel bis 482 v. Chr. gezeigt."
       }
      },
      {
       "year": -263,
       "label": {
        "sv": "264–241 f.Kr.",
-       "en": "264–241 BC"
+       "en": "264–241 BC",
+       "de": "264–241 v. Chr."
       },
       "title": {
        "sv": "Första puniska kriget",
-       "en": "The First Punic War"
+       "en": "The First Punic War",
+       "de": "Der Erste Punische Krieg"
       },
       "text": {
        "sv": "Under århundradet efter galliernas plundring av Rom har staden erövrat större delen av Italien. Nu börjar ett krig mot Karthago om Sicilien, som varar i 23 år. När Karthago besegras 241 f.Kr. blir Sicilien Roms första provins, och strax efter tar Rom även Sardinien från Karthago.",
-       "en": "In the century after the Gauls' sack of Rome, the city has conquered most of Italy. Now a war against Carthage over Sicily begins, which lasts for 23 years. When Carthage is defeated in 241 BC, Sicily becomes Rome's first province, and soon afterwards Rome also takes Sardinia from Carthage."
+       "en": "In the century after the Gauls' sack of Rome, the city has conquered most of Italy. Now a war against Carthage over Sicily begins, which lasts for 23 years. When Carthage is defeated in 241 BC, Sicily becomes Rome's first province, and soon afterwards Rome also takes Sardinia from Carthage.",
+       "de": "Im Jahrhundert nach der Plünderung Roms durch die Gallier hat die Stadt den größten Teil Italiens erobert. Nun beginnt ein Krieg gegen Karthago um Sizilien, der 23 Jahre dauert. Als Karthago 241 v. Chr. besiegt wird, wird Sizilien Roms erste Provinz, und kurz darauf nimmt Rom Karthago auch Sardinien ab."
       },
       "sources": [
        "wp-roman-republic",
@@ -223,22 +254,26 @@
       ],
       "mapNote": {
        "sv": "Kartan visar en jämn tillväxt under krigets första år och inget tydligt steg 241 f.Kr.",
-       "en": "The map shows steady growth during the first years of the war and no clear step in 241 BC."
+       "en": "The map shows steady growth during the first years of the war and no clear step in 241 BC.",
+       "de": "Die Karte zeigt in den ersten Kriegsjahren ein gleichmäßiges Wachstum und keinen deutlichen Sprung 241 v. Chr."
       }
      },
      {
       "year": -201,
       "label": {
        "sv": "202 f.Kr.",
-       "en": "202 BC"
+       "en": "202 BC",
+       "de": "202 v. Chr."
       },
       "title": {
        "sv": "Seger över Hannibal",
-       "en": "Victory over Hannibal"
+       "en": "Victory over Hannibal",
+       "de": "Sieg über Hannibal"
       },
       "text": {
        "sv": "Rom besegrar Hannibal och Karthago vid Zama i andra puniska kriget. I freden året efter förlorar Karthago sina områden utanför Afrika, och Rom blir under årtiondena efter den ledande makten i Medelhavet.",
-       "en": "Rome defeats Hannibal and Carthage at Zama in the Second Punic War. In the peace the year after, Carthage loses its territories outside Africa, and in the decades after that Rome becomes the leading power in the Mediterranean."
+       "en": "Rome defeats Hannibal and Carthage at Zama in the Second Punic War. In the peace the year after, Carthage loses its territories outside Africa, and in the decades after that Rome becomes the leading power in the Mediterranean.",
+       "de": "Rom besiegt Hannibal und Karthago bei Zama im Zweiten Punischen Krieg. Im Frieden im Jahr darauf verliert Karthago seine Gebiete außerhalb Afrikas, und Rom wird in den folgenden Jahrzehnten zur führenden Macht im Mittelmeer."
       },
       "sources": [
        "wp-roman-republic",
@@ -246,22 +281,26 @@
       ],
       "mapNote": {
        "sv": "Kartan visar en stor tillväxt 203–199 f.Kr. och sedan en minskning med cirka en tredjedel från 198 f.Kr.",
-       "en": "The map shows great growth in 203–199 BC and then a decrease of about a third from 198 BC."
+       "en": "The map shows great growth in 203–199 BC and then a decrease of about a third from 198 BC.",
+       "de": "Die Karte zeigt ein starkes Wachstum 203–199 v. Chr. und danach ab 198 v. Chr. eine Abnahme um etwa ein Drittel."
       }
      },
      {
       "year": -145,
       "label": {
        "sv": "146 f.Kr.",
-       "en": "146 BC"
+       "en": "146 BC",
+       "de": "146 v. Chr."
       },
       "title": {
        "sv": "Karthago och Korinth förstörs",
-       "en": "Carthage and Corinth are destroyed"
+       "en": "Carthage and Corinth are destroyed",
+       "de": "Karthago und Korinth werden zerstört"
       },
       "text": {
        "sv": "I tredje puniska kriget förstör Rom staden Karthago, och Karthagos land blir provinsen Africa. Samma år förstörs Korinth, och Grekland och Makedonien blir provinser som styrs direkt från Rom.",
-       "en": "In the Third Punic War Rome destroys the city of Carthage, and Carthage's land becomes the province of Africa. The same year Corinth is destroyed, and Greece and Macedonia become provinces ruled directly from Rome."
+       "en": "In the Third Punic War Rome destroys the city of Carthage, and Carthage's land becomes the province of Africa. The same year Corinth is destroyed, and Greece and Macedonia become provinces ruled directly from Rome.",
+       "de": "Im Dritten Punischen Krieg zerstört Rom die Stadt Karthago, und Karthagos Land wird die Provinz Africa. Im selben Jahr wird Korinth zerstört, und Griechenland und Makedonien werden Provinzen, die direkt von Rom aus regiert werden."
       },
       "sources": [
        "wp-punic-wars",
@@ -272,37 +311,44 @@
       "year": -51,
       "label": {
        "sv": "58–50 f.Kr.",
-       "en": "58–50 BC"
+       "en": "58–50 BC",
+       "de": "58–50 v. Chr."
       },
       "title": {
        "sv": "Caesar erövrar Gallien",
-       "en": "Caesar conquers Gaul"
+       "en": "Caesar conquers Gaul",
+       "de": "Caesar erobert Gallien"
       },
       "text": {
        "sv": "Julius Caesar erövrar Gallien, ungefär dagens Frankrike, Belgien och Schweiz. Det avgörande slaget står vid Alesia 52 f.Kr. Krigen ger Caesar rikedom och anseende, och de leder fram till inbördeskriget som gör slut på republiken.",
-       "en": "Julius Caesar conquers Gaul, roughly present-day France, Belgium and Switzerland. The decisive battle is at Alesia in 52 BC. The wars give Caesar wealth and prestige, and they lead to the civil war that ends the republic."
+       "en": "Julius Caesar conquers Gaul, roughly present-day France, Belgium and Switzerland. The decisive battle is at Alesia in 52 BC. The wars give Caesar wealth and prestige, and they lead to the civil war that ends the republic.",
+       "de": "Julius Caesar erobert Gallien, etwa das heutige Frankreich, Belgien und die Schweiz. Die entscheidende Schlacht findet 52 v. Chr. bei Alesia statt. Die Kriege bringen Caesar Reichtum und Ansehen, und sie führen zum Bürgerkrieg, der die Republik beendet."
       },
       "sources": [
        "wp-gallic-wars"
       ],
       "mapNote": {
        "sv": "Kartan visar hela Gallien som romerskt från 51 f.Kr. Enligt källan blev Gallien en provins först 27 f.Kr.",
-       "en": "The map shows the whole of Gaul as Roman from 51 BC. According to the source Gaul became a province only in 27 BC."
+       "en": "The map shows the whole of Gaul as Roman from 51 BC. According to the source Gaul became a province only in 27 BC.",
+       "de": "Die Karte zeigt ganz Gallien ab 51 v. Chr. als römisch. Nach der Quelle wurde Gallien erst 27 v. Chr. eine Provinz."
       }
      },
      {
       "year": -30,
       "label": {
        "sv": "31–30 f.Kr.",
-       "en": "31–30 BC"
+       "en": "31–30 BC",
+       "de": "31–30 v. Chr."
       },
       "title": {
        "sv": "Actium och Egypten",
-       "en": "Actium and Egypt"
+       "en": "Actium and Egypt",
+       "de": "Actium und Ägypten"
       },
       "text": {
        "sv": "Octavianus flotta besegrar Marcus Antonius och Kleopatra vid Actium 31 f.Kr. Året efter erövras det ptolemaiska Egypten, och Antonius och Kleopatra tar sina liv. Därmed slutar en lång rad inbördeskrig.",
-       "en": "Octavian's fleet defeats Mark Antony and Cleopatra at Actium in 31 BC. The year after, Ptolemaic Egypt is conquered, and Antony and Cleopatra take their own lives. With that a long series of civil wars ends."
+       "en": "Octavian's fleet defeats Mark Antony and Cleopatra at Actium in 31 BC. The year after, Ptolemaic Egypt is conquered, and Antony and Cleopatra take their own lives. With that a long series of civil wars ends.",
+       "de": "Octavians Flotte besiegt Marcus Antonius und Kleopatra bei Actium 31 v. Chr. Im Jahr darauf wird das ptolemäische Ägypten erobert, und Antonius und Kleopatra nehmen sich das Leben. Damit endet eine lange Reihe von Bürgerkriegen."
       },
       "sources": [
        "wp-battle-actium",
@@ -316,15 +362,18 @@
       "year": -26,
       "label": {
        "sv": "27 f.Kr.",
-       "en": "27 BC"
+       "en": "27 BC",
+       "de": "27 v. Chr."
       },
       "title": {
        "sv": "Augustus blir kejsare",
-       "en": "Augustus becomes emperor"
+       "en": "Augustus becomes emperor",
+       "de": "Augustus wird Kaiser"
       },
       "text": {
        "sv": "Senaten ger Octavianus titeln Augustus. Han räknas som den förste romerske kejsaren.",
-       "en": "The Senate gives Octavian the title Augustus. He is regarded as the first Roman emperor."
+       "en": "The Senate gives Octavian the title Augustus. He is regarded as the first Roman emperor.",
+       "de": "Der Senat verleiht Octavian den Titel Augustus. Er gilt als der erste römische Kaiser."
       },
       "sources": [
        "wp-roman-empire"
@@ -334,15 +383,18 @@
       "year": 117,
       "label": {
        "sv": "117",
-       "en": "117"
+       "en": "117",
+       "de": "117"
       },
       "title": {
        "sv": "Som störst under Trajanus",
-       "en": "At its largest under Trajan"
+       "en": "At its largest under Trajan",
+       "de": "Am größten unter Trajan"
       },
       "text": {
        "sv": "Kejsardömet är som störst under Trajanus, cirka 5 miljoner km².",
-       "en": "The empire is at its largest under Trajan, about 5 million km²."
+       "en": "The empire is at its largest under Trajan, about 5 million km².",
+       "de": "Das Kaiserreich ist unter Trajan am größten, etwa 5 Millionen km²."
       },
       "sources": [
        "wp-roman-empire"
@@ -352,15 +404,18 @@
       "year": 260,
       "label": {
        "sv": "260–274",
-       "en": "260–274"
+       "en": "260–274",
+       "de": "260–274"
       },
       "title": {
        "sv": "Riket delas i tre",
-       "en": "The empire splits in three"
+       "en": "The empire splits in three",
+       "de": "Das Reich zerfällt in drei Teile"
       },
       "text": {
        "sv": "Under 200-talets kris, med inbördeskrig, invasioner och pest, tas kejsar Valerianus till fånga av sasaniderna år 260. Samma år bryter Gallien, Britannien och Hispania loss som Galliska riket, och 267 blir de östra provinserna Palmyrenska riket. Aurelianus besegrar båda och har enat riket igen 274.",
-       "en": "During the crisis of the 3rd century, with civil wars, invasions and plague, Emperor Valerian is taken prisoner by the Sasanians in 260. The same year Gaul, Britain and Hispania break away as the Gallic Empire, and in 267 the eastern provinces become the Palmyrene Empire. Aurelian defeats both and has united the empire again by 274."
+       "en": "During the crisis of the 3rd century, with civil wars, invasions and plague, Emperor Valerian is taken prisoner by the Sasanians in 260. The same year Gaul, Britain and Hispania break away as the Gallic Empire, and in 267 the eastern provinces become the Palmyrene Empire. Aurelian defeats both and has united the empire again by 274.",
+       "de": "In der Krise des 3. Jahrhunderts, mit Bürgerkriegen, Invasionen und Pest, wird Kaiser Valerian 260 von den Sasaniden gefangen genommen. Im selben Jahr lösen sich Gallien, Britannien und Hispanien als Gallisches Sonderreich ab, und 267 werden die östlichen Provinzen zum Palmyrenischen Reich. Aurelian besiegt beide und hat das Reich 274 wieder vereint."
       },
       "sources": [
        "wp-crisis-third-century",
@@ -368,22 +423,26 @@
       ],
       "mapNote": {
        "sv": "Kartan visar delningen från 261, då ytan minskar med cirka 40 procent, och återföreningen i två steg, 270 och 283.",
-       "en": "The map shows the split from 261, when the area shrinks by about 40 per cent, and the reunification in two steps, 270 and 283."
+       "en": "The map shows the split from 261, when the area shrinks by about 40 per cent, and the reunification in two steps, 270 and 283.",
+       "de": "Die Karte zeigt die Teilung ab 261, als die Fläche um etwa 40 Prozent schrumpft, und die Wiedervereinigung in zwei Schritten, 270 und 283."
       }
      },
      {
       "year": 330,
       "label": {
        "sv": "330",
-       "en": "330"
+       "en": "330",
+       "de": "330"
       },
       "title": {
        "sv": "Konstantinopel blir huvudstad",
-       "en": "Constantinople becomes the capital"
+       "en": "Constantinople becomes the capital",
+       "de": "Konstantinopel wird Hauptstadt"
       },
       "text": {
        "sv": "Konstantin den store flyttar kejsarsätet till Bysantion, som får namnet Konstantinopel.",
-       "en": "Constantine the Great moves the imperial seat to Byzantium, which is given the name Constantinople."
+       "en": "Constantine the Great moves the imperial seat to Byzantium, which is given the name Constantinople.",
+       "de": "Konstantin der Große verlegt den Kaisersitz nach Byzantion, das den Namen Konstantinopel erhält."
       },
       "sources": [
        "wp-roman-empire"
@@ -393,15 +452,18 @@
       "year": 476,
       "label": {
        "sv": "476",
-       "en": "476"
+       "en": "476",
+       "de": "476"
       },
       "title": {
        "sv": "Västromerska riket faller",
-       "en": "The Western Roman Empire falls"
+       "en": "The Western Roman Empire falls",
+       "de": "Das Weströmische Reich fällt"
       },
       "text": {
        "sv": "Riket har sedan 395 varit delat i en västlig och en östlig halva, och i stora delar av väst har nya kungadömen tagit makten. Västromerska riket faller när Odoaker avsätter Romulus Augustus. Östromerska riket lever vidare.",
-       "en": "Since 395 the empire has been divided into a western and an eastern half, and in large parts of the west new kingdoms have taken power. The Western Roman Empire falls when Odoacer deposes Romulus Augustus. The Eastern Roman Empire lives on."
+       "en": "Since 395 the empire has been divided into a western and an eastern half, and in large parts of the west new kingdoms have taken power. The Western Roman Empire falls when Odoacer deposes Romulus Augustus. The Eastern Roman Empire lives on.",
+       "de": "Das Reich ist seit 395 in eine westliche und eine östliche Hälfte geteilt, und in großen Teilen des Westens haben neue Königreiche die Macht übernommen. Das Weströmische Reich fällt, als Odoaker Romulus Augustus absetzt. Das Oströmische Reich lebt weiter."
       },
       "sources": [
        "wp-roman-empire",
@@ -409,22 +471,26 @@
       ],
       "mapNote": {
        "sv": "Kartan visar Västromerska riket till och med 475.",
-       "en": "The map shows the Western Roman Empire up to and including 475."
+       "en": "The map shows the Western Roman Empire up to and including 475.",
+       "de": "Die Karte zeigt das Weströmische Reich bis einschließlich 475."
       }
      },
      {
       "year": 533,
       "label": {
        "sv": "533–554",
-       "en": "533–554"
+       "en": "533–554",
+       "de": "533–554"
       },
       "title": {
        "sv": "Justinianus återerövringar",
-       "en": "Justinian's reconquests"
+       "en": "Justinian's reconquests",
+       "de": "Justinians Rückeroberungen"
       },
       "text": {
        "sv": "Justinianus I försöker ta tillbaka väst. Generalen Belisarius besegrar vandalernas rike i Nordafrika 533 och anfaller sedan Italien, där östgoternas rike i stort sett är slut 554. Under Justinianus är riket som störst under bysantinsk tid.",
-       "en": "Justinian I tries to take back the west. The general Belisarius defeats the Vandal kingdom in North Africa in 533 and then attacks Italy, where the Ostrogothic kingdom is largely finished by 554. Under Justinian the empire is at its largest in Byzantine times."
+       "en": "Justinian I tries to take back the west. The general Belisarius defeats the Vandal kingdom in North Africa in 533 and then attacks Italy, where the Ostrogothic kingdom is largely finished by 554. Under Justinian the empire is at its largest in Byzantine times.",
+       "de": "Justinian I. versucht, den Westen zurückzugewinnen. Der Feldherr Belisar besiegt 533 das Reich der Vandalen in Nordafrika und greift danach Italien an, wo das Ostgotenreich 554 im Wesentlichen am Ende ist. Unter Justinian ist das Reich in byzantinischer Zeit am größten."
       },
       "sources": [
        "wp-byzantine-empire"
@@ -434,15 +500,18 @@
       "year": 636,
       "label": {
        "sv": "634–641",
-       "en": "634–641"
+       "en": "634–641",
+       "de": "634–641"
       },
       "title": {
        "sv": "Arabiska erövringar",
-       "en": "Arab conquests"
+       "en": "Arab conquests",
+       "de": "Arabische Eroberungen"
       },
       "text": {
        "sv": "Efter ett långt krig mot Persien (602–628) är riket utmattat. Rashidunkalifatet erövrar Syrien 634–638, och vid floden Yarmuk förintas den bysantinska armén där. Även Egypten går förlorat för gott. När Herakleios dör 641 har riket mist sina rika östra provinser och upp till tre fjärdedelar av sina inkomster.",
-       "en": "After a long war against Persia (602–628) the empire is exhausted. The Rashidun Caliphate conquers Syria in 634–638, and at the river Yarmuk the Byzantine army is annihilated. Egypt too is lost for good. When Heraclius dies in 641 the empire has lost its rich eastern provinces and up to three quarters of its revenues."
+       "en": "After a long war against Persia (602–628) the empire is exhausted. The Rashidun Caliphate conquers Syria in 634–638, and at the river Yarmuk the Byzantine army is annihilated. Egypt too is lost for good. When Heraclius dies in 641 the empire has lost its rich eastern provinces and up to three quarters of its revenues.",
+       "de": "Nach einem langen Krieg gegen Persien (602–628) ist das Reich erschöpft. Das Kalifat der Raschidun erobert 634–638 Syrien, und am Fluss Jarmuk wird das byzantinische Heer dort vernichtet. Auch Ägypten geht endgültig verloren. Als Herakleios 641 stirbt, hat das Reich seine reichen Ostprovinzen und bis zu drei Viertel seiner Einnahmen verloren."
       },
       "sources": [
        "wp-byzantine-empire",
@@ -450,66 +519,78 @@
       ],
       "mapNote": {
        "sv": "Kartan visar förlusterna i steg från 638 till 647.",
-       "en": "The map shows the losses in steps from 638 to 647."
+       "en": "The map shows the losses in steps from 638 to 647.",
+       "de": "Die Karte zeigt die Verluste in Schritten von 638 bis 647."
       }
      },
      {
       "year": 1071,
       "label": {
        "sv": "1071",
-       "en": "1071"
+       "en": "1071",
+       "de": "1071"
       },
       "title": {
        "sv": "Nederlaget vid Manzikert",
-       "en": "The defeat at Manzikert"
+       "en": "The defeat at Manzikert",
+       "de": "Die Niederlage bei Manzikert"
       },
       "text": {
        "sv": "Seldjukerna vinner en avgörande seger vid Manzikert och tar kejsar Romanos IV till fånga. Samma år faller Bari, rikets sista stad i Italien, till normanderna. Under ett årtionde av inbördesstrider tar turkiska styrkor stora delar av Anatolien, ända fram till Marmarasjön. Med hjälp av första korståget återtar Alexios I senare delar av västra Anatolien.",
-       "en": "The Seljuks win a decisive victory at Manzikert and take Emperor Romanos IV prisoner. The same year Bari, the empire's last city in Italy, falls to the Normans. During a decade of civil strife Turkish forces take large parts of Anatolia, all the way to the Sea of Marmara. With the help of the First Crusade Alexios I later recovers parts of western Anatolia."
+       "en": "The Seljuks win a decisive victory at Manzikert and take Emperor Romanos IV prisoner. The same year Bari, the empire's last city in Italy, falls to the Normans. During a decade of civil strife Turkish forces take large parts of Anatolia, all the way to the Sea of Marmara. With the help of the First Crusade Alexios I later recovers parts of western Anatolia.",
+       "de": "Die Seldschuken erringen bei Manzikert einen entscheidenden Sieg und nehmen Kaiser Romanos IV. gefangen. Im selben Jahr fällt Bari, die letzte Stadt des Reiches in Italien, an die Normannen. In einem Jahrzehnt innerer Kämpfe nehmen türkische Truppen große Teile Anatoliens ein, bis zum Marmarameer. Mit Hilfe des Ersten Kreuzzugs gewinnt Alexios I. später Teile des westlichen Anatolien zurück."
       },
       "sources": [
        "wp-byzantine-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar förlusten i Anatolien från 1085, då ytan halveras, och en del återtaget land från 1099.",
-       "en": "The map shows the loss in Anatolia from 1085, when the area is halved, and some recovered land from 1099."
+       "en": "The map shows the loss in Anatolia from 1085, when the area is halved, and some recovered land from 1099.",
+       "de": "Die Karte zeigt den Verlust in Anatolien ab 1085, als sich die Fläche halbiert, und etwas zurückgewonnenes Land ab 1099."
       }
      },
      {
       "year": 1204,
       "label": {
        "sv": "1204",
-       "en": "1204"
+       "en": "1204",
+       "de": "1204"
       },
       "title": {
        "sv": "Konstantinopel plundras",
-       "en": "Constantinople is sacked"
+       "en": "Constantinople is sacked",
+       "de": "Konstantinopel wird geplündert"
       },
       "text": {
        "sv": "Fjärde korståget plundrar Konstantinopel och riket splittras. Staden återtas 1261, men riket blir efter det bara en regional makt.",
-       "en": "The Fourth Crusade sacks Constantinople and the empire is split up. The city is retaken in 1261, but after that the empire is only a regional power."
+       "en": "The Fourth Crusade sacks Constantinople and the empire is split up. The city is retaken in 1261, but after that the empire is only a regional power.",
+       "de": "Der Vierte Kreuzzug plündert Konstantinopel, und das Reich zerfällt. Die Stadt wird 1261 zurückerobert, doch danach ist das Reich nur noch eine regionale Macht."
       },
       "sources": [
        "wp-byzantine-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar nästan ingen yta för riket 1206–1226 och ingen alls 1227–1278. Nikaia, där riket levde vidare och som återtog Konstantinopel 1261, ingår inte i kartdatan för riket. Från 1279 syns riket igen.",
-       "en": "The map shows almost no area for the empire in 1206–1226 and none at all in 1227–1278. Nicaea, where the empire lived on and which retook Constantinople in 1261, is not included in the map data for the empire. From 1279 the empire is visible again."
+       "en": "The map shows almost no area for the empire in 1206–1226 and none at all in 1227–1278. Nicaea, where the empire lived on and which retook Constantinople in 1261, is not included in the map data for the empire. From 1279 the empire is visible again.",
+       "de": "Die Karte zeigt für das Reich 1206–1226 fast keine Fläche und 1227–1278 gar keine. Nikaia, wo das Reich weiterlebte und von wo aus Konstantinopel 1261 zurückerobert wurde, ist in den Kartendaten für das Reich nicht enthalten. Ab 1279 ist das Reich wieder zu sehen."
       }
      },
      {
       "year": 1453,
       "label": {
        "sv": "1453",
-       "en": "1453"
+       "en": "1453",
+       "de": "1453"
       },
       "title": {
        "sv": "Konstantinopel faller",
-       "en": "Constantinople falls"
+       "en": "Constantinople falls",
+       "de": "Konstantinopel fällt"
       },
       "text": {
        "sv": "Osmanerna erövrar Konstantinopel, och Bysantinska riket upphör.",
-       "en": "The Ottomans conquer Constantinople, and the Byzantine Empire ceases to exist."
+       "en": "The Ottomans conquer Constantinople, and the Byzantine Empire ceases to exist.",
+       "de": "Die Osmanen erobern Konstantinopel, und das Byzantinische Reich hört auf zu bestehen."
       },
       "sources": [
        "wp-byzantine-empire",
@@ -517,13 +598,15 @@
       ],
       "mapNote": {
        "sv": "Kartan visar en mycket liten rest av riket till och med 1474.",
-       "en": "The map shows a very small remnant of the empire up to and including 1474."
+       "en": "The map shows a very small remnant of the empire up to and including 1474.",
+       "de": "Die Karte zeigt bis einschließlich 1474 einen sehr kleinen Rest des Reiches."
       }
      }
     ],
     "mapNote": {
      "sv": "Källorna anger cirka 753 f.Kr. till 1453. Kartans sista år fram till 1474 visar bara en liten rest av Bysans. Cliopatria anger att Seleukidriket lydde under Romerska republiken 204–190 f.Kr., men det motsägs av källorna: Rom och Seleukidriket krigade 192–188 f.Kr. och slöt fred i Apameia 188 f.Kr. Därför visas det inte som inflytande.",
-     "en": "The sources give about 753 BC to 1453. The last years of the map, up to 1474, show only a small remnant of Byzantium. Cliopatria states that the Seleucid Empire was subordinate to the Roman Republic in 204–190 BC, but this is contradicted by the sources: Rome and the Seleucid Empire were at war in 192–188 BC and made peace at Apamea in 188 BC. It is therefore not shown as influence."
+     "en": "The sources give about 753 BC to 1453. The last years of the map, up to 1474, show only a small remnant of Byzantium. Cliopatria states that the Seleucid Empire was subordinate to the Roman Republic in 204–190 BC, but this is contradicted by the sources: Rome and the Seleucid Empire were at war in 192–188 BC and made peace at Apamea in 188 BC. It is therefore not shown as influence.",
+     "de": "Die Quellen nennen etwa 753 v. Chr. bis 1453. Die letzten Jahre der Karte bis 1474 zeigen nur einen kleinen Rest von Byzanz. Cliopatria gibt an, dass das Seleukidenreich 204–190 v. Chr. der Römischen Republik unterstand, doch das widerspricht den Quellen: Rom und das Seleukidenreich führten 192–188 v. Chr. Krieg und schlossen 188 v. Chr. Frieden in Apameia. Deshalb wird es nicht als Einflussgebiet gezeigt."
     },
     "sources": [
      "wp-roman-empire",
@@ -542,63 +625,75 @@
      "facts": {
       "summary": {
        "sv": "Bysantinska riket var den östra fortsättningen på Romarriket, med Konstantinopel som huvudstad. Det överlevde Västroms fall på 400-talet och bestod till 1453. Namnet Bysans kom först efter rikets slut; invånarna kallade själva sitt rike romerskt och sig själva romare.",
-       "en": "The Byzantine Empire was the eastern continuation of the Roman Empire, with Constantinople as its capital. It survived the fall of the West in the 5th century and lasted until 1453. The name Byzantium came only after the end of the empire; the inhabitants themselves called their empire Roman and themselves Romans."
+       "en": "The Byzantine Empire was the eastern continuation of the Roman Empire, with Constantinople as its capital. It survived the fall of the West in the 5th century and lasted until 1453. The name Byzantium came only after the end of the empire; the inhabitants themselves called their empire Roman and themselves Romans.",
+       "de": "Das Byzantinische Reich war die östliche Fortsetzung des Römischen Reiches, mit Konstantinopel als Hauptstadt. Es überlebte den Fall Westroms im 5. Jahrhundert und bestand bis 1453. Der Name Byzanz kam erst nach dem Ende des Reiches auf; die Einwohner selbst nannten ihr Reich römisch und sich selbst Römer."
       },
       "items": [
        {
         "label": {
          "sv": "När och var det uppstod",
-         "en": "When and where it arose"
+         "en": "When and where it arose",
+         "de": "Wann und wo es entstand"
         },
         "text": {
          "sv": "Det finns ingen enighet om när Bysantinska riket började. Ofta anges 330, då Konstantin den store invigde Konstantinopel som ny huvudstad i öster. Andra räknar från 395, då riket delades efter Theodosius I:s död, och vissa forskare sätter början först på 600- eller 700-talet.",
-         "en": "There is no agreement on when the Byzantine Empire began. Often 330 is given, when Constantine the Great inaugurated Constantinople as the new capital in the east. Others count from 395, when the empire was divided after the death of Theodosius I, and some scholars place the beginning only in the 7th or 8th century."
+         "en": "There is no agreement on when the Byzantine Empire began. Often 330 is given, when Constantine the Great inaugurated Constantinople as the new capital in the east. Others count from 395, when the empire was divided after the death of Theodosius I, and some scholars place the beginning only in the 7th or 8th century.",
+         "de": "Es gibt keine Einigkeit darüber, wann das Byzantinische Reich begann. Oft wird 330 angegeben, als Konstantin der Große Konstantinopel als neue Hauptstadt im Osten einweihte. Andere rechnen ab 395, als das Reich nach dem Tod Theodosius’ I. geteilt wurde, und manche Forscher setzen den Beginn erst im 7. oder 8. Jahrhundert an."
         }
        },
        {
         "label": {
          "sv": "Hur det slutade",
-         "en": "How it ended"
+         "en": "How it ended",
+         "de": "Wie es endete"
         },
         "text": {
          "sv": "Den 29 maj 1453 erövrade osmanerna Konstantinopel. Den siste kejsaren, Konstantin XI, stupade i striderna, och riket upphörde.",
-         "en": "On 29 May 1453 the Ottomans conquered Constantinople. The last emperor, Constantine XI, fell in the fighting, and the empire ceased to exist."
+         "en": "On 29 May 1453 the Ottomans conquered Constantinople. The last emperor, Constantine XI, fell in the fighting, and the empire ceased to exist.",
+         "de": "Am 29. Mai 1453 eroberten die Osmanen Konstantinopel. Der letzte Kaiser, Konstantin XI., fiel in den Kämpfen, und das Reich hörte auf zu bestehen."
         }
        },
        {
         "label": {
          "sv": "Huvudstad",
-         "en": "Capital"
+         "en": "Capital",
+         "de": "Hauptstadt"
         },
         "text": {
          "sv": "Konstantinopel, dagens Istanbul, under hela rikets tid. Staden plundrades av fjärde korståget 1204 och återtogs 1261.",
-         "en": "Constantinople, present-day Istanbul, throughout the empire's existence. The city was sacked by the Fourth Crusade in 1204 and retaken in 1261."
+         "en": "Constantinople, present-day Istanbul, throughout the empire's existence. The city was sacked by the Fourth Crusade in 1204 and retaken in 1261.",
+         "de": "Konstantinopel, das heutige Istanbul, während der ganzen Zeit des Reiches. Die Stadt wurde 1204 vom Vierten Kreuzzug geplündert und 1261 zurückerobert."
         }
        },
        {
         "label": {
          "sv": "Kända härskare",
-         "en": "Famous rulers"
+         "en": "Famous rulers",
+         "de": "Bekannte Herrscher"
         },
         "text": {
          "sv": "Justinianus I (527–565), då riket var som störst, Herakleios (610–641), Basileios II (976–1025), Alexios I Komnenos (1081–1118), Mikael VIII (1261–1282), som återtog Konstantinopel, och Konstantin XI (1449–1453).",
-         "en": "Justinian I (527–565), when the empire was at its largest, Heraclius (610–641), Basil II (976–1025), Alexios I Komnenos (1081–1118), Michael VIII (1261–1282), who retook Constantinople, and Constantine XI (1449–1453)."
+         "en": "Justinian I (527–565), when the empire was at its largest, Heraclius (610–641), Basil II (976–1025), Alexios I Komnenos (1081–1118), Michael VIII (1261–1282), who retook Constantinople, and Constantine XI (1449–1453).",
+         "de": "Justinian I. (527–565), als das Reich am größten war, Herakleios (610–641), Basileios II. (976–1025), Alexios I. Komnenos (1081–1118), Michael VIII. (1261–1282), der Konstantinopel zurückeroberte, und Konstantin XI. (1449–1453)."
         }
        },
        {
         "label": {
          "sv": "Symbolen på kartan",
-         "en": "The symbol on the map"
+         "en": "The symbol on the map",
+         "de": "Das Symbol auf der Karte"
         },
         "text": {
          "sv": "Dubbelörnen är det tecken som oftast förknippas med Bysans. Som prydnad finns den i bysantinsk konst från 900- och 1000-talet, men tillsammans med kejsaren är den säkert belagd först 1301, under Andronikos II Palaiologos. Under rikets sista århundraden bar kejsarfamiljen den på kläder och utrustning. Kartan visar den ändå för hela rikets tid, som en symbol för riket.",
-         "en": "The double-headed eagle is the emblem most often associated with Byzantium. As an ornament it is found in Byzantine art from the 10th and 11th centuries, but together with the emperor it is securely attested only in 1301, under Andronikos II Palaiologos. In the empire's last centuries the imperial family wore it on clothing and equipment. The map nevertheless shows it for the whole of the empire's existence, as a symbol of the empire."
+         "en": "The double-headed eagle is the emblem most often associated with Byzantium. As an ornament it is found in Byzantine art from the 10th and 11th centuries, but together with the emperor it is securely attested only in 1301, under Andronikos II Palaiologos. In the empire's last centuries the imperial family wore it on clothing and equipment. The map nevertheless shows it for the whole of the empire's existence, as a symbol of the empire.",
+         "de": "Der Doppeladler ist das Zeichen, das am häufigsten mit Byzanz verbunden wird. Als Schmuck findet er sich in der byzantinischen Kunst des 10. und 11. Jahrhunderts, doch zusammen mit dem Kaiser ist er sicher erst 1301 belegt, unter Andronikos II. Palaiologos. In den letzten Jahrhunderten des Reiches trug die Kaiserfamilie ihn auf Kleidung und Ausrüstung. Die Karte zeigt ihn dennoch für die ganze Zeit des Reiches, als Symbol für das Reich."
         }
        }
       ],
       "mapNote": {
        "sv": "I kartdatan heter riket Bysantinska riket från 633. Åren 395–632 visas som Östromerska riket, med Roms symbol.",
-       "en": "In the map data the empire is called the Byzantine Empire from 633. The years 395–632 are shown as the Eastern Roman Empire, with Rome's symbol."
+       "en": "In the map data the empire is called the Byzantine Empire from 633. The years 395–632 are shown as the Eastern Roman Empire, with Rome's symbol.",
+       "de": "In den Kartendaten heißt das Reich ab 633 Byzantinisches Reich. Die Jahre 395–632 werden als Oströmisches Reich gezeigt, mit dem Symbol Roms."
       },
       "sources": [
        "wp-byzantine-empire",
@@ -614,7 +709,8 @@
     {
      "name": {
       "sv": "Rom",
-      "en": "Rome"
+      "en": "Rome",
+      "de": "Rom"
      },
      "wikidata": "Q220",
      "at": [
@@ -631,7 +727,8 @@
     {
      "name": {
       "sv": "Konstantinopel",
-      "en": "Constantinople"
+      "en": "Constantinople",
+      "de": "Konstantinopel"
      },
      "wikidata": "Q16869",
      "at": [
@@ -651,7 +748,8 @@
    "id": "persiska-riket",
    "name": {
     "sv": "Persiska riket (akemeniderna)",
-    "en": "Achaemenid Empire"
+    "en": "Achaemenid Empire",
+    "de": "Perserreich (Achämeniden)"
    },
    "color": "#c08a2e",
    "from": -550,
@@ -662,7 +760,8 @@
      "id": "akemenidiska-riket",
      "name": {
       "sv": "Persiska riket",
-      "en": "Achaemenid Empire"
+      "en": "Achaemenid Empire",
+      "de": "Perserreich"
      },
      "sources": [
       "cliopatria"
@@ -673,77 +772,92 @@
    "facts": {
     "summary": {
      "sv": "Det akemenidiska riket var ett forntida iranskt rike som grundades av Kyros den store. Det var sin tids största rike och sträckte sig från Balkan och Kyrenaika i väster till Indusdalen i öster.",
-     "en": "The Achaemenid Empire was an ancient Iranian empire founded by Cyrus the Great. It was the largest empire of its time and stretched from the Balkans and Cyrenaica in the west to the Indus Valley in the east."
+     "en": "The Achaemenid Empire was an ancient Iranian empire founded by Cyrus the Great. It was the largest empire of its time and stretched from the Balkans and Cyrenaica in the west to the Indus Valley in the east.",
+     "de": "Das Achämenidenreich war ein antikes iranisches Reich, das von Kyros dem Großen gegründet wurde. Es war das größte Reich seiner Zeit und erstreckte sich vom Balkan und der Kyrenaika im Westen bis zum Industal im Osten."
     },
     "items": [
      {
       "label": {
        "sv": "När och var det uppstod",
-       "en": "When and where it arose"
+       "en": "When and where it arose",
+       "de": "Wann und wo es entstand"
       },
       "text": {
        "sv": "År 550 f.Kr., med utgångspunkt i Persis i sydvästra delen av Iranska platån. Kyros den store besegrade Medien, Lydien och Nybabyloniska riket.",
-       "en": "In 550 BC, starting from Persis in the south-west of the Iranian Plateau. Cyrus the Great defeated Media, Lydia and the Neo-Babylonian Empire."
+       "en": "In 550 BC, starting from Persis in the south-west of the Iranian Plateau. Cyrus the Great defeated Media, Lydia and the Neo-Babylonian Empire.",
+       "de": "Im Jahr 550 v. Chr., ausgehend von der Persis im Südwesten des Iranischen Hochlands. Kyros der Große besiegte Medien, Lydien und das Neubabylonische Reich."
       }
      },
      {
       "label": {
        "sv": "Hur det slutade",
-       "en": "How it ended"
+       "en": "How it ended",
+       "de": "Wie es endete"
       },
       "text": {
        "sv": "Alexander den store erövrade hela riket i ett fälttåg som började 336 f.Kr. och var klart 330 f.Kr. Efter Alexanders död 323 f.Kr. hamnade det mesta av det gamla riket under Seleukidriket och Ptolemaiska riket.",
-       "en": "Alexander the Great conquered the whole empire in a campaign that began in 336 BC and was complete in 330 BC. After Alexander's death in 323 BC most of the old empire came under the Seleucid Empire and the Ptolemaic Kingdom."
+       "en": "Alexander the Great conquered the whole empire in a campaign that began in 336 BC and was complete in 330 BC. After Alexander's death in 323 BC most of the old empire came under the Seleucid Empire and the Ptolemaic Kingdom.",
+       "de": "Alexander der Große eroberte das ganze Reich in einem Feldzug, der 336 v. Chr. begann und 330 v. Chr. abgeschlossen war. Nach Alexanders Tod 323 v. Chr. kam der größte Teil des alten Reiches unter das Seleukidenreich und das Ptolemäerreich."
       }
      },
      {
       "label": {
        "sv": "Huvudstäder",
-       "en": "Capitals"
+       "en": "Capitals",
+       "de": "Hauptstädte"
       },
       "text": {
        "sv": "Flera: Babylon, Pasargadae (under Kyros den store) och Susa (under Dareios den store). Ekbatana och Persepolis var ceremoniella huvudstäder.",
-       "en": "Several: Babylon, Pasargadae (under Cyrus the Great) and Susa (under Darius the Great). Ecbatana and Persepolis were ceremonial capitals."
+       "en": "Several: Babylon, Pasargadae (under Cyrus the Great) and Susa (under Darius the Great). Ecbatana and Persepolis were ceremonial capitals.",
+       "de": "Mehrere: Babylon, Pasargadai (unter Kyros dem Großen) und Susa (unter Dareios dem Großen). Ekbatana und Persepolis waren zeremonielle Hauptstädte."
       }
      },
      {
       "label": {
        "sv": "Kända härskare",
-       "en": "Famous rulers"
+       "en": "Famous rulers",
+       "de": "Bekannte Herrscher"
       },
       "text": {
        "sv": "Kyros den store (559–530 f.Kr.), Kambyses II (530–522 f.Kr.), Dareios den store (522–486 f.Kr.), Xerxes I (486–465 f.Kr.) och den siste, Dareios III (336–330 f.Kr.).",
-       "en": "Cyrus the Great (559–530 BC), Cambyses II (530–522 BC), Darius the Great (522–486 BC), Xerxes I (486–465 BC) and the last, Darius III (336–330 BC)."
+       "en": "Cyrus the Great (559–530 BC), Cambyses II (530–522 BC), Darius the Great (522–486 BC), Xerxes I (486–465 BC) and the last, Darius III (336–330 BC).",
+       "de": "Kyros der Große (559–530 v. Chr.), Kambyses II. (530–522 v. Chr.), Dareios der Große (522–486 v. Chr.), Xerxes I. (486–465 v. Chr.) und der letzte, Dareios III. (336–330 v. Chr.)."
       }
      },
      {
       "label": {
        "sv": "Största utbredning",
-       "en": "Greatest extent"
+       "en": "Greatest extent",
+       "de": "Größte Ausdehnung"
       },
       "text": {
        "sv": "Cirka 5,5 miljoner km² omkring 500 f.Kr., enligt Wikipedias faktaruta.",
-       "en": "About 5.5 million km² around 500 BC, according to Wikipedia's fact box."
+       "en": "About 5.5 million km² around 500 BC, according to Wikipedia's fact box.",
+       "de": "Etwa 5,5 Millionen km² um 500 v. Chr., nach der Infobox der Wikipedia."
       }
      },
      {
       "label": {
        "sv": "Språk och religion",
-       "en": "Language and religion"
+       "en": "Language and religion",
+       "de": "Sprache und Religion"
       },
       "text": {
        "sv": "Fornpersiska var dynastins språk och arameiska det officiella språket i förvaltningen. Zoroastrism var statsreligion, men många andra religioner fanns i riket. Riket är känt för sin förvaltning, Kungsvägen, ett ordnat postväsende och religiös tolerans, särskilt under Kyros.",
-       "en": "Old Persian was the language of the dynasty and Aramaic the official language of the administration. Zoroastrianism was the state religion, but many other religions existed in the empire. The empire is known for its administration, the Royal Road, an organised postal system and religious tolerance, especially under Cyrus."
+       "en": "Old Persian was the language of the dynasty and Aramaic the official language of the administration. Zoroastrianism was the state religion, but many other religions existed in the empire. The empire is known for its administration, the Royal Road, an organised postal system and religious tolerance, especially under Cyrus.",
+       "de": "Altpersisch war die Sprache der Dynastie und Aramäisch die Amtssprache der Verwaltung. Der Zoroastrismus war Staatsreligion, doch im Reich gab es viele andere Religionen. Das Reich ist bekannt für seine Verwaltung, die Königsstraße, ein geordnetes Postwesen und religiöse Toleranz, besonders unter Kyros."
       }
      },
      {
       "label": {
        "sv": "Symbolen på kartan",
-       "en": "The symbol on the map"
+       "en": "The symbol on the map",
+       "de": "Das Symbol auf der Karte"
       },
       "text": {
        "sv": "Akemenidernas kungliga fältstandar. Xenofon beskriver standaret som Artaxerxes II förde vid Kunaxa som en gyllene örn med utbredda vingar på ett långt spjutskaft, och samma standar sägs ha använts av Kyros den store. Hur det såg ut i detalj vet man inte; teckningen är en förenkling av beskrivningen.",
-       "en": "The royal field standard of the Achaemenids. Xenophon describes the standard that Artaxerxes II carried at Cunaxa as a golden eagle with outspread wings on a long spear shaft, and the same standard is said to have been used by Cyrus the Great. What it looked like in detail is not known; the drawing is a simplification of the description."
+       "en": "The royal field standard of the Achaemenids. Xenophon describes the standard that Artaxerxes II carried at Cunaxa as a golden eagle with outspread wings on a long spear shaft, and the same standard is said to have been used by Cyrus the Great. What it looked like in detail is not known; the drawing is a simplification of the description.",
+       "de": "Das königliche Feldzeichen der Achämeniden. Xenophon beschreibt das Feldzeichen, das Artaxerxes II. bei Kunaxa führte, als goldenen Adler mit ausgebreiteten Flügeln auf einem langen Speerschaft, und dasselbe Feldzeichen soll Kyros der Große verwendet haben. Wie es im Einzelnen aussah, weiß man nicht; die Zeichnung ist eine Vereinfachung der Beschreibung."
       }
      }
     ],
@@ -752,103 +866,122 @@
       "year": -549,
       "label": {
        "sv": "550 f.Kr.",
-       "en": "550 BC"
+       "en": "550 BC",
+       "de": "550 v. Chr."
       },
       "title": {
        "sv": "Kyros grundar riket",
-       "en": "Cyrus founds the empire"
+       "en": "Cyrus founds the empire",
+       "de": "Kyros gründet das Reich"
       },
       "text": {
        "sv": "Kyros den store av akemenidernas ätt grundar riket, med bas på iranska platån. År 547 f.Kr. erövrar han Lydien i Anatolien.",
-       "en": "Cyrus the Great of the Achaemenid dynasty founds the empire, with a base on the Iranian plateau. In 547 BC he conquers Lydia in Anatolia."
+       "en": "Cyrus the Great of the Achaemenid dynasty founds the empire, with a base on the Iranian plateau. In 547 BC he conquers Lydia in Anatolia.",
+       "de": "Kyros der Große aus dem Geschlecht der Achämeniden gründet das Reich, mit seiner Basis auf dem Iranischen Hochland. 547 v. Chr. erobert er Lydien in Anatolien."
       },
       "sources": [
        "wp-achaemenid-empire"
       ],
       "mapNote": {
        "sv": "Kartan börjar 551 f.Kr. och visar riket redan då med cirka 3,3 miljoner km².",
-       "en": "The map begins in 551 BC and shows the empire already then with about 3.3 million km²."
+       "en": "The map begins in 551 BC and shows the empire already then with about 3.3 million km².",
+       "de": "Die Karte beginnt 551 v. Chr. und zeigt das Reich schon dann mit etwa 3,3 Millionen km²."
       }
      },
      {
       "year": -538,
       "label": {
        "sv": "539 f.Kr.",
-       "en": "539 BC"
+       "en": "539 BC",
+       "de": "539 v. Chr."
       },
       "title": {
        "sv": "Babylonien erövras",
-       "en": "Babylonia is conquered"
+       "en": "Babylonia is conquered",
+       "de": "Babylonien wird erobert"
       },
       "text": {
        "sv": "Kyros erövrar Babylonien.",
-       "en": "Cyrus conquers Babylonia."
+       "en": "Cyrus conquers Babylonia.",
+       "de": "Kyros erobert Babylonien."
       },
       "sources": [
        "wp-achaemenid-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar tillväxten från 541 f.Kr.",
-       "en": "The map shows the growth from 541 BC."
+       "en": "The map shows the growth from 541 BC.",
+       "de": "Die Karte zeigt das Wachstum ab 541 v. Chr."
       }
      },
      {
       "year": -524,
       "label": {
        "sv": "525 f.Kr.",
-       "en": "525 BC"
+       "en": "525 BC",
+       "de": "525 v. Chr."
       },
       "title": {
        "sv": "Egypten erövras",
-       "en": "Egypt is conquered"
+       "en": "Egypt is conquered",
+       "de": "Ägypten wird erobert"
       },
       "text": {
        "sv": "Kambyses II, Kyros son, besegrar farao Psammetikos III vid Pelusion och erövrar Egypten. Libyerna och grekerna i Kyrene underkastar sig utan strid.",
-       "en": "Cambyses II, Cyrus's son, defeats Pharaoh Psamtik III at Pelusium and conquers Egypt. The Libyans and the Greeks in Cyrene submit without a fight."
+       "en": "Cambyses II, Cyrus's son, defeats Pharaoh Psamtik III at Pelusium and conquers Egypt. The Libyans and the Greeks in Cyrene submit without a fight.",
+       "de": "Kambyses II., der Sohn des Kyros, besiegt Pharao Psammetich III. bei Pelusion und erobert Ägypten. Die Libyer und die Griechen in Kyrene unterwerfen sich kampflos."
       },
       "sources": [
        "wp-achaemenid-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar tillväxten i en period som börjar 531 f.Kr.",
-       "en": "The map shows the growth in a period beginning in 531 BC."
+       "en": "The map shows the growth in a period beginning in 531 BC.",
+       "de": "Die Karte zeigt das Wachstum in einem Zeitraum, der 531 v. Chr. beginnt."
       }
      },
      {
       "year": -521,
       "label": {
        "sv": "522 eller 521 f.Kr.",
-       "en": "522 or 521 BC"
+       "en": "522 or 521 BC",
+       "de": "522 oder 521 v. Chr."
       },
       "title": {
        "sv": "Darius I: riket som störst",
-       "en": "Darius I: the empire at its largest"
+       "en": "Darius I: the empire at its largest",
+       "de": "Dareios I.: das Reich am größten"
       },
       "text": {
        "sv": "Darius I tar makten efter strider om tronen. Under honom når riket sin största utbredning, cirka 5,5 miljoner km², från Balkan och Kyrenaika i väster till Indusdalen i öster. Från 513 f.Kr. lägger perserna under sig Thrakien, och Makedonien blir lydrike.",
-       "en": "Darius I takes power after fighting over the throne. Under him the empire reaches its greatest extent, about 5.5 million km², from the Balkans and Cyrenaica in the west to the Indus Valley in the east. From 513 BC the Persians bring Thrace under their rule, and Macedonia becomes a vassal state."
+       "en": "Darius I takes power after fighting over the throne. Under him the empire reaches its greatest extent, about 5.5 million km², from the Balkans and Cyrenaica in the west to the Indus Valley in the east. From 513 BC the Persians bring Thrace under their rule, and Macedonia becomes a vassal state.",
+       "de": "Dareios I. kommt nach Kämpfen um den Thron an die Macht. Unter ihm erreicht das Reich seine größte Ausdehnung, etwa 5,5 Millionen km², vom Balkan und der Kyrenaika im Westen bis zum Industal im Osten. Ab 513 v. Chr. unterwerfen die Perser Thrakien, und Makedonien wird Vasallenstaat."
       },
       "sources": [
        "wp-achaemenid-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar riket som störst, cirka 5,6 miljoner km², från 501 f.Kr.",
-       "en": "The map shows the empire at its largest, about 5.6 million km², from 501 BC."
+       "en": "The map shows the empire at its largest, about 5.6 million km², from 501 BC.",
+       "de": "Die Karte zeigt das Reich ab 501 v. Chr. in seiner größten Ausdehnung, etwa 5,6 Millionen km²."
       }
      },
      {
       "year": -491,
       "label": {
        "sv": "492–479 f.Kr.",
-       "en": "492–479 BC"
+       "en": "492–479 BC",
+       "de": "492–479 v. Chr."
       },
       "title": {
        "sv": "Krigen mot grekerna",
-       "en": "The wars against the Greeks"
+       "en": "The wars against the Greeks",
+       "de": "Die Kriege gegen die Griechen"
       },
       "text": {
        "sv": "Perserna försöker erövra det grekiska fastlandet. De besegras vid Marathon 490 f.Kr. och efter Salamis och Plataiai 480–479 f.Kr. Efter förlusterna drar sig perserna ur Europa, och Makedonien och de joniska städerna blir självständiga igen.",
-       "en": "The Persians try to conquer the Greek mainland. They are defeated at Marathon in 490 BC and after Salamis and Plataea in 480–479 BC. After the losses the Persians withdraw from Europe, and Macedonia and the Ionian cities become independent again."
+       "en": "The Persians try to conquer the Greek mainland. They are defeated at Marathon in 490 BC and after Salamis and Plataea in 480–479 BC. After the losses the Persians withdraw from Europe, and Macedonia and the Ionian cities become independent again.",
+       "de": "Die Perser versuchen, das griechische Festland zu erobern. Sie werden 490 v. Chr. bei Marathon und nach Salamis und Plataiai 480–479 v. Chr. besiegt. Nach den Niederlagen ziehen sich die Perser aus Europa zurück, und Makedonien und die ionischen Städte werden wieder unabhängig."
       },
       "sources": [
        "wp-achaemenid-empire",
@@ -856,22 +989,26 @@
       ],
       "mapNote": {
        "sv": "Kartan visar ingen minskning efter krigen: ytan är densamma 501–406 f.Kr.",
-       "en": "The map shows no decrease after the wars: the area is the same in 501–406 BC."
+       "en": "The map shows no decrease after the wars: the area is the same in 501–406 BC.",
+       "de": "Die Karte zeigt nach den Kriegen keine Abnahme: Die Fläche ist 501–406 v. Chr. dieselbe."
       }
      },
      {
       "year": -403,
       "label": {
        "sv": "404 f.Kr.",
-       "en": "404 BC"
+       "en": "404 BC",
+       "de": "404 v. Chr."
       },
       "title": {
        "sv": "Egypten gör sig fritt",
-       "en": "Egypt breaks free"
+       "en": "Egypt breaks free",
+       "de": "Ägypten macht sich frei"
       },
       "text": {
        "sv": "När Darius II dör tar den egyptiske upprorsledaren Amyrtaios tillfället att kasta av sig det persiska styret. Ett försök att återta Egypten 373 f.Kr. misslyckas.",
-       "en": "When Darius II dies, the Egyptian rebel leader Amyrtaeus takes the opportunity to throw off Persian rule. An attempt to retake Egypt in 373 BC fails."
+       "en": "When Darius II dies, the Egyptian rebel leader Amyrtaeus takes the opportunity to throw off Persian rule. An attempt to retake Egypt in 373 BC fails.",
+       "de": "Als Dareios II. stirbt, nutzt der ägyptische Aufstandsführer Amyrtaios die Gelegenheit, die persische Herrschaft abzuschütteln. Ein Versuch, Ägypten 373 v. Chr. zurückzuerobern, scheitert."
       },
       "sources": [
        "wp-achaemenid-empire"
@@ -881,37 +1018,44 @@
       "year": -342,
       "label": {
        "sv": "343 f.Kr.",
-       "en": "343 BC"
+       "en": "343 BC",
+       "de": "343 v. Chr."
       },
       "title": {
        "sv": "Egypten återerövras",
-       "en": "Egypt is reconquered"
+       "en": "Egypt is reconquered",
+       "de": "Ägypten wird zurückerobert"
       },
       "text": {
        "sv": "Artaxerxes III erövrar Egypten igen, efter att farao Nektanebo II har besegrats och flytt söderut.",
-       "en": "Artaxerxes III conquers Egypt again, after Pharaoh Nectanebo II has been defeated and fled south."
+       "en": "Artaxerxes III conquers Egypt again, after Pharaoh Nectanebo II has been defeated and fled south.",
+       "de": "Artaxerxes III. erobert Ägypten zurück, nachdem Pharao Nektanebos II. besiegt worden und nach Süden geflohen ist."
       },
       "sources": [
        "wp-achaemenid-empire"
       ],
       "mapNote": {
        "sv": "Kartan visar återerövringen först från 338 f.Kr.",
-       "en": "The map shows the reconquest only from 338 BC."
+       "en": "The map shows the reconquest only from 338 BC.",
+       "de": "Die Karte zeigt die Rückeroberung erst ab 338 v. Chr."
       }
      },
      {
       "year": -333,
       "label": {
        "sv": "334–331 f.Kr.",
-       "en": "334–331 BC"
+       "en": "334–331 BC",
+       "de": "334–331 v. Chr."
       },
       "title": {
        "sv": "Alexander anfaller",
-       "en": "Alexander attacks"
+       "en": "Alexander attacks",
+       "de": "Alexander greift an"
       },
       "text": {
        "sv": "Alexander den store går över till Asien och besegrar perserna vid Granikos 334, Issos 333 och Gaugamela 331 f.Kr. Från de två senare slagen flyr kung Darius III.",
-       "en": "Alexander the Great crosses into Asia and defeats the Persians at the Granicus in 334, Issus in 333 and Gaugamela in 331 BC. King Darius III flees from the two latter battles."
+       "en": "Alexander the Great crosses into Asia and defeats the Persians at the Granicus in 334, Issus in 333 and Gaugamela in 331 BC. King Darius III flees from the two latter battles.",
+       "de": "Alexander der Große setzt nach Asien über und besiegt die Perser am Granikos 334, bei Issos 333 und bei Gaugamela 331 v. Chr. Aus den beiden letzten Schlachten flieht König Dareios III."
       },
       "sources": [
        "wp-achaemenid-empire",
@@ -922,15 +1066,18 @@
       "year": -329,
       "label": {
        "sv": "330 f.Kr.",
-       "en": "330 BC"
+       "en": "330 BC",
+       "de": "330 v. Chr."
       },
       "title": {
        "sv": "Riket faller",
-       "en": "The empire falls"
+       "en": "The empire falls",
+       "de": "Das Reich fällt"
       },
       "text": {
        "sv": "Persepolis bränns, och Darius III dödas av sin egen satrap Bessos. Alexander har erövrat hela riket och lägger det under Makedoniska riket.",
-       "en": "Persepolis is burned, and Darius III is killed by his own satrap Bessus. Alexander has conquered the whole empire and places it under the Macedonian Empire."
+       "en": "Persepolis is burned, and Darius III is killed by his own satrap Bessus. Alexander has conquered the whole empire and places it under the Macedonian Empire.",
+       "de": "Persepolis wird niedergebrannt, und Dareios III. wird von seinem eigenen Satrapen Bessos getötet. Alexander hat das ganze Reich erobert und unterstellt es dem Makedonischen Reich."
       },
       "sources": [
        "wp-achaemenid-empire",
@@ -938,13 +1085,15 @@
       ],
       "mapNote": {
        "sv": "Kartan visar riket, med minskande yta, till och med 328 f.Kr.",
-       "en": "The map shows the empire, with a decreasing area, up to and including 328 BC."
+       "en": "The map shows the empire, with a decreasing area, up to and including 328 BC.",
+       "de": "Die Karte zeigt das Reich mit abnehmender Fläche bis einschließlich 328 v. Chr."
       }
      }
     ],
     "mapNote": {
      "sv": "Källan anger 550–330 f.Kr.",
-     "en": "The source gives 550–330 BC."
+     "en": "The source gives 550–330 BC.",
+     "de": "Die Quelle nennt 550–330 v. Chr."
     },
     "sources": [
      "wp-achaemenid-empire",
@@ -2271,6 +2420,40 @@
     ],
     "review": "source-checked"
    },
+   "flags": [
+    {
+     "file": "ottoman-eight-point-star",
+     "from": 1793,
+     "to": 1843,
+     "label": {
+      "sv": "Osmanska rikets åttuddiga stjärnflagga",
+      "en": "Ottoman eight-pointed-star flag",
+      "de": "Osmanische Flagge mit achtzackigem Stern",
+      "es": "Bandera otomana de estrella de ocho puntas",
+      "fr": "Drapeau ottoman à étoile à huit branches"
+     },
+     "sources": [
+      "wp-flags-ottoman-empire"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "ottoman-five-point-star",
+     "from": 1844,
+     "to": 1922,
+     "label": {
+      "sv": "Osmanska rikets stjärn- och halvmåneflagga",
+      "en": "Ottoman star-and-crescent flag",
+      "de": "Osmanische Stern-und-Mondsichel-Flagge",
+      "es": "Bandera otomana de estrella y media luna",
+      "fr": "Drapeau ottoman à étoile et croissant"
+     },
+     "sources": [
+      "wp-flags-ottoman-empire"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "symbol": "tughra",
    "capitals": [
     {
@@ -3071,6 +3254,24 @@
     ],
     "review": "source-checked"
    },
+   "flags": [
+    {
+     "file": "britain-union-flag",
+     "from": 1801,
+     "to": 1999,
+     "label": {
+      "sv": "Storbritanniens unionsflagga",
+      "en": "British Union Flag",
+      "de": "Britische Unionsflagge",
+      "es": "Bandera de la Unión Británica",
+      "fr": "Drapeau de l'Union britannique"
+     },
+     "sources": [
+      "wp-list-uk-flags"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "symbol": "imperial-crown",
    "capitals": [
     {
@@ -10737,8 +10938,8 @@
        "en": "The symbol on the map"
       },
       "text": {
-       "sv": "Drakflaggan, en blå drake på gul botten med en röd pärla. Den första formen, en trekantig flagga, togs i bruk 1862 och den rektangulära 1889, och den blev Kinas första nationsflagga. Den är alltså belagd bara för rikets sista femtio år.",
-       "en": "The Dragon Flag, a blue dragon on a yellow field with a red pearl. The first form, a triangular flag, came into use in 1862 and the rectangular one in 1889, and it became China's first national flag. It is thus attested only for the empire's last fifty years."
+       "sv": "Drakflaggan, en blå drake på gul botten med en röd pärla. Kartan visar den trekantiga formen 1862–1888 och den rektangulära 1889–1911. Den rektangulära blev Kinas första nationsflagga. Före 1862 visar kartan i stället rikets drakemblem.",
+       "en": "The Dragon Flag, a blue dragon on a yellow field with a red pearl. The map shows the triangular form in 1862–1888 and the rectangular form in 1889–1911. The rectangular version became China's first national flag. Before 1862 the map instead shows the empire's dragon emblem."
       }
      }
     ],
@@ -10892,6 +11093,40 @@
     ],
     "review": "two-sources"
    },
+   "flags": [
+    {
+     "file": "qing-triangular-dragon",
+     "from": 1862,
+     "to": 1888,
+     "label": {
+      "sv": "Qings trekantiga drakflagga",
+      "en": "Qing triangular dragon flag",
+      "de": "Dreieckige Drachenflagge der Qing",
+      "es": "Bandera de dragón triangular de la dinastía Qing",
+      "fr": "Drapeau au dragon triangulaire des Qing"
+     },
+     "sources": [
+      "wp-flag-qing"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "qing-rectangular-dragon",
+     "from": 1889,
+     "to": 1911,
+     "label": {
+      "sv": "Qings rektangulära drakflagga",
+      "en": "Qing rectangular dragon flag",
+      "de": "Rechteckige Drachenflagge der Qing",
+      "es": "Bandera de dragón rectangular de la dinastía Qing",
+      "fr": "Drapeau au dragon rectangulaire des Qing"
+     },
+     "sources": [
+      "wp-flag-qing"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "symbol": "dragon-flag",
    "capitals": [
     {
@@ -11914,6 +12149,40 @@
     ],
     "review": "two-sources"
    },
+   "flags": [
+    {
+     "file": "russia-black-yellow-white",
+     "from": 1858,
+     "to": 1895,
+     "label": {
+      "sv": "Ryska imperiets svart-gul-vita flagga",
+      "en": "Russian imperial black-yellow-white flag",
+      "de": "Schwarz-gelb-weiße Flagge des Russischen Reiches",
+      "es": "Bandera imperial rusa negra, amarilla y blanca",
+      "fr": "Drapeau impérial russe noir-jaune-blanc"
+     },
+     "sources": [
+      "wp-black-yellow-white-russia"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "russia-white-blue-red",
+     "from": 1896,
+     "to": 1916,
+     "label": {
+      "sv": "Ryska imperiets vit-blå-röda flagga",
+      "en": "Russian imperial white-blue-red flag",
+      "de": "Weiß-blau-rote Flagge des Russischen Reiches",
+      "es": "Bandera imperial rusa blanca, azul y roja",
+      "fr": "Drapeau impérial russe blanc-bleu-rouge"
+     },
+     "sources": [
+      "wp-flag-russia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "symbol": "double-eagle",
    "capitals": [
     {
@@ -12456,6 +12725,40 @@
     ],
     "review": "two-sources"
    },
+   "flags": [
+    {
+     "file": "sweden-union-badge",
+     "from": 1844,
+     "to": 1905,
+     "label": {
+      "sv": "Sveriges unionsflagga",
+      "en": "Swedish union flag",
+      "de": "Schwedische Unionsflagge",
+      "es": "Bandera sueca de la Unión",
+      "fr": "Drapeau suédois de l'Union"
+     },
+     "sources": [
+      "wp-list-flags-sweden"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "sweden-blue-yellow",
+     "from": 1906,
+     "to": 2024,
+     "label": {
+      "sv": "Sveriges blågula flagga",
+      "en": "Swedish blue-and-yellow flag",
+      "de": "Schwedische blau-gelbe Flagge",
+      "es": "Bandera sueca azul y amarilla",
+      "fr": "Drapeau suédois bleu et jaune"
+     },
+     "sources": [
+      "wp-list-flags-sweden"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "symbol": "three-crowns",
    "capitals": [
     {
@@ -13155,8 +13458,8 @@
        "en": "The symbol on the map"
       },
       "text": {
-       "sv": "Trikoloren, Frankrikes blå, vita och röda flagga. Den infördes 1794 och var flagga för kejsardömena och republikerna. Under bourbonernas restauration 1815–1830 användes i stället den vita kungaflaggan, så för de första femton åren på kartan stämmer inte symbolen.",
-       "en": "The tricolour, France's blue, white and red flag. It was introduced in 1794 and was the flag of the empires and the republics. During the Bourbon Restoration of 1815–1830 the white royal flag was used instead, so for the first fifteen years on the map the symbol does not match."
+       "sv": "Kartan visar Frankrikes vita kungaflagga 1815–1829 och trikoloren från 1830. Trikoloren – blå, vit och röd – infördes 1794 och var flagga för kejsardömena och republikerna. Under bourbonernas restauration användes i stället den vita kungaflaggan.",
+       "en": "The map shows France's royal white flag in 1815–1829 and the tricolour from 1830. The tricolour – blue, white and red – was introduced in 1794 and was the flag of the empires and the republics. During the Bourbon Restoration the white royal flag was used instead."
       }
      }
     ],
@@ -13339,6 +13642,40 @@
     ],
     "review": "source-checked"
    },
+   "flags": [
+    {
+     "file": "france-royal-white",
+     "from": 1815,
+     "to": 1829,
+     "label": {
+      "sv": "Frankrikes vita kungaflagga",
+      "en": "French royal white flag",
+      "de": "Französische königlich-weiße Flagge",
+      "es": "Bandera real blanca francesa",
+      "fr": "Drapeau royal blanc français"
+     },
+     "sources": [
+      "wp-flag-of-france"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "france-tricolour",
+     "from": 1830,
+     "to": 1957,
+     "label": {
+      "sv": "Frankrikes trikolor",
+      "en": "French tricolour",
+      "de": "Französische Trikolore",
+      "es": "Tricolor francés",
+      "fr": "Tricolore français"
+     },
+     "sources": [
+      "wp-flag-of-france"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "symbol": "tricolour",
    "capitals": [
     {
@@ -13945,6 +14282,24 @@
     ],
     "review": "source-checked"
    },
+   "flags": [
+    {
+     "file": "german-empire-tricolour",
+     "from": 1871,
+     "to": 1918,
+     "label": {
+      "sv": "Tyska rikets svart-vit-röda flagga",
+      "en": "German imperial black-white-red flag",
+      "de": "Schwarz-weiß-rote Flagge des Deutschen Reiches",
+      "es": "Bandera imperial alemana negra, blanca y roja",
+      "fr": "Drapeau impérial allemand noir-blanc-rouge"
+     },
+     "sources": [
+      "wp-flags-german-empire"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "symbol": "heraldic-eagle",
    "capitals": [
     {
@@ -14564,6 +14919,24 @@
     ],
     "review": "source-checked"
    },
+   "flags": [
+    {
+     "file": "japan-hinomaru",
+     "from": 1870,
+     "to": 1945,
+     "label": {
+      "sv": "Japans Hinomaru",
+      "en": "Japanese Hinomaru",
+      "de": "Japanische Hinomaru",
+      "es": "Hinomaru japonés",
+      "fr": "Hinomaru japonais"
+     },
+     "sources": [
+      "wp-flag-japan"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "symbol": "chrysanthemum",
    "capitals": [
     {
@@ -14680,8 +15053,8 @@
        "en": "The symbol on the map"
       },
       "text": {
-       "sv": "Juda lejon. Det var en titel för kejsarna av den salomoniska ätten, som räknade sin härkomst från kung Salomo, och en karta från 1683 av Hiob Ludolf beskriver lejonet som det etiopiska kejsardömets kungliga tecken. Det fanns på Etiopiens flagga 1897–1974. Det är alltså belagt bara för en del av rikets tid. På Haile Selassies kejsarfana bär lejonet en stav med kors; korset är inte med på kartans teckning.",
-       "en": "The Lion of Judah. It was a title for the emperors of the Solomonic house, who traced their descent from King Solomon, and a map from 1683 by Hiob Ludolf describes the lion as the Ethiopian empire's royal emblem. It was on Ethiopia's flag in 1897–1974. It is thus attested only for part of the empire's time. On Haile Selassie's imperial banner the lion carries a staff with a cross; the cross is not included in the map's drawing."
+       "sv": "Juda lejon. Det var en titel för kejsarna av den salomoniska ätten, som räknade sin härkomst från kung Salomo, och en karta från 1683 av Hiob Ludolf beskriver lejonet som det etiopiska kejsardömets kungliga tecken. Kartan visar den kejserliga fanan med lejonet 1914–1935 och 1942–1974; däremellan och före 1914 används lejonet som emblem. På Haile Selassies kejsarfana bär lejonet en stav med kors; den förenklade flaggan behåller bara flaggans huvudmotiv.",
+       "en": "The Lion of Judah. It was a title for the emperors of the Solomonic house, who traced their descent from King Solomon, and a map from 1683 by Hiob Ludolf describes the lion as the Ethiopian empire's royal emblem. The map shows the imperial flag with the lion in 1914–1935 and 1942–1974; between those periods and before 1914 it uses the lion as an emblem. On Haile Selassie's imperial banner the lion carries a staff with a cross; the simplified flag keeps only the flag's main motif."
       }
      }
     ],
@@ -14873,6 +15246,40 @@
     ],
     "review": "source-checked"
    },
+   "flags": [
+    {
+     "file": "ethiopia-imperial",
+     "from": 1914,
+     "to": 1935,
+     "label": {
+      "sv": "Etiopiens kejserliga fana",
+      "en": "Ethiopian imperial flag",
+      "de": "Kaiserliche Flagge Äthiopiens",
+      "es": "Bandera imperial etíope",
+      "fr": "Drapeau impérial éthiopien"
+     },
+     "sources": [
+      "wp-flag-of-ethiopia"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "ethiopia-imperial",
+     "from": 1942,
+     "to": 1974,
+     "label": {
+      "sv": "Etiopiens kejserliga fana",
+      "en": "Ethiopian imperial flag",
+      "de": "Kaiserliche Flagge Äthiopiens",
+      "es": "Bandera imperial etíope",
+      "fr": "Drapeau impérial éthiopien"
+     },
+     "sources": [
+      "wp-flag-of-ethiopia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "symbol": "judah-lion",
    "capitals": [
     {
@@ -18791,6 +19198,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"argentina-sun","from":1834,"to":2024,"label":{"sv":"Argentinas solflagga","en":"Argentine Sun flag","de":"Argentinische Sonnenflagge","es":"Bandera argentina con sol","fr":"Drapeau argentin au soleil"},"sources":["wp-flag-argentina"],"review":"source-checked"}],
    "facts": {
     "summary": {
      "sv": "Argentina är en förbundsstat i södra Sydamerika med huvudstaden Buenos Aires. Landet växte fram ur det spanska vicekungadömet Río de la Plata och förklarade sig självständigt 9 juli 1816.",
@@ -19265,6 +19673,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"uruguay-nine-stripes","from":1830,"to":2024,"label":{"sv":"Uruguays niostripiga flagga","en":"Uruguayan nine-stripe flag","de":"Uruguayische Flagge mit neun Streifen","es":"Bandera uruguaya de nueve franjas","fr":"Drapeau uruguayen à neuf bandes"},"sources":["wp-flag-uruguay"],"review":"source-checked"}],
    "facts": {
     "summary": {
      "sv": "Uruguay, officiellt Republiken östra Uruguay, är en republik i sydöstra Sydamerika med huvudstaden Montevideo. Landet blev självständigt 1828, efter en kamp mellan Portugal, Spanien, Förenade provinserna i Río de la Plata och Brasilien.",
@@ -21567,6 +21976,24 @@
     ],
     "review": "source-checked"
    },
+   "flags": [
+    {
+     "file": "india-tricolour",
+     "from": 1947,
+     "to": 2024,
+     "label": {
+      "sv": "Indiens trikolor med Ashoka-chakra",
+      "en": "Indian tricolour with Ashoka Chakra",
+      "de": "Indische Trikolore mit Ashoka-Chakra",
+      "es": "Tricolor de la India con chakra de Ashoka",
+      "fr": "Tricolore indien avec chakra d'Ashoka"
+     },
+     "sources": [
+      "wp-flag-india"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "capitals": [
     {
      "name": {
@@ -21890,6 +22317,24 @@
       "wikidata"
      ],
      "review": "two-sources"
+    }
+   ],
+   "flags": [
+    {
+     "file": "pakistan-crescent-star",
+     "from": 1947,
+     "to": 2024,
+     "label": {
+      "sv": "Pakistans stjärn- och halvmåneflagga",
+      "en": "Pakistani star-and-crescent flag",
+      "de": "Pakistanische Stern-und-Mondsichel-Flagge",
+      "es": "Bandera pakistaní de estrella y media luna",
+      "fr": "Drapeau pakistanais à étoile et croissant"
+     },
+     "sources": [
+      "wp-flag-pakistan"
+     ],
+     "review": "source-checked"
     }
    ]
   },
@@ -24499,6 +24944,24 @@
      ],
      "review": "source-checked"
     }
+   ],
+   "flags": [
+    {
+     "file": "nigeria-green-white-green",
+     "from": 1961,
+     "to": 2024,
+     "label": {
+      "sv": "Nigerias grön-vit-gröna flagga",
+      "en": "Nigerian green-white-green flag",
+      "de": "Nigerianische grün-weiß-grüne Flagge",
+      "es": "Bandera nigeriana verde, blanca y verde",
+      "fr": "Drapeau nigérian vert-blanc-vert"
+     },
+     "sources": [
+      "wp-flag-nigeria"
+     ],
+     "review": "source-checked"
+    }
    ]
   },
   {
@@ -25853,6 +26316,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"canada-maple-leaf","from":1965,"to":2024,"label":{"sv":"Kanadas lönnlövsflagga","en":"Canadian maple leaf flag","de":"Kanadische Ahornblattflagge","es":"Bandera canadiense de la hoja de arce","fr":"Drapeau canadien à feuille d’érable"},"sources":["wp-flag-canada"],"review":"source-checked"}],
    "facts": {
     "summary": {
      "sv": "Kanada är en förbundsstat och konstitutionell monarki i Nordamerika, världens näst största land till ytan, med huvudstaden Ottawa. Landet bildades som dominion 1867 och blev steg för steg självständigt från Storbritannien.",
@@ -26028,6 +26492,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"chile-lone-star","from":1817,"to":2024,"label":{"sv":"Chiles ensamma stjärna","en":"Chile’s lone star flag","de":"Chiles Flagge mit einzelnem Stern","es":"Bandera chilena de la estrella solitaria","fr":"Drapeau chilien à étoile solitaire"},"sources":["wp-flag-chile"],"review":"source-checked"}],
    "facts": {
     "summary": {
      "sv": "Chile är en republik längs Sydamerikas västkust, mellan Anderna och Stilla havet, med huvudstaden Santiago. Landet förklarade sig självständigt från Spanien 1818.",
@@ -26204,6 +26669,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"peru-red-white-red","from":1825,"to":2024,"label":{"sv":"Perus röd-vita flagga","en":"Peruvian red-and-white flag","de":"Peruanische rot-weiße Flagge","es":"Bandera peruana roja y blanca","fr":"Drapeau péruvien rouge et blanc"},"sources":["wp-flag-peru"],"review":"source-checked"}],
    "facts": {
     "summary": {
      "sv": "Peru är en republik i västra Sydamerika med huvudstaden Lima. Här låg Caral–Supe, Amerikas tidigaste civilisation, och Inkariket. Landet utropade sin självständighet från Spanien 1821 och fullbordade den 1824.",
@@ -26387,6 +26853,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"bolivia-tricolour","from":1851,"to":2024,"label":{"sv":"Bolivias röd-gul-gröna trikolor","en":"Bolivian red-yellow-green tricolour","de":"Bolivianische rot-gelb-grüne Trikolore","es":"Tricolor boliviana rojo-amarillo-verde","fr":"Tricolore bolivien rouge-jaune-vert"},"sources":["wp-flag-bolivia"],"review":"source-checked"}],
    "facts": {
     "summary": {
      "sv": "Bolivia är ett land utan kust i centrala Sydamerika. Regeringen sitter i La Paz, medan Sucre är huvudstad enligt grundlagen. Republiken, uppkallad efter Simón Bolívar, utropades 6 augusti 1825.",
@@ -26605,6 +27072,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"colombia-tricolour","from":1861,"to":2024,"label":{"sv":"Colombias gul-blå-röda trikolor","en":"Colombian yellow-blue-red tricolour","de":"Kolumbianische gelb-blau-rote Trikolore","es":"Tricolor colombiana amarillo-azul-rojo","fr":"Tricolore colombien jaune-bleu-rouge"},"sources":["wp-flag-colombia"],"review":"source-checked"}],
    "facts": {
     "summary": {
      "sv": "Colombia är en republik i nordvästra Sydamerika med huvudstaden Bogotá. Landet förklarade sig självständigt 1810 och har bytt namn och styrelseskick flera gånger; dagens namn och centralstyrda republik är från 1886.",
@@ -27874,7 +28342,25 @@
      "ud-avradan-pakistan"
     ],
     "review": "source-checked"
-   }
+   },
+   "flags": [
+    {
+     "file": "china-five-colour",
+     "from": 1912,
+     "to": 1928,
+     "label": {
+      "sv": "Kinas femfärgsflagga",
+      "en": "Chinese five-colour flag",
+      "de": "Chinesische Fünffarbenflagge",
+      "es": "Bandera china de cinco colores",
+      "fr": "Drapeau chinois à cinq couleurs"
+     },
+     "sources": [
+      "wp-flag-china"
+     ],
+     "review": "source-checked"
+    }
+   ]
   },
   {
    "id": "taiwan",
@@ -28329,6 +28815,40 @@
      },
      "sources": [
       "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "flags": [
+    {
+     "file": "south-africa-1928",
+     "from": 1932,
+     "to": 1993,
+     "label": {
+      "sv": "Sydafrikas flagga från 1928",
+      "en": "South African flag of 1928",
+      "de": "Südafrikanische Flagge von 1928",
+      "es": "Bandera sudafricana de 1928",
+      "fr": "Drapeau sud-africain de 1928"
+     },
+     "sources": [
+      "wp-flag-south-africa"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "south-africa-1994",
+     "from": 1994,
+     "to": 2024,
+     "label": {
+      "sv": "Sydafrikas flagga från 1994",
+      "en": "South African flag of 1994",
+      "de": "Südafrikanische Flagge von 1994",
+      "es": "Bandera sudafricana de 1994",
+      "fr": "Drapeau sud-africain de 1994"
+     },
+     "sources": [
+      "wp-flag-south-africa"
      ],
      "review": "source-checked"
     }
@@ -29549,6 +30069,56 @@
      },
      "sources": [
       "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "flags": [
+    {
+     "file": "ghana-black-star",
+     "from": 1958,
+     "to": 1961,
+     "label": {
+      "sv": "Ghanas flagga med svart stjärna",
+      "en": "Ghanaian flag with black star",
+      "de": "Ghanaische Flagge mit schwarzem Stern",
+      "es": "Bandera ghanesa con estrella negra",
+      "fr": "Drapeau ghanéen à étoile noire"
+     },
+     "sources": [
+      "wp-flag-ghana"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "ghana-white-tricolour",
+     "from": 1962,
+     "to": 1965,
+     "label": {
+      "sv": "Ghanas röd-vit-gröna flagga",
+      "en": "Ghanaian red-white-green flag",
+      "de": "Ghanaische rot-weiß-grüne Flagge",
+      "es": "Bandera ghanesa roja, blanca y verde",
+      "fr": "Drapeau ghanéen rouge-blanc-vert"
+     },
+     "sources": [
+      "wp-flag-ghana"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "ghana-black-star",
+     "from": 1966,
+     "to": 2024,
+     "label": {
+      "sv": "Ghanas flagga med svart stjärna",
+      "en": "Ghanaian flag with black star",
+      "de": "Ghanaische Flagge mit schwarzem Stern",
+      "es": "Bandera ghanesa con estrella negra",
+      "fr": "Drapeau ghanéen à étoile noire"
+     },
+     "sources": [
+      "wp-flag-ghana"
      ],
      "review": "source-checked"
     }
@@ -33306,6 +33876,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"bahamas","from":1973,"to":2024,"label":{"sv":"Bahamas flagga","en":"Flag of the Bahamas","de":"Flagge der Bahamas","es":"Bandera de Bahamas","fr":"Drapeau des Bahamas"},"sources":["wp-flag-bahamas"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -33397,6 +33968,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"jamaica","from":1963,"to":2024,"label":{"sv":"Jamaicas flagga","en":"Flag of Jamaica","de":"Flagge Jamaikas","es":"Bandera de Jamaica","fr":"Drapeau de la Jamaïque"},"sources":["wp-flag-jamaica"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -33443,6 +34015,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"trinidad-and-tobago","from":1963,"to":2024,"label":{"sv":"Trinidad och Tobagos flagga","en":"Flag of Trinidad and Tobago","de":"Flagge von Trinidad und Tobago","es":"Bandera de Trinidad y Tobago","fr":"Drapeau de Trinité-et-Tobago"},"sources":["wp-flag-trinidad-and-tobago"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -33489,6 +34062,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"barbados","from":1967,"to":2024,"label":{"sv":"Barbados flagga","en":"Flag of Barbados","de":"Flagge von Barbados","es":"Bandera de Barbados","fr":"Drapeau de la Barbade"},"sources":["wp-flag-barbados"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -33535,6 +34109,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"antigua-and-barbuda","from":1967,"to":2024,"label":{"sv":"Antigua och Barbudas flagga","en":"Flag of Antigua and Barbuda","de":"Flagge von Antigua und Barbuda","es":"Bandera de Antigua y Barbuda","fr":"Drapeau d’Antigua-et-Barbuda"},"sources":["wp-flag-antigua-and-barbuda"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -33581,6 +34156,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"grenada","from":1976,"to":2024,"label":{"sv":"Grenadas flagga","en":"Flag of Grenada","de":"Flagge Grenadas","es":"Bandera de Granada","fr":"Drapeau de la Grenade"},"sources":["wp-flag-grenada"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -33627,6 +34203,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"saint-kitts-and-nevis","from":1983,"to":2024,"label":{"sv":"Saint Kitts och Nevis flagga","en":"Flag of Saint Kitts and Nevis","de":"Flagge von St. Kitts und Nevis","es":"Bandera de San Cristóbal y Nieves","fr":"Drapeau de Saint-Christophe-et-Niévès"},"sources":["wp-flag-saint-kitts-and-nevis"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -33673,6 +34250,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"saint-lucia","from":2002,"to":2024,"label":{"sv":"Saint Lucias flagga","en":"Flag of Saint Lucia","de":"Flagge von St. Lucia","es":"Bandera de Santa Lucía","fr":"Drapeau de Sainte-Lucie"},"sources":["wp-flag-saint-lucia"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -33719,6 +34297,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"costa-rica","from":1848,"to":2024,"label":{"sv":"Costa Ricas flagga","en":"Flag of Costa Rica","de":"Flagge Costa Ricas","es":"Bandera de Costa Rica","fr":"Drapeau du Costa Rica"},"sources":["wp-flag-costa-rica"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -33765,6 +34344,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"guatemala","from":1871,"to":2024,"label":{"sv":"Guatemalas civilflagga","en":"Guatemalan civil flag","de":"Guatemaltekische Zivilflagge","es":"Bandera civil guatemalteca","fr":"Drapeau civil guatémaltèque"},"sources":["wp-flag-guatemala"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -33811,6 +34391,7 @@
      "review": "source-checked"
     }
    ],
+   "flags": [{"file":"honduras-five-stars","from":1866,"to":2024,"label":{"sv":"Honduras femstjärniga flagga","en":"Honduran five-star flag","de":"Honduranische Flagge mit fünf Sternen","es":"Bandera hondureña de cinco estrellas","fr":"Drapeau hondurien à cinq étoiles"},"sources":["wp-flag-honduras"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {

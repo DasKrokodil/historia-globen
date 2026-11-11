@@ -64,7 +64,7 @@ export class TourPlayer {
     this.closeBtn.setAttribute('aria-label', label('end'));
     this.closeBtn.title = label('end');
     // Avsluta bredvid Nästa i kortet och bredvid Fortsätt i pausraden, så att det syns hur man kommer ur turen
-    for (const b of [this.endBtn, this.pauseStop]) if (b) b.textContent = label('end');
+    if (this.endBtn) this.endBtn.textContent = label('end');
     this.read.textContent = label('read');
     this.srcBtn.textContent = label('sources');
     this.questionLabel.textContent = label('question') || 'Att fundera på:';
@@ -79,7 +79,6 @@ export class TourPlayer {
     this.next.addEventListener('click', () => (this.last ? this.end() : this.go(this.index + 1)));
     this.closeBtn.addEventListener('click', () => this.end());
     this.endBtn?.addEventListener('click', () => this.end());
-    this.pauseStop?.addEventListener('click', () => this.end());
     this.read.addEventListener('click', () => { const id = this.step?.open; if (id) app.select(id, false); });
     this.srcBtn.addEventListener('click', () => { const ids = this.step?.sources ?? []; app.openSources(ids); });
     // Skriv ut (#738): bara i en lektionstur, alltså en tur med lärarfält (lesson, #737)
@@ -146,11 +145,19 @@ export class TourPlayer {
       b.append(name, meta);
       b.addEventListener('click', () => { this.closeMenu(false); this.start(tour.id, this.button); });
       li.append(b);
-      // En lektionstur (en tur med lärarfält) märks med årskurs och tid, och kan startas som lektion (#889).
-      // Allt kommer ur turens lesson-fält; lektionsläget är detsamma som länken m=lektion ger (#795).
+      // Varje tur har en synlig startknapp (#1002); rubriken är fortfarande klickbar. En lektionstur märks dessutom
+      // med årskurs och tid, och kan startas som lektion (#889). Allt kommer ur turens lesson-fält; lektionsläget
+      // är detsamma som länken m=lektion ger (#795).
+      const row = document.createElement('div'); row.className = 'tour-lesson-row';
+      const info = document.createElement('span'); info.className = 'tour-lesson-meta';
+      const actions = document.createElement('span'); actions.className = 'tour-actions';
+      const play = document.createElement('button');
+      play.type = 'button'; play.className = 'tour-start-btn'; play.dataset.tour = tour.id;
+      play.textContent = ui('tour.start');
+      play.setAttribute('aria-label', ui('tour.startLabel', { title: t(tour.title) }));
+      play.addEventListener('click', () => { this.closeMenu(false); this.start(tour.id, this.button); });
+      actions.append(play);
       if (tour.lesson) { // lektionsläget skapas efter spelaren, så bara lärarfältet avgör här (som canStart)
-        const row = document.createElement('div'); row.className = 'tour-lesson-row';
-        const info = document.createElement('span'); info.className = 'tour-lesson-meta';
         const grades = tour.lesson.grades === 'gy' ? ui('print.gy') : String(tour.lesson.grades).replace('-', '–');
         info.textContent = ui('tour.lessonMeta', { grades, n: tour.lesson.minutes });
         const go = document.createElement('button');
@@ -163,9 +170,10 @@ export class TourPlayer {
           lesson?.enter(tour.id, { teacher: true }); // den som väljer Starta som lektion i menyn är läraren (#885)
           if (!this.start(tour.id, this.button)) lesson?.leave();
         });
-        row.append(info, go);
-        li.append(row);
+        actions.append(go);
       }
+      row.append(info, actions);
+      li.append(row);
       return li;
     }));
   }
@@ -225,6 +233,7 @@ export class TourPlayer {
     this.name.textContent = t(tour.title);
     this.card.hidden = false;
     app.root.classList.add('touring');
+    this.lockTimeControls(true);
     this.go(this.stepIndex(stepId));
     requestAnimationFrame(() => this.next.focus({ preventScroll: true }));
     return true;
@@ -271,7 +280,6 @@ export class TourPlayer {
     if (this.printStatus) this.printStatus.hidden = true;
     this.back.hidden = this.index === 0;
     if (this.endBtn) this.endBtn.hidden = this.last; // sista steget: Klar avslutar
-    if (this.pauseStop) this.pauseStop.hidden = false;
     this.next.textContent = this.last ? t(this.labels.done) : `${t(this.labels.next)} →`;
     // I en lektion står slutkortet kvar efter sista steget; utgången är "Visa hela globen" i bandet (#795)
     const stay = this.last && !!app.lesson?.active;
@@ -287,6 +295,15 @@ export class TourPlayer {
       const end = app.lesson?.active ? ui('lesson.endAnnounce', { exit: ui('lesson.exit') }) : ui('tour.endAnnounce');
       timeline.announce(`${say}. ${end}`);
     } else timeline.pause(note, true, say);
+  }
+
+  /** Medan turen styr tiden är turkortets Nästa den enda framåtknappen (#999): stegknapparna och spelknappen i
+   *  tidsraden tonas ned och går inte att nå. Pausraden visar bara var i turen man är (CSS döljer Fortsätt och Avsluta där). */
+  lockTimeControls(on) {
+    for (const b of document.querySelectorAll('.timebar .controls .step, #btn-play')) {
+      b.disabled = on;
+      b.classList.toggle('tour-locked', on);
+    }
   }
 
   /** Smal skärm: kortet täcker globens nedre del, så klotet lyfts och stegets plats hamnar mitt i den fria ytan
@@ -326,8 +343,8 @@ export class TourPlayer {
     this.next.hidden = false;
     this.tour = null; this.target = null;
     this.card.hidden = true;
-    if (this.pauseStop) this.pauseStop.hidden = true;
     app.root.classList.remove('touring');
+    this.lockTimeControls(false);
     app.globe.setViewLift(0);
     app.timeline.pause();
     app.select(null, false);
@@ -336,6 +353,8 @@ export class TourPlayer {
       app.layers.set(id, on);
       app.layers.onChange(id, on);
     }
+    // Vyns urval (Översikt) efter lagren: ett lagerbyte ovan lämnar vyn, och en lektion släppte urvalet när den började (#1139)
+    if ('tag' in restore) app.layers.setTag(restore.tag);
     if (restore.focus) app.startFocus(restore.focus);
     if (restore.camera) { app.globe.flyTo(restore.camera.lat, restore.camera.lon); app.globe.setZoom(restore.camera.zoom); }
     const back = this.opener?.isConnected && this.opener.offsetParent !== null ? this.opener : null;
