@@ -1853,6 +1853,14 @@
     {"id": "wp-flag-guatemala", "title": "Flag of Guatemala – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Guatemala", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
     {"id": "wp-flag-uruguay", "title": "Flag of Uruguay – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Uruguay", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
     {"id": "wp-flag-honduras", "title": "Flag of Honduras – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Honduras", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
-    {"id": "wp-flag-peru", "title": "Flag of Peru – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Peru", "license": "CC BY-SA 4.0", "checked": "2026-11-10"}
+    {"id": "wp-flag-peru", "title": "Flag of Peru – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Peru", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    { "id": "wp-ansgar", "title": "Ansgar – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ansgar", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-sv-ansgar", "title": "Ansgar – Wikipedia (svenska)", "url": "https://sv.wikipedia.org/wiki/Ansgar", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-archdiocese-of-uppsala", "title": "Archdiocese of Uppsala – Wikipedia", "url": "https://en.wikipedia.org/wiki/Archdiocese_of_Uppsala", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-swedish-emigration-to-the-us", "title": "Swedish emigration to the United States – Wikipedia", "url": "https://en.wikipedia.org/wiki/Swedish_emigration_to_the_United_States", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-swedish-famine-1867-1869", "title": "Swedish famine of 1867–1869 – Wikipedia", "url": "https://en.wikipedia.org/wiki/Swedish_famine_of_1867%E2%80%931869", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-sv-representationsreformen", "title": "Representationsreformen i Sverige – Wikipedia (svenska)", "url": "https://sv.wikipedia.org/wiki/Representationsreformen_i_Sverige", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-sv-kvinnlig-rostratt", "title": "Kvinnlig rösträtt i Sverige – Wikipedia (svenska)", "url": "https://sv.wikipedia.org/wiki/Kvinnlig_r%C3%B6str%C3%A4tt_i_Sverige", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-1911-swedish-general-election", "title": "1911 Swedish general election – Wikipedia", "url": "https://en.wikipedia.org/wiki/1911_Swedish_general_election", "license": "CC BY-SA 4.0", "checked": "2026-11-11" }
   ]
 }
