@@ -2,6 +2,8 @@
 "period":"1500-1799",
 "lang":"de",
 "events":{
+"slaget-vid-landskrona":{"note":{"title":{"de":"Zum Kalender"},"text":{"de":"Wikipedia nennt den 14. Juli 1677. Wikidata nennt zwei Daten, den 14. und den 24. Juli 1677. Der Unterschied von zehn Tagen rührt wahrscheinlich daher, dass das Datum nach verschiedenen Kalendern (julianisch und gregorianisch) gerechnet wurde. Wir zeigen das Datum so, wie Wikipedia es schreibt."}}},
+"slaget-vid-helsingborg":{"note":{"title":{"de":"Zum Kalender"},"text":{"de":"Wikipedia nennt den 27. Februar (julianischer Kalender), den 28. Februar (schwedischer Kalender) und den 10. März 1710 (gregorianisch). Wikidata nennt den 10. März (gregorianisch)."}}},
 "batavia-forliser":{"image":{"caption":{"de":"Das Massaker nach dem Schiffbruch der Batavia 1629 auf der Insel Batavia’s Kerckhof (Batavias Friedhof), schematisch dargestellt, unter anderem mit drei Galgen. Tafel von Aart Dircksz Oossaan, nach 1680, eine überarbeitete Kopie einer Illustration aus Francisco Pelsaerts Bericht. Lizenz: Public domain."}}},
 "tasman-och-maori-i-mohua":{"image":{"caption":{"de":"Die Mörderbucht (heute Golden Bay / Mohua) am 18. Dezember 1642: die niederländischen Schiffe Zeehaen und Heemskerck vor Anker, umgeben von Kanus der Māori. Zeichnung von Isaack Gilsemans, dem Zeichner Abel Tasmans, aus dem Nationaal Archief. Die erste europäische Darstellung von Māori. Lizenz: Public domain."}}},
 "agadez-mosken":{"summary":{"de":"Im Jahr 1515 wird die Moschee von Agadez gebaut, im selben Jahr, in dem die Stadt unter das Songhai-Reich kommt. Die Moschee mit einem Minarett aus Lehmziegeln wurde 1844 restauriert und teilweise neu gebaut. Sie versammelt noch heute Tausende Muslime zum Freitagsgebet."}},

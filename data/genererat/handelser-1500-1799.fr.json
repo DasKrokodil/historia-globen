@@ -2,6 +2,8 @@
 "period":"1500-1799",
 "lang":"fr",
 "events":{
+"slaget-vid-landskrona":{"note":{"title":{"fr":"À propos du calendrier"},"text":{"fr":"Wikipédia indique le 14 juillet 1677. Wikidata indique deux dates, le 14 et le 24 juillet 1677. L'écart de dix jours tient probablement à ce que la date a été calculée selon des calendriers différents (julien et grégorien). Nous indiquons la date telle que Wikipédia l'écrit."}}},
+"slaget-vid-helsingborg":{"note":{"title":{"fr":"À propos du calendrier"},"text":{"fr":"Wikipédia indique le 27 février (calendrier julien), le 28 février (calendrier suédois) et le 10 mars 1710 (grégorien). Wikidata indique le 10 mars (grégorien)."}}},
 "batavia-forliser":{"image":{"caption":{"fr":"Le massacre qui suivit le naufrage du Batavia en 1629 sur l’île appelée Batavia’s Kerckhof (le cimetière du Batavia), représentée de façon schématique avec notamment trois potences. Planche d’Aart Dircksz Oossaan, postérieure à 1680, copie modifiée d’une illustration du récit de Francisco Pelsaert. Licence : Public domain."}}},
 "tasman-och-maori-i-mohua":{"image":{"caption":{"fr":"La baie des Meurtriers (aujourd’hui Golden Bay / Mohua) le 18 décembre 1642 : les navires néerlandais Zeehaen et Heemskerck à l’ancre, entourés de pirogues maories. Dessin d’Isaack Gilsemans, le dessinateur d’Abel Tasman, conservé au Nationaal Archief. La première représentation européenne des Maoris. Licence : Public domain."}}},
 "agadez-mosken":{"summary":{"fr":"En 1515, la mosquée d'Agadez est construite, l'année même où la ville passe sous l'Empire songhaï. La mosquée, au minaret en briques de terre crue, fut restaurée et en partie reconstruite en 1844. Elle rassemble encore des milliers de musulmans pour la prière du vendredi."}},
