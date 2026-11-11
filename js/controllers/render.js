@@ -2,7 +2,7 @@
 // som syns (beslut 2), ritar lagerbilden (beslut 1) och uppdaterar listan, teckenförklaringarna och årtalet.
 // Sist får uppspelningen (playback.js) se om något ska pausa. Här finns också namnens storlek efter zoom
 // (#154, #271, #301, #358) och rikets berättelse för Samtidigt-kortet (#171).
-import { loadEventDetails, formatCentury, pluralUi } from '../model.js';
+import { loadEventDetails, formatCentury, formatEventTime, pluralUi, t } from '../model.js';
 import { ui } from '../i18n.js';
 import { ZOOM_LEVELS, zoomLevel, pxPerImg, zoomView, eventKeepouts } from '../ui/zoomlevels.js';
 import { empireStory } from '../ui/funfact.js';
@@ -103,8 +103,13 @@ export function createRender(app) {
     timeline.setMarks(registry.marks(state), { curated: !!state.tag });
     prefetchDetails();
     const rangeLabel = range && rangeText(range.from, range.to);
+    const nextThemeEvent = focus?.type === 'theme' && !visible.length ? focus.themeEvents.find(e => e.start > wholeYear) : null;
+    const themeEmpty = focus?.type !== 'theme' || visible.length ? null : nextThemeEvent
+      ? ui('theme.emptyYearNext', { next: `${formatEventTime(nextThemeEvent)} · ${t(nextThemeEvent.title)}` })
+      : ui('theme.emptyYear');
     panel.render(visible, wholeYear, window, eventsOn, range ? { at: ui('range.at', { range: rangeLabel }), bare: rangeLabel, within, range }
-      : fine ? { at: ui('time.onDate', { date: timeline.format(year) }), bare: timeline.format(year), within, fine: true } : null);
+      : fine ? { at: ui('time.onDate', { date: timeline.format(year) }), bare: timeline.format(year), within, fine: true }
+      : themeEmpty ? { themeEmpty } : null);
     // Etiketten "Områden visas för år N" (#756) när riken eller religioner syns, och hur många markörer gränsen döljer
     app.range?.render(visible.filter(v => v.inside).length, { areasYear: areas.enabled || religions.enabled ? areaYear : null, capped: layer.capped });
     // Samma markörer i Platt vy (#313): de som syns på klotet, de i listan får klustras och etikett

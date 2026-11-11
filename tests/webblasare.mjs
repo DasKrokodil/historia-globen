@@ -1272,9 +1272,11 @@ async function run(browser, vp) {
 
   // Teman (#398): ett testtema ersätter data/teman.json via route, så inget riktigt tema behövs. Egen sida, eftersom
   // temana laddas en gång per sidladdning.
-  await check('ett tema väljs i Fokus och via länk, visar bara sina händelser och lämnar kategorivalet (#398)', async () => {
+  await check('tema hittas och lämnas, har lugna tomlägen och ryms i mobil (#398, #1113)', async () => {
     const { tp, tctx, errs } = await touchPage();
-    const ids = ['sintashta-stridsvagnar', 'fyren-pa-faros', 'dujiangyan', 'cai-lun-papper', 'zhang-hengs-seismoskop'];
+    const ids = ['sintashta-stridsvagnar', 'rhind-papyrusen', 'plimpton-322', 'babyloniska-astronomiska-dagbocker',
+      'fyren-pa-faros', 'dujiangyan', 'eratosthenes-mater-jordens-omkrets', 'aldsta-langa-rakningen-chiapa-de-corzo',
+      'cai-lun-papper', 'zhang-hengs-seismoskop', 'aryabhatiya', 'gutenberg'];
     const tx = v => ({ sv: v, en: v, de: v, es: v, fr: v });
     const doc = { schema: 'historia-globen/teman@1', themes: [{ id: 'testtema', name: tx('Testtema'), intro: tx('Ett urval för testet.'), events: ids, sources: [], review: 'source-checked' }] };
     try {
@@ -1286,10 +1288,50 @@ async function run(browser, vp) {
       await tp.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Testtema/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
       await tp.waitForSelector('#detail', { state: 'visible', timeout: T.step });
       if (!/Ett urval för testet/.test(await tp.textContent('#detail'))) throw new Error('introduktionskortet visar inte temats text');
+      if (!/oavsett.*kategor/i.test(await tp.textContent('#detail'))) throw new Error('introduktionskortet förklarar inte kategorifiltret');
+      if (await tp.getAttribute('#detail', 'aria-live') !== 'polite') throw new Error('temakortet saknar aria-live');
+      if (await tp.evaluate(() => !document.activeElement?.matches('#detail [data-close]'))) throw new Error('fokus flyttas inte in i temakortet');
+      await tp.waitForFunction(() => new URLSearchParams(location.hash.slice(1)).has('c'), null, { timeout: T.step });
+      const camera = await tp.evaluate(() => new URLSearchParams(location.hash.slice(1)).get('c').split(',').slice(0, 2).map(Number));
+      if (Math.hypot(camera[0] - 52.4862, camera[1] - 60.1883) < 1) throw new Error('temakameran står kvar på den tidigaste händelsen');
+      const layout = await tp.evaluate(() => {
+        const detail = document.getElementById('detail').getBoundingClientRect();
+        const track = document.getElementById('track').getBoundingClientRect();
+        const globe = document.getElementById('globe-canvas').getBoundingClientRect();
+        return { ratio: detail.height / innerHeight, listOpen: document.querySelector('.theme-event-list').open,
+          globeAbove: detail.top - globe.top, trackVisible: track.top >= 0 && track.bottom <= innerHeight };
+      });
+      if (layout.ratio > 0.5) throw new Error(`temakortet täcker ${Math.round(layout.ratio * 100)} % av höjden`);
+      if (layout.globeAbove < 120) throw new Error(`bara ${Math.round(layout.globeAbove)} px av globytan syns ovanför temakortet`);
+      if (!layout.trackVisible) throw new Error('tidsreglaget syns inte tillsammans med temakortet');
+      if (vp.width <= 760 && layout.listOpen) throw new Error('temats händelselista är inte hopfälld i mobil');
       const inside = await listed();
       if (!inside.length) throw new Error('inga händelser i listan inom temats spann');
       if (inside.some(id => !ids.includes(id))) throw new Error(`listan visar händelser utanför temat: ${inside.filter(id => !ids.includes(id)).join(', ')}`);
-      // 2. En avstängd kategori döljer inte temats händelser, och kategorivalet ändras inte
+      // 2. Escape stänger först kortet, sedan temat, och lämnar fokus på Sök och följ
+      await tp.keyboard.press('Escape');
+      if (!(await tp.isHidden('#detail')) || await tp.isHidden('#focus-bar')) throw new Error('första Escape ska bara stänga temakortet');
+      await tp.keyboard.press('Escape');
+      await tp.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+      const returnButton = vp.width <= 760 ? 'more-toggle' : 'btn-focus'; // mobilens stängda meny använder sin synliga Meny-knapp (#530)
+      if (await tp.evaluate(id => document.activeElement?.id !== id, returnButton)) throw new Error('fokus återgår inte till Sök och följ/Meny när temat avslutas');
+
+      // 3. Temagruppen ligger först under Alla, fliken listar temat och raden startar det
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#btn-more')) await tp.click('#btn-more');
+      await tp.click('#btn-focus');
+      if (await tp.isHidden('#focus-menu [data-tab="Teman"]')) await tp.waitForSelector('#focus-menu [data-tab="Teman"]', { state: 'visible', timeout: T.step });
+      const firstGroup = await tp.locator('#focus-menu [data-group]').first().getAttribute('data-group');
+      if (firstGroup !== 'Teman') throw new Error(`Teman ligger inte först under Alla (först är ${firstGroup})`);
+      await tp.click('#focus-menu [data-tab="Teman"]');
+      const row = tp.locator('#focus-menu [data-key="theme:testtema"]');
+      await row.waitFor({ state: 'visible', timeout: T.step });
+      if (!/12 händelser/.test(await row.textContent())) throw new Error(`raden saknar antalet händelser: ${await row.textContent()}`);
+      await row.click();
+      await tp.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Testtema/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
+      if (new URL(tp.url()).hash.indexOf('f=theme:testtema') < 0) await tp.waitForFunction(() => location.hash.includes('f=theme:testtema'), null, { timeout: T.step });
+
+      // 4. En avstängd kategori döljer inte temats händelser, och kategorivalet ändras inte
       const chip = tp.locator('#panel-filters [data-cat="vetenskap"]');
       await chip.evaluate(el => el.click());
       if (await chip.getAttribute('aria-pressed') !== 'false') throw new Error('kategorin gick inte att stänga av');
@@ -1298,28 +1340,38 @@ async function run(browser, vp) {
       // Konsolfel prövas bara för den första sidladdningen: när testet byter sida längre ned avbryts hämtningar som pågår,
       // och WebKit loggar dem som "access control checks" (releasekörningen 2026-11-09, #988)
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
-      // 3. Avsluta: alla händelser syns igen (kategorin är fortfarande avstängd, så vi slår på den igen)
-      await tp.click('#focus-exit');
+      // 5. Den tydliga knappen avslutar temat och stänger kortet; kategorivalet finns kvar
+      await tp.click('#detail [data-end-theme]');
       await tp.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+      if (!(await tp.isHidden('#detail'))) throw new Error('temakortet ligger kvar efter Avsluta temat');
+      if (await tp.evaluate(id => document.activeElement?.id !== id, returnButton)) throw new Error('Avsluta temat återställer inte fokus');
       await chip.evaluate(el => el.click());
       await tp.waitForFunction(ids => [...document.querySelectorAll('#event-list .event-btn')].some(b => !ids.includes(b.dataset.id)), ids, { timeout: T.step });
-      // 4. Fokusmenyn: fliken Teman listar temat med antal händelser, och raden startar temat
-      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
-      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#btn-more')) await tp.click('#btn-more');
-      await tp.click('#btn-focus');
-      if (await tp.isHidden('#focus-menu [data-tab="Teman"]')) await tp.waitForSelector('#focus-menu [data-tab="Teman"]', { state: 'visible', timeout: T.step });
-      await tp.click('#focus-menu [data-tab="Teman"]');
-      const row = tp.locator('#focus-menu [data-key="theme:testtema"]');
-      await row.waitFor({ state: 'visible', timeout: T.step });
-      if (!/5 händelser/.test(await row.textContent())) throw new Error(`raden saknar antalet händelser: ${await row.textContent()}`);
-      await row.click();
-      await tp.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Testtema/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
-      if (new URL(tp.url()).hash.indexOf('f=theme:testtema') < 0) await tp.waitForFunction(() => location.hash.includes('f=theme:testtema'), null, { timeout: T.step });
-      // 5. Ett okänt tema i länken ger det vanliga startläget
+
+      // 6. Ett år utan temahändelser pekar lugnt vidare till nästa
+      await tp.goto(`${BASE}?ny=tema-tomt#y=800&f=theme:testtema`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForFunction(() => !document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+      if (await tp.isHidden('#btn-panel') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+      await tp.click('#btn-panel');
+      await tp.waitForFunction(() => /Inga händelser i temat.*Nästa:/.test(document.getElementById('panel-sub').textContent), null, { timeout: T.step });
+
+      // 7. Ett okänt tema i länken ger startläget och ett lugnt besked
       await tp.goto(`${BASE}?ny=tema2#y=120&f=theme:finns-inte`);
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       if (!(await tp.isHidden('#focus-bar'))) throw new Error('ett okänt tema ska inte starta Fokus');
-      // 6. Utan teman (som i dag) syns ingen tom flik Teman
+      await tp.waitForSelector('#focus-notice', { state: 'visible', timeout: T.step });
+      if (!/inte tillgängligt/.test(await tp.textContent('#focus-notice'))) throw new Error('ett okänt tema saknar lugnt besked');
+
+      // 8. Ett draft-tema beter sig likadant
+      const draft = { ...doc, themes: [{ ...doc.themes[0], review: 'draft' }] };
+      await tp.route('**/data/teman.json*', r => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(draft) }));
+      await tp.goto(`${BASE}?ny=tema-draft#y=120&f=theme:testtema`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#focus-notice', { state: 'visible', timeout: T.step });
+      if (!(await tp.isHidden('#focus-bar'))) throw new Error('ett draft-tema ska ge samma lugna läge som ett saknat tema');
+
+      // 9. Utan teman syns ingen tom flik Teman, och den är inte fortsatt markerad
       await tp.route('**/data/teman.json*', r => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ schema: 'historia-globen/teman@1', themes: [] }) }));
       await tp.goto(`${BASE}?ny=tema3#y=120`);
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
@@ -1329,7 +1381,8 @@ async function run(browser, vp) {
       await tp.waitForSelector('#focus-menu [data-tab="Resor"]', { state: 'visible', timeout: T.step });
       await tp.waitForFunction(() => document.querySelector('#focus-menu [data-key^="route:"]'), null, { timeout: T.step }).catch(() => {});
       if (await tp.isVisible('#focus-menu [data-tab="Teman"]')) throw new Error('fliken Teman syns trots att det inte finns några teman');
-      return 'länk, urval, avstängd kategori, Fokusmenyn, okänt id och ingen tom flik';
+      if (await tp.getAttribute('#focus-menu [data-tab="Teman"]', 'aria-pressed') !== 'false') throw new Error('den dolda temafliken är fortfarande markerad');
+      return `ingång, tangentbord, utgång, tomt år, saknat/draft tema och kategorier; kort ${Math.round(layout.ratio * 100)} % av ${vp.width}×${vp.height}`;
     } finally { await tctx.close(); }
   });
 

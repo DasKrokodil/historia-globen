@@ -271,6 +271,7 @@ export class Panel {
     this.onYear = () => {};
     this.onReport = null; // (objekt, knapp) => öppnar formuläret "Rapportera faktafel" (js/ui/feedback.js)
     this.onShowPlace = null; // (händelse) => platsraden i mobil (#312): fäller ihop rutan och visar markören på globen
+    this.onEndTheme = () => {};
     this.selectedId = null;
     this.shown = null; // det faktarutan visar just nu; en rad som laddas klart ritar bara om samma ruta (#337)
     this.expandedRegions = new Set();
@@ -382,7 +383,7 @@ export class Panel {
     if (partialCount) parts.push(plural('range.partialCount', partialCount, { count: partialCount }));
     // I intervallet finns inget "nära": raden säger hur många som pågår under intervallet och hur många som sticker ut
     if (range) this.toggle.setAttribute('aria-label', stop(parts.join(', ')));
-    const filtersOff = emptyCause({ visibleCount: visible.length, filters: this.filters }) === 'filters';
+    const filtersOff = !labels?.themeEmpty && emptyCause({ visibleCount: visible.length, filters: this.filters }) === 'filters';
     this.sub.textContent = visible.length ? stop(range ? parts.join(', ') : `${summaryText}. ${parts.join(', ')}`)
       : range && !filtersOff ? ui('range.empty', { range: bare })
       : ui(filtersOff && !(this.tag && this.tags[this.tag]) ? 'panel.filtersOff' : 'panel.empty', { within, at: bare });
@@ -411,6 +412,11 @@ export class Panel {
         (this.root.querySelector('.filter[data-cat]') ?? this.toggle).focus({ preventScroll: true });
       });
       this.list.replaceChildren(help, reset);
+      return;
+    }
+    if (!visible.length && labels?.themeEmpty) {
+      this.sub.textContent = labels.themeEmpty;
+      this.list.innerHTML = `<p class="empty-note">${esc(labels.themeEmpty)}</p>`;
       return;
     }
     if (!visible.length) {
@@ -538,13 +544,19 @@ export class Panel {
       <div class="story-label">${esc(ui('theme.label'))}</div>
       <h3>${esc(t(theme.name))}</h3>
       <div class="story"><p>${esc(t(theme.intro))}</p>
-      <h4>${esc(ui('theme.events', { count: events.length }))}</h4>
-      <ul class="theme-events">${items}</ul></div>
+      <p class="theme-filter-note">${esc(ui('theme.filters'))}</p>
+      <button type="button" class="chip-btn theme-exit" data-end-theme>${esc(ui('theme.exit'))}</button>
+      <details class="theme-event-list"${matchMedia('(max-width: 760px)').matches ? '' : ' open'}>
+        <summary>${esc(ui('theme.events', { count: events.length }))}</summary>
+        <ul class="theme-events">${items}</ul>
+      </details></div>
       ${srcs.length ? srcLine(srcs, false) : ''}`;
     this.detail.scrollTop = 0;
     this.setDetailOpen(true);
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
+    this.detail.querySelector('[data-end-theme]').addEventListener('click', () => this.onEndTheme());
     for (const b of this.detail.querySelectorAll('[data-theme-event]')) b.addEventListener('click', () => this.onThemeEvent?.(b.dataset.themeEvent));
+    this.detail.querySelector('[data-close]').focus({ preventScroll: true });
   }
 
   /** Knappen "Rapportera faktafel" skickar bara objektets typ och id till formuläret. */
