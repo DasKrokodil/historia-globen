@@ -1392,7 +1392,9 @@ async function run(browser, vp) {
       await tp.waitForSelector('#detail', { state: 'visible', timeout: T.step });
       if (!/Ett urval för testet/.test(await tp.textContent('#detail'))) throw new Error('introduktionskortet visar inte temats text');
       if (!/oavsett.*kategor/i.test(await tp.textContent('#detail'))) throw new Error('introduktionskortet förklarar inte kategorifiltret');
-      if (await tp.getAttribute('#detail', 'aria-live') !== 'polite') throw new Error('temakortet saknar aria-live');
+      // #1138: #detail är inte aria-live (hela kortet byts via innerHTML och lästes om); temakortet annonseras i stället
+      // av att fokus flyttas in i det (nästa rad) och av rubriken i #screen-reader-status.
+      if (await tp.getAttribute('#detail', 'aria-live')) throw new Error('#detail ska inte vara aria-live (#1138)');
       if (await tp.evaluate(() => !document.activeElement?.matches('#detail [data-close]'))) throw new Error('fokus flyttas inte in i temakortet');
       await tp.waitForFunction(() => new URLSearchParams(location.hash.slice(1)).has('c'), null, { timeout: T.step });
       const camera = await tp.evaluate(() => new URLSearchParams(location.hash.slice(1)).get('c').split(',').slice(0, 2).map(Number));
