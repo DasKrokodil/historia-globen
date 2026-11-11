@@ -3,10 +3,8 @@
 import { formatYear, formatDate, isBCE, bce, BCE_TXT, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t } from './model.js';
 import { selectEventsForDate } from './date-events.js';
 import { ui } from './i18n.js';
-
-export const MIN_YEAR = -2999;   // 3000 f.Kr.
-// Tidslinjen slutar i dag enligt datorns klocka, men aldrig före 2026 då datan senast kontrollerades (#229)
-export const MAX_YEAR = Math.max(2026, new Date().getFullYear());
+import { MIN_YEAR, MAX_YEAR } from './state.js'; // gränserna bor i state.js (#1141), så att url-state.js inte behöver importera hela tidsreglaget
+export { MIN_YEAR, MAX_YEAR };
 
 // Tidslinjens fyra delar är en skala, inte epoker: de heter bara sina årtal (#979). Epoknamnen, med källa och
 // förenklingstext, finns bara i data/perioder.json.
@@ -543,7 +541,7 @@ export class Timeline extends EventTarget {
 
 /** "Hoppa till år": tryck på årtalet, skriv ett år (med f.Kr./e.Kr.) eller ett datum (#140, #551).
  *  Raderna i datumresultatet är knappar som stänger årshoppet och öppnar händelsen (`onSelect(id)`, #590). */
-export function setupYearJump(timeline, { button, pop, input, msg, epochs, events = [], onJump, onSelect }) {
+export function setupYearJump(timeline, { button, pop, input, msg, epochs, events = [], onJump, onSelect, onOpen }) {
   const result = pop.querySelector('#jump-date-result');
   const summary = pop.querySelector('#jump-date-summary');
   const list = pop.querySelector('#jump-date-events');
@@ -566,6 +564,7 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
   const open = () => {
     setEra('ce'); input.value = ''; showError(''); clearResult();
     pop.hidden = false; button.setAttribute('aria-expanded', 'true');
+    onOpen?.();
     input.focus();
   };
   const jump = y => {
@@ -665,4 +664,5 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
   input.addEventListener('input', () => { showError(''); clearResult(); });
   pop.addEventListener('keydown', ev => { if (ev.key === 'Escape') { close(); button.focus(); } });
   document.addEventListener('pointerdown', ev => { if (!pop.hidden && !pop.contains(ev.target) && !button.contains(ev.target)) close(); });
+  return { close };
 }

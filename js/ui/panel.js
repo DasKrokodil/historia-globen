@@ -1,7 +1,7 @@
 // "Samtidigt i världen": lista över synliga händelser per världsdel, kategorifilter
 // (i lagermenyn, #120, och som chips ovanför listan, #311) och faktarutan.
 import { buildAreaCurve } from './areacurve.js';
-import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, isVisibleReview, needDetails, misconceptionsFor } from '../model.js';
+import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, isVisibleReview, eventTags, needDetails, misconceptionsFor } from '../model.js';
 import { ui, LANG } from '../i18n.js';
 import { MIN_YEAR } from '../timeline.js';
 import { eventCitation } from './citation.js';
@@ -257,7 +257,7 @@ export class Panel {
     this.tags = tags ?? {};
     this.tag = null;
     this.tagCounts = new Map();
-    for (const e of events) for (const tag of (isVisibleReview(e.review) ? [...(Array.isArray(e.tags) ? e.tags : []), ...(e.significance === 1 ? ['oversikt'] : [])] : [])) this.tagCounts.set(tag, (this.tagCounts.get(tag) ?? 0) + 1);
+    for (const e of events) for (const tag of (isVisibleReview(e.review) ? eventTags(e) : [])) this.tagCounts.set(tag, (this.tagCounts.get(tag) ?? 0) + 1);
     // Bilden i faktarutan som inte laddas (#884): error bubblar inte, så lyssnaren fångar på vägen ned
     detail.addEventListener('error', ev => { if (ev.target?.tagName === 'IMG') markBrokenImage(ev.target); }, true);
     this.onSelect = () => {};

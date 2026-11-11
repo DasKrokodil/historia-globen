@@ -7,7 +7,7 @@
 //   y2    slutåret när ett tidsintervall är valt (#755): y=1914&y2=1918 är 1914–1918. En äldre version hoppar över y2
 //         och öppnar länken som året y
 //   c     kameran: lat,lon,zoom
-//   f     det man följer i Fokus: <typ>:<id>, typ = war, empire, religion eller route
+//   f     det man följer i Fokus: <typ>:<id>, typ = war, empire, religion, route eller theme (FOCUS_TYPES i js/state.js)
 //   l     lagren som är på (id i lagerregistret), kommaseparerade; "l=" betyder inga lager
 //   k     kategorierna som syns; saknas k syns alla kategorier
 //   g     händelseurvalet i en förinställd vy, till exempel g=oversikt; saknas g visar alla händelser
@@ -26,8 +26,7 @@
 // Bara y krävs (eller t, för en tur). Okända fält hoppas över, så att en länk från en senare version ändå öppnas så gott det går.
 // Filen har inga importer från webbläsaren och testas i node (tests/url-state.test.mjs).
 
-import { STATE_VERSION, fromJSON } from './state.js';
-import { MIN_YEAR, MAX_YEAR } from './timeline.js';
+import { STATE_VERSION, fromJSON, MIN_YEAR, MAX_YEAR } from './state.js';
 
 const ID = /^[a-z0-9-]+$/;
 export const LESSON_MODE = 'lektion';

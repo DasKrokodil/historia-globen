@@ -55,8 +55,7 @@ export function createFacts(app) {
     app.store.setSelected(origin?.id ?? null);
     panel.showReligion(r, origin, { type: 'religion', id: r.id, label: t(r.name), year: Math.round(timeline.year) });
     // Menyerna stängs så att faktarutan och punkten syns
-    app.surfaces.closeGroup('meny');
-    if (app.narrow.matches) app.surfaces.closeGroup('sidopanel');
+    app.surfaces.closeAll({ narrow: app.narrow.matches });
     if (origin && fly) globe.flyTo(origin._lat, origin._lon);
     app.refresh();
     return true;
@@ -101,8 +100,7 @@ export function createFacts(app) {
     // faktaruta (#301) visar kurvan bara det riket
     if (own) panel.setCurve(curveId, [polity], { from, to, color: g.color }, timeline.year);
     else if (g.file) loadEmpire(g).then(ps => panel.setCurve(g.id, ps, g, timeline.year)).catch(err => console.error(err));
-    app.surfaces.closeGroup('meny');
-    if (app.narrow.matches) app.surfaces.closeGroup('sidopanel');
+    app.surfaces.closeAll({ narrow: app.narrow.matches });
     app.refresh();
     return true;
   }

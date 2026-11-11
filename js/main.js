@@ -151,11 +151,13 @@ async function start() {
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
   ff.setSurpriseRange(() => timeline.focus);
-  setupYearJump(timeline, {
+  const yearJump = setupYearJump(timeline, {
     button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'),
     events: data.events, onJump: () => { app.range?.close(); app.orientToPanelHighlight(); }, // ett hopp till ett år stänger intervallet (#755)
     onSelect: id => app.select(id, false), // raderna i datumresultatet (#590); året är redan rätt
+    onOpen: () => app.surfaces.opened('jump'), // årshoppet och intervallformuläret stänger varandra (#1141)
   });
+  app.surfaces.register('jump', 'popover', () => yearJump.close());
 
 
   // Lagerväljaren: vilka lager som syns. Raderna och startläget kommer från registret.
@@ -237,7 +239,7 @@ async function start() {
     if (open) empireLegend.onClose();
     else {
       // Menyn ligger ovanpå kartan i mobil. Stäng den först, så att rikesrutan inte öppnas bakom den.
-      layers.close();
+      app.surfaces.closeGroup('meny', 'focus'); // bara Lager-menyn (Fokus-menyn ligger kvar som förut)
       empireLegend.setVisible(true); empireLegendButton.setAttribute('aria-expanded', 'true');
     }
   });
@@ -639,14 +641,14 @@ async function start() {
   app.lesson = new LessonMode({
     band: $('lesson-band'), title: $('lesson-band-title'), exit: $('lesson-exit'), printBtn: $('lesson-print'), printStatus: $('lesson-print-status'),
     notice: $('lesson-notice'), noticeText: $('lesson-notice-text'), retry: $('lesson-retry'), noticeClose: $('lesson-notice-close'), endLinks: $('tour-lesson-end'), endList: $('tour-lesson-end-list'),
-  }, { root: $('app'), printRoot: $('print-sheet'), timeline, tour, hunt, toursData, store, snapshot: () => app.modeSnapshot(), closeMenus: () => { surfaces.closeGroup('sidopanel'); surfaces.closeGroup('meny'); help.close(false); } });
+  }, { root: $('app'), printRoot: $('print-sheet'), timeline, tour, hunt, toursData, store, snapshot: () => app.modeSnapshot(), closeMenus: () => { surfaces.closeAll(); help.close(false); } });
   // Berättelseläget (#247): krigets första kort får "Följ berättelsen" när en tur berättar om kriget
   panel.tourFor = id => { const x = tour.forWar(id); return x && { id: x.id, label: tour.storyLabel(x) }; };
   // Rikens fall (#499): rikets faktaruta får en knapp när en tur följer rikets fall
   panel.empireTourFor = id => { const x = tour.forEmpire(id); return x && { id: x.id, label: tour.storyLabel(x, 'fall') }; };
   panel.onTour = (id, btn) => tour.start(id, btn);
   panel.howTour = () => { const x = tour.tours?.find(y => y.id === 'hur-vet-vi-det-har'); return x ? { id: x.id, label: t(x.title) } : null; };
-  tour.onOpen = () => { surfaces.closeGroup('sidopanel'); surfaces.closeGroup('meny'); };
+  tour.onOpen = () => surfaces.closeAll();
   // Tillståndet i adressen (#501) och knappen Dela (#64). En tur i adressen (t och s, eller ?tur=<id>) startar
   // direkt vid rätt steg och går före en delad vy (#736), till exempel från en lektion eller ett test.
   const address = createAddress(app);

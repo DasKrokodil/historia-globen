@@ -31,7 +31,7 @@ export function createSelection(app) {
     const e = id ? data.byId[id] : null;
     panel.showDetail(e);
     // I smal skärm stängs listan när en händelse väljs, så att faktarutan syns
-    if (e && app.narrow.matches) panel.setOpen(false);
+    if (e && app.narrow.matches) app.surfaces.closeGroup('sidopanel');
     if (e) {
       globe.flyTo(e._lat, e._lon);
       flatMap.reveal(e._lat, e._lon); // i Platt vy flyttas kartan dit om platsen inte syns

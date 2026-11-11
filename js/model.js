@@ -65,6 +65,15 @@ export function reviewLabel(status, subject) {
   return ui('review.line', { subject: subj, status: rv.label.charAt(0).toLowerCase() + rv.label.slice(1) });
 }
 export const settings = { showDrafts: false };
+/** Vyn Översikt (#868) är ingen tagg i datan utan fältet significance: händelserna ur den godkända listan har det satt till 1. */
+export const OVERVIEW_TAG = 'oversikt';
+/**
+ * Alla taggar en händelse har (#555, #868, #1141): taggarna i datan plus Översikt. Det enda stället som avgör det; Översikt-menyns antal
+ * (panel.js), det som ritas och Lager-vyerna (layers/events.js, som exporterar den vidare) läser alla samma lista.
+ * Ligger i model.js och inte i layers/events.js, som drar in three.js och därför inte går att läsa i node-testerna.
+ */
+export const eventTags = e => [...(Array.isArray(e?.tags) ? e.tags : []), ...(e?.significance === 1 ? [OVERVIEW_TAG] : [])];
+
 export const isVisibleReview = r => settings.showDrafts || r === 'source-checked' || r === 'two-sources';
 
 // ---------- Världsdelar ----------

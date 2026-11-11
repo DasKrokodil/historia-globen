@@ -206,7 +206,7 @@ export function createRange(app) {
     fromField.value = r ? r.from : y;
     toField.value = r ? r.to : Math.min(MAX_YEAR, y + 10);
     showError('');
-    $('jump-pop').hidden = true; $('year-jump').setAttribute('aria-expanded', 'false');
+    app.surfaces.opened('range'); // årshoppet stängs (samma grupp: popover)
     pop.hidden = false;
     openBtn.setAttribute('aria-expanded', 'true');
     fitPop();
@@ -229,6 +229,7 @@ export function createRange(app) {
     openBtn.setAttribute('aria-expanded', 'false');
     if (refocus) $('year-jump').focus({ preventScroll: true });
   }
+  app.surfaces.register('range', 'popover', () => closeForm(false));
   openBtn.addEventListener('click', openForm);
   cancel.addEventListener('click', () => closeForm());
   pop.addEventListener('keydown', e => { if (e.key === 'Escape') { e.stopPropagation(); closeForm(); } });

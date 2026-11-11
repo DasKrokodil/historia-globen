@@ -2,7 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { encodeHash, decodeHash, isNewStep } from '../js/url-state.js';
-import { MIN_YEAR, MAX_YEAR } from '../js/timeline.js';
+import { MIN_YEAR, MAX_YEAR } from '../js/state.js';
 
 const base = { v: 1, year: 1325, camera: { lat: 34, lon: -50, zoom: 1.6 }, focus: null, layers: ['areas', 'events'], filters: ['krig', 'kultur'], calm: false };
 

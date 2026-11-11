@@ -1,7 +1,7 @@
 // Lagertyp "punkt" (beslut 2): händelser som punkter på globen.
 // Varje lager har samma gränssnitt: update(state) och drawOverlay(ctx, W, H).
 import { THREE, latLonToVec3, R } from '../globe.js';
-import { CAT, formatYear, isLongRunning, isVisibleReview, t } from '../model.js';
+import { CAT, formatYear, isLongRunning, isVisibleReview, t, eventTags, OVERVIEW_TAG } from '../model.js';
 import { Z } from './registry.js';
 import { ui } from '../i18n.js';
 import { selectEventsForRange, markersToHide, DEFAULT_RANGE_MARKER_LIMIT } from '../date-events.js';
@@ -47,13 +47,12 @@ export function flag(name) {
   return fl;
 }
 
-/** Vyn Översikt (#868) är ingen tagg i datan utan fältet significance: händelserna ur den godkända listan har det satt till 1. */
-export const OVERVIEW_TAG = 'oversikt';
+// eventTags och OVERVIEW_TAG bor i model.js (#1141) och exporteras vidare här, så att panelen och lagret delar en definition
+export { eventTags, OVERVIEW_TAG };
 
 /** Om händelsen har taggen (#555), till exempel 'framsteg', eller hör till Översikt. Utan tagg (null) räknas alla händelser. */
 export function hasTag(e, tag) {
-  if (tag === OVERVIEW_TAG) return e.significance === 1;
-  return !tag || (Array.isArray(e.tags) && e.tags.includes(tag));
+  return !tag || eventTags(e).includes(tag);
 }
 
 /** Hur markören ska se ut: tidsläge (now, past, future), betydelse och osäkerhet. */

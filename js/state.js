@@ -6,6 +6,12 @@
 // Det mesta av tillståndet går att spara, till exempel i en delbar länk (#64): snapshot() plockar ut de delarna
 // som vanliga värden. Det som räknas ut vid varje omritning (window, span, labels m.m.) behöver inte sparas.
 
+// Tidslinjens gränser (#1141): de bor här, och inte i timeline.js, så att adressformatet (js/url-state.js) och andra moduler
+// kan läsa dem utan att dra med tidsreglaget, modellen och språkfilerna. timeline.js exporterar dem vidare.
+export const MIN_YEAR = -2999;   // 3000 f.Kr.
+// Tidslinjen slutar i dag enligt datorns klocka, men aldrig före 2026 då datan senast kontrollerades (#229)
+export const MAX_YEAR = Math.max(2026, new Date().getFullYear());
+
 /** Ett nytt, tomt tillstånd. Fälten fylls i av main.js och controllerna, helst via createStore (#403). */
 export function createState() {
   return {
@@ -21,7 +27,7 @@ export function createState() {
     span: e => [e.start, e.end], // en händelses tid som [början, slut], i fokusläget för korta krig datum ur edtf
     playing: false,   // spelade tidslinjen när omritningen började
 
-    // Fokusläget (#109, #113, #376): { type: 'war' | 'empire' | 'religion' | 'route', id, from, to, fine, ... } eller null
+    // Fokusläget (#109, #113, #376): { type: 'war' | 'empire' | 'religion' | 'route' | 'theme', id, from, to, fine, ... } eller null
     focus: null,
     focusWar: null,   // kriget man följer (händelsen), eller null
     focusRoute: null, // resan man följer, eller null
