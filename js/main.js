@@ -310,7 +310,11 @@ async function start() {
   // efterträdare eller föregångare som finns som rike (#72, follow) börjar följas direkt.
   // I lektionsläget (#795) följs ingenting: ett rike öppnar bara sin faktaruta
   panel.onEmpire = (id, follow = false) => ((!follow || app.lesson?.active) && app.showEmpireFacts(id)) || app.startFocus(`empire:${id}`);
-  $('focus-exit').addEventListener('click', e => app.endFocus(e));
+  $('focus-exit').addEventListener('click', () => {
+    const theme = state.focus?.type === 'theme';
+    app.endFocus();
+    if (theme) $('btn-focus').focus({ preventScroll: true });
+  });
   // Knappen Fakta i fokusraden öppnar rikets eller religionens faktaruta igen (#170)
   $('focus-facts').addEventListener('click', () => {
     const focus = state.focus;
@@ -319,6 +323,10 @@ async function start() {
     else if (focus?.type === 'theme') app.showThemeCard();
   });
   panel.onThemeEvent = id => app.select(id);
+  panel.onEndTheme = () => {
+    app.endFocus();
+    $('btn-focus').focus({ preventScroll: true });
+  };
   panel.onFilter = (...a) => { store.setFilters(panel.filters); app.refresh(...a); };
   ff.onSelect = (...a) => app.select(...a);
   ff.onArcs = pairs => { globe.setArcs(pairs); flatMap.setArcs(pairs); };

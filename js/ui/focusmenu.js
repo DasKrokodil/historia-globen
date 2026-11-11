@@ -120,7 +120,13 @@ export class FocusMenu {
     this.groups = groups.map(g => ({ ...g, items: g.items.map(it => ({ ...it, _terms: [...new Set([it.label, ...(it.terms ?? [])])].map(s => [s, norm(s)]) })) }));
     // Fliken Teman (#398) syns först när det finns minst ett tema; en tom flik ser ut som ett fel
     const themesTab = this.menu.querySelector('[data-tab="Teman"]');
-    if (themesTab) themesTab.hidden = !this.groups.some(g => g.title === 'Teman' && g.items.length);
+    const hasThemes = this.groups.some(g => g.title === 'Teman' && g.items.length);
+    if (themesTab) themesTab.hidden = !hasThemes;
+    // Om temadatan försvinner eller bara innehåller utkast får inte en dold flik ligga kvar som vald.
+    if (!hasThemes && this.tab === 'Teman') {
+      this.tab = 'Alla';
+      for (const b of this.menu.querySelectorAll('[data-tab]')) b.setAttribute('aria-pressed', String(b.dataset.tab === this.tab));
+    }
     this.render();
   }
 
