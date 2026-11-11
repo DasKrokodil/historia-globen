@@ -461,6 +461,7 @@ def region_of(lat, lon):
     if lon < -125 and lat < 35: return 'Oceanien'
     if lon < -105 and lat < -10: return 'Oceanien'
     if lon < -25: return 'Amerika'
+    if lon < -10 and lat >= 68: return 'Amerika'  # Grönlands östkust (#1135)
     if (lat < -10 and lon > 110) or (lat < 22 and lon > 130) or lon > 160: return 'Oceanien'
     if -20 <= lon < 52 and lat > -36:
         if lon < -1.5: africa = lat < 36

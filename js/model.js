@@ -76,6 +76,8 @@ export function region(lat, lon) {
   if (lon < -125 && lat < 35) return 'Oceanien'; // Hawaii, Midway och Stilla havet (Kalifornien ligger öster om -125)
   if (lon < -105 && lat < -10) return 'Oceanien'; // östra Polynesien med Rapa Nui; geografin går före politiken (#630)
   if (lon < -25) return 'Amerika';
+  // Grönlands östkust går öster om -25 norr om cirka 69° N; Island slutar vid 66,5° N (Natural Earth 1:10m, #1135)
+  if (lon < -10 && lat >= 68) return 'Amerika';
   // Mikronesien (Guam, Marianerna, Palau, Pohnpei) ligger öster om 130° Ö och söder om 22° N; Filippinerna,
   // Taiwan och Japan ligger väster eller norr om det (#630)
   if ((lat < -10 && lon > 110) || (lat < 22 && lon > 130) || lon > 160) return 'Oceanien';

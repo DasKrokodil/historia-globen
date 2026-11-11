@@ -48,7 +48,7 @@ print(json.dumps([tr.region(lat, lon) for lat, lon in json.load(sys.stdin)]))`;
 // Återanvänd koordinater ur repots data för de namngivna gränsfallen, inte nya geografiska uppgifter.
 const events = JSON.parse(readFileSync(new URL('../data/events.json', import.meta.url), 'utf8')).events;
 const edgeIds = ['sexdagarskriget', 'hagia-sofia-byggs-532', 'sintashta-stridsvagnar', 'mammutar-wrangel',
-  'sovjetunionens-upplosning', 'nortontraditionen'];
+  'sovjetunionens-upplosning', 'nortontraditionen', 'ostgronlandsmalet', 'alltinget-grundas'];
 const edgePoints = PLACES.map(([, lat, lon]) => [lat, lon]); // bland annat Honolulu/Hawaii
 for (const id of edgeIds) {
   const event = events.find(e => e.id === id);
@@ -58,8 +58,8 @@ for (const id of edgeIds) {
 }
 // Syntetiska punkter på och strax intill kodens gränser, inte exakta ortskoordinater.
 // Bosporen/Istanbul, Ural (Moskva/Jekaterinburg), datumlinjen (Wrangel/Alaska) och övriga jämförelser.
-const latitudes = [-90, -36, -10, 22, 30, 31.5, 33.5, 35, 36, 37.5, 41, 44.5, 50, 90];
-const longitudes = [-180, -168, -125, -105, -25, -20, -1.5, 11.5, 28.9, 28.97, 32.5, 40, 52, 60, 60.19, 110, 130, 160, 180];
+const latitudes = [-90, -36, -10, 22, 30, 31.5, 33.5, 35, 36, 37.5, 41, 44.5, 50, 68, 90];
+const longitudes = [-180, -168, -125, -105, -25, -20, -10, -1.5, 11.5, 28.9, 28.97, 32.5, 40, 52, 60, 60.19, 110, 130, 160, 180];
 for (const lat of latitudes) for (const lon of longitudes) {
   for (const dy of [-0.0001, 0, 0.0001]) for (const dx of [-0.0001, 0, 0.0001]) {
     if (Math.abs(lat + dy) <= 90 && Math.abs(lon + dx) <= 180) edgePoints.push([lat + dy, lon + dx]);
@@ -68,6 +68,15 @@ for (const lat of latitudes) for (const lon of longitudes) {
 for (const lat of [0, 10, 20, 29, 30, 31, 31.4999]) {
   for (const dx of [-0.0001, 0, 0.0001]) edgePoints.push([lat, 32.5 + (30 - lat) * 0.62 + dx]);
 }
+
+// Grönlands östkust öster om -25 hör till Amerika, Island till Europa (#1135). Koordinaterna är händelsernas egna.
+test('Östgrönlandsmålet räknas till Amerika och Alltinget till Europa (#1135)', () => {
+  for (const [id, want] of [['ostgronlandsmalet', 'Amerika'], ['alltinget-grundas', 'Europa']]) {
+    const [lon, lat] = events.find(e => e.id === id).location.coordinates;
+    assert.equal(region(lat, lon), want, id);
+  }
+});
+
 // Ett glest nät fångar också skillnader bortom de uttryckliga gränsfallen.
 for (let lat = -60; lat <= 75; lat += 2.5) for (let lon = -180; lon < 180; lon += 2.5) edgePoints.push([lat, lon]);
 
