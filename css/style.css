@@ -1860,20 +1860,30 @@ details.used-by summary:hover { color: var(--parchment); }
 .help-feedback { margin: 8px 0 0; border-top: 1px solid var(--line); padding-top: 6px; font: 400 12px/1.4 var(--f-body); color: var(--parchment-dim); }
 .help-feedback .link-btn { font-size: 12.5px; padding: 2px 0; }
 
-/* Språkväljaren (#63): en chip-knapp i gruppen Visa, med en egen pil så att den liknar de andra knapparna */
-.lang-pick { display: inline-flex; }
-.lang-select {
-  appearance: none; -webkit-appearance: none;
-  padding-right: 26px;
-  background-image: linear-gradient(45deg, transparent 50%, var(--brass) 50%), linear-gradient(135deg, var(--brass) 50%, transparent 50%);
-  background-position: calc(100% - 14px) 52%, calc(100% - 9px) 52%;
-  background-size: 5px 5px, 5px 5px; background-repeat: no-repeat;
+/* Språkväljaren (#63, i översta raden sedan #1167): jordglob och språkkod, och en kort lista under knappen */
+.lang-wrap { position: relative; display: flex; align-items: center; }
+.lang-toggle { display: inline-flex; align-items: center; gap: 5px; font-family: var(--f-mono); letter-spacing: .04em; }
+.lang-globe { width: 14px; height: 14px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.1; }
+.lang-open .lang-toggle { border-color: var(--brass); color: var(--brass); }
+.lang-toggle:focus-visible, .lang-item:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.lang-menu {
+  position: absolute; z-index: var(--z-meny); top: calc(100% + 8px); right: 0;
+  display: flex; flex-direction: column; gap: 2px; min-width: 170px; margin: 0; padding: 6px; list-style: none;
+  background: color-mix(in srgb, var(--night-2) 96%, transparent); border: 1px solid var(--line); border-radius: var(--r);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .5);
 }
-.top-actions .lang-select { padding-right: 26px; } /* mobilens .top-actions .chip-btn har mindre utfyllnad */
-.more-menu .lang-pick { display: flex; }
-.more-menu .lang-pick .lang-select { flex: 1; min-width: 0; text-align: left; }
-.lang-select:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
-.lang-select option { color: var(--parchment); background: var(--night-2); }
+.lang-menu[hidden] { display: none; }
+.lang-item {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 40px; padding: 6px 10px;
+  font: 500 13.5px/1.2 var(--f-body); color: var(--parchment); text-align: left;
+  background: none; border: 1px solid transparent; border-radius: 6px; cursor: pointer;
+}
+.lang-item:hover { border-color: var(--brass-deep); }
+.lang-item[aria-current="true"] { color: var(--brass); border-color: color-mix(in srgb, var(--brass-deep) 60%, transparent); }
+.lang-beta {
+  flex: none; padding: 2px 6px; border: 1px solid var(--line); border-radius: 999px;
+  font: 500 10.5px/1.2 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--parchment-dim);
+}
 .help-lang { margin: 6px 0 0; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; font: 400 12px/1.4 var(--f-body); color: var(--parchment-dim); }
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .feedback-card {
@@ -1960,7 +1970,7 @@ details.used-by summary:hover { color: var(--parchment); }
 /* Datorn: knappen Visa och platsraden syns inte, och menyn Visa är osynlig (knapparna står i gruppen som förut). */
 .more-toggle { display: none; }
 .more-menu { display: contents; }
-/* Mer (#651): Källor, Hjälp, Dela och Språk i en liten meny under knappen Mer i datorn */
+/* Mer (#651): Källor, Hjälp och Dela i en liten meny under knappen Mer i datorn */
 .extra-wrap { position: relative; display: flex; align-items: center; }
 .extra-toggle { display: inline-flex; align-items: center; gap: 6px; }
 .extra-dots::before { content: "\22EF"; font-size: 15px; line-height: 0; }
@@ -1973,8 +1983,6 @@ details.used-by summary:hover { color: var(--parchment); }
 }
 .extra-open .extra-menu { display: flex; }
 .extra-menu .chip-btn { text-align: left; }
-.extra-menu .lang-pick { display: flex; }
-.extra-menu .lang-pick .lang-select { flex: 1; min-width: 0; text-align: left; }
 .place-row { display: none; }
 #detail > .sheet-handle { display: none; }
 @media (max-width: 760px) {
@@ -2019,14 +2027,13 @@ details.used-by summary:hover { color: var(--parchment); }
   .more-menu .view-mode { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .more-menu .view-mode .action-label { grid-column: 1 / -1; }
   .more-menu .view-mode .chip-btn { height: auto; min-height: 48px; padding: 6px 4px; text-align: center; white-space: normal; line-height: 1.15; hyphens: manual; }
-  /* Mer: knappen behövs inte i mobilen, Källor, Hjälp, Dela och Språk står som en rad längst ner */
+  /* Mer: knappen behövs inte i mobilen, Källor, Hjälp och Dela står som en rad längst ner */
   .extra-toggle { display: none !important; }
   .extra-menu {
     display: flex; position: static; flex-direction: row; flex-wrap: wrap; gap: 4px; min-width: 0;
     padding: 8px 0 0; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: none; box-shadow: none;
   }
   .extra-menu .chip-btn { flex: 1 1 auto; text-align: center; }
-  .extra-menu .lang-pick { flex: 1 1 100%; }
 
   /* Tidslinjen: knapparna 34 px synligt och 44 px tryckyta, lägre band med årtalen */
   .timebar { padding-top: 6px; padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 6px); }
@@ -2133,7 +2140,7 @@ details.used-by summary:hover { color: var(--parchment); }
 }
 /* Mycket smala skärmar (360 px): knapparna och årtalet lite mindre, så att raden överst ryms */
 @media (max-width: 370px) {
-  .top-actions > .chip-btn { padding: 0 7px; }
+  .top-actions > .chip-btn, .top-actions > .lang-wrap > .chip-btn { padding: 0 7px; }
   .top-actions { gap: 2px; }
   .year-big, .year-jump.fine .year-big { font-size: 26px; }
 }

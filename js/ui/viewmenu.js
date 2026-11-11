@@ -1,6 +1,6 @@
 // Mobilmenyn (#530, grupperna sedan #651): i smal skärm står bara Samtidigt och knappen Meny i sidhuvudet.
 // Grupperna Vy (Glob, Platt karta, Upptäcktsresor), Utforska (Sök och följ, Turer, Lager) och
-// Mer (Kom igång, Källor, Hjälp, Dela, Språk) samlas i en nedfällbar panel bakom Meny. I datorn syns knappen inte och
+// Mer (Kom igång, Källor, Hjälp, Dela) samlas i en nedfällbar panel bakom Meny. I datorn syns knappen inte och
 // grupperna står i sidhuvudet (CSS: .more-menu är display: contents), med Mer som en liten egen meny.
 // Knapparna själva sköts av sina egna moduler; den här filen öppnar och stänger menyn, flyttar Samtidigt ut ur
 // gruppen i smal skärm och skickar fokus till Meny när en knapp som ligger i den stängda menyn ska få fokus.
@@ -65,7 +65,7 @@ export class ViewMenu {
 }
 
 /**
- * Mer (#651): Källor, Hjälp, Dela och Språk. I datorn står de i en liten meny bakom knappen Mer, i mobilen som en
+ * Mer (#651): Källor, Hjälp och Dela (Språk står i översta raden, #1167). I datorn står de i en liten meny bakom knappen Mer, i mobilen som en
  * rad längst ner i Meny (där syns knappen Mer inte och raden är alltid öppen, CSS). Ett val stänger menyn, liksom
  * Escape, ett klick utanför och Tab ut ur den. När en panel som öppnades härifrån (Hjälp, Källor) stängs och
  * knappen ligger i den stängda menyn får Mer fokus i stället.

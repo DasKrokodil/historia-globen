@@ -23,7 +23,7 @@ Aktörerna (A–I) står i [02](02-anvandare-och-intressenter.md). Status: **fin
 | UC13 | D, C | Testa vad jag lärt mig | Mer → Quiz: "Vad hände samtidigt som …?" | Quiz (#65) | finns |
 | UC14 | G | Rapportera ett faktafel eller föreslå innehåll | Faktarutan → Rapportera faktafel; formuläret | Rapportera faktafel, `functions/api/feedback.js` | delvis: formuläret är avstängt i production |
 | UC15 | A, D | Korrigera en vanlig missuppfattning | Faktarutan visar vad källorna säger | Missuppfattningar (#838) | finns |
-| UC16 | A, E | Byta språk | Mer → Språk | Fem språk, översättningsspärr | delvis: svenska fullständig, övriga språk i omgångar, engelska först |
+| UC16 | A, E | Byta språk | Språkknappen i raden överst (jordglob och kod, #1167) | Fem språk, översättningsspärr | delvis: svenska fullständig, övriga språk i omgångar, engelska först |
 | UC17 | H | Använda sidan utan mus och med skärmläsare | Tab och piltangenter, annonserade etiketter, lugn rörelse | Tangentbord, ARIA, `prefers-reduced-motion` | delvis: ingen skärmläsarattest |
 | UC18 | A, B | Välja ett tidsintervall i stället för ett år | Formuläret "Välj ett tidsintervall" (från och till) i årshoppet; länk med `y2` | Tidsintervall (#569, #754–#756) | finns (6.1.0). Bandet på reglaget och intervall i Fokus finns inte; intervallet utesluter Fokus och uppspelning |
 | UC19 | A, B | Se vad som hände här | Sök och följ → fliken Plats → skriv en plats ur datan → händelser inom 300 km, äldst först | "Vad hände här?" (#15, beslut 2026-11-08) | finns (6.1.0). Klick direkt på globen och plats i intervallet finns inte; bara platser som finns i datan går att hitta |
