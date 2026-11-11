@@ -126,6 +126,12 @@
     <!-- Mobilmenyn (#530): i smal skärm står bara Samtidigt och Meny i sidhuvudet, och resten av knapparna samlas
          i en nedfällbar panel bakom Meny (Samtidigt flyttas då ut ur gruppen, js/ui/viewmenu.js). I datorn syns
          knappen Meny inte och menyn är osynlig (display: contents): grupperna Utforska och Visa står som förut. -->
+    <!-- Språkväljaren (#63, i översta raden sedan #1167): jordglob och språkkod, listan med språkens egna namn och
+         "beta" för ofärdiga översättningar. Språken i data/ui/sprak.json; byte laddar om sidan och behåller året (js/i18n.js). -->
+    <div class="lang-wrap">
+      <button id="btn-lang" class="chip-btn lang-toggle" type="button" aria-expanded="false" aria-controls="lang-menu" aria-label="Språk" title="Språk"><svg class="lang-globe" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><ellipse cx="8" cy="8" rx="2.8" ry="6.5"/><path d="M1.5 8h13M2.6 4.6h10.8M2.6 11.4h10.8"/></svg><span class="lang-code">SV</span></button>
+      <ul id="lang-menu" class="lang-menu" aria-label="Språk" hidden></ul>
+    </div>
     <button id="more-toggle" class="chip-btn more-toggle" type="button" aria-expanded="false" aria-controls="more-menu"><span id="more-label" data-i18n="top.menu">Meny</span><span class="more-chev" aria-hidden="true"></span></button>
     <div id="more-menu" class="more-menu">
       <!-- Vy (#651): tre sätt att se världen sida vid sida. Glob, Platt karta (#292) och Upptäcktsresor (#101),
@@ -144,10 +150,10 @@
         <button id="btn-tour" class="chip-btn" type="button" aria-expanded="false" aria-controls="tour-menu" hidden data-i18n="top.tours">Turer</button>
         <button id="btn-layers" class="chip-btn" type="button" aria-expanded="false" aria-controls="layer-menu" data-i18n="top.layers">Lager</button>
       </div>
-      <!-- Mer (#651): Källor, Hjälp, Dela och Språk. I datorn en liten meny bakom knappen Mer, i mobilen en rad
+      <!-- Mer (#651): Källor, Hjälp och Dela (Språk står i översta raden sedan #1167). I datorn en liten meny bakom knappen Mer, i mobilen en rad
            längst ner i menyn (js/ui/viewmenu.js, ExtraMenu). -->
       <div class="extra-wrap">
-        <button id="btn-more" class="chip-btn extra-toggle" type="button" aria-expanded="false" aria-controls="extra-menu" title="Källor, hjälp, dela och språk" data-i18n-title="top.moreTitle"><span class="extra-dots" aria-hidden="true"></span><span data-i18n="top.more">Mer</span></button>
+        <button id="btn-more" class="chip-btn extra-toggle" type="button" aria-expanded="false" aria-controls="extra-menu" title="Källor, hjälp och dela" data-i18n-title="top.moreTitle"><span class="extra-dots" aria-hidden="true"></span><span data-i18n="top.more">Mer</span></button>
         <div id="extra-menu" class="extra-menu" role="group" aria-label="Mer" data-i18n-aria-label="top.more">
           <!-- Kom igång (#996): introduktionen i tre stilla steg; öppnas aldrig av sig själv (#516) -->
           <button id="btn-intro" class="chip-btn" type="button" aria-controls="intro"></button>
@@ -159,9 +165,6 @@
           <button id="btn-quiz" class="chip-btn" type="button" aria-controls="quiz" hidden title="Vad hände samtidigt? Frågor ur fun facts" data-i18n-title="top.quizTitle" data-i18n="top.quiz">Quiz</button>
           <!-- Dela (#64): länken till vyn som den ser ut nu, med år, kamera, fokus, lager och kategorier (#501) -->
           <button id="btn-share" class="chip-btn" type="button" title="Kopiera en länk till den här vyn" data-i18n-title="share.title" data-i18n="share.button">Dela</button>
-          <!-- Språkväljaren (#63): språken i data/ui/sprak.json, byte laddar om sidan och behåller året (js/i18n.js) -->
-          <label class="lang-pick"><span class="sr-only" data-i18n="lang.label">Språk</span>
-            <select id="lang-select" class="chip-btn lang-select" data-i18n-title="lang.label" title="Språk"></select></label>
         </div>
       </div>
     </div>
@@ -449,6 +452,7 @@
       <button id="focus-moved-back" class="link-btn" type="button"></button>
     </div>
   </div>
+  <p id="focus-notice" class="focus-notice" role="status" aria-live="polite" hidden></p>
 
   <footer class="timebar">
     <div id="pause-note" class="pause-note" role="status" hidden>

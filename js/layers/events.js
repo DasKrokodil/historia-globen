@@ -223,7 +223,7 @@ export function entry({ globe, data }) {
   const layer = new EventsLayer(globe, data.events);
   const none = new Set();
   // Ett tema i Fokus (#398) visar bara temats händelser, oavsett kategorier och vyns tagg; avslaget lager visar inget
-  const themeOf = s => (s.focus?.type === 'theme' && s.layers.events ? s.focus.eventIds : null);
+  const themeOf = s => (s.focus?.eventIds && s.layers.events ? s.focus.eventIds : null);
   return {
     id: 'events', name: ui('layer.events'), group: 'people', menu: { on: true, note: ui('layer.eventsNote') }, layer, z: Z.events,
     enabled: s => s.layers.events,

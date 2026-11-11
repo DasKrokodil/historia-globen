@@ -17,8 +17,8 @@ import { ui } from '../i18n.js';
 // desamma som gruppernas id (focus.js). Det som visas hämtas med ui() på valt språk (#671).
 const EVENTS = 'Händelser';
 const PLACE = 'Plats'; // "Vad hände här?" (#15): händelser nära en plats ur datan
-const TABS = ['Alla', EVENTS, 'Krig', 'Riken', 'Försvunna länder', 'Religioner', 'Resor', 'Teman', PLACE];
-const TAB_KEY = { Alla: 'all', [EVENTS]: 'events', Krig: 'wars', Riken: 'empires', 'Försvunna länder': 'vanished', Religioner: 'religions', Resor: 'routes', Teman: 'themes', [PLACE]: 'place' };
+const TABS = ['Alla', EVENTS, 'Krig', 'Riken', 'Försvunna länder', 'Religioner', 'Resor', 'Teman', 'Platser', PLACE];
+const TAB_KEY = { Alla: 'all', [EVENTS]: 'events', Krig: 'wars', Riken: 'empires', 'Försvunna länder': 'vanished', Religioner: 'religions', Resor: 'routes', Teman: 'themes', Platser: 'places', [PLACE]: 'place' };
 /** Flikens eller gruppens namn på valt språk; ett okänt id visas som det är. */
 export const tabName = id => (TAB_KEY[id] ? ui(`focus.tab.${TAB_KEY[id]}`) : id);
 const SORTS = ['relevans', 'kronologiskt', 'alfabetiskt'];
@@ -119,8 +119,16 @@ export class FocusMenu {
   setGroups(groups) {
     this.groups = groups.map(g => ({ ...g, items: g.items.map(it => ({ ...it, _terms: [...new Set([it.label, ...(it.terms ?? [])])].map(s => [s, norm(s)]) })) }));
     // Fliken Teman (#398) syns först när det finns minst ett tema; en tom flik ser ut som ett fel
-    const themesTab = this.menu.querySelector('[data-tab="Teman"]');
-    if (themesTab) themesTab.hidden = !this.groups.some(g => g.title === 'Teman' && g.items.length);
+    // Samma för Platser (#579). Om datan försvinner eller bara innehåller utkast får inte en dold flik ligga kvar som vald.
+    for (const title of ['Teman', 'Platser']) {
+      const tab = this.menu.querySelector(`[data-tab="${title}"]`);
+      const has = this.groups.some(g => g.title === title && g.items.length);
+      if (tab) tab.hidden = !has;
+      if (!has && this.tab === title) {
+        this.tab = 'Alla';
+        for (const b of this.menu.querySelectorAll('[data-tab]')) b.setAttribute('aria-pressed', String(b.dataset.tab === this.tab));
+      }
+    }
     this.render();
   }
 

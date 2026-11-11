@@ -2,7 +2,7 @@
 // som syns (beslut 2), ritar lagerbilden (beslut 1) och uppdaterar listan, teckenförklaringarna och årtalet.
 // Sist får uppspelningen (playback.js) se om något ska pausa. Här finns också namnens storlek efter zoom
 // (#154, #271, #301, #358) och rikets berättelse för Samtidigt-kortet (#171).
-import { loadEventDetails, formatCentury, pluralUi } from '../model.js';
+import { loadEventDetails, formatCentury, formatEventTime, pluralUi, t } from '../model.js';
 import { ui } from '../i18n.js';
 import { ZOOM_LEVELS, zoomLevel, pxPerImg, zoomView, eventKeepouts } from '../ui/zoomlevels.js';
 import { empireStory } from '../ui/funfact.js';
@@ -95,7 +95,7 @@ export function createRender(app) {
     const within = fine ? plural('time.withinDays', Math.round(window * 365.25)) : plural('time.withinYears', Math.round(window));
     ff.story = focus?.type === 'empire' ? storyFor(focus.id) : [];
     ff.setAnnouncements(!range);
-    ff.update(wholeYear, panel.filters, focus?.type === 'theme' ? focus.eventIds : null);
+    ff.update(wholeYear, panel.filters, focus?.eventIds ?? null);
     state.highlight = ff.highlightIds();
     const eventsOn = layers.on.events;
     // Alla lager väljer vad som syns (beslut 2), i registrets ordning
@@ -103,8 +103,15 @@ export function createRender(app) {
     timeline.setMarks(registry.marks(state), { curated: !!state.tag });
     prefetchDetails();
     const rangeLabel = range && rangeText(range.from, range.to);
+    // Ett tema (#398) och en plats (#579) är urval av händelser: ett år utan träff förklaras, med nästa händelse
+    const nextThemeEvent = focus?.themeEvents && !visible.length ? focus.themeEvents.find(e => e.start > wholeYear) : null;
+    const emptyKey = focus?.type === 'place' ? 'place' : 'theme';
+    const themeEmpty = !focus?.themeEvents || visible.length ? null : nextThemeEvent
+      ? ui(`${emptyKey}.emptyYearNext`, { next: `${formatEventTime(nextThemeEvent)} · ${t(nextThemeEvent.title)}` })
+      : ui(`${emptyKey}.emptyYear`);
     panel.render(visible, wholeYear, window, eventsOn, range ? { at: ui('range.at', { range: rangeLabel }), bare: rangeLabel, within, range }
-      : fine ? { at: ui('time.onDate', { date: timeline.format(year) }), bare: timeline.format(year), within, fine: true } : null);
+      : fine ? { at: ui('time.onDate', { date: timeline.format(year) }), bare: timeline.format(year), within, fine: true }
+      : themeEmpty ? { themeEmpty } : null);
     // Etiketten "Områden visas för år N" (#756) när riken eller religioner syns, och hur många markörer gränsen döljer
     app.range?.render(visible.filter(v => v.inside).length, { areasYear: areas.enabled || religions.enabled ? areaYear : null, capped: layer.capped });
     // Samma markörer i Platt vy (#313): de som syns på klotet, de i listan får klustras och etikett

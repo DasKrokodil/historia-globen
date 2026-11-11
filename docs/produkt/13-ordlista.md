@@ -14,6 +14,7 @@
 | **Tidsfönstret** | Raden under årtalet: århundradet och hur många år före och efter året som globen också visar ("1300-talet · visar också det som hände 38 år före och efter"). Bredden följer tidslinjens skala, så antalet år byter med var man står. Etiketter och rader i listan säger riktningen i tid: "4 år före (1912)", "om 2 år (1918)", "21 år senare" (#994, #995). Sök och följ använder ett bredare fönster (fyra gånger så brett) och säger det. |
 | **Tidsintervall** | Året plus ett slutår (`y2`): man väljer från och till i årshoppet eller en epok med ett klick. Riken och religioner visas för slutåret. Utesluter att följa något och uppspelning. |
 | **Epok** | Ett namngivet tidsspann ur `data/perioder.json` (Lgr22, Nordens forntid, antiken, industrialiseringen); blir ett tidsintervall. Listar aldrig händelser. |
+| **Plats** | Ett kort om en platss historia (`data/platser.json`, #579) med dagens gräns som kontur; följs i Sök och följ (`place` i koden). Gruppen i Sök och följ heter Platser, på kortet står typen (till exempel Självstyrt område, Land). Ordet **region** betyder fortsatt världsdel. Skilt från fliken **Plats** ("Vad hände här?", #15), som söker händelser nära en punkt. |
 | **Tema** | Ett namngivet urval av befintliga händelser (`data/teman.json`) med en introduktion; följs i Sök och följ (`focus` av typen `theme` i koden). |
 | **Översikt** | Den förinställda vyn i Lager som är startvy vid ett första besök: ett **urval** av händelser som ofta tas upp i skolan och i uppslagsverk (fältet `significance`, cirka 120), med samma lager som Standard. Inte "de viktigaste" och inte Lgr22. Raden överst i Samtidigt säger "Översikt: ett urval" med knappen Visa alla. Standard visar alla händelser; en lektion visar alltid alla (#1139). |
 | **Plats (fliken)** | "Vad hände här?" i Sök och följ: händelser inom 300 km från en plats ur datan, äldst först. |
@@ -30,7 +31,7 @@
 | **Quiz** | "Vad hände samtidigt?" ur befintliga fun facts. |
 | **Introduktion** | De tre stilla stegen för nya besökare. Knappen heter "Kom igång" och ligger under Mer (#996). |
 | **Missuppfattning** | Ett vanligt felaktigt påstående, vad källorna säger och ursprunget; visas i faktarutan. |
-| **Mer / Meny** | **Mer** (dator) samlar Källor, Hjälp, Quiz, Jakten, Dela och Språk. **Meny** (mobil) är panelen bakom knappen i raden överst. |
+| **Mer / Meny** | **Mer** (dator) samlar Källor, Hjälp, Quiz, Jakten och Dela. **Språk** är knappen med jordglob och språkkod (till exempel SV) i raden överst (#1167). **Meny** (mobil) är panelen bakom knappen i raden överst. |
 | **Dela** | Kopierar en länk som bär år, kamera, det man följer, lager och kategorier. |
 | **Källor / Om källorna** | Sidan med källpolicy, granskningsnivåer och källregister. |
 | **Granskningsnivå** | `draft` (visas inte), `source-checked` (källan öppnad och kontrollerad), `two-sources` (jämförd med en andra, oberoende källa). |

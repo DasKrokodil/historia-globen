@@ -284,6 +284,7 @@ export class Panel {
     this.onYear = () => {};
     this.onReport = null; // (objekt, knapp) => öppnar formuläret "Rapportera faktafel" (js/ui/feedback.js)
     this.onShowPlace = null; // (händelse) => platsraden i mobil (#312): fäller ihop rutan och visar markören på globen
+    this.onEndTheme = () => {};
     this.selectedId = null;
     this.shown = null; // det faktarutan visar just nu; en rad som laddas klart ritar bara om samma ruta (#337)
     this.expandedRegions = new Set();
@@ -408,7 +409,7 @@ export class Panel {
     if (partialCount) parts.push(plural('range.partialCount', partialCount, { count: partialCount }));
     // I intervallet finns inget "nära": raden säger hur många som pågår under intervallet och hur många som sticker ut
     if (range) this.toggle.setAttribute('aria-label', stop(parts.join(', ')));
-    const filtersOff = emptyCause({ visibleCount: visible.length, filters: this.filters }) === 'filters';
+    const filtersOff = !labels?.themeEmpty && emptyCause({ visibleCount: visible.length, filters: this.filters }) === 'filters';
     this.sub.textContent = visible.length ? stop(range ? parts.join(', ') : `${summaryText}. ${parts.join(', ')}`)
       : range && !filtersOff ? ui('range.empty', { range: bare })
       : ui(filtersOff && !(this.tag && this.tags[this.tag]) ? 'panel.filtersOff' : 'panel.empty', { within, at: bare });
@@ -437,6 +438,11 @@ export class Panel {
         (this.root.querySelector('.filter[data-cat]') ?? this.toggle).focus({ preventScroll: true });
       });
       this.list.replaceChildren(help, reset);
+      return;
+    }
+    if (!visible.length && labels?.themeEmpty) {
+      this.sub.textContent = labels.themeEmpty;
+      this.list.innerHTML = `<p class="empty-note">${esc(labels.themeEmpty)}</p>`;
       return;
     }
     if (!visible.length) {
@@ -564,13 +570,51 @@ export class Panel {
       <div class="story-label">${esc(ui('theme.label'))}</div>
       <h3>${esc(t(theme.name))}</h3>
       <div class="story"><p>${esc(t(theme.intro))}</p>
-      <h4>${esc(ui('theme.events', { count: events.length }))}</h4>
-      <ul class="theme-events">${items}</ul></div>
+      <p class="theme-filter-note">${esc(ui('theme.filters'))}</p>
+      <button type="button" class="chip-btn theme-exit" data-end-theme>${esc(ui('theme.exit'))}</button>
+      <details class="theme-event-list"${matchMedia('(max-width: 760px)').matches ? '' : ' open'}>
+        <summary>${esc(ui('theme.events', { count: events.length }))}</summary>
+        <ul class="theme-events">${items}</ul>
+      </details></div>
       ${srcs.length ? srcLine(srcs, false) : ''}`;
     this.detail.scrollTop = 0;
     this.setDetailOpen(true);
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
+    this.detail.querySelector('[data-end-theme]').addEventListener('click', () => this.onEndTheme());
     for (const b of this.detail.querySelectorAll('[data-theme-event]')) b.addEventListener('click', () => this.onThemeEvent?.(b.dataset.themeEvent));
+    this.detail.querySelector('[data-close]').focus({ preventScroll: true });
+  }
+
+  /**
+   * Platsens kort (#579): namn, typ, en kort inledning, den fasta raden om att linjen är dagens gräns, och händelserna
+   * inom gränsen i tidsordning. Bygger på temakortet; knapparna Avsluta och händelserna använder samma återanrop.
+   */
+  showPlace(place, events) {
+    this.selectedId = null;
+    this.detail.className = `detail detail-card frame-${styleFor(events[0], this.styles).frame}`;
+    const srcs = (place.sources ?? []).map(id => this.srcById[id]).filter(Boolean);
+    const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> ${esc(t(e.title))}${e.start < MIN_YEAR ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
+    const type = ui(`place.type.${place.type}`), of = place.partOf ? t(place.partOf) : '';
+    this.detail.innerHTML = `
+      <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
+      <div class="story-label">${esc(ui('place.label'))}</div>
+      <h3>${esc(t(place.name))}</h3>
+      <div class="story"><p class="place-type">${esc(of ? ui('place.typeOf', { type, of }) : type)}</p>
+      <p>${esc(t(place.intro))}</p>
+      <p class="theme-filter-note">${esc(ui('place.borderNote'))}</p>
+      <p class="theme-filter-note">${esc(ui('place.filters'))}</p>
+      <button type="button" class="chip-btn theme-exit" data-end-theme>${esc(ui('place.exit'))}</button>
+      <details class="theme-event-list"${matchMedia('(max-width: 760px)').matches ? '' : ' open'}>
+        <summary>${esc(ui('place.events', { count: events.length }))}</summary>
+        <ul class="theme-events">${items}</ul>
+      </details></div>
+      ${srcs.length ? srcLine(srcs, false) : ''}`;
+    this.detail.scrollTop = 0;
+    this.setDetailOpen(true);
+    this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
+    this.detail.querySelector('[data-end-theme]').addEventListener('click', () => this.onEndTheme());
+    for (const b of this.detail.querySelectorAll('[data-theme-event]')) b.addEventListener('click', () => this.onThemeEvent?.(b.dataset.themeEvent));
+    this.detail.querySelector('[data-close]').focus({ preventScroll: true });
   }
 
   /** Knappen "Rapportera faktafel" skickar bara objektets typ och id till formuläret. */
@@ -608,7 +652,7 @@ export class Panel {
    * föregångare och vad det blev. Efterträdare som finns som riken är knappar som börjar följa det riket.
    */
   showFacts(opts) {
-    const { kind, name, color, symbol = '', facts: f, origin = null, place = origin, milestonesTitle = ui('facts.milestones'), mapNote = '', curveId = '', wars = [], lineage = null, empireMap = false, empireId = null } = opts;
+    const { kind, name, color, symbol = '', symbolKind = null, facts: f, origin = null, place = origin, milestonesTitle = ui('facts.milestones'), mapNote = '', curveId = '', wars = [], lineage = null, empireMap = false, empireId = null } = opts;
     const fall = empireId ? this.empireTourFor?.(empireId) : null; // rikets fall som tur (#499)
     // Rikets krig (#76): krig som anger riket i empires, i tidsordning; bara de som syns enligt granskningsstatusen
     const shownWars = wars.filter(w => isVisibleReview(w.review));
@@ -657,6 +701,7 @@ export class Panel {
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <div class="story-label"><span class="swatch" style="background:${esc(color)}"></span>${esc(ui(`facts.kind.${kind}`))}</div>
       <h3>${symbol}${esc(name)}</h3>
+      ${symbol && symbolKind ? `<p class="symbol-kind" data-symbol-kind="${esc(symbolKind)}">${esc(ui(`facts.symbolKind.${symbolKind}`))}</p>` : ''}
       ${t(f.summary) ? `<p>${esc(t(f.summary))}</p>` : ''}
       ${fall ? `<button type="button" class="story-tour" data-tour="${esc(fall.id)}">${esc(fall.label)}</button>` : ''}
       ${body}`;

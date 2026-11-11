@@ -31,12 +31,12 @@ Det finns sex "rum" att vara i, och man ska alltid kunna komma tillbaka till huv
 | **Huvudbild** | Alltid | Dra i tiden och i globen, spela | – |
 | **Samtidigt i världen** | Knappen Samtidigt | Läsa per världsdel, välja händelse | Kryss, Escape |
 | **Faktaruta** | Markör, lista eller sökresultat | Läsa, öppna källa, rapportera fel, följa | Kryss, Escape |
-| **Sök och följ** | Knappen Sök och följ | Söka; följa krig, rike, religion, land, resa, tema (fliken Teman syns först när det finns ett); fliken Plats: vad hände här | Val eller Escape |
+| **Sök och följ** | Knappen Sök och följ | Söka; följa krig, rike, religion, land, resa och tema. Teman ligger som första grupp under Alla och har en egen flik när minst ett publicerat tema finns; fliken Plats visar vad som hände nära en plats | Val eller Escape |
 | **Intervallformulär** | Årshoppet → "Välj ett tidsintervall" | Välja från och till, eller en epok med ett klick | Avsluta intervallet, Escape |
 | **Lager och Vy** | Lager, Vy | Välja vad som syns; glob / platt / upptäckt | Utanför-tryck, Escape |
 | **Tur / lektion / quiz / jakt** | Turer, Mer, delad länk | Följa ett förlopp steg för steg | Avsluta, Klar, Escape |
 
-Mer-menyn (Källor, Hjälp, Quiz, Samtidighetsjakten, Dela, Språk) samlar det som inte är kärnflödet.
+Mer-menyn (Källor, Hjälp, Quiz, Samtidighetsjakten, Dela) samlar det som inte är kärnflödet. Språket väljs med en egen knapp i raden överst (jordglob och kod, ofärdiga språk märkta beta), så att den som inte läser svenska hittar den utan att öppna en meny (#1167).
 
 ## Huvudflöden
 
@@ -50,6 +50,7 @@ Antagna "lyckade vägar". Varje flöde är också en testplan: den som granskar 
    - **Lärarstödet (#1139):** en gammal länk utan `g=` visar alla händelser, medan en bar länk (`historiagloben.se` utan hash) börjar i Översikt, ett urval om cirka 120 händelser. Två elever som öppnar "samma" sida kan alltså se olika saker. Be eleverna öppna länken du delar (en lektionslänk visar alltid alla händelser), eller säg att de ska välja Standard i Lager. Raden "Översikt: ett urval, cirka 120 händelser. Visa alla" överst i Samtidigt säger när det är ett urval.
 6. **Dela:** Dela → länk → mottagaren ser samma vy (adressen bär år, kamera, fokus, lager).
 7. **Rapportera fel:** faktaruta → Rapportera faktafel.
+8. **Följ ett tema:** Sök och följ → första gruppen Teman → introduktionskort → välj händelser eller spela genom urvalet → Avsluta temat. På mobil är händelselistan hopfälld; Escape stänger först kortet och därefter temat.
 
 **Visste du? (#997):** knappen visar nästa målår före hoppet. Efter hoppet finns raden ”Från … · Tillbaka” under årtalet; ett tryck återställer året, globens riktning och zoom. Raden försvinner efter tjugo sekunder eller nästa handling, medan webbläsarens Bakåt/Framåt också fungerar. Lugn rörelse följer besökarens inställning.
 
