@@ -1,4 +1,40 @@
 {
   "schema": "historia-globen/teman@1",
-  "themes": []
+  "themes": [
+    {
+      "id": "teknik",
+      "name": {
+        "sv": "Teknik",
+        "en": "Technology",
+        "de": "Technik",
+        "es": "Tecnología",
+        "fr": "Technologie"
+      },
+      "intro": {
+        "sv": "Ett handplockat urval, inte en heltäckande lista, av uppfinningar, byggnadsverk och tekniska system bland globens händelser: från de äldsta kända stridsvagnarna och bevattningsanläggningar till tryckpress, ångmaskin, telefon, flyg, satelliter och webben. Följ dem i tidsordning och se var i världen de hände.",
+        "en": "A hand-picked selection, not a complete list, of inventions, structures and technical systems among the events on the globe: from the earliest known chariots and irrigation works to the printing press, the steam engine, the telephone, flight, satellites and the Web. Follow them in order of time and see where in the world they happened.",
+        "de": "Eine handverlesene Auswahl, keine vollständige Liste, von Erfindungen, Bauwerken und technischen Systemen unter den Ereignissen des Globus: von den ältesten bekannten Streitwagen und Bewässerungsanlagen bis zu Druckpresse, Dampfmaschine, Telefon, Flugzeug, Satelliten und Web. Verfolgen Sie sie in zeitlicher Reihenfolge und sehen Sie, wo auf der Welt sie stattfanden.",
+        "es": "Una selección escogida a mano, no una lista exhaustiva, de inventos, construcciones y sistemas técnicos entre los acontecimientos del globo: desde los carros de guerra más antiguos conocidos y las obras de riego hasta la imprenta, la máquina de vapor, el teléfono, el vuelo, los satélites y la Web. Siga los hechos por orden cronológico y vea dónde del mundo ocurrieron.",
+        "fr": "Une sélection choisie à la main, et non une liste exhaustive, d’inventions, d’ouvrages et de systèmes techniques parmi les événements du globe : des plus anciens chars connus et des ouvrages d’irrigation à l’imprimerie, à la machine à vapeur, au téléphone, au vol, aux satellites et au Web. Suivez-les dans l’ordre chronologique et voyez où dans le monde ils ont eu lieu."
+      },
+      "events": [
+        "sintashta-stridsvagnar",
+        "fyren-pa-faros",
+        "dujiangyan",
+        "cai-lun-papper",
+        "zhang-hengs-seismoskop",
+        "nazcas-puquios",
+        "gutenberg",
+        "watt-separat-kondensor",
+        "forsta-jarnvagen-mellan-stader",
+        "telegraflinjen-genom-australien",
+        "telefonen",
+        "wright",
+        "sputnik",
+        "www"
+      ],
+      "sources": [],
+      "review": "source-checked"
+    }
+  ]
 }

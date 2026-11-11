@@ -20,7 +20,7 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 - `funfacts.json` – fun facts kopplade till händelser.
 - `missuppfattningar.json` (#838) – vanliga historiska missuppfattningar.
 - `perioder.json` (#845, #476) – epoker och perioder, som indelningar med årtal och källa; indelningarna `lgr22`, `norden-forntid`, `antiken` och `industrialiseringen`.
-- `teman.json` (#398) – teman som namngivna urval av befintliga händelser; filen finns sedan bygget (#962), tom tills första temat (teknik, #105) skrivs.
+- `teman.json` (#398) – teman som namngivna urval av befintliga händelser; filen finns sedan bygget (#962), innehåller första temat, teknik (#105, 2026-11-11).
 - `sources.json` – källregistret.
 - `empires/` – riken: registret, faktarutor och rikenas fält.
 - `routes/` (#38) – vägar och resor med etapper.
@@ -168,7 +168,7 @@ Världsdelsräkningen använder `region()` i `js/model.js`: **Europa, Asien, Afr
 
 ### Exempel
 
-Exemplet nedan är en **platshållare**: introduktionen är inte skriven och temat är `draft`, så det skulle inte visas. Händelserna är befintliga id i `data/events.json`, från flera av regelns fem världsdelar. Det riktiga teknikurvalet och introduktionen görs i #105.
+Exemplet nedan är en **platshållare**: introduktionen är inte skriven och temat är `draft`, så det skulle inte visas. Händelserna är befintliga id i `data/events.json`, från flera av regelns fem världsdelar. Det riktiga teknikurvalet och introduktionen står i `data/teman.json` (#105, del a, 2026-11-11): 14 befintliga, källkontrollerade händelser, `review` `source-checked`. Urvalet nås fem världsdelar enligt `region()` (Asien 5, Europa 4, Amerika 3, Afrika 1, Oceanien 1), men ingen händelse ligger i Afrika söder om Sahara (Faros ligger i Egypten); en sådan teknikhändelse hör till #1111. Introduktionen beskriver bara urvalet och påstår inget historiskt, så `sources` är tom.
 
 ```json
 {
