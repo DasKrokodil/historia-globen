@@ -27,7 +27,7 @@ import { ui } from '../i18n.js';
 const POLL_MS = 700;
 
 export function createAddress(app) {
-  const { state, globe, timeline, layers, panel, data } = app;
+  const { state, globe, timeline, layers, panel, data, views } = app;
   const allCategories = [...new Set(data.events.map(e => e.category))].sort();
   let written = null, writtenHash = '', seenHash = '';
   // Den äldre, korta formen ?c=lat,lon,zoom används bara vid första läsningen. När den har
@@ -85,6 +85,8 @@ export function createAddress(app) {
           if (!!layers.on[name] !== on) { layers.set(name, on); layers.onChange(name, on); }
         }
       }
+      // Urvalet hör till den förinställda vyn och måste sättas efter lagren: varje enskilt lagerval lämnar annars vyn.
+      layers.setTag(views?.tags?.[s.tag] ? s.tag : null);
       if (s.filters) panel.setFilters(s.filters.filter(c => allCategories.includes(c)));
       timeline.pause();
       // Tidsintervallet (#755): en adress med y2 och utan fokus väljer intervallet, annars stängs ett valt intervall

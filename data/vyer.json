@@ -3,6 +3,7 @@
   "title": { "sv": "Förval", "en": "Presets", "de": "Voreinstellungen", "es": "Preajustes", "fr": "Préréglages" },
   "custom": { "sv": "Anpassad", "en": "Custom", "de": "Angepasst", "es": "Personalizada", "fr": "Personnalisée" },
   "customize": { "sv": "Anpassa själv", "en": "Customize", "de": "Selbst anpassen", "es": "Personalizar", "fr": "Personnaliser" },
+  "defaultView": "oversikt",
   "menu": {
     "label": { "sv": "Meny", "en": "Menu", "de": "Menü" }
   },

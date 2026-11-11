@@ -163,7 +163,9 @@ async function start() {
     views: views && { ...views, controlled: registry.viewLayers(views.groups),
       tagCount: tag => data.events.filter(e => hasTag(e, tag) && isVisibleReview(e.review)).length } });
   // En vy med tagg (#555), till exempel Framsteg, visar bara händelser med taggen
-  layers.onTag = tag => { store.setTag(tag); panel.tag = tag; app.refresh(); };
+  layers.onTag = tag => { store.setTag(tag); panel.tag = tag; app.refresh?.(); };
+  // Första besöket börjar i den vy som datan utser. En delad länk ställs in efteråt och får alltid företräde.
+  if (views?.defaultView) layers.applyView(views.defaultView);
   panel.onEnableEvents = () => {
     layers.set('events', true);
     layers.onChange('events', true);
