@@ -437,6 +437,55 @@ async function run(browser, vp) {
     return 'Samtidigt och Meny i raden; Enter, mellanslag, Escape och fokus; menyn täcker inte årtal eller tidslinje';
   });
 
+  // #1167: språket väljs med en knapp i översta raden (jordglob och kod), inte i Mer. Listan har språkens egna namn,
+  // "beta" för ofärdiga översättningar, tangentbord och stängregistret (en öppnad lista stänger Lager och Meny).
+  await check('språkknappen i översta raden (#1167)', async () => {
+    const btn = page.locator('#btn-lang');
+    await visible('#btn-lang');
+    if ((await btn.textContent()).trim() !== 'SV') throw new Error(`knappen visar "${(await btn.textContent()).trim()}", inte SV`);
+    if (!/Svenska/.test(await btn.getAttribute('aria-label') ?? '')) throw new Error('aria-label säger inte vilket språk som är valt');
+    if (await page.evaluate(() => !!document.querySelector('#extra-menu [data-lang], #lang-select'))) throw new Error('språkvalet ligger kvar i Mer');
+    const row = await page.evaluate(() => {
+      const box = el => el.getBoundingClientRect();
+      const b = box(document.getElementById('btn-lang'));
+      const overlap = (a, c) => a.left < c.right && c.left < a.right && a.top < c.bottom && c.top < a.bottom;
+      const others = [...document.querySelectorAll('.top-actions .chip-btn')].filter(el => el.id !== 'btn-lang' && el.getClientRects().length);
+      return { out: b.left < 0 || b.right > innerWidth, year: overlap(b, box(document.getElementById('year-jump'))),
+        hits: others.filter(el => overlap(b, box(el))).map(el => el.id || el.className) };
+    });
+    if (row.out) throw new Error('språkknappen ligger utanför skärmen');
+    if (row.year) throw new Error('språkknappen täcker årtalet');
+    if (row.hits.length) throw new Error(`språkknappen krockar med ${row.hits.join(', ')}`);
+    // Lager öppet, sedan språklistan: Lager stängs (js/surfaces.js)
+    if (vp.width <= 760) await page.click('#more-toggle');
+    await page.click('#btn-layers');
+    await visible('#layer-menu');
+    await btn.focus();
+    await page.keyboard.press('Enter');
+    await visible('#lang-menu');
+    if (await page.isVisible('#layer-menu')) throw new Error('Lager står kvar när språklistan öppnas');
+    if (await btn.getAttribute('aria-expanded') !== 'true') throw new Error('aria-expanded blir inte true');
+    const list = await page.evaluate(() => [...document.querySelectorAll('#lang-menu [data-lang]')].map(b => ({
+      id: b.dataset.lang, beta: !!b.querySelector('.lang-beta'), current: b.getAttribute('aria-current') === 'true', focus: b === document.activeElement,
+    })));
+    if (list.length !== 5) throw new Error(`listan har ${list.length} språk, inte 5`);
+    const cur = list.find(l => l.current);
+    if (cur?.id !== 'sv' || !cur.focus) throw new Error('svenska är inte markerad och fokuserad när listan öppnas');
+    if (list.filter(l => l.beta).length < 1 || list.find(l => l.id === 'sv').beta) throw new Error('beta-märket saknas eller står på svenska');
+    await page.keyboard.press('ArrowDown');
+    if (await page.evaluate(() => document.activeElement?.dataset.lang) !== list[1].id) throw new Error('pil ned flyttar inte fokus i listan');
+    await shot('1167-sprakknapp');
+    await page.keyboard.press('Escape');
+    await hidden('#lang-menu');
+    if (await page.evaluate(() => document.activeElement?.id !== 'btn-lang')) throw new Error('Escape lämnar inte fokus på språkknappen');
+    // Klick utanför stänger
+    await page.click('#btn-lang');
+    await visible('#lang-menu');
+    await page.evaluate(() => document.body.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true })));
+    await hidden('#lang-menu');
+    return `${list.map(l => l.id + (l.beta ? ' (beta)' : '')).join(', ')}; Enter, pilar, Escape och klick utanför; Lager stängs`;
+  });
+
   await check('hjälpen öppnas bara på begäran', async () => {
     const help = page.locator('#help');
     const helpButton = page.locator('#btn-help');
@@ -5138,14 +5187,12 @@ async function run(browser, vp) {
       await lp.evaluate(() => {
         window.__hgGammal = true;
         document.getElementById('tour-next').click();
-        const sel = document.getElementById('lang-select');
-        sel.value = 'en';
-        sel.dispatchEvent(new Event('change'));
+        document.querySelector('#lang-menu [data-lang="en"]').click();
       });
       await lp.waitForFunction(() => {
         const l = document.getElementById('loading');
         return !window.__hgGammal && document.documentElement.lang === 'en' && !!l && (l.hidden || getComputedStyle(l).display === 'none')
-          && !!document.getElementById('lang-select')?.options.length;
+          && document.querySelectorAll('#lang-menu [data-lang]').length > 1;
       }, null, { timeout: T.load });
       await lp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
       const got = await lp.evaluate(() => ({ progress: document.getElementById('tour-progress').textContent.trim(), hash: location.hash }));
@@ -5169,17 +5216,16 @@ async function run(browser, vp) {
   await check('språkbytet laddar om sidan på det nya språket (#63)', async () => {
     if (!(await page.evaluate(() => location.hash))) throw new Error('adressen saknar #-del, så testet prövar inte felet');
     const ready = l => {
-      const s = document.getElementById('lang-select'), loading = document.getElementById('loading');
-      return !window.__hgGammal && document.documentElement.lang === l && s?.options.length > 1 && s.value === l
+      const b = document.getElementById('btn-lang'), loading = document.getElementById('loading');
+      return !window.__hgGammal && document.documentElement.lang === l && document.querySelectorAll('#lang-menu [data-lang]').length > 1
+        && b?.dataset.lang === l
         && !!loading && (loading.hidden || getComputedStyle(loading).display === 'none');
     };
     const pick = async lang => {
       reloading = true;
       await page.evaluate(l => {
         window.__hgGammal = true;
-        const s = document.getElementById('lang-select');
-        s.value = l;
-        s.dispatchEvent(new Event('change'));
+        document.querySelector(`#lang-menu [data-lang="${l}"]`).click();
       }, lang);
       try {
         await page.waitForFunction(ready, lang, { timeout: T.load });

@@ -36,7 +36,7 @@ Det finns sex "rum" att vara i, och man ska alltid kunna komma tillbaka till huv
 | **Lager och Vy** | Lager, Vy | Välja vad som syns; glob / platt / upptäckt | Utanför-tryck, Escape |
 | **Tur / lektion / quiz / jakt** | Turer, Mer, delad länk | Följa ett förlopp steg för steg | Avsluta, Klar, Escape |
 
-Mer-menyn (Källor, Hjälp, Quiz, Samtidighetsjakten, Dela, Språk) samlar det som inte är kärnflödet.
+Mer-menyn (Källor, Hjälp, Quiz, Samtidighetsjakten, Dela) samlar det som inte är kärnflödet. Språket väljs med en egen knapp i raden överst (jordglob och kod, ofärdiga språk märkta beta), så att den som inte läser svenska hittar den utan att öppna en meny (#1167).
 
 ## Huvudflöden
 
