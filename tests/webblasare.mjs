@@ -1333,6 +1333,21 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #105: det publicerade temat Teknik (data/teman.json, utan route) startar via länk och visar bara sitt urval.
+  await check('det publicerade temat Teknik startar via länk och visar bara sitt urval (#105)', async () => {
+    const { tp, tctx } = await touchPage();
+    try {
+      const theme = (await (await tctx.request.get(`${BASE}data/teman.json`)).json()).themes.find(t => t.id === 'teknik');
+      if (!theme || theme.review === 'draft') throw new Error('temat teknik saknas eller är draft i data/teman.json');
+      await tp.goto(`${BASE}?ny=teknik#y=1900&f=theme:teknik`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Teknik/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
+      const shown = await tp.evaluate(() => [...document.querySelectorAll('#event-list .event-btn')].map(b => b.dataset.id));
+      if (shown.some(id => !theme.events.includes(id))) throw new Error(`listan visar händelser utanför temat: ${shown.filter(id => !theme.events.includes(id)).join(', ')}`);
+      return `${theme.events.length} händelser i temat, ${shown.length} i listan`;
+    } finally { await tctx.close(); }
+  });
+
   // #706: i mobil hamnade Samtidigt-kortets knapprad (Källor, Nästa) under kortets nederkant, bakom tidslinjen.
   // I halvöppet läge ska Källor och Nästa ligga helt inne i kortets synliga yta, och kortet ska sluta ovanför
   // uppspelningsraden, i 400 × 800 och i den lägre 360 × 640.
