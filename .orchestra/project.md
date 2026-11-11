@@ -27,7 +27,8 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
 - **Anspråk:** en kommentar på issuet ("Orkestern (DasKrokodil) tar det här, session <id>"), etiketten `pågår` och
   tilldelning till kontots person medan arbetet pågår (beslut 2026-11-06, samma för alla agenter). `pågår` tas bort när
   pull requesten är öppnad eller arbetet pausas. Dirigent är bara Claude Code på Rikards konto; på Andreas konto
-  (`Einzbeng`) körs orkestern inte som dirigent, och hans Claude Code tar `redo`-issues som arbetare.
+  (`Einzbeng`) körs orkestern inte som dirigent, men hans Claude Code tar `redo`-issues, får sätta `redo` och skapa issues
+  enligt samma regler som Rikards (beslut 2026-11-11).
 - **Integrationskön (shared v0.8.0, "integration-ready"):** i PR-läget är en öppen pull request med `Closes #N` den
   färdiga överlämningen. Ägaren, grenen, commit, bevisen och nästa steg står i pull requesten och dess kommentarer, och
   det är den som leder arbetet som återupptar den (rättar efter granskning, ombaserar). En sådan pull request tar ingen
@@ -36,7 +37,7 @@ gemensamma standardvärdena. Arbetssättet är permanent sedan 2026-10-29 (#159)
 - **Codex (beslut 2026-10-31):** Codex tar också issues och öppnar pull requests, enligt [AGENTS.md](../AGENTS.md). Orkestern
   hoppar över issues med etiketten `pågår` eller en tilldelad person, eller en öppen pull request (`*/issue-<N>-*`) som skriver
   `Closes #N` (beslut 2026-11-05 och 2026-11-06: ett issue, en ägare). För Codex pull requests gäller i stället: Codex-förgranskning efter att pull requesten öppnats, därefter Claude Codes beslut ("godkänd" eller arbetsorder) och sist Rikards merge. Samma diff och samma verifieringsbevis återanvänds, ingen del granskas två gånger. Dirigentens granskning "innan pull requesten öppnas" nedan gäller orkesterns egna arbetare.
-  Dirigenten sätter den gemensamma etiketten `redo` (beslut 2026-11-06, ersätter `codex: redo` och `copilot: redo`) på
+  Dirigenten (och sedan 2026-11-11 Rikard, Andreas och hans Claude Code, med dirigentens stickprov) sätter den gemensamma etiketten `redo` (beslut 2026-11-06, ersätter `codex: redo` och `copilot: redo`) på
   issues som någon agent får ta: tydligt avgränsade, utan `beslut-krävs` och utan krock med pågående eller planerat
   arbete. Codex och Copilot tar inte `redo`-issues med fakta, data, källor, bilder eller riken; de tar Claude Code
   (Rikards eller Andreas). Etiketten tas bort när issuet tas. Varje pass och varje planering går igenom den pågående
