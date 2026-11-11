@@ -528,6 +528,11 @@ body {
   text-wrap: balance;
 }
 .panel-sub { margin: 6px 40px 0 0; color: var(--parchment-dim); font-size: 13.5px; line-height: 1.4; }
+/* Urvalsmarkeringen överst i Samtidigt när vyn Översikt är på (#1139): en rad som bryter om i smal skärm */
+.panel-tag-note { flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px; margin: 0; padding: 8px 18px; border-bottom: 1px solid var(--line); color: var(--parchment-dim); font-size: 13px; line-height: 1.4; overflow-wrap: anywhere; }
+.panel-tag-note[hidden] { display: none; }
+.panel-tag-note .link-btn { font-size: 13px; }
+@media (max-width: 760px) { .panel-tag-note .link-btn { min-height: 44px; } }
 
 .filters {
   display: flex; flex-wrap: wrap; gap: 6px;

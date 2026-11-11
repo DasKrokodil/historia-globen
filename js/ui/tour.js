@@ -353,6 +353,8 @@ export class TourPlayer {
       app.layers.set(id, on);
       app.layers.onChange(id, on);
     }
+    // Vyns urval (Översikt) efter lagren: ett lagerbyte ovan lämnar vyn, och en lektion släppte urvalet när den började (#1139)
+    if ('tag' in restore) app.layers.setTag(restore.tag);
     if (restore.focus) app.startFocus(restore.focus);
     if (restore.camera) { app.globe.flyTo(restore.camera.lat, restore.camera.lon); app.globe.setZoom(restore.camera.zoom); }
     const back = this.opener?.isConnected && this.opener.offsetParent !== null ? this.opener : null;

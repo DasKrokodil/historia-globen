@@ -250,12 +250,25 @@ export function emptyCause({ visibleCount, filters }) {
   return filters.size === 0 ? 'filters' : 'year';
 }
 
+/** Antalet i raden "Översikt: ett urval, cirka N händelser" (#1139): avrundat till tiotal, men exakt under tio. */
+export const overviewCount = n => (n >= 10 ? Math.round(n / 10) * 10 : n);
+
 export class Panel {
   constructor({ root, list, filters, chips, detail, sub, count, toggle, close }, { events, srcById, styles }, { empireLegend = {}, uncertainty = {}, panel = {}, tags = {} } = {}) {
     Object.assign(this, { root, list, filtersEl: filters, detail, sub, count, toggle, srcById, styles, empireLegend, uncertainty });
     // Taggar (#555): texterna ur data/vyer.json, taggen som vyn visar och hur många synliga händelser som har varje tagg
     this.tags = tags ?? {};
     this.tag = null;
+    // Urvalsmarkeringen överst (#1139): när vyn Översikt är på är listan ett urval, och raden säger det med en knapp till alla
+    this.tagNote = root.querySelector?.('#panel-tag-note') ?? null;
+    this.tagNoteText = root.querySelector?.('#panel-tag-text') ?? null;
+    this.tagNoteAll = root.querySelector?.('#panel-tag-all') ?? null;
+    this.onShowAllEvents = () => {}; // byter till vyn med alla händelser (samma åtgärd som Standard i Lager); main.js kopplar den
+    this.tagNoteAll?.addEventListener('click', () => {
+      this.onShowAllEvents();
+      // Raden försvinner när urvalet slutar: fokus till första kategorin, som ligger kvar
+      (this.root.querySelector('.filter[data-cat]') ?? this.toggle).focus({ preventScroll: true });
+    });
     this.tagCounts = new Map();
     for (const e of events) for (const tag of (isVisibleReview(e.review) ? [...(Array.isArray(e.tags) ? e.tags : []), ...(e.significance === 1 ? ['oversikt'] : [])] : [])) this.tagCounts.set(tag, (this.tagCounts.get(tag) ?? 0) + 1);
     // Bilden i faktarutan som inte laddas (#884): error bubblar inte, så lyssnaren fångar på vägen ned
@@ -335,6 +348,18 @@ export class Panel {
     if (open) this.onOpen();
   }
 
+  /** Raden överst när vyn Översikt är på (#1139): ett urval, antalet räknat ur datan och en knapp till alla händelser. */
+  updateTagNote(eventsOn = true) {
+    if (!this.tagNote) return;
+    const count = this.tagCounts.get('oversikt') ?? 0;
+    const on = eventsOn && this.tag === 'oversikt' && count > 0;
+    this.tagNote.hidden = !on;
+    if (!on) return;
+    this.tagNoteText.textContent = ui('panel.overviewNote', { count: overviewCount(count) });
+    this.tagNoteAll.textContent = ui('panel.overviewAll');
+    this.tagNoteAll.setAttribute('aria-label', ui('panel.overviewAllLabel'));
+  }
+
   /**
    * labels (valfritt): { at, bare, within } i stället för "år 1879", "1879" och "±10 år", till exempel i fokusläget för korta krig (#204).
    * labels.range (#755): listan gäller ett tidsintervall. Händelser som bara delvis ligger inom det märks "delvis inom
@@ -342,6 +367,7 @@ export class Panel {
    * mer exakt ut än den är (förstudien till #569).
    */
   render(visible, year, window, eventsOn = true, labels = null) {
+    this.updateTagNote(eventsOn);
     if (!eventsOn) {
       this.count.textContent = '0';
       this.toggle.setAttribute('aria-label', t(this.copy.eventsOff));

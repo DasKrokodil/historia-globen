@@ -46,7 +46,8 @@ Antagna "lyckade vägar". Varje flöde är också en testplan: den som granskar 
 2. **Utforska ett år:** skriv ett år → Samtidigt i världen per världsdel → välj → faktaruta.
 3. **Följ ett krig:** Sök och följ → välj krig → uppspelning pausar vid viktiga händelser → slutkort → avsluta och komma tillbaka dit man var.
 4. **Tur:** Turer → välj → steg med fråga att fundera på → slutkort med det viktigaste.
-5. **Lektion:** lärare delar länken (`m=lektion`) → menyerna är dolda, år och lager låsta → band med "Visa hela globen" → elevblad och lärarblad skrivs ut.
+5. **Lektion:** lärare delar länken (`m=lektion`) → menyerna är dolda, år och lager låsta → band med "Visa hela globen" → elevblad och lärarblad skrivs ut. Lektionen visar alltid alla händelser i lektionens år, aldrig Översikts urval (#1139).
+   - **Lärarstödet (#1139):** en gammal länk utan `g=` visar alla händelser, medan en bar länk (`historiagloben.se` utan hash) börjar i Översikt, ett urval om cirka 120 händelser. Två elever som öppnar "samma" sida kan alltså se olika saker. Be eleverna öppna länken du delar (en lektionslänk visar alltid alla händelser), eller säg att de ska välja Standard i Lager. Raden "Översikt: ett urval, cirka 120 händelser. Visa alla" överst i Samtidigt säger när det är ett urval.
 6. **Dela:** Dela → länk → mottagaren ser samma vy (adressen bär år, kamera, fokus, lager).
 7. **Rapportera fel:** faktaruta → Rapportera faktafel.
 

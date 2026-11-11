@@ -68,7 +68,7 @@ test('fromJSON avvisar felaktigt tillstånd med en förklaring', () => {
 // Lägeskontraktet (#893): tabellen MODE_RULES, utgångens återställning och biljetterna.
 test('lägestabellen är hel och använder bara kända värden', () => {
   const values = new Set(['avslutar', 'stoppas', 'samtidigt', 'villkor']);
-  const fields = new Set(['layers', 'focus', 'camera']);
+  const fields = new Set(['layers', 'focus', 'camera', 'tag']);
   assert.deepEqual(Object.keys(MODE_RULES).sort(), [...MODES].sort());
   for (const mode of MODES) {
     const rule = MODE_RULES[mode];
@@ -106,6 +106,22 @@ test('en utgång återställer bara ur de lägen som slutar, och det strängaste
   // Ett läge som inte slutar ger ingenting, och inte heller ett annat lägets bild
   assert.deepEqual(exitRestore(tour, ['jakt']), {});
   assert.deepEqual(exitRestore([{ mode: 'jakt', snapshot: null }, ...tour], ['jakt']), {});
+});
+
+// #1139: lektionen visar alltid alla händelser i lektionens år. Vyns urval (tag, till exempel Översikt) släpps när lektionen
+// börjar, och utgången ("Visa hela globen") återställer det som det var, på samma sätt som lagren.
+test('lektionens utgång återställer vyns urval (tag) tillsammans med lagren (#1139)', () => {
+  assert.ok(MODE_RULES.lektion.restore.includes('tag'), 'lektionen återställer urvalet');
+  assert.ok(MODE_RULES.tur.restore.includes('tag'), 'turen återställer urvalet, annars hindrar den lektionens återställning (det strängaste läget bestämmer)');
+  const before = { year: 1939, layers: { areas: true }, focus: null, camera: { lat: 1, lon: 2, zoom: 1 }, tag: 'oversikt' };
+  // Lektionen började före sin tur; turens bild är tagen när lektionen redan släppt urvalet (tag: null)
+  const lesson = [{ mode: 'lektion', snapshot: before }, { mode: 'tur', snapshot: { ...before, tag: null } }];
+  assert.deepEqual(exitRestore(lesson, ['tur', 'lektion']), { layers: before.layers, camera: before.camera, tag: 'oversikt' });
+  // En bild utan tag (äldre bild) återställer inget urval, och ett urval som var av (null) återställs som av
+  assert.equal('tag' in exitRestore([{ mode: 'lektion', snapshot: { layers: {}, camera: null } }], ['lektion']), false);
+  assert.equal(exitRestore([{ mode: 'lektion', snapshot: { ...before, tag: null } }], ['lektion']).tag, null);
+  // Ett läge som avslutar lektionen och tar över lagren släpper inte urvalet: tag återställs ändå
+  assert.equal(exitRestore(lesson, ['tur', 'lektion'], 'fokus').tag, 'oversikt');
 });
 
 test('enter och leave följer tabellen och avslutar lägen genom deras onExit', () => {
