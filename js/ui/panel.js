@@ -559,6 +559,38 @@ export class Panel {
     this.detail.querySelector('[data-close]').focus({ preventScroll: true });
   }
 
+  /**
+   * Platsens kort (#579): namn, typ, en kort inledning, den fasta raden om att linjen är dagens gräns, och händelserna
+   * inom gränsen i tidsordning. Bygger på temakortet; knapparna Avsluta och händelserna använder samma återanrop.
+   */
+  showPlace(place, events) {
+    this.selectedId = null;
+    this.detail.className = `detail detail-card frame-${styleFor(events[0], this.styles).frame}`;
+    const srcs = (place.sources ?? []).map(id => this.srcById[id]).filter(Boolean);
+    const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> ${esc(t(e.title))}${e.start < MIN_YEAR ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
+    const type = ui(`place.type.${place.type}`), of = place.partOf ? t(place.partOf) : '';
+    this.detail.innerHTML = `
+      <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
+      <div class="story-label">${esc(ui('place.label'))}</div>
+      <h3>${esc(t(place.name))}</h3>
+      <div class="story"><p class="place-type">${esc(of ? ui('place.typeOf', { type, of }) : type)}</p>
+      <p>${esc(t(place.intro))}</p>
+      <p class="theme-filter-note">${esc(ui('place.borderNote'))}</p>
+      <p class="theme-filter-note">${esc(ui('place.filters'))}</p>
+      <button type="button" class="chip-btn theme-exit" data-end-theme>${esc(ui('place.exit'))}</button>
+      <details class="theme-event-list"${matchMedia('(max-width: 760px)').matches ? '' : ' open'}>
+        <summary>${esc(ui('place.events', { count: events.length }))}</summary>
+        <ul class="theme-events">${items}</ul>
+      </details></div>
+      ${srcs.length ? srcLine(srcs, false) : ''}`;
+    this.detail.scrollTop = 0;
+    this.setDetailOpen(true);
+    this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
+    this.detail.querySelector('[data-end-theme]').addEventListener('click', () => this.onEndTheme());
+    for (const b of this.detail.querySelectorAll('[data-theme-event]')) b.addEventListener('click', () => this.onThemeEvent?.(b.dataset.themeEvent));
+    this.detail.querySelector('[data-close]').focus({ preventScroll: true });
+  }
+
   /** Knappen "Rapportera faktafel" skickar bara objektets typ och id till formuläret. */
   bindReport(year) {
     this.detail.querySelector('[data-report-type]')?.addEventListener('click', ev => {

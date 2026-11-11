@@ -160,6 +160,22 @@ Namngivna epoker som data, så att tidsålderstext, bildstilar och snabbknappar 
 
 **`industrialiseringen` (Del 2b, andra delen):** den brittiska industriella revolutionen (id `industrialiseringen`; döpt om 2026-11-09, #978) som egen indelning med en period, cirka 1760–1840 (`1760`/`1840`, `1760~/1840~`). Källa: engelska Wikipedia (Industrial Revolution, CC BY-SA 4.0), öppnad 2026-11-08, som anger cirka 1760–cirka 1840 och säger att början och slutet är omdiskuterade; det står i periodens `note`, och nivån är `source-checked`. Indelningen märks som den brittiska revolutionen och inte Sveriges industrialisering, som Lgr22 tar upp senare (granskningen 2026-11-08, #978). **Högkulturer** läggs inte in än: tidslinjen börjar 3000 f.Kr., så Uruk-perioden (4000–3100 f.Kr.) ligger helt utanför och Egypten har bara ett startår (enandet cirka 3150 f.Kr.); bara Indusdalen (cirka 3300–1700 f.Kr.) skulle få en knapp. Revolutioner och kolonisation blir teman eller turer (#398), inte epoker.
 
+## `platser.json`: platser (#579)
+
+Filen `data/platser.json` (schema `schemas/platser.schema.json`, kontroll i `scripts/validate-site.py`) har en lista `places`. En plats är ett **kort om platsens historia** i Fokus (`f=place:<id>`): namn, typ, en kort inledning och de händelser som ligger inom platsens **dagens gräns**, i tidsordning. Platsen lägger inte till några fakta utöver typen; allt historiskt står i händelserna och deras källor. Beslutet om ordet Platser och typen: [2026-11-10-platser-och-typ-i-data.md](beslut/2026-11-10-platser-och-typ-i-data.md).
+
+| Fält | Betydelse |
+|---|---|
+| `id` | läsbart, unikt (`gronland`, `aotearoa`) |
+| `type` | `autonomous` (självstyrt område) eller `country` (land); visas på kortet och i listan som `place.type.<typ>` i `data/ui/`, så att varje språk och land kan använda sitt eget ord. Nya typer (landskap, delstat) läggs till i schemat och i alla fem språkfilerna |
+| `name`, `intro` | text på alla fem språk. Inledningen beskriver urvalet och påstår inget historiskt |
+| `partOf` | valfri text: vad platsen ingår i; kortet skriver då "Typ i …" |
+| `view` | `center` ([lat, lon]) och `zoom` för kameran; ingen mittpunkt räknas ur gränsen, eftersom Nya Zeeland ligger på båda sidor om datumgränsen |
+| `boundary` | `source` (id i `sources.json`), `ne` (Natural Earth, ISO 3166-1 numeriskt id), valfri `exclude` (rutor [väst, syd, öst, nord] vars polygoner tas bort; Tokelau ur Nya Zeeland) och `geometry` (GeoJSON MultiPolygon i WGS 84). `geometry` skrivs av `python3 tools/platser_gransar.py` ur Natural Earth 1:50m via world-atlas, public domain |
+| `sources`, `review` | som för händelser; `draft` visas inte |
+
+**Händelserna inom gränsen** räknas vid körning av `placeEvents()` i `js/place-geo.js`: händelsens punkt ligger i polygonen, eller inom **20 km** från dess kant (`COAST_MARGIN_KM`), eftersom 1:50m-kusten är grov och Nuuk, Auckland och Golden Bay annars hamnar i havet. `validate-site.py` räknar med samma marginal och kräver minst 5 synliga händelser inom gränsen. Gränsen är **dagens**, inte den som gällde då; kortet säger det på en fast rad (`place.borderNote`).
+
 ## `teman.json`: teman (#398)
 
 **Fastställt format (#950, beslut [2026-11-08-temaformat-398.md](beslut/2026-11-08-temaformat-398.md), frågorna 1–4 på #398 besvarade av DasKrokodil 2026-11-08), byggt i #962:** filen `data/teman.json` (tom lista), schemat `schemas/teman.schema.json`, kontrollen i `scripts/validate-site.py` och temat i Fokus. Ett tema är ett **namngivet urval av befintliga händelser** med en introduktion, till exempel teknik (#105). Temat lägger inte till några fakta: allt historiskt innehåll ligger kvar i händelserna och deras källor.

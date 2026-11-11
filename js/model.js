@@ -480,6 +480,21 @@ export function loadPerioder() {
  * Fokusmenyn öppnas eller ett tema i adressen börjar. Bara teman som är kontrollerade (inte draft) behålls, och en
  * fil som saknas eller inte går att läsa ger en tom lista; sidan fungerar ändå.
  */
+/**
+ * Platser (data/platser.json, #579): kurerade kort om platsers historia, med dagens gräns som kontur. Laddas första
+ * gången Fokusmenyn öppnas eller en plats i adressen börjar. Bara kontrollerade platser (inte draft) behålls; en
+ * fil som saknas eller inte går att läsa ger en tom lista.
+ */
+let placesPromise = null;
+export function loadPlaces() {
+  placesPromise ??= getJSON('data/platser.json').then(doc => (Array.isArray(doc?.places) ? doc.places : [])
+    .filter(p => p && typeof p.id === 'string' && p.boundary?.geometry && isVisibleReview(p.review))).catch(err => {
+    console.warn('Platser kunde inte laddas', err);
+    return [];
+  });
+  return placesPromise;
+}
+
 let themesPromise = null;
 export function loadThemes() {
   themesPromise ??= getJSON('data/teman.json').then(doc => (Array.isArray(doc?.themes) ? doc.themes : [])

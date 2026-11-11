@@ -32,6 +32,7 @@ export const Z = {
   areas: 10,      // riken
   religions: 20,  // religioner
   borders: 30,    // dagens gränser
+  places: 35,     // konturen av platsen man följer (#579)
   discovery: 40,  // upptäcktsvyns dimma, portolanlinjer och havsmonster (#101)
   routes: 50,     // vägar och resor (#38)
   wars: 60,       // krigsområden (#27)
