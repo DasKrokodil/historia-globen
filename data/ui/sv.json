@@ -121,6 +121,7 @@
   "place.label": "Plats",
   "place.type.autonomous": "Självstyrt område",
   "place.type.country": "Land",
+  "place.type.landskap": "Landskap",
   "place.typeOf": "{type} i {of}",
   "place.borderNote": "Linjen på kartan visar dagens gräns, inte den gräns som gällde då.",
   "place.filters": "Alla händelser inom gränsen visas oavsett dina kategorival.",
