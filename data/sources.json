@@ -1876,6 +1876,8 @@
     { "id": "wp-journey-to-the-west", "title": "Journey to the West – Wikipedia", "url": "https://en.wikipedia.org/wiki/Journey_to_the_West", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
     { "id": "wp-francis-xavier", "title": "Francis Xavier – Wikipedia", "url": "https://en.wikipedia.org/wiki/Francis_Xavier", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
     { "id": "wp-bluebuck", "title": "Bluebuck – Wikipedia", "url": "https://en.wikipedia.org/wiki/Bluebuck", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
-    { "id": "wp-hatata", "title": "Hatata – Wikipedia", "url": "https://en.wikipedia.org/wiki/Hatata", "license": "CC BY-SA 4.0", "checked": "2026-11-11" }
+    { "id": "wp-hatata", "title": "Hatata – Wikipedia", "url": "https://en.wikipedia.org/wiki/Hatata", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-gulag", "title": "Gulag – Wikipedia", "url": "https://en.wikipedia.org/wiki/Gulag", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "wp-holodomor", "title": "Holodomor – Wikipedia", "url": "https://en.wikipedia.org/wiki/Holodomor", "license": "CC BY-SA 4.0", "checked": "2026-11-11" }
   ]
 }

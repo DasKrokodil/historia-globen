@@ -128,6 +128,8 @@
 "kauffmannavtalet":{"place":{"es":"Washington D. C."},"title":{"es":"El acuerdo sobre la defensa de Groenlandia"}},
 "allman-rostratt-for-man-1911":{"place":{"es":"Suecia"},"title":{"es":"Las primeras elecciones con sufragio universal masculino"}},
 "kvinnor-rostar-1921":{"place":{"es":"Suecia"},"title":{"es":"Las mujeres votan por primera vez al Riksdag"}},
+"gulag":{"place":{"es":"Unión Soviética (la administración estaba en Moscú)"},"title":{"es":"El Gulag, el sistema soviético de campos de trabajo"},"note":{"title":{"es":"Las fuentes difieren"}}},
+"holodomor":{"place":{"es":"Ucrania soviética"},"title":{"es":"El Holodomor, la hambruna en Ucrania"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "explorer-1":{"place":{"es":"Cabo Cañaveral, Florida, Estados Unidos"},"title":{"es":"Explorer 1, el primer satélite de Estados Unidos"},"note":{"title":{"es":"Sobre la fecha"}}},
 "tereshkova-vostok-6":{"place":{"es":"Aterrizaje al oeste de Barnaúl, en Altái, Unión Soviética (hoy Rusia)"},"title":{"es":"Valentina Tereshkova se convierte en la primera mujer en el espacio"}},
 "asterix-frankrikes-forsta-satellit":{"place":{"es":"Hammaguir, Argelia"},"title":{"es":"Astérix, el primer satélite de Francia"}},

@@ -128,6 +128,8 @@
 "kauffmannavtalet":{"place":{"fr":"Washington"},"title":{"fr":"L'accord sur la défense du Groenland"}},
 "allman-rostratt-for-man-1911":{"place":{"fr":"Suède"},"title":{"fr":"Les premières élections au suffrage universel masculin"}},
 "kvinnor-rostar-1921":{"place":{"fr":"Suède"},"title":{"fr":"Les femmes votent pour la première fois pour le Riksdag"}},
+"gulag":{"place":{"fr":"Union soviétique (l'administration siégeait à Moscou)"},"title":{"fr":"Le Goulag, le système soviétique de camps de travail"},"note":{"title":{"fr":"Les sources divergent"}}},
+"holodomor":{"place":{"fr":"Ukraine soviétique"},"title":{"fr":"L'Holodomor, la famine en Ukraine"},"note":{"title":{"fr":"Les sources divergent"}}},
 "explorer-1":{"place":{"fr":"Cap Canaveral, Floride, États-Unis"},"title":{"fr":"Explorer 1, premier satellite des États-Unis"},"note":{"title":{"fr":"À propos de la date"}}},
 "tereshkova-vostok-6":{"place":{"fr":"Atterrissage à l'ouest de Barnaoul, dans l'Altaï, Union soviétique (aujourd'hui Russie)"},"title":{"fr":"Valentina Terechkova devient la première femme dans l'espace"}},
 "asterix-frankrikes-forsta-satellit":{"place":{"fr":"Hammaguir, Algérie"},"title":{"fr":"Astérix, premier satellite français"}},

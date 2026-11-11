@@ -128,6 +128,8 @@
 "kauffmannavtalet":{"place":{"de":"Washington, D.C."},"title":{"de":"Das Abkommen über die Verteidigung Grönlands"}},
 "allman-rostratt-for-man-1911":{"place":{"de":"Schweden"},"title":{"de":"Die erste Wahl mit allgemeinem Männerwahlrecht"}},
 "kvinnor-rostar-1921":{"place":{"de":"Schweden"},"title":{"de":"Frauen wählen zum ersten Mal zum Reichstag"}},
+"gulag":{"place":{"de":"Sowjetunion (die Verwaltung saß in Moskau)"},"title":{"de":"Der Gulag, das sowjetische System der Arbeitslager"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
+"holodomor":{"place":{"de":"Sowjetukraine"},"title":{"de":"Holodomor, die Hungersnot in der Ukraine"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
 "explorer-1":{"place":{"de":"Cape Canaveral, Florida, USA"},"title":{"de":"Explorer 1, der erste Satellit der USA"},"note":{"title":{"de":"Zum Datum"}}},
 "tereshkova-vostok-6":{"place":{"de":"Landung westlich von Barnaul im Altai, Sowjetunion (heute Russland)"},"title":{"de":"Valentina Tereschkowa wird die erste Frau im Weltraum"}},
 "asterix-frankrikes-forsta-satellit":{"place":{"de":"Hammaguir, Algerien"},"title":{"de":"Astérix, der erste Satellit Frankreichs"}},
