@@ -17,7 +17,7 @@ import { printLesson } from './print-sheet.js';
 export class LessonMode {
   /**
    * els: bandet och dess delar i index.html (band, title, exit, endLinks, endList).
-   * app: { root, timeline, tour, closeMenus, store, snapshot } från main.js.
+   * app: { root, timeline, tour, closeMenus, store, layers, snapshot } från main.js.
    */
   constructor(els, app) {
     Object.assign(this, els, { app });
@@ -90,6 +90,9 @@ export class LessonMode {
     // Läget Lektion börjar (#893) och avslutar ett fokus (MODE_RULES i js/state.js); bilden tas bara första gången
     this.app.store?.enter('lektion', this.tour ? null : this.app.snapshot?.() ?? null);
     this.tour = tour;
+    // Lektionen visar alltid alla händelser i lektionens år (#1139): vyns urval (Översikt) släpps medan lektionen pågår
+    // och återställs av utgången (MODE_RULES.lektion.restore i js/state.js)
+    this.app.layers?.setTag(null);
     this.hideNotice();
     const { root, timeline } = this.app;
     root.classList.add('lesson');

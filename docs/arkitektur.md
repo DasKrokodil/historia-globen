@@ -238,6 +238,7 @@ Vyn står i adressen efter `#`, så att en kopierad länk öppnar samma vy och B
 | `k` | Kategorierna som syns; saknas `k` syns alla, så att länken visar en ny kategori när den kommer till |
 | `t` | En guidad tur som pågår (tur-id i `data/turer/`, #736). En länk med `t` startar turen; `#t=<id>` räcker |
 | `s` | Turens steg (stegets id); saknas `s` börjar turen vid första steget |
+| `g` | Händelseurvalet i en förinställd vy (#868), till exempel `g=oversikt`. **Saknas `g` visas alla händelser**; en bar länk (utan hash) börjar däremot i Översikt (`defaultView` i `data/vyer.json`). En lektion (`m=lektion`) visar alltid alla händelser oavsett `g` (#1139) |
 | `m` | Läget (#795): bara `m=lektion` finns. Tillsammans med `t` startar länken en lektionstur i lektionsläge; utan `t`, eller för en tur utan lärarfält, gör `m` ingenting |
 | `r` | Rollen (#885): bara `r=lararen` finns, och bara i en lektionslänk. Läraren får knappen "Skriv ut elev- och lärarblad" i bandet; eleven i den vanliga länken får ingen. Rollen läses bara vid start och skrivs **aldrig** tillbaka till adressen, så Dela, omladdning och Bakåt ger inte eleven knappen. "Starta som lektion" i Turer-menyn ger också läraren knappen |
 
@@ -270,12 +271,14 @@ Besökaren är alltid i **Utforska**, och ovanpå det i noll eller flera lägen:
 | Läge | Utgången återställer | Tar över när det avslutar ett annat läge |
 |---|---|---|
 | Fokus | inget | fokus, kamera |
-| Tur | lager, fokus, kamera | lager, fokus, kamera |
-| Lektion | lager, kamera (aldrig fokus, eftersom fokus flyttar året och utgången behåller lektionens år, #881) | lager, fokus, kamera |
+| Tur | lager, fokus, kamera, vyns urval (`tag`) | lager, fokus, kamera |
+| Lektion | lager, kamera, vyns urval (`tag`) (aldrig fokus, eftersom fokus flyttar året och utgången behåller lektionens år, #881) | lager, fokus, kamera |
 | Jakt | inget | inget |
 | Intervall | inget | fokus |
 
-Exempel: en vanlig tur som avslutas ger tillbaka lager, fokus och kamera; "Visa hela globen" i en lektion ger tillbaka lager och kamera men inte fokus; Fokus som börjar under en tur avslutar turen, och då blir bara lagren som innan.
+Exempel: en vanlig tur som avslutas ger tillbaka lager, fokus, kamera och vyns urval; "Visa hela globen" i en lektion ger tillbaka lager, kamera och vyns urval men inte fokus; Fokus som börjar under en tur avslutar turen, och då blir bara lagren som innan.
+
+**Lektionen visar alltid alla händelser i lektionens år (#1139, [beslut 2026-11-11](beslut/2026-11-11-oversikt-urval-och-lektion-1139.md)).** Vyns urval (`state.tag`, till exempel Översikt, #868) hör till vyn och inte till lektionen. När läget Lektion börjar släpper `LessonMode.enter` urvalet (`layers.setTag(null)`), och ögonblicksbilden från före lektionen bär urvalet (`tag` i `app.modeSnapshot`). Tabellen ovan säger att både Lektion och Tur återställer `tag`; Tur måste göra det, eftersom det strängaste läget bestämmer och lektionen alltid har en tur. `TourPlayer.end` sätter tillbaka urvalet efter lagren, eftersom ett lagerbyte annars lämnar vyn. Utan regeln fick en lektion bara alla händelser som en bieffekt av att den slog av ett lager; en lektion med exakt Översikts fem lager hade annars kvar ett urval om 3–5 händelser per år. Prövas i `tests/state.test.mjs` och i webbläsarkontrollen "lektionsläget från Översikt visar alla händelser och lämnar inget urval kvar (#1139)".
 
 ### Tidsintervallet (#569, #755)
 

@@ -102,7 +102,7 @@ export class ReligionLegend {
     if (!items.length && !areas && !war && !fadable.length && !discovery) { this.legend.hidden = true; this.legend.textContent = ''; this._html = ''; return; }
     const unsure = items.some(i => i.unsure), inherited = items.some(i => i.inherited);
     const title = (items.length ? 1 : 0) + (areas ? 1 : 0) + (war ? 1 : 0) + (discovery ? 1 : 0) > 1 ? 'Teckenförklaring'
-      : items.length ? 'Religioner' : areas ? 'Riken' : war ? 'Krigsområden' : discovery ? discovery.title : 'Lager i fokus';
+      : items.length ? 'Religioner' : areas ? 'Riken' : war ? 'Krigsområden' : discovery ? discovery.title : 'Lager medan du följer';
     const open = discovery ? this.discoveryOpen : this.open;
     const religionsHtml = !items.length ? '' : `<ul>${items.map(({ religion: r, sure, unsure: u, inherited: i }) =>
       `<li data-religion="${esc(r.id)}" tabindex="0" role="button" aria-pressed="${this.pinned === r.id}" class="${this.highlight === r.id ? 'on' : ''}" title="Peka eller tryck för att lyfta fram ${esc(t(r.name).toLowerCase())} på kartan"><span class="swatch" style="background:${esc(r.color)}"></span>${symbolImg(r)}<span class="rl-name">${esc(t(r.name))}${

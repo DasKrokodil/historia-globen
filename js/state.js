@@ -115,12 +115,14 @@ export const MODE_RULES = {
   },
   tur: {
     when: { fokus: 'avslutar', lektion: 'samtidigt', jakt: 'samtidigt', intervall: 'avslutar' },
-    restore: ['layers', 'focus', 'camera'], takes: ['layers', 'focus', 'camera'],
+    restore: ['layers', 'focus', 'camera', 'tag'], takes: ['layers', 'focus', 'camera'],
   },
   lektion: {
-    // Lektionen börjar före sin tur (js/ui/lesson.js); en jakt utanför lektionens år avslutas
+    // Lektionen börjar före sin tur (js/ui/lesson.js); en jakt utanför lektionens år avslutas.
+    // Lektionen visar alltid alla händelser i lektionens år (#1139, beslut 2026-11-11): när den börjar släpps vyns urval
+    // (tag, till exempel Översikt) och utgången återställer urvalet som det var, tillsammans med lagren.
     when: { fokus: 'avslutar', tur: 'samtidigt', jakt: 'villkor', intervall: 'avslutar' },
-    restore: ['layers', 'camera'], takes: ['layers', 'focus', 'camera'], // aldrig fokus: utgången behåller lektionens år (#881)
+    restore: ['layers', 'camera', 'tag'], takes: ['layers', 'focus', 'camera'], // aldrig fokus: utgången behåller lektionens år (#881)
   },
   jakt: {
     // I en lektion bara uppdrag inom lektionens år (#741, #795)

@@ -168,6 +168,8 @@ async function start() {
   layers.onTag = tag => { store.setTag(tag); panel.tag = tag; app.refresh?.(); };
   // Första besöket börjar i den vy som datan utser. En delad länk ställs in efteråt och får alltid företräde.
   if (views?.defaultView) layers.applyView(views.defaultView);
+  // Raden "Översikt: ett urval … Visa alla" (#1139) gör samma sak som Standard i Lager: alla händelser, samma lager
+  panel.onShowAllEvents = () => layers.applyView('standard');
   panel.onEnableEvents = () => {
     layers.set('events', true);
     layers.onChange('events', true);
@@ -282,6 +284,7 @@ async function start() {
       layers: Object.fromEntries(controlled.map(l => [l, !!layers.on[l]])),
       focus: state.focus ? `${state.focus.type}:${state.focus.id}` : null,
       camera: globe.view,
+      tag: state.tag ?? null, // vyns urval (till exempel Översikt, #1139): lektionen släpper det och utgången återställer det
       filters: [...panel.filters],
     };
   };
@@ -641,7 +644,7 @@ async function start() {
   app.lesson = new LessonMode({
     band: $('lesson-band'), title: $('lesson-band-title'), exit: $('lesson-exit'), printBtn: $('lesson-print'), printStatus: $('lesson-print-status'),
     notice: $('lesson-notice'), noticeText: $('lesson-notice-text'), retry: $('lesson-retry'), noticeClose: $('lesson-notice-close'), endLinks: $('tour-lesson-end'), endList: $('tour-lesson-end-list'),
-  }, { root: $('app'), printRoot: $('print-sheet'), timeline, tour, hunt, toursData, store, snapshot: () => app.modeSnapshot(), closeMenus: () => { surfaces.closeAll(); help.close(false); } });
+  }, { root: $('app'), printRoot: $('print-sheet'), timeline, tour, hunt, toursData, store, layers, snapshot: () => app.modeSnapshot(), closeMenus: () => { surfaces.closeAll(); help.close(false); } });
   // Berättelseläget (#247): krigets första kort får "Följ berättelsen" när en tur berättar om kriget
   panel.tourFor = id => { const x = tour.forWar(id); return x && { id: x.id, label: tour.storyLabel(x) }; };
   // Rikens fall (#499): rikets faktaruta får en knapp när en tur följer rikets fall
