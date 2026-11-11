@@ -4467,6 +4467,8 @@ async function run(browser, vp) {
       if (!list.some(m => /^\d+ år (tidigare|senare) · /.test(m))) throw new Error('listan 1325 har ingen rad med "N år tidigare/senare"');
       // Klotets etiketter: "N år före (år)" och "om N år (år)", aldrig "slut" eller "börjar"
       rows.push(await want('#y=1916', /^1900-talet · visar också det som hände \d+ år före och efter$/));
+      // Etiketterna ritas om en bildruta efter att raden bytt text: vänta in dem (annars läses de gamla, #1138), men kräv fortfarande att etiketten finns
+      await wp.waitForFunction(() => [...document.querySelectorAll('#labels .glabel')].some(l => l.textContent === 'Första världskriget'), null, { timeout: 8000 }).catch(() => {});
       const shown = await labels();
       const before = shown.find(l => /Titanic/.test(l));
       if (before && !/ · 4 år före \(1912\)$/.test(before)) throw new Error(`Titanic 1916 säger "${before}"`);
