@@ -1401,6 +1401,54 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #579: platserna (data/platser.json, utan route): Grönland och Aotearoa väljs i Sök och följ, kortet säger vad platsen
+  // är och att linjen är dagens gräns, bara händelserna inom gränsen syns, och platsen lämnas med knappen.
+  await check('platsen Grönland väljs i Sök och följ och visar bara händelserna inom gränsen (#579)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    try {
+      const doc = await (await tctx.request.get(`${BASE}data/platser.json`)).json();
+      const place = doc.places.find(p => p.id === 'gronland');
+      if (!place || place.review === 'draft') throw new Error('platsen gronland saknas eller är draft i data/platser.json');
+      await tp.goto(`${BASE}?ny=plats1#y=1000`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#btn-more')) await tp.click('#btn-more');
+      await tp.click('#btn-focus');
+      await tp.waitForSelector('#focus-menu [data-tab="Platser"]', { state: 'visible', timeout: T.step });
+      await tp.click('#focus-menu [data-tab="Platser"]');
+      const row = tp.locator('#focus-menu [data-key="place:gronland"]');
+      await row.waitFor({ state: 'visible', timeout: T.step });
+      if (!/Självstyrt område/.test(await row.textContent())) throw new Error(`raden saknar typen: ${await row.textContent()}`);
+      await row.click();
+      await tp.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Grönland/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
+      await tp.waitForFunction(() => location.hash.includes('f=place:gronland'), null, { timeout: T.step });
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      const card = await tp.textContent('#detail');
+      if (!/Självstyrt område/.test(card)) throw new Error('kortet visar inte platsens typ');
+      if (!/dagens gräns/.test(card)) throw new Error('kortet säger inte att linjen är dagens gräns');
+      if (!/oavsett.*kategor/i.test(card)) throw new Error('kortet förklarar inte kategorifiltret');
+      // Hela tiden: listan i kortet visar bara händelser som ligger på Grönland (de som inte är draft)
+      const inCard = await tp.evaluate(() => [...document.querySelectorAll('#detail [data-theme-event]')].map(b => b.dataset.themeEvent));
+      if (inCard.length < 5) throw new Error(`kortet listar bara ${inCard.length} händelser`);
+      const events = (await (await tctx.request.get(`${BASE}data/events.json`)).json());
+      const byId = new Map((events.events ?? events).map(e => [e.id, e]));
+      const outside = inCard.filter(id => { const [lon, lat] = byId.get(id).location.coordinates; return !(lon < -10 && lon > -75 && lat > 59 && lat < 84); });
+      if (outside.length) throw new Error(`kortet listar händelser utanför Grönland: ${outside.join(', ')}`);
+      const shown = await tp.evaluate(() => [...document.querySelectorAll('#event-list .event-btn')].map(b => b.dataset.id));
+      if (shown.some(id => !inCard.includes(id))) throw new Error(`listan visar händelser utanför platsen: ${shown.filter(id => !inCard.includes(id)).join(', ')}`);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      // Avsluta platsen lämnar fokus och stänger kortet
+      await tp.click('#detail [data-end-theme]');
+      await tp.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+      if (!(await tp.isHidden('#detail'))) throw new Error('platskortet ligger kvar efter Avsluta platsen');
+      // En plats som inte finns ger ett lugnt besked i stället för ett fel
+      await tp.goto(`${BASE}?ny=plats2#y=1000&f=place:finns-inte`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (!(await tp.isHidden('#focus-bar'))) throw new Error('en plats som inte finns startade ändå ett fokus');
+      return `${inCard.length} händelser inom gränsen, ${shown.length} syns i listan`;
+    } finally { await tctx.close(); }
+  });
+
   // #706: i mobil hamnade Samtidigt-kortets knapprad (Källor, Nästa) under kortets nederkant, bakom tidslinjen.
   // I halvöppet läge ska Källor och Nästa ligga helt inne i kortets synliga yta, och kortet ska sluta ovanför
   // uppspelningsraden, i 400 × 800 och i den lägre 360 × 640.

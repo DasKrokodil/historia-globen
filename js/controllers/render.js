@@ -95,7 +95,7 @@ export function createRender(app) {
     const within = fine ? plural('time.withinDays', Math.round(window * 365.25)) : plural('time.withinYears', Math.round(window));
     ff.story = focus?.type === 'empire' ? storyFor(focus.id) : [];
     ff.setAnnouncements(!range);
-    ff.update(wholeYear, panel.filters, focus?.type === 'theme' ? focus.eventIds : null);
+    ff.update(wholeYear, panel.filters, focus?.eventIds ?? null);
     state.highlight = ff.highlightIds();
     const eventsOn = layers.on.events;
     // Alla lager väljer vad som syns (beslut 2), i registrets ordning
@@ -103,10 +103,12 @@ export function createRender(app) {
     timeline.setMarks(registry.marks(state), { curated: !!state.tag });
     prefetchDetails();
     const rangeLabel = range && rangeText(range.from, range.to);
-    const nextThemeEvent = focus?.type === 'theme' && !visible.length ? focus.themeEvents.find(e => e.start > wholeYear) : null;
-    const themeEmpty = focus?.type !== 'theme' || visible.length ? null : nextThemeEvent
-      ? ui('theme.emptyYearNext', { next: `${formatEventTime(nextThemeEvent)} · ${t(nextThemeEvent.title)}` })
-      : ui('theme.emptyYear');
+    // Ett tema (#398) och en plats (#579) är urval av händelser: ett år utan träff förklaras, med nästa händelse
+    const nextThemeEvent = focus?.themeEvents && !visible.length ? focus.themeEvents.find(e => e.start > wholeYear) : null;
+    const emptyKey = focus?.type === 'place' ? 'place' : 'theme';
+    const themeEmpty = !focus?.themeEvents || visible.length ? null : nextThemeEvent
+      ? ui(`${emptyKey}.emptyYearNext`, { next: `${formatEventTime(nextThemeEvent)} · ${t(nextThemeEvent.title)}` })
+      : ui(`${emptyKey}.emptyYear`);
     panel.render(visible, wholeYear, window, eventsOn, range ? { at: ui('range.at', { range: rangeLabel }), bare: rangeLabel, within, range }
       : fine ? { at: ui('time.onDate', { date: timeline.format(year) }), bare: timeline.format(year), within, fine: true }
       : themeEmpty ? { themeEmpty } : null);

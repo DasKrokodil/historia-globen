@@ -286,7 +286,7 @@ async function start() {
   // Fokus (att följa ett krig, rike, en religion eller resa) stoppas av lektionsläget (#795) och av de andra lägen som
   // tabellen MODE_RULES i js/state.js säger (#893): en länk i en faktaruta eller en gammal adress kan inte släppa låset
   const startFocus = key => (store.canEnter('fokus') ? focusCtl.startFocus(key) : Promise.resolve(false));
-  Object.assign(app, { startFocus, endFocus: focusCtl.endFocus, founding: focusCtl.founding, focusMenu: focusCtl.focusMenu, showThemeCard: focusCtl.showThemeCard });
+  Object.assign(app, { startFocus, endFocus: focusCtl.endFocus, founding: focusCtl.founding, focusMenu: focusCtl.focusMenu, showThemeCard: focusCtl.showThemeCard, showPlaceCard: focusCtl.showPlaceCard });
   const render = createRender(app);
   Object.assign(app, { render, refresh: render.refresh, syncNameScale: render.syncNameScale, storyFor: render.storyFor });
   const jumpBack = createJumpBack(app);
@@ -311,7 +311,7 @@ async function start() {
   // I lektionsläget (#795) följs ingenting: ett rike öppnar bara sin faktaruta
   panel.onEmpire = (id, follow = false) => ((!follow || app.lesson?.active) && app.showEmpireFacts(id)) || app.startFocus(`empire:${id}`);
   $('focus-exit').addEventListener('click', () => {
-    const theme = state.focus?.type === 'theme';
+    const theme = state.focus?.type === 'theme' || state.focus?.type === 'place';
     app.endFocus();
     if (theme) $('btn-focus').focus({ preventScroll: true });
   });
@@ -321,6 +321,7 @@ async function start() {
     if (focus?.type === 'empire') app.showEmpireFacts(focus.id);
     else if (focus?.type === 'religion') app.showReligionFacts(focus.id, false);
     else if (focus?.type === 'theme') app.showThemeCard();
+    else if (focus?.type === 'place') app.showPlaceCard();
   });
   panel.onThemeEvent = id => app.select(id);
   panel.onEndTheme = () => {

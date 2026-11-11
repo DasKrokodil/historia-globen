@@ -2,11 +2,12 @@
 // en resa. Tidslinjen och globen zoomar in, och uppspelningen går långsamt. Här finns också Fokus-menyns
 // listor och raden "Tiden flyttades" (#167). Det man följer står i state.focus, state.focusWar och
 // state.focusRoute, som lagren läser. Ett tema (#398) är också fokus: ett namngivet urval av händelser.
-import { loadReligions, loadThemes, loadEmpire, loadEmpireFacts, loadEventDetails, loadRoutes, CAT, t, symbolUrl, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays } from '../model.js';
+import { loadReligions, loadThemes, loadPlaces, loadEmpire, loadEmpireFacts, loadEventDetails, loadRoutes, CAT, t, symbolUrl, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays } from '../model.js';
 import { MIN_YEAR, MAX_YEAR } from '../timeline.js';
 import { FocusMenu } from '../ui/focusmenu.js';
 import { ui } from '../i18n.js';
 import { warStory } from './story.js';
+import { placeEvents } from '../place-geo.js';
 import { formatYearSpan } from './facts.js';
 import { eventRegion, span as missionSpan } from '../uppdrag-rules.js';
 
@@ -58,7 +59,7 @@ export function createFocus(app) {
   function focusFacts(f) {
     if (f?.type === 'empire') return !!data.empireGroups.find(x => x.id === f.id)?.hasFacts;
     if (f?.type === 'religion') return !!data.religionsDoc?.religions.find(x => x.id === f.id)?.facts;
-    if (f?.type === 'theme') return true; // introduktionskortet
+    if (f?.type === 'theme' || f?.type === 'place') return true; // introduktionskortet
     return false;
   }
 
@@ -107,6 +108,19 @@ export function createFocus(app) {
       const from = Math.min(Math.max(MIN_YEAR, evs[0].start), MAX_YEAR), to = Math.max(from, Math.min(MAX_YEAR, lastEnd));
       f = { type, id, title: `${t(theme.name)} · ${formatYearSpan(evs[0].start, lastEnd)}`, short: t(theme.name), from, to,
         center: pointCenter(evs), zoom: 1, theme, themeEvents: evs, eventIds: new Set(evs.map(e => e.id)) };
+    } else if (type === 'place') {
+      // En plats (#579) följs som ett tema: händelserna inom dagens gräns, i tidsordning. Draft-platser laddas aldrig.
+      const place = (await loadPlaces()).find(x => x.id === id);
+      const evs = place ? placeEvents(place, data.events).filter(e => isVisibleReview(e.review)) : [];
+      if (!evs.length) {
+        $('focus-notice').textContent = ui('place.unavailable');
+        $('focus-notice').hidden = false;
+        return false;
+      }
+      const lastEnd = Math.max(...evs.map(e => e.end));
+      const from = Math.min(Math.max(MIN_YEAR, evs[0].start), MAX_YEAR), to = Math.max(from, Math.min(MAX_YEAR, lastEnd));
+      f = { type, id, title: `${t(place.name)} · ${formatYearSpan(evs[0].start, lastEnd)}`, short: t(place.name), from, to,
+        center: place.view.center, zoom: place.view.zoom, place, themeEvents: evs, eventIds: new Set(evs.map(e => e.id)) };
     } else if (type === 'empire') {
       const g = data.empireGroups.find(x => x.id === id);
       // Rikets berättelse (#171) står i faktarutan, som laddas med gränserna (#337)
@@ -168,6 +182,8 @@ export function createFocus(app) {
     if (type === 'religion' && !app.showReligionFacts(id, false) && first) app.select(first.id, false);
     // Rikets faktaruta visas när man börjar följa det (#170)
     if (type === 'empire') app.showEmpireFacts(id);
+    // Platsens kort (#579)
+    if (type === 'place') showPlaceCard();
     // Temats introduktion (#398) med händelserna i tidsordning
     if (type === 'theme') {
       showThemeCard();
@@ -187,6 +203,16 @@ export function createFocus(app) {
     if (f?.type !== 'theme') return;
     app.store.setSelected(null);
     panel.showTheme(f.theme, f.themeEvents);
+    app.surfaces.closeGroup('meny');
+    if (app.narrow.matches) app.surfaces.closeGroup('sidopanel');
+    $('app').classList.add('has-detail');
+  }
+  /** Platsens kort (#579): knappen Fakta i fokusraden öppnar det igen. */
+  function showPlaceCard() {
+    const f = state.focus;
+    if (f?.type !== 'place') return;
+    app.store.setSelected(null);
+    panel.showPlace(f.place, f.themeEvents);
     app.surfaces.closeGroup('meny');
     if (app.narrow.matches) app.surfaces.closeGroup('sidopanel');
     $('app').classList.add('has-detail');
@@ -212,7 +238,7 @@ export function createFocus(app) {
     app.refresh();
   });
   function endFocus(redraw = true) {
-    const wasTheme = state.focus?.type === 'theme';
+    const wasTheme = state.focus?.type === 'theme' || state.focus?.type === 'place';
     app.store.leave(['fokus']);
     app.store.setFocus(null);
     if (wasTheme) {
@@ -230,7 +256,7 @@ export function createFocus(app) {
 
   /** Escape stänger först det som ligger ovanpå. När temakortet redan är stängt lämnar nästa Escape temat. */
   document.addEventListener('keydown', e => {
-    if (e.key !== 'Escape' || state.focus?.type !== 'theme') return;
+    if (e.key !== 'Escape' || (state.focus?.type !== 'theme' && state.focus?.type !== 'place')) return;
     const overlay = ['detail', 'focus-menu', 'layer-menu', 'help', 'feedback', 'sources-dialog', 'jump-pop', 'religion-pop', 'route-pop']
       .some(id => { const el = $(id); return el && !el.hidden; });
     if (overlay || $('app').classList.contains('panel-open')) return;
@@ -268,7 +294,14 @@ export function createFocus(app) {
     const blev = names.length > 4 ? ui('focus.andMore', { names: names.slice(0, 3).join(', '), count: names.length - 3 }) : names.join(', ');
     return { key: `empire:${g.id}`, label: t(g.name), terms: empireTerms(g), sub: `${empireYears(g)} · ${ui('focus.became', { names: blev })}`, color: g.color, symbol: symbolUrl(g), from, to };
   });
-  let focusRoutes = null, focusThemes = null;
+  let focusRoutes = null, focusThemes = null, focusPlaces = null;
+  // En plats visas med typ och antal händelser inom gränsen ("Självstyrt område · 17 händelser · 2500 f.Kr.–2009", #579)
+  const placeItems = list => list.map(pl => {
+    const evs = placeEvents(pl, data.events).filter(e => isVisibleReview(e.review));
+    if (!evs.length) return null;
+    const to = Math.max(...evs.map(e => e.end));
+    return { key: `place:${pl.id}`, label: t(pl.name), terms: langs(pl.name), sub: `${ui(`place.type.${pl.type}`)} · ${ui('focus.themeCount', { count: evs.length })} · ${formatYearSpan(evs[0].start, to)}`, from: evs[0].start, to };
+  }).filter(Boolean);
   // Ett tema visas med antal synliga händelser och spann ("12 händelser · 2200 f.Kr.–1989", #398)
   const themeItems = list => list.map(th => {
     const evs = th.events.map(i => data.byId[i]).filter(e => e && isVisibleReview(e.review)).sort((a, b) => a.start - b.start);
@@ -279,9 +312,10 @@ export function createFocus(app) {
   const routeItems = list => list.filter(r => r.kind === 'voyage' && isVisibleReview(r.review)).map(r =>
     ({ key: `route:${r.id}`, label: t(r.title), terms: langs(r.title), sub: formatEventTime(r), color: CAT[r.category]?.color, from: r.start, to: r.end }));
   // title är gruppens id (samma som flikarna i focusmenu.js); namnet som visas hämtas där med ui() (#671)
-  const focusGroups = (doc = null, routeList = focusRoutes, themeList = focusThemes) => [
+  const focusGroups = (doc = null, routeList = focusRoutes, themeList = focusThemes, placeList = focusPlaces) => [
     // Teman är en egen ingång högst upp under Alla (#1113), men fortfarande en del av Sök och följ.
     { title: 'Teman', note: ui('focus.note.themes'), items: themeList ? themeItems(themeList) : [], loading: !themeList },
+    { title: 'Platser', note: ui('focus.note.places'), items: placeList ? placeItems(placeList) : [], loading: !placeList },
     { title: 'Krig', items: data.events.filter(e => e.kind === 'war').map(e => ({ key: `war:${e.id}`, label: t(e.title), terms: langs(e.title), sub: formatEventTime(e), color: CAT[e.category]?.color, from: e.start, to: e.end })) },
     { title: 'Riken', note: ui('focus.note.empires'), items: empireItems() },
     { title: 'Försvunna länder', all: true, note: ui('focus.note.vanished'), items: vanishedItems() },
@@ -309,9 +343,10 @@ export function createFocus(app) {
     const doc = data.religionsDoc ??= await loadReligions();
     focusRoutes ??= await loadRoutes();
     focusThemes ??= await loadThemes();
-    focusMenu.setGroups(focusGroups(doc, focusRoutes, focusThemes));
+    focusPlaces ??= await loadPlaces();
+    focusMenu.setGroups(focusGroups(doc, focusRoutes, focusThemes, focusPlaces));
   };
   focusMenu.onPick = key => startFocus(key);
 
-  return { startFocus, endFocus, founding, focusMenu, showThemeCard };
+  return { startFocus, endFocus, founding, focusMenu, showThemeCard, showPlaceCard };
 }

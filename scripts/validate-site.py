@@ -31,6 +31,7 @@ Kontroller:
 Användning: python3 scripts/validate-site.py [dist]
 """
 import json
+import math
 import re
 import sys
 from datetime import date
@@ -517,6 +518,67 @@ if themes_doc is not None:
         before = [e['id'] for e in shown if e.get('start', 0) < EARLIEST_YEAR]
         if before:
             print(f"validate-site: VARNING: {where}: börjar före tidslinjens början: {', '.join(before)}", file=sys.stderr)
+
+# 8f. Platser (#579): kurerade kort om platsers historia med dagens gräns som kontur. Händelserna ligger inom gränsen
+# (räknas vid körning i js/place-geo.js), så här kontrolleras källor, gräns och att det finns något att visa.
+places_doc = load('data/platser.json') if (DIST / 'data/platser.json').is_file() else None
+if places_doc is not None:
+    validate_schema_file('data/platser.json', places_doc, 'platser.schema.json')
+    ev_all = [e for e in events['events'] if e.get('review') in VISIBLE and e['location']['type'] == 'Point']
+    seen_places = set()
+
+    def in_ring(ring, lon, lat):
+        inside = False
+        j = len(ring) - 1
+        for i in range(len(ring)):
+            xi, yi = ring[i]; xj, yj = ring[j]
+            if (yi > lat) != (yj > lat) and lon < (xj - xi) * (lat - yi) / (yj - yi) + xi:
+                inside = not inside
+            j = i
+        return inside
+
+    def edge_km(polys, lon, lat):
+        """Som edgeKm i js/place-geo.js: kortaste avståndet till gränsen i km."""
+        k = math.cos(math.radians(lat))
+        best = float('inf')
+        for poly in polys:
+            for ring in poly:
+                for i in range(1, len(ring)):
+                    ax, ay = (ring[i - 1][0] - lon) * k, ring[i - 1][1] - lat
+                    bx, by = (ring[i][0] - lon) * k, ring[i][1] - lat
+                    dx, dy = bx - ax, by - ay
+                    ln = dx * dx + dy * dy
+                    u = max(0, min(1, -(ax * dx + ay * dy) / ln)) if ln else 0
+                    best = min(best, math.hypot(ax + u * dx, ay + u * dy) * 111.2)
+        return best
+
+    for pl in places_doc.get('places', []):
+        pid = pl.get('id', '?')
+        where = f'data/platser.json ({pid})'
+        if pid in seen_places:
+            err(f'{where}: id finns två gånger')
+        seen_places.add(pid)
+        if pl.get('placeholder'):
+            err(f'{where}: platshållare (placeholder) får inte finnas i den publicerade filen')
+        for s_ in pl.get('sources', []) + [pl.get('boundary', {}).get('source')]:
+            if s_ not in src_ids:
+                err(f'{where}: källan {s_} finns inte i sources.json')
+        geom = pl.get('boundary', {}).get('geometry', {})
+        polys = [geom['coordinates']] if geom.get('type') == 'Polygon' else geom.get('coordinates', [])
+        for poly in polys:
+            for ring in poly:
+                if len(ring) < 4 or ring[0] != ring[-1]:
+                    err(f'{where}: en ring i gränsen är inte sluten eller har färre än fyra punkter')
+                    break
+                if any(not (-180 <= x <= 180 and -90 <= y <= 90) for x, y in ring):
+                    err(f'{where}: en koordinat i gränsen ligger utanför jordklotet')
+                    break
+        def within(e):
+            lon, lat = e['location']['coordinates'][:2]
+            return any(in_ring(poly[0], lon, lat) and not any(in_ring(h, lon, lat) for h in poly[1:]) for poly in polys) or edge_km(polys, lon, lat) <= 20  # COAST_MARGIN_KM
+        inside = [e for e in ev_all if within(e)]
+        if len(inside) < 5:
+            err(f'{where}: minst 5 synliga händelser ska ligga inom gränsen, men det är {len(inside)}')
 
 # 9. Krigets riken (#76): empires är grupp-id i data/empires/index.json
 group_ids = {g.get('id') for g in (empires or {}).get('groups', [])}

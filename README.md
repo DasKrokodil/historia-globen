@@ -74,6 +74,8 @@ js/layers/areas.js    lager: riken som områden som ändras över tid
 js/layers/area-style.js  mjuk kant för osäkra gränser och prickat inflytande (lydriken)
 js/layers/area-transition.js  mjuk övergång när ett rike byter period, delas eller slås ihop (#78)
 js/layers/borders.js  lager: dagens landsgränser (av som standard)
+js/layers/places.js   lager: konturen av platsen man följer i Fokus (#579)
+js/place-geo.js       vilka händelser som ligger inom en plats gräns, delas med testerna (#579)
 js/layers/religions.js lager: religioner som områden, med symboler i områdena (#271)
 js/layers/origins.js  religionens symbol där den uppstod, som klickbar markör (#271)
 js/layers/empiremarks.js rikenas symboler mitt i områdena, som klickbara markörer (#301)
@@ -122,6 +124,7 @@ data/handelser/       händelserna, en redigeringsfil per period; här redigeras
 data/events.json      alla händelser i en fil, byggd ur data/handelser/ (redigeras inte)
 data/funfacts.json    fun facts, kopplade till händelser
 data/missuppfattningar.json  vanliga historiska missuppfattningar och var de kom ifrån (#838); visas i faktarutan för händelserna i events
+data/platser.json          platser: kort om platsers historia med dagens gräns som kontur, följs i Fokus (#579); gränserna hämtas med tools/platser_gransar.py ur Natural Earth
 data/teman.json            teman: namngivna urval av händelser som följs i Fokus (#398); tom tills första temat skrivs (#105)
 data/perioder.json         epoker i fyra indelningar: Lgr22 (fem perioder), Nordens forntid (stenålder, bronsålder, järnålder enligt Historiska museet), antiken och industrialiseringen, med årtal, källa och förenklingstext; epokknapparna i intervallformuläret läser den (#845, #965)
 data/intro.json       introduktionens startår, texter och referenser till befintliga händelser/fun facts (#363, #516)
