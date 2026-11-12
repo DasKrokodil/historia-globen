@@ -1827,6 +1827,12 @@ async function run(browser, vp) {
       await page.click('#btn-panel');
       await visible('#panel');
     }
+    // Flygningen till markören avslutas med hg:globe-flight (phase: 'end', js/globe.js). Lyssnaren sätts före klicket (#1174).
+    await page.evaluate(() => {
+      window.__hgPulseFlight = [];
+      window.__hgPulseT0 = performance.now();
+      document.getElementById('globe-canvas').addEventListener('hg:globe-flight', e => window.__hgPulseFlight?.push(e.detail.phase));
+    });
     // Samtidigt-kortet kan ligga i en mobilpanel ovanpå globen. Klicka på själva knappen så att
     // testet provar kortets egen händelsehanterare, utan att fastna i panelens övergång.
     await event.evaluate(el => el.click());
@@ -1849,10 +1855,19 @@ async function run(browser, vp) {
     if (await calm.isChecked()) await calm.click();
     // Valet flyger först till markören. När flygningen är klar ska den valda medaljen fortsätta
     // pulsera även om globen annars står helt stilla (#390).
-    await page.waitForTimeout(1300);
-    const pulseFrames = [await page.locator('#globe-canvas').screenshot()];
-    for (let i = 0; i < 3; i++) { await page.waitForTimeout(80); pulseFrames.push(await page.locator('#globe-canvas').screenshot()); }
-    if (pulseFrames.every(frame => frame.equals(pulseFrames[0]))) throw new Error('den valda markörens puls stannade när globen stod stilla');
+    // #1174: vänta in flygningens slut i stället för en fast väntan (CI kan vara sen), och mät över minst en halv
+    // pulsperiod. Pulsen är 1 + 0,12·sin(t/240), period cirka 1 500 ms. Fyra bilder inom 240 ms nära kurvans topp
+    // eller botten skiljer under en pixel och kunde bli lika fast pulsen gick; över en halv period ändras skalan
+    // alltid med minst 0,12, oavsett var mätningen börjar.
+    // Syns markören redan flyger globen inte alls: då räcker en kort stund utan att någon flygning har börjat
+    await page.waitForFunction(() => { const f = window.__hgPulseFlight ?? []; return f.includes('end') || (!f.includes('start') && performance.now() - window.__hgPulseT0 > 500); }, null, { timeout: T.step }).catch(() => {});
+    await page.waitForTimeout(200);
+    // Mätningen slutar vid första bild som skiljer sig (oftast den andra), och tar annars högst sju bilder över 750 ms
+    const first = await page.locator('#globe-canvas').screenshot();
+    let pulsing = false;
+    for (let i = 0; i < 6 && !pulsing; i++) { await page.waitForTimeout(125); pulsing = !(await page.locator('#globe-canvas').screenshot()).equals(first); }
+    await page.evaluate(() => { delete window.__hgPulseFlight; delete window.__hgPulseT0; });
+    if (!pulsing) throw new Error('den valda markörens puls stannade när globen stod stilla');
     await page.locator('#detail [data-close]').click();
     await hidden('#detail');
     if (vp.width > 760) {
