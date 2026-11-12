@@ -1142,6 +1142,47 @@ GROUPS = {
     'uiguriska-khaganatet': ('Uyghur Khaganate', 'Uyghur Khaganate', [
         ('Uyghur Khaganate', 'uiguriska-khaganatet', 'Uyghur Khaganate', '#4a8ac0', {'en': 'Uyghur Khaganate'}),
     ]),
+    # Medeltidens luckor, fjärde omgången (#645, DasKrokodils beslut 2026-11-12): de största kvarvarande luckorna 500–1500 enligt
+    # tools/tackning_riken.py. Svenska namn är Wikidatas svenska etiketter; saknas en svensk etikett används den engelska (beslutet).
+    # Cliopatrias Tibetans pekar på folkgruppen (Q187985) och får Wikidatas Era of Fragmentation (Q2065143), Yenisei Kyrgyz pekar på
+    # folkgruppen (Q83142) och får staten Kyrgyz Khaganate (Q2047076), och Western/Eastern Göktürks pekar båda på gökturkarna
+    # (Q205466) och får Västturkiska (Q874357) respektive Östturkiska khaganatet (Q2607292), kontrollerat mot Wikidata 2026-11-12.
+    # Väntar: Avar Khaganate (Cliopatrias id Q68962 är fortfarande folkgruppen Avarer).
+    'era-of-fragmentation': ('Era of Fragmentation', 'Era of Fragmentation', [
+        ('Tibetans', 'era-of-fragmentation', 'Era of Fragmentation', '#a8784a', {'en': 'Era of Fragmentation', 'wikidata': 'Q2065143'}),
+    ]),
+    'yenisei-kyrgyz': ('Yenisei Kyrgyz', 'Yenisei Kyrgyz', [
+        ('Yenisei Kyrgyz', 'yenisei-kyrgyz', 'Yenisei Kyrgyz', '#6a9aa0', {'en': 'Yenisei Kyrgyz', 'wikidata': 'Q2047076'}),
+    ]),
+    'rouran': ('Rouran Khaganate', 'Rouran Khaganate', [
+        ('Rouran Khaganate', 'rouran', 'Rouran Khaganate', '#9a8a4a', {'en': 'Rouran Khaganate'}),
+    ]),
+    'vastturkiska-khaganatet': ('Västturkiska khaganatet', 'Western Turkic Khaganate', [
+        ('Western Göktürks', 'vastturkiska-khaganatet', 'Västturkiska khaganatet', '#4a9a8a',
+         {'en': 'Western Turkic Khaganate', 'wikidata': 'Q874357'}),
+    ]),
+    'ostturkiska-khaganatet': ('Östturkiska khaganatet', 'Eastern Turkic Khaganate', [
+        ('Eastern Göktürks', 'ostturkiska-khaganatet', 'Östturkiska khaganatet', '#3a7a9a',
+         {'en': 'Eastern Turkic Khaganate', 'wikidata': 'Q2607292'}),
+    ]),
+    'turgesh': ('Türgesh', 'Türgesh', [
+        ('Türgesh', 'turgesh', 'Türgesh', '#b08a6a', {'en': 'Türgesh'}),
+    ]),
+    'samaniderna': ('Samanider', 'Samanid dynasty', [
+        ('Samanid Empire', 'samaniderna', 'Samanider', '#5aa05a', {'en': 'Samanid dynasty'}),
+    ]),
+    'visigotiska-riket': ('Visigotiska riket', 'Visigothic Kingdom', [
+        ('Visigothic Kingdom', 'visigotiska-riket', 'Visigotiska riket', '#a06a4a', {'en': 'Visigothic Kingdom'}),
+    ]),
+    'norra-yuandynastin': ('Norra Yuandynastin', 'Northern Yuan dynasty', [
+        ('Northern Yuan', 'norra-yuandynastin', 'Norra Yuandynastin', '#7a6ab0', {'en': 'Northern Yuan dynasty'}),
+    ]),
+    'kungariket-alodia': ('Kungariket Alodia', 'Alodia', [
+        ('Alodia', 'kungariket-alodia', 'Kungariket Alodia', '#c09a5a', {'en': 'Alodia'}),
+    ]),
+    'cordobaemiratet': ('Córdobaemiratet', 'Emirate of Córdoba', [
+        ('Emirate of Córdoba', 'cordobaemiratet', 'Córdobaemiratet', '#6a9a3a', {'en': 'Emirate of Córdoba'}),
+    ]),
     # Små stater ur Natural Earth (#722, Rikards beslut 2026-11-07): Cliopatria saknar dem i nutid eller har fel gräns
     # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth
     # (tools/ne-omstridda-omraden.geojson, tools/ne_omstridda.py), från självständigheten enligt Wikidata och Wikipedia
