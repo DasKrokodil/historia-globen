@@ -6,7 +6,8 @@
     "maxYear": 2026,
     "newMinIsProposal": true,
     "fingerCssPixels": 44,
-    "overviewWindowFraction": 0.012
+    "overviewWindowFraction": 0.012,
+    "cohortMetric": "Positionens avstånd från startåret till nästa år; vid MAX_YEAR till föregående år"
   },
   "records": {
     "reviewed": 923,
