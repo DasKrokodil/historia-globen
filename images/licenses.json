@@ -231,6 +231,21 @@
       }
     },
     {
+      "eventId": "borobudur-byggs",
+      "eventTitle": "Borobudur byggs på Java",
+      "file": "images/events/borobudur-byggs.webp",
+      "kind": "historisk",
+      "credit": "Luchtvaart Afdeeling KNIL / KITLV / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-borobudur-byggs",
+        "title": "KITLV A1085 - Boroboedoer bij Magelang, KITLV 83011 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:KITLV_A1085_-_Boroboedoer_bij_Magelang,_KITLV_83011.tiff",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-12"
+      }
+    },
+    {
       "eventId": "borskraschen-1929",
       "eventTitle": "Börskraschen på Wall Street",
       "file": "images/events/borskraschen-1929.webp",
@@ -253,6 +268,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "brihadisvaratemplet",
+      "eventTitle": "Brihadisvaratemplet i Thanjavur byggs",
+      "file": "images/events/brihadisvaratemplet.webp",
+      "kind": "historisk",
+      "credit": "Shajinss / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-brihadisvaratemplet",
+        "title": "Brihadeeswarar Temple Thanjavur TN (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Brihadeeswarar_Temple_Thanjavur_TN.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-12"
+      }
     },
     {
       "eventId": "buddha",
@@ -438,6 +468,21 @@
       }
     },
     {
+      "eventId": "diamantsutran-trycks",
+      "eventTitle": "Diamantsutran trycks",
+      "file": "images/events/diamantsutran-trycks.webp",
+      "kind": "historisk",
+      "credit": "British Library / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-diamantsutran-trycks",
+        "title": "Jingangjing (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Jingangjing.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-12"
+      }
+    },
+    {
       "eventId": "digerdoden",
       "eventTitle": "Digerdöden",
       "file": "images/events/digerdoden.webp",
@@ -459,6 +504,36 @@
         "url": "https://commons.wikimedia.org/wiki/File:DNA_Model_Crick-Watson.jpg",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "dodahavsrullarna",
+      "eventTitle": "Dödahavsrullarna skrivs",
+      "file": "images/events/dodahavsrullarna.webp",
+      "kind": "historisk",
+      "credit": "Ardon Bar Hama / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-dodahavsrullarna",
+        "title": "Great Isaiah Scroll Ch53 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Great_Isaiah_Scroll_Ch53.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-12"
+      }
+    },
+    {
+      "eventId": "dronten-sista-gangen",
+      "eventTitle": "Dronten ses för sista gången",
+      "file": "images/events/dronten-sista-gangen.webp",
+      "kind": "historisk",
+      "credit": "Roelant Savery / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-dronten-sista-gangen",
+        "title": "Edwards' Dodo (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Edwards%27_Dodo.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-12"
       }
     },
     {
@@ -927,6 +1002,21 @@
       }
     },
     {
+      "eventId": "jantar-mantar-jaipur",
+      "eventTitle": "Observatoriet Jantar Mantar byggs i Jaipur",
+      "file": "images/events/jantar-mantar-jaipur.webp",
+      "kind": "historisk",
+      "credit": "Jakub Hałun / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-jantar-mantar-jaipur",
+        "title": "20191218 Jantar Mantar, Jaipur 0906 8983 DxO (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:20191218_Jantar_Mantar,_Jaipur_0906_8983_DxO.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-12"
+      }
+    },
+    {
       "eventId": "jenners-vaccin",
       "eventTitle": "Edward Jenner och det första vaccinet",
       "file": "images/events/jenners-vaccin.webp",
@@ -984,6 +1074,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Jarmo_(Qal%27at_Jarmo),_late_8th_century_BCE_to_late_6th_century_BCE._Sulaymaniyah,_Iraq._March_2021._Aftermaths_of_1948-1955_excavations_conducted_by_the_Oriental_Institute_of_Chicago.jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "kabuki-borjar-1603",
+      "eventTitle": "Kabukiteatern börjar i Kyoto",
+      "file": "images/events/kabuki-borjar-1603.webp",
+      "kind": "historisk",
+      "credit": "Kyoto National Museum / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kabuki-borjar-1603",
+        "title": "Okuni kabuki byobu-zu (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Okuni_kabuki_byobu-zu.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-12"
       }
     },
     {
@@ -1719,6 +1824,21 @@
       }
     },
     {
+      "eventId": "nederlandarna-till-dejima",
+      "eventTitle": "Nederländarna flyttas till Dejima",
+      "file": "images/events/nederlandarna-till-dejima.webp",
+      "kind": "historisk",
+      "credit": "Jakub Hałun / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-nederlandarna-till-dejima",
+        "title": "View of the Former Dutch Trading Post on Dejima from Tamae Bridge, Nagasaki, 20240815 1458 3715 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:View_of_the_Former_Dutch_Trading_Post_on_Dejima_from_Tamae_Bridge,_Nagasaki,_20240815_1458_3715.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-12"
+      }
+    },
+    {
       "eventId": "newton-kalkyl",
       "eventTitle": "Newton tar fram infinitesimalkalkylen",
       "file": "images/events/newton-kalkyl.webp",
@@ -1857,6 +1977,21 @@
       }
     },
     {
+      "eventId": "orakelben-skrift",
+      "eventTitle": "Orakelbenen, Kinas äldsta bevarade skrift",
+      "file": "images/events/orakelben-skrift.webp",
+      "kind": "historisk",
+      "credit": "Gary Lee Todd / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-orakelben-skrift",
+        "title": "Shang Ox Scapula Oracle Bones 1 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Shang_Ox_Scapula_Oracle_Bones_1.jpg",
+        "license": "CC0",
+        "checked": "2026-11-12"
+      }
+    },
+    {
       "eventId": "osmanska-riket",
       "eventTitle": "Osmanska riket",
       "file": "images/events/osmanska-riket.webp",
@@ -1920,6 +2055,21 @@
       }
     },
     {
+      "eventId": "plimpton-322",
+      "eventTitle": "Plimpton 322, en babylonisk taltabell",
+      "file": "images/events/plimpton-322.webp",
+      "kind": "historisk",
+      "credit": "Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-plimpton-322",
+        "title": "Plimpton 322 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Plimpton_322.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-12"
+      }
+    },
+    {
       "eventId": "polynesier-nar-aotearoa",
       "eventTitle": "Polynesier bosätter sig på Aotearoa (Nya Zeeland)",
       "file": "images/events/polynesier-nar-aotearoa.webp",
@@ -1954,6 +2104,21 @@
         "id": "commons-bild-rhind-papyrusen",
         "title": "Rhind Mathematical Papyrus – British Museum EA 10057 (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Rhind_Mathematical_Papyrus.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-12"
+      }
+    },
+    {
+      "eventId": "riccis-varldskarta-1602",
+      "eventTitle": "Matteo Riccis världskarta trycks i Peking",
+      "file": "images/events/riccis-varldskarta-1602.webp",
+      "kind": "historisk",
+      "credit": "Matteo Ricci / Library of Congress / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-riccis-varldskarta-1602",
+        "title": "Kunyu Wanguo Quantu by Matteo Ricci All panels (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kunyu_Wanguo_Quantu_by_Matteo_Ricci_All_panels.jpg",
         "license": "Public domain",
         "checked": "2026-11-12"
       }
@@ -2196,6 +2361,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-hattin",
+      "eventTitle": "Slaget vid Hattin",
+      "file": "images/events/slaget-vid-hattin.webp",
+      "kind": "historisk",
+      "credit": "Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-hattin",
+        "title": "Hattin Estoire d'Eracles (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Hattin_Estoire_d%27Eracles.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-12"
+      }
+    },
+    {
       "eventId": "slaget-vid-isandlwana",
       "eventTitle": "Zulufolket segrar vid Isandlwana",
       "file": "images/events/slaget-vid-isandlwana.webp",
@@ -2277,6 +2457,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ngati_maniapoto_survivors_of_the_war.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-plassey",
+      "eventTitle": "Slaget vid Plassey",
+      "file": "images/events/slaget-vid-plassey.webp",
+      "kind": "historisk",
+      "credit": "Francis Hayman / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-plassey",
+        "title": "Lord Clive meeting with Mir Jafar after the Battle of Plassey (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lord_Clive_meeting_with_Mir_Jafar_after_the_Battle_of_Plassey.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-12"
       }
     },
     {
@@ -2532,6 +2727,21 @@
       }
     },
     {
+      "eventId": "stora-buddha-i-kamakura",
+      "eventTitle": "Den stora Buddha i Kamakura görs i brons",
+      "file": "images/events/stora-buddha-i-kamakura.webp",
+      "kind": "historisk",
+      "credit": "Suicasmo / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-stora-buddha-i-kamakura",
+        "title": "Kamakura Daibutsu 20170210 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kamakura_Daibutsu_20170210.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-12"
+      }
+    },
+    {
       "eventId": "stora-mosken-i-djenne",
       "eventTitle": "Den första stora moskén i Djenné byggs",
       "file": "images/events/stora-mosken-i-djenne.webp",
@@ -2574,6 +2784,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Anonymous_-_Prise_de_la_Bastille.jpg",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "su-songs-urtorn",
+      "eventTitle": "Su Songs vattendrivna astronomiska urtorn",
+      "file": "images/events/su-songs-urtorn.webp",
+      "kind": "historisk",
+      "credit": "Su Song / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-su-songs-urtorn",
+        "title": "Clock Tower from Su Song's Book desmear (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Clock_Tower_from_Su_Song%27s_Book_desmear.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-12"
       }
     },
     {
