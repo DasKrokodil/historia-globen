@@ -1199,11 +1199,27 @@ async function run(browser, vp) {
     await page.keyboard.press('Enter');
     await hidden('#quiz-result');
     if (await page.locator('#quiz-options button:disabled').count()) throw new Error('nästa fråga har låsta svar');
+    // #846: den andra frågan är Sant eller myt? ur missuppfattningarna, två svar, facit med ursprung och källor, ingen poäng
+    if ((await page.textContent('#quiz-title')).trim() !== 'Sant eller myt?') throw new Error(`andra frågan är inte Sant eller myt: ${await page.textContent('#quiz-title')}`);
+    if (await page.locator('#quiz-options button').count() !== 2) throw new Error('Sant eller myt har inte två svar');
+    if (!(await page.textContent('#quiz-event-title')).trim()) throw new Error('Sant eller myt saknar påstående');
+    if ((await page.textContent('#quiz-event .intro-event-label')).trim() !== 'Påståendet') throw new Error('etiketten säger inte Påståendet');
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Enter'); // det andra svaret, Myt
+    await visible('#quiz-result');
+    if ((await page.textContent('#quiz-verdict')).trim() !== 'Rätt, det är en myt.') throw new Error(`facit säger ${await page.textContent('#quiz-verdict')}`);
+    if (!(await page.textContent('#quiz-funfact')).trim() || !(await page.isVisible('#quiz-origin'))) throw new Error('vad källorna säger eller varifrån myten kommer saknas');
+    await page.waitForFunction(() => document.querySelectorAll('#quiz-sources li').length > 0, null, { timeout: T.step });
+    if (!/ av 1|1 /.test(await page.textContent('#quiz-score'))) throw new Error(`Sant eller myt räknades i poängen: ${await page.textContent('#quiz-score')}`);
+    await page.keyboard.press('Enter'); // Nästa fråga: tillbaka till samtidighet
+    await page.waitForFunction(() => document.getElementById('quiz-title').textContent.trim() === 'Vad hände samtidigt?', null, { timeout: T.step });
+    if (await page.isVisible('#quiz-origin')) throw new Error('mytens ursprung står kvar på nästa fråga');
+    if ((await page.textContent('#quiz-event .intro-event-label')).trim() !== 'Händelsen') throw new Error('etiketten står kvar som Påståendet på nästa fråga');
     await page.keyboard.press('Escape');
     await hidden('#quiz');
     const back = await page.evaluate(() => document.activeElement?.id);
     if (!['btn-quiz', 'btn-more', 'more-toggle'].includes(back)) throw new Error(`fokus gick till ${back} efter Escape`);
-    return 'tre svar, Enter svarar, årtal och källor efter svaret, Nästa fråga, Escape och fokus tillbaka';
+    return 'tre svar, Enter svarar, årtal och källor efter svaret, Nästa fråga, Sant eller myt med facit utan poäng (#846), Escape och fokus tillbaka';
   }
 
   await check('en guidad tur går att spela steg för steg och återställer lagren (#47)', async () => {
