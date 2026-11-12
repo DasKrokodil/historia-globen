@@ -197,7 +197,7 @@ async function start() {
   routePop.onEvent = id => app.select(id);
   relLegend.onFacts = id => app.showReligionFacts(id);
   relLegend.onAbout = () => app.showAboutReligions(); // "Läs om religionerna" (#308)
-  relLegend.names = new Map(data.polities.map(p => [p.name.en, p.name.sv]));
+  relLegend.names = new Map(data.polities.map(p => [p.name.en, t(p.name)]));
   // Visa som vanligt / Dämpa i teckenförklaringen ändrar valet "Behåll mina lager" i Lager (#235)
   relLegend.onKeep = on => { layers.set('keep', on); app.refresh(); };
   // Markering när man pekar (#271): musen eller tangentbordets fokus på en religion i undermenyn, i Fokus eller i
