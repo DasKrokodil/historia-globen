@@ -570,6 +570,7 @@
   "legend.closeEmpires": "Cerrar la leyenda de los imperios",
   "ff.kind.funfact": "Dato curioso",
   "ff.kind.war": "Cuando estalló una guerra",
+  "ff.warStarts": "Estalla una guerra en {year}: {war}. Al mismo tiempo en el mundo:",
   "ff.kind.empire": "La historia del imperio",
   "ff.kind.vanished": "La historia del país",
   "ff.sheet.closed": "cerrada",
