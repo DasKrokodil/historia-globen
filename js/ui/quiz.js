@@ -24,7 +24,7 @@ export class Quiz {
     this.asked = new Set();
     this.askedMyths = new Set();
     this.askedTimes = new Set();
-    this.count = 0; // frågor ställda under besöket; varannan är Sant eller myt (#846)
+    this.count = 0; // frågor ställda under besöket; samtidighet, Sant eller myt och tid turas om (#846)
     this.titleText = this.title?.textContent ?? '';
     this.eventLabel = this.event.querySelector('.intro-event-label');
     this.eventLabelText = this.eventLabel?.textContent ?? '';
