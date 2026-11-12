@@ -627,8 +627,23 @@ export function loadForSources() {
 /** Ett rikes gränser (data/empires/<grupp>.json), laddas första gången riket behövs.
  *  Ett försvunnet land utan gräns i Cliopatria har ingen fil, bara en punkt (vanished.point, #72). */
 const empireFiles = new Map();
+/**
+ * Fast medaljplats (#1189): labelAt i gruppen ersätter label-punkten för de perioder som ligger helt inom
+ * from–to, när den största delen av ytan ger fel bild (Danmark på Grönland). at: null betyder ingen medalj
+ * och inget namn de åren, när källans yta inte innehåller landet självt (Norge 1941–1944 är bara Jan Mayen).
+ */
+function applyLabelAt(group, polities) {
+  for (const r of group.labelAt ?? []) {
+    const polity = polities.find(p => p.id === r.polity);
+    for (const period of polity?.periods ?? []) {
+      if (period.start >= r.from && period.end <= r.to) period.label = Array.isArray(r.at) ? r.at : null;
+    }
+  }
+  return polities;
+}
+
 export function loadEmpire(group) {
-  if (!empireFiles.has(group.id)) empireFiles.set(group.id, group.file ? getJSON(group.file).then(d => d.polities) : Promise.resolve([]));
+  if (!empireFiles.has(group.id)) empireFiles.set(group.id, group.file ? getJSON(group.file).then(d => applyLabelAt(group, d.polities)) : Promise.resolve([]));
   return empireFiles.get(group.id);
 }
 

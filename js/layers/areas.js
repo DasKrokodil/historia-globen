@@ -186,12 +186,13 @@ export class AreasLayer {
     const keep = !!this.onlyGroup; // fokusläge för ett rike: allt som syns hör till riket och visas alltid
     // Små stater (#722, polity.point): punkten står alltid på label-punkten och tas först, så att namnen viker för den
     const DOT = 3.5 * sc;
-    const dots = this.active.filter(a => a.polity.point).map(({ polity, period }) => {
+    const dots = this.active.filter(a => a.polity.point && a.period.label).map(({ polity, period }) => {
       const x = X(period.label[0]), y = Y(period.label[1]);
       take(sq(x, y, DOT * 1.6));
       return { polity, x, y };
     });
-    const cands = this.active.filter(a => !a.polity.point).map(a => ({ ...a, area: a.period.areaKm2 ?? 0 }))
+    // label: null (#1189): ingen medalj och inget namn de åren, bara området
+    const cands = this.active.filter(a => !a.polity.point && a.period.label).map(a => ({ ...a, area: a.period.areaKm2 ?? 0 }))
       .sort((a, b) => b.area - a.area);
     const limit = keep ? Infinity : (ZOOM_LEVELS[v.level] ?? ZOOM_LEVELS[0]).names;
     const offsets = [-1.05, 1.15, -2.2, 2.3, -3.35, 3.45];
