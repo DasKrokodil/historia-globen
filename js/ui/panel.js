@@ -1,7 +1,7 @@
 // "Samtidigt i världen": lista över synliga händelser per världsdel, kategorifilter
 // (i lagermenyn, #120, och som chips ovanför listan, #311) och faktarutan.
 import { buildAreaCurve } from './areacurve.js';
-import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, isVisibleReview, eventTags, needDetails, misconceptionsFor } from '../model.js';
+import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, isVisibleReview, eventTags, needDetails, misconceptionsFor, roundWindow } from '../model.js';
 import { ui, LANG } from '../i18n.js';
 import { MIN_YEAR } from '../timeline.js';
 import { eventCitation } from './citation.js';
@@ -400,7 +400,7 @@ export class Panel {
     this.toggle.setAttribute('aria-label', summaryText);
     // at = "år 1879" eller "den 3 maj 1940" (fokusläget för korta krig, #204); bare = samma tid utan "år"/"den"
     const at = labels?.at ?? ui('panel.atYear', { year: formatYear(year) }), bare = labels?.bare ?? formatYear(year);
-    const within = labels?.within ?? plural('time.withinYears', Math.round(window), { n: Math.round(window) });
+    const within = labels?.within ?? plural('time.withinYears', roundWindow(window), { n: roundWindow(window) }); // samma avrundade tal som raden under årtalet (#1191)
     const parts = [];
     parts.push(inside ? plural('panel.inside', inside, { at }) : ui('panel.noneAt', { at }));
     if (near) parts.push(ui('panel.near', { count: near, within }));

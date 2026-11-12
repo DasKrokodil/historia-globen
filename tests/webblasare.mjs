@@ -4782,17 +4782,20 @@ async function run(browser, vp) {
         await wp.waitForFunction(p => new RegExp(p).test(document.getElementById('year-segment').textContent.trim()), pattern.source, { timeout: 8000 }).catch(() => {});
         const got = await row();
         if (!pattern.test(got)) throw new Error(`${hash}: raden under årtalet säger "${got}"`);
-        if (/Bronsålder|Antiken|Medeltid|Modern tid|±/.test(got)) throw new Error(`${hash}: raden har kvar epoknamn eller ±: "${got}"`);
+        if (/Bronsålder|Antiken|Medeltid|Modern tid/.test(got)) throw new Error(`${hash}: raden har kvar epoknamn: "${got}"`);
         return got;
       };
       // En sidladdning per år, så att kontrollen inte tar tid från resten av jobbet
       const rows = [];
-      rows.push(await want('#y=1325', /^1300-talet · visar också det som hände \d+ år före och efter$/));
+      // #1191: avrundat fönster med "±" (beslut 2026-11-12), och förklaringen "nära i tid" i title och som dold text
+      rows.push(await want('#y=1325', /^1300-talet · ±\d*0 år$/));
+      const note = await wp.evaluate(() => ({ title: document.getElementById('year-segment').title, sr: document.getElementById('year-window-note').textContent }));
+      if (!/nära i tid/.test(note.title) || note.sr !== note.title) throw new Error(`förklaringen av fönstret saknas: ${JSON.stringify(note)}`);
       // Listan: det som ligger nära året säger riktning
       const list = await metas();
       if (!list.some(m => /^\d+ år (tidigare|senare) · /.test(m))) throw new Error('listan 1325 har ingen rad med "N år tidigare/senare"');
       // Klotets etiketter: "N år före (år)" och "om N år (år)", aldrig "slut" eller "börjar"
-      rows.push(await want('#y=1916', /^1900-talet · visar också det som hände \d+ år före och efter$/));
+      rows.push(await want('#y=1916', /^1900-talet · ±\d*[05] år$/));
       // Etiketterna ritas om en bildruta efter att raden bytt text: vänta in dem (annars läses de gamla, #1138), men kräv fortfarande att etiketten finns
       await wp.waitForFunction(() => [...document.querySelectorAll('#labels .glabel')].some(l => l.textContent === 'Första världskriget'), null, { timeout: 8000 }).catch(() => {});
       const shown = await labels();
@@ -4802,8 +4805,10 @@ async function run(browser, vp) {
       // ligger markören vid kanten, så etiketten får som sista utväg ligga över en grannmarkör), och rikesnamnen får inte ta hela platsen över Europa
       if (!shown.some(l => l === 'Första världskriget')) throw new Error(`år 1916 saknar etikett för första världskriget: ${shown.join(' | ')}`);
       if (shown.some(l => / · (slut|börjar) \d/.test(l))) throw new Error(`etikett med slut/börjar kvar: ${shown.find(l => / · (slut|börjar) \d/.test(l))}`);
-      rows.push(await want('#y=-500', /^500-talet f\.Kr\. · visar också det som hände \d+ år före och efter$/));
+      rows.push(await want('#y=-500', /^500-talet f\.Kr\. · ±\d*0 år$/));
       rows.push(await want('#y=1914&f=war:forsta-varldskriget', /^Följer .+ · visar \d+ (år|dagar?) före och efter$/));
+      // Yngre läsare (#1191): lektion 2 för åk 4–6 skriver fönstret i ord i stället för med "±"
+      rows.push(await want('#t=vikingatiden-och-varlden&m=lektion', /^\d+-talet · även \d+ år före och efter$/));
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return `${rows[0]} | ${rows[2]} | 1916: ${before ?? '(ingen Titanic-etikett)'}`;
     } finally { await wp.close(); }
