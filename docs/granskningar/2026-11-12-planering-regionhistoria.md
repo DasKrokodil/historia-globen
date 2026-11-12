@@ -1,6 +1,6 @@
 # Planering: Platser, omgång två (regionhistoria på flera nivåer)
 
-**Datum:** 2026-11-12. **Status:** förslag till DasKrokodil. Inget är byggt, inga issues är skapade och inga etiketter är satta. Skriven med `/milstolpe` efter DasKrokodils önskemål: analys av vilken regionuppdelning och nivå som ska användas (Sverige på landskapsnivå, Tyskland och Österrike på delstatsnivå, andra länder okända).
+**Datum:** 2026-11-12. **Status:** förslag till DasKrokodil. **Ordningen ändrades efter DasKrokodils beslut 2026-11-12: länder först (milstolpen "Ländernas historia"), sedan regioner. Del 1 (punkt 1–7) gäller regioner och är första expertrundan; del 2 (punkt 8) gäller landspiloten och är en andra expertrunda.** Inget är byggt, inga issues är skapade och inga etiketter är satta. Skriven med `/milstolpe` efter DasKrokodils önskemål: analys av vilken regionuppdelning och nivå som ska användas (Sverige på landskapsnivå, Tyskland och Österrike på delstatsnivå, andra länder okända).
 
 Underlag: #579 (alla kommentarer), #557, #1115, #1159–#1164, #1255, #1227, beslutsfilerna om Platser (2026-11-10 och 2026-11-11), `docs/granskningar/2026-11-10-platskort-plan-efter-pilot.md`, `docs/granskningar/2026-11-12-openhistoricalmap.md`, `docs/omstridda-granser.md`. Allt som agenterna skriver om elever, lärare och användare är antaganden; ingen observation finns. Läget i dag: milstolpen Version 6.4.0 "Regionkort och platser" har #1159 (Skåne), #1161 (klick), #1162 (adress), #1163 (lektionsläge) och #1164 (utvärdering) öppna; #1160 (flagga och vapen) är stängt.
 
@@ -43,7 +43,7 @@ Ingen av nivåerna ger en historisk gräns. Allt är **dagens gräns**.
 
 1. **Gränsfrågan avgör Sverige.** Landskapen (som DasKrokodil vill följa) har ingen administrativ motsvarighet och ingen öppen gräns hittades; Lantmäteriet, SCB, GADM, GISCO och geoBoundaries kunde inte öppnas från sessionens nätverk. Natural Earth ger Sveriges 21 län, men landskapen skiljer sig (Skåne län är inte landskapet; Östra Karup). Egen ritning av 25 landskap är liten (cirka 150 kB, antagande) men kräver en källa för gränsdragningen. Tyskland och Österrike har däremot ingen licensfråga: Natural Earth räcker.
 2. **Modellen räcker inte för hundratals platser.** `data/platser.json` är 165 kB för två platser (stickprov: stämmer), och menyn räknar händelser inom gräns för varje plats med ett linjärt svep (`js/controllers/focus.js`, `js/place-geo.js`). Arkitekten föreslår ett lättviktigt index (`data/platser/index.json`: id, typ, namn, `parent`, avgränsningsruta, förräknade händelser) och en gränsfil per land som laddas först när platsen följs, byggd av `tools/` (`platser@2`, bakåtkompatibelt). Bygget behöver också in i `scripts/build-site.sh` (fast lista, rad 76). Dessutom kräver `scripts/validate-site.py:604` minst fem synliga händelser inom gränsen per plats, vilket de flesta landskap inte klarar i dag.
-3. **Tillhörighet över tid saknar riken i datan.** Skåne ska vara "danskt till 1658", men data/empires har Danmark 936–1406 (`konungariket-danmark`) och 1945–2024 (`danmark`) och **inget däremellan** (stickprov: stämmer; orsaken är inte undersökt). Bayern, Sachsen, Böhmen och Burgund finns inte som egna riken. Därför föreslås att en period kan peka på ett rike om det finns, annars skrivas som text med källa, och att kortet alltid har den fasta raden "Konturen visar dagens gräns".
+3. **Tillhörighet över tid saknar riken i datan.** Skåne ska vara "danskt till 1658", men data/empires har Danmark 936–1406 (`konungariket-danmark`), Kalmarunionen 1402–1525 och Danmark 1945–2024 (`danmark`), alltså **inget danskt rike 1526–1944** (rättat i runda 2; första rundan skrev 1406–1945). Bayern, Sachsen, Böhmen och Burgund finns inte som egna riken. Därför föreslås att en period kan peka på ett rike om det finns, annars skrivas som text med källa, och att kortet alltid har den fasta raden "Konturen visar dagens gräns".
 
 ### Fynd per agent (allvar)
 
@@ -129,4 +129,77 @@ Planeringen själv (sex agenter plus syntes) kostade sex agentkörningar på cir
 
 ## 7. Granskad med stickprov
 
-Kontrollerat mot repot innan rapporten skrevs: `data/platser.json` 164 924 byte; `edgeKm` är ett linjärt svep i `js/place-geo.js`; byggscriptets fasta lista (`scripts/build-site.sh:76`); kravet på minst fem händelser inom gränsen (`scripts/validate-site.py:604`); Danmark 936–1406 och 1945–2024 i `data/empires/`; fliknycklarna `focus.tab.place` och `focus.tab.places`. Inte kontrollerat: Natural Earths antal per land (geografens egen räkning), Lgr22 och alla historiska årtal som agenterna angav utan öppnad källa.
+Kontrollerat mot repot innan rapporten skrevs: `data/platser.json` 164 924 byte; `edgeKm` är ett linjärt svep i `js/place-geo.js`; byggscriptets fasta lista (`scripts/build-site.sh:76`); kravet på minst fem händelser inom gränsen (`scripts/validate-site.py:604`); Danmark 936–1406, Kalmarunionen 1402–1525 och Danmark 1945–2024 i `data/empires/`; fliknycklarna `focus.tab.place` och `focus.tab.places`. Inte kontrollerat: Natural Earths antal per land (geografens egen räkning), Lgr22 och alla historiska årtal som agenterna angav utan öppnad källa.
+
+# Del 2: Ländernas historia (andra expertrundan, 2026-11-12)
+
+DasKrokodil beslutade 2026-11-12 att börja med **länders historia** och gå vidare till regioner efteråt (milstolpen "Ländernas historia" skapas av DasKrokodil). Experterna i del 1 analyserade regioner, inte den här piloten, så en andra runda gjordes med historiker, geograf, UX och lärare. `sprak-de` och arkitekt kördes inte på nytt; se punkt 8.6.
+
+## 8.1 Pilotens förslag
+
+Landets berättelse som kort (plats av typen `country`, som Grönland och Aotearoa): dagens gräns, händelser inom gränsen i tidsordning, rikena som länkar. Pilot: **Sverige** (landsvy), **Danmark**, och tre–fyra länder utanför Europa. Ett land per pull request, källkontroll och fem språk i samma pull request. Ett utvärderingsissue sist i milstolpen (regel 2026-11-12).
+
+## 8.2 Vad experterna säger om landspiloten
+
+- **UX:** land är en **plats av typen land**, inte ett nytt Fokus (lägeskontraktet #893, färre ytor att stänga). Rikena är **länkar i kortet** ("Följ riket Sverige 1611–"). Fast rad: "Det här är dagens Sverige. Rikena visar var området hörde hemma då." Vid år då landet inte fanns i dagens form: en tillståndsrad, aldrig ett tomt kort. Med 6–8 länder en platt alfabetisk lista med världsdel som understödstext och raden "Ett urval: 8 länder av cirka 200"; sökning på ett land som saknas ger en tydlig rad och länk till "Vad hände här?". Byt namnet på fliken "Plats" (Vad hände här?) som krockar med "Platser".
+- **Lärare:** åk 4–6 ("mitt land i världen": Sverige, Danmark, Norden, du-form), åk 7–9 (jämför två länder, källkritik), vuxen (en tråd över tid). Risker: dagens gräns läses som att landet alltid fanns (säg "området som i dag är"), krig som enda berättelse, urfolk och kolonialism, nationell ensidighet. Ordlista för land, stat, rike och nation saknas. Skolverkets kursplaner är inte öppnade, så allt om Lgr22 är antagande.
+- **Historiker:** landsvyn är landets berättelse inom dagens gräns, oavsett vilka stater som härskade; modell med 4–6 perioder per land, kort text, högst tre händelser per period märkta belagt, tolkat eller omstritt, och minst en rad som inte är krig. Hållbarhetströskel (historikerns förslag, inget beslut): cirka 12–15 händelser fördelade på minst fyra sekler och tre kategorier utöver krig.
+- **Geograf:** Natural Earth admin-0 1:50m räcker för landsnivå. Avgränsa kontinentalt och skriv en fast rad om vad konturen inte omfattar ("Utan Grönland och Färöarna"); utomeuropeiska delar blir egna platser.
+
+## 8.3 Urval av länder (förslag, DasKrokodil godkänner)
+
+Siffrorna är experternas egna punkt-i-polygon-mätningar mot `data/events.json` (929 händelser); polygonerna skiljer sig (historikern använde Cliopatria, geografen Natural Earth 50m med 20 km marginal), så talen avviker något.
+
+| Land | Världsdel | Händelser (geograf / historiker) | Kommentar |
+|---|---|---|---|
+| Sverige | Europa | 30 / 28 | landsvyn; **skev mot Skåne** (historiker 27 av 28, geograf ca 20 av 30), saknar stormaktstid, 1809/1814, välfärd, EU |
+| Danmark | Europa | 4 / 15 | 4 på fastlandet (Natural Earth), 14 av 15 grönländska i Cliopatria-polygonen; **nås inte kravet på fem**; vikingatid, reformation, 1800-tal saknas |
+| Etiopien | Afrika | 19 / 19 | ingen omstridd gräns; 10 krig av 19 |
+| Nigeria (reserv) | Afrika | 11 / 11 | tunnast |
+| Peru | Amerika | 21 / 20 | fyller en tidigare tom cell; alternativ Mexiko (40) |
+| Japan | Asien | 27 / 24 | Kurilerna och Dokdo/Takeshima står inte i omstridda-granser; beslut krävs |
+| Australien | Oceanien | 32 / 27 | urfolkshistoria bärande |
+| Aotearoa | Oceanien | 40 | redan byggt |
+
+Undvik i piloten: Ukraina och Ryssland (Natural Earth lägger Krim i Ryssland, mot fall 1), Israel och Palestina, Georgien, Armenien och Azerbajdzjan, Cypern, Kosovo, Pakistan och Indien (Kashmir), Taiwan och Kina, Marocko (Västsahara, kräver not), Indonesien (Östtimor), Fiji och Ryssland (datumlinjen). Indien är numeriskt starkt (35 händelser) men Kashmir gör det olämpligt.
+
+## 8.4 Där experterna skiljer sig eller något måste rättas
+
+- **Skåne i Sverige:** historikern räknar 27 av 28 händelser i Skåne, geografen cirka 20 av 30 (stickprov på id-lista, ej exakt). Båda är överens om att Sverige-landsvyn blir skev utan fler händelser utanför Skåne.
+- **Danmark:** 4 eller 15 händelser beroende på polygon. Grönlandshändelserna hör till Grönland och får inte dubbelräknas.
+- **Danmarkluckan:** första rundan skrev 1406–1945; rätt är **1526–1944** (Kalmarunionen 1402–1525 täcker det däremellan; kontrollerat mot `data/empires/kalmarunionen.json`). Natural Earth-posten `Denmark-Norway` finns i `tools/riken.py:1258` men dataposten är inte öppnad.
+- **Sverige-rikena:** kontrollerade: sverige-medeltiden 980–1611, stormaktsvaldet 1612–1721, sverige-1722 1722–1814, sverige-norge 1815–1904, sverige-1905 1905–2024; historikern noterar luckor 1402–1501 och 1521–1525.
+- **Fun facts:** historikern fann 0 träffar på Sverige, Danmark och Skåne i `data/funfacts.json` (grov textsökning).
+
+## 8.5 Blockerar och viktigt före bygget
+
+- **Blockerar:** datumlinjen för Ryssland och Fiji (en enda ring över ±180° ger falska träffar, till exempel Kiruna räknas som Ryssland); åtgärden hör till #1227 och ett enhetstest för `place-geo.js`. **#1255** (uppspelningen pausar inte för platser) ska vara rättad före landsvyn, eftersom ett landkort har 17 till 30 händelser.
+- **Viktigt:** 54 av cirka 240 länder klarar kravet på minst fem händelser (`validate-site.py:604`); Danmark gör det inte. Sverige och Danmark behöver fler källkontrollerade händelser utanför Skåne och Grönland före landskorten. Omstridda gränser: ett beslut för Japan, Elsass, Schleswig och Sydtyrolen.
+- **Önskvärt:** flagga och vapen (#1160 är stängt) på landskortet, ordlisteposter för land, stat, rike och nation.
+
+## 8.6 Vad som inte är expertgranskat för landspiloten
+
+`sprak-de` och arkitekt kördes inte på nytt: tyska typnamn och mallen med artikel ("in der Schweiz") gäller även länder, och arkitektens punkter om index och gränsfiler gäller mest regioner; landspiloten klarar sig med dagens `platser@1`. De nya fynden i 8.5 (datumlinjen, minst fem händelser) bör arkitekten granska före bygget.
+
+## 8.7 Förslag till kontextgrupper för Ländernas historia
+
+| Grupp | Innehåll | Modell och vem | Beroenden |
+|---|---|---|---|
+| **L0: förberedande fel** | #1255 (paus vid platser), #1227 (datumlinjen, enhetstest) | Sonnet | före allt annat |
+| **L1: Beslut och förstudie** | val av länder, omstridda fall (Japan m.fl.), ordlista land/stat/rike, Lgr22 öppnad, kravet på fem händelser | Opus, Claude Code | innan L3 |
+| **L2: Rikesluckor** | danskt rike 1526–1944, Sverige-luckorna | Opus | före Danmark-kortet |
+| **L3: Sverige och Danmark** | nya händelser (utanför Skåne och Grönland), landsvyn, korten | Opus (fakta), Codex bara gränssnitt | efter L0, L1, L2; delar #1115, #557, #1159 |
+| **L4: Länder utanför Europa** | ett land per pull request, högst fem nya händelser per pull request vid behov | Opus, korsgranskas | efter L0 och L1 |
+| **L5: Gränssnitt** | tillståndsrad vid år utan landet, urvalsrad, sökning på land som saknas, namn på fliken "Plats" | Sonnet high, Codex | efter L0 |
+| **L6: Skola** | tur med stegfält, lärarfält (#1163) | Sonnet high, Opus för Lgr22 | efter första landkortet |
+| **Utvärdering** | issue sist i milstolpen | DasKrokodil | efter L3 och L4 |
+
+## 8.8 Frågor till DasKrokodil (landspiloten)
+
+1. **Länder:** Sverige och Danmark plus Etiopien, Peru, Japan (efter beslut om Kurilerna och Dokdo) och Australien, med Nigeria som reserv? Rekommendation: **ja**, men Japan byts mot Mexiko eller Kina bara om vi vill undvika de omstridda öarna.
+2. **Land är en plats av typen land** (inte ett eget Fokus), med rikena som länkar? Rekommendation: **ja**. Det ändrar #557/#1115 (landsvyn är då inte ett tema).
+3. **Hållbarhetströskel** (cirka 12–15 händelser, fyra sekler, tre kategorier utöver krig) som villkor för att ett land tas med? Rekommendation: **ja**, som riktlinje och inte som hårt valideringskrav.
+4. **Kravet på fem händelser** i `validate-site.py`: sänks det för länder? Rekommendation: **nej för länder** (hållbarhetströskeln ersätter), men Danmark får nya händelser först.
+5. **Vilka länder undviks i piloten** enligt listan i 8.3? Rekommendation: **ja**, och ett beslut för Elsass, Schleswig och Sydtyrolen läggs i omstridda-granser inför regionspåret.
+6. **Datumlinjen (#1227) och #1255** före landsvyn? Rekommendation: **ja**.
+7. **Ny roll** (licens- och symbolgranskare, punkt 1) behövs främst för regionspåret; kan vänta. Förslag: **vänta**.
