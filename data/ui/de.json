@@ -519,6 +519,8 @@
   "facts.religionsLoading": "Religionen werden geladen…",
   "facts.aboutReligions": "Über die Religionen lesen",
   "facts.religionsFailed": "Die Religionen konnten nicht geladen werden.",
+  "legend.hint": "Klicken Sie auf eine farbige Fläche, um Religion und Reich zu sehen.",
+  "legend.hintClose": "Hinweis schließen",
   "ff.kind.funfact": "Wissenswertes",
   "ff.kind.war": "Als ein Krieg ausbrach",
   "ff.kind.empire": "Die Geschichte des Reiches",

@@ -301,6 +301,8 @@
   "facts.religionsLoading": "Laddar religioner…",
   "facts.aboutReligions": "Läs om religionerna",
   "facts.religionsFailed": "Religionerna kunde inte laddas.",
+  "legend.hint": "Klicka på ett färgat område för att se religion och rike.",
+  "legend.hintClose": "Stäng tipset",
   "ff.kind.funfact": "Fun fact",
   "ff.kind.war": "När ett krig bröt ut",
   "ff.kind.empire": "Rikets berättelse",

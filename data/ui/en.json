@@ -519,6 +519,8 @@
   "facts.religionsLoading": "Loading religions…",
   "facts.aboutReligions": "Read about the religions",
   "facts.religionsFailed": "The religions could not be loaded.",
+  "legend.hint": "Click a coloured area to see the religion and the empire.",
+  "legend.hintClose": "Close the tip",
   "ff.kind.funfact": "Fun fact",
   "ff.kind.war": "When a war broke out",
   "ff.kind.empire": "The empire's story",
