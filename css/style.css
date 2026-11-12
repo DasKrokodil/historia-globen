@@ -388,6 +388,13 @@ body {
   .presentation-mode .panel { width: min(420px, calc(100vw - 48px)); max-height: 52vh; }
   .presentation-mode .panel .event-btn .ttl { font-size: 17px; }
 }
+@media (min-width: 1101px) {
+  /* Knappraden radbryts innan den når årskortet uppe till vänster (#1190). Kortet är högst min(520px, 60vw) brett;
+     utan gränsen växte raden åt vänster in över kortet upp till cirka 1550 px, mest på tyska, spanska och franska.
+     Under 1101 px ligger kortet i stället under knapparna (#992). Panelen och menyerna placeras under radens
+     underkant med JavaScript och följer med när den blir två rader. */
+  .top-actions { max-width: calc(100% - var(--gut) - min(520px, 60vw) - var(--gut-r) - 24px); }
+}
 @media (min-width: 1600px) {
   .presentation-mode #detail { width: min(520px, calc(100vw - 64px)); }
   .presentation-mode #funfact { width: min(480px, calc(100vw - 64px)); }

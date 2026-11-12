@@ -526,10 +526,17 @@ async function run(browser, vp) {
         }, null, { timeout: T.step });
         const m = await pp.evaluate(() => {
           const rect = selector => { const r = document.querySelector(selector).getBoundingClientRect(); return { left: r.left, top: r.top, right: r.right, bottom: r.bottom, height: r.height }; };
-          return { width: innerWidth, height: innerHeight, year: rect('#year-jump'), note: rect('#year-segment'), actions: rect('.top-actions'), scroll: document.documentElement.scrollWidth };
+          // Hela årskortet (den mörka plattan, #1190) mot varje synlig knapp i toppraden; i mobil (≤ 760 px) är kortet
+          // med flit lika brett som skärmen och knapparna ligger i dess högra del, så där mäts bara år och förklaring
+          const card = rect('.masthead');
+          const buttons = innerWidth <= 760 ? [] : [...document.querySelectorAll('.top-actions .chip-btn')]
+            .filter(el => el.getClientRects().length).map(el => { const r = el.getBoundingClientRect(); return { id: el.id || el.className, left: r.left, top: r.top, right: r.right, bottom: r.bottom }; });
+          return { width: innerWidth, height: innerHeight, lang: document.documentElement.lang, year: rect('#year-jump'), note: rect('#year-segment'), actions: rect('.top-actions'), card, buttons, scroll: document.documentElement.scrollWidth };
         });
         const overlaps = (a, b) => a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
         if (overlaps(m.year, m.actions) || overlaps(m.note, m.actions)) throw new Error(`knapparna täcker år eller förklaring: ${JSON.stringify(m)}`);
+        const onCard = m.buttons.filter(b => overlaps(b, m.card));
+        if (onCard.length) throw new Error(`knappar ligger över årskortet vid ${m.width} px (${m.lang}): ${onCard.map(b => b.id).join(', ')}`);
         if ([m.year, m.note].some(r => r.left < 0 || r.top < 0 || r.right > m.width || r.bottom > m.height) || m.scroll > m.width) throw new Error(`text utanför skärmen eller horisontell scroll: ${JSON.stringify(m)}`);
         return m;
       };
@@ -546,12 +553,19 @@ async function run(browser, vp) {
           await pp.screenshot({ path: path.join(OUT, `992-${width}x${height}.png`) });
         }
         // Längre knappar på andra språk och en senare fontomflödning får också ändra reserverad höjd.
+        // Datorbredderna prövas också på varje språk (#1190): knapparna är längst på tyska, spanska och franska och
+        // lade sig över årskortet mellan 1101 och cirka 1550 px, där testet förut bara prövade svenska.
         for (const lang of ['en', 'de', 'es', 'fr']) {
           await pp.setViewportSize({ width: 820, height: 1180 });
           await pp.goto(`${BASE}?lang=${lang}`);
           await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
           await layout();
           await pp.screenshot({ path: path.join(OUT, `992-820x1180-${lang}.png`) });
+          for (const [width, height] of [[1101, 768], [1280, 800], [1440, 900], [1500, 900]]) {
+            await pp.setViewportSize({ width, height });
+            await layout();
+          }
+          await pp.screenshot({ path: path.join(OUT, `1190-1500x900-${lang}.png`) });
         }
         const before = (await layout()).actions.height;
         const font = await pp.addStyleTag({ content: '.top-actions .chip-btn { font-size: 18px !important; }' });
@@ -561,7 +575,7 @@ async function run(browser, vp) {
         await layout();
         if (errors.length) throw new Error(errors.join(' | '));
       } finally { await pp.close(); }
-      return 'tre iPad-format, dator, mobil och brytpunkternas kanter utan överlapp eller scroll; fem språk och fontomflödning';
+      return 'tre iPad-format, dator, mobil och brytpunkternas kanter utan överlapp eller scroll; fem språk i surfplatte- och datorbredd (#1190) och fontomflödning';
     });
   }
   await check('årshoppet accepterar år, datum och felmeddelanden', async () => {
