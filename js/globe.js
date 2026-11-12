@@ -363,7 +363,20 @@ export class Globe {
       this.autoRotate = false; this._fly = null; this._vel = { x: 0, y: 0 }; this.lastUserInput = performance.now();
       this.invalidate();
     });
-    el.addEventListener('wheel', e => { this.lastUserInput = performance.now(); e.preventDefault(); this.setZoom(this.zoom * Math.exp(-e.deltaY * 0.0012)); }, { passive: false });
+    this.addZoomSurface(el);
+  }
+
+  /** Mushjul och nypning på styrplattan zoomar globen när gesten börjar på el. Chrome, Edge och Firefox
+   *  skickar styrplattans nypning som wheel med ctrlKey; utan preventDefault zoomas hela sidan. Etiketterna
+   *  och klustren ovanpå klotet anmäler sig också, annars zoomas sidan när pekaren råkar stå på en etikett. */
+  addZoomSurface(el) {
+    el.addEventListener('wheel', e => {
+      this.lastUserInput = performance.now();
+      e.preventDefault();
+      // Nypningens steg är mycket mindre än mushjulets, så de får en större faktor.
+      const k = e.ctrlKey ? 0.01 : (e.deltaMode === 1 ? 0.04 : 0.0012);
+      this.setZoom(this.zoom * Math.exp(-e.deltaY * k));
+    }, { passive: false });
   }
 
   /** Skärmposition för en punkt i klotets koordinater, och om den syns (vänd mot kameran). */
