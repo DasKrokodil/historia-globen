@@ -1,6 +1,6 @@
 // Tidsreglaget äger det nuvarande året (arkitekturprincip 3).
 // Beslut 4: segmenterad skala där nutiden får mer plats än forntiden.
-import { formatYear, formatDate, isBCE, bce, BCE_TXT, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t } from './model.js';
+import { formatYear, groupDigits, formatDate, isBCE, bce, BCE_TXT, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t } from './model.js';
 import { selectEventsForDate } from './date-events.js';
 import { ui } from './i18n.js';
 import { MIN_YEAR, MAX_YEAR } from './state.js'; // gränserna bor i state.js (#1141), så att url-state.js inte behöver importera hela tidsreglaget
@@ -26,13 +26,14 @@ const TICKS = [
 ];
 
 const clampY = y => Math.max(MIN_YEAR, Math.min(MAX_YEAR, y));
-// Gränsen mellan två segment är ett runt årtal: -500 (astronomiskt) är 501 f.Kr., men segmentet heter 500 f.Kr.
-const nominal = y => (y < 0 && y !== MIN_YEAR ? y + 1 : y);
+// Gränsen mellan två segment är ett runt årtal: -500 (astronomiskt) är 501 f.Kr., men segmentet heter 500 f.Kr. Ett år som
+// redan är runt i f.Kr. (-2999 är 3000 f.Kr., -99999 är 100 000 f.Kr.) behålls (#1088).
+const nominal = y => (y < 0 && bce(y) % 100 !== 0 ? y + 1 : y);
 /** Skalnamnet för ett segment, bara årtal på valt språk: "3000–500 f.Kr.", "500 f.Kr.–1000", "sedan 1800". */
 export function segmentLabel(s) {
   const from = nominal(s.from), to = nominal(s.to);
   if (s.to === MAX_YEAR) return ui('time.since', { start: formatYear(from) });
-  if (isBCE(from) && isBCE(to)) return `${bce(from)}–${bce(to)} ${BCE_TXT}`;
+  if (isBCE(from) && isBCE(to)) return `${groupDigits(bce(from))}–${groupDigits(bce(to))} ${BCE_TXT}`;
   return `${formatYear(from)}–${formatYear(to)}`;
 }
 const segFor = y => SEGMENTS.find(s => y <= s.to) ?? SEGMENTS.at(-1);
