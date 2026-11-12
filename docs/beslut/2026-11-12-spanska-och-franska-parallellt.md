@@ -11,5 +11,7 @@
    - Högst en pull request per redigeringsfil och språk, och gränsen på fyra öppna pull requests per konto.
    - Ordlistan [docs/ordlista-oversattning.md](../ordlista-oversattning.md), tilltalet och källpolicyn gäller som förut. Översättningen ändrar aldrig fakta.
 
+4. **Översättningar får byggas vidare när det är fullt.** Gränsen på fyra öppna pull requests ligger kvar, men i issues med etiketten `översättning` fortsätter agenten bygga nästa omgång på en egen gren och öppnar pull requesten när det finns en ledig plats. Grenen pushas gärna så att arbetet inte går förlorat (en gren räknas inte som pull request). Det är ett undantag från "bygg inte färdigt på en gren" (AGENTS.md, CLAUDE.md, .github/copilot-instructions.md). Skälet: översättningar är många små omgångar i egna filer, de blir inte gamla på samma sätt som kod, och de genererade filerna byggs om vid ombasering.
+
 ## Motivering
 Tyskan går långsammare än väntat, och spanskan och franskan rör andra filer (`*.es.json` och `*.fr.json` i `data/genererat/`). Andreas och hans agenter kan därmed ta fler issues parallellt utan att filerna krockar. De genererade filerna och `data/oversattning.json` räknas inte som krock (beslut 2026-11-09).
