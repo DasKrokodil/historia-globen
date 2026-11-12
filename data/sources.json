@@ -1915,6 +1915,21 @@
     { "id": "wp-flag-of-switzerland", "title": "Flag of Switzerland – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Switzerland", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
     { "id": "commons-coat-of-arms-polish-crown", "title": "Coat of Arms of the Polish Crown – rekonstruktion efter Przemysł II:s sigill 1295, SVG av Bastianow (Wikimedia Commons, filsida; märkt insignia)", "url": "https://commons.wikimedia.org/wiki/File:Coat_of_Arms_of_the_Polish_Crown.svg", "license": "Public domain", "checked": "2026-11-12" },
     { "id": "wp-national-emblem-of-france", "title": "National emblem of France – Wikipedia", "url": "https://en.wikipedia.org/wiki/National_emblem_of_France", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
-    { "id": "wp-almohad-caliphate", "title": "Almohad Caliphate – Wikipedia", "url": "https://en.wikipedia.org/wiki/Almohad_Caliphate", "license": "CC BY-SA 4.0", "checked": "2026-11-12" }
+    { "id": "wp-almohad-caliphate", "title": "Almohad Caliphate – Wikipedia", "url": "https://en.wikipedia.org/wiki/Almohad_Caliphate", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-ukraine", "title": "Flag of Ukraine – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Ukraine", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-dannebrog", "title": "Dannebrog – Wikipedia", "url": "https://en.wikipedia.org/wiki/Dannebrog", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-norway", "title": "Flag of Norway – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Norway", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-germany", "title": "Flag of Germany – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Germany", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-finland", "title": "Flag of Finland – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Finland", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-poland", "title": "Flag of Poland – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Poland", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-italy", "title": "Flag of Italy – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Italy", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-iceland", "title": "Flag of Iceland – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Iceland", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-bulgaria", "title": "Flag of Bulgaria – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Bulgaria", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-czech-republic", "title": "Flag of the Czech Republic – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_the_Czech_Republic", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-ireland", "title": "Flag of Ireland – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Ireland", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-netherlands", "title": "Flag of the Netherlands – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_the_Netherlands", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-belgium", "title": "Flag of Belgium – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Belgium", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-luxembourg", "title": "Flag of Luxembourg – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Luxembourg", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-monaco", "title": "Flag of Monaco – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Monaco", "license": "CC BY-SA 4.0", "checked": "2026-11-12" }
   ]
 }
