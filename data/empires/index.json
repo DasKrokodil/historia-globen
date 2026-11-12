@@ -28779,6 +28779,7 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/tchad.json",
+   "flags": [{"file": "chad", "from": 1961, "to": 2024, "label": {"sv": "Tchads flagga", "en": "Flag of Chad", "de": "Flagge des Tschad", "es": "Bandera de Chad", "fr": "Drapeau du Tchad"}, "sources": ["wp-flag-chad"], "review": "source-checked"}],
    "polities": [
     {
      "id": "tchad",
@@ -28841,6 +28842,7 @@
    "from": 1960,
    "to": 2024,
    "file": "data/empires/mali.json",
+   "flags": [{"file": "mali", "from": 1961, "to": 2024, "label": {"sv": "Malis flagga", "en": "Flag of Mali", "de": "Flagge Malis", "es": "Bandera de Mali", "fr": "Drapeau du Mali"}, "sources": ["wp-flag-mali"], "review": "source-checked"}],
    "polities": [
     {
      "id": "mali",
@@ -28937,6 +28939,7 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/niger.json",
+   "flags": [{"file": "niger", "from": 1961, "to": 2024, "label": {"sv": "Nigers flagga", "en": "Flag of Niger", "de": "Flagge Nigers", "es": "Bandera de Níger", "fr": "Drapeau du Niger"}, "sources": ["wp-flag-niger"], "review": "source-checked"}],
    "polities": [
     {
      "id": "niger",
@@ -29294,6 +29297,7 @@
    "from": 1960,
    "to": 2024,
    "file": "data/empires/madagaskar.json",
+   "flags": [{"file": "madagascar", "from": 1960, "to": 2024, "label": {"sv": "Madagaskars flagga", "en": "Flag of Madagascar", "de": "Flagge Madagaskars", "es": "Bandera de Madagascar", "fr": "Drapeau de Madagascar"}, "sources": ["wp-flag-madagascar"], "review": "source-checked"}],
    "polities": [
     {
      "id": "madagaskar",
@@ -29387,6 +29391,7 @@
    "from": 1967,
    "to": 2024,
    "file": "data/empires/botswana.json",
+   "flags": [{"file": "botswana", "from": 1967, "to": 2024, "label": {"sv": "Botswanas flagga", "en": "Flag of Botswana", "de": "Flagge Botswanas", "es": "Bandera de Botsuana", "fr": "Drapeau du Botswana"}, "sources": ["wp-flag-botswana"], "review": "source-checked"}],
    "polities": [
     {
      "id": "botswana",
@@ -29951,6 +29956,7 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/elfenbenskusten.json",
+   "flags": [{"file": "ivory-coast", "from": 1961, "to": 2024, "label": {"sv": "Elfenbenskustens flagga", "en": "Flag of Ivory Coast", "de": "Flagge der Elfenbeinküste", "es": "Bandera de Costa de Marfil", "fr": "Drapeau de la Côte d’Ivoire"}, "sources": ["wp-flag-ivory-coast"], "review": "source-checked"}],
    "polities": [
     {
      "id": "elfenbenskusten",
@@ -30162,6 +30168,7 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/gabon.json",
+   "flags": [{"file": "gabon", "from": 1961, "to": 2024, "label": {"sv": "Gabons flagga", "en": "Flag of Gabon", "de": "Flagge Gabuns", "es": "Bandera de Gabón", "fr": "Drapeau du Gabon"}, "sources": ["wp-flag-gabon"], "review": "source-checked"}],
    "polities": [
     {
      "id": "gabon",
@@ -30193,6 +30200,7 @@
    "from": 1960,
    "to": 2024,
    "file": "data/empires/guinea.json",
+   "flags": [{"file": "guinea", "from": 1960, "to": 2024, "label": {"sv": "Guineas flagga", "en": "Flag of Guinea", "de": "Flagge Guineas", "es": "Bandera de Guinea", "fr": "Drapeau de la Guinée"}, "sources": ["wp-flag-guinea"], "review": "source-checked"}],
    "polities": [
     {
      "id": "guinea",
@@ -30471,6 +30479,7 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/senegal.json",
+   "flags": [{"file": "senegal", "from": 1961, "to": 2024, "label": {"sv": "Senegals flagga", "en": "Flag of Senegal", "de": "Flagge Senegals", "es": "Bandera de Senegal", "fr": "Drapeau du Sénégal"}, "sources": ["wp-flag-senegal"], "review": "source-checked"}],
    "polities": [
     {
      "id": "senegal",
@@ -30840,6 +30849,7 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/benin.json",
+   "flags": [{"file": "benin", "from": 1961, "to": 1974, "label": {"sv": "Benins flagga", "en": "Flag of Benin", "de": "Flagge Benins", "es": "Bandera de Benín", "fr": "Drapeau du Bénin"}, "sources": ["wp-flag-benin"], "review": "source-checked"}, {"file": "benin", "from": 1990, "to": 2024, "label": {"sv": "Benins flagga", "en": "Flag of Benin", "de": "Flagge Benins", "es": "Bandera de Benín", "fr": "Drapeau du Bénin"}, "sources": ["wp-flag-benin"], "review": "source-checked"}],
    "polities": [
     {
      "id": "benin",
@@ -31339,6 +31349,7 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/sierra-leone.json",
+   "flags": [{"file": "sierra-leone", "from": 1961, "to": 2024, "label": {"sv": "Sierra Leones flagga", "en": "Flag of Sierra Leone", "de": "Flagge von Sierra Leone", "es": "Bandera de Sierra Leona", "fr": "Drapeau de la Sierra Leone"}, "sources": ["wp-flag-sierra-leone"], "review": "source-checked"}],
    "polities": [
     {
      "id": "sierra-leone",
@@ -31463,6 +31474,7 @@
    "from": 1960,
    "to": 2024,
    "file": "data/empires/togo.json",
+   "flags": [{"file": "togo", "from": 1960, "to": 2024, "label": {"sv": "Togos flagga", "en": "Flag of Togo", "de": "Flagge Togos", "es": "Bandera de Togo", "fr": "Drapeau du Togo"}, "sources": ["wp-flag-togo"], "review": "source-checked"}],
    "polities": [
     {
      "id": "togo",

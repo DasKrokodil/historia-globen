@@ -1930,6 +1930,18 @@
     { "id": "wp-flag-netherlands", "title": "Flag of the Netherlands – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_the_Netherlands", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
     { "id": "wp-flag-belgium", "title": "Flag of Belgium – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Belgium", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
     { "id": "wp-flag-luxembourg", "title": "Flag of Luxembourg – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Luxembourg", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
-    { "id": "wp-flag-monaco", "title": "Flag of Monaco – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Monaco", "license": "CC BY-SA 4.0", "checked": "2026-11-12" }
+    { "id": "wp-flag-monaco", "title": "Flag of Monaco – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Monaco", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-madagascar", "title": "Flag of Madagascar – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Madagascar", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-guinea", "title": "Flag of Guinea – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Guinea", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-chad", "title": "Flag of Chad – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Chad", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-niger", "title": "Flag of Niger – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Niger", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-ivory-coast", "title": "Flag of Ivory Coast – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Ivory_Coast", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-gabon", "title": "Flag of Gabon – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Gabon", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-senegal", "title": "Flag of Senegal – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Senegal", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-sierra-leone", "title": "Flag of Sierra Leone – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Sierra_Leone", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-botswana", "title": "Flag of Botswana – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Botswana", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-mali", "title": "Flag of Mali – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Mali", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-togo", "title": "Flag of Togo – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Togo", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-benin", "title": "Flag of Benin – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Benin", "license": "CC BY-SA 4.0", "checked": "2026-11-12" }
   ]
 }
