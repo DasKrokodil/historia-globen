@@ -1907,6 +1907,11 @@
     {"id": "wp-jikji", "title": "Jikji – Wikipedia", "url": "https://en.wikipedia.org/wiki/Jikji", "license": "CC BY-SA 4.0", "checked": "2026-11-11"},
     {"id": "wp-heungdeoksa", "title": "Heungdeoksa – Wikipedia (platsens koordinater)", "url": "https://en.wikipedia.org/wiki/Heungdeoksa", "license": "CC BY-SA 4.0", "checked": "2026-11-11"},
     { "id": "wp-gulag", "title": "Gulag – Wikipedia", "url": "https://en.wikipedia.org/wiki/Gulag", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
-    { "id": "wp-holodomor", "title": "Holodomor – Wikipedia", "url": "https://en.wikipedia.org/wiki/Holodomor", "license": "CC BY-SA 4.0", "checked": "2026-11-11" }
+    { "id": "wp-holodomor", "title": "Holodomor – Wikipedia", "url": "https://en.wikipedia.org/wiki/Holodomor", "license": "CC BY-SA 4.0", "checked": "2026-11-11" },
+    { "id": "commons-flagga-gronland", "title": "Flag of Greenland – Grönlands flagga, SVG av Jeffrey Connell (IceKarma), 2005 (Wikimedia Commons, filsida; märkt insignia, användningen kan vara begränsad)", "url": "https://commons.wikimedia.org/wiki/File:Flag_of_Greenland.svg", "license": "Public domain (PD-ineligible)", "checked": "2026-11-12" },
+    { "id": "commons-vapen-gronland", "title": "Coat of arms of Greenland – Grönlands riksvapen, SVG av Octane (Wikimedia Commons, filsida; märkt insignia, användningen kan vara begränsad)", "url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Greenland.svg", "license": "Public domain (PD-self)", "checked": "2026-11-12" },
+    { "id": "commons-flagga-nya-zeeland", "title": "Flag of New Zealand – Nya Zeelands flagga 1902, vektor av Zscout370 m.fl. (Wikimedia Commons, filsida; public domain i Nya Zeeland och USA, inte nödvändigtvis i länder med längre skyddstid; märkt insignia)", "url": "https://commons.wikimedia.org/wiki/File:Flag_of_New_Zealand.svg", "license": "Public domain (PD-New Zealand, PD-US-expired)", "checked": "2026-11-12" },
+    { "id": "commons-flagga-skane", "title": "Flag of Scania – Skånska flaggan, SVG av GeMet, 2012 (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:Flag_of_Scania.svg", "license": "Public domain (PD-self)", "checked": "2026-11-12" },
+    { "id": "commons-landskapsvapen-skane", "title": "Skåne vapen – Skånes landskapsvapen (fastställt 1660), SVG av Lokal_Profil, 2007 (Wikimedia Commons, filsida; märkt insignia, användningen kan vara begränsad)", "url": "https://commons.wikimedia.org/wiki/File:Sk%C3%A5ne_vapen.svg", "license": "CC BY-SA 2.5", "checked": "2026-11-12" }
   ]
 }
