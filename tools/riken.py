@@ -1545,6 +1545,34 @@ def influence_periods(rels, cname, core, own, names, tol, merge, min_area):
     return sorted(out, key=lambda q: q['start'])
 
 
+def fix_swapped_shapes(by_name):
+    """Rättar poster i Cliopatria v0.0.1 där två riken har bytt geometri (#1187).
+
+    1895–1897 ligger "Qajar Dynasty" i Nederländska Ostindien och "Dutch East Indies" i Iran:
+    ytorna (1 780 919 och 1 611 467 km²) motsvarar Ostindien och Iran 1898. Geometrierna byts
+    tillbaka, och "(Netherlands)" samma år byggs om av Nederländerna och den rättade kolonin.
+    """
+    from shapely.geometry import shape, mapping
+    from shapely.ops import unary_union
+
+    def one(name, a, b):
+        hits = [f for f in by_name.get(name, []) if (f['properties']['FromYear'], f['properties']['ToYear']) == (a, b)]
+        return hits[0] if len(hits) == 1 else None
+
+    qajar, dei = one('Qajar Dynasty', 1895, 1897), one('Dutch East Indies', 1895, 1897)
+    nl_all = one('(Netherlands)', 1895, 1897)
+    nl = next((f for f in by_name.get('Netherlands', [])
+               if f['properties']['FromYear'] <= 1895 and f['properties']['ToYear'] >= 1897), None)
+    if not (qajar and dei and nl and nl_all):
+        return  # en annan version av Cliopatria: inget att rätta
+    if shape(qajar['geometry']).centroid.x < 90:
+        return  # redan rätt i källan
+    qajar['geometry'], dei['geometry'] = dei['geometry'], qajar['geometry']
+    qajar['properties']['Area'], dei['properties']['Area'] = dei['properties']['Area'], qajar['properties']['Area']
+    merged = unary_union([shape(nl['geometry']).buffer(0), shape(dei['geometry']).buffer(0)])
+    nl_all['geometry'], nl_all['properties']['Area'] = mapping(merged), km2(merged)
+
+
 def main():
     src = json.loads(Path(sys.argv[1]).read_text())
     by_name = {}
@@ -1552,6 +1580,7 @@ def main():
         p = f['properties']
         if p['Type'] == 'POLITY':
             by_name.setdefault(p['Name'], []).append(f)
+    fix_swapped_shapes(by_name)
     rels = relations(src)
     disputed = disputed_areas(by_name)  # omstridda gränser enligt Sveriges hållning (#644)
     ne = ne_shapes()  # små stater ur Natural Earth (#722)
