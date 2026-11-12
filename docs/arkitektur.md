@@ -139,6 +139,8 @@ Klickbara markörer, etiketter och bågar ligger ovanpå klotet som 3D-objekt oc
 
 Utanför Fokus syns händelser inom tidsfönstret som inte pågår vid årets val svagare (högst 45 procents opacitet) utan sken. Fönstret (`timeline.windowYears`) är en andel av tidslinjen och blir därför olika långt i olika segment: cirka ±120 år före 500 f.Kr., ±72 år till år 1000, ±38 år till 1800 och cirka ±11 år därefter. Raden under årtalet och Samtidigt-panelen visar det avrundat (`roundWindow` i `js/model.js`: ±120, ±70, ±40, ±10), med "±" och i ord för yngre läsare (lektion för F-3 och 4-6, Samtidighetsjakten). Förklaringen att tonade markörer är nära i tid, inte samtida, står i radens `title` och i den dolda texten `#year-window-note` (#1191, beslut 2026-11-12). Etiketten anger `slut <år>` eller `börjar <år>` med ord från `data/vyer.json`; `model.js` formaterar året. Krigsområden ritas bara medan kriget pågår. I Fokus är redan utkämpade slag och krigets egen tidslinje oförändrade.
 
+**Antal markörer (#1192):** vanligt läge har inget tak; det har bara tidsintervallet (300, `markersToHide`). `node tools/markortak.mjs` räknar år för år hur många markörer som syns i vanligt läge, med händelselagrets regler, och varnar när något år går över cirka 60 (i dag högst 49, år 1967). Då byggs taket med `top` och `major` som rangordning (beslut 2026-11-12).
+
 ## Mindre trängsel på kartan (#358)
 
 Rikesnamn, rikesmedaljer och händelser trängdes i Europa när man såg hela kartan. Nu bestämmer zoomnivån hur mycket som syns, och inget rikesnamn eller ingen medalj ritas ovanpå en annan.

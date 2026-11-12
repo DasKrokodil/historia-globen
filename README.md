@@ -141,6 +141,7 @@ tools/riken_namn.py   hämtar rikenas namn på tyska, spanska och franska ur Wik
 tools/ne_omstridda.py tar ut omstridda områden ur Natural Earth till tools/ne-omstridda-omraden.geojson, som riken.py läser (#644)
 tools/dela_data.py    bygger events.json ur data/handelser/ och delar upp händelser och riken i data/genererat/, med en fil per språk (körs efter varje ändring)
 tools/oversattning.py spärren mot oöversatta texter och kontrollen av inaktuella översättningar (#675)
+tools/markortak.mjs   räknar hur många markörer som syns samtidigt i vanligt läge, år för år, och varnar över taket 60 (#1192)
 tools/tackning.py     skriver täckningsrapporten med luckor per period, världsdel och kategori i docs/granskningar/ (#563)
 tools/tackningsrapport.py  skriver docs/tackningsrapport.md med täckningen per världsdel, århundrade och kategori
 tools/religioner.py   bygger religionslagret (data/religions.json) ur Cliopatria och faktarutornas texter, med arv av religion
