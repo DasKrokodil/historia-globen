@@ -196,10 +196,15 @@ export function createPlayback(app) {
     // I fokus på en plats eller ett tema stannar uppspelningen vid händelserna (#1255): de viktiga (top eller major)
     // om det finns några, annars alla. Tiden står på händelsens år, så nästa Spela fortsätter till nästa.
     if ((focus?.type === 'place' || focus?.type === 'theme') && playing && layers.pause.theme) {
-      const hit = themeStops(focus).find(e => passed(e.start));
+      const hit = themeStops(focus).find(e => !shownStops.has('t:' + e.id) && passed(e.start));
       if (hit) {
+        // Stoppet sparas som visat, så att en omritning under pausen inte ger samma stopp igen vid Fortsätt.
+        // stopping hindrar att tidsflytten nedan tömmer shownStops (change-lyssnaren).
+        shownStops.add('t:' + hit.id);
         timeline.pause(ui('play.pausedThemeEvent', { title: t(hit.title) }));
+        stopping = true;
         timeline.year = hit.start;
+        stopping = false;
         app.store.setSelected(hit.id);
         panel.showDetail(hit, matchMedia('(min-width: 761px)').matches);
       }
