@@ -38,6 +38,7 @@
               }
             }
           },
+          "emblems": {"type": "array", "description": "Flagga och vapen på kortet (#1160): en egen SVG i img/flags/, bildtext på alla språk, kredit, licens och källa (filsidan i sources.json).", "items": {"type": "object", "required": ["kind", "file", "caption", "credit", "license", "source"], "additionalProperties": false, "properties": {"kind": {"enum": ["flag", "arms"]}, "file": {"type": "string", "pattern": "^[a-z0-9-]+$"}, "caption": {"type": "object", "required": ["sv"]}, "credit": {"type": "string"}, "license": {"type": "string"}, "source": {"type": "string"}}}},
           "sources": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
           "review": { "enum": ["draft", "source-checked", "two-sources"] },
           "placeholder": { "type": "boolean" }

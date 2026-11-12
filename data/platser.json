@@ -9062,6 +9062,36 @@
      ]
     }
    },
+   "emblems": [
+    {
+     "kind": "flag",
+     "file": "greenland",
+     "caption": {
+      "sv": "Grönlands flagga",
+      "en": "Flag of Greenland",
+      "de": "Flagge Grönlands",
+      "es": "Bandera de Groenlandia",
+      "fr": "Drapeau du Groenland"
+     },
+     "credit": "Egen förenklad teckning efter Jeffrey Connells SVG, Wikimedia Commons",
+     "license": "Public domain",
+     "source": "commons-flagga-gronland"
+    },
+    {
+     "kind": "arms",
+     "file": "greenland-arms",
+     "caption": {
+      "sv": "Grönlands riksvapen",
+      "en": "Coat of arms of Greenland",
+      "de": "Wappen Grönlands",
+      "es": "Escudo de Groenlandia",
+      "fr": "Armoiries du Groenland"
+     },
+     "credit": "Octane, Wikimedia Commons",
+     "license": "Public domain",
+     "source": "commons-vapen-gronland"
+    }
+   ],
    "sources": [
     "natural-earth-countries",
     "lex-gronlands-selvstyre"
@@ -12181,6 +12211,22 @@
      ]
     ]
    },
+   "emblems": [
+    {
+     "kind": "flag",
+     "file": "new-zealand",
+     "caption": {
+      "sv": "Nya Zeelands flagga",
+      "en": "Flag of New Zealand",
+      "de": "Flagge Neuseelands",
+      "es": "Bandera de Nueva Zelanda",
+      "fr": "Drapeau de la Nouvelle-Zélande"
+     },
+     "credit": "Zscout370 m.fl., Wikimedia Commons",
+     "license": "Public domain i Nya Zeeland och USA",
+     "source": "commons-flagga-nya-zeeland"
+    }
+   ],
    "sources": [
     "natural-earth-countries",
     "snl-new-zealands-historie"

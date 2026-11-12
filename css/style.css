@@ -1835,6 +1835,11 @@ details.used-by summary:hover { color: var(--parchment); }
 .layer-subrow .rel-sym, .focus-item .rel-sym { margin-left: -4px; }
 .religion-legend .rel-sym { width: 15px; height: 15px; margin-left: -3px; }
 .detail h3 .rel-sym-h { width: 22px; height: 22px; margin-right: 8px; vertical-align: -3px; }
+.place-emblems { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: flex-start; margin: 6px 0 10px; }
+.place-emblem { margin: 0; display: flex; flex-direction: column; gap: 4px; max-width: 150px; font-size: 0.85em; }
+.place-emblem img { height: 44px; width: auto; align-self: flex-start; }
+.place-emblem-flag img { border: 1px solid var(--brass); }
+.place-emblem .meta { display: block; }
 @media (max-width: 760px) { .religion-legend .rel-sym { width: 13px; height: 13px; } }
 .detail .war-link .rel-sym-in { width: 18px; height: 18px; vertical-align: -4px; }
 /* Knappen över symbolen där religionen uppstod (#271): osynlig, men går att nå med Tab och syns med fokusring */

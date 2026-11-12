@@ -1,7 +1,7 @@
 // "Samtidigt i världen": lista över synliga händelser per världsdel, kategorifilter
 // (i lagermenyn, #120, och som chips ovanför listan, #311) och faktarutan.
 import { buildAreaCurve } from './areacurve.js';
-import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, isVisibleReview, eventTags, needDetails, misconceptionsFor, roundWindow } from '../model.js';
+import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, flagUrl, isVisibleReview, eventTags, needDetails, misconceptionsFor, roundWindow } from '../model.js';
 import { ui, LANG } from '../i18n.js';
 import { MIN_YEAR } from '../timeline.js';
 import { eventCitation } from './citation.js';
@@ -592,7 +592,10 @@ export class Panel {
   showPlace(place, events) {
     this.selectedId = null;
     this.detail.className = `detail detail-card frame-${styleFor(events[0], this.styles).frame}`;
-    const srcs = (place.sources ?? []).map(id => this.srcById[id]).filter(Boolean);
+    // Flagga och vapen (#1160): egna SVG:er i img/flags/ med bildtext, kredit och licens; filsidorna står bland källorna
+    const emblems = (place.emblems ?? []).filter(em => flagUrl(em));
+    const srcs = [...new Set([...(place.sources ?? []), ...emblems.map(em => em.source)])].map(id => this.srcById[id]).filter(Boolean);
+    const emblemHtml = emblems.length ? `<div class="place-emblems">${emblems.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}"><img src="${esc(flagUrl(em))}" alt="${esc(t(em.caption))}"><figcaption>${esc(t(em.caption))}<span class="meta">${esc(em.credit)} · ${esc(em.license)}</span></figcaption></figure>`).join('')}</div>` : '';
     const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> ${esc(t(e.title))}${e.start < MIN_YEAR ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
     const type = ui(`place.type.${place.type}`), of = place.partOf ? t(place.partOf) : '';
     this.detail.innerHTML = `
@@ -600,6 +603,7 @@ export class Panel {
       <div class="story-label">${esc(ui('place.label'))}</div>
       <h3>${esc(t(place.name))}</h3>
       <div class="story"><p class="place-type">${esc(of ? ui('place.typeOf', { type, of }) : type)}</p>
+      ${emblemHtml}
       <p>${esc(t(place.intro))}</p>
       <p class="theme-filter-note">${esc(ui('place.borderNote'))}</p>
       <p class="theme-filter-note">${esc(ui('place.filters'))}</p>
