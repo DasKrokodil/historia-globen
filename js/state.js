@@ -8,7 +8,8 @@
 
 // Tidslinjens gränser (#1141): de bor här, och inte i timeline.js, så att adressformatet (js/url-state.js) och andra moduler
 // kan läsa dem utan att dra med tidsreglaget, modellen och språkfilerna. timeline.js exporterar dem vidare.
-export const MIN_YEAR = -2999;   // 3000 f.Kr.
+// Människans läge går cirka 100 000 år bakåt (beslut 2026-11-10, #1088): 100 000 f.Kr. är astronomiskt år -99999
+export const MIN_YEAR = -99999;
 // Tidslinjen slutar i dag enligt datorns klocka, men aldrig före 2026 då datan senast kontrollerades (#229)
 export const MAX_YEAR = Math.max(2026, new Date().getFullYear());
 

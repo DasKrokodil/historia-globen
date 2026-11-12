@@ -170,8 +170,10 @@ function ordinal(n) {
   return `${n}${n % 100 >= 11 && n % 100 <= 13 ? th : last === 1 ? st : last === 2 ? nd : last === 3 ? rd : th}`;
 }
 
-/** Århundradet för året i ord: "1300-talet", "2900-talet f.Kr.", "14th century", "XIVe siècle". */
+/** Århundradet för året i ord: "1300-talet", "2900-talet f.Kr.", "14th century", "XIVe siècle". I förhistorien (före 10 000 f.Kr.,
+ *  #1088) är århundraden för fina, och raden visar året avrundat till tusental i stället: "50 000 f.Kr.". */
 export function formatCentury(y) {
+  if (y < -9999) return formatYear(1 - Math.round(bce(y) / 1000) * 1000);
   const { bce: before, c, hundred } = centuryOf(y);
   const key = `time.century${c === 1 ? '1' : ''}.${before ? 'bce' : 'ce'}`;
   // Språket väljer hur numret skrivs (time.centuryStyle): 1300 (sv), 14th (en), 14 (de), XIV (es, fr)
@@ -186,6 +188,7 @@ export function formatCentury(y) {
  */
 export function roundWindow(n) {
   if (!(n > 0)) return 0;
+  if (n >= 1000) return Math.round(n / 1000) * 1000; // förhistoriens glesa segment (#1088): ±11 640 blir ±12 000
   return n < 30 ? Math.max(5, Math.round(n / 5) * 5) : Math.round(n / 10) * 10;
 }
 

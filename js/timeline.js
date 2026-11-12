@@ -6,18 +6,22 @@ import { ui } from './i18n.js';
 import { MIN_YEAR, MAX_YEAR } from './state.js'; // gränserna bor i state.js (#1141), så att url-state.js inte behöver importera hela tidsreglaget
 export { MIN_YEAR, MAX_YEAR };
 
-// Tidslinjens fyra delar är en skala, inte epoker: de heter bara sina årtal (#979). Epoknamnen, med källa och
-// förenklingstext, finns bara i data/perioder.json.
+// Tidslinjens fem delar är en skala, inte epoker: de heter bara sina årtal (#979). Epoknamnen, med källa och
+// förenklingstext, finns bara i data/perioder.json. Förhistorien (#1088) får ett glest första segment med 10 % av reglaget,
+// enligt mätningen i docs/granskningar/2026-11-12-tidsreglagets-plats-1087.md: modern tid (1800–) behåller 25 % och samma
+// pixlar per år som förut, och de tre segmenten däremellan delar lika på resten (21⅔ % var).
+const P1 = 0.10, P2 = 0.10 + 0.65 / 3, P3 = 0.10 + 1.30 / 3;
 export const SEGMENTS = [
-  { from: -2999, to: -500, a: 0.00, b: 0.25 },
-  { from:  -500, to: 1000, a: 0.25, b: 0.50 },
-  { from:  1000, to: 1800, a: 0.50, b: 0.75 },
+  { from: MIN_YEAR, to: -2999, a: 0.00, b: P1 },
+  { from: -2999, to: -500, a: P1, b: P2 },
+  { from:  -500, to: 1000, a: P2, b: P3 },
+  { from:  1000, to: 1800, a: P3, b: 0.75 },
   { from:  1800, to: MAX_YEAR, a: 0.75, b: 1.00 },
 ];
 
 // [år, nivå]: 1 = alltid, 2 = från 600 px, 3 = från 900 px
 const TICKS = [
-  [-2999, 1], [-1999, 2], [-999, 3], [-499, 2], [1, 1], [500, 2], [1000, 1],
+  [MIN_YEAR, 1], [-49999, 3], [-2999, 2], [-1999, 2], [-999, 3], [-499, 2], [1, 1], [500, 2], [1000, 1],
   [1200, 3], [1400, 2], [1600, 3], [1800, 1], [1900, 2], [1950, 3], [2000, 1],
 ];
 
