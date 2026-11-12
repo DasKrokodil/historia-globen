@@ -570,6 +570,7 @@
   "legend.closeEmpires": "Close the empire map key",
   "ff.kind.funfact": "Fun fact",
   "ff.kind.war": "When a war broke out",
+  "ff.warStarts": "{war} breaks out in {year}. At the same time in the world:",
   "ff.kind.empire": "The empire's story",
   "ff.kind.vanished": "The country's story",
   "ff.sheet.closed": "closed",
