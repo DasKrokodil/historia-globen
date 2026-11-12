@@ -1,98 +1,114 @@
 # Rikessymboler: belagda symboler och flaggor för de 217 rikena utan (#1147)
 
-2026-11-11. Claude Code (DasKrokodil). Del 2 av #1145. Underlag till del 3, som bygger symbolerna i omgångar. Ingen kod eller data är ändrad.
+2026-11-11, uppdaterad 2026-11-12 efter expertgranskningen. Claude Code (DasKrokodil). Del 2 av #1145, som underlag till del 3. Ingen kod eller data är ändrad.
 
 ## Sammanfattning
 
-De 217 grupperna i `data/empires/index.json` som saknar både `symbol` och `flags`. Alla 217 har en rad nedan.
+Rapporten gäller de 217 grupperna i `data/empires/index.json` som saknar både `symbol` och `flags`. Alla 217 har en rad nedan.
 
 **Per sort:**
 
-| Sort | Asien | Afrika | Europa | Amerika och Oceanien | Totalt |
-|---|---:|---:|---:|---:|---:|
-| flagga | 51 | 47 | 38 | 36 | 172 |
-| symbol | 5 | 3 | 7 | 0 | 15 |
-| symbol och flagga | 0 | 0 | 2 | 0 | 2 |
-| modern återgivning | 2 | 1 | 1 | 0 | 4 |
-| ingen belagd | 4 | 2 | 3 | 0 | 9 |
-| redan bedömd: ingen | 8 | 4 | 3 | 0 | 15 |
-| **Totalt** | 70 | 57 | 54 | 36 | 217 |
+| Sort | Asien | Afrika | Europa | Amerika | Oceanien | Totalt |
+|---|---:|---:|---:|---:|---:|---:|
+| flagga | 49 | 49 | 38 | 27 | 9 | 172 |
+| symbol | 4 | 4 | 7 | 0 | 0 | 15 |
+| symbol och flagga | 0 | 0 | 2 | 0 | 0 | 2 |
+| modern återgivning | 2 | 1 | 1 | 0 | 0 | 4 |
+| ingen belagd | 4 | 2 | 3 | 0 | 0 | 9 |
+| redan bedömd: ingen | 8 | 4 | 3 | 0 | 0 | 15 |
+| **Totalt** | 67 | 60 | 54 | 27 | 9 | 217 |
 
 **Per rekommendation:**
 
-| Rekommendation | Asien | Afrika | Europa | Amerika och Oceanien | Totalt |
-|---|---:|---:|---:|---:|---:|
-| bygg | 42 | 48 | 36 | 28 | 154 |
-| vänta | 14 | 3 | 13 | 8 | 38 |
-| ingen | 14 | 6 | 5 | 0 | 25 |
+| Rekommendation | Asien | Afrika | Europa | Amerika | Oceanien | Totalt |
+|---|---:|---:|---:|---:|---:|---:|
+| bygg | 41 | 49 | 36 | 19 | 9 | 154 |
+| vänta | 12 | 5 | 13 | 8 | 0 | 38 |
+| ingen | 14 | 6 | 5 | 0 | 0 | 25 |
 
-Vad siffrorna betyder:
-
-- **De flesta av de 217 är nutida stater.** 172 har en belagd flagga med antagningsdatum, nästan alla public domain på Commons. 144 av dem kan byggas direkt, men flera bara från ett visst år, eftersom flaggan har bytts under perioden. Raderna anger då vilket år.
-- **Historiska riken:** 21 har en symbol (varav 4 bara som modern återgivning), och 9 saknar belagd symbol. Dessutom är 15 redan bedömda som "ingen symbol" i `docs/datamodell.md` och har inte prövats igen.
-- **Rekommendationerna:**
-  - **bygg:** belagd, och licensen duger (PD, CC0, CC BY eller CC BY-SA).
-  - **vänta:** osäker datering, oenighet eller en licens som behöver kontroll.
-  - **ingen:** ingen belagd symbol, eller en modern påhittad bild.
+- **De flesta är nutida stater.** 172 har en belagd flagga med antagningsdatum, nästan alla public domain på Commons. 144 av dem kan byggas, men flera bara från ett visst år.
+- **Historiska riken:** 21 har en symbol, varav 4 bara som modern återgivning. 9 saknar belagd symbol, och 15 är redan bedömda som "ingen symbol" i `docs/datamodell.md` och har inte prövats igen.
+- **Inga historiska riken i Amerika och Oceanien bland de 217.** De historiska riken som finns där (Aztekriket, Inkariket och Hawaii) har redan symbol. De övriga raderna är nutida stater.
+- **Rekommendationerna:** **bygg** betyder belagd och licensen duger (PD, CC0, CC BY eller CC BY-SA). **vänta** betyder osäker datering, oenighet eller licens som behöver kontroll. **ingen** betyder ingen belagd symbol, eller en modern påhittad bild.
 
 ## Metod och förbehåll
 
-- **Källor:** engelska Wikipedia (rikets sida, och för nutida stater sidan "Flag of …" med antagningsdatum) och Wikimedia Commons filsidor för licenser. Allt öppnades 2026-11-11, med WebFetch eller som rå wikitext (`action=raw`). Commons API gav periodvis 429. Där en filsida inte hann öppnas står det i tabellen.
-- **Inget ur minnet.** Källarbetet gjordes av tre agenter, en per del av världen. Detaljer som de först hade skrivit men som inte stod på de öppnade sidorna (färger, motiv, namn) är strukna, så raderna säger bara det som sidorna säger.
-- **Stickprov av Claude Code (Opus):**
-  - **Kungariket Polen:** Wikipedia har bara bildtexten "Coat of arms (1295)" och kungafanan 1290 i infoboxen. Att bilden är en rekonstruktion efter Przemysł II:s sigill från 1295 står på Commons-filsidan ("contemporary reconstruction"), som är public domain enligt polsk lag. Posten ska byggas som `kind: reconstruction`.
-  - **Moskvariket:** Commons-filen (teckning 2013, public domain) visar dubbelörnen på baksidan av Ivan III:s sigill, som enligt beskrivningen "presumably" dateras till 1489.
-- **Världsdel:** rikena sorterades efter koordinaten för sin etikett (`tools/tackningsrapport.py`). Kap Verde och Frankrike (femte republiken) hamnade fel och är flyttade till Afrika och Europa.
-- **Insignier:** Commons varnar för att användningen av statssymboler kan vara begränsad i en del länder, oberoende av upphovsrätten. Det gäller inte licensen, men det bör stå i del 3.
+- **Källor:** engelska Wikipedia (rikets sida, och för nutida stater sidan "Flag of …" med antagningsdatum) och Wikimedia Commons filsidor för licenser. Allt öppnades 2026-11-11. Där en filsida inte hann öppnas står det i tabellen. Bara engelska källor är använda, vilket är en lucka för riken utanför Europa (se nedan).
+- **Inget ur minnet:** källarbetet gjordes av tre agenter, en per del av världen. Detaljer som inte stod på de öppnade sidorna är strukna. Polen och Moskvariket är stickprovskontrollerade av Claude Code (Opus).
+- **Världsdel:** rikena sorterades efter etikettens koordinat (`tools/tackningsrapport.py`), och Kap Verde, Frankrike (femte republiken), Mauritius, Seychellerna och Mamluksultanatet flyttades för hand. Riken som sträcker sig över två världsdelar (almoravider, almohader, fatimider, Córdobakalifatet, Kimek-Kipchak och Aksum) står där de flesta etiketterna ligger.
+- **Insignier:** Commons varnar för att användningen av statssymboler kan vara begränsad i en del länder, oberoende av upphovsrätten. Det bör stå i del 3.
 
-## Historiska symboler: underlag till omgång 2
+## Expertgranskning 2026-11-12
 
-Det här är de rader som inte är nutida flaggor. Fullständiga uppgifter finns i tabellerna per världsdel nedan.
+`historiker`, `geograf` och `ux-tillganglighet` granskade rapporten. Inga filer ändrades av dem.
 
-| Rike | Sort | Symbol | Säkerhet | Rekommendation | Varför |
-|---|---|---|---|---|---|
-| Kungariket Polen | rekonstruktion | Vita örnen (kungafana 1290, vapen efter sigillet 1295) | hög | bygg (`reconstruction`) | Commons säger uttryckligen att det är en rekonstruktion |
-| Moskvariket | symbol | Dubbelörnen på Ivan III:s sigill (troligen 1489) | hög | bygg | Återanvänd `double-eagle` från `year` cirka 1489 |
-| Storfurstendömet Litauen | symbol | Ryttaren Vytis, statsflaggan belagd 1410 | hög | bygg | Krigsfanan i infoboxen har en Commons-beskrivning som inte stämmer, så den används inte |
-| Norgesväldet | symbol | Guldlejon med yxa, 1100–1200-tal | medel | bygg (vapnet) | Kungafanan är bara "troligen" belagd. Medaljen från cirka 1200 |
-| Kungariket Frankrike | symbol | Liljan; kungliga fanan 1589–1792 | hög / medel | bygg | Commons och Wikipedia skiljer sig om fanans årtal (1638 eller 1643). Egen teckning går |
-| Konungariket Danmark | symbol | Dannebrog som kungarnas fana sedan 1300-talet | medel | bygg | – |
-| Kastilianska kronan | symbol | Borg och lejon (1400-talets vapen) | medel | bygg (vapnet) | Commons-filen är en "recreación", alltså `reconstruction` |
-| Schweiz | symbol + flagga | Vitt kors på rött | hög från 1840, medel 1648–1840 | bygg från 1840 | Korset som fältmärke är äldre |
-| Kungariket England | symbol + flagga | Georgskorset | medel | vänta | Wikipedia säger flagga från 1500-talet, Commons säger korset sedan 1100-talet |
-| Almohader | symbol | Vit fana | medel | bygg | Kan återanvända `white-banner` |
-| Almoravider | symbol | Svart fana (Abbasidernas färg från 1104) | medel | bygg | Samma tecken som Abbasidernas `black-banner`. Kan förvirra |
-| Fatimider | symbol | Vit fana (eller grön) | medel | vänta | Källorna är oense om färgen |
-| Ghaznaviderna | symbol | Svart fana med lejon (Khan 1949) | medel | vänta | Ingen bild på Commons, så en egen teckning behövs |
-| Mamluksultanatet | symbol | Sultanens gula fana, personliga blasoner | medel | vänta | Wikipedia lämnar flaggfältet tomt med avsikt |
-| Marathariket | symbol | Bhagwa Dhwaj (saffransfärgad fana) | medel | vänta | Commons-filen är ritad av en användare 2006 |
-| Taipingriket | symbol | Det kejserliga jadesigillet | medel | vänta | – |
-| Uiguriska khaganatet | rekonstruktion | Yaglakarklanens tamga | medel | vänta | Egen teckning 2020 (CC BY-SA) |
-| Makuria | rekonstruktion | Flaggan i Libro del conoscimiento (cirka 1350) | låg | vänta | Wikipedia kallar den "Alleged" |
-| Första bulgariska riket | rekonstruktion | Krums fana i Manassekrönikan (1300-tal) | låg | vänta | Bild över 400 år efter riket |
-| Seldjukiska riket | modern återgivning | "Flag of the Seljuk Empire" | låg | **ingen** | Uppladdaren skriver att flaggan är egen design (2026) |
-| Kara-Khitan | symbol | Ämbetssigill (fynd 2019) | låg | ingen | Licensen är inte kontrollerad. Ett sigill är inget statsemblem |
-| Ayyubiderna, Zuluriket, Tibetanska imperiet, Shrivijaya, Kimek-Kipchak, Liaodynastin, Novgorod, Córdoba, Kungariket Ungern (1000–1546) | ingen belagd | – | – | ingen | Zuluflaggan kallas "pure conjecture". Saladins örn är "inte bekräftad" |
+**Måste rättas innan något byggs:**
+1. **Startår:** `symbol` gäller rikets hela tid. Därför byggs varje historisk symbol som en `flags`-post med `kind: symbol` eller `reconstruction` och ett `from` som är det belagda året. Åren före blir en lucka med rikets namn, vilket datamodellen tillåter. Belagda år står i tabellen nedan (`historiker`).
+2. **Medaljen på fel plats:** vissa år står medaljen på fel ställe, till exempel Danmark på Grönland 1946–2024, Italien vid Tianjin 1944 och Spaniens republik i Spanska Sahara 1938. Detta behöver ett beslut i #1189 (`geograf`).
+3. **Fel i kartdatan:** Qajarernas Iran ritas i Indonesien 1895–1897. Felet tas i #1187 (`geograf`).
+4. **Flaggor per rike, inte per grupp:** grupper med två samtidiga riken, som Mexiko 1836–1847 och 1865, får annars två flaggor samtidigt (`geograf`).
 
-## Förslag på omgångar (del 3)
+**Bör:**
+- **Moskvariket:** säkerheten sänks till medel, och sigillets år (troligen 1489) behöver en andra källa.
+- **Kastilien:** vapnet är en egen teckning och ingen "recreación". Det visas inte före 1400.
+- **Kungariket Ungern:** "vänta", inte "ingen".
+- **Litauen:** `kind: symbol`.
+- **Hovringstexten** på märkena är hårdkodad på svenska. Den tas i #1188 (`ux-tillganglighet`).
+- **Märkningen "modern återgivning"** syns bara i faktarutan och i skärmläsartexten. Den bör också synas i hovringstexten och med ett diskret tecken på märket (`ux-tillganglighet`).
+- **Flaggorna förvrängs** när de pressas in i skölden. En flagga i proportionerna 2:1, som Kanadas, blir hälften så bred (`ux-tillganglighet`).
+- **Träffytan på mobil** är 26 px, men UX-översikten lovar 44 px (`ux-tillganglighet`).
+- **Afrika och Asien:** symbolerna med "vänta" där (Ghaznaviderna, Mamlukerna och Marathariket) behöver andra källor utanför Wikipedia (Khan 1949, Hathaway och Behrens-Abouseif). Annars blir omgången med historiska symboler bara europeisk (`historiker`).
 
-1. **Omgång 1, nutida flaggor:** de cirka 144 flaggorna med "bygg", i pull requests om cirka 20 per världsdel. Alla är public domain, och datum och fil står i tabellen. Ett `flags`-fält per rike med `from` och `to` från raden. Där en äldre flagga är okontrollerad lämnas en lucka, som datamodellen tillåter.
-2. **Omgång 2, historiska symboler:** de tio med "bygg" i tabellen ovan, med `kind` (`symbol` eller `reconstruction`) och en rad i faktarutan om symbolen, enligt `docs/datamodell.md`. Återanvänd befintliga ikoner där det går (`double-eagle`, `white-banner`).
-3. **Omgång 3, "vänta":** 38 rader. Var och en behöver en andra källa eller ett beslut. Ta dem efter omgång 1 och 2.
+**Huvudfrågan: ska alla nutida stater få flagga?**
+- **`historiker` och `geograf`: ja.** Annars får europeiska kungadömen tecken medan unga stater i Afrika och Asien står som namn utan tecken. I dag har redan Kanada, Indien och Nigeria flagga, men inte USA, Japan eller Australien, vilket kan se ut som en rangordning.
+- **`ux-tillganglighet`: inte på den utzoomade kartan.** Där ersätter flaggan namnet, och en elev ska kunna läsa "Brasilien" i stället för att känna igen en flagga på 26 px. Många flaggor skiljs bara åt på färgen, vilket inte fungerar vid färgblindhet.
 
-**Rekommendation till DasKrokodil:**
-- **Vad:** börja med omgång 2 (de historiska symbolerna) före omgång 1.
-- **Varför:**
-  - Omgång 2 ger mest för besökaren: Polen, Moskva, Litauen och Norge saknar i dag tecken på kartan.
-  - Omgång 1 ändrar utseendet kraftigt. Cirka 144 nutida flaggor på kartan efter 1900 kan göra den mycket fylligare än i dag.
-- **Fråga:** ska alla nutida stater få sin flagga, eller bara de som också är historiska riken? Det är ett beslut om utseendet, så det bör tas innan omgång 1 byggs.
+## Historiska symboler: underlag
+
+Fullständiga uppgifter finns i tabellerna per världsdel. "Belagd från" är det år symbolen ska visas från, eftersom rikena ofta är äldre än sin symbol.
+
+| Rike | Rikets tid i index.json | Belagd från | Sort | Säkerhet | Rekommendation | Anmärkning |
+|---|---|---|---|---|---|---|
+| Kungariket Polen | 962–1449 | kungafana 1290, vapen 1295 | `reconstruction` | hög | bygg | Commons: "contemporary reconstruction" efter Przemysł II:s sigill |
+| Moskvariket | 1294–1546 | troligen 1489 (sigillet) | `symbol` | medel | vänta på en andra källa för året | Återanvänd `double-eagle` |
+| Storfurstendömet Litauen | 1220–1449 | 1410 (Banderia Prutenorum) | `symbol` | hög | bygg | Krigsfanan i infoboxen används inte, eftersom Commons-beskrivningen inte stämmer |
+| Norgesväldet | 866–1401 | 1100–1200-talet (vapnet) | `symbol` | medel | bygg vapnet, från cirka 1200 | Kungafanan bara "Likely" |
+| Kungariket Frankrike | 990–1791 | 1211 (liljorna); tre liljor 1376 | `symbol` | hög | bygg från 1211 | Kungliga fanans år skiljer sig mellan Commons och Wikipedia (1638 eller 1643) |
+| Konungariket Danmark | 936–1406 | cirka 1340–1370 (Gelre), sigill 1356 | `symbol` | medel | bygg från cirka 1370 | 1219 är en legend |
+| Kastilianska kronan | 1236–1515 | 1400-talets vapen | `symbol` | medel | bygg från 1400 | Egen teckning (CC BY-SA) |
+| Schweiz | 1648–2024 | korset 1339, förbundsvapnet 1815, flaggan 1840/1841 | `symbol` och `flag` | hög från 1840 | bygg från 1815 (`symbol`) och 1840 (`flag`) | Källorna skiljer sig om 1840 eller 1841 |
+| Almohader | 1139–1343 | vid rikets början (oklart år) | `symbol` | medel | bygg | Motivet på den vita fanan är okänt. Dynastin slutade 1269 enligt Wikipedia, så `to` behöver kontrolleras |
+| Almoravider | 1056–1205 | 1104 (svart fana) | `symbol` | medel | bygg från 1104 | Samma tecken som Abbasidernas `black-banner`, så faktarutan måste förklara det |
+| Kungariket England | – | 1100- eller 1500-talet | `symbol`/`flag` | medel | vänta | Källorna skiljer sig |
+| Fatimider, Ghaznaviderna, Mamluksultanatet, Marathariket, Taipingriket, Uiguriska khaganatet, Makuria, Första bulgariska riket, Kungariket Ungern | – | – | – | låg–medel | vänta | Färgen omstridd, ingen bild, eller bara modern teckning |
+| Seldjukiska riket, Kara-Khitan, Ayyubiderna, Zuluriket, Tibetanska imperiet, Shrivijaya, Kimek-Kipchak, Liaodynastin, Novgorod, Córdoba | – | – | – | – | ingen | Seldjukernas bild är uppladdarens egen design från 2026, och Zuluflaggan är "pure conjecture" |
+
+
+## Förslag på omgångar (del 3), ändrat efter expertgranskningen
+
+1. **Förutsättningar:** #1187 (Iran) och beslutet i #1189 (medaljens plats och Afghanistan) före omgång 1. En regel i datan som avgör när en nutida stats flagga syns, till exempel en egenskap på gruppen. Arkitekten bör avgöra hur.
+2. **Omgång 1, nutida flaggor:** byggs som `flags`-poster med `from` och `to`, aldrig bakåt i tiden, världsdel för världsdel med Afrika och Asien först. Politiskt laddade flaggbyten (Syrien, Afghanistan, Iran, Irak och Myanmar) byggs helt eller inte alls. Omstridda stater följer `docs/omstridda-granser.md`.
+3. **Omgång 2, historiska symboler:** de med "bygg" i tabellen, med `from`. Görs samtidigt som andra källor tas fram för Ghaznaviderna, Mamlukerna och Marathariket, så att omgången inte blir bara europeisk.
+4. **Omgång 3, "vänta":** varje rad får en andra källa eller ett beslut.
+
+**Rekommendation till DasKrokodil (ändrad 2026-11-12):**
+- **Vad:** bygg alla nutida flaggor som data, men visa dem på kartan bara tillsammans med namnet vid nära zoom och i Platt vy från nivån "Inzoomat", och alltid i faktarutan och Fokus. Utzoomat står namnet kvar. De flaggor som redan finns för nutida stater följer samma regel.
+- **Varför:** det tar hänsyn till både balansen mellan världsdelarna (`historiker`, `geograf`) och läsbarheten (`ux-tillganglighet`).
+- **Ändring:** den första versionen av rapporten rekommenderade att de historiska symbolerna skulle byggas först. Den rekommendationen är ändrad, eftersom alla tio symbolerna med "bygg" ligger i Europa och Nordafrika.
+- **Frågor:** (1) Godkänner du regeln för när nutida flaggor syns? Förslag: ja. (2) Afghanistan efter 2021: förslag är ingen flagga, bara en not, och frågan tas i #1189.
+
+## Luckor (saknas)
+- **Källor:** bara engelska Wikipedia och Commons. För riken utanför Europa behövs de källor som artiklarna själva hänvisar till.
+- **Delriken:** riken med egen faktaruta inom en grupp (`polityFacts`) är inte genomgångna.
+- **Slutår:** rikenas slutår i `index.json` är inte jämförda med källorna. Almohaderna står till exempel till 1343, men dynastin slutade 1269.
+- **Grönland:** har egen flagga sedan 1985 men inget eget område på kartan (se #1189).
 
 ## Tabeller per världsdel
 
 Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens, säkerhet, rekommendation och anmärkning.
 
 
-### Asien (70)
+### Asien (67)
 
 | id | rike | sort | vad symbolen är | källa (URL) | bild på Commons (URL) och licens | säkerhet | rekommendation | anmärkning |
 |---|---|---|---|---|---|---|---|---|
@@ -111,7 +127,6 @@ Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens,
 | ghaznaviderna | Ghaznaviderna | symbol | Svart fana med ett lejon (från Mahmud till Bahram-Shah); även månskära på fanan. Svarta fanor troligen från abbasidkalifen | https://en.wikipedia.org/wiki/Ghaznavid_Empire (avsnittet Symbols, källa Khan 1949 s. 80–83) | Ingen bild i infoboxen (fältet lämnat tomt med hänvisning till diskussion) | medel | vänta | Artikeln själv säger att det före Ibrahim saknas tydligt belägg för lejonbilden, och att lejonet kan vara lånat från seldjukerna. En egen teckning (svart fana, lejon) går att göra, men källan är äldre och bygger på poeters verser |
 | seldjukiska-riket | Seldjukiska riket | modern återgivning | Infoboxen visar en "Flag of the Seljuk Empire" | https://en.wikipedia.org/wiki/Seljuk_Empire | https://commons.wikimedia.org/wiki/File:Flag_of_the_Seljuk_Empire.jpg – CC BY-SA 4.0, uppladdad 2026-10-30; filsidan säger "the flag design was created by us" utifrån akademiska källor | låg | ingen | Modern konstruktion av uppladdaren, inte en belagd flagga. Ghaznavid-artikeln säger att seldjukerna bar fanor med lejon; det kunde vara en framtida symbol men har ingen egen källa här |
 | kara-khitan | Kara-Khitan (Västra Liao) | symbol | Kinesiskt ämbetssigill med inskrift i khitansk storskrift, funnet 2019 vid Ustyurt; riket skickade kejserliga sigill till vasaller | https://en.wikipedia.org/wiki/Qara_Khitai (avsnittet Seals) | Bild i artikeln (foto ur rysk numismatisk studie), licensen inte kontrollerad | låg | ingen | Ett enstaka ämbetssigill är inte ett rikesemblem |
-| mamluksultanatet | Mamluksultanatet | symbol | Sultanens gula fana (gult som sultanens officiella färg, efter ayyubiderna); emirernas och sultanernas personliga blasoner (bägare, lejon/panter, liljan m.m.) | https://en.wikipedia.org/wiki/Mamluk_Sultanate (Emblems and blazons; Hathaway 2012, Bloom & Blair 2009, Behrens-Abouseif 2012) | Infoboxens flaggfält tomt med avsikt ("do not add a flag"). Ett belagt föremål med blason: https://commons.wikimedia.org/wiki/File:Mosque_Lamp_of_Amir_Qawsun_MET_DP214292_(cropped).jpg – CC0 (Met) | medel | vänta | Blasonerna var personliga, inte statens. Den gula fanan är belagd i text men utan beskrivet motiv; röda fanor användes också. En enfärgad gul fana vore en förenkling |
 | mingdynastin | Mingdynastin | redan bedömd: ingen | – | – | – | – | ingen | Bedömd i docs/datamodell.md |
 | korea | Korea: Joseon och Koreanska kejsardömet | flagga | Flaggan med röd-blå taeguk och fyra trigram (beskrivning enligt Flag of South Korea), 1883–1897 enligt Joseon-infoboxen; kejsardömets flagga 1897–1910 | https://en.wikipedia.org/wiki/Joseon ; https://en.wikipedia.org/wiki/Korean_Empire | https://commons.wikimedia.org/wiki/File:Flag_of_Korea_(1882%E2%80%931910).svg – PD-old-assumed, efter Sydkoreas nationalarkiv; https://commons.wikimedia.org/wiki/File:Flag_of_Korea_(1899).svg – PD-old/CC BY-SA 4.0, efter "Flags of Maritime Nations" (1899) | hög | bygg | Årtalet skiljer: infoboxen säger 1883, filen 1882. Före 1883 finns kungastandar och emblem (https://commons.wikimedia.org/wiki/File:Emblem_of_Joseon_(1884%E2%80%931897).svg, PD-shape, 1884–1897); kejsardömets sigill (https://commons.wikimedia.org/wiki/File:Imperial_Seal_of_the_Korean_Empire.svg) är CC0 egen teckning |
 | bhutan | Bhutan | flagga | Diagonalt delad gul och orange flagga med vit drake som håller fyra juveler | https://en.wikipedia.org/wiki/Bhutan ; https://en.wikipedia.org/wiki/Flag_of_Bhutan (antagen 1969) | https://commons.wikimedia.org/wiki/File:Flag_of_Bhutan.svg – PD-Bhutan, PD-ineligible | hög | bygg | Från 1969; före det lucka (rikets rad börjar 1636). Emblemet: https://commons.wikimedia.org/wiki/File:Emblem_of_Bhutan.svg – PD-Bhutan, men från Vector-Images.com, kontrollera |
@@ -148,12 +163,10 @@ Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens,
 | cypern | Cypern | flagga | Vit med ön i kopparfärg och två olivkvistar | https://en.wikipedia.org/wiki/Flag_of_Cyprus (1960-08-16, nuvarande version 2006-04-24) | https://commons.wikimedia.org/wiki/File:Flag_of_Cyprus.svg – PD-ineligible | hög | bygg | Hela radens tid 1961– |
 | malaysia | Malaysia | flagga | 14 röda och vita ränder, blå kanton med gul måne och 14-uddig stjärna | https://en.wikipedia.org/wiki/Flag_of_Malaysia (1950-05-26 (11 ränder), nuvarande 1963-09-16) | https://commons.wikimedia.org/wiki/File:Flag_of_Malaysia.svg – PD-Malaysia, PD-self | hög | bygg | Hela radens tid 1963– |
 | singapore | Singapore | flagga | Röd över vit, vit måne och fem stjärnor | https://en.wikipedia.org/wiki/Flag_of_Singapore (1959-12-03, republiken 1965-08-09) | https://commons.wikimedia.org/wiki/File:Flag_of_Singapore.svg – PD-shape | hög | bygg | Hela radens tid 1967– |
-| mauritius | Mauritius | flagga | Fyra vågräta ränder: röd, blå, gul, grön | https://en.wikipedia.org/wiki/Flag_of_Mauritius (1968-03-12) | https://commons.wikimedia.org/wiki/File:Flag_of_Mauritius.svg – PD-shape | hög | bygg | Hela radens tid 1969– |
 | bangladesh | Bangladesh | flagga | Grön med röd skiva | https://en.wikipedia.org/wiki/Flag_of_Bangladesh (1972-01-17) | https://commons.wikimedia.org/wiki/File:Flag_of_Bangladesh.svg – PD-Bangladesh, PD-shape | hög | bygg | Hela radens tid 1973– |
 | forenade-arabemiraten | Förenade arabemiraten | flagga | Grön-vit-svart med rött lodrätt fält | https://en.wikipedia.org/wiki/Flag_of_the_United_Arab_Emirates (1971-12-02) | https://commons.wikimedia.org/wiki/File:Flag_of_the_United_Arab_Emirates.svg – PD-United Arab Emirates, PD-ineligible | hög | bygg | Hela radens tid 1973– |
 | qatar | Qatar | flagga | Vinröd med vitt sågtandat fält | https://en.wikipedia.org/wiki/Flag_of_Qatar (1971-07-09 (liten ändring från 1949)) | https://commons.wikimedia.org/wiki/File:Flag_of_Qatar.svg – PD-shape | hög | bygg | Hela radens tid 1973– |
 | bahrain | Bahrain | flagga | Röd med vitt sågtandat fält, fem uddar | https://en.wikipedia.org/wiki/Flag_of_Bahrain (2002-02-14) | https://commons.wikimedia.org/wiki/File:Flag_of_Bahrain.svg – PD-Bahrain, PD-shape | hög | vänta | Bara från 2002; raden börjar 1973 och den tidigare varianten är inte kontrollerad |
-| seychellerna | Seychellerna | flagga | Fem sneda strålar: blå, gul, röd, vit, grön | https://en.wikipedia.org/wiki/Flag_of_Seychelles (1996-01-08) | https://commons.wikimedia.org/wiki/File:Flag_of_Seychelles.svg – PD-shape | hög | vänta | Sidan säger att det är landets tredje flagga sedan 1976; de två första är inte kontrollerade |
 | brunei | Brunei | flagga | Gul med vita och svarta sneda band och rikets vapen i rött | https://en.wikipedia.org/wiki/Flag_of_Brunei (1959-09-29) | https://commons.wikimedia.org/wiki/File:Flag_of_Brunei.svg – PD-flag | hög | bygg | Hela radens tid 1987– |
 | jemen | Jemen | flagga | Röd-vit-svart trikolor | https://en.wikipedia.org/wiki/Flag_of_Yemen (1990-05-22) | https://commons.wikimedia.org/wiki/File:Flag_of_Yemen.svg – PD-Yemen, PD-ineligible | hög | bygg | Hela radens tid 1990– |
 | ryska-federationen | Ryska federationen | flagga | Vit-blå-röd trikolor | https://en.wikipedia.org/wiki/Flag_of_Russia (nationsflagga 1896–1922; återinförd 1991-08-22 (de jure 1991-11-01), färger 1993) | https://commons.wikimedia.org/wiki/File:Flag_of_Russia.svg – PD-RU-exempt, PD-flag, PD-shape | hög | bygg | Hela radens tid 1992–. Projektet har double-eagle för Ryska imperiet |
@@ -167,7 +180,7 @@ Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens,
 | osttimor | Östtimor | flagga | Röd med gul och svart triangel och vit stjärna | https://en.wikipedia.org/wiki/Flag_of_Timor-Leste (de facto 1975-11-28, de jure 2002-05-20) | https://commons.wikimedia.org/wiki/File:Flag_of_East_Timor.svg – PD-ineligible, PD-self, PD-shape | hög | bygg | Hela radens tid 2002– |
 | palestina | Palestina | flagga | Svart-vit-grön med röd triangel | https://en.wikipedia.org/wiki/Flag_of_Palestine (PLO 1964-05-28, staten Palestina 1988-11-15) | https://commons.wikimedia.org/wiki/File:Flag_of_Palestine.svg – PD-State of Palestine, PD-ineligible | hög | bygg | Hela radens tid 2014–. Politiskt laddat; faktarutan bör vara saklig |
 
-### Afrika (57)
+### Afrika (60)
 
 | id | rike | sort | vad symbolen är | källa (URL) | bild på Commons (URL) och licens | säkerhet | rekommendation | anmärkning |
 |---|---|---|---|---|---|---|---|---|
@@ -228,6 +241,9 @@ Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens,
 | eritrea | Eritrea | flagga | 1) hissad 24 maj 1993 med gul krans (14 blad på varje sida) i stället för EPLF:s stjärna; 2) från 5 dec 1995 med 30 blad och proportion 1:2 | https://en.wikipedia.org/wiki/Flag_of_Eritrea | https://commons.wikimedia.org/wiki/File:Flag_of_Eritrea.svg – CC0; filen för 1993 års version är inte öppnad | hög | bygg | Riket börjar 1992 i listan; ingen nationsflagga belagd för 1992 (lucka). Blå flagga 1952–1962 ligger utanför spannet |
 | sydsudan | Sydsudan | flagga | Antagen 2005 efter fredsavtalet, nationsflagga från 9 juli 2011; ljusblå triangel och upprätt stjärna fastställda 25 aug 2023 | https://en.wikipedia.org/wiki/Flag_of_South_Sudan | https://commons.wikimedia.org/wiki/File:Flag_of_South_Sudan.svg – PD | hög | bygg | Mörkblå triangel och lutande stjärna var vanliga varianter före 2023 |
 | kap-verde | Kap Verde | flagga | Fem vågräta band blått, vitt, rött, vitt, blått med en ring av tio gula stjärnor; antagen 25 sept 1992 | https://en.wikipedia.org/wiki/Flag_of_Cape_Verde | https://commons.wikimedia.org/wiki/File:Flag_of_Cape_Verde_(3-2).svg – Public domain | hög (1992–) | vänta | Riket börjar 1976. Sidan nämner en tidigare flagga från självständigheten 5 juli 1975 (med majsax och snäcka enligt brödtexten), som gällde fram till 1992; den behöver egen fil och kontroll. Bygg den nuvarande från 1992 först. |
+| mamluksultanatet | Mamluksultanatet | symbol | Sultanens gula fana (gult som sultanens officiella färg, efter ayyubiderna); emirernas och sultanernas personliga blasoner (bägare, lejon/panter, liljan m.m.) | https://en.wikipedia.org/wiki/Mamluk_Sultanate (Emblems and blazons; Hathaway 2012, Bloom & Blair 2009, Behrens-Abouseif 2012) | Infoboxens flaggfält tomt med avsikt ("do not add a flag"). Ett belagt föremål med blason: https://commons.wikimedia.org/wiki/File:Mosque_Lamp_of_Amir_Qawsun_MET_DP214292_(cropped).jpg – CC0 (Met) | medel | vänta | Blasonerna var personliga, inte statens. Den gula fanan är belagd i text men utan beskrivet motiv; röda fanor användes också. En enfärgad gul fana vore en förenkling |
+| mauritius | Mauritius | flagga | Fyra vågräta ränder: röd, blå, gul, grön | https://en.wikipedia.org/wiki/Flag_of_Mauritius (1968-03-12) | https://commons.wikimedia.org/wiki/File:Flag_of_Mauritius.svg – PD-shape | hög | bygg | Hela radens tid 1969– |
+| seychellerna | Seychellerna | flagga | Fem sneda strålar: blå, gul, röd, vit, grön | https://en.wikipedia.org/wiki/Flag_of_Seychelles (1996-01-08) | https://commons.wikimedia.org/wiki/File:Flag_of_Seychelles.svg – PD-shape | hög | vänta | Sidan säger att det är landets tredje flagga sedan 1976; de två första är inte kontrollerade |
 
 ### Europa (54)
 
@@ -277,18 +293,18 @@ Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens,
 | monaco | Monaco | flagga | Rött över vitt; antagen 4 april 1881 (Grimaldis färger sedan minst 1339) | https://en.wikipedia.org/wiki/Flag_of_Monaco | https://commons.wikimedia.org/wiki/File:Flag_of_Monaco.svg – Public domain | hög (1881–) | bygg (1881–) | Riket börjar 1642; före 1881 ingen flagga belagd i utdraget, bara husets färger. |
 | republiken-novgorod | Republiken Novgorod | ingen belagd | – | https://en.wikipedia.org/wiki/Novgorod_Republic | – | – | ingen | Infoboxen har rubriken "Flag (c. 1385)" men ingen bild och ingen källa (raden är kvar efter en borttagen bild). Inget om fana, sigill eller vapen i ingressen. |
 | kungariket-ungern | Kungariket Ungern | ingen belagd (för 1000–1546) | Infoboxens flaggor och vapen gäller 1915–1918 och 1919–1946, alltså ett senare skede | https://en.wikipedia.org/wiki/Kingdom_of_Hungary ; https://en.wikipedia.org/wiki/Coat_of_arms_of_Hungary | (Flag_of_Hungary_(1915-1918;_angels).svg – fel period, licens ej kontrollerad) | låg | vänta | Coat of arms of Hungary säger att vapnets delar (Árpádränderna och dubbelkorset, beskrivna i brödtexten) går tillbaka till medeltiden, men ger inget århundrade. Behöver en källa med årtal för medeltida bruk innan bygge. |
-| kungariket-frankrike | Kungariket Frankrike | symbol | Liljor (fleur-de-lis): kungarnas tecken sedan högmedeltiden; kungliga fanan med tre gyllene liljor på blått ("France modern") för huset Bourbon 1589–1792 | https://en.wikipedia.org/wiki/Kingdom_of_France ; https://en.wikipedia.org/wiki/Coat_of_arms_of_France | https://commons.wikimedia.org/wiki/File:Royal_flag_of_France.svg – CC BY-SA 3.0 (Oren neu dag, 2009, modern teckning); https://commons.wikimedia.org/wiki/File:Royal_Standard_of_the_King_of_France.svg – CC BY-SA 3.0 (Sodacan) | hög (liljan), medel (exakt utformning per period) | bygg | Liljan som symbol för hela perioden; fanan som kind symbol 1589–1791. Commons-filen för standaret anger 1638–1789 i datumfältet men 1638–1790 i beskrivningen, Wikipedia 1643–1790: källorna skiljer sig. Äldre liljevapen (före 1589) inte kontrollerat. |
+| kungariket-frankrike | Kungariket Frankrike | symbol | Liljor (fleur-de-lis): kungarnas tecken sedan högmedeltiden; kungliga fanan med tre gyllene liljor på blått ("France modern") för huset Bourbon 1589–1792 | https://en.wikipedia.org/wiki/Kingdom_of_France ; https://en.wikipedia.org/wiki/Coat_of_arms_of_France | https://commons.wikimedia.org/wiki/File:Royal_flag_of_France.svg – CC BY-SA 3.0 (Oren neu dag, 2009, modern teckning); https://commons.wikimedia.org/wiki/File:Royal_Standard_of_the_King_of_France.svg – CC BY-SA 3.0 (Sodacan) | hög (liljan), medel (exakt utformning per period) | bygg | Liljan som symbol för hela perioden; fanan som kind symbol 1589–1791. Commons-filen för standaret anger 1638–1789 i datumfältet men 1638–1790 i beskrivningen, Wikipedia 1643–1790: källorna skiljer sig. Äldre liljevapen (före 1589) inte kontrollerat. Expertgranskningen: liljorna är belagda först från början av 1200-talet (1211), så 990–1210 blir en lucka. |
 | kungariket-england | Kungariket England | symbol + flagga | Georgskorset (rött kors på vitt) som flagga; kungliga fanan 1406–1603 (enligt Commons byggd av Englands kungliga fana och Frankrikes kungliga fana); riksvapnet 1558–1603 | https://en.wikipedia.org/wiki/Kingdom_of_England | https://commons.wikimedia.org/wiki/File:Flag_of_England.svg – Public domain; https://commons.wikimedia.org/wiki/File:Royal_standard_of_England_(1406–1603).svg – Public domain; https://commons.wikimedia.org/wiki/File:Coat_of_Arms_of_England_(1558-1603).svg – CC BY-SA 3.0 | medel | vänta | Källorna skiljer sig: Wikipedia säger Georgskorset som flagga "från 1500-talet", Commons-filen säger använt sedan 1100-talet. Fanan 1406–1603 är väl belagd i infoboxen men innehåller liljor (Frankrike), som kan förvirra. Perioden 936–1406 saknar belagd symbol i utdraget. |
 | norgesvaldet | Norgesväldet | symbol | Guldlejon med silveryxa på rött: vapen från 1100–1200-talet; kungafana som "troligen" använts sedan 1200-talet | https://en.wikipedia.org/wiki/Kingdom_of_Norway_(872–1397) | https://commons.wikimedia.org/wiki/File:Blason_Norvège.svg – Public domain (vapnet); https://commons.wikimedia.org/wiki/File:Royal_Banner_of_Norway_(14th_Century).svg – CC BY-SA 4.0 (rekonstruktion "based on contemporary depictions", 2020) | medel | bygg (vapnet) | Vapnet som kind symbol; fanan är uttryckligen en rekonstruktion (kind reconstruction) och Wikipedia skriver "Likely". Inget belagt före 1100-talet: riket börjar 866, så medaljen bör gälla från cirka 1200 eller faktarutan säga att symbolen är senare. |
 | kalifatet-cordoba | Kalifatet Córdoba | ingen belagd | – | https://en.wikipedia.org/wiki/Caliphate_of_Córdoba | – | – | ingen | Infoboxen har ingen flagga, inget vapen eller emblem, och ingressen nämner inget. Jämför Umayyadkalifatets white-banner i projektet: om samma dynastiska färg ska användas behövs en källa som säger att Córdoba använde den. |
 | forsta-bulgariska-riket | Första bulgariska riket | modern återgivning | Krums krigsfana vid slaget vid Pliska, så som den avbildas i Manasses-krönikan från 1300-talet | https://en.wikipedia.org/wiki/First_Bulgarian_Empire | https://commons.wikimedia.org/wiki/File:First_Bulgarian_Empire_Flag_Krum_Manasses_Chronicle_Render.png – CC BY-SA 4.0 (Iamnhaz, återgivning av Vatikanens handskrift, daterad 1349) | låg | vänta | Avbildningen är från en handskrift daterad 1349, långt efter Krums tid (slagets år ej kontrollerat här); den visar hur 1300-talets illustratör tänkte sig fanan, inte ett samtida belägg. |
 | kungariket-polen | Kungariket Polen | symbol | Vita örnen: kungafanan (rött tyg med vit örn, 1290) och vapnet från Przemysł II:s sigill 1295 | https://en.wikipedia.org/wiki/Kingdom_of_Poland_(1025–1385) | https://commons.wikimedia.org/wiki/File:Coat_of_Arms_of_the_Polish_Crown.svg – Public domain ("Reconstruction of the coat of arms from the reverse of majestic seal … Przemysł II from 1295"); https://commons.wikimedia.org/wiki/File:Flag_of_the_Kingdom_of_Poland.svg – Public domain | hög | bygg | Vapnet är en rekonstruktion av ett belagt sigill 1295. Commons-filen för fanan säger att fanan fastställdes under Władysław (1320–1333), Wikipedia anger 1290: små skillnader. Riket i listan börjar 962; örnen bör gälla från cirka 1295. |
 | konungariket-danmark | Konungariket Danmark | symbol | Fana med vitt kors på rött (Dannebrog), belagd som kungarnas fana sedan 1300-talet | https://en.wikipedia.org/wiki/Flag_of_Denmark | https://commons.wikimedia.org/wiki/File:Flag_of_Denmark.svg – Public domain | medel | bygg | 1219 är enligt sidan en legend. Gäller från 1300-talet; riket börjar 936, så faktarutan bör säga att fanan är belagd först senare. Huvudartikeln för riket (Q756617) inte öppnad. |
-| moskvariket | Moskvariket | symbol | Dubbelörnen på baksidan av Ivan III:s sigill | https://en.wikipedia.org/wiki/Grand_Principality_of_Moscow | https://commons.wikimedia.org/wiki/File:Seal_of_Ivan_3_(reverse).svg – Public domain (teckning 2013 efter sigillet) | hög | bygg | Utdraget ger inget årtal för sigillet; ta det ur en källa innan "from" sätts. Samma motiv som Ryska imperiets double-eagle i projektet. |
-| storfurstendomet-litauen | Storfurstendömet Litauen | symbol | Vytis/Pahonia (ryttaren): vapnet efter Guagnini 1581; statsflaggan med ryttaren "first documented use in 1410" (Flag of Lithuania-sidan) | https://en.wikipedia.org/wiki/Grand_Duchy_of_Lithuania ; https://en.wikipedia.org/wiki/Flag_of_Lithuania | https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Grand_Duchy_of_Lithuania_(A._Guagnini,_1581).svg – Public domain (teckning 2021); https://commons.wikimedia.org/wiki/File:Flag_of_Lithuania_(state).svg – Public domain | hög | bygg | Infoboxens krigsfana (Flag_of_the_Grand_Duchy_of_Lithuania_(1403–1410).svg, CC BY 3.0) har på Commons beskrivningen "Flags of Ruthenian lands in the battle of Tannenberg, 1410", som inte stämmer med rubriken; använd inte den. |
-| kastilianska-kronan | Kastilianska kronan | symbol | Kastilien och León: borg och lejon, riksvapnet i 1400-talsutformning (Trastámara) | https://en.wikipedia.org/wiki/Crown_of_Castile | https://commons.wikimedia.org/wiki/File:Royal_Coat_of_Arms_of_the_Crown_of_Castile_(15th_Century).svg – CC BY-SA 3.0 (Heralder, 2011); standaret https://commons.wikimedia.org/wiki/File:Banner_of_arms_crown_of_Castille_Habsbourg_style.svg – CC BY-SA 2.5, "Recreación" i habsburgsk stil | medel | bygg (vapnet) | Standaret är en uttalad rekonstruktion i stil från 1500–1700-talet, efter maravedí-mynt; använd inte för 1236–1515. Vapnets 1400-talsform gäller inte hela perioden. |
+| moskvariket | Moskvariket | symbol | Dubbelörnen på baksidan av Ivan III:s sigill | https://en.wikipedia.org/wiki/Grand_Principality_of_Moscow | https://commons.wikimedia.org/wiki/File:Seal_of_Ivan_3_(reverse).svg – Public domain (teckning 2013 efter sigillet) | medel (sänkt efter expertgranskningen: årtalet 1489 är "troligen" och kommer bara från Commons) | bygg | Utdraget ger inget årtal för sigillet; ta det ur en källa innan "from" sätts. Samma motiv som Ryska imperiets double-eagle i projektet. |
+| storfurstendomet-litauen | Storfurstendömet Litauen | symbol | Vytis/Pahonia (ryttaren): vapnet efter Guagnini 1581; statsflaggan med ryttaren "first documented use in 1410" (Flag of Lithuania-sidan) | https://en.wikipedia.org/wiki/Grand_Duchy_of_Lithuania ; https://en.wikipedia.org/wiki/Flag_of_Lithuania | https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Grand_Duchy_of_Lithuania_(A._Guagnini,_1581).svg – Public domain (teckning 2021); https://commons.wikimedia.org/wiki/File:Flag_of_Lithuania_(state).svg – Public domain | hög | bygg | Infoboxens krigsfana (Flag_of_the_Grand_Duchy_of_Lithuania_(1403–1410).svg, CC BY 3.0) har på Commons beskrivningen "Flags of Ruthenian lands in the battle of Tannenberg, 1410", som inte stämmer med rubriken; använd inte den. Expertgranskningen: filen är statsflaggan från 2004, så den ska märkas `kind: symbol` för 1410–1449. |
+| kastilianska-kronan | Kastilianska kronan | symbol | Kastilien och León: borg och lejon, riksvapnet i 1400-talsutformning (Trastámara) | https://en.wikipedia.org/wiki/Crown_of_Castile | https://commons.wikimedia.org/wiki/File:Royal_Coat_of_Arms_of_the_Crown_of_Castile_(15th_Century).svg – CC BY-SA 3.0 (Heralder, 2011); standaret https://commons.wikimedia.org/wiki/File:Banner_of_arms_crown_of_Castille_Habsbourg_style.svg – CC BY-SA 2.5, "Recreación" i habsburgsk stil | medel | bygg (vapnet) | Standaret är en uttalad rekonstruktion i stil från 1500–1700-talet, efter maravedí-mynt; använd inte för 1236–1515. Vapnets 1400-talsform gäller inte hela perioden. Expertgranskningen: vapenfilen är en egen teckning (2011, CC BY-SA). "Recreación" gäller standaret i habsburgsk stil, som inte används. Vapnet i 1400-talsform visas inte före 1400. |
 
-### Amerika och Oceanien (36)
+### Amerika (27)
 
 | id | rike | sort | vad symbolen är | källa (URL) | bild på Commons (URL) och licens | säkerhet | rekommendation | anmärkning |
 |---|---|---|---|---|---|---|---|---|
@@ -319,6 +335,11 @@ Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens,
 | antigua-och-barbuda | Antigua och Barbuda | flagga | Svart, blått och vitt band, två röda trianglar och en gul halvsol med nio strålar; antagen 27 feb 1967 | https://en.wikipedia.org/wiki/Flag_of_Antigua_and_Barbuda | https://commons.wikimedia.org/wiki/File:Flag_of_Antigua_and_Barbuda.svg – Public domain | hög | bygg | Gäller hela perioden. |
 | saint-vincent-och-grenadinerna | Saint Vincent och Grenadinerna | flagga | Blått, guld och grönt band med tre gröna romber; antagen 12 okt 1985 | https://en.wikipedia.org/wiki/Flag_of_Saint_Vincent_and_the_Grenadines | https://commons.wikimedia.org/wiki/File:Flag_of_Saint_Vincent_and_the_Grenadines.svg – Public domain | hög (1985–) | bygg (1985–) | Riket börjar 1969. Före 1985 användes enligt sidan en liknande flagga med vapnet på ett brödfruktsblad (datum ej angivet); kräver egen kontroll. |
 | grenada | Grenada | flagga | Gula och gröna trianglar i röd ram, sex gula stjärnor, en stjärna på röd skiva i mitten och en muskotnöt vid stången; antagen 7 feb 1974 | https://en.wikipedia.org/wiki/Flag_of_Grenada | https://commons.wikimedia.org/wiki/File:Flag_of_Grenada.svg – Public domain | hög | bygg | Gäller hela perioden från 1976. |
+
+### Oceanien (9)
+
+| id | rike | sort | vad symbolen är | källa (URL) | bild på Commons (URL) och licens | säkerhet | rekommendation | anmärkning |
+|---|---|---|---|---|---|---|---|---|
 | australien | Australien | flagga | Blått fält med unionsflaggan, en stor vit sjuuddig stjärna och Södra korset; antagen 11 feb 1903, sjuuddiga stjärnan 8 dec 1908, nationsflagga 8 april 1954 | https://en.wikipedia.org/wiki/Flag_of_Australia | https://commons.wikimedia.org/wiki/File:Flag_of_Australia_(converted).svg – Public domain | hög | bygg | Gäller hela perioden från 1905 (sjuuddiga stjärnan från 1908; 1905–1908 en äldre variant av stjärnan, ej närmare kontrollerad). Sidan nämner ursprungsfolkens egna flaggor men beskriver dem inte; de hör inte till statens flagga. |
 | nya-zeeland | Nya Zeeland | flagga | Mörkblå flagga med unionsflaggan och fyra röda stjärnor med vit kant (Södra korset); lagfäst 24 mars 1902, i bruk sedan 1869 | https://en.wikipedia.org/wiki/Flag_of_New_Zealand | https://commons.wikimedia.org/wiki/File:Flag_of_New_Zealand.svg – Public domain | hög | bygg | Gäller hela perioden från 1948. Maoriska namnet "te haki o Aotearoa". Sidan nämner United Tribes-flaggan 1834, vald av en församling maorihövdingar; den hör inte till perioden. |
 | papua-nya-guinea | Papua Nya Guinea | flagga | Diagonalt delad: röd övre triangel med en flygande paradisfågel (Raggiana), svart nedre med Södra korset; antagen 1 juli 1971 | https://en.wikipedia.org/wiki/Flag_of_Papua_New_Guinea | https://commons.wikimedia.org/wiki/File:Flag_of_Papua_New_Guinea.svg – Public domain | hög (1971–) | bygg (1971–) | Sidan säger att rött och svart länge varit traditionella färger för många av landets folk. Riket börjar 1946 (australiskt förvaltat); vad som gällde 1946–1971 är inte kontrollerat, lämna lucka. |
