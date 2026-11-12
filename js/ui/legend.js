@@ -60,7 +60,7 @@ export class ReligionLegend {
       const li = e.target.closest('li[data-religion]');
       if (li && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); this.onPin(li.dataset.religion); }
     });
-    this.names = new Map(); // rikets namn i Cliopatria → namn på valt språk, där det finns (data/religions-polities.json)
+    this.names = new Map(); // rikets namn i Cliopatria → namn på valt språk, där det finns (data/empires/index.json)
     pop.addEventListener('click', e => {
       if (e.target.closest('[data-close]')) this.hidePop();
       const f = e.target.closest('[data-facts]');
