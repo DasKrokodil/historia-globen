@@ -1364,6 +1364,38 @@ async function run(browser, vp) {
     }
   });
 
+  // Styrplattans nypning i Chrome är wheel med ctrlKey. Står pekaren på en etikett eller ett kluster ovanpå klotet
+  // ska globen zooma och sidan inte; tidigare släppte etiketterna igenom händelsen och Chrome zoomade hela sidan.
+  await check('nypning på en etikett zoomar globen, inte sidan', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      await lp.goto(`${BASE}?c=-30,170,2#y=1293`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForFunction(() => [...document.querySelectorAll('#labels .glabel, #labels .gcluster')]
+        .some(e => e.offsetParent && e.getBoundingClientRect().width > 0), null, { timeout: T.step });
+      const out = await lp.evaluate(() => {
+        const el = [...document.querySelectorAll('#labels .glabel, #labels .gcluster')]
+          .find(e => e.offsetParent && e.getBoundingClientRect().width > 0);
+        const r = el.getBoundingClientRect();
+        const ev = new WheelEvent('wheel', { deltaY: -40, ctrlKey: true, bubbles: true, cancelable: true, clientX: r.x + 4, clientY: r.y + 4 });
+        el.dispatchEvent(ev);
+        return { cls: el.className, prevented: ev.defaultPrevented };
+      });
+      if (!out.prevented) throw new Error(`nypning på ${out.cls} släpps igenom: Chrome zoomar hela sidan`);
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `nypning på ${out.cls} fångas av globen`;
+    } finally {
+      await lp.close();
+    }
+  });
+
   // #1193: nutida staters flaggor (modernState) syns på globen bara vid nära zoom, utzoomat står namnet. Sverige
   // (svenska-stormaktsvaldet) räknas inte som nutida stat och behåller flaggan utzoomat.
   await check('nutida staters flaggor bara vid nära zoom (#1193)', async () => {

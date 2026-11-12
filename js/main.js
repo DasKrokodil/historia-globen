@@ -82,6 +82,7 @@ async function start() {
   // Lagrens grupper och förinställda vyer (#357) är en liten fil; den hämtas samtidigt med resten
   const [data, views, introData, toursData] = await Promise.all([loadAll(), loadViews(), loadIntro(), loadTours()]);
   const globe = new Globe($('globe-canvas'), $('year-jump'));
+  globe.addZoomSurface($('labels')); // etiketterna ovanpå klotet: nypning och mushjul zoomar globen, inte sidan
   globe.drawBase(data.land);
   const flatMap = new FlatMap({
     root: $('flat-view'), box: $('flat-box'), canvas: $('flat-canvas'),
@@ -724,8 +725,9 @@ trackPauseNote(updateFocusTop);
 
 // Safari på iPad och iPhone: globen sköter själv nypgesterna med pekhändelser. Stoppa därför Safaris
 // sidzoom bara när gesten börjar på globen; resten av sidan ska gå att zooma som vanligt (#191, #404).
+// Etiketterna och klustren ovanpå klotet räknas som globen, så att sidan inte zoomas när gesten börjar på dem.
 for (const type of ['gesturestart', 'gesturechange']) {
-  $('globe-canvas').addEventListener(type, e => e.preventDefault(), { passive: false });
+  for (const el of [$('globe-canvas'), $('labels')]) el.addEventListener(type, e => e.preventDefault(), { passive: false });
 }
 
 start().catch(err => {

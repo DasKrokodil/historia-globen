@@ -49,11 +49,15 @@ export class FlatMap {
     this.onZoom = null; // anropas när zoomen eller ytans storlek ändras: rikesnamnen beror på zoomnivån (#358, ui/zoomlevels.js)
 
     // Mushjul: zooma kring muspekaren
-    canvas.addEventListener('wheel', e => {
+    // Styrplattans nypning kommer som wheel med ctrlKey (Chrome, Edge, Firefox) och får en större faktor.
+    // Etiketterna tar emot samma händelse, annars zoomas hela sidan när pekaren står på en etikett.
+    const onWheel = e => {
       e.preventDefault();
-      const f = Math.exp(-e.deltaY * (e.deltaMode === 1 ? 0.05 : 0.0018));
-      this.zoomBy(f, this._local(e));
-    }, { passive: false });
+      const k = e.ctrlKey ? 0.01 : (e.deltaMode === 1 ? 0.05 : 0.0018);
+      this.zoomBy(Math.exp(-e.deltaY * k), this._local(e));
+    };
+    canvas.addEventListener('wheel', onWheel, { passive: false });
+    labels.addEventListener('wheel', onWheel, { passive: false });
 
     // Dra för att panorera, nyp med två fingrar för att zooma (pointer events)
     canvas.addEventListener('pointerdown', e => {
