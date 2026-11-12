@@ -109,7 +109,7 @@ bestämmer ingen ny fönsterregel. Fokus och intervall har egna regler och ingå
 ## Hur befintligt innehåll påverkas
 
 Alla 923 poster är `source-checked` eller `two-sources`. 918 börjar inom nuvarande reglage och fem före det.
-Antalet nedan klassar startårets lokala pixlar-per-år-skala; det mäter inte kortöverlapp eller läsbarhet.
+Antalet nedan klassar pixelavståndet från startåret till nästa år; det mäter inte kortöverlapp eller läsbarhet.
 Spann som går över en segmentgräns kan få olika skala i sina olika delar.
 
 | Kodspann i nuläget | Poster efter startår | Fyra segment, 10 %: kvarvarande täthet | Fem segment, 10 %: kvarvarande täthet |
@@ -119,7 +119,9 @@ Spann som går över en segmentgräns kan få olika skala i sina olika delar.
 | 1000…1800 | 286 | 130 % | 86,67 % |
 | 1800…2026 | 415 | 100 % | 100 % |
 
-Gränsår räknas enligt kodens segmentsökning; ingen post börjar vid 1800 i den här ögonblicksbilden.
+Tabellens spann grupperar startåren enligt kodens segmentsökning. Tätheten mäts mot nästa år även när
+startåret är en segmentgräns; det skiljer sig från den äldre lutning som `yearsAcross()` väljer där.
+Ingen post börjar vid 1800 i den här ögonblicksbilden.
 Det gör att rekommendationens 503 trängre poster kan beskrivas som poster som börjar före 1800.
 Fyra segment ger bara 67 trängre poster, men deras skala blir mindre än 2 % av dagens i alla tre
 andelarna. Därför är antalet berörda poster ensamt ett missvisande urvalskriterium.

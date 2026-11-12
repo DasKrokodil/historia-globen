@@ -60,7 +60,11 @@ for (const count of [4, 5]) for (const share of [0.08, 0.10, 0.15]) {
   }
   const cohort = { compressed: 0, unchanged: 0, expanded: 0 };
   for (const event of inOldRange) {
-    const ratio = density(segmentAt(segments, event.start)) / density(segmentAt(oldSegments, event.start));
+    // Mät avståndet till nästa år. Vid en gräns har årspunkten samma position från båda sidor,
+    // men yearsAcross() väljer den äldre sidans lutning. Det är en separat fönsterfråga.
+    const from = event.start < MAX_YEAR ? event.start : event.start - 1;
+    const ratio = (at(segments, from + 1) - at(segments, from))
+      / (at(oldSegments, from + 1) - at(oldSegments, from));
     cohort[ratio < 1 - 1e-12 ? 'compressed' : ratio > 1 + 1e-12 ? 'expanded' : 'unchanged']++;
   }
   const first = segments[0], mid = (first.from + first.to) / 2;
@@ -103,7 +107,8 @@ const cases = baseline.flatMap(v => layouts.map(layout => {
 }));
 
 console.log(JSON.stringify({ sourceCommit: measured.sourceCommit, measuredAt: measured.measuredAt,
-  assumptions: { newMin, maxYear: MAX_YEAR, newMinIsProposal: true, fingerCssPixels: finger, overviewWindowFraction: fraction },
+  assumptions: { newMin, maxYear: MAX_YEAR, newMinIsProposal: true, fingerCssPixels: finger, overviewWindowFraction: fraction,
+    cohortMetric: 'Positionens avstånd från startåret till nästa år; vid MAX_YEAR till föregående år' },
   records: { reviewed: events.length, startsInCurrentRange: inOldRange.length, startsBeforeCurrentRange: events.filter(e => e.start < MIN_YEAR).length },
   baseline, layouts, cases,
 }, null, 2));
