@@ -91,3 +91,22 @@ export function nextQuestion(funfacts, byId, events, isVisible, asked = new Set(
   }
   return null;
 }
+
+// Sant eller myt? (#846, beslut 2026-11-12): påståenden ur data/missuppfattningar.json (#838). Besökaren gissar först,
+// sant eller myt, och får sedan vad källorna säger, varifrån missuppfattningen kommer och källorna. Inga nya fakta
+// skrivs. Alla poster är missuppfattningar, så rätt svar är alltid "myt"; därför räknas de inte i poängen
+// (annars skulle mönstret ge poäng utan kunskap). Varannan fråga är en sådan, när det finns några.
+
+/** Missuppfattningar som kan bli frågor: synliga och med påstående och svar. */
+export const quizMyths = (myths, isVisible) => (myths ?? []).filter(m => isVisible(m.review) && m.claim && m.truth);
+
+/** Är fråga nummer n (0, 1, 2 …) en Sant eller myt-fråga? Varannan, med start på den andra. */
+export const isMythTurn = n => n % 2 === 1;
+
+/** Nästa missuppfattning i blandad ordning, utan att upprepa de redan ställda förrän alla har kommit; annars null. */
+export function nextMyth(myths, isVisible, asked = new Set(), rnd = Math.random) {
+  const pool = quizMyths(myths, isVisible);
+  if (!pool.length) return null;
+  const fresh = pool.filter(m => !asked.has(m.id));
+  return shuffle(fresh.length ? fresh : pool, rnd)[0];
+}

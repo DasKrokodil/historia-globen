@@ -610,6 +610,7 @@ async function start() {
     root: $('quiz'), closeBtn: $('quiz-close'), score: $('quiz-score'), event: $('quiz-event'), eventTitle: $('quiz-event-title'),
     eventMeta: $('quiz-event-meta'), question: $('quiz-question'), options: $('quiz-options'), result: $('quiz-result'),
     verdict: $('quiz-verdict'), funfact: $('quiz-funfact'), sources: $('quiz-sources'), next: $('quiz-next'),
+    title: $('quiz-title'), origin: $('quiz-origin'),
   }, data, { fallbackFocus: () => $('btn-more') });
   quizButton.hidden = !quiz.ready;
   quizButton.addEventListener('click', () => { help.close(false); quiz.open(quizButton); });
