@@ -156,6 +156,16 @@ export function formatCentury(y) {
   return ui(key, { n });
 }
 
+/**
+ * Tidsfönstret avrundat för visning (#1191): fönstret är en andel av tidslinjen och blir därför ojämnt (38, 72, 120, cirka
+ * 11 år). Raden visar ett avrundat tal, till närmaste 5 under 30 år och annars till närmaste 10 (11 → 10, 38 → 40,
+ * 72 → 70, 120 → 120). Det som ritas använder fortfarande det exakta fönstret.
+ */
+export function roundWindow(n) {
+  if (!(n > 0)) return 0;
+  return n < 30 ? Math.max(5, Math.round(n / 5) * 5) : Math.round(n / 10) * 10;
+}
+
 /** Text ur språkfilen som är en lista [en, flera] ("±1 år", "±3 år"), med {n} ersatt och eventuella andra värden i vars. */
 export function pluralUi(key, n, vars = {}) {
   return String(ui(key)[n === 1 ? 0 : 1]).replace(/\{(\w+)\}/g, (m, k) => ({ n, ...vars })[k] ?? m);

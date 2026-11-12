@@ -8,6 +8,7 @@
 |---|---|
 | **Glob / Platt karta / Upptäcktsresor** | De tre **vyerna** (knapparna under Vy): klotet, samma bild som en platt karta, och Upptäcktsresor med gammal kartstil och dimma. Bara en åt gången. Ett namn överallt i gränssnittet: "Upptäcktsresor" (inte "upptäcktsvyn"); kategorin Upptäckter är något annat. |
 | **Samtidigt** | Knappen och panelen **"Samtidigt i världen"**: händelserna vid det valda året, per världsdel. |
+| **Nära i tid** | Händelser inom tidsfönstret runt året, som visas **tonade**. De är inte samtida, bara nära i tid. Raden under årtalet visar fönstret avrundat, "1300-talet · ±40 år" (i ord för yngre läsare: "även 40 år före och efter"), och förklaringen står i radens hovringstext (#1191). |
 | **Samtidigt-kortet** | Kortet som lyfter fram en oväntad samtidighet (fun facts m.m.). Kan pausa uppspelningen. Heter "Visste du?", och samma ord står på teckenförklaringen under tidslinjen. |
 | **Fun fact** | En samtidighet mellan två eller flera händelser, till exempel att pyramiderna byggdes medan de sista mammutarna levde. Varje led har källa. |
 | **Sök och följ** | Knappen där man söker och väljer något att **följa**: krig, rike, land, religion eller resa. Medan man följer något kallas läget **"följer"** ("när du följer en händelse"); ordet "Fokus" och "fokusläge" används inte i gränssnittet (#1140). I kod, filnamn och adress (`f=`) heter det fortfarande `focus`. |

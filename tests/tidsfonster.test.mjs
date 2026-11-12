@@ -2,7 +2,7 @@
 // Körs på svenska (språket är fast vid import). Astronomiska år: 0 = 1 f.Kr., så avståndet räknas rakt av.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { centuryOf, formatCentury, formatDirection, formatOffset, pluralUi } from '../js/model.js';
+import { centuryOf, formatCentury, formatDirection, formatOffset, pluralUi, roundWindow } from '../js/model.js';
 
 test('århundradet följer svenskt bruk: 1300-talet är 1300–1399', () => {
   assert.equal(formatCentury(1325), '1300-talet');
@@ -57,7 +57,18 @@ test('panelen skriver "N år tidigare" och "N år senare", och dagar i fokusläg
 });
 
 test('listtexter med ental och flertal byter form', () => {
-  assert.equal(pluralUi('time.windowYears', 1, { where: '1300-talet' }), '1300-talet · visar också det som hände 1 år före och efter');
+  assert.equal(pluralUi('time.windowYears', 40, { where: '1300-talet' }), '1300-talet · ±40 år');
+  assert.equal(pluralUi('time.windowYearsWords', 40, { where: '1300-talet' }), '1300-talet · även 40 år före och efter');
   assert.equal(pluralUi('time.followDays', 1, { name: 'kriget' }), 'Följer kriget · visar 1 dag före och efter');
   assert.equal(pluralUi('time.followDays', 3, { name: 'kriget' }), 'Följer kriget · visar 3 dagar före och efter');
+});
+
+test('tidsfönstret avrundas för visning: till 5 under 30 år, annars till 10 (#1191)', () => {
+  assert.equal(roundWindow(11.2), 10);
+  assert.equal(roundWindow(12.6), 15);
+  assert.equal(roundWindow(38.4), 40);
+  assert.equal(roundWindow(72), 70);
+  assert.equal(roundWindow(120), 120);
+  assert.equal(roundWindow(2), 5); // aldrig 0 när det finns ett fönster
+  assert.equal(roundWindow(0), 0);
 });
