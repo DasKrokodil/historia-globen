@@ -36,6 +36,8 @@
 "antigua-och-barbuda":{"flags":{"0":{"label":{"de":"Flagge von Antigua und Barbuda"}}}},
 "grenada":{"flags":{"0":{"label":{"de":"Flagge Grenadas"}}}},
 "kungariket-frankrike":{"flags":{"0":{"label":{"de":"Goldene Lilien verstreut auf Blau"}},"1":{"label":{"de":"Drei goldene Lilien auf Blau"}}}},
+"almoravider":{"flags":{"0":{"label":{"de":"Schwarzes Banner"}}}},
+"almohader":{"flags":{"0":{"label":{"de":"Weißes Banner"}}}},
 "kungariket-polen":{"flags":{"0":{"label":{"de":"Weißer Adler auf Rot, moderne Rekonstruktion des Siegels von 1295"}}}},
 "saint-kitts-och-nevis":{"flags":{"0":{"label":{"de":"Flagge von St. Kitts und Nevis"}}}}
 }}

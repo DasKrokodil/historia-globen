@@ -35,6 +35,8 @@
 "antigua-och-barbuda":{"flags":{"0":{"label":{"es":"Bandera de Antigua y Barbuda"}}}},
 "grenada":{"flags":{"0":{"label":{"es":"Bandera de Granada"}}}},
 "kungariket-frankrike":{"flags":{"0":{"label":{"es":"Flores de lis doradas sembradas sobre azul"}},"1":{"label":{"es":"Tres flores de lis doradas sobre azul"}}}},
+"almoravider":{"flags":{"0":{"label":{"es":"Estandarte negro"}}}},
+"almohader":{"flags":{"0":{"label":{"es":"Estandarte blanco"}}}},
 "kungariket-polen":{"flags":{"0":{"label":{"es":"Águila blanca sobre rojo, reconstrucción moderna del sello de 1295"}}}},
 "saint-kitts-och-nevis":{"flags":{"0":{"label":{"es":"Bandera de San Cristóbal y Nieves"}}}}
 }}
