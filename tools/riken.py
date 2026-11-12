@@ -27,8 +27,11 @@ import shapely
 from shapely.geometry import Polygon, box, mapping, shape
 from shapely.ops import unary_union
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from riken_bevara import KEEP, keep_langs, kept_fields, old_influence_names, order_like  # noqa: E402  (#1220)
+
 ROOT = Path(__file__).resolve().parent.parent
-KEEP = ('facts', 'symbol', 'polityFacts', 'capitals', 'labelAt')  # fält i index.json som skrivs för hand och behålls, i den här ordningen
+# KEEP (fält i index.json som skrivs för hand och behålls, bland annat flags) står i tools/riken_bevara.py (#1220)
 TOL = 0.2      # förenkling i grader (Douglas-Peucker)
 MERGE = 0.02   # slå ihop perioder där gränsen ändras mindre än så här stor del av ytan
 MIN_AREA = 0.02  # öar mindre än så här (kvadratgrader, cirka 200 km2) tas bort
@@ -1601,22 +1604,23 @@ def main():
     old = out / 'index.json'
     groups_old = {g['id']: g for g in json.loads(old.read_text())['groups']} if old.exists() else {}
     # Faktarutor, symboler och polityFacts (KEEP) skrivs för hand och läggs sist i gruppen
-    kept = {k: {f: g[f] for f in KEEP if f in g} for k, g in groups_old.items()}
+    kept = {k: kept_fields(g) for k, g in groups_old.items()}
     # Namnens översättningar (de, es, fr …) skrivs inte här utan står i datan (tools/riken_namn.py, #676). De
     # bevaras när filerna byggs om, så länge det svenska namnet är detsamma (annars är översättningen inaktuell)
     old_names = {}
+    old_docs = []
     for k, g in groups_old.items():
         old_names[('group', k)] = g.get('name', {})
         f = out / f'{k}.json'
         if f.exists():
-            for op in json.loads(f.read_text()).get('polities', []):
+            old_docs.append(json.loads(f.read_text()))
+            for op in old_docs[-1].get('polities', []):
                 old_names[('polity', k, op['id'])] = op.get('name', {})
+    # Inflytandenamnens översättningar (#1220), efter engelskt namn ur index.json och rikesfilerna
+    old_infl = old_influence_names(groups_old.values(), old_docs)
 
     def with_old(name, key):
-        old = old_names.get(key, {})
-        if old.get('sv') != name['sv']:
-            return name
-        return {**name, **{lang: v for lang, v in old.items() if lang not in name}}
+        return keep_langs(name, old_names.get(key, {}))
     # Försvunna länder (#72): årtal, föregångare och efterträdare skrivs också för hand
     vanished = {k: g['vanished'] for k, g in groups_old.items() if 'vanished' in g}
     # Osäkra gränser (#73): skrivs för hand, med källa som säger att gränsen var osäker eller flytande
@@ -1633,6 +1637,7 @@ def main():
             index.append({'id': gid, 'name': {'sv': sv, 'en': en}, 'color': gopts[0]['color'],
                           'from': v['founded'], 'to': v['dissolved'], 'polities': [], 'vanished': v})
             index[-1].update(kept.get(gid, {}))
+            index[-1] = order_like(index[-1], groups_old.get(gid))
             print(f'{gid}: ingen gräns, punkt {v["point"]["coordinates"]}')
             continue
         home = HOMELANDS.get(gid)
@@ -1716,6 +1721,8 @@ def main():
             if gid in uncertain:
                 polity['uncertainBorder'] = True  # osäker gräns (#73): ritas med mjuk kant
             infl = influence_periods(rels, cname, core, own, known, tol, merge, min_area) if cname else None
+            for q in infl or []:
+                q['name'] = keep_langs(q['name'], old_infl.get(q['name'].get('en')))  # #1220
             if infl:
                 polity['influence'] = infl  # lydriken och vasaller enligt Cliopatria (#75)
             polities.append(polity)
@@ -1733,7 +1740,7 @@ def main():
             index[-1]['borderSource'] = ('Cliopatria / Natural Earth' if any(m[-1].get('ne_from') for m in members)
                                          else 'Natural Earth')
         if home:
-            index[-1]['homeland'] = {'name': home['name']}
+            index[-1]['homeland'] = {'name': keep_langs(home['name'], groups_old.get(gid, {}).get('homeland', {}).get('name'))}
         if gid in vanished:
             index[-1]['vanished'] = vanished[gid]
         if gid in uncertain:
@@ -1748,6 +1755,7 @@ def main():
         if infl:
             index[-1]['influence'] = sorted(infl.values(), key=lambda a: a['from'])
         index[-1].update(kept.get(gid, {}))
+        index[-1] = order_like(index[-1], groups_old.get(gid))  # samma fältordning som förut, så att diffen blir tom (#1220)
         size = (out / f'{gid}.json').stat().st_size
         print(f'{gid}: {len(polities)} riken, {sum(len(p["periods"]) for p in polities)} perioder, {size // 1000} kB')
     notes = ('Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 '
