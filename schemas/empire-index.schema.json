@@ -18,6 +18,7 @@
           "from": { "type": "integer" },
           "to": { "type": "integer" },
           "file": { "type": "string", "pattern": "^data/empires/.+\\.json$" },
+          "modernState": { "type": "boolean", "description": "Nutida stat (#1193): flaggorna syns på kartan bara med namnet vid nära zoom. Saknas fältet visas allt som förut." },
           "flags": {
             "type": "array",
             "items": {

@@ -30,9 +30,12 @@ export function entry({ globe, data, labelsEl, refreshSoon, showEmpireFacts }) {
   // Flagga som gäller året i empires/index.json går före rikets symbol. Saknas belagd flagga används symbolen,
   // även för ett rike i gruppen med egen faktaruta (Bysantinska riket).
   const empireById = new Map(data.empireGroups.map(g => [g.id, g]));
-  layer.markOf = (polity, year) => {
+  // Nutida stat (modernState, #1193): flaggan bara vid nära zoom (near) eller när man följer landet; annars namnet som
+  // för riken utan symbol. Faktarutan och Fokus läser flaggorna själva och visar dem alltid.
+  layer.markOf = (polity, year, near = true) => {
     const g = empireById.get(polity.group);
     const own = g?.polityFacts?.[polity.id];
+    if (g?.modernState && !near && layer.onlyGroup !== g.id) return null;
     const currentFlag = (own?.flags ?? g?.flags ?? []).find(f => year >= f.from && year <= f.to);
     // flagKind (#1148): flagga, symbol eller modern återgivning; utan fältet är det en flagga
     if (currentFlag) return { symbol: currentFlag.file, kind: 'flag', flagKind: currentFlag.kind ?? 'flag', color: polity.color, name: t(polity.name), group: g.id, own: !!own?.facts };
@@ -71,6 +74,7 @@ export function entry({ globe, data, labelsEl, refreshSoon, showEmpireFacts }) {
       layer.labelScale = marks.scale = s.labels.scale;
       layer.labelAlpha = s.labels.alpha;
       layer.showNames = s.labels.empireNames;
+      layer.modernFlags = s.labels.modernFlags ?? true;
       ensure(s.areaYear); // i ett tidsintervall slutåret (#756)
       // Övergången (#78) är mjuk när tiden spelas upp eller flyttas lite, annars visas nya läget direkt
       const out = layer.update({ year: s.areaYear, smooth: s.playing || Math.abs(s.areaYear - lastYear) <= MAX_JUMP_YEARS });
@@ -95,6 +99,7 @@ export class AreasLayer {
     this.markOf = () => null; // rikets markör: (polity, year) → { symbol, kind, color, name, group } eller null
     this.year = 0;
     this.showNames = true; // namnen under symbolerna (false utzoomat på globen, #301)
+    this.modernFlags = true; // nutida staters flaggor (false utzoomat, #1193)
     this.onGlyph = () => {}; // anropas när en symbol har laddats, så att lagerbilden ritas om
     this.transition = new AreaTransition(); // mjuk övergång när ett område byter period (#78)
     // Zoomnivån och platserna som ska hållas fria (#358), sätts med setView(). Utan setView gäller nivån
@@ -166,7 +171,7 @@ export class AreasLayer {
    */
   _layout() {
     const v = this.view;
-    const key = `${this._rev}|${this.labelScale}|${this.showNames}`;
+    const key = `${this._rev}|${this.labelScale}|${this.showNames}|${this.modernFlags}|${this.onlyGroup}`;
     if (this._lay?.key === key) return this._lay.map;
     const map = new Map();
     const X = lon => (lon + 180) / 360 * 2048, Y = lat => (90 - lat) / 180 * 1024;
@@ -200,7 +205,7 @@ export class AreasLayer {
       if (rank >= limit) return; // för litet för den här zoomnivån: bara området syns
       const px = X(period.label[0]), py = Y(period.label[1]);
       const name = t(polity.name), w = measure(name, font);
-      const sym = this.markOf(polity, this.year);
+      const sym = this.markOf(polity, this.year, this.modernFlags);
       const d = { px, py, medal: null, star: false, name: null, x: px, y: py, lead: null };
       if (sym) {
         // Medaljen står på label-punkten. Är platsen upptagen flyttas den lite inom området (rutan runt det); ryms den
