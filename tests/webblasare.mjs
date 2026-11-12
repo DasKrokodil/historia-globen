@@ -3479,6 +3479,26 @@ async function run(browser, vp) {
     return 'urklippet har händelse, år, källor, adress och licens; bekräftelsen har role=status och affischen ritar källrad';
   });
 
+  // #1097: ett område som korsar datumlinjen (180°) ritas vid båda kanterna av den platta bilden, inte som ett band tvärs
+  // över kartan. Ritas med områdeslagrets egen bana (tracePath i js/layers/area-style.js) på en riktig canvas.
+  await check('områden över datumlinjen ritas vid kanterna, inte tvärs över kartan (#1097)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const r = await page.evaluate(async () => {
+      const { tracePath } = await import('./js/layers/area-style.js');
+      const W = 2048, H = 1024, c = document.createElement('canvas');
+      c.width = W; c.height = H;
+      const ctx = c.getContext('2d');
+      const X = lon => (lon + 180) / 360 * W, Y = lat => (90 - lat) / 180 * H;
+      tracePath(ctx, { type: 'Polygon', coordinates: [[[160, 50], [-170, 50], [-170, 62], [160, 62], [160, 50]]] }, X, Y);
+      ctx.fillStyle = '#ff0000'; ctx.fill('evenodd');
+      const at = (lon, lat) => ctx.getImageData(Math.min(W - 1, Math.round(X(lon))), Math.round(Y(lat)), 1, 1).data[3];
+      return { east: at(170, 56), west: at(-175, 56), middle: at(0, 56), europe: at(30, 56) };
+    });
+    if (!r.east || !r.west) throw new Error(`området saknas vid kanterna: ${JSON.stringify(r)}`);
+    if (r.middle || r.europe) throw new Error(`området ritas tvärs över kartan: ${JSON.stringify(r)}`);
+    return 'fyllt vid 170° öst och 175° väst, tomt vid 0° och 30° öst';
+  });
+
   await check('ett rike syns', async () => {
     const n = await layerDraws('areas', 5000);
     return `${n} pixlar ändras när Riken slås på`;
