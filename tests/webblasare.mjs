@@ -1662,6 +1662,33 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1255: när man följer en plats stannar uppspelningen vid platsens händelser. Grönland har inga viktiga
+  // händelser, så den stannar vid alla; första stoppet är den äldsta händelsen. Valet i Lager stänger av pauserna.
+  await check('uppspelningen pausar vid platsens händelser när man följer en plats (#1255)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    try {
+      await tp.goto(`${BASE}?ny=plats3#y=-2600&f=place:gronland`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Grönland/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
+      // Pausvalet för platser och teman finns i Lager och är på från början
+      const on = await tp.evaluate(() => document.querySelector('input[data-pause="theme"]')?.checked);
+      if (on !== true) throw new Error('valet "Händelser när man följer en plats eller ett tema" saknas eller är av från början');
+      const events = await (await tctx.request.get(`${BASE}data/events.json`)).json();
+      const first = (events.events ?? events).filter(e => e.location?.coordinates?.[0] < -10 && e.location.coordinates[0] > -75 && e.location.coordinates[1] > 59 && e.location.coordinates[1] < 84 && e.review !== 'draft').sort((a, b) => a.start - b.start)[0];
+      if (!first) throw new Error('ingen händelse på Grönland i datan');
+      await tp.click('#focus-action');
+      await tp.waitForFunction(() => /Pausad vid/.test(document.body.textContent) && document.getElementById('focus-action').dataset.action !== 'pause', null, { timeout: T.step * 3 });
+      const pause = await tp.evaluate(() => document.getElementById('pause-text')?.textContent || '');
+      if (!/Pausad vid/.test(pause)) throw new Error(`pausraden saknas: "${pause}"`);
+      const year = await tp.evaluate(() => document.getElementById('focus-state').textContent);
+      if (!year.includes(String(Math.abs(first.start <= 0 ? first.start - 1 : first.start)))) throw new Error(`tiden står inte på första händelsens år (${first.start}): "${year}"`);
+      // I smal skärm öppnas inte faktarutan vid pausen, så att kartan syns (som för krigets stopp); händelsen markeras på globen
+      if (vp.width > 760 && await tp.isHidden('#detail')) throw new Error('faktarutan visar inte händelsen vid pausen');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `pausade vid första händelsen (${first.start}): ${pause}`;
+    } finally { await tctx.close(); }
+  });
+
   // #706: i mobil hamnade Samtidigt-kortets knapprad (Källor, Nästa) under kortets nederkant, bakom tidslinjen.
   // I halvöppet läge ska Källor och Nästa ligga helt inne i kortets synliga yta, och kortet ska sluta ovanför
   // uppspelningsraden, i 400 × 800 och i den lägre 360 × 640.

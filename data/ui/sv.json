@@ -138,6 +138,7 @@
   "play.pausedText": "Pausad: {text}",
   "play.pausedAt": "Pausad vid {name}",
   "play.pausedFounding": "Pausad vid religionens grundande",
+  "play.pausedThemeEvent": "Pausad vid {title}",
   "play.pausedKeyYear": "Pausad vid {label}: {title}",
   "play.keyYear": "rikets nyckelår",
   "play.pausedWarStart": "Pausad: ett krig bryter ut",
