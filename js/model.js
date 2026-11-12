@@ -123,9 +123,32 @@ export const bce = y => 1 - y;
 const BCE_TXT = ui('time.bce'), CE_TXT = ui('time.ce');
 export { BCE_TXT, CE_TXT };
 
-/** Kort årtal för listor: "551 f.Kr.", "793", "1325". */
+// Stora år (#1085): från fem siffror med språkets tusentalsavgränsare ur språkfilen (time.groupSep, enligt ordlistan avsnitt 3
+// och 13.3: hårt mellanrum på svenska, spanska och franska, komma på engelska, punkt på tyska). År med upp till fyra siffror
+// skrivs som förut ("2600 f.Kr."). Intl ger grupperna; bara tecknet mellan dem kommer från språkfilen.
+const NUM_LOCALE = LANG === 'en' ? 'en-GB' : LANG;
+const GROUP_SEP = ui('time.groupSep');
+export function groupDigits(n) {
+  if (Math.abs(n) < 10000) return String(n);
+  return new Intl.NumberFormat(NUM_LOCALE, { useGrouping: true, maximumFractionDigits: 0 }).formatToParts(n)
+    .map(p => p.type === 'group' ? GROUP_SEP : p.value).join('');
+}
+
+/** Kort årtal för listor: "551 f.Kr.", "793", "1325", "300 000 f.Kr.". */
 export function formatYear(y) {
-  return isBCE(y) ? `${bce(y)} ${BCE_TXT}` : `${y}`;
+  return isBCE(y) ? `${groupDigits(bce(y))} ${BCE_TXT}` : groupDigits(y);
+}
+
+/**
+ * Ett antal miljoner år (#1085), till exempel "1 miljon år", "1,8 miljoner år", "2,5 millions d’années". Singular och plural väljs med
+ * Intl.PluralRules för språket (franskan har singular under 2: "1,8 million d’années"), texten kommer ur språkfilen
+ * (time.millionYears.one och .other) och decimaltecknet ur Intl. `years` är antalet år, inte ett astronomiskt år.
+ */
+export function formatYearCount(years) {
+  const m = years / 1e6;
+  const n = new Intl.NumberFormat(NUM_LOCALE, { maximumFractionDigits: 1 }).format(m);
+  const form = new Intl.PluralRules(NUM_LOCALE).select(Number(m.toFixed(1))) === 'one' ? 'one' : 'other';
+  return ui(`time.millionYears.${form}`).replace('{n}', n);
 }
 
 /**
@@ -191,18 +214,19 @@ export function formatOffset(when, amount, fine = false) {
 
 /** Stort årtal i huvudet: [siffra, epok]. */
 export function yearParts(y) {
-  if (isBCE(y)) return [String(bce(y)), BCE_TXT];
+  if (isBCE(y)) return [groupDigits(bce(y)), BCE_TXT];
   if (y < 1000) return [String(y), CE_TXT];
-  return [String(y), ''];
+  return [groupDigits(y), ''];
 }
 
 /** Tolkar ett inskrivet år till astronomiskt år, eller null. "2600 f.Kr.", "44 fkr", "300 BC" och
  *  "-500" blir före vår tideräkning; "1969", "800 e.Kr." och "AD 800" efter. Utan tideräkning i texten
  *  används `defaultEra` ('ce' eller 'bce'). Det finns inget år 0 i visningen: 1 f.Kr. är 0. */
 export function parseYear(text, defaultEra = 'ce') {
-  const m = /^\s*(?:(ad|a\.d\.)\s*)?([-−–]?)\s*(\d{1,4})\s*(?:(f\.?\s*kr\.?|fkr|bc|b\.c\.|bce|e\.?\s*kr\.?|ekr|ad|a\.d\.|ce)\s*)?$/i.exec(text);
+  // Stora år (#1085) får skrivas med mellanrum mellan grupperna: "300 000 f.Kr."
+  const m = /^\s*(?:(ad|a\.d\.)\s*)?([-−–]?)\s*(\d{1,3}(?:[ \u00a0\u202f]\d{3})+|\d{1,9})\s*(?:(f\.?\s*kr\.?|fkr|bc|b\.c\.|bce|e\.?\s*kr\.?|ekr|ad|a\.d\.|ce)\s*)?$/i.exec(text);
   if (!m) return null;
-  const n = Number(m[3]);
+  const n = Number(m[3].replace(/[ \u00a0\u202f]/g, ''));
   if (n === 0) return null;
   const tag = (m[4] || '').toLowerCase().replace(/[.\s]/g, '');
   const isBc = m[2] ? true : tag ? /^(fkr|bc|bce)$/.test(tag) : m[1] ? false : defaultEra === 'bce';
@@ -223,6 +247,8 @@ export function parseYearInput(text, defaultEra = 'ce', now = new Date()) {
   if (/[-−–]/.test(value) && !/^\d{4}-\d{2}-\d{2}$/.test(value)) return { type: 'invalid', year: null, date: null, error: ui('jump.error.negative') };
   // Besökarens 0 är modellens astronomiska år 0, alltså 1 f.Kr. i visningen.
   if (/^0{1,4}$/.test(value)) return { type: 'year', year: 0, date: null };
+  // Stora år (#1085): sex och åtta siffror utan något annat är datum (860426, 19860426). Ett stort år skrivs med
+  // mellanrum ("300 000") eller med tideräkning ("300000 f.Kr."); fem, sju och nio siffror läses som år av parseYear.
 
   const iso = /^\d{4}-\d{2}-\d{2}$/.exec(value);
   if (iso) {
@@ -323,16 +349,21 @@ export function roundDay(yf) {
 // En del av en EDTF-sträng: "1879-01-22", "1879-01" eller "1879", som [början, slut] i decimalår.
 // Slutet är början av nästa dag, månad eller år, så att en dag täcker hela dygnet.
 const EDTF_PART = /^(-?\d{4})(?:-(\d{2})(?:-(\d{2}))?)?$/;
+// År med fler än fyra siffror skrivs med prefixet Y i EDTF (#1085): "Y-60000" är astronomiskt år -60000, ett helt år
+const EDTF_LONG = /^Y(-?\d{5,})$/;
 function edtfPart(s) {
-  const m = EDTF_PART.exec(s.replace(/[~?%]/g, ''));
+  const clean = s.replace(/[~?%]/g, '');
+  const long = EDTF_LONG.exec(clean);
+  if (long) { const y = Number(long[1]); return [y, y + 1]; }
+  const m = EDTF_PART.exec(clean);
   if (!m) return null;
   const y = Number(m[1]), mo = m[2] && Number(m[2]), d = m[3] && Number(m[3]);
   if (d) return [dateToYear(y, mo, d), dateToYear(y, mo, d + 1)];
   if (mo) return [dateToYear(y, mo), dateToYear(y, mo + 1)];
   return [y, y + 1];
 }
-/** Händelsens tid som [början, slut] i decimalår, ur edtf. Går edtf inte att läsa (öppna spann,
- *  år med fler än fyra siffror) används start och slut som hela år. Används bara i fokusläget för korta krig. */
+/** Händelsens tid som [början, slut] i decimalår, ur edtf, även år med fler än fyra siffror ("Y-60000", #1085). Går edtf
+ *  inte att läsa (öppna spann) används start och slut som hela år. Används bara i fokusläget för korta krig. */
 export function edtfSpan(e) {
   if (e._span) return e._span;
   const parts = (e.edtf || '').split('/').map(edtfPart);

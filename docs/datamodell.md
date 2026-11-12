@@ -39,7 +39,7 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 | Vad | Standard | Exempel |
 |---|---|---|
 | År | Heltal, astronomisk årsräkning (ISO 8601): `0` = 1 f.Kr., `-1` = 2 f.Kr. *N f.Kr.* blir `1 - N`. | 2600 f.Kr. = `-2599` |
-| Osäkerhet | EDTF-sträng i `edtf`: `~` ungefär, `?` osäker, `/` spann, `../` öppen start, `/..` pågår | `"-0005~/-0003~"` |
+| Osäkerhet | EDTF-sträng i `edtf`: `~` ungefär, `?` osäker, `/` spann, `../` öppen start, `/..` pågår. År med fler än fyra siffror skrivs med prefixet `Y` (`Y-60000`), och `model.js` läser dem (`edtfSpan`, #1085). Sådana år visas med språkets tusentalsavgränsare från fem siffror (`formatYear`: "300 000 f.Kr.", "300,000 BC", "300.000 v. Chr."; tecknet står i `time.groupSep` i `data/ui/`), och miljoner år med `formatYearCount` ("1,8 miljoner år", "1,8 million d’années") | `"-0005~/-0003~"`, `"Y-60000~"` |
 | Precision | Wikidatas skala i `precision`: 6 årtusende, 7 århundrade, 8 decennium, 9 år, 10 månad, 11 dag | `9` |
 | Plats | GeoJSON i WGS 84, `[longitud, latitud]` | `{ "type": "Point", "coordinates": [35.226, 31.779] }` |
 | Text | Per språk, svenska först. Saknas ett språk visas engelska, sedan svenska. | `{ "sv": "Jerusalem" }` |
