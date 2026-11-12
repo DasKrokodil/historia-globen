@@ -84,7 +84,7 @@ Stödmatris (beslut 2026-11-08): de **senaste två versionerna** av Chrome, Safa
 |---|---|---|---|---|---|---|
 | K-PLA-01 | Sidan ska fungera i stödmatrisens webbläsare. | DasKrokodil 2026-11-08 | M | T | Beslutat | Delvis (Firefox och WebKit gröna i alla tre motorerna 2026-11-08, #923; v6.1.0 prövas i release-PR #988; WebKit är inte Safari) |
 | K-PLA-02 | Sidan ska fungera i mobilbredd (cirka 400 px) utan horisontell scroll. | CLAUDE.md: Utseende | M | T | Beslutat | Ej verifierat |
-| K-PLA-03 | Sidan ska fungera på iPad i liggande och stående läge, inklusive bredder 768–1024 px. | DasKrokodil 2026-11-08 | M | T, G | Beslutat | **Ej provat** |
+| K-PLA-03 | Sidan ska fungera på iPad i liggande och stående läge, inklusive bredder 768–1024 px. | DasKrokodil 2026-11-08 | M | T, G | Beslutat | **Delvis provat:** toppradens layout i iPad-bredder i Chromium (#992, #1190); hela flödet och riktig iPad ej provat |
 | K-PLA-04 | Alla knappar ska ha minst 44 × 44 px träffyta på mobil och minst 24 × 24 px på dator. | #406 | M | G | Beslutat | Ej verifierat |
 | K-PLA-05 | Sidan ska degradera värdigt när grafikaccelerering (WebGL) saknas och inte hänga sig. | #692 | M | T | Beslutat | Ej verifierat |
 | K-PLA-06 | Webbläsarens egen sidzoom ska vara tillåten. | #404 | M | T | Beslutat | Ok |
