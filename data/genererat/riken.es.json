@@ -26,6 +26,7 @@
 "honduras":{"flags":{"0":{"label":{"es":"Bandera hondureña de cinco estrellas"}}}},
 "guatemala":{"flags":{"0":{"label":{"es":"Bandera civil guatemalteca"}}}},
 "costa-rica":{"flags":{"0":{"label":{"es":"Bandera de Costa Rica"}}}},
+"schweiz":{"flags":{"0":{"label":{"es":"Escudo federal: cruz blanca sobre rojo"}},"1":{"label":{"es":"Bandera de Suiza"}}}},
 "bahamas":{"flags":{"0":{"label":{"es":"Bandera de Bahamas"}}}},
 "jamaica":{"flags":{"0":{"label":{"es":"Bandera de Jamaica"}}}},
 "trinidad-och-tobago":{"flags":{"0":{"label":{"es":"Bandera de Trinidad y Tobago"}}}},
@@ -33,5 +34,7 @@
 "saint-lucia":{"flags":{"0":{"label":{"es":"Bandera de Santa Lucía"}}}},
 "antigua-och-barbuda":{"flags":{"0":{"label":{"es":"Bandera de Antigua y Barbuda"}}}},
 "grenada":{"flags":{"0":{"label":{"es":"Bandera de Granada"}}}},
+"kungariket-frankrike":{"flags":{"0":{"label":{"es":"Flores de lis doradas sembradas sobre azul"}},"1":{"label":{"es":"Tres flores de lis doradas sobre azul"}}}},
+"kungariket-polen":{"flags":{"0":{"label":{"es":"Águila blanca sobre rojo, reconstrucción moderna del sello de 1295"}}}},
 "saint-kitts-och-nevis":{"flags":{"0":{"label":{"es":"Bandera de San Cristóbal y Nieves"}}}}
 }}

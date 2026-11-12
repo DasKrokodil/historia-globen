@@ -53,6 +53,7 @@
 "honduras":{"flags":{"0":{"label":{"en":"Honduran five-star flag"}}}},
 "guatemala":{"flags":{"0":{"label":{"en":"Guatemalan civil flag"}}}},
 "costa-rica":{"flags":{"0":{"label":{"en":"Flag of Costa Rica"}}}},
+"schweiz":{"flags":{"0":{"label":{"en":"Federal coat of arms: white cross on red"}},"1":{"label":{"en":"Flag of Switzerland"}}}},
 "bahamas":{"flags":{"0":{"label":{"en":"Flag of the Bahamas"}}}},
 "jamaica":{"flags":{"0":{"label":{"en":"Flag of Jamaica"}}}},
 "trinidad-och-tobago":{"flags":{"0":{"label":{"en":"Flag of Trinidad and Tobago"}}}},
@@ -60,5 +61,7 @@
 "saint-lucia":{"flags":{"0":{"label":{"en":"Flag of Saint Lucia"}}}},
 "antigua-och-barbuda":{"flags":{"0":{"label":{"en":"Flag of Antigua and Barbuda"}}}},
 "grenada":{"flags":{"0":{"label":{"en":"Flag of Grenada"}}}},
+"kungariket-frankrike":{"flags":{"0":{"label":{"en":"Golden fleurs-de-lis scattered on blue"}},"1":{"label":{"en":"Three golden fleurs-de-lis on blue"}}}},
+"kungariket-polen":{"flags":{"0":{"label":{"en":"White eagle on red, modern reconstruction of the 1295 seal"}}}},
 "saint-kitts-och-nevis":{"flags":{"0":{"label":{"en":"Flag of Saint Kitts and Nevis"}}}}
 }}
