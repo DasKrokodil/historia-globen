@@ -1211,15 +1211,23 @@ async function run(browser, vp) {
     if (!(await page.textContent('#quiz-funfact')).trim() || !(await page.isVisible('#quiz-origin'))) throw new Error('vad källorna säger eller varifrån myten kommer saknas');
     await page.waitForFunction(() => document.querySelectorAll('#quiz-sources li').length > 0, null, { timeout: T.step });
     if (!/ av 1|1 /.test(await page.textContent('#quiz-score'))) throw new Error(`Sant eller myt räknades i poängen: ${await page.textContent('#quiz-score')}`);
-    await page.keyboard.press('Enter'); // Nästa fråga: tillbaka till samtidighet
-    await page.waitForFunction(() => document.getElementById('quiz-title').textContent.trim() === 'Vad hände samtidigt?', null, { timeout: T.step });
+    await page.keyboard.press('Enter'); // Nästa fråga: en tidsfråga ur data/quiz.json (#846)
+    await page.waitForFunction(() => /^(Vad kom först\?|Vad låg närmast i tid\?)$/.test(document.getElementById('quiz-title').textContent.trim()), null, { timeout: T.step });
     if (await page.isVisible('#quiz-origin')) throw new Error('mytens ursprung står kvar på nästa fråga');
-    if ((await page.textContent('#quiz-event .intro-event-label')).trim() !== 'Händelsen') throw new Error('etiketten står kvar som Påståendet på nästa fråga');
+    if (await page.isVisible('#quiz-event') && (await page.textContent('#quiz-event .intro-event-label')).trim() !== 'Händelsen') throw new Error('etiketten står kvar som Påståendet på nästa fråga');
+    if (await page.locator('#quiz-options button').count() !== 2) throw new Error('tidsfrågan har inte två svar');
+    if (await page.locator('#quiz-options .quiz-option-time:visible').count()) throw new Error('årtalen syns före svaret');
+    await page.keyboard.press('Enter');
+    await visible('#quiz-result');
+    if (await page.locator('#quiz-options .quiz-option-time:visible').count() !== 2) throw new Error('årtalen visas inte efter svaret på tidsfrågan');
+    if (!/\d+ år/.test(await page.textContent('#quiz-funfact'))) throw new Error(`facit räknar inte ut avståndet: ${await page.textContent('#quiz-funfact')}`);
+    await page.waitForFunction(() => document.querySelectorAll('#quiz-sources li').length > 0, null, { timeout: T.step });
+    if (!/ av 2|2 /.test(await page.textContent('#quiz-score'))) throw new Error(`tidsfrågan räknades inte i poängen: ${await page.textContent('#quiz-score')}`);
     await page.keyboard.press('Escape');
     await hidden('#quiz');
     const back = await page.evaluate(() => document.activeElement?.id);
     if (!['btn-quiz', 'btn-more', 'more-toggle'].includes(back)) throw new Error(`fokus gick till ${back} efter Escape`);
-    return 'tre svar, Enter svarar, årtal och källor efter svaret, Nästa fråga, Sant eller myt med facit utan poäng (#846), Escape och fokus tillbaka';
+    return 'tre svar, Enter svarar, årtal och källor efter svaret, Nästa fråga, Sant eller myt med facit utan poäng och en tidsfråga med uträknat avstånd (#846), Escape och fokus tillbaka';
   }
 
   await check('en guidad tur går att spela steg för steg och återställer lagren (#47)', async () => {

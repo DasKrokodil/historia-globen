@@ -419,6 +419,30 @@ if misc_path.is_file():
                 if s not in src_ids:
                     err(f'data/missuppfattningar.json ({mid}): källan {s} finns inte i sources.json')
 
+# 8c2. Quizets tidsfrågor (#846): varje fråga pekar på händelser som finns, med rätt antal för sin sort.
+quiz_path = ROOT / 'data' / 'quiz.json'
+if quiz_path.is_file():
+    try:
+        quiz = json.loads(quiz_path.read_text(encoding='utf-8'))
+    except ValueError as e:
+        quiz = None
+        err(f'data/quiz.json: går inte att läsa ({e})')
+    if quiz is not None:
+        seen = set()
+        for q in quiz.get('questions', []):
+            qid = q.get('id', '?')
+            if qid in seen:
+                err(f'data/quiz.json ({qid}): id finns två gånger')
+            seen.add(qid)
+            want = {'first': 2, 'closer': 3}.get(q.get('kind'))
+            if want is None:
+                err(f'data/quiz.json ({qid}): okänd sort {q.get("kind")}')
+            elif len(q.get('events', [])) != want:
+                err(f'data/quiz.json ({qid}): sorten {q.get("kind")} ska ha {want} händelser')
+            for i in q.get('events', []):
+                if i not in ev_ids:
+                    err(f'data/quiz.json ({qid}): händelsen {i} finns inte i events.json')
+
 # 8d. Perioder och epoker (#845, #476): filen läses inte av appen än; här kontrolleras den ur repot.
 per_path = ROOT / 'data' / 'perioder.json'
 if per_path.is_file():

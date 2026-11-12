@@ -2,11 +2,13 @@
 // Frågorna byggs av js/quiz-rules.js ur befintliga fun facts, så inga nya fakta skrivs. Efter svaret visas
 // rätt eller fel, alla tre händelsernas årtal, fun factens text och händelsernas källor. Poängen räknas bara
 // under besöket och sparas inte.
-// Varannan fråga är "Sant eller myt?" (#846) ur data/missuppfattningar.json: besökaren gissar och får sedan vad
-// källorna säger, varifrån missuppfattningen kommer och källorna. Den räknas inte i poängen (rätt svar är alltid myt).
-import { t, formatEventTime, isVisibleReview, loadSources, needDetails, loadMisconceptions } from '../model.js';
-import { ui } from '../i18n.js';
-import { nextQuestion, nextMyth, isMythTurn } from '../quiz-rules.js';
+// Tre sorters frågor turas om (#846): samtidighet, "Sant eller myt?" ur data/missuppfattningar.json (besökaren gissar
+// och får sedan vad källorna säger, varifrån missuppfattningen kommer och källorna; räknas inte i poängen, eftersom rätt
+// svar alltid är myt) och tid ur data/quiz.json ("Vad kom först?" och "Vad låg närmast?"; svaret och avståndet räknas
+// fram ur händelsernas årtal). Saknas frågor av en sort blir det en samtidighetsfråga.
+import { t, formatEventTime, isVisibleReview, loadSources, needDetails, loadMisconceptions, loadQuizPosts } from '../model.js';
+import { ui, LANG } from '../i18n.js';
+import { nextQuestion, nextMyth, nextTime, turnKind, roundGap, funfactFor } from '../quiz-rules.js';
 
 const focusable = root => [...root.querySelectorAll('button:not([disabled]), [href]')]
   .filter(el => !el.hidden && el.offsetParent !== null);
@@ -21,7 +23,8 @@ export class Quiz {
     Object.assign(this, els, { data, fallbackFocus });
     this.asked = new Set();
     this.askedMyths = new Set();
-    this.count = 0; // frågor ställda under besöket; varannan är Sant eller myt (#846)
+    this.askedTimes = new Set();
+    this.count = 0; // frågor ställda under besöket; samtidighet, Sant eller myt och tid turas om (#846)
     this.titleText = this.title?.textContent ?? '';
     this.eventLabel = this.event.querySelector('.intro-event-label');
     this.eventLabelText = this.eventLabel?.textContent ?? '';
@@ -44,6 +47,7 @@ export class Quiz {
     this.opener = opener;
     this.root.hidden = false;
     loadMisconceptions(); // laddas medan den första frågan läses; utan dem blir alla frågor om samtidighet
+    loadQuizPosts();
     this.ask();
   }
 
@@ -61,9 +65,12 @@ export class Quiz {
   /** Ställer nästa fråga. Fun facterna kommer i blandad ordning och upprepas inte förrän alla har kommit. */
   ask() {
     const { funfacts, byId, events } = this.data;
-    const myth = isMythTurn(this.count) ? nextMyth(this.data.misconceptions, isVisibleReview, this.askedMyths) : null;
+    const kind = turnKind(this.count);
+    const myth = kind === 'myth' ? nextMyth(this.data.misconceptions, isVisibleReview, this.askedMyths) : null;
+    const time = kind === 'time' ? nextTime(this.data.quizPosts, byId, isVisibleReview, this.askedTimes) : null;
     this.count += 1;
     if (myth) { this.askMyth(myth); return; }
+    if (time) { this.askTime(time); return; }
     if (this.title) this.title.textContent = this.titleText;
     if (this.eventLabel) this.eventLabel.textContent = this.eventLabelText;
     if (this.origin) this.origin.hidden = true;
@@ -126,6 +133,79 @@ export class Quiz {
     this.options.querySelector('button')?.focus({ preventScroll: true });
   }
 
+  /**
+   * Tid (#846): "Vad kom först?" med två händelser, eller "Vad låg närmast?" med händelsen i rutan och två att
+   * jämföra med. Årtalen visas först efter svaret. Räknas i poängen.
+   */
+  askTime(q) {
+    if (this.askedTimes.size >= (this.data.quizPosts ?? []).length) this.askedTimes.clear();
+    this.askedTimes.add(q.post.id);
+    this.q = { time: q };
+    this.result.hidden = true;
+    this.next.hidden = true;
+    this.showScore();
+    const first = q.kind === 'first';
+    if (this.title) this.title.textContent = ui(first ? 'quiz.firstTitle' : 'quiz.closerTitle');
+    if (this.eventLabel) this.eventLabel.textContent = this.eventLabelText;
+    this.event.hidden = first;
+    if (!first) {
+      this.eventTitle.textContent = t(q.subject.title);
+      this.eventMeta.textContent = `${formatEventTime(q.subject)} · ${t(q.subject.place)}`;
+    }
+    needDetails([...(q.subject ? [q.subject] : []), ...q.options])?.catch(() => {});
+    this.question.textContent = ui(first ? 'quiz.firstQuestion' : 'quiz.closerQuestion');
+    this.options.replaceChildren(...q.options.map(e => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'intro-choice quiz-option'; b.dataset.event = e.id;
+      const name = document.createElement('span'); name.className = 'quiz-option-title'; name.textContent = t(e.title);
+      const when = document.createElement('span'); when.className = 'quiz-option-time'; when.hidden = true;
+      when.textContent = formatEventTime(e);
+      b.append(name, when);
+      b.addEventListener('click', () => this.answerTime(e.id));
+      return b;
+    }));
+    this.options.querySelector('button')?.focus({ preventScroll: true });
+  }
+
+  /** Facit för en tidsfråga: rätt eller fel, årtalen, avståndet räknat ur årtalen, fun facten om det finns en, och källorna. */
+  answerTime(id) {
+    const q = this.q?.time;
+    if (!q || !this.result.hidden) return;
+    const right = id === q.answer.id;
+    this.total += 1;
+    if (right) this.right += 1;
+    for (const b of this.options.querySelectorAll('button')) {
+      b.disabled = true;
+      b.classList.toggle('is-answer', b.dataset.event === q.answer.id);
+      b.classList.toggle('is-wrong', b.dataset.event === id && !right);
+      b.querySelector('.quiz-option-time').hidden = false;
+      if (b.dataset.event === id) b.setAttribute('aria-pressed', 'true');
+    }
+    const years = n => { const s = new Intl.NumberFormat(LANG).format(roundGap(n, q.approx)); return q.approx ? `${ui('quiz.about')} ${s}` : s; };
+    this.verdict.textContent = right ? ui('quiz.right') : ui('quiz.wrong', { answer: t(q.answer.title) });
+    this.verdict.className = `quiz-verdict ${right ? 'is-right' : 'is-wrong'}`;
+    const [b, c] = q.options;
+    const explain = q.kind === 'first'
+      ? ui('quiz.firstAnswer', { first: t(q.answer.title), second: t(q.options.find(e => e !== q.answer).title), n: years(q.gap) })
+      : ui('quiz.closerAnswer', { b: t(b.title), x: years(q.gaps[b.id]), c: t(c.title), y: years(q.gaps[c.id]) });
+    const ff = funfactFor(q, this.data.funfacts, isVisibleReview);
+    this.funfact.textContent = ff ? `${explain} ${t(ff.text)}` : explain;
+    if (this.origin) this.origin.hidden = true;
+    this.showTimeSources(q);
+    this.showScore();
+    this.result.hidden = false;
+    this.next.hidden = false;
+    this.next.focus({ preventScroll: true });
+  }
+
+  async showTimeSources(q) {
+    const es = [...(q.subject ? [q.subject] : []), ...q.options];
+    this.sources.replaceChildren();
+    try { await (needDetails(es) ?? loadSources()); } catch { /* utan källregistret visas id:na */ }
+    if (this.q?.time !== q) return;
+    this.sources.replaceChildren(...[...new Set(es.flatMap(e => e.sources ?? []))].map(id => this.sourceItem(id)));
+  }
+
   /** Facit för Sant eller myt: det är en myt, vad källorna säger, varifrån den kommer och källorna. */
   answerMyth(value) {
     const m = this.q?.myth;
@@ -171,7 +251,7 @@ export class Quiz {
   /** Svaret: rätt eller fel, alla årtal, fun facten och källorna. Svarsknapparna låses. */
   answer(id) {
     const q = this.q;
-    if (!q || q.myth || !this.result.hidden) return;
+    if (!q || q.myth || q.time || !this.result.hidden) return;
     const right = id === q.answer.id;
     this.total += 1;
     if (right) this.right += 1;

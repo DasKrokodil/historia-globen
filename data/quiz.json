@@ -1,0 +1,16 @@
+{
+  "schema": "historia-globen/quiz@1",
+  "note": "Quizets frågor om tid (#846, beslut 2026-11-12). En fråga pekar bara på befintliga, källkontrollerade händelser i data/handelser/ med id; inga årtal står här. Svaret och avståndet räknas fram ur händelsernas årtal (js/quiz-rules.js, timeQuestion), och ungefärliga årtal (edtf med ~ eller ?, eller precision grövre än år) ger 'cirka' och ett tal avrundat till tiotal. kind 'first': vilken av två händelser kom först (minst 50 år emellan, räknat på starten). kind 'closer': låg den första händelsen närmast den andra eller den tredje i tid (avstånden måste skilja minst 100 år). Facit visar händelsernas källor och en fun fact om någon handlar om just de händelserna.",
+  "questions": [
+    { "id": "oxford-tenochtitlan", "kind": "first", "events": ["tenochtitlan", "oxford"] },
+    { "id": "qarawiyyin-oxford", "kind": "first", "events": ["oxford", "al-qarawiyyin-grundas"] },
+    { "id": "diamantsutran-gutenberg", "kind": "first", "events": ["gutenberg", "diamantsutran-trycks"] },
+    { "id": "lindisfarne-diamantsutran", "kind": "first", "events": ["diamantsutran-trycks", "lindisfarne"] },
+    { "id": "bollplan-olympia", "kind": "first", "events": ["olympiska-spelen", "paso-de-la-amada-bollplan"] },
+    { "id": "tonga-olympia", "kind": "first", "events": ["olympiska-spelen", "lapitafolket-nar-tonga"] },
+    { "id": "harvard-machu-picchu", "kind": "first", "events": ["harvard", "machu-picchu"] },
+    { "id": "oxford-moai", "kind": "first", "events": ["moai-rapa-nui", "oxford"] },
+    { "id": "kamakura-columbus", "kind": "first", "events": ["columbus", "stora-buddha-i-kamakura"] },
+    { "id": "kleopatra-manen", "kind": "closer", "events": ["kleopatra", "cheopspyramiden", "apollo-11"] }
+  ]
+}

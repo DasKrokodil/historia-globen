@@ -19,6 +19,7 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 - `utkast/` – utkast från massimport som appen inte läser.
 - `funfacts.json` – fun facts kopplade till händelser.
 - `missuppfattningar.json` (#838) – vanliga historiska missuppfattningar.
+- `quiz.json` (#846) – quizets tidsfrågor, som bara pekar på händelser.
 - `perioder.json` (#845, #476) – epoker och perioder, som indelningar med årtal och källa; indelningarna `lgr22`, `norden-forntid`, `antiken` och `industrialiseringen`.
 - `teman.json` (#398) – teman som namngivna urval av befintliga händelser; filen finns sedan bygget (#962), innehåller första temat, teknik (#105, 2026-11-11).
 - `sources.json` – källregistret.
@@ -286,6 +287,15 @@ Vad många tror, vad källorna säger och var missuppfattningen kom ifrån (besl
 
 `scripts/validate-site.py` kontrollerar schemat och att `events` och `sources` finns. Texterna ingår i `tools/oversattning.py`.
 
+
+## `quiz.json`: quizets tidsfrågor (#846)
+
+Frågor av sorten "Vad kom först?" och "Vad låg närmast i tid?" (beslut 2026-11-12, `docs/beslut/2026-11-12-quiz-sant-eller-myt.md`). En fråga är `{ "id", "kind", "events" }`:
+
+- `kind: "first"`: två händelser; den som **startar** först är rätt svar. Starterna måste ligga minst 50 år isär (`MIN_ORDER_GAP`).
+- `kind: "closer"`: tre händelser; rätt svar är den av den andra och tredje som ligger närmast den första i tid, räknat som avstånd mellan spannen (`gapBetween`). Avstånden måste skilja minst 100 år (`MIN_CLOSER_DIFF`).
+
+Inga årtal, svar eller texter står i filen. Svaret och avståndet räknas fram ur händelsernas årtal i `js/quiz-rules.js` (`timeQuestion`), så att siffrorna alltid går att räkna fram ur källkontrollerade händelser (Källpolicy punkt 5). Är något av årtalen ungefärligt (`edtf` med `~` eller `?`, eller `precision` grövre än år) skrivs avståndet med "cirka" och avrundas till tiotal. Facit visar händelsernas källor, och en fun fact om någon fun fact handlar om just frågans händelser. `scripts/validate-site.py` kontrollerar att händelserna finns och att antalet stämmer med sorten, och `tests/quiz.test.mjs` att varje fråga ger ett tydligt svar.
 ## `sources.json`: källregister
 
 Laddas vid första faktarutan, klickrutan för en väg, upptäcktsvyn eller Om källorna (#337), inte vid start.
