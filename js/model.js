@@ -212,7 +212,7 @@ export function formatDirection(when, year, eventYear) {
 /** Samma avstånd i Samtidigt-panelen: "34 år tidigare", "21 år senare". `amount` är hela år, och i fokusläget för korta krig (fine, #204) år som bråkdel som blir dagar. */
 export function formatOffset(when, amount, fine = false) {
   const n = fine ? Math.max(1, Math.round(amount * 365.25)) : Math.max(1, Math.round(amount));
-  return pluralUi(`panel.${when === 'past' ? 'earlier' : 'later'}${fine ? 'Days' : ''}`, n);
+  return pluralUi(`panel.${when === 'past' ? 'earlier' : 'later'}${fine ? 'Days' : ''}`, n, { n: groupDigits(n) }); // "5 000 år tidigare" (#1093)
 }
 
 /** Stort årtal i huvudet: [siffra, epok]. */
@@ -319,8 +319,9 @@ export function formatEventTime(e) {
   if (edtf.endsWith('/..')) return ui('time.since', { start: formatYear(e.start) });
   if (edtf.startsWith('../')) return ui('time.until', { end: approx + formatYear(e.end) });
   if (e.start === e.end) return approx + formatYear(e.start);
-  if (isBCE(e.start) && isBCE(e.end)) return `${approx}${bce(e.start)}–${bce(e.end)} ${BCE_TXT}`;
-  if (isBCE(e.start)) return `${approx}${bce(e.start)} ${BCE_TXT}–${e.end} ${CE_TXT}`;
+  // Stora år med språkets avgränsare (#1085, #1093): "cirka 53 000–50 000 f.Kr."
+  if (isBCE(e.start) && isBCE(e.end)) return `${approx}${groupDigits(bce(e.start))}–${groupDigits(bce(e.end))} ${BCE_TXT}`;
+  if (isBCE(e.start)) return `${approx}${groupDigits(bce(e.start))} ${BCE_TXT}–${e.end} ${CE_TXT}`;
   return `${approx}${e.start}–${e.end}`;
 }
 
