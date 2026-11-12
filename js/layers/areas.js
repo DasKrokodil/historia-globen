@@ -10,7 +10,7 @@
 import { t, isVisibleReview, loadEmpire } from '../model.js';
 import { glyph, flag, drawFlag } from './events.js';
 import { drawMedal, ORIGIN_R } from './religions.js';
-import { softEdge, influenceAt, drawInfluence } from './area-style.js';
+import { softEdge, influenceAt, drawInfluence, traceRing } from './area-style.js';
 import { AreaTransition, MAX_JUMP_YEARS } from './area-transition.js';
 import { EmpireMarkers } from './empiremarks.js';
 import { Z } from './registry.js';
@@ -371,10 +371,7 @@ export class AreasLayer {
       const alpha = transitionAlpha * (!this.highlight || polity.group === this.highlight ? 1 : 0.25);
       ctx.beginPath();
       for (const rings of polygons(period.geometry)) {
-        for (const ring of rings) {
-          ring.forEach(([lon, lat], i) => i ? ctx.lineTo(X(lon), Y(lat)) : ctx.moveTo(X(lon), Y(lat)));
-          ctx.closePath();
-        }
+        for (const ring of rings) traceRing(ctx, ring, X, Y); // också över datumlinjen (#1097)
       }
       if (polity.uncertainBorder) { // osäker gräns: mjuk kant (#73)
         ctx.globalAlpha = alpha; softEdge(ctx, polity.color, k); ctx.globalAlpha = 1; continue;
@@ -403,10 +400,7 @@ export class AreasLayer {
       ctx.globalAlpha = alpha;
       ctx.beginPath();
       for (const rings of polygons(period.homeland)) {
-        for (const ring of rings) {
-          ring.forEach(([lon, lat], i) => i ? ctx.lineTo(X(lon), Y(lat)) : ctx.moveTo(X(lon), Y(lat)));
-          ctx.closePath();
-        }
+        for (const ring of rings) traceRing(ctx, ring, X, Y); // också över datumlinjen (#1097)
       }
       ctx.fillStyle = hexA(polity.color, 0.4);
       ctx.fill('evenodd');
