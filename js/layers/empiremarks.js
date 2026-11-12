@@ -57,7 +57,7 @@ export class EmpireMarkers {
     const button = document.createElement('button');
     button.type = 'button'; button.className = 'gorigin gempire'; button.hidden = true;
     button.setAttribute('aria-label', markLabel(m));
-    button.title = `${m.name}. Klicka för att läsa mer.`;
+    button.title = ui('marks.empire.title', { name: m.name }); // hovringstexten följer språket (#1188)
     const it = { sprite, button, mark: m, visual: `${m.kind}:${m.symbol}`, lon: null, lat: null };
     button.addEventListener('click', () => this.onPick(it.mark));
     this.labelsEl.append(button);

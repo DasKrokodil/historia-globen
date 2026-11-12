@@ -8,6 +8,7 @@ import { THREE, latLonToVec3, R } from '../globe.js';
 import { medalTexture } from './events.js';
 import { t, formatEventTime } from '../model.js';
 import { ORIGIN_R } from './religions.js';
+import { ui } from '../i18n.js';
 
 export const MIN_PX = 26; const MAX_PX = 46; // lite större än händelsernas medaljer (16–48 px), så att symbolen syns
 const INFO = { when: 'now', major: false, unsure: false };
@@ -45,8 +46,9 @@ export class OriginMarkers {
     const button = document.createElement('button');
     button.type = 'button'; button.className = 'gorigin'; button.hidden = true;
     const name = t(religion.name);
-    const desc = `${name} uppstod här: ${t(event.title)}, ${formatEventTime(event)}. Öppnar faktarutan om ${name.toLowerCase()}.`;
-    button.setAttribute('aria-label', desc); button.title = `${name}: där religionen uppstod. Klicka för faktarutan.`;
+    // Skärmläsar- och hovringstexten följer språket (#1188)
+    const desc = ui('marks.origin.label', { name, event: t(event.title), time: formatEventTime(event) });
+    button.setAttribute('aria-label', desc); button.title = ui('marks.origin.title', { name });
     button.addEventListener('click', () => this.onPick(religion.id));
     this.labelsEl.append(button);
     const it = { sprite, button, religion, event };
