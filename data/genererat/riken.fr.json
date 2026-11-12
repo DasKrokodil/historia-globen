@@ -35,6 +35,8 @@
 "antigua-och-barbuda":{"flags":{"0":{"label":{"fr":"Drapeau d’Antigua-et-Barbuda"}}}},
 "grenada":{"flags":{"0":{"label":{"fr":"Drapeau de la Grenade"}}}},
 "kungariket-frankrike":{"flags":{"0":{"label":{"fr":"Fleurs de lys d’or semées sur fond bleu"}},"1":{"label":{"fr":"Trois fleurs de lys d’or sur fond bleu"}}}},
+"almoravider":{"flags":{"0":{"label":{"fr":"Étendard noir"}}}},
+"almohader":{"flags":{"0":{"label":{"fr":"Étendard blanc"}}}},
 "kungariket-polen":{"flags":{"0":{"label":{"fr":"Aigle blanc sur fond rouge, reconstitution moderne du sceau de 1295"}}}},
 "saint-kitts-och-nevis":{"flags":{"0":{"label":{"fr":"Drapeau de Saint-Christophe-et-Niévès"}}}}
 }}
