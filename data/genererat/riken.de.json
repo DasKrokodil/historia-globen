@@ -27,6 +27,7 @@
 "honduras":{"flags":{"0":{"label":{"de":"Honduranische Flagge mit fünf Sternen"}}}},
 "guatemala":{"flags":{"0":{"label":{"de":"Guatemaltekische Zivilflagge"}}}},
 "costa-rica":{"flags":{"0":{"label":{"de":"Flagge Costa Ricas"}}}},
+"schweiz":{"flags":{"0":{"label":{"de":"Eidgenössisches Wappen: weißes Kreuz auf Rot"}},"1":{"label":{"de":"Flagge der Schweiz"}}}},
 "bahamas":{"flags":{"0":{"label":{"de":"Flagge der Bahamas"}}}},
 "jamaica":{"flags":{"0":{"label":{"de":"Flagge Jamaikas"}}}},
 "trinidad-och-tobago":{"flags":{"0":{"label":{"de":"Flagge von Trinidad und Tobago"}}}},
@@ -34,5 +35,7 @@
 "saint-lucia":{"flags":{"0":{"label":{"de":"Flagge von St. Lucia"}}}},
 "antigua-och-barbuda":{"flags":{"0":{"label":{"de":"Flagge von Antigua und Barbuda"}}}},
 "grenada":{"flags":{"0":{"label":{"de":"Flagge Grenadas"}}}},
+"kungariket-frankrike":{"flags":{"0":{"label":{"de":"Goldene Lilien verstreut auf Blau"}},"1":{"label":{"de":"Drei goldene Lilien auf Blau"}}}},
+"kungariket-polen":{"flags":{"0":{"label":{"de":"Weißer Adler auf Rot, moderne Rekonstruktion des Siegels von 1295"}}}},
 "saint-kitts-och-nevis":{"flags":{"0":{"label":{"de":"Flagge von St. Kitts und Nevis"}}}}
 }}
