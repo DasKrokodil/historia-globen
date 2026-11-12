@@ -30,6 +30,8 @@ export function createRender(app) {
   const religionNames = () => $('flat-view').hidden && zoomMag() >= NAMES_MAG;
   // Riken med symbol (#301): utzoomat på globen bara symbolen, vid nära zoom och i Platt vy även namnet
   const empireNames = () => !$('flat-view').hidden || zoomMag() >= NAMES_MAG;
+  // Nutida staters flaggor (#1193) syns bara vid nära zoom på globen och i Platt vy från nivån Inzoomat; annars namnet
+  const modernFlags = () => $('flat-view').hidden ? zoomMag() >= NAMES_MAG : zoomLevel(pxPerImg(globe, flatMap)) >= 2;
   function nameStyle() {
     if (!$('flat-view').hidden) return [ZOOM_LEVELS[zoomLevel(flatMap.scale)].flatScale, 1]; // efter zoomnivån (#358)
     const mag = zoomMag();
@@ -44,7 +46,7 @@ export function createRender(app) {
       const [sc, al] = nameStyle();
       const l = state.labels;
       // Ny zoomnivå (#358) ändrar vilka rikesnamn och medaljer som får plats
-      if (l.scale !== sc || l.alpha !== al || l.religionNames !== religionNames() || l.empireNames !== empireNames()
+      if (l.scale !== sc || l.alpha !== al || l.religionNames !== religionNames() || l.empireNames !== empireNames() || l.modernFlags !== modernFlags()
         || areas.view.level !== zoomLevel(pxPerImg(globe, flatMap))) refresh();
     }, 150);
   };
@@ -81,7 +83,7 @@ export function createRender(app) {
     const focus = state.focus;
     // Namn och symboler på lagerbilden efter zoom och vy (#154, #271, #301)
     const [scale, alpha] = nameStyle();
-    state.labels = { scale, alpha, religionNames: religionNames(), empireNames: empireNames() };
+    state.labels = { scale, alpha, religionNames: religionNames(), empireNames: empireNames(), modernFlags: modernFlags() };
     // I fokusläget för korta krig är året ett decimaltal (#204). Händelser och krig får då sina
     // datum ur edtf (span), medan riken, religioner och fun facts får det hela året som förut.
     const year = timeline.year, wholeYear = Math.floor(year), fine = !!focus?.fine;

@@ -17981,6 +17981,7 @@
   },
   {
    "id": "usa",
+   "modernState": true,
    "name": {
     "sv": "USA",
     "en": "United States"
@@ -18548,6 +18549,7 @@
   },
   {
    "id": "mexiko",
+   "modernState": true,
    "name": {
     "sv": "Mexiko",
     "en": "Mexico"
@@ -18892,6 +18894,7 @@
   },
   {
    "id": "brasilien",
+   "modernState": true,
    "name": {
     "sv": "Brasilien: kejsardömet och republiken",
     "en": "Brazil: the Empire and the Republic"
@@ -19177,6 +19180,7 @@
   },
   {
    "id": "argentina",
+   "modernState": true,
    "name": {
     "sv": "Argentina",
     "en": "Argentina"
@@ -19419,6 +19423,7 @@
   },
   {
    "id": "paraguay",
+   "modernState": true,
    "name": {
     "sv": "Paraguay",
     "en": "Paraguay"
@@ -19652,6 +19657,7 @@
   },
   {
    "id": "uruguay",
+   "modernState": true,
    "name": {
     "sv": "Uruguay",
     "en": "Uruguay"
@@ -19851,6 +19857,7 @@
   },
   {
    "id": "israel",
+   "modernState": true,
    "name": {
     "sv": "Israel",
     "en": "Israel"
@@ -20086,6 +20093,7 @@
   },
   {
    "id": "palestina",
+   "modernState": true,
    "name": {
     "sv": "Palestina",
     "en": "Palestine",
@@ -20154,6 +20162,7 @@
   },
   {
    "id": "moderna-egypten",
+   "modernState": true,
    "name": {
     "sv": "Egypten från 1922",
     "en": "Egypt since 1922"
@@ -20457,6 +20466,7 @@
   },
   {
    "id": "syrien",
+   "modernState": true,
    "name": {
     "sv": "Syrien",
     "en": "Syria"
@@ -20719,6 +20729,7 @@
   },
   {
    "id": "jordanien",
+   "modernState": true,
    "name": {
     "sv": "Jordanien",
     "en": "Jordan"
@@ -20942,6 +20953,7 @@
   },
   {
    "id": "irak",
+   "modernState": true,
    "name": {
     "sv": "Irak: kungariket och republiken",
     "en": "Iraq: the Kingdom and the Republic"
@@ -21192,6 +21204,7 @@
   },
   {
    "id": "iran",
+   "modernState": true,
    "name": {
     "sv": "Iran: qajarerna, pahlavi och islamiska republiken",
     "en": "Iran: the Qajars, the Pahlavis and the Islamic Republic"
@@ -21496,6 +21509,7 @@
   },
   {
    "id": "kuwait",
+   "modernState": true,
    "name": {
     "sv": "Kuwait",
     "en": "Kuwait"
@@ -21733,6 +21747,7 @@
   },
   {
    "id": "indien",
+   "modernState": true,
    "name": {
     "sv": "Indien",
     "en": "India"
@@ -22015,6 +22030,7 @@
   },
   {
    "id": "pakistan",
+   "modernState": true,
    "name": {
     "sv": "Pakistan",
     "en": "Pakistan"
@@ -22340,6 +22356,7 @@
   },
   {
    "id": "bangladesh",
+   "modernState": true,
    "name": {
     "sv": "Bangladesh",
     "en": "Bangladesh"
@@ -22589,6 +22606,7 @@
   },
   {
    "id": "afghanistan",
+   "modernState": true,
    "name": {
     "sv": "Afghanistan: Durranis rike, emiratet, kungariket och republiken",
     "en": "Afghanistan: the Durrani Empire, the Emirate, the Kingdom and the Republic"
@@ -23492,6 +23510,7 @@
   },
   {
    "id": "nordkorea",
+   "modernState": true,
    "name": {
     "sv": "Nordkorea",
     "en": "North Korea"
@@ -23750,6 +23769,7 @@
   },
   {
    "id": "sydkorea",
+   "modernState": true,
    "name": {
     "sv": "Sydkorea",
     "en": "South Korea"
@@ -24011,6 +24031,7 @@
   },
   {
    "id": "vietnam",
+   "modernState": true,
    "name": {
     "sv": "Vietnam: Nordvietnam och det enade Vietnam",
     "en": "Vietnam: North Vietnam and unified Vietnam"
@@ -24752,6 +24773,7 @@
   },
   {
    "id": "nigeria",
+   "modernState": true,
    "name": {
     "sv": "Nigeria",
     "en": "Nigeria"
@@ -24966,6 +24988,7 @@
   },
   {
    "id": "kongo-kinshasa",
+   "modernState": true,
    "name": {
     "sv": "Kongo-Kinshasa",
     "en": "Democratic Republic of the Congo"
@@ -25162,6 +25185,7 @@
   },
   {
    "id": "rwanda",
+   "modernState": true,
    "name": {
     "sv": "Rwanda",
     "en": "Rwanda"
@@ -25341,6 +25365,7 @@
   },
   {
    "id": "uganda",
+   "modernState": true,
    "name": {
     "sv": "Uganda",
     "en": "Uganda"
@@ -25745,6 +25770,7 @@
   },
   {
    "id": "australien",
+   "modernState": true,
    "name": {
     "sv": "Australien",
     "en": "Australia"
@@ -25941,6 +25967,7 @@
   },
   {
    "id": "nya-zeeland",
+   "modernState": true,
    "name": {
     "sv": "Nya Zeeland",
     "en": "New Zealand"
@@ -26120,6 +26147,7 @@
   },
   {
    "id": "papua-nya-guinea",
+   "modernState": true,
    "name": {
     "sv": "Papua Nya Guinea",
     "en": "Papua New Guinea"
@@ -26295,6 +26323,7 @@
   },
   {
    "id": "kanada",
+   "modernState": true,
    "name": {
     "sv": "Kanada",
     "en": "Canada"
@@ -26471,6 +26500,7 @@
   },
   {
    "id": "chile",
+   "modernState": true,
    "name": {
     "sv": "Chile",
     "en": "Chile"
@@ -26648,6 +26678,7 @@
   },
   {
    "id": "peru",
+   "modernState": true,
    "name": {
     "sv": "Peru",
     "en": "Peru"
@@ -26832,6 +26863,7 @@
   },
   {
    "id": "bolivia",
+   "modernState": true,
    "name": {
     "sv": "Bolivia",
     "en": "Bolivia"
@@ -27018,6 +27050,7 @@
   },
   {
    "id": "colombia",
+   "modernState": true,
    "name": {
     "sv": "Colombia: Nya Granada och republiken",
     "en": "Colombia: New Granada and the Republic"
@@ -27252,6 +27285,7 @@
   },
   {
    "id": "venezuela",
+   "modernState": true,
    "name": {
     "sv": "Venezuela",
     "en": "Venezuela"
@@ -27427,6 +27461,7 @@
   },
   {
    "id": "ecuador",
+   "modernState": true,
    "name": {
     "sv": "Ecuador",
     "en": "Ecuador"
@@ -27584,6 +27619,7 @@
   },
   {
    "id": "haiti",
+   "modernState": true,
    "name": {
     "sv": "Haiti",
     "en": "Haiti"
@@ -27789,6 +27825,7 @@
   },
   {
    "id": "ukraina",
+   "modernState": true,
    "name": {
     "sv": "Ukraina",
     "en": "Ukraine"
@@ -28055,6 +28092,7 @@
   },
   {
    "id": "ryska-federationen",
+   "modernState": true,
    "name": {
     "sv": "Ryska federationen",
     "en": "Russian Federation"
@@ -28290,6 +28328,7 @@
   },
   {
    "id": "kina",
+   "modernState": true,
    "name": {
     "sv": "Kina",
     "en": "China",
@@ -28364,6 +28403,7 @@
   },
   {
    "id": "taiwan",
+   "modernState": true,
    "name": {
     "sv": "Taiwan",
     "en": "Taiwan",
@@ -28405,6 +28445,7 @@
   },
   {
    "id": "kazakstan",
+   "modernState": true,
    "name": {
     "sv": "Kazakstan",
     "en": "Kazakhstan",
@@ -28435,6 +28476,7 @@
   },
   {
    "id": "algeriet",
+   "modernState": true,
    "name": {
     "sv": "Algeriet",
     "en": "Algeria",
@@ -28465,6 +28507,7 @@
   },
   {
    "id": "danmark",
+   "modernState": true,
    "name": {
     "sv": "Danmark",
     "en": "Denmark",
@@ -28510,6 +28553,7 @@
   },
   {
    "id": "indonesien",
+   "modernState": true,
    "name": {
     "sv": "Indonesien",
     "en": "Indonesia",
@@ -28555,6 +28599,7 @@
   },
   {
    "id": "saudiarabien",
+   "modernState": true,
    "name": {
     "sv": "Saudiarabien",
     "en": "Saudi Arabia",
@@ -28599,6 +28644,7 @@
   },
   {
    "id": "sudan",
+   "modernState": true,
    "name": {
     "sv": "Sudan",
     "en": "Sudan",
@@ -28629,6 +28675,7 @@
   },
   {
    "id": "libyen",
+   "modernState": true,
    "name": {
     "sv": "Libyen",
     "en": "Libya",
@@ -28673,6 +28720,7 @@
   },
   {
    "id": "mongoliet",
+   "modernState": true,
    "name": {
     "sv": "Mongoliet",
     "en": "Mongolia",
@@ -28717,6 +28765,7 @@
   },
   {
    "id": "tchad",
+   "modernState": true,
    "name": {
     "sv": "Tchad",
     "en": "Chad",
@@ -28747,6 +28796,7 @@
   },
   {
    "id": "angola",
+   "modernState": true,
    "name": {
     "sv": "Angola",
     "en": "Angola",
@@ -28777,6 +28827,7 @@
   },
   {
    "id": "mali",
+   "modernState": true,
    "name": {
     "sv": "Mali",
     "en": "Mali",
@@ -28807,6 +28858,7 @@
   },
   {
    "id": "sydafrika",
+   "modernState": true,
    "name": {
     "sv": "Sydafrika",
     "en": "South Africa",
@@ -28871,6 +28923,7 @@
   },
   {
    "id": "niger",
+   "modernState": true,
    "name": {
     "sv": "Niger",
     "en": "Niger",
@@ -28901,6 +28954,7 @@
   },
   {
    "id": "mauretanien",
+   "modernState": true,
    "name": {
     "sv": "Mauretanien",
     "en": "Mauritania",
@@ -28931,6 +28985,7 @@
   },
   {
    "id": "tanzania",
+   "modernState": true,
    "name": {
     "sv": "Tanzania",
     "en": "Tanzania",
@@ -28961,6 +29016,7 @@
   },
   {
    "id": "namibia",
+   "modernState": true,
    "name": {
     "sv": "Namibia",
     "en": "Namibia",
@@ -28991,6 +29047,7 @@
   },
   {
    "id": "mocambique",
+   "modernState": true,
    "name": {
     "sv": "Moçambique",
     "en": "Mozambique",
@@ -29021,6 +29078,7 @@
   },
   {
    "id": "turkiet",
+   "modernState": true,
    "name": {
     "sv": "Turkiet",
     "en": "Turkey",
@@ -29051,6 +29109,7 @@
   },
   {
    "id": "zambia",
+   "modernState": true,
    "name": {
     "sv": "Zambia",
     "en": "Zambia",
@@ -29081,6 +29140,7 @@
   },
   {
    "id": "frankrike",
+   "modernState": true,
    "name": {
     "sv": "Frankrike",
     "en": "France",
@@ -29126,6 +29186,7 @@
   },
   {
    "id": "myanmar",
+   "modernState": true,
    "name": {
     "sv": "Myanmar",
     "en": "Myanmar",
@@ -29156,6 +29217,7 @@
   },
   {
    "id": "somalia",
+   "modernState": true,
    "name": {
     "sv": "Somalia",
     "en": "Somalia",
@@ -29186,6 +29248,7 @@
   },
   {
    "id": "centralafrikanska-republiken",
+   "modernState": true,
    "name": {
     "sv": "Centralafrikanska republiken",
     "en": "Central African Republic",
@@ -29216,6 +29279,7 @@
   },
   {
    "id": "madagaskar",
+   "modernState": true,
    "name": {
     "sv": "Madagaskar",
     "en": "Madagascar",
@@ -29246,6 +29310,7 @@
   },
   {
    "id": "sydsudan",
+   "modernState": true,
    "name": {
     "sv": "Sydsudan",
     "en": "South Sudan",
@@ -29276,6 +29341,7 @@
   },
   {
    "id": "kenya",
+   "modernState": true,
    "name": {
     "sv": "Kenya",
     "en": "Kenya",
@@ -29306,6 +29372,7 @@
   },
   {
    "id": "botswana",
+   "modernState": true,
    "name": {
     "sv": "Botswana",
     "en": "Botswana",
@@ -29336,6 +29403,7 @@
   },
   {
    "id": "thailand",
+   "modernState": true,
    "name": {
     "sv": "Thailand",
     "en": "Thailand",
@@ -29366,6 +29434,7 @@
   },
   {
    "id": "turkmenistan",
+   "modernState": true,
    "name": {
     "sv": "Turkmenistan",
     "en": "Turkmenistan",
@@ -29396,6 +29465,7 @@
   },
   {
    "id": "kamerun",
+   "modernState": true,
    "name": {
     "sv": "Kamerun",
     "en": "Cameroon",
@@ -29426,6 +29496,7 @@
   },
   {
    "id": "spanien",
+   "modernState": true,
    "name": {
     "sv": "Spanien",
     "en": "Spain",
@@ -29499,6 +29570,7 @@
   },
   {
    "id": "jemen",
+   "modernState": true,
    "name": {
     "sv": "Jemen",
     "en": "Yemen",
@@ -29529,6 +29601,7 @@
   },
   {
    "id": "norge",
+   "modernState": true,
    "name": {
     "sv": "Norge",
     "en": "Norway",
@@ -29571,6 +29644,7 @@
   },
   {
    "id": "uzbekistan",
+   "modernState": true,
    "name": {
     "sv": "Uzbekistan",
     "en": "Uzbekistan",
@@ -29601,6 +29675,7 @@
   },
   {
    "id": "japan",
+   "modernState": true,
    "name": {
     "sv": "Japan",
     "en": "Japan",
@@ -29631,6 +29706,7 @@
   },
   {
    "id": "marocko",
+   "modernState": true,
    "name": {
     "sv": "Marocko",
     "en": "Morocco",
@@ -29671,6 +29747,7 @@
   },
   {
    "id": "zimbabwe",
+   "modernState": true,
    "name": {
     "sv": "Zimbabwe",
     "en": "Zimbabwe",
@@ -29701,6 +29778,7 @@
   },
   {
    "id": "tyskland",
+   "modernState": true,
    "name": {
     "sv": "Tyskland",
     "en": "Germany",
@@ -29731,6 +29809,7 @@
   },
   {
    "id": "malaysia",
+   "modernState": true,
    "name": {
     "sv": "Malaysia",
     "en": "Malaysia",
@@ -29761,6 +29840,7 @@
   },
   {
    "id": "kongo-brazzaville",
+   "modernState": true,
    "name": {
     "sv": "Kongo-Brazzaville",
     "en": "Republic of the Congo",
@@ -29791,6 +29871,7 @@
   },
   {
    "id": "filippinerna",
+   "modernState": true,
    "name": {
     "sv": "Filippinerna",
     "en": "Philippines",
@@ -29821,6 +29902,7 @@
   },
   {
    "id": "finland",
+   "modernState": true,
    "name": {
     "sv": "Finland",
     "en": "Finland",
@@ -29851,6 +29933,7 @@
   },
   {
    "id": "elfenbenskusten",
+   "modernState": true,
    "name": {
     "sv": "Elfenbenskusten",
     "en": "Ivory Coast",
@@ -29881,6 +29964,7 @@
   },
   {
    "id": "polen",
+   "modernState": true,
    "name": {
     "sv": "Polen",
     "en": "Poland",
@@ -29925,6 +30009,7 @@
   },
   {
    "id": "oman",
+   "modernState": true,
    "name": {
     "sv": "Oman",
     "en": "Oman",
@@ -29969,6 +30054,7 @@
   },
   {
    "id": "italien",
+   "modernState": true,
    "name": {
     "sv": "Italien",
     "en": "Italy",
@@ -30025,6 +30111,7 @@
   },
   {
    "id": "burkina-faso",
+   "modernState": true,
    "name": {
     "sv": "Burkina Faso",
     "en": "Burkina Faso",
@@ -30055,6 +30142,7 @@
   },
   {
    "id": "gabon",
+   "modernState": true,
    "name": {
     "sv": "Gabon",
     "en": "Gabon",
@@ -30085,6 +30173,7 @@
   },
   {
    "id": "guinea",
+   "modernState": true,
    "name": {
     "sv": "Guinea",
     "en": "Guinea",
@@ -30115,6 +30204,7 @@
   },
   {
    "id": "ghana",
+   "modernState": true,
    "name": {
     "sv": "Ghana",
     "en": "Ghana",
@@ -30195,6 +30285,7 @@
   },
   {
    "id": "rumanien",
+   "modernState": true,
    "name": {
     "sv": "Rumänien",
     "en": "Romania",
@@ -30253,6 +30344,7 @@
   },
   {
    "id": "laos",
+   "modernState": true,
    "name": {
     "sv": "Laos",
     "en": "Laos",
@@ -30297,6 +30389,7 @@
   },
   {
    "id": "guyana",
+   "modernState": true,
    "name": {
     "sv": "Guyana",
     "en": "Guyana",
@@ -30327,6 +30420,7 @@
   },
   {
    "id": "belarus",
+   "modernState": true,
    "name": {
     "sv": "Belarus",
     "en": "Belarus",
@@ -30357,6 +30451,7 @@
   },
   {
    "id": "senegal",
+   "modernState": true,
    "name": {
     "sv": "Senegal",
     "en": "Senegal",
@@ -30387,6 +30482,7 @@
   },
   {
    "id": "kirgizistan",
+   "modernState": true,
    "name": {
     "sv": "Kirgizistan",
     "en": "Kyrgyzstan",
@@ -30417,6 +30513,7 @@
   },
   {
    "id": "kambodja",
+   "modernState": true,
    "name": {
     "sv": "Kambodja",
     "en": "Cambodia",
@@ -30475,6 +30572,7 @@
   },
   {
    "id": "tunisien",
+   "modernState": true,
    "name": {
     "sv": "Tunisien",
     "en": "Tunisia",
@@ -30505,6 +30603,7 @@
   },
   {
    "id": "nepal",
+   "modernState": true,
    "name": {
     "sv": "Nepal",
     "en": "Nepal",
@@ -30535,6 +30634,7 @@
   },
   {
    "id": "surinam",
+   "modernState": true,
    "name": {
     "sv": "Surinam",
     "en": "Suriname",
@@ -30565,6 +30665,7 @@
   },
   {
    "id": "tadzjikistan",
+   "modernState": true,
    "name": {
     "sv": "Tadzjikistan",
     "en": "Tajikistan",
@@ -30595,6 +30696,7 @@
   },
   {
    "id": "nicaragua",
+   "modernState": true,
    "name": {
     "sv": "Nicaragua",
     "en": "Nicaragua",
@@ -30625,6 +30727,7 @@
   },
   {
    "id": "eritrea",
+   "modernState": true,
    "name": {
     "sv": "Eritrea",
     "en": "Eritrea",
@@ -30655,6 +30758,7 @@
   },
   {
    "id": "kuba",
+   "modernState": true,
    "name": {
     "sv": "Kuba",
     "en": "Cuba",
@@ -30685,6 +30789,7 @@
   },
   {
    "id": "grekland",
+   "modernState": true,
    "name": {
     "sv": "Grekland",
     "en": "Greece",
@@ -30715,6 +30820,7 @@
   },
   {
    "id": "benin",
+   "modernState": true,
    "name": {
     "sv": "Benin",
     "en": "Benin",
@@ -30745,6 +30851,7 @@
   },
   {
    "id": "honduras",
+   "modernState": true,
    "name": {
     "sv": "Honduras",
     "en": "Honduras",
@@ -30776,6 +30883,7 @@
   },
   {
    "id": "island",
+   "modernState": true,
    "name": {
     "sv": "Island",
     "en": "Iceland",
@@ -30820,6 +30928,7 @@
   },
   {
    "id": "bulgarien",
+   "modernState": true,
    "name": {
     "sv": "Bulgarien",
     "en": "Bulgaria",
@@ -30850,6 +30959,7 @@
   },
   {
    "id": "guatemala",
+   "modernState": true,
    "name": {
     "sv": "Guatemala",
     "en": "Guatemala",
@@ -30881,6 +30991,7 @@
   },
   {
    "id": "liberia",
+   "modernState": true,
    "name": {
     "sv": "Liberia",
     "en": "Liberia",
@@ -30911,6 +31022,7 @@
   },
   {
    "id": "portugal",
+   "modernState": true,
    "name": {
     "sv": "Portugal",
     "en": "Portugal",
@@ -30941,6 +31053,7 @@
   },
   {
    "id": "malawi",
+   "modernState": true,
    "name": {
     "sv": "Malawi",
     "en": "Malawi",
@@ -30971,6 +31084,7 @@
   },
   {
    "id": "ungern",
+   "modernState": true,
    "name": {
     "sv": "Ungern",
     "en": "Hungary",
@@ -31001,6 +31115,7 @@
   },
   {
    "id": "osterrike",
+   "modernState": true,
    "name": {
     "sv": "Österrike",
     "en": "Austria",
@@ -31031,6 +31146,7 @@
   },
   {
    "id": "panama",
+   "modernState": true,
    "name": {
     "sv": "Panama",
     "en": "Panama",
@@ -31061,6 +31177,7 @@
   },
   {
    "id": "tjeckien",
+   "modernState": true,
    "name": {
     "sv": "Tjeckien",
     "en": "Czech Republic",
@@ -31091,6 +31208,7 @@
   },
   {
    "id": "forenade-arabemiraten",
+   "modernState": true,
    "name": {
     "sv": "Förenade arabemiraten",
     "en": "United Arab Emirates",
@@ -31121,6 +31239,7 @@
   },
   {
    "id": "serbien",
+   "modernState": true,
    "name": {
     "sv": "Serbien",
     "en": "Serbia",
@@ -31165,6 +31284,7 @@
   },
   {
    "id": "irland",
+   "modernState": true,
    "name": {
     "sv": "Irland",
     "en": "Ireland",
@@ -31195,6 +31315,7 @@
   },
   {
    "id": "sierra-leone",
+   "modernState": true,
    "name": {
     "sv": "Sierra Leone",
     "en": "Sierra Leone",
@@ -31225,6 +31346,7 @@
   },
   {
    "id": "sri-lanka",
+   "modernState": true,
    "name": {
     "sv": "Sri Lanka",
     "en": "Sri Lanka",
@@ -31255,6 +31377,7 @@
   },
   {
    "id": "lettland",
+   "modernState": true,
    "name": {
     "sv": "Lettland",
     "en": "Latvia",
@@ -31285,6 +31408,7 @@
   },
   {
    "id": "litauen",
+   "modernState": true,
    "name": {
     "sv": "Litauen",
     "en": "Lithuania",
@@ -31315,6 +31439,7 @@
   },
   {
    "id": "togo",
+   "modernState": true,
    "name": {
     "sv": "Togo",
     "en": "Togo",
@@ -31345,6 +31470,7 @@
   },
   {
    "id": "costa-rica",
+   "modernState": true,
    "name": {
     "sv": "Costa Rica",
     "en": "Costa Rica",
@@ -31376,6 +31502,7 @@
   },
   {
    "id": "dominikanska-republiken",
+   "modernState": true,
    "name": {
     "sv": "Dominikanska republiken",
     "en": "Dominican Republic",
@@ -31406,6 +31533,7 @@
   },
   {
    "id": "kroatien",
+   "modernState": true,
    "name": {
     "sv": "Kroatien",
     "en": "Croatia",
@@ -31436,6 +31564,7 @@
   },
   {
    "id": "bosnien-och-hercegovina",
+   "modernState": true,
    "name": {
     "sv": "Bosnien och Hercegovina",
     "en": "Bosnia and Herzegovina",
@@ -31466,6 +31595,7 @@
   },
   {
    "id": "estland",
+   "modernState": true,
    "name": {
     "sv": "Estland",
     "en": "Estonia",
@@ -31496,6 +31626,7 @@
   },
   {
    "id": "azerbajdzjan",
+   "modernState": true,
    "name": {
     "sv": "Azerbajdzjan",
     "en": "Azerbaijan",
@@ -31540,6 +31671,7 @@
   },
   {
    "id": "armenien",
+   "modernState": true,
    "name": {
     "sv": "Armenien",
     "en": "Armenia",
@@ -31585,6 +31717,7 @@
   },
   {
    "id": "georgien",
+   "modernState": true,
    "name": {
     "sv": "Georgien",
     "en": "Georgia",
@@ -31629,6 +31762,7 @@
   },
   {
    "id": "slovakien",
+   "modernState": true,
    "name": {
     "sv": "Slovakien",
     "en": "Slovakia",
@@ -31659,6 +31793,7 @@
   },
   {
    "id": "bhutan",
+   "modernState": true,
    "name": {
     "sv": "Bhutan",
     "en": "Bhutan",
@@ -31689,6 +31824,7 @@
   },
   {
    "id": "schweiz",
+   "modernState": true,
    "name": {
     "sv": "Schweiz",
     "en": "Switzerland",
@@ -31721,6 +31857,7 @@
   },
   {
    "id": "nederlanderna",
+   "modernState": true,
    "name": {
     "sv": "Nederländerna",
     "en": "Netherlands",
@@ -31751,6 +31888,7 @@
   },
   {
    "id": "salomonoarna",
+   "modernState": true,
    "name": {
     "sv": "Salomonöarna",
     "en": "Solomon Islands",
@@ -31781,6 +31919,7 @@
   },
   {
    "id": "guinea-bissau",
+   "modernState": true,
    "name": {
     "sv": "Guinea-Bissau",
     "en": "Guinea-Bissau",
@@ -31811,6 +31950,7 @@
   },
   {
    "id": "lesotho",
+   "modernState": true,
    "name": {
     "sv": "Lesotho",
     "en": "Lesotho",
@@ -31841,6 +31981,7 @@
   },
   {
    "id": "storbritannien",
+   "modernState": true,
    "name": {
     "sv": "Storbritannien",
     "en": "United Kingdom",
@@ -31871,6 +32012,7 @@
   },
   {
    "id": "belgien",
+   "modernState": true,
    "name": {
     "sv": "Belgien",
     "en": "Belgium",
@@ -31901,6 +32043,7 @@
   },
   {
    "id": "ekvatorialguinea",
+   "modernState": true,
    "name": {
     "sv": "Ekvatorialguinea",
     "en": "Equatorial Guinea",
@@ -31931,6 +32074,7 @@
   },
   {
    "id": "albanien",
+   "modernState": true,
    "name": {
     "sv": "Albanien",
     "en": "Albania",
@@ -31961,6 +32105,7 @@
   },
   {
    "id": "moldavien",
+   "modernState": true,
    "name": {
     "sv": "Moldavien",
     "en": "Moldova",
@@ -32005,6 +32150,7 @@
   },
   {
    "id": "nordmakedonien",
+   "modernState": true,
    "name": {
     "sv": "Nordmakedonien",
     "en": "North Macedonia",
@@ -32035,6 +32181,7 @@
   },
   {
    "id": "burundi",
+   "modernState": true,
    "name": {
     "sv": "Burundi",
     "en": "Burundi",
@@ -32065,6 +32212,7 @@
   },
   {
    "id": "belize",
+   "modernState": true,
    "name": {
     "sv": "Belize",
     "en": "Belize",
@@ -32095,6 +32243,7 @@
   },
   {
    "id": "djibouti",
+   "modernState": true,
    "name": {
     "sv": "Djibouti",
     "en": "Djibouti",
@@ -32125,6 +32274,7 @@
   },
   {
    "id": "el-salvador",
+   "modernState": true,
    "name": {
     "sv": "El Salvador",
     "en": "El Salvador",
@@ -32155,6 +32305,7 @@
   },
   {
    "id": "fiji",
+   "modernState": true,
    "name": {
     "sv": "Fiji",
     "en": "Fiji",
@@ -32185,6 +32336,7 @@
   },
   {
    "id": "slovenien",
+   "modernState": true,
    "name": {
     "sv": "Slovenien",
     "en": "Slovenia",
@@ -32215,6 +32367,7 @@
   },
   {
    "id": "bahamas",
+   "modernState": true,
    "name": {
     "sv": "Bahamas",
     "en": "The Bahamas",
@@ -32246,6 +32399,7 @@
   },
   {
    "id": "eswatini",
+   "modernState": true,
    "name": {
     "sv": "Eswatini",
     "en": "Eswatini",
@@ -32276,6 +32430,7 @@
   },
   {
    "id": "vanuatu",
+   "modernState": true,
    "name": {
     "sv": "Vanuatu",
     "en": "Vanuatu",
@@ -32306,6 +32461,7 @@
   },
   {
    "id": "jamaica",
+   "modernState": true,
    "name": {
     "sv": "Jamaica",
     "en": "Jamaica",
@@ -32337,6 +32493,7 @@
   },
   {
    "id": "qatar",
+   "modernState": true,
    "name": {
     "sv": "Qatar",
     "en": "Qatar",
@@ -32367,6 +32524,7 @@
   },
   {
    "id": "gambia",
+   "modernState": true,
    "name": {
     "sv": "Gambia",
     "en": "The Gambia",
@@ -32397,6 +32555,7 @@
   },
   {
    "id": "libanon",
+   "modernState": true,
    "name": {
     "sv": "Libanon",
     "en": "Lebanon",
@@ -32427,6 +32586,7 @@
   },
   {
    "id": "kap-verde",
+   "modernState": true,
    "name": {
     "sv": "Kap Verde",
     "en": "Cape Verde",
@@ -32457,6 +32617,7 @@
   },
   {
    "id": "kosovo",
+   "modernState": true,
    "name": {
     "sv": "Kosovo",
     "en": "Kosovo",
@@ -32503,6 +32664,7 @@
   },
   {
    "id": "cypern",
+   "modernState": true,
    "name": {
     "sv": "Cypern",
     "en": "Cyprus",
@@ -32547,6 +32709,7 @@
   },
   {
    "id": "montenegro",
+   "modernState": true,
    "name": {
     "sv": "Montenegro",
     "en": "Montenegro",
@@ -32577,6 +32740,7 @@
   },
   {
    "id": "brunei",
+   "modernState": true,
    "name": {
     "sv": "Brunei",
     "en": "Brunei",
@@ -32607,6 +32771,7 @@
   },
   {
    "id": "trinidad-och-tobago",
+   "modernState": true,
    "name": {
     "sv": "Trinidad och Tobago",
     "en": "Trinidad and Tobago",
@@ -32638,6 +32803,7 @@
   },
   {
    "id": "mauritius",
+   "modernState": true,
    "name": {
     "sv": "Mauritius",
     "en": "Mauritius",
@@ -32668,6 +32834,7 @@
   },
   {
    "id": "luxemburg",
+   "modernState": true,
    "name": {
     "sv": "Luxemburg",
     "en": "Luxembourg",
@@ -32698,6 +32865,7 @@
   },
   {
    "id": "sao-tome-och-principe",
+   "modernState": true,
    "name": {
     "sv": "São Tomé och Príncipe",
     "en": "São Tomé and Príncipe",
@@ -32728,6 +32896,7 @@
   },
   {
    "id": "bahrain",
+   "modernState": true,
    "name": {
     "sv": "Bahrain",
     "en": "Bahrain",
@@ -32758,6 +32927,7 @@
   },
   {
    "id": "singapore",
+   "modernState": true,
    "name": {
     "sv": "Singapore",
     "en": "Singapore",
@@ -32788,6 +32958,7 @@
   },
   {
    "id": "malta",
+   "modernState": true,
    "name": {
     "sv": "Malta",
     "en": "Malta",
@@ -32818,6 +32989,7 @@
   },
   {
    "id": "barbados",
+   "modernState": true,
    "name": {
     "sv": "Barbados",
     "en": "Barbados",
@@ -32849,6 +33021,7 @@
   },
   {
    "id": "dominica",
+   "modernState": true,
    "name": {
     "sv": "Dominica",
     "en": "Dominica",
@@ -32879,6 +33052,7 @@
   },
   {
    "id": "saint-lucia",
+   "modernState": true,
    "name": {
     "sv": "Saint Lucia",
     "en": "Saint Lucia",
@@ -32910,6 +33084,7 @@
   },
   {
    "id": "antigua-och-barbuda",
+   "modernState": true,
    "name": {
     "sv": "Antigua och Barbuda",
     "en": "Antigua and Barbuda",
@@ -32941,6 +33116,7 @@
   },
   {
    "id": "saint-vincent-och-grenadinerna",
+   "modernState": true,
    "name": {
     "sv": "Saint Vincent och Grenadinerna",
     "en": "Saint Vincent and the Grenadines",
@@ -32971,6 +33147,7 @@
   },
   {
    "id": "grenada",
+   "modernState": true,
    "name": {
     "sv": "Grenada",
     "en": "Grenada",
@@ -33002,6 +33179,7 @@
   },
   {
    "id": "seychellerna",
+   "modernState": true,
    "name": {
     "sv": "Seychellerna",
     "en": "Seychelles",
@@ -33032,6 +33210,7 @@
   },
   {
    "id": "palau",
+   "modernState": true,
    "name": {
     "sv": "Palau",
     "en": "Palau",
@@ -33062,6 +33241,7 @@
   },
   {
    "id": "etiopien",
+   "modernState": true,
    "name": {
     "sv": "Etiopien",
     "en": "Ethiopia",
@@ -33092,6 +33272,7 @@
   },
   {
    "id": "osttimor",
+   "modernState": true,
    "name": {
     "sv": "Östtimor",
     "en": "Timor-Leste",
@@ -33933,6 +34114,7 @@
   },
   {
    "id": "andorra",
+   "modernState": true,
    "name": {
     "sv": "Andorra",
     "en": "Andorra",
@@ -33979,6 +34161,7 @@
   },
   {
    "id": "monaco",
+   "modernState": true,
    "name": {
     "sv": "Monaco",
     "en": "Monaco",
@@ -34025,6 +34208,7 @@
   },
   {
    "id": "saint-kitts-och-nevis",
+   "modernState": true,
    "name": {
     "sv": "Saint Kitts och Nevis",
     "en": "Saint Kitts and Nevis",
@@ -34072,6 +34256,7 @@
   },
   {
    "id": "mikronesiska-federationen",
+   "modernState": true,
    "name": {
     "sv": "Mikronesiska federationen",
     "en": "Federated States of Micronesia",
@@ -34118,6 +34303,7 @@
   },
   {
    "id": "kiribati",
+   "modernState": true,
    "name": {
     "sv": "Kiribati",
     "en": "Kiribati",
@@ -34164,6 +34350,7 @@
   },
   {
    "id": "komorerna",
+   "modernState": true,
    "name": {
     "sv": "Komorerna",
     "en": "Comoros",
@@ -34210,6 +34397,7 @@
   },
   {
    "id": "liechtenstein",
+   "modernState": true,
    "name": {
     "sv": "Liechtenstein",
     "en": "Liechtenstein",
@@ -34256,6 +34444,7 @@
   },
   {
    "id": "maldiverna",
+   "modernState": true,
    "name": {
     "sv": "Maldiverna",
     "en": "Maldives",
@@ -34302,6 +34491,7 @@
   },
   {
    "id": "marshalloarna",
+   "modernState": true,
    "name": {
     "sv": "Marshallöarna",
     "en": "Marshall Islands",
@@ -34348,6 +34538,7 @@
   },
   {
    "id": "nauru",
+   "modernState": true,
    "name": {
     "sv": "Nauru",
     "en": "Nauru",
@@ -34394,6 +34585,7 @@
   },
   {
    "id": "samoa",
+   "modernState": true,
    "name": {
     "sv": "Samoa",
     "en": "Samoa",
@@ -34440,6 +34632,7 @@
   },
   {
    "id": "san-marino",
+   "modernState": true,
    "name": {
     "sv": "San Marino",
     "en": "San Marino",
@@ -34486,6 +34679,7 @@
   },
   {
    "id": "tonga",
+   "modernState": true,
    "name": {
     "sv": "Tonga",
     "en": "Tonga",
@@ -34532,6 +34726,7 @@
   },
   {
    "id": "tuvalu",
+   "modernState": true,
    "name": {
     "sv": "Tuvalu",
     "en": "Tuvalu",
