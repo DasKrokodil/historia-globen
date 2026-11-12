@@ -1,6 +1,6 @@
 // Uppspelningens pauser i fokusläget (#402, del av #389): krigets stopp och slutkort (#122, #217, #232),
 // resans stopp (#376), "Spela klart" (#244), huvudknappen i fokusraden (#360) och pauserna när ett krig
-// bryter ut, en religion grundas eller ett rike når ett nyckelår.
+// bryter ut, en religion grundas, ett rike når ett nyckelår eller man följer en plats eller ett tema (#1255).
 //
 // Köerna ägs här och ingen annanstans. Omritningen (render.js) anropar check() efter att lagren har ritats,
 // och samma köer återupptas av Fortsätt (beforeplay). Därför flyttas omritningen och uppspelningen tillsammans:
@@ -58,6 +58,13 @@ export function createPlayback(app) {
     timeline.year = stop.at;
     stopping = false;
     showNextPause();
+  }
+
+  /** Platsens eller temats stopp (#1255): händelserna med top eller major, annars alla, i tidsordning. */
+  function themeStops(focus) {
+    const evs = [...(focus.themeEvents || [])].sort((a, b) => a.start - b.start);
+    const important = evs.filter(e => e.top || e.major);
+    return important.length ? important : evs;
   }
 
   /** Krigets slut i fokusläget: sista dagen eller året, och "i dag" för ett pågående krig (#223). */
@@ -185,6 +192,17 @@ export function createPlayback(app) {
     if (focus?.type === 'religion' && timeline.playing) {
       const hit = app.founding(focus.id).find(e => e.start > lastYear && e.start <= year);
       if (hit) { timeline.pause(ui('play.pausedFounding')); app.store.setSelected(hit.id); panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }
+    }
+    // I fokus på en plats eller ett tema stannar uppspelningen vid händelserna (#1255): de viktiga (top eller major)
+    // om det finns några, annars alla. Tiden står på händelsens år, så nästa Spela fortsätter till nästa.
+    if ((focus?.type === 'place' || focus?.type === 'theme') && playing && layers.pause.theme) {
+      const hit = themeStops(focus).find(e => passed(e.start));
+      if (hit) {
+        timeline.pause(ui('play.pausedThemeEvent', { title: t(hit.title) }));
+        timeline.year = hit.start;
+        app.store.setSelected(hit.id);
+        panel.showDetail(hit, matchMedia('(min-width: 761px)').matches);
+      }
     }
     // I fokus på ett rike stannar uppspelningen vid rikets nyckelår, och kortet säger varför
     // riket växer eller krymper (#171). Valet finns i Lager.
