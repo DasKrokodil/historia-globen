@@ -97,10 +97,11 @@ test('riktig data: varje fun fact som kan bli en fråga ger säkert felaktiga sv
 });
 
 // Sant eller myt? (#846): påståenden ur data/missuppfattningar.json
-import { quizMyths, nextMyth, isMythTurn } from '../js/quiz-rules.js';
+import { quizMyths, nextMyth, isMythTurn, turnKind, timeQuestion, nextTime, roundGap, isApprox, funfactFor, MIN_ORDER_GAP, MIN_CLOSER_DIFF } from '../js/quiz-rules.js';
 
-test('Sant eller myt: varannan fråga, med start på den andra', () => {
-  assert.deepEqual([0, 1, 2, 3].map(isMythTurn), [false, true, false, true]);
+test('frågesorterna turas om: samtidighet, Sant eller myt, tid', () => {
+  assert.deepEqual([0, 1, 2, 3, 4].map(turnKind), ['together', 'myth', 'time', 'together', 'myth']);
+  assert.deepEqual([0, 1, 2, 3, 4].map(isMythTurn), [false, true, false, false, true]);
 });
 
 test('Sant eller myt: bara synliga poster med påstående och svar, utan upprepning förrän alla har kommit', () => {
@@ -124,4 +125,39 @@ test('Sant eller myt: varje kontrollerad post i datan kan bli en fråga, med kä
   const pool = quizMyths(doc.misconceptions, visible);
   assert.ok(pool.length >= 15, `för få frågor: ${pool.length}`);
   for (const m of pool) assert.ok(m.sources?.length, `${m.id} saknar källor`);
+});
+
+// Tid och samtidighet (#846): frågor ur data/quiz.json, svaret räknat ur händelsernas årtal
+test('Vad kom först: svaret och avståndet räknas ur starterna, och för nära par blir ingen fråga', () => {
+  const byId = { a: ev('a', 1096, 2026), b: ev('b', 1325, 1521, { edtf: '1325~/1521' }), c: ev('c', 1100) };
+  const q = timeQuestion({ id: 'x', kind: 'first', events: ['b', 'a'] }, byId, visible);
+  assert.equal(q.answer.id, 'a');
+  assert.equal(q.gap, 229);
+  assert.equal(q.approx, true, '~ i edtf gör avståndet ungefärligt');
+  assert.equal(roundGap(q.gap, q.approx), 230);
+  assert.equal(timeQuestion({ id: 'y', kind: 'first', events: ['a', 'c'] }, byId, visible), null, `under ${MIN_ORDER_GAP} år emellan`);
+  assert.equal(timeQuestion({ id: 'z', kind: 'first', events: ['a', 'saknas'] }, byId, visible), null);
+});
+
+test('Vad låg närmast: avstånden räknas som avstånd mellan spann, och för lika avstånd blir ingen fråga', () => {
+  const byId = { k: ev('k', -68, -29), p: ev('p', -2599, -2599, { precision: 7 }), m: ev('m', 1969), o: ev('o', -2050) };
+  const q = timeQuestion({ id: 'k', kind: 'closer', events: ['k', 'p', 'm'] }, byId, visible);
+  assert.equal(q.answer.id, 'm');
+  assert.deepEqual(q.gaps, { p: 2531, m: 1998 });
+  assert.equal(isApprox(byId.p), true, 'precision gröre än år är ungefärlig');
+  assert.equal(timeQuestion({ id: 'l', kind: 'closer', events: ['k', 'm', 'o'] }, byId, visible), null, `1998 mot 1982 år: under ${MIN_CLOSER_DIFF} års skillnad`);
+});
+
+test('varje fråga i data/quiz.json pekar på synliga händelser och ger ett tydligt svar', () => {
+  const evs = json('data/events.json'); const list = evs.events ?? evs;
+  const byId = Object.fromEntries(list.map(e => [e.id, e]));
+  const posts = json('data/quiz.json').questions;
+  assert.ok(posts.length >= 8, `för få frågor: ${posts.length}`);
+  assert.equal(new Set(posts.map(p => p.id)).size, posts.length, 'id måste vara unika');
+  for (const p of posts) assert.ok(timeQuestion(p, byId, visible), `${p.id} ger ingen fråga`);
+  const ffs = json('data/funfacts.json'); const ffl = ffs.funfacts ?? ffs;
+  const q = timeQuestion(posts.find(p => p.id === 'oxford-tenochtitlan'), byId, visible);
+  assert.equal(funfactFor(q, ffl, visible)?.id, 'oxford-tenochtitlan', 'fun facten om samma händelser hittas');
+  const asked = new Set();
+  for (let i = 0; i < posts.length; i++) { const n = nextTime(posts, byId, visible, asked, seeded(i + 1)); assert.ok(!asked.has(n.post.id), 'en fråga kom två gånger'); asked.add(n.post.id); }
 });

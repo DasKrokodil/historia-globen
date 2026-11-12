@@ -544,6 +544,13 @@ export function loadMisconceptions() {
   });
   return misconceptionsPromise;
 }
+/** Quizets frågor om tid (data/quiz.json, #846), första gången quizet öppnas. Går filen inte att läsa blir listan tom. */
+let quizPostsPromise = null;
+export function loadQuizPosts() {
+  quizPostsPromise ??= getJSON('data/quiz.json').then(doc => { DATA.quizPosts = doc.questions ?? []; })
+    .catch(err => { console.warn('Quizets tidsfrågor kunde inte laddas', err); DATA.quizPosts = []; });
+  return quizPostsPromise;
+}
 /** Missuppfattningarna som hör till en händelse (tom lista innan de har laddats). */
 export const misconceptionsFor = id => (DATA?.misconceptions ?? []).filter(m => m.events?.includes(id));
 

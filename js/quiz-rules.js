@@ -95,13 +95,18 @@ export function nextQuestion(funfacts, byId, events, isVisible, asked = new Set(
 // Sant eller myt? (#846, beslut 2026-11-12): påståenden ur data/missuppfattningar.json (#838). Besökaren gissar först,
 // sant eller myt, och får sedan vad källorna säger, varifrån missuppfattningen kommer och källorna. Inga nya fakta
 // skrivs. Alla poster är missuppfattningar, så rätt svar är alltid "myt"; därför räknas de inte i poängen
-// (annars skulle mönstret ge poäng utan kunskap). Varannan fråga är en sådan, när det finns några.
+// (annars skulle mönstret ge poäng utan kunskap). Var tredje fråga är en sådan, när det finns några (turnKind).
 
 /** Missuppfattningar som kan bli frågor: synliga och med påstående och svar. */
 export const quizMyths = (myths, isVisible) => (myths ?? []).filter(m => isVisible(m.review) && m.claim && m.truth);
 
-/** Är fråga nummer n (0, 1, 2 …) en Sant eller myt-fråga? Varannan, med start på den andra. */
-export const isMythTurn = n => n % 2 === 1;
+/**
+ * Vilken sorts fråga är nummer n (0, 1, 2 …)? Samtidighet, Sant eller myt och tid turas om (#846). Saknas frågor av
+ * en sort blir det en samtidighetsfråga i stället (js/ui/quiz.js).
+ */
+export const turnKind = n => ['together', 'myth', 'time'][n % 3];
+/** Är fråga nummer n en Sant eller myt-fråga? */
+export const isMythTurn = n => turnKind(n) === 'myth';
 
 /** Nästa missuppfattning i blandad ordning, utan att upprepa de redan ställda förrän alla har kommit; annars null. */
 export function nextMyth(myths, isVisible, asked = new Set(), rnd = Math.random) {
@@ -109,4 +114,53 @@ export function nextMyth(myths, isVisible, asked = new Set(), rnd = Math.random)
   if (!pool.length) return null;
   const fresh = pool.filter(m => !asked.has(m.id));
   return shuffle(fresh.length ? fresh : pool, rnd)[0];
+}
+
+// Tid och samtidighet (#846, beslut 2026-11-12): frågor ur data/quiz.json. En fråga pekar bara på händelser med id;
+// svaret och avståndet räknas fram ur händelsernas årtal, så att siffrorna går att räkna fram (Källpolicy punkt 5).
+
+export const MIN_ORDER_GAP = 50;   // år mellan starterna i "Vad kom först?"
+export const MIN_CLOSER_DIFF = 100; // år mellan avstånden i "Vad låg närmast?"
+
+/** Är händelsens tid ungefärlig? (edtf med ~ eller ?, eller precision grövre än år) */
+export const isApprox = e => /[~?]/.test(e.edtf ?? '') || !(e.precision >= 9);
+
+/** Avståndet för visning: exakt när båda årtalen är säkra, annars avrundat till närmaste tiotal (och skrivet med "cirka"). */
+export const roundGap = (n, approx) => (approx ? Math.round(n / 10) * 10 : n);
+
+/**
+ * En fråga ur en post i data/quiz.json, eller null när händelserna saknas, inte syns eller inte ger ett tydligt svar.
+ * kind 'first': { kind, options: [a, b], answer, gap, approx } där answer började först och gap är år mellan starterna.
+ * kind 'closer': { kind, subject, options: [b, c], answer, gaps: { [id]: år }, approx } där answer ligger närmast subject.
+ */
+export function timeQuestion(post, byId, isVisible) {
+  const es = (post.events ?? []).map(id => byId[id]);
+  if (!es.length || es.some(e => !e || !isVisible(e.review))) return null;
+  const approx = es.some(isApprox);
+  if (post.kind === 'first' && es.length === 2) {
+    const [a, b] = es;
+    const gap = Math.abs(a.start - b.start);
+    if (gap < MIN_ORDER_GAP) return null;
+    return { post, kind: 'first', options: [a, b], answer: a.start < b.start ? a : b, gap, approx };
+  }
+  if (post.kind === 'closer' && es.length === 3) {
+    const [subject, b, c] = es;
+    const gb = gapBetween(subject, b), gc = gapBetween(subject, c);
+    if (Math.abs(gb - gc) < MIN_CLOSER_DIFF) return null;
+    return { post, kind: 'closer', subject, options: [b, c], answer: gb < gc ? b : c, gaps: { [b.id]: gb, [c.id]: gc }, approx };
+  }
+  return null;
+}
+
+/** Fun facten som handlar om just frågans händelser (alla dess händelser finns i fun facten), eller null. */
+export const funfactFor = (q, funfacts, isVisible) => (funfacts ?? []).find(f => isVisible(f.review)
+  && (q.post.events ?? []).every(id => f.events?.includes(id))) ?? null;
+
+/** Nästa tidsfråga i blandad ordning, utan upprepning förrän alla har kommit; null när ingen post ger en fråga. */
+export function nextTime(posts, byId, isVisible, asked = new Set(), rnd = Math.random) {
+  const pool = (posts ?? []).map(p => timeQuestion(p, byId, isVisible)).filter(Boolean);
+  if (!pool.length) return null;
+  const fresh = pool.filter(q => !asked.has(q.post.id));
+  const q = shuffle(fresh.length ? fresh : pool, rnd)[0];
+  return { ...q, options: shuffle(q.options, rnd) };
 }
