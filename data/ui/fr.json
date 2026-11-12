@@ -542,7 +542,7 @@
   "legend.newTab": "(s’ouvre dans un nouvel onglet)",
   "legend.and": " et ",
   "legend.layersNormal": "{layers} s’affichent comme d’habitude.",
-  "legend.layersDimmed": "{layers} sont atténués pendant ce suivi.",
+  "legend.layersDimmed": "Affichage atténué pendant ce suivi : {layers}.",
   "legend.dim": "Atténuer",
   "legend.showNormal": "Afficher comme d’habitude",
   "legend.ariaLabel": "Légende : {title}",
