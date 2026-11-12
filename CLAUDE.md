@@ -6,7 +6,7 @@ Instruktioner för Claude Code i det här repot. Läs kärnan (Projektet, Arkite
 
 Historia-globen är en snurrbar jordglob i webbläsaren. Man drar i tiden och ser vad som hände **samtidigt** på olika håll i världen. Fun facts lyfter fram oväntad samtidighet, till exempel att pyramiderna byggdes medan de sista mammutarna levde. Det är ett hobbyprojekt med öppen källkod. På sikt kan samma innehåll visas på en fysisk glob.
 
-- Ägare: Rikard (GitHub `DasKrokodil`). Skriv till honom på **svenska**, kort och tydligt. Han är projektledare, inte utvecklare, så förklara vad som ändrats och varför, inte bara hur.
+- Ägare: Rikard (GitHub `DasKrokodil`). Skriv till honom på **svenska**, kort och tydligt. Han är projektledare, inte utvecklare, så förklara vad som ändrats och varför, inte bara hur. Adresser, domäner och andra värden han ska lägga in någonstans (till exempel i nätverksinställningar) ges alltid som en lista i ett kodblock, ett värde per rad, så att han kan kopiera och klistra in dem, aldrig bara i löptext (önskemål 2026-11-12).
 - Medarbetare: Andreas (GitHub `Einzbeng`, beslut 2026-11-06). Han kör egna agenter (Codex och Claude Code) som arbetare. Bara Rikard slår ihop, beslutar och sköter publicering, releaser och hemligheter. Se "Två personer, flera agenter" nedan.
 - Live-prototyp (version 1, ursprunglig): https://claude.ai/artifact/SrLqWzKfXNE9RUiKUd99Lg
 - Planeringsdokument (vision, benchmark, hårdvara, beslut): finns i Rikards Claude-projekt "Historia-globen". Du kommer inte åt det, så de viktiga besluten är upprepade här.
