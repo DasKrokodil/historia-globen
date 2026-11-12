@@ -27834,6 +27834,7 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/ukraina.json",
+   "flags": [{"file": "ukraine", "from": 1992, "to": 2024, "label": {"sv": "Ukrainas flagga", "en": "Flag of Ukraine", "de": "Flagge der Ukraine", "es": "Bandera de Ucrania", "fr": "Drapeau de l’Ukraine"}, "sources": ["wp-flag-ukraine"], "review": "source-checked"}],
    "polities": [
     {
      "id": "ukraina",
@@ -28519,6 +28520,7 @@
    "from": 1945,
    "to": 2024,
    "file": "data/empires/danmark.json",
+   "flags": [{"file": "denmark", "from": 1945, "to": 2024, "label": {"sv": "Dannebrog, Danmarks flagga", "en": "Dannebrog, flag of Denmark", "de": "Dannebrog, Flagge Dänemarks", "es": "Dannebrog, bandera de Dinamarca", "fr": "Dannebrog, drapeau du Danemark"}, "sources": ["wp-dannebrog"], "review": "source-checked"}],
    "labelAt": [
     {
      "polity": "danmark",
@@ -29152,6 +29154,7 @@
    "from": 1958,
    "to": 2024,
    "file": "data/empires/frankrike.json",
+   "flags": [{"file": "france-tricolour", "from": 1958, "to": 2024, "label": {"sv": "Frankrikes trikolor", "en": "French tricolour", "de": "Französische Trikolore", "es": "Tricolor francesa", "fr": "Drapeau tricolore français"}, "sources": ["wp-flag-of-france"], "review": "source-checked"}],
    "labelAt": [
     {
      "polity": "femte-republiken",
@@ -29613,6 +29616,7 @@
    "from": 1905,
    "to": 2024,
    "file": "data/empires/norge.json",
+   "flags": [{"file": "norway", "from": 1905, "to": 2024, "label": {"sv": "Norges flagga", "en": "Flag of Norway", "de": "Flagge Norwegens", "es": "Bandera de Noruega", "fr": "Drapeau de la Norvège"}, "sources": ["wp-flag-norway"], "review": "source-checked"}],
    "labelAt": [
     {
      "polity": "norge",
@@ -29790,6 +29794,7 @@
    "from": 1991,
    "to": 2024,
    "file": "data/empires/tyskland.json",
+   "flags": [{"file": "germany", "from": 1991, "to": 2024, "label": {"sv": "Tysklands flagga", "en": "Flag of Germany", "de": "Flagge Deutschlands", "es": "Bandera de Alemania", "fr": "Drapeau de l’Allemagne"}, "sources": ["wp-flag-germany"], "review": "source-checked"}],
    "polities": [
     {
      "id": "tyskland",
@@ -29914,6 +29919,7 @@
    "from": 1918,
    "to": 2024,
    "file": "data/empires/finland.json",
+   "flags": [{"file": "finland", "from": 1918, "to": 2024, "label": {"sv": "Finlands flagga", "en": "Flag of Finland", "de": "Flagge Finnlands", "es": "Bandera de Finlandia", "fr": "Drapeau de la Finlande"}, "sources": ["wp-flag-finland"], "review": "source-checked"}],
    "polities": [
     {
      "id": "finland",
@@ -29976,6 +29982,7 @@
    "from": 1919,
    "to": 2024,
    "file": "data/empires/polen.json",
+   "flags": [{"file": "poland", "from": 1919, "to": 2024, "label": {"sv": "Polens flagga", "en": "Flag of Poland", "de": "Flagge Polens", "es": "Bandera de Polonia", "fr": "Drapeau de la Pologne"}, "sources": ["wp-flag-poland"], "review": "source-checked"}],
    "polities": [
     {
      "id": "andra-polska-republiken",
@@ -30066,6 +30073,7 @@
    "from": 1862,
    "to": 2024,
    "file": "data/empires/italien.json",
+   "flags": [{"file": "italy", "from": 1946, "to": 2024, "label": {"sv": "Italiens flagga", "en": "Flag of Italy", "de": "Flagge Italiens", "es": "Bandera de Italia", "fr": "Drapeau de l’Italie"}, "sources": ["wp-flag-italy"], "review": "source-checked"}],
    "labelAt": [
     {
      "polity": "kungariket-italien",
@@ -30895,6 +30903,7 @@
    "from": 1918,
    "to": 2024,
    "file": "data/empires/island.json",
+   "flags": [{"file": "iceland", "from": 1918, "to": 2024, "label": {"sv": "Islands flagga", "en": "Flag of Iceland", "de": "Flagge Islands", "es": "Bandera de Islandia", "fr": "Drapeau de l’Islande"}, "sources": ["wp-flag-iceland"], "review": "source-checked"}],
    "polities": [
     {
      "id": "kungariket-island",
@@ -30940,6 +30949,7 @@
    "from": 1880,
    "to": 2024,
    "file": "data/empires/bulgarien.json",
+   "flags": [{"file": "bulgaria", "from": 1990, "to": 2024, "label": {"sv": "Bulgariens flagga", "en": "Flag of Bulgaria", "de": "Flagge Bulgariens", "es": "Bandera de Bulgaria", "fr": "Drapeau de la Bulgarie"}, "sources": ["wp-flag-bulgaria"], "review": "source-checked"}],
    "polities": [
     {
      "id": "bulgarien",
@@ -31189,6 +31199,7 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/tjeckien.json",
+   "flags": [{"file": "czech", "from": 1992, "to": 2024, "label": {"sv": "Tjeckiens flagga", "en": "Flag of the Czech Republic", "de": "Flagge Tschechiens", "es": "Bandera de la República Checa", "fr": "Drapeau de la Tchéquie"}, "sources": ["wp-flag-czech-republic"], "review": "source-checked"}],
    "polities": [
     {
      "id": "tjeckien",
@@ -31296,6 +31307,7 @@
    "from": 1922,
    "to": 2024,
    "file": "data/empires/irland.json",
+   "flags": [{"file": "ireland", "from": 1922, "to": 2024, "label": {"sv": "Irlands flagga", "en": "Flag of Ireland", "de": "Flagge Irlands", "es": "Bandera de Irlanda", "fr": "Drapeau de l’Irlande"}, "sources": ["wp-flag-ireland"], "review": "source-checked"}],
    "polities": [
     {
      "id": "irland",
@@ -31869,6 +31881,7 @@
    "from": 1950,
    "to": 2024,
    "file": "data/empires/nederlanderna.json",
+   "flags": [{"file": "netherlands", "from": 1950, "to": 2024, "label": {"sv": "Nederländernas flagga", "en": "Flag of the Netherlands", "de": "Flagge der Niederlande", "es": "Bandera de los Países Bajos", "fr": "Drapeau des Pays-Bas"}, "sources": ["wp-flag-netherlands"], "review": "source-checked"}],
    "polities": [
     {
      "id": "nederlanderna",
@@ -31993,6 +32006,7 @@
    "from": 2000,
    "to": 2024,
    "file": "data/empires/storbritannien.json",
+   "flags": [{"file": "britain-union-flag", "from": 2000, "to": 2024, "label": {"sv": "Unionsflaggan", "en": "Union Flag", "de": "Union Flag", "es": "Bandera del Reino Unido", "fr": "Union Flag"}, "sources": ["wp-list-uk-flags"], "review": "source-checked"}],
    "polities": [
     {
      "id": "storbritannien",
@@ -32024,6 +32038,7 @@
    "from": 1830,
    "to": 2024,
    "file": "data/empires/belgien.json",
+   "flags": [{"file": "belgium", "from": 1831, "to": 2024, "label": {"sv": "Belgiens flagga", "en": "Flag of Belgium", "de": "Flagge Belgiens", "es": "Bandera de Bélgica", "fr": "Drapeau de la Belgique"}, "sources": ["wp-flag-belgium"], "review": "source-checked"}],
    "polities": [
     {
      "id": "belgien",
@@ -32846,6 +32861,7 @@
    "from": 1890,
    "to": 2024,
    "file": "data/empires/luxemburg.json",
+   "flags": [{"file": "luxembourg", "from": 1890, "to": 2024, "label": {"sv": "Luxemburgs flagga", "en": "Flag of Luxembourg", "de": "Flagge Luxemburgs", "es": "Bandera de Luxemburgo", "fr": "Drapeau du Luxembourg"}, "sources": ["wp-flag-luxembourg"], "review": "source-checked"}],
    "polities": [
     {
      "id": "luxemburg",
@@ -34177,6 +34193,7 @@
    "from": 1642,
    "to": 2024,
    "file": "data/empires/monaco.json",
+   "flags": [{"file": "monaco", "from": 1881, "to": 2024, "label": {"sv": "Monacos flagga", "en": "Flag of Monaco", "de": "Flagge Monacos", "es": "Bandera de Mónaco", "fr": "Drapeau de Monaco"}, "sources": ["wp-flag-monaco"], "review": "source-checked"}],
    "polities": [
     {
      "id": "monaco",
