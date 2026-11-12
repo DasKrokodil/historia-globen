@@ -28,11 +28,11 @@
         "zoom": 1.4
       },
       "chapter": {
-        "sv": "Kris",
-        "en": "Crisis",
-        "fr": "Crise",
-        "de": "Krise",
-        "es": "Crisis"
+        "sv": "Upproret",
+        "en": "The rebellion",
+        "fr": "La révolte",
+        "de": "Der Aufstand",
+        "es": "La rebelión"
       },
       "title": {
         "sv": "Gula turbanernas uppror, 184",
@@ -41,7 +41,7 @@
         "de": "Der Aufstand der Gelben Turbane, 184",
         "es": "La rebelión de los Turbantes Amarillos, 184"
       },
-      "status": "belagt",
+      "status": "omtvistat",
       "text": {
         "sv": "Gula turbanernas uppror bryter ut 184 och kastar landet in i oro. Källorna beskriver förloppet olika: enligt en pågår upproret till 205, enligt en annan slås huvudupproret ner inom ett år, men mindre uppror fortsätter i årtionden.",
         "en": "The Yellow Turban Rebellion breaks out in 184 and throws the country into turmoil. The sources describe its course differently: according to one, the rebellion lasts until 205; according to another, the main rising is crushed within a year, but smaller uprisings continue for decades.",
@@ -113,7 +113,7 @@
         "de": "Luoyang, 195",
         "es": "Luoyang, 195"
       },
-      "status": "belagt",
+      "status": "okant",
       "text": {
         "sv": "I Luoyang saknas det nödvändigaste för att leva, och många ämbetsmän svälter ihjäl. Källan berättar om ämbetsmännen men säger inget om hur det gick för vanliga människor.",
         "en": "Luoyang lacks the essentials of life, and many officials starve to death. The source tells us about the officials but says nothing about what happened to ordinary people.",
@@ -206,7 +206,7 @@
         "de": "Rote Klippen, 208–209",
         "es": "Acantilados Rojos, 208–209"
       },
-      "status": "okant",
+      "status": "omtvistat",
       "text": {
         "sv": "Cao Caos motståndare Zhou Yu uppskattade hans armé till 220 000–240 000 man, men Cao Cao själv påstod att han hade 800 000. Hur stora arméerna var vet vi inte säkert.",
         "en": "Cao Cao's opponent Zhou Yu estimated his army at 220,000–240,000 men, but Cao Cao himself claimed to have 800,000. We do not know for sure how large the armies were.",
@@ -232,11 +232,11 @@
         "zoom": 1.3
       },
       "chapter": {
-        "sv": "Slutet",
-        "en": "The end",
-        "fr": "La fin",
-        "de": "Das Ende",
-        "es": "El final"
+        "sv": "Abdikationen",
+        "en": "The abdication",
+        "fr": "L'abdication",
+        "de": "Die Abdankung",
+        "es": "La abdicación"
       },
       "title": {
         "sv": "Kejsaren abdikerar, 220",
