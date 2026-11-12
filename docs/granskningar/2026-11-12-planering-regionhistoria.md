@@ -173,13 +173,13 @@ Undvik i piloten: Ukraina och Ryssland (Natural Earth lägger Krim i Ryssland, m
 
 ## 8.5 Blockerar och viktigt före bygget
 
-- **Blockerar:** datumlinjen för Ryssland och Fiji (en enda ring över ±180° ger falska träffar, till exempel Kiruna räknas som Ryssland); åtgärden hör till #1227 och ett enhetstest för `place-geo.js`. **#1255** (uppspelningen pausar inte för platser) ska vara rättad före landsvyn, eftersom ett landkort har 17 till 30 händelser.
+- **Blockerar:** datumlinjen för Ryssland och Fiji (en enda ring över ±180° ger fel i `inGeometry` och `edgeKm`; arkitekten bekräftade mekanismen med konstruerade ringar, men geografens exempel att Kiruna räknas som Ryssland kunde inte återskapas och är antagande); åtgärden hör till #1227 och ett enhetstest för `place-geo.js`. **#1255** (uppspelningen pausar inte för platser) ska vara rättad före landsvyn, eftersom ett landkort har 17 till 30 händelser.
 - **Viktigt:** 54 av cirka 240 länder klarar kravet på minst fem händelser (`validate-site.py:604`); Danmark gör det inte. Sverige och Danmark behöver fler källkontrollerade händelser utanför Skåne och Grönland före landskorten. Omstridda gränser: ett beslut för Japan, Elsass, Schleswig och Sydtyrolen.
 - **Önskvärt:** flagga och vapen (#1160 är stängt) på landskortet, ordlisteposter för land, stat, rike och nation.
 
 ## 8.6 Vad som inte är expertgranskat för landspiloten
 
-`sprak-de` och arkitekt kördes inte på nytt: tyska typnamn och mallen med artikel ("in der Schweiz") gäller även länder, och arkitektens punkter om index och gränsfiler gäller mest regioner; landspiloten klarar sig med dagens `platser@1`. De nya fynden i 8.5 (datumlinjen, minst fem händelser) bör arkitekten granska före bygget.
+`sprak-de` kördes inte på nytt: tyska typnamn och mallen med artikel ("in der Schweiz") gäller även länder. Arkitekten kördes en tredje gång på datumlinjen och kravet på fem händelser (8.9).
 
 ## 8.7 Förslag till kontextgrupper för Ländernas historia
 
@@ -203,3 +203,25 @@ Undvik i piloten: Ukraina och Ryssland (Natural Earth lägger Krim i Ryssland, m
 5. **Vilka länder undviks i piloten** enligt listan i 8.3? Rekommendation: **ja**, och ett beslut för Elsass, Schleswig och Sydtyrolen läggs i omstridda-granser inför regionspåret.
 6. **Datumlinjen (#1227) och #1255** före landsvyn? Rekommendation: **ja**.
 7. **Ny roll** (licens- och symbolgranskare, punkt 1) behövs främst för regionspåret; kan vänta. Förslag: **vänta**.
+
+## 8.9 Arkitektens tredje runda (datumlinjen och kravet på fem händelser)
+
+- **Datumlinjen:** dela ringar vid 180° i `tools/platser_gransar.py` (i datan), låt `edgeKm` hoppa över sömsegment (både i `js/place-geo.js` och Python-kopian i `scripts/validate-site.py`), låt `js/layers/places.js` använda `traceRing`, och lägg ett fel i valideringen för ring med hopp över 180°. Ingen schemaändring och inget `platser@2`. Ryssland och Fiji finns inte i `data/platser.json` än, så felet syns inte i dag. Arkitektens mätning: en punkt vid 179,5°E gav 16 425 km till en polygon vid −179…−170 (verkligt cirka 50 km) med konstruerade ringar.
+- **Kravet på fem händelser:** ett golv, inte hållbarhet. Det behålls för länder (beslut 2026-11-12) och riktlinjen blir en mjuk varning i `validate-site.py` (som den för teman, rad 540–541): färre än 12 händelser, färre än fyra sekler, färre än tre kategorier utöver krig eller över 50 % krig. Kravet per typ (till exempel `landscape` med lägre tröskel) hör till regionspåret och kräver att `landscape` läggs till i schemat och `place.type.landscape` på fem språk.
+- **Viktigt:** länkar från kortet till riken kräver en validatorkontroll att varje länkat rike-id finns. `data/platser.json` är en enda fil och blir krockfil om flera länder byggs samtidigt; förslag: Danmark först, sedan ett land i taget i serie, eller utvidga krockundantaget i CLAUDE.md (kräver DasKrokodils beslut). Kontrollera att land och rikeslänkar kan delas i länk (`js/url-state.js`, inte läst i den här rundan).
+
+## 8.10 Skapade issues i milstolpen "Länders historia" (efter DasKrokodils ok 2026-11-12)
+
+Flyttade hit: #1255 (paus vid platser), #1227 (datumlinjen i ritningen), #1115 (Sverige-piloten, gränskälla och nivå).
+
+| Grupp | Issues |
+|---|---|
+| L0 förberedande | #1255 (paus vid platser), #1227 (ritningen över datumlinjen), #1268 (ringar delas vid 180°), #1269 (mjuk varning för hållbarhet) |
+| L1 beslut och förstudie | #1267 (omstridda gränser: Japan, `beslut-krävs`), #1265 (Lgr22), #1266 (ordlista) |
+| L2 rikesluckor | #1264 (danskt rike 1526–1944 och Sveriges rikesluckor) |
+| L3 Sverige och Danmark | #1262 (Sverige), #1263 (Danmark), #1115 (gränskälla och nivå) |
+| L4 länder utanför Europa | #1270 (Etiopien), #1271 (Peru), #1272 (Australien), #1273 (Japan, väntar på #1267) |
+| L5 gränssnitt | #1260 (land som plats), #1261 (länderlistan, urvalsrad och flikens namn) |
+| Utvärdering | #1274 (sist i milstolpen) |
+
+Ingen `redo` är satt: #1255 och #1227 har en egen ägare och `pågår`, och resten väntar på beroenden eller beslut (kökontrollen sätter `redo` när villkoren är uppfyllda).
