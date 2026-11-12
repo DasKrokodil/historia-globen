@@ -7,6 +7,19 @@
   },
   "sourcesByLicense": [
     {
+      "license": "CC BY (enligt Europe PMC)",
+      "sourceIds": [
+        "arenas-2020-philippines-mtdna",
+        "curnoe-2025-gua-dagang",
+        "harvati-2022-homo-mlp",
+        "heydari-guran-2021-bawa-yawan",
+        "jacobs-2025-denisova-chronology",
+        "kaifu-2024-mata-menge",
+        "sumer-2025-ranis-genomes",
+        "xia-2024-baishiya"
+      ]
+    },
+    {
       "license": "CC BY 1.0",
       "sourceIds": [
         "commons-bild-kulturrevolutionen"
