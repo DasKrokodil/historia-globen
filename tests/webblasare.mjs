@@ -265,7 +265,7 @@ async function run(browser, vp) {
   };
   const year = () => page.textContent('#year-big').then(s => s.trim());
   const yearNumber = () => page.evaluate(() => {
-    const value = Number(document.getElementById('year-big').textContent.trim());
+    const value = Number(document.getElementById('year-big').textContent.replace(/\s/g, '')); // stora år har avgränsare (#1085)
     return document.getElementById('year-era').textContent.trim() === 'f.Kr.' ? 1 - value : value;
   });
   // Lager, Fokus, Kom igång, Platt vy, Källor och Hjälp ligger i mobilen i menyn Meny (#361, #530):
@@ -282,7 +282,8 @@ async function run(browser, vp) {
     const text = y < 1 ? `${1 - y} f.Kr.` : String(y);
     await page.fill('#jump-input', text);
     await page.press('#jump-input', 'Enter');
-    await page.waitForFunction(v => document.getElementById('year-big').textContent.trim() === v, String(y < 1 ? 1 - y : y), { timeout: T.step });
+    // Stora år visas med språkets tusentalsavgränsare (#1085), så mellanrum räknas inte
+    await page.waitForFunction(v => document.getElementById('year-big').textContent.replace(/\s/g, '') === v, String(y < 1 ? 1 - y : y), { timeout: T.step });
   };
   // Väntar tills den platta kartan står still (två bilder i rad nästan lika) och sparar den som jämförelsebild.
   const settleFlat = async () => {
@@ -682,7 +683,7 @@ async function run(browser, vp) {
     if (await page.isHidden('#jump-pop')) await page.click('#year-jump');
     await visible('#jump-epochs');
     const names = await page.locator('#jump-epochs .jump-epoch-name').allTextContents();
-    const want = ['3000–500 f.Kr.', '500 f.Kr.–1000', '1000–1800', 'sedan 1800', 'Idag'];
+    const want = ['100\u00a0000–3000 f.Kr.', '3000–500 f.Kr.', '500 f.Kr.–1000', '1000–1800', 'sedan 1800', 'Idag']; // förhistorien sedan #1088
     if (JSON.stringify(names) !== JSON.stringify(want)) throw new Error(`snabbvalen heter ${JSON.stringify(names)}, väntade ${JSON.stringify(want)}`);
     const titles = await page.locator('#track-segments .seg[title]').evaluateAll(els => els.map(e => e.title));
     if (titles.some(x => /ålder|Antiken|Medeltid|Modern/i.test(x))) throw new Error(`segmenten har epoknamn: ${JSON.stringify(titles)}`);
@@ -4444,7 +4445,7 @@ async function run(browser, vp) {
         await tp.route(u => isFont(u.href), r => r.abort());
       }
       // #976: en handskriven länk utanför tidslinjen klipps i både raden och adressen.
-      await tp.goto(`${BASE}?ny=90#y=-20000&y2=3000`);
+      await tp.goto(`${BASE}?ny=90#y=-200000&y2=3000`); // före MIN_YEAR (100 000 f.Kr. sedan #1088)
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       const bounds = await tp.evaluate(async () => {
         const { MIN_YEAR, MAX_YEAR } = await import('./js/timeline.js');
@@ -4569,7 +4570,7 @@ async function run(browser, vp) {
         }
         // En knapp utan år i namnet behåller datumen och förklaringen om klippningen.
         const stone = await pp.locator('[data-period="nordisk-stenalder"]').ariaSnapshot();
-        if (!stone.includes('3000') || !stone.includes('1700')) throw new Error(`${lang}: stenålderns intervall saknas i knappnamnet`);
+        if (!/12\s?[\s.,]?000/.test(stone) || !stone.includes('1700')) throw new Error(`${lang}: stenålderns intervall saknas i knappnamnet`); // 12 000 f.Kr. sedan #1088
         await pp.locator('.range-preset').first().focus();
         await pp.keyboard.press('Enter');
         await pp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
@@ -4659,24 +4660,24 @@ async function run(browser, vp) {
       await tp.goBack();
       await hashHas(/y2=/, false);
       await tp.waitForSelector('#range-bar', { state: 'hidden', timeout: T.step });
-      // Stenåldern börjar före tidslinjen och säger det; 1900 till nutid går till i dag
+      // Stenåldern ryms på tidslinjen sedan #1088 (12 000–1700 f.Kr.); 1900 till nutid går till i dag
       await openForm();
       const { min: firstYear } = await timelineBounds(tp);
       const stone = await text('[data-period="nordisk-stenalder"] .range-preset-years');
-      if (!stone.startsWith('3000–1700 f.Kr.') || stone.split(' · ').length !== 2) throw new Error(`stenåldern säger ${stone}`);
+      if (!stone.replace(/\s/g, ' ').startsWith('12 000–1700 f.Kr.')) throw new Error(`stenåldern säger ${stone}`);
       const today = await text('[data-period="demokratisering-globalisering-1900-"] .range-preset-years');
       if (!/^1900–\d{4} · /.test(today)) throw new Error(`1900 till nutid säger ${today}`);
       await tp.click('[data-period="nordisk-stenalder"]');
       await tp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
-      await hashHas(new RegExp(`y=${firstYear}&y2=-1699`));
+      await hashHas(/y=-11999&y2=-1699/);
       // #980: epoken syns i intervallraden och följer med i länken; en länk med andra år visar ingen epok
       await hashHas(/p=nordisk-stenalder/);
       const epochBar = await text('#range-bar-text');
-      if (!/^[^\d]+ · 3000–1700 f\.Kr\. · \d+ händelse/.test(epochBar)) throw new Error(`intervallraden visar inte epoken: ${epochBar}`);
-      await tp.evaluate(min => { location.hash = `#y=${min}&y2=-1599&p=nordisk-stenalder`; }, firstYear);
+      if (!/^[^\d]+ · 12\s000–1700 f\.Kr\. · \d+ händelse/.test(epochBar)) throw new Error(`intervallraden visar inte epoken: ${epochBar}`);
+      await tp.evaluate(min => { location.hash = `#y=${min}&y2=-1599&p=nordisk-stenalder`; }, -11999);
       await tp.waitForFunction(() => /1600 f\.Kr\./.test(document.getElementById('range-bar-text')?.textContent ?? ''), null, { timeout: T.step });
       if (/^[^\d]+ · /.test(await text('#range-bar-text'))) throw new Error('en epok visas fast åren inte är epokens');
-      await tp.evaluate(min => { location.hash = `#y=${min}&y2=-1699&p=nordisk-stenalder`; }, firstYear);
+      await tp.evaluate(min => { location.hash = `#y=${min}&y2=-1699&p=nordisk-stenalder`; }, -11999);
       await tp.waitForFunction(() => /1700 f\.Kr\./.test(document.getElementById('range-bar-text')?.textContent ?? ''), null, { timeout: T.step });
       await tp.click('#range-exit');
       // Under en tur erbjuds inte intervallet eller dess epokknappar
@@ -5107,9 +5108,9 @@ async function run(browser, vp) {
       for (const [id, q] of Object.entries(names)) {
         await open(q);
         const got = await note();
-        if (!got.shown || !/3000 f\.Kr\./.test(got.text)) throw new Error(`${id}: raden saknas eller är fel ("${got.text}")`);
-        if (got.overlapsClose) throw new Error(`${id}: raden täcker Stäng`);
-        if (got.wide) throw new Error(`${id}: raden ger horisontell scroll`);
+        // Sedan förhistorien fick ett eget segment (#1088) ligger de fem på tidslinjen och har ingen rad
+        if (got.shown) throw new Error(`${id}: ligger på tidslinjen sedan #1088 men har raden ("${got.text}")`);
+        if (got.wide) throw new Error(`${id}: faktarutan ger horisontell scroll`);
       }
       await open('Eiffeltornet');
       if ((await note()).shown) throw new Error('en vanlig händelse (Eiffeltornet) har fått raden');
@@ -5117,7 +5118,7 @@ async function run(browser, vp) {
     } finally {
       await ap.close();
     }
-    return 'kilskriften, Göbekli Tepe, Stonehenge, Egypten enas och jordbrukets början har raden (3000 f.Kr.) utan att täcka Stäng; Eiffeltornet har ingen';
+    return 'kilskriften, Göbekli Tepe, Stonehenge, Egypten enas och jordbrukets början ligger på tidslinjen sedan #1088 och har ingen rad; Eiffeltornet har ingen';
   });
   // #879: går källregistret inte att ladda skrivs inga blad med tekniska källid ut; ett besked visas och en ny tryckning
   // försöker igen. Källfilen svarar 503 första gången och sedan som vanligt.

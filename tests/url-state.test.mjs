@@ -173,13 +173,14 @@ test('ett tidsintervall står som y och y2, och en länk utan y2 är ett år som
 
 test('år i länkar klipps till tidslinjen innan intervallet kontrolleras (#976)', () => {
   for (const [hash, year, yearEnd] of [
-    ['#y=-20000&y2=3000', MIN_YEAR, MAX_YEAR],
+    ['#y=-200000&y2=3000', MIN_YEAR, MAX_YEAR],
     [`#y=${MIN_YEAR - 10}&y2=1500`, MIN_YEAR, 1500],
     [`#y=1500&y2=${MAX_YEAR + 10}`, 1500, MAX_YEAR],
     [`#y=${MIN_YEAR - 10}&y2=${MIN_YEAR - 1}`, MIN_YEAR, undefined],
     [`#y=${MAX_YEAR + 1}&y2=${MAX_YEAR + 10}`, MAX_YEAR, undefined],
     [`#y=${MIN_YEAR}&y2=${MAX_YEAR}`, MIN_YEAR, MAX_YEAR],
-    ['#y=-20000', MIN_YEAR, undefined],
+    ['#y=-200000', MIN_YEAR, undefined],
+    ['#y=-20000', -20000, undefined], // förhistorien hamnar rätt i stället för att klämmas (#1088)
     [`#y=${MAX_YEAR + 10}`, MAX_YEAR, undefined],
   ]) {
     const s = decodeHash(hash);

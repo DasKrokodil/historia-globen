@@ -2,7 +2,7 @@
 // som syns (beslut 2), ritar lagerbilden (beslut 1) och uppdaterar listan, teckenförklaringarna och årtalet.
 // Sist får uppspelningen (playback.js) se om något ska pausa. Här finns också namnens storlek efter zoom
 // (#154, #271, #301, #358) och rikets berättelse för Samtidigt-kortet (#171).
-import { loadEventDetails, formatCentury, formatEventTime, pluralUi, roundWindow, t } from '../model.js';
+import { loadEventDetails, formatCentury, formatEventTime, pluralUi, roundWindow, groupDigits, t } from '../model.js';
 import { ui } from '../i18n.js';
 import { ZOOM_LEVELS, zoomLevel, pxPerImg, zoomView, eventKeepouts } from '../ui/zoomlevels.js';
 import { empireStory } from '../ui/funfact.js';
@@ -99,7 +99,8 @@ export function createRender(app) {
     const areaYear = range ? Math.floor(range.to) : wholeYear;
     app.store.mirror({ year, wholeYear, areaYear, fine, window, span, playing, filters: panel.filters });
     // Singular och plural ur språkfilen ([en, flera]), till exempel "±1 dag" och "±3 dagar"
-    const plural = (key, n) => String(ui(key)[n === 1 ? 0 : 1]).replace('{n}', n);
+    // Talet med språkets tusentalsavgränsare, så att förhistoriens fönster blir "±12 000 år" (#1088)
+    const plural = (key, n) => String(ui(key)[n === 1 ? 0 : 1]).replace('{n}', groupDigits(n));
     const within = fine ? plural('time.withinDays', Math.round(window * 365.25)) : plural('time.withinYears', roundWindow(window)); // avrundat (#1191)
     ff.story = focus?.type === 'empire' ? storyFor(focus.id) : [];
     ff.setAnnouncements(!range);
@@ -151,9 +152,9 @@ export function createRender(app) {
     $('year-jump').classList.toggle('fine', fine);
     $('year-segment').textContent = range ? ui('range.segment')
       : focus ? pluralUi(fine ? 'time.followDays' : 'time.followYears', fine ? Math.round(window * 365.25) : Math.round(window), { name: focus.short })
-      : pluralUi(youngReaders() ? 'time.windowYearsWords' : 'time.windowYears', roundWindow(window), { where: formatCentury(year) });
+      : pluralUi(youngReaders() ? 'time.windowYearsWords' : 'time.windowYears', roundWindow(window), { where: formatCentury(year), n: groupDigits(roundWindow(window)) });
     // Tonade markörer är nära i tid, inte samtida (#1191): förklaringen står i title och som dold text för skärmläsare
-    const windowNote = range || focus ? '' : pluralUi('time.windowNote', roundWindow(window));
+    const windowNote = range || focus ? '' : pluralUi('time.windowNote', roundWindow(window), { n: groupDigits(roundWindow(window)) });
     $('year-segment').title = windowNote;
     $('year-window-note').textContent = windowNote;
     // Pauserna i uppspelningen: krigets och resans stopp, grundanden, rikets nyckelår och krig som bryter ut

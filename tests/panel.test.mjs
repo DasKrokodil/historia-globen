@@ -1,5 +1,6 @@
 // En exakt daterad period är inte historisk osäkerhet (#364).
 import test from 'node:test';
+import { MIN_YEAR } from '../js/state.js';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { uncertaintyRow, mythsHtml, emptyCause, beforeTimelineStart, overviewCount } from '../js/ui/panel.js';
@@ -59,18 +60,22 @@ test('texterna för avstängda kategorier finns på alla fem språken, artigt ti
 
 // Händelser som börjar före tidslinjens första år får en rad i faktarutan (#942)
 test('beforeTimelineStart: före, vid och efter tidslinjens början', () => {
-  assert.equal(beforeTimelineStart({ start: -9999 }), true);
-  assert.equal(beforeTimelineStart({ start: -3000 }), true);
-  assert.equal(beforeTimelineStart({ start: -2999 }), false); // MIN_YEAR själv är inte före
+  assert.equal(beforeTimelineStart({ start: MIN_YEAR - 1 }), true);
+  assert.equal(beforeTimelineStart({ start: MIN_YEAR }), false); // MIN_YEAR själv är inte före
+  assert.equal(beforeTimelineStart({ start: -2999 }), false);
   assert.equal(beforeTimelineStart({ start: 1889 }), false);
   assert.equal(beforeTimelineStart({}), false);
   assert.equal(beforeTimelineStart(null), false);
 });
 
-test('de fem händelserna före −2999 har rad, och en vanlig händelse har ingen (#892)', () => {
-  const before = events.filter(beforeTimelineStart).map(e => e.id).sort();
+// #892 gav de fem händelserna före den gamla gränsen (−2999) en rad i faktarutan. Sedan förhistorien fick ett eget segment
+// (#1088) ligger de på tidslinjen och får ingen rad.
+test('de fem händelserna före −2999 ligger på tidslinjen sedan #1088 (#892)', () => {
+  const before = events.filter(beforeTimelineStart).map(e => e.id);
   for (const id of ['egypten-enas', 'gobekli-tepe', 'jordbrukets-borjan', 'kilskriften', 'stonehenge']) {
-    assert.ok(before.includes(id), `${id} ska vara före tidslinjens början`);
+    const e = events.find(x => x.id === id);
+    assert.ok(e && e.start < -2999 + 1000, `${id} finns`);
+    assert.ok(!before.includes(id), `${id} ska ligga på tidslinjen`);
   }
   assert.ok(!beforeTimelineStart(events.find(e => e.id === 'eiffeltornet')));
 });

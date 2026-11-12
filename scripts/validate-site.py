@@ -477,7 +477,7 @@ if per_path.is_file():
 # 8e. Teman (#398): filen publiceras (scripts/build-site.sh) och Fokus läser den. Ett tema är ett urval av befintliga
 # händelser; regler och format står i docs/datamodell.md (teman.json). Varningar stoppar inte bygget.
 VISIBLE = {'source-checked', 'two-sources'}
-EARLIEST_YEAR = -2999  # MIN_YEAR i js/timeline.js
+EARLIEST_YEAR = -99999  # MIN_YEAR i js/state.js (#1088)
 
 
 def region_of(lat, lon):
