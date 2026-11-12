@@ -239,3 +239,15 @@ Tidslinjens kompakta hastighetsenheter följer språkfilen; samma numeriska hast
 | År per sekund | år/s | yr/s | J./s | años/s | ans/s |
 | Dag, singular/plural | dag/dagar | day/days | Tag/Tage | día/días | jour/jours |
 | Kort dagförkortning i mobil | d | d | T | d | j |
+
+## Teckenförklaringen (#1197)
+
+Gränssnittets förklaringar, statusmärken och reservtexter finns i `data/ui/*.json` under `legend.*`.
+Religionsnamn behåller datans skrivsätt i översatta meningar, särskilt tyskans versaler.
+Förklaringen till ärvda områden använder hela meningar per orsak, så att språkens ordföljd inte styrs av svenska fragment.
+
+| Svenska | Engelska | Tyska | Spanska | Franska |
+|---|---|---|---|---|
+| teckenförklaring | map key | Zeichenerklärung | leyenda | légende |
+| ärvt område | inherited area | übernommenes Gebiet | zona heredada | zone héritée |
+| krigsskådeplats | theatre of war | Kriegsschauplatz | teatro de operaciones | théâtre de guerre |
