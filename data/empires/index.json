@@ -28476,6 +28476,21 @@
    "from": 1945,
    "to": 2024,
    "file": "data/empires/danmark.json",
+   "labelAt": [
+    {
+     "polity": "danmark",
+     "from": 1946,
+     "to": 2024,
+     "at": [
+      9.0,
+      56.3
+     ],
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "danmark",
@@ -29077,6 +29092,21 @@
    "from": 1958,
    "to": 2024,
    "file": "data/empires/frankrike.json",
+   "labelAt": [
+    {
+     "polity": "femte-republiken",
+     "from": 1958,
+     "to": 1962,
+     "at": [
+      2.4,
+      46.8
+     ],
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "femte-republiken",
@@ -29407,6 +29437,21 @@
    "from": 1932,
    "to": 2024,
    "file": "data/empires/spanien.json",
+   "labelAt": [
+    {
+     "polity": "andra-spanska-republiken",
+     "from": 1938,
+     "to": 1938,
+     "at": [
+      -2.4,
+      38.8
+     ],
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "andra-spanska-republiken",
@@ -29495,6 +29540,18 @@
    "from": 1905,
    "to": 2024,
    "file": "data/empires/norge.json",
+   "labelAt": [
+    {
+     "polity": "norge",
+     "from": 1941,
+     "to": 1944,
+     "at": null,
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "norge",
@@ -29923,6 +29980,18 @@
    "from": 1862,
    "to": 2024,
    "file": "data/empires/italien.json",
+   "labelAt": [
+    {
+     "polity": "kungariket-italien",
+     "from": 1944,
+     "to": 1944,
+     "at": null,
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kungariket-italien",

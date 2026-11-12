@@ -479,6 +479,12 @@ Rikets nyckelår är också rikets berättelse (#171): när man följer riket i 
 - Ingen markering där källorna säger att huvudstaden är omstridd eller saknas: Maliriket (platsen omtvistad), Kalmarunionen (ingen enligt lag), Tysk-romerska riket (ingen fast huvudstad), Ghanariket (troligen Koumbi Saleh) och Israel (Jerusalems ställning är omstridd, se beslutet om omstridda gränser i #556). Andra omgången (2026-11-06) gav 15 riken till huvudstäder, bland annat Hanriket, Songdynastin, Safavidriket, Timuridriket, Pakistan och Bolivia. Årtalen kommer där ur Wikipedia-artikelns faktaruta (infobox), som också står i rikets `facts.sources`. Ingen markering heller där källorna nämner flera huvudstäder samtidigt utan årtal eller där staden saknar koordinater: Persiska riket (fem kungliga residens), Partherriket (sju), staten Qin före Qindynastin (åtta), Frankerriket (Klodvigs söner hade var sin huvudstad), Shakas kwaBulawayo i Zuluriket och Aksums sista huvudstad Kubar (platsen är okänd). Neutrala Moresnet visas som en punkt utan gräns och får därför ingen huvudstad.
 - `tools/riken.py` behåller fältet när filen skrivs om, och `scripts/validate-site.py` kontrollerar att källorna finns.
 
+`labelAt` (valfritt, #1189) i en grupp ersätter etikettpunkten (`label`) för de perioder som ligger helt inom `from`–`to`, när den största delen av ytan ger fel bild, till exempel Danmark på Grönland. `at` är en punkt inne i källans yta för riket i landet självt; `null` betyder ingen medalj och inget namn de åren, bara området, när källans yta inte innehåller landet (Norge 1941–1944 är bara Jan Mayen). Beslutet: [docs/beslut/2026-11-12-medaljplats-i-landet.md](beslut/2026-11-12-medaljplats-i-landet.md). `js/model.js` (`loadEmpire`) lägger in platsen när rikesfilen laddas, och `tools/riken.py` behåller fältet.
+
+```json
+"labelAt": [{ "polity": "danmark", "from": 1946, "to": 2024, "at": [9.0, 56.3], "sources": ["cliopatria"], "review": "source-checked" }]
+```
+
 `polityFacts` (valfritt, #301) i en grupp är egna faktarutor och symboler för enskilda riken i gruppen, med rikets id (polity) som nyckel: `{ "<polity-id>": { "symbol": "…", "facts": { … } } }`. `facts` har samma format som gruppens. När kartan visar det riket står dess egen symbol i medaljen, och klick öppnar dess egen faktaruta, med kartdata och ytkurva för just det riket. I dag har bara Bysantinska riket (`bysantinska-riket` i gruppen `romarriket`) en egen ruta; åren 395–632 heter riket Östromerska riket i kartdatan och visas med Roms symbol och ruta.
 
 ```json
