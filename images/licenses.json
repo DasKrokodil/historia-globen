@@ -462,6 +462,21 @@
       }
     },
     {
+      "eventId": "edwin-smith-papyrusen",
+      "eventTitle": "Edwin Smith-papyrusen, den äldsta kända kirurgiska texten",
+      "file": "images/events/edwin-smith-papyrusen.webp",
+      "kind": "historisk",
+      "credit": "Okänd skrivare (papyrusen), Jeff Dahl (bearbetning) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-edwin-smith-papyrusen",
+        "title": "Edwin Smith Papyrus v2 – spalt 6 och 7 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Edwin_Smith_Papyrus_v2.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-12"
+      }
+    },
+    {
       "eventId": "egypten-enas",
       "eventTitle": "Egypten enas under Narmer",
       "file": "images/events/egypten-enas.webp",
@@ -1927,6 +1942,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "rhind-papyrusen",
+      "eventTitle": "Rhind-papyrusen och egyptisk matematik",
+      "file": "images/events/rhind-papyrusen.webp",
+      "kind": "historisk",
+      "credit": "Fotograf okänd / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-rhind-papyrusen",
+        "title": "Rhind Mathematical Papyrus – British Museum EA 10057 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Rhind_Mathematical_Papyrus.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-12"
+      }
     },
     {
       "eventId": "sagan-om-genji",

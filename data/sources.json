@@ -1942,6 +1942,8 @@
     { "id": "wp-flag-botswana", "title": "Flag of Botswana – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Botswana", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
     { "id": "wp-flag-mali", "title": "Flag of Mali – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Mali", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
     { "id": "wp-flag-togo", "title": "Flag of Togo – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Togo", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
-    { "id": "wp-flag-benin", "title": "Flag of Benin – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Benin", "license": "CC BY-SA 4.0", "checked": "2026-11-12" }
+    { "id": "wp-flag-benin", "title": "Flag of Benin – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Benin", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "commons-bild-edwin-smith-papyrusen", "title": "Edwin Smith Papyrus v2 – spalt 6 och 7 (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:Edwin_Smith_Papyrus_v2.jpg", "license": "Public domain", "checked": "2026-11-12" },
+    { "id": "commons-bild-rhind-papyrusen", "title": "Rhind Mathematical Papyrus – British Museum EA 10057 (Wikimedia Commons, filsida)", "url": "https://commons.wikimedia.org/wiki/File:Rhind_Mathematical_Papyrus.jpg", "license": "Public domain", "checked": "2026-11-12" }
   ]
 }
