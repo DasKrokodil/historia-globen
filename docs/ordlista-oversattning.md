@@ -258,3 +258,50 @@ Förklaringen till ärvda områden använder hela meningar per orsak, så att sp
 | teckenförklaring | map key | Zeichenerklärung | leyenda | légende |
 | ärvt område | inherited area | übernommenes Gebiet | zona heredada | zone héritée |
 | krigsskådeplats | theatre of war | Kriegsschauplatz | teatro de operaciones | théâtre de guerre |
+
+## 13. Förhistoria och tidsangivelser (#1086, underlag för #396 och #11)
+
+Skrivet 2026-11-12. Termerna är kontrollerade mot målspråkets Wikipedia-titel (regel 4.1), via språklänkarna i Wikidata (CC0), som också ger Q-id:t. Det som saknar öppen källa står som **förslag** och ska kvitteras av språkexperterna (`sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr`) innan det används.
+
+### 13.1 Termer
+
+| Svenska | Engelska | Tyska | Spanska | Franska | Wikidata |
+|---|---|---|---|---|---|
+| stenålder | Stone Age | Steinzeit | Edad de Piedra | âge de la pierre | Q11759 |
+| paleolitikum (äldre stenålder) | Paleolithic | Altsteinzeit | Paleolítico | Paléolithique | Q40203 |
+| mesolitikum (mellersta stenålder) | Mesolithic | Mittelsteinzeit | Mesolítico | Mésolithique | Q44155 |
+| neolitikum (yngre stenålder) | Neolithic | Jungsteinzeit | Neolítico | Néolithique | Q36422 |
+| bronsålder | Bronze Age | Bronzezeit | Edad del Bronce | âge du bronze | Q11761 |
+| järnålder | Iron Age | Eisenzeit | Edad del Hierro | âge du fer | Q11764 |
+| neandertalare | Neanderthals | Neandertaler | neandertales (artikeltitel: *Homo neanderthalensis*) | Néandertaliens (artikeltitel: *Homme de Néandertal*) | Q40171 |
+| denisovamänniskan, denisovaner | Denisovans | Denisova-Mensch | hombre de Denísova | Homme de Denisova | Q151055 |
+| *Homo sapiens* | *Homo sapiens* | *Homo sapiens* | *Homo sapiens* | *Homo sapiens* | Q15978631 |
+| *Homo floresiensis* | *Homo floresiensis* | *Homo floresiensis* | *Homo floresiensis* | *Homo floresiensis* (artikeltitel: *Homme de Florès*) | Q186266 |
+| hominini | hominins | Hominini | homininos | Hominini | Q107588 |
+| ut ur Afrika (hypotesen) | out of Africa (Recent African origin of modern humans) | Out-of-Africa-Theorie | teoría del origen africano reciente | origine africaine de l’Homme moderne | Q7478419 |
+
+- **Vetenskapliga artnamn** skrivs i kursiv på alla språk, med versal i släktnamnet och gemen i artnamnet: *Homo sapiens*.
+- **Artikeltitel kontra löptext:** spanska och franska Wikipedia har artnamnet eller "l’Homme de …" som titel. I löptext används pluralformen för gruppen (*neandertales*, *Néandertaliens*). Det är ett förslag som `sprak-es` och `sprak-fr` ska kvittera.
+- **Svenska stenålder, bronsålder och järnålder** motsvarar *Steinzeit/Bronzezeit/Eisenzeit* och *âge de la pierre/du bronze/du fer* direkt (samma Wikidata-poster). Den tyska skolans *Alt-/Mittel-/Jungsteinzeit* motsvarar paleolitikum, mesolitikum och neolitikum. I Frankrike används oftast *Paléolithique/Mésolithique/Néolithique*. Årtalen skiljer sig mellan regioner, så de anges i datan (`data/perioder.json`), aldrig i ordlistan.
+- **"Before Present"** (Q503142) heter *B.P.* på svenska, *Before Present* på tyska, *antes del presente* på spanska och *avant le présent* på franska. Förkortningen används inte i löptext (nästa avsnitt).
+
+### 13.2 Tidsangivelser (förslag)
+
+- **Fram till gränsen** (antagande: cirka 10 000 år sedan, avgörs i #1088) används f.Kr. som i avsnitt 2.
+- **Efter gränsen**, bakåt i tiden, används "för … år sedan": sv *för 40 000 år sedan*, en *40,000 years ago*, de *vor 40.000 Jahren*, es *hace 40 000 años*, fr *il y a 40 000 ans*. För miljoner: sv *för 2 miljoner år sedan*, en *2 million years ago*, de *vor 2 Millionen Jahren*, es *hace 2 millones de años*, fr *il y a 2 millions d’années*.
+- **Inte i löptext:** "BP", "ka", "kyr" eller "Ma". De kan stå i källhänvisningar och i datafält.
+- **Spann:** samma tankstreck som för år (*för 48 000–32 000 år sedan*). Det äldre talet står först, som i källorna.
+- **Osäkerhetsord med fast betydelse** (förslag): *cirka* (en *about*, de *etwa*, es *unos* eller *alrededor de*, fr *environ*) för ett ungefärligt tal; *troligen* (*probably*, *wahrscheinlich*, *probablemente*, *probablement*) när källan bedömer det sannolikt; *kanske* eller *möjligen* (*possibly*, *möglicherweise*, *posiblemente*, *peut-être*) när källan bara håller det för möjligt. Orden används inte omväxlande; de följer källans grad av säkerhet.
+
+### 13.3 Siffror i stora tal (spanska: val krävs)
+
+- **Dagens regel** (avsnitt 3) ger mellanrum från fyra siffror i spanska och franska mängder ("4 000 años").
+- **Issuet** säger att RAE (Diccionario panhispánico de dudas) sätter mellanrum först från fem siffror ("4000 años", "40 000 años"), och att "miljard" heter *mil millones*, inte *billón*. RAE:s webbplats går inte att nå från den här sessionen, så **det är inte kontrollerat mot källan**.
+- **Förslag:** behåll regeln i avsnitt 3 tills `sprak-es` har kontrollerat RAE. Ändras regeln, ska gränssnittet (`data/ui/es.json`) ändras i samma pull request. *mil millones* gäller oavsett.
+
+### 13.4 Känsliga formuleringar
+
+- **Inget "ras"** om människogrupper: sv *befolkningar* eller *grupper*, en *populations*, de *Bevölkerungen*, es *poblaciones*, fr *populations*.
+- **Inget "primitiv"** om neandertalare eller andra arter. Skriv vad källan säger att de gjorde.
+- **Ingen stege:** arterna beskrivs inte som steg mot *Homo sapiens*. Flera arter levde samtidigt.
+- **Osäkerhet visas öppet**, med orden i 13.2 och med "Källorna skiljer sig" där de gör det (källpolicyn, punkt 4 och 6).
