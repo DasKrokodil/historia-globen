@@ -138,6 +138,7 @@ images/licenses.json  genererat register över händelsebildernas licenser (#393
 data/land.json        grundkarta (Natural Earth 1:50m)
 data/land-10m.json    finare kust (Natural Earth 1:10m), laddas först när det skarpa utsnittet används; byggs med tools/land_10m.mjs
 tools/riken.py        bygger rikesfilerna ur Cliopatria
+tools/riken_bevara.py det riken.py behåller vid ombyggnad: handskrivna fält som flags och översatta namn (#1220)
 tools/riken_namn.py   hämtar rikenas namn på tyska, spanska och franska ur Wikidata; riken.py bevarar dem (#676, #644)
 tools/ne_omstridda.py tar ut omstridda områden ur Natural Earth till tools/ne-omstridda-omraden.geojson, som riken.py läser (#644)
 tools/dela_data.py    bygger events.json ur data/handelser/ och delar upp händelser och riken i data/genererat/, med en fil per språk (körs efter varje ändring)
