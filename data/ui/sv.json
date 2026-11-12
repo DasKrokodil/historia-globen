@@ -355,6 +355,7 @@
   "legend.closeEmpires": "Stäng teckenförklaringen för riken",
   "ff.kind.funfact": "Fun fact",
   "ff.kind.war": "När ett krig bröt ut",
+  "ff.warStarts": "{war} bryter ut {year}. Samtidigt i världen:",
   "ff.kind.empire": "Rikets berättelse",
   "ff.kind.vanished": "Landets berättelse",
   "ff.sheet.closed": "stängt",

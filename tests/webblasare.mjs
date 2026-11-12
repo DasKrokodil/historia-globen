@@ -3640,6 +3640,40 @@ async function run(browser, vp) {
     return 'Spela klart når slutkortet';
   });
 
+  await check('krigskortet på valt språk, inte svenska (#1240)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const seen = [];
+    for (const lang of ['de', 'fr']) {
+      const pp = await context.newPage();
+      const errors = [];
+      pp.on('pageerror', e => errors.push(e.message));
+      pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+      try {
+        if (THREE_LOCAL) {
+          await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+          await pp.route(u => isFont(u.href), r => r.abort());
+        }
+        // Första världskriget börjar 1914 och har ett krigskort (warCards i main.js); ingen fakta provas här
+        await pp.goto(`${BASE}?lang=${lang}#y=1914`);
+        await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await pp.waitForSelector('#ff-text', { timeout: T.load });
+        const warKind = await pp.evaluate(async () => (await import('./js/i18n.js')).ui('ff.kind.war'));
+        let text = null;
+        for (let i = 0; i < 8 && text == null; i++) {
+          if ((await pp.textContent('#ff-kind')).trim() === warKind) text = (await pp.textContent('#ff-text')).trim();
+          else if (await pp.locator('#ff-next').isVisible()) { await pp.click('#ff-next'); await pp.waitForTimeout(200); }
+          else break;
+        }
+        if (text == null) throw new Error(`${lang}: inget krigskort år 1914`);
+        if (/bryter ut|Samtidigt i världen/.test(text)) throw new Error(`${lang}: krigskortet är på svenska: ${text}`);
+        if (/ff\.warStarts|\{(war|year)\}/.test(text)) throw new Error(`${lang}: rå nyckel eller platshållare: ${text}`);
+        if (errors.length) throw new Error(`${lang}: ${errors[0]}`);
+        seen.push(`${lang}: ${text}`);
+      } finally { await pp.close(); }
+    }
+    return seen.join(' | ');
+  });
+
   await check('tidslinjen, årshoppet, Platt vy, affischen och källorna på fem språk (#672)', async () => {
     const copies = {
       sv: ['år/s', 'Källregister', 'Affisch'], en: ['yr/s', 'Source register', 'Poster'],

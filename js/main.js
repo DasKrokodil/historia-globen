@@ -58,7 +58,8 @@ function warCards(events) {
     return [{
       id: `war-${war.id}`, kind: 'war', events: evs.map(e => e.id), show: [war.start, war.start + 4],
       review: RANK[Math.min(...evs.map(e => Math.max(0, RANK.indexOf(e.review))))],
-      text: { sv: `${t(war.title)} bryter ut ${formatYear(war.start)}. Samtidigt i världen:` },
+      // Texten på valt språk (#1240); språkbyte laddar om sidan, så den byggs en gång
+      text: { sv: ui('ff.warStarts', { war: t(war.title), year: formatYear(war.start) }) },
     }];
   });
 }

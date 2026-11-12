@@ -573,6 +573,7 @@
   "legend.closeEmpires": "Zeichenerklärung für Reiche schließen",
   "ff.kind.funfact": "Wissenswertes",
   "ff.kind.war": "Als ein Krieg ausbrach",
+  "ff.warStarts": "Kriegsbeginn {year}: {war}. Gleichzeitig in der Welt:",
   "ff.kind.empire": "Die Geschichte des Reiches",
   "ff.kind.vanished": "Die Geschichte des Landes",
   "ff.sheet.closed": "geschlossen",
