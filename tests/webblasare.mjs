@@ -1363,6 +1363,42 @@ async function run(browser, vp) {
     }
   });
 
+  // #1193: nutida staters flaggor (modernState) syns på globen bara vid nära zoom, utzoomat står namnet. Sverige
+  // (svenska-stormaktsvaldet) räknas inte som nutida stat och behåller flaggan utzoomat.
+  await check('nutida staters flaggor bara vid nära zoom (#1193)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      await lp.goto(`${BASE}?c=18,-70,1#y=2000`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      const modern = new Set(['Bahamas', 'Jamaica', 'Trinidad och Tobago', 'Barbados', 'Grenada', 'Saint Lucia', 'Antigua och Barbuda',
+        'Saint Kitts och Nevis', 'Kanada', 'Colombia', 'Peru', 'Bolivia', 'Chile', 'Argentina', 'Uruguay', 'Costa Rica', 'Guatemala', 'Honduras']);
+      const flags = () => lp.evaluate(() => [...document.querySelectorAll('button[aria-label*="rikets flagga"]')]
+        .filter(e => e.offsetParent && getComputedStyle(e).visibility !== 'hidden').map(e => e.getAttribute('aria-label').split(':')[0]));
+      await lp.waitForTimeout(1500);
+      const out = await flags();
+      if (out.some(n => modern.has(n))) throw new Error(`utzoomat syns nutida flaggor: ${out.join(', ')}`);
+      if (vp.width <= 760) return `utzoomat ${out.length} flaggor och inga nutida (mobilbredd: inget mushjul, zoomsteget prövas i datorbredd)`;
+      const size = lp.viewportSize();
+      await lp.mouse.move(size.width / 2, size.height * 0.6);
+      for (let i = 0; i < 12; i++) { await lp.mouse.wheel(0, -300); await lp.waitForTimeout(80); }
+      await lp.waitForFunction(names => [...document.querySelectorAll('button[aria-label*="rikets flagga"]')]
+        .some(e => e.offsetParent && getComputedStyle(e).visibility !== 'hidden' && names.includes(e.getAttribute('aria-label').split(':')[0])),
+        [...modern], { timeout: T.step });
+      const inside = (await flags()).filter(n => modern.has(n));
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `utzoomat ${out.length} flaggor och inga nutida; inzoomat ${inside.join(', ')}`;
+    } finally {
+      await lp.close();
+    }
+  });
+
   await check('rikets faktaruta startar turen om rikets fall med status per steg (#499)', async () => {
     const startYear = Number(await page.getAttribute('#track', 'aria-valuenow'));
     await clickView('#btn-focus');

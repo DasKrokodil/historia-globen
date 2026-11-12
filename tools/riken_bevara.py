@@ -7,7 +7,7 @@ på fälten som i den befintliga filen, så att en ombyggnad utan andra ändring
 """
 
 # Fält i index.json som skrivs för hand och behålls, i den här ordningen när gruppen är ny
-KEEP = ('facts', 'symbol', 'polityFacts', 'capitals', 'labelAt', 'flags')
+KEEP = ('facts', 'symbol', 'polityFacts', 'capitals', 'labelAt', 'flags', 'modernState')
 
 
 def keep_langs(name, old):

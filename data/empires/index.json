@@ -17981,6 +17981,7 @@
   },
   {
    "id": "usa",
+   "modernState": true,
    "name": {
     "sv": "USA",
     "en": "United States"
@@ -18548,6 +18549,7 @@
   },
   {
    "id": "mexiko",
+   "modernState": true,
    "name": {
     "sv": "Mexiko",
     "en": "Mexico"
@@ -18892,6 +18894,7 @@
   },
   {
    "id": "brasilien",
+   "modernState": true,
    "name": {
     "sv": "Brasilien: kejsardömet och republiken",
     "en": "Brazil: the Empire and the Republic"
@@ -19177,6 +19180,7 @@
   },
   {
    "id": "argentina",
+   "modernState": true,
    "name": {
     "sv": "Argentina",
     "en": "Argentina"
@@ -19419,6 +19423,7 @@
   },
   {
    "id": "paraguay",
+   "modernState": true,
    "name": {
     "sv": "Paraguay",
     "en": "Paraguay"
@@ -19652,6 +19657,7 @@
   },
   {
    "id": "uruguay",
+   "modernState": true,
    "name": {
     "sv": "Uruguay",
     "en": "Uruguay"
@@ -19851,6 +19857,7 @@
   },
   {
    "id": "israel",
+   "modernState": true,
    "name": {
     "sv": "Israel",
     "en": "Israel"
@@ -20086,6 +20093,7 @@
   },
   {
    "id": "palestina",
+   "modernState": true,
    "name": {
     "sv": "Palestina",
     "en": "Palestine",
@@ -20154,6 +20162,7 @@
   },
   {
    "id": "moderna-egypten",
+   "modernState": true,
    "name": {
     "sv": "Egypten från 1922",
     "en": "Egypt since 1922"
@@ -20457,6 +20466,7 @@
   },
   {
    "id": "syrien",
+   "modernState": true,
    "name": {
     "sv": "Syrien",
     "en": "Syria"
@@ -20719,6 +20729,7 @@
   },
   {
    "id": "jordanien",
+   "modernState": true,
    "name": {
     "sv": "Jordanien",
     "en": "Jordan"
@@ -20942,6 +20953,7 @@
   },
   {
    "id": "irak",
+   "modernState": true,
    "name": {
     "sv": "Irak: kungariket och republiken",
     "en": "Iraq: the Kingdom and the Republic"
@@ -21192,6 +21204,7 @@
   },
   {
    "id": "iran",
+   "modernState": true,
    "name": {
     "sv": "Iran: qajarerna, pahlavi och islamiska republiken",
     "en": "Iran: the Qajars, the Pahlavis and the Islamic Republic"
@@ -21496,6 +21509,7 @@
   },
   {
    "id": "kuwait",
+   "modernState": true,
    "name": {
     "sv": "Kuwait",
     "en": "Kuwait"
@@ -21733,6 +21747,7 @@
   },
   {
    "id": "indien",
+   "modernState": true,
    "name": {
     "sv": "Indien",
     "en": "India"
@@ -22015,6 +22030,7 @@
   },
   {
    "id": "pakistan",
+   "modernState": true,
    "name": {
     "sv": "Pakistan",
     "en": "Pakistan"
@@ -22340,6 +22356,7 @@
   },
   {
    "id": "bangladesh",
+   "modernState": true,
    "name": {
     "sv": "Bangladesh",
     "en": "Bangladesh"
@@ -22589,6 +22606,7 @@
   },
   {
    "id": "afghanistan",
+   "modernState": true,
    "name": {
     "sv": "Afghanistan: Durranis rike, emiratet, kungariket och republiken",
     "en": "Afghanistan: the Durrani Empire, the Emirate, the Kingdom and the Republic"
@@ -23492,6 +23510,7 @@
   },
   {
    "id": "nordkorea",
+   "modernState": true,
    "name": {
     "sv": "Nordkorea",
     "en": "North Korea"
@@ -23750,6 +23769,7 @@
   },
   {
    "id": "sydkorea",
+   "modernState": true,
    "name": {
     "sv": "Sydkorea",
     "en": "South Korea"
@@ -24011,6 +24031,7 @@
   },
   {
    "id": "vietnam",
+   "modernState": true,
    "name": {
     "sv": "Vietnam: Nordvietnam och det enade Vietnam",
     "en": "Vietnam: North Vietnam and unified Vietnam"
@@ -24752,6 +24773,7 @@
   },
   {
    "id": "nigeria",
+   "modernState": true,
    "name": {
     "sv": "Nigeria",
     "en": "Nigeria"
@@ -24966,6 +24988,7 @@
   },
   {
    "id": "kongo-kinshasa",
+   "modernState": true,
    "name": {
     "sv": "Kongo-Kinshasa",
     "en": "Democratic Republic of the Congo"
@@ -25162,6 +25185,7 @@
   },
   {
    "id": "rwanda",
+   "modernState": true,
    "name": {
     "sv": "Rwanda",
     "en": "Rwanda"
@@ -25341,6 +25365,7 @@
   },
   {
    "id": "uganda",
+   "modernState": true,
    "name": {
     "sv": "Uganda",
     "en": "Uganda"
@@ -25745,6 +25770,7 @@
   },
   {
    "id": "australien",
+   "modernState": true,
    "name": {
     "sv": "Australien",
     "en": "Australia"
@@ -25941,6 +25967,7 @@
   },
   {
    "id": "nya-zeeland",
+   "modernState": true,
    "name": {
     "sv": "Nya Zeeland",
     "en": "New Zealand"
@@ -26120,6 +26147,7 @@
   },
   {
    "id": "papua-nya-guinea",
+   "modernState": true,
    "name": {
     "sv": "Papua Nya Guinea",
     "en": "Papua New Guinea"
@@ -26295,6 +26323,7 @@
   },
   {
    "id": "kanada",
+   "modernState": true,
    "name": {
     "sv": "Kanada",
     "en": "Canada"
@@ -26471,6 +26500,7 @@
   },
   {
    "id": "chile",
+   "modernState": true,
    "name": {
     "sv": "Chile",
     "en": "Chile"
@@ -26648,6 +26678,7 @@
   },
   {
    "id": "peru",
+   "modernState": true,
    "name": {
     "sv": "Peru",
     "en": "Peru"
@@ -26832,6 +26863,7 @@
   },
   {
    "id": "bolivia",
+   "modernState": true,
    "name": {
     "sv": "Bolivia",
     "en": "Bolivia"
@@ -27018,6 +27050,7 @@
   },
   {
    "id": "colombia",
+   "modernState": true,
    "name": {
     "sv": "Colombia: Nya Granada och republiken",
     "en": "Colombia: New Granada and the Republic"
@@ -27252,6 +27285,7 @@
   },
   {
    "id": "venezuela",
+   "modernState": true,
    "name": {
     "sv": "Venezuela",
     "en": "Venezuela"
@@ -27427,6 +27461,7 @@
   },
   {
    "id": "ecuador",
+   "modernState": true,
    "name": {
     "sv": "Ecuador",
     "en": "Ecuador"
@@ -27584,6 +27619,7 @@
   },
   {
    "id": "haiti",
+   "modernState": true,
    "name": {
     "sv": "Haiti",
     "en": "Haiti"
@@ -27789,6 +27825,7 @@
   },
   {
    "id": "ukraina",
+   "modernState": true,
    "name": {
     "sv": "Ukraina",
     "en": "Ukraine"
@@ -27797,6 +27834,7 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/ukraina.json",
+   "flags": [{"file": "ukraine", "from": 1992, "to": 2024, "label": {"sv": "Ukrainas flagga", "en": "Flag of Ukraine", "de": "Flagge der Ukraine", "es": "Bandera de Ucrania", "fr": "Drapeau de l’Ukraine"}, "sources": ["wp-flag-ukraine"], "review": "source-checked"}],
    "polities": [
     {
      "id": "ukraina",
@@ -28055,6 +28093,7 @@
   },
   {
    "id": "ryska-federationen",
+   "modernState": true,
    "name": {
     "sv": "Ryska federationen",
     "en": "Russian Federation"
@@ -28290,6 +28329,7 @@
   },
   {
    "id": "kina",
+   "modernState": true,
    "name": {
     "sv": "Kina",
     "en": "China",
@@ -28364,6 +28404,7 @@
   },
   {
    "id": "taiwan",
+   "modernState": true,
    "name": {
     "sv": "Taiwan",
     "en": "Taiwan",
@@ -28405,6 +28446,7 @@
   },
   {
    "id": "kazakstan",
+   "modernState": true,
    "name": {
     "sv": "Kazakstan",
     "en": "Kazakhstan",
@@ -28435,6 +28477,7 @@
   },
   {
    "id": "algeriet",
+   "modernState": true,
    "name": {
     "sv": "Algeriet",
     "en": "Algeria",
@@ -28465,6 +28508,7 @@
   },
   {
    "id": "danmark",
+   "modernState": true,
    "name": {
     "sv": "Danmark",
     "en": "Denmark",
@@ -28476,6 +28520,7 @@
    "from": 1945,
    "to": 2024,
    "file": "data/empires/danmark.json",
+   "flags": [{"file": "denmark", "from": 1945, "to": 2024, "label": {"sv": "Dannebrog, Danmarks flagga", "en": "Dannebrog, flag of Denmark", "de": "Dannebrog, Flagge Dänemarks", "es": "Dannebrog, bandera de Dinamarca", "fr": "Dannebrog, drapeau du Danemark"}, "sources": ["wp-dannebrog"], "review": "source-checked"}],
    "labelAt": [
     {
      "polity": "danmark",
@@ -28510,6 +28555,7 @@
   },
   {
    "id": "indonesien",
+   "modernState": true,
    "name": {
     "sv": "Indonesien",
     "en": "Indonesia",
@@ -28555,6 +28601,7 @@
   },
   {
    "id": "saudiarabien",
+   "modernState": true,
    "name": {
     "sv": "Saudiarabien",
     "en": "Saudi Arabia",
@@ -28599,6 +28646,7 @@
   },
   {
    "id": "sudan",
+   "modernState": true,
    "name": {
     "sv": "Sudan",
     "en": "Sudan",
@@ -28629,6 +28677,7 @@
   },
   {
    "id": "libyen",
+   "modernState": true,
    "name": {
     "sv": "Libyen",
     "en": "Libya",
@@ -28673,6 +28722,7 @@
   },
   {
    "id": "mongoliet",
+   "modernState": true,
    "name": {
     "sv": "Mongoliet",
     "en": "Mongolia",
@@ -28717,6 +28767,7 @@
   },
   {
    "id": "tchad",
+   "modernState": true,
    "name": {
     "sv": "Tchad",
     "en": "Chad",
@@ -28728,6 +28779,7 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/tchad.json",
+   "flags": [{"file": "chad", "from": 1961, "to": 2024, "label": {"sv": "Tchads flagga", "en": "Flag of Chad", "de": "Flagge des Tschad", "es": "Bandera de Chad", "fr": "Drapeau du Tchad"}, "sources": ["wp-flag-chad"], "review": "source-checked"}],
    "polities": [
     {
      "id": "tchad",
@@ -28747,6 +28799,7 @@
   },
   {
    "id": "angola",
+   "modernState": true,
    "name": {
     "sv": "Angola",
     "en": "Angola",
@@ -28777,6 +28830,7 @@
   },
   {
    "id": "mali",
+   "modernState": true,
    "name": {
     "sv": "Mali",
     "en": "Mali",
@@ -28788,6 +28842,7 @@
    "from": 1960,
    "to": 2024,
    "file": "data/empires/mali.json",
+   "flags": [{"file": "mali", "from": 1961, "to": 2024, "label": {"sv": "Malis flagga", "en": "Flag of Mali", "de": "Flagge Malis", "es": "Bandera de Mali", "fr": "Drapeau du Mali"}, "sources": ["wp-flag-mali"], "review": "source-checked"}],
    "polities": [
     {
      "id": "mali",
@@ -28807,6 +28862,7 @@
   },
   {
    "id": "sydafrika",
+   "modernState": true,
    "name": {
     "sv": "Sydafrika",
     "en": "South Africa",
@@ -28871,6 +28927,7 @@
   },
   {
    "id": "niger",
+   "modernState": true,
    "name": {
     "sv": "Niger",
     "en": "Niger",
@@ -28882,6 +28939,7 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/niger.json",
+   "flags": [{"file": "niger", "from": 1961, "to": 2024, "label": {"sv": "Nigers flagga", "en": "Flag of Niger", "de": "Flagge Nigers", "es": "Bandera de Níger", "fr": "Drapeau du Niger"}, "sources": ["wp-flag-niger"], "review": "source-checked"}],
    "polities": [
     {
      "id": "niger",
@@ -28901,6 +28959,7 @@
   },
   {
    "id": "mauretanien",
+   "modernState": true,
    "name": {
     "sv": "Mauretanien",
     "en": "Mauritania",
@@ -28931,6 +28990,7 @@
   },
   {
    "id": "tanzania",
+   "modernState": true,
    "name": {
     "sv": "Tanzania",
     "en": "Tanzania",
@@ -28961,6 +29021,7 @@
   },
   {
    "id": "namibia",
+   "modernState": true,
    "name": {
     "sv": "Namibia",
     "en": "Namibia",
@@ -28991,6 +29052,7 @@
   },
   {
    "id": "mocambique",
+   "modernState": true,
    "name": {
     "sv": "Moçambique",
     "en": "Mozambique",
@@ -29021,6 +29083,7 @@
   },
   {
    "id": "turkiet",
+   "modernState": true,
    "name": {
     "sv": "Turkiet",
     "en": "Turkey",
@@ -29051,6 +29114,7 @@
   },
   {
    "id": "zambia",
+   "modernState": true,
    "name": {
     "sv": "Zambia",
     "en": "Zambia",
@@ -29081,6 +29145,7 @@
   },
   {
    "id": "frankrike",
+   "modernState": true,
    "name": {
     "sv": "Frankrike",
     "en": "France",
@@ -29092,6 +29157,7 @@
    "from": 1958,
    "to": 2024,
    "file": "data/empires/frankrike.json",
+   "flags": [{"file": "france-tricolour", "from": 1958, "to": 2024, "label": {"sv": "Frankrikes trikolor", "en": "French tricolour", "de": "Französische Trikolore", "es": "Tricolor francesa", "fr": "Drapeau tricolore français"}, "sources": ["wp-flag-of-france"], "review": "source-checked"}],
    "labelAt": [
     {
      "polity": "femte-republiken",
@@ -29126,6 +29192,7 @@
   },
   {
    "id": "myanmar",
+   "modernState": true,
    "name": {
     "sv": "Myanmar",
     "en": "Myanmar",
@@ -29156,6 +29223,7 @@
   },
   {
    "id": "somalia",
+   "modernState": true,
    "name": {
     "sv": "Somalia",
     "en": "Somalia",
@@ -29186,6 +29254,7 @@
   },
   {
    "id": "centralafrikanska-republiken",
+   "modernState": true,
    "name": {
     "sv": "Centralafrikanska republiken",
     "en": "Central African Republic",
@@ -29216,6 +29285,7 @@
   },
   {
    "id": "madagaskar",
+   "modernState": true,
    "name": {
     "sv": "Madagaskar",
     "en": "Madagascar",
@@ -29227,6 +29297,7 @@
    "from": 1960,
    "to": 2024,
    "file": "data/empires/madagaskar.json",
+   "flags": [{"file": "madagascar", "from": 1960, "to": 2024, "label": {"sv": "Madagaskars flagga", "en": "Flag of Madagascar", "de": "Flagge Madagaskars", "es": "Bandera de Madagascar", "fr": "Drapeau de Madagascar"}, "sources": ["wp-flag-madagascar"], "review": "source-checked"}],
    "polities": [
     {
      "id": "madagaskar",
@@ -29246,6 +29317,7 @@
   },
   {
    "id": "sydsudan",
+   "modernState": true,
    "name": {
     "sv": "Sydsudan",
     "en": "South Sudan",
@@ -29276,6 +29348,7 @@
   },
   {
    "id": "kenya",
+   "modernState": true,
    "name": {
     "sv": "Kenya",
     "en": "Kenya",
@@ -29306,6 +29379,7 @@
   },
   {
    "id": "botswana",
+   "modernState": true,
    "name": {
     "sv": "Botswana",
     "en": "Botswana",
@@ -29317,6 +29391,7 @@
    "from": 1967,
    "to": 2024,
    "file": "data/empires/botswana.json",
+   "flags": [{"file": "botswana", "from": 1967, "to": 2024, "label": {"sv": "Botswanas flagga", "en": "Flag of Botswana", "de": "Flagge Botswanas", "es": "Bandera de Botsuana", "fr": "Drapeau du Botswana"}, "sources": ["wp-flag-botswana"], "review": "source-checked"}],
    "polities": [
     {
      "id": "botswana",
@@ -29336,6 +29411,7 @@
   },
   {
    "id": "thailand",
+   "modernState": true,
    "name": {
     "sv": "Thailand",
     "en": "Thailand",
@@ -29366,6 +29442,7 @@
   },
   {
    "id": "turkmenistan",
+   "modernState": true,
    "name": {
     "sv": "Turkmenistan",
     "en": "Turkmenistan",
@@ -29396,6 +29473,7 @@
   },
   {
    "id": "kamerun",
+   "modernState": true,
    "name": {
     "sv": "Kamerun",
     "en": "Cameroon",
@@ -29426,6 +29504,7 @@
   },
   {
    "id": "spanien",
+   "modernState": true,
    "name": {
     "sv": "Spanien",
     "en": "Spain",
@@ -29499,6 +29578,7 @@
   },
   {
    "id": "jemen",
+   "modernState": true,
    "name": {
     "sv": "Jemen",
     "en": "Yemen",
@@ -29529,6 +29609,7 @@
   },
   {
    "id": "norge",
+   "modernState": true,
    "name": {
     "sv": "Norge",
     "en": "Norway",
@@ -29540,6 +29621,7 @@
    "from": 1905,
    "to": 2024,
    "file": "data/empires/norge.json",
+   "flags": [{"file": "norway", "from": 1905, "to": 2024, "label": {"sv": "Norges flagga", "en": "Flag of Norway", "de": "Flagge Norwegens", "es": "Bandera de Noruega", "fr": "Drapeau de la Norvège"}, "sources": ["wp-flag-norway"], "review": "source-checked"}],
    "labelAt": [
     {
      "polity": "norge",
@@ -29571,6 +29653,7 @@
   },
   {
    "id": "uzbekistan",
+   "modernState": true,
    "name": {
     "sv": "Uzbekistan",
     "en": "Uzbekistan",
@@ -29601,6 +29684,7 @@
   },
   {
    "id": "japan",
+   "modernState": true,
    "name": {
     "sv": "Japan",
     "en": "Japan",
@@ -29631,6 +29715,7 @@
   },
   {
    "id": "marocko",
+   "modernState": true,
    "name": {
     "sv": "Marocko",
     "en": "Morocco",
@@ -29671,6 +29756,7 @@
   },
   {
    "id": "zimbabwe",
+   "modernState": true,
    "name": {
     "sv": "Zimbabwe",
     "en": "Zimbabwe",
@@ -29701,6 +29787,7 @@
   },
   {
    "id": "tyskland",
+   "modernState": true,
    "name": {
     "sv": "Tyskland",
     "en": "Germany",
@@ -29712,6 +29799,7 @@
    "from": 1991,
    "to": 2024,
    "file": "data/empires/tyskland.json",
+   "flags": [{"file": "germany", "from": 1991, "to": 2024, "label": {"sv": "Tysklands flagga", "en": "Flag of Germany", "de": "Flagge Deutschlands", "es": "Bandera de Alemania", "fr": "Drapeau de l’Allemagne"}, "sources": ["wp-flag-germany"], "review": "source-checked"}],
    "polities": [
     {
      "id": "tyskland",
@@ -29731,6 +29819,7 @@
   },
   {
    "id": "malaysia",
+   "modernState": true,
    "name": {
     "sv": "Malaysia",
     "en": "Malaysia",
@@ -29761,6 +29850,7 @@
   },
   {
    "id": "kongo-brazzaville",
+   "modernState": true,
    "name": {
     "sv": "Kongo-Brazzaville",
     "en": "Republic of the Congo",
@@ -29791,6 +29881,7 @@
   },
   {
    "id": "filippinerna",
+   "modernState": true,
    "name": {
     "sv": "Filippinerna",
     "en": "Philippines",
@@ -29821,6 +29912,7 @@
   },
   {
    "id": "finland",
+   "modernState": true,
    "name": {
     "sv": "Finland",
     "en": "Finland",
@@ -29832,6 +29924,7 @@
    "from": 1918,
    "to": 2024,
    "file": "data/empires/finland.json",
+   "flags": [{"file": "finland", "from": 1918, "to": 2024, "label": {"sv": "Finlands flagga", "en": "Flag of Finland", "de": "Flagge Finnlands", "es": "Bandera de Finlandia", "fr": "Drapeau de la Finlande"}, "sources": ["wp-flag-finland"], "review": "source-checked"}],
    "polities": [
     {
      "id": "finland",
@@ -29851,6 +29944,7 @@
   },
   {
    "id": "elfenbenskusten",
+   "modernState": true,
    "name": {
     "sv": "Elfenbenskusten",
     "en": "Ivory Coast",
@@ -29862,6 +29956,7 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/elfenbenskusten.json",
+   "flags": [{"file": "ivory-coast", "from": 1961, "to": 2024, "label": {"sv": "Elfenbenskustens flagga", "en": "Flag of Ivory Coast", "de": "Flagge der Elfenbeinküste", "es": "Bandera de Costa de Marfil", "fr": "Drapeau de la Côte d’Ivoire"}, "sources": ["wp-flag-ivory-coast"], "review": "source-checked"}],
    "polities": [
     {
      "id": "elfenbenskusten",
@@ -29881,6 +29976,7 @@
   },
   {
    "id": "polen",
+   "modernState": true,
    "name": {
     "sv": "Polen",
     "en": "Poland",
@@ -29892,6 +29988,7 @@
    "from": 1919,
    "to": 2024,
    "file": "data/empires/polen.json",
+   "flags": [{"file": "poland", "from": 1919, "to": 2024, "label": {"sv": "Polens flagga", "en": "Flag of Poland", "de": "Flagge Polens", "es": "Bandera de Polonia", "fr": "Drapeau de la Pologne"}, "sources": ["wp-flag-poland"], "review": "source-checked"}],
    "polities": [
     {
      "id": "andra-polska-republiken",
@@ -29925,6 +30022,7 @@
   },
   {
    "id": "oman",
+   "modernState": true,
    "name": {
     "sv": "Oman",
     "en": "Oman",
@@ -29969,6 +30067,7 @@
   },
   {
    "id": "italien",
+   "modernState": true,
    "name": {
     "sv": "Italien",
     "en": "Italy",
@@ -29980,6 +30079,7 @@
    "from": 1862,
    "to": 2024,
    "file": "data/empires/italien.json",
+   "flags": [{"file": "italy", "from": 1946, "to": 2024, "label": {"sv": "Italiens flagga", "en": "Flag of Italy", "de": "Flagge Italiens", "es": "Bandera de Italia", "fr": "Drapeau de l’Italie"}, "sources": ["wp-flag-italy"], "review": "source-checked"}],
    "labelAt": [
     {
      "polity": "kungariket-italien",
@@ -30025,6 +30125,7 @@
   },
   {
    "id": "burkina-faso",
+   "modernState": true,
    "name": {
     "sv": "Burkina Faso",
     "en": "Burkina Faso",
@@ -30055,6 +30156,7 @@
   },
   {
    "id": "gabon",
+   "modernState": true,
    "name": {
     "sv": "Gabon",
     "en": "Gabon",
@@ -30066,6 +30168,7 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/gabon.json",
+   "flags": [{"file": "gabon", "from": 1961, "to": 2024, "label": {"sv": "Gabons flagga", "en": "Flag of Gabon", "de": "Flagge Gabuns", "es": "Bandera de Gabón", "fr": "Drapeau du Gabon"}, "sources": ["wp-flag-gabon"], "review": "source-checked"}],
    "polities": [
     {
      "id": "gabon",
@@ -30085,6 +30188,7 @@
   },
   {
    "id": "guinea",
+   "modernState": true,
    "name": {
     "sv": "Guinea",
     "en": "Guinea",
@@ -30096,6 +30200,7 @@
    "from": 1960,
    "to": 2024,
    "file": "data/empires/guinea.json",
+   "flags": [{"file": "guinea", "from": 1960, "to": 2024, "label": {"sv": "Guineas flagga", "en": "Flag of Guinea", "de": "Flagge Guineas", "es": "Bandera de Guinea", "fr": "Drapeau de la Guinée"}, "sources": ["wp-flag-guinea"], "review": "source-checked"}],
    "polities": [
     {
      "id": "guinea",
@@ -30115,6 +30220,7 @@
   },
   {
    "id": "ghana",
+   "modernState": true,
    "name": {
     "sv": "Ghana",
     "en": "Ghana",
@@ -30195,6 +30301,7 @@
   },
   {
    "id": "rumanien",
+   "modernState": true,
    "name": {
     "sv": "Rumänien",
     "en": "Romania",
@@ -30253,6 +30360,7 @@
   },
   {
    "id": "laos",
+   "modernState": true,
    "name": {
     "sv": "Laos",
     "en": "Laos",
@@ -30297,6 +30405,7 @@
   },
   {
    "id": "guyana",
+   "modernState": true,
    "name": {
     "sv": "Guyana",
     "en": "Guyana",
@@ -30327,6 +30436,7 @@
   },
   {
    "id": "belarus",
+   "modernState": true,
    "name": {
     "sv": "Belarus",
     "en": "Belarus",
@@ -30357,6 +30467,7 @@
   },
   {
    "id": "senegal",
+   "modernState": true,
    "name": {
     "sv": "Senegal",
     "en": "Senegal",
@@ -30368,6 +30479,7 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/senegal.json",
+   "flags": [{"file": "senegal", "from": 1961, "to": 2024, "label": {"sv": "Senegals flagga", "en": "Flag of Senegal", "de": "Flagge Senegals", "es": "Bandera de Senegal", "fr": "Drapeau du Sénégal"}, "sources": ["wp-flag-senegal"], "review": "source-checked"}],
    "polities": [
     {
      "id": "senegal",
@@ -30387,6 +30499,7 @@
   },
   {
    "id": "kirgizistan",
+   "modernState": true,
    "name": {
     "sv": "Kirgizistan",
     "en": "Kyrgyzstan",
@@ -30417,6 +30530,7 @@
   },
   {
    "id": "kambodja",
+   "modernState": true,
    "name": {
     "sv": "Kambodja",
     "en": "Cambodia",
@@ -30475,6 +30589,7 @@
   },
   {
    "id": "tunisien",
+   "modernState": true,
    "name": {
     "sv": "Tunisien",
     "en": "Tunisia",
@@ -30505,6 +30620,7 @@
   },
   {
    "id": "nepal",
+   "modernState": true,
    "name": {
     "sv": "Nepal",
     "en": "Nepal",
@@ -30535,6 +30651,7 @@
   },
   {
    "id": "surinam",
+   "modernState": true,
    "name": {
     "sv": "Surinam",
     "en": "Suriname",
@@ -30565,6 +30682,7 @@
   },
   {
    "id": "tadzjikistan",
+   "modernState": true,
    "name": {
     "sv": "Tadzjikistan",
     "en": "Tajikistan",
@@ -30595,6 +30713,7 @@
   },
   {
    "id": "nicaragua",
+   "modernState": true,
    "name": {
     "sv": "Nicaragua",
     "en": "Nicaragua",
@@ -30625,6 +30744,7 @@
   },
   {
    "id": "eritrea",
+   "modernState": true,
    "name": {
     "sv": "Eritrea",
     "en": "Eritrea",
@@ -30655,6 +30775,7 @@
   },
   {
    "id": "kuba",
+   "modernState": true,
    "name": {
     "sv": "Kuba",
     "en": "Cuba",
@@ -30685,6 +30806,7 @@
   },
   {
    "id": "grekland",
+   "modernState": true,
    "name": {
     "sv": "Grekland",
     "en": "Greece",
@@ -30715,6 +30837,7 @@
   },
   {
    "id": "benin",
+   "modernState": true,
    "name": {
     "sv": "Benin",
     "en": "Benin",
@@ -30726,6 +30849,7 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/benin.json",
+   "flags": [{"file": "benin", "from": 1961, "to": 1974, "label": {"sv": "Benins flagga", "en": "Flag of Benin", "de": "Flagge Benins", "es": "Bandera de Benín", "fr": "Drapeau du Bénin"}, "sources": ["wp-flag-benin"], "review": "source-checked"}, {"file": "benin", "from": 1990, "to": 2024, "label": {"sv": "Benins flagga", "en": "Flag of Benin", "de": "Flagge Benins", "es": "Bandera de Benín", "fr": "Drapeau du Bénin"}, "sources": ["wp-flag-benin"], "review": "source-checked"}],
    "polities": [
     {
      "id": "benin",
@@ -30745,6 +30869,7 @@
   },
   {
    "id": "honduras",
+   "modernState": true,
    "name": {
     "sv": "Honduras",
     "en": "Honduras",
@@ -30776,6 +30901,7 @@
   },
   {
    "id": "island",
+   "modernState": true,
    "name": {
     "sv": "Island",
     "en": "Iceland",
@@ -30787,6 +30913,7 @@
    "from": 1918,
    "to": 2024,
    "file": "data/empires/island.json",
+   "flags": [{"file": "iceland", "from": 1918, "to": 2024, "label": {"sv": "Islands flagga", "en": "Flag of Iceland", "de": "Flagge Islands", "es": "Bandera de Islandia", "fr": "Drapeau de l’Islande"}, "sources": ["wp-flag-iceland"], "review": "source-checked"}],
    "polities": [
     {
      "id": "kungariket-island",
@@ -30820,6 +30947,7 @@
   },
   {
    "id": "bulgarien",
+   "modernState": true,
    "name": {
     "sv": "Bulgarien",
     "en": "Bulgaria",
@@ -30831,6 +30959,7 @@
    "from": 1880,
    "to": 2024,
    "file": "data/empires/bulgarien.json",
+   "flags": [{"file": "bulgaria", "from": 1990, "to": 2024, "label": {"sv": "Bulgariens flagga", "en": "Flag of Bulgaria", "de": "Flagge Bulgariens", "es": "Bandera de Bulgaria", "fr": "Drapeau de la Bulgarie"}, "sources": ["wp-flag-bulgaria"], "review": "source-checked"}],
    "polities": [
     {
      "id": "bulgarien",
@@ -30850,6 +30979,7 @@
   },
   {
    "id": "guatemala",
+   "modernState": true,
    "name": {
     "sv": "Guatemala",
     "en": "Guatemala",
@@ -30881,6 +31011,7 @@
   },
   {
    "id": "liberia",
+   "modernState": true,
    "name": {
     "sv": "Liberia",
     "en": "Liberia",
@@ -30911,6 +31042,7 @@
   },
   {
    "id": "portugal",
+   "modernState": true,
    "name": {
     "sv": "Portugal",
     "en": "Portugal",
@@ -30941,6 +31073,7 @@
   },
   {
    "id": "malawi",
+   "modernState": true,
    "name": {
     "sv": "Malawi",
     "en": "Malawi",
@@ -30971,6 +31104,7 @@
   },
   {
    "id": "ungern",
+   "modernState": true,
    "name": {
     "sv": "Ungern",
     "en": "Hungary",
@@ -31001,6 +31135,7 @@
   },
   {
    "id": "osterrike",
+   "modernState": true,
    "name": {
     "sv": "Österrike",
     "en": "Austria",
@@ -31031,6 +31166,7 @@
   },
   {
    "id": "panama",
+   "modernState": true,
    "name": {
     "sv": "Panama",
     "en": "Panama",
@@ -31061,6 +31197,7 @@
   },
   {
    "id": "tjeckien",
+   "modernState": true,
    "name": {
     "sv": "Tjeckien",
     "en": "Czech Republic",
@@ -31072,6 +31209,7 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/tjeckien.json",
+   "flags": [{"file": "czech", "from": 1992, "to": 2024, "label": {"sv": "Tjeckiens flagga", "en": "Flag of the Czech Republic", "de": "Flagge Tschechiens", "es": "Bandera de la República Checa", "fr": "Drapeau de la Tchéquie"}, "sources": ["wp-flag-czech-republic"], "review": "source-checked"}],
    "polities": [
     {
      "id": "tjeckien",
@@ -31091,6 +31229,7 @@
   },
   {
    "id": "forenade-arabemiraten",
+   "modernState": true,
    "name": {
     "sv": "Förenade arabemiraten",
     "en": "United Arab Emirates",
@@ -31121,6 +31260,7 @@
   },
   {
    "id": "serbien",
+   "modernState": true,
    "name": {
     "sv": "Serbien",
     "en": "Serbia",
@@ -31165,6 +31305,7 @@
   },
   {
    "id": "irland",
+   "modernState": true,
    "name": {
     "sv": "Irland",
     "en": "Ireland",
@@ -31176,6 +31317,7 @@
    "from": 1922,
    "to": 2024,
    "file": "data/empires/irland.json",
+   "flags": [{"file": "ireland", "from": 1922, "to": 2024, "label": {"sv": "Irlands flagga", "en": "Flag of Ireland", "de": "Flagge Irlands", "es": "Bandera de Irlanda", "fr": "Drapeau de l’Irlande"}, "sources": ["wp-flag-ireland"], "review": "source-checked"}],
    "polities": [
     {
      "id": "irland",
@@ -31195,6 +31337,7 @@
   },
   {
    "id": "sierra-leone",
+   "modernState": true,
    "name": {
     "sv": "Sierra Leone",
     "en": "Sierra Leone",
@@ -31206,6 +31349,7 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/sierra-leone.json",
+   "flags": [{"file": "sierra-leone", "from": 1961, "to": 2024, "label": {"sv": "Sierra Leones flagga", "en": "Flag of Sierra Leone", "de": "Flagge von Sierra Leone", "es": "Bandera de Sierra Leona", "fr": "Drapeau de la Sierra Leone"}, "sources": ["wp-flag-sierra-leone"], "review": "source-checked"}],
    "polities": [
     {
      "id": "sierra-leone",
@@ -31225,6 +31369,7 @@
   },
   {
    "id": "sri-lanka",
+   "modernState": true,
    "name": {
     "sv": "Sri Lanka",
     "en": "Sri Lanka",
@@ -31255,6 +31400,7 @@
   },
   {
    "id": "lettland",
+   "modernState": true,
    "name": {
     "sv": "Lettland",
     "en": "Latvia",
@@ -31285,6 +31431,7 @@
   },
   {
    "id": "litauen",
+   "modernState": true,
    "name": {
     "sv": "Litauen",
     "en": "Lithuania",
@@ -31315,6 +31462,7 @@
   },
   {
    "id": "togo",
+   "modernState": true,
    "name": {
     "sv": "Togo",
     "en": "Togo",
@@ -31326,6 +31474,7 @@
    "from": 1960,
    "to": 2024,
    "file": "data/empires/togo.json",
+   "flags": [{"file": "togo", "from": 1960, "to": 2024, "label": {"sv": "Togos flagga", "en": "Flag of Togo", "de": "Flagge Togos", "es": "Bandera de Togo", "fr": "Drapeau du Togo"}, "sources": ["wp-flag-togo"], "review": "source-checked"}],
    "polities": [
     {
      "id": "togo",
@@ -31345,6 +31494,7 @@
   },
   {
    "id": "costa-rica",
+   "modernState": true,
    "name": {
     "sv": "Costa Rica",
     "en": "Costa Rica",
@@ -31376,6 +31526,7 @@
   },
   {
    "id": "dominikanska-republiken",
+   "modernState": true,
    "name": {
     "sv": "Dominikanska republiken",
     "en": "Dominican Republic",
@@ -31406,6 +31557,7 @@
   },
   {
    "id": "kroatien",
+   "modernState": true,
    "name": {
     "sv": "Kroatien",
     "en": "Croatia",
@@ -31436,6 +31588,7 @@
   },
   {
    "id": "bosnien-och-hercegovina",
+   "modernState": true,
    "name": {
     "sv": "Bosnien och Hercegovina",
     "en": "Bosnia and Herzegovina",
@@ -31466,6 +31619,7 @@
   },
   {
    "id": "estland",
+   "modernState": true,
    "name": {
     "sv": "Estland",
     "en": "Estonia",
@@ -31496,6 +31650,7 @@
   },
   {
    "id": "azerbajdzjan",
+   "modernState": true,
    "name": {
     "sv": "Azerbajdzjan",
     "en": "Azerbaijan",
@@ -31540,6 +31695,7 @@
   },
   {
    "id": "armenien",
+   "modernState": true,
    "name": {
     "sv": "Armenien",
     "en": "Armenia",
@@ -31585,6 +31741,7 @@
   },
   {
    "id": "georgien",
+   "modernState": true,
    "name": {
     "sv": "Georgien",
     "en": "Georgia",
@@ -31629,6 +31786,7 @@
   },
   {
    "id": "slovakien",
+   "modernState": true,
    "name": {
     "sv": "Slovakien",
     "en": "Slovakia",
@@ -31659,6 +31817,7 @@
   },
   {
    "id": "bhutan",
+   "modernState": true,
    "name": {
     "sv": "Bhutan",
     "en": "Bhutan",
@@ -31689,6 +31848,7 @@
   },
   {
    "id": "schweiz",
+   "modernState": true,
    "name": {
     "sv": "Schweiz",
     "en": "Switzerland",
@@ -31721,6 +31881,7 @@
   },
   {
    "id": "nederlanderna",
+   "modernState": true,
    "name": {
     "sv": "Nederländerna",
     "en": "Netherlands",
@@ -31732,6 +31893,7 @@
    "from": 1950,
    "to": 2024,
    "file": "data/empires/nederlanderna.json",
+   "flags": [{"file": "netherlands", "from": 1950, "to": 2024, "label": {"sv": "Nederländernas flagga", "en": "Flag of the Netherlands", "de": "Flagge der Niederlande", "es": "Bandera de los Países Bajos", "fr": "Drapeau des Pays-Bas"}, "sources": ["wp-flag-netherlands"], "review": "source-checked"}],
    "polities": [
     {
      "id": "nederlanderna",
@@ -31751,6 +31913,7 @@
   },
   {
    "id": "salomonoarna",
+   "modernState": true,
    "name": {
     "sv": "Salomonöarna",
     "en": "Solomon Islands",
@@ -31781,6 +31944,7 @@
   },
   {
    "id": "guinea-bissau",
+   "modernState": true,
    "name": {
     "sv": "Guinea-Bissau",
     "en": "Guinea-Bissau",
@@ -31811,6 +31975,7 @@
   },
   {
    "id": "lesotho",
+   "modernState": true,
    "name": {
     "sv": "Lesotho",
     "en": "Lesotho",
@@ -31841,6 +32006,7 @@
   },
   {
    "id": "storbritannien",
+   "modernState": true,
    "name": {
     "sv": "Storbritannien",
     "en": "United Kingdom",
@@ -31852,6 +32018,7 @@
    "from": 2000,
    "to": 2024,
    "file": "data/empires/storbritannien.json",
+   "flags": [{"file": "britain-union-flag", "from": 2000, "to": 2024, "label": {"sv": "Unionsflaggan", "en": "Union Flag", "de": "Union Flag", "es": "Bandera del Reino Unido", "fr": "Union Flag"}, "sources": ["wp-list-uk-flags"], "review": "source-checked"}],
    "polities": [
     {
      "id": "storbritannien",
@@ -31871,6 +32038,7 @@
   },
   {
    "id": "belgien",
+   "modernState": true,
    "name": {
     "sv": "Belgien",
     "en": "Belgium",
@@ -31882,6 +32050,7 @@
    "from": 1830,
    "to": 2024,
    "file": "data/empires/belgien.json",
+   "flags": [{"file": "belgium", "from": 1831, "to": 2024, "label": {"sv": "Belgiens flagga", "en": "Flag of Belgium", "de": "Flagge Belgiens", "es": "Bandera de Bélgica", "fr": "Drapeau de la Belgique"}, "sources": ["wp-flag-belgium"], "review": "source-checked"}],
    "polities": [
     {
      "id": "belgien",
@@ -31901,6 +32070,7 @@
   },
   {
    "id": "ekvatorialguinea",
+   "modernState": true,
    "name": {
     "sv": "Ekvatorialguinea",
     "en": "Equatorial Guinea",
@@ -31931,6 +32101,7 @@
   },
   {
    "id": "albanien",
+   "modernState": true,
    "name": {
     "sv": "Albanien",
     "en": "Albania",
@@ -31961,6 +32132,7 @@
   },
   {
    "id": "moldavien",
+   "modernState": true,
    "name": {
     "sv": "Moldavien",
     "en": "Moldova",
@@ -32005,6 +32177,7 @@
   },
   {
    "id": "nordmakedonien",
+   "modernState": true,
    "name": {
     "sv": "Nordmakedonien",
     "en": "North Macedonia",
@@ -32035,6 +32208,7 @@
   },
   {
    "id": "burundi",
+   "modernState": true,
    "name": {
     "sv": "Burundi",
     "en": "Burundi",
@@ -32065,6 +32239,7 @@
   },
   {
    "id": "belize",
+   "modernState": true,
    "name": {
     "sv": "Belize",
     "en": "Belize",
@@ -32095,6 +32270,7 @@
   },
   {
    "id": "djibouti",
+   "modernState": true,
    "name": {
     "sv": "Djibouti",
     "en": "Djibouti",
@@ -32125,6 +32301,7 @@
   },
   {
    "id": "el-salvador",
+   "modernState": true,
    "name": {
     "sv": "El Salvador",
     "en": "El Salvador",
@@ -32155,6 +32332,7 @@
   },
   {
    "id": "fiji",
+   "modernState": true,
    "name": {
     "sv": "Fiji",
     "en": "Fiji",
@@ -32185,6 +32363,7 @@
   },
   {
    "id": "slovenien",
+   "modernState": true,
    "name": {
     "sv": "Slovenien",
     "en": "Slovenia",
@@ -32215,6 +32394,7 @@
   },
   {
    "id": "bahamas",
+   "modernState": true,
    "name": {
     "sv": "Bahamas",
     "en": "The Bahamas",
@@ -32246,6 +32426,7 @@
   },
   {
    "id": "eswatini",
+   "modernState": true,
    "name": {
     "sv": "Eswatini",
     "en": "Eswatini",
@@ -32276,6 +32457,7 @@
   },
   {
    "id": "vanuatu",
+   "modernState": true,
    "name": {
     "sv": "Vanuatu",
     "en": "Vanuatu",
@@ -32306,6 +32488,7 @@
   },
   {
    "id": "jamaica",
+   "modernState": true,
    "name": {
     "sv": "Jamaica",
     "en": "Jamaica",
@@ -32337,6 +32520,7 @@
   },
   {
    "id": "qatar",
+   "modernState": true,
    "name": {
     "sv": "Qatar",
     "en": "Qatar",
@@ -32367,6 +32551,7 @@
   },
   {
    "id": "gambia",
+   "modernState": true,
    "name": {
     "sv": "Gambia",
     "en": "The Gambia",
@@ -32397,6 +32582,7 @@
   },
   {
    "id": "libanon",
+   "modernState": true,
    "name": {
     "sv": "Libanon",
     "en": "Lebanon",
@@ -32427,6 +32613,7 @@
   },
   {
    "id": "kap-verde",
+   "modernState": true,
    "name": {
     "sv": "Kap Verde",
     "en": "Cape Verde",
@@ -32457,6 +32644,7 @@
   },
   {
    "id": "kosovo",
+   "modernState": true,
    "name": {
     "sv": "Kosovo",
     "en": "Kosovo",
@@ -32503,6 +32691,7 @@
   },
   {
    "id": "cypern",
+   "modernState": true,
    "name": {
     "sv": "Cypern",
     "en": "Cyprus",
@@ -32547,6 +32736,7 @@
   },
   {
    "id": "montenegro",
+   "modernState": true,
    "name": {
     "sv": "Montenegro",
     "en": "Montenegro",
@@ -32577,6 +32767,7 @@
   },
   {
    "id": "brunei",
+   "modernState": true,
    "name": {
     "sv": "Brunei",
     "en": "Brunei",
@@ -32607,6 +32798,7 @@
   },
   {
    "id": "trinidad-och-tobago",
+   "modernState": true,
    "name": {
     "sv": "Trinidad och Tobago",
     "en": "Trinidad and Tobago",
@@ -32638,6 +32830,7 @@
   },
   {
    "id": "mauritius",
+   "modernState": true,
    "name": {
     "sv": "Mauritius",
     "en": "Mauritius",
@@ -32668,6 +32861,7 @@
   },
   {
    "id": "luxemburg",
+   "modernState": true,
    "name": {
     "sv": "Luxemburg",
     "en": "Luxembourg",
@@ -32679,6 +32873,7 @@
    "from": 1890,
    "to": 2024,
    "file": "data/empires/luxemburg.json",
+   "flags": [{"file": "luxembourg", "from": 1890, "to": 2024, "label": {"sv": "Luxemburgs flagga", "en": "Flag of Luxembourg", "de": "Flagge Luxemburgs", "es": "Bandera de Luxemburgo", "fr": "Drapeau du Luxembourg"}, "sources": ["wp-flag-luxembourg"], "review": "source-checked"}],
    "polities": [
     {
      "id": "luxemburg",
@@ -32698,6 +32893,7 @@
   },
   {
    "id": "sao-tome-och-principe",
+   "modernState": true,
    "name": {
     "sv": "São Tomé och Príncipe",
     "en": "São Tomé and Príncipe",
@@ -32728,6 +32924,7 @@
   },
   {
    "id": "bahrain",
+   "modernState": true,
    "name": {
     "sv": "Bahrain",
     "en": "Bahrain",
@@ -32758,6 +32955,7 @@
   },
   {
    "id": "singapore",
+   "modernState": true,
    "name": {
     "sv": "Singapore",
     "en": "Singapore",
@@ -32788,6 +32986,7 @@
   },
   {
    "id": "malta",
+   "modernState": true,
    "name": {
     "sv": "Malta",
     "en": "Malta",
@@ -32818,6 +33017,7 @@
   },
   {
    "id": "barbados",
+   "modernState": true,
    "name": {
     "sv": "Barbados",
     "en": "Barbados",
@@ -32849,6 +33049,7 @@
   },
   {
    "id": "dominica",
+   "modernState": true,
    "name": {
     "sv": "Dominica",
     "en": "Dominica",
@@ -32879,6 +33080,7 @@
   },
   {
    "id": "saint-lucia",
+   "modernState": true,
    "name": {
     "sv": "Saint Lucia",
     "en": "Saint Lucia",
@@ -32910,6 +33112,7 @@
   },
   {
    "id": "antigua-och-barbuda",
+   "modernState": true,
    "name": {
     "sv": "Antigua och Barbuda",
     "en": "Antigua and Barbuda",
@@ -32941,6 +33144,7 @@
   },
   {
    "id": "saint-vincent-och-grenadinerna",
+   "modernState": true,
    "name": {
     "sv": "Saint Vincent och Grenadinerna",
     "en": "Saint Vincent and the Grenadines",
@@ -32971,6 +33175,7 @@
   },
   {
    "id": "grenada",
+   "modernState": true,
    "name": {
     "sv": "Grenada",
     "en": "Grenada",
@@ -33002,6 +33207,7 @@
   },
   {
    "id": "seychellerna",
+   "modernState": true,
    "name": {
     "sv": "Seychellerna",
     "en": "Seychelles",
@@ -33032,6 +33238,7 @@
   },
   {
    "id": "palau",
+   "modernState": true,
    "name": {
     "sv": "Palau",
     "en": "Palau",
@@ -33062,6 +33269,7 @@
   },
   {
    "id": "etiopien",
+   "modernState": true,
    "name": {
     "sv": "Etiopien",
     "en": "Ethiopia",
@@ -33092,6 +33300,7 @@
   },
   {
    "id": "osttimor",
+   "modernState": true,
    "name": {
     "sv": "Östtimor",
     "en": "Timor-Leste",
@@ -33492,6 +33701,8 @@
    "from": 1056,
    "to": 1205,
    "file": "data/empires/almoravider.json",
+   "facts": {"items": [{"label": {"sv": "Symbolen på kartan", "en": "The symbol on the map", "de": "Das Symbol auf der Karte", "es": "El símbolo en el mapa", "fr": "Le symbole sur la carte"}, "text": {"sv": "Den svarta fanan, abbasidernas färg. Enligt historikern Tayeb El-Hibri kom ett sändebud från Ali ibn Yusuf till Bagdad 1104 och svor abbasiderna trohet. Vissa författare tolkar i stället det svarta som kampen mot otro. Samma färg är abbasidernas tecken på kartan. Fanan visas 1104–1147, då almoraviderna föll för almohaderna enligt källan; kartdatan fortsätter till 1205.", "en": "The black banner, the colour of the Abbasids. According to the historian Tayeb El-Hibri, an envoy of Ali ibn Yusuf came to Baghdad in 1104 and declared allegiance to the Abbasids. Some authors instead read the black as the fight against unbelief. The same colour is the Abbasids' sign on the map. The banner is shown 1104–1147, when the Almoravids fell to the Almohads according to the source; the map data continues until 1205.", "de": "Das schwarze Banner, die Farbe der Abbasiden. Nach dem Historiker Tayeb El-Hibri kam 1104 ein Gesandter Ali ibn Yusufs nach Bagdad und schwor den Abbasiden Treue. Manche Autoren deuten das Schwarz dagegen als Kampf gegen den Unglauben. Dieselbe Farbe ist auf der Karte das Zeichen der Abbasiden. Das Banner wird 1104–1147 gezeigt, als die Almoraviden laut der Quelle den Almohaden unterlagen; die Kartendaten reichen bis 1205.", "es": "El estandarte negro, el color de los abasíes. Según el historiador Tayeb El-Hibri, un enviado de Ali ibn Yusuf llegó a Bagdad en 1104 y juró lealtad a los abasíes. Algunos autores interpretan en cambio el negro como la lucha contra la incredulidad. El mismo color es el signo de los abasíes en el mapa. El estandarte se muestra entre 1104 y 1147, cuando los almorávides cayeron ante los almohades según la fuente; los datos del mapa continúan hasta 1205.", "fr": "L’étendard noir, la couleur des Abbassides. Selon l’historien Tayeb El-Hibri, un émissaire d’Ali ibn Yusuf vint à Bagdad en 1104 et prêta allégeance aux Abbassides. Certains auteurs y voient plutôt la lutte contre l’impiété. La même couleur est le signe des Abbassides sur la carte. L’étendard est affiché de 1104 à 1147, date à laquelle les Almoravides tombèrent face aux Almohades selon la source ; les données de la carte vont jusqu’en 1205."}}], "sources": ["wp-almoravid-dynasty"], "review": "source-checked"},
+   "flags": [{"file": "almoravid-black-banner", "from": 1104, "to": 1147, "kind": "symbol", "label": {"sv": "Svart fana", "en": "Black banner", "de": "Schwarzes Banner", "es": "Estandarte negro", "fr": "Étendard noir"}, "sources": ["wp-almoravid-dynasty"], "review": "source-checked"}],
    "polities": [
     {
      "id": "almoravider",
@@ -33552,6 +33763,8 @@
    "from": 1139,
    "to": 1343,
    "file": "data/empires/almohader.json",
+   "facts": {"items": [{"label": {"sv": "Symbolen på kartan", "en": "The symbol on the map", "de": "Das Symbol auf der Karte", "es": "El símbolo en el mapa", "fr": "Le symbole sur la carte"}, "text": {"sv": "Den vita fanan. De flesta historiska källor säger att almohaderna var kända för vita fanor, redan under rörelsens grundare Ibn Tumart. Om fanorna hade bestämda motiv eller inskrifter är inte säkert, så här visas bara färgen. Fanan visas till 1269, då kalifatet slutade enligt källan; kartdatan fortsätter till 1343.", "en": "The white banner. Most historical sources say that the Almohads were known for white banners, already under the movement's founder Ibn Tumart. Whether the banners had particular motifs or inscriptions is not certain, so only the colour is shown here. The banner is shown until 1269, when the caliphate ended according to the source; the map data continues until 1343.", "de": "Das weiße Banner. Die meisten historischen Quellen sagen, dass die Almohaden für weiße Banner bekannt waren, schon unter dem Gründer der Bewegung, Ibn Tumart. Ob die Banner bestimmte Motive oder Inschriften trugen, ist nicht sicher, daher wird hier nur die Farbe gezeigt. Das Banner wird bis 1269 gezeigt, als das Kalifat laut der Quelle endete; die Kartendaten reichen bis 1343.", "es": "El estandarte blanco. La mayoría de las fuentes históricas dicen que los almohades eran conocidos por sus estandartes blancos, ya bajo el fundador del movimiento, Ibn Tumart. No es seguro si los estandartes tenían motivos o inscripciones concretos, por eso aquí solo se muestra el color. El estandarte se muestra hasta 1269, cuando terminó el califato según la fuente; los datos del mapa continúan hasta 1343.", "fr": "L’étendard blanc. La plupart des sources historiques indiquent que les Almohades étaient connus pour leurs étendards blancs, dès le fondateur du mouvement, Ibn Tumart. On ne sait pas avec certitude si les étendards portaient des motifs ou des inscriptions particuliers ; seule la couleur est donc affichée ici. L’étendard est affiché jusqu’en 1269, date à laquelle le califat prit fin selon la source ; les données de la carte vont jusqu’en 1343."}}], "sources": ["wp-almohad-caliphate"], "review": "source-checked"},
+   "flags": [{"file": "almohad-white-banner", "from": 1139, "to": 1269, "kind": "symbol", "label": {"sv": "Vit fana", "en": "White banner", "de": "Weißes Banner", "es": "Estandarte blanco", "fr": "Étendard blanc"}, "sources": ["wp-almohad-caliphate"], "review": "source-checked"}],
    "polities": [
     {
      "id": "almohader",
@@ -33933,6 +34146,7 @@
   },
   {
    "id": "andorra",
+   "modernState": true,
    "name": {
     "sv": "Andorra",
     "en": "Andorra",
@@ -33979,6 +34193,7 @@
   },
   {
    "id": "monaco",
+   "modernState": true,
    "name": {
     "sv": "Monaco",
     "en": "Monaco",
@@ -33990,6 +34205,7 @@
    "from": 1642,
    "to": 2024,
    "file": "data/empires/monaco.json",
+   "flags": [{"file": "monaco", "from": 1881, "to": 2024, "label": {"sv": "Monacos flagga", "en": "Flag of Monaco", "de": "Flagge Monacos", "es": "Bandera de Mónaco", "fr": "Drapeau de Monaco"}, "sources": ["wp-flag-monaco"], "review": "source-checked"}],
    "polities": [
     {
      "id": "monaco",
@@ -34025,6 +34241,7 @@
   },
   {
    "id": "saint-kitts-och-nevis",
+   "modernState": true,
    "name": {
     "sv": "Saint Kitts och Nevis",
     "en": "Saint Kitts and Nevis",
@@ -34072,6 +34289,7 @@
   },
   {
    "id": "mikronesiska-federationen",
+   "modernState": true,
    "name": {
     "sv": "Mikronesiska federationen",
     "en": "Federated States of Micronesia",
@@ -34118,6 +34336,7 @@
   },
   {
    "id": "kiribati",
+   "modernState": true,
    "name": {
     "sv": "Kiribati",
     "en": "Kiribati",
@@ -34164,6 +34383,7 @@
   },
   {
    "id": "komorerna",
+   "modernState": true,
    "name": {
     "sv": "Komorerna",
     "en": "Comoros",
@@ -34210,6 +34430,7 @@
   },
   {
    "id": "liechtenstein",
+   "modernState": true,
    "name": {
     "sv": "Liechtenstein",
     "en": "Liechtenstein",
@@ -34256,6 +34477,7 @@
   },
   {
    "id": "maldiverna",
+   "modernState": true,
    "name": {
     "sv": "Maldiverna",
     "en": "Maldives",
@@ -34302,6 +34524,7 @@
   },
   {
    "id": "marshalloarna",
+   "modernState": true,
    "name": {
     "sv": "Marshallöarna",
     "en": "Marshall Islands",
@@ -34348,6 +34571,7 @@
   },
   {
    "id": "nauru",
+   "modernState": true,
    "name": {
     "sv": "Nauru",
     "en": "Nauru",
@@ -34394,6 +34618,7 @@
   },
   {
    "id": "samoa",
+   "modernState": true,
    "name": {
     "sv": "Samoa",
     "en": "Samoa",
@@ -34440,6 +34665,7 @@
   },
   {
    "id": "san-marino",
+   "modernState": true,
    "name": {
     "sv": "San Marino",
     "en": "San Marino",
@@ -34486,6 +34712,7 @@
   },
   {
    "id": "tonga",
+   "modernState": true,
    "name": {
     "sv": "Tonga",
     "en": "Tonga",
@@ -34532,6 +34759,7 @@
   },
   {
    "id": "tuvalu",
+   "modernState": true,
    "name": {
     "sv": "Tuvalu",
     "en": "Tuvalu",

@@ -1,0 +1,692 @@
+{
+  "sourceCommit": "56a1a9de5d44cd1649ad78e19ca8d273760c62bb",
+  "measuredAt": "2026-11-12T14:47:31.262Z",
+  "assumptions": {
+    "newMin": -97974,
+    "maxYear": 2026,
+    "newMinIsProposal": true,
+    "fingerCssPixels": 44,
+    "overviewWindowFraction": 0.012,
+    "cohortMetric": "Positionens avstånd från startåret till nästa år; vid MAX_YEAR till föregående år"
+  },
+  "records": {
+    "reviewed": 923,
+    "startsInCurrentRange": 918,
+    "startsBeforeCurrentRange": 5
+  },
+  "baseline": [
+    {
+      "viewport": 360,
+      "trackWidth": 328,
+      "trackHeight": 48,
+      "modernPixels": 82,
+      "modernDecorativePixels": 82.75,
+      "modernPxPerYear": 0.36283185840707965,
+      "modernFingerYears": 121.26829268292684
+    },
+    {
+      "viewport": 400,
+      "trackWidth": 368,
+      "trackHeight": 48,
+      "modernPixels": 92,
+      "modernDecorativePixels": 92.75,
+      "modernPxPerYear": 0.40707964601769914,
+      "modernFingerYears": 108.08695652173914
+    },
+    {
+      "viewport": 768,
+      "trackWidth": 736,
+      "trackHeight": 54,
+      "modernPixels": 184,
+      "modernDecorativePixels": 184.75,
+      "modernPxPerYear": 0.8141592920353983,
+      "modernFingerYears": 54.04347826086957
+    }
+  ],
+  "layouts": [
+    {
+      "id": "4-8",
+      "count": 4,
+      "share": 0.08,
+      "segments": [
+        {
+          "from": -97974,
+          "to": -500,
+          "a": 0,
+          "b": 0.08
+        },
+        {
+          "from": -500,
+          "to": 1000,
+          "a": 0.08,
+          "b": 0.41500000000000004
+        },
+        {
+          "from": 1000,
+          "to": 1800,
+          "a": 0.41500000000000004,
+          "b": 0.75
+        },
+        {
+          "from": 1800,
+          "to": 2026,
+          "a": 0.75,
+          "b": 1
+        }
+      ],
+      "cohort": {
+        "compressed": 67,
+        "unchanged": 415,
+        "expanded": 436
+      },
+      "oldScaleRatios": [
+        {
+          "from": -2999,
+          "to": -500,
+          "ratio": 0.008204033896218477,
+          "starts": 67
+        },
+        {
+          "from": -500,
+          "to": 1000,
+          "ratio": 1.3400000000000003,
+          "starts": 150
+        },
+        {
+          "from": 1000,
+          "to": 1800,
+          "ratio": 1.3399999999999999,
+          "starts": 286
+        },
+        {
+          "from": 1800,
+          "to": 2026,
+          "ratio": 1,
+          "starts": 415
+        }
+      ],
+      "firstSegmentYears": 97474,
+      "firstWindow": 14621.1,
+      "boundary": {
+        "year": -500,
+        "window": 14621.1,
+        "afterWindow": 53.731343283582085,
+        "nearRecords": 923,
+        "baselineNearRecords": 42
+      }
+    },
+    {
+      "id": "4-10",
+      "count": 4,
+      "share": 0.1,
+      "segments": [
+        {
+          "from": -97974,
+          "to": -500,
+          "a": 0,
+          "b": 0.1
+        },
+        {
+          "from": -500,
+          "to": 1000,
+          "a": 0.1,
+          "b": 0.42500000000000004
+        },
+        {
+          "from": 1000,
+          "to": 1800,
+          "a": 0.42500000000000004,
+          "b": 0.75
+        },
+        {
+          "from": 1800,
+          "to": 2026,
+          "a": 0.75,
+          "b": 1
+        }
+      ],
+      "cohort": {
+        "compressed": 67,
+        "unchanged": 415,
+        "expanded": 436
+      },
+      "oldScaleRatios": [
+        {
+          "from": -2999,
+          "to": -500,
+          "ratio": 0.010255042370273098,
+          "starts": 67
+        },
+        {
+          "from": -500,
+          "to": 1000,
+          "ratio": 1.3000000000000003,
+          "starts": 150
+        },
+        {
+          "from": 1000,
+          "to": 1800,
+          "ratio": 1.2999999999999998,
+          "starts": 286
+        },
+        {
+          "from": 1800,
+          "to": 2026,
+          "ratio": 1,
+          "starts": 415
+        }
+      ],
+      "firstSegmentYears": 97474,
+      "firstWindow": 11696.880000000001,
+      "boundary": {
+        "year": -500,
+        "window": 11696.880000000001,
+        "afterWindow": 55.38461538461537,
+        "nearRecords": 923,
+        "baselineNearRecords": 42
+      }
+    },
+    {
+      "id": "4-15",
+      "count": 4,
+      "share": 0.15,
+      "segments": [
+        {
+          "from": -97974,
+          "to": -500,
+          "a": 0,
+          "b": 0.15
+        },
+        {
+          "from": -500,
+          "to": 1000,
+          "a": 0.15,
+          "b": 0.44999999999999996
+        },
+        {
+          "from": 1000,
+          "to": 1800,
+          "a": 0.44999999999999996,
+          "b": 0.75
+        },
+        {
+          "from": 1800,
+          "to": 2026,
+          "a": 0.75,
+          "b": 1
+        }
+      ],
+      "cohort": {
+        "compressed": 67,
+        "unchanged": 415,
+        "expanded": 436
+      },
+      "oldScaleRatios": [
+        {
+          "from": -2999,
+          "to": -500,
+          "ratio": 0.015382563555409647,
+          "starts": 67
+        },
+        {
+          "from": -500,
+          "to": 1000,
+          "ratio": 1.1999999999999997,
+          "starts": 150
+        },
+        {
+          "from": 1000,
+          "to": 1800,
+          "ratio": 1.2000000000000002,
+          "starts": 286
+        },
+        {
+          "from": 1800,
+          "to": 2026,
+          "ratio": 1,
+          "starts": 415
+        }
+      ],
+      "firstSegmentYears": 97474,
+      "firstWindow": 7797.92,
+      "boundary": {
+        "year": -500,
+        "window": 7797.92,
+        "afterWindow": 60.000000000000014,
+        "nearRecords": 923,
+        "baselineNearRecords": 42
+      }
+    },
+    {
+      "id": "5-8",
+      "count": 5,
+      "share": 0.08,
+      "segments": [
+        {
+          "from": -97974,
+          "to": -2999,
+          "a": 0,
+          "b": 0.08
+        },
+        {
+          "from": -2999,
+          "to": -500,
+          "a": 0.08,
+          "b": 0.30333333333333334
+        },
+        {
+          "from": -500,
+          "to": 1000,
+          "a": 0.30333333333333334,
+          "b": 0.5266666666666667
+        },
+        {
+          "from": 1000,
+          "to": 1800,
+          "a": 0.5266666666666667,
+          "b": 0.7500000000000001
+        },
+        {
+          "from": 1800,
+          "to": 2026,
+          "a": 0.7500000000000001,
+          "b": 1
+        }
+      ],
+      "cohort": {
+        "compressed": 503,
+        "unchanged": 415,
+        "expanded": 0
+      },
+      "oldScaleRatios": [
+        {
+          "from": -2999,
+          "to": -500,
+          "ratio": 0.8933333333333333,
+          "starts": 67
+        },
+        {
+          "from": -500,
+          "to": 1000,
+          "ratio": 0.8933333333333335,
+          "starts": 150
+        },
+        {
+          "from": 1000,
+          "to": 1800,
+          "ratio": 0.8933333333333334,
+          "starts": 286
+        },
+        {
+          "from": 1800,
+          "to": 2026,
+          "ratio": 0.9999999999999996,
+          "starts": 415
+        }
+      ],
+      "firstSegmentYears": 94975,
+      "firstWindow": 14246.25,
+      "boundary": {
+        "year": -2999,
+        "window": 14246.25,
+        "afterWindow": 134.27462686567165,
+        "nearRecords": 923,
+        "baselineNearRecords": 4
+      }
+    },
+    {
+      "id": "5-10",
+      "count": 5,
+      "share": 0.1,
+      "segments": [
+        {
+          "from": -97974,
+          "to": -2999,
+          "a": 0,
+          "b": 0.1
+        },
+        {
+          "from": -2999,
+          "to": -500,
+          "a": 0.1,
+          "b": 0.31666666666666665
+        },
+        {
+          "from": -500,
+          "to": 1000,
+          "a": 0.31666666666666665,
+          "b": 0.5333333333333333
+        },
+        {
+          "from": 1000,
+          "to": 1800,
+          "a": 0.5333333333333333,
+          "b": 0.75
+        },
+        {
+          "from": 1800,
+          "to": 2026,
+          "a": 0.75,
+          "b": 1
+        }
+      ],
+      "cohort": {
+        "compressed": 503,
+        "unchanged": 415,
+        "expanded": 0
+      },
+      "oldScaleRatios": [
+        {
+          "from": -2999,
+          "to": -500,
+          "ratio": 0.8666666666666666,
+          "starts": 67
+        },
+        {
+          "from": -500,
+          "to": 1000,
+          "ratio": 0.8666666666666667,
+          "starts": 150
+        },
+        {
+          "from": 1000,
+          "to": 1800,
+          "ratio": 0.8666666666666666,
+          "starts": 286
+        },
+        {
+          "from": 1800,
+          "to": 2026,
+          "ratio": 1,
+          "starts": 415
+        }
+      ],
+      "firstSegmentYears": 94975,
+      "firstWindow": 11396.999999999998,
+      "boundary": {
+        "year": -2999,
+        "window": 11396.999999999998,
+        "afterWindow": 138.40615384615387,
+        "nearRecords": 923,
+        "baselineNearRecords": 4
+      }
+    },
+    {
+      "id": "5-15",
+      "count": 5,
+      "share": 0.15,
+      "segments": [
+        {
+          "from": -97974,
+          "to": -2999,
+          "a": 0,
+          "b": 0.15
+        },
+        {
+          "from": -2999,
+          "to": -500,
+          "a": 0.15,
+          "b": 0.35
+        },
+        {
+          "from": -500,
+          "to": 1000,
+          "a": 0.35,
+          "b": 0.5499999999999999
+        },
+        {
+          "from": 1000,
+          "to": 1800,
+          "a": 0.5499999999999999,
+          "b": 0.7499999999999999
+        },
+        {
+          "from": 1800,
+          "to": 2026,
+          "a": 0.7499999999999999,
+          "b": 0.9999999999999999
+        }
+      ],
+      "cohort": {
+        "compressed": 503,
+        "unchanged": 415,
+        "expanded": 0
+      },
+      "oldScaleRatios": [
+        {
+          "from": -2999,
+          "to": -500,
+          "ratio": 0.7999999999999999,
+          "starts": 67
+        },
+        {
+          "from": -500,
+          "to": 1000,
+          "ratio": 0.7999999999999999,
+          "starts": 150
+        },
+        {
+          "from": 1000,
+          "to": 1800,
+          "ratio": 0.7999999999999998,
+          "starts": 286
+        },
+        {
+          "from": 1800,
+          "to": 2026,
+          "ratio": 1,
+          "starts": 415
+        }
+      ],
+      "firstSegmentYears": 94975,
+      "firstWindow": 7598,
+      "boundary": {
+        "year": -2999,
+        "window": 7598,
+        "afterWindow": 149.94000000000003,
+        "nearRecords": 923,
+        "baselineNearRecords": 4
+      }
+    }
+  ],
+  "cases": [
+    {
+      "viewport": 360,
+      "layout": "4-8",
+      "firstPixels": 26.240000000000002,
+      "firstPxPerYear": 0.0002691999917926832,
+      "fingerLinearYears": 163447.25609756098,
+      "fingerWithinSegmentYears": 97474,
+      "firstSmallerThanFinger": true,
+      "modernPxPerYear": 0.36283185840707965,
+      "modernPixels": 82
+    },
+    {
+      "viewport": 360,
+      "layout": "4-10",
+      "firstPixels": 32.800000000000004,
+      "firstPxPerYear": 0.00033649998974085403,
+      "fingerLinearYears": 130757.80487804877,
+      "fingerWithinSegmentYears": 97474,
+      "firstSmallerThanFinger": true,
+      "modernPxPerYear": 0.36283185840707965,
+      "modernPixels": 82
+    },
+    {
+      "viewport": 360,
+      "layout": "4-15",
+      "firstPixels": 49.199999999999996,
+      "firstPxPerYear": 0.0005047499846112809,
+      "fingerLinearYears": 87171.8699186992,
+      "fingerWithinSegmentYears": 87171.8699186992,
+      "firstSmallerThanFinger": false,
+      "modernPxPerYear": 0.36283185840707965,
+      "modernPixels": 82
+    },
+    {
+      "viewport": 360,
+      "layout": "5-8",
+      "firstPixels": 26.240000000000002,
+      "firstPxPerYear": 0.00027628323242958675,
+      "fingerLinearYears": 159256.85975609755,
+      "fingerWithinSegmentYears": 94975,
+      "firstSmallerThanFinger": true,
+      "modernPxPerYear": 0.3628318584070795,
+      "modernPixels": 81.99999999999996
+    },
+    {
+      "viewport": 360,
+      "layout": "5-10",
+      "firstPixels": 32.800000000000004,
+      "firstPxPerYear": 0.00034535404053698347,
+      "fingerLinearYears": 127405.48780487804,
+      "fingerWithinSegmentYears": 94975,
+      "firstSmallerThanFinger": true,
+      "modernPxPerYear": 0.36283185840707965,
+      "modernPixels": 82
+    },
+    {
+      "viewport": 360,
+      "layout": "5-15",
+      "firstPixels": 49.199999999999996,
+      "firstPxPerYear": 0.0005180310608054751,
+      "fingerLinearYears": 84936.99186991871,
+      "fingerWithinSegmentYears": 84936.99186991871,
+      "firstSmallerThanFinger": false,
+      "modernPxPerYear": 0.36283185840707965,
+      "modernPixels": 82
+    },
+    {
+      "viewport": 400,
+      "layout": "4-8",
+      "firstPixels": 29.44,
+      "firstPxPerYear": 0.0003020292590844738,
+      "fingerLinearYears": 145681.25,
+      "fingerWithinSegmentYears": 97474,
+      "firstSmallerThanFinger": true,
+      "modernPxPerYear": 0.4070796460176991,
+      "modernPixels": 91.99999999999999
+    },
+    {
+      "viewport": 400,
+      "layout": "4-10",
+      "firstPixels": 36.800000000000004,
+      "firstPxPerYear": 0.0003775365738555923,
+      "fingerLinearYears": 116544.99999999997,
+      "fingerWithinSegmentYears": 97474,
+      "firstSmallerThanFinger": true,
+      "modernPxPerYear": 0.4070796460176991,
+      "modernPixels": 91.99999999999999
+    },
+    {
+      "viewport": 400,
+      "layout": "4-15",
+      "firstPixels": 55.199999999999996,
+      "firstPxPerYear": 0.0005663048607833884,
+      "fingerLinearYears": 77696.66666666667,
+      "fingerWithinSegmentYears": 77696.66666666667,
+      "firstSmallerThanFinger": false,
+      "modernPxPerYear": 0.4070796460176991,
+      "modernPixels": 91.99999999999999
+    },
+    {
+      "viewport": 400,
+      "layout": "5-8",
+      "firstPixels": 29.44,
+      "firstPxPerYear": 0.0003099763095551461,
+      "fingerLinearYears": 141946.3315217391,
+      "fingerWithinSegmentYears": 94975,
+      "firstSmallerThanFinger": true,
+      "modernPxPerYear": 0.40707964601769897,
+      "modernPixels": 91.99999999999997
+    },
+    {
+      "viewport": 400,
+      "layout": "5-10",
+      "firstPixels": 36.800000000000004,
+      "firstPxPerYear": 0.0003874703869439327,
+      "fingerLinearYears": 113557.06521739128,
+      "fingerWithinSegmentYears": 94975,
+      "firstSmallerThanFinger": true,
+      "modernPxPerYear": 0.4070796460176991,
+      "modernPixels": 91.99999999999999
+    },
+    {
+      "viewport": 400,
+      "layout": "5-15",
+      "firstPixels": 55.199999999999996,
+      "firstPxPerYear": 0.0005812055804158988,
+      "fingerLinearYears": 75704.71014492755,
+      "fingerWithinSegmentYears": 75704.71014492755,
+      "firstSmallerThanFinger": false,
+      "modernPxPerYear": 0.4070796460176991,
+      "modernPixels": 91.99999999999999
+    },
+    {
+      "viewport": 768,
+      "layout": "4-8",
+      "firstPixels": 58.88,
+      "firstPxPerYear": 0.0006040585181689476,
+      "fingerLinearYears": 72840.625,
+      "fingerWithinSegmentYears": 72840.625,
+      "firstSmallerThanFinger": false,
+      "modernPxPerYear": 0.8141592920353982,
+      "modernPixels": 183.99999999999997
+    },
+    {
+      "viewport": 768,
+      "layout": "4-10",
+      "firstPixels": 73.60000000000001,
+      "firstPxPerYear": 0.0007550731477111846,
+      "fingerLinearYears": 58272.499999999985,
+      "fingerWithinSegmentYears": 58272.499999999985,
+      "firstSmallerThanFinger": false,
+      "modernPxPerYear": 0.8141592920353982,
+      "modernPixels": 183.99999999999997
+    },
+    {
+      "viewport": 768,
+      "layout": "4-15",
+      "firstPixels": 110.39999999999999,
+      "firstPxPerYear": 0.0011326097215667767,
+      "fingerLinearYears": 38848.333333333336,
+      "fingerWithinSegmentYears": 38848.333333333336,
+      "firstSmallerThanFinger": false,
+      "modernPxPerYear": 0.8141592920353982,
+      "modernPixels": 183.99999999999997
+    },
+    {
+      "viewport": 768,
+      "layout": "5-8",
+      "firstPixels": 58.88,
+      "firstPxPerYear": 0.0006199526191102922,
+      "fingerLinearYears": 70973.16576086955,
+      "fingerWithinSegmentYears": 70973.16576086955,
+      "firstSmallerThanFinger": false,
+      "modernPxPerYear": 0.8141592920353979,
+      "modernPixels": 183.99999999999994
+    },
+    {
+      "viewport": 768,
+      "layout": "5-10",
+      "firstPixels": 73.60000000000001,
+      "firstPxPerYear": 0.0007749407738878654,
+      "fingerLinearYears": 56778.53260869564,
+      "fingerWithinSegmentYears": 56778.53260869564,
+      "firstSmallerThanFinger": false,
+      "modernPxPerYear": 0.8141592920353982,
+      "modernPixels": 183.99999999999997
+    },
+    {
+      "viewport": 768,
+      "layout": "5-15",
+      "firstPixels": 110.39999999999999,
+      "firstPxPerYear": 0.0011624111608317977,
+      "fingerLinearYears": 37852.355072463775,
+      "fingerWithinSegmentYears": 37852.355072463775,
+      "firstSmallerThanFinger": false,
+      "modernPxPerYear": 0.8141592920353982,
+      "modernPixels": 183.99999999999997
+    }
+  ]
+}

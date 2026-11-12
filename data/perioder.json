@@ -28,7 +28,7 @@
           "name": {
             "sv": "Norden, cirka 800–1500",
             "en": "The Nordic countries, c. 800–1500",
-            "de": "Norden, um 800–1500",
+            "de": "Nordische Länder, um 800–1500",
             "es": "Países nórdicos, hacia 800–1500",
             "fr": "Pays nordiques, vers 800–1500"
           },
@@ -46,7 +46,7 @@
           "name": {
             "sv": "Norden, cirka 1500–1800",
             "en": "The Nordic countries, c. 1500–1800",
-            "de": "Norden, um 1500–1800",
+            "de": "Nordische Länder, um 1500–1800",
             "es": "Países nórdicos, hacia 1500–1800",
             "fr": "Pays nordiques, vers 1500–1800"
           },
@@ -64,7 +64,7 @@
           "name": {
             "sv": "Norden, cirka 1800–1900",
             "en": "The Nordic countries, c. 1800–1900",
-            "de": "Norden, um 1800–1900",
+            "de": "Nordische Länder, um 1800–1900",
             "es": "Países nórdicos, hacia 1800–1900",
             "fr": "Pays nordiques, vers 1800–1900"
           },
@@ -116,16 +116,16 @@
       "name": {
         "sv": "Nordens forntid (enligt Historiska museet)",
         "en": "Prehistory of the Nordic countries (according to the Swedish History Museum)",
-        "de": "Vorgeschichte des Nordens (nach dem Historischen Museum Schwedens)",
+        "de": "Vorgeschichte der nordischen Länder (nach dem Staatlichen historischen Museum in Stockholm)",
         "es": "Prehistoria de los países nórdicos (según el Museo de Historia de Suecia)",
-        "fr": "Préhistoire des pays nordiques (selon le Musée d’histoire de Suède)"
+        "fr": "Préhistoire des pays nordiques (selon le Musée historique de Stockholm)"
       },
       "simplification": {
         "sv": "Stenålder, bronsålder och järnålder är nordiska forskningsbegrepp, och årtalen är ungefärliga och följer Historiska museet. Perioderna började och slutade vid andra tider i andra delar av världen, och även inom Norden skiljer sig kulturerna mellan norr och söder. Indelningen är en förenkling, och källorna är inte helt överens om järnålderns slut.",
         "en": "Stone Age, Bronze Age and Iron Age are Nordic research terms, and the years are approximate and follow the Swedish History Museum. The periods began and ended at other times in other parts of the world, and even within the Nordic countries the cultures differ between north and south. The division is a simplification, and the sources do not fully agree on when the Iron Age ended.",
-        "de": "Steinzeit, Bronzezeit und Eisenzeit sind nordische Forschungsbegriffe, und die Jahreszahlen sind ungefähr und folgen dem Historischen Museum Schwedens. In anderen Teilen der Welt begannen und endeten die Zeiträume zu anderen Zeiten, und auch innerhalb des Nordens unterscheiden sich die Kulturen zwischen Norden und Süden. Die Einteilung ist eine Vereinfachung, und die Quellen sind sich über das Ende der Eisenzeit nicht ganz einig.",
+        "de": "Steinzeit, Bronzezeit und Eisenzeit sind nordische Forschungsbegriffe, und die Jahreszahlen sind ungefähr und folgen dem Staatlichen historischen Museum in Stockholm. In anderen Teilen der Welt begannen und endeten die Zeiträume zu anderen Zeiten, und auch innerhalb der nordischen Länder unterscheiden sich die Kulturen zwischen Norden und Süden. Die Einteilung ist eine Vereinfachung, und die Quellen sind sich über das Ende der Eisenzeit nicht ganz einig.",
         "es": "La Edad de Piedra, la Edad del Bronce y la Edad del Hierro son conceptos de investigación nórdicos, y los años son aproximados y siguen al Museo de Historia de Suecia. En otras partes del mundo, los períodos comenzaron y terminaron en otros momentos, y también dentro de los países nórdicos las culturas difieren entre el norte y el sur. La división es una simplificación, y las fuentes no coinciden del todo sobre el final de la Edad del Hierro.",
-        "fr": "L’âge de la pierre, l’âge du bronze et l’âge du fer sont des notions de recherche nordiques, et les années sont approximatives et suivent le Musée d’histoire de Suède. Dans d’autres régions du monde, ces périodes ont commencé et fini à d’autres moments, et même dans les pays nordiques les cultures diffèrent entre le nord et le sud. Cette division est une simplification, et les sources ne s’accordent pas entièrement sur la fin de l’âge du fer."
+        "fr": "L’âge de la pierre, l’âge du bronze et l’âge du fer sont des notions de recherche nordiques, et les années sont approximatives et suivent le Musée historique de Stockholm. Dans d’autres régions du monde, ces périodes ont commencé et fini à d’autres moments, et même dans les pays nordiques les cultures diffèrent entre le nord et le sud. Cette division est une simplification, et les sources ne s’accordent pas entièrement sur la fin de l’âge du fer."
       },
       "periods": [
         {
@@ -179,9 +179,9 @@
           "note": {
             "sv": "Källorna skiljer sig: Historiska museets översikt slutar järnåldern år 550 e.Kr. (och räknar vikingatiden, 793–1050, som en egen period), medan museets sida om järnåldern anger 500 f.Kr.–1100 e.Kr. Här används 550.",
             "en": "The sources differ: the Swedish History Museum’s overview ends the Iron Age in AD 550 (and treats the Viking Age, 793–1050, as a separate period), while the museum’s page on the Iron Age gives 500 BC–AD 1100. Here 550 is used.",
-            "de": "Die Quellen unterscheiden sich: Die Übersicht des Historischen Museums Schwedens lässt die Eisenzeit im Jahr 550 n. Chr. enden (und behandelt die Wikingerzeit, 793–1050, als eigenen Zeitraum), während die Seite des Museums zur Eisenzeit 500 v. Chr.–1100 n. Chr. angibt. Hier wird 550 verwendet.",
+            "de": "Die Quellen unterscheiden sich: Die Übersicht des Staatlichen historischen Museums in Stockholm lässt die Eisenzeit im Jahr 550 n. Chr. enden (und behandelt die Wikingerzeit, 793–1050, als eigenen Zeitraum), während die Seite des Museums zur Eisenzeit 500 v. Chr.–1100 n. Chr. angibt. Hier wird 550 verwendet.",
             "es": "Las fuentes difieren: la visión general del Museo de Historia de Suecia termina la Edad del Hierro en el año 550 d. C. (y trata la época vikinga, 793–1050, como un período aparte), mientras que la página del museo sobre la Edad del Hierro indica 500 a. C.–1100 d. C. Aquí se usa 550.",
-            "fr": "Les sources diffèrent : l’aperçu du Musée d’histoire de Suède fait finir l’âge du fer en 550 apr. J.-C. (et traite l’époque viking, 793–1050, comme une période à part), tandis que la page du musée sur l’âge du fer indique 500 av. J.-C.–1100 apr. J.-C. Ici, 550 est utilisé."
+            "fr": "Les sources diffèrent : l’aperçu du Musée historique de Stockholm fait finir l’âge du fer en 550 apr. J.-C. (et traite l’époque viking, 793–1050, comme une période à part), tandis que la page du musée sur l’âge du fer indique 500 av. J.-C.–1100 apr. J.-C. Ici, 550 est utilisé."
           },
           "sources": [
             "historiska-jarnalder",
