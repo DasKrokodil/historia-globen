@@ -4536,7 +4536,7 @@ async function run(browser, vp) {
         }
         // En knapp utan år i namnet behåller datumen och förklaringen om klippningen.
         const stone = await pp.locator('[data-period="nordisk-stenalder"]').ariaSnapshot();
-        if (!stone.includes('3000') || !stone.includes('1700')) throw new Error(`${lang}: stenålderns intervall saknas i knappnamnet`);
+        if (!/12\s?[\s.,]?000/.test(stone) || !stone.includes('1700')) throw new Error(`${lang}: stenålderns intervall saknas i knappnamnet`); // 12 000 f.Kr. sedan #1088
         await pp.locator('.range-preset').first().focus();
         await pp.keyboard.press('Enter');
         await pp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
