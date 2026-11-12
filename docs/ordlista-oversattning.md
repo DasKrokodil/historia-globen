@@ -43,7 +43,7 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 
 ## 3. Siffror och tecken
 
-- **Tusental** (4 siffror eller fler som mängd, inte som år): spanska och franska har hårt mellanrum eller tunt mellanrum, "4 000 años", "4 000 ans" (som i gränssnittet i dag). Som år utan mellanrum.
+- **Tusental** (mängd, inte år): **franska** har hårt mellanrum från fyra siffror, "4 000 ans". **Spanska** har mellanrum först från fem siffror, "4000 años" men "40 000 años", enligt RAE (Diccionario panhispánico de dudas, "números", § 2a; beslut 2026-11-12, [docs/beslut/2026-11-12-spanska-tusental.md](beslut/2026-11-12-spanska-tusental.md)). Som år alltid utan mellanrum.
 - **Decimaler** med komma: `3,5 millones`, `3,5 millions`.
 - **Citattecken:** spanska `«…»`, franska `« … »` med hårda mellanrum innanför tecknen.
 - **Fransk typografi:** hårt mellanrum före `:`, `;`, `?`, `!` och `»`, och efter `«`. Apostrof `’` eller `'` som i gränssnittet; var konsekvent i samma fil.
@@ -295,12 +295,13 @@ Skrivet 2026-11-12. Termerna är kontrollerade mot målspråkets Wikipedia-titel
 - **Spann:** det äldre talet står först, som i källorna. Tankstreck i korta etiketter (*för 48 000–32 000 år sedan*, en *48,000–32,000 years ago*, de *vor 48.000–32.000 Jahren*). I löptext är spanska *hace entre 48 000 y 32 000 años* och franska *il y a 48 000 à 32 000 ans* naturligare.
 - **Osäkerhetsord med fast betydelse** (förslag): *cirka* (en *about*, de *etwa*, utskrivet och inte *ca.*, es *unos/unas* böjt efter genus, fr *environ* framför mängder och *vers* framför årtal med f.Kr.) för ett ungefärligt tal; *troligen* (*probably*, *wahrscheinlich*, *probablemente*, *probablement*) när källan bedömer det sannolikt; *kanske* eller *möjligen* (*possibly*, *möglicherweise* och inte *vielleicht*, *posiblemente*, *peut-être*) när källan bara håller det för möjligt. Orden används inte omväxlande; de följer källans grad av säkerhet.
 
-### 13.3 Siffror i stora tal (spanska: val krävs)
+### 13.3 Siffror i stora tal (spanska)
 
 - **Dagens regel** (avsnitt 3) ger mellanrum från fyra siffror i spanska och franska mängder ("4 000 años").
-- **Issuet** säger att RAE (Diccionario panhispánico de dudas) sätter mellanrum först från fem siffror ("4000 años", "40 000 años"), och att "miljard" heter *mil millones*, inte *billón*. RAE:s webbplats går inte att nå från den här sessionen, så **det är inte kontrollerat mot källan**.
-- **`sprak-es` (2026-11-12, ur minnet, inte kontrollerat mot RAE):** fyra siffror utan mellanrum (*4000 años*), från fem siffror hårt mellanrum (*40 000 años*). Innehållet blandar i dag formerna (2 fall med mellanrum och 3 utan, i `data/handelser/` och `data/funfacts.json`); `data/ui/es.json` har inga sådana tal.
-- **Förslag:** behåll regeln i avsnitt 3 tills RAE har kontrollerats mot en öppnad källa (`www.rae.es` behöver tillåtas i nätverket). Ändras regeln rättas innehållet i en egen pull request. *mil millones* gäller oavsett, och *2000 millones* hellre än *2 mil millones*.
+- **RAE (kontrollerat 2026-11-12, i andra hand):** Diccionario panhispánico de dudas, "números", § 2a, citerat ordagrant i spanska Wikipedia ("Separador decimal", med länk till DPD): *"Al escribir números de más de cuatro cifras, se agruparán estas de tres en tres, empezando por la derecha, y separando los grupos por espacios en blanco y no por puntos o comas"*. Mellanrum alltså **från fem siffror**: *4000 años*, *40 000 años*. Ortografía de la lengua española (samma artikel) säger att bara ett litet mellanrum är tillåtet, varken punkt eller komma. RAE:s egen webbplats stoppar automatiska besök (403), så sidan är inte läst direkt.
+- **Innehållet blandar i dag formerna** (2 fall med mellanrum och 3 utan, i `data/handelser/` och `data/funfacts.json`, mätt av `sprak-es`); `data/ui/es.json` har inga sådana tal.
+- **Beslut 2026-11-12 (DasKrokodil i #1245):** regeln i avsnitt 3 är ändrad för spanska till mellanrum från fem siffror, och de två fallen i innehållet är rättade. Franskan behåller sin regel.
+- *mil millones* gäller oavsett (inte *billón*), och *2000 millones* hellre än *2 mil millones*.
 - **Franska:** tusentalsavgränsaren är hårt mellanrum U+00A0, som i `data/ui/fr.json` (inte tunt U+202F).
 - **Tyska i Schweiz:** den gemensamma formen *40.000* används medvetet, inte schweiziska *40'000* (antagande: ingen egen variant behövs).
 
@@ -311,4 +312,4 @@ Skrivet 2026-11-12. Termerna är kontrollerade mot målspråkets Wikipedia-titel
 - **Ingen stege:** arterna beskrivs inte som steg mot *Homo sapiens* (inte en *ladder*, *more evolved*, de *Vorstufe des Menschen*, *Bindeglied*). Flera arter levde samtidigt.
 - **Osäkerhet visas öppet**, med orden i 13.2 och med "Källorna skiljer sig" där de gör det (källpolicyn, punkt 4 och 6). Franska: *Les sources divergent* överallt (i dag finns också *Les sources diffèrent* i `data/ui/fr.json`).
 
-**Granskat 2026-11-12** av `sprak-en`, `sprak-de`, `sprak-es` och `sprak-fr` (synpunkterna är införda). RAE-regeln i 13.3 och spanskans *denisovanos* är inte kontrollerade mot öppnade källor.
+**Granskat 2026-11-12** av `sprak-en`, `sprak-de`, `sprak-es` och `sprak-fr` (synpunkterna är införda). RAE-regeln i 13.3 är kontrollerad i andra hand (DPD citerad i spanska Wikipedia); spanskans *denisovanos* är inte kontrollerad.
