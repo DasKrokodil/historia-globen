@@ -119,7 +119,7 @@ export class ReligionLegend {
     // Faktarutan på begäran (#308), när någon religion som syns har en
     const aboutHtml = !items.some(i => i.religion.facts) ? '' : '<button type="button" class="info-btn rl-about" data-about>Läs om religionerna</button>';
     // Tipsraden första gången lagret slås på (#308). Den står utanför den hopfällbara listan, så att den syns även i mobil.
-    const hintHtml = !this.hint || !items.length ? '' : `<p class="rl-hint" role="note"><span>Klicka på ett färgat område för att se religion och rike.</span><button type="button" class="rl-hint-close" data-hint-close aria-label="Stäng tipset">×</button></p>`;
+    const hintHtml = !this.hint || !items.length ? '' : `<p class="rl-hint" role="note"><span>${esc(ui('legend.hint'))}</span><button type="button" class="rl-hint-close" data-hint-close aria-label="${esc(ui('legend.hintClose'))}">×</button></p>`;
     // Upptäcktsvyn (#375): förklaringen och kartkrediten följer samma hopfällbara kropp,
     // så att den inte täcker kartan i mobil. Den korta rubriken ligger kvar i knappen.
     const coverageHtml = !discovery || discovery.coverage == null ? '' : `<p class="rl-coverage" role="status">${esc(ui('discovery.coverage', { percent: discovery.coverage }))}</p>

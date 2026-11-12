@@ -522,6 +522,8 @@
   "facts.religionsLoading": "Chargement des religions…",
   "facts.aboutReligions": "En savoir plus sur les religions",
   "facts.religionsFailed": "Les religions n’ont pas pu être chargées.",
+  "legend.hint": "Cliquez sur une zone colorée pour voir la religion et l’empire.",
+  "legend.hintClose": "Fermer le conseil",
   "ff.kind.funfact": "Le saviez-vous",
   "ff.kind.war": "Quand une guerre a éclaté",
   "ff.kind.empire": "L’histoire de l’empire",
