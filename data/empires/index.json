@@ -30756,6 +30756,7 @@
    "from": 1840,
    "to": 2024,
    "file": "data/empires/honduras.json",
+   "flags": [{"file":"honduras-five-stars","from":1866,"to":2024,"label":{"sv":"Honduras femstjärniga flagga","en":"Honduran five-star flag","de":"Honduranische Flagge mit fünf Sternen","es":"Bandera hondureña de cinco estrellas","fr":"Drapeau hondurien à cinq étoiles"},"sources":["wp-flag-honduras"],"review":"source-checked"}],
    "polities": [
     {
      "id": "honduras",
@@ -30860,6 +30861,7 @@
    "from": 1840,
    "to": 2024,
    "file": "data/empires/guatemala.json",
+   "flags": [{"file":"guatemala","from":1871,"to":2024,"label":{"sv":"Guatemalas civilflagga","en":"Guatemalan civil flag","de":"Guatemaltekische Zivilflagge","es":"Bandera civil guatemalteca","fr":"Drapeau civil guatémaltèque"},"sources":["wp-flag-guatemala"],"review":"source-checked"}],
    "polities": [
     {
      "id": "guatemala",
@@ -31354,6 +31356,7 @@
    "from": 1840,
    "to": 2024,
    "file": "data/empires/costa-rica.json",
+   "flags": [{"file":"costa-rica","from":1848,"to":2024,"label":{"sv":"Costa Ricas flagga","en":"Flag of Costa Rica","de":"Flagge Costa Ricas","es":"Bandera de Costa Rica","fr":"Drapeau du Costa Rica"},"sources":["wp-flag-costa-rica"],"review":"source-checked"}],
    "polities": [
     {
      "id": "costa-rica",
@@ -32221,6 +32224,7 @@
    "from": 1973,
    "to": 2024,
    "file": "data/empires/bahamas.json",
+   "flags": [{"file":"bahamas","from":1973,"to":2024,"label":{"sv":"Bahamas flagga","en":"Flag of the Bahamas","de":"Flagge der Bahamas","es":"Bandera de Bahamas","fr":"Drapeau des Bahamas"},"sources":["wp-flag-bahamas"],"review":"source-checked"}],
    "polities": [
     {
      "id": "bahamas",
@@ -32311,6 +32315,7 @@
    "from": 1963,
    "to": 2024,
    "file": "data/empires/jamaica.json",
+   "flags": [{"file":"jamaica","from":1963,"to":2024,"label":{"sv":"Jamaicas flagga","en":"Flag of Jamaica","de":"Flagge Jamaikas","es":"Bandera de Jamaica","fr":"Drapeau de la Jamaïque"},"sources":["wp-flag-jamaica"],"review":"source-checked"}],
    "polities": [
     {
      "id": "jamaica",
@@ -32611,6 +32616,7 @@
    "from": 1963,
    "to": 2024,
    "file": "data/empires/trinidad-och-tobago.json",
+   "flags": [{"file":"trinidad-and-tobago","from":1963,"to":2024,"label":{"sv":"Trinidad och Tobagos flagga","en":"Flag of Trinidad and Tobago","de":"Flagge von Trinidad und Tobago","es":"Bandera de Trinidad y Tobago","fr":"Drapeau de Trinité-et-Tobago"},"sources":["wp-flag-trinidad-and-tobago"],"review":"source-checked"}],
    "polities": [
     {
      "id": "trinidad-och-tobago",
@@ -32821,6 +32827,7 @@
    "from": 1967,
    "to": 2024,
    "file": "data/empires/barbados.json",
+   "flags": [{"file":"barbados","from":1967,"to":2024,"label":{"sv":"Barbados flagga","en":"Flag of Barbados","de":"Flagge von Barbados","es":"Bandera de Barbados","fr":"Drapeau de la Barbade"},"sources":["wp-flag-barbados"],"review":"source-checked"}],
    "polities": [
     {
      "id": "barbados",
@@ -32881,6 +32888,7 @@
    "from": 1979,
    "to": 2024,
    "file": "data/empires/saint-lucia.json",
+   "flags": [{"file":"saint-lucia","from":2002,"to":2024,"label":{"sv":"Saint Lucias flagga","en":"Flag of Saint Lucia","de":"Flagge von St. Lucia","es":"Bandera de Santa Lucía","fr":"Drapeau de Sainte-Lucie"},"sources":["wp-flag-saint-lucia"],"review":"source-checked"}],
    "polities": [
     {
      "id": "saint-lucia",
@@ -32911,6 +32919,7 @@
    "from": 1967,
    "to": 2024,
    "file": "data/empires/antigua-och-barbuda.json",
+   "flags": [{"file":"antigua-and-barbuda","from":1967,"to":2024,"label":{"sv":"Antigua och Barbudas flagga","en":"Flag of Antigua and Barbuda","de":"Flagge von Antigua und Barbuda","es":"Bandera de Antigua y Barbuda","fr":"Drapeau d’Antigua-et-Barbuda"},"sources":["wp-flag-antigua-and-barbuda"],"review":"source-checked"}],
    "polities": [
     {
      "id": "antigua-och-barbuda",
@@ -32971,6 +32980,7 @@
    "from": 1976,
    "to": 2024,
    "file": "data/empires/grenada.json",
+   "flags": [{"file":"grenada","from":1976,"to":2024,"label":{"sv":"Grenadas flagga","en":"Flag of Grenada","de":"Flagge Grenadas","es":"Bandera de Granada","fr":"Drapeau de la Grenade"},"sources":["wp-flag-grenada"],"review":"source-checked"}],
    "polities": [
     {
      "id": "grenada",
@@ -33945,7 +33955,6 @@
      "review": "source-checked"
     }
    ],
-   "flags": [{"file":"bahamas","from":1973,"to":2024,"label":{"sv":"Bahamas flagga","en":"Flag of the Bahamas","de":"Flagge der Bahamas","es":"Bandera de Bahamas","fr":"Drapeau des Bahamas"},"sources":["wp-flag-bahamas"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -34021,6 +34030,7 @@
    "from": 1983,
    "to": 2024,
    "file": "data/empires/saint-kitts-och-nevis.json",
+   "flags": [{"file":"saint-kitts-and-nevis","from":1983,"to":2024,"label":{"sv":"Saint Kitts och Nevis flagga","en":"Flag of Saint Kitts and Nevis","de":"Flagge von St. Kitts und Nevis","es":"Bandera de San Cristóbal y Nieves","fr":"Drapeau de Saint-Christophe-et-Niévès"},"sources":["wp-flag-saint-kitts-and-nevis"],"review":"source-checked"}],
    "polities": [
     {
      "id": "saint-kitts-och-nevis",
@@ -34037,7 +34047,6 @@
      "review": "source-checked"
     }
    ],
-   "flags": [{"file":"jamaica","from":1963,"to":2024,"label":{"sv":"Jamaicas flagga","en":"Flag of Jamaica","de":"Flagge Jamaikas","es":"Bandera de Jamaica","fr":"Drapeau de la Jamaïque"},"sources":["wp-flag-jamaica"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -34084,7 +34093,6 @@
      "review": "source-checked"
     }
    ],
-   "flags": [{"file":"trinidad-and-tobago","from":1963,"to":2024,"label":{"sv":"Trinidad och Tobagos flagga","en":"Flag of Trinidad and Tobago","de":"Flagge von Trinidad und Tobago","es":"Bandera de Trinidad y Tobago","fr":"Drapeau de Trinité-et-Tobago"},"sources":["wp-flag-trinidad-and-tobago"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -34131,7 +34139,6 @@
      "review": "source-checked"
     }
    ],
-   "flags": [{"file":"barbados","from":1967,"to":2024,"label":{"sv":"Barbados flagga","en":"Flag of Barbados","de":"Flagge von Barbados","es":"Bandera de Barbados","fr":"Drapeau de la Barbade"},"sources":["wp-flag-barbados"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -34178,7 +34185,6 @@
      "review": "source-checked"
     }
    ],
-   "flags": [{"file":"antigua-and-barbuda","from":1967,"to":2024,"label":{"sv":"Antigua och Barbudas flagga","en":"Flag of Antigua and Barbuda","de":"Flagge von Antigua und Barbuda","es":"Bandera de Antigua y Barbuda","fr":"Drapeau d’Antigua-et-Barbuda"},"sources":["wp-flag-antigua-and-barbuda"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -34225,7 +34231,6 @@
      "review": "source-checked"
     }
    ],
-   "flags": [{"file":"grenada","from":1976,"to":2024,"label":{"sv":"Grenadas flagga","en":"Flag of Grenada","de":"Flagge Grenadas","es":"Bandera de Granada","fr":"Drapeau de la Grenade"},"sources":["wp-flag-grenada"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -34272,7 +34277,6 @@
      "review": "source-checked"
     }
    ],
-   "flags": [{"file":"saint-kitts-and-nevis","from":1983,"to":2024,"label":{"sv":"Saint Kitts och Nevis flagga","en":"Flag of Saint Kitts and Nevis","de":"Flagge von St. Kitts und Nevis","es":"Bandera de San Cristóbal y Nieves","fr":"Drapeau de Saint-Christophe-et-Niévès"},"sources":["wp-flag-saint-kitts-and-nevis"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -34319,7 +34323,6 @@
      "review": "source-checked"
     }
    ],
-   "flags": [{"file":"saint-lucia","from":2002,"to":2024,"label":{"sv":"Saint Lucias flagga","en":"Flag of Saint Lucia","de":"Flagge von St. Lucia","es":"Bandera de Santa Lucía","fr":"Drapeau de Sainte-Lucie"},"sources":["wp-flag-saint-lucia"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -34366,7 +34369,6 @@
      "review": "source-checked"
     }
    ],
-   "flags": [{"file":"costa-rica","from":1848,"to":2024,"label":{"sv":"Costa Ricas flagga","en":"Flag of Costa Rica","de":"Flagge Costa Ricas","es":"Bandera de Costa Rica","fr":"Drapeau du Costa Rica"},"sources":["wp-flag-costa-rica"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -34413,7 +34415,6 @@
      "review": "source-checked"
     }
    ],
-   "flags": [{"file":"guatemala","from":1871,"to":2024,"label":{"sv":"Guatemalas civilflagga","en":"Guatemalan civil flag","de":"Guatemaltekische Zivilflagge","es":"Bandera civil guatemalteca","fr":"Drapeau civil guatémaltèque"},"sources":["wp-flag-guatemala"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
@@ -34460,7 +34461,6 @@
      "review": "source-checked"
     }
    ],
-   "flags": [{"file":"honduras-five-stars","from":1866,"to":2024,"label":{"sv":"Honduras femstjärniga flagga","en":"Honduran five-star flag","de":"Honduranische Flagge mit fünf Sternen","es":"Bandera hondureña de cinco estrellas","fr":"Drapeau hondurien à cinq étoiles"},"sources":["wp-flag-honduras"],"review":"source-checked"}],
    "borderSource": "Natural Earth",
    "facts": {
     "mapNote": {
