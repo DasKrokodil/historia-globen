@@ -61,6 +61,13 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 5. **Kontrollera ett namn som inte står här** mot Wikipedias artikel på målspråket (länken "språk" från den engelska artikeln) innan det används, och skriv "namn kontrollerat mot Wikipedia" i pull requesten om valet inte är självklart. Wikidata-API:et ger 429 vid många anrop: hämta färre och vänta.
 6. **Tabellen i avsnitt 9 är preliminär.** Namnen är förslag som ännu inte är kontrollerade mot en öppnad källa på målspråket, och de får inte kopieras vidare som facit. Den som översätter ett rike kontrollerar namnet mot Wikipedia-artikeln på spanska eller franska (språklänken från den engelska artikeln, eller en källa som Wikipedia hänvisar till), skriver kontrollen i pull requesten och sätter datum och källa i kolumnen "Kontrollerad" i samma pull request. Stämmer inte förslaget rättas raden.
 
+**Kontrollerade namn (#982, 2026-11-12, mot öppnade artiklar på målspråkets Wikipedia):**
+
+| Svenska | Tyska | Franska | Anmärkning |
+|---|---|---|---|
+| Historiska museet (Statens historiska museum) | Staatliches historisches Museum in Stockholm | Musée historique de Stockholm | de.wikipedia "Staatliches historisches Museum (Schweden)", fr.wikipedia "Musée historique de Stockholm" |
+| Norden (de nordiska länderna) | nordische Länder | – | de.wikipedia "Nordische Länder": "Nordische Länder bzw. der Norden". *Norden* betyder oftast "norr" på tyska, och *Nordeuropa* är inte samma sak (kan omfatta Baltikum och Storbritannien) |
+
 ## 5. Gränssnittets begrepp (finns redan i `data/ui/`, ändras inte)
 
 | Svenska | Engelska | Spanska | Franska |
