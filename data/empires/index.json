@@ -19202,7 +19202,24 @@
      "review": "source-checked"
     }
    ],
-   "flags": [{"file":"argentina-sun","from":1834,"to":2024,"label":{"sv":"Argentinas solflagga","en":"Argentine Sun flag","de":"Argentinische Sonnenflagge","es":"Bandera argentina con sol","fr":"Drapeau argentin au soleil"},"sources":["wp-flag-argentina"],"review":"source-checked"}],
+   "flags": [
+    {
+     "file": "argentina-sun",
+     "from": 1834,
+     "to": 2024,
+     "label": {
+      "sv": "Argentinas solflagga",
+      "en": "Argentine Sun flag",
+      "de": "Argentinische Sonnenflagge",
+      "es": "Bandera argentina con sol",
+      "fr": "Drapeau argentin au soleil"
+     },
+     "sources": [
+      "wp-flag-argentina"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "facts": {
     "summary": {
      "sv": "Argentina är en förbundsstat i södra Sydamerika med huvudstaden Buenos Aires. Landet växte fram ur det spanska vicekungadömet Río de la Plata och förklarade sig självständigt 9 juli 1816.",
@@ -19679,7 +19696,24 @@
      "review": "source-checked"
     }
    ],
-   "flags": [{"file":"uruguay-nine-stripes","from":1830,"to":2024,"label":{"sv":"Uruguays niostripiga flagga","en":"Uruguayan nine-stripe flag","de":"Uruguayische Flagge mit neun Streifen","es":"Bandera uruguaya de nueve franjas","fr":"Drapeau uruguayen à neuf bandes"},"sources":["wp-flag-uruguay"],"review":"source-checked"}],
+   "flags": [
+    {
+     "file": "uruguay-nine-stripes",
+     "from": 1830,
+     "to": 2024,
+     "label": {
+      "sv": "Uruguays niostripiga flagga",
+      "en": "Uruguayan nine-stripe flag",
+      "de": "Uruguayische Flagge mit neun Streifen",
+      "es": "Bandera uruguaya de nueve franjas",
+      "fr": "Drapeau uruguayen à neuf bandes"
+     },
+     "sources": [
+      "wp-flag-uruguay"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "facts": {
     "summary": {
      "sv": "Uruguay, officiellt Republiken östra Uruguay, är en republik i sydöstra Sydamerika med huvudstaden Montevideo. Landet blev självständigt 1828, efter en kamp mellan Portugal, Spanien, Förenade provinserna i Río de la Plata och Brasilien.",
@@ -26345,7 +26379,24 @@
      "review": "source-checked"
     }
    ],
-   "flags": [{"file":"canada-maple-leaf","from":1965,"to":2024,"label":{"sv":"Kanadas lönnlövsflagga","en":"Canadian maple leaf flag","de":"Kanadische Ahornblattflagge","es":"Bandera canadiense de la hoja de arce","fr":"Drapeau canadien à feuille d’érable"},"sources":["wp-flag-canada"],"review":"source-checked"}],
+   "flags": [
+    {
+     "file": "canada-maple-leaf",
+     "from": 1965,
+     "to": 2024,
+     "label": {
+      "sv": "Kanadas lönnlövsflagga",
+      "en": "Canadian maple leaf flag",
+      "de": "Kanadische Ahornblattflagge",
+      "es": "Bandera canadiense de la hoja de arce",
+      "fr": "Drapeau canadien à feuille d’érable"
+     },
+     "sources": [
+      "wp-flag-canada"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "facts": {
     "summary": {
      "sv": "Kanada är en förbundsstat och konstitutionell monarki i Nordamerika, världens näst största land till ytan, med huvudstaden Ottawa. Landet bildades som dominion 1867 och blev steg för steg självständigt från Storbritannien.",
@@ -26522,7 +26573,24 @@
      "review": "source-checked"
     }
    ],
-   "flags": [{"file":"chile-lone-star","from":1817,"to":2024,"label":{"sv":"Chiles ensamma stjärna","en":"Chile’s lone star flag","de":"Chiles Flagge mit einzelnem Stern","es":"Bandera chilena de la estrella solitaria","fr":"Drapeau chilien à étoile solitaire"},"sources":["wp-flag-chile"],"review":"source-checked"}],
+   "flags": [
+    {
+     "file": "chile-lone-star",
+     "from": 1817,
+     "to": 2024,
+     "label": {
+      "sv": "Chiles ensamma stjärna",
+      "en": "Chile’s lone star flag",
+      "de": "Chiles Flagge mit einzelnem Stern",
+      "es": "Bandera chilena de la estrella solitaria",
+      "fr": "Drapeau chilien à étoile solitaire"
+     },
+     "sources": [
+      "wp-flag-chile"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "facts": {
     "summary": {
      "sv": "Chile är en republik längs Sydamerikas västkust, mellan Anderna och Stilla havet, med huvudstaden Santiago. Landet förklarade sig självständigt från Spanien 1818.",
@@ -26700,7 +26768,24 @@
      "review": "source-checked"
     }
    ],
-   "flags": [{"file":"peru-red-white-red","from":1825,"to":2024,"label":{"sv":"Perus röd-vita flagga","en":"Peruvian red-and-white flag","de":"Peruanische rot-weiße Flagge","es":"Bandera peruana roja y blanca","fr":"Drapeau péruvien rouge et blanc"},"sources":["wp-flag-peru"],"review":"source-checked"}],
+   "flags": [
+    {
+     "file": "peru-red-white-red",
+     "from": 1825,
+     "to": 2024,
+     "label": {
+      "sv": "Perus röd-vita flagga",
+      "en": "Peruvian red-and-white flag",
+      "de": "Peruanische rot-weiße Flagge",
+      "es": "Bandera peruana roja y blanca",
+      "fr": "Drapeau péruvien rouge et blanc"
+     },
+     "sources": [
+      "wp-flag-peru"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "facts": {
     "summary": {
      "sv": "Peru är en republik i västra Sydamerika med huvudstaden Lima. Här låg Caral–Supe, Amerikas tidigaste civilisation, och Inkariket. Landet utropade sin självständighet från Spanien 1821 och fullbordade den 1824.",
@@ -26885,7 +26970,24 @@
      "review": "source-checked"
     }
    ],
-   "flags": [{"file":"bolivia-tricolour","from":1851,"to":2024,"label":{"sv":"Bolivias röd-gul-gröna trikolor","en":"Bolivian red-yellow-green tricolour","de":"Bolivianische rot-gelb-grüne Trikolore","es":"Tricolor boliviana rojo-amarillo-verde","fr":"Tricolore bolivien rouge-jaune-vert"},"sources":["wp-flag-bolivia"],"review":"source-checked"}],
+   "flags": [
+    {
+     "file": "bolivia-tricolour",
+     "from": 1851,
+     "to": 2024,
+     "label": {
+      "sv": "Bolivias röd-gul-gröna trikolor",
+      "en": "Bolivian red-yellow-green tricolour",
+      "de": "Bolivianische rot-gelb-grüne Trikolore",
+      "es": "Tricolor boliviana rojo-amarillo-verde",
+      "fr": "Tricolore bolivien rouge-jaune-vert"
+     },
+     "sources": [
+      "wp-flag-bolivia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "facts": {
     "summary": {
      "sv": "Bolivia är ett land utan kust i centrala Sydamerika. Regeringen sitter i La Paz, medan Sucre är huvudstad enligt grundlagen. Republiken, uppkallad efter Simón Bolívar, utropades 6 augusti 1825.",
@@ -27105,7 +27207,24 @@
      "review": "source-checked"
     }
    ],
-   "flags": [{"file":"colombia-tricolour","from":1861,"to":2024,"label":{"sv":"Colombias gul-blå-röda trikolor","en":"Colombian yellow-blue-red tricolour","de":"Kolumbianische gelb-blau-rote Trikolore","es":"Tricolor colombiana amarillo-azul-rojo","fr":"Tricolore colombien jaune-bleu-rouge"},"sources":["wp-flag-colombia"],"review":"source-checked"}],
+   "flags": [
+    {
+     "file": "colombia-tricolour",
+     "from": 1861,
+     "to": 2024,
+     "label": {
+      "sv": "Colombias gul-blå-röda trikolor",
+      "en": "Colombian yellow-blue-red tricolour",
+      "de": "Kolumbianische gelb-blau-rote Trikolore",
+      "es": "Tricolor colombiana amarillo-azul-rojo",
+      "fr": "Tricolore colombien jaune-bleu-rouge"
+     },
+     "sources": [
+      "wp-flag-colombia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "facts": {
     "summary": {
      "sv": "Colombia är en republik i nordvästra Sydamerika med huvudstaden Bogotá. Landet förklarade sig självständigt 1810 och har bytt namn och styrelseskick flera gånger; dagens namn och centralstyrda republik är från 1886.",
@@ -27834,7 +27953,24 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/ukraina.json",
-   "flags": [{"file": "ukraine", "from": 1992, "to": 2024, "label": {"sv": "Ukrainas flagga", "en": "Flag of Ukraine", "de": "Flagge der Ukraine", "es": "Bandera de Ucrania", "fr": "Drapeau de l’Ukraine"}, "sources": ["wp-flag-ukraine"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "ukraine",
+     "from": 1992,
+     "to": 2024,
+     "label": {
+      "sv": "Ukrainas flagga",
+      "en": "Flag of Ukraine",
+      "de": "Flagge der Ukraine",
+      "es": "Bandera de Ucrania",
+      "fr": "Drapeau de l’Ukraine"
+     },
+     "sources": [
+      "wp-flag-ukraine"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "ukraina",
@@ -28520,7 +28656,24 @@
    "from": 1945,
    "to": 2024,
    "file": "data/empires/danmark.json",
-   "flags": [{"file": "denmark", "from": 1945, "to": 2024, "label": {"sv": "Dannebrog, Danmarks flagga", "en": "Dannebrog, flag of Denmark", "de": "Dannebrog, Flagge Dänemarks", "es": "Dannebrog, bandera de Dinamarca", "fr": "Dannebrog, drapeau du Danemark"}, "sources": ["wp-dannebrog"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "denmark",
+     "from": 1945,
+     "to": 2024,
+     "label": {
+      "sv": "Dannebrog, Danmarks flagga",
+      "en": "Dannebrog, flag of Denmark",
+      "de": "Dannebrog, Flagge Dänemarks",
+      "es": "Dannebrog, bandera de Dinamarca",
+      "fr": "Dannebrog, drapeau du Danemark"
+     },
+     "sources": [
+      "wp-dannebrog"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "labelAt": [
     {
      "polity": "danmark",
@@ -28779,7 +28932,24 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/tchad.json",
-   "flags": [{"file": "chad", "from": 1961, "to": 2024, "label": {"sv": "Tchads flagga", "en": "Flag of Chad", "de": "Flagge des Tschad", "es": "Bandera de Chad", "fr": "Drapeau du Tchad"}, "sources": ["wp-flag-chad"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "chad",
+     "from": 1961,
+     "to": 2024,
+     "label": {
+      "sv": "Tchads flagga",
+      "en": "Flag of Chad",
+      "de": "Flagge des Tschad",
+      "es": "Bandera de Chad",
+      "fr": "Drapeau du Tchad"
+     },
+     "sources": [
+      "wp-flag-chad"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "tchad",
@@ -28842,7 +29012,24 @@
    "from": 1960,
    "to": 2024,
    "file": "data/empires/mali.json",
-   "flags": [{"file": "mali", "from": 1961, "to": 2024, "label": {"sv": "Malis flagga", "en": "Flag of Mali", "de": "Flagge Malis", "es": "Bandera de Mali", "fr": "Drapeau du Mali"}, "sources": ["wp-flag-mali"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "mali",
+     "from": 1961,
+     "to": 2024,
+     "label": {
+      "sv": "Malis flagga",
+      "en": "Flag of Mali",
+      "de": "Flagge Malis",
+      "es": "Bandera de Mali",
+      "fr": "Drapeau du Mali"
+     },
+     "sources": [
+      "wp-flag-mali"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "mali",
@@ -28939,7 +29126,24 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/niger.json",
-   "flags": [{"file": "niger", "from": 1961, "to": 2024, "label": {"sv": "Nigers flagga", "en": "Flag of Niger", "de": "Flagge Nigers", "es": "Bandera de Níger", "fr": "Drapeau du Niger"}, "sources": ["wp-flag-niger"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "niger",
+     "from": 1961,
+     "to": 2024,
+     "label": {
+      "sv": "Nigers flagga",
+      "en": "Flag of Niger",
+      "de": "Flagge Nigers",
+      "es": "Bandera de Níger",
+      "fr": "Drapeau du Niger"
+     },
+     "sources": [
+      "wp-flag-niger"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "niger",
@@ -29157,7 +29361,24 @@
    "from": 1958,
    "to": 2024,
    "file": "data/empires/frankrike.json",
-   "flags": [{"file": "france-tricolour", "from": 1958, "to": 2024, "label": {"sv": "Frankrikes trikolor", "en": "French tricolour", "de": "Französische Trikolore", "es": "Tricolor francesa", "fr": "Drapeau tricolore français"}, "sources": ["wp-flag-of-france"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "france-tricolour",
+     "from": 1958,
+     "to": 2024,
+     "label": {
+      "sv": "Frankrikes trikolor",
+      "en": "French tricolour",
+      "de": "Französische Trikolore",
+      "es": "Tricolor francesa",
+      "fr": "Drapeau tricolore français"
+     },
+     "sources": [
+      "wp-flag-of-france"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "labelAt": [
     {
      "polity": "femte-republiken",
@@ -29297,7 +29518,24 @@
    "from": 1960,
    "to": 2024,
    "file": "data/empires/madagaskar.json",
-   "flags": [{"file": "madagascar", "from": 1960, "to": 2024, "label": {"sv": "Madagaskars flagga", "en": "Flag of Madagascar", "de": "Flagge Madagaskars", "es": "Bandera de Madagascar", "fr": "Drapeau de Madagascar"}, "sources": ["wp-flag-madagascar"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "madagascar",
+     "from": 1960,
+     "to": 2024,
+     "label": {
+      "sv": "Madagaskars flagga",
+      "en": "Flag of Madagascar",
+      "de": "Flagge Madagaskars",
+      "es": "Bandera de Madagascar",
+      "fr": "Drapeau de Madagascar"
+     },
+     "sources": [
+      "wp-flag-madagascar"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "madagaskar",
@@ -29391,7 +29629,24 @@
    "from": 1967,
    "to": 2024,
    "file": "data/empires/botswana.json",
-   "flags": [{"file": "botswana", "from": 1967, "to": 2024, "label": {"sv": "Botswanas flagga", "en": "Flag of Botswana", "de": "Flagge Botswanas", "es": "Bandera de Botsuana", "fr": "Drapeau du Botswana"}, "sources": ["wp-flag-botswana"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "botswana",
+     "from": 1967,
+     "to": 2024,
+     "label": {
+      "sv": "Botswanas flagga",
+      "en": "Flag of Botswana",
+      "de": "Flagge Botswanas",
+      "es": "Bandera de Botsuana",
+      "fr": "Drapeau du Botswana"
+     },
+     "sources": [
+      "wp-flag-botswana"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "botswana",
@@ -29621,7 +29876,24 @@
    "from": 1905,
    "to": 2024,
    "file": "data/empires/norge.json",
-   "flags": [{"file": "norway", "from": 1905, "to": 2024, "label": {"sv": "Norges flagga", "en": "Flag of Norway", "de": "Flagge Norwegens", "es": "Bandera de Noruega", "fr": "Drapeau de la Norvège"}, "sources": ["wp-flag-norway"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "norway",
+     "from": 1905,
+     "to": 2024,
+     "label": {
+      "sv": "Norges flagga",
+      "en": "Flag of Norway",
+      "de": "Flagge Norwegens",
+      "es": "Bandera de Noruega",
+      "fr": "Drapeau de la Norvège"
+     },
+     "sources": [
+      "wp-flag-norway"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "labelAt": [
     {
      "polity": "norge",
@@ -29799,7 +30071,24 @@
    "from": 1991,
    "to": 2024,
    "file": "data/empires/tyskland.json",
-   "flags": [{"file": "germany", "from": 1991, "to": 2024, "label": {"sv": "Tysklands flagga", "en": "Flag of Germany", "de": "Flagge Deutschlands", "es": "Bandera de Alemania", "fr": "Drapeau de l’Allemagne"}, "sources": ["wp-flag-germany"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "germany",
+     "from": 1991,
+     "to": 2024,
+     "label": {
+      "sv": "Tysklands flagga",
+      "en": "Flag of Germany",
+      "de": "Flagge Deutschlands",
+      "es": "Bandera de Alemania",
+      "fr": "Drapeau de l’Allemagne"
+     },
+     "sources": [
+      "wp-flag-germany"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "tyskland",
@@ -29924,7 +30213,24 @@
    "from": 1918,
    "to": 2024,
    "file": "data/empires/finland.json",
-   "flags": [{"file": "finland", "from": 1918, "to": 2024, "label": {"sv": "Finlands flagga", "en": "Flag of Finland", "de": "Flagge Finnlands", "es": "Bandera de Finlandia", "fr": "Drapeau de la Finlande"}, "sources": ["wp-flag-finland"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "finland",
+     "from": 1918,
+     "to": 2024,
+     "label": {
+      "sv": "Finlands flagga",
+      "en": "Flag of Finland",
+      "de": "Flagge Finnlands",
+      "es": "Bandera de Finlandia",
+      "fr": "Drapeau de la Finlande"
+     },
+     "sources": [
+      "wp-flag-finland"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "finland",
@@ -29956,7 +30262,24 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/elfenbenskusten.json",
-   "flags": [{"file": "ivory-coast", "from": 1961, "to": 2024, "label": {"sv": "Elfenbenskustens flagga", "en": "Flag of Ivory Coast", "de": "Flagge der Elfenbeinküste", "es": "Bandera de Costa de Marfil", "fr": "Drapeau de la Côte d’Ivoire"}, "sources": ["wp-flag-ivory-coast"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "ivory-coast",
+     "from": 1961,
+     "to": 2024,
+     "label": {
+      "sv": "Elfenbenskustens flagga",
+      "en": "Flag of Ivory Coast",
+      "de": "Flagge der Elfenbeinküste",
+      "es": "Bandera de Costa de Marfil",
+      "fr": "Drapeau de la Côte d’Ivoire"
+     },
+     "sources": [
+      "wp-flag-ivory-coast"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "elfenbenskusten",
@@ -29988,7 +30311,24 @@
    "from": 1919,
    "to": 2024,
    "file": "data/empires/polen.json",
-   "flags": [{"file": "poland", "from": 1919, "to": 2024, "label": {"sv": "Polens flagga", "en": "Flag of Poland", "de": "Flagge Polens", "es": "Bandera de Polonia", "fr": "Drapeau de la Pologne"}, "sources": ["wp-flag-poland"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "poland",
+     "from": 1919,
+     "to": 2024,
+     "label": {
+      "sv": "Polens flagga",
+      "en": "Flag of Poland",
+      "de": "Flagge Polens",
+      "es": "Bandera de Polonia",
+      "fr": "Drapeau de la Pologne"
+     },
+     "sources": [
+      "wp-flag-poland"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "andra-polska-republiken",
@@ -30079,7 +30419,24 @@
    "from": 1862,
    "to": 2024,
    "file": "data/empires/italien.json",
-   "flags": [{"file": "italy", "from": 1946, "to": 2024, "label": {"sv": "Italiens flagga", "en": "Flag of Italy", "de": "Flagge Italiens", "es": "Bandera de Italia", "fr": "Drapeau de l’Italie"}, "sources": ["wp-flag-italy"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "italy",
+     "from": 1946,
+     "to": 2024,
+     "label": {
+      "sv": "Italiens flagga",
+      "en": "Flag of Italy",
+      "de": "Flagge Italiens",
+      "es": "Bandera de Italia",
+      "fr": "Drapeau de l’Italie"
+     },
+     "sources": [
+      "wp-flag-italy"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "labelAt": [
     {
      "polity": "kungariket-italien",
@@ -30168,7 +30525,24 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/gabon.json",
-   "flags": [{"file": "gabon", "from": 1961, "to": 2024, "label": {"sv": "Gabons flagga", "en": "Flag of Gabon", "de": "Flagge Gabuns", "es": "Bandera de Gabón", "fr": "Drapeau du Gabon"}, "sources": ["wp-flag-gabon"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "gabon",
+     "from": 1961,
+     "to": 2024,
+     "label": {
+      "sv": "Gabons flagga",
+      "en": "Flag of Gabon",
+      "de": "Flagge Gabuns",
+      "es": "Bandera de Gabón",
+      "fr": "Drapeau du Gabon"
+     },
+     "sources": [
+      "wp-flag-gabon"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "gabon",
@@ -30200,7 +30574,24 @@
    "from": 1960,
    "to": 2024,
    "file": "data/empires/guinea.json",
-   "flags": [{"file": "guinea", "from": 1960, "to": 2024, "label": {"sv": "Guineas flagga", "en": "Flag of Guinea", "de": "Flagge Guineas", "es": "Bandera de Guinea", "fr": "Drapeau de la Guinée"}, "sources": ["wp-flag-guinea"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "guinea",
+     "from": 1960,
+     "to": 2024,
+     "label": {
+      "sv": "Guineas flagga",
+      "en": "Flag of Guinea",
+      "de": "Flagge Guineas",
+      "es": "Bandera de Guinea",
+      "fr": "Drapeau de la Guinée"
+     },
+     "sources": [
+      "wp-flag-guinea"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "guinea",
@@ -30479,7 +30870,24 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/senegal.json",
-   "flags": [{"file": "senegal", "from": 1961, "to": 2024, "label": {"sv": "Senegals flagga", "en": "Flag of Senegal", "de": "Flagge Senegals", "es": "Bandera de Senegal", "fr": "Drapeau du Sénégal"}, "sources": ["wp-flag-senegal"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "senegal",
+     "from": 1961,
+     "to": 2024,
+     "label": {
+      "sv": "Senegals flagga",
+      "en": "Flag of Senegal",
+      "de": "Flagge Senegals",
+      "es": "Bandera de Senegal",
+      "fr": "Drapeau du Sénégal"
+     },
+     "sources": [
+      "wp-flag-senegal"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "senegal",
@@ -30849,7 +31257,40 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/benin.json",
-   "flags": [{"file": "benin", "from": 1961, "to": 1974, "label": {"sv": "Benins flagga", "en": "Flag of Benin", "de": "Flagge Benins", "es": "Bandera de Benín", "fr": "Drapeau du Bénin"}, "sources": ["wp-flag-benin"], "review": "source-checked"}, {"file": "benin", "from": 1990, "to": 2024, "label": {"sv": "Benins flagga", "en": "Flag of Benin", "de": "Flagge Benins", "es": "Bandera de Benín", "fr": "Drapeau du Bénin"}, "sources": ["wp-flag-benin"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "benin",
+     "from": 1961,
+     "to": 1974,
+     "label": {
+      "sv": "Benins flagga",
+      "en": "Flag of Benin",
+      "de": "Flagge Benins",
+      "es": "Bandera de Benín",
+      "fr": "Drapeau du Bénin"
+     },
+     "sources": [
+      "wp-flag-benin"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "benin",
+     "from": 1990,
+     "to": 2024,
+     "label": {
+      "sv": "Benins flagga",
+      "en": "Flag of Benin",
+      "de": "Flagge Benins",
+      "es": "Bandera de Benín",
+      "fr": "Drapeau du Bénin"
+     },
+     "sources": [
+      "wp-flag-benin"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "benin",
@@ -30881,7 +31322,24 @@
    "from": 1840,
    "to": 2024,
    "file": "data/empires/honduras.json",
-   "flags": [{"file":"honduras-five-stars","from":1866,"to":2024,"label":{"sv":"Honduras femstjärniga flagga","en":"Honduran five-star flag","de":"Honduranische Flagge mit fünf Sternen","es":"Bandera hondureña de cinco estrellas","fr":"Drapeau hondurien à cinq étoiles"},"sources":["wp-flag-honduras"],"review":"source-checked"}],
+   "flags": [
+    {
+     "file": "honduras-five-stars",
+     "from": 1866,
+     "to": 2024,
+     "label": {
+      "sv": "Honduras femstjärniga flagga",
+      "en": "Honduran five-star flag",
+      "de": "Honduranische Flagge mit fünf Sternen",
+      "es": "Bandera hondureña de cinco estrellas",
+      "fr": "Drapeau hondurien à cinq étoiles"
+     },
+     "sources": [
+      "wp-flag-honduras"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "honduras",
@@ -30913,7 +31371,24 @@
    "from": 1918,
    "to": 2024,
    "file": "data/empires/island.json",
-   "flags": [{"file": "iceland", "from": 1918, "to": 2024, "label": {"sv": "Islands flagga", "en": "Flag of Iceland", "de": "Flagge Islands", "es": "Bandera de Islandia", "fr": "Drapeau de l’Islande"}, "sources": ["wp-flag-iceland"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "iceland",
+     "from": 1918,
+     "to": 2024,
+     "label": {
+      "sv": "Islands flagga",
+      "en": "Flag of Iceland",
+      "de": "Flagge Islands",
+      "es": "Bandera de Islandia",
+      "fr": "Drapeau de l’Islande"
+     },
+     "sources": [
+      "wp-flag-iceland"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kungariket-island",
@@ -30959,7 +31434,24 @@
    "from": 1880,
    "to": 2024,
    "file": "data/empires/bulgarien.json",
-   "flags": [{"file": "bulgaria", "from": 1990, "to": 2024, "label": {"sv": "Bulgariens flagga", "en": "Flag of Bulgaria", "de": "Flagge Bulgariens", "es": "Bandera de Bulgaria", "fr": "Drapeau de la Bulgarie"}, "sources": ["wp-flag-bulgaria"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "bulgaria",
+     "from": 1990,
+     "to": 2024,
+     "label": {
+      "sv": "Bulgariens flagga",
+      "en": "Flag of Bulgaria",
+      "de": "Flagge Bulgariens",
+      "es": "Bandera de Bulgaria",
+      "fr": "Drapeau de la Bulgarie"
+     },
+     "sources": [
+      "wp-flag-bulgaria"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "bulgarien",
@@ -30991,7 +31483,24 @@
    "from": 1840,
    "to": 2024,
    "file": "data/empires/guatemala.json",
-   "flags": [{"file":"guatemala","from":1871,"to":2024,"label":{"sv":"Guatemalas civilflagga","en":"Guatemalan civil flag","de":"Guatemaltekische Zivilflagge","es":"Bandera civil guatemalteca","fr":"Drapeau civil guatémaltèque"},"sources":["wp-flag-guatemala"],"review":"source-checked"}],
+   "flags": [
+    {
+     "file": "guatemala",
+     "from": 1871,
+     "to": 2024,
+     "label": {
+      "sv": "Guatemalas civilflagga",
+      "en": "Guatemalan civil flag",
+      "de": "Guatemaltekische Zivilflagge",
+      "es": "Bandera civil guatemalteca",
+      "fr": "Drapeau civil guatémaltèque"
+     },
+     "sources": [
+      "wp-flag-guatemala"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "guatemala",
@@ -31209,7 +31718,24 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/tjeckien.json",
-   "flags": [{"file": "czech", "from": 1992, "to": 2024, "label": {"sv": "Tjeckiens flagga", "en": "Flag of the Czech Republic", "de": "Flagge Tschechiens", "es": "Bandera de la República Checa", "fr": "Drapeau de la Tchéquie"}, "sources": ["wp-flag-czech-republic"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "czech",
+     "from": 1992,
+     "to": 2024,
+     "label": {
+      "sv": "Tjeckiens flagga",
+      "en": "Flag of the Czech Republic",
+      "de": "Flagge Tschechiens",
+      "es": "Bandera de la República Checa",
+      "fr": "Drapeau de la Tchéquie"
+     },
+     "sources": [
+      "wp-flag-czech-republic"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "tjeckien",
@@ -31317,7 +31843,24 @@
    "from": 1922,
    "to": 2024,
    "file": "data/empires/irland.json",
-   "flags": [{"file": "ireland", "from": 1922, "to": 2024, "label": {"sv": "Irlands flagga", "en": "Flag of Ireland", "de": "Flagge Irlands", "es": "Bandera de Irlanda", "fr": "Drapeau de l’Irlande"}, "sources": ["wp-flag-ireland"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "ireland",
+     "from": 1922,
+     "to": 2024,
+     "label": {
+      "sv": "Irlands flagga",
+      "en": "Flag of Ireland",
+      "de": "Flagge Irlands",
+      "es": "Bandera de Irlanda",
+      "fr": "Drapeau de l’Irlande"
+     },
+     "sources": [
+      "wp-flag-ireland"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "irland",
@@ -31349,7 +31892,24 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/sierra-leone.json",
-   "flags": [{"file": "sierra-leone", "from": 1961, "to": 2024, "label": {"sv": "Sierra Leones flagga", "en": "Flag of Sierra Leone", "de": "Flagge von Sierra Leone", "es": "Bandera de Sierra Leona", "fr": "Drapeau de la Sierra Leone"}, "sources": ["wp-flag-sierra-leone"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "sierra-leone",
+     "from": 1961,
+     "to": 2024,
+     "label": {
+      "sv": "Sierra Leones flagga",
+      "en": "Flag of Sierra Leone",
+      "de": "Flagge von Sierra Leone",
+      "es": "Bandera de Sierra Leona",
+      "fr": "Drapeau de la Sierra Leone"
+     },
+     "sources": [
+      "wp-flag-sierra-leone"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "sierra-leone",
@@ -31474,7 +32034,24 @@
    "from": 1960,
    "to": 2024,
    "file": "data/empires/togo.json",
-   "flags": [{"file": "togo", "from": 1960, "to": 2024, "label": {"sv": "Togos flagga", "en": "Flag of Togo", "de": "Flagge Togos", "es": "Bandera de Togo", "fr": "Drapeau du Togo"}, "sources": ["wp-flag-togo"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "togo",
+     "from": 1960,
+     "to": 2024,
+     "label": {
+      "sv": "Togos flagga",
+      "en": "Flag of Togo",
+      "de": "Flagge Togos",
+      "es": "Bandera de Togo",
+      "fr": "Drapeau du Togo"
+     },
+     "sources": [
+      "wp-flag-togo"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "togo",
@@ -31506,7 +32083,24 @@
    "from": 1840,
    "to": 2024,
    "file": "data/empires/costa-rica.json",
-   "flags": [{"file":"costa-rica","from":1848,"to":2024,"label":{"sv":"Costa Ricas flagga","en":"Flag of Costa Rica","de":"Flagge Costa Ricas","es":"Bandera de Costa Rica","fr":"Drapeau du Costa Rica"},"sources":["wp-flag-costa-rica"],"review":"source-checked"}],
+   "flags": [
+    {
+     "file": "costa-rica",
+     "from": 1848,
+     "to": 2024,
+     "label": {
+      "sv": "Costa Ricas flagga",
+      "en": "Flag of Costa Rica",
+      "de": "Flagge Costa Ricas",
+      "es": "Bandera de Costa Rica",
+      "fr": "Drapeau du Costa Rica"
+     },
+     "sources": [
+      "wp-flag-costa-rica"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "costa-rica",
@@ -31860,8 +32454,65 @@
    "from": 1648,
    "to": 2024,
    "file": "data/empires/schweiz.json",
-   "facts": {"items": [{"label": {"sv": "Symbolen på kartan", "en": "The symbol on the map", "de": "Das Symbol auf der Karte", "es": "El símbolo en el mapa", "fr": "Le symbole sur la carte"}, "text": {"sv": "Det vita korset på rött. Förbundsvapnet fastställdes 1815, och från 1840 visas flaggan, som först var fana för de kantonala trupperna under förbundets befäl. Källorna skiljer sig om flaggans år: 1840 i faktarutan och 1841 i texten på Wikipedia. Korsets mått är fasta sedan 1889. Före 1815 visas ingen symbol.", "en": "The white cross on red. The federal coat of arms was defined in 1815, and from 1840 the flag is shown, which was first the banner of the cantonal troops under federal command. The sources differ on the year of the flag: 1840 in the infobox and 1841 in the text on Wikipedia. The proportions of the cross have been fixed since 1889. Before 1815 no symbol is shown.", "de": "Das weiße Kreuz auf Rot. Das eidgenössische Wappen wurde 1815 festgelegt, und ab 1840 wird die Flagge gezeigt, die zuerst die Fahne der kantonalen Truppen unter eidgenössischem Kommando war. Die Quellen weichen beim Jahr der Flagge voneinander ab: 1840 im Infokasten und 1841 im Text auf Wikipedia. Die Maße des Kreuzes sind seit 1889 festgelegt. Vor 1815 wird kein Symbol gezeigt.", "es": "La cruz blanca sobre rojo. El escudo federal se fijó en 1815, y desde 1840 se muestra la bandera, que al principio fue la enseña de las tropas cantonales bajo mando federal. Las fuentes difieren sobre el año de la bandera: 1840 en la ficha y 1841 en el texto de Wikipedia. Las proporciones de la cruz son fijas desde 1889. Antes de 1815 no se muestra ningún símbolo.", "fr": "La croix blanche sur fond rouge. Les armoiries fédérales ont été fixées en 1815, et à partir de 1840 le drapeau est affiché ; il fut d’abord la bannière des troupes cantonales sous commandement fédéral. Les sources divergent sur l’année du drapeau : 1840 dans l’infobox et 1841 dans le texte de Wikipédia. Les proportions de la croix sont fixées depuis 1889. Avant 1815, aucun symbole n’est affiché."}}], "sources": ["wp-flag-of-switzerland"], "review": "source-checked"},
-   "flags": [{"file": "switzerland-arms", "from": 1815, "to": 1839, "kind": "symbol", "label": {"sv": "Förbundsvapnet: vitt kors på rött", "en": "Federal coat of arms: white cross on red", "de": "Eidgenössisches Wappen: weißes Kreuz auf Rot", "es": "Escudo federal: cruz blanca sobre rojo", "fr": "Armoiries fédérales : croix blanche sur fond rouge"}, "sources": ["wp-flag-of-switzerland"], "review": "source-checked"}, {"file": "switzerland-cross", "from": 1840, "to": 2024, "label": {"sv": "Schweiz flagga", "en": "Flag of Switzerland", "de": "Flagge der Schweiz", "es": "Bandera de Suiza", "fr": "Drapeau de la Suisse"}, "sources": ["wp-flag-of-switzerland"], "review": "source-checked"}],
+   "facts": {
+    "items": [
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map",
+       "de": "Das Symbol auf der Karte",
+       "es": "El símbolo en el mapa",
+       "fr": "Le symbole sur la carte"
+      },
+      "text": {
+       "sv": "Det vita korset på rött. Förbundsvapnet fastställdes 1815, och från 1840 visas flaggan, som först var fana för de kantonala trupperna under förbundets befäl. Källorna skiljer sig om flaggans år: 1840 i faktarutan och 1841 i texten på Wikipedia. Korsets mått är fasta sedan 1889. Före 1815 visas ingen symbol.",
+       "en": "The white cross on red. The federal coat of arms was defined in 1815, and from 1840 the flag is shown, which was first the banner of the cantonal troops under federal command. The sources differ on the year of the flag: 1840 in the infobox and 1841 in the text on Wikipedia. The proportions of the cross have been fixed since 1889. Before 1815 no symbol is shown.",
+       "de": "Das weiße Kreuz auf Rot. Das eidgenössische Wappen wurde 1815 festgelegt, und ab 1840 wird die Flagge gezeigt, die zuerst die Fahne der kantonalen Truppen unter eidgenössischem Kommando war. Die Quellen weichen beim Jahr der Flagge voneinander ab: 1840 im Infokasten und 1841 im Text auf Wikipedia. Die Maße des Kreuzes sind seit 1889 festgelegt. Vor 1815 wird kein Symbol gezeigt.",
+       "es": "La cruz blanca sobre rojo. El escudo federal se fijó en 1815, y desde 1840 se muestra la bandera, que al principio fue la enseña de las tropas cantonales bajo mando federal. Las fuentes difieren sobre el año de la bandera: 1840 en la ficha y 1841 en el texto de Wikipedia. Las proporciones de la cruz son fijas desde 1889. Antes de 1815 no se muestra ningún símbolo.",
+       "fr": "La croix blanche sur fond rouge. Les armoiries fédérales ont été fixées en 1815, et à partir de 1840 le drapeau est affiché ; il fut d’abord la bannière des troupes cantonales sous commandement fédéral. Les sources divergent sur l’année du drapeau : 1840 dans l’infobox et 1841 dans le texte de Wikipédia. Les proportions de la croix sont fixées depuis 1889. Avant 1815, aucun symbole n’est affiché."
+      }
+     }
+    ],
+    "sources": [
+     "wp-flag-of-switzerland"
+    ],
+    "review": "source-checked"
+   },
+   "flags": [
+    {
+     "file": "switzerland-arms",
+     "from": 1815,
+     "to": 1839,
+     "kind": "symbol",
+     "label": {
+      "sv": "Förbundsvapnet: vitt kors på rött",
+      "en": "Federal coat of arms: white cross on red",
+      "de": "Eidgenössisches Wappen: weißes Kreuz auf Rot",
+      "es": "Escudo federal: cruz blanca sobre rojo",
+      "fr": "Armoiries fédérales : croix blanche sur fond rouge"
+     },
+     "sources": [
+      "wp-flag-of-switzerland"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "switzerland-cross",
+     "from": 1840,
+     "to": 2024,
+     "label": {
+      "sv": "Schweiz flagga",
+      "en": "Flag of Switzerland",
+      "de": "Flagge der Schweiz",
+      "es": "Bandera de Suiza",
+      "fr": "Drapeau de la Suisse"
+     },
+     "sources": [
+      "wp-flag-of-switzerland"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "schweiz",
@@ -31893,7 +32544,24 @@
    "from": 1950,
    "to": 2024,
    "file": "data/empires/nederlanderna.json",
-   "flags": [{"file": "netherlands", "from": 1950, "to": 2024, "label": {"sv": "Nederländernas flagga", "en": "Flag of the Netherlands", "de": "Flagge der Niederlande", "es": "Bandera de los Países Bajos", "fr": "Drapeau des Pays-Bas"}, "sources": ["wp-flag-netherlands"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "netherlands",
+     "from": 1950,
+     "to": 2024,
+     "label": {
+      "sv": "Nederländernas flagga",
+      "en": "Flag of the Netherlands",
+      "de": "Flagge der Niederlande",
+      "es": "Bandera de los Países Bajos",
+      "fr": "Drapeau des Pays-Bas"
+     },
+     "sources": [
+      "wp-flag-netherlands"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "nederlanderna",
@@ -32018,7 +32686,24 @@
    "from": 2000,
    "to": 2024,
    "file": "data/empires/storbritannien.json",
-   "flags": [{"file": "britain-union-flag", "from": 2000, "to": 2024, "label": {"sv": "Unionsflaggan", "en": "Union Flag", "de": "Union Flag", "es": "Bandera del Reino Unido", "fr": "Union Flag"}, "sources": ["wp-list-uk-flags"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "britain-union-flag",
+     "from": 2000,
+     "to": 2024,
+     "label": {
+      "sv": "Unionsflaggan",
+      "en": "Union Flag",
+      "de": "Union Flag",
+      "es": "Bandera del Reino Unido",
+      "fr": "Union Flag"
+     },
+     "sources": [
+      "wp-list-uk-flags"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "storbritannien",
@@ -32050,7 +32735,24 @@
    "from": 1830,
    "to": 2024,
    "file": "data/empires/belgien.json",
-   "flags": [{"file": "belgium", "from": 1831, "to": 2024, "label": {"sv": "Belgiens flagga", "en": "Flag of Belgium", "de": "Flagge Belgiens", "es": "Bandera de Bélgica", "fr": "Drapeau de la Belgique"}, "sources": ["wp-flag-belgium"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "belgium",
+     "from": 1831,
+     "to": 2024,
+     "label": {
+      "sv": "Belgiens flagga",
+      "en": "Flag of Belgium",
+      "de": "Flagge Belgiens",
+      "es": "Bandera de Bélgica",
+      "fr": "Drapeau de la Belgique"
+     },
+     "sources": [
+      "wp-flag-belgium"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "belgien",
@@ -32406,7 +33108,24 @@
    "from": 1973,
    "to": 2024,
    "file": "data/empires/bahamas.json",
-   "flags": [{"file":"bahamas","from":1973,"to":2024,"label":{"sv":"Bahamas flagga","en":"Flag of the Bahamas","de":"Flagge der Bahamas","es":"Bandera de Bahamas","fr":"Drapeau des Bahamas"},"sources":["wp-flag-bahamas"],"review":"source-checked"}],
+   "flags": [
+    {
+     "file": "bahamas",
+     "from": 1973,
+     "to": 2024,
+     "label": {
+      "sv": "Bahamas flagga",
+      "en": "Flag of the Bahamas",
+      "de": "Flagge der Bahamas",
+      "es": "Bandera de Bahamas",
+      "fr": "Drapeau des Bahamas"
+     },
+     "sources": [
+      "wp-flag-bahamas"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "bahamas",
@@ -32500,7 +33219,24 @@
    "from": 1963,
    "to": 2024,
    "file": "data/empires/jamaica.json",
-   "flags": [{"file":"jamaica","from":1963,"to":2024,"label":{"sv":"Jamaicas flagga","en":"Flag of Jamaica","de":"Flagge Jamaikas","es":"Bandera de Jamaica","fr":"Drapeau de la Jamaïque"},"sources":["wp-flag-jamaica"],"review":"source-checked"}],
+   "flags": [
+    {
+     "file": "jamaica",
+     "from": 1963,
+     "to": 2024,
+     "label": {
+      "sv": "Jamaicas flagga",
+      "en": "Flag of Jamaica",
+      "de": "Flagge Jamaikas",
+      "es": "Bandera de Jamaica",
+      "fr": "Drapeau de la Jamaïque"
+     },
+     "sources": [
+      "wp-flag-jamaica"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "jamaica",
@@ -32810,7 +33546,24 @@
    "from": 1963,
    "to": 2024,
    "file": "data/empires/trinidad-och-tobago.json",
-   "flags": [{"file":"trinidad-and-tobago","from":1963,"to":2024,"label":{"sv":"Trinidad och Tobagos flagga","en":"Flag of Trinidad and Tobago","de":"Flagge von Trinidad und Tobago","es":"Bandera de Trinidad y Tobago","fr":"Drapeau de Trinité-et-Tobago"},"sources":["wp-flag-trinidad-and-tobago"],"review":"source-checked"}],
+   "flags": [
+    {
+     "file": "trinidad-and-tobago",
+     "from": 1963,
+     "to": 2024,
+     "label": {
+      "sv": "Trinidad och Tobagos flagga",
+      "en": "Flag of Trinidad and Tobago",
+      "de": "Flagge von Trinidad und Tobago",
+      "es": "Bandera de Trinidad y Tobago",
+      "fr": "Drapeau de Trinité-et-Tobago"
+     },
+     "sources": [
+      "wp-flag-trinidad-and-tobago"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "trinidad-och-tobago",
@@ -32873,7 +33626,24 @@
    "from": 1890,
    "to": 2024,
    "file": "data/empires/luxemburg.json",
-   "flags": [{"file": "luxembourg", "from": 1890, "to": 2024, "label": {"sv": "Luxemburgs flagga", "en": "Flag of Luxembourg", "de": "Flagge Luxemburgs", "es": "Bandera de Luxemburgo", "fr": "Drapeau du Luxembourg"}, "sources": ["wp-flag-luxembourg"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "luxembourg",
+     "from": 1890,
+     "to": 2024,
+     "label": {
+      "sv": "Luxemburgs flagga",
+      "en": "Flag of Luxembourg",
+      "de": "Flagge Luxemburgs",
+      "es": "Bandera de Luxemburgo",
+      "fr": "Drapeau du Luxembourg"
+     },
+     "sources": [
+      "wp-flag-luxembourg"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "luxemburg",
@@ -33029,7 +33799,24 @@
    "from": 1967,
    "to": 2024,
    "file": "data/empires/barbados.json",
-   "flags": [{"file":"barbados","from":1967,"to":2024,"label":{"sv":"Barbados flagga","en":"Flag of Barbados","de":"Flagge von Barbados","es":"Bandera de Barbados","fr":"Drapeau de la Barbade"},"sources":["wp-flag-barbados"],"review":"source-checked"}],
+   "flags": [
+    {
+     "file": "barbados",
+     "from": 1967,
+     "to": 2024,
+     "label": {
+      "sv": "Barbados flagga",
+      "en": "Flag of Barbados",
+      "de": "Flagge von Barbados",
+      "es": "Bandera de Barbados",
+      "fr": "Drapeau de la Barbade"
+     },
+     "sources": [
+      "wp-flag-barbados"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "barbados",
@@ -33092,7 +33879,24 @@
    "from": 1979,
    "to": 2024,
    "file": "data/empires/saint-lucia.json",
-   "flags": [{"file":"saint-lucia","from":2002,"to":2024,"label":{"sv":"Saint Lucias flagga","en":"Flag of Saint Lucia","de":"Flagge von St. Lucia","es":"Bandera de Santa Lucía","fr":"Drapeau de Sainte-Lucie"},"sources":["wp-flag-saint-lucia"],"review":"source-checked"}],
+   "flags": [
+    {
+     "file": "saint-lucia",
+     "from": 2002,
+     "to": 2024,
+     "label": {
+      "sv": "Saint Lucias flagga",
+      "en": "Flag of Saint Lucia",
+      "de": "Flagge von St. Lucia",
+      "es": "Bandera de Santa Lucía",
+      "fr": "Drapeau de Sainte-Lucie"
+     },
+     "sources": [
+      "wp-flag-saint-lucia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "saint-lucia",
@@ -33124,7 +33928,24 @@
    "from": 1967,
    "to": 2024,
    "file": "data/empires/antigua-och-barbuda.json",
-   "flags": [{"file":"antigua-and-barbuda","from":1967,"to":2024,"label":{"sv":"Antigua och Barbudas flagga","en":"Flag of Antigua and Barbuda","de":"Flagge von Antigua und Barbuda","es":"Bandera de Antigua y Barbuda","fr":"Drapeau d’Antigua-et-Barbuda"},"sources":["wp-flag-antigua-and-barbuda"],"review":"source-checked"}],
+   "flags": [
+    {
+     "file": "antigua-and-barbuda",
+     "from": 1967,
+     "to": 2024,
+     "label": {
+      "sv": "Antigua och Barbudas flagga",
+      "en": "Flag of Antigua and Barbuda",
+      "de": "Flagge von Antigua und Barbuda",
+      "es": "Bandera de Antigua y Barbuda",
+      "fr": "Drapeau d’Antigua-et-Barbuda"
+     },
+     "sources": [
+      "wp-flag-antigua-and-barbuda"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "antigua-och-barbuda",
@@ -33187,7 +34008,24 @@
    "from": 1976,
    "to": 2024,
    "file": "data/empires/grenada.json",
-   "flags": [{"file":"grenada","from":1976,"to":2024,"label":{"sv":"Grenadas flagga","en":"Flag of Grenada","de":"Flagge Grenadas","es":"Bandera de Granada","fr":"Drapeau de la Grenade"},"sources":["wp-flag-grenada"],"review":"source-checked"}],
+   "flags": [
+    {
+     "file": "grenada",
+     "from": 1976,
+     "to": 2024,
+     "label": {
+      "sv": "Grenadas flagga",
+      "en": "Flag of Grenada",
+      "de": "Flagge Grenadas",
+      "es": "Bandera de Granada",
+      "fr": "Drapeau de la Grenade"
+     },
+     "sources": [
+      "wp-flag-grenada"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "grenada",
@@ -33568,8 +34406,66 @@
    "from": 990,
    "to": 1791,
    "file": "data/empires/kungariket-frankrike.json",
-   "facts": {"items": [{"label": {"sv": "Symbolen på kartan", "en": "The symbol on the map", "de": "Das Symbol auf der Karte", "es": "El símbolo en el mapa", "fr": "Le symbole sur la carte"}, "text": {"sv": "Liljorna (fleur-de-lis) i guld på blått, kungarnas vapen 1211–1792. Först var liljorna strödda över skölden utan bestämt antal, och 1376 minskade Karl V dem till tre. Före 1211 visas ingen symbol.", "en": "The golden fleurs-de-lis on blue, the arms of the kings 1211–1792. At first the lilies were scattered over the shield with no fixed number, and in 1376 Charles V reduced them to three. Before 1211 no symbol is shown.", "de": "Die goldenen Lilien (Fleur-de-Lis) auf Blau, das Wappen der Könige 1211–1792. Zuerst waren die Lilien ohne feste Zahl über den Schild verstreut, und 1376 verringerte Karl V. sie auf drei. Vor 1211 wird kein Symbol gezeigt.", "es": "Las flores de lis doradas sobre azul, las armas de los reyes de 1211 a 1792. Al principio las lises estaban sembradas por el escudo sin un número fijo, y en 1376 Carlos V las redujo a tres. Antes de 1211 no se muestra ningún símbolo.", "fr": "Les fleurs de lys d’or sur fond bleu, armes des rois de 1211 à 1792. Les lys étaient d’abord semés sur l’écu sans nombre fixe, et en 1376 Charles V les réduisit à trois. Avant 1211, aucun symbole n’est affiché."}}], "sources": ["wp-national-emblem-of-france"], "review": "source-checked"},
-   "flags": [{"file": "france-ancient", "from": 1211, "to": 1375, "kind": "symbol", "label": {"sv": "Gyllene liljor strödda på blått", "en": "Golden fleurs-de-lis scattered on blue", "de": "Goldene Lilien verstreut auf Blau", "es": "Flores de lis doradas sembradas sobre azul", "fr": "Fleurs de lys d’or semées sur fond bleu"}, "sources": ["wp-national-emblem-of-france"], "review": "source-checked"}, {"file": "france-modern", "from": 1376, "to": 1791, "kind": "symbol", "label": {"sv": "Tre gyllene liljor på blått", "en": "Three golden fleurs-de-lis on blue", "de": "Drei goldene Lilien auf Blau", "es": "Tres flores de lis doradas sobre azul", "fr": "Trois fleurs de lys d’or sur fond bleu"}, "sources": ["wp-national-emblem-of-france"], "review": "source-checked"}],
+   "facts": {
+    "items": [
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map",
+       "de": "Das Symbol auf der Karte",
+       "es": "El símbolo en el mapa",
+       "fr": "Le symbole sur la carte"
+      },
+      "text": {
+       "sv": "Liljorna (fleur-de-lis) i guld på blått, kungarnas vapen 1211–1792. Först var liljorna strödda över skölden utan bestämt antal, och 1376 minskade Karl V dem till tre. Före 1211 visas ingen symbol.",
+       "en": "The golden fleurs-de-lis on blue, the arms of the kings 1211–1792. At first the lilies were scattered over the shield with no fixed number, and in 1376 Charles V reduced them to three. Before 1211 no symbol is shown.",
+       "de": "Die goldenen Lilien (Fleur-de-Lis) auf Blau, das Wappen der Könige 1211–1792. Zuerst waren die Lilien ohne feste Zahl über den Schild verstreut, und 1376 verringerte Karl V. sie auf drei. Vor 1211 wird kein Symbol gezeigt.",
+       "es": "Las flores de lis doradas sobre azul, las armas de los reyes de 1211 a 1792. Al principio las lises estaban sembradas por el escudo sin un número fijo, y en 1376 Carlos V las redujo a tres. Antes de 1211 no se muestra ningún símbolo.",
+       "fr": "Les fleurs de lys d’or sur fond bleu, armes des rois de 1211 à 1792. Les lys étaient d’abord semés sur l’écu sans nombre fixe, et en 1376 Charles V les réduisit à trois. Avant 1211, aucun symbole n’est affiché."
+      }
+     }
+    ],
+    "sources": [
+     "wp-national-emblem-of-france"
+    ],
+    "review": "source-checked"
+   },
+   "flags": [
+    {
+     "file": "france-ancient",
+     "from": 1211,
+     "to": 1375,
+     "kind": "symbol",
+     "label": {
+      "sv": "Gyllene liljor strödda på blått",
+      "en": "Golden fleurs-de-lis scattered on blue",
+      "de": "Goldene Lilien verstreut auf Blau",
+      "es": "Flores de lis doradas sembradas sobre azul",
+      "fr": "Fleurs de lys d’or semées sur fond bleu"
+     },
+     "sources": [
+      "wp-national-emblem-of-france"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "france-modern",
+     "from": 1376,
+     "to": 1791,
+     "kind": "symbol",
+     "label": {
+      "sv": "Tre gyllene liljor på blått",
+      "en": "Three golden fleurs-de-lis on blue",
+      "de": "Drei goldene Lilien auf Blau",
+      "es": "Tres flores de lis doradas sobre azul",
+      "fr": "Trois fleurs de lys d’or sur fond bleu"
+     },
+     "sources": [
+      "wp-national-emblem-of-france"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kungariket-frankrike",
@@ -33701,8 +34597,49 @@
    "from": 1056,
    "to": 1205,
    "file": "data/empires/almoravider.json",
-   "facts": {"items": [{"label": {"sv": "Symbolen på kartan", "en": "The symbol on the map", "de": "Das Symbol auf der Karte", "es": "El símbolo en el mapa", "fr": "Le symbole sur la carte"}, "text": {"sv": "Den svarta fanan, abbasidernas färg. Enligt historikern Tayeb El-Hibri kom ett sändebud från Ali ibn Yusuf till Bagdad 1104 och svor abbasiderna trohet. Vissa författare tolkar i stället det svarta som kampen mot otro. Samma färg är abbasidernas tecken på kartan. Fanan visas 1104–1147, då almoraviderna föll för almohaderna enligt källan; kartdatan fortsätter till 1205.", "en": "The black banner, the colour of the Abbasids. According to the historian Tayeb El-Hibri, an envoy of Ali ibn Yusuf came to Baghdad in 1104 and declared allegiance to the Abbasids. Some authors instead read the black as the fight against unbelief. The same colour is the Abbasids' sign on the map. The banner is shown 1104–1147, when the Almoravids fell to the Almohads according to the source; the map data continues until 1205.", "de": "Das schwarze Banner, die Farbe der Abbasiden. Nach dem Historiker Tayeb El-Hibri kam 1104 ein Gesandter Ali ibn Yusufs nach Bagdad und schwor den Abbasiden Treue. Manche Autoren deuten das Schwarz dagegen als Kampf gegen den Unglauben. Dieselbe Farbe ist auf der Karte das Zeichen der Abbasiden. Das Banner wird 1104–1147 gezeigt, als die Almoraviden laut der Quelle den Almohaden unterlagen; die Kartendaten reichen bis 1205.", "es": "El estandarte negro, el color de los abasíes. Según el historiador Tayeb El-Hibri, un enviado de Ali ibn Yusuf llegó a Bagdad en 1104 y juró lealtad a los abasíes. Algunos autores interpretan en cambio el negro como la lucha contra la incredulidad. El mismo color es el signo de los abasíes en el mapa. El estandarte se muestra entre 1104 y 1147, cuando los almorávides cayeron ante los almohades según la fuente; los datos del mapa continúan hasta 1205.", "fr": "L’étendard noir, la couleur des Abbassides. Selon l’historien Tayeb El-Hibri, un émissaire d’Ali ibn Yusuf vint à Bagdad en 1104 et prêta allégeance aux Abbassides. Certains auteurs y voient plutôt la lutte contre l’impiété. La même couleur est le signe des Abbassides sur la carte. L’étendard est affiché de 1104 à 1147, date à laquelle les Almoravides tombèrent face aux Almohades selon la source ; les données de la carte vont jusqu’en 1205."}}], "sources": ["wp-almoravid-dynasty"], "review": "source-checked"},
-   "flags": [{"file": "almoravid-black-banner", "from": 1104, "to": 1147, "kind": "symbol", "label": {"sv": "Svart fana", "en": "Black banner", "de": "Schwarzes Banner", "es": "Estandarte negro", "fr": "Étendard noir"}, "sources": ["wp-almoravid-dynasty"], "review": "source-checked"}],
+   "facts": {
+    "items": [
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map",
+       "de": "Das Symbol auf der Karte",
+       "es": "El símbolo en el mapa",
+       "fr": "Le symbole sur la carte"
+      },
+      "text": {
+       "sv": "Den svarta fanan, abbasidernas färg. Enligt historikern Tayeb El-Hibri kom ett sändebud från Ali ibn Yusuf till Bagdad 1104 och svor abbasiderna trohet. Vissa författare tolkar i stället det svarta som kampen mot otro. Samma färg är abbasidernas tecken på kartan. Fanan visas 1104–1147, då almoraviderna föll för almohaderna enligt källan; kartdatan fortsätter till 1205.",
+       "en": "The black banner, the colour of the Abbasids. According to the historian Tayeb El-Hibri, an envoy of Ali ibn Yusuf came to Baghdad in 1104 and declared allegiance to the Abbasids. Some authors instead read the black as the fight against unbelief. The same colour is the Abbasids' sign on the map. The banner is shown 1104–1147, when the Almoravids fell to the Almohads according to the source; the map data continues until 1205.",
+       "de": "Das schwarze Banner, die Farbe der Abbasiden. Nach dem Historiker Tayeb El-Hibri kam 1104 ein Gesandter Ali ibn Yusufs nach Bagdad und schwor den Abbasiden Treue. Manche Autoren deuten das Schwarz dagegen als Kampf gegen den Unglauben. Dieselbe Farbe ist auf der Karte das Zeichen der Abbasiden. Das Banner wird 1104–1147 gezeigt, als die Almoraviden laut der Quelle den Almohaden unterlagen; die Kartendaten reichen bis 1205.",
+       "es": "El estandarte negro, el color de los abasíes. Según el historiador Tayeb El-Hibri, un enviado de Ali ibn Yusuf llegó a Bagdad en 1104 y juró lealtad a los abasíes. Algunos autores interpretan en cambio el negro como la lucha contra la incredulidad. El mismo color es el signo de los abasíes en el mapa. El estandarte se muestra entre 1104 y 1147, cuando los almorávides cayeron ante los almohades según la fuente; los datos del mapa continúan hasta 1205.",
+       "fr": "L’étendard noir, la couleur des Abbassides. Selon l’historien Tayeb El-Hibri, un émissaire d’Ali ibn Yusuf vint à Bagdad en 1104 et prêta allégeance aux Abbassides. Certains auteurs y voient plutôt la lutte contre l’impiété. La même couleur est le signe des Abbassides sur la carte. L’étendard est affiché de 1104 à 1147, date à laquelle les Almoravides tombèrent face aux Almohades selon la source ; les données de la carte vont jusqu’en 1205."
+      }
+     }
+    ],
+    "sources": [
+     "wp-almoravid-dynasty"
+    ],
+    "review": "source-checked"
+   },
+   "flags": [
+    {
+     "file": "almoravid-black-banner",
+     "from": 1104,
+     "to": 1147,
+     "kind": "symbol",
+     "label": {
+      "sv": "Svart fana",
+      "en": "Black banner",
+      "de": "Schwarzes Banner",
+      "es": "Estandarte negro",
+      "fr": "Étendard noir"
+     },
+     "sources": [
+      "wp-almoravid-dynasty"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "almoravider",
@@ -33763,8 +34700,49 @@
    "from": 1139,
    "to": 1343,
    "file": "data/empires/almohader.json",
-   "facts": {"items": [{"label": {"sv": "Symbolen på kartan", "en": "The symbol on the map", "de": "Das Symbol auf der Karte", "es": "El símbolo en el mapa", "fr": "Le symbole sur la carte"}, "text": {"sv": "Den vita fanan. De flesta historiska källor säger att almohaderna var kända för vita fanor, redan under rörelsens grundare Ibn Tumart. Om fanorna hade bestämda motiv eller inskrifter är inte säkert, så här visas bara färgen. Fanan visas till 1269, då kalifatet slutade enligt källan; kartdatan fortsätter till 1343.", "en": "The white banner. Most historical sources say that the Almohads were known for white banners, already under the movement's founder Ibn Tumart. Whether the banners had particular motifs or inscriptions is not certain, so only the colour is shown here. The banner is shown until 1269, when the caliphate ended according to the source; the map data continues until 1343.", "de": "Das weiße Banner. Die meisten historischen Quellen sagen, dass die Almohaden für weiße Banner bekannt waren, schon unter dem Gründer der Bewegung, Ibn Tumart. Ob die Banner bestimmte Motive oder Inschriften trugen, ist nicht sicher, daher wird hier nur die Farbe gezeigt. Das Banner wird bis 1269 gezeigt, als das Kalifat laut der Quelle endete; die Kartendaten reichen bis 1343.", "es": "El estandarte blanco. La mayoría de las fuentes históricas dicen que los almohades eran conocidos por sus estandartes blancos, ya bajo el fundador del movimiento, Ibn Tumart. No es seguro si los estandartes tenían motivos o inscripciones concretos, por eso aquí solo se muestra el color. El estandarte se muestra hasta 1269, cuando terminó el califato según la fuente; los datos del mapa continúan hasta 1343.", "fr": "L’étendard blanc. La plupart des sources historiques indiquent que les Almohades étaient connus pour leurs étendards blancs, dès le fondateur du mouvement, Ibn Tumart. On ne sait pas avec certitude si les étendards portaient des motifs ou des inscriptions particuliers ; seule la couleur est donc affichée ici. L’étendard est affiché jusqu’en 1269, date à laquelle le califat prit fin selon la source ; les données de la carte vont jusqu’en 1343."}}], "sources": ["wp-almohad-caliphate"], "review": "source-checked"},
-   "flags": [{"file": "almohad-white-banner", "from": 1139, "to": 1269, "kind": "symbol", "label": {"sv": "Vit fana", "en": "White banner", "de": "Weißes Banner", "es": "Estandarte blanco", "fr": "Étendard blanc"}, "sources": ["wp-almohad-caliphate"], "review": "source-checked"}],
+   "facts": {
+    "items": [
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map",
+       "de": "Das Symbol auf der Karte",
+       "es": "El símbolo en el mapa",
+       "fr": "Le symbole sur la carte"
+      },
+      "text": {
+       "sv": "Den vita fanan. De flesta historiska källor säger att almohaderna var kända för vita fanor, redan under rörelsens grundare Ibn Tumart. Om fanorna hade bestämda motiv eller inskrifter är inte säkert, så här visas bara färgen. Fanan visas till 1269, då kalifatet slutade enligt källan; kartdatan fortsätter till 1343.",
+       "en": "The white banner. Most historical sources say that the Almohads were known for white banners, already under the movement's founder Ibn Tumart. Whether the banners had particular motifs or inscriptions is not certain, so only the colour is shown here. The banner is shown until 1269, when the caliphate ended according to the source; the map data continues until 1343.",
+       "de": "Das weiße Banner. Die meisten historischen Quellen sagen, dass die Almohaden für weiße Banner bekannt waren, schon unter dem Gründer der Bewegung, Ibn Tumart. Ob die Banner bestimmte Motive oder Inschriften trugen, ist nicht sicher, daher wird hier nur die Farbe gezeigt. Das Banner wird bis 1269 gezeigt, als das Kalifat laut der Quelle endete; die Kartendaten reichen bis 1343.",
+       "es": "El estandarte blanco. La mayoría de las fuentes históricas dicen que los almohades eran conocidos por sus estandartes blancos, ya bajo el fundador del movimiento, Ibn Tumart. No es seguro si los estandartes tenían motivos o inscripciones concretos, por eso aquí solo se muestra el color. El estandarte se muestra hasta 1269, cuando terminó el califato según la fuente; los datos del mapa continúan hasta 1343.",
+       "fr": "L’étendard blanc. La plupart des sources historiques indiquent que les Almohades étaient connus pour leurs étendards blancs, dès le fondateur du mouvement, Ibn Tumart. On ne sait pas avec certitude si les étendards portaient des motifs ou des inscriptions particuliers ; seule la couleur est donc affichée ici. L’étendard est affiché jusqu’en 1269, date à laquelle le califat prit fin selon la source ; les données de la carte vont jusqu’en 1343."
+      }
+     }
+    ],
+    "sources": [
+     "wp-almohad-caliphate"
+    ],
+    "review": "source-checked"
+   },
+   "flags": [
+    {
+     "file": "almohad-white-banner",
+     "from": 1139,
+     "to": 1269,
+     "kind": "symbol",
+     "label": {
+      "sv": "Vit fana",
+      "en": "White banner",
+      "de": "Weißes Banner",
+      "es": "Estandarte blanco",
+      "fr": "Étendard blanc"
+     },
+     "sources": [
+      "wp-almohad-caliphate"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "almohader",
@@ -33855,8 +34833,49 @@
    "from": 962,
    "to": 1449,
    "file": "data/empires/kungariket-polen.json",
-   "facts": {"items": [{"label": {"sv": "Symbolen på kartan", "en": "The symbol on the map", "de": "Das Symbol auf der Karte", "es": "El símbolo en el mapa", "fr": "Le symbole sur la carte"}, "text": {"sv": "Den vita örnen på rött. Bilden bygger på en modern rekonstruktion av vapnet på baksidan av Przemysł II:s majestätssigill från 1295 och är här förenklad. Före 1295 visas ingen symbol.", "en": "The white eagle on red. The image is based on a modern reconstruction of the arms on the reverse of Przemysł II's majestic seal from 1295 and is simplified here. Before 1295 no symbol is shown.", "de": "Der weiße Adler auf Rot. Das Bild beruht auf einer modernen Rekonstruktion des Wappens auf der Rückseite des Majestätssiegels Przemysłs II. von 1295 und ist hier vereinfacht. Vor 1295 wird kein Symbol gezeigt.", "es": "El águila blanca sobre rojo. La imagen se basa en una reconstrucción moderna del escudo del reverso del sello mayestático de Przemysł II de 1295 y aquí está simplificada. Antes de 1295 no se muestra ningún símbolo.", "fr": "L’aigle blanc sur fond rouge. L’image s’appuie sur une reconstitution moderne des armoiries au revers du sceau de majesté de Przemysł II de 1295 et elle est ici simplifiée. Avant 1295, aucun symbole n’est affiché."}}], "sources": ["commons-coat-of-arms-polish-crown"], "review": "source-checked"},
-   "flags": [{"file": "poland-white-eagle", "from": 1295, "to": 1449, "kind": "reconstruction", "label": {"sv": "Vit örn på rött, modern återgivning av sigillet från 1295", "en": "White eagle on red, modern reconstruction of the 1295 seal", "de": "Weißer Adler auf Rot, moderne Rekonstruktion des Siegels von 1295", "es": "Águila blanca sobre rojo, reconstrucción moderna del sello de 1295", "fr": "Aigle blanc sur fond rouge, reconstitution moderne du sceau de 1295"}, "sources": ["commons-coat-of-arms-polish-crown"], "review": "source-checked"}],
+   "facts": {
+    "items": [
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map",
+       "de": "Das Symbol auf der Karte",
+       "es": "El símbolo en el mapa",
+       "fr": "Le symbole sur la carte"
+      },
+      "text": {
+       "sv": "Den vita örnen på rött. Bilden bygger på en modern rekonstruktion av vapnet på baksidan av Przemysł II:s majestätssigill från 1295 och är här förenklad. Före 1295 visas ingen symbol.",
+       "en": "The white eagle on red. The image is based on a modern reconstruction of the arms on the reverse of Przemysł II's majestic seal from 1295 and is simplified here. Before 1295 no symbol is shown.",
+       "de": "Der weiße Adler auf Rot. Das Bild beruht auf einer modernen Rekonstruktion des Wappens auf der Rückseite des Majestätssiegels Przemysłs II. von 1295 und ist hier vereinfacht. Vor 1295 wird kein Symbol gezeigt.",
+       "es": "El águila blanca sobre rojo. La imagen se basa en una reconstrucción moderna del escudo del reverso del sello mayestático de Przemysł II de 1295 y aquí está simplificada. Antes de 1295 no se muestra ningún símbolo.",
+       "fr": "L’aigle blanc sur fond rouge. L’image s’appuie sur une reconstitution moderne des armoiries au revers du sceau de majesté de Przemysł II de 1295 et elle est ici simplifiée. Avant 1295, aucun symbole n’est affiché."
+      }
+     }
+    ],
+    "sources": [
+     "commons-coat-of-arms-polish-crown"
+    ],
+    "review": "source-checked"
+   },
+   "flags": [
+    {
+     "file": "poland-white-eagle",
+     "from": 1295,
+     "to": 1449,
+     "kind": "reconstruction",
+     "label": {
+      "sv": "Vit örn på rött, modern återgivning av sigillet från 1295",
+      "en": "White eagle on red, modern reconstruction of the 1295 seal",
+      "de": "Weißer Adler auf Rot, moderne Rekonstruktion des Siegels von 1295",
+      "es": "Águila blanca sobre rojo, reconstrucción moderna del sello de 1295",
+      "fr": "Aigle blanc sur fond rouge, reconstitution moderne du sceau de 1295"
+     },
+     "sources": [
+      "commons-coat-of-arms-polish-crown"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kungariket-polen",
@@ -34145,6 +35164,336 @@
    ]
   },
   {
+   "id": "era-of-fragmentation",
+   "name": {
+    "sv": "Era of Fragmentation",
+    "en": "Era of Fragmentation",
+    "de": "Era of Fragmentation",
+    "es": "Era de la Fragmentación",
+    "fr": "Ère de la fragmentation"
+   },
+   "color": "#a8784a",
+   "from": 850,
+   "to": 1259,
+   "file": "data/empires/era-of-fragmentation.json",
+   "polities": [
+    {
+     "id": "era-of-fragmentation",
+     "name": {
+      "sv": "Era of Fragmentation",
+      "en": "Era of Fragmentation",
+      "de": "Era of Fragmentation",
+      "es": "Era de la Fragmentación",
+      "fr": "Ère de la fragmentation"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "yenisei-kyrgyz",
+   "name": {
+    "sv": "Yenisei Kyrgyz",
+    "en": "Yenisei Kyrgyz",
+    "de": "Kirgisisches Reich",
+    "es": "Kanato kirguís",
+    "fr": "Khaganat kirghiz du Yenisei"
+   },
+   "color": "#6a9aa0",
+   "from": 555,
+   "to": 1219,
+   "file": "data/empires/yenisei-kyrgyz.json",
+   "polities": [
+    {
+     "id": "yenisei-kyrgyz",
+     "name": {
+      "sv": "Yenisei Kyrgyz",
+      "en": "Yenisei Kyrgyz",
+      "de": "Kirgisisches Reich",
+      "es": "Kanato kirguís",
+      "fr": "Khaganat kirghiz du Yenisei"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "rouran",
+   "name": {
+    "sv": "Rouran Khaganate",
+    "en": "Rouran Khaganate",
+    "de": "Rouran",
+    "es": "Rouran",
+    "fr": "Khaganat Rouran"
+   },
+   "color": "#9a8a4a",
+   "from": 402,
+   "to": 554,
+   "file": "data/empires/rouran.json",
+   "polities": [
+    {
+     "id": "rouran",
+     "name": {
+      "sv": "Rouran Khaganate",
+      "en": "Rouran Khaganate",
+      "de": "Rouran",
+      "es": "Rouran",
+      "fr": "Khaganat Rouran"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "vastturkiska-khaganatet",
+   "name": {
+    "sv": "Västturkiska khaganatet",
+    "en": "Western Turkic Khaganate",
+    "de": "Western Turkic Khaganate",
+    "es": "kanato de los turcos occidentales",
+    "fr": "Khaganat turc occidental"
+   },
+   "color": "#4a9a8a",
+   "from": 587,
+   "to": 660,
+   "file": "data/empires/vastturkiska-khaganatet.json",
+   "polities": [
+    {
+     "id": "vastturkiska-khaganatet",
+     "name": {
+      "sv": "Västturkiska khaganatet",
+      "en": "Western Turkic Khaganate",
+      "de": "Western Turkic Khaganate",
+      "es": "kanato de los turcos occidentales",
+      "fr": "Khaganat turc occidental"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "ostturkiska-khaganatet",
+   "name": {
+    "sv": "Östturkiska khaganatet",
+    "en": "Eastern Turkic Khaganate",
+    "de": "Eastern Turkic Khaganate",
+    "es": "Kanato túrquico oriental",
+    "fr": "Khaganat turc oriental"
+   },
+   "color": "#3a7a9a",
+   "from": 587,
+   "to": 632,
+   "file": "data/empires/ostturkiska-khaganatet.json",
+   "polities": [
+    {
+     "id": "ostturkiska-khaganatet",
+     "name": {
+      "sv": "Östturkiska khaganatet",
+      "en": "Eastern Turkic Khaganate",
+      "de": "Eastern Turkic Khaganate",
+      "es": "Kanato túrquico oriental",
+      "fr": "Khaganat turc oriental"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "turgesh",
+   "name": {
+    "sv": "Türgesh",
+    "en": "Türgesh",
+    "de": "Türgesch-Khaganat",
+    "es": "turgueses",
+    "fr": "Türgesh"
+   },
+   "color": "#b08a6a",
+   "from": 692,
+   "to": 749,
+   "file": "data/empires/turgesh.json",
+   "polities": [
+    {
+     "id": "turgesh",
+     "name": {
+      "sv": "Türgesh",
+      "en": "Türgesh",
+      "de": "Türgesch-Khaganat",
+      "es": "turgueses",
+      "fr": "Türgesh"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "samaniderna",
+   "name": {
+    "sv": "Samanider",
+    "en": "Samanid dynasty",
+    "de": "Samaniden",
+    "es": "samánidas",
+    "fr": "Samanides"
+   },
+   "color": "#5aa05a",
+   "from": 886,
+   "to": 999,
+   "file": "data/empires/samaniderna.json",
+   "polities": [
+    {
+     "id": "samaniderna",
+     "name": {
+      "sv": "Samanider",
+      "en": "Samanid dynasty",
+      "de": "Samaniden",
+      "es": "samánidas",
+      "fr": "Samanides"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "visigotiska-riket",
+   "name": {
+    "sv": "Visigotiska riket",
+    "en": "Visigothic Kingdom",
+    "de": "Westgotenreich",
+    "es": "reino visigodo",
+    "fr": "royaume des Wisigoths"
+   },
+   "color": "#a06a4a",
+   "from": 426,
+   "to": 723,
+   "file": "data/empires/visigotiska-riket.json",
+   "polities": [
+    {
+     "id": "visigotiska-riket",
+     "name": {
+      "sv": "Visigotiska riket",
+      "en": "Visigothic Kingdom",
+      "de": "Westgotenreich",
+      "es": "reino visigodo",
+      "fr": "royaume des Wisigoths"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "norra-yuandynastin",
+   "name": {
+    "sv": "Norra Yuandynastin",
+    "en": "Northern Yuan dynasty",
+    "de": "Nördliche Yuan Dynastie",
+    "es": "Yuan del Norte",
+    "fr": "dynastie Yuan du Nord"
+   },
+   "color": "#7a6ab0",
+   "from": 1375,
+   "to": 1439,
+   "file": "data/empires/norra-yuandynastin.json",
+   "polities": [
+    {
+     "id": "norra-yuandynastin",
+     "name": {
+      "sv": "Norra Yuandynastin",
+      "en": "Northern Yuan dynasty",
+      "de": "Nördliche Yuan Dynastie",
+      "es": "Yuan del Norte",
+      "fr": "dynastie Yuan du Nord"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kungariket-alodia",
+   "name": {
+    "sv": "Kungariket Alodia",
+    "en": "Alodia",
+    "de": "Alwa",
+    "es": "Aloa",
+    "fr": "Alodie"
+   },
+   "color": "#c09a5a",
+   "from": 347,
+   "to": 1506,
+   "file": "data/empires/kungariket-alodia.json",
+   "polities": [
+    {
+     "id": "kungariket-alodia",
+     "name": {
+      "sv": "Kungariket Alodia",
+      "en": "Alodia",
+      "de": "Alwa",
+      "es": "Aloa",
+      "fr": "Alodie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "cordobaemiratet",
+   "name": {
+    "sv": "Córdobaemiratet",
+    "en": "Emirate of Córdoba",
+    "de": "Emirat von Córdoba",
+    "es": "emirato de Córdoba",
+    "fr": "émirat de Cordoue"
+   },
+   "color": "#6a9a3a",
+   "from": 757,
+   "to": 935,
+   "file": "data/empires/cordobaemiratet.json",
+   "polities": [
+    {
+     "id": "cordobaemiratet",
+     "name": {
+      "sv": "Córdobaemiratet",
+      "en": "Emirate of Córdoba",
+      "de": "Emirat von Córdoba",
+      "es": "emirato de Córdoba",
+      "fr": "émirat de Cordoue"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
    "id": "andorra",
    "modernState": true,
    "name": {
@@ -34205,7 +35554,24 @@
    "from": 1642,
    "to": 2024,
    "file": "data/empires/monaco.json",
-   "flags": [{"file": "monaco", "from": 1881, "to": 2024, "label": {"sv": "Monacos flagga", "en": "Flag of Monaco", "de": "Flagge Monacos", "es": "Bandera de Mónaco", "fr": "Drapeau de Monaco"}, "sources": ["wp-flag-monaco"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "monaco",
+     "from": 1881,
+     "to": 2024,
+     "label": {
+      "sv": "Monacos flagga",
+      "en": "Flag of Monaco",
+      "de": "Flagge Monacos",
+      "es": "Bandera de Mónaco",
+      "fr": "Drapeau de Monaco"
+     },
+     "sources": [
+      "wp-flag-monaco"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "monaco",
@@ -34253,7 +35619,24 @@
    "from": 1983,
    "to": 2024,
    "file": "data/empires/saint-kitts-och-nevis.json",
-   "flags": [{"file":"saint-kitts-and-nevis","from":1983,"to":2024,"label":{"sv":"Saint Kitts och Nevis flagga","en":"Flag of Saint Kitts and Nevis","de":"Flagge von St. Kitts und Nevis","es":"Bandera de San Cristóbal y Nieves","fr":"Drapeau de Saint-Christophe-et-Niévès"},"sources":["wp-flag-saint-kitts-and-nevis"],"review":"source-checked"}],
+   "flags": [
+    {
+     "file": "saint-kitts-and-nevis",
+     "from": 1983,
+     "to": 2024,
+     "label": {
+      "sv": "Saint Kitts och Nevis flagga",
+      "en": "Flag of Saint Kitts and Nevis",
+      "de": "Flagge von St. Kitts und Nevis",
+      "es": "Bandera de San Cristóbal y Nieves",
+      "fr": "Drapeau de Saint-Christophe-et-Niévès"
+     },
+     "sources": [
+      "wp-flag-saint-kitts-and-nevis"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "saint-kitts-och-nevis",
