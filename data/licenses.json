@@ -131,6 +131,12 @@
       ]
     },
     {
+      "license": "CC BY-SA 2.5",
+      "sourceIds": [
+        "commons-landskapsvapen-skane"
+      ]
+    },
+    {
       "license": "CC BY-SA 3.0",
       "sourceIds": [
         "commons-bild-gobekli-tepe",
@@ -1963,6 +1969,25 @@
       "license": "Public domain (Emerging Infectious Diseases, CDC)",
       "sourceIds": [
         "eid-acuna-soto-2002"
+      ]
+    },
+    {
+      "license": "Public domain (PD-New Zealand, PD-US-expired)",
+      "sourceIds": [
+        "commons-flagga-nya-zeeland"
+      ]
+    },
+    {
+      "license": "Public domain (PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-gronland"
+      ]
+    },
+    {
+      "license": "Public domain (PD-self)",
+      "sourceIds": [
+        "commons-flagga-skane",
+        "commons-vapen-gronland"
       ]
     },
     {
