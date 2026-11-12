@@ -298,9 +298,10 @@ Skrivet 2026-11-12. Termerna är kontrollerade mot målspråkets Wikipedia-titel
 ### 13.3 Siffror i stora tal (spanska: val krävs)
 
 - **Dagens regel** (avsnitt 3) ger mellanrum från fyra siffror i spanska och franska mängder ("4 000 años").
-- **Issuet** säger att RAE (Diccionario panhispánico de dudas) sätter mellanrum först från fem siffror ("4000 años", "40 000 años"), och att "miljard" heter *mil millones*, inte *billón*. RAE:s webbplats går inte att nå från den här sessionen, så **det är inte kontrollerat mot källan**.
-- **`sprak-es` (2026-11-12, ur minnet, inte kontrollerat mot RAE):** fyra siffror utan mellanrum (*4000 años*), från fem siffror hårt mellanrum (*40 000 años*). Innehållet blandar i dag formerna (2 fall med mellanrum och 3 utan, i `data/handelser/` och `data/funfacts.json`); `data/ui/es.json` har inga sådana tal.
-- **Förslag:** behåll regeln i avsnitt 3 tills RAE har kontrollerats mot en öppnad källa (`www.rae.es` behöver tillåtas i nätverket). Ändras regeln rättas innehållet i en egen pull request. *mil millones* gäller oavsett, och *2000 millones* hellre än *2 mil millones*.
+- **RAE (kontrollerat 2026-11-12, i andra hand):** Diccionario panhispánico de dudas, "números", § 2a, citerat ordagrant i spanska Wikipedia ("Separador decimal", med länk till DPD): *"Al escribir números de más de cuatro cifras, se agruparán estas de tres en tres, empezando por la derecha, y separando los grupos por espacios en blanco y no por puntos o comas"*. Mellanrum alltså **från fem siffror**: *4000 años*, *40 000 años*. Ortografía de la lengua española (samma artikel) säger att bara ett litet mellanrum är tillåtet, varken punkt eller komma. RAE:s egen webbplats stoppar automatiska besök (403), så sidan är inte läst direkt.
+- **Innehållet blandar i dag formerna** (2 fall med mellanrum och 3 utan, i `data/handelser/` och `data/funfacts.json`, mätt av `sprak-es`); `data/ui/es.json` har inga sådana tal.
+- **Val för DasKrokodil (rekommendation):** ändra regeln i avsnitt 3 för spanska till mellanrum från fem siffror, enligt RAE, och rätta de två fallen i innehållet i en egen pull request. Franskan behåller regeln i avsnitt 3. Regeln ändras inte i den här pull requesten utan DasKrokodils ja.
+- *mil millones* gäller oavsett (inte *billón*), och *2000 millones* hellre än *2 mil millones*.
 - **Franska:** tusentalsavgränsaren är hårt mellanrum U+00A0, som i `data/ui/fr.json` (inte tunt U+202F).
 - **Tyska i Schweiz:** den gemensamma formen *40.000* används medvetet, inte schweiziska *40'000* (antagande: ingen egen variant behövs).
 
@@ -311,4 +312,4 @@ Skrivet 2026-11-12. Termerna är kontrollerade mot målspråkets Wikipedia-titel
 - **Ingen stege:** arterna beskrivs inte som steg mot *Homo sapiens* (inte en *ladder*, *more evolved*, de *Vorstufe des Menschen*, *Bindeglied*). Flera arter levde samtidigt.
 - **Osäkerhet visas öppet**, med orden i 13.2 och med "Källorna skiljer sig" där de gör det (källpolicyn, punkt 4 och 6). Franska: *Les sources divergent* överallt (i dag finns också *Les sources diffèrent* i `data/ui/fr.json`).
 
-**Granskat 2026-11-12** av `sprak-en`, `sprak-de`, `sprak-es` och `sprak-fr` (synpunkterna är införda). RAE-regeln i 13.3 och spanskans *denisovanos* är inte kontrollerade mot öppnade källor.
+**Granskat 2026-11-12** av `sprak-en`, `sprak-de`, `sprak-es` och `sprak-fr` (synpunkterna är införda). RAE-regeln i 13.3 är kontrollerad i andra hand (DPD citerad i spanska Wikipedia); spanskans *denisovanos* är inte kontrollerad.
