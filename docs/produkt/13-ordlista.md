@@ -29,7 +29,7 @@
 | **Lektion / lektionsläge** | En tur med lärarfält. Länken med `m=lektion` döljer menyerna, låser år och lager och visar bandet med "Visa hela globen". |
 | **Elevblad / lärarblad** | Utskriften ur en lektions data: eleven får frågor med skrivrader, läraren får årskurs, tid och förkunskaper. |
 | **Samtidighetsjakten** | Elevuppdraget under Mer: hitta händelser på olika kontinenter samma år. Du-form. |
-| **Quiz** | "Vad hände samtidigt?" ur befintliga fun facts. |
+| **Quiz** | "Vad hände samtidigt?" ur befintliga fun facts, och varannan fråga **Sant eller myt?** ur missuppfattningarna (#846), som inte räknas i poängen. |
 | **Introduktion** | De tre stilla stegen för nya besökare. Knappen heter "Kom igång" och ligger under Mer (#996). |
 | **Missuppfattning** | Ett vanligt felaktigt påstående, vad källorna säger och ursprunget; visas i faktarutan. |
 | **Mer / Meny** | **Mer** (dator) samlar Källor, Hjälp, Quiz, Jakten och Dela. **Språk** är knappen med jordglob och språkkod (till exempel SV) i raden överst (#1167). **Meny** (mobil) är panelen bakom knappen i raden överst. |

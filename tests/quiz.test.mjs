@@ -95,3 +95,33 @@ test('riktig data: varje fun fact som kan bli en fråga ger säkert felaktiga sv
     }
   }
 });
+
+// Sant eller myt? (#846): påståenden ur data/missuppfattningar.json
+import { quizMyths, nextMyth, isMythTurn } from '../js/quiz-rules.js';
+
+test('Sant eller myt: varannan fråga, med start på den andra', () => {
+  assert.deepEqual([0, 1, 2, 3].map(isMythTurn), [false, true, false, true]);
+});
+
+test('Sant eller myt: bara synliga poster med påstående och svar, utan upprepning förrän alla har kommit', () => {
+  const myths = [
+    { id: 'a', claim: { sv: 'A' }, truth: { sv: 'a' }, review: 'source-checked' },
+    { id: 'b', claim: { sv: 'B' }, truth: { sv: 'b' }, review: 'two-sources' },
+    { id: 'utkast', claim: { sv: 'U' }, truth: { sv: 'u' }, review: 'draft' },
+    { id: 'utan-svar', claim: { sv: 'X' }, review: 'source-checked' },
+  ];
+  assert.deepEqual(quizMyths(myths, visible).map(m => m.id), ['a', 'b']);
+  const asked = new Set();
+  const first = nextMyth(myths, visible, asked, seeded(3)); asked.add(first.id);
+  const second = nextMyth(myths, visible, asked, seeded(3)); asked.add(second.id);
+  assert.notEqual(first.id, second.id, 'samma påstående kom två gånger i rad');
+  assert.ok(['a', 'b'].includes(nextMyth(myths, visible, asked, seeded(3)).id), 'börjar om när alla har kommit');
+  assert.equal(nextMyth([], visible), null);
+});
+
+test('Sant eller myt: varje kontrollerad post i datan kan bli en fråga, med källor', () => {
+  const doc = json('data/missuppfattningar.json');
+  const pool = quizMyths(doc.misconceptions, visible);
+  assert.ok(pool.length >= 15, `för få frågor: ${pool.length}`);
+  for (const m of pool) assert.ok(m.sources?.length, `${m.id} saknar källor`);
+});
