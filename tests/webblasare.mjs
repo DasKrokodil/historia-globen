@@ -868,6 +868,61 @@ async function run(browser, vp) {
     return 'syns första gången, försvinner efter klicket i tidslinjen, kommer inte tillbaka';
   });
 
+  // #1302: engångstipset låg som en rad i tidsradens flöde och gjorde den 22 px högre medan det syntes, så att stegknapparna täckte
+  // Samtidigt-kortet (mobil) och fokusraden låg över dem. Nu ligger det över tidsradens nedersta rad och tar ingen höjd.
+  await check('engångstipset ändrar inte tidsradens läge, täcker inte kortet eller fokusraden och syns inte i tur eller Fokus (#1302)', async () => {
+    const fresh = await context.newPage();
+    const errs = [];
+    fresh.on('pageerror', e => { if (!cancelled(e.message)) errs.push(e.message); });
+    let n = 0;
+    const open = async hash => {
+      const url = `${BASE}?ny=tip1302-${Date.now()}-${n++}`;
+      await fresh.goto(url);
+      await fresh.evaluate(() => { try { localStorage.removeItem('hg-year-tip'); } catch { /* */ } });
+      await fresh.goto(`${url}${hash}`);
+      await fresh.reload();
+      await fresh.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+    };
+    const geo = () => fresh.evaluate(() => {
+      const box = sel => { const e = document.querySelector(sel); if (!e || e.hidden) return null; const r = e.getBoundingClientRect(); return r.width ? { top: r.top, bottom: r.bottom } : null; };
+      return { bar: box('.timebar'), controls: box('.timebar .controls'), tip: box('#year-tip'), card: box('#funfact'), focus: box('#focus-bar'),
+        legend: getComputedStyle(document.getElementById('timeline-legend')).visibility, vh: innerHeight };
+    });
+    try {
+      // 1. Med och utan tips ligger tidsraden på samma ställe, och tipset ryms på skärmen utan att täcka kortet eller knapparna
+      await open('#y=1325');
+      await fresh.waitForSelector('#year-tip', { state: 'visible', timeout: T.step });
+      await fresh.waitForSelector('#funfact', { state: 'visible', timeout: T.step });
+      await fresh.waitForTimeout(500);
+      const withTip = await geo();
+      await fresh.evaluate(() => { document.getElementById('year-tip').hidden = true; });
+      await fresh.waitForTimeout(300);
+      const without = await geo();
+      if (!withTip.tip || !withTip.bar || !withTip.controls || !withTip.card) throw new Error(`en yta saknas med tipset: ${JSON.stringify(withTip)}`);
+      if (Math.abs(withTip.bar.top - without.bar.top) > 1 || Math.abs(withTip.controls.top - without.controls.top) > 1) throw new Error(`tipset flyttade tidsraden: ${Math.round(withTip.bar.top)} mot ${Math.round(without.bar.top)}, knapparna ${Math.round(withTip.controls.top)} mot ${Math.round(without.controls.top)}`);
+      if (withTip.card.bottom > withTip.controls.top + 1) throw new Error(`kortet slutar vid ${Math.round(withTip.card.bottom)} men knapparna börjar vid ${Math.round(withTip.controls.top)} med tipset`);
+      if (withTip.tip.top < withTip.controls.bottom - 1) throw new Error(`tipset (från ${Math.round(withTip.tip.top)}) täcker knapparna (till ${Math.round(withTip.controls.bottom)})`);
+      if (withTip.tip.bottom > withTip.vh + 1) throw new Error(`tipset slutar vid ${Math.round(withTip.tip.bottom)} utanför skärmen (${withTip.vh})`);
+      if (withTip.legend !== 'hidden') throw new Error('teckenförklaringen syns på tipsets rad');
+
+      // 2. I Fokus syns inget tips, och fokusraden ligger inte över knapparna
+      await open('#y=100&f=empire:hanriket');
+      await fresh.waitForSelector('#focus-bar', { state: 'visible', timeout: T.step });
+      await fresh.waitForTimeout(500);
+      const inFocus = await geo();
+      if (await fresh.isVisible('#year-tip')) throw new Error('tipset syns i Fokus');
+      if (!inFocus.focus || !inFocus.controls) throw new Error('fokusraden eller knapparna saknas i Fokus');
+      if (inFocus.focus.bottom > inFocus.controls.top + 1) throw new Error(`fokusraden slutar vid ${Math.round(inFocus.focus.bottom)} men knapparna börjar vid ${Math.round(inFocus.controls.top)}`);
+
+      // 3. I en tur syns inget tips
+      await open('#t=forsta-varldskriget');
+      await fresh.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      if (await fresh.isVisible('#year-tip')) throw new Error('tipset syns i en tur');
+      if (errs.length) throw new Error(errs.join('; '));
+      return `tidsraden ligger still (${Math.round(withTip.controls.top)} px), kortet slutar vid ${Math.round(withTip.card.bottom)}, tipset ${Math.round(withTip.tip.top)}–${Math.round(withTip.tip.bottom)}; inget tips i Fokus eller tur`;
+    } finally { await fresh.close(); }
+  });
+
   await check('introduktionen startas frivilligt från Utforska', async () => {
     // Samtidigt-provet ovan öppnar listan för Visa fler. Stäng den som en besökare gör så att
     // introduktionsknappen provas utan en avsiktligt överlagrad panel i mobilbredd.
