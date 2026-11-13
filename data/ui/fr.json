@@ -733,6 +733,8 @@
   "tlegend.funfact": "Le saviez-vous ?",
   "tlegend.route": "voyage",
   "time.rateYears": "{rate} ans/s",
+  "time.yearsAgo": "il y a environ {n} ans",
+  "time.stepNow": "Chaque pas représente maintenant {n} ans.",
   "time.rateDays": "{rate} {unit}/s",
   "time.dayShort": "j",
   "time.speedLabel": "Vitesse de lecture : {rate}. Appuyez pour la modifier.",
