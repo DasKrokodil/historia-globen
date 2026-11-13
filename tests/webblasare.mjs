@@ -3366,6 +3366,33 @@ async function run(browser, vp) {
       if (await page.locator('#focus-menu').isVisible().catch(() => false)) await page.keyboard.press('Escape');
     }
   });
+  // Columbus resor 2–4 fick källbelagda stopp med korta platsnamn (#1377)
+  await check('Columbus fjärde resa har åtta stopp med korta namn', async () => {
+    try {
+      await clickView('#btn-focus');
+      await visible('#focus-menu');
+      await page.click('#focus-menu [data-tab="Resor"]');
+      await page.fill('#focus-menu .focus-search', 'Columbus fjärde');
+      const route = page.locator('#focus-menu .focus-item[data-key="route:columbus-resa-4"]');
+      await route.waitFor({ state: 'visible', timeout: T.step });
+      await route.click();
+      await visible('#focus-bar');
+      const marks = await page.locator('.tdot.route-stop').evaluateAll(nodes => nodes.map(node =>
+        node.getAttribute('aria-label') || node.title));
+      if (marks.length !== 8) throw new Error(`Columbus fjärde resa har ${marks.length} stopp, inte 8: ${marks.join(' | ')}`);
+      for (const label of ['Cádiz · avfärd 9 maj 1502', 'Santo Domingo · 29 juni 1502', 'Sanlúcar de Barrameda · 7 november 1504']) {
+        if (!marks.some(mark => mark.includes(label))) throw new Error(`resestoppet saknas: ${label} (${marks.join(' | ')})`);
+      }
+      if (marks.some(mark => /nekades hamn\)|enligt Britannica troligen Saint Lucia\)/.test(mark.split(' · ')[1] ?? ''))) {
+        throw new Error(`ett stopp har fortfarande osäkerheten i namnet: ${marks.join(' | ')}`);
+      }
+      return `8 stopp, bland annat ${marks[0]}`;
+    } finally {
+      if (await page.locator('#focus-bar').isVisible().catch(() => false)) await page.click('#focus-exit');
+      await hidden('#focus-bar');
+      if (await page.locator('#focus-menu').isVisible().catch(() => false)) await page.keyboard.press('Escape');
+    }
+  });
 
   // Fokus-menyn hade religionerna bara första gången den öppnades, när lagret Religioner inte hade öppnats (#402-uppdelningen)
   await check('Fokus-menyn har religionerna också andra gången den öppnas', async () => {
