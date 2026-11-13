@@ -113,14 +113,7 @@ Första försöket stod still på nätspärren. Efter att åtkomsten utökats gi
 | [Globle](https://globle-game.com/) (spel på glob) | Första skärmen förklarar spelet med ett exempel innan globen visas: "For example, if the Mystery Country is Japan, then the following countries would appear with these colours if guessed". Ett nytt land varje dag. FAQ: "A high-contrast Colour Blind mode can be activated in Settings." och om gränser: "Geography can be a sensitive topic, and some countries' borders are disputed. If you believe a correction should be made, please politely raise an issue on GitHub". | (1) Förklara "samtidigt" med ett enda konkret exempel på första skärmen, före allt annat. (2) Ett färgblindläge med hög kontrast; våra fjorton kategorifärger och rikenas ytor är inte provade för färgblinda. (3) En öppen mening om omstridda gränser där kartan visas, inte bara under Källor. |
 | [Smithsonian: Human Evolution Interactive Timeline](https://humanorigins.si.edu/evidence/human-evolution-interactive-timeline) (djup tid) | Åtta miljoner år på en rak axel i tre band som ligger i linje: klimatkurva, arter som staplar och milstolpar som symboler. Arternas staplar tonar ut i ändarna. Texten säger "Explore the relationship between climate and human evolution more deeply by magnifying the timeline." Användarvillkoren är inte lästa. | För version 7 (#11, #49, #1095): människoarter som staplar med uttonade ändar visar osäker datering utan falsk exakthet, och band i linje gör "samtidigt" synligt även i djup tid. |
 
-Kvar att öppna om de ska med (läggs i miljöns nätinställningar):
-
-```
-oldmapsonline.org
-www.oldmapsonline.org
-worldhistory.org
-www.worldhistory.org
-```
+**Uppföljning samma dag:** `oldmapsonline.org` och `worldhistory.org` lades till i nätinställningarna, och anslutningen släpps nu igenom. Sidorna svarar ändå 403 på automatiska besök; det är deras eget skydd mot robotar, och det kringgås inte. De två får bedömas av en människa i en vanlig webbläsare om de ska med.
 
 ### Utlåtande om estetik och upplägg (2026-11-13)
 
