@@ -733,6 +733,8 @@
   "tlegend.funfact": "Did you know?",
   "tlegend.route": "journey",
   "time.rateYears": "{rate} yr/s",
+  "time.yearsAgo": "about {n} years ago",
+  "time.stepNow": "Each step is now {n} years.",
   "time.rateDays": "{rate} {unit}/s",
   "time.dayShort": "d",
   "time.speedLabel": "Playback speed: {rate}. Press to change.",

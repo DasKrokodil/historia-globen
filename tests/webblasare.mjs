@@ -5545,6 +5545,47 @@ async function run(browser, vp) {
   });
   // #1320: reglagets upplösning. I förhistorien är ett steg tusen eller hundra år, rubriken och uppläst värde är avrundade,
   // farten följer upplösningen, märket på Samtidigt räknar bara det som pågår och en gammal länk med exakt år öppnas.
+  // #1089: tangentbordsrundan och skärmläsaren i förhistorien. Home, pilarna, PageUp/PageDown och End följer upplösningen,
+  // det upplästa värdet säger hur länge sedan det var före 10 000 f.Kr., och ett byte av upplösning läses upp.
+  await check('tangentbord och skärmläsare i förhistoriens segment (#1089)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      await wp.goto(`${BASE}?lang=sv&ny=k1089#y=1325`);
+      await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await wp.focus('#track');
+      const vt = () => wp.getAttribute('#track', 'aria-valuetext').then(v => v.replace(/\s+/g, ' '));
+      const press = async (key, want) => {
+        await wp.keyboard.press(key);
+        await wp.waitForFunction(w => document.getElementById('track').getAttribute('aria-valuetext').replace(/\s+/g, ' ') === w, want, { timeout: T.step })
+          .catch(async () => { throw new Error(`${key}: värdet är "${await vt()}", väntat "${want}"`); });
+      };
+      await press('Home', '100 000 f.Kr., för cirka 102 000 år sedan');
+      await press('ArrowRight', '99 000 f.Kr., för cirka 101 000 år sedan');
+      await press('PageUp', '89 000 f.Kr., för cirka 91 000 år sedan'); // tio steg, inte över hela tidslinjen
+      await press('PageDown', '99 000 f.Kr., för cirka 101 000 år sedan');
+      // Fram till gränsen 10 000 f.Kr. och ett steg till: upplösningen byts och det läses upp
+      await wp.keyboard.press('Home');
+      for (let i = 0; i < 8; i++) await wp.keyboard.press('PageUp');
+      await press('PageUp', '10 000 f.Kr.'); // här byts upplösningen till hundra år
+      await wp.waitForFunction(() => /^År 10\s000 f\.Kr\.: .*Nu är varje steg 100 år/.test(document.getElementById('screen-reader-status').textContent.replace(/\s+/g, ' ').trim()), null, { timeout: T.step })
+        .catch(async () => { throw new Error(`statusraden säger "${await wp.textContent('#screen-reader-status')}"`); });
+      await press('ArrowRight', '9900 f.Kr.');
+      // I historisk tid är det som förut
+      await press('End', String(await wp.getAttribute('#track', 'aria-valuemax')));
+      await wp.keyboard.press('PageDown');
+      const last = await vt();
+      if (!/^\d{4}$/.test(last) || Number(last) !== Number(await wp.getAttribute('#track', 'aria-valuemax')) - 100) throw new Error(`PageDown från slutet: "${last}"`);
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return 'Home, pilar, PageUp/PageDown och End med upplösningen; "för cirka … år sedan" och uppläst byte vid 10 000 f.Kr.';
+    } finally { await wp.close(); }
+  });
   await check('reglagets upplösning i förhistorien (#1320)', async () => {
     const wp = await context.newPage();
     const errs = [];

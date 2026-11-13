@@ -136,7 +136,10 @@ export class Timeline extends EventTarget {
     track.addEventListener('keydown', e => {
       if (this.locked) return;
       const big = e.shiftKey ? 10 : 1;
-      const map = { ArrowLeft: -big, ArrowRight: big, ArrowDown: -big, ArrowUp: big, PageDown: -100, PageUp: 100 };
+      // PageUp/PageDown är ett större steg (#1089): hundra år i historisk tid, men tio steg där upplösningen är grövre, så att
+      // ett tryck i förhistorien blir 10 000 eller 1000 år och inte hoppar över hela tidslinjen
+      const page = !this.focus && stepAt(this._year) > 1 ? 10 : 100;
+      const map = { ArrowLeft: -big, ArrowRight: big, ArrowDown: -big, ArrowUp: big, PageDown: -page, PageUp: page };
       if (e.key in map) { this.setByUser(this.stepFrom(this.year, map[e.key])); e.preventDefault(); }
       if (e.key === 'Home') { this.setByUser(MIN_YEAR); e.preventDefault(); }
       if (e.key === 'End') { this.setByUser(MAX_YEAR); e.preventDefault(); }
@@ -152,7 +155,23 @@ export class Timeline extends EventTarget {
   setByUser(y) {
     const l = this.lock();
     if (l?.locked) return;
+    const before = this.focus ? null : stepAt(this._year);
     this.year = l?.from != null ? Math.max(l.from, Math.min(l.to, y)) : y;
+    // Ny upplösning efter ett drag, en tangent eller en stegknapp (#1089): skärmläsaren får veta hur långt ett steg nu är.
+    // Beskedet läses i statusraden tillsammans med året (takeStepNote, js/controllers/render.js), så att det inte skrivs över.
+    if (before != null && stepAt(this._year) !== before) this._stepNote = ui('time.stepNow', { n: groupDigits(stepAt(this._year)) });
+  }
+  /** Beskedet om ny upplösning sedan senast, eller tom text. Läses en gång. */
+  takeStepNote() { const n = this._stepNote ?? ''; this._stepNote = ''; return n; }
+  /**
+   * Det som skärmläsaren läser för reglaget (#1089): årtalet, och före 10 000 f.Kr. också hur länge sedan det var, avrundat till
+   * tusental ("50 000 f.Kr., för cirka 52 000 år sedan"), enligt ordlistan för förhistorien (docs/ordlista-oversattning.md, 13.2).
+   */
+  valueText(y) {
+    const text = this.format(y);
+    if (this.focus || stepAt(y) < 1000) return text;
+    const ago = Math.round((MAX_YEAR - y) / 1000) * 1000;
+    return `${text}, ${ui('time.yearsAgo', { n: groupDigits(ago) })}`;
   }
 
   /**
@@ -627,7 +646,7 @@ export class Timeline extends EventTarget {
     this.track.setAttribute('aria-valuemax', String(this.focus ? this.focus.to : MAX_YEAR));
     this.track.setAttribute('aria-valuenow', String(this._year));
     // Med ett intervall (#755) läser skärmläsaren hela intervallet, inte bara handtagets år
-    this.track.setAttribute('aria-valuetext', this.range ? `${this.format(this.range.from)}–${this.format(this.range.to)}` : this.format(this._year));
+    this.track.setAttribute('aria-valuetext', this.range ? `${this.format(this.range.from)}–${this.format(this.range.to)}` : this.valueText(this._year));
     this._labelPlay(); // i slutet heter knappen "Spela igen"
   }
   init(y) { this._year = clampY(y); this._labelSpeed(); this._labelSteps(); this._render(); this.dispatchEvent(new CustomEvent('change', { detail: { year: this._year } })); }
