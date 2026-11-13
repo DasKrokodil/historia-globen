@@ -1395,7 +1395,7 @@ async function run(browser, vp) {
 
     // Förklaringen till de låsta tidsknapparna: på pausraden och som hovertext på knapparna
     if (!(await page.textContent('#pause-text')).includes('Turen styr tiden')) throw new Error('pausraden förklarar inte att turen styr tiden');
-    const locked = await page.evaluate(() => [...document.querySelectorAll('.timebar .controls .step')].map(b => ({ title: b.title, off: b.disabled })));
+    const locked = await page.evaluate(() => [...document.querySelectorAll('.timebar .controls .step[data-step]')].map(b => ({ title: b.title, off: b.disabled })));
     if (!locked.length || locked.some(b => b.title !== 'Turen styr tiden' || !b.off)) throw new Error(`de låsta stegknapparnas hovertext och låsning: ${JSON.stringify(locked)}`);
 
     await page.click('#tour-close');
@@ -4401,28 +4401,18 @@ async function run(browser, vp) {
       if (!/^Steg 1 av 14$/.test(await progress())) throw new Error(`lektionen öppnade ${await progress()}`);
       if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('lektionen börjar inte 1939');
       // Tidslinjen går inte att flytta utanför lektionens år
-      await lessonPage.click('#year-jump');
-      await lessonPage.fill('#jump-input', '1500');
-      await lessonPage.press('#jump-input', 'Enter');
-      await lessonPage.waitForFunction(() => /utanför/.test(document.getElementById('jump-msg').textContent), null, { timeout: T.step });
-      if ((await lessonPage.textContent('#year-big')).trim() === '1500') throw new Error('året 1500 gick att välja i en lektion om 1939–1945');
-      // Samma sak för ett datum i årshoppet: utanför intervallet avvisas, inom intervallet fungerar och låset ligger kvar
-      const jumpTo = async v => {
-        await lessonPage.fill('#jump-input', v);
-        await lessonPage.press('#jump-input', 'Enter');
-        await lessonPage.waitForTimeout(300);
+      // Tidslåset (#1322): i en lektion styr turen tiden, så årshoppet är låst (aria-disabled), formuläret öppnas inte och året står kvar.
+      // Det ersätter de äldre proven av att året 1500 och datumet 1066-10-14 avvisades som "utanför" lektionens år: de går inte längre att göra
+      // eftersom årshoppet inte går att öppna alls. Lektionens årsgräns provas av tidslåset i state.test.mjs och av Home på reglaget nedan.
+      const jumpLocked = async (what, year = '1939') => {
+        await lessonPage.click('#year-jump', { force: true });
+        if ((await lessonPage.getAttribute('#year-jump', 'aria-disabled')) !== 'true') throw new Error(`${what}: årshoppet är inte låst i lektionen`);
+        if (!(await lessonPage.locator('#jump-pop').isHidden())) throw new Error(`${what}: årshoppet öppnades i lektionen`);
+        const now = (await lessonPage.textContent('#year-big')).trim();
+        if (now !== year) throw new Error(`${what}: året blev ${now} i stället för ${year}`);
       };
-      await jumpTo('1066-10-14');
-      if (!/utanför/.test(await lessonPage.textContent('#jump-msg'))) throw new Error('datumet 1066-10-14 avvisades inte i en lektion om 1939–1945');
-      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`datumet 1066-10-14 flyttade året till ${(await lessonPage.textContent('#year-big')).trim()}`);
-      await jumpTo('1944-06-06');
-      if ((await lessonPage.textContent('#year-big')).trim() !== '1944') throw new Error('ett datum inom lektionens år fungerade inte');
-      await lessonPage.keyboard.press('Escape');
-      await lessonPage.click('#year-jump');
-      await jumpTo('1500');
-      if (!/utanför/.test(await lessonPage.textContent('#jump-msg')) || !['1939', '1940', '1941', '1942', '1943', '1944', '1945'].includes((await lessonPage.textContent('#year-big')).trim())) throw new Error('ett datum inom intervallet släppte tidslåset');
-      if (!(await lessonPage.isVisible('#lesson-band'))) throw new Error('bandet försvann efter ett datum i årshoppet');
-      await lessonPage.keyboard.press('Escape');
+      await jumpLocked('direktlänk');
+      if (!(await lessonPage.isVisible('#lesson-band'))) throw new Error('bandet försvann efter ett klick på årshoppet');
       // Omladdning mitt i lektionen ger samma läge och steg
       await lessonPage.click('#tour-next');
       await lessonPage.click('#tour-next');
@@ -4523,9 +4513,7 @@ async function run(browser, vp) {
       await lessonPage.keyboard.press('Home');
       await lessonPage.waitForTimeout(300);
       if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`Home på reglaget gav ${(await lessonPage.textContent('#year-big')).trim()} i stället för 1939 efter ett fokus och lektionslänken`);
-      await lessonPage.click('#year-jump');
-      await jumpTo('1500');
-      if (!/utanför/.test(await lessonPage.textContent('#jump-msg')) || (await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('lektionslänken efter ett fokus lämnade tidslinjen olåst');
+      await jumpLocked('lektionslänken efter ett fokus'); // tidslinjen är låst även när lektionen börjar efter ett fokus
       // "Visa hela globen" återställer inte ett gammalt fokus och byter inte året (#881)
       await open(`${BASE}?ny=14#y=1916&f=war:forsta-varldskriget`);
       await lessonPage.waitForSelector('#focus-bar:not([hidden])', { state: 'attached', timeout: T.load });
@@ -4556,10 +4544,7 @@ async function run(browser, vp) {
       await lessonPage.keyboard.press('Home');
       await lessonPage.waitForTimeout(300);
       if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`reglaget gick till ${(await lessonPage.textContent('#year-big')).trim()} när ett fokus blev klart i lektionen`);
-      await lessonPage.click('#year-jump');
-      await jumpTo('1066-10-14');
-      if (!/utanför/.test(await lessonPage.textContent('#jump-msg')) || (await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('datumet 1066-10-14 godtogs efter ett fokus som laddades när lektionen började');
-      await lessonPage.keyboard.press('Escape');
+      await jumpLocked('fokus som blev klart i lektionen'); // låset ligger kvar när ett fokus som laddades vid starten blir klart
       // Samtidighetsjakten (år 1500) krockar med låset: knappen är dold, och ett u= utanför lektionens år ignoreras
       await open(`${BASE}?ny=4#t=andra-varldskriget&m=lektion&u=samtidighetsjakten-1500`);
       await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
