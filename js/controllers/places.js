@@ -110,7 +110,9 @@ export function createPlaces(app) {
   /** Byt till Platt karta och ram in platsen. Kameran på globen flyger inte, och inget eget läge börjar. */
   function showInFlat(place) {
     app.viewMode.set('flat');
-    flatMap.frame(placeBounds(place));
+    // På bred skärm ligger kortet till höger och täcker kartan: inramningen räknar bara med ytan till vänster om det
+    const card = $('detail'), covered = !app.narrow.matches && !card.hidden ? Math.max(0, flatMap.canvas.getBoundingClientRect().right - card.getBoundingClientRect().left) : 0;
+    flatMap.frame(placeBounds(place), 0.78, covered);
     say(ui('place.flatShown', { place: t(place.name) }), 'plats', { priority: 2, immediate: true }); // som faktarutans rubrik: svaret på knappen får inte tystas av den
   }
 

@@ -247,10 +247,14 @@ export class FlatMap {
    * Rama in en ruta { west, east, south, north } (longituder uppvikta kring mitten, som place-geo.js ger) med lite luft runt
    * (#1161). Zoomen väljs så att hela rutan ryms, inom kartans gränser. Anropas när kartan är öppen och har mått.
    */
-  frame({ west, east, south, north }, fill = 0.78) {
+  frame({ west, east, south, north }, fill = 0.78, padRight = 0) {
     if (!this.w || !this.h) return;
     const base = Math.max(this.w / IMG_W, this.h / IMG_H), wide = Math.max((east - west) / 360 * IMG_W, 1), high = Math.max((north - south) / 180 * IMG_H, 1);
-    this.setView((north + south) / 2, (east + west) / 2, Math.min(this.w * fill / wide, this.h * fill / high) / base);
+    const free = Math.max(this.w * 0.3, this.w - padRight); // ytan som inte täcks av ett kort till höger
+    const zoom = Math.min(MAX_ZOOM, Math.max(1, Math.min(free * fill / wide, this.h * fill / high) / base));
+    // Rutans mitt hamnar mitt i den fria ytan: kartans mitt flyttas åt öster (padRight / 2 skärmpixlar)
+    const shift = (this.w - free) / 2 / (base * zoom) / IMG_W * 360;
+    this.setView((north + south) / 2, (east + west) / 2 + shift, zoom);
   }
 
   /** Platsen { lon, lat } under en punkt i kartans skärmkoordinater (omvändningen av _toScreen). */

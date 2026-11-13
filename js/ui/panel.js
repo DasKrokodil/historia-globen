@@ -625,9 +625,9 @@ export class Panel {
       <div class="story"><p class="place-type">${esc(of ? ui('place.typeOf', { type, of }) : type)}</p>
       ${emblemHtml}
       <p>${esc(t(place.intro))}</p>
+      ${this.onPlaceFlat ? `<button type="button" class="chip-btn theme-exit place-flat" data-place-flat aria-label="${esc(`${ui('place.flatMap')}: ${t(place.name)}`)}">${esc(ui('place.flatMap'))}</button>` : ''}
       <p class="theme-filter-note">${esc(ui('place.borderNote'))}</p>
       <p class="theme-filter-note">${esc(ui('place.filters'))}</p>
-      ${this.onPlaceFlat ? `<button type="button" class="chip-btn theme-exit place-flat" data-place-flat aria-label="${esc(`${ui('place.flatMap')}: ${t(place.name)}`)}">${esc(ui('place.flatMap'))}</button>` : ''}
       <button type="button" class="chip-btn theme-exit" data-end-theme>${esc(ui('place.exit'))}</button>
       <details class="theme-event-list"${matchMedia('(max-width: 760px)').matches ? '' : ' open'}>
         <summary>${esc(ui('place.events', { count: events.length }))}</summary>

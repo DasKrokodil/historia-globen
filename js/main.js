@@ -361,7 +361,8 @@ async function start() {
       ff.setDetailOpen(true);
       if (cardFocus || listFocus) detail.querySelector('[data-close]')?.focus({ preventScroll: true });
       const title = detail.querySelector('h3')?.textContent.trim() ?? '';
-      if (title && title !== detailTitle) say(`${ui('detail.label')}: ${title}`, 'faktaruta', { priority: 2, immediate: true }); // går före Samtidigt-kortet och pausraden (#1419)
+      const kind = state.focus?.type === 'place' || state.focus?.type === 'theme' ? detail.querySelector('.story-label')?.textContent.trim() : ''; // Plats och Tema i stället för Om händelsen
+      if (title && title !== detailTitle) say(`${kind || ui('detail.label')}: ${title}`, 'faktaruta', { priority: 2, immediate: true }); // går före Samtidigt-kortet och pausraden (#1419)
       detailTitle = title;
       return;
     }

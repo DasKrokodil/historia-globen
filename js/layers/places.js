@@ -16,6 +16,7 @@ export function entry() {
     update: s => {
       layer.place = s.focus?.type === 'place' ? s.focus.place : null;
       layer.hints = !s.focus && !!s.labels?.placeHints;
+      layer.px = s.labels?.placePx ?? 1; // bildpunkter per skärmpixel
       return layer.place;
     },
     drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
@@ -23,7 +24,7 @@ export function entry() {
 }
 
 export class PlacesLayer {
-  constructor() { this.place = null; this.cards = []; this.hints = false; this.enabled = false; this._paths = new Map(); }
+  constructor() { this.place = null; this.cards = []; this.hints = false; this.px = 1; this.enabled = false; this._paths = new Map(); }
 
   /** Konturen som en bana på lagerbilden W × H. Banorna sparas per plats och storlek, så att en omritning inte bygger om dem. */
   path(place, W, H) {
@@ -64,10 +65,12 @@ export class PlacesLayer {
   drawHints(ctx, W, H) {
     ctx.save();
     ctx.lineJoin = 'round';
-    const width = Math.max(1.5, W / 2200);
-    ctx.setLineDash([W / 420, W / 520]);
+    // Mått i skärmpixlar (px bildpunkter per skärmpixel, på 4096-bilden): en kärna på 2 px med en kant på 1 px åt varje håll,
+    // och streck på 7 px med 5 px mellanrum, hur stor kartan än visas. Bilden kan ritas i annan storlek (skarpa utsnittet): k
+    const k = W / 4096, unit = this.px * k, width = Math.max(1, 2 * unit);
+    ctx.setLineDash([7 * unit, 5 * unit]);
     // Först en mörk kant under, så att de ljusa strecken syns både mot pergamentfärgat land och mot havet
-    for (const [color, w] of [['rgba(12,24,44,0.5)', width * 2], ['rgba(246,230,190,0.95)', width]]) {
+    for (const [color, w] of [['rgba(12,24,44,0.55)', width + 2 * unit], ['rgba(246,230,190,0.95)', width]]) {
       ctx.strokeStyle = color;
       ctx.lineWidth = w;
       for (const place of this.cards) ctx.stroke(this.path(place, W, H));
