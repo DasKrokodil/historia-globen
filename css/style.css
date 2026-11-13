@@ -2135,7 +2135,7 @@ details.used-by summary:hover { color: var(--parchment); }
      rymmer "−10 000" i vanlig textstorlek (ingen text under 12 px, #1309); piltangenterna och PageUp/PageDown finns kvar */
   .controls.prehistory .step:is([data-step="-100"], [data-step="100"]) { display: none; }
   .controls.prehistory .step { max-width: 66px; }
-  .controls.prehistory .speed { flex-basis: 64px; }
+  .controls.prehistory .speed { flex-basis: 70px; } /* "100 000/s" (fart 100 vid 100 000 f.Kr.) är 65 px i 12 px text (#1101) */
   .track { height: 48px; }
   /* Ett krig kan ha många namn på kort avstånd. På mobil visar vi namnet närmast
      reglaget; alla band behåller full beskrivning i titel och tillgänglighetsnamn. */
