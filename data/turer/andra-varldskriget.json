@@ -7,14 +7,14 @@
     "en": "The Second World War in Europe and the Pacific",
     "de": "Der Zweite Weltkrieg in Europa und im Pazifik",
     "fr": "La Seconde Guerre mondiale en Europe et dans le Pacifique",
-    "es": "La Segunda Guerra Mundial en Europa y en el Pacífico"
+    "es": "La Segunda Guerra Mundial: Europa y el Pacífico"
   },
   "summary": {
     "sv": "Från anfallet på Polen 1939 till Japans kapitulation 1945, i Europa, Nordafrika och Stilla havet.",
     "en": "From the attack on Poland in 1939 to Japan's surrender in 1945, in Europe, North Africa and the Pacific.",
     "de": "Vom Angriff auf Polen 1939 bis zur Kapitulation Japans 1945, in Europa, Nordafrika und im Pazifik.",
     "fr": "De l’attaque de la Pologne (1939) à la capitulation du Japon (1945) : Europe, Afrique du Nord et Pacifique.",
-    "es": "Del ataque a Polonia en 1939 a la capitulación de Japón en 1945, en Europa, el norte de África y el Pacífico."
+    "es": "Del ataque a Polonia (1939) a la capitulación de Japón (1945): Europa, norte de África y Pacífico."
   },
   "war": "andra-varldskriget",
   "review": "source-checked",
@@ -462,7 +462,7 @@
         "en": "Why do you think a battle for a single city can be seen as a turning point in a whole war?",
         "de": "Warum gilt eine Schlacht um eine einzige Stadt wohl als Wendepunkt eines ganzen Krieges?",
         "fr": "Selon vous, pourquoi une bataille pour une seule ville peut-elle être un tournant ?",
-        "es": "¿Por qué cree usted que una batalla por una sola ciudad puede considerarse un punto de inflexión de toda una guerra?"
+        "es": "¿Por qué una batalla por una sola ciudad puede ser un punto de inflexión de toda la guerra?"
       },
       "layers": [
         "events",
