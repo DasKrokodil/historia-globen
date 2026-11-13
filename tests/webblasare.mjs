@@ -3316,6 +3316,32 @@ async function run(browser, vp) {
     }
   });
 
+  // Magellans resa fick källbelagda stopp med korta platsnamn (#1377)
+  await check('Magellans resa har tio stopp med korta namn', async () => {
+    try {
+      await clickView('#btn-focus');
+      await visible('#focus-menu');
+      await page.click('#focus-menu [data-tab="Resor"]');
+      await page.fill('#focus-menu .focus-search', 'Magellan');
+      const route = page.locator('#focus-menu .focus-item[data-key="route:magellan-elcano"]');
+      await route.waitFor({ state: 'visible', timeout: T.step });
+      await route.click();
+      await visible('#focus-bar');
+      const marks = await page.locator('.tdot.route-stop').evaluateAll(nodes => nodes.map(node =>
+        node.getAttribute('aria-label') || node.title));
+      if (marks.length !== 10) throw new Error(`Magellans resa har ${marks.length} stopp, inte 10: ${marks.join(' | ')}`);
+      for (const label of ['Sevilla · avfärd 10 augusti 1519', 'Mactan · 27 april 1521', 'Sanlúcar de Barrameda · 6 september 1522']) {
+        if (!marks.some(mark => mark.includes(label))) throw new Error(`resestoppet saknas: ${label} (${marks.join(' | ')})`);
+      }
+      if (marks.some(mark => /: Magellan|\(övervintring\)|: Victoria/.test(mark))) throw new Error(`ett stopp har fortfarande en mening som namn: ${marks.join(' | ')}`);
+      return `10 stopp, bland annat ${marks[0]}`;
+    } finally {
+      if (await page.locator('#focus-bar').isVisible().catch(() => false)) await page.click('#focus-exit');
+      await hidden('#focus-bar');
+      if (await page.locator('#focus-menu').isVisible().catch(() => false)) await page.keyboard.press('Escape');
+    }
+  });
+
   // Fokus-menyn hade religionerna bara första gången den öppnades, när lagret Religioner inte hade öppnats (#402-uppdelningen)
   await check('Fokus-menyn har religionerna också andra gången den öppnas', async () => {
     const counts = [];
