@@ -1918,6 +1918,13 @@ details.used-by summary:hover { color: var(--parchment); }
   background: none; border: 1px solid transparent; border-radius: 6px; cursor: pointer;
 }
 .lang-notice-close:hover, .lang-notice-close:focus-visible { border-color: var(--brass); outline: none; }
+@media (min-width: 761px) {
+  /* Knapparna blir två rader på tyska, spanska och franska. Upplysningen ankras därför vid knappradens underkant,
+     inte vid språkknappen, så att den aldrig ligger över Samtidigt eller Sök och följ (#1378). Listan stängs när
+     upplysningen finns, så att språkknappen kan vara utan ankare så länge. */
+  .lang-wrap:has(.lang-notice) { position: static; }
+  .lang-notice { top: calc(100% + 8px); right: 0; }
+}
 @media (max-width: 760px) {
   /* Språkknappen sitter till vänster i mobil: upplysningen läggs över hela bredden i stället (#1308) */
   .lang-notice { position: fixed; top: 56px; left: 16px; right: 16px; width: auto; }

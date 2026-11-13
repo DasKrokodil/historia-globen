@@ -3878,6 +3878,53 @@ async function run(browser, vp) {
     }
   });
 
+  // Upplysningen efter byte till de, es eller fr ska aldrig ligga över en knapp, när knappraden blir två rader (#1378).
+  // Namnet börjar som kontrollen ovan, så att den ligger i samma CI-jobb (tests/jobb.json).
+  await check('reservspråket: upplysning vid språkbyte täcker inga knappar i dator- och surfplattebredd (#1378)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const fel = [];
+    let antal = 0;
+    for (const lang of ['de', 'es', 'fr']) {
+      const pp = await context.newPage();
+      const errors = [];
+      pp.on('pageerror', e => errors.push(e.message));
+      pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+      try {
+        if (THREE_LOCAL) {
+          await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+          await pp.route(u => isFont(u.href), r => r.abort());
+        }
+        // Som efter ett språkbyte: valet är sparat och upplysningen väntar på nästa laddning
+        await pp.addInitScript(l => {
+          try { localStorage.setItem('hg-lang', l); sessionStorage.setItem('hg-lang-chosen', l); } catch { /* utan lagring */ }
+        }, lang);
+        for (const [w, h] of [[1400, 900], [1024, 768]]) {
+          await pp.setViewportSize({ width: w, height: h });
+          await pp.goto(`${BASE}#y=1600`);
+          await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          await pp.waitForSelector('.lang-notice', { timeout: T.step });
+          const r = await pp.evaluate(() => {
+            const n = document.querySelector('.lang-notice').getBoundingClientRect();
+            const knappar = [...document.querySelectorAll('.top-actions button, .top-actions a')]
+              .filter(e => e.offsetParent && !e.closest('.lang-notice') && !e.closest('[hidden]'))
+              .filter(e => { const b = e.getBoundingClientRect(); return b.width && b.left < n.right && b.right > n.left && b.top < n.bottom && b.bottom > n.top; })
+              .map(e => e.id || e.textContent.trim().slice(0, 14));
+            return { knappar, synlig: n.left >= 0 && n.right <= innerWidth && n.top >= 0 && n.bottom <= innerHeight };
+          });
+          if (r.knappar.length) fel.push(`${lang} ${w} px: upplysningen ligger över ${r.knappar.join(', ')}`);
+          if (!r.synlig) fel.push(`${lang} ${w} px: upplysningen ligger delvis utanför fönstret`);
+          antal++;
+        }
+        if (errors.length) fel.push(`${lang}: ${errors[0]}`);
+      } finally {
+        try { await pp.evaluate(() => { localStorage.removeItem('hg-lang'); sessionStorage.removeItem('hg-lang-chosen'); }); } catch { /* sidan är redan stängd */ }
+        await pp.close();
+      }
+    }
+    if (fel.length) throw new Error(fel.join('; '));
+    return `${antal} kombinationer av språk och bredd utan överlapp`;
+  });
+
   await check('krigskortet på valt språk, inte svenska (#1240)', async () => {
     if (vp.width <= 760) return 'körs i datorjobbet';
     const seen = [];
