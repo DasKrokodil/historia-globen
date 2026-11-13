@@ -3797,6 +3797,48 @@ async function run(browser, vp) {
     return 'Spela klart når slutkortet';
   });
 
+  await check('reservspråket: upplysning vid språkbyte och lang på engelsk text (#1308)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const pp = await context.newPage();
+    const errors = [];
+    pp.on('pageerror', e => errors.push(e.message));
+    pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    try {
+      if (THREE_LOCAL) {
+        await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await pp.route(u => isFont(u.href), r => r.abort());
+      }
+      await pp.goto(`${BASE}?lang=sv#y=1600`);
+      await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (await pp.locator('.lang-notice').count()) throw new Error('upplysningen syns utan språkbyte');
+      // Byt till tyska i språkväljaren; sidan laddas om
+      await pp.click('#btn-lang');
+      await Promise.all([pp.waitForEvent('load', { timeout: T.load }), pp.click('#lang-menu [data-lang="de"]')]);
+      await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await pp.waitForSelector('.lang-notice', { timeout: T.step });
+      const note = (await pp.textContent('.lang-notice p')).trim();
+      const want = await pp.evaluate(async () => (await import('./js/i18n.js')).ui('lang.beta'));
+      if (note !== want || !/Englisch/.test(note)) throw new Error(`upplysningen: ${note}`);
+      await pp.click('.lang-notice-close');
+      if (await pp.locator('.lang-notice').count()) throw new Error('upplysningen stängs inte');
+      // Samtidigt-listan: titlar som saknar tyska visas på engelska och märks lang="en"
+      if (await pp.locator('#panel').isHidden()) await pp.click('#btn-panel');
+      await pp.waitForSelector('#panel .event-btn .ttl', { timeout: T.load });
+      const marks = await pp.evaluate(() => [...document.querySelectorAll('#panel .event-btn .ttl')].map(el => el.getAttribute('lang')));
+      if (!marks.includes('en')) throw new Error(`ingen titel med lang="en" år 1600: ${JSON.stringify(marks)}`);
+      if (marks.includes('de')) throw new Error('en tysk titel har fått lang="de" fast sidan redan är tysk');
+      // En omladdning utan nytt byte visar inte upplysningen igen
+      await pp.reload();
+      await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (await pp.locator('.lang-notice').count()) throw new Error('upplysningen visas igen utan språkbyte');
+      if (errors.length) throw new Error(errors[0]);
+      return `${marks.filter(m => m === 'en').length} av ${marks.length} titlar på engelska`;
+    } finally {
+      try { await pp.evaluate(() => localStorage.removeItem('hg-lang')); } catch { /* sidan är redan stängd */ }
+      await pp.close();
+    }
+  });
+
   await check('krigskortet på valt språk, inte svenska (#1240)', async () => {
     if (vp.width <= 760) return 'körs i datorjobbet';
     const seen = [];
