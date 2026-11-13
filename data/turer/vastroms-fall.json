@@ -10,11 +10,11 @@
     "es": "¿Cómo cayó el Imperio romano de Occidente?"
   },
   "summary": {
-    "sv": "Ett långt förlopp från tidiga tecken till 476, och varför forskarna fortfarande diskuterar det.",
-    "en": "A long process from early signs to 476, and why researchers still debate it.",
-    "fr": "Un long processus, des premiers signes jusqu'à 476, et pourquoi les chercheurs en débattent encore.",
-    "de": "Ein langer Verlauf von den ersten Anzeichen bis 476 und warum die Forschung bis heute darüber streitet.",
-    "es": "Un largo proceso desde las primeras señales hasta 476, y por qué los investigadores todavía lo debaten."
+    "sv": "Ett långt förlopp fram till 476, och varför forskarna fortfarande diskuterar det.",
+    "en": "A long process up to 476, and why researchers still debate it.",
+    "fr": "Un long processus jusqu'en 476, et pourquoi les chercheurs en débattent encore.",
+    "de": "Ein langer Verlauf bis 476 und warum die Forschung bis heute darüber streitet.",
+    "es": "Un largo proceso hasta 476, y por qué los investigadores todavía lo debaten."
   },
   "empire": "romarriket",
   "review": "source-checked",
@@ -28,11 +28,11 @@
         "zoom": 1.7
       },
       "chapter": {
-        "sv": "Tidiga tecken",
-        "en": "Early signs",
-        "fr": "Premiers signes",
-        "de": "Erste Anzeichen",
-        "es": "Primeras señales"
+        "sv": "Provinserna",
+        "en": "The provinces",
+        "fr": "Les provinces",
+        "de": "Die Provinzen",
+        "es": "Las provincias"
       },
       "title": {
         "sv": "Armorica, omkring år 360",
@@ -66,11 +66,11 @@
         "zoom": 1.5
       },
       "chapter": {
-        "sv": "Kris",
-        "en": "Crisis",
-        "fr": "Crise",
-        "de": "Krise",
-        "es": "Crisis"
+        "sv": "Folkvandringen",
+        "en": "The migration",
+        "fr": "La migration",
+        "de": "Die Wanderung",
+        "es": "La migración"
       },
       "title": {
         "sv": "Goterna kommer in i riket, 376",
@@ -166,11 +166,11 @@
         "zoom": 1.8
       },
       "chapter": {
-        "sv": "Slutet",
-        "en": "The end",
-        "fr": "La fin",
-        "de": "Das Ende",
-        "es": "El final"
+        "sv": "Den siste kejsaren i väst",
+        "en": "The last emperor in the West",
+        "fr": "Le dernier empereur d'Occident",
+        "de": "Der letzte Kaiser im Westen",
+        "es": "El último emperador de Occidente"
       },
       "title": {
         "sv": "Ravenna, 4 september 476",
@@ -265,7 +265,7 @@
         "de": "Das Heer vor 376",
         "es": "El ejército antes de 376"
       },
-      "status": "okant",
+      "status": "omtvistat",
       "text": {
         "sv": "Forskarna är inte överens om huruvida arméns slagkraft hade minskat redan före 376.",
         "en": "Researchers do not agree on whether the army's fighting strength had already declined before 376.",

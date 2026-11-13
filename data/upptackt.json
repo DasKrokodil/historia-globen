@@ -12,7 +12,8 @@
   "credit": {
     "sv": "Kartbilder: havsmonster ur Olaus Magnus Carta marina (1539) och en kompassros ur Guillaume Brouscons världskarta (1543). Public domain, via Wikimedia Commons.",
     "en": "Map images: sea monsters from Olaus Magnus's Carta marina (1539) and a compass rose from Guillaume Brouscon's world chart (1543). Public domain, via Wikimedia Commons.",
-    "de": "Kartenbilder: Seeungeheuer aus Olaus Magnus’ Carta marina (1539) und eine Kompassrose aus Guillaume Brouscons Weltkarte (1543). Gemeinfrei, über Wikimedia Commons."
+    "de": "Kartenbilder: Seeungeheuer aus Olaus Magnus’ Carta marina (1539) und eine Kompassrose aus Guillaume Brouscons Weltkarte (1543). Gemeinfrei, über Wikimedia Commons.",
+    "fr": "Images de la carte : monstres marins tirés de la Carta marina d’Olaus Magnus (1539) et rose des vents tirée de la carte du monde de Guillaume Brouscon (1543). Domaine public, via Wikimedia Commons."
   },
   "paper": {
     "grain": 0.22,
@@ -288,18 +289,18 @@
     "hatchDeg": 1.2,
     "hatchSpacingDeg": 0.6,
     "labels": [
-      { "text": { "sv": "Terra incognita", "en": "Terra incognita", "de": "Terra incognita" }, "at": [-100, 47], "size": 4.2 },
-      { "text": { "sv": "Terra incognita", "en": "Terra incognita", "de": "Terra incognita" }, "at": [-60, -12], "size": 4.2 },
-      { "text": { "sv": "Terra incognita", "en": "Terra incognita", "de": "Terra incognita" }, "at": [134, -25], "size": 3.6 },
-      { "text": { "sv": "Terra incognita", "en": "Terra incognita", "de": "Terra incognita" }, "at": [20, -72], "size": 4.2 },
-      { "text": { "sv": "Terra incognita", "en": "Terra incognita", "de": "Terra incognita" }, "at": [100, 62], "size": 4.2 }
+      { "text": { "sv": "Terra incognita", "en": "Terra incognita", "de": "Terra incognita", "fr": "Terra incognita" }, "at": [-100, 47], "size": 4.2 },
+      { "text": { "sv": "Terra incognita", "en": "Terra incognita", "de": "Terra incognita", "fr": "Terra incognita" }, "at": [-60, -12], "size": 4.2 },
+      { "text": { "sv": "Terra incognita", "en": "Terra incognita", "de": "Terra incognita", "fr": "Terra incognita" }, "at": [134, -25], "size": 3.6 },
+      { "text": { "sv": "Terra incognita", "en": "Terra incognita", "de": "Terra incognita", "fr": "Terra incognita" }, "at": [20, -72], "size": 4.2 },
+      { "text": { "sv": "Terra incognita", "en": "Terra incognita", "de": "Terra incognita", "fr": "Terra incognita" }, "at": [100, 62], "size": 4.2 }
     ]
   },
   "decorations": [
-    { "id": "kompassros-atlanten", "file": "images/karta/kompassros.webp", "at": [-42, 40], "width": 18, "fade": false, "rhumb": true, "title": { "sv": "Kompassros", "en": "Compass rose", "de": "Kompassrose" }, "source": "commons-karta-brouscon-kompassros" },
-    { "id": "kompassros-indiska-oceanen", "file": "images/karta/kompassros.webp", "at": [82, -32], "width": 17, "fade": false, "rhumb": true, "title": { "sv": "Kompassros", "en": "Compass rose", "de": "Kompassrose" }, "source": "commons-karta-brouscon-kompassros" },
-    { "id": "sjoorm-stilla-havet", "file": "images/karta/sjoorm.webp", "at": [-152, 32], "width": 26, "fade": true, "title": { "sv": "Sjöorm", "en": "Sea serpent", "de": "Seeschlange" }, "source": "commons-karta-carta-marina-sjoorm" },
-    { "id": "ziphius-sydatlanten", "file": "images/karta/ziphius.webp", "at": [-18, -34], "width": 26, "fade": true, "title": { "sv": "Ziphius", "en": "Ziphius", "de": "Ziphius" }, "source": "commons-karta-carta-marina-ziphius" },
-    { "id": "havsmonster-sodra-stilla-havet", "file": "images/karta/havsmonster.webp", "at": [-120, -38], "width": 17, "fade": true, "title": { "sv": "Havsmonster och hummer", "en": "Sea monster and lobster", "de": "Seeungeheuer und Hummer" }, "source": "commons-karta-carta-marina-havsmonster" }
+    { "id": "kompassros-atlanten", "file": "images/karta/kompassros.webp", "at": [-42, 40], "width": 18, "fade": false, "rhumb": true, "title": { "sv": "Kompassros", "en": "Compass rose", "de": "Kompassrose", "fr": "Rose des vents" }, "source": "commons-karta-brouscon-kompassros" },
+    { "id": "kompassros-indiska-oceanen", "file": "images/karta/kompassros.webp", "at": [82, -32], "width": 17, "fade": false, "rhumb": true, "title": { "sv": "Kompassros", "en": "Compass rose", "de": "Kompassrose", "fr": "Rose des vents" }, "source": "commons-karta-brouscon-kompassros" },
+    { "id": "sjoorm-stilla-havet", "file": "images/karta/sjoorm.webp", "at": [-152, 32], "width": 26, "fade": true, "title": { "sv": "Sjöorm", "en": "Sea serpent", "de": "Seeschlange", "fr": "Serpent de mer" }, "source": "commons-karta-carta-marina-sjoorm" },
+    { "id": "ziphius-sydatlanten", "file": "images/karta/ziphius.webp", "at": [-18, -34], "width": 26, "fade": true, "title": { "sv": "Ziphius", "en": "Ziphius", "de": "Ziphius", "fr": "Ziphius" }, "source": "commons-karta-carta-marina-ziphius" },
+    { "id": "havsmonster-sodra-stilla-havet", "file": "images/karta/havsmonster.webp", "at": [-120, -38], "width": 17, "fade": true, "title": { "sv": "Havsmonster och hummer", "en": "Sea monster and lobster", "de": "Seeungeheuer und Hummer", "fr": "Monstre marin et homard" }, "source": "commons-karta-carta-marina-havsmonster" }
   ]
 }
