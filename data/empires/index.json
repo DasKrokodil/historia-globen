@@ -9562,7 +9562,7 @@
     {
      "id": "kungariket-cusco",
      "name": {
-      "sv": "Kungariket Cusco",
+      "sv": "Kingdom of Cusco",
       "en": "Kingdom of Cusco"
      },
      "sources": [
@@ -9820,48 +9820,13 @@
       "cliopatria"
      ],
      "review": "source-checked"
-    },
-    {
-     "id": "chimuriket",
-     "name": {
-      "sv": "Chimúriket",
-      "en": "Chimú Empire"
-     },
-     "sources": [
-      "cliopatria"
-     ],
-     "review": "source-checked"
-    }
-   ]
-  },
-  {
-   "id": "texcoco",
-   "name": {
-    "sv": "Texcoco",
-    "en": "Texcoco"
-   },
-   "color": "#3f8f86",
-   "from": 1202,
-   "to": 1428,
-   "file": "data/empires/texcoco.json",
-   "polities": [
-    {
-     "id": "texcoco",
-     "name": {
-      "sv": "Texcoco",
-      "en": "Texcoco"
-     },
-     "sources": [
-      "cliopatria"
-     ],
-     "review": "source-checked"
     }
    ]
   },
   {
    "id": "purepecha",
    "name": {
-    "sv": "Purépechariket",
+    "sv": "Purépecha Empire",
     "en": "Purépecha Empire"
    },
    "color": "#5f7fc0",
@@ -9870,58 +9835,10 @@
    "file": "data/empires/purepecha.json",
    "polities": [
     {
-     "id": "purepechariket",
+     "id": "purepecha",
      "name": {
-      "sv": "Purépechariket",
+      "sv": "Purépecha Empire",
       "en": "Purépecha Empire"
-     },
-     "sources": [
-      "cliopatria"
-     ],
-     "review": "source-checked"
-    }
-   ]
-  },
-  {
-   "id": "teotihuacan",
-   "name": {
-    "sv": "Teotihuacán",
-    "en": "Teotihuacan"
-   },
-   "color": "#b5894a",
-   "from": -50,
-   "to": 704,
-   "file": "data/empires/teotihuacan.json",
-   "polities": [
-    {
-     "id": "teotihuacan",
-     "name": {
-      "sv": "Teotihuacán",
-      "en": "Teotihuacan"
-     },
-     "sources": [
-      "cliopatria"
-     ],
-     "review": "source-checked"
-    }
-   ]
-  },
-  {
-   "id": "toltekerna",
-   "name": {
-    "sv": "Toltekerna",
-    "en": "Toltec"
-   },
-   "color": "#7a8f3a",
-   "from": 875,
-   "to": 1187,
-   "file": "data/empires/toltekerna.json",
-   "polities": [
-    {
-     "id": "toltekerna",
-     "name": {
-      "sv": "Toltekerna",
-      "en": "Toltec"
      },
      "sources": [
       "cliopatria"

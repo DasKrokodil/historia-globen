@@ -74,8 +74,7 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # Östtimor (femtonde omgången) blir annars en triangel
              'osttimor': (0.03, 0.02, 0.005),
              # Amerika före 1429 (#556): små riken (2 000–100 000 km²) blir annars fyrhörningar
-             'chimor': (0.03, 0.02, 0.005), 'texcoco': (0.03, 0.02, 0.005), 'purepecha': (0.03, 0.02, 0.005),
-             'teotihuacan': (0.03, 0.02, 0.005), 'toltekerna': (0.03, 0.02, 0.005),
+             'chimor': (0.03, 0.02, 0.005), 'purepecha': (0.03, 0.02, 0.005), 'inkariket': (0.05, 0.02, 0.02),
              # Små stater ur Natural Earth (#722): nästan ingen förenkling, och alla öar behålls
              **{g: (0.002, 0.02, 0) for g in SMALL_STATES}}
 
@@ -210,29 +209,23 @@ GROUPS = {
     ]),
     'inkariket': ('Inkariket', 'Inca Empire', [
         # Amerika före 1429 (#556): Cliopatrias `Cuzco` är kungariket Cusco, inkarikets föregångare. Cliopatria
-        # anger staden (Q5582862); kungariket är Q2314963
-        ('Cuzco', 'kungariket-cusco', 'Kungariket Cusco', '#8a5a9e', {'en': 'Kingdom of Cusco', 'wikidata': 'Q2314963'}),
+        # anger staden (Q5582862); kungariket är Q2314963, som saknar svensk etikett och har det engelska namnet
+        ('Cuzco', 'kungariket-cusco', 'Kingdom of Cusco', '#8a5a9e', {'en': 'Kingdom of Cusco', 'wikidata': 'Q2314963'}),
         ('Inca Empire', 'inkariket', 'Inkariket', '#8a5a9e'),
     ]),
-    # Amerika före 1429 (#556, luckan ur #1388). Olmec Civilization, Zapotec Civilization, Mayan City-States,
-    # Later Mayan City-States, Classic Veracruz Culture och Puebloans är inte med: de är områden som inte är
-    # en stat och väntar på formatet i #1300 (docs/beslut/2026-11-13-omraden-som-inte-ar-stat-1300.md)
+    # Amerika före 1429 (#556, luckan ur #1388). Inte med, eftersom de inte är en stat och väntar på formatet i
+    # #1300 (docs/beslut/2026-11-13-omraden-som-inte-ar-stat-1300.md): Olmec Civilization, Zapotec Civilization,
+    # Mayan City-States, Later Mayan City-States, Classic Veracruz Culture, Puebloans, Teotihuacan (Q172613 är en
+    # forntida stad) och Toltec (Q187897 är ett folk). Texcoco väntar också: Cliopatrias ytor för Texcoco och
+    # Tenochtitlan ser ut att vara förväxlade (staden Tenochtitlan ligger 23 km från sin egen yta).
+    # Cliopatrias `Chimor` (911–1187) och `Chimu Empire` (1188–1481) är samma stat (båda Q581741) och slås ihop
     'chimor': ('Chimor', 'Chimor', [
-        ('Chimor', 'chimor', 'Chimor', '#c47a3d'),
-        ('Chimu Empire', 'chimuriket', 'Chimúriket', '#c47a3d', {'en': 'Chimú Empire'}),
+        (['Chimor', 'Chimu Empire'], 'chimor', 'Chimor', '#c47a3d', {'en': 'Chimor'}),
     ]),
-    'texcoco': ('Texcoco', 'Texcoco', [
-        ('Texcoco', 'texcoco', 'Texcoco', '#3f8f86'),
-    ]),
-    # Cliopatria anger dagens delstat Michoacán (Q79861); staten är Q2605410
-    'purepecha': ('Purépechariket', 'Purépecha Empire', [
-        ('Michoacán', 'purepechariket', 'Purépechariket', '#5f7fc0', {'en': 'Purépecha Empire', 'wikidata': 'Q2605410'}),
-    ]),
-    'teotihuacan': ('Teotihuacán', 'Teotihuacan', [
-        ('Teotihuacan', 'teotihuacan', 'Teotihuacán', '#b5894a'),
-    ]),
-    'toltekerna': ('Toltekerna', 'Toltec', [
-        ('Toltec', 'toltekerna', 'Toltekerna', '#7a8f3a'),
+    # Cliopatria anger dagens delstat Michoacán (Q79861); staten är Q2605410. Svensk etikett saknas på Wikidata,
+    # så det svenska namnet är det engelska (Wikipedias artikelnamn)
+    'purepecha': ('Purépecha Empire', 'Purépecha Empire', [
+        ('Michoacán', 'purepecha', 'Purépecha Empire', '#5f7fc0', {'en': 'Purépecha Empire', 'wikidata': 'Q2605410'}),
     ]),
     'songhairiket': ('Songhairiket', 'Songhai Empire', [
         ('Songhai Empire', 'songhairiket', 'Songhairiket', '#7fae4a'),
@@ -1690,7 +1683,7 @@ def extend(by_name, ext):
 
 # Koordinaterna avrundas till 0.1 grad, utom för små länder där gränsen annars hamnar fel (#644)
 DECIMALS = {'israel': 2, 'palestina': 2, **{g: 3 for g in SMALL_STATES},
-            'chimor': 2, 'texcoco': 2, 'purepecha': 2, 'teotihuacan': 2, 'toltekerna': 2}  # #556
+            'chimor': 2, 'purepecha': 2, 'inkariket': 2}  # #556
 
 
 def rnd(o, nd=1):
