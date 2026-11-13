@@ -4866,7 +4866,10 @@ async function run(browser, vp) {
       // 6. Under en tur erbjuds inget tidsintervall
       await tp.evaluate(() => { location.hash = '#t=tre-platser-1325'; });
       await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
-      await tp.click('#year-jump');
+      // Tidslåset (#1322): årshoppet är låst i en tur, så formuläret med intervallet kan inte ens öppnas
+      await tp.click('#year-jump', { force: true });
+      if (await tp.getAttribute('#year-jump', 'aria-disabled') !== 'true') throw new Error('årshoppet är inte låst under turen');
+      if (await shown('#jump-pop')) throw new Error('årshoppet öppnades under turen');
       if (await shown('#range-open')) throw new Error('intervallänken syns under turen');
       if (await shown('#range-pop')) throw new Error('intervallformuläret syns under turen');
       if (await shown('#range-bar')) throw new Error('ett intervall valdes under turen');
@@ -5023,7 +5026,7 @@ async function run(browser, vp) {
       // Under en tur erbjuds inte intervallet eller dess epokknappar
       await tp.evaluate(() => { location.hash = '#t=tre-platser-1325'; });
       await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
-      await tp.click('#year-jump');
+      await tp.click('#year-jump', { force: true }); // låst i en tur (#1322): formuläret kan inte öppnas
       if (await shown('#range-open') || await shown('#range-pop')) throw new Error('tidsintervallet erbjuds fortfarande under en tur');
       if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
     } finally {
