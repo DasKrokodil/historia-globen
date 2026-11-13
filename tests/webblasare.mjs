@@ -5600,7 +5600,12 @@ async function run(browser, vp) {
       const rows = await mp.evaluate(() => [...document.querySelectorAll('#tour-menu .tour-lesson-row')].filter(r => r.querySelector('.tour-lesson-meta')?.textContent.trim()).map(r => ({
         meta: r.querySelector('.tour-lesson-meta')?.textContent.trim(), tour: r.querySelector('.tour-lesson-start')?.dataset.tour,
         label: r.querySelector('.tour-lesson-start')?.getAttribute('aria-label') })));
-      if (rows.length !== 2) throw new Error(`${rows.length} lektioner märkta i menyn, väntade 2`);
+      if (rows.length !== 5) throw new Error(`${rows.length} lektioner märkta i menyn, väntade 5`);
+      // De tre turerna om rikens fall är lektioner för årskurs 7–9 (#1279)
+      for (const id of ['vastroms-fall', 'hanrikets-fall', 'songhairikets-fall']) {
+        const r = rows.find(x => x.tour === id);
+        if (!r || !/Lektion · årskurs 7–9 · \d+ min/.test(r.meta)) throw new Error(`fall-turen ${id} märks inte som lektion för årskurs 7–9: ${JSON.stringify(r)}`);
+      }
       const ww = rows.find(r => r.tour === 'andra-varldskriget');
       if (!ww || !/Lektion · årskurs 7–9 · \d+ min/.test(ww.meta) || !/Starta som lektion: /.test(ww.label)) throw new Error(`lektionen för andra världskriget märks fel: ${JSON.stringify(ww)}`);
       if (await mp.locator('#tour-menu .tour-lesson-start[data-tour="forsta-varldskriget"]').count()) throw new Error('en vanlig tur har fått knappen Starta som lektion');
@@ -5617,7 +5622,7 @@ async function run(browser, vp) {
     } finally {
       await mp.close();
     }
-    return 'två lektioner märkta (årskurs och tid), Starta som lektion ger bandet, steg 1 och 1939, m=lektion i adressen; vanliga turer utan lektionsknapp; Hur vet vi det här först och en Starta turen-knapp på varje tur (#1002)';
+    return 'fem lektioner märkta (årskurs och tid), fall-turerna för årskurs 7–9, Starta som lektion ger bandet, steg 1 och 1939, m=lektion i adressen; vanliga turer utan lektionsknapp; Hur vet vi det här först och en Starta turen-knapp på varje tur (#1002)';
   });
   // #994 och #995: raden under årtalet säger århundradet och fönstret i klartext, och det som ligger före eller efter året
   // säger hur långt ("4 år före (1912)", "21 år senare") i stället för "slut 1912"
