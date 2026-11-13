@@ -173,7 +173,7 @@ export function createRender(app) {
     if (routePop.route && !routes.active.some(a => a.route === routePop.route)) routePop.hide(); // vägen syns inte längre
     const legend = registry.legend(state);
     relLegend.update(legend.items ?? [], { areas: !!legend.areas, war: !!legend.war, fadable: registry.fadable(state).map(e => e.name), keep: !!layers.on.keep,
-      discovery: legend.discovery ?? null });
+      discovery: legend.discovery ?? null, spread: legend.spread ?? null });
     empireLegend.update(legend.empires ?? [], views?.empireLegend ?? {});
     empireLegendButton.hidden = !layers.on.areas || !(legend.empires?.length);
     if (empireLegendButton.hidden && !$('empire-legend').hidden) empireLegend.onClose();

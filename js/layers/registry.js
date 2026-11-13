@@ -34,6 +34,7 @@ export const Z = {
   borders: 30,    // dagens gränser
   places: 35,     // konturen av platsen man följer (#579)
   discovery: 40,  // upptäcktsvyns dimma, portolanlinjer och havsmonster (#101)
+  spread: 45,     // människans spridning: antagna områden och vågor i förhistorien (#1094)
   routes: 50,     // vägar och resor (#38)
   wars: 60,       // krigsområden (#27)
   events: 70,     // händelsernas sken

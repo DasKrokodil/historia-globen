@@ -4758,6 +4758,39 @@ async function run(browser, vp) {
     }
     return 'turens första år och kamera står kvar när ett gammalt fokus blir klart; vanligt fokus via adressen fungerar';
   });
+  // #1094: människans spridning. Lagret slås på med en länk i förhistorien; teckenförklaringen listar det som syns
+  // (textalternativet, #1106) med säkerhet och källor, och lagret syns inte när året ligger efter förhistorien.
+  await check('människans spridning: lagret visar tolkningar med källor i förhistorien (#1094)', async () => {
+    const tp = await context.newPage();
+    const errors = [];
+    tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    tp.on('pageerror', e => errors.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      const open = async hash => { await tp.goto(`${BASE}${hash}`); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); };
+      await open('#y=-60000&l=events,spread');
+      await tp.waitForSelector('#religion-legend .rl-spread', { state: 'attached', timeout: T.step });
+      const seen = await tp.evaluate(() => [...document.querySelectorAll('#religion-legend .rl-spread-item')].map(li => ({
+        title: li.querySelector('strong')?.textContent ?? '', sources: li.querySelectorAll('a[href]').length,
+      })));
+      if (seen.length < 3) throw new Error(`för få poster i listan år 60 000 f.Kr.: ${JSON.stringify(seen)}`);
+      const without = seen.filter(i => !i.sources);
+      if (without.length) throw new Error(`poster utan källa: ${without.map(i => i.title).join(', ')}`);
+      if (!seen.some(i => /Afrika/.test(i.title))) throw new Error('Afrika saknas i listan; kartan får inte visa Afrika som tomt');
+      await open('#y=1500&l=events,spread');
+      await tp.waitForTimeout(300);
+      if (await tp.locator('#religion-legend .rl-spread').count()) throw new Error('lagret syns år 1500, efter förhistorien');
+      if (errors.length) throw new Error(`fel i konsolen: ${errors.join(' | ')}`);
+      return `${seen.length} poster år 60 000 f.Kr., alla med källa`;
+    } finally {
+      await tp.close();
+    }
+  });
+
   // #893 (lägeskontraktet): övergångar mellan lägen. Två kedjor som saknade gemensam ordning före kontraktet:
   // 1. Fokus som börjar under en tur avslutar turen (MODE_RULES i js/state.js), och turens utgång lämnar det nya fokuset
   //    i fred i stället för att återställa fokuset från före turen.
@@ -5537,6 +5570,63 @@ async function run(browser, vp) {
       if (errs.length) fel.push(`sidfel: ${errs[0]}`);
       if (fel.length) throw new Error(fel.join('; '));
       return `inga mindre ytor eller texter i fem lägen; stängknapp i ${closed.join(', ')}`;
+    } finally { await wp.close(); }
+  });
+  // #1323: stängregistret. (1) Uppspelningen pausar när en dialog öppnas och fortsätter inte av sig själv. (2) Escape stänger årshoppet
+  // också när fokus ligger utanför det, och fokus går tillbaka till knappen. (3) En faktaruta som öppnas från Samtidigt-listan flyttar fokus
+  // till Stäng, och fokus går tillbaka till raden (eller knappen Samtidigt) när den stängs.
+  await check('stängregistret: dialog pausar uppspelningen, Escape stänger årshoppet och fokus följer faktarutan (#1323)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      await wp.goto(`${BASE}?lang=sv&ny=r${Date.now()}#y=1200`);
+      await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await wp.waitForSelector('#event-list .event-item', { state: 'attached', timeout: T.step });
+      const yearText = () => wp.textContent('#year-big');
+      // (1) Spela, öppna Källor (knappen ligger i Mer/Meny): uppspelningen står still och fortsätter inte
+      const y0 = await yearText();
+      await wp.click('#btn-play');
+      await wp.waitForFunction(y => document.getElementById('year-big').textContent !== y, y0, { timeout: 8000 }); // uppspelningen går
+      await wp.evaluate(() => document.getElementById('btn-sources').click());
+      await wp.waitForSelector('#sources-dialog:not([hidden])', { timeout: T.step });
+      await wp.waitForTimeout(300);
+      const t0 = await yearText();
+      await wp.waitForTimeout(1500);
+      const t1 = await yearText();
+      if (t0 !== t1) throw new Error(`uppspelningen fortsatte bakom Källor: ${t0} → ${t1}`);
+      await wp.keyboard.press('Escape');
+      await wp.waitForSelector('#sources-dialog', { state: 'hidden', timeout: T.step });
+      // (2) Escape stänger årshoppet när fokus ligger utanför det
+      await wp.click('#year-jump');
+      await wp.waitForSelector('#jump-pop:not([hidden])', { timeout: T.step });
+      await wp.evaluate(() => document.activeElement?.blur());
+      await wp.keyboard.press('Escape');
+      await wp.waitForSelector('#jump-pop', { state: 'hidden', timeout: T.step });
+      const back = await wp.evaluate(() => document.activeElement?.id);
+      if (back !== 'year-jump') throw new Error(`fokus gick inte tillbaka till årshoppets knapp efter Escape: ${back}`);
+      // (3) Faktarutan från listan
+      if (await wp.locator('#panel').isHidden()) await wp.click('#btn-panel');
+      await wp.waitForSelector('#event-list .event-btn', { timeout: T.step });
+      const row = wp.locator('#event-list .event-btn').first();
+      const id = await row.getAttribute('data-id');
+      await row.focus();
+      await wp.keyboard.press('Enter');
+      await wp.waitForSelector('#detail:not([hidden])', { timeout: T.step });
+      const inClose = await wp.evaluate(() => document.activeElement?.matches('#detail [data-close]'));
+      if (!inClose) throw new Error(`fokus gick inte till Stäng när faktarutan öppnades från listan: ${await wp.evaluate(() => document.activeElement?.id || document.activeElement?.tagName)}`);
+      await wp.click('#detail [data-close]');
+      await wp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      await wp.waitForFunction(() => document.activeElement && document.activeElement !== document.body, null, { timeout: 3000 });
+      const where = await wp.evaluate(() => ({ id: document.activeElement.id, data: document.activeElement.dataset?.id ?? null }));
+      if (where.id !== 'btn-panel' && where.data !== id) throw new Error(`fokus gick inte tillbaka till raden eller Samtidigt-knappen: ${JSON.stringify(where)}`);
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `pausad bakom Källor (${t0}), Escape stänger årshoppet, fokus tillbaka till ${where.id || 'raden'}`;
     } finally { await wp.close(); }
   });
   // #1134: raden under årtalet radbryts i smal skärm i stället för att klippas med ellips. Längsta texten styr: alla
