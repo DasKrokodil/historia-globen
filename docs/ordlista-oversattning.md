@@ -6,7 +6,7 @@ Beslutet om tilltal står i [docs/beslut/2026-11-07-artigt-tilltal.md](beslut/20
 
 ## 1. Tilltal (beslut Rikard 2026-11-07, preciserat 2026-11-08)
 
-**Undantag sedan 2026-11-08:** texter för elever upp till 13 år (Samtidighetsjakten, lektion 2 åk 4–6 och uppdragstexterna) har du-form i alla språk (`du`, `tú`, `tu`). Texter för äldre elever (lektion 1 åk 7–9) och för vuxna läsare har artigt tilltal enligt tabellen. Se [beslutet](beslut/2026-11-08-tilltal-efter-alder.md).
+**Undantag sedan 2026-11-08:** texter för elever upp till 13 år (Samtidighetsjakten, lektion 2 åk 4–6, uppdragstexterna och källkritikturen "Hur vet vi det här?" för cirka 12–13 år, [beslut 938](beslut/2026-11-08-tur-kallkritik-938.md) punkt 2) har du-form i alla språk (`du`, `tú`, `tu`). Texter för äldre elever (lektion 1 åk 7–9) och för vuxna läsare har artigt tilltal enligt tabellen. Se [beslutet](beslut/2026-11-08-tilltal-efter-alder.md).
 
 Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 
@@ -22,7 +22,7 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 - Uppmaningar skrivs i imperativ för `usted` (spanska: `arrastre`, `elija`, `toque`, `pulse`) och `vous` (franska: `faites glisser`, `choisissez`, `cliquez`).
 - Texter som inte tilltalar läsaren (händelser, fakta) skrivs opersonligt, som svenskan.
 
-**Rättat (#839, 2026-11-13):** de sista spanska gränssnittstexterna med `tú` (bland annat `meta.title`, `help.s1`, `ff.dragHint` och `search.hint`) har `usted`. Tyskan rättades i #857, och franskan har inget informellt tilltal utanför Samtidighetsjakten. Kvar med du-form är bara texter för Samtidighetsjakten (`hunt.*`, `theme.huntImpossible`), enligt undantaget ovan.
+**Rättat (#839, 2026-11-13):** de sista spanska gränssnittstexterna med `tú` (bland annat `meta.title`, `help.s1`, `ff.dragHint` och `search.hint`) har `usted`. Tyskan rättades i #857, och franskan har inget informellt tilltal utanför Samtidighetsjakten. Kvar med du-form i gränssnittet är bara texter för Samtidighetsjakten (`hunt.*`, `theme.huntImpossible`), enligt undantaget ovan. I innehållet har lektion 2, uppdragen och turen `hur-vet-vi-det-har` du-form; turen fick av misstag artigt tilltal i #839 och återställdes 2026-11-13 efter expertgranskningen och DasKrokodils beslut.
 
 ## 2. Tidsangivelser
 
