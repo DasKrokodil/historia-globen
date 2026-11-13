@@ -135,6 +135,53 @@ const ABORTED_FETCH = /^(TypeError: (Load failed|NetworkError when attempting to
 // hämtas av annat skäl (en annan status) fäller kontrollen som förut.
 const ABORTED_FONT = /^\[JavaScript Error: "downloadable font: download failed \(font-family: "[^"]+" style:\w+ weight:\d+ width:\d+ src index:\d+\): status=2152398850 source: https:\/\/fonts\.(gstatic|googleapis)\.com\/[^"\s]+"\]$/;
 
+// Avbrutna hämtningar under ett sidbyte (#1393, skärper beslutet 2026-11-08 om #888, punkt 2). WebKit skriver ett sidfel
+// "… <adress> due to access control checks." när en hämtning avbryts för att sidan byts eller laddas om. Ett sidfel räknas
+// bort bara när alla fyra gäller: (1) det kom medan just den sidan bytte sida eller laddades om, (2) texten är exakt WebKits
+// rad, (3) adressen hör till den egna webbplatsen (samma värd som BASE) och (4) samma adress också syns som en avbruten
+// begäran (requestfailed). Det fjärde avgörs i settle() när kontrollen är klar, eftersom ordningen mellan händelserna
+// varierar. Ett 404, ett fel utanför ett sidbyte och ett fel från en annan webbplats fäller fortfarande kontrollen, och
+// antalet bortfiltrerade fel står i kontrollens OK-rad.
+const WEBKIT_ABORT = /^(?:(?:Fetch API|XMLHttpRequest) cannot load |Cannot load )?(\S+) due to access control checks\.?$/;
+const SITE_HOST = new URL(BASE).host;
+// "http://localhost:8000/a.json", "//localhost:8000/a.json" och "/localhost:8000/a.json" ger samma nyckel
+const urlKey = text => {
+  const m = String(text ?? '').match(/^(?:https?:)?\/{0,2}([^/\s?#]+)(\/[^\s?#]*)?/);
+  return m ? { host: m[1], key: `${m[1]}${m[2] ?? '/'}` } : null;
+};
+let abortedFiltered = 0; // per kontroll, skrivs i OK-raden av check()
+function abortWatch(p) {
+  let navigating = 0;
+  const candidates = [], aborted = new Set();
+  p.on('requestfailed', r => {
+    if (!/cancel|abort/i.test(r.failure()?.errorText ?? '')) return;
+    const k = urlKey(r.url());
+    if (k) aborted.add(k.key);
+  });
+  const nav = async go => { navigating++; try { return await go(); } finally { navigating--; } };
+  return {
+    nav,
+    goto: (url, opts) => nav(() => p.goto(url, opts)),
+    reload: opts => nav(() => p.reload(opts)),
+    /** true om sidfelet kan vara en avbruten hämtning och väntar på settle(); false om det räknas som fel direkt. */
+    defer(message, navigatingNow = navigating > 0) {
+      if (!navigatingNow) return false;
+      const m = String(message ?? '').match(WEBKIT_ABORT);
+      const k = m && urlKey(m[1]);
+      if (!k || k.host !== SITE_HOST) return false;
+      candidates.push({ key: k.key, message });
+      return true;
+    },
+    /** Sidfelen som ändå är riktiga fel (ingen avbruten begäran för samma adress). Räknar de bortfiltrerade. */
+    settle() {
+      const real = candidates.filter(c => !aborted.has(c.key)).map(c => c.message);
+      abortedFiltered += candidates.length - real.length;
+      candidates.length = 0;
+      return real;
+    },
+  };
+}
+
 // Konsolmeddelanden (#888): när console.error får ett objekt (till exempel ett Error) ger Firefox texten
 // "JSHandle@object" i m.text(), och loggen visade bara det. Texten sparas först som förut, och när meddelandet
 // innehåller ett handtag byts den ut mot en läsbar rad: felets namn och meddelande, eller objektet som JSON.
@@ -210,12 +257,14 @@ async function run(browser, vp) {
   // failed"); det är omladdningen,
   // inte ett fel på sidan. Bara avbrutna hämtningar under omladdningen räknas bort (v5.0.0).
   let reloading = false;
-  const cancelled = text => /cancel|abort|access control checks/i.test(text ?? '');
+  // Bara för avbrutna begäranden (requestfailed) under omladdningen; sidfel går genom abortWatch (#1393)
+  const cancelled = text => /cancel|abort/i.test(text ?? '');
+  const pageWatch = abortWatch(page);
   // "ResizeObserver loop completed with undelivered notifications" är enligt specifikationen ett ofarligt meddelande
   // om att en storleksändring skickas i nästa bildruta; WebKit rapporterar det som sidfel. Bara exakt det räknas bort.
   const benign = msg => /^ResizeObserver loop completed with undelivered notifications\.?$/.test(msg ?? '');
   page.on('pageerror', e => {
-    if (benign(e.message) || (reloading && cancelled(e.message))) return;
+    if (benign(e.message) || pageWatch.defer(e.message, reloading)) return;
     errors.push(`sidfel: ${e.message}`);
   });
   page.on('requestfailed', r => {
@@ -245,10 +294,12 @@ async function run(browser, vp) {
     if (!wanted(name)) { skipped++; return; }
     if (!ALLTID.includes(name)) matched++;
     currentCheck = name;
+    abortedFiltered = 0;
     const t0 = Date.now();
     try {
       const note = await fn();
-      results.push({ name, ok: true, ms: Date.now() - t0, note });
+      const filtered = abortedFiltered ? `${abortedFiltered} avbrutna hämtningar under sidbyte bortfiltrerade (#1393)` : null;
+      results.push({ name, ok: true, ms: Date.now() - t0, note: [note, filtered].filter(Boolean).join(' · ') || undefined });
     } catch (e) {
       // Läget i sidan när kontrollen föll (#702): vilket element som har fokus och vilka paneler som är öppna
       const state = await page.evaluate(ids => {
@@ -848,21 +899,23 @@ async function run(browser, vp) {
   // #996: engångstipset vid tidslinjen syns vid första besöket, försvinner efter första klicket i tidslinjen och kommer inte tillbaka
   await check('engångstipset vid tidslinjen försvinner efter första draget och kommer inte tillbaka (#996)', async () => {
     const fresh = await context.newPage();
+    const freshAw = abortWatch(fresh); // avbrutna hämtningar under sidbyte (#1393)
     const errs = [];
     // WebKit skriver en avbruten hämtning som sidfel ("… due to access control checks"): samma regel som i resten av testet (#996)
-    fresh.on('pageerror', e => { if (!cancelled(e.message)) errs.push(e.message); });
+    fresh.on('pageerror', e => { if (!freshAw.defer(e.message)) errs.push(e.message); });
     try {
-      await fresh.goto(BASE);
+      await freshAw.goto(BASE);
       await fresh.evaluate(() => { try { localStorage.removeItem('hg-year-tip'); } catch { /* */ } });
-      await fresh.reload();
+      await freshAw.reload();
       await fresh.waitForSelector('#year-tip', { state: 'visible', timeout: T.step });
       if (!/\S/.test(await fresh.textContent('#year-tip span'))) throw new Error('tipset är tomt');
       await fresh.locator('#track').click({ timeout: T.step });
       await fresh.waitForSelector('#year-tip', { state: 'hidden', timeout: T.step });
-      await fresh.reload();
+      await freshAw.reload();
       await fresh.waitForSelector('#track', { timeout: T.step });
       await fresh.waitForTimeout(400);
       if (await fresh.isVisible('#year-tip')) throw new Error('tipset kom tillbaka efter omladdning');
+      errs.push(...freshAw.settle());
       if (errs.length) throw new Error(errs.join('; '));
     } finally { await fresh.close(); }
     return 'syns första gången, försvinner efter klicket i tidslinjen, kommer inte tillbaka';
@@ -872,15 +925,16 @@ async function run(browser, vp) {
   // Samtidigt-kortet (mobil) och fokusraden låg över dem. Nu ligger det över tidsradens nedersta rad och tar ingen höjd.
   await check('engångstipset ändrar inte tidsradens läge, täcker inte kortet eller fokusraden och syns inte i tur eller Fokus (#1302)', async () => {
     const fresh = await context.newPage();
+    const freshAw = abortWatch(fresh); // avbrutna hämtningar under sidbyte (#1393)
     const errs = [];
-    fresh.on('pageerror', e => { if (!cancelled(e.message)) errs.push(e.message); });
+    fresh.on('pageerror', e => { if (!freshAw.defer(e.message)) errs.push(e.message); });
     let n = 0;
     const open = async hash => {
       const url = `${BASE}?ny=tip1302-${Date.now()}-${n++}`;
-      await fresh.goto(url);
+      await freshAw.goto(url);
       await fresh.evaluate(() => { try { localStorage.removeItem('hg-year-tip'); } catch { /* */ } });
-      await fresh.goto(`${url}${hash}`);
-      await fresh.reload();
+      await freshAw.goto(`${url}${hash}`);
+      await freshAw.reload();
       await fresh.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
     };
     const geo = () => fresh.evaluate(() => {
@@ -918,6 +972,7 @@ async function run(browser, vp) {
       await open('#t=forsta-varldskriget');
       await fresh.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
       if (await fresh.isVisible('#year-tip')) throw new Error('tipset syns i en tur');
+      errs.push(...freshAw.settle());
       if (errs.length) throw new Error(errs.join('; '));
       return `tidsraden ligger still (${Math.round(withTip.controls.top)} px), kortet slutar vid ${Math.round(withTip.card.bottom)}, tipset ${Math.round(withTip.tip.top)}–${Math.round(withTip.tip.bottom)}; inget tips i Fokus eller tur`;
     } finally { await fresh.close(); }
@@ -1214,8 +1269,9 @@ async function run(browser, vp) {
   // #884: en bild som svarar 404 ska ge en kort rad i faktarutan, inte en tom bildyta som ser trasig ut.
   await check('en bild som inte laddas ersätts av en rad i faktarutan (#884)', async () => {
     const ip = await context.newPage();
+    const ipAw = abortWatch(ip); // avbrutna hämtningar under sidbyte (#1393)
     const errs = [];
-    ip.on('pageerror', e => errs.push(e.message));
+    ip.on('pageerror', e => { if (!ipAw.defer(e.message)) errs.push(e.message); });
     try {
       if (THREE_LOCAL) {
         const body = fs.readFileSync(THREE_LOCAL, 'utf8');
@@ -1226,7 +1282,7 @@ async function run(browser, vp) {
       await ip.route(u => /images\/events\/slaget-vid-stalingrad\.webp/.test(u.href), r => (broken ? r.fulfill({ status: 404, body: '' }) : r.continue()));
       let loads = 0;
       const openEvent = async (year, id) => {
-        await ip.goto(`${BASE}?ny=22${loads++}#y=${year}`); // ny sida varje gång, så att adressen inte bara byter fragment
+        await ipAw.goto(`${BASE}?ny=22${loads++}#y=${year}`); // ny sida varje gång, så att adressen inte bara byter fragment
         await ip.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         if (await ip.isHidden('#panel')) await ip.click('#btn-panel');
         await ip.locator(`#event-list .event-btn[data-id="${id}"]`).first().click({ timeout: T.step });
@@ -1258,6 +1314,7 @@ async function run(browser, vp) {
       await ip.waitForSelector('#detail .detail-fig img', { state: 'visible', timeout: T.step });
       await ip.waitForFunction(() => { const i = document.querySelector('#detail .detail-fig img'); return i && i.complete && i.naturalWidth > 0; }, null, { timeout: T.step });
       if (await ip.locator('#detail .detail-fig.is-missing').count()) throw new Error('en bild som laddas märktes som saknad');
+      errs.push(...ipAw.settle());
       if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
       return `404 ger raden "${got.note}" (figuren ${got.height} px, bildtexten kvar); en bild som laddas visas som förut`;
     } finally {
@@ -4330,9 +4387,10 @@ async function run(browser, vp) {
   // platsen också efter att den vanliga startflygningen har körts (#1056).
   await check('en kort kameradress stannar på begärd plats', async () => {
     const cameraPage = await context.newPage();
+    const cameraPageAw = abortWatch(cameraPage); // avbrutna hämtningar under sidbyte (#1393)
     const cameraErrors = [];
-    cameraPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url) && !cancelled(m.text())) pushConsole(cameraErrors, m); });
-    cameraPage.on('pageerror', e => { if (!cancelled(e.message)) cameraErrors.push(e.message); });
+    cameraPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url) && !/cancel|abort|access control checks/i.test(m.text())) pushConsole(cameraErrors, m); }); // konsolen som förut; sidfelen går genom abortWatch (#1393)
+    cameraPage.on('pageerror', e => { if (!cameraPageAw.defer(e.message)) cameraErrors.push(e.message); });
     await cameraPage.addInitScript(() => {
       window.__hgCameraFlights = [];
       document.addEventListener('hg:globe-flight', event => window.__hgCameraFlights.push(event.detail), true);
@@ -4349,7 +4407,7 @@ async function run(browser, vp) {
         { name: 'Nya Zeeland', c: '-41,174,3.2' },
       ];
       for (const target of targets) {
-        await cameraPage.goto(`${BASE}?c=${encodeURIComponent(target.c)}`, { waitUntil: 'domcontentloaded', timeout: T.load });
+        await cameraPageAw.goto(`${BASE}?c=${encodeURIComponent(target.c)}`, { waitUntil: 'domcontentloaded', timeout: T.load });
         await cameraPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         const expected = target.c.split(',').map(Number);
         await cameraPage.waitForFunction(({ lat, lon, zoom }) => window.__hgCameraFlights.some(f => {
@@ -4364,6 +4422,7 @@ async function run(browser, vp) {
         }
         await cameraPage.evaluate(() => { window.__hgCameraFlights = []; });
       }
+      cameraErrors.push(...cameraPageAw.settle());
       if (cameraErrors.length) throw new Error(`kameralänken gav konsolfel: ${cameraErrors.join('; ')}`);
     } finally {
       await cameraPage.close();
@@ -4435,7 +4494,8 @@ async function run(browser, vp) {
       if (navigating && ABORTED_FETCH.test(m.text())) return;
       pushConsole(lessonErrors, m);
     });
-    lessonPage.on('pageerror', e => { if (!(navigating && cancelled(e.message))) lessonErrors.push(e.message); }); // avbruten hämtning under navigering (#888)
+    const lessonAw = abortWatch(lessonPage);
+    lessonPage.on('pageerror', e => { if (!lessonAw.defer(e.message, navigating)) lessonErrors.push(e.message); }); // avbruten hämtning under navigering (#888, #1393)
     const lp = sel => lessonPage.locator(sel);
     let slowEmpires = false;
     const EMPIRE_DELAY = 2500;
@@ -4649,6 +4709,7 @@ async function run(browser, vp) {
       await nav(() => lessonPage.goBack());
       await lessonPage.waitForSelector('#hunt:not([hidden])', { state: 'attached', timeout: T.step });
       if (await lessonPage.isVisible('#lesson-band')) throw new Error('Bakåt lämnade bandet kvar');
+      lessonErrors.push(...lessonAw.settle());
       if (lessonErrors.length) throw new Error(`lektionsläget gav konsolfel: ${lessonErrors.join('; ')}`);
     } finally {
       await lessonPage.close();
@@ -4718,7 +4779,8 @@ async function run(browser, vp) {
     });
     // WebKit skriver en avbruten hämtning som sidfel ("Fetch API cannot load … due to access control checks"): samma regel som
     // i huvudhanteraren, bara medan sidan navigerar (#888)
-    tp.on('pageerror', e => { if (!(navigating && cancelled(e.message))) errors.push(e.message); });
+    const tpAw = abortWatch(tp);
+    tp.on('pageerror', e => { if (!tpAw.defer(e.message, navigating)) errors.push(e.message); }); // #1393
     let slow = false;
     const DELAY = 2500;
     const yearOf = () => tp.textContent('#year-big').then(x => x.trim());
@@ -4755,6 +4817,7 @@ async function run(browser, vp) {
       // Regression: ett vanligt fokus via adressen och Bakåt/Framåt fungerar som förut
       await open(`${BASE}?ny=13#y=1942&f=war:andra-varldskriget`);
       await tp.waitForSelector('#focus-bar:not([hidden])', { state: 'attached', timeout: T.load });
+      errors.push(...tpAw.settle());
       if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
     } finally {
       await tp.close();
@@ -5329,8 +5392,9 @@ async function run(browser, vp) {
   // säger hur långt ("4 år före (1912)", "21 år senare") i stället för "slut 1912"
   await check('tidsfönstret i vardagsspråk och riktning i tid på etiketter och i listan (#994, #995)', async () => {
     const wp = await context.newPage();
+    const wpAw = abortWatch(wp); // avbrutna hämtningar under sidbyte (#1393)
     const errs = [];
-    wp.on('pageerror', e => errs.push(e.message));
+    wp.on('pageerror', e => { if (!wpAw.defer(e.message)) errs.push(e.message); });
     try {
       if (THREE_LOCAL) {
         const body = fs.readFileSync(THREE_LOCAL, 'utf8');
@@ -5339,7 +5403,7 @@ async function run(browser, vp) {
       }
       let loads = 0;
       const open = async hash => {
-        await wp.goto(`${BASE}?ny=w${loads++}${hash}`);
+        await wpAw.goto(`${BASE}?ny=w${loads++}${hash}`);
         await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await wp.waitForSelector('#event-list .event-item', { state: 'attached', timeout: T.step });
       };
@@ -5380,6 +5444,7 @@ async function run(browser, vp) {
       rows.push(await want('#y=1914&f=war:forsta-varldskriget', /^Följer .+ · visar \d+ (år|dagar?) före och efter$/));
       // Yngre läsare (#1191): lektion 2 för åk 4–6 skriver fönstret i ord i stället för med "±"
       rows.push(await want('#t=vikingatiden-och-varlden&m=lektion', /^\d+-talet · även \d+ år före och efter$/));
+      errs.push(...wpAw.settle());
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return `${rows[0]} | ${rows[2]} | 1916: ${before ?? '(ingen Titanic-etikett)'}`;
     } finally { await wp.close(); }
@@ -5388,8 +5453,9 @@ async function run(browser, vp) {
   // "Samtidigt" hittar den. Svenska och engelska (där knappen heter något annat) körs i samma bredd som jobbet.
   await check('Samtidigt-knappens tillgängliga namn börjar med den synliga texten (#1387)', async () => {
     const wp = await context.newPage();
+    const wpAw = abortWatch(wp); // avbrutna hämtningar under sidbyte (#1393)
     const errs = [];
-    wp.on('pageerror', e => errs.push(e.message));
+    wp.on('pageerror', e => { if (!wpAw.defer(e.message)) errs.push(e.message); });
     try {
       if (THREE_LOCAL) {
         const body = fs.readFileSync(THREE_LOCAL, 'utf8');
@@ -5399,7 +5465,7 @@ async function run(browser, vp) {
       const out = [];
       let loads = 0;
       for (const lang of ['sv', 'en']) {
-        await wp.goto(`${BASE}?lang=${lang}&ny=n${loads++}#y=1325`);
+        await wpAw.goto(`${BASE}?lang=${lang}&ny=n${loads++}#y=1325`);
         await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await wp.waitForSelector('#event-list .event-item', { state: 'attached', timeout: T.step });
         const m = await wp.evaluate(() => {
@@ -5412,6 +5478,7 @@ async function run(browser, vp) {
         if (!/\d/.test(m.name)) throw new Error(`${lang}: namnet "${m.name}" har tappat antalet träffar`);
         out.push(m.name);
       }
+      errs.push(...wpAw.settle());
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return out.join(' | ');
     } finally { await wp.close(); }
@@ -5637,8 +5704,9 @@ async function run(browser, vp) {
   await check('raden under årtalet ryms på 400 px på fem språk (#1134)', async () => {
     if (vp.width > 760) return 'körs i mobiljobbet';
     const sp = await context.newPage();
+    const spAw = abortWatch(sp); // avbrutna hämtningar under sidbyte (#1393)
     const errs = [];
-    sp.on('pageerror', e => errs.push(e.message));
+    sp.on('pageerror', e => { if (!spAw.defer(e.message)) errs.push(e.message); });
     try {
       if (THREE_LOCAL) {
         const body = fs.readFileSync(THREE_LOCAL, 'utf8');
@@ -5650,7 +5718,7 @@ async function run(browser, vp) {
       const out = [];
       for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
         for (const hash of ['#y=1900', '#y=-2600']) {
-          await sp.goto(`${BASE}?lang=${lang}&ny=s${loads++}${hash}`);
+          await spAw.goto(`${BASE}?lang=${lang}&ny=s${loads++}${hash}`);
           await sp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
           const m = await sp.evaluate(() => {
             const e = document.getElementById('year-segment');
@@ -5666,10 +5734,11 @@ async function run(browser, vp) {
         }
       }
       // Intervallet har en kort rad men ska också ryms
-      await sp.goto(`${BASE}?ny=s${loads++}#y=1900&y2=1950`);
+      await spAw.goto(`${BASE}?ny=s${loads++}#y=1900&y2=1950`);
       await sp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       const r = await sp.evaluate(() => { const e = document.getElementById('year-segment'); return { sw: e.scrollWidth, cw: e.clientWidth }; });
       if (r.sw > r.cw) throw new Error(`intervallet: raden klipps (${r.sw} > ${r.cw})`);
+      errs.push(...spAw.settle());
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return out.join(', ');
     } finally { await sp.close(); }
@@ -5677,8 +5746,9 @@ async function run(browser, vp) {
   // #1138: tillgänglighet. Mäts i den bredd jobbet kör (400 × 800 eller 1400 × 900) på en egen sida med ren lagring.
   await check('tillgänglighet: namn, fokus, träffytor, aria-invalid och tipset (#1138)', async () => {
     const ap = await context.newPage();
+    const apAw = abortWatch(ap); // avbrutna hämtningar under sidbyte (#1393)
     const errs = [];
-    ap.on('pageerror', e => { if (!cancelled(e.message)) errs.push(e.message); });
+    ap.on('pageerror', e => { if (!apAw.defer(e.message)) errs.push(e.message); });
     const notes = [];
     try {
       if (THREE_LOCAL) {
@@ -5686,10 +5756,10 @@ async function run(browser, vp) {
         await ap.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
         await ap.route(u => isFont(u.href), r => r.abort());
       }
-      await ap.goto(`${BASE}?ny=a11y#y=-2600`);
+      await apAw.goto(`${BASE}?ny=a11y#y=-2600`);
       await ap.evaluate(() => { try { localStorage.removeItem('hg-year-tip'); } catch { /* */ } });
-      await ap.goto(`${BASE}?ny=a11y2#y=-2600`);
-      await ap.reload();
+      await apAw.goto(`${BASE}?ny=a11y2#y=-2600`);
+      await apAw.reload();
       await ap.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       // 5. Tipset överlappar inte teckenförklaringen: antingen står det under raden eller så är raden dold medan tipset visas (smal skärm)
       await ap.waitForSelector('#year-tip:not([hidden])', { timeout: T.step });
@@ -5754,6 +5824,7 @@ async function run(browser, vp) {
       // Kortet läses inte upp igen när rutan stängs: statusraden är oförändrad
       const after = await ap.evaluate(() => document.getElementById('screen-reader-status').textContent);
       if (after !== said.status) throw new Error(`statusraden ändrades när faktarutan stängdes: "${after}" mot "${said.status}"`);
+      errs.push(...apAw.settle());
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return notes.join('; ');
     } finally { await ap.close(); }
@@ -6375,6 +6446,7 @@ async function run(browser, vp) {
     return `engelska: ${label}`;
   });
 
+  for (const m of pageWatch.settle()) errors.push(`sidfel: ${m}`);
   results.push({ name: 'inga fel i konsolen', ok: errors.length === 0, ms: 0, note: errors.slice(0, 10).join(' | ') || undefined });
   await context.close();
   return results;
