@@ -4907,7 +4907,7 @@ async function run(browser, vp) {
       await open('#y=-60000&l=events,spread');
       await tp.waitForSelector('#religion-legend .rl-spread', { state: 'attached', timeout: T.step });
       const seen = await tp.evaluate(() => [...document.querySelectorAll('#religion-legend .rl-spread-item')].map(li => ({
-        title: li.querySelector('strong')?.textContent ?? '', sources: li.querySelectorAll('a[href]').length,
+        title: li.querySelector('.rl-spread-head')?.textContent ?? '', sources: li.querySelectorAll('a[href]').length,
       })));
       if (seen.length < 3) throw new Error(`för få poster i listan år 60 000 f.Kr.: ${JSON.stringify(seen)}`);
       const without = seen.filter(i => !i.sources);
@@ -4918,6 +4918,52 @@ async function run(browser, vp) {
       if (await tp.locator('#religion-legend .rl-spread').count()) throw new Error('lagret syns år 1500, efter förhistorien');
       if (errors.length) throw new Error(`fel i konsolen: ${errors.join(' | ')}`);
       return `${seen.length} poster år 60 000 f.Kr., alla med källa`;
+    } finally {
+      await tp.close();
+    }
+  });
+
+  // #1417: teckenförklaringens lista är kartans textalternativ. Varje post har en rubrik, så att en skärmläsare kan hoppa
+  // mellan dem, och källänkarna har minst 24 × 24 px träffyta.
+  await check('människans spridning: rubrik per post och källänkar på minst 24 × 24 px (#1417)', async () => {
+    const tp = await context.newPage();
+    const tpAw = abortWatch(tp);
+    const errors = [];
+    tp.on('pageerror', e => { if (!tpAw.defer(e.message)) errors.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      await tpAw.goto(`${BASE}?ny=1417#y=-60000&l=events,spread`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#religion-legend .rl-spread', { state: 'attached', timeout: T.step });
+      // Listan kan vara hopfälld (smal skärm, eller för lite plats): fäll ut den för att kunna mäta länkarna
+      if (await tp.getAttribute('#religion-legend .rl-toggle', 'aria-expanded') !== 'true') await tp.click('#religion-legend .rl-toggle');
+      await tp.waitForSelector('#religion-legend .rl-spread-src', { state: 'visible', timeout: T.step });
+      const got = await tp.evaluate(() => {
+        const items = [...document.querySelectorAll('#religion-legend .rl-spread-item')];
+        const heads = items.map(li => li.querySelector('h1, h2, h3, h4, h5, h6'));
+        const links = [...document.querySelectorAll('#religion-legend .rl-spread-src')].map(a => {
+          const r = a.getBoundingClientRect();
+          return { w: Math.round(r.width * 10) / 10, h: Math.round(r.height * 10) / 10, name: a.textContent.trim() };
+        });
+        return {
+          items: items.length, missing: heads.filter(h => !h || !h.textContent.trim()).length,
+          levels: [...new Set(heads.filter(Boolean).map(h => h.tagName))], links,
+          inP: !!document.querySelector('#religion-legend p h3'),
+        };
+      });
+      if (!got.items) throw new Error('listan är tom år 60 000 f.Kr.');
+      if (got.missing) throw new Error(`${got.missing} av ${got.items} poster saknar rubrik`);
+      if (got.levels.length !== 1 || got.levels[0] !== 'H3') throw new Error(`rubrikerna ska vara h3: ${got.levels.join(', ')}`);
+      if (got.inP) throw new Error('en rubrik ligger i ett stycke (<p>), vilket inte är giltig HTML');
+      const small = got.links.filter(l => l.w < 24 || l.h < 24);
+      if (!got.links.length) throw new Error('inga källänkar');
+      if (small.length) throw new Error(`källänkar mindre än 24 × 24 px: ${JSON.stringify(small.slice(0, 3))}`);
+      errors.push(...tpAw.settle());
+      if (errors.length) throw new Error(`sidfel: ${errors[0]}`);
+      return `${got.items} poster med h3, ${got.links.length} källänkar på minst 24 × 24 px`;
     } finally {
       await tp.close();
     }
