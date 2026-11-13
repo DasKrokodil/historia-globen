@@ -172,7 +172,10 @@ export class Timeline extends EventTarget {
       const r = track.getBoundingClientRect();
       this.setByUser(this.toYear((x - r.left) / r.width));
     };
-    track.addEventListener('pointerdown', e => { if (this.locked) return; track.setPointerCapture(e.pointerId); this.pause(); setFromX(e.clientX); });
+    track.addEventListener('pointerdown', e => { if (this.locked) return; track.setPointerCapture(e.pointerId); this._held = true; this.pause(); setFromX(e.clientX); });
+    for (const ev of ['pointerup', 'pointercancel', 'lostpointercapture']) track.addEventListener(ev, () => { this._held = false; });
+    // Tangentbordet (#1313): reglaget som får fokus visar skalan vid året, så att den som aldrig drar också ser den
+    track.addEventListener('focus', () => { if (!this.locked && !this.focus && !this.range) this._showScale(segFor(this._year)); });
     track.addEventListener('pointermove', e => { if (track.hasPointerCapture(e.pointerId)) setFromX(e.clientX); });
     track.addEventListener('keydown', e => {
       if (this.locked) return;
@@ -224,7 +227,7 @@ export class Timeline extends EventTarget {
     el.textContent = scaleText(this._year, this._scaleFrom);
     el.hidden = false;
     clearTimeout(this._scaleTimer);
-    this._scaleTimer = setTimeout(() => this._hideScale(), SCALE_NOTE_MS);
+    this._scaleTimer = setTimeout(() => (this._held ? this._showScale(segFor(this._year)) : this._hideScale()), SCALE_NOTE_MS); // ligger fingret kvar står raden kvar
   }
   _hideScale() { clearTimeout(this._scaleTimer); this._scaleFrom = null; if (this.scaleNoteEl) this.scaleNoteEl.hidden = true; }
   /** Beskedet om ny upplösning sedan senast, eller tom text. Läses en gång. */

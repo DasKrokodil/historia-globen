@@ -1110,7 +1110,7 @@ html.calm .year-tip { animation: none; }
 .tl-diamond { width: 8px; height: 8px; transform: rotate(45deg); border-radius: 1px; }
 .tl-bar { width: 3px; height: 12px; border-radius: 2px; }
 .app.lesson .timeline-legend { display: none; }
-.timeline-scale-note { display: flex; align-items: center; height: 14px; margin: 0 0 -14px; white-space: nowrap; overflow: hidden; font: 400 11px/14px var(--f-mono); color: var(--brass-light, var(--brass)); }
+.timeline-scale-note { display: flex; align-items: center; height: 14px; margin: 0 0 -14px; white-space: nowrap; overflow: hidden; font: 400 11px/14px var(--f-mono); color: var(--brass); }
 .timeline-scale-note[hidden] { display: none; }
 .timeline-scale-note:not([hidden]) + .timeline-legend { visibility: hidden; } /* samma lucka: teckenförklaringen tonas ned medan skalraden syns, som vid engångstipset */
 .app.lesson .timeline-scale-note, .app.touring .timeline-scale-note, .app.focusing .timeline-scale-note { display: none; }
