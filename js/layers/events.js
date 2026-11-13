@@ -227,7 +227,7 @@ export function entry({ globe, data }) {
   return {
     id: 'events', name: ui('layer.events'), group: 'people', menu: { on: true, note: ui('layer.eventsNote') }, layer, z: Z.events,
     enabled: s => s.layers.events,
-    update: s => layer.update({ year: s.year, window: s.window, filters: s.layers.events ? s.filters : none,
+    update: s => layer.update({ year: s.year, window: s.window, windowBefore: s.windowBefore, windowAfter: s.windowAfter, filters: s.layers.events ? s.filters : none,
       selectedId: s.selectedId, highlight: s.highlight, focusId: s.focusWar?.id, span: s.span, tag: s.tag, range: s.range, theme: themeOf(s) }),
     marks: s => layer.marks({ ...s, theme: themeOf(s) }),
     frame: (now, s) => layer.frame(now, s.selectedId),
@@ -284,14 +284,14 @@ export class EventsLayer {
   }
 
   /**
-   * year: nuvarande år. window: hur många år före/efter som räknas som "samtidigt".
+   * year: nuvarande år. window: hur många år före/efter som räknas som "samtidigt" (windowBefore och windowAfter när sidorna är olika långa, #1319).
    * span (valfritt): händelsens tid som [början, slut]. I fokusläget för korta krig är det datum ur edtf (#204).
    * range (valfritt): tidsintervallet { from, to } (#755). Då syns de händelser som selectEventsForRange väljer
    * (js/date-events.js, en enda regel för urvalet), och de som bara delvis ligger inom intervallet får partial och
    * ritas svagare. Inget tidsfönster runt året används.
    * Returnerar händelserna som syns, de pågående först.
    */
-  update({ year, window, filters, selectedId, highlight, focusId = null, span = e => [e.start, e.end], tag = null, range = null, theme = null }) {
+  update({ year, window, windowBefore = window, windowAfter = window, filters, selectedId, highlight, focusId = null, span = e => [e.start, e.end], tag = null, range = null, theme = null }) {
     const visible = [];
     const lit = []; // markörer som visas, för markörgränsen i intervallet (#756)
     const inRange = range ? new Map(selectEventsForRange(this.events, range.from, range.to).map(h => [h.id, h.partial])) : null;
@@ -311,11 +311,13 @@ export class EventsLayer {
       const inside = range ? inRange.has(e.id) : year >= s0 && year <= s1;
       const partial = range ? !!inRange.get(e.id) : false;
       const dist = inside ? 0 : range ? Math.min(Math.abs(range.from - s1), Math.abs(s0 - range.to)) : Math.min(Math.abs(year - s0), Math.abs(year - s1));
-      const near = !range && dist <= window;
+      // Fönstret är inte alltid lika långt före och efter året (#1319): en händelse före året mäts mot den ena sidan, en efter mot den andra
+      const reach = s1 < year ? windowBefore : windowAfter;
+      const near = !range && dist <= reach;
       // I fokusläge ligger krigets redan utkämpade slag kvar, lite svagare
       const fought = e.partOf === focusId && s1 < year;
       // En händelse som bara delvis ligger inom intervallet ritas svagare (förstudien till #569, regel 2)
-      const activity = !shown ? 0 : inside ? (partial ? 0.6 : 1) : near ? 1 - 0.6 * dist / Math.max(1, window) : fought ? 0.45 : 0;
+      const activity = !shown ? 0 : inside ? (partial ? 0.6 : 1) : near ? 1 - 0.6 * dist / Math.max(1, reach) : fought ? 0.45 : 0;
       const when = inside ? 'now' : s1 < (range ? range.from : year) ? 'past' : 'future';
       // Utanför Fokus gör det lägre tonläget tydligt att händelsen bara ligger i tidsfönstret.
       // Redan utkämpade slag i Fokus behåller sin tidigare svaga visning (#434).
