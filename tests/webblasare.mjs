@@ -1034,7 +1034,16 @@ async function run(browser, vp) {
     // Som en elev: öppna händelsen i Samtidigt och tryck på Lägg till i jakten i faktarutan
     const add = async id => {
       if (await page.isHidden('#panel')) await clickView('#btn-panel');
-      await page.locator(`#event-list .event-btn[data-id="${id}"]`).first().click();
+      const btn = page.locator(`#event-list .event-btn[data-id="${id}"]`).first();
+      // Panelen visar fem händelser per världsdel och resten bakom "Visa fler". Nya händelser i datan (Mutapariket och Sankore i
+      // #1015) kan skjuta Bartolomeu Dias 1488 ut ur Afrika-listan, så världsdelarna öppnas en i taget tills händelsen syns,
+      // som en elev skulle göra, i stället för att anta att den alltid ligger bland de fem första.
+      for (let i = 0; !await btn.count() && i < 8; i++) {
+        const more = page.locator('#event-list .panel-more[data-region][aria-expanded="false"]').first();
+        if (!await more.count()) break;
+        await more.click();
+      }
+      await btn.click();
       await page.waitForSelector('#detail [data-hunt]', { state: 'visible', timeout: T.step });
       await page.click('#detail [data-hunt]');
       return (await page.textContent('#hunt-message')).trim();
@@ -5880,7 +5889,12 @@ async function run(browser, vp) {
       const rows = await mp.evaluate(() => [...document.querySelectorAll('#tour-menu .tour-lesson-row')].filter(r => r.querySelector('.tour-lesson-meta')?.textContent.trim()).map(r => ({
         meta: r.querySelector('.tour-lesson-meta')?.textContent.trim(), tour: r.querySelector('.tour-lesson-start')?.dataset.tour,
         label: r.querySelector('.tour-lesson-start')?.getAttribute('aria-label') })));
-      if (rows.length !== 2) throw new Error(`${rows.length} lektioner märkta i menyn, väntade 2`);
+      if (rows.length !== 5) throw new Error(`${rows.length} lektioner märkta i menyn, väntade 5`);
+      // De tre turerna om rikens fall är lektioner för årskurs 7–9 (#1279)
+      for (const id of ['vastroms-fall', 'hanrikets-fall', 'songhairikets-fall']) {
+        const r = rows.find(x => x.tour === id);
+        if (!r || !/Lektion · årskurs 7–9 · \d+ min/.test(r.meta)) throw new Error(`fall-turen ${id} märks inte som lektion för årskurs 7–9: ${JSON.stringify(r)}`);
+      }
       const ww = rows.find(r => r.tour === 'andra-varldskriget');
       if (!ww || !/Lektion · årskurs 7–9 · \d+ min/.test(ww.meta) || !/Starta som lektion: /.test(ww.label)) throw new Error(`lektionen för andra världskriget märks fel: ${JSON.stringify(ww)}`);
       if (await mp.locator('#tour-menu .tour-lesson-start[data-tour="forsta-varldskriget"]').count()) throw new Error('en vanlig tur har fått knappen Starta som lektion');
@@ -5897,7 +5911,7 @@ async function run(browser, vp) {
     } finally {
       await mp.close();
     }
-    return 'två lektioner märkta (årskurs och tid), Starta som lektion ger bandet, steg 1 och 1939, m=lektion i adressen; vanliga turer utan lektionsknapp; Hur vet vi det här först och en Starta turen-knapp på varje tur (#1002)';
+    return 'fem lektioner märkta (årskurs och tid), fall-turerna för årskurs 7–9, Starta som lektion ger bandet, steg 1 och 1939, m=lektion i adressen; vanliga turer utan lektionsknapp; Hur vet vi det här först och en Starta turen-knapp på varje tur (#1002)';
   });
   // #994 och #995: raden under årtalet säger århundradet och fönstret i klartext, och det som ligger före eller efter året
   // säger hur långt ("4 år före (1912)", "21 år senare") i stället för "slut 1912"
@@ -6170,6 +6184,39 @@ async function run(browser, vp) {
       if (!(rate(b.speed) === rate(c.speed) * 1000)) throw new Error(`farten: ${b.speed} vid 50 000 f.Kr. men ${c.speed} vid 1325`);
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return `${a.big} (länk -7412) | ${b.steps.join(' ')} | ${b.speed} | 1325: märket ${c.badge} pågår`;
+    } finally { await wp.close(); }
+  });
+  // #1321: fokusskalans årtal. Inget riktigt fokus spänner än över mer än 12 000 år, så ett testtema ersätter data/teman.json via
+  // route (som i temakontrollen). Förut slutade steglistan vid 1000 år och föll till 2000: 96 000 år gav 48 årtal på en skala
+  // där 4 (mobil) till 13 får plats. Skalan ska ge högst så många årtal som får plats, och de ska inte ligga över varandra.
+  await check('fokusskalan klarar spann över 12 000 år utan överlappande årtal (#1321)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      const tx = v => ({ sv: v, en: v, de: v, es: v, fr: v });
+      const doc = { schema: 'historia-globen/teman@1', themes: [{ id: 'djuptema', name: tx('Djuptema'), intro: tx('Ett urval för testet.'), events: ['neandertalare', 'botai-hastar', 'sintashta-stridsvagnar'], sources: [], review: 'source-checked' }] };
+      await wp.route('**/data/teman.json*', r => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(doc) }));
+      await wp.goto(`${BASE}?lang=sv&ny=skala1321#y=1900&f=theme:djuptema`);
+      await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await wp.waitForFunction(() => !document.getElementById('focus-bar').hidden && document.querySelectorAll('#ticks .tick').length > 1, null, { timeout: T.step });
+      const r = await wp.evaluate(() => {
+        const ticks = [...document.querySelectorAll('#ticks .tick')].map(x => { const b = x.getBoundingClientRect(); return { text: x.textContent.trim(), left: b.left, right: b.right }; });
+        return { ticks, width: document.getElementById('track').clientWidth };
+      });
+      const fit = Math.max(3, Math.floor(r.width / 90));
+      const names = r.ticks.map(x => x.text).join(', ');
+      if (r.ticks.length < 2) throw new Error(`skalan har ${r.ticks.length} årtal: ${names}`);
+      if (r.ticks.length > fit + 1) throw new Error(`${r.ticks.length} årtal på en skala som rymmer ${fit}: ${names}`);
+      for (let i = 1; i < r.ticks.length; i++)
+        if (r.ticks[i].left < r.ticks[i - 1].right) throw new Error(`"${r.ticks[i - 1].text}" och "${r.ticks[i].text}" ligger över varandra`);
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `${r.ticks.length} årtal på ${r.width} px (plats för ${fit}): ${names}`;
     } finally { await wp.close(); }
   });
   // #1322: tidslåset i lägeskontraktet. I en tur och i en lektion (som börjar med en tur) går året inte att byta med drag, klick,
@@ -6689,7 +6736,7 @@ async function run(browser, vp) {
       const A4_WIDTH = 680;
       const A4_HEIGHT = 1039;
       const LANGS = ['sv', 'en', 'de', 'es', 'fr'];
-      const TOURS = ['andra-varldskriget', 'vikingatiden-och-varlden'];
+      const TOURS = ['andra-varldskriget', 'vikingatiden-och-varlden', 'vastroms-fall', 'hanrikets-fall', 'songhairikets-fall']; // fall-turerna sedan #1279
       // Firefox kan skriva familjenamnet med citattecken i document.fonts (#888): jämför utan dem
       const hasWebFont = fonts => fonts.some(f => f.replace(/"/g, '') === 'Instrument Sans');
       const measure = async (lang, tour, fallback) => {
@@ -6745,8 +6792,8 @@ async function run(browser, vp) {
             if (fallback && (used || !got.bodyFont.replace(/"/g, '').startsWith('DejaVu Sans'))) throw new Error(`${tour} ${lang}: reservmätningen använder fel typsnitt (${got.bodyFont}, webbtypsnitt: ${used})`);
             const max = Math.max(...got.heights);
             const lim = limit[fallback ? 'fallback' : 'web'];
-            // Andra världskriget har Källdetektiven (#742) och därmed tre blad, vikingatiden har två; varje blad har en h1
-            const sheets = tour === TOURS[0] ? 3 : 2;
+            // Andra världskriget och Songhai har Källdetektiven (#742, #1279) och därmed tre blad, de andra två; varje blad har en h1
+            const sheets = ['andra-varldskriget', 'songhairikets-fall'].includes(tour) ? 3 : 2;
             if (got.heights.length !== sheets || got.h1 !== sheets) throw new Error(`${tour} ${lang}: ${got.heights.length} blad och ${got.h1} h1 i stället för ${sheets}`);
             if (max > lim) throw new Error(`${tour} ${lang} ${fallback ? 'med reservtypsnitt' : 'med webbtypsnitt'}: ett blad är ${max} px högt, högst ${lim} px av A4:s ${A4_HEIGHT} px (${got.heights.join(', ')})`);
             rows.push(`${fallback ? 'reserv' : 'web'} ${tour.slice(0, 4)} ${lang} ${got.heights.join('/')}`);
