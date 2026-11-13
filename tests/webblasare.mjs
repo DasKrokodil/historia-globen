@@ -2704,6 +2704,78 @@ async function run(browser, vp) {
     return `${Math.max(w.doc, w.body)} px av ${w.win}`;
   });
 
+  // #1313: skarvarna mellan tidslinjens segment syns, och en rad säger vad som ändras. Egen sida, så att den delade sidans tillstånd inte ändras.
+  await check('tidsskalan: skarvarna syns och skalraden säger vad som ändras (#1313)', async () => {
+    const fresh = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        await fresh.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await fresh.route(u => isFont(u.href), r => r.abort());
+      }
+      await fresh.goto(BASE);
+      await fresh.evaluate(() => { try { localStorage.removeItem('hg-teckenforklaring'); localStorage.setItem('hg-year-tip', '1'); } catch { /* */ } });
+      await fresh.reload();
+      await fresh.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await fresh.waitForSelector('#track-segments .seam', { state: 'attached', timeout: T.step });
+      // 1. Fyra skarvar, i stigande ordning, på varje gräns mellan segmenten och inom reglaget
+      const seams = await fresh.evaluate(() => {
+        const track = document.getElementById('track').getBoundingClientRect();
+        const segs = [...document.querySelectorAll('#track-segments .seg')].map(s => s.getBoundingClientRect());
+        return { segs: segs.length, seams: [...document.querySelectorAll('#track-segments .seam')].map(s => { const r = s.getBoundingClientRect(); return { x: r.left + r.width / 2, w: r.width, h: r.height, hidden: s.getAttribute('aria-hidden') }; }),
+          edges: segs.slice(0, -1).map(r => r.right), left: track.left, right: track.right };
+      });
+      if (seams.segs !== 5 || seams.seams.length !== 4) throw new Error(`väntade 5 segment och 4 skarvar, fick ${seams.segs} och ${seams.seams.length}`);
+      seams.seams.forEach((s, i) => {
+        if (Math.abs(s.x - seams.edges[i]) > 1.5) throw new Error(`skarv ${i + 1} ligger vid ${s.x}, segmentgränsen vid ${seams.edges[i]}`);
+        if (s.w < 3 || s.h < 12) throw new Error(`skarv ${i + 1} är för liten (${s.w}×${s.h})`);
+        if (s.hidden !== 'true') throw new Error('skarven är inte dold för skärmläsare (reglaget är tabbstoppet)');
+        if (s.x < seams.left || s.x > seams.right) throw new Error('skarven ligger utanför reglaget');
+      });
+      // 2. Titeln på varje segment säger skalan, och bara tal ur segmentens egna fält (inga epoknamn)
+      const titles = await fresh.locator('#track-segments .seg[title]').evaluateAll(els => els.map(e => e.title));
+      if (titles.length !== 5 || titles.some(x => !/\d/.test(x) || /ålder|Antiken|Medeltid|Modern/i.test(x))) throw new Error(`segmentens titlar: ${JSON.stringify(titles)}`);
+      // 3. Dra över en skarv: raden säger "Ny skala", teckenförklaringen tonas ned, tidsraden ändrar inte höjd och inget går utanför skärmen
+      const box = await fresh.locator('#track').boundingBox();
+      const heightBefore = (await fresh.locator('.timebar').boundingBox()).height;
+      const X = p => box.x + box.width * p, Y = box.y + 26; // under prickarnas rad (markeringarna stoppar draget)
+      const note = fresh.locator('#timeline-scale-note');
+      if (await note.isVisible()) throw new Error('skalraden syns innan något har flyttats');
+      await fresh.mouse.move(X(0.62), Y); await fresh.mouse.down(); await fresh.mouse.move(X(0.58), Y);
+      await note.waitFor({ state: 'visible', timeout: T.step });
+      const inSegment = (await note.textContent()).trim();
+      if (!/^Här är en tiondel av tidslinjen ≈ \d/.test(inSegment)) throw new Error(`skalraden inne i ett segment: "${inSegment}"`);
+      await fresh.mouse.move(X(0.45), Y); // ett enda hopp över skarven, så att statusraden hinner läsa upp det en gång
+      const crossed = (await note.textContent()).trim();
+      if (!/^Ny skala: en tiondel ≈ \d[\d\s ]* år \(förut \d/.test(crossed)) throw new Error(`skalraden efter skarven: "${crossed}"`);
+      const m = await fresh.evaluate(() => {
+        const r = id => document.getElementById(id).getBoundingClientRect();
+        const n = document.getElementById('timeline-scale-note');
+        const legend = document.getElementById('timeline-legend');
+        return { note: r('timeline-scale-note'), legendVis: getComputedStyle(legend).visibility, overflow: n.scrollWidth > n.clientWidth + 1,
+          bar: document.querySelector('.timebar').getBoundingClientRect().height, scroll: document.documentElement.scrollWidth, width: innerWidth, height: innerHeight, sr: n.getAttribute('aria-hidden') };
+      });
+      await fresh.mouse.up();
+      if (m.legendVis !== 'hidden') throw new Error('teckenförklaringen ligger kvar över skalraden');
+      if (m.overflow) throw new Error('skalraden är för lång för bredden och klipps');
+      if (Math.abs(m.bar - heightBefore) > 0.5) throw new Error(`tidsraden ändrade höjd (${heightBefore} → ${m.bar}) när skalraden visades`);
+      if (m.scroll > m.width) throw new Error('horisontell scroll');
+      if (m.note.left < 0 || m.note.right > m.width || m.note.top < 0) throw new Error(`skalraden ligger utanför skärmen: ${JSON.stringify(m.note)}`);
+      if (m.sr !== 'true') throw new Error('skalraden är inte dold för skärmläsare (de får samma sak i statusraden)');
+      // 4. Skärmläsaren får hela meningen i statusraden
+      await fresh.waitForFunction(() => /Ny skala: en tiondel av tidslinjen är nu cirka/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step })
+        .catch(async e => { throw new Error(`statusraden fick inte skalbeskedet: "${await fresh.textContent('#screen-reader-status')}" (${e.message.split('\n')[0]})`); });
+      // 5. Tangentbord: Home går till första året, över alla skarvar, och raden säger den nya skalan
+      await fresh.focus('#track'); await fresh.keyboard.press('End'); await fresh.keyboard.press('Home');
+      const afterHome = (await note.textContent()).trim();
+      if (!/≈ 97\s?000 år/.test(afterHome)) throw new Error(`skalraden efter Home: "${afterHome}"`);
+      // 6. Raden försvinner av sig själv och teckenförklaringen kommer tillbaka
+      await note.waitFor({ state: 'hidden', timeout: 9000 });
+      if (await fresh.evaluate(() => getComputedStyle(document.getElementById('timeline-legend')).visibility) !== 'visible') throw new Error('teckenförklaringen kom inte tillbaka');
+      const seamLegend = await fresh.isVisible('.tl-item-seam');
+      return `4 skarver på segmentgränserna; "${inSegment}" → "${crossed}"; ${m.width <= 560 ? 'skarvförklaringen i teckenförklaringen är dold i smal skärm' : `teckenförklaringens skarvrad syns: ${seamLegend}`}`;
+    } finally { await fresh.close(); }
+  });
+
   await check('tidslinjen går att flytta', async () => {
     const before = await year();
     const box = await page.locator('#track').boundingBox();
