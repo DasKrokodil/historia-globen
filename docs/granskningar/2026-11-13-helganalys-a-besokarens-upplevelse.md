@@ -1,6 +1,6 @@
 # Helganalys, körning A: besökarens upplevelse
 
-**Klart:** genomgång av sidan i dator- och mobilbredd, lärarlinsen och tillgänglighetslinsen, jämfört med `docs/ux-review/` och milstolpe 6.2.0. **Stod still:** benchmarken mot andra sidor och spel, eftersom sju av åtta sidor inte gick att öppna från molnmiljön (nätspärr). **Inget är byggt eller ändrat**, inga etiketter är satta och inga issues är skapade utöver samlingsissuet #1289.
+**Klart:** genomgång av sidan i dator- och mobilbredd, lärarlinsen och tillgänglighetslinsen, jämfört med `docs/ux-review/` och milstolpe 6.2.0, samt (uppföljning samma dag) benchmark mot fem sidor och ett utlåtande om estetik och upplägg. **Stod still:** två av benchmarksidorna gick inte att öppna (403). **Inget är byggt eller ändrat**, inga etiketter är satta och inga issues är skapade utöver samlingsissuet #1289.
 
 **Datum:** 2026-11-13. **Version:** `6.3.0-dev`, `main` vid `235aad5`. **Konto:** DasKrokodil. **Modellnivå:** Sonnet high räcker för körningen (ingen ny fakta skrivs); issues som rör regler för "samtidigt", datamodell eller lektionsinnehåll bör tas med Opus.
 
@@ -101,16 +101,56 @@ Pedagogens ursprungliga fynd: åtgärdade är 3, 4 och 10, riktning i tid och tu
 11. Mobilens menyer (Lager, Sök och följ, Turer) fyller 382×746 av 400×800 utan stängknapp i ytan. Stängning med touch är inte provad.
 12. Panelen säger samma sak två gånger: "45 träffar: 24 pågår, 21 nära. 24 händelser pågår år 1325, 21 till inom ±40 år."
 
-### Benchmark: stod still
+### Benchmark (omgjord 2026-11-13 efter att nätåtkomsten öppnats)
 
-Den tidigare benchmarken (`2026-11-07-benchmark-skola-atlaser-spel.md`) täcker tolv sidor. Den här gången provades åtta andra. **Sju gick inte att öppna** från molnmiljön (värdnamnet nås inte genom nätspärren): runningreality.org, oldmapsonline.org, wikitrivia.tomjwatson.com, timeguessr.com, globle-game.com, humanorigins.si.edu, samt worldhistory.org som svarade 403. Inget skrivs om dem ur minnet.
+Första försöket stod still på nätspärren. Efter att åtkomsten utökats gick fem sidor att öppna i webbläsaren (Chromium genom miljöns proxy, 1280×800). Två gick fortfarande inte: `oldmapsonline.org` och `www.worldhistory.org` svarade 403. Allt nedan är sett på sidorna i dag; citat är ordagranna. Den tidigare benchmarken (`2026-11-07-benchmark-skola-atlaser-spel.md`) täcker tolv andra sidor.
 
-Två idéer går att belägga, men **bara ur sökresultatens sammanfattningar av andra sidor, inte ur själva sidorna**:
+| Sida | Vad som syntes | Idé för oss (inspiration, inte kopiering) |
+|---|---|---|
+| [Running Reality](https://runningreality.org/) (atlas) | Datum med dagsprecision ("07/04/1776"), stegknappar 100/10/Y/M/D åt båda håll, tidslinje 3000BC–2000AD, sök med "Interests", "Nearby" och "Guide". Vid kartan står alltid "Volunteer - Suggest an edit - Citations". Kartan är tät: ett fyrtiotal namn i sex färger över Nordamerika. Lärarsidan säger "No student accounts needed", "Historical content is free to explore", "One-time 45-day free trial", "Find your learning objectives" och SYNC: "Bring all student devices to the same historical place and time". | (1) En fast rad vid kartan med "Källor" och "Föreslå en rättning", i stället för att de ligger under Mer. (2) En egen sida "För lärare" som börjar med vad som inte krävs (inget konto, gratis) och kopplar till kursplanen; stöder förslag 19. (3) Deras täta karta visar vad vi vinner på urval och lugn; se utlåtandet nedan. SYNC kräver en server och är inte aktuellt (arkitekturpunkt 1); lektionslänken gör det vi kan. |
+| [Wikitrivia](https://wikitrivia.tomjwatson.com/) (spel) | Startsidan: "Put the world's knowledge in chronological order.", knapparna DAILY och FREE PLAY (Free Play har ALL, FEATURED, BROWSE), "All data sourced from Wikidata and Wikipedia." och en rad om att rapportera fel på GitHub. Själva spelrundan gick inte att starta i provet. | En frågetyp "ordna i tid" i quizet med våra egna källkontrollerade händelser; den går inte att gissa på namnet och kräver ingen gräns för "samtidigt" (förslag 18). En mening på startsidan som säger hela idén. |
+| [TimeGuessr](https://timeguessr.com/) (spel) | Tre val: "Play a random game", "Multiplayer", "Daily – Play the daily challenge". Dagens omgång: "Round 1/5", "Score", ett årsreglage (stod på 1962) och "Place your pin on the map". Annonser och "Remove Ads"; "Log in" finns. Bilden laddades inte i provet. | En kort omgång med fast längd (fem steg) och synlig poäng, där man gissar år och plats för en av våra händelsebilder. Vi har 215 händelser med bild. Närliggande: #469, #1126. |
+| [Globle](https://globle-game.com/) (spel på glob) | Första skärmen förklarar spelet med ett exempel innan globen visas: "For example, if the Mystery Country is Japan, then the following countries would appear with these colours if guessed". Ett nytt land varje dag. FAQ: "A high-contrast Colour Blind mode can be activated in Settings." och om gränser: "Geography can be a sensitive topic, and some countries' borders are disputed. If you believe a correction should be made, please politely raise an issue on GitHub". | (1) Förklara "samtidigt" med ett enda konkret exempel på första skärmen, före allt annat. (2) Ett färgblindläge med hög kontrast; våra fjorton kategorifärger och rikenas ytor är inte provade för färgblinda. (3) En öppen mening om omstridda gränser där kartan visas, inte bara under Källor. |
+| [Smithsonian: Human Evolution Interactive Timeline](https://humanorigins.si.edu/evidence/human-evolution-interactive-timeline) (djup tid) | Åtta miljoner år på en rak axel i tre band som ligger i linje: klimatkurva, arter som staplar och milstolpar som symboler. Arternas staplar tonar ut i ändarna. Texten säger "Explore the relationship between climate and human evolution more deeply by magnifying the timeline." Användarvillkoren är inte lästa. | För version 7 (#11, #49, #1095): människoarter som staplar med uttonade ändar visar osäker datering utan falsk exakthet, och band i linje gör "samtidigt" synligt även i djup tid. |
 
-- **Ordna i tid** (Wikitrivia): spelaren lägger kort i tidsordning på en tidslinje och förlorar ett liv vid fel, tre liv totalt; korten bygger på Wikidata och Wikipedia, och recensenter nämner att fel i Wikidata slår igenom ([Wikipedia om Wikitrivia](https://en.wikipedia.org/wiki/Wikitrivia), [Wikimedia Deutschland](https://www.wikimedia.de/2021/?p=1067)). Idé: en frågetyp i quizet där eleven ordnar tre av våra egna källkontrollerade händelser. Det kräver ingen definition av "samtidigt" och går inte att gissa på namnet.
-- **Samma uppgift för alla varje dag** (TimeGuessr): en daglig omgång som är densamma för alla, med poäng för både år och plats ([Gigazine](https://gigazine.net/gsc_news/en/20230821-timeguessr), [PCWorld](https://www.pcworld.com/article/3233865/geoguessr-fans-should-try-this-addictive-history-game.html)). Idé: "Dagens år" som en klass kan göra samtidigt. Närliggande: #469, #566, #1126.
+Kvar att öppna om de ska med (läggs i miljöns nätinställningar):
 
-För en riktig benchmark behöver värdarna ovan tillåtas i miljöns nätinställningar, eller så görs den från en annan miljö.
+```
+oldmapsonline.org
+www.oldmapsonline.org
+worldhistory.org
+www.worldhistory.org
+```
+
+### Utlåtande om estetik och upplägg (2026-11-13)
+
+Bedömt på nya skärmbilder i 1440×900 och 400×800 med de riktiga typsnitten laddade (IM Fell English, Instrument Sans, IBM Plex Mono). Klotet ritas med programvarurendering här, så ljus och skärpa på själva klotet är inte bedömda. Det här är en bedömning, inte en mätning; vad besökare tycker är ett antagande.
+
+**Helhetsomdöme: sidan har en egen, sammanhållen stil som bär, och den är tydligt vackrare och lugnare än de jämförda sidorna. Svagheten är inte stilen utan mängden: för många små saker i samma vikt, och tre olika sorters rutor.**
+
+Det som är bra och bör behållas:
+
+- **Identiteten.** Pergament på djupblått med mässing känns som ett instrument eller en gammal atlas, inte som en webbkarta. Running Reality visar samma slags innehåll med gul text på svart och ett fyrtiotal etiketter i sex färger; där är vårt urval och vårt lugn en verklig fördel.
+- **Platt karta är sidans tydligaste bild.** Hela världen syns, etiketterna går att läsa och rikena ligger rätt. Den förtjänar att lyftas mer, särskilt i klassrum.
+- **Zonerna är klara:** året uppe till vänster, menyerna uppe till höger, kortet nere till vänster, läsning till höger, tiden längst ned. Uppspelningsknappen i mässing är sidans enda fyllda knapp i tidsraden och läses rätt som huvudknapp.
+- **Mobilen utan kort** (till exempel år 1600) är ren: klotet fyller skärmen och stegraden ligger lugnt under.
+
+Det som drar ned intrycket, i ordning efter hur mycket det märks:
+
+1. **Årtalets siffror är svåra att läsa.** IM Fell English har gammaldags siffror, och "1600" ser ut som "I6oo": ettan som ett versalt I och nollorna som små o. "1325" fungerar bättre. Året är sidans viktigaste tecken och ska läsas på en sekund av en tioåring, också på en projektor. Förslag: behåll typsnittet i rubriker, men ge årtalet siffror med jämn höjd (annat snitt för siffrorna eller IBM Plex i stor grad). Det är ett beslut om utseendet.
+2. **Startbilden visar mest hav.** Kameran börjar över Atlanten, och kortets tre händelser ligger vid klotets kant eller bakom kortet (etiketten "Tenochtitlan" sticker fram bakom kortets hörn). Första bilden bör ha det kortet talar om mitt i bild, eller klotet förskjutet åt höger om kortet.
+3. **Tre sorters rutor.** Kortet är ljust pergament, panelen är mörk, och faktarutan har pergamentrubrik, vit bildyta och guldram. Var för sig är de snygga, tillsammans ser de ut att komma från tre sidor. En regel räcker: läsning på mörk botten med mässingslinje, pergament bara för Samtidigt-kortet.
+4. **För mycket liten text i versaler.** Epokraden, "VY", "UTFORSKA", "SAMTIDIGT · FUN FACT", "1 AV 4", skalans siffror och teckenförklaringen är alla 9,5–11 px i spärrad mono. De ger stämning men bär också information som behövs. Färre sådana rader, och inga under 12 px.
+5. **Markörerna är många och lika.** Mörka brickor med vit symbol och färgad ring är fina en och en, men vid år 1600 syns ett tjugotal i samma storlek, och ringarnas rosa, turkos och orange slåss med rikenas pastellytor. Symbolernas betydelse syns inte utan att klicka. Större skillnad i storlek mellan "pågår nu" och resten skulle ge bilden en förgrund.
+6. **Tonade etiketter är nästan oläsliga.** "Nära i tid"-etiketterna ligger på ungefär en tredjedels styrka över klotet ("Slaget vid Tondibi · 9 år före (1591)"). Avsikten är rätt, men texten går inte att läsa; hellre färre etiketter i full styrka.
+7. **Rikenas namn** i kursiv längs ytorna är vackra i Platt karta men blir små och snedställda på klotet ("Kungariket England").
+8. **Toppraden har nio knappar i två ramar.** Den är prydlig, men ingen av dem är viktigare än de andra. "Samtidigt" med sin siffra är sidans idé och kunde få stå för sig.
+9. **Kortets fot är trång:** status, "Källor", "Nästa" och "Visste du? → 491 f.Kr." på en rad som bryts i två. Bildremsan blandar tre bildstilar (gammal karta, gravyr, illustration), vilket är ärligt men oroligt; märket "ILLUSTRATION" gör sitt jobb.
+10. **Teckenförklaringen under tidslinjen ligger mot fönstrets nederkant** och skärs av vid 900 px höjd (mätt tidigare: 786–800 px i ett 800 px högt fönster). I mobil syns bara en avskuren rad.
+
+Upplägget, kort: ordningen "ett år, se vad som hände, läs mer" fungerar och går att förstå utan hjälp. Det som saknas är en första mening som säger idén (Globle och Wikitrivia gör det på en rad), och en synlig väg för läraren. Sidan har blivit djup: Mer rymmer Kom igång, Källor, Hjälp, jakten, quiz och Dela i samma lista, där lek, hjälp och källor väger lika.
+
+**Rekommendation till DasKrokodil:** ändra inte stilen. Gör tre saker: läsbara siffror i årtalet (1), en startbild med händelserna i bild (2) och en sorts ruta för läsning (3). De ger mest för intrycket och rör inte innehållet. Punkterna 4–6 passar ihop med förslag 12 i tabellen nedan.
 
 ## Förslag på issues
 
@@ -137,6 +177,8 @@ Inga är skapade. Öppna pull requests rör `data/` (#1284 bilder, #1285 fall-tu
 | 17 | Synlig tidsskala: skarvarna i den hoptryckta skalan (syntesens I) | `beslut-krävs` | Opus | `js/timeline.js`, `css/style.css` | Hör till version 7.0; kan bli en kommentar på #49 |
 | 18 | Quizet: svårare felsvar och en frågetyp "ordna i tid" | `idé`, `beslut-krävs` | Sonnet high | `js/quiz-rules.js`, `js/ui/quiz.js`, `data/ui/*.json` | Efter 15; närliggande #469, #1126 |
 | 19 | "För lärare" i Hjälp eller Mer, och knapp för storskärm i stället för `?presentation=1` | `beslut-krävs`, `utseende` | Sonnet medium | `index.html`, `js/ui/lesson.js`, `js/ui/print-sheet.js`, `data/ui/*.json`, `data/turer/*` | #1285 rör tre andra turfiler; ingen krock i sak |
+| 21 | Utseende: läsbara siffror i årtalet, startbild med kortets händelser i bild, en sorts ruta för läsning (utlåtandet, punkt 1–3) | `utseende`, `beslut-krävs` | Sonnet high | `css/style.css`, `js/globe.js` eller startvyns kamera, `js/ui/panel.js` | Samma fil som 1, 12 och 13 |
+| 22 | Färgblindläge och kontroll av kategorifärgerna; tonade etiketter i läsbar styrka | `accessibility`, `beslut-krävs` | Sonnet high | `css/style.css`, `js/model.js`, `js/controllers/labels.js` | Samma fil som 12 |
 | 20 | Skolinnehåll: ett jaktår per lektion, förväntade svar på lärarbladet, ordförklaringar och åldersanpassat elevblad i åk 4–6-lektionen | `data`, `källkontroll`, `beslut-krävs` | Opus (källbunden text) | `data/uppdrag.json`, `data/turer/vikingatiden-och-varlden.json`, `data/turer/andra-varldskriget.json`, `data/ui/*.json` | Endast Claude Code; närliggande #1279, #299, #774 |
 
 **Rekommenderad ordning:** 1, 2 och 3 först (följdfel av 6.2.0 som syns direkt), sedan 4, 5 och 8. Besluten i 15 bör tas före 16 och 18. 14 och 17 kan lika gärna bli kommentarer på version 7-issues som egna issues.
