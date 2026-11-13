@@ -656,14 +656,15 @@ async function run(browser, vp) {
       await pp.press('#jump-input', 'Enter');
       await pp.waitForFunction(() => document.getElementById('year-big').textContent.replace(/\s/g, '') === '1066', null, { timeout: T.step });
       await pp.focus('#presentation-exit');
-      await Promise.all([pp.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: T.load }), pp.keyboard.press('Enter')]);
-      await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await pp.keyboard.press('Enter');
+      await pp.waitForFunction(() => !document.getElementById('app').classList.contains('presentation-mode'), null, { timeout: T.step });
+      if (!(await mode()).kept) throw new Error('sidan laddades om när läget avslutades');
       const off = await pp.evaluate(() => ({ on: document.getElementById('app').classList.contains('presentation-mode'), param: new URL(location.href).searchParams.has('presentation'), year: document.getElementById('year-big').textContent.replace(/\s/g, '') }));
       if (off.on || off.param) throw new Error(`Avsluta tog inte bort läget: ${JSON.stringify(off)}`);
       if (off.year !== '1066') throw new Error(`Avsluta behöll inte året: ${off.year}`);
       if (errors.length) throw new Error(errors.join(' | '));
     } finally { await pp.close(); }
-    return 'knappen slår på läget utan omladdning, fokus går till Avsluta, adressen får ?presentation=1 och Avsluta behåller året';
+    return 'knappen slår på läget utan omladdning, fokus går till Avsluta, adressen får ?presentation=1, och Avsluta stänger läget på stället och behåller året';
   });
 
   await check('För lärare: en startknapp i kortet öppnar läraren med knappen för utskrift', async () => {
@@ -687,8 +688,11 @@ async function run(browser, vp) {
         title: document.getElementById('lesson-band-title').textContent,
         print: !document.getElementById('lesson-print').hidden,
         card: !document.getElementById('teacher').hidden,
+        // En elev i elevlänken ska inte nå För lärare: där kan en annan lektion startas med lärarens roll (#885)
+        entry: getComputedStyle(document.getElementById('btn-teacher')).display, helpEntry: getComputedStyle(document.querySelector('.help-teacher')).display,
         hash: location.hash,
       }));
+      if (lesson.entry !== 'none' || lesson.helpEntry !== 'none') throw new Error(`För lärare är nåbar i lektionsläget: ${lesson.entry} / ${lesson.helpEntry}`);
       if (!lesson.print) throw new Error('läraren får ingen knapp för elev- och lärarblad');
       if (lesson.card) throw new Error('kortet står kvar öppet i lektionen');
       if (!/m=lektion/.test(lesson.hash) || /r=lararen/.test(lesson.hash)) throw new Error(`adressen ska vara elevlänken (m=lektion utan r=lararen): ${lesson.hash}`);
@@ -696,7 +700,7 @@ async function run(browser, vp) {
       await pp.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
       if (errors.length) throw new Error(errors.join(' | '));
     } finally { await pp.close(); }
-    return 'startknappen börjar lektionen, kortet stängs, bandet har utskriftsknappen och adressen är elevlänken';
+    return 'startknappen börjar lektionen, kortet stängs, För lärare är dolt i lektionen, bandet har utskriftsknappen och adressen är elevlänken';
   });
 
   if (vp.name === 'dator') {

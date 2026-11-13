@@ -63,7 +63,7 @@ Antagna "lyckade vägar". Varje flöde är också en testplan: den som granskar 
 | Mobil | ≤ 760 px (testat 400×800) | Bara Samtidigt och Meny i raden överst; faktaruta och Samtidigt-kort som ark med tre lägen; globen lyfts när arket är halvt; 44 px träffytor |
 | Platt vy | båda | Karta med zoom och panorering; samma bild som kan skickas till en fysisk glob |
 | Lektionsläge | båda | Menyerna dolda, år och lager låsta |
-| Presentationsläge (#488) | dator (≥ 761 px) | Större text och knappar för projektor och storskärm. Slås på med knappen i För lärare (utan omladdning; adressen får `?presentation=1`) eller med en äldre länk med parametern; Avsluta uppe i raden tar bort det och behåller vyn. Knappen visas inte i mobilbredd, där Avsluta täcker årtalet (känt fel i läget, #1457) |
+| Presentationsläge (#488) | dator (≥ 761 px) | Större text och knappar för projektor och storskärm. Slås på med knappen i För lärare (utan omladdning; adressen får `?presentation=1`) eller med en äldre länk med parametern; Avsluta uppe i raden stänger det på stället (utan omladdning) och behåller vyn och lärarens roll i en lektion. Knappen visas inte i mobilbredd, där Avsluta täcker årtalet (känt fel i läget, #1457) |
 | Utskrift | A4 | Elev- och lärarblad, svart på vitt |
 
 ## Lägen att alltid prova (blind-spots-listan)

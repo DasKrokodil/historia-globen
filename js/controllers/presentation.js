@@ -31,8 +31,18 @@ export function createPresentation({ $, flush = () => {} }) {
     return on;
   }
 
-  // Avsluta är en länk till sidan utan parametern. Adressen skrivs om först, så att länken har vyn som den ser ut nu.
-  exit.addEventListener('click', () => { flush(); exit.href = plainUrl(); });
+  // Avsluta stänger läget på stället, utan omladdning: året, vyn och en lektion med lärarens knapp för utskrift (#885, rollen
+  // skrivs aldrig i adressen och försvinner annars vid en omladdning) står kvar, och fokus går till Mer. Länken finns kvar som
+  // reserv: en klick med Ctrl, Cmd eller Shift och ett mittenklick öppnar sidan utan parametern, med vyn som den ser ut nu.
+  exit.addEventListener('click', e => {
+    flush();
+    exit.href = plainUrl();
+    if (e.defaultPrevented || e.button || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    set(false);
+    const next = [$('btn-more'), $('more-toggle')].find(el => el && el.offsetParent !== null);
+    next?.focus({ preventScroll: true });
+  });
 
   apply(isOn());
   return { set, get active() { return root.classList.contains('presentation-mode'); } };

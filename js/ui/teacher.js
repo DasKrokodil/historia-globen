@@ -10,7 +10,7 @@ import { Help } from './help.js';
 export class TeacherGuide extends Help {
   /**
    * els: root, button, close, list, empty, quizBtn, quizRow, huntBtn, huntRow, presentationBtn, presentationRow.
-   * app: { tour, quiz, hunt, presentation, narrow } från main.js (alla finns när kortet skapas). narrow: matchMedia för smal skärm.
+   * app: { tour, quiz, hunt, presentation, narrow, lesson } från main.js (alla finns när kortet skapas). narrow: matchMedia för smal skärm.
    */
   constructor(els, app) {
     super({ root: els.root, button: els.button, close: els.close });
@@ -53,6 +53,8 @@ export class TeacherGuide extends Help {
   }
 
   open(fromButton) {
+    // I en lektion är kortet dolt: en elev som öppnat elevlänken ska inte kunna starta en annan lektion som lärare (#885)
+    if (this.app.lesson?.active) return;
     this.build();
     super.open(fromButton);
   }

@@ -890,12 +890,12 @@
   "teacher.close": "Für Lehrkräfte schließen",
   "teacher.intro": "Alles, was eine Unterrichtsstunde braucht, an einem Ort. Es sind weder eine Anmeldung noch Schülerkonten nötig, und die Seite speichert nichts über die Schülerinnen und Schüler.",
   "teacher.lessons": "Unterrichtsstunden",
-  "teacher.lessonsText": "Fertige Unterrichtsstunden. Im Unterrichtsmodus sind die Menüs ausgeblendet, und die Zeit bleibt innerhalb der Jahre der Stunde. Die Webadresse während der Stunde können Sie mit den Schülerinnen und Schülern teilen.",
+  "teacher.lessonsText": "Fertige Unterrichtsstunden. Im Unterrichtsmodus sind die meisten Menüs ausgeblendet, und die Zeit bleibt innerhalb der Jahre der Stunde. Die Schülerinnen und Schüler erhalten die Stunde über den Link auf dem Lehrerblatt oder über Teilen unter Mehr: Wenn Sie mitten in der Stunde teilen, beginnen sie am selben Schritt. Die Leiste am oberen Rand hat „Ganzen Globus anzeigen“: Dann endet die Stunde, und die Seite wird zur gewöhnlichen Seite, im selben Jahr.",
   "teacher.noLessons": "Die Unterrichtsstunden konnten gerade nicht geladen werden. Laden Sie die Seite neu und versuchen Sie es erneut.",
   "teacher.print": "Ausdruck",
-  "teacher.printText": "Starten Sie oben eine Unterrichtsstunde und wählen Sie in der Leiste am oberen Rand „Schüler- und Lehrerblatt drucken“. Das Schülerblatt enthält Fragen mit Platz für Antworten. Das Lehrerblatt enthält Klassenstufe, Zeit, Vorkenntnisse, Anleitung, den Bezug zum Lehrplan und die Fragen.",
+  "teacher.printText": "Starten Sie oben eine Unterrichtsstunde und wählen Sie in der Leiste am oberen Rand „Schüler- und Lehrerblatt drucken“. Das Schülerblatt enthält Fragen mit Platz für Antworten. Das Lehrerblatt enthält Klassenstufe, Zeit, Vorkenntnisse, Anleitung, den Bezug zum Lehrplan und die Fragen. Die Schaltfläche gibt es nur für Sie als Lehrkraft, und sie verschwindet, wenn Sie die Seite während der Stunde neu laden. Für einen Link, der die Schaltfläche enthält: Starten Sie die Tour unter Touren und wählen Sie auf der Tourkarte „Link für die Lehrkraft kopieren“.",
   "teacher.quizText": "Fragen dazu, was gleichzeitig geschah, aus den Fun Facts der Seite. Jede Antwort zeigt ihre Quellen.",
-  "teacher.huntText": "Ein Auftrag für die Schülerinnen und Schüler: Ereignisse auf verschiedenen Kontinenten finden, die gleichzeitig geschahen.",
+  "teacher.huntText": "Ein eigenständiger Auftrag für die Schülerinnen und Schüler, unabhängig von den Unterrichtsstunden: Ereignisse auf verschiedenen Kontinenten finden, die gleichzeitig geschahen.",
   "teacher.presentation": "Präsentationsmodus",
   "teacher.presentationText": "Für Beamer und Großbildschirm: größere Schrift und größere Schaltflächen. Beenden Sie den Modus mit der Schaltfläche oben rechts."
 }

@@ -680,7 +680,7 @@ async function start() {
   teacher = new TeacherGuide({
     root: $('teacher'), button: $('btn-teacher'), close: $('teacher-close'), list: $('teacher-lessons'), empty: $('teacher-lessons-empty'),
     quizBtn: $('teacher-quiz'), quizRow: $('teacher-quiz-row'), huntBtn: $('teacher-hunt'), huntRow: $('teacher-hunt-row'), presentationBtn: $('teacher-presentation'), presentationRow: $('teacher-presentation-row'),
-  }, { tour, quiz, hunt, presentation, narrow });
+  }, { tour, quiz, hunt, presentation, narrow, get lesson() { return app.lesson; } });
   $('help-teacher').addEventListener('click', () => { help.close(false); teacher.open(true); });
   // Berättelseläget (#247): krigets första kort får "Följ berättelsen" när en tur berättar om kriget
   panel.tourFor = id => { const x = tour.forWar(id); return x && { id: x.id, label: tour.storyLabel(x) }; };
