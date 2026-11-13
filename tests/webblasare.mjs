@@ -607,7 +607,18 @@ async function run(browser, vp) {
     await hidden('#teacher');
     await page.keyboard.press('Escape');
     await hidden('#quiz');
-    return `${card.lessons} lektioner (lika många som i Turer); öppning från Mer och Hjälp, fokus, Escape, en dialog åt gången och ingen scroll åt sidan`;
+    // Escape i kortet stänger bara kortet, inte Platt vy bakom det (id-listan i js/main.js)
+    await clickView('#btn-flat');
+    await visible('#flat-view');
+    await clickView('#btn-teacher');
+    await visible('#teacher');
+    await page.keyboard.press('Escape');
+    await hidden('#teacher');
+    const flatStays = await page.isVisible('#flat-view');
+    await clickView('#btn-flat');
+    await hidden('#flat-view');
+    if (!flatStays) throw new Error('Escape i För lärare stängde också Platt vy');
+    return `${card.lessons} lektioner (lika många som i Turer); öppning från Mer och Hjälp, fokus, Escape (Platt vy ligger kvar), en dialog åt gången och ingen scroll åt sidan`;
   });
 
   await check('För lärare: knappen för storskärm slår på läget utan omladdning och Avsluta tar bort det', async () => {
@@ -650,6 +661,13 @@ async function run(browser, vp) {
       if (on.focus !== 'presentation-exit') throw new Error(`fokus står på ${on.focus} i stället för Avsluta`);
       if (on.stored) throw new Error('läget sparas i localStorage');
       if (await pp.isVisible('#teacher')) throw new Error('kortet står kvar öppet');
+      // Raden för läget visas inte när läget redan är på
+      await pp.click('#btn-more');
+      await pp.click('#btn-teacher');
+      await pp.waitForSelector('#teacher', { state: 'visible', timeout: T.step });
+      if (await pp.isVisible('#teacher-presentation')) throw new Error('knappen för läget visas fast läget är på');
+      await pp.keyboard.press('Escape');
+      await pp.waitForSelector('#teacher', { state: 'hidden', timeout: T.step });
       // Året som läraren går till under läget ska finnas kvar när läget avslutas
       await pp.click('#year-jump');
       await pp.fill('#jump-input', '1066');

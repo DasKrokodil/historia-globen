@@ -209,16 +209,12 @@
       <h2 id="teacher-title" class="help-title" data-i18n="top.teacher">För lärare</h2>
       <button id="teacher-close" class="panel-x" type="button" aria-label="Stäng För lärare" data-i18n-aria-label="teacher.close">×</button>
     </div>
-    <p class="teacher-intro" data-i18n="teacher.intro">Här samlas det en lektion kan behöva. Ingen inloggning och inga elevkonton behövs, och sidan sparar ingenting om eleverna.</p>
+    <p class="teacher-intro" data-i18n="teacher.intro">Ingen inloggning och inga elevkonton behövs, och sidan sparar ingenting om eleverna.</p>
     <section class="teacher-section" aria-labelledby="teacher-lessons-h">
       <h3 id="teacher-lessons-h" class="teacher-h" data-i18n="teacher.lessons">Lektioner</h3>
-      <p class="teacher-text" data-i18n="teacher.lessonsText">Färdiga lektioner. I lektionsläget döljs de flesta menyerna och tiden stannar inom lektionens år. Eleverna får lektionen med länken på lärarbladet, eller med Dela under Mer: delar du mitt i lektionen börjar de på samma steg. Bandet överst har Visa hela globen: då slutar lektionen och sidan blir den vanliga, med samma år.</p>
+      <p class="teacher-text" data-i18n="teacher.lessonsText">Färdiga lektioner. I lektionsläget döljs de flesta menyerna och tiden stannar inom lektionens år.</p>
       <ul id="teacher-lessons" class="teacher-lessons"></ul>
       <p id="teacher-lessons-empty" class="teacher-text teacher-empty" hidden data-i18n="teacher.noLessons">Lektionerna kunde inte hämtas just nu. Ladda om sidan och försök igen.</p>
-    </section>
-    <section class="teacher-section" aria-labelledby="teacher-print-h">
-      <h3 id="teacher-print-h" class="teacher-h" data-i18n="teacher.print">Utskrift</h3>
-      <p class="teacher-text" data-i18n="teacher.printText">Starta en lektion ovan och välj Skriv ut elev- och lärarblad i bandet överst. Elevbladet har frågor med plats för svar. Lärarbladet har årskurs, tid, förkunskaper, instruktion, koppling till läroplanen och frågorna. Knappen finns bara för dig som lärare, och den försvinner om du laddar om sidan under lektionen. Vill du ha en länk som ger knappen: starta turen under Turer och välj Kopiera lärarlänk i turkortet.</p>
     </section>
     <ul class="teacher-actions">
       <li id="teacher-quiz-row">
@@ -240,6 +236,12 @@
         </button>
       </li>
     </ul>
+    <details class="teacher-more">
+      <summary data-i18n="teacher.more">Så delar du lektionen och skriver ut</summary>
+      <p class="teacher-text" data-i18n="teacher.shareText">Eleverna får lektionen med länken på lärarbladet, eller med Dela under Mer: delar du mitt i lektionen börjar de på samma steg. Bandet överst har Visa hela globen: då slutar lektionen och sidan blir den vanliga, med samma år.</p>
+      <h3 class="teacher-h teacher-h-print" data-i18n="teacher.print">Utskrift</h3>
+      <p class="teacher-text" data-i18n="teacher.printText">Starta en lektion ovan och välj Skriv ut elev- och lärarblad i bandet överst. Elevbladet har frågor med plats för svar. Lärarbladet har årskurs, tid, förkunskaper, instruktion, koppling till läroplanen och frågorna. Knappen finns bara för dig som lärare, och den försvinner om du laddar om sidan under lektionen. Vill du ha en länk som ger knappen: starta turen under Turer och välj Kopiera lärarlänk i turkortet.</p>
+    </details>
   </aside>
 
   <aside id="intro" class="intro-dialog" role="dialog" aria-modal="true" aria-labelledby="intro-title" hidden>

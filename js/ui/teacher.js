@@ -35,7 +35,7 @@ export class TeacherGuide extends Help {
     this.quizRow.hidden = !quiz?.ready;
     this.huntRow.hidden = !hunt?.ready;
     // Presentationsläget är till för projektor och storskärm: i smal skärm ändrar det bara toppraden, och Avsluta täcker årtalet
-    this.presentationRow.hidden = !!this.app.narrow?.matches;
+    this.presentationRow.hidden = !!this.app.narrow?.matches || !!this.app.presentation?.active; // inget att slå på när läget redan är på
   }
 
   row(tourData) {

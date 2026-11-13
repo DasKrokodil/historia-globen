@@ -888,14 +888,16 @@
   "help.teacher": "¿Es docente?",
   "help.teacherBtn": "Abrir Para docentes",
   "teacher.close": "Cerrar Para docentes",
-  "teacher.intro": "Todo lo que puede necesitar una lección, en un solo lugar. No hace falta iniciar sesión ni crear cuentas para el alumnado, y el sitio no guarda nada sobre los alumnos.",
+  "teacher.intro": "No hace falta iniciar sesión ni crear cuentas para el alumnado, y el sitio no guarda nada sobre los alumnos.",
   "teacher.lessons": "Lecciones",
-  "teacher.lessonsText": "Lecciones ya preparadas. En el modo lección se ocultan la mayoría de los menús y el tiempo se mantiene dentro de los años de la lección. El alumnado recibe la lección mediante el enlace de la hoja del profesorado o con Compartir, en Más: si comparte en mitad de la lección, empezarán en el mismo paso. La barra superior tiene Mostrar todo el globo: entonces termina la lección y el sitio vuelve a ser el habitual, en el mismo año.",
+  "teacher.lessonsText": "Lecciones ya preparadas. En el modo lección se ocultan la mayoría de los menús y el tiempo se mantiene dentro de los años de la lección.",
   "teacher.noLessons": "No se pudieron cargar las lecciones en este momento. Vuelva a cargar la página e inténtelo de nuevo.",
   "teacher.print": "Impresión",
   "teacher.printText": "Empiece una lección arriba y elija Imprimir hojas del alumnado y del profesorado en la barra superior. La hoja del alumnado tiene preguntas con espacio para responder. La hoja del profesorado tiene el curso, la duración, los conocimientos previos, las instrucciones, la relación con el currículo y las preguntas. El botón solo aparece para usted como docente, y desaparece si recarga la página durante la lección. Para obtener un enlace que incluya el botón: empiece el recorrido en Recorridos y elija Copiar enlace para docentes en la tarjeta del recorrido.",
   "teacher.quizText": "Preguntas sobre lo que ocurrió al mismo tiempo, tomadas de los datos curiosos del sitio. Cada respuesta muestra sus fuentes.",
   "teacher.huntText": "Una tarea independiente para el alumnado, no vinculada a las lecciones: encontrar acontecimientos de distintos continentes que ocurrieron al mismo tiempo.",
   "teacher.presentation": "Modo presentación",
-  "teacher.presentationText": "Para un proyector o una pantalla grande: texto y botones más grandes. Salga con el botón de la esquina superior derecha."
+  "teacher.presentationText": "Para un proyector o una pantalla grande: texto y botones más grandes. Salga con el botón de la esquina superior derecha.",
+  "teacher.more": "Cómo compartir una lección e imprimir las hojas",
+  "teacher.shareText": "El alumnado recibe la lección mediante el enlace de la hoja del profesorado o con Compartir, en Más: si comparte en mitad de la lección, empezarán en el mismo paso. La barra superior tiene Mostrar todo el globo: entonces termina la lección y el sitio vuelve a ser el habitual, en el mismo año."
 }
