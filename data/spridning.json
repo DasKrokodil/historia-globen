@@ -1,0 +1,711 @@
+{
+  "about": "Människans spridning (#1094, del 3 av #11): antagna områden (kind area) och vågor (kind wave) i förhistorien, som tolkningar av källorna och aldrig som gränser eller vägar (beslutet på #1095, 2026-11-13). Ett område ritas som ett mjukt hölje med radien radiusKm runt sina platser (places); en våg ritas längs sina grenar (paths). En plats är en händelse ({ event }, samma koordinat som händelsens markör) eller en punkt ur Wikidata ({ coord: [lon, lat], wikidata, name }). År med astronomisk årsräkning, X tusen år sedan = 2001 − 1000 · X, som för händelserna i data/handelser/fkr.json. certainty: tolkning (antaget område), hypotes, huvudvag, mojlig eller omstridd. js/layers/spread.js ritar lagret.",
+  "colors": {
+    "sapiens": "#e9c46a",
+    "neandertalare": "#8fc1a9",
+    "denisovaner": "#c4a8e0"
+  },
+  "items": [
+    {
+      "id": "afrika",
+      "kind": "area",
+      "group": "sapiens",
+      "certainty": "tolkning",
+      "start": -297999,
+      "end": -9999,
+      "edtf": "Y-297999~/Y-9999~",
+      "radiusKm": 350,
+      "clipLand": true,
+      "places": [
+        {
+          "event": "jebel-irhoud"
+        },
+        {
+          "event": "omo-kibish"
+        },
+        {
+          "event": "herto"
+        },
+        {
+          "event": "florisbad"
+        },
+        {
+          "event": "panga-ya-saidi-grav"
+        },
+        {
+          "coord": [
+            3,
+            12
+          ],
+          "wikidata": "Q4412",
+          "name": "West Africa"
+        },
+        {
+          "coord": [
+            21,
+            2
+          ],
+          "wikidata": "Q27433",
+          "name": "Central Africa"
+        }
+      ],
+      "title": {
+        "sv": "Homo sapiens i Afrika",
+        "en": "Homo sapiens in Africa",
+        "de": "Homo sapiens in Afrika",
+        "es": "Homo sapiens en África",
+        "fr": "Homo sapiens en Afrique"
+      },
+      "summary": {
+        "sv": "Homo sapiens fanns i Afrika under hela perioden, men fynden är få och spridda. Enligt en modell växte de områden där människor kunde leva från cirka 70 000 år sedan, och från cirka 29 000 år sedan omfattade de större delen av Afrika. Ytan är ritad runt fyndplatser och regioner och visar inte var människor saknades.",
+        "en": "Homo sapiens lived in Africa throughout the whole period, but the finds are few and scattered. According to one model, the areas where people could live grew from about 70,000 years ago, and from about 29,000 years ago they covered most of Africa. The area is drawn around find sites and regions and does not show where people were absent.",
+        "de": "Homo sapiens lebte während des gesamten Zeitraums in Afrika, doch die Funde sind wenige und verstreut. Nach einem Modell wuchsen die Gebiete, in denen Menschen leben konnten, ab etwa 70.000 Jahren vor heute, und ab etwa 29.000 Jahren vor heute umfassten sie den größten Teil Afrikas. Die Fläche ist um Fundorte und Regionen gezeichnet und zeigt nicht, wo keine Menschen lebten.",
+        "es": "Homo sapiens vivió en África durante todo el periodo, pero los hallazgos son escasos y dispersos. Según un modelo, las zonas donde podían vivir personas crecieron desde hace unos 70 000 años, y desde hace unos 29 000 años abarcaban la mayor parte de África. El área está dibujada alrededor de yacimientos y regiones y no indica dónde no había personas.",
+        "fr": "Homo sapiens a vécu en Afrique pendant toute la période, mais les découvertes sont rares et dispersées. Selon un modèle, les zones où des humains pouvaient vivre se sont étendues à partir d’il y a environ 70 000 ans, et depuis environ 29 000 ans elles couvraient la plus grande partie de l’Afrique. La zone est tracée autour de sites de découverte et de régions et n’indique pas où il n’y avait personne."
+      },
+      "sources": [
+        "hallett-2025-human-niche",
+        "harvati-2022-homo-mlp"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "tidiga-utvandringar",
+      "kind": "wave",
+      "group": "sapiens",
+      "certainty": "mojlig",
+      "start": -127999,
+      "end": -87999,
+      "edtf": "Y-127999~/Y-87999~",
+      "paths": [
+        [
+          {
+            "coord": [
+              48,
+              9.5
+            ],
+            "wikidata": "Q40556",
+            "name": "Horn of Africa"
+          },
+          {
+            "coord": [
+              34,
+              29.5
+            ],
+            "wikidata": "Q36755",
+            "name": "Sinai Peninsula"
+          },
+          {
+            "event": "qafzeh-och-skhul"
+          }
+        ],
+        [
+          {
+            "coord": [
+              34,
+              29.5
+            ],
+            "wikidata": "Q36755",
+            "name": "Sinai Peninsula"
+          },
+          {
+            "event": "al-wusta"
+          }
+        ]
+      ],
+      "title": {
+        "sv": "Tidiga utvandringar ur Afrika",
+        "en": "Early dispersals out of Africa",
+        "de": "Frühe Auswanderungen aus Afrika",
+        "es": "Primeras salidas de África",
+        "fr": "Premières sorties d’Afrique"
+      },
+      "summary": {
+        "sv": "Fynd i Levanten (Qafzeh och Skhūl, cirka 130 000–90 000 år sedan) och i Arabien (Al Wusta, cirka 90 000 år sedan) kan komma från tidiga utvandringar. Enligt genetiska studier lämnade de lite eller inget arv till människor som lever i dag. Vilka vägar de tog är inte känt.",
+        "en": "Finds in the Levant (Qafzeh and Skhūl, about 130,000–90,000 years ago) and in Arabia (Al Wusta, about 90,000 years ago) may come from early dispersals. According to genetic studies, they left little or no ancestry in people living today. Which routes they took is not known.",
+        "de": "Funde in der Levante (Qafzeh und Skhūl, etwa 130.000–90.000 Jahre vor heute) und in Arabien (Al Wusta, etwa 90.000 Jahre vor heute) können von frühen Auswanderungen stammen. Nach genetischen Studien hinterließen sie bei heute lebenden Menschen wenig oder kein Erbgut. Welche Wege sie nahmen, ist nicht bekannt.",
+        "es": "Los hallazgos del Levante (Qafzeh y Skhūl, hace unos 130 000–90 000 años) y de Arabia (Al Wusta, hace unos 90 000 años) pueden proceder de salidas tempranas. Según los estudios genéticos, dejaron poca o ninguna herencia en las personas que viven hoy. No se sabe qué rutas siguieron.",
+        "fr": "Des découvertes au Levant (Qafzeh et Skhūl, il y a environ 130 000 à 90 000 ans) et en Arabie (Al Wusta, il y a environ 90 000 ans) pourraient provenir de sorties précoces. Selon les études génétiques, elles ont laissé peu ou pas d’héritage chez les personnes vivant aujourd’hui. On ignore quels itinéraires elles ont suivis."
+      },
+      "sources": [
+        "harvati-2022-homo-mlp",
+        "freidline-2023-tam-pa-ling",
+        "hallett-2025-human-niche",
+        "vallini-2024-persian-plateau"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "utvandringen-ur-afrika",
+      "kind": "wave",
+      "group": "sapiens",
+      "certainty": "huvudvag",
+      "start": -67999,
+      "end": -47999,
+      "edtf": "Y-67999~/Y-47999~",
+      "paths": [
+        [
+          {
+            "coord": [
+              48,
+              9.5
+            ],
+            "wikidata": "Q40556",
+            "name": "Horn of Africa"
+          },
+          {
+            "coord": [
+              34,
+              29.5
+            ],
+            "wikidata": "Q36755",
+            "name": "Sinai Peninsula"
+          },
+          {
+            "coord": [
+              47,
+              33.667
+            ],
+            "wikidata": "Q167021",
+            "name": "Zagros Mountains"
+          }
+        ],
+        [
+          {
+            "coord": [
+              48,
+              9.5
+            ],
+            "wikidata": "Q40556",
+            "name": "Horn of Africa"
+          },
+          {
+            "coord": [
+              43.333,
+              12.583
+            ],
+            "wikidata": "Q83318",
+            "name": "Bab-el-Mandeb"
+          },
+          {
+            "coord": [
+              47,
+              33.667
+            ],
+            "wikidata": "Q167021",
+            "name": "Zagros Mountains"
+          }
+        ]
+      ],
+      "title": {
+        "sv": "Den stora utvandringen ur Afrika",
+        "en": "The main dispersal out of Africa",
+        "de": "Die große Auswanderung aus Afrika",
+        "es": "La gran salida de África",
+        "fr": "La grande sortie d’Afrique"
+      },
+      "summary": {
+        "sv": "Människor utanför Afrika i dag härstammar till största delen från en spridning ut ur Afrika. Klimatet tillät både en norra väg över Sinai och en södra väg över Bab el-Mandeb, och vilken väg människorna tog är inte känt.",
+        "en": "People outside Africa today descend for the most part from a dispersal out of Africa. The climate allowed both a northern route across Sinai and a southern route across the Bab-el-Mandeb, and which route people took is not known.",
+        "de": "Menschen außerhalb Afrikas stammen heute zum größten Teil von einer Ausbreitung aus Afrika ab. Das Klima erlaubte sowohl einen nördlichen Weg über den Sinai als auch einen südlichen Weg über das Bab al-Mandab; welchen Weg die Menschen nahmen, ist nicht bekannt.",
+        "es": "Las personas que viven hoy fuera de África descienden en su mayor parte de una dispersión desde África. El clima permitía tanto una ruta norte por el Sinaí como una ruta sur por el estrecho de Bab el-Mandeb, y no se sabe qué ruta tomaron.",
+        "fr": "Les personnes vivant aujourd’hui hors d’Afrique descendent pour l’essentiel d’une dispersion hors d’Afrique. Le climat permettait à la fois une route nord par le Sinaï et une route sud par le détroit de Bab el-Mandeb, et l’on ignore quelle route a été suivie."
+      },
+      "note": {
+        "sv": "Källorna skiljer sig om när, och de mäter delvis olika saker: utvandringen för cirka 70 000–60 000 år sedan enligt en studie, en stor utvandring för cirka 65 000 år sedan enligt en annan, och den världsomfattande spridningen som började för cirka 50 000 år sedan enligt en tredje.",
+        "en": "The sources differ on when, and they partly measure different things: the dispersal about 70,000–60,000 years ago according to one study, a major exit about 65,000 years ago according to another, and the worldwide expansion that began about 50,000 years ago according to a third.",
+        "de": "Die Quellen sind sich über den Zeitpunkt uneinig und messen teilweise Verschiedenes: die Auswanderung vor etwa 70.000–60.000 Jahren nach einer Studie, eine große Auswanderung vor etwa 65.000 Jahren nach einer anderen und die weltweite Ausbreitung, die vor etwa 50.000 Jahren begann, nach einer dritten.",
+        "es": "Las fuentes discrepan sobre cuándo y en parte miden cosas distintas: la salida hace unos 70 000–60 000 años según un estudio, una gran salida hace unos 65 000 años según otro, y la expansión mundial que comenzó hace unos 50 000 años según un tercero.",
+        "fr": "Les sources divergent sur la date et mesurent en partie des choses différentes : la sortie il y a environ 70 000 à 60 000 ans selon une étude, une grande sortie il y a environ 65 000 ans selon une autre, et l’expansion mondiale commencée il y a environ 50 000 ans selon une troisième."
+      },
+      "sources": [
+        "vallini-2024-persian-plateau",
+        "hallett-2025-human-niche",
+        "beyer-2021-climatic-windows"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "persiska-platan",
+      "kind": "area",
+      "group": "sapiens",
+      "certainty": "hypotes",
+      "start": -57999,
+      "end": -37999,
+      "edtf": "Y-57999~/Y-37999~",
+      "radiusKm": 450,
+      "places": [
+        {
+          "coord": [
+            47,
+            33.667
+          ],
+          "wikidata": "Q167021",
+          "name": "Zagros Mountains"
+        },
+        {
+          "coord": [
+            59.05,
+            36.283
+          ],
+          "wikidata": "Q237660",
+          "name": "Iranian plateau"
+        }
+      ],
+      "title": {
+        "sv": "Ett nav på Persiska platån?",
+        "en": "A hub on the Persian Plateau?",
+        "de": "Ein Knotenpunkt auf dem Persischen Plateau?",
+        "es": "¿Un centro en la meseta persa?",
+        "fr": "Un carrefour sur le plateau persan ?"
+      },
+      "label": {
+        "sv": "Persiska platån",
+        "en": "Persian Plateau",
+        "de": "Persisches Plateau",
+        "es": "Meseta persa",
+        "fr": "Plateau persan"
+      },
+      "summary": {
+        "sv": "En studie som bygger på gener och en klimatmodell föreslår att människor som lämnat Afrika levde på Persiska platån för cirka 60 000–40 000 år sedan, innan de spreds vidare över Eurasien. Det är en hypotes som studien själv kallar den mest sannolika kandidaten.",
+        "en": "A study based on genetics and a climate model suggests that people who had left Africa lived on the Persian Plateau about 60,000–40,000 years ago before spreading further across Eurasia. It is a hypothesis that the study itself calls the most likely candidate.",
+        "de": "Eine Studie, die auf Genetik und einem Klimamodell beruht, schlägt vor, dass Menschen nach dem Verlassen Afrikas etwa 60.000–40.000 Jahre vor heute auf dem Persischen Plateau lebten, bevor sie sich weiter über Eurasien ausbreiteten. Es ist eine Hypothese, die die Studie selbst als den wahrscheinlichsten Kandidaten bezeichnet.",
+        "es": "Un estudio basado en la genética y en un modelo climático propone que las personas que habían salido de África vivieron en la meseta persa hace unos 60 000–40 000 años, antes de extenderse por Eurasia. Es una hipótesis que el propio estudio califica de candidata más probable.",
+        "fr": "Une étude fondée sur la génétique et sur un modèle climatique propose que les humains sortis d’Afrique aient vécu sur le plateau persan il y a environ 60 000 à 40 000 ans, avant de se répandre en Eurasie. C’est une hypothèse que l’étude elle-même qualifie de candidate la plus probable."
+      },
+      "sources": [
+        "vallini-2024-persian-plateau"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "spridningen-over-eurasien",
+      "kind": "wave",
+      "group": "sapiens",
+      "certainty": "huvudvag",
+      "start": -42999,
+      "end": -37999,
+      "edtf": "Y-42999~/Y-37999~",
+      "paths": [
+        [
+          {
+            "coord": [
+              47,
+              33.667
+            ],
+            "wikidata": "Q167021",
+            "name": "Zagros Mountains"
+          },
+          {
+            "event": "ranis-zlaty-kun"
+          }
+        ],
+        [
+          {
+            "coord": [
+              47,
+              33.667
+            ],
+            "wikidata": "Q167021",
+            "name": "Zagros Mountains"
+          },
+          {
+            "event": "denisovaner"
+          }
+        ]
+      ],
+      "title": {
+        "sv": "Spridningen över Eurasien",
+        "en": "The spread across Eurasia",
+        "de": "Die Ausbreitung über Eurasien",
+        "es": "La expansión por Eurasia",
+        "fr": "L’expansion à travers l’Eurasie"
+      },
+      "summary": {
+        "sv": "För cirka 45 000 år sedan spreds människor över stora delar av Eurasien. Fynden i Ranis i Tyskland och spår av Homo sapiens i Denisovagrottan i Altaj är från den tiden. I västra Eurasien ersattes de första grupperna senare till stor del av en ny spridning för cirka 38 000 år sedan.",
+        "en": "About 45,000 years ago people spread across large parts of Eurasia. The finds at Ranis in Germany and traces of Homo sapiens in Denisova Cave in the Altai date from that time. In western Eurasia, the first groups were later largely replaced by a new expansion about 38,000 years ago.",
+        "de": "Vor etwa 45.000 Jahren breiteten sich Menschen über große Teile Eurasiens aus. Die Funde von Ranis in Deutschland und Spuren des Homo sapiens in der Denisova-Höhle im Altai stammen aus dieser Zeit. Im westlichen Eurasien wurden die ersten Gruppen später durch eine neue Ausbreitung vor etwa 38.000 Jahren weitgehend ersetzt.",
+        "es": "Hace unos 45 000 años, las personas se extendieron por gran parte de Eurasia. Los hallazgos de Ranis, en Alemania, y los rastros de Homo sapiens en la cueva de Denisova, en el Altái, son de esa época. En el oeste de Eurasia, los primeros grupos fueron sustituidos en gran parte por una nueva expansión hace unos 38 000 años.",
+        "fr": "Il y a environ 45 000 ans, les humains se sont répandus dans une grande partie de l’Eurasie. Les découvertes de Ranis, en Allemagne, et les traces d’Homo sapiens dans la grotte de Denisova, dans l’Altaï, datent de cette époque. Dans l’ouest de l’Eurasie, les premiers groupes ont ensuite été en grande partie remplacés par une nouvelle expansion il y a environ 38 000 ans."
+      },
+      "sources": [
+        "vallini-2024-persian-plateau",
+        "sumer-2025-ranis-genomes",
+        "jacobs-2025-denisova-chronology"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "till-sahul",
+      "kind": "wave",
+      "group": "sapiens",
+      "certainty": "omstridd",
+      "start": -62999,
+      "end": -41999,
+      "edtf": "Y-62999?/Y-41999~",
+      "paths": [
+        [
+          {
+            "coord": [
+              114,
+              -1
+            ],
+            "wikidata": "Q36117",
+            "name": "Borneo"
+          },
+          {
+            "coord": [
+              140,
+              -5
+            ],
+            "wikidata": "Q40285",
+            "name": "New Guinea"
+          }
+        ],
+        [
+          {
+            "coord": [
+              114,
+              -1
+            ],
+            "wikidata": "Q36117",
+            "name": "Borneo"
+          },
+          {
+            "coord": [
+              125.083,
+              -9.083
+            ],
+            "wikidata": "Q83067",
+            "name": "Timor"
+          },
+          {
+            "event": "madjedbebe"
+          }
+        ]
+      ],
+      "title": {
+        "sv": "Till Sahul: Australien och Nya Guinea",
+        "en": "To Sahul: Australia and New Guinea",
+        "de": "Nach Sahul: Australien und Neuguinea",
+        "es": "Hacia Sahul: Australia y Nueva Guinea",
+        "fr": "Vers le Sahul : Australie et Nouvelle-Guinée"
+      },
+      "summary": {
+        "sv": "Människor kom till Sahul, där Australien och Nya Guinea då hängde ihop, troligen längs minst två vägar: en norra mot det som nu är Nya Guinea och en södra mot det som nu är Australien. På Timor började en intensiv bosättning för cirka 44 000 år sedan.",
+        "en": "People reached Sahul, where Australia and New Guinea were then joined, probably along at least two routes: a northern one towards what is now New Guinea and a southern one towards what is now Australia. On Timor, intensive settlement began about 44,000 years ago.",
+        "de": "Menschen erreichten Sahul, wo Australien und Neuguinea damals verbunden waren, wahrscheinlich auf mindestens zwei Wegen: einem nördlichen in Richtung des heutigen Neuguinea und einem südlichen in Richtung des heutigen Australien. Auf Timor begann vor etwa 44.000 Jahren eine intensive Besiedlung.",
+        "es": "Las personas llegaron a Sahul, donde Australia y Nueva Guinea estaban entonces unidas, probablemente por al menos dos rutas: una norte hacia la actual Nueva Guinea y otra sur hacia la actual Australia. En Timor, el poblamiento intenso comenzó hace unos 44 000 años.",
+        "fr": "Les humains ont atteint le Sahul, où l’Australie et la Nouvelle-Guinée étaient alors reliées, probablement par au moins deux routes : l’une au nord vers l’actuelle Nouvelle-Guinée, l’autre au sud vers l’actuelle Australie. À Timor, une occupation intense a commencé il y a environ 44 000 ans."
+      },
+      "note": {
+        "sv": "Källorna skiljer sig om när: en lång kronologi anger cirka 65 000–60 000 år sedan och en kort 51 000–47 000 år sedan. Dateringen av Madjedbebe (cirka 65 000 år) har ifrågasatts.",
+        "en": "The sources differ on when: a long chronology gives about 65,000–60,000 years ago and a short one 51,000–47,000 years ago. The dating of Madjedbebe (about 65,000 years) has been questioned.",
+        "de": "Die Quellen sind sich über den Zeitpunkt uneinig: eine lange Chronologie nennt etwa 65.000–60.000 Jahre vor heute, eine kurze 51.000–47.000 Jahre vor heute. Die Datierung von Madjedbebe (etwa 65.000 Jahre) wurde angezweifelt.",
+        "es": "Las fuentes discrepan sobre cuándo: una cronología larga indica hace unos 65 000–60 000 años y una corta, hace 51 000–47 000 años. La datación de Madjedbebe (unos 65 000 años) ha sido cuestionada.",
+        "fr": "Les sources divergent sur la date : une chronologie longue indique il y a environ 65 000 à 60 000 ans, une courte il y a 51 000 à 47 000 ans. La datation de Madjedbebe (environ 65 000 ans) a été remise en question."
+      },
+      "sources": [
+        "gandini-2025-sahul",
+        "shipton-2024-timor",
+        "curnoe-2025-gua-dagang"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "neandertalarnas-omrade",
+      "kind": "area",
+      "group": "neandertalare",
+      "certainty": "tolkning",
+      "start": -99999,
+      "end": -36999,
+      "edtf": "../Y-36999~",
+      "radiusKm": 400,
+      "parts": [
+        [
+          {
+            "coord": [
+              -4.239,
+              40.24
+            ],
+            "wikidata": "Q12837",
+            "name": "Iberian Peninsula"
+          },
+          {
+            "coord": [
+              2.537,
+              47.409
+            ],
+            "wikidata": "Q27496",
+            "name": "Western Europe"
+          }
+        ],
+        [
+          {
+            "coord": [
+              2.537,
+              47.409
+            ],
+            "wikidata": "Q27496",
+            "name": "Western Europe"
+          },
+          {
+            "coord": [
+              44.5,
+              42.75
+            ],
+            "wikidata": "Q18869",
+            "name": "Caucasus"
+          }
+        ],
+        [
+          {
+            "event": "qafzeh-och-skhul"
+          },
+          {
+            "coord": [
+              44.5,
+              42.75
+            ],
+            "wikidata": "Q18869",
+            "name": "Caucasus"
+          },
+          {
+            "event": "neandertalare"
+          }
+        ],
+        [
+          {
+            "coord": [
+              44.5,
+              42.75
+            ],
+            "wikidata": "Q18869",
+            "name": "Caucasus"
+          },
+          {
+            "event": "denisovaner"
+          }
+        ]
+      ],
+      "title": {
+        "sv": "Neandertalarnas område",
+        "en": "Neanderthal range",
+        "de": "Verbreitungsgebiet der Neandertaler",
+        "es": "Área de los neandertales",
+        "fr": "Aire des Néandertaliens"
+      },
+      "label": {
+        "sv": "Neandertalare",
+        "en": "Neanderthals",
+        "de": "Neandertaler",
+        "es": "Neandertales",
+        "fr": "Néandertaliens"
+      },
+      "summary": {
+        "sv": "Neandertalarna levde i Europa och i stora delar av Asien, ända till Sibirien. I Levanten försvann de för cirka 49 000–48 000 år sedan, och från Västeuropa till Kaukasus för cirka 40 000–37 000 år sedan. I Altaj försvann en grupp redan för 59 000–49 000 år sedan. Ytan är ritad runt platser i källorna (Iberien, Västeuropa, Levanten, Kaukasus, Zagros och Altaj) och är ingen gräns.",
+        "en": "Neanderthals lived in Europe and in large parts of Asia, as far as Siberia. They disappeared from the Levant about 49,000–48,000 years ago, and from Western Europe to the Caucasus about 40,000–37,000 years ago. In the Altai, one group disappeared as early as 59,000–49,000 years ago. The area is drawn around places in the sources (Iberia, Western Europe, the Levant, the Caucasus, the Zagros and the Altai) and is not a border.",
+        "de": "Die Neandertaler lebten in Europa und in großen Teilen Asiens bis nach Sibirien. In der Levante verschwanden sie vor etwa 49.000–48.000 Jahren, von Westeuropa bis zum Kaukasus vor etwa 40.000–37.000 Jahren. Im Altai verschwand eine Gruppe bereits vor 59.000–49.000 Jahren. Die Fläche ist um Orte aus den Quellen gezeichnet (Iberien, Westeuropa, Levante, Kaukasus, Zagros und Altai) und ist keine Grenze.",
+        "es": "Los neandertales vivieron en Europa y en gran parte de Asia, hasta Siberia. Desaparecieron del Levante hace unos 49 000–48 000 años, y desde Europa occidental hasta el Cáucaso hace unos 40 000–37 000 años. En el Altái, un grupo desapareció ya hace 59 000–49 000 años. El área está dibujada alrededor de lugares citados en las fuentes (Iberia, Europa occidental, el Levante, el Cáucaso, los Zagros y el Altái) y no es una frontera.",
+        "fr": "Les Néandertaliens vivaient en Europe et dans une grande partie de l’Asie, jusqu’en Sibérie. Ils ont disparu du Levant il y a environ 49 000 à 48 000 ans, et de l’Europe de l’Ouest au Caucase il y a environ 40 000 à 37 000 ans. Dans l’Altaï, un groupe a disparu dès il y a 59 000 à 49 000 ans. La zone est tracée autour de lieux cités par les sources (péninsule Ibérique, Europe de l’Ouest, Levant, Caucase, Zagros et Altaï) et n’est pas une frontière."
+      },
+      "sources": [
+        "heydari-guran-2021-bawa-yawan",
+        "harvati-2022-homo-mlp"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "denisovanernas-omrade",
+      "kind": "area",
+      "group": "denisovaner",
+      "certainty": "tolkning",
+      "start": -99999,
+      "end": -29999,
+      "edtf": "../Y-29999~",
+      "radiusKm": 600,
+      "parts": [
+        [
+          {
+            "event": "denisovaner"
+          },
+          {
+            "coord": [
+              102.571,
+              35.448
+            ],
+            "wikidata": "Q63435825",
+            "name": "Baishiya Karst Cave"
+          }
+        ],
+        [
+          {
+            "coord": [
+              102.571,
+              35.448
+            ],
+            "wikidata": "Q63435825",
+            "name": "Baishiya Karst Cave"
+          },
+          {
+            "coord": [
+              114,
+              -1
+            ],
+            "wikidata": "Q36117",
+            "name": "Island Southeast Asia (Borneo as point)"
+          }
+        ]
+      ],
+      "title": {
+        "sv": "Denisovanernas område",
+        "en": "Denisovan range",
+        "de": "Verbreitungsgebiet der Denisova-Menschen",
+        "es": "Área de los denisovanos",
+        "fr": "Aire des Dénisoviens"
+      },
+      "label": {
+        "sv": "Denisovaner",
+        "en": "Denisovans",
+        "de": "Denisova-Menschen",
+        "es": "Denisovanos",
+        "fr": "Dénisoviens"
+      },
+      "summary": {
+        "sv": "Denisovanerna är kända nästan bara genom DNA. Fynd finns i Denisovagrottan i Altaj och i Baishiya på Tibetanska högplatån, och gener i människor som lever i dag tyder på att utbredningen sträckte sig från Altaj ända till Sydostasiens öar, där inga fossil är identifierade. Ytan slutar vid det yngsta daterade lagret i Baishiya (48 000–32 000 år sedan); när denisovanerna försvann är inte känt.",
+        "en": "Denisovans are known almost only from DNA. There are finds in Denisova Cave in the Altai and at Baishiya on the Tibetan Plateau, and genes in people living today suggest that their range stretched from the Altai all the way to Island Southeast Asia, where no fossils have been identified. The area ends at the youngest dated layer at Baishiya (48,000–32,000 years ago); when the Denisovans disappeared is not known.",
+        "de": "Die Denisova-Menschen sind fast nur durch DNA bekannt. Funde gibt es in der Denisova-Höhle im Altai und in Baishiya auf dem Tibetischen Hochland, und Gene heute lebender Menschen deuten darauf hin, dass ihr Verbreitungsgebiet vom Altai bis zu den Inseln Südostasiens reichte, wo keine Fossilien identifiziert sind. Die Fläche endet bei der jüngsten datierten Schicht in Baishiya (48.000–32.000 Jahre vor heute); wann die Denisova-Menschen verschwanden, ist nicht bekannt.",
+        "es": "Los denisovanos se conocen casi solo por el ADN. Hay hallazgos en la cueva de Denisova, en el Altái, y en Baishiya, en la meseta tibetana, y los genes de las personas que viven hoy indican que su área se extendía desde el Altái hasta las islas del Sudeste Asiático, donde no se han identificado fósiles. El área termina con la capa datada más reciente de Baishiya (hace 48 000–32 000 años); no se sabe cuándo desaparecieron los denisovanos.",
+        "fr": "Les Dénisoviens ne sont connus presque que par l’ADN. Des restes ont été trouvés dans la grotte de Denisova, dans l’Altaï, et à Baishiya, sur le plateau tibétain, et les gènes des personnes vivant aujourd’hui suggèrent que leur aire s’étendait de l’Altaï jusqu’aux îles d’Asie du Sud-Est, où aucun fossile n’a été identifié. La zone s’arrête à la couche datée la plus récente de Baishiya (il y a 48 000 à 32 000 ans) ; on ignore quand les Dénisoviens ont disparu."
+      },
+      "sources": [
+        "harvati-2022-homo-mlp",
+        "jacobs-2025-denisova-chronology",
+        "xia-2024-baishiya",
+        "curnoe-2025-gua-dagang"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "nordamerika-tidigt",
+      "kind": "wave",
+      "group": "sapiens",
+      "certainty": "mojlig",
+      "start": -21499,
+      "end": -19699,
+      "edtf": "Y-21499/Y-19699",
+      "paths": [
+        [
+          {
+            "coord": [
+              -168.977,
+              65.75
+            ],
+            "wikidata": "Q11769",
+            "name": "Bering Strait"
+          },
+          {
+            "coord": [
+              -106.172,
+              32.78
+            ],
+            "wikidata": "Q1200164",
+            "name": "White Sands National Park"
+          }
+        ]
+      ],
+      "title": {
+        "sv": "Människor i Nordamerika under istiden?",
+        "en": "People in North America during the Ice Age?",
+        "de": "Menschen in Nordamerika während der Eiszeit?",
+        "es": "¿Personas en Norteamérica durante la glaciación?",
+        "fr": "Des humains en Amérique du Nord pendant l’ère glaciaire ?"
+      },
+      "summary": {
+        "sv": "Fotspår vid White Sands i nuvarande New Mexico är daterade till 23 500–21 700 år sedan. Dateringen har ifrågasatts, men författarna håller fast vid den. Linjen visar bara att människorna kom från Asien; vägen dit är okänd.",
+        "en": "Footprints at White Sands in what is now New Mexico are dated to 23,500–21,700 years ago. The dating has been challenged, but the authors stand by it. The line only shows that people came from Asia; the route there is unknown.",
+        "de": "Fußspuren bei White Sands im heutigen New Mexico sind auf 23.500–21.700 Jahre vor heute datiert. Die Datierung wurde angezweifelt, doch die Autoren halten an ihr fest. Die Linie zeigt nur, dass die Menschen aus Asien kamen; der Weg dorthin ist unbekannt.",
+        "es": "Unas huellas en White Sands, en el actual Nuevo México, están datadas entre hace 23 500 y 21 700 años. La datación ha sido cuestionada, pero los autores la mantienen. La línea solo indica que las personas llegaron desde Asia; se desconoce la ruta hasta allí.",
+        "fr": "Des empreintes de pas à White Sands, dans l’actuel Nouveau-Mexique, sont datées d’il y a 23 500 à 21 700 ans. Cette datation a été contestée, mais les auteurs la maintiennent. La ligne indique seulement que les humains venaient d’Asie ; le chemin jusque-là est inconnu."
+      },
+      "sources": [
+        "springer-2026-white-sands",
+        "dillehay-2015-monte-verde"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "amerika",
+      "kind": "wave",
+      "group": "sapiens",
+      "certainty": "huvudvag",
+      "start": -14559,
+      "end": -12499,
+      "edtf": "Y-14559~/Y-12499~",
+      "paths": [
+        [
+          {
+            "coord": [
+              -168.977,
+              65.75
+            ],
+            "wikidata": "Q11769",
+            "name": "Bering Strait"
+          },
+          {
+            "coord": [
+              -116.413,
+              45.916
+            ],
+            "wikidata": "Q67210067",
+            "name": "Cooper's Ferry"
+          },
+          {
+            "coord": [
+              -86,
+              12
+            ],
+            "wikidata": "Q27611",
+            "name": "Central America"
+          },
+          {
+            "coord": [
+              -73.204,
+              -41.505
+            ],
+            "wikidata": "Q975775",
+            "name": "Monte Verde"
+          }
+        ]
+      ],
+      "title": {
+        "sv": "Spridningen i Amerika",
+        "en": "The spread through the Americas",
+        "de": "Die Ausbreitung in Amerika",
+        "es": "La expansión por América",
+        "fr": "L’expansion dans les Amériques"
+      },
+      "summary": {
+        "sv": "Människor kom från Asien över Beringia till Amerika och spreds sedan till Central- och Sydamerika. Vid Cooper's Ferry i nuvarande Idaho finns spår från cirka 16 500–15 300 år sedan; dateringen har ifrågasatts, men författarna försvarar den. Vid Monte Verde i Chile finns en boplats från cirka 14 500 år sedan. Linjen visar riktningen, inte den väg människorna tog.",
+        "en": "People came from Asia across Beringia to the Americas and then spread to Central and South America. At Cooper's Ferry in what is now Idaho there are traces from about 16,500–15,300 years ago; the dating has been challenged, but the authors defend it. At Monte Verde in Chile there is a site from about 14,500 years ago. The line shows the direction, not the route people took.",
+        "de": "Menschen kamen aus Asien über Beringia nach Amerika und breiteten sich dann nach Mittel- und Südamerika aus. Bei Cooper's Ferry im heutigen Idaho gibt es Spuren von vor etwa 16.500–15.300 Jahren; die Datierung wurde angezweifelt, doch die Autoren verteidigen sie. Bei Monte Verde in Chile gibt es einen Fundplatz von vor etwa 14.500 Jahren. Die Linie zeigt die Richtung, nicht den Weg, den die Menschen nahmen.",
+        "es": "Las personas llegaron a América desde Asia a través de Beringia y después se extendieron por América Central y del Sur. En Cooper's Ferry, en el actual Idaho, hay rastros de hace unos 16 500–15 300 años; la datación ha sido cuestionada, pero los autores la defienden. En Monte Verde, en Chile, hay un yacimiento de hace unos 14 500 años. La línea muestra la dirección, no la ruta que siguieron.",
+        "fr": "Les humains sont arrivés d’Asie en Amérique par la Béringie, puis se sont répandus en Amérique centrale et du Sud. À Cooper's Ferry, dans l’actuel Idaho, des traces datent d’il y a environ 16 500 à 15 300 ans ; cette datation a été contestée, mais les auteurs la défendent. À Monte Verde, au Chili, un site date d’il y a environ 14 500 ans. La ligne indique la direction, pas l’itinéraire suivi."
+      },
+      "note": {
+        "sv": "Källorna ger olika bilder av när människor kom till Amerika: fotspår vid White Sands för 23 500–21 700 år sedan (ifrågasatt), möjliga spår vid Monte Verde från minst 18 500 år sedan, Cooper's Ferry för cirka 16 500 år sedan (ifrågasatt) och den tidigaste säkra platsen i Alaska, Swan Point, för cirka 14 200 år sedan.",
+        "en": "The sources give different pictures of when people reached the Americas: footprints at White Sands 23,500–21,700 years ago (challenged), possible traces at Monte Verde from at least 18,500 years ago, Cooper's Ferry about 16,500 years ago (challenged) and the earliest secure site in Alaska, Swan Point, about 14,200 years ago.",
+        "de": "Die Quellen zeichnen unterschiedliche Bilder davon, wann Menschen Amerika erreichten: Fußspuren bei White Sands vor 23.500–21.700 Jahren (angezweifelt), mögliche Spuren bei Monte Verde von vor mindestens 18.500 Jahren, Cooper's Ferry vor etwa 16.500 Jahren (angezweifelt) und der früheste sichere Fundplatz in Alaska, Swan Point, vor etwa 14.200 Jahren.",
+        "es": "Las fuentes dan imágenes distintas de cuándo llegaron las personas a América: huellas en White Sands de hace 23 500–21 700 años (cuestionadas), posibles rastros en Monte Verde de hace al menos 18 500 años, Cooper's Ferry hace unos 16 500 años (cuestionado) y el yacimiento seguro más antiguo de Alaska, Swan Point, de hace unos 14 200 años.",
+        "fr": "Les sources donnent des images différentes de la date d’arrivée des humains en Amérique : des empreintes à White Sands il y a 23 500 à 21 700 ans (contestées), des traces possibles à Monte Verde datant d’au moins 18 500 ans, Cooper's Ferry il y a environ 16 500 ans (contesté) et le site sûr le plus ancien d’Alaska, Swan Point, il y a environ 14 200 ans."
+      },
+      "sources": [
+        "dillehay-2015-monte-verde",
+        "davis-madsen-2026-coopers-ferry",
+        "wooller-2018-bering",
+        "springer-2026-white-sands"
+      ],
+      "review": "source-checked"
+    }
+  ]
+}

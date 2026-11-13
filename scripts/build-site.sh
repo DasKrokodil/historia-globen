@@ -72,8 +72,8 @@ for f in img/icons/*.svg; do copy "$f"; done
 ls img/flags/*.svg >/dev/null 2>&1 || fail "inga flaggor i img/flags/"
 for f in img/flags/*.svg; do copy "$f"; done
 
-# Datafiler som js/model.js och UI-modulerna laddar, inklusive introduktionen (#363) och elevuppdragen (#741)
-for f in events funfacts missuppfattningar quiz perioder teman platser intro uppdrag sources land land-10m borders styles religions religions-polities upptackt upptackt-europa bildlager vyer version; do
+# Datafiler som js/model.js och UI-modulerna laddar, inklusive introduktionen (#363) och elevuppdragen (#741) och människans spridning (#1094)
+for f in events funfacts missuppfattningar quiz perioder teman platser intro uppdrag sources land land-10m borders styles religions religions-polities upptackt upptackt-europa bildlager vyer version spridning; do
   copy "data/$f.json"
 done
 copy data/licenses.json

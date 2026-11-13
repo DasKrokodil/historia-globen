@@ -326,6 +326,17 @@ for row, part in image_slices:
     for s in part.get('sources', []) if isinstance(part.get('sources'), list) else []:
         if s not in src_ids:
             err(f"data/bildlager.json ({part.get('id')}): källan {s} finns inte i sources.json")
+# Människans spridning (#1094): källorna och händelserna som platserna pekar på
+spread = load('data/spridning.json') if (DIST / 'data/spridning.json').is_file() else None
+for item in (spread or {}).get('items', []):
+    for s in item.get('sources', []):
+        if s not in src_ids:
+            err(f"data/spridning.json ({item.get('id')}): källan {s} finns inte i sources.json")
+    for place in item.get('places', []) + [p for part in item.get('parts', []) for p in part] + [p for path in item.get('paths', []) for p in path]:
+        if 'event' in place and place['event'] not in ev_ids:
+            err(f"data/spridning.json ({item.get('id')}): händelsen {place['event']} finns inte i events.json")
+        elif 'event' not in place and not (isinstance(place.get('coord'), list) and len(place['coord']) == 2):
+            err(f"data/spridning.json ({item.get('id')}): en plats saknar event och coord")
 funfacts = load('data/funfacts.json') or {'funfacts': []}
 for f in funfacts['funfacts']:
     for i in f.get('events', []):
@@ -471,7 +482,7 @@ def image_layer_problems(doc, reserved, groups):
 
 if image_layers is not None:
     validate_schema_file('data/bildlager.json', image_layers, 'bildlager.schema.json')
-    # Lagrens id står i js/layers/index.js (LAYERS); "images" är bildlagrets egen rad tills raderna byggs.
+    # Lagrens id står i js/layers/index.js (LAYERS); "images" där är bildlagrens egna rader, inte ett lager-id.
     try:
         listed = re.search(r'export const LAYERS = \[([^\]]*)\]', (ROOT / 'js/layers/index.js').read_text(encoding='utf-8'))
     except OSError:

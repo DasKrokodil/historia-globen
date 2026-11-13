@@ -558,6 +558,23 @@ En post i `files` är en sökväg från repots rot eller ett filnamn i `data/rou
 
 Etapper får överlappa i tid (till exempel när en flotta delas); varje pågående etapp får då ett skepp. `scripts/validate-site.py` kontrollerar att filerna i `files` finns och går att läsa, att vägarnas och etappernas källor finns i `sources.json` och att `event` finns i `events.json`.
 
+## `spridning.json`: människans spridning (#1094)
+
+Antagna områden och vågor i förhistorien, som lagret Människans spridning (`js/layers/spread.js`) ritar. Allt är **tolkningar av källorna**, aldrig gränser eller vägar (beslutet på #1095, `docs/beslut/2026-11-13-osakerhetens-sprak-forhistoria.md`). Fyndplatserna är vanliga händelser i `handelser/fkr.json`; den här filen innehåller bara det som ligger mellan dem.
+
+- `colors`: färg per grupp (`sapiens`, `neandertalare`, `denisovaner`). Färgen skiljer grupperna åt; formen visar säkerheten.
+- `items[]`, en post per område eller våg:
+  - `id`, `kind` (`area` eller `wave`), `group`, `certainty`: `tolkning` (antaget område), `hypotes`, `huvudvag`, `mojlig` eller `omstridd`.
+  - `start`, `end`, `edtf`: år med astronomisk årsräkning. *X tusen år sedan* skrivs `2001 − 1000 · X`, som för händelserna i förhistorien (till exempel 45 000 år sedan = `-42999`).
+  - `places` (område) eller `paths` (våg, en lista per gren). En plats är `{ "event": "<händelse-id>" }` (samma koordinat som händelsens markör) eller `{ "coord": [lon, lat], "wikidata": "Q…", "name": "…" }` med koordinaten ur Wikidata. Platsen ska vara kontrollerad: id:t öppnat och namnet jämfört.
+  - `radiusKm` (område): hur långt ut höljet ritas runt varje plats. Ytan blir ett mjukt, konvext hölje och ska aldrig läsas som en gräns.
+  - `parts` (område, i stället för `places`): flera listor med platser. Varje del blir ett eget hölje, och delarna ritas som en yta med gemensam ytterkant. Så kan en yta följa en båge (Iberien–Kaukasus–Altaj) utan att täcka det som ligger innanför, till exempel Nordafrika.
+  - `clipLand` (område): ytan klipps mot dagens land (`land.json`). Används bara där havet inte har ändrats mycket, eftersom landbryggorna under istiden (#1096) annars skulle klippas bort.
+  - Vågornas sträckor ritas längs storcirkeln mellan platserna.
+  - `title`, `label` (valfri, kort namn på kartan), `summary`, `note` (valfri, till exempel "Källorna skiljer sig"): texter per språk.
+  - `sources` (id i `sources.json`) och `review` som för händelser (`draft` visas inte).
+- `scripts/validate-site.py` kontrollerar att källorna och händelserna finns och att varje plats har `event` eller `coord`. `tools/oversattning.py` räknar texterna.
+
 ## `upptackt.json`: upptäcktsvyn (#101)
 
 Upptäcktsvyn slås på i Lager. Filen styr allt den visar (ritas av `js/layers/discovery.js`):
@@ -752,9 +769,9 @@ Färdigprojicerade SVG-banor i 4096 × 2048 (`path`, `width`, `height`) från Na
 - Ett `lager` kan bara lägga till något ovanpå dagens karta. Där havet stod högre än i dag kan land inte tas bort med ett lager; det kräver `grund`.
 - Ritstil för vektorer och en finare fil för det skarpa utsnittet finns inte i formatet. De läggs till när det första vektorlagret byggs (#1096), om de behövs.
 
-**Vad som är byggt.** Sidan visar ännu en enda rad i Lager med id `images`: den första raden med `kind: lager`, och bara dess rasterskivor utan `bounds` (`js/layers/images.js`). Flera rader, `bounds`, vektor, alias i adressen och rensning av bilder som inte visas byggs i nästa steg av #1325. `kind: grund` byggs i version 8 (#397, #51).
+**Vad som är byggt (#1325).** Varje rad med `kind: lager` som har minst en rasterskiva som inte är utkast blir en egen rad i Lager, med radens `id` som lager-id (`js/layers/images.js`). Flera rader får vara på samtidigt och ritas i filens ordning ([beslut 2026-11-13](beslut/2026-11-13-flera-bildlager-samtidigt.md)). En skiva med `bounds` ritas i sin ruta, annars över hela världen. Bilden laddas först när raden är på och året ligger i skivans period, och släpps ur minnet när raden stängs av eller året lämnar perioden. I ett tidsintervall visas skivan för slutåret, som för riken. Äldre id i `aliases` översätts när en delad länk läses (`js/controllers/address.js`), och adressen skrivs sedan med det nya id:t. **Inte byggt:** `format: vektor` hoppas över tills ritstilen är bestämd (#1096), och `kind: grund` byggs i version 8 (#397, #51). `caveat` och skivornas källor visas ännu inte på sidan.
 
-**Kontroller.** `scripts/validate-site.py` kör schemat och det schemat inte kan uttrycka: okända fält, upptagna id och alias, gruppen, `label` för `grund`, bildens storlek, `bounds`, perioder som överlappar, och att filer och källor finns. `tests/validate-schema-test.py` godkänner exempelfilen `tests/fixtures/bildlager-exempel.json`, som övar hela formatet, och underkänner avsiktliga fel.
+**Kontroller.** `scripts/validate-site.py` kör schemat och det schemat inte kan uttrycka: okända fält, upptagna id och alias, gruppen, `label` för `grund`, bildens storlek, `bounds`, perioder som överlappar, och att filer och källor finns. `tests/validate-schema-test.py` godkänner exempelfilen `tests/fixtures/bildlager-exempel.json`, som övar hela formatet, och underkänner avsiktliga fel. `tests/images.test.mjs` kontrollerar urvalet av rader och skivor, rutan för `bounds`, rensningen av bilder och att varje lager i länkarkivet finns kvar, direkt eller som alias.
 
 Första raden är NASA Black Marble 2016 (`nattljus`), från 2016 och framåt.
 
