@@ -1,0 +1,1487 @@
+{
+  "routes": [
+    {
+      "id": "ibn-battuta",
+      "kind": "voyage",
+      "category": "upptackter",
+      "title": {
+        "sv": "Ibn Battutas resor",
+        "en": "Ibn Battuta's travels",
+        "de": "Die Reisen des Ibn Battuta",
+        "es": "Los viajes de Ibn Battuta",
+        "fr": "Les voyages d'Ibn Battuta"
+      },
+      "summary": {
+        "sv": "Ibn Battuta lämnar Tanger 14 juni 1325 för att vallfärda till Mecka och kommer hem till Marocko först 1349, efter 24 år. Han reser genom Nordafrika och Mellanöstern, längs Östafrikas kust, genom Anatolien och över stäpperna till Indien, där han stannar i flera år i Delhi. Därifrån fortsätter han till Maldiverna, Bengalen, Sumatra och Kina. Efter hemkomsten reser han till Granada och över Sahara till Malirikets städer och är tillbaka i Marocko i början av 1354. Berättelsen om resorna, Rihla, dikterade han i efterhand för Ibn Juzayy på uppdrag av sultanen Abu Inan Faris; den var klar 1355.",
+        "en": "Ibn Battuta leaves Tangier on 14 June 1325 to make the pilgrimage to Mecca and does not return home to Morocco until 1349, after 24 years. He travels through North Africa and the Middle East, along the coast of East Africa, through Anatolia and across the steppes to India, where he stays for several years in Delhi. From there he continues to the Maldives, Bengal, Sumatra and China. After returning home he travels to Granada and across the Sahara to the towns of the Mali Empire, and is back in Morocco early in 1354. He dictated the account of his travels, the Rihla, afterwards to Ibn Juzayy at the request of the sultan Abu Inan Faris; it was completed in 1355.",
+        "de": "Ibn Battuta verlässt Tanger am 14. Juni 1325, um nach Mekka zu pilgern, und kehrt erst 1349, nach 24 Jahren, nach Marokko zurück. Er reist durch Nordafrika und den Nahen Osten, entlang der Küste Ostafrikas, durch Anatolien und über die Steppen nach Indien, wo er mehrere Jahre in Delhi bleibt. Von dort zieht er weiter zu den Malediven, nach Bengalen, Sumatra und China. Nach seiner Heimkehr reist er nach Granada und durch die Sahara zu den Städten des Malireichs und ist Anfang 1354 wieder in Marokko. Den Bericht über seine Reisen, die Rihla, diktierte er im Nachhinein Ibn Juzayy im Auftrag des Sultans Abu Inan Faris; er war 1355 fertig.",
+        "es": "Ibn Battuta sale de Tánger el 14 de junio de 1325 para peregrinar a La Meca y no regresa a Marruecos hasta 1349, al cabo de 24 años. Viaja por el norte de África y Oriente Próximo, a lo largo de la costa de África Oriental, por Anatolia y a través de las estepas hasta la India, donde permanece varios años en Delhi. Desde allí continúa hacia las Maldivas, Bengala, Sumatra y China. Tras volver a casa viaja a Granada y atraviesa el Sahara hasta las ciudades del Imperio de Malí, y está de vuelta en Marruecos a principios de 1354. Dictó después el relato de sus viajes, la Rihla, a Ibn Juzayy por encargo del sultán Abu Inan Faris; se terminó en 1355.",
+        "fr": "Ibn Battuta quitte Tanger le 14 juin 1325 pour le pèlerinage de La Mecque et ne rentre au Maroc qu'en 1349, après 24 ans. Il traverse l'Afrique du Nord et le Moyen-Orient, longe la côte de l'Afrique de l'Est, parcourt l'Anatolie et les steppes jusqu'en Inde, où il reste plusieurs années à Delhi. De là, il gagne les Maldives, le Bengale, Sumatra et la Chine. Après son retour, il se rend à Grenade et traverse le Sahara jusqu'aux villes de l'Empire du Mali, et il est de retour au Maroc au début de 1354. Il dicta ensuite le récit de ses voyages, la Rihla, à Ibn Juzayy à la demande du sultan Abu Inan Faris ; il fut achevé en 1355."
+      },
+      "start": 1325,
+      "end": 1354,
+      "precision": 9,
+      "edtf": "1325-06-14/1354",
+      "event": "ibn-battuta-resa",
+      "note": {
+        "title": {
+          "sv": "Källorna skiljer sig",
+          "en": "The sources differ",
+          "de": "Die Quellen unterscheiden sich",
+          "es": "Las fuentes no coinciden",
+          "fr": "Les sources divergent"
+        },
+        "text": {
+          "sv": "Rihla dikterades i efterhand, och kronologin är osäker. Enligt Rihla stannade han i Mecka från september 1327 till hösten 1330. Men Rihlas egna datum går inte ihop: resan till Indien tog omkring tre år, så antingen lämnade han Mecka två år tidigare än han skriver, eller kom han till Indusfloden två år senare än 12 september 1333. Kommentatorer menar att han kan ha rest redan efter vallfärden 1328. Kartan följer den tidigare kronologin; de andra åren står vid platserna. För Östafrika anger Wikipedias artikel om Ibn Battuta Kilwa 1330 och Mogadishu 1332, men artiklarna om städerna 1331 för båda. Avresan från Delhi är 1341 enligt Dunn och 22 juli 1342 enligt Rihla. Han var troligen i Anatoliens städer, men inte i den ordning han beskriver, och vissa tvivlar på hela resan i Anatolien. Var Kaylukari låg på vägen till Kina är omstritt, och hemvägen från Kina beskrivs bara i stora drag. Besöken i Sanaa och Bolghar är tvivelaktiga och visas inte, och om han var i Kina ifrågasätts. Forskarna är inte överens om var Malis huvudstad låg, så den visas inte.",
+          "en": "The Rihla was dictated afterwards, and its chronology is uncertain. According to the Rihla he stayed in Mecca from September 1327 to autumn 1330. But the Rihla's own dates do not fit together: the journey to India took about three years, so either he left Mecca two years earlier than he says, or he reached the Indus two years later than 12 September 1333. Commentators suggest that he may have left after the pilgrimage of 1328. The map follows the earlier chronology; the other years are given at the places. For East Africa, the Wikipedia article on Ibn Battuta gives Kilwa 1330 and Mogadishu 1332, but the articles on the towns give 1331 for both. His departure from Delhi is 1341 according to Dunn and 22 July 1342 according to the Rihla. He was probably in the towns of Anatolia, but not in the order he describes, and some doubt the whole journey around Anatolia. Where Kaylukari lay on the way to China is disputed, and the route home from China is described only in broad outline. The visits to Sanaa and Bolghar are doubtful and are not shown, and whether he was in China is questioned. Scholars do not agree on where the capital of Mali lay, so it is not shown.",
+          "de": "Die Rihla wurde im Nachhinein diktiert, und ihre Chronologie ist unsicher. Laut Rihla blieb er von September 1327 bis Herbst 1330 in Mekka. Doch die Daten der Rihla passen nicht zusammen: Die Reise nach Indien dauerte etwa drei Jahre, also verließ er Mekka entweder zwei Jahre früher, als er schreibt, oder erreichte den Indus zwei Jahre später als am 12. September 1333. Kommentatoren vermuten, dass er schon nach der Pilgerfahrt 1328 aufbrach. Die Karte folgt der früheren Chronologie; die anderen Jahre stehen bei den Orten. Für Ostafrika nennt der Wikipedia-Artikel über Ibn Battuta Kilwa 1330 und Mogadischu 1332, die Artikel über die Städte aber für beide 1331. Die Abreise aus Delhi ist laut Dunn 1341 und laut Rihla der 22. Juli 1342. Er war wahrscheinlich in den Städten Anatoliens, aber nicht in der Reihenfolge, die er beschreibt, und manche bezweifeln die ganze Reise durch Anatolien. Wo Kaylukari auf dem Weg nach China lag, ist umstritten, und der Rückweg aus China wird nur in groben Zügen beschrieben. Die Besuche in Sanaa und Bolghar sind zweifelhaft und werden nicht gezeigt, und ob er in China war, wird bezweifelt. Die Forschung ist sich nicht einig, wo die Hauptstadt Malis lag, daher wird sie nicht gezeigt.",
+          "es": "La Rihla se dictó después, y su cronología es incierta. Según la Rihla permaneció en La Meca desde septiembre de 1327 hasta el otoño de 1330. Pero las fechas de la propia Rihla no encajan: el viaje a la India duró unos tres años, así que o bien salió de La Meca dos años antes de lo que dice, o bien llegó al Indo dos años después del 12 de septiembre de 1333. Los comentaristas sugieren que pudo marcharse ya tras la peregrinación de 1328. El mapa sigue la cronología más temprana; los otros años figuran junto a los lugares. Para África Oriental, el artículo de Wikipedia sobre Ibn Battuta da Kilwa en 1330 y Mogadiscio en 1332, pero los artículos sobre las ciudades dan 1331 para ambas. Su salida de Delhi es en 1341 según Dunn y el 22 de julio de 1342 según la Rihla. Probablemente estuvo en las ciudades de Anatolia, pero no en el orden que describe, y algunos dudan de todo el viaje por Anatolia. Se discute dónde estaba Kaylukari, en el camino a China, y el regreso desde China solo se describe a grandes rasgos. Las visitas a Saná y Bolghar son dudosas y no se muestran, y se cuestiona que estuviera en China. Los investigadores no se ponen de acuerdo sobre dónde estaba la capital de Malí, por lo que no se muestra.",
+          "fr": "La Rihla fut dictée après coup, et sa chronologie est incertaine. Selon la Rihla, il resta à La Mecque de septembre 1327 à l'automne 1330. Mais les dates de la Rihla elle-même ne concordent pas : le voyage vers l'Inde dura environ trois ans, si bien que soit il quitta La Mecque deux ans plus tôt qu'il ne l'écrit, soit il atteignit l'Indus deux ans après le 12 septembre 1333. Des commentateurs suggèrent qu'il a pu repartir dès le pèlerinage de 1328. La carte suit la chronologie la plus précoce ; les autres années sont indiquées aux différents lieux. Pour l'Afrique de l'Est, l'article de Wikipédia sur Ibn Battuta donne Kilwa en 1330 et Mogadiscio en 1332, mais les articles sur les villes donnent 1331 pour les deux. Son départ de Delhi date de 1341 selon Dunn et du 22 juillet 1342 selon la Rihla. Il est probablement passé par les villes d'Anatolie, mais pas dans l'ordre qu'il décrit, et certains doutent de l'ensemble de son voyage en Anatolie. L'emplacement de Kaylukari, sur la route de la Chine, est contesté, et le retour de Chine n'est décrit que dans les grandes lignes. Ses visites à Sanaa et à Bolghar sont douteuses et ne sont pas montrées, et sa présence en Chine est mise en doute. Les chercheurs ne s'accordent pas sur l'emplacement de la capitale du Mali, elle n'est donc pas montrée."
+        }
+      },
+      "sources": [
+        "wp-ibn-battuta",
+        "wp-rihla",
+        "wp-mogadishu",
+        "wp-kilwa-kisiwani",
+        "wikisource-lee-1829-ibn-batuta",
+        "wikidata"
+      ],
+      "review": "source-checked",
+      "legs": [
+        {
+          "from": 1325.45,
+          "to": 1326.2,
+          "edtf": "1325-06-14/1326",
+          "path": [
+            [
+              -5.8,
+              35.8
+            ],
+            [
+              -1.3,
+              34.9
+            ],
+            [
+              5.1,
+              36.8
+            ],
+            [
+              10.2,
+              36.8
+            ],
+            [
+              29.9,
+              31.2
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                -5.8,
+                35.8
+              ],
+              "name": {
+                "sv": "Tanger",
+                "en": "Tangier",
+                "de": "Tanger",
+                "es": "Tánger",
+                "fr": "Tanger"
+              },
+              "date": "1325-06-14",
+              "stop": true
+            },
+            {
+              "at": [
+                -1.3,
+                34.9
+              ],
+              "name": {
+                "sv": "Tlemcen",
+                "en": "Tlemcen",
+                "de": "Tlemcen",
+                "es": "Tlemcen",
+                "fr": "Tlemcen"
+              }
+            },
+            {
+              "at": [
+                5.1,
+                36.8
+              ],
+              "name": {
+                "sv": "Bejaia",
+                "en": "Béjaïa",
+                "de": "Béjaïa",
+                "es": "Bugía (Béjaïa)",
+                "fr": "Béjaïa"
+              }
+            },
+            {
+              "at": [
+                10.2,
+                36.8
+              ],
+              "name": {
+                "sv": "Tunis",
+                "en": "Tunis",
+                "de": "Tunis",
+                "es": "Túnez",
+                "fr": "Tunis"
+              }
+            }
+          ],
+          "sources": [
+            "wp-ibn-battuta",
+            "wikidata",
+            "wikisource-lee-1829-ibn-batuta"
+          ]
+        },
+        {
+          "from": 1326.2,
+          "to": 1326.6,
+          "path": [
+            [
+              29.9,
+              31.2
+            ],
+            [
+              31.2,
+              30.0
+            ],
+            [
+              36.3,
+              33.5
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                29.9,
+                31.2
+              ],
+              "name": {
+                "sv": "Alexandria",
+                "en": "Alexandria",
+                "de": "Alexandria",
+                "es": "Alejandría",
+                "fr": "Alexandrie"
+              },
+              "edtf": "1326-21",
+              "stop": true,
+              "dateLabel": {
+                "sv": "tidig vår 1326",
+                "en": "early spring 1326",
+                "de": "zeitiges Frühjahr 1326",
+                "es": "principios de la primavera de 1326",
+                "fr": "début du printemps 1326"
+              }
+            },
+            {
+              "at": [
+                31.2,
+                30.0
+              ],
+              "name": {
+                "sv": "Kairo",
+                "en": "Cairo",
+                "de": "Kairo",
+                "es": "El Cairo",
+                "fr": "Le Caire"
+              }
+            }
+          ],
+          "sources": [
+            "wp-ibn-battuta",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1326.6,
+          "to": 1326.85,
+          "edtf": "1326-08/1326-11",
+          "path": [
+            [
+              36.3,
+              33.5
+            ],
+            [
+              39.6,
+              24.5
+            ],
+            [
+              39.8,
+              21.4
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                36.3,
+                33.5
+              ],
+              "name": {
+                "sv": "Damaskus",
+                "en": "Damascus",
+                "de": "Damaskus",
+                "es": "Damasco",
+                "fr": "Damas"
+              },
+              "edtf": "1326-08",
+              "stop": true,
+              "dateLabel": {
+                "sv": "augusti 1326",
+                "en": "August 1326",
+                "de": "August 1326",
+                "es": "agosto de 1326",
+                "fr": "août 1326"
+              }
+            },
+            {
+              "at": [
+                39.6,
+                24.5
+              ],
+              "name": {
+                "sv": "Medina",
+                "en": "Medina",
+                "de": "Medina",
+                "es": "Medina",
+                "fr": "Médine"
+              }
+            }
+          ],
+          "sources": [
+            "wp-ibn-battuta",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1326.85,
+          "to": 1327.45,
+          "edtf": "1326-11/1327-06",
+          "path": [
+            [
+              39.8,
+              21.4
+            ],
+            [
+              44.3,
+              32.0
+            ],
+            [
+              47.8,
+              30.5
+            ],
+            [
+              51.7,
+              32.7
+            ],
+            [
+              52.5,
+              29.6
+            ],
+            [
+              44.4,
+              33.3
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                39.8,
+                21.4
+              ],
+              "name": {
+                "sv": "Mecka",
+                "en": "Mecca",
+                "de": "Mekka",
+                "es": "La Meca",
+                "fr": "La Mecque"
+              },
+              "edtf": "1326-11",
+              "stop": true,
+              "dateLabel": {
+                "sv": "november 1326, första vallfärden",
+                "en": "November 1326, first pilgrimage",
+                "de": "November 1326, erste Pilgerfahrt",
+                "es": "noviembre de 1326, primera peregrinación",
+                "fr": "novembre 1326, premier pèlerinage"
+              }
+            },
+            {
+              "at": [
+                44.3,
+                32.0
+              ],
+              "name": {
+                "sv": "Najaf",
+                "en": "Najaf",
+                "de": "Nadschaf",
+                "es": "Náyaf",
+                "fr": "Nadjaf"
+              }
+            },
+            {
+              "at": [
+                47.8,
+                30.5
+              ],
+              "name": {
+                "sv": "Basra",
+                "en": "Basra",
+                "de": "Basra",
+                "es": "Basora",
+                "fr": "Bassora"
+              }
+            },
+            {
+              "at": [
+                51.7,
+                32.7
+              ],
+              "name": {
+                "sv": "Isfahan",
+                "en": "Isfahan",
+                "de": "Isfahan",
+                "es": "Isfahán",
+                "fr": "Ispahan"
+              }
+            },
+            {
+              "at": [
+                52.5,
+                29.6
+              ],
+              "name": {
+                "sv": "Shiraz",
+                "en": "Shiraz",
+                "de": "Schiras",
+                "es": "Shiraz",
+                "fr": "Chiraz"
+              }
+            }
+          ],
+          "sources": [
+            "wp-ibn-battuta",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1327.45,
+          "to": 1327.7,
+          "edtf": "1327-06/1327-09",
+          "path": [
+            [
+              44.4,
+              33.3
+            ],
+            [
+              46.3,
+              38.1
+            ],
+            [
+              43.1,
+              36.3
+            ],
+            [
+              44.4,
+              33.3
+            ],
+            [
+              39.8,
+              21.4
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                44.4,
+                33.3
+              ],
+              "name": {
+                "sv": "Bagdad",
+                "en": "Baghdad",
+                "de": "Bagdad",
+                "es": "Bagdad",
+                "fr": "Bagdad"
+              },
+              "edtf": "1327-06",
+              "stop": true,
+              "dateLabel": {
+                "sv": "juni 1327",
+                "en": "June 1327",
+                "de": "Juni 1327",
+                "es": "junio de 1327",
+                "fr": "juin 1327"
+              }
+            },
+            {
+              "at": [
+                46.3,
+                38.1
+              ],
+              "name": {
+                "sv": "Tabriz",
+                "en": "Tabriz",
+                "de": "Täbris",
+                "es": "Tabriz",
+                "fr": "Tabriz"
+              }
+            },
+            {
+              "at": [
+                43.1,
+                36.3
+              ],
+              "name": {
+                "sv": "Mosul",
+                "en": "Mosul",
+                "de": "Mossul",
+                "es": "Mosul",
+                "fr": "Mossoul"
+              }
+            }
+          ],
+          "sources": [
+            "wp-ibn-battuta",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1328.8,
+          "to": 1330.9,
+          "edtf": "1328/1332",
+          "uncertain": true,
+          "path": [
+            [
+              39.8,
+              21.4
+            ],
+            [
+              43.3,
+              14.2
+            ],
+            [
+              45.0,
+              12.8
+            ],
+            [
+              43.5,
+              11.4
+            ],
+            [
+              45.3,
+              2.0
+            ],
+            [
+              39.7,
+              -4.1
+            ],
+            [
+              39.5,
+              -9.0
+            ],
+            [
+              54.0,
+              18.0
+            ],
+            [
+              56.5,
+              26.6
+            ],
+            [
+              39.8,
+              21.4
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                39.8,
+                21.4
+              ],
+              "name": {
+                "sv": "Mecka",
+                "en": "Mecca",
+                "de": "Mekka",
+                "es": "La Meca",
+                "fr": "La Mecque"
+              },
+              "edtf": "1327-09/1328",
+              "stop": true,
+              "dateLabel": {
+                "sv": "i Mecka från september 1327; reste 1328 eller 1330",
+                "en": "in Mecca from September 1327; left in 1328 or 1330",
+                "de": "ab September 1327 in Mekka; Abreise 1328 oder 1330",
+                "es": "en La Meca desde septiembre de 1327; partió en 1328 o 1330",
+                "fr": "à La Mecque depuis septembre 1327 ; départ en 1328 ou 1330"
+              }
+            },
+            {
+              "at": [
+                43.3,
+                14.2
+              ],
+              "name": {
+                "sv": "Zabid",
+                "en": "Zabid",
+                "de": "Zabid",
+                "es": "Zabid",
+                "fr": "Zabid"
+              }
+            },
+            {
+              "at": [
+                45.0,
+                12.8
+              ],
+              "name": {
+                "sv": "Aden",
+                "en": "Aden",
+                "de": "Aden",
+                "es": "Adén",
+                "fr": "Aden"
+              },
+              "dateLabel": {
+                "sv": "i början av 1329 eller 1331",
+                "en": "early 1329 or 1331",
+                "de": "Anfang 1329 oder 1331",
+                "es": "a principios de 1329 o 1331",
+                "fr": "début 1329 ou 1331"
+              }
+            },
+            {
+              "at": [
+                43.5,
+                11.4
+              ],
+              "name": {
+                "sv": "Zeila",
+                "en": "Zeila",
+                "de": "Zeila",
+                "es": "Zeila",
+                "fr": "Zeila"
+              }
+            },
+            {
+              "at": [
+                45.3,
+                2.0
+              ],
+              "name": {
+                "sv": "Mogadishu",
+                "en": "Mogadishu",
+                "de": "Mogadischu",
+                "es": "Mogadiscio",
+                "fr": "Mogadiscio"
+              },
+              "dateLabel": {
+                "sv": "1331 eller 1332; källorna skiljer sig",
+                "en": "1331 or 1332; the sources differ",
+                "de": "1331 oder 1332; die Quellen unterscheiden sich",
+                "es": "1331 o 1332; las fuentes no coinciden",
+                "fr": "1331 ou 1332 ; les sources divergent"
+              }
+            },
+            {
+              "at": [
+                39.7,
+                -4.1
+              ],
+              "name": {
+                "sv": "Mombasa",
+                "en": "Mombasa",
+                "de": "Mombasa",
+                "es": "Mombasa",
+                "fr": "Mombasa"
+              }
+            },
+            {
+              "at": [
+                39.5,
+                -9.0
+              ],
+              "name": {
+                "sv": "Kilwa Kisiwani",
+                "en": "Kilwa Kisiwani",
+                "de": "Kilwa Kisiwani",
+                "es": "Kilwa Kisiwani",
+                "fr": "Kilwa Kisiwani"
+              },
+              "dateLabel": {
+                "sv": "1330 eller 1331; källorna skiljer sig",
+                "en": "1330 or 1331; the sources differ",
+                "de": "1330 oder 1331; die Quellen unterscheiden sich",
+                "es": "1330 o 1331; las fuentes no coinciden",
+                "fr": "1330 ou 1331 ; les sources divergent"
+              }
+            }
+          ],
+          "sources": [
+            "wp-ibn-battuta",
+            "wp-mogadishu",
+            "wp-kilwa-kisiwani",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1330.9,
+          "to": 1334.0,
+          "edtf": "1330/1334",
+          "uncertain": true,
+          "path": [
+            [
+              39.8,
+              21.4
+            ],
+            [
+              30.7,
+              36.9
+            ],
+            [
+              29.1,
+              40.2
+            ],
+            [
+              29.7,
+              40.4
+            ],
+            [
+              39.4,
+              47.1
+            ],
+            [
+              29.0,
+              41.0
+            ],
+            [
+              64.4,
+              39.8
+            ],
+            [
+              67.0,
+              39.7
+            ],
+            [
+              77.2,
+              28.7
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                39.8,
+                21.4
+              ],
+              "name": {
+                "sv": "Mecka",
+                "en": "Mecca",
+                "de": "Mekka",
+                "es": "La Meca",
+                "fr": "La Mecque"
+              },
+              "dateLabel": {
+                "sv": "vallfärd 1330 eller 1332",
+                "en": "pilgrimage in 1330 or 1332",
+                "de": "Pilgerfahrt 1330 oder 1332",
+                "es": "peregrinación en 1330 o 1332",
+                "fr": "pèlerinage en 1330 ou 1332"
+              }
+            },
+            {
+              "at": [
+                30.7,
+                36.9
+              ],
+              "name": {
+                "sv": "Antalya",
+                "en": "Antalya",
+                "de": "Antalya",
+                "es": "Antalya",
+                "fr": "Antalya"
+              }
+            },
+            {
+              "at": [
+                29.1,
+                40.2
+              ],
+              "name": {
+                "sv": "Bursa",
+                "en": "Bursa",
+                "de": "Bursa",
+                "es": "Bursa",
+                "fr": "Bursa"
+              }
+            },
+            {
+              "at": [
+                29.7,
+                40.4
+              ],
+              "name": {
+                "sv": "İznik (Nicaea)",
+                "en": "İznik (Nicaea)",
+                "de": "İznik (Nicäa)",
+                "es": "İznik (Nicea)",
+                "fr": "İznik (Nicée)"
+              }
+            },
+            {
+              "at": [
+                39.4,
+                47.1
+              ],
+              "name": {
+                "sv": "Azov",
+                "en": "Azov",
+                "de": "Asow",
+                "es": "Azov",
+                "fr": "Azov"
+              }
+            },
+            {
+              "at": [
+                29.0,
+                41.0
+              ],
+              "name": {
+                "sv": "Konstantinopel (Istanbul)",
+                "en": "Constantinople (Istanbul)",
+                "de": "Konstantinopel (Istanbul)",
+                "es": "Constantinopla (Estambul)",
+                "fr": "Constantinople (Istanbul)"
+              },
+              "dateLabel": {
+                "sv": "slutet av 1332 eller 1334",
+                "en": "late 1332 or 1334",
+                "de": "Ende 1332 oder 1334",
+                "es": "finales de 1332 o 1334",
+                "fr": "fin 1332 ou 1334"
+              }
+            },
+            {
+              "at": [
+                64.4,
+                39.8
+              ],
+              "name": {
+                "sv": "Buchara",
+                "en": "Bukhara",
+                "de": "Buchara",
+                "es": "Bujará",
+                "fr": "Boukhara"
+              }
+            },
+            {
+              "at": [
+                67.0,
+                39.7
+              ],
+              "name": {
+                "sv": "Samarkand",
+                "en": "Samarkand",
+                "de": "Samarkand",
+                "es": "Samarcanda",
+                "fr": "Samarcande"
+              }
+            }
+          ],
+          "sources": [
+            "wp-ibn-battuta",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1341.5,
+          "to": 1345.0,
+          "edtf": "1341/1345",
+          "uncertain": true,
+          "path": [
+            [
+              77.2,
+              28.7
+            ],
+            [
+              75.8,
+              11.2
+            ],
+            [
+              73.5,
+              4.2
+            ],
+            [
+              91.9,
+              24.9
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                77.2,
+                28.7
+              ],
+              "name": {
+                "sv": "Delhi",
+                "en": "Delhi",
+                "de": "Delhi",
+                "es": "Delhi",
+                "fr": "Delhi"
+              },
+              "dateLabel": {
+                "sv": "avresa 1341 eller 1342",
+                "en": "left in 1341 or 1342",
+                "de": "Abreise 1341 oder 1342",
+                "es": "partió en 1341 o 1342",
+                "fr": "départ en 1341 ou 1342"
+              }
+            },
+            {
+              "at": [
+                75.8,
+                11.2
+              ],
+              "name": {
+                "sv": "Calicut (Kozhikode)",
+                "en": "Calicut (Kozhikode)",
+                "de": "Calicut (Kozhikode)",
+                "es": "Calicut (Kozhikode)",
+                "fr": "Calicut (Kozhikode)"
+              }
+            },
+            {
+              "at": [
+                73.5,
+                4.2
+              ],
+              "name": {
+                "sv": "Maldiverna",
+                "en": "The Maldives",
+                "de": "Malediven",
+                "es": "Maldivas",
+                "fr": "Maldives"
+              },
+              "dateLabel": {
+                "sv": "nio månader",
+                "en": "nine months",
+                "de": "neun Monate",
+                "es": "nueve meses",
+                "fr": "neuf mois"
+              }
+            }
+          ],
+          "sources": [
+            "wp-ibn-battuta",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1345.0,
+          "to": 1345.9,
+          "edtf": "1345",
+          "uncertain": true,
+          "path": [
+            [
+              91.9,
+              24.9
+            ],
+            [
+              97.2,
+              5.1
+            ],
+            [
+              118.6,
+              24.9
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                91.9,
+                24.9
+              ],
+              "name": {
+                "sv": "Sylhet",
+                "en": "Sylhet",
+                "de": "Sylhet",
+                "es": "Sylhet",
+                "fr": "Sylhet"
+              },
+              "edtf": "1345",
+              "stop": true,
+              "dateLabel": {
+                "sv": "1345",
+                "en": "1345",
+                "de": "1345",
+                "es": "1345",
+                "fr": "1345"
+              }
+            },
+            {
+              "at": [
+                97.2,
+                5.1
+              ],
+              "name": {
+                "sv": "Samudra Pasai",
+                "en": "Samudra Pasai",
+                "de": "Samudra Pasai",
+                "es": "Samudra Pasai",
+                "fr": "Samudra Pasai"
+              },
+              "edtf": "1345"
+            },
+            {
+              "at": [
+                118.6,
+                24.9
+              ],
+              "name": {
+                "sv": "Zaitun (Quanzhou)",
+                "en": "Zaitun (Quanzhou)",
+                "de": "Zaitun (Quanzhou)",
+                "es": "Zaitun (Quanzhou)",
+                "fr": "Zaitun (Quanzhou)"
+              },
+              "edtf": "1345",
+              "dateLabel": {
+                "sv": "1345; om han var i Kina är omstritt",
+                "en": "1345; whether he was in China is disputed",
+                "de": "1345; ob er in China war, ist umstritten",
+                "es": "1345; se discute si estuvo en China",
+                "fr": "1345 ; sa présence en Chine est contestée"
+              }
+            }
+          ],
+          "sources": [
+            "wp-ibn-battuta",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1346.2,
+          "to": 1348.0,
+          "edtf": "1346/1348",
+          "uncertain": true,
+          "path": [
+            [
+              118.6,
+              24.9
+            ],
+            [
+              97.2,
+              5.1
+            ],
+            [
+              75.8,
+              11.2
+            ],
+            [
+              47.8,
+              30.5
+            ],
+            [
+              36.3,
+              33.5
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                118.6,
+                24.9
+              ],
+              "name": {
+                "sv": "Zaitun (Quanzhou)",
+                "en": "Zaitun (Quanzhou)",
+                "de": "Zaitun (Quanzhou)",
+                "es": "Zaitun (Quanzhou)",
+                "fr": "Zaitun (Quanzhou)"
+              },
+              "edtf": "1346",
+              "dateLabel": {
+                "sv": "tillbaka 1346",
+                "en": "back in 1346",
+                "de": "wieder dort 1346",
+                "es": "de vuelta en 1346",
+                "fr": "de retour en 1346"
+              }
+            }
+          ],
+          "sources": [
+            "wp-ibn-battuta",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1348.0,
+          "to": 1349.5,
+          "edtf": "1348/1349",
+          "uncertain": true,
+          "path": [
+            [
+              36.3,
+              33.5
+            ],
+            [
+              31.2,
+              30.0
+            ],
+            [
+              39.8,
+              21.4
+            ],
+            [
+              31.2,
+              30.0
+            ],
+            [
+              29.9,
+              31.2
+            ],
+            [
+              9.0,
+              40.0
+            ],
+            [
+              -5.0,
+              34.0
+            ],
+            [
+              -5.8,
+              35.8
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                36.3,
+                33.5
+              ],
+              "name": {
+                "sv": "Damaskus",
+                "en": "Damascus",
+                "de": "Damaskus",
+                "es": "Damasco",
+                "fr": "Damas"
+              },
+              "edtf": "1348",
+              "stop": true,
+              "dateLabel": {
+                "sv": "1348, när pesten kom",
+                "en": "1348, when the plague came",
+                "de": "1348, als die Pest kam",
+                "es": "1348, cuando llegó la peste",
+                "fr": "1348, à l’arrivée de la peste"
+              }
+            },
+            {
+              "at": [
+                31.2,
+                30.0
+              ],
+              "name": {
+                "sv": "Kairo",
+                "en": "Cairo",
+                "de": "Kairo",
+                "es": "El Cairo",
+                "fr": "Le Caire"
+              }
+            },
+            {
+              "at": [
+                39.8,
+                21.4
+              ],
+              "name": {
+                "sv": "Mecka",
+                "en": "Mecca",
+                "de": "Mekka",
+                "es": "La Meca",
+                "fr": "La Mecque"
+              },
+              "dateLabel": {
+                "sv": "vallfärd",
+                "en": "pilgrimage",
+                "de": "Pilgerfahrt",
+                "es": "peregrinación",
+                "fr": "pèlerinage"
+              }
+            },
+            {
+              "at": [
+                9.0,
+                40.0
+              ],
+              "name": {
+                "sv": "Sardinien",
+                "en": "Sardinia",
+                "de": "Sardinien",
+                "es": "Cerdeña",
+                "fr": "Sardaigne"
+              }
+            },
+            {
+              "at": [
+                -5.0,
+                34.0
+              ],
+              "name": {
+                "sv": "Fès",
+                "en": "Fez",
+                "de": "Fès",
+                "es": "Fez",
+                "fr": "Fès"
+              }
+            }
+          ],
+          "sources": [
+            "wp-ibn-battuta",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1349.5,
+          "to": 1350.5,
+          "edtf": "1349/1350",
+          "path": [
+            [
+              -5.8,
+              35.8
+            ],
+            [
+              -5.4,
+              36.1
+            ],
+            [
+              -3.6,
+              37.2
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                -5.8,
+                35.8
+              ],
+              "name": {
+                "sv": "Tanger",
+                "en": "Tangier",
+                "de": "Tanger",
+                "es": "Tánger",
+                "fr": "Tanger"
+              },
+              "edtf": "1349",
+              "stop": true,
+              "dateLabel": {
+                "sv": "1349, hemma igen",
+                "en": "1349, home again",
+                "de": "1349, wieder zu Hause",
+                "es": "1349, de nuevo en casa",
+                "fr": "1349, de retour chez lui"
+              }
+            },
+            {
+              "at": [
+                -5.4,
+                36.1
+              ],
+              "name": {
+                "sv": "Gibraltar",
+                "en": "Gibraltar",
+                "de": "Gibraltar",
+                "es": "Gibraltar",
+                "fr": "Gibraltar"
+              },
+              "edtf": "1350",
+              "stop": true,
+              "dateLabel": {
+                "sv": "1350",
+                "en": "1350",
+                "de": "1350",
+                "es": "1350",
+                "fr": "1350"
+              }
+            },
+            {
+              "at": [
+                -3.6,
+                37.2
+              ],
+              "name": {
+                "sv": "Granada",
+                "en": "Granada",
+                "de": "Granada",
+                "es": "Granada",
+                "fr": "Grenade"
+              },
+              "edtf": "1350~",
+              "dateLabel": {
+                "sv": "omkring 1350",
+                "en": "around 1350",
+                "de": "um 1350",
+                "es": "hacia 1350",
+                "fr": "vers 1350"
+              }
+            }
+          ],
+          "sources": [
+            "wp-ibn-battuta",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1350.5,
+          "to": 1352.1,
+          "edtf": "1350/1352-02",
+          "uncertain": true,
+          "path": [
+            [
+              -3.6,
+              37.2
+            ],
+            [
+              -5.4,
+              36.1
+            ],
+            [
+              -8.0,
+              31.6
+            ],
+            [
+              -5.0,
+              34.0
+            ],
+            [
+              -4.3,
+              31.3
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                -8.0,
+                31.6
+              ],
+              "name": {
+                "sv": "Marrakech",
+                "en": "Marrakesh",
+                "de": "Marrakesch",
+                "es": "Marrakech",
+                "fr": "Marrakech"
+              }
+            },
+            {
+              "at": [
+                -5.0,
+                34.0
+              ],
+              "name": {
+                "sv": "Fès",
+                "en": "Fez",
+                "de": "Fès",
+                "es": "Fez",
+                "fr": "Fès"
+              }
+            }
+          ],
+          "sources": [
+            "wp-ibn-battuta",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1352.1,
+          "to": 1352.2,
+          "edtf": "1352-02/1352-03",
+          "path": [
+            [
+              -4.3,
+              31.3
+            ],
+            [
+              -4.2,
+              23.0
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                -4.3,
+                31.3
+              ],
+              "name": {
+                "sv": "Sijilmasa",
+                "en": "Sijilmasa",
+                "de": "Sidschilmasa",
+                "es": "Siyilmasa",
+                "fr": "Sijilmassa"
+              },
+              "edtf": "1351/1352-02",
+              "stop": true,
+              "dateLabel": {
+                "sv": "fyra månader från hösten 1351; reste i februari 1352",
+                "en": "four months from autumn 1351; left in February 1352",
+                "de": "vier Monate ab Herbst 1351; Abreise im Februar 1352",
+                "es": "cuatro meses desde el otoño de 1351; partió en febrero de 1352",
+                "fr": "quatre mois à partir de l’automne 1351 ; départ en février 1352"
+              }
+            }
+          ],
+          "sources": [
+            "wp-ibn-battuta",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1352.2,
+          "to": 1353.7,
+          "edtf": "1352/1353-09",
+          "uncertain": true,
+          "path": [
+            [
+              -4.2,
+              23.0
+            ],
+            [
+              -7.0,
+              17.3
+            ],
+            [
+              -3.0,
+              16.8
+            ],
+            [
+              -0.1,
+              16.3
+            ],
+            [
+              6.8,
+              17.5
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                -4.2,
+                23.0
+              ],
+              "name": {
+                "sv": "Taghaza",
+                "en": "Taghaza",
+                "de": "Taghaza",
+                "es": "Taghaza",
+                "fr": "Taghaza"
+              },
+              "edtf": "1352-02/1352-03",
+              "stop": true,
+              "dateLabel": {
+                "sv": "1352, 25 dagar efter avresan från Sijilmasa",
+                "en": "1352, 25 days after leaving Sijilmasa",
+                "de": "1352, 25 Tage nach der Abreise aus Sidschilmasa",
+                "es": "1352, 25 días después de salir de Siyilmasa",
+                "fr": "1352, 25 jours après le départ de Sijilmassa"
+              }
+            },
+            {
+              "at": [
+                -7.0,
+                17.3
+              ],
+              "name": {
+                "sv": "Walata (Oualata)",
+                "en": "Walata (Oualata)",
+                "de": "Walata (Oualata)",
+                "es": "Walata (Oualata)",
+                "fr": "Walata (Oualata)"
+              },
+              "edtf": "1352~",
+              "dateLabel": {
+                "sv": "omkring 1352",
+                "en": "around 1352",
+                "de": "um 1352",
+                "es": "hacia 1352",
+                "fr": "vers 1352"
+              }
+            },
+            {
+              "at": [
+                -3.0,
+                16.8
+              ],
+              "name": {
+                "sv": "Timbuktu",
+                "en": "Timbuktu",
+                "de": "Timbuktu",
+                "es": "Tombuctú",
+                "fr": "Tombouctou"
+              }
+            },
+            {
+              "at": [
+                -0.1,
+                16.3
+              ],
+              "name": {
+                "sv": "Gao",
+                "en": "Gao",
+                "de": "Gao",
+                "es": "Gao",
+                "fr": "Gao"
+              }
+            }
+          ],
+          "sources": [
+            "wp-ibn-battuta",
+            "wikidata"
+          ]
+        },
+        {
+          "from": 1353.7,
+          "to": 1354.1,
+          "edtf": "1353-09/1354",
+          "uncertain": true,
+          "path": [
+            [
+              6.8,
+              17.5
+            ],
+            [
+              -4.3,
+              31.3
+            ]
+          ],
+          "places": [
+            {
+              "at": [
+                6.8,
+                17.5
+              ],
+              "name": {
+                "sv": "Takedda",
+                "en": "Takedda",
+                "de": "Takedda",
+                "es": "Takedda",
+                "fr": "Takedda"
+              },
+              "edtf": "1353-09",
+              "stop": true,
+              "dateLabel": {
+                "sv": "september 1353, på väg hem",
+                "en": "September 1353, heading home",
+                "de": "September 1353, auf dem Heimweg",
+                "es": "septiembre de 1353, de regreso",
+                "fr": "septembre 1353, sur le chemin du retour"
+              }
+            }
+          ],
+          "sources": [
+            "wp-ibn-battuta",
+            "wikidata"
+          ]
+        }
+      ]
+    }
+  ]
+}
