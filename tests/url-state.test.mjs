@@ -1,8 +1,9 @@
 // Adressformatet (#501, #64): js/url-state.js. Kör: node --test 'tests/*.test.mjs'
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { encodeHash, decodeHash, isNewStep } from '../js/url-state.js';
+import { encodeHash, decodeHash, decodeTour, decodeMode, decodeMission, decodeRole, isNewStep } from '../js/url-state.js';
 import { MIN_YEAR, MAX_YEAR } from '../js/state.js';
+import { readFileSync } from 'node:fs';
 
 const base = { v: 1, year: 1325, camera: { lat: 34, lon: -50, zoom: 1.6 }, focus: null, layers: ['areas', 'events'], filters: ['krig', 'kultur'], calm: false };
 
@@ -196,4 +197,31 @@ test('att välja eller stänga ett intervall är en egen post i historiken', () 
   assert.equal(isNewStep({ ...base, yearEnd: 1418 }, base), true);
   assert.equal(isNewStep({ ...base, yearEnd: 1418 }, { ...base, yearEnd: 1418 }), false);
   assert.equal(isNewStep({ ...base, yearEnd: 1418 }, { ...base, yearEnd: 1420 }), true);
+});
+
+// Länkarkivet (#1326): länkar som de släppta versionerna har skrivit ska betyda samma sak i dag.
+// tests/lankarkiv.json har länkarna och facit; se "om" i filen för hur den byggs på.
+const archive = JSON.parse(readFileSync(new URL('./lankarkiv.json', import.meta.url), 'utf8'));
+const readLink = (hash, search = '') => ({
+  state: decodeHash(hash), tour: decodeTour(hash, search), mode: decodeMode(hash),
+  mission: decodeMission(hash), role: decodeRole(hash),
+});
+
+test('äldre delade länkar öppnas på samma sätt som när de skrevs (#1326)', () => {
+  assert.ok(archive.links.length >= 15, 'länkarkivet är tomt eller nästan tomt');
+  for (const link of archive.links) {
+    assert.ok(link.expected, `${link.what}: facit saknas`);
+    assert.deepEqual(readLink(link.hash, link.search ?? ''), link.expected, `${link.versions.join(', ')}: ${link.what} (${link.hash || link.search})`);
+  }
+});
+
+test('länkarkivet täcker varje släppt version, varje adressdel och varje fokustyp (#1326)', () => {
+  const versions = new Set(archive.links.flatMap(l => l.versions));
+  for (const v of ['v5.0.0', 'v6.0.0', 'v6.1.0', 'v6.2.0']) assert.ok(versions.has(v), `ingen länk från ${v}`);
+  const keys = new Set(archive.links.flatMap(l => [...new URLSearchParams(l.hash.replace(/^#/, '')).keys(), ...new URLSearchParams(l.search ?? '').keys()]));
+  // Adressdelarna i kommentaren överst i js/url-state.js, plus p (epok, #980), r (lärarlänken, #885) och ?tur=
+  const header = readFileSync(new URL('../js/url-state.js', import.meta.url), 'utf8').match(/^\/\/ {3}([a-z0-9]+) {2,}/gm).map(s => s.trim().split(/\s+/)[1]);
+  for (const key of [...header, 'p', 'r', 'tur']) assert.ok(keys.has(key), `ingen länk i arkivet har ${key}=; lägg till en (se "om" i tests/lankarkiv.json)`);
+  const focusTypes = new Set(archive.links.map(l => l.expected.state?.focus?.split(':')[0]).filter(Boolean));
+  for (const type of ['war', 'empire', 'religion', 'route', 'theme', 'place']) assert.ok(focusTypes.has(type), `ingen länk följer ${type}`);
 });
