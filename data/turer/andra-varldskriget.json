@@ -5,12 +5,14 @@
   "title": {
     "sv": "Andra världskriget i Europa och Stilla havet",
     "en": "The Second World War in Europe and the Pacific",
-    "de": "Der Zweite Weltkrieg in Europa und im Pazifik"
+    "de": "Der Zweite Weltkrieg in Europa und im Pazifik",
+    "es": "La Segunda Guerra Mundial en Europa y en el Pacífico"
   },
   "summary": {
     "sv": "Från anfallet på Polen 1939 till Japans kapitulation 1945, i Europa, Nordafrika och Stilla havet.",
     "en": "From the attack on Poland in 1939 to Japan's surrender in 1945, in Europe, North Africa and the Pacific.",
-    "de": "Vom Angriff auf Polen 1939 bis zur Kapitulation Japans 1945, in Europa, Nordafrika und im Pazifik."
+    "de": "Vom Angriff auf Polen 1939 bis zur Kapitulation Japans 1945, in Europa, Nordafrika und im Pazifik.",
+    "es": "Del ataque a Polonia en 1939 a la capitulación de Japón en 1945, en Europa, el norte de África y el Pacífico."
   },
   "war": "andra-varldskriget",
   "review": "source-checked",
@@ -135,17 +137,20 @@
       "chapter": {
         "sv": "1939–1940: kriget i Europa börjar",
         "en": "1939–1940: the war in Europe begins",
-        "de": "1939–1940: Der Krieg in Europa beginnt"
+        "de": "1939–1940: Der Krieg in Europa beginnt",
+        "es": "1939–1940: comienza la guerra en Europa"
       },
       "title": {
         "sv": "Polen, 1 september 1939",
         "en": "Poland, 1 September 1939",
-        "de": "Polen, 1. September 1939"
+        "de": "Polen, 1. September 1939",
+        "es": "Polonia, 1 de septiembre de 1939"
       },
       "text": {
         "sv": "Tyskland anfaller Polen tillsammans med Slovakien. Bland de första striderna är beskjutningen av Westerplatte vid Danzig. Två dagar senare förklarar Storbritannien och Frankrike krig mot Tyskland.",
         "en": "Germany attacks Poland together with Slovakia. Among the first fighting is the shelling of Westerplatte at Danzig. Two days later Britain and France declare war on Germany.",
-        "de": "Deutschland greift zusammen mit der Slowakei Polen an. Zu den ersten Kämpfen gehört der Beschuss der Westerplatte bei Danzig. Zwei Tage später erklären Großbritannien und Frankreich Deutschland den Krieg."
+        "de": "Deutschland greift zusammen mit der Slowakei Polen an. Zu den ersten Kämpfen gehört der Beschuss der Westerplatte bei Danzig. Zwei Tage später erklären Großbritannien und Frankreich Deutschland den Krieg.",
+        "es": "Alemania ataca Polonia junto con Eslovaquia. Entre los primeros combates está el bombardeo de Westerplatte, cerca de Dánzig. Dos días después, el Reino Unido y Francia declaran la guerra a Alemania."
       },
       "layers": [
         "events",
@@ -170,12 +175,14 @@
       "title": {
         "sv": "Frankrike, maj–juni 1940",
         "en": "France, May–June 1940",
-        "de": "Frankreich, Mai–Juni 1940"
+        "de": "Frankreich, Mai–Juni 1940",
+        "es": "Francia, mayo–junio de 1940"
       },
       "text": {
         "sv": "Den 10 maj anfaller Tyskland Nederländerna, Belgien, Luxemburg och Frankrike. Paris intas den 14 juni, och vapenstilleståndet som skrevs under vid Compiègne börjar gälla den 25 juni.",
         "en": "On 10 May Germany attacks the Netherlands, Belgium, Luxembourg and France. Paris is taken on 14 June, and the armistice signed at Compiègne takes effect on 25 June.",
-        "de": "Am 10. Mai greift Deutschland die Niederlande, Belgien, Luxemburg und Frankreich an. Paris wird am 14. Juni eingenommen, und der in Compiègne unterzeichnete Waffenstillstand tritt am 25. Juni in Kraft."
+        "de": "Am 10. Mai greift Deutschland die Niederlande, Belgien, Luxemburg und Frankreich an. Paris wird am 14. Juni eingenommen, und der in Compiègne unterzeichnete Waffenstillstand tritt am 25. Juni in Kraft.",
+        "es": "El 10 de mayo Alemania ataca los Países Bajos, Bélgica, Luxemburgo y Francia. París es tomada el 14 de junio, y el armisticio firmado en Compiègne entra en vigor el 25 de junio."
       },
       "layers": [
         "events",
@@ -214,7 +221,8 @@
       "question": {
         "sv": "Tyskland tog Frankrike på några veckor, men lyckades inte i luften över Storbritannien. Vad gjorde det svårare att anfalla en ö?",
         "en": "Germany took France in a few weeks, but did not succeed in the air over Britain. What made it harder to attack an island?",
-        "de": "Deutschland eroberte Frankreich in wenigen Wochen, scheiterte aber in der Luft über Großbritannien. Was machte es schwerer, eine Insel anzugreifen?"
+        "de": "Deutschland eroberte Frankreich in wenigen Wochen, scheiterte aber in der Luft über Großbritannien. Was machte es schwerer, eine Insel anzugreifen?",
+        "es": "Alemania tomó Francia en pocas semanas, pero no tuvo éxito en el aire sobre Gran Bretaña. ¿Qué hacía más difícil atacar una isla?"
       },
       "layers": [
         "events",
@@ -239,17 +247,20 @@
       "chapter": {
         "sv": "1941: Sovjetunionen och USA dras in",
         "en": "1941: the Soviet Union and the United States are drawn in",
-        "de": "1941: Die Sowjetunion und die USA werden hineingezogen"
+        "de": "1941: Die Sowjetunion und die USA werden hineingezogen",
+        "es": "1941: la Unión Soviética y Estados Unidos entran en la guerra"
       },
       "title": {
         "sv": "Sovjetunionen, 22 juni 1941",
         "en": "The Soviet Union, 22 June 1941",
-        "de": "Sowjetunion, 22. Juni 1941"
+        "de": "Sowjetunion, 22. Juni 1941",
+        "es": "Unión Soviética, 22 de junio de 1941"
       },
       "text": {
         "sv": "Tyskland och flera av dess europeiska förbundna anfaller Sovjetunionen med mer än 3,8 miljoner soldater. Det är den största militära offensiven i historien och öppnar östfronten.",
         "en": "Germany and several of its European allies attack the Soviet Union with more than 3.8 million soldiers. It is the largest military offensive in history and opens the Eastern Front.",
-        "de": "Deutschland und mehrere seiner europäischen Verbündeten greifen die Sowjetunion mit mehr als 3,8 Millionen Soldaten an. Es ist die größte militärische Offensive der Geschichte und eröffnet die Ostfront."
+        "de": "Deutschland und mehrere seiner europäischen Verbündeten greifen die Sowjetunion mit mehr als 3,8 Millionen Soldaten an. Es ist die größte militärische Offensive der Geschichte und eröffnet die Ostfront.",
+        "es": "Alemania y varios de sus aliados europeos atacan la Unión Soviética con más de 3,8 millones de soldados. Es la mayor ofensiva militar de la historia y abre el frente oriental."
       },
       "layers": [
         "events",
@@ -275,17 +286,20 @@
       "title": {
         "sv": "Pearl Harbor, 7 december 1941",
         "en": "Pearl Harbor, 7 December 1941",
-        "de": "Pearl Harbor, 7. Dezember 1941"
+        "de": "Pearl Harbor, 7. Dezember 1941",
+        "es": "Pearl Harbor, 7 de diciembre de 1941"
       },
       "text": {
         "sv": "Samma år i Stilla havet: japanska flygplan från sex hangarfartyg anfaller den amerikanska Stillahavsflottan. USA förklarar krig mot Japan dagen efter, och Tyskland förklarar sedan krig mot USA.",
         "en": "The same year in the Pacific: Japanese aircraft from six aircraft carriers attack the American Pacific Fleet. The United States declares war on Japan the next day, and Germany then declares war on the United States.",
-        "de": "Im selben Jahr im Pazifik: Japanische Flugzeuge von sechs Flugzeugträgern greifen die amerikanische Pazifikflotte an. Die USA erklären Japan am Tag darauf den Krieg, und Deutschland erklärt danach den USA den Krieg."
+        "de": "Im selben Jahr im Pazifik: Japanische Flugzeuge von sechs Flugzeugträgern greifen die amerikanische Pazifikflotte an. Die USA erklären Japan am Tag darauf den Krieg, und Deutschland erklärt danach den USA den Krieg.",
+        "es": "El mismo año en el Pacífico: aviones japoneses de seis portaaviones atacan la flota estadounidense del Pacífico. Estados Unidos declara la guerra a Japón al día siguiente, y después Alemania declara la guerra a Estados Unidos."
       },
       "question": {
         "sv": "Barbarossa och Pearl Harbor hände samma år, långt från varandra. Vad kan det ha betytt att både Sovjetunionen och USA nu var med i kriget?",
         "en": "Barbarossa and Pearl Harbor happened in the same year, far from each other. What might it have meant that both the Soviet Union and the United States were now in the war?",
-        "de": "Barbarossa und Pearl Harbor geschahen im selben Jahr, weit voneinander entfernt. Was könnte es bedeutet haben, dass nun die Sowjetunion und die USA mitkämpften?"
+        "de": "Barbarossa und Pearl Harbor geschahen im selben Jahr, weit voneinander entfernt. Was könnte es bedeutet haben, dass nun die Sowjetunion und die USA mitkämpften?",
+        "es": "Barbarroja y Pearl Harbor ocurrieron el mismo año, lejos el uno del otro. ¿Qué pudo significar que tanto la Unión Soviética como Estados Unidos estuvieran ahora en la guerra?"
       },
       "layers": [
         "events",
@@ -311,17 +325,20 @@
       "chapter": {
         "sv": "1942–1943: axelmakterna stoppas",
         "en": "1942–1943: the Axis powers are stopped",
-        "de": "1942–1943: Die Achsenmächte werden aufgehalten"
+        "de": "1942–1943: Die Achsenmächte werden aufgehalten",
+        "es": "1942–1943: las potencias del Eje son detenidas"
       },
       "title": {
         "sv": "Midway, 4–7 juni 1942",
         "en": "Midway, 4–7 June 1942",
-        "de": "Midway, 4.–7. Juni 1942"
+        "de": "Midway, 4.–7. Juni 1942",
+        "es": "Midway, 4–7 de junio de 1942"
       },
       "text": {
         "sv": "Den amerikanska flottan besegrar en japansk flotta nära Midway. Japan förlorar fyra hangarfartyg, och dess framryckning i Stilla havet stoppas.",
         "en": "The American navy defeats a Japanese fleet near Midway. Japan loses four aircraft carriers, and its advance in the Pacific is halted.",
-        "de": "Die amerikanische Flotte besiegt eine japanische Flotte bei Midway. Japan verliert vier Flugzeugträger, und sein Vormarsch im Pazifik wird gestoppt."
+        "de": "Die amerikanische Flotte besiegt eine japanische Flotte bei Midway. Japan verliert vier Flugzeugträger, und sein Vormarsch im Pazifik wird gestoppt.",
+        "es": "La flota estadounidense derrota a una flota japonesa cerca de Midway. Japón pierde cuatro portaaviones, y su avance en el Pacífico queda detenido."
       },
       "layers": [
         "events",
@@ -345,12 +362,14 @@
       "title": {
         "sv": "Guadalcanal, 7 augusti 1942",
         "en": "Guadalcanal, 7 August 1942",
-        "de": "Guadalcanal, 7. August 1942"
+        "de": "Guadalcanal, 7. August 1942",
+        "es": "Guadalcanal, 7 de agosto de 1942"
       },
       "text": {
         "sv": "Allierade trupper, mest amerikanska marinsoldater, landstiger på Guadalcanal. Det blir de allierades första stora offensiv på land mot Japan, med strider både på ön och till sjöss.",
         "en": "Allied troops, mostly American marines, land on Guadalcanal. It becomes the Allies' first major land offensive against Japan, with fighting both on the island and at sea.",
-        "de": "Alliierte Truppen, meist amerikanische Marineinfanteristen, landen auf Guadalcanal. Es wird die erste große Offensive der Alliierten an Land gegen Japan, mit Kämpfen auf der Insel und auf See."
+        "de": "Alliierte Truppen, meist amerikanische Marineinfanteristen, landen auf Guadalcanal. Es wird die erste große Offensive der Alliierten an Land gegen Japan, mit Kämpfen auf der Insel und auf See.",
+        "es": "Tropas aliadas, sobre todo marines estadounidenses, desembarcan en Guadalcanal. Es la primera gran ofensiva aliada en tierra contra Japón, con combates en la isla y en el mar."
       },
       "layers": [
         "events",
@@ -374,12 +393,14 @@
       "title": {
         "sv": "El Alamein, oktober 1942",
         "en": "El Alamein, October 1942",
-        "de": "El Alamein, Oktober 1942"
+        "de": "El Alamein, Oktober 1942",
+        "es": "El Alamein, octubre de 1942"
       },
       "text": {
         "sv": "Under tiden i Nordafrika anfaller den brittiska åttonde armén under Bernard Montgomery den tysk-italienska pansararmén vid El Alamein. Axelmakternas styrkor måste dra sig tillbaka ur Egypten och Libyen.",
         "en": "Meanwhile in North Africa the British Eighth Army under Bernard Montgomery attacks the German-Italian Panzer Army at El Alamein. The Axis forces have to withdraw from Egypt and Libya.",
-        "de": "Unterdessen greift in Nordafrika die britische 8. Armee unter Bernard Montgomery die deutsch-italienische Panzerarmee bei El Alamein an. Die Truppen der Achsenmächte müssen sich aus Ägypten und Libyen zurückziehen."
+        "de": "Unterdessen greift in Nordafrika die britische 8. Armee unter Bernard Montgomery die deutsch-italienische Panzerarmee bei El Alamein an. Die Truppen der Achsenmächte müssen sich aus Ägypten und Libyen zurückziehen.",
+        "es": "Mientras tanto, en el norte de África, el 8.º Ejército británico de Bernard Montgomery ataca al ejército blindado germano-italiano en El Alamein. Las fuerzas del Eje tienen que retirarse de Egipto y Libia."
       },
       "layers": [
         "events",
@@ -418,7 +439,8 @@
       "question": {
         "sv": "Varför tror du att ett slag om en enda stad kan ses som en vändpunkt i ett helt krig?",
         "en": "Why do you think a battle for a single city can be seen as a turning point in a whole war?",
-        "de": "Warum gilt eine Schlacht um eine einzige Stadt wohl als Wendepunkt eines ganzen Krieges?"
+        "de": "Warum gilt eine Schlacht um eine einzige Stadt wohl als Wendepunkt eines ganzen Krieges?",
+        "es": "¿Por qué cree usted que una batalla por una sola ciudad puede considerarse un punto de inflexión de toda una guerra?"
       },
       "layers": [
         "events",
@@ -443,17 +465,20 @@
       "chapter": {
         "sv": "1944–1945: kriget i Europa slutar",
         "en": "1944–1945: the war in Europe ends",
-        "de": "1944–1945: Der Krieg in Europa endet"
+        "de": "1944–1945: Der Krieg in Europa endet",
+        "es": "1944–1945: termina la guerra en Europa"
       },
       "title": {
         "sv": "Normandie, 6 juni 1944",
         "en": "Normandy, 6 June 1944",
-        "de": "Normandie, 6. Juni 1944"
+        "de": "Normandie, 6. Juni 1944",
+        "es": "Normandía, 6 de junio de 1944"
       },
       "text": {
         "sv": "Allierade trupper, bland dem amerikanska, brittiska och kanadensiska, landsätts från luften och från havet på fem avsnitt av Normandies kust. Det är den största landstigningen från havet i historien och början på befrielsen av Frankrike och Västeuropa.",
         "en": "Allied troops, among them American, British and Canadian, are landed from the air and from the sea on five sectors of the Normandy coast. It is the largest seaborne landing in history and the beginning of the liberation of France and Western Europe.",
-        "de": "Alliierte Truppen, darunter amerikanische, britische und kanadische, landen aus der Luft und vom Meer aus an fünf Abschnitten der Küste der Normandie. Es ist die größte Landung vom Meer aus in der Geschichte und der Beginn der Befreiung Frankreichs und Westeuropas."
+        "de": "Alliierte Truppen, darunter amerikanische, britische und kanadische, landen aus der Luft und vom Meer aus an fünf Abschnitten der Küste der Normandie. Es ist die größte Landung vom Meer aus in der Geschichte und der Beginn der Befreiung Frankreichs und Westeuropas.",
+        "es": "Tropas aliadas, entre ellas estadounidenses, británicas y canadienses, desembarcan desde el aire y desde el mar en cinco sectores de la costa de Normandía. Es el mayor desembarco marítimo de la historia y el comienzo de la liberación de Francia y de Europa occidental."
       },
       "layers": [
         "events",
@@ -477,17 +502,20 @@
       "title": {
         "sv": "Auschwitz, 27 januari 1945",
         "en": "Auschwitz, 27 January 1945",
-        "de": "Auschwitz, 27. Januar 1945"
+        "de": "Auschwitz, 27. Januar 1945",
+        "es": "Auschwitz, 27 de enero de 1945"
       },
       "text": {
         "sv": "Sovjetiska trupper befriar Auschwitz. Minst 1,1 miljoner människor dog i lägret, de flesta judar. Det blev en symbol för Förintelsen, där omkring sex miljoner judar mördades.",
         "en": "Soviet troops liberate Auschwitz. At least 1.1 million people died in the camp, most of them Jews. It became a symbol of the Holocaust, in which about six million Jews were murdered.",
-        "de": "Sowjetische Truppen befreien Auschwitz. Mindestens 1,1 Millionen Menschen starben im Lager, die meisten von ihnen Juden. Es wurde zum Symbol des Holocaust, bei dem etwa sechs Millionen Juden ermordet wurden."
+        "de": "Sowjetische Truppen befreien Auschwitz. Mindestens 1,1 Millionen Menschen starben im Lager, die meisten von ihnen Juden. Es wurde zum Symbol des Holocaust, bei dem etwa sechs Millionen Juden ermordet wurden.",
+        "es": "Tropas soviéticas liberan Auschwitz. Al menos 1,1 millones de personas murieron en el campo, la mayoría judíos. Se convirtió en un símbolo del Holocausto, en el que fueron asesinados unos seis millones de judíos."
       },
       "question": {
         "sv": "Den 27 januari är i dag en minnesdag för Förintelsens offer. Varför tror du att man har valt just den dagen?",
         "en": "27 January is today a day of remembrance for the victims of the Holocaust. Why do you think that particular day was chosen?",
-        "de": "Der 27. Januar ist heute ein Gedenktag für die Opfer des Holocaust. Warum, glauben Sie, wurde gerade dieser Tag gewählt?"
+        "de": "Der 27. Januar ist heute ein Gedenktag für die Opfer des Holocaust. Warum, glauben Sie, wurde gerade dieser Tag gewählt?",
+        "es": "El 27 de enero es hoy un día de conmemoración de las víctimas del Holocausto. ¿Por qué cree usted que se eligió precisamente ese día?"
       },
       "layers": [
         "events",
@@ -512,12 +540,14 @@
       "title": {
         "sv": "Berlin, 8 maj 1945",
         "en": "Berlin, 8 May 1945",
-        "de": "Berlin, 8. Mai 1945"
+        "de": "Berlin, 8. Mai 1945",
+        "es": "Berlín, 8 de mayo de 1945"
       },
       "text": {
         "sv": "Tysklands högsta militära ledning skriver under en villkorslös kapitulation i Karlshorst i Berlin, dagen efter en första kapitulation i Reims. Kriget i Europa är slut, men mot Japan fortsätter det.",
         "en": "Germany's supreme military command signs an unconditional surrender in Karlshorst in Berlin, the day after a first surrender in Reims. The war in Europe is over, but against Japan it continues.",
-        "de": "Die oberste deutsche Militärführung unterzeichnet in Karlshorst in Berlin eine bedingungslose Kapitulation, einen Tag nach einer ersten Kapitulation in Reims. Der Krieg in Europa ist vorbei, gegen Japan geht er jedoch weiter."
+        "de": "Die oberste deutsche Militärführung unterzeichnet in Karlshorst in Berlin eine bedingungslose Kapitulation, einen Tag nach einer ersten Kapitulation in Reims. Der Krieg in Europa ist vorbei, gegen Japan geht er jedoch weiter.",
+        "es": "El alto mando militar alemán firma una capitulación incondicional en Karlshorst, en Berlín, un día después de una primera capitulación en Reims. La guerra en Europa ha terminado, pero contra Japón continúa."
       },
       "layers": [
         "events",
@@ -543,17 +573,20 @@
       "chapter": {
         "sv": "1945: kriget mot Japan slutar",
         "en": "1945: the war against Japan ends",
-        "de": "1945: Der Krieg gegen Japan endet"
+        "de": "1945: Der Krieg gegen Japan endet",
+        "es": "1945: termina la guerra contra Japón"
       },
       "title": {
         "sv": "Hiroshima och Nagasaki, 6 och 9 augusti 1945",
         "en": "Hiroshima and Nagasaki, 6 and 9 August 1945",
-        "de": "Hiroshima und Nagasaki, 6. und 9. August 1945"
+        "de": "Hiroshima und Nagasaki, 6. und 9. August 1945",
+        "es": "Hiroshima y Nagasaki, 6 y 9 de agosto de 1945"
       },
       "text": {
         "sv": "USA fäller atombomber över Hiroshima och Nagasaki. Mellan 150 000 och 246 000 människor dödas, de flesta civila. Mellan bomberna förklarar Sovjetunionen krig mot Japan och anfaller Manchuriet.",
         "en": "The United States drops atomic bombs on Hiroshima and Nagasaki. Between 150,000 and 246,000 people are killed, most of them civilians. Between the bombs the Soviet Union declares war on Japan and attacks Manchuria.",
-        "de": "Die USA werfen Atombomben auf Hiroshima und Nagasaki ab. Zwischen 150.000 und 246.000 Menschen werden getötet, die meisten von ihnen Zivilisten. Zwischen den beiden Bomben erklärt die Sowjetunion Japan den Krieg und greift die Mandschurei an."
+        "de": "Die USA werfen Atombomben auf Hiroshima und Nagasaki ab. Zwischen 150.000 und 246.000 Menschen werden getötet, die meisten von ihnen Zivilisten. Zwischen den beiden Bomben erklärt die Sowjetunion Japan den Krieg und greift die Mandschurei an.",
+        "es": "Estados Unidos lanza bombas atómicas sobre Hiroshima y Nagasaki. Mueren entre 150 000 y 246 000 personas, la mayoría civiles. Entre las dos bombas, la Unión Soviética declara la guerra a Japón y ataca Manchuria."
       },
       "layers": [
         "events",
@@ -577,17 +610,20 @@
       "title": {
         "sv": "Tokyobukten, 2 september 1945",
         "en": "Tokyo Bay, 2 September 1945",
-        "de": "Bucht von Tokio, 2. September 1945"
+        "de": "Bucht von Tokio, 2. September 1945",
+        "es": "Bahía de Tokio, 2 de septiembre de 1945"
       },
       "text": {
         "sv": "Japan och nio allierade länder skriver under kapitulationen ombord på USS Missouri. Andra världskriget är slut.",
         "en": "Japan and nine Allied countries sign the surrender aboard USS Missouri. The Second World War is over.",
-        "de": "Japan und neun alliierte Länder unterzeichnen die Kapitulation an Bord der USS Missouri. Der Zweite Weltkrieg ist vorbei."
+        "de": "Japan und neun alliierte Länder unterzeichnen die Kapitulation an Bord der USS Missouri. Der Zweite Weltkrieg ist vorbei.",
+        "es": "Japón y nueve países aliados firman la capitulación a bordo del USS Missouri. La Segunda Guerra Mundial ha terminado."
       },
       "question": {
         "sv": "Kriget i Europa slutade i maj, men mot Japan först i september. Vad betydde det för dem som fortfarande stred?",
         "en": "The war in Europe ended in May, but against Japan only in September. What did that mean for those who were still fighting?",
-        "de": "Der Krieg in Europa endete im Mai, gegen Japan aber erst im September. Was bedeutete das für diejenigen, die noch kämpften?"
+        "de": "Der Krieg in Europa endete im Mai, gegen Japan aber erst im September. Was bedeutete das für diejenigen, die noch kämpften?",
+        "es": "La guerra en Europa terminó en mayo, pero contra Japón no hasta septiembre. ¿Qué significó eso para quienes todavía combatían?"
       },
       "layers": [
         "events",
