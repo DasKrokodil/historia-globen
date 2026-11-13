@@ -62,6 +62,21 @@ export const LANG_INFO = LANGUAGES.find(l => l.id === LANG) ?? LANGUAGES[0];
 const ORDER = [...new Set([LANG, 'en', BASE])];
 const DICTS = await Promise.all(ORDER.map(id => known(id) ? getJSON(`data/ui/${id}.json`) : null));
 
+/**
+ * Språket som en text per språk faktiskt visas på, i samma ordning som t() i model.js (valt språk, engelska,
+ * svenska), eller null för en vanlig sträng (#1308).
+ */
+export function textLang(obj) {
+  if (obj == null || typeof obj !== 'object') return null;
+  for (const l of ORDER) if (obj[l]) return l;
+  return Object.keys(obj)[0] ?? null;
+}
+/** Attributet lang="…" när texten visas på ett reservspråk, så att skärmläsare uttalar den rätt (#1308). */
+export function langAttr(obj) {
+  const l = textLang(obj);
+  return l && l !== LANG ? ` lang="${l}"` : '';
+}
+
 function lookup(key) {
   for (const d of DICTS) if (d && d[key] != null) return d[key];
   return null;
@@ -109,6 +124,7 @@ function setText(el, text) {
 }
 
 const YEAR_KEY = 'hg-lang-year';
+const CHOSEN_KEY = 'hg-lang-chosen';
 /** Året som sidan hade innan språket byttes, en gång; annars null. */
 export function takeReturnYear() {
   try {
@@ -126,6 +142,31 @@ export function takeReturnYear() {
  * gäller). beforeReload() anropas först och ska skriva vyn i adressen (address.flush, #882). onOpen() anropas när
  * listan öppnas, så att stängregistret (js/surfaces.js) kan stänga de andra menyerna. Returnerar { close }.
  */
+/**
+ * Efter ett språkbyte till en ofärdig översättning: en kort upplysning under språkknappen om att en del text visas
+ * på reservspråket (#1308). Visas en gång per byte och försvinner när man stänger den eller efter en stund.
+ */
+function showBetaNotice(wrap) {
+  let chosen = null;
+  try { chosen = sessionStorage.getItem(CHOSEN_KEY); sessionStorage.removeItem(CHOSEN_KEY); } catch { /* utan lagring */ }
+  if (chosen !== LANG || LANG_INFO.complete || !hasUi('lang.beta')) return;
+  const note = document.createElement('div');
+  note.className = 'lang-notice';
+  note.setAttribute('role', 'status');
+  const text = document.createElement('p');
+  text.textContent = ui('lang.beta');
+  const close = document.createElement('button');
+  close.type = 'button';
+  close.className = 'lang-notice-close';
+  close.setAttribute('aria-label', ui('common.close'));
+  close.textContent = '×';
+  const hide = () => note.remove();
+  close.addEventListener('click', hide);
+  note.append(text, close);
+  wrap.append(note);
+  setTimeout(hide, 15000);
+}
+
 export function setupLangPicker({ toggle, menu, getYear, beforeReload, onOpen }) {
   if (!toggle || !menu) return { close() {} };
   const wrap = toggle.parentElement;
@@ -159,6 +200,7 @@ export function setupLangPicker({ toggle, menu, getYear, beforeReload, onOpen })
   });
   menu.replaceChildren(...items);
   const buttons = () => [...menu.querySelectorAll('button')];
+  showBetaNotice(wrap);
 
   const isOpen = () => !menu.hidden;
   function set(open, refocus = false) {
@@ -167,6 +209,7 @@ export function setupLangPicker({ toggle, menu, getYear, beforeReload, onOpen })
     toggle.setAttribute('aria-expanded', String(open));
     wrap.classList.toggle('lang-open', open);
     if (open) {
+      wrap.querySelector('.lang-notice')?.remove(); // upplysningen och listan ligger på samma plats (#1308)
       onOpen?.();
       (menu.querySelector('[aria-current="true"]') ?? buttons()[0])?.focus({ preventScroll: true });
     } else if (refocus) toggle.focus({ preventScroll: true });
@@ -188,6 +231,7 @@ export function setupLangPicker({ toggle, menu, getYear, beforeReload, onOpen })
     try { beforeReload?.(); } catch (err) { console.warn('Adressen kunde inte skrivas före språkbytet', err); }
     try {
       localStorage.setItem('hg-lang', id);
+      sessionStorage.setItem(CHOSEN_KEY, id); // upplysningen om en ofärdig översättning visas efter omladdningen (#1308)
       const y = getYear?.();
       if (Number.isFinite(y)) sessionStorage.setItem(YEAR_KEY, String(y));
     } catch { /* utan lagring: bara adressen bär språket */ }
