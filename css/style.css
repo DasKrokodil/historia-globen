@@ -741,7 +741,10 @@ body {
   box-shadow: 0 6px 18px rgba(0,0,0,.35);
   cursor: pointer;
 }
-.ff-tab .count { background: #7a5a1f; color: var(--parchment); }
+.ff-tab .count { /* siffran på fliken: luft, rundning och en variabel i stället för en hårdkodad färg (#1387) */
+  display: inline-block; min-width: 18px; margin-left: 4px; padding: 2px 6px; border-radius: 999px;
+  background: var(--ff-ink-soft); color: var(--parchment); font: 600 11px/1 var(--f-mono); text-align: center;
+}
 .ff-text { margin: 8px 0 10px; font: 400 19px/1.32 var(--f-display); text-wrap: pretty; }
 /* Rikets berättelse (#171): rubrik med årtal, kort text och ibland en rad om kartan */
 .ff-story-head { display: block; }
