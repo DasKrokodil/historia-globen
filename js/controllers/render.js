@@ -153,10 +153,10 @@ export function createRender(app) {
     const rangeLabel = range && rangeText(range.from, range.to);
     // Ett tema (#398) och en plats (#579) är urval av händelser: ett år utan träff förklaras, med nästa händelse
     const nextThemeEvent = focus?.themeEvents && !visible.length ? focus.themeEvents.find(e => e.start > wholeYear) : null;
-    const emptyKey = focus?.type === 'place' ? 'place' : 'theme';
+    const emptyText = app.focusTypes.of(focus)?.empty; // urvalets egna texter står i dess post (js/focus/, #1327)
     const themeEmpty = !focus?.themeEvents || visible.length ? null : nextThemeEvent
-      ? ui(`${emptyKey}.emptyYearNext`, { next: `${formatEventTime(nextThemeEvent)} · ${t(nextThemeEvent.title)}` })
-      : ui(`${emptyKey}.emptyYear`);
+      ? ui(emptyText.next, { next: `${formatEventTime(nextThemeEvent)} · ${t(nextThemeEvent.title)}` })
+      : ui(emptyText.year);
     panel.render(visible, wholeYear, window, eventsOn, range ? { at: ui('range.at', { range: rangeLabel }), bare: rangeLabel, within, range }
       : fine ? { at: ui('time.onDate', { date: timeline.format(year) }), bare: timeline.format(year), within, fine: true }
       : themeEmpty ? { themeEmpty, within } : { within });
