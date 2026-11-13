@@ -26,6 +26,21 @@ export function createRender(app) {
   // stund, och inte under uppspelning, i ett intervall (egen live-rad, #977), i en tur eller medan en pausrad syns (de har
   // egna uppläsningar). Ett år utan Samtidigt-kort säger det. Kortets text följer med bara om ett nytt kort lästes upp under
   // tiden, annars skulle den här raden skriva över den.
+  // Årtalet och knapparna överst delar raden i smal skärm (#1101): "100 000" i 30 px täcks av språkknappen på franska i 400 px, där
+  // knapparna är bredare. Typstorleken minskas ett steg i taget tills årtalet ryms, men inte under 18 px. Bara långa årtal
+  // (fem tecken eller fler, alltså förhistorien och intervall) mäts, så att vanliga år inte kostar någon mätning.
+  function fitYear() {
+    const big = $('year-big'), actions = document.querySelector('.top-actions');
+    big.style.fontSize = '';
+    if (innerWidth > 760 || big.textContent.length < 5 || !actions) return;
+    const row = actions.getBoundingClientRect();
+    if (!row.width) return;
+    const clash = () => { const b = big.getBoundingClientRect(); return b.right > row.left - 8 && b.bottom > row.top && b.top < row.bottom; };
+    for (let size = parseFloat(getComputedStyle(big).fontSize); size > 18 && clash();) big.style.fontSize = `${--size}px`;
+  }
+  addEventListener('resize', fitYear);
+  document.fonts?.ready.then(fitYear); // måtten ändras när typsnittet har laddats
+
   let statusYear = null, statusTimer = 0, statusCard = '';
   const capital = s => (s ? s[0].toLocaleUpperCase(LANG) + s.slice(1) : s);
   function announceYear() {
@@ -196,6 +211,7 @@ export function createRender(app) {
     const [num, era] = range ? rangeParts(range.from, range.to) : timeline.formatParts(year);
     $('year-big').textContent = num;
     $('year-era').textContent = era;
+    fitYear();
     $('year-jump').classList.toggle('fine', fine);
     $('year-segment').textContent = range ? ui('range.segment')
       : focus ? pluralUi(fine ? 'time.followDays' : 'time.followYears', fine ? Math.round(window * 365.25) : Math.round(window), { name: focus.short })

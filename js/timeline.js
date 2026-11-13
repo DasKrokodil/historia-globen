@@ -1,6 +1,6 @@
 // Tidsreglaget äger det nuvarande året (arkitekturprincip 3).
 // Beslut 4: segmenterad skala där nutiden får mer plats än forntiden.
-import { formatYear, groupDigits, formatDate, isBCE, bce, BCE_TXT, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t, roundPrehistoric, roundToStep, stepAt } from './model.js';
+import { formatYear, groupDigits, formatDate, isBCE, bce, BCE_TXT, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t, roundPrehistoric, roundToStep, stepAt, formatDecimal, pluralUi } from './model.js';
 import { selectEventsForDate } from './date-events.js';
 import { say, clearStatus } from './ui/status.js';
 import { ui } from './i18n.js';
@@ -26,6 +26,7 @@ const TICKS = [
   [1200, 3], [1400, 2], [1600, 3], [1800, 1], [1900, 2], [1950, 3], [2000, 1],
 ];
 
+const TICK_CHAR_PX = 6.3; // årtalens typsnitt (IBM Plex Mono, 10,5 px) är 0,6 em bredare per tecken
 const clampY = y => Math.max(MIN_YEAR, Math.min(MAX_YEAR, y));
 // Gränsen mellan två segment är ett runt årtal: -500 (astronomiskt) är 501 f.Kr., men segmentet heter 500 f.Kr. Ett år som
 // redan är runt i f.Kr. (-2999 är 3000 f.Kr., -99999 är 100 000 f.Kr.) behålls (#1088).
@@ -117,7 +118,7 @@ export function windowEdges(y, fraction) {
 /** Uppspelningens nivåer i år per sekund. */
 const SPEEDS = [1, 5, 25, 100];
 // Under 10 år/s visas en decimal, annars heltal, så att knappen blir kort (till exempel "17 år/s" i stället för "17,17 år/s")
-const fmtNum = r => r < 10 ? String(Math.round(r * 10) / 10).replace('.', ',') : groupDigits(Math.round(r)); // "25 000 år/s" i förhistorien (#1320)
+const fmtNum = r => r < 10 ? formatDecimal(r) : groupDigits(Math.round(r)); // "25 000 år/s" i förhistorien (#1320); decimaltecknet följer språket (#1101)
 const fmtRate = r => ui('time.rateYears', { rate: fmtNum(r) });
 // I fokusläget för korta krig (#204) räknas farten och stegen i dagar
 const DAYS_PER_YEAR = 365.25;
@@ -205,7 +206,7 @@ export class Timeline extends EventTarget {
     this._showScale(segBefore);
     // Ny upplösning efter ett drag, en tangent eller en stegknapp (#1089): skärmläsaren får veta hur långt ett steg nu är.
     // Beskedet läses i statusraden tillsammans med året (takeStepNote, js/controllers/render.js), så att det inte skrivs över.
-    if (before != null && stepAt(this._year) !== before) this._stepNote = ui('time.stepNow', { n: groupDigits(stepAt(this._year)) });
+    if (before != null && stepAt(this._year) !== before) this._stepNote = pluralUi('time.stepNow', stepAt(this._year), { n: groupDigits(stepAt(this._year)) }); // "1 år", "100 år" (#1101)
     // Ny skala efter ett drag över en skarv (#1313): sägs också för skärmläsaren, i samma rad som året
     if (segBefore && segFor(this._year) !== segBefore) this._stepNote = [scaleTextFull(this._year, segBefore), this._stepNote].filter(Boolean).join(' ');
   }
@@ -359,7 +360,9 @@ export class Timeline extends EventTarget {
       const { from, to } = this.focus, span = to - from;
       // Så många årtal som får plats utan att överlappa, på jämna år. Före vår
       // tideräkning räknas jämnheten på det visade året (700 f.Kr. = -699).
-      const fit = Math.max(3, Math.floor(this.track.clientWidth / 90));
+      // Årtalen ska inte ligga över varandra: ett långt årtal ("100 000 av. J.-C.", 17 tecken) behöver mer plats än 90 px (#1101)
+      const slot = Math.max(90, Math.max(formatYear(from).length, formatYear(to).length) * TICK_CHAR_PX + 8);
+      const fit = Math.max(3, Math.floor(this.track.clientWidth / slot));
       const step = focusTickStep(span, fit);
       for (let v = Math.ceil(from / step) * step; v <= to + step; v += step) {
         const y = v < 0 ? v + 1 : v;
@@ -399,18 +402,24 @@ export class Timeline extends EventTarget {
   }
 
   /**
-   * Döljer årtal på skalan som skulle krocka med ett viktigare årtal (#63). Bredden beror på språket:
-   * "1000 av. J.-C." är längre än "1000 f.Kr.". Nivå 1 behålls alltid, sedan nivå 2 och 3 där de får plats.
+   * Döljer årtal på skalan som skulle krocka med ett viktigare årtal (#63, #1101). Bredden beror på språket:
+   * "100 000 av. J.-C." och "1 apr. J.-C." är mycket längre än "100 000 f.Kr." och "1 e.Kr.", och i 400 px ryms inte alla fem
+   * årtalen i nivå 1 på franska. Företräde har skalans första årtal (hur långt bakåt skalan går), sedan det senare före det
+   * tidigare inom samma nivå (modern tid före 1 e.Kr.), och nivå 1 före 2 och 3. Ett årtal som krockar med ett som redan behållits
+   * döljs (visibility), det tar fortfarande plats så att de andra inte flyttar sig.
    */
   _hideOverlaps() {
     const ticks = [...this.ticksEl.querySelectorAll('.tick[data-level]')];
     for (const d of ticks) d.classList.remove('tick-hidden');
+    const left = d => d.getBoundingClientRect().left;
     const kept = [];
     for (const level of ['1', '2', '3']) {
-      for (const d of ticks.filter(t => t.dataset.level === level)) {
+      const group = ticks.filter(t => t.dataset.level === level);
+      if (level === '1') group.sort((a, b) => (b.classList.contains('first') - a.classList.contains('first')) || left(b) - left(a));
+      for (const d of group) {
         const r = d.getBoundingClientRect();
         if (!r.width) continue; // dold av bredden (lvl2 och lvl3 i smal skärm)
-        if (level !== '1' && kept.some(k => r.left < k.right + 6 && r.right > k.left - 6)) { d.classList.add('tick-hidden'); continue; }
+        if (kept.some(k => r.left < k.right + 6 && r.right > k.left - 6)) { d.classList.add('tick-hidden'); continue; }
         kept.push(r);
       }
     }
@@ -601,12 +610,12 @@ export class Timeline extends EventTarget {
   _labelSpeed() {
     const r = this.yearsPerSecond, fine = this.focus?.fine, t = fine ? fmtDays(r) : fmtRate(r);
     this.speedBtn.textContent = t;
-    // Förhistorien (#1320): tusentals år per sekund. I smal skärm står bara "/s" efter talet (CSS), så att knappen får plats
-    const long = !fine && r >= 1000;
-    this.speedBtn.classList.toggle('long', long);
-    if (long) {
-      const [num] = t.split(' ');
-      this.speedBtn.innerHTML = `${num}<span class="unit-long"> ${t.slice(num.length + 1)}</span><span class="unit-short">/s</span>`;
+    // År: i smal skärm står bara "/s" efter talet (CSS), så att knappen får plats. Förut gällde det bara tusentals år per sekund i
+    // förhistorien (#1320), men "25 ans/s" och "25 años/s" är bredare än knappen på 400 px också i modern tid (#1101).
+    if (!fine) {
+      const num = fmtNum(r), unit = t.slice(t.indexOf(num) + num.length); // enheten som språkfilen skriver den, med sitt mellanrum
+      this.speedBtn.classList.toggle('long', r >= 1000);
+      this.speedBtn.replaceChildren(num, ...[['unit-long', unit], ['unit-short', '/s']].map(([cls, text]) => Object.assign(document.createElement('span'), { className: cls, textContent: text })));
     }
     // Dagar: i smal skärm står bara "d/s" (CSS), så att knappen får plats
     if (fine) {
