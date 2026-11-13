@@ -7699,7 +7699,7 @@
      "name": {
       "sv": "Södra Song",
       "en": "Southern Song",
-      "de": "Southern Song",
+      "de": "Südliche Song-Dynastie",
       "es": "dinastía Song meridional",
       "fr": "Song méridionaux"
      },
@@ -35381,7 +35381,7 @@
    "name": {
     "sv": "Västturkiska khaganatet",
     "en": "Western Turkic Khaganate",
-    "de": "Western Turkic Khaganate",
+    "de": "Westliches Türk-Kaganat",
     "es": "kanato de los turcos occidentales",
     "fr": "Khaganat turc occidental"
    },
@@ -35395,7 +35395,7 @@
      "name": {
       "sv": "Västturkiska khaganatet",
       "en": "Western Turkic Khaganate",
-      "de": "Western Turkic Khaganate",
+      "de": "Westliches Türk-Kaganat",
       "es": "kanato de los turcos occidentales",
       "fr": "Khaganat turc occidental"
      },
@@ -35411,7 +35411,7 @@
    "name": {
     "sv": "Östturkiska khaganatet",
     "en": "Eastern Turkic Khaganate",
-    "de": "Eastern Turkic Khaganate",
+    "de": "Östliches Türk-Kaganat",
     "es": "Kanato túrquico oriental",
     "fr": "Khaganat turc oriental"
    },
@@ -35425,7 +35425,7 @@
      "name": {
       "sv": "Östturkiska khaganatet",
       "en": "Eastern Turkic Khaganate",
-      "de": "Eastern Turkic Khaganate",
+      "de": "Östliches Türk-Kaganat",
       "es": "Kanato túrquico oriental",
       "fr": "Khaganat turc oriental"
      },
@@ -35823,7 +35823,7 @@
      "name": {
       "sv": "Södra Song",
       "en": "Southern Song",
-      "de": "Southern Song",
+      "de": "Südliche Song-Dynastie",
       "es": "dinastía Song meridional",
       "fr": "Song méridionaux"
      },
@@ -36318,7 +36318,7 @@
    "name": {
     "sv": "Rashidunkalifatet",
     "en": "Rashidun Caliphate",
-    "de": "Rashidun Caliphate",
+    "de": "Kalifat der Raschidun",
     "es": "Califato ortodoxo",
     "fr": "califat Rachidun"
    },
@@ -36332,7 +36332,7 @@
      "name": {
       "sv": "Rashidunkalifatet",
       "en": "Rashidun Caliphate",
-      "de": "Rashidun Caliphate",
+      "de": "Kalifat der Raschidun",
       "es": "Califato ortodoxo",
       "fr": "califat Rachidun"
      },
@@ -36863,7 +36863,7 @@
     "fr": "royaume ptolémaïque"
    },
    "color": "#4a7ab0",
-   "from": -331,
+   "from": -304,
    "to": -28,
    "file": "data/empires/ptolemaiska-riket.json",
    "polities": [
@@ -36918,7 +36918,7 @@
    "name": {
     "sv": "De västra regionernas protektorat",
     "en": "Protectorate of the Western Regions",
-    "de": "Protectorate of the Western Regions",
+    "de": "Protektorat der Westlichen Regionen",
     "es": "protectorado de las regiones occidentales",
     "fr": "Protectorat des Régions de l'Ouest"
    },
@@ -36932,9 +36932,159 @@
      "name": {
       "sv": "De västra regionernas protektorat",
       "en": "Protectorate of the Western Regions",
-      "de": "Protectorate of the Western Regions",
+      "de": "Protektorat der Westlichen Regionen",
       "es": "protectorado de las regiones occidentales",
       "fr": "Protectorat des Régions de l'Ouest"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "four-oirats",
+   "name": {
+    "sv": "Four Oirats",
+    "en": "Four Oirats",
+    "de": "Dörben Oirat",
+    "es": "Cuatro Oirates",
+    "fr": "Quatre oïrats"
+   },
+   "color": "#7a6ab0",
+   "from": 1402,
+   "to": 1474,
+   "file": "data/empires/four-oirats.json",
+   "polities": [
+    {
+     "id": "four-oirats",
+     "name": {
+      "sv": "Four Oirats",
+      "en": "Four Oirats",
+      "de": "Dörben Oirat",
+      "es": "Cuatro Oirates",
+      "fr": "Quatre oïrats"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "western-chalukya-empire",
+   "name": {
+    "sv": "Western Chalukya Empire",
+    "en": "Western Chalukya Empire",
+    "de": "Western Chalukya Empire",
+    "es": "Imperio de Chalukya Occidental",
+    "fr": "Chalukya occidentaux"
+   },
+   "color": "#b07a6a",
+   "from": 980,
+   "to": 1187,
+   "file": "data/empires/western-chalukya-empire.json",
+   "polities": [
+    {
+     "id": "western-chalukya-empire",
+     "name": {
+      "sv": "Western Chalukya Empire",
+      "en": "Western Chalukya Empire",
+      "de": "Western Chalukya Empire",
+      "es": "Imperio de Chalukya Occidental",
+      "fr": "Chalukya occidentaux"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "pagan-kingdom",
+   "name": {
+    "sv": "Pagan kingdom",
+    "en": "Pagan kingdom",
+    "de": "Königreich von Bagan",
+    "es": "Reino de Pagan",
+    "fr": "royaume de Pagan"
+   },
+   "color": "#9aa04a",
+   "from": 850,
+   "to": 1293,
+   "file": "data/empires/pagan-kingdom.json",
+   "polities": [
+    {
+     "id": "pagan-kingdom",
+     "name": {
+      "sv": "Pagan kingdom",
+      "en": "Pagan kingdom",
+      "de": "Königreich von Bagan",
+      "es": "Reino de Pagan",
+      "fr": "royaume de Pagan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "rasulid-dynasty",
+   "name": {
+    "sv": "Rasulid dynasty",
+    "en": "Rasulid dynasty",
+    "de": "Rasuliden",
+    "es": "dinastía rasúlida",
+    "fr": "Rassoulides"
+   },
+   "color": "#4a8aa0",
+   "from": 1236,
+   "to": 1458,
+   "file": "data/empires/rasulid-dynasty.json",
+   "polities": [
+    {
+     "id": "rasulid-dynasty",
+     "name": {
+      "sv": "Rasulid dynasty",
+      "en": "Rasulid dynasty",
+      "de": "Rasuliden",
+      "es": "dinastía rasúlida",
+      "fr": "Rassoulides"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "chola-empire",
+   "name": {
+    "sv": "Chola Empire",
+    "en": "Chola Empire",
+    "de": "Chola Empire",
+    "es": "Imperio Chola",
+    "fr": "empire Chola"
+   },
+   "color": "#c0704a",
+   "from": 850,
+   "to": 1259,
+   "file": "data/empires/chola-empire.json",
+   "polities": [
+    {
+     "id": "chola-empire",
+     "name": {
+      "sv": "Chola Empire",
+      "en": "Chola Empire",
+      "de": "Chola Empire",
+      "es": "Imperio Chola",
+      "fr": "empire Chola"
      },
      "sources": [
       "cliopatria"
