@@ -73,6 +73,9 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              'seychellerna': (0.02, 0.02, 0.001), 'palau': (0.02, 0.02, 0.001),
              # Östtimor (femtonde omgången) blir annars en triangel
              'osttimor': (0.03, 0.02, 0.005),
+             # Amerika före 1429 (#556): små riken (2 000–100 000 km²) blir annars fyrhörningar
+             'chimor': (0.03, 0.02, 0.005), 'texcoco': (0.03, 0.02, 0.005), 'purepecha': (0.03, 0.02, 0.005),
+             'teotihuacan': (0.03, 0.02, 0.005), 'toltekerna': (0.03, 0.02, 0.005),
              # Små stater ur Natural Earth (#722): nästan ingen förenkling, och alla öar behålls
              **{g: (0.002, 0.02, 0) for g in SMALL_STATES}}
 
@@ -206,7 +209,30 @@ GROUPS = {
         ('Aztec Triple Alliance', 'aztekiska-trippelalliansen', 'Aztekiska trippelalliansen', '#8f4a2a'),
     ]),
     'inkariket': ('Inkariket', 'Inca Empire', [
+        # Amerika före 1429 (#556): Cliopatrias `Cuzco` är kungariket Cusco, inkarikets föregångare. Cliopatria
+        # anger staden (Q5582862); kungariket är Q2314963
+        ('Cuzco', 'kungariket-cusco', 'Kungariket Cusco', '#8a5a9e', {'en': 'Kingdom of Cusco', 'wikidata': 'Q2314963'}),
         ('Inca Empire', 'inkariket', 'Inkariket', '#8a5a9e'),
+    ]),
+    # Amerika före 1429 (#556, luckan ur #1388). Olmec Civilization, Zapotec Civilization, Mayan City-States,
+    # Later Mayan City-States, Classic Veracruz Culture och Puebloans är inte med: de är områden som inte är
+    # en stat och väntar på formatet i #1300 (docs/beslut/2026-11-13-omraden-som-inte-ar-stat-1300.md)
+    'chimor': ('Chimor', 'Chimor', [
+        ('Chimor', 'chimor', 'Chimor', '#c47a3d'),
+        ('Chimu Empire', 'chimuriket', 'Chimúriket', '#c47a3d', {'en': 'Chimú Empire'}),
+    ]),
+    'texcoco': ('Texcoco', 'Texcoco', [
+        ('Texcoco', 'texcoco', 'Texcoco', '#3f8f86'),
+    ]),
+    # Cliopatria anger dagens delstat Michoacán (Q79861); staten är Q2605410
+    'purepecha': ('Purépechariket', 'Purépecha Empire', [
+        ('Michoacán', 'purepechariket', 'Purépechariket', '#5f7fc0', {'en': 'Purépecha Empire', 'wikidata': 'Q2605410'}),
+    ]),
+    'teotihuacan': ('Teotihuacán', 'Teotihuacan', [
+        ('Teotihuacan', 'teotihuacan', 'Teotihuacán', '#b5894a'),
+    ]),
+    'toltekerna': ('Toltekerna', 'Toltec', [
+        ('Toltec', 'toltekerna', 'Toltekerna', '#7a8f3a'),
     ]),
     'songhairiket': ('Songhairiket', 'Songhai Empire', [
         ('Songhai Empire', 'songhairiket', 'Songhairiket', '#7fae4a'),
@@ -1663,7 +1689,8 @@ def extend(by_name, ext):
 
 
 # Koordinaterna avrundas till 0.1 grad, utom för små länder där gränsen annars hamnar fel (#644)
-DECIMALS = {'israel': 2, 'palestina': 2, **{g: 3 for g in SMALL_STATES}}
+DECIMALS = {'israel': 2, 'palestina': 2, **{g: 3 for g in SMALL_STATES},
+            'chimor': 2, 'texcoco': 2, 'purepecha': 2, 'teotihuacan': 2, 'toltekerna': 2}  # #556
 
 
 def rnd(o, nd=1):
