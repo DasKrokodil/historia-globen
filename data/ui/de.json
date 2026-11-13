@@ -410,8 +410,6 @@
   "layer.warsNote": "das Gebiet, in dem ein Krieg stattfindet · sichtbar, wenn Ereignisse an ist",
   "layer.routes": "Reisen und Handelswege",
   "layer.routesNote": "senkrechter Strich auf der Zeitleiste · gestrichelt = unsicherer Weg",
-  "layer.images": "Bildebene",
-  "layer.imagesNote": "NASA Black Marble von 2016",
   "layer.discovery": "Entdeckungsreisen",
   "layer.discoveryNote": "alter Kartenstil mit Segelschiffen, Seeungeheuern und Nebel nach dem Kartenuntergrund",
   "discovery.coverage": "Abdeckung in der aktuellen Kartengrundlage der Entdeckungsreisen: {percent} %",

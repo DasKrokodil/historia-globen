@@ -3803,9 +3803,34 @@ async function run(browser, vp) {
 
   await check('nattljus syns från 2016', async () => {
     await jumpTo(2016);
-    const n = await layerDraws('images', 5000);
+    const n = await layerDraws('nattljus', 5000);
     await shot('8-bildlager-2016');
     return `${n} pixlar ändras när Nattljus slås på`;
+  });
+
+  // Bildlagren (#1325): nattljuset hette images som lager före formatet med rader; en äldre delad länk ska slå på det
+  await check('en äldre länk med l=images slår på nattljuset', async () => {
+    const linkPage = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await linkPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await linkPage.route(u => isFont(u.href), r => r.abort());
+      }
+      await linkPage.goto(`${BASE}#y=2016&l=events,areas,images`);
+      await linkPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await linkPage.waitForFunction(() => document.querySelector('#layer-menu input[data-layer="nattljus"]')?.checked, null, { timeout: T.step });
+      const got = await linkPage.evaluate(() => ({
+        old: !!document.querySelector('#layer-menu input[data-layer="images"]'),
+        events: document.querySelector('#layer-menu input[data-layer="events"]').checked,
+        routes: document.querySelector('#layer-menu input[data-layer="routes"]').checked,
+      }));
+      if (got.old) throw new Error('raden med det äldre id:t images finns kvar i Lager');
+      if (!got.events || got.routes) throw new Error(`länkens övriga lager stämmer inte (events ${got.events}, routes ${got.routes})`);
+      // Adressen skrivs om med det nya id:t, så att en ny delning inte sprider det äldre
+      await linkPage.waitForFunction(() => /[=,]nattljus(,|&|$)/.test(location.hash) && !/[=,]images(,|&|$)/.test(location.hash), null, { timeout: T.step });
+      return 'Nattljus är på, och adressen skriver nattljus';
+    } finally { await linkPage.close(); }
   });
 
   await check('tidsfönstret skiljer avslutade och pågående krig', async () => {

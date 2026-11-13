@@ -182,8 +182,6 @@
   "layer.warsNote": "området där ett krig pågår · syns när Händelser är på",
   "layer.routes": "Resor och handelsvägar",
   "layer.routesNote": "lodrätt streck på tidslinjen · streckad = osäker väg",
-  "layer.images": "Bildlager",
-  "layer.imagesNote": "NASA Black Marble från 2016",
   "layer.discovery": "Upptäcktsresor",
   "layer.discoveryNote": "gammal kartstil med segelskepp, havsmonster och dimma från kartunderlaget",
   "discovery.coverage": "Täckning i nuvarande kartunderlag för Upptäcktsresor: {percent} %",

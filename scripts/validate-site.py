@@ -471,7 +471,7 @@ def image_layer_problems(doc, reserved, groups):
 
 if image_layers is not None:
     validate_schema_file('data/bildlager.json', image_layers, 'bildlager.schema.json')
-    # Lagrens id står i js/layers/index.js (LAYERS); "images" är bildlagrets egen rad tills raderna byggs.
+    # Lagrens id står i js/layers/index.js (LAYERS); "images" där är bildlagrens egna rader, inte ett lager-id.
     try:
         listed = re.search(r'export const LAYERS = \[([^\]]*)\]', (ROOT / 'js/layers/index.js').read_text(encoding='utf-8'))
     except OSError:

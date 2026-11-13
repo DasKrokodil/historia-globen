@@ -127,7 +127,7 @@ async function start() {
     showEmpireFacts: (id, polity) => app.showEmpireFacts(id, polity),
   };
   // Lagren anmäler sig i registret (layers/index.js), och raderna i Lager byggs ur det (före LayerMenu nedan)
-  for (const make of LAYERS) registry.add(make(env));
+  for (const make of LAYERS) for (const entry of [make(env)].flat()) registry.add(entry);
   registry.buildMenu($('layer-menu'), views?.groups);
   // Lagren som main.js gör mer med än att rita: klick, fokus, listan och etiketterna
   const layer = registry.get('events'), areas = registry.get('areas'), religions = registry.get('religions'), routes = registry.get('routes');
