@@ -2,8 +2,8 @@
 // som syns (beslut 2), ritar lagerbilden (beslut 1) och uppdaterar listan, teckenförklaringarna och årtalet.
 // Sist får uppspelningen (playback.js) se om något ska pausa. Här finns också namnens storlek efter zoom
 // (#154, #271, #301, #358) och rikets berättelse för Samtidigt-kortet (#171).
-import { loadEventDetails, formatCentury, formatEventTime, pluralUi, roundWindow, groupDigits, t } from '../model.js';
-import { ui } from '../i18n.js';
+import { loadEventDetails, formatCentury, formatEventTime, formatYear, pluralUi, roundWindow, groupDigits, t } from '../model.js';
+import { LANG, ui } from '../i18n.js';
 import { ZOOM_LEVELS, zoomLevel, pxPerImg, zoomView, eventKeepouts } from '../ui/zoomlevels.js';
 import { empireStory } from '../ui/funfact.js';
 import { rangeParts, rangeText } from './range.js';
@@ -13,11 +13,33 @@ import { rangeParts, rangeText } from './range.js';
  * 13 år (beslut 2026-11-08 om tilltal). Där skrivs tidsfönstret i ord i stället för med "±".
  */
 const YOUNG_GRADES = ['F-3', '4-6'];
+/** Hur länge året ska stå still innan statusraden läser upp det, så att ett drag i reglaget inte läser upp varje år (#1305). */
+const YEAR_STATUS_MS = 600;
 export function createRender(app) {
   const youngReaders = () => !!app.hunt?.active || YOUNG_GRADES.includes(app.lesson?.tour?.lesson?.grades);
   const { $, state, data, views, registry, globe, flatMap, timeline, panel, ff, layers, relLegend, empireLegend, empireLegendButton, routePop } = app;
   const layer = registry.get('events'), areas = registry.get('areas'), religions = registry.get('religions'), routes = registry.get('routes');
   let visible = [];
+
+  // Skärmläsarens statusrad (#1305): året och antalet träffar efter varje årsbyte, hur året än byttes (knapparna +10 och −10,
+  // drag, årshopp, Visste du?). Året är ändå ingen live-region (#506): raden läses upp en gång när året har stått still en
+  // stund, och inte under uppspelning, i ett intervall (egen live-rad, #977), i en tur eller medan en pausrad syns (de har
+  // egna uppläsningar). Ett år utan Samtidigt-kort säger det. Kortets text följer med bara om ett nytt kort lästes upp under
+  // tiden, annars skulle den här raden skriva över den.
+  let statusYear = null, statusTimer = 0, statusCard = '';
+  const capital = s => (s ? s[0].toLocaleUpperCase(LANG) + s.slice(1) : s);
+  function announceYear() {
+    statusTimer = 0;
+    if (timeline.playing || state.range || app.tour?.active || !$('pause-note').hidden) return;
+    const year = timeline.year, fine = !!state.focus?.fine;
+    const at = fine ? ui('time.onDate', { date: timeline.format(year) }) : ui('panel.atYear', { year: formatYear(Math.floor(year)) });
+    const n = visible.length;
+    const count = String(ui('status.hits')[n === 1 ? 0 : 1]).replace('{n}', groupDigits(n));
+    const parts = [capital(ui('status.year', { at, count }))];
+    if (ff.announcedKey && ff.announcedKey !== statusCard) parts.push(ff.announcement()); // ett nytt kort lästes upp medan året byttes
+    else if (!fine && ff.enabled && !ff.active.length) parts.push(ui('status.noCard'));
+    timeline.announce(parts.join(' '));
+  }
 
   // Rikesnamnen ritas i kartbilden (beslut 1) och växer därför med globen: vid max zoom ser
   // kartbilden ca 10 gånger större ut på skärmen. Därför görs namnen mindre i bilden när man
@@ -98,6 +120,14 @@ export function createRender(app) {
     // Riken och religioner visas för intervallets slutår (alternativ A i förstudien, #756); utan intervall för året
     const areaYear = range ? Math.floor(range.to) : wholeYear;
     app.store.mirror({ year, wholeYear, areaYear, fine, window, span, playing, filters: panel.filters });
+    // Statusraden (#1305): första ritningen läses inte upp, och inte heller uppspelningens år
+    const yearKey = fine ? year : wholeYear;
+    if (statusYear !== null && yearKey !== statusYear && !playing && !range) {
+      if (!statusTimer) statusCard = ff.announcedKey;
+      clearTimeout(statusTimer);
+      statusTimer = setTimeout(announceYear, YEAR_STATUS_MS);
+    }
+    statusYear = yearKey;
     // Singular och plural ur språkfilen ([en, flera]), till exempel "±1 dag" och "±3 dagar"
     // Talet med språkets tusentalsavgränsare, så att förhistoriens fönster blir "±12 000 år" (#1088)
     const plural = (key, n) => String(ui(key)[n === 1 ? 0 : 1]).replace('{n}', groupDigits(n));
