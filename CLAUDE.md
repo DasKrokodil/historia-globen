@@ -215,7 +215,7 @@ Rikard gillar stilen. Behåll den:
 
 ## Versionsplan
 
-**GitHub-milstolparna är huvudkällan** för vad som ingår och vad som pågår. Versionsnumren nedan beskriver ordningen och upprepas inte i andra dokument. Version 2–5.0 och rikena R1–R7 är klara och släppta, senast **v5.0.0** (2026-11-06), som också innehåller 4.2, 4.3, 5.1a, 5.1c och de första delarna av 5.2 (sök och delbara länkar). Kvar i 5.1 är bilderna till kärnhändelserna (#453 i 5.1b). Ordningen ändrades 2026-10-31 (docs/beslut.md): först det som gör sidan stabil och användbar i skolan, sedan de dyra specialfunktionerna. Tekniska förutsättningar byggs före de funktioner som behöver dem.
+**GitHub-milstolparna är huvudkällan** för vad som ingår och vad som pågår. Versionsnumren nedan beskriver ordningen och upprepas inte i andra dokument. Version 2–6.2.0 och rikena R1–R7 är klara och släppta, senast **v6.2.0** (2026-11-11). Milstolparna 6.2.1 och 6.3.0 släpps tillsammans som **v6.3.0**, och den releasen tar med allt som ligger på `main`, även de första delarna av version 7 (förhistorien i tidslinjen, människoarter omgång 1), vilket release-PR:en säger öppet. Ordningen ändrades 2026-10-31 (docs/beslut.md): först det som gör sidan stabil och användbar i skolan, sedan de dyra specialfunktionerna. Tekniska förutsättningar byggs före de funktioner som behöver dem. Milstolparna ordnades om 2026-11-13 efter backloganalysen (docs/beslut/2026-11-13-milstolpar-efter-backloggen.md).
 
 | Version | Innehåll |
 |---|---|
@@ -228,18 +228,24 @@ Rikard gillar stilen. Behåll den:
 | 6.0.1 Rättningar efter skolreleasen | Fynd ur blind-spots-rundan (#871, #877–#884), lärarens väg till bladen (#885), Samtidigt mot Mer/Meny (#887), tomma filter (#886), webbläsartestet (#864, #891, Firefox och WebKit i release-körningen #888), adressens kapplöpning (#865) och de fem händelserna före tidslinjens start (#892) |
 | 6.1.0 Tidsintervall, plats och epoker | Ersätter "Version 5.2" (beslut 2026-11-08, docs/beslut/2026-11-08-version-6-1-0.md): tidsintervall (#569 i #754–#756), "Vad hände här?" (#15), faktarutans förklaring (#786) och epoker enligt svenska läroplanen (#845, #476, listan godkänns först). Lägeskontraktet (#893) ska vara avgjort före #755; sök och delbara länkar släpptes redan i v5.0.0 |
 | 6.2.0 UI/UX uppdatering | Nästa efter 6.1.0 (beslut 2026-11-09, docs/beslut/2026-11-09-ui-ux-efter-6-1-0.md): rättningarna ur UX-granskningen i `docs/ux-review/` (#991–#1004) och de UX-ärenden som flyttats dit (#571, #868, #894, #937, #977, #979–#981). Målet är att sidan känns lugnare och lättare att förstå: ett tydligt "samtidigt", färre samtidiga ytor och ett ord per sak |
-| 6.3.0 Teman | Temamotorn (#398, `data/teman.json`, tema som grupp i Fokus) med teknik (#105) som första tema (beslut 2026-11-08, docs/beslut/2026-11-08-teman-fore-version-7.md). Formatet skrivs först; bygget efter lägeskontraktet (#893), som räknar "tema" som ett läge. Epoker (#845) och teman ska inte bli två format. Var 6.2.0 före 2026-11-09 |
-| 6.4.0 Regionkort | Regionkort (#579): kurerade kort per region, med gränskälla, licens och källor godkända före bygge (var 6.2.0 före 2026-11-08 och 6.3.0 före 2026-11-09) |
-| 7 Människans långa historia | Tidsmodell för ungefärliga datum, tidslinje i nivåer (#49), människoarter (#11). Inte ett tema och bygger inte på temamotorn. Riktningen beslutad 2026-11-10 (docs/beslut/2026-11-10-version-7-riktning.md): alternativ B i tre delar, människans läge cirka 100 000 år bakåt, förhistorien högst cirka 10 % av reglaget (mäts först), jordens historia först i version 8 |
+| 6.2.1 Rättningar efter 6.2.0 | Klar; släpps i v6.3.0 |
+| 6.3.0 Teman | Temamotorn (#398, `data/teman.json`, tema som grupp i Fokus) med teknik (#105) som första tema (beslut 2026-11-08, docs/beslut/2026-11-08-teman-fore-version-7.md). Före releasen också faktafelen #1344–#1346 och en minsta rättning av "samtidigt" och årtalen i förhistorien |
+| 6.3.1 Rättningar och reglagets grund | Små buggar ur helganalysen (#1302–#1305, #1334, #1326), tidslås i tur och lektion (#1322), stängregistret (#1323) och reglagets grund (#1319–#1321), som flyttades hit från 7.0 |
+| 6.4.0 Länder och platser | Sverige och Danmark som länder (#1262–#1264), Norden i forntiden (#1339), skolkopplingen (#1265) och platserna (#1159–#1164). Övriga pilotländer ligger i "Länder: omgång 2" och väntar på utvärderingen #1274 (beslut 2026-11-12, länderna före regionerna) |
+| 6.5.0 Skolan och samtidigt | Definitionen av "samtidigt" (#1311) först, sedan lektionsblad (#1316), uppdrag per lektion (#1340), "För lärare" (#1315), quizet (#1314), lärarfält i fall-turerna (#1279), missuppfattningar (#1229) och Lgr22-listan (#1342) |
+| 7.0 Tidsmodell och reglage | Tidslinje i nivåer (#49) och synlig tidsskala (#1313); reglagets grund görs redan i 6.3.1 |
+| 7.1 Människoarter | Människoarter (#11), bildlager v2 (#1325), fokustyper som poster (#1327) och förhistorien utöver människans spridning (#1338) |
+| 7.2 Lärarstöd för förhistorien | Epoker för förhistorien (#1343, beslutsfil 2026-11-13) och lärarstöd. Version 7 som helhet följer riktningen 2026-11-10 (docs/beslut/2026-11-10-version-7-riktning.md): människans läge cirka 100 000 år bakåt, förhistorien högst cirka 10 % av reglaget, jordens historia först i version 8 |
 | 8 Jordens historia | Eget läge med geologisk tidslinje och forntida kartor (#12, #51–#53) |
 | 9 Atlas och jämförelse | Jämför två tider (#248), historiska kartor (#249), skolatlasens bildlager (#8, #9, #55) |
 
 Parallella spår (milstolpar utan versionsnummer, görs bredvid huvudversionerna):
-- **Innehållspaket:** vetenskap, medicin, teknik, rymdfärdens milstolpar (#84) och temavyer (musik, litteratur, filosofi, ekonomi, personer, byggnadsverk, perspektiv). Paketen blockerar inte varandra eller huvudversionerna.
-- **Språk: översättning** (#63, #670–#679): gränssnittets texter en del i taget, sedan innehållet per period, engelska först (beslut 2026-11-06).
-- **Riken:** R1–R7 är klara; nu pågår milstolpen "Riken: global täckning" (#556, #644–#646).
-- **Hårdvara** (H1–H3): anteckningar, planeringen sker i Rikards Claude-projekt.
-- **Experiment och senare:** experimenten är delade i "Historiska datum och utskrift", "Flöden och rörelse", "Lekar och tankeexperiment" och "Rymden". "Senare" är delad i "beslut krävs", "teknik" och "innehåll och media". "Teman: temamotor" (#398) är förutsättningen för temavyerna och är sedan 2026-11-09 version 6.3.0 (6.2.0 2026-11-08), och "Paket: Temavyer och innehåll" är en samlingsrubrik, inte en arbetsmilstolpe. Bilder görs i "Bilder: batchar".
+- **Tydlighet och tillgänglighet:** utseende, ordval och tillgänglighet ur helganalysen (#1306, #1307, #1309, #1310, #1312, #1317, #1318, #1324). Tillgänglighetsfelen kan göras direkt, ordval och utseende kräver DasKrokodils ja.
+- **Språk: översättning** (#63, #670–#679): i den ordning texterna syns (viktiga händelser och turer, rikesnamn, etiketter, sedan löptext), med högst en av fyra platser för pull requests per person.
+- **Riken:** R1–R7 är klara; nu pågår "Riken: global täckning" (#556) med Tyskland 1920–1990 (#1329) först, och "Riken: symboler och flaggor".
+- **Täckning: händelser och balans**, **Paket: Vetenskap och medicin** och **Bilder: batchar** görs i källkontrollerade omgångar.
+- **Idébank (inte planerat):** temavyer, experiment och hårdvara. En idé lämnar Idébanken bara genom DasKrokodils beslut. Hårdvaran planeras i Rikards Claude-projekt.
+- **Senare:** "beslut krävs", "teknik" och "innehåll och media". **Att följa upp** används bara för sådant som väntar på något utanför projektet (utvärderingar, Skolverket, mätningar).
 
 Regler:
 - **Varje version slutar med att Rikard utvärderar** innan nästa börjar.

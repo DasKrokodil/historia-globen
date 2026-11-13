@@ -1,6 +1,6 @@
 {
-  "status": "ready_for_triage",
+  "status": "triaged",
   "report": "docs/granskningar/2026-11-10-version-6-3-0.md",
   "createdAt": "2026-11-10T05:12:53Z",
-  "triagedAt": null
+  "triagedAt": "2026-11-13T07:00:00Z"
 }

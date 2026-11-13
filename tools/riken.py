@@ -1259,6 +1259,49 @@ GROUPS = {
     'furstendomet-moldavien': ('Furstendömet Moldavien', 'Principality of Moldavia', [
         ('Principality of Moldavia', 'furstendomet-moldavien', 'Furstendömet Moldavien', '#5a9a7a', {'en': 'Principality of Moldavia'}),
     ]),
+    # Medeltidens luckor, sjunde omgången (#645, DasKrokodils ja 2026-11-13): de största kvarvarande luckorna 500–1500 med
+    # provår var 50:e år (tools/tackning_riken.py), där Cliopatrias Wikidata-id är en stat och har svensk etikett.
+    # Svenska och engelska namn är Wikidatas etiketter, kontrollerade med SPARQL 2026-11-13.
+    'rashidunkalifatet': ('Rashidunkalifatet', 'Rashidun Caliphate', [
+        ('Rashidun Caliphate', 'rashidunkalifatet', 'Rashidunkalifatet', '#7a9a5a', {'en': 'Rashidun Caliphate'}),
+    ]),
+    'majapahitriket': ('Majapahitriket', 'Majapahit', [
+        ('Majapahit', 'majapahitriket', 'Majapahitriket', '#b0704a', {'en': 'Majapahit'}),
+    ]),
+    'chalukyadynastin': ('Chalukyadynastin', 'Chalukya dynasty', [
+        ('Chalukya Dynasty', 'chalukyadynastin', 'Chalukyadynastin', '#a05a7a', {'en': 'Chalukya dynasty'}),
+    ]),
+    'gurjara-pratihara': ('Gurjara-Pratihara', 'Gurjara-Pratihara', [
+        ('Gurjara-Pratihara Dynasty', 'gurjara-pratihara', 'Gurjara-Pratihara', '#c0804a', {'en': 'Gurjara-Pratihara'}),
+    ]),
+    'kara-khanid': ('Khanatet Kara-Khanid', 'Karakhanid Khanate', [
+        ('Kara-Khanids', 'kara-khanid', 'Khanatet Kara-Khanid', '#5a8ab0', {'en': 'Karakhanid Khanate'}),
+    ]),
+    'dali': ('Dali', 'Dali Kingdom', [
+        ('Kingdom of Dali', 'dali', 'Dali', '#8a6ab0', {'en': 'Dali Kingdom'}),
+    ]),
+    'tughlaqdynastin': ('Tughlaqdynastin', 'Tughlaq dynasty', [
+        ('Tughlaq Dynasty', 'tughlaqdynastin', 'Tughlaqdynastin', '#4a9a6a', {'en': 'Tughlaq dynasty'}),
+    ]),
+    'palariket': ('Palariket', 'Pala Empire', [
+        ('Pala Empire', 'palariket', 'Palariket', '#b09a5a', {'en': 'Pala Empire'}),
+    ]),
+    'xixia': ('Xixia', 'Western Xia', [
+        ('Western Xia', 'xixia', 'Xixia', '#9a5a4a', {'en': 'Western Xia'}),
+    ]),
+    'aq-qoyunlu': ('Aq Qoyunlu', 'Aq Qoyunlu', [
+        ('Aq Qoyunlu', 'aq-qoyunlu', 'Aq Qoyunlu', '#6a9aa0', {'en': 'Aq Qoyunlu'}),
+    ]),
+    'nanzhaoriket': ('Nanzhaoriket', 'Kingdom of Nanzhao', [
+        ('Nanzhao', 'nanzhaoriket', 'Nanzhaoriket', '#a07a9a', {'en': 'Kingdom of Nanzhao'}),
+    ]),
+    'mariniderna': ('Mariniderna', 'Marinid dynasty', [
+        ('Marinid Sultanate', 'mariniderna', 'Mariniderna', '#7a8a4a', {'en': 'Marinid dynasty'}),
+    ]),
+    # Östgoternas rike (DasKrokodils beslut 2026-11-13): samma svenska namn som i INFLUENCE_NAMES, inte Wikidatas "Ostrogoternas rike"
+    'ostgoternas-rike': ('Östgoternas rike', 'Ostrogothic Kingdom', [
+        ('Ostrogothic Kingdom', 'ostgoternas-rike', 'Östgoternas rike', '#9a6a5a', {'en': 'Ostrogothic Kingdom'}),
+    ]),
     # Små stater ur Natural Earth (#722, Rikards beslut 2026-11-07): Cliopatria saknar dem i nutid eller har fel gräns
     # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth
     # (tools/ne-omstridda-omraden.geojson, tools/ne_omstridda.py), från självständigheten enligt Wikidata och Wikipedia
