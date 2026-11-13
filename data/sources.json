@@ -2288,6 +2288,7 @@
     { "id": "wp-ruben-dario", "title": "Rubén Darío – Wikipedia", "url": "https://en.wikipedia.org/wiki/Rub%C3%A9n_Dar%C3%ADo", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
     { "id": "wp-gabriela-mistral", "title": "Gabriela Mistral – Wikipedia", "url": "https://en.wikipedia.org/wiki/Gabriela_Mistral", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
     { "id": "wp-medellin-1968", "title": "Second Episcopal Conference of Latin America – Wikipedia", "url": "https://en.wikipedia.org/wiki/Second_Episcopal_Conference_of_Latin_America", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
-    { "id": "wp-operation-condor", "title": "Operation Condor – Wikipedia", "url": "https://en.wikipedia.org/wiki/Operation_Condor", "license": "CC BY-SA 4.0", "checked": "2026-11-13" }
+    { "id": "wp-operation-condor", "title": "Operation Condor – Wikipedia", "url": "https://en.wikipedia.org/wiki/Operation_Condor", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
+    { "id": "wp-es-azul", "title": "Azul... – Wikipedia (spanska)", "url": "https://es.wikipedia.org/wiki/Azul...", "license": "CC BY-SA 4.0", "checked": "2026-11-13" }
   ]
 }
