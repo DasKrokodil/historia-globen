@@ -45,6 +45,7 @@ js/period-range.js    epok som intervall: periodToRange klipper vid tidslinjens 
 js/timeline.js        tidsreglage, segmenterad skala, uppspelning
 js/layers/registry.js lagerregistret: ritordning, Lager-menyn, uppdatering och toning (#338)
 js/layers/index.js    listan över lagren i Lager-menyns ordning; ett nytt lager läggs till här (#338)
+js/focus/             fokustyperna som poster (#1327): registry.js (registret och kontraktet), index.js (listan) och en fil per typ (krig, rike, religion, resa, tema, plats)
 js/layers/events.js   punktlager: händelser
 js/layers/lines.js    linjelager: vägar och resor som ritas fram över tiden (#38)
 js/layers/discovery.js upptäcktsvyn: gammal kartstil, havsmonster och dimma som resorna lyfter (#101)
