@@ -42,7 +42,8 @@
         "wp-cook-resa-1",
         "dnb-cook",
         "eb1911-cook",
-        "wikidata"
+        "wikidata",
+        "cook-journal-wharton-1893"
       ],
       "review": "source-checked",
       "legs": [
@@ -75,7 +76,15 @@
                 "fr": "Plymouth",
                 "es": "Plymouth"
               },
-              "date": "1768-08-26"
+              "date": "1768-08-26",
+              "dateLabel": {
+                "sv": "avfärd 26 augusti 1768 (25 augusti enligt DNB och Britannica)",
+                "en": "departure 26 August 1768 (25 August according to the DNB and Britannica)",
+                "de": "Abfahrt am 26. August 1768 (25. August laut DNB und Britannica)",
+                "es": "partida el 26 de agosto de 1768 (25 de agosto según el DNB y la Britannica)",
+                "fr": "départ le 26 août 1768 (25 août selon le DNB et la Britannica)"
+              },
+              "stop": true
             },
             {
               "at": [-43.2, -22.9],
@@ -93,7 +102,8 @@
             "wp-cook-resa-1",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-journal-wharton-1893"
           ]
         },
         {
@@ -143,20 +153,29 @@
             {
               "at": [-149.5, -17.5],
               "name": {
-                "sv": "Point Venus: Venuspassagen observeras",
-                "en": "Point Venus: transit of Venus observed",
-                "de": "Point Venus: Der Venustransit wird beobachtet",
-                "fr": "Point Venus : le transit de Vénus est observé",
-                "es": "Point Venus: se observa el tránsito de Venus"
+                "sv": "Point Venus (Tahiti)",
+                "en": "Point Venus (Tahiti)",
+                "de": "Point Venus (Tahiti)",
+                "es": "Point Venus (Tahití)",
+                "fr": "Point Venus (Tahiti)"
               },
-              "date": "1769-06-03"
+              "date": "1769-06-03",
+              "dateLabel": {
+                "sv": "3 juni 1769: Venuspassagen observeras",
+                "en": "3 June 1769: transit of Venus observed",
+                "de": "3. Juni 1769: der Venustransit wird beobachtet",
+                "es": "3 de junio de 1769: se observa el tránsito de Venus",
+                "fr": "3 juin 1769 : le transit de Vénus est observé"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-cook-resa-1",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-journal-wharton-1893"
           ]
         },
         {
@@ -232,20 +251,29 @@
             {
               "at": [178.0, -38.7],
               "name": {
-                "sv": "Poverty Bay, Nya Zeeland",
-                "en": "Poverty Bay, New Zealand",
-                "de": "Poverty Bay, Neuseeland",
-                "fr": "Poverty Bay, Nouvelle-Zélande",
-                "es": "Poverty Bay, Nueva Zelanda"
+                "sv": "Poverty Bay",
+                "en": "Poverty Bay",
+                "de": "Poverty Bay",
+                "es": "Poverty Bay",
+                "fr": "Poverty Bay"
               },
-              "date": "1769-10-07"
+              "date": "1769-10-07",
+              "dateLabel": {
+                "sv": "7 oktober 1769: Nya Zeeland nås",
+                "en": "7 October 1769: New Zealand reached",
+                "de": "7. Oktober 1769: Neuseeland ist erreicht",
+                "es": "7 de octubre de 1769: se llega a Nueva Zelanda",
+                "fr": "7 octobre 1769 : la Nouvelle-Zélande est atteinte"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-cook-resa-1",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-journal-wharton-1893"
           ]
         },
         {
@@ -298,13 +326,21 @@
             {
               "at": [175.7, -36.8],
               "name": {
-                "sv": "Mercury Bay: Merkuriuspassagen",
-                "en": "Mercury Bay: transit of Mercury",
-                "de": "Mercury Bay: Der Merkurtransit",
-                "fr": "Mercury Bay : le transit de Mercure",
-                "es": "Mercury Bay: el tránsito de Mercurio"
+                "sv": "Mercury Bay",
+                "en": "Mercury Bay",
+                "de": "Mercury Bay",
+                "es": "Mercury Bay",
+                "fr": "Mercury Bay"
               },
-              "date": "1769-11-09"
+              "date": "1769-11-09",
+              "dateLabel": {
+                "sv": "9 november 1769: Merkuriuspassagen",
+                "en": "9 November 1769: transit of Mercury",
+                "de": "9. November 1769: der Merkurtransit",
+                "es": "9 de noviembre de 1769: el tránsito de Mercurio",
+                "fr": "9 novembre 1769 : le transit de Mercure"
+              },
+              "stop": true
             },
             {
               "at": [174.2, -35.2],
@@ -342,7 +378,8 @@
             "wp-cook-resa-1",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-journal-wharton-1893"
           ]
         },
         {
@@ -447,14 +484,24 @@
                 "fr": "Botany Bay",
                 "es": "Botany Bay"
               },
-              "edtf": "1770-04-29/1770-05-06"
+              "edtf": "1770-04-29/1770-05-06",
+              "date": "1770-04-29",
+              "dateLabel": {
+                "sv": "29 april 1770: landstigning",
+                "en": "29 April 1770: landing",
+                "de": "29. April 1770: Landung",
+                "es": "29 de abril de 1770: desembarco",
+                "fr": "29 avril 1770 : débarquement"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-cook-resa-1",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-journal-wharton-1893"
           ]
         },
         {
@@ -495,13 +542,21 @@
             {
               "at": [145.6, -15.8],
               "name": {
-                "sv": "Endeavour går på grund på Stora barriärrevet",
-                "en": "Endeavour runs aground on the Great Barrier Reef",
-                "de": "Die Endeavour läuft auf dem Großen Barriereriff auf Grund",
-                "fr": "L’Endeavour s’échoue sur la Grande Barrière de corail",
-                "es": "El Endeavour encalla en la Gran Barrera de Coral"
+                "sv": "Endeavourrevet (Stora barriärrevet)",
+                "en": "Endeavour Reef (Great Barrier Reef)",
+                "de": "Endeavour Reef (Großes Barriereriff)",
+                "es": "Arrecife Endeavour (Gran Barrera de Coral)",
+                "fr": "Récif Endeavour (Grande Barrière de corail)"
               },
-              "date": "1770-06-11"
+              "date": "1770-06-11",
+              "dateLabel": {
+                "sv": "11 juni 1770: Endeavour går på grund",
+                "en": "11 June 1770: Endeavour runs aground",
+                "de": "11. Juni 1770: die Endeavour läuft auf Grund",
+                "es": "11 de junio de 1770: el Endeavour encalla",
+                "fr": "11 juin 1770 : l’Endeavour s’échoue"
+              },
+              "stop": true
             },
             {
               "at": [145.2, -15.5],
@@ -519,7 +574,8 @@
             "wp-cook-resa-1",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-journal-wharton-1893"
           ]
         },
         {
@@ -673,14 +729,23 @@
                 "fr": "Deal (Downs)",
                 "es": "Deal (Downs)"
               },
-              "date": "1771-07-12"
+              "date": "1771-07-12",
+              "dateLabel": {
+                "sv": "12 juli 1771: hemkomst (12 juni enligt DNB och Britannica)",
+                "en": "12 July 1771: return home (12 June according to the DNB and Britannica)",
+                "de": "12. Juli 1771: Heimkehr (12. Juni laut DNB und Britannica)",
+                "es": "12 de julio de 1771: regreso (12 de junio según el DNB y la Britannica)",
+                "fr": "12 juillet 1771 : retour (12 juin selon le DNB et la Britannica)"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-cook-resa-1",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-journal-wharton-1893"
           ]
         }
       ]
@@ -727,7 +792,8 @@
         "wp-cook-resa-2",
         "dnb-cook",
         "eb1911-cook",
-        "wikidata"
+        "wikidata",
+        "cook-voyage-south-pole-1777"
       ],
       "review": "source-checked",
       "legs": [
@@ -754,7 +820,15 @@
                 "fr": "Plymouth",
                 "es": "Plymouth"
               },
-              "date": "1772-07-13"
+              "date": "1772-07-13",
+              "dateLabel": {
+                "sv": "avfärd 13 juli 1772",
+                "en": "departure 13 July 1772",
+                "de": "Abfahrt 13. Juli 1772",
+                "es": "partida 13 de julio de 1772",
+                "fr": "départ 13 juillet 1772"
+              },
+              "stop": true
             },
             {
               "at": [-16.9, 32.6],
@@ -772,7 +846,8 @@
             "wp-cook-resa-2",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-voyage-south-pole-1777"
           ]
         },
         {
@@ -886,31 +961,49 @@
             {
               "at": [39.6, -66.6],
               "name": {
-                "sv": "Södra polcirkeln passeras för första gången",
-                "en": "Antarctic Circle crossed for the first time",
-                "de": "Der Südliche Polarkreis wird zum ersten Mal überquert",
-                "fr": "Premier franchissement du cercle polaire antarctique",
-                "es": "Primer cruce del círculo polar antártico"
+                "sv": "Södra polcirkeln",
+                "en": "Antarctic Circle",
+                "de": "Südlicher Polarkreis",
+                "es": "Círculo polar antártico",
+                "fr": "Cercle polaire antarctique"
               },
-              "date": "1773-01-17"
+              "date": "1773-01-17",
+              "dateLabel": {
+                "sv": "17 januari 1773: passeras för första gången",
+                "en": "17 January 1773: crossed for the first time",
+                "de": "17. Januar 1773: zum ersten Mal überquert",
+                "es": "17 de enero de 1773: se cruza por primera vez",
+                "fr": "17 janvier 1773 : franchi pour la première fois"
+              },
+              "stop": true
             },
             {
               "at": [166.6, -45.8],
               "name": {
-                "sv": "Dusky Sound, Nya Zeeland",
-                "en": "Dusky Sound, New Zealand",
-                "de": "Dusky Sound, Neuseeland",
-                "fr": "Dusky Sound, Nouvelle-Zélande",
-                "es": "Dusky Sound, Nueva Zelanda"
+                "sv": "Dusky Sound",
+                "en": "Dusky Sound",
+                "de": "Dusky Sound",
+                "es": "Dusky Sound",
+                "fr": "Dusky Sound"
               },
-              "edtf": "1773-03-26/1773-05"
+              "edtf": "1773-03-26/1773-05",
+              "date": "1773-03-26",
+              "dateLabel": {
+                "sv": "26 mars 1773: ankring",
+                "en": "26 March 1773: anchored",
+                "de": "26. März 1773: vor Anker",
+                "es": "26 de marzo de 1773: fondeo",
+                "fr": "26 mars 1773 : mouillage"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-cook-resa-2",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-voyage-south-pole-1777"
           ]
         },
         {
@@ -1174,13 +1267,21 @@
             {
               "at": [-106.9, -71.2],
               "name": {
-                "sv": "Längst söderut: 71° 10′ S, 106° 54′ V",
-                "en": "Farthest south: 71° 10′ S, 106° 54′ W",
-                "de": "Am weitesten südlich: 71° 10′ S, 106° 54′ W",
-                "fr": "Le point le plus au sud : 71° 10′ S, 106° 54′ O",
-                "es": "El punto más al sur: 71° 10′ S, 106° 54′ O"
+                "sv": "Längst söderut (71° 10′ S)",
+                "en": "Farthest south (71° 10′ S)",
+                "de": "Am weitesten südlich (71° 10′ S)",
+                "es": "El punto más al sur (71° 10′ S)",
+                "fr": "Le point le plus au sud (71° 10′ S)"
               },
-              "edtf": "1774-01-30"
+              "edtf": "1774-01-30",
+              "dateLabel": {
+                "sv": "30 januari 1774",
+                "en": "30 January 1774",
+                "de": "30. Januar 1774",
+                "es": "30 de enero de 1774",
+                "fr": "30 janvier 1774"
+              },
+              "stop": true
             },
             {
               "at": [-109.3, -27.1],
@@ -1191,14 +1292,24 @@
                 "fr": "Île de Pâques",
                 "es": "Isla de Pascua"
               },
-              "edtf": "1774-03-11/1774-03-16"
+              "edtf": "1774-03-11/1774-03-16",
+              "date": "1774-03-11",
+              "dateLabel": {
+                "sv": "siktas 11 mars 1774",
+                "en": "sighted 11 March 1774",
+                "de": "gesichtet 11. März 1774",
+                "es": "avistada 11 de marzo de 1774",
+                "fr": "aperçue 11 mars 1774"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-cook-resa-2",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-voyage-south-pole-1777"
           ]
         },
         {
@@ -1430,7 +1541,16 @@
                 "fr": "Géorgie du Sud",
                 "es": "Georgia del Sur"
               },
-              "edtf": "1775-01-14/1775-01-20"
+              "edtf": "1775-01-14/1775-01-20",
+              "date": "1775-01-14",
+              "dateLabel": {
+                "sv": "siktas 14 januari 1775",
+                "en": "sighted 14 January 1775",
+                "de": "gesichtet 14. Januar 1775",
+                "es": "avistada 14 de enero de 1775",
+                "fr": "aperçue 14 janvier 1775"
+              },
+              "stop": true
             },
             {
               "at": [-26.5, -57.8],
@@ -1459,7 +1579,8 @@
             "wp-cook-resa-2",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-voyage-south-pole-1777"
           ]
         },
         {
@@ -1523,14 +1644,23 @@
                 "fr": "Spithead (Portsmouth)",
                 "es": "Spithead (Portsmouth)"
               },
-              "date": "1775-07-30"
+              "date": "1775-07-30",
+              "dateLabel": {
+                "sv": "30 juli 1775: hemkomst",
+                "en": "30 July 1775: return home",
+                "de": "30. Juli 1775: Heimkehr",
+                "es": "30 de julio de 1775: regreso",
+                "fr": "30 juillet 1775 : retour"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-cook-resa-2",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-voyage-south-pole-1777"
           ]
         }
       ]
@@ -1566,18 +1696,19 @@
           "es": "Las fuentes no coinciden"
         },
         "text": {
-          "sv": "Skeppen lämnade Godahoppsudden tillsammans den 1 december 1776 enligt Wikipedia men den 30 november enligt Dictionary of National Biography och Encyclopædia Britannica 1911. Hawaiiöarna siktades den 18 januari 1778 enligt Wikipedia; Britannica skriver i början av februari 1778 och nämner att spanjoren Gaetano kanske såg öarna redan 1555. Ankomsten till Kealakekuabukten den 17 januari 1779 och Cooks död den 14 februari 1779 stämmer i alla tre källorna. Hur långt norrut isen stoppade skeppen 1778 anges som 70° N den 17 augusti (Wikipedia) och 70° 41′ N (Britannica). Sträckorna till sjöss är ritade ungefärligt mellan de platser källorna nämner.",
-          "en": "The ships left the Cape of Good Hope together on 1 December 1776 according to Wikipedia but on 30 November according to the Dictionary of National Biography and Encyclopædia Britannica 1911. The Hawaiian Islands were sighted on 18 January 1778 according to Wikipedia; Britannica says early February 1778 and mentions that the Spaniard Gaetano may have seen the islands as early as 1555. Arrival at Kealakekua Bay on 17 January 1779 and Cook's death on 14 February 1779 agree in all three sources. How far north the ice stopped the ships in 1778 is given as 70° N on 17 August (Wikipedia) and 70° 41′ N (Britannica). The sea legs are drawn approximately between the places the sources name.",
-          "de": "Die Schiffe verließen das Kap der Guten Hoffnung laut Wikipedia gemeinsam am 1. Dezember 1776, laut Dictionary of National Biography und Encyclopædia Britannica 1911 aber am 30. November. Die Hawaii-Inseln wurden laut Wikipedia am 18. Januar 1778 gesichtet; Britannica schreibt Anfang Februar 1778 und erwähnt, dass der Spanier Gaetano die Inseln vielleicht schon 1555 gesehen hat. Die Ankunft in der Kealakekua-Bucht am 17. Januar 1779 und Cooks Tod am 14. Februar 1779 stimmen in allen drei Quellen überein. Wie weit nördlich das Eis die Schiffe 1778 stoppte, wird mit 70° N am 17. August (Wikipedia) und 70° 41′ N (Britannica) angegeben. Die Strecken auf See sind ungefähr zwischen den Orten gezeichnet, die die Quellen nennen.",
-          "fr": "Les navires quittèrent ensemble le cap de Bonne-Espérance le 1er décembre 1776 selon Wikipédia, mais le 30 novembre selon le Dictionary of National Biography et l’Encyclopædia Britannica 1911. Les îles Hawaï furent aperçues le 18 janvier 1778 selon Wikipédia ; la Britannica écrit début février 1778 et mentionne que l’Espagnol Gaetano vit peut-être les îles dès 1555. L’arrivée dans la baie de Kealakekua le 17 janvier 1779 et la mort de Cook le 14 février 1779 concordent dans les trois sources. La limite nord où la glace arrêta les navires en 1778 est indiquée comme 70° N le 17 août (Wikipédia) et 70° 41′ N (Britannica). Les trajets en mer sont tracés de façon approximative entre les lieux mentionnés par les sources.",
-          "es": "Los barcos dejaron juntos el cabo de Buena Esperanza el 1 de diciembre de 1776 según Wikipedia, pero el 30 de noviembre según el Dictionary of National Biography y la Encyclopædia Britannica 1911. Las islas Hawái se avistaron el 18 de enero de 1778 según Wikipedia; la Britannica escribe a comienzos de febrero de 1778 y menciona que el español Gaetano quizá vio las islas ya en 1555. La llegada a la bahía de Kealakekua el 17 de enero de 1779 y la muerte de Cook el 14 de febrero de 1779 coinciden en las tres fuentes. Hasta dónde llegaron los barcos hacia el norte antes de que el hielo los detuviera en 1778 se indica como 70° N el 17 de agosto (Wikipedia) y 70° 41′ N (Britannica). Los tramos por mar están dibujados de forma aproximada entre los lugares que mencionan las fuentes."
+          "sv": "Skeppen lämnade Godahoppsudden tillsammans den 1 december 1776 enligt Wikipedia men den 30 november enligt Dictionary of National Biography och Encyclopædia Britannica 1911. Hawaiiöarna siktades den 18 januari 1778 enligt Wikipedia; Britannica skriver i början av februari 1778 och nämner att spanjoren Gaetano kanske såg öarna redan 1555. Ankomsten till Kealakekuabukten den 17 januari 1779 och Cooks död den 14 februari 1779 står i Wikipedia och Britannica; Dictionary of National Biography anger inget uttryckligt datum för Cooks död. Hur långt norrut isen stoppade skeppen 1778 anges som 70° N den 17 augusti (Wikipedia) och 70° 41′ N (Britannica). Sträckorna till sjöss är ritade ungefärligt mellan de platser källorna nämner.",
+          "en": "The ships left the Cape of Good Hope together on 1 December 1776 according to Wikipedia but on 30 November according to the Dictionary of National Biography and Encyclopædia Britannica 1911. The Hawaiian Islands were sighted on 18 January 1778 according to Wikipedia; Britannica says early February 1778 and mentions that the Spaniard Gaetano may have seen the islands as early as 1555. Arrival at Kealakekua Bay on 17 January 1779 and Cook's death on 14 February 1779 are given by Wikipedia and Britannica; the Dictionary of National Biography gives no explicit date for Cook's death. How far north the ice stopped the ships in 1778 is given as 70° N on 17 August (Wikipedia) and 70° 41′ N (Britannica). The sea legs are drawn approximately between the places the sources name.",
+          "de": "Die Schiffe verließen das Kap der Guten Hoffnung laut Wikipedia gemeinsam am 1. Dezember 1776, laut Dictionary of National Biography und Encyclopædia Britannica 1911 aber am 30. November. Die Hawaii-Inseln wurden laut Wikipedia am 18. Januar 1778 gesichtet; Britannica schreibt Anfang Februar 1778 und erwähnt, dass der Spanier Gaetano die Inseln vielleicht schon 1555 gesehen hat. Die Ankunft in der Kealakekua-Bucht am 17. Januar 1779 und Cooks Tod am 14. Februar 1779 stehen bei Wikipedia und in der Britannica; das Dictionary of National Biography nennt kein ausdrückliches Datum für Cooks Tod. Wie weit nördlich das Eis die Schiffe 1778 stoppte, wird mit 70° N am 17. August (Wikipedia) und 70° 41′ N (Britannica) angegeben. Die Strecken auf See sind ungefähr zwischen den Orten gezeichnet, die die Quellen nennen.",
+          "fr": "Les navires quittèrent ensemble le cap de Bonne-Espérance le 1er décembre 1776 selon Wikipédia, mais le 30 novembre selon le Dictionary of National Biography et l’Encyclopædia Britannica 1911. Les îles Hawaï furent aperçues le 18 janvier 1778 selon Wikipédia ; la Britannica écrit début février 1778 et mentionne que l’Espagnol Gaetano vit peut-être les îles dès 1555. L’arrivée dans la baie de Kealakekua le 17 janvier 1779 et la mort de Cook le 14 février 1779 figurent dans Wikipédia et la Britannica ; le Dictionary of National Biography ne donne pas de date explicite pour la mort de Cook. La limite nord où la glace arrêta les navires en 1778 est indiquée comme 70° N le 17 août (Wikipédia) et 70° 41′ N (Britannica). Les trajets en mer sont tracés de façon approximative entre les lieux mentionnés par les sources.",
+          "es": "Los barcos dejaron juntos el cabo de Buena Esperanza el 1 de diciembre de 1776 según Wikipedia, pero el 30 de noviembre según el Dictionary of National Biography y la Encyclopædia Britannica 1911. Las islas Hawái se avistaron el 18 de enero de 1778 según Wikipedia; la Britannica escribe a comienzos de febrero de 1778 y menciona que el español Gaetano quizá vio las islas ya en 1555. La llegada a la bahía de Kealakekua el 17 de enero de 1779 y la muerte de Cook el 14 de febrero de 1779 figuran en Wikipedia y la Britannica; el Dictionary of National Biography no da una fecha explícita de la muerte de Cook. Hasta dónde llegaron los barcos hacia el norte antes de que el hielo los detuviera en 1778 se indica como 70° N el 17 de agosto (Wikipedia) y 70° 41′ N (Britannica). Los tramos por mar están dibujados de forma aproximada entre los lugares que mencionan las fuentes."
         }
       },
       "sources": [
         "wp-cook-resa-3",
         "dnb-cook",
         "eb1911-cook",
-        "wikidata"
+        "wikidata",
+        "cook-king-three-voyages-1821"
       ],
       "review": "source-checked",
       "legs": [
@@ -1604,7 +1735,15 @@
                 "fr": "Plymouth",
                 "es": "Plymouth"
               },
-              "date": "1776-07-12"
+              "date": "1776-07-12",
+              "dateLabel": {
+                "sv": "avfärd 12 juli 1776",
+                "en": "departure 12 July 1776",
+                "de": "Abfahrt 12. Juli 1776",
+                "es": "partida 12 de julio de 1776",
+                "fr": "départ 12 juillet 1776"
+              },
+              "stop": true
             },
             {
               "at": [-16.2, 28.5],
@@ -1622,7 +1761,8 @@
             "wp-cook-resa-3",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-king-three-voyages-1821"
           ]
         },
         {
@@ -1987,13 +2127,21 @@
             {
               "at": [-159.5, 22.1],
               "name": {
-                "sv": "Kauai: Hawaiiöarna nås",
-                "en": "Kauai: the Hawaiian Islands reached",
-                "de": "Kauai: Die Hawaii-Inseln sind erreicht",
-                "fr": "Kauai : les îles Hawaï sont atteintes",
-                "es": "Kauai: se llega a las islas Hawái"
+                "sv": "Kauai",
+                "en": "Kauai",
+                "de": "Kauai",
+                "es": "Kauai",
+                "fr": "Kauai"
               },
-              "edtf": "1778-01-19"
+              "edtf": "1778-01-19",
+              "dateLabel": {
+                "sv": "19 januari 1778: Hawaiiöarna nås (siktas den 18)",
+                "en": "19 January 1778: the Hawaiian Islands reached (sighted on the 18th)",
+                "de": "19. Januar 1778: die Hawaii-Inseln sind erreicht (am 18. gesichtet)",
+                "es": "19 de enero de 1778: se llega a las islas Hawái (avistadas el 18)",
+                "fr": "19 janvier 1778 : les îles Hawaï sont atteintes (aperçues le 18)"
+              },
+              "stop": true
             },
             {
               "at": [-159.7, 22.0],
@@ -2021,7 +2169,8 @@
             "wp-cook-resa-3",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-king-three-voyages-1821"
           ]
         },
         {
@@ -2061,14 +2210,24 @@
                 "fr": "Nootka Sound",
                 "es": "Nootka Sound"
               },
-              "edtf": "1778-03-29/1778-04-26"
+              "edtf": "1778-03-29/1778-04-26",
+              "date": "1778-03-29",
+              "dateLabel": {
+                "sv": "29 mars 1778: ankring",
+                "en": "29 March 1778: anchored",
+                "de": "29. März 1778: vor Anker",
+                "es": "29 de marzo de 1778: fondeo",
+                "fr": "29 mars 1778 : mouillage"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-cook-resa-3",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-king-three-voyages-1821"
           ]
         },
         {
@@ -2202,20 +2361,29 @@
             {
               "at": [-161.9, 70.3],
               "name": {
-                "sv": "Packisen stoppar skeppen (Icy Cape)",
-                "en": "Pack ice stops the ships (Icy Cape)",
-                "de": "Das Packeis stoppt die Schiffe (Icy Cape)",
-                "fr": "La banquise arrête les navires (Icy Cape)",
-                "es": "La banquisa detiene los barcos (Icy Cape)"
+                "sv": "Packisen (70° 41′ N)",
+                "en": "The pack ice (70° 41′ N)",
+                "de": "Das Packeis (70° 41′ N)",
+                "es": "La banquisa (70° 41′ N)",
+                "fr": "La banquise (70° 41′ N)"
               },
-              "date": "1778-08-17"
+              "date": "1778-08-17",
+              "dateLabel": {
+                "sv": "17 augusti 1778: packisen stoppar skeppen",
+                "en": "17 August 1778: the pack ice stops the ships",
+                "de": "17. August 1778: das Packeis stoppt die Schiffe",
+                "es": "17 de agosto de 1778: la banquisa detiene los barcos",
+                "fr": "17 août 1778 : la banquise arrête les navires"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-cook-resa-3",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-king-three-voyages-1821"
           ]
         },
         {
@@ -2332,20 +2500,29 @@
             {
               "at": [-155.9, 19.5],
               "name": {
-                "sv": "Kealakekuabukten: Cook dödas",
-                "en": "Kealakekua Bay: Cook is killed",
-                "de": "Kealakekua-Bucht: Cook wird getötet",
-                "fr": "Baie de Kealakekua : Cook est tué",
-                "es": "Bahía de Kealakekua: muere Cook"
+                "sv": "Kealakekuabukten (Hawaii)",
+                "en": "Kealakekua Bay (Hawaii)",
+                "de": "Kealakekua-Bucht (Hawaii)",
+                "es": "Bahía de Kealakekua (Hawái)",
+                "fr": "Baie de Kealakekua (Hawaï)"
               },
-              "date": "1779-02-14"
+              "date": "1779-02-14",
+              "dateLabel": {
+                "sv": "14 februari 1779: Cook dödas",
+                "en": "14 February 1779: Cook is killed",
+                "de": "14. Februar 1779: Cook wird getötet",
+                "es": "14 de febrero de 1779: muere Cook",
+                "fr": "14 février 1779 : Cook est tué"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-cook-resa-3",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-king-three-voyages-1821"
           ]
         },
         {
@@ -2479,14 +2656,24 @@
                 "fr": "Macao",
                 "es": "Macao"
               },
-              "edtf": "1779-12-01/1780-01-13"
+              "edtf": "1779-12-01/1780-01-13",
+              "date": "1779-12-01",
+              "dateLabel": {
+                "sv": "ankomst 1 december 1779",
+                "en": "arrival 1 December 1779",
+                "de": "Ankunft 1. Dezember 1779",
+                "es": "llegada 1 de diciembre de 1779",
+                "fr": "arrivée 1er décembre 1779"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-cook-resa-3",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-king-three-voyages-1821"
           ]
         },
         {
@@ -2616,14 +2803,23 @@
                 "fr": "Nore (estuaire de la Tamise)",
                 "es": "Nore (estuario del Támesis)"
               },
-              "date": "1780-10-04"
+              "date": "1780-10-04",
+              "dateLabel": {
+                "sv": "4 oktober 1780: hemkomst",
+                "en": "4 October 1780: return home",
+                "de": "4. Oktober 1780: Heimkehr",
+                "es": "4 de octubre de 1780: regreso",
+                "fr": "4 octobre 1780 : retour"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-cook-resa-3",
             "dnb-cook",
             "eb1911-cook",
-            "wikidata"
+            "wikidata",
+            "cook-king-three-voyages-1821"
           ]
         }
       ]
