@@ -13,6 +13,7 @@
 import { t } from '../model.js';
 import { ui } from '../i18n.js';
 import { printLesson } from './print-sheet.js';
+import { missionsForLesson, fitsLesson } from '../uppdrag-rules.js';
 
 export class LessonMode {
   /**
@@ -101,9 +102,9 @@ export class LessonMode {
     this.exit.hidden = this.lock?.escape === false;
     this.showTeacherTools();
     this.applyLock();
-    // En jakt som redan pågår och hör till ett år utanför låset avslutas, annars står rutan kvar för ett annat år
-    const years = this.lock?.years, hunt = this.app.hunt;
-    if (years && hunt?.active && (hunt.mission.year < years[0] || hunt.mission.year > years[1])) hunt.end(false);
+    // En jakt som redan pågår och inte hör till lektionen (ett annat uppdrags lektion eller ett år utanför låset) avslutas, annars står rutan kvar för ett annat år
+    const hunt = this.app.hunt;
+    if (hunt?.active && !fitsLesson(hunt.mission, tour.id, this.lock?.years)) hunt.end(false);
     this.app.closeMenus?.(); // menyer som stod öppna när länken öppnades
     return true;
   }
@@ -139,19 +140,20 @@ export class LessonMode {
   }
 
   /**
-   * Slutkortet efter turens sista steg: länkar till lektionens uppdrag. Än så länge Samtidighetsjakten (#741), och
-   * bara uppdrag vars år ligger i lektionens intervall, så att ett uppdrag aldrig flyttar eleven utanför lektionen.
-   * Finns inget uppdrag i intervallet döljs raden. Quiz (#65) och Källdetektiven (#742) läggs till när de kan
-   * hämta frågor ur intervallet.
+   * Slutkortet efter turens sista steg: länkar till lektionens uppdrag. Än så länge Samtidighetsjakten (#741).
+   * Uppdraget knyts till lektionen i data (fältet lesson i data/uppdrag.json, #1340); har lektionen inget eget uppdrag
+   * visas uppdrag utan lektion vars år ligger i lektionens intervall, så att ett uppdrag aldrig flyttar eleven utanför
+   * lektionen. Finns inget döljs raden. Quiz (#65) och Källdetektiven (#742) läggs till när de kan hämta frågor ur
+   * intervallet.
    */
   renderEnd(last) {
-    const years = this.lock?.years, hunt = this.app.hunt;
-    const missions = last && years && hunt ? hunt.missions.filter(m => m.year >= years[0] && m.year <= years[1]) : [];
+    const hunt = this.app.hunt;
+    const missions = last && this.tour && hunt ? missionsForLesson(hunt.missions, this.tour.id, this.lock?.years) : [];
     this.endLinks.hidden = !missions.length;
     this.endList.replaceChildren(...missions.map(m => {
       const b = document.createElement('button');
       b.type = 'button'; b.className = 'link-btn';
-      b.textContent = ui('lesson.hunt', { title: t(m.title) });
+      b.textContent = t(m.title); // titeln börjar redan med "Samtidighetsjakten:"
       b.addEventListener('click', () => hunt.start(m.id, b));
       return b;
     }));
