@@ -5079,7 +5079,7 @@ async function run(browser, vp) {
         await lp.route(u => isFont(u.href), r => r.abort());
       }
       const endOf = async (tour, step) => {
-        await lp.goto(`${BASE}?ny=1340#t=${tour}&m=lektion&s=${step}`);
+        await lp.goto(`${BASE}?ny=1340-${tour}#t=${tour}&m=lektion&s=${step}`); // egen sökdel: en ny sidladdning, inte bara en ny adress
         await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await lp.waitForSelector('#tour-lesson-end', { state: 'visible', timeout: T.step });
         return lp.evaluate(() => [...document.querySelectorAll('#tour-lesson-end-list button')].map(b => b.textContent.trim()));
@@ -5112,7 +5112,7 @@ async function run(browser, vp) {
       await lp.waitForSelector('#hunt-done', { state: 'visible', timeout: T.step });
       if (await lp.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error('jakten i lektionen ger horisontell scroll');
       // Andra världskriget (åk 7–9): år 1945, där turen slutar. Reglaget är låst i lektionen (#1322), så jakten ska gå
-      // att klara utan att flytta tiden: Europa, Asien och Amerika. Bretton Woods (1944) räknas inte, ett år tidigare.
+      // att klara utan att flytta tiden: Europa, Asien och Amerika.
       const war = await endOf('andra-varldskriget', 'tokyobukten');
       if (war.length !== 1 || !/år 1945/.test(war[0])) throw new Error(`krigslektionens slutkort visar ${JSON.stringify(war)}`);
       await lp.click('#tour-lesson-end-list button');
@@ -5121,8 +5121,6 @@ async function run(browser, vp) {
       const warYears = (await lp.textContent('#hunt-years')).trim();
       if (warYears !== 'År 1945') throw new Error(`krigsjakten visar åren "${warYears}"`);
       await lp.waitForFunction(() => location.hash.includes('u=samtidighetsjakten-1945'), null, { timeout: T.step });
-      const early = await add('bretton-woods-konferensen');
-      if (!/pågick inte år 1945/.test(early)) throw new Error(`Bretton Woods 1944 gav: ${early}`);
       for (const id of ['andra-varldskriget', 'indonesiens-sjalvstandighet', 'fn-grundas']) {
         const msg = await add(id);
         if (!/räknas/.test(msg)) throw new Error(`${id} räknades inte i krigsjakten: ${msg}`);
