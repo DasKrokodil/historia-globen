@@ -1442,9 +1442,10 @@ async function run(browser, vp) {
     await start.click();
     await visible('#tour-card');
     if (!(await page.isVisible('#tour-status'))) throw new Error('första steget visar ingen status');
-    if ((await page.textContent('#tour-status')).trim() !== 'Det här vet vi från källorna') throw new Error('fel status i första steget');
+    // Märkningen följer regeln i #1278: källor som skiljer sig ger omtvistat (Gula turbanerna, arméerna vid Röda klipporna)
+    if ((await page.textContent('#tour-status')).trim() !== 'Här är forskare inte överens') throw new Error('fel status i första steget');
     for (let i = 0; i < 4; i++) await page.click('#tour-next');
-    if ((await page.textContent('#tour-status')).trim() !== 'Det här vet vi inte säkert') throw new Error('steget om arméernas storlek är inte märkt som osäkert');
+    if ((await page.textContent('#tour-status')).trim() !== 'Här är forskare inte överens') throw new Error('steget om arméernas storlek är inte märkt som omtvistat');
     await page.click('#tour-close');
     await hidden('#tour-card');
     if (!(await page.evaluate(() => document.getElementById('focus-bar').hidden))) await page.click('#focus-exit');

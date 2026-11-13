@@ -28,11 +28,11 @@
         "zoom": 1.4
       },
       "chapter": {
-        "sv": "Kris",
-        "en": "Crisis",
-        "fr": "Crise",
-        "de": "Krise",
-        "es": "Crisis"
+        "sv": "Tronföljden",
+        "en": "The succession",
+        "fr": "La succession",
+        "de": "Die Thronfolge",
+        "es": "La sucesión"
       },
       "title": {
         "sv": "Strid om tronen, 1588",
@@ -168,7 +168,7 @@
         "de": "Wie groß waren die Heere?",
         "es": "¿Cuán grandes eran los ejércitos?"
       },
-      "status": "okant",
+      "status": "omtvistat",
       "text": {
         "sv": "Källorna skiljer sig. Den marockanska hären anges till omkring 4 000 man i en källa och omkring 20 000 i en annan. Uppgifterna om Songhais armé går från knappt 28 000 till 80 000 man. Alla är överens om att Songhai var fler.",
         "en": "The sources differ. The Moroccan army is given as about 4,000 men in one source and about 20,000 in another. The figures for the Songhai army range from just under 28,000 to 80,000 men. All agree that Songhai had more soldiers.",
