@@ -587,9 +587,9 @@ export class Timeline extends EventTarget {
   }
   /** Den här raden finns alltid i DOM:en, så att skärmläsaren säkert får ändringen. */
   /** Läser upp text för skärmläsare utan att visa en pausrad (till exempel turens slutkort, #878). */
-  announce(text) { this._announce(text); }
-  _announce(text) {
-    say(text, 'pausnotis'); // via statusraden (js/ui/status.js, #1419)
+  announce(text, priority = 0) { this._announce(text, priority); }
+  _announce(text, priority = 0) {
+    say(text, 'pausnotis', { priority }); // via statusraden (js/ui/status.js, #1419)
   }
 
   _render() {
