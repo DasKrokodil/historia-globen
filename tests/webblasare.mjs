@@ -1034,7 +1034,16 @@ async function run(browser, vp) {
     // Som en elev: öppna händelsen i Samtidigt och tryck på Lägg till i jakten i faktarutan
     const add = async id => {
       if (await page.isHidden('#panel')) await clickView('#btn-panel');
-      await page.locator(`#event-list .event-btn[data-id="${id}"]`).first().click();
+      const btn = page.locator(`#event-list .event-btn[data-id="${id}"]`).first();
+      // Panelen visar fem händelser per världsdel och resten bakom "Visa fler". Nya händelser i datan (Mutapariket och Sankore i
+      // #1015) kan skjuta Bartolomeu Dias 1488 ut ur Afrika-listan, så världsdelarna öppnas en i taget tills händelsen syns,
+      // som en elev skulle göra, i stället för att anta att den alltid ligger bland de fem första.
+      for (let i = 0; !await btn.count() && i < 8; i++) {
+        const more = page.locator('#event-list .panel-more[data-region][aria-expanded="false"]').first();
+        if (!await more.count()) break;
+        await more.click();
+      }
+      await btn.click();
       await page.waitForSelector('#detail [data-hunt]', { state: 'visible', timeout: T.step });
       await page.click('#detail [data-hunt]');
       return (await page.textContent('#hunt-message')).trim();
