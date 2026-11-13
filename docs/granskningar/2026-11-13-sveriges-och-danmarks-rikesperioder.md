@@ -18,7 +18,7 @@ Datum: 2026-11-13. Gjord av Claude Code (DasKrokodil) för #1264, punkt 4 och av
 | `Kingdom of Sweden` | 1905–2024 | `sverige-1905` |
 | `Kalmar Union` | 1402–1525 | gruppen `kalmarunionen` |
 
-- **Luckorna 1402–1501 och 1521–1525 finns, och förklaringen är Kalmarunionen.** Cliopatria har inget eget Sverige de åren. Stockholm, Uppsala, Kalmar och Åbo ligger då i gruppen Kalmarunionen, så kartan har ingen tom yta. 1502–1520 har Cliopatria Sverige och en mindre Kalmarunion (Danmark och Norge) bredvid varandra.
+- **Luckorna 1402–1501 och 1521–1525 finns, och förklaringen är Kalmarunionen.** Cliopatria har inget eget Sverige de åren. Stockholm, Uppsala, Kalmar och Åbo ligger då i gruppen Kalmarunionen, så kartan har ingen tom yta. 1502–1520 har Cliopatria Sverige och en mindre Kalmarunion (med Danmark och Norge) bredvid varandra.
 - **Källorna skiljer sig om slutet:** Cliopatria räknar Sverige till unionen till och med 1525, källorna säger att Sverige lämnade den 1523. Inga gränser är ändrade. Sveriges `mapNote` nämnde bara 1402–1501; nu nämner den också 1521–1525 och 1523, på fem språk.
 - Övergångarna 1611/1612, 1721/1722, 1814/1815 och 1904/1905 har inga luckor i Sverige. Finland (Åbo) går till Ryska imperiet 1809, som i Cliopatria.
 
@@ -34,7 +34,7 @@ Datum: 2026-11-13. Gjord av Claude Code (DasKrokodil) för #1264, punkt 4 och av
 | 1945– | Danmark (`danmark`) |
 
 - **Luckan 1526–1944 är stängd** för det danska kärnområdet. Övergångarna 1406/1407, 1525/1526, 1814/1815, 1939/1940 och 1944/1945 ger ingen tom yta på Själland eller Jylland. År 1914 är Danmark `danmark-1815`.
-- **1940–1944 är Danmark inte utan rike, som PR #1356 och `docs/datamodell.md` skrev,** utan ligger i gruppen Nazityskland, eftersom den gruppen tar med Cliopatrias ockuperade områden. `docs/datamodell.md` är rättad. Det betyder att Danmark de åren slås ihop med ett annat samtidigt rike på kartan, vilket #1084 bad oss undvika; det följer källan, och ett eget val (till exempel att visa Danmark som ockuperat område) kräver DasKrokodils beslut.
+- **1940–1944 är Danmark inte utan rike, som PR #1356 och `docs/datamodell.md` skrev,** utan ligger i gruppen Nazityskland (utom små hål i den förenklade gränsen, till exempel vid Århus 1944), eftersom den gruppen tar med Cliopatrias ockuperade områden. `docs/datamodell.md` är rättad. Det betyder att Danmark de åren slås ihop med ett annat samtidigt rike på kartan, vilket #1084 bad oss undvika; det följer källan, och ett eget val (till exempel att visa Danmark som ockuperat område) kräver DasKrokodils beslut.
 - **1402–1406:** Cliopatrias `Kingdom of Denmark` har kvar en yta på 73 km² vid ungefär 26,1° Ö, 65,7° N (i dagens finska Lappland). Den finns i repot och försvinner 1407. Den ser ut som ett fel i källdatan och borde inte visas.
 - **Köpenhamn ligger cirka 0,1–0,2 grader utanför Danmarks förenklade gräns** i alla perioder (Öresundskusten förenklas bort). Rikets yta och medalj påverkas inte, men en punkt i Köpenhamn träffar inget rike. #1263 räknar händelser med Natural Earth och påverkas inte.
 
