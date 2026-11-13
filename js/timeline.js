@@ -40,6 +40,22 @@ export function segmentLabel(s) {
 const segFor = y => SEGMENTS.find(s => y <= s.to) ?? SEGMENTS.at(-1);
 const segForPos = p => SEGMENTS.find(s => p <= s.b) ?? SEGMENTS.at(-1);
 
+/**
+ * Steget mellan årtalen på fokusskalan (#1321): det minsta jämna steget (1, 2, 5, 10, 20, 25, 50 … 100 000 år och
+ * vidare) där spannet ger högst `fit` årtal. Förut slutade listan vid 1000 och föll till 2000, så ett spann på
+ * 60 000 år gav trettio årtal där fyra till elva får plats.
+ */
+export function focusTickStep(span, fit) {
+  for (let base = 1; ; base *= 10) {
+    for (const m of [1, 2, 5]) {
+      const step = base * m;
+      if (span / step <= fit) return step;
+      // 25, 250, 2500 … ligger mellan 20 och 50 i de små stegen (som förut)
+      if (m === 2 && span / (base * 2.5) <= fit && base >= 10) return base * 2.5;
+    }
+  }
+}
+
 export function yearToPos(y) {
   y = clampY(y);
   const s = segFor(y);
@@ -291,7 +307,7 @@ export class Timeline extends EventTarget {
       // Så många årtal som får plats utan att överlappa, på jämna år. Före vår
       // tideräkning räknas jämnheten på det visade året (700 f.Kr. = -699).
       const fit = Math.max(3, Math.floor(this.track.clientWidth / 90));
-      const step = [1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000].find(s => span / s <= fit) ?? 2000;
+      const step = focusTickStep(span, fit);
       for (let v = Math.ceil(from / step) * step; v <= to + step; v += step) {
         const y = v < 0 ? v + 1 : v;
         if (v === 0 || y < from || y > to) continue;
