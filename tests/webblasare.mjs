@@ -2148,14 +2148,27 @@ async function run(browser, vp) {
   });
 
   await check('Samtidigt-kortet ger bildlösa händelser en likvärdig reservruta', async () => {
-    await jumpTo(1879); await visible('#funfact');
     const cards = page.locator('#ff-pics .ff-pic');
     const reserve = page.locator('#ff-pics .ff-pic.ff-reserve');
     const image = page.locator('#ff-pics .ff-pic img:not(.ff-reserve-icon)');
+    // Året är inte fast (#1336): 1879 räckte tills nya bildlösa händelser (Royal National Park, Kvaggan) kom närmare kriget än den enda
+    // bildhändelsen (telefonen 1876), och krigskortet blev då en enda symbolruta, som är avsiktligt när inget kort har bild. Kontrollen
+    // provar därför några år i ordning och använder det första där Samtidigt-kortet har både bildkort och reservkort. År med två
+    // bildhändelser och två bildlösa står först, eftersom nya händelser då kan komma till utan att blandningen försvinner.
     // Minst ett kort av varje sort räcker för att pröva blandningen; fler bilder i datan (#453) får inte fälla testet.
-    if (await cards.count() < 2 || !await reserve.count() || !await image.count()) throw new Error('1879 saknar blandade bild- och reservkort');
+    const MIXED_YEARS = [1861, 1839, 1791, 1895, 1948, 1879];
+    let mixedYear = null;
+    for (const y of MIXED_YEARS) {
+      await jumpTo(y); await visible('#funfact');
+      const mixed = await page.waitForFunction(() => {
+        const pics = document.querySelectorAll('#ff-pics .ff-pic');
+        return pics.length >= 2 && document.querySelector('#ff-pics .ff-pic.ff-reserve') && document.querySelector('#ff-pics .ff-pic img:not(.ff-reserve-icon)');
+      }, null, { timeout: 2500 }).then(() => true, () => false);
+      if (mixed) { mixedYear = y; break; }
+    }
+    if (mixedYear == null) throw new Error(`inget av åren ${MIXED_YEARS.join(', ')} har blandade bild- och reservkort i Samtidigt-kortet`);
     const label = await reserve.first().getAttribute('aria-label');
-    if (!/Krig och konflikter, 1879, Anglo-zuluiska kriget/.test(label ?? '')) throw new Error('reservkortet saknar kategori, år och titel i sitt namn');
+    if (!/^[^,]+, -?\d+, .+: /.test(label ?? '')) throw new Error(`reservkortet saknar kategori, år och titel i sitt namn (${mixedYear}): ${label}`);
     const missing = await reserve.evaluateAll(nodes => nodes.some(node => ['.ff-reserve-icon', '.ff-reserve-year', '.ff-reserve-category', '.ff-name'].some(selector => !node.querySelector(selector))));
     if (missing) throw new Error('reservkortet saknar ikon, år, kategori eller titel');
     // Reservsymbolen får inte växa ur rutan (#975): en regel för alla bilder i .ff-pic gjorde den 173 px i en ruta på 132 px.
@@ -2170,7 +2183,7 @@ async function run(browser, vp) {
     const heights = await cards.evaluateAll(nodes => nodes.map(node => Math.round(node.getBoundingClientRect().height)));
     if (new Set(heights).size !== 1) throw new Error(`bild- och reservkort har olika höjd: ${heights.join(', ')}`);
     const imageHeight = await image.first().evaluate(el => Math.round(el.closest('.ff-pic').getBoundingClientRect().height));
-    await page.screenshot({ path: path.join(OUT, `${vp.name}-samtidigt-reservkort-1879.png`), fullPage: false });
+    await page.screenshot({ path: path.join(OUT, `${vp.name}-samtidigt-reservkort-${mixedYear}.png`), fullPage: false });
     try {
       await jumpTo(1274);
       if ((await page.textContent('#ff-kind')).trim() !== 'När ett krig bröt ut') throw new Error('1274 saknar det verifierade krigskortet i Samtidigt');
