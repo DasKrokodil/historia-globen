@@ -7,7 +7,7 @@
 //   y2    slutåret när ett tidsintervall är valt (#755): y=1914&y2=1918 är 1914–1918. En äldre version hoppar över y2
 //         och öppnar länken som året y
 //   c     kameran: lat,lon,zoom
-//   f     det man följer i Fokus: <typ>:<id>, typ = war, empire, religion, route eller theme (FOCUS_TYPES i js/state.js)
+//   f     det man följer i Fokus: <typ>:<id>, typ = war, empire, religion, route, theme eller place (FOCUS_TYPES i js/state.js)
 //   l     lagren som är på (id i lagerregistret), kommaseparerade; "l=" betyder inga lager
 //   k     kategorierna som syns; saknas k syns alla kategorier
 //   g     händelseurvalet i en förinställd vy, till exempel g=oversikt; saknas g visar alla händelser

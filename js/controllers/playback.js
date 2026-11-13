@@ -195,7 +195,7 @@ export function createPlayback(app) {
     }
     // I fokus på en plats eller ett tema stannar uppspelningen vid händelserna (#1255): de viktiga (top eller major)
     // om det finns några, annars alla. Tiden står på händelsens år, så nästa Spela fortsätter till nästa.
-    if ((focus?.type === 'place' || focus?.type === 'theme') && playing && layers.pause.theme) {
+    if (focus?.themeEvents && playing && layers.pause.theme) {
       const hit = themeStops(focus).find(e => !shownStops.has('t:' + e.id) && passed(e.start));
       if (hit) {
         // Stoppet sparas som visat, så att en omritning under pausen inte ger samma stopp igen vid Fortsätt.
