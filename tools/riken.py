@@ -56,7 +56,8 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # förenklingen är finare, annars försvinner Gaza och gränserna mot Västbanken hamnar fel
              'israel': (0.03, 0.02, 0.02), 'palestina': (0.03, 0.02, 0.02),
              # Nutida stater (#644): Danmark med Grönland, Kina och Indonesien med många öar
-             'danmark': (0.3, 0.05, 0.08), 'kina': (0.3, 0.05, 0.08), 'indonesien': (0.2, 0.05, 0.05),
+             'danmark': (0.3, 0.05, 0.08),
+             'kina': (0.3, 0.05, 0.08), 'indonesien': (0.2, 0.05, 0.05),
              # Gambia (cirka 30 km bred längs floden) och Libanon är smala: finare förenkling för dem och grannarna Senegal och
              # Syrien, annars täcker grannarnas förenklade gräns en stor del av landet
              'gambia': (0.05, 0.02, 0.02), 'libanon': (0.05, 0.02, 0.02),
@@ -1124,8 +1125,14 @@ GROUPS = {
     # (Q756617, riket sedan 965; nutidens Danmark är gruppen danmark), Tibetanska imperiet, Moskvariket, Litauen, Kastilien och
     # Uiguriska khaganatet, som saknar svenskt namn på Wikidata och har det engelska. Väntar: Tibetans och Avar Khaganate (Cliopatrias
     # Wikidata-id är folkgrupper, inte riken) och Yenisei Kyrgyz (namn saknas på tre språk).
+    # Danmark 1526–1939 (#1084, DasKrokodils ja 2026-11-13): Cliopatrias Denmark-Norway heter så ända till 1939, men Norge
+    # gick 1814 till Sverige-Norge. Posten delas därför i Danmark-Norge (1526–1814, Q62651; Wikidata säger 1536–1814) och
+    # Danmark (1815–1939). 1407–1525 täcks av Kalmarunionen, och 1940–1944 räknar Cliopatria området till Tyskland.
     'konungariket-danmark': ('Konungariket Danmark', 'Kingdom of Denmark', [
         ('Kingdom of Denmark', 'konungariket-danmark', 'Konungariket Danmark', '#c05a6a', {'en': 'Kingdom of Denmark'}),
+        ('Denmark-Norway', 'danmark-norge', 'Danmark-Norge', '#c05a6a',
+         {'en': 'Denmark–Norway', 'wikidata': 'Q62651', 'years': (1526, 1814)}),
+        ('Denmark-Norway', 'danmark-1815', 'Danmark', '#c05a6a', {'en': 'Denmark', 'wikidata': 'Q35', 'years': (1815, 1939)}),
     ]),
     'tibetanska-imperiet': ('Tibetanska imperiet', 'Tibetan Empire', [
         ('Tibetan Empire', 'tibetanska-imperiet', 'Tibetanska imperiet', '#b0704a', {'en': 'Tibetan Empire'}),
@@ -1258,6 +1265,49 @@ GROUPS = {
     ]),
     'furstendomet-moldavien': ('Furstendömet Moldavien', 'Principality of Moldavia', [
         ('Principality of Moldavia', 'furstendomet-moldavien', 'Furstendömet Moldavien', '#5a9a7a', {'en': 'Principality of Moldavia'}),
+    ]),
+    # Medeltidens luckor, sjunde omgången (#645, DasKrokodils ja 2026-11-13): de största kvarvarande luckorna 500–1500 med
+    # provår var 50:e år (tools/tackning_riken.py), där Cliopatrias Wikidata-id är en stat och har svensk etikett.
+    # Svenska och engelska namn är Wikidatas etiketter, kontrollerade med SPARQL 2026-11-13.
+    'rashidunkalifatet': ('Rashidunkalifatet', 'Rashidun Caliphate', [
+        ('Rashidun Caliphate', 'rashidunkalifatet', 'Rashidunkalifatet', '#7a9a5a', {'en': 'Rashidun Caliphate'}),
+    ]),
+    'majapahitriket': ('Majapahitriket', 'Majapahit', [
+        ('Majapahit', 'majapahitriket', 'Majapahitriket', '#b0704a', {'en': 'Majapahit'}),
+    ]),
+    'chalukyadynastin': ('Chalukyadynastin', 'Chalukya dynasty', [
+        ('Chalukya Dynasty', 'chalukyadynastin', 'Chalukyadynastin', '#a05a7a', {'en': 'Chalukya dynasty'}),
+    ]),
+    'gurjara-pratihara': ('Gurjara-Pratihara', 'Gurjara-Pratihara', [
+        ('Gurjara-Pratihara Dynasty', 'gurjara-pratihara', 'Gurjara-Pratihara', '#c0804a', {'en': 'Gurjara-Pratihara'}),
+    ]),
+    'kara-khanid': ('Khanatet Kara-Khanid', 'Karakhanid Khanate', [
+        ('Kara-Khanids', 'kara-khanid', 'Khanatet Kara-Khanid', '#5a8ab0', {'en': 'Karakhanid Khanate'}),
+    ]),
+    'dali': ('Dali', 'Dali Kingdom', [
+        ('Kingdom of Dali', 'dali', 'Dali', '#8a6ab0', {'en': 'Dali Kingdom'}),
+    ]),
+    'tughlaqdynastin': ('Tughlaqdynastin', 'Tughlaq dynasty', [
+        ('Tughlaq Dynasty', 'tughlaqdynastin', 'Tughlaqdynastin', '#4a9a6a', {'en': 'Tughlaq dynasty'}),
+    ]),
+    'palariket': ('Palariket', 'Pala Empire', [
+        ('Pala Empire', 'palariket', 'Palariket', '#b09a5a', {'en': 'Pala Empire'}),
+    ]),
+    'xixia': ('Xixia', 'Western Xia', [
+        ('Western Xia', 'xixia', 'Xixia', '#9a5a4a', {'en': 'Western Xia'}),
+    ]),
+    'aq-qoyunlu': ('Aq Qoyunlu', 'Aq Qoyunlu', [
+        ('Aq Qoyunlu', 'aq-qoyunlu', 'Aq Qoyunlu', '#6a9aa0', {'en': 'Aq Qoyunlu'}),
+    ]),
+    'nanzhaoriket': ('Nanzhaoriket', 'Kingdom of Nanzhao', [
+        ('Nanzhao', 'nanzhaoriket', 'Nanzhaoriket', '#a07a9a', {'en': 'Kingdom of Nanzhao'}),
+    ]),
+    'mariniderna': ('Mariniderna', 'Marinid dynasty', [
+        ('Marinid Sultanate', 'mariniderna', 'Mariniderna', '#7a8a4a', {'en': 'Marinid dynasty'}),
+    ]),
+    # Östgoternas rike (DasKrokodils beslut 2026-11-13): samma svenska namn som i INFLUENCE_NAMES, inte Wikidatas "Ostrogoternas rike"
+    'ostgoternas-rike': ('Östgoternas rike', 'Ostrogothic Kingdom', [
+        ('Ostrogothic Kingdom', 'ostgoternas-rike', 'Östgoternas rike', '#9a6a5a', {'en': 'Ostrogothic Kingdom'}),
     ]),
     # Små stater ur Natural Earth (#722, Rikards beslut 2026-11-07): Cliopatria saknar dem i nutid eller har fel gräns
     # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth
