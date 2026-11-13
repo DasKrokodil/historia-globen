@@ -236,6 +236,7 @@
   "panel.overviewAll": "Visa alla",
   "panel.overviewAllLabel": "Visa alla händelser i stället för urvalet",
   "panel.showLessIn": "{label} i {region}",
+  "detail.label": "Om händelsen",
   "detail.loading": "Laddar…",
   "detail.source": "Källa:",
   "detail.sourceMissing": "saknas",

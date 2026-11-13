@@ -968,6 +968,11 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 }
 .app:has(.pause-note:not([hidden])) .tour-card { bottom: 186px; max-height: calc(100dvh - 186px - 150px); }
 .tour-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+/* Stegindikatorn (#1280): ett streck per steg under "Steg n av N"; bara en tillägg, dold för skärmläsare */
+.tour-meter { display: flex; gap: 3px; margin: 6px 0 2px; }
+.tour-meter span { flex: 1 1 0; min-width: 2px; height: 4px; border-radius: 2px; background: var(--control-line); }
+.tour-meter .is-done { background: var(--brass-deep); }
+.tour-meter .is-current { background: var(--brass); }
 .tour-progress { margin: 0; font: 500 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
 .tour-head .panel-x { position: relative; float: none; margin: -4px -6px 0 0; flex: none; }
 .tour-name { margin: 6px 0 0; font: 500 11.5px/1.3 var(--f-mono); color: var(--parchment-dim); }
@@ -976,10 +981,11 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .tour-chapter { margin: 10px 0 0; font: 500 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
 .tour-chapter[hidden], .tour-question[hidden], .tour-status[hidden] { display: none; }
 /* Vad källorna säger om steget (#499): samma ord och markering som slutkortet (#500) */
-.tour-status { margin: 6px 0 0; font: 600 12.5px/1.3 var(--f-body); color: var(--parchment); }
-.tour-status::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 7px; border-radius: 50%; vertical-align: 1px; background: var(--brass); }
-.tour-status.takeaway-omtvistat::before { background: none; border: 2px solid var(--brass); width: 6px; height: 6px; }
-.tour-status.takeaway-okant::before { background: none; border: 2px dashed var(--parchment-dim); width: 6px; height: 6px; }
+/* Statusmarkören (#1280): 12 px, och formen skiljer sig (ifylld, ring, streckad ring) utöver ordet, så att den inte hänger på färg */
+.tour-status { margin: 6px 0 0; font: 600 14px/1.3 var(--f-body); color: var(--parchment); }
+.tour-status::before { content: ""; box-sizing: border-box; display: inline-block; width: 12px; height: 12px; margin-right: 8px; border-radius: 50%; vertical-align: -1px; background: var(--brass); }
+.tour-status.takeaway-omtvistat::before { background: none; border: 2px solid var(--brass); width: 12px; height: 12px; }
+.tour-status.takeaway-okant::before { background: none; border: 2px dashed var(--parchment); width: 12px; height: 12px; }
 /* Frågan att fundera på (#247): en egen ruta, så att den inte läses som en uppgift */
 .tour-question { margin: 10px 0 0; padding: 8px 10px; border-left: 2px solid var(--brass); background: color-mix(in srgb, var(--brass) 10%, transparent); font: 400 14px/1.4 var(--f-body); color: var(--parchment); }
 .tour-question-label { font-weight: 600; color: var(--brass); }
@@ -993,13 +999,14 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .tour-actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 14px; }
 .tour-actions .chip-btn { margin-right: auto; }
 .tour-actions .chip-btn[hidden] { display: none; }
-.tour-next { min-height: 36px; padding: 8px 14px; border: 1px solid var(--brass); border-radius: 999px; background: var(--brass); color: var(--night); font: 600 13px/1 var(--f-body); cursor: pointer; }
-.tour-end { min-height: 36px; padding: 8px 14px; border: 1px solid var(--control-line); border-radius: 999px; background: transparent; color: var(--parchment); font: 500 13px/1 var(--f-body); cursor: pointer; }
+.tour-next { min-height: 44px; padding: 8px 16px; border: 1px solid var(--brass); border-radius: 999px; background: var(--brass); color: var(--night); font: 600 13px/1 var(--f-body); cursor: pointer; }
+.tour-end { min-height: 44px; padding: 8px 16px; border: 1px solid var(--control-line); border-radius: 999px; background: transparent; color: var(--parchment); font: 500 13px/1 var(--f-body); cursor: pointer; }
 .tour-end:hover { border-color: var(--brass-deep); }
 .tour-end[hidden] { display: none; }
 .tour-next:focus-visible, .tour-end:focus-visible, .tour-pick:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
 .tour-menu { width: min(360px, calc(100vw - 32px)); }
 .tour-list { list-style: none; margin: 0; padding: 0; }
+.tour-group-title { margin-top: 10px; }
 .tour-pick { display: grid; gap: 4px; width: 100%; min-height: 44px; padding: 9px 10px; border: 0; border-radius: 8px; background: none; color: var(--parchment); text-align: left; cursor: pointer; }
 .tour-pick:hover { background: color-mix(in srgb, var(--brass) 14%, transparent); }
 .tour-pick-title { font: 400 18px/1.15 var(--f-display); }

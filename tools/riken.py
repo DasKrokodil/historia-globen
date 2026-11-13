@@ -1220,6 +1220,45 @@ GROUPS = {
     'aghlabider': ('Aghlabider', 'Aghlabids', [
         ('Aghlabid Dynasty', 'aghlabider', 'Aghlabider', '#b0605a', {'en': 'Aghlabids'}),
     ]),
+    # Medeltidens luckor, sjätte omgången (#645): de största kvarvarande luckorna 500–1500 enligt tools/tackning_riken.py
+    # (2026-11-13), med Kazakkhanatet och Moldavien som börjar på 1300- och 1400-talen. Svenska namn är Wikidatas svenska
+    # etiketter; Tuyuhun saknar svensk etikett och har den engelska. Väntar: Tibet (Cliopatrias Q521263 är "Tibets historia",
+    # inte en stat), Mongol Khanate (Q19927420 är en förgreningssida), Avar Khaganate (folkgruppen Avarer) och Ostrogothic Kingdom
+    # (Wikidata "Ostrogoternas rike", medan INFLUENCE_NAMES nedan redan säger "Östgoternas rike"; namnet bör väljas först).
+    'sibirkhanatet': ('Sibirkhanatet', 'Siberian Khanate', [
+        ('Khanate of Sibir', 'sibirkhanatet', 'Sibirkhanatet', '#6a8aa0', {'en': 'Siberian Khanate'}),
+    ]),
+    'rashtrakutariket': ('Rashtrakutariket', 'Rashtrakuta dynasty', [
+        ('Rashtrakuta Dynasty', 'rashtrakutariket', 'Rashtrakutariket', '#b07a4a', {'en': 'Rashtrakuta dynasty'}),
+    ]),
+    'tuyuhun': ('Tuyuhun', 'Tuyuhun', [
+        ('Tuyuhun', 'tuyuhun', 'Tuyuhun', '#8a9a5a', {'en': 'Tuyuhun'}),
+    ]),
+    'vakatakariket': ('Vakatakariket', 'Vakataka empire', [
+        ('Vakataka Kingdom', 'vakatakariket', 'Vakatakariket', '#a0604a', {'en': 'Vakataka empire'}),
+    ]),
+    'norra-wei': ('Norra Wei', 'Northern Wei', [
+        ('Northern Wei', 'norra-wei', 'Norra Wei', '#5a7a9a', {'en': 'Northern Wei'}),
+    ]),
+    'kanem-bornu': ('Kanem-Bornu', 'Kanem-Bornu Empire', [
+        ('Bornu Empire', 'kanem-bornu', 'Kanem-Bornu', '#b09a4a', {'en': 'Kanem-Bornu Empire'}),
+    ]),
+    'galizien-volynien': ('Furstendömet Galizien-Volynien', 'Principality of Galicia–Volhynia', [
+        ('Halych-Volhynia occupation', 'galizien-volynien', 'Furstendömet Galizien-Volynien', '#7a5a9a',
+         {'en': 'Principality of Galicia–Volhynia'}),
+    ]),
+    'kungariket-nobatia': ('Kungariket Nobatia', 'Nobatia', [
+        ('Nobatia', 'kungariket-nobatia', 'Kungariket Nobatia', '#9a7a5a', {'en': 'Nobatia'}),
+    ]),
+    'angevinska-riket': ('Det angevinska riket', 'Angevin Empire', [
+        ('Angevin Empire', 'angevinska-riket', 'Det angevinska riket', '#a04a5a', {'en': 'Angevin Empire'}),
+    ]),
+    'kazakkhanatet': ('Kazakkhanatet', 'Kazakh Khanate', [
+        ('Kazakh Khanate', 'kazakkhanatet', 'Kazakkhanatet', '#4aa0b0', {'en': 'Kazakh Khanate'}),
+    ]),
+    'furstendomet-moldavien': ('Furstendömet Moldavien', 'Principality of Moldavia', [
+        ('Principality of Moldavia', 'furstendomet-moldavien', 'Furstendömet Moldavien', '#5a9a7a', {'en': 'Principality of Moldavia'}),
+    ]),
     # Små stater ur Natural Earth (#722, Rikards beslut 2026-11-07): Cliopatria saknar dem i nutid eller har fel gräns
     # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth
     # (tools/ne-omstridda-omraden.geojson, tools/ne_omstridda.py), från självständigheten enligt Wikidata och Wikipedia
