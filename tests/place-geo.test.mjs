@@ -95,6 +95,32 @@ test('ritar lagret något? Bara med platser som har kort: tomt kort-lista ritar 
   assert.deepEqual(calls, [], 'inget utan hints och utan platsen man följer');
 });
 
+test('platsen som ett turssteg öppnar ritas som i Fokus utan att något Fokus pågår, och konturerna runt platserna visas då inte (#1163)', () => {
+  const { layer, update } = entry();
+  const calls = [];
+  const ctx = { save: () => calls.push('save'), restore() {}, stroke: () => calls.push('stroke'), fill: () => calls.push('fill'), set lineJoin(v) {}, set strokeStyle(v) {}, set fillStyle(v) {}, set lineWidth(v) {}, setLineDash() {} };
+  globalThis.Path2D ??= class { moveTo() {} lineTo() {} closePath() {} };
+  layer.cards = [place('gronland'), place('aotearoa')];
+  // Under en tur räknar render.js inte ut några konturer (placeHints är av), men turens steg sätter step
+  update({ focus: null, labels: { placeHints: false } });
+  layer.step = place('gronland');
+  layer.drawOverlay(ctx, 4096, 2048);
+  assert.deepEqual(calls.filter(c => c !== 'save'), ['fill', 'stroke'], 'platsen i steget ritas med fyllning och kontur, som i Fokus');
+  // Ett Fokus på en annan plats går före steget
+  calls.length = 0;
+  layer.enabled = true;
+  update({ focus: { type: 'place', place: place('aotearoa') }, labels: {} });
+  layer.drawOverlay(ctx, 4096, 2048);
+  assert.equal(calls.filter(c => c === 'fill').length, 1);
+  assert.equal(layer.place.id, 'aotearoa');
+  // När steget slutar (closeStep sätter step till null) ritas ingenting utan Fokus
+  calls.length = 0;
+  layer.enabled = false; layer.step = null;
+  update({ focus: null, labels: { placeHints: false } });
+  layer.drawOverlay(ctx, 4096, 2048);
+  assert.deepEqual(calls, []);
+});
+
 test('inGeometry är oförändrad: en punkt i en polygon och en utanför', () => {
   const g = square('x', 0, 0, 1, 1).boundary.geometry;
   assert.equal(inGeometry(g, 0.5, 0.5), true);

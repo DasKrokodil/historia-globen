@@ -3,7 +3,8 @@
 // platsens kort är öppet i Fokus, och gränsen är dagens, inte den som gällde då (kortet säger det).
 // Utanför Fokus (#1161) visas en tunnare, prickad kontur runt varje plats som har ett kort, men bara inzoomat och i vanligt
 // läge (state.labels.placeHints, som controllers/render.js räknar ut); den visar att ett tryck på platsen öppnar kortet.
-// Vilka platser det gäller ger controllers/places.js i `cards`.
+// Vilka platser det gäller ger controllers/places.js i `cards`. I en turs steg med en plats (#1163) ritas den platsens kontur
+// på samma sätt som i Fokus (`step`), eftersom kortet säger att linjen på kartan är dagens gräns.
 import { Z } from './registry.js';
 
 export function entry() {
@@ -24,7 +25,7 @@ export function entry() {
 }
 
 export class PlacesLayer {
-  constructor() { this.place = null; this.cards = []; this.hints = false; this.px = 1; this.enabled = false; this._paths = new Map(); }
+  constructor() { this.place = null; this.step = null; this.cards = []; this.hints = false; this.px = 1; this.enabled = false; this._paths = new Map(); }
 
   /** Konturen som en bana på lagerbilden W × H. Banorna sparas per plats och storlek, så att en omritning inte bygger om dem. */
   path(place, W, H) {
@@ -47,9 +48,10 @@ export class PlacesLayer {
 
   drawOverlay(ctx, W, H) {
     if (this.hints && this.cards.length) return this.drawHints(ctx, W, H);
-    const geometry = this.enabled && this.place?.boundary?.geometry;
-    if (!geometry) return;
-    const path = this.path(this.place, W, H);
+    // Platsen som ett turssteg öppnar (#1163) ritas som i Fokus, utan att något Fokus pågår (controllers/places.js sätter step)
+    const place = this.enabled && this.place?.boundary?.geometry ? this.place : this.step;
+    if (!place?.boundary?.geometry) return;
+    const path = this.path(place, W, H);
     ctx.save();
     ctx.lineJoin = 'round';
     ctx.fillStyle = 'rgba(214,168,79,0.16)';

@@ -21,7 +21,7 @@
 //                              händelser från minst två världsdelar)
 //                      layers  lager-id som är på hela lektionen; saknas fältet används stegens lager
 //                      escape  false döljer "Visa hela globen" (standard true)
-// Ett steg: { id, at, camera: { lat, lon, zoom }, title?, chapter?, question?, text, layers: [lager-id], open?, sources: [käll-id] }
+// Ett steg: { id, at, camera: { lat, lon, zoom }, title?, chapter?, question?, text, layers: [lager-id], open?, place?, sources: [käll-id] }
 //   chapter valfritt kapitelnamn per språk, visas ovanför rubriken (berättelseläget, #247)
 //   question valfri fråga att fundera på, per språk; den påstår inget som stegets källor inte säger
 //   status  valfritt: vad källorna säger om steget, samma ord som slutkortet (#500): belagt, omtvistat eller okant (#499)
@@ -30,6 +30,9 @@
 //   camera  globens kameraläge; zoom som globen (0.8–3.2). Platt vy använder samma mitt.
 //   layers  lagren som är på i steget (id i lagerregistret); de andra lagren som vyerna styr slås av
 //   open    valfri händelse vars faktaruta öppnas
+//   place   valfri plats (id i data/platser.json, #1163) vars kort öppnas, med platsens kontur på kartan. Ett steg öppnar
+//           antingen en händelse (open) eller en plats (place), inte båda. Kortet följer stegets kamera och år: turen startar
+//           inget Fokus (det skulle avsluta turen), och knappen Visa i Platt karta finns inte i en tur
 //   sources källorna för stegets text (id i data/sources.json)
 
 export const TOUR_VERSION = 1;
@@ -43,7 +46,7 @@ const isNum = v => typeof v === 'number' && Number.isFinite(v);
 
 /**
  * Kontrollerar en tur. Returnerar en lista med problem på svenska (tom när turen är hel).
- * known = { events, layers, sources }: mängder (Set) med kända id. En mängd som saknas kontrolleras inte,
+ * known = { events, layers, sources, empires, places, regionsIn }: mängder (Set) med kända id. En mängd som saknas kontrolleras inte,
  * till exempel källorna i webbläsaren, där källregistret inte alltid är laddat.
  */
 export function tourProblems(tour, known = {}) {
@@ -78,6 +81,10 @@ export function tourProblems(tour, known = {}) {
     if (!Array.isArray(s.layers)) say(`${where}: layers ska vara en lista med lager-id.`);
     else for (const l of s.layers) if (known.layers && !known.layers.has(l)) say(`${where}: lagret ${l} finns inte.`);
     if (s.open != null && (typeof s.open !== 'string' || (known.events && !known.events.has(s.open)))) say(`${where}: händelsen ${s.open} finns inte.`);
+    if (s.place != null) {
+      if (typeof s.place !== 'string' || !ID.test(s.place) || (known.places && !known.places.has(s.place))) say(`${where}: platsen ${s.place} finns inte.`);
+      if (s.open != null) say(`${where}: ett steg öppnar antingen en händelse (open) eller en plats (place), inte båda.`);
+    }
     if (!Array.isArray(s.sources) || !s.sources.length) say(`${where}: källor saknas (sources).`);
     else for (const id of s.sources) if (known.sources && !known.sources.has(id)) say(`${where}: källan ${id} finns inte.`);
   });

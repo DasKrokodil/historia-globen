@@ -9,6 +9,7 @@
 // händelsemarkör, en väg eller en religion hanteras som förut (main.js) och kommer aldrig hit.
 import { loadPlaces, isVisibleReview, t } from '../model.js';
 import { placeAt, placeEvents, placeBounds } from '../place-geo.js';
+import { showPlaceCard, visibleEvents } from '../focus/place.js';
 import { ui } from '../i18n.js';
 import { say } from '../ui/status.js';
 
@@ -116,5 +117,25 @@ export function createPlaces(app) {
     say(ui('place.flatShown', { place: t(place.name) }), 'plats', { priority: 2, immediate: true }); // som faktarutans rubrik: svaret på knappen får inte tystas av den
   }
 
-  return { allowed, ensure, tap, showInFlat, cards: () => cards };
+  // ---- turens steg med en plats (#1163) --------------------------------------------------------------------------
+  /**
+   * Ett steg i en tur (js/ui/tour.js, fältet place i turformatet) öppnar platsen id: konturen ritas som i Fokus och, när card är
+   * true, öppnas kortet. Inget Fokus börjar, för ett fokus avslutar turen (MODE_RULES i js/state.js); kortet har därför inte
+   * Avsluta platsen och inte Visa i Platt karta, eftersom turen styr kameran och vyn. Platstrycket är fortfarande avstängt i
+   * tur och lektion (allowed): läraren öppnar kortet genom turens steg, eleverna öppnar det inte fritt. current() ger false när
+   * turen har gått vidare medan platserna laddades. Ger true när platsen visades.
+   */
+  async function openStep(id, { card = true, current = () => true } = {}) {
+    const place = (await loadPlaces()).find(p => p.id === id);
+    const events = place ? visibleEvents(place, data.events) : [];
+    if (!place || !events.length || !current()) return false;
+    layer.step = place;
+    if (card) showPlaceCard(app, place, events, { follow: false });
+    app.refresh();
+    return true;
+  }
+  /** Turens steg slutar visa platsen: konturen tas bort vid nästa omritning (den som anropar ritar om). */
+  function closeStep() { layer.step = null; }
+
+  return { allowed, ensure, tap, showInFlat, openStep, closeStep, cards: () => cards };
 }

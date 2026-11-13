@@ -47,8 +47,12 @@ export function createFocus(app) {
     types.checkLoaded(post, f);
     // Något annat tog över medan fokuset laddades, eller ett läge som stoppar Fokus pågår (lektionen, #795)
     if (!app.store.current(ticket) || !app.store.canEnter('fokus')) return false;
+    // Ett tidsintervall som pågår avslutas av Fokus (MODE_RULES). En typ med startsAtRangeEnd (platsen, #1163) börjar vid intervallets
+    // slutår, som Tillbaka till ett år, och kortet säger att intervallet avslutades; övriga typer börjar som förut vid intervallets början
+    const closedRange = post.startsAtRangeEnd && state.range ? { from: state.range.from, to: state.range.to } : null;
     if (state.focus) endFocus(false);
     app.store.enter('fokus'); // avslutar en tur som pågår (MODE_RULES i js/state.js); turens lager återställs, inte dess fokus
+    if (closedRange) { timeline.year = Math.floor(closedRange.to); f.closedRange = closedRange; }
     // Året stannar om det ligger inom spannet; annars flyttas det till starten och flytten visas (#167)
     const prevYear = timeline.year, prevText = timeline.format(prevYear), keepYear = prevYear >= f.from && prevYear <= f.to;
     post.prepare?.(f);
@@ -68,6 +72,7 @@ export function createFocus(app) {
     const focusWar = state.focusWar;
     if (focusWar) timeline.setStory(warStory(focusWar, { timeline, focus: f, end: app.playback.warEndOf() }));
     const startYear = keepYear ? prevYear : f.from;
+    f.startYear = startYear; // kortet kan säga vilket år det visas för (#1163)
     app.playback.startAt(startYear);
     timeline.year = startYear;
     showMoved(keepYear ? null : { prevYear, prevText, startYear, short: f.short, movedKey: post.movedKey });

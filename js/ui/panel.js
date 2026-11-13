@@ -587,7 +587,7 @@ export class Panel {
    *   intro    inledningen, text per språk
    *   action   valfri knapp direkt efter inledningen, { text, label, run } (platsens Visa i Platt karta, #1161); label är knappens aria-label och ska börja med text
    *   notes    de fasta raderna under inledningen (att filtren inte gäller, att linjen är dagens gräns)
-   *   exit     texten på knappen som lämnar urvalet
+   *   exit     texten på knappen som lämnar urvalet; utan text finns ingen knapp (platsens kort i en turs steg, #1163, där inget Fokus pågår)
    *   summary  rubriken för listan ("14 händelser")
    *   events   händelserna i tidsordning, som knappar som öppnar faktarutan. En händelse före tidslinjens
    *            början (#942) märks, eftersom reglaget inte når dit
@@ -609,7 +609,7 @@ export class Panel {
       <p>${esc(t(intro))}</p>
       ${action ? `<button type="button" class="chip-btn theme-exit place-flat" data-selection-action aria-label="${esc(action.label ?? action.text)}">${esc(action.text)}</button>` : ''}
       ${notes.map(note => `<p class="theme-filter-note">${esc(note)}</p>`).join('\n      ')}
-      <button type="button" class="chip-btn theme-exit" data-end-theme>${esc(exit)}</button>
+      ${exit ? `<button type="button" class="chip-btn theme-exit" data-end-theme>${esc(exit)}</button>` : ''}
       <details class="theme-event-list"${matchMedia('(max-width: 760px)').matches ? '' : ' open'}>
         <summary>${esc(summary)}</summary>
         <ul class="theme-events">${items}</ul>
@@ -618,7 +618,7 @@ export class Panel {
     this.detail.scrollTop = 0;
     this.setDetailOpen(true);
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
-    this.detail.querySelector('[data-end-theme]').addEventListener('click', () => this.onEndTheme());
+    this.detail.querySelector('[data-end-theme]')?.addEventListener('click', () => this.onEndTheme());
     this.detail.querySelector('[data-selection-action]')?.addEventListener('click', () => action.run());
     for (const b of this.detail.querySelectorAll('[data-theme-event]')) b.addEventListener('click', () => this.onThemeEvent?.(b.dataset.themeEvent));
     this.detail.querySelector('[data-close]').focus({ preventScroll: true });

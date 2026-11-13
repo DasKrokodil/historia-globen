@@ -29,6 +29,9 @@
 //   start(f)    valfritt: vad kortet säger när man börjar följa (krigets inledning, faktarutan, urvalets kort).
 //               Körs sist, efter omritningen
 //   facts       valfritt: { has(f), show(f) }, knappen Fakta i fokusraden
+//   startsAtRangeEnd  valfritt: true när typen börjar vid slutåret om ett tidsintervall pågick (platsen, #1163). Styrningen
+//               avslutar intervallet (lägeskontraktet), sätter året till slutåret och lägger intervallet i f.closedRange
+//               (och året fokuset börjar på i f.startYear) så att kortet kan säga det. Utan fältet börjar typen som förut
 //   movedKey    valfritt: ui-nyckeln för orsaken i "Tiden flyttades till …"; annars focus.movedStart med namnet
 //   empty       krävs för urvalstyper: { year, next }, ui-nycklarna för ett år utan händelser i urvalet
 //
