@@ -1,7 +1,7 @@
 // Tillståndets åtgärder, prenumeration och JSON (#403). Körs med node --test 'tests/*.test.mjs'.
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { createStore, createState, toJSON, fromJSON, STATE_VERSION, MODES, MODE_RULES, modeRelation, exitRestore } from '../js/state.js';
+import { createStore, createState, toJSON, fromJSON, STATE_VERSION, MODES, MODE_RULES, modeRelation, exitRestore, timeLock } from '../js/state.js';
 
 test('åtgärderna ändrar tillståndet och meddelar prenumeranterna', () => {
   const store = createStore();
@@ -201,4 +201,15 @@ test('fromJSON tar emot ett tema som fokus (#398), och avvisar ett okänt', () =
   assert.throws(() => fromJSON({ v: STATE_VERSION, year: 1, focus: 'tema:teknik' }), /Okänt fokus/);
   // Ett tema är fokus och inget eget läge: MODE_RULES har ingen post för det
   assert.equal(Object.hasOwn(MODE_RULES, 'tema'), false);
+});
+
+test('tidslåset: en tur låser reglaget, en lektion håller det inom sina år (#1322)', () => {
+  assert.equal(timeLock([]), null, 'i Utforska är reglaget fritt');
+  assert.equal(timeLock([{ mode: 'fokus' }, { mode: 'jakt' }, { mode: 'intervall' }]), null, 'Fokus, jakt och intervall låser inte reglaget');
+  assert.deepEqual(timeLock([{ mode: 'tur' }]), { locked: true });
+  assert.deepEqual(timeLock(['lektion'], [1939, 1945]), { locked: false, from: 1939, to: 1945 });
+  assert.equal(timeLock([{ mode: 'lektion' }], null), null, 'en lektion utan år (lock.years) låser inte tiden');
+  // Det strängaste läget gäller: en tur i en lektion låser helt
+  assert.deepEqual(timeLock([{ mode: 'lektion' }, { mode: 'tur' }], [1939, 1945]), { locked: true });
+  assert.deepEqual(timeLock([{ mode: 'tur' }, { mode: 'jakt' }], null), { locked: true });
 });

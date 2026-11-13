@@ -1395,7 +1395,7 @@ async function run(browser, vp) {
 
     // Förklaringen till de låsta tidsknapparna: på pausraden och som hovertext på knapparna
     if (!(await page.textContent('#pause-text')).includes('Turen styr tiden')) throw new Error('pausraden förklarar inte att turen styr tiden');
-    const locked = await page.evaluate(() => [...document.querySelectorAll('.timebar .controls .step')].map(b => ({ title: b.title, off: b.disabled })));
+    const locked = await page.evaluate(() => [...document.querySelectorAll('.timebar .controls .step[data-step]')].map(b => ({ title: b.title, off: b.disabled })));
     if (!locked.length || locked.some(b => b.title !== 'Turen styr tiden' || !b.off)) throw new Error(`de låsta stegknapparnas hovertext och låsning: ${JSON.stringify(locked)}`);
 
     await page.click('#tour-close');
@@ -4401,28 +4401,18 @@ async function run(browser, vp) {
       if (!/^Steg 1 av 14$/.test(await progress())) throw new Error(`lektionen öppnade ${await progress()}`);
       if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('lektionen börjar inte 1939');
       // Tidslinjen går inte att flytta utanför lektionens år
-      await lessonPage.click('#year-jump');
-      await lessonPage.fill('#jump-input', '1500');
-      await lessonPage.press('#jump-input', 'Enter');
-      await lessonPage.waitForFunction(() => /utanför/.test(document.getElementById('jump-msg').textContent), null, { timeout: T.step });
-      if ((await lessonPage.textContent('#year-big')).trim() === '1500') throw new Error('året 1500 gick att välja i en lektion om 1939–1945');
-      // Samma sak för ett datum i årshoppet: utanför intervallet avvisas, inom intervallet fungerar och låset ligger kvar
-      const jumpTo = async v => {
-        await lessonPage.fill('#jump-input', v);
-        await lessonPage.press('#jump-input', 'Enter');
-        await lessonPage.waitForTimeout(300);
+      // Tidslåset (#1322): i en lektion styr turen tiden, så årshoppet är låst (aria-disabled), formuläret öppnas inte och året står kvar.
+      // Det ersätter de äldre proven av att året 1500 och datumet 1066-10-14 avvisades som "utanför" lektionens år: de går inte längre att göra
+      // eftersom årshoppet inte går att öppna alls. Lektionens årsgräns provas av tidslåset i state.test.mjs och av Home på reglaget nedan.
+      const jumpLocked = async (what, year = '1939') => {
+        await lessonPage.click('#year-jump', { force: true });
+        if ((await lessonPage.getAttribute('#year-jump', 'aria-disabled')) !== 'true') throw new Error(`${what}: årshoppet är inte låst i lektionen`);
+        if (!(await lessonPage.locator('#jump-pop').isHidden())) throw new Error(`${what}: årshoppet öppnades i lektionen`);
+        const now = (await lessonPage.textContent('#year-big')).trim();
+        if (now !== year) throw new Error(`${what}: året blev ${now} i stället för ${year}`);
       };
-      await jumpTo('1066-10-14');
-      if (!/utanför/.test(await lessonPage.textContent('#jump-msg'))) throw new Error('datumet 1066-10-14 avvisades inte i en lektion om 1939–1945');
-      if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`datumet 1066-10-14 flyttade året till ${(await lessonPage.textContent('#year-big')).trim()}`);
-      await jumpTo('1944-06-06');
-      if ((await lessonPage.textContent('#year-big')).trim() !== '1944') throw new Error('ett datum inom lektionens år fungerade inte');
-      await lessonPage.keyboard.press('Escape');
-      await lessonPage.click('#year-jump');
-      await jumpTo('1500');
-      if (!/utanför/.test(await lessonPage.textContent('#jump-msg')) || !['1939', '1940', '1941', '1942', '1943', '1944', '1945'].includes((await lessonPage.textContent('#year-big')).trim())) throw new Error('ett datum inom intervallet släppte tidslåset');
-      if (!(await lessonPage.isVisible('#lesson-band'))) throw new Error('bandet försvann efter ett datum i årshoppet');
-      await lessonPage.keyboard.press('Escape');
+      await jumpLocked('direktlänk');
+      if (!(await lessonPage.isVisible('#lesson-band'))) throw new Error('bandet försvann efter ett klick på årshoppet');
       // Omladdning mitt i lektionen ger samma läge och steg
       await lessonPage.click('#tour-next');
       await lessonPage.click('#tour-next');
@@ -4523,9 +4513,7 @@ async function run(browser, vp) {
       await lessonPage.keyboard.press('Home');
       await lessonPage.waitForTimeout(300);
       if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`Home på reglaget gav ${(await lessonPage.textContent('#year-big')).trim()} i stället för 1939 efter ett fokus och lektionslänken`);
-      await lessonPage.click('#year-jump');
-      await jumpTo('1500');
-      if (!/utanför/.test(await lessonPage.textContent('#jump-msg')) || (await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('lektionslänken efter ett fokus lämnade tidslinjen olåst');
+      await jumpLocked('lektionslänken efter ett fokus'); // tidslinjen är låst även när lektionen börjar efter ett fokus
       // "Visa hela globen" återställer inte ett gammalt fokus och byter inte året (#881)
       await open(`${BASE}?ny=14#y=1916&f=war:forsta-varldskriget`);
       await lessonPage.waitForSelector('#focus-bar:not([hidden])', { state: 'attached', timeout: T.load });
@@ -4556,10 +4544,7 @@ async function run(browser, vp) {
       await lessonPage.keyboard.press('Home');
       await lessonPage.waitForTimeout(300);
       if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`reglaget gick till ${(await lessonPage.textContent('#year-big')).trim()} när ett fokus blev klart i lektionen`);
-      await lessonPage.click('#year-jump');
-      await jumpTo('1066-10-14');
-      if (!/utanför/.test(await lessonPage.textContent('#jump-msg')) || (await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('datumet 1066-10-14 godtogs efter ett fokus som laddades när lektionen började');
-      await lessonPage.keyboard.press('Escape');
+      await jumpLocked('fokus som blev klart i lektionen'); // låset ligger kvar när ett fokus som laddades vid starten blir klart
       // Samtidighetsjakten (år 1500) krockar med låset: knappen är dold, och ett u= utanför lektionens år ignoreras
       await open(`${BASE}?ny=4#t=andra-varldskriget&m=lektion&u=samtidighetsjakten-1500`);
       await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
@@ -4866,7 +4851,10 @@ async function run(browser, vp) {
       // 6. Under en tur erbjuds inget tidsintervall
       await tp.evaluate(() => { location.hash = '#t=tre-platser-1325'; });
       await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
-      await tp.click('#year-jump');
+      // Tidslåset (#1322): årshoppet är låst i en tur, så formuläret med intervallet kan inte ens öppnas
+      await tp.click('#year-jump', { force: true });
+      if (await tp.getAttribute('#year-jump', 'aria-disabled') !== 'true') throw new Error('årshoppet är inte låst under turen');
+      if (await shown('#jump-pop')) throw new Error('årshoppet öppnades under turen');
       if (await shown('#range-open')) throw new Error('intervallänken syns under turen');
       if (await shown('#range-pop')) throw new Error('intervallformuläret syns under turen');
       if (await shown('#range-bar')) throw new Error('ett intervall valdes under turen');
@@ -5023,7 +5011,7 @@ async function run(browser, vp) {
       // Under en tur erbjuds inte intervallet eller dess epokknappar
       await tp.evaluate(() => { location.hash = '#t=tre-platser-1325'; });
       await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
-      await tp.click('#year-jump');
+      await tp.click('#year-jump', { force: true }); // låst i en tur (#1322): formuläret kan inte öppnas
       if (await shown('#range-open') || await shown('#range-pop')) throw new Error('tidsintervallet erbjuds fortfarande under en tur');
       if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
     } finally {
@@ -5349,6 +5337,62 @@ async function run(browser, vp) {
       if (!/^1300-talet · ±\d*0 år$/.test(c.row)) throw new Error(`1325: raden säger "${c.row}"`);
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return `${a.row} | ${b.row} | ${c.row}`;
+    } finally { await wp.close(); }
+  });
+  // #1322: tidslåset i lägeskontraktet. I en tur och i en lektion (som börjar med en tur) går året inte att byta med drag, klick,
+  // tangenter, stegknappar eller årshoppet, och steget och adressen står kvar. När turen slutar fungerar reglaget igen.
+  await check('tidslåset: reglaget är låst i en tur och en lektion och släpps när turen slutar (#1322)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      const state = () => wp.evaluate(() => ({ year: document.getElementById('year-big').textContent.trim(), step: document.getElementById('tour-progress').textContent.trim() }));
+      let loads = 0;
+      const open = async hash => {
+        await wp.goto(`${BASE}?lang=sv&ny=l${loads++}${hash}`);
+        await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await wp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      };
+      const tryToMove = async () => {
+        const before = await state();
+        const box = await wp.locator('#track').boundingBox();
+        const y = box.y + box.height / 2;
+        await wp.mouse.click(box.x + box.width * 0.2, y);
+        await wp.mouse.move(box.x + box.width * 0.9, y); await wp.mouse.down();
+        await wp.mouse.move(box.x + box.width * 0.3, y, { steps: 4 }); await wp.mouse.up();
+        await wp.focus('#track');
+        for (const k of ['ArrowLeft', 'ArrowRight', 'PageUp', 'Home', 'End']) await wp.keyboard.press(k);
+        await wp.evaluate(() => { for (const b of document.querySelectorAll('.step[data-step], #btn-play')) b.click(); }); // även ett programmatiskt klick
+        await wp.click('#year-jump', { force: true }).catch(() => {});
+        const jumped = !(await wp.locator('#jump-pop').isHidden());
+        const after = await state();
+        return { before, after, jumped, aria: await wp.getAttribute('#track', 'aria-disabled'), disabled: await wp.evaluate(() => [...document.querySelectorAll('.step[data-step]')].every(b => b.disabled)) };
+      };
+      const out = [];
+      for (const hash of ['#t=andra-varldskriget', '#t=andra-varldskriget&m=lektion']) {
+        await open(hash);
+        const r = await tryToMove();
+        if (r.after.year !== r.before.year || r.after.step !== r.before.step) throw new Error(`${hash}: reglaget flyttade ${JSON.stringify(r.before)} till ${JSON.stringify(r.after)}`);
+        if (r.jumped) throw new Error(`${hash}: årshoppet öppnades i en låst tur`);
+        if (r.aria !== 'true' || !r.disabled) throw new Error(`${hash}: reglaget visar inte låset (aria-disabled ${r.aria}, stegknappar avstängda ${r.disabled})`);
+        out.push(`${hash.includes('lektion') ? 'lektion' : 'tur'} låst vid ${r.before.year}`);
+      }
+      // Turen slutar: reglaget fungerar igen
+      await open('#t=andra-varldskriget');
+      await wp.click('#tour-close');
+      await wp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+      const free = await wp.evaluate(() => ({ aria: document.getElementById('track').getAttribute('aria-disabled'), steps: [...document.querySelectorAll('.step[data-step]')].some(b => b.disabled) }));
+      if (free.aria !== null || free.steps) throw new Error(`reglaget är kvar i låst läge efter turen: ${JSON.stringify(free)}`);
+      const y0 = (await wp.textContent('#year-big')).trim();
+      await wp.click('.step[data-step="10"]');
+      if ((await wp.textContent('#year-big')).trim() === y0) throw new Error('stegknappen fungerar inte efter turen');
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `${out.join(', ')}; fritt efter turen`;
     } finally { await wp.close(); }
   });
   // #1309: i mobil ska träffytor vara minst 44 × 44 px (själva knappen eller dess osynliga förlängning), ingen text vara under 12 px och

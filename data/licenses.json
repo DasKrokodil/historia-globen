@@ -1172,6 +1172,7 @@
         "wp-moa",
         "wp-moai",
         "wp-moche-culture",
+        "wp-mogadishu",
         "wp-mogao-caves",
         "wp-mohenjo-daro",
         "wp-mohi",
@@ -1402,6 +1403,7 @@
         "wp-rhind-mathematical-papyrus",
         "wp-riachuelo",
         "wp-rif-war",
+        "wp-rihla",
         "wp-rinderpest-1890s",
         "wp-robert-koch",
         "wp-robotyne",
@@ -2218,6 +2220,12 @@
       "sourceIds": [
         "commons-bild-ghanas-sjalvstandighet",
         "nasa-great-wall"
+      ]
+    },
+    {
+      "license": "Public domain (verket); Wikisources text CC BY-SA 4.0",
+      "sourceIds": [
+        "wikisource-lee-1829-ibn-batuta"
       ]
     },
     {
