@@ -258,6 +258,18 @@ Ett tema är fokus av typen `theme`, så läget är `fokus` och raden Fokus i ut
 
 Båda är ett namngivet urval med text på fem språk och källor, och de delar fältnamnen `id`, `name`, `sources` och `review`. De är ändå två filer: en epok väljer ett **tidsspann** och blir ett tidsintervall (läget `intervall`), ett tema väljer en **lista med händelser** och blir ett fokus. Lägena utesluter varandra enligt kontraktet, så en besökare kan inte råka ha båda på. Ett tema om en period är ett tema vars händelser ligger i perioden; en epok listar aldrig händelser. Får en epok en introduktion heter fältet `intro`, som här.
 
+### Regeln för nya urval (#1327)
+
+**Ett nytt namngivet urval är en händelselista, ett tidsspann eller en geometri** (beslut [2026-11-13-fokustyper-som-poster](beslut/2026-11-13-fokustyper-som-poster.md)). Det finns tre format och det kommer inget fjärde:
+
+| Väljer med | Fil | Blir | Adress |
+|---|---|---|---|
+| en händelselista | `data/teman.json` | fokus av typen `theme` | `f=theme:<id>` |
+| en geometri | `data/platser.json` | fokus av typen `place` | `f=place:<id>` |
+| ett tidsspann | `data/perioder.json` | läget intervall | `y`, `y2`, `p` |
+
+Kärnan är gemensam: `id`, `name`, `intro`, `sources` och `review`. **Människoarter får inget eget format:** de är händelser, och visas med ett lager. Länder är platser. I koden är de två fokusformaten poster i `js/focus/` med `selectsBy: 'events'` och `'geometry'` (docs/arkitektur.md, "Fokustyper som poster"), och båda ger samma fält i `state.focus`: `themeEvents` (händelserna i tidsordning) och `eventIds`.
+
 ### Händelser före tidslinjens början (#892, #942)
 
 Ett tema får innehålla händelser som börjar före 3000 f.Kr. (`MIN_YEAR = -2999`). Fokusets spann börjar då vid −2999; händelsen nås från temats lista i introduktionskortet, och faktarutan märker den med "Händelsen börjar före tidslinjens början" (#942). Validatorn varnar men stoppar inte. Att tidslinjen går längre bak hör till #396 (Version 7).

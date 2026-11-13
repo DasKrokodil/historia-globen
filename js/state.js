@@ -88,7 +88,7 @@ export const STATE_VERSION = 1;
  * Den byggs inte nu: toJSON() skriver den inte, och fromJSON() hoppar över den som andra okända fält.
  */
 export const RESERVED_STATE_KEYS = ['domain'];
-const FOCUS_TYPES = ['war', 'empire', 'religion', 'route', 'theme', 'place']; // theme (#398) och place (#579): ett tema och en plats är fokus, inget eget läge
+export const FOCUS_TYPES = ['war', 'empire', 'religion', 'route', 'theme', 'place']; // theme (#398) och place (#579): ett tema och en plats är fokus, inget eget läge; varje typ har en post i js/focus/ (#1327)
 
 // ---------------------------------------------------------------------------------------------------------
 // Lägeskontraktet (#893, beslut docs/beslut/2026-11-08-lagen.md)
