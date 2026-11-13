@@ -21,6 +21,7 @@
         "curnoe-2025-gua-dagang",
         "davis-madsen-2026-coopers-ferry",
         "dillehay-2015-monte-verde",
+        "florin-2020-madjedbebe",
         "freidline-2023-tam-pa-ling",
         "gandini-2025-sahul",
         "hallett-2025-human-niche",
@@ -100,6 +101,12 @@
         "pmc-pecnerova-2017",
         "ucdp-brd-261",
         "ucdp-prio-acd-261"
+      ]
+    },
+    {
+      "license": "CC BY-NC (enligt Europe PMC), länkad källa: ingen text kopierad (beslut 2026-10-29)",
+      "sourceIds": [
+        "gousset-2026-homo-luzonensis"
       ]
     },
     {
@@ -2452,7 +2459,13 @@
     {
       "license": "Stängd artikel, länkad källa: bara sammanfattningen läst, ingen text kopierad (beslut 2026-11-12)",
       "sourceIds": [
-        "martinon-torres-2021-panga-ya-saidi"
+        "bennett-2021-white-sands",
+        "chen-2019-xiahe",
+        "detroit-2019-homo-luzonensis",
+        "martinon-torres-2021-panga-ya-saidi",
+        "mijares-2010-callao",
+        "pigati-2023-white-sands",
+        "surovell-2026-monte-verde"
       ]
     },
     {
