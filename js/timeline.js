@@ -54,6 +54,24 @@ export function yearsAcross(y, fraction) {
   const s = segFor(clampY(y));
   return (s.to - s.from) / (s.b - s.a) * fraction;
 }
+// Året vid ett läge på reglaget, utan avrundning (samma räkning som posToYear).
+function yearAtPos(p) {
+  const s = segForPos(p);
+  return s.from + (p - s.a) / (s.b - s.a) * (s.to - s.from);
+}
+/**
+ * Samtidigt-fönstret räknat i reglagets läge (minsta delen av #1319, inför v6.3.0): kanterna är läget ± fraction, och det
+ * kortaste avståndet till dem används lika långt åt båda hållen. Inom ett segment blir det samma som yearsAcross. Vid en
+ * segmentgräns tar det glesa segmentet inte längre över, så förhistorien får ±2 115 år vid 5000 f.Kr. i stället för ±11 640
+ * år i hela segmentet. Vid reglagets ändar används den kant som finns.
+ */
+export function windowAround(y, fraction) {
+  y = clampY(y);
+  const p = yearToPos(y), d = [];
+  if (p - fraction >= 0) d.push(y - yearAtPos(p - fraction));
+  if (p + fraction <= 1) d.push(yearAtPos(p + fraction) - y);
+  return d.length ? Math.min(...d) : yearsAcross(y, fraction);
+}
 
 /** Uppspelningens nivåer i år per sekund. */
 const SPEEDS = [1, 5, 25, 100];
@@ -145,7 +163,7 @@ export class Timeline extends EventTarget {
   /** Hur många år före och efter som räknas som "samtidigt". */
   windowYears(y) {
     if (this.focus?.fine) return (this.focus.to - this.focus.from) * 0.03; // några dagar
-    return this.focus ? Math.max(1, (this.focus.to - this.focus.from) * 0.03) : yearsAcross(y, 0.012);
+    return this.focus ? Math.max(1, (this.focus.to - this.focus.from) * 0.03) : windowAround(y, 0.012);
   }
 
   /**
