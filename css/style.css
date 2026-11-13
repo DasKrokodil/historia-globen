@@ -921,7 +921,8 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .app.touring .funfact, .app.touring .ff-tab { display: none; }
 /* Turkortets Nästa är den enda framåtknappen och Avsluta finns där (#999): pausraden visar bara var i turen man är */
 .app.touring #pause-go { display: none !important; }
-.timebar .tour-locked, .timebar .tour-locked:hover { opacity: .35; cursor: default; }
+.timebar .time-locked, .timebar .time-locked:hover { opacity: .35; cursor: default; }
+#year-jump.time-locked, #year-jump.time-locked:hover { cursor: default; } /* tidslåset (#1322): i tur och, för stegknapparna, i lektion */
 /* ---------- lektionsläget (#795) ----------
    Bandet överst och menyerna som läraren inte vill att eleverna ska nå. Turens egna knappar står kvar;
    utgången är "Visa hela globen" i bandet, så Avsluta i kortet och pausraden döljs. */

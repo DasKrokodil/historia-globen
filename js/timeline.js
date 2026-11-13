@@ -103,6 +103,10 @@ export class Timeline extends EventTarget {
     this.focus = null; // { from, to, fine }: tidslinjen inzoomad på ett spann (fokusläge, #109)
     this.range = null; // tidsintervallet { from, to } (#755), eller null
     this.focusLocked = false; // lektionsläget (#795) låser spannet: ett datum i årshoppet släpper det inte
+    // Tidslåset (#1322): en funktion som ger { locked: true }, { locked: false, from, to } eller null (js/state.js, timeLock).
+    // Den läses vid varje drag, klick, tangent och stegknapp; det som koden själv sätter (timeline.year = …) påverkas inte.
+    this.lock = () => null;
+    this.lockReason = ''; // hovertexten på de låsta stegknapparna
     // fine: ett kort krig (#204). Då är året ett decimaltal avrundat till hela dagar, och skalan,
     // stegen och farten räknas i dagar och månader.
     // Hastighet i år per sekund (#164). Det gamla sparade värdet ('hg-speed', ×-faktor) ignoreras.
@@ -125,19 +129,54 @@ export class Timeline extends EventTarget {
     // Dra i reglaget
     const setFromX = x => {
       const r = track.getBoundingClientRect();
-      this.year = this.toYear((x - r.left) / r.width);
+      this.setByUser(this.toYear((x - r.left) / r.width));
     };
-    track.addEventListener('pointerdown', e => { track.setPointerCapture(e.pointerId); this.pause(); setFromX(e.clientX); });
+    track.addEventListener('pointerdown', e => { if (this.locked) return; track.setPointerCapture(e.pointerId); this.pause(); setFromX(e.clientX); });
     track.addEventListener('pointermove', e => { if (track.hasPointerCapture(e.pointerId)) setFromX(e.clientX); });
     track.addEventListener('keydown', e => {
+      if (this.locked) return;
       const big = e.shiftKey ? 10 : 1;
       const map = { ArrowLeft: -big, ArrowRight: big, ArrowDown: -big, ArrowUp: big, PageDown: -100, PageUp: 100 };
-      if (e.key in map) { this.year += map[e.key] * this.stepUnit; e.preventDefault(); }
-      if (e.key === 'Home') { this.year = MIN_YEAR; e.preventDefault(); }
-      if (e.key === 'End') { this.year = MAX_YEAR; e.preventDefault(); }
+      if (e.key in map) { this.setByUser(this.year + map[e.key] * this.stepUnit); e.preventDefault(); }
+      if (e.key === 'Home') { this.setByUser(MIN_YEAR); e.preventDefault(); }
+      if (e.key === 'End') { this.setByUser(MAX_YEAR); e.preventDefault(); }
     });
-    for (const b of stepBtns) b.addEventListener('click', () => { this.pause(); this.year += Number(b.dataset.step) * this.stepUnit; });
-    playBtn.addEventListener('click', () => (this.playing ? this.pause() : this.play()));
+    for (const b of stepBtns) b.addEventListener('click', () => { if (this.locked) return; this.pause(); this.setByUser(this.year + Number(b.dataset.step) * this.stepUnit); });
+    playBtn.addEventListener('click', () => { if (this.locked) return; this.playing ? this.pause() : this.play(); });
+  }
+
+  /** Är reglaget låst för besökaren (tidslåset, #1322)? */
+  get locked() { return this.lock()?.locked === true; }
+
+  /** Besökarens drag, klick, tangent eller stegknapp: ett lås gäller, och i en lektion stannar året inom lektionens år (#1322). */
+  setByUser(y) {
+    const l = this.lock();
+    if (l?.locked) return;
+    this.year = l?.from != null ? Math.max(l.from, Math.min(l.to, y)) : y;
+  }
+
+  /**
+   * Visar låset (#1322): stegknapparna och spelknappen tonas ned och går inte att nå medan reglaget är låst, och reglaget får
+   * aria-disabled. Anropas när ett läge börjar eller slutar (js/main.js). Förklaringen (lockReason) står som hovertext på stegknapparna.
+   */
+  syncLock() {
+    const on = this.locked;
+    for (const b of [...this.stepBtns, this.playBtn]) {
+      b.disabled = on;
+      b.classList.toggle('time-locked', on);
+      // Spelknappens text styrs av _labelPlay och playback.js, så bara stegknapparna får förklaringen
+      if (b === this.playBtn) continue;
+      if (on && this.lockReason) {
+        if (b.dataset.beforeLock == null) b.dataset.beforeLock = b.getAttribute('title') ?? '';
+        b.title = this.lockReason;
+      } else if (b.dataset.beforeLock != null) {
+        if (b.dataset.beforeLock) b.title = b.dataset.beforeLock; else b.removeAttribute('title');
+        delete b.dataset.beforeLock;
+      }
+    }
+    this.track.classList.toggle('time-locked', on);
+    if (on) this.track.setAttribute('aria-disabled', 'true'); else this.track.removeAttribute('aria-disabled');
+    this.dispatchEvent(new CustomEvent('lockchange', { detail: { locked: on } })); // årshoppet följer med (setupYearJump)
   }
 
   /** Position (0–1) på reglaget för ett år, och tvärtom. I fokusläge är skalan linjär över spannet. */
@@ -469,6 +508,7 @@ export class Timeline extends EventTarget {
       const unit = ui(this.focus?.fine ? 'time.dayNames' : 'time.yearNames')[a === 1 ? 0 : 1];
       b.setAttribute('aria-label', ui('time.step', { n: a, unit, direction: ui(n < 0 ? 'time.backward' : 'time.forward') }));
       b.title = b.getAttribute('aria-label');
+      if (this.locked && this.lockReason) b.title = this.lockReason; // låset visar sin förklaring (#1322)
     }
   }
   /** I slutet (fokusets slut eller sista året) och utan något kvar att visa börjar nästa uppspelning om. */
@@ -655,7 +695,13 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
   SEGMENTS.forEach((s, i) => chip(segmentLabel(s), i ? s.from + 1 : s.from, false));
   chip(ui('jump.today'), MAX_YEAR);
 
+  // Tidslåset (#1322): i en tur går året inte att byta med årshoppet heller
+  timeline.addEventListener('lockchange', e => {
+    button.classList.toggle('time-locked', e.detail.locked);
+    if (e.detail.locked) { button.setAttribute('aria-disabled', 'true'); close(); } else button.removeAttribute('aria-disabled');
+  });
   button.addEventListener('click', () => {
+    if (timeline.locked) return;
     if (!pop.hidden && result && !result.hidden) {
       input.focus();
       return;

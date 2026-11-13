@@ -5319,6 +5319,62 @@ async function run(browser, vp) {
       return `${a.row} | ${b.row} | ${c.row}`;
     } finally { await wp.close(); }
   });
+  // #1322: tidslåset i lägeskontraktet. I en tur och i en lektion (som börjar med en tur) går året inte att byta med drag, klick,
+  // tangenter, stegknappar eller årshoppet, och steget och adressen står kvar. När turen slutar fungerar reglaget igen.
+  await check('tidslåset: reglaget är låst i en tur och en lektion och släpps när turen slutar (#1322)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      const state = () => wp.evaluate(() => ({ year: document.getElementById('year-big').textContent.trim(), step: document.getElementById('tour-progress').textContent.trim() }));
+      let loads = 0;
+      const open = async hash => {
+        await wp.goto(`${BASE}?lang=sv&ny=l${loads++}${hash}`);
+        await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await wp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      };
+      const tryToMove = async () => {
+        const before = await state();
+        const box = await wp.locator('#track').boundingBox();
+        const y = box.y + box.height / 2;
+        await wp.mouse.click(box.x + box.width * 0.2, y);
+        await wp.mouse.move(box.x + box.width * 0.9, y); await wp.mouse.down();
+        await wp.mouse.move(box.x + box.width * 0.3, y, { steps: 4 }); await wp.mouse.up();
+        await wp.focus('#track');
+        for (const k of ['ArrowLeft', 'ArrowRight', 'PageUp', 'Home', 'End']) await wp.keyboard.press(k);
+        await wp.evaluate(() => { for (const b of document.querySelectorAll('.step[data-step], #btn-play')) b.click(); }); // även ett programmatiskt klick
+        await wp.click('#year-jump', { force: true }).catch(() => {});
+        const jumped = !(await wp.locator('#jump-pop').isHidden());
+        const after = await state();
+        return { before, after, jumped, aria: await wp.getAttribute('#track', 'aria-disabled'), disabled: await wp.evaluate(() => [...document.querySelectorAll('.step[data-step]')].every(b => b.disabled)) };
+      };
+      const out = [];
+      for (const hash of ['#t=andra-varldskriget', '#t=andra-varldskriget&m=lektion']) {
+        await open(hash);
+        const r = await tryToMove();
+        if (r.after.year !== r.before.year || r.after.step !== r.before.step) throw new Error(`${hash}: reglaget flyttade ${JSON.stringify(r.before)} till ${JSON.stringify(r.after)}`);
+        if (r.jumped) throw new Error(`${hash}: årshoppet öppnades i en låst tur`);
+        if (r.aria !== 'true' || !r.disabled) throw new Error(`${hash}: reglaget visar inte låset (aria-disabled ${r.aria}, stegknappar avstängda ${r.disabled})`);
+        out.push(`${hash.includes('lektion') ? 'lektion' : 'tur'} låst vid ${r.before.year}`);
+      }
+      // Turen slutar: reglaget fungerar igen
+      await open('#t=andra-varldskriget');
+      await wp.click('#tour-close');
+      await wp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+      const free = await wp.evaluate(() => ({ aria: document.getElementById('track').getAttribute('aria-disabled'), steps: [...document.querySelectorAll('.step[data-step]')].some(b => b.disabled) }));
+      if (free.aria !== null || free.steps) throw new Error(`reglaget är kvar i låst läge efter turen: ${JSON.stringify(free)}`);
+      const y0 = (await wp.textContent('#year-big')).trim();
+      await wp.click('.step[data-step="10"]');
+      if ((await wp.textContent('#year-big')).trim() === y0) throw new Error('stegknappen fungerar inte efter turen');
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `${out.join(', ')}; fritt efter turen`;
+    } finally { await wp.close(); }
+  });
   // #1134: raden under årtalet radbryts i smal skärm i stället för att klippas med ellips. Längsta texten styr: alla
   // fem språk, ett f.Kr.-år (längst rubrik) och ett intervall, i 400 px bredd. Körs i mobiljobbet (en egen sida, egen bredd).
   await check('raden under årtalet ryms på 400 px på fem språk (#1134)', async () => {

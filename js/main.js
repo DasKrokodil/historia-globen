@@ -28,7 +28,7 @@ import { Feedback } from './ui/feedback.js';
 import { Sheet } from './ui/sheet.js';
 import { ViewMenu, ExtraMenu } from './ui/viewmenu.js';
 import { ViewMode } from './ui/viewmode.js';
-import { createStore, toJSON } from './state.js';
+import { createStore, toJSON, timeLock } from './state.js';
 import { LayerRegistry } from './layers/registry.js';
 import { createSelection } from './controllers/selection.js';
 import { createFacts } from './controllers/facts.js';
@@ -152,6 +152,9 @@ async function start() {
     pauseGo: $('pause-go'), status: $('screen-reader-status'),
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
+  // Tidslåset (#1322): reglaget låses i en tur, och i en lektion stannar det inom lektionens år (timeLock i js/state.js)
+  timeline.lock = () => timeLock(store.state.modes, app.lesson?.lock?.years ?? null);
+  store.subscribe(({ type }) => { if (type === 'mode') timeline.syncLock(); });
   ff.setSurpriseRange(() => timeline.focus);
   const yearJump = setupYearJump(timeline, {
     button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'),
