@@ -125,12 +125,12 @@ export function createPlaces(app) {
    * tur och lektion (allowed): läraren öppnar kortet genom turens steg, eleverna öppnar det inte fritt. current() ger false när
    * turen har gått vidare medan platserna laddades. Ger true när platsen visades.
    */
-  async function openStep(id, { card = true, current = () => true } = {}) {
+  async function openStep(id, { card = true, focus = false, current = () => true } = {}) {
     const place = (await loadPlaces()).find(p => p.id === id);
     const events = place ? visibleEvents(place, data.events) : [];
     if (!place || !events.length || !current()) return false;
     layer.step = place;
-    if (card) showPlaceCard(app, place, events, { follow: false });
+    if (card) showPlaceCard(app, place, events, { follow: false, focus });
     app.refresh();
     return true;
   }

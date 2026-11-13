@@ -365,7 +365,7 @@
   "place.flatShown": "Mapa plano abierto con {place} a la vista.",
   "place.noneHere": "Ningún lugar con ficha propia está en el centro de la vista. Elija un lugar en «Buscar y seguir» → «Lugares».",
   "place.hereKey": "{place}: un lugar con ficha. Pulse Intro para seguirlo.",
-  "place.rangeEnded": "El intervalo de tiempo {range} terminó cuando se empezó a seguir el lugar. El lugar se muestra para el año {year}.",
+  "place.rangeEnded": "El intervalo de tiempo {range} terminó cuando se empezó a seguir el lugar. Para el año {year} se muestra el lugar.",
   "play.pausedToday": "En pausa: la situación hoy",
   "play.pausedWarEnd": "En pausa: la guerra ha terminado",
   "play.pausedMajor": "En pausa en un gran acontecimiento de la guerra",

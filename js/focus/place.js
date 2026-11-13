@@ -2,6 +2,7 @@
 // Draft-platser laddas aldrig.
 import { loadPlaces, t, isVisibleReview, formatYear, rangeText } from '../model.js';
 import { ui } from '../i18n.js';
+import { say } from '../ui/status.js';
 import { placeEvents } from '../place-geo.js';
 import { formatYearSpan } from '../controllers/facts.js';
 import { langs, selectionSpan } from './util.js';
@@ -9,10 +10,11 @@ import { langs, selectionSpan } from './util.js';
 /**
  * Platsens kort (#579): samma kort i Fokus och i en turs steg (#1163). Skillnaden är det som hör till Fokus. I Fokus har kortet
  * knappen Avsluta platsen och Visa i Platt karta (#1161) och notisen om att filtren inte gäller; i en tur (follow: false)
- * har kortet ingen av dem: turen styr kameran och vyn och får inte avslutas av kortet. note är en extra rad sist bland noterna
- * (till exempel att ett tidsintervall avslutades när platsen började följas).
+ * har kortet ingen av dem: turen styr kameran och vyn och får inte avslutas av kortet. note är en rad direkt under namnet (att ett
+ * tidsintervall avslutades när platsen började följas). focus: tar kortet tangentbordsfokus? Standard bara i Fokus; i en tur bara när
+ * besökaren själv tryckte Läs om platsen.
  */
-export function showPlaceCard(app, place, events, { follow = true, note = '' } = {}) {
+export function showPlaceCard(app, place, events, { follow = true, note = '', focus = follow } = {}) {
   const { $, panel } = app;
   const type = ui(`place.type.${place.type}`), of = place.partOf ? t(place.partOf) : '';
   app.store.setSelected(null);
@@ -20,8 +22,8 @@ export function showPlaceCard(app, place, events, { follow = true, note = '' } =
     intro: place.intro,
     // Visa i Platt karta (#1161): byter vy och ramar in platsen; knappen finns när main.js har kopplat återanropet
     action: follow && panel.onPlaceFlat ? { text: ui('place.flatMap'), label: `${ui('place.flatMap')}: ${t(place.name)}`, run: () => panel.onPlaceFlat(place) } : null,
-    notes: [ui('place.borderNote'), ...(follow ? [ui('place.filters')] : []), ...(note ? [note] : [])], exit: follow ? ui('place.exit') : null,
-    summary: ui('place.events', { count: events.length }), events, sources: place.sources, focus: follow });
+    notes: [ui('place.borderNote'), ...(follow ? [ui('place.filters')] : [])], banner: note, exit: follow ? ui('place.exit') : null,
+    summary: ui('place.events', { count: events.length }), events, sources: place.sources, focus });
   app.surfaces.closeGroup('meny');
   if (app.narrow.matches) app.surfaces.closeGroup('sidopanel');
   $('app').classList.add('has-detail');
@@ -40,7 +42,10 @@ export function entry(app) {
   /** Platsens kort (#579): knappen Fakta i fokusraden öppnar det igen. */
   function showCard(f, starting = false) {
     // Raden om intervallet står bara när platsen börjar följas; knappen Fakta visar kortet utan den
-    showPlaceCard(app, f.place, f.themeEvents, { follow: true, note: starting && f.closedRange ? rangeEndedNote(f.closedRange, f.startYear) : '' });
+    const note = starting && f.closedRange ? rangeEndedNote(f.closedRange, f.startYear) : '';
+    showPlaceCard(app, f.place, f.themeEvents, { follow: true, note });
+    // Kortets rubrik läses upp med högre prioritet (js/main.js); beskedet om intervallet läses efter den och tappas inte
+    if (note) setTimeout(() => { if (app.state.focus === f) say(note, 'plats', { priority: 2, immediate: true }); }, 1600);
   }
   return {
     type: 'place',

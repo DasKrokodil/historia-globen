@@ -365,7 +365,7 @@
   "place.flatShown": "Flat map open with {place} in view.",
   "place.noneHere": "No place with its own card is in the middle of the view. Choose a place under Search and follow → Places.",
   "place.hereKey": "{place}: a place with a card. Press Enter to follow it.",
-  "place.rangeEnded": "The time range {range} ended when the place began to be followed. The place is shown for the year {year}.",
+  "place.rangeEnded": "The time range {range} ended when the place began to be followed. For the year {year}, the place is shown.",
   "play.pausedToday": "Paused: the situation today",
   "play.pausedWarEnd": "Paused: the war is over",
   "play.pausedMajor": "Paused at a major event in the war",

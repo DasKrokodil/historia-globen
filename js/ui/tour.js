@@ -85,7 +85,7 @@ export class TourPlayer {
     this.read.addEventListener('click', () => {
       const s = this.step;
       if (s?.open) app.select(s.open, false);
-      else if (s?.place) this.showPlace(s, true);
+      else if (s?.place) this.showPlace(s, true, true); // knappen är en uttrycklig handling: kortet får fokus (arket täcker annars knappen)
     });
     this.srcBtn.addEventListener('click', () => { const ids = this.step?.sources ?? []; app.openSources(ids); });
     // Skriv ut (#738): bara i en lektionstur, alltså en tur med lärarfält (lesson, #737)
@@ -335,8 +335,8 @@ export class TourPlayer {
    * kortet inte av sig självt, som för en händelse, eftersom arket skulle täcka turkortet; "Läs om platsen" öppnar det.
    * Platserna laddas först nu, så steget kan ha bytts när de kommer: då visas inget.
    */
-  showPlace(step, card) {
-    this.app.places?.openStep(step.place, { card, current: () => !!this.tour && this.step === step });
+  showPlace(step, card, focus = false) {
+    this.app.places?.openStep(step.place, { card, focus, current: () => !!this.tour && this.step === step });
   }
 
   /** Stegindikatorn i kortet (#1280): ett streck per steg, de gjorda och det nuvarande fyllda. Bara en tillägg till

@@ -592,9 +592,10 @@ export class Panel {
    *   events   händelserna i tidsordning, som knappar som öppnar faktarutan. En händelse före tidslinjens
    *            början (#942) märks, eftersom reglaget inte når dit
    *   sources  källornas id
+   *   banner   valfri rad direkt under namnet, synlig utan att rulla (att ett tidsintervall avslutades när platsen började följas, #1163)
    *   focus    false: kortet tar inte tangentbordsfokus (platsens kort i en turs steg, #1163: fokus ska ligga kvar på Nästa)
    */
-  showSelection({ label, name, lead = '', emblems = [], intro, action = null, notes = [], exit, summary, events, sources = [], focus = true }) {
+  showSelection({ label, name, lead = '', emblems = [], intro, action = null, notes = [], exit, summary, events, sources = [], focus = true, banner = '' }) {
     this.selectedId = null;
     this.detail.className = `detail detail-card detail-selection frame-${styleFor(events[0], this.styles).frame}`; // detail-selection: main.js läser upp etiketten (Plats, Tema), också när inget Fokus pågår (#1163)
     const shown = (emblems ?? []).filter(em => flagUrl(em));
@@ -605,6 +606,7 @@ export class Panel {
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <div class="story-label">${esc(label)}</div>
       <h3>${esc(t(name))}</h3>
+      ${banner ? `<p class="theme-filter-note place-banner">${esc(banner)}</p>` : ''}
       <div class="story">${lead ? `<p class="place-type">${esc(lead)}</p>` : ''}
       ${emblemHtml}
       <p>${esc(t(intro))}</p>

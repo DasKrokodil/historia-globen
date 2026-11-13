@@ -2016,6 +2016,8 @@ async function run(browser, vp) {
       if (!(await pg.isHidden('#detail'))) throw new Error(`${what}: kortet öppnades av sig självt i smal skärm`);
       await pg.waitForSelector('#tour-read', { state: 'visible', timeout: T.step });
       await pg.click('#tour-read');
+      // Knappen är en uttrycklig handling: kortet (arket) får fokus, eftersom det annars täcker knappen som har det
+      await pg.waitForFunction(() => document.getElementById('detail').contains(document.activeElement), null, { timeout: T.step });
     }
     await pg.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
     // Kortet tar inte tangentbordsfokus (Nästa ska behålla det), och skärmläsaren hör "Plats: Grönland", inte "Om händelsen"
@@ -2113,8 +2115,13 @@ async function run(browser, vp) {
       // Intervallet är avslutat (Fokus utesluter det), platsen visas för intervallets slutår och kortet säger det
       if (!(await tp.isHidden('#range-bar'))) throw new Error('intervallraden låg kvar när platsen började följas');
       if ((await tp.textContent('#year-big')).trim() !== '1950') throw new Error(`platsen började inte vid slutåret: ${await tp.textContent('#year-big')}`);
-      const notes = (await tp.locator('#detail .theme-filter-note').allTextContents()).join(' | ');
-      if (!/Tidsintervallet 1900–1950 avslutades/.test(notes) || !/år 1950/.test(notes)) throw new Error(`kortet säger inte att intervallet avslutades: ${notes}`);
+      const notes = (await tp.locator('#detail .place-banner').allTextContents()).join(' | ');
+      if (!/^Tidsintervallet 1900–1950 avslutades när platsen började följas\. För år 1950 visas platsen\.$/.test(notes)) throw new Error(`kortet säger inte att intervallet avslutades: ${notes}`);
+      // Raden står direkt under namnet och syns utan att rulla kortet
+      const inView = await tp.evaluate(() => { const r = document.querySelector('#detail .place-banner').getBoundingClientRect(), d = document.getElementById('detail').getBoundingClientRect(); return r.top >= d.top && r.bottom <= d.bottom; });
+      if (!inView) throw new Error('beskedet om intervallet ligger utanför det synliga i kortet');
+      // Och läses upp efter kortets rubrik
+      await tp.waitForFunction(() => /Tidsintervallet 1900–1950 avslutades/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step });
       const hash = await tp.evaluate(() => location.hash);
       if (/y2=/.test(hash) || !/f=place:gronland/.test(hash)) throw new Error(`adressen är fel efter bytet: ${hash}`);
       // Åt andra hållet: ett nytt intervall avslutar platsen och stänger kortet (inget kort utan fokus)

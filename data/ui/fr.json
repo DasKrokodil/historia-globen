@@ -365,7 +365,7 @@
   "place.flatShown": "Carte plane ouverte avec {place} à l’écran.",
   "place.noneHere": "Aucun lieu avec fiche propre n’est au centre de la vue. Choisissez un lieu dans « Chercher et suivre » → « Lieux ».",
   "place.hereKey": "{place} : un lieu avec fiche. Appuyez sur Entrée pour le suivre.",
-  "place.rangeEnded": "L’intervalle de temps {range} s’est terminé lorsque le lieu a été suivi. Le lieu est affiché pour l’année {year}.",
+  "place.rangeEnded": "L’intervalle de temps {range} s’est terminé lorsque le lieu a été suivi. Pour l’année {year}, le lieu est affiché.",
   "play.pausedToday": "En pause : la situation aujourd’hui",
   "play.pausedWarEnd": "En pause : la guerre est finie",
   "play.pausedMajor": "En pause à un grand événement de la guerre",
