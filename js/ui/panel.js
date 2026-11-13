@@ -100,6 +100,9 @@ function sourceLink(source, target = false) {
 /** Börjar händelsen före tidslinjens första år (#942)? Reglaget kan då inte stå på dess första år. */
 export const beforeTimelineStart = e => Number.isFinite(e?.start) && e.start < MIN_YEAR;
 
+/** Förhistoria före 10 000 f.Kr.: texten räknar i år sedan medan årtalen står i f.Kr., så faktarutan förklarar skillnaden (#1384). */
+const inDeepTime = e => Number.isFinite(e?.start) && e.start < -9999;
+
 /** Källornas kontrollnivå och den historiska osäkerheten är olika saker (#364). */
 export const uncertaintyRow = (e, copy = {}, evidence = '') => {
   const reasons = [];
@@ -787,6 +790,7 @@ export class Panel {
       <h3${langAttr(e.title)}>${esc(t(e.title))}</h3>
       <div class="meta">${esc(formatEventTime(e))}${evidence.marker('date')}${unc ? uncertaintyMark(e, 'date', this.uncertainty) : ''} · ${esc(t(e.place))}${evidence.marker('location')}${unc ? uncertaintyMark(e, 'place', this.uncertainty) : ''} · ${esc(t(CAT[e.category]?.name))}</div>
       ${beforeTimelineStart(e) ? `<p class="scale-note">${esc(ui('detail.beforeScale', { year: formatYear(MIN_YEAR) }))}</p>` : ''}
+      ${inDeepTime(e) ? `<p class="scale-note">${esc(ui('detail.yearsAgo'))}</p>` : ''}
       ${tagMarks(e, this.tags)}
       ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(ui('detail.showPlaceLabel', { place: t(e.place) }))}"><span class="place-pin" aria-hidden="true"></span><span class="place-go">${esc(ui('detail.showPlace'))}</span></button>` : ''}
       ${figure(e, this.srcById, evidence.marker('image'))}

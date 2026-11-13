@@ -69,7 +69,7 @@ Sidan läser händelserna uppdelade i ett index och de långa fälten per period
 
 | Fält | Betydelse |
 |---|---|
-| `locationPrecision` | `region` eller `country` när platsen är ungefärlig |
+| `locationPrecision` | `region` eller `country` när platsen är ungefärlig. Förhistorien (#1384): platsen är alltid en fyndplats, aldrig ett antaget område. `region` sätts när punkten är ett fynd som får stå för en art eller grupp med större utbredning (neandertalare, denisovaner, *Homo floresiensis*) eller när koordinaten gäller ett större område än fyndplatsen (en formation, en nationalpark); en enskild grotta med egen koordinat har inget `locationPrecision` |
 | `wikidata` | Q-id, bara om det är kontrollerat eller kommer från en källa vi litar på |
 | `icon` | Ikonens namn i `img/icons/`, till exempel `swords`, `crown`, `star`, `treaty` (fredsavtal, vapenstillestånd och kapitulationer: dokument med sigill, #242) |
 | `kind` | `"war"` för ett krig, med start och slut som spann |
