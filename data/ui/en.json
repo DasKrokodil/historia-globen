@@ -469,6 +469,7 @@
   "detail.source": "Source:",
   "detail.sourceMissing": "missing",
   "detail.beforeScale": "The event begins before the start of the timeline ({year}), so the slider cannot show its first year.",
+  "detail.yearsAgo": "The text counts in years ago and the dates in BC. The difference is about 2,000 years: 40,000 years ago is about 38,000 BC.",
   "detail.evidence.ref": "Source {n}",
   "detail.evidence.date": "Date",
   "detail.evidence.text": "Text",
