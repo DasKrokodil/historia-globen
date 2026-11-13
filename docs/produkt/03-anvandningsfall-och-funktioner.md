@@ -18,7 +18,7 @@ Aktörerna (A–I) står i [02](02-anvandare-och-intressenter.md). Status: **fin
 | UC8 | A | Se världen som karta eller som européernas bild | Vy: Platt karta eller Upptäcktsresor | Platt vy, upptäcktsvyn | finns |
 | UC9 | A | Välja vad som visas | Lager: grupper och förinställda vyer, kategorier, lugn rörelse | Lagerregistret, Lager-menyn | finns |
 | UC10 | A, F | Skriva ut en affisch av kartan | Platt vy → affisch | A4-affisch som PNG | finns |
-| UC11 | B | Köra en lektion med en klass | Dela turlänk (`m=lektion`) → projicera → eleverna svarar → skriva ut elev- och lärarblad | Lektionsläge, lärarfält, utskrift (#738), lektion 1 (åk 7–9), lektion 2 (åk 4–6) | finns; flödet från länk till användbart blad är en känd riskyta (analys 2026-11-08) |
+| UC11 | B | Köra en lektion med en klass | Mer → För lärare (#1315) → Starta som lektion, eller dela turlänk (`m=lektion`) → projicera (Presentationsläge i För lärare) → eleverna svarar → skriva ut elev- och lärarblad | Lektionsläge, lärarfält, utskrift (#738), lektion 1 (åk 7–9), lektion 2 (åk 4–6) | finns; flödet från länk till användbart blad är en känd riskyta (analys 2026-11-08) |
 | UC12 | C | Göra ett elevuppdrag | Mer → Samtidighetsjakten → hitta händelser på olika kontinenter samma år | Samtidighetsjakten (#741) | finns |
 | UC13 | D, C | Testa vad jag lärt mig | Mer → Quiz: "Vad hände samtidigt som …?" | Quiz (#65) | finns |
 | UC14 | G | Rapportera ett faktafel eller föreslå innehåll | Faktarutan → Rapportera faktafel; formuläret | Rapportera faktafel, `functions/api/feedback.js` | delvis: formuläret är avstängt i production |

@@ -36,7 +36,7 @@ Det finns sex "rum" att vara i, och man ska alltid kunna komma tillbaka till huv
 | **Lager och Vy** | Lager, Vy | Välja vad som syns; glob / platt / upptäckt | Utanför-tryck, Escape |
 | **Tur / lektion / quiz / jakt** | Turer, Mer, delad länk | Följa ett förlopp steg för steg | Avsluta, Klar, Escape |
 
-Mer-menyn (Källor, Hjälp, Quiz, Samtidighetsjakten, Dela) samlar det som inte är kärnflödet. Språket väljs med en egen knapp i raden överst (jordglob och kod, ofärdiga språk märkta beta), så att den som inte läser svenska hittar den utan att öppna en meny (#1167).
+Mer-menyn (Källor, Hjälp, För lärare, Quiz, Samtidighetsjakten, Dela) samlar det som inte är kärnflödet. **För lärare** (#1315) är ingången för den som undervisar: ett kort med lektionerna (Starta som lektion), en förklaring av utskriften av elev- och lärarblad, Quiz, Samtidighetsjakten och en knapp för presentationsläget, och det säger att ingen inloggning och inga elevkonton behövs. Hjälp har en rad "Undervisar du?" som öppnar det. Språket väljs med en egen knapp i raden överst (jordglob och kod, ofärdiga språk märkta beta), så att den som inte läser svenska hittar den utan att öppna en meny (#1167).
 
 ## Huvudflöden
 
@@ -46,7 +46,7 @@ Antagna "lyckade vägar". Varje flöde är också en testplan: den som granskar 
 2. **Utforska ett år:** skriv ett år → Samtidigt i världen per världsdel → välj → faktaruta.
 3. **Följ ett krig:** Sök och följ → välj krig → uppspelning pausar vid viktiga händelser → slutkort → avsluta och komma tillbaka dit man var.
 4. **Tur:** Turer → välj → steg med fråga att fundera på → slutkort med det viktigaste.
-5. **Lektion:** lärare delar länken (`m=lektion`) → menyerna är dolda, år och lager låsta → band med "Visa hela globen" → elevblad och lärarblad skrivs ut. Lektionen visar alltid alla händelser i lektionens år, aldrig Översikts urval (#1139).
+5. **Lektion:** läraren öppnar För lärare under Mer (eller Hjälp → "Undervisar du?") och väljer Starta som lektion, eller delar länken (`m=lektion`) → menyerna är dolda, år och lager låsta → band med "Visa hela globen" → elevblad och lärarblad skrivs ut. Lektionen visar alltid alla händelser i lektionens år, aldrig Översikts urval (#1139).
    - **Lärarstödet (#1139):** en gammal länk utan `g=` visar alla händelser, medan en bar länk (`historiagloben.se` utan hash) börjar i Översikt, ett urval om cirka 120 händelser. Två elever som öppnar "samma" sida kan alltså se olika saker. Be eleverna öppna länken du delar (en lektionslänk visar alltid alla händelser), eller säg att de ska välja Standard i Lager. Raden "Översikt: ett urval, cirka 120 händelser. Visa alla" överst i Samtidigt säger när det är ett urval.
 6. **Dela:** Dela → länk → mottagaren ser samma vy (adressen bär år, kamera, fokus, lager).
 7. **Rapportera fel:** faktaruta → Rapportera faktafel.
@@ -63,7 +63,7 @@ Antagna "lyckade vägar". Varje flöde är också en testplan: den som granskar 
 | Mobil | ≤ 760 px (testat 400×800) | Bara Samtidigt och Meny i raden överst; faktaruta och Samtidigt-kort som ark med tre lägen; globen lyfts när arket är halvt; 44 px träffytor |
 | Platt vy | båda | Karta med zoom och panorering; samma bild som kan skickas till en fysisk glob |
 | Lektionsläge | båda | Menyerna dolda, år och lager låsta |
-| Presentationsläge | (att verifiera) | Länken "Avsluta presentationsläge" finns i sidhuvudet; läget är inte beskrivet här än |
+| Presentationsläge (#488) | dator (≥ 761 px) | Större text och knappar för projektor och storskärm. Slås på med knappen i För lärare (utan omladdning; adressen får `?presentation=1`) eller med en äldre länk med parametern; Avsluta uppe i raden tar bort det och behåller vyn. Knappen visas inte i mobilbredd, där Avsluta täcker årtalet (känt fel i läget, #1457) |
 | Utskrift | A4 | Elev- och lärarblad, svart på vitt |
 
 ## Lägen att alltid prova (blind-spots-listan)

@@ -1,0 +1,17 @@
+# "För lärare": en ingång under Mer, och en knapp för presentationsläget
+
+**Datum:** 2026-11-13 (DasKrokodil sa ja i #1315, förslag A19 i helganalysen #1289, lärarlinsen)
+
+## Beslut
+1. En ny yta **För lärare** ligger under **Mer**, och Hjälp har en rad "Undervisar du?" som öppnar den. Kortet samlar lektionerna (turer med lärarfält, med Starta som lektion), en förklaring av utskriften av elev- och lärarblad, Quiz, Samtidighetsjakten och en knapp för presentationsläget. Det säger öppet att ingen inloggning och inga elevkonton behövs.
+2. Kortet är en **dialog** i stängregistret (`js/surfaces.js`, grupp `dialog`): bara en dialog öppen åt gången, Escape stänger, fokus går tillbaka till Mer (eller Meny i mobilen). Kortet använder Hjälps kortklass (`js/ui/help.js`) och ligger i menylagret `--z-meny`, eftersom det är högt och annars täcks av Samtidigt-kortet i mobilen.
+3. Lektionslistan byggs ur turerna (lärarfältet `lesson`), inte ur en egen lista, så att kortet aldrig säger något annat än turernas data. Startknappen gör samma sak som Starta som lektion i Turer-menyn (`TourPlayer.startAsLesson`).
+4. **Presentationsläget** (#488) kan nu slås på med en knapp. Knappen skriver `?presentation=1` i adressen med `history.replaceState` utan omladdning, så att Dela och en omladdning behåller läget. Adressparametern gäller som förut, och äldre länkar fungerar. Läget sparas fortfarande aldrig. Avsluta är fortfarande en länk till sidan utan parametern; den får nu adressens nuvarande vy (år och kamera) när den trycks, i stället för vyn från sidans start. Koden ligger i `js/controllers/presentation.js`.
+5. Knappen för presentationsläget visas **inte i smal skärm** (≤ 760 px): läget ändrar bara toppraden där, och Avsluta-knappen täcker årtalet. Adressparametern är oförändrad; felet på smal skärm är noterat i #1457.
+6. Texten skrivs på svenska i `index.html` och i `data/ui/{en,de,es,fr}.json` (nycklarna `top.teacher`, `top.teacherTitle`, `help.teacher`, `help.teacherBtn` och `teacher.*`), artigt tilltal på tyska, spanska och franska (beslut 2026-11-08, tilltal efter ålder: texten riktar sig till lärare). Namnet "Presentationsläge" följer den befintliga Avsluta-knappen; "storskärm" står i förklaringen.
+
+## Varför
+Inget på startsidan eller i Hjälp sa att lektioner, utskrift, quiz och jakt finns, och storskärmsläget nåddes bara genom att skriva `?presentation=1` i adressen. En lärare som inte frågar oss hittar annars inte det som skolspåret byggts för (antagandet V1 i docs/produkt/07-valideringsplan.md).
+
+## Berör
+`index.html`, `js/main.js`, `js/ui/teacher.js` (ny), `js/controllers/presentation.js` (ny), `js/ui/tour.js` (`lessonMeta`, `startAsLesson`), `css/style.css`, `data/ui/*.json`, `tests/webblasare.mjs`, `docs/produkt/05-ux-oversikt.md`, `docs/produkt/03-anvandningsfall-och-funktioner.md`, `docs/arkitektur.md`, CLAUDE.md och README.md (filstrukturen).
