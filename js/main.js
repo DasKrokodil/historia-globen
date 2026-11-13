@@ -473,6 +473,13 @@ async function start() {
       posterButton.disabled = false;
     }
   });
+  // Stängknappen i Lager, Sök och följ och Turer (mobil, #1309): menyerna fyller nästan hela skärmen. Knappen gör samma sak som
+  // knappen som öppnade menyn, så att stängregistret och fokus beter sig som vid ett vanligt stängande.
+  document.addEventListener('click', e => {
+    const x = e.target.closest?.('.menu-x');
+    const opener = x && { 'layer-menu': 'btn-layers', 'focus-menu': 'btn-focus', 'tour-menu': 'btn-tour' }[x.closest('.layer-menu')?.id];
+    if (opener) $(opener).click();
+  });
   // Escape stänger Platt vy, men först det som ligger ovanpå (menyer, Hjälp, förslagsformuläret, panelen, faktarutan)
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape' || flatMap.hidden) return;
