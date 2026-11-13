@@ -17,6 +17,21 @@ from pathlib import Path
 REGIONS = ['Europa', 'Asien', 'Afrika', 'Amerika', 'Oceanien']
 
 
+# Västra Anatoliens kust som (lat, lon) från Dardanellerna till Knidos, samma som AEGEAN_COAST i js/model.js (#1334)
+AEGEAN_COAST = [(40.45, 26.75), (40.0, 26.2), (39.5, 26.05), (39.4, 26.62), (39.0, 26.75), (38.7, 26.7),
+                (38.45, 26.4), (38.3, 26.25), (38.0, 26.9), (37.75, 27.1), (37.6, 27.05), (37.4, 27.15), (37.0, 27.2),
+                (36.95, 27.38), (36.6, 27.6)]
+
+
+def aegean_coast_lon(lat):
+    for i in range(1, len(AEGEAN_COAST)):
+        a, x = AEGEAN_COAST[i - 1]
+        b, y = AEGEAN_COAST[i]
+        if lat >= b:
+            return y + (lat - b) / (a - b) * (x - y)
+    return AEGEAN_COAST[-1][1]
+
+
 def region(lat, lon):
     """Samma grova världsindelning som js/model.js:region()."""
     if lat > 50 and (lon < -168 or lon > 160):
@@ -25,6 +40,11 @@ def region(lat, lon):
         return 'Oceanien'
     if lon < -105 and lat < -10:  # östra Polynesien med Rapa Nui (#630)
         return 'Oceanien'
+    if -32 <= lon < -20:  # Azorerna (Europa) och Kap Verde (Afrika) (#1334)
+        if 36 < lat < 40.5:
+            return 'Europa'
+        if 13 < lat < 18:
+            return 'Afrika'
     if lon < -25:
         return 'Amerika'
     if lon < -10 and lat >= 68:  # Grönlands östkust, norr om Island (#1135)
@@ -39,10 +59,14 @@ def region(lat, lon):
     elif lon <= 32.5:
         africa_north = lat < 33.5
     else:
-        africa_north = lat < 31.5 and lon < 32.5 + (30 - lat) * 0.62
+        africa_north = (lat < 31.5 and lon < 32.5 + (30 - lat) * 0.62) or lat < 12  # Somalia (#1334)
     africa = lon >= -20 and lon < 52 and lat > -36 and africa_north
     if africa:
         return 'Afrika'
+    if 52 <= lon < 64 and -22 < lat < -3:  # Maskarenerna och Seychellerna (#1334)
+        return 'Afrika'
+    if 36.6 <= lat <= 40.45 and lon < 28.9 and lon > aegean_coast_lon(lat):  # västra Anatolien (#1334)
+        return 'Asien'
     if lat >= 35 and (lon < 28.9 or (lat >= 41 and lon < 60 and not (lon > 40 and lat < 44.5))):
         return 'Europa'
     return 'Asien'
