@@ -129,9 +129,9 @@ export class ReligionLegend {
     // Människans spridning (#1094): samma tecken som på kartan (område med snedstreck och streckad kant, våg med streck
     // eller prickar), vad varje post bygger på och dess källor. Listan är kartans textalternativ (#1106).
     const spreadHtml = !spread ? '' : `<div class="rl-spread" style="margin-top:6px;padding-top:4px;border-top:1px solid var(--line)"><p class="rl-note">${esc(ui('legend.spreadNote'))}</p><ul>${spread.items.map(i =>
-      `<li class="rl-spread-item" style="display:block;margin-top:6px"><p class="rl-note rl-row"><span class="swatch" aria-hidden="true" style="${spreadSwatch(i)}"></span>${i.kind === 'wave' && i.certainty !== 'huvudvag' ? '<span aria-hidden="true">?</span>' : ''}<span><strong>${esc(i.title)}</strong> <em>(${esc(ui(`spread.certainty.${i.certainty}`))})</em></span></p>
+      `<li class="rl-spread-item" style="display:block;margin-top:6px"><div class="rl-note rl-row"><span class="swatch" aria-hidden="true" style="${spreadSwatch(i)}"></span>${i.kind === 'wave' && i.certainty !== 'huvudvag' ? '<span aria-hidden="true">?</span>' : ''}<span><h3 class="rl-spread-head">${esc(i.title)}</h3> <em>(${esc(ui(`spread.certainty.${i.certainty}`))})</em></span></div>
         <p class="rl-note" style="display:block">${esc(i.summary)}${i.note ? ` ${esc(i.note)}` : ''}${i.sources.length ? ` ${esc(ui('legend.spreadSources'))} ${
-          i.sources.map((s, n) => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${n + 1}<span class="sr-only"> ${esc(s.title)} ${esc(ui('legend.newTab'))}</span></a>`).join(', ')}.` : ''}</p></li>`).join('')}</ul></div>`;
+          i.sources.map((s, n) => `<a class="rl-spread-src" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${n + 1}<span class="sr-only"> ${esc(s.title)} ${esc(ui('legend.newTab'))}</span></a>`).join(', ')}.` : ''}</p></li>`).join('')}</ul></div>`;
     // Vad symbolerna betyder (#271)
     const symbolsHtml = !items.length ? '' : `<p class="rl-note rl-sym-note">${esc(ui('legend.symbolsNote'))}</p>`;
     // Faktarutan på begäran (#308), när någon religion som syns har en

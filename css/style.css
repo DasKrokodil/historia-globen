@@ -1721,6 +1721,10 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-legend .rl-coverage-note { display: block; margin-top: 0; }
 .religion-legend .rl-credit { display: block; }
 .religion-legend .rl-credit a { color: var(--brass); }
+/* Människans spridning (#1417): varje post har en rubrik (så att en skärmläsare kan hoppa mellan dem) som ser ut som
+   den feta texten förut, och källänkarna har minst 24 × 24 px träffyta */
+.religion-legend .rl-spread-head { display: inline; margin: 0; font: inherit; font-weight: 700; letter-spacing: normal; text-transform: none; color: inherit; }
+.religion-legend .rl-spread-src { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; min-height: 24px; color: var(--brass); }
 .religion-legend:has(.rl-disc) { max-width: 260px; }
 .layer-sub .rel-about { display: block; margin: 6px 10px 2px; padding: 4px 10px; border-color: var(--brass-deep); }
 .religion-pop {
