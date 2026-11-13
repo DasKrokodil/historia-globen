@@ -57,6 +57,13 @@ export function createRender(app) {
   const empireNames = () => !$('flat-view').hidden || zoomMag() >= NAMES_MAG;
   // Nutida staters flaggor (#1193) syns bara vid nära zoom på globen och i Platt vy från nivån Inzoomat; annars namnet
   const modernFlags = () => $('flat-view').hidden ? zoomMag() >= NAMES_MAG : zoomLevel(pxPerImg(globe, flatMap)) >= 2;
+  // Platsernas prickade konturer och tryck på dem (#1161): i vanligt läge (aldrig i Fokus, tur, lektion eller intervall) och inzoomat:
+  // på globen vid samma nära zoom som religionernas namn, i Platt vy när kartan är förstorad (zoom 1 visar hela världen). Nivån
+  // Inzoomat för flaggorna räcker inte: en inramad plats i mobilbredd når den aldrig
+  const PLACE_FLAT_ZOOM = 1.2; // en inramad plats i mobilbredd (400 px, högt format) får zoom omkring 1,4
+  const placeHints = () => !!app.places?.allowed() && ($('flat-view').hidden ? zoomMag() >= NAMES_MAG : flatMap.zoom >= PLACE_FLAT_ZOOM);
+  // Konturens bredd räknas i skärmpixlar (bildpunkter på 4096-bilden per skärmpixel), annars blir den hårfin när kartan visas litet
+  const placePx = () => Math.round(100 / pxPerImg(globe, flatMap)) / 100;
   function nameStyle() {
     if (!$('flat-view').hidden) return [ZOOM_LEVELS[zoomLevel(flatMap.scale)].flatScale, 1]; // efter zoomnivån (#358)
     const mag = zoomMag();
@@ -71,7 +78,7 @@ export function createRender(app) {
       const [sc, al] = nameStyle();
       const l = state.labels;
       // Ny zoomnivå (#358) ändrar vilka rikesnamn och medaljer som får plats
-      if (l.scale !== sc || l.alpha !== al || l.religionNames !== religionNames() || l.empireNames !== empireNames() || l.modernFlags !== modernFlags()
+      if (l.scale !== sc || l.alpha !== al || l.religionNames !== religionNames() || l.empireNames !== empireNames() || l.modernFlags !== modernFlags() || l.placeHints !== placeHints() || (l.placeHints && Math.abs(Math.log(l.placePx / placePx())) > 0.12)
         || areas.view.level !== zoomLevel(pxPerImg(globe, flatMap))) refresh();
     }, 150);
   };
@@ -108,7 +115,8 @@ export function createRender(app) {
     const focus = state.focus;
     // Namn och symboler på lagerbilden efter zoom och vy (#154, #271, #301)
     const [scale, alpha] = nameStyle();
-    state.labels = { scale, alpha, religionNames: religionNames(), empireNames: empireNames(), modernFlags: modernFlags() };
+    state.labels = { scale, alpha, religionNames: religionNames(), empireNames: empireNames(), modernFlags: modernFlags(), placeHints: placeHints(), placePx: placePx() };
+    if (state.labels.placeHints) app.places.ensure(); // platsernas gränser (165 kB) laddas först när man har zoomat in
     // I fokusläget för korta krig är året ett decimaltal (#204). Händelser och krig får då sina
     // datum ur edtf (span), medan riken, religioner och fun facts får det hela året som förut.
     const year = timeline.year, wholeYear = Math.floor(year), fine = !!focus?.fine;

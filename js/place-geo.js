@@ -41,6 +41,58 @@ export function edgeKm(geometry, lon, lat) {
  */
 export const COAST_MARGIN_KM = 20;
 
+/** Gränsrutan { west, east, south, north } för alla ringar i geometrin, med longituderna uppvikta kring centerLon. */
+function boundsOf(geometry, centerLon = 0) {
+  let west = Infinity, east = -Infinity, south = Infinity, north = -Infinity;
+  for (const poly of geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates) {
+    for (const [lon, lat] of poly[0]) {
+      const x = centerLon + (((lon - centerLon + 180) % 360) + 360) % 360 - 180; // närmast centerLon, så att datumgränsen inte spränger rutan
+      west = Math.min(west, x); east = Math.max(east, x); south = Math.min(south, lat); north = Math.max(north, lat);
+    }
+  }
+  return { west, east, south, north };
+}
+
+/**
+ * Rutan runt platsens yttre gräns, för att rama in den i Platt vy (#1161). Longituderna viks upp kring centerLon
+ * (platsens `view.center`), så att Aotearoa med Chathamöarna (över datumgränsen) blir 18 grader bred och inte 340.
+ */
+export function placeBounds(place, centerLon = place.view?.center?.[1] ?? 0) {
+  return boundsOf(place.boundary.geometry, centerLon);
+}
+
+const boxCache = new WeakMap();
+/** Rutan i vanliga longituder (utan uppvikning) och dess yta, till för att sålla bort platser snabbt vid uppslag. */
+function rawBox(geometry) {
+  let box = boxCache.get(geometry);
+  if (!box) {
+    let west = Infinity, east = -Infinity, south = Infinity, north = -Infinity;
+    for (const poly of geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates) {
+      for (const [lon, lat] of poly[0]) { west = Math.min(west, lon); east = Math.max(east, lon); south = Math.min(south, lat); north = Math.max(north, lat); }
+    }
+    box = { west, east, south, north, area: (east - west) * (north - south) };
+    boxCache.set(geometry, box);
+  }
+  return box;
+}
+
+/**
+ * Platsen under en punkt (#1161): den vars gräns innehåller punkten, annars null. Bara dagens gräns räknas, utan
+ * kustmarginalen (ett tryck i havet utanför kusten är inte ett tryck på platsen). Ligger punkten inom flera platser
+ * (ett landskap inom ett land) väljs den minsta, det vill säga den mest precisa. places är platserna som har ett kort.
+ */
+export function placeAt(places, lon, lat) {
+  let best = null, bestArea = Infinity;
+  for (const place of places) {
+    const g = place.boundary?.geometry;
+    if (!g) continue;
+    const box = rawBox(g);
+    if (lon < box.west || lon > box.east || lat < box.south || lat > box.north || box.area >= bestArea) continue;
+    if (inGeometry(g, lon, lat)) { best = place; bestArea = box.area; }
+  }
+  return best;
+}
+
 /** Händelserna (med _lon och _lat, som model.js sätter) som ligger inom platsens gräns, i tidsordning. */
 export function placeEvents(place, events) {
   return events.filter(e => e._lon != null && (inGeometry(place.boundary.geometry, e._lon, e._lat) || edgeKm(place.boundary.geometry, e._lon, e._lat) <= COAST_MARGIN_KM)).sort((a, b) => a.start - b.start);

@@ -1034,7 +1034,16 @@ async function run(browser, vp) {
     // Som en elev: öppna händelsen i Samtidigt och tryck på Lägg till i jakten i faktarutan
     const add = async id => {
       if (await page.isHidden('#panel')) await clickView('#btn-panel');
-      await page.locator(`#event-list .event-btn[data-id="${id}"]`).first().click();
+      const btn = page.locator(`#event-list .event-btn[data-id="${id}"]`).first();
+      // Panelen visar fem händelser per världsdel och resten bakom "Visa fler". Nya händelser i datan (Mutapariket och Sankore i
+      // #1015) kan skjuta Bartolomeu Dias 1488 ut ur Afrika-listan, så världsdelarna öppnas en i taget tills händelsen syns,
+      // som en elev skulle göra, i stället för att anta att den alltid ligger bland de fem första.
+      for (let i = 0; !await btn.count() && i < 8; i++) {
+        const more = page.locator('#event-list .panel-more[data-region][aria-expanded="false"]').first();
+        if (!await more.count()) break;
+        await more.click();
+      }
+      await btn.click();
       await page.waitForSelector('#detail [data-hunt]', { state: 'visible', timeout: T.step });
       await page.click('#detail [data-hunt]');
       return (await page.textContent('#hunt-message')).trim();
@@ -1868,6 +1877,122 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1161: tryck på konturen av en plats. Konturerna syns och går att trycka på bara inzoomat och i vanligt läge; trycket
+  // öppnar kortet (Fokus av typen place) på globen och i Platt vy, och knappen Visa i Platt karta ramar in platsen.
+  // Grönland (isen i norr, 76° N 40° V) ligger fritt från markörer och etiketter vid år 1000, också i mobilbredd.
+  const placeTapPage = async (hash, name) => {
+    const t = await touchPage();
+    await t.tp.goto(`${BASE}?ny=${name}${hash}`);
+    await t.tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+    return t;
+  };
+  // dy: andel av höjden ovanför mitten. Mobilens etiketter (Alltinget) ligger i mitten vid år 1000, så inzoomat trycker vi högre upp på isen
+  const centreOf = async (pg, dy = 0) => { const b = await pg.locator('#globe-canvas').boundingBox(); return { x: b.x + b.width / 2, y: b.y + b.height * (0.5 - dy) }; };
+  const followsGreenland = pg => pg.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Grönland/.test(document.getElementById('focus-title').textContent)
+    && !!document.querySelector('#detail .place-type'), null, { timeout: T.step });
+  await check('tryck på konturen av en plats öppnar kortet, bara inzoomat och i vanligt läge (#1161)', async () => {
+    // Utzoomat syns ingen kontur och ett tryck på Grönland öppnar ingenting
+    const far = await placeTapPage('#y=1000&c=76,-40,1', 'platstryck1');
+    try {
+      const at = await centreOf(far.tp);
+      await far.tp.mouse.move(at.x, at.y);
+      await far.tp.mouse.click(at.x, at.y);
+      await far.tp.waitForTimeout(900);
+      if (!(await far.tp.isHidden('#focus-bar'))) throw new Error('ett tryck på Grönland utzoomat startade ett fokus');
+      if ((await far.tp.getAttribute('#globe-canvas', 'class')).includes('on-place')) throw new Error('handen visades över en plats utzoomat');
+    } finally { await far.tctx.close(); }
+    // Inzoomat: handen över konturen, och ett tryck öppnar platsens kort
+    const { tp, tctx, errs } = await placeTapPage('#y=1000&c=76,-40,3', 'platstryck2');
+    try {
+      const at = await centreOf(tp, 0.18);
+      await tp.mouse.move(at.x, at.y);
+      await tp.waitForFunction(() => document.getElementById('globe-canvas').classList.contains('on-place'), null, { timeout: T.step });
+      await tp.mouse.click(at.x, at.y);
+      await followsGreenland(tp);
+      await tp.waitForFunction(() => location.hash.includes('f=place:gronland'), null, { timeout: T.step });
+      // I Fokus finns ingen hand och ingen ny kontur att trycka på
+      await tp.mouse.move(at.x + 3, at.y + 3);
+      await tp.waitForTimeout(250);
+      if ((await tp.getAttribute('#globe-canvas', 'class')).includes('on-place')) throw new Error('handen visades över en plats i Fokus');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return 'handen och trycket gäller bara inzoomat, och kortet öppnas';
+    } finally { await tctx.close(); }
+  });
+
+  await check('Visa i Platt karta ramar in platsen, och ett tryck i Platt vy öppnar kortet (#1161)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1000&f=place:gronland', 'platstryck3');
+    try {
+      await followsGreenland(tp);
+      const button = tp.locator('#detail [data-selection-action]');
+      await button.waitFor({ state: 'visible', timeout: T.step });
+      if (!/Visa i Platt karta/.test(await button.textContent())) throw new Error(`knappen heter ${await button.textContent()}`);
+      if (!/Grönland/.test(await button.getAttribute('aria-label'))) throw new Error('knappens aria-label nämner inte platsen');
+      if (!(await tp.isHidden('#flat-view'))) throw new Error('Platt vy var öppen före knappen');
+      await button.click();
+      await tp.waitForFunction(() => !document.getElementById('flat-view').hidden, null, { timeout: T.step });
+      // Vyn byts utan eget läge: Platt karta är vald, platsen följs fortfarande och kartan är inramad på Grönland
+      if ((await tp.getAttribute('#btn-flat', 'aria-pressed')) !== 'true') throw new Error('Platt karta är inte vald i Vy');
+      if (!/Grönland/.test(await tp.textContent('#focus-title'))) throw new Error('platsen följs inte längre');
+      const frame = async () => tp.evaluate(() => {
+        const [lat, lon, zoom] = document.getElementById('flat-view').dataset.view.split(',').map(Number);
+        const r = document.getElementById('flat-canvas').getBoundingClientRect(), base = Math.max(r.width / 4096, r.height / 2048), scale = base * zoom;
+        return { lat, lon, zoom, halfLon: r.width / 2 / scale / 4096 * 360, halfLat: r.height / 2 / scale / 2048 * 180 };
+      });
+      await tp.waitForFunction(() => Number(document.getElementById('flat-view').dataset.view.split(',')[2]) > 1.2, null, { timeout: T.step });
+      const f = await frame();
+      // Hela Grönland (73° V–12° V, 59° N–84° N) ryms i kartans ruta
+      if (f.lon - f.halfLon > -73 || f.lon + f.halfLon < -12 || f.lat - f.halfLat > 59 || f.lat + f.halfLat < 84) throw new Error(`Grönland ryms inte i kartan: mitt ${f.lat},${f.lon}, halva ${f.halfLat}×${f.halfLon} grader`);
+      if (f.halfLon > 90) throw new Error(`kartan är inte inzoomad: halva bredden ${f.halfLon} grader`);
+      // Skärmläsaren får veta vad som hände
+      if (!/Platt karta öppen med Grönland i bild/.test(await tp.textContent('#screen-reader-status'))) throw new Error('statusraden säger inte att platsen visas');
+      // Avsluta platsen, och tryck sedan på konturen i Platt vy (kartan står kvar inramad, konturen syns därför)
+      const focusLeft = async () => { await tp.evaluate(() => document.querySelector('#detail [data-end-theme]')?.click()); await tp.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step }); };
+      await focusLeft();
+      // Inlandsisen (75° N 40° V) på skärmen, räknat ur kartans mitt och zoom: i mobilbredd kan kartan inte centreras på Grönland
+      // (den kan inte rullas förbi polerna), så mitten av ytan är inte Grönland. Trycket med finger väntar ett ögonblick på ett dubbeltryck
+      const { cx, cy } = await tp.evaluate(() => {
+        const [lat, lon, zoom] = document.getElementById('flat-view').dataset.view.split(',').map(Number);
+        const r = document.getElementById('flat-canvas').getBoundingClientRect(), scale = Math.max(r.width / 4096, r.height / 2048) * zoom;
+        return { cx: r.left + r.width / 2 + (-40 - lon) / 360 * 4096 * scale, cy: r.top + r.height / 2 + (lat - 75) / 180 * 2048 * scale };
+      });
+      await tp.mouse.move(cx, cy);
+      await tp.waitForFunction(() => document.getElementById('flat-canvas').classList.contains('on-place'), null, { timeout: T.step });
+      await tp.touchscreen.tap(cx, cy);
+      await followsGreenland(tp);
+      if ((await tp.getAttribute('#btn-flat', 'aria-pressed')) !== 'true') throw new Error('Platt vy stängdes av trycket');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `inramad: mitt ${f.lat},${f.lon}, zoom ${f.zoom}`;
+    } finally { await tctx.close(); }
+  });
+
+  await check('tangentbord: Enter följer platsen i mitten och statusraden säger vilken plats det är (#1161)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1000&c=76,-40,1', 'platstryck4');
+    try {
+      const status = () => tp.textContent('#screen-reader-status').then(s => s.replace(/\s+/g, ' ').trim());
+      await tp.focus('#globe-canvas');
+      // En tangentbordsflytt: efter en stund säger statusraden vilken plats med kort som ligger i mitten
+      await tp.keyboard.press('ArrowLeft');
+      await tp.waitForFunction(() => /Grönland: en plats med kort\. Tryck Enter/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step });
+      // Enter följer platsen, utan mus
+      await tp.keyboard.press('Enter');
+      await followsGreenland(tp);
+      await tp.waitForFunction(() => location.hash.includes('f=place:gronland'), null, { timeout: T.step });
+      await tp.click('#detail [data-end-theme]');
+      await tp.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+      // Utan plats med kort i mitten säger Enter vad man kan göra i stället (Sök och följ räcker alltid)
+      await tp.goto(`${BASE}?ny=platstryck5#y=1000&c=0,0,1`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.focus('#globe-canvas');
+      await tp.keyboard.press('Enter');
+      await tp.waitForFunction(() => /Ingen plats med eget kort ligger i mitten\. Välj en plats under Sök och följ → Platser\./.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step });
+      if (!(await tp.isHidden('#focus-bar'))) throw new Error('Enter startade ett fokus utan plats i mitten');
+      // Globens text nämner tangenten
+      if (!/Enter/.test(await tp.getAttribute('#globe-canvas', 'aria-label'))) throw new Error('globens beskrivning nämner inte Enter');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `statusraden: ${await status()}`;
+    } finally { await tctx.close(); }
+  });
+
   // #1327: fokustyperna är poster i js/focus/. Varje typ börjar via en länk, visar sitt kort, har knappen Fakta där
   // den ska finnas, står i adressen och slutar rent. Ett urval (tema, plats) lämnar tillbaka fokus till Fokus-knappen
   // och stänger sitt kort; ett okänt id börjar inget fokus och ger inget fel.
@@ -2148,14 +2273,27 @@ async function run(browser, vp) {
   });
 
   await check('Samtidigt-kortet ger bildlösa händelser en likvärdig reservruta', async () => {
-    await jumpTo(1879); await visible('#funfact');
     const cards = page.locator('#ff-pics .ff-pic');
     const reserve = page.locator('#ff-pics .ff-pic.ff-reserve');
     const image = page.locator('#ff-pics .ff-pic img:not(.ff-reserve-icon)');
+    // Året är inte fast (#1336): 1879 räckte tills nya bildlösa händelser (Royal National Park, Kvaggan) kom närmare kriget än den enda
+    // bildhändelsen (telefonen 1876), och krigskortet blev då en enda symbolruta, som är avsiktligt när inget kort har bild. Kontrollen
+    // provar därför några år i ordning och använder det första där Samtidigt-kortet har både bildkort och reservkort. År med två
+    // bildhändelser och två bildlösa står först, eftersom nya händelser då kan komma till utan att blandningen försvinner.
     // Minst ett kort av varje sort räcker för att pröva blandningen; fler bilder i datan (#453) får inte fälla testet.
-    if (await cards.count() < 2 || !await reserve.count() || !await image.count()) throw new Error('1879 saknar blandade bild- och reservkort');
+    const MIXED_YEARS = [1861, 1839, 1791, 1895, 1948, 1879];
+    let mixedYear = null;
+    for (const y of MIXED_YEARS) {
+      await jumpTo(y); await visible('#funfact');
+      const mixed = await page.waitForFunction(() => {
+        const pics = document.querySelectorAll('#ff-pics .ff-pic');
+        return pics.length >= 2 && document.querySelector('#ff-pics .ff-pic.ff-reserve') && document.querySelector('#ff-pics .ff-pic img:not(.ff-reserve-icon)');
+      }, null, { timeout: 2500 }).then(() => true, () => false);
+      if (mixed) { mixedYear = y; break; }
+    }
+    if (mixedYear == null) throw new Error(`inget av åren ${MIXED_YEARS.join(', ')} har blandade bild- och reservkort i Samtidigt-kortet`);
     const label = await reserve.first().getAttribute('aria-label');
-    if (!/Krig och konflikter, 1879, Anglo-zuluiska kriget/.test(label ?? '')) throw new Error('reservkortet saknar kategori, år och titel i sitt namn');
+    if (!/^[^,]+, -?\d+, .+: /.test(label ?? '')) throw new Error(`reservkortet saknar kategori, år och titel i sitt namn (${mixedYear}): ${label}`);
     const missing = await reserve.evaluateAll(nodes => nodes.some(node => ['.ff-reserve-icon', '.ff-reserve-year', '.ff-reserve-category', '.ff-name'].some(selector => !node.querySelector(selector))));
     if (missing) throw new Error('reservkortet saknar ikon, år, kategori eller titel');
     // Reservsymbolen får inte växa ur rutan (#975): en regel för alla bilder i .ff-pic gjorde den 173 px i en ruta på 132 px.
@@ -2170,7 +2308,7 @@ async function run(browser, vp) {
     const heights = await cards.evaluateAll(nodes => nodes.map(node => Math.round(node.getBoundingClientRect().height)));
     if (new Set(heights).size !== 1) throw new Error(`bild- och reservkort har olika höjd: ${heights.join(', ')}`);
     const imageHeight = await image.first().evaluate(el => Math.round(el.closest('.ff-pic').getBoundingClientRect().height));
-    await page.screenshot({ path: path.join(OUT, `${vp.name}-samtidigt-reservkort-1879.png`), fullPage: false });
+    await page.screenshot({ path: path.join(OUT, `${vp.name}-samtidigt-reservkort-${mixedYear}.png`), fullPage: false });
     try {
       await jumpTo(1274);
       if ((await page.textContent('#ff-kind')).trim() !== 'När ett krig bröt ut') throw new Error('1274 saknar det verifierade krigskortet i Samtidigt');

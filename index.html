@@ -56,13 +56,13 @@
   <p>Historia-globen är en interaktiv jordglob för att utforska vad som hände samtidigt i världens historia. Sidan behöver JavaScript för globen och tidslinjen. <a href="data/sources.json">Om källorna och källregistret</a>.</p>
 </noscript>
 <div class="app" id="app">
-  <canvas id="globe-canvas" class="globe-canvas" tabindex="0" role="region" aria-roledescription="interaktiv jordglob" data-i18n-aria-roledescription="globe.role" aria-label="Snurrbar jordglob. Dra för att snurra, scrolla eller nyp för att zooma. Med tangentbord: piltangenter snurrar, plus och minus zoomar, Escape går till årskontrollen. Händelserna finns också i listan Samtidigt i världen." data-i18n-aria-label="globe.label"></canvas>
+  <canvas id="globe-canvas" class="globe-canvas" tabindex="0" role="region" aria-roledescription="interaktiv jordglob" data-i18n-aria-roledescription="globe.role" aria-label="Snurrbar jordglob. Dra för att snurra, scrolla eller nyp för att zooma. Med tangentbord: piltangenter snurrar, plus och minus zoomar, Escape går till årskontrollen. Enter följer platsen i mitten av vyn, om den har ett kort. Händelserna finns också i listan Samtidigt i världen." data-i18n-aria-label="globe.label"></canvas>
   <div id="labels" class="labels"></div>
 
   <!-- Platt vy (#292) ligger direkt efter globen, så att årtalet, korten och panelerna hamnar ovanpå kartan -->
   <div id="flat-view" class="flat-view" hidden>
     <div id="flat-box" class="flat-box">
-      <canvas id="flat-canvas" class="flat-canvas" tabindex="0" role="img" aria-roledescription="karta" data-i18n-aria-roledescription="flat.role" aria-label="Världen som en platt karta. Dra för att panorera, scrolla eller nyp för att zooma. Med tangentbord: piltangenter panorerar, plus och minus zoomar, 0 återställer. Händelsernas etiketter nås med Tab, och händelserna finns också i listan Samtidigt i världen." data-i18n-aria-label="flat.label"></canvas>
+      <canvas id="flat-canvas" class="flat-canvas" tabindex="0" role="img" aria-roledescription="karta" data-i18n-aria-roledescription="flat.role" aria-label="Världen som en platt karta. Dra för att panorera, scrolla eller nyp för att zooma. Med tangentbord: piltangenter panorerar, plus och minus zoomar, 0 återställer. Enter följer platsen i mitten av kartan, om den har ett kort. Händelsernas etiketter nås med Tab, och händelserna finns också i listan Samtidigt i världen." data-i18n-aria-label="flat.label"></canvas>
       <div id="flat-labels" class="flat-labels"></div>
       <div class="flat-zoom" role="group" aria-label="Zooma kartan" data-i18n-aria-label="flat.zoom">
         <button id="flat-in" class="flat-zbtn" type="button" aria-label="Zooma in" data-i18n-aria-label="flat.in" title="Zooma in" data-i18n-title="flat.in">+</button>

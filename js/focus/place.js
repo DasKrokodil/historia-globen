@@ -17,7 +17,10 @@ export function entry(app) {
     const type = ui(`place.type.${place.type}`), of = place.partOf ? t(place.partOf) : '';
     app.store.setSelected(null);
     panel.showSelection({ label: ui('place.label'), name: place.name, lead: of ? ui('place.typeOf', { type, of }) : type, emblems: place.emblems,
-      intro: place.intro, notes: [ui('place.borderNote'), ui('place.filters')], exit: ui('place.exit'),
+      intro: place.intro,
+      // Visa i Platt karta (#1161): byter vy och ramar in platsen; knappen finns när main.js har kopplat återanropet
+      action: panel.onPlaceFlat ? { text: ui('place.flatMap'), label: `${ui('place.flatMap')}: ${t(place.name)}`, run: () => panel.onPlaceFlat(place) } : null,
+      notes: [ui('place.borderNote'), ui('place.filters')], exit: ui('place.exit'),
       summary: ui('place.events', { count: f.themeEvents.length }), events: f.themeEvents, sources: place.sources });
     app.surfaces.closeGroup('meny');
     if (app.narrow.matches) app.surfaces.closeGroup('sidopanel');

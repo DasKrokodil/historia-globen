@@ -103,7 +103,7 @@ export class FlatMap {
     };
     canvas.addEventListener('pointerup', up);
     canvas.addEventListener('pointercancel', up);
-    canvas.addEventListener('pointerleave', () => this._setHover(null));
+    canvas.addEventListener('pointerleave', () => { this._setHover(null); canvas.classList.remove('on-place'); });
 
     // Tangentbord när kartan har fokus: pilar panorerar, + och − zoomar, 0 återställer
     canvas.addEventListener('keydown', e => {
@@ -117,6 +117,7 @@ export class FlatMap {
       else if (e.key === '+' || e.key === '=') this.zoomBy(STEP);
       else if (e.key === '-' || e.key === '_') this.zoomBy(1 / STEP);
       else if (e.key === '0') reset.click();
+      else if (e.key === 'Enter' && this.onActivate) { this.onActivate(); } // tangentbordets tryck på platsen i mitten (#1161)
       else handled = false;
       if (!handled) return;
       e.preventDefault();
@@ -239,6 +240,23 @@ export class FlatMap {
     return { x, y: ((90 - lat) / 180 * IMG_H - y0) * s };
   }
 
+  /** Platsen { lon, lat } i kartans mitt, för tangentbordets tryck och uppläsning (#1161). */
+  centre() { return this._lonLat({ x: this.w / 2, y: this.h / 2 }); }
+
+  /**
+   * Rama in en ruta { west, east, south, north } (longituder uppvikta kring mitten, som place-geo.js ger) med lite luft runt
+   * (#1161). Zoomen väljs så att hela rutan ryms, inom kartans gränser. Anropas när kartan är öppen och har mått.
+   */
+  frame({ west, east, south, north }, fill = 0.78, padRight = 0) {
+    if (!this.w || !this.h) return;
+    const base = Math.max(this.w / IMG_W, this.h / IMG_H), wide = Math.max((east - west) / 360 * IMG_W, 1), high = Math.max((north - south) / 180 * IMG_H, 1);
+    const free = Math.max(this.w * 0.3, this.w - padRight); // ytan som inte täcks av ett kort till höger
+    const zoom = Math.min(MAX_ZOOM, Math.max(1, Math.min(free * fill / wide, this.h * fill / high) / base));
+    // Rutans mitt hamnar mitt i den fria ytan: kartans mitt flyttas åt öster (padRight / 2 skärmpixlar)
+    const shift = (this.w - free) / 2 / (base * zoom) / IMG_W * 360;
+    this.setView((north + south) / 2, (east + west) / 2 + shift, zoom);
+  }
+
   /** Platsen { lon, lat } under en punkt i kartans skärmkoordinater (omvändningen av _toScreen). */
   _lonLat(at) {
     const s = this.scale;
@@ -260,7 +278,10 @@ export class FlatMap {
 
   _hover(e) {
     if (e.pointerType !== 'mouse' || e.buttons) return;
-    this._setHover(this._hitTest(this._local(e))?.id ?? null);
+    const at = this._local(e), hit = this._hitTest(at);
+    this._setHover(hit?.id ?? null);
+    // Handen över en plats med kort (#1161), när ingen markör ligger under pekaren
+    this.canvas.classList.toggle('on-place', !hit && !!this.placeAt?.(this._lonLat(at)));
   }
 
   _setHover(id) {
@@ -281,6 +302,8 @@ export class FlatMap {
     const S = this.scale * this.dpr; // enhetspixlar per bildpixel
     const cw = canvas.width, ch = canvas.height;
     const x0 = this.cx - cw / 2 / S, y0 = this.cy - ch / 2 / S;
+    // Renderingsstatus: kartans mitt och zoom, så att webbläsartestet kan se vad som ramades in (#1161)
+    this.root.dataset.view = `${(90 - this.cy / IMG_H * 180).toFixed(2)},${(this.cx / IMG_W * 360 - 180).toFixed(2)},${this.zoom.toFixed(2)}`;
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, cw, ch);
     ctx.imageSmoothingEnabled = true;
