@@ -7,17 +7,32 @@
   },
   "sourcesByLicense": [
     {
+      "license": "Bara sammanfattningen läst (via Europe PMC): länkad källa, ingen text kopierad",
+      "sourceIds": [
+        "wu-2012-xianrendong"
+      ]
+    },
+    {
       "license": "CC BY (enligt Europe PMC)",
       "sourceIds": [
         "arenas-2020-philippines-mtdna",
+        "beyer-2021-climatic-windows",
         "curnoe-2025-gua-dagang",
+        "davis-madsen-2026-coopers-ferry",
+        "dillehay-2015-monte-verde",
         "freidline-2023-tam-pa-ling",
+        "gandini-2025-sahul",
+        "hallett-2025-human-niche",
         "harvati-2022-homo-mlp",
         "heydari-guran-2021-bawa-yawan",
         "jacobs-2025-denisova-chronology",
         "kaifu-2024-mata-menge",
+        "shipton-2024-timor",
+        "springer-2026-white-sands",
         "sumer-2025-ranis-genomes",
+        "vallini-2024-persian-plateau",
         "vidal-2022-omo-kibish",
+        "wooller-2018-bering",
         "xia-2024-baishiya"
       ]
     },
@@ -74,9 +89,26 @@
         "commons-bild-lister-antiseptik",
         "commons-bild-nederlandarna-till-dejima",
         "commons-bild-tambora-1815",
+        "crevecoeur-2021-jebel-sahaba",
+        "librado-2021-horses",
+        "oktaviana-2024-karampuang",
         "pmc-pecnerova-2017",
         "ucdp-brd-261",
         "ucdp-prio-acd-261"
+      ]
+    },
+    {
+      "license": "CC BY-NC 4.0: länkad källa, ingen text kopierad (beslut 2026-10-29)",
+      "sourceIds": [
+        "brumm-2021-tedongnge"
+      ]
+    },
+    {
+      "license": "CC BY-NC-ND 4.0: länkad källa, ingen text kopierad (beslut 2026-10-29)",
+      "sourceIds": [
+        "mutin-2025-mehrgarh",
+        "oktaviana-2026-muna",
+        "weber-2025-otzi"
       ]
     },
     {
@@ -204,6 +236,7 @@
         "commons-bild-stora-buddha-i-kamakura",
         "commons-bild-teotihuacan-solpyramiden",
         "commons-bild-tikal-vaxer-fram",
+        "dewp-loewenmensch",
         "wikipedia-religion",
         "wp-115-antioch-earthquake",
         "wp-1303-hongdong-earthquake",
@@ -249,6 +282,7 @@
         "wp-afghan-maratha-war",
         "wp-afghanistan",
         "wp-afonso-i-of-kongo",
+        "wp-african-humid-period",
         "wp-african-union",
         "wp-agadez-mosque",
         "wp-agaja",
@@ -418,12 +452,14 @@
         "wp-black-war",
         "wp-black-yellow-white-russia",
         "wp-blockade-of-biafra",
+        "wp-blombos-cave",
         "wp-bluebuck",
         "wp-bodh-gaya",
         "wp-bois-caiman",
         "wp-bolivia",
         "wp-borobudur",
         "wp-borodino",
+        "wp-botai-culture",
         "wp-botany-bay",
         "wp-bougainville-conflict",
         "wp-boyaca",
@@ -440,6 +476,7 @@
         "wp-bronze-head-ife",
         "wp-bucha-massacre",
         "wp-buddhism",
+        "wp-budj-bim-heritage-areas",
         "wp-buenos-aires",
         "wp-bunei",
         "wp-bunker-hill",
@@ -476,6 +513,7 @@
         "wp-carthaginian-coinage",
         "wp-casas-grandes",
         "wp-casualties-russo-ukrainian-war",
+        "wp-catalhoyuk",
         "wp-cavendish-laboratory",
         "wp-celaya-1915",
         "wp-cerro-cora",
@@ -487,12 +525,15 @@
         "wp-charles-xii",
         "wp-charter-of-the-united-nations",
         "wp-chatham-islands",
+        "wp-chauvet-cave",
         "wp-chavin-de-huantar",
         "wp-chengdu",
         "wp-chernobyl-disaster",
         "wp-chiapa-de-corzo",
         "wp-chichen-itza",
         "wp-chile",
+        "wp-chinchorro-culture",
+        "wp-chinchorro-mummies",
         "wp-chinese-farm",
         "wp-chinkiang-1842",
         "wp-cholula-massacre",
@@ -565,6 +606,7 @@
         "wp-ctesiphon",
         "wp-cuban-missile-crisis",
         "wp-cuban-revolution",
+        "wp-cueva-de-las-manos",
         "wp-cuicuilco",
         "wp-cultural-revolution",
         "wp-cuneiform",
@@ -597,8 +639,11 @@
         "wp-dmt",
         "wp-dodo",
         "wp-dodowa",
+        "wp-dogger-bank",
+        "wp-doggerland",
         "wp-dolores-hidalgo",
         "wp-dome-of-soltaniyeh",
+        "wp-domestication-of-the-horse",
         "wp-dominion-of-fiji",
         "wp-dominion-of-new-zealand",
         "wp-dong-fang-hong-1",
@@ -783,6 +828,7 @@
         "wp-french-colonial-empire",
         "wp-friedland",
         "wp-funj-sultanate",
+        "wp-gabarnmung",
         "wp-gadebusch",
         "wp-gallic-wars",
         "wp-gallipoli",
@@ -899,12 +945,14 @@
         "wp-history-of-papua-new-guinea",
         "wp-history-of-penicillin",
         "wp-history-of-sweden-800-1521",
+        "wp-history-of-the-potato",
         "wp-history-of-the-republic-of-india",
         "wp-history-of-tonga",
         "wp-history-of-vanuatu",
         "wp-hlobane",
         "wp-hodgenville",
         "wp-hoei-eruption",
+        "wp-hohlenstein-stadel",
         "wp-holocaust",
         "wp-holodomor",
         "wp-holy-roman-empire",
@@ -956,6 +1004,8 @@
         "wp-iraqi-invasion-kuwait",
         "wp-isandlwana",
         "wp-isfahan",
+        "wp-ishango",
+        "wp-ishango-bone",
         "wp-islam",
         "wp-islamabad",
         "wp-israel",
@@ -969,6 +1019,7 @@
         "wp-jankau",
         "wp-jantar-mantar-jaipur",
         "wp-japanese-surrender",
+        "wp-jebel-sahaba",
         "wp-jena-auerstedt",
         "wp-jerusalem",
         "wp-jiaozi",
@@ -1046,6 +1097,7 @@
         "wp-koumbi-saleh",
         "wp-kowloon-1839",
         "wp-kozhikode",
+        "wp-kuk-swamp",
         "wp-kumasi",
         "wp-kunjpura",
         "wp-kunjpura-1760",
@@ -1061,7 +1113,9 @@
         "wp-kyiv",
         "wp-kyoto",
         "wp-kyoto-imperial-palace",
+        "wp-la-brea-tar-pits",
         "wp-la-moneda",
+        "wp-lake-condah",
         "wp-lake-guatavita",
         "wp-lake-hayq",
         "wp-lakshmibai",
@@ -1083,7 +1137,9 @@
         "wp-lanse-aux-meadows",
         "wp-lapita-culture",
         "wp-larsa",
+        "wp-lascaux",
         "wp-lassance",
+        "wp-late-pleistocene-extinctions",
         "wp-latin-bridge",
         "wp-latte-stone",
         "wp-latte-stone-park",
@@ -1104,6 +1160,7 @@
         "wp-lingyuan",
         "wp-lion-and-sun",
         "wp-lion-capital-ashoka",
+        "wp-lion-man-hohlenstein-stadel",
         "wp-lion-of-judah",
         "wp-list-flags-sweden",
         "wp-list-uk-flags",
@@ -1131,6 +1188,7 @@
         "wp-magna-carta",
         "wp-mahavira",
         "wp-maipu",
+        "wp-maize",
         "wp-major-rock-edicts",
         "wp-makuria",
         "wp-malacca-sultanate",
@@ -1149,6 +1207,7 @@
         "wp-marie-curie",
         "wp-mariupol",
         "wp-marne-1914",
+        "wp-maros-pangkep",
         "wp-marques-de-olinda",
         "wp-marquesas-islands",
         "wp-marrakesh",
@@ -1161,6 +1220,7 @@
         "wp-mbanza-kongo",
         "wp-meerut",
         "wp-meerut-mutiny",
+        "wp-mehrgarh",
         "wp-meiji-restoration",
         "wp-memphis-egypt",
         "wp-merca",
@@ -1223,6 +1283,7 @@
         "wp-mussau-island",
         "wp-myall-creek-massacre",
         "wp-myeongnyang",
+        "wp-nabta-playa",
         "wp-naksa",
         "wp-nalanda-mahavihara",
         "wp-nan-madol",
@@ -1253,6 +1314,7 @@
         "wp-new-york-stock-exchange",
         "wp-new-zealand",
         "wp-new-zealand-wars",
+        "wp-newgrange",
         "wp-nigeria",
         "wp-nigerian-civil-war",
         "wp-ninety-five-theses",
@@ -1312,7 +1374,9 @@
         "wp-ottoman",
         "wp-ottoman-mamluk-war",
         "wp-otumba",
+        "wp-otzi",
         "wp-ouidah",
+        "wp-ounjougou",
         "wp-overthrow-hawaiian-kingdom",
         "wp-oxford",
         "wp-pachacuti",
@@ -1369,6 +1433,7 @@
         "wp-portuguese-conquest-goa",
         "wp-portuguese-empire",
         "wp-portuguese-india-armadas",
+        "wp-potato",
         "wp-potosi",
         "wp-poverty-point",
         "wp-prague",
@@ -1522,6 +1587,7 @@
         "wp-sirhind",
         "wp-six-day-war",
         "wp-six-day-war-2000",
+        "wp-skara-brae",
         "wp-slave-trade-act-1807",
         "wp-slavery-in-brazil",
         "wp-smallpox",
@@ -1556,6 +1622,7 @@
         "wp-stele-of-piye",
         "wp-stockholm",
         "wp-stonehenge",
+        "wp-storegga-slide",
         "wp-storming-of-the-bastille",
         "wp-stratford",
         "wp-su-song",
@@ -1602,6 +1669,7 @@
         "wp-tauranga-campaign",
         "wp-te-kooti-war",
         "wp-telephone",
+        "wp-tell-es-sultan",
         "wp-temple-inscriptions",
         "wp-temple-of-the-feathered-serpent",
         "wp-ten-tragic-days",
@@ -1638,6 +1706,7 @@
         "wp-torres-strait-islands",
         "wp-toussaint-louverture",
         "wp-toussaint-rouge",
+        "wp-tower-of-jericho",
         "wp-toxcatl-massacre",
         "wp-trafalgar",
         "wp-trail-of-tears",
@@ -1704,6 +1773,7 @@
         "wp-valentina-tereshkova",
         "wp-valley-of-tears",
         "wp-varangians",
+        "wp-varna-necropolis",
         "wp-vasco-da-gama",
         "wp-venezuela",
         "wp-venice",
@@ -1740,6 +1810,7 @@
         "wp-wars-of-alexander",
         "wp-washington-on-the-brazos",
         "wp-waterloo",
+        "wp-watson-brake",
         "wp-watson-crick-1953",
         "wp-watt-steam-engine",
         "wp-wave-hill-walk-off",
@@ -1771,6 +1842,7 @@
         "wp-wuhan",
         "wp-www",
         "wp-xepon",
+        "wp-xianren-cave",
         "wp-yamen",
         "wp-yashima",
         "wp-year-of-africa",
@@ -1778,6 +1850,8 @@
         "wp-yellow-turban",
         "wp-yinchuan",
         "wp-yom-kippur-war",
+        "wp-younger-dryas",
+        "wp-youngest-toba-eruption",
         "wp-yugoslavia",
         "wp-zacatecas-1914",
         "wp-zagwe",
@@ -1891,6 +1965,25 @@
       ]
     },
     {
+      "license": "Fri att läsa (PNAS open access), ingen CC-licens angiven: länkad källa, ingen text kopierad",
+      "sourceIds": [
+        "storey-2012-toba"
+      ]
+    },
+    {
+      "license": "Fri att läsa (PNAS open access), licensen inte fastställd: länkad källa, ingen text kopierad",
+      "sourceIds": [
+        "quiles-2016-chauvet"
+      ]
+    },
+    {
+      "license": "Fri att läsa, ingen öppen licens angiven: länkad källa, ingen text kopierad",
+      "sourceIds": [
+        "piperno-2009-xihuatoxtla",
+        "ranere-2009-xihuatoxtla"
+      ]
+    },
+    {
       "license": "Förenta nationerna (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "un-untaet"
@@ -1906,6 +1999,12 @@
       ]
     },
     {
+      "license": "Ingen CC-licens angiven: länkad källa, ingen text kopierad",
+      "sourceIds": [
+        "rumold-2016-potato"
+      ]
+    },
+    {
       "license": "Lex, begränsad licens (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "lex-dominion",
@@ -1914,6 +2013,12 @@
         "lex-new-zealand",
         "lex-new-zealands-historie",
         "lex-waitangitraktaten"
+      ]
+    },
+    {
+      "license": "Natures användarvillkor, ingen CC-licens: länkad källa, ingen text kopierad",
+      "sourceIds": [
+        "cassidy-2020-newgrange"
       ]
     },
     {
@@ -1931,6 +2036,7 @@
     {
       "license": "Public domain",
       "sourceIds": [
+        "bourne-northmen-columbus-1906",
         "commons-bild-alltinget-grundas",
         "commons-bild-bagdads-fall-1258",
         "commons-bild-batavia-1619",
@@ -2069,6 +2175,9 @@
         "commons-karta-carta-marina-sjoorm",
         "commons-karta-carta-marina-ziphius",
         "commons-prager-fenstersturz-1618",
+        "cook-journal-wharton-1893",
+        "cook-king-three-voyages-1821",
+        "cook-voyage-south-pole-1777",
         "dnb-bain",
         "dnb-cook",
         "eb1911-columbus",
@@ -2077,6 +2186,7 @@
         "eb1911-newton",
         "eb1911-sweden",
         "eb1911-telephone",
+        "groeneveldt-1876-mingshi",
         "herodotos-historier-bok-9",
         "loc-berghaus-central-asia-1839",
         "loc-black-world-1840",
@@ -2092,6 +2202,7 @@
         "loc-russian-asia-1844",
         "loc-tanner-atlas-1844",
         "loc-wilkes-antarctica-1844",
+        "major-select-letters-1870",
         "natural-earth",
         "natural-earth-countries",
         "natural-earth-lander",
@@ -2104,6 +2215,7 @@
         "nf-snapphanekrig",
         "pigafetta-blair-robertson-33",
         "pigafetta-blair-robertson-34",
+        "rockhill-1915-toung-pao",
         "whe-chinese-diamond-sutra",
         "wilber-1886"
       ]
@@ -2378,6 +2490,12 @@
       "license": "© Mount Vernon Ladies Association (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "mountvernon-wooden-teeth"
+      ]
+    },
+    {
+      "license": "© National Academy of Sciences, ingen CC-licens: länkad källa, ingen text kopierad",
+      "sourceIds": [
+        "spooner-2005-potato"
       ]
     },
     {

@@ -558,6 +558,23 @@ En post i `files` är en sökväg från repots rot eller ett filnamn i `data/rou
 
 Etapper får överlappa i tid (till exempel när en flotta delas); varje pågående etapp får då ett skepp. `scripts/validate-site.py` kontrollerar att filerna i `files` finns och går att läsa, att vägarnas och etappernas källor finns i `sources.json` och att `event` finns i `events.json`.
 
+## `spridning.json`: människans spridning (#1094)
+
+Antagna områden och vågor i förhistorien, som lagret Människans spridning (`js/layers/spread.js`) ritar. Allt är **tolkningar av källorna**, aldrig gränser eller vägar (beslutet på #1095, `docs/beslut/2026-11-13-osakerhetens-sprak-forhistoria.md`). Fyndplatserna är vanliga händelser i `handelser/fkr.json`; den här filen innehåller bara det som ligger mellan dem.
+
+- `colors`: färg per grupp (`sapiens`, `neandertalare`, `denisovaner`). Färgen skiljer grupperna åt; formen visar säkerheten.
+- `items[]`, en post per område eller våg:
+  - `id`, `kind` (`area` eller `wave`), `group`, `certainty`: `tolkning` (antaget område), `hypotes`, `huvudvag`, `mojlig` eller `omstridd`.
+  - `start`, `end`, `edtf`: år med astronomisk årsräkning. *X tusen år sedan* skrivs `2001 − 1000 · X`, som för händelserna i förhistorien (till exempel 45 000 år sedan = `-42999`).
+  - `places` (område) eller `paths` (våg, en lista per gren). En plats är `{ "event": "<händelse-id>" }` (samma koordinat som händelsens markör) eller `{ "coord": [lon, lat], "wikidata": "Q…", "name": "…" }` med koordinaten ur Wikidata. Platsen ska vara kontrollerad: id:t öppnat och namnet jämfört.
+  - `radiusKm` (område): hur långt ut höljet ritas runt varje plats. Ytan blir ett mjukt, konvext hölje och ska aldrig läsas som en gräns.
+  - `parts` (område, i stället för `places`): flera listor med platser. Varje del blir ett eget hölje, och delarna ritas som en yta med gemensam ytterkant. Så kan en yta följa en båge (Iberien–Kaukasus–Altaj) utan att täcka det som ligger innanför, till exempel Nordafrika.
+  - `clipLand` (område): ytan klipps mot dagens land (`land.json`). Används bara där havet inte har ändrats mycket, eftersom landbryggorna under istiden (#1096) annars skulle klippas bort.
+  - Vågornas sträckor ritas längs storcirkeln mellan platserna.
+  - `title`, `label` (valfri, kort namn på kartan), `summary`, `note` (valfri, till exempel "Källorna skiljer sig"): texter per språk.
+  - `sources` (id i `sources.json`) och `review` som för händelser (`draft` visas inte).
+- `scripts/validate-site.py` kontrollerar att källorna och händelserna finns och att varje plats har `event` eller `coord`. `tools/oversattning.py` räknar texterna.
+
 ## `upptackt.json`: upptäcktsvyn (#101)
 
 Upptäcktsvyn slås på i Lager. Filen styr allt den visar (ritas av `js/layers/discovery.js`):

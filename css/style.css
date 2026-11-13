@@ -1474,6 +1474,7 @@ details.used-by summary:hover { color: var(--parchment); }
   .controls .speed { max-width: 62px; font-size: 11px; }
   .speed .unit-long { display: none; }
   .speed .unit-short { display: inline; }
+
   .pause-note { border-radius: var(--r); justify-content: space-between; width: auto; }
   .focus-bar {
     left: var(--gut); right: var(--gut-r); transform: none; max-width: none;
@@ -1721,6 +1722,10 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-legend .rl-coverage-note { display: block; margin-top: 0; }
 .religion-legend .rl-credit { display: block; }
 .religion-legend .rl-credit a { color: var(--brass); }
+/* Människans spridning (#1417): varje post har en rubrik (så att en skärmläsare kan hoppa mellan dem) som ser ut som
+   den feta texten förut, och källänkarna har minst 24 × 24 px träffyta */
+.religion-legend .rl-spread-head { display: inline; margin: 0; font: inherit; font-weight: 700; letter-spacing: normal; text-transform: none; color: inherit; }
+.religion-legend .rl-spread-src { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; min-height: 24px; color: var(--brass); }
 .religion-legend:has(.rl-disc) { max-width: 260px; }
 .layer-sub .rel-about { display: block; margin: 6px 10px 2px; padding: 4px 10px; border-color: var(--brass-deep); }
 .religion-pop {
@@ -2111,6 +2116,11 @@ details.used-by summary:hover { color: var(--parchment); }
   .controls :is(.step, .play)::after { content: ""; position: absolute; inset: -6px -3px; }
   .controls .play { flex: 0 0 46px; max-width: none; }
   .controls .speed { flex: 0 0 50px; max-width: none; overflow: visible; }
+  /* Förhistorien (#1320): stegen är tusentals år. De yttersta knapparna (±100 steg, hela segment) döljs, så att de andra
+     rymmer "−10 000" i vanlig textstorlek (ingen text under 12 px, #1309); piltangenterna och PageUp/PageDown finns kvar */
+  .controls.prehistory .step:is([data-step="-100"], [data-step="100"]) { display: none; }
+  .controls.prehistory .step { max-width: 66px; }
+  .controls.prehistory .speed { flex-basis: 64px; }
   .track { height: 48px; }
   /* Ett krig kan ha många namn på kort avstånd. På mobil visar vi namnet närmast
      reglaget; alla band behåller full beskrivning i titel och tillgänglighetsnamn. */

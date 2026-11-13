@@ -59,3 +59,61 @@ test('okänd yta eller grupp ger ett fel i stället för att tigas ihjäl', () =
   assert.throws(() => s.opened('finns-inte'), /Okänd yta/);
   assert.throws(() => s.register('x', 'finns-inte', () => {}), /Okänd ytgrupp/);
 });
+
+// Dialoggruppen och Escape (#1323)
+function dialogSetup() {
+  const log = [], open = new Set();
+  const s = createSurfaces();
+  const add = (id, group, opts = {}) => s.register(id, group, () => { open.delete(id); log.push(id); }, { isOpen: () => open.has(id), ...opts });
+  add('sources', 'dialog'); add('help', 'dialog'); add('jump', 'popover'); add('hunt', 'uppdrag'); add('tours', 'meny', { central: true }); add('layers', 'meny');
+  const show = id => { open.add(id); s.opened(id); };
+  return { s, log, open, show };
+}
+
+test('en öppnad dialog stänger de andra dialogerna men inga andra ytor, och pausar uppspelningen', () => {
+  const { s, log, show } = dialogSetup();
+  const paused = [];
+  s.onDialogOpen = id => paused.push(id);
+  show('help');
+  show('sources');
+  assert.deepEqual(log, ['help']);
+  assert.deepEqual(paused, ['help', 'sources']);
+  show('jump'); // en popover är ingen dialog: ingen paus
+  assert.deepEqual(paused, ['help', 'sources']);
+});
+
+test('Escape stänger det senast öppnade i den första gruppen som har något öppet', () => {
+  const { s, log, open, show } = dialogSetup();
+  show('jump'); show('hunt'); show('sources');
+  assert.equal(s.escape(), true);
+  assert.deepEqual(log, ['sources'], 'dialogen först');
+  assert.equal(s.escape(), true);
+  assert.deepEqual(log, ['sources', 'jump'], 'sedan årshoppet');
+  assert.equal(s.escape(), true);
+  assert.deepEqual(log, ['sources', 'jump', 'hunt'], 'sedan jakten');
+  assert.equal(s.escape(), false, 'inget mer öppet');
+  assert.equal(open.has('hunt'), false);
+});
+
+test('Escape tar bara med menyer som är anmälda som centrala', () => {
+  const { s, log, show } = dialogSetup();
+  show('layers');
+  assert.equal(s.escape(), false, 'Lager har en egen Escape-lyssnare');
+  show('tours'); // en öppnad meny stänger de andra menyerna
+  assert.deepEqual(log, ['layers']);
+  assert.equal(s.escape(), true);
+  assert.deepEqual(log, ['layers', 'tours']);
+});
+
+test('anyOpen säger om någon yta i gruppen är öppen, och opener får fokus efter Escape', () => {
+  const log = [], open = new Set(['x']);
+  const s = createSurfaces();
+  let focused = 0;
+  const opener = { isConnected: true, offsetParent: {}, focus: () => focused++ };
+  s.register('x', 'dialog', () => open.delete('x'), { isOpen: () => open.has('x'), opener });
+  assert.equal(s.anyOpen('dialog'), true);
+  s.escape();
+  assert.equal(s.anyOpen('dialog'), false);
+  assert.equal(focused, 1);
+  assert.deepEqual(log, []);
+});

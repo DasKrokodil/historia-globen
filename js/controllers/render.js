@@ -32,10 +32,13 @@ export function createRender(app) {
     statusTimer = 0;
     if (timeline.playing || state.range || app.tour?.active || !$('pause-note').hidden) return;
     const year = timeline.year, fine = !!state.focus?.fine;
-    const at = fine ? ui('time.onDate', { date: timeline.format(year) }) : ui('panel.atYear', { year: formatYear(Math.floor(year)) });
-    const n = visible.length;
+    // Året som i rubriken, i förhistorien avrundat till reglagets upplösning (#1320)
+    const at = fine ? ui('time.onDate', { date: timeline.format(year) }) : ui('panel.atYear', { year: timeline.format(Math.floor(year)) });
+    const n = visible.filter(v => v.inside).length; // samma tal som märket på Samtidigt: det som pågår (#1320)
     const count = String(ui('status.hits')[n === 1 ? 0 : 1]).replace('{n}', groupDigits(n));
     const parts = [capital(ui('status.year', { at, count }))];
+    const stepNote = timeline.takeStepNote(); // ny upplösning i förhistorien (#1089)
+    if (stepNote) parts.push(stepNote);
     if (ff.announcedKey && ff.announcedKey !== statusCard) parts.push(ff.announcement()); // ett nytt kort lästes upp medan året byttes
     else if (!fine && ff.enabled && !ff.active.length) parts.push(ui('status.noCard'));
     timeline.announce(parts.join(' '));
@@ -173,7 +176,7 @@ export function createRender(app) {
     if (routePop.route && !routes.active.some(a => a.route === routePop.route)) routePop.hide(); // vägen syns inte längre
     const legend = registry.legend(state);
     relLegend.update(legend.items ?? [], { areas: !!legend.areas, war: !!legend.war, fadable: registry.fadable(state).map(e => e.name), keep: !!layers.on.keep,
-      discovery: legend.discovery ?? null });
+      discovery: legend.discovery ?? null, spread: legend.spread ?? null });
     empireLegend.update(legend.empires ?? [], views?.empireLegend ?? {});
     empireLegendButton.hidden = !layers.on.areas || !(legend.empires?.length);
     if (empireLegendButton.hidden && !$('empire-legend').hidden) empireLegend.onClose();

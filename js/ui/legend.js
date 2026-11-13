@@ -16,6 +16,13 @@ const GAP = 10; // luft mellan förklaringen och det som ligger under
 const HINT_KEY = 'hg-rel-tip'; // tipsraden har visats (#308)
 const DISCOVERY_KEY = 'hg-discovery-legend-open'; // den hopfällda upptäcktsvyn (#375)
 
+/** Tecknet för en post i människans spridning (#1094), som på kartan (layers/spread.js): formen bär betydelsen, inte färgen. */
+function spreadSwatch({ kind, certainty, color }) {
+  const c = esc(color);
+  if (kind === 'area') return `background:repeating-linear-gradient(45deg,${c} 0 1.5px,transparent 1.5px 5px);border:1.5px dashed ${c};box-sizing:border-box`;
+  return `background:none;width:26px;height:0;flex:none;align-self:center;border-top:3px ${certainty === 'huvudvag' ? 'dashed' : 'dotted'} ${c}`;
+}
+
 export class ReligionLegend {
   constructor({ legend, pop }) {
     Object.assign(this, { legend, pop });
@@ -91,6 +98,8 @@ export class ReligionLegend {
    * items från ReligionsLayer.legendItems(). focus (valfritt, fokusläget): war = ett följt krigs områden syns,
    * fadable = namnen på lager som dämpas (eller skulle dämpas) och keep = om de visas som vanligt (#235).
    * discovery (upptäcktsvyn, #101) = { perspective, credit, sources: [{ title, url }], coverage } eller null.
+   * spread (människans spridning, #1094) = { items: [{ kind, certainty, color, title, summary, note, sources }] } eller null;
+   * listan är också kartans textalternativ (#1106).
    * Finns inget att förklara döljs rutan.
    */
   update(items, focus = {}) {
@@ -100,11 +109,12 @@ export class ReligionLegend {
   }
 
   render() {
-    const items = this.items ?? [], { areas = false, war = false, fadable = [], keep = false, discovery = null } = this.focus ?? {};
-    if (!items.length && !areas && !war && !fadable.length && !discovery) { this.legend.hidden = true; this.legend.textContent = ''; this._html = ''; return; }
+    const items = this.items ?? [], { areas = false, war = false, fadable = [], keep = false, discovery = null, spread = null } = this.focus ?? {};
+    if (!items.length && !areas && !war && !fadable.length && !discovery && !spread) { this.legend.hidden = true; this.legend.textContent = ''; this._html = ''; return; }
     const unsure = items.some(i => i.unsure), inherited = items.some(i => i.inherited);
-    const title = (items.length ? 1 : 0) + (areas ? 1 : 0) + (war ? 1 : 0) + (discovery ? 1 : 0) > 1 ? ui('legend.title')
-      : items.length ? ui('legend.religions') : areas ? ui('legend.empires') : war ? ui('legend.warAreas') : discovery ? discovery.title : ui('legend.followLayers');
+    const title = (items.length ? 1 : 0) + (areas ? 1 : 0) + (war ? 1 : 0) + (discovery ? 1 : 0) + (spread ? 1 : 0) > 1 ? ui('legend.title')
+      : items.length ? ui('legend.religions') : areas ? ui('legend.empires') : war ? ui('legend.warAreas') : discovery ? discovery.title
+      : spread ? ui('legend.spread') : ui('legend.followLayers');
     const open = discovery ? this.discoveryOpen : this.open;
     const religionsHtml = !items.length ? '' : `<ul>${items.map(({ religion: r, sure, unsure: u, inherited: i }) =>
       `<li data-religion="${esc(r.id)}" tabindex="0" role="button" aria-pressed="${this.pinned === r.id}" class="${this.highlight === r.id ? 'on' : ''}" title="${esc(ui('legend.highlightReligion', { religion: religionName(r) }))}"><span class="swatch" style="background:${esc(r.color)}"></span>${symbolImg(r)}<span class="rl-name">${esc(t(r.name))}${
@@ -116,6 +126,12 @@ export class ReligionLegend {
       <p class="rl-note">${esc(ui('legend.continentNote'))}</p></div>`;
     const areasHtml = !areas ? '' : `<div class="rl-areas">${this.empireLegend?.softEdge ? `<p class="rl-note"><span class="swatch rl-soft"></span>${esc(this.empireLegend.softEdge)}</p>` : ''}
       ${this.empireLegend?.influence ? `<p class="rl-note"><span class="swatch rl-influence"></span>${esc(this.empireLegend.influence)}</p>` : ''}</div>`;
+    // Människans spridning (#1094): samma tecken som på kartan (område med snedstreck och streckad kant, våg med streck
+    // eller prickar), vad varje post bygger på och dess källor. Listan är kartans textalternativ (#1106).
+    const spreadHtml = !spread ? '' : `<div class="rl-spread" style="margin-top:6px;padding-top:4px;border-top:1px solid var(--line)"><p class="rl-note">${esc(ui('legend.spreadNote'))}</p><ul>${spread.items.map(i =>
+      `<li class="rl-spread-item" style="display:block;margin-top:6px"><div class="rl-note rl-row"><span class="swatch" aria-hidden="true" style="${spreadSwatch(i)}"></span>${i.kind === 'wave' && i.certainty !== 'huvudvag' ? '<span aria-hidden="true">?</span>' : ''}<span><h3 class="rl-spread-head">${esc(i.title)}</h3> <em>(${esc(ui(`spread.certainty.${i.certainty}`))})</em></span></div>
+        <p class="rl-note" style="display:block">${esc(i.summary)}${i.note ? ` ${esc(i.note)}` : ''}${i.sources.length ? ` ${esc(ui('legend.spreadSources'))} ${
+          i.sources.map((s, n) => `<a class="rl-spread-src" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${n + 1}<span class="sr-only"> ${esc(s.title)} ${esc(ui('legend.newTab'))}</span></a>`).join(', ')}.` : ''}</p></li>`).join('')}</ul></div>`;
     // Vad symbolerna betyder (#271)
     const symbolsHtml = !items.length ? '' : `<p class="rl-note rl-sym-note">${esc(ui('legend.symbolsNote'))}</p>`;
     // Faktarutan på begäran (#308), när någon religion som syns har en
@@ -143,7 +159,7 @@ export class ReligionLegend {
       items.length > shown.length ? `<span class="rl-more">+${items.length - shown.length}</span>` : ''}${
       war ? `<span class="rl-dot rl-hatch" style="--war:${esc(CAT.krig.color)}" title="${esc(ui('legend.warTheatre'))}"></span>` : ''}</span>`;
     const html = `<button type="button" class="rl-toggle" aria-expanded="${open}" aria-controls="rl-body"><span class="rl-title">${esc(title)}</span><span class="rl-chev" aria-hidden="true"></span>${dotsHtml}</button>${hintHtml}
-      <div id="rl-body" class="rl-body" ${open ? '' : 'hidden'}>${coverageHtml}${discHtml}${aboutHtml}${religionsHtml}${symbolsHtml}${areasHtml}${warHtml}${creditHtml}${fadeHtml}</div>`;
+      <div id="rl-body" class="rl-body" ${open ? '' : 'hidden'}>${coverageHtml}${discHtml}${aboutHtml}${religionsHtml}${symbolsHtml}${areasHtml}${warHtml}${spreadHtml}${creditHtml}${fadeHtml}</div>`;
     // Samma innehåll ritas inte om, så att musen och tangentbordets fokus ligger kvar på raden (#271)
     if (html !== this._html) {
       const focused = this.legend.contains(document.activeElement) && document.activeElement.dataset.religion;
