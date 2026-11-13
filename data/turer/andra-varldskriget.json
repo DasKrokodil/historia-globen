@@ -65,7 +65,7 @@
       "sv": "Nämn två saker i turen som hände samma år på olika håll i världen. Varför kallas kriget ett världskrig?",
       "en": "Name two things in the tour that happened in the same year in different parts of the world. Why is the war called a world war?",
       "de": "Nennen Sie zwei Dinge aus der Tour, die im selben Jahr an verschiedenen Orten geschahen. Warum heißt der Krieg Weltkrieg?",
-      "es": "Nombre dos cosas del recorrido que ocurrieron el mismo año en distintas partes del mundo. ¿Por qué se llama mundial a esta guerra?",
+      "es": "Nombre dos cosas del recorrido que ocurrieron el mismo año en distintas partes del mundo. ¿Por qué se llama mundial esta guerra?",
       "fr": "Citez deux choses de la visite qui se sont produites la même année dans différentes parties du monde. Pourquoi appelle-t-on cette guerre une guerre mondiale ?"
     },
     "sourceDetective": [
@@ -230,7 +230,7 @@
         "en": "Germany took France in a few weeks, but did not succeed in the air over Britain. What made it harder to attack an island?",
         "de": "Deutschland eroberte Frankreich in wenigen Wochen, scheiterte aber in der Luft über Großbritannien. Was machte es schwerer, eine Insel anzugreifen?",
         "fr": "L’Allemagne a pris la France en quelques semaines, mais a échoué dans le ciel britannique. Qu’est-ce qui rendait l’attaque d’une île plus difficile ?",
-        "es": "Alemania conquistó Francia en pocas semanas, pero no tuvo éxito en el aire sobre Gran Bretaña. ¿Qué hacía más difícil atacar una isla?"
+        "es": "Alemania conquistó Francia en pocas semanas, pero fracasó en el aire sobre Gran Bretaña. ¿Qué dificultaba atacar una isla?"
       },
       "layers": [
         "events",
@@ -313,7 +313,7 @@
         "en": "Barbarossa and Pearl Harbor happened in the same year, far from each other. What might it have meant that both the Soviet Union and the United States were now in the war?",
         "de": "Barbarossa und Pearl Harbor geschahen im selben Jahr, weit voneinander entfernt. Was könnte es bedeutet haben, dass nun die Sowjetunion und die USA mitkämpften?",
         "fr": "Barbarossa et Pearl Harbor ont eu lieu la même année, loin l’une de l’autre. Que pouvait signifier que l’Union soviétique et les États-Unis soient désormais en guerre ?",
-        "es": "Barbarroja y Pearl Harbor ocurrieron el mismo año, lejos el uno del otro. ¿Qué pudo significar que tanto la Unión Soviética como Estados Unidos estuvieran ahora en la guerra?"
+        "es": "Barbarroja y Pearl Harbor ocurrieron el mismo año, lejos uno de otro. ¿Qué pudo significar que tanto la Unión Soviética como Estados Unidos estuvieran ya en la guerra?"
       },
       "layers": [
         "events",
@@ -462,7 +462,7 @@
         "en": "Why do you think a battle for a single city can be seen as a turning point in a whole war?",
         "de": "Warum gilt eine Schlacht um eine einzige Stadt wohl als Wendepunkt eines ganzen Krieges?",
         "fr": "Selon vous, pourquoi une bataille pour une seule ville peut-elle être un tournant ?",
-        "es": "¿Por qué una batalla por una sola ciudad puede considerarse un punto de inflexión de toda una guerra?"
+        "es": "¿Por qué una batalla por una sola ciudad puede considerarse un punto de inflexión?"
       },
       "layers": [
         "events",
@@ -543,7 +543,7 @@
         "en": "27 January is today a day of remembrance for the victims of the Holocaust. Why do you think that particular day was chosen?",
         "de": "Der 27. Januar ist heute ein Gedenktag für die Opfer des Holocaust. Warum, glauben Sie, wurde gerade dieser Tag gewählt?",
         "fr": "Le 27 janvier est aujourd’hui une journée de commémoration des victimes de la Shoah. Pourquoi, selon vous, a-t-on choisi précisément ce jour ?",
-        "es": "El 27 de enero es hoy un día de conmemoración de las víctimas del Holocausto. ¿Por qué cree usted que se eligió precisamente ese día?"
+        "es": "El 27 de enero es hoy un día de conmemoración de las víctimas del Holocausto. ¿Por qué cree usted que se eligió justo ese día?"
       },
       "layers": [
         "events",
@@ -659,7 +659,7 @@
         "en": "The war in Europe ended in May, but against Japan only in September. What did that mean for those who were still fighting?",
         "de": "Der Krieg in Europa endete im Mai, gegen Japan aber erst im September. Was bedeutete das für diejenigen, die noch kämpften?",
         "fr": "La guerre a pris fin en mai en Europe, mais en septembre seulement contre le Japon. Qu’est-ce que cela signifiait pour ceux qui combattaient encore ?",
-        "es": "La guerra en Europa terminó en mayo, pero contra Japón no hasta septiembre. ¿Qué significó eso para quienes todavía combatían?"
+        "es": "La guerra en Europa terminó en mayo, pero contra Japón solo en septiembre. ¿Qué significó eso para quienes todavía combatían?"
       },
       "layers": [
         "events",
