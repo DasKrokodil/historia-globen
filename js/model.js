@@ -228,9 +228,28 @@ export function formatDirection(when, year, eventYear) {
   return pluralUi(when === 'past' ? 'time.beforeLabel' : 'time.afterLabel', n, { year: formatYear(eventYear) });
 }
 
+/**
+ * Förhistoriens år visas avrundade (inför v6.3.0): före 10 000 f.Kr. är ett steg på reglaget hundratals år, så "99 001 f.Kr."
+ * låtsas en exakthet som inte finns. Året avrundas till närmaste tusental, som århundraderaden redan gör (formatCentury).
+ * Senare år lämnas orörda.
+ */
+export function roundPrehistoric(y) {
+  return y < -9999 ? 1 - Math.round(bce(y) / 1000) * 1000 : y;
+}
+
+/**
+ * Ett stort avstånd i år avrundat (inför v6.3.0): från 1000 år till närmaste hundratal och från 10 000 år till närmaste tusental,
+ * så att panelen inte skriver "1001 år senare" i förhistorien. Mindre avstånd är exakta, som förut.
+ */
+export function roundLargeOffset(n) {
+  if (n >= 10000) return Math.round(n / 1000) * 1000;
+  if (n >= 1000) return Math.round(n / 100) * 100;
+  return n;
+}
+
 /** Samma avstånd i Samtidigt-panelen: "34 år tidigare", "21 år senare". `amount` är hela år, och i fokusläget för korta krig (fine, #204) år som bråkdel som blir dagar. */
 export function formatOffset(when, amount, fine = false) {
-  const n = fine ? Math.max(1, Math.round(amount * 365.25)) : Math.max(1, Math.round(amount));
+  const n = fine ? Math.max(1, Math.round(amount * 365.25)) : roundLargeOffset(Math.max(1, Math.round(amount)));
   return pluralUi(`panel.${when === 'past' ? 'earlier' : 'later'}${fine ? 'Days' : ''}`, n, { n: groupDigits(n) }); // "5 000 år tidigare" (#1093)
 }
 

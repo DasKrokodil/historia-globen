@@ -1,6 +1,6 @@
 // Tidsreglaget äger det nuvarande året (arkitekturprincip 3).
 // Beslut 4: segmenterad skala där nutiden får mer plats än forntiden.
-import { formatYear, groupDigits, formatDate, isBCE, bce, BCE_TXT, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t } from './model.js';
+import { formatYear, groupDigits, formatDate, isBCE, bce, BCE_TXT, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t, roundPrehistoric } from './model.js';
 import { selectEventsForDate } from './date-events.js';
 import { ui } from './i18n.js';
 import { MIN_YEAR, MAX_YEAR } from './state.js'; // gränserna bor i state.js (#1141), så att url-state.js inte behöver importera hela tidsreglaget
@@ -138,8 +138,9 @@ export class Timeline extends EventTarget {
   /** Händelsens tid på reglaget: hela år, eller datum ur edtf i fokusläget för korta krig. */
   spanOf(e) { return this.focus?.fine ? edtfSpan(e) : [e.start, e.end]; }
   /** Året som text och som [stort, litet] för huvudet: "1879", eller "22 jan 1879" för korta krig. */
-  format(y) { return this.focus?.fine ? formatDay(this._lastDay(y)) : formatYear(y); }
-  formatParts(y) { return this.focus?.fine ? dayParts(this._lastDay(y)) : yearParts(y); }
+  // I förhistorien avrundas året till tusental (roundPrehistoric), eftersom ett steg på reglaget där är hundratals år
+  format(y) { return this.focus?.fine ? formatDay(this._lastDay(y)) : formatYear(roundPrehistoric(y)); }
+  formatParts(y) { return this.focus?.fine ? dayParts(this._lastDay(y)) : yearParts(roundPrehistoric(y)); }
   // Spannets slut är början av dagen efter krigets sista dag; där visas den sista dagen
   _lastDay(y) { return Math.min(y, this.focus.to - 0.5 / DAYS_PER_YEAR); }
   /** Hur många år före och efter som räknas som "samtidigt". */
