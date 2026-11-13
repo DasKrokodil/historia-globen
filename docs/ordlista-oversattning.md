@@ -334,3 +334,18 @@ Namnen i `data/religions.json` följer den franska regeln med liten bokstav i ad
 | fornegyptisk religion | religion de l’Égypte antique |
 | traditionell afrikansk religion | religion traditionnelle africaine |
 | Nyckelår (rubrik i faktarutan) | Années clés |
+
+## 15. Religioner på spanska (#809)
+
+Profeten skrivs *Mahoma* och flykten till Medina *la hégira* (etablerade spanska former). Sikhernas gurur skrivs *Guru Nanak*, *Guru Arjan* och *Guru Gobind Singh* utan accent, som i händelsedatan, men substantivet är *gurú*. Svenskans "miljarder" skrivs som *millones* (2,3 miljarder = *2300 millones*), eftersom *millardo* sällan används.
+
+| Svenska | Spanska |
+|---|---|
+| kristendom | cristianismo |
+| judendom | judaísmo |
+| buddhism | budismo |
+| hinduism | hinduismo |
+| sikhism | sijismo |
+| shinto | sintoísmo |
+| kinesisk religion (konfucianism, daoism) | religión china (confucianismo, taoísmo) |
+| Nyckelår (rubrik i faktarutan) | Años clave |
