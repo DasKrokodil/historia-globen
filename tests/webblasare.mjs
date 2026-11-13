@@ -566,7 +566,7 @@ async function run(browser, vp) {
   });
 
   // För lärare (#1315): en ingång under Mer till lektioner, utskrift, quiz, jakt och presentationsläget
-  await check('För lärare: kortet öppnas från Mer och från Hjälp, stängs med Escape och lämnar plats åt quizet', async () => {
+  await check('För lärare: kortet öppnas från Mer och från Hjälp, stängs med Escape och lämnar Platt vy kvar', async () => {
     const returnTo = vp.width > 760 ? 'btn-more' : 'more-toggle'; // knappen ligger i den stängda menyn Mer (#651) eller Meny (#530)
     await clickView('#btn-teacher');
     await visible('#teacher');
@@ -601,12 +601,8 @@ async function run(browser, vp) {
     await page.click('#help-teacher');
     await visible('#teacher');
     await hidden('#help');
-    // Quizet är en dialog i samma grupp och tar över
-    await page.click('#teacher-quiz');
-    await visible('#quiz');
-    await hidden('#teacher');
     await page.keyboard.press('Escape');
-    await hidden('#quiz');
+    await hidden('#teacher');
     // Escape i kortet stänger bara kortet, inte Platt vy bakom det (id-listan i js/main.js)
     await clickView('#btn-flat');
     await visible('#flat-view');
@@ -700,6 +696,16 @@ async function run(browser, vp) {
       if (vp.width <= 760) await pp.click('#more-toggle'); else await pp.click('#btn-more');
       await pp.click('#btn-teacher');
       await pp.waitForSelector('#teacher-lessons li button', { state: 'visible', timeout: T.step });
+      // Quizet är en dialog i samma grupp och tar över. Det provas på den här sidan, inte på huvudsidan: ett öppnat quiz
+      // förbrukar första frågan, och nästa quizkontroll räknar med frågornas ordning.
+      await pp.click('#teacher-quiz');
+      await pp.waitForSelector('#quiz', { state: 'visible', timeout: T.step });
+      await pp.waitForSelector('#teacher', { state: 'hidden', timeout: T.step });
+      await pp.keyboard.press('Escape');
+      await pp.waitForSelector('#quiz', { state: 'hidden', timeout: T.step });
+      await pp.click(vp.width <= 760 ? '#more-toggle' : '#btn-more');
+      await pp.click('#btn-teacher');
+      await pp.waitForSelector('#teacher-lessons li button', { state: 'visible', timeout: T.step });
       await pp.click('#teacher-lessons li:first-child button');
       await pp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
       const lesson = await pp.evaluate(() => ({
@@ -718,7 +724,7 @@ async function run(browser, vp) {
       await pp.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
       if (errors.length) throw new Error(errors.join(' | '));
     } finally { await pp.close(); }
-    return 'startknappen börjar lektionen, kortet stängs, För lärare är dolt i lektionen, bandet har utskriftsknappen och adressen är elevlänken';
+    return 'quizet tar över från kortet, startknappen börjar lektionen, kortet stängs, För lärare är dolt i lektionen, bandet har utskriftsknappen och adressen är elevlänken';
   });
 
   if (vp.name === 'dator') {
