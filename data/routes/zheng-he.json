@@ -292,7 +292,15 @@
                 "fr": "Nankin",
                 "es": "Nankín"
               },
-              "edtf": "1407?"
+              "edtf": "1407?",
+              "dateLabel": {
+                "sv": "slutet av 1407 eller början av 1408, avfärd",
+                "en": "late 1407 or early 1408, departure",
+                "de": "Ende 1407 oder Anfang 1408, Abfahrt",
+                "es": "finales de 1407 o principios de 1408, partida",
+                "fr": "fin 1407 ou début 1408, départ"
+              },
+              "stop": true
             },
             {
               "at": [121.3, 31.5],
@@ -442,7 +450,15 @@
                 "fr": "Nankin",
                 "es": "Nankín"
               },
-              "edtf": "1409-22"
+              "edtf": "1409-22",
+              "dateLabel": {
+                "sv": "sommaren 1409, hemkomst",
+                "en": "summer 1409, return home",
+                "de": "Sommer 1409, Heimkehr",
+                "es": "verano de 1409, regreso",
+                "fr": "été 1409, retour"
+              },
+              "stop": true
             }
           ],
           "sources": ["wp-ming-treasure-voyages"]
@@ -480,14 +496,14 @@
           "es": "Las fuentes no coinciden"
         },
         "text": {
-          "sv": "De flesta forskare placerar striden på Ceylon på hemresan 1411, men Dreyer (2007) tror att den skedde på utresan 1410. De kinesiska källorna säger inte när under resan den inträffade. World History Encyclopedia daterar resan till 1409 men anger inget hemkomstår.",
-          "en": "Most scholars place the battle on Ceylon on the return journey in 1411, but Dreyer (2007) believes that it took place on the outward journey in 1410. The Chinese sources do not say when during the voyage it occurred. World History Encyclopedia dates the voyage to 1409 but gives no year of return.",
-          "de": "Die meisten Forscher setzen den Kampf auf Ceylon auf die Heimreise 1411, aber Dreyer (2007) glaubt, er habe auf der Hinreise 1410 stattgefunden. Die chinesischen Quellen sagen nicht, wann auf der Reise er sich ereignete. Die World History Encyclopedia datiert die Reise auf 1409, nennt aber kein Jahr der Heimkehr.",
-          "fr": "La plupart des chercheurs placent le combat de Ceylan sur le chemin du retour en 1411, mais Dreyer (2007) pense qu’il eut lieu à l’aller en 1410. Les sources chinoises ne disent pas à quel moment du voyage il se produisit. La World History Encyclopedia date le voyage de 1409 mais n’indique pas d’année de retour.",
-          "es": "La mayoría de los investigadores sitúan la lucha de Ceilán en el viaje de regreso de 1411, pero Dreyer (2007) cree que ocurrió a la ida, en 1410. Las fuentes chinas no dicen en qué momento del viaje sucedió. La World History Encyclopedia fecha el viaje en 1409, pero no indica el año de regreso."
+          "sv": "De flesta forskare placerar striden på Ceylon på hemresan 1411, men Dreyer (2007) tror att den skedde på utresan 1410. De kinesiska källorna säger inte när under resan den inträffade. World History Encyclopedia daterar resan till 1409 men anger inget hemkomstår. Mingshi (i Groeneveldts översättning) anger avfärden till nionde månaden 1408, och Fei Xin skriver att stentavlan i Galle restes 1409.",
+          "en": "Most scholars place the battle on Ceylon on the return journey in 1411, but Dreyer (2007) believes that it took place on the outward journey in 1410. The Chinese sources do not say when during the voyage it occurred. World History Encyclopedia dates the voyage to 1409 but gives no year of return. The Mingshi (in Groeneveldt's translation) dates the departure to the ninth month of 1408, and Fei Xin writes that the stone tablet at Galle was set up in 1409.",
+          "de": "Die meisten Forscher setzen den Kampf auf Ceylon auf die Heimreise 1411, aber Dreyer (2007) glaubt, er habe auf der Hinreise 1410 stattgefunden. Die chinesischen Quellen sagen nicht, wann auf der Reise er sich ereignete. Die World History Encyclopedia datiert die Reise auf 1409, nennt aber kein Jahr der Heimkehr. Das Mingshi (in Groeneveldts Übersetzung) datiert die Abfahrt auf den neunten Monat 1408, und Fei Xin schreibt, die Steintafel in Galle sei 1409 aufgestellt worden.",
+          "fr": "La plupart des chercheurs placent le combat de Ceylan sur le chemin du retour en 1411, mais Dreyer (2007) pense qu’il eut lieu à l’aller en 1410. Les sources chinoises ne disent pas à quel moment du voyage il se produisit. La World History Encyclopedia date le voyage de 1409 mais n’indique pas d’année de retour. Le Mingshi (dans la traduction de Groeneveldt) date le départ du neuvième mois de 1408, et Fei Xin écrit que la stèle de Galle fut érigée en 1409.",
+          "es": "La mayoría de los investigadores sitúan la lucha de Ceilán en el viaje de regreso de 1411, pero Dreyer (2007) cree que ocurrió a la ida, en 1410. Las fuentes chinas no dicen en qué momento del viaje sucedió. La World History Encyclopedia fecha el viaje en 1409, pero no indica el año de regreso. El Mingshi (en la traducción de Groeneveldt) fecha la partida en el noveno mes de 1408, y Fei Xin escribe que la estela de Galle se erigió en 1409."
         }
       },
-      "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
+      "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he", "groeneveldt-1876-mingshi", "rockhill-1915-toung-pao"],
       "review": "source-checked",
       "legs": [
         {
@@ -506,7 +522,15 @@
                 "fr": "Nankin",
                 "es": "Nankín"
               },
-              "edtf": "1409"
+              "edtf": "1409",
+              "dateLabel": {
+                "sv": "1409, avfärd (1408 enligt Mingshi)",
+                "en": "1409, departure (1408 according to the Mingshi)",
+                "de": "1409, Abfahrt (1408 laut Mingshi)",
+                "es": "1409, partida (1408 según el Mingshi)",
+                "fr": "1409, départ (1408 selon le Mingshi)"
+              },
+              "stop": true
             },
             {
               "at": [121.3, 31.5],
@@ -531,7 +555,7 @@
               "edtf": "1409-11/1410-01"
             }
           ],
-          "sources": ["wp-ming-treasure-voyages"]
+          "sources": ["wp-ming-treasure-voyages", "groeneveldt-1876-mingshi"]
         },
         {
           "from": 1410.01,
@@ -543,13 +567,20 @@
             {
               "at": [109.1, 13.9],
               "name": {
-                "sv": "Champa (inom tio dagar)",
-                "en": "Champa (within ten days)",
-                "de": "Champa (innerhalb von zehn Tagen)",
-                "fr": "Champa (en dix jours)",
-                "es": "Champa (en diez días)"
+                "sv": "Champa",
+                "en": "Champa",
+                "de": "Champa",
+                "es": "Champa",
+                "fr": "Champa"
               },
-              "edtf": "1410-01/1410-02"
+              "edtf": "1410-01/1410-02",
+              "dateLabel": {
+                "sv": "januari–februari 1410, inom tio dagar",
+                "en": "January–February 1410, within ten days",
+                "de": "Januar–Februar 1410, binnen zehn Tagen",
+                "es": "enero–febrero de 1410, en menos de diez días",
+                "fr": "janvier–février 1410, en moins de dix jours"
+              }
             }
           ],
           "sources": ["wp-ming-treasure-voyages"]
@@ -600,7 +631,15 @@
                 "fr": "Galle, Ceylan",
                 "es": "Galle, Ceilán"
               },
-              "edtf": "1410"
+              "edtf": "1410",
+              "dateLabel": {
+                "sv": "1410 (1409 enligt Fei Xin)",
+                "en": "1410 (1409 according to Fei Xin)",
+                "de": "1410 (1409 laut Fei Xin)",
+                "es": "1410 (1409 según Fei Xin)",
+                "fr": "1410 (1409 selon Fei Xin)"
+              },
+              "stop": true
             },
             {
               "at": [76.6, 8.9],
@@ -633,7 +672,7 @@
               }
             }
           ],
-          "sources": ["wp-ming-treasure-voyages"]
+          "sources": ["wp-ming-treasure-voyages", "rockhill-1915-toung-pao"]
         },
         {
           "from": 1411.0,
@@ -645,13 +684,21 @@
             {
               "at": [79.9, 6.9],
               "name": {
-                "sv": "Kotte, Ceylon (striden mot Alakeshvara)",
-                "en": "Kotte, Ceylon (the battle against Alakeshvara)",
-                "de": "Kotte, Ceylon (Kampf gegen Alakeshvara)",
-                "fr": "Kotte, Ceylan (le combat contre Alakeshvara)",
-                "es": "Kotte, Ceilán (la lucha contra Alakeshvara)"
+                "sv": "Kotte (Ceylon)",
+                "en": "Kotte (Ceylon)",
+                "de": "Kotte (Ceylon)",
+                "es": "Kotte (Ceilán)",
+                "fr": "Kotte (Ceylan)"
               },
-              "edtf": "1411?"
+              "edtf": "1411?",
+              "dateLabel": {
+                "sv": "troligen 1411: striden mot Alakeshvara",
+                "en": "probably 1411: the battle against Alakeshvara",
+                "de": "wahrscheinlich 1411: der Kampf gegen Alakeshvara",
+                "es": "probablemente 1411: la batalla contra Alakeshvara",
+                "fr": "probablement 1411 : la bataille contre Alakeshvara"
+              },
+              "stop": true
             },
             {
               "at": [118.8, 32.1],
@@ -662,10 +709,18 @@
                 "fr": "Nankin",
                 "es": "Nankín"
               },
-              "date": "1411-07-06"
+              "date": "1411-07-06",
+              "dateLabel": {
+                "sv": "6 juli 1411: hemkomst",
+                "en": "6 July 1411: return home",
+                "de": "6. Juli 1411: Heimkehr",
+                "es": "6 de julio de 1411: regreso",
+                "fr": "6 juillet 1411 : retour"
+              },
+              "stop": true
             }
           ],
-          "sources": ["wp-ming-treasure-voyages"]
+          "sources": ["wp-ming-treasure-voyages", "rockhill-1915-toung-pao", "groeneveldt-1876-mingshi"]
         }
       ]
     },
@@ -700,14 +755,14 @@
           "es": "Las fuentes no coinciden"
         },
         "text": {
-          "sv": "Enligt Wikipedia (efter Mingkrönikorna och Dreyer 2007) var Hormuz resans mål längst bort. World History Encyclopedia skriver att flottan dessutom seglade till Aden och upp i Röda havet till Jidda, varifrån en grupp reste till Mecka. Wikipedia nämner Aden först på den femte resan och Mecka på den sjunde. Källan räknar Sumatras hamnar i ordningen Lambri, Lide, Aru och Semudera; här är de ritade efter geografin, och Lide är inte utritad eftersom platsen inte är identifierad i källan. Jiayile, Bila och Sunla är inte heller utritade.",
-          "en": "According to Wikipedia (following the Ming chronicles and Dreyer 2007) Hormuz was the voyage's farthest destination. World History Encyclopedia writes that the fleet also sailed to Aden and up the Red Sea to Jeddah, from where a group travelled to Mecca. Wikipedia mentions Aden only on the fifth voyage and Mecca on the seventh. The source lists the ports of Sumatra in the order Lambri, Lide, Aru and Semudera; here they are drawn according to geography, and Lide is not drawn because the place is not identified in the source. Jiayile, Bila and Sunla are not drawn either.",
-          "de": "Laut Wikipedia (nach den Ming-Chroniken und Dreyer 2007) war Hormus das am weitesten entfernte Ziel der Reise. Die World History Encyclopedia schreibt, die Flotte sei außerdem nach Aden und das Rote Meer hinauf nach Dschidda gesegelt, von wo aus eine Gruppe nach Mekka reiste. Wikipedia nennt Aden erst bei der fünften Reise und Mekka bei der siebten. Die Quelle zählt die Häfen Sumatras in der Reihenfolge Lambri, Lide, Aru und Semudera auf; hier sind sie nach der Geografie gezeichnet, und Lide ist nicht eingezeichnet, weil der Ort in der Quelle nicht identifiziert ist. Jiayile, Bila und Sunla sind ebenfalls nicht eingezeichnet.",
-          "fr": "Selon Wikipédia (d’après les Annales des Ming et Dreyer 2007), Ormuz fut la destination la plus lointaine du voyage. La World History Encyclopedia écrit que la flotte navigua en outre jusqu’à Aden et remonta la mer Rouge jusqu’à Djeddah, d’où un groupe se rendit à La Mecque. Wikipédia ne mentionne Aden qu’au cinquième voyage et La Mecque au septième. La source énumère les ports de Sumatra dans l’ordre Lambri, Lide, Aru et Semudera ; ils sont ici tracés d’après la géographie, et Lide n’est pas tracé, car le lieu n’est pas identifié dans la source. Jiayile, Bila et Sunla ne sont pas tracés non plus.",
-          "es": "Según Wikipedia (siguiendo las crónicas Ming y a Dreyer 2007), Ormuz fue el destino más lejano del viaje. La World History Encyclopedia escribe que la flota navegó además hasta Adén y subió por el mar Rojo hasta Yeda, desde donde un grupo viajó a La Meca. Wikipedia no menciona Adén hasta el quinto viaje y La Meca hasta el séptimo. La fuente enumera los puertos de Sumatra en el orden Lambri, Lide, Aru y Semudera; aquí están dibujados según la geografía, y Lide no está dibujado porque el lugar no se identifica en la fuente. Tampoco están dibujados Jiayile, Bila y Sunla."
+          "sv": "Enligt Wikipedia (efter Mingkrönikorna och Dreyer 2007) var Hormuz resans mål längst bort. World History Encyclopedia skriver att flottan dessutom seglade till Aden och upp i Röda havet till Jidda, varifrån en grupp reste till Mecka. Wikipedia nämner Aden först på den femte resan och Mecka på den sjunde. Källan räknar Sumatras hamnar i ordningen Lambri, Lide, Aru och Semudera; här är de ritade efter geografin, och Lide är inte utritad eftersom platsen inte är identifierad i källan. Jiayile, Bila och Sunla är inte heller utritade. Enligt källorna stod striden i Semudera och Sekandar togs till fånga i Lambri efteråt; kartan ritar platserna i geografisk ordning.",
+          "en": "According to Wikipedia (following the Ming chronicles and Dreyer 2007) Hormuz was the voyage's farthest destination. World History Encyclopedia writes that the fleet also sailed to Aden and up the Red Sea to Jeddah, from where a group travelled to Mecca. Wikipedia mentions Aden only on the fifth voyage and Mecca on the seventh. The source lists the ports of Sumatra in the order Lambri, Lide, Aru and Semudera; here they are drawn according to geography, and Lide is not drawn because the place is not identified in the source. Jiayile, Bila and Sunla are not drawn either. According to the sources the battle took place in Semudera and Sekandar was captured in Lambri afterwards; the map draws the places in geographical order.",
+          "de": "Laut Wikipedia (nach den Ming-Chroniken und Dreyer 2007) war Hormus das am weitesten entfernte Ziel der Reise. Die World History Encyclopedia schreibt, die Flotte sei außerdem nach Aden und das Rote Meer hinauf nach Dschidda gesegelt, von wo aus eine Gruppe nach Mekka reiste. Wikipedia nennt Aden erst bei der fünften Reise und Mekka bei der siebten. Die Quelle zählt die Häfen Sumatras in der Reihenfolge Lambri, Lide, Aru und Semudera auf; hier sind sie nach der Geografie gezeichnet, und Lide ist nicht eingezeichnet, weil der Ort in der Quelle nicht identifiziert ist. Jiayile, Bila und Sunla sind ebenfalls nicht eingezeichnet. Laut den Quellen fand der Kampf in Semudera statt, und Sekandar wurde danach in Lambri gefangen genommen; die Karte zeichnet die Orte in geografischer Reihenfolge.",
+          "fr": "Selon Wikipédia (d’après les Annales des Ming et Dreyer 2007), Ormuz fut la destination la plus lointaine du voyage. La World History Encyclopedia écrit que la flotte navigua en outre jusqu’à Aden et remonta la mer Rouge jusqu’à Djeddah, d’où un groupe se rendit à La Mecque. Wikipédia ne mentionne Aden qu’au cinquième voyage et La Mecque au septième. La source énumère les ports de Sumatra dans l’ordre Lambri, Lide, Aru et Semudera ; ils sont ici tracés d’après la géographie, et Lide n’est pas tracé, car le lieu n’est pas identifié dans la source. Jiayile, Bila et Sunla ne sont pas tracés non plus. Selon les sources, la bataille eut lieu à Semudera et Sekandar fut capturé ensuite à Lambri ; la carte trace les lieux dans l’ordre géographique.",
+          "es": "Según Wikipedia (siguiendo las crónicas Ming y a Dreyer 2007), Ormuz fue el destino más lejano del viaje. La World History Encyclopedia escribe que la flota navegó además hasta Adén y subió por el mar Rojo hasta Yeda, desde donde un grupo viajó a La Meca. Wikipedia no menciona Adén hasta el quinto viaje y La Meca hasta el séptimo. La fuente enumera los puertos de Sumatra en el orden Lambri, Lide, Aru y Semudera; aquí están dibujados según la geografía, y Lide no está dibujado porque el lugar no se identifica en la fuente. Tampoco están dibujados Jiayile, Bila y Sunla. Según las fuentes, la batalla tuvo lugar en Semudera y Sekandar fue capturado después en Lambri; el mapa dibuja los lugares en orden geográfico."
         }
       },
-      "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
+      "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he", "groeneveldt-1876-mingshi", "rockhill-1915-toung-pao"],
       "review": "source-checked",
       "legs": [
         {
@@ -731,13 +786,20 @@
             {
               "at": [119.6, 25.9],
               "name": {
-                "sv": "Fujian (avresa)",
-                "en": "Fujian (departure)",
-                "de": "Fujian (Abreise)",
-                "fr": "Fujian (départ)",
-                "es": "Fujian (salida)"
+                "sv": "Fujian",
+                "en": "Fujian",
+                "de": "Fujian",
+                "es": "Fujian",
+                "fr": "Fujian"
               },
-              "edtf": "1413-12/1414-01"
+              "edtf": "1413-12/1414-01",
+              "dateLabel": {
+                "sv": "december 1413–januari 1414, avfärd (hamnen anges inte)",
+                "en": "December 1413–January 1414, departure (the port is not given)",
+                "de": "Dezember 1413–Januar 1414, Abfahrt (der Hafen wird nicht genannt)",
+                "es": "diciembre de 1413–enero de 1414, partida (no se indica el puerto)",
+                "fr": "décembre 1413–janvier 1414, départ (le port n’est pas indiqué)"
+              }
             }
           ],
           "sources": ["wp-ming-treasure-voyages"]
@@ -912,24 +974,39 @@
             {
               "at": [95.3, 5.6],
               "name": {
-                "sv": "Lambri (Sekandar tas till fånga)",
-                "en": "Lambri (Sekandar is taken prisoner)",
-                "de": "Lambri (Sekandar wird gefangen genommen)",
-                "fr": "Lambri (Sekandar est fait prisonnier)",
-                "es": "Lambri (Sekandar es capturado)"
+                "sv": "Lambri",
+                "en": "Lambri",
+                "de": "Lambri",
+                "es": "Lambri",
+                "fr": "Lambri"
               },
-              "edtf": "1415"
+              "edtf": "1415",
+              "dateLabel": {
+                "sv": "1415: Sekandar tas till fånga",
+                "en": "1415: Sekandar is captured",
+                "de": "1415: Sekandar wird gefangen genommen",
+                "es": "1415: Sekandar es capturado",
+                "fr": "1415 : Sekandar est capturé"
+              }
             },
             {
               "at": [97.1, 5.2],
               "name": {
-                "sv": "Semudera (strid mot Sekandar)",
-                "en": "Semudera (battle against Sekandar)",
-                "de": "Semudera (Kampf gegen Sekandar)",
-                "fr": "Semudera (le combat contre Sekandar)",
-                "es": "Semudera (lucha contra Sekandar)"
+                "sv": "Semudera",
+                "en": "Semudera",
+                "de": "Semudera",
+                "es": "Semudera",
+                "fr": "Semudera"
               },
-              "edtf": "1415"
+              "edtf": "1415",
+              "dateLabel": {
+                "sv": "1415: strid mot Sekandar",
+                "en": "1415: battle against Sekandar",
+                "de": "1415: Kampf gegen Sekandar",
+                "es": "1415: batalla contra Sekandar",
+                "fr": "1415 : bataille contre Sekandar"
+              },
+              "stop": true
             },
             {
               "at": [118.8, 32.1],
@@ -940,10 +1017,18 @@
                 "fr": "Nankin",
                 "es": "Nankín"
               },
-              "date": "1415-08-12"
+              "date": "1415-08-12",
+              "dateLabel": {
+                "sv": "12 augusti 1415: hemkomst",
+                "en": "12 August 1415: return home",
+                "de": "12. August 1415: Heimkehr",
+                "es": "12 de agosto de 1415: regreso",
+                "fr": "12 août 1415 : retour"
+              },
+              "stop": true
             }
           ],
-          "sources": ["wp-ming-treasure-voyages"]
+          "sources": ["wp-ming-treasure-voyages", "groeneveldt-1876-mingshi", "rockhill-1915-toung-pao"]
         }
       ]
     },
@@ -985,7 +1070,7 @@
           "es": "El orden Ormuz, Lasa, Adén, Mogadiscio, Brava, Zhubu y Malindi es el más probable según Wikipedia, pero no es seguro. Lasa y Zhubu no están dibujados porque los lugares no se identifican en la fuente, y tampoco Shaliwanni (quizá Cannanore). La World History Encyclopedia trata juntos los viajes quinto a séptimo y menciona Mogadiscio, Malindi y Mombasa, y que la flota llegó a Zanzíbar; Mombasa y Zanzíbar no figuran en la lista de Wikipedia. La fuente solo dice que la flota volvió a China, no a qué puerto."
         }
       },
-      "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
+      "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he", "groeneveldt-1876-mingshi"],
       "review": "source-checked",
       "legs": [
         {
@@ -998,13 +1083,21 @@
             {
               "at": [118.7, 24.9],
               "name": {
-                "sv": "Quanzhou (rökelseoffer)",
-                "en": "Quanzhou (incense offering)",
-                "de": "Quanzhou (Weihrauchopfer)",
-                "fr": "Quanzhou (offrande d’encens)",
-                "es": "Quanzhou (ofrenda de incienso)"
+                "sv": "Quanzhou",
+                "en": "Quanzhou",
+                "de": "Quanzhou",
+                "es": "Quanzhou",
+                "fr": "Quanzhou"
               },
-              "date": "1417-05-31"
+              "date": "1417-05-31",
+              "dateLabel": {
+                "sv": "31 maj 1417: rökelseoffer inför resan",
+                "en": "31 May 1417: incense offering before the voyage",
+                "de": "31. Mai 1417: Räucheropfer vor der Reise",
+                "es": "31 de mayo de 1417: ofrenda de incienso antes del viaje",
+                "fr": "31 mai 1417 : offrande d’encens avant le voyage"
+              },
+              "stop": true
             },
             {
               "at": [109.1, 13.9],
@@ -1145,7 +1238,14 @@
                 "fr": "Aden",
                 "es": "Adén"
               },
-              "edtf": "1419-01/1419-03"
+              "edtf": "1419-01/1419-03",
+              "dateLabel": {
+                "sv": "januari–mars 1419",
+                "en": "January–March 1419",
+                "de": "Januar–März 1419",
+                "es": "enero–marzo de 1419",
+                "fr": "janvier–mars 1419"
+              }
             },
             {
               "at": [45.3, 2.0],
@@ -1190,16 +1290,24 @@
             {
               "at": [118.8, 32.1],
               "name": {
-                "sv": "Kina (källan anger inte hamnen; flottans bas var Nanjing)",
-                "en": "China (the source does not give the port; the fleet's base was Nanjing)",
-                "de": "China (die Quelle nennt den Hafen nicht; die Basis der Flotte war Nanjing)",
-                "fr": "Chine (la source n’indique pas le port ; la base de la flotte était Nankin)",
-                "es": "China (la fuente no indica el puerto; la base de la flota era Nankín)"
+                "sv": "Kina",
+                "en": "China",
+                "de": "China",
+                "es": "China",
+                "fr": "Chine"
               },
-              "date": "1419-08-08"
+              "date": "1419-08-08",
+              "dateLabel": {
+                "sv": "8 augusti 1419: hemkomst (hamnen anges inte)",
+                "en": "8 August 1419: return home (the port is not given)",
+                "de": "8. August 1419: Heimkehr (der Hafen wird nicht genannt)",
+                "es": "8 de agosto de 1419: regreso (no se indica el puerto)",
+                "fr": "8 août 1419 : retour (le port n’est pas indiqué)"
+              },
+              "stop": true
             }
           ],
-          "sources": ["wp-ming-treasure-voyages"]
+          "sources": ["wp-ming-treasure-voyages", "groeneveldt-1876-mingshi"]
         }
       ]
     },
@@ -1241,7 +1349,7 @@
           "es": "La fuente no indica la fecha de salida ni los puertos de China, y qué escuadras fueron adónde solo se conoce en parte. Según el Mingshi, Zheng He visitó en persona Ganbali, en el sur de la India; es el único de los doce países situados al oeste de Sumatra del que se dice expresamente que recibió su visita. La escuadra a Adén la dirigía probablemente Zhou Man. Algunas naves chinas se quedaron en Arabia: el sultán rasúlida recibió a una delegación china en Taiz en febrero de 1423. La World History Encyclopedia trata juntos los viajes quinto a séptimo y menciona también Mombasa y Zanzíbar, que no figuran en la lista de Wikipedia."
         }
       },
-      "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
+      "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he", "groeneveldt-1876-mingshi"],
       "review": "source-checked",
       "legs": [
         {
@@ -1455,16 +1563,24 @@
             {
               "at": [118.8, 32.1],
               "name": {
-                "sv": "Hemkomst (hamnen anges inte; flottans bas var Nanjing)",
-                "en": "Homecoming (the port is not given; the fleet's base was Nanjing)",
-                "de": "Heimkehr (der Hafen wird nicht genannt; die Basis der Flotte war Nanjing)",
-                "fr": "Retour (le port n’est pas indiqué ; la base de la flotte était Nankin)",
-                "es": "Regreso (no se indica el puerto; la base de la flota era Nankín)"
+                "sv": "Kina",
+                "en": "China",
+                "de": "China",
+                "es": "China",
+                "fr": "Chine"
               },
-              "date": "1422-09-03"
+              "date": "1422-09-03",
+              "dateLabel": {
+                "sv": "3 september 1422: hemkomst (hamnen anges inte)",
+                "en": "3 September 1422: return home (the port is not given)",
+                "de": "3. September 1422: Heimkehr (der Hafen wird nicht genannt)",
+                "es": "3 de septiembre de 1422: regreso (no se indica el puerto)",
+                "fr": "3 septembre 1422 : retour (le port n’est pas indiqué)"
+              },
+              "stop": true
             }
           ],
-          "sources": ["wp-ming-treasure-voyages"]
+          "sources": ["wp-ming-treasure-voyages", "groeneveldt-1876-mingshi"]
         }
       ]
     },
@@ -1524,7 +1640,15 @@
                 "fr": "Longwan, Nankin",
                 "es": "Longwan, Nankín"
               },
-              "date": "1431-01-19"
+              "date": "1431-01-19",
+              "dateLabel": {
+                "sv": "avfärd 19 januari 1431",
+                "en": "departure 19 January 1431",
+                "de": "Abfahrt am 19. Januar 1431",
+                "es": "partida el 19 de enero de 1431",
+                "fr": "départ le 19 janvier 1431"
+              },
+              "stop": true
             },
             {
               "at": [121.3, 31.5],
@@ -1556,7 +1680,15 @@
                 "fr": "Changle",
                 "es": "Changle"
               },
-              "date": "1431-04-08"
+              "date": "1431-04-08",
+              "dateLabel": {
+                "sv": "8 april 1431: flottan ligger här till december",
+                "en": "8 April 1431: the fleet stays here until December",
+                "de": "8. April 1431: Die Flotte liegt hier bis Dezember",
+                "es": "8 de abril de 1431: la flota permanece aquí hasta diciembre",
+                "fr": "8 avril 1431 : la flotte reste ici jusqu’en décembre"
+              },
+              "stop": true
             }
           ],
           "sources": ["wp-ming-treasure-voyages"]
@@ -1609,7 +1741,15 @@
                 "fr": "Surabaya, Java",
                 "es": "Surabaya, Java"
               },
-              "date": "1432-03-07"
+              "date": "1432-03-07",
+              "dateLabel": {
+                "sv": "7 mars 1432",
+                "en": "7 March 1432",
+                "de": "7. März 1432",
+                "es": "7 de marzo de 1432",
+                "fr": "7 mars 1432"
+              },
+              "stop": true
             }
           ],
           "sources": ["wp-ming-treasure-voyages"]
@@ -1651,7 +1791,15 @@
                 "fr": "Malacca",
                 "es": "Malaca"
               },
-              "date": "1432-08-03"
+              "date": "1432-08-03",
+              "dateLabel": {
+                "sv": "3 augusti 1432",
+                "en": "3 August 1432",
+                "de": "3. August 1432",
+                "es": "3 de agosto de 1432",
+                "fr": "3 août 1432"
+              },
+              "stop": true
             }
           ],
           "sources": ["wp-ming-treasure-voyages"]
@@ -1687,13 +1835,20 @@
             {
               "at": [93.8, 7.0],
               "name": {
-                "sv": "Cuilanxu (troligen Stora Nikobaren)",
-                "en": "Cuilanxu (probably Great Nicobar)",
-                "de": "Cuilanxu (wahrscheinlich Groß-Nikobar)",
-                "fr": "Cuilanxu (probablement Grande Nicobar)",
-                "es": "Cuilanxu (probablemente Gran Nicobar)"
+                "sv": "Cuilanxu",
+                "en": "Cuilanxu",
+                "de": "Cuilanxu",
+                "es": "Cuilanxu",
+                "fr": "Cuilanxu"
               },
-              "date": "1432-11-14"
+              "date": "1432-11-14",
+              "dateLabel": {
+                "sv": "14 november 1432, troligen Stora Nikobaren",
+                "en": "14 November 1432, probably Great Nicobar",
+                "de": "14. November 1432, wahrscheinlich Groß-Nikobar",
+                "es": "14 de noviembre de 1432, probablemente Gran Nicobar",
+                "fr": "14 novembre 1432, probablement Grande Nicobar"
+              }
             },
             {
               "at": [80.0, 6.5],
@@ -1725,7 +1880,15 @@
                 "fr": "Calicut",
                 "es": "Calicut"
               },
-              "date": "1432-12-10"
+              "date": "1432-12-10",
+              "dateLabel": {
+                "sv": "10 december 1432",
+                "en": "10 December 1432",
+                "de": "10. Dezember 1432",
+                "es": "10 de diciembre de 1432",
+                "fr": "10 décembre 1432"
+              },
+              "stop": true
             }
           ],
           "sources": ["wp-ming-treasure-voyages"]
@@ -1746,7 +1909,15 @@
                 "fr": "Ormuz",
                 "es": "Ormuz"
               },
-              "date": "1433-01-17"
+              "date": "1433-01-17",
+              "dateLabel": {
+                "sv": "17 januari 1433: längst bort",
+                "en": "17 January 1433: the farthest point",
+                "de": "17. Januar 1433: am weitesten entfernt",
+                "es": "17 de enero de 1433: el punto más lejano",
+                "fr": "17 janvier 1433 : le point le plus éloigné"
+              },
+              "stop": true
             }
           ],
           "sources": ["wp-ming-treasure-voyages"]
@@ -1863,7 +2034,15 @@
                 "fr": "Taicang",
                 "es": "Taicang"
               },
-              "date": "1433-07-07"
+              "date": "1433-07-07",
+              "dateLabel": {
+                "sv": "7 juli 1433: tillbaka i Kina",
+                "en": "7 July 1433: back in China",
+                "de": "7. Juli 1433: zurück in China",
+                "es": "7 de julio de 1433: de vuelta en China",
+                "fr": "7 juillet 1433 : retour en Chine"
+              },
+              "stop": true
             }
           ],
           "sources": ["wp-ming-treasure-voyages"]
