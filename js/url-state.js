@@ -23,12 +23,18 @@
 // Lugn rörelse står inte i länken: det är besökarens egen inställning för tillgänglighet och ska inte
 // ändras av någon annans länk.
 //
+// Reserverade fält (#397, beslut 2026-11-13) skrivs inte än och får inte användas till något annat:
+//   d = tidsdomänen i version 8 (människans eller jordens historia), tillståndets fält domain (RESERVED_STATE_KEYS i
+//   js/state.js). Värdena bestäms när läget byggs. En länk med d öppnas i dag som om d saknades.
+//
 // Bara y krävs (eller t, för en tur). Okända fält hoppas över, så att en länk från en senare version ändå öppnas så gott det går.
 // Filen har inga importer från webbläsaren och testas i node (tests/url-state.test.mjs).
 
 import { STATE_VERSION, fromJSON, MIN_YEAR, MAX_YEAR } from './state.js';
 
 const ID = /^[a-z0-9-]+$/;
+/** Adressfält som är reserverade för en senare version (#397): fältets namn och tillståndets fält det ska bära. */
+export const RESERVED_HASH_FIELDS = { d: 'domain' };
 export const LESSON_MODE = 'lektion';
 /** Lärarens väg i lektionsläget (#885): `r=lararen` i en lektionslänk ger knappen för elev- och lärarblad. Skrivs aldrig tillbaka till adressen. */
 export const TEACHER_ROLE = 'lararen';

@@ -1,8 +1,8 @@
 // Adressformatet (#501, #64): js/url-state.js. Kör: node --test 'tests/*.test.mjs'
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { encodeHash, decodeHash, decodeTour, decodeMode, decodeMission, decodeRole, isNewStep } from '../js/url-state.js';
-import { MIN_YEAR, MAX_YEAR } from '../js/state.js';
+import { encodeHash, decodeHash, decodeTour, decodeMode, decodeMission, decodeRole, isNewStep, RESERVED_HASH_FIELDS } from '../js/url-state.js';
+import { MIN_YEAR, MAX_YEAR, RESERVED_STATE_KEYS, toJSON, fromJSON } from '../js/state.js';
 import { readFileSync } from 'node:fs';
 
 const base = { v: 1, year: 1325, camera: { lat: 34, lon: -50, zoom: 1.6 }, focus: null, layers: ['areas', 'events'], filters: ['krig', 'kultur'], calm: false };
@@ -224,4 +224,20 @@ test('länkarkivet täcker varje släppt version, varje adressdel och varje foku
   for (const key of [...header, 'p', 'r', 'tur']) assert.ok(keys.has(key), `ingen länk i arkivet har ${key}=; lägg till en (se "om" i tests/lankarkiv.json)`);
   const focusTypes = new Set(archive.links.map(l => l.expected.state?.focus?.split(':')[0]).filter(Boolean));
   for (const type of ['war', 'empire', 'religion', 'route', 'theme', 'place']) assert.ok(focusTypes.has(type), `ingen länk följer ${type}`);
+});
+
+// Reserverade namn för tidsdomänen i version 8 (#397, beslut 2026-11-13): d i adressen, domain i tillståndet
+test('d och domain är reserverade: de skrivs inte, och en länk med d öppnas som förut (#397)', () => {
+  assert.deepEqual(RESERVED_HASH_FIELDS, { d: 'domain' });
+  assert.ok(RESERVED_STATE_KEYS.includes('domain'));
+  // Inget fält som skrivs i dag får ha ett reserverat namn
+  const full = encodeHash({ ...base, focus: 'war:hundraarskriget', yearEnd: 1400, period: 'medeltiden', tag: 'oversikt' }, [], { id: 'en-tur', step: 'ett-steg' }, 'ett-uppdrag', 'lektion');
+  const written = [...new URLSearchParams(full.slice(1)).keys()];
+  for (const key of Object.keys(RESERVED_HASH_FIELDS)) assert.ok(!written.includes(key), `${key}= är reserverat (#397)`);
+  // En länk med d (till exempel från version 8) öppnas som om d saknades
+  assert.deepEqual(decodeHash('#y=1325&d=jorden&l=areas'), decodeHash('#y=1325&l=areas'));
+  // Tillståndet skriver inte domain, och läser det som ett okänt fält
+  const json = toJSON({ year: 1325, focus: null, layers: { areas: true }, filters: new Set(['krig']), tag: null, calm: false, range: null });
+  for (const key of RESERVED_STATE_KEYS) assert.ok(!(key in json), `${key} är reserverat (#397)`);
+  assert.ok(!('domain' in fromJSON({ ...json, domain: 'jorden' })));
 });

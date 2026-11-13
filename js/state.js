@@ -82,6 +82,12 @@ export function snapshot(state) {
 
 /** Versionen av JSON-formatet. Höjs om fälten ändras på ett sätt som gamla länkar inte klarar. */
 export const STATE_VERSION = 1;
+/**
+ * Reserverade namn i tillståndet (#397, beslut 2026-11-13): fält som en senare version ska använda och som ingen annan
+ * del får ta. `domain` är tidsdomänen, alltså om globen visar människans historia eller jordens historia (version 8).
+ * Den byggs inte nu: toJSON() skriver den inte, och fromJSON() hoppar över den som andra okända fält.
+ */
+export const RESERVED_STATE_KEYS = ['domain'];
 const FOCUS_TYPES = ['war', 'empire', 'religion', 'route', 'theme', 'place']; // theme (#398) och place (#579): ett tema och en plats är fokus, inget eget läge
 
 // ---------------------------------------------------------------------------------------------------------
