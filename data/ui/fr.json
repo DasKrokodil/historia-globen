@@ -451,6 +451,8 @@
   "panel.emptyHelp": "Faites glisser la frise ou appuyez sur lecture pour trouver le prochain événement. Les points sous la frise montrent où il y a des données.",
   "panel.filtersOff": "Toutes les catégories sont désactivées, donc aucun événement n’est affiché.",
   "panel.filtersOffHelp": "Activez une ou plusieurs catégories ci-dessus, ou affichez-les toutes à nouveau.",
+  "panel.filtersSome": "Rien dans les catégories sélectionnées à {within} de {at}.",
+  "panel.filtersSomeHelp": "Certaines catégories sont désactivées et peuvent masquer des événements. Affichez toutes les catégories ou faites glisser la frise.",
   "panel.showAllCategories": "Afficher toutes les catégories",
   "panel.overviewNote": "Aperçu : une sélection, environ {count} événements.",
   "panel.overviewAll": "Tout afficher",
