@@ -4697,6 +4697,39 @@ async function run(browser, vp) {
     }
     return 'turens första år och kamera står kvar när ett gammalt fokus blir klart; vanligt fokus via adressen fungerar';
   });
+  // #1094: människans spridning. Lagret slås på med en länk i förhistorien; teckenförklaringen listar det som syns
+  // (textalternativet, #1106) med säkerhet och källor, och lagret syns inte när året ligger efter förhistorien.
+  await check('människans spridning: lagret visar tolkningar med källor i förhistorien (#1094)', async () => {
+    const tp = await context.newPage();
+    const errors = [];
+    tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    tp.on('pageerror', e => errors.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      const open = async hash => { await tp.goto(`${BASE}${hash}`); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); };
+      await open('#y=-60000&l=events,spread');
+      await tp.waitForSelector('#religion-legend .rl-spread', { state: 'attached', timeout: T.step });
+      const seen = await tp.evaluate(() => [...document.querySelectorAll('#religion-legend .rl-spread-item')].map(li => ({
+        title: li.querySelector('strong')?.textContent ?? '', sources: li.querySelectorAll('a[href]').length,
+      })));
+      if (seen.length < 3) throw new Error(`för få poster i listan år 60 000 f.Kr.: ${JSON.stringify(seen)}`);
+      const without = seen.filter(i => !i.sources);
+      if (without.length) throw new Error(`poster utan källa: ${without.map(i => i.title).join(', ')}`);
+      if (!seen.some(i => /Afrika/.test(i.title))) throw new Error('Afrika saknas i listan; kartan får inte visa Afrika som tomt');
+      await open('#y=1500&l=events,spread');
+      await tp.waitForTimeout(300);
+      if (await tp.locator('#religion-legend .rl-spread').count()) throw new Error('lagret syns år 1500, efter förhistorien');
+      if (errors.length) throw new Error(`fel i konsolen: ${errors.join(' | ')}`);
+      return `${seen.length} poster år 60 000 f.Kr., alla med källa`;
+    } finally {
+      await tp.close();
+    }
+  });
+
   // #893 (lägeskontraktet): övergångar mellan lägen. Två kedjor som saknade gemensam ordning före kontraktet:
   // 1. Fokus som börjar under en tur avslutar turen (MODE_RULES i js/state.js), och turens utgång lämnar det nya fokuset
   //    i fred i stället för att återställa fokuset från före turen.

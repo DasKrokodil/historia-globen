@@ -703,6 +703,14 @@ export function loadBorders() {
   return bordersPromise;
 }
 
+/** Människans spridning (data/spridning.json, #1094) och källregistret, när lagret slås på. */
+let spreadPromise = null;
+export function loadSpread() {
+  spreadPromise ??= Promise.all([getJSON('data/spridning.json'), loadSources()]).then(([doc]) => doc)
+    .catch(err => { spreadPromise = null; throw err; });
+  return spreadPromise;
+}
+
 /** Allt som Om källorna räknar med: källregistret, alla händelsers källor och bilder, rikenas faktarutor och gränserna. */
 export function loadForSources() {
   return Promise.all([loadSources(), loadAllEventDetails(), loadEmpireFacts(), loadBorders()]);

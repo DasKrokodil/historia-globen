@@ -323,6 +323,17 @@ for d in (discovery or {}).get('decorations', []):
 for layer in (image_layers or {}).get('layers', []):
     if layer.get('source') and layer['source'] not in src_ids:
         err(f"data/bildlager.json ({layer.get('id')}): källan {layer['source']} finns inte i sources.json")
+# Människans spridning (#1094): källorna och händelserna som platserna pekar på
+spread = load('data/spridning.json') if (DIST / 'data/spridning.json').is_file() else None
+for item in (spread or {}).get('items', []):
+    for s in item.get('sources', []):
+        if s not in src_ids:
+            err(f"data/spridning.json ({item.get('id')}): källan {s} finns inte i sources.json")
+    for place in item.get('places', []) + [p for path in item.get('paths', []) for p in path]:
+        if 'event' in place and place['event'] not in ev_ids:
+            err(f"data/spridning.json ({item.get('id')}): händelsen {place['event']} finns inte i events.json")
+        elif 'event' not in place and not (isinstance(place.get('coord'), list) and len(place['coord']) == 2):
+            err(f"data/spridning.json ({item.get('id')}): en plats saknar event och coord")
 funfacts = load('data/funfacts.json') or {'funfacts': []}
 for f in funfacts['funfacts']:
     for i in f.get('events', []):

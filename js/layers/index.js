@@ -11,6 +11,7 @@ import { entry as borders } from './borders.js';
 import { entry as wars } from './wars.js';
 import { entry as images } from './images.js';
 import { entry as places } from './places.js';
+import { entry as spread } from './spread.js';
 import { ui } from '../i18n.js';
 
 // Rader i Lager som inte är lager på kartan
@@ -21,4 +22,4 @@ const keep = () => ({ id: 'keep', name: ui('layer.keep'), group: 'settings',
   menu: { on: false, note: ui('layer.keepNote') } });
 
 /** Händelserna först: deras markörer läggs på klotet före de andra lagrens. */
-export const LAYERS = [events, funfacts, areas, religions, routes, images, discovery, borders, keep, wars, places];
+export const LAYERS = [events, funfacts, areas, religions, routes, spread, images, discovery, borders, keep, wars, places];
