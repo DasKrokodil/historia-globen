@@ -3342,6 +3342,31 @@ async function run(browser, vp) {
     }
   });
 
+  // Cooks resor fick källbelagda stopp med korta platsnamn (#1377)
+  await check('Cooks första resa har sju stopp med korta namn', async () => {
+    try {
+      await clickView('#btn-focus');
+      await visible('#focus-menu');
+      await page.click('#focus-menu [data-tab="Resor"]');
+      await page.fill('#focus-menu .focus-search', 'Cooks första');
+      const route = page.locator('#focus-menu .focus-item[data-key="route:cook-resa-1"]');
+      await route.waitFor({ state: 'visible', timeout: T.step });
+      await route.click();
+      await visible('#focus-bar');
+      const marks = await page.locator('.tdot.route-stop').evaluateAll(nodes => nodes.map(node =>
+        node.getAttribute('aria-label') || node.title));
+      if (marks.length !== 7) throw new Error(`Cooks första resa har ${marks.length} stopp, inte 7: ${marks.join(' | ')}`);
+      for (const label of ['Point Venus (Tahiti) · 3 juni 1769', 'Botany Bay · 29 april 1770', 'Deal (Downs) · 12 juli 1771']) {
+        if (!marks.some(mark => mark.includes(label))) throw new Error(`resestoppet saknas: ${label} (${marks.join(' | ')})`);
+      }
+      return `7 stopp, bland annat ${marks[1]}`;
+    } finally {
+      if (await page.locator('#focus-bar').isVisible().catch(() => false)) await page.click('#focus-exit');
+      await hidden('#focus-bar');
+      if (await page.locator('#focus-menu').isVisible().catch(() => false)) await page.keyboard.press('Escape');
+    }
+  });
+
   // Fokus-menyn hade religionerna bara första gången den öppnades, när lagret Religioner inte hade öppnats (#402-uppdelningen)
   await check('Fokus-menyn har religionerna också andra gången den öppnas', async () => {
     const counts = [];
