@@ -1,16 +1,28 @@
 {
-  "schema": "historia-globen/bildlager@1",
+  "schema": "historia-globen/bildlager@2",
   "layers": [
     {
-      "id": "nattljus-2016",
+      "id": "nattljus",
+      "kind": "lager",
+      "aliases": ["images"],
+      "group": "perspective",
       "name": { "sv": "Nattljus (NASA, 2016)", "en": "Night lights (NASA, 2016)", "de": "Nachtlichter (NASA, 2016)", "es": "Luces nocturnas (NASA, 2016)", "fr": "Lumières nocturnes (NASA, 2016)" },
-      "title": { "sv": "Nattljus från rymden, 2016", "en": "Night lights from space, 2016", "de": "Nachtlichter aus dem All, 2016", "es": "Luces nocturnas desde el espacio, 2016", "fr": "Lumières nocturnes vues de l'espace, 2016" },
-      "file": "images/lager/nattljus-2016.jpg",
-      "from": 2016,
-      "to": null,
-      "opacity": 0.72,
-      "source": "nasa-black-marble-2016",
-      "license": "Public domain i USA enligt NASA:s riktlinjer för bilder"
+      "note": { "sv": "NASA Black Marble från 2016", "en": "NASA Black Marble from 2016", "de": "NASA Black Marble von 2016", "es": "NASA Black Marble de 2016", "fr": "NASA Black Marble de 2016" },
+      "slices": [
+        {
+          "id": "nattljus-2016",
+          "title": { "sv": "Nattljus från rymden, 2016", "en": "Night lights from space, 2016", "de": "Nachtlichter aus dem All, 2016", "es": "Luces nocturnas desde el espacio, 2016", "fr": "Lumières nocturnes vues de l'espace, 2016" },
+          "format": "raster",
+          "file": "images/lager/nattljus-2016.jpg",
+          "width": 3600,
+          "height": 1800,
+          "from": 2016,
+          "opacity": 0.72,
+          "sources": ["nasa-black-marble-2016", "nasa-media-guidelines"],
+          "review": "source-checked",
+          "license": "Public domain i USA enligt NASA:s riktlinjer för bilder"
+        }
+      ]
     }
   ]
 }

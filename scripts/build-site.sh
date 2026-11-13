@@ -143,8 +143,9 @@ PY
 while IFS= read -r f; do copy "$f"; done < <(python3 -I - <<'PY'
 import json
 for layer in json.load(open('data/bildlager.json')).get('layers', []):
-    if layer.get('file'):
-        print(layer['file'])
+    for part in layer.get('slices', []):
+        if part.get('file'):
+            print(part['file'])
 PY
 )
 

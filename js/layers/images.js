@@ -5,12 +5,16 @@ import { ui } from '../i18n.js';
 import { t } from '../model.js';
 
 export function entry({ data, refreshSoon }) {
-  const imageLayers = data.imageLayers?.layers ?? [];
-  const layer = new ImageLayer(imageLayers);
+  // Formatet bildlager@2 (#1325): varje post i layers är en rad i Lager med tidsskivor i slices. Tills flera
+  // rader, vektor och bounds byggs (pull request 2 i #1325) visas som förut en enda rad med id "images":
+  // den första raden med kind "lager", och bara dess rasterskivor över hela världen. Utkast visas aldrig.
+  const row = (data.imageLayers?.layers ?? []).find(x => x.kind === 'lager');
+  const slices = (row?.slices ?? []).filter(x => x.format === 'raster' && !x.bounds && x.review !== 'draft');
+  const layer = new ImageLayer(slices);
   layer.onLoad = refreshSoon;
   return {
-    id: 'images', name: imageLayers[0]?.name ? t(imageLayers[0].name) : ui('layer.images'), group: 'perspective', layer,
-    menu: { on: false, note: ui('layer.imagesNote') }, z: Z.images,
+    id: 'images', name: row?.name ? t(row.name) : ui('layer.images'), group: 'perspective', layer,
+    menu: { on: false, note: row?.note ? t(row.note) : ui('layer.imagesNote') }, z: Z.images,
     enabled: s => s.layers.images,
     update: s => layer.update(s.wholeYear),
     drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
