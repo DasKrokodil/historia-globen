@@ -22,7 +22,7 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 - Uppmaningar skrivs i imperativ för `usted` (spanska: `arrastre`, `elija`, `toque`, `pulse`) och `vous` (franska: `faites glisser`, `choisissez`, `cliquez`).
 - Texter som inte tilltalar läsaren (händelser, fakta) skrivs opersonligt, som svenskan.
 
-**Känd avvikelse i dag (rättas i ett eget issue):** gränssnittet använder informellt tilltal i `data/ui/de.json` (`du`), `data/ui/es.json` (`tú`: `arrastra`, `toca`, `elige`, `pulsa`, `puedes`) och i en nyckel i `data/ui/fr.json` (`hunt.region`, `tu`). De ändras till artigt tilltal enligt beslutet.
+**Rättat (#839, 2026-11-13):** de sista spanska gränssnittstexterna med `tú` (bland annat `meta.title`, `help.s1`, `ff.dragHint` och `search.hint`) har `usted`. Tyskan rättades i #857, och franskan har inget informellt tilltal utanför Samtidighetsjakten. Kvar med du-form är bara texter för Samtidighetsjakten (`hunt.*`, `theme.huntImpossible`), enligt undantaget ovan.
 
 ## 2. Tidsangivelser
 
@@ -334,3 +334,18 @@ Namnen i `data/religions.json` följer den franska regeln med liten bokstav i ad
 | fornegyptisk religion | religion de l’Égypte antique |
 | traditionell afrikansk religion | religion traditionnelle africaine |
 | Nyckelår (rubrik i faktarutan) | Années clés |
+
+## 15. Religioner på spanska (#809)
+
+Profeten skrivs *Mahoma* och flykten till Medina *la hégira* (etablerade spanska former). Sikhernas gurur skrivs *Guru Nanak*, *Guru Arjan* och *Guru Gobind Singh* utan accent, som i händelsedatan, men substantivet är *gurú*. Svenskans "miljarder" skrivs som *millones* (2,3 miljarder = *2300 millones*), eftersom *millardo* sällan används.
+
+| Svenska | Spanska |
+|---|---|
+| kristendom | cristianismo |
+| judendom | judaísmo |
+| buddhism | budismo |
+| hinduism | hinduismo |
+| sikhism | sijismo |
+| shinto | sintoísmo |
+| kinesisk religion (konfucianism, daoism) | religión china (confucianismo, taoísmo) |
+| Nyckelår (rubrik i faktarutan) | Años clave |

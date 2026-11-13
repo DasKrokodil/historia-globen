@@ -149,3 +149,34 @@ test('turen Hur vet vi det här? (#938) har sex steg med kapitel, fråga och tex
     assert.ok(s.open && s.sources.length >= 2, `${s.id}: öppnar en händelse och har minst två källor`);
   }
 });
+
+test('turen Det här har du hört (#947) har sex steg med kapitel, fråga, text och källor på alla fem språken', () => {
+  const t = read('data/turer/det-har-har-du-hort.json');
+  const langs = ['sv', 'en', 'de', 'es', 'fr'];
+  const full = v => langs.every(l => typeof v?.[l] === 'string' && v[l].trim() !== '');
+  assert.equal(t.steps.length, 6);
+  assert.ok(full(t.title) && full(t.summary), 'titel och sammanfattning på alla språk');
+  for (const s of t.steps) {
+    assert.ok(full(s.title) && full(s.chapter) && full(s.question) && full(s.text), `${s.id}: titel, kapitel, fråga och text på alla språk`);
+    assert.ok(s.sources.length >= 1, `${s.id}: minst en källa`);
+  }
+  // Gymnasiet: artigt tilltal (bokstäver med accent räknas, så att "tué" inte läses som "tu") i tyska, spanska och franska (beslut 2026-11-08), alltså inga du-former
+  const informal = { de: /(?<!\p{L})(du|dich|dir|dein\p{L}*)(?!\p{L})/iu, es: /(?<!\p{L})(tú|puedes|sabes|crees)(?!\p{L})/iu, fr: /(?<!\p{L})(tu|toi|ton|ta|tes)(?!\p{L})/iu };
+  for (const s of t.steps) for (const [l, re] of Object.entries(informal)) {
+    for (const f of ['question', 'text', 'title', 'chapter']) assert.ok(!re.test(s[f][l]), `${s.id}.${f}.${l}: du-form`);
+  }
+});
+
+test('turen Vad vet vi egentligen? (#948) har sex steg som öppnar händelser, med artigt tilltal i tyska, spanska och franska', () => {
+  const t = read('data/turer/vad-vet-vi-egentligen.json');
+  const langs = ['sv', 'en', 'de', 'es', 'fr'];
+  const full = v => langs.every(l => typeof v?.[l] === 'string' && v[l].trim() !== '');
+  assert.equal(t.steps.length, 6);
+  assert.ok(full(t.title) && full(t.summary), 'titel och sammanfattning på alla språk');
+  const informal = { de: /(?<!\p{L})(du|dich|dir|dein\p{L}*)(?!\p{L})/iu, es: /(?<!\p{L})(tú|puedes|sabes|crees)(?!\p{L})/iu, fr: /(?<!\p{L})(tu|toi|ton|ta|tes)(?!\p{L})/iu };
+  for (const s of t.steps) {
+    assert.ok(full(s.title) && full(s.chapter) && full(s.question) && full(s.text), `${s.id}: titel, kapitel, fråga och text på alla språk`);
+    assert.ok(s.open && s.sources.length >= 1, `${s.id}: öppnar en händelse och har källor`);
+    for (const [l, re] of Object.entries(informal)) for (const f of ['question', 'text', 'title', 'chapter']) assert.ok(!re.test(s[f][l]), `${s.id}.${f}.${l}: du-form`);
+  }
+});
