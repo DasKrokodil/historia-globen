@@ -136,7 +136,8 @@ export class SpreadLayer {
     let x = hull.reduce((a, [hx]) => a + hx, 0) / hull.length;
     const y = hull.reduce((a, [, hy]) => a + hy, 0) / hull.length;
     x = ((x % W) + W) % W;
-    return { x, y, text: t(item.label ?? item.title), col };
+    // Ordet under namnet följer säkerheten, som i listan: en hypotes kallas hypotes, annars tolkning
+    return { x, y, text: t(item.label ?? item.title), col, word: ui(item.certainty === 'hypotes' ? 'spread.certainty.hypotes' : 'spread.interpretation') };
   }
 
   /** En våg: en linje per gren, framritad till andelen grow av sin längd. */
@@ -183,11 +184,11 @@ export class SpreadLayer {
     }
   }
 
-  /** Områdenas namn, med ordet "tolkning" under, mitt i området. */
+  /** Områdenas namn, med ordet "tolkning" (eller "hypotes") under, mitt i området. */
   drawLabels(ctx, W, k, labels) {
-    const size = 13 * k, small = 10.5 * k, word = ui('spread.interpretation');
+    const size = 13 * k, small = 10.5 * k;
     ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
-    for (const { x, y, text, col } of labels) {
+    for (const { x, y, text, col, word } of labels) {
       const y1 = Math.max(size + small + 4 * k, y + small);
       for (const dx of x < W / 8 ? [0, W] : x > W * 7 / 8 ? [0, -W] : [0]) {
         ctx.lineWidth = 3.5 * k; ctx.strokeStyle = 'rgba(16,22,30,0.85)';
