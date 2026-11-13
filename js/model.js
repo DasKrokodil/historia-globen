@@ -229,12 +229,14 @@ export function formatDirection(when, year, eventYear) {
 }
 
 /**
- * Förhistoriens år visas avrundade (inför v6.3.0): före 10 000 f.Kr. är ett steg på reglaget hundratals år, så "99 001 f.Kr."
- * låtsas en exakthet som inte finns. Året avrundas till närmaste tusental, som århundraderaden redan gör (formatCentury).
- * Senare år lämnas orörda.
+ * Förhistoriens år visas avrundade (inför v6.3.0): i segmentet 100 000–3000 f.Kr. är ett steg på reglaget hundratals år, så
+ * "99 001 f.Kr." eller "7413 f.Kr." låtsas en exakthet som inte finns. Före 10 000 f.Kr. avrundas året till närmaste tusental,
+ * som århundraderaden redan gör (formatCentury), och 10 000–3000 f.Kr. till närmaste hundratal. 3000 f.Kr. och senare lämnas orörda.
  */
 export function roundPrehistoric(y) {
-  return y < -9999 ? 1 - Math.round(bce(y) / 1000) * 1000 : y;
+  if (y < -9999) return 1 - Math.round(bce(y) / 1000) * 1000;
+  if (y < -2999) return 1 - Math.round(bce(y) / 100) * 100;
+  return y;
 }
 
 /**
