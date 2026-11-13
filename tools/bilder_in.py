@@ -72,6 +72,33 @@ def image_field(entry, styles):
     return img
 
 
+def put_image(block, img_json):
+    """Lägger in eller byter "image" i en händelses text, utan att formatera om något annat.
+
+    Fyra fall, i den här ordningen (#1288):
+    1. händelsen har redan en "image" (på egen rad eller mitt på en rad): objektet byts ut;
+    2. händelsen har en egen rad med "wikidata" eller "sources": "image" läggs in som egen rad före den;
+    3. händelsen står på en rad och har exakt ett "sources": "image" läggs in före det, på samma rad;
+    4. annars: None, och image måste fyllas i för hand.
+    Bildens objekt har ett inre objekt (caption per språk), så det läses med raw_decode och inte med regex.
+    """
+    marker = '"image": '
+    n = block.count(marker)
+    if n > 1:
+        return None
+    if n == 1:
+        i = block.index(marker) + len(marker)
+        _, j = json.JSONDecoder().raw_decode(block, i)
+        return block[:i] + img_json + block[j:]
+    m = re.search(r'\n(      "(wikidata|sources)": )', block)
+    if m:
+        return block[:m.start() + 1] + '      "image": ' + img_json + ',\n' + block[m.start() + 1:]
+    if block.count('"sources": ') == 1:
+        i = block.index('"sources": ')
+        return block[:i] + marker + img_json + ', ' + block[i:]
+    return None
+
+
 def fill_events(ids, log):
     """Lägger in eller byter raden "image" i varje händelse i redigeringsfilerna, utan att formatera om dem."""
     files = sorted((ROOT / 'data/handelser').glob('*.json'))
@@ -82,7 +109,7 @@ def fill_events(ids, log):
         if eid not in by_id:
             print(f'  {eid}: finns inte i bildloggen, fyll i image för hand')
             continue
-        line = '      "image": ' + json.dumps(image_field(by_id[eid], styles), ensure_ascii=False, separators=(', ', ': ')) + ',\n'
+        img_json = json.dumps(image_field(by_id[eid], styles), ensure_ascii=False, separators=(', ', ': '))
         pattern = re.compile(r'\{\s*"id":\s*"' + re.escape(eid) + '"')
         found = [(f, m.start()) for f, raw in raws.items() for m in [pattern.search(raw)] if m]
         if not found:
@@ -96,14 +123,11 @@ def fill_events(ids, log):
         nxt = re.compile(r'\n\s*\{\s*"id":|\n\s*\]').search(raw, start + 1)
         end = len(raw) if not nxt else nxt.start()
         block = raw[start:end]
-        if '\n      "image": ' in block:
-            block = re.sub(r'\n      "image": .*\n', '\n' + line, block, count=1)
-        else:
-            m = re.search(r'\n(      "(wikidata|sources)": )', block)
-            if not m:
-                print(f'  {eid}: hittar inte var image ska stå i {f.relative_to(ROOT)}, fyll i image för hand')
-                continue
-            block = block[:m.start() + 1] + line + block[m.start() + 1:]
+        new_block = put_image(block, img_json)
+        if new_block is None:
+            print(f'  {eid}: hittar inte var image ska stå i {f.relative_to(ROOT)}, fyll i image för hand')
+            continue
+        block = new_block
         raws[f] = raw[:start] + block + raw[end:]
         print(f'  {eid}: image ifylld i {f.relative_to(ROOT)}')
     for f, raw in raws.items():

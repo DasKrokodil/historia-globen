@@ -1261,6 +1261,61 @@ async function run(browser, vp) {
     return 'tre steg med år, lager och paus; Nästa är enda framåtknappen; Föregående och Avsluta fungerar';
   });
 
+  // #1280: fall-turerna står under en egen rubrik i Turer-menyn, och turkortet har en stegindikator, en större statusmarkör,
+  // en Nästa-knapp på minst 44 px och en förklaring till varför tidsknapparna är låsta.
+  await check('Turer-menyn grupperar fall-turerna, och turkortet har stegindikator och större markör (#1280)', async () => {
+    const startYear = Number(await page.getAttribute('#track', 'aria-valuenow'));
+    const speedTitle = await page.getAttribute('#btn-speed', 'title');
+    await clickView('#btn-tour');
+    await visible('#tour-menu');
+    const rows = await page.evaluate(() => [...document.querySelectorAll('#tour-list > li')].map(li => (
+      li.querySelector('.tour-group-title') ? `#${li.querySelector('.tour-group-title').textContent.trim()}` : li.querySelector('.tour-pick')?.dataset.tour)));
+    const at = rows.findIndex(r => String(r).startsWith('#'));
+    if (at < 1 || rows.filter(r => String(r).startsWith('#')).length !== 1) throw new Error(`Turer-menyn har ingen enda grupprubrik efter de övriga turerna: ${rows.join(', ')}`);
+    if (rows[at] !== '#Hur föll det?') throw new Error(`grupprubriken heter ${rows[at]}`);
+    const falls = rows.slice(at + 1);
+    if (falls.join() !== 'vastroms-fall,hanrikets-fall,songhairikets-fall') throw new Error(`under rubriken står ${falls.join(', ')}`);
+    if (rows.slice(0, at).some(r => /-fall$/.test(r))) throw new Error('en fall-tur står före rubriken');
+    if (await page.locator('#tour-list > li[role="presentation"]').count() !== 1) throw new Error('rubrikraden ska vara role=presentation');
+
+    await page.click('#tour-menu .tour-pick[data-tour="hanrikets-fall"]');
+    await visible('#tour-card');
+    const total = Number((await page.textContent('#tour-progress')).match(/av (\d+)/)[1]);
+    const meter = () => page.evaluate(() => {
+      const m = document.getElementById('tour-meter');
+      return { n: m.children.length, done: m.querySelectorAll('.is-done').length, current: [...m.children].findIndex(c => c.classList.contains('is-current')), hidden: m.getAttribute('aria-hidden') };
+    });
+    let m = await meter();
+    if (m.n !== total || m.current !== 0 || m.done !== 0 || m.hidden !== 'true') throw new Error(`stegindikatorn i steg 1: ${JSON.stringify(m)}, väntade ${total} streck`);
+    await page.click('#tour-next');
+    m = await meter();
+    if (m.current !== 1 || m.done !== 1) throw new Error(`stegindikatorn i steg 2: ${JSON.stringify(m)}`);
+    await page.click('#tour-back');
+    m = await meter();
+    if (m.current !== 0 || m.done !== 0) throw new Error(`stegindikatorn efter Föregående: ${JSON.stringify(m)}`);
+
+    const next = await page.locator('#tour-next').boundingBox();
+    if (!next || next.height < 43.5) throw new Error(`Nästa är ${next?.height} px hög, ska vara minst 44`);
+    const marker = await page.evaluate(() => {
+      const st = document.getElementById('tour-status'), cs = getComputedStyle(st, '::before');
+      return { shown: !st.hidden, w: parseFloat(cs.width), h: parseFloat(cs.height), border: cs.borderTopStyle };
+    });
+    if (!marker.shown || marker.w < 12 || marker.h < 12) throw new Error(`statusmarkören är ${marker.w}×${marker.h} px, ska vara minst 12`);
+
+    // Förklaringen till de låsta tidsknapparna: på pausraden och som hovertext på knapparna
+    if (!(await page.textContent('#pause-text')).includes('Turen styr tiden')) throw new Error('pausraden förklarar inte att turen styr tiden');
+    const locked = await page.evaluate(() => [...document.querySelectorAll('.timebar .controls .step')].map(b => ({ title: b.title, off: b.disabled })));
+    if (!locked.length || locked.some(b => b.title !== 'Turen styr tiden' || !b.off)) throw new Error(`de låsta stegknapparnas hovertext och låsning: ${JSON.stringify(locked)}`);
+
+    await page.click('#tour-close');
+    await hidden('#tour-card');
+    if ((await page.getAttribute('#btn-speed', 'title')) !== speedTitle) throw new Error('hastighetsknappens egen hovertext kom inte tillbaka efter turen');
+    if (await page.evaluate(() => [...document.querySelectorAll('.timebar .controls .step')].some(b => b.title === 'Turen styr tiden'))) throw new Error('en stegknapp säger fortfarande att turen styr tiden efter turen');
+    if (await page.evaluate(() => [...document.querySelectorAll('.timebar .controls .step, #btn-play')].some(b => b.hasAttribute('data-before-tour')))) throw new Error('tidsknapparna har kvar spåret efter turen');
+    await jumpTo(startYear);
+    return `rubriken "Hur föll det?" med ${falls.length} turer, ${total} streck i stegindikatorn, Nästa ${Math.round(next.height)} px, markör ${marker.w} px och förklaringen i pausraden och på stegknapparna`;
+  });
+
   await check('krigets första kort startar berättelsen med kapitel och frågor (#247)', async () => {
     const startYear = Number(await page.getAttribute('#track', 'aria-valuenow'));
     await clickView('#btn-focus');
@@ -2424,53 +2479,59 @@ async function run(browser, vp) {
     }
   });
 
-  // #555: vyn Framsteg i Lager. Ingen riktig händelse har taggen ännu, så vyn ska säga att den är tom. Med en
-  // test-fixtur (taggen läggs på Apollo 11 bara i testet, inte i datan) ska vyn visa just den händelsen och
-  // faktarutan ha märkningen med ett namn för skärmläsare.
+  // #555: vyn Framsteg i Lager. Tomläget prövas i en egen flik där taggarna tas bort ur datan (sedan #85 har
+  // riktiga händelser taggen), och urvalet med en fixtur där bara Apollo 11 har taggen (bara i testet, inte i
+  // datan): vyn ska visa just den händelsen och faktarutan ha märkningen med ett namn för skärmläsare.
+  const withTags = async (tp, tagged) => {
+    if (THREE_LOCAL) {
+      const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+      await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      await tp.route(u => isFont(u.href), r => r.abort());
+    }
+    await tp.route('**/data/genererat/handelser.json', async route => {
+      const res = await route.fetch();
+      const doc = await res.json();
+      for (const e of doc.events) { if (tagged.includes(e.id)) e.tags = ['framsteg']; else delete e.tags; }
+      await route.fulfill({ response: res, json: doc });
+    });
+  };
   await check('vyn Framsteg är tom utan taggar och visar taggade händelser (#555)', async () => {
-    // Det tomma läget, med den riktiga datan
-    await jumpTo(1969);
-    await clickView('#btn-layers');
-    await visible('#layer-menu');
-    const chip = page.locator('#layer-menu .view-chip[data-view="framsteg"]');
-    if (await chip.count() !== 1) throw new Error('vyn Framsteg saknas i Lager');
-    await chip.focus();
-    await page.keyboard.press('Enter');
-    await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="framsteg"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
-    const status = page.locator('#layer-menu .layer-view-status');
-    await status.waitFor({ state: 'visible', timeout: T.step });
-    if (!/Inga händelser är markerade som framsteg ännu/.test(await status.textContent())) throw new Error(`tomt läge saknas i Lager: "${await status.textContent()}"`);
-    await page.keyboard.press('Escape');
-    await hidden('#layer-menu');
-    if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
-    await visible('#panel');
-    await page.waitForFunction(() => /markerade som framsteg/.test(document.querySelector('#event-list .tag-empty')?.textContent ?? ''), null, { timeout: T.step });
-    if (await page.locator('#event-list .event-btn').count()) throw new Error('vyn Framsteg visar otaggade händelser');
-    await page.click('#panel-close');
-    // Tillbaka till Standard
-    await clickView('#btn-layers');
-    await visible('#layer-menu');
-    await page.click('#layer-menu .view-chip[data-view="standard"]');
-    await page.keyboard.press('Escape');
-    await hidden('#layer-menu');
+    // Det tomma läget: samma sida i en ny flik, där ingen händelse har taggen
+    const emptyPage = await context.newPage();
+    try {
+      await withTags(emptyPage, []);
+      await emptyPage.goto(`${BASE}#y=1969`);
+      await emptyPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      const emptyView = async sel => {
+        if (await emptyPage.isHidden(sel) && await emptyPage.isVisible('#more-toggle')) await emptyPage.click('#more-toggle');
+        await emptyPage.click(sel);
+      };
+      await emptyView('#btn-layers');
+      await emptyPage.waitForSelector('#layer-menu', { state: 'visible', timeout: T.step });
+      const chip = emptyPage.locator('#layer-menu .view-chip[data-view="framsteg"]');
+      if (await chip.count() !== 1) throw new Error('vyn Framsteg saknas i Lager');
+      await chip.focus();
+      await emptyPage.keyboard.press('Enter');
+      await emptyPage.waitForFunction(() => document.querySelector('#layer-menu [data-view="framsteg"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+      const status = emptyPage.locator('#layer-menu .layer-view-status');
+      await status.waitFor({ state: 'visible', timeout: T.step });
+      if (!/Inga händelser är markerade som framsteg ännu/.test(await status.textContent())) throw new Error(`tomt läge saknas i Lager: "${await status.textContent()}"`);
+      await emptyPage.keyboard.press('Escape');
+      if (await emptyPage.locator('#panel').isHidden()) await emptyPage.click('#btn-panel');
+      await emptyPage.waitForSelector('#panel', { state: 'visible', timeout: T.step });
+      await emptyPage.waitForFunction(() => /markerade som framsteg/.test(document.querySelector('#event-list .tag-empty')?.textContent ?? ''), null, { timeout: T.step });
+      if (await emptyPage.locator('#event-list .event-btn').count()) throw new Error('vyn Framsteg visar otaggade händelser');
+    } finally {
+      await emptyPage.close();
+    }
 
-    // Test-fixturen: samma sida i en ny flik, där Apollo 11 har taggen framsteg
+    // Test-fixturen: samma sida i en ny flik, där bara Apollo 11 har taggen framsteg
     const tagPage = await context.newPage();
     const tagErrors = [];
     tagPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(tagErrors, m); });
     tagPage.on('pageerror', e => tagErrors.push(e.message));
     try {
-      if (THREE_LOCAL) {
-        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
-        await tagPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
-        await tagPage.route(u => isFont(u.href), r => r.abort());
-      }
-      await tagPage.route('**/data/genererat/handelser.json', async route => {
-        const res = await route.fetch();
-        const doc = await res.json();
-        for (const e of doc.events) if (e.id === 'apollo-11') e.tags = ['framsteg'];
-        await route.fulfill({ response: res, json: doc });
-      });
+      await withTags(tagPage, ['apollo-11']);
       await tagPage.goto(`${BASE}#y=1969`);
       await tagPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       const tagView = async sel => {

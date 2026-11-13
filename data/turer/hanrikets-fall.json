@@ -124,9 +124,9 @@
       "question": {
         "sv": "Varför tror du att källorna oftare berättar om ämbetsmän än om bönder?",
         "en": "Why do you think the sources tell us about officials more often than about farmers?",
-        "fr": "Pourquoi penses-tu que les sources parlent plus souvent des fonctionnaires que des paysans ?",
-        "de": "Warum glaubst du, erzählen die Quellen häufiger von Beamten als von Bauern?",
-        "es": "¿Por qué crees que las fuentes hablan más a menudo de los funcionarios que de los campesinos?"
+        "fr": "Pourquoi pensez-vous que les sources parlent plus souvent des fonctionnaires que des paysans ?",
+        "de": "Warum, glauben Sie, erzählen die Quellen häufiger von Beamten als von Bauern?",
+        "es": "¿Por qué cree que las fuentes hablan más a menudo de los funcionarios que de los campesinos?"
       },
       "layers": [
         "events",

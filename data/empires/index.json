@@ -35860,6 +35860,336 @@
    ]
   },
   {
+   "id": "sibirkhanatet",
+   "name": {
+    "sv": "Sibirkhanatet",
+    "en": "Siberian Khanate",
+    "de": "Khanat Sibir",
+    "es": "Kanato de Siberia",
+    "fr": "Khanat de Sibir"
+   },
+   "color": "#6a8aa0",
+   "from": 1429,
+   "to": 1587,
+   "file": "data/empires/sibirkhanatet.json",
+   "polities": [
+    {
+     "id": "sibirkhanatet",
+     "name": {
+      "sv": "Sibirkhanatet",
+      "en": "Siberian Khanate",
+      "de": "Khanat Sibir",
+      "es": "Kanato de Siberia",
+      "fr": "Khanat de Sibir"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "rashtrakutariket",
+   "name": {
+    "sv": "Rashtrakutariket",
+    "en": "Rashtrakuta dynasty",
+    "de": "Rashtrakuta",
+    "es": "Rashtrakuta",
+    "fr": "Rashtrakuta"
+   },
+   "color": "#b07a4a",
+   "from": 755,
+   "to": 989,
+   "file": "data/empires/rashtrakutariket.json",
+   "polities": [
+    {
+     "id": "rashtrakutariket",
+     "name": {
+      "sv": "Rashtrakutariket",
+      "en": "Rashtrakuta dynasty",
+      "de": "Rashtrakuta",
+      "es": "Rashtrakuta",
+      "fr": "Rashtrakuta"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "tuyuhun",
+   "name": {
+    "sv": "Tuyuhun",
+    "en": "Tuyuhun",
+    "de": "Tuyuhun",
+    "fr": "Tuyuhun",
+    "es": "Tuyuhun"
+   },
+   "color": "#8a9a5a",
+   "from": 287,
+   "to": 665,
+   "file": "data/empires/tuyuhun.json",
+   "polities": [
+    {
+     "id": "tuyuhun",
+     "name": {
+      "sv": "Tuyuhun",
+      "en": "Tuyuhun",
+      "de": "Tuyuhun",
+      "fr": "Tuyuhun",
+      "es": "Tuyuhun"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "vakatakariket",
+   "name": {
+    "sv": "Vakatakariket",
+    "en": "Vakataka empire",
+    "de": "Vakataka",
+    "es": "Dinastia Vakataka",
+    "fr": "empire Vakataka"
+   },
+   "color": "#a0604a",
+   "from": 260,
+   "to": 554,
+   "file": "data/empires/vakatakariket.json",
+   "polities": [
+    {
+     "id": "vakatakariket",
+     "name": {
+      "sv": "Vakatakariket",
+      "en": "Vakataka empire",
+      "de": "Vakataka",
+      "es": "Dinastia Vakataka",
+      "fr": "empire Vakataka"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "norra-wei",
+   "name": {
+    "sv": "Norra Wei",
+    "en": "Northern Wei",
+    "de": "Nördliche Wei-Dynastie",
+    "es": "Dinastía Wei del Norte",
+    "fr": "dynastie Wei du Nord"
+   },
+   "color": "#5a7a9a",
+   "from": 387,
+   "to": 533,
+   "file": "data/empires/norra-wei.json",
+   "polities": [
+    {
+     "id": "norra-wei",
+     "name": {
+      "sv": "Norra Wei",
+      "en": "Northern Wei",
+      "de": "Nördliche Wei-Dynastie",
+      "es": "Dinastía Wei del Norte",
+      "fr": "dynastie Wei du Nord"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kanem-bornu",
+   "name": {
+    "sv": "Kanem-Bornu",
+    "en": "Kanem-Bornu Empire",
+    "de": "Kanem-Bornu",
+    "es": "Imperio Kanem-Bornu",
+    "fr": "Royaume du Kanem-Bornou"
+   },
+   "color": "#b09a4a",
+   "from": 1385,
+   "to": 1894,
+   "file": "data/empires/kanem-bornu.json",
+   "polities": [
+    {
+     "id": "kanem-bornu",
+     "name": {
+      "sv": "Kanem-Bornu",
+      "en": "Kanem-Bornu Empire",
+      "de": "Kanem-Bornu",
+      "es": "Imperio Kanem-Bornu",
+      "fr": "Royaume du Kanem-Bornou"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "galizien-volynien",
+   "name": {
+    "sv": "Furstendömet Galizien-Volynien",
+    "en": "Principality of Galicia–Volhynia",
+    "de": "Fürstentum Galizien-Wolhynien",
+    "es": "Principado de Galicia-Volynia",
+    "fr": "principauté de Galicie-Volhynie"
+   },
+   "color": "#7a5a9a",
+   "from": 1056,
+   "to": 1240,
+   "file": "data/empires/galizien-volynien.json",
+   "polities": [
+    {
+     "id": "galizien-volynien",
+     "name": {
+      "sv": "Furstendömet Galizien-Volynien",
+      "en": "Principality of Galicia–Volhynia",
+      "de": "Fürstentum Galizien-Wolhynien",
+      "es": "Principado de Galicia-Volynia",
+      "fr": "principauté de Galicie-Volhynie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kungariket-nobatia",
+   "name": {
+    "sv": "Kungariket Nobatia",
+    "en": "Nobatia",
+    "de": "Nobatia",
+    "es": "Nobatia",
+    "fr": "Nobatie"
+   },
+   "color": "#9a7a5a",
+   "from": 347,
+   "to": 655,
+   "file": "data/empires/kungariket-nobatia.json",
+   "polities": [
+    {
+     "id": "kungariket-nobatia",
+     "name": {
+      "sv": "Kungariket Nobatia",
+      "en": "Nobatia",
+      "de": "Nobatia",
+      "es": "Nobatia",
+      "fr": "Nobatie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "angevinska-riket",
+   "name": {
+    "sv": "Det angevinska riket",
+    "en": "Angevin Empire",
+    "de": "Angevinisches Reich",
+    "es": "Imperio angevino",
+    "fr": "Empire Plantagenêt"
+   },
+   "color": "#a04a5a",
+   "from": 1147,
+   "to": 1209,
+   "file": "data/empires/angevinska-riket.json",
+   "polities": [
+    {
+     "id": "angevinska-riket",
+     "name": {
+      "sv": "Det angevinska riket",
+      "en": "Angevin Empire",
+      "de": "Angevinisches Reich",
+      "es": "Imperio angevino",
+      "fr": "Empire Plantagenêt"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kazakkhanatet",
+   "name": {
+    "sv": "Kazakkhanatet",
+    "en": "Kazakh Khanate",
+    "de": "Kasachen-Khanat",
+    "es": "Kanato kazajo",
+    "fr": "Khanat kazakh"
+   },
+   "color": "#4aa0b0",
+   "from": 1468,
+   "to": 1847,
+   "file": "data/empires/kazakkhanatet.json",
+   "polities": [
+    {
+     "id": "kazakkhanatet",
+     "name": {
+      "sv": "Kazakkhanatet",
+      "en": "Kazakh Khanate",
+      "de": "Kasachen-Khanat",
+      "es": "Kanato kazajo",
+      "fr": "Khanat kazakh"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "furstendomet-moldavien",
+   "name": {
+    "sv": "Furstendömet Moldavien",
+    "en": "Principality of Moldavia",
+    "de": "Fürstentum Moldau",
+    "es": "Principado de Moldavia",
+    "fr": "principauté de Moldavie"
+   },
+   "color": "#5a9a7a",
+   "from": 1363,
+   "to": 1858,
+   "file": "data/empires/furstendomet-moldavien.json",
+   "polities": [
+    {
+     "id": "furstendomet-moldavien",
+     "name": {
+      "sv": "Furstendömet Moldavien",
+      "en": "Principality of Moldavia",
+      "de": "Fürstentum Moldau",
+      "es": "Principado de Moldavia",
+      "fr": "principauté de Moldavie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
    "id": "andorra",
    "modernState": true,
    "name": {

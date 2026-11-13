@@ -12,9 +12,9 @@
   "summary": {
     "sv": "Moai, vikingahjälmar, pyramider, Napoleon, Machu Picchu och Marco Polo: sex saker många tror är sanna, och hur du tar reda på var de kommer ifrån.",
     "en": "Moai, Viking helmets, the pyramids, Napoleon, Machu Picchu and Marco Polo: six things many people believe, and how you can find out where they come from.",
-    "de": "Moai, Wikingerhelme, Pyramiden, Napoleon, Machu Picchu und Marco Polo: sechs Dinge, die viele für wahr halten, und wie du herausfindest, woher sie kommen.",
-    "es": "Moáis, cascos vikingos, pirámides, Napoleón, Machu Picchu y Marco Polo: seis cosas que mucha gente cree, y cómo puedes averiguar de dónde vienen.",
-    "fr": "Moaï, casques vikings, pyramides, Napoléon, Machu Picchu et Marco Polo : six choses auxquelles beaucoup de gens croient, et comment tu peux découvrir d'où elles viennent."
+    "de": "Moai, Wikingerhelme, Pyramiden, Napoleon, Machu Picchu und Marco Polo: sechs Dinge, die viele für wahr halten, und wie Sie herausfinden, woher sie kommen.",
+    "es": "Moáis, cascos vikingos, pirámides, Napoleón, Machu Picchu y Marco Polo: seis cosas que mucha gente cree, y cómo puede averiguar de dónde vienen.",
+    "fr": "Moaï, casques vikings, pyramides, Napoléon, Machu Picchu et Marco Polo : six choses auxquelles beaucoup de gens croient, et comment vous pouvez découvrir d'où elles viennent."
   },
   "review": "source-checked",
   "steps": [
@@ -43,9 +43,9 @@
       "question": {
         "sv": "Vad visar en bild, och vad visar den inte? Hur kan du ta reda på resten?",
         "en": "What does a picture show, and what does it leave out? How can you find out the rest?",
-        "de": "Was zeigt ein Bild, und was zeigt es nicht? Wie kannst du den Rest herausfinden?",
-        "es": "¿Qué muestra una imagen y qué no muestra? ¿Cómo puedes averiguar el resto?",
-        "fr": "Que montre une image, et que ne montre-t-elle pas ? Comment peux-tu découvrir le reste ?"
+        "de": "Was zeigt ein Bild, und was zeigt es nicht? Wie können Sie den Rest herausfinden?",
+        "es": "¿Qué muestra una imagen y qué no muestra? ¿Cómo puede averiguar el resto?",
+        "fr": "Que montre une image, et que ne montre-t-elle pas ? Comment pouvez-vous découvrir le reste ?"
       },
       "text": {
         "sv": "Många tror att Påskölns moai är stora huvuden och inget mer. Men moai är statyer av hela kroppar, med kraftig bål. Huvudet är överdrivet stort, tre åttondelar av hela statyn. På många bilder står statyerna nedgrävda till axlarna, och då syns inte resten.",
@@ -271,9 +271,9 @@
       "question": {
         "sv": "Vem skulle tjäna på att berättelsen sprids? Hur kan du ta reda på var en berättelse kommer ifrån?",
         "en": "Who would gain from spreading the story? How can you find out where a story comes from?",
-        "de": "Wer hätte einen Vorteil davon, dass die Geschichte verbreitet wird? Wie kannst du herausfinden, woher eine Geschichte stammt?",
-        "es": "¿Quién saldría ganando si la historia se difunde? ¿Cómo puedes averiguar de dónde viene una historia?",
-        "fr": "Qui aurait intérêt à ce que l'histoire se répande ? Comment peux-tu découvrir d'où vient une histoire ?"
+        "de": "Wer hätte einen Vorteil davon, dass die Geschichte verbreitet wird? Wie können Sie herausfinden, woher eine Geschichte stammt?",
+        "es": "¿Quién saldría ganando si la historia se difunde? ¿Cómo puede averiguar de dónde viene una historia?",
+        "fr": "Qui aurait intérêt à ce que l'histoire se répande ? Comment pouvez-vous découvrir d'où vient une histoire ?"
       },
       "text": {
         "sv": "Många tror att Marco Polo tog med pasta från Kina till Italien. Men pasta fanns i Italien redan långt före hans resor. Enligt Wikipedia kommer berättelsen från en tidskrift som en branschorganisation gav ut för att fler i USA skulle äta pasta. Källorna är inte helt överens: en annan uppgift pekar på en reklam för ett spaghettiföretag.",
