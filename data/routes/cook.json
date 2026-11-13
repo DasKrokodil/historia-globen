@@ -7,12 +7,14 @@
       "title": {
         "sv": "Cooks första resa (Endeavour)",
         "en": "Cook's first voyage (Endeavour)",
-        "de": "Cooks erste Reise (Endeavour)"
+        "de": "Cooks erste Reise (Endeavour)",
+        "es": "Primer viaje de Cook (Endeavour)"
       },
       "summary": {
         "sv": "Den brittiska flottan och Royal Society skickar James Cook med Endeavour från Plymouth i augusti 1768. Målet är att observera Venuspassagen från Tahiti och leta efter den förmodade sydkontinenten. Expeditionen rundar Kap Horn och når Matavaibukten på Tahiti i april 1769; passagen observeras den 3 juni 1769. Därefter seglar Cook söderut och kartlägger hela Nya Zeelands kust under ett halvår. I april 1770 blir besättningen de första kända européerna vid Australiens östkust, går i land i Botany Bay och följer kusten norrut. Den 11 juni går Endeavour på grund på Stora barriärrevet och lagas i sju veckor vid Endeavour River. Hemresan går genom Torressundet till Batavia, där många dör i sjukdom, och runt Godahoppsudden hem till England i juli 1771.",
         "en": "The Royal Navy and the Royal Society send James Cook in the Endeavour from Plymouth in August 1768. The aims are to observe the transit of Venus from Tahiti and to search for the supposed southern continent. The expedition rounds Cape Horn and reaches Matavai Bay in Tahiti in April 1769; the transit is observed on 3 June 1769. Cook then sails south and charts the whole coast of New Zealand over six months. In April 1770 the crew become the first known Europeans on the east coast of Australia, land at Botany Bay and follow the coast north. On 11 June the Endeavour runs aground on the Great Barrier Reef and is repaired for seven weeks at the Endeavour River. The way home goes through Torres Strait to Batavia, where many die of disease, and round the Cape of Good Hope to England in July 1771.",
-        "de": "Die britische Marine und die Royal Society schicken James Cook mit der Endeavour im August 1768 von Plymouth los. Das Ziel ist, den Venustransit von Tahiti aus zu beobachten und nach dem vermuteten Südkontinent zu suchen. Die Expedition umrundet Kap Hoorn und erreicht im April 1769 die Matavai-Bucht auf Tahiti; der Transit wird am 3. Juni 1769 beobachtet. Danach segelt Cook nach Süden und kartiert während eines halben Jahres die gesamte Küste Neuseelands. Im April 1770 werden die Besatzungsmitglieder die ersten bekannten Europäer an der Ostküste Australiens, gehen in der Botany Bay an Land und folgen der Küste nach Norden. Am 11. Juni läuft die Endeavour auf dem Großen Barriereriff auf Grund und wird sieben Wochen lang am Endeavour River repariert. Die Heimreise führt durch die Torresstraße nach Batavia, wo viele an Krankheiten sterben, und um das Kap der Guten Hoffnung heim nach England im Juli 1771."
+        "de": "Die britische Marine und die Royal Society schicken James Cook mit der Endeavour im August 1768 von Plymouth los. Das Ziel ist, den Venustransit von Tahiti aus zu beobachten und nach dem vermuteten Südkontinent zu suchen. Die Expedition umrundet Kap Hoorn und erreicht im April 1769 die Matavai-Bucht auf Tahiti; der Transit wird am 3. Juni 1769 beobachtet. Danach segelt Cook nach Süden und kartiert während eines halben Jahres die gesamte Küste Neuseelands. Im April 1770 werden die Besatzungsmitglieder die ersten bekannten Europäer an der Ostküste Australiens, gehen in der Botany Bay an Land und folgen der Küste nach Norden. Am 11. Juni läuft die Endeavour auf dem Großen Barriereriff auf Grund und wird sieben Wochen lang am Endeavour River repariert. Die Heimreise führt durch die Torresstraße nach Batavia, wo viele an Krankheiten sterben, und um das Kap der Guten Hoffnung heim nach England im Juli 1771.",
+        "es": "La Armada británica y la Royal Society envían a James Cook con el Endeavour desde Plymouth en agosto de 1768. El objetivo es observar el tránsito de Venus desde Tahití y buscar el supuesto continente austral. La expedición dobla el cabo de Hornos y llega a la bahía de Matavai, en Tahití, en abril de 1769; el tránsito se observa el 3 de junio de 1769. Después Cook navega hacia el sur y cartografía toda la costa de Nueva Zelanda durante medio año. En abril de 1770 la tripulación se convierte en los primeros europeos conocidos en la costa este de Australia, desembarca en Botany Bay y sigue la costa hacia el norte. El 11 de junio el Endeavour encalla en la Gran Barrera de Coral y se repara durante siete semanas en el río Endeavour. El regreso pasa por el estrecho de Torres hasta Batavia, donde muchos mueren de enfermedades, y rodea el cabo de Buena Esperanza hasta Inglaterra, en julio de 1771."
       },
       "start": 1768,
       "end": 1771,
@@ -22,12 +24,14 @@
         "title": {
           "sv": "Källorna skiljer sig",
           "en": "The sources differ",
-          "de": "Die Quellen unterscheiden sich"
+          "de": "Die Quellen unterscheiden sich",
+          "es": "Las fuentes no coinciden"
         },
         "text": {
           "sv": "Avfärden från Plymouth anges till den 26 augusti 1768 (Wikipedia) eller den 25 augusti (Dictionary of National Biography och Encyclopædia Britannica 1911). Ankomsten till Downs anges till den 12 juli 1771 i Wikipedia men den 12 juni i båda de äldre uppslagsverken. Botany Bay siktades den 28 april 1770 enligt Britannica; enligt Wikipedia gick Cook i land där den 29 april. Point Hicks siktades den 19 april enligt loggboken, vilket enligt Wikipedia motsvarar den 20 april i dagens tideräkning. Sträckorna till sjöss är ritade ungefärligt mellan de platser källorna nämner.",
           "en": "The departure from Plymouth is given as 26 August 1768 (Wikipedia) or 25 August (Dictionary of National Biography and Encyclopædia Britannica 1911). Arrival in the Downs is given as 12 July 1771 in Wikipedia but 12 June in both older reference works. Botany Bay was sighted on 28 April 1770 according to Britannica; according to Wikipedia Cook landed there on 29 April. Point Hicks was sighted on 19 April by the ship's log, which Wikipedia says corresponds to 20 April in civil reckoning. The sea legs are drawn approximately between the places the sources name.",
-          "de": "Die Abfahrt von Plymouth wird auf den 26. August 1768 (Wikipedia) oder den 25. August (Dictionary of National Biography und Encyclopædia Britannica 1911) datiert. Die Ankunft in den Downs wird bei Wikipedia auf den 12. Juli 1771 datiert, in beiden älteren Nachschlagewerken aber auf den 12. Juni. Die Botany Bay wurde laut Britannica am 28. April 1770 gesichtet; laut Wikipedia ging Cook dort am 29. April an Land. Point Hicks wurde laut Logbuch am 19. April gesichtet, was laut Wikipedia nach heutiger Zeitrechnung dem 20. April entspricht. Die Strecken auf See sind ungefähr zwischen den Orten gezeichnet, die die Quellen nennen."
+          "de": "Die Abfahrt von Plymouth wird auf den 26. August 1768 (Wikipedia) oder den 25. August (Dictionary of National Biography und Encyclopædia Britannica 1911) datiert. Die Ankunft in den Downs wird bei Wikipedia auf den 12. Juli 1771 datiert, in beiden älteren Nachschlagewerken aber auf den 12. Juni. Die Botany Bay wurde laut Britannica am 28. April 1770 gesichtet; laut Wikipedia ging Cook dort am 29. April an Land. Point Hicks wurde laut Logbuch am 19. April gesichtet, was laut Wikipedia nach heutiger Zeitrechnung dem 20. April entspricht. Die Strecken auf See sind ungefähr zwischen den Orten gezeichnet, die die Quellen nennen.",
+          "es": "La salida de Plymouth se fecha el 26 de agosto de 1768 (Wikipedia) o el 25 de agosto (Dictionary of National Biography y Encyclopædia Britannica 1911). La llegada a los Downs se fecha el 12 de julio de 1771 en Wikipedia, pero el 12 de junio en las dos enciclopedias más antiguas. Botany Bay se avistó el 28 de abril de 1770 según la Britannica; según Wikipedia, Cook desembarcó allí el 29 de abril. Point Hicks se avistó el 19 de abril según el cuaderno de bitácora, lo que según Wikipedia corresponde al 20 de abril en el calendario actual. Los tramos por mar están dibujados de forma aproximada entre los lugares que mencionan las fuentes."
         }
       },
       "sources": [
@@ -63,7 +67,8 @@
               "name": {
                 "sv": "Plymouth",
                 "en": "Plymouth",
-                "de": "Plymouth"
+                "de": "Plymouth",
+                "es": "Plymouth"
               },
               "date": "1768-08-26"
             },
@@ -72,7 +77,8 @@
               "name": {
                 "sv": "Rio de Janeiro",
                 "en": "Rio de Janeiro",
-                "de": "Rio de Janeiro"
+                "de": "Rio de Janeiro",
+                "es": "Río de Janeiro"
               },
               "edtf": "1768-11-15/1768-12-02"
             }
@@ -112,7 +118,8 @@
               "name": {
                 "sv": "Kap Horn",
                 "en": "Cape Horn",
-                "de": "Kap Hoorn"
+                "de": "Kap Hoorn",
+                "es": "Cabo de Hornos"
               }
             },
             {
@@ -120,7 +127,8 @@
               "name": {
                 "sv": "Matavaibukten, Tahiti",
                 "en": "Matavai Bay, Tahiti",
-                "de": "Matavai-Bucht, Tahiti"
+                "de": "Matavai-Bucht, Tahiti",
+                "es": "Bahía de Matavai, Tahití"
               },
               "edtf": "1769-04-13/1769-07-13"
             },
@@ -129,7 +137,8 @@
               "name": {
                 "sv": "Point Venus: Venuspassagen observeras",
                 "en": "Point Venus: transit of Venus observed",
-                "de": "Point Venus: Der Venustransit wird beobachtet"
+                "de": "Point Venus: Der Venustransit wird beobachtet",
+                "es": "Point Venus: se observa el tránsito de Venus"
               },
               "date": "1769-06-03"
             }
@@ -159,7 +168,8 @@
               "name": {
                 "sv": "Huahine",
                 "en": "Huahine",
-                "de": "Huahine"
+                "de": "Huahine",
+                "es": "Huahine"
               },
               "date": "1769-07-16"
             },
@@ -168,7 +178,8 @@
               "name": {
                 "sv": "Raiatea",
                 "en": "Raiatea",
-                "de": "Raiatea"
+                "de": "Raiatea",
+                "es": "Raiatea"
               },
               "date": "1769-07-20"
             }
@@ -201,7 +212,8 @@
               "name": {
                 "sv": "Raiatea (avfärd söderut)",
                 "en": "Raiatea (departure south)",
-                "de": "Raiatea (Abfahrt nach Süden)"
+                "de": "Raiatea (Abfahrt nach Süden)",
+                "es": "Raiatea (salida hacia el sur)"
               },
               "date": "1769-08-09"
             },
@@ -210,7 +222,8 @@
               "name": {
                 "sv": "Poverty Bay, Nya Zeeland",
                 "en": "Poverty Bay, New Zealand",
-                "de": "Poverty Bay, Neuseeland"
+                "de": "Poverty Bay, Neuseeland",
+                "es": "Poverty Bay, Nueva Zelanda"
               },
               "date": "1769-10-07"
             }
@@ -263,7 +276,8 @@
               "name": {
                 "sv": "Kap Kidnappers",
                 "en": "Cape Kidnappers",
-                "de": "Kap Kidnappers"
+                "de": "Kap Kidnappers",
+                "es": "Cabo Kidnappers"
               },
               "date": "1769-10-15"
             },
@@ -272,7 +286,8 @@
               "name": {
                 "sv": "Mercury Bay: Merkuriuspassagen",
                 "en": "Mercury Bay: transit of Mercury",
-                "de": "Mercury Bay: Der Merkurtransit"
+                "de": "Mercury Bay: Der Merkurtransit",
+                "es": "Mercury Bay: el tránsito de Mercurio"
               },
               "date": "1769-11-09"
             },
@@ -281,7 +296,8 @@
               "name": {
                 "sv": "Bay of Islands",
                 "en": "Bay of Islands",
-                "de": "Bay of Islands"
+                "de": "Bay of Islands",
+                "es": "Bahía de las Islas"
               }
             },
             {
@@ -289,7 +305,8 @@
               "name": {
                 "sv": "Nordkap (Nya Zeeland)",
                 "en": "North Cape (New Zealand)",
-                "de": "Nordkap (Neuseeland)"
+                "de": "Nordkap (Neuseeland)",
+                "es": "Cabo Norte (Nueva Zelanda)"
               }
             },
             {
@@ -297,7 +314,8 @@
               "name": {
                 "sv": "Queen Charlotte Sound",
                 "en": "Queen Charlotte Sound",
-                "de": "Queen Charlotte Sound"
+                "de": "Queen Charlotte Sound",
+                "es": "Queen Charlotte Sound"
               },
               "edtf": "1770-01/1770-02-05"
             }
@@ -348,7 +366,8 @@
               "name": {
                 "sv": "Sydkap (Stewart Island)",
                 "en": "South Cape (Stewart Island)",
-                "de": "Südkap (Stewart Island)"
+                "de": "Südkap (Stewart Island)",
+                "es": "Cabo Sur (isla Stewart)"
               },
               "date": "1770-03-10"
             },
@@ -357,7 +376,8 @@
               "name": {
                 "sv": "Admiralty Bay",
                 "en": "Admiralty Bay",
-                "de": "Admiralty Bay"
+                "de": "Admiralty Bay",
+                "es": "Admiralty Bay"
               },
               "edtf": "1770-03-27/1770-03-31"
             }
@@ -392,7 +412,8 @@
               "name": {
                 "sv": "Point Hicks: Australiens östkust siktas",
                 "en": "Point Hicks: Australia's east coast sighted",
-                "de": "Point Hicks: Australiens Ostküste in Sicht"
+                "de": "Point Hicks: Australiens Ostküste in Sicht",
+                "es": "Point Hicks: se avista la costa este de Australia"
               },
               "edtf": "1770-04-20"
             },
@@ -401,7 +422,8 @@
               "name": {
                 "sv": "Botany Bay",
                 "en": "Botany Bay",
-                "de": "Botany Bay"
+                "de": "Botany Bay",
+                "es": "Botany Bay"
               },
               "edtf": "1770-04-29/1770-05-06"
             }
@@ -442,7 +464,8 @@
               "name": {
                 "sv": "Bustard Bay (Seventeen Seventy)",
                 "en": "Bustard Bay (Seventeen Seventy)",
-                "de": "Bustard Bay (Seventeen Seventy)"
+                "de": "Bustard Bay (Seventeen Seventy)",
+                "es": "Bustard Bay (Seventeen Seventy)"
               },
               "date": "1770-05-23"
             },
@@ -451,7 +474,8 @@
               "name": {
                 "sv": "Endeavour går på grund på Stora barriärrevet",
                 "en": "Endeavour runs aground on the Great Barrier Reef",
-                "de": "Die Endeavour läuft auf dem Großen Barriereriff auf Grund"
+                "de": "Die Endeavour läuft auf dem Großen Barriereriff auf Grund",
+                "es": "El Endeavour encalla en la Gran Barrera de Coral"
               },
               "date": "1770-06-11"
             },
@@ -460,7 +484,8 @@
               "name": {
                 "sv": "Endeavour River: lagning",
                 "en": "Endeavour River: repairs",
-                "de": "Endeavour River: Reparatur"
+                "de": "Endeavour River: Reparatur",
+                "es": "Río Endeavour: reparación"
               },
               "edtf": "1770-06-16/1770-08-03"
             }
@@ -511,7 +536,8 @@
               "name": {
                 "sv": "Possession Island",
                 "en": "Possession Island",
-                "de": "Possession Island"
+                "de": "Possession Island",
+                "es": "Possession Island"
               },
               "date": "1770-08-22"
             },
@@ -520,7 +546,8 @@
               "name": {
                 "sv": "Savu",
                 "en": "Savu",
-                "de": "Savu"
+                "de": "Savu",
+                "es": "Savu"
               }
             },
             {
@@ -528,7 +555,8 @@
               "name": {
                 "sv": "Batavia (Jakarta)",
                 "en": "Batavia (Jakarta)",
-                "de": "Batavia (Jakarta)"
+                "de": "Batavia (Jakarta)",
+                "es": "Batavia (Yakarta)"
               },
               "edtf": "1770-10/1770-12-26"
             }
@@ -581,7 +609,8 @@
               "name": {
                 "sv": "Godahoppsudden",
                 "en": "Cape of Good Hope",
-                "de": "Kap der Guten Hoffnung"
+                "de": "Kap der Guten Hoffnung",
+                "es": "Cabo de Buena Esperanza"
               },
               "date": "1771-03-13"
             },
@@ -590,7 +619,8 @@
               "name": {
                 "sv": "Sankta Helena",
                 "en": "Saint Helena",
-                "de": "St. Helena"
+                "de": "St. Helena",
+                "es": "Santa Elena"
               }
             },
             {
@@ -598,7 +628,8 @@
               "name": {
                 "sv": "Lizard Point: England siktas",
                 "en": "Lizard Point: England sighted",
-                "de": "Lizard Point: England in Sicht"
+                "de": "Lizard Point: England in Sicht",
+                "es": "Lizard Point: se avista Inglaterra"
               },
               "date": "1771-07-10"
             },
@@ -607,7 +638,8 @@
               "name": {
                 "sv": "Deal (Downs)",
                 "en": "Deal (the Downs)",
-                "de": "Deal (Downs)"
+                "de": "Deal (Downs)",
+                "es": "Deal (Downs)"
               },
               "date": "1771-07-12"
             }
@@ -628,12 +660,14 @@
       "title": {
         "sv": "Cooks andra resa (Resolution och Adventure)",
         "en": "Cook's second voyage (Resolution and Adventure)",
-        "de": "Cooks zweite Reise (Resolution und Adventure)"
+        "de": "Cooks zweite Reise (Resolution und Adventure)",
+        "es": "Segundo viaje de Cook (Resolution y Adventure)"
       },
       "summary": {
         "sv": "Med Resolution och Adventure lämnar Cook Plymouth i juli 1772 för att en gång för alla ta reda på om det finns en stor sydkontinent. Från Kapstaden seglar han söderut och blir den 17 januari 1773 den förste som korsar Södra polcirkeln. Skeppen kommer ifrån varandra i dimman och möts igen i Nya Zeeland. Under tre år gör Cook stora svep över Stilla havet: till Tahiti och Tonga, långt söderut till 71° 10′ S i januari 1774, sedan till Påskön, Marquesasöarna, Nya Hebriderna och Nya Kaledonien. Hemvägen går runt Kap Horn förbi Sydgeorgien och Sydsandwichöarna. Resolution ankrar i England i slutet av juli 1775. Resan visar att det inte finns någon beboelig sydkontinent, och Larcum Kendalls kronometer gör det möjligt att bestämma longituden noggrant. Linjen följer Resolution; Adventure seglade hem på egen hand 1773–1774.",
         "en": "With the Resolution and the Adventure, Cook leaves Plymouth in July 1772 to settle whether a great southern continent exists. From Cape Town he sails south and on 17 January 1773 becomes the first to cross the Antarctic Circle. The ships lose each other in fog and meet again in New Zealand. Over three years Cook makes vast sweeps across the Pacific: to Tahiti and Tonga, far south to 71° 10′ S in January 1774, then to Easter Island, the Marquesas, the New Hebrides and New Caledonia. The way home goes round Cape Horn past South Georgia and the South Sandwich Islands. The Resolution anchors in England at the end of July 1775. The voyage shows that there is no habitable southern continent, and Larcum Kendall's chronometer makes it possible to fix longitude accurately. The line follows the Resolution; the Adventure sailed home on her own in 1773–1774.",
-        "de": "Mit der Resolution und der Adventure verlässt Cook im Juli 1772 Plymouth, um ein für alle Mal herauszufinden, ob es einen großen Südkontinent gibt. Von Kapstadt segelt er nach Süden und überquert am 17. Januar 1773 als Erster den Südlichen Polarkreis. Die Schiffe verlieren sich im Nebel aus den Augen und treffen sich in Neuseeland wieder. Drei Jahre lang unternimmt Cook weite Schwünge über den Pazifik: nach Tahiti und Tonga, im Januar 1774 weit nach Süden bis 71° 10′ S, danach zur Osterinsel, zu den Marquesas, den Neuen Hebriden und nach Neukaledonien. Der Heimweg führt um Kap Hoorn, vorbei an Südgeorgien und den Südlichen Sandwichinseln. Die Resolution ankert Ende Juli 1775 in England. Die Reise zeigt, dass es keinen bewohnbaren Südkontinent gibt, und Larcum Kendalls Chronometer ermöglicht es, die Länge genau zu bestimmen. Die Linie folgt der Resolution; die Adventure segelte 1773–1774 auf eigene Faust heim."
+        "de": "Mit der Resolution und der Adventure verlässt Cook im Juli 1772 Plymouth, um ein für alle Mal herauszufinden, ob es einen großen Südkontinent gibt. Von Kapstadt segelt er nach Süden und überquert am 17. Januar 1773 als Erster den Südlichen Polarkreis. Die Schiffe verlieren sich im Nebel aus den Augen und treffen sich in Neuseeland wieder. Drei Jahre lang unternimmt Cook weite Schwünge über den Pazifik: nach Tahiti und Tonga, im Januar 1774 weit nach Süden bis 71° 10′ S, danach zur Osterinsel, zu den Marquesas, den Neuen Hebriden und nach Neukaledonien. Der Heimweg führt um Kap Hoorn, vorbei an Südgeorgien und den Südlichen Sandwichinseln. Die Resolution ankert Ende Juli 1775 in England. Die Reise zeigt, dass es keinen bewohnbaren Südkontinent gibt, und Larcum Kendalls Chronometer ermöglicht es, die Länge genau zu bestimmen. Die Linie folgt der Resolution; die Adventure segelte 1773–1774 auf eigene Faust heim.",
+        "es": "Con el Resolution y el Adventure, Cook sale de Plymouth en julio de 1772 para averiguar de una vez por todas si existe un gran continente austral. Desde Ciudad del Cabo navega hacia el sur y el 17 de enero de 1773 se convierte en el primero en cruzar el círculo polar antártico. Los barcos se separan en la niebla y vuelven a encontrarse en Nueva Zelanda. Durante tres años Cook realiza grandes barridos por el Pacífico: hasta Tahití y Tonga, muy al sur hasta 71° 10′ S en enero de 1774, y después hasta la isla de Pascua, las islas Marquesas, las Nuevas Hébridas y Nueva Caledonia. El regreso rodea el cabo de Hornos y pasa por Georgia del Sur y las islas Sandwich del Sur. El Resolution fondea en Inglaterra a finales de julio de 1775. El viaje demuestra que no existe ningún continente austral habitable, y el cronómetro de Larcum Kendall permite determinar la longitud con precisión. La línea sigue al Resolution; el Adventure volvió por su cuenta en 1773–1774."
       },
       "start": 1772,
       "end": 1775,
@@ -643,12 +677,14 @@
         "title": {
           "sv": "Källorna skiljer sig",
           "en": "The sources differ",
-          "de": "Die Quellen unterscheiden sich"
+          "de": "Die Quellen unterscheiden sich",
+          "es": "Las fuentes no coinciden"
         },
         "text": {
           "sv": "Första passagen av Södra polcirkeln anges till den 17 januari 1773 (Wikipedia) eller den 16 januari (Dictionary of National Biography och Encyclopædia Britannica 1911). Den sydligaste punkten, 71° 10′ S, nåddes den 30 januari 1774 enligt Wikipedias berättelse, den 3 februari enligt Wikipedias inledning och den 27 januari enligt Dictionary of National Biography. Slutet anges som Spithead den 30 juli 1775 (Wikipedia), Plymouth den 29 juli (Dictionary of National Biography) eller Plymouth den 25 juli (Britannica). Sydgeorgien upptäcktes den 14 januari 1775 enligt Dictionary of National Biography; Wikipedia säger att skeppet lämnade ön den 20 januari. Sträckorna till sjöss, särskilt svepen nära Antarktis, är ritade ungefärligt mellan de platser och positioner källorna nämner.",
           "en": "The first crossing of the Antarctic Circle is given as 17 January 1773 (Wikipedia) or 16 January (Dictionary of National Biography and Encyclopædia Britannica 1911). The southernmost point, 71° 10′ S, was reached on 30 January 1774 according to the body of the Wikipedia article, 3 February according to its introduction and 27 January according to the Dictionary of National Biography. The end is given as Spithead on 30 July 1775 (Wikipedia), Plymouth on 29 July (Dictionary of National Biography) or Plymouth on 25 July (Britannica). South Georgia was discovered on 14 January 1775 according to the Dictionary of National Biography; Wikipedia says the ship left the island on 20 January. The sea legs, especially the sweeps near Antarctica, are drawn approximately between the places and positions the sources name.",
-          "de": "Die erste Überquerung des Südlichen Polarkreises wird auf den 17. Januar 1773 (Wikipedia) oder den 16. Januar (Dictionary of National Biography und Encyclopædia Britannica 1911) datiert. Der südlichste Punkt, 71° 10′ S, wurde laut der Erzählung von Wikipedia am 30. Januar 1774 erreicht, laut der Einleitung von Wikipedia am 3. Februar und laut dem Dictionary of National Biography am 27. Januar. Das Ende wird mit Spithead am 30. Juli 1775 (Wikipedia), Plymouth am 29. Juli (Dictionary of National Biography) oder Plymouth am 25. Juli (Britannica) angegeben. Südgeorgien wurde laut dem Dictionary of National Biography am 14. Januar 1775 entdeckt; Wikipedia sagt, das Schiff habe die Insel am 20. Januar verlassen. Die Strecken auf See, besonders die Schwünge nahe der Antarktis, sind ungefähr zwischen den Orten und Positionen gezeichnet, die die Quellen nennen."
+          "de": "Die erste Überquerung des Südlichen Polarkreises wird auf den 17. Januar 1773 (Wikipedia) oder den 16. Januar (Dictionary of National Biography und Encyclopædia Britannica 1911) datiert. Der südlichste Punkt, 71° 10′ S, wurde laut der Erzählung von Wikipedia am 30. Januar 1774 erreicht, laut der Einleitung von Wikipedia am 3. Februar und laut dem Dictionary of National Biography am 27. Januar. Das Ende wird mit Spithead am 30. Juli 1775 (Wikipedia), Plymouth am 29. Juli (Dictionary of National Biography) oder Plymouth am 25. Juli (Britannica) angegeben. Südgeorgien wurde laut dem Dictionary of National Biography am 14. Januar 1775 entdeckt; Wikipedia sagt, das Schiff habe die Insel am 20. Januar verlassen. Die Strecken auf See, besonders die Schwünge nahe der Antarktis, sind ungefähr zwischen den Orten und Positionen gezeichnet, die die Quellen nennen.",
+          "es": "El primer cruce del círculo polar antártico se fecha el 17 de enero de 1773 (Wikipedia) o el 16 de enero (Dictionary of National Biography y Encyclopædia Britannica 1911). El punto más meridional, 71° 10′ S, se alcanzó el 30 de enero de 1774 según el relato de Wikipedia, el 3 de febrero según la introducción de Wikipedia y el 27 de enero según el Dictionary of National Biography. El final se indica como Spithead el 30 de julio de 1775 (Wikipedia), Plymouth el 29 de julio (Dictionary of National Biography) o Plymouth el 25 de julio (Britannica). Georgia del Sur se descubrió el 14 de enero de 1775 según el Dictionary of National Biography; Wikipedia dice que el barco dejó la isla el 20 de enero. Los tramos por mar, en especial los barridos cerca de la Antártida, están dibujados de forma aproximada entre los lugares y posiciones que mencionan las fuentes."
         }
       },
       "sources": [
@@ -678,7 +714,8 @@
               "name": {
                 "sv": "Plymouth",
                 "en": "Plymouth",
-                "de": "Plymouth"
+                "de": "Plymouth",
+                "es": "Plymouth"
               },
               "date": "1772-07-13"
             },
@@ -687,7 +724,8 @@
               "name": {
                 "sv": "Funchal (Madeira)",
                 "en": "Funchal (Madeira)",
-                "de": "Funchal (Madeira)"
+                "de": "Funchal (Madeira)",
+                "es": "Funchal (Madeira)"
               },
               "date": "1772-08-01"
             }
@@ -720,7 +758,8 @@
               "name": {
                 "sv": "Praia (Kap Verde)",
                 "en": "Praia (Cape Verde)",
-                "de": "Praia (Kapverden)"
+                "de": "Praia (Kapverden)",
+                "es": "Praia (Cabo Verde)"
               },
               "date": "1772-08-12"
             }
@@ -755,7 +794,8 @@
               "name": {
                 "sv": "Taffelbukten (Kapstaden)",
                 "en": "Table Bay (Cape Town)",
-                "de": "Tafelbucht (Kapstadt)"
+                "de": "Tafelbucht (Kapstadt)",
+                "es": "Bahía de la Mesa (Ciudad del Cabo)"
               },
               "edtf": "1772-10-30/1772-11-22"
             }
@@ -797,7 +837,8 @@
               "name": {
                 "sv": "Bouvets Kap Circoncision är inte land",
                 "en": "Bouvet's Cape Circoncision is not land",
-                "de": "Bouvets Kap Circoncision ist kein Land"
+                "de": "Bouvets Kap Circoncision ist kein Land",
+                "es": "El cabo Circoncisión de Bouvet no es tierra"
               },
               "date": "1773-01-03"
             },
@@ -806,7 +847,8 @@
               "name": {
                 "sv": "Södra polcirkeln passeras för första gången",
                 "en": "Antarctic Circle crossed for the first time",
-                "de": "Der Südliche Polarkreis wird zum ersten Mal überquert"
+                "de": "Der Südliche Polarkreis wird zum ersten Mal überquert",
+                "es": "Primer cruce del círculo polar antártico"
               },
               "date": "1773-01-17"
             },
@@ -815,7 +857,8 @@
               "name": {
                 "sv": "Dusky Sound, Nya Zeeland",
                 "en": "Dusky Sound, New Zealand",
-                "de": "Dusky Sound, Neuseeland"
+                "de": "Dusky Sound, Neuseeland",
+                "es": "Dusky Sound, Nueva Zelanda"
               },
               "edtf": "1773-03-26/1773-05"
             }
@@ -852,7 +895,8 @@
               "name": {
                 "sv": "Ship Cove (Queen Charlotte Sound): Adventure återfunnen",
                 "en": "Ship Cove (Queen Charlotte Sound): Adventure found again",
-                "de": "Ship Cove (Queen Charlotte Sound): Die Adventure ist wiedergefunden"
+                "de": "Ship Cove (Queen Charlotte Sound): Die Adventure ist wiedergefunden",
+                "es": "Ship Cove (Queen Charlotte Sound): se reencuentra el Adventure"
               },
               "date": "1773-05-18"
             }
@@ -891,7 +935,8 @@
               "name": {
                 "sv": "40° S passeras vid 133° 30′ V",
                 "en": "40° S crossed at 133° 30′ W",
-                "de": "40° S wird bei 133° 30′ W überschritten"
+                "de": "40° S wird bei 133° 30′ W überschritten",
+                "es": "Se cruza el paralelo 40° S a 133° 30′ O"
               },
               "date": "1773-07-17"
             },
@@ -900,7 +945,8 @@
               "name": {
                 "sv": "Vaitepihabukten (Tautira), Tahiti",
                 "en": "Vaitepiha Bay (Tautira), Tahiti",
-                "de": "Vaitepiha-Bucht (Tautira), Tahiti"
+                "de": "Vaitepiha-Bucht (Tautira), Tahiti",
+                "es": "Bahía de Vaitepiha (Tautira), Tahití"
               },
               "edtf": "1773-08/1773-08-24"
             }
@@ -940,7 +986,8 @@
               "name": {
                 "sv": "Matavaibukten, Tahiti",
                 "en": "Matavai Bay, Tahiti",
-                "de": "Matavai-Bucht, Tahiti"
+                "de": "Matavai-Bucht, Tahiti",
+                "es": "Bahía de Matavai, Tahití"
               },
               "edtf": "1773-08-26/1773-09-03"
             },
@@ -949,7 +996,8 @@
               "name": {
                 "sv": "Huahine",
                 "en": "Huahine",
-                "de": "Huahine"
+                "de": "Huahine",
+                "es": "Huahine"
               }
             },
             {
@@ -957,7 +1005,8 @@
               "name": {
                 "sv": "Raiatea",
                 "en": "Raiatea",
-                "de": "Raiatea"
+                "de": "Raiatea",
+                "es": "Raiatea"
               }
             },
             {
@@ -965,7 +1014,8 @@
               "name": {
                 "sv": "'Eua (Tonga)",
                 "en": "'Eua (Tonga)",
-                "de": "'Eua (Tonga)"
+                "de": "'Eua (Tonga)",
+                "es": "ʻEua (Tonga)"
               }
             },
             {
@@ -973,7 +1023,8 @@
               "name": {
                 "sv": "Tongatapu",
                 "en": "Tongatapu",
-                "de": "Tongatapu"
+                "de": "Tongatapu",
+                "es": "Tongatapu"
               }
             }
           ],
@@ -1008,7 +1059,8 @@
               "name": {
                 "sv": "Ship Cove (Queen Charlotte Sound)",
                 "en": "Ship Cove (Queen Charlotte Sound)",
-                "de": "Queen Charlotte Sound"
+                "de": "Queen Charlotte Sound",
+                "es": "Ship Cove (Queen Charlotte Sound)"
               },
               "date": "1773-11-03"
             }
@@ -1050,7 +1102,8 @@
               "name": {
                 "sv": "Mitt emot London på jordklotet",
                 "en": "Opposite London on the globe",
-                "de": "London gegenüber auf dem Globus"
+                "de": "London gegenüber auf dem Globus",
+                "es": "Antípodas de Londres"
               },
               "date": "1773-12-07"
             },
@@ -1059,7 +1112,8 @@
               "name": {
                 "sv": "57° S, 136° V",
                 "en": "57° S, 136° W",
-                "de": "57° S, 136° W"
+                "de": "57° S, 136° W",
+                "es": "57° S, 136° O"
               },
               "date": "1774-01-02"
             },
@@ -1068,7 +1122,8 @@
               "name": {
                 "sv": "Längst söderut: 71° 10′ S, 106° 54′ V",
                 "en": "Farthest south: 71° 10′ S, 106° 54′ W",
-                "de": "Am weitesten südlich: 71° 10′ S, 106° 54′ W"
+                "de": "Am weitesten südlich: 71° 10′ S, 106° 54′ W",
+                "es": "El punto más al sur: 71° 10′ S, 106° 54′ O"
               },
               "edtf": "1774-01-30"
             },
@@ -1077,7 +1132,8 @@
               "name": {
                 "sv": "Påskön",
                 "en": "Easter Island",
-                "de": "Osterinsel"
+                "de": "Osterinsel",
+                "es": "Isla de Pascua"
               },
               "edtf": "1774-03-11/1774-03-16"
             }
@@ -1112,7 +1168,8 @@
               "name": {
                 "sv": "Vaitahubukten, Tahuata (Marquesasöarna)",
                 "en": "Vaitahu Bay, Tahuata (Marquesas)",
-                "de": "Vaitahu-Bucht, Tahuata (Marquesas)"
+                "de": "Vaitahu-Bucht, Tahuata (Marquesas)",
+                "es": "Bahía de Vaitahu, Tahuata (islas Marquesas)"
               },
               "edtf": "1774-04"
             },
@@ -1121,7 +1178,8 @@
               "name": {
                 "sv": "Matavaibukten, Tahiti",
                 "en": "Matavai Bay, Tahiti",
-                "de": "Matavai-Bucht, Tahiti"
+                "de": "Matavai-Bucht, Tahiti",
+                "es": "Bahía de Matavai, Tahití"
               },
               "edtf": "1774-04-22/1774-05"
             }
@@ -1180,7 +1238,8 @@
               "name": {
                 "sv": "Raiatea",
                 "en": "Raiatea",
-                "de": "Raiatea"
+                "de": "Raiatea",
+                "es": "Raiatea"
               }
             },
             {
@@ -1188,7 +1247,8 @@
               "name": {
                 "sv": "Nomuka (Tonga)",
                 "en": "Nomuka (Tonga)",
-                "de": "Nomuka (Tonga)"
+                "de": "Nomuka (Tonga)",
+                "es": "Nomuka (Tonga)"
               },
               "edtf": "1774-06"
             },
@@ -1197,7 +1257,8 @@
               "name": {
                 "sv": "Malekula (Nya Hebriderna)",
                 "en": "Malekula (New Hebrides)",
-                "de": "Malekula (Neue Hebriden)"
+                "de": "Malekula (Neue Hebriden)",
+                "es": "Malekula (Nuevas Hébridas)"
               }
             },
             {
@@ -1205,7 +1266,8 @@
               "name": {
                 "sv": "Erromango",
                 "en": "Erromango",
-                "de": "Erromango"
+                "de": "Erromango",
+                "es": "Erromango"
               }
             },
             {
@@ -1213,7 +1275,8 @@
               "name": {
                 "sv": "Tanna",
                 "en": "Tanna",
-                "de": "Tanna"
+                "de": "Tanna",
+                "es": "Tanna"
               }
             },
             {
@@ -1221,7 +1284,8 @@
               "name": {
                 "sv": "Nya Kaledonien",
                 "en": "New Caledonia",
-                "de": "Neukaledonien"
+                "de": "Neukaledonien",
+                "es": "Nueva Caledonia"
               }
             },
             {
@@ -1229,7 +1293,8 @@
               "name": {
                 "sv": "Norfolkön",
                 "en": "Norfolk Island",
-                "de": "Norfolkinsel"
+                "de": "Norfolkinsel",
+                "es": "Isla Norfolk"
               }
             },
             {
@@ -1237,7 +1302,8 @@
               "name": {
                 "sv": "Queen Charlotte Sound",
                 "en": "Queen Charlotte Sound",
-                "de": "Queen Charlotte Sound"
+                "de": "Queen Charlotte Sound",
+                "es": "Queen Charlotte Sound"
               },
               "edtf": "1774-10/1774-11-10"
             }
@@ -1283,7 +1349,8 @@
               "name": {
                 "sv": "Kap Horn",
                 "en": "Cape Horn",
-                "de": "Kap Hoorn"
+                "de": "Kap Hoorn",
+                "es": "Cabo de Hornos"
               },
               "edtf": "1774-12"
             },
@@ -1292,7 +1359,8 @@
               "name": {
                 "sv": "Sydgeorgien",
                 "en": "South Georgia",
-                "de": "Südgeorgien"
+                "de": "Südgeorgien",
+                "es": "Georgia del Sur"
               },
               "edtf": "1775-01-14/1775-01-20"
             },
@@ -1301,7 +1369,8 @@
               "name": {
                 "sv": "Sydsandwichöarna (Sandwich Land)",
                 "en": "South Sandwich Islands (Sandwich Land)",
-                "de": "Südliche Sandwichinseln (Sandwich Land)"
+                "de": "Südliche Sandwichinseln (Sandwich Land)",
+                "es": "Islas Sandwich del Sur (Sandwich Land)"
               },
               "edtf": "1775-01"
             },
@@ -1310,7 +1379,8 @@
               "name": {
                 "sv": "Taffelbukten (Kapstaden)",
                 "en": "Table Bay (Cape Town)",
-                "de": "Tafelbucht (Kapstadt)"
+                "de": "Tafelbucht (Kapstadt)",
+                "es": "Bahía de la Mesa (Ciudad del Cabo)"
               },
               "edtf": "1775-03-21/1775-04"
             }
@@ -1349,7 +1419,8 @@
               "name": {
                 "sv": "Sankta Helena",
                 "en": "Saint Helena",
-                "de": "St. Helena"
+                "de": "St. Helena",
+                "es": "Santa Elena"
               }
             },
             {
@@ -1357,7 +1428,8 @@
               "name": {
                 "sv": "Ascension",
                 "en": "Ascension",
-                "de": "Ascension"
+                "de": "Ascension",
+                "es": "Ascensión"
               }
             },
             {
@@ -1365,7 +1437,8 @@
               "name": {
                 "sv": "Azorerna",
                 "en": "Azores",
-                "de": "Azoren"
+                "de": "Azoren",
+                "es": "Azores"
               }
             },
             {
@@ -1373,7 +1446,8 @@
               "name": {
                 "sv": "Spithead (Portsmouth)",
                 "en": "Spithead (Portsmouth)",
-                "de": "Spithead (Portsmouth)"
+                "de": "Spithead (Portsmouth)",
+                "es": "Spithead (Portsmouth)"
               },
               "date": "1775-07-30"
             }
@@ -1394,12 +1468,14 @@
       "title": {
         "sv": "Cooks tredje resa (Resolution och Discovery)",
         "en": "Cook's third voyage (Resolution and Discovery)",
-        "de": "Cooks dritte Reise (Resolution und Discovery)"
+        "de": "Cooks dritte Reise (Resolution und Discovery)",
+        "es": "Tercer viaje de Cook (Resolution y Discovery)"
       },
       "summary": {
         "sv": "Cooks sista resa ska hitta Nordvästpassagen mellan Stilla havet och Atlanten, och föra hem Omai från Raiatea. Resolution lämnar Plymouth i juli 1776, Discovery följer efter och skeppen möts vid Godahoppsudden. Via Kerguelen, Tasmanien, Nya Zeeland, Tonga och Tahiti seglar de norrut och når i januari 1778 Hawaiiöarna, som européerna inte kände till. Cook följer Nordamerikas västkust från Oregon till Alaska, går genom Berings sund och stoppas av packis på omkring 70° N i augusti 1778. Vintern tillbringas på Hawaii. I Kealakekuabukten dödas Cook den 14 februari 1779 i en strid med invånarna. Charles Clerke försöker igen genom Berings sund 1779 men stoppas av isen och dör i augusti. Under John Gore går skeppen hem via Kamtjatka, Macao och Godahoppsudden till England i oktober 1780.",
         "en": "Cook's last voyage is to find the Northwest Passage between the Pacific and the Atlantic, and to take Omai home to Raiatea. The Resolution leaves Plymouth in July 1776, the Discovery follows and the ships meet at the Cape of Good Hope. By way of Kerguelen, Tasmania, New Zealand, Tonga and Tahiti they sail north and in January 1778 reach the Hawaiian Islands, unknown to Europeans. Cook follows the west coast of North America from Oregon to Alaska, passes through the Bering Strait and is stopped by pack ice at about 70° N in August 1778. The winter is spent in Hawaii. At Kealakekua Bay Cook is killed on 14 February 1779 in a clash with the islanders. Charles Clerke tries the Bering Strait again in 1779 but is stopped by the ice and dies in August. Under John Gore the ships return by way of Kamchatka, Macau and the Cape of Good Hope to England in October 1780.",
-        "de": "Cooks letzte Reise soll die Nordwestpassage zwischen dem Pazifik und dem Atlantik finden und Omai heim nach Raiatea bringen. Die Resolution verlässt Plymouth im Juli 1776, die Discovery folgt, und die Schiffe treffen sich am Kap der Guten Hoffnung. Über Kerguelen, Tasmanien, Neuseeland, Tonga und Tahiti segeln sie nach Norden und erreichen im Januar 1778 die Hawaii-Inseln, die den Europäern unbekannt waren. Cook folgt der Westküste Nordamerikas von Oregon bis Alaska, fährt durch die Beringstraße und wird im August 1778 bei etwa 70° N von Packeis gestoppt. Den Winter verbringt er auf Hawaii. In der Kealakekua-Bucht wird Cook am 14. Februar 1779 bei einem Gefecht mit den Einwohnern getötet. Charles Clerke versucht es 1779 erneut durch die Beringstraße, wird aber vom Eis gestoppt und stirbt im August. Unter John Gore fahren die Schiffe über Kamtschatka, Macao und das Kap der Guten Hoffnung nach England, wo sie im Oktober 1780 ankommen."
+        "de": "Cooks letzte Reise soll die Nordwestpassage zwischen dem Pazifik und dem Atlantik finden und Omai heim nach Raiatea bringen. Die Resolution verlässt Plymouth im Juli 1776, die Discovery folgt, und die Schiffe treffen sich am Kap der Guten Hoffnung. Über Kerguelen, Tasmanien, Neuseeland, Tonga und Tahiti segeln sie nach Norden und erreichen im Januar 1778 die Hawaii-Inseln, die den Europäern unbekannt waren. Cook folgt der Westküste Nordamerikas von Oregon bis Alaska, fährt durch die Beringstraße und wird im August 1778 bei etwa 70° N von Packeis gestoppt. Den Winter verbringt er auf Hawaii. In der Kealakekua-Bucht wird Cook am 14. Februar 1779 bei einem Gefecht mit den Einwohnern getötet. Charles Clerke versucht es 1779 erneut durch die Beringstraße, wird aber vom Eis gestoppt und stirbt im August. Unter John Gore fahren die Schiffe über Kamtschatka, Macao und das Kap der Guten Hoffnung nach England, wo sie im Oktober 1780 ankommen.",
+        "es": "El último viaje de Cook debe encontrar el paso del Noroeste entre el Pacífico y el Atlántico y llevar a Omai de vuelta a Raiatea. El Resolution sale de Plymouth en julio de 1776, el Discovery lo sigue y los barcos se encuentran en el cabo de Buena Esperanza. Por las islas Kerguelen, Tasmania, Nueva Zelanda, Tonga y Tahití navegan hacia el norte y en enero de 1778 llegan a las islas Hawái, desconocidas para los europeos. Cook sigue la costa oeste de Norteamérica desde Oregón hasta Alaska, cruza el estrecho de Bering y la banquisa lo detiene hacia los 70° N en agosto de 1778. El invierno lo pasan en Hawái. En la bahía de Kealakekua, Cook muere el 14 de febrero de 1779 en un enfrentamiento con los habitantes. Charles Clerke intenta de nuevo cruzar el estrecho de Bering en 1779, pero el hielo lo detiene y muere en agosto. Al mando de John Gore, los barcos vuelven por Kamchatka, Macao y el cabo de Buena Esperanza hasta Inglaterra en octubre de 1780."
       },
       "start": 1776,
       "end": 1780,
@@ -1409,12 +1485,14 @@
         "title": {
           "sv": "Källorna skiljer sig",
           "en": "The sources differ",
-          "de": "Die Quellen unterscheiden sich"
+          "de": "Die Quellen unterscheiden sich",
+          "es": "Las fuentes no coinciden"
         },
         "text": {
           "sv": "Skeppen lämnade Godahoppsudden tillsammans den 1 december 1776 enligt Wikipedia men den 30 november enligt Dictionary of National Biography och Encyclopædia Britannica 1911. Hawaiiöarna siktades den 18 januari 1778 enligt Wikipedia; Britannica skriver i början av februari 1778 och nämner att spanjoren Gaetano kanske såg öarna redan 1555. Ankomsten till Kealakekuabukten den 17 januari 1779 och Cooks död den 14 februari 1779 stämmer i alla tre källorna. Hur långt norrut isen stoppade skeppen 1778 anges som 70° N den 17 augusti (Wikipedia) och 70° 41′ N (Britannica). Sträckorna till sjöss är ritade ungefärligt mellan de platser källorna nämner.",
           "en": "The ships left the Cape of Good Hope together on 1 December 1776 according to Wikipedia but on 30 November according to the Dictionary of National Biography and Encyclopædia Britannica 1911. The Hawaiian Islands were sighted on 18 January 1778 according to Wikipedia; Britannica says early February 1778 and mentions that the Spaniard Gaetano may have seen the islands as early as 1555. Arrival at Kealakekua Bay on 17 January 1779 and Cook's death on 14 February 1779 agree in all three sources. How far north the ice stopped the ships in 1778 is given as 70° N on 17 August (Wikipedia) and 70° 41′ N (Britannica). The sea legs are drawn approximately between the places the sources name.",
-          "de": "Die Schiffe verließen das Kap der Guten Hoffnung laut Wikipedia gemeinsam am 1. Dezember 1776, laut Dictionary of National Biography und Encyclopædia Britannica 1911 aber am 30. November. Die Hawaii-Inseln wurden laut Wikipedia am 18. Januar 1778 gesichtet; Britannica schreibt Anfang Februar 1778 und erwähnt, dass der Spanier Gaetano die Inseln vielleicht schon 1555 gesehen hat. Die Ankunft in der Kealakekua-Bucht am 17. Januar 1779 und Cooks Tod am 14. Februar 1779 stimmen in allen drei Quellen überein. Wie weit nördlich das Eis die Schiffe 1778 stoppte, wird mit 70° N am 17. August (Wikipedia) und 70° 41′ N (Britannica) angegeben. Die Strecken auf See sind ungefähr zwischen den Orten gezeichnet, die die Quellen nennen."
+          "de": "Die Schiffe verließen das Kap der Guten Hoffnung laut Wikipedia gemeinsam am 1. Dezember 1776, laut Dictionary of National Biography und Encyclopædia Britannica 1911 aber am 30. November. Die Hawaii-Inseln wurden laut Wikipedia am 18. Januar 1778 gesichtet; Britannica schreibt Anfang Februar 1778 und erwähnt, dass der Spanier Gaetano die Inseln vielleicht schon 1555 gesehen hat. Die Ankunft in der Kealakekua-Bucht am 17. Januar 1779 und Cooks Tod am 14. Februar 1779 stimmen in allen drei Quellen überein. Wie weit nördlich das Eis die Schiffe 1778 stoppte, wird mit 70° N am 17. August (Wikipedia) und 70° 41′ N (Britannica) angegeben. Die Strecken auf See sind ungefähr zwischen den Orten gezeichnet, die die Quellen nennen.",
+          "es": "Los barcos dejaron juntos el cabo de Buena Esperanza el 1 de diciembre de 1776 según Wikipedia, pero el 30 de noviembre según el Dictionary of National Biography y la Encyclopædia Britannica 1911. Las islas Hawái se avistaron el 18 de enero de 1778 según Wikipedia; la Britannica escribe a comienzos de febrero de 1778 y menciona que el español Gaetano quizá vio las islas ya en 1555. La llegada a la bahía de Kealakekua el 17 de enero de 1779 y la muerte de Cook el 14 de febrero de 1779 coinciden en las tres fuentes. Hasta dónde llegaron los barcos hacia el norte antes de que el hielo los detuviera en 1778 se indica como 70° N el 17 de agosto (Wikipedia) y 70° 41′ N (Britannica). Los tramos por mar están dibujados de forma aproximada entre los lugares que mencionan las fuentes."
         }
       },
       "sources": [
@@ -1444,7 +1522,8 @@
               "name": {
                 "sv": "Plymouth",
                 "en": "Plymouth",
-                "de": "Plymouth"
+                "de": "Plymouth",
+                "es": "Plymouth"
               },
               "date": "1776-07-12"
             },
@@ -1453,7 +1532,8 @@
               "name": {
                 "sv": "Teneriffa (Santa Cruz)",
                 "en": "Tenerife (Santa Cruz)",
-                "de": "Teneriffa (Santa Cruz)"
+                "de": "Teneriffa (Santa Cruz)",
+                "es": "Tenerife (Santa Cruz)"
               },
               "edtf": "1776-08/1776-08-04"
             }
@@ -1489,7 +1569,8 @@
               "name": {
                 "sv": "Boa Vista (Kap Verde): nära grundstötning",
                 "en": "Boa Vista (Cape Verde): near grounding",
-                "de": "Boa Vista (Kapverden): beinahe Strandung"
+                "de": "Boa Vista (Kapverden): beinahe Strandung",
+                "es": "Boa Vista (Cabo Verde): a punto de encallar"
               }
             },
             {
@@ -1497,7 +1578,8 @@
               "name": {
                 "sv": "Taffelbukten (Kapstaden): Discovery ansluter",
                 "en": "Table Bay (Cape Town): the Discovery joins",
-                "de": "Tafelbucht (Kapstadt): Die Discovery schließt sich an"
+                "de": "Tafelbucht (Kapstadt): Die Discovery schließt sich an",
+                "es": "Bahía de la Mesa (Ciudad del Cabo): se une el Discovery"
               },
               "edtf": "1776-10-18/1776-12-01"
             }
@@ -1532,7 +1614,8 @@
               "name": {
                 "sv": "Prins Edwardöarna",
                 "en": "Prince Edward Islands",
-                "de": "Prinz-Edward-Inseln"
+                "de": "Prinz-Edward-Inseln",
+                "es": "Islas del Príncipe Eduardo"
               },
               "date": "1776-12-13"
             },
@@ -1541,7 +1624,8 @@
               "name": {
                 "sv": "Kerguelen",
                 "en": "Kerguelen",
-                "de": "Kerguelen"
+                "de": "Kerguelen",
+                "es": "Islas Kerguelen"
               },
               "edtf": "1776-12-25"
             },
@@ -1550,7 +1634,8 @@
               "name": {
                 "sv": "Van Diemens land (Tasmanien)",
                 "en": "Van Diemen's Land (Tasmania)",
-                "de": "Van-Diemens-Land (Tasmanien)"
+                "de": "Van-Diemens-Land (Tasmanien)",
+                "es": "Tierra de Van Diemen (Tasmania)"
               },
               "date": "1777-01-26"
             }
@@ -1585,7 +1670,8 @@
               "name": {
                 "sv": "Queen Charlotte Sound",
                 "en": "Queen Charlotte Sound",
-                "de": "Queen Charlotte Sound"
+                "de": "Queen Charlotte Sound",
+                "es": "Queen Charlotte Sound"
               },
               "edtf": "1777-02-12/1777-02"
             }
@@ -1622,7 +1708,8 @@
               "name": {
                 "sv": "Mangaia",
                 "en": "Mangaia",
-                "de": "Mangaia"
+                "de": "Mangaia",
+                "es": "Mangaia"
               },
               "edtf": "1777-03"
             },
@@ -1631,7 +1718,8 @@
               "name": {
                 "sv": "Atiu",
                 "en": "Atiu",
-                "de": "Atiu"
+                "de": "Atiu",
+                "es": "Atiu"
               }
             },
             {
@@ -1639,7 +1727,8 @@
               "name": {
                 "sv": "Tongaöarna (Vänskapsöarna)",
                 "en": "Tonga (Friendly Islands)",
-                "de": "Tonga-Inseln (Freundschaftsinseln)"
+                "de": "Tonga-Inseln (Freundschaftsinseln)",
+                "es": "Islas Tonga (islas de los Amigos)"
               },
               "edtf": "1777-04/1777-07"
             }
@@ -1671,7 +1760,8 @@
               "name": {
                 "sv": "Tubuai",
                 "en": "Tubuai",
-                "de": "Tubuai"
+                "de": "Tubuai",
+                "es": "Tubuai"
               },
               "edtf": "1777-08"
             },
@@ -1680,7 +1770,8 @@
               "name": {
                 "sv": "Tahiti",
                 "en": "Tahiti",
-                "de": "Tahiti"
+                "de": "Tahiti",
+                "es": "Tahití"
               },
               "date": "1777-08-12"
             }
@@ -1711,7 +1802,8 @@
               "name": {
                 "sv": "Huahine: Omai stannar",
                 "en": "Huahine: Omai stays",
-                "de": "Huahine: Omai bleibt"
+                "de": "Huahine: Omai bleibt",
+                "es": "Huahine: Omai se queda"
               },
               "edtf": "1777-10"
             },
@@ -1720,7 +1812,8 @@
               "name": {
                 "sv": "Raiatea",
                 "en": "Raiatea",
-                "de": "Raiatea"
+                "de": "Raiatea",
+                "es": "Raiatea"
               },
               "date": "1777-11-03"
             }
@@ -1750,7 +1843,8 @@
               "name": {
                 "sv": "Bora Bora",
                 "en": "Bora Bora",
-                "de": "Bora Bora"
+                "de": "Bora Bora",
+                "es": "Bora Bora"
               }
             },
             {
@@ -1758,7 +1852,8 @@
               "name": {
                 "sv": "Ekvatorn passeras vid 156° 45′ V",
                 "en": "Equator crossed at 156° 45′ W",
-                "de": "Der Äquator wird bei 156° 45′ W überschritten"
+                "de": "Der Äquator wird bei 156° 45′ W überschritten",
+                "es": "Se cruza el ecuador a 156° 45′ O"
               },
               "edtf": "1777-12-22/1777-12-23"
             },
@@ -1767,7 +1862,8 @@
               "name": {
                 "sv": "Julön (Kiritimati)",
                 "en": "Christmas Island (Kiritimati)",
-                "de": "Weihnachtsinsel (Kiritimati)"
+                "de": "Weihnachtsinsel (Kiritimati)",
+                "es": "Isla de Navidad (Kiritimati)"
               },
               "edtf": "1777-12-24/1778-01-02"
             }
@@ -1797,7 +1893,8 @@
               "name": {
                 "sv": "Kauai: Hawaiiöarna nås",
                 "en": "Kauai: the Hawaiian Islands reached",
-                "de": "Kauai: Die Hawaii-Inseln sind erreicht"
+                "de": "Kauai: Die Hawaii-Inseln sind erreicht",
+                "es": "Kauai: se llega a las islas Hawái"
               },
               "edtf": "1778-01-19"
             },
@@ -1806,7 +1903,8 @@
               "name": {
                 "sv": "Waimea, Kauai",
                 "en": "Waimea, Kauai",
-                "de": "Waimea, Kauai"
+                "de": "Waimea, Kauai",
+                "es": "Waimea, Kauai"
               }
             },
             {
@@ -1814,7 +1912,8 @@
               "name": {
                 "sv": "Niihau",
                 "en": "Niihau",
-                "de": "Niihau"
+                "de": "Niihau",
+                "es": "Niihau"
               },
               "edtf": "1778-01/1778-02-02"
             }
@@ -1848,7 +1947,8 @@
               "name": {
                 "sv": "Kap Foulweather (Oregon)",
                 "en": "Cape Foulweather (Oregon)",
-                "de": "Kap Foulweather (Oregon)"
+                "de": "Kap Foulweather (Oregon)",
+                "es": "Cabo Foulweather (Oregón)"
               },
               "date": "1778-03-07"
             },
@@ -1857,7 +1957,8 @@
               "name": {
                 "sv": "Nootka Sound",
                 "en": "Nootka Sound",
-                "de": "Nootka Sound"
+                "de": "Nootka Sound",
+                "es": "Nootka Sound"
               },
               "edtf": "1778-03-29/1778-04-26"
             }
@@ -1899,7 +2000,8 @@
               "name": {
                 "sv": "Prince William Sound",
                 "en": "Prince William Sound",
-                "de": "Prince William Sound"
+                "de": "Prince William Sound",
+                "es": "Prince William Sound"
               },
               "edtf": "1778-05"
             },
@@ -1908,7 +2010,8 @@
               "name": {
                 "sv": "Cook Inlet",
                 "en": "Cook Inlet",
-                "de": "Cook Inlet"
+                "de": "Cook Inlet",
+                "es": "Cook Inlet"
               },
               "edtf": "1778-05-25/1778-06"
             }
@@ -1955,7 +2058,8 @@
               "name": {
                 "sv": "Unimak",
                 "en": "Unimak",
-                "de": "Unimak"
+                "de": "Unimak",
+                "es": "Unimak"
               }
             },
             {
@@ -1963,7 +2067,8 @@
               "name": {
                 "sv": "Sankt Matthewön",
                 "en": "St Matthew Island",
-                "de": "St.-Matthew-Insel"
+                "de": "St.-Matthew-Insel",
+                "es": "Isla de San Mateo"
               },
               "edtf": "1778-07/1778-08"
             },
@@ -1972,7 +2077,8 @@
               "name": {
                 "sv": "Kap Prince of Wales",
                 "en": "Cape Prince of Wales",
-                "de": "Kap Prince of Wales"
+                "de": "Kap Prince of Wales",
+                "es": "Cabo Príncipe de Gales"
               },
               "date": "1778-08-09"
             },
@@ -1981,7 +2087,8 @@
               "name": {
                 "sv": "Lavrentijabukten (Tjuktjerhalvön)",
                 "en": "Lavrentiya Bay (Chukchi Peninsula)",
-                "de": "Lawrentija-Bucht (Tschuktschen-Halbinsel)"
+                "de": "Lawrentija-Bucht (Tschuktschen-Halbinsel)",
+                "es": "Bahía de Lavréntiya (península de Chukotka)"
               },
               "edtf": "1778-08"
             },
@@ -1990,7 +2097,8 @@
               "name": {
                 "sv": "Packisen stoppar skeppen (Icy Cape)",
                 "en": "Pack ice stops the ships (Icy Cape)",
-                "de": "Das Packeis stoppt die Schiffe (Icy Cape)"
+                "de": "Das Packeis stoppt die Schiffe (Icy Cape)",
+                "es": "La banquisa detiene los barcos (Icy Cape)"
               },
               "date": "1778-08-17"
             }
@@ -2026,7 +2134,8 @@
               "name": {
                 "sv": "Unalaska",
                 "en": "Unalaska",
-                "de": "Unalaska"
+                "de": "Unalaska",
+                "es": "Unalaska"
               },
               "edtf": "1778-10"
             }
@@ -2062,7 +2171,8 @@
               "name": {
                 "sv": "Maui",
                 "en": "Maui",
-                "de": "Maui"
+                "de": "Maui",
+                "es": "Maui"
               },
               "date": "1778-11-26"
             },
@@ -2071,7 +2181,8 @@
               "name": {
                 "sv": "Kap Kumukahi (Hawaii)",
                 "en": "Cape Kumukahi (Hawaii)",
-                "de": "Kap Kumukahi (Hawaii)"
+                "de": "Kap Kumukahi (Hawaii)",
+                "es": "Cabo Kumukahi (Hawái)"
               },
               "date": "1778-12-21"
             },
@@ -2080,7 +2191,8 @@
               "name": {
                 "sv": "Kealakekuabukten",
                 "en": "Kealakekua Bay",
-                "de": "Kealakekua-Bucht"
+                "de": "Kealakekua-Bucht",
+                "es": "Bahía de Kealakekua"
               },
               "edtf": "1779-01-17/1779-02-04"
             }
@@ -2110,7 +2222,8 @@
               "name": {
                 "sv": "Kealakekuabukten: Cook dödas",
                 "en": "Kealakekua Bay: Cook is killed",
-                "de": "Kealakekua-Bucht: Cook wird getötet"
+                "de": "Kealakekua-Bucht: Cook wird getötet",
+                "es": "Bahía de Kealakekua: muere Cook"
               },
               "date": "1779-02-14"
             }
@@ -2148,7 +2261,8 @@
               "name": {
                 "sv": "Kauai",
                 "en": "Kauai",
-                "de": "Kauai"
+                "de": "Kauai",
+                "es": "Kauai"
               }
             },
             {
@@ -2156,7 +2270,8 @@
               "name": {
                 "sv": "Avatjabukten (Kamtjatka)",
                 "en": "Avacha Bay (Kamchatka)",
-                "de": "Awatscha-Bucht (Kamtschatka)"
+                "de": "Awatscha-Bucht (Kamtschatka)",
+                "es": "Bahía de Avacha (Kamchatka)"
               },
               "edtf": "1779-04-29/1779-06-13"
             }
@@ -2201,7 +2316,8 @@
               "name": {
                 "sv": "Avatjabukten: Clerke har dött",
                 "en": "Avacha Bay: Clerke has died",
-                "de": "Awatscha-Bucht: Clerke ist gestorben"
+                "de": "Awatscha-Bucht: Clerke ist gestorben",
+                "es": "Bahía de Avacha: ha muerto Clerke"
               },
               "edtf": "1779-08/1779-10-09"
             }
@@ -2243,7 +2359,8 @@
               "name": {
                 "sv": "Macao",
                 "en": "Macau",
-                "de": "Macao"
+                "de": "Macao",
+                "es": "Macao"
               },
               "edtf": "1779-12-01/1780-01-13"
             }
@@ -2287,7 +2404,8 @@
               "name": {
                 "sv": "Panaitan (Prince’s Island) i Sundasundet",
                 "en": "Panaitan (Prince’s Island), Sunda Strait",
-                "de": "Panaitan (Prince's Island) in der Sundastraße"
+                "de": "Panaitan (Prince's Island) in der Sundastraße",
+                "es": "Panaitan (Prince’s Island) en el estrecho de la Sonda"
               }
             },
             {
@@ -2295,7 +2413,8 @@
               "name": {
                 "sv": "Simon’s Bay (Kapstaden)",
                 "en": "Simon’s Bay (Cape Town)",
-                "de": "Simon's Bay (Kapstadt)"
+                "de": "Simon's Bay (Kapstadt)",
+                "es": "Simon’s Bay (Ciudad del Cabo)"
               },
               "edtf": "1780-04-11/1780-05-09"
             }
@@ -2336,7 +2455,8 @@
               "name": {
                 "sv": "Stromness (Orkney)",
                 "en": "Stromness (Orkney)",
-                "de": "Stromness (Orkney)"
+                "de": "Stromness (Orkney)",
+                "es": "Stromness (Orcadas)"
               },
               "edtf": "1780-08"
             }
@@ -2372,7 +2492,8 @@
               "name": {
                 "sv": "Nore (Themsens mynning)",
                 "en": "The Nore (Thames estuary)",
-                "de": "Nore (Themsemündung)"
+                "de": "Nore (Themsemündung)",
+                "es": "Nore (estuario del Támesis)"
               },
               "date": "1780-10-04"
             }
