@@ -46,6 +46,9 @@ export class TourPlayer {
    */
   constructor(els, data, app) {
     Object.assign(this, els, { app, labels: data.labels ?? {} });
+    // Medan turen styr tiden är turkortets Nästa den enda framåtknappen (#999). Låset ligger i lägeskontraktet (timeLock i js/state.js, #1322);
+    // här finns bara förklaringen som visas som hovertext på de låsta stegknapparna (#1280).
+    app.timeline.lockReason = t(this.labels.locked) || '';
     const known = { events: new Set(Object.keys(app.events)), layers: app.layerIds, empires: app.empires };
     // Bara hela turer som har passerat källkontrollen visas (draft visas aldrig, källpolicyn)
     this.tours = (data.tours ?? []).filter(tour => {
@@ -252,7 +255,6 @@ export class TourPlayer {
     this.name.textContent = t(tour.title);
     this.card.hidden = false;
     app.root.classList.add('touring');
-    this.lockTimeControls(true);
     this.go(this.stepIndex(stepId));
     requestAnimationFrame(() => this.next.focus({ preventScroll: true }));
     return true;
@@ -319,26 +321,6 @@ export class TourPlayer {
     } else timeline.pause(note, true, say);
   }
 
-  /** Medan turen styr tiden är turkortets Nästa den enda framåtknappen (#999): stegknapparna och spelknappen i
-   *  tidsraden tonas ned och går inte att nå. Pausraden visar bara var i turen man är (CSS döljer Fortsätt och Avsluta där). */
-  lockTimeControls(on) {
-    const why = t(this.labels.locked);
-    for (const b of document.querySelectorAll('.timebar .controls .step, #btn-play')) {
-      b.disabled = on;
-      b.classList.toggle('tour-locked', on);
-      // Förklaringen som hovertext på de låsta stegknapparna (#1280); knappens egen text kommer tillbaka när turen slutar.
-      // Spelknappens text styrs av tidslinjen och playback.js (den skrivs om vid varje paus), så den rörs inte här.
-      if (b.id === 'btn-play') continue;
-      if (on && why) {
-        if (b.dataset.beforeTour == null) b.dataset.beforeTour = b.getAttribute('title') ?? '';
-        b.title = why;
-      } else if (b.dataset.beforeTour != null) {
-        if (b.dataset.beforeTour) b.title = b.dataset.beforeTour; else b.removeAttribute('title');
-        delete b.dataset.beforeTour;
-      }
-    }
-  }
-
   /** Stegindikatorn i kortet (#1280): ett streck per steg, de gjorda och det nuvarande fyllda. Bara en tillägg till
    *  "Steg n av N", så den är dold för skärmläsare. */
   drawMeter(n) {
@@ -389,7 +371,6 @@ export class TourPlayer {
     this.tour = null; this.target = null;
     this.card.hidden = true;
     app.root.classList.remove('touring');
-    this.lockTimeControls(false);
     app.globe.setViewLift(0);
     app.timeline.pause();
     app.select(null, false);
