@@ -5879,6 +5879,39 @@ async function run(browser, vp) {
       return `${a.big} (länk -7412) | ${b.steps.join(' ')} | ${b.speed} | 1325: märket ${c.badge} pågår`;
     } finally { await wp.close(); }
   });
+  // #1321: fokusskalans årtal. Inget riktigt fokus spänner än över mer än 12 000 år, så ett testtema ersätter data/teman.json via
+  // route (som i temakontrollen). Förut slutade steglistan vid 1000 år och föll till 2000: 96 000 år gav 48 årtal på en skala
+  // där 4 (mobil) till 13 får plats. Skalan ska ge högst så många årtal som får plats, och de ska inte ligga över varandra.
+  await check('fokusskalan klarar spann över 12 000 år utan överlappande årtal (#1321)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      const tx = v => ({ sv: v, en: v, de: v, es: v, fr: v });
+      const doc = { schema: 'historia-globen/teman@1', themes: [{ id: 'djuptema', name: tx('Djuptema'), intro: tx('Ett urval för testet.'), events: ['neandertalare', 'botai-hastar', 'sintashta-stridsvagnar'], sources: [], review: 'source-checked' }] };
+      await wp.route('**/data/teman.json*', r => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(doc) }));
+      await wp.goto(`${BASE}?lang=sv&ny=skala1321#y=1900&f=theme:djuptema`);
+      await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await wp.waitForFunction(() => !document.getElementById('focus-bar').hidden && document.querySelectorAll('#ticks .tick').length > 1, null, { timeout: T.step });
+      const r = await wp.evaluate(() => {
+        const ticks = [...document.querySelectorAll('#ticks .tick')].map(x => { const b = x.getBoundingClientRect(); return { text: x.textContent.trim(), left: b.left, right: b.right }; });
+        return { ticks, width: document.getElementById('track').clientWidth };
+      });
+      const fit = Math.max(3, Math.floor(r.width / 90));
+      const names = r.ticks.map(x => x.text).join(', ');
+      if (r.ticks.length < 2) throw new Error(`skalan har ${r.ticks.length} årtal: ${names}`);
+      if (r.ticks.length > fit + 1) throw new Error(`${r.ticks.length} årtal på en skala som rymmer ${fit}: ${names}`);
+      for (let i = 1; i < r.ticks.length; i++)
+        if (r.ticks[i].left < r.ticks[i - 1].right) throw new Error(`"${r.ticks[i - 1].text}" och "${r.ticks[i].text}" ligger över varandra`);
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `${r.ticks.length} årtal på ${r.width} px (plats för ${fit}): ${names}`;
+    } finally { await wp.close(); }
+  });
   // #1322: tidslåset i lägeskontraktet. I en tur och i en lektion (som börjar med en tur) går året inte att byta med drag, klick,
   // tangenter, stegknappar eller årshoppet, och steget och adressen står kvar. När turen slutar fungerar reglaget igen.
   await check('tidslåset: reglaget är låst i en tur och en lektion och släpps när turen slutar (#1322)', async () => {
