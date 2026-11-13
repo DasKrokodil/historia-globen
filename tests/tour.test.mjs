@@ -149,3 +149,20 @@ test('turen Hur vet vi det här? (#938) har sex steg med kapitel, fråga och tex
     assert.ok(s.open && s.sources.length >= 2, `${s.id}: öppnar en händelse och har minst två källor`);
   }
 });
+
+test('turen Det här har du hört (#947) har sex steg med kapitel, fråga, text och källor på alla fem språken', () => {
+  const t = read('data/turer/det-har-har-du-hort.json');
+  const langs = ['sv', 'en', 'de', 'es', 'fr'];
+  const full = v => langs.every(l => typeof v?.[l] === 'string' && v[l].trim() !== '');
+  assert.equal(t.steps.length, 6);
+  assert.ok(full(t.title) && full(t.summary), 'titel och sammanfattning på alla språk');
+  for (const s of t.steps) {
+    assert.ok(full(s.title) && full(s.chapter) && full(s.question) && full(s.text), `${s.id}: titel, kapitel, fråga och text på alla språk`);
+    assert.ok(s.sources.length >= 1, `${s.id}: minst en källa`);
+  }
+  // Gymnasiet: artigt tilltal i tyska, spanska och franska (beslut 2026-11-08), alltså inga du-former
+  const informal = { de: /\b(du|dich|dir|dein\w*)\b/i, es: /\b(tú|puedes|sabes|crees)\b/i, fr: /\b(tu|toi|ton|ta|tes)\b/i };
+  for (const s of t.steps) for (const [l, re] of Object.entries(informal)) {
+    for (const f of ['question', 'text', 'title', 'chapter']) assert.ok(!re.test(s[f][l]), `${s.id}.${f}.${l}: du-form`);
+  }
+});
