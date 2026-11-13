@@ -86,6 +86,7 @@ Sidan läser händelserna uppdelade i ett index och de långa fälten per period
 | `note` | Extra ruta i faktarutan: `kind`, `title` och `text`, till exempel "Om år 0". **`kind` (#613, beslut 2026-11-06) är obligatoriskt** och ett av `disagreement` (källorna skiljer sig), `single-source` (bara en källa), `calendar` (om kalendern), `date` (om datumet eller dateringen), `place` (om platsen), `sources` (om källorna) och `other`. Det är `kind`, inte rubrikens ordval, som avgör om anteckningen räknas som historisk osäkerhet: bara `disagreement` ger raden *Historisk osäkerhet*, markeringen *osäkert* och den streckade bågen. Ungefärligt eller osäkert årtal läses som förut ur `edtf` och `precision`, och ungefärlig plats ur `locationPrecision`. Välj typ efter vad anteckningen handlar om; är du osäker, välj `other`. Datum före 1753 skrivs som de nordiska uppslagsverken skriver dem, och anger en källa ett annat datum eller en annan kalender får händelsen en anteckning med `kind: "calendar"` (beslut 2026-11-10, #1061). Indexet `data/genererat/handelser.json` behåller `kind` och `title` (resten ligger i periodfilen) |
 | `image` | Bild i faktarutan, se nedan |
 | `tags` | Valfritt (#555, Rikards beslut 2026-11-03): lista med taggar tvärs över kategorierna. Den enda tillåtna taggen är än så länge `framsteg` (enum i `schemas/event.schema.json`), till exempel `"tags": ["framsteg"]`. Faktarutan visar då märkningen "Framsteg" med en kort förklaring, och vyn Framsteg i Lager visar bara händelser med taggen. Taggen sätts **bara** när källan på händelsen själv beskriver den som en förbättring (en sjukdom förklarad utrotad, slaveri avskaffat, en rättighet införd). Inget omstritt: ett framsteg för en grupp som var en förlust för en annan får ingen tagg, eller en öppen `note` ("Källorna skiljer sig"). Inga händelser skrivs bara för att få ihop vyn. Taggen sätts av Claude Code med källa, inte av Codex. Händelser utan `tags` fungerar som förut. |
+| `lasting` | Valfritt (#1311, förslag): `true` när händelsen är ett **långt tillstånd**, något som pågick (ett rike, en kultur, en handel), och inte något som hände. Sätts med källa, i omgångar, aldrig efter en längdgräns: ett krig som varade i 30 år är fortfarande något som hände. Inga händelser har fältet än; hur jakten och panelen visar tillstånden ("pågick då") bestäms när den första omgången görs. Tillåtet i `schemas/event.schema.json`. |
 | `significance` | Valfritt (#1021, del av #868 "Översikt"): heltal, bara värdet `1` tills vidare (enum i `schemas/event.schema.json`). Märker de händelser som ingår i den korta översikten över världshistorien. Urvalet bygger på de listor DasKrokodil godkände 2026-11-09 i #1010 (Skolverkets kursplan i historia, Lgr22, och Wikipedias *Vital articles* nivå 3 och nivå 4 History); just nu 123 händelser. Listan står i `docs/granskningar/2026-11-09-oversikt-urval.md` och `…-oversikt-urval.csv` (de med `lista = forslag`), beslutet i `docs/beslut/2026-11-09-oversikt-urval.md`. Ändras listan skrivs ett nytt beslut, och fältet följer listan. Fältet ändrar ingen text, inget årtal och ingen källa, och behöver ingen översättning. Händelser utan `significance` fungerar som förut. |
 
 ### `image`: bild i faktarutan
@@ -124,10 +125,18 @@ Filerna i `data/utkast/` har samma format som `events.json` (`schema`, `notes`, 
 
 ```json
 { "id": "mammut-pyramid", "events": ["mammutar-wrangel", "cheopspyramiden"], "show": [-2650, -2450],
-  "review": "source-checked", "text": { "sv": "Medan Cheopspyramiden byggs lever det fortfarande ullhårsmammutar …" } }
+  "review": "source-checked", "relation": "together", "text": { "sv": "Medan Cheopspyramiden byggs lever det fortfarande ullhårsmammutar …" } }
 ```
 
 `events` pekar på händelserna som jämförs, och fun facten ärver deras källor. `show` är spannet då kortet visas. Siffror i texten ska gå att räkna fram ur händelsernas årtal.
+
+**`relation` (obligatoriskt, #1311, beslut `docs/beslut/2026-11-13-definition-av-samtidigt.md`):** hur händelserna ligger i tid, enligt definitionen av "samtidigt" i `js/samtidighet.js`:
+
+- `together`: alla händelserna pågår minst ett gemensamt år (samtidigt);
+- `near`: inget gemensamt år, men högst så många år isär som tabellen `near` säger (nära i tid). Avståndet är senaste start minus tidigaste slut;
+- `apart`: längre isär; fun facten jämför avstånd i tid.
+
+Tabellen `near` står överst i filen: `[{ "until": 0, "years": 100 }, { "years": 50 }]`. Raden väljs efter året där avståndet börjar (det tidigaste slutet): den första raden vars `until` (astronomiskt år) är minst det året, annars den sista raden. Värdet räknas fram ur årtalen och skrivs inte för hand utan att kontrolleras: `tests/samtidighet.test.mjs` stoppar en fun fact vars `relation` inte stämmer, och en fun fact som inte är `together` får bara säga "samtidigt" eller "samma år" om ett par av dess händelser pågår samma år. Samtidigt-kortet visar relationen ("Samtidigt", "Nära i tid: 33 år isär", "Jämför avstånd i tid"), med "ungefär" eller "cirka" när ett årtal är ungefärligt.
 
 Korten "När ett krig bröt ut" lagras inte här. De byggs i koden ur händelserna, inom 5 år från krigets start.
 
@@ -810,7 +819,7 @@ En guidad tur är data, inte kod (Rikards beslut 2026-11-01, docs/beslut/2026-11
 
 ## `uppdrag.json`: elevuppdrag (#741)
 
-`uppdrag.json` (`schema: historia-globen/uppdrag@1`) listar elevuppdragen i `missions`. Ett uppdrag har `id`, `kind` (än så länge bara `hunt`, Samtidighetsjakten), `year`, `window` (år åt varje håll, 0–100), `count` (antal världsdelar, 2–5) och texterna `title`, `task` och `reflection` på alla fem språk. Texterna påstår inga historiska fakta: de beskriver uppgiften och ställer en fråga, och sidan kontrollerar ur händelserna att år och världsdel stämmer. Kontrolleras av `missionProblems()` i `js/uppdrag-rules.js` och `tests/uppdrag.test.mjs`, som också kontrollerar att varje uppdrag går att klara med datan (minst `count` världsdelar har synliga händelser inom åren).
+`uppdrag.json` (`schema: historia-globen/uppdrag@1`) listar elevuppdragen i `missions`. Ett uppdrag har `id`, `kind` (än så länge bara `hunt`, Samtidighetsjakten), `year`, `window` (år åt varje håll för "nära i tid", 0–100; samma regel som i fun facts, `relationToYear` i `js/samtidighet.js`, #1311), `count` (antal världsdelar, 2–5) och texterna `title`, `task` och `reflection` på alla fem språk. Texterna påstår inga historiska fakta: de beskriver uppgiften och ställer en fråga, och sidan kontrollerar ur händelserna att år och världsdel stämmer. Kontrolleras av `missionProblems()` i `js/uppdrag-rules.js` och `tests/uppdrag.test.mjs`, som också kontrollerar att varje uppdrag går att klara med datan (minst `count` världsdelar har synliga händelser inom åren).
 
 ## `vyer.json`: grupper och förinställda vyer i Lager (#357)
 

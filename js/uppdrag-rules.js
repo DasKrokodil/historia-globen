@@ -2,9 +2,11 @@
 // år X." Eleven lägger händelser i jakten, och reglerna här avgör ur datan om de räknas. Inga nya fakta.
 // Filen använder bara region() ur js/model.js och testas i node (tests/uppdrag.test.mjs).
 //
-// En händelse räknas när den syns (isVisible), har en punkt på globen, dess spann överlappar
-// [year − window, year + window] och dess världsdel inte redan finns i jakten.
+// En händelse räknas när den syns (isVisible), har en punkt på globen, pågår uppdragets år (samtidigt) eller
+// ligger högst window år därifrån (nära i tid), och dess världsdel inte redan finns i jakten. "Samtidigt" och
+// "nära i tid" är samma regel som i fun facts och quizet (js/samtidighet.js, #1311); window står i uppdraget.
 import { region } from './model.js';
+import { relationToYear } from './samtidighet.js';
 
 export const MISSION_ID = /^[a-z0-9-]+$/;
 
@@ -27,10 +29,10 @@ export function checkHunt(e, mission, found, isVisible) {
   if (found.some(x => x.id === e.id)) return { ok: false, reason: 'already' };
   const r = eventRegion(e);
   if (!r) return { ok: false, reason: 'place' };
-  const [from, to] = span(mission);
-  if (e.end < from || e.start > to) return { ok: false, reason: 'time' };
+  const when = relationToYear(e, mission.year, mission.window);
+  if (!when) return { ok: false, reason: 'time' };
   if (found.some(x => eventRegion(x) === r)) return { ok: false, reason: 'region', region: r };
-  return { ok: true, region: r };
+  return { ok: true, region: r, when };
 }
 
 /** Är jakten klar? */
