@@ -21943,6 +21943,7 @@
    "from": 1947,
    "to": 2024,
    "file": "data/empires/jordanien.json",
+   "flags": [{"file": "jordan", "from": 1947, "to": 2024, "label": {"sv": "Jordaniens flagga", "en": "Flag of Jordan", "de": "Flagge Jordaniens", "es": "Bandera de Jordania", "fr": "Drapeau de la Jordanie"}, "sources": ["wp-flag-jordan", "commons-flagga-jordan"], "review": "source-checked"}],
    "polities": [
     {
      "id": "jordanien",
@@ -22723,6 +22724,7 @@
    "from": 1757,
    "to": 2024,
    "file": "data/empires/kuwait.json",
+   "flags": [{"file": "kuwait", "from": 1961, "to": 2024, "label": {"sv": "Kuwaits flagga", "en": "Flag of Kuwait", "de": "Flagge Kuwaits", "es": "Bandera de Kuwait", "fr": "Drapeau du Koweït"}, "sources": ["wp-flag-kuwait", "commons-flagga-kuwait"], "review": "source-checked"}],
    "polities": [
     {
      "id": "kuwait",
@@ -23570,6 +23572,7 @@
    "from": 1973,
    "to": 2024,
    "file": "data/empires/bangladesh.json",
+   "flags": [{"file": "bangladesh", "from": 1973, "to": 2024, "label": {"sv": "Bangladeshs flagga", "en": "Flag of Bangladesh", "de": "Flagge Bangladeschs", "es": "Bandera de Bangladés", "fr": "Drapeau du Bangladesh"}, "sources": ["wp-flag-bangladesh", "commons-flagga-bangladesh"], "review": "source-checked"}],
    "polities": [
     {
      "id": "bangladesh",
@@ -25245,6 +25248,7 @@
    "from": 1956,
    "to": 2024,
    "file": "data/empires/vietnam.json",
+   "flags": [{"file": "vietnam", "from": 1956, "to": 2024, "label": {"sv": "Vietnams flagga", "en": "Flag of Vietnam", "de": "Flagge Vietnams", "es": "Bandera de Vietnam", "fr": "Drapeau du Viêt Nam"}, "sources": ["wp-flag-vietnam", "commons-flagga-vietnam"], "review": "source-checked"}],
    "polities": [
     {
      "id": "nordvietnam",
@@ -29409,6 +29413,7 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/ryska-federationen.json",
+   "flags": [{"file": "russia-federation", "from": 1992, "to": 2024, "label": {"sv": "Rysslands flagga", "en": "Flag of Russia", "de": "Flagge Russlands", "es": "Bandera de Rusia", "fr": "Drapeau de la Russie"}, "sources": ["wp-flag-russia", "commons-flagga-russia"], "review": "source-checked"}],
    "polities": [
     {
      "id": "ryska-federationen",
@@ -29891,6 +29896,7 @@
    "from": 1946,
    "to": 2024,
    "file": "data/empires/indonesien.json",
+   "flags": [{"file": "indonesia", "from": 1946, "to": 2024, "label": {"sv": "Indonesiens flagga", "en": "Flag of Indonesia", "de": "Flagge Indonesiens", "es": "Bandera de Indonesia", "fr": "Drapeau de l’Indonésie"}, "sources": ["wp-flag-indonesia", "commons-flagga-indonesia"], "review": "source-checked"}],
    "polities": [
     {
      "id": "indonesien",
@@ -30470,6 +30476,7 @@
    "from": 1924,
    "to": 2024,
    "file": "data/empires/turkiet.json",
+   "flags": [{"file": "turkey", "from": 1924, "to": 2024, "label": {"sv": "Turkiets flagga", "en": "Flag of Turkey", "de": "Flagge der Türkei", "es": "Bandera de Turquía", "fr": "Drapeau de la Turquie"}, "sources": ["wp-flag-turkey", "commons-flagga-turkey"], "review": "source-checked"}],
    "polities": [
     {
      "id": "turkiet",
@@ -30627,6 +30634,7 @@
    "from": 1960,
    "to": 2024,
    "file": "data/empires/somalia.json",
+   "flags": [{"file": "somalia", "from": 1960, "to": 2024, "label": {"sv": "Somalias flagga", "en": "Flag of Somalia", "de": "Flagge Somalias", "es": "Bandera de Somalia", "fr": "Drapeau de la Somalie"}, "sources": ["wp-flag-somalia", "commons-flagga-somalia"], "review": "source-checked"}],
    "polities": [
     {
      "id": "somalia",
@@ -30849,6 +30857,7 @@
    "from": 1932,
    "to": 2024,
    "file": "data/empires/thailand.json",
+   "flags": [{"file": "thailand", "from": 1932, "to": 2024, "label": {"sv": "Thailands flagga", "en": "Flag of Thailand", "de": "Flagge Thailands", "es": "Bandera de Tailandia", "fr": "Drapeau de la Thaïlande"}, "sources": ["wp-flag-thailand", "commons-flagga-thailand"], "review": "source-checked"}],
    "polities": [
     {
      "id": "thailand",
@@ -31016,6 +31025,7 @@
    "from": 1990,
    "to": 2024,
    "file": "data/empires/jemen.json",
+   "flags": [{"file": "yemen", "from": 1990, "to": 2024, "label": {"sv": "Jemens flagga", "en": "Flag of Yemen", "de": "Flagge des Jemen", "es": "Bandera de Yemen", "fr": "Drapeau du Yémen"}, "sources": ["wp-flag-yemen", "commons-flagga-yemen"], "review": "source-checked"}],
    "polities": [
     {
      "id": "jemen",
@@ -31108,6 +31118,7 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/uzbekistan.json",
+   "flags": [{"file": "uzbekistan", "from": 1992, "to": 2024, "label": {"sv": "Uzbekistans flagga", "en": "Flag of Uzbekistan", "de": "Flagge Usbekistans", "es": "Bandera de Uzbekistán", "fr": "Drapeau de l’Ouzbékistan"}, "sources": ["wp-flag-uzbekistan", "commons-flagga-uzbekistan"], "review": "source-checked"}],
    "polities": [
     {
      "id": "uzbekistan",
@@ -31139,6 +31150,7 @@
    "from": 1953,
    "to": 2024,
    "file": "data/empires/japan.json",
+   "flags": [{"file": "japan", "from": 1953, "to": 2024, "label": {"sv": "Japans flagga", "en": "Flag of Japan", "de": "Flagge Japans", "es": "Bandera de Japón", "fr": "Drapeau du Japon"}, "sources": ["wp-flag-japan", "commons-flagga-japan"], "review": "source-checked"}],
    "polities": [
     {
      "id": "japan",
@@ -32211,6 +32223,7 @@
    "from": 1775,
    "to": 2024,
    "file": "data/empires/nepal.json",
+   "flags": [{"file": "nepal", "from": 1962, "to": 2024, "label": {"sv": "Nepals flagga", "en": "Flag of Nepal", "de": "Flagge Nepals", "es": "Bandera de Nepal", "fr": "Drapeau du Népal"}, "sources": ["wp-flag-nepal", "commons-flagga-nepal"], "review": "source-checked"}],
    "polities": [
     {
      "id": "nepal",
@@ -32938,6 +32951,7 @@
    "from": 1973,
    "to": 2024,
    "file": "data/empires/forenade-arabemiraten.json",
+   "flags": [{"file": "united-arab-emirates", "from": 1973, "to": 2024, "label": {"sv": "Förenade arabemiratens flagga", "en": "Flag of the United Arab Emirates", "de": "Flagge der Vereinigten Arabischen Emirate", "es": "Bandera de los Emiratos Árabes Unidos", "fr": "Drapeau des Émirats arabes unis"}, "sources": ["wp-flag-united-arab-emirates", "commons-flagga-united-arab-emirates"], "review": "source-checked"}],
    "polities": [
     {
      "id": "forenade-arabemiraten",
@@ -33427,6 +33441,7 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/azerbajdzjan.json",
+   "flags": [{"file": "azerbaijan", "from": 1992, "to": 2024, "label": {"sv": "Azerbajdzjans flagga", "en": "Flag of Azerbaijan", "de": "Flagge Aserbaidschans", "es": "Bandera de Azerbaiyán", "fr": "Drapeau de l’Azerbaïdjan"}, "sources": ["wp-flag-azerbaijan", "commons-flagga-azerbaijan"], "review": "source-checked"}],
    "polities": [
     {
      "id": "azerbajdzjan",
@@ -33472,6 +33487,7 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/armenien.json",
+   "flags": [{"file": "armenia", "from": 1992, "to": 2024, "label": {"sv": "Armeniens flagga", "en": "Flag of Armenia", "de": "Flagge Armeniens", "es": "Bandera de Armenia", "fr": "Drapeau de l’Arménie"}, "sources": ["wp-flag-armenia", "commons-flagga-armenia"], "review": "source-checked"}],
    "polities": [
     {
      "id": "armenien",
@@ -33518,6 +33534,7 @@
    "from": 1918,
    "to": 2024,
    "file": "data/empires/georgien.json",
+   "flags": [{"file": "georgia", "from": 2004, "to": 2024, "label": {"sv": "Georgiens flagga", "en": "Flag of Georgia", "de": "Flagge Georgiens", "es": "Bandera de Georgia", "fr": "Drapeau de la Géorgie"}, "sources": ["wp-flag-georgia", "commons-flagga-georgia"], "review": "source-checked"}],
    "polities": [
     {
      "id": "georgien",
@@ -34439,6 +34456,7 @@
    "from": 1973,
    "to": 2024,
    "file": "data/empires/qatar.json",
+   "flags": [{"file": "qatar", "from": 1973, "to": 2024, "label": {"sv": "Qatars flagga", "en": "Flag of Qatar", "de": "Flagge Katars", "es": "Bandera de Catar", "fr": "Drapeau du Qatar"}, "sources": ["wp-flag-qatar", "commons-flagga-qatar"], "review": "source-checked"}],
    "polities": [
     {
      "id": "qatar",
@@ -34908,6 +34926,7 @@
    "from": 1967,
    "to": 2024,
    "file": "data/empires/singapore.json",
+   "flags": [{"file": "singapore", "from": 1967, "to": 2024, "label": {"sv": "Singapores flagga", "en": "Flag of Singapore", "de": "Flagge Singapurs", "es": "Bandera de Singapur", "fr": "Drapeau de Singapour"}, "sources": ["wp-flag-singapore", "commons-flagga-singapore"], "review": "source-checked"}],
    "polities": [
     {
      "id": "singapore",
@@ -35321,6 +35340,7 @@
    "from": 2002,
    "to": 2024,
    "file": "data/empires/osttimor.json",
+   "flags": [{"file": "east-timor", "from": 2002, "to": 2024, "label": {"sv": "Östtimors flagga", "en": "Flag of Timor-Leste", "de": "Flagge Osttimors", "es": "Bandera de Timor Oriental", "fr": "Drapeau du Timor oriental"}, "sources": ["wp-flag-timor-leste", "commons-flagga-timor-leste"], "review": "source-checked"}],
    "polities": [
     {
      "id": "osttimor",

@@ -685,7 +685,10 @@
         "wp-first-taranaki-war",
         "wp-flag-antigua-and-barbuda",
         "wp-flag-argentina",
+        "wp-flag-armenia",
+        "wp-flag-azerbaijan",
         "wp-flag-bahamas",
+        "wp-flag-bangladesh",
         "wp-flag-barbados",
         "wp-flag-belgium",
         "wp-flag-benin",
@@ -701,6 +704,7 @@
         "wp-flag-czech-republic",
         "wp-flag-finland",
         "wp-flag-gabon",
+        "wp-flag-georgia",
         "wp-flag-germany",
         "wp-flag-ghana",
         "wp-flag-grenada",
@@ -709,15 +713,19 @@
         "wp-flag-honduras",
         "wp-flag-iceland",
         "wp-flag-india",
+        "wp-flag-indonesia",
         "wp-flag-ireland",
         "wp-flag-italy",
         "wp-flag-ivory-coast",
         "wp-flag-jamaica",
         "wp-flag-japan",
+        "wp-flag-jordan",
+        "wp-flag-kuwait",
         "wp-flag-luxembourg",
         "wp-flag-madagascar",
         "wp-flag-mali",
         "wp-flag-monaco",
+        "wp-flag-nepal",
         "wp-flag-netherlands",
         "wp-flag-niger",
         "wp-flag-nigeria",
@@ -730,17 +738,27 @@
         "wp-flag-pakistan",
         "wp-flag-peru",
         "wp-flag-poland",
+        "wp-flag-qatar",
         "wp-flag-qing",
         "wp-flag-russia",
         "wp-flag-saint-kitts-and-nevis",
         "wp-flag-saint-lucia",
         "wp-flag-senegal",
         "wp-flag-sierra-leone",
+        "wp-flag-singapore",
+        "wp-flag-somalia",
         "wp-flag-south-africa",
+        "wp-flag-thailand",
+        "wp-flag-timor-leste",
         "wp-flag-togo",
         "wp-flag-trinidad-and-tobago",
+        "wp-flag-turkey",
         "wp-flag-ukraine",
+        "wp-flag-united-arab-emirates",
         "wp-flag-uruguay",
+        "wp-flag-uzbekistan",
+        "wp-flag-vietnam",
+        "wp-flag-yemen",
         "wp-flags-confederate-states",
         "wp-flags-german-empire",
         "wp-flags-mughal-empire",
@@ -2077,22 +2095,122 @@
       ]
     },
     {
+      "license": "Public domain (PD-AM-exempt)",
+      "sourceIds": [
+        "commons-flagga-armenia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-AZ-exempt, PD-shape)",
+      "sourceIds": [
+        "commons-flagga-azerbaijan"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Bangladesh, PD-shape)",
+      "sourceIds": [
+        "commons-flagga-bangladesh"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Japan-exempt, PD-shape)",
+      "sourceIds": [
+        "commons-flagga-japan"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Jordan, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-jordan"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Nepal)",
+      "sourceIds": [
+        "commons-flagga-nepal"
+      ]
+    },
+    {
       "license": "Public domain (PD-New Zealand, PD-US-expired)",
       "sourceIds": [
         "commons-flagga-nya-zeeland"
       ]
     },
     {
+      "license": "Public domain (PD-Thailand, PD-shape)",
+      "sourceIds": [
+        "commons-flagga-thailand"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Turkey, PD-shape)",
+      "sourceIds": [
+        "commons-flagga-turkey"
+      ]
+    },
+    {
+      "license": "Public domain (PD-UZ-exempt)",
+      "sourceIds": [
+        "commons-flagga-uzbekistan"
+      ]
+    },
+    {
+      "license": "Public domain (PD-United Arab Emirates, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-united-arab-emirates"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Vietnam, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-vietnam"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Yemen, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-yemen"
+      ]
+    },
+    {
       "license": "Public domain (PD-ineligible)",
       "sourceIds": [
-        "commons-flagga-gronland"
+        "commons-flagga-gronland",
+        "commons-flagga-qatar"
+      ]
+    },
+    {
+      "license": "Public domain (PD-ineligible, PD-GE-exempt)",
+      "sourceIds": [
+        "commons-flagga-georgia"
       ]
     },
     {
       "license": "Public domain (PD-self)",
       "sourceIds": [
         "commons-flagga-skane",
+        "commons-flagga-timor-leste",
         "commons-vapen-gronland"
+      ]
+    },
+    {
+      "license": "Public domain (PD-shape)",
+      "sourceIds": [
+        "commons-flagga-kuwait",
+        "commons-flagga-singapore",
+        "commons-flagga-somalia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-shape, PD-IDOld-Art30)",
+      "sourceIds": [
+        "commons-flagga-indonesia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-shape, PD-RU-exempt, PD-flag)",
+      "sourceIds": [
+        "commons-flagga-russia"
       ]
     },
     {
