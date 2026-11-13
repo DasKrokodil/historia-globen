@@ -133,49 +133,68 @@ export class TourPlayer {
   get last() { return !!this.tour && this.index >= this.tour.steps.length - 1; }
   get active() { return !!this.tour; }
 
+  /**
+   * Menyn (#1280): turerna om rikens fall (fältet empire) står sist under rubriken "Hur föll det?", och övriga turer
+   * kommer först i registrets ordning. Saknas rubriken i registret står alla turer i registrets ordning, utan grupp.
+   */
   buildMenu() {
-    this.list.replaceChildren(...this.tours.map(tour => {
-      const li = document.createElement('li');
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = 'tour-pick'; b.dataset.tour = tour.id;
-      const name = document.createElement('span'); name.className = 'tour-pick-title'; name.textContent = t(tour.title);
-      const meta = document.createElement('span'); meta.className = 'tour-pick-meta';
-      meta.textContent = t(tour.summary);
-      meta.hidden = !tour.summary;
-      b.append(name, meta);
-      b.addEventListener('click', () => { this.closeMenu(false); this.start(tour.id, this.button); });
-      li.append(b);
-      // Varje tur har en synlig startknapp (#1002); rubriken är fortfarande klickbar. En lektionstur märks dessutom
-      // med årskurs och tid, och kan startas som lektion (#889). Allt kommer ur turens lesson-fält; lektionsläget
-      // är detsamma som länken m=lektion ger (#795).
-      const row = document.createElement('div'); row.className = 'tour-lesson-row';
-      const info = document.createElement('span'); info.className = 'tour-lesson-meta';
-      const actions = document.createElement('span'); actions.className = 'tour-actions';
-      const play = document.createElement('button');
-      play.type = 'button'; play.className = 'tour-start-btn'; play.dataset.tour = tour.id;
-      play.textContent = ui('tour.start');
-      play.setAttribute('aria-label', ui('tour.startLabel', { title: t(tour.title) }));
-      play.addEventListener('click', () => { this.closeMenu(false); this.start(tour.id, this.button); });
-      actions.append(play);
-      if (tour.lesson) { // lektionsläget skapas efter spelaren, så bara lärarfältet avgör här (som canStart)
-        const grades = tour.lesson.grades === 'gy' ? ui('print.gy') : String(tour.lesson.grades).replace('-', '–');
-        info.textContent = ui('tour.lessonMeta', { grades, n: tour.lesson.minutes });
-        const go = document.createElement('button');
-        go.type = 'button'; go.className = 'tour-lesson-start'; go.dataset.tour = tour.id;
-        go.textContent = ui('tour.lessonStart');
-        go.setAttribute('aria-label', ui('tour.lessonStartLabel', { title: t(tour.title) }));
-        go.addEventListener('click', () => {
-          this.closeMenu(false);
-          const { lesson } = this.app;
-          lesson?.enter(tour.id, { teacher: true }); // den som väljer Starta som lektion i menyn är läraren (#885)
-          if (!this.start(tour.id, this.button)) lesson?.leave();
-        });
-        actions.append(go);
-      }
-      row.append(info, actions);
-      li.append(row);
-      return li;
-    }));
+    const heading = t(this.labels['group-fall']);
+    const falls = heading ? this.tours.filter(tour => tour.empire) : [];
+    const rows = (heading ? this.tours.filter(tour => !tour.empire) : this.tours).map(tour => this.menuItem(tour));
+    if (falls.length) {
+      const group = document.createElement('li');
+      group.setAttribute('role', 'presentation');
+      group.className = 'tour-group';
+      const title = document.createElement('p');
+      title.className = 'layer-heading tour-group-title';
+      title.textContent = heading;
+      group.append(title);
+      rows.push(group, ...falls.map(tour => this.menuItem(tour)));
+    }
+    this.list.replaceChildren(...rows);
+  }
+
+  menuItem(tour) {
+    const li = document.createElement('li');
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'tour-pick'; b.dataset.tour = tour.id;
+    const name = document.createElement('span'); name.className = 'tour-pick-title'; name.textContent = t(tour.title);
+    const meta = document.createElement('span'); meta.className = 'tour-pick-meta';
+    meta.textContent = t(tour.summary);
+    meta.hidden = !tour.summary;
+    b.append(name, meta);
+    b.addEventListener('click', () => { this.closeMenu(false); this.start(tour.id, this.button); });
+    li.append(b);
+    // Varje tur har en synlig startknapp (#1002); rubriken är fortfarande klickbar. En lektionstur märks dessutom
+    // med årskurs och tid, och kan startas som lektion (#889). Allt kommer ur turens lesson-fält; lektionsläget
+    // är detsamma som länken m=lektion ger (#795).
+    const row = document.createElement('div'); row.className = 'tour-lesson-row';
+    const info = document.createElement('span'); info.className = 'tour-lesson-meta';
+    const actions = document.createElement('span'); actions.className = 'tour-actions';
+    const play = document.createElement('button');
+    play.type = 'button'; play.className = 'tour-start-btn'; play.dataset.tour = tour.id;
+    play.textContent = ui('tour.start');
+    play.setAttribute('aria-label', ui('tour.startLabel', { title: t(tour.title) }));
+    play.addEventListener('click', () => { this.closeMenu(false); this.start(tour.id, this.button); });
+    actions.append(play);
+    if (tour.lesson) { // lektionsläget skapas efter spelaren, så bara lärarfältet avgör här (som canStart)
+      const grades = tour.lesson.grades === 'gy' ? ui('print.gy') : String(tour.lesson.grades).replace('-', '–');
+      info.textContent = ui('tour.lessonMeta', { grades, n: tour.lesson.minutes });
+      const go = document.createElement('button');
+      go.type = 'button'; go.className = 'tour-lesson-start'; go.dataset.tour = tour.id;
+      go.textContent = ui('tour.lessonStart');
+      go.setAttribute('aria-label', ui('tour.lessonStartLabel', { title: t(tour.title) }));
+      go.addEventListener('click', () => {
+        this.closeMenu(false);
+        const { lesson } = this.app;
+        lesson?.enter(tour.id, { teacher: true }); // den som väljer Starta som lektion i menyn är läraren (#885)
+        if (!this.start(tour.id, this.button)) lesson?.leave();
+      });
+      actions.append(go);
+    }
+    row.append(info, actions);
+    li.append(row);
+    return li;
   }
 
   openMenu() {
@@ -262,6 +281,7 @@ export class TourPlayer {
 
     const n = this.tour.steps.length;
     this.progress.textContent = fill(t(this.labels.step), { current: this.index + 1, total: n });
+    this.drawMeter(n);
     this.title.textContent = t(step.title);
     this.title.hidden = !step.title;
     this.text.textContent = t(step.text);
@@ -287,7 +307,9 @@ export class TourPlayer {
     this.next.hidden = stay;
     app.lesson?.renderEnd(this.last);
     // Pausraden visar turen och läses upp; Fortsätt där går till nästa steg (beforeplay ovan)
-    const note = fill(t(this.labels.paused), { title: t(this.tour.title) });
+    // Pausraden säger också varför tidsknapparna är låsta (#1280)
+    const locked = t(this.labels.locked);
+    const note = [fill(t(this.labels.paused), { title: t(this.tour.title) }), locked].filter(Boolean).join(' · ');
     const say = [this.progress.textContent, t(step.chapter), t(step.title), this.status.hidden ? '' : this.status.textContent, t(step.text), t(step.question)].filter(Boolean).join('. ');
     if (this.last) {
       // Slutkortet har ingen pausrad, men skärmläsaren ska höra steget och att det var det sista (#878)
@@ -300,10 +322,33 @@ export class TourPlayer {
   /** Medan turen styr tiden är turkortets Nästa den enda framåtknappen (#999): stegknapparna och spelknappen i
    *  tidsraden tonas ned och går inte att nå. Pausraden visar bara var i turen man är (CSS döljer Fortsätt och Avsluta där). */
   lockTimeControls(on) {
+    const why = t(this.labels.locked);
     for (const b of document.querySelectorAll('.timebar .controls .step, #btn-play')) {
       b.disabled = on;
       b.classList.toggle('tour-locked', on);
+      // Förklaringen som hovertext på de låsta stegknapparna (#1280); knappens egen text kommer tillbaka när turen slutar.
+      // Spelknappens text styrs av tidslinjen och playback.js (den skrivs om vid varje paus), så den rörs inte här.
+      if (b.id === 'btn-play') continue;
+      if (on && why) {
+        if (b.dataset.beforeTour == null) b.dataset.beforeTour = b.getAttribute('title') ?? '';
+        b.title = why;
+      } else if (b.dataset.beforeTour != null) {
+        if (b.dataset.beforeTour) b.title = b.dataset.beforeTour; else b.removeAttribute('title');
+        delete b.dataset.beforeTour;
+      }
     }
+  }
+
+  /** Stegindikatorn i kortet (#1280): ett streck per steg, de gjorda och det nuvarande fyllda. Bara en tillägg till
+   *  "Steg n av N", så den är dold för skärmläsare. */
+  drawMeter(n) {
+    if (!this.meter) return;
+    if (this.meter.children.length !== n) {
+      this.meter.replaceChildren(...Array.from({ length: n }, () => document.createElement('span')));
+    }
+    [...this.meter.children].forEach((seg, i) => {
+      seg.className = i < this.index ? 'is-done' : i === this.index ? 'is-current' : '';
+    });
   }
 
   /** Smal skärm: kortet täcker globens nedre del, så klotet lyfts och stegets plats hamnar mitt i den fria ytan
