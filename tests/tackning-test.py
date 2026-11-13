@@ -90,4 +90,37 @@ for name, lat, lon, want in [('Guam', 13.47, 144.75, 'Oceanien'), ('Saipan', 15.
                              ('Tokyo', 35.68, 139.69, 'Asien'), ('Manila', 14.6, 120.98, 'Asien'),
                              ('Lima', -12.05, -77.04, 'Amerika'), ('Honolulu', 21.31, -157.86, 'Oceanien')]:
     assert tackning.region(lat, lon) == want, f'{name}: {tackning.region(lat, lon)}, väntat {want}'
-print('tackning-test: ok (räkning, markeringar, andelar, världsdelar, luckor och samma rapport vid samma indata)')
+# Krig utan slag som bara syns i Fokus, riken per period och rikenas landyta (#1341)
+SQUARE = {'type': 'Polygon', 'coordinates': [[[0, 40], [10, 40], [10, 50], [0, 50], [0, 40]]]}
+assert len(tackning.cells_inside(SQUARE['coordinates'], 1.0)) == 100, 'en ruta på 10 × 10 grader är 100 rutor'
+EUROPE = {'type': 'Polygon', 'coordinates': [[[-10, 40], [40, 40], [40, 60], [-10, 60], [-10, 40]]]}
+with tempfile.TemporaryDirectory() as tmp:
+    root = Path(tmp)
+    write(root, 'data/events.json', {'events': [
+        event('k1', 1850, 2.35, 48.85, 'krig', kind='war'),
+        event('k2', 1851, 2.35, 48.85, 'krig', partOf='k1'),            # syns bara i Fokus
+        event('k3', 1852, 2.35, 48.85, 'krig', partOf='k1', top=True),  # syns på globen
+        event('k4', 1853, 2.35, 48.85, 'kultur'),
+    ]})
+    write(root, 'data/funfacts.json', {'funfacts': []})
+    write(root, 'data/sources.json', {'sources': SOURCES})
+    (root / 'data/land.json').write_text((ROOT / 'data/land.json').read_text(encoding='utf-8'), encoding='utf-8')
+    write(root, 'data/empires/index.json', {'groups': [
+        {'id': 'r1', 'file': 'data/empires/r1.json'}, {'id': 'r2', 'file': 'data/empires/r2.json'}]})
+    write(root, 'data/empires/r1.json', {'polities': [{'id': 'r1', 'review': 'source-checked', 'periods': [
+        {'start': 1800, 'end': 1899, 'label': [5, 45], 'geometry': EUROPE}]}]})
+    write(root, 'data/empires/r2.json', {'polities': [{'id': 'r2', 'review': 'draft', 'periods': [
+        {'start': 1800, 'end': 1899, 'label': [100, 30], 'geometry': SQUARE}]}]})  # utkast räknas inte
+    rep = tackning.build(root, date(2026, 11, 13))
+part = rep.split('## Balans: krig mot övrigt, utan slag som bara syns i Fokus\n', 1)[1]
+assert 'utan de 1 händelser' in part and '2 av 3 händelser är krig' in part, part[:400]
+assert next(l for l in part.splitlines() if l.startswith('| 1800-tal |')) == '| 1800-tal | 67 % | – | – | – | – | 67 % |'
+whole = rep.split('## Balans: krig mot övrigt\n', 1)[1]
+assert next(l for l in whole.splitlines() if l.startswith('| 1800-tal |')) == '| 1800-tal | 75 % | – | – | – | – | 75 % |'
+emp = rep.split('## Riken per period och världsdel\n', 1)[1]
+assert next(l for l in emp.splitlines() if l.startswith('| 1800-tal |')) == '| 1800-tal | 1 | **0** | **0** | **0** | **0** | 1 |'
+land = rep.split('## Rikenas landyta\n', 1)[1]
+r1850 = next(l for l in land.splitlines() if l.startswith('| 1850 |'))
+assert r1850.startswith('| 1850 | 1 | ') and r1850.endswith('| inte mätt |') and '| 0 % |' not in r1850, r1850
+assert next(l for l in land.splitlines() if l.startswith('| 1914 |')) == '| 1914 | 0 | 0 % | inte mätt |'
+print('tackning-test: ok (räkning, markeringar, andelar, världsdelar, luckor, krig utan Fokus-slag, riken och samma rapport vid samma indata)')
