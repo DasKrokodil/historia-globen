@@ -684,7 +684,6 @@
   "lesson.noticeFetch": "No se pudo cargar la lección en este momento. Inténtelo de nuevo.",
   "lesson.retry": "Intentar de nuevo",
   "lesson.next": "Continuar con una tarea",
-  "lesson.hunt": "Caza de la simultaneidad: {title}",
   "lesson.endAnnounce": "Este fue el último paso de la lección. Use «{exit}» para salir de la lección.",
   "tour.endAnnounce": "Este fue el último paso del recorrido.",
   "tour.lessonMeta": "Lección · cursos {grades} · {n} min",

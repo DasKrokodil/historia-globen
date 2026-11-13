@@ -4,7 +4,7 @@
 // Reglerna står i js/uppdrag-rules.js och uppdragen i data/uppdrag.json. Ingen poäng sparas.
 import { t, formatEventTime, formatYear, isVisibleReview, needDetails } from '../model.js';
 import { ui } from '../i18n.js';
-import { checkHunt, huntDone, missionProblems, span, eventRegion } from '../uppdrag-rules.js';
+import { checkHunt, huntDone, missionProblems, span, eventRegion, fitsLesson, defaultMission } from '../uppdrag-rules.js';
 
 /** Uppdragen i data/uppdrag.json. Ett uppdrag med fel hoppas över (varning i konsolen). */
 export async function loadMissions() {
@@ -43,13 +43,17 @@ export class Hunt {
   get active() { return !!this.mission; }
   get missionId() { return this.mission?.id ?? null; }
 
-  /** Startar uppdraget (första uppdraget när id saknas). Tiden flyttas till uppdragets år. Ger false för ett okänt id. */
+  /**
+   * Startar uppdraget (när id saknas det första som inte hör till en lektion). Tiden flyttas till uppdragets år.
+   * Ger false för ett okänt id.
+   */
   start(id = null, opener = null) {
-    const m = id ? this.missions.find(x => x.id === id) : this.missions[0];
+    const m = id ? this.missions.find(x => x.id === id) : defaultMission(this.missions);
     if (!m) return false;
-    // I en lektion (#795) gäller bara uppdrag inom lektionens år, som i slutkortet (js/ui/lesson.js): jakten flyttar året
-    const years = this.app.lesson?.active ? this.app.lesson.lock?.years : null;
-    if (years && (m.year < years[0] || m.year > years[1])) return false;
+    // I en lektion (#795) gäller bara lektionens eget uppdrag, eller ett uppdrag utan lektion inom lektionens år, som i
+    // slutkortet (js/ui/lesson.js, #1340): jakten flyttar året
+    const lesson = this.app.lesson;
+    if (lesson?.active && !fitsLesson(m, lesson.tour?.id, lesson.lock?.years)) return false;
     if (this.app.store && !this.app.store.enter('jakt')) return false; // läget Jakt (#893, MODE_RULES i js/state.js)
     this.mission = m; this.found = []; this.opener = opener;
     this.app.timeline.pause();

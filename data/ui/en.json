@@ -684,7 +684,6 @@
   "lesson.noticeFetch": "The lesson could not be loaded right now. Please try again.",
   "lesson.retry": "Try again",
   "lesson.next": "Continue with a task",
-  "lesson.hunt": "Same-time hunt: {title}",
   "lesson.endAnnounce": "This was the last step of the lesson. Use “{exit}” to leave the lesson.",
   "tour.endAnnounce": "This was the last step of the tour.",
   "tour.lessonMeta": "Lesson · years {grades} · {n} min",

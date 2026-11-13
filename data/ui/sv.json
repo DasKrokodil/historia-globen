@@ -459,7 +459,6 @@
   "lesson.noticeFetch": "Lektionen kunde inte hämtas just nu. Försök igen.",
   "lesson.retry": "Försök igen",
   "lesson.next": "Fortsätt med ett uppdrag",
-  "lesson.hunt": "Samtidighetsjakten: {title}",
   "lesson.endAnnounce": "Detta var sista steget i lektionen. Använd ”{exit}” för att lämna lektionen.",
   "tour.endAnnounce": "Detta var sista steget i turen.",
   "tour.lessonMeta": "Lektion · årskurs {grades} · {n} min",

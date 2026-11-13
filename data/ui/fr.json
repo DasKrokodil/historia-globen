@@ -684,7 +684,6 @@
   "lesson.noticeFetch": "La leçon n’a pas pu être chargée pour le moment. Veuillez réessayer.",
   "lesson.retry": "Réessayer",
   "lesson.next": "Poursuivre avec une tâche",
-  "lesson.hunt": "Chasse au même moment : {title}",
   "lesson.endAnnounce": "C’était la dernière étape de la leçon. Utilisez « {exit} » pour quitter la leçon.",
   "tour.endAnnounce": "C’était la dernière étape de la visite.",
   "tour.lessonMeta": "Leçon · classes {grades} · {n} min",

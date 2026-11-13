@@ -272,7 +272,7 @@ Besökaren är alltid i **Utforska**, och ovanpå det i noll eller flera lägen:
 | **Jakt** | samtidigt | samtidigt | villkor² | – | avslutar |
 | **Intervall** | avslutar | stoppas | stoppas | stoppas | – |
 
-*avslutar*: det andra läget slutar först, genom den funktion som är anmäld med `store.onExit` (main.js). *stoppas*: läget börjar inte (`store.canEnter` ger `false`). *samtidigt*: båda pågår. ¹ En jakt vars år ligger utanför lektionens låsta år avslutas (`js/ui/lesson.js`). ² I en lektion börjar bara uppdrag inom lektionens år (`js/ui/uppdrag.js`). Lektionen börjar alltid före eller under sin tur och slutar med den. Uppspelning och dragning i tidslinjen är inga lägen, men de stänger intervallet och går tillbaka till ett år (se Tidsintervallet nedan).
+*avslutar*: det andra läget slutar först, genom den funktion som är anmäld med `store.onExit` (main.js). *stoppas*: läget börjar inte (`store.canEnter` ger `false`). *samtidigt*: båda pågår. ¹ En jakt som inte hör till lektionen avslutas: ett uppdrag för en annan lektion, eller ett uppdrag utan lektion vars år ligger utanför lektionens låsta år (`fitsLesson` i `js/uppdrag-rules.js`, anropas i `js/ui/lesson.js`, #1340). ² I en lektion börjar bara lektionens eget uppdrag (fältet `lesson` i `data/uppdrag.json`) eller ett uppdrag utan lektion inom lektionens år (`js/ui/uppdrag.js`). Lektionen börjar alltid före eller under sin tur och slutar med den. Uppspelning och dragning i tidslinjen är inga lägen, men de stänger intervallet och går tillbaka till ett år (se Tidsintervallet nedan).
 
 **Vad en utgång återställer** (`exitRestore`): bara ur ögonblicksbilder från de lägen som själva slutar, aldrig ur ett annat läge. Bilden är den från läget som började först bland dem som slutar, och ett fält återställs bara när alla lägen som slutar tillåter det (det strängaste bestämmer). Året står alltid kvar.
 
@@ -486,6 +486,7 @@ Ett elevuppdrag ur idésamlingen #250: "Hitta tre händelser på tre olika konti
 - **Reglerna** står i `js/uppdrag-rules.js` och testas i `tests/uppdrag.test.mjs`: en händelse räknas när den syns, har en punkt på globen, den pågår uppdragets år eller ligger högst `window` år därifrån (`relationToYear` i `js/samtidighet.js`, samma definition av samtidigt och nära i tid som i fun facts och quizet, #1311) och dess världsdel (`region()`, samma indelning som Samtidigt) inte redan finns i jakten. Annars säger rutan varför (fel år, samma världsdel, redan tillagd).
 - **Uppdragen** är data i `data/uppdrag.json` (se datamodell.md). De påstår inga fakta; sidan kontrollerar år och världsdel ur händelserna.
 - **När jakten är klar** visas en fråga att fundera på och källorna för de tre händelserna. Ingen poäng sparas, inga konton.
+- **Lektionens uppdrag (#1340):** ett uppdrag kan höra till en lektionstur (fältet `lesson`). Lektionens slutkort (`renderEnd` i `js/ui/lesson.js`) visar då en knapp med uppdragets titel efter sista steget; har lektionen inget eget uppdrag visas uppdrag utan lektion vars år ligger i lektionens år. Knappen Samtidighetsjakten under Mer startar det första uppdraget utan lektion.
 - **Adressen** bär `u=<id>` medan jakten pågår; Bakåt till innan jakten avslutar den. **Escape** i rutan, × eller Avsluta jakten avslutar och lämnar fokus på knappen (eller på Mer).
 
 ## Quiz (#65)
