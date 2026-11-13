@@ -32,8 +32,9 @@ export function createRender(app) {
     statusTimer = 0;
     if (timeline.playing || state.range || app.tour?.active || !$('pause-note').hidden) return;
     const year = timeline.year, fine = !!state.focus?.fine;
-    const at = fine ? ui('time.onDate', { date: timeline.format(year) }) : ui('panel.atYear', { year: formatYear(Math.floor(year)) });
-    const n = visible.length;
+    // Året som i rubriken, i förhistorien avrundat till reglagets upplösning (#1320)
+    const at = fine ? ui('time.onDate', { date: timeline.format(year) }) : ui('panel.atYear', { year: timeline.format(Math.floor(year)) });
+    const n = visible.filter(v => v.inside).length; // samma tal som märket på Samtidigt: det som pågår (#1320)
     const count = String(ui('status.hits')[n === 1 ? 0 : 1]).replace('{n}', groupDigits(n));
     const parts = [capital(ui('status.year', { at, count }))];
     if (ff.announcedKey && ff.announcedKey !== statusCard) parts.push(ff.announcement()); // ett nytt kort lästes upp medan året byttes

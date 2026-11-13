@@ -155,6 +155,9 @@ export function groupDigits(n) {
 
 /** Kort årtal för listor: "551 f.Kr.", "793", "1325", "300 000 f.Kr.". */
 export function formatYear(y) {
+  // Före 10 000 f.Kr. är årtalen tusental (#1320): i datan skrivs djup tid som Y-66000000 ("för 66 miljoner år sedan"), och som
+  // astronomiskt år vore det 66 000 001 f.Kr. Mellan 10 000 och 3000 f.Kr. lämnas källornas årtal orörda.
+  if (y <= -10000) y = roundToStep(y);
   return isBCE(y) ? `${groupDigits(bce(y))} ${BCE_TXT}` : groupDigits(y);
 }
 
@@ -238,15 +241,24 @@ export function formatDirection(when, year, eventYear) {
 }
 
 /**
- * Förhistoriens år visas avrundade (inför v6.3.0): i segmentet 100 000–3000 f.Kr. är ett steg på reglaget hundratals år, så
- * "99 001 f.Kr." eller "7413 f.Kr." låtsas en exakthet som inte finns. Före 10 000 f.Kr. avrundas året till närmaste tusental,
- * som århundraderaden redan gör (formatCentury), och 10 000–3000 f.Kr. till närmaste hundratal. 3000 f.Kr. och senare lämnas orörda.
+ * Reglagets upplösning (#1320, beslut 2026-11-13): hur många år ett steg är, som en enda källa för avrundningen av året,
+ * stegknapparna, piltangenterna, uppspelningens fart och det som skärmläsaren läser upp. Tusental före 10 000 f.Kr. och
+ * hundratal till 3000 f.Kr., där ett steg på reglaget är hundratals år; därefter hela år. `to` är det sista året i delen.
  */
-export function roundPrehistoric(y) {
-  if (y < -9999) return 1 - Math.round(bce(y) / 1000) * 1000;
-  if (y < -2999) return 1 - Math.round(bce(y) / 100) * 100;
-  return y;
+export const RESOLUTION = [{ to: -10000, step: 1000 }, { to: -3000, step: 100 }, { to: Infinity, step: 1 }];
+/** Upplösningen vid ett år: 1000, 100 eller 1. */
+export const stepAt = y => RESOLUTION.find(r => y <= r.to).step;
+
+/**
+ * Året avrundat till reglagets upplösning (#1320). Avrundningen görs i f.Kr.-tal, så att 100 000 f.Kr. och 7400 f.Kr. blir runda
+ * i visningen: "99 001 f.Kr." eller "7413 f.Kr." låtsas en exakthet som inte finns. 3000 f.Kr. och senare lämnas orörda.
+ */
+export function roundToStep(y) {
+  const step = stepAt(y);
+  return step === 1 ? y : 1 - Math.round(bce(y) / step) * step;
 }
+/** Samma som roundToStep (namnet från v6.3.0). */
+export const roundPrehistoric = roundToStep;
 
 /**
  * Ett stort avstånd i år avrundat (inför v6.3.0): från 1000 år till närmaste hundratal och från 10 000 år till närmaste tusental,
