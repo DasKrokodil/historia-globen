@@ -9555,10 +9555,24 @@
     "en": "Inca Empire"
    },
    "color": "#8a5a9e",
-   "from": 1440,
+   "from": 1294,
    "to": 1571,
    "file": "data/empires/inkariket.json",
    "polities": [
+    {
+     "id": "kungariket-cusco",
+     "name": {
+      "sv": "Kingdom of Cusco",
+      "en": "Kingdom of Cusco",
+      "de": "Königreich von Cusco",
+      "es": "Curacazgo del Cuzco",
+      "fr": "Royaume de Cuzco"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
     {
      "id": "inkariket",
      "name": {
@@ -9758,8 +9772,8 @@
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger 1438–1533 för riket och 1572 för den sista inkastatens fall. Kartan visar Inkariket 1440–1571, från 1540 bara ett litet område.",
-     "en": "The sources give 1438–1533 for the empire and 1572 for the fall of the last Inca state. The map shows the Inca Empire 1440–1571, from 1540 only a small area."
+     "sv": "Källorna anger 1438–1533 för riket och 1572 för den sista inkastatens fall. Kartan visar Inkariket 1440–1571, från 1540 bara ett litet område. Åren 1294–1439 visar kartan föregångaren Kingdom of Cusco.",
+     "en": "The sources give 1438–1533 for the empire and 1572 for the fall of the last Inca state. The map shows the Inca Empire 1440–1571, from 1540 only a small area. For 1294–1439 the map shows its predecessor, the Kingdom of Cusco."
     },
     "sources": [
      "wp-inca-empire",
@@ -9786,7 +9800,302 @@
      ],
      "review": "two-sources"
     }
-   ]
+   ],
+   "polityFacts": {
+    "kungariket-cusco": {
+     "facts": {
+      "summary": {
+       "sv": "Kingdom of Cusco var inkafolkets lilla stadsstat kring staden Cusco i Anderna, i dagens Peru. Ur den växte Inkariket.",
+       "en": "The Kingdom of Cusco was the small city-state of the Incas around the city of Cusco in the Andes, in present-day Peru. The Inca Empire grew out of it.",
+       "de": "Das Königreich von Cusco war der kleine Stadtstaat der Inka um die Stadt Cusco in den Anden, im heutigen Peru. Aus ihm ging das Inkareich hervor.",
+       "es": "El Curacazgo del Cuzco fue la pequeña ciudad-Estado de los incas en torno a la ciudad del Cuzco, en los Andes, en el actual Perú. De él surgió el Imperio inca.",
+       "fr": "Le royaume de Cuzco était la petite cité-État des Incas autour de la ville de Cuzco, dans les Andes, dans l'actuel Pérou. L'Empire inca en est issu."
+      },
+      "items": [
+       {
+        "label": {
+         "sv": "När och var det uppstod",
+         "en": "When and where it arose",
+         "de": "Entstehung",
+         "es": "Cuándo y dónde surgió",
+         "fr": "Quand et où il est apparu"
+        },
+        "text": {
+         "sv": "Enligt traditionen organiserade Manco Cápac riket omkring år 1200. Berättelsen om grundandet hör till inkafolkets myter, och alla regeringsår är ungefärliga.",
+         "en": "According to tradition Manco Cápac organised the kingdom around the year 1200. The story of the founding belongs to Inca mythology, and all regnal years are approximate.",
+         "de": "Nach der Überlieferung organisierte Manco Cápac das Reich um das Jahr 1200. Die Erzählung von der Gründung gehört zur Mythologie der Inka, und alle Regierungsjahre sind ungefähre Angaben.",
+         "es": "Según la tradición, Manco Cápac organizó el reino hacia el año 1200. El relato de la fundación pertenece a la mitología inca, y todos los años de reinado son aproximados.",
+         "fr": "Selon la tradition, Manco Cápac organisa le royaume vers l'an 1200. Le récit de la fondation relève de la mythologie inca, et toutes les années de règne sont approximatives."
+        }
+       },
+       {
+        "label": {
+         "sv": "Hur det slutade",
+         "en": "How it ended",
+         "de": "Wie es endete",
+         "es": "Cómo terminó",
+         "fr": "Comment il a pris fin"
+        },
+        "text": {
+         "sv": "Omkring 1438 besegrade Cusi Yupanqui (Pachacuti) folket chanka, och kungariket växte till Inkariket. Årtalet är ungefärligt.",
+         "en": "Around 1438 Cusi Yupanqui (Pachacuti) defeated the Chanka people, and the kingdom grew into the Inca Empire. The date is approximate.",
+         "de": "Um 1438 besiegte Cusi Yupanqui (Pachacútec) das Volk der Chanka, und das Königreich wuchs zum Inkareich. Die Jahreszahl ist eine ungefähre Angabe.",
+         "es": "Hacia 1438 Cusi Yupanqui (Pachacútec) venció al pueblo chanca, y el reino creció hasta convertirse en el Imperio inca. La fecha es aproximada.",
+         "fr": "Vers 1438, Cusi Yupanqui (Pachacutec) vainquit le peuple chanca, et le royaume devint l'Empire inca. La date est approximative."
+        }
+       },
+       {
+        "label": {
+         "sv": "Huvudstad",
+         "en": "Capital",
+         "de": "Hauptstadt",
+         "es": "Capital",
+         "fr": "Capitale"
+        },
+        "text": {
+         "sv": "Cusco.",
+         "en": "Cusco.",
+         "de": "Cusco.",
+         "es": "Cuzco.",
+         "fr": "Cuzco."
+        }
+       }
+      ],
+      "mapNote": {
+       "sv": "Källorna skiljer sig: Wikipedia anger cirka 1200–cirka 1438 och Wikidata 1197–1438. Kartan visar kungariket 1294–1439, som i Cliopatria, med samma yta hela tiden. Staden Cusco ligger omkring 7 km utanför ytans östra kant. Gränsen är Cliopatrias uppskattning och ingen känd statsgräns. Från 1440 visar kartan Inkariket.",
+       "en": "The sources differ: Wikipedia gives about 1200–about 1438 and Wikidata 1197–1438. The map shows the kingdom in 1294–1439, as in Cliopatria, with the same area throughout. The city of Cusco lies about 7 km outside the eastern edge of the area. The border is Cliopatria's estimate and not a known state border. From 1440 the map shows the Inca Empire.",
+       "de": "Die Quellen weichen voneinander ab: Wikipedia nennt etwa 1200 bis etwa 1438 und Wikidata 1197–1438. Die Karte zeigt das Königreich wie Cliopatria 1294–1439, mit durchgehend derselben Fläche. Die Stadt Cusco liegt etwa 7 km außerhalb des östlichen Rands der Fläche. Die Grenze ist eine Schätzung von Cliopatria und keine bekannte Staatsgrenze. Ab 1440 zeigt die Karte das Inkareich.",
+       "es": "Las fuentes difieren: Wikipedia indica aproximadamente 1200–aproximadamente 1438 y Wikidata 1197–1438. El mapa muestra el reino en 1294–1439, como Cliopatria, con la misma superficie todo el tiempo. La ciudad del Cuzco queda a unos 7 km fuera del borde oriental de la superficie. La frontera es una estimación de Cliopatria y no una frontera estatal conocida. A partir de 1440 el mapa muestra el Imperio inca.",
+       "fr": "Les sources divergent : Wikipédia indique environ 1200–environ 1438 et Wikidata 1197–1438. La carte montre le royaume en 1294–1439, comme Cliopatria, avec la même surface tout du long. La ville de Cuzco se trouve à environ 7 km hors du bord est de la surface. La frontière est une estimation de Cliopatria et non une frontière d'État connue. À partir de 1440, la carte montre l'Empire inca."
+      },
+      "sources": [
+       "wp-kingdom-of-cusco",
+       "wd-kingdom-of-cusco",
+       "wikidata"
+      ],
+      "review": "source-checked"
+     }
+    }
+   }
+  },
+  {
+   "id": "chimor",
+   "name": {
+    "sv": "Chimor",
+    "en": "Chimor",
+    "de": "Chimor",
+    "es": "Reino chimú",
+    "fr": "Chimor"
+   },
+   "color": "#c47a3d",
+   "from": 911,
+   "to": 1481,
+   "file": "data/empires/chimor.json",
+   "polities": [
+    {
+     "id": "chimor",
+     "name": {
+      "sv": "Chimor",
+      "en": "Chimor",
+      "de": "Chimor",
+      "es": "Reino chimú",
+      "fr": "Chimor"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Chimor var chimúkulturens kungarike på Perus norra kust, med huvudstaden Chan Chan. Enligt Wikipedia var det sin periods största kungarike, och som störst omfattade det omkring 1 000 km kust. Inkariket erövrade det omkring 1470.",
+     "en": "Chimor was the kingdom of the Chimú culture on the northern coast of Peru, with its capital at Chan Chan. According to Wikipedia it was the largest kingdom of its period, and at its greatest extent it covered about 1,000 km of coast. The Inca Empire conquered it around 1470.",
+     "de": "Chimor war das Königreich der Chimú-Kultur an der Nordküste Perus, mit der Hauptstadt Chan Chan. Laut Wikipedia war es das größte Königreich seiner Zeit, und in seiner größten Ausdehnung umfasste es etwa 1.000 km Küste. Das Inkareich eroberte es um 1470.",
+     "es": "Chimor fue el reino de la cultura chimú en la costa norte del Perú, con capital en Chan Chan. Según Wikipedia fue el mayor reino de su período, y en su máxima extensión abarcó unos 1000 km de costa. El Imperio inca lo conquistó hacia 1470.",
+     "fr": "Chimor était le royaume de la culture chimú sur la côte nord du Pérou, avec Chan Chan pour capitale. Selon Wikipédia, c'était le plus grand royaume de sa période, et à son apogée il couvrait environ 1 000 km de côte. L'Empire inca le conquit vers 1470."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Chimúkulturen uppstod omkring år 900 på Perus norra kust, efter mochekulturen. Enligt chimúfolkets muntliga tradition kom den förste härskaren, Taycanamo, sjövägen på en flotte och grundade Chan Chan. Det är en legend och inget belagt årtal.",
+       "en": "The Chimú culture arose around the year 900 on the northern coast of Peru, after the Moche culture. According to Chimú oral tradition the first ruler, Taycanamo, arrived by sea on a raft and founded Chan Chan. This is a legend and not an attested date.",
+       "de": "Die Chimú-Kultur entstand um das Jahr 900 an der Nordküste Perus, nach der Moche-Kultur. Nach der mündlichen Überlieferung der Chimú kam der erste Herrscher, Taycanamo, auf einem Floß über das Meer und gründete Chan Chan. Das ist eine Legende und kein belegtes Datum.",
+       "es": "La cultura chimú surgió hacia el año 900 en la costa norte del Perú, después de la cultura moche. Según la tradición oral chimú, el primer gobernante, Taycanamo, llegó por mar en una balsa y fundó Chan Chan. Es una leyenda y no una fecha documentada.",
+       "fr": "La culture chimú est apparue vers l'an 900 sur la côte nord du Pérou, après la culture moche. Selon la tradition orale chimú, le premier souverain, Taycanamo, arriva par la mer sur un radeau et fonda Chan Chan. C'est une légende et non une date attestée."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Inkahärskaren Topa Inca Yupanqui besegrade Chimors härskare Minchançaman, som fördes till Cusco. Källorna skiljer sig om året: Wikipedia anger omkring 1470 för erövringen, men skriver också att den började på 1470-talet och var nästan klar 1493.",
+       "en": "The Inca ruler Topa Inca Yupanqui defeated the ruler of Chimor, Minchançaman, who was taken to Cusco. The sources differ on the year: Wikipedia gives around 1470 for the conquest, but also writes that it began in the 1470s and was nearly complete in 1493.",
+       "de": "Der Inkaherrscher Túpac Yupanqui besiegte den Herrscher von Chimor, Minchançaman, der nach Cusco gebracht wurde. Die Quellen weichen beim Jahr voneinander ab: Wikipedia nennt für die Eroberung etwa 1470, schreibt aber auch, dass sie in den 1470er-Jahren begann und 1493 fast abgeschlossen war.",
+       "es": "El soberano inca Túpac Yupanqui venció al gobernante de Chimor, Minchançaman, que fue llevado al Cuzco. Las fuentes difieren sobre el año: Wikipedia indica hacia 1470 para la conquista, pero también escribe que comenzó en la década de 1470 y que estaba casi terminada en 1493.",
+       "fr": "Le souverain inca Tupac Yupanqui vainquit le souverain de Chimor, Minchançaman, qui fut emmené à Cuzco. Les sources divergent sur l'année : Wikipédia indique vers 1470 pour la conquête, mais écrit aussi qu'elle commença dans les années 1470 et qu'elle était presque achevée en 1493."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad",
+       "en": "Capital",
+       "de": "Hauptstadt",
+       "es": "Capital",
+       "fr": "Capitale"
+      },
+      "text": {
+       "sv": "Chan Chan.",
+       "en": "Chan Chan.",
+       "de": "Chan Chan.",
+       "es": "Chan Chan.",
+       "fr": "Chan Chan."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig: Wikipedia anger cirka 900–1470 och Wikidata 850 eller 900 till 1470. Kartan visar Chimor 911–1481, som i Cliopatria. Cliopatria har två poster, Chimor (911–1187) och Chimu Empire (1188–1481); här visas de som ett rike, eftersom källorna inte nämner någon brytpunkt. Gränserna är Cliopatrias uppskattning och inga kända statsgränser, och särskilt före 1202 ligger en stor del av ytan i havet. Hur långt söderut riket nådde är enligt Wikipedia omstritt.",
+     "en": "The sources differ: Wikipedia gives about 900–1470 and Wikidata 850 or 900 to 1470. The map shows Chimor in 911–1481, as in Cliopatria. Cliopatria has two entries, Chimor (911–1187) and Chimu Empire (1188–1481); here they are shown as one state, since the sources mention no break. The borders are Cliopatria's estimate and not known state borders, and before 1202 in particular a large part of the area lies in the sea. How far south the kingdom reached is disputed according to Wikipedia.",
+     "de": "Die Quellen weichen voneinander ab: Wikipedia nennt etwa 900–1470 und Wikidata 850 oder 900 bis 1470. Die Karte zeigt Chimor wie Cliopatria 911–1481. Cliopatria hat zwei Einträge, Chimor (911–1187) und Chimu Empire (1188–1481); hier werden sie als ein Reich gezeigt, da die Quellen keinen Einschnitt nennen. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen, und besonders vor 1202 liegt ein großer Teil der Fläche im Meer. Wie weit das Reich nach Süden reichte, ist laut Wikipedia umstritten.",
+     "es": "Las fuentes difieren: Wikipedia indica aproximadamente 900–1470 y Wikidata 850 o 900 hasta 1470. El mapa muestra Chimor en 911–1481, como Cliopatria. Cliopatria tiene dos entradas, Chimor (911–1187) y Chimu Empire (1188–1481); aquí se muestran como un solo reino, porque las fuentes no mencionan ninguna ruptura. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas, y sobre todo antes de 1202 gran parte de la superficie queda en el mar. Hasta dónde llegó el reino hacia el sur es, según Wikipedia, objeto de debate.",
+     "fr": "Les sources divergent : Wikipédia indique environ 900–1470 et Wikidata 850 ou 900 jusqu'à 1470. La carte montre Chimor en 911–1481, comme Cliopatria. Cliopatria a deux entrées, Chimor (911–1187) et Chimu Empire (1188–1481) ; elles sont montrées ici comme un seul royaume, car les sources ne mentionnent aucune rupture. Les frontières sont une estimation de Cliopatria et non des frontières d'État connues, et surtout avant 1202 une grande partie de la surface se trouve en mer. Jusqu'où le royaume s'étendait vers le sud est, selon Wikipédia, débattu."
+    },
+    "sources": [
+     "wp-chimor",
+     "wd-chimor"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "purepecha",
+   "name": {
+    "sv": "Purépecha Empire",
+    "en": "Purépecha Empire",
+    "de": "Purépecha Empire",
+    "es": "Imperio purépecha",
+    "fr": "Royaume tarasque"
+   },
+   "color": "#5f7fc0",
+   "from": 1305,
+   "to": 1533,
+   "file": "data/empires/purepecha.json",
+   "polities": [
+    {
+     "id": "purepecha",
+     "name": {
+      "sv": "Purépecha Empire",
+      "en": "Purépecha Empire",
+      "de": "Purépecha Empire",
+      "es": "Imperio purépecha",
+      "fr": "Royaume tarasque"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Purépecha Empire var purépechafolkets rike i dagens Mexiko, med huvudstaden Tzintzuntzan vid Pátzcuarosjön. Det var samtida med Aztekriket och dess rival, och när spanjorerna kom var det enligt Wikipedia den näst största staten i Mesoamerika. Det kallas också Tarascan Empire, ett namn som troligen kommer från spanjorerna och som är impopulärt i de flesta purépechasamhällen.",
+     "en": "The Purépecha Empire was the state of the Purépecha people in present-day Mexico, with its capital Tzintzuntzan on Lake Pátzcuaro. It was a contemporary and rival of the Aztec Empire, and when the Spaniards came it was, according to Wikipedia, the second-largest state in Mesoamerica. It is also called the Tarascan Empire, a name that probably comes from the Spaniards and that is unpopular in most Purépecha communities.",
+     "de": "Das Purépecha-Reich (englisch Purépecha Empire) war der Staat des Volkes der Purépecha im heutigen Mexiko, mit der Hauptstadt Tzintzuntzan am Pátzcuaro-See. Es bestand zur gleichen Zeit wie das Aztekenreich und war dessen Rivale, und als die Spanier kamen, war es laut Wikipedia der zweitgrößte Staat Mesoamerikas. Es wird auch Tarascan Empire genannt, ein Name, der wahrscheinlich von den Spaniern stammt und in den meisten Purépecha-Gemeinschaften unbeliebt ist.",
+     "es": "El Imperio purépecha fue el Estado del pueblo purépecha en el actual México, con capital en Tzintzuntzan, junto al lago de Pátzcuaro. Fue contemporáneo y rival del Imperio azteca, y cuando llegaron los españoles era, según Wikipedia, el segundo Estado más grande de Mesoamérica. También se le llama Imperio tarasco, un nombre que probablemente procede de los españoles y que es impopular en la mayoría de las comunidades purépechas.",
+     "fr": "Le royaume tarasque, ou Empire purépecha, était l'État du peuple purépecha dans l'actuel Mexique, avec pour capitale Tzintzuntzan, au bord du lac de Pátzcuaro. Contemporain et rival de l'Empire aztèque, il était, selon Wikipédia, le deuxième plus grand État de Mésoamérique à l'arrivée des Espagnols. Le nom « tarasque » vient probablement des Espagnols et il est impopulaire dans la plupart des communautés purépechas."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Enligt Relación de Michoacán, en krönika från omkring 1540 som bygger på muntlig tradition, grundade kungen Tariácuri riket. Omkring 1300 gjorde han sina första erövringar från staden Pátzcuaro. Årtalen är traditionens och inte säkra.",
+       "en": "According to the Relación de Michoacán, a chronicle from around 1540 based on oral tradition, King Tariácuri founded the state. Around 1300 he made his first conquests from the city of Pátzcuaro. The dates are those of tradition and are not certain.",
+       "de": "Nach der Relación de Michoacán, einer Chronik von etwa 1540, die auf mündlicher Überlieferung beruht, gründete König Tariácuri das Reich. Um 1300 machte er von der Stadt Pátzcuaro aus seine ersten Eroberungen. Die Jahreszahlen stammen aus der Überlieferung und sind nicht gesichert.",
+       "es": "Según la Relación de Michoacán, una crónica de hacia 1540 basada en la tradición oral, el rey Tariácuri fundó el reino. Hacia 1300 hizo sus primeras conquistas desde la ciudad de Pátzcuaro. Las fechas son las de la tradición y no son seguras.",
+       "fr": "Selon la Relación de Michoacán, une chronique d'environ 1540 fondée sur la tradition orale, le roi Tariácuri fonda le royaume. Vers 1300, il fit ses premières conquêtes depuis la ville de Pátzcuaro. Les dates sont celles de la tradition et ne sont pas certaines."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Efter Aztekrikets fall kom en spansk styrka under Cristóbal de Olid till Tzintzuntzan 1522, och purépechahären stred inte. Kungen Tangáxuan II underkastade sig men behöll stort självstyre. Nuño de Guzmán lät avrätta honom 14 februari 1530, och riket lades under Nya Spanien.",
+       "en": "After the fall of the Aztec Empire a Spanish force under Cristóbal de Olid reached Tzintzuntzan in 1522, and the Purépecha army did not fight. King Tangáxuan II submitted but kept a large degree of autonomy. Nuño de Guzmán had him executed on 14 February 1530, and the state was placed under New Spain.",
+       "de": "Nach dem Fall des Aztekenreichs erreichte 1522 eine spanische Truppe unter Cristóbal de Olid Tzintzuntzan, und das Heer der Purépecha kämpfte nicht. König Tangáxuan II. unterwarf sich, behielt aber weitgehende Selbstverwaltung. Nuño de Guzmán ließ ihn am 14. Februar 1530 hinrichten, und das Reich wurde Neuspanien unterstellt.",
+       "es": "Tras la caída del Imperio azteca, una fuerza española al mando de Cristóbal de Olid llegó a Tzintzuntzan en 1522, y el ejército purépecha no combatió. El rey Tangáxuan II se sometió, pero conservó una amplia autonomía. Nuño de Guzmán lo hizo ejecutar el 14 de febrero de 1530, y el reino quedó bajo la Nueva España.",
+       "fr": "Après la chute de l'Empire aztèque, une force espagnole commandée par Cristóbal de Olid atteignit Tzintzuntzan en 1522, et l'armée purépecha ne combattit pas. Le roi Tangáxuan II se soumit mais conserva une large autonomie. Nuño de Guzmán le fit exécuter le 14 février 1530, et le royaume fut placé sous la Nouvelle-Espagne."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad",
+       "en": "Capital",
+       "de": "Hauptstadt",
+       "es": "Capital",
+       "fr": "Capitale"
+      },
+      "text": {
+       "sv": "Tzintzuntzan.",
+       "en": "Tzintzuntzan.",
+       "de": "Tzintzuntzan.",
+       "es": "Tzintzuntzan.",
+       "fr": "Tzintzuntzan."
+      }
+     },
+     {
+      "label": {
+       "sv": "Befolkning och yta",
+       "en": "Population and area",
+       "de": "Bevölkerung und Fläche",
+       "es": "Población y superficie",
+       "fr": "Population et superficie"
+      },
+      "text": {
+       "sv": "Wikipedia anger 75 000 km² år 1450 och 1,5 miljoner invånare år 1519.",
+       "en": "Wikipedia gives 75,000 km² in 1450 and 1.5 million inhabitants in 1519.",
+       "de": "Wikipedia nennt 75.000 km² im Jahr 1450 und 1,5 Millionen Einwohner im Jahr 1519.",
+       "es": "Wikipedia indica 75 000 km² en 1450 y 1,5 millones de habitantes en 1519.",
+       "fr": "Wikipédia indique 75 000 km² en 1450 et 1,5 million d'habitants en 1519."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger cirka 1300–1530 (Wikipedia och Wikidata). Kartan visar riket 1305–1533, som i Cliopatria, där posten heter Michoacán. Före 1440 ligger Cliopatrias yta söder om Pátzcuarosjön, där källorna lägger rikets kärna: huvudstaden Tzintzuntzan ligger omkring 84 km utanför ytan 1305–1428 och omkring 33 km utanför 1429–1439. År 1450 har Cliopatria 49 787 km², Wikipedia 75 000 km². Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources give about 1300–1530 (Wikipedia and Wikidata). The map shows the state in 1305–1533, as in Cliopatria, where the entry is called Michoacán. Before 1440 Cliopatria's area lies south of Lake Pátzcuaro, where the sources place the core of the state: the capital Tzintzuntzan lies about 84 km outside the area in 1305–1428 and about 33 km outside it in 1429–1439. For 1450 Cliopatria has 49,787 km², Wikipedia 75,000 km². The borders are Cliopatria's estimate and not known state borders.",
+     "de": "Die Quellen nennen etwa 1300–1530 (Wikipedia und Wikidata). Die Karte zeigt das Reich wie Cliopatria 1305–1533; dort heißt der Eintrag Michoacán. Vor 1440 liegt die Fläche von Cliopatria südlich des Pátzcuaro-Sees, wo die Quellen den Kern des Reichs verorten: Die Hauptstadt Tzintzuntzan liegt 1305–1428 etwa 84 km und 1429–1439 etwa 33 km außerhalb der Fläche. Für 1450 hat Cliopatria 49.787 km², Wikipedia 75.000 km². Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes indican aproximadamente 1300–1530 (Wikipedia y Wikidata). El mapa muestra el reino en 1305–1533, como Cliopatria, donde la entrada se llama Michoacán. Antes de 1440 la superficie de Cliopatria queda al sur del lago de Pátzcuaro, donde las fuentes sitúan el núcleo del reino: la capital, Tzintzuntzan, queda a unos 84 km fuera de la superficie en 1305–1428 y a unos 33 km en 1429–1439. Para 1450 Cliopatria tiene 49 787 km²; Wikipedia, 75 000 km². Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources indiquent environ 1300–1530 (Wikipédia et Wikidata). La carte montre le royaume en 1305–1533, comme Cliopatria, où l'entrée s'appelle Michoacán. Avant 1440, la surface de Cliopatria se trouve au sud du lac de Pátzcuaro, où les sources situent le cœur du royaume : la capitale, Tzintzuntzan, est à environ 84 km hors de la surface en 1305–1428 et à environ 33 km en 1429–1439. Pour 1450, Cliopatria a 49 787 km², Wikipédia 75 000 km². Les frontières sont une estimation de Cliopatria et non des frontières d'État connues."
+    },
+    "sources": [
+     "wp-purepecha-empire",
+     "wd-tarascan-state",
+     "wp-tzintzuntzan-site"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "songhairiket",
