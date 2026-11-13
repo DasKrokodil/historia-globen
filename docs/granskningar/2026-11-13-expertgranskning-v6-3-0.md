@@ -78,7 +78,33 @@
 
 ## UX
 
-Förhandsversionen dev.historiagloben.se ligger bakom Cloudflare Access och går inte att nå från molnmiljön. Genomgången gjordes därför mot samma kod (`main`) på en lokal server. Resultatet förs in i release-PR:en.
+Förhandsversionen dev.historiagloben.se ligger bakom Cloudflare Access och går inte att nå från molnmiljön. Genomgången gjordes därför mot samma kod (`main`, 22816725) på en lokal server, med Playwright i 1400×900 och 400×800.
+
+**Blockerar inte.** Det fanns inga konsolfel och ingen horisontell scroll.
+
+Det här fungerade:
+- tidslinjen och uppspelningen
+- Samtidigt och faktarutan
+- byte av vy i Lager och religionslagret
+- Fokus på ett krig till slutkortet och på ett rike
+- hopp till datum
+- Platt vy och Om källorna
+- källkritikturen och fall-turen
+- tangentbordet
+- talformat på de, es och fr
+
+**Bör rättas:**
+- Fokusraden ligger 12–14 px över stegknapparna, och årstipset syns i tur och Fokus. Det är #1302.
+- Notisen "Översättningen pågår" täcker "Gleichzeitig" och "Suchen und folgen" i datorbredd på de, es och fr tills den stängs (nytt).
+- Vyn Framsteg ger en tom glob utan förklaring (nytt).
+- Förhistorien vid 50 000 f.Kr. är tom utan förklaring, och fönstret ±12 000 år rättas av #1371/#1372.
+
+**Kan vänta:**
+- en mörk rektangel över globen i mobil vid start (troligen headless-grafiken, kontrolleras på en riktig telefon)
+- siffran på Samtidigt-fliken har en hårdkodad färg
+- "Platser" och "Plats" står som två flikar bredvid varandra (nytt)
+- teckenförklaringen under tidslinjen i vyer med täthetsrand (#1307)
+- Samtidigt-knappens skärmläsarnamn saknar ordet "Samtidigt", WCAG 2.5.3 (nytt)
 
 ## Luckor (saknas)
 
