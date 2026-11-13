@@ -60,17 +60,18 @@ function yearAtPos(p) {
   return s.from + (p - s.a) / (s.b - s.a) * (s.to - s.from);
 }
 /**
- * Samtidigt-fönstret räknat i reglagets läge (minsta delen av #1319, inför v6.3.0): kanterna är läget ± fraction, och det
- * kortaste avståndet till dem används lika långt åt båda hållen. Inom ett segment blir det samma som yearsAcross. Vid en
- * segmentgräns tar det glesa segmentet inte längre över, så förhistorien får ±2 115 år vid 5000 f.Kr. i stället för ±11 640
- * år i hela segmentet. Vid reglagets ändar används den kant som finns.
+ * Samtidigt-fönstret räknat i reglagets läge (#1319, beslut 2026-11-13): kanterna är läget minus och plus `fraction` av
+ * reglaget, och varje kant översätts till år för sig. Fönstret kan därför bli olika långt före och efter året vid en
+ * segmentgräns: vid 5000 f.Kr. är det cirka 2 100 år bakåt, där segmentet är glest, men längre framåt, där 3000 f.Kr.
+ * och segmenten efter ger fler år per pixel. Inom ett segment är de två lika långa (samma som yearsAcross).
+ * Vid reglagets ändar finns bara en kant; den används åt båda hållen (1,2 % av reglaget går inte att mäta bortom slutet).
  */
-export function windowAround(y, fraction) {
+export function windowEdges(y, fraction) {
   y = clampY(y);
-  const p = yearToPos(y), d = [];
-  if (p - fraction >= 0) d.push(y - yearAtPos(p - fraction));
-  if (p + fraction <= 1) d.push(yearAtPos(p + fraction) - y);
-  return d.length ? Math.min(...d) : yearsAcross(y, fraction);
+  const p = yearToPos(y);
+  const lo = p - fraction >= 0 ? y - yearAtPos(p - fraction) : null;
+  const hi = p + fraction <= 1 ? yearAtPos(p + fraction) - y : null;
+  return { before: lo ?? hi, after: hi ?? lo };
 }
 
 /** Uppspelningens nivåer i år per sekund. */
@@ -161,10 +162,19 @@ export class Timeline extends EventTarget {
   formatParts(y) { return this.focus?.fine ? dayParts(this._lastDay(y)) : yearParts(roundPrehistoric(y)); }
   // Spannets slut är början av dagen efter krigets sista dag; där visas den sista dagen
   _lastDay(y) { return Math.min(y, this.focus.to - 0.5 / DAYS_PER_YEAR); }
-  /** Hur många år före och efter som räknas som "samtidigt". */
+  /**
+   * Hur många år före och efter som räknas som "samtidigt" (#1319): { before, after }. Utanför Fokus är det 1,2 % av reglaget
+   * åt varje håll, så att längden kan skilja sig vid en segmentgräns. I Fokus är det lika långt åt båda hållen.
+   */
+  windowSpan(y) {
+    if (this.focus?.fine) { const d = (this.focus.to - this.focus.from) * 0.03; return { before: d, after: d }; } // några dagar
+    if (this.focus) { const d = Math.max(1, (this.focus.to - this.focus.from) * 0.03); return { before: d, after: d }; }
+    return windowEdges(y, 0.012);
+  }
+  /** Den längre av de två sidorna, för det som bara behöver ett tal (till exempel Fokus-menyns avstånd). */
   windowYears(y) {
-    if (this.focus?.fine) return (this.focus.to - this.focus.from) * 0.03; // några dagar
-    return this.focus ? Math.max(1, (this.focus.to - this.focus.from) * 0.03) : windowAround(y, 0.012);
+    const { before, after } = this.windowSpan(y);
+    return Math.max(before, after);
   }
 
   /**

@@ -211,6 +211,15 @@ export function roundWindow(n) {
   return n < 30 ? Math.max(5, Math.round(n / 5) * 5) : Math.round(n / 10) * 10;
 }
 
+/**
+ * Fönstret före och efter året som avrundade tal (#1319): { before, after, same }. `same` är sant när de två sidorna blir
+ * lika långa efter avrundningen; då visas fönstret med "±" som förut, annars skrivs båda sidorna i klartext.
+ */
+export function roundWindowSpan({ before, after }) {
+  const b = roundWindow(before), a = roundWindow(after);
+  return { before: b, after: a, same: b === a };
+}
+
 /** Text ur språkfilen som är en lista [en, flera] ("±1 år", "±3 år"), med {n} ersatt och eventuella andra värden i vars. */
 export function pluralUi(key, n, vars = {}) {
   return String(ui(key)[n === 1 ? 0 : 1]).replace(/\{(\w+)\}/g, (m, k) => ({ n, ...vars })[k] ?? m);
