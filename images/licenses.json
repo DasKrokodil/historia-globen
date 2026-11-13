@@ -627,6 +627,21 @@
       }
     },
     {
+      "eventId": "emigrationen-fran-sverige",
+      "eventTitle": "Emigrationen från Sverige till Amerika",
+      "file": "images/events/emigrationen-fran-sverige.webp",
+      "kind": "historisk",
+      "credit": "American Stereoscopic Company / Library of Congress, Prints & Photographs Division (LC-DIG-stereo-1s38142)",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-emigrationen-fran-sverige",
+        "title": "Emigrants at Göteborg, Sweden, boarding steamer Calypso (Wilson Line) for England and America, 1905 (Library of Congress)",
+        "url": "https://www.loc.gov/pictures/item/2022643646/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-13"
+      }
+    },
+    {
       "eventId": "eviansavtalen",
       "eventTitle": "Éviansavtalen: Algeriet blir fritt",
       "file": "images/events/eviansavtalen.webp",
@@ -891,6 +906,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Code_of_Hammurabi_(Louvre_Sb_8)-31434550325.jpg",
         "license": "CC BY 2.0",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "hansan-vaxer-fram",
+      "eventTitle": "Hansan växer fram",
+      "file": "images/events/hansan-vaxer-fram.webp",
+      "kind": "historisk",
+      "credit": "Underwood & Underwood / Library of Congress, Prints & Photographs Division (LC-DIG-stereo-1s33774)",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-hansan-vaxer-fram",
+        "title": "Warehouses in the famous old Hanseatic quarter, Bergen, Norway, 1905 (Library of Congress)",
+        "url": "https://www.loc.gov/pictures/item/2021635929/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-13"
       }
     },
     {
@@ -1242,6 +1272,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Kakadu_(AU),_Kakadu_National_Park,_Ubirr_Rock_Art_--_2019_--_4169.jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-09"
+      }
+    },
+    {
+      "eventId": "koch-tuberkelbakterien",
+      "eventTitle": "Koch presenterar tuberkelbakterien",
+      "file": "images/events/koch-tuberkelbakterien.webp",
+      "kind": "historisk",
+      "credit": "Bain News Service / Library of Congress, Prints & Photographs Division (LC-DIG-ggbain-00798)",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-koch-tuberkelbakterien",
+        "title": "Dr. Robert Koch and wife (Bain News Service, Library of Congress)",
+        "url": "https://www.loc.gov/pictures/item/2014680794/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-13"
       }
     },
     {
@@ -2241,6 +2286,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Marche_sel.jpg",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "semmelweis-handtvatt",
+      "eventTitle": "Semmelweis inför handtvätt med klorkalk",
+      "file": "images/events/semmelweis-handtvatt.webp",
+      "kind": "historisk",
+      "credit": "Jenő Doby / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-semmelweis-handtvatt",
+        "title": "Semmelweis Ignác (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Semmelweis_Ign%C3%A1c.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-13"
       }
     },
     {
@@ -3276,6 +3336,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Treatyofwaitangi.jpg",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "watt-separat-kondensor",
+      "eventTitle": "Watt kommer på den separata kondensorn",
+      "file": "images/events/watt-separat-kondensor.webp",
+      "kind": "historisk",
+      "credit": "Library of Congress, Prints & Photographs Division (LC-USZ62-110376)",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-watt-separat-kondensor",
+        "title": "Steam engine - Mr. Watt's double steam engine from his specification of 1782, 1822 (Library of Congress)",
+        "url": "https://www.loc.gov/pictures/item/2006691752/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-13"
       }
     },
     {

@@ -1902,5 +1902,85 @@
     "credit": "W. G. Collingwood / Wikimedia Commons",
     "license": "Public domain",
     "source": "commons-bild-alltinget-grundas"
+  },
+  {
+    "id": "koch-tuberkelbakterien",
+    "file": "koch-tuberkelbakterien.jpg",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Robert Koch och hans hustru, fotograferade omkring 1908 enligt Bain News Service, 26 år efter upptäckten. Library of Congress anger inga kända restriktioner för publicering.",
+      "en": "Robert Koch and his wife, photographed around 1908 according to the Bain News Service, 26 years after the discovery. The Library of Congress states no known restrictions on publication.",
+      "de": "Robert Koch und seine Frau, fotografiert um 1908 laut Bain News Service, 26 Jahre nach der Entdeckung. Die Library of Congress gibt keine bekannten Einschränkungen für die Veröffentlichung an.",
+      "es": "Robert Koch y su esposa, fotografiados hacia 1908 según el Bain News Service, 26 años después del descubrimiento. La Library of Congress no indica restricciones conocidas para su publicación.",
+      "fr": "Robert Koch et sa femme, photographiés vers 1908 selon le Bain News Service, 26 ans après la découverte. La Library of Congress n’indique aucune restriction connue de publication."
+    },
+    "credit": "Bain News Service / Library of Congress, Prints & Photographs Division (LC-DIG-ggbain-00798)",
+    "license": "Inga kända restriktioner (Library of Congress)",
+    "source": "loc-bild-koch-tuberkelbakterien"
+  },
+  {
+    "id": "emigrationen-fran-sverige",
+    "file": "emigrationen-fran-sverige.jpg",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Utvandrare i Göteborg går ombord på ångaren Calypso från Wilson Line för resan till England och Amerika, 1905. Ena halvan av ett stereofotografi, utsnitt. Library of Congress anger inga kända restriktioner för publicering.",
+      "en": "Emigrants in Gothenburg boarding the steamer Calypso of the Wilson Line for the journey to England and America, 1905. One half of a stereo photograph, detail. The Library of Congress states no known restrictions on publication.",
+      "de": "Auswanderer in Göteborg gehen an Bord des Dampfers Calypso der Wilson Line, um nach England und Amerika zu reisen, 1905. Eine Hälfte einer Stereofotografie, Ausschnitt. Die Library of Congress gibt keine bekannten Einschränkungen für die Veröffentlichung an.",
+      "es": "Emigrantes en Gotemburgo embarcan en el vapor Calypso de la Wilson Line para viajar a Inglaterra y América, 1905. Una mitad de una fotografía estereoscópica, detalle. La Library of Congress no indica restricciones conocidas para su publicación.",
+      "fr": "Des émigrants à Göteborg montent à bord du vapeur Calypso de la Wilson Line pour se rendre en Angleterre et en Amérique, 1905. Une moitié d’une photographie stéréoscopique, détail. La Library of Congress n’indique aucune restriction connue de publication."
+    },
+    "credit": "American Stereoscopic Company / Library of Congress, Prints & Photographs Division (LC-DIG-stereo-1s38142)",
+    "license": "Inga kända restriktioner (Library of Congress)",
+    "source": "loc-bild-emigrationen-fran-sverige"
+  },
+  {
+    "id": "watt-separat-kondensor",
+    "file": "watt-separat-kondensor.jpg",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Watts dubbelverkande ångmaskin enligt hans patentbeskrivning från 1782, i ett tryck från 1822. Utsnitt. Library of Congress anger inga kända restriktioner för publicering i USA.",
+      "en": "Watt's double-acting steam engine according to his patent specification of 1782, in a print from 1822. Detail. The Library of Congress states no known restrictions on publication in the United States.",
+      "de": "Watts doppelt wirkende Dampfmaschine nach seiner Patentbeschreibung von 1782, in einem Druck von 1822. Ausschnitt. Die Library of Congress gibt keine bekannten Einschränkungen für die Veröffentlichung an in den USA.",
+      "es": "La máquina de vapor de doble efecto de Watt según su descripción de patente de 1782, en un grabado de 1822. Detalle. La Library of Congress no indica restricciones conocidas para su publicación en Estados Unidos.",
+      "fr": "La machine à vapeur à double effet de Watt d’après sa description de brevet de 1782, dans une gravure de 1822. Détail. La Library of Congress n’indique aucune restriction connue de publication aux États-Unis."
+    },
+    "credit": "Library of Congress, Prints & Photographs Division (LC-USZ62-110376)",
+    "license": "Inga kända restriktioner (Library of Congress)",
+    "source": "loc-bild-watt-separat-kondensor"
+  },
+  {
+    "id": "hansan-vaxer-fram",
+    "file": "hansan-vaxer-fram.jpg",
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Bergen 1905, med det gamla hansakvarteret på andra sidan hamnen. Ena halvan av ett stereofotografi, utsnitt. Fotot är taget långt efter Hansans tid. Library of Congress anger inga kända restriktioner för publicering.",
+      "en": "Bergen in 1905, with the old Hanseatic quarter across the harbour. One half of a stereo photograph, detail. The photo was taken long after the time of the Hanseatic League. The Library of Congress states no known restrictions on publication.",
+      "de": "Bergen 1905, mit dem alten Hanseviertel auf der anderen Seite des Hafens. Eine Hälfte einer Stereofotografie, Ausschnitt. Das Foto entstand lange nach der Zeit der Hanse. Die Library of Congress gibt keine bekannten Einschränkungen für die Veröffentlichung an.",
+      "es": "Bergen en 1905, con el antiguo barrio hanseático al otro lado del puerto. Una mitad de una fotografía estereoscópica, detalle. La foto se tomó mucho después de la época de la Hansa. La Library of Congress no indica restricciones conocidas para su publicación.",
+      "fr": "Bergen en 1905, avec l’ancien quartier hanséatique de l’autre côté du port. Une moitié d’une photographie stéréoscopique, détail. La photo a été prise bien après l’époque de la Hanse. La Library of Congress n’indique aucune restriction connue de publication."
+    },
+    "credit": "Underwood & Underwood / Library of Congress, Prints & Photographs Division (LC-DIG-stereo-1s33774)",
+    "license": "Inga kända restriktioner (Library of Congress)",
+    "source": "loc-bild-hansan-vaxer-fram"
+  },
+  {
+    "id": "semmelweis-handtvatt",
+    "file": "semmelweis-handtvatt.jpg",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Ignaz Semmelweis. Kopparstick av Jenő Doby, 1894. Licens: Public domain.",
+      "en": "Ignaz Semmelweis. Copperplate engraving by Jenő Doby, 1894. Licence: Public domain.",
+      "de": "Ignaz Semmelweis. Kupferstich von Jenő Doby, 1894. Lizenz: Public domain.",
+      "es": "Ignaz Semmelweis. Grabado en cobre de Jenő Doby, 1894. Licencia: Public domain.",
+      "fr": "Ignaz Semmelweis. Gravure sur cuivre de Jenő Doby, 1894. Licence : Public domain."
+    },
+    "credit": "Jenő Doby / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-semmelweis-handtvatt"
   }
 ]
