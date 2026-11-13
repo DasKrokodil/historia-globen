@@ -21,7 +21,9 @@ export function createState() {
     wholeYear: 0,     // hela året, som riken, religioner och fun facts använder
     areaYear: 0,      // året som riken och religioner ritas för: wholeYear, men i ett tidsintervall slutåret (#756)
     fine: false,      // fokusläget för ett kort krig: tiden räknas i dagar (#204)
-    window: 0,        // hur många år runt året som räknas som "samtidigt" (tidslinjens fönster)
+    window: 0,        // hur många år runt året som räknas som "samtidigt" (tidslinjens fönster): den längre sidan
+    windowBefore: 0,  // fönstret före året (#1319); vid en segmentgräns är det inte lika långt som efter
+    windowAfter: 0,   // fönstret efter året
     // Tidsintervallet (#569, #755): { from, to } eller null. from är året (year), to är slutåret. Läget 'intervall' i
     // lägeskontraktet (MODE_RULES nedan); det utesluter Fokus och uppspelning.
     range: null,

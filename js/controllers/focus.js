@@ -2,7 +2,7 @@
 // en resa. Tidslinjen och globen zoomar in, och uppspelningen går långsamt. Här finns också Fokus-menyns
 // listor och raden "Tiden flyttades" (#167). Det man följer står i state.focus, state.focusWar och
 // state.focusRoute, som lagren läser. Ett tema (#398) är också fokus: ett namngivet urval av händelser.
-import { loadReligions, loadThemes, loadPlaces, loadEmpire, loadEmpireFacts, loadEventDetails, loadRoutes, CAT, t, symbolUrl, formatYear, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays } from '../model.js';
+import { loadReligions, loadThemes, loadPlaces, loadEmpire, loadEmpireFacts, loadEventDetails, loadRoutes, CAT, t, symbolUrl, formatYear, groupDigits, formatEventTime, isVisibleReview, edtfSpan, edtfHasDays } from '../model.js';
 import { MIN_YEAR, MAX_YEAR } from '../timeline.js';
 import { FocusMenu } from '../ui/focusmenu.js';
 import { ui } from '../i18n.js';
@@ -324,10 +324,13 @@ export function createFocus(app) {
   focusMenu.setGroups(focusGroups());
   // Nära = inom fyra gånger det tidslinjen visar runt året (vid 1325 cirka ±150 år)
   const syncMenuTime = () => {
-    const year = Math.floor(timeline.year), r = Math.round(timeline.windowYears(year) * 4 / 10) * 10;
-    const window = ui('focus.window', { years: r, year: formatYear(year) });
+    // Fönstret kan vara olika långt före och efter året vid en segmentgräns (#1319)
+    const year = Math.floor(timeline.year), span = timeline.windowSpan(year);
+    const rb = Math.round(span.before * 4 / 10) * 10, ra = Math.round(span.after * 4 / 10) * 10;
+    const window = rb === ra ? ui('focus.window', { years: rb, year: formatYear(year) })
+      : ui('focus.windowAsym', { before: groupDigits(rb), after: groupDigits(ra), year: formatYear(year) });
     focusMenu.setTime({
-      year, from: year - r, to: year + r,
+      year, from: year - rb, to: year + ra,
       label: state.range ? `${window}. ${ui('focus.rangeYear')}` : window,
     });
   };

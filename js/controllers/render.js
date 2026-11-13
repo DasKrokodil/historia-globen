@@ -2,7 +2,7 @@
 // som syns (beslut 2), ritar lagerbilden (beslut 1) och uppdaterar listan, teckenförklaringarna och årtalet.
 // Sist får uppspelningen (playback.js) se om något ska pausa. Här finns också namnens storlek efter zoom
 // (#154, #271, #301, #358) och rikets berättelse för Samtidigt-kortet (#171).
-import { loadEventDetails, formatCentury, formatEventTime, formatYear, pluralUi, roundWindow, groupDigits, t } from '../model.js';
+import { loadEventDetails, formatCentury, formatEventTime, formatYear, pluralUi, roundWindow, roundWindowSpan, groupDigits, t } from '../model.js';
 import { LANG, ui } from '../i18n.js';
 import { ZOOM_LEVELS, zoomLevel, pxPerImg, zoomView, eventKeepouts } from '../ui/zoomlevels.js';
 import { empireStory } from '../ui/funfact.js';
@@ -115,11 +115,12 @@ export function createRender(app) {
     const playing = timeline.playing;
     // Med ett tidsintervall (#755) gäller hela intervallet och inget tidsfönster runt året
     const range = state.range;
-    const window = range ? 0 : timeline.windowYears(year);
+    const windowSpan = range ? { before: 0, after: 0 } : timeline.windowSpan(year); // före och efter kan vara olika långa (#1319)
+    const window = Math.max(windowSpan.before, windowSpan.after);
     // Tidslinjen äger året; tillståndet speglar det (#403)
     // Riken och religioner visas för intervallets slutår (alternativ A i förstudien, #756); utan intervall för året
     const areaYear = range ? Math.floor(range.to) : wholeYear;
-    app.store.mirror({ year, wholeYear, areaYear, fine, window, span, playing, filters: panel.filters });
+    app.store.mirror({ year, wholeYear, areaYear, fine, window, windowBefore: windowSpan.before, windowAfter: windowSpan.after, span, playing, filters: panel.filters });
     // Statusraden (#1305): första ritningen läses inte upp, och inte heller uppspelningens år
     const yearKey = fine ? year : wholeYear;
     if (statusYear !== null && yearKey !== statusYear && !playing && !range) {
@@ -131,7 +132,12 @@ export function createRender(app) {
     // Singular och plural ur språkfilen ([en, flera]), till exempel "±1 dag" och "±3 dagar"
     // Talet med språkets tusentalsavgränsare, så att förhistoriens fönster blir "±12 000 år" (#1088)
     const plural = (key, n) => String(ui(key)[n === 1 ? 0 : 1]).replace('{n}', groupDigits(n));
-    const within = fine ? plural('time.withinDays', Math.round(window * 365.25)) : plural('time.withinYears', roundWindow(window)); // avrundat (#1191)
+    // Vid en segmentgräns är fönstret olika långt före och efter året (#1319): då skrivs båda sidorna i klartext, annars "±"
+    const shownSpan = roundWindowSpan(windowSpan);
+    const asym = !shownSpan.same;
+    const spanVars = { before: groupDigits(shownSpan.before), after: groupDigits(shownSpan.after) };
+    const within = fine ? plural('time.withinDays', Math.round(window * 365.25))
+      : asym ? ui('time.withinYearsAsym', spanVars) : plural('time.withinYears', roundWindow(window)); // avrundat (#1191)
     ff.story = focus?.type === 'empire' ? storyFor(focus.id) : [];
     ff.setAnnouncements(!range);
     ff.update(wholeYear, panel.filters, focus?.eventIds ?? null);
@@ -150,7 +156,7 @@ export function createRender(app) {
       : ui(`${emptyKey}.emptyYear`);
     panel.render(visible, wholeYear, window, eventsOn, range ? { at: ui('range.at', { range: rangeLabel }), bare: rangeLabel, within, range }
       : fine ? { at: ui('time.onDate', { date: timeline.format(year) }), bare: timeline.format(year), within, fine: true }
-      : themeEmpty ? { themeEmpty } : null);
+      : themeEmpty ? { themeEmpty, within } : { within });
     // Etiketten "Områden visas för år N" (#756) när riken eller religioner syns, och hur många markörer gränsen döljer
     app.range?.render(visible.filter(v => v.inside).length, { areasYear: areas.enabled || religions.enabled ? areaYear : null, capped: layer.capped });
     // Samma markörer i Platt vy (#313): de som syns på klotet, de i listan får klustras och etikett
@@ -182,9 +188,11 @@ export function createRender(app) {
     $('year-jump').classList.toggle('fine', fine);
     $('year-segment').textContent = range ? ui('range.segment')
       : focus ? pluralUi(fine ? 'time.followDays' : 'time.followYears', fine ? Math.round(window * 365.25) : Math.round(window), { name: focus.short })
+      : asym ? ui('time.windowYearsAsym', { where: formatCentury(year), ...spanVars })
       : pluralUi(youngReaders() ? 'time.windowYearsWords' : 'time.windowYears', roundWindow(window), { where: formatCentury(year), n: groupDigits(roundWindow(window)) });
     // Tonade markörer är nära i tid, inte samtida (#1191): förklaringen står i title och som dold text för skärmläsare
-    const windowNote = range || focus ? '' : pluralUi('time.windowNote', roundWindow(window), { n: groupDigits(roundWindow(window)) });
+    const windowNote = range || focus ? '' : asym ? ui('time.windowNoteAsym', spanVars)
+      : pluralUi('time.windowNote', roundWindow(window), { n: groupDigits(roundWindow(window)) });
     $('year-segment').title = windowNote;
     $('year-window-note').textContent = windowNote;
     // Pauserna i uppspelningen: krigets och resans stopp, grundanden, rikets nyckelår och krig som bryter ut

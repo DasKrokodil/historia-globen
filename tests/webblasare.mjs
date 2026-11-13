@@ -5275,7 +5275,8 @@ async function run(browser, vp) {
       // ligger markören vid kanten, så etiketten får som sista utväg ligga över en grannmarkör), och rikesnamnen får inte ta hela platsen över Europa
       if (!shown.some(l => l === 'Första världskriget')) throw new Error(`år 1916 saknar etikett för första världskriget: ${shown.join(' | ')}`);
       if (shown.some(l => / · (slut|börjar) \d/.test(l))) throw new Error(`etikett med slut/börjar kvar: ${shown.find(l => / · (slut|börjar) \d/.test(l))}`);
-      rows.push(await want('#y=-500', /^500-talet f\.Kr\. · ±\d*0 år$/));
+      // 500 f.Kr. ligger vid en segmentgräns och har olika långt fönster före och efter (#1319, egen kontroll nedan); 1500 f.Kr. ligger inne i ett segment
+      rows.push(await want('#y=-1500', /^1500-talet f\.Kr\. · ±\d*0 år$/));
       rows.push(await want('#y=1914&f=war:forsta-varldskriget', /^Följer .+ · visar \d+ (år|dagar?) före och efter$/));
       // Yngre läsare (#1191): lektion 2 för åk 4–6 skriver fönstret i ord i stället för med "±"
       rows.push(await want('#t=vikingatiden-och-varlden&m=lektion', /^\d+-talet · även \d+ år före och efter$/));
@@ -5313,6 +5314,41 @@ async function run(browser, vp) {
       }
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return out.join(' | ');
+    } finally { await wp.close(); }
+  });
+  // #1319: fönstret är 1,2 % av reglaget åt varje håll, räknat i reglagets läge. Vid en segmentgräns blir det olika långt före
+  // och efter året, och raden under årtalet skriver då båda sidorna i klartext i stället för "±". Inne i ett segment är det som förut.
+  await check('tidsfönstret före och efter året vid en segmentgräns (#1319)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      let loads = 0;
+      const text = async hash => {
+        await wp.goto(`${BASE}?lang=sv&ny=f${loads++}${hash}`);
+        await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await wp.waitForSelector('#event-list .event-item', { state: 'attached', timeout: T.step });
+        await wp.waitForFunction(() => document.getElementById('year-segment').textContent.trim() !== '', null, { timeout: 8000 });
+        return wp.evaluate(() => ({ row: document.getElementById('year-segment').textContent.trim(), title: document.getElementById('year-segment').title, sr: document.getElementById('year-window-note').textContent }));
+      };
+      // 5000 f.Kr.: det glesa segmentet bakåt (cirka 11 600 år), kortare framåt där 3000 f.Kr. och det täta segmentet börjar
+      const a = await text('#y=-4999');
+      if (!/ · 12\s000 år före, 2000 år efter$/.test(a.row)) throw new Error(`5000 f.Kr.: raden säger "${a.row}"`);
+      if (/±/.test(a.row + a.title)) throw new Error(`5000 f.Kr.: "±" visas fast sidorna är olika långa: ${a.row}`);
+      if (!/upp till 12\s000 år före eller 2000 år efter/.test(a.title) || a.sr !== a.title) throw new Error(`5000 f.Kr.: förklaringen säger "${a.title}"`);
+      // 501 f.Kr.: segmentgräns med 140 år före och 80 år efter
+      const b = await text('#y=-500');
+      if (!/ · 140 år före, 80 år efter$/.test(b.row)) throw new Error(`501 f.Kr.: raden säger "${b.row}"`);
+      // Inne i ett segment är sidorna lika långa och raden är som förut
+      const c = await text('#y=1325');
+      if (!/^1300-talet · ±\d*0 år$/.test(c.row)) throw new Error(`1325: raden säger "${c.row}"`);
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `${a.row} | ${b.row} | ${c.row}`;
     } finally { await wp.close(); }
   });
   // #1134: raden under årtalet radbryts i smal skärm i stället för att klippas med ellips. Längsta texten styr: alla
