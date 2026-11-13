@@ -692,7 +692,7 @@ async function start() {
   panel.empireTourFor = id => { const x = tour.forEmpire(id); return x && { id: x.id, label: tour.storyLabel(x, 'fall') }; };
   panel.onTour = (id, btn) => tour.start(id, btn);
   panel.howTour = () => { const x = tour.tours?.find(y => y.id === 'hur-vet-vi-det-har'); return x ? { id: x.id, label: t(x.title) } : null; };
-  tour.onOpen = () => surfaces.closeAll();
+  tour.onOpen = () => surfaces.opened('tours'); // Turer-menyn är en egen yta i gruppen meny (#1323): closeAll() skulle stänga den nyss öppnade menyn
   // Dialogerna och Escape (#1323, js/surfaces.js). Dialogerna är en grupp: bara en är öppen, och en öppnad dialog pausar
   // uppspelningen och nedräkningen, som inte fortsätter av sig själva. Registret märker öppnandet på attributet hidden, så att
   // dialogernas egen kod inte ändras. Escape stänger det översta öppna (dialog, årshopp eller intervallformulär, jakt, Turer-menyn)
