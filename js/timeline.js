@@ -2,6 +2,7 @@
 // Beslut 4: segmenterad skala där nutiden får mer plats än forntiden.
 import { formatYear, groupDigits, formatDate, isBCE, bce, BCE_TXT, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t, roundPrehistoric } from './model.js';
 import { selectEventsForDate } from './date-events.js';
+import { say, clearStatus } from './ui/status.js';
 import { ui } from './i18n.js';
 import { MIN_YEAR, MAX_YEAR } from './state.js'; // gränserna bor i state.js (#1141), så att url-state.js inte behöver importera hela tidsreglaget
 export { MIN_YEAR, MAX_YEAR };
@@ -582,19 +583,13 @@ export class Timeline extends EventTarget {
       box.querySelector('#pause-more-text').textContent = more ? more.text : '';
     }
     if (announcement) this._announce(announcement);
-    else if (this.status) this.status.textContent = '';
+    else clearStatus('pausnotis');
   }
   /** Den här raden finns alltid i DOM:en, så att skärmläsaren säkert får ändringen. */
   /** Läser upp text för skärmläsare utan att visa en pausrad (till exempel turens slutkort, #878). */
   announce(text) { this._announce(text); }
   _announce(text) {
-    if (!this.status) return;
-    const request = (this._announceRequest ?? 0) + 1;
-    this._announceRequest = request;
-    this.status.textContent = '';
-    requestAnimationFrame(() => {
-      if (this._announceRequest === request) this.status.textContent = text;
-    });
+    say(text, 'pausnotis'); // via statusraden (js/ui/status.js, #1419)
   }
 
   _render() {

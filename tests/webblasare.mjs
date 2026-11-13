@@ -5627,8 +5627,14 @@ async function run(browser, vp) {
       await ap.keyboard.press('Enter');
       await ap.waitForSelector('#detail:not([hidden])', { timeout: T.step });
       await ap.waitForFunction(() => document.activeElement?.hasAttribute('data-close') && document.getElementById('detail').contains(document.activeElement), null, { timeout: T.step });
-      const said = await ap.evaluate(() => ({ status: document.getElementById('screen-reader-status').textContent, title: document.querySelector('#detail h3')?.textContent.trim() }));
-      if (!said.title || !said.status.includes(said.title)) throw new Error(`statusraden säger inte rubriken: "${said.status}" mot "${said.title}"`);
+      // Rubriken ska stå kvar på statusraden även när Samtidigt-kortet och pausraden ritas om i samma stund (#1419): vänta på rubriken
+      // och läs sedan igen efter en kort stund, så att något som skriver över den fångas
+      const saidNow = () => ap.evaluate(() => ({ status: document.getElementById('screen-reader-status').textContent, title: document.querySelector('#detail h3')?.textContent.trim() }));
+      await ap.waitForFunction(() => { const t = document.querySelector('#detail h3')?.textContent.trim(); return !!t && document.getElementById('screen-reader-status').textContent.includes(t); }, null, { timeout: T.step })
+        .catch(async () => { const s = await saidNow(); throw new Error(`statusraden säger inte rubriken: "${s.status}" mot "${s.title}"`); });
+      await ap.waitForTimeout(1500);
+      const said = await saidNow();
+      if (!said.title || !said.status.includes(said.title)) throw new Error(`statusraden tappade rubriken efter en stund: "${said.status}" mot "${said.title}"`);
       await ap.keyboard.press('Escape');
       await ap.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
       await ap.waitForFunction(id => document.activeElement?.classList.contains('ff-chip') && document.activeElement.dataset.id === id, chipId, { timeout: T.step })
