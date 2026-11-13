@@ -5287,6 +5287,38 @@ async function run(browser, vp) {
       return `${rows[0]} | ${rows[2]} | 1916: ${before ?? '(ingen Titanic-etikett)'}`;
     } finally { await wp.close(); }
   });
+  // #1387 (WCAG 2.5.3, Label in Name): knappens tillgängliga namn börjar med den synliga texten, så att röststyrning som säger
+  // "Samtidigt" hittar den. Svenska och engelska (där knappen heter något annat) körs i samma bredd som jobbet.
+  await check('Samtidigt-knappens tillgängliga namn börjar med den synliga texten (#1387)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      const out = [];
+      let loads = 0;
+      for (const lang of ['sv', 'en']) {
+        await wp.goto(`${BASE}?lang=${lang}&ny=n${loads++}#y=1325`);
+        await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await wp.waitForSelector('#event-list .event-item', { state: 'attached', timeout: T.step });
+        const m = await wp.evaluate(() => {
+          const b = document.getElementById('btn-panel');
+          const visible = [...b.childNodes].find(n => n.nodeType === 3 && n.textContent.trim())?.textContent.trim();
+          return { visible, name: b.getAttribute('aria-label') };
+        });
+        if (!m.visible) throw new Error(`${lang}: knappen har ingen synlig text`);
+        if (!m.name || !m.name.startsWith(`${m.visible},`)) throw new Error(`${lang}: namnet "${m.name}" börjar inte med den synliga texten "${m.visible}"`);
+        if (!/\d/.test(m.name)) throw new Error(`${lang}: namnet "${m.name}" har tappat antalet träffar`);
+        out.push(m.name);
+      }
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return out.join(' | ');
+    } finally { await wp.close(); }
+  });
   // #1319: fönstret är 1,2 % av reglaget åt varje håll, räknat i reglagets läge. Vid en segmentgräns blir det olika långt före
   // och efter året, och raden under årtalet skriver då båda sidorna i klartext i stället för "±". Inne i ett segment är det som förut.
   await check('tidsfönstret före och efter året vid en segmentgräns (#1319)', async () => {

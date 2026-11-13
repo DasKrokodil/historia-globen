@@ -469,6 +469,7 @@
   "detail.source": "Fuente:",
   "detail.sourceMissing": "falta",
   "detail.beforeScale": "El acontecimiento comienza antes del inicio de la línea de tiempo ({year}), por lo que el control no puede mostrar su primer año.",
+  "detail.yearsAgo": "El texto cuenta en años antes del presente y las fechas en a. C. La diferencia es de unos 2000 años: hace 40 000 años equivale a unos 38 000 a. C.",
   "detail.evidence.ref": "Fuente {n}",
   "detail.evidence.date": "Fecha",
   "detail.evidence.text": "Texto",
