@@ -3295,8 +3295,11 @@
   {
    "id": "egypten",
    "name": {
-    "sv": "Egypten: gamla och nya riket",
-    "en": "Egypt: Old and New Kingdom"
+    "sv": "Egypten: gamla, mellersta och nya riket",
+    "en": "Egypt: Old, Middle and New Kingdom",
+    "de": "Ägypten: Altes, Mittleres und Neues Reich",
+    "es": "Egipto: Imperio Antiguo, Medio y Nuevo",
+    "fr": "Égypte : Ancien, Moyen et Nouvel Empire"
    },
    "color": "#3aa0a8",
    "from": -2500,
@@ -3307,7 +3310,24 @@
      "id": "egyptens-gamla-rike",
      "name": {
       "sv": "Egyptens gamla rike",
-      "en": "Old Kingdom of Egypt"
+      "en": "Old Kingdom of Egypt",
+      "de": "Altes Reich von Ägypten",
+      "es": "Imperio Antiguo de Egipto",
+      "fr": "Ancien Empire de l'Égypte"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "egyptens-mellersta-rike",
+     "name": {
+      "sv": "Egyptens mellersta rike",
+      "en": "Middle Kingdom of Egypt",
+      "de": "Mittleres Reich",
+      "es": "Imperio Medio de Egipto",
+      "fr": "Moyen Empire"
      },
      "sources": [
       "cliopatria"
@@ -3318,7 +3338,10 @@
      "id": "egyptens-nya-rike",
      "name": {
       "sv": "Egyptens nya rike",
-      "en": "New Kingdom of Egypt"
+      "en": "New Kingdom of Egypt",
+      "de": "Neues Reich",
+      "es": "Imperio Nuevo de Egipto",
+      "fr": "Nouvel Empire"
      },
      "sources": [
       "cliopatria"
@@ -3328,8 +3351,8 @@
    ],
    "facts": {
     "summary": {
-     "sv": "Det forntida Egypten hade sitt centrum i Nildalen. Gruppen på kartan visar två av de tre perioder som kallas riken: gamla riket, pyramidbyggarnas tid, och nya riket, då Egypten var som mäktigast och styrde långt in i Levanten och Nubien. Mellan dem låg tider av splittring och mellersta riket, som inte ingår här.",
-     "en": "Ancient Egypt had its centre in the Nile Valley. The group on the map shows two of the three periods called kingdoms: the Old Kingdom, the age of the pyramid builders, and the New Kingdom, when Egypt was at its most powerful and ruled far into the Levant and Nubia. Between them lay times of fragmentation and the Middle Kingdom, which is not included here."
+     "sv": "Det forntida Egypten hade sitt centrum i Nildalen. Gruppen på kartan visar de tre perioder som kallas riken: gamla riket, pyramidbyggarnas tid, mellersta riket, då landet enades igen efter en tid av splittring, och nya riket, då Egypten var som mäktigast och styrde långt in i Levanten och Nubien. Mellan rikena låg tider av splittring.",
+     "en": "Ancient Egypt had its centre in the Nile Valley. The group on the map shows the three periods called kingdoms: the Old Kingdom, the age of the pyramid builders, the Middle Kingdom, when the land was united again after a time of fragmentation, and the New Kingdom, when Egypt was at its most powerful and ruled far into the Levant and Nubia. Between the kingdoms lay times of fragmentation."
     },
     "items": [
      {
@@ -3480,6 +3503,74 @@
       }
      },
      {
+      "year": -2054,
+      "label": {
+       "sv": "cirka 2055 f.Kr.",
+       "en": "about 2055 BC",
+       "de": "um 2055 v. Chr.",
+       "es": "hacia 2055 a. C.",
+       "fr": "vers 2055 av. J.-C."
+      },
+      "title": {
+       "sv": "Mellersta riket börjar",
+       "en": "The Middle Kingdom begins",
+       "de": "Das Mittlere Reich beginnt",
+       "es": "Comienza el Imperio Medio",
+       "fr": "Début du Moyen Empire"
+      },
+      "text": {
+       "sv": "Mentuhotep II blir kung i Thebe och enar sedan hela Egypten igen efter en tid av splittring. Därför räknas han som mellersta rikets grundare.",
+       "en": "Mentuhotep II becomes king in Thebes and then unites all of Egypt again after a time of fragmentation. He is therefore regarded as the founder of the Middle Kingdom.",
+       "de": "Mentuhotep II. wird König in Theben und eint danach ganz Ägypten nach einer Zeit der Zersplitterung wieder. Deshalb gilt er als Begründer des Mittleren Reiches.",
+       "es": "Mentuhotep II se convierte en rey en Tebas y después vuelve a unir todo Egipto tras una época de división. Por eso se le considera el fundador del Imperio Medio.",
+       "fr": "Mentuhotep II devient roi à Thèbes, puis réunifie toute l’Égypte après une période de division. C’est pourquoi il est considéré comme le fondateur du Moyen Empire."
+      },
+      "sources": [
+       "wp-middle-kingdom-egypt"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar mellersta riket från 2001 f.Kr.",
+       "en": "The map shows the Middle Kingdom from 2001 BC.",
+       "de": "Die Karte zeigt das Mittlere Reich ab 2001 v. Chr.",
+       "es": "El mapa muestra el Imperio Medio desde 2001 a. C.",
+       "fr": "La carte montre le Moyen Empire à partir de 2001 av. J.-C."
+      }
+     },
+     {
+      "year": -1649,
+      "label": {
+       "sv": "cirka 1650 f.Kr.",
+       "en": "about 1650 BC",
+       "de": "um 1650 v. Chr.",
+       "es": "hacia 1650 a. C.",
+       "fr": "vers 1650 av. J.-C."
+      },
+      "title": {
+       "sv": "Mellersta riket upphör",
+       "en": "The Middle Kingdom ends",
+       "de": "Das Mittlere Reich endet",
+       "es": "Termina el Imperio Medio",
+       "fr": "Fin du Moyen Empire"
+      },
+      "text": {
+       "sv": "Efter tolfte dynastin styrs Egypten av en rad kortlivade kungar. Källorna skiljer sig om när mellersta riket slutar: cirka 1782, cirka 1700 eller cirka 1650 f.Kr., beroende på hur mycket av trettonde dynastin som räknas med. Sedan följer en ny tid av splittring, då hyksos styr norra Egypten.",
+       "en": "After the Twelfth Dynasty Egypt is ruled by a series of short-lived kings. The sources differ about when the Middle Kingdom ends: about 1782, about 1700 or about 1650 BC, depending on how much of the Thirteenth Dynasty is counted. Then follows a new time of fragmentation, when the Hyksos rule northern Egypt.",
+       "de": "Nach der 12. Dynastie wird Ägypten von einer Reihe kurzlebiger Könige regiert. Die Quellen unterscheiden sich darin, wann das Mittlere Reich endet: um 1782, um 1700 oder um 1650 v. Chr., je nachdem, wie viel von der 13. Dynastie mitgezählt wird. Danach folgt eine neue Zeit der Zersplitterung, in der die Hyksos Nordägypten beherrschen.",
+       "es": "Después de la dinastía XII, Egipto es gobernado por una serie de reyes efímeros. Las fuentes difieren sobre cuándo termina el Imperio Medio: hacia 1782, hacia 1700 o hacia 1650 a. C., según cuánto de la dinastía XIII se incluya. Después sigue una nueva época de división, en la que los hicsos gobiernan el norte de Egipto.",
+       "fr": "Après la 12e dynastie, l’Égypte est gouvernée par une série de rois éphémères. Les sources divergent sur la fin du Moyen Empire : vers 1782, vers 1700 ou vers 1650 av. J.-C., selon la part de la 13e dynastie que l’on inclut. Suit ensuite une nouvelle période de division, pendant laquelle les Hyksôs dominent le nord de l’Égypte."
+      },
+      "sources": [
+       "wp-middle-kingdom-egypt"
+      ],
+      "mapNote": {
+       "sv": "Kartan visar mellersta riket till och med 1602 f.Kr.",
+       "en": "The map shows the Middle Kingdom up to and including 1602 BC.",
+       "de": "Die Karte zeigt das Mittlere Reich bis einschließlich 1602 v. Chr.",
+       "es": "El mapa muestra el Imperio Medio hasta 1602 a. C. inclusive.",
+       "fr": "La carte montre le Moyen Empire jusqu’en 1602 av. J.-C. inclus."
+      }
+     },
+     {
       "year": -1569,
       "label": {
        "sv": "cirka 1570 f.Kr.",
@@ -3572,11 +3663,12 @@
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger gamla riket till cirka 2686–2181 f.Kr. (World History Encyclopedia cirka 2613–2181) och nya riket till cirka 1570–1069 f.Kr. Kartan visar gamla riket 2501–2202 f.Kr. och nya riket 1501–802 f.Kr.",
-     "en": "The sources give the Old Kingdom as about 2686–2181 BC (World History Encyclopedia about 2613–2181) and the New Kingdom as about 1570–1069 BC. The map shows the Old Kingdom 2501–2202 BC and the New Kingdom 1501–802 BC."
+     "sv": "Källorna anger gamla riket till cirka 2686–2181 f.Kr. (World History Encyclopedia cirka 2613–2181), mellersta riket till cirka 2055–1650 f.Kr. (eller till cirka 1782 eller 1700, beroende på definition) och nya riket till cirka 1570–1069 f.Kr. Kartan visar gamla riket 2501–2202 f.Kr., mellersta riket 2001–1602 f.Kr. och nya riket 1501–802 f.Kr.",
+     "en": "The sources give the Old Kingdom as about 2686–2181 BC (World History Encyclopedia about 2613–2181), the Middle Kingdom as about 2055–1650 BC (or to about 1782 or 1700, depending on the definition) and the New Kingdom as about 1570–1069 BC. The map shows the Old Kingdom 2501–2202 BC, the Middle Kingdom 2001–1602 BC and the New Kingdom 1501–802 BC."
     },
     "sources": [
      "wp-old-kingdom-egypt",
+     "wp-middle-kingdom-egypt",
      "wp-new-kingdom-egypt",
      "whe-old-kingdom-egypt",
      "whe-new-kingdom-egypt",
@@ -36603,6 +36695,246 @@
       "de": "Ostgotenreich",
       "es": "reino ostrogodo de Italia",
       "fr": "royaume des Ostrogoths"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "xiongnu",
+   "name": {
+    "sv": "Xiongnu",
+    "en": "Xiongnu",
+    "de": "Xiongnu",
+    "es": "Xiongnu",
+    "fr": "Xiongnu"
+   },
+   "color": "#8a6a3a",
+   "from": -208,
+   "to": 153,
+   "file": "data/empires/xiongnu.json",
+   "polities": [
+    {
+     "id": "xiongnu",
+     "name": {
+      "sv": "Xiongnu",
+      "en": "Xiongnu",
+      "de": "Xiongnu",
+      "es": "Xiongnu",
+      "fr": "Xiongnu"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "jindynastin-266-420",
+   "name": {
+    "sv": "Jindynastin (266–420)",
+    "en": "Jin dynasty (266–420)",
+    "de": "Jin-Dynastie (266–420)",
+    "es": "dinastía Jin (266–420)",
+    "fr": "dynastie Jin (266–420)"
+   },
+   "color": "#c08a5a",
+   "from": 265,
+   "to": 425,
+   "file": "data/empires/jindynastin-266-420.json",
+   "polities": [
+    {
+     "id": "jindynastin-266-420",
+     "name": {
+      "sv": "Jindynastin (266–420)",
+      "en": "Jin dynasty (266–420)",
+      "de": "Jin-Dynastie (266–420)",
+      "es": "dinastía Jin (266–420)",
+      "fr": "dynastie Jin (266–420)"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kushan",
+   "name": {
+    "sv": "Kushan",
+    "en": "Kushan Empire",
+    "de": "Kuschana",
+    "es": "Imperio kushán",
+    "fr": "Empire kouchan"
+   },
+   "color": "#7a5aa0",
+   "from": 43,
+   "to": 237,
+   "file": "data/empires/kushan.json",
+   "polities": [
+    {
+     "id": "kushan",
+     "name": {
+      "sv": "Kushan",
+      "en": "Kushan Empire",
+      "de": "Kuschana",
+      "es": "Imperio kushán",
+      "fr": "Empire kouchan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "satavahana",
+   "name": {
+    "sv": "Satavahana",
+    "en": "Satavahana dynasty",
+    "de": "Shatavahana",
+    "es": "Dinastía Satavájana",
+    "fr": "Satavahana"
+   },
+   "color": "#5aa07a",
+   "from": -225,
+   "to": 223,
+   "file": "data/empires/satavahana.json",
+   "polities": [
+    {
+     "id": "satavahana",
+     "name": {
+      "sv": "Satavahana",
+      "en": "Satavahana dynasty",
+      "de": "Shatavahana",
+      "es": "Dinastía Satavájana",
+      "fr": "Satavahana"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kush",
+   "name": {
+    "sv": "Kush",
+    "en": "Kingdom of Kush",
+    "de": "Reich von Kusch",
+    "es": "Reino de Kush",
+    "fr": "royaume de Koush"
+   },
+   "color": "#a0603a",
+   "from": -1000,
+   "to": 346,
+   "file": "data/empires/kush.json",
+   "polities": [
+    {
+     "id": "kush",
+     "name": {
+      "sv": "Kush",
+      "en": "Kingdom of Kush",
+      "de": "Reich von Kusch",
+      "es": "Reino de Kush",
+      "fr": "royaume de Koush"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "ptolemaiska-riket",
+   "name": {
+    "sv": "Ptolemaiska riket",
+    "en": "Ptolemaic Kingdom",
+    "de": "Ptolemäisches Königreich",
+    "es": "Egipto tolemaico",
+    "fr": "royaume ptolémaïque"
+   },
+   "color": "#4a7ab0",
+   "from": -331,
+   "to": -28,
+   "file": "data/empires/ptolemaiska-riket.json",
+   "polities": [
+    {
+     "id": "ptolemaiska-riket",
+     "name": {
+      "sv": "Ptolemaiska riket",
+      "en": "Ptolemaic Kingdom",
+      "de": "Ptolemäisches Königreich",
+      "es": "Egipto tolemaico",
+      "fr": "royaume ptolémaïque"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "mitanni",
+   "name": {
+    "sv": "Mitanni",
+    "en": "Mitanni",
+    "de": "Mittani",
+    "es": "Mitani",
+    "fr": "Mitanni"
+   },
+   "color": "#b05a6a",
+   "from": -1500,
+   "to": -1241,
+   "file": "data/empires/mitanni.json",
+   "polities": [
+    {
+     "id": "mitanni",
+     "name": {
+      "sv": "Mitanni",
+      "en": "Mitanni",
+      "de": "Mittani",
+      "es": "Mitani",
+      "fr": "Mitanni"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "vastra-regionernas-protektorat",
+   "name": {
+    "sv": "De västra regionernas protektorat",
+    "en": "Protectorate of the Western Regions",
+    "de": "Protectorate of the Western Regions",
+    "es": "protectorado de las regiones occidentales",
+    "fr": "Protectorat des Régions de l'Ouest"
+   },
+   "color": "#6a9a8a",
+   "from": 117,
+   "to": 601,
+   "file": "data/empires/vastra-regionernas-protektorat.json",
+   "polities": [
+    {
+     "id": "vastra-regionernas-protektorat",
+     "name": {
+      "sv": "De västra regionernas protektorat",
+      "en": "Protectorate of the Western Regions",
+      "de": "Protectorate of the Western Regions",
+      "es": "protectorado de las regiones occidentales",
+      "fr": "Protectorat des Régions de l'Ouest"
      },
      "sources": [
       "cliopatria"

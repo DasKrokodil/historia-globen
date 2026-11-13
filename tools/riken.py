@@ -128,8 +128,10 @@ GROUPS = {
           'splits': (1919, 1967, 1969, 1976, 1979, 1987)}),
     ]),
     # R2 Antiken (#68)
-    'egypten': ('Egypten: gamla och nya riket', 'Egypt: Old and New Kingdom', [
+    # Mellersta riket (Q191324) lades till i #646 (DasKrokodils ja 2026-11-13); gruppens id står kvar så att länkar inte ändras
+    'egypten': ('Egypten: gamla, mellersta och nya riket', 'Egypt: Old, Middle and New Kingdom', [
         ('Old Kingdom of Egypt', 'egyptens-gamla-rike', 'Egyptens gamla rike', '#3aa0a8'),
+        ('Middle Kingdom of Egypt', 'egyptens-mellersta-rike', 'Egyptens mellersta rike', '#3aa0a8'),
         ('New Kingdom of Egypt', 'egyptens-nya-rike', 'Egyptens nya rike', '#3aa0a8'),
     ]),
     'assyriska-riket': ('Assyriska riket', 'Assyria', [
@@ -1308,6 +1310,36 @@ GROUPS = {
     # Östgoternas rike (DasKrokodils beslut 2026-11-13): samma svenska namn som i INFLUENCE_NAMES, inte Wikidatas "Ostrogoternas rike"
     'ostgoternas-rike': ('Östgoternas rike', 'Ostrogothic Kingdom', [
         ('Ostrogothic Kingdom', 'ostgoternas-rike', 'Östgoternas rike', '#9a6a5a', {'en': 'Ostrogothic Kingdom'}),
+    ]),
+    # Antikens luckor, första omgången (#646, DasKrokodils ja 2026-11-13): de största luckorna före 600 enligt
+    # tools/tackning_riken.py, där Cliopatrias Wikidata-id är en stat. Svenska och engelska namn är Wikidatas etiketter,
+    # kontrollerade med SPARQL 2026-11-13. Cliopatrias Western Jin (265–425) har Wikidatas hela Jindynasti (Q7352, 266–420),
+    # som har samma namn som jurchenernas Jindynasti (Q5066, 1115–1234); den får därför årtalen i namnet, som i
+    # Wikipedias titel "Jin dynasty (266–420)". Mellersta riket ligger i gruppen 'egypten' ovan.
+    'xiongnu': ('Xiongnu', 'Xiongnu', [
+        ('Xiongnu', 'xiongnu', 'Xiongnu', '#8a6a3a', {'en': 'Xiongnu'}),
+    ]),
+    'jindynastin-266-420': ('Jindynastin (266–420)', 'Jin dynasty (266–420)', [
+        ('Western Jin', 'jindynastin-266-420', 'Jindynastin (266–420)', '#c08a5a', {'en': 'Jin dynasty (266–420)'}),
+    ]),
+    'kushan': ('Kushan', 'Kushan Empire', [
+        ('Kushan Empire', 'kushan', 'Kushan', '#7a5aa0', {'en': 'Kushan Empire'}),
+    ]),
+    'satavahana': ('Satavahana', 'Satavahana dynasty', [
+        ('Satavahana Dynasty', 'satavahana', 'Satavahana', '#5aa07a', {'en': 'Satavahana dynasty'}),
+    ]),
+    'kush': ('Kush', 'Kingdom of Kush', [
+        ('Kingdom of Kush', 'kush', 'Kush', '#a0603a', {'en': 'Kingdom of Kush'}),
+    ]),
+    'ptolemaiska-riket': ('Ptolemaiska riket', 'Ptolemaic Kingdom', [
+        ('Ptolemaic Kingdom', 'ptolemaiska-riket', 'Ptolemaiska riket', '#4a7ab0', {'en': 'Ptolemaic Kingdom'}),
+    ]),
+    'mitanni': ('Mitanni', 'Mitanni', [
+        ('Mitanni', 'mitanni', 'Mitanni', '#b05a6a', {'en': 'Mitanni'}),
+    ]),
+    'vastra-regionernas-protektorat': ('De västra regionernas protektorat', 'Protectorate of the Western Regions', [
+        ('Protectorate of the Western Regions', 'vastra-regionernas-protektorat', 'De västra regionernas protektorat', '#6a9a8a',
+         {'en': 'Protectorate of the Western Regions'}),
     ]),
     # Små stater ur Natural Earth (#722, Rikards beslut 2026-11-07): Cliopatria saknar dem i nutid eller har fel gräns
     # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth
