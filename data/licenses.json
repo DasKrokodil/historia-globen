@@ -11,11 +11,13 @@
       "sourceIds": [
         "arenas-2020-philippines-mtdna",
         "curnoe-2025-gua-dagang",
+        "freidline-2023-tam-pa-ling",
         "harvati-2022-homo-mlp",
         "heydari-guran-2021-bawa-yawan",
         "jacobs-2025-denisova-chronology",
         "kaifu-2024-mata-menge",
         "sumer-2025-ranis-genomes",
+        "vidal-2022-omo-kibish",
         "xia-2024-baishiya"
       ]
     },
@@ -2135,6 +2137,12 @@
       "license": "Store norske leksikon, märkt fri (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "snl-eirik-raude"
+      ]
+    },
+    {
+      "license": "Stängd artikel, länkad källa: bara sammanfattningen läst, ingen text kopierad (beslut 2026-11-12)",
+      "sourceIds": [
+        "martinon-torres-2021-panga-ya-saidi"
       ]
     },
     {
