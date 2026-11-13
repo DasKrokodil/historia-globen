@@ -770,6 +770,7 @@
   "sources.baseMap": "Base map",
   "sources.modernBorders": "Present-day borders",
   "sources.discovery": "Voyages of discovery: {title}",
+  "sources.imageLayer": "Image layer: {title}",
   "sources.imageUse": "Image: {title}",
   "sources.loading": "Loading sources…",
   "sources.loadFailed": "The sources could not be loaded.",

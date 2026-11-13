@@ -770,6 +770,7 @@
   "sources.baseMap": "Mapa base",
   "sources.modernBorders": "Fronteras actuales",
   "sources.discovery": "Viajes de descubrimiento: {title}",
+  "sources.imageLayer": "Capa de imagen: {title}",
   "sources.imageUse": "Imagen: {title}",
   "sources.loading": "Cargando fuentes…",
   "sources.loadFailed": "No se pudieron cargar las fuentes.",
