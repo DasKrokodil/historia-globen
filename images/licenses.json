@@ -18,6 +18,21 @@
       }
     },
     {
+      "eventId": "alltinget-grundas",
+      "eventTitle": "Alltinget grundas på Island",
+      "file": "images/events/alltinget-grundas.webp",
+      "kind": "historisk",
+      "credit": "W. G. Collingwood / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-alltinget-grundas",
+        "title": "Althingi (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Althingi.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-13"
+      }
+    },
+    {
       "eventId": "angkor-wat",
       "eventTitle": "Angkor Wat byggs",
       "file": "images/events/angkor-wat.webp",
@@ -285,6 +300,21 @@
       }
     },
     {
+      "eventId": "broad-street-kolera-1854",
+      "eventTitle": "John Snow och koleran på Broad Street",
+      "file": "images/events/broad-street-kolera-1854.webp",
+      "kind": "historisk",
+      "credit": "John Snow / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-broad-street-kolera-1854",
+        "title": "Snow-cholera-map-1 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Snow-cholera-map-1.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-13"
+      }
+    },
+    {
       "eventId": "buddha",
       "eventTitle": "Buddha grundar buddhismen",
       "file": "images/events/buddha.webp",
@@ -435,6 +465,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:SARS-CoV-2_without_background.png",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "curie-polonium-radium",
+      "eventTitle": "Marie och Pierre Curie upptäcker polonium och radium",
+      "file": "images/events/curie-polonium-radium.webp",
+      "kind": "historisk",
+      "credit": "Okänd fotograf / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-curie-polonium-radium",
+        "title": "Pierre and Marie Curie (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Pierre_and_Marie_Curie.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-13"
       }
     },
     {
@@ -1215,6 +1260,21 @@
       }
     },
     {
+      "eventId": "kommunistiska-manifestet",
+      "eventTitle": "Kommunistiska manifestet ges ut",
+      "file": "images/events/kommunistiska-manifestet.webp",
+      "kind": "historisk",
+      "credit": "Karl Marx och Friedrich Engels / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kommunistiska-manifestet",
+        "title": "Manifest der kommunistischen Partei (Marx) 001 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Manifest_der_kommunistischen_Partei_%28Marx%29_001.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-13"
+      }
+    },
+    {
       "eventId": "konfucius",
       "eventTitle": "Konfucius lever",
       "file": "images/events/konfucius.webp",
@@ -1441,6 +1501,36 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "lister-antiseptik",
+      "eventTitle": "Lister behandlar sår med karbolsyra",
+      "file": "images/events/lister-antiseptik.webp",
+      "kind": "historisk",
+      "credit": "Wellcome Collection / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-lister-antiseptik",
+        "title": "Use of the Lister carbolic spray, Antiseptic surgery, 1882. Wellcome M0003436 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Use_of_the_Lister_carbolic_spray%2C_Antiseptic_surgery%2C_1882._Wellcome_M0003436.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-13"
+      }
+    },
+    {
+      "eventId": "lunds-domkyrka-invigs",
+      "eventTitle": "Lunds domkyrka invigs",
+      "file": "images/events/lunds-domkyrka-invigs.webp",
+      "kind": "historisk",
+      "credit": "Kallekn / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-lunds-domkyrka-invigs",
+        "title": "Lunds domkyrka1 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lunds_domkyrka1.jpeg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-13"
+      }
     },
     {
       "eventId": "luthers-teser",

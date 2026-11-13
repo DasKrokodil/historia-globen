@@ -1806,5 +1806,101 @@
     "credit": "Jakub Hałun / Wikimedia Commons",
     "license": "CC BY 4.0",
     "source": "commons-bild-nederlandarna-till-dejima"
+  },
+  {
+    "id": "kommunistiska-manifestet",
+    "file": "kommunistiska-manifestet.jpg",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Titelsidan till Kommunistiska manifestet, tryckt i London och enligt sidan själv utgiven i februari 1848. Utsnitt. Licens: Public domain.",
+      "en": "The title page of the Communist Manifesto, printed in London and, according to the page itself, published in February 1848. Detail. Licence: Public domain.",
+      "de": "Die Titelseite des Kommunistischen Manifests, gedruckt in London und laut der Seite selbst im Februar 1848 veröffentlicht. Ausschnitt. Lizenz: Public domain.",
+      "es": "La portada del Manifiesto comunista, impreso en Londres y, según la propia página, publicado en febrero de 1848. Detalle. Licencia: Public domain.",
+      "fr": "La page de titre du Manifeste du Parti communiste, imprimé à Londres et, selon la page elle-même, publié en février 1848. Détail. Licence : Public domain."
+    },
+    "credit": "Karl Marx och Friedrich Engels / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-kommunistiska-manifestet"
+  },
+  {
+    "id": "lunds-domkyrka-invigs",
+    "file": "lunds-domkyrka-invigs.jpg",
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Lunds domkyrka i dag. Foto: Kallekn, 2007. Licens: CC BY-SA 3.0.",
+      "en": "Lund Cathedral today. Photo: Kallekn, 2007. Licence: CC BY-SA 3.0.",
+      "de": "Der Dom zu Lund heute. Foto: Kallekn, 2007. Lizenz: CC BY-SA 3.0.",
+      "es": "La catedral de Lund en la actualidad. Foto: Kallekn, 2007. Licencia: CC BY-SA 3.0.",
+      "fr": "La cathédrale de Lund aujourd’hui. Photo : Kallekn, 2007. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Kallekn / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-lunds-domkyrka-invigs"
+  },
+  {
+    "id": "curie-polonium-radium",
+    "file": "curie-polonium-radium.jpg",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Pierre och Marie Curie i laboratoriet, fotograferade omkring 1904. Fotograf okänd. Licens: Public domain.",
+      "en": "Pierre and Marie Curie in the laboratory, photographed around 1904. Photographer unknown. Licence: Public domain.",
+      "de": "Pierre und Marie Curie im Labor, fotografiert um 1904. Fotograf unbekannt. Lizenz: Public domain.",
+      "es": "Pierre y Marie Curie en el laboratorio, fotografiados hacia 1904. Fotógrafo desconocido. Licencia: Public domain.",
+      "fr": "Pierre et Marie Curie au laboratoire, photographiés vers 1904. Photographe inconnu. Licence : Public domain."
+    },
+    "credit": "Okänd fotograf / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-curie-polonium-radium"
+  },
+  {
+    "id": "lister-antiseptik",
+    "file": "lister-antiseptik.jpg",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Listers karbolspray används vid en operation. Bild ur boken Antiseptic surgery från 1882, sjutton år efter Listers första behandling med karbolsyra. Licens: CC BY 4.0.",
+      "en": "Lister's carbolic spray in use during an operation. Image from the book Antiseptic surgery from 1882, seventeen years after Lister's first treatment with carbolic acid. Licence: CC BY 4.0.",
+      "de": "Listers Karbolspray bei einer Operation. Abbildung aus dem Buch Antiseptic surgery von 1882, siebzehn Jahre nach Listers erster Behandlung mit Karbolsäure. Lizenz: CC BY 4.0.",
+      "es": "El pulverizador de ácido carbólico de Lister durante una operación. Imagen del libro Antiseptic surgery, de 1882, diecisiete años después del primer tratamiento de Lister con ácido carbólico. Licencia: CC BY 4.0.",
+      "fr": "Le pulvérisateur d’acide phénique de Lister pendant une opération. Image tirée du livre Antiseptic surgery, de 1882, dix-sept ans après le premier traitement de Lister à l’acide phénique. Licence : CC BY 4.0."
+    },
+    "credit": "Wellcome Collection / Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "source": "commons-bild-lister-antiseptik"
+  },
+  {
+    "id": "broad-street-kolera-1854",
+    "file": "broad-street-kolera-1854.jpg",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "John Snows karta över koleran kring Broad Street i Soho 1854. Fallen är markerade i svart. Utsnitt. Licens: Public domain.",
+      "en": "John Snow's map of the cholera around Broad Street in Soho in 1854. The cases are marked in black. Detail. Licence: Public domain.",
+      "de": "John Snows Karte der Cholera rund um die Broad Street in Soho 1854. Die Fälle sind schwarz markiert. Ausschnitt. Lizenz: Public domain.",
+      "es": "El mapa de John Snow sobre el cólera en torno a Broad Street, en el Soho, en 1854. Los casos están marcados en negro. Detalle. Licencia: Public domain.",
+      "fr": "La carte de John Snow du choléra autour de Broad Street, à Soho, en 1854. Les cas sont marqués en noir. Détail. Licence : Public domain."
+    },
+    "credit": "John Snow / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-broad-street-kolera-1854"
+  },
+  {
+    "id": "alltinget-grundas",
+    "file": "alltinget-grundas.jpg",
+    "kind": "historisk",
+    "style": "tidig-medeltid",
+    "caption": {
+      "sv": "Alltinget på Þingvellir i en romantiserad målning av W. G. Collingwood, omkring 1897, långt efter tingets första tid. Inte en samtida bild. Licens: Public domain.",
+      "en": "The Althing at Þingvellir in a romanticised painting by W. G. Collingwood, around 1897, long after the assembly's early days. Not a contemporary image. Licence: Public domain.",
+      "de": "Das Althing in Þingvellir in einem romantisierenden Gemälde von W. G. Collingwood, um 1897, lange nach der Frühzeit der Versammlung. Kein zeitgenössisches Bild. Lizenz: Public domain.",
+      "es": "El Althing en Þingvellir en una pintura romántica de W. G. Collingwood, hacia 1897, mucho después de los primeros tiempos de la asamblea. No es una imagen de la época. Licencia: Public domain.",
+      "fr": "L’Althing à Þingvellir dans une peinture romantique de W. G. Collingwood, vers 1897, bien après les débuts de l’assemblée. Ce n’est pas une image d’époque. Licence : Public domain."
+    },
+    "credit": "W. G. Collingwood / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-alltinget-grundas"
   }
 ]
