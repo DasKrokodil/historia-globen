@@ -366,6 +366,15 @@ export class Panel {
   }
 
   /**
+   * Knappens tillgängliga namn börjar med den synliga texten ("Samtidigt, 10 träffar: …"), så att röststyrning som säger
+   * knappens ord hittar den (WCAG 2.5.3, Label in Name, #1387). Det synliga ordet är första textnoden i knappen.
+   */
+  accessibleName(text) {
+    const visible = [...this.toggle.childNodes].find(n => n.nodeType === 3 && n.textContent.trim())?.textContent.trim();
+    return visible ? `${visible}, ${text}` : text;
+  }
+
+  /**
    * labels (valfritt): { at, bare, within } i stället för "år 1879", "1879" och "±10 år", till exempel i fokusläget för korta krig (#204).
    * labels.range (#755): listan gäller ett tidsintervall. Händelser som bara delvis ligger inom det märks "delvis inom
    * intervallet", och osäkra datum (samma regler som uncertaintyRow) märks "osäkert datum", så att mängden inte ser
@@ -375,7 +384,7 @@ export class Panel {
     this.updateTagNote(eventsOn);
     if (!eventsOn) {
       this.count.textContent = '0';
-      this.toggle.setAttribute('aria-label', t(this.copy.eventsOff));
+      this.toggle.setAttribute('aria-label', this.accessibleName(t(this.copy.eventsOff)));
       this.sub.textContent = t(this.copy.eventsOff);
       const help = document.createElement('p');
       help.className = 'empty-note';
@@ -401,7 +410,7 @@ export class Panel {
     const summary = copy('summary');
     const summaryText = summary.replace('{count}', visible.length).replace('{inside}', inside).replace('{near}', near);
     this.count.textContent = String(range ? inside : visible.length);
-    this.toggle.setAttribute('aria-label', summaryText);
+    this.toggle.setAttribute('aria-label', this.accessibleName(summaryText));
     // at = "år 1879" eller "den 3 maj 1940" (fokusläget för korta krig, #204); bare = samma tid utan "år"/"den"
     const at = labels?.at ?? ui('panel.atYear', { year: formatYear(year) }), bare = labels?.bare ?? formatYear(year);
     const within = labels?.within ?? plural('time.withinYears', roundWindow(window), { n: roundWindow(window) }); // samma avrundade tal som raden under årtalet (#1191)
@@ -412,7 +421,7 @@ export class Panel {
     const partialCount = range ? visible.filter(v => v.partial).length : 0;
     if (partialCount) parts.push(plural('range.partialCount', partialCount, { count: partialCount }));
     // I intervallet finns inget "nära": raden säger hur många som pågår under intervallet och hur många som sticker ut
-    if (range) this.toggle.setAttribute('aria-label', stop(parts.join(', ')));
+    if (range) this.toggle.setAttribute('aria-label', this.accessibleName(stop(parts.join(', '))));
     const cause = labels?.themeEmpty ? null : emptyCause({ visibleCount: visible.length, filters: this.filters, total: this.allCategories?.size });
     const filtersOff = cause === 'filters', filtersSome = cause === 'some';
     this.sub.textContent = visible.length ? stop(range ? parts.join(', ') : `${summaryText}. ${parts.join(', ')}`)
