@@ -882,5 +882,20 @@
   "jump.empty": "Keine Ereignisse in dieser Auswahl.",
   "jump.more": "Die ersten {count} werden angezeigt.",
   "jump.era": "Zeitrechnung",
-  "jump.error.negative": "Wählen Sie v. Chr. oder n. Chr. mit den Schaltflächen statt mit einem Minuszeichen."
+  "jump.error.negative": "Wählen Sie v. Chr. oder n. Chr. mit den Schaltflächen statt mit einem Minuszeichen.",
+  "top.teacher": "Für Lehrkräfte",
+  "top.teacherTitle": "Unterrichtsstunden, Ausdruck, Quiz und Präsentationsmodus",
+  "help.teacher": "Unterrichten Sie?",
+  "help.teacherBtn": "Für Lehrkräfte öffnen",
+  "teacher.close": "Für Lehrkräfte schließen",
+  "teacher.intro": "Alles, was eine Unterrichtsstunde braucht, an einem Ort. Es sind weder eine Anmeldung noch Schülerkonten nötig, und die Seite speichert nichts über die Schülerinnen und Schüler.",
+  "teacher.lessons": "Unterrichtsstunden",
+  "teacher.lessonsText": "Fertige Unterrichtsstunden. Im Unterrichtsmodus sind die Menüs ausgeblendet, und die Zeit bleibt innerhalb der Jahre der Stunde. Die Webadresse während der Stunde können Sie mit den Schülerinnen und Schülern teilen.",
+  "teacher.noLessons": "Die Unterrichtsstunden konnten gerade nicht geladen werden. Laden Sie die Seite neu und versuchen Sie es erneut.",
+  "teacher.print": "Ausdruck",
+  "teacher.printText": "Starten Sie oben eine Unterrichtsstunde und wählen Sie in der Leiste am oberen Rand „Schüler- und Lehrerblatt drucken“. Das Schülerblatt enthält Fragen mit Platz für Antworten. Das Lehrerblatt enthält Klassenstufe, Zeit, Vorkenntnisse, Anleitung, den Bezug zum Lehrplan und die Fragen.",
+  "teacher.quizText": "Fragen dazu, was gleichzeitig geschah, aus den Fun Facts der Seite. Jede Antwort zeigt ihre Quellen.",
+  "teacher.huntText": "Ein Auftrag für die Schülerinnen und Schüler: Ereignisse auf verschiedenen Kontinenten finden, die gleichzeitig geschahen.",
+  "teacher.presentation": "Präsentationsmodus",
+  "teacher.presentationText": "Für Beamer und Großbildschirm: größere Schrift und größere Schaltflächen. Beenden Sie den Modus mit der Schaltfläche oben rechts."
 }

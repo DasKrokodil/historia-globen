@@ -565,6 +565,140 @@ async function run(browser, vp) {
     return 'ingen automatisk hjälp; öppning, Escape, fokus och reducerad rörelse fungerar';
   });
 
+  // För lärare (#1315): en ingång under Mer till lektioner, utskrift, quiz, jakt och presentationsläget
+  await check('För lärare: kortet öppnas från Mer och från Hjälp, stängs med Escape och lämnar plats åt quizet', async () => {
+    const returnTo = vp.width > 760 ? 'btn-more' : 'more-toggle'; // knappen ligger i den stängda menyn Mer (#651) eller Meny (#530)
+    await clickView('#btn-teacher');
+    await visible('#teacher');
+    if ((await page.getAttribute('#btn-teacher', 'aria-expanded')) !== 'true') throw new Error('knappen För lärare visar inte att kortet är öppet');
+    if (await page.evaluate(() => document.activeElement?.id !== 'teacher-close')) throw new Error('fokus flyttas inte till Stäng när kortet öppnas');
+    const card = await page.evaluate(() => {
+      const lessons = [...document.querySelectorAll('#teacher-lessons li')];
+      return {
+        lessons: lessons.length,
+        named: lessons.every(li => (li.querySelector('button')?.getAttribute('aria-label') || '').length > 12 && li.querySelector('.teacher-lesson-meta')?.textContent.trim()),
+        inTours: document.querySelectorAll('#tour-list .tour-lesson-start').length,
+        empty: !document.getElementById('teacher-lessons-empty').hidden,
+        quiz: !document.getElementById('teacher-quiz-row').hidden, hunt: !document.getElementById('teacher-hunt-row').hidden,
+        scroll: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth), width: innerWidth,
+        left: document.getElementById('teacher').getBoundingClientRect().left, right: document.getElementById('teacher').getBoundingClientRect().right,
+        title: document.getElementById('teacher-title').textContent.trim(),
+      };
+    });
+    if (!card.lessons || card.empty) throw new Error('kortet har inga lektioner eller visar tomtexten fast turerna finns');
+    if (card.lessons !== card.inTours) throw new Error(`kortet visar ${card.lessons} lektioner men Turer-menyn har ${card.inTours}`);
+    if (!card.named) throw new Error('en lektion saknar årskurs och tid eller en knapp med en egen etikett');
+    if (!card.quiz || !card.hunt) throw new Error('quizet eller jakten saknas i kortet fast de har data');
+    if (card.scroll > card.width || card.left < 0 || card.right > card.width) throw new Error(`kortet ger horisontell scroll eller ligger utanför skärmen: ${JSON.stringify(card)}`);
+    await shot('1315-for-larare');
+    await page.keyboard.press('Escape');
+    await hidden('#teacher');
+    if ((await page.getAttribute('#btn-teacher', 'aria-expanded')) !== 'false') throw new Error('knappen visar inte att kortet är stängt');
+    if (await page.evaluate(id => document.activeElement?.id !== id, returnTo)) throw new Error(`Escape lämnar inte fokus på ${returnTo}`);
+    // Från Hjälp: en dialog åt gången (stängregistret, js/surfaces.js)
+    await clickView('#btn-help');
+    await visible('#help');
+    await page.click('#help-teacher');
+    await visible('#teacher');
+    await hidden('#help');
+    // Quizet är en dialog i samma grupp och tar över
+    await page.click('#teacher-quiz');
+    await visible('#quiz');
+    await hidden('#teacher');
+    await page.keyboard.press('Escape');
+    await hidden('#quiz');
+    return `${card.lessons} lektioner (lika många som i Turer); öppning från Mer och Hjälp, fokus, Escape, en dialog åt gången och ingen scroll åt sidan`;
+  });
+
+  await check('För lärare: knappen för storskärm slår på läget utan omladdning och Avsluta tar bort det', async () => {
+    if (vp.width <= 760) { // i smal skärm erbjuds inte läget: det är till för projektor och storskärm
+      await clickView('#btn-teacher');
+      await visible('#teacher');
+      const shown = await page.isVisible('#teacher-presentation');
+      await page.keyboard.press('Escape');
+      await hidden('#teacher');
+      if (shown) throw new Error('knappen för storskärm visas i mobilbredd');
+      return 'knappen för storskärm visas inte i mobilbredd';
+    }
+    const pp = await context.newPage();
+    const errors = [];
+    pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    pp.on('pageerror', e => errors.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await pp.route(u => isFont(u.href), r => r.abort());
+      }
+      await pp.goto(BASE);
+      await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await pp.evaluate(() => { window.__hgNoReload = 1; });
+      const mode = () => pp.evaluate(() => ({
+        on: document.getElementById('app').classList.contains('presentation-mode'),
+        param: new URL(location.href).searchParams.get('presentation'),
+        exit: !document.getElementById('presentation-exit').hidden,
+        focus: document.activeElement?.id, kept: window.__hgNoReload === 1,
+        stored: Object.keys(localStorage).some(key => /presentation/i.test(key)),
+      }));
+      if ((await mode()).on) throw new Error('presentationsläget är på utan begäran');
+      await pp.click('#btn-more');
+      await pp.click('#btn-teacher');
+      await pp.waitForSelector('#teacher', { state: 'visible', timeout: T.step });
+      await pp.click('#teacher-presentation');
+      const on = await mode();
+      if (!on.on || !on.exit || on.param !== '1') throw new Error(`knappen slog inte på läget: ${JSON.stringify(on)}`);
+      if (!on.kept) throw new Error('sidan laddades om när läget slogs på');
+      if (on.focus !== 'presentation-exit') throw new Error(`fokus står på ${on.focus} i stället för Avsluta`);
+      if (on.stored) throw new Error('läget sparas i localStorage');
+      if (await pp.isVisible('#teacher')) throw new Error('kortet står kvar öppet');
+      // Året som läraren går till under läget ska finnas kvar när läget avslutas
+      await pp.click('#year-jump');
+      await pp.fill('#jump-input', '1066');
+      await pp.press('#jump-input', 'Enter');
+      await pp.waitForFunction(() => document.getElementById('year-big').textContent.replace(/\s/g, '') === '1066', null, { timeout: T.step });
+      await pp.focus('#presentation-exit');
+      await Promise.all([pp.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: T.load }), pp.keyboard.press('Enter')]);
+      await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      const off = await pp.evaluate(() => ({ on: document.getElementById('app').classList.contains('presentation-mode'), param: new URL(location.href).searchParams.has('presentation'), year: document.getElementById('year-big').textContent.replace(/\s/g, '') }));
+      if (off.on || off.param) throw new Error(`Avsluta tog inte bort läget: ${JSON.stringify(off)}`);
+      if (off.year !== '1066') throw new Error(`Avsluta behöll inte året: ${off.year}`);
+      if (errors.length) throw new Error(errors.join(' | '));
+    } finally { await pp.close(); }
+    return 'knappen slår på läget utan omladdning, fokus går till Avsluta, adressen får ?presentation=1 och Avsluta behåller året';
+  });
+
+  await check('För lärare: en startknapp i kortet öppnar läraren med knappen för utskrift', async () => {
+    const pp = await context.newPage();
+    const errors = [];
+    pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    pp.on('pageerror', e => errors.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await pp.route(u => isFont(u.href), r => r.abort());
+      }
+      await pp.goto(BASE);
+      await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (vp.width <= 760) await pp.click('#more-toggle'); else await pp.click('#btn-more');
+      await pp.click('#btn-teacher');
+      await pp.waitForSelector('#teacher-lessons li button', { state: 'visible', timeout: T.step });
+      await pp.click('#teacher-lessons li:first-child button');
+      await pp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      const lesson = await pp.evaluate(() => ({
+        title: document.getElementById('lesson-band-title').textContent,
+        print: !document.getElementById('lesson-print').hidden,
+        card: !document.getElementById('teacher').hidden,
+        hash: location.hash,
+      }));
+      if (!lesson.print) throw new Error('läraren får ingen knapp för elev- och lärarblad');
+      if (lesson.card) throw new Error('kortet står kvar öppet i lektionen');
+      if (!/m=lektion/.test(lesson.hash) || /r=lararen/.test(lesson.hash)) throw new Error(`adressen ska vara elevlänken (m=lektion utan r=lararen): ${lesson.hash}`);
+      await pp.click('#lesson-exit');
+      await pp.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
+      if (errors.length) throw new Error(errors.join(' | '));
+    } finally { await pp.close(); }
+    return 'startknappen börjar lektionen, kortet stängs, bandet har utskriftsknappen och adressen är elevlänken';
+  });
+
   if (vp.name === 'dator') {
     await check('surfplattans topprad täcker inte årtalet eller förklaringen (#992)', async () => {
       const pp = await context.newPage();

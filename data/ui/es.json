@@ -882,5 +882,20 @@
   "jump.empty": "No hay acontecimientos en esta selección.",
   "jump.more": "Se muestran los primeros {count}.",
   "jump.era": "Era",
-  "jump.error.negative": "Seleccione a. C. o d. C. con los botones en lugar de utilizar un signo menos."
+  "jump.error.negative": "Seleccione a. C. o d. C. con los botones en lugar de utilizar un signo menos.",
+  "top.teacher": "Para docentes",
+  "top.teacherTitle": "Lecciones, impresión, quiz y modo presentación",
+  "help.teacher": "¿Es docente?",
+  "help.teacherBtn": "Abrir Para docentes",
+  "teacher.close": "Cerrar Para docentes",
+  "teacher.intro": "Todo lo que puede necesitar una lección, en un solo lugar. No hace falta iniciar sesión ni crear cuentas para el alumnado, y el sitio no guarda nada sobre los alumnos.",
+  "teacher.lessons": "Lecciones",
+  "teacher.lessonsText": "Lecciones ya preparadas. En el modo lección se ocultan los menús y el tiempo se mantiene dentro de los años de la lección. La dirección web que aparece durante la lección puede compartirse con el alumnado.",
+  "teacher.noLessons": "No se pudieron cargar las lecciones en este momento. Vuelva a cargar la página e inténtelo de nuevo.",
+  "teacher.print": "Impresión",
+  "teacher.printText": "Empiece una lección arriba y elija Imprimir hojas del alumnado y del profesorado en la barra superior. La hoja del alumnado tiene preguntas con espacio para responder. La hoja del profesorado tiene el curso, la duración, los conocimientos previos, las instrucciones, la relación con el currículo y las preguntas.",
+  "teacher.quizText": "Preguntas sobre lo que ocurrió al mismo tiempo, tomadas de los datos curiosos del sitio. Cada respuesta muestra sus fuentes.",
+  "teacher.huntText": "Una tarea para el alumnado: encontrar acontecimientos de distintos continentes que ocurrieron al mismo tiempo.",
+  "teacher.presentation": "Modo presentación",
+  "teacher.presentationText": "Para un proyector o una pantalla grande: texto y botones más grandes. Salga con el botón de la esquina superior derecha."
 }

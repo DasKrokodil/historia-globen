@@ -882,5 +882,20 @@
   "jump.empty": "No events in this selection.",
   "jump.more": "Showing the first {count}.",
   "jump.era": "Era",
-  "jump.error.negative": "Choose BC or AD with the buttons instead of using a minus sign."
+  "jump.error.negative": "Choose BC or AD with the buttons instead of using a minus sign.",
+  "top.teacher": "For teachers",
+  "top.teacherTitle": "Lessons, printouts, quiz and big-screen mode",
+  "help.teacher": "Do you teach?",
+  "help.teacherBtn": "Open For teachers",
+  "teacher.close": "Close For teachers",
+  "teacher.intro": "Everything a lesson may need, in one place. No login and no student accounts are needed, and the site stores nothing about students.",
+  "teacher.lessons": "Lessons",
+  "teacher.lessonsText": "Ready-made lessons. In lesson mode the menus are hidden and time stays within the lesson’s years. The web address shown during the lesson can be shared with students.",
+  "teacher.noLessons": "The lessons could not be loaded just now. Reload the page and try again.",
+  "teacher.print": "Printing",
+  "teacher.printText": "Start a lesson above and choose Print student and teacher sheets in the bar at the top. The student sheet has questions with space for answers. The teacher sheet has the grade, time, prerequisites, instructions, the link to the curriculum and the questions.",
+  "teacher.quizText": "Questions about what happened at the same time, drawn from the site’s fun facts. Every answer shows its sources.",
+  "teacher.huntText": "A task for students: find events on different continents that happened at the same time.",
+  "teacher.presentation": "Presentation mode",
+  "teacher.presentationText": "For a projector or big screen: larger text and larger buttons. Exit with the button at the top right."
 }

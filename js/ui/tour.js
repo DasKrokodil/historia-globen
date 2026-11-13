@@ -181,23 +181,30 @@ export class TourPlayer {
     play.addEventListener('click', () => { this.closeMenu(false); this.start(tour.id, this.button); });
     actions.append(play);
     if (tour.lesson) { // lektionsläget skapas efter spelaren, så bara lärarfältet avgör här (som canStart)
-      const grades = tour.lesson.grades === 'gy' ? ui('print.gy') : String(tour.lesson.grades).replace('-', '–');
-      info.textContent = ui('tour.lessonMeta', { grades, n: tour.lesson.minutes });
+      info.textContent = this.lessonMeta(tour);
       const go = document.createElement('button');
       go.type = 'button'; go.className = 'tour-lesson-start'; go.dataset.tour = tour.id;
       go.textContent = ui('tour.lessonStart');
       go.setAttribute('aria-label', ui('tour.lessonStartLabel', { title: t(tour.title) }));
-      go.addEventListener('click', () => {
-        this.closeMenu(false);
-        const { lesson } = this.app;
-        lesson?.enter(tour.id, { teacher: true }); // den som väljer Starta som lektion i menyn är läraren (#885)
-        if (!this.start(tour.id, this.button)) lesson?.leave();
-      });
+      go.addEventListener('click', () => { this.closeMenu(false); this.startAsLesson(tour.id); });
       actions.append(go);
     }
     row.append(info, actions);
     li.append(row);
     return li;
+  }
+
+  /** "Lektion · årskurs 7–9 · 30 min" ur turens lärarfält (Turer-menyn och För lärare, #1315). */
+  lessonMeta(tour) {
+    const grades = tour.lesson.grades === 'gy' ? ui('print.gy') : String(tour.lesson.grades).replace('-', '–');
+    return ui('tour.lessonMeta', { grades, n: tour.lesson.minutes });
+  }
+
+  /** Startar turen som lektion med lärarens verktyg (#885): den som väljer Starta som lektion är läraren. */
+  startAsLesson(id) {
+    const { lesson } = this.app;
+    lesson?.enter(id, { teacher: true });
+    if (!this.start(id, this.button)) lesson?.leave();
   }
 
   openMenu() {
