@@ -611,7 +611,8 @@
         "wp-columbus",
         "eb1911-columbus",
         "whe-columbus",
-        "wikidata"
+        "wikidata",
+        "major-select-letters-1870"
       ],
       "review": "source-checked",
       "legs": [
@@ -659,7 +660,15 @@
                 "es": "Cádiz",
                 "fr": "Cadix"
               },
-              "edtf": "1493-09-24/1493-09-25"
+              "date": "1493-09-25",
+              "dateLabel": {
+                "sv": "avfärd 25 september 1493 (24 september enligt Britannica)",
+                "en": "departure 25 September 1493 (24 September according to Britannica)",
+                "de": "Abfahrt am 25. September 1493 (24. September laut Britannica)",
+                "es": "partida el 25 de septiembre de 1493 (24 de septiembre según la Britannica)",
+                "fr": "départ le 25 septembre 1493 (24 septembre selon la Britannica)"
+              },
+              "stop": true
             },
             {
               "at": [
@@ -679,7 +688,8 @@
           "sources": [
             "wp-columbus",
             "eb1911-columbus",
-            "wikidata"
+            "wikidata",
+            "major-select-letters-1870"
           ]
         },
         {
@@ -722,13 +732,22 @@
                 "es": "Dominica",
                 "fr": "Dominique"
               },
-              "date": "1493-11-03"
+              "date": "1493-11-03",
+              "dateLabel": {
+                "sv": "3 november 1493: land siktas",
+                "en": "3 November 1493: land sighted",
+                "de": "3. November 1493: Land in Sicht",
+                "es": "3 de noviembre de 1493: se avista tierra",
+                "fr": "3 novembre 1493 : terre en vue"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-columbus",
             "eb1911-columbus",
-            "wikidata"
+            "wikidata",
+            "major-select-letters-1870"
           ]
         },
         {
@@ -843,13 +862,21 @@
                 18.3
               ],
               "name": {
-                "sv": "Añascobukten, Puerto Rico",
-                "en": "Añasco Bay, Puerto Rico",
-                "de": "Añasco-Bucht, Puerto Rico",
-                "es": "Bahía de Añasco, Puerto Rico",
-                "fr": "Baie d’Añasco, Porto Rico"
+                "sv": "Añascobukten (Puerto Rico)",
+                "en": "Añasco Bay (Puerto Rico)",
+                "de": "Añasco-Bucht (Puerto Rico)",
+                "es": "Bahía de Añasco (Puerto Rico)",
+                "fr": "Baie d’Añasco (Porto Rico)"
               },
-              "date": "1493-11-19"
+              "date": "1493-11-19",
+              "dateLabel": {
+                "sv": "19 november 1493: landstigning",
+                "en": "19 November 1493: landing",
+                "de": "19. November 1493: Landung",
+                "es": "19 de noviembre de 1493: desembarco",
+                "fr": "19 novembre 1493 : débarquement"
+              },
+              "stop": true
             }
           ],
           "sources": [
@@ -943,19 +970,28 @@
                 19.7
               ],
               "name": {
-                "sv": "La Navidad (nedbränt)",
-                "en": "La Navidad (burned down)",
-                "de": "La Navidad (niedergebrannt)",
-                "es": "La Navidad (incendiada)",
-                "fr": "La Navidad (incendiée)"
+                "sv": "La Navidad",
+                "en": "La Navidad",
+                "de": "La Navidad",
+                "es": "La Navidad",
+                "fr": "La Navidad"
               },
-              "date": "1493-11-28"
+              "date": "1493-11-28",
+              "dateLabel": {
+                "sv": "28 november 1493: fortet är nedbränt",
+                "en": "28 November 1493: the fort has been burned down",
+                "de": "28. November 1493: Das Fort ist niedergebrannt",
+                "es": "28 de noviembre de 1493: el fuerte está incendiado",
+                "fr": "28 novembre 1493 : le fort a été incendié"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-columbus",
             "eb1911-columbus",
-            "wikidata"
+            "wikidata",
+            "major-select-letters-1870"
           ]
         },
         {
@@ -989,7 +1025,15 @@
                 "es": "La Isabela",
                 "fr": "La Isabela"
               },
-              "date": "1494-01-02"
+              "date": "1494-01-02",
+              "dateLabel": {
+                "sv": "2 januari 1494: staden Isabela anläggs",
+                "en": "2 January 1494: the town of Isabela is founded",
+                "de": "2. Januar 1494: Die Stadt Isabela wird angelegt",
+                "es": "2 de enero de 1494: se funda la villa de La Isabela",
+                "fr": "2 janvier 1494 : fondation de la ville d’Isabela"
+              },
+              "stop": true
             }
           ],
           "sources": [
@@ -1401,13 +1445,22 @@
                 "es": "Cádiz",
                 "fr": "Cadix"
               },
-              "date": "1496-06-11"
+              "date": "1496-06-11",
+              "dateLabel": {
+                "sv": "11 juni 1496: hemkomst",
+                "en": "11 June 1496: return home",
+                "de": "11. Juni 1496: Heimkehr",
+                "es": "11 de junio de 1496: regreso",
+                "fr": "11 juin 1496 : retour"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-columbus",
             "eb1911-columbus",
-            "wikidata"
+            "wikidata",
+            "major-select-letters-1870"
           ]
         }
       ]
@@ -1443,17 +1496,19 @@
           "fr": "Les sources divergent"
         },
         "text": {
-          "sv": "Wikipedia säger att Columbus kom tillbaka till Hispaniola den 19 augusti 1498; Encyclopædia Britannica (1911) säger att han nådde Santo Domingo den 31 augusti. På väg ut nämner Wikipedia Kanarieöarna och Britannica ön Gomera. Källorna anger inget datum för hemresan utöver att Columbus sattes i kedjor i början av oktober 1500. Han var tillbaka i Spanien före den 17 december 1500, då han enligt Britannica togs emot vid hovet. Wikipedias faktaruta låter resan sluta den 23 augusti 1500, när Bobadilla kom till Santo Domingo.",
-          "en": "Wikipedia says that Columbus came back to Hispaniola on 19 August 1498; Encyclopædia Britannica (1911) says that he reached Santo Domingo on 31 August. On the way out Wikipedia mentions the Canary Islands and Britannica the island of Gomera. The sources give no date for the return journey beyond that Columbus was put in chains in early October 1500. He was back in Spain before 17 December 1500, when, according to Britannica, he was received at court. Wikipedia's fact box has the voyage end on 23 August 1500, when Bobadilla came to Santo Domingo.",
-          "de": "Wikipedia sagt, Kolumbus sei am 19. August 1498 nach Hispaniola zurückgekehrt; die Encyclopædia Britannica (1911) sagt, er habe Santo Domingo am 31. August erreicht. Auf der Hinfahrt nennt Wikipedia die Kanarischen Inseln und Britannica die Insel Gomera. Die Quellen nennen kein Datum für die Heimreise, außer dass Kolumbus Anfang Oktober 1500 in Ketten gelegt wurde. Er war vor dem 17. Dezember 1500 wieder in Spanien, als er laut Britannica am Hof empfangen wurde. Im Infokasten von Wikipedia endet die Reise am 23. August 1500, als Bobadilla nach Santo Domingo kam.",
-          "es": "Wikipedia dice que Colón volvió a La Española el 19 de agosto de 1498; la Encyclopædia Britannica (1911) dice que llegó a Santo Domingo el 31 de agosto. En el viaje de ida, Wikipedia menciona las Canarias y la Britannica, la isla de La Gomera. Las fuentes no dan fecha para el regreso, salvo que Colón fue encadenado a comienzos de octubre de 1500. Estaba de vuelta en España antes del 17 de diciembre de 1500, cuando según la Britannica fue recibido en la corte. La ficha de Wikipedia hace terminar el viaje el 23 de agosto de 1500, cuando Bobadilla llegó a Santo Domingo.",
-          "fr": "Wikipédia dit que Colomb revint à Hispaniola le 19 août 1498 ; l’Encyclopædia Britannica (1911) dit qu’il atteignit Saint-Domingue le 31 août. Pour l’aller, Wikipédia mentionne les Canaries et la Britannica l’île de La Gomera. Les sources ne donnent pas de date pour le retour, hormis le fait que Colomb fut mis aux fers début octobre 1500. Il était de retour en Espagne avant le 17 décembre 1500, date à laquelle il fut reçu à la cour selon la Britannica. L’infobox de Wikipédia fait finir le voyage le 23 août 1500, à l’arrivée de Bobadilla à Saint-Domingue."
+          "sv": "Wikipedia säger att Columbus kom tillbaka till Hispaniola den 19 augusti 1498; Encyclopædia Britannica (1911) säger att han nådde Santo Domingo den 31 augusti. På väg ut nämner Wikipedia Kanarieöarna och Britannica ön Gomera. Källorna anger inget datum för hemresan utöver att Columbus sattes i kedjor i början av oktober 1500. Han var tillbaka i Spanien före den 17 december 1500, då han enligt Britannica togs emot vid hovet. Wikipedias faktaruta låter resan sluta den 23 augusti 1500, när Bobadilla kom till Santo Domingo. Las Casas skriver att han kom till Hispaniolas kust vid ön Beata den 19 augusti och till Santo Domingo den 31 augusti; Major (1870) anger den 30 augusti.",
+          "en": "Wikipedia says that Columbus came back to Hispaniola on 19 August 1498; Encyclopædia Britannica (1911) says that he reached Santo Domingo on 31 August. On the way out Wikipedia mentions the Canary Islands and Britannica the island of Gomera. The sources give no date for the return journey beyond that Columbus was put in chains in early October 1500. He was back in Spain before 17 December 1500, when, according to Britannica, he was received at court. Wikipedia's fact box has the voyage end on 23 August 1500, when Bobadilla came to Santo Domingo. Las Casas writes that he reached the coast of Hispaniola at the island of Beata on 19 August and Santo Domingo on 31 August; Major (1870) gives 30 August.",
+          "de": "Wikipedia sagt, Kolumbus sei am 19. August 1498 nach Hispaniola zurückgekehrt; die Encyclopædia Britannica (1911) sagt, er habe Santo Domingo am 31. August erreicht. Auf der Hinfahrt nennt Wikipedia die Kanarischen Inseln und Britannica die Insel Gomera. Die Quellen nennen kein Datum für die Heimreise, außer dass Kolumbus Anfang Oktober 1500 in Ketten gelegt wurde. Er war vor dem 17. Dezember 1500 wieder in Spanien, als er laut Britannica am Hof empfangen wurde. Im Infokasten von Wikipedia endet die Reise am 23. August 1500, als Bobadilla nach Santo Domingo kam. Las Casas schreibt, er habe die Küste Hispaniolas bei der Insel Beata am 19. August und Santo Domingo am 31. August erreicht; Major (1870) nennt den 30. August.",
+          "es": "Wikipedia dice que Colón volvió a La Española el 19 de agosto de 1498; la Encyclopædia Britannica (1911) dice que llegó a Santo Domingo el 31 de agosto. En el viaje de ida, Wikipedia menciona las Canarias y la Britannica, la isla de La Gomera. Las fuentes no dan fecha para el regreso, salvo que Colón fue encadenado a comienzos de octubre de 1500. Estaba de vuelta en España antes del 17 de diciembre de 1500, cuando según la Britannica fue recibido en la corte. La ficha de Wikipedia hace terminar el viaje el 23 de agosto de 1500, cuando Bobadilla llegó a Santo Domingo. Las Casas escribe que llegó a la costa de La Española junto a la isla Beata el 19 de agosto y a Santo Domingo el 31 de agosto; Major (1870) da el 30 de agosto.",
+          "fr": "Wikipédia dit que Colomb revint à Hispaniola le 19 août 1498 ; l’Encyclopædia Britannica (1911) dit qu’il atteignit Saint-Domingue le 31 août. Pour l’aller, Wikipédia mentionne les Canaries et la Britannica l’île de La Gomera. Les sources ne donnent pas de date pour le retour, hormis le fait que Colomb fut mis aux fers début octobre 1500. Il était de retour en Espagne avant le 17 décembre 1500, date à laquelle il fut reçu à la cour selon la Britannica. L’infobox de Wikipédia fait finir le voyage le 23 août 1500, à l’arrivée de Bobadilla à Saint-Domingue. Las Casas écrit qu’il atteignit la côte d’Hispaniola près de l’île Beata le 19 août et Saint-Domingue le 31 août ; Major (1870) donne le 30 août."
         }
       },
       "sources": [
         "wp-columbus",
         "eb1911-columbus",
-        "wikidata"
+        "wikidata",
+        "major-select-letters-1870",
+        "bourne-northmen-columbus-1906"
       ],
       "review": "source-checked",
       "legs": [
@@ -1513,7 +1568,15 @@
                 "es": "Sanlúcar de Barrameda",
                 "fr": "Sanlúcar de Barrameda"
               },
-              "date": "1498-05-30"
+              "date": "1498-05-30",
+              "dateLabel": {
+                "sv": "avfärd 30 maj 1498",
+                "en": "departure 30 May 1498",
+                "de": "Abfahrt am 30. Mai 1498",
+                "es": "partida el 30 de mayo de 1498",
+                "fr": "départ le 30 mai 1498"
+              },
+              "stop": true
             },
             {
               "at": [
@@ -1572,7 +1635,9 @@
           "sources": [
             "wp-columbus",
             "eb1911-columbus",
-            "wikidata"
+            "wikidata",
+            "major-select-letters-1870",
+            "bourne-northmen-columbus-1906"
           ]
         },
         {
@@ -1623,13 +1688,22 @@
                 "es": "Trinidad",
                 "fr": "Trinité"
               },
-              "date": "1498-07-31"
+              "date": "1498-07-31",
+              "dateLabel": {
+                "sv": "31 juli 1498: land siktas",
+                "en": "31 July 1498: land sighted",
+                "de": "31. Juli 1498: Land in Sicht",
+                "es": "31 de julio de 1498: se avista tierra",
+                "fr": "31 juillet 1498 : terre en vue"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-columbus",
             "eb1911-columbus",
-            "wikidata"
+            "wikidata",
+            "major-select-letters-1870"
           ]
         },
         {
@@ -1704,13 +1778,21 @@
                 10.7
               ],
               "name": {
-                "sv": "Pariahalvön, Sydamerikas fastland",
-                "en": "Paria Peninsula, the South American mainland",
-                "de": "Halbinsel Paria, südamerikanisches Festland",
-                "es": "Península de Paria, continente sudamericano",
-                "fr": "Péninsule de Paria, continent sud-américain"
+                "sv": "Pariahalvön",
+                "en": "Paria Peninsula",
+                "de": "Halbinsel Paria",
+                "es": "Península de Paria",
+                "fr": "Péninsule de Paria"
               },
-              "date": "1498-08-05"
+              "date": "1498-08-05",
+              "dateLabel": {
+                "sv": "5 augusti 1498: går i land på Sydamerikas fastland",
+                "en": "5 August 1498: lands on the South American mainland",
+                "de": "5. August 1498: Landung auf dem südamerikanischen Festland",
+                "es": "5 de agosto de 1498: desembarca en el continente sudamericano",
+                "fr": "5 août 1498 : débarque sur le continent sud-américain"
+              },
+              "stop": true
             },
             {
               "at": [
@@ -1730,7 +1812,8 @@
           "sources": [
             "wp-columbus",
             "eb1911-columbus",
-            "wikidata"
+            "wikidata",
+            "bourne-northmen-columbus-1906"
           ]
         },
         {
@@ -1767,19 +1850,29 @@
                 18.5
               ],
               "name": {
-                "sv": "Santo Domingo, Hispaniola",
-                "en": "Santo Domingo, Hispaniola",
-                "de": "Santo Domingo, Hispaniola",
-                "es": "Santo Domingo, La Española",
-                "fr": "Saint-Domingue, Hispaniola"
+                "sv": "Santo Domingo",
+                "en": "Santo Domingo",
+                "de": "Santo Domingo",
+                "es": "Santo Domingo",
+                "fr": "Saint-Domingue"
               },
-              "edtf": "1498-08-19/1498-08-31"
+              "date": "1498-08-31",
+              "dateLabel": {
+                "sv": "31 augusti 1498 (30 augusti enligt Major)",
+                "en": "31 August 1498 (30 August according to Major)",
+                "de": "31. August 1498 (30. August laut Major)",
+                "es": "31 de agosto de 1498 (30 de agosto según Major)",
+                "fr": "31 août 1498 (30 août selon Major)"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-columbus",
             "eb1911-columbus",
-            "wikidata"
+            "wikidata",
+            "major-select-letters-1870",
+            "bourne-northmen-columbus-1906"
           ]
         },
         {
@@ -1908,7 +2001,9 @@
         "wp-columbus",
         "wp-columbus-fjarde-resan",
         "eb1911-columbus",
-        "wikidata"
+        "wikidata",
+        "major-select-letters-1870",
+        "bourne-northmen-columbus-1906"
       ],
       "review": "source-checked",
       "legs": [
@@ -1960,7 +2055,15 @@
                 "es": "Cádiz",
                 "fr": "Cadix"
               },
-              "edtf": "1502-05-06/1502-05-12"
+              "date": "1502-05-09",
+              "dateLabel": {
+                "sv": "avfärd 9 maj 1502",
+                "en": "departure 9 May 1502",
+                "de": "Abfahrt am 9. Mai 1502",
+                "es": "partida el 9 de mayo de 1502",
+                "fr": "départ le 9 mai 1502"
+              },
+              "stop": true
             },
             {
               "at": [
@@ -2008,7 +2111,8 @@
             "wp-columbus-fjarde-resan",
             "wp-columbus",
             "eb1911-columbus",
-            "wikidata"
+            "wikidata",
+            "major-select-letters-1870"
           ]
         },
         {
@@ -2045,20 +2149,29 @@
                 14.7
               ],
               "name": {
-                "sv": "Martinique (enligt Britannica troligen Saint Lucia)",
-                "en": "Martinique (according to Britannica probably Saint Lucia)",
-                "de": "Martinique (laut Britannica wahrscheinlich Saint Lucia)",
-                "es": "Martinica (según la Britannica, probablemente Santa Lucía)",
-                "fr": "Martinique (selon la Britannica probablement Sainte-Lucie)"
+                "sv": "Martinique",
+                "en": "Martinique",
+                "de": "Martinique",
+                "es": "Martinica",
+                "fr": "Martinique"
               },
-              "edtf": "1502-06-15/1502-06-16"
+              "date": "1502-06-15",
+              "dateLabel": {
+                "sv": "15 juni 1502 (enligt Britannica troligen Saint Lucia)",
+                "en": "15 June 1502 (according to Britannica probably Saint Lucia)",
+                "de": "15. Juni 1502 (laut Britannica wahrscheinlich Saint Lucia)",
+                "es": "15 de junio de 1502 (según la Britannica, probablemente Santa Lucía)",
+                "fr": "15 juin 1502 (selon la Britannica probablement Sainte-Lucie)"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-columbus-fjarde-resan",
             "wp-columbus",
             "eb1911-columbus",
-            "wikidata"
+            "wikidata",
+            "major-select-letters-1870"
           ]
         },
         {
@@ -2103,13 +2216,21 @@
                 18.5
               ],
               "name": {
-                "sv": "Santo Domingo (nekades hamn)",
-                "en": "Santo Domingo (harbour refused)",
-                "de": "Santo Domingo (Hafen verweigert)",
-                "es": "Santo Domingo (se le negó el puerto)",
-                "fr": "Saint-Domingue (accès au port refusé)"
+                "sv": "Santo Domingo",
+                "en": "Santo Domingo",
+                "de": "Santo Domingo",
+                "es": "Santo Domingo",
+                "fr": "Saint-Domingue"
               },
-              "date": "1502-06-29"
+              "date": "1502-06-29",
+              "dateLabel": {
+                "sv": "29 juni 1502: nekas hamn",
+                "en": "29 June 1502: refused entry to the harbour",
+                "de": "29. Juni 1502: Der Hafen wird verweigert",
+                "es": "29 de junio de 1502: se le niega el puerto",
+                "fr": "29 juin 1502 : l’accès au port est refusé"
+              },
+              "stop": true
             },
             {
               "at": [
@@ -2130,7 +2251,8 @@
             "wp-columbus-fjarde-resan",
             "wp-columbus",
             "eb1911-columbus",
-            "wikidata"
+            "wikidata",
+            "bourne-northmen-columbus-1906"
           ]
         },
         {
@@ -2209,14 +2331,23 @@
                 "es": "Guanaja (Isla de Pinos)",
                 "fr": "Guanaja (Isla de Pinos)"
               },
-              "date": "1502-07-30"
+              "date": "1502-07-30",
+              "dateLabel": {
+                "sv": "30 juli 1502",
+                "en": "30 July 1502",
+                "de": "30. Juli 1502",
+                "es": "30 de julio de 1502",
+                "fr": "30 juillet 1502"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-columbus-fjarde-resan",
             "wp-columbus",
             "eb1911-columbus",
-            "wikidata"
+            "wikidata",
+            "bourne-northmen-columbus-1906"
           ]
         },
         {
@@ -2336,7 +2467,15 @@
                 "es": "Cabo Gracias a Dios",
                 "fr": "Cap Gracias a Dios"
               },
-              "edtf": "1502-09-12/1502-09-14"
+              "date": "1502-09-12",
+              "dateLabel": {
+                "sv": "12 september 1502 (14 september enligt Wikipedia)",
+                "en": "12 September 1502 (14 September according to Wikipedia)",
+                "de": "12. September 1502 (14. September laut Wikipedia)",
+                "es": "12 de septiembre de 1502 (14 de septiembre según Wikipedia)",
+                "fr": "12 septembre 1502 (14 septembre selon Wikipédia)"
+              },
+              "stop": true
             },
             {
               "at": [
@@ -2399,7 +2538,9 @@
             "wp-columbus-fjarde-resan",
             "wp-columbus",
             "eb1911-columbus",
-            "wikidata"
+            "wikidata",
+            "major-select-letters-1870",
+            "bourne-northmen-columbus-1906"
           ]
         },
         {
@@ -2432,20 +2573,29 @@
                 8.9
               ],
               "name": {
-                "sv": "Belénfloden (Veragua), Panama",
-                "en": "The Belén River (Veragua), Panama",
-                "de": "Fluss Belén (Veragua), Panama",
-                "es": "Río Belén (Veragua), Panamá",
-                "fr": "Río Belén (Veragua), Panama"
+                "sv": "Belénfloden (Panama)",
+                "en": "Belén River (Panama)",
+                "de": "Fluss Belén (Panama)",
+                "es": "Río Belén (Panamá)",
+                "fr": "Río Belén (Panama)"
               },
-              "date": "1503-01-06"
+              "date": "1503-01-06",
+              "dateLabel": {
+                "sv": "6 januari 1503",
+                "en": "6 January 1503",
+                "de": "6. Januar 1503",
+                "es": "6 de enero de 1503",
+                "fr": "6 janvier 1503"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-columbus-fjarde-resan",
             "wp-columbus",
             "eb1911-columbus",
-            "wikidata"
+            "wikidata",
+            "major-select-letters-1870"
           ]
         },
         {
@@ -2530,20 +2680,29 @@
                 18.4
               ],
               "name": {
-                "sv": "Saint Ann's Bay, Jamaica",
-                "en": "Saint Ann's Bay, Jamaica",
-                "de": "Saint Ann's Bay, Jamaika",
-                "es": "Saint Ann's Bay, Jamaica",
-                "fr": "Saint Ann’s Bay, Jamaïque"
+                "sv": "Saint Ann's Bay (Jamaica)",
+                "en": "Saint Ann's Bay (Jamaica)",
+                "de": "Saint Ann's Bay (Jamaika)",
+                "es": "Saint Ann's Bay (Jamaica)",
+                "fr": "Saint Ann’s Bay (Jamaïque)"
               },
-              "edtf": "1503-06-23/1503-06-25"
+              "date": "1503-06-23",
+              "dateLabel": {
+                "sv": "23 eller 25 juni 1503: strandsatt i ett år",
+                "en": "23 or 25 June 1503: stranded for a year",
+                "de": "23. oder 25. Juni 1503: ein Jahr lang gestrandet",
+                "es": "23 o 25 de junio de 1503: varados durante un año",
+                "fr": "23 ou 25 juin 1503 : échoués pendant un an"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-columbus-fjarde-resan",
             "wp-columbus",
             "eb1911-columbus",
-            "wikidata"
+            "wikidata",
+            "bourne-northmen-columbus-1906"
           ]
         },
         {
@@ -2707,14 +2866,23 @@
                 "es": "Sanlúcar de Barrameda",
                 "fr": "Sanlúcar de Barrameda"
               },
-              "date": "1504-11-07"
+              "date": "1504-11-07",
+              "dateLabel": {
+                "sv": "7 november 1504: hemkomst",
+                "en": "7 November 1504: return home",
+                "de": "7. November 1504: Heimkehr",
+                "es": "7 de noviembre de 1504: regreso",
+                "fr": "7 novembre 1504 : retour"
+              },
+              "stop": true
             }
           ],
           "sources": [
             "wp-columbus-fjarde-resan",
             "wp-columbus",
             "eb1911-columbus",
-            "wikidata"
+            "wikidata",
+            "major-select-letters-1870"
           ]
         }
       ]
