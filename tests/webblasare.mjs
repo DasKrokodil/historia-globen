@@ -2032,6 +2032,45 @@ async function run(browser, vp) {
     return 'år och kort är inte live; Samtidigt-texten annonseras i den permanenta statusraden';
   });
 
+  // #1305: statusraden säger året och antalet träffar efter varje årsbyte, hur året än byttes, och ett år utan Samtidigt-kort säger det.
+  // Året är ändå ingen live-region (#506): raden läses inte upp under uppspelning.
+  await check('statusraden säger året och antalet träffar vid årsbyte, och ett år utan kort säger det (#1305)', async () => {
+    const startYear = Number(await page.getAttribute('#track', 'aria-valuenow'));
+    const status = () => page.textContent('#screen-reader-status').then(s => s.replace(/\s+/g, ' ').trim());
+    const saysYear = (y, n = '\\d+') => page.waitForFunction(([year, count]) => new RegExp(`^År ${year}: ${count} händelse(r)?\\.`).test(document.getElementById('screen-reader-status').textContent.replace(/\s+/g, ' ').trim()), [String(y), n], { timeout: T.step });
+    // 1. Ett årshopp, 2. knappen +10 (som bara läste upp kortet förut) och 3. flera snabba steg som samlas till ett besked
+    await jumpTo(1290); // ett annat år än starten, så att hoppet ändrar året
+    await saysYear(1290);
+    await jumpTo(1325);
+    await saysYear(1325);
+    await page.click('.timebar .controls .step[data-step="10"]');
+    await saysYear(1335);
+    for (let i = 0; i < 3; i++) await page.click('.timebar .controls .step[data-step="10"]');
+    await saysYear(1365);
+    // Antalet är det som står i Samtidigt-listan
+    const listed = await page.evaluate(() => document.getElementById('panel-count').textContent.trim());
+    const said = (await status()).match(/^År 1365: (\d+) /);
+    if (!said || said[1] !== listed) throw new Error(`statusraden säger "${await status()}" men Samtidigt-räknaren visar ${listed}`);
+    // 4. Ett år utan Samtidigt-kort: raden säger det i stället för att vara tom
+    let empty = null;
+    for (const y of [1400, 1420, 1380, 1450, 1360]) {
+      await jumpTo(y);
+      if (await page.locator('#funfact').isHidden() && await page.locator('#ff-tab').isHidden()) { empty = y; break; }
+    }
+    if (!empty) throw new Error('hittade inget år utan Samtidigt-kort kring 1400');
+    await saysYear(empty);
+    await page.waitForFunction(() => document.getElementById('screen-reader-status').textContent.includes('Inget Samtidigt-kort för det här året.'), null, { timeout: T.step });
+    // 5. Under uppspelning läses året inte upp (#506)
+    await page.evaluate(() => { document.getElementById('screen-reader-status').textContent = ''; });
+    await page.click('#btn-play');
+    await page.waitForTimeout(1500);
+    const during = await status();
+    if (await page.getAttribute('#btn-play', 'aria-pressed') === 'true') await page.click('#btn-play');
+    if (/^År \d+: \d+ händelse/.test(during)) throw new Error(`statusraden läste upp året under uppspelning: "${during}"`);
+    await jumpTo(startYear);
+    return `hopp, +10 och flera steg ger "År N: n händelser" (n som i Samtidigt-räknaren); ${empty} utan kort säger det; inget under uppspelning`;
+  });
+
   await check('en händelse öppnas från Samtidigt', async () => {
     const event = page.locator('#ff-events .ff-chip').first();
     const title = (await event.textContent()).replace(/\s+/g, ' ').trim();
@@ -3795,6 +3834,48 @@ async function run(browser, vp) {
     // rörelser i stället för att vänta på en stilla canvas som inte hör till kortet.
     await page.locator('#detail').screenshot({ path: path.join(OUT, `${vp.name}-9-krigets-slut.png`), animations: 'disabled' });
     return 'Spela klart når slutkortet';
+  });
+
+  await check('reservspråket: upplysning vid språkbyte och lang på engelsk text (#1308)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const pp = await context.newPage();
+    const errors = [];
+    pp.on('pageerror', e => errors.push(e.message));
+    pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    try {
+      if (THREE_LOCAL) {
+        await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await pp.route(u => isFont(u.href), r => r.abort());
+      }
+      await pp.goto(`${BASE}?lang=sv#y=1600`);
+      await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (await pp.locator('.lang-notice').count()) throw new Error('upplysningen syns utan språkbyte');
+      // Byt till tyska i språkväljaren; sidan laddas om
+      await pp.click('#btn-lang');
+      await Promise.all([pp.waitForEvent('load', { timeout: T.load }), pp.click('#lang-menu [data-lang="de"]')]);
+      await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await pp.waitForSelector('.lang-notice', { timeout: T.step });
+      const note = (await pp.textContent('.lang-notice p')).trim();
+      const want = await pp.evaluate(async () => (await import('./js/i18n.js')).ui('lang.beta'));
+      if (note !== want || !/Englisch/.test(note)) throw new Error(`upplysningen: ${note}`);
+      await pp.click('.lang-notice-close');
+      if (await pp.locator('.lang-notice').count()) throw new Error('upplysningen stängs inte');
+      // Samtidigt-listan: titlar som saknar tyska visas på engelska och märks lang="en"
+      if (await pp.locator('#panel').isHidden()) await pp.click('#btn-panel');
+      await pp.waitForSelector('#panel .event-btn .ttl', { timeout: T.load });
+      const marks = await pp.evaluate(() => [...document.querySelectorAll('#panel .event-btn .ttl')].map(el => el.getAttribute('lang')));
+      if (!marks.includes('en')) throw new Error(`ingen titel med lang="en" år 1600: ${JSON.stringify(marks)}`);
+      if (marks.includes('de')) throw new Error('en tysk titel har fått lang="de" fast sidan redan är tysk');
+      // En omladdning utan nytt byte visar inte upplysningen igen
+      await pp.reload();
+      await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (await pp.locator('.lang-notice').count()) throw new Error('upplysningen visas igen utan språkbyte');
+      if (errors.length) throw new Error(errors[0]);
+      return `${marks.filter(m => m === 'en').length} av ${marks.length} titlar på engelska`;
+    } finally {
+      try { await pp.evaluate(() => localStorage.removeItem('hg-lang')); } catch { /* sidan är redan stängd */ }
+      await pp.close();
+    }
   });
 
   await check('krigskortet på valt språk, inte svenska (#1240)', async () => {

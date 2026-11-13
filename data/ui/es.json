@@ -3,7 +3,7 @@
   "meta.title": "Historia-globen – vea lo que ocurría al mismo tiempo en el mundo",
   "meta.description": "Explore la historia del mundo en un globo giratorio. Recorra el tiempo y vea lo que ocurría al mismo tiempo en distintas partes del mundo.",
   "lang.label": "Idioma",
-  "lang.beta": "Traducción en curso. Los acontecimientos, los relatos y algunos botones aún se muestran en sueco.",
+  "lang.beta": "Traducción en curso. Los acontecimientos, los relatos y algunos botones aún se muestran en inglés y, en algunos casos, en sueco.",
   "cat.natur": "Naturaleza y animales",
   "cat.natur.count": [
     "acontecimiento natural",
@@ -442,6 +442,9 @@
   "panel.atYear": "en {year}",
   "panel.inside": ["{count} acontecimiento en curso {at}", "{count} acontecimientos en curso {at}"],
   "panel.noneAt": "Nada en curso exactamente {at}",
+  "status.year": "{at}: {count}.",
+  "status.hits": ["{n} acontecimiento", "{n} acontecimientos"],
+  "status.noCard": "No hay tarjeta Al mismo tiempo para este año.",
   "panel.near": "{count} más en {within}",
   "panel.earlier": ["{n} año antes", "{n} años antes"],
   "panel.later": ["{n} año después", "{n} años después"],

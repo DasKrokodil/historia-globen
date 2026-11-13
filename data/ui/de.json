@@ -3,7 +3,7 @@
   "meta.title": "Historia-globen – sehen Sie, was gleichzeitig auf der Welt geschah",
   "meta.description": "Entdecken Sie die Weltgeschichte auf einem drehbaren Globus. Ziehen Sie durch die Zeit und sehen Sie, was gleichzeitig in verschiedenen Teilen der Welt geschah.",
   "lang.label": "Sprache",
-  "lang.beta": "Die Übersetzung ist in Arbeit. Ereignisse, Geschichten und einige Schaltflächen werden noch auf Schwedisch angezeigt.",
+  "lang.beta": "Die Übersetzung ist in Arbeit. Ereignisse, Geschichten und einige Schaltflächen werden noch auf Englisch angezeigt, vereinzelt auf Schwedisch.",
   "cat.natur": "Natur und Tiere",
   "cat.natur.count": [
     "Naturereignis",
@@ -442,6 +442,9 @@
   "panel.atYear": "im Jahr {year}",
   "panel.inside": ["{count} Ereignis läuft {at}", "{count} Ereignisse laufen {at}"],
   "panel.noneAt": "Nichts läuft genau {at}",
+  "status.year": "{at}: {count}.",
+  "status.hits": ["{n} Ereignis", "{n} Ereignisse"],
+  "status.noCard": "Keine Gleichzeitig-Karte für dieses Jahr.",
   "panel.near": "{count} weitere im Zeitfenster {within}",
   "panel.earlier": ["{n} Jahr früher", "{n} Jahre früher"],
   "panel.later": ["{n} Jahr später", "{n} Jahre später"],

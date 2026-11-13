@@ -3,7 +3,7 @@
   "meta.title": "Historia-globen – voyez ce qui s’est passé au même moment dans le monde",
   "meta.description": "Explorez l’histoire du monde sur un globe qui tourne. Faites défiler le temps et voyez ce qui s’est passé au même moment dans différentes parties du monde.",
   "lang.label": "Langue",
-  "lang.beta": "Traduction en cours. Les événements, les récits et certains boutons s’affichent encore en suédois.",
+  "lang.beta": "Traduction en cours. Les événements, les récits et certains boutons s’affichent encore en anglais, parfois en suédois.",
   "cat.natur": "Nature et animaux",
   "cat.natur.count": [
     "événement naturel",
@@ -442,6 +442,9 @@
   "panel.atYear": "en {year}",
   "panel.inside": ["{count} événement en cours {at}", "{count} événements en cours {at}"],
   "panel.noneAt": "Rien en cours exactement {at}",
+  "status.year": "{at} : {count}.",
+  "status.hits": ["{n} événement", "{n} événements"],
+  "status.noCard": "Pas de carte Au même moment pour cette année.",
   "panel.near": "{count} de plus dans {within}",
   "panel.earlier": ["{n} an plus tôt", "{n} ans plus tôt"],
   "panel.later": ["{n} an plus tard", "{n} ans plus tard"],
