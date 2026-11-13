@@ -2292,3 +2292,36 @@ details.used-by summary:hover { color: var(--parchment); }
 .theme-event-note { font-style: italic; color: var(--card-dim); }
 .theme-exit { margin: 2px 0 6px; }
 .chip-btn[hidden] { display: none; }
+
+/* ---------- Mobil: träffytor på 44 px, text på minst 12 px och en stängknapp i menyerna (#1309) ----------
+   Tryckytan görs 44 × 44 med ett osynligt ::after när själva knappen är mindre, så att raderna inte växer. Raderna ligger i
+   dokumentordning och varje knapp är positionerad, så en grannes synliga yta går före en annans förlängning. */
+@media (max-width: 760px) {
+  :is(.filter, .view-chip, .link-btn, .ff-chip, .ff-handle, .timeline-legend summary, .panel-x, .focus-tabs .chip-btn, .focus-sort .chip-btn,
+      .timebar .step, .timebar .play) { position: relative; }
+  :is(.filter, .view-chip, .link-btn, .ff-chip, .ff-handle, .panel-x, .focus-tabs .chip-btn, .focus-sort .chip-btn,
+      .timebar .step, .timebar .play)::after {
+    content: ""; position: absolute; left: 50%; top: 50%; width: max(100%, 44px); height: max(100%, 44px); transform: translate(-50%, -50%);
+  }
+  /* Text på minst 12 px */
+  .segment-note, .chip-btn .count, .filter, .panel-filters .filter, .region-count, .ff-name, .ff-more, .ff-badge, .ff-pre, .ff-sep, .ff-kind, .ff-pager, .ff-drag-hint,
+  .review-badge, .controls .speed, .controls .step, .tick, .timeline-legend summary, .timeline-legend, .layer-heading, .focus-sort-label,
+  .focus-sort .chip-btn, .layer-note, .focus-group-count, .tour-lesson-meta, .view-chip, .empire-legend-button { font-size: 12px; }
+  .focus-group-toggle, .focus-group-toggle > span { font-size: 12px; }
+  .timeline-legend summary::before { inset: -10px -8px -20px; } /* 44 px hög tryckyta, nedåt och uppåt över skalan */
+  /* Täta rader (flikarna och sorteringen i Sök och följ, förvalen i Lager): ytan är en verklig höjd som med raden mellan chipsen
+     blir 44 px, så att förlängningen inte krockar med raden ovanför och under */
+  .focus-tabs .chip-btn, .focus-sort .chip-btn { min-height: 40px; }
+  .view-chip { min-height: 38px; }
+  .view-chips { gap: 6px; }
+  .focus-search { min-height: 44px; }
+  /* Stängknappen i Lager, Sök och följ och Turer: menyerna fyller nästan hela skärmen och har annars bara Escape och knappen bakom */
+  .menu-x {
+    display: grid; place-items: center; float: right; position: sticky; top: 0; z-index: 1;
+    width: 44px; height: 44px; margin: -6px -6px 0 0; padding: 0;
+    font: 500 24px/1 var(--f-body); color: var(--parchment);
+    background: color-mix(in srgb, var(--night-2) 96%, transparent); border: 0; border-radius: var(--r); cursor: pointer;
+  }
+  .menu-x:hover, .menu-x:focus-visible { color: var(--brass); outline: 2px solid var(--brass); outline-offset: -4px; }
+}
+@media (min-width: 761px) { .menu-x { display: none; } }

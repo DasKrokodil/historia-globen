@@ -173,6 +173,10 @@ export class LayerMenu {
     this.viewStatus.hidden = true;
     box.append(head, row, this.viewStatus, this.customBtn);
     this.menu.append(box, this.customBox);
+    // Stängknappen i mobil (#1309): först i menyn. Den ligger här och inte i index.html, eftersom raderna i menyn flyttas in i "Anpassa själv".
+    const close = document.createElement('button');
+    close.type = 'button'; close.className = 'menu-x'; close.textContent = '×'; close.setAttribute('aria-label', ui('common.close'));
+    this.menu.prepend(close);
     this.setCustomOpen(customOpen, false);
     this.syncView();
   }
