@@ -328,13 +328,14 @@ export class Globe {
         const now = performance.now();
         if (e.pointerType !== 'mouse' && lastTap && now - lastTap.t < 350 && Math.hypot(e.clientX - lastTap.x, e.clientY - lastTap.y) < 30) {
           lastTap = null;
+          this.onDoubleTap?.(); // första trycket kan ha väntat på att bli ett platstryck (#1161)
           const at = this.pickLatLon(e.clientX, e.clientY);
           if (at) this.flyTo(at.lat, at.lon, 500);
           this.setZoom(this.zoom * 1.6);
           return;
         }
         lastTap = { x: e.clientX, y: e.clientY, t: now };
-        this.onClick?.(e.clientX, e.clientY);
+        this.onClick?.(e.clientX, e.clientY, e.pointerType);
       }
     };
     el.addEventListener('pointerup', end);
@@ -349,6 +350,8 @@ export class Globe {
         return;
       }
       if (e.ctrlKey || e.metaKey || e.altKey) return;
+      // Enter är tangentbordets tryck (#1161): platsen i mitten av vyn, om den har ett kort
+      if (e.key === 'Enter' && this.onActivate) { e.preventDefault(); this.onActivate(); return; }
       const step = (e.shiftKey ? 0.24 : 0.1) / this.zoom;
       let handled = true;
       if (e.key === 'ArrowLeft') this.group.rotation.y += step;

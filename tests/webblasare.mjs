@@ -1868,6 +1868,122 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1161: tryck på konturen av en plats. Konturerna syns och går att trycka på bara inzoomat och i vanligt läge; trycket
+  // öppnar kortet (Fokus av typen place) på globen och i Platt vy, och knappen Visa i Platt karta ramar in platsen.
+  // Grönland (isen i norr, 76° N 40° V) ligger fritt från markörer och etiketter vid år 1000, också i mobilbredd.
+  const placeTapPage = async (hash, name) => {
+    const t = await touchPage();
+    await t.tp.goto(`${BASE}?ny=${name}${hash}`);
+    await t.tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+    return t;
+  };
+  // dy: andel av höjden ovanför mitten. Mobilens etiketter (Alltinget) ligger i mitten vid år 1000, så inzoomat trycker vi högre upp på isen
+  const centreOf = async (pg, dy = 0) => { const b = await pg.locator('#globe-canvas').boundingBox(); return { x: b.x + b.width / 2, y: b.y + b.height * (0.5 - dy) }; };
+  const followsGreenland = pg => pg.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Grönland/.test(document.getElementById('focus-title').textContent)
+    && !!document.querySelector('#detail .place-type'), null, { timeout: T.step });
+  await check('tryck på konturen av en plats öppnar kortet, bara inzoomat och i vanligt läge (#1161)', async () => {
+    // Utzoomat syns ingen kontur och ett tryck på Grönland öppnar ingenting
+    const far = await placeTapPage('#y=1000&c=76,-40,1', 'platstryck1');
+    try {
+      const at = await centreOf(far.tp);
+      await far.tp.mouse.move(at.x, at.y);
+      await far.tp.mouse.click(at.x, at.y);
+      await far.tp.waitForTimeout(900);
+      if (!(await far.tp.isHidden('#focus-bar'))) throw new Error('ett tryck på Grönland utzoomat startade ett fokus');
+      if ((await far.tp.getAttribute('#globe-canvas', 'class')).includes('on-place')) throw new Error('handen visades över en plats utzoomat');
+    } finally { await far.tctx.close(); }
+    // Inzoomat: handen över konturen, och ett tryck öppnar platsens kort
+    const { tp, tctx, errs } = await placeTapPage('#y=1000&c=76,-40,3', 'platstryck2');
+    try {
+      const at = await centreOf(tp, 0.18);
+      await tp.mouse.move(at.x, at.y);
+      await tp.waitForFunction(() => document.getElementById('globe-canvas').classList.contains('on-place'), null, { timeout: T.step });
+      await tp.mouse.click(at.x, at.y);
+      await followsGreenland(tp);
+      await tp.waitForFunction(() => location.hash.includes('f=place:gronland'), null, { timeout: T.step });
+      // I Fokus finns ingen hand och ingen ny kontur att trycka på
+      await tp.mouse.move(at.x + 3, at.y + 3);
+      await tp.waitForTimeout(250);
+      if ((await tp.getAttribute('#globe-canvas', 'class')).includes('on-place')) throw new Error('handen visades över en plats i Fokus');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return 'handen och trycket gäller bara inzoomat, och kortet öppnas';
+    } finally { await tctx.close(); }
+  });
+
+  await check('Visa i Platt karta ramar in platsen, och ett tryck i Platt vy öppnar kortet (#1161)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1000&f=place:gronland', 'platstryck3');
+    try {
+      await followsGreenland(tp);
+      const button = tp.locator('#detail [data-selection-action]');
+      await button.waitFor({ state: 'visible', timeout: T.step });
+      if (!/Visa i Platt karta/.test(await button.textContent())) throw new Error(`knappen heter ${await button.textContent()}`);
+      if (!/Grönland/.test(await button.getAttribute('aria-label'))) throw new Error('knappens aria-label nämner inte platsen');
+      if (!(await tp.isHidden('#flat-view'))) throw new Error('Platt vy var öppen före knappen');
+      await button.click();
+      await tp.waitForFunction(() => !document.getElementById('flat-view').hidden, null, { timeout: T.step });
+      // Vyn byts utan eget läge: Platt karta är vald, platsen följs fortfarande och kartan är inramad på Grönland
+      if ((await tp.getAttribute('#btn-flat', 'aria-pressed')) !== 'true') throw new Error('Platt karta är inte vald i Vy');
+      if (!/Grönland/.test(await tp.textContent('#focus-title'))) throw new Error('platsen följs inte längre');
+      const frame = async () => tp.evaluate(() => {
+        const [lat, lon, zoom] = document.getElementById('flat-view').dataset.view.split(',').map(Number);
+        const r = document.getElementById('flat-canvas').getBoundingClientRect(), base = Math.max(r.width / 4096, r.height / 2048), scale = base * zoom;
+        return { lat, lon, zoom, halfLon: r.width / 2 / scale / 4096 * 360, halfLat: r.height / 2 / scale / 2048 * 180 };
+      });
+      await tp.waitForFunction(() => Number(document.getElementById('flat-view').dataset.view.split(',')[2]) > 1.2, null, { timeout: T.step });
+      const f = await frame();
+      // Hela Grönland (73° V–12° V, 59° N–84° N) ryms i kartans ruta
+      if (f.lon - f.halfLon > -73 || f.lon + f.halfLon < -12 || f.lat - f.halfLat > 59 || f.lat + f.halfLat < 84) throw new Error(`Grönland ryms inte i kartan: mitt ${f.lat},${f.lon}, halva ${f.halfLat}×${f.halfLon} grader`);
+      if (f.halfLon > 90) throw new Error(`kartan är inte inzoomad: halva bredden ${f.halfLon} grader`);
+      // Skärmläsaren får veta vad som hände
+      if (!/Platt karta öppen med Grönland i bild/.test(await tp.textContent('#screen-reader-status'))) throw new Error('statusraden säger inte att platsen visas');
+      // Avsluta platsen, och tryck sedan på konturen i Platt vy (kartan står kvar inramad, konturen syns därför)
+      const focusLeft = async () => { await tp.evaluate(() => document.querySelector('#detail [data-end-theme]')?.click()); await tp.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step }); };
+      await focusLeft();
+      // Inlandsisen (75° N 40° V) på skärmen, räknat ur kartans mitt och zoom: i mobilbredd kan kartan inte centreras på Grönland
+      // (den kan inte rullas förbi polerna), så mitten av ytan är inte Grönland. Trycket med finger väntar ett ögonblick på ett dubbeltryck
+      const { cx, cy } = await tp.evaluate(() => {
+        const [lat, lon, zoom] = document.getElementById('flat-view').dataset.view.split(',').map(Number);
+        const r = document.getElementById('flat-canvas').getBoundingClientRect(), scale = Math.max(r.width / 4096, r.height / 2048) * zoom;
+        return { cx: r.left + r.width / 2 + (-40 - lon) / 360 * 4096 * scale, cy: r.top + r.height / 2 + (lat - 75) / 180 * 2048 * scale };
+      });
+      await tp.mouse.move(cx, cy);
+      await tp.waitForFunction(() => document.getElementById('flat-canvas').classList.contains('on-place'), null, { timeout: T.step });
+      await tp.touchscreen.tap(cx, cy);
+      await followsGreenland(tp);
+      if ((await tp.getAttribute('#btn-flat', 'aria-pressed')) !== 'true') throw new Error('Platt vy stängdes av trycket');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `inramad: mitt ${f.lat},${f.lon}, zoom ${f.zoom}`;
+    } finally { await tctx.close(); }
+  });
+
+  await check('tangentbord: Enter följer platsen i mitten och statusraden säger vilken plats det är (#1161)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1000&c=76,-40,1', 'platstryck4');
+    try {
+      const status = () => tp.textContent('#screen-reader-status').then(s => s.replace(/\s+/g, ' ').trim());
+      await tp.focus('#globe-canvas');
+      // En tangentbordsflytt: efter en stund säger statusraden vilken plats med kort som ligger i mitten
+      await tp.keyboard.press('ArrowLeft');
+      await tp.waitForFunction(() => /Grönland: en plats med kort\. Tryck Enter/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step });
+      // Enter följer platsen, utan mus
+      await tp.keyboard.press('Enter');
+      await followsGreenland(tp);
+      await tp.waitForFunction(() => location.hash.includes('f=place:gronland'), null, { timeout: T.step });
+      await tp.click('#detail [data-end-theme]');
+      await tp.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+      // Utan plats med kort i mitten säger Enter vad man kan göra i stället (Sök och följ räcker alltid)
+      await tp.goto(`${BASE}?ny=platstryck5#y=1000&c=0,0,1`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.focus('#globe-canvas');
+      await tp.keyboard.press('Enter');
+      await tp.waitForFunction(() => /Ingen plats med eget kort ligger i mitten\. Välj en plats under Sök och följ → Platser\./.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step });
+      if (!(await tp.isHidden('#focus-bar'))) throw new Error('Enter startade ett fokus utan plats i mitten');
+      // Globens text nämner tangenten
+      if (!/Enter/.test(await tp.getAttribute('#globe-canvas', 'aria-label'))) throw new Error('globens beskrivning nämner inte Enter');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `statusraden: ${await status()}`;
+    } finally { await tctx.close(); }
+  });
+
   // #1327: fokustyperna är poster i js/focus/. Varje typ börjar via en länk, visar sitt kort, har knappen Fakta där
   // den ska finnas, står i adressen och slutar rent. Ett urval (tema, plats) lämnar tillbaka fokus till Fokus-knappen
   // och stänger sitt kort; ett okänt id börjar inget fokus och ger inget fel.
