@@ -14416,6 +14416,102 @@
    ]
   },
   {
+   "id": "weimarrepubliken",
+   "name": {
+    "sv": "Weimarrepubliken",
+    "en": "Weimar Republic"
+   },
+   "color": "#8a78b0",
+   "from": 1920,
+   "to": 1932,
+   "file": "data/empires/weimarrepubliken.json",
+   "polities": [
+    {
+     "id": "weimarrepubliken",
+     "name": {
+      "sv": "Weimarrepubliken",
+      "en": "Weimar Republic"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "nazityskland",
+   "name": {
+    "sv": "Nazityskland",
+    "en": "Nazi Germany"
+   },
+   "color": "#5e5258",
+   "from": 1933,
+   "to": 1944,
+   "file": "data/empires/nazityskland.json",
+   "polities": [
+    {
+     "id": "nazityskland",
+     "name": {
+      "sv": "Nazityskland",
+      "en": "Nazi Germany"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "vasttyskland",
+   "name": {
+    "sv": "Västtyskland",
+    "en": "West Germany"
+   },
+   "color": "#c0a040",
+   "from": 1950,
+   "to": 1990,
+   "file": "data/empires/vasttyskland.json",
+   "polities": [
+    {
+     "id": "vasttyskland",
+     "name": {
+      "sv": "Västtyskland",
+      "en": "West Germany"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "osttyskland",
+   "name": {
+    "sv": "Östtyskland",
+    "en": "East Germany"
+   },
+   "color": "#b0604a",
+   "from": 1949,
+   "to": 1990,
+   "file": "data/empires/osttyskland.json",
+   "polities": [
+    {
+     "id": "osttyskland",
+     "name": {
+      "sv": "Östtyskland",
+      "en": "East Germany"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
    "id": "osterrike-ungern",
    "name": {
     "sv": "Österrike-Ungern",
