@@ -69,9 +69,9 @@ export function createAddress(app) {
   /** Finns det man följer i datan? (en gammal länk kan peka på något som har bytt namn) */
   function focusExists(key) {
     const [type, id] = key.split(':');
-    if (type === 'war') return data.byId[id]?.kind === 'war';
-    if (type === 'empire') return data.empireGroups.some(g => g.id === id);
-    return true; // religioner och resor laddas först vid fokus; startFocus avbryter själv om de saknas
+    // Posten (js/focus/, #1327) kan svara direkt för krig och riken; det som laddas först vid fokus har ingen
+    // exists(), och då avbryter startFocus själv om det saknas
+    return app.focusTypes.get(type)?.exists?.(id) ?? true;
   }
 
   /** Ställer in vyn efter en läst hash (decodeHash). */

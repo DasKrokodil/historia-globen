@@ -45,6 +45,7 @@ js/period-range.js    epok som intervall: periodToRange klipper vid tidslinjens 
 js/timeline.js        tidsreglage, segmenterad skala, uppspelning
 js/layers/registry.js lagerregistret: ritordning, Lager-menyn, uppdatering och toning (#338)
 js/layers/index.js    listan över lagren i Lager-menyns ordning; ett nytt lager läggs till här (#338)
+js/focus/             fokustyperna som poster (#1327): registry.js (registret och kontraktet), index.js (listan) och en fil per typ (krig, rike, religion, resa, tema, plats)
 js/layers/events.js   punktlager: händelser
 js/layers/lines.js    linjelager: vägar och resor som ritas fram över tiden (#38)
 js/layers/discovery.js upptäcktsvyn: gammal kartstil, havsmonster och dimma som resorna lyfter (#101)
@@ -61,6 +62,7 @@ js/ui/print-sheet.js  utskrift av en lektionstur: elevblad och lärarblad ur tur
 js/ui/uppdrag.js      elevuppdraget Samtidighetsjakten under Mer, med knappen i faktarutan (#741)
 js/uppdrag-rules.js   jaktens regler: år, världsdel och vad som räknas, delas med testerna (#741)
 js/quiz-rules.js      quizets regler: frågor och säkert felaktiga svar, delas med testerna (#65)
+js/samtidighet.js     definitionen av "samtidigt" och "nära i tid" för fun facts, quiz och jakt, delas med testerna (#1311)
 js/ui/viewmode.js     vyväljaren: Glob, Platt karta och Upptäcktsresor (#651)
 js/ui/tour.js         guidade turer: spelar upp en tur ur data/turer/ steg för steg (#47)
 js/ui/lesson.js       lektionsläget: länken m=lektion döljer menyerna, låser år och lager och visar bandet med "Visa hela globen" (#795)

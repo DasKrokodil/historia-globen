@@ -1914,7 +1914,7 @@ async function run(browser, vp) {
     const { tp, tctx, errs } = await placeTapPage('#y=1000&f=place:gronland', 'platstryck3');
     try {
       await followsGreenland(tp);
-      const button = tp.locator('#detail [data-place-flat]');
+      const button = tp.locator('#detail [data-selection-action]');
       await button.waitFor({ state: 'visible', timeout: T.step });
       if (!/Visa i Platt karta/.test(await button.textContent())) throw new Error(`knappen heter ${await button.textContent()}`);
       if (!/Grönland/.test(await button.getAttribute('aria-label'))) throw new Error('knappens aria-label nämner inte platsen');
@@ -1981,6 +1981,65 @@ async function run(browser, vp) {
       if (!/Enter/.test(await tp.getAttribute('#globe-canvas', 'aria-label'))) throw new Error('globens beskrivning nämner inte Enter');
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
       return `statusraden: ${await status()}`;
+    } finally { await tctx.close(); }
+  });
+
+  // #1327: fokustyperna är poster i js/focus/. Varje typ börjar via en länk, visar sitt kort, har knappen Fakta där
+  // den ska finnas, står i adressen och slutar rent. Ett urval (tema, plats) lämnar tillbaka fokus till Fokus-knappen
+  // och stänger sitt kort; ett okänt id börjar inget fokus och ger inget fel.
+  await check('fokustyperna som poster: varje typ börjar, visar sitt kort, står i adressen och slutar (#1327)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    const cases = [
+      { key: 'war:andra-varldskriget', title: /Andra världskriget/, facts: false, card: '#detail .story-label' },
+      { key: 'empire:romarriket', title: /Rom/, facts: true, card: '#detail h3' },
+      { key: 'religion:kristendom', title: /Kristendom/, facts: true, card: '#detail h3' },
+      { key: 'route:zheng-he-resa-1', title: /Zheng He/, facts: false, card: null },
+      { key: 'theme:teknik', title: /Teknik/, facts: true, card: '#detail [data-end-theme]', selection: true, notes: 1, lead: false },
+      { key: 'place:gronland', title: /Grönland/, facts: true, card: '#detail [data-end-theme]', selection: true, notes: 2, lead: true },
+    ];
+    try {
+      await tp.goto(`${BASE}?ny=fokustyper#y=1325`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      for (const c of cases) {
+        await tp.evaluate(key => { location.hash = `#y=1325&f=${key}`; }, c.key);
+        await tp.waitForFunction(({ source }) => !document.getElementById('focus-bar').hidden && new RegExp(source).test(document.getElementById('focus-title').textContent),
+          { source: c.title.source }, { timeout: T.step });
+        await tp.waitForFunction(key => location.hash.includes(`f=${key}`), c.key, { timeout: T.step });
+        if (!(await tp.evaluate(() => document.getElementById('app').classList.contains('focusing')))) throw new Error(`${c.key}: sidan är inte i fokusläge`);
+        if ((await tp.isVisible('#focus-facts')) !== c.facts) throw new Error(`${c.key}: knappen Fakta ${c.facts ? 'saknas' : 'visas'}`);
+        if (c.card) await tp.waitForSelector(c.card, { state: 'visible', timeout: T.step });
+        if (c.selection) {
+          const card = await tp.evaluate(() => ({ notes: document.querySelectorAll('#detail .theme-filter-note').length, lead: !!document.querySelector('#detail .place-type'),
+            events: document.querySelectorAll('#detail [data-theme-event]').length, label: document.querySelector('#detail .story-label')?.textContent ?? '' }));
+          if (card.notes !== c.notes || card.lead !== c.lead || !card.events || !card.label) throw new Error(`${c.key}: kortet stämmer inte: ${JSON.stringify(card)}`);
+        }
+        // Fakta öppnar samma ruta eller kort igen när den har stängts
+        if (c.facts) {
+          await tp.click('#detail [data-close]');
+          await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+          await tp.click('#focus-facts');
+          await tp.waitForSelector(c.card, { state: 'visible', timeout: T.step });
+        }
+        await tp.click('#focus-exit');
+        await tp.waitForFunction(() => document.getElementById('focus-bar').hidden && !location.hash.includes('f='), null, { timeout: T.step });
+        if (await tp.evaluate(() => document.getElementById('app').classList.contains('focusing'))) throw new Error(`${c.key}: fokusläget ligger kvar efter Avsluta`);
+        if (c.selection) {
+          if (!(await tp.isHidden('#detail'))) throw new Error(`${c.key}: urvalets kort ligger kvar efter Avsluta`);
+          // I mobilbredd ligger Fokus-knappen i en stängd meny, och fokus hamnar på menyns knapp (som före #1327)
+          if (vp.width > 760 && (await tp.evaluate(() => document.activeElement?.id)) !== 'btn-focus') throw new Error(`${c.key}: fokus gick inte tillbaka till Fokus-knappen`);
+        } else if (await tp.isVisible('#detail')) await tp.click('#detail [data-close]');
+      }
+      // Ett okänt id börjar inget fokus, för varje typ, och ger inget fel i konsolen
+      // Varje försök har sitt eget år: när året har bytts har adressen lästs, och fokuset hade då hunnit börja
+      for (const [i, type] of ['war', 'empire', 'religion', 'route', 'theme', 'place'].entries()) {
+        const year = 1001 + i;
+        await tp.evaluate(({ type, year }) => { location.hash = `#y=${year}&f=${type}:finns-inte`; }, { type, year });
+        await tp.waitForFunction(year => Number(document.getElementById('year-big').textContent.replace(/\s/g, '')) === year, year, { timeout: T.step });
+        await tp.waitForLoadState('networkidle'); // religioner, resor, teman och platser hämtas innan posten kan säga nej
+        if (!(await tp.isHidden('#focus-bar'))) throw new Error(`${type}:finns-inte startade ändå ett fokus`);
+      }
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `${cases.length} typer följda och avslutade, 6 okända id avvisade`;
     } finally { await tctx.close(); }
   });
 
@@ -2240,6 +2299,27 @@ async function run(browser, vp) {
       await jumpTo(1889);
     }
     return 'bildkort och bildlöst krigskort har samma höjd och tillgängliga namn';
+  });
+
+  // Definitionen av "samtidigt" (#1311): kortet säger om en fun fact är samtidig, nära i tid eller jämför avstånd,
+  // och siffran räknas ur händelsernas årtal. 1889: Eiffeltornet och Nintendo samma år; 1843: faxen 33 år före telefonen.
+  await check('Samtidigt-kortet visar relationen i tid för en fun fact (#1311)', async () => {
+    const kindFor = async (y, id) => {
+      await jumpTo(y);
+      for (let i = 0; i < 12; i++) {
+        if ((await page.getAttribute('#funfact', 'data-funfact-id')) === id) return (await page.textContent('#ff-kind')).trim();
+        const next = page.locator('#ff-next');
+        if (!await next.isVisible().catch(() => false)) break;
+        await next.click();
+      }
+      throw new Error(`${y}: fun facten ${id} syns inte i kortet`);
+    };
+    const same = await kindFor(1889, 'nintendo-eiffel');
+    if (same !== 'Fun fact · Samtidigt') throw new Error(`1889 säger "${same}"`);
+    const near = await kindFor(1843, 'fax-telefon');
+    if (near !== 'Fun fact · Nära i tid: 33 år isär') throw new Error(`1843 säger "${near}"`);
+    await jumpTo(1889);
+    return `"${same}" och "${near}"`;
   });
 
   await check('skärmläsarstatusen säger paus och Samtidigt-text', async () => {

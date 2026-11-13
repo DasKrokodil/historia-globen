@@ -64,6 +64,7 @@ js/state.js           det gemensamma tillståndet som lagren läser (år, fokus,
 js/surfaces.js        stängregistret för ytor: menyerna och sidopanelen anmäler sig i grupper och en öppnad yta stänger sin grupp (#894)
 js/layers/registry.js lagerregistret: rader i Lager, ritordning, dämpning i fokus, teckenförklaring (#338)
 js/layers/index.js    lagerlistan: alla lager som anmäler sig i registret (#338)
+js/focus/             fokustyperna som poster (#1327): registry.js (registret och kontraktet), index.js (listan) och en fil per typ (krig, rike, religion, resa, tema, plats)
 js/model.js           språk, kategorier, tidsformat, laddning av data
 js/i18n.js            språkval och gränssnittets texter på valt språk (#63)
 js/globe.js           3D-globen (three.js), ekvirektangulär rendering
@@ -97,6 +98,7 @@ js/ui/print-sheet.js  utskrift av en lektionstur: elevblad och lärarblad ur tur
 js/ui/uppdrag.js      elevuppdraget Samtidighetsjakten under Mer, med knappen i faktarutan (#741)
 js/uppdrag-rules.js   jaktens regler: år, världsdel och vad som räknas, delas med testerna (#741)
 js/quiz-rules.js      quizets regler: frågor och säkert felaktiga svar, delas med testerna (#65)
+js/samtidighet.js     definitionen av "samtidigt" och "nära i tid" för fun facts, quiz och jakt, delas med testerna (#1311)
 js/ui/viewmode.js     vyväljaren: Glob, Platt karta och Upptäcktsresor (#651)
 js/ui/tour.js         guidade turer: spelar upp en tur ur data/turer/ steg för steg (knappen Turer, #47)
 js/ui/lesson.js       lektionsläget: länken m=lektion döljer menyerna, låser år och lager och visar bandet med "Visa hela globen" (#795)

@@ -577,60 +577,41 @@ export class Panel {
   }
 
   /**
-   * Introduktionskortet för ett tema i Fokus (#398): vad temat samlar, och dess händelser i tidsordning som knappar
-   * som öppnar faktarutan. En händelse före tidslinjens början (#942) märks, eftersom reglaget inte når dit.
+   * Kortet för ett urval i Fokus (#1327): ett tema (#398) eller en plats (#579). Fokustypens post i js/focus/ ger
+   * innehållet, och kortet är samma för alla urval:
+   *   label    etiketten överst ("Tema", "Plats")
+   *   name     namnet, text per språk
+   *   lead     valfri rad under namnet (platsens typ)
+   *   emblems  valfria flaggor och vapen (#1160): egna SVG:er i img/flags/ med bildtext, kredit och licens;
+   *            filsidorna läggs till bland källorna
+   *   intro    inledningen, text per språk
+   *   action   valfri knapp direkt efter inledningen, { text, label, run } (platsens Visa i Platt karta, #1161); label är knappens aria-label och ska börja med text
+   *   notes    de fasta raderna under inledningen (att filtren inte gäller, att linjen är dagens gräns)
+   *   exit     texten på knappen som lämnar urvalet
+   *   summary  rubriken för listan ("14 händelser")
+   *   events   händelserna i tidsordning, som knappar som öppnar faktarutan. En händelse före tidslinjens
+   *            början (#942) märks, eftersom reglaget inte når dit
+   *   sources  källornas id
    */
-  showTheme(theme, events) {
+  showSelection({ label, name, lead = '', emblems = [], intro, action = null, notes = [], exit, summary, events, sources = [] }) {
     this.selectedId = null;
     this.detail.className = `detail detail-card frame-${styleFor(events[0], this.styles).frame}`;
-    const srcs = (theme.sources ?? []).map(id => this.srcById[id]).filter(Boolean);
+    const shown = (emblems ?? []).filter(em => flagUrl(em));
+    const srcs = [...new Set([...(sources ?? []), ...shown.map(em => em.source)])].map(id => this.srcById[id]).filter(Boolean);
+    const emblemHtml = shown.length ? `<div class="place-emblems">${shown.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}"><img src="${esc(flagUrl(em))}" alt="${esc(t(em.caption))}"><figcaption>${esc(t(em.caption))}<span class="meta">${esc(em.credit)} · ${esc(em.license)}</span></figcaption></figure>`).join('')}</div>` : '';
     const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> <span${langAttr(e.title)}>${esc(t(e.title))}</span>${e.start < MIN_YEAR ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
-      <div class="story-label">${esc(ui('theme.label'))}</div>
-      <h3>${esc(t(theme.name))}</h3>
-      <div class="story"><p>${esc(t(theme.intro))}</p>
-      <p class="theme-filter-note">${esc(ui('theme.filters'))}</p>
-      <button type="button" class="chip-btn theme-exit" data-end-theme>${esc(ui('theme.exit'))}</button>
-      <details class="theme-event-list"${matchMedia('(max-width: 760px)').matches ? '' : ' open'}>
-        <summary>${esc(ui('theme.events', { count: events.length }))}</summary>
-        <ul class="theme-events">${items}</ul>
-      </details></div>
-      ${srcs.length ? srcLine(srcs, false) : ''}`;
-    this.detail.scrollTop = 0;
-    this.setDetailOpen(true);
-    this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
-    this.detail.querySelector('[data-end-theme]').addEventListener('click', () => this.onEndTheme());
-    for (const b of this.detail.querySelectorAll('[data-theme-event]')) b.addEventListener('click', () => this.onThemeEvent?.(b.dataset.themeEvent));
-    this.detail.querySelector('[data-close]').focus({ preventScroll: true });
-  }
-
-  /**
-   * Platsens kort (#579): namn, typ, en kort inledning, den fasta raden om att linjen är dagens gräns, och händelserna
-   * inom gränsen i tidsordning. Bygger på temakortet; knapparna Avsluta och händelserna använder samma återanrop.
-   */
-  showPlace(place, events) {
-    this.selectedId = null;
-    this.detail.className = `detail detail-card frame-${styleFor(events[0], this.styles).frame}`;
-    // Flagga och vapen (#1160): egna SVG:er i img/flags/ med bildtext, kredit och licens; filsidorna står bland källorna
-    const emblems = (place.emblems ?? []).filter(em => flagUrl(em));
-    const srcs = [...new Set([...(place.sources ?? []), ...emblems.map(em => em.source)])].map(id => this.srcById[id]).filter(Boolean);
-    const emblemHtml = emblems.length ? `<div class="place-emblems">${emblems.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}"><img src="${esc(flagUrl(em))}" alt="${esc(t(em.caption))}"><figcaption>${esc(t(em.caption))}<span class="meta">${esc(em.credit)} · ${esc(em.license)}</span></figcaption></figure>`).join('')}</div>` : '';
-    const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> <span${langAttr(e.title)}>${esc(t(e.title))}</span>${e.start < MIN_YEAR ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
-    const type = ui(`place.type.${place.type}`), of = place.partOf ? t(place.partOf) : '';
-    this.detail.innerHTML = `
-      <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
-      <div class="story-label">${esc(ui('place.label'))}</div>
-      <h3>${esc(t(place.name))}</h3>
-      <div class="story"><p class="place-type">${esc(of ? ui('place.typeOf', { type, of }) : type)}</p>
+      <div class="story-label">${esc(label)}</div>
+      <h3>${esc(t(name))}</h3>
+      <div class="story">${lead ? `<p class="place-type">${esc(lead)}</p>` : ''}
       ${emblemHtml}
-      <p>${esc(t(place.intro))}</p>
-      ${this.onPlaceFlat ? `<button type="button" class="chip-btn theme-exit place-flat" data-place-flat aria-label="${esc(`${ui('place.flatMap')}: ${t(place.name)}`)}">${esc(ui('place.flatMap'))}</button>` : ''}
-      <p class="theme-filter-note">${esc(ui('place.borderNote'))}</p>
-      <p class="theme-filter-note">${esc(ui('place.filters'))}</p>
-      <button type="button" class="chip-btn theme-exit" data-end-theme>${esc(ui('place.exit'))}</button>
+      <p>${esc(t(intro))}</p>
+      ${action ? `<button type="button" class="chip-btn theme-exit place-flat" data-selection-action aria-label="${esc(action.label ?? action.text)}">${esc(action.text)}</button>` : ''}
+      ${notes.map(note => `<p class="theme-filter-note">${esc(note)}</p>`).join('\n      ')}
+      <button type="button" class="chip-btn theme-exit" data-end-theme>${esc(exit)}</button>
       <details class="theme-event-list"${matchMedia('(max-width: 760px)').matches ? '' : ' open'}>
-        <summary>${esc(ui('place.events', { count: events.length }))}</summary>
+        <summary>${esc(summary)}</summary>
         <ul class="theme-events">${items}</ul>
       </details></div>
       ${srcs.length ? srcLine(srcs, false) : ''}`;
@@ -638,7 +619,7 @@ export class Panel {
     this.setDetailOpen(true);
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
     this.detail.querySelector('[data-end-theme]').addEventListener('click', () => this.onEndTheme());
-    this.detail.querySelector('[data-place-flat]')?.addEventListener('click', () => this.onPlaceFlat(place)); // #1161: en knapp, inget eget läge
+    this.detail.querySelector('[data-selection-action]')?.addEventListener('click', () => action.run());
     for (const b of this.detail.querySelectorAll('[data-theme-event]')) b.addEventListener('click', () => this.onThemeEvent?.(b.dataset.themeEvent));
     this.detail.querySelector('[data-close]').focus({ preventScroll: true });
   }

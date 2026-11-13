@@ -57,7 +57,8 @@
               "takeaways": { "type": "array", "items": { "$ref": "#/$defs/takeaway" } }
             }
           },
-          "review": { "type": "string", "enum": ["draft", "source-checked", "two-sources"] }
+          "review": { "type": "string", "enum": ["draft", "source-checked", "two-sources"] },
+          "lasting": { "description": "Valfritt (#1311): true när händelsen är ett långt tillstånd (något som pågick, till exempel ett rike eller en kultur), inte något som hände. Sätts med källa, i omgångar.", "type": "boolean", "const": true }
         }
       }
     }
