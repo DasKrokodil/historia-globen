@@ -336,8 +336,7 @@ export class TourPlayer {
    * Platserna laddas först nu, så steget kan ha bytts när de kommer: då visas inget.
    */
   showPlace(step, card) {
-    const i = this.index;
-    this.app.places?.openStep(step.place, { card, current: () => !!this.tour && this.index === i });
+    this.app.places?.openStep(step.place, { card, current: () => !!this.tour && this.step === step });
   }
 
   /** Stegindikatorn i kortet (#1280): ett streck per steg, de gjorda och det nuvarande fyllda. Bara en tillägg till

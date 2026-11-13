@@ -2010,7 +2010,7 @@ async function run(browser, vp) {
   const narrowVp = vp.width <= 760;
   const stepIs = (pg, n) => pg.waitForFunction(x => new RegExp(`^Steg ${x} av 3$`).test(document.getElementById('tour-progress').textContent.trim()), n, { timeout: T.step });
   /** Platsens kort i ett steg: öppet (i smal skärm efter Läs om platsen), med rätt etikett, utan Avsluta platsen och utan Visa i Platt karta. */
-  const placeCardInStep = async (pg, what) => {
+  const placeCardInStep = async (pg, what, firstTime = false) => {
     if (narrowVp) {
       // Arket skulle täcka turkortet: som för en händelse öppnas kortet med knappen
       if (!(await pg.isHidden('#detail'))) throw new Error(`${what}: kortet öppnades av sig självt i smal skärm`);
@@ -2018,6 +2018,9 @@ async function run(browser, vp) {
       await pg.click('#tour-read');
     }
     await pg.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+    // Kortet tar inte tangentbordsfokus (Nästa ska behålla det), och skärmläsaren hör "Plats: Grönland", inte "Om händelsen"
+    if (narrowVp ? false : await pg.evaluate(() => document.getElementById('detail').contains(document.activeElement))) throw new Error(`${what}: kortet tog tangentbordsfokus`);
+    if (firstTime) await pg.waitForFunction(() => /Plats: Grönland/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step });
     if (!/Läs om platsen/.test(await pg.textContent('#tour-read'))) throw new Error(`${what}: knappen heter inte Läs om platsen: ${await pg.textContent('#tour-read')}`);
     if (!/^Plats$/.test((await pg.textContent('#detail .story-label')).trim())) throw new Error(`${what}: kortets etikett är inte Plats`);
     if (await pg.locator('#detail [data-end-theme]').count()) throw new Error(`${what}: kortet har Avsluta platsen utan att något Fokus pågår`);
@@ -2035,7 +2038,7 @@ async function run(browser, vp) {
       if (!(await tp.isHidden('#tour-read'))) throw new Error('Läs om-knappen syns i ett steg utan händelse eller plats');
       await tp.click('#tour-next');
       await stepIs(tp, 2);
-      await placeCardInStep(tp, 'steg 2');
+      await placeCardInStep(tp, 'steg 2', true);
       // I smal skärm täcker kortet som ark turkortet, som för en händelse: det stängs innan man går vidare
       const closeCard = async () => { if (narrowVp) { await tp.click('#detail [data-close]'); await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step }); } };
       await closeCard();
@@ -2072,6 +2075,11 @@ async function run(browser, vp) {
       // Låset är orört: året står kvar, årshoppet och Fokus-knappen går inte att nå
       if ((await tp.textContent('#year-big')).trim() !== '1000') throw new Error('lektionens år ändrades');
       if (await tp.evaluate(() => { const el = document.getElementById('btn-focus'); return !!el && el.getClientRects().length > 0; })) throw new Error('Sök och följ syns i lektionsläget');
+      // En rad i kortets lista öppnar händelsen men hoppar inte året, som annars (jump) skulle flytta det inom lektionens spann
+      if (narrowVp) await tp.click('#detail .theme-event-list summary');
+      await tp.click('#detail [data-theme-event]');
+      await tp.waitForFunction(() => !document.querySelector('#detail .place-type'), null, { timeout: T.step });
+      if ((await tp.textContent('#year-big')).trim() !== '1000') throw new Error(`en rad i platskortet hoppade året: ${await tp.textContent('#year-big')}`);
       // Platstrycket är av: ett tryck och Enter på globen öppnar ingen plats, och ingen hand visas över platsen
       const b = await tp.locator('#globe-canvas').boundingBox();
       const at = { x: b.x + b.width / 2, y: b.y + b.height * 0.32 };
@@ -2117,8 +2125,19 @@ async function run(browser, vp) {
       await tp.click('#range-pop .jump-go');
       await tp.waitForFunction(() => !document.getElementById('range-bar').hidden && document.getElementById('focus-bar').hidden, null, { timeout: T.step });
       await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      // Slutåret utanför platsens spann (Grönland: till 2009): året hoppar inte längre än till intervallets början, som låg inom spannet
+      await tp.goto(`${BASE}?ny=platsint2#y=1990&y2=2020`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForFunction(() => !document.getElementById('range-bar').hidden, null, { timeout: T.step });
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#btn-more')) await tp.click('#btn-more');
+      await tp.click('#btn-focus');
+      await tp.click('#focus-menu [data-tab="Platser"]');
+      await tp.click('#focus-menu [data-key="place:gronland"]');
+      await followsGreenland(tp);
+      if ((await tp.textContent('#year-big')).trim() !== '1990') throw new Error(`slutåret låg utanför spannet och året blev ${await tp.textContent('#year-big')}, inte intervallets början`);
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
-      return 'platsen avslutar intervallet och börjar vid slutåret, kortet säger det, och ett nytt intervall avslutar platsen';
+      return 'platsen avslutar intervallet och börjar vid slutåret (annars intervallets början), kortet säger det, och ett nytt intervall avslutar platsen';
     } finally { await tctx.close(); }
   });
 

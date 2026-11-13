@@ -15,6 +15,7 @@ export function entry() {
     // Konturerna runt platserna med kort (#1161) beror på zoomen, som ändras utan att valen i Lager gör det (och apply() körs då
     // inte), så de styrs av hints här i stället för av enabled
     update: s => {
+      if (layer.step && !s.modes?.some(m => m.mode === 'tur')) layer.step = null; // turens steg lånar ut platsen: utan tur ritas den inte, vilken väg turen än slutade på (#1163)
       layer.place = s.focus?.type === 'place' ? s.focus.place : null;
       layer.hints = !s.focus && !!s.labels?.placeHints;
       layer.px = s.labels?.placePx ?? 1; // bildpunkter per skärmpixel

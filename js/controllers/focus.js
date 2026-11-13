@@ -52,9 +52,12 @@ export function createFocus(app) {
     const closedRange = post.startsAtRangeEnd && state.range ? { from: state.range.from, to: state.range.to } : null;
     if (state.focus) endFocus(false);
     app.store.enter('fokus'); // avslutar en tur som pågår (MODE_RULES i js/state.js); turens lager återställs, inte dess fokus
-    if (closedRange) { timeline.year = Math.floor(closedRange.to); f.closedRange = closedRange; }
-    // Året stannar om det ligger inom spannet; annars flyttas det till starten och flytten visas (#167)
-    const prevYear = timeline.year, prevText = timeline.format(prevYear), keepYear = prevYear >= f.from && prevYear <= f.to;
+    // Året stannar om det ligger inom spannet; annars flyttas det till starten och flytten visas (#167). Efter ett intervall: slutåret
+    // om det ligger inom spannet, annars intervallets början om den gör det (som förut), annars spannets start
+    const inSpan = y => y >= f.from && y <= f.to;
+    const prevYear = closedRange ? [closedRange.to, closedRange.from].map(Math.floor).find(inSpan) ?? Math.floor(closedRange.from) : timeline.year;
+    if (closedRange) f.closedRange = closedRange;
+    const prevText = timeline.format(prevYear), keepYear = inSpan(prevYear);
     post.prepare?.(f);
     const { war = null, route = null } = post.follows?.(f) ?? {};
     app.store.setFocus(f, { war, route });

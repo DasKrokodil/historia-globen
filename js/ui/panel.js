@@ -592,10 +592,11 @@ export class Panel {
    *   events   händelserna i tidsordning, som knappar som öppnar faktarutan. En händelse före tidslinjens
    *            början (#942) märks, eftersom reglaget inte når dit
    *   sources  källornas id
+   *   focus    false: kortet tar inte tangentbordsfokus (platsens kort i en turs steg, #1163: fokus ska ligga kvar på Nästa)
    */
-  showSelection({ label, name, lead = '', emblems = [], intro, action = null, notes = [], exit, summary, events, sources = [] }) {
+  showSelection({ label, name, lead = '', emblems = [], intro, action = null, notes = [], exit, summary, events, sources = [], focus = true }) {
     this.selectedId = null;
-    this.detail.className = `detail detail-card frame-${styleFor(events[0], this.styles).frame}`;
+    this.detail.className = `detail detail-card detail-selection frame-${styleFor(events[0], this.styles).frame}`; // detail-selection: main.js läser upp etiketten (Plats, Tema), också när inget Fokus pågår (#1163)
     const shown = (emblems ?? []).filter(em => flagUrl(em));
     const srcs = [...new Set([...(sources ?? []), ...shown.map(em => em.source)])].map(id => this.srcById[id]).filter(Boolean);
     const emblemHtml = shown.length ? `<div class="place-emblems">${shown.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}"><img src="${esc(flagUrl(em))}" alt="${esc(t(em.caption))}"><figcaption>${esc(t(em.caption))}<span class="meta">${esc(em.credit)} · ${esc(em.license)}</span></figcaption></figure>`).join('')}</div>` : '';
@@ -621,7 +622,7 @@ export class Panel {
     this.detail.querySelector('[data-end-theme]')?.addEventListener('click', () => this.onEndTheme());
     this.detail.querySelector('[data-selection-action]')?.addEventListener('click', () => action.run());
     for (const b of this.detail.querySelectorAll('[data-theme-event]')) b.addEventListener('click', () => this.onThemeEvent?.(b.dataset.themeEvent));
-    this.detail.querySelector('[data-close]').focus({ preventScroll: true });
+    if (focus) this.detail.querySelector('[data-close]').focus({ preventScroll: true });
   }
 
   /** Knappen "Rapportera faktafel" skickar bara objektets typ och id till formuläret. */

@@ -55,6 +55,7 @@ export function focusTypeProblems(post) {
   for (const fn of ['load', 'menu']) if (typeof post[fn] !== 'function') problems.push(`${name}: ${fn}() saknas.`);
   for (const fn of OPTIONAL_FUNCTIONS) if (post[fn] != null && typeof post[fn] !== 'function') problems.push(`${name}: ${fn} ska vara en funktion.`);
   if (post.facts != null && (typeof post.facts.has !== 'function' || typeof post.facts.show !== 'function')) problems.push(`${name}: facts ska ha has() och show().`);
+  if (post.startsAtRangeEnd != null && typeof post.startsAtRangeEnd !== 'boolean') problems.push(`${name}: startsAtRangeEnd ska vara true eller false.`);
   if (post.movedKey != null && typeof post.movedKey !== 'string') problems.push(`${name}: movedKey ska vara en ui-nyckel.`);
   if (post.selectsBy && (typeof post.empty?.year !== 'string' || typeof post.empty?.next !== 'string')) problems.push(`${name}: en urvalstyp ska ha empty.year och empty.next.`);
   return problems;

@@ -1,6 +1,6 @@
 // Fokustypen plats (#579): ett urval av händelser, valt med en geometri (dagens gräns i data/platser.json).
 // Draft-platser laddas aldrig.
-import { loadPlaces, t, isVisibleReview, formatYear } from '../model.js';
+import { loadPlaces, t, isVisibleReview, formatYear, rangeText } from '../model.js';
 import { ui } from '../i18n.js';
 import { placeEvents } from '../place-geo.js';
 import { formatYearSpan } from '../controllers/facts.js';
@@ -21,14 +21,14 @@ export function showPlaceCard(app, place, events, { follow = true, note = '' } =
     // Visa i Platt karta (#1161): byter vy och ramar in platsen; knappen finns när main.js har kopplat återanropet
     action: follow && panel.onPlaceFlat ? { text: ui('place.flatMap'), label: `${ui('place.flatMap')}: ${t(place.name)}`, run: () => panel.onPlaceFlat(place) } : null,
     notes: [ui('place.borderNote'), ...(follow ? [ui('place.filters')] : []), ...(note ? [note] : [])], exit: follow ? ui('place.exit') : null,
-    summary: ui('place.events', { count: events.length }), events, sources: place.sources });
+    summary: ui('place.events', { count: events.length }), events, sources: place.sources, focus: follow });
   app.surfaces.closeGroup('meny');
   if (app.narrow.matches) app.surfaces.closeGroup('sidopanel');
   $('app').classList.add('has-detail');
 }
 
 /** Raden i kortet när ett tidsintervall avslutades av att platsen började följas (#1163): vad som hände och vilket år platsen visas för. */
-export const rangeEndedNote = (range, year) => ui('place.rangeEnded', { range: `${formatYear(range.from)}–${formatYear(range.to)}`, year: formatYear(year) });
+export const rangeEndedNote = (range, year) => ui('place.rangeEnded', { range: rangeText(range.from, range.to), year: formatYear(year) });
 
 /** Händelserna inom platsens gräns i tidsordning, bara de som syns (draft visas aldrig). */
 export const visibleEvents = (place, events) => placeEvents(place, events).filter(e => isVisibleReview(e.review));
@@ -38,8 +38,9 @@ export function entry(app) {
   let list = null; // platserna, hämtade första gången menyn öppnas
   const visible = place => visibleEvents(place, data.events);
   /** Platsens kort (#579): knappen Fakta i fokusraden öppnar det igen. */
-  function showCard(f) {
-    showPlaceCard(app, f.place, f.themeEvents, { follow: true, note: f.closedRange ? rangeEndedNote(f.closedRange, f.startYear) : '' });
+  function showCard(f, starting = false) {
+    // Raden om intervallet står bara när platsen börjar följas; knappen Fakta visar kortet utan den
+    showPlaceCard(app, f.place, f.themeEvents, { follow: true, note: starting && f.closedRange ? rangeEndedNote(f.closedRange, f.startYear) : '' });
   }
   return {
     type: 'place',
@@ -54,8 +55,8 @@ export function entry(app) {
       return { title: `${t(place.name)} · ${formatYearSpan(evs[0].start, lastEnd)}`, short: t(place.name), from, to,
         center: place.view.center, zoom: place.view.zoom, place, themeEvents: evs, eventIds: new Set(evs.map(e => e.id)) };
     },
-    start: showCard,
-    facts: { has: () => true, show: showCard },
+    start: f => showCard(f, true),
+    facts: { has: () => true, show: f => showCard(f) },
     async menuLoad() { list ??= await loadPlaces(); },
     // En plats visas med typ och antal händelser inom gränsen ("Självstyrt område · 17 händelser · 2500 f.Kr.–2009", #579)
     menu: () => [{ title: 'Platser', note: ui('focus.note.places'), loading: !list, items: !list ? [] : list.map(pl => {
