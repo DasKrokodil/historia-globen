@@ -691,6 +691,7 @@
         "wp-flag-benin",
         "wp-flag-bolivia",
         "wp-flag-botswana",
+        "wp-flag-brazil",
         "wp-flag-bulgaria",
         "wp-flag-canada",
         "wp-flag-chad",
@@ -698,6 +699,7 @@
         "wp-flag-china",
         "wp-flag-colombia",
         "wp-flag-costa-rica",
+        "wp-flag-cuba",
         "wp-flag-czech-republic",
         "wp-flag-finland",
         "wp-flag-gabon",
@@ -706,6 +708,7 @@
         "wp-flag-grenada",
         "wp-flag-guatemala",
         "wp-flag-guinea",
+        "wp-flag-guyana",
         "wp-flag-honduras",
         "wp-flag-iceland",
         "wp-flag-india",
@@ -728,18 +731,22 @@
         "wp-flag-of-portugal",
         "wp-flag-of-switzerland",
         "wp-flag-pakistan",
+        "wp-flag-paraguay",
         "wp-flag-peru",
         "wp-flag-poland",
         "wp-flag-qing",
         "wp-flag-russia",
         "wp-flag-saint-kitts-and-nevis",
         "wp-flag-saint-lucia",
+        "wp-flag-saint-vincent-and-the-grenadines",
         "wp-flag-senegal",
         "wp-flag-sierra-leone",
         "wp-flag-south-africa",
+        "wp-flag-suriname",
         "wp-flag-togo",
         "wp-flag-trinidad-and-tobago",
         "wp-flag-ukraine",
+        "wp-flag-united-states",
         "wp-flag-uruguay",
         "wp-flags-confederate-states",
         "wp-flags-german-empire",
@@ -2027,6 +2034,7 @@
         "commons-bodh-gaya-1810",
         "commons-catalan-atlas-mansa-musa",
         "commons-coat-of-arms-polish-crown",
+        "commons-flagga-saint-vincent",
         "commons-giotto-nativity",
         "commons-karta-brouscon-kompassros",
         "commons-karta-carta-marina-havsmonster",
@@ -2077,15 +2085,40 @@
       ]
     },
     {
+      "license": "Public domain (PD-Brazil-Gov)",
+      "sourceIds": [
+        "commons-flagga-brasilien"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Cuba)",
+      "sourceIds": [
+        "commons-flagga-kuba"
+      ]
+    },
+    {
       "license": "Public domain (PD-New Zealand, PD-US-expired)",
       "sourceIds": [
         "commons-flagga-nya-zeeland"
       ]
     },
     {
+      "license": "Public domain (PD-Paraguay, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-paraguay"
+      ]
+    },
+    {
+      "license": "Public domain (PD-flag, PD-USGov)",
+      "sourceIds": [
+        "commons-flagga-usa"
+      ]
+    },
+    {
       "license": "Public domain (PD-ineligible)",
       "sourceIds": [
-        "commons-flagga-gronland"
+        "commons-flagga-gronland",
+        "commons-flagga-guyana"
       ]
     },
     {
@@ -2093,6 +2126,12 @@
       "sourceIds": [
         "commons-flagga-skane",
         "commons-vapen-gronland"
+      ]
+    },
+    {
+      "license": "Public domain (PD-shape, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-surinam"
       ]
     },
     {
