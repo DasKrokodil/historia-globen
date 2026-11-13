@@ -465,6 +465,7 @@
   "detail.source": "Source :",
   "detail.sourceMissing": "manquante",
   "detail.beforeScale": "L’événement commence avant le début de la frise ({year}), le curseur ne peut donc pas afficher sa première année.",
+  "detail.yearsAgo": "Le texte compte en années avant le présent et les dates en av. J.-C. L’écart est d’environ 2 000 ans : il y a 40 000 ans correspond à environ 38 000 av. J.-C.",
   "detail.evidence.ref": "Source {n}",
   "detail.evidence.date": "Date",
   "detail.evidence.text": "Texte",
