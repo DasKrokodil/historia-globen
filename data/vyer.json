@@ -62,7 +62,7 @@
     "releases": { "sv": "releaser", "en": "releases", "de": "Releases", "fr": "versions publiées" }
   },
   "jump": {
-    "title": { "sv": "Min dag i historien", "en": "My day in history", "de": "Mein Tag in der Geschichte", "fr": "Ma journée dans l’histoire" },
+    "title": { "sv": "Min dag i historien", "en": "My day in history", "de": "Mein Tag in der Geschichte", "fr": "Mon jour dans l’histoire" },
     "copy": { "sv": "Skriv ett år eller ett datum för att hoppa till det året och se redan källgranskade händelser. Uppgiften stannar i din webbläsare.", "en": "Enter a year or a date to jump to that year and see already source-checked events. The entry stays in your browser.", "de": "Geben Sie ein Jahr oder ein Datum ein, um zu diesem Jahr zu springen und bereits quellengeprüfte Ereignisse zu sehen. Die Angabe bleibt in Ihrem Browser.", "fr": "Saisissez une année ou une date pour aller à cette année et voir les événements dont les sources ont déjà été vérifiées. La saisie reste dans votre navigateur." },
     "label": { "sv": "År eller datum", "en": "Year or date", "de": "Jahr oder Datum", "fr": "Année ou date" },
     "placeholder": { "sv": "Till exempel 1986, 19860426, 860426 eller 1986-04-26", "en": "For example 1986, 19860426, 860426 or 1986-04-26", "de": "Zum Beispiel 1986, 19860426, 860426 oder 1986-04-26", "fr": "Par exemple 1986, 19860426, 860426 ou 1986-04-26" },
@@ -88,11 +88,11 @@
   "sourcesSummary": {
     "title": { "sv": "Så läser du statusen", "en": "How to read the status", "de": "So lesen Sie den Status", "fr": "Comment lire le statut" },
     "checked": {
-      "label": { "sv": "Källkontrollerad", "en": "Source checked", "de": "Quellengeprüft", "fr": "Source vérifiée" },
-      "text": { "sv": "Uppgiften har jämförts med en källa som har öppnats och lästs.", "en": "The claim has been compared with a source that was opened and read.", "de": "Die Angabe wurde mit einer Quelle verglichen, die geöffnet und gelesen wurde.", "fr": "L’information a été comparée à une source ouverte et lue." }
+      "label": { "sv": "Källkontrollerad", "en": "Source checked", "de": "Quellengeprüft", "fr": "Vérifié à la source" },
+      "text": { "sv": "Uppgiften har jämförts med en källa som har öppnats och lästs.", "en": "The claim has been compared with a source that was opened and read.", "de": "Die Angabe wurde mit einer Quelle verglichen, die geöffnet und gelesen wurde.", "fr": "L’information a été comparée à une source qui a été consultée et lue." }
     },
     "two": {
-      "label": { "sv": "Två källor stämmer", "en": "Two sources agree", "de": "Zwei Quellen stimmen überein", "fr": "Deux sources concordantes" },
+      "label": { "sv": "Två källor stämmer", "en": "Two sources agree", "de": "Zwei Quellen stimmen überein", "fr": "Deux sources concordent" },
       "text": { "sv": "Årtal och plats har också jämförts med en andra, oberoende källa, och de stämmer.", "en": "Year and place have also been compared with a second, independent source, and they agree.", "de": "Jahr und Ort wurden außerdem mit einer zweiten, unabhängigen Quelle verglichen und stimmen überein.", "fr": "L’année et le lieu ont aussi été comparés à une seconde source indépendante et concordent." }
     },
     "uncertain": {
@@ -101,7 +101,7 @@
       "example": { "sv": "Exempel: två kontrollerade källor kan ändå ange olika årtal.", "en": "Example: two checked sources can still give different years.", "de": "Beispiel: Zwei geprüfte Quellen können dennoch unterschiedliche Jahreszahlen nennen.", "fr": "Exemple : deux sources vérifiées peuvent donner des années différentes." }
     },
     "filter": { "sv": "Status", "en": "Status", "de": "Status", "fr": "Statut" },
-    "all": { "sv": "Alla", "en": "All", "de": "Alle", "fr": "Toutes" },
+    "all": { "sv": "Alla", "en": "All", "de": "Alle", "fr": "Tous" },
     "draft": { "sv": "Ej färdiggranskad (utkast)", "en": "Not yet checked (draft)", "de": "Nicht fertig geprüft (Entwurf)", "fr": "Vérification inachevée (brouillon)" },
     "filtered": { "sv": "med statusen {status}", "en": "with the status {status}", "de": "mit dem Status {status}", "fr": "avec le statut {status}" }
   },
