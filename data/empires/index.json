@@ -34997,7 +34997,7 @@
    },
    "color": "#c05a6a",
    "from": 936,
-   "to": 1406,
+   "to": 1939,
    "file": "data/empires/konungariket-danmark.json",
    "polities": [
     {
@@ -35008,6 +35008,34 @@
       "de": "Königreich Dänemark",
       "es": "Reino de Dinamarca",
       "fr": "royaume de Danemark"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "danmark-norge",
+     "name": {
+      "sv": "Danmark-Norge",
+      "en": "Denmark–Norway",
+      "de": "Dänemark-Norwegen",
+      "es": "Reino de Dinamarca y Noruega",
+      "fr": "royaume de Danemark et de Norvège"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "danmark-1815",
+     "name": {
+      "sv": "Danmark",
+      "en": "Denmark",
+      "de": "Dänemark",
+      "es": "Dinamarca",
+      "fr": "Danemark"
      },
      "sources": [
       "cliopatria"
