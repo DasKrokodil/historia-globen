@@ -1261,6 +1261,61 @@ async function run(browser, vp) {
     return 'tre steg med år, lager och paus; Nästa är enda framåtknappen; Föregående och Avsluta fungerar';
   });
 
+  // #1280: fall-turerna står under en egen rubrik i Turer-menyn, och turkortet har en stegindikator, en större statusmarkör,
+  // en Nästa-knapp på minst 44 px och en förklaring till varför tidsknapparna är låsta.
+  await check('Turer-menyn grupperar fall-turerna, och turkortet har stegindikator och större markör (#1280)', async () => {
+    const startYear = Number(await page.getAttribute('#track', 'aria-valuenow'));
+    const speedTitle = await page.getAttribute('#btn-speed', 'title');
+    await clickView('#btn-tour');
+    await visible('#tour-menu');
+    const rows = await page.evaluate(() => [...document.querySelectorAll('#tour-list > li')].map(li => (
+      li.querySelector('.tour-group-title') ? `#${li.querySelector('.tour-group-title').textContent.trim()}` : li.querySelector('.tour-pick')?.dataset.tour)));
+    const at = rows.findIndex(r => String(r).startsWith('#'));
+    if (at < 1 || rows.filter(r => String(r).startsWith('#')).length !== 1) throw new Error(`Turer-menyn har ingen enda grupprubrik efter de övriga turerna: ${rows.join(', ')}`);
+    if (rows[at] !== '#Hur föll det?') throw new Error(`grupprubriken heter ${rows[at]}`);
+    const falls = rows.slice(at + 1);
+    if (falls.join() !== 'vastroms-fall,hanrikets-fall,songhairikets-fall') throw new Error(`under rubriken står ${falls.join(', ')}`);
+    if (rows.slice(0, at).some(r => /-fall$/.test(r))) throw new Error('en fall-tur står före rubriken');
+    if (await page.locator('#tour-list > li[role="presentation"]').count() !== 1) throw new Error('rubrikraden ska vara role=presentation');
+
+    await page.click('#tour-menu .tour-pick[data-tour="hanrikets-fall"]');
+    await visible('#tour-card');
+    const total = Number((await page.textContent('#tour-progress')).match(/av (\d+)/)[1]);
+    const meter = () => page.evaluate(() => {
+      const m = document.getElementById('tour-meter');
+      return { n: m.children.length, done: m.querySelectorAll('.is-done').length, current: [...m.children].findIndex(c => c.classList.contains('is-current')), hidden: m.getAttribute('aria-hidden') };
+    });
+    let m = await meter();
+    if (m.n !== total || m.current !== 0 || m.done !== 0 || m.hidden !== 'true') throw new Error(`stegindikatorn i steg 1: ${JSON.stringify(m)}, väntade ${total} streck`);
+    await page.click('#tour-next');
+    m = await meter();
+    if (m.current !== 1 || m.done !== 1) throw new Error(`stegindikatorn i steg 2: ${JSON.stringify(m)}`);
+    await page.click('#tour-back');
+    m = await meter();
+    if (m.current !== 0 || m.done !== 0) throw new Error(`stegindikatorn efter Föregående: ${JSON.stringify(m)}`);
+
+    const next = await page.locator('#tour-next').boundingBox();
+    if (!next || next.height < 43.5) throw new Error(`Nästa är ${next?.height} px hög, ska vara minst 44`);
+    const marker = await page.evaluate(() => {
+      const st = document.getElementById('tour-status'), cs = getComputedStyle(st, '::before');
+      return { shown: !st.hidden, w: parseFloat(cs.width), h: parseFloat(cs.height), border: cs.borderTopStyle };
+    });
+    if (!marker.shown || marker.w < 12 || marker.h < 12) throw new Error(`statusmarkören är ${marker.w}×${marker.h} px, ska vara minst 12`);
+
+    // Förklaringen till de låsta tidsknapparna: på pausraden och som hovertext på knapparna
+    if (!(await page.textContent('#pause-text')).includes('Turen styr tiden')) throw new Error('pausraden förklarar inte att turen styr tiden');
+    const locked = await page.evaluate(() => [...document.querySelectorAll('.timebar .controls .step')].map(b => ({ title: b.title, off: b.disabled })));
+    if (!locked.length || locked.some(b => b.title !== 'Turen styr tiden' || !b.off)) throw new Error(`de låsta stegknapparnas hovertext och låsning: ${JSON.stringify(locked)}`);
+
+    await page.click('#tour-close');
+    await hidden('#tour-card');
+    if ((await page.getAttribute('#btn-speed', 'title')) !== speedTitle) throw new Error('hastighetsknappens egen hovertext kom inte tillbaka efter turen');
+    if (await page.evaluate(() => [...document.querySelectorAll('.timebar .controls .step')].some(b => b.title === 'Turen styr tiden'))) throw new Error('en stegknapp säger fortfarande att turen styr tiden efter turen');
+    if (await page.evaluate(() => [...document.querySelectorAll('.timebar .controls .step, #btn-play')].some(b => b.hasAttribute('data-before-tour')))) throw new Error('tidsknapparna har kvar spåret efter turen');
+    await jumpTo(startYear);
+    return `rubriken "Hur föll det?" med ${falls.length} turer, ${total} streck i stegindikatorn, Nästa ${Math.round(next.height)} px, markör ${marker.w} px och förklaringen i pausraden och på stegknapparna`;
+  });
+
   await check('krigets första kort startar berättelsen med kapitel och frågor (#247)', async () => {
     const startYear = Number(await page.getAttribute('#track', 'aria-valuenow'));
     await clickView('#btn-focus');
