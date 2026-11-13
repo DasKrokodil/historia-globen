@@ -229,7 +229,7 @@ export function createRange(app) {
     openBtn.setAttribute('aria-expanded', 'false');
     if (refocus) $('year-jump').focus({ preventScroll: true });
   }
-  app.surfaces.register('range', 'popover', () => closeForm(false));
+  app.surfaces.register('range', 'popover', () => closeForm(false), { isOpen: () => !pop.hidden, opener: openBtn });
   openBtn.addEventListener('click', openForm);
   cancel.addEventListener('click', () => closeForm());
   pop.addEventListener('keydown', e => { if (e.key === 'Escape') { e.stopPropagation(); closeForm(); } });
