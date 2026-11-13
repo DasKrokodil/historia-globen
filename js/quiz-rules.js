@@ -8,26 +8,26 @@
 // - den hör inte till samma fun fact och inte till samma krig (partOf) som A eller B.
 // Finns inte två sådana händelser hoppas fun facten över.
 //
-// A och B måste också ligga högst MAX_PAIR_GAP år från varandra. Några fun facts jämför avstånd i tid i stället
-// för samtidighet (Kleopatra levde närmare månlandningen än pyramidbygget); där vore "samtidigt" fel i sak,
-// så de paren blir inga frågor.
+// A och B måste pågå minst ett gemensamt år, enligt definitionen av "samtidigt" i js/samtidighet.js (#1311,
+// docs/beslut/2026-11-13-definition-av-samtidigt.md). Förut godtogs par upp till 50 år isär. Fun facts som är
+// "nära i tid" eller jämför avstånd (Kleopatra levde närmare månlandningen än pyramidbygget) blir inga sådana frågor.
+// MIN_GAP är något annat: en marginal för osäkra årtal, så att ett felsvar aldrig kan råka vara samtidigt.
+import { gapBetween, together, isApprox, roundGap } from './samtidighet.js';
 
 export const MIN_GAP = 200;
 export const MAX_SPAN = 50;
 export const MIN_PRECISION = 7;
-export const MAX_PAIR_GAP = 50;
 
 /** Avståndet i år från year till spannet [start, end] (0 när året ligger inom spannet). */
 export const distance = (year, e) => (year < e.start ? e.start - year : year > e.end ? year - e.end : 0);
 
-/** Avståndet i år mellan två spann (0 när de överlappar). */
-export const gapBetween = (x, y) => Math.max(0, x.start - y.end, y.start - x.end);
+export { gapBetween, isApprox, roundGap };
 
-/** Paren [A, B] ur fun factens synliga händelser som ligger nära nog i tid för att kallas samtidiga. */
+/** Paren [A, B] ur fun factens synliga händelser som pågår minst ett gemensamt år (samtidigt). */
 export function closePairs(funfact, byId, isVisible) {
   const own = (funfact.events ?? []).map(id => byId[id]).filter(e => e && isVisible(e.review));
   const pairs = [];
-  for (const a of own) for (const b of own) if (a !== b && gapBetween(a, b) <= MAX_PAIR_GAP) pairs.push([a, b]);
+  for (const a of own) for (const b of own) if (a !== b && together([a, b])) pairs.push([a, b]);
   return pairs;
 }
 
@@ -121,12 +121,6 @@ export function nextMyth(myths, isVisible, asked = new Set(), rnd = Math.random)
 
 export const MIN_ORDER_GAP = 50;   // år mellan starterna i "Vad kom först?"
 export const MIN_CLOSER_DIFF = 100; // år mellan avstånden i "Vad låg närmast?"
-
-/** Är händelsens tid ungefärlig? (edtf med ~ eller ?, eller precision grövre än år) */
-export const isApprox = e => /[~?]/.test(e.edtf ?? '') || !(e.precision >= 9);
-
-/** Avståndet för visning: exakt när båda årtalen är säkra, annars avrundat till närmaste tiotal (och skrivet med "cirka"). */
-export const roundGap = (n, approx) => (approx ? Math.round(n / 10) * 10 : n);
 
 /**
  * En fråga ur en post i data/quiz.json, eller null när händelserna saknas, inte syns eller inte ger ett tydligt svar.

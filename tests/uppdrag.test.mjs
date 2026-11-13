@@ -21,7 +21,7 @@ test('spannet och världsdelen', () => {
 
 test('en händelse räknas bara inom åren och på en ny världsdel', () => {
   const found = [at('a', 1500, paris)];
-  assert.deepEqual(checkHunt(at('b', 1510, kairo), mission, found, visible), { ok: true, region: 'Afrika' });
+  assert.deepEqual(checkHunt(at('b', 1510, kairo), mission, found, visible), { ok: true, region: 'Afrika', when: 'near' });
   assert.equal(checkHunt(at('c', 1520, [10, 50]), mission, found, visible).reason, 'region');
   assert.equal(checkHunt(at('d', 1400, peking), mission, found, visible).reason, 'time');
   assert.equal(checkHunt(at('e', 1530, peking), mission, found, visible).reason, 'time');
