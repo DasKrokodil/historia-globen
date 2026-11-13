@@ -45,47 +45,47 @@
         "fr": "La chasse au même moment : vers l'an 1000"
       },
       "task": {
-        "sv": "Hitta tre händelser på tre olika kontinenter omkring år 1000 (950–1050). Öppna en händelse på globen eller i Samtidigt och tryck på Lägg till i jakten.",
+        "sv": "Hitta tre händelser i tre olika världsdelar omkring år 1000 (950–1050). Öppna en händelse på globen eller i Samtidigt och tryck på Lägg till i jakten.",
         "en": "Find three events on three different continents around the year 1000 (950–1050). Open an event on the globe or in Meanwhile and press Add to the hunt.",
         "de": "Finde drei Ereignisse auf drei verschiedenen Kontinenten um das Jahr 1000 (950–1050). Öffne ein Ereignis auf dem Globus oder unter Gleichzeitig und drücke auf Zur Jagd hinzufügen.",
         "es": "Encuentra tres acontecimientos en tres continentes distintos hacia el año 1000 (950–1050). Abre un acontecimiento en el globo o en Al mismo tiempo y pulsa Añadir a la caza.",
         "fr": "Trouve trois événements sur trois continents différents vers l'an 1000 (950–1050). Ouvre un événement sur le globe ou dans Au même moment et appuie sur Ajouter à la chasse."
       },
       "reflection": {
-        "sv": "Dina tre händelser hände ungefär samtidigt. Hur vet vi när de hände: från en text, från ett fynd i jorden eller från en berättelse som skrevs ner senare? Titta i källorna nedan.",
-        "en": "Your three events happened at about the same time. How do we know when they happened: from a text, from a find in the ground or from a story that was written down later? Look at the sources below.",
-        "de": "Deine drei Ereignisse geschahen ungefähr gleichzeitig. Woher wissen wir, wann sie geschahen: aus einem Text, aus einem Fund im Boden oder aus einer Geschichte, die erst später aufgeschrieben wurde? Sieh dir die Quellen unten an.",
-        "es": "Tus tres acontecimientos ocurrieron más o menos al mismo tiempo. ¿Cómo sabemos cuándo ocurrieron: por un texto, por un hallazgo bajo tierra o por un relato que se escribió más tarde? Mira las fuentes de abajo.",
-        "fr": "Tes trois événements se sont produits à peu près au même moment. Comment savons-nous quand ils se sont produits : grâce à un texte, à une découverte dans le sol ou à un récit écrit plus tard ? Regarde les sources ci-dessous."
+        "sv": "Dina tre händelser hände ungefär samtidigt. Hur vet vi när de hände: från en text, från ett fynd i jorden eller från en berättelse som skrevs ner senare? Titta i faktarutan och i källorna nedan.",
+        "en": "Your three events happened at about the same time. How do we know when they happened: from a text, from a find in the ground or from a story that was written down later? Look at the fact box and the sources below.",
+        "de": "Deine drei Ereignisse geschahen ungefähr gleichzeitig. Woher wissen wir, wann sie geschahen: aus einem Text, aus einem Fund im Boden oder aus einer Geschichte, die erst später aufgeschrieben wurde? Sieh dir den Faktenkasten und die Quellen unten an.",
+        "es": "Tus tres acontecimientos ocurrieron más o menos al mismo tiempo. ¿Cómo sabemos cuándo ocurrieron: por un texto, por un hallazgo bajo tierra o por un relato que se escribió más tarde? Mira la ficha y las fuentes de abajo.",
+        "fr": "Tes trois événements se sont produits à peu près au même moment. Comment savons-nous quand ils se sont produits : grâce à un texte, à une découverte dans le sol ou à un récit écrit plus tard ? Regarde la fiche et les sources ci-dessous."
       }
     },
     {
-      "id": "samtidighetsjakten-krigsaren",
+      "id": "samtidighetsjakten-1945",
       "kind": "hunt",
       "lesson": "andra-varldskriget",
-      "year": 1942,
-      "window": 3,
+      "year": 1945,
+      "window": 0,
       "count": 3,
       "title": {
-        "sv": "Samtidighetsjakten: krigsåren 1939–1945",
-        "en": "The same-time hunt: the war years 1939–1945",
-        "de": "Die Gleichzeitigkeitsjagd: die Kriegsjahre 1939–1945",
-        "es": "La caza de la simultaneidad: los años de guerra 1939–1945",
-        "fr": "La chasse au même moment : les années de guerre 1939–1945"
+        "sv": "Samtidighetsjakten: år 1945",
+        "en": "The same-time hunt: the year 1945",
+        "de": "Die Gleichzeitigkeitsjagd: das Jahr 1945",
+        "es": "La caza de la simultaneidad: el año 1945",
+        "fr": "La chasse au même moment : l'année 1945"
       },
       "task": {
-        "sv": "Hitta tre händelser på tre olika kontinenter under andra världskriget (1939–1945). Öppna en händelse på globen eller i Samtidigt och tryck på Lägg till i jakten.",
-        "en": "Find three events on three different continents during the Second World War (1939–1945). Open an event on the globe or in Meanwhile and press Add to the hunt.",
-        "de": "Finden Sie drei Ereignisse auf drei verschiedenen Kontinenten während des Zweiten Weltkriegs (1939–1945). Öffnen Sie ein Ereignis auf dem Globus oder unter Gleichzeitig und drücken Sie auf Zur Jagd hinzufügen.",
-        "es": "Encuentre tres acontecimientos en tres continentes distintos durante la Segunda Guerra Mundial (1939–1945). Abra un acontecimiento en el globo o en Al mismo tiempo y pulse Añadir a la caza.",
-        "fr": "Trouvez trois événements sur trois continents différents pendant la Seconde Guerre mondiale (1939–1945). Ouvrez un événement sur le globe ou dans Au même moment et appuyez sur Ajouter à la chasse."
+        "sv": "Hitta tre händelser i tre olika världsdelar som pågick år 1945, det sista året av andra världskriget. Öppna en händelse på globen eller i Samtidigt och tryck på Lägg till i jakten.",
+        "en": "Find three events on three different continents that were going on in 1945, the last year of the Second World War. Open an event on the globe or in Meanwhile and press Add to the hunt.",
+        "de": "Finden Sie drei Ereignisse auf drei verschiedenen Kontinenten, die im Jahr 1945 stattfanden, dem letzten Jahr des Zweiten Weltkriegs. Öffnen Sie ein Ereignis auf dem Globus oder unter Gleichzeitig und drücken Sie auf Zur Jagd hinzufügen.",
+        "es": "Encuentre tres acontecimientos en tres continentes distintos que tuvieron lugar en 1945, el último año de la Segunda Guerra Mundial. Abra un acontecimiento en el globo o en Al mismo tiempo y pulse Añadir a la caza.",
+        "fr": "Trouvez trois événements sur trois continents différents qui ont eu lieu en 1945, la dernière année de la Seconde Guerre mondiale. Ouvrez un événement sur le globe ou dans Au même moment et appuyez sur Ajouter à la chasse."
       },
       "reflection": {
-        "sv": "Dina tre händelser hände under krigsåren, på tre olika kontinenter. Hängde de ihop med kriget, eller hände de vid sidan av det? Hur kan du ta reda på det? Titta i källorna nedan.",
-        "en": "Your three events happened during the war years, on three different continents. Were they connected to the war, or did they happen alongside it? How could you find out? Look at the sources below.",
-        "de": "Ihre drei Ereignisse geschahen in den Kriegsjahren auf drei verschiedenen Kontinenten. Hingen sie mit dem Krieg zusammen, oder geschahen sie unabhängig davon? Wie könnten Sie das herausfinden? Sehen Sie sich die Quellen unten an.",
-        "es": "Sus tres acontecimientos ocurrieron durante los años de guerra, en tres continentes distintos. ¿Tenían relación con la guerra o sucedieron al margen de ella? ¿Cómo podría averiguarlo? Mire las fuentes de abajo.",
-        "fr": "Vos trois événements ont eu lieu pendant les années de guerre, sur trois continents différents. Étaient-ils liés à la guerre, ou se sont-ils produits en marge de celle-ci ? Comment pourriez-vous le savoir ? Regardez les sources ci-dessous."
+        "sv": "Dina tre händelser pågick år 1945, i tre olika världsdelar. Började de före kriget eller under det? Hängde de ihop med kriget, eller hände de vid sidan av det? Titta i faktarutan och i källorna nedan.",
+        "en": "Your three events were going on in 1945, on three different continents. Did they begin before the war or during it? Were they connected to the war, or did they happen alongside it? Look at the fact box and the sources below.",
+        "de": "Ihre drei Ereignisse fanden im Jahr 1945 auf drei verschiedenen Kontinenten statt. Begannen sie vor dem Krieg oder während des Krieges? Hingen sie mit dem Krieg zusammen, oder geschahen sie unabhängig davon? Sehen Sie sich den Faktenkasten und die Quellen unten an.",
+        "es": "Sus tres acontecimientos tuvieron lugar en 1945, en tres continentes distintos. ¿Empezaron antes de la guerra o durante ella? ¿Tenían relación con la guerra o sucedieron al margen de ella? Mire la ficha y las fuentes de abajo.",
+        "fr": "Vos trois événements ont eu lieu en 1945, sur trois continents différents. Ont-ils commencé avant la guerre ou pendant celle-ci ? Étaient-ils liés à la guerre, ou se sont-ils produits en marge de celle-ci ? Regardez la fiche et les sources ci-dessous."
       }
     }
   ]

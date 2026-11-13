@@ -77,6 +77,10 @@ test('lektionens uppdrag i data passar lektionen (#1340)', () => {
     const [from, to] = span(m);
     assert.ok(from >= years[0] && to <= years[1], `${m.id}: ${from}–${to} ligger utanför lektionens ${years.join('–')}`);
     assert.ok(!lessons.has(m.lesson), `${m.lesson} har mer än ett uppdrag`);
+    // I lektionen är reglaget låst (tidslåset #1322): eleven når bara det som pågår uppdragets år, så minst count
+    // världsdelar ska ha en sådan händelse
+    const atYear = Object.keys(huntCandidates(json('data/events.json').events, { ...m, window: 0 }, visible));
+    assert.ok(atYear.length >= m.count, `${m.id}: bara ${atYear.join(', ')} har händelser som pågår år ${m.year}`);
     lessons.add(m.lesson);
   }
   // Varje lektion med årslås har ett uppdrag

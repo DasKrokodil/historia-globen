@@ -5064,6 +5064,74 @@ async function run(browser, vp) {
       return `lektionen visar ${ids.length} händelser år 1939, varav ${outside.length} utanför Översikt; utgången ger Översikt tillbaka`;
     } finally { await lp.close(); }
   });
+  // #1340: uppdrag knyts till lektionen i data (fältet lesson i data/uppdrag.json). Efter sista steget visar slutkortet
+  // lektionens eget uppdrag, inte år 1500; jakten börjar inom lektionens år och går att klara med händelserna där,
+  // utan att flytta tiden (reglaget är låst i lektionen, #1322).
+  await check('lektionens slutkort leder till lektionens eget uppdrag (#1340)', async () => {
+    const lp = await context.newPage();
+    const errors = [];
+    lp.on('pageerror', e => errors.push(e.message));
+    lp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      const endOf = async (tour, step) => {
+        await lp.goto(`${BASE}?ny=1340#t=${tour}&m=lektion&s=${step}`);
+        await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await lp.waitForSelector('#tour-lesson-end', { state: 'visible', timeout: T.step });
+        return lp.evaluate(() => [...document.querySelectorAll('#tour-lesson-end-list button')].map(b => b.textContent.trim()));
+      };
+      const yearNow = () => lp.textContent('#year-big').then(x => x.trim());
+      // Vikingatiden (åk 4–6): ett uppdrag, omkring år 1000, och inte år 1500
+      const viking = await endOf('vikingatiden-och-varlden', 'ghana');
+      if (viking.length !== 1 || !/omkring år 1000/.test(viking[0])) throw new Error(`vikingalektionens slutkort visar ${JSON.stringify(viking)}`);
+      await lp.click('#tour-lesson-end-list button');
+      await lp.waitForSelector('#hunt', { state: 'visible', timeout: T.step });
+      if (await yearNow() !== '1000') throw new Error(`jakten började på ${await yearNow()}, inte 1000`);
+      const span = (await lp.textContent('#hunt-years')).trim();
+      if (!/950.1050/.test(span)) throw new Error(`jakten visar åren ${span}`);
+      if (!(await lp.isVisible('#lesson-band'))) throw new Error('jakten avslutade lektionen');
+      // Som en elev: öppna händelser i Samtidigt och lägg dem i jakten (Europa, Asien, Afrika)
+      const add = async id => {
+        if (await lp.isHidden('#panel')) {
+          if (await lp.isHidden('#btn-panel') && await lp.isVisible('#more-toggle')) await lp.click('#more-toggle');
+          await lp.click('#btn-panel');
+        }
+        await lp.locator(`#event-list .event-btn[data-id="${id}"]`).first().click();
+        await lp.waitForSelector('#detail [data-hunt]', { state: 'visible', timeout: T.step });
+        await lp.click('#detail [data-hunt]');
+        return (await lp.textContent('#hunt-message')).trim();
+      };
+      for (const id of ['lund-grundas', 'sagan-om-genji', 'mapungubwe-riket']) {
+        const msg = await add(id);
+        if (!/räknas/.test(msg)) throw new Error(`${id} räknades inte: ${msg}`);
+      }
+      await lp.waitForSelector('#hunt-done', { state: 'visible', timeout: T.step });
+      if (await lp.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error('jakten i lektionen ger horisontell scroll');
+      // Andra världskriget (åk 7–9): år 1945, där turen slutar. Reglaget är låst i lektionen (#1322), så jakten ska gå
+      // att klara utan att flytta tiden: Europa, Asien och Amerika. Bretton Woods (1944) räknas inte, ett år tidigare.
+      const war = await endOf('andra-varldskriget', 'tokyobukten');
+      if (war.length !== 1 || !/år 1945/.test(war[0])) throw new Error(`krigslektionens slutkort visar ${JSON.stringify(war)}`);
+      await lp.click('#tour-lesson-end-list button');
+      await lp.waitForSelector('#hunt', { state: 'visible', timeout: T.step });
+      if (await yearNow() !== '1945') throw new Error(`krigsjakten började på ${await yearNow()}, inte 1945`);
+      const warYears = (await lp.textContent('#hunt-years')).trim();
+      if (warYears !== 'År 1945') throw new Error(`krigsjakten visar åren "${warYears}"`);
+      await lp.waitForFunction(() => location.hash.includes('u=samtidighetsjakten-1945'), null, { timeout: T.step });
+      const early = await add('bretton-woods-konferensen');
+      if (!/pågick inte år 1945/.test(early)) throw new Error(`Bretton Woods 1944 gav: ${early}`);
+      for (const id of ['andra-varldskriget', 'indonesiens-sjalvstandighet', 'fn-grundas']) {
+        const msg = await add(id);
+        if (!/räknas/.test(msg)) throw new Error(`${id} räknades inte i krigsjakten: ${msg}`);
+      }
+      await lp.waitForSelector('#hunt-done', { state: 'visible', timeout: T.step });
+      if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
+      return `vikingalektionen: ${viking[0]}; krigslektionen: ${war[0]}; båda klarade med tre världsdelar utan att flytta tiden`;
+    } finally { await lp.close(); }
+  });
   // #865: en gammal adress som väntar på att ett fokus ska laddas får inte skriva över året och kameran när en vanlig
   // tur har startat under tiden (apply() i js/controllers/address.js). Rikesfilerna görs långsamma, som på ett skolnät.
   await check('en tur som startar medan ett fokus laddas behåller sitt första år och sin kamera (#865)', async () => {

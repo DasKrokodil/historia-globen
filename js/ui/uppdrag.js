@@ -98,7 +98,9 @@ export class Hunt {
       this.found.push(e);
       this.message.textContent = ui('hunt.ok', { title, region: regionName(r.region) });
     } else {
-      this.message.textContent = ui(`hunt.${r.reason}`, { title, from, to, region: r.region ? regionName(r.region) : '' });
+      // Ett uppdrag med window 0 gäller ett enda år (#1340): "pågick inte år 1945" i stället för "utanför åren 1945–1945"
+      const key = r.reason === 'time' && from === to ? 'hunt.timeYear' : `hunt.${r.reason}`;
+      this.message.textContent = ui(key, { title, from, to, year: from, region: r.region ? regionName(r.region) : '' });
     }
     this.message.className = `hunt-message ${r.ok ? 'is-ok' : 'is-no'}`;
     this.render();
@@ -111,7 +113,7 @@ export class Hunt {
     const [from, to] = span(m).map(formatYear);
     this.title.textContent = t(m.title);
     this.task.textContent = t(m.task);
-    this.years.textContent = ui('hunt.years', { from, to });
+    this.years.textContent = from === to ? ui('hunt.year', { year: from }) : ui('hunt.years', { from, to });
     this.progress.textContent = ui('hunt.progress', { n: this.found.length, count: m.count });
     this.list.replaceChildren(...this.found.map(e => {
       const li = el('li');
