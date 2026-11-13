@@ -31334,11 +31334,53 @@
     "fr": "Yémen"
    },
    "color": "#4a8aa0",
-   "from": 1990,
+   "from": 1919,
    "to": 2024,
    "file": "data/empires/jemen.json",
    "flags": [{"file": "yemen", "from": 1990, "to": 2024, "label": {"sv": "Jemens flagga", "en": "Flag of Yemen", "de": "Flagge des Jemen", "es": "Bandera de Yemen", "fr": "Drapeau du Yémen"}, "sources": ["wp-flag-yemen", "commons-flagga-yemen"], "review": "source-checked"}],
    "polities": [
+    {
+     "id": "kungariket-jemen",
+     "name": {
+      "sv": "Kungariket Jemen",
+      "en": "Kingdom of Yemen",
+      "de": "Königreich Jemen",
+      "es": "Reino de Yemen",
+      "fr": "Royaume du Yémen"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "arabrepubliken-jemen",
+     "name": {
+      "sv": "Arabrepubliken Jemen",
+      "en": "Yemen Arab Republic",
+      "de": "Jemenitische Arabische Republik",
+      "es": "República Árabe de Yemen",
+      "fr": "République arabe du Yémen"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "sydjemen",
+     "name": {
+      "sv": "Sydjemen",
+      "en": "South Yemen",
+      "de": "Südjemen",
+      "es": "Yemen del Sur",
+      "fr": "Yémen du Sud"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
     {
      "id": "jemen",
      "name": {
@@ -31532,10 +31574,38 @@
     "fr": "Zimbabwe"
    },
    "color": "#9a4a6a",
-   "from": 1983,
+   "from": 1967,
    "to": 2024,
    "file": "data/empires/zimbabwe.json",
    "polities": [
+    {
+     "id": "rhodesia",
+     "name": {
+      "sv": "Rhodesia",
+      "en": "Rhodesia",
+      "de": "Rhodesien",
+      "es": "Rodesia",
+      "fr": "Rhodésie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "zimbabwe-rhodesia",
+     "name": {
+      "sv": "Zimbabwe-Rhodesia",
+      "en": "Zimbabwe Rhodesia",
+      "de": "Simbabwe-Rhodesien",
+      "es": "Zimbabue Rodesia",
+      "fr": "Zimbabwe-Rhodésie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
     {
      "id": "zimbabwe",
      "name": {
@@ -32564,10 +32634,38 @@
     "fr": "Suriname"
    },
    "color": "#c0703a",
-   "from": 1976,
+   "from": 1820,
    "to": 2024,
    "file": "data/empires/surinam.json",
    "polities": [
+    {
+     "id": "kolonin-surinam",
+     "name": {
+      "sv": "Kolonin Surinam",
+      "en": "Surinam (Dutch colony)",
+      "de": "Kolonie Surinam",
+      "es": "Colonia de Surinam",
+      "fr": "Colonie du Suriname"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "surinam-i-kungariket",
+     "name": {
+      "sv": "Surinam inom kungariket Nederländerna",
+      "en": "Suriname in the Kingdom of the Netherlands",
+      "de": "Suriname im Königreich der Niederlande",
+      "es": "Surinam dentro del Reino de los Países Bajos",
+      "fr": "Suriname au sein du royaume des Pays-Bas"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
     {
      "id": "surinam",
      "name": {
@@ -33292,10 +33390,38 @@
     "fr": "Serbie"
    },
    "color": "#8a5ab0",
-   "from": 2006,
+   "from": 1992,
    "to": 2024,
    "file": "data/empires/serbien.json",
    "polities": [
+    {
+     "id": "forbundsrepubliken-jugoslavien",
+     "name": {
+      "sv": "Förbundsrepubliken Jugoslavien",
+      "en": "Federal Republic of Yugoslavia",
+      "de": "Bundesrepublik Jugoslawien",
+      "es": "República Federal de Yugoslavia",
+      "fr": "République fédérale de Yougoslavie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "serbien-och-montenegro",
+     "name": {
+      "sv": "Serbien och Montenegro",
+      "en": "Serbia and Montenegro",
+      "de": "Serbien und Montenegro",
+      "es": "Serbia y Montenegro",
+      "fr": "Serbie-et-Monténégro"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
     {
      "id": "serbien",
      "name": {
@@ -34313,10 +34439,38 @@
     "fr": "Albanie"
    },
    "color": "#c04a4a",
-   "from": 1991,
+   "from": 1912,
    "to": 2024,
    "file": "data/empires/albanien.json",
    "polities": [
+    {
+     "id": "albanien-1912",
+     "name": {
+      "sv": "Albanien",
+      "en": "Albania",
+      "de": "Albanien",
+      "es": "Albania",
+      "fr": "Albanie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "socialistiska-folkrepubliken-albanien",
+     "name": {
+      "sv": "Socialistiska folkrepubliken Albanien",
+      "en": "People's Socialist Republic of Albania",
+      "de": "Sozialistische Volksrepublik Albanien",
+      "es": "República Popular Socialista de Albania",
+      "fr": "République populaire socialiste d'Albanie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
     {
      "id": "albanien",
      "name": {
