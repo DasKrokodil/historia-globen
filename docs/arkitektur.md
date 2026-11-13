@@ -413,7 +413,7 @@ Skripten i `tools/` körs för hand, inte av sidan, så principen om inget byggs
 | `tools/religioner_riken.py` | Bygger `data/religions-polities.json` (varje rikes gräns, för klickrutan) efter `religioner.py` |
 | `tools/matning_hopp.mjs` | Mäter med Playwright hur länge sidan inte svarar när man börjar följa andra världskriget från 3000 f.Kr. med Resor på (#692): längsta glapp för en timer var 50:e ms, och de långa uppgifterna. `STRYPNING=4` ger CPU-strypning och `GPU=1` startar Chromium med grafikkort. Körs för hand, inte i CI |
 | `tools/bildpromptar.py` | Skriver promptar för illustrationer till `docs/bildpromptar.md` |
-| `tools/bilder_in.py` | Konverterar bilder från `images/incoming/` till `images/events/` och fyller i `image` i händelsens fil i `data/handelser/` från bildloggen `images/incoming/bildlogg.json`. Undermappar, till exempel `images/incoming/vantar/` för bilder som ska göras om, hoppas över |
+| `tools/bilder_in.py` | Konverterar bilder från `images/incoming/` till `images/events/` och fyller i `image` i händelsens fil i `data/handelser/` från bildloggen `images/incoming/bildlogg.json`. Fältet fylls i för händelser på flera rader, på en rad (före händelsens `"sources"`) och med en befintlig `image` (byts ut); ligger `"sources"` på flera ställen på samma rad skriver skriptet att det måste göras för hand (#1288, `tests/bilder-in-test.py`). Undermappar, till exempel `images/incoming/vantar/` för bilder som ska göras om, hoppas över |
 
 ## Publicering
 

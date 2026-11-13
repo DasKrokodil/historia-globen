@@ -2,16 +2,16 @@
   "schema": "historia-globen/tur@1",
   "version": 1,
   "id": "tre-platser-1325",
-  "title": { "sv": "Tre platser, 1324–1325", "en": "Three places, 1324–1325" },
-  "summary": { "sv": "En pilgrimsfärd, en resa som börjar och en stad som grundas, på tre platser under två år.", "en": "A pilgrimage, a journey that begins and a city that is founded, in three places over two years." },
+  "title": { "sv": "Tre platser, 1324–1325", "en": "Three places, 1324–1325", "de": "Drei Orte, 1324–1325" },
+  "summary": { "sv": "En pilgrimsfärd, en resa som börjar och en stad som grundas, på tre platser under två år.", "en": "A pilgrimage, a journey that begins and a city that is founded, in three places over two years.", "de": "Eine Pilgerreise, eine Reise, die beginnt, und eine Stadt, die gegründet wird, an drei Orten in zwei Jahren." },
   "review": "source-checked",
   "steps": [
     {
       "id": "kairo",
       "at": 1324,
       "camera": { "lat": 30.04, "lon": 31.24, "zoom": 1.6 },
-      "title": { "sv": "Kairo, juli 1324", "en": "Cairo, July 1324" },
-      "text": { "sv": "Mali-kungen Mansa Musa når Kairo på sin pilgrimsfärd till Mecka. Följet väcker uppseende med sin storlek och rikedom.", "en": "The king of Mali, Mansa Musa, reaches Cairo on his pilgrimage to Mecca. The entourage causes a stir with its size and wealth." },
+      "title": { "sv": "Kairo, juli 1324", "en": "Cairo, July 1324", "de": "Kairo, Juli 1324" },
+      "text": { "sv": "Mali-kungen Mansa Musa når Kairo på sin pilgrimsfärd till Mecka. Följet väcker uppseende med sin storlek och rikedom.", "en": "The king of Mali, Mansa Musa, reaches Cairo on his pilgrimage to Mecca. The entourage causes a stir with its size and wealth.", "de": "Der König von Mali, Mansa Musa, erreicht auf seiner Pilgerreise nach Mekka Kairo. Sein Gefolge erregt mit seiner Größe und seinem Reichtum Aufsehen." },
       "layers": ["events", "areas"],
       "open": "mansa-musa-kairo",
       "sources": ["wp-mansa-musa", "wp-cairo", "whe-mansa-musa"]
@@ -20,8 +20,8 @@
       "id": "tanger",
       "at": 1325,
       "camera": { "lat": 35.78, "lon": -5.8, "zoom": 1.6 },
-      "title": { "sv": "Tanger, 14 juni 1325", "en": "Tangier, 14 June 1325" },
-      "text": { "sv": "Året efter lämnar 21-årige Ibn Battuta sin hemstad Tanger. Han ska också till Mecka, och det blir början på resor som varar i många år.", "en": "The following year the 21-year-old Ibn Battuta leaves his home town of Tangier. He too is going to Mecca, and it becomes the beginning of journeys that last for many years." },
+      "title": { "sv": "Tanger, 14 juni 1325", "en": "Tangier, 14 June 1325", "de": "Tanger, 14. Juni 1325" },
+      "text": { "sv": "Året efter lämnar 21-årige Ibn Battuta sin hemstad Tanger. Han ska också till Mecka, och det blir början på resor som varar i många år.", "en": "The following year the 21-year-old Ibn Battuta leaves his home town of Tangier. He too is going to Mecca, and it becomes the beginning of journeys that last for many years.", "de": "Im Jahr darauf verlässt der 21-jährige Ibn Battuta seine Heimatstadt Tanger. Auch er will nach Mekka, und es wird der Beginn von Reisen, die viele Jahre dauern." },
       "layers": ["events", "areas"],
       "open": "ibn-battuta-resa",
       "sources": ["wp-ibn-battuta", "wp-tangier", "whe-ibn-battuta", "wp-mansa-musa"]
@@ -30,8 +30,8 @@
       "id": "tenochtitlan",
       "at": 1325,
       "camera": { "lat": 19.43, "lon": -99.13, "zoom": 1.4 },
-      "title": { "sv": "Mexikodalen, omkring 1325", "en": "The Valley of Mexico, around 1325" },
-      "text": { "sv": "Ungefär samtidigt grundas aztekernas huvudstad Tenochtitlan på en ö i Texcocosjön.", "en": "At about the same time the Aztec capital Tenochtitlan is founded on an island in Lake Texcoco." },
+      "title": { "sv": "Mexikodalen, omkring 1325", "en": "The Valley of Mexico, around 1325", "de": "Tal von Mexiko, um 1325" },
+      "text": { "sv": "Ungefär samtidigt grundas aztekernas huvudstad Tenochtitlan på en ö i Texcocosjön.", "en": "At about the same time the Aztec capital Tenochtitlan is founded on an island in Lake Texcoco.", "de": "Etwa zur gleichen Zeit wird die Hauptstadt der Azteken, Tenochtitlan, auf einer Insel im Texcoco-See gegründet." },
       "layers": ["events", "areas"],
       "open": "tenochtitlan",
       "sources": ["wp-tenochtitlan", "wikidata", "wp-ibn-battuta"]

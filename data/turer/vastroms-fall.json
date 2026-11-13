@@ -231,9 +231,9 @@
       "question": {
         "sv": "Varför tror du att forskare har kommit fram till så många olika förklaringar?",
         "en": "Why do you think researchers have come up with so many different explanations?",
-        "fr": "Pourquoi penses-tu que les chercheurs sont arrivés à tant d'explications différentes ?",
-        "de": "Warum glaubst du, sind Forschende zu so vielen verschiedenen Erklärungen gekommen?",
-        "es": "¿Por qué crees que los investigadores han llegado a tantas explicaciones distintas?"
+        "fr": "Pourquoi pensez-vous que les chercheurs sont arrivés à tant d'explications différentes ?",
+        "de": "Warum, glauben Sie, sind Forschende zu so vielen verschiedenen Erklärungen gekommen?",
+        "es": "¿Por qué cree que los investigadores han llegado a tantas explicaciones distintas?"
       },
       "layers": [
         "events",

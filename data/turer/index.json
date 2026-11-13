@@ -1,6 +1,6 @@
 {
   "schema": "historia-globen/turer@1",
-  "tours": ["hur-vet-vi-det-har", "andra-varldskriget", "forsta-varldskriget", "vastroms-fall", "hanrikets-fall", "songhairikets-fall", "tre-platser-1325", "vikingatiden-och-varlden"],
+  "tours": ["hur-vet-vi-det-har", "det-har-har-du-hort", "vad-vet-vi-egentligen", "andra-varldskriget", "forsta-varldskriget", "vastroms-fall", "hanrikets-fall", "songhairikets-fall", "tre-platser-1325", "vikingatiden-och-varlden"],
   "labels": {
     "button": { "sv": "Turer", "en": "Tours", "fr": "Visites", "de": "Touren", "es": "Recorridos" },
     "menuTitle": { "sv": "Guidade turer", "en": "Guided tours", "fr": "Visites guidées", "de": "Geführte Touren", "es": "Recorridos guiados" },

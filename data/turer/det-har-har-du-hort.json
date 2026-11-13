@@ -1,0 +1,286 @@
+{
+  "schema": "historia-globen/tur@1",
+  "version": 1,
+  "id": "det-har-har-du-hort",
+  "title": {
+    "sv": "Det här har du hört. Stämmer det?",
+    "en": "You have heard this. Is it true?",
+    "de": "Das haben Sie schon gehört. Stimmt es?",
+    "es": "Seguro que lo ha oído. ¿Es cierto?",
+    "fr": "Vous l'avez sûrement entendu. Est-ce vrai ?"
+  },
+  "summary": {
+    "sv": "Washingtons trätänder, Kinesiska muren från rymden, Sfinxens näsa, ”Låt dem äta kakor”, den platta jorden och El Dorado: sex saker många har hört, och hur ett påstående sprids och blir ”sanning”.",
+    "en": "Washington's wooden teeth, the Great Wall seen from space, the Sphinx's nose, “Let them eat cake”, the flat Earth and El Dorado: six things many people have heard, and how a claim spreads and becomes “the truth”.",
+    "de": "Washingtons Holzzähne, die Chinesische Mauer aus dem All, die Nase der Sphinx, „Sollen sie doch Kuchen essen“, die flache Erde und El Dorado: sechs Dinge, die viele schon gehört haben, und wie sich eine Behauptung verbreitet und zur „Wahrheit“ wird.",
+    "es": "Los dientes de madera de Washington, la Gran Muralla vista desde el espacio, la nariz de la Esfinge, «Que coman pasteles», la Tierra plana y El Dorado: seis cosas que mucha gente ha oído, y cómo una afirmación se difunde y se convierte en «verdad».",
+    "fr": "Les dents en bois de Washington, la Grande Muraille vue de l'espace, le nez du Sphinx, « Qu'ils mangent de la brioche », la Terre plate et l'Eldorado : six choses que beaucoup ont entendues, et comment une affirmation se répand et devient « la vérité »."
+  },
+  "review": "source-checked",
+  "steps": [
+    {
+      "id": "washingtons-tander",
+      "at": 1789,
+      "camera": {
+        "lat": 40.70722,
+        "lon": -74.01028,
+        "zoom": 2.2
+      },
+      "title": {
+        "sv": "New York 1789: hade Washington tänder av trä?",
+        "en": "New York, 1789: did Washington have wooden teeth?",
+        "de": "New York 1789: Hatte Washington Zähne aus Holz?",
+        "es": "Nueva York, 1789: ¿tenía Washington dientes de madera?",
+        "fr": "New York, 1789 : Washington avait-il des dents en bois ?"
+      },
+      "chapter": {
+        "sv": "Det stod i skolboken",
+        "en": "It was in the textbook",
+        "de": "Es stand im Schulbuch",
+        "es": "Lo decía el libro de texto",
+        "fr": "C'était dans le manuel"
+      },
+      "question": {
+        "sv": "Varför kan en felaktig uppgift stå kvar i skolböcker så länge?",
+        "en": "Why can a false claim stay in school textbooks for so long?",
+        "de": "Warum kann eine falsche Angabe so lange in Schulbüchern stehen bleiben?",
+        "es": "¿Por qué puede un dato falso seguir tanto tiempo en los libros de texto?",
+        "fr": "Pourquoi une affirmation fausse peut-elle rester si longtemps dans les manuels scolaires ?"
+      },
+      "text": {
+        "sv": "Den 30 april 1789 blev George Washington USA:s förste president, på balkongen till Federal Hall i New York. Då hade han bara en egen tand kvar. Länge stod det i skolböcker att hans löständer var av trä. Men proteserna innehöll inget trä. De var gjorda av bland annat mässing, bly, guld, djurtänder och människotänder. Mount Vernons räkenskaper visar att Washington betalade förslavade människor för tänder, men om just de tänderna satt i hans egna proteser vet man inte. Elfenben missfärgas, och fina sprickor i det mörknar med tiden. Det kan ha fått tänderna att se ut som trä.",
+        "en": "On 30 April 1789 George Washington became the first president of the United States, on the balcony of Federal Hall in New York. By then he had only one tooth of his own left. For a long time, school textbooks said that his false teeth were made of wood. But his dentures contained no wood. They were made of brass, lead, gold, animal teeth and human teeth, among other things. Records at Mount Vernon show that Washington paid enslaved people for teeth, but whether those teeth ended up in his own dentures is not known. Ivory becomes stained, and fine cracks in it darken over time. That may have made the teeth look like wood.",
+        "de": "Am 30. April 1789 wurde George Washington auf dem Balkon der Federal Hall in New York erster Präsident der Vereinigten Staaten. Damals hatte er nur noch einen eigenen Zahn. Lange stand in Schulbüchern, sein Gebiss sei aus Holz gewesen. Doch seine Zahnprothesen enthielten kein Holz. Sie bestanden unter anderem aus Messing, Blei, Gold, Tierzähnen und Menschenzähnen. Aufzeichnungen aus Mount Vernon zeigen, dass Washington versklavte Menschen für Zähne bezahlte. Ob gerade diese Zähne in seinen eigenen Prothesen saßen, weiß man nicht. Elfenbein verfärbt sich, und feine Risse darin werden mit der Zeit dunkel. Dadurch könnten die Zähne wie Holz ausgesehen haben.",
+        "es": "El 30 de abril de 1789 George Washington se convirtió en el primer presidente de los Estados Unidos, en el balcón del Federal Hall de Nueva York. Para entonces solo le quedaba un diente propio. Durante mucho tiempo, los libros de texto dijeron que su dentadura postiza era de madera. Pero sus prótesis no tenían madera. Estaban hechas, entre otras cosas, de latón, plomo, oro, dientes de animales y dientes humanos. Los registros de Mount Vernon muestran que Washington pagó a personas esclavizadas por dientes, pero no se sabe si esos dientes acabaron en sus propias prótesis. El marfil se mancha, y las finas grietas que tiene se oscurecen con el tiempo. Eso pudo hacer que los dientes parecieran de madera.",
+        "fr": "Le 30 avril 1789, George Washington devient le premier président des États-Unis, sur le balcon du Federal Hall à New York. Il ne lui reste alors qu'une seule dent. Pendant longtemps, les manuels scolaires ont affirmé que son dentier était en bois. Mais ses prothèses ne contenaient pas de bois. Elles étaient faites, entre autres, de laiton, de plomb, d'or, de dents d'animaux et de dents humaines. Les registres de Mount Vernon montrent que Washington a payé des personnes réduites en esclavage pour des dents, mais on ne sait pas si ces dents ont fini dans ses propres prothèses. L'ivoire se tache, et ses fines fissures foncent avec le temps. Cela a pu donner aux dents l'aspect du bois."
+      },
+      "layers": [
+        "events"
+      ],
+      "sources": [
+        "wp-george-washingtons-teeth",
+        "smithsonian-washington-teeth",
+        "wp-federal-hall"
+      ]
+    },
+    {
+      "id": "kinesiska-muren",
+      "at": 1754,
+      "camera": {
+        "lat": 40.43139,
+        "lon": 116.56444,
+        "zoom": 2.0
+      },
+      "title": {
+        "sv": "Syns Kinesiska muren från rymden?",
+        "en": "Can the Great Wall of China be seen from space?",
+        "de": "Ist die Chinesische Mauer aus dem Weltraum zu sehen?",
+        "es": "¿Se ve la Gran Muralla china desde el espacio?",
+        "fr": "La Grande Muraille de Chine est-elle visible depuis l'espace ?"
+      },
+      "chapter": {
+        "sv": "Har någon provat?",
+        "en": "Has anyone checked?",
+        "de": "Hat es jemand überprüft?",
+        "es": "¿Alguien lo ha comprobado?",
+        "fr": "Quelqu'un a-t-il vérifié ?"
+      },
+      "question": {
+        "sv": "Har den som säger det själv kunnat kontrollera det? Vem skulle kunna göra det?",
+        "en": "Has the person saying it been able to check it? Who could?",
+        "de": "Konnte die Person, die das sagt, es selbst überprüfen? Wer könnte es?",
+        "es": "¿Ha podido comprobarlo quien lo dice? ¿Quién podría hacerlo?",
+        "fr": "La personne qui l'affirme a-t-elle pu le vérifier ? Qui pourrait le faire ?"
+      },
+      "text": {
+        "sv": "Kinesiska muren sägs ofta vara det enda människobygge som syns från rymden. Redan 1754 skrev engelsmannen William Stukeley att muren kunde urskiljas från månen, långt innan någon hade varit där. NASA skriver att muren i allmänhet inte syns med blotta ögat från en låg omloppsbana, och inte alls från månen. Muren är smal, och den är byggd av material med ungefär samma färg som marken omkring. Kinas första astronaut, Yang Liwei, sa att han inte kunde se den. På radarbilder syns däremot delar av muren tydligt.",
+        "en": "The Great Wall of China is often said to be the only human structure visible from space. As early as 1754, the Englishman William Stukeley wrote that the wall could be made out from the Moon, long before anyone had been there. NASA writes that the wall generally cannot be seen with the naked eye from low Earth orbit, and not at all from the Moon. The wall is narrow, and it is built of material with roughly the same colour as the ground around it. China's first astronaut, Yang Liwei, said he could not see it. On radar images, however, parts of the wall show up clearly.",
+        "de": "Oft heißt es, die Chinesische Mauer sei das einzige Bauwerk von Menschen, das man aus dem Weltraum sehen könne. Schon 1754 schrieb der Engländer William Stukeley, die Mauer sei vom Mond aus zu erkennen, lange bevor jemand dort gewesen war. Die NASA schreibt, dass die Mauer aus einer niedrigen Erdumlaufbahn mit bloßem Auge im Allgemeinen nicht zu sehen ist und vom Mond aus überhaupt nicht. Die Mauer ist schmal und aus Material gebaut, das ungefähr dieselbe Farbe hat wie der Boden ringsum. Chinas erster Raumfahrer, Yang Liwei, sagte, er habe sie nicht sehen können. Auf Radarbildern sind Teile der Mauer dagegen deutlich zu erkennen.",
+        "es": "A menudo se dice que la Gran Muralla china es la única construcción humana visible desde el espacio. Ya en 1754 el inglés William Stukeley escribió que la muralla podía distinguirse desde la Luna, mucho antes de que nadie hubiera estado allí. La NASA escribe que, por lo general, la muralla no se ve a simple vista desde una órbita terrestre baja, y desde la Luna no se ve en absoluto. La muralla es estrecha y está construida con materiales de un color parecido al del terreno que la rodea. El primer astronauta de China, Yang Liwei, dijo que no había podido verla. En cambio, en las imágenes de radar se ven con claridad partes de la muralla.",
+        "fr": "On dit souvent que la Grande Muraille de Chine est la seule construction humaine visible depuis l'espace. Dès 1754, l'Anglais William Stukeley écrivait qu'on pouvait la distinguer depuis la Lune, bien avant que quiconque y soit allé. La NASA écrit qu'en général, la muraille n'est pas visible à l'œil nu depuis une orbite terrestre basse, et pas du tout depuis la Lune. Elle est étroite et construite avec des matériaux d'une couleur proche de celle du sol qui l'entoure. Le premier astronaute chinois, Yang Liwei, a déclaré qu'il n'avait pas pu la voir. Sur les images radar, en revanche, des parties de la muraille apparaissent nettement."
+      },
+      "layers": [
+        "events"
+      ],
+      "sources": [
+        "nasa-great-wall",
+        "wp-great-wall"
+      ]
+    },
+    {
+      "id": "sfinxens-nasa",
+      "at": 1798,
+      "camera": {
+        "lat": 29.97526,
+        "lon": 31.13758,
+        "zoom": 2.4
+      },
+      "title": {
+        "sv": "Giza 1798: sköt Napoleons soldater bort Sfinxens näsa?",
+        "en": "Giza, 1798: did Napoleon's soldiers shoot off the Sphinx's nose?",
+        "de": "Gizeh 1798: Haben Napoleons Soldaten der Sphinx die Nase abgeschossen?",
+        "es": "Guiza, 1798: ¿le volaron la nariz a la Esfinge los soldados de Napoleón?",
+        "fr": "Gizeh, 1798 : les soldats de Napoléon ont-ils détruit le nez du Sphinx ?"
+      },
+      "chapter": {
+        "sv": "Skyll på en känd person",
+        "en": "Blame someone famous",
+        "de": "Einem Berühmten die Schuld geben",
+        "es": "Culpar a alguien famoso",
+        "fr": "Accuser un personnage célèbre"
+      },
+      "question": {
+        "sv": "Varför fastnar en berättelse lättare när en känd person får skulden?",
+        "en": "Why does a story stick more easily when someone famous gets the blame?",
+        "de": "Warum bleibt eine Geschichte leichter hängen, wenn eine berühmte Person die Schuld bekommt?",
+        "es": "¿Por qué se recuerda más fácilmente una historia cuando se culpa a alguien famoso?",
+        "fr": "Pourquoi une histoire marque-t-elle davantage quand on en accuse un personnage célèbre ?"
+      },
+      "text": {
+        "sv": "Den mest kända berättelsen säger att Napoleons soldater sköt bort Sfinxens näsa med kanoner när de kom till Egypten 1798. Men näsan är dokumenterat skadad sedan minst 900-talet, flera hundra år före Napoleon. I ansiktet finns märken efter långa stavar eller mejslar som har hamrats in, och undersökningar tyder på att någon tog bort näsan med avsikt. Senare författare har skyllt på andra: en historiker skrev att en sufi förstörde den 1378, och andra har skyllt på mamlukerna på 1300-talet.",
+        "en": "The best-known story says that Napoleon's soldiers shot off the Sphinx's nose with cannon when they came to Egypt in 1798. But the nose is documented as damaged since at least the 10th century, several hundred years before Napoleon. The face has marks left by long rods or chisels that were hammered in, and examinations suggest that someone removed the nose on purpose. Later writers have blamed others: one historian wrote that a Sufi destroyed it in 1378, and others have blamed the Mamluks in the 14th century.",
+        "de": "Die bekannteste Geschichte besagt, Napoleons Soldaten hätten der Sphinx die Nase mit Kanonen abgeschossen, als sie 1798 nach Ägypten kamen. Doch die Nase ist nachweislich seit mindestens dem 10. Jahrhundert beschädigt, mehrere hundert Jahre vor Napoleon. Im Gesicht gibt es Spuren von langen Stangen oder Meißeln, die hineingeschlagen wurden, und Untersuchungen deuten darauf hin, dass jemand die Nase absichtlich entfernt hat. Spätere Autoren gaben anderen die Schuld: Ein Historiker schrieb, ein Sufi habe sie 1378 zerstört, andere beschuldigten die Mamluken im 14. Jahrhundert.",
+        "es": "La historia más conocida dice que los soldados de Napoleón le volaron la nariz a la Esfinge a cañonazos cuando llegaron a Egipto en 1798. Pero está documentado que la nariz ya estaba dañada al menos desde el siglo X, varios cientos de años antes de Napoleón. En el rostro hay marcas de varas largas o cinceles que se clavaron a golpes, y los estudios indican que alguien quitó la nariz a propósito. Autores posteriores culparon a otros: un historiador escribió que un sufí la destruyó en 1378, y otros culparon a los mamelucos en el siglo XIV.",
+        "fr": "L'histoire la plus connue raconte que les soldats de Napoléon ont détruit le nez du Sphinx à coups de canon en arrivant en Égypte en 1798. Mais il est attesté que le nez est endommagé depuis au moins le Xe siècle, plusieurs centaines d'années avant Napoléon. Le visage porte des traces de longues tiges ou de ciseaux enfoncés à coups de marteau, et les examens indiquent que quelqu'un a retiré le nez délibérément. Des auteurs plus tardifs ont accusé d'autres coupables : un historien a écrit qu'un soufi l'avait détruit en 1378, et d'autres ont accusé les Mamelouks au XIVe siècle."
+      },
+      "layers": [
+        "events"
+      ],
+      "sources": [
+        "wp-great-sphinx"
+      ]
+    },
+    {
+      "id": "lat-dem-ata-kakor",
+      "at": 1765,
+      "camera": {
+        "lat": 46.6,
+        "lon": 2.4,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "Sa Marie Antoinette ”Låt dem äta kakor”?",
+        "en": "Did Marie Antoinette say “Let them eat cake”?",
+        "de": "Sagte Marie Antoinette „Sollen sie doch Kuchen essen“?",
+        "es": "¿Dijo María Antonieta «Que coman pasteles»?",
+        "fr": "Marie-Antoinette a-t-elle dit « Qu'ils mangent de la brioche » ?"
+      },
+      "chapter": {
+        "sv": "Fel avsändare",
+        "en": "The wrong speaker",
+        "de": "Der falsche Urheber",
+        "es": "La autora equivocada",
+        "fr": "La mauvaise autrice"
+      },
+      "question": {
+        "sv": "Vem sa det egentligen, och när fick orden den avsändare de har i dag?",
+        "en": "Who actually said it, and when did the words get the speaker they have today?",
+        "de": "Wer hat es wirklich gesagt, und wann bekamen die Worte den Urheber, den sie heute haben?",
+        "es": "¿Quién lo dijo en realidad, y cuándo se atribuyeron las palabras a quien hoy se le atribuyen?",
+        "fr": "Qui l'a vraiment dit, et quand ces mots ont-ils été attribués à celle qu'on cite aujourd'hui ?"
+      },
+      "text": {
+        "sv": "”Låt dem äta kakor” ska drottning Marie Antoinette ha sagt när hon fick höra att folket inte hade bröd. Det finns inga belägg för att hon sa det. Orden finns i Jean-Jacques Rousseaus Bekännelser, där en ”stor prinsessa” säger dem, och i originalet är det brioche, ett lyxigt bröd med smör och ägg. Rousseau skrev det när Marie Antoinette var nio år och aldrig hade varit i Frankrike. Källorna skiljer sig om året: 1765 eller 1766. Orden tillskrevs henne först ett halvt sekel efter hennes död, och i dag räknas de som en journalistisk kliché.",
+        "en": "Queen Marie Antoinette is supposed to have said “Let them eat cake” when she heard that the people had no bread. There is no evidence that she said it. The words appear in Jean-Jacques Rousseau's Confessions, where a “great princess” says them, and in the original it is brioche, a luxury bread made with butter and eggs. Rousseau wrote it when Marie Antoinette was nine years old and had never been to France. The sources differ on the year: 1765 or 1766. The words were first attributed to her half a century after her death, and today they are regarded as a journalistic cliché.",
+        "de": "Königin Marie Antoinette soll „Sollen sie doch Kuchen essen“ gesagt haben, als sie hörte, dass das Volk kein Brot hatte. Es gibt keine Belege dafür, dass sie es sagte. Die Worte stehen in Jean-Jacques Rousseaus Bekenntnissen, wo eine „große Prinzessin“ sie sagt, und im Original geht es um Brioche, ein Luxusbrot mit Butter und Eiern. Rousseau schrieb das, als Marie Antoinette neun Jahre alt war und noch nie in Frankreich gewesen war. Die Quellen nennen unterschiedliche Jahre: 1765 oder 1766. Erst ein halbes Jahrhundert nach ihrem Tod wurden ihr die Worte zugeschrieben, und heute gelten sie als journalistisches Klischee.",
+        "es": "Se dice que la reina María Antonieta dijo «Que coman pasteles» cuando supo que el pueblo no tenía pan. No hay pruebas de que lo dijera. Las palabras aparecen en las Confesiones de Jean-Jacques Rousseau, donde las pronuncia una «gran princesa», y en el original se trata de brioche, un pan de lujo con mantequilla y huevo. Rousseau lo escribió cuando María Antonieta tenía nueve años y nunca había estado en Francia. Las fuentes difieren sobre el año: 1765 o 1766. Las palabras no se le atribuyeron hasta medio siglo después de su muerte, y hoy se consideran un tópico periodístico.",
+        "fr": "La reine Marie-Antoinette aurait dit « Qu'ils mangent de la brioche » en apprenant que le peuple n'avait pas de pain. Rien ne prouve qu'elle l'ait dit. Ces mots figurent dans les Confessions de Jean-Jacques Rousseau, où une « grande princesse » les prononce, et dans l'original, il s'agit de brioche, un pain de luxe au beurre et aux œufs. Rousseau l'a écrit quand Marie-Antoinette avait neuf ans et n'était jamais venue en France. Les sources divergent sur l'année : 1765 ou 1766. Ces mots ne lui ont été attribués qu'un demi-siècle après sa mort, et on les considère aujourd'hui comme un cliché journalistique."
+      },
+      "layers": [
+        "events"
+      ],
+      "sources": [
+        "wp-let-them-eat-cake",
+        "history-marie-antoinette"
+      ]
+    },
+    {
+      "id": "platt-jord",
+      "at": 1492,
+      "camera": {
+        "lat": 24.05,
+        "lon": -74.5,
+        "zoom": 1.6
+      },
+      "title": {
+        "sv": "1492: trodde man att jorden var platt?",
+        "en": "1492: did people think the Earth was flat?",
+        "de": "1492: Hielt man die Erde für eine Scheibe?",
+        "es": "1492: ¿se creía que la Tierra era plana?",
+        "fr": "1492 : croyait-on que la Terre était plate ?"
+      },
+      "chapter": {
+        "sv": "En myt och dess tid",
+        "en": "A myth and its time",
+        "de": "Ein Mythos und seine Zeit",
+        "es": "Un mito y su época",
+        "fr": "Un mythe et son époque"
+      },
+      "question": {
+        "sv": "När skrevs berättelsen, och vad ville författaren säga med den?",
+        "en": "When was the story written, and what did the author want to say with it?",
+        "de": "Wann wurde die Geschichte geschrieben, und was wollte der Autor damit sagen?",
+        "es": "¿Cuándo se escribió la historia y qué quería decir con ella su autor?",
+        "fr": "Quand l'histoire a-t-elle été écrite, et que voulait dire son auteur ?"
+      },
+      "text": {
+        "sv": "Det sägs ofta att människor på medeltiden trodde att jorden var platt, och att Columbus visade att den var rund. Men medeltidens lärda visste att jorden är rund. Striden om Columbus resa 1492 gällde jordens storlek: hans motståndare menade att avståndet till Asien var mycket större än han trodde. Myten spreds på 1800-talet, bland annat genom Washington Irvings romantiserade biografi över Columbus från 1828, som många tog för ett vetenskapligt verk. Enligt historikern Jeffrey Burton Russell blomstrade den som mest mellan 1870 och 1920.",
+        "en": "It is often said that people in the Middle Ages thought the Earth was flat, and that Columbus showed it was round. But medieval scholars knew that the Earth is round. The dispute over Columbus's voyage in 1492 was about the size of the Earth: his opponents thought the distance to Asia was much greater than he believed. The myth spread in the 19th century, partly through Washington Irving's romanticised biography of Columbus from 1828, which many took for a scholarly work. According to the historian Jeffrey Burton Russell, it flourished most between 1870 and 1920.",
+        "de": "Oft heißt es, die Menschen im Mittelalter hätten die Erde für eine Scheibe gehalten und Kolumbus habe gezeigt, dass sie rund ist. Doch die Gelehrten des Mittelalters wussten, dass die Erde rund ist. Beim Streit um Kolumbus' Fahrt 1492 ging es um die Größe der Erde: Seine Gegner meinten, die Entfernung nach Asien sei viel größer, als er glaubte. Der Mythos verbreitete sich im 19. Jahrhundert, unter anderem durch Washington Irvings romantisierte Kolumbus-Biografie von 1828, die viele für ein wissenschaftliches Werk hielten. Laut dem Historiker Jeffrey Burton Russell blühte er zwischen 1870 und 1920 am stärksten.",
+        "es": "A menudo se dice que en la Edad Media la gente creía que la Tierra era plana y que Colón demostró que era redonda. Pero los sabios medievales sabían que la Tierra es redonda. La disputa sobre el viaje de Colón en 1492 trataba del tamaño de la Tierra: sus opositores pensaban que la distancia hasta Asia era mucho mayor de lo que él creía. El mito se difundió en el siglo XIX, entre otras cosas a través de la biografía novelada de Colón que Washington Irving publicó en 1828 y que muchos tomaron por una obra académica. Según el historiador Jeffrey Burton Russell, el mito alcanzó su apogeo entre 1870 y 1920.",
+        "fr": "On dit souvent qu'au Moyen Âge, les gens croyaient que la Terre était plate, et que Christophe Colomb a montré qu'elle était ronde. Mais les savants du Moyen Âge savaient que la Terre est ronde. Le débat sur le voyage de Colomb en 1492 portait sur la taille de la Terre : ses opposants pensaient que la distance jusqu'à l'Asie était bien plus grande qu'il ne le croyait. Le mythe s'est répandu au XIXe siècle, notamment grâce à la biographie romancée de Colomb publiée par Washington Irving en 1828, que beaucoup ont prise pour un ouvrage savant. Selon l'historien Jeffrey Burton Russell, il a connu son apogée entre 1870 et 1920."
+      },
+      "layers": [
+        "events"
+      ],
+      "open": "columbus",
+      "sources": [
+        "wp-flat-earth-myth"
+      ]
+    },
+    {
+      "id": "el-dorado",
+      "at": 1537,
+      "camera": {
+        "lat": 4.9775,
+        "lon": -73.775,
+        "zoom": 2.4
+      },
+      "title": {
+        "sv": "El Dorado: en stad av guld?",
+        "en": "El Dorado: a city of gold?",
+        "de": "El Dorado: eine Stadt aus Gold?",
+        "es": "El Dorado: ¿una ciudad de oro?",
+        "fr": "L'Eldorado : une cité d'or ?"
+      },
+      "chapter": {
+        "sv": "Berättelsen växer",
+        "en": "The story grows",
+        "de": "Die Geschichte wächst",
+        "es": "La historia crece",
+        "fr": "L'histoire grandit"
+      },
+      "question": {
+        "sv": "Hur förändras en berättelse när den berättas vidare av människor som letar efter något?",
+        "en": "How does a story change when it is retold by people who are looking for something?",
+        "de": "Wie verändert sich eine Geschichte, wenn sie von Menschen weitererzählt wird, die etwas suchen?",
+        "es": "¿Cómo cambia una historia cuando la cuentan personas que buscan algo?",
+        "fr": "Comment une histoire change-t-elle quand elle est racontée par des gens qui cherchent quelque chose ?"
+      },
+      "text": {
+        "sv": "El Dorado brukar beskrivas som en försvunnen stad av guld. Men berättelsen började med en person: en härskare, ”den gyllene”, som sades täcka sig med guldstoft och tvätta av sig det i en helig sjö. Legenden förknippas med muiscafolket och sjön Guatavita i dagens Colombia. Spanjorer under Gonzalo Jiménez de Quesada erövrade muiscas område 1537. Sedan flyttade de som letade efter guldstaden den allt längre bort, till Amazonas och Guyanaområdet. En sjö som kallades Parime stod på kartor på 1600-talet, men senare upptäcktsresande kom fram till att den inte fanns.",
+        "en": "El Dorado is usually described as a lost city of gold. But the story began with a person: a ruler, “the golden one”, who was said to cover himself in gold dust and wash it off in a sacred lake. The legend is linked to the Muisca people and Lake Guatavita in present-day Colombia. Spaniards under Gonzalo Jiménez de Quesada conquered the Muisca territory in 1537. After that, those searching for the city of gold moved it further and further away, to the Amazon and the Guianas. A lake called Parime appeared on maps in the 17th century, but later explorers concluded that it did not exist.",
+        "de": "El Dorado wird meist als verschollene Stadt aus Gold beschrieben. Doch die Geschichte begann mit einer Person: einem Herrscher, „dem Goldenen“, der sich angeblich mit Goldstaub bedeckte und ihn in einem heiligen See abwusch. Die Legende wird mit dem Volk der Muisca und dem Guatavita-See im heutigen Kolumbien verbunden. Spanier unter Gonzalo Jiménez de Quesada eroberten 1537 das Gebiet der Muisca. Danach verlegten die Suchenden die Goldstadt immer weiter weg, an den Amazonas und nach Guayana. Ein See namens Parime stand im 17. Jahrhundert auf Landkarten, doch spätere Entdecker kamen zu dem Schluss, dass es ihn nicht gab.",
+        "es": "El Dorado suele describirse como una ciudad de oro perdida. Pero la historia empezó con una persona: un gobernante, «el dorado», que según se decía se cubría de polvo de oro y se lo lavaba en un lago sagrado. La leyenda se asocia con el pueblo muisca y la laguna de Guatavita, en la actual Colombia. Los españoles al mando de Gonzalo Jiménez de Quesada conquistaron el territorio muisca en 1537. Después, quienes buscaban la ciudad de oro la fueron situando cada vez más lejos, en la Amazonia y las Guayanas. Un lago llamado Parime figuraba en los mapas del siglo XVII, pero exploradores posteriores concluyeron que no existía.",
+        "fr": "L'Eldorado est généralement décrit comme une cité d'or perdue. Mais l'histoire a commencé avec une personne : un souverain, « le doré », qui, disait-on, se couvrait de poudre d'or puis la lavait dans un lac sacré. La légende est liée au peuple muisca et au lac Guatavita, dans l'actuelle Colombie. Les Espagnols menés par Gonzalo Jiménez de Quesada ont conquis le territoire muisca en 1537. Ensuite, ceux qui cherchaient la cité d'or l'ont située toujours plus loin, en Amazonie puis dans les Guyanes. Un lac appelé Parime figurait sur les cartes au XVIIe siècle, mais des explorateurs ultérieurs ont conclu qu'il n'existait pas."
+      },
+      "layers": [
+        "events"
+      ],
+      "sources": [
+        "wp-el-dorado",
+        "wp-lake-guatavita"
+      ]
+    }
+  ]
+}
