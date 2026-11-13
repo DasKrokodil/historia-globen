@@ -1,6 +1,6 @@
 // Tidsreglaget äger det nuvarande året (arkitekturprincip 3).
 // Beslut 4: segmenterad skala där nutiden får mer plats än forntiden.
-import { formatYear, groupDigits, formatDate, isBCE, bce, BCE_TXT, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t } from './model.js';
+import { formatYear, groupDigits, formatDate, isBCE, bce, BCE_TXT, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t, roundPrehistoric } from './model.js';
 import { selectEventsForDate } from './date-events.js';
 import { ui } from './i18n.js';
 import { MIN_YEAR, MAX_YEAR } from './state.js'; // gränserna bor i state.js (#1141), så att url-state.js inte behöver importera hela tidsreglaget
@@ -53,6 +53,24 @@ export function posToYear(p) {
 export function yearsAcross(y, fraction) {
   const s = segFor(clampY(y));
   return (s.to - s.from) / (s.b - s.a) * fraction;
+}
+// Året vid ett läge på reglaget, utan avrundning (samma räkning som posToYear).
+function yearAtPos(p) {
+  const s = segForPos(p);
+  return s.from + (p - s.a) / (s.b - s.a) * (s.to - s.from);
+}
+/**
+ * Samtidigt-fönstret räknat i reglagets läge (minsta delen av #1319, inför v6.3.0): kanterna är läget ± fraction, och det
+ * kortaste avståndet till dem används lika långt åt båda hållen. Inom ett segment blir det samma som yearsAcross. Vid en
+ * segmentgräns tar det glesa segmentet inte längre över, så förhistorien får ±2 115 år vid 5000 f.Kr. i stället för ±11 640
+ * år i hela segmentet. Vid reglagets ändar används den kant som finns.
+ */
+export function windowAround(y, fraction) {
+  y = clampY(y);
+  const p = yearToPos(y), d = [];
+  if (p - fraction >= 0) d.push(y - yearAtPos(p - fraction));
+  if (p + fraction <= 1) d.push(yearAtPos(p + fraction) - y);
+  return d.length ? Math.min(...d) : yearsAcross(y, fraction);
 }
 
 /** Uppspelningens nivåer i år per sekund. */
@@ -138,14 +156,15 @@ export class Timeline extends EventTarget {
   /** Händelsens tid på reglaget: hela år, eller datum ur edtf i fokusläget för korta krig. */
   spanOf(e) { return this.focus?.fine ? edtfSpan(e) : [e.start, e.end]; }
   /** Året som text och som [stort, litet] för huvudet: "1879", eller "22 jan 1879" för korta krig. */
-  format(y) { return this.focus?.fine ? formatDay(this._lastDay(y)) : formatYear(y); }
-  formatParts(y) { return this.focus?.fine ? dayParts(this._lastDay(y)) : yearParts(y); }
+  // I förhistorien avrundas året till tusental (roundPrehistoric), eftersom ett steg på reglaget där är hundratals år
+  format(y) { return this.focus?.fine ? formatDay(this._lastDay(y)) : formatYear(roundPrehistoric(y)); }
+  formatParts(y) { return this.focus?.fine ? dayParts(this._lastDay(y)) : yearParts(roundPrehistoric(y)); }
   // Spannets slut är början av dagen efter krigets sista dag; där visas den sista dagen
   _lastDay(y) { return Math.min(y, this.focus.to - 0.5 / DAYS_PER_YEAR); }
   /** Hur många år före och efter som räknas som "samtidigt". */
   windowYears(y) {
     if (this.focus?.fine) return (this.focus.to - this.focus.from) * 0.03; // några dagar
-    return this.focus ? Math.max(1, (this.focus.to - this.focus.from) * 0.03) : yearsAcross(y, 0.012);
+    return this.focus ? Math.max(1, (this.focus.to - this.focus.from) * 0.03) : windowAround(y, 0.012);
   }
 
   /**
