@@ -55,6 +55,7 @@ export class FocusMenu {
     // Huvudet byggs en gång, så att fältet behåller markören medan listan ritas om
     menu.classList.add('focus-menu');
     menu.innerHTML = `<div class="focus-head">
+        <button type="button" class="menu-x" aria-label="${esc(ui('common.close'))}">×</button>
         <div class="layer-heading first">${esc(ui('top.focus'))}</div>
         <input type="search" class="focus-search" placeholder="${esc(ui('focus.placeholder'))}" aria-label="${esc(ui('focus.searchLabel'))}" autocomplete="off" spellcheck="false" enterkeyhint="search">
         <div class="focus-tabs" role="group" aria-label="${esc(ui('focus.tabsLabel'))}">${TABS.map(n => `<button type="button" class="chip-btn" data-tab="${esc(n)}" aria-pressed="${n === this.tab}">${esc(tabName(n))}</button>`).join('')}</div>

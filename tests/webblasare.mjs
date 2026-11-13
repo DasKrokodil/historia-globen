@@ -5319,6 +5319,74 @@ async function run(browser, vp) {
       return `${a.row} | ${b.row} | ${c.row}`;
     } finally { await wp.close(); }
   });
+  // #1309: i mobil ska träffytor vara minst 44 × 44 px (själva knappen eller dess osynliga förlängning), ingen text vara under 12 px och
+  // Lager, Sök och följ och Turer ha en synlig stängknapp. Kartans etiketter och klungor och tidsskalans små märken (.tff) ingår inte än.
+  await check('mobil: träffytor på 44 px, text på minst 12 px och stängknapp i menyerna (#1309)', async () => {
+    if (vp.width > 760) return 'körs i mobiljobbet';
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      await wp.goto(`${BASE}?lang=sv&ny=m${Date.now()}#y=1325`);
+      await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await wp.waitForSelector('#event-list .event-item', { state: 'attached', timeout: T.step });
+      const fel = [];
+      const scan = async label => {
+        const r = await wp.evaluate(() => {
+          const name = e => (e.id ? '#' + e.id : '') + (typeof e.className === 'string' && e.className.trim() ? '.' + e.className.trim().split(/\s+/).slice(0, 2).join('.') : '') || e.tagName.toLowerCase();
+          const vis = e => { const b = e.getBoundingClientRect(), cs = getComputedStyle(e); return b.width > 0 && b.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && b.bottom > 0 && b.top < innerHeight && b.right > 0 && b.left < innerWidth; };
+          const small = [], text = [];
+          for (const e of document.querySelectorAll('button, a[href], input, select, summary, [role=button], [role=tab]')) {
+            if (!vis(e) || e.closest('[hidden]') || e.matches('.glabel, .gcluster, .gorigin, .tff') || e.closest('.glabel, .gcluster, .gorigin')) continue;
+            const b = e.getBoundingClientRect();
+            let w = b.width, h = b.height;
+            for (const pe of ['::before', '::after']) {
+              const ps = getComputedStyle(e, pe);
+              if (ps.content !== 'none' && ps.position === 'absolute') { w = Math.max(w, parseFloat(ps.width) || 0); h = Math.max(h, parseFloat(ps.height) || 0); }
+            }
+            if (w < 43.5 || h < 43.5) small.push(`${name(e)} ${Math.round(w)}×${Math.round(h)}`);
+          }
+          const seen = new Set();
+          for (const e of document.querySelectorAll('body *')) {
+            if (![...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim()) || !vis(e) || e.closest('.glabel, .gcluster, .gorigin')) continue;
+            const fs = parseFloat(getComputedStyle(e).fontSize);
+            const k = `${name(e)} ${fs}px`;
+            if (fs < 12 && !seen.has(k)) { seen.add(k); text.push(k); }
+          }
+          return { small, text };
+        });
+        if (r.small.length) fel.push(`${label}: träffyta under 44 px: ${r.small.slice(0, 6).join(', ')}`);
+        if (r.text.length) fel.push(`${label}: text under 12 px: ${r.text.slice(0, 6).join(', ')}`);
+      };
+      await scan('start');
+      await wp.click('#btn-panel'); await wp.waitForSelector('#panel', { state: 'visible', timeout: T.step });
+      await scan('Samtidigt');
+      await wp.keyboard.press('Escape');
+      const closed = [];
+      for (const [label, btn, menu] of [['Lager', '#btn-layers', '#layer-menu'], ['Sök och följ', '#btn-focus', '#focus-menu'], ['Turer', '#btn-tour', '#tour-menu']]) {
+        if (!(await wp.locator('#more-toggle[aria-expanded="true"]').count())) await wp.click('#more-toggle');
+        if (!(await wp.locator(btn).isVisible())) continue; // Turer saknas om inga turer är laddade
+        await wp.click(btn);
+        await wp.waitForSelector(`${menu}:not([hidden])`, { timeout: T.step });
+        await scan(label);
+        const x = wp.locator(`${menu} .menu-x`);
+        if (!(await x.isVisible())) { fel.push(`${label}: ingen synlig stängknapp`); await wp.keyboard.press('Escape'); continue; }
+        const box = await x.boundingBox();
+        if (box.width < 43.5 || box.height < 43.5) fel.push(`${label}: stängknappen är ${Math.round(box.width)}×${Math.round(box.height)}`);
+        await x.click();
+        await wp.waitForSelector(`${menu}[hidden]`, { state: 'attached', timeout: T.step }).catch(() => fel.push(`${label}: menyn stängs inte av stängknappen`));
+        closed.push(label);
+      }
+      if (errs.length) fel.push(`sidfel: ${errs[0]}`);
+      if (fel.length) throw new Error(fel.join('; '));
+      return `inga mindre ytor eller texter i fem lägen; stängknapp i ${closed.join(', ')}`;
+    } finally { await wp.close(); }
+  });
   // #1134: raden under årtalet radbryts i smal skärm i stället för att klippas med ellips. Längsta texten styr: alla
   // fem språk, ett f.Kr.-år (längst rubrik) och ett intervall, i 400 px bredd. Körs i mobiljobbet (en egen sida, egen bredd).
   await check('raden under årtalet ryms på 400 px på fem språk (#1134)', async () => {
