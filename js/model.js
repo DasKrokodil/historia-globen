@@ -283,6 +283,13 @@ export function yearParts(y) {
   return [groupDigits(y), ''];
 }
 
+/** Intervallet som text: "1914–1918", "500–400 f.Kr." eller "50 f.Kr.–50". Ger [siffror, tideräkning] för huvudet (#755). */
+export function rangeParts(from, to) {
+  const [n1, e1] = yearParts(from), [n2, e2] = yearParts(to);
+  return e1 === e2 ? [`${n1}–${n2}`, e1] : [`${formatYear(from)}–${formatYear(to)}`, ''];
+}
+export const rangeText = (from, to) => rangeParts(from, to).filter(Boolean).join(' ');
+
 /** Tolkar ett inskrivet år till astronomiskt år, eller null. "2600 f.Kr.", "44 fkr", "300 BC" och
  *  "-500" blir före vår tideräkning; "1969", "800 e.Kr." och "AD 800" efter. Utan tideräkning i texten
  *  används `defaultEra` ('ce' eller 'bce'). Det finns inget år 0 i visningen: 1 f.Kr. är 0. */

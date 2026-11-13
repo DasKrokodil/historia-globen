@@ -332,7 +332,7 @@ async function start() {
   });
   // Knappen Fakta i fokusraden öppnar faktarutan eller kortet för det man följer igen (#170); posten i js/focus/ vet vilket
   $('focus-facts').addEventListener('click', () => focusCtl.showFacts());
-  panel.onThemeEvent = id => app.select(id);
+  panel.onThemeEvent = id => app.select(id, !app.tour?.active); // i en tur styr steget året: en rad i platsens kort hoppar inte (#1163)
   panel.onEndTheme = () => {
     app.endFocus();
     $('btn-focus').focus({ preventScroll: true });
@@ -355,7 +355,7 @@ async function start() {
       ff.setDetailOpen(true);
       if (cardFocus || listFocus) detail.querySelector('[data-close]')?.focus({ preventScroll: true });
       const title = detail.querySelector('h3')?.textContent.trim() ?? '';
-      const kind = state.focus?.type === 'place' || state.focus?.type === 'theme' ? detail.querySelector('.story-label')?.textContent.trim() : ''; // Plats och Tema i stället för Om händelsen
+      const kind = detail.classList.contains('detail-selection') ? detail.querySelector('.story-label')?.textContent.trim() : ''; // Plats och Tema i stället för Om händelsen, också i en turs steg där inget Fokus pågår (#1163)
       if (title && title !== detailTitle) say(`${kind || ui('detail.label')}: ${title}`, 'faktaruta', { priority: 2, immediate: true }); // går före Samtidigt-kortet och pausraden (#1419)
       detailTitle = title;
       return;
@@ -673,6 +673,7 @@ async function start() {
   }, toursData, {
     printRoot: $('print-sheet'),
     get lesson() { return app.lesson; }, // lektionsläget (#795) skapas efter spelaren
+    get places() { return app.places; }, // turens steg med en plats (#1163)
     timeline, globe, flatMap, layers, narrow, root: $('app'), events: data.byId,
     layerIds: new Set(registry.entries.map(e => e.id)), controlled: registry.viewLayers(views?.groups), empires: new Set(data.empireGroups.map(g => g.id)),
     select: (id, jump) => app.select(id, jump),

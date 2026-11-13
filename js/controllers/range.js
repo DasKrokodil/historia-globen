@@ -13,19 +13,15 @@
 // ("1914–1918 · 23 händelser") med knappen "Tillbaka till ett år", som går till intervallets slutår.
 // Epokknapparna (#845 del 3, #965) sitter överst i formuläret, en grupp per indelning i data/perioder.json. De är genvägar
 // till ett intervall som redan går att välja, inte ett nytt läge: ett klick gör samma sak som att fylla i Från och Till.
-import { formatYear, yearParts, parseYear, loadPerioder, t } from '../model.js';
+import { formatYear, parseYear, loadPerioder, rangeParts, rangeText, t } from '../model.js';
 import { periodToRange } from '../period-range.js';
 import { MIN_YEAR, MAX_YEAR } from '../timeline.js';
 import { ui } from '../i18n.js';
 
 const plural = (key, n, vars = {}) => String(ui(key)[n === 1 ? 0 : 1]).replace(/\{(\w+)\}/g, (m, k) => (k === 'count' ? n : vars[k] ?? m));
 
-/** Intervallet som text: "1914–1918", "500–400 f.Kr." eller "50 f.Kr.–50". Ger [siffror, tideräkning] för huvudet. */
-export function rangeParts(from, to) {
-  const [n1, e1] = yearParts(from), [n2, e2] = yearParts(to);
-  return e1 === e2 ? [`${n1}–${n2}`, e1] : [`${formatYear(from)}–${formatYear(to)}`, ''];
-}
-export const rangeText = (from, to) => rangeParts(from, to).filter(Boolean).join(' ');
+// rangeParts och rangeText bor i js/model.js (fokustypen plats använder dem, och en fokustyp får inte dra in det här modulens DOM); de återexporteras
+export { rangeParts, rangeText };
 
 export function createRange(app) {
   const { $, state, store, timeline } = app;

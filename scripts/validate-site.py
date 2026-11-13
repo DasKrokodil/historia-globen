@@ -722,6 +722,13 @@ if places_doc is not None:
         if len(inside) < 5:
             err(f'{where}: minst 5 synliga händelser ska ligga inom gränsen, men det är {len(inside)}')
 
+# Turens stegfält place (#1163): platsen finns i data/platser.json och är inte ett utkast (ett kort utan synlig plats öppnas inte)
+place_ids = {pl.get('id') for pl in (places_doc or {}).get('places', []) if pl.get('review') != 'draft'}
+for path, tour in tours:
+    for i, step in enumerate(tour.get('steps', [])):
+        if step.get('place') and step['place'] not in place_ids:
+            err(f"{path} (steg {i + 1}, {step.get('id', '?')}): platsen {step['place']} finns inte i data/platser.json eller är ett utkast")
+
 # 9. Krigets riken (#76): empires är grupp-id i data/empires/index.json
 group_ids = {g.get('id') for g in (empires or {}).get('groups', [])}
 for e in events['events']:
