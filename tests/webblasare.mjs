@@ -5699,6 +5699,55 @@ async function run(browser, vp) {
       return 'Home, pilar, PageUp/PageDown och End med upplösningen; "för cirka … år sedan" och uppläst byte vid 10 000 f.Kr.';
     } finally { await wp.close(); }
   });
+  // #1090: uppspelningen går igenom förhistorien på några sekunder med farten per segment, och Bakåt/Framåt i webbläsaren
+  // fungerar mellan ett år i förhistorien och ett i historisk tid.
+  await check('uppspelning och hopp i förhistoriens segment (#1090)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      const year = () => wp.getAttribute('#track', 'aria-valuenow').then(Number);
+      await wp.goto(`${BASE}?lang=sv&ny=p1090#y=-99999`);
+      await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await wp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-99999', null, { timeout: T.step });
+      await wp.keyboard.press('Escape');
+      // Uppspelningen: farten följer segmentet. Minst 10 000 år på 10 s (förut högst 1000; den långsammaste ritningen i CI
+      // ger färre bildrutor, och varje bildruta räknas som högst 0,1 s, så kravet är satt med marginal)
+      const fast = await wp.getAttribute('.timebar .controls .speed', 'aria-label');
+      if (!/\d[\d\s]*000 år\/s/.test(fast)) throw new Error(`farten vid 100 000 f.Kr.: ${fast}`);
+      const t0 = Date.now();
+      await wp.click('.timebar .controls .play');
+      await wp.waitForFunction(() => Number(document.getElementById('track').getAttribute('aria-valuenow')) >= -89999, null, { timeout: 10000 })
+        .catch(async () => { throw new Error(`uppspelningen nådde bara ${await year()} på 10 s`); });
+      const secs = ((Date.now() - t0) / 1000).toFixed(1);
+      await wp.click('.timebar .controls .play'); // pausa
+      const reached = await year();
+      if ((1 - reached) % 100 !== 0) throw new Error(`uppspelningen stannade på ${reached}, inte på reglagets upplösning`); // tusental eller hundratal
+      // Bakåt och Framåt mellan 1325 och 50 000 f.Kr.
+      await wp.goto(`${BASE}?lang=sv&ny=p1090b#y=1325`);
+      await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await wp.keyboard.press('Escape');
+      await wp.click('#year-jump');
+      await wp.fill('#jump-input', '50000 f.Kr.');
+      await wp.keyboard.press('Enter');
+      await wp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-49999', null, { timeout: T.step });
+      await wp.waitForFunction(() => /y=-49999/.test(location.hash), null, { timeout: T.step });
+      await wp.waitForTimeout(1500); // hoppet blir en egen post i historiken när det har stått still en stund (isNewStep)
+      await wp.goBack();
+      await wp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '1325', null, { timeout: T.step })
+        .catch(async () => { throw new Error(`Bakåt gav ${await year()}`); });
+      await wp.goForward();
+      await wp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-49999', null, { timeout: T.step })
+        .catch(async () => { throw new Error(`Framåt gav ${await year()}`); });
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `100 000 f.Kr. → ${reached} på ${secs} s (${fast.replace(/^.*?: /, '').replace(/\..*$/, '')}); Bakåt/Framåt 1325 ↔ 50 000 f.Kr.`;
+    } finally { await wp.close(); }
+  });
   await check('reglagets upplösning i förhistorien (#1320)', async () => {
     const wp = await context.newPage();
     const errs = [];
